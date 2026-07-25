@@ -1,0 +1,395 @@
+{
+  "id": "in1020-4-6",
+  "courseId": "in1020",
+  "chapterNumber": "4.6",
+  "title": "Aksessmodeller, svitsjing og operativsystemer",
+  "description": "Operativsystemets fire oppgaver og skillet mellom kjerne- og brukermodus, og — som stoff du bør kjenne til — klient-tjener mot likemannsnett og linjesvitsjing mot pakkesvitsjing.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne gjøre rede for operativsystemets fire oppgaver",
+    "kunne skille kjernemodus fra brukermodus og forklare hvorfor skillet finnes",
+    "kunne avvise de faste usanne påstandene om operativsystemer uten å nøle",
+    "kunne skille klient-tjener fra likemannsnett og linjesvitsjing fra pakkesvitsjing"
+  ],
+  "content": [
+    {
+      "id": "in1020-4-6-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** kapitlet dekker to sjangre. **Sjanger K — operativsystemer** er en **ny fast gjenganger**: den kom inn i det ferskeste settet i arkivet og er en av de tydeligste utviklingene i faget. **Aksessmodeller og svitsjing** hører til **sjanger J — nettverk**, og har egen oppgave i **fire av seks årganger (67 %)**.\n\n**Prioritet: operativsystemet skal du kunne, gitt at det er nytt og fast. Aksessmodeller og svitsjing er «bør kjenne til».** Kapitlet er ordnet etter vekt: operativsystemet står først, aksessmodeller og svitsjing sist og uttrykkelig merket.\n\nAlt hører til **seksjon 4, datanettverk**, en av de fire seksjonene som hver må bestås for seg. Operativsystemet er tatt inn her fordi det er der det har dukket opp — ikke fordi det handler om nettverk.\n\n**Slik kommer den:** oftest som **svarform F2** (sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver), av og til som **F3** (dra-og-slipp: koble hvert element til riktig kategori — her skrevet som koblingsoppgave).\n\n**De to påstandene du må kunne avvise med én gang:** at **mobiler ikke trenger et operativsystem**, og at **vanlige brukerprogrammer kjører i kjernemodus**. Begge er usanne, og begge er faste distraktorer.\n\n**Tidsbruk:** 45 minutter, fordelt på tre løkker."
+    },
+    {
+      "id": "in1020-4-6-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 4.1](/bok/in1020/in1020-4-1), og trekker inn maskinvaren fra [kap. 2.4](/bok/in1020/in1020-2-4). Her er det du trenger, ferdig oppfrisket:\n\n**1. Klient og tjener.** Klienten spør, tjeneren svarer. Rollen er knyttet til hvem som tar initiativet, ikke til hvor kraftig maskinen er.\n\n**2. Pakker.** Data deles opp i små biter som sendes for seg, med avsender- og mottakeradresse på. Hver pakke rutes uavhengig av de andre.\n\n**3. Fra [kap. 2.4](/bok/in1020/in1020-2-4):** CPU-en består av regneenheten, kontrollenheten og registrene. Hovedminnet, disken og inn- og utenhetene ligger utenfor CPU-en. Det er disse ressursene operativsystemet fordeler.\n\n**4. Von Neumann-prinsippet:** kode og data ligger i samme minne. Det er derfor det er nødvendig å skille mellom hva slags kode som får lov til å gjøre hva — og det skillet er kjerne- og brukermodus.\n\nVil du ha klient-tjener og kommunikasjonsmodeller i roligere tempo, ligger det her:\n\n- [Nettverkskommunikasjon](/bok/it-2/it-2-4-5) — klient-tjener og kommunikasjonsmodeller på VGS-nivå."
+    },
+    {
+      "id": "in1020-4-6-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-4-6-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| Operativsystem | Programmet som fordeler maskinens ressurser mellom alt annet |\n| Ressurs | Prosessortid, minne, lagring, nettverk, skjerm, tastatur |\n| Kjernemodus | Kjøremodus der koden har full tilgang til maskinvaren |\n| Brukermodus | Kjøremodus med begrenset tilgang — der vanlige programmer kjører |\n| Systemkall | Måten et brukerprogram ber operativsystemet om en tjeneste |\n| Prosess | Ett program under kjøring, med sitt eget minneområde |\n| Driver | Koden som vet hvordan én bestemt maskinvareenhet snakkes til |\n| Klient-tjener | Én part spør, en annen svarer — rollene er faste |\n| Likemannsnett | Alle parter er både klient og tjener samtidig |\n| Linjesvitsjing | En dedikert bane settes opp og holdes gjennom hele samtalen |\n| Pakkesvitsjing | Data deles i pakker som deler linjene med alle andre |\n\n**Regler i dette delkapitlet** (kapitlet har skiller og tabeller, ikke formler):\n\n$$\\text{brukerprogram} \\rightarrow \\text{systemkall} \\rightarrow \\text{kjernen} \\rightarrow \\text{maskinvaren}$$\n\nVeien et vanlig program må gå for å nå maskinvaren. Det kan aldri gå direkte.\n\n$$\\text{linjesvitsjing: dedikert bane} \\qquad \\text{pakkesvitsjing: delte linjer}$$\n\nDet ene skillet hele svitsjedelen hviler på."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-6-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Operativsystemet: den som fordeler (~18 min)\n\nPå telefonen din kjører det akkurat nå kanskje tretti programmer samtidig. Noen viser noe på skjermen, de fleste gjør ikke det. Alle vil ha prosessortid, alle vil ha minne, og flere av dem vil ha nettverket.\n\nIngen av dem forhandler med hverandre. Det er det noen andre som gjør.\n\nOperativsystemet er den som fordeler. Og det er det samme programmet som gjør at et program skrevet i fjor virker på en telefon laget i år — for programmet vet ikke hva slags skjerm eller lagringsbrikke maskinen faktisk har."
+    },
+    {
+      "id": "in1020-4-6-def-os",
+      "type": "definition",
+      "title": "Operativsystem",
+      "content": "Programmet som **fordeler maskinens ressurser** mellom alle de andre programmene, og som gir dem et felles sett med tjenester å be om.\n\nFire oppgaver, og alle fire testes:\n\n1. **Fordeler ressurser** — prosessortid, minne, lagring, nettverk — mellom programmene som vil ha dem.\n2. **Lar flere brukere og programmer dele maskinen samtidig**, uten at de kommer i veien for hverandre.\n3. **Tilbyr et felles sett med tjenester** for lagring, nettverk, skjerm og inndata, som programmene kan be om.\n4. **Abstraherer bort maskinvaredetaljene** — programmet ber om «lagre denne fila», ikke om «skriv til blokk 4711 på denne bestemte lagringsbrikken».\n\nDen faste feilslutningen — og en av de to påstandene du må kunne avvise: **at små enheter som mobiler ikke trenger et operativsystem.** De trenger det like mye. En mobil har flere programmer i gang samtidig enn de fleste PC-er hadde for tjue år siden."
+    },
+    {
+      "id": "in1020-4-6-def-abstraksjon",
+      "type": "definition",
+      "title": "Maskinvareabstraksjon",
+      "content": "At operativsystemet skjuler forskjellene mellom ulike maskinvareenheter bak et felles grensesnitt.\n\nEt program som skal lagre en fil, ber om «lagre». Det trenger ikke vite om lagringen er en roterende plate, en brikke uten bevegelige deler eller en tjener et annet sted. Operativsystemet — nærmere bestemt **driveren** for den enheten — oversetter forespørselen til det den bestemte maskinvaren forstår.\n\n**Hvorfor det betyr noe:** uten dette laget måtte hvert program skrives om for hver ny maskinvaremodell.\n\nDen faste feilslutningen: å tro at abstraksjonen gjør maskinen tregere uten å gi noe igjen. Den koster litt, og den er grunnen til at det finnes programvare i det hele tatt."
+    },
+    {
+      "id": "in1020-4-6-def-kjernemodus",
+      "type": "definition",
+      "title": "Kjernemodus",
+      "content": "Kjøremodusen der koden har **full tilgang til maskinvaren**: alle instruksjoner er lovlige, og alt minne er tilgjengelig.\n\nOperativsystemets kjerne kjører her. Det er nødvendig, fordi den skal kunne styre alt det andre.\n\nDen faste feilslutningen: å tro at «kjerne» betyr CPU-kjernen. Det er to helt ulike begreper med samme ord. Kjernemodus er en **kjøremodus** — en tilstand prosessoren er i — ikke en fysisk del."
+    },
+    {
+      "id": "in1020-4-6-def-brukermodus",
+      "type": "definition",
+      "title": "Brukermodus",
+      "content": "Kjøremodusen med **begrenset tilgang**: koden kan ikke røre maskinvaren direkte og kan ikke se andre programmers minne.\n\n**Vanlige brukerprogrammer kjører her.** Nettleseren din, tekstbehandleren, spillet — alle sammen.\n\nTrenger et brukerprogram noe fra maskinvaren, må det be om det gjennom et **systemkall**. Da bytter prosessoren midlertidig til kjernemodus, operativsystemet gjør jobben, og kontrollen gis tilbake.\n\n**Hvorfor skillet finnes:** et program med feil i skal ikke kunne velte hele maskinen, og et program skal ikke kunne lese et annet programs data.\n\nDen faste feilslutningen — den andre av de to du må kunne avvise: **at vanlige brukerprogrammer kjører i kjernemodus.** De gjør ikke det. Det er hele poenget med å ha to moduser."
+    },
+    {
+      "id": "in1020-4-6-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Hva skjer når et program skal lagre en fil?",
+      "problem": "Du trykker «lagre» i et tekstprogram. Følg hva som skjer, og si hvilken modus koden kjører i underveis.",
+      "solution": "**Steg 1 — programmet vil lagre.** Tekstprogrammet kjører i **brukermodus**. Det kan ikke skrive til lagringsenheten selv; det har ikke lov.\n\n**Steg 2 — systemkall.** Programmet ber operativsystemet om tjenesten «skriv disse dataene til denne fila». Det er alt programmet vet om saken.\n\n**Steg 3 — bytte til kjernemodus.** Prosessoren bytter modus, og operativsystemets kjerne tar over. Nå er all maskinvare tilgjengelig.\n\n**Steg 4 — kjernen gjør jobben.** Den finner ut hvor på lagringsenheten fila hører hjemme, sjekker at programmet har lov til å skrive der, og gir driveren for den bestemte enheten beskjed.\n\n**Steg 5 — driveren snakker med maskinvaren.** Driveren vet hvordan akkurat denne lagringsbrikken skal styres. Tekstprogrammet vet ingenting om det.\n\n**Steg 6 — tilbake til brukermodus.** Kontrollen gis tilbake til tekstprogrammet, med beskjed om at det gikk bra.\n\n**De tre poengene å ta med seg:**\n\n1. **Brukerprogrammet nådde aldri maskinvaren direkte.** Veien går alltid gjennom et systemkall.\n2. **Modusbyttet er midlertidig.** Prosessoren er i kjernemodus bare mens kjernen jobber.\n3. **Abstraksjonen ligger i at programmet ba om «lagre fil»**, ikke om «skriv til blokk 4711». Bytter du lagringsenhet, byttes driveren — ikke tekstprogrammet."
+    },
+    {
+      "id": "in1020-4-6-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — operativsystemets oppgaver.) Nevn fire oppgaver et operativsystem har, og gi ett eksempel på hver.",
+        "solution": "**1. Fordeler ressurser.** Prosessortid, minne, lagring og nettverk fordeles mellom programmene. Eksempel: tretti programmer på en mobil deler én prosessor, og operativsystemet bestemmer hvem som får kjøre når.\n\n**2. Lar flere brukere og programmer dele maskinen samtidig.** Eksempel: du kan ha nettleser, musikkavspiller og tekstbehandler oppe samtidig uten at de forstyrrer hverandre.\n\n**3. Tilbyr et felles sett med tjenester.** Eksempel: et program ber om «åpne fil» eller «send data på nettet», uten å måtte kunne noe om lagring eller nettverkskort.\n\n**4. Abstraherer bort maskinvaredetaljene.** Eksempel: samme program virker på to maskiner med helt ulike lagringsbrikker, fordi driveren tar forskjellen.\n\n**Svar: ressursfordeling, samtidig deling, felles tjenester, og maskinvareabstraksjon.**\n\nDe fire henger sammen: det er fordi operativsystemet står mellom programmene og maskinvaren, at det både kan fordele og skjule.",
+        "hints": [
+          "Tenk på hva som ville gått galt hvis operativsystemet ikke fantes.",
+          "To av oppgavene handler om deling, to om å skjule detaljer."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-6-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — operativsystemer, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Vanlige brukerprogrammer kjører i kjernemodus | |\n| b | En mobiltelefon trenger ikke et operativsystem | |\n| c | Operativsystemet fordeler prosessortid mellom programmene | |\n| d | Et brukerprogram når maskinvaren gjennom et systemkall | |",
+        "solution": "**a) Usann.** Brukerprogrammer kjører i **brukermodus**, med begrenset tilgang. Det er hele poenget med å ha to moduser: et program med feil i skal ikke kunne velte maskinen, og et program skal ikke kunne lese et annets data. Dette er en av de to faste distraktorene i sjangeren.\n\n**b) Usann.** En mobil trenger et operativsystem like mye som en PC — den kjører mange programmer samtidig, har begrenset minne og må fordele prosessortid. Dette er den andre faste distraktoren.\n\n**c) Sann.** Ressursfordeling er operativsystemets første oppgave, og prosessortid er den mest omstridte ressursen av dem alle.\n\n**d) Sann.** Veien går alltid `brukerprogram → systemkall → kjernen → maskinvaren`. Et brukerprogram kan aldri snakke direkte med maskinvaren.\n\n**Fasit: a usann, b usann, c sann, d sann.**\n\nFordelingen er to og to. Merk at de to usanne står først og de to sanne sist — det er tilfeldig, og en matrise kan like gjerne ha dem blandet. Bruk aldri rekkefølgen som ledetråd.\n\n**Metoden som gjør denne oppgavetypen rask:** sjekk først om raden er en av de to faste usanne påstandene. Er den det, er svaret gitt, og du er ferdig på fem sekunder.",
+        "hints": [
+          "To av radene er de faste distraktorene i sjangeren. Finn dem først.",
+          "For d): kan et vanlig program skrive direkte til lagringsenheten?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-6-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — operativsystemer, svarform F1: velg ett *eller flere* alternativer.) Kryss av **alle** påstandene som stemmer om skillet mellom kjernemodus og brukermodus, og begrunn hvert av de fire.\n\n**a)** Skillet finnes for at et program med feil ikke skal kunne velte hele maskinen.\n\n**b)** Operativsystemets kjerne kjører i kjernemodus.\n\n**c)** «Kjernemodus» betyr at koden kjører på en egen CPU-kjerne.\n\n**d)** Et brukerprogram som gjør et systemkall, fører til et midlertidig bytte til kjernemodus.",
+        "solution": "**a) Riktig.** Isolasjonen er hovedgrunnen. I brukermodus kan et program verken røre maskinvaren direkte eller lese andre programmers minne, og et program som krasjer, tar da bare seg selv med i fallet.\n\n**b) Riktig.** Kjernen skal styre alt det andre, og trenger derfor full tilgang.\n\n**c) Galt.** Dette er en ren ordforveksling: en **CPU-kjerne** er en fysisk regneenhet i prosessoren, mens **kjernemodus** er en kjøremodus — en tilstand prosessoren er i. En maskin med én kjerne har også kjernemodus, og et program i kjernemodus kjører ikke på noen bestemt kjerne.\n\n**d) Riktig.** Systemkallet er nettopp den kontrollerte overgangen: prosessoren bytter modus, kjernen gjør jobben, og kontrollen gis tilbake.\n\n**Fasit: a, b og d.**\n\n**Merk hvordan c) er bygd:** den er den eneste distraktoren som ikke handler om hva modusene gjør, men om hva ordet betyr. Slike ordforvekslinger er billige å lage og dyre å gå på — og de kan bare avverges ved å ha begrepene presist.",
+        "hints": [
+          "Skill mellom en fysisk del av prosessoren og en tilstand prosessoren kan være i.",
+          "For d): hvordan kommer et brukerprogram til maskinvaren, hvis det ikke får røre den?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-6-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Prosesser, drivere og det som deles (~12 min)\n\nLitt mer om hvordan fordelingen faktisk foregår, og om det ene stykket kode som må kunne maskinvaren i detalj.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-4-6-def-prosess",
+      "type": "definition",
+      "title": "Prosess",
+      "content": "Ett program **under kjøring**, med sitt eget minneområde og sin egen plass i operativsystemets bokføring.\n\nSamme program kan kjøre som flere prosesser samtidig — to vinduer av samme tekstprogram er to prosesser.\n\nOperativsystemet gir prosessene prosessortid etter tur, så raskt at det ser ut som om alt skjer samtidig. På en maskin med flere CPU-kjerner skjer noe av det faktisk samtidig, men prinsippet er det samme.\n\nDen faste feilslutningen: å blande program og prosess. Programmet er fila på lagringsenheten; prosessen er det som kjører."
+    },
+    {
+      "id": "in1020-4-6-def-driver",
+      "type": "definition",
+      "title": "Driver",
+      "content": "Koden som vet hvordan **én bestemt maskinvareenhet** skal snakkes til — en bestemt skjermbrikke, et bestemt nettverkskort, en bestemt skriver.\n\nDriveren er broen mellom operativsystemets felles grensesnitt og den konkrete maskinvaren. Bytter du ut nettverkskortet, bytter du driver — ikke programmene.\n\nDrivere kjører i eller tett på **kjernemodus**, fordi de må ha direkte tilgang til maskinvaren. Det er også derfor en feil i en driver kan velte hele maskinen, mens en feil i et brukerprogram som regel bare tar programmet.\n\nDen faste feilslutningen: å tro at driveren er en del av programmet som bruker enheten. Den hører til operativsystemet."
+    },
+    {
+      "id": "in1020-4-6-def-samtidighet",
+      "type": "definition",
+      "title": "Å dele maskinen samtidig",
+      "content": "At flere brukere og flere programmer bruker maskinen på én gang, uten å komme i veien for hverandre.\n\nOperativsystemet får det til ved å veksle mellom prosessene svært raskt, og ved å gi hver prosess sitt eget minneområde som de andre ikke ser.\n\n**De to tingene som må holdes fra hverandre:** *å veksle* (prosessortid) og *å skille* (minne). Uten det første ville én prosess fryse alle andre; uten det andre ville et program kunne lese passordet ditt ut av et annet.\n\nDen faste feilslutningen: å tro at samtidighet krever flere CPU-kjerner. Det hjelper, men vekslingen alene er nok til at det ser samtidig ut."
+    },
+    {
+      "id": "in1020-4-6-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å tro at brukerprogrammer kjører i kjernemodus.** De kjører i **brukermodus**, med begrenset tilgang, og når maskinvaren bare gjennom systemkall. Dette er den hyppigste feilkryssingen i operativsystemdelen.\n\n**Å tro at små enheter ikke trenger et operativsystem.** En mobil kjører mange programmer samtidig og må fordele prosessortid, minne og nettverk. Den trenger det like mye som en PC.\n\n**Å blande kjernemodus og CPU-kjerne.** Kjernemodus er en **kjøremodus**, ikke en fysisk del av prosessoren.\n\n**Å blande program og prosess.** Programmet er fila; prosessen er programmet under kjøring.\n\n**Å bytte om linje- og pakkesvitsjing.** Linjesvitsjing setter opp en **dedikert bane** som holdes hele samtalen. Pakkesvitsjing deler dataene i pakker som **deler linjene** med alle andre. Internett bruker det siste.\n\n**Å blande klient-tjener og likemannsnett.** I klient-tjener har partene **faste roller**: én spør, én svarer. I et likemannsnett er hver deltaker **begge deler samtidig**.\n\n**Å tro at et likemannsnett ikke har noen tjenermaskin i det hele tatt.** Mange praktiske løsninger er blandinger — deltakerne utveksler data direkte, mens en sentral tjener holder oversikt over hvem som finnes."
+    },
+    {
+      "id": "in1020-4-6-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — operativsystemer, svarform F3: kobling.) Koble hver beskrivelse (1–5) til riktig begrep (A–F). Hvert begrep kan brukes én gang eller ikke i det hele tatt.\n\n**1.** Ett program under kjøring, med sitt eget minneområde\n\n**2.** Koden som vet hvordan én bestemt maskinvareenhet styres\n\n**3.** Kjøremodusen der vanlige programmer holder til\n\n**4.** Måten et program ber operativsystemet om en tjeneste\n\n**5.** At programmet ber om «lagre fil» i stedet for å styre lagringsbrikken selv\n\n**A.** Systemkall · **B.** Prosess · **C.** Maskinvareabstraksjon · **D.** Driver · **E.** Brukermodus · **F.** Kjernemodus",
+        "solution": "**1 → B (prosess).** Programmet er fila på lagringsenheten; prosessen er det som kjører, med eget minneområde.\n\n**2 → D (driver).** Broen mellom operativsystemets felles grensesnitt og den konkrete maskinvaren.\n\n**3 → E (brukermodus).** Begrenset tilgang, ingen direkte kontakt med maskinvaren, intet innsyn i andre programmers minne.\n\n**4 → A (systemkall).** Den kontrollerte overgangen, der prosessoren midlertidig bytter til kjernemodus.\n\n**5 → C (maskinvareabstraksjon).** Detaljene er skjult bak et felles grensesnitt.\n\n**Fasit: 1→B, 2→D, 3→E, 4→A, 5→C.**\n\n**Kjernemodus (F) er ikke i bruk.** Det er med vilje: en koblingsoppgave krever ikke at alle kategoriene brukes, og å tvinge inn den ubrukte er en fast måte å miste poeng på. Kjernemodus er en reell ting — det er der kjernen og driverne kjører — men ingen av de fem beskrivelsene passer på den.\n\nLegg merke til at koblingen verken er 1→A, 2→B, 3→C eller noe annet mønster.",
+        "hints": [
+          "Les alle fem beskrivelsene før du kobler noe.",
+          "Merk at én av kategoriene ikke skal brukes.",
+          "For 3): hvilken modus er det som er begrenset?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-6-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Bør kjenne til: aksessmodeller og svitsjing (~15 min)\n\n**Dette er «bør kjenne til»-stoff.** Det har egen oppgave i fire av seks årganger (67 %), og det er greit å ha, men det er ikke der du henter de sikre poengene i seksjon 4. Har du kort tid, ta operativsystemet først og les dette etterpå.\n\nTo skiller, og begge er reine ja–nei-spørsmål når du først har dem: hvem som spør hvem, og om linja er din alene."
+    },
+    {
+      "id": "in1020-4-6-def-klient-tjener",
+      "type": "definition",
+      "title": "Klient-tjener",
+      "content": "Modellen der partene har **faste roller**: klienten tar initiativet og spør, tjeneren venter og svarer.\n\nNettleseren din er klient; nettstedets maskin er tjener. En strømmetjeneste er klient-tjener: du ber om segmenter, tjenesten leverer.\n\n**Styrken:** enkel å styre, enkel å sikre, og innholdet er ett sted.\n\n**Svakheten:** tjeneren er en flaskehals og et enkeltpunkt som kan svikte. Alle henvendelser går til den samme maskinen — og det er nettopp det problemet et innholdsnett løser, se [kap. 4.5](/bok/in1020/in1020-4-5).\n\nDen faste feilslutningen: å tro at rollen er en egenskap ved maskinen. Samme maskin kan være tjener for én tjeneste og klient for en annen i samme sekund."
+    },
+    {
+      "id": "in1020-4-6-def-p2p",
+      "type": "definition",
+      "title": "Likemannsnett (peer-to-peer)",
+      "content": "Modellen der hver deltaker er **både klient og tjener samtidig**: alle kan spørre, og alle kan svare.\n\nDeltakerne henter data av hverandre i stedet for fra én sentral maskin.\n\n**Styrken:** kapasiteten vokser med antall deltakere — flere deltakere betyr flere som kan levere. Det finnes ikke ett enkeltpunkt som velter alt.\n\n**Svakheten:** vanskeligere å styre, vanskeligere å sikre, og det er ingen som har ansvaret for at innholdet finnes.\n\nDen faste feilslutningen: å tro at et likemannsnett aldri har noen sentral tjener. Mange praktiske løsninger er **blandinger**: deltakerne utveksler data direkte, mens en sentral tjener holder oversikt over hvem som finnes og hvem som har hva."
+    },
+    {
+      "id": "in1020-4-6-def-linjesvitsjing",
+      "type": "definition",
+      "title": "Linjesvitsjing",
+      "content": "At det settes opp en **dedikert bane** mellom de to partene, som holdes reservert gjennom hele samtalen — også når ingen sier noe.\n\nFordelen er forutsigbarhet: kapasiteten er garantert, og forsinkelsen er jevn.\n\nUlempen er sløsing: banen er opptatt selv når den ikke brukes, og en samtale der begge er stille i ti sekunder, holder likevel hele kapasiteten.\n\nDen faste feilslutningen: å tro at internett fungerer slik. Det gjør det ikke — se pakkesvitsjing."
+    },
+    {
+      "id": "in1020-4-6-def-pakkesvitsjing",
+      "type": "definition",
+      "title": "Pakkesvitsjing",
+      "content": "At data deles i **pakker** som sendes hver for seg og **deler linjene** med alle andres pakker.\n\nIngen bane er reservert. En linje som ikke brukes av deg akkurat nå, brukes av noen andre.\n\n**Fordelen:** langt bedre utnyttelse. Fordi de fleste forbindelser er stille mesteparten av tida, kan mange flere brukere dele den samme kapasiteten.\n\n**Ulempen:** ingen garanti. Blir det kø, blir det forsinkelse — og det er nettopp derfor TCPs metningskontroll finnes, se [kap. 4.1](/bok/in1020/in1020-4-1).\n\n**Internett er pakkesvitsjet.** Det er det ene faktumet fra denne delen som er verdt å ha helt sikkert."
+    },
+    {
+      "id": "in1020-4-6-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensnivå — sant og usant om modellene og svitsjingen",
+      "problem": "Svarform F2 — sant/usant-matrise.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Internett er pakkesvitsjet | |\n| b | I et likemannsnett har hver deltaker en fast rolle som enten klient eller tjener | |\n| c | Linjesvitsjing gir jevnere forsinkelse enn pakkesvitsjing | |\n| d | Kapasiteten i et likemannsnett kan vokse når flere deltakere kommer til | |\n| e | Pakkesvitsjing utnytter linjene dårligere enn linjesvitsjing | |",
+      "solution": "**a) Sann.** Data deles i pakker som deler linjene. Dette er det ene faktumet fra svitsjedelen som er verdt å ha helt sikkert.\n\n**b) Usann.** I et likemannsnett er hver deltaker **begge deler samtidig**. Faste roller er kjennetegnet på klient-tjener, og påstanden bytter om de to modellene.\n\n**c) Sann.** En dedikert bane har garantert kapasitet og jevn forsinkelse. Det er nettopp den forutsigbarheten som er linjesvitsjingens fordel — og prisen er at banen er opptatt selv når ingen bruker den.\n\n**d) Sann.** Hver ny deltaker er også en ny som kan levere. Det er den viktigste styrken ved modellen, og den skiller den skarpt fra klient-tjener, der hver ny bruker bare er mer belastning på den ene tjeneren.\n\n**e) Usann.** Motsatt: pakkesvitsjing utnytter linjene **bedre**, fordi ledig kapasitet kan brukes av andre. Prisen er at det ikke finnes noen garanti.\n\n**Fasit: a sann, b usann, c sann, d sann, e usann.**\n\nFordelingen er tre sanne og to usanne, og de er ikke sortert.\n\n**Merk hvordan b) og e) er bygd:** begge er riktige påstander som er **snudd**. Det er den vanligste måten å lage en usann rad på i denne sjangeren — ta noe sant om den ene modellen, og skriv det om den andre. Motgiften er å ha begge halvdelene av hvert skille klart, ikke bare den ene."
+    },
+    {
+      "id": "in1020-4-6-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F3: kobling.) Koble hver egenskap (1–4) til riktig modell eller teknikk (A–D). Hver kategori brukes nøyaktig én gang.\n\n**1.** Kapasiteten vokser når flere deltakere kommer til\n\n**2.** En dedikert bane holdes reservert gjennom hele samtalen\n\n**3.** Én part spør, en annen svarer, og rollene ligger fast\n\n**4.** Ledig kapasitet på en linje kan brukes av andre forbindelser\n\n**A.** Klient-tjener · **B.** Likemannsnett · **C.** Linjesvitsjing · **D.** Pakkesvitsjing",
+        "solution": "**1 → B (likemannsnett).** Hver ny deltaker er også en ny leverandør, ikke bare en ny belastning.\n\n**2 → C (linjesvitsjing).** Banen er din alene, også når du er stille.\n\n**3 → A (klient-tjener).** Faste roller er selve kjennetegnet.\n\n**4 → D (pakkesvitsjing).** Ingen bane er reservert, så det som ikke brukes, kan brukes av andre.\n\n**Fasit: 1→B, 2→C, 3→A, 4→D.**\n\nLegg merke til at koblingen ikke er 1→A, 2→B, 3→C, 4→D. Ingen av parene ligger på diagonalen, og det er med vilje.\n\n**Grepet som gjør oppgaven rask:** de fire kategoriene er to par — to aksessmodeller (A og B) og to svitsjeteknikker (C og D). Sorter beskrivelsene i de to parene først, og du har halvert oppgaven før du har koblet noe.",
+        "hints": [
+          "Del de fire kategoriene i to par før du kobler.",
+          "To av beskrivelsene handler om hvem som spør, to om hvordan linja brukes."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-6-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger K og J blandet, svarform F1.) Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Et brukerprogram kan lese minnet til et annet brukerprogram direkte.\n\n**b)** Operativsystemet skjuler forskjellen mellom to ulike lagringsenheter for programmene.\n\n**c)** Internett er linjesvitsjet, siden en TCP-forbindelse settes opp før data sendes.\n\n**d)** En strømmetjeneste følger klient-tjener-modellen.\n\n**e)** En feil i en driver kan velte hele maskinen, mens en feil i et vanlig program som regel bare tar programmet.",
+        "solution": "**a) Galt.** Brukermodus gir hver prosess sitt eget minneområde, og et program kan verken se eller endre et annets. Det er en av hovedgrunnene til at skillet mellom de to modusene finnes.\n\n**b) Riktig.** Maskinvareabstraksjon: programmet ber om «lagre fil», og driveren tar forskjellen mellom enhetene.\n\n**c) Galt — og dette er en presis felle.** Internett er **pakkesvitsjet**. At TCP setter opp en forbindelse, betyr ikke at det settes av en fysisk bane: forbindelsen er en bokføring i de to endene, mens pakkene deler linjene med alle andres pakker underveis. Distraktoren utnytter at ordet «forbindelse» høres ut som «dedikert bane».\n\n**d) Riktig.** Du er klient og ber om segmenter; tjenesten er tjener og leverer. Rollene ligger fast. At innholdet ofte leveres fra en kopi i nærheten gjennom et innholdsnett, endrer ikke modellen — kopien er også en tjener.\n\n**e) Riktig.** Drivere kjører i eller tett på kjernemodus, med full tilgang til maskinvaren, mens vanlige programmer kjører isolert i brukermodus.\n\n**Fasit: b, d og e.**\n\n**Om negativ poenggiving:** tre av fem er riktige, og de to gale er begge presise feller — a) tester om du har forstått hva brukermodus faktisk beskytter, og c) tester om du kan skille en logisk forbindelse fra en fysisk bane. Kan du begrunne begge avvisningene, kan du krysse av de tre andre uten å nøle.",
+        "hints": [
+          "For a): hva er det brukermodus faktisk begrenser?",
+          "For c): er en TCP-forbindelse en fysisk bane, eller en avtale mellom to endepunkter?",
+          "For e): hvilken modus kjører drivere i, og hvorfor må de gjøre det?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-6-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger K — operativsystemer, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | To vinduer av samme tekstprogram er to prosesser | |\n| b | Samtidighet på en maskin krever at prosessoren har flere kjerner | |\n| c | En driver hører til operativsystemet, ikke til programmet som bruker enheten | |\n| d | Systemkallet fører til et permanent bytte til kjernemodus | |\n| e | Operativsystemet fordeler både prosessortid og minne | |",
+        "solution": "**a) Sann.** Programmet er fila på lagringsenheten; prosessen er programmet under kjøring, med sitt eget minneområde. Samme program kan kjøre som flere prosesser samtidig.\n\n**b) Usann.** Operativsystemet veksler mellom prosessene så raskt at det ser samtidig ut, også på en maskin med én kjerne. Flere kjerner gjør at noe faktisk skjer samtidig, men det er ikke et krav for at maskinen skal virke samtidig.\n\n**c) Sann.** Driveren er broen mellom operativsystemets felles grensesnitt og den konkrete maskinvaren, og den byttes når maskinvaren byttes — ikke når programmet byttes.\n\n**d) Usann.** Byttet er **midlertidig**. Kjernen gjør jobben, og kontrollen gis tilbake til brukerprogrammet, som fortsetter i brukermodus. Var byttet permanent, ville hele skillet mellom modusene være meningsløst etter det første systemkallet.\n\n**e) Sann.** Ressursfordelingen omfatter prosessortid, minne, lagring og nettverk — alle sammen.\n\n**Fasit: a sann, b usann, c sann, d usann, e sann.**\n\nFordelingen er tre sanne og to usanne, med de usanne på plass to og fire. Bruk aldri plasseringen som ledetråd.\n\n**Merk hvordan d) er bygd:** ett ord — «permanent» — gjør en ellers riktig setning usann. Det er en vanlig konstruksjon i sant/usant-matriser, og den eneste motgiften er å lese hver rad ord for ord.",
+        "hints": [
+          "Les hver rad ord for ord — ett enkelt ord kan snu sannhetsverdien.",
+          "For b): hvordan så det ut på maskiner med bare én kjerne?",
+          "For d): hva ville skjedd hvis byttet aldri ble reversert?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-6-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-4-6-bank-1",
+      "type": "definition",
+      "title": "Operativsystemets fire oppgaver",
+      "content": "Den ene lista som gir flest poeng i sjangeren:\n\n1. **Fordeler ressurser** — prosessortid, minne, lagring, nettverk.\n2. **Lar flere brukere og programmer dele maskinen samtidig.**\n3. **Tilbyr et felles sett med tjenester** for lagring, nettverk og inndata.\n4. **Abstraherer bort maskinvaredetaljene.**\n\nDen faste feilslutningen: å nevne bare den første. Alle fire kommer som egne rader i en sant/usant-matrise."
+    },
+    {
+      "id": "in1020-4-6-bank-2",
+      "type": "definition",
+      "title": "De to faste usanne påstandene om operativsystemer",
+      "content": "Begge er **usanne**, og begge kommer igjen:\n\n| Påstand | Sannheten |\n|---|---|\n| Mobiler trenger ikke et operativsystem | De trenger det like mye som en PC |\n| Vanlige brukerprogrammer kjører i kjernemodus | De kjører i brukermodus, med begrenset tilgang |\n\nKjenner du igjen en av dem i en matrise, er raden avgjort på fem sekunder.\n\nDen faste feilslutningen: å lese dem raskt og tenke «det høres rimelig ut». Det er nettopp derfor de er distraktorer."
+    },
+    {
+      "id": "in1020-4-6-bank-3",
+      "type": "definition",
+      "title": "Kjernemodus",
+      "content": "Kjøremodusen med **full tilgang** til maskinvaren. Operativsystemets kjerne og driverne kjører her.\n\nAlle instruksjoner er lovlige, og alt minne er tilgjengelig.\n\nDen faste feilslutningen: å blande kjernemodus med en CPU-kjerne. Det ene er en **tilstand** prosessoren er i, det andre en **fysisk regneenhet**. En maskin med én kjerne har også kjernemodus."
+    },
+    {
+      "id": "in1020-4-6-bank-4",
+      "type": "definition",
+      "title": "Brukermodus",
+      "content": "Kjøremodusen med **begrenset tilgang**. Vanlige programmer kjører her: nettleser, tekstbehandler, spill.\n\nKoden kan ikke røre maskinvaren direkte og kan ikke se andre programmers minne.\n\nDen faste feilslutningen: å tro at begrensningen er en ulempe. Den er grunnen til at ett program som krasjer, ikke tar med seg maskinen."
+    },
+    {
+      "id": "in1020-4-6-bank-5",
+      "type": "definition",
+      "title": "Systemkall",
+      "content": "Måten et brukerprogram ber operativsystemet om en tjeneste: «åpne fil», «send data», «gi meg mer minne».\n\nKallet utløser et **midlertidig** bytte til kjernemodus. Kjernen gjør jobben og gir kontrollen tilbake.\n\nDen faste feilslutningen: å tro at byttet er permanent. Var det det, ville hele skillet vært meningsløst etter det første kallet."
+    },
+    {
+      "id": "in1020-4-6-bank-6",
+      "type": "definition",
+      "title": "Veien til maskinvaren",
+      "content": "$$\\text{brukerprogram} \\rightarrow \\text{systemkall} \\rightarrow \\text{kjernen} \\rightarrow \\text{driver} \\rightarrow \\text{maskinvaren}$$\n\nFire steg, og ingen av dem kan hoppes over av et vanlig program.\n\nDen faste feilslutningen: å tro at et program med rette tillatelser kan gå direkte. Tillatelser avgjør **hva** kjernen gjør for deg, ikke **om** du må gå gjennom den."
+    },
+    {
+      "id": "in1020-4-6-bank-7",
+      "type": "definition",
+      "title": "Prosess",
+      "content": "Ett program **under kjøring**, med sitt eget minneområde og sin egen plass i operativsystemets bokføring.\n\nSamme program kan kjøre som flere prosesser samtidig — to vinduer av samme tekstprogram er to prosesser.\n\nDen faste feilslutningen: å blande program og prosess. Programmet er fila på lagringsenheten; prosessen er det som kjører."
+    },
+    {
+      "id": "in1020-4-6-bank-8",
+      "type": "definition",
+      "title": "Driver",
+      "content": "Koden som vet hvordan **én bestemt maskinvareenhet** styres — én skjermbrikke, ett nettverkskort, én skriver.\n\nDrivere kjører i eller tett på kjernemodus, og derfor kan en feil i en driver velte hele maskinen, mens en feil i et brukerprogram som regel bare tar programmet.\n\nDen faste feilslutningen: å tro at driveren hører til programmet som bruker enheten. Den hører til operativsystemet."
+    },
+    {
+      "id": "in1020-4-6-bank-9",
+      "type": "definition",
+      "title": "Maskinvareabstraksjon",
+      "content": "At operativsystemet skjuler forskjellene mellom ulike enheter bak et felles grensesnitt: programmet ber om «lagre fil», ikke om «skriv til blokk 4711».\n\nUten dette laget måtte hvert program skrives om for hver ny maskinvaremodell.\n\nDen faste feilslutningen: å regne abstraksjonen som ren overhead. Den koster litt fart og er grunnen til at det finnes programvare som virker på mer enn én maskin."
+    },
+    {
+      "id": "in1020-4-6-bank-10",
+      "type": "definition",
+      "title": "Å veksle og å skille",
+      "content": "De to mekanismene som til sammen gir samtidighet:\n\n**Å veksle** — prosessene får prosessortid etter tur, så raskt at det ser samtidig ut.\n\n**Å skille** — hver prosess har sitt eget minneområde, som de andre ikke ser.\n\nDen faste feilslutningen: å tro at det første alene er nok. Uten det andre kunne et program lest passordet ditt ut av et annet."
+    },
+    {
+      "id": "in1020-4-6-bank-11",
+      "type": "definition",
+      "title": "Klient-tjener",
+      "content": "Modellen med **faste roller**: klienten spør, tjeneren svarer.\n\nStyrken er at den er enkel å styre og enkel å sikre. Svakheten er at tjeneren er en flaskehals og et enkeltpunkt som kan svikte.\n\nDen faste feilslutningen: å tro at rollen er en egenskap ved maskinen. Samme maskin kan være tjener for én tjeneste og klient for en annen samtidig."
+    },
+    {
+      "id": "in1020-4-6-bank-12",
+      "type": "definition",
+      "title": "Likemannsnett",
+      "content": "Modellen der hver deltaker er **både klient og tjener samtidig**. Deltakerne henter data av hverandre i stedet for fra én sentral maskin.\n\nStyrken er at kapasiteten vokser med antall deltakere, og at det ikke finnes ett enkeltpunkt som velter alt. Svakheten er at det er vanskeligere å styre og å sikre.\n\nDen faste feilslutningen: å tro at et likemannsnett aldri har noen sentral tjener. Mange løsninger er blandinger, med en sentral tjener som holder oversikt over hvem som finnes."
+    },
+    {
+      "id": "in1020-4-6-bank-13",
+      "type": "definition",
+      "title": "Linjesvitsjing",
+      "content": "En **dedikert bane** settes opp mellom partene og holdes reservert gjennom hele samtalen — også når ingen sier noe.\n\nFordel: garantert kapasitet og jevn forsinkelse. Ulempe: banen er opptatt selv når den ikke brukes.\n\nDen faste feilslutningen: å tro at internett fungerer slik."
+    },
+    {
+      "id": "in1020-4-6-bank-14",
+      "type": "definition",
+      "title": "Pakkesvitsjing",
+      "content": "Data deles i **pakker** som sendes hver for seg og **deler linjene** med alle andres pakker. Ingen bane er reservert.\n\nFordel: langt bedre utnyttelse, siden de fleste forbindelser er stille mesteparten av tida. Ulempe: ingen garanti — blir det kø, blir det forsinkelse.\n\n**Internett er pakkesvitsjet.** Det er det ene faktumet fra denne delen som er verdt å ha helt sikkert."
+    },
+    {
+      "id": "in1020-4-6-bank-15",
+      "type": "definition",
+      "title": "Forbindelse er ikke det samme som bane",
+      "content": "At TCP setter opp en **forbindelse**, betyr ikke at det settes av en fysisk bane.\n\nForbindelsen er en bokføring i de to endene — hva som er sendt, mottatt og bekreftet. Pakkene deler linjene med alle andre underveis.\n\nDen faste feilslutningen — en presis felle i sjangeren: å slutte fra «tilkoblingsorientert» til «linjesvitsjet». Internett er pakkesvitsjet også når TCP brukes."
+    },
+    {
+      "id": "in1020-4-6-bank-16",
+      "type": "definition",
+      "title": "Hvorfor pakkesvitsjing vant",
+      "content": "Fordi de fleste forbindelser er stille mesteparten av tida.\n\nEn dedikert bane som står ubrukt i ni av ti sekunder, er ni tideler sløsing. Deler man i stedet linjene, kan langt flere brukere dele den samme kapasiteten.\n\nDen faste feilslutningen: å tro at pakkesvitsjing er bedre på alle måter. Den ofrer garantien om kapasitet og jevn forsinkelse — og det er derfor metningskontroll måtte finnes opp."
+    },
+    {
+      "id": "in1020-4-6-bank-17",
+      "type": "definition",
+      "title": "Operativsystemet og de fire lagene",
+      "content": "Operativsystemet er ikke et lag i nettverksmodellen. Det ligger under alt sammen, og det er operativsystemet som faktisk implementerer transport- og nettverkslaget på maskinen din.\n\nNår et program «bruker TCP», gjør det i praksis systemkall til operativsystemet.\n\nDen faste feilslutningen: å lete etter operativsystemet i lagmodellen. Det står ved siden av, ikke inni."
+    },
+    {
+      "id": "in1020-4-6-bank-18",
+      "type": "definition",
+      "title": "Hva som skiller de to skillene",
+      "content": "Kapitlet har to helt uavhengige skiller, og de blandes ofte:\n\n| Skille | Handler om | De to sidene |\n|---|---|---|\n| Aksessmodell | Hvem som spør hvem | Klient-tjener mot likemannsnett |\n| Svitsjing | Hvordan linja brukes | Linjesvitsjing mot pakkesvitsjing |\n\nEn tjeneste kan være klient-tjener **og** gå over et pakkesvitsjet nett. De to sier ikke noe om hverandre.\n\nDen faste feilslutningen: å behandle «klient-tjener» og «linjesvitsjing» som to sider av samme sak."
+    },
+    {
+      "id": "in1020-4-6-bank-19",
+      "type": "definition",
+      "title": "Ett ord kan snu en påstand",
+      "content": "I sant/usant-matriser er den vanligste konstruksjonen en riktig setning med ett ord byttet ut: «permanent» i stedet for «midlertidig», «kan ikke» i stedet for «kan».\n\n«Systemkallet fører til et permanent bytte til kjernemodus» er usann utelukkende på grunn av ett ord.\n\nMotgiften: les hver rad ord for ord, og se særlig etter ord som beskriver **varighet**, **omfang** og **nødvendighet**."
+    },
+    {
+      "id": "in1020-4-6-bank-20",
+      "type": "definition",
+      "title": "Framgangsmåte i denne sjangeren",
+      "content": "1. Sjekk om raden er en av de to faste usanne påstandene om operativsystemer. Er den det, er du ferdig.\n2. Ellers: spør hvilken av operativsystemets fire oppgaver påstanden handler om.\n3. For svitsjing og aksessmodeller: avgjør først hvilket av de **to skillene** påstanden gjelder.\n4. Se etter snudde påstander — noe sant om den ene siden, skrevet om den andre.\n5. Les etter enkeltord som endrer varighet eller omfang.\n\nDen faste feilslutningen: å lese hele matrisen som ett spørsmål. Hver rad avgjøres for seg."
+    },
+    {
+      "id": "in1020-4-6-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter operativsystemet og modellene?",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1020-4-6-repetisjon-tekst",
+          "type": "text",
+          "content": "Dette er siste kapittel i del 4. Ta repetisjonen før du går til prøvene i [kap. 4.P](/bok/in1020/in1020-4-prove).\n\n**1. Operativsystemets fire oppgaver?** Fordele ressurser, la flere dele maskinen samtidig, tilby felles tjenester, abstrahere bort maskinvaren.\n\n**2. Hvilken modus kjører vanlige programmer i?** Brukermodus. Aldri kjernemodus.\n\n**3. Hvordan når et brukerprogram maskinvaren?** Gjennom et systemkall, som gir et **midlertidig** bytte til kjernemodus.\n\n**4. Trenger en mobil et operativsystem?** Ja, like mye som en PC.\n\n**5. Program eller prosess?** Programmet er fila; prosessen er programmet under kjøring.\n\n**6. Hvor hører driveren hjemme?** I operativsystemet, ikke i programmet som bruker enheten.\n\n**7. Klient-tjener?** Faste roller: én spør, én svarer.\n\n**8. Likemannsnett?** Hver deltaker er begge deler samtidig, og kapasiteten vokser med antall deltakere.\n\n**9. Linje- eller pakkesvitsjing på internett?** Pakkesvitsjing. Data deler linjene, ingen bane er reservert.\n\n**10. Betyr en TCP-forbindelse at det finnes en dedikert bane?** Nei. Forbindelsen er en bokføring i de to endene.\n\nSitter alle ti? Da er hele del 4 dekket: lagene i [kap. 4.1](/bok/in1020/in1020-4-1), adresseregningen i [kap. 4.2](/bok/in1020/in1020-4-2) og [kap. 4.4](/bok/in1020/in1020-4-4), overføringstiden i [kap. 4.3](/bok/in1020/in1020-4-3), tjenestene i [kap. 4.5](/bok/in1020/in1020-4-5) og dette kapitlet.\n\nNeste steg er de fire prøvene i [kap. 4.P](/bok/in1020/in1020-4-prove), som dekker hele seksjonen under tidspress."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
