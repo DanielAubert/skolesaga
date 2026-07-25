@@ -28,6 +28,20 @@ export function LatexRenderer({ content, className, inline }: LatexRendererProps
   return <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
+// Escapet dollartegn (\$) skal være et LITERALT dollartegn, ikke matte-avgrenser.
+// Uten dette matcher matte-regexen «\$A\$1» (Excel-referanser, valuta) som formelen
+// «A\» og rendrer søppel. Vi parkerer dem før matten deles opp, og setter dem
+// tilbake når all annen prosessering er ferdig.
+const DOLLAR_HOLDER = 'DOLLAR';
+
+function parkerEscapetDollar(s: string): string {
+  return s.replace(/\\{1,2}\$/g, DOLLAR_HOLDER);
+}
+
+function gjenopprettDollar(s: string): string {
+  return s.split(DOLLAR_HOLDER).join('$');
+}
+
 // Render inline content without paragraph wrapping
 function renderInlineContent(content: string): string {
   const katexBlocks: string[] = [];
@@ -35,7 +49,7 @@ function renderInlineContent(content: string): string {
   const KATEX_END = 'KATEX\u0000';
 
   // Handle inline math ($...$)
-  let result = content.replace(/\$([^$\n]+?)\$/g, (_, latex) => {
+  let result = parkerEscapetDollar(content).replace(/\$([^$\n]+?)\$/g, (_, latex) => {
     try {
       let processedLatex = latex.trim();
       if (processedLatex.includes('\\frac')) {
@@ -59,7 +73,7 @@ function renderInlineContent(content: string): string {
     (_, index) => katexBlocks[parseInt(index)]
   );
 
-  return result;
+  return gjenopprettDollar(result);
 }
 
 function renderMixedContent(content: string): string {
@@ -70,7 +84,7 @@ function renderMixedContent(content: string): string {
   const KATEX_END = 'KATEX\u0000';
 
   // Handle display math ($$...$$)
-  let result = content.replace(/\$\$([\s\S]*?)\$\$/g, (_, latex) => {
+  let result = parkerEscapetDollar(content).replace(/\$\$([\s\S]*?)\$\$/g, (_, latex) => {
     try {
       let rendered = katex.renderToString(latex.trim(), {
         displayMode: true,
@@ -166,7 +180,7 @@ function renderMixedContent(content: string): string {
     result = `<p class="my-3">${result}</p>`;
   }
 
-  return result;
+  return gjenopprettDollar(result);
 }
 
 function renderTables(content: string): string {

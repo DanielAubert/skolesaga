@@ -2261,7 +2261,7 @@ const quizData_tma4245: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er styrken til en test?",
       options: ["Sannsynligheten for å forkaste $H_0$ når $H_1$ faktisk er sann", "Sannsynligheten for å forkaste $H_0$ når $H_0$ faktisk er sann", "Sannsynligheten for at nullhypotesen $H_0$ er sann i utgangspunktet", "Sannsynligheten for å beholde $H_0$ når $H_1$ faktisk er sann"],
-      explanation: "Styrken er $P(\\text{forkast } H_0 \\mid H_1 \\text{ sann}) = 1$ minus type II-sannsynligheten. Alternativ 2 beskriver $\\alpha$ (type I), og siste alternativ er selve type II-sannsynligheten.",
+      explanation: "Styrken er $P(\\text{forkast } H_0 \\mid H_1 \\text{ sann}) = 1$ minus type II-sannsynligheten. Svaret «Sannsynligheten for å forkaste $H_0$ når $H_0$ faktisk er sann» beskriver $\\alpha$ (type I), og siste alternativ er selve type II-sannsynligheten.",
     },
     {
       question: "Under hvilken parameterverdi skal styrken regnes?",
@@ -2271,7 +2271,7 @@ const quizData_tma4245: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er en type II-feil?",
       options: ["Å beholde $H_0$ når $H_1$ i virkeligheten er sann", "Å forkaste $H_0$ når $H_0$ i virkeligheten er sann", "Å velge feil signifikansnivå $\\alpha$ før dataene samles inn", "Å bruke t-fordelingen der z-fordelingen skulle vært brukt"],
-      explanation: "Type II-feil er en oversett effekt: $H_1$ er sann, men vi forkaster ikke. Alternativ 2 er type I-feilen (falsk alarm), med sannsynlighet $\\alpha$.",
+      explanation: "Type II-feil er en oversett effekt: $H_1$ er sann, men vi forkaster ikke. Svaret «Å forkaste $H_0$ når $H_0$ i virkeligheten er sann» er type I-feilen (falsk alarm), med sannsynlighet $\\alpha$.",
     },
     {
       question: "Hvordan rundes utvalgsstørrelsen $n$ av i en dimensjonering?",
@@ -2331,7 +2331,7 @@ const quizData_tma4245: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er type II-sannsynligheten?",
       options: ["Sannsynligheten for å beholde $H_0$ når $H_1$ er sann", "Sannsynligheten for å forkaste $H_0$ når $H_0$ er sann", "Sannsynligheten for et minst like ekstremt utfall gitt $H_0$", "Sannsynligheten for å velge riktig testobservator"],
-      explanation: "Type II-sannsynligheten er $P(\\text{behold } H_0 \\mid H_1 \\text{ sann})$, og styrken er $1$ minus denne. Alternativ 2 er $\\alpha$, og det tredje er p-verdiens definisjon.",
+      explanation: "Type II-sannsynligheten er $P(\\text{behold } H_0 \\mid H_1 \\text{ sann})$, og styrken er $1$ minus denne. Svaret «Sannsynligheten for å forkaste $H_0$ når $H_0$ er sann» er $\\alpha$, og det tredje er p-verdiens definisjon.",
     },
   ],
   'tma4245-7-4': [

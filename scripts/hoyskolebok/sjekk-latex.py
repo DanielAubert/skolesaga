@@ -42,6 +42,14 @@ console.log(JSON.stringify(feil));
 """
 
 
+def kodespenn(s):
+    """Start/slutt for hver ```-kodeblokk i strengen."""
+    ut = []
+    for m in re.finditer(r"```[\s\S]*?```", s):
+        ut.append((m.start(), m.end()))
+    return ut
+
+
 def strenger(emne):
     """Alle tekststrenger i bokas kapittelfiler, med filnavn og sti."""
     ut = []
@@ -75,12 +83,19 @@ def main():
         sys.exit(f"fant ingen filer for {emne}")
     avvik = []
 
-    # 1. kontrolltegn (TAB godtas i .ts-fila, der det er innrykk)
+    # 1. kontrolltegn (TAB godtas i .ts-fila, der det er innrykk, og inne i
+    #    ```-kodeblokker, der det er kolonnejustering i programutskrift — begge
+    #    er legitime. En TAB i prosa er derimot nesten alltid `\text` med én
+    #    backslash, som rendrer galt UTEN at KaTeX klager.)
     for navn, sti, s in alle:
+        kode = kodespenn(s)
         for i, ch in enumerate(s):
             o = ord(ch)
-            if o in KTRL and not (navn.endswith(".ts") and o == 9):
-                avvik.append(f"KONTROLLTEGN {KTRL[o]} i {navn}{sti}: {s[max(0,i-40):i+25]!r}")
+            if o not in KTRL:
+                continue
+            if o == 9 and (navn.endswith(".ts") or any(a <= i < b for a, b in kode)):
+                continue
+            avvik.append(f"KONTROLLTEGN {KTRL[o]} i {navn}{sti}: {s[max(0,i-40):i+25]!r}")
 
     # 2.–4. matteuttrykk
     # Kapittel-JSON leses med json.load, så strengene er alt avescapet. Quiz-.ts-fila

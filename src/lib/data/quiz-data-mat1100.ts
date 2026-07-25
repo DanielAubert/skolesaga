@@ -846,7 +846,7 @@ const quizData_mat1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva kreves for at $f$ er kontinuerlig i punktet $a$?",
       options: ["At grensen finnes og er lik $f(a)$", "At venstre- og høyregrensen finnes", "At $f(a)$ er definert i punktet", "At $f$ er deriverbar i punktet $a$"],
-      explanation: "Kontinuitet krever alle tre: $f(a)$ definert, grensen finnes, og de er like. Alternativ 2 og 3 er hver for seg nødvendige, men ikke tilstrekkelige; deriverbarhet er et sterkere krav enn nødvendig.",
+      explanation: "Kontinuitet krever alle tre: $f(a)$ definert, grensen finnes, og de er like. Svaret «At venstre- og høyregrensen finnes» og 3 er hver for seg nødvendige, men ikke tilstrekkelige; deriverbarhet er et sterkere krav enn nødvendig.",
     },
     {
       question: "$\\lim_{x\\to 3} f(x) = 4$, men $f(3) = 1$. Er $f$ kontinuerlig i $x = 3$?",
@@ -896,7 +896,7 @@ const quizData_mat1100: Record<string, QuizQuestion[]> = {
     {
       question: "At $f$ er høyrekontinuerlig i $a$ betyr at:",
       options: ["$\\lim_{x\\to a^+} f(x) = f(a)$", "$\\lim_{x\\to a^-} f(x) = f(a)$", "$\\lim_{x\\to a} f(x) = \\infty$", "$f(a)$ er større enn grensen"],
-      explanation: "Høyrekontinuitet er at høyregrensen treffer funksjonsverdien. Alternativ 2 er venstrekontinuitet.",
+      explanation: "Høyrekontinuitet er at høyregrensen treffer funksjonsverdien. Svaret «$\lim_{x\to a^-} f(x) = f(a)$» er venstrekontinuitet.",
     },
     {
       question: "Venstre- og høyregrensen finnes, men er ulike. Diskontinuiteten er:",

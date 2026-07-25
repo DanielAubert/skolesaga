@@ -174,7 +174,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "Hva sier Newtons 2. lov?",
       options: ["Resultantkraften er lik masse ganger akselerasjon", "Kraften er lik masse ganger fart", "Resultantkraften er null når farten er konstant", "Krefter opptrer alltid parvis, like store og motsatt rettet"],
-      explanation: "$\\Sigma F = ma$. Alternativ 3 er 1. lov og alternativ 4 er 3. lov — begge sanne, men de svarer ikke på spørsmålet.",
+      explanation: "$\\Sigma F = ma$. Svaret «Resultantkraften er null når farten er konstant» er 1. lov og svaret «Krefter opptrer alltid parvis» er 3. lov — begge sanne, men de svarer ikke på spørsmålet.",
     },
     {
       question: "En kloss beveger seg med konstant fart bortover et gulv. Hva vet du om kreftene?",
@@ -674,7 +674,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "Hva sier arbeid–energi-setningen?",
       options: ["At nettoarbeidet på et legeme er lik endringen i kinetisk energi", "At arbeidet fra tyngden er lik den kinetiske energien", "At summen av kinetisk og potensiell energi alltid er konstant", "At effekten er arbeid delt på tid"],
-      explanation: "Setningen er $W_{\\text{netto}} = \\Delta E_k$, og den gjelder også ved variabel kraft og krum bane. Alternativ 3 er energibevaring uten friksjon (et annet, snevrere utsagn), og alternativ 4 er definisjonen av effekt.",
+      explanation: "Setningen er $W_{\\text{netto}} = \\Delta E_k$, og den gjelder også ved variabel kraft og krum bane. Svaret «At summen av kinetisk og potensiell energi alltid …» er energibevaring uten friksjon (et annet, snevrere utsagn), og svaret «At effekten er arbeid delt på tid» er definisjonen av effekt.",
     },
     {
       question: "En sekk bæres opp en slak trapp som er 3,0 m høy og 6,0 m lang langs trinnene. Hvilken lengde skal inn i $E_p = mgh$?",
@@ -724,7 +724,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "En kjelke med kinetisk energi 400 J bremses av en friksjonskraft på 50 N. Hvor langt glir den før den stopper?",
       options: ["8,0 m", "20 000 m", "0,125 m", "4,0 m"],
-      explanation: "Friksjonen må ta opp hele den kinetiske energien: $Rs = E_k$, altså $s = 400\\ \\text{J}/50\\ \\text{N} = 8{,}0$ m. Alternativ 2 kommer av å gange i stedet for å dele, og alternativ 3 av å snu brøken.",
+      explanation: "Friksjonen må ta opp hele den kinetiske energien: $Rs = E_k$, altså $s = 400\\ \\text{J}/50\\ \\text{N} = 8{,}0$ m. Svaret «20 000 m» kommer av å gange i stedet for å dele, og svaret «0,125 m» av å snu brøken.",
     },
     {
       question: "Hvor stort arbeid gjør normalkraften fra underlaget på en kloss som glir bortover et vannrett gulv?",
@@ -791,7 +791,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "En kloss sklir ut på et vannrett gulv med fart $v$ og friksjonstall $\\mu$. Hvilket uttrykk gir stopplengden?",
       options: ["$s = \\dfrac{v^2}{2\\mu g}$", "$s = \\dfrac{v}{2\\mu g}$", "$s = \\dfrac{mv^2}{2\\mu g}$", "$s = 2\\mu g v^2$"],
-      explanation: "$\\tfrac12 mv^2 = \\mu mgs$ gir $s = v^2/(2\\mu g)$ etter at massen er forkortet bort. Alternativ 3 beholder massen feilaktig, og alternativ 2 glemmer kvadratet.",
+      explanation: "$\\tfrac12 mv^2 = \\mu mgs$ gir $s = v^2/(2\\mu g)$ etter at massen er forkortet bort. Svaret «$s = \dfrac{mv^2}{2\mu g}$» beholder massen feilaktig, og svaret «$s = \dfrac{v}{2\mu g}$» glemmer kvadratet.",
     },
     {
       question: "Hva skjer med stopplengden på et vannrett underlag når farten dobles?",
@@ -1010,7 +1010,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "Havarigruppa måler 25 m bremsespor og anslår $\\mu = 0{,}70$. Hvilken fart hadde vrakene rett etter kollisjonen?",
       options: ["18,5 m/s", "343 m/s", "9,3 m/s", "12,4 m/s"],
-      explanation: "$v' = \\sqrt{2\\mu g s} = \\sqrt{2\\cdot 0{,}70\\cdot 9{,}81\\cdot 25} = \\sqrt{343} = 18{,}5$ m/s. Alternativ 2 er tallet under rottegnet — kvadratroten er glemt.",
+      explanation: "$v' = \\sqrt{2\\mu g s} = \\sqrt{2\\cdot 0{,}70\\cdot 9{,}81\\cdot 25} = \\sqrt{343} = 18{,}5$ m/s. Svaret «343 m/s» er tallet under rottegnet — kvadratroten er glemt.",
     },
     {
       question: "En vogn på 0,80 kg med fart 2,0 m/s kobler seg til en vogn på 1,2 kg i ro. Hva blir felles fart?",
