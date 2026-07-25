@@ -32,8 +32,40 @@ ls src/lib/data/quiz-staging/in1020-*.quiz.json | wc -l   # skal ende på 32
 
 - **Steg 0: ferdig** (BYGGEKONTRAKT.md, BOKCONFIG.json, GJENOPPTAK.md,
   FIGUR-BESTILLINGER.md).
-- **Steg 1: pågår.** Skriv kapitler i rekkefølgen under; commit hvert ferdig
+- **Steg 1: oppdrag B1 FERDIG** (25. juli 2026) — Del 0 og hele Del 1 er på
+  disk og committet, 9 filer:
+
+  | Kapittel | Quiz | Flashcards | Oppgaver | Min |
+  |---|---|---|---|---|
+  | 0.1 Eksamenskartet | 16 / 16 | 14 / 14 | 3 | 35 |
+  | 1.1 Tallsystemer | 22 / 22 | 24 / 24 | 8 | 45 |
+  | 1.2 DRILL tallkonvertering | 26 / 26 | 12 / 12 | 14 | 80 |
+  | 1.3 To-er komplement | 22 / 22 | 22 / 22 | 9 | 45 |
+  | 1.4 LMC instruksjonssett | 22 / 22 | 27 / 26 | 8 | 50 |
+  | 1.5 Maskinkode og selvmodifisering | 20 / 20 | 20 / 20 | 8 | 50 |
+  | 1.6 DRILL LMC | 26 / 26 | 10 / 10 | 14 | 80 |
+  | 1.7 Tegn, formater, farger | 20 / 20 | 24 / 24 | 7 | 45 |
+  | 1.P Prøver til del 1 | — | — | 16 | 115 |
+  | **Sum** | **174 / 174** | **153 / 152** | **87** | **545** |
+
+  Alle porter grønne: `status-bok.py` 8/32 kapitler + prøvekapitlet,
+  `sjekk-latex.py` LATEX-PORT OK, `sjekk-skjelett.py` KVALITETSPORT OK,
+  term-sjekkeren `avvik: 0`.
+
+- **Steg 1: gjenstår B2–B5** (Del 2, 3, 4 og 5 — 27 filer, 523 quiz,
+  403 flashcards). Skriv kapitler i rekkefølgen under; commit hvert ferdig
   kapittel for seg.
+
+### Verktøy bygget underveis (i scratchpad, ikke i repoet)
+
+- **LMC-simulator** (`lmc.py`): monterer et program fra en liste av
+  `(adresse, "MNEM xx")` og kjører det med `spor=True` for full sporetabell.
+  **Alle LMC-programmer i Del 1 er kontrollert mot den**, også de gale
+  alternativene i fyll-inn-oppgavene. Bygg den på nytt før Del 5 —
+  øvingseksamenene trenger den.
+- **Term-porten** (python-versjonen i BYGGEKONTRAKT §N2): sjekker
+  forbudt-termer og pensum-avgrensning på én gang, med nærmeste omsluttende
+  objekt som kontekst. Kjør den etter hvert kapittel.
 
 ## Agent-oppdrag (kapittel-id-er fra SKJELETT.md §4, kvoter fra §5)
 
