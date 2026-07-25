@@ -1,0 +1,329 @@
+{
+  "id": "in1900-8-2",
+  "courseId": "in1900",
+  "chapterNumber": "8.2",
+  "title": "Filskriving, filtrering og fast-bredde-felt",
+  "description": "Skrive en datastruktur tilbake til fil, filtrere uten å endre argumentet, og lese fast-bredde-felt med posisjonsskiving.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne skrive en nøstet ordbok til fil med riktig separator, valgfri header-linje og linjeskift på hver linje",
+    "kunne filtrere en ordbok ved å bygge og returnere en ny, uten å endre argumentet",
+    "kunne forklare hva aliasing er, og hvorfor `ny = data` ikke er en kopi",
+    "kjenne til fast-bredde-lesing med posisjonsskiving, og hva sensor faktisk gir uttelling for der"
+  ],
+  "content": [
+    {
+      "id": "in1900-8-2-tip-eksamen",
+      "type": "tip",
+      "title": "Eksamensvinkel: dette er del (b) og (c) av fillesingsoppgaven",
+      "content": "Fillesingsoppgaven — **sjanger L**, altså «les fila og bygg datastrukturen» — er tredelt i de fleste settene: (a) les fila til en nøstet ordbok, (b) skriv en datastruktur tilbake til fil, (c) filtrer og returner en **ny** ordbok. Del (a) var [kap. 8.1](/bok/in1900/in1900-8-1); dette kapitlet er (b) og (c).\n\nHele oppgaven teller **8–12 poeng** og forekommer i **8 av 8 gjennomgåtte avsluttende sett (100 %)**. Skriving og filtrering er den lettere halvparten: hver deloppgave er 2–4 poeng, og de vurderes uavhengig — bommer du på (a), kan du fortsatt få full uttelling på (b) og (c) ved å skrive dem som om (a) var riktig. Prioriteten er derfor **må kunne**.\n\nTil slutt i kapitlet står **fast-bredde-lesing**, altså filer der feltene ikke skilles av et tegn men står i faste kolonner. Den er merket **bør kjenne til**: den har vært innom ett sett, teller lite, og sensor belønner riktig tenkning selv når kolonnetallene er feil. Les den sist, og ikke bruk mye tid på den før resten sitter."
+    },
+    {
+      "id": "in1900-8-2-forkunnskaper",
+      "type": "text",
+      "content": "## Sist du var her\n\nFra [kap. 8.1](/bok/in1900/in1900-8-1) tar vi med oss den nøstede ordboka og to måter å gå gjennom den på. Her er de oppfrisket med kjørt utskrift.\n\n**1. Strukturen vi skriver ut og filtrerer.** Ytre nøkkel er stasjonsnavnet, indre nøkler er feltnavnene.\n\n```python\ndata = {'Kvitheia': {'temp': 7.9, 'nedbor': 1180},\n        'Nordvika': {'temp': 3.1, 'nedbor': 980}}\nfor navn, verdier in data.items():\n    print(f'{navn:10s}{verdier[\"nedbor\"]:6d}')\n```\n\n**Utskrift:**\n```\nKvitheia    1180\nNordvika     980\n```\n\n`.items()` gir nøkkel og verdi samtidig, og f-strengene `f'{navn:10s}'` og `f'{...:6d}'` gir fast feltbredde. Nøyaktig samme f-strenger brukes når linjene skal skrives til fil.\n\n**2. Innlesingsmønsteret vi bygger videre på.** Denne funksjonen fra [kap. 8.1](/bok/in1900/in1900-8-1) gjenbrukes flere steder i kapitlet, så du kan slå tilbake hit:\n\n```python\ndef les_stasjoner(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            navn, temp, nedbor = line.strip().split(';')\n            data[navn] = {'temp': float(temp), 'nedbor': int(nedbor)}\n    return data\n\nprint(len(les_stasjoner('stasjoner.txt')))\n```\n\n**Utskrift:**\n```\n4\n```\n\nDatafila er den samme som i forrige kapittel, og **du kan lage den selv på to sekunder** — en tekstfil `stasjoner.txt` med disse fire linjene i samme mappe som programmet:\n\n```\nKvitheia;7.9;1180\nSandvollen;5.4;760\nOspedalen;8.6;1420\nNordvika;3.1;980\n```\n\nTrenger du å friske opp f-strenger, står de i [kap. 1.4](/bok/in1900/in1900-1-4); ordbøker i [kap. 1.5](/bok/in1900/in1900-1-5)."
+    },
+    {
+      "id": "in1900-8-2-loop1",
+      "type": "text",
+      "content": "## Løkke 1 — Skrive en datastruktur til fil (~15 min)\n\nEt program som leser målinger, regner ut noe og bare skriver svaret i terminalen, har mistet resultatet i det du lukker vinduet. Derfor ber eksamensoppgaven deg lagre. Skrivingen er kortere enn lesingen: åpne fila i skrivemodus, og skriv én streng per linje.\n\nEtt grep skiller seg fra alt annet du har gjort med `print`: **du må sette linjeskiftet inn selv**."
+    },
+    {
+      "id": "in1900-8-2-def-1",
+      "type": "definition",
+      "title": "`with open(filnavn, 'w') as outfile:`",
+      "content": "Åpner fila for **skriving**. Det andre argumentet er modusen: `'w'` betyr *write*. Finnes ikke fila, opprettes den. Finnes den, blir innholdet **slettet** i samme øyeblikk fila åpnes — også hvis du ikke skriver noe etterpå. Det er ikke en advarsel om noe uvanlig; det er den normale oppførselen, og den er verdt å vite når du tester koden på ekte data.\n\nSom ved lesing lukkes fila automatisk når `with`-blokken slutter. Navnet `outfile` er konvensjonen sensor forventer.\n\n```python\nwith open('demo3.txt', 'w') as outfile:\n    outfile.write('første kjøring\\n')\nwith open('demo3.txt', 'w') as outfile:\n    outfile.write('andre kjøring\\n')\nwith open('demo3.txt') as infile:\n    n = 0\n    for line in infile:\n        n += 1\n        print(line, end='')\nprint(n)\n```\n\n**Utskrift:**\n```\nandre kjøring\n1\n```\n\nDen første linja er borte. Fila inneholder bare det siste `with`-blokken skrev."
+    },
+    {
+      "id": "in1900-8-2-def-2",
+      "type": "definition",
+      "title": "`outfile.write(tekst)`",
+      "content": "Skriver strengen `tekst` til fila, nøyaktig slik den står — **uten** å legge til linjeskift. Vil du ha én linje per oppføring, må du selv avslutte med `'\\n'`. Det er den ene forskjellen fra `print`, og den vanligste feilen i deloppgaven.\n\n`write` godtar bare strenger. Har du et tall, må det konverteres med `str(...)` eller settes inn i en f-streng; ellers får du `TypeError`.\n\n```python\nwith open('demo2.txt', 'w') as outfile:\n    outfile.write(1180)\n```\n\nSiste linje i feilmeldingen er:\n\n**Utskrift:**\n```\nTypeError: write() argument must be str, not int\n```"
+    },
+    {
+      "id": "in1900-8-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: skriv en ordbok til fil, og les den tilbake",
+      "problem": "En ordbok knytter stasjonsnavn til årsnedbør. Skriv den til `sum.txt` med semikolon mellom feltene, én stasjon per linje, og vis at fila ble som tenkt.",
+      "solution": "Vi skriver med `str(...)` rundt tallet, og leser fila tilbake med lesemønsteret fra forrige kapittel. Å lese tilbake er den eneste måten å **se** at skrivingen ble riktig, og en god vane når du tester.\n\n```python\ndata = {'Kvitheia': 1180, 'Sandvollen': 760, 'Ospedalen': 1420}\n\nwith open('sum.txt', 'w') as outfile:\n    for navn in data:\n        outfile.write(navn + ';' + str(data[navn]) + '\\n')\n\nwith open('sum.txt') as infile:\n    for line in infile:\n        print(line, end='')\n```\n\n**Utskrift:**\n```\nKvitheia;1180\nSandvollen;760\nOspedalen;1420\n```\n\n`print(line, end='')` brukes fordi `line` alt har linjeskiftet i seg — hadde vi brukt vanlig `print`, ville det blitt en blank linje mellom hver stasjon. Merk at fila står i **innsettingsrekkefølgen** til ordboka."
+    },
+    {
+      "id": "in1900-8-2-opg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-2-opg-1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Programmet skriver til en fil og leser den tilbake. Hva blir utskriften?\n\n```python\ndata = {'Nordvika': 980, 'Kvitheia': 1180}\nwith open('x1.txt', 'w') as outfile:\n    for navn in data:\n        outfile.write(navn + ' ' + str(data[navn]) + '\\n')\n\nwith open('x1.txt') as infile:\n    for line in infile:\n        print(line, end='')\n```",
+        "solution": "**Sporingstavle.**\n\n| Runde | `navn` | Strengen som skrives |\n|---|---|---|\n| 1 | `'Nordvika'` | `'Nordvika 980\\n'` |\n| 2 | `'Kvitheia'` | `'Kvitheia 1180\\n'` |\n\nFila har da to linjer. Tilbakelesingen skriver dem ut med `end=''`, altså uten ekstra linjeskift.\n\n**Utskrift:**\n```\nNordvika 980\nKvitheia 1180\n```\n\nFellen er rekkefølgen: en ordbok bevarer **innsettingsrekkefølgen**, ikke alfabetisk rekkefølge, så `Nordvika` kommer først fordi den ble satt inn først.",
+        "hints": [
+          "Skriv ned den nøyaktige strengen `write` får i hver runde.",
+          "Hvilken rekkefølge går `for navn in data` i?",
+          "`print(line, end='')` gir ikke ekstra linjeskift — linja har alt sitt eget."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil: glemt `'\\n'` — alt havner på én linje",
+      "content": "Glemmer du linjeskiftet, skriver `write` oppføringene rett etter hverandre. Fila blir syntaktisk «gyldig», men datastrukturen er ødelagt, og feilen viser seg først når noen skal lese fila igjen:\n\n```python\ndata = {'Kvitheia': 1180, 'Sandvollen': 760}\n\nwith open('uten_linjeskift.txt', 'w') as outfile:\n    for navn in data:\n        outfile.write(navn + ';' + str(data[navn]))\n\nwith open('uten_linjeskift.txt') as infile:\n    linjer = 0\n    for line in infile:\n        linjer += 1\n        print('[' + line + ']')\nprint('Antall linjer:', linjer)\n```\n\n**Utskrift:**\n```\n[Kvitheia;1180Sandvollen;760]\nAntall linjer: 1\n```\n\nLegg merke til `1180Sandvollen`: tallet og neste navn har grodd sammen. Leser du fila tilbake med `.split(';')`, får du feltet `'1180Sandvollen'`, og `int()` på det gir `ValueError`.\n\nVanen som fjerner feilen: skriv `'\\n'` som **siste** ledd i hver `write`, og gjør det samtidig som du skriver selve linja — aldri som noe du skal huske etterpå.\n\n**Den andre halvdelen av samme felle** er å skrive tall direkte: `outfile.write(data[navn])` gir `TypeError: write() argument must be str, not int`. Bruk `str(...)` eller en f-streng."
+    },
+    {
+      "id": "in1900-8-2-def-3",
+      "type": "definition",
+      "title": "Formatert linje til fil: `outfile.write(f'…\\n')`",
+      "content": "Den idiomatiske skrivemåten når linja har flere felt: bygg hele linja som en f-streng, med separator og linjeskift inne i strengen, og send den til `write` i én bevegelse. Formatspesifikatorene er de samme som i `print`: `f'{x:.1f}'` gir én desimal, `f'{n:d}'` gir et heltall, `f'{navn:10s}'` gir fast tekstbredde.\n\nFordelen er at antall desimaler i fila blir kontrollert. Uten formatering skriver Python flyttall med alle sifrene sine, og filer med `7.900000000000001` er vondt å lese.\n\n```python\nd = {'Vest': {'ph': 7.4}, 'Aust': {'ph': 8.1}}\nfor stasjon, verdier in d.items():\n    print(f'{stasjon};{verdier[\"ph\"]:.2f}')\n```\n\n**Utskrift:**\n```\nVest;7.40\nAust;8.10\n```\n\nHer går linjene til skjermen for å vises, men strengene er nøyaktig de samme du ville sendt til `write` — med `'\\n'` lagt til på slutten."
+    },
+    {
+      "id": "in1900-8-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: skriv en nøstet ordbok med header-linje",
+      "problem": "Skriv en nøstet ordbok til `rapport.txt` slik at fila kan leses tilbake av innlesingsmønsteret fra forrige kapittel: én header-linje med kolonnenavn, deretter én linje per stasjon med semikolon mellom feltene.",
+      "solution": "Headeren skrives én gang, **før** løkka. Deretter én f-streng per stasjon.\n\n```python\ndata = {'Kvitheia': {'temp': 7.9, 'nedbor': 1180},\n        'Nordvika': {'temp': 3.1, 'nedbor': 980}}\n\nwith open('rapport.txt', 'w') as outfile:\n    outfile.write('stasjon;temp;nedbor\\n')\n    for navn, verdier in data.items():\n        outfile.write(f'{navn};{verdier[\"temp\"]:.1f};{verdier[\"nedbor\"]:d}\\n')\n\nwith open('rapport.txt') as infile:\n    for line in infile:\n        print('[' + line.strip() + ']')\n```\n\n**Utskrift:**\n```\n[stasjon;temp;nedbor]\n[Kvitheia;7.9;1180]\n[Nordvika;3.1;980]\n```\n\nFila er nå symmetrisk med innlesingen: skriver du en header, må leseren hoppe over den med `readline()`. Skriver du ingen, må leseren **ikke** gjøre det. Nevn valget i en kommentar hvis oppgaveteksten ikke sier hva som forventes — det er en rimelig antakelse som skal dokumenteres, og sensor godtar begge så lenge du er konsekvent."
+    },
+    {
+      "id": "in1900-8-2-opg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-2-opg-2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger L — skriv en datastruktur til fil.) Gitt en nøstet ordbok med stasjonsnavn som nøkkel og `{'temp': ..., 'nedbor': ...}` som verdi.\n\n**a)** Skriv `skriv_til_fil(data, filnavn)` som lagrer strukturen med en header-linje `stasjon;temp;nedbor` og deretter én semikolonseparert linje per stasjon.\n\n**b)** Kall funksjonen på en ordbok med Kvitheia (7.9, 1180) og Ospedalen (8.6, 1420), og les fila tilbake for å vise resultatet.",
+        "solution": "**a)** Header først, så én f-streng per oppføring, alle med `'\\n'` til slutt.\n\n**b)** Tilbakelesingen bruker `print(line, end='')`, siden linjene alt har linjeskift.\n\n```python\ndef skriv_til_fil(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('stasjon;temp;nedbor\\n')\n        for navn, verdier in data.items():\n            outfile.write(f'{navn};{verdier[\"temp\"]};{verdier[\"nedbor\"]}\\n')\n\n\ndata = {'Kvitheia': {'temp': 7.9, 'nedbor': 1180},\n        'Ospedalen': {'temp': 8.6, 'nedbor': 1420}}\nskriv_til_fil(data, 'x2.txt')\nwith open('x2.txt') as infile:\n    for line in infile:\n        print(line, end='')\n```\n\n**Utskrift:**\n```\nstasjon;temp;nedbor\nKvitheia;7.9;1180\nOspedalen;8.6;1420\n```\n\n**Dette gir uttelling:** `with open(filnavn, 'w')` (1 p), header skrevet én gang før løkka (1 p), løkke over `.items()` med f-streng og `'\\n'` (2 p). Bruker du `str(...)` og `+` i stedet for f-streng, er det like riktig. Glemmer du `'\\n'`, mister du ett poeng — ikke oppgaven.",
+        "hints": [
+          "Header-linja skal skrives én gang, utenfor løkka.",
+          "Hver linje bygges som én f-streng med semikolon mellom feltene.",
+          "Husk at `write` ikke legger til linjeskift."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-2-loop2",
+      "type": "text",
+      "content": "## Løkke 2 — Filtrering uten å ødelegge originalen (~20 min)\n\n— naturlig pausepunkt —\n\nDel (c) lyder nesten alltid slik: «skriv en funksjon som returnerer en **ny** ordbok med bare de oppføringene som oppfyller et krav, **uten å endre** argumentet». De to uthevede ordene er hele oppgaven, og de er der fordi det er det man gjør galt.\n\nGrunnen til at kravet stilles, er praktisk: den som kaller funksjonen din, skal fortsatt ha hele datasettet etterpå. En filterfunksjon som spiser originalen, er ubrukelig i et program som skal filtrere på flere grenser."
+    },
+    {
+      "id": "in1900-8-2-thm-1",
+      "type": "theorem",
+      "title": "Filtreringsmønsteret: bygg og returner en ny ordbok",
+      "content": "Fire steg, og de er alltid de samme:\n\n1. Lag en tom ordbok: `ny = {}`.\n2. Gå gjennom originalen med `for nøkkel, verdi in data.items():`.\n3. Test betingelsen med `if`, og sett bare de kvalifiserte inn i `ny`.\n4. `return ny` — utenfor løkka.\n\nOriginalen leses, aldri skrives. I kode:\n\n```python\ndef storre_enn(d, grense):\n    ny = {}\n    for k, v in d.items():\n        if v > grense:\n            ny[k] = v\n    return ny\n\nd = {'Kvitheia': 1180, 'Sandvollen': 760}\nprint(storre_enn(d, 1000))\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Kvitheia': 1180}\n{'Kvitheia': 1180, 'Sandvollen': 760}\n```\n\nNederste linje er beviset: originalen er urørt. Nettopp den utskriften er det oppgaven ber deg vise, og sensor ser etter tre ting — at `ny` opprettes tom, at betingelsen står i en `if` inne i løkka, og at `return` står utenfor."
+    },
+    {
+      "id": "in1900-8-2-def-4",
+      "type": "definition",
+      "title": "`ny = {}` og `for nøkkel, verdi in data.items():`",
+      "content": "Filtreringens to faste linjer. Den tomme ordboka `ny` er der resultatet samles; `.items()` gir nøkkel og verdi samtidig, slik at betingelsen kan stilles på verdien og nøkkelen tas med videre.\n\nEr verdien selv en ordbok (nøstet struktur), stiller du betingelsen på et av de indre feltene: `if verdier['nedbor'] > grense:`. Skriv da inn en **ny** indre ordbok med de feltene du vil beholde — det gjør resultatet helt uavhengig av originalen.\n\n```python\ndata = {'Kvitheia': {'temp': 7.9}, 'Nordvika': {'temp': 3.1}}\nny = {}\nfor navn, verdier in data.items():\n    if verdier['temp'] > 5.0:\n        ny[navn] = {'temp': verdier['temp']}\nprint(ny, len(data))\n```\n\n**Utskrift:**\n```\n{'Kvitheia': {'temp': 7.9}} 2\n```"
+    },
+    {
+      "id": "in1900-8-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: `mye_nedbor` — filtrer en nøstet ordbok",
+      "problem": "Skriv `mye_nedbor(data, grense)` som returnerer en ny nøstet ordbok med bare stasjonene som har mer nedbør enn `grense`. Argumentet skal ikke endres. Vis at originalen fortsatt har alle fire stasjonene.",
+      "solution": "Den indre ordboka bygges på nytt, felt for felt, slik at hverken den ytre eller de indre ordbøkene deles med originalen.\n\n```python\ndef mye_nedbor(data, grense):\n    ny = {}\n    for navn, verdier in data.items():\n        if verdier['nedbor'] > grense:\n            ny[navn] = {'temp': verdier['temp'], 'nedbor': verdier['nedbor']}\n    return ny\n\n\ndata = {'Kvitheia': {'temp': 7.9, 'nedbor': 1180},\n        'Sandvollen': {'temp': 5.4, 'nedbor': 760},\n        'Ospedalen': {'temp': 8.6, 'nedbor': 1420},\n        'Nordvika': {'temp': 3.1, 'nedbor': 980}}\n\nvaate = mye_nedbor(data, 1000)\nprint(vaate)\nprint(len(data), len(vaate))\n```\n\n**Utskrift:**\n```\n{'Kvitheia': {'temp': 7.9, 'nedbor': 1180}, 'Ospedalen': {'temp': 8.6, 'nedbor': 1420}}\n4 2\n```\n\n`4 2` er det tallparet oppgaven vil se: fire i originalen, to i resultatet. Merk at grensen er **streng** (`>`), så en stasjon med nøyaktig 1000 mm ville falt utenfor. Sier oppgaveteksten «minst», skal det være `>=` — les kravet ordrett, og skriv en kommentar hvis det er tvetydig."
+    },
+    {
+      "id": "in1900-8-2-opg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-2-opg-3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger L — filtrer uten å endre argumentet.) Bruk samme struktur som i Eksempel 3.\n\n**a)** Skriv `kalde(data, grense)` som returnerer en ny nøstet ordbok med bare stasjonene der `'temp'` er **lavere** enn `grense`. Argumentet skal være urørt etterpå.\n\n**b)** Kall funksjonen med grensen 6.0 på Kvitheia (7.9, 1180), Sandvollen (5.4, 760) og Nordvika (3.1, 980), og skriv ut både resultatet og antall oppføringer i originalen.",
+        "solution": "**a)** Samme mønster som Eksempel 3, med `<` i stedet for `>`.\n\n**b)** `len(data)` etter kallet viser at originalen er urørt.\n\n```python\ndef kalde(data, grense):\n    ny = {}\n    for navn, verdier in data.items():\n        if verdier['temp'] < grense:\n            ny[navn] = {'temp': verdier['temp'], 'nedbor': verdier['nedbor']}\n    return ny\n\n\ndata = {'Kvitheia': {'temp': 7.9, 'nedbor': 1180},\n        'Sandvollen': {'temp': 5.4, 'nedbor': 760},\n        'Nordvika': {'temp': 3.1, 'nedbor': 980}}\nprint(kalde(data, 6.0))\nprint(len(data))\n```\n\n**Utskrift:**\n```\n{'Sandvollen': {'temp': 5.4, 'nedbor': 760}, 'Nordvika': {'temp': 3.1, 'nedbor': 980}}\n3\n```\n\n**Dette gir uttelling:** `ny = {}` (1 p), løkke over `.items()` med `if`-betingelse på riktig felt (2 p), `return ny` utenfor løkka (1 p). Rekkefølgen i resultatet er den originalen hadde — det er ingen sortering her, og oppgaven ber ikke om det.",
+        "hints": [
+          "Start med `ny = {}` og la originalen være urørt.",
+          "Betingelsen står på det indre feltet: `verdier['temp'] < grense`.",
+          "`return` skal stå utenfor løkka, ellers returnerer du etter første oppføring."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-2-warn-2",
+      "type": "warning",
+      "title": "Typiske feil: å endre argumentet i stedet for å lage en ny ordbok",
+      "content": "**Feil #20 — mutasjon av argumentet.** Den tilsynelatende snarveien `ny = data` lager **ikke** en kopi. Den gir bare et nytt navn på samme ordbok, så alt du gjør med `ny`, skjer med `data`:\n\n```python\ndef mye_nedbor_feil(data, grense):\n    ny = data\n    for navn in ny:\n        if ny[navn]['nedbor'] <= grense:\n            ny[navn]['nedbor'] = 0\n    return ny\n\n\ndata = {'Kvitheia': {'nedbor': 1180}, 'Sandvollen': {'nedbor': 760}}\nresultat = mye_nedbor_feil(data, 1000)\nprint(resultat)\nprint(data)\n```\n\n**Utskrift:**\n```\n{'Kvitheia': {'nedbor': 1180}, 'Sandvollen': {'nedbor': 0}}\n{'Kvitheia': {'nedbor': 1180}, 'Sandvollen': {'nedbor': 0}}\n```\n\nDe to linjene er identiske: originalen er ødelagt, og Sandvollens 760 mm er borte for godt. Dette er **feil #23**, aliasing — to navn på samme objekt. Funksjonen returnerer heller ikke det oppgaven ba om; den returnerer alle stasjonene, med nuller i stedet for de bortfiltrerte.\n\nRegelen er enkel og uten unntak i denne sjangeren: **skriv aldri `ny = data`**. Skriv `ny = {}`, og bygg opp."
+    },
+    {
+      "id": "in1900-8-2-def-5",
+      "type": "definition",
+      "title": "Aliasing: `ny[navn] = verdier` deler den indre ordboken",
+      "content": "En finere variant av samme felle. Setter du inn hele verdien slik den står — `ny[navn] = verdier` — får du en ny **ytre** ordbok, men de indre ordbøkene er de samme objektene som i originalen. Endrer noen et indre felt i resultatet, endres originalen også.\n\nFor eksamen er dette godt nok: oppgaven ber om en ny ordbok, og en ny ytre ordbok er en ny ordbok. Men skal resultatet være helt uavhengig, bygger du den indre på nytt: `ny[navn] = {'temp': verdier['temp'], 'nedbor': verdier['nedbor']}`.\n\n```python\ndata = {'Kvitheia': {'nedbor': 1180}, 'Nordvika': {'nedbor': 980}}\nny = {}\nfor navn, verdier in data.items():\n    if verdier['nedbor'] > 900:\n        ny[navn] = verdier\nny['Kvitheia']['nedbor'] = 0\nprint(ny)\nprint(data)\n```\n\n**Utskrift:**\n```\n{'Kvitheia': {'nedbor': 0}, 'Nordvika': {'nedbor': 980}}\n{'Kvitheia': {'nedbor': 0}, 'Nordvika': {'nedbor': 980}}\n```\n\nNullen slo gjennom til originalen, selv om den ytre ordboka var ny."
+    },
+    {
+      "id": "in1900-8-2-opg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-2-opg-4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver dette programmet ut?\n\n```python\ndef rens(data):\n    for navn in data:\n        data[navn] = data[navn] * 2\n    return data\n\n\nd = {'a': 3, 'b': 5}\ne = rens(d)\nprint(e)\nprint(d)\nprint(len(d), len(e))\n```",
+        "solution": "**Sporingstavle.** Funksjonen endrer ordboka den fikk inn — den lager ingen ny.\n\n| Runde | `navn` | `data` etter tilordning |\n|---|---|---|\n| 1 | `'a'` | `{'a': 6, 'b': 5}` |\n| 2 | `'b'` | `{'a': 6, 'b': 10}` |\n\n`return data` returnerer **samme** ordbok, så `e` og `d` er to navn på ett og samme objekt. Begge utskriftene viser derfor det endrede innholdet, og begge har to nøkler.\n\n**Utskrift:**\n```\n{'a': 6, 'b': 10}\n{'a': 6, 'b': 10}\n2 2\n```\n\nFellen er #23, aliasing: den som venter at `d` er urørt fordi endringen skjedde «inne i en funksjon», tenker på **scope** for variabelnavn (feil #13) og glemmer at ordboka selv er ett delt objekt. Merk at tilordningen `data[navn] = ...` inne i løkka er trygg her fordi den bare endrer verdier — hadde den lagt til nye nøkler, ville løkka krasjet.",
+        "hints": [
+          "Endrer `rens` ordboka den fikk inn, eller lager den en ny?",
+          "Hva returnerer `return data` — en kopi eller det samme objektet?",
+          "Skriv ned innholdet i ordboka etter hver runde i løkka."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-2-opg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-2-opg-5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger L — les, filtrer og skriv.) Fila `stasjoner.txt` er den fra Forkunnskaper: `navn;temp;nedbor`, uten header.\n\n**a)** Bruk `les_stasjoner` fra [kap. 8.1](/bok/in1900/in1900-8-1) og skriv `kalde_stasjoner(data, grense)` som returnerer en ny ordbok med stasjonene under en temperaturgrense, uten å endre argumentet.\n\n**b)** Skriv `skriv(data, filnavn)` som lagrer en slik ordbok til fil med linjer `navn;temp` og temperaturen med én desimal.\n\n**c)** Kjør hele kjeden med grensen 5.0: skriv ut den filtrerte ordboka, antall oppføringer i original og resultat, og innholdet i fila.",
+        "solution": "Tre funksjoner, hver med sin oppgave. Legg merke til at ingen av dem endrer noe de har fått inn.\n\n```python\ndef kalde_stasjoner(data, grense):\n    ny = {}\n    for navn, verdier in data.items():\n        if verdier['temp'] < grense:\n            ny[navn] = {'temp': verdier['temp'], 'nedbor': verdier['nedbor']}\n    return ny\n\n\ndef skriv(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        for navn, verdier in data.items():\n            outfile.write(f'{navn};{verdier[\"temp\"]:.1f}\\n')\n```\n\nSå kjeden. `les_stasjoner` er som i [kap. 8.1](/bok/in1900/in1900-8-1) og gjentas ikke:\n\n```python\ndata = les_stasjoner('stasjoner.txt')\nkalde = kalde_stasjoner(data, 5.0)\nskriv(kalde, 'kalde.txt')\nprint(kalde)\nprint(len(data), len(kalde))\nwith open('kalde.txt') as infile:\n    for line in infile:\n        print(line, end='')\n```\n\n**Utskrift:**\n```\n{'Nordvika': {'temp': 3.1, 'nedbor': 980}}\n4 1\nNordvika;3.1\n```\n\nBare Nordvika er under 5,0 grader — Sandvollen ligger på 5,4 og faller utenfor.\n\n**Dette gir uttelling:** filterfunksjonen med `ny = {}`, `if` og `return` utenfor løkka (3 p), skrivefunksjonen med `'w'`, f-streng og `'\\n'` (3 p), riktig sammenkobling av de tre kallene (1 p), og at originalen er urørt, vist med `len` (1 p). Deloppgavene vurderes uavhengig: en feil i (b) koster ikke poengene i (a).\n\n**Selvdiagnose:** ☐ opprettet du `ny = {}` i stedet for `ny = data`? ☐ står `return` utenfor løkka? ☐ endte hver `write` på `'\\n'`? ☐ ble temperaturen formatert med én desimal?",
+        "hints": [
+          "Tre funksjoner: én filtrerer, én skriver, og innlesingen har du fra forrige kapittel.",
+          "Filteret starter med `ny = {}` — aldri `ny = data`.",
+          "Skrivelinja er én f-streng som slutter på `'\\n'`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-2-loop3",
+      "type": "text",
+      "content": "## Løkke 3 — Fast-bredde-felt (bør kjenne til) (~10 min)\n\n**Dette delkapitlet er merket «bør kjenne til».** Det har vært innom ett av de gjennomgåtte settene og teller få poeng. Les det når resten av kapitlet sitter, ikke før.\n\nNoen datafiler har ingen separator. Feltene står i stedet i **faste kolonner**, slik målestasjoner og observatorier har lagret data i femti år: tegn 1–11 er navnet, tegn 12–19 er datoen, og så videre. Da kan ikke `.split()` brukes til noe — det finnes ikke noe skilletegn å dele på. I stedet klipper du ut tegnposisjoner med slicing.\n\nFila under bruker faste kolonner. **Du kan lage den selv**, men vær nøye: mellomrommene er data her, så antall mellomrom må stemme.\n\n**Innholdet i `dybder.txt`:**\n```\nKvitheia   20240301   4.2  118\nSandvollen 20240301  -1.8   43\nOspedalen  20240302   6.5  205\n```\n\nHver linje er nøyaktig 30 tegn: navn i posisjon 0–10, dato i 11–18, temperatur i 19–24 og snødybde i 25–29."
+    },
+    {
+      "id": "in1900-8-2-def-6",
+      "type": "definition",
+      "title": "`line[a:b]` — fast-bredde-felt",
+      "content": "Slicing på linja klipper ut tegnene fra posisjon `a` til og med `b-1` — slutten er **eksklusiv**, som alltid ved slicing. Resultatet er en streng som typisk har mellomrom rundt seg, så `.strip()` må på hvert utsnitt før du bruker det. Tallfelt må i tillegg konverteres.\n\nVær oppmerksom på at Python teller fra 0, mens kolonnebeskrivelser i dokumentasjon ofte teller fra 1. «Feltet står i kolonne 1–11» blir `line[0:11]` i Python.\n\n```python\nline = 'Kvitheia   20240301   4.2  118\\n'\nprint('[' + line[0:11] + ']')\nprint('[' + line[11:19] + ']')\nprint('[' + line[19:25] + ']')\nprint('[' + line[25:30] + ']')\n```\n\n**Utskrift:**\n```\n[Kvitheia   ]\n[20240301]\n[   4.2]\n[  118]\n```\n\nMerk at `float('   4.2')` og `int('  118')` fungerer selv uten `.strip()` — tallkonvertering tåler blanktegn. Det er tekstfeltene som må strippes."
+    },
+    {
+      "id": "in1900-8-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: les en kolonnefil til nøstet ordbok",
+      "problem": "Les `dybder.txt` til en ordbok med stasjonsnavn som ytre nøkkel, dato som neste nøkkel, og `{'temp': ..., 'dybde': ...}` innerst.",
+      "solution": "Fire slicing-uttrykk erstatter `.split()`. Resten av mønsteret — den ytre sjekken, typekonverteringen — er identisk med det du kjenner.\n\n```python\ndata = {}\nwith open('dybder.txt') as infile:\n    for line in infile:\n        navn = line[0:11].strip()\n        dato = line[11:19]\n        temp = float(line[19:25])\n        dybde = int(line[25:30])\n        if navn not in data:\n            data[navn] = {}\n        data[navn][dato] = {'temp': temp, 'dybde': dybde}\n\nprint(data['Sandvollen'])\nprint(data['Ospedalen']['20240302']['dybde'])\n```\n\n**Utskrift:**\n```\n{'20240301': {'temp': -1.8, 'dybde': 43}}\n205\n```\n\nBare navnet trenger `.strip()`; datoen fyller hele feltet sitt, og tallene konverteres uansett. Å skrive `.strip()` på alle fire er likevel trygt og koster ingenting."
+    },
+    {
+      "id": "in1900-8-2-warn-3",
+      "type": "warning",
+      "title": "Typiske feil: kolonneposisjoner du ikke kan telle deg fram til",
+      "content": "Å treffe kolonnegrensene helt riktig på en hjelpemiddelfri eksamen er nesten umulig — du sitter uten fila, med bare oppgavetekstens gjengivelse, og skal telle mellomrom i hodet. **Det vet sensor.** Uttellingen ligger i å vise at du forstår metoden: slicing på faste posisjoner, `.strip()` på tekstfeltene, typekonvertering på tallfeltene, og resten av mønsteret som før. Bommer du med ett tegn på grensene, mister du kanskje et halvt poeng.\n\nSå: skriv koden med de tallene du kommer fram til, og legg til en kommentar om hva du antar. En rimelig antakelse dokumentert i en kommentar er nettopp det sensor ber om når oppgaveteksten er underspesifisert:\n\n```python\nline = 'Sandvollen 20240301  -1.8   43\\n'\n# antar navn i posisjon 0-10, dato 11-18, temp 19-24, dybde 25-29\nprint(int(line[25:30]), float(line[19:25]))\n```\n\n**Utskrift:**\n```\n43 -1.8\n```\n\nDen andre fellen er å glemme `.strip()` på tekstfeltene. `line[0:11]` er `'Sandvollen '` med et mellomrom på slutten, og brukt som ordboknøkkel gir det en nøkkel du aldri finner igjen når du senere slår opp `'Sandvollen'`."
+    },
+    {
+      "id": "in1900-8-2-opg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-2-opg-6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Bør kjenne til, sjanger L — fast-bredde-felt.) Bruk `dybder.txt` fra dette delkapitlet, med snødybden i posisjon 25–29.\n\n**a)** Skriv koden som summerer snødybden over alle tre linjene og skriver ut summen, antall linjer og gjennomsnittet med én desimal.\n\n**b)** Forklar i én setning hvorfor `.split()` ikke kan brukes på denne fila.",
+        "solution": "**a)** Akkumulatormønsteret, med slicing i stedet for `.split()`.\n\n```python\nwith open('dybder.txt') as infile:\n    total = 0\n    n = 0\n    for line in infile:\n        total += int(line[25:30])\n        n += 1\nprint(total, n)\nprint(f'{total / n:.1f}')\n```\n\n**Utskrift:**\n```\n366 3\n122.0\n```\n\n**b)** Fila har ingen separator mellom feltene — mellomrommene er utfylling som gjør at kolonnene står under hverandre, og antallet varierer fra linje til linje. Bar `.split()` ville delt på blanktegn og gitt fire biter her, men da faller kolonnestrukturen bort, og navn som består av to ord (for eksempel `Store Kvitheia`) ville gitt fem biter på den linja og ødelagt indekseringen.\n\n**Dette gir uttelling:** riktig slicing-posisjon eller en posisjon som er nær nok med dokumentert antakelse (1 p), akkumulatorløkka (1 p), gjennomsnittet med formatering (1 p), begrunnelsen i (b) (1 p).",
+        "hints": [
+          "Feltet klippes ut med `line[25:30]` og konverteres med `int`.",
+          "Bruk `total = 0` og `n = 0` før løkka.",
+          "Gjennomsnittet formateres med `f'{...:.1f}'`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-2-opg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-2-opg-7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal skrive en ordbok til fil, én stasjon per linje, og lese den tilbake. Utskriften blir feil.\n\n```python\ndata = {'Kvitheia': 1180, 'Ospedalen': 1420}\nwith open('x3.txt', 'w') as outfile:\n    for navn in data:\n        outfile.write(navn + ';' + str(data[navn]))\n\nwith open('x3.txt') as infile:\n    for line in infile:\n        print(line.strip().split(';'))\n```\n\n**a)** Hva skriver programmet ut, og hva var meningen?\n\n**b)** Rett feilen, og vis den nye utskriften.",
+        "solution": "**a)** Programmet skriver:\n\n**Utskrift:**\n```\n['Kvitheia', '1180Ospedalen', '1420']\n```\n\nMeningen var to linjer med to felt hver. I stedet er alt skrevet som **én** linje, fordi `write` ikke legger til linjeskift og programmet ikke gjør det selv. Tilbakelesingen finner da bare én linje, og den har tre felt der `1180Ospedalen` er tallet fra første stasjon grodd sammen med navnet på den andre. Skulle noen konvertert det feltet med `int()`, ville de fått `ValueError`.\n\n**b)** Feilen rettes med ett tillegg: `+ '\\n'` som siste ledd i `write`.\n\n```python\ndata = {'Kvitheia': 1180, 'Ospedalen': 1420}\nwith open('x3.txt', 'w') as outfile:\n    for navn in data:\n        outfile.write(navn + ';' + str(data[navn]) + '\\n')\n\nwith open('x3.txt') as infile:\n    for line in infile:\n        print(line.strip().split(';'))\n```\n\n**Utskrift:**\n```\n['Kvitheia', '1180']\n['Ospedalen', '1420']\n```\n\n**Dette gir uttelling:** å beskrive symptomet presist — én linje i stedet for to, med to felt smeltet sammen (2 p), å navngi årsaken, at `write` ikke legger til linjeskift (2 p), rettet kode (2 p). Sjanger O er poengmessig snill: hver identifisert feil teller for seg, så en presis diagnose gir uttelling selv om du ikke rekker å skrive om koden.",
+        "hints": [
+          "Sammenlign hva `write` gjør med hva `print` gjør.",
+          "Tell hvor mange linjer tilbakelesingen faktisk finner.",
+          "Se nøye på hvilke to verdier som har grodd sammen i det midterste feltet."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-2-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-8-2-api-text",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `with open(filnavn, 'w') as outfile:` | åpner for skriving; oppretter fila hvis den mangler, og **sletter** innholdet hvis den finnes — i det øyeblikket fila åpnes |\n| `outfile.write(tekst)` | skriver strengen som den står, **uten** linjeskift; godtar bare strenger, ellers `TypeError` |\n| `outfile.write(f'{a};{b:.1f}\\n')` | idiomatisk linjeskriving: hele linja som f-streng, med separator og `'\\n'` inne i strengen |\n| `str(tall)` | tall til streng, nødvendig når du skjøter med `+` i stedet for å bruke f-streng |\n| `ny = {}` | den tomme ordboka et filter samler resultatet i — **aldri** `ny = data` |\n| `for nøkkel, verdi in data.items():` | gir nøkkel og verdi samtidig; betingelsen stilles på verdien, nøkkelen tas med videre |\n| `ny[nøkkel] = verdi` | setter inn i resultatordboka; den **indre** ordboka deles med originalen om du setter inn verdien som den står |\n| `ny[nøkkel] = {'a': v['a'], 'b': v['b']}` | bygger den indre ordboka på nytt, så resultatet blir helt uavhengig av originalen |\n| `return ny` | **utenfor** løkka; står den inne, returnerer du etter første oppføring |\n| `line[a:b]` | fast-bredde-felt: tegnene fra posisjon `a` til og med `b-1` (slutten eksklusiv); Python teller fra 0 |\n| `line[a:b].strip()` | nødvendig på **tekstfelt** i kolonnefiler; tallfelt tåler blanktegnene fordi `int`/`float` fjerner dem |\n| `print(line, end='')` | brukes ved tilbakelesing, fordi `line` alt har sitt eget linjeskift |\n| `len(data)` | antall nøkler; brukes for å **vise** at originalen er urørt etter filtrering |\n\n**Navnebruk i dette delkapitlet:** `outfile` er fila som skrives, `infile` fila som leses, `data` originalen, `ny` resultatet av filtreringen.\n\n**Feilkodene som hører til dette delkapitlet:** #20 (endre argumentet i stedet for å bygge og returnere en ny ordbok), #23 (aliasing — `ny = data` gir to navn på samme ordbok, og `ny[k] = v` deler den indre), #7 (glemt `.strip()` på tekstfelt i kolonnefiler), pluss den kapittelspesifikke: glemt `'\\n'` i `write`.\n\n**Regnestykket bak kolonnegrensene:** et felt som starter i posisjon $a$ og er $b - a$ tegn bredt, hentes med `line[a:b]`. Er linja $30$ tegn og siste felt fem tegn bredt, er siste utsnitt `line[25:30]`."
+        }
+      ]
+    },
+    {
+      "id": "in1900-8-2-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-8-2-def-7",
+      "type": "definition",
+      "title": "Skrivemodus `'w'`",
+      "content": "Det andre argumentet til `open`. `'w'` åpner fila for skriving og tømmer den umiddelbart; uten modusargument åpnes fila for lesing. Det finnes flere moduser i Python, men IN1900 trenger bare disse to — les og skriv. Åpner du en fil i `'w'` og krasjer før du skriver noe, står du igjen med en tom fil."
+    },
+    {
+      "id": "in1900-8-2-def-8",
+      "type": "definition",
+      "title": "`write` mot `print`",
+      "content": "`print` legger til linjeskift og gjør tall om til tekst for deg. `write` gjør ingen av delene: du må skrive `'\\n'` selv, og du må konvertere tall med `str(...)` eller en f-streng. Til gjengjeld skriver `write` nøyaktig det du ber om, noe som er poenget når fila skal leses av et program senere."
+    },
+    {
+      "id": "in1900-8-2-def-9",
+      "type": "definition",
+      "title": "Symmetri mellom skriving og lesing",
+      "content": "En fil du skriver, skal kunne leses tilbake av ditt eget innlesingsmønster. Skriver du en header-linje, må leseren hoppe over den med `readline()`; skriver du ingen, må den ikke. Velger du semikolon som separator, må leseren bruke `.split(';')`. Er oppgaveteksten uklar om header, velg selv og dokumenter valget i en kommentar."
+    },
+    {
+      "id": "in1900-8-2-def-10",
+      "type": "definition",
+      "title": "Filtrering uten mutasjon",
+      "content": "Å returnere en **ny** ordbok med de oppføringene som oppfyller et krav, og la argumentet være urørt. Mønsteret er `ny = {}` → løkke over `.items()` → `if`-betingelse → innsetting → `return ny` utenfor løkka. Dette er del (c) av eksamensoppgaven, og formuleringen «uten å endre argumentet» står i oppgaveteksten fordi det er det som testes."
+    },
+    {
+      "id": "in1900-8-2-def-11",
+      "type": "definition",
+      "title": "Mutasjon av argumentet",
+      "content": "Å endre ordboka som ble sendt inn i funksjonen, i stedet for å bygge en ny. Fordi en ordbok sendes som en referanse til ett objekt, ser den som kalte funksjonen endringen umiddelbart. Det er feil #20, og det gjør funksjonen ubrukelig for den som skal filtrere samme datasett på flere grenser."
+    },
+    {
+      "id": "in1900-8-2-def-12",
+      "type": "definition",
+      "title": "Aliasing",
+      "content": "To navn på samme objekt. `ny = data` kopierer ikke ordboka — den gir bare et nytt navn, så endringer via `ny` skjer i `data`. Samme sak gjelder ett nivå ned: `ny[k] = verdier` gir en ny ytre ordbok, men de indre ordbøkene er felles. Feil #23. En helt uavhengig kopi krever at du bygger de indre ordbøkene på nytt, felt for felt."
+    },
+    {
+      "id": "in1900-8-2-def-13",
+      "type": "definition",
+      "title": "Fast-bredde-fil (kolonnefil)",
+      "content": "En tekstfil der feltene ikke skilles av et tegn, men står i faste tegnposisjoner, med mellomrom som utfylling. `.split()` er ubrukelig; feltene hentes med slicing `line[a:b]` og strippes. Formatet er vanlig i eldre måleserier. I IN1900 er dette **bør kjenne til** — nivå 3, få poeng."
+    },
+    {
+      "id": "in1900-8-2-def-14",
+      "type": "definition",
+      "title": "Delvis uttelling på kolonnegrenser",
+      "content": "Sensors uttalte praksis: å telle tegnposisjoner helt riktig uten fila foran seg er nesten umulig, så uttellingen ligger i metoden — slicing på faste posisjoner, `.strip()` på tekstfelt, konvertering av tallfelt, resten av mønsteret som før. Skriv de tallene du kommer fram til, dokumenter antakelsen i en kommentar, og gå videre."
+    },
+    {
+      "id": "in1900-8-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon: kapitlet i seks linjer",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-8-2-rep-text",
+          "type": "text",
+          "content": "1. **Skriving:** `with open(filnavn, 'w') as outfile:` + én `write` per linje. Modusen `'w'` tømmer fila i det den åpnes.\n2. **`write` legger ikke til linjeskift.** Hver linje skal slutte på `'\\n'`, og tall må gjennom `str(...)` eller en f-streng.\n3. **Formaterte linjer:** `outfile.write(f'{navn};{x:.1f}\\n')` — samme formatspesifikatorer som i `print`.\n4. **Filtrering:** `ny = {}` → løkke over `.items()` → `if` → innsetting → `return ny` utenfor løkka.\n5. **Aldri `ny = data`.** Det er aliasing, ikke kopiering, og det ødelegger originalen. Vil du ha et helt uavhengig resultat, bygg også de indre ordbøkene på nytt.\n6. **Fast-bredde (bør kjenne til):** `line[a:b]` i stedet for `.split()`, `.strip()` på tekstfeltene, og en kommentar om hvilke posisjoner du antar.\n\n**Neste steg:** [kap. 8.3](/bok/in1900/in1900-8-3) driller hele sjangeren — les, bygg, filtrer, skriv — med roterende datainnhold og full sensorkommentar på et gjennomarbeidet eksamenscase."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

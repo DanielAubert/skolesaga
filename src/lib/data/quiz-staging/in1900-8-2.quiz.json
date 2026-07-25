@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva skjer når dette kjøres?\n\n```python\nwith open('rapport.txt', 'w') as outfile:\n    outfile.write(1180)\n```",
+    "options": [
+      "`TypeError` — `write` godtar bare strenger, ikke tall",
+      "Fila får linja `1180`, fordi `write` konverterer selv",
+      "`ValueError` — tallet mangler et linjeskift på slutten",
+      "Ingenting skjer — `write` ignorerer argumenter som ikke er tekst"
+    ],
+    "explanation": "`write` tar en streng og bare en streng: siste linje i feilmeldingen er `TypeError: write() argument must be str, not int`. Løsningen er `str(1180)` eller en f-streng. Alternativet om automatisk konvertering er fellen for den som tenker på `print`, som **gjør** dette for deg — det er en av de to store forskjellene mellom `print` og `write`. Den andre er linjeskiftet."
+  },
+  {
+    "question": "Fila `data.txt` inneholder tre linjer med tekst. Hva står i fila etter dette?\n\n```python\nwith open('data.txt', 'w') as outfile:\n    outfile.write('ny linje\\n')\n```",
+    "options": [
+      "Bare `ny linje` — de tre gamle linjene er slettet",
+      "Fire linjer: de tre gamle, og `ny linje` til slutt",
+      "Fire linjer: `ny linje` først, og de tre gamle etter",
+      "Bare `ny linje`, men de gamle linjene kan hentes tilbake"
+    ],
+    "explanation": "Modusen `'w'` tømmer fila i det øyeblikket den åpnes, uansett hva du skriver etterpå. Alternativet med fire linjer er fellen for den som tror `write` legger til på slutten — det gjør den innenfor **samme** åpning, men ikke mellom to `with`-blokker. Og innholdet er borte for godt; det finnes ingen angreknapp."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndata = {'Kvitheia': 1180, 'Sandvollen': 760}\nwith open('u.txt', 'w') as outfile:\n    for navn in data:\n        outfile.write(navn + ';' + str(data[navn]))\n\nwith open('u.txt') as infile:\n    linjer = 0\n    for line in infile:\n        linjer += 1\nprint(linjer)\n```",
+    "options": [
+      "`1` — uten `'\\n'` blir alt skrevet på én linje",
+      "`2` — `write` legger til linjeskift etter hver skriving",
+      "`0` — fila er tom fordi ingen linjeskift ble skrevet",
+      "`4` — hver `write` gir sin egen linje i fila"
+    ],
+    "explanation": "`write` legger ikke til linjeskift, så de to strengene skjøtes sammen til `Kvitheia;1180Sandvollen;760` — én eneste linje, og tilbakelesingen finner én. Svaret `2` er fellen for den som blander `write` med `print`. Legg merke til hva som skjer med dataene: feltet i midten blir `'1180Sandvollen'`, og `int()` på det gir `ValueError` neste gang noen leser fila."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef filtrer(d, grense):\n    ny = {}\n    for k, v in d.items():\n        if v > grense:\n            ny[k] = v\n    return ny\n\n\nd = {'a': 3, 'b': 8}\nprint(filtrer(d, 5), len(d))\n```",
+    "options": [
+      "`{'b': 8} 2`",
+      "`{'b': 8} 1`",
+      "`{'a': 3} 2`",
+      "`{'a': 3, 'b': 8} 2`"
+    ],
+    "explanation": "Bare `'b'` har verdi over 5, så resultatet har én oppføring — men `d` er urørt og har fortsatt to, derfor `2`. `{'b': 8} 1` er fellen for den som tror filtreringen fjerner oppføringer fra originalen; det gjør den ikke, fordi `ny` er en egen ordbok. `{'a': 3} 2` er fellen for den som leser betingelsen baklengs."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef filtrer_feil(d, grense):\n    ny = d\n    for k in ny:\n        if ny[k] <= grense:\n            ny[k] = 0\n    return ny\n\n\nd = {'a': 3, 'b': 8}\nr = filtrer_feil(d, 5)\nprint(r)\nprint(d)\n```",
+    "options": [
+      "`{'a': 0, 'b': 8}` to ganger — `r` og `d` er samme ordbok",
+      "`{'a': 0, 'b': 8}` og deretter `{'a': 3, 'b': 8}` — `d` er urørt",
+      "`{'b': 8}` og deretter `{'a': 3, 'b': 8}` — `r` er filtrert",
+      "`{'b': 8}` to ganger — begge ordbøkene er filtrert likt"
+    ],
+    "explanation": "`ny = d` lager ingen kopi; det gir bare et nytt navn på samme ordbok, så endringene slår gjennom i `d`. Dette er aliasing, feil #23. Alternativet der `d` er urørt, er fellen for den som tror en tilordning kopierer. Legg dessuten merke til at funksjonen ikke gjør det den later som: den **fjerner** ingenting, den setter verdier til 0."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndata = {'Vest': {'ph': 7.4}}\nny = {}\nny['Vest'] = data['Vest']\nny['Vest']['ph'] = 0.0\nprint(data)\n```",
+    "options": [
+      "`{'Vest': {'ph': 0.0}}` — den indre ordboken er den samme",
+      "`{'Vest': {'ph': 7.4}}` — `ny` er en egen ordbok",
+      "`{'Vest': {}}` — den indre ordboken ble flyttet til `ny`",
+      "`{}` — hele oppføringen ble flyttet over til `ny`"
+    ],
+    "explanation": "Den **ytre** ordboka `ny` er ny, men `ny['Vest']` peker på den samme indre ordboka som `data['Vest']`. Endringen slår derfor gjennom i originalen. Vil du ha et helt uavhengig resultat, må du bygge den indre på nytt: `ny['Vest'] = {'ph': data['Vest']['ph']}`. Ingenting «flyttes» noen gang i Python — verdier kopieres bare hvis du ber om det."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nline = 'Kvitheia   20240301   4.2  118\\n'\nprint('[' + line[19:25] + ']')\n```",
+    "options": [
+      "`[   4.2]` — tre mellomrom og tallet, seks tegn i alt",
+      "`[  4.2]` — to mellomrom og tallet, fem tegn i alt",
+      "`[4.2]` — slicing fjerner mellomrommene automatisk",
+      "`[   4.2 ]` — mellomrom på begge sider av tallet"
+    ],
+    "explanation": "Slicing tar tegnene i posisjon 19 til og med 24 — seks tegn, her tre mellomrom pluss `4.2`. Slicing fjerner ingenting; det er `.strip()` som gjør det. Heldigvis tåler `float('   4.2')` mellomrommene, så tallfelt kan konverteres direkte; det er **tekstfeltene** som må strippes før de brukes som ordboknøkler."
+  },
+  {
+    "question": "Hvorfor ber oppgaveteksten om at filterfunksjonen skal returnere en **ny** ordbok?",
+    "options": [
+      "Fordi den som kaller funksjonen fortsatt skal ha hele datasettet etterpå",
+      "Fordi en ordbok i Python ikke kan endres etter at den er opprettet",
+      "Fordi `.items()` ikke kan brukes på en ordbok som skal endres",
+      "Fordi en ny ordbok gir raskere oppslag enn den opprinnelige"
+    ],
+    "explanation": "En filterfunksjon som spiser originalen, kan bare brukes én gang — og et program som skal filtrere samme datasett på flere grenser, er da ødelagt. Ordbøker **kan** endres (det er nettopp problemet), og oppslagstiden er den samme i begge. `.items()` fungerer fint på en ordbok du senere endrer, men å legge til eller fjerne nøkler **mens** du itererer over den, gir feil."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {'Vest': {'ph': 7.4}, 'Aust': {'ph': 8.1}}\nfor stasjon, verdier in d.items():\n    print(f'{stasjon};{verdier[\"ph\"]:.2f}')\n```",
+    "options": [
+      "`Vest;7.40` og `Aust;8.10` på hver sin linje",
+      "`Vest;7.4` og `Aust;8.1` på hver sin linje",
+      "`Vest;7.40;Aust;8.10` på én og samme linje",
+      "`Vest;{'ph': 7.4}` og `Aust;{'ph': 8.1}` på hver sin linje"
+    ],
+    "explanation": "`:.2f` gir alltid nøyaktig to desimaler, så 7.4 skrives `7.40`. Alternativet uten etterfølgende null er fellen for den som overser formatspesifikatoren. Uten `end=`-argument gir `print` linjeskift hver runde, så det blir to linjer. Nøyaktig samme f-strenger brukes når linjene skal til fil — da med `'\\n'` lagt til."
+  },
+  {
+    "question": "Programmet skal skrive én linje per stasjon til fil. Hvilken linje er riktig?",
+    "options": [
+      "`outfile.write(f'{navn};{verdier[\"temp\"]:.1f}\\n')`",
+      "`outfile.write(f'{navn};{verdier[\"temp\"]:.1f}')`",
+      "`outfile.print(f'{navn};{verdier[\"temp\"]:.1f}\\n')`",
+      "`outfile.write(navn, verdier['temp'], '\\n')`"
+    ],
+    "explanation": "Linja må bygges som **én** streng som slutter på `'\\n'`, og metoden heter `write`. Varianten uten `'\\n'` er den vanligste feilen i deloppgaven — alt havner på én linje. `outfile.print(...)` finnes ikke; `print` er en innebygd funksjon, ikke en metode på filobjektet. Og `write` tar bare **ett** argument, i motsetning til `print`, som tar så mange du vil."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndata = {'Kvitheia': {'temp': 7.9}, 'Nordvika': {'temp': 3.1}}\nny = {}\nfor navn, verdier in data.items():\n    if verdier['temp'] > 5.0:\n        ny[navn] = {'temp': verdier['temp']}\nprint(ny, len(data))\n```",
+    "options": [
+      "`{'Kvitheia': {'temp': 7.9}} 2`",
+      "`{'Kvitheia': {'temp': 7.9}} 1`",
+      "`{'Nordvika': {'temp': 3.1}} 2`",
+      "`{'Kvitheia': 7.9} 2`"
+    ],
+    "explanation": "Bare Kvitheia er over 5,0 grader, og `len(data)` er 2 fordi originalen er urørt. Alternativet `... 1` er fellen for den som tror `len(data)` viser resultatet. Og legg merke til at den indre ordboka bygges på nytt — derfor `{'temp': 7.9}` og ikke bare tallet, som i det siste alternativet."
+  },
+  {
+    "question": "Fila `dybder.txt` har feltene i faste kolonner uten separator. Hvorfor kan ikke `.split()` brukes?",
+    "options": [
+      "Fordi feltbredden bæres av mellomrom som varierer i antall fra linje til linje",
+      "Fordi `.split()` bare virker på filer som er semikolonseparerte",
+      "Fordi `.split()` ikke kan brukes på linjer som er lengre enn 30 tegn",
+      "Fordi `.split()` alltid fjerner tall og bare beholder tekstfeltene"
+    ],
+    "explanation": "I en kolonnefil er mellomrommene utfylling, ikke skilletegn: bar `.split()` ville delt på dem og gitt ulikt antall biter avhengig av om et navn består av ett eller to ord. Da faller indekseringen sammen. `.split()` virker forøvrig på alle strenger uansett lengde og separator — det er bare **her** den gir gale felt, fordi kolonneposisjonen er informasjonen."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nline = 'Sandvollen 20240301  -1.8   43\\n'\nprint(int(line[25:30]), float(line[19:25]))\n```",
+    "options": [
+      "`43 -1.8`",
+      "`-1.8 43`",
+      "`43 -1.8 `",
+      "`118 4.2`"
+    ],
+    "explanation": "Utsnittet `line[25:30]` er `'  43'` med utfyllingsmellomrom, og `int` tåler dem; `line[19:25]` er `'  -1.8'`, som `float` leser som −1,8. `print` skriver argumentene i den rekkefølgen de står, med ett mellomrom mellom — det siste alternativet er tallene fra en annen linje i fila."
+  },
+  {
+    "question": "Hvor skal `return ny` stå i en filterfunksjon?",
+    "options": [
+      "Etter løkka, på samme innrykksnivå som `ny = {}`",
+      "Inne i løkka, rett etter innsettingen i `ny`",
+      "Inne i `if`-blokken, slik at bare treff returneres",
+      "Før løkka, slik at ordboken finnes når den fylles"
+    ],
+    "explanation": "`return` inne i løkka avslutter funksjonen ved første oppføring, så du får en ordbok med maks ett element — en klassisk delpoengfelle som koster halve oppgaven. `return` før løkka gir en tom ordbok. Regelen er at oppbyggingen skal være ferdig før du returnerer, altså samme innrykk som `ny = {}`."
+  },
+  {
+    "question": "Programmet skriver en fil med header-linja `stasjon;temp`. Hva må leseren gjøre?",
+    "options": [
+      "Kalle `infile.readline()` én gang før løkka over linjene",
+      "Kalle `infile.readline()` inne i løkka, for hver linje",
+      "Ingenting — `for line in infile` hopper over header-linja selv",
+      "Kalle `.strip()` på header-linja for å gjøre den om til data"
+    ],
+    "explanation": "Skriving og lesing må være symmetriske: skriver du en header, må leseren hoppe over den med **ett** `readline()`-kall før løkka. Løkka behandler ellers kolonnenavnene som data, og `float('temp')` gir `ValueError` (feil #7). Kalt inne i løkka ville `readline()` hoppet over annenhver linje."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {'a': 1, 'b': 2}\nwith open('e.txt', 'w') as outfile:\n    for k in d:\n        outfile.write(k + ';' + str(d[k]) + '\\n')\nwith open('e.txt') as infile:\n    n = 0\n    for line in infile:\n        n += 1\nprint(n)\n```",
+    "options": [
+      "`2` — én linje per oppføring i ordboken",
+      "`1` — begge oppføringene havner på samme linje",
+      "`3` — den siste `'\\n'` gir en tom linje i tillegg",
+      "`0` — fila lukkes før innholdet er skrevet"
+    ],
+    "explanation": "To oppføringer, to `write`-kall som hver slutter på `'\\n'`, altså to linjer. Alternativet `3` er en vanlig bekymring: et avsluttende linjeskift lager **ikke** en ekstra tom linje ved lesing — `for line in infile` gir bare linjer som har innhold foran linjeskiftet. Og `with` sørger for at alt er skrevet og fila lukket når blokken slutter."
+  }
+]
