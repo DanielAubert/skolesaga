@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva skjer når `def hils(navn):` leses av Python?",
+    "options": [
+      "Navnet blir kjent, men kroppen kjøres ikke ennå",
+      "Kroppen kjøres én gang med parameteren satt til None",
+      "Funksjonen kjøres og resultatet lagres i navnet",
+      "Python venter på at brukeren skriver inn et navn"
+    ],
+    "explanation": "Definisjonen noterer bare oppskriften; det er kallet som kjører kroppen. Skillet er første steg i å spore et program med funksjoner."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef dobbel(tall):\n    return tall * 2\nprint(dobbel(5) + 1)\n```",
+    "options": [
+      "11",
+      "10",
+      "12",
+      "None"
+    ],
+    "explanation": "Kallet regnes ut først og gir 10, deretter legges 1 til. `10` er svaret hvis man glemmer plusstegnet utenfor kallet."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef f(x):\n    y = x * 2\nprint(f(5))\n```",
+    "options": [
+      "None",
+      "10",
+      "5",
+      "Programmet stopper med en feilmelding"
+    ],
+    "explanation": "Funksjonen mangler `return`, så den gir `None` tilbake selv om den regnet riktig. Feilen krasjer ikke der den ble skrevet, men et helt annet sted der noen prøver å regne med svaret."
+  },
+  {
+    "question": "Hva er forskjellen på `return` og `print` i en funksjon?",
+    "options": [
+      "`return` gir en verdi tilbake, `print` viser den bare på skjermen",
+      "`return` viser verdien på skjermen, mens `print` lagrer den i en variabel",
+      "De gjør det samme, men `return` virker bare på tallverdier",
+      "`return` kan brukes flere ganger, `print` bare én gang"
+    ],
+    "explanation": "Ber oppgaven om at funksjonen «returnerer» noe, skal det stå `return` — ellers gir kallet `None`, og de deloppgavene som bygger videre, faller sammen."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef vis(fornavn, etternavn):\n    print(fornavn, etternavn)\nvis(\"Berg\", \"Ada\")\n```",
+    "options": [
+      "Berg Ada",
+      "Ada Berg",
+      "fornavn etternavn",
+      "Programmet stopper med en feilmelding"
+    ],
+    "explanation": "Argumentene fylles inn i rekkefølge, og Python vet ingenting om hva navnene betyr. Bytter du om argumentene, får du ingen feilmelding — bare feil svar."
+  },
+  {
+    "question": "Hva skjer med resten av funksjonskroppen når en `return` kjøres?",
+    "options": [
+      "Funksjonen avsluttes umiddelbart, resten hoppes over",
+      "Resten kjøres, men returverdien er allerede låst",
+      "Bare linjene i samme innrykkede blokk hoppes over",
+      "Løkka fullføres først, deretter avsluttes funksjonen"
+    ],
+    "explanation": "Det er nettopp denne egenskapen som gjør tidlig retur mulig: du slutter å lete idet du vet svaret. Distraktoren om at løkka fullføres, er den vanligste misforståelsen."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef karakter(poeng):\n    if poeng >= 90:\n        return \"A\"\n    elif poeng >= 60:\n        return \"C\"\n    return \"F\"\nprint(karakter(72))\n```",
+    "options": [
+      "C",
+      "A",
+      "F",
+      "AC"
+    ],
+    "explanation": "Den andre grenen er den første som er sann, og `return` avslutter funksjonen der. Siste linje nås bare hvis ingen av grenene traff."
+  },
+  {
+    "question": "I mønsteret «er alle …?» — hvor skal `return True` stå?",
+    "options": [
+      "Etter løkka, når ingen moteksempler ble funnet",
+      "Inne i løkka, i `else`-grenen til testen på elementet",
+      "Inne i løkka, rett før `return False`",
+      "Både inne i og etter løkka, for sikkerhets skyld"
+    ],
+    "explanation": "Svaret «alle oppfyller kravet» kan først avgjøres når hele samlingen er sett. Står `return True` inne i løkka, avgjør det aller første elementet hele svaret — feilkode #7."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef f(t):\n    for c in t:\n        if c == \"x\":\n            return False\n    return True\nprint(f(\"abc\"), f(\"axc\"))\n```",
+    "options": [
+      "True False",
+      "False True",
+      "True True",
+      "False False"
+    ],
+    "explanation": "Første tekst har ingen `x` og går helt gjennom løkka; andre tekst treffer på andre tegn og returnerer straks. Distraktorene svarer til at de to `return`-ene byttes om."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef f(t):\n    for c in t:\n        if c == \"x\":\n            return False\n        else:\n            return True\nprint(f(\"ax\"))\n```",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "True False"
+    ],
+    "explanation": "Begge `return`-ene står inne i løkka, så det aller første tegnet avgjør. Teksten inneholder en `x`, men den blir aldri undersøkt — dette er feilkode #7 i sin reneste form."
+  },
+  {
+    "question": "Hva returnerer et flagg-med-tidlig-retur-mønster for tom inndata?\n\n```python\ndef f(t):\n    for c in t:\n        if c == \" \":\n            return False\n    return True\nprint(f(\"\"))\n```",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "Programmet stopper med en feilmelding"
+    ],
+    "explanation": "Løkka kjører null ganger over tom inndata, så programmet går rett til linja etter den. At mønsteret håndterer det tomme tilfellet av seg selv, er verdt å kontrollere — det er feilkode #6."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef del_og_rest(a, b):\n    return a // b, a % b\nhele, rest = del_og_rest(17, 5)\nprint(hele, rest)\n```",
+    "options": [
+      "3 2",
+      "17 5",
+      "3.4 2",
+      "(3, 2)"
+    ],
+    "explanation": "Funksjonen gir to verdier, som pakkes ut i to navn. Parentesformen er det du får hvis du tar imot begge med ett navn i stedet."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef mm(a, b):\n    return a, b\nprint(mm(4, 4))\n```",
+    "options": [
+      "(4, 4)",
+      "Verdiene `4` og `4`, skrevet med ett mellomrom mellom",
+      "4",
+      "8"
+    ],
+    "explanation": "Uten utpakking vises de to returverdiene som et par i parentes. Med `x, y = mm(4, 4)` og `print(x, y)` ville du fått `4 4`."
+  },
+  {
+    "question": "Hva må stemme når du pakker ut flere returverdier?",
+    "options": [
+      "Antall navn må være likt antall returverdier",
+      "Navnene må hete det samme som parameterne i definisjonen",
+      "Verdiene må ha samme type",
+      "Utpakkingen må skje inne i en funksjon"
+    ],
+    "explanation": "To verdier og tre navn gir en feilmelding, og det motsatte likeså. Typene kan derimot være helt ulike."
+  },
+  {
+    "question": "Hvorfor må definisjonen stå før kallet i programmet?",
+    "options": [
+      "Python leser filen ovenfra og kjenner ikke navn den ikke har sett",
+      "Fordi funksjoner må kompileres før de kan kjøres",
+      "Fordi kallet ellers ville brukt en tom og ubestemt parameterliste",
+      "Det må den ikke — rekkefølgen er likegyldig"
+    ],
+    "explanation": "Kaller du for tidlig, får du `NameError`. Merk at én funksjon godt kan kalle en annen inne i kroppen sin uansett rekkefølge — kroppen kjøres jo ikke før begge er lest."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef sum_til(n):\n    total = 0\n    for i in range(1, n + 1):\n        total = total + i\n    return total\nprint(sum_til(4))\n```",
+    "options": [
+      "10",
+      "Verdien `6`, altså summen av tallene fra 1 til 3",
+      "4",
+      "0"
+    ],
+    "explanation": "Uten `n + 1` i `range` ville den siste verdien falt utenfor, og svaret blitt 6. Det er feilkode #5 — av-med-én."
+  },
+  {
+    "question": "Hva kalles verdien i `def hils(navn):`, altså `navn`?",
+    "options": [
+      "En parameter",
+      "Et argument",
+      "En returverdi",
+      "En lokal konstant"
+    ],
+    "explanation": "Parameteren er navnet i definisjonen; argumentet er verdien som sendes inn ved kallet. De to ordene beskriver hver sin side av samme overføring."
+  },
+  {
+    "question": "Hva er et godt argument for å skrive en hjelpefunksjon på eksamen?",
+    "options": [
+      "Deloppgaver vurderes for seg, så en hjelpefunksjon som virker gir uttelling",
+      "Hjelpefunksjoner gir automatisk full uttelling på hele oppgaven",
+      "Sensor krever minst én hjelpefunksjon per klasse",
+      "Koden kjører raskere når den deles i flere funksjoner"
+    ],
+    "explanation": "Du får delkarakter per deloppgave, og du har uttrykkelig lov til å legge til egne hjelpefunksjoner så lenge du kommenterer kort hva de gjør."
+  },
+  {
+    "question": "Du skal svare om det finnes minst ett tegn av en bestemt sort. Hvor står `return True`?",
+    "options": [
+      "Inne i løkka, ved første treff",
+      "Etter løkka, når alle er sjekket",
+      "I en `else`-gren etter `if`-en",
+      "Rett før løkka, som startverdi"
+    ],
+    "explanation": "Mønsteret er speilvendt av «er alle …?»: det svaret som kan avgjøres av ett enkelt element, hører inne i løkka, og det som krever hele samlingen, hører etter."
+  },
+  {
+    "question": "Hva betyr det at en funksjon er boolsk?",
+    "options": [
+      "Den returnerer `True` eller `False`, og kan brukes direkte som betingelse",
+      "Den tar bare imot `True` eller `False` som argumenter ved kallet",
+      "Den kan bare inneholde `if`-setninger, ikke løkker",
+      "Den skriver ut `True` eller `False` på skjermen"
+    ],
+    "explanation": "Nettopp fordi returverdien er boolsk, kan du skrive `if er_vokal(tegn):` uten å lagre svaret først. Det er den formen fagets løsningsforslag bruker."
+  }
+]
