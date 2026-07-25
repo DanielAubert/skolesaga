@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hvilken rekkefølge har minnehierarkiet fra raskest til tregest?",
+    "options": [
+      "Register, mellomlager, hovedminne, disk",
+      "Mellomlager, register, hovedminne, disk",
+      "Register, hovedminne, mellomlager, disk",
+      "Hovedminne, register, mellomlager, disk"
+    ],
+    "explanation": "Registeret ligger inne i CPU-en og er raskest; disken er tregest med god margin. Alternativ 2 setter mellomlageret foran registeret. Alternativ 3 og 4 plasserer hovedminnet for høyt — «hoved» sier noe om rollen, ikke om farten."
+  },
+  {
+    "question": "Hva koster et treff i mellomlageret, i denne bokas konvensjon?",
+    "options": [
+      "1 klokkesykel",
+      "0 klokkesykler — et treff er gratis",
+      "Like mye som bom-kostnaden oppgir",
+      "Halvparten av bom-kostnaden"
+    ],
+    "explanation": "Et treff er billig, men ikke gratis, og å glemme treffenes bidrag er den nest vanligste feilen i sjangeren. Alternativ 2 gir et svar som er for lavt. Alternativ 3 fjerner hele poenget med mellomlageret. Alternativ 4 er en oppdiktet regel."
+  },
+  {
+    "question": "Et program utfører 3000 instruksjoner, 50 % bom, bom-kostnad 4 sykler. Hvor mange klokkesykler?",
+    "options": [
+      "7500",
+      "6000",
+      "12 000",
+      "9000"
+    ],
+    "explanation": "1500 treff à 1 sykel gir 1500, og 1500 bom à 4 sykler gir 6000, til sammen 7500. Alternativ 2 er bommenes bidrag alene, uten treffene. Alternativ 3 regner som om alle 3000 var bom. Alternativ 4 legger 3000 treffsykler til bommene i stedet for 1500."
+  },
+  {
+    "question": "Et program utfører 4000 instruksjoner, 10 % bom, bom-kostnad 12 sykler. Hvor mange klokkesykler?",
+    "options": [
+      "8400",
+      "4800",
+      "48 000",
+      "43 600"
+    ],
+    "explanation": "3600 treff à 1 sykel gir 3600, og 400 bom à 12 sykler gir 4800, til sammen 8400. Alternativ 2 er bommenes bidrag alene. Alternativ 3 regner som om alle var bom. Alternativ 4 har byttet om treff og bom."
+  },
+  {
+    "question": "Bom-raten er 40 %. Hvor stor andel av oppslagene er treff?",
+    "options": [
+      "60 %",
+      "40 %",
+      "80 %",
+      "20 %"
+    ],
+    "explanation": "Treffrate og bom-rate summerer alltid til 100 %. Alternativ 2 gjentar bom-raten som om den var treffraten — nettopp ombyttingsfella. Alternativ 3 og 4 svarer til helt andre rater og har ingen sammenheng med oppgitte 40 %."
+  },
+  {
+    "question": "Et program utfører 5000 instruksjoner med treffrate 80 % og bom-kostnad 20 sykler. Hvor mange klokkesykler?",
+    "options": [
+      "24 000",
+      "20 000",
+      "100 000",
+      "81 000"
+    ],
+    "explanation": "80 % treff betyr 4000 treff à 1 sykel og 1000 bom à 20 sykler: 4000 + 20 000 = 24 000. Alternativ 2 er bommenes bidrag alene. Alternativ 3 regner som om alle var bom. Alternativ 4 har byttet om treff og bom, altså 1000 treff og 4000 bom."
+  },
+  {
+    "question": "Hva er gjennomsnittlig antall sykler per instruksjon ved 10 % bom og bom-kostnad 20?",
+    "options": [
+      "2,9",
+      "2,0",
+      "3,0",
+      "20,0"
+    ],
+    "explanation": "`0,90·1 + 0,10·20 = 0,9 + 2 = 2,9` sykler, uavhengig av programlengden. Alternativ 2 glemmer treffenes bidrag. Alternativ 3 runder feil vei og bommer på 0,9-leddet. Alternativ 4 er bom-kostnaden selv, altså snittet hvis alt var bom."
+  },
+  {
+    "question": "Hvilken kontroll kan du gjøre på gjennomsnittet per instruksjon?",
+    "options": [
+      "Det skal ligge mellom 1 sykel og bom-kostnaden",
+      "Det skal alltid være større enn bom-kostnaden",
+      "Det skal alltid ligge under 1 sykel per instruksjon",
+      "Det skal være lik bom-raten ganget med antall instruksjoner"
+    ],
+    "explanation": "Er alt treff, er snittet 1; er alt bom, er det bom-kostnaden — og virkeligheten ligger mellom. Alternativ 2 og 3 gir grenser som er logisk umulige. Alternativ 4 blander sammen et snitt med et antall og gir feil enhet."
+  },
+  {
+    "question": "Hva er tidsmessig lokalitet?",
+    "options": [
+      "At en adresse som nettopp er brukt, trolig brukes igjen snart",
+      "At naboadressene til en brukt adresse trolig brukes snart",
+      "At adresser brukes i tilfeldig rekkefølge over tid",
+      "At tiden et oppslag tar, avhenger av tidspunktet på dagen"
+    ],
+    "explanation": "Løkkevariabelen er standardeksempelet: samme adresse brukes i hver runde. Alternativ 2 beskriver romlig lokalitet, den andre formen. Alternativ 3 beskriver fravær av lokalitet. Alternativ 4 er ikke et faglig begrep i det hele tatt."
+  },
+  {
+    "question": "Hvorfor henter maskinen en hel blokk ved et bom, og ikke bare den ene verdien?",
+    "options": [
+      "Fordi romlig lokalitet gjør det sannsynlig at nabobytene trengs snart",
+      "Fordi hovedminnet ikke kan levere mindre enn en blokk om gangen",
+      "Fordi mellomlageret må fylles helt opp før det kan brukes",
+      "Fordi programmet ber om en blokk i selve instruksjonen"
+    ],
+    "explanation": "Turen ut er allerede betalt for, og nabobytene brukes som regel like etter. Alternativ 2 gjør en designavgjørelse til en fysisk begrensning. Alternativ 3 er feil: mellomlageret brukes fra første innlegg. Alternativ 4 er feil fordi mellomlageret er usynlig for programmet."
+  },
+  {
+    "question": "Et program utfører 1200 instruksjoner, 25 % bom, bom-kostnad 16 sykler. Hvor mange klokkesykler?",
+    "options": [
+      "5700",
+      "4800",
+      "19 200",
+      "14 700"
+    ],
+    "explanation": "900 treff à 1 sykel gir 900, og 300 bom à 16 sykler gir 4800, til sammen 5700. Alternativ 2 er bommenes bidrag alene — tallet som står midt i din egen utregning. Alternativ 3 regner som om alle var bom. Alternativ 4 har byttet om treff og bom."
+  },
+  {
+    "question": "Hvilket feiltall får du hvis du bytter om treff og bom i regningen?",
+    "options": [
+      "Et tall av samme størrelsesorden som det riktige",
+      "Et tall som alltid er nøyaktig dobbelt så stort",
+      "Et tall som alltid er mindre enn antall instruksjoner",
+      "Et tall som er identisk med det riktige svaret"
+    ],
+    "explanation": "Det er nettopp fordi ombyttingen gir et rimelig tall at den er den vanligste feilen. Alternativ 2 gjelder ikke generelt. Alternativ 3 er feil siden bommene ganges med en kostnad større enn 1. Alternativ 4 stemmer bare i det ene tilfellet der bom-raten er nøyaktig 50 %."
+  },
+  {
+    "question": "En maskin kjører 8000 instruksjoner med bom-kostnad 20 sykler. Bom-raten går fra 10 % til 5 %. Hvor mange sykler spares?",
+    "options": [
+      "7600",
+      "8000",
+      "11 600",
+      "4000"
+    ],
+    "explanation": "`23 200 − 15 600 = 7600` sykler. Alternativ 2 er antall instruksjoner, ikke en besparelse. Alternativ 3 ville tilsvart en halvering av kjøretida, som ikke skjer fordi treffene fortsatt koster. Alternativ 4 er halvparten av bommenes reduksjon i antall, ikke i sykler."
+  },
+  {
+    "question": "Halveres kjøretida når bom-raten halveres?",
+    "options": [
+      "Nei — treffenes sykler forsvinner ikke, så nedgangen blir mindre",
+      "Ja — kjøretida er direkte proporsjonal med bom-raten",
+      "Nei — kjøretida blir mer enn halvert, siden bommene dominerer",
+      "Ja, men bare når bom-kostnaden er større enn 10 sykler"
+    ],
+    "explanation": "Med 8000 instruksjoner og kostnad 20 falt tida fra 23 200 til 15 600, altså omtrent 32,8 %. Alternativ 2 overser leddet fra treffene. Alternativ 3 går for langt motsatt vei. Alternativ 4 finner opp en terskel som ikke finnes."
+  },
+  {
+    "question": "Ved 20 % bom og bom-kostnad 20 sykler: hvor stor andel av syklene skyldes bom?",
+    "options": [
+      "Over 80 %",
+      "Nøyaktig 20 %",
+      "Omtrent 50 %",
+      "Under 10 %"
+    ],
+    "explanation": "Med 5000 instruksjoner blir det 20 000 av 24 000 sykler, altså over 83 %. Alternativ 2 forveksler andelen oppslag med andelen tid. Alternativ 3 og 4 undervurderer hvor mye dyrere et bom er enn et treff."
+  },
+  {
+    "question": "Hvem styrer hva som ligger i mellomlageret?",
+    "options": [
+      "Maskinvaren — mellomlageret er usynlig for programmereren",
+      "Programmereren, med egne instruksjoner for å legge inn data",
+      "Operativsystemet, som fordeler plassen mellom programmene",
+      "Kompilatoren, som velger hvilke variabler som skal ligge der"
+    ],
+    "explanation": "Det finnes ingen instruksjon som sier «legg dette i cachen»; maskinvaren avgjør. Alternativ 2 er den faste feilslutningen. Alternativ 3 og 4 gir styringen til programvare som riktignok kan påvirke minnebruken, men ikke selve mellomlageret."
+  },
+  {
+    "question": "Hvilket av disse minnene er flyktig, altså mister innholdet når strømmen går?",
+    "options": [
+      "Hovedminnet (RAM)",
+      "Harddisken",
+      "En minnepinne",
+      "En optisk plate"
+    ],
+    "explanation": "RAM er flyktig, sammen med registre og mellomlager, og det er derfor ulagret arbeid forsvinner ved strømbrudd. Alternativ 2, 3 og 4 er varige lagringsmedier som beholder innholdet uten strøm."
+  },
+  {
+    "question": "Et program utfører 900 instruksjoner, en tredjedel bom, bom-kostnad 7 sykler. Hvor mange klokkesykler?",
+    "options": [
+      "2700",
+      "2100",
+      "6300",
+      "4500"
+    ],
+    "explanation": "600 treff à 1 sykel gir 600, og 300 bom à 7 sykler gir 2100, til sammen 2700. Alternativ 2 er bommenes bidrag alene. Alternativ 3 regner som om alle 900 var bom. Alternativ 4 har byttet om treff og bom."
+  },
+  {
+    "question": "Hva forteller feiltallet `n · k` deg om utregningen din?",
+    "options": [
+      "At bom-raten ikke er brukt i det hele tatt",
+      "At treffenes bidrag er telt to ganger i summen",
+      "At du har delt totalen på antall instruksjoner for tidlig",
+      "At bom-kostnaden er lagt oppå treffsykelen"
+    ],
+    "explanation": "`n · k` betyr at hver eneste instruksjon er regnet som bom, altså at raten er hoppet over. Alternativ 2, 3 og 4 beskriver andre feil som gir helt andre tall — og ingen av dem gir uttrykket `n · k`."
+  },
+  {
+    "question": "Hvordan bør et resultat som ikke går opp i hele tall, oppgis?",
+    "options": [
+      "Med «omtrent» og et eksplisitt antall desimaler",
+      "Avrundet til nærmeste hele tall, uten kommentar",
+      "Med så mange desimaler kalkulatoren viser",
+      "Som en brøk, siden desimaltall aldri er presise"
+    ],
+    "explanation": "Sensorkravet i regnesjangre er å vise mellomregningen og være presis om avrundingen, for eksempel «≈ 32,8 %». Alternativ 2 skjuler at tallet er avrundet. Alternativ 3 gir falsk presisjon. Alternativ 4 er upraktisk og svarer sjelden til alternativene i oppgaven."
+  }
+]
