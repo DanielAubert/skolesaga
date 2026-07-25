@@ -164,7 +164,12 @@ def main():
         for felt in enkeltfelt(navn, s):
             if "$" not in felt or "${" in felt:      # ${...} = JS-template omtalt i prosa
                 continue
-            t = re.sub(r"\$\$", "", re.sub(r"\\\$", "", felt))
+            # Kode er ikke matte: ```-blokker og `inline-kode` kan inneholde $ helt
+            # legitimt (`$0` i DevTools-konsollen, `d$kol` i R, «$PATH» i shell).
+            # Rendreren tar kodeblokker ut FØR matten, så de kan ikke danne spenn.
+            t = re.sub(r"```[\s\S]*?```", "", felt)
+            t = re.sub(r"`[^`\n]*`", "", t)
+            t = re.sub(r"\$\$", "", re.sub(r"\\\$", "", t))
             if t.count("$") % 2:
                 avvik.append(f"UBALANSERT $ i {navn}{sti}: {felt.strip()[:80]!r} (avkuttet formel)")
 
