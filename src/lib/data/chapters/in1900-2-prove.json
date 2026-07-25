@@ -1,0 +1,343 @@
+{
+  "id": "in1900-2-prove",
+  "courseId": "in1900",
+  "chapterNumber": "2.P",
+  "title": "Prøver til del 2: Robuste programmer — input, kommandolinje og feilhåndtering",
+  "description": "Fire nyskrevne temaprøver i eksamensformat med fullstendige løsningsforslag: sporing av `sys.argv`/`input`/`eval`, exception-matching, `try`/`except`-koding og en integrert «finn feilen»-oppgave. Fire prøver à 20–30 min — kan tas som separate økter.",
+  "estimatedMinutes": 105,
+  "competenceGoals": [
+    "kunne spore et kommandolinje- eller input-program og angi utskriften nøyaktig under tidspress",
+    "kunne avgjøre hvilken exception som utløses først for et gitt kall, og matche den mot riktig alternativ",
+    "kunne skrive kort, idiomatisk `try`/`except`-kode som håndterer manglende, ubrukelige og ulovlige verdier",
+    "kunne finne og forklare de faste plantede feilene i et program med kommandolinje og feilhåndtering"
+  ],
+  "content": [
+    {
+      "id": "in1900-2-prove-om",
+      "title": "Om prøvene til del 2",
+      "content": "**Fire prøver à 20–30 min.** Til sammen dekker de hele Del 2: kommandolinje, brukerinput og `eval` fra [kap. 2.1](/bok/in1900/in1900-2-1), og feilhåndtering fra [kap. 2.2](/bok/in1900/in1900-2-2). Alle oppgaver er nyskrevne og i eksamens sjangre; løsningsforslagene er korte og idiomatiske, slik sensor forventer.\n\n- **Prøve 2.A (20 min):** `sys.argv`, `input` og `eval` — seks korte sporingsspørsmål (sjanger A — «hva skriver programmet ut?»).\n- **Prøve 2.B (30 min):** Exception-matching — tre matche-tabeller der du avgjør hvilken feil som utløses først (sjanger C).\n- **Prøve 2.C (25 min):** `try`/`except`-koding — skriv robust håndtering av input (sjanger O-moment).\n- **Prøve 2.D (30 min):** Integrert — kommandolinjeprogram med feilhåndtering, i «finn feilen»-form (sjanger C og O).\n\n**Hvor flervalget bor:** de fire rene flervalgsspørsmålene ligger inline i prøvene her, med alternativene skrevet ut. Den store flervalgsbanken for Del 2 ligger i den interaktive quizen til kapittel 2.1 og 2.2 — bruk den til hurtigrepetisjon, og prøvene her til å øve på å skrive og spore selv.\n\n**Anbefalt bruk:** ta hver prøve på tid, uten fasit og uten maskin — eksamen er hjelpemiddelfri, så du må trene på å spore kode i hodet og skrive den på papir. Åpne løsningsforslaget først etterpå, og gå gjennom selvdiagnose-listen som står under hver fasit.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Målet er å fullføre settet, ikke å ta alt på én gang.",
+      "type": "tip"
+    },
+    {
+      "id": "in1900-2-prove-forkunn",
+      "content": "**Forkunnskaper.** Prøvene forutsetter hele Del 2:\n\n- [kap. 2.1](/bok/in1900/in1900-2-1) — `sys.argv` og at element 0 er filnavnet, `input` som alltid gir en streng, `int`/`float`, `eval` og `sys.exit`.\n- [kap. 2.2](/bok/in1900/in1900-2-2) — `try`/`except`, de sju feiltypene, og femstegsoppskriften for å avgjøre hvilken feil som utløses først.\n\nFra Del 1 trenger du lister og indeksering ([kap. 1.2](/bok/in1900/in1900-1-2)), løkker ([kap. 1.3](/bok/in1900/in1900-1-3)), f-strenger ([kap. 1.4](/bok/in1900/in1900-1-4)) og ordbøker ([kap. 1.5](/bok/in1900/in1900-1-5)).",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-prove-A",
+      "title": "Prøve 2.A — sys.argv, input og eval (20 min)",
+      "buttonText": "Vis prøve 2.A",
+      "content": [
+        {
+          "id": "in1900-2-prove-pa-intro",
+          "type": "text",
+          "content": "**Prøve 2.A — `sys.argv`, `input` og `eval` (20 minutter, 10 poeng).**\n\nSeks korte spørsmål i sjanger A: kodesporing, altså «hva skriver programmet ut?». Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den. Poeng står i hver oppgave."
+        },
+        {
+          "id": "in1900-2-prove-pa1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pa1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Fila `pa1.py` kjøres som `python3 pa1.py 5 10 15`. Hva skrives ut?\n\n```python\nimport sys\nprint(len(sys.argv), sys.argv[-1])\n```",
+            "solution": "**Sporingstavle**\n\n| Steg | Verdi | Skriver |\n|---|---|---|\n| `sys.argv` | `['pa1.py', '5', '10', '15']` | — |\n| `len(sys.argv)` | 4 (filnavnet teller med) | `4` |\n| `sys.argv[-1]` | siste element: `'15'` | `15` |\n| `print(a, b)` | skiller med ett mellomrom | `4 15` |\n\n**Utskrift:**\n```\n4 15\n```\n\nFellen er #6 — at filnavnet ligger på indeks 0, så `len` blir 4 og ikke 3. Negativ indeks teller fra enden, så `sys.argv[-1]` er det siste argumentet du skrev.",
+            "hints": [
+              "Skriv opp hele lista `sys.argv` først, med filnavnet.",
+              "`print` med to argumenter setter ett mellomrom mellom dem."
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pa2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pa2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(2 poeng. Sjanger A.) Brukeren skriver først `3`, deretter `8`. Hva skrives ut?\n\n```python\na = input()\nb = input()\nprint(b + a)\nprint(int(b) - int(a))\n```",
+            "solution": "**Sporingstavle**\n\n| Steg | `a` | `b` | Skriver |\n|---|---|---|---|\n| `a = input()` | `'3'` | — | ingenting (ingen ledetekst) |\n| `b = input()` | `'3'` | `'8'` | ingenting |\n| `print(b + a)` | | | strengene limes sammen i den rekkefølgen: `83` |\n| `print(int(b) - int(a))` | | | $8 - 3 = 5$ |\n\n**Utskrift:**\n```\n83\n5\n```\n\nTo feller: at `input` gir strenger (så `b + a` blir sammenliming), og at rekkefølgen er `b` først. Merk også at `input()` uten argument ikke skriver noen ledetekst, så utskriften begynner rett på `83`.",
+            "hints": [
+              "Hvilken type returnerer `input`?",
+              "Se nøye på rekkefølgen `b + a`, ikke `a + b`."
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pa3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pa3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(2 poeng. Sjanger A.) Hva skrives ut?\n\n```python\nu = 'sum(range(4))'\nprint(eval(u))\nprint(eval('4 % 3 + 2 ** 2'))\n```",
+            "solution": "**Sporingstavle**\n\n| Uttrykk | Utregning | Skriver |\n|---|---|---|\n| `eval('sum(range(4))')` | `range(4)` gir 0, 1, 2, 3; summen er 6 | `6` |\n| `eval('4 % 3 + 2 ** 2')` | `**` først: 4; `%` deretter: $4\\bmod 3 = 1$; så $1 + 4$ | `5` |\n\n**Utskrift:**\n```\n6\n5\n```\n\n`eval` bruker helt vanlige Python-regler, også for presedens: `**` binder sterkest, deretter `%` (som `*` og `/`), og til sist `+`. Fellen er å regne `4 % (3 + 2**2)`, som ville gitt 4. Og husk at `range(4)` stopper *før* 4 — stoppverdien er eksklusiv.",
+            "hints": [
+              "Regn ut hva `range(4)` inneholder før du summerer.",
+              "Sett inn parenteser etter presedensreglene i det andre uttrykket."
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pa4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pa4-o",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Flervalg.) Et program skal ha nøyaktig **tre** argumenter på kommandolinjen. Hvilken sjekk avbryter riktig når antallet er galt?\n\n**a)** `if len(sys.argv) != 3:`\n**b)** `if len(sys.argv) < 3:`\n**c)** `if len(sys.argv) != 4:`\n**d)** `if len(sys.argv[1:]) != 4:`",
+            "solution": "Riktig er **c)**.\n\nTre argumenter pluss programnavnet gir fire elementer i `sys.argv`, så sjekken skal være `!= 4`.\n\n**a)** avbryter når antallet er riktig — den klassiske av-én-feilen i argumenttellingen (#6).\n\n**b)** slipper gjennom både tre og fire argumenter, siden den bare fanger for *få*.\n\n**d)** teller riktig liste (argumentene uten filnavnet), men sammenligner med 4 i stedet for 3. Den ville avvist et helt gyldig kall.",
+            "hints": [
+              "Hvor mange elementer har `sys.argv` når du gir tre argumenter?",
+              "Hvilke av alternativene teller med filnavnet, og hvilke gjør det ikke?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pa5",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pa5-o",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(2 poeng. Sjanger A.) Fila `pa5.py` kjøres som `python3 pa5.py 3 7`. Hva skrives ut?\n\n```python\nimport sys\nargumenter = sys.argv[1:]\nprint(argumenter)\nprint(argumenter[0] * 2)\n```",
+            "solution": "**Sporingstavle**\n\n| Steg | Verdi | Skriver |\n|---|---|---|\n| `sys.argv` | `['pa5.py', '3', '7']` | — |\n| `argumenter = sys.argv[1:]` | `['3', '7']` — utsnitt gir **liste** | — |\n| `print(argumenter)` | | lista med hakeparenteser og «, » |\n| `argumenter[0] * 2` | `'3' * 2` er strenggjentakelse | `33` |\n\n**Utskrift:**\n```\n['3', '7']\n33\n```\n\nTo feller på rad. Python skriver en liste med hakeparenteser, anførselstegn rundt strengene og komma + mellomrom mellom dem. Og `*` på en streng **gjentar** den: `'3' * 2` er `'33'`, ikke 6. Skulle du hatt tallet, måtte du skrevet `int(argumenter[0]) * 2`.",
+            "hints": [
+              "Gir `sys.argv[1:]` et element eller en liste?",
+              "Hva gjør `*` mellom en streng og et heltall?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pa6",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pa6-o",
+            "number": "6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(2 poeng. Flervalg.) Brukeren skal kunne oppgi et helt uttrykk i `x`, for eksempel teksten `3*x - 1`. Programmet har satt `x = 2.0`. Hvilken linje gir verdien 5.0?\n\n**a)** `verdi = float(uttrykk)`\n**b)** `verdi = int(uttrykk)`\n**c)** `verdi = uttrykk * x`\n**d)** `verdi = eval(uttrykk)`",
+            "solution": "Riktig er **d)**.\n\n`eval('3*x - 1')` tolker teksten som et Python-uttrykk og bruker `x` slik den er i programmet: $3\\cdot 2.0 - 1 = 5.0$.\n\n**a)** og **b)** krever at hele teksten er *ett* tall. Begge gir `ValueError` her, siden `'3*x - 1'` ikke kan tolkes som en tallverdi.\n\n**c)** ganger en streng med et flyttall, som gir `TypeError` — strenggjentakelse virker bare med heltall, og resultatet ville uansett vært tekst.\n\nDette er en klassisk sjanger-E-oppgave: distraktorene er alle *nesten* riktige måter å behandle brukerinput på.",
+            "hints": [
+              "Hvilken av funksjonene tolker en hel formel, og ikke bare et tall?",
+              "Tenk over hva `'3*x - 1' * 2.0` ville gjort."
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pa-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.A**\n\n- ☐ Skrev du opp `sys.argv` med filnavnet på indeks 0 før du svarte?\n- ☐ Husket du at `input` og `sys.argv` alltid gir strenger?\n- ☐ Skilte du sammenliming (`+` på strenger) fra addisjon (`+` på tall)?\n- ☐ Fikk du med hakeparentesene og anførselstegnene når en liste skrives ut?\n- ☐ Regnet du `**` før `%` og `*` før `+` i `eval`-uttrykket?\n\n**Poengsum:** 10 mulige. Under 6: les [kap. 2.1](/bok/in1900/in1900-2-1) på nytt, med vekt på definisjonsblokkene."
+        }
+      ],
+      "type": "collapsible"
+    },
+    {
+      "id": "in1900-2-prove-B",
+      "title": "Prøve 2.B — Exception-matching (30 min)",
+      "buttonText": "Vis prøve 2.B",
+      "content": [
+        {
+          "id": "in1900-2-prove-pb-intro",
+          "type": "text",
+          "content": "**Prøve 2.B — Exception-matching (30 minutter, 13 poeng).**\n\nTre matche-tabeller i sjanger C. For hver rad avgjør du hvilken feil som utløses **først**, eller om programmet går helt gjennom. Hver rad er 1 poeng her (på eksamen er den 0,5). Bruk femstegsoppskriften fra [kap. 2.2](/bok/in1900/in1900-2-2): skriv opp `sys.argv`, gå linje for linje, stopp ved første umulige operasjon, navngi feilen, match."
+        },
+        {
+          "id": "in1900-2-prove-pb1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pb1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(4 poeng. Sjanger C.) Programmet under er lagret som `rest.py`.\n\n```python\nimport sys\na = float(sys.argv[1])\nb = float(sys.argv[2])\nprint(a % b)\n```\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 rest.py 10 4` |\n| 2 | `python3 rest.py 10 0` |\n| 3 | `python3 rest.py 10` |\n| 4 | `python3 rest.py ti 4` |\n\n**Alternativer:** (i) ingen feil, (ii) `ValueError`, (iii) `IndexError`, (iv) `ZeroDivisionError`, (v) `KeyError`.",
+            "solution": "**Rad 1 — `10 4`.** `['rest.py', '10', '4']`. Begge konverteringene går bra, og $10 \\bmod 4 = 2$. **(i) ingen feil:**\n\n**Utskrift:**\n```\n2.0\n```\n\n**Rad 2 — `10 0`.** Konverteringene går bra, men `%` med 0 til høyre er ulovlig. **(iv) `ZeroDivisionError`**, med meldingen:\n\n```\nZeroDivisionError: float modulo\n```\n\nMerk at meldingen sier `float modulo` og ikke «division» — det er `%` som feilet, men feiltypen er den samme `ZeroDivisionError`.\n\n**Rad 3 — `10`.** Lista har to elementer, så `sys.argv[2]` på linje 3 finnes ikke. **(iii) `IndexError`.**\n\n**Rad 4 — `ti 4`.** `float('ti')` på linje 2 feiler straks. **(ii) `ValueError`** — programmet kommer aldri til `%`.\n\n**Fasit:** 1–(i), 2–(iv), 3–(iii), 4–(ii). Alternativ (v) `KeyError` brukes ikke: det finnes ingen ordbok i programmet, så den er ren felle.\n\n*Uttelling:* radene gis hver for seg. Er du usikker på én, gjett — blankt og feil gir likt (0 poeng), og negativ scoring er fjernet fra 2024/2025.",
+            "hints": [
+              "Skriv opp `sys.argv` for hver rad.",
+              "`%` kan også dele på null — hva skjer da?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pb2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pb2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(4 poeng. Sjanger C.) Programmet under er lagret som `lager.py`.\n\n```python\nimport sys\nlager = {'oslo': [12, 5], 'bergen': [8]}\nby = sys.argv[1]\ni = int(sys.argv[2])\nprint(lager[by][i] / lager[by][0])\n```\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 lager.py oslo 1` |\n| 2 | `python3 lager.py bergen 1` |\n| 3 | `python3 lager.py tromso 0` |\n| 4 | `python3 lager.py oslo en` |\n\n**Alternativer:** (i) `KeyError`, (ii) `IndexError`, (iii) `ValueError`, (iv) ingen feil.",
+            "solution": "**Rad 1 — `oslo 1`.** `lager['oslo']` er `[12, 5]`, element 1 er 5, og nevneren er element 0, altså 12. **(iv) ingen feil:**\n\n**Utskrift:**\n```\n0.4166666666666667\n```\n\nLegg merke til at $5/12$ skrives med full flyttallspresisjon, ikke avrundet — det er slik Python skriver flyttall uten formatering.\n\n**Rad 2 — `bergen 1`.** Nøkkelen finnes, men lista `[8]` har bare indeks 0. **(ii) `IndexError`.** Det er *listeindeksen* som svikter, ikke ordboksoppslaget.\n\n**Rad 3 — `tromso 0`.** `int('0')` går bra, men `lager['tromso']` finnes ikke. **(i) `KeyError`**, med meldingen `KeyError: 'tromso'`.\n\n**Rad 4 — `oslo en`.** `int('en')` på linje 4 feiler før noe oppslag gjøres. **(iii) `ValueError`.**\n\n**Fasit:** 1–(iv), 2–(ii), 3–(i), 4–(iii). Hele oppgaven handler om å skille de to hakeparentesene i `lager[by][i]`: den venstre er ordboka (`KeyError`), den høyre er lista (`IndexError`).",
+            "hints": [
+              "`lager[by][i]` gjør to oppslag — hvilket kommer først?",
+              "Hvilken feiltype hører til ordbøker, og hvilken til lister?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pb3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pb3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(5 poeng. Sjanger C.) Programmet under er lagret som `snitt.py`.\n\n```python\nimport sys\nmaaling = {'a': 4.0, 'b': 0.0}\nn = int(sys.argv[1])\nkode = sys.argv[2]\nassert n != 0, 'n kan ikke være null'\nprint(maaling[kode] / n)\n```\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 snitt.py 2 a` |\n| 2 | `python3 snitt.py 0 a` |\n| 3 | `python3 snitt.py 2 c` |\n| 4 | `python3 snitt.py to a` |\n| 5 | `python3 snitt.py 2` |\n\n**Alternativer:** (i) ingen feil, (ii) `ValueError`, (iii) `IndexError`, (iv) `KeyError`, (v) `AssertionError`, (vi) `ZeroDivisionError`.",
+            "solution": "**Rad 1 — `2 a`.** `int('2')` gir 2, `kode` blir `'a'`, `assert 2 != 0` holder, og $4.0/2 = 2.0$. **(i) ingen feil:**\n\n**Utskrift:**\n```\n2.0\n```\n\n**Rad 2 — `0 a`.** `int('0')` gir 0, `kode` blir `'a'`, og så slår `assert 0 != 0` til. **(v) `AssertionError`** med din egen melding:\n\n```\nAssertionError: n kan ikke være null\n```\n\nUten `assert`-linja ville `4.0 / 0` gitt `ZeroDivisionError`. Det er derfor alternativ (vi) står i lista — som felle.\n\n**Rad 3 — `2 c`.** Konverteringen og `assert` går bra, men `maaling['c']` finnes ikke. **(iv) `KeyError`.**\n\n**Rad 4 — `to a`.** `int('to')` på linje 3 feiler først av alt. **(ii) `ValueError`.**\n\n**Rad 5 — `2`.** Lista er `['snitt.py', '2']`, så `sys.argv[2]` på linje 4 finnes ikke. **(iii) `IndexError`** — merk at `int(sys.argv[1])` på linja over gikk helt fint.\n\n**Fasit:** 1–(i), 2–(v), 3–(iv), 4–(ii), 5–(iii). Alle fem alternativene unntatt (vi) brukes, hver én gang.\n\n*Ekstra å legge merke til:* kalles programmet som `python3 snitt.py 4 b`, går alt gjennom og utskriften blir:\n\n**Utskrift:**\n```\n0.0\n```\n\nTelleren er 0.0, og $0.0/4$ er helt lovlig — det er bare *nevneren* som ikke kan være null.",
+            "hints": [
+              "Gå linje for linje: konvertering, tilordning, `assert`, oppslag, divisjon.",
+              "Hvilken linje står `assert` foran, og hva fanger den derfor opp først?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pb-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.B**\n\n- ☐ Skrev du opp `sys.argv` for hver enkelt rad, med filnavnet?\n- ☐ Stoppet du ved den **første** umulige operasjonen, ikke den mest åpenbare?\n- ☐ Skilte du `KeyError` (ordbok) fra `IndexError` (liste)?\n- ☐ Så du at `assert` fanger opp problemet før en senere divisjon?\n- ☐ Krysset du av på alle radene, også de du var usikker på?\n\n**Poengsum:** 13 mulige. Under 8: gå gjennom Eksempel 3 i [kap. 2.2](/bok/in1900/in1900-2-2) en gang til, og gjør oppgave 7 der på nytt."
+        }
+      ],
+      "type": "collapsible"
+    },
+    {
+      "id": "in1900-2-prove-C",
+      "title": "Prøve 2.C — try/except-koding (25 min)",
+      "buttonText": "Vis prøve 2.C",
+      "content": [
+        {
+          "id": "in1900-2-prove-pc-intro",
+          "type": "text",
+          "content": "**Prøve 2.C — `try`/`except`-koding (25 minutter, 12 poeng).**\n\nHer skal du *skrive* kode, ikke bare spore den. Skriv kort og idiomatisk: ingen `main`-funksjon, ingen ekstra utskrift, ingen kommentarer utover det som dokumenterer en antakelse. Bruk penn og papir — eksamen er hjelpemiddelfri."
+        },
+        {
+          "id": "in1900-2-prove-pc1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pc1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(5 poeng. Sjanger O-moment.) Skriv programmet `tilfahrenheit.py` som tar én temperatur i celsius på kommandolinjen og skriver den ut i Fahrenheit med én desimal. Omregningen er $F = C\\cdot 9/5 + 32$.\n\n**a)** Programmet skal skrive `Oppgi en temperatur i celsius` hvis argumentet mangler, og `Temperaturen må være et tall` hvis argumentet ikke kan tolkes.\n**b)** Vis utskriften for de tre kallene `python3 tilfahrenheit.py 20`, `python3 tilfahrenheit.py` og `python3 tilfahrenheit.py kaldt`.",
+            "solution": "**a)** All koden som kan feile ligger inne i `try`, og hver feiltype får sin egen blokk:\n\n```python\nimport sys\ntry:\n    grader = float(sys.argv[1])\n    print(f'{grader * 9 / 5 + 32:.1f} F')\nexcept IndexError:\n    print('Oppgi en temperatur i celsius')\nexcept ValueError:\n    print('Temperaturen må være et tall')\n```\n\nUttellingen ligger i tre ting: at `float(sys.argv[1])` er *inne* i `try` (ellers fanges ikke `IndexError`), at det er to spesifikke `except`-blokker og ingen generell, og at regneuttrykket er riktig. Har du strukturen på plass men bommer på omregningsformelen, får du fortsatt det meste av poengene.\n\n**b)** `python3 tilfahrenheit.py 20`:\n\n**Utskrift:**\n```\n68.0 F\n```\n`python3 tilfahrenheit.py`:\n\n**Utskrift:**\n```\nOppgi en temperatur i celsius\n```\n`python3 tilfahrenheit.py kaldt`:\n\n**Utskrift:**\n```\nTemperaturen må være et tall\n```\n\nMerk at $20 \\cdot 9/5 + 32 = 68$, og at `:.1f` gir `68.0` og ikke `68`.",
+            "hints": [
+              "Legg både `float(sys.argv[1])` og `print`-linja inne i `try`.",
+              "Hvilke to feiltyper kan oppstå her? Én for manglende argument, én for ubrukelig innhold.",
+              "Bruk en f-streng med `:.1f` for én desimal."
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pc2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pc2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(5 poeng.) Skriv en kodebit som spør brukeren om et antall målinger, og som **spør på nytt** helt til svaret kan tolkes som et heltall. Ugyldige svar skal gi meldingen `Skriv et heltall`. Til slutt skal programmet skrive `Leste` og tallet.\n\nVis også utskriften når brukeren først skriver `tre` og deretter `5`.",
+            "solution": "Mønsteret er en evig løkke som brytes først når konverteringen lykkes:\n\n```python\nwhile True:\n    tekst = input('Antall målinger: ')\n    try:\n        antall = int(tekst)\n        break\n    except ValueError:\n        print('Skriv et heltall')\nprint('Leste', antall)\n```\n\nUtskriften når brukeren skriver `tre` og deretter `5`:\n\n**Utskrift:**\n```\nAntall målinger: Skriv et heltall\nAntall målinger: Leste 5\n```\n\nLegg merke til at ledetekstene står på samme linje som det som følger, fordi `input` ikke skriver linjeskift etter meldingen sin.\n\n**Hva gir uttelling:** at `break` står *etter* den vellykkede konverteringen (står den før, brytes løkka uansett), at `except ValueError` er spesifikk, og at `antall` faktisk er tilgjengelig etter løkka. En variant med `while not ferdig:` og en boolsk variabel er likeverdig og gir full uttelling.\n\n**Vanlig feil:** å legge `break` inne i `except`-blokken, som gjør at løkka avsluttes nettopp når svaret var ugyldig.",
+            "hints": [
+              "Bruk `while True:` og `break` når konverteringen lykkes.",
+              "Hvor i `try`-blokken må `break` stå for at bare gyldige svar avslutter løkka?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pc3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pc3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(2 poeng. Flervalg.) Koden under kjøres. Hvilken `except`-blokk kjører, og hva skrives ut?\n\n```python\ntry:\n    x = int('12')\n    y = [1, 2, 3]\n    print(y[x])\nexcept ValueError:\n    print('V')\nexcept IndexError:\n    print('I')\nexcept Exception:\n    print('E')\n```\n\n**a)** `except IndexError`, og det skrives `I`\n**b)** `except ValueError`, og det skrives `V`\n**c)** `except Exception`, og det skrives `E`\n**d)** Ingen — programmet skriver `12`",
+            "solution": "Riktig er **a)**.\n\n`int('12')` lykkes og gir 12. Lista `y` har bare indeksene 0, 1 og 2, så `y[12]` utløser `IndexError`. Python leter nedover og finner `except IndexError` før den generelle, så det skrives `I`.\n\n**b)** ville krevd at konverteringen feilet, men `'12'` er et helt tall uten desimalpunkt.\n\n**c)** ville vært svaret hvis `except Exception` sto **først** — den fanger alt, men her står den sist, som er riktig plassering.\n\n**d)** ville krevd at `y[12]` fantes.\n\nPoenget: rekkefølgen på `except`-blokkene bestemmer hvem som fanger, og «spesifikk før generell» er den regelen du skal skrive etter.",
+            "hints": [
+              "Lykkes `int('12')`? Svar på det først.",
+              "Hvor mange elementer har `y`, og hvilken indeks ber koden om?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pc-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.C**\n\n- ☐ Lå *all* koden som kan feile inne i `try`?\n- ☐ Brukte du spesifikke feiltyper, og ikke `except Exception`?\n- ☐ Sto `break` etter den vellykkede konverteringen, ikke i `except`-blokken?\n- ☐ Var koden kort — uten `main`-funksjon og uten unødvendige kommentarer?\n- ☐ Fikk du med `import sys` i programmet som bruker `sys.argv`?\n\n**Poengsum:** 12 mulige. Under 7: skriv oppgave 1 og 2 på nytt fra bunnen, uten å se på fasit. Det er skrivetreningen som teller her, ikke gjenkjenningen."
+        }
+      ],
+      "type": "collapsible"
+    },
+    {
+      "id": "in1900-2-prove-D",
+      "title": "Prøve 2.D — Integrert: kommandolinje og feilhåndtering (30 min)",
+      "buttonText": "Vis prøve 2.D",
+      "content": [
+        {
+          "id": "in1900-2-prove-pd-intro",
+          "type": "text",
+          "content": "**Prøve 2.D — Integrert: kommandolinje og feilhåndtering (30 minutter, 15 poeng).**\n\nTre deler som bygger på hverandre: du finner feilene i et program, skriver det om, og matcher til slutt kjøringer mot utfall. Deloppgavene kan løses uavhengig — kommer du ikke videre på a), kan du fortsatt gjøre b) og c), siden du vet hva programmet skal gjøre."
+        },
+        {
+          "id": "in1900-2-prove-pd1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pd1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(6 poeng. Sjanger O — «finn feilen».) Programmet `tetthet.py` skal ta en masse i kilo og et volum i liter på kommandolinjen og skrive ut tettheten med to desimaler, med en forståelig beskjed hvis noe er galt. Det virker ikke. Finn og forklar alle feilene.\n\n```python\nimport sys\nvekt = float(sys.argv[0])\ntry:\n    volum = float(sys.argv[1])\n    print(f'Tetthet: {vekt / volum:.2f} kg/L')\nexcept Exception:\n    print('Noe gikk galt')\nexcept ZeroDivisionError:\n    print('Volumet kan ikke være null')\n```",
+            "solution": "Det er tre feil:\n\n**1) `sys.argv[0]` er filnavnet.** `float('tetthet.py')` gir `ValueError` for *alle* kall, også de gyldige. Massen ligger på indeks 1 og volumet på indeks 2.\n\n**2) Linja med `vekt` ligger utenfor `try`.** Selv om indeksen hadde vært riktig, ville et kall uten argumenter gitt en rå `IndexError` som ingen `except` fanger. All kode som kan feile skal inn i `try`.\n\n**3) `except Exception` står før `except ZeroDivisionError`.** Den generelle fanger alt, så meldingen om volumet brukes aldri — den er død kode. Spesifikk før generell, alltid.\n\nI tillegg er beskjeden `Noe gikk galt` for vag: oppgaven ber om en forståelig melding, og sensor forventer at du skiller feiltilfellene.\n\n*Uttelling:* poeng gis per feil du peker ut og forklarer, typisk 2 poeng hver. Finner du to av tre, har du 4 av 6 — så skriv ned alle du ser, også de du er usikker på.",
+            "hints": [
+              "Skriv opp `sys.argv` for et gyldig kall og sjekk hver indeks koden bruker.",
+              "Se etter linjer som kan feile, men som ligger utenfor `try`.",
+              "I hvilken rekkefølge leter Python gjennom `except`-blokkene?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pd2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pd2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(5 poeng.) Skriv `tetthet.py` riktig. Programmet skal skrive\n\n**a)** `Bruk: python tetthet.py vekt volum` hvis et argument mangler,\n**b)** `Både vekt og volum må være tall` hvis et argument ikke kan tolkes,\n**c)** `Volumet kan ikke være null` hvis volumet er 0.\n\nVis utskriften for `python3 tetthet.py 1.5 2.0`.",
+            "solution": "Tre spesifikke `except`-blokker, all risikabel kode inne i `try`:\n\n```python\nimport sys\ntry:\n    vekt = float(sys.argv[1])\n    volum = float(sys.argv[2])\n    print(f'Tetthet: {vekt / volum:.2f} kg/L')\nexcept IndexError:\n    print('Bruk: python tetthet.py vekt volum')\nexcept ValueError:\n    print('Både vekt og volum må være tall')\nexcept ZeroDivisionError:\n    print('Volumet kan ikke være null')\n```\n\nUtskriften for `python3 tetthet.py 1.5 2.0`:\n\n**Utskrift:**\n```\nTetthet: 0.75 kg/L\n```\n\nRegnestykket er $1{,}5/2{,}0 = 0{,}75$.\n\n**Hva gir uttelling:** riktige indekser (1 og 2), begge konverteringene og utskriften inne i `try`, og tre spesifikke feiltyper i vilkårlig rekkefølge — de er uavhengige, så ingen av dem må stå før de andre. Bruker du `sys.exit` med en antallssjekk øverst i stedet for `except IndexError`, er det en like god løsning og gis full uttelling.",
+            "hints": [
+              "Begynn med `import sys` og `try:`.",
+              "Tre feiltyper skal håndteres — hvilke?",
+              "Bruk `:.2f` i f-strengen for to desimaler."
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pd3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-2-prove-pd3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(4 poeng. Sjanger C.) Bruk det **rettede** programmet fra oppgave 2. Match hver kjøring mot det brukeren ser.\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 tetthet.py 1.5 2.0` |\n| 2 | `python3 tetthet.py 1.5 0` |\n| 3 | `python3 tetthet.py 1.5` |\n| 4 | `python3 tetthet.py mye 2.0` |\n\n**Alternativer:** (i) `Bruk: python tetthet.py vekt volum`, (ii) `Tetthet: 0.75 kg/L`, (iii) `Både vekt og volum må være tall`, (iv) `Volumet kan ikke være null`, (v) programmet stopper med en feilmelding.",
+            "solution": "**Rad 1 — `1.5 2.0`.** Alt går gjennom. **(ii)**:\n\n**Utskrift:**\n```\nTetthet: 0.75 kg/L\n```\n\n**Rad 2 — `1.5 0`.** Konverteringene lykkes, `float('0')` gir 0.0, og divisjonen feiler. `ZeroDivisionError`-blokken kjører. **(iv)**:\n\n**Utskrift:**\n```\nVolumet kan ikke være null\n```\n\n**Rad 3 — `1.5`.** `sys.argv[2]` finnes ikke, `IndexError`-blokken kjører. **(i)**:\n\n**Utskrift:**\n```\nBruk: python tetthet.py vekt volum\n```\n\n**Rad 4 — `mye 2.0`.** `float('mye')` feiler, `ValueError`-blokken kjører. **(iii)**:\n\n**Utskrift:**\n```\nBåde vekt og volum må være tall\n```\n\n**Fasit:** 1–(ii), 2–(iv), 3–(i), 4–(iii). Alternativ (v) brukes ikke: nettopp fordi programmet nå fanger alle tre feiltypene, stopper det aldri med en rå feilmelding. Det er hele poenget med feilhåndtering — og en fin sluttkontroll på at du har rettet programmet riktig.",
+            "hints": [
+              "Gå gjennom det rettede programmet linje for linje for hver rad.",
+              "Hvilken av de tre `except`-blokkene kjører for hvert kall?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-2-prove-pd-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.D**\n\n- ☐ Sjekket du hver indeks koden bruker mot lista `sys.argv` du selv skrev opp?\n- ☐ Fant du alle tre feilene i oppgave 1, inkludert rekkefølgen på `except`-blokkene?\n- ☐ Lå all risikabel kode inne i `try` i programmet du skrev?\n- ☐ Ga programmet ditt tre *forskjellige* og forståelige beskjeder?\n- ☐ Så du at et program med full feilhåndtering aldri stopper med en rå feilmelding?\n\n**Poengsum:** 15 mulige. Under 9: gjør oppgave 10 og 11 i [kap. 2.2](/bok/in1900/in1900-2-2) på nytt før du går videre til Del 3.\n\n**Samlet for Del 2:** 50 poeng over fire prøver. Over 35 er solid, og C er en god og vanlig karakter i dette faget — du trenger ikke feilfrie besvarelser for å komme godt ut."
+        }
+      ],
+      "type": "collapsible"
+    }
+  ],
+  "exercises": []
+}
