@@ -271,9 +271,10 @@ if '2' in DELER:
     xs = 92.0
     Ys = (xs - OX) / KX
     b += darrow((xs, kv(A0 + C1 * Ys)), (xs, kv(A1 + C1 * Ys)), INK)
-    # etiketten midt på dobbeltpila, til høyre for den (ikke oppå pilspissen)
-    b += rt(xs + 11, (kv(A0 + C1 * Ys) + kv(A1 + C1 * Ys)) / 2 + 4,
-            'fall i c_{0}', 11, INK)
+    # kort etikett ØVERST til høyre for dobbeltpila: der er kilen mellom pila og
+    # 45-graderslinja bred nok. En lang etikett midt på pila blir krysset av
+    # 45-graderslinja, og en etikett under pilspissen kolliderer med ΔY-pila.
+    b += rt(xs + 6, kv(A0 + C1 * Ys) - 6, 'Δc_{0}', 12, INK)
     save('keynes-kryss-spareparadoks', b)
 
     # ------------------------- 2) sparing mot investering (H2018) ----------
