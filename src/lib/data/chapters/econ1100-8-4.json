@@ -1,0 +1,323 @@
+{
+  "id": "econ1100-8-4",
+  "courseId": "econ1100",
+  "chapterNumber": "8.4",
+  "title": "Flere variabler, symmetri og klassifisering ved funksjonsverdi",
+  "description": "Lagrange med n variabler: én generell førsteordensbetingelse, symmetri som må begrunnes og ikke bare påstås, og den tredje strenge fallgruven — klassifisering under bibetingelse gjøres ved å sammenligne funksjonsverdier, aldri med en andreordensbetingelse.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "skrive én generell førsteordensbetingelse for et problem med n variabler",
+    "begrunne symmetri eksplisitt i stedet for å påstå den",
+    "klassifisere kandidatpunkter ved å sammenligne funksjonsverdier",
+    "vurdere når en slik sammenligning gir en global konklusjon og når den ikke gjør det"
+  ],
+  "content": [
+    {
+      "id": "econ1100-8-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**To ting skjer i dette kapitlet: problemet blir større, og en felle blir avlyst.**\n\n**Sjanger LG — Lagrange og betinget optimering** — dukker regelmessig opp med $n$ variabler i stedet for to. Da forventer sensor **én generell førsteordensbetingelse** for en vilkårlig $x_i$, ikke $n$ utskrevne likninger. Symmetri belønnes — men den må **begrunnes eksplisitt**, ikke bare påstås.\n\n**Den avlyste fellen:** ECON1100 lærer **ikke** andreordensbetingelse under bibetingelse. Sensorveiledningen sier det rett ut i ett av settene (H2023, oppgave 3c): studentene har ikke lært denne betingelsen, og skal derfor ikke bruke den. Trenger oppgaven en klassifisering, er den lovlige veien å **sammenligne funksjonsverdiene** i kandidatpunktene.\n\nDette er den **tredje av bokas tre strenge fallgruver** (de to andre står i [kap. 4.2](/bok/econ1100/econ1100-4-2) og [kap. 4.3](/bok/econ1100/econ1100-4-3)), og den har sin egen advarselsboks lenger nede.\n\n**En lettelse verdt å merke seg:** sensor godtar upresis generell notasjon i $n$-variabel-oppgaver. Det er forståelsen som måles, ikke elegant summeskriving.\n\nKapitlet har **høyeste prioritet**.\n\n*Kilde for tallene og sensorpraksisen: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-8-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 8.1](/bok/econ1100/econ1100-8-1) og [kap. 8.2](/bok/econ1100/econ1100-8-2). Klassifiseringsdelen henter tankegangen fra [kap. 4.3](/bok/econ1100/econ1100-4-3), der definisjonsområdet og ikke innsatte tallverdier bar argumentet.\n\n**Sist du var her — de tre linjene du trenger:**\n\n$$L=F-\\lambda(g-m);\\qquad F'_x=\\lambda g'_x;\\qquad F'_y=\\lambda g'_y$$\n\n$$\\max\\ \\ln x+\\ln y\\ \\text{under}\\ p_1x+p_2y=m\\ \\Longrightarrow\\ x^*=\\frac{m}{2p_1},\\quad \\lambda=\\frac{2}{m}$$\n\n$$\\frac{d}{dx}\\ln x=\\frac1x$$"
+    },
+    {
+      "id": "econ1100-8-4-motivasjon",
+      "type": "text",
+      "content": "En konsument som velger mellom to varer, er en modell. En konsument velger mellom hundrevis.\n\nHeldigvis endrer ingenting seg prinsipielt når antallet varer vokser. Lagrange-funksjonen får flere ledd, og du får én førsteordensbetingelse per variabel — men de ser alle like ut. Derfor skriver man **én** av dem, med en generell indeks $i$, og lar den stå for alle.\n\nEr i tillegg alle varene like dyre og teller likt i nyttefunksjonen, er problemet **symmetrisk**, og da må løsningen være det også. Det sparer nesten all regning. Men symmetri er et argument, ikke en påstand, og sensor krever at argumentet skrives ut.\n\nSiste del av kapitlet rydder opp i et spørsmål som har hengt igjen siden [kap. 8.1](/bok/econ1100/econ1100-8-1): hvordan vet vi egentlig at et kandidatpunkt er et maksimum og ikke et minimum? Svaret er enklere enn du kanskje frykter — og det er ikke den metoden du kanskje forventer."
+    },
+    {
+      "id": "econ1100-8-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — $n$ variabler og den generelle betingelsen (~17 min)"
+    },
+    {
+      "id": "econ1100-8-4-def-n-variabel",
+      "type": "definition",
+      "title": "Lagrange med $n$ variabler",
+      "content": "Oppsettet er det samme; det er bare flere ledd i målfunksjonen og i bibetingelsen.\n\n$$L=F(x_1,\\dots,x_n)-\\lambda\\Big(\\sum_{i=1}^{n}p_ix_i-m\\Big)$$\n\nFørsteordensbetingelsene blir $n$ i tallet, én per variabel, pluss bibetingelsen: til sammen $n+1$ likninger og $n+1$ ukjente ($x_1,\\dots,x_n$ og $\\lambda$). Regnskapet går opp på nøyaktig samme måte som i totilfellet."
+    },
+    {
+      "id": "econ1100-8-4-def-generell-fob",
+      "type": "definition",
+      "title": "Den generelle førsteordensbetingelsen",
+      "content": "I stedet for å skrive $n$ likninger skriver du én, med en vilkårlig indeks.\n\n$$\\frac{\\partial L}{\\partial x_i}=F'_i-\\lambda p_i=0\\qquad\\text{for }i=1,\\dots,n$$\n\nSetningen «for $i=1,\\dots,n$» er det som gjør den generell, og den skal stå der. Sensor forventer denne formen i $n$-variabel-oppgaver — det er raskere å skrive og viser at du har sett strukturen, ikke bare kopiert et mønster."
+    },
+    {
+      "id": "econ1100-8-4-def-symmetri",
+      "type": "definition",
+      "title": "Symmetri — og hvorfor den må begrunnes",
+      "content": "Er alle variablene likestilte i både målfunksjon og bibetingelse, må de optimale verdiene være like.\n\n$$x_1^*=x_2^*=\\dots=x_n^*$$\n\n**Argumentet, som skal skrives ut:** de $n$ førsteordensbetingelsene er identiske likninger i hver sin variabel. Løser man én av dem for $x_i$, får man samme uttrykk uansett hvilken $i$ man valgte. Derfor er verdiene like.\n\nÅ bare påstå «ved symmetri er alle like» uten dette resonnementet gir redusert uttelling. Argumentet tar to setninger."
+    },
+    {
+      "id": "econ1100-8-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: $n$ varer til samme pris",
+      "problem": "En konsument maksimerer\n\n$$U=\\sum_{i=1}^{n}\\ln x_i\\quad\\text{under}\\quad p\\sum_{i=1}^{n}x_i=m,$$\n\nder alle $n$ varene koster det samme, $p>0$.\n\n**a)** Sett opp $L$ og den generelle førsteordensbetingelsen.\n\n**b)** Begrunn at løsningen er symmetrisk, og finn $x_i^*$ og $\\lambda$.\n\n**c)** Kontroller for $n=5$, $p=2$, $m=60$.",
+      "solution": "**a) Oppsett.**\n\n$$L=\\sum_{i=1}^{n}\\ln x_i-\\lambda\\Big(p\\sum_{i=1}^{n}x_i-m\\Big)$$\n\nDeriver mht. en vilkårlig $x_i$. Bare ett ledd i hver sum inneholder $x_i$:\n\n$$\\frac{\\partial L}{\\partial x_i}=\\frac{1}{x_i}-\\lambda p=0\\qquad\\text{for }i=1,\\dots,n$$\n\nBibetingelsen kommer i tillegg:\n\n$$p\\sum_{i=1}^{n}x_i=m$$\n\n**b) Symmetriargumentet.** Løs den generelle betingelsen for $x_i$:\n\n$$x_i=\\frac{1}{\\lambda p}$$\n\nHøyresiden inneholder **ingen** $i$. Uttrykket er altså det samme uansett hvilken variabel vi ser på, og dermed er\n\n$$x_1^*=x_2^*=\\dots=x_n^*$$\n\nDette er begrunnelsen sensor vil se — den er kort, men den er et argument og ikke en påstand.\n\n**Sett inn i bibetingelsen.** Med $n$ like verdier blir summen $n$ ganger den ene:\n\n$$p\\cdot n\\cdot x_i^*=m\\ \\Longrightarrow\\ \\boxed{x_i^*=\\frac{m}{np}}$$\n\n**Multiplikatoren** fra den generelle betingelsen:\n\n$$\\lambda=\\frac{1}{px_i^*}=\\frac{1}{p}\\cdot\\frac{np}{m}=\\frac{n}{m}$$\n\n**Tolkning av $\\lambda=n/m$:** skyggeprisen vokser med antall varer. Med flere goder å fordele pengene på gir hver ekstra krone større nyttegevinst — fordi den kan spres tynnere utover.\n\n**c) Kontroll for $n=5$, $p=2$, $m=60$:**\n\n$$x_i^*=\\frac{60}{5\\cdot 2}=6\\quad\\text{for alle }i,\\qquad \\lambda=\\frac{5}{60}=\\frac{1}{12}$$\n\nBibetingelsen: $2\\cdot(6+6+6+6+6)=2\\cdot 30=60$ ✓\n\nFørsteordensbetingelsen: $\\dfrac{1}{6}-\\dfrac{1}{12}\\cdot 2=\\dfrac16-\\dfrac16=0$ ✓\n\n**Merk at hele oppgaven ble løst uten å skrive én eneste av de fem betingelsene ut.**"
+    },
+    {
+      "id": "econ1100-8-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger LG — Lagrange og betinget optimering. Innstegsoppgave.) En konsument maksimerer\n\n$$U=\\sum_{i=1}^{n}\\sqrt{x_i}\\quad\\text{under}\\quad p\\sum_{i=1}^{n}x_i=m.$$\n\n**a)** Skriv den generelle førsteordensbetingelsen.\n\n**b)** Begrunn symmetrien og finn $x_i^*$.\n\n**c)** Regn ut $x_i^*$ for $n=4$, $p=5$, $m=100$.",
+        "solution": "**a)** Lagrange-funksjonen er\n\n$$L=\\sum_{i=1}^{n}\\sqrt{x_i}-\\lambda\\Big(p\\sum_{i=1}^{n}x_i-m\\Big)$$\n\nDeriver mht. en vilkårlig $x_i$, og husk at $\\dfrac{d}{dx}\\sqrt{x}=\\dfrac{1}{2\\sqrt{x}}$:\n\n$$\\frac{\\partial L}{\\partial x_i}=\\frac{1}{2\\sqrt{x_i}}-\\lambda p=0\\qquad\\text{for }i=1,\\dots,n$$\n\n**b) Symmetriargumentet.** Løs for $x_i$:\n\n$$\\frac{1}{2\\sqrt{x_i}}=\\lambda p\\ \\Longrightarrow\\ \\sqrt{x_i}=\\frac{1}{2\\lambda p}\\ \\Longrightarrow\\ x_i=\\frac{1}{4\\lambda^2p^2}$$\n\nUttrykket inneholder ingen $i$, så alle $x_i^*$ er like.\n\n**Sett inn i bibetingelsen:**\n\n$$p\\cdot n\\cdot x_i^*=m\\ \\Longrightarrow\\ x_i^*=\\frac{m}{np}$$\n\n**c)** Med $n=4$, $p=5$, $m=100$:\n\n$$x_i^*=\\frac{100}{4\\cdot 5}=5\\quad\\text{for alle fire}$$\n\n*Kontroll:* $5\\cdot(5+5+5+5)=5\\cdot 20=100$ ✓\n\n*Merk:* resultatet $x_i^*=m/(np)$ er det samme som for logaritmisk nytte i eksempel 1. Det er ikke tilfeldig — begge nyttefunksjonene er symmetriske summer, og med like priser deler symmetrien budsjettet likt uansett hvilken voksende funksjon som står i summen.",
+        "hints": [
+          "Deriver ett ledd av gangen: bare $\\sqrt{x_i}$ inneholder $x_i$.",
+          "I b): løs betingelsen for $x_i$ og se om indeksen $i$ står igjen på høyresiden."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger LG — $n$ variabler med ulike priser.) En konsument maksimerer\n\n$$U=\\sum_{i=1}^{n}\\ln x_i\\quad\\text{under}\\quad \\sum_{i=1}^{n}p_ix_i=m,$$\n\nder prisene $p_1,\\dots,p_n$ nå kan være forskjellige.\n\n**a)** Skriv den generelle førsteordensbetingelsen og løs den for $x_i$.\n\n**b)** Finn $\\lambda$ og deretter $x_i^*$.\n\n**c)** Er løsningen symmetrisk? Forklar.",
+        "solution": "**a)**\n\n$$L=\\sum_{i=1}^{n}\\ln x_i-\\lambda\\Big(\\sum_{i=1}^{n}p_ix_i-m\\Big)$$\n\n$$\\frac{\\partial L}{\\partial x_i}=\\frac{1}{x_i}-\\lambda p_i=0\\qquad\\text{for }i=1,\\dots,n$$\n\nLøst for $x_i$:\n\n$$x_i=\\frac{1}{\\lambda p_i}$$\n\n**b) Finn $\\lambda$** ved å sette uttrykket inn i bibetingelsen. Hvert ledd blir da\n\n$$p_ix_i=p_i\\cdot\\frac{1}{\\lambda p_i}=\\frac{1}{\\lambda}$$\n\nUtgiften på hver vare er altså den samme, $1/\\lambda$. Summen av $n$ slike ledd er\n\n$$\\frac{n}{\\lambda}=m\\ \\Longrightarrow\\ \\lambda=\\frac{n}{m}$$\n\nSatt tilbake:\n\n$$\\boxed{x_i^*=\\frac{1}{\\lambda p_i}=\\frac{m}{np_i}}$$\n\n**Kontroll:** $\\sum p_ix_i^*=\\sum\\dfrac{m}{n}=n\\cdot\\dfrac{m}{n}=m$ ✓\n\n**c) Nei, løsningen er ikke symmetrisk i mengdene** — er $p_2$ dobbelt så høy som $p_1$, blir $x_2^*$ halvparten så stor som $x_1^*$.\n\n**Men den er symmetrisk i utgiftene.** Hver vare får nøyaktig $m/n$ kroner, uavhengig av prisen. Symmetrien i problemet ligger i nyttefunksjonen, der alle varene teller likt; prisene bryter symmetrien i mengder, men ikke i pengebruk.\n\n*Konkret med $n=3$, $p=(2,3,5)$, $m=60$:* hver vare får 20 kroner, altså $x_1^*=10$, $x_2^*=20/3$, $x_3^*=4$. Kontroll: $2\\cdot 10+3\\cdot\\frac{20}{3}+5\\cdot 4=20+20+20=60$ ✓",
+        "hints": [
+          "Løs den generelle betingelsen for $x_i$ før du setter noe inn i bibetingelsen.",
+          "Regn ut $p_ix_i$ med uttrykket ditt — hva blir hvert ledd i summen?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Klassifisering: den tredje fallgruven (~17 min)"
+    },
+    {
+      "id": "econ1100-8-4-warning-fallgruve",
+      "type": "warning",
+      "title": "Fallgruve 3 av 3: klassifisering under bibetingelse",
+      "content": "**Det finnes ingen andreordensbetingelse under bibetingelse i ECON1100. Bruk den ikke.**\n\nDu har lært en andrederiverttest for én variabel ([kap. 4.2](/bok/econ1100/econ1100-4-2)) og en Hesse-determinant for fri optimering i to variabler. Det er nærliggende å tro at det finnes en tilsvarende test for betinget optimering. Den finnes i litteraturen, men den er **ikke pensum her**, og sensorveiledningen sier det uttrykkelig: studentene har ikke lært denne betingelsen.\n\n**Det korrekte argumentet, skrevet ut:**\n\n1. Finn **alle** kandidatpunktene fra førsteordensbetingelsene.\n2. Regn ut **funksjonsverdien** $F$ i hvert av dem.\n3. Det punktet med høyest verdi er maksimum; det med lavest er minimum.\n\nDette virker fordi kandidatpunktene er de **eneste** mulige. Er bibetingelsens kurve lukket og begrenset — for eksempel en sirkel — og $F$ kontinuerlig, så *finnes* både et største og et minste punkt, og de må ligge blant kandidatene.\n\n**I standardoppgavene trenger du ikke engang dette.** Er det bare ett kandidatpunkt, og oppgaven ber om et maksimum, kan du anta at punktet er maksimum. Det er den vanlige situasjonen, og sensor godtar den.\n\n**Kort sagt:** klassifisering under bibetingelse gjøres med tall du allerede har regnet ut, ikke med en ny test."
+    },
+    {
+      "id": "econ1100-8-4-def-klassifisering",
+      "type": "definition",
+      "title": "Klassifisering ved funksjonsverdi",
+      "content": "Kandidatene rangeres ved å sette dem inn i målfunksjonen og sammenligne tallene.\n\n$$F(P_1),\\ F(P_2),\\ \\dots\\ \\Longrightarrow\\ \\text{størst er maks, minst er min}$$\n\nMetoden er lovlig fordi førsteordensbetingelsene fanger opp **alle** mulige kandidater. Den er også rask: du har allerede punktene, og innsettingen er ren regning."
+    },
+    {
+      "id": "econ1100-8-4-def-eksistens",
+      "type": "definition",
+      "title": "Når sammenligningen gir et globalt svar",
+      "content": "Rangeringen av kandidater blir en global konklusjon når bibetingelsen avgrenser et lukket og begrenset område.\n\n$$x^2+y^2=3\\ \\text{(en sirkel — lukket og begrenset)}$$\n\nDa finnes både et største og et minste punkt, og de må være blant kandidatene. Er kurven derimot ubegrenset — som hyperbelen $xy=4$, der grenene stikker av mot uendelig — kan det hende at verken maksimum eller minimum eksisterer, og da beskriver kandidatpunktene bare lokale forhold."
+    },
+    {
+      "id": "econ1100-8-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Tre verdinivåer, rangert",
+      "problem": "Finn det største og det minste mulige verdien av $f(x,y)=x^2y$ på sirkelen $x^2+y^2=3$.",
+      "solution": "**Oppsett:**\n\n$$L=x^2y-\\lambda\\big(x^2+y^2-3\\big)$$\n\n$$\\text{FOB (1)}:\\ 2xy-2\\lambda x=0\\ \\Longrightarrow\\ 2x(y-\\lambda)=0$$\n\n$$\\text{FOB (2)}:\\ x^2-2\\lambda y=0$$\n\n$$\\text{FOB (3)}:\\ x^2+y^2=3$$\n\n**FOB (1) faktoriseres**, og et produkt er null når en faktor er det. Det gir to tilfeller.\n\n**Tilfelle A: $x=0$.** Da gir FOB (3) at $y^2=3$, altså $y=\\pm\\sqrt3$. Kandidatene er\n\n$$(0,\\sqrt3)\\quad\\text{og}\\quad(0,-\\sqrt3)$$\n\n*Sjekk av FOB (2):* $0-2\\lambda y=0$ med $y\\ne 0$ gir $\\lambda=0$ ✓ — konsistent.\n\n**Tilfelle B: $y=\\lambda$.** Sett inn i FOB (2):\n\n$$x^2=2\\lambda y=2y^2$$\n\nOg i FOB (3):\n\n$$2y^2+y^2=3\\ \\Longrightarrow\\ y^2=1\\ \\Longrightarrow\\ y=\\pm 1$$\n\nMed $x^2=2y^2=2$ blir $x=\\pm\\sqrt2$. Det gir fire kandidater:\n\n$$(\\sqrt2,1),\\ (-\\sqrt2,1),\\ (\\sqrt2,-1),\\ (-\\sqrt2,-1)$$\n\n**Klassifisering — sett inn i $f$.** Legg merke til at $f=x^2y$ bare avhenger av $x$ gjennom $x^2$, så fortegnet på $x$ spiller ingen rolle:\n\n| Kandidat | $x^2$ | $y$ | $f=x^2y$ |\n|---|---|---|---|\n| $(0,\\pm\\sqrt3)$ | $0$ | $\\pm\\sqrt3$ | $0$ |\n| $(\\pm\\sqrt2,1)$ | $2$ | $1$ | $2$ |\n| $(\\pm\\sqrt2,-1)$ | $2$ | $-1$ | $-2$ |\n\n**Konklusjon:**\n\n$$f_{\\max}=2\\ \\text{i}\\ (\\pm\\sqrt2,1);\\qquad f_{\\min}=-2\\ \\text{i}\\ (\\pm\\sqrt2,-1)$$\n\n**Hvorfor dette er et gyldig argument:** sirkelen $x^2+y^2=3$ er lukket og begrenset, og $f$ er kontinuerlig. Da finnes både et største og et minste punkt, og de må være blant kandidatene fra førsteordensbetingelsene. Sammenligningen av de tre verdinivåene $2$, $0$ og $-2$ avgjør dermed saken fullt ut.\n\n**Kontroll av bibetingelsen i et av punktene:** $(\\sqrt2)^2+1^2=2+1=3$ ✓\n\n**Merk hva vi ikke gjorde.** Vi regnet ingen andrederiverte av $L$, og vi brukte ingen andreordensbetingelse under bibetingelse. Hele klassifiseringen kom fra tre innsettinger."
+    },
+    {
+      "id": "econ1100-8-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger LG — klassifisering.) Finn den største og den minste verdien av $f(x,y)=x+2y$ på sirkelen $x^2+y^2=5$.",
+        "solution": "**Oppsett:**\n\n$$L=x+2y-\\lambda\\big(x^2+y^2-5\\big)$$\n\n$$\\text{FOB (1)}:\\ 1-2\\lambda x=0\\qquad \\text{FOB (2)}:\\ 2-2\\lambda y=0\\qquad \\text{FOB (3)}:\\ x^2+y^2=5$$\n\n**Eliminér $\\lambda$.** Del FOB (2) på FOB (1) — begge sider er positive, så $\\lambda\\ne 0$:\n\n$$\\frac{2}{1}=\\frac{2\\lambda y}{2\\lambda x}=\\frac{y}{x}\\ \\Longrightarrow\\ y=2x$$\n\n**Sett inn i bibetingelsen:**\n\n$$x^2+4x^2=5\\ \\Longrightarrow\\ 5x^2=5\\ \\Longrightarrow\\ x=\\pm 1$$\n\nTo kandidater: $(1,2)$ og $(-1,-2)$.\n\n**Klassifisering ved funksjonsverdi:**\n\n$$f(1,2)=1+4=5;\\qquad f(-1,-2)=-1-4=-5$$\n\n**Konklusjon:** største verdi er $5$ i $(1,2)$, minste verdi er $-5$ i $(-1,-2)$.\n\n**Begrunnelse for at dette er globalt:** sirkelen er lukket og begrenset, og $f$ er kontinuerlig, så både et største og et minste punkt finnes. De må ligge blant kandidatene, og vi har begge.\n\n*Kontroll:* $1^2+2^2=5$ ✓, og $\\lambda=\\dfrac{1}{2x}=\\dfrac12$ i det første punktet, med FOB (2): $2-2\\cdot\\frac12\\cdot 2=0$ ✓",
+        "hints": [
+          "Del den ene FOB på den andre for å få en sammenheng mellom $x$ og $y$.",
+          "Etter innsettingen får du to kandidatpunkter — sett begge inn i $f$ og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Ubegrunnet ja eller nei gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «Klassifisering av kandidatpunkter under en bibetingelse gjøres med en andreordensbetingelse, på samme måte som Hesse-determinanten brukes i fri optimering.»\n\n**b)** «Har et betinget optimeringsproblem bare ett kandidatpunkt, og bibetingelsen avgrenser en sirkel, er punktet både største og minste verdi.»\n\n**c)** «Sammenligning av funksjonsverdier i kandidatpunktene er et lovlig klassifiseringsargument.»",
+        "solution": "**a) Usann.** Andreordensbetingelse under bibetingelse er ikke pensum i ECON1100, og sensorveiledningen sier det uttrykkelig i ett av settene: studentene har ikke lært den.\n\n*Hva som gjelder i stedet:* i standardoppgaver kan man **anta** at kandidatpunktet er det oppgaven ber om. Kreves en faktisk avgjørelse, **sammenlignes funksjonsverdiene** i kandidatpunktene.\n\n*Merk at påstandens andre halvdel er riktig:* Hesse-determinanten $D=f''_{xx}f''_{yy}-(f''_{xy})^2$ er det korrekte verktøyet i **fri** optimering. Det er overføringen til det betingede problemet som ikke holder.\n\n**b) Usann.** Én sirkel med ett kandidatpunkt er umulig.\n\n*Begrunnelse:* sirkelen er lukket og begrenset, og en kontinuerlig funksjon på den har både et største og et minste punkt. Begge må oppfylle førsteordensbetingelsene. Er de to ulike punkter, finnes altså minst to kandidater.\n\n*Unntaket der påstanden ville holdt:* hvis $f$ er konstant på hele sirkelen. Da er hvert punkt både størst og minst — men da ville hele sirkelen bestå av kandidatpunkter, ikke bare ett.\n\n*Konkret motsvar:* $f=x+2y$ på $x^2+y^2=5$ har nøyaktig to kandidater, $(1,2)$ og $(-1,-2)$, med verdier $5$ og $-5$.\n\n**c) Sann.** Det er nettopp den forventede metoden.\n\n*Begrunnelse:* førsteordensbetingelsene fanger opp alle punkter som kan være optimale. Er området lukket og begrenset og $f$ kontinuerlig, finnes både maksimum og minimum, og de ligger blant kandidatene. Å rangere kandidatenes funksjonsverdier avgjør dermed saken.\n\n*Eksempel:* $f=x^2y$ på $x^2+y^2=3$ gir verdiene $2$, $0$ og $-2$ i de tre kandidatnivåene. Sammenligningen viser at $2$ er maksimum og $-2$ er minimum, uten noen andrederivert i sikte.",
+        "hints": [
+          "I a): hvilken metode sier sensorveiledningen at studentene IKKE har lært?",
+          "I b): hvor mange punkter må en kontinuerlig funksjon på en sirkel ha som ytterpunkter?",
+          "I c): hva garanterer at ingen kandidater er utelatt?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Notasjon, kontroll og eksamensnivå (~16 min)"
+    },
+    {
+      "id": "econ1100-8-4-def-notasjonstoleranse",
+      "type": "definition",
+      "title": "Notasjonstoleranse i $n$-variabel-oppgaver",
+      "content": "Sensor måler forståelsen, ikke summeskrivingens eleganse.\n\n$$\\sum_{i=1}^{n}x_i\\qquad\\text{eller}\\qquad x_1+x_2+\\dots+x_n$$\n\nBegge skrivemåtene godtas, og en litt upresis generell notasjon straffes ikke i disse oppgavene. Det som **må** være på plass, er at betingelsen gjelder for alle $i$, og at symmetrien begrunnes. Ikke bruk tid på å pusse notasjon når argumentet er det som teller."
+    },
+    {
+      "id": "econ1100-8-4-def-kontroll-n",
+      "type": "definition",
+      "title": "Kontrollen i $n$-variabel-tilfellet",
+      "content": "Innsettingen i bibetingelsen er like enkel som i totilfellet.\n\n$$n\\cdot p\\cdot x_i^*=m$$\n\nEr alle verdiene like, blir summen bare $n$ ganger den ene. Er de ulike, regner du ut $p_ix_i^*$ for hver og legger sammen. Kontrollen tar noen sekunder og fanger nesten alltid en glemt faktor $n$ — den vanligste regnefeilen i denne oppgavetypen."
+    },
+    {
+      "id": "econ1100-8-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — kutt fordelt på $n$ sektorer",
+      "problem": "Et land skal kutte utslipp i $n$ sektorer. Sektor $i$ kutter $x_i$ tonn, og den samlede miljøgevinsten er\n\n$$G=\\sum_{i=1}^{n}\\ln x_i.$$\n\nKostnaden per tonn er $p$ i alle sektorer, og den samlede rammen er $m$ kroner.\n\n**a)** Utled den generelle førsteordensbetingelsen, begrunn symmetrien, og finn $x_i^*$ og $\\lambda$.\n\n**b)** Bruk omhyllingsteoremet til å finne hvor mye miljøgevinsten øker når rammen $m$ løsnes marginalt.\n\n**c)** Landet vurderer å slå sammen to av sektorene, slik at antallet blir $n-1$. Hva skjer med kuttet per sektor, og hva skjer med den samlede gevinsten? Bruk $n=6$, $p=2$, $m=60$.",
+      "solution": "**a)**\n\n$$L=\\sum_{i=1}^{n}\\ln x_i-\\lambda\\Big(p\\sum_{i=1}^{n}x_i-m\\Big)$$\n\n$$\\frac{\\partial L}{\\partial x_i}=\\frac{1}{x_i}-\\lambda p=0\\qquad\\text{for }i=1,\\dots,n$$\n\n**Symmetriargumentet:** løst for $x_i$ blir betingelsen $x_i=\\dfrac{1}{\\lambda p}$, og høyresiden inneholder ingen $i$. Alle verdiene er derfor like.\n\n**Bibetingelsen** gir $pnx_i^*=m$, altså\n\n$$x_i^*=\\frac{m}{np},\\qquad \\lambda=\\frac{1}{px_i^*}=\\frac{n}{m}$$\n\n**b)** Rammen $m$ står i bibetingelsen, så omhyllingsteoremet ([kap. 8.3](/bok/econ1100/econ1100-8-3)) gir direkte\n\n$$\\frac{dG^*}{dm}=\\lambda=\\frac{n}{m}$$\n\n*Kontroll ved direkte regning:* den maksimale gevinsten er\n\n$$G^*=\\sum_{i=1}^{n}\\ln\\frac{m}{np}=n\\ln\\frac{m}{np}=n\\ln m-n\\ln(np)$$\n\n$$\\frac{dG^*}{dm}=\\frac{n}{m}\\ ✓$$\n\n**c) Sammenslåing.** Med $n=6$, $p=2$, $m=60$:\n\n$$x_i^*=\\frac{60}{12}=5\\ \\text{tonn per sektor},\\qquad G^*=6\\ln 5\\approx 9{,}657$$\n\nMed $n=5$ sektorer og samme ramme:\n\n$$x_i^*=\\frac{60}{10}=6\\ \\text{tonn per sektor},\\qquad G^*=5\\ln 6\\approx 8{,}959$$\n\n**Kuttet per sektor stiger** fra 5 til 6 tonn — de gjenværende sektorene må ta mer. **Den samlede gevinsten faller** fra omtrent $9{,}66$ til $8{,}96$.\n\n**Hvorfor faller gevinsten?** Fordi $\\ln$ er konkav: gevinsten av det første tonnet i en sektor er større enn gevinsten av det sjette. Å ha flere sektorer å spre kuttene på, gir høyere samlet gevinst for samme penger. Å slå sammen sektorer fjerner den muligheten.\n\n*Kontroll av begge tallene:* $6\\ln 5=6\\cdot 1{,}6094=9{,}657$ og $5\\ln 6=5\\cdot 1{,}7918=8{,}959$ ✓, og bibetingelsen holder i begge tilfeller: $2\\cdot 6\\cdot 5=60$ ✓ og $2\\cdot 5\\cdot 6=60$ ✓.\n\n*Merk at skyggeprisen også faller:* $\\lambda=6/60=0{,}1$ mot $\\lambda=5/60\\approx 0{,}083$. Med færre sektorer er én krone til mindre verdt."
+    },
+    {
+      "id": "econ1100-8-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger LG — kostnadsminimering med $n$ faktorer.) En bedrift må produsere $\\bar Q$ enheter, og produktfunksjonen er\n\n$$Q=\\Big(\\prod_{i=1}^{n}x_i\\Big)^{1/n}=\\big(x_1x_2\\cdots x_n\\big)^{1/n}.$$\n\nAlle $n$ faktorene koster $c$ per enhet.\n\n**a)** Forklar hvorfor problemet er symmetrisk.\n\n**b)** Finn $x_i^*$ og den minimale kostnaden.",
+        "solution": "**a) Symmetrien.** Produktet $x_1x_2\\cdots x_n$ er uendret hvis du bytter om to av variablene, og kostnaden $c\\sum x_i$ er det også, siden alle faktorprisene er like. Hverken målfunksjon eller bibetingelse skiller mellom variablene.\n\nDe $n$ førsteordensbetingelsene blir dermed identiske likninger i hver sin variabel, og løser man én av dem, får man samme uttrykk uansett indeks. Derfor er $x_1^*=\\dots=x_n^*$.\n\n**b)** Kall den felles verdien $x$. Da er\n\n$$Q=\\big(x^n\\big)^{1/n}=x$$\n\nProduksjonskravet $Q=\\bar Q$ gir altså direkte\n\n$$x_i^*=\\bar Q\\quad\\text{for alle }i$$\n\n**Kostnaden:**\n\n$$C^*=c\\sum_{i=1}^{n}x_i^*=cn\\bar Q$$\n\n*Kontroll:* med $n=1$ blir $Q=x_1$ og $C^*=c\\bar Q$ ✓ — som det skal være når det bare finnes én faktor.\n\n*Kontroll med tall:* $n=3$, $c=4$, $\\bar Q=5$ gir $x_i^*=5$ for alle tre, produksjon $(5\\cdot 5\\cdot 5)^{1/3}=5$ ✓ og kostnad $4\\cdot 3\\cdot 5=60$ ✓.\n\n*Merk hvor lite regning symmetrien sparte oss for:* uten den måtte vi ha derivert et $n$-faktors produkt og eliminert $\\lambda$ mellom $n$ betingelser.",
+        "hints": [
+          "I a): hva skjer med produktet og med kostnaden hvis du bytter om to variabler?",
+          "I b): sett alle $x_i$ lik samme tall $x$ og forenkle $Q$ før du gjør noe annet."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger LG — klassifisering med flere kandidatnivåer.) Finn den største og den minste verdien av\n\n$$f(x,y)=xy$$\n\npå sirkelen $x^2+y^2=8$.\n\n**a)** Finn alle kandidatpunktene.\n\n**b)** Klassifiser dem, og begrunn at konklusjonen er global.\n\n**c)** Forklar hvorfor en andreordensbetingelse under bibetingelse ikke er nødvendig her.",
+        "solution": "**a) Oppsett:**\n\n$$L=xy-\\lambda\\big(x^2+y^2-8\\big)$$\n\n$$\\text{FOB (1)}:\\ y-2\\lambda x=0\\qquad \\text{FOB (2)}:\\ x-2\\lambda y=0\\qquad \\text{FOB (3)}:\\ x^2+y^2=8$$\n\n**Eliminér $\\lambda$.** Gang FOB (1) med $y$ og FOB (2) med $x$:\n\n$$y^2=2\\lambda xy,\\qquad x^2=2\\lambda xy$$\n\nHøyresidene er like, altså er $y^2=x^2$, som gir $y=\\pm x$.\n\n*Merk at $\\lambda=0$ er umulig:* det ville gitt $x=y=0$, som bryter bibetingelsen.\n\n**Sett inn i FOB (3).** Med $y^2=x^2$ blir $2x^2=8$, altså $x=\\pm 2$, og fire kandidater:\n\n$$(2,2),\\ (-2,-2),\\ (2,-2),\\ (-2,2)$$\n\n**b) Klassifisering ved funksjonsverdi:**\n\n| Kandidat | $f=xy$ |\n|---|---|\n| $(2,2)$ | $4$ |\n| $(-2,-2)$ | $4$ |\n| $(2,-2)$ | $-4$ |\n| $(-2,2)$ | $-4$ |\n\n$$f_{\\max}=4\\ \\text{i}\\ (2,2)\\ \\text{og}\\ (-2,-2);\\qquad f_{\\min}=-4\\ \\text{i}\\ (2,-2)\\ \\text{og}\\ (-2,2)$$\n\n**Begrunnelse for at dette er globalt:** sirkelen $x^2+y^2=8$ er lukket og begrenset, og $f(x,y)=xy$ er kontinuerlig. Da finnes både en største og en minste verdi på kurven, og begge må oppfylle førsteordensbetingelsene. Siden vi har funnet **alle** løsninger av betingelsene, er ingen kandidat utelatt, og rangeringen er uttømmende.\n\n*Kontroll:* $2^2+2^2=8$ ✓, og $\\lambda=\\dfrac{y}{2x}=\\dfrac12$ i $(2,2)$, med FOB (2): $2-2\\cdot\\frac12\\cdot 2=0$ ✓\n\n**c)** Fordi sammenligningen allerede har avgjort saken fullt ut. Vi har alle kandidatene, vi vet at ytterpunktene finnes, og vi har rangert verdiene. En andreordensbetingelse ville i beste fall bekreftet det vi allerede vet — og den er dessuten ikke pensum i ECON1100.\n\n*Legg dessuten merke til at en slik test ville vært til liten hjelp her:* to av punktene er maksimumspunkter og to er minimumspunkter, og det er nettopp den innsikten verdisammenligningen gir umiddelbart.",
+        "hints": [
+          "Gang den ene FOB med $y$ og den andre med $x$, og sammenlign høyresidene.",
+          "Etter at $y=\\pm x$ er funnet, gir bibetingelsen fire punkter — sett alle fire inn i $f$.",
+          "I b): hva må være oppfylt for at en kontinuerlig funksjon skal ha både største og minste verdi?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger LG — når sammenligningen ikke rekker helt fram.) Betrakt\n\n$$f(x,y)=x+y\\quad\\text{under}\\quad xy=4.$$\n\n**a)** Finn alle kandidatpunktene.\n\n**b)** Regn ut funksjonsverdiene, og undersøk hva som skjer med $f$ langs bibetingelsen når $x\\to\\infty$ og når $x\\to 0^+$.\n\n**c)** Har problemet et globalt maksimum eller minimum? Begrunn.",
+        "solution": "**a) Oppsett:**\n\n$$L=x+y-\\lambda\\big(xy-4\\big)$$\n\n$$\\text{FOB (1)}:\\ 1-\\lambda y=0\\qquad \\text{FOB (2)}:\\ 1-\\lambda x=0\\qquad \\text{FOB (3)}:\\ xy=4$$\n\nDe to første gir $\\lambda y=1=\\lambda x$, og siden $\\lambda\\ne 0$ (ellers ville FOB (1) sagt $1=0$), er $x=y$.\n\n**Sett inn i bibetingelsen:** $x^2=4$, altså $x=\\pm 2$. To kandidater:\n\n$$(2,2)\\quad\\text{og}\\quad(-2,-2)$$\n\n**b) Funksjonsverdier:**\n\n$$f(2,2)=4;\\qquad f(-2,-2)=-4$$\n\n**Oppførselen langs kurven.** På bibetingelsen er $y=4/x$, så\n\n$$f=x+\\frac{4}{x}$$\n\nFor $x>0$: når $x\\to\\infty$ går $f\\to\\infty$, og når $x\\to 0^+$ går $4/x\\to\\infty$, altså $f\\to\\infty$ igjen.\n\n| $x$ | $0{,}1$ | $1$ | $2$ | $4$ | $20$ |\n|---|---|---|---|---|---|\n| $f=x+4/x$ | $40{,}1$ | $5$ | $4$ | $5$ | $20{,}2$ |\n\nFor $x<0$ er alt speilvendt: $f\\to-\\infty$ i begge ender, med største verdi $-4$ i $x=-2$.\n\n**c) Nei — problemet har verken globalt maksimum eller globalt minimum.**\n\n*Begrunnelse:* hyperbelen $xy=4$ er **ikke begrenset** — den strekker seg ut mot uendelig i fire retninger. Tabellen viser at $f$ vokser over alle grenser på den positive grenen og synker under alle grenser på den negative. Det finnes derfor ingen største og ingen minste verdi.\n\n*Hva kandidatpunktene faktisk er:* $(2,2)$ er det **laveste** punktet på den positive grenen, altså et lokalt minimum med verdi $4$. Punktet $(-2,-2)$ er det **høyeste** på den negative grenen, altså et lokalt maksimum med verdi $-4$.\n\n**Advarselen dette illustrerer.** En rå sammenligning av de to verdiene $4$ og $-4$ ville fristet til å si «$4$ er maksimum». Det er galt — og feilen kommer ikke av metoden, men av at forutsetningen om et lukket og begrenset område ikke er oppfylt.\n\n*Kontroll av kandidatene:* $2\\cdot 2=4$ ✓ og $(-2)(-2)=4$ ✓; $\\lambda=1/y=\\tfrac12$ i det første punktet, og FOB (2) gir $1-\\tfrac12\\cdot 2=0$ ✓\n\n*På eksamen* vil bibetingelsene stort sett være budsjettlinjer eller sirkler, og der er dette ikke noe problem. Men vet du hvorfor argumentet virker, vet du også når det ikke gjør det.",
+        "hints": [
+          "I a): begge FOB kan skrives som «$\\lambda\\cdot$ noe $=1$».",
+          "I b): erstatt $y$ med $4/x$ og se hva som skjer for store og små positive $x$.",
+          "I c): hvilken egenskap ved bibetingelsens kurve garanterer at ytterpunkter finnes?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-4-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i $n$-variabel- og klassifiseringsoppgaver",
+      "content": "- **Å bruke en andreordensbetingelse under bibetingelse.** Den er ikke pensum i ECON1100, og sensorveiledningen sier det uttrykkelig. Sammenlign funksjonsverdier i stedet.\n- **Å påstå symmetri uten å begrunne den.** To setninger er nok: betingelsene er identiske i hver sin variabel, og løst for $x_i$ inneholder høyresiden ingen $i$. Uten begrunnelsen faller uttelling bort.\n- **Å glemme faktoren $n$ i bibetingelsen.** Er alle $x_i$ like, blir summen $n$ ganger den ene. Kontrollen $pnx_i^*=m$ tar tre sekunder.\n- **Å utelate kandidater.** Faktoriseres en betingelse som $2x(y-\\lambda)=0$, gir den **to** tilfeller. Tar du bare det ene, mister du halve kandidatlisten — og kanskje nettopp maksimum.\n- **Å konkludere globalt på en ubegrenset bibetingelse.** Sammenligningen gir et globalt svar bare når kurven er lukket og begrenset. På en hyperbel finnes det kanskje ikke noe største punkt i det hele tatt.\n- **Å bruke tid på pen summenotasjon.** Sensor godtar upresis generell notasjon her. Bruk tiden på argumentet i stedet."
+    },
+    {
+      "id": "econ1100-8-4-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-8-4-bb-1",
+      "type": "definition",
+      "title": "Standardresultatet for symmetrisk $n$-variabel",
+      "content": "Det mest gjenbrukte resultatet i denne oppgavetypen.\n\n$$x_i^*=\\frac{m}{np},\\qquad \\lambda=\\frac{n}{m}$$\n\nGjelder for $\\sum\\ln x_i$ og for $\\sum\\sqrt{x_i}$ under $p\\sum x_i=m$ — begge symmetriske summer med like priser. Budsjettet deles likt på de $n$ varene."
+    },
+    {
+      "id": "econ1100-8-4-bb-2",
+      "type": "definition",
+      "title": "Ulike priser gir like utgifter",
+      "content": "Symmetrien overlever, men den flytter seg fra mengder til kroner.\n\n$$x_i^*=\\frac{m}{np_i}\\ \\Longrightarrow\\ p_ix_i^*=\\frac{m}{n}$$\n\nHver vare får samme beløp, men ulike mengder. Det er nyttefunksjonen som er symmetrisk, ikke prisene."
+    },
+    {
+      "id": "econ1100-8-4-bb-3",
+      "type": "definition",
+      "title": "Symmetriargumentet i to setninger",
+      "content": "Formuleringen som gir full uttelling.\n\n$$x_i=\\frac{1}{\\lambda p}\\ \\text{— høyresiden inneholder ingen }i$$\n\n«De $n$ betingelsene er identiske likninger i hver sin variabel. Løst for $x_i$ er høyresiden den samme uansett indeks, altså er alle $x_i^*$ like.» Skriv den, ikke bare tenk den."
+    },
+    {
+      "id": "econ1100-8-4-bb-4",
+      "type": "definition",
+      "title": "Klassifisering: den lovlige veien",
+      "content": "Tre steg, ingen nye derivasjoner.\n\n$$\\text{finn alle kandidater}\\ \\to\\ \\text{regn }F\\ \\text{i hver}\\ \\to\\ \\text{rangér}$$\n\nHøyest verdi er maksimum, lavest er minimum. Metoden virker fordi førsteordensbetingelsene fanger opp alle mulige optimumspunkter."
+    },
+    {
+      "id": "econ1100-8-4-bb-5",
+      "type": "definition",
+      "title": "Andreordensbetingelse under bibetingelse: ikke pensum",
+      "content": "En metode du skal la ligge.\n\n$$\\text{ikke pensum i ECON1100}$$\n\nSensorveiledningen sier uttrykkelig at studentene ikke har lært den. Å bruke den er ikke bare unødvendig — det er å svare på et annet spørsmål enn det som er stilt."
+    },
+    {
+      "id": "econ1100-8-4-bb-6",
+      "type": "definition",
+      "title": "Når rangeringen blir global",
+      "content": "Forutsetningen som gjør sammenligningen til et bevis.\n\n$$\\text{bibetingelsens kurve lukket og begrenset}+F\\ \\text{kontinuerlig}$$\n\nDa finnes både største og minste punkt, og de ligger blant kandidatene. En sirkel oppfyller dette; en hyperbel gjør det ikke."
+    },
+    {
+      "id": "econ1100-8-4-bb-7",
+      "type": "definition",
+      "title": "Faktoriserte betingelser gir flere tilfeller",
+      "content": "Et produkt er null når én faktor er det — og begge tilfeller må undersøkes.\n\n$$2x(y-\\lambda)=0\\ \\Longrightarrow\\ x=0\\ \\text{eller}\\ y=\\lambda$$\n\nÅ hoppe over det ene tilfellet er den vanligste måten å miste kandidater på. I eksempel 2 ga tilfellet $x=0$ verdinivået null, som lå mellom maksimum og minimum."
+    },
+    {
+      "id": "econ1100-8-4-bb-8",
+      "type": "definition",
+      "title": "Notasjonstoleranse",
+      "content": "Hva som teller og hva som ikke gjør det.\n\n$$\\sum_{i=1}^{n}x_i\\ \\ \\text{eller}\\ \\ x_1+\\dots+x_n$$\n\nBegge er greit. Det som må stå, er «for $i=1,\\dots,n$» på den generelle betingelsen, og symmetribegrunnelsen. Pen notasjon gir ingen ekstra poeng."
+    },
+    {
+      "id": "econ1100-8-4-bb-9",
+      "type": "definition",
+      "title": "Konkav målfunksjon og spredning",
+      "content": "Hvorfor flere sektorer eller varer gir høyere samlet verdi.\n\n$$n\\ln\\frac{m}{np}\\ \\text{synker når}\\ n\\ \\text{synker (fast }m\\text{)}$$\n\nLogaritmen er konkav, så det første tonnet i en sektor er verdt mer enn det sjette. Å spre samme ramme på flere enheter gir derfor mer igjen for pengene."
+    },
+    {
+      "id": "econ1100-8-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-8-4-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 8.1](/bok/econ1100/econ1100-8-1), [kap. 8.2](/bok/econ1100/econ1100-8-2) og [kap. 8.3](/bok/econ1100/econ1100-8-3).\n\n**1.** Hva er $\\dfrac{\\partial}{\\partial x_3}\\big(\\ln x_1+\\ln x_2+\\ln x_3\\big)$?\n\n*Svar:* $1/x_3$ — de to første leddene er konstante.\n\n**2.** Sett opp $L$ for $\\max\\ \\sum_{i=1}^{n}\\ln x_i$ under $p\\sum x_i=m$.\n\n*Svar:* $L=\\sum\\ln x_i-\\lambda\\big(p\\sum x_i-m\\big)$.\n\n**3.** Hva er $dU^*/dm$ når $\\lambda=n/m$?\n\n*Svar:* $n/m$ — omhyllingsteoremet gir svaret direkte.\n\n**4.** Løs $2x(y-\\lambda)=0$.\n\n*Svar:* $x=0$ eller $y=\\lambda$ — to tilfeller, begge må undersøkes.\n\n**5.** Hvilke punkter på $x^2+y^2=5$ har $y=2x$?\n\n*Svar:* $x^2+4x^2=5$ gir $x=\\pm 1$, altså $(1,2)$ og $(-1,-2)$.\n\n**6.** Hvorfor er $\\lambda=0$ umulig i FOB $1-\\lambda y=0$?\n\n*Svar:* Fordi likningen da ville sagt $1=0$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-8-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-8-4-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | Antall variabler i problemet |\n| $x_i$ | Variabel nummer $i$ |\n| $p_i$ | Prisen på vare $i$ |\n| $\\sum_{i=1}^{n}$ | Sum over alle $n$ leddene |\n| $\\prod_{i=1}^{n}$ | Produkt av alle $n$ faktorene |\n| $F'_i$ | Den partiellderiverte av målfunksjonen mht. $x_i$ |\n| $\\lambda$ | Lagrange-multiplikatoren |\n| $x_i^*$ | Optimal verdi av variabel $i$ |\n| $\\bar Q$ | Produksjonskrav |\n| $c$ | Felles faktorpris |\n\n**Formler i dette delkapitlet:**\n\n$$L=F(x_1,\\dots,x_n)-\\lambda\\Big(\\sum_{i=1}^{n}p_ix_i-m\\Big)$$\nLagrange-funksjonen med $n$ variabler. Strukturen er den samme som i totilfellet.\n\n$$\\frac{\\partial L}{\\partial x_i}=F'_i-\\lambda p_i=0\\qquad\\text{for }i=1,\\dots,n$$\nDen generelle førsteordensbetingelsen. Setningen «for $i=1,\\dots,n$» hører med.\n\n$$x_i^*=\\frac{m}{np},\\qquad \\lambda=\\frac{n}{m}$$\nSymmetrisk løsning med like priser: budsjettet deles likt.\n\n$$x_i^*=\\frac{m}{np_i},\\qquad p_ix_i^*=\\frac{m}{n}$$\nUlike priser: like utgifter, ulike mengder.\n\n$$F(P_1),\\ F(P_2),\\ \\dots\\ \\Longrightarrow\\ \\text{størst er maks, minst er min}$$\nKlassifisering ved funksjonsverdi — den lovlige metoden under bibetingelse.\n\n$$\\text{lukket og begrenset kurve}+F\\ \\text{kontinuerlig}\\ \\Longrightarrow\\ \\text{ytterpunkter finnes}$$\nForutsetningen som gjør rangeringen til en global konklusjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
