@@ -1,0 +1,433 @@
+{
+ "id": "in1000-5-2",
+ "courseId": "in1000",
+ "chapterNumber": "5.2",
+ "title": "Innkapsling: underscore, aksessor og mutator",
+ "description": "Hvorfor instansvariabler har understrek og nås gjennom hent- og sett-metoder utenfra — og hva som er del av grensesnittet til en klasse.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne skrive lese- og endringsmetoder for verdiene i en klasse, i den formen faget bruker",
+  "kunne avgjøre hvilke verdier som bør kunne endres utenfra og hvilke som bør låses",
+  "kunne skrive opp grensesnittet til en gitt klasse, og si hva som ikke hører hjemme der",
+  "kunne legge en regel inn i en endringsmetode slik at klassen selv passer på den"
+ ],
+ "content": [
+  {
+   "id": "in1000-5-2-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Understrek foran instansvariablene og metoder som heter `hent_...` og `sett_...`\ner **standardformen i hver eneste klassemodellering** i settene vi har talt —\naltså i Oppgave 4, som alene er nesten halve eksamen. Det er ikke pynt: sensor\nser etter det, og fasiten skriver det slik hver gang.\n\n**Dette må sitte** — bokas høyeste prioritetsnivå. Selve konvensjonen er\nmekanisk, og du kan sikre deg poengene ved å skrive den likt hver gang.\n\nEtt begrep i tillegg ligger på nivået **kjenne til**: **grensesnittet**. Det er\ntestet to ganger i de settene vi har gjennomgått — én gang som «skriv\ngrensesnittet til klassen» i den store oppgaven, og én gang som et flervalg om\nhvorvidt en understrek-variabel er del av grensesnittet. Svaret på det siste er\nnei, og det er verdt to poeng du kan ta med deg gratis.\n\nSjangrene som treffes her, er **sjanger B — flervalg om objekter**, altså\n«hvilken påstand om denne koden er sann?», og **sjanger F — stor\nklassemodellering**, altså å bygge samarbeidende klasser fra en beskrivelse."
+  },
+  {
+   "id": "in1000-5-2-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nAlt i dette kapitlet bygger på\n[kap. 5.1 — Klasser og objekter](/bok/in1000/in1000-5-1). Trenger du en\noppfriskning, er dette de to tingene du må ha med deg.\n\n**1. Konstruktøren setter alt objektet skal huske, med `self._` foran hver\ntilordning:**\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaant = False\n\n    def skriv(self):\n        print(self._tittel, \"av\", self._forfatter)\n\nb = Bok(\"Sult\", \"Hamsun\")\nb.skriv()\n```\n\n**Utskrift:**\n```\nSult av Hamsun\n```\n\n**2. En metode kalles med punktum bak objektet, og `self` skrives aldri i\nkallet:** `b.skriv()`, ikke `b.skriv(self)`.\n\nI forrige kapittel tok vi understreken for gitt og sa at forklaringen kom\nsenere. Nå kommer den."
+  },
+  {
+   "id": "in1000-5-2-3",
+   "type": "text",
+   "content": "## Løkke 1 — Hvorfor understreken står der (~11 min)\n\nEt bibliotek har en klasse `Bok` med `self._utlaant`. Alt går bra helt til en\nannen del av programmet gjør dette:\n\n```text\nb._utlaant = True\n```\n\nIngen feilmelding, ingen advarsel — boka er plutselig utlånt uten at noen har\nlånt den, uten at utlånsdatoen er satt, og uten at antall utlån er telt opp.\nBlokken er merket som ikke-kjørbar fordi den viser en arbeidsmåte boka fraråder,\nikke et program vi vil kjøre.\n\n**Det er dette innkapsling beskytter mot.** Objektet skal selv bestemme hvordan\nverdiene sine endres, og resten av programmet skal gå gjennom metodene."
+  },
+  {
+   "id": "in1000-5-2-4",
+   "type": "definition",
+   "title": "Innkapsling",
+   "content": "Prinsippet om at et objekt skal holde verdiene sine for seg selv, og at resten\nav programmet bare skal kunne snakke med det gjennom metodene.\n\nFordelen er ikke hemmelighold — det er **kontroll**. Går alle endringer gjennom\nen metode, kan objektet passe på at reglene holdes: at saldoen ikke blir negativ,\nat antall påmeldte ikke overstiger kapasiteten, at to ting som hører sammen,\noppdateres samtidig.\n\nDen andre fordelen merker du når noe skal endres. Bestemmer klassen seg for å\nlagre alderen som fødselsår i stedet, er det bare klassens egne linjer som må\nskrives om — alle som kaller `hent_alder()`, merker ingenting."
+  },
+  {
+   "id": "in1000-5-2-5",
+   "type": "definition",
+   "title": "Understrek-prefikset `_x`",
+   "content": "Konvensjonen som sier «denne verdien hører til objektet selv — ikke rør den\nutenfra». Instansvariabler skrives derfor `self._tittel`, ikke `self.tittel`.\n\nPython **håndhever ingenting**. Understreken er et signal til andre som leser\nkoden, og skrivemåten `b._utlaant = True` er fullt lovlig for Python. Den er\nlikevel gal i dette kurset, og den er nummerert i bokas feilregister som **#11**\n— direkte tilgang til en instansvariabel utenfra.\n\nRegelen er enkel og mekanisk: **inne i klassen** skriver du `self._x` fritt.\n**Utenfor klassen** rører du aldri noe som begynner med understrek."
+  },
+  {
+   "id": "in1000-5-2-6",
+   "type": "example",
+   "title": "Eksempel 1: Samme klasse, to måter å bruke den på",
+   "problem": "Vis forskjellen på å endre en instansvariabel utenfra og å gå gjennom en metode\n— og hva klassen kan passe på når den får styre selv.",
+   "solution": "Klassen holder rede på to ting som hører sammen: om boka er utlånt, og hvor mange\nganger den har vært det.\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n        self._utlaant = False\n        self._antall_utlaan = 0\n\n    def laan_ut(self):\n        self._utlaant = True\n        self._antall_utlaan = self._antall_utlaan + 1\n\n    def hent_antall_utlaan(self):\n        return self._antall_utlaan\n\nb1 = Bok(\"Sult\")\nb2 = Bok(\"Sult\")\n\nb1.laan_ut()\nb2._utlaant = True\n\nprint(b1.hent_antall_utlaan(), b2.hent_antall_utlaan())\n```\n\n**Utskrift:**\n```\n1 0\n```\n\n**De to bøkene ser like ut utenfra — begge er «utlånt» — men tellingen stemmer\nbare for den ene.** `b2._utlaant = True` satte det ene feltet og hoppet over det\nandre, fordi den som skrev linjen, ikke kunne vite at de to hørte sammen. Det er\nnettopp den kunnskapen klassen sitter på, og det er derfor endringen skal gå\ngjennom `laan_ut`.\n\n**Slik ville sensor sett på det:** linjen `b2._utlaant = True` er feilkode #11 og\ntrekker, selv om programmet kjører. Den koster mer enn ett poeng i den store\noppgaven, fordi den ofte gjentas flere steder.\n\nMerk også at `b1` og `b2` har samme tittel, men er to helt forskjellige objekter.\nTo eksemplarer av samme bok i et bibliotek er nettopp to objekter."
+  },
+  {
+   "id": "in1000-5-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — gjengivelse.) Se på klassen:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._timer = 0\n\n    def hent_navn(self):\n        return self._navn\n```\n\n**a)** Hvilke av navnene under hører til objektets innside, altså de du ikke skal\nrøre utenfra: `_navn`, `hent_navn`, `_timer`?\n\n**b)** Skriv linjen som henter navnet til objektet `m` på riktig måte.\n\n**c)** Hva er galt med linjen `print(m._navn)`?",
+    "solution": "**a)** `_navn` og `_timer`. Begge begynner med understrek, og det er hele\nsignalet: de hører til objektets innside. `hent_navn` er en metode uten\nunderstrek og er ment å brukes utenfra.\n\n**b)** `print(m.hent_navn())`\n\nLegg merke til de to parentesene: `m.hent_navn` uten parentes gir deg metoden\nselv, ikke resultatet av å kjøre den.\n\n**c)** Den går utenom metoden og henter instansvariabelen direkte. Python\ntillater det, så koden kjører og skriver riktig navn — men det er feilkode\n**#11**, og i denne sammenhengen er det en trekkfeil.\n\nGrunnen er ikke at det er farlig akkurat her, men at vanen er farlig: neste gang\ner det en verdi som skal endres, og da hopper du over reglene klassen skulle\npasse på.",
+    "hints": [
+     "Se etter understrek som første tegn i navnet.",
+     "En metode kalles alltid med parentes bak navnet."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-7",
+   "type": "text",
+   "content": "## Løkke 2 — Aksessor og mutator (~13 min)\n\nNår instansvariablene er stengt for omverdenen, må klassen tilby en vei inn og en\nvei ut. De to metodene som gjør den jobben, har faste navn i dette faget:\n`hent_x` for å lese og `sett_x` for å skrive.\n\nDe er så mekaniske at du kan skrive dem uten å tenke — og det skal du, for de gir\npoeng i hver eneste modelleringsoppgave."
+  },
+  {
+   "id": "in1000-5-2-8",
+   "type": "definition",
+   "title": "Aksessor (`hent_x`)",
+   "content": "En metode som **leser** en instansvariabel og gir verdien tilbake:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\nm = Medlem(\"Ada\")\nprint(m.hent_navn())\n```\n\n**Utskrift:**\n```\nAda\n```\n\nKroppen er alltid én linje: `return self._x`. Ingen parametere utover `self`,\nfordi metoden ikke trenger noe utenfra.\n\nOrdet **aksessor** betyr bare «lesemetode». Møter du det i en oppgavetekst, er\ndet denne ene linjen som etterspørres."
+  },
+  {
+   "id": "in1000-5-2-9",
+   "type": "definition",
+   "title": "Mutator (`sett_x`)",
+   "content": "En metode som **endrer** en instansvariabel til en verdi den får inn:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\n    def sett_navn(self, nytt):\n        self._navn = nytt\n\nm = Medlem(\"Ada\")\nm.sett_navn(\"Nora\")\nprint(m.hent_navn())\n```\n\n**Utskrift:**\n```\nNora\n```\n\nMutatoren har **alltid en parameter** i tillegg til `self` — den nye verdien. En\nmutator uten parameter er en klassisk feil: den har ingenting å sette verdien\ntil.\n\nOrdet **mutator** betyr «endringsmetode». Noen oppgavetekster sier «sett-metode»\neller «endre-metode» om det samme."
+  },
+  {
+   "id": "in1000-5-2-10",
+   "type": "theorem",
+   "title": "Aksessor/mutator-malen",
+   "content": "Bokas tiende kodemønster, og det mest mekaniske av dem alle:\n\n```text\n    def hent_x(self):\n        return self._x\n\n    def sett_x(self, ny):\n        self._x = ny\n```\n\nBlokken er merket som ikke-kjørbar fordi den er en mal med plassholdernavn.\n\nTre regler følger med:\n\n1. **Aksessoren returnerer, den skriver ikke ut.** `print(self._x)` i stedet for\n   `return self._x` gjør verdien ubrukelig videre.\n2. **Mutatoren tar imot den nye verdien som parameter.** Uten parameter har den\n   ingenting å sette.\n3. **Ikke alle variabler trenger begge deler.** Skriv den aksessoren og den\n   mutatoren oppgaven faktisk ber om — en klasse med åtte unødvendige\n   sett-metoder er ikke bedre enn en med to nødvendige. Et medlemsnummer skal\n   typisk kunne leses, men aldri endres.\n\nMalen er verdt å kunne i fingrene: i den store oppgaven skriver du den fire–fem\nganger, og hver gang er den verdt poeng."
+  },
+  {
+   "id": "in1000-5-2-11",
+   "type": "example",
+   "title": "Eksempel 2: Full aksessor- og mutator-runde på en klasse",
+   "problem": "En kantine registrerer hver rett med navn og pris. Prisen skal kunne både leses\nog endres utenfra; navnet skal bare kunne leses. Skriv klassen og vis bruken.",
+   "solution": "Oppgaveteksten sier presist hvilke metoder som trengs: to for prisen, én for\nnavnet.\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        self._pris = pris\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_pris(self):\n        return self._pris\n\n    def sett_pris(self, ny_pris):\n        self._pris = ny_pris\n\nsuppe = Rett(\"Fiskesuppe\", 89)\nprint(suppe.hent_navn(), suppe.hent_pris())\n\nsuppe.sett_pris(95)\nprint(suppe.hent_navn(), suppe.hent_pris())\n```\n\n**Utskrift:**\n```\nFiskesuppe 89\nFiskesuppe 95\n```\n\n**Legg merke til at det ikke finnes noen `sett_navn`.** Oppgaven ba ikke om den,\nog en rett skifter ikke navn. Å utelate den er et bevisst valg, ikke en\nforglemmelse — og det er lov å skrive en kommentar om at navnet med vilje er\nlåst.\n\n**Slik ville sensor sett på det:** her er det fire selvstendige poeng —\nkonstruktøren, hver av de to aksessorene, og mutatoren med parameter. Hadde du\nskrevet `def sett_pris(self):` uten parameter, ville de tre andre fortsatt telt.\n\n**Merk parameternavnet `ny_pris`.** Hadde parameteren hett `pris`, ville koden\nfortsatt virket, men det er lettere å lese når det nye og det gamle har ulike\nnavn."
+  },
+  {
+   "id": "in1000-5-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Eksamensnivå, sjanger F-del — skriv aksessor og mutator.) Klassen `Boks` fra en\nresirkuleringsstasjon har `self._materiale` og `self._vekt`.\n\n**a)** Skriv aksessoren for vekten.\n\n**b)** Skriv mutatoren for vekten.\n\n**c)** Hvorfor bør materialet bare ha aksessor, og ingen mutator?",
+    "solution": "**a)–b)** De to metodene, med klassen rundt så de kan kjøres:\n\n```python\nclass Boks:\n    def __init__(self, materiale, vekt):\n        self._materiale = materiale\n        self._vekt = vekt\n\n    def hent_vekt(self):\n        return self._vekt\n\n    def sett_vekt(self, ny_vekt):\n        self._vekt = ny_vekt\n\nb = Boks(\"glass\", 340)\nb.sett_vekt(410)\nprint(b.hent_vekt())\n```\n\n**Utskrift:**\n```\n410\n```\n\n**c)** Fordi en boks ikke skifter materiale. Vekten kan endres — boksen kan\nfylles eller tømmes — men glass blir ikke plast. Skriver du en `sett_materiale`,\nåpner du for en endring som ikke gir mening i domenet.\n\n**Regelen er å lese oppgaveteksten:** «vekten kan oppdateres» betyr mutator,\n«hver boks har et materiale» betyr bare aksessor. Er teksten uklar, skriv en\nkommentar om hva du har forutsatt — det er den ene legitime bruken av kommentarer\ni en besvarelse.",
+    "hints": [
+     "Aksessoren har bare `self` som parameter, mutatoren har én til.",
+     "Tenk på om verdien noen gang endrer seg i virkeligheten."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Hva skriver programmet ut?\n\n```python\nclass Konto:\n    def __init__(self, eier, saldo):\n        self._eier = eier\n        self._saldo = saldo\n\n    def hent_saldo(self):\n        return self._saldo\n\n    def sett_saldo(self, ny):\n        self._saldo = ny\n\n    def sett_inn(self, belop):\n        self._saldo = self._saldo + belop\n\nk = Konto(\"Ada\", 500)\nk.sett_inn(200)\nk.sett_saldo(50)\nk.sett_inn(25)\nprint(k.hent_saldo())\n```",
+    "solution": "**Sporingstavle.** Følg `_saldo` linje for linje:\n\n| Linje | `_saldo` etter |\n|---|---|\n| `k = Konto(\"Ada\", 500)` | 500 |\n| `k.sett_inn(200)` | 700 |\n| `k.sett_saldo(50)` | 50 |\n| `k.sett_inn(25)` | 75 |\n| `print(k.hent_saldo())` | 75 |\n\n**Utskrift:**\n```\n75\n```\n\n**Fellen her er at mutatoren `sett_saldo` overskriver, mens `sett_inn` legger\ntil.** Ser du bare på navnene, ligner de på hverandre; ser du på kroppene, er de\nhelt ulike. `self._saldo = ny` kaster den gamle verdien, `self._saldo =\nself._saldo + belop` bygger på den.\n\nDette er også et argument mot å skrive mutatorer i blinde. En bankkonto med en\nåpen `sett_saldo` kan settes til hva som helst utenfra, og da er innkapslingen\nverdiløs — poenget var jo nettopp at klassen skulle passe på reglene.\n\n**På eksamen** skrives svaret uten pynt: `75`, ikke `75 kr` og ikke `75.0`.",
+    "hints": [
+     "Skriv opp saldoen etter hver linje, én linje om gangen.",
+     "Les kroppen til hver av de to sett-metodene før du sporer — de gjør ulike ting."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-12",
+   "type": "text",
+   "content": "## Løkke 3 — Grensesnittet (~12 min)\n\nTenk på en billettautomat. Utenpå har den en skjerm, noen knapper og et\nkortleserspor. Inni har den en skriver, en kasse og et regnskap. **Det du kan\nbruke uten å åpne den, er grensesnittet.**\n\nFor en klasse er det nøyaktig det samme: grensesnittet er de metodene andre deler\nav programmet kan kalle, og hvordan de kalles. Instansvariablene med understrek\ner innsiden.\n\nDette er et av de få rene teorispørsmålene på eksamen, og det kommer i to former:\n«skriv grensesnittet til klassen» og «er `_kaffekopper` del av grensesnittet?»."
+  },
+  {
+   "id": "in1000-5-2-13",
+   "type": "definition",
+   "title": "Grensesnitt",
+   "content": "Alle de offentlige metodene til en klasse, med navn og parametere — og\ningenting annet.\n\nGrensesnittet forteller **hva** du kan be objektet om, ikke **hvordan** det gjør\ndet. Metodekroppene er ikke del av det, og instansvariablene er det heller ikke.\n\nFor klassen `Rett` fra Eksempel 2 er grensesnittet disse fire:\n\n```text\n__init__(navn, pris)\nhent_navn()\nhent_pris()\nsett_pris(ny_pris)\n```\n\nBlokken er merket som ikke-kjørbar fordi den er en oppstilling, ikke et program.\nLegg merke til at `self` ikke er med: den fylles ut av Python og er ikke noe den\nsom kaller, skal forholde seg til.\n\n**Prøvesteinen:** kan en annen del av programmet skrive det, uten å bryte\nkonvensjonen? Da er det del av grensesnittet."
+  },
+  {
+   "id": "in1000-5-2-14",
+   "type": "definition",
+   "title": "Metodesignatur",
+   "content": "Navnet på en metode pluss parameterne den tar: `sett_pris(ny_pris)`.\n\nSignaturen er det den som kaller, trenger å vite — hva metoden heter, og hvor\nmange verdier den vil ha inn. Hva som skjer inni, er ikke signaturens sak.\n\nI en eksamensbesvarelse skriver du gjerne grensesnittet som en liste av\nsignaturer med en kort forklaring i naturlig språk bak hver:\n\n```text\nhent_pris() - gir prisen i kroner\nsett_pris(ny_pris) - setter en ny pris\n```\n\nDet er nok. Oppgaven ber om signaturene, ikke om koden."
+  },
+  {
+   "id": "in1000-5-2-15",
+   "type": "warning",
+   "title": "Navnekollisjon: `_x` betyr to ting samtidig",
+   "content": "Understreken bærer to budskap på én gang, og de blandes lett:\n\n- **«Dette er en instansvariabel»** — verdien hører til objektet og settes i\n  konstruktøren.\n- **«Dette er ikke del av grensesnittet»** — ingen utenfor klassen skal lese\n  eller skrive den.\n\nDe to henger sammen, men de besvarer ulike spørsmål. Spør et flervalg «hvilke av\ndisse er instansvariabler?», skal `_kapasitet` med. Spør det «hva er del av\ngrensesnittet til klassen?», skal `_kapasitet` **ikke** med — men `hent_kapasitet()`\nskal.\n\nLeser du spørsmålet raskt, er det lett å svare på det andre når det ble spurt om\ndet første. Les hvilket av de to ordene som står der: *instansvariabel* eller\n*grensesnitt*."
+  },
+  {
+   "id": "in1000-5-2-16",
+   "type": "example",
+   "title": "Eksempel 3: Skriv grensesnittet til en klasse",
+   "problem": "Klassen `Sal` på et treningssenter er gitt under. Skriv grensesnittet slik en\neksamensoppgave ber om det, og forklar hvorfor tre av navnene ikke er med.",
+   "solution": "Først klassen:\n\n```python\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn\n        self._kapasitet = kapasitet\n        self._paameldte = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_ledige(self):\n        return self._kapasitet - self._paameldte\n\n    def meld_paa(self, antall):\n        self._paameldte = self._paameldte + antall\n\ns = Sal(\"Speilsal\", 20)\ns.meld_paa(6)\nprint(s.hent_navn(), s.hent_ledige())\n```\n\n**Utskrift:**\n```\nSpeilsal 14\n```\n\n**Grensesnittet** er de fire metodene, med signatur og en linjes forklaring:\n\n```text\n__init__(navn, kapasitet) - lager en sal med et navn og et antall plasser\nhent_navn()               - gir navnet paa salen\nhent_ledige()             - gir antall ledige plasser akkurat naa\nmeld_paa(antall)          - melder paa et gitt antall deltakere\n```\n\n**De tre som ikke er med, er `_navn`, `_kapasitet` og `_paameldte`.** De er\ninstansvariabler, altså innside. At `hent_ledige()` regner ut svaret sitt av to\nav dem i stedet for å lagre det, er nettopp en detalj grensesnittet skjuler — og\nen detalj klassen kan endre uten at noen andre merker det.\n\n**Slik ville sensor sett på det:** her gis uttelling for hver riktig signatur og\nfor at understrek-variablene holdes utenfor. Glemmer du `__init__`, mister du én\nlinje, men resten teller.\n\nLegg merke til at forklaringene er skrevet uten æ, ø og å. Kommentarer og\noppstillinger i kode følger samme regel som koden selv."
+  },
+  {
+   "id": "in1000-5-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter.) Klassen `Sykkel` har\ninstansvariablene `_kode`, `_stativ` og `_utleid`, og metodene `hent_kode()`,\n`leie_ut()` og `lever_tilbake(nytt_stativ)`.\n\n**a)** Er `_stativ` del av grensesnittet til `Sykkel`? Begrunn.\n\n**b)** Skriv grensesnittet.\n\n**c)** En medstudent sier: «`_utleid` må være del av grensesnittet, for ellers\nkan ingen finne ut om sykkelen er utleid.» Hva er svaret?",
+    "solution": "**a)** Nei. `_stativ` er en instansvariabel, altså innside. Understreken er\nnettopp signalet om at den ikke skal røres utenfra. Grensesnittet består bare av\nde offentlige metodene.\n\n**b)**\n\n```text\nhent_kode()                 - gir sykkelens kode\nleie_ut()                   - registrerer at sykkelen er leid ut\nlever_tilbake(nytt_stativ)  - leverer sykkelen i et oppgitt stativ\n```\n\nKonstruktøren tas også med hvis oppgaven oppgir den. `self` skrives aldri i en\nslik oppstilling.\n\n**c)** Medstudenten har oppdaget et **hull i klassen**, men trekker feil\nkonklusjon. Det er riktig at ingen kan finne ut om sykkelen er utleid — og\nløsningen er ikke å gjøre `_utleid` offentlig, men å legge til en aksessor:\n\n```text\n    def er_utleid(self):\n        return self._utleid\n```\n\nDa er svaret tilgjengelig utenfra, og det er metoden, ikke variabelen, som er del\nav grensesnittet. Blokken er en mal for hva som skal legges til, ikke et program\ni seg selv.\n\n**Dette er selve poenget med innkapsling:** trenger omverdenen en opplysning,\nlager du en vei til den — du river ikke veggen.",
+    "hints": [
+     "Grensesnittet består bare av metoder, aldri av variabler.",
+     "For c): finnes det en måte å gi tilgang på uten å åpne variabelen?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F-del — vurder kode.) Se på koden:\n\n```python\nclass Rute:\n    def __init__(self, nummer, kapasitet):\n        self._nummer = nummer\n        self._kapasitet = kapasitet\n        self._passasjerer = 0\n\n    def hent_passasjerer(self):\n        return self._passasjerer\n\n    def paa(self, antall):\n        self._passasjerer = self._passasjerer + antall\n\nr = Rute(20, 60)\nr.paa(15)\nr._passasjerer = 80\nprint(r.hent_passasjerer())\n```\n\n**a)** Hva skriver programmet ut?\n\n**b)** Hvilken feilkode er den nest siste linjen, og hva er problemet med den?\n\n**c)** Klassen mangler noe som ville gjort linjen unødvendig. Hva?",
+    "solution": "**a)**\n\n```\n80\n```\n\nLinjen `r._passasjerer = 80` virker: Python håndhever ingen stenging, og verdien\n15 blir overskrevet.\n\n**b)** Feilkode **#11** — direkte tilgang til en instansvariabel utenfra.\nProblemet er ikke at det ikke virker, men at det virker **for godt**: linjen\nsetter 80 passasjerer på en rute med kapasitet 60, og ingen sjekk stoppet den.\nHadde antallet gått gjennom en metode, kunne klassen sagt fra.\n\n**c)** En mutator som passer på kapasiteten. For eksempel:\n\n```python\nclass Rute:\n    def __init__(self, nummer, kapasitet):\n        self._nummer = nummer\n        self._kapasitet = kapasitet\n        self._passasjerer = 0\n\n    def hent_passasjerer(self):\n        return self._passasjerer\n\n    def sett_passasjerer(self, antall):\n        if antall > self._kapasitet:\n            print(\"For mange\")\n        else:\n            self._passasjerer = antall\n\nr = Rute(20, 60)\nr.sett_passasjerer(80)\nprint(r.hent_passasjerer())\n```\n\n**Utskrift:**\n```\nFor mange\n0\n```\n\nNå avvises forsøket, og antallet står urørt. **Det er dette som er gevinsten ved\ninnkapsling:** regelen bor ett sted — inne i klassen — i stedet for å måtte\ngjentas av alle som bruker den.",
+    "hints": [
+     "Python stopper deg ikke, men konvensjonen gjør det.",
+     "For c): hvor bør en regel om kapasitet bo, hos klassen eller hos den som kaller?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-17",
+   "type": "text",
+   "content": "## Løkke 4 — Mutatorer som passer på (~10 min)\n\nSå langt har mutatorene våre vært én linje. I den store oppgaven er de ofte litt\nmer: de **kontrollerer** verdien før de setter den.\n\nDet er den fulle gevinsten ved innkapsling. Regelen bor ett sted, og alle som\nbruker klassen, får den med på kjøpet — uten å vite at den finnes."
+  },
+  {
+   "id": "in1000-5-2-18",
+   "type": "definition",
+   "title": "Mutator med kontroll",
+   "content": "En mutator som sjekker verdien før den settes:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._alder = 0\n\n    def sett_alder(self, ny):\n        if ny < 0:\n            print(\"Ugyldig alder\")\n        else:\n            self._alder = ny\n\n    def hent_alder(self):\n        return self._alder\n\nm = Medlem(\"Ada\")\nm.sett_alder(-3)\nm.sett_alder(24)\nprint(m.hent_alder())\n```\n\n**Utskrift:**\n```\nUgyldig alder\n24\n```\n\nMønsteret er alltid det samme: `if` på det ugyldige tilfellet, `else` som setter\nverdien. Skriv `else`-grenen, ikke bare `if` — en mutator som setter verdien\nuansett og bare skriver ut en advarsel, har ikke beskyttet noe.\n\nHva som skal skje ved en ugyldig verdi, sier oppgaveteksten. Sier den ingenting,\nskriv en kommentar om hva du har valgt."
+  },
+  {
+   "id": "in1000-5-2-19",
+   "type": "example",
+   "title": "Eksempel 4: Full innkapslet klasse på eksamensnivå",
+   "problem": "Et bibliotek registrerer hvert eksemplar med tittel, hylleplass og utlånsstatus.\nBoka skal kunne lånes ut og leveres, og hylleplassen skal kunne endres — men\ntittelen ikke. Antall utlån skal kunne leses, aldri settes. Skriv klassen med et\ngjennomført grensesnitt, og vis den i bruk.",
+   "solution": "Oppgaveteksten er en oppskrift: den sier presist hvilke metoder som skal finnes,\nog dermed også hvilke som **ikke** skal. Klassen står i sin helhet, med bruken av\nden nederst i samme blokk — det andre utlånsforsøket avvises med vilje:\n\n```python\nclass Eksemplar:\n    def __init__(self, tittel, hylle):\n        self._tittel = tittel\n        self._hylle = hylle\n        self._utlaant = False\n        self._antall_utlaan = 0\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_hylle(self):\n        return self._hylle\n\n    def sett_hylle(self, ny_hylle):\n        self._hylle = ny_hylle\n\n    def er_utlaant(self):\n        return self._utlaant\n\n    def hent_antall_utlaan(self):\n        return self._antall_utlaan\n\n    def laan_ut(self):\n        if self._utlaant:\n            print(\"Allerede utlaant\")\n        else:\n            self._utlaant = True\n            self._antall_utlaan = self._antall_utlaan + 1\n\n    def lever(self):\n        self._utlaant = False\n\ne = Eksemplar(\"Sult\", \"H3\")\ne.laan_ut()\ne.laan_ut()\ne.lever()\ne.laan_ut()\ne.sett_hylle(\"H7\")\nprint(e.hent_tittel(), e.hent_hylle(), e.er_utlaant(), e.hent_antall_utlaan())\n```\n\n**Utskrift:**\n```\nAllerede utlaant\nSult H7 True 2\n```\n\n**Fire ting er verdt å merke seg.**\n\n`hent_antall_utlaan` har ingen mutator, og det er med vilje: tellingen skal bare\nkunne gå opp gjennom `laan_ut`. Å sette den utenfra ville vært å forfalske\nstatistikken.\n\n`er_utlaant` heter ikke `hent_utlaant`. Når svaret er sant eller usant, er\n`er_...` en mer lesbar form, og fasiten bruker den. Begge er riktige.\n\n`laan_ut` er en mutator med kontroll: den avviser å låne ut noe som allerede er\nutlånt, og det er derfor telleren stopper på 2 og ikke 3.\n\nOg `_tittel` har ingen `sett`-metode. Grensesnittet sier dermed at tittelen er\nlåst — uten at noe måtte skrives om det i en kommentar.\n\n**Slik ville sensor sett på det:** her gis uttelling for hver metode for seg,\npluss et eget poeng for at de metodene oppgaven **ikke** ba om, heller ikke er\nder. Hadde du glemt kontrollen i `laan_ut`, ville resten telt fullt.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-5-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def hent_antall(self):\n        return self._antall\n\n    def ta_ut(self, n):\n        if n > self._antall:\n            print(\"For faa paa lager\")\n        else:\n            self._antall = self._antall - n\n\nv = Vare(\"skrue\", 10)\nv.ta_ut(4)\nv.ta_ut(9)\nv.ta_ut(6)\nprint(v.hent_antall())\n```",
+    "solution": "**Sporingstavle.** Følg `_antall` og hvert kall:\n\n| Kall | `n` større enn `_antall`? | `_antall` etter | Utskrift |\n|---|---|---|---|\n| `v.ta_ut(4)` | 4 > 10 usann | 6 | |\n| `v.ta_ut(9)` | 9 > 6 sann | 6 | `For faa paa lager` |\n| `v.ta_ut(6)` | 6 > 6 usann | 0 | |\n\n**Utskrift:**\n```\nFor faa paa lager\n0\n```\n\n**Fellen her er kantverdien.** Det tredje kallet ber om nøyaktig så mange som det\ner igjen, og `6 > 6` er **usann** — så uttaket går gjennom og lageret tømmes til\nnull. Hadde betingelsen vært `n >= self._antall`, ville det siste kallet blitt\navvist, og svaret blitt 6.\n\nDet er nettopp derfor mutatorer med kontroll skal testes på grensen. Å tømme\nlageret helt er lov; å ta ut mer enn det finnes, er det ikke.\n\n**På eksamen** skrives begge linjene, i riktig rekkefølge. De teller hver for\nseg.",
+    "hints": [
+     "Skriv opp antallet etter hvert kall.",
+     "Sjekk hva betingelsen svarer når de to tallene er like."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — stor klassemodellering, altså å bygge en klasse fra\nen beskrivelse.) En sykkelutleie vil registrere hvert stativ med et navn, et\nantall plasser og hvor mange sykler som står der nå (som starter på null).\n\n**a)** Skriv klassen `Stativ` med konstruktør, aksessor for navnet, og en\naksessor `hent_ledige()` som gir antall ledige plasser.\n\n**b)** Legg til `sett_inn(self, antall)`, som setter inn sykler bare hvis det er\nplass til alle — ellers skriver den «Ikke plass» og setter ingen inn.\n\n**c)** Skriv grensesnittet til klassen.\n\n**d)** Hvorfor har klassen ingen `sett_antall_sykler`?",
+    "solution": "**a)–b)** Kontrollen hører hjemme inne i metoden:\n\n```python\nclass Stativ:\n    def __init__(self, navn, plasser):\n        self._navn = navn\n        self._plasser = plasser\n        self._sykler = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_ledige(self):\n        return self._plasser - self._sykler\n\n    def sett_inn(self, antall):\n        if antall > self.hent_ledige():\n            print(\"Ikke plass\")\n        else:\n            self._sykler = self._sykler + antall\n\ns = Stativ(\"Blindern\", 12)\ns.sett_inn(5)\ns.sett_inn(9)\ns.sett_inn(7)\nprint(s.hent_navn(), s.hent_ledige())\n```\n\n**Utskrift:**\n```\nIkke plass\nBlindern 0\n```\n\nDet andre kallet avvises (9 er mer enn de 7 ledige), det tredje går akkurat opp.\n\n**c)** Grensesnittet:\n\n```text\n__init__(navn, plasser) - lager et stativ med et navn og et antall plasser\nhent_navn()             - gir navnet paa stativet\nhent_ledige()           - gir antall ledige plasser akkurat naa\nsett_inn(antall)        - setter inn sykler hvis det er plass til alle\n```\n\n**d)** Fordi antall sykler bare skal kunne endres gjennom `sett_inn`, som passer\npå at det er plass. En åpen `sett_antall_sykler` ville latt hvem som helst sette\n50 sykler i et stativ med 12 plasser, og hele kontrollen ville vært\nverdiløs — nøyaktig det innkapsling skal hindre.\n\n**Slik ville sensor sett på det:** seks ting gir uttelling hver for seg.\nKonstruktøren med tre `self._`-linjer, hver av de to aksessorene, `if`-sjekken,\nat ingen settes inn ved avvisning, og grensesnittoppstillingen uten\nunderstrek-variabler. Hadde du brukt `>=` i stedet for `>`, ville strukturen\nvært riktig og trekket lite — men det tredje kallet ville feilaktig blitt\navvist.",
+    "hints": [
+     "Regn ut ledige plasser i en egen metode, og bruk den i sjekken.",
+     "En metode kan kalle en annen metode på samme objekt med `self.` foran."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-2-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter, med begrunnelse.) Ta stilling\ntil hver påstand om klassen under, og begrunn.\n\n```python\nclass Bruker:\n    def __init__(self, navn):\n        self._navn = navn\n        self._poeng = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def gi_poeng(self, n):\n        self._poeng = self._poeng + n\n\n    def hent_poeng(self):\n        return self._poeng\n```\n\n**a)** «`_poeng` er del av grensesnittet, siden det finnes en metode som\nreturnerer den.»\n\n**b)** «Linjen `b._poeng = 100` gir en feilmelding i Python.»\n\n**c)** «Klassen kan endres til å lagre poengene som en liste av delpoeng, uten at\nnoen andre deler av programmet må skrives om.»",
+    "solution": "**a) Galt.** `_poeng` er en instansvariabel, altså innside. Det er\n**`hent_poeng()`** som er del av grensesnittet — metoden, ikke variabelen. At det\nfinnes en aksessor, er nettopp beviset på at variabelen selv ikke er offentlig:\nhadde den vært det, trengtes ingen metode.\n\n**b) Galt.** Python håndhever ingenting. Linjen kjører og setter verdien til 100:\n\n```python\nclass Bruker:\n    def __init__(self, navn):\n        self._navn = navn\n        self._poeng = 0\n\n    def hent_poeng(self):\n        return self._poeng\n\nb = Bruker(\"Ada\")\nb._poeng = 100\nprint(b.hent_poeng())\n```\n\n**Utskrift:**\n```\n100\n```\n\nUnderstreken er en avtale mellom programmerere, ikke en lås. Det er derfor\nfeilkode #11 er en konvensjonsfeil og ikke en kjørefeil — og derfor sensor må se\netter den.\n\n**c) Riktig**, og dette er hele gevinsten ved innkapsling. Så lenge\n`hent_poeng()` fortsatt returnerer et tall, kan innsiden skrives helt om: klassen\nkan lagre `self._delpoeng = []`, legge til i lista i `gi_poeng`, og la\n`hent_poeng` summere med en vanlig løkke. Ingen som bruker klassen, merker\nforskjellen.\n\n**Forutsetningen er at ingen har jukset.** Har en annen del av programmet skrevet\n`b._poeng = 100`, faller den delen sammen i samme øyeblikk innsiden endres. Det\ner den konkrete kostnaden ved feilkode #11.",
+    "hints": [
+     "Grensesnittet består av metoder, ikke av variabler.",
+     "For b): prøv å huske om Python noen gang stoppet deg fra dette."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-2-20",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på innkapsling:\n\n- **#11 — direkte tilgang utenfra.** `obj._x` eller `obj._x = verdi` utenfor\n  klassen. Python sier ikke fra, men det trekker, og det gjentas ofte flere\n  steder i samme besvarelse.\n- **Mutator uten parameter.** `def sett_pris(self):` har ingenting å sette\n  verdien til. Mutatoren har alltid én parameter i tillegg til `self`.\n- **Aksessor som skriver ut i stedet for å returnere.** `print(self._x)` gir\n  `None` tilbake, og alt som bygger på metoden, faller.\n- **Tro at understrek-variabler er del av grensesnittet.** Grensesnittet er\n  metodene, med navn og parametere. Variablene er innside — også de som har en\n  aksessor.\n- **Mutator uten `else`.** En sjekk som skriver «Ugyldig» og så setter verdien\n  likevel, har ikke beskyttet noe.\n\nOg én vane som ikke er en feil, men som koster tid: å skrive `hent`- og\n`sett`-metoder for alt. Skriv dem oppgaven ber om, og la resten være."
+  },
+  {
+   "id": "in1000-5-2-coll-21",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-5-2-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `self._x` | Instansvariabel. Understreken betyr «ikke rør utenfra» — en konvensjon, ikke en lås. |\n| `def hent_x(self):` `return self._x` | **Aksessor.** Én linje, ingen parametere utover `self`. Returnerer, skriver ikke ut. |\n| `def sett_x(self, ny):` `self._x = ny` | **Mutator.** Alltid én parameter i tillegg til `self`. |\n| `def er_x(self):` `return self._x` | Aksessor for en sann/usann-verdi. Fasitens form når svaret er `True`/`False`. |\n| `obj.hent_x()` | Riktig måte å lese en verdi på utenfra. Husk parentesen. |\n| `obj._x` | **Feilkode #11.** Virker i Python, men er direkte tilgang utenfra og trekker. |\n| `obj._x = v` | Samme feil, verre variant: hopper over reglene klassen skulle passe på. |\n| `if ny < 0:` `else:` i en mutator | Mutator med kontroll. `else`-grenen er den som faktisk setter verdien. |\n| `self.annen_metode()` | En metode kaller en annen på samme objekt — brukes for å slippe å gjenta et regnestykke. |\n| Grensesnitt | Alle offentlige metoder med navn og parametere. Ingen variabler, ingen `self`. |\n| Metodesignatur | Navn pluss parametere: `sett_pris(ny_pris)`. Kroppen er ikke med. |\n\n**Det som avgjør poeng i Oppgave 4:** at alle instansvariabler har understrek, at\nhver verdi oppgaven vil ha ut, har en aksessor, og at ingenting utenfor klassen\nrører et navn som begynner med understrek."
+    }
+   ]
+  },
+  {
+   "id": "in1000-5-2-22",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-5-2-23",
+   "type": "definition",
+   "title": "Offentlig og privat",
+   "content": "De to sidene av et objekt. **Offentlig** er det andre kan bruke: metodene uten\nunderstrek. **Privat** er innsiden: instansvariablene med understrek.\n\nI språk som Java håndheves skillet av kompilatoren. I Python er det en avtale —\nog en avtale som fasiten og sensor forholder seg til som om den var håndhevet.\n\nSkillet er også en lesehjelp. Ser du et navn med understrek i en kodesnutt, vet\ndu med én gang at det hører til innsiden, uten å lete etter hvor det kom fra."
+  },
+  {
+   "id": "in1000-5-2-24",
+   "type": "definition",
+   "title": "Aksessor",
+   "content": "Metoden som gir deg en verdi ut av objektet: `def hent_x(self): return self._x`.\n\nKjenn den igjen på tre trekk: navnet begynner med `hent_` (eller `er_` når svaret\ner sant eller usant), den har ingen parametere utover `self`, og kroppen er én\n`return`-linje.\n\nI en oppgavetekst dukker den opp som «skriv en metode som returnerer …» eller\n«klassen skal ha aksessorer for …»."
+  },
+  {
+   "id": "in1000-5-2-25",
+   "type": "definition",
+   "title": "Mutator",
+   "content": "Metoden som endrer en verdi inne i objektet:\n`def sett_x(self, ny): self._x = ny`.\n\nKjenn den igjen på at den **alltid har en parameter i tillegg til `self`** — den\nnye verdien. Uten den har den ingenting å sette.\n\nMutatorer kan være mer enn én linje. Skal klassen passe på en regel, står `if` og\n`else` inne i mutatoren, ikke hos den som kaller."
+  },
+  {
+   "id": "in1000-5-2-26",
+   "type": "definition",
+   "title": "Grensesnitt",
+   "content": "Alle offentlige metoder til en klasse, med navn og parametere.\n\nInstansvariablene er **ikke** med, heller ikke de som har en aksessor.\nMetodekroppene er ikke med. `self` skrives ikke, fordi den som kaller, ikke\noppgir den.\n\nTestspørsmålet på eksamen har alltid samme svar: «er `_kaffekopper` del av\ngrensesnittet?» — nei, men `hent_kaffekopper()` er det."
+  },
+  {
+   "id": "in1000-5-2-27",
+   "type": "definition",
+   "title": "Implementasjon",
+   "content": "Det motsatte av grensesnittet: **hvordan** klassen gjør jobben sin. Kroppene til\nmetodene og valget av instansvariabler.\n\nImplementasjonen kan skrives helt om uten at noen merker det, så lenge\ngrensesnittet er det samme. En klasse kan bytte fra å lagre et tall til å lagre\nen liste den summerer — så lenge `hent_poeng()` fortsatt gir et tall.\n\nDet er den friheten innkapsling kjøper deg, og den er grunnen til at direkte\ntilgang utenfra er en så dyr vane."
+  },
+  {
+   "id": "in1000-5-2-28",
+   "type": "definition",
+   "title": "Konvensjon",
+   "content": "En regel programmerere har blitt enige om, men som språket ikke håndhever.\nUnderstreken er den viktigste i dette faget.\n\nAndre konvensjoner du allerede følger: stor forbokstav på klassenavn, fire\nmellomrom innrykk, `self` som navn på den første parameteren.\n\nAt noe er en konvensjon, gjør det ikke valgfritt på eksamen. Fasiten følger dem,\nog en besvarelse som ikke gjør det, er vanskeligere å lese og gir dårligere\nuttelling."
+  },
+  {
+   "id": "in1000-5-2-29",
+   "type": "definition",
+   "title": "`er_x()` som aksessornavn",
+   "content": "Formen aksessoren tar når verdien er sann eller usann: `er_utlaant()`,\n`er_ledig()`, `er_full()`.\n\nDen leses bedre enn `hent_utlaant()`, fordi kallet blir en påstand:\n`if bok.er_utlaant():` sier akkurat det den gjør. Begge former er riktige, og\nfasiten bruker begge.\n\nMetoden returnerer `True` eller `False`, som Python skriver med stor forbokstav —\nverdt å huske til kortsvarsoppgavene."
+  },
+  {
+   "id": "in1000-5-2-30",
+   "type": "definition",
+   "title": "Å velge hvilke metoder som trengs",
+   "content": "Oppgaveteksten er oppskriften. «Prisen skal kunne oppdateres» betyr mutator;\n«hver rett har et navn» betyr bare aksessor.\n\nSkriv de metodene teksten ber om, og la resten være. En klasse med åtte\nunødvendige sett-metoder er ikke bedre enn en med to nødvendige — den er dårligere,\nfordi hver overflødig mutator åpner et hull i kontrollen.\n\nEr teksten uklar, velg det som gir mening i domenet og skriv en kommentar om\nvalget. Det er den ene legitime bruken av kommentarer i en besvarelse."
+  },
+  {
+   "id": "in1000-5-2-31",
+   "type": "definition",
+   "title": "Kontroll i mutator",
+   "content": "Mønsteret der mutatoren sjekker verdien før den settes:\n\n```text\n    def sett_x(self, ny):\n        if ny < 0:\n            print(\"Ugyldig\")\n        else:\n            self._x = ny\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\nTo ting avgjør om mønsteret er riktig skrevet: at `else`-grenen finnes (ellers\nsettes verdien uansett), og at kantverdien er testet — `>` og `>=` gir ulikt svar\nnår de to tallene er like."
+  },
+  {
+   "id": "in1000-5-2-32",
+   "type": "definition",
+   "title": "Feilkode #11",
+   "content": "Direkte tilgang til en instansvariabel utenfra: `obj._x` eller `obj._x = verdi`.\n\nFeilen er stum. Python kjører linjen uten et pip, programmet gir riktig svar der\nog da, og det er nettopp derfor den er så lett å gjøre — og derfor sensor må se\netter den.\n\nKostnaden kommer to steder: klassens egne regler hoppes over, og den delen av\nprogrammet faller sammen i det øyeblikket klassens innside endres."
+  },
+  {
+   "id": "in1000-5-2-33",
+   "type": "definition",
+   "title": "Hvorfor understrek og ikke to",
+   "content": "Python har også en form med to understreker foran, som gjør navnet vanskeligere\nå nå utenfra.\n\nDenne boka bruker den ikke, og fagets løsningsforslag gjør det heller ikke. Én\nunderstrek er konvensjonen i IN1000, og det er den formen sensor forventer.\n\nSkriv `self._navn`, ikke `self.__navn`. Og bland den ikke med `__init__`, som har\nto understreker på **begge** sider fordi den er en spesialmetode."
+  },
+  {
+   "id": "in1000-5-2-34",
+   "type": "definition",
+   "title": "Å beskrive et grensesnitt i en kommentar",
+   "content": "Formen en eksamensoppgave ber om når den sier «skriv grensesnittet»: en liste av\nmetodesignaturer med en kort forklaring i naturlig språk bak hver.\n\n```text\nhent_pris()        - gir prisen i kroner\nsett_pris(ny)      - setter en ny pris\n```\n\nBlokken er en oppstilling, ikke et program, og er derfor merket som\nikke-kjørbar.\n\nDet er nok. Oppgaven ber om signaturene, ikke om kodene — og `self` skal ikke\nmed, siden den som kaller, aldri oppgir den."
+  },
+  {
+   "id": "in1000-5-2-35",
+   "type": "definition",
+   "title": "Innkapsling i én setning",
+   "content": "At objektet eier verdiene sine, og at omverdenen snakker med det gjennom\nmetodene.\n\nGevinsten er tredelt: klassen kan passe på sine egne regler, den kan endres\ninnvendig uten at noe annet må skrives om, og den som leser koden, ser med én\ngang hva som er ment å brukes utenfra.\n\nKostnaden er noen linjer ekstra. I den store oppgaven er de linjene poenggivende\ni seg selv, så regnestykket går alltid i din favør."
+  },
+  {
+   "id": "in1000-5-2-36",
+   "type": "definition",
+   "title": "Å låse en verdi",
+   "content": "Å utelate mutatoren med vilje, slik at en verdi bare kan settes i konstruktøren.\n\nTittelen på en bok, materialet i en boks, nummeret på en kollektivrute: alle er\nverdier som ikke endrer seg etter at objektet er laget.\n\nLåsingen er ikke synlig i koden som en egen linje — den er **fraværet** av en\nmetode. Skriv gjerne en kommentar om at det er et valg, så leseren ikke tror du\nglemte den."
+  },
+  {
+   "id": "in1000-5-2-37",
+   "type": "definition",
+   "title": "Aksessor som regner ut",
+   "content": "En aksessor trenger ikke å returnere en lagret verdi. Den kan regne ut svaret:\n\n```text\n    def hent_ledige(self):\n        return self._plasser - self._sykler\n```\n\nBlokken er et utdrag av en klasse og er merket som ikke-kjørbar.\n\nFor den som bruker klassen, er det ingen forskjell — og det er poenget.\nGrensesnittet lover et tall, ikke en bestemt lagringsmåte. Å regne ut i stedet\nfor å lagre er dessuten tryggere: verdien kan aldri komme i utakt med de to den\nbygger på."
+  },
+  {
+   "id": "in1000-5-2-38",
+   "type": "definition",
+   "title": "Egne metoder framfor gjentatt regnestykke",
+   "content": "Står det samme regnestykket to steder i klassen, legg det i en egen metode og\nkall den med `self.` foran.\n\n```text\n        if antall > self.hent_ledige():\n```\n\nBlokken er et utdrag og er merket som ikke-kjørbar.\n\nGevinsten er at endringer gjøres ett sted. Skal ledige plasser senere regnes ut\nannerledes, treffer endringen begge stedene automatisk."
+  },
+  {
+   "id": "in1000-5-2-39",
+   "type": "definition",
+   "title": "Trekk som ikke er kjørefeil",
+   "content": "En kategori feil verdt å kjenne: koden kjører helt fint, og gir riktig svar, men\nbryter en konvensjon sensor ser etter.\n\nFeilkode #11 er den viktigste. Andre i samme familie: instansvariabler uten\nunderstrek, klassenavn med liten forbokstav, aksessor som skriver ut i stedet for\nå returnere.\n\nFordi de ikke gir feilmelding, finner du dem ikke ved å teste. Du finner dem ved\nå lese gjennom besvarelsen med konvensjonene i hodet — bruk fem minutter på det\ntil slutt."
+  },
+  {
+   "id": "in1000-5-2-40",
+   "type": "definition",
+   "title": "Å lese hva en klasse tilbyr",
+   "content": "Ferdigheten grensesnitt-spørsmålene måler: å se på en klasse og med én gang vite\nhva andre kan be den om.\n\nFramgangsmåten er mekanisk. Stryk alt som begynner med understrek. Stryk\nmetodekroppene. Det som står igjen — metodenavnene med parameterlistene — er\ngrensesnittet.\n\nGjør du det på papir før du svarer, faller både «skriv grensesnittet» og «er\n`_x` del av grensesnittet» av seg selv."
+  },
+  {
+   "id": "in1000-5-2-41",
+   "type": "definition",
+   "title": "Understrek i prosa mot understrek i kode",
+   "content": "En liten skrivedetalj som er verdt å vite om: et navn som `_navn` skrevet uten\nkodemarkering kan bli feil formatert i tekst.\n\nI denne boka står derfor alle Python-navn i kodemarkering — `self._navn`,\n`hent_pris()`, `__init__`. På eksamen i Inspera er det ikke noe problem, for der\nskriver du koden i et kodefelt.\n\nRegelen er verdt å ta med seg til egne notater: skriver du om kode i vanlig\ntekst, marker den som kode."
+  },
+  {
+   "id": "in1000-5-2-42",
+   "type": "definition",
+   "title": "To eksemplarer av samme ting",
+   "content": "To objekter kan ha nøyaktig like verdier og likevel være helt forskjellige\nobjekter.\n\nEt bibliotek med to eksemplarer av «Sult» har to `Eksemplar`-objekter med samme\ntittel. Lånes det ene ut, er det andre fortsatt inne.\n\nDette er verdt å ha klart før [kap. 5.4](/bok/in1000/in1000-5-4), der spørsmålet\nsnus: når er to navn to objekter, og når er de to navn på det **samme**\nobjektet?"
+  },
+  {
+   "id": "in1000-5-2-43",
+   "type": "definition",
+   "title": "Konstruktøren som del av grensesnittet",
+   "content": "`__init__` regnes med når en oppgave ber om grensesnittet — den forteller jo\nhvordan et objekt lages, og hvilke verdier det trenger.\n\nDen skrives uten `self`, som de andre: `__init__(navn, kapasitet)`.\n\nNoen oppgavetekster ber bare om «metodene klassen tilbyr». Ta konstruktøren med\nuansett; det trekker aldri, og glemmer du den, mister du en linje."
+  },
+  {
+   "id": "in1000-5-2-44",
+   "type": "definition",
+   "title": "Innkapsling i den store oppgaven",
+   "content": "Slik konvensjonen viser seg i Oppgave 4, som er nesten halve eksamen.\n\nHver klasse du skriver, får instansvariabler med understrek, aksessorer for det\noppgaven vil ha ut, og mutatorer bare der noe faktisk skal kunne endres. Når to\nklasser samarbeider, kaller den ene metoder på den andre — aldri\n`annet_objekt._x`.\n\nDet siste er den vanligste formen feilkode #11 tar i den store oppgaven, og den\nkommer for alvor i [kap. 6.2](/bok/in1000/in1000-6-2)."
+  },
+  {
+   "id": "in1000-5-2-45",
+   "type": "definition",
+   "title": "Hva innkapsling ikke er",
+   "content": "Det er ikke sikkerhet. En understrek stopper ingen — verken en angriper eller en\nkollega med dårlig tid.\n\nDet er ikke hemmelighold heller. Alle kan lese koden og se nøyaktig hvilke\ninstansvariabler klassen har.\n\nDet er **arbeidsdeling**: klassen tar ansvaret for sine egne regler, og resten av\nprogrammet slipper å kjenne dem. Klarer du å si det med egne ord på eksamen, har\ndu grensesnitt-spørsmålet i boks."
+  },
+  {
+   "id": "in1000-5-2-coll-46",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-5-2-c2",
+     "type": "text",
+     "content": "1. **Instansvariabler skrives med understrek**: `self._tittel`. Understreken er\n   en konvensjon, ikke en lås — Python stopper deg ikke.\n2. **Utenfor klassen rører du aldri et navn med understrek.** `obj._x` er\n   feilkode **#11**, og feilen er stum.\n3. **Aksessoren leser:** `def hent_x(self): return self._x`. Ingen parametere,\n   og den returnerer — den skriver ikke ut.\n4. **Mutatoren skriver:** `def sett_x(self, ny): self._x = ny`. Alltid én\n   parameter i tillegg til `self`.\n5. Skal klassen passe på en regel, står `if` og `else` **inne i mutatoren**. Uten\n   `else`-gren settes verdien likevel.\n6. **Grensesnittet er metodene**, med navn og parametere — aldri variablene, og\n   `self` skrives ikke.\n7. Skriv de metodene oppgaven ber om. **Fraværet av en mutator er et valg**: det\n   låser verdien."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
