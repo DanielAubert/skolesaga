@@ -2,28 +2,41 @@
 
 - **Branch:** `bok/in1000`
 - **Arbeidsmappe:** `.claude/worktrees/bok-in1000` (eget git-arbeidstre — bruk KUN denne)
-- **Status nå (26. juli 2026):** **34 av 37 filer på disk** — alle 26
-  teori-/drillkapitler og alle 8 prøvekapitler er ferdige, gatet og committet.
+- **Status nå (26. juli 2026):** **ALLE 37 FILER PÅ DISK.** Steg 1 (bokbygging)
+  er FULLFØRT — 29 kapitler + 8 prøvekapitler, alle gatet og committet hver for
+  seg.
 
   | Del | Filer | Status |
   |---|---|---|
-  | 0–4 | `0-1`, `1-1`…`1-3`+`1-prove`, `2-1`,`2-2`+`2-prove`, `3-1`…`3-4`+`3-prove`, `4-1`,`4-2`+`4-prove` | ferdig (oppdrag B1–B3) |
-  | 5 | `5-1`…`5-5` + `5-prove` | **ferdig** (oppdrag B4) |
-  | 6 | `6-1`…`6-5` + `6-prove` | **ferdig** (oppdrag B5, del 2) |
-  | 7 | `7-1`, `7-2` + `7-prove` | **ferdig** (oppdrag B5, del 1) |
-  | 8 | `8-1`, `8-2` + `8-prove` | **ferdig** (oppdrag B6) |
-  | 9 | `9-1`, `9-2`, `9-3` | **GJENSTÅR** (oppdrag B7) |
+  | 0–4 | 16 filer | ferdig (oppdrag B1–B3) |
+  | 5 | `5-1`…`5-5` + `5-prove` | ferdig (B4) |
+  | 6 | `6-1`…`6-5` + `6-prove` | ferdig (B5) |
+  | 7 | `7-1`, `7-2` + `7-prove` | ferdig (B5) |
+  | 8 | `8-1`, `8-2` + `8-prove` | ferdig (B6) |
+  | 9 | `9-1`, `9-2`, `9-3` | ferdig (B7) |
 
-  `status-bok.py` 26. juli: **26/29 kapitler · 580 flashcard-definisjoner ·
-  220 oppgaver**. Quiz i staging: 492 spørsmål (kvoten for de 26 ferdige
-  kapitlene er 492 — alle oppfylt eller overskutt).
+  **Kvoter oppfylt:** quiz **516 av 516** (nøyaktig kvote, ingen kapittel under),
+  flashcards **580 av 508** (overskyting er lov). `status-bok.py`: 29/29
+  kapitler · 580 definisjoner · 220 oppgaver.
 
-- **Neste fil:** `in1000-9-1` (øvingseksamen 1, bibliotek). Oppdrag B7 = de tre
-  komplette settene, 8 quiz hver, **0 flashcards**, `estimatedMinutes` 240.
-  Kap. 9.1 skal i tillegg ha den merkede **kalde banken** (8–10 oppgaver uten
-  hint, fasit = momentliste), jf. BYGGEKONTRAKT.
+  **Portstatus 26. juli:** `sjekk-kode.py` OK · `sjekk-utskrift.py` OK på alle
+  37 filer · `sjekk-sporing.py` OK · `sjekk-latex.py` OK · begge
+  `sjekk-prosaregel.py` OK · `sjekk-bok.py` med forbudt-regex: **ingen forbudte
+  termer, ingen døde lenker** — eneste avvik er «kun 0 quiz», som er forventet
+  fram til wiring.
+
+- **Neste steg: WIRING.** `python3 scripts/hoyskolebok/wire-bok.py in1000` →
+  «WIRING OK», deretter slett `src/lib/data/quiz-staging/in1000-*`. Se
+  «Videre etter byggebølgen» nederst.
+
+- **Én rådgivende merknad å rydde i verifikatorbølgen:**
+  `sjekk-bok.py` melder at `in1000-5-4-oppg-8` har deloppgaver a)/b) i løpende
+  `solution`-tekst. Feiler ikke porten, men bør få egen linje med fet merking.
+  I tillegg melder `sjekk-kode.py` «potens uten backticks: `r**n`» i
+  `in1000-8-1` — en falsk positiv fra fet markering i prosa.
+
 - **Arketype:** DNA-regnefag, undertype **kodefag** — plattformens ANDRE.
-  Presedens: `docs/hoyskole-boker/in1900/` (bygget og verifisert 25. juli 2026).
+  Presedens: `docs/hoyskole-boker/in1900/`.
 - **Ingen blokkeringer.**
 
 ## Datafiler for Del 7 (og Del 6.5) — MÅ lages før utskriftsporten kjøres
@@ -40,11 +53,14 @@ python3 scripts/hoyskolebok/sjekk-utskrift.py \
   src/lib/data/chapters/in1000-7-1.json <DATADIR>
 ```
 
-Filene: `medlemmer.txt`, `varer.txt`, `sykler.txt` (header), `turer.txt`,
+Gjelder også `in1000-9-1`, `in1000-9-2` og `in1000-9-3`.
+
+Filene (20): `medlemmer.txt`, `varer.txt`, `sykler.txt` (header), `turer.txt`,
 `Kolonier.txt`, `Ordjakt.txt`, `containere.txt`, `okter.txt`,
 `medlemsregister.txt` (header), `varelager.txt`, `timeplan.txt` (header),
 `resultat.txt`, `sykkelturer.txt`, `retter.txt` (header), `utlaan.txt`,
-`Speilsal.txt`, `Spinning.txt`.
+`Speilsal.txt`, `Spinning.txt`, `Morgenkaffen.txt`, `Rettssalen.txt`,
+`boker.txt` (header).
 
 ## Sjekk status (kjør etter HVERT ferdig kapittel — gå aldri forbi en rød port)
 
@@ -99,9 +115,13 @@ Prod-curl av rendringen (når nok kapitler finnes): HTML-en skal inneholde
   innført i kap. 2.1/2.2 — alle løkker der går over tekst. Skjelettets
   mønstereksempel for 2.1 bruker en liste; det er bevisst byttet til tekst, med
   en setning om at mønsteret er identisk for lister.
-- **Kap. 0.1 lenker til alle bokas kapitler.** `sjekk-bok.py` avviser døde
-  lenker, så den porten blir først grønn når hele boka står på disk. Det er
-  forventet, ikke et avvik.
+- **Kap. 0.1 lenker til alle bokas kapitler.** Nå som hele boka står på disk,
+  er lenkeporten grønn — verifisert 26. juli.
+- **Oppgavesettene i Del 9 må ligge i `collapsible`-blokker med tittel som
+  starter på «Oppgavesett …».** Utskriftsporten hopper over kodeblokker i
+  `collapsible`-er hvis tittelen matcher `prøve|prove|kald bank|oppgavesett|
+  øvingseksamen`; ellers krever den «**Utskrift:**» rett etter hver
+  ```python-blokk — og da ville fasiten stått i selve oppgaveteksten.
 - **Feilmeldinger vises som ```text-blokker, ikke som «**Utskrift:**».**
   Utskriftsporten sammenligner mot **stdout**, og en traceback går til stderr —
   et `python`-eksempel som krasjer, gir derfor alltid avvik. Presedensen i boka
