@@ -144,6 +144,23 @@
    }
   },
   {
+   "id": "in1900-4-3-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, del-b — plott av måleserie og modell i samme figur.) En målestasjon i en fjord måler overflatetemperaturen én gang i døgnet. De ti målingene ligger i lista\n\n```python\nmaalt = [4.1, 4.6, 5.2, 6.0, 6.9, 7.6, 8.1, 8.3, 8.2, 7.9]\n```\n\nder den første er tatt på døgn 0. En enkel modell for den samme perioden er $T(t) = 4{,}1 + 0{,}9t - 0{,}05t^2$ grader celsius.\n\n**a)** Bygg tidstabellen `dogn` punkt for punkt med en løkke, slik at den får like mange elementer som `maalt`.\n**b)** Skriv hele programmet som plotter målingene og modellkurven i samme figur. Modellkurven skal regnes ut i 91 punkter mellom 0 og 9, og figuren skal ha legende og navngitte akser.\n**c)** Hvorfor regnes modellkurven ut i 91 punkter når måleserien bare gir 10?",
+    "solution": "**a)** Løkka går over indeksene til måleserien, og `dogn` vokser med ett tall per runde:\n\n```python\nmaalt = [4.1, 4.6, 5.2, 6.0, 6.9, 7.6, 8.1, 8.3, 8.2, 7.9]\n\ndogn = []\nfor i in range(len(maalt)):\n    dogn.append(i)\n\nprint(dogn)\nprint(len(dogn), len(maalt))\n```\n\n**Utskrift:**\n```\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n10 10\n```\n\nDe to tabellene er like lange, og det er hele kravet `plt.plot` stiller. Legg merke til at `plt.plot` godtar en vanlig liste like godt som et NumPy-array — det er lengden som må stemme, ikke typen.\n\n**b)** Hele programmet. Måleserien plottes fra listene, modellkurven fra en tett `linspace`-tabell:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nmaalt = [4.1, 4.6, 5.2, 6.0, 6.9, 7.6, 8.1, 8.3, 8.2, 7.9]\n\ndogn = []\nfor i in range(len(maalt)):\n    dogn.append(i)\n\nt = np.linspace(0, 9, 91)\nT = 4.1 + 0.9*t - 0.05*t**2\n\nplt.plot(dogn, maalt, label='målt')\nplt.plot(t, T, label='modell')\nplt.xlabel('døgn')\nplt.ylabel('temperatur (grader celsius)')\nplt.legend()\nplt.show()\n```\n\nModellverdiene er verdt å se på før du beskriver figuren:\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 9, 91)\nT = 4.1 + 0.9*t - 0.05*t**2\n\nfor j in [0, 30, 60, 90]:\n    print(f'{t[j]:4.1f} {T[j]:6.2f}')\n```\n\n**Utskrift:**\n```\n 0.0   4.10\n 3.0   6.35\n 6.0   7.70\n 9.0   8.15\n```\n\n**Figur i ord:** Førsteaksen viser døgn fra 0 til 9, andreaksen temperatur i grader celsius fra om lag 4 til 8,3. Måltkurven starter i 4,1, stiger jevnt de første seks døgnene, når et toppunkt på 8,3 rundt døgn 7 og faller så svakt til 7,9. Modellkurven starter i samme punkt, 4,1, stiger litt flatere gjennom 6,35 ved døgn 3 og 7,70 ved døgn 6, og ender i 8,15. De to kurvene følger hverandre tett hele veien, med modellen litt under målingene midtveis. Legenden navngir dem «målt» og «modell».\n\n**c)** Fordi matplotlib trekker en rett linje mellom hvert nabopar av punkter. Med bare 10 punkter ville modellkurven blitt en kantet brukket linje, mens 91 punkter gjør de rette småbitene så korte at kurven ser glatt ut. Måleserien kan vi ikke gjøre noe med — vi har de målingene vi har, og en kantet måltkurve er ærlig.\n\n**Hva gir uttelling:** to importer, en løkke som gir `dogn` like mange elementer som `maalt`, to `plot`-kall med hver sin `label`, én `legend()`, to aksenavn og `show()`. Regner du modellen i 10 punkter i stedet for 91, er svaret fortsatt riktig i innhold — det koster på sin høyde ett delpoeng for figurkvalitet.",
+    "hints": [
+     "Løkka skal ikke regne noe — den skal bare fylle tidstabellen med 0, 1, 2 og så videre, ett tall per måling.",
+     "De to kurvene trenger ikke samme x-tabell. Hvert `plot`-kall tar sitt eget par.",
+     "Til c): hva tegner matplotlib mellom to nabopunkter?"
+    ]
+   }
+  },
+  {
    "id": "in1900-4-3-txt-lokke3",
    "type": "text",
    "content": "## Løkke 3 — fasekurve og figuren i ord (~13 min)\n\nNoen ganger er ikke tiden det interessante. I en rovdyr–byttedyr-modell vil du kanskje se hvordan de to bestandene henger sammen: hvordan antall rovdyr utvikler seg som funksjon av antall byttedyr. Da plotter du de to størrelsene **mot hverandre** i stedet for mot tiden.\n\nDet kalles en **fasekurve**, og koden er den samme malen — bare med andre argumenter: `plt.plot(B, R)`. Tiden er ikke lenger en akse; den er «langs kurven». En syklisk modell gir da en lukket løkke, mens en modell som går mot likevekt gir en spiral inn mot ett punkt.\n\nTil slutt i denne løkka: å beskrive figuren i ord. På hjelpemiddelfri eksamen er dette selvkontrollen din, og noen oppgaver ber deg eksplisitt forklare hva plottet viser."
@@ -168,11 +185,11 @@
    "solution": "\nTallene her er valgt for å gi to jevne svingninger; i [kap. 6.3](/bok/in1900/in1900-6-3) kommer de fra en simulering du skriver selv.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(t, B, label='byttedyr')\nplt.plot(t, R, label='rovdyr')\nplt.xlabel('tid (måneder)')\nplt.ylabel('antall individer')\nplt.legend()\nplt.show()\n```\n\n**Figur i ord (tidsplottet):** Førsteaksen viser tid fra 0 til 60 måneder, andreaksen antall individer fra om lag 5 til 60. Byttedyrkurven svinger mellom 20 og 60 med periode $2\\pi/0{,}3 \\approx 21$ måneder, og starter i 40 på vei oppover. Rovdyrkurven svinger mellom 5 og 13 rundt middelverdien 9, og starter på sitt maksimum. De to toppene ligger en kvart periode fra hverandre.\n\nSå fasekurven. Legg merke til at aksenavnene nå er de to bestandene:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.title('Fasekurve')\nplt.show()\n```\n\n**Figur i ord (fasekurven):** Førsteaksen viser antall byttedyr fra 20 til 60, andreaksen antall rovdyr fra 5 til 13. Kurven er en lukket, oval løkke som tegnes om og om igjen, med sentrum i punktet $(40, 9)$. At kurven er lukket betyr at bestandene gjentar samme forløp periodisk — hadde de gått mot likevekt, ville kurven spiralert innover mot ett punkt."
   },
   {
-   "id": "in1900-4-3-o4",
+   "id": "in1900-4-3-o5",
    "type": "exercise",
    "exercise": {
-    "id": "in1900-4-3-o4",
-    "number": "4",
+    "id": "in1900-4-3-o5",
+    "number": "5",
     "type": "classic",
     "difficulty": "middels",
     "task": "(Eksamensnivå.) Etter en simulering har du tidsarrayet `t` og de to bestandsarrayene `B` og `R`, alle med 401 elementer.\n\n**a)** Skriv koden som plotter fasekurven med byttedyr langs førsteaksen.\n\n**b)** Fasekurven blir en lukket løkke. Hva forteller det om løsningen?\n\n**c)** Hva ville en spiral innover mot ett punkt fortalt i stedet?",
@@ -184,11 +201,11 @@
    }
   },
   {
-   "id": "in1900-4-3-o5",
+   "id": "in1900-4-3-o6",
    "type": "exercise",
    "exercise": {
-    "id": "in1900-4-3-o5",
-    "number": "5",
+    "id": "in1900-4-3-o6",
+    "number": "6",
     "type": "classic",
     "difficulty": "vanskelig",
     "task": "(Eksamensnivå, sjanger M — «med løkke / uten løkke» — kombinert med plott.) En oppgave ber om et plott av $f(x) = e^{-x}\\sin(4x)$ for 201 punkter i $[0, 5]$, sammen med den øvre innhyllingskurven $g(x) = e^{-x}$, i samme figur med legende.\n\n**a)** Skriv hele programmet.\n\n**b)** Beskriv figuren i ord, med de fire delene: akser, start, forløp, sluttoppførsel.\n\n**c)** Hvorfor kan du ikke bruke `exp` fra `math` her?",
