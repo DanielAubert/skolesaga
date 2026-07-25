@@ -1,28 +1,45 @@
 # GJENOPPTAK — tre bøker under bygging (startet 24. juli 2026)
 
-## STATUS 25. juli 2026 — ALLE TRE BØKENE FERDIGE
+## STATUS 25. juli 2026
 
-| Bok | Steg 1 kapitler | Steg 2 wiring | Figurer | Steg 3 verifikasjon | Steg 4 sluttport |
+### Forrige trio — FERDIG OG LIVE I PRODUKSJON
+
+| Bok | Filer | Flashcards | Quiz | Figurer | Verifikasjon |
 |---|---|---|---|---|---|
-| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ 42 filer / 550 fc / 558 quiz | ✅ 109 SVG, 200 fra Storage | ✅ ~1 880 sjekker, 48 fiks | ✅ ferdig |
-| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ 41 filer / 554 fc / 570 quiz | ✅ 53 SVG, 200 fra Storage | ✅ ~2 400 sjekker, ~60 fiks | ✅ ferdig |
-| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ 35 filer / 542 fc / 528 quiz | ✅ 54 SVG, 200 fra Storage | ✅ ~5 100 sjekker, ~40 fiks | ✅ ferdig |
+| FYS1001 Innføring i fysikk (UiO) | 42 | 550 | 558 | 109 | ~1 880 sjekker, 48 fiks |
+| ECON2220 Mikroøkonomi 2 (UiO) | 41 | 554 | 570 | 53 | ~2 400 sjekker, ~60 fiks |
+| ECON2310 Makroøkonomi 2 (UiO) | 35 | 542 | 528 | 54 | ~5 100 sjekker, ~40 fiks |
 
-Til sammen **118 kapittelfiler, 1 646 flashcards, 1 656 quizspørsmål og 216 figurer**,
-med ~9 400 verifikasjonssjekker bak. Alle tre er merget i kjede på landingsbranchen
-og gjennom hele sluttporten der: `npx tsc --noEmit` rent, `npm run build` exit 0,
-BOKPORT + LATEX-PORT + FIGURPORT OK for hver bok, og prod-curl 200 med reelt
-innhold på bokforside, kapitler, quiz, flashcards, eksamen og kildegrunnlag.
-
-**Landing:** ✅ **LANDET PÅ MAIN OG LIVE I PRODUKSJON 25. juli 2026** (main `452297a6`,
-rein fast-forward fra `b8a537f2`). Verifisert på www.skolesaga.no etter Vercel-deploy:
-alle tre bokforsider 200 med riktig tittel, fire kapittelruter + quiz + flashcards
-200 uten LaTeX-feil, og figurene svarer 200 `image/svg+xml` fra Storage.
+Landet på main (`66b95d97`, rein fast-forward) og verifisert på www.skolesaga.no:
+alle tre bokforsider 200 med riktig tittel, kapittelruter + quiz + flashcards 200
+uten LaTeX-feil, figurer 200 `image/svg+xml` fra Storage.
 
 **Felle ved prod-verifisering:** `/bok/<emne>` svarer **200 også når boka ikke finnes**
-— siden rendrer «Kurs ikke funnet» med statuskode 200. En polling på HTTP-status
-sier derfor «klar» med én gang. Sjekk alltid på INNHOLD (`grep` etter boktittelen),
-ikke på statuskoden. Deployen tok ~5 minutter fra push.
+(siden rendrer «Kurs ikke funnet» med statuskode 200). Sjekk alltid på INNHOLD
+(`grep` etter boktittelen), ikke statuskode. Deploy tar ~5 min fra push.
+
+### Nåværende trio — UNDER BYGGING (startet 25. juli 2026)
+
+| Bok | Kapitler | Arbeidstre | Branch | Status |
+|---|---|---|---|---|
+| ECON2130 Statistikk 1 (UiO) | 35 | `.claude/worktrees/bok-econ2130` | `bok/econ2130` | 🔄 steg 0 |
+| FYS1120 Elektromagnetisme (UiO) | 32 | `.claude/worktrees/bok-fys1120` | `bok/fys1120` | 🔄 steg 0 |
+| IN1900 Programmering for realfag (UiO) | 35 | `.claude/worktrees/bok-in1900` | `bok/in1900` | 🔄 steg 0 |
+
+Alle tre er utgått fra main `66b95d97`. Skjelett + eksamensanalyse var ferdige og
+KVALITETSPORT-godkjente fra før. Steg 0 lager BYGGEKONTRAKT.md, BOKCONFIG.json,
+GJENOPPTAK.md og FIGUR-BESTILLINGER.md per bok.
+
+**Egenart å passe på i denne trioen:**
+- **econ2130** er R-integrert (2025-regimet er hands-on med CSV) — kodekontrakt for R,
+  og all vist kode skal være kjørbar.
+- **fys1120** har eget Python-spor i Del 8 (100 % av eksamenene siden 2018) og er
+  figurtungt. Fortegn og retning er faglig innhold: fys1001 hadde både omvendt
+  omløpsretning for en ladd partikkel og en figur med fysisk umulig kraftretning.
+- **in1900** er plattformens **første kodefag-bok**. Kodekontrakten setter presedens:
+  kjørbar kode, ekte utskrift (ikke skrevet fra hukommelsen), ODESolver-signatur
+  post-2023, rekursjon forbudt. NB: TAB er lovlig inne i ```-kodeblokker men er en
+  feil ellers — `sjekk-latex.py` skiller nå på det.
 
 ## Landingsoppskrift (bruk `los-wiring-konflikt.py`)
 
