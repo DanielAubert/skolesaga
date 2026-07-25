@@ -1,0 +1,382 @@
+{
+  "id": "in1020-3-6",
+  "courseId": "in1020",
+  "chapterNumber": "3.6",
+  "title": "Autentisering, tilgangskontroll og passord",
+  "description": "Skillet mellom å bekrefte hvem du er og hva du får lov til, de tre faktortypene i tofaktor, og hvorfor passord lagres som hash med salt.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne skille autentisering fra autorisasjon og tilgangskontroll",
+    "kunne oppgi de tre faktortypene og avgjøre om en løsning er reell tofaktor",
+    "kunne forklare hvorfor passord lagres som hash og aldri i klartekst",
+    "kunne begrunne hva salt gjør, og hvilket angrep det stopper"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-6-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** autentisering og tilgangskontroll er en nær slektning av **sjanger G — sikkerhetsmål, tiltak og trusselmodellering**, og temaet har egen oppgave i **fem av seks årganger i arkivet (83 %)**.\n\n**Nivå 2 — dette skal du kunne.** Kapitlet hører til **seksjon 3, datasikkerhet**, en av de fire seksjonene som hver må bestås for seg. Temaet er ikke like garantert som mål/tiltak og nøkkelretning, men 83 % er høyt nok til at det er dårlig betalt å hoppe over det.\n\n**Slik kommer den:** oftest som **svarform F2** (sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver), og som **F1** («velg ett *eller flere* alternativer»).\n\n**De to tingene som skiller bestått fra bom her:**\n\n1. **Autentisering er ikke autorisasjon.** Autentisering svarer på «hvem er du?», autorisasjon på «hva får du lov til?». Å bekrefte identiteten din gir deg ikke tilgang til noe som helst i seg selv.\n2. **Salt er ikke det samme som hashing.** Hashing hindrer at lagrede passord kan leses ut. Salt hindrer noe annet: at ferdiglagde oppslagstabeller kan brukes, og at to like passord ser like ut i basen.\n\n**Tidsbruk:** 45 minutter, fordelt på tre løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-3-6-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/in1020/in1020-3-1) og [kap. 3.4](/bok/in1020/in1020-3-4). Her er det du trenger, ferdig oppfrisket:\n\n**1. Tilgangskontroll er et tiltak**, ikke et mål. Målet den tjener, er **konfidensialitet** — at bare de rette får lese.\n\n**2. Autentisitet er et mål:** at noe eller noen virkelig er den de utgir seg for. Autentisering er tiltaket som skal gi det målet.\n\n**3. Hash-verdiens tre egenskaper**, fra [kap. 3.4](/bok/in1020/in1020-3-4):\n\n- Samme innhold gir alltid samme verdi.\n- Ett endret bit gir en helt annen verdi.\n- Verdien kan **ikke** regnes tilbake til innholdet — funksjonen går bare én vei.\n\nDen siste egenskapen er hele grunnlaget for passordlagring, og den er derfor kjernen i dette kapitlet.\n\n**4. Minste privilegium**, fra [kap. 3.2](/bok/in1020/in1020-3-2): hver bruker skal ha akkurat de rettighetene oppgaven krever, og ikke flere."
+    },
+    {
+      "id": "in1020-3-6-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-3-6-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Autentisering | Å bekrefte **hvem** noen er |\n| Autorisasjon | Å avgjøre **hva** de får lov til |\n| Tilgangskontroll | Mekanismen som håndhever autorisasjonen |\n| Faktor | Én type bevis for identitet |\n| Tofaktor | To bevis av **ulik** type |\n| Hash | Enveisverdi regnet ut fra passordet |\n| Salt | Tilfeldig verdi lagt til passordet før hashing, unik per bruker |\n| Oppslagstabell | Ferdig utregnet liste over hash-verdier for vanlige passord |\n| Uttømmende søk | Å prøve alle mulige passord til ett virker |\n\n**De tre faktortypene:**\n\n| Type | Eksempler |\n|---|---|\n| Noe du **vet** | Passord, PIN-kode |\n| Noe du **har** | Mobiltelefon, kodebrikke, smartkort |\n| Noe du **er** | Fingeravtrykk, ansikt, stemme |\n\n**Regelen for tofaktor:** de to faktorene må være av **ulik type**. To passord er ikke tofaktor — det er én faktor brukt to ganger.\n\n**Slik lagres et passord riktig:**\n\n```text\n1. Bruker velger passord\n2. Systemet lager et tilfeldig SALT, unikt for denne brukeren\n3. Systemet regner ut hash(passord + salt)\n4. Systemet lagrer SALT og HASH-VERDI — aldri passordet\n```\n\nVed innlogging gjentas steg 3 med det lagrede saltet, og verdiene sammenlignes."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-6-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hvem er du, og hva får du lov til? (~13 min)\n\nDu viser legitimasjon i resepsjonen på et sykehus. Vakten ser at du er den du sier. Det betyr ikke at du får gå inn på operasjonsstua.\n\nDe to tingene er helt atskilte:\n\n- **Autentisering** er å bekrefte **hvem** du er.\n- **Autorisasjon** er å avgjøre **hva** du får lov til.\n\nDet er lett å blande dem, fordi de skjer rett etter hverandre når du logger inn. Men et system kan autentisere deg perfekt og likevel nekte deg alt — og det er ofte helt riktig."
+    },
+    {
+      "id": "in1020-3-6-def-autentisering",
+      "type": "definition",
+      "title": "Autentisering",
+      "content": "Å **bekrefte at noen er den de utgir seg for å være**.\n\nDet skjer ved at brukeren legger fram ett eller flere bevis: et passord, en kode fra telefonen, et fingeravtrykk.\n\nMålet autentisering tjener, er **autentisitet** — og indirekte **konfidensialitet**, siden feil person ikke slipper inn.\n\nDen faste feilslutningen: å tro at autentisering gir tilgang. Den svarer bare på spørsmålet **hvem**. Hva du så får lov til, avgjøres av autorisasjonen, og det er et helt eget spørsmål."
+    },
+    {
+      "id": "in1020-3-6-def-autorisasjon",
+      "type": "definition",
+      "title": "Autorisasjon og tilgangskontroll",
+      "content": "**Autorisasjon** er avgjørelsen av **hva** en bekreftet bruker får lov til: lese, skrive, slette, administrere.\n\n**Tilgangskontroll** er mekanismen som håndhever avgjørelsen i praksis.\n\nRekkefølgen er alltid den samme: **først autentisering, så autorisasjon**. Systemet må vite hvem du er før det kan vite hva du skal få lov til.\n\nBærende prinsipp: **minste privilegium** — hver bruker får akkurat de rettighetene oppgaven krever. Da blir skaden mindre både ved feil og ved en overtatt konto.\n\nDen faste feilslutningen: å behandle de to som ett. En sykepleier og en regnskapsfører kan autentiseres på nøyaktig samme måte og likevel ha helt ulike rettigheter."
+    },
+    {
+      "id": "in1020-3-6-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Hvilket av de to sviktet?",
+      "problem": "Tre hendelser på et sykehus. Er det autentiseringen eller autorisasjonen som har sviktet i hvert tilfelle?\n\n**a)** En angriper gjetter en ansatts passord og logger inn som vedkommende.\n\n**b)** En kantinemedarbeider kan åpne alle pasientjournaler i systemet.\n\n**c)** En tidligere ansatt har fortsatt aktiv konto seks måneder etter at hen sluttet.",
+      "solution": "**a) Autentiseringen sviktet.** Systemet trodde det snakket med den ansatte, men gjorde det ikke. Rettighetene var trolig helt riktige — de tilhørte bare feil person i øyeblikket.\n\nMottiltak: sterkere passordkrav og **tofaktor**, som gjør et gjettet passord alene utilstrekkelig.\n\n**b) Autorisasjonen sviktet.** Innloggingen var helt korrekt: kantinemedarbeideren er den hen utgir seg for. Feilen er at vedkommende har rettigheter jobben ikke krever.\n\nMottiltak: **minste privilegium** — rettigheter tildeles etter rolle og oppgave.\n\n**c) Begge deler, men først og fremst autorisasjonen.** Kontoen skulle vært deaktivert. Så lenge den er aktiv, autentiserer systemet en person som ikke lenger skal ha noen rettigheter i det hele tatt.\n\nMottiltak: rutiner for **avslutning av tilgang** når et arbeidsforhold opphører.\n\n**Fasit: a) autentisering, b) autorisasjon, c) autorisasjon (rettighetene skulle vært fjernet).**\n\n**Kontrollspørsmålet som avgjør alle tre:** *var det feil person, eller feil rettigheter?* Feil person er autentisering. Feil rettigheter er autorisasjon."
+    },
+    {
+      "id": "in1020-3-6-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — de to begrepene.) Forklar forskjellen på autentisering og autorisasjon med ett eksempel på hver.",
+        "solution": "**Autentisering — «hvem er du?»** Systemet bekrefter identiteten. Eksempel: du taster passord og en kode fra telefonen, og systemet konkluderer med at du er den du sier.\n\n**Autorisasjon — «hva får du lov til?»** Systemet avgjør hvilke rettigheter den bekreftede brukeren har. Eksempel: du er bekreftet som student, og får derfor lese dine egne karakterer, men ikke andres.\n\n**Svar: autentisering bekrefter identitet, autorisasjon tildeler rettigheter.**\n\nRekkefølgen er alltid autentisering først. Systemet må vite hvem du er før det kan vite hva du skal få lov til.",
+        "hints": [
+          "Tenk på hva som skjer i to trinn når du logger inn på en tjeneste.",
+          "Det ene spørsmålet handler om identitet, det andre om rettigheter."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger G — autentisering og autorisasjon.) Er det autentiseringen eller autorisasjonen som har sviktet i hvert tilfelle?\n\n**a)** En student får lese en annen students karakterer.\n\n**b)** Noen logger inn på din konto med et passord de har funnet i en lekkasje.\n\n**c)** En vikar har fortsatt tilgang til lønnssystemet etter at vikariatet er over.",
+        "solution": "**a) Autorisasjonen.** Studenten er helt korrekt autentisert som seg selv; feilen er at rettighetene er for vide.\n\n**b) Autentiseringen.** Systemet trodde det snakket med deg. Rettighetene var riktige — de tilhørte bare feil person i det øyeblikket.\n\n**c) Autorisasjonen.** Vikaren er den hen utgir seg for, men skulle ikke lenger hatt noen rettigheter. Rutinen for å fjerne tilgang har sviktet.\n\n**Fasit: a) autorisasjon, b) autentisering, c) autorisasjon.**\n\nMerk at fordelingen ikke er jevn. Kontrollspørsmålet er alltid det samme: **var det feil person, eller feil rettigheter?**",
+        "hints": [
+          "Spør for hvert tilfelle: var det feil person, eller feil rettigheter?",
+          "Ikke la deg lure av hvor alvorlig hendelsen virker — spørsmålet er hvilket ledd som sviktet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Faktorene, og hva som gjør tofaktor sterk (~14 min)\n\nEt passord alene er svakt. Det kan gjettes, lures ut av deg, eller lekke i et innbrudd hos en tjeneste du bruker.\n\nTofaktor-autentisering løser dette ved å kreve **to** bevis — og de må være av **ulik type**. Det er den detaljen oppgavene tester."
+    },
+    {
+      "id": "in1020-3-6-teo-faktorer",
+      "type": "theorem",
+      "title": "De tre faktortypene",
+      "content": "| Type | Hva det er | Eksempler | Svakhet |\n|---|---|---|---|\n| Noe du **vet** | En hemmelighet i hodet | Passord, PIN-kode | Kan gjettes, lures ut, lekke |\n| Noe du **har** | En fysisk gjenstand | Mobiltelefon, kodebrikke, smartkort | Kan mistes eller stjeles |\n| Noe du **er** | En kroppslig egenskap | Fingeravtrykk, ansikt, stemme | Kan ikke byttes ut hvis den lekker |\n\n**Regelen for tofaktor:** de to bevisene må være av **ulik type**.\n\n- Passord **og** kode på telefonen → **reell tofaktor** (vet + har).\n- Passord **og** sikkerhetsspørsmål → **ikke** tofaktor. Begge er «noe du vet», altså én faktor brukt to ganger.\n- Fingeravtrykk **og** PIN på samme telefon → tofaktor (er + vet).\n\n**Hvorfor kombinasjonen virker:** de to typene har helt ulike svakheter. Et lekket passord hjelper ikke angriperen som ikke har telefonen din, og en stjålet telefon hjelper ikke den som ikke kan koden.\n\n**Hva tofaktor demper konkret:**\n\n1. **Lekkede passord.** Et passord fra en lekkasje er ikke nok alene.\n2. **Gjetting og uttømmende søk.** Selv et riktig gjettet passord åpner ingenting.\n3. **Phishing.** En falsk innloggingsside som fanger passordet ditt, mangler fortsatt den andre faktoren.\n\n**Den faste feilslutningen:** å tro at «to passord» eller «passord pluss sikkerhetsspørsmål» er tofaktor. Det er samme type bevis to ganger — og en angriper som har lurt deg for det ene, har som regel også det andre."
+    },
+    {
+      "id": "in1020-3-6-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — tofaktor, svarform F1.) Kryss av **alle** kombinasjonene som er reell tofaktor-autentisering, og begrunn hvert av de fem.\n\n**a)** Passord og engangskode sendt til mobilen\n\n**b)** Passord og svar på et sikkerhetsspørsmål\n\n**c)** Fingeravtrykk og PIN-kode\n\n**d)** Brukernavn og passord\n\n**e)** Kodebrikke og passord",
+        "solution": "**a) Riktig.** Passord er «noe du vet», engangskoden krever telefonen, altså «noe du har». To ulike typer.\n\n**b) Galt.** Både passordet og svaret på sikkerhetsspørsmålet er **noe du vet**. Det er én faktor brukt to ganger. En angriper som har lurt deg eller funnet opplysningene, har som regel begge.\n\n**c) Riktig.** Fingeravtrykk er «noe du er», PIN er «noe du vet». To ulike typer.\n\n**d) Galt.** Brukernavnet er ikke et hemmelig bevis i det hele tatt — det er en identifikator. Bare passordet er en faktor, så dette er enfaktor-autentisering.\n\n**e) Riktig.** Kodebrikken er «noe du har», passordet «noe du vet».\n\n**Fasit: a, c og e.**\n\n**Merk alternativ d.** Det er den mest oversette: mange regner brukernavn som «halve påloggingen», men et brukernavn er offentlig kjent i de fleste systemer. Faktorer må være **hemmelige eller unike bevis**, ikke bare felt man fyller ut.",
+        "hints": [
+          "Sorter hvert element i «noe du vet», «noe du har» eller «noe du er».",
+          "Er begge elementene i samme kategori, er det ikke tofaktor.",
+          "Er brukernavnet ditt en hemmelighet?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — tofaktor.) Forklar hvorfor tofaktor-autentisering demper phishing, altså angrep der en falsk innloggingsside fanger opp passordet ditt.",
+        "solution": "**Hva angriperen får:** passordet ditt, altså faktoren «noe du vet».\n\n**Hva angriperen fortsatt mangler:** den andre faktoren — engangskoden fra telefonen din, kodebrikken, eller fingeravtrykket. Den fysiske gjenstanden eller egenskapen er ikke noe som kan fanges opp av en nettside.\n\n**Resultatet:** det stjålne passordet alene åpner ingenting. Angriperen må også få tak i noe fysisk, og det er en helt annen og mye vanskeligere operasjon.\n\n**Svar: fordi den falske siden bare kan fange den ene faktortypen, mens innlogging krever to av ulik type.**\n\n**Det ærlige forbeholdet:** tofaktor **demper** phishing, den fjerner den ikke. En angriper som lurer deg til å taste inn engangskoden på den falske siden i samme øyeblikk, kan bruke den videre med én gang. Derfor er koder som er knyttet til en bestemt nettadresse, sterkere enn koder du skriver av manuelt.",
+        "hints": [
+          "Hvilken faktortype kan en nettside fange opp, og hvilken kan den ikke?",
+          "Tenk over om beskyttelsen er fullstendig, eller bare svært mye bedre."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Passordlagring: hash og salt (~16 min)\n\nEn tjeneste med en million brukere må kunne kontrollere passordene deres. Den enkleste løsningen er å lagre dem i en tabell.\n\nDet er også den verste. Skjer det et innbrudd, er alle passordene borte på én gang — og siden folk gjenbruker passord, er også kontoene deres i andre tjenester i fare.\n\nLøsningen bygger på hash-verdiens enveisegenskap fra [kap. 3.4](/bok/in1020/in1020-3-4).\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-3-6-teo-passord",
+      "type": "theorem",
+      "title": "Slik lagres et passord riktig",
+      "content": "**Aldri i klartekst.** Det er den ufravikelige regelen. Et system som kan sende deg passordet ditt på e-post, lagrer det i klartekst — og det er en alvorlig svakhet.\n\n**Prosedyren ved registrering:**\n\n```text\n1. Bruker velger passord\n2. Systemet lager et tilfeldig SALT, unikt for denne brukeren\n3. Systemet regner ut hash(passord + salt)\n4. Systemet lagrer SALT og HASH-VERDI — aldri passordet\n```\n\n**Prosedyren ved innlogging:**\n\n```text\n1. Bruker taster passord\n2. Systemet henter brukerens lagrede SALT\n3. Systemet regner ut hash(passord + salt) på nytt\n4. Stemmer verdien med den lagrede? -> innlogging godkjent\n```\n\n**Hvorfor dette virker:** hash-funksjonen går bare én vei. Systemet kan kontrollere passordet uten noen gang å ha lagret det, og et innbrudd gir angriperen hash-verdier, ikke passord.\n\n**Hva hashing alene IKKE stopper:** en angriper kan regne ut hash-verdiene for millioner av vanlige passord på forhånd og slå opp i listen. Slike **oppslagstabeller** finnes ferdig laget.\n\n**Det er her saltet kommer inn.**"
+    },
+    {
+      "id": "in1020-3-6-def-salt",
+      "type": "definition",
+      "title": "Salt",
+      "content": "En **tilfeldig verdi som legges til passordet før hashing**, og som er **unik for hver bruker**.\n\nSaltet er ikke hemmelig — det lagres åpent ved siden av hash-verdien. Det er heller ikke poenget at det skal være hemmelig.\n\n**De to tingene saltet gjør:**\n\n1. **Ferdiglagde oppslagstabeller blir ubrukelige.** En tabell over hash-verdier for vanlige passord passer ikke lenger, fordi hver bruker har sitt eget salt. Angriperen må regne på nytt for hver enkelt bruker.\n2. **To like passord får ulik lagret verdi.** Uten salt ville to brukere med samme passord hatt identiske hash-verdier i basen — og det avslører både hvem som deler passord, og hvilke passord som er vanlige.\n\n**Hva saltet ikke gjør:** det gjør ikke et svakt passord sterkt. Har du valgt et passord som står på de tusen vanligste listene, kan en angriper fortsatt prøve seg gjennom dem — bare for én bruker om gangen.\n\nDen faste feilslutningen: å tro at salt er et alternativ til hashing. De to gjør **ulike** jobber, og begge trengs."
+    },
+    {
+      "id": "in1020-3-6-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Hva salt faktisk stopper",
+      "problem": "En angriper stjeler en database med brukernavn, salt og hash-verdier for 100 000 brukere. Hva kan angriperen gjøre, og hva har saltet gjort vanskeligere?",
+      "solution": "**Hva angriperen IKKE kan gjøre:** lese passordene direkte. Hash-funksjonen går bare én vei, så verdiene kan ikke regnes tilbake.\n\n**Hva angriperen fortsatt kan gjøre:** gjette. Angriperen velger et kandidatpassord, legger til en brukers salt, regner ut hash-verdien og sammenligner. Stemmer den, er passordet funnet — for **den ene** brukeren.\n\n**Hva saltet har gjort vanskeligere:**\n\n**Uten salt** kunne angriperen regnet ut hash-verdien for «passord123» **én gang** og slått den opp mot alle 100 000 radene samtidig. Alle som hadde det passordet, ville falt på ett forsøk.\n\n**Med salt** må angriperen regne ut hash-verdien for «passord123» på nytt for **hver enkelt bruker**, siden hvert salt er ulikt. Arbeidet er 100 000 ganger større for samme resultat.\n\n**Og den andre virkningen:** uten salt ville to brukere med samme passord hatt identiske verdier i basen. Angriperen kunne sett hvilke passord som var vanligst, og angrepet dem først. Med salt ser alle rader ulike ut.\n\n**Svar: saltet gjør ferdiglagde oppslagstabeller ubrukelige, og skjuler at to brukere har samme passord. Det gjør ikke et svakt passord sterkt.**\n\n**Den praktiske konsekvensen for deg:** velg lange, unike passord. Saltet beskytter mot masseangrep, men ikke mot at nettopp ditt passord står på en liste over de tusen vanligste."
+    },
+    {
+      "id": "in1020-3-6-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — passordlagring, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Salting gjør at to like passord får ulik lagret verdi | |\n| b | Saltet må holdes hemmelig for at det skal virke | |\n| c | Et system som kan sende deg passordet ditt, lagrer det i klartekst | |\n| d | Hashing gjør et svakt passord sterkt | |",
+        "solution": "**a) Sann.** Hver bruker har sitt eget tilfeldige salt, så selv identiske passord gir ulike hash-verdier i basen. Det skjuler både hvem som deler passord, og hvilke passord som er vanlige.\n\n**b) Usann.** Saltet lagres åpent ved siden av hash-verdien, og det er helt greit. Poenget er ikke hemmelighold, men at verdien er **unik per bruker** — det er unikheten som gjør ferdiglagde oppslagstabeller ubrukelige.\n\n**c) Sann.** Er passordet lagret som hash, kan systemet ikke hente det ut igjen — funksjonen går bare én vei. Et system som sender deg passordet ditt, må ha det i lesbar form, og det er en alvorlig svakhet. Et riktig bygd system tilbyr **tilbakestilling**, ikke gjenutsending.\n\n**d) Usann.** Hashing beskytter den **lagrede** verdien. Et svakt passord kan fortsatt gjettes: angriperen prøver kandidater, hasher dem med brukerens salt og sammenligner. Styrken må komme fra passordet selv.\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\nMerk at rad c er den mest praktisk nyttige: den gir deg en enkel test på om en tjeneste håndterer passord forsvarlig.",
+        "hints": [
+          "For b): hva er det saltet skal oppnå — hemmelighold eller unikhet?",
+          "For c): kan en enveisfunksjon reverseres når systemet trenger passordet?",
+          "For d): hva beskytter hashing — passordet eller den lagrede verdien?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — autentisering, tofaktor og passord",
+      "problem": "Svarform F1. Kryss av **alle** påstandene som stemmer.\n\n**a)** Autentisering svarer på «hvem er du?», autorisasjon på «hva får du lov til?».\n\n**b)** Passord og sikkerhetsspørsmål er tofaktor-autentisering.\n\n**c)** Passord bør lagres som hash med et salt som er unikt per bruker.\n\n**d)** Tofaktor gjør et lekket passord utilstrekkelig alene.\n\n**e)** Tilgangskontroll er et sikkerhetsmål.",
+      "solution": "**a) Riktig.** Dette er kjerneskillet i kapitlet. Systemet må vite hvem du er før det kan avgjøre hva du får lov til.\n\n**b) Galt.** Begge er **noe du vet**, altså samme faktortype brukt to ganger. Reell tofaktor krever to **ulike** typer — for eksempel noe du vet pluss noe du har.\n\n**c) Riktig.** Hashing hindrer at passordet kan leses ut av basen; saltet gjør ferdiglagde oppslagstabeller ubrukelige og skjuler at to brukere har samme passord.\n\n**d) Riktig.** Det lekkede passordet er bare den ene faktoren. Uten telefonen, kodebrikken eller fingeravtrykket kommer angriperen ikke inn.\n\n**e) Galt.** Tilgangskontroll er et **tiltak** — noe man setter opp. Målet den tjener, er konfidensialitet. Dette er felle #1, som du kjenner fra [kap. 3.1](/bok/in1020/in1020-3-1).\n\n**Fasit: a, c og d.**\n\n**Om formen:** tre av fem riktige, og de to gale er de to faste fellene i dette temaet — «to av samme type er tofaktor» og forvekslingen av mål og tiltak. Det er nøyaktig sammensetningen et virkelig sett bruker."
+    },
+    {
+      "id": "in1020-3-6-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — autentisering, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Autentisering gir automatisk tilgang til alle systemets funksjoner | |\n| b | Minste privilegium reduserer skaden ved en overtatt konto | |\n| c | Fingeravtrykk er faktortypen «noe du har» | |\n| d | Rekkefølgen er alltid autentisering før autorisasjon | |",
+        "solution": "**a) Usann.** Autentisering svarer bare på **hvem** du er. Hva du får lov til, avgjøres av autorisasjonen, og et system kan autentisere deg perfekt og likevel nekte deg alt.\n\n**b) Sann.** Har brukeren bare de rettighetene oppgaven krever, kan en angriper som overtar kontoen, heller ikke gjøre mer enn det. Prinsippet virker like godt mot uhell som mot angrep.\n\n**c) Usann.** Fingeravtrykk er **noe du er** — en kroppslig egenskap. «Noe du har» er fysiske gjenstander som kodebrikke eller mobiltelefon. Merk den praktiske forskjellen: en kodebrikke kan byttes ut hvis den mistes, et fingeravtrykk kan ikke det.\n\n**d) Sann.** Systemet må vite hvem du er før det kan slå opp hvilke rettigheter du har. Rekkefølgen kan ikke snus.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\nMerk rad c: de tre faktortypene er lette å blande, og de blandes ofte i akkurat denne retningen — «har» og «er» oppleves som beslektet, men skillet er reelt og har praktiske følger.",
+        "hints": [
+          "For a): kan et system kjenne deg igjen og likevel nekte deg alt?",
+          "For c): kan du bytte ut et fingeravtrykk hvis det kommer på avveie?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — passord, svarform F1.) En tjeneste med 500 000 brukere blir hacket, og databasen med brukernavn, salt og hash-verdier lekker. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Angriperen kan lese passordene direkte ut av basen.\n\n**b)** Angriperen kan gjette passord og kontrollere gjetningene mot basen.\n\n**c)** Saltet gjør at ferdiglagde oppslagstabeller ikke kan brukes.\n\n**d)** Brukere med svake passord er fortsatt utsatt.\n\n**e)** Saltet må byttes for at basen skal være trygg etter lekkasjen.",
+        "solution": "**a) Galt.** Hash-funksjonen går bare én vei. Verdiene kan ikke regnes tilbake til passordene, og det er hele poenget med å lagre dem slik.\n\n**b) Riktig.** Angriperen velger et kandidatpassord, legger til brukerens salt, regner ut hash-verdien og sammenligner. Stemmer den, er passordet funnet — for den ene brukeren.\n\n**c) Riktig.** En ferdig tabell over hash-verdier for vanlige passord passer ikke lenger, siden hvert salt er unikt. Angriperen må regne på nytt for hver enkelt bruker, og arbeidet blir 500 000 ganger større for samme resultat.\n\n**d) Riktig.** Saltet beskytter mot **masseangrep**, ikke mot at nettopp ditt passord står på en liste over de tusen vanligste. Er passordet svakt, faller det uansett.\n\n**e) Galt.** Saltet er ikke hemmelig og gir ingen beskyttelse ved å byttes. Det som må skje etter en slik lekkasje, er at **alle brukere bytter passord** — og at de bytter det i alle andre tjenester der de har gjenbrukt det.\n\n**Fasit: b, c og d.**\n\n**Merk alternativ e.** Det er den vanskeligste distraktoren, fordi «bytt det som lekket» er et fornuftig instinkt. Men saltet var aldri hemmelig, og det er passordene som må byttes.",
+        "hints": [
+          "Skille mellom hva som er hemmelig og hva som bare er unikt.",
+          "For d): beskytter saltet én bruker, eller mange brukere samtidig?",
+          "For e): hva var det egentlig som skulle holdes hemmelig i basen?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-6-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — blandet, svarform F3.) Koble hvert element (1–6) til riktig kategori (A–C).\n\n**1.** Passord · **2.** Kodebrikke · **3.** Fingeravtrykk · **4.** PIN-kode · **5.** Mobiltelefon med engangskode · **6.** Ansiktsgjenkjenning\n\n**A.** Noe du vet · **B.** Noe du har · **C.** Noe du er",
+        "solution": "**1 → A.** Passordet er en hemmelighet i hodet.\n\n**2 → B.** Kodebrikken er en fysisk gjenstand.\n\n**3 → C.** Fingeravtrykket er en kroppslig egenskap.\n\n**4 → A.** PIN-koden er, som passordet, noe du vet.\n\n**5 → B.** Telefonen er en fysisk gjenstand; engangskoden beviser at du har den.\n\n**6 → C.** Ansiktet er en kroppslig egenskap.\n\n**Fasit: 1→A, 2→B, 3→C, 4→A, 5→B, 6→C.**\n\n**To og to i hver kategori** — men ikke stol på at fordelingen alltid er jevn.\n\n**Konsekvensen for tofaktor:** en kombinasjon av 1 og 4 er **ikke** tofaktor, siden begge er «noe du vet». Kombinasjonen 1 og 5 er det, og det er den vanligste løsningen i praksis.\n\n**Og den praktiske forskjellen mellom B og C:** mister du kodebrikken, får du en ny. Lekker fingeravtrykket ditt, kan det ikke byttes ut. Det er en reell begrensning ved «noe du er».",
+        "hints": [
+          "Spør for hvert element: er dette i hodet, i lomma, eller på kroppen?",
+          "Sjekk til slutt hvilke par som ville gitt reell tofaktor."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-6-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å blande autentisering og autorisasjon.** Autentisering svarer på «hvem er du?», autorisasjon på «hva får du lov til?». Kontrollspørsmålet ved en hendelse: var det feil person, eller feil rettigheter?\n\n2. **Å tro at to av samme faktortype er tofaktor.** Passord og sikkerhetsspørsmål er begge «noe du vet». Reell tofaktor krever to **ulike** typer.\n\n3. **Å regne brukernavn som en faktor.** Brukernavnet er en identifikator, ikke et hemmelig bevis. Brukernavn og passord er enfaktor-autentisering.\n\n4. **Å tro at saltet må være hemmelig.** Det lagres åpent. Poenget er at det er **unikt per bruker**, ikke at det er skjult.\n\n5. **Å tro at hashing gjør et svakt passord sterkt.** Hashing beskytter den lagrede verdien. Et svakt passord kan fortsatt gjettes, én bruker om gangen.\n\n6. **Å blande fingeravtrykk inn under «noe du har».** Det er «noe du er» — og forskjellen er reell: en kodebrikke kan byttes ut, et fingeravtrykk kan ikke.\n\n7. **Å krysse av tilgangskontroll som et mål.** Det er et **tiltak** (felle #1). Målet den tjener, er konfidensialitet.\n\n8. **Å tro at tofaktor fjerner phishing helt.** Den **demper** angrepet kraftig, men en angriper som lurer deg til å taste engangskoden i samme øyeblikk, kan bruke den videre."
+    },
+    {
+      "id": "in1020-3-6-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-3-6-bank-1",
+      "type": "definition",
+      "title": "Autentisering mot autorisasjon",
+      "content": "**Autentisering:** «hvem er du?» — å bekrefte identiteten.\n\n**Autorisasjon:** «hva får du lov til?» — å tildele rettigheter.\n\nRekkefølgen er alltid autentisering først: systemet må vite hvem du er før det kan slå opp hva du skal få lov til.\n\nKontrollspørsmålet ved en hendelse: **var det feil person, eller feil rettigheter?** Feil person er autentisering; feil rettigheter er autorisasjon."
+    },
+    {
+      "id": "in1020-3-6-bank-2",
+      "type": "definition",
+      "title": "Tilgangskontroll",
+      "content": "Mekanismen som håndhever autorisasjonen i praksis: hvem får lese, skrive, slette eller administrere hva.\n\nDet er et **tiltak**, ikke et mål. Målet den tjener, er først og fremst **konfidensialitet**, og også integritet — den som ikke får skrive, kan ikke endre.\n\nBærende prinsipp: **minste privilegium**. Hver bruker får akkurat de rettighetene oppgaven krever."
+    },
+    {
+      "id": "in1020-3-6-bank-3",
+      "type": "definition",
+      "title": "De tre faktortypene",
+      "content": "| Type | Eksempler | Svakhet |\n|---|---|---|\n| Noe du **vet** | Passord, PIN | Kan gjettes, lures ut, lekke |\n| Noe du **har** | Telefon, kodebrikke, smartkort | Kan mistes eller stjeles |\n| Noe du **er** | Fingeravtrykk, ansikt, stemme | Kan ikke byttes ut ved lekkasje |\n\nDen siste svakheten er verdt å merke seg: mister du kodebrikken, får du en ny. Lekker fingeravtrykket ditt, er det lekket for godt."
+    },
+    {
+      "id": "in1020-3-6-bank-4",
+      "type": "definition",
+      "title": "Regelen for reell tofaktor",
+      "content": "De to bevisene må være av **ulik type**.\n\n| Kombinasjon | Tofaktor? |\n|---|---|\n| Passord + engangskode på mobil | **Ja** (vet + har) |\n| Passord + sikkerhetsspørsmål | **Nei** (vet + vet) |\n| Fingeravtrykk + PIN | **Ja** (er + vet) |\n| Brukernavn + passord | **Nei** (brukernavn er ikke en faktor) |\n\nDen faste feilen er å telle to hemmeligheter i hodet som to faktorer. En angriper som har lurt deg for det ene, har som regel også det andre."
+    },
+    {
+      "id": "in1020-3-6-bank-5",
+      "type": "definition",
+      "title": "Brukernavn er ikke en faktor",
+      "content": "Et brukernavn er en **identifikator** — det sier hvem du påstår å være, ikke at du er det.\n\nI de fleste systemer er brukernavn dessuten offentlig kjent eller lett å gjette: fornavn.etternavn, en e-postadresse, et studentnummer.\n\nDerfor er «brukernavn og passord» **enfaktor**-autentisering. Bare passordet er et bevis."
+    },
+    {
+      "id": "in1020-3-6-bank-6",
+      "type": "definition",
+      "title": "Hva tofaktor demper",
+      "content": "1. **Lekkede passord.** Et passord fra en lekkasje er ikke nok alene.\n2. **Gjetting og uttømmende søk.** Et riktig gjettet passord åpner ingenting.\n3. **Phishing.** Den falske siden fanger passordet, men ikke den fysiske faktoren.\n\nDet ærlige forbeholdet: tofaktor **demper** phishing, den fjerner den ikke. En angriper som lurer deg til å taste engangskoden i samme øyeblikk, kan bruke den videre. Koder som er bundet til en bestemt nettadresse, er derfor sterkere enn koder du skriver av manuelt."
+    },
+    {
+      "id": "in1020-3-6-bank-7",
+      "type": "definition",
+      "title": "Passord lagres aldri i klartekst",
+      "content": "Den ufravikelige regelen. Et system som kan **sende deg passordet ditt**, lagrer det i lesbar form — og det er en alvorlig svakhet.\n\nEt riktig bygd system tilbyr **tilbakestilling**, ikke gjenutsending: du får en lenke som lar deg sette et nytt passord, fordi systemet ikke kan hente fram det gamle.\n\nDette er den enkleste praktiske testen på om en tjeneste håndterer passord forsvarlig."
+    },
+    {
+      "id": "in1020-3-6-bank-8",
+      "type": "definition",
+      "title": "Passordlagring med hash og salt",
+      "content": "```text\nREGISTRERING:\n  1. lag et tilfeldig SALT, unikt for brukeren\n  2. regn ut hash(passord + salt)\n  3. lagre SALT og HASH-VERDI\n\nINNLOGGING:\n  1. hent brukerens lagrede SALT\n  2. regn ut hash(passord + salt) på nytt\n  3. sammenlign med den lagrede verdien\n```\n\nSystemet kan altså kontrollere passordet uten noen gang å ha lagret det. Det er enveisegenskapen til hash-funksjonen som gjør dette mulig."
+    },
+    {
+      "id": "in1020-3-6-bank-9",
+      "type": "definition",
+      "title": "Hva saltet gjør",
+      "content": "1. **Gjør ferdiglagde oppslagstabeller ubrukelige.** Angriperen må regne på nytt for hver enkelt bruker, siden hvert salt er ulikt.\n2. **Skjuler at to brukere har samme passord.** Uten salt ville identiske passord gitt identiske verdier i basen.\n\nSaltet er **ikke hemmelig** — det lagres åpent ved siden av hash-verdien. Poenget er unikhet, ikke hemmelighold.\n\nOg det gjør **ikke** et svakt passord sterkt: styrken må komme fra passordet selv."
+    },
+    {
+      "id": "in1020-3-6-bank-10",
+      "type": "definition",
+      "title": "Oppslagstabell",
+      "content": "En ferdig utregnet liste over hash-verdier for millioner av vanlige passord.\n\nUten salt kan en angriper slå opp en stjålet hash-verdi direkte i tabellen og finne passordet på et øyeblikk — og gjøre det for alle brukere samtidig.\n\nMed salt passer tabellen ikke lenger. Angriperen må regne ut verdiene på nytt for hver bruker, og arbeidet vokser med antall brukere i stedet for å være likt for alle."
+    },
+    {
+      "id": "in1020-3-6-bank-11",
+      "type": "definition",
+      "title": "Hva som skjer etter en passordlekkasje",
+      "content": "Har en base med salt og hash-verdier lekket, er ikke passordene lest — men de kan gjettes, én bruker om gangen.\n\n**Det som må skje:** alle brukere bytter passord. Og de må bytte det i **alle andre tjenester** der de har gjenbrukt det.\n\n**Det som ikke hjelper:** å bytte saltene. Saltet var aldri hemmelig, og et nytt salt beskytter ikke et passord som allerede er gjettet.\n\nDette er hovedgrunnen til at passord ikke skal gjenbrukes: en lekkasje ett sted blir en lekkasje overalt."
+    },
+    {
+      "id": "in1020-3-6-bank-12",
+      "type": "definition",
+      "title": "Uttømmende søk mot passord",
+      "content": "Å prøve kandidatpassord til ett gir riktig hash-verdi.\n\nArbeidsmengden avhenger av **passordets lengde og variasjon**, ikke av hvor god hash-funksjonen er. Et kort passord av vanlige ord faller uansett; et langt, unikt passord er praktisk umulig å treffe.\n\nDerfor er lengde det viktigste enkeltrådet: hvert ekstra tegn ganger antall muligheter opp, på samme måte som hvert ekstra bit dobler en nøkkels mulighetsrom ([kap. 3.3](/bok/in1020/in1020-3-3))."
+    },
+    {
+      "id": "in1020-3-6-bank-13",
+      "type": "definition",
+      "title": "Phishing",
+      "content": "Angrep der offeret lures til å oppgi opplysninger selv — typisk via en e-post eller melding som leder til en falsk innloggingsside.\n\nMål som brytes: **autentisitet** (siden utgir seg for å være en annen) og **konfidensialitet** (passordet lekker).\n\nMottiltakene er todelte: **tofaktor**, som gjør det stjålne passordet utilstrekkelig, og **opplæring**, som gjør at folk kjenner igjen mønsteret. Ingen teknisk løsning fjerner behovet for det siste."
+    },
+    {
+      "id": "in1020-3-6-bank-14",
+      "type": "definition",
+      "title": "Minste privilegium i praksis",
+      "content": "Hver bruker og hvert program får akkurat de rettighetene oppgaven krever — ikke flere.\n\nGevinsten er dobbel: skaden blir mindre både når noen gjør en feil, og når en konto blir overtatt.\n\nEn praktisk følge: ingen bør arbeide daglig med en konto som har fulle administratorrettigheter. Klikker den kontoen på noe skadelig, har skadevaren de samme rettighetene."
+    },
+    {
+      "id": "in1020-3-6-bank-15",
+      "type": "definition",
+      "title": "Rollebasert tilgang",
+      "content": "At rettigheter tildeles **roller** — sykepleier, saksbehandler, regnskapsfører — i stedet for til hver enkelt person.\n\nBrukeren får rettighetene som følger av rollen, og bytter man jobb, bytter man rolle.\n\nGevinsten er at rettighetene blir mulige å holde oversikt over. Den vanligste svikten i praksis er at gamle roller ikke fjernes: en ansatt som har byttet oppgaver flere ganger, ender med å ha samlet opp alt."
+    },
+    {
+      "id": "in1020-3-6-bank-16",
+      "type": "definition",
+      "title": "Avslutning av tilgang",
+      "content": "Rutinen for å fjerne rettigheter når et arbeidsforhold eller oppdrag opphører.\n\nSvikter den, står kontoer aktive lenge etter at de skulle vært stengt — og en slik konto er attraktiv nettopp fordi ingen følger med på den.\n\nDette er en **autorisasjonssvikt**, ikke en autentiseringssvikt: personen er den hen utgir seg for, men skulle ikke lenger hatt noen rettigheter."
+    },
+    {
+      "id": "in1020-3-6-bank-17",
+      "type": "definition",
+      "title": "Hvorfor passordgjenbruk er farlig",
+      "content": "Bruker du samme passord i flere tjenester, blir én lekkasje til mange innbrudd.\n\nAngriperen som har gjettet passordet ditt fra en lekket base, prøver det samme passordet i e-post, nettbank og sosiale medier — automatisk, og for millioner av brukere samtidig.\n\nMottiltakene er **unike passord per tjeneste** (i praksis med en passordbehandler) og **tofaktor**, som gjør det gjenbrukte passordet utilstrekkelig alene."
+    },
+    {
+      "id": "in1020-3-6-bank-18",
+      "type": "definition",
+      "title": "Hva som gjør et passord sterkt",
+      "content": "**Lengde** er det viktigste. Hvert ekstra tegn ganger opp antall muligheter, og en lang passfrase av flere ord slår et kort passord med spesialtegn.\n\n**Uforutsigbarhet** er det nest viktigste. Et passord som står på en liste over vanlige passord, faller uansett hvor komplisert det ser ut.\n\n**Unikhet per tjeneste** er det tredje: styrken hjelper lite hvis samme passord brukes overalt."
+    },
+    {
+      "id": "in1020-3-6-bank-19",
+      "type": "definition",
+      "title": "Biometri: styrke og begrensning",
+      "content": "**Styrken:** faktoren er alltid med deg, og den kan ikke glemmes eller lånes bort.\n\n**Begrensningen:** den kan ikke **byttes ut**. Lekker en database med fingeravtrykk, kan de berørte ikke få nye fingre.\n\nDerfor lagres biometriske data som regel lokalt på enheten og ikke sentralt, og biometri brukes vanligvis som **én** faktor sammen med noe du vet — ikke som eneste bevis."
+    },
+    {
+      "id": "in1020-3-6-bank-20",
+      "type": "definition",
+      "title": "Autentisering av maskiner, ikke bare mennesker",
+      "content": "Det er ikke bare brukere som må bekrefte hvem de er. En nettleser må også vite at den snakker med rett tjener.\n\nDen autentiseringen skjer med **sertifikat**, ikke med passord — se [kap. 3.4](/bok/in1020/in1020-3-4).\n\nPrinsippet er det samme: en part legger fram et bevis som bare den rette kan ha. For mennesker er det noe du vet, har eller er; for tjenere er det en privat nøkkel bundet til en identitet."
+    },
+    {
+      "id": "in1020-3-6-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter autentiseringen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-3-6-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte. Svar før du ser på fasiten.\n\n1. Hva er forskjellen på autentisering og autorisasjon?\n2. Nevn de tre faktortypene.\n3. Er passord og sikkerhetsspørsmål tofaktor?\n4. Er brukernavn en faktor?\n5. Hvorfor lagres passord som hash?\n6. Hva gjør saltet?\n7. Må saltet være hemmelig?\n8. Hva må skje etter at en base med salt og hash-verdier har lekket?\n\n**Fasit.**\n\n1. Autentisering bekrefter **hvem** du er; autorisasjon avgjør **hva** du får lov til. Rekkefølgen er alltid autentisering først.\n2. Noe du **vet**, noe du **har**, noe du **er**.\n3. Nei. Begge er «noe du vet» — én faktor brukt to ganger.\n4. Nei. Brukernavnet er en identifikator, ikke et hemmelig bevis.\n5. Fordi hash-funksjonen går bare én vei: systemet kan kontrollere passordet uten å ha lagret det, og et innbrudd gir hash-verdier, ikke passord.\n6. Gjør ferdiglagde oppslagstabeller ubrukelige, og skjuler at to brukere har samme passord.\n7. Nei. Det lagres åpent. Poenget er at det er **unikt per bruker**.\n8. Alle brukere må bytte passord — også i alle andre tjenester der de har gjenbrukt det. Å bytte salt hjelper ikke.\n\nSjekk deg selv: ☐ skilte du «feil person» fra «feil rettigheter»? ☐ sjekket du at de to faktorene var av ULIK type? ☐ husket du at saltet ikke er hemmelig? ☐ husket du at hashing ikke gjør et svakt passord sterkt?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
