@@ -415,7 +415,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er etterspørselen etter vare 1 for nyttefunksjonen $u = c_1^{a}c_2^{1-a}$?",
       options: ["$c_1 = am/p_1$", "$c_1 = am/p_2$", "$c_1 = (1-a)m/p_1$", "$c_1 = a\\,p_1/m$"],
-      explanation: "Utledningen gir $p_1c_1 = am$, altså $c_1 = am/p_1$. Eksponenten på vare 1 er budsjettandelen for vare 1, og prisen på vare 1 står i nevneren. Det tredje alternativet er etterspørselen etter vare 2 med feil pris.",
+      explanation: "Utledningen gir $p_1c_1 = am$, altså $c_1 = am/p_1$. Eksponenten på vare 1 er budsjettandelen for vare 1, og prisen på vare 1 står i nevneren. Svaret $c_1 = (1-a)m/p_1$ bruker budsjettandelen til vare 2, $(1-a)$, på vare 1.",
     },
     {
       question: "Hvorfor gir log-formen $a\\ln c_1 + (1-a)\\ln c_2$ samme tilpasning som potensformen $c_1^{a}c_2^{1-a}$?",
@@ -425,7 +425,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva blir MSB for $u = c_1^{a}c_2^{1-a}$?",
       options: ["$\\frac{a}{1-a}\\cdot\\frac{c_2}{c_1}$", "$\\frac{1-a}{a}\\cdot\\frac{c_2}{c_1}$", "$\\frac{a}{1-a}\\cdot\\frac{c_1}{c_2}$", "$\\frac{a}{1-a}$"],
-      explanation: "Marginalnyttene $a\\,c_1^{a-1}c_2^{1-a}$ og $(1-a)c_1^{a}c_2^{-a}$ gir forholdet $\\frac{a}{1-a}\\cdot\\frac{c_2}{c_1}$. De to første alternativene forveksles lett; kontrollen er at MSB må avta når $c_1$ øker, altså at $c_1$ står i nevneren.",
+      explanation: "Marginalnyttene $a\\,c_1^{a-1}c_2^{1-a}$ og $(1-a)c_1^{a}c_2^{-a}$ gir forholdet $\\frac{a}{1-a}\\cdot\\frac{c_2}{c_1}$. Svaret med $\\frac{1-a}{a}$ foran forveksles lett med det riktige — kontrollen der er at $a$, eksponenten til vare 1, kommer fra marginalnytten i telleren. Svaret med $\\frac{c_1}{c_2}$ snur mengdebrøken: MSB må avta når $c_1$ øker, altså må $c_1$ stå i nevneren.",
     },
     {
       question: "Hvilket triks får algebraen i Cobb-Douglas-utledningen til å kollapse?",
@@ -485,7 +485,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den generelle etterspørselen når $u = c_1^{a}c_2^{b}$ med $a + b \\ne 1$?",
       options: ["$c_1 = \\frac{a}{a+b}\\cdot\\frac{m}{p_1}$", "$c_1 = \\frac{a}{b}\\cdot\\frac{m}{p_1}$", "$c_1 = \\frac{a+b}{a}\\cdot\\frac{m}{p_1}$", "$c_1 = \\frac{am}{bp_1}$"],
-      explanation: "Utledningen gir budsjettandelen $a/(a+b)$. Snarveien er å ta den monotone transformasjonen $u^{1/(a+b)}$, som normaliserer eksponentene slik at andelene kan leses direkte. Det tredje alternativet er den omvendte brøken og gir en utgift større enn inntekten.",
+      explanation: "Utledningen gir budsjettandelen $a/(a+b)$. Snarveien er å ta den monotone transformasjonen $u^{1/(a+b)}$, som normaliserer eksponentene slik at andelene kan leses direkte. Svaret med $\\frac{a+b}{a}$ er den omvendte brøken og gir en utgift større enn inntekten.",
     },
     {
       question: "En konsument har $u = c_1^{1/3}c_2^{1/6}$, $p_1 = 6$, $p_2 = 4$ og $m = 180$. Hva er optimal $c_1$?",
@@ -542,7 +542,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er Slutsky-kompensasjonen?",
       options: ["Inntektstillegget som gir akkurat råd til den gamle godekurven til de nye prisene", "Inntektstillegget som gir konsumenten akkurat samme nyttenivå som hun hadde før prisendringen", "Inntektstillegget som holder utgiften til vare 1 uendret i kroner", "Inntektstillegget som gjør at konsumenten kjøper samme mengde av vare 1 som før"],
-      explanation: "Slutsky-varianten kompenserer til samme godekurv, og er kursets standard. Kompensasjon til samme nyttenivå er den andre konvensjonen, som godtas men ikke er hovedsporet. De to siste alternativene beskriver ingen av dem.",
+      explanation: "Slutsky-varianten kompenserer til samme godekurv, og er kursets standard. Kompensasjon til samme nyttenivå er den andre konvensjonen, som godtas men ikke er hovedsporet. Å holde kroneutgiften til vare 1 uendret, eller å sikre samme mengde av vare 1 som før, beskriver ingen av de to konvensjonene.",
     },
     {
       question: "Hvor mye er Slutsky-kompensasjonen når $p_1$ stiger fra 2 til 3 og konsumenten kjøpte 300 enheter?",
@@ -816,7 +816,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Du har regnet ut substitusjons- og inntektseffekten. Hva er siste steg før du leverer?",
       options: ["Å sjekke at de to effektene summerer seg til totalendringen du regnet ut først", "Å tegne figuren på nytt med større akser slik at punktene blir tydeligere", "Å regne om alle mellomsvar til desimaltall med tre gjeldende siffer", "Å kontrollere at nyttenivået er høyere i det nye optimum enn i det gamle"],
-      explanation: "Summekontrollen fanger regnefeil i $A$, $C$ og differansene, og koster to sekunder. Den fanger derimot IKKE fortegnsfeil i kompensasjonen — summen går opp uansett hvor $B$ ligger; til det trenger du kontrollen at $A$ ligger på den kompenserte linja. Nytten kan godt falle ved en prisøkning, så det siste alternativet ville vært direkte misvisende.",
+      explanation: "Summekontrollen fanger regnefeil i $A$, $C$ og differansene, og koster to sekunder. Den fanger derimot IKKE fortegnsfeil i kompensasjonen — summen går opp uansett hvor $B$ ligger; til det trenger du kontrollen at $A$ ligger på den kompenserte linja. Nytten kan godt falle ved en prisøkning, så en kontroll av at nyttenivået er høyere i det nye optimum ville vært direkte misvisende.",
     },
   ],
   'econ2220-3-1': [
@@ -1627,7 +1627,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken formulering av andre velferdsteorem er presis?",
       options: ["Enhver Pareto-effektiv allokering kan realiseres som likevekt etter kostnadsfri omfordeling", "Staten kan oppnå enhver ønsket fordeling ved først å omfordele beholdningene og så la markedet virke", "Enhver markedslikevekt kan gjøres mer rettferdig ved en engangsoverføring", "Enhver omfordeling av beholdninger gir en ny Pareto-effektiv allokering"],
-      explanation: "Teoremet gjelder klassen av Pareto-effektive allokeringer. «Enhver ønsket fordeling» er for vidt, og siste alternativ er en feilslutning.",
+      explanation: "Teoremet gjelder klassen av Pareto-effektive allokeringer. «Enhver ønsket fordeling» er for vidt, og påstanden om at enhver omfordeling av beholdninger i seg selv gir en Pareto-effektiv allokering, er en feilslutning — det er markedslikevekten etterpå som gir effektiviteten.",
     },
     {
       question: "En bevegelse fra en ineffektiv til en effektiv allokering er",
@@ -1818,7 +1818,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kostnadsminimeringsproblemet?",
       options: ["$\\min rK + wL$ gitt $F(K,L) = \\bar y$", "$\\max F(K,L)$ gitt $rK + wL = \\bar c$, altså størst mulig produksjon for et gitt budsjett", "$\\max py - c(y)$, altså den mengden som gir størst mulig profitt til produktprisen $p$", "$\\min F(K,L)$ gitt $rK + wL = \\bar c$"],
-      explanation: "Mengden er gitt og miksen velges. Det andre alternativet er det duale problemet (maksimer produksjon for gitt budsjett), og det tredje er profittmaksimering fra kap. 5.4.",
+      explanation: "Mengden er gitt og miksen velges. Svaret som maksimerer $F(K,L)$ for et gitt budsjett, er det duale problemet, og $\\max py - c(y)$ er profittmaksimering fra kap. 5.4.",
     },
     {
       question: "Hvorfor kan ikke innsettingsmetoden brukes på kostnadsminimering?",
@@ -2047,7 +2047,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er profittmaksimeringsproblemet til en bedrift som tar prisen som gitt?",
       options: ["$\\max_y\\, py - c(y)$", "$\\min_{K,L}\\, rK + wL$ gitt $F(K,L) = \\bar y$, altså billigste faktormiks for en gitt mengde", "$\\max_y\\, py$ gitt at kostnadene ikke overstiger inntektene i perioden", "$\\max_{K,L}\\, F(K,L)$ gitt $rK + wL = \\bar c$"],
-      explanation: "Ett valg (mengden) og ingen bibetingelse, så vanlig derivasjon holder. Det andre alternativet er kostnadsminimering fra kap. 5.2, som ligger inne i $c(y)$.",
+      explanation: "Ett valg (mengden) og ingen bibetingelse, så vanlig derivasjon holder. Svaret $\\min_{K,L}\\, rK + wL$ gitt $F(K,L) = \\bar y$ er kostnadsminimering fra kap. 5.2, som allerede ligger inne i $c(y)$.",
     },
     {
       question: "Hva er førsteordensbetingelsen for profittmaksimum?",
@@ -2368,7 +2368,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er planleggerproblemet i produksjonsøkonomien?",
       options: ["$\\max_{n_1} u(f(n_1), g(L-n_1))$", "$\\max_{n_1} p_1f(n_1) + p_2g(L-n_1)$", "$\\max_{c_1,c_2} u(c_1,c_2)$ gitt $p_1c_1 + p_2c_2 = m$", "$\\min_{n_1,n_2} n_1 + n_2$ gitt en gitt produksjon"],
-      explanation: "Planleggeren maksimerer nytten direkte, med ressursskranken satt rett inn og uten priser. Det andre alternativet er verdimaksimering, som er produsentsidens problem.",
+      explanation: "Planleggeren maksimerer nytten direkte, med ressursskranken satt rett inn og uten priser. Svaret som maksimerer $p_1f(n_1) + p_2g(L-n_1)$, er verdimaksimering, som er produsentsidens problem.",
     },
     {
       question: "Hvilken betingelse kjennetegner planleggerens løsning?",
@@ -2768,7 +2768,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Diskusjonsoppgaven spør om et marked for oppdrettskonsesjoner. Hvordan bruker du grunnrentebegrepet?",
       options: ["Ved å knytte meravkastningen til den knappe lokaliteten, og forklare at fri etablering ikke kan skape flere av dem", "Ved å slå fast at all profitt i næringen er grunnrente så lenge det kreves konsesjon", "Ved å regne ut differansen mellom marginalkostnad og gjennomsnittskostnad i likevekt", "Ved å vise at renprofitten forsvinner på lang sikt, slik at grunnrenten også må gjøre det"],
-      explanation: "Poenget er koblingen knapp ressurs → varig meravkastning: etableringsfriheten konkurrerer bort renprofitt, men ikke avkastningen som fester seg til selve lokaliteten. Siste alternativ blander de to begrepene.",
+      explanation: "Poenget er koblingen knapp ressurs → varig meravkastning: etableringsfriheten konkurrerer bort renprofitt, men ikke avkastningen som fester seg til selve lokaliteten. Svaret som lar grunnrenten forsvinne på lang sikt sammen med renprofitten, blander de to begrepene.",
     },
     {
       question: "Oppgaven ber deg drøfte hvordan en subsidie påvirker BRUKEN av bil. Hva er den dokumenterte fellen?",
