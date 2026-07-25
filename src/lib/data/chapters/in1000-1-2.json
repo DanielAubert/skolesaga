@@ -1,0 +1,379 @@
+{
+  "id": "in1000-1-2",
+  "courseId": "in1000",
+  "chapterNumber": "1.2",
+  "title": "Betingelser og boolske uttrykk",
+  "description": "if/elif/else, sammenligning og de logiske operatorene and/or/not — forgreningen som all kodesporing og all funksjonslogikk hviler på.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne regne ut verdien av en sammenligning og av et sammensatt boolsk uttrykk",
+    "kunne avgjøre hvilken gren i en forgrening som kjøres, og hvorfor de andre ikke gjør det",
+    "kunne skille en kjede med elif fra flere selvstendige if-setninger",
+    "kunne skrive en betingelse som treffer riktig på grenseverdien"
+  ],
+  "content": [
+    {
+      "id": "in1000-1-2-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Betingelser står i 6 av 6 moderne eksamenssett (100 %)** — de er, sammen med\nløkkene i [kap. 1.3](/bok/in1000/in1000-1-3), ryggraden i alt du gjør i faget.\n\nDe dukker opp to steder. I **sjanger A — kodeforståelse** («hva skriver dette\nprogrammet ut?») er en `if`-`elif`-`else`-kjede en fast kortsvarsfelle: hvilken\ngren slår til, og hva skjer med de andre? Og i alle kodeskrivingsoppgavene er\nbetingelsen selve logikken — «tell dem som er over 18», «returner `False` hvis\nnoen er negativ».\n\nIngen egen oppgave heter «betingelser», og likevel er de overalt. Derfor er de\nverdt en full økt: **dette må sitte**, som er bokas høyeste av tre nivåer.\n\nDe to fellene som koster mest, er å tro at flere grener kan slå til samtidig, og\nå bomme på kanten — `>` der det skulle vært `>=`."
+    },
+    {
+      "id": "in1000-1-2-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.1 — Variabler, datatyper og uttrykk](/bok/in1000/in1000-1-1). Du trenger\nderfra:\n\n- at en **tilordning** (`x = 3`) regner ut høyre side og lar navnet peke på\n  resultatet — og at `=` derfor ikke betyr «er lik»,\n- at verdier har en **type**, og at `3` og `\"3\"` er ulike verdier,\n- de to **boolske** verdiene `True` og `False`, skrevet med stor forbokstav og\n  uten anførselstegn,\n- at `print` skiller argumenter med ett mellomrom.\n\nKort oppfrisket:\n\n```python\nalder = 17\nnavn = \"Ada\"\ner_myndig = False\nprint(navn, alder, er_myndig)\n```\n\n**Utskrift:**\n```\nAda 17 False\n```\n"
+    },
+    {
+      "id": "in1000-1-2-3",
+      "type": "text",
+      "content": "## Løkke 1 — Sammenligninger gir sant eller usant (~8 min)\n\nEt program som skal gjøre noe *bare av og til*, må kunne stille et spørsmål med\nja-eller-nei-svar. «Er alderen over 18?» «Er navnet det samme som det jeg leter\netter?»\n\nSlike spørsmål stiller du med en **sammenligning**, og svaret er alltid én av de\nto boolske verdiene fra forrige kapittel: `True` eller `False`."
+    },
+    {
+      "id": "in1000-1-2-4",
+      "type": "definition",
+      "title": "`==` — er lik",
+      "content": "Sammenligner to verdier og gir `True` hvis de er like:\n\n```python\nprint(3 == 3)\nprint(3 == 4)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nLegg merke til de **to** likhetstegnene. Ett likhetstegn er en tilordning som\nendrer en variabel; to likhetstegn er et spørsmål som gir et svar. Det er to helt\nforskjellige ting, og å blande dem er en klassisk feil.\n\n`==` sammenligner verdier, ikke typer, men typene må kunne sammenlignes: `3 == 3`\ner `True`, mens `3 == \"3\"` er `False` — et tall er aldri lik en tekst."
+    },
+    {
+      "id": "in1000-1-2-5",
+      "type": "definition",
+      "title": "`!=` — er ulik",
+      "content": "Det motsatte av `==`: gir `True` når verdiene er forskjellige.\n\n```python\nprint(3 != 4)\nprint(\"ja\" != \"ja\")\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nUtropstegnet leses som «ikke». `a != b` betyr «`a` er ikke lik `b`», og er\nnøyaktig det samme som `not (a == b)`."
+    },
+    {
+      "id": "in1000-1-2-6",
+      "type": "definition",
+      "title": "`<`, `>`, `<=` og `>=`",
+      "content": "De fire størrelsessammenligningene: mindre enn, større enn, mindre enn eller\nlik, større enn eller lik.\n\n```python\nprint(5 < 5)\nprint(5 <= 5)\n```\n\n**Utskrift:**\n```\nFalse\nTrue\n```\n\nForskjellen mellom de to linjene er hele kapitlets viktigste detalj. `<` slipper\nikke gjennom når verdiene er like; `<=` gjør det.\n\nPå eksamen er dette **kanten**: en oppgave som sier «18 år eller eldre», krever\n`>=`, ikke `>`. Å teste med en verdi som ligger nøyaktig på kanten, er den\nraskeste måten å avsløre feilen på."
+    },
+    {
+      "id": "in1000-1-2-7",
+      "type": "definition",
+      "title": "Boolsk uttrykk",
+      "content": "Et uttrykk som gir `True` eller `False`. Alle sammenligninger er boolske\nuttrykk, og det samme er en variabel som holder på en boolsk verdi.\n\n```python\nalder = 20\ner_myndig = alder >= 18\nprint(er_myndig)\n```\n\n**Utskrift:**\n```\nTrue\n```\n\nLegg merke til at resultatet kan lagres i en variabel, akkurat som et tall. Det\ner ofte den ryddigste måten å skrive kode på: gi den boolske verdien et\nbeskrivende navn, og bruk navnet i betingelsen etterpå."
+    },
+    {
+      "id": "in1000-1-2-8",
+      "type": "definition",
+      "title": "Sammenligning av tekst",
+      "content": "Strenger kan også sammenlignes. `==` og `!=` gjør det du forventer: to strenger\ner like når de har nøyaktig de samme tegnene, i samme rekkefølge, med samme\nstore og små bokstaver.\n\n```python\nprint(\"Ada\" == \"Ada\")\nprint(\"Ada\" == \"ada\")\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nStørrelsessammenligning virker også, og følger tegnenes rekkefølge — omtrent som\ni en ordbok: `\"ape\" < \"bil\"` er `True`. Men vær forsiktig: **store bokstaver\nkommer før alle små**, så `\"Ø\" < \"a\"` er `True`. På eksamen dukker\nstørrelsessammenligning av tekst sjelden opp; det er likhetstesten du bruker."
+    },
+    {
+      "id": "in1000-1-2-9",
+      "type": "example",
+      "title": "Eksempel 1: Kanten som avgjør",
+      "problem": "En kinobillett koster halv pris for alle som er 15 år eller yngre. Skriv testen\nsom avgjør om Nora på 15 får rabatt, og vis hvorfor den ene av de to opplagte\ntestene er gal.",
+      "solution": "Den riktige testen bruker `<=`, fordi teksten sier «eller yngre»:\n\n```python\nalder = 15\nprint(alder <= 15)\nprint(alder < 15)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nFørste linje er svaret oppgaven ber om: Nora får rabatt.\n\nAndre linje er den vanligste feilen. `<` betyr «strengt mindre enn», og utelukker\ndermed nøyaktig den ene alderen som ligger på grensen. En kandidat som skriver\n`alder < 15`, gir alle fjortenåringer rabatt og nekter alle femtenåringer — og\nfeilen viser seg bare for én eneste verdi.\n\n**Vanen som redder deg:** når en oppgave nevner en grense, test med verdien som\nligger *på* grensen. Er svaret riktig der, er resten som regel riktig også."
+    },
+    {
+      "id": "in1000-1-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) La `poeng = 60`.\n\n**a)** Hva gir `poeng == 60`?\n\n**b)** Hva gir `poeng > 60`?\n\n**c)** Hva gir `poeng >= 60`?\n\n**d)** Hva gir `poeng != 60`?",
+        "solution": "**a)** `True` — de to verdiene er like, og `==` spør nettopp om det.\n\n**b)** `False` — `>` krever at verdien er strengt større. 60 er ikke større enn\n60.\n\n**c)** `True` — `>=` slipper gjennom når verdiene er like.\n\n**d)** `False` — `!=` spør om verdiene er ulike, og det er de ikke.\n\nSammenlign b) og c). De skiller seg bare i ett tegn, og de gir motsatt svar for\nnøyaktig den verdien som står i oppgaven. Det er derfor grenseverdien alltid er\nden du skal teste med.",
+        "hints": [
+          "Sett inn 60 for `poeng` og les uttrykket høyt.",
+          "For b) og c): hva er forskjellen på «større enn» og «større enn eller lik»?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-10",
+      "type": "text",
+      "content": "## Løkke 2 — `if`, `else` og `elif` (~12 min)\n\nEn sammenligning som bare gir `True` er ikke til stor nytte i seg selv. Poenget\ner å **styre** hva programmet gjør: kjør disse linjene bare hvis svaret er sant.\n\nDet er `if` som gjør det, og innrykket som avgjør hvor langt «disse linjene»\nstrekker seg."
+    },
+    {
+      "id": "in1000-1-2-11",
+      "type": "definition",
+      "title": "`if`",
+      "content": "Kjører linjene under, men bare hvis betingelsen er sann:\n\n```python\nalder = 20\nif alder >= 18:\n    print(\"myndig\")\nprint(\"ferdig\")\n```\n\n**Utskrift:**\n```\nmyndig\nferdig\n```\n\nTre formkrav som Python er ubøyelig på:\n\n- **Kolon** etter betingelsen.\n- **Innrykk** på linjene som hører til. Boka bruker fire mellomrom.\n- Linjer uten innrykk hører **ikke** til, og kjøres uansett — som `print(\"ferdig\")`\n  over.\n\nEr betingelsen usann, hoppes hele den innrykkede blokken over, og programmet\nfortsetter på første linje uten innrykk."
+    },
+    {
+      "id": "in1000-1-2-12",
+      "type": "definition",
+      "title": "Innrykk som blokk",
+      "content": "Python bruker **innrykk** der andre språk bruker klammeparenteser. Alle linjene\nmed samme innrykk under en `if` utgjør én blokk, og blokken kjøres samlet eller\nikke i det hele tatt.\n\n```python\nsum_poeng = 12\nif sum_poeng > 10:\n    sum_poeng = sum_poeng + 5\n    print(sum_poeng)\nprint(\"slutt\")\n```\n\n**Utskrift:**\n```\n17\nslutt\n```\n\nBegge de innrykkede linjene hørte til betingelsen. Den siste gjorde ikke.\n\nRegelen er absolutt: **innrykket er ikke pynt, det er betydning.** Flytter du en\nlinje inn eller ut, endrer du hva programmet gjør — ikke bare hvordan det ser\nut."
+    },
+    {
+      "id": "in1000-1-2-13",
+      "type": "warning",
+      "title": "Typisk feil #16 — innrykk og blandet tabulator",
+      "content": "Feil innrykk er den vanligste årsaken til at et program ikke kjører i det hele\ntatt. To varianter:\n\n- **Glemt innrykk** etter kolon. Python svarer med `IndentationError: expected an\n  indented block`.\n- **Blandet tabulator og mellomrom.** To linjer kan se helt like ut på skjermen\n  og likevel ha ulikt innrykk, fordi den ene har tabulator og den andre\n  mellomrom.\n\nPå eksamen skriver du kode i et tekstfelt uten hjelp fra en editor, og da er\ndette en reell risiko. **Bruk konsekvent fire mellomrom**, slik all kode i denne\nboka gjør, og la være å blande.\n\nDet gode ved feilen: den krasjer med en gang, og den koster derfor sjelden mer\nenn den ene deloppgaven."
+    },
+    {
+      "id": "in1000-1-2-14",
+      "type": "definition",
+      "title": "`else`",
+      "content": "Kjører når betingelsen er usann:\n\n```python\nalder = 15\nif alder >= 18:\n    print(\"myndig\")\nelse:\n    print(\"mindrearig\")\n```\n\n**Utskrift:**\n```\nmindrearig\n```\n\n`else` har ingen egen betingelse — den fanger opp alt som ikke traff. Nøyaktig én\nav de to blokkene kjøres, aldri begge og aldri ingen.\n\n`else` er valgfri. En `if` uten `else` betyr rett og slett «gjør ingenting hvis\nbetingelsen er usann»."
+    },
+    {
+      "id": "in1000-1-2-15",
+      "type": "definition",
+      "title": "`elif`",
+      "content": "En ekstra betingelse som bare prøves hvis den forrige var usann:\n\n```python\npoeng = 72\nif poeng >= 90:\n    print(\"A\")\nelif poeng >= 60:\n    print(\"C\")\nelse:\n    print(\"F\")\n```\n\n**Utskrift:**\n```\nC\n```\n\nOrdet er en sammentrekning av «else if». Du kan ha så mange `elif`-grener du vil\nmellom `if` og `else`.\n\nRekkefølgen betyr alt: grenene prøves ovenfra og ned, og **den første som er\nsann, vinner**. Derfor må den strengeste betingelsen stå øverst. Hadde `poeng >=\n60` stått først i eksempelet over, ville alle med 90 poeng også fått `C`."
+    },
+    {
+      "id": "in1000-1-2-16",
+      "type": "definition",
+      "title": "Bare den første sanne grenen kjøres",
+      "content": "I en kjede av `if`, `elif` og `else` kjøres **nøyaktig én** blokk: den første\ngrenen som er sann. Resten hoppes over, selv om de også ville vært sanne.\n\n```python\nx = 100\nif x > 10:\n    print(\"over ti\")\nelif x > 50:\n    print(\"over femti\")\n```\n\n**Utskrift:**\n```\nover ti\n```\n\nVerdien er både over ti og over femti, men bare den første grenen kjørte.\n\nDette skiller `elif` skarpt fra å skrive to selvstendige `if`-setninger etter\nhverandre. To `if`-er er to uavhengige spørsmål, og begge kan slå til."
+    },
+    {
+      "id": "in1000-1-2-17",
+      "type": "warning",
+      "title": "To `if`-er er ikke det samme som `if` og `elif`",
+      "content": "Dette er den mest testede fella i hele kapitlet, og den ser uskyldig ut.\n\n```python\nx = 100\nif x > 10:\n    print(\"over ti\")\nif x > 50:\n    print(\"over femti\")\n```\n\n**Utskrift:**\n```\nover ti\nover femti\n```\n\nSammenlign med `elif`-versjonen rett over, som bare skrev én linje. Samme verdi,\nsamme betingelser, ulikt svar.\n\n**Regelen:** bruk `elif` når alternativene utelukker hverandre og du vil ha\nnøyaktig ett svar. Bruk to `if`-er når du vil at flere ting skal kunne slå til\nuavhengig av hverandre.\n\nI en sporingsoppgave er dette det første du skal se etter: står det `elif` eller\n`if` på linje to?"
+    },
+    {
+      "id": "in1000-1-2-18",
+      "type": "example",
+      "title": "Eksempel 2: Karakterkjeden sporet gren for gren",
+      "problem": "Et program setter karakter etter poengsum. Hva skriver det ut for `poeng = 72`,\nog hvorfor er rekkefølgen på grenene avgjørende?\n\n```python\npoeng = 72\nif poeng >= 90:\n    print(\"A\")\nelif poeng >= 80:\n    print(\"B\")\nelif poeng >= 60:\n    print(\"C\")\nelse:\n    print(\"stryk\")\n```",
+      "solution": "Gå gjennom grenene ovenfra, og stopp ved den første som er sann.\n\n| Gren | Betingelse | Verdi | Kjøres? |\n|---|---|---|---|\n| `if` | `72 >= 90` | `False` | nei |\n| `elif` (1) | `72 >= 80` | `False` | nei |\n| `elif` (2) | `72 >= 60` | `True` | **ja** |\n| `else` | — | — | nei, en gren har allerede truffet |\n\n**Utskrift:**\n```\nC\n```\n\n**Hvorfor rekkefølgen avgjør:** betingelsen `poeng >= 60` er sann for 72, men den\ner også sann for 95. Sto den øverst, ville alle bestått-poengsummer fått `C`, og\n`A`-grenen ville aldri blitt nådd.\n\nRegelen for slike kjeder er derfor: **sorter grenene fra strengest til\nmildest**. Da fanger hver gren nøyaktig sitt intervall, og `else` fanger resten."
+    },
+    {
+      "id": "in1000-1-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med linjeskift slik terminalen viser den.\n\n```python\ntall = 8\nif tall > 5:\n    print(\"stor\")\nelif tall > 3:\n    print(\"middels\")\nelse:\n    print(\"liten\")\nprint(\"ferdig\")\n```",
+        "solution": "Grenene prøves ovenfra.\n\n| Gren | Betingelse | Verdi | Kjøres? |\n|---|---|---|---|\n| `if` | `8 > 5` | `True` | **ja** |\n| `elif` | `8 > 3` | — | nei, hoppes over |\n| `else` | — | — | nei |\n\nSiste linje står **uten** innrykk og hører derfor ikke til kjeden. Den kjøres\nuansett hvilken gren som traff.\n\n**Utskrift:**\n```\nstor\nferdig\n```\n\nFellen er å ta med `middels` i svaret. `8 > 3` er riktignok sant, men den grenen\nblir aldri prøvd — den første sanne grenen vant.",
+        "hints": [
+          "Prøv grenene ovenfra og stopp ved den første som er sann.",
+          "Se på innrykket på siste linje: hører den til kjeden?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) De to programmene har samme\nverdier og samme betingelser. Hva skriver hvert av dem ut?\n\n**a)**\n```python\nx = 12\nif x > 10:\n    print(\"A\")\nelif x > 5:\n    print(\"B\")\n```\n\n**b)**\n```python\nx = 12\nif x > 10:\n    print(\"A\")\nif x > 5:\n    print(\"B\")\n```",
+        "solution": "**a)** `A`. Den første grenen er sann, og `elif`-grenen prøves derfor aldri —\nselv om `12 > 5` også er sant.\n\n**b)**\n```\nA\nB\n```\n\nHer er det to selvstendige spørsmål. Begge er sanne, så begge blokkene kjøres.\n\nForskjellen er ett ord: `elif` mot `if`. Det er nettopp derfor det er verdt å\nlese linje to nøye i en sporingsoppgave — de to programmene ser nesten identiske\nut og gir ulikt svar.",
+        "hints": [
+          "Tell hvor mange uavhengige spørsmål programmet stiller.",
+          "Husk at bare den første sanne grenen i en `if`-`elif`-kjede kjøres."
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-19",
+      "type": "text",
+      "content": "## Løkke 3 — Å kombinere betingelser: `and`, `or` og `not` (~10 min)\n\nOfte holder det ikke med ett spørsmål. «Er personen mellom 18 og 67?» er to\nspørsmål som begge må være sanne. «Er dagen lørdag eller søndag?» er to spørsmål\nder det holder at ett er sant.\n\nTre små ord binder betingelser sammen."
+    },
+    {
+      "id": "in1000-1-2-20",
+      "type": "definition",
+      "title": "`and`",
+      "content": "Sann bare når **begge** sidene er sanne:\n\n```python\nalder = 20\nprint(alder >= 18 and alder < 67)\nprint(alder >= 18 and alder < 20)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nAndre linje er usann fordi høyre side er usann, selv om venstre side er sann.\n`and` krever begge.\n\nSlik skrives et intervall i denne boka: **to hele sammenligninger med `and`\nmellom**, som `alder >= 18 and alder < 67`. Python tillater også kortformen\n`18 <= alder < 67`, men den fulle formen er tydeligere å spore og er stilen i\nfagets egne løsningsforslag."
+    },
+    {
+      "id": "in1000-1-2-21",
+      "type": "definition",
+      "title": "`or`",
+      "content": "Sann når **minst én** av sidene er sann:\n\n```python\ndag = \"lordag\"\nprint(dag == \"lordag\" or dag == \"sondag\")\nprint(dag == \"mandag\" or dag == \"sondag\")\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nMerk at `or` også er sann når begge sidene er sanne — det er «minst én», ikke\n«nøyaktig én».\n\nEn vanlig feil er å skrive `dag == \"lordag\" or \"sondag\"`. Det er ikke en\nsammenligning på høyre side, og uttrykket gir ikke det du tror. **Skriv hele\nsammenligningen på begge sider av `or`.**"
+    },
+    {
+      "id": "in1000-1-2-22",
+      "type": "definition",
+      "title": "`not`",
+      "content": "Snur en boolsk verdi:\n\n```python\ner_ledig = False\nprint(not er_ledig)\n```\n\n**Utskrift:**\n```\nTrue\n```\n\n`not` står foran uttrykket det snur, og binder sterkere enn både `and` og `or`.\n\nBruk `not` når det gjør setningen lettere å lese, ikke som en vane. `not (a ==\nb)` bør skrives `a != b`, og `not (x > 5)` bør skrives `x <= 5` — begge er\nkortere og lettere å spore."
+    },
+    {
+      "id": "in1000-1-2-23",
+      "type": "definition",
+      "title": "Rekkefølgen mellom `not`, `and` og `or`",
+      "content": "Når flere av dem står i samme uttrykk, gjelder denne rekkefølgen, fra sterkest\ntil svakest:\n\n1. `not`\n2. `and`\n3. `or`\n\nSammenligninger som `>=` og `==` regnes ut **før** alle tre.\n\nDet betyr at `a or b and c` leses som `a or (b and c)`, ikke som\n`(a or b) and c`. De to gir ulikt svar, og forskjellen er en fast kilde til\nsporingsoppgaver.\n\nSom med regnerekkefølgen i [kap. 1.1](/bok/in1000/in1000-1-1): **er du i tvil,\nsett parenteser.** De koster ingenting og fjerner all tvil."
+    },
+    {
+      "id": "in1000-1-2-24",
+      "type": "example",
+      "title": "Eksempel 3: Når `and` og `or` står i samme uttrykk",
+      "problem": "Hva skriver programmet ut, og hva ville svaret vært hvis parentesen sto rundt\n`or`-delen i stedet?\n\n```python\na = True\nb = False\nc = True\nprint(a or b and c)\nprint((a or b) and c)\nprint(a and b or c)\n```",
+      "solution": "Bruk rekkefølgen: `and` binder sterkere enn `or`.\n\n| Uttrykk | Leses som | Regnestykke | Verdi |\n|---|---|---|---|\n| `a or b and c` | `a or (b and c)` | `True or (False and True)` er `True or False` | `True` |\n| `(a or b) and c` | som skrevet | `(True or False) and True` er `True and True` | `True` |\n| `a and b or c` | `(a and b) or c` | `(True and False) or True` er `False or True` | `True` |\n\n**Utskrift:**\n```\nTrue\nTrue\nTrue\n```\n\nAlle tre ble sanne her, og det er med vilje: **eksempelet viser at samme svar\nikke betyr samme regnestykke**. Bytt `c` til `False`, og de tre linjene gir\n`True`, `False`, `False`.\n\n**Slik sporer du det på eksamen:** sett inn `True` og `False` for hver variabel\nførst, sett så parenteser rundt hver `and`, og regn utenfra og inn."
+    },
+    {
+      "id": "in1000-1-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) La `x = 4`.\n\n**a)** Hva gir `x > 2 and x < 10`?\n\n**b)** Hva gir `x > 2 or x > 100`?\n\n**c)** Hva gir `not x == 4`?\n\n**d)** Hva gir `x > 10 or x > 2 and x < 3`?",
+        "solution": "**a)** `True` — begge sidene er sanne: 4 er større enn 2 og mindre enn 10.\n\n**b)** `True` — venstre side er sann, og `or` krever bare én.\n\n**c)** `False` — `x == 4` er sann, og `not` snur den.\n\n**d)** `False`. Her avgjør rekkefølgen. `and` binder sterkest, så uttrykket leses\nsom `x > 10 or (x > 2 and x < 3)`. Den indre parentesen er `True and False`,\naltså `False`, og venstre side `4 > 10` er også `False`. `False or False` er\n`False`.\n\nHadde uttrykket vært `(x > 10 or x > 2) and x < 3`, ville svaret fortsatt vært\n`False` — men av en helt annen grunn. Det er derfor du skal sette parentesene\nselv når du skriver kode.",
+        "hints": [
+          "Sett inn 4 for `x` i hver sammenligning før du kombinerer.",
+          "For d): sett parentes rundt `and`-delen først."
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C-forberedelse — skriv en betingelse.) Skriv én linje\nsom skriver ut `ja` når en person kan bestille ungdomsbillett. Reglene er:\nalderen må være minst 16 og under 20.\n\n**a)** Skriv `if`-setningen med `and`.\n\n**b)** Hvilke to aldre er de kritiske å teste med?\n\n**c)** Hva blir galt hvis du skriver `alder > 16` i stedet for `alder >= 16`?",
+        "solution": "**a)** To hele sammenligninger, bundet med `and`:\n\n```python\nalder = 16\nif alder >= 16 and alder < 20:\n    print(\"ja\")\n```\n\n**Utskrift:**\n```\nja\n```\n\n**b)** **16 og 20** — de to grenseverdiene. En test med 18 avslører ingenting,\nfordi den ligger trygt inne i intervallet. Nesten alle kantfeil viser seg bare\nakkurat på grensen.\n\n**c)** Da faller **16-åringene** utenfor, fordi `>` krever strengt større.\nOppgaveteksten sier «minst 16», og «minst» betyr at verdien selv er med. Det er\nfelle nummer én i alle intervalloppgaver.",
+        "hints": [
+          "Del kravet i to sammenligninger, én for hver ende av intervallet.",
+          "For c): hvilken alder ligger nøyaktig på grensen?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-25",
+      "type": "text",
+      "content": "## Løkke 4 — Nøstede betingelser og medlemskapstesten (~8 min)\n\nTo siste ting før kapitlet er ferdig: hva som skjer når en `if` står inni en\nannen, og en liten test som blir svært nyttig senere."
+    },
+    {
+      "id": "in1000-1-2-26",
+      "type": "definition",
+      "title": "Nøstet `if`",
+      "content": "En `if` kan stå inne i en annen. Da må den ytre være sann for at den indre i det\nhele tatt skal prøves:\n\n```python\nalder = 20\nhar_bevis = True\nif alder >= 18:\n    if har_bevis:\n        print(\"kan kjore\")\n    else:\n        print(\"mangler bevis\")\nelse:\n    print(\"for ung\")\n```\n\n**Utskrift:**\n```\nkan kjore\n```\n\nInnrykket viser hvem som hører til hvem: den indre `else` hører til den indre\n`if`, fordi de har samme innrykk.\n\nNøsting er nyttig når det andre spørsmålet bare gir mening dersom det første er\nbesvart. Men to nivåer er som regel nok — trenger du tre, er `and` ofte et\nryddigere valg."
+    },
+    {
+      "id": "in1000-1-2-27",
+      "type": "definition",
+      "title": "`in` — er dette med her?",
+      "content": "Tester om noe forekommer i noe annet, og gir `True` eller `False`:\n\n```python\nnavn = \"Aleksander\"\nprint(\"eks\" in navn)\nprint(\"ø\" in navn)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nPå en tekst spør `in` om en delstreng finnes.\n\nDen samme testen virker på de datastrukturene du møter i Del 3: `if tall in\ntallene:` spør om en verdi finnes i en liste, og `if navn in ordbok:` spør om en\nnøkkel finnes i en ordbok. Da blir `in` en av de viktigste konstruksjonene i\nfaget — den er selve inngangen til teller-mønsteret i\n[kap. 3.2](/bok/in1000/in1000-3-2). Her nøyer vi oss med teksten.\n\n`not in` finnes også, og betyr det motsatte."
+    },
+    {
+      "id": "in1000-1-2-28",
+      "type": "definition",
+      "title": "`=` mot `==`",
+      "content": "De to mest forvekslede tegnene i faget:\n\n- `=` er en **tilordning**: `x = 3` endrer `x`.\n- `==` er en **sammenligning**: `x == 3` spør, og gir `True` eller `False`.\n\nSkriver du `if x = 3:` stopper Python med en feilmelding — heldigvis, for da\noppdager du det med en gang.\n\nDen motsatte forvekslingen er farligere: skriver du `x == 3` der du mente en\ntilordning, skjer det ingenting i det hele tatt. Uttrykket regnes ut, svaret\nkastes, og `x` er uendret. Programmet kjører videre og gir feil svar uten å si\nfra."
+    },
+    {
+      "id": "in1000-1-2-29",
+      "type": "example",
+      "title": "Eksempel 4: En full sjanger A-oppgave med kjede og kombinasjon",
+      "problem": "Dette er en oppgave på eksamensnivå. Hva skriver programmet ut? Spor det linje\nfor linje før du leser løsningen.\n\n```python\npoeng = 55\ntimer = 30\nif poeng >= 60 and timer >= 20:\n    print(\"bestatt\")\nelif poeng >= 50 or timer >= 40:\n    print(\"konte\")\nelse:\n    print(\"stryk\")\nif timer >= 20:\n    print(\"nok timer\")\n```",
+      "solution": "Spor grenene i rekkefølge, og hold de to `if`-setningene fra hverandre.\n\n| Steg | Betingelse | Regnestykke | Verdi | Kjøres? |\n|---|---|---|---|---|\n| 1 | `poeng >= 60 and timer >= 20` | `False and True` | `False` | nei |\n| 2 | `poeng >= 50 or timer >= 40` | `True or False` | `True` | **ja** |\n| 3 | `else` | — | — | nei |\n| 4 | `timer >= 20` (ny `if`) | `30 >= 20` | `True` | **ja** |\n\nSteg 1 er verdt et blikk: venstre side er usann, og da spiller det ingen rolle at\nhøyre side er sann — `and` krever begge.\n\nSteg 4 er en **selvstendig** `if`. Den hører ikke til kjeden over, og kjøres\nderfor uansett hvilken gren som traff.\n\n**Utskrift:**\n```\nkonte\nnok timer\n```\n\n**Slik ville sensor sett på det:** to poeng ligger i denne oppgaven, ett for hver\nutskriftslinje. En kandidat som svarer bare `konte`, har forstått kjeden men\noversett at siste `if` står for seg selv — og får uttelling for det første."
+    },
+    {
+      "id": "in1000-1-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntall = 12\nif tall % 2 == 0 and tall > 10:\n    print(\"stort partall\")\nelif tall % 2 == 0:\n    print(\"partall\")\nelse:\n    print(\"oddetall\")\n```",
+        "solution": "Regn ut restoperatoren først: `12 % 2` er `0`, siden 12 er delelig med 2.\n\n| Gren | Betingelse | Regnestykke | Verdi | Kjøres? |\n|---|---|---|---|---|\n| `if` | `tall % 2 == 0 and tall > 10` | `True and True` | `True` | **ja** |\n| `elif` | `tall % 2 == 0` | — | — | nei |\n| `else` | — | — | — | nei |\n\n**Utskrift:**\n```\nstort partall\n```\n\nTesten `tall % 2 == 0` er standardmåten å spørre «er dette et partall» på: resten\netter divisjon med 2 er 0 for alle partall. Legg merke til at `%` regnes ut før\n`==`, slik at uttrykket leses som `(tall % 2) == 0`.",
+        "hints": [
+          "Regn ut `12 % 2` før du ser på sammenligningen.",
+          "Husk at `and` krever at begge sidene er sanne."
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med linjeskift.\n\n```python\na = 5\nb = 10\nif a > b:\n    print(\"A\")\nelif a == 5:\n    print(\"B\")\nelif b > a:\n    print(\"C\")\nelse:\n    print(\"D\")\nif a < b and not a == b:\n    print(\"E\")\n```",
+        "solution": "Del programmet i to: en kjede med fire grener, og en selvstendig `if` til slutt.\n\n**Kjeden:**\n\n| Gren | Betingelse | Verdi | Kjøres? |\n|---|---|---|---|\n| `if` | `5 > 10` | `False` | nei |\n| `elif` (1) | `5 == 5` | `True` | **ja** |\n| `elif` (2) | `10 > 5` | — | nei, hoppes over |\n| `else` | — | — | nei |\n\nDen andre `elif`-grenen er sann, men blir aldri prøvd. Det er hele fellen i\noppgaven: **den første sanne grenen vinner**, og resten av kjeden er død.\n\n**Den selvstendige `if`-en:** `a < b` er `True`, og `not a == b` er `not False`,\naltså `True`. `not` binder sterkere enn `and`, men svakere enn `==`, så uttrykket\nleses som `(a < b) and (not (a == b))`. Begge sidene er sanne.\n\n**Utskrift:**\n```\nB\nE\n```\n\nSvarer du `B C E`, har du behandlet `elif` som en selvstendig `if`. Svarer du\nbare `B`, har du oversett at den siste `if`-en ikke er en del av kjeden.",
+        "hints": [
+          "Marker hvor kjeden slutter, og hvor den nye `if`-en begynner.",
+          "For siste linje: hva regnes ut først av `==`, `not` og `and`?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-1-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — finn feilen.) En hyttebooking gir rabatt til alle som\ner 67 år eller eldre. Utvikleren har skrevet:\n\n```python\nalder = 67\nif alder > 67:\n    print(\"rabatt\")\nelse:\n    print(\"full pris\")\n```\n\n**a)** Hva skriver programmet ut for verdien over?\n\n**b)** Gi et konkret moteksempel som viser at programmet er galt, og forklar i én\nsetning hvorfor.\n\n**c)** Rett feilen.",
+        "solution": "**a)** `full pris`. Betingelsen `67 > 67` er usann, så `else`-grenen kjører.\n\n**b)** Moteksempelet er kallet med `alder = 67`: en person på nøyaktig 67 år\noppfyller kravet «67 år eller eldre», men får `full pris` — fordi `>` krever\nstrengt større og dermed utelukker selve grenseverdien.\n\nLegg merke til formen på svaret. Sensor ber om **ett konkret tilfelle** med en\nkonkret verdi og et konkret galt utfall, ikke bare «programmet håndterer ikke\nkanten riktig». Den formen møter du igjen i\n[kap. 4.2](/bok/in1000/in1000-4-2).\n\n**c)** Bytt `>` med `>=`:\n\n```python\nalder = 67\nif alder >= 67:\n    print(\"rabatt\")\nelse:\n    print(\"full pris\")\n```\n\n**Utskrift:**\n```\nrabatt\n```\n\nFeilen rammet nøyaktig én alder, og den er den eneste verdien som avslører den.",
+        "hints": [
+          "Hvilken alder ligger nøyaktig på grensen i oppgaveteksten?",
+          "Et moteksempel er én konkret verdi med ett konkret galt utfall — ikke en forklaring i ord."
+        ]
+      }
+    },
+    {
+      "id": "in1000-1-2-30",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "Fire feller står for nesten alle poengene som mistes på betingelser:\n\n- **`if` der det skulle stått `elif`.** To selvstendige `if`-er kan begge slå\n  til; en `elif`-kjede kjører nøyaktig én gren. Les linje to nøye.\n- **Kantfeil.** `>` der oppgaven sier «eller eldre», `<` der den sier «eller\n  yngre». Test alltid med verdien som ligger på grensen.\n- **Feil rekkefølge på grenene.** Den mildeste betingelsen øverst spiser alle de\n  strengere. Sorter fra strengest til mildest.\n- **Halv sammenligning etter `or`.** `dag == \"lordag\" or \"sondag\"` er ikke det du\n  tror. Skriv hele sammenligningen på begge sider.\n\nOg én formfeil som stopper programmet umiddelbart: **glemt kolon** etter\nbetingelsen, eller **glemt innrykk** på linjene under (#16)."
+    },
+    {
+      "id": "in1000-1-2-coll-31",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1000-1-2-c1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `a == b` | Sann når verdiene er like. To likhetstegn — ett er tilordning. `3 == \"3\"` er `False`. |\n| `a != b` | Sann når verdiene er ulike. Samme som `not (a == b)`. |\n| `a < b`, `a > b` | Strengt mindre eller større. Sann **ikke** når verdiene er like. |\n| `a <= b`, `a >= b` | Mindre eller lik, større eller lik. Slipper gjennom på grensen. |\n| `if betingelse:` | Kjører den innrykkede blokken bare når betingelsen er sann. Kolon er påkrevd. |\n| innrykk | Fire mellomrom. Bestemmer hvilke linjer som hører til blokken — ikke pynt. |\n| `else:` | Kjøres når ingen av grenene over traff. Har ingen egen betingelse. Valgfri. |\n| `elif betingelse:` | Prøves bare hvis alle grenene over var usanne. Kan gjentas. |\n| kjeden | **Nøyaktig én** gren kjøres: den første som er sann. To selvstendige `if`-er kan begge kjøre. |\n| `and` | Sann bare når begge sidene er sanne. |\n| `or` | Sann når minst én side er sann — også når begge er det. |\n| `not` | Snur en boolsk verdi. |\n| rekkefølge | Sammenligninger først, så `not`, så `and`, så `or`. `a or b and c` er `a or (b and c)`. |\n| `x in tekst` | Sann når delstrengen finnes i teksten. `not in` er det motsatte. |\n| `a % 2 == 0` | Standardtesten for partall: resten etter divisjon med 2 er null. |\n| intervall | Skrives som to hele sammenligninger: `alder >= 16 and alder < 20`. |\n\n**Det som avgjør poeng i sjanger A:** om linje to sier `elif` eller `if`, og om\ngrensen er `>` eller `>=`."
+        }
+      ]
+    },
+    {
+      "id": "in1000-1-2-32",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in1000-1-2-33",
+      "type": "definition",
+      "title": "Betingelse",
+      "content": "Et boolsk uttrykk som styrer om en blokk med kode skal kjøres. Betingelsen står\nmellom `if` (eller `elif`) og kolonet.\n\nEn betingelse er alltid et **uttrykk** med en verdi, ikke en handling. Derfor kan\ndu regne den ut for seg selv, skrive den ut med `print`, eller lagre den i en\nvariabel — noe som er en god teknikk når betingelsen blir lang."
+    },
+    {
+      "id": "in1000-1-2-34",
+      "type": "definition",
+      "title": "Gren",
+      "content": "En av de mulige veiene gjennom en `if`-`elif`-`else`-kjede. Hver gren har sin\negen blokk med kode.\n\nOrdet er nyttig når du sporer: «hvilken gren traff?» er alltid det første\nspørsmålet, og svaret er alltid **nøyaktig én** i en kjede."
+    },
+    {
+      "id": "in1000-1-2-35",
+      "type": "definition",
+      "title": "Kant-tilfelle",
+      "content": "Verdien som ligger nøyaktig på grensen i en betingelse: 18 når kravet er «minst\n18», 67 når det er «67 eller eldre».\n\nKant-tilfeller er der nesten alle logiske feil viser seg, og de er derfor det\nsensor tester med. Vanen som lønner seg: når du har skrevet en betingelse med en\ngrense i, **sett inn grenseverdien og regn ut for hånd** før du går videre. Det\ntar ti sekunder og fanger en hel feilklasse."
+    },
+    {
+      "id": "in1000-1-2-36",
+      "type": "definition",
+      "title": "Å kortslutte en `or`",
+      "content": "Når venstre side av en `or` er sann, er hele uttrykket sant uansett hva som står\ntil høyre — og Python bryr seg da ikke om å regne ut høyre side i det hele tatt.\nDet samme gjelder `and` når venstre side er usann.\n\nFor sporing betyr det at rekkefølgen kan spille en rolle. I praksis trenger du\nsjelden å tenke på det i IN1000, men det forklarer hvorfor et uttrykk kan gi svar\nselv når høyre side ville ha krasjet."
+    },
+    {
+      "id": "in1000-1-2-coll-37",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1000-1-2-c2",
+          "type": "text",
+          "content": "1. En sammenligning gir alltid `True` eller `False`. `=` tilordner, `==`\n   sammenligner.\n2. `<` og `>` slipper **ikke** gjennom på grensen; `<=` og `>=` gjør det. Test\n   alltid med grenseverdien.\n3. **Innrykket bestemmer hvilke linjer som hører til blokken.** Fire mellomrom,\n   aldri blandet med tabulator.\n4. I en `if`-`elif`-`else`-kjede kjøres **nøyaktig én** gren: den første som er\n   sann. To selvstendige `if`-er kan begge kjøre.\n5. Sorter grenene fra **strengest til mildest**, ellers spiser den mildeste alle\n   de andre.\n6. Rekkefølgen er sammenligninger, så `not`, så `and`, så `or`. Er du i tvil,\n   sett parenteser."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

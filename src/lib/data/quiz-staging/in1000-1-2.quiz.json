@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva er verdien av `5 <= 5`?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "5"
+    ],
+    "explanation": "«Mindre enn eller lik» slipper gjennom når verdiene er like. `5 < 5` er derimot usann — det er nettopp den forskjellen som gjør kantfeil så vanlige."
+  },
+  {
+    "question": "Hva er verdien av `3 == \"3\"`?",
+    "options": [
+      "False",
+      "True",
+      "None",
+      "Programmet stopper med en feilmelding"
+    ],
+    "explanation": "Et heltall er aldri lik en tekst, uansett hvor likt innholdet ser ut. Sammenligningen krasjer ikke — den svarer bare usant, og det er en stille felle."
+  },
+  {
+    "question": "La `poeng = 60`. Hva er verdien av `poeng > 60`?",
+    "options": [
+      "False",
+      "True",
+      "Programmet stopper med en feilmelding",
+      "Verdien 60, siden sammenligningen returnerer tallet"
+    ],
+    "explanation": "`>` krever strengt større, og 60 er ikke større enn 60. Med `>=` ville svaret vært sant — grenseverdien er den eneste som avslører forskjellen."
+  },
+  {
+    "question": "Hva skriver dette programmet ut?\n\n```python\nx = 100\nif x > 10:\n    print(\"A\")\nelif x > 50:\n    print(\"B\")\n```",
+    "options": [
+      "A",
+      "A\nB",
+      "B",
+      "ingenting"
+    ],
+    "explanation": "I en `if`-`elif`-kjede kjøres bare den første sanne grenen. `x > 50` er også sant, men den grenen blir aldri prøvd. Hadde linje fire vært en ny `if`, ville begge blitt skrevet ut."
+  },
+  {
+    "question": "Hva skriver dette programmet ut?\n\n```python\nx = 100\nif x > 10:\n    print(\"A\")\nif x > 50:\n    print(\"B\")\n```",
+    "options": [
+      "A\nB",
+      "A",
+      "B",
+      "ingenting"
+    ],
+    "explanation": "Her er det to selvstendige spørsmål, og begge er sanne, så begge blokkene kjøres. Forskjellen fra `elif`-varianten er ett ord."
+  },
+  {
+    "question": "Hva er verdien av `True and False`?",
+    "options": [
+      "False",
+      "True",
+      "None",
+      "Programmet stopper med en feilmelding"
+    ],
+    "explanation": "`and` krever at begge sidene er sanne. `or` ville gitt sant her, siden minst én side er sann."
+  },
+  {
+    "question": "Hva er verdien av `False or True`?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "1"
+    ],
+    "explanation": "`or` er sann når minst én side er sann. `and` ville krevd begge, og gitt usant."
+  },
+  {
+    "question": "La `er_ledig = False`. Hva skriver `print(not er_ledig)` ut?",
+    "options": [
+      "True",
+      "False",
+      "not False",
+      "None"
+    ],
+    "explanation": "`not` snur den boolske verdien, så usant blir sant. Uttrykket skrives ut som verdien `True`, ikke som teksten."
+  },
+  {
+    "question": "Hvordan leses uttrykket `a or b and c`?",
+    "options": [
+      "`a or (b and c)` — `and` binder sterkere enn `or`",
+      "`(a or b) and c` — det regnes fra venstre mot høyre",
+      "`(a or b) and (a or c)` — `or` fordeles over `and`",
+      "Rekkefølgen er udefinert og krever alltid parentes"
+    ],
+    "explanation": "Rekkefølgen er `not`, så `and`, så `or`, akkurat som gange før pluss i regning. Å tro at det regnes rent fra venstre er den vanligste fella her."
+  },
+  {
+    "question": "La `x = 4`. Hva er verdien av `x > 10 or x > 2 and x < 3`?",
+    "options": [
+      "False",
+      "True",
+      "None",
+      "Programmet stopper med en feilmelding"
+    ],
+    "explanation": "`and` binder sterkest, så uttrykket er `x > 10 or (x > 2 and x < 3)`. Den indre delen er `True and False`, altså usann, og venstre side er også usann."
+  },
+  {
+    "question": "Hva skjer hvis du skriver `if x = 3:` i stedet for `if x == 3:`?",
+    "options": [
+      "Python stopper med en feilmelding på den linja",
+      "Betingelsen blir alltid sann, og blokken kjøres",
+      "Variabelen settes til 3, og blokken hoppes over",
+      "Python tolker det som en sammenligning likevel"
+    ],
+    "explanation": "En tilordning er ikke lov som betingelse, så feilen oppdages umiddelbart. Den motsatte forvekslingen — `==` der du mente `=` — er farligere, for da skjer det ingenting i det hele tatt."
+  },
+  {
+    "question": "Hvilken linje tester riktig om `alder` er 18 år eller eldre?",
+    "options": [
+      "`if alder >= 18:`",
+      "`if alder > 18:`",
+      "`if alder = 18:`",
+      "`if alder > 17.5:`"
+    ],
+    "explanation": "«Eller eldre» betyr at grenseverdien selv er med, og det er `>=` som slipper den gjennom. `> 18` utelukker akkurat 18-åringene, og ett likhetstegn er en tilordning."
+  },
+  {
+    "question": "Hva er standardtesten for om `tall` er et partall?",
+    "options": [
+      "`tall % 2 == 0`",
+      "`tall // 2 == 0`",
+      "`tall / 2 == 0`",
+      "`tall % 2 == 1`"
+    ],
+    "explanation": "Resten etter divisjon med 2 er null for alle partall. `//` gir antall hele ganger, og en rest lik 1 kjennetegner oddetall."
+  },
+  {
+    "question": "Hvordan skrives intervallet «minst 16 og under 20» i denne bokas stil?",
+    "options": [
+      "`alder >= 16 and alder < 20`",
+      "`alder >= 16 or alder < 20`",
+      "`alder >= 16 and < 20`",
+      "`alder >= 16 and alder <= 20`"
+    ],
+    "explanation": "To hele sammenligninger bundet med `and`. Med `or` ville nesten alle aldre sluppet gjennom, og en halv sammenligning etter `and` er ikke gyldig Python. Den nære distraktoren med `<= 20` er syntaktisk riktig, men slipper også inn 20-åringene — «under 20» utelukker dem."
+  },
+  {
+    "question": "Hva er galt med `if dag == \"lordag\" or \"sondag\":`?",
+    "options": [
+      "Høyre side er ingen sammenligning, så testen svikter",
+      "Man kan ikke bruke `or` mellom to tekstverdier i Python",
+      "Anførselstegnene mangler rundt variabelnavnet `dag`",
+      "`or` må erstattes med `and` når man tester to alternativer"
+    ],
+    "explanation": "Sammenligningen må gjentas på begge sider: `dag == \"lordag\" or dag == \"sondag\"`. Slik det står, blir høyre side vurdert for seg, og testen blir alltid sann."
+  },
+  {
+    "question": "Hva skriver dette programmet ut?\n\n```python\ntall = 8\nif tall > 5:\n    print(\"stor\")\nelif tall > 3:\n    print(\"middels\")\nprint(\"ferdig\")\n```",
+    "options": [
+      "stor\nferdig",
+      "stor\nmiddels\nferdig",
+      "stor",
+      "middels\nferdig"
+    ],
+    "explanation": "Første gren er sann, så `elif`-grenen prøves aldri. Siste linje står uten innrykk og hører ikke til kjeden, så den kjøres uansett."
+  },
+  {
+    "question": "Hva bestemmer hvilke linjer som hører til en `if`-blokk i Python?",
+    "options": [
+      "Innrykket på linjene under betingelsen",
+      "Klammeparenteser rundt linjene",
+      "Et `end`-nøkkelord etter siste linje",
+      "Kolonet, som gjelder ut resten av programmet"
+    ],
+    "explanation": "Python bruker innrykk der andre språk bruker klammer, og innrykket er derfor betydning og ikke pynt. Flytter du en linje inn eller ut, endrer du hva programmet gjør."
+  },
+  {
+    "question": "En karakterkjede har `poeng >= 60` som første gren og `poeng >= 90` som andre. Hva blir konsekvensen?",
+    "options": [
+      "Alle med 90 poeng får også utfallet fra den første grenen",
+      "Programmet stopper med en feilmelding om ugyldig rekkefølge",
+      "Den andre grenen kjøres i tillegg til den første",
+      "Bare kandidater med under 60 poeng får riktig utfall"
+    ],
+    "explanation": "Den mildeste betingelsen øverst fanger alle de strengere tilfellene, og grenen under blir aldri nådd. Derfor sorteres grener fra strengest til mildest."
+  },
+  {
+    "question": "La `navn = \"Aleksander\"`. Hva er verdien av `\"eks\" in navn`?",
+    "options": [
+      "True",
+      "False",
+      "eks",
+      "None"
+    ],
+    "explanation": "På en tekst spør `in` om delstrengen finnes et sted i strengen. Testen skiller mellom store og små bokstaver, så `\"EKS\"` ville gitt usant."
+  },
+  {
+    "question": "Hvilken verdi bør du teste med for å avsløre en kantfeil i `if alder > 67:` når kravet er «67 eller eldre»?",
+    "options": [
+      "67",
+      "70",
+      "18",
+      "0"
+    ],
+    "explanation": "Bare grenseverdien selv avslører forskjellen mellom `>` og `>=`. Både 70 og 18 gir riktig utfall med begge variantene, og avslører dermed ingenting."
+  }
+]
