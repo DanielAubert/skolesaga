@@ -1,0 +1,415 @@
+{
+ "id": "in1000-3-3",
+ "courseId": "in1000",
+ "chapterNumber": "3.3",
+ "title": "Strenger",
+ "description": "Strenger som tegnsekvenser: gjennomløping tegn for tegn, split, rstrip og strip, bygging med pluss og str — grunnlaget for streng-funksjonene i Oppgave 3 og for filinnlesing.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne hente ut og telle enkelttegn i en tekst",
+  "kunne bygge en ny tekst tegn for tegn, i riktig retning",
+  "kunne dele en linje i felt og rense den for usynlige tegn først",
+  "kunne se når en verdi er tekst og når den er tall, og veksle bevisst mellom dem"
+ ],
+ "content": [
+  {
+   "id": "in1000-3-3-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Strenger står i 5 av 6 moderne eksamenssett (83 %)**, og de har sin egen\nsjanger: **E — skriv en funksjon over en streng**, verdt 4–7 poeng inne i\nOppgave 3. Typiske bestillinger er «fjern alle …», «tell hvor mange …» og «lag\nen ny tekst der …».\n\nMen strengene betyr mer enn de 83 prosentene. **Alt som kommer inn i et program\nutenfra, er tekst**: det brukeren skriver, og hver linje du leser fra en fil.\nUten `.split()` og `.rstrip()` kommer du ikke i gang med filbehandlingen, som er\nen fast del av den store Oppgave 4.\n\n**Dette må sitte** — bokas høyeste av tre nivåer for selve strenghåndverket. To\nfeil koster nesten alle poengene: **#8**, glemt `.rstrip()` eller feil separator\ni `.split()`, og forsøket på å endre en tekst på plass, som ikke går an."
+  },
+  {
+   "id": "in1000-3-3-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 3.1 — Lister](/bok/in1000/in1000-3-1) — fordi `.split()` gir deg en liste\n— og [kap. 1.1 — Variabler, datatyper og uttrykk](/bok/in1000/in1000-1-1), der\ndu møtte tekst som datatype første gang.\n\nDe tre tingene du bruker mest her:\n\n- at **`+` på to tekster skjøter dem sammen** («`\"1\" + \"2\"` gir `\"12\"`»), mens\n  `+` på to tall legger dem sammen,\n- **`int(tekst)` og `str(tall)`** for å veksle mellom de to,\n- **bygg-mønsteret**: startverdi før løkka, oppdatering inne i den, bruk etter.\n\nKort oppfrisket:\n\n```python\nnavn = \"Ada\"\npoeng = 12\nprint(navn + \" har \" + str(poeng) + \" poeng\")\n```\n\n**Utskrift:**\n```\nAda har 12 poeng\n```\n\nI dette kapitlet ser vi på teksten **innenfra**: den er en rekke tegn du kan gå\ngjennom, hente ut av og bygge nye tekster av."
+  },
+  {
+   "id": "in1000-3-3-3",
+   "type": "text",
+   "content": "## Løkke 1 — Teksten som en rekke tegn (~11 min)\n\nEn sykkelutleie merker hver sykkel med en kode som `\"R31-2026\"`: en bokstav for\nstativet, to sifre for plassen, en bindestrek og et årstall. Skal programmet\nplukke ut plassnummeret, må det kunne se **inne i** teksten.\n\nDet kan det. En tekst er en **sekvens** — akkurat som en liste — og nesten alt du\nlærte om lister, virker uendret."
+  },
+  {
+   "id": "in1000-3-3-4",
+   "type": "definition",
+   "title": "Streng som sekvens",
+   "content": "En tekst er en rekke enkelttegn i fast rekkefølge. Du kan måle lengden,\nindeksere og løpe gjennom den, nøyaktig som med en liste:\n\n```python\ntekst = \"sykkel\"\nprint(len(tekst))\nprint(tekst[0], tekst[3], tekst[-1])\nfor tegn in \"bil\":\n    print(tegn)\n```\n\n**Utskrift:**\n```\n6\ns k l\nb\ni\nl\n```\n\nTellingen starter på null, og negativ indeks teller bakfra — samme regler som i\n[kap. 3.1](/bok/in1000/in1000-3-1).\n\nDen ene store forskjellen kommer i neste definisjon: en liste kan **endres**, en\ntekst kan ikke."
+  },
+  {
+   "id": "in1000-3-3-5",
+   "type": "definition",
+   "title": "Indeksering `tekst[i]`",
+   "content": "Henter ut **ett tegn** som en tekst av lengde 1:\n\n```python\nkode = \"A4213\"\nprint(kode[0])\nprint(kode[1] + kode[2])\nprint(int(kode[1] + kode[2]))\n```\n\n**Utskrift:**\n```\nA\n42\n42\n```\n\nDe to siste linjene er verdt å studere. `kode[1]` er teksten `\"4\"` og `kode[2]`\ner teksten `\"2\"`, så plusstegnet **skjøter** dem til `\"42\"` — det er ikke tallet\nseks. Først `int(...)` gjør det om til et tall, og da ser utskriften tilfeldigvis\nlik ut.\n\nSkulle du regnet med sifrene, måtte hvert av dem konverteres for seg:\n`int(kode[1]) + int(kode[2])` gir 6. Dette er feilkode #3 i sin reneste form."
+  },
+  {
+   "id": "in1000-3-3-6",
+   "type": "definition",
+   "title": "`len(tekst)`",
+   "content": "Gir antall tegn, medregnet mellomrom og tegnsetting:\n\n```python\nnavn = \"Ada\"\nprint(len(navn), len(\"\"), len(\"to ord\"))\n```\n\n**Utskrift:**\n```\n3 0 6\n```\n\nMerk den tomme teksten `\"\"` med lengde 0 — den er startpunktet i bygge-mønsteret\nlenger nede, og den er kanttilfellet du skal sjekke funksjonene dine på.\n\nOg merk at `\"to ord\"` har seks tegn, ikke fem. Mellomrommet er et tegn som alle\nandre."
+  },
+  {
+   "id": "in1000-3-3-7",
+   "type": "definition",
+   "title": "`for tegn in tekst:`",
+   "content": "Går gjennom teksten **tegn for tegn**. Løkkevariabelen er en tekst av lengde 1:\n\n```python\nantall = 0\nfor tegn in \"kollektiv\":\n    if tegn == \"l\":\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n2\n```\n\nDette er den formen du skal bruke når du bare trenger tegnene. Trenger du\n**plassen** — for eksempel for å gå bakfra, eller for å sammenligne med\nnaboen — bruker du `for i in range(len(tekst)):` i stedet, og henter tegnet med\n`tekst[i]`.\n\nValget er nøyaktig det samme som for lister, og svaret på det samme spørsmålet:\ntrenger du plassen?"
+  },
+  {
+   "id": "in1000-3-3-8",
+   "type": "definition",
+   "title": "Strenger er uforanderlige",
+   "content": "En tekst kan ikke endres etter at den er laget. Dette går **ikke**:\n\n```text\ntekst = \"bil\"\ntekst[0] = \"s\"\n```\n\nProgrammet stopper, og siste linje i feilmeldingen er `TypeError: 'str' object\ndoes not support item assignment`. Blokken er merket som ikke-kjørbar fordi\nfeilen er plantet med vilje.\n\nLøsningen er alltid den samme: **bygg en ny tekst** i stedet.\n\n```python\ntekst = \"bil\"\nny = \"s\" + tekst[1] + tekst[2]\nprint(tekst, ny)\n```\n\n**Utskrift:**\n```\nbil sil\n```\n\nLegg merke til at den opprinnelige teksten er urørt. Det er en egenskap, ikke en\nbegrensning: en tekst du har sendt til en funksjon, kan aldri komme endret\ntilbake, og det gjør tekster trygge å regne med."
+  },
+  {
+   "id": "in1000-3-3-9",
+   "type": "example",
+   "title": "Eksempel 1: En sykkelkode, lest fra innsiden",
+   "problem": "Sykkelutleien merker syklene med koder som `\"R31-2026\"`. Skriv ut kodens lengde,\nførste og siste tegn, hvor mange sifre den inneholder, og plassnummeret — de to\ntegnene etter bokstaven — både som tekst og som tall.",
+   "solution": "Alt hentes ut av den samme teksten:\n\n```python\nbillett = \"R31-2026\"\nprint(len(billett))\nprint(billett[0], billett[-1])\nantall_sifre = 0\nfor tegn in billett:\n    if tegn >= \"0\" and tegn <= \"9\":\n        antall_sifre = antall_sifre + 1\nprint(antall_sifre)\nprint(billett[1] + billett[2], int(billett[1] + billett[2]) + 1)\n```\n\n**Utskrift:**\n```\n8\nR 6\n6\n31 32\n```\n\nTre ting er verdt å merke seg.\n\n**Bindestreken teller med i lengden.** Åtte tegn, ikke sju — og heller ikke fire.\nAlt mellom anførselstegnene er med.\n\n**Sifferbetingelsen `tegn >= \"0\" and tegn <= \"9\"`** sammenligner tekster, ikke\ntall. Det virker fordi tegn sammenlignes etter rekkefølgen i tegnsettet, der\nsifrene står samlet. Denne betingelsen kommer til å dukke opp i hver eneste\noppgave om koder og skjemaer.\n\n**Siste linje viser de to plusstegnene ved siden av hverandre.**\n`billett[1] + billett[2]` skjøter to tekster til `\"31\"`, mens `int(...) + 1`\nlegger sammen tall og gir 32. Samme tegn, to helt ulike betydninger — avgjort av\ntypen."
+  },
+  {
+   "id": "in1000-3-3-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — ren gjengivelse.) En kantine merker dagens rett med koden\n\n```python\nkode = \"B12\"\n```\n\n**a)** Hva gir `len(kode)`?\n\n**b)** Hva gir `kode[0]`?\n\n**c)** Hva gir `kode[-1]`?\n\n**d)** Hva gir `kode[1] + kode[2]`?\n\n**e)** Hva gir `int(kode[1] + kode[2])`?\n\n**f)** Hva skjer hvis du skriver `kode[0] = \"C\"`?",
+    "solution": "**a)** `3` — tre tegn.\n\n**b)** `B`. Tellingen starter på null, så det første tegnet har indeks 0.\n\n**c)** `2` — som tekst, ikke som tall. Negativ indeks teller bakfra.\n\n**d)** `12` som **tekst**. Begge sider er tekster, så plusstegnet skjøter dem\nsammen. Det er ikke tallet 3.\n\n**e)** `12` som **tall**. Nå kan du regne med det: `int(kode[1] + kode[2]) + 1`\nville gitt 13.\n\n**f)** Programmet stopper med `TypeError`. En tekst kan ikke endres på plass —\ndu må bygge en ny, for eksempel `\"C\" + kode[1] + kode[2]`.",
+    "hints": [
+     "Tell tegnene, og husk at den første plassen heter 0.",
+     "For d) og e): se på typen til hver side av plusstegnet."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\ntekst = \"buss\"\nny = \"\"\nfor tegn in tekst:\n    ny = tegn + ny\nprint(ny)\nprint(len(ny), tekst)\n```",
+    "solution": "Legg merke til rekkefølgen i oppdateringen: det nye tegnet settes **foran** det\nsom allerede er bygget.\n\n| Tegn | `ny` etter runden |\n|---|---|\n| `b` | `b` |\n| `u` | `ub` |\n| `s` | `sub` |\n| `s` | `ssub` |\n\n**Utskrift:**\n```\nssub\n4 buss\n```\n\n**Fellen er `tegn + ny` mot `ny + tegn`.** Den første formen bygger teksten\nbakfra, den andre bygger den forfra. Én ombytting av to navn snur hele svaret,\nog i en sporingsoppgave er det nettopp det de tester.\n\nOg merk siste linje: `tekst` er uendret. Løkka leste fra den, men skrev aldri\ntil den — det kan den heller ikke.",
+    "hints": [
+     "Skriv opp verdien til `ny` etter hver eneste runde.",
+     "Står det nye tegnet foran eller bak det som allerede er bygget?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-10",
+   "type": "text",
+   "content": "## Løkke 2 — Å bygge en ny tekst tegn for tegn (~12 min)\n\nFordi en tekst ikke kan endres, har alle «lag en ny tekst der …»-oppgaver samme\nløsning: du starter med ingenting og setter sammen underveis. Det er sensors\nstandardmetode i sjanger E, og den er verdt å kunne blindt."
+  },
+  {
+   "id": "in1000-3-3-11",
+   "type": "theorem",
+   "title": "Tegn-for-tegn-mønsteret",
+   "content": "Bokas åttende kodemønster, og svaret på enhver oppgave som ber om «en ny tekst\nder …».\n\nOppskriften har tre faste steg:\n\n1. **Før løkka:** `ny = \"\"` — den tomme teksten.\n2. **Inne i løkka:** `ny = ny + tegn` for de tegnene som skal være med.\n3. **Etter løkka:** `return ny`.\n\n```python\ntekst = \"kollektivtrafikk\"\nny = \"\"\nfor tegn in tekst:\n    if tegn != \"k\":\n        ny = ny + tegn\nprint(ny)\n```\n\n**Utskrift:**\n```\nolletivtrafi\n```\n\nDet er nøyaktig samme skjelett som bygg-en-ny-liste-mønsteret fra\n[kap. 3.1](/bok/in1000/in1000-3-1) — bare med `\"\"` i stedet for `[]`, og\nplusstegnet i stedet for `append`.\n\n**Rekkefølgen i oppdateringen avgjør retningen.** `ny = ny + tegn` bygger forfra;\n`ny = tegn + ny` bygger bakfra og snur teksten. De to ser nesten like ut, og de\ngir motsatt svar."
+  },
+  {
+   "id": "in1000-3-3-12",
+   "type": "definition",
+   "title": "`+` og `+=` på tekster",
+   "content": "`+` skjøter to tekster til en ny. `+=` er kortformen for «legg til på slutten av\ndet jeg allerede har»:\n\n```python\ndel1 = \"sykkel\"\ndel2 = \"utleie\"\nprint(del1 + \" \" + del2)\nny = \"\"\nny = ny + \"a\"\nny += \"b\"\nprint(ny, len(ny))\n```\n\n**Utskrift:**\n```\nsykkel utleie\nab 2\n```\n\nMerk at mellomrommet må skrives inn selv, som en egen tekst `\" \"`. Plusstegnet\nsetter tekstene helt inntil hverandre.\n\n`ny += \"b\"` betyr nøyaktig det samme som `ny = ny + \"b\"`. Begge er greie på\neksamen — velg én og hold deg til den gjennom hele besvarelsen."
+  },
+  {
+   "id": "in1000-3-3-13",
+   "type": "definition",
+   "title": "`str(tall)`",
+   "content": "Gjør et tall om til tekst, slik at det kan skjøtes sammen med andre tekster:\n\n```python\nantall = 12\nprint(\"Vi har \" + str(antall) + \" sykler\")\nprint(str(3.5) + \"!\", len(str(100)))\n```\n\n**Utskrift:**\n```\nVi har 12 sykler\n3.5! 3\n```\n\nUten `str(...)` ville første linje stoppet med en feilmelding: du kan ikke skjøte\nen tekst og et tall med plusstegnet.\n\nLegg merke til siste uttrykk. `str(100)` er teksten `\"100\"`, som har **tre**\ntegn. Det er en grei måte å telle sifre på uten å regne."
+  },
+  {
+   "id": "in1000-3-3-14",
+   "type": "example",
+   "title": "Eksempel 2: `fjern_tegn` — mønstereksempelet i sjanger E",
+   "problem": "Skriv `fjern_tegn(tekst, tegn)` som returnerer en ny tekst lik `tekst`, men uten\nforekomster av `tegn`. Vis hva funksjonen gjør med en tom tekst, og med en tekst\nder alt skal fjernes.",
+   "solution": "Mønsteret flyttes rett inn i en funksjon:\n\n```python\ndef fjern_tegn(tekst, tegn):\n    ny = \"\"\n    for t in tekst:\n        if t != tegn:\n            ny = ny + t\n    return ny\n\nprint(fjern_tegn(\"bibliotek\", \"i\"))\nprint(fjern_tegn(\"aaa\", \"a\"))\nprint(len(fjern_tegn(\"aaa\", \"a\")))\n```\n\n**Utskrift:**\n```\nbblotek\n\n0\n```\n\nLegg merke til at andre kall ikke skriver noe synlig: resultatet er den **tomme**\nteksten, og en tom tekst ser ut som ingenting. Tredje linje beviser at den\nlikevel er der, med lengde 0 — og ikke `None`.\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg. Den tomme\nteksten før løkka, løkka over tegnene, `!=`-betingelsen som slipper gjennom alt\nannet, og `return` **etter** løkka. Har du de tre første, men glemt `return`, er\nstrukturen på plass og trekket lite — men funksjonen gir `None`, og alt som\nbygger videre, faller sammen.\n\n**Merk at parameteren heter `tegn` og løkkevariabelen `t`.** Hadde begge hett\n`tegn`, ville løkka overskrevet det du lette etter allerede på første runde, og\nfunksjonen ville sammenlignet hvert tegn med seg selv. Det er en stille feil som\nalltid returnerer den tomme teksten."
+  },
+  {
+   "id": "in1000-3-3-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — skriv en funksjon over en streng.) En\nresirkuleringsstasjon skanner koder der bare sifrene betyr noe. Skriv funksjonen\n`bare_sifre(tekst)` som returnerer en ny tekst med bare sifrene fra `tekst`, i\nsamme rekkefølge.\n\n**a)** Skriv funksjonen med tegn-for-tegn-mønsteret.\n\n**b)** Hva returnerer `bare_sifre(\"abc\")`, og hva er lengden på svaret?\n\n**c)** Hvorfor kan du ikke returnere et tall i stedet?",
+    "solution": "**a)** Sifferbetingelsen fra Eksempel 1, satt inn i mønsteret:\n\n```python\ndef bare_sifre(tekst):\n    ny = \"\"\n    for tegn in tekst:\n        if tegn >= \"0\" and tegn <= \"9\":\n            ny = ny + tegn\n    return ny\n\nprint(bare_sifre(\"R31-2026\"))\nprint(bare_sifre(\"abc\"), len(bare_sifre(\"abc\")))\n```\n\n**Utskrift:**\n```\n312026\n 0\n```\n\n**b)** Den tomme teksten `\"\"`, med lengde 0. Se den andre utskriftslinja: det\nstår ingenting foran mellomrommet og nullen. Det er ikke `None`, og det er ikke\nen feil — det er et ærlig svar på at teksten ikke inneholdt sifre.\n\n**c)** Fordi et tall ikke kan starte med null, og fordi den tomme teksten ikke har\nnoe tall-motstykke. Koden `\"007\"` ville blitt tallet 7, og `\"abc\"` ville ikke\nblitt noe i det hele tatt. **Ber oppgaven om en tekst, returnerer du en tekst** —\nkonverteringen til tall er den som kaller funksjonen sin sak.",
+    "hints": [
+     "Bruk `ny = \"\"` før løkka og `ny = ny + tegn` inne i den.",
+     "For b): hvordan ser en tom tekst ut når den skrives ut?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-15",
+   "type": "warning",
+   "title": "Snarveiene finnes — men grunnformen er den som belønnes",
+   "content": "Python har ferdige metoder som løser flere av oppgavene i dette kapitlet på én\nlinje: `tekst.replace(a, b)` bytter ut, `tekst.count(a)` teller,\n`tekst.find(a)` finner plassen, `\"\".join(liste)` skjøter en liste til en tekst,\nog `tekst[::-1]` snur den.\n\n**Denne boka bruker dem ikke, og det er et bevisst valg.** Fagets egne\nløsningsforslag skriver den eksplisitte løkka, fordi det er løkka som er\nferdigheten kurset måler — og fordi den samme løkka er det du trenger inne i en\nmetode i den store Oppgave 4, der ingen ferdig metode passer.\n\nDe fire metodene boka **bruker**, er `.split()`, `.rstrip()`, `.strip()`,\n`.lower()` og `.upper()`. De er med fordi de gjør noe du ikke rimeligvis kan\nskrive selv på en eksamen, og fordi filbehandlingen er avhengig av dem."
+  },
+  {
+   "id": "in1000-3-3-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — skriv en funksjon over en streng.) Skriv funksjonen\n`snu(tekst)` som returnerer teksten baklengs.\n\n**a)** Skriv funksjonen med en løkke over **plassene**, bakfra.\n\n**b)** Skriv den samme funksjonen med en løkke over tegnene, uten indekser.\n\n**c)** Hvilken av de to ville du levert på eksamen?",
+    "solution": "**a)** Negativt steg i `range`, fra siste indeks ned til og med 0:\n\n```python\ndef snu(tekst):\n    ny = \"\"\n    for i in range(len(tekst) - 1, -1, -1):\n        ny = ny + tekst[i]\n    return ny\n\nprint(snu(\"kano\"))\nprint(snu(\"a\"), len(snu(\"\")))\n```\n\n**Utskrift:**\n```\nonak\na 0\n```\n\nMerk de tre tallene i `range`. Start er siste indeks, `len(tekst) - 1`. Stopp er\n`-1`, fordi stoppverdien aldri er med og du vil ha 0 med. Steg er `-1`.\n\n**b)** Samme svar, uten en eneste indeks — du snur ved å bygge foran:\n\n```python\ndef snu_enkelt(tekst):\n    ny = \"\"\n    for tegn in tekst:\n        ny = tegn + ny\n    return ny\n\nprint(snu_enkelt(\"kano\"))\nprint(snu_enkelt(\"\"))\n```\n\n**Utskrift:**\n```\nonak\n\n```\n\n**c)** Den andre. Den er kortere, den kan ikke bomme på grensene, og den har\ningen av de tre tallene i `range` å skrive feil. På en hjelpemiddelfri eksamen er\ndet et reelt argument.\n\nBegge gir full uttelling når svaret er riktig — men den første har fire steder å\ngjøre av-med-én-feil, og den andre har null.",
+    "hints": [
+     "For a): hva er den største lovlige indeksen, og hvor må `range` stoppe for å få med indeks 0?",
+     "For b): hva skjer hvis du setter det nye tegnet foran i stedet for bak?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-16",
+   "type": "text",
+   "content": "## Løkke 3 — Å dele opp en tekst: `.split()` og `.rstrip()` (~12 min)\n\nNå kommer de to metodene som gjør resten av faget mulig. Alt som kommer inn\nutenfra — en linje fra en fil, en linje brukeren skriver — er én lang tekst med\nflere opplysninger i. Å dele den opp riktig er første steg i hver eneste\nfiloppgave."
+  },
+  {
+   "id": "in1000-3-3-17",
+   "type": "definition",
+   "title": "`.split()` uten argument",
+   "content": "Deler teksten i en **liste** av ord, på hvert mellomrom:\n\n```python\nsetning = \"buss tog trikk\"\nprint(setning.split())\nprint(len(setning.split()))\nprint(setning.split()[0])\n```\n\n**Utskrift:**\n```\n['buss', 'tog', 'trikk']\n3\nbuss\n```\n\nResultatet er en helt vanlig liste, med alt du kan gjøre med lister fra\n[kap. 3.1](/bok/in1000/in1000-3-1): indeksering, `len`, og en `for`-løkke over\nelementene.\n\nMerk skrivemåten: `setning.split()` med punktum foran og tomme parenteser etter.\nDet er en **metode** — en funksjon som hører til teksten den står bak — samme\nform som `liste.append(...)`.\n\nUten argument deler `.split()` på ett eller flere blanktegn, og den kaster tomme\nbiter. `\"a   b\".split()` gir derfor to elementer, ikke fire."
+  },
+  {
+   "id": "in1000-3-3-18",
+   "type": "definition",
+   "title": "`.split(skilletegn)`",
+   "content": "Med et argument deler den på nøyaktig det tegnet du oppgir:\n\n```python\nlinje = \"Ada;19;Oslo\"\nfelt = linje.split(\";\")\nprint(felt)\nprint(felt[0], felt[1])\nprint(int(felt[1]) + 1)\n```\n\n**Utskrift:**\n```\n['Ada', '19', 'Oslo']\nAda 19\n20\n```\n\nDette er formen filoppgavene bruker: én linje inneholder flere **felt**, skilt av\nsemikolon, komma eller kolon.\n\nLegg merke til siste linje. Feltene er alltid **tekster**, også når de ser ut som\ntall. Skal du regne med et felt, må det gjennom `int(...)` først — det er\nfeilkode #4, og den rammer alle som glemmer det.\n\nOppgi du feil skilletegn, får du én stor bit i stedet for flere små:\n`\"Ada;19\".split(\",\")` gir `['Ada;19']`. Da er feilen ikke en feilmelding, men et\ngalt svar lenger nede. Det er feilkode #8."
+  },
+  {
+   "id": "in1000-3-3-19",
+   "type": "definition",
+   "title": "`.rstrip()` og `.strip()`",
+   "content": "Fjerner blanktegn i endene og gir en **ny** tekst. `.rstrip()` fjerner bare til\nhøyre; `.strip()` fjerner i begge ender:\n\n```python\nlinje = \"Ada;19\\n\"\nprint(len(linje))\nprint(len(linje.rstrip()))\nprint(linje.rstrip().split(\";\"))\nprint(\"  ada  \".strip())\n```\n\n**Utskrift:**\n```\n7\n6\n['Ada', '19']\nada\n```\n\nTegnet `\\n` i første linje er **linjeskiftet** — ett enkelt tegn, ikke to, slik\nlengden 7 viser. Det henger med hver eneste linje du leser fra en fil, og det er\nnettopp det `.rstrip()` er til for.\n\n**Rekkefølgen er alltid `.rstrip()` FØR `.split()`.** Snur du den, deler du opp\nen tekst som fortsatt har linjeskiftet i seg, og det siste feltet blir feil."
+  },
+  {
+   "id": "in1000-3-3-20",
+   "type": "warning",
+   "title": "Typisk feil #8 — glemt `.rstrip()` eller feil skilletegn",
+   "content": "Feilen er stum: programmet krasjer ikke, det svarer bare galt.\n\n```python\nlinje = \"Ada;19\\n\"\nuten = linje.split(\";\")\nprint(uten)\nprint(uten[1] == \"19\")\nmed = linje.rstrip().split(\";\")\nprint(med)\nprint(med[1] == \"19\")\n```\n\n**Utskrift:**\n```\n['Ada', '19\\n']\nFalse\n['Ada', '19']\nTrue\n```\n\nSe på de to listene. De **ser** nesten like ut, men det siste feltet i den\nførste har linjeskiftet klistret på seg — og derfor er sammenligningen med\n`\"19\"` usann.\n\nDet er verre enn en feilmelding, fordi feilen dukker opp langt unna: en\nsammenligning som aldri slår til, en nøkkel som ikke finnes i ordboka, et navn\nsom ser riktig ut i utskriften men ikke matcher.\n\n**Regelen som holder:** les linja, `.rstrip()` den med én gang, og del deretter.\nAlltid i den rekkefølgen."
+  },
+  {
+   "id": "in1000-3-3-21",
+   "type": "example",
+   "title": "Eksempel 3: Fra én linje til ferdige verdier",
+   "problem": "En frivilligsentral har medlemslinjer på formen `\"Ada;19;Oslo\"`, med et\nlinjeskift på slutten slik de kommer fra en fil. Skriv `les_medlem(linje)` som\nreturnerer navnet som tekst og alderen som tall, og vis at alderen faktisk kan\nregnes med.",
+   "solution": "Rens først, del så, konverter til slutt:\n\n```python\ndef les_medlem(linje):\n    felt = linje.rstrip().split(\";\")\n    navn = felt[0]\n    alder = int(felt[1])\n    return navn, alder\n\nn, a = les_medlem(\"Ada;19;Oslo\\n\")\nprint(n, a)\nprint(a + 1)\nprint(len(n))\n```\n\n**Utskrift:**\n```\nAda 19\n20\n3\n```\n\n**Dette er malen for hver eneste filoppgave i faget**, og den er verdt å lære\nutenat i akkurat denne rekkefølgen:\n\n1. `.rstrip()` — fjern linjeskiftet.\n2. `.split(skilletegn)` — del i felt.\n3. `int(...)` på de feltene som skal være tall.\n\n**Slik ville sensor sett på det:** hvert av de tre stegene gir uttelling for seg.\nGlemmer du `int(...)`, får du en funksjon som returnerer `\"19\"` i stedet for\n`19` — riktig struktur, én type feil, lite trekk. Glemmer du `.rstrip()`, virker\nalt tilsynelatende, helt til noe skal sammenlignes.\n\nLegg merke til at funksjonen bruker **flere returverdier** fra\n[kap. 2.1](/bok/in1000/in1000-2-1), og at `len(n)` er 3 — navnet har ingen\nusynlige tegn hengende ved seg."
+  },
+  {
+   "id": "in1000-3-3-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — skriv en funksjon over en streng.) En kollektivrute\ner beskrevet som `\"Majorstuen-Nationaltheatret-Jernbanetorget\"`, med bindestrek\nmellom stoppene. Skriv funksjonen `antall_stopp(rute)` som returnerer hvor mange\nstopp ruta har.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `antall_stopp(\"Blindern\")`?\n\n**c)** En kollega foreslår å telle bindestreker i stedet, og legge til én. Gir\ndet samme svar? Nevn ett tilfelle der de to metodene er uenige.",
+    "solution": "**a)** Del på bindestrek, og mål lengden på lista:\n\n```python\ndef antall_stopp(rute):\n    stoppene = rute.split(\"-\")\n    return len(stoppene)\n\nprint(antall_stopp(\"Majorstuen-Nationaltheatret-Jernbanetorget\"))\nprint(antall_stopp(\"Blindern\"))\n```\n\n**Utskrift:**\n```\n3\n1\n```\n\n**b)** `1`. Uten noen bindestrek gir `.split(\"-\")` en liste med **ett** element —\nhele teksten. Det er et rimelig svar: en rute med bare ett stopp.\n\n**c)** For vanlige data gir de samme svar. Men de er uenige om den **tomme**\nteksten: `\"\".split(\"-\")` gir `['']`, altså ett element, mens antall bindestreker\ner 0 og «pluss én» også gir 1 — der er de faktisk enige.\n\nUenigheten kommer ved doble bindestreker. `\"A--B\"` gir tre elementer med\n`.split(\"-\")` (det midterste er tomt), mens bindestrek-tellingen gir 2 + 1 = 3 —\nogså enige. Det ekte skillet er data som **slutter** med skilletegnet:\n`\"A-B-\"` gir tre elementer med `.split(\"-\")`, men to bindestreker pluss én er\nogså 3.\n\nPoenget er ikke å finne uenigheten, men å se hvor mye du må tenke gjennom for å\nvære sikker. `.split()` og `len(...)` gjør jobben uten at du trenger å\nargumentere — og på eksamen er den korteste veien til et svar du kan stå inne\nfor, som regel den beste.",
+    "hints": [
+     "Hva slags verdi gir `.split(\"-\")`, og hvordan måler du den?",
+     "For b): hvor mange elementer gir `.split` når skilletegnet ikke finnes?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nlinje = \"sykkel:12:rod\\n\"\nfelt = linje.split(\":\")\nprint(len(felt))\nprint(felt[0], felt[1])\nprint(felt[2] == \"rod\")\nrent = linje.rstrip().split(\":\")\nprint(rent)\nprint(int(rent[1]) * 2)\n```",
+    "solution": "Nøkkelen er å se hvor linjeskiftet blir av.\n\n| Uttrykk | Verdi |\n|---|---|\n| `linje.split(\":\")` | `['sykkel', '12', 'rod\\n']` — tre felt, det siste med linjeskift |\n| `len(felt)` | `3` |\n| `felt[2] == \"rod\"` | `False`, fordi feltet er `\"rod\\n\"` |\n| `linje.rstrip().split(\":\")` | `['sykkel', '12', 'rod']` — nå er linjeskiftet borte |\n\n**Utskrift:**\n```\n3\nsykkel 12\nFalse\n['sykkel', '12', 'rod']\n20\n```\n\n**Tre feller i én oppgave.** Den første er sammenligningen som svarer `False`\nselv om det «ser riktig ut» — det er feilkode #8, og den er stum.\n\nDen andre er at `print(felt[0], felt[1])` viser feltene **uten** anførselstegn,\nmens `print(rent)` viser hele lista **med** enkle anførselstegn. Samme verdier,\nto ulike former.\n\nDen tredje er siste linje: `rent[1]` er teksten `\"12\"`, og uten `int(...)` ville\n`* 2` gitt `\"1212\"` i stedet for 20. Her står `int(...)` der, så svaret er et\ntall.",
+    "hints": [
+     "Hvor i teksten sitter linjeskiftet, og hvilket felt havner det i?",
+     "Sammenlign hva `print` viser for ett felt og for hele lista."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-22",
+   "type": "text",
+   "content": "## Løkke 4 — Å lete i en tekst (~10 min)\n\nSiste bit er de to spørsmålene du oftest stiller en tekst: **finnes dette i\nden?** og **hvordan ser den ut uten store og små bokstaver?**"
+  },
+  {
+   "id": "in1000-3-3-23",
+   "type": "definition",
+   "title": "`del in tekst`",
+   "content": "Svarer `True` eller `False` på om en **delstreng** finnes i teksten:\n\n```python\ntekst = \"kollektivtrafikk\"\nprint(\"trafikk\" in tekst)\nprint(\"Trafikk\" in tekst)\nprint(\"t\" in tekst)\nprint(\"ki\" in tekst)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\nFalse\n```\n\nMerk to ting. **Testen skiller stor og liten bokstav** — andre linje er usann bare\nfordi `T` er stor. Og **tegnene må stå etter hverandre og i riktig rekkefølge**:\n`\"ki\"` finnes ikke, selv om både `k` og `i` gjør det hver for seg. (`\"kt\"` ville\nderimot gitt `True`, fordi de to står inntil hverandre i `kollektiv`.)\n\n`in` forteller om delen finnes, ikke hvor. Trenger du plassen, teller du deg\nfram med en indeksløkke, slik du gjorde med lister."
+  },
+  {
+   "id": "in1000-3-3-24",
+   "type": "definition",
+   "title": "`.lower()` og `.upper()`",
+   "content": "Gir en **ny** tekst med bare små eller bare store bokstaver. Den opprinnelige er\nurørt:\n\n```python\nnavn = \"Ada Berg\"\nprint(navn.lower())\nprint(navn.upper())\nprint(navn)\nprint(\"ADA\".lower() == \"ada\")\n```\n\n**Utskrift:**\n```\nada berg\nADA BERG\nAda Berg\nTrue\n```\n\nDen vanligste bruken er å sammenligne uten å bry seg om store bokstaver: gjør\nbegge sider små først, og sammenlign så.\n\nMerk at metodene **returnerer** en ny tekst. Skriver du bare `navn.lower()` på en\nlinje for seg, kastes resultatet og `navn` er uendret — samme felle som med alt\nannet som returnerer noe."
+  },
+  {
+   "id": "in1000-3-3-25",
+   "type": "example",
+   "title": "Eksempel 4: En full Oppgave 3-oppgave i sjanger E",
+   "problem": "En kantine har dagens meny som én tekst: `\"suppe fisk salat suppe\"`. Skriv\n`antall_med_forbokstav(setning, bokstav)` som teller hvor mange ord i setningen\nsom begynner på den gitte bokstaven. Funksjonen skal tåle en tom setning.",
+   "solution": "Del i ord, og se på det første tegnet i hvert:\n\n```python\ndef antall_med_forbokstav(setning, bokstav):\n    antall = 0\n    for ord_tekst in setning.split():\n        if ord_tekst[0] == bokstav:\n            antall = antall + 1\n    return antall\n\nprint(antall_med_forbokstav(\"suppe fisk salat suppe\", \"s\"))\nprint(antall_med_forbokstav(\"suppe fisk salat suppe\", \"f\"))\nprint(antall_med_forbokstav(\"\", \"s\"))\n```\n\n**Utskrift:**\n```\n3\n1\n0\n```\n\n**Slik ville sensor sett på det, steg for steg.** `.split()` gir ordene (2 p),\ntellermønsteret rundt (2 p), `ord_tekst[0]` som forbokstav (1 p) og `return`\netter løkka (1 p). Har du strukturen, men sammenlignet med `bokstav` uten å ta\nhensyn til store bokstaver, er det en liten feil med riktig idé — og verdt å\nnevne i en kommentar hvis oppgaveteksten er uklar.\n\n**Den tomme setningen løses av seg selv.** `\"\".split()` gir den tomme lista, så\nløkka kjører null runder og telleren returneres som 0. Det er verdt å legge\nmerke til: hadde du i stedet gått tegn for tegn og sett etter mellomrom, måtte du\nhåndtert det tilfellet selv.\n\n**Én skjult forutsetning bør nevnes.** Koden skriver `ord_tekst[0]` uten å sjekke\nat ordet har tegn. Det er trygt her, fordi `.split()` aldri gir tomme ord — men\nhadde du delt med `.split(\";\")`, kunne du fått et tomt felt, og da ville\n`ord_tekst[0]` stoppet programmet. Slike forutsetninger skriver du en kort\nkommentar om i besvarelsen."
+  },
+  {
+   "id": "in1000-3-3-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E — skriv en funksjon over en streng.) En\nfrivilligsentral vil vise medlemmene med initialer. Skriv funksjonen\n`initialer(navn)` som returnerer forbokstaven i hvert ord, med et punktum etter\nhver.\n\nFor `\"Ada Marie Berg\"` skal funksjonen gi `\"A.M.B.\"`.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `initialer(\"\")`?\n\n**c)** Utvid funksjonen slik at initialene alltid blir store bokstaver, uansett\nhvordan navnet er skrevet.",
+    "solution": "**a)** Del i ord, og bygg teksten med tegn-for-tegn-mønsteret — bare at «tegnet»\nher er en forbokstav og et punktum:\n\n```python\ndef initialer(navn):\n    ny = \"\"\n    for ord_tekst in navn.split():\n        ny = ny + ord_tekst[0] + \".\"\n    return ny\n\nprint(initialer(\"Ada Marie Berg\"))\nprint(initialer(\"Bo\"))\n```\n\n**Utskrift:**\n```\nA.M.B.\nB.\n```\n\n**b)** Den tomme teksten `\"\"`. `\"\".split()` gir en tom liste, løkka kjører null\nrunder, og `ny` returneres slik den ble laget. Riktig svar, uten en eneste ekstra\n`if`.\n\n**c)** Gjør forbokstaven stor før du legger den til:\n\n```python\ndef initialer_store(navn):\n    ny = \"\"\n    for ord_tekst in navn.split():\n        ny = ny + ord_tekst[0].upper() + \".\"\n    return ny\n\nprint(initialer_store(\"ada marie berg\"))\nprint(initialer_store(\"Ada Marie Berg\"))\n```\n\n**Utskrift:**\n```\nA.M.B.\nA.M.B.\n```\n\n**Slik gir det poeng:** den tomme teksten før løkka (1 p), `.split()` (2 p),\noppbyggingen med forbokstav og punktum (3 p) og `return` etter løkka (1 p).\nLegger du punktumet **foran** i stedet for bak, får du `.A.M.B` — riktig idé,\nliten feil, fortsatt god uttelling. Skriv gjerne ett eksempelkall som kommentar\nunder funksjonen; det viser sensor at du har tenkt gjennom formen.",
+    "hints": [
+     "Hva gir `.split()` når teksten er tom?",
+     "Bygg opp svaret to tegn om gangen: forbokstaven og punktumet."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-3-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En student skal fjerne alle mellomrom\nfra en tekst. Hun leverer:\n\n```text\ndef fjern_mellomrom(tekst):\n    ny = \"\"\n    for tegn in tekst:\n        if tegn != \" \":\n            ny + tegn\n    return ny\n```\n\n**a)** Hva returnerer `fjern_mellomrom(\"bruker navn\")`?\n\n**b)** Gi et konkret moteksempel og forklar i én setning hvorfor det går galt.\n\n**c)** Rett feilen, og vis at den rettede funksjonen virker.",
+    "solution": "**a)** Den tomme teksten `\"\"`. Funksjonen krasjer ikke, den svarer bare galt på\nalt.\n\n**b)** Moteksempelet er kallet `fjern_mellomrom(\"a b\")`, som gir `\"\"` i stedet for\n`\"ab\"`. Årsaken er at linja `ny + tegn` regner ut den nye teksten og deretter\n**kaster** den — resultatet blir aldri lagret tilbake i `ny`.\n\nLegg merke til at feilen er den samme uansett inndata, og at den er stum: ingen\nfeilmelding, bare et tomt svar. Å skrive et uttrykk uten å ta imot verdien er\nlovlig Python, og det er nettopp derfor sjangeren «finn feilen» finnes.\n\n**c)** Ta imot resultatet:\n\n```python\ndef fjern_mellomrom(tekst):\n    ny = \"\"\n    for tegn in tekst:\n        if tegn != \" \":\n            ny = ny + tegn\n    return ny\n\nprint(fjern_mellomrom(\"bruker navn\"))\nprint(fjern_mellomrom(\"a b c\"))\nprint(len(fjern_mellomrom(\"   \")))\n```\n\n**Utskrift:**\n```\nbrukernavn\nabc\n0\n```\n\nDen samme feilen finnes i to andre forkledninger, og de er verdt å kjenne igjen:\n`liste.append(x)` uten problem — den endrer lista og trenger ingen tilordning —\nmen `tekst.lower()` og `tekst.rstrip()` **må** tas imot, akkurat som `ny + tegn`.\nRegelen er enkel: **returnerer uttrykket en ny verdi, må du ta imot den.**",
+    "hints": [
+     "Hva skjer med resultatet av `ny + tegn` når linja er ferdig?",
+     "Et moteksempel er ett konkret kall med et konkret galt utfall."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-3-26",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på strenger:\n\n- **#8 — glemt `.rstrip()`.** Linjeskiftet henger igjen i det siste feltet, og\n  sammenligninger som «ser riktige ut», svarer `False`. Rens **før** du deler.\n- **#8 — feil skilletegn i `.split()`.** Du får én stor bit i stedet for flere\n  små, og feilen dukker opp langt unna.\n- **#4 — glemt `int(...)`.** Felter fra `.split()` er alltid tekster, også når de\n  ser ut som tall.\n- **Forsøk på å endre en tekst på plass.** `tekst[0] = \"s\"` stopper programmet.\n  Bygg en ny tekst i stedet.\n- **Resultatet ikke tatt imot.** `ny + tegn` og `tekst.lower()` returnerer nye\n  verdier. Uten en tilordning kastes de.\n\nOg én retningsfelle: `ny = ny + tegn` bygger forfra, `ny = tegn + ny` bygger\nbakfra. Les hvilken vei du bygger før du sporer."
+  },
+  {
+   "id": "in1000-3-3-coll-27",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-3-3-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `tekst[i]` | Tegn nummer `i`, som en tekst av lengde 1. Tellingen starter på 0. |\n| `tekst[-1]` | Siste tegn. Negativ indeks teller bakfra, som i en liste. |\n| `len(tekst)` | Antall tegn, medregnet mellomrom, tegnsetting og linjeskift. |\n| `for tegn in tekst:` | Går gjennom tegnene. Løkkevariabelen er en tekst av lengde 1. |\n| `tekst[i] = \"a\"` | **Går ikke.** Strenger er uforanderlige — `TypeError`. Bygg en ny. |\n| `a + b` | Skjøter to tekster. Mellomrom må skrives inn selv som `\" \"`. |\n| `ny = ny + tegn` | Bygger **forfra**. `ny = tegn + ny` bygger bakfra og snur teksten. |\n| `ny += tegn` | Kortform for `ny = ny + tegn`. Betyr nøyaktig det samme. |\n| `str(tall)` | Tallet som tekst, slik at det kan skjøtes. `len(str(100))` er 3. |\n| `int(tekst)` | Teksten som heltall. Nødvendig på hvert felt du skal regne med. |\n| `tekst.split()` | Deler på blanktegn og gir en **liste** av ord. Tomme biter kastes. |\n| `tekst.split(\";\")` | Deler på nøyaktig det tegnet. Finnes det ikke, gir den ett element. |\n| `tekst.rstrip()` | Ny tekst uten blanktegn til høyre — fjerner linjeskiftet. |\n| `tekst.strip()` | Som `.rstrip()`, men i begge ender. |\n| `linje.rstrip().split(\";\")` | **Malen for filoppgaver:** rens først, del så. Aldri motsatt. |\n| `del in tekst` | `True`/`False` om delstrengen finnes. Skiller stor og liten bokstav. |\n| `tekst.lower()` / `.upper()` | **Ny** tekst med bare små eller store bokstaver. Originalen er urørt. |\n\n**Det som avgjør poeng i Oppgave 3:** at du bygger en ny tekst i stedet for å\nendre den gamle, og at `.rstrip()` står før `.split()`."
+    }
+   ]
+  },
+  {
+   "id": "in1000-3-3-28",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-3-3-29",
+   "type": "definition",
+   "title": "Tegn",
+   "content": "Ett enkelt symbol i en tekst: en bokstav, et siffer, et mellomrom, et komma\neller et linjeskift.\n\nI Python finnes ingen egen datatype for ett tegn. `tekst[0]` gir en **tekst av\nlengde 1**, og den kan alt en tekst kan — den kan sammenlignes, skjøtes og\nsendes til en funksjon.\n\nDet er derfor sifferbetingelsen `tegn >= \"0\" and tegn <= \"9\"` fungerer: du\nsammenligner to tekster, ikke to tall."
+  },
+  {
+   "id": "in1000-3-3-30",
+   "type": "definition",
+   "title": "Den tomme teksten",
+   "content": "Teksten `\"\"`, med lengde 0.\n\nDen er startpunktet i tegn-for-tegn-mønsteret, og den er svaret når en funksjon\nikke fant noe å ta med. En tom tekst **ser ut som ingenting** når den skrives\nut, og det forveksles lett med at funksjonen ikke returnerte noe.\n\nSkillet er viktig: `\"\"` er en tekst med lengde 0, mens `None` betyr at det ikke\nkom noen verdi tilbake i det hele tatt."
+  },
+  {
+   "id": "in1000-3-3-31",
+   "type": "definition",
+   "title": "Streng-literal",
+   "content": "En tekst skrevet rett inn i koden, mellom anførselstegn: `\"sykkel\"`.\n\nEnkle og doble anførselstegn virker likt i Python. Boka bruker doble, og det\ngjør fagets løsningsforslag også — men når Python **skriver ut** en tekst som\nligger inne i en liste eller ordbok, viser den den med enkle.\n\nDen forskjellen er ren utskriftsform, ikke to ulike verdier. Men i et\nauto-rettet svarfelt må du gjengi den slik terminalen faktisk viser den."
+  },
+  {
+   "id": "in1000-3-3-32",
+   "type": "definition",
+   "title": "Sammenligning av tekst",
+   "content": "Tekster sammenlignes tegn for tegn etter rekkefølgen i tegnsettet, ikke etter\nlengde.\n\nI praksis betyr det at store bokstaver kommer før små, og at sifrene står samlet\nfør bokstavene. Derfor er `\"Z\" < \"a\"` sann, og derfor virker\n`tegn >= \"0\" and tegn <= \"9\"` som en siffertest.\n\nSkal du sammenligne uten å bry deg om store bokstaver, gjør begge sider små med\n`.lower()` først."
+  },
+  {
+   "id": "in1000-3-3-33",
+   "type": "definition",
+   "title": "Blanktegn",
+   "content": "Fellesordet for mellomrom, tabulator og linjeskift — tegnene som ikke vises,\nmen som teller med i lengden.\n\n`.split()` uten argument deler på blanktegn, og `.strip()` og `.rstrip()` fjerner\ndem i endene.\n\nDe er kilden til de fleste stumme feilene i faget: to tekster som ser like ut på\nskjermen, kan skille seg med ett usynlig tegn — og da svarer sammenligningen\n`False` uten at noe ser galt ut."
+  },
+  {
+   "id": "in1000-3-3-34",
+   "type": "definition",
+   "title": "Linjeskift",
+   "content": "Tegnet som avslutter en linje. I Python skrives det `\\n` inne i en tekst, og\ndet er **ett** tegn, ikke to.\n\nHver linje du leser fra en fil, har det på slutten. Derfor er `.rstrip()` det\nførste du gjør med en innlest linje, hver eneste gang.\n\nDu ser det aldri i en utskrift — der viser det seg bare som at teksten fortsetter\npå neste linje."
+  },
+  {
+   "id": "in1000-3-3-35",
+   "type": "definition",
+   "title": "Metode",
+   "content": "En funksjon som hører til verdien den står bak, skrevet med punktum mellom:\n`tekst.split()`, `tekst.rstrip()`, `liste.append(e)`.\n\nSkrivemåten forteller hvem som gjør jobben. `len(tekst)` er en vanlig funksjon\nsom får teksten inn; `tekst.split()` er en metode som teksten selv utfører.\n\nSenere i boka skriver du dine egne metoder, på dine egne klasser. Formen med\npunktum blir da den samme — og det er ingen tilfeldighet."
+  },
+  {
+   "id": "in1000-3-3-36",
+   "type": "definition",
+   "title": "Å ta imot resultatet",
+   "content": "Metodene i dette kapitlet deler seg i to grupper, og forskjellen koster poeng.\n\n`.split()`, `.rstrip()`, `.strip()`, `.lower()` og `.upper()` **returnerer en ny\nverdi** og lar originalen være urørt. De må tas imot:\n`ren = linje.rstrip()`.\n\n`liste.append(e)` **endrer** lista og returnerer ingenting. Den skal ikke tas\nimot — `liste = liste.append(e)` ødelegger lista.\n\nRegelen: er verdien uforanderlig, får du en ny; kan den endres, blir den endret."
+  },
+  {
+   "id": "in1000-3-3-37",
+   "type": "definition",
+   "title": "Felt",
+   "content": "En av bitene du får når du deler en linje: i `\"Ada;19;Oslo\"` er `\"Ada\"`, `\"19\"`\nog `\"Oslo\"` de tre feltene.\n\nFeltene er **alltid tekster**, også når de ser ut som tall. Skal du regne med et\nfelt, må det gjennom `int(...)` — det er feilkode #4.\n\nRekkefølgen er fast og bestemt av dataformatet, så du henter dem med indeks:\n`felt[0]` er navnet, `felt[1]` alderen. Skriv gjerne en kommentar om hvilket\nfelt som er hva; det gjør besvarelsen lettere å rette."
+  },
+  {
+   "id": "in1000-3-3-38",
+   "type": "definition",
+   "title": "Tegn-for-tegn-mønsteret",
+   "content": "Å bygge en ny tekst med `ny = \"\"` før løkka, `ny = ny + tegn` inne i den og\n`return ny` etter.\n\nKjenn det igjen på oppgaveteksten: «fjern alle …», «lag en ny tekst der …»,\n«behold bare …», «snu …».\n\nDet er samme skjelett som bygg-en-ny-liste-mønsteret, med `\"\"` i stedet for `[]`\nog plusstegn i stedet for `append`. Ser du de to som ett mønster med to\nvarianter, har du dekket halve sjanger C og hele sjanger E."
+  },
+  {
+   "id": "in1000-3-3-39",
+   "type": "definition",
+   "title": "Å gå bakfra",
+   "content": "`for i in range(len(tekst) - 1, -1, -1):` går gjennom plassene fra siste til\nførste.\n\nDe tre tallene er lette å bomme på: start er `len(tekst) - 1`, stopp er `-1`\nfordi stoppverdien aldri er med, og steget er `-1`.\n\nTrenger du bare å **snu** teksten, finnes det en enklere vei: bygg foran med\n`ny = tegn + ny` i en vanlig løkke. Da har du ingen grenser å skrive feil."
+  },
+  {
+   "id": "in1000-3-3-40",
+   "type": "definition",
+   "title": "`.split()` gir en liste",
+   "content": "Resultatet av `.split()` er en helt vanlig liste, ikke en tekst.\n\nDet betyr at alt fra [kap. 3.1](/bok/in1000/in1000-3-1) gjelder: `len(...)` gir\nantall biter, `felt[0]` gir den første, og `for del in tekst.split():` går\ngjennom dem.\n\nNettopp derfor kommer strengekapitlet etter listekapitlet. Uten lister ville\n`.split()` ikke hatt noe å levere resultatet i."
+  },
+  {
+   "id": "in1000-3-3-41",
+   "type": "definition",
+   "title": "Tekst mot tall",
+   "content": "De to typene ser like ut i en utskrift, men oppfører seg helt ulikt.\n\n`\"12\" + \"3\"` gir `\"123\"`; `12 + 3` gir `15`. `\"12\" * 2` gir `\"1212\"`; `12 * 2`\ngir `24`. Og `\"12\" == 12` er **usann** — de er ikke samme verdi.\n\nAlt som kommer inn utenfra, er tekst: det brukeren skriver, og hver linje fra en\nfil. Konverteringen med `int(...)` er derfor ikke en detalj, men første steg i\nenhver oppgave med data utenfra."
+  },
+  {
+   "id": "in1000-3-3-42",
+   "type": "definition",
+   "title": "Skilletegn",
+   "content": "Tegnet du deler en linje på: semikolon, komma, kolon eller mellomrom.\n\nSkilletegnet er en del av **dataformatet**, ikke noe du velger fritt. Leser du en\nfil, må du bruke det tegnet fila faktisk bruker — oppgir du feil, får du én stor\nbit i stedet for flere små, og feilen er stum.\n\nEr du usikker på formatet i en eksamensoppgave, skriv en kommentar om hvilket\nskilletegn du har forutsatt. Det er den ene legitime bruken av kommentarer i en\nbesvarelse."
+  },
+  {
+   "id": "in1000-3-3-coll-43",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-3-3-c2",
+     "type": "text",
+     "content": "1. En tekst er en **sekvens av tegn**: `len(...)`, `tekst[i]`, `tekst[-1]` og\n   `for tegn in tekst:` virker som på en liste.\n2. **Tekster kan ikke endres.** `tekst[0] = \"s\"` stopper programmet — bygg en ny\n   tekst i stedet.\n3. **Tegn-for-tegn-mønsteret:** `ny = \"\"` før løkka, `ny = ny + tegn` inne i den,\n   `return ny` etter.\n4. `ny = ny + tegn` bygger **forfra**; `ny = tegn + ny` bygger **bakfra** og\n   snur teksten.\n5. `.split()` gir en **liste**. Uten argument deler den på blanktegn, med\n   argument på nøyaktig det tegnet.\n6. **`.rstrip()` FØR `.split()`.** Ellers henger linjeskiftet igjen i det siste\n   feltet, og sammenligninger svarer `False` — feilkode #8.\n7. **Felt er alltid tekster.** Skal du regne med et, må det gjennom `int(...)` —\n   feilkode #4."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
