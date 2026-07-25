@@ -252,6 +252,14 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
   på alle fire; verifiser med `quiz-lengdesjekk.mjs`.
 - `chapterNumber` alltid del-basert («2.3») — aldri lineær.
 - LaTeX i JSON = `\\`; generer via python json.dump.
+- **Dollartegn som ikke er matte MÅ escapes `\$`.** Valuta (`\$1,5 billioner`),
+  Excel-referanser (`\$E\$1`) og JS-templater (`\${…}`) blir ellers matte-
+  avgrensere. To slike på samme linje er PARTALL, så den gamle ubalanse-sjekken
+  så dem ikke — rendreren parret dem og satte teksten mellom som formel:
+  «\$121,700 (but median Black household: \$17,600)» ble til
+  «121,700(butmedianBlackhousehold:» for leseren. Rammet 21 filer i live bøker
+  25. juli 2026. `sjekk-latex.py` har nå en egen PROSA SATT SOM MATTE-sjekk.
+  Kode i backticks er trygt — rendreren tar den ut før matten.
 - Agenter dør på sesjonsgrenser: innholdet ligger som regel på disk — mål
   disk og gap-fill, aldri bygg på nytt.
 - combine-chapters (prebuild) leser alle registry-id-er — én ugyldig JSON
