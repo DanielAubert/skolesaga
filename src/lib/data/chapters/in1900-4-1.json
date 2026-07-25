@@ -45,7 +45,7 @@
    "type": "example",
    "title": "Eksempel 1: samme uttrykk, to helt ulike svar",
    "problem": "Tre timesmålinger av temperatur er lagret både som liste og som array. Hva skriver `liste + liste`, `array + array`, `liste * 2` og `array * 2` ut?",
-   "solution": "\nNøkkelen er at `+` og `*` betyr noe helt annet for en liste enn for et array.\n\n```python\nimport numpy as np\n\nmaal_liste = [2.1, 3.4, 3.0]\nmaal_array = np.array([2.1, 3.4, 3.0])\n\nprint(maal_liste + maal_liste)\nprint(maal_array + maal_array)\nprint(maal_liste * 2)\nprint(maal_array * 2)\n```\n\n**Utskrift:**\n```\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n```For lista betyr `+` **skjøting**: to lister etter hverandre, seks elementer. For arrayet betyr `+` **elementvis addisjon**: hvert element legges til seg selv, fortsatt tre elementer. Samme mønster for `*`: lista gjentas, arrayet skaleres.\n\nLegg også merke til hvordan Python skriver de to: lista med komma, arrayet uten."
+   "solution": "\nNøkkelen er at `+` og `*` betyr noe helt annet for en liste enn for et array.\n\n```python\nimport numpy as np\n\nmaal_liste = [2.1, 3.4, 3.0]\nmaal_array = np.array([2.1, 3.4, 3.0])\n\nprint(maal_liste + maal_liste)\nprint(maal_array + maal_array)\nprint(maal_liste * 2)\nprint(maal_array * 2)\n```\n\n**Utskrift:**\n```\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n```\n\nFor lista betyr `+` **skjøting**: to lister etter hverandre, seks elementer. For arrayet betyr `+` **elementvis addisjon**: hvert element legges til seg selv, fortsatt tre elementer. Samme mønster for `*`: lista gjentas, arrayet skaleres.\n\nLegg også merke til hvordan Python skriver de to: lista med komma, arrayet uten."
   },
   {
    "id": "in1900-4-1-def-elementvis",
@@ -121,7 +121,7 @@
    "type": "example",
    "title": "Eksempel 2: punkttelling og steglengde",
    "problem": "En måleserie skal dekke tidsrommet fra $t=0$ til $t=6$ timer med 12 like intervaller. Lag tidsarrayet, og vis at antall punkter og steglengden stemmer.",
-   "solution": "\nTolv intervaller betyr tretten punkter, og steglengden blir $6/12 = 0.5$.\n\n```python\nimport numpy as np\n\nN = 12\nt = np.linspace(0, 6, N+1)\nprint(t)\nprint('Antall punkter:', t.size)\nprint('Antall intervaller:', t.size - 1)\nprint('Steglengde:', t[1] - t[0])\n```\n\n**Utskrift:**\n```\n[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6. ]\nAntall punkter: 13\nAntall intervaller: 12\nSteglengde: 0.5\n```Sensorpoenget: hadde du skrevet `np.linspace(0, 6, N)`, ville steglengden blitt $6/11 \\approx 0.545$ og siste punkt fortsatt 6 — tabellen ser riktig ut, men alle mellomverdiene er feil. Feilen er umulig å se på øyemål, og det er nettopp derfor den er så vanlig."
+   "solution": "\nTolv intervaller betyr tretten punkter, og steglengden blir $6/12 = 0.5$.\n\n```python\nimport numpy as np\n\nN = 12\nt = np.linspace(0, 6, N+1)\nprint(t)\nprint('Antall punkter:', t.size)\nprint('Antall intervaller:', t.size - 1)\nprint('Steglengde:', t[1] - t[0])\n```\n\n**Utskrift:**\n```\n[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6. ]\nAntall punkter: 13\nAntall intervaller: 12\nSteglengde: 0.5\n```\n\nSensorpoenget: hadde du skrevet `np.linspace(0, 6, N)`, ville steglengden blitt $6/11 \\approx 0.545$ og siste punkt fortsatt 6 — tabellen ser riktig ut, men alle mellomverdiene er feil. Feilen er umulig å se på øyemål, og det er nettopp derfor den er så vanlig."
   },
   {
    "id": "in1900-4-1-o2",
@@ -177,7 +177,7 @@
    "type": "example",
    "title": "Eksempel 3: din egen funksjon brukt på en hel tabell",
    "problem": "Høyden til en ball kastet rett opp er $h(t) = 4t - 0{,}5t^2$ målt i meter, med $t$ i sekunder. Skriv funksjonen én gang, og bruk den både på ett tidspunkt og på et helt tidsarray.",
-   "solution": "\nFunksjonen skrives helt vanlig, uten et eneste NumPy-navn. Den virker likevel på hele tabellen, fordi `*`, `-` og `**` er elementvise for arrays.\n\n```python\nimport numpy as np\n\ndef hoyde(t):\n    return 4.0*t - 0.5*t**2\n\nt = np.linspace(0, 4, 5)\nprint(hoyde(2.0))\nprint(t)\nprint(hoyde(t))\n```\n\n**Utskrift:**\n```\n6.0\n[0. 1. 2. 3. 4.]\n[0.  3.5 6.  7.5 8. ]\n```Første kall gir ett tall, fordi argumentet er ett tall. Andre kall gir fem tall, fordi argumentet er en tabell med fem tall. **Funksjonen er den samme** — det er argumentet som bestemmer om du får et tall eller en tabell tilbake.\n\nDette er hele grunnlaget for plotting i [kap. 4.3](/bok/in1900/in1900-4-3): du lager et tett tidsarray, sender det gjennom funksjonen din, og plotter de to tabellene mot hverandre."
+   "solution": "\nFunksjonen skrives helt vanlig, uten et eneste NumPy-navn. Den virker likevel på hele tabellen, fordi `*`, `-` og `**` er elementvise for arrays.\n\n```python\nimport numpy as np\n\ndef hoyde(t):\n    return 4.0*t - 0.5*t**2\n\nt = np.linspace(0, 4, 5)\nprint(hoyde(2.0))\nprint(t)\nprint(hoyde(t))\n```\n\n**Utskrift:**\n```\n6.0\n[0. 1. 2. 3. 4.]\n[0.  3.5 6.  7.5 8. ]\n```\n\nFørste kall gir ett tall, fordi argumentet er ett tall. Andre kall gir fem tall, fordi argumentet er en tabell med fem tall. **Funksjonen er den samme** — det er argumentet som bestemmer om du får et tall eller en tabell tilbake.\n\nDette er hele grunnlaget for plotting i [kap. 4.3](/bok/in1900/in1900-4-3): du lager et tett tidsarray, sender det gjennom funksjonen din, og plotter de to tabellene mot hverandre."
   },
   {
    "id": "in1900-4-1-warn-navn-x",
@@ -216,14 +216,14 @@
    "id": "in1900-4-1-warn-alias",
    "type": "warning",
    "title": "Typiske feil: et utsnitt av et array er ikke en kopi",
-   "content": "\nDette er **feil #23 i feilkatalogen** (aliasing — to navn på samme data). For lister gir `b = a[1:]` en ny liste, men for arrays gir det et *utsyn* inn i `a`. Skriver du i `b`, endrer du `a`:\n\n```python\nimport numpy as np\n\na = np.array([1.0, 2.0, 3.0])\nb = a[1:]\nb[0] = 99.0\nprint(a)\n\nc = a.copy()\nc[0] = -1.0\nprint(a)\nprint(c)\n```\n\n**Utskrift:**\n```\n[ 1. 99.  3.]\n[ 1. 99.  3.]\n[-1. 99.  3.]\n```Trenger du en uavhengig kopi, bruk `a.copy()`. Dette er ikke en høyfrekvent eksamensfelle, men det er en klassisk grunn til at en simulering «endrer seg selv» mens den kjører."
+   "content": "\nDette er **feil #23 i feilkatalogen** (aliasing — to navn på samme data). For lister gir `b = a[1:]` en ny liste, men for arrays gir det et *utsyn* inn i `a`. Skriver du i `b`, endrer du `a`:\n\n```python\nimport numpy as np\n\na = np.array([1.0, 2.0, 3.0])\nb = a[1:]\nb[0] = 99.0\nprint(a)\n\nc = a.copy()\nc[0] = -1.0\nprint(a)\nprint(c)\n```\n\n**Utskrift:**\n```\n[ 1. 99.  3.]\n[ 1. 99.  3.]\n[-1. 99.  3.]\n```\n\nTrenger du en uavhengig kopi, bruk `a.copy()`. Dette er ikke en høyfrekvent eksamensfelle, men det er en klassisk grunn til at en simulering «endrer seg selv» mens den kjører."
   },
   {
    "id": "in1900-4-1-ex-4",
    "type": "example",
    "title": "Eksempel 4: sammenligne to måleserier uten løkke",
    "problem": "En sensor logger fem heltallsverdier, og fasitverdiene er kjent fra en kalibrering. Hvor mange av de fem stemmer, og hvilke?",
-   "solution": "\nEn sammenligning mellom to arrays gir et array av `True`/`False`, ett per element. Siden `True` teller som 1 i en sum, kan du telle treffene direkte med den innebygde `sum`.\n\n```python\nimport numpy as np\n\nmaalt = np.array([3, 5, 5, 2, 7])\nfasit = np.array([3, 4, 5, 2, 8])\n\nprint(maalt == fasit)\nprint(sum(maalt == fasit))\n```\n\n**Utskrift:**\n```\n[ True False  True  True False]\n3\n```Legg merke til at `maalt == fasit` **ikke** gir én sann/falsk-verdi for hele tabellen, men fem. Det er dette som gjør `sum(x == y)` til et kort og lesbart uttrykk for «antall like elementer» — nettopp den korte, idiomatiske stilen sensor belønner."
+   "solution": "\nEn sammenligning mellom to arrays gir et array av `True`/`False`, ett per element. Siden `True` teller som 1 i en sum, kan du telle treffene direkte med den innebygde `sum`.\n\n```python\nimport numpy as np\n\nmaalt = np.array([3, 5, 5, 2, 7])\nfasit = np.array([3, 4, 5, 2, 8])\n\nprint(maalt == fasit)\nprint(sum(maalt == fasit))\n```\n\n**Utskrift:**\n```\n[ True False  True  True False]\n3\n```\n\nLegg merke til at `maalt == fasit` **ikke** gir én sann/falsk-verdi for hele tabellen, men fem. Det er dette som gjør `sum(x == y)` til et kort og lesbart uttrykk for «antall like elementer» — nettopp den korte, idiomatiske stilen sensor belønner."
   },
   {
    "id": "in1900-4-1-o5",
@@ -257,7 +257,7 @@
    "type": "example",
    "title": "Eksempel 5: bygge en tabell rad for rad",
    "problem": "Tre målestasjoner rapporterer nedbør fire ganger i døgnet. Bygg tabellen med `np.zeros`, fyll den med to nøstede løkker der verdien er stasjonsnummeret pluss en tidel per måletidspunkt, og hent ut kolonne 2 og rad 1.",
-   "solution": "\nDen ytre løkka går over rader (stasjoner), den indre over kolonner (måletidspunkt). Dette er den vanlige måten et 2D-array fylles.\n\n```python\nimport numpy as np\n\nA = np.zeros((3, 4))\nfor i in range(3):\n    for j in range(4):\n        A[i, j] = i + 0.1*j\n\nprint(A)\nprint(A[:, 2])\nprint(A[1, :])\nprint(A.shape, A.size)\n```\n\n**Utskrift:**\n```\n[[0.  0.1 0.2 0.3]\n [1.  1.1 1.2 1.3]\n [2.  2.1 2.2 2.3]]\n[0.2 1.2 2.2]\n[1.  1.1 1.2 1.3]\n(3, 4) 12\n```Merk hvordan et 2D-array skrives ut: én rad per linje, med ytterligere hakeparenteser rundt hele. `A[:, 2]` gir tre tall (én per stasjon), `A[1, :]` gir fire tall (én per tidspunkt). Blander du de to aksene, får du et svar med feil antall elementer — og det er lett å oppdage nettopp fordi antallet ikke stemmer."
+   "solution": "\nDen ytre løkka går over rader (stasjoner), den indre over kolonner (måletidspunkt). Dette er den vanlige måten et 2D-array fylles.\n\n```python\nimport numpy as np\n\nA = np.zeros((3, 4))\nfor i in range(3):\n    for j in range(4):\n        A[i, j] = i + 0.1*j\n\nprint(A)\nprint(A[:, 2])\nprint(A[1, :])\nprint(A.shape, A.size)\n```\n\n**Utskrift:**\n```\n[[0.  0.1 0.2 0.3]\n [1.  1.1 1.2 1.3]\n [2.  2.1 2.2 2.3]]\n[0.2 1.2 2.2]\n[1.  1.1 1.2 1.3]\n(3, 4) 12\n```\n\nMerk hvordan et 2D-array skrives ut: én rad per linje, med ytterligere hakeparenteser rundt hele. `A[:, 2]` gir tre tall (én per stasjon), `A[1, :]` gir fire tall (én per tidspunkt). Blander du de to aksene, får du et svar med feil antall elementer — og det er lett å oppdage nettopp fordi antallet ikke stemmer."
   },
   {
    "id": "in1900-4-1-o6",
