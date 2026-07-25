@@ -933,8 +933,9 @@ def f2_del5(out):
                'punktet A, med stiplede hjelpelinjer til begge akser. Den øverste '
                'skjærer isokvanten i to punkter B og D, som begge gir riktig mengde, '
                'men er for dyre. En pil mot origo er merket lavere kostnad. Ved A står '
-               'det at helningene er like, altså at forholdet mellom marginalproduktene '
-               'er lik forholdet mellom faktorprisene.')
+               'tangeringsbetingelsen: forholdet mellom marginalproduktet av kapital og '
+               'marginalproduktet av arbeid er lik forholdet mellom kapitalprisen og '
+               'lønna.')
     b += axes('L', 'K')
     b += S.curve(lambda L_: C/L_, C/12.0, 16.0, RED, 2.6)
     b += txt(S.px(13.4), S.py(C/13.4)-9, 'F(K, L) = y', RED, 12, True)
@@ -953,7 +954,7 @@ def f2_del5(out):
     b += txt(S.px(9.8), S.py(10.9), 'for dyrt', '#5b8fbf', 11, False)
     b += arrow(S.p(11.0, 6.6), S.p(7.4, 4.2), GRN, 1.8)
     b += txt(S.px(10.6), S.py(7.2), 'lavere kostnad', GRN, 11, False)
-    b += txt(S.px(0.4), S.py(3.0), 'helningene er like:', INK, 10.5, False)
+    b += txt(S.px(0.4), S.py(3.0), 'tangering i A:', INK, 10.5, False)
     b += txt(S.px(0.4), S.py(2.0), "F'K / F'L = r / w", INK, 10.5, True)
     save('econ2220-5-2-isokvant-isokost', b, out)
     n += 1
@@ -1449,233 +1450,238 @@ def f2_del8(out):
 
     # ---------- 8.3 (3): MK/GK med profittareal (øvingseksamen 1, oppgave 3c) ----------
     def MK3(y):
-        return 18.0*math.sqrt(y)
+        return 30.0*math.sqrt(y)
 
     def GK3(y):
-        return 12.0*math.sqrt(y)
-    krav(abs(MK3(4.0) - 36.0) < 1e-9, '8-3 produsent: p = 36 gir y* = 4')
-    krav(abs(GK3(4.0) - 24.0) < 1e-9 and abs((36.0-24.0)*4.0 - 48.0) < 1e-9,
-         '8-3 produsent: GK(4) = 24 og profitten er 48')
-    krav(all(MK3(y) > GK3(y) for y in (0.5, 1.0, 4.0, 9.0)),
+        return 20.0*math.sqrt(y)
+    krav(abs(MK3(9.0) - 90.0) < 1e-9, '8-3 produsent: p = 90 gir y* = 9')
+    krav(abs(GK3(9.0) - 60.0) < 1e-9 and abs((90.0-60.0)*9.0 - 270.0) < 1e-9,
+         '8-3 produsent: GK(9) = 60 og profitten er 270')
+    krav(all(MK3(y) > GK3(y) for y in (0.5, 1.0, 9.0, 16.0)),
          '8-3 produsent: MK ligger over GK i hele området')
-    S = Scale(9, 60)
+    S = Scale(16, 140)
     b = header('Diagram med marginalkostnad og gjennomsnittskostnad for trevarefabrikken '
                'i øvingseksamen 1. Mengden y på den vannrette aksen, kroner per enhet på '
                'den loddrette. Begge kurver stiger fra origo, og marginalkostnaden ligger '
                'over gjennomsnittskostnaden i hele området. En vannrett prislinje ved '
-               'trettiseks skjærer marginalkostnadskurven ved mengde fire, markert med en '
+               'nitti skjærer marginalkostnadskurven ved mengde ni, markert med en '
                'stiplet loddrett linje ned til aksen. Gjennomsnittskostnaden i denne '
-               'mengden er tjuefire, markert på den loddrette aksen med en stiplet '
-               'vannrett linje. Profittrektangelet fra mengde null til fire, mellom '
-               'tjuefire og trettiseks, er skravert og merket profitten er førtiåtte.')
+               'mengden er seksti, markert på den loddrette aksen med en stiplet '
+               'vannrett linje. Profittrektangelet fra mengde null til ni, mellom '
+               'seksti og nitti, er skravert og merket profitten er to hundre og sytti.')
     b += axes('y', 'kr/enhet')
-    b += poly([S.p(0, 24.0), S.p(4.0, 24.0), S.p(4.0, 36.0), S.p(0, 36.0)], GRN, 0.22)
-    b += S.curve(MK3, 0.0, 9.0, BLUE, 2.6)
-    b += S.curve(GK3, 0.0, 9.0, PUR, 2.6)
-    b += txt(S.px(7.9), S.py(MK3(7.9))-8, 'MK', BLUE, 14, False, True)
-    b += txt(S.px(8.0), S.py(GK3(8.0))+16, 'GK', PUR, 14, False, True)
-    b += line(S.p(0, 36.0), S.p(8.6, 36.0), INK, 2.0)
-    b += txt(S.px(6.2), S.py(36.0)-8, 'p = 36', INK, 12, False)
-    b += vdash(S.px(4.0), S.py(36.0))
-    b += hdash(S.px(4.0), S.py(24.0))
-    b += dot(*S.p(4.0, 36.0), '', 0, 0)
-    b += dot(*S.p(4.0, 24.0), '', 0, 0)
-    b += sub(S.px(4.0)-8, OY+17, 'y', '*', GREY, 13)
-    b += txt(S.px(4.0)-10, OY+31, '= 4', GREY, 12, False)
-    b += txt(OX-26, S.py(24.0)+4, '24', GREY, 12, False)
-    b += txt(OX-26, S.py(36.0)+4, '36', GREY, 12, False)
-    b += txt(S.px(0.9), S.py(29.4), 'profitt = 48', GRN, 12, False, True)
+    b += poly([S.p(0, 60.0), S.p(9.0, 60.0), S.p(9.0, 90.0), S.p(0, 90.0)], GRN, 0.22)
+    b += S.curve(MK3, 0.0, 16.0, BLUE, 2.6)
+    b += S.curve(GK3, 0.0, 16.0, PUR, 2.6)
+    b += txt(S.px(14.0), S.py(MK3(14.0))-8, 'MK', BLUE, 14, False, True)
+    b += txt(S.px(14.2), S.py(GK3(14.2))+16, 'GK', PUR, 14, False, True)
+    b += line(S.p(0, 90.0), S.p(15.3, 90.0), INK, 2.0)
+    b += txt(S.px(11.0), S.py(90.0)-8, 'p = 90', INK, 12, False)
+    b += vdash(S.px(9.0), S.py(90.0))
+    b += hdash(S.px(9.0), S.py(60.0))
+    b += dot(*S.p(9.0, 90.0), '', 0, 0)
+    b += dot(*S.p(9.0, 60.0), '', 0, 0)
+    b += sub(S.px(9.0)-8, OY+17, 'y', '*', GREY, 13)
+    b += txt(S.px(9.0)-10, OY+31, '= 9', GREY, 12, False)
+    b += txt(OX-26, S.py(60.0)+4, '60', GREY, 12, False)
+    b += txt(OX-26, S.py(90.0)+4, '90', GREY, 12, False)
+    b += txt(S.px(1.6), S.py(73.0), 'profitt = 270', GRN, 12, False, True)
     save('econ2220-8-3-mk-gk-profittareal', b, out)
     n += 1
 
     # ---------- 8.4 (1): budsjettlinje med navngitte punkter ----------
     def uq(c1, c2):
-        return 6.0*math.sqrt(c1) + c2
-    krav(abs(uq(4, 16) - 28.0) < 1e-9 and abs(uq(16, 4) - 28.0) < 1e-9,
-         '8-4: A = (4,16) og C = (16,4) ligger på SAMME indifferenskurve, nyttenivå 28')
-    krav(abs(uq(9, 11) - 29.0) < 1e-9, '8-4: B = (9,11) ligger på den høyere kurven, nivå 29')
-    krav(abs(3.0/math.sqrt(9.0) - 1.0) < 1e-12, '8-4: MSB i B er 1, altså tangering med helning −1')
-    krav(abs(3.0/math.sqrt(4.0) - 1.5) < 1e-12 and abs(3.0/math.sqrt(16.0) - 0.75) < 1e-12,
-         '8-4: MSB er 3/2 i A (krysser brattere) og 3/4 i C (krysser slakere)')
-    krav(5 + 10 < 20, '8-4: D = (5,10) ligger innenfor budsjettlinja')
-    S = Scale(22, 26)
+        return 4.0*math.sqrt(c1) + c2
+    krav(abs(uq(1, 11) - 15.0) < 1e-9 and abs(uq(9, 3) - 15.0) < 1e-9,
+         '8-4: A = (1,11) og C = (9,3) ligger på SAMME indifferenskurve, nyttenivå 15')
+    krav(abs(uq(4, 8) - 16.0) < 1e-9, '8-4: B = (4,8) ligger på den høyere kurven, nivå 16')
+    krav(abs(2.0/math.sqrt(4.0) - 1.0) < 1e-12, '8-4: MSB i B er 1, altså tangering med helning −1')
+    krav(abs(2.0/math.sqrt(1.0) - 2.0) < 1e-12 and abs(2.0/math.sqrt(9.0) - 2.0/3.0) < 1e-12,
+         '8-4: MSB er 2 i A (krysser brattere) og 2/3 i C (krysser slakere)')
+    krav(3 + 6 < 12, '8-4: D = (3,6) ligger innenfor budsjettlinja')
+    for pt in ((1, 11), (4, 8), (9, 3)):
+        krav(pt[0] + pt[1] == 12, '8-4: A, B og C ligger på budsjettlinja c1 + c2 = 12')
+    S = Scale(14, 17)
     b = header('Budsjettlinje med fire navngitte punkter for den kvasi-lineære '
-               'konsumenten. Kinobilletter er på den vannrette aksen, alt annet forbruk '
-               'på den loddrette. Budsjettlinja går fra null og tjue til tjue og null og '
-               'har helning minus én. Punktene A med fire billetter og seksten enheter, B '
-               'med ni og elleve, og C med seksten og fire ligger alle på linja, mens '
-               'punktet D med fem og ti ligger innenfor linja. Indifferenskurven gjennom '
+               'konsumenten. Konsertbilletter er på den vannrette aksen, alt annet forbruk '
+               'på den loddrette. Budsjettlinja går fra null og tolv til tolv og null og '
+               'har helning minus én. Punktene A med én billett og elleve enheter, B '
+               'med fire og åtte, og C med ni og tre ligger alle på linja, mens '
+               'punktet D med tre og seks ligger innenfor linja. Indifferenskurven gjennom '
                'B tangerer budsjettlinja. Den lavere indifferenskurven går gjennom både A '
                'og C og skjærer budsjettlinja i nettopp de to punktene: brattere i A og '
-               'slakere i C. Stiplede hjelpelinjer går fra B til ni på den vannrette '
-               'aksen og elleve på den loddrette. Piler langs linja fra A og fra C peker '
+               'slakere i C. Stiplede hjelpelinjer går fra B til fire på den vannrette '
+               'aksen og åtte på den loddrette. Piler langs linja fra A og fra C peker '
                'mot B og er merket kan bytte seg til høyere nytte.')
     b += axes('c1', 'c2')
-    b += txt(OX+4, OY+40, 'c1 = kinobilletter   ·   c2 = alt annet forbruk', GREY, 11, False)
-    b += line(S.p(0, 20.0), S.p(20.0, 0), INK, 2.2)
-    b += S.curve(lambda c: 29.0 - 6.0*math.sqrt(c), 0.6, 22.0, RED, 2.4)
-    b += S.curve(lambda c: 28.0 - 6.0*math.sqrt(c), 0.6, 21.6, '#e0a6a0', 2.2)
-    b += txt(S.px(19.4), S.py(29.0-6.0*math.sqrt(19.4))-8, 'u = 29', RED, 11, True)
-    b += txt(S.px(16.9), S.py(4.7), 'u = 28', '#c98d86', 11, True)
-    b += vdash(S.px(9.0), S.py(11.0))
-    b += hdash(S.px(9.0), S.py(11.0))
-    b += dot(*S.p(4.0, 16.0), 'A', -18, -8)
-    b += dot(*S.p(9.0, 11.0), 'B', 9, -8)
-    b += dot(*S.p(16.0, 4.0), 'C', 9, 15)
-    b += dot(*S.p(5.0, 10.0), 'D', -8, 17)
-    b += txt(S.px(9.0)-4, OY+17, '9', GREY, 12, False)
-    b += txt(OX-26, S.py(11.0)+4, '11', GREY, 12, False)
-    b += arrow(S.p(5.0, 15.0), S.p(7.6, 12.4), GRN, 1.8)
-    b += arrow(S.p(15.0, 5.0), S.p(10.4, 9.6), GRN, 1.8)
-    b += txt(S.px(11.6), S.py(15.6), 'kan bytte seg til', GRN, 11, False)
-    b += txt(S.px(11.6), S.py(14.2), 'høyere nytte', GRN, 11, False)
-    b += txt(S.px(1.4), S.py(6.6), 'D: inntekten er', GREY, 10, False)
-    b += txt(S.px(1.4), S.py(5.2), 'ikke brukt opp', GREY, 10, False)
+    b += txt(OX+4, OY+40, 'c1 = konsertbilletter   ·   c2 = alt annet forbruk', GREY, 11, False)
+    b += line(S.p(0, 12.0), S.p(12.0, 0), INK, 2.2)
+    b += S.curve(lambda c: 16.0 - 4.0*math.sqrt(c), 0.25, 14.0, RED, 2.4)
+    b += S.curve(lambda c: 15.0 - 4.0*math.sqrt(c), 0.25, 13.6, '#e0a6a0', 2.2)
+    b += txt(S.px(12.1), S.py(16.0-4.0*math.sqrt(12.1))-8, 'u = 16', RED, 11, True)
+    b += txt(S.px(10.1), S.py(2.4), 'u = 15', '#c98d86', 11, True)
+    b += vdash(S.px(4.0), S.py(8.0))
+    b += hdash(S.px(4.0), S.py(8.0))
+    b += dot(*S.p(1.0, 11.0), 'A', -18, -8)
+    b += dot(*S.p(4.0, 8.0), 'B', 9, -8)
+    b += dot(*S.p(9.0, 3.0), 'C', 9, 15)
+    b += dot(*S.p(3.0, 6.0), 'D', -8, 17)
+    b += txt(S.px(4.0)-4, OY+17, '4', GREY, 12, False)
+    b += txt(OX-22, S.py(8.0)+4, '8', GREY, 12, False)
+    b += arrow(S.p(1.7, 10.3), S.p(3.3, 8.7), GRN, 1.8)
+    b += arrow(S.p(8.3, 3.7), S.p(5.1, 6.9), GRN, 1.8)
+    b += txt(S.px(6.4), S.py(11.0), 'kan bytte seg til', GRN, 11, False)
+    b += txt(S.px(6.4), S.py(9.9), 'høyere nytte', GRN, 11, False)
+    b += txt(S.px(0.9), S.py(4.2), 'D: inntekten er', GREY, 10, False)
+    b += txt(S.px(0.9), S.py(3.2), 'ikke brukt opp', GREY, 10, False)
     save('econ2220-8-4-kvasilinear-punkter', b, out)
     n += 1
 
     # ---------- 8.4 (2): bytteboks med kvasi-lineære preferanser ----------
-    Bx = EBox(5, 16)
-    Wq, Eq = (4.0, 2.0), (1.0, 11.0)
-    pq = 3.0
-    c1A, c1B = 9.0/pq**2, 36.0/pq**2
-    mA, mB = pq*4 + 2, pq*1 + 14
+    Bx = EBox(5, 20)
+    Wq, Eq = (3.0, 4.0), (1.0, 14.0)
+    pq = 5.0
+    c1A, c1B = 25.0/pq**2, 100.0/pq**2
+    mA, mB = pq*3 + 4, pq*2 + 16
     c2A, c2B = mA - pq*c1A, mB - pq*c1B
-    krav(abs(c1A + c1B - 5.0) < 1e-9 and abs(c2A + c2B - 16.0) < 1e-9,
-         '8-4 bytteboks: p = 3 klarerer BEGGE markeder')
-    krav(abs(c1A - Eq[0]) < 1e-9 and abs(c2A - Eq[1]) < 1e-9, '8-4 bytteboks: E = (1,11)')
-    krav(abs(3.0/math.sqrt(c1A) - 6.0/math.sqrt(c1B)) < 1e-9,
-         '8-4 bytteboks: MSB_A = MSB_B = 3 i E, altså tangering')
+    krav(abs(c1A + c1B - 5.0) < 1e-9 and abs(c2A + c2B - 20.0) < 1e-9,
+         '8-4 bytteboks: p = 5 klarerer BEGGE markeder')
+    krav(abs(c1A - Eq[0]) < 1e-9 and abs(c2A - Eq[1]) < 1e-9, '8-4 bytteboks: E = (1,14)')
+    krav(abs(5.0/math.sqrt(c1A) - 10.0/math.sqrt(c1B)) < 1e-9,
+         '8-4 bytteboks: MSB_A = MSB_B = 5 i E, altså tangering')
     krav(abs(Eq[1] - (Wq[1] - pq*(Eq[0]-Wq[0]))) < 1e-9,
-         '8-4 bytteboks: E ligger på budsjettlinja gjennom W med helning −3')
-    lvA = 6.0*math.sqrt(Eq[0]) + Eq[1]
-    lvB = 12.0*math.sqrt(5.0-Eq[0]) + (16.0-Eq[1])
-    krav(abs(lvA - 17.0) < 1e-9 and abs(lvB - 29.0) < 1e-9,
-         '8-4 bytteboks: nyttenivåene i E er 17 for A og 29 for B')
+         '8-4 bytteboks: E ligger på budsjettlinja gjennom W med helning −5')
+    lvA = 10.0*math.sqrt(Eq[0]) + Eq[1]
+    lvB = 20.0*math.sqrt(5.0-Eq[0]) + (20.0-Eq[1])
+    krav(abs(lvA - 24.0) < 1e-9 and abs(lvB - 46.0) < 1e-9,
+         '8-4 bytteboks: nyttenivåene i E er 24 for A og 46 for B')
+    krav(10.0*math.sqrt(Eq[0]) + Eq[1] > 10.0*math.sqrt(Wq[0]) + Wq[1]
+         and lvB > 20.0*math.sqrt(5.0-Wq[0]) + (20.0-Wq[1]),
+         '8-4 bytteboks: BEGGE kommer bedre ut i E enn i W (handelsgevinst)')
     b = header('Bytteboks med kvasi-lineære preferanser fra øvingseksamen 2. Boksen er '
-               'fem kinobilletter bred og seksten enheter annet forbruk høy. As origo '
+               'fem sekker saueull bred og tjue enheter annet forbruk høy. As origo '
                'ligger nede til venstre, Bs oppe til høyre. Beholdningspunktet W med '
-               'fire billetter og to enheter til A ligger nede til høyre. Den felles '
-               'budsjettlinja gjennom W har helning minus tre. Likevekten E med én '
-               'billett og elleve enheter til A ligger oppe til venstre på linja, og der '
+               'tre sekker og fire enheter til A ligger nede til høyre. Den felles '
+               'budsjettlinja gjennom W har helning minus fem. Likevekten E med én '
+               'sekk og fjorten enheter til A ligger oppe til venstre på linja, og der '
                'tangerer de to indifferenskurvene hverandre. Kontraktkurven er en loddrett '
-               'linje ved én billett til A, merket alle effektive allokeringer har samme '
+               'linje ved én sekk til A, merket alle effektive allokeringer har samme '
                'fordeling av vare én.')
-    b += Bx.frame('kinobilletter', 'annet forbruk')
-    b += line(Bx.p(1.0, 0), Bx.p(1.0, 16.0), PUR, 2.0, '6 4')
-    b += txt(Bx.px(1.3), Bx.py(2.7), 'kontraktkurven:', PUR, 11, False)
-    b += txt(Bx.px(1.3), Bx.py(1.5), 'samme fordeling av vare 1', PUR, 10, False)
-    b += Bx.curve(lambda c: lvA - 6.0*math.sqrt(c), 0.2, 5.0, RED, 2.3)
-    b += Bx.curve(lambda c: 16.0 - (lvB - 12.0*math.sqrt(5.0-c)), 0.05, 4.9, BLUE, 2.3)
-    b += line(Bx.p(0.0, 14.0), Bx.p(4.6666667, 0.0), INK, 2.0)
-    b += Bx.guides(*Eq, lab_x='1', lab_y='11')
-    b += Bx.guides(*Wq, lab_x='4', lab_y='2')
-    b += arrow(Bx.p(3.8, 2.6), Bx.p(1.2, 10.4), GRN, 2.0)
+    b += Bx.frame('sekker saueull', 'annet forbruk')
+    b += line(Bx.p(1.0, 0), Bx.p(1.0, 20.0), PUR, 2.0, '6 4')
+    b += txt(Bx.px(1.3), Bx.py(3.2), 'kontraktkurven:', PUR, 11, False)
+    b += txt(Bx.px(1.3), Bx.py(1.8), 'samme fordeling av vare 1', PUR, 10, False)
+    b += Bx.curve(lambda c: lvA - 10.0*math.sqrt(c), 0.2, 5.0, RED, 2.3)
+    b += Bx.curve(lambda c: 20.0 - (lvB - 20.0*math.sqrt(5.0-c)), 0.05, 3.28, BLUE, 2.3)
+    b += line(Bx.p(0.0, 19.0), Bx.p(3.8, 0.0), INK, 2.0)
+    b += Bx.guides(*Eq, lab_x='1', lab_y='14')
+    b += Bx.guides(*Wq, lab_x='3', lab_y='4')
+    b += arrow(Bx.p(2.85, 4.8), Bx.p(1.2, 13.2), GRN, 2.0)
     b += dot(*Bx.p(*Wq), 'W', 10, 15)
     b += dot(*Bx.p(*Eq), 'E', 10, -8)
-    b += txt(Bx.px(2.5), Bx.py(6.5), 'B kjøper 3 billetter,', GRN, 11, False)
-    b += txt(Bx.px(2.5), Bx.py(5.3), 'betaler 9 enheter', GRN, 11, False)
-    b += txt(Bx.px(2.15), Bx.py(8.5), 'helning –3', INK, 11, False)
-    b += txt(Bx.px(4.45), Bx.py(5.4), 'A', RED, 13, False, True)
-    b += txt(Bx.px(0.35), Bx.py(12.4), 'B', BLUE, 13, False, True)
+    b += txt(Bx.px(2.2), Bx.py(8.4), 'B kjøper 2 sekker,', GRN, 11, False)
+    b += txt(Bx.px(2.2), Bx.py(6.9), 'betaler 10 enheter', GRN, 11, False)
+    b += txt(Bx.px(1.9), Bx.py(11.2), 'helning –5', INK, 11, False)
+    b += txt(Bx.px(4.45), Bx.py(6.6), 'A', RED, 13, False, True)
+    b += txt(Bx.px(0.35), Bx.py(16.0), 'B', BLUE, 13, False, True)
     save('econ2220-8-4-bytteboks-kvasilinear', b, out)
     n += 1
 
     # ---------- 8.5 (1): kort sikt, nedleggingsgrense og dekningsbidrag ----------
     def MK5(y):
-        return 6.0*y
+        return 8.0*y
 
     def GR5(y):
-        return 3.0*y + 27.0/y
-    ym5, gm5 = _minimum(GR5, 0.8, 8.0)
-    krav(abs(ym5 - 3.0) < 0.01 and abs(gm5 - 18.0) < 0.02,
-         '8-5: den relevante GK-kurven har minimum i (3, 18)')
-    krav(abs(MK5(3.0) - GR5(3.0)) < 1e-9, '8-5: MK skjærer den relevante GK-kurven i minimum')
-    krav(abs(MK5(4.0) - 24.0) < 1e-9, '8-5: p = 24 gir y* = 4')
-    krav(abs(GR5(4.0) - 18.75) < 1e-9 and abs((24.0-GR5(4.0))*4.0 - 21.0) < 1e-9,
-         '8-5: GK-rel(4) = 18,75 og dekningsbidraget er 21')
-    S = Scale(8, 48)
+        return 4.0*y + 64.0/y
+    ym5, gm5 = _minimum(GR5, 0.8, 10.0)
+    krav(abs(ym5 - 4.0) < 0.01 and abs(gm5 - 32.0) < 0.02,
+         '8-5: den relevante GK-kurven har minimum i (4, 32)')
+    krav(abs(MK5(4.0) - GR5(4.0)) < 1e-9, '8-5: MK skjærer den relevante GK-kurven i minimum')
+    krav(abs(MK5(5.0) - 40.0) < 1e-9, '8-5: p = 40 gir y* = 5')
+    krav(abs(GR5(5.0) - 32.8) < 1e-9 and abs((40.0-GR5(5.0))*5.0 - 36.0) < 1e-9,
+         '8-5: GK-rel(5) = 32,8 og dekningsbidraget er 36')
+    S = Scale(10, 80)
     b = header('Kort sikt med sunk kost og nedleggingsgrense, øvingseksamen 3, oppgave '
                'to. Mengden y på den vannrette aksen, kroner per enhet på den loddrette. '
                'Marginalkostnaden er en rett, stigende linje gjennom origo. Den '
                'relevante gjennomsnittskostnaden, som teller variable kostnader pluss den '
-               'gjenvinnbare husleia, er U-formet med minimum i mengde tre og nivå atten, '
-               'og marginalkostnadskurven skjærer den nøyaktig der. En stiplet vannrett '
-               'linje ved atten er merket nedleggingsgrense. Prislinja ved tjuefire er '
-               'vannrett og skjærer marginalkostnaden ved mengde fire, med en stiplet '
-               'loddrett linje ned til aksen. Den relevante gjennomsnittskostnaden i '
-               'mengde fire er atten og syttifem hundredeler. Rektangelet fra mengde null '
-               'til fire, mellom atten og syttifem hundredeler og tjuefire, er skravert '
-               'og merket dekningsbidrag lik tjueen.')
+               'gjenvinnbare tomteleia, er U-formet med minimum i mengde fire og nivå '
+               'trettito, og marginalkostnadskurven skjærer den nøyaktig der. En stiplet '
+               'vannrett linje ved trettito er merket nedleggingsgrense. Prislinja ved '
+               'førti er vannrett og skjærer marginalkostnaden ved mengde fem, med en '
+               'stiplet loddrett linje ned til aksen. Den relevante gjennomsnittskostnaden '
+               'i mengde fem er trettito og åtte tideler. Rektangelet fra mengde null '
+               'til fem, mellom trettito og åtte tideler og førti, er skravert '
+               'og merket dekningsbidrag lik trettiseks.')
     b += axes('y', 'kr/enhet')
-    b += poly([S.p(0, GR5(4.0)), S.p(4.0, GR5(4.0)), S.p(4.0, 24.0), S.p(0, 24.0)], GRN, 0.22)
-    b += S.curve(MK5, 0.0, 8.0, BLUE, 2.6)
-    b += S.curve(GR5, 0.7, 8.0, PUR, 2.6)
-    b += txt(S.px(6.05), S.py(45.0), 'MK = 6y', BLUE, 12, True)
-    b += txt(S.px(0.95), S.py(41.5), 'GK (variable +', PUR, 10.5, False)
-    b += txt(S.px(0.95), S.py(38.0), 'gjenvinnbare faste)', PUR, 10.5, False)
-    b += line(S.p(0, 18.0), S.p(7.6, 18.0), GREY, 1.6, '7 4')
-    b += txt(S.px(4.65), S.py(15.4), 'nedleggingsgrense: p = 18', GREY, 11, False)
-    b += line(S.p(0, 24.0), S.p(7.6, 24.0), INK, 2.0)
-    b += txt(S.px(5.9), S.py(24.0)+13, 'p = 24', INK, 12, False)
-    b += hdash(S.px(3.0), S.py(18.0))
-    b += vdash(S.px(3.0), S.py(18.0))
-    b += dot(*S.p(3.0, 18.0), '', 0, 0)
-    b += txt(S.px(3.0)-52, S.py(18.0)-8, '(3, 18)', INK, 11, False)
-    b += vdash(S.px(4.0), S.py(24.0))
-    b += hdash(S.px(4.0), S.py(GR5(4.0)))
-    b += dot(*S.p(4.0, 24.0), '', 0, 0)
-    b += dot(*S.p(4.0, GR5(4.0)), '', 0, 0)
-    b += sub(S.px(4.0)-8, OY+17, 'y', '*', GREY, 13)
-    b += txt(S.px(4.0)-10, OY+31, '= 4', GREY, 12, False)
-    b += txt(OX-30, S.py(24.0)+4, '24', GREY, 12, False)
-    b += txt(OX-46, S.py(GR5(4.0))+13, '18,75', GREY, 11, False)
-    b += txt(S.px(0.7), S.py(30.4), 'dekningsbidrag = 21', GRN, 12, False, True)
+    b += poly([S.p(0, GR5(5.0)), S.p(5.0, GR5(5.0)), S.p(5.0, 40.0), S.p(0, 40.0)], GRN, 0.22)
+    b += S.curve(MK5, 0.0, 10.0, BLUE, 2.6)
+    b += S.curve(GR5, 0.85, 10.0, PUR, 2.6)
+    b += txt(S.px(7.7), S.py(74.0), 'MK = 8y', BLUE, 12, True)
+    b += txt(S.px(1.15), S.py(69.0), 'GK (variable +', PUR, 10.5, False)
+    b += txt(S.px(1.15), S.py(63.0), 'gjenvinnbare faste)', PUR, 10.5, False)
+    b += line(S.p(0, 32.0), S.p(9.5, 32.0), GREY, 1.6, '7 4')
+    b += txt(S.px(5.8), S.py(27.0), 'nedleggingsgrense: p = 32', GREY, 11, False)
+    b += line(S.p(0, 40.0), S.p(9.5, 40.0), INK, 2.0)
+    b += txt(S.px(7.4), S.py(40.0)+13, 'p = 40', INK, 12, False)
+    b += hdash(S.px(4.0), S.py(32.0))
+    b += vdash(S.px(4.0), S.py(32.0))
+    b += dot(*S.p(4.0, 32.0), '', 0, 0)
+    b += txt(S.px(4.0)-56, S.py(32.0)-8, '(4, 32)', INK, 11, False)
+    b += vdash(S.px(5.0), S.py(40.0))
+    b += hdash(S.px(5.0), S.py(GR5(5.0)))
+    b += dot(*S.p(5.0, 40.0), '', 0, 0)
+    b += dot(*S.p(5.0, GR5(5.0)), '', 0, 0)
+    b += sub(S.px(5.0)-8, OY+17, 'y', '*', GREY, 13)
+    b += txt(S.px(5.0)-10, OY+31, '= 5', GREY, 12, False)
+    b += txt(OX-30, S.py(40.0)+4, '40', GREY, 12, False)
+    b += txt(OX-46, S.py(GR5(5.0))+14, '32,8', GREY, 11, False)
+    b += txt(S.px(0.85), S.py(50.0), 'dekningsbidrag = 36', GRN, 12, False, True)
     save('econ2220-8-5-kortsikt-nedlegging', b, out)
     n += 1
 
     # ---------- 8.5 (2): PMK med MTB = MSB ----------
-    P = (6.0, 8.0)
-    Q = (8.0, 6.0)
-    krav(abs(P[0]**2 + P[1]**2 - 100.0) < 1e-9 and abs(Q[0]**2 + Q[1]**2 - 100.0) < 1e-9,
-         '8-5 PMK: P og Q ligger på kvartsirkelen med radius ti')
-    krav(abs(P[0]/P[1] - 0.75) < 1e-12, '8-5 PMK: MTB i P er 3/4, altså tangenthelning −3/4')
+    P = (16.0, 12.0)
+    Q = (18.0, math.sqrt(400.0 - 324.0))
+    krav(abs(P[0]**2 + P[1]**2 - 400.0) < 1e-9 and abs(Q[0]**2 + Q[1]**2 - 400.0) < 1e-9,
+         '8-5 PMK: P og Q ligger på kvartsirkelen med radius tjue')
+    krav(abs(P[0]/P[1] - 4.0/3.0) < 1e-12, '8-5 PMK: MTB i P er 4/3, altså tangenthelning −4/3')
     krav(Q[0]/Q[1] > P[0]/P[1], '8-5 PMK: tangenten i Q er brattere enn i P')
-    kk = 0.5625                              # MSB = kk·c2/c1 = 3/4 i P
-    krav(abs(kk*P[1]/P[0] - 0.75) < 1e-12,
-         '8-5 PMK: indifferenskurven gjennom P har samme helning −3/4 der')
+    kk = 16.0/9.0                            # MSB = kk·c2/c1 = 4/3 i P
+    krav(abs(kk*P[1]/P[0] - 4.0/3.0) < 1e-12,
+         '8-5 PMK: indifferenskurven gjennom P har samme helning −4/3 der')
     lv = P[1]*P[0]**kk
-    S = Scale(13, 13)
+    S = Scale(26, 26)
     b = header('Produksjonsmulighetskurve der marginal transformasjonsbrøk er lik '
-               'marginal substitusjonsbrøk. Antall kurver bær er på den vannrette aksen, '
-               'kilo fisk på den loddrette. Kurven er en konkav kvartsirkel fra null og '
-               'ti til ti og null. En rett verdilinje med helning minus tre firedeler '
-               'tangerer buen i punktet P med seks kurver bær og åtte kilo fisk, med '
-               'stiplede hjelpelinjer til seks på den vannrette aksen og åtte på den '
-               'loddrette. Konsumentens indifferenskurve er tegnet gjennom samme punkt og '
-               'har samme helning der, slik at de to brøkene sammenfaller. I tillegg er '
-               'det tegnet en brattere stiplet tangent i et annet punkt lenger til høyre '
-               'på buen, merket at brøkene er ulike og at en Pareto-forbedring da er '
-               'mulig.')
+               'marginal substitusjonsbrøk. Kvadratmeter skifer er på den vannrette aksen, '
+               'kubikkmeter grus på den loddrette. Kurven er en konkav kvartsirkel fra '
+               'null og tjue til tjue og null. En rett verdilinje med helning minus fire '
+               'tredeler tangerer buen i punktet P med seksten kvadratmeter skifer og tolv '
+               'kubikkmeter grus, med stiplede hjelpelinjer til seksten på den vannrette '
+               'aksen og tolv på den loddrette. Konsumentens indifferenskurve er tegnet '
+               'gjennom samme punkt og har samme helning der, slik at de to brøkene '
+               'sammenfaller. I tillegg er det tegnet en brattere stiplet tangent i et '
+               'annet punkt lenger til høyre på buen, merket at brøkene er ulike og at en '
+               'Pareto-forbedring da er mulig.')
     b += axes('x1', 'x2')
-    b += txt(OX+4, OY+40, 'x1 = kurver bær   ·   x2 = kilo fisk', GREY, 11, False)
-    b += S.curve(lambda x: math.sqrt(max(0.0, 100.0-x*x)), 0.0, 10.0, GRN, 2.8)
-    b += txt(S.px(0.75), S.py(8.6), 'PMK', GRN, 13, False, True)
-    # verdilinje med helning -3/4 gjennom P — klippet til vindusrammen 13 x 13
-    def klipp(k, s, xmax=13.0, ymax=13.0):
+    b += txt(OX+4, OY+40, 'x1 = kvadratmeter skifer   ·   x2 = kubikkmeter grus', GREY, 11, False)
+    b += S.curve(lambda x: math.sqrt(max(0.0, 400.0-x*x)), 0.0, 20.0, GRN, 2.8)
+    b += txt(S.px(1.5), S.py(17.2), 'PMK', GRN, 13, False, True)
+    # verdilinje med helning -4/3 gjennom P — klippet til vindusrammen 26 x 26
+    def klipp(k, s, xmax=26.0, ymax=26.0):
         """Endepunkter for linja c2 = k − s·c1 innenfor [0,xmax] x [0,ymax]."""
         start = (0.0, k) if k <= ymax else ((k-ymax)/s, ymax)
         slutt = (k/s, 0.0) if k/s <= xmax else (xmax, k - s*xmax)
         krav(0 <= start[0] <= xmax and 0 <= slutt[1] <= ymax,
              '8-5 PMK: linja er klippet innenfor vindusrammen')
         return start, slutt
-    kP = P[1] + 0.75*P[0]
-    pa, pb = klipp(kP, 0.75)
+    kP = P[1] + (4.0/3.0)*P[0]
+    pa, pb = klipp(kP, 4.0/3.0)
     b += line(S.p(*pa), S.p(*pb), BLUE, 2.2)
-    b += txt(S.px(0.35), S.py(kP)-7, 'verdilinje: helning –3/4', BLUE, 11, False)
+    b += txt(S.px(7.4), S.py(25.2), 'verdilinje: helning –4/3', BLUE, 11, False)
     # indifferenskurve gjennom P
-    b += S.curve(lambda c: lv/c**kk, 1.6, 13.0, RED, 2.4)
-    b += txt(S.px(3.4), S.py(11.6), 'indifferenskurve', RED, 11, False)
+    b += S.curve(lambda c: lv/c**kk, 6.4, 26.0, RED, 2.4)
+    b += txt(S.px(2.2), S.py(23.0), 'indifferenskurve', RED, 11, False)
     # brattere tangent i Q
     kQ = Q[1] + (Q[0]/Q[1])*Q[0]
     qa, qb = klipp(kQ, Q[0]/Q[1])
@@ -1684,11 +1690,11 @@ def f2_del8(out):
     b += vdash(S.px(P[0]), S.py(P[1]))
     b += dot(*S.p(*P), 'P', 9, -9)
     b += dot(*S.p(*Q), '', 0, 0)
-    b += txt(S.px(P[0])-4, OY+17, '6', GREY, 12, False)
-    b += txt(OX-22, S.py(P[1])+4, '8', GREY, 12, False)
-    b += txt(S.px(8.5), S.py(4.5), 'MTB ≠ MSB her:', ORG, 11, False)
-    b += txt(S.px(8.5), S.py(3.4), 'Pareto-forbedring mulig', ORG, 11, False)
-    b += txt(S.px(1.0), S.py(2.6), 'I P: MTB = MSB = 3/4', INK, 11.5, False)
+    b += txt(S.px(P[0])-8, OY+17, '16', GREY, 12, False)
+    b += txt(OX-26, S.py(P[1])+4, '12', GREY, 12, False)
+    b += txt(S.px(17.6), S.py(9.0), 'MTB ≠ MSB her:', ORG, 11, False)
+    b += txt(S.px(17.6), S.py(6.8), 'Pareto-forbedring mulig', ORG, 11, False)
+    b += txt(S.px(2.0), S.py(5.2), 'I P: MTB = MSB = 4/3', INK, 11.5, False)
     save('econ2220-8-5-pmk-mtb-msb', b, out)
     n += 1
 
