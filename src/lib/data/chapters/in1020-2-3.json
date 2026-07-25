@@ -1,0 +1,389 @@
+{
+  "id": "in1020-2-3",
+  "courseId": "in1020",
+  "chapterNumber": "2.3",
+  "title": "DRILL — Port-ID og kretsanalyse",
+  "description": "Fjorten oppgaver på eksamensnivå i sjanger D: kjenn igjen porter, propager portlister fram til F, forenkl med identitetene, og kryss av alle ekvivalente uttrykk.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne identifisere hver av de sju portene fra sannhetstabell eller symbolbeskrivelse på under et halvt minutt",
+    "kunne propagere en portliste med fire til fem porter fram til utgangsuttrykket F uten regnefeil",
+    "kunne avgjøre for hvert enkelt alternativ om det er ekvivalent med kretsen, og begrunne begge utfall",
+    "kunne velge mellom motrad og full sannhetstabell som kontrollmetode under tidspress"
+  ],
+  "content": [
+    {
+      "id": "in1020-2-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** dette er treningsbanken for **sjanger D — logiske porter og kretsanalyse**. Portidentifikasjon har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**; kretsanalyse i fem av seks (83 %).\n\n**Høyeste prioritet — dette må sitte.** Sjangeren er den mekaniske ryggraden i **seksjon 2, maskinvare og arkitektur**, som er en av de fire seksjonene som hver må bestås for seg.\n\n**Svarformene du møter her**, skrevet ut i klarspråk:\n\n- **F1** — «velg ett *eller flere* alternativer»: flere kan være riktige samtidig.\n- **F2** — sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver.\n- **F3** — dra-og-slipp: koble hvert element til riktig kategori. I boka står den som en koblingsoppgave med tall og bokstaver.\n\n**Slik bruker du kapitlet.** Fjorten oppgaver, alle på eksamensnivå. Det tar omtrent 80 minutter samlet, og det er helt greit å dele over to økter — de to øktene er merket under. Ta tida på hver oppgave: en portidentifikasjon skal ta under et halvt minutt, en kretsanalyse med fire porter under tre minutter.\n\n**Regelen som gjelder hver eneste oppgave her:** regn ut kretsen én gang, og vurder deretter **hvert** alternativ mot det svaret. Under negativ poenggiving koster både et gal kryss og et glemt riktig kryss deg poeng."
+    },
+    {
+      "id": "in1020-2-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDrillen bygger på [kap. 2.1](/bok/in1020/in1020-2-1) og [kap. 2.2](/bok/in1020/in1020-2-2). Alt du trenger, står ferdig oppfrisket her — slå ikke opp underveis.\n\n**1. De seks utgangskolonnene**, lest ovenfra og ned for radene `00`, `01`, `10`, `11`:\n\n| Port | Utgang | Kjennetegn |\n|---|---|---|\n| AND | `0 0 0 1` | ett ettall, nederst |\n| OR | `0 1 1 1` | én null, øverst |\n| XOR | `0 1 1 0` | 1 når ulike |\n| NAND | `1 1 1 0` | én null, nederst |\n| NOR | `1 0 0 0` | ett ettall, øverst |\n| XNOR | `1 0 0 1` | 1 når like |\n\nNOT har én inngang: `0` gir 1, `1` gir 0.\n\n**2. Propagering.** Fra inngangene og framover, én port av gangen. Et mellomsignal som inneholder OR og settes inn i en AND, skal inn **med parentes**.\n\n**3. Identitetene som gjør jobben:**\n\n$$A + A \\cdot B = A \\qquad A + A' \\cdot B = A + B$$\n\n$$(A \\cdot B)' = A' + B' \\qquad (A + B)' = A' \\cdot B'$$\n\n$$A \\cdot (B + C) = A \\cdot B + A \\cdot C \\qquad A + B \\cdot C = (A + B) \\cdot (A + C)$$\n\n**4. Kontrollreglene.** Én motrad er nok til å **avvise** et alternativ. For å **godta** det trenger du alle radene, eller en gyldig identitet."
+    },
+    {
+      "id": "in1020-2-3-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-2-3-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| `A`, `B`, `C` | Kretsens innganger |\n| `P`, `Q`, `R`, `S` | Mellomsignaler i portlisten |\n| `F` | Kretsens sluttutgang |\n| `A′` | NOT A |\n| `A·B` | A AND B |\n| `A+B` | A OR B |\n| `A⊕B` | A XOR B |\n| `(A⊕B)′` | A XNOR B — 1 når inngangene er like |\n| Motrad | Én rad der to uttrykk gir ulikt svar — nok til å avvise |\n| Portliste | Nummerert kretsbeskrivelse, én linje per port |\n\n**Formler i dette delkapitlet:**\n\n$$A + A = A \\qquad A \\cdot A = A \\qquad A + A' = 1 \\qquad A \\cdot A' = 0$$\n\nIdempotens og komplement — de to reglene som får ledd til å forsvinne helt.\n\n$$A + A \\cdot B = A \\qquad A \\cdot (A + B) = A \\qquad A + A' \\cdot B = A + B$$\n\nAbsorpsjon og utvidet absorpsjon — de tre som forkorter mest i praksis.\n\n$$(A \\cdot B)' = A' + B' \\qquad (A + B)' = A' \\cdot B'$$\n\nDe Morgan: dra inverteringen inn, og bytt operator. Brukes utenfra og inn, ett lag av gangen.\n\n$$A \\oplus B = A' \\cdot B + A \\cdot B' \\qquad (A \\oplus B)' = A \\cdot B + A' \\cdot B'$$\n\nXOR og XNOR skrevet med grunnportene."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-3-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger D",
+      "content": "**A. Portidentifikasjon (mål: under 30 sekunder).**\n\n1. Skriv utgangskolonnen ovenfra og ned som fire tegn, for radene `00`, `01`, `10`, `11`.\n2. **Tell ettallene.** Ett ettall er AND eller NOR; tre ettall er OR eller NAND; to ettall er XOR eller XNOR.\n3. **Se hvor avviket står.** Ett ettall nederst er AND, øverst er NOR. Én null nederst er NAND, øverst er OR. To ettall i midten er XOR, i endene er XNOR.\n4. Er det bare én inngang, er porten en NOT.\n\n**B. Kretsanalyse fra portliste (mål: under 3 minutter for fire porter).**\n\n1. Les listen ovenfra og ned. Skriv uttrykket for hvert mellomsignal **med én gang**, uttrykt i inngangene.\n2. Sett parentes rundt et mellomsignal som inneholder OR når det går inn i en AND.\n3. Skriv `F` ferdig innsatt.\n4. **Forenkl** med identitetene — særlig absorpsjon og De Morgan.\n5. **Kontroller** i sannhetstabellen: én kolonne per mellomsignal, $2^n$ rader.\n\n**C. Ekvivalente uttrykk (svarform F1).**\n\n1. Regn ut `F` **én gang**. Ikke rør alternativene før du har svaret.\n2. Gå gjennom alternativene ett for ett. For hvert: prøv først å finne en **motrad**. Finner du en, er alternativet avvist, og du er ferdig med det.\n3. Finner du ingen motrad, bekreft med en identitet eller med hele tabellen.\n4. Kryss av alle du kan begrunne. La stå åpent bare der du er reelt i tvil.\n\n**D. Påstander om identiteter (svarform F2).**\n\n1. Les rada bokstavelig. «Gir samme utgang i raden der begge er 0» er noe annet enn «gir samme utgang».\n2. Er påstanden en identitet du kjenner, svar direkte.\n3. Ellers: finn en motrad (usann) eller gå gjennom alle radene (sann).\n\n**Den ene tidsregelen:** en tabell med åtte rader tar under to minutter. Er du i tvil om et alternativ, er tabellen alltid billigere enn et feilkryss."
+    },
+    {
+      "id": "in1020-2-3-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet case — hele oppskriften på én oppgave",
+      "problem": "Svarform F1. Kretsen er gitt som portliste. Kryss av **alle** uttrykkene som er lik utgangen `F`.\n\n```text\nPort 1: NAND med inngangene A og B   -> mellomsignal P\nPort 2: OR   med inngangene P og C   -> mellomsignal Q\nPort 3: NOT  med inngangen Q         -> utgangen F\n```\n\n**a)** `A·B·C′`\n\n**b)** `(A·B)·C′`\n\n**c)** `A·B + C′`\n\n**d)** `(A′ + B′ + C)′`",
+      "solution": "**Steg 1 — propagér, én linje av gangen.**\n\n`P = (A·B)′`\n\n`Q = P + C = (A·B)′ + C`\n\n`F = Q′ = ((A·B)′ + C)′`\n\n**Steg 2 — forenkl med De Morgan, utenfra og inn.** Det ytterste laget er en invertert OR, så den blir en AND av de to inverterte leddene:\n\n`F = ((A·B)′)′ · C′ = A·B·C′`\n\nDen doble inverteringen på `A·B` opphever seg selv.\n\n**Steg 3 — svaret.** `F = A·B·C′`.\n\n*Margnotat om uttelling: her er det selve forenklingen som gir poengene. Stopper du ved `((A·B)′ + C)′`, har du et riktig uttrykk, men du kjenner ikke igjen noen av alternativene.*\n\n**Steg 4 — vurdér hvert alternativ mot svaret.**\n\n**a) Riktig.** Nøyaktig uttrykket vi kom fram til.\n\n**b) Riktig.** Parentesen rundt `A·B` endrer ingenting, siden AND er assosiativ: `(A·B)·C′ = A·B·C′`. Dette er den formen som oftest overses, fordi den ser ut som et «annet» uttrykk.\n\n**c) Galt.** Her er den siste AND-en byttet til en OR. Motrad: `A = 0, B = 0, C = 0` gir kretsen `0·0·1 = 0`, men alternativet `0 + 1 = 1`. Ett moteksempel er nok.\n\n**d) Riktig.** De Morgan på hele parentesen: `(A′ + B′ + C)′ = A·B·C′`. Alternativet er kretsens uttrykk skrevet i invertert form. Kontroll i den kritiske raden `A = 1, B = 1, C = 0`: alternativet gir `(0 + 0 + 0)′ = 1`, og kretsen gir `1·1·1 = 1`. Stemmer.\n\n**Fasit: a, b og d.**\n\n**Hele sannhetstabellen, som kontroll:**\n\n| A | B | C | `P` | `Q` | `F` | a | b | c | d |\n|---|---|---|---|---|---|---|---|---|---|\n| 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 |\n| 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |\n| 0 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 |\n| 0 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |\n| 1 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 |\n| 1 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |\n| 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |\n\n*Margnotat om negativ poenggiving: tre av fire alternativer er riktige. En kandidat som krysser av a og stopper, får en tredjedel. En som krysser av alle fire, trekkes for c. Den som regner ut `F` først og deretter bruker tretti sekunder per alternativ, får full pott — og bruker under fire minutter totalt.*"
+    },
+    {
+      "id": "in1020-2-3-okt1",
+      "type": "text",
+      "content": "## Økt 1 — Portidentifikasjon og propagering (oppgave 1–7, ~40 min)\n\nFørste økt er de to mekaniske ferdighetene: kjenne igjen porten, og regne seg fram gjennom en portliste. Ta tida."
+    },
+    {
+      "id": "in1020-2-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — portidentifikasjon, svarform F4: nedtrekksmeny, altså ett valg per delspørsmål.) Hvilken port har hver av disse utgangskolonnene, lest ovenfra og ned for radene `00`, `01`, `10`, `11`?\n\n**a)** `1 0 0 1`\n\n**b)** `1 1 1 0`\n\n**c)** `1 0 0 0`\n\n**d)** `0 1 1 0`",
+        "solution": "**a) XNOR.** To ettall, og de står i **endene** — altså 1 når inngangene er like. XOR ville hatt ettallene i midten.\n\n**b) NAND.** Tre ettall, og den ene nullen står **nederst**, i raden der begge er 1. OR har også tre ettall, men da står nullen øverst.\n\n**c) NOR.** Ett ettall, og det står **øverst**, i raden der begge er 0. AND har også ett ettall, men nederst.\n\n**d) XOR.** To ettall i midten — 1 når inngangene er ulike.\n\n**Fasit: a) XNOR, b) NAND, c) NOR, d) XOR.**\n\nMerk at ingen av de fire er AND eller OR. En oppgave i denne formen bruker ikke nødvendigvis alle portene, og å tvinge inn de «vanlige» er en fast måte å bomme på.",
+        "hints": [
+          "Tell ettallene i kolonnen først — det halverer utvalget.",
+          "Se deretter hvor det avvikende svaret står: øverst eller nederst."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — portidentifikasjon, svarform F3: kobling.) Koble hver beskrivelse (1–5) til riktig port (A–G). Hver port kan brukes én gang eller ikke i det hele tatt.\n\n**1.** Symbolet er buet bak og spisst foran, med boble på utgangen.\n\n**2.** Utgangen er 1 i tre av fire rader, og nullen står nederst.\n\n**3.** Porten har bare én inngang.\n\n**4.** Utgangen er 1 bare når begge inngangene er 1.\n\n**5.** Symbolet har en ekstra bue langs baksiden, og ingen boble.\n\n**A.** AND · **B.** OR · **C.** XOR · **D.** NAND · **E.** NOR · **F.** XNOR · **G.** NOT",
+        "solution": "**1 → E (NOR).** Buet bakside og spiss framside er OR-formen; boblen snur svaret. Uten boble ville det vært B.\n\n**2 → D (NAND).** Tre ettall med nullen nederst. OR har også tre ettall, men nullen øverst.\n\n**3 → G (NOT).** Den eneste porten med én inngang.\n\n**4 → A (AND).** Ett ettall, i raden der begge er 1.\n\n**5 → C (XOR).** Den ekstra buen er XOR-merket; boble i tillegg ville gjort den til XNOR.\n\n**Fasit: 1→E, 2→D, 3→G, 4→A, 5→C.**\n\nMerk at koblingen ikke er 1→A, 2→B, 3→C — og at to porter (OR og XNOR) ikke er i bruk. Begge deler er normalt i denne oppgavetypen.",
+        "hints": [
+          "Del beskrivelsene i to grupper først: de som beskriver symbolet, og de som beskriver tabellen.",
+          "For symbolbeskrivelsene: avgjør grunnformen (AND-form eller OR-form) før du ser på boblen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger D — propagering.) Skriv utgangsuttrykket `F` for kretsen. Forenkling er ikke nødvendig.\n\n```text\nPort 1: NOT med inngangen B         -> mellomsignal P\nPort 2: AND med inngangene A og P   -> mellomsignal Q\nPort 3: OR  med inngangene Q og C   -> utgangen F\n```",
+        "solution": "`P = B′`\n\n`Q = A·P = A·B′`\n\n`F = Q + C`\n\n**Svar: `F = A·B′ + C`.**\n\nIngen parentes trengs rundt `A·B′`, siden AND binder sterkere enn OR.\n\nKontroll i to rader: `A = 1, B = 0, C = 0` gir `P = 1`, `Q = 1`, `F = 1`. `A = 1, B = 1, C = 0` gir `P = 0`, `Q = 0`, `F = 0`. Stemmer med uttrykket.",
+        "hints": [
+          "Skriv uttrykket for hvert mellomsignal på egen linje før du setter dem sammen.",
+          "Sjekk til slutt om noen parentes er nødvendig etter prioritetsregelen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — kretsanalyse med forenkling.) Skriv `F` for kretsen, forenkl uttrykket, og oppgi i hvor mange av de åtte radene `F` er 1.\n\n```text\nPort 1: NAND med inngangene A og B   -> mellomsignal P\nPort 2: OR   med inngangene P og C   -> mellomsignal Q\nPort 3: NOT  med inngangen Q         -> utgangen F\n```",
+        "solution": "**Propagering:**\n\n`P = (A·B)′`, `Q = (A·B)′ + C`, `F = ((A·B)′ + C)′`.\n\n**Forenkling med De Morgan, utenfra og inn:**\n\n`F = ((A·B)′)′ · C′ = A·B·C′`\n\n**Svar: `F = A·B·C′`.**\n\n**Antall rader med 1:** uttrykket krever `A = 1`, `B = 1` og `C = 0` samtidig. Det er nøyaktig **én** av de åtte radene.\n\n| A | B | C | `F` |\n|---|---|---|---|\n| 0 | 0 | 0 | 0 |\n| 0 | 0 | 1 | 0 |\n| 0 | 1 | 0 | 0 |\n| 0 | 1 | 1 | 0 |\n| 1 | 0 | 0 | 0 |\n| 1 | 0 | 1 | 0 |\n| 1 | 1 | 0 | 1 |\n| 1 | 1 | 1 | 0 |\n\nEn krets med bare ett ettall i kolonnen er en ren «detektor» for én bestemt kombinasjon — den slår ut på `110` og ingenting annet.",
+        "hints": [
+          "Bruk De Morgan på det ytterste laget først, og la det indre stå urørt.",
+          "Husk at en dobbel invertering opphever seg selv.",
+          "Et rent AND-ledd med tre faktorer gir 1 i nøyaktig én rad."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — kretsanalyse.) Skriv `F` for kretsen, forenkl så langt det går, og kontroller forenklingen i hele sannhetstabellen.\n\n```text\nPort 1: XNOR med inngangene A og B   -> mellomsignal P\nPort 2: NOT  med inngangen C         -> mellomsignal Q\nPort 3: AND  med inngangene P og Q   -> mellomsignal R\nPort 4: OR   med inngangene R og C   -> utgangen F\n```",
+        "solution": "**Propagering:**\n\n`P = (A⊕B)′`, `Q = C′`, `R = (A⊕B)′·C′`, `F = (A⊕B)′·C′ + C`.\n\n**Forenkling.** Sett `X = (A⊕B)′`. Uttrykket er `X·C′ + C`, som etter kommutativitet er `C + C′·X`. Det er utvidet absorpsjon: `C + C′·X = C + X`.\n\n**Svar: `F = (A⊕B)′ + C`**, altså «A og B er like, eller C er 1».\n\n**Kontrollen:**\n\n| A | B | C | `P` | `Q` | `R` | `F` | `P + C` |\n|---|---|---|---|---|---|---|---|\n| 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |\n| 0 | 0 | 1 | 1 | 0 | 0 | 1 | 1 |\n| 0 | 1 | 0 | 0 | 1 | 0 | 0 | 0 |\n| 0 | 1 | 1 | 0 | 0 | 0 | 1 | 1 |\n| 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |\n| 1 | 0 | 1 | 0 | 0 | 0 | 1 | 1 |\n| 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 |\n\nDe to siste kolonnene er identiske i alle åtte radene.\n\nKretsen bruker fire porter på noe som kan gjøres med to. Det er ikke tilfeldig — eksamenskretser er ofte bygd for å se tyngre ut enn de er, nettopp for å teste om du kjenner igjen absorpsjonsmønsteret.",
+        "hints": [
+          "Behandl hele XNOR-utgangen som ett signal mens du forenkler.",
+          "Se etter mønsteret `C + C′·X` — hva sier utvidet absorpsjon da?",
+          "Kontroller til slutt at kolonnen for F og kolonnen for det forenklede uttrykket er like i alle åtte radene."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — ekvivalens, svarform F1.) Kretsen er gitt. Kryss av **alle** uttrykkene som er lik `F`, og begrunn hvert av de fire.\n\n```text\nPort 1: OR  med inngangene A og B   -> mellomsignal P\nPort 2: NOT med inngangen C         -> mellomsignal Q\nPort 3: AND med inngangene P og Q   -> utgangen F\n```\n\n**a)** `A·C′ + B·C′`\n\n**b)** `C′·(B + A)`\n\n**c)** `A + B + C′`\n\n**d)** `A′·B′ + C`",
+        "solution": "**Kretsen:** `P = A + B`, `Q = C′`, `F = (A + B)·C′`.\n\n**a) Riktig.** Distributiv lov, AND over OR: `(A + B)·C′ = A·C′ + B·C′`.\n\n**b) Riktig.** Bare kommutativitet, to ganger: faktorenes rekkefølge og leddenes rekkefølge betyr ingenting. Dette er den formen som oftest overses fordi den ser «for lik» ut til å være et eget alternativ.\n\n**c) Galt.** Her er AND-en byttet til OR. Motrad: `A = 0, B = 0, C = 0` gir kretsen `(0+0)·1 = 0`, men alternativet `0 + 0 + 1 = 1`.\n\n**d) Galt.** Dette er kretsens invertering, ikke kretsen. Ved De Morgan er `((A + B)·C′)′ = (A + B)′ + C = A′·B′ + C`. Alternativet er altså nøyaktig `F′`. Motrad: `A = 1, B = 0, C = 0` gir kretsen 1 og alternativet `0 + 0 = 0`.\n\n**Fasit: a og b.**\n\nMerk hvordan d) er en av de farligste distraktortypene: den er systematisk avledet av riktig svar, bare invertert. Den ser «riktig ut» fordi alle delene er kjente.",
+        "hints": [
+          "Regn ut kretsens uttrykk før du ser på alternativene i det hele tatt.",
+          "For alternativ a: prøv den distributive loven for AND over OR.",
+          "For hvert alternativ du tror er galt: finn én rad der de gir ulikt svar."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — De Morgan, svarform F1.) Kryss av **alle** uttrykkene som er lik `(A + B·C)′`, og begrunn hvert av de fire.\n\n**a)** `A′·(B·C)′`\n\n**b)** `A′·(B′ + C′)`\n\n**c)** `A′ + B′·C′`\n\n**d)** `A′·B′·C′`",
+        "solution": "**Bruk De Morgan utenfra og inn.** Ytterst er uttrykket en OR av `A` og `B·C`:\n\n`(A + B·C)′ = A′ · (B·C)′`\n\nDeretter kan den andre faktoren utvides: `(B·C)′ = B′ + C′`.\n\nSamlet: `A′·(B′ + C′)`.\n\n**a) Riktig.** Første steg, stoppet før den indre De Morgan-en.\n\n**b) Riktig.** Samme uttrykk, ett steg videre.\n\n**c) Galt.** Her er AND-en i midten byttet til OR. Motrad: `A = 1, B = 0, C = 0` gir uttrykket `(1 + 0)′ = 0`, men alternativet `0 + 1 = 1`.\n\n**d) Galt.** Her krever alternativet at alle tre er 0. Motrad: `A = 0, B = 1, C = 0` gir uttrykket `(0 + 0)′ = 1`, men alternativet `1·0·1 = 0`. Alternativet ville vært riktig for `(A + B + C)′`, som er en annen funksjon.\n\n**Fasit: a og b.**\n\n**Metoderegelen som gjentas her:** ett lag av gangen. Prøver du å invertere alt i én operasjon, bommer du på minst ett ledd — og under negativ poenggiving koster det både det tapte riktige krysset og det gale du satte i stedet.",
+        "hints": [
+          "Se på hva som er den ytterste operatoren inne i parentesen — er det en AND eller en OR?",
+          "Bruk De Morgan på det ytterste laget først, og la det indre stå urørt til etterpå.",
+          "Begge de riktige alternativene beskriver samme uttrykk på ulikt detaljnivå."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-okt2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Økt 2 — Forenkling, identiteter og sammensatte kretser (oppgave 8–14, ~40 min)\n\nAndre økt er tyngre: fem porter, forgrening, og påstander som skal begrunnes rad for rad. Ta pause før du starter."
+    },
+    {
+      "id": "in1020-2-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — forenkling.) Forenkl hvert uttrykk så langt det går, og oppgi hvilken identitet du brukte.\n\n**a)** `A·(A′ + B)`\n\n**b)** `(A + B)·(A + B′)`\n\n**c)** `A + A′·B′`\n\n**d)** `A ⊕ A′`",
+        "solution": "**a)** Gang inn: `A·A′ + A·B`. Komplementloven gir `A·A′ = 0`, og `0 + A·B = A·B`.\n\n**Svar: `A·B`.** Identiteter: distributivitet, komplement, identitetselement.\n\n**b)** Gang ut: `A·A + A·B′ + B·A + B·B′`. Her er `A·A = A` (idempotens) og `B·B′ = 0` (komplement), så uttrykket blir `A + A·B′ + A·B = A·(1 + B′ + B) = A`.\n\n**Svar: `A`.** Kortere vei: distributiv lov OR over AND baklengs gir `A + B·B′ = A + 0 = A`.\n\n**c)** Utvidet absorpsjon med `B′` i rollen som `B`: `A + A′·B′ = A + B′`.\n\n**Svar: `A + B′`.**\n\n**d)** XOR gir 1 når inngangene er ulike, og `A` og `A′` er alltid ulike.\n\n**Svar: `1` — konstant, uansett `A`.**\n\nKontroll av d) i begge radene: `A = 0` gir `0 ⊕ 1 = 1`; `A = 1` gir `1 ⊕ 0 = 1`. Konstant 1.",
+        "hints": [
+          "For a) og b): gang ut parentesen først, og se etter ledd som blir 0 eller faller sammen.",
+          "For c): har uttrykket formen `A + A′·(noe)`?",
+          "For d): tenk på hva XOR spør om, og på om A og A′ noen gang kan være like."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger D — identiteter, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | `A·(A′ + B)` er lik `A·B` | |\n| b | `(A + B)·(A + B′)` er lik `A + B` | |\n| c | Enhver logisk funksjon kan realiseres med kun NOR-porter | |\n| d | `A + A′·B′` er lik `A + B′` | |",
+        "solution": "**a) Sann.** `A·A′ + A·B = 0 + A·B = A·B`. Kontroll i alle fire radene: `A = 0` gir 0 på begge sider; `A = 1, B = 0` gir `1·(0+0) = 0` og `1·0 = 0`; `A = 1, B = 1` gir `1·(0+1) = 1` og `1·1 = 1`. Identiske.\n\n**b) Usann.** Uttrykket forenkler til `A`, ikke `A + B`. Motrad: `A = 0, B = 1` gir venstre side `(0+1)·(0+0) = 1·0 = 0`, men høyre side `0 + 1 = 1`. Fella er å tro at «B står i begge parentesene, så B må bli med videre» — men `B` og `B′` slår hverandre ut.\n\n**c) Sann.** NOR er funksjonelt komplett: NOR med sammenkoblede innganger gir NOT, og med inverterte innganger gir NOR en AND. Med NOT og AND kan alt bygges.\n\n**d) Sann.** Utvidet absorpsjon, med `B′` i rollen som `B`. Kontroll: `A = 0, B = 0` gir `0 + 1 = 1` og `0 + 1 = 1`; `A = 0, B = 1` gir `0 + 0 = 0` og `0 + 0 = 0`; `A = 1` gir 1 på begge sider uansett `B`.\n\n**Fasit: a sann, b usann, c sann, d sann.**\n\nMerk at den usanne rada er den som ser mest ut som et mønster man kjenner igjen. Under negativ poenggiving er «det ligner på en regel jeg kan» den dyreste magefølelsen som finnes — regn ut rada.",
+        "hints": [
+          "For a) og b): gang ut parentesene og se hvilke ledd som blir 0.",
+          "For b): hva skjer med `B` og `B′` når de møtes i samme utregning?",
+          "For c): hva bygde du av NOR-porter i kap. 2.1, og hva mangler du da?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — kretsanalyse med fem porter.) Skriv `F` for kretsen, sett opp hele sannhetstabellen, og oppgi i hvilke rader `F` er 1.\n\n```text\nPort 1: XOR  med inngangene A og B   -> mellomsignal P\nPort 2: NOT  med inngangen P         -> mellomsignal Q\nPort 3: AND  med inngangene Q og C   -> mellomsignal R\nPort 4: NOR  med inngangene A og B   -> mellomsignal S\nPort 5: OR   med inngangene R og S   -> utgangen F\n```",
+        "solution": "**Propagering:**\n\n`P = A⊕B`, `Q = (A⊕B)′`, `R = (A⊕B)′·C`, `S = (A + B)′ = A′·B′`, `F = R + S`.\n\n**Svar: `F = (A⊕B)′·C + A′·B′`.**\n\n**Sannhetstabellen:**\n\n| A | B | C | `P` | `Q` | `R` | `S` | `F` |\n|---|---|---|---|---|---|---|---|\n| 0 | 0 | 0 | 0 | 1 | 0 | 1 | 1 |\n| 0 | 0 | 1 | 0 | 1 | 1 | 1 | 1 |\n| 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 |\n| 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 |\n| 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |\n| 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 |\n| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 |\n| 1 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |\n\n**`F` er 1 i tre rader: `000`, `001` og `111`.**\n\n**Forenkling, som kontroll:** de tre radene sier «A og B er begge 0» (to rader) eller «A, B og C er alle 1» (én rad). Det er `A′·B′ + A·B·C`. Sammenlign med uttrykket vi propagerte oss fram til: `(A⊕B)′` er 1 når `A` og `B` er like, altså ved `00` og ved `11`. AND-et med `C` gir `A′·B′·C + A·B·C`, og OR-et med `A′·B′` absorberer det første leddet. Igjen står `A′·B′ + A·B·C`. Stemmer.\n\nMerk at forenklingen her sparte deg ett ledd — og at akkurat den forenklede formen er den som pleier å stå blant alternativene.",
+        "hints": [
+          "Fyll ut én kolonne per mellomsignal, i den rekkefølgen portlisten gir dem.",
+          "Bruk De Morgan på NOR-porten med én gang, så slipper du en parentes.",
+          "Til slutt: les de radene der F er 1, og skriv ett AND-ledd for hver — da får du den forenklede formen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — ekvivalens, svarform F1.) Kretsen er gitt. Kryss av **alle** uttrykkene som er lik `F`, og begrunn hvert av de fem.\n\n```text\nPort 1: NOT med inngangen A         -> mellomsignal P\nPort 2: AND med inngangene P og C   -> mellomsignal Q\nPort 3: OR  med inngangene Q og B   -> utgangen F\n```\n\n**a)** `A′·C + B`\n\n**b)** `B + A′·C`\n\n**c)** `(A′ + B)·(C + B)`\n\n**d)** `A′·(B + C)`\n\n**e)** `B + A′·C + B·C`",
+        "solution": "**Kretsen:** `P = A′`, `Q = A′·C`, `F = A′·C + B`.\n\n**a) Riktig.** Kretsens uttrykk direkte.\n\n**b) Riktig.** Kommutativitet — leddenes rekkefølge i en OR betyr ingenting.\n\n**c) Riktig.** Distributiv lov, OR over AND, med `B` i rollen som `A`: `B + A′·C = (B + A′)·(B + C)`. Kommutativiteten i hver parentes gir formen i alternativet. Kontroll i to rader: `A = 1, B = 0, C = 1` gir kretsen `0 + 0 = 0` og alternativet `(0+0)·(1+0) = 0`. `A = 0, B = 0, C = 1` gir kretsen `1 + 0 = 1` og alternativet `(1+0)·(1+0) = 1`. Stemmer.\n\n**d) Galt.** Her er `A′` ganget inn i **begge** leddene, også i `B`, som kretsen ikke gjør. Motrad: `A = 1, B = 1, C = 0` gir kretsen `0 + 1 = 1`, men alternativet `0·(1+0) = 0`.\n\n**e) Riktig.** Det ekstra leddet `B·C` er absorbert av `B`: `B + B·C = B`. Alternativet er altså det samme uttrykket, bare med et overflødig ledd. Slike «unødvendig lange» alternativer er ofte riktige — lengden er ikke et argument for eller mot.\n\n**Fasit: a, b, c og e.**\n\n**Fire av fem riktige.** Under negativ poenggiving er dette oppgavetypen som skiller mest: en kandidat som er redd for å krysse av «for mange», mister tre poeng her uten å ha svart noe galt.",
+        "hints": [
+          "Regn ut kretsen først, og hold det ene uttrykket fast mens du vurderer alternativene.",
+          "For alternativ c: prøv den distributive loven OR over AND, med B i rollen som den enkeltstående variabelen.",
+          "For alternativ e: hva sier absorpsjonsloven om `B + B·C`?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — krets med forgrening.) I kretsen under mater mellomsignalet `P` to porter. Skriv `F`, forenkl så langt det går, og forklar hva forenklingen betyr for hvor mange porter kretsen egentlig trenger.\n\n```text\nPort 1: NOT med inngangen B         -> mellomsignal P\nPort 2: AND med inngangene A og P   -> mellomsignal Q\nPort 3: OR  med inngangene P og C   -> mellomsignal R\nPort 4: AND med inngangene Q og R   -> utgangen F\n```",
+        "solution": "**Propagering:**\n\n`P = B′`\n\n`Q = A·B′`\n\n`R = B′ + C`\n\n`F = Q·R = A·B′·(B′ + C)`\n\n**Forenkling.** Sett `X = B′`. Da er `F = A·X·(X + C)`. Absorpsjonsloven sier `X·(X + C) = X`, så\n\n`F = A·X = A·B′`\n\n**Svar: `F = A·B′`.**\n\n**Kontrollen:**\n\n| A | B | C | `P` | `Q` | `R` | `F` | `A·B′` |\n|---|---|---|---|---|---|---|---|\n| 0 | 0 | 0 | 1 | 0 | 1 | 0 | 0 |\n| 0 | 0 | 1 | 1 | 0 | 1 | 0 | 0 |\n| 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |\n| 0 | 1 | 1 | 0 | 0 | 1 | 0 | 0 |\n| 1 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |\n| 1 | 1 | 1 | 0 | 0 | 1 | 0 | 0 |\n\nIdentiske i alle åtte radene.\n\n**Hva forenklingen betyr:** kretsen bruker fire porter, men gjør bare jobben til to (én NOT og én AND). Legg særlig merke til at `C` **ikke finnes** i det forenklede uttrykket — inngangen har ingen innflytelse på utgangen i det hele tatt. Se kolonnene for `C = 0` og `C = 1`: de gir samme `F` for hver kombinasjon av `A` og `B`.\n\nEn inngang som forsvinner i forenklingen, er et fast mønster i eksamenskretser, og «utgangen avhenger ikke av C» er ofte et av alternativene.",
+        "hints": [
+          "Skriv uttrykket for P én gang, og bruk det samme uttrykket på begge linjene der P står.",
+          "Behandl `B′` som ett signal og se etter absorpsjonsmønsteret `X·(X + C)`.",
+          "Sjekk til slutt om alle tre inngangene faktisk står igjen i svaret."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — omvendt kretsanalyse, svarform F1.) Hvilke av portlistene under gir utgangen `F = A + B′·C`? Kryss av **alle** som stemmer, og begrunn hver.\n\n**a)**\n```text\nPort 1: NOT med inngangen B         -> P\nPort 2: AND med inngangene P og C   -> Q\nPort 3: OR  med inngangene A og Q   -> F\n```\n\n**b)**\n```text\nPort 1: NOT med inngangen B         -> P\nPort 2: OR  med inngangene P og C   -> Q\nPort 3: AND med inngangene A og Q   -> F\n```\n\n**c)**\n```text\nPort 1: NOR med inngangene B og B   -> P\nPort 2: AND med inngangene P og C   -> Q\nPort 3: OR  med inngangene Q og A   -> F\n```\n\n**d)**\n```text\nPort 1: NAND med inngangene B og C   -> P\nPort 2: NOT  med inngangen P         -> Q\nPort 3: OR   med inngangene A og Q   -> F\n```",
+        "solution": "**Målfunksjonen:** `A + B′·C` er 1 når `A = 1`, eller når `B = 0` og `C = 1`. Kolonnen for radene `000` til `111` er `0, 1, 0, 0, 1, 1, 1, 1`.\n\n**a) Riktig.** `P = B′`, `Q = B′·C`, `F = A + B′·C`. Nøyaktig målfunksjonen.\n\n**b) Galt.** Her er de to siste portene byttet om: `F = A·(B′ + C)`. Motrad: `A = 1, B = 1, C = 0` gir målfunksjonen `1 + 0 = 1`, men denne kretsen `1·(0 + 0) = 0`.\n\n**c) Riktig.** En NOR med begge inngangene koblet til `B` er en inverter: `P = (B + B)′ = B′`. Resten er identisk med a), bare med leddene i motsatt rekkefølge i den siste OR-en — og rekkefølgen betyr ingenting.\n\n**d) Galt.** `P = (B·C)′`, og NOT-en snur den tilbake: `Q = B·C`. Kretsen gir `F = A + B·C`, altså uten inverteringen på `B`. Motrad: `A = 0, B = 0, C = 1` gir målfunksjonen `0 + 1·1 = 1`, men denne kretsen `0 + 0·1 = 0`.\n\n**Fasit: a og c.**\n\n**Metoden når oppgaven er snudd:** ikke prøv å gjenkjenne kretsen på utseendet. Regn ut hver portliste for seg — det er fire raske propageringer — og sammenlign uttrykk mot uttrykk. Å gjette ut fra «denne ser riktig ut» er nettopp det formatet straffer.",
+        "hints": [
+          "Regn ut hver portliste for seg og skriv ned uttrykket, før du sammenligner med målfunksjonen.",
+          "For c): hva gjør en NOR-port når begge inngangene er koblet til samme signal?",
+          "For d): hva skjer når en NAND-utgang inverteres?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-3-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — blandet, svarform F2.) Kretsen under er gitt. Vurder hver påstand om den som sann eller usann, og begrunn hver rad.\n\n```text\nPort 1: NAND med inngangene A og B   -> mellomsignal P\nPort 2: AND  med inngangene P og C   -> utgangen F\n```\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | `F = (A′ + B′)·C` | |\n| b | `F` er 1 i tre av de åtte radene | |\n| c | Kretsen gir samme utgang som `A′·C + B′·C` | |\n| d | Er `C = 0`, er `F = 0` uansett `A` og `B` | |",
+        "solution": "**Kretsen:** `P = (A·B)′`, `F = (A·B)′·C`.\n\n**Sannhetstabellen:**\n\n| A | B | C | `P` | `F` |\n|---|---|---|---|---|\n| 0 | 0 | 0 | 1 | 0 |\n| 0 | 0 | 1 | 1 | 1 |\n| 0 | 1 | 0 | 1 | 0 |\n| 0 | 1 | 1 | 1 | 1 |\n| 1 | 0 | 0 | 1 | 0 |\n| 1 | 0 | 1 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 0 |\n| 1 | 1 | 1 | 0 | 0 |\n\n**a) Sann.** De Morgan: `(A·B)′ = A′ + B′`, så `F = (A′ + B′)·C`.\n\n**b) Sann.** Kolonnen har 1 i radene `001`, `011` og `101` — tre av åtte.\n\n**c) Sann.** Distributiv lov: `(A′ + B′)·C = A′·C + B′·C`. Kontroll i raden `011`: venstre side `(1 + 0)·1 = 1`, høyre side `1·1 + 0·1 = 1`. Og i raden `111`: `(0+0)·1 = 0` mot `0 + 0 = 0`. Stemmer.\n\n**d) Sann.** Den siste porten er en AND med `C` som den ene inngangen, og en AND med en 0 på en inngang gir alltid 0. Se kolonnen: alle fire radene med `C = 0` gir `F = 0`.\n\n**Fasit: alle fire sanne.**\n\n**Om formen:** en sant/usant-matrise der alt er sant, finnes. Har du lært deg at «det pleier å være minst én usann», er dette oppgaven som straffer vanen. Vurder hver rad for seg, og la fordelingen være som den blir.",
+        "hints": [
+          "Sett opp hele sannhetstabellen først — den avgjør tre av de fire radene direkte.",
+          "For a) og c): bruk De Morgan og deretter den distributive loven.",
+          "For d): hva gir en AND-port når den ene inngangen er 0?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å stoppe ved det første riktige alternativet.** I oppgave 11 var fire av fem riktige. Regn ut `F` én gang, og vurder deretter **hvert** alternativ. Under negativ poenggiving taper du like sikkert på et glemt riktig kryss som på et gal kryss.\n\n2. **Å forveksle NAND og NOR i portlisten.** Tell ettallene i utgangskolonnen: NAND har tre, NOR har ett. Symbolene ligner, tabellene gjør det ikke.\n\n3. **Å glemme parentesen når et mellomsignal settes inn.** `P = A + B` inn i `F = P·C` gir `(A + B)·C`. Uten parentesen har du en annen funksjon.\n\n4. **Å bruke De Morgan på flere lag samtidig.** Ett lag av gangen, utenfra og inn, med operatorbytte hver gang. Oppgave 7 er bygd nøyaktig på denne fella.\n\n5. **Å tro at et langt alternativ er galt fordi det er langt.** I oppgave 11 var `B + A′·C + B·C` riktig — det overflødige leddet ble absorbert. Lengde er ikke et argument.\n\n6. **Å overse at en inngang faller bort.** I oppgave 12 hadde `C` ingen innflytelse på utgangen. Sjekk alltid hvilke variabler som faktisk står igjen i det forenklede uttrykket.\n\n7. **Å stole på fordelingen i en sant/usant-matrise.** I oppgave 14 var alle fire sanne. Fordelingen er ingen ledetråd; regn ut hver rad."
+    },
+    {
+      "id": "in1020-2-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-2-3-bank-1",
+      "type": "definition",
+      "title": "Portidentifikasjon på 30 sekunder",
+      "content": "Metoden: skriv utgangskolonnen som fire tegn ovenfra og ned, tell ettallene, og se hvor avviket står.\n\n| Kolonne | Port |\n|---|---|\n| `0 0 0 1` | AND |\n| `0 1 1 1` | OR |\n| `0 1 1 0` | XOR |\n| `1 1 1 0` | NAND |\n| `1 0 0 0` | NOR |\n| `1 0 0 1` | XNOR |\n\nDen faste feilen er å prøve å kjenne igjen porten på symbolformen alene. Tabellen er raskere og tar ikke feil."
+    },
+    {
+      "id": "in1020-2-3-bank-2",
+      "type": "definition",
+      "title": "Motrad som avvisningsbevis",
+      "content": "Én rad der to uttrykk gir ulikt svar, er nok til å avvise et alternativ endelig.\n\nFor å **godta** et alternativ trengs derimot enten alle radene eller en gyldig identitet — asymmetrien er verdt å utnytte under tidspress.\n\nArbeidsmåten på eksamen: let etter en motrad først. Finner du en innen få sekunder, er alternativet ferdigbehandlet. Finner du ingen, sett opp tabellen."
+    },
+    {
+      "id": "in1020-2-3-bank-3",
+      "type": "definition",
+      "title": "Inngang som faller bort",
+      "content": "At en variabel forsvinner når kretsens uttrykk forenkles — den har ingen innflytelse på utgangen.\n\nI en krets der `F = A·B′·(B′ + C)` forenkler til `A·B′`, betyr det at `C` kan settes til hva som helst uten at `F` endrer seg.\n\nDette er et fast mønster i eksamenskretser, og «utgangen avhenger ikke av C» er ofte et av alternativene. Kontroller det ved å sammenligne radene med `C = 0` mot radene med `C = 1`."
+    },
+    {
+      "id": "in1020-2-3-bank-4",
+      "type": "definition",
+      "title": "Overflødig ledd",
+      "content": "Et ledd i et uttrykk som forsvinner ved forenkling, uten at funksjonen endres — for eksempel `B·C` i `B + A′·C + B·C`, som absorberes av `B`.\n\nSlike uttrykk er **ekvivalente** med den korte formen og skal krysses av som riktige.\n\nDen faste feilslutningen: å avvise et alternativ fordi det ser unødvendig langt ut. Lengde er ikke et argument — bare sannhetstabellen er det."
+    },
+    {
+      "id": "in1020-2-3-bank-5",
+      "type": "definition",
+      "title": "Omvendt kretsanalyse",
+      "content": "Oppgavetypen der du får et uttrykk og skal avgjøre hvilke portlister som gir nettopp det.\n\nMetoden er den samme som ellers, bare gjentatt: regn ut hver portliste for seg, skriv ned uttrykket, og sammenlign uttrykk mot uttrykk.\n\nDen faste feilen er å prøve å gjenkjenne kretsen på utseendet — «denne ser riktig ut». To portlister som ser nesten like ut, kan gi helt ulike funksjoner: bytter du om AND-en og OR-en til slutt, endres funksjonen i flere rader."
+    },
+    {
+      "id": "in1020-2-3-bank-6",
+      "type": "definition",
+      "title": "Detektorkrets",
+      "content": "En krets med nøyaktig ett ettall i utgangskolonnen: den slår ut på én bestemt inngangskombinasjon og ingen andre.\n\nUttrykket er alltid ett rent AND-ledd med alle variablene: `A·B·C′` slår ut bare på `110`.\n\nRegelen for å lese den: variabelen selv der raden har 1, invertert der raden har 0."
+    },
+    {
+      "id": "in1020-2-3-bank-7",
+      "type": "definition",
+      "title": "Invertert krets som distraktor",
+      "content": "Et alternativ som er nøyaktig `F′` i stedet for `F` — systematisk avledet av riktig svar, men gal i **hver eneste** rad.\n\nEr kretsen `(A + B)·C′`, er den inverterte formen `A′·B′ + C`. Alle delene er kjente, og derfor ser den riktig ut.\n\nKontrollen er rask: sjekk én rad der du vet hva `F` er. Gir alternativet motsatt svar der, er det den inverterte formen."
+    },
+    {
+      "id": "in1020-2-3-bank-8",
+      "type": "definition",
+      "title": "Forgrening i drilloppgaver",
+      "content": "At samme mellomsignal står oppført som inngang på flere linjer i portlisten.\n\nDet betyr bare at ledningen er delt, og at alle mottakerne ser samme verdi. Du skriver uttrykket for signalet **én** gang og bruker det på alle linjene.\n\nDen faste feilen er å regne ut signalet på nytt for hver mottaker og komme til to ulike uttrykk — som regel fordi man mister en invertering underveis."
+    },
+    {
+      "id": "in1020-2-3-bank-9",
+      "type": "definition",
+      "title": "Tidsbudsjettet i sjanger D",
+      "content": "Retningsgivende tider når du drillet ferdig: portidentifikasjon under 30 sekunder, propagering av fire porter under 3 minutter, full sannhetstabell med åtte rader under 2 minutter.\n\nEn F1-oppgave med fire alternativer bør derfor ta rundt fire minutter totalt: ett utregnet svar pluss fire vurderinger.\n\nBlir du sittende lenger, er det nesten alltid fordi du har begynt å resonnere om alternativene i stedet for å regne ut kretsen først."
+    },
+    {
+      "id": "in1020-2-3-bank-10",
+      "type": "definition",
+      "title": "Å lese påstanden bokstavelig",
+      "content": "Disiplinen sant/usant-matriser krever: «gir samme utgang i raden der begge er 0» er en helt annen påstand enn «gir samme utgang».\n\nEn presis avgrensning i påstanden gjør ofte en usann påstand sann — og det er nettopp derfor avgrensningen står der.\n\nArbeidsmåten: stryk under hva rada faktisk begrenser seg til, før du vurderer om den stemmer."
+    },
+    {
+      "id": "in1020-2-3-bank-11",
+      "type": "definition",
+      "title": "Fordelingen i en fasit er ingen ledetråd",
+      "content": "En sant/usant-matrise kan ha alle fire sanne, alle fire usanne, eller hvilken som helst blanding. En F1-oppgave kan ha ett riktig alternativ eller fire.\n\nDet finnes ingen skjult regel om «minst én av hver».\n\nVanen med å fordele svarene pent koster poeng under negativ poenggiving på begge kanter: du krysser av noe du ikke kan begrunne, og lar stå noe du faktisk kunne."
+    },
+    {
+      "id": "in1020-2-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter drillen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-2-3-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte. Svar før du ser på fasiten.\n\n1. Utgangskolonnen er `1 0 0 1`. Hvilken port?\n2. Hvor mange motrader trengs for å avvise et alternativ?\n3. `P = A + B` inn i `F = P·C`. Hva blir `F`?\n4. Forenkl `A·(A′ + B)`.\n5. Forenkl `X·(X + C)`.\n6. Hva gir en NOR med begge inngangene koblet til `B`?\n7. Hva er `((A·B)′ + C)′` forenklet?\n8. Kan alle fire radene i en sant/usant-matrise være sanne?\n\n**Fasit.**\n\n1. XNOR — to ettall, i endene.\n2. Én. Én rad med ulikt svar avviser endelig.\n3. `(A + B)·C`. Parentesen er obligatorisk.\n4. `A·B`. Gang inn: `A·A′ + A·B = 0 + A·B`.\n5. `X`. Absorpsjon.\n6. `B′` — en inverter, siden `(B + B)′ = B′`.\n7. `A·B·C′`. De Morgan utenfra og inn, og den doble inverteringen på `A·B` faller bort.\n8. Ja. Fordelingen er ingen ledetråd, og oppgave 14 var nettopp slik.\n\nSjekk deg selv: ☐ vurderte du ALLE alternativene i F1-oppgavene, ikke bare det første riktige? ☐ satte du parentes rundt mellomsignaler med OR? ☐ brukte du De Morgan ett lag av gangen? ☐ sjekket du om noen inngang falt bort i forenklingen?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
