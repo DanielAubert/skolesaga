@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Klassen `Vec2D` har `__init__` og `__str__`. Hvilken metode kjører `print(u)`?",
+    "options": [
+      "`__str__`, og `print` skriver ut strengen den returnerer",
+      "`__init__`, som lager objektet på nytt før utskrift",
+      "`__repr__`, som alltid har forrang for `__str__` ved utskrift",
+      "ingen metode — `print` leser attributtene direkte"
+    ],
+    "explanation": "`print(obj)` gjør først `str(obj)`, som kaller `__str__`, og skriver ut strengen som kommer tilbake. `__repr__` brukes bare når `__str__` ikke finnes, eller når objektet står inne i en liste; `__init__` kjøres kun ved instansiering."
+  },
+  {
+    "question": "Hva skriver `print(u + v)` ut, når `__add__` returnerer `(self.x + other.x, self.y + other.y)`, `u = Vec2D(1, 2)` og `v = Vec2D(3, 4)`?",
+    "options": [
+      "`(4, 6)` — og feilen viser seg ikke her",
+      "`TypeError`, siden tuppelet ikke kan skrives ut",
+      "`(1, 2)(3, 4)` — de to tuplene etter hverandre",
+      "`Vec2D(4, 6)` med klassenavnet foran"
+    ],
+    "explanation": "Et tuppel skrives ut som `(4, 6)`, som tilfeldigvis ser ut som en riktig vektorutskrift — derfor er feil #4 så lumsk. Feilen dukker først opp når du bruker resultatet videre, for eksempel i `u + v + w`, der du får «can only concatenate tuple»."
+  },
+  {
+    "question": "Hvorfor virker `u + v + w` bare når `__add__` returnerer en instans?",
+    "options": [
+      "Det andre plusstegnet kaller `__add__` på resultat nummer én",
+      "Python krever at alle ledd i et uttrykk har nøyaktig samme type",
+      "Fordi `__add__` bare kan kalles én gang per objekt",
+      "Fordi tre operander må ha en egen spesialmetode"
+    ],
+    "explanation": "Uttrykket regnes fra venstre, så `u + v` må selv være et objekt med `__add__` for at det neste plusstegnet skal ha noe å kalle. Python krever ikke samme type generelt, og det finnes ingen spesialmetode for tre operander."
+  },
+  {
+    "question": "Hva returnerer `__mul__` når den regner indreproduktet av to vektorer?",
+    "options": [
+      "Et tall — indreproduktet er en skalar",
+      "En ny instans av vektorklassen",
+      "Et tuppel med de komponentvise produktene",
+      "En liste med ett element per komponent"
+    ],
+    "explanation": "Indreproduktet av to vektorer er ett tall, så her er returtypen et tall — det ene unntaket fra «ny instans»-regelen. En ny instans ville vært riktig for skalarmultiplikasjon, mens tuppel og liste er den klassiske typefeilen #4."
+  },
+  {
+    "question": "Hva gjør `isinstance(other, Vec2D)` inne i `__mul__`?",
+    "options": [
+      "Svarer `True` hvis høyre operand er en `Vec2D`-instans",
+      "Gjør høyre operand om til en `Vec2D`-instans",
+      "Sjekker at de to vektorene har like mange komponenter hver",
+      "Svarer `True` hvis klassen har definert `__mul__`"
+    ],
+    "explanation": "`isinstance` er en ren test på om objektet tilhører klassen, og i `__mul__` brukes svaret til å velge mellom indreprodukt og skalarmultiplikasjon. Den konverterer ingenting, og sier ingenting om antall komponenter eller om hvilke metoder klassen har."
+  },
+  {
+    "question": "`u = Vec2D(1, 2)` og klassen har `__mul__` for skalarmultiplikasjon. Hva skjer med `3 * u`?",
+    "options": [
+      "`TypeError`, fordi venstre operand er et heltall",
+      "Samme resultat som `u * 3`, siden ganging er kommutativ",
+      "`None`, fordi `__mul__` ikke får noe å returnere",
+      "Vektoren `(3, 6)`, som forventet"
+    ],
+    "explanation": "Python spør venstre operand først, og heltallet 3 vet ikke hvordan det ganges med en `Vec2D`: `unsupported operand type(s) for *: 'int' and 'Vec2D'`. At ganging er kommutativ i matematikken hjelper ikke — det er formen på uttrykket som avgjør hvilken metode som kalles."
+  },
+  {
+    "question": "Hva blir siste linje i feilmeldingen når `__str__` returnerer `(self.x, self.y)`?",
+    "options": [
+      "`TypeError: __str__ returned non-string (type tuple)`",
+      "`ValueError: __str__ must return a formatted string`",
+      "`AttributeError: 'tuple' object has no attribute 'x'`",
+      "`TypeError: unsupported operand type(s) for str: 'tuple'`"
+    ],
+    "explanation": "Python sier eksplisitt at `__str__` returnerte noe som ikke er en streng, og oppgir typen: `TypeError: __str__ returned non-string (type tuple)`. De tre andre er feilmeldinger som hører til andre situasjoner — attributtoppslag på et tuppel, og operatorfeil."
+  },
+  {
+    "question": "Hva gjør `return '({self.x}, {self.y})'` i `__str__`?",
+    "options": [
+      "Skriver de krøllete parentesene og navnene bokstavelig ut",
+      "Regner ut verdiene, siden `self` alltid settes inn",
+      "Gir `SyntaxError`, siden krøllparentesene her ikke kan tolkes",
+      "Gir `TypeError` fordi det ikke er en f-streng"
+    ],
+    "explanation": "Uten `f` foran anførselstegnet er dette en helt vanlig streng, så teksten `({self.x}, {self.y})` kommer ut som den står. Det er lovlig Python, så det blir verken `SyntaxError` eller `TypeError` — bare en utskrift som ser rar ut."
+  },
+  {
+    "question": "Klassen `Kraft` har `__call__(self, k)` som returnerer `Kraft(k*self.x, k*self.y)`. Hvilke metoder kjøres av `a(2) + b`?",
+    "options": [
+      "`__call__`, `__init__`, `__add__`, `__init__`",
+      "`__add__`, `__call__`, `__init__`",
+      "`__call__` og `__add__`, uten noe `__init__`",
+      "`__init__`, `__call__`, `__str__`"
+    ],
+    "explanation": "Innenfra og ut: `a(2)` kjører `__call__`, som lager en instans og dermed kjører `__init__`; deretter kjører `__add__` på resultatet, og den lager også en ny instans med `__init__`. `__str__` kommer bare inn hvis resultatet skrives ut."
+  },
+  {
+    "question": "Koeffisientlisten `[2, 0, -1]` representerer hvilket polynom, når konstantleddet står først?",
+    "options": [
+      "$2 - x^2$",
+      "$2x^2 - 1$",
+      "$2 - x$",
+      "$2x - x^3$"
+    ],
+    "explanation": "Element $i$ er koeffisienten til $x^i$, så listen er $2 + 0\\\\cdot x + (-1)x^2 = 2 - x^2$. Alternativet $2x^2 - 1$ er den samme lista lest baklengs, som er den vanligste forvekslingen her."
+  },
+  {
+    "question": "Hvorfor bruker `__add__` for polynomer `ny = lang[:]` og ikke `ny = lang`?",
+    "options": [
+      "`ny = lang` gir to navn på samme liste, så operanden endres",
+      "`lang[:]` er nødvendig for at listen skal bli like lang",
+      "`ny = lang` gir `TypeError` så snart man endrer et element i den",
+      "`lang[:]` sorterer koeffisientene i riktig rekkefølge"
+    ],
+    "explanation": "Slicing lager en kopi; en bar tilordning lager bare et nytt navn på den samme lista, så `ny[i] = ...` ville endret koeffisientene i det polynomet du la sammen (feil #23, aliasing). Slicing sorterer ingenting og gir ingen feilmelding."
+  },
+  {
+    "question": "Hva må `__add__` gjøre når de to polynomene har ulik grad?",
+    "options": [
+      "Bygge et resultat som er like langt som den lengste listen",
+      "Kutte den lengste listen ned til den korteste av de to lengdene",
+      "Gi en feilmelding, siden gradene må være like",
+      "Fylle den korteste listen med enere før addisjonen"
+    ],
+    "explanation": "Summen har den høyeste av de to gradene, så resultatet må ha plass til alle ledd — derfor kopieres den lengste og den korteste legges oppå. Å kutte ville kastet ledd, og å fylle med enere ville lagt til ledd som ikke finnes."
+  },
+  {
+    "question": "Hva skriver `print([u, v])` ut, når `Vec2D` har en pen `__str__`?",
+    "options": [
+      "Den tekniske formen med klassenavn og adresse per element",
+      "De to pene tekstene, atskilt med komma inne i hakeparentesene",
+      "En feilmelding, siden en liste ikke kan skrives ut",
+      "Bare antall elementer i listen, altså `2`"
+    ],
+    "explanation": "Listen gjøres om til tekst ved å be om `__repr__` for hvert element, og den er ikke definert her — derfor kommer klassenavn og adresse. Vil du ha den pene formen, må du løkke over listen og skrive ut ett objekt av gangen."
+  },
+  {
+    "question": "Hvilken av disse `__add__`-kroppene er riktig for `class Vec2D`?",
+    "options": [
+      "`return Vec2D(self.x + other.x, self.y + other.y)`",
+      "`return [self.x + other.x, self.y + other.y]`",
+      "`self.x = self.x + other.x; self.y = self.y + other.y`",
+      "`return self.x + other.x, self.y + other.y`"
+    ],
+    "explanation": "Bare den første returnerer en ny instans av klassen. Listen er feil returtype (#4), varianten som setter attributtene endrer venstre operand i stedet for å lage noe nytt, og den siste returnerer et tuppel — kommaet gjør den til to verdier."
+  },
+  {
+    "question": "Hvor hører formateringen «to desimaler» hjemme når objektet skal skrives ut med to desimaler overalt?",
+    "options": [
+      "I f-strengen inne i `__str__`, som `{self.x:.2f}`",
+      "I `print`-kallet, som `print(f'{u:.2f}')`",
+      "I `__init__`, ved å runde av attributtene med to desimaler",
+      "I `__add__`, slik at resultatet blir avrundet"
+    ],
+    "explanation": "Legger du formateringen i `__str__`, får alle utskrifter av objektet samme form — det er hele poenget med metoden. Å runde av i `__init__` ville ødelagt regnenøyaktigheten, og å runde i `__add__` ville gjort det samme for alle videre regnestykker."
+  },
+  {
+    "question": "Hva er `u.x` etter `w = u + v`, når `__add__` er skrevet riktig og `u = Vec2D(1, 2)`?",
+    "options": [
+      "1 — addisjonen endrer ikke operandene",
+      "4 — `u` oppdateres med summen",
+      "0 — `u` tømmes når resultatet er laget",
+      "`None` — attributtet flyttes til `w`"
+    ],
+    "explanation": "En riktig `__add__` lager et tredje objekt og lar operandene være uendret, akkurat som `1 + 2` ikke endrer tallet 1. En metode som skriver `self.x = self.x + other.x` bryter med dette, og det er en feil sensor ser etter."
+  },
+  {
+    "question": "En oppgave sier: «`__mul__` skal returnere produktet av vektoren og et tall». Hva skal metoden returnere?",
+    "options": [
+      "En ny instans av klassen, med alle komponenter ganget",
+      "Et tall, siden en av operandene er et tall",
+      "Et tuppel med de gangede komponentene",
+      "Den samme instansen, men med attributtene endret på plass"
+    ],
+    "explanation": "Skalarmultiplikasjon gir en vektor, så her gjelder «ny instans»-regelen fullt ut. Et tall ville vært riktig for indreprodukt, tuppel er typefeilen #4, og å endre instansen bryter regelen om at aritmetikk ikke rører operandene."
+  },
+  {
+    "question": "`print(f'kraften er {u}')` — hvilken metode brukes for å sette inn `u`?",
+    "options": [
+      "`__str__`, fordi f-strengen gjør verdien om til tekst",
+      "`__repr__`, fordi f-strenger alltid bruker den tekniske formen",
+      "`__call__`, fordi krøllparentesene er et kall",
+      "ingen — objektet settes inn uendret"
+    ],
+    "explanation": "En f-streng gjør hver innsatt verdi om til tekst, og for et objekt betyr det et kall til `__str__`. `__repr__` brukes for elementer i lister, og krøllparentesene i en f-streng har ingenting å gjøre med `__call__`."
+  }
+]

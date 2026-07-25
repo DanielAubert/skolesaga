@@ -1,0 +1,362 @@
+{
+  "id": "in1900-5-2",
+  "courseId": "in1900",
+  "chapterNumber": "5.2",
+  "title": "Spesialmetoder: `__str__`, `__add__`, `__mul__`",
+  "description": "Gjøre objekter utskrivbare og la dem støtte + og * — med den kritiske regelen at aritmetiske spesialmetoder returnerer en ny instans.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne gjøre et objekt utskrivbart ved å returnere en formatert tekst fra `__str__`",
+    "kunne implementere addisjon og multiplikasjon for egne objekter, og alltid returnere en ny instans av klassen",
+    "kunne begrunne når multiplikasjon skal gi et tall i stedet for et objekt, og skille de to tilfellene med `isinstance`",
+    "kunne legge sammen to objekter med ulikt antall tall, som polynomer av ulik grad, uten å endre operandene"
+  ],
+  "content": [
+    {
+      "id": "in1900-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her ligger poengene i sjanger G — og her ligger den faste feilen.**\n\n- **Sjanger G** («skriv en klasse med spesialmetoder») er i **8 av 8 (100 %)** av de avsluttende settene 2018–2025, og er verdt 8–12 poeng. Oppgaveteksten sier nesten alltid *hvilke* spesialmetoder klassen skal ha — og de tre i dette kapitlet er de som går igjen ved siden av konstruktøren og kallmetoden fra [kap. 5.1](/bok/in1900/in1900-5-1).\n- **`__str__`** brukes til å gjøre objektet utskrivbart: en vektor skal skrives `(3, 4)`, et polynom skal skrives som et polynom. Å formatere pent i `__str__` er en fast deloppgave.\n- **`__add__` og `__mul__`** lar objektene dine støtte `+` og `*`. Vektorklasser (`Vec2D`, `Vec3D`) og polynomklasser er de vanligste innpakningene.\n- **Den faste feilen** er feil #4 i bokas feilkatalog: `__add__` som returnerer et tuppel eller en liste i stedet for en **ny instans** av klassen. Den koster poeng hver gang, og du skal se nøyaktig hvorfor i dette kapitlet.\n- **Prioritet: dette må sitte.** Til trøst igjen: klarer du strukturen — riktige metodenavn, riktig returtype — får du mesteparten av uttellingen selv om en detalj i formateringen blir feil."
+    },
+    {
+      "id": "in1900-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — sist du var her.** Alt i dette kapitlet står på malen fra [kap. 5.1](/bok/in1900/in1900-5-1). Her er de to konstruksjonene du trenger, oppfrisket ferdig:\n\n```python\nclass Rampe:\n    def __init__(self, a):\n        self.a = a\n\n    def __call__(self, t):\n        return self.a*t\n\nr = Rampe(3)\nprint(r.a)\nprint(r(4))\n```\n\n**Utskrift:**\n```\n3\n12\n```\n\nDet du skal ha med deg videre er tre setninger:\n\n1. **`__init__` kjøres av `Rampe(3)`** og lagrer det som er fast for objektet, med `self.navn = navn`.\n2. **`__call__` kjøres av `r(4)`** og tar imot det som varierer.\n3. **Ingen av dem kalles ved navn.** Du skriver en form — parentes etter et klassenavn, parentes etter en instans — og Python velger metoden.\n\nNå utvider vi det siste punktet til tre nye former: å skrive ut objektet, å legge to objekter sammen, og å gange dem."
+    },
+    {
+      "id": "in1900-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — `__str__`: å gjøre objektet utskrivbart (~15 min)"
+    },
+    {
+      "id": "in1900-5-2-anker",
+      "type": "text",
+      "content": "### Problemet: objektet ser ikke ut som noe\n\nDu har laget en klasse `Vec2D` for vektorer i planet, med `x` og `y` i konstruktøren. Så skriver du `print(u)` og får dette:\n\n```\n<__main__.Vec2D object at 0x104ff01f0>\n```\n\nUtskriften sier hvilken klasse objektet tilhører og hvor i minnet det ligger. Det heksadesimale tallet er forskjellig hver gang du kjører programmet, og det har ingen faglig interesse.\n\nDet du vil ha, er `(3, 4)`. Og det får du ved å fortelle Python hvordan objektet skal gjøres om til tekst — det er jobben til `__str__`."
+    },
+    {
+      "id": "in1900-5-2-def-str",
+      "type": "definition",
+      "title": "`def __str__(self):` — objektet som tekst",
+      "content": "Spesialmetoden som sier hvordan instansen skal se ut når den skrives ut. Den tar ingen argumenter utenom `self`, og den skal **returnere en streng** — nesten alltid en f-streng.\n\n```python\nclass Vec2D:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f'({self.x}, {self.y})'\n```\n\nNå gir `print(u)` teksten `(3, 4)`. Merk `return`: metoden skriver ikke ut noe selv. Det er `print` som skriver ut; `__str__` bare leverer teksten.\n\nEn vanlig eksamensvariant er at teksten skal ha et bestemt format — to desimaler, enheter, eller polynomform. Da er `__str__` stedet der formateringen hører."
+    },
+    {
+      "id": "in1900-5-2-def-print-str",
+      "type": "definition",
+      "title": "`print(obj)` og `str(obj)` kaller `__str__`",
+      "content": "Begge formene utløser samme metode. `print(u)` gjør først `str(u)` for å få tekst, og `str(u)` kaller `u.__str__()`.\n\nDet betyr at `__str__` også virker inne i en f-streng, siden f-strenger gjør om verdiene til tekst: `print(f'vektoren er {u}')` gir «vektoren er (3, 4)».\n\nDet finnes én form som *ikke* bruker `__str__`, og den overrasker alle første gang: skriver du ut en **liste** av objekter, får du den tekniske utskriften tilbake. Grunnen er at lister ber om `__repr__`, ikke `__str__`, for hvert element."
+    },
+    {
+      "id": "in1900-5-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: `Vec2D` med `__str__`",
+      "problem": "Skriv en klasse `Vec2D` for en vektor i planet, med `x` og `y` gitt i konstruktøren, og en `__str__` som gir formen `(x, y)`. Vis at utskriften virker både i `print`, i en f-streng og i strengaddisjon.",
+      "solution": "```python\nclass Vec2D:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f'({self.x}, {self.y})'\n\nu = Vec2D(3, 4)\nv = Vec2D(-1, 0.5)\n\nprint(u)\nprint(v)\nprint(f'kraften virker langs {u} og har lengde {(u.x**2 + u.y**2)**0.5}')\nprint(str(u) + ' og ' + str(v))\n```\n\n**Utskrift:**\n```\n(3, 4)\n(-1, 0.5)\nkraften virker langs (3, 4) og har lengde 5.0\n(3, 4) og (-1, 0.5)\n```\n\nTre observasjoner å ta med:\n\n- `print(u)` og `str(u)` gir samme tekst, fordi de går gjennom samme metode.\n- Inne i f-strengen `{u}` blir objektet automatisk gjort om til tekst. Du trenger ikke skrive `{str(u)}`.\n- `-1` og `0.5` skrives ut nøyaktig slik Python skriver dem. Vil du ha `(-1.00, 0.50)`, må du formatere inne i `__str__`, for eksempel med `f'({self.x:.2f}, {self.y:.2f})'`."
+    },
+    {
+      "id": "in1900-5-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger G.) En værmåling består av en temperatur i grader celsius og en vindstyrke i meter per sekund.\n\n**a)** Skriv en klasse `Maaling` der de to tallene gis i konstruktøren.\n\n**b)** Legg til en `__str__` som gir teksten `12.4 grader, 3.1 m/s` — altså tallene med én desimal, i den rekkefølgen, med komma og mellomrom mellom.\n\n**c)** Lag en instans og skriv den ut.",
+        "solution": "```python\nclass Maaling:\n    def __init__(self, temp, vind):\n        self.temp = temp\n        self.vind = vind\n\n    def __str__(self):\n        return f'{self.temp:.1f} grader, {self.vind:.1f} m/s'\n\nm = Maaling(12.4, 3.14)\nprint(m)\n```\n\n**Utskrift:**\n```\n12.4 grader, 3.1 m/s\n```\n\nFormateringen `:.1f` inne i f-strengen gir én desimal. Det er samme formatering du kjenner fra [kap. 1.4](/bok/in1900/in1900-1-4) — den hører nå hjemme inne i `__str__`, slik at alle som skriver ut en måling, får samme format.\n\nLegg merke til at `__str__` **returnerer** teksten. Skriver du `print(...)` inne i `__str__` i stedet for `return`, får du to overraskelser på én gang: teksten kommer ut på feil tidspunkt, og `print(m)` skriver ut `None` etterpå.",
+        "hints": [
+          "Konstruktøren skal bare lagre de to tallene som attributter.",
+          "`__str__` tar ingen argumenter utenom `self`, og skal returnere — ikke skrive ut.",
+          "Formateringen for én desimal er `{verdi:.1f}` inne i en f-streng."
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-2-warn-str-streng",
+      "type": "warning",
+      "title": "Typiske feil: `__str__` som ikke returnerer en streng",
+      "content": "`__str__` har én forpliktelse: returverdien skal være en streng. Returnerer du et tuppel — noe som er lett å gjøre når objektet «er» et par tall — sier Python fra i det du skriver ut:\n\n```python\ndef __str__(self):\n    return (self.x, self.y)\n```\n\nSiste linje i feilmeldingen blir:\n\n```\nTypeError: __str__ returned non-string (type tuple)\n```\n\nTo andre varianter av samme feil:\n\n- **`print` i stedet for `return`.** Da skriver metoden ut teksten selv, og `print(u)` skriver `None` etterpå, fordi metoden ikke returnerte noe.\n- **Glemt `f` foran strengen.** `return '({self.x}, {self.y})'` gir bokstavelig `({self.x}, {self.y})` på skjermen. Det er en av de feilene som ser riktig ut i koden og feil på skjermen.\n\nVanen som redder deg: skriv `return f'...'` som ett grep, og les gjennom at alt som skal være en verdi, står inne i krøllparentes."
+    },
+    {
+      "id": "in1900-5-2-def-repr",
+      "type": "definition",
+      "title": "`__repr__` — den tekniske utskriften",
+      "content": "Søskenmetoden til `__str__`. Der `__str__` er den pene teksten til mennesker, er `__repr__` den tekniske utskriften Python bruker når ingen har spurt om noe pent — for eksempel for elementene i en liste.\n\nDefinerer du ikke `__repr__`, får du standardformen med klassenavn og minneadresse. Derfor ser en liste av objekter slik ut, selv når klassen har en fin `__str__`:\n\n```\n[<__main__.Vec2D object at 0x10907dfd0>, <__main__.Vec2D object at 0x10907df70>]\n```\n\nAdressene varierer fra kjøring til kjøring. På eksamen er `__repr__` ikke pensum å skrive — men du bør kjenne igjen utskriften og vite at den betyr «her ble `__str__` ikke brukt». Vil du skrive ut en liste med pen tekst, løkker du over den og skriver ut ett objekt av gangen."
+    },
+    {
+      "id": "in1900-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — `__add__`: å legge to objekter sammen (~20 min)"
+    },
+    {
+      "id": "in1900-5-2-tekst-add",
+      "type": "text",
+      "content": "### Pluss er også et metodekall\n\nTo krefter som virker på samme punkt, skal legges sammen komponentvis:\n\n$$\\mathbf{u} + \\mathbf{v} = (u_x + v_x,\\; u_y + v_y)$$\n\nDu kunne skrevet en metode `pluss` og kalt `u.pluss(v)`. Men Python lar deg gjøre det bedre: definerer du spesialmetoden `__add__`, kan du skrive `u + v`, og koden ser ut som matematikken.\n\nMekanikken er enkel når du først har sett den: når Python møter `u + v`, oversetter den uttrykket til `u.__add__(v)`. Venstre operand blir `self`, høyre operand blir det andre argumentet."
+    },
+    {
+      "id": "in1900-5-2-def-add",
+      "type": "definition",
+      "title": "`def __add__(self, other):`",
+      "content": "Spesialmetoden som utløses av plusstegnet. `u + v` betyr `u.__add__(v)`: venstre operand er `self`, høyre er `other`.\n\nMetoden skal **returnere resultatet** av addisjonen — den skal ikke endre `self`. Etter `w = u + v` er `u` og `v` uendret, og `w` er noe nytt.\n\n```python\ndef __add__(self, other):\n    return Vec2D(self.x + other.x, self.y + other.y)\n```\n\nLegg merke til at metoden lager en instans av sin egen klasse ved å skrive klassenavnet med parentes. Det er lovlig inne i klassen, og det er nettopp det som gjør resultatet til en fullverdig vektor."
+    },
+    {
+      "id": "in1900-5-2-def-other",
+      "type": "definition",
+      "title": "`other` — den andre operanden",
+      "content": "Navnet man bruker på høyre operand i en aritmetisk spesialmetode. Det er ingen magi i navnet — `def __add__(self, v):` virker like godt — men `other` er konvensjonen, og sensor kjenner den igjen.\n\nInne i metoden har du tilgang til begge objektenes attributter: `self.x` er venstre operands `x`, og `other.x` er høyre operands. Det er hele grunnen til at du kan regne komponentvis.\n\nEn liten, men viktig detalj: `other` er *antatt* å være av samme klasse. Er den ikke det, får du en feilmelding fra innsiden av metoden, og det er ofte den feilmeldingen som avslører at du har blandet typer."
+    },
+    {
+      "id": "in1900-5-2-def-oversettelse",
+      "type": "definition",
+      "title": "Operator-oversettelsen `a + b` $\\to$ `a.__add__(b)`",
+      "content": "Regelen som gjør hele Løkke 2 og 3 forståelig: hver operator har en spesialmetode, og Python oversetter operatoren til et metodekall på **venstre** operand.\n\n| Du skriver | Python kjører |\n|---|---|\n| `u + v` | `u.__add__(v)` |\n| `u * v` | `u.__mul__(v)` |\n| `print(u)` | `u.__str__()` |\n| `u(3)` | `u.__call__(3)` |\n| `Vec2D(1, 2)` | `__init__` på en ny instans |\n\nMangler metoden, får du `TypeError: unsupported operand type(s)`. Meldingen navngir operatoren og de to typene, og den er derfor lett å lese: den forteller deg presis hvilken spesialmetode du har glemt."
+    },
+    {
+      "id": "in1900-5-2-thm-ny-instans",
+      "type": "theorem",
+      "title": "Aritmetisk spesialmetode $\\to$ ny instans",
+      "content": "Dette er den regelen som skiller en full G-besvarelse fra en halv. Den lyder:\n\n> **En aritmetisk spesialmetode skal returnere en NY instans av klassen — ikke et tuppel, ikke en liste, og ikke `self` med endrede attributter.**\n\nMalen er tre linjer:\n\n```python\ndef __add__(self, other):\n    ny_x = self.x + other.x\n    ny_y = self.y + other.y\n    return Vec2D(ny_x, ny_y)\n```\n\neller, kortere og like bra:\n\n```python\ndef __add__(self, other):\n    return Vec2D(self.x + other.x, self.y + other.y)\n```\n\nDet er to grunner til at returtypen betyr så mye:\n\n1. **Du kan bruke resultatet videre.** `u + v + w` virker bare hvis `u + v` er en `Vec2D`, for da har resultatet selv en `__add__`. Returnerer du et tuppel, stopper kjeden med en gang.\n2. **Resultatet kan skrives ut pent og brukes som en vektor.** Et tuppel har ingen `__str__` fra klassen din, ingen `__mul__`, ingen lengdemetode.\n\nDen ene lovlige unntaket i dette faget: `__mul__` som regner **indreprodukt** skal returnere et **tall**, fordi indreproduktet av to vektorer er et tall. Alt annet returnerer en ny instans."
+    },
+    {
+      "id": "in1900-5-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvilken metode kjøres når — og i hvilken rekkefølge?",
+      "problem": "Det vanskelige med spesialmetoder er ikke syntaksen, men å holde styr på hva som kalles når. Én linje kode kan utløse tre metoder. La oss legge inn en utskrift i hver av dem og se rekkefølgen med egne øyne.",
+      "solution": "```python\nclass Vec2D:\n    def __init__(self, x, y):\n        print('  __init__ med', x, y)\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        print('  __str__ kjorer')\n        return f'({self.x}, {self.y})'\n\n    def __add__(self, other):\n        print('  __add__ kjorer')\n        return Vec2D(self.x + other.x, self.y + other.y)\n\nu = Vec2D(1, 2)\nv = Vec2D(3, 4)\nprint('nå kommer u + v:')\nprint(u + v)\n```\n\n**Utskrift:**\n```\n  __init__ med 1 2\n  __init__ med 3 4\nnå kommer u + v:\n  __add__ kjorer\n  __init__ med 4 6\n  __str__ kjorer\n(4, 6)\n```\n\nLes de tre siste linjene i utskriften i rekkefølge, for de er hele svaret på «hva skjer i `print(u + v)`»:\n\n1. **`__add__` kjøres først**, med `self = u` og `other = v`.\n2. Inne i `__add__` står `Vec2D(...)` — så **`__init__` kjøres**, og lager den nye instansen med 4 og 6.\n3. Først når `print` har fått instansen, **kjøres `__str__`** for å gjøre den om til tekst.\n\nLegg merke til at `__str__` bare kjøres én gang, på resultatet. `u` og `v` blir aldri skrevet ut her, og de er uendret etterpå.\n\nDette er sporingsferdigheten sjanger A tester på klasser: gå fra innsiden av uttrykket og utover, og spør ved hvert ledd hvilken form som står der. `print`-linjene inne i metodene skal selvsagt bort i en eksamensbesvarelse."
+    },
+    {
+      "id": "in1900-5-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Klassen under er kjørt ferdig, slik at `a` og `b` finnes.\n\n```python\nclass Kraft:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f'[{self.x} {self.y}]'\n\n    def __add__(self, other):\n        return Kraft(self.x + other.x, self.y + other.y)\n\n    def __call__(self, k):\n        return Kraft(k*self.x, k*self.y)\n\na = Kraft(2, 1)\nb = Kraft(-1, 3)\n```\n\n**a)** For hvert av de fire uttrykkene `a + b`, `a(3)`, `a(2) + b` og `a.y`: si hvilke spesialmetoder som kjøres, i rekkefølge.\n\n**b)** Hva skriver disse fire linjene ut?\n\n```python\nprint(a + b)\nprint(a(3))\nprint(a(2) + b)\nprint(a.y)\n```",
+        "solution": "**a) Hvilke metoder kjøres:**\n\n| Uttrykk | Metoder, i rekkefølge |\n|---|---|\n| `a + b` | `__add__` (på `a`, med `other = b`), deretter `__init__` for den nye instansen |\n| `a(3)` | `__call__` (med `k = 3`), deretter `__init__` |\n| `a(2) + b` | `__call__`, `__init__`, deretter `__add__` på resultatet, deretter `__init__` igjen |\n| `a.y` | ingen metode — ren attributt-tilgang |\n\nHver `print(...)` legger i tillegg til ett `__str__`-kall på det ferdige resultatet, bortsett fra den siste, der verdien er et tall.\n\n**b) Sporingstavle:**\n\n| Uttrykk | Regnestykke | Resultatobjekt |\n|---|---|---|\n| `a + b` | $(2 + (-1),\\; 1 + 3)$ | `Kraft(1, 4)` |\n| `a(3)` | $(3\\cdot 2,\\; 3\\cdot 1)$ | `Kraft(6, 3)` |\n| `a(2)` | $(2\\cdot 2,\\; 2\\cdot 1)$ | `Kraft(4, 2)` |\n| `a(2) + b` | $(4 + (-1),\\; 2 + 3)$ | `Kraft(3, 5)` |\n| `a.y` | — | tallet 1 |\n\n**Utskrift:**\n```\n[1 4]\n[6 3]\n[3 5]\n1\n```\n\nFellenoten: `a(2) + b` er et sammensatt uttrykk, og rekkefølgen er innenfra og ut. Fordi `__call__` returnerer en **ny instans** — ikke et tuppel — har resultatet selv en `__add__`, og kjeden kan fortsette. Det er regelen fra teoremet i praksis.",
+        "hints": [
+          "Se på formen: parentes etter en instans, plusstegn mellom to instanser, eller punktum uten parentes?",
+          "Regn ut fra innsiden av uttrykket og utover.",
+          "Formateringen i `__str__` bruker hakeparentes og bare mellomrom mellom tallene — ikke komma."
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-2-warn-add-type",
+      "type": "warning",
+      "title": "Typiske feil: `__add__` som returnerer feil type (#4)",
+      "content": "Dette er den faste feilen i sjanger G, og den er ekstra lumsk fordi programmet ser ut til å virke. Anta at `__add__` returnerer et tuppel:\n\n```python\ndef __add__(self, other):\n    return (self.x + other.x, self.y + other.y)\n```\n\n`print(u + v)` skriver da `(4, 6)` — som er *nøyaktig det du ville sett* med en riktig `__str__`. Feilen dukker først opp når du bruker resultatet videre. Utdraget under er et fragment: `u` og `v` er laget lenger opp i programmet, så blokken kan ikke kjøres for seg selv.\n\n```text\nw = u + v\nprint(w + u)\n```\n\nSiste linje i feilmeldingen:\n\n```\nTypeError: can only concatenate tuple (not \"Vec2D\") to tuple\n```\n\nNå står det svart på hvitt: `w` er et tuppel, ikke en `Vec2D`. Tuppelet har ingen `__str__` fra klassen din, ingen `__mul__`, og `w.x` finnes ikke.\n\n**Egensjekken du kan gjøre i hodet på eksamen:** skriv `u + v + w` i margen. Virker det med koden din, har du returnert riktig type."
+    },
+    {
+      "id": "in1900-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — `__mul__`: to betydninger av gangetegnet (~20 min)"
+    },
+    {
+      "id": "in1900-5-2-tekst-mul",
+      "type": "text",
+      "content": "### Ganging er to forskjellige ting\n\nFor vektorer betyr gangetegnet to ulike ting, og oppgaveteksten avgjør hvilken du skal implementere:\n\n**Skalarmultiplikasjon** — vektor ganget med et tall — strekker vektoren og gir en **ny vektor**:\n\n$$c\\,\\mathbf{u} = (c\\,u_x,\\; c\\,u_y)$$\n\n**Indreproduktet** (også kalt skalarproduktet) — vektor ganget med vektor — gir et **tall**:\n\n$$\\mathbf{u}\\cdot\\mathbf{v} = u_xv_x + u_yv_y$$\n\nBegge kan bo i samme `__mul__`. Da må metoden se på hva `other` er, og det gjør den med `isinstance`."
+    },
+    {
+      "id": "in1900-5-2-def-mul",
+      "type": "definition",
+      "title": "`def __mul__(self, other):`",
+      "content": "Spesialmetoden som utløses av gangetegnet: `u * v` betyr `u.__mul__(v)`. Som for `__add__` er venstre operand `self`.\n\nReturtypen avhenger av hva oppgaven ber om, og det er den ene plassen i faget der «ny instans»-regelen har et unntak:\n\n- **Skalarmultiplikasjon** (`u * 3`) skal gi en **ny instans**.\n- **Indreprodukt** (`u * v`) skal gi et **tall**.\n\n```python\ndef __mul__(self, other):\n    return self.x*other.x + self.y*other.y\n```\n\nLes oppgaveteksten nøye her. Står det «returner indreproduktet», skal det ut et tall; står det «returner produktet av vektoren og et tall», skal det ut en vektor."
+    },
+    {
+      "id": "in1900-5-2-def-indreprodukt",
+      "type": "definition",
+      "title": "Indreprodukt (skalarprodukt)",
+      "content": "Tallet du får ved å gange komponentvis og summere: $\\mathbf{u}\\cdot\\mathbf{v} = u_xv_x + u_yv_y$ i planet, og med ett ledd mer i rommet.\n\nAt resultatet er et tall og ikke en vektor, er hele grunnen til at indreproduktet er unntaket fra «ny instans»-regelen. Navnet «skalarprodukt» sier det samme: produktet er en skalar.\n\nIndreproduktet brukes til å måle vinkel og til å projisere. I eksamenssammenheng er det først og fremst en presis liten formel som er lett å implementere feil: pass på at du summerer produktene, og ikke ganger summene."
+    },
+    {
+      "id": "in1900-5-2-def-isinstance",
+      "type": "definition",
+      "title": "`isinstance(other, Vec2D)`",
+      "content": "Funksjonen som svarer på «er dette objektet av denne klassen?». `isinstance(other, Vec2D)` er `True` hvis `other` er en `Vec2D`-instans, ellers `False`.\n\nI `__mul__` er den nøkkelen til å håndtere begge betydningene av gangetegnet:\n\n```python\ndef __mul__(self, other):\n    if isinstance(other, Vec2D):\n        return self.x*other.x + self.y*other.y\n    else:\n        return Vec2D(other*self.x, other*self.y)\n```\n\nNå gir `u * v` et tall, og `u * 3` en ny vektor. Merk at rekkefølgen `u * 3` er den som virker: `3 * u` treffer heltallets eget gangetegn, ikke din `__mul__`, og gir en feilmelding.\n\n`isinstance` kommer igjen i [kap. 5.3](/bok/in1900/in1900-5-3), der den brukes til å svare på om et objekt hører til en klasse *eller en subklasse av den*."
+    },
+    {
+      "id": "in1900-5-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: `Vec3D` med `__add__`, `__mul__` og `__str__` (eksamensnivå)",
+      "problem": "Skriv en klasse `Vec3D` for vektorer i rommet med `__str__` på formen `(x, y, z)`, `__add__` som legger sammen komponentvis, og `__mul__` som gir indreproduktet når høyre operand er en vektor, og en skalert vektor når den er et tall.",
+      "solution": "```python\nclass Vec3D:\n    def __init__(self, x, y, z):\n        self.x = x\n        self.y = y\n        self.z = z\n\n    def __str__(self):\n        return f'({self.x}, {self.y}, {self.z})'\n\n    def __add__(self, other):\n        return Vec3D(self.x + other.x, self.y + other.y, self.z + other.z)\n\n    def __mul__(self, other):\n        if isinstance(other, Vec3D):\n            return self.x*other.x + self.y*other.y + self.z*other.z\n        else:\n            return Vec3D(other*self.x, other*self.y, other*self.z)\n\nu = Vec3D(1, 2, 3)\nv = Vec3D(4, -1, 0)\n\nprint(u + v)\nprint(u * v)\nprint(u * 2)\nprint(u * v + u * u)\nprint((u + v) * 2)\n```\n\n**Utskrift:**\n```\n(5, 1, 3)\n2\n(2, 4, 6)\n16\n(10, 2, 6)\n```\n\nDette er en typisk full G-besvarelse, og den er kort — under tjue linjer. Gå gjennom hva som gir uttelling:\n\n- **`__init__` med tre attributter.** Grunnmuren; uten den faller resten.\n- **`__add__` returnerer `Vec3D(...)`.** Ny instans, ikke tuppel. Se hvordan `(u + v) * 2` på siste linje bare virker fordi resultatet av `+` selv er en vektor.\n- **`__mul__` med `isinstance`-testen.** De to grenene har hver sin returtype, og det er meningen.\n- **`__str__` returnerer en f-streng.**\n\nLegg merke til uttrykket `u * v + u * u`. Her er begge produktene tall, så plusstegnet er vanlig tallpluss — din `__add__` blir ikke brukt i det hele tatt. Det er den typen detalj sporingsoppgavene elsker.\n\n**Delvis riktig gir uttelling:** har du `__add__` og `__str__` riktig, men bare indreproduktgrenen i `__mul__`, ligger du fortsatt godt an. Skriv i så fall en kort kommentar om at skalartilfellet håndteres i `else`-grenen — det viser at du kjenner strukturen."
+    },
+    {
+      "id": "in1900-5-2-tip-rekkefolge",
+      "type": "tip",
+      "title": "`u * 3` virker, `3 * u` gjør det ikke",
+      "content": "Python oversetter `u * 3` til `u.__mul__(3)` — venstre operand bestemmer. Skriver du `3 * u`, spør Python først heltallet 3 om det kan gange med en `Vec2D`, og det kan det ikke:\n\n```\nTypeError: unsupported operand type(s) for *: 'int' and 'Vec2D'\n```\n\nDet finnes en spesialmetode for å fikse dette også, men den er utenfor pensum i IN1900. Løsningen i dette faget er derfor enkel og helt legitim: **skriv objektet til venstre.** Trenger en oppgavetekst uttrykkelig `3 * u`, nevn i en kommentar at klassen støtter `u * 3`, og at rekkefølgen skyldes hvilken operand Python spør først."
+    },
+    {
+      "id": "in1900-5-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G.) Et lager fører to varer, og en ordre er et par `(antall_A, antall_B)`.\n\n**a)** Skriv en klasse `Ordre` med de to antallene i konstruktøren og en `__str__` som gir teksten `2 stk A og 5 stk B`.\n\n**b)** Legg til `__add__` slik at to ordrer kan slås sammen til én ny ordre.\n\n**c)** Legg til `__mul__` slik at `ordre * pris` gir totalprisen som et **tall**, når `pris` er en `Ordre`-instans som inneholder prisen per vare. Forklar i én setning hvorfor returtypen her er et tall og ikke en `Ordre`.",
+        "solution": "```python\nclass Ordre:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __str__(self):\n        return f'{self.a} stk A og {self.b} stk B'\n\n    def __add__(self, other):\n        return Ordre(self.a + other.a, self.b + other.b)\n\n    def __mul__(self, other):\n        return self.a*other.a + self.b*other.b\n\no1 = Ordre(2, 5)\no2 = Ordre(3, 1)\npris = Ordre(49, 12)\n\nprint(o1)\nprint(o1 + o2)\nprint(o1 * pris)\nprint((o1 + o2) * pris)\n```\n\n**Utskrift:**\n```\n2 stk A og 5 stk B\n5 stk A og 6 stk B\n158\n317\n```\n\n**c) Hvorfor et tall?** Fordi operasjonen er et indreprodukt: du ganger antall med pris for hver vare og summerer. Resultatet er en pengesum, ikke en ordre — og da ville det vært direkte misvisende å returnere en `Ordre`-instans.\n\n**Uttelling:** `__add__` som returnerer `Ordre(...)` er det tyngste punktet (feil #4 lurer her), og `__str__` som returnerer en f-streng det billigste. Merk at oppgaven her *ber* om et tall fra `__mul__` — les alltid teksten før du bruker «ny instans»-regelen mekanisk.",
+        "hints": [
+          "Start med de to attributtene i konstruktøren.",
+          "`__add__` skal returnere `Ordre(...)`, ikke et tuppel.",
+          "I `__mul__` ganger du komponentvis og summerer — det gir ett tall."
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Ulik lengde: polynomer som legges sammen (~20 min)"
+    },
+    {
+      "id": "in1900-5-2-tekst-polynom",
+      "type": "text",
+      "content": "### Når de to objektene ikke har like mange tall\n\nVektorer i planet har alltid to komponenter, så `__add__` var enkel. Polynomer er verre: $2 + 3x$ og $1 - x + 4x^2$ har ulik grad, og summen skal ha den høyeste graden av de to.\n\nEt polynom lagres som en **koeffisientliste**, med konstantleddet først:\n\n$$p(x) = \\sum_{i=0}^{n} c_i x^i, \\qquad \\texttt{koeff} = [c_0, c_1, \\ldots, c_n]$$\n\nSå $2 + 3x$ blir `[2, 3]` og $1 - x + 4x^2$ blir `[1, -1, 4]`. Summen skal bli `[3, 2, 4]`.\n\nMønsteret som løser dette, er å finne ut hvilken liste som er lengst, kopiere den, og legge den korteste oppå ledd for ledd."
+    },
+    {
+      "id": "in1900-5-2-def-koeffliste",
+      "type": "definition",
+      "title": "Koeffisientliste for et polynom",
+      "content": "Måten boka lagrer polynomer: en liste der element $i$ er koeffisienten til $x^i$. Konstantleddet står **først**.\n\n`[2, 0, -1]` er altså $2 - x^2$, og `len(koeff) - 1` er graden.\n\nRekkefølgen er den viktige detaljen, og den er lett å snu feil vei. Kontrollen tar du i `__call__`: løkker du med `enumerate` over koeffisientene og summerer `c*x**i`, må konstantleddet ligge på indeks 0 for at regnestykket skal stemme."
+    },
+    {
+      "id": "in1900-5-2-def-ulik-lengde",
+      "type": "definition",
+      "title": "Ulik lengde i `__add__`",
+      "content": "Når de to objektene har forskjellig antall tall, må `__add__` bygge et resultat som er like langt som den **lengste**. Mønsteret er tre steg:\n\n1. Finn ut hvilken av de to listene som er lengst.\n2. Lag en kopi av den, med `lang[:]` — ikke bare `ny = lang`, som ville gitt to navn på samme liste.\n3. Løkk over den korteste og legg den oppå: `ny[i] = ny[i] + kort[i]`.\n\nPunkt 2 er feil #23 i bokas feilkatalog: to navn på samme liste. Uten kopien ville du endret koeffisientene i det ene av polynomene du la sammen, og det er en feil som er nesten umulig å finne etterpå."
+    },
+    {
+      "id": "in1900-5-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: `Polynom` med `__call__`, `__str__` og `__add__` for ulik grad (eksamensnivå)",
+      "problem": "Skriv en klasse `Polynom` som lagrer koeffisientene i en liste med konstantleddet først. Klassen skal kunne evalueres i et punkt, skrives ut på polynomform, og legges sammen med et annet polynom av vilkårlig grad.",
+      "solution": "```python\nclass Polynom:\n    def __init__(self, koeff):\n        self.koeff = koeff\n\n    def __call__(self, x):\n        s = 0\n        for i, c in enumerate(self.koeff):\n            s += c*x**i\n        return s\n\n    def __str__(self):\n        s = ''\n        for i, c in enumerate(self.koeff):\n            if c == 0:\n                continue\n            if s != '':\n                s += ' + '\n            if i == 0:\n                s += f'{c}'\n            elif i == 1:\n                s += f'{c}*x'\n            else:\n                s += f'{c}*x**{i}'\n        if s == '':\n            s = '0'\n        return s\n\n    def __add__(self, other):\n        lang, kort = self.koeff, other.koeff\n        if len(kort) > len(lang):\n            lang, kort = kort, lang\n        ny = lang[:]\n        for i in range(len(kort)):\n            ny[i] = ny[i] + kort[i]\n        return Polynom(ny)\n\np = Polynom([2, 3])\nq = Polynom([1, -1, 4])\n\nprint(p)\nprint(q)\nprint(p + q)\nprint(p.koeff)\nprint((p + q)(2))\n```\n\n**Utskrift:**\n```\n2 + 3*x\n1 + -1*x + 4*x**2\n3 + 2*x + 4*x**2\n[2, 3]\n23\n```\n\nDette er en av de tyngste klasseoppgavene som stilles, og den er verdt å gå gjennom bit for bit:\n\n- **`__call__`** er rekke-summeringsmønsteret du kjenner: `s = 0`, løkke, `s += ...`. `enumerate` gir deg indeksen og koeffisienten samtidig, og indeksen er nettopp eksponenten.\n- **`__str__`** hopper over ledd med koeffisient 0, og setter ` + ` mellom leddene bare når det allerede står noe i strengen. Det er en enkel måte å slippe et ` + ` på slutten.\n- **`__add__`** bytter om på `lang` og `kort` hvis det trengs, kopierer den lengste med `lang[:]`, og legger den korteste oppå. Resultatet er en **ny** `Polynom`.\n\nSe på nest siste linje: `p.koeff` er fortsatt `[2, 3]` etter addisjonen. Det er kopien `lang[:]` som sørger for det.\n\nOg siste linje viser hvorfor returtypen er verdt kampen: `(p + q)(2)` — først `__add__`, så `__call__` på resultatet. Hadde `__add__` returnert en liste, ville dette vært en feilmelding.\n\n**Uttelling:** riktig struktur (fire metoder med riktige navn og returtyper) bærer mesteparten av poengene. En besvarelse som håndterer ulik lengde galt, men ellers er riktig, gjør det fortsatt godt — mens en som returnerer en liste fra `__add__`, mister uttelling flere steder samtidig."
+    },
+    {
+      "id": "in1900-5-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Klassen `Polynom` fra eksempel 4 er definert. Hva skriver disse linjene ut?\n\n```python\np = Polynom([0, 0, 5])\nq = Polynom([1, 2])\nprint(p)\nprint(q + p)\nprint(p(3))\nprint(len((q + p).koeff))\n```",
+        "solution": "**Sporingstavle.**\n\n| Uttrykk | Innmat | Resultat |\n|---|---|---|\n| `p` | `koeff = [0, 0, 5]`, to nuller hoppes over | `5*x**2` |\n| `q + p` | `lang = [0, 0, 5]` (etter bytte), `kort = [1, 2]`, `ny = [1, 2, 5]` | `Polynom([1, 2, 5])`, skrives `1 + 2*x + 5*x**2` |\n| `p(3)` | $0 + 0\\cdot 3 + 5\\cdot 3^2$ | 45 |\n| `len((q + p).koeff)` | resultatlisten har tre elementer | 3 |\n\n**Utskrift:**\n```\n5*x**2\n1 + 2*x + 5*x**2\n45\n3\n```\n\nFellenoten: her er `self` det **korteste** polynomet, siden `q` står til venstre for plusstegnet. Uten `if len(kort) > len(lang)`-byttet ville `ny = q.koeff[:]` bare hatt to plasser, og `ny[2]` ville gitt `IndexError`. Det er nettopp derfor byttelinjen står der.",
+        "hints": [
+          "Skriv opp koeffisientlistene først, og husk at konstantleddet står på indeks 0.",
+          "I `__str__` hoppes ledd med koeffisient 0 over helt.",
+          "I `__add__`: hvilken av de to listene er lengst, og hva blir da `lang` og `kort`?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G.) Utvid `Polynom` fra eksempel 4.\n\n**a)** Legg til `__mul__` som ganger polynomet med et **tall** og returnerer et nytt polynom.\n\n**b)** Legg til en metode `derivert` som returnerer et nytt `Polynom` — den deriverte. Husk at den deriverte av $c_i x^i$ er $i\\,c_i x^{i-1}$, så konstantleddet forsvinner.\n\n**c)** Vis at $p(x) = 1 + 2x + 3x^2$ ganget med 2 og deretter derivert gir $4 + 12x$.",
+        "solution": "```python\nclass Polynom:\n    def __init__(self, koeff):\n        self.koeff = koeff\n\n    def __call__(self, x):\n        s = 0\n        for i, c in enumerate(self.koeff):\n            s += c*x**i\n        return s\n\n    def __str__(self):\n        s = ''\n        for i, c in enumerate(self.koeff):\n            if c == 0:\n                continue\n            if s != '':\n                s += ' + '\n            if i == 0:\n                s += f'{c}'\n            elif i == 1:\n                s += f'{c}*x'\n            else:\n                s += f'{c}*x**{i}'\n        if s == '':\n            s = '0'\n        return s\n\n    def __add__(self, other):\n        lang, kort = self.koeff, other.koeff\n        if len(kort) > len(lang):\n            lang, kort = kort, lang\n        ny = lang[:]\n        for i in range(len(kort)):\n            ny[i] = ny[i] + kort[i]\n        return Polynom(ny)\n\n    def __mul__(self, other):\n        ny = []\n        for c in self.koeff:\n            ny.append(c*other)\n        return Polynom(ny)\n\n    def derivert(self):\n        ny = []\n        for i in range(1, len(self.koeff)):\n            ny.append(i*self.koeff[i])\n        if ny == []:\n            ny = [0]\n        return Polynom(ny)\n\np = Polynom([1, 2, 3])\nprint(p)\nprint(p*2)\nprint((p*2).derivert())\nprint(Polynom([7]).derivert())\n```\n\n**Utskrift:**\n```\n1 + 2*x + 3*x**2\n2 + 4*x + 6*x**2\n4 + 12*x\n0\n```\n\n**Slik tenker du på b):** den nye koeffisientlisten er kortere med én plass, og element $i$ i den nye lista kommer fra element $i+1$ i den gamle, ganget med $i+1$. Løkka `for i in range(1, len(gamle))` med `ny.append(i*gamle[i])` sier nøyaktig det.\n\nKantetilfellet er verdt en kommentar i besvarelsen: et konstant polynom har tom koeffisientliste etter derivasjon, og `Polynom([0])` er en trygg måte å representere nullpolynomet.\n\n**Uttelling steg for steg:** (i) `__mul__` som returnerer `Polynom(...)` og ikke en liste, (ii) riktig indeksforskyvning i `derivert`, (iii) at begge returnerer nye instanser slik at `(p*2).derivert()` kan kjedes. Får du (i) og (iii) riktig, men roter med indeksen i (ii), har du fortsatt mesteparten — indeksfeil er den feilen sensor er mildest mot.",
+        "hints": [
+          "I `__mul__`: bygg en ny liste ved å gange hver koeffisient med tallet.",
+          "I `derivert`: start løkka på indeks 1, siden konstantleddet forsvinner.",
+          "Tenk gjennom hva den deriverte av et konstant polynom skal være, og velg en representasjon for det."
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-2-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-5-2-api-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def __str__(self):` | Kalles av `print(obj)`, `str(obj)` og av `{obj}` i en f-streng. Skal RETURNERE en streng — ikke skrive ut. |\n| `return f'({self.x}, {self.y})'` | Standardformen i `__str__`. Glemt `f` gir de krøllete parentesene på skjermen. |\n| `__repr__` | Den tekniske utskriften. Brukes av lister; udefinert gir klassenavn + minneadresse. Ikke pensum å skrive. |\n| `def __add__(self, other):` | Kalles av `u + v` som `u.__add__(v)`. `self` er VENSTRE operand. Skal returnere en NY instans. |\n| `def __mul__(self, other):` | Kalles av `u * v`. Ny instans ved skalarmultiplikasjon, TALL ved indreprodukt. |\n| `isinstance(other, Vec2D)` | `True` hvis `other` er en instans av klassen. Brukes til å skille skalar fra instans i `__mul__`. |\n| `return Vec2D(...)` inne i klassen | Lovlig og påkrevd: en aritmetisk metode lager en ny instans av sin egen klasse. |\n| `u + v + w` | Virker bare fordi `u + v` selv er en instans med `__add__`. Egensjekk på returtypen. |\n| `lang[:]` | Kopi av en liste. `ny = lang` gir to navn på SAMME liste (feil #23). |\n| `enumerate(liste)` | Gir `(indeks, verdi)` i den rekkefølgen. Indeksen er eksponenten i en koeffisientliste. |\n| `len(koeff) - 1` | Graden til polynomet, når konstantleddet står først. |\n| `s += ' + '` | Bygger en streng ledd for ledd. Sett skilletegnet FØR neste ledd, bare når strengen ikke er tom. |\n| `u * 3` mot `3 * u` | Bare den første treffer din `__mul__`. Venstre operand bestemmer. |\n| `TypeError: unsupported operand type(s)` | Meldingen når spesialmetoden for operatoren mangler. Navngir operator og typer. |\n\n**Formler i dette delkapitlet:**\n\nKomponentvis addisjon og skalarmultiplikasjon:\n\n$$\\mathbf{u} + \\mathbf{v} = (u_x + v_x,\\; u_y + v_y), \\qquad c\\,\\mathbf{u} = (c\\,u_x,\\; c\\,u_y)$$\n\nIndreproduktet i planet og i rommet:\n\n$$\\mathbf{u}\\cdot\\mathbf{v} = u_xv_x + u_yv_y, \\qquad \\mathbf{u}\\cdot\\mathbf{v} = u_xv_x + u_yv_y + u_zv_z$$\n\nPolynomet som koeffisientliste, og den deriverte:\n\n$$p(x) = \\sum_{i=0}^{n} c_i x^i, \\qquad p'(x) = \\sum_{i=1}^{n} i\\,c_i x^{i-1}$$"
+        }
+      ]
+    },
+    {
+      "id": "in1900-5-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-5-2-def-ny-instans",
+      "type": "definition",
+      "title": "Ny instans som returverdi",
+      "content": "Kjernekravet i sjanger G: en aritmetisk spesialmetode lager et nytt objekt og returnerer det. Formen er `return Klassenavn(...)` inne i klassen selv.\n\nGrunnen er ikke pynt. Returtypen bestemmer hva du kan gjøre med resultatet etterpå — skrive det ut pent, gange det, legge det til noe mer, sende det inn i en funksjon som venter et slikt objekt.\n\nDet ene unntaket i faget er indreproduktet, som skal gi et tall. Da er tallet det matematisk riktige svaret, og en instans ville vært galt."
+    },
+    {
+      "id": "in1900-5-2-def-kjeding",
+      "type": "definition",
+      "title": "Kjeding: `u + v + w`",
+      "content": "Uttrykket regnes fra venstre: først `u + v`, så resultatet pluss `w`. Det andre plusstegnet kaller `__add__` på **resultatet** av det første.\n\nDerfor er kjeding den beste egensjekken på returtypen din. Virker `u + v + w`, returnerte du en instans; feiler det med «unsupported operand type(s)», returnerte du noe annet.\n\nSamme resonnement gjelder alle kombinasjoner: `(u + v) * 2`, `(p + q)(2)`, `print(u + v)`. Alle krever at det første leddet har levert et fullverdig objekt."
+    },
+    {
+      "id": "in1900-5-2-def-fstreng-str",
+      "type": "definition",
+      "title": "f-streng i `__str__`",
+      "content": "Formateringsverktøyet du bruker inne i `__str__`. Prefikset `f` foran anførselstegnet gjør at alt i krøllparentes regnes ut og settes inn.\n\n```python\ndef __str__(self):\n    return f'({self.x:.2f}, {self.y:.2f})'\n```\n\nEtter kolonet står formatspesifikasjonen: `.2f` gir to desimaler, `8.3f` gir bredde 8 og tre desimaler, `3d` gir et heltall i bredde 3.\n\nBer oppgaveteksten om et bestemt format — «skriv ut vektoren med to desimaler» — er det her det hører, ikke i `print`-kallet. Da får alle utskrifter av objektet samme form."
+    },
+    {
+      "id": "in1900-5-2-def-str-returnerer",
+      "type": "definition",
+      "title": "`__str__` må returnere en streng",
+      "content": "Returnerer `__str__` noe annet — et tuppel, en liste, et tall — får du `TypeError: __str__ returned non-string`, og feilen kommer først i det du skriver ut objektet.\n\nNabofeilen er å bruke `print` inne i `__str__` i stedet for `return`. Da skriver metoden ut teksten selv, returnerer `None`, og `print(obj)` skriver `None` etterpå.\n\nVil du bygge teksten i flere steg, er det helt greit: lag en lokal streng, bygg den opp med `+=`, og returner den til slutt."
+    },
+    {
+      "id": "in1900-5-2-def-skalar-mot-indre",
+      "type": "definition",
+      "title": "Skalarmultiplikasjon mot indreprodukt",
+      "content": "De to betydningene av gangetegnet, og de skilles på **typen** til høyre operand:\n\n- `u * 3` — høyre operand er et tall. Resultatet er en ny vektor med alle komponenter ganget med 3.\n- `u * v` — høyre operand er en vektor. Resultatet er ett tall, indreproduktet.\n\nSkal klassen støtte begge, tester du med `isinstance` og har to grener i `__mul__`. Ber oppgaven bare om én av dem, skriver du bare den — sensor forventer kort kode, ikke maksimal fleksibilitet."
+    },
+    {
+      "id": "in1900-5-2-def-venstre-operand",
+      "type": "definition",
+      "title": "Venstre operand bestemmer",
+      "content": "Python spør alltid venstre operand først når den møter en operator. `u * 3` blir `u.__mul__(3)`; `3 * u` blir et spørsmål til heltallet 3, som ikke vet hva en `Vec2D` er.\n\nFølgen i praksis: `u * 3` virker, `3 * u` gir `TypeError: unsupported operand type(s) for *: 'int' and 'Vec2D'`.\n\nRegelen gjelder også for pluss. `u + v` bruker `u`s `__add__`. Er `u` et tall og `v` et objekt, får du samme type feilmelding."
+    },
+    {
+      "id": "in1900-5-2-def-uendret",
+      "type": "definition",
+      "title": "Aritmetikk endrer ikke operandene",
+      "content": "`w = u + v` skal lage et tredje objekt og la `u` og `v` være i fred. Det er slik tall og strenger oppfører seg, og klassen din bør oppføre seg likt.\n\nFellen ligger i lister: skriver du `ny = self.koeff` og deretter endrer `ny`, endrer du samtidig `self.koeff`, fordi de to navnene peker på samme liste. Kopien `self.koeff[:]` er det som holder dem fra hverandre.\n\nEn rask kontroll når du har skrevet `__add__`: skriv ut operandene etterpå. Er de uendret, er du trygg."
+    },
+    {
+      "id": "in1900-5-2-def-repr-liste",
+      "type": "definition",
+      "title": "Lister av objekter bruker ikke `__str__`",
+      "content": "`print(u)` gir den pene teksten, men `print([u, v])` gir den tekniske: klassenavn og minneadresse for hvert element.\n\nGrunnen er at listen selv gjøres om til tekst, og listen ber om `__repr__` for hvert element — ikke `__str__`.\n\nVil du skrive ut en liste av objekter pent, løkker du over den og skriver ut ett objekt av gangen:\n\n```python\nclass Vec2D:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f'({self.x}, {self.y})'\n\nfor e in [Vec2D(1, 2), Vec2D(3, 4)]:\n    print(e)\n```\n\n**Utskrift:**\n```\n(1, 2)\n(3, 4)\n```\n\nDa er det `__str__` som brukes, én gang per objekt."
+    },
+    {
+      "id": "in1900-5-2-def-typefeil",
+      "type": "definition",
+      "title": "`TypeError: unsupported operand type(s)`",
+      "content": "Feilmeldingen når operatoren mangler en spesialmetode. Den er blant de mest lesbare i Python, fordi den navngir både operatoren og de to typene: «for +: 'Vec2D' and 'Vec2D'» betyr at klassen mangler `__add__`.\n\nBruk meldingen som en diagnose:\n\n- Navngir den *din* klasse på begge sider, mangler spesialmetoden.\n- Navngir den `'tuple'` eller `'list'` på én side, har en tidligere metode returnert feil type — nesten alltid feil #4.\n- Navngir den `'int'` først, står tallet på feil side av operatoren."
+    },
+    {
+      "id": "in1900-5-2-def-formatert-polynom",
+      "type": "definition",
+      "title": "Å formatere et polynom i `__str__`",
+      "content": "Mønsteret for å skrive `1 + 2*x + 5*x**2` fra en koeffisientliste, med tre valg som må tas bevisst:\n\n1. **Hopp over nuller** — `if c == 0: continue`. Ellers får du `0*x` med i teksten.\n2. **Skilletegn før neste ledd, ikke etter** — legg til ` + ` bare hvis strengen ikke er tom. Da slipper du et hengende plusstegn til slutt.\n3. **Tre former for eksponenten** — indeks 0 gir bare tallet, indeks 1 gir `c*x`, resten gir `c*x**i`.\n\nOppgaveteksten avgjør det eksakte formatet. Blir det ikke helt likt fasitens, koster det lite — det er strukturen i `__str__` som gir uttellingen."
+    },
+    {
+      "id": "in1900-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — fem spørsmål før du går videre",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-5-2-rep-tekst",
+          "type": "text",
+          "content": "1. Hvilke tre metoder kjøres av linjen `print(u + v)`, og i hvilken rekkefølge?\n2. Hvorfor er det galt at `__add__` returnerer et tuppel, når `print(u + v)` ser riktig ut?\n3. Når skal `__mul__` returnere et tall, og når skal den returnere en ny instans?\n4. Hva gjør `isinstance(other, Vec2D)`, og hvorfor trengs den i `__mul__`?\n5. Hvorfor må `__add__` for polynomer kopiere den lengste koeffisientlisten før den endrer den?\n\n**Sjekkliste før du går videre:**\n\n☐ Returnerer `__str__` en streng — med `return`, ikke `print`?\n\n☐ Returnerer `__add__` en NY instans av klassen?\n\n☐ Virker `u + v + w` med koden din?\n\n☐ Er operandene uendret etter en addisjon?\n\n☐ Står objektet til venstre for gangetegnet?\n\nNeste kapittel er [kap. 5.3](/bok/in1900/in1900-5-3): to klasser som deler kode, med arv og `super()`."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
