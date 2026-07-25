@@ -2,37 +2,49 @@
 
 - **Branch:** `bok/in1000`
 - **Arbeidsmappe:** `.claude/worktrees/bok-in1000` (eget git-arbeidstre — bruk KUN denne)
-- **Status nå (25. juli 2026, kveld):** steg 1 pågår — **16 av 37 filer på
-  disk**, alle med grønne porter og hver sin commit:
+- **Status nå (26. juli 2026):** **34 av 37 filer på disk** — alle 26
+  teori-/drillkapitler og alle 8 prøvekapitler er ferdige, gatet og committet.
 
-  | Fil | Quiz | FC | Oppg. | Status |
-  |---|---|---|---|---|
-  | `in1000-0-1` Eksamenskartet | 12 | 16 | 4 | ferdig |
-  | `in1000-1-1` Variabler, datatyper og uttrykk | 22 | 27 | 8 | ferdig |
-  | `in1000-1-2` Betingelser og boolske uttrykk | 20 | 21 | 8 | ferdig |
-  | `in1000-1-3` Løkker: for, while og range | 24 | 20 | 8 | ferdig |
-  | `in1000-1-prove` Prøver til del 1 | — | — | 36 kortsvar | ferdig |
-  | `in1000-2-1` Funksjoner: def, parametere og return | 20 | 22 | 8 | ferdig |
-  | `in1000-2-2` Funksjonssamarbeid og scope | 18 | 18 | 6 | ferdig |
-  | `in1000-2-prove` Prøver til del 2 | — | — | 21 | ferdig |
-  | `in1000-3-1` Lister | 22 | 26 | 8 | ferdig |
-  | `in1000-3-2` Ordbøker | 22 | 24 | 8 | ferdig |
-  | `in1000-3-3` Strenger | 20 | 26 | 8 | ferdig |
-  | `in1000-3-4` DRILL — skriv en funksjon | 24 | 14 | 14 | ferdig |
-  | `in1000-3-prove` Prøver til del 3 | — | — | 13 | ferdig |
-  | `in1000-4-1` DRILL — kodesporing | 28 | 16 | 16 | ferdig |
-  | `in1000-4-2` «Finn feilen» og moteksempel | 14 | 18 | 8 | ferdig |
-  | `in1000-4-prove` Prøver til del 4 | — | — | 36 | ferdig |
-  | **Sum så langt** | **246** | **248** | **104 + prøver** | av 516 · 508 |
+  | Del | Filer | Status |
+  |---|---|---|
+  | 0–4 | `0-1`, `1-1`…`1-3`+`1-prove`, `2-1`,`2-2`+`2-prove`, `3-1`…`3-4`+`3-prove`, `4-1`,`4-2`+`4-prove` | ferdig (oppdrag B1–B3) |
+  | 5 | `5-1`…`5-5` + `5-prove` | **ferdig** (oppdrag B4) |
+  | 6 | `6-1`…`6-5` + `6-prove` | **ferdig** (oppdrag B5, del 2) |
+  | 7 | `7-1`, `7-2` + `7-prove` | **ferdig** (oppdrag B5, del 1) |
+  | 8 | `8-1`, `8-2` + `8-prove` | **ferdig** (oppdrag B6) |
+  | 9 | `9-1`, `9-2`, `9-3` | **GJENSTÅR** (oppdrag B7) |
 
-  **Oppdrag B1 (Del 0 + 1), B2 (Del 2 + 3) og B3 (Del 4) er dermed
-  FULLFØRT.** Mål alltid disk med `status-bok.py` — aldri gjett.
+  `status-bok.py` 26. juli: **26/29 kapitler · 580 flashcard-definisjoner ·
+  220 oppgaver**. Quiz i staging: 492 spørsmål (kvoten for de 26 ferdige
+  kapitlene er 492 — alle oppfylt eller overskutt).
 
-- **Neste fil:** `in1000-5-1` (Klasser og objekter). Oppdrag B4 = hele Del 5,
-  seks filer. Del 5 er teorigrunnlaget for BÅDE Oppgave 2 og Oppgave 4.
+- **Neste fil:** `in1000-9-1` (øvingseksamen 1, bibliotek). Oppdrag B7 = de tre
+  komplette settene, 8 quiz hver, **0 flashcards**, `estimatedMinutes` 240.
+  Kap. 9.1 skal i tillegg ha den merkede **kalde banken** (8–10 oppgaver uten
+  hint, fasit = momentliste), jf. BYGGEKONTRAKT.
 - **Arketype:** DNA-regnefag, undertype **kodefag** — plattformens ANDRE.
   Presedens: `docs/hoyskole-boker/in1900/` (bygget og verifisert 25. juli 2026).
 - **Ingen blokkeringer.**
+
+## Datafiler for Del 7 (og Del 6.5) — MÅ lages før utskriftsporten kjøres
+
+Kapitlene `in1000-7-1`, `in1000-7-2`, `in1000-7-prove`, `in1000-6-5` og
+`in1000-6-prove` leser ekte tekstfiler. De ligger IKKE i repoet (byggekontrakten
+forbyr det). Byggeskriptet `mk_data7.py` i scratchpad lager dem; innholdet er
+gjengitt i kapitlene selv, så de kan rekonstrueres derfra.
+
+Kjør porten med datamappa som **andre argument**:
+
+```bash
+python3 scripts/hoyskolebok/sjekk-utskrift.py \
+  src/lib/data/chapters/in1000-7-1.json <DATADIR>
+```
+
+Filene: `medlemmer.txt`, `varer.txt`, `sykler.txt` (header), `turer.txt`,
+`Kolonier.txt`, `Ordjakt.txt`, `containere.txt`, `okter.txt`,
+`medlemsregister.txt` (header), `varelager.txt`, `timeplan.txt` (header),
+`resultat.txt`, `sykkelturer.txt`, `retter.txt` (header), `utlaan.txt`,
+`Speilsal.txt`, `Spinning.txt`.
 
 ## Sjekk status (kjør etter HVERT ferdig kapittel — gå aldri forbi en rød port)
 
@@ -100,6 +112,22 @@ Prod-curl av rendringen (når nok kapitler finnes): HTML-en skal inneholde
   `(poeng, kode, kommentar)`; byggefila kjører koden og limer den faktiske
   stdout inn i fasiten. Fasiten kan da ikke være skrevet fra hukommelsen, og
   ingen manuell etterkontroll trengs. Bruk det mønsteret for Del 5–8-prøvene.
+- **Utskriftsporten kjører HVER ```python-blokk for seg.** En blokk som bruker
+  en klasse definert i en tidligere blokk, krasjer med `NameError`. Enten samle
+  klasse + bruk i ÉN blokk, eller la delblokken være ```text. Dette styrte
+  blokkinndelingen i hele Del 5–8.
+- **En ```python-blokk som inneholder `print(` NOEN STEDS — også inne i en
+  metodekropp — krever «**Utskrift:**» rett etter.** Delvise klasseutdrag med
+  `print` i en metode må derfor være ```text.
+- **`input()`-kode kan ikke kjøres av porten** (stdin er lukket). Kap. 6.4 løser
+  det med ```text + «**Terminaldialog:**», pluss en kjørbar variant der
+  «brukerens» svar hentes fra en liste via en hjelpemetode `les(...)`. Bruk
+  samme grep i Del 9 hvis en modellbesvarelse har `input`.
+- **§K5b gjelder også mellom to KLASSER.** `Kantine.selg` som kaller
+  `Rett.selg` flagges som rekursjon av kodeporten. Bruk `selg_rett`,
+  `laan_ut_bok`, `skriv_alle`, `totalt_antall_…`.
+- **Skriv ALDRI «Vent — …»-selvkorreksjoner i fasitprosa.** Kjør koden først,
+  lim inn den faktiske utskriften, og skriv forklaringen ut fra den.
 - **Verifiser også påstander om KODE SOM ER FEIL.** I kap. 4.2 var to påstander
   om plantet kode gale (`NameError` var i virkeligheten `UnboundLocalError`, og
   «går fint på tom liste» var feil). Kjør alltid den gale koden også, og noter
