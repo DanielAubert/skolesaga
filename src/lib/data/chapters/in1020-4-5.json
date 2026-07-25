@@ -1,0 +1,429 @@
+{
+  "id": "in1020-4-5",
+  "courseId": "in1020",
+  "chapterNumber": "4.5",
+  "title": "Nettjenester — NAT, CDN, DNS, IPv6, DHCP og strømming",
+  "description": "De seks kjernetjenestene i seksjon 4 og hvilket problem hver enkelt løser — adressedeling, automatisk tildeling, navneoppslag, innhold nærmere brukeren, et større adresserom og videokvalitet som tilpasser seg linja.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne koble hver av de seks nettjenestene til det ene problemet den løser",
+    "kunne skille adressedeling, adressetildeling og navneoppslag fra hverandre",
+    "kunne gjøre rede for hva et større adresserom løser og hva det ikke løser",
+    "kunne forklare hvorfor strømming fra en tjeneste bruker pålitelig transport"
+  ],
+  "content": [
+    {
+      "id": "in1020-4-5-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** nettjenestene er **sjanger J — nettverk**, altså den delen av seksjon 4 som handler om hva hver tjeneste på nettet løser. Tjenestene har egen oppgave i **alle seks årgangene i arkivet (6 av 6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Dette er ren gjenkalling: seks tjenester, seks oppgaver de løser. Ingen regning, ingen prosedyre. Sammen med lagene i [kap. 4.1](/bok/in1020/in1020-4-1) og adresseregningen i [kap. 4.2](/bok/in1020/in1020-4-2) utgjør det ryggraden i **seksjon 4, datanettverk** — en av de fire seksjonene som hver må bestås for seg.\n\n**Slik kommer den:** oftest som **svarform F3** (dra-og-slipp: koble hvert element til riktig kategori — her skrevet som koblingsoppgave), der du kobler hver tjeneste til problemet den løser. Ellers som **F1** («velg ett *eller flere* alternativer — flere kan være riktige samtidig») om hva en bestemt tjeneste gjør og ikke gjør.\n\n**De tre tingene som skiller bestått fra bom her:** at NAT deler adresser mens navnetjenesten oversetter navn, at den nyere adresseversjonen **utvider adresserommet** og ikke gjør nettet raskere, og at strømming over nettet bruker **pålitelig** transport, ikke rask.\n\n**Tidsbruk:** 50 minutter, fordelt på tre løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-4-5-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 4.1](/bok/in1020/in1020-4-1) og [kap. 4.2](/bok/in1020/in1020-4-2). Her er det du trenger, ferdig oppfrisket:\n\n**1. De fire lagene.** Applikasjon, transport, nettverk, lenke. Alle tjenestene i dette kapitlet er **applikasjonstjenester** — de ligger øverst og bruker transportlaget under seg.\n\n**2. TCP mot UDP.** TCP er pålitelig og tilkoblingsorientert: alt kommer fram, i rekkefølge. UDP er raskt og tilkoblingsløst: ingen omsending, ingen rekkefølgegaranti.\n\n**3. Protokoll til transport.** HTTP, IMAP, SMTP, FTP og DASH bruker **TCP**. DHCP bruker **UDP**. DNS bruker **begge**.\n\n**4. IPv4-adresserommet.** En IPv4-adresse er 32 bit, altså i overkant av `4,3 milliarder` adresser til hele verden. Det er langt færre enn antallet enheter som er koblet til nett i dag, og hele dette kapitlet handler i praksis om følgene av det.\n\n**5. Kringkastingsadressen** fra [kap. 4.2](/bok/in1020/in1020-4-2): den høyeste adressen i et subnett, den som når alle på én gang. Den brukes av en maskin som ennå ikke vet hvem den skal spørre.\n\nVil du ha et hverdagsnært bilde av hva som skjer når du åpner en nettside, ligger det her:\n\n- [Hvordan fungerer nettet?](/bok/im-vg1/im-vg1-3-1) — hele reisen fra tastetrykk til side, i rolig tempo."
+    },
+    {
+      "id": "in1020-4-5-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-4-5-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| **NAT** | Nettverksadresseoversetting — mange enheter deler én offentlig adresse |\n| **DHCP** | Tjenesten som deler ut adresse automatisk til nye maskiner |\n| **DNS** | Navnetjenesten — oversetter navn til IP-adresse |\n| **CDN** | Innholdsnett — kopier av innholdet plassert nær brukerne |\n| **IPv6** | Den nyere adresseversjonen, med 128 bit i stedet for 32 |\n| **DASH** | Strømming av video i segmenter, med flere kvalitetsnivåer |\n| Offentlig adresse | Adresse som er synlig og nåbar fra resten av internett |\n| Privat adresse | Adresse som bare gjelder inne på ett lokalt nett |\n| Origin-tjener | Den opprinnelige maskinen innholdet kommer fra |\n| Kjernenett | De store linjene mellom landsdeler og land |\n| Segment | En liten bit av en videostrøm, typisk noen få sekunder |\n| Standard gateway | Ruteren maskinen sender til når mottakeren er utenfor eget nett |\n\n**Forkortelsene skrevet ut:** **NAT** = *Network Address Translation*, **DHCP** = *Dynamic Host Configuration Protocol*, **DNS** = *Domain Name System*, **CDN** = *Content Delivery Network*, **IPv6** = *Internet Protocol version 6*, **DASH** = *Dynamic Adaptive Streaming over HTTP*.\n\n**Regler i dette delkapitlet** (kapitlet har tabeller og regler, ikke formler):\n\n$$\\text{IPv4: } 2^{32} \\approx 4{,}3 \\text{ milliarder adresser}$$\n\n$$\\text{IPv6: } 2^{128} \\text{ adresser}$$\n\nForskjellen er hele grunnen til at den nyere versjonen finnes.\n\n$$\\text{tjeneste} \\rightarrow \\text{problemet den løser}$$\n\nKoblingen som testes: NAT deler adresser, DHCP tildeler adresser, DNS oversetter navn, CDN flytter innhold nærmere, IPv6 utvider adresserommet, DASH tilpasser videokvaliteten."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-5-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hjemmenettet: å dele én adresse, og å få en adresse (~17 min)\n\nHjemme hos deg er det kanskje tolv enheter på nettet: to PC-er, tre mobiler, en TV, en høyttaler, en skriver, en støvsuger.\n\nUtad har husstanden **én** offentlig adresse. Tolv enheter, én adresse.\n\nOg ingen av de tolv har fått adressen sin manuelt. Du har aldri satt opp noe på støvsugeren. Den koblet seg til, og så hadde den en adresse.\n\nTo tjenester løser hver sin del av dette, og de forveksles ofte fordi de begge handler om adresser. De gjør helt forskjellige ting."
+    },
+    {
+      "id": "in1020-4-5-def-nat",
+      "type": "definition",
+      "title": "NAT — å dele én offentlig adresse",
+      "content": "Nettverksadresseoversetting: teknikken som lar **mange enheter dele én offentlig IP-adresse**.\n\nInne på det lokale nettet har hver enhet sin egen **private** adresse. Når en av dem sender noe ut, bytter ruteren ut avsenderadressen med husstandens ene **offentlige** adresse, og noterer i en tabell hvem som sendte hva. Når svaret kommer tilbake, slår ruteren opp i tabellen og sender det videre til riktig enhet innenfor.\n\n**Problemet NAT løser: adressemangel.** IPv4 har i overkant av 4,3 milliarder adresser til hele verden. Uten adressedeling ville de vært brukt opp for lenge siden.\n\nDen faste feilslutningen — og den hyppigste forvekslingen i kapitlet: å blande NAT med navnetjenesten. **NAT deler adresser. Navnetjenesten oversetter navn til adresser.** De har ingenting med hverandre å gjøre utover at begge ordene inneholder «oversetting»."
+    },
+    {
+      "id": "in1020-4-5-def-dhcp",
+      "type": "definition",
+      "title": "DHCP — å få tildelt en adresse",
+      "content": "Tjenesten som **automatisk tildeler** IP-adresse, nettmaske, standard gateway og adressen til en navnetjener, til en maskin som nettopp har koblet seg til nettet.\n\nUten den måtte noen skrive inn en adresse manuelt på hver eneste enhet — og passe på at ingen to fikk den samme.\n\n**Hvorfor den bruker UDP:** maskinen har ennå **ingen adresse**. Uten adresse kan den ikke sette opp en TCP-forbindelse, og den vet heller ikke hvem den skal spørre. Derfor sender den ut på kringkastingsadressen: «er det noen her som kan gi meg en adresse?»\n\n**Problemet DHCP løser: manuelt oppsett.** Ikke adressemangel — det er NATs jobb.\n\nDen faste feilslutningen: å tro at DHCP og NAT er samme sak fordi begge kjører i hjemmeruteren. DHCP **tildeler** adresser innenfra; NAT **oversetter** mellom innenfor og utenfor."
+    },
+    {
+      "id": "in1020-4-5-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Hva skjer når mobilen kobler seg til hjemmenettet?",
+      "problem": "Du kommer hjem, og mobilen kobler seg til det trådløse nettet. Følg hva som skjer, tjeneste for tjeneste, fram til du har åpnet en nettside.",
+      "solution": "**Steg 1 — mobilen har ingen adresse.** Den sender en forespørsel ut på **kringkastingsadressen**: en melding alle på nettet mottar. Den bruker **UDP**, siden den ikke kan sette opp en forbindelse uten adresse.\n\n**Steg 2 — DHCP svarer.** Ruteren tildeler mobilen en privat adresse, for eksempel `192.168.1.42`, sammen med nettmasken, adressen til ruteren som standard gateway, og adressen til en navnetjener.\n\n**Steg 3 — du skriver inn en nettadresse.** Mobilen kjenner navnet, men trenger en IP-adresse. Den spør **navnetjenesten**, som svarer med adressen.\n\n**Steg 4 — forespørselen sendes ut.** Mobilen sender til standard gateway, altså ruteren, siden mottakeren ligger utenfor det lokale nettet.\n\n**Steg 5 — NAT bytter avsender.** Ruteren erstatter `192.168.1.42` med husstandens ene offentlige adresse, og noterer i tabellen sin at akkurat denne samtalen tilhører mobilen.\n\n**Steg 6 — svaret kommer tilbake**, adressert til den offentlige adressen. Ruteren slår opp i tabellen og sender det videre til `192.168.1.42`.\n\n**Fire tjenester, fire ulike problemer:**\n\n| Tjeneste | Problemet den løste |\n|---|---|\n| DHCP | Mobilen hadde ingen adresse |\n| Navnetjenesten | Du kjente navnet, ikke adressen |\n| Standard gateway | Mottakeren lå utenfor eget nett |\n| NAT | Tolv enheter deler én offentlig adresse |\n\n**Poenget å ta med seg:** ingen av de fire kan gjøre jobben til noen av de andre. Eksamensoppgaven i denne sjangeren er nettopp å koble hver tjeneste til sitt eget problem, og distraktorene er alltid en annen tjeneste fra den samme lista."
+    },
+    {
+      "id": "in1020-4-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — tjeneste og problem.) Hva løser NAT, og hva løser DHCP? Svar med én setning på hver, og si hva som er den viktigste forskjellen.",
+        "solution": "**NAT løser adressemangel.** Mange enheter på et lokalt nett deler én offentlig IP-adresse, ved at ruteren bytter ut avsenderadressen på vei ut og slår opp i en tabell på vei inn.\n\n**DHCP løser manuelt oppsett.** En maskin som nettopp har koblet seg til, får automatisk tildelt adresse, nettmaske, standard gateway og navnetjener.\n\n**Den viktigste forskjellen:** DHCP **tildeler** adresser innenfor det lokale nettet. NAT **oversetter** mellom det lokale nettet og resten av internett.\n\n**Svar: NAT deler én offentlig adresse mellom mange; DHCP gir hver av dem sin private adresse automatisk.**\n\nAt begge kjører i den samme hjemmeruteren, gjør dem ikke til samme tjeneste. Det er nettopp den sammenblandingen distraktorene i sjangeren er bygd på.",
+        "hints": [
+          "Spør for hver: hvilket problem ville oppstått hvis tjenesten ikke fantes?",
+          "Den ene virker innenfor det lokale nettet, den andre på grensen ut."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — nettverk, svarform F4.) Hvilken tjeneste løser hvert av disse problemene?\n\n**a)** En ny maskin på nettet har ingen IP-adresse.\n\n**b)** Tolv enheter i en husstand må dele én offentlig adresse.\n\n**c)** Du kjenner navnet på et nettsted, men ikke adressen.",
+        "solution": "**a) DHCP.** Den tildeler adresse, nettmaske, standard gateway og navnetjener automatisk. Maskinen ber om det på kringkastingsadressen, siden den ennå ikke har noen adresse å sende fra.\n\n**b) NAT.** Ruteren bytter ut den private avsenderadressen med husstandens ene offentlige adresse på vei ut, og slår opp i en tabell på vei inn.\n\n**c) DNS, navnetjenesten.** Den oversetter navn til IP-adresse.\n\n**Fasit: a) DHCP, b) NAT, c) DNS.**\n\nMerk at alle tre handler om adresser, og at det er nettopp derfor de forveksles. Skillet er hva slags adresseproblem de løser: å **få** en (DHCP), å **dele** en (NAT), å **finne** en ut fra et navn (DNS).",
+        "hints": [
+          "Spør hvilket adresseproblem hver situasjon beskriver.",
+          "En av de tre virker før maskinen har noen adresse i det hele tatt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Navnetjenesten og det større adresserommet (~17 min)\n\nDu husker `nrk.no`. Du husker ikke `160.68.205.231`.\n\nHele internett er bygd rundt tall, og hele bruken av det er bygd rundt navn. Navnetjenesten er broen mellom de to, og den er en av de mest brukte tjenestene som finnes: hver eneste nettside du åpner, starter med et oppslag der.\n\nOg så er det det underliggende problemet som ikke går bort: adressene er i ferd med å ta slutt.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-4-5-def-dns",
+      "type": "definition",
+      "title": "DNS — navnetjenesten",
+      "content": "Tjenesten som oversetter **navn til IP-adresse**: fra `eksempel.no` til `93.184.216.34`.\n\nOppslaget skjer i et hierarki: spørsmålet går først til en navnetjener maskinen din kjenner, og videre oppover og utover til noen kan svare for akkurat det navnet. Svaret **mellomlagres** underveis, slik at det neste oppslaget på samme navn går øyeblikkelig.\n\n**Transport:** DNS bruker **både UDP og TCP**. Vanlige oppslag går på UDP fordi de er små og skal gå fort; store svar og enkelte overføringer av navnedata bruker TCP.\n\n**Problemet DNS løser: at mennesker husker navn og maskiner bruker tall.**\n\nDen faste feilslutningen: å tro at DNS deler ut eller tildeler adresser. Den **finner** en adresse som allerede finnes. Å tildele er DHCPs jobb, å dele er NATs."
+    },
+    {
+      "id": "in1020-4-5-def-prefetching",
+      "type": "definition",
+      "title": "DNS-prefetching",
+      "content": "At nettleseren slår opp adressene til lenkene på en side **før** du har klikket på noen av dem.\n\nNår du så klikker, er oppslaget allerede gjort, og siden begynner å laste med én gang. Gevinsten er de titalls millisekundene et oppslag ville tatt.\n\nDet koster noen unødvendige oppslag på lenker du aldri klikker på, men de er små, og gevinsten når du faktisk klikker, er merkbar.\n\nDen faste feilslutningen: å tro at prefetching henter selve siden på forhånd. Den henter bare **adressen** — oversettelsen fra navn til tall."
+    },
+    {
+      "id": "in1020-4-5-def-ipv6",
+      "type": "definition",
+      "title": "IPv6 — det større adresserommet",
+      "content": "Den nyere versjonen av adresseprotokollen, med **128 bit** per adresse i stedet for 32.\n\nDet gir `2¹²⁸` adresser mot IPv4s `2³² ≈ 4,3 milliarder` — en forskjell som er umulig å ha noen intuisjon om, og som i praksis betyr at adressemangelen forsvinner.\n\n**Problemet IPv6 løser: at adressene tar slutt.** Punktum. Det er den ene tingen den er til for.\n\nDen faste feilslutningen — og en av de mest brukte distraktorene i hele seksjon 4: å tro at IPv6 **gjør nettet raskere**. Det gjør den ikke. Overføringsfarten bestemmes av linjene, ikke av hvor mange bit adressen har. Det samme gjelder påstander om at IPv6 «krypterer trafikken» eller «gjør ruting unødvendig» — heller ikke det er hva den er til for."
+    },
+    {
+      "id": "in1020-4-5-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Fire påstander om navnetjenesten og adresseversjonene",
+      "problem": "Svarform F2 — sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | DNS tildeler IP-adresser til nye maskiner på nettet | |\n| b | IPv6 øker antallet globalt adresserbare IP-adresser | |\n| c | IPv6 gjør overføringen raskere enn IPv4 | |\n| d | DNS-svar mellomlagres, slik at gjentatte oppslag på samme navn går fort | |",
+      "solution": "**a) Usann.** DNS **finner** en adresse ut fra et navn. Å **tildele** adresser til nye maskiner er DHCPs jobb. Dette er den vanligste forvekslingen i sjangeren, og den er lett å gjøre fordi begge tjenestene handler om adresser.\n\n**b) Sann.** 128 bit mot 32 bit er hele poenget med den nyere versjonen. Det er den ene tingen den løser.\n\n**c) Usann.** Adressens lengde har ingenting med overføringsfarten å gjøre. Farten bestemmes av linjene, av avstanden og av kø underveis. Denne påstanden er en av de mest brukte distraktorene i seksjon 4, nettopp fordi «nyere versjon» høres ut som «bedre på alle måter».\n\n**d) Sann.** Mellomlagringen er en vesentlig del av hvorfor navnetjenesten er rask nok til å ligge foran hver eneste nettside du åpner.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\nFordelingen er to og to, og den er ikke sortert. Bruk aldri fordelingen i en matrise som ledetråd.\n\n**Metoden som gjør denne oppgavetypen rask:** for hver rad, spør «hvilket problem løser denne tjenesten?» Er påstanden om noe annet enn det ene problemet, er den sannsynligvis usann."
+    },
+    {
+      "id": "in1020-4-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F1: velg ett *eller flere* alternativer.) Kryss av **alle** påstandene som stemmer om DNS, og begrunn hvert av de fire.\n\n**a)** DNS oversetter navn til IP-adresse.\n\n**b)** DNS kan bruke både TCP og UDP.\n\n**c)** DNS krypterer trafikken mellom klient og tjener.\n\n**d)** DNS-svar mellomlagres, slik at neste oppslag på samme navn går raskere.",
+        "solution": "**a) Riktig.** Det er hele tjenestens oppgave: fra `eksempel.no` til en IP-adresse.\n\n**b) Riktig.** Vanlige oppslag går på UDP fordi de er små og skal gå fort; store svar og enkelte overføringer bruker TCP. Å krysse av bare UDP er halve svaret, og halve svaret er galt svar.\n\n**c) Galt.** DNS i sin grunnform krypterer ingenting — oppslagene går i klartekst. Distraktoren spiller på at «sikkerhet» høres ut som noe alle tjenester burde ha, men kryptering er ikke det problemet DNS løser.\n\n**d) Riktig.** Mellomlagringen er grunnen til at oppslag på et navn du nettopp har besøkt, går øyeblikkelig.\n\n**Fasit: a, b og d.**\n\n**Om negativ poenggiving:** tre av fire er riktige. Kandidaten som bare krysser av a) fordi det er «hovedsvaret», mister to sikre poeng. Både b) og d) kan begrunnes med én setning.",
+        "hints": [
+          "Spør for hvert alternativ: er dette problemet DNS er laget for å løse?",
+          "Én av påstandene er halvveis riktig hvis du bare tenker på det vanligste tilfellet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | IPv6 finnes fordi IPv4-adressene er i ferd med å ta slutt | |\n| b | En IPv6-adresse er 64 bit lang | |\n| c | NAT er en teknikk som utsetter problemet IPv6 løser permanent | |\n| d | IPv6 fjerner behovet for ruting | |",
+        "solution": "**a) Sann.** Adressemangelen er den ene grunnen til at den nyere versjonen finnes.\n\n**b) Usann.** En IPv6-adresse er **128 bit**, fire ganger så lang som IPv4s 32. 64 er et tall som ser rimelig ut fordi det er en dobling — og det er nettopp derfor det er en distraktor.\n\n**c) Sann.** Begge løser adressemangelen, men på hver sin måte: NAT ved at mange deler én adresse, IPv6 ved at det finnes nok adresser til alle. NAT er en omgåelse; IPv6 er løsningen.\n\n**d) Usann.** Ruting er nettverkslagets oppgave uansett adresseversjon. Pakker må fortsatt finne veien fra nett til nett. Påstanden er en variant av «nyere versjon fikser alt».\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\nFordelingen er to sanne og to usanne, ikke sortert.\n\n**Merk hvordan b) og d) er bygd:** begge er påstander om IPv6 som høres teknisk ut, og begge er gale på hver sin måte — den ene om et tall, den andre om hva versjonen er til for. Under negativ poenggiving er det å kjenne igjen begge like verdifullt som å vite hva IPv6 faktisk gjør.",
+        "hints": [
+          "For b): hvor mange bit har en IPv4-adresse, og hva er forholdet mellom de to?",
+          "For c) og d): spør hvilket ene problem IPv6 er laget for å løse."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Innhold nærmere brukeren, og video i segmenter (~16 min)\n\nDe to siste tjenestene handler om det samme problemet fra hver sin kant: hvordan levere store mengder innhold til mange mennesker samtidig, uten at nettet bryter sammen.\n\nDen ene flytter innholdet fysisk nærmere deg. Den andre tilpasser hvor mye innhold som sendes, til hvor god linja din er akkurat nå."
+    },
+    {
+      "id": "in1020-4-5-def-cdn",
+      "type": "definition",
+      "title": "CDN — innhold nærmere brukeren",
+      "content": "Et nett av tjenermaskiner som holder **kopier av innholdet** spredt geografisk, slik at hver bruker kan betjenes fra en maskin i nærheten.\n\nUten det ville alle i verden hentet den samme videoen fra den samme maskinen — kanskje på et annet kontinent.\n\n**Tre ting CDN oppnår samtidig:**\n\n1. **Kortere vei** gir kortere forsinkelse for brukeren.\n2. **Avlastning av opprinnelsestjeneren**, som ellers måtte svare alle alene.\n3. **Mindre trafikk i kjernenettet**, altså de store linjene mellom landsdeler og land — innholdet krysser dem én gang i stedet for én gang per bruker.\n\n**Problemet CDN løser: avstand og belastning.**\n\nDen faste feilslutningen: å blande CDN med mellomlageret i nettleseren din. Nettleserens mellomlager tjener **én** bruker og ligger på din maskin. Et CDN tjener **mange** brukere og ligger ute i nettet."
+    },
+    {
+      "id": "in1020-4-5-def-streaming",
+      "type": "definition",
+      "title": "HTTP-strømming i segmenter (DASH)",
+      "content": "Måten video sendes over nettet på: filmen deles i **segmenter** på noen få sekunder hver, og hvert segment finnes i **flere kvalitetsnivåer**.\n\n**Klienten velger kvalitet.** For hvert segment måler avspilleren hvor fort forrige segment kom, og ber om neste i en kvalitet linja klarer. Blir linja dårligere, faller bildet til lavere kvalitet i stedet for å stoppe. Blir den bedre, går kvaliteten opp igjen.\n\n**Transporten er TCP.** Det virker overraskende — video høres ut som noe som må gå fort — men et segment som mangler biter, kan ikke spilles av i det hele tatt. Og fordi avspilleren har flere sekunder buffer, gjør det ingenting at en omsending tar litt tid.\n\nDen faste feilslutningen — en av de mest brukte distraktorene i sjangeren: å tro at strømming bruker UDP fordi «video må gå raskt». Det gjelder **sanntids videosamtale**, der en forsinkelse ødelegger samtalen. Strømming fra en tjeneste har buffer, og da vinner pålitelighet."
+    },
+    {
+      "id": "in1020-4-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å blande NAT og navnetjenesten.** NAT **deler** én offentlig adresse mellom mange enheter. Navnetjenesten **oversetter navn til adresse**. Begge ordene inneholder «oversetting», og der stopper likheten.\n\n**Å tro at IPv6 gjør nettet raskere.** Den utvider adresserommet. Farten bestemmes av linjene. Det samme gjelder påstander om at den krypterer trafikken eller fjerner behovet for ruting — ingen av delene.\n\n**Å tro at strømming bruker UDP.** Strømming over nettet bruker **TCP**: et segment må være helt for å kunne spilles, og bufferen gjør at omsendinger ikke merkes. UDP hører til sanntids videosamtale, der forsinkelse er verre enn tap.\n\n**Å blande CDN og nettleserens mellomlager.** Nettleserens mellomlager tjener deg alene. Et CDN tjener mange brukere og ligger ute i nettet.\n\n**Å tro at DNS tildeler adresser.** Den finner en adresse som allerede finnes. Tildeling er DHCPs jobb.\n\n**Å sette DHCP på TCP.** Maskinen har ennå ingen adresse og kan ikke sette opp en forbindelse. Derfor UDP, og derfor kringkasting.\n\n**Å tro at klienten ikke har noe å si i strømming.** Det er nettopp klienten som velger kvalitetsnivå for hvert segment, ut fra hvor fort det forrige kom."
+    },
+    {
+      "id": "in1020-4-5-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — koblingsoppgaven med alle fellene forklart",
+      "problem": "Svarform F3 — dra-og-slipp: koble hvert element til riktig kategori. Her skrevet som koblingsoppgave.\n\nKoble hver tjeneste (1–6) til problemet den primært løser (A–F).\n\n**1.** NAT · **2.** CDN · **3.** DNS · **4.** IPv6 · **5.** DHCP · **6.** DASH\n\n**A.** Adressene i den gamle versjonen tar slutt · **B.** Mennesker husker navn, ikke tall · **C.** Innholdet ligger langt unna brukeren · **D.** Videokvaliteten må tilpasses en linje som varierer · **E.** Mange enheter må dele én offentlig adresse · **F.** En ny maskin har ingen adresse og må få en automatisk",
+      "solution": "**1 → E.** NAT lar mange enheter dele én offentlig adresse, ved at ruteren bytter avsenderadressen og holder styr på hvem som sendte hva.\n\n**2 → C.** CDN plasserer kopier av innholdet nær brukerne. Det gir kortere vei, avlaster opprinnelsestjeneren og sparer kjernenettet.\n\n**3 → B.** Navnetjenesten oversetter navn til IP-adresse.\n\n**4 → A.** IPv6 utvider adresserommet fra 32 til 128 bit.\n\n**5 → F.** DHCP tildeler adresse, nettmaske, standard gateway og navnetjener automatisk til en maskin som nettopp har koblet seg til.\n\n**6 → D.** DASH deler video i segmenter i flere kvaliteter, og klienten velger kvalitet for hvert segment ut fra hvor fort det forrige kom.\n\n**Fasit: 1→E, 2→C, 3→B, 4→A, 5→F, 6→D.**\n\nLegg merke til at koblingen ikke er 1→A, 2→B, 3→C. Ingen av tjenestene ligger i samme rekkefølge som problemene, og det er med vilje — en koblingsoppgave med en åpenbar diagonal ville testet ingenting.\n\n**De tre fellene i dette settet:**\n\n**Felle 1 — å koble NAT til A og IPv6 til E.** Begge handler om adressemangel, og det er lett å bytte dem om. Skillet: NAT lar mange **dele** én adresse (en omgåelse), IPv6 gjør at det **finnes nok** adresser (løsningen).\n\n**Felle 2 — å koble DNS til F.** Både navnetjenesten og DHCP handler om adresser. Men DNS **finner** en adresse ut fra et navn; DHCP **tildeler** en ny.\n\n**Felle 3 — å koble CDN til D.** Begge handler om at video skal virke bra. Men CDN flytter innholdet **fysisk nærmere**; DASH tilpasser **kvaliteten** til linja. Det ene er geografi, det andre er tilpasning i sanntid.\n\n**Om negativ poenggiving:** i en koblingsoppgave er hver kobling et eget kryss, og hver feil kobling trekker. Gjør de fire du er sikker på først, og se om de to siste da gir seg selv."
+    },
+    {
+      "id": "in1020-4-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F1.) Kryss av **alle** påstandene som stemmer om et CDN, og begrunn hvert av de fire.\n\n**a)** Et CDN avlaster opprinnelsestjeneren.\n\n**b)** Et CDN reduserer trafikken i kjernenettet.\n\n**c)** Et CDN er det samme som mellomlageret i nettleseren din.\n\n**d)** Et CDN gir kortere forsinkelse fordi innholdet hentes fra en maskin nærmere brukeren.",
+        "solution": "**a) Riktig.** Uten et CDN måtte opprinnelsestjeneren svare på alle forespørslene alene. Med et CDN svarer kopiene på de fleste av dem.\n\n**b) Riktig.** Innholdet krysser de store linjene mellom landsdeler og land **én gang** til hver kopi, i stedet for én gang per bruker. Det er en av de viktigste gevinstene, og den er lett å overse fordi den ikke merkes av den enkelte brukeren.\n\n**c) Galt.** Nettleserens mellomlager ligger på **din** maskin og tjener **deg alene**. Et CDN ligger ute i nettet og tjener **mange** brukere. De to gjør beslektede ting på helt ulike nivåer, og distraktoren utnytter nettopp den likheten.\n\n**d) Riktig.** Kortere fysisk vei gir kortere forsinkelse. Det er den gevinsten brukeren faktisk merker.\n\n**Fasit: a, b og d.**\n\n**Merk mønsteret:** tre av fire alternativer beskriver ulike sider av samme gevinst, og det ene gale er en forveksling med noe annet. Det er den vanlige formen på en CDN-oppgave.",
+        "hints": [
+          "Tenk gjennom hvem som slipper arbeid når et CDN settes inn: brukeren, tjeneren, eller linjene imellom?",
+          "For c): hvor mange brukere betjener de to?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk.) En strømmetjeneste sender video i segmenter på fire sekunder, i tre kvalitetsnivåer.\n\n**a)** Hvem bestemmer hvilket kvalitetsnivå som hentes, og ut fra hva?\n\n**b)** Hvilken transportprotokoll brukes, og hvorfor er det ikke den man skulle tro?",
+        "solution": "**a) Klienten bestemmer.** Avspilleren måler hvor fort det forrige segmentet kom fram, og ber om neste segment i en kvalitet linja klarer.\n\nBlir linja dårligere, faller bildet til lavere kvalitet i stedet for å stoppe. Blir den bedre, går kvaliteten opp igjen. Det er derfor et videobilde noen ganger blir uskarpt et par sekunder før det klarner: tjenesten valgte lavere kvalitet framfor pause.\n\n**b) TCP.** Det virker overraskende, fordi video høres ut som noe som må gå fort, og fordi sanntids videosamtale bruker UDP.\n\nMen her er to forhold avgjørende:\n\n1. **Et segment må være helt** for å kunne spilles av. Mangler det biter, er hele segmentet ubrukelig — da hjelper det ikke at det kom raskt.\n2. **Avspilleren har flere sekunder buffer.** En omsending tar noen millisekunder og merkes ikke, fordi det som spilles akkurat nå, ble hentet for flere sekunder siden.\n\n**Svar: a) klienten, ut fra hvor fort forrige segment kom. b) TCP, fordi et segment må være helt og bufferen skjuler omsendingene.**\n\n**Skillet å ta med seg:** strømming fra en tjeneste har buffer og bruker TCP. Sanntids videosamtale har ikke buffer og bruker UDP. Det er den samme videoen, men to helt ulike situasjoner.",
+        "hints": [
+          "For a): hvem er det som vet hvor fort det gikk sist — senderen eller mottakeren?",
+          "For b): hva er verst her — å vente noen millisekunder, eller å få et segment med hull?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F3: kobling.) Koble hver beskrivelse (1–6) til riktig tjeneste (A–G). Hver tjeneste kan brukes én gang eller ikke i det hele tatt.\n\n**1.** Sender en forespørsel på kringkastingsadressen fordi den ennå ikke har noen adresse\n\n**2.** Lar ruteren bytte ut avsenderadressen på vei ut og slå opp i en tabell på vei inn\n\n**3.** Slår opp adressene til lenkene på en side før brukeren har klikket på noen av dem\n\n**4.** Deler video i biter på noen sekunder, hver i flere kvaliteter\n\n**5.** Utvider adressen fra 32 til 128 bit\n\n**6.** Holder kopier av innholdet geografisk spredt\n\n**A.** NAT · **B.** DHCP · **C.** DNS-prefetching · **D.** DASH · **E.** IPv6 · **F.** CDN · **G.** Standard gateway",
+        "solution": "**1 → B (DHCP).** En maskin uten adresse kan verken sette opp en forbindelse eller vite hvem den skal spørre, så den kringkaster spørsmålet.\n\n**2 → A (NAT).** Adresseoversettingen på grensen mellom det lokale nettet og internett, med en tabell som holder styr på hvilken samtale som tilhører hvilken enhet.\n\n**3 → C (DNS-prefetching).** Nettleseren gjør navneoppslagene på forhånd, slik at klikket ikke må vente på dem. Merk at det er **adressene** som hentes på forhånd, ikke sidene.\n\n**4 → D (DASH).** Segmenter i flere kvalitetsnivåer, der klienten velger nivå for hvert segment.\n\n**5 → E (IPv6).** 128 bit mot 32, altså et adresserom som gjør adressemangelen borte.\n\n**6 → F (CDN).** Kopier nær brukerne, som gir kortere vei, avlaster opprinnelsestjeneren og sparer kjernenettet.\n\n**Fasit: 1→B, 2→A, 3→C, 4→D, 5→E, 6→F.**\n\n**Standard gateway (G) er ikke i bruk.** Det er med vilje: en koblingsoppgave krever ikke at alle kategoriene brukes, og å tvinge inn den ubrukte er en fast måte å miste poeng på. Standard gateway er ruteren en maskin sender til når mottakeren ligger utenfor eget nett — en reell ting, men ingen av de seks beskrivelsene passer på den.\n\n**Om negativ poenggiving:** her er koblingen 1→B, 2→A og deretter 3→C, 4→D, 5→E, 6→F. Legg merke til at den **ser** ut som en diagonal fra og med nummer 3, mens de to første er byttet om. Ikke la et halvt mønster friste deg til å fylle ut resten mekanisk — kontroller hver kobling for seg.",
+        "hints": [
+          "Les alle seks beskrivelsene før du kobler noe. To av dem beskriver samme slags problem.",
+          "Merk at én av kategoriene ikke skal brukes.",
+          "For 3): skiller beskrivelsen mellom å hente adressen og å hente siden?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F1.) En kollega sier: «Vi slår på IPv6 på alle maskinene. Da blir nettet raskere, vi slipper NAT, og trafikken blir kryptert.»\n\nKryss av **alle** innvendingene som er faglig holdbare, og begrunn hvert av de fem.\n\n**a)** IPv6 påvirker ikke overføringsfarten — den bestemmes av linjene, ikke av adressens lengde.\n\n**b)** IPv6 krypterer ikke trafikken i seg selv.\n\n**c)** Det stemmer at behovet for NAT faller bort når hver enhet kan ha sin egen globalt nåbare adresse.\n\n**d)** IPv6 kan ikke brukes sammen med DNS, siden navnetjenesten bare kjenner 32-bits adresser.\n\n**e)** IPv6 fjerner behovet for ruting, siden alle adresser er globale.",
+        "solution": "**a) Holdbar.** Adressens lengde har ingenting med farten å gjøre. Overføringstiden bestemmes av filstørrelsen og raten, som i [kap. 4.3](/bok/in1020/in1020-4-3) — ikke av hvor mange bit adressefeltet har. Dette er den mest brukte distraktoren om IPv6.\n\n**b) Holdbar.** Kryptering er ikke det problemet IPv6 løser. Konfidensialitet krever egne mekanismer, uavhengig av adresseversjon.\n\n**c) Holdbar — og dette er kollegaens ene riktige poeng.** NAT finnes fordi adressene er knappe. Er de ikke knappe lenger, faller hovedgrunnen til å dele dem bort. Merk at innvendingen her er en **bekreftelse**: oppgaven ber om holdbare innvendinger mot helheten, og å påpeke hvilken del som faktisk stemmer, er en del av å vurdere påstanden. En riktig delpåstand er et riktig utsagn.\n\n**d) Ikke holdbar.** Navnetjenesten kan svare med adresser i begge versjoner. Distraktoren er bygd på at «gammel tjeneste kjenner ikke nytt format», som høres rimelig ut, men som ikke stemmer her.\n\n**e) Ikke holdbar.** Ruting er nettverkslagets oppgave uansett adresseversjon. Pakker må fortsatt finne veien fra nett til nett — globale adresser gjør ikke avstanden mindre.\n\n**Fasit: a, b og c.**\n\n**Om negativ poenggiving:** tre av fem er holdbare, og de to gale er begge påstander av typen «den nye versjonen fikser også dette». Kjenner du igjen det mønsteret, kan du luke ut begge uten å vite noe mer om IPv6 enn hva den er til for.\n\n**Regelen som gjelder:** IPv6 løser **ett** problem — adressemangelen. Alt annet en påstand tilskriver den, er sannsynligvis galt.",
+        "hints": [
+          "Skriv ned det ene problemet IPv6 løser, og hold hver påstand opp mot det.",
+          "For c): les oppgaveteksten nøye — er en riktig delpåstand også en holdbar vurdering?",
+          "For d) og e): er det noe ved disse mekanismene som avhenger av adressens lengde?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-5-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-4-5-bank-1",
+      "type": "definition",
+      "title": "Tjenestene og problemene i én tabell",
+      "content": "Den ene tabellen som gir flest poeng i kapitlet:\n\n| Tjeneste | Problemet den løser |\n|---|---|\n| **NAT** | Mange enheter må dele én offentlig adresse |\n| **DHCP** | En ny maskin har ingen adresse og må få en automatisk |\n| **DNS** | Mennesker husker navn, ikke tall |\n| **CDN** | Innholdet ligger langt fra brukeren, og tjeneren blir overbelastet |\n| **IPv6** | Adressene i den gamle versjonen tar slutt |\n| **DASH** | Videokvaliteten må tilpasses en linje som varierer |\n\nDen faste feilslutningen: å pugge hva tjenestene *er* i stedet for hva de *løser*. Eksamensoppgaven kobler tjeneste til problem, og distraktorene er alltid en annen tjeneste fra den samme lista."
+    },
+    {
+      "id": "in1020-4-5-bank-2",
+      "type": "definition",
+      "title": "Offentlig og privat adresse",
+      "content": "En **offentlig** adresse er synlig og nåbar fra resten av internett. En **privat** adresse gjelder bare inne på ett lokalt nett, og flere husstander kan bruke de samme private adressene uten at det kolliderer.\n\nNAT er broen mellom de to: ut fra nettet brukes den offentlige, inne på nettet de private.\n\nDen faste feilslutningen: å tro at en privat adresse er «hemmelig» eller sikker i seg selv. Den er bare ikke nåbar utenfra uten videre — det er en bivirkning, ikke et sikkerhetstiltak."
+    },
+    {
+      "id": "in1020-4-5-bank-3",
+      "type": "definition",
+      "title": "Oversettingstabellen i NAT",
+      "content": "Ruteren fører en tabell over hvilken intern enhet som startet hvilken samtale, slik at svaret kan sendes til riktig maskin når det kommer tilbake.\n\nUten tabellen ville ruteren fått et svar adressert til husstandens ene offentlige adresse og ikke visst hvem av de tolv enhetene det tilhørte.\n\nDen faste feilslutningen: å tro at NAT bare bytter adresse. Det er oppslaget på vei tilbake som gjør teknikken brukbar."
+    },
+    {
+      "id": "in1020-4-5-bank-4",
+      "type": "definition",
+      "title": "Standard gateway",
+      "content": "Ruteren en maskin sender til når mottakeren ligger **utenfor** det lokale nettet.\n\nAdressen til standard gateway er en av opplysningene DHCP deler ut sammen med IP-adressen.\n\nDen faste feilslutningen: å blande standard gateway med navnetjeneren. Begge adressene kommer fra DHCP i samme svar, men den ene er «hvor sender jeg pakker som skal ut», den andre er «hvem spør jeg om navn»."
+    },
+    {
+      "id": "in1020-4-5-bank-5",
+      "type": "definition",
+      "title": "Hva DHCP deler ut",
+      "content": "Ikke bare en IP-adresse, men en hel oppstartspakke: **IP-adresse, nettmaske, standard gateway og adressen til en navnetjener**.\n\nAlle fire er nødvendige for at maskinen skal kunne bruke nettet: adressen for å bli nådd, masken for å vite hva som er lokalt, gatewayen for alt som ikke er det, og navnetjeneren for å kunne slå opp navn.\n\nDen faste feilslutningen: å tro at DHCP bare gir en adresse. Nettmasken alene er nok til at oppsettet ikke virker uten den."
+    },
+    {
+      "id": "in1020-4-5-bank-6",
+      "type": "definition",
+      "title": "Hvorfor DHCP kringkaster",
+      "content": "Maskinen som spør, har verken egen adresse eller kjennskap til hvem som kan svare. Den kan derfor ikke sende til noen bestemt.\n\nLøsningen er å sende til **kringkastingsadressen**, som alle på subnettet mottar, og la den som kan svare, gjøre det.\n\nDen faste feilslutningen: å tro at maskinen «vet om» ruteren på forhånd. Den vet ingenting før den har fått svar."
+    },
+    {
+      "id": "in1020-4-5-bank-7",
+      "type": "definition",
+      "title": "Navneoppslaget steg for steg",
+      "content": "Spørsmålet går først til en navnetjener maskinen kjenner fra DHCP-svaret. Kan ikke den svare, går spørsmålet videre oppover og utover i et hierarki til noen kan svare for akkurat det navnet.\n\nSvaret sendes tilbake samme vei, og **mellomlagres** underveis.\n\nDen faste feilslutningen: å tro at det finnes én maskin som kjenner alle navn. Ingen gjør det; hierarkiet er selve poenget."
+    },
+    {
+      "id": "in1020-4-5-bank-8",
+      "type": "definition",
+      "title": "Mellomlagring av navneoppslag",
+      "content": "At et svar tas vare på en stund, slik at neste oppslag på samme navn kan besvares uten å gå videre utover i hierarkiet.\n\nUten mellomlagring ville hver eneste sidevisning i verden utløst et fullt oppslag, og navnetjenesten ville brutt sammen.\n\nDen faste feilslutningen: å tro at mellomlagring gjør svaret utdatert på ubestemt tid. Hvert svar har en levetid, og når den går ut, hentes det på nytt."
+    },
+    {
+      "id": "in1020-4-5-bank-9",
+      "type": "definition",
+      "title": "DNS-prefetching",
+      "content": "At nettleseren slår opp adressene til lenkene på siden **før** du klikker på noen av dem, slik at klikket ikke må vente på oppslaget.\n\nGevinsten er de titalls millisekundene et oppslag ville tatt. Kostnaden er noen oppslag på lenker du aldri klikker på.\n\nDen faste feilslutningen: å tro at prefetching henter selve sidene på forhånd. Den henter bare oversettelsen fra navn til adresse."
+    },
+    {
+      "id": "in1020-4-5-bank-10",
+      "type": "definition",
+      "title": "Adresserommet i de to versjonene",
+      "content": "IPv4: **32 bit**, altså `2³² ≈ 4,3 milliarder` adresser til hele verden.\n\nIPv6: **128 bit**, altså `2¹²⁸` adresser — et tall det ikke er mulig å ha noen intuisjon om, og som i praksis avslutter adressemangelen.\n\nDen faste feilslutningen: å tro at IPv6-adressen er 64 bit fordi det er en dobling. Den er fire ganger så lang, ikke dobbelt."
+    },
+    {
+      "id": "in1020-4-5-bank-11",
+      "type": "definition",
+      "title": "Hva IPv6 ikke gjør",
+      "content": "Den gjør **ikke** nettet raskere. Den krypterer **ikke** trafikken i seg selv. Den fjerner **ikke** behovet for ruting.\n\nDen løser ett problem: adressemangelen.\n\nDen faste feilslutningen — og en av de mest brukte distraktorene i seksjon 4: å tilskrive en nyere versjon alle slags forbedringer. Farten bestemmes av linjene, sikkerheten av egne mekanismer, og ruting er nettverkslagets oppgave uansett."
+    },
+    {
+      "id": "in1020-4-5-bank-12",
+      "type": "definition",
+      "title": "NAT mot IPv6",
+      "content": "Begge svarer på adressemangelen, men på hver sin måte.\n\n**NAT** lar mange **dele** én adresse. Det er en omgåelse, og den virker godt nok til at problemet aldri ble akutt.\n\n**IPv6** gjør at det **finnes nok** adresser til alle. Det er løsningen.\n\nDen faste feilslutningen: å bytte om de to i en koblingsoppgave. Spør deg om påstanden handler om å dele eller om å ha nok."
+    },
+    {
+      "id": "in1020-4-5-bank-13",
+      "type": "definition",
+      "title": "Origin-tjeneren",
+      "content": "Den opprinnelige maskinen innholdet kommer fra — den som et innholdsnett lager kopier av.\n\nUten kopier måtte den svare alle brukerne i verden alene.\n\nDen faste feilslutningen: å tro at et innholdsnett erstatter opprinnelsestjeneren. Den finnes fortsatt; den blir bare avlastet."
+    },
+    {
+      "id": "in1020-4-5-bank-14",
+      "type": "definition",
+      "title": "Kjernenettet",
+      "content": "De store linjene mellom landsdeler og land — motorveiene i internett.\n\nEt innholdsnett sparer kjernenettet fordi innholdet krysser de store linjene **én gang** til hver kopi, i stedet for én gang per bruker.\n\nDen faste feilslutningen: å overse denne gevinsten fordi den ikke merkes av den enkelte brukeren. Den er en av hovedgrunnene til at innholdsnett finnes."
+    },
+    {
+      "id": "in1020-4-5-bank-15",
+      "type": "definition",
+      "title": "CDN mot nettleserens mellomlager",
+      "content": "**Nettleserens mellomlager** ligger på din maskin og tjener deg alene. Det hjelper når *du* besøker samme side igjen.\n\n**Et innholdsnett** ligger ute i nettet og tjener mange brukere. Det hjelper første gang du besøker siden, så lenge noen andre i nærheten har bedt om det samme før.\n\nDen faste feilslutningen: å behandle dem som samme sak fordi begge er kopier av innhold. Antallet brukere de betjener, er hele forskjellen."
+    },
+    {
+      "id": "in1020-4-5-bank-16",
+      "type": "definition",
+      "title": "Segment i strømming",
+      "content": "En liten bit av en videostrøm, typisk noen få sekunder, som hentes for seg og spilles i rekkefølge.\n\nOppdelingen er det som gjør det mulig å bytte kvalitet underveis: hvert nytt segment kan hentes i et annet nivå enn det forrige.\n\nDen faste feilslutningen: å tro at hele filmen lastes ned før avspilling starter. Da ville en to timers film krevd flere minutters venting."
+    },
+    {
+      "id": "in1020-4-5-bank-17",
+      "type": "definition",
+      "title": "Kvalitetsnivåer og valget klienten tar",
+      "content": "Hvert segment finnes i flere kvaliteter. **Klienten** måler hvor fort forrige segment kom, og ber om neste i en kvalitet linja klarer.\n\nDet er derfor bildet noen ganger blir uskarpt et par sekunder før det klarner: tjenesten valgte lavere kvalitet framfor pause.\n\nDen faste feilslutningen: å tro at tjeneren bestemmer kvaliteten. Det er avspilleren hos deg som vet hvordan linja oppfører seg akkurat nå."
+    },
+    {
+      "id": "in1020-4-5-bank-18",
+      "type": "definition",
+      "title": "Hvorfor strømming bruker TCP",
+      "content": "To grunner: et segment som mangler biter, kan ikke spilles i det hele tatt, og avspilleren har flere sekunder buffer, slik at en omsending ikke merkes.\n\nDa er det ingen grunn til å velge en transport uten pålitelighet.\n\nDen faste feilslutningen — en av de mest brukte distraktorene: å svare UDP fordi «video må gå fort». Det gjelder sanntids videosamtale, ikke strømming fra en tjeneste."
+    },
+    {
+      "id": "in1020-4-5-bank-19",
+      "type": "definition",
+      "title": "Buffer i avspilleren",
+      "content": "De sekundene med video som allerede er hentet, men ennå ikke spilt.\n\nBufferen er grunnen til at strømming tåler både omsendinger og korte svingninger i linja uten at bildet stopper.\n\nDen faste feilslutningen: å tro at buffer er det samme som mellomlager. Bufferen holder det som skal spilles **straks**; et mellomlager holder det som kanskje trengs **igjen**."
+    },
+    {
+      "id": "in1020-4-5-bank-20",
+      "type": "definition",
+      "title": "Strømming mot sanntids videosamtale",
+      "content": "Samme slags data, to helt ulike situasjoner:\n\n| | Buffer | Transport | Verst |\n|---|---|---|---|\n| Strømming fra tjeneste | flere sekunder | **TCP** | hull i segmentet |\n| Sanntids videosamtale | ingen | **UDP** | forsinkelse |\n\nDen faste feilslutningen: å svare det samme på begge. Spørsmålet som avgjør: har mottakeren tid til å vente på en omsending?"
+    },
+    {
+      "id": "in1020-4-5-bank-21",
+      "type": "definition",
+      "title": "DHCP-leie",
+      "content": "At en tildelt adresse gjelder i et bestemt tidsrom og må fornyes.\n\nUten tidsbegrensning ville adresser blitt låst til enheter som for lengst har koblet seg fra, og puljen ville gått tom.\n\nDen faste feilslutningen: å tro at en maskin beholder samme adresse for alltid. Den kan få en annen neste gang den kobler seg til."
+    },
+    {
+      "id": "in1020-4-5-bank-22",
+      "type": "definition",
+      "title": "Hvorfor tjenestene forveksles",
+      "content": "Fire av de seks handler om adresser — NAT, DHCP, DNS og IPv6 — og det er derfor koblingsoppgaven i denne sjangeren er vanskeligere enn den ser ut.\n\nSkillet er hvilket adresseproblem hver løser: å **dele** en (NAT), å **få** en (DHCP), å **finne** en ut fra et navn (DNS), å ha **nok** av dem (IPv6).\n\nDen faste feilslutningen: å lete etter forskjellen i hva tjenestene heter. Let i hvilket problem de løser."
+    },
+    {
+      "id": "in1020-4-5-bank-23",
+      "type": "definition",
+      "title": "Klient og tjener i disse tjenestene",
+      "content": "Alle seks bygger på at én part spør og en annen svarer, men rollene er ikke alltid de opplagte.\n\nI strømming er det **klienten** som velger kvalitet, ikke tjeneren. I DHCP er det klienten som kringkaster spørsmålet før den har adresse. I navneoppslag er klienten den som starter, og hierarkiet svarer.\n\nDen faste feilslutningen: å anta at tjeneren styrer alt. Flere av eksamensoppgavene i sjangeren tester nettopp hvem som tar avgjørelsen."
+    },
+    {
+      "id": "in1020-4-5-bank-24",
+      "type": "definition",
+      "title": "Tjenestene og lagene",
+      "content": "Alle seks tjenestene i dette kapitlet hører til **applikasjonslaget**, med ett unntak: IPv6 er en adresseprotokoll og hører til **nettverkslaget**.\n\nDet er verdt å ha klart, fordi en oppgave gjerne blander lag-spørsmål og tjeneste-spørsmål i samme matrise.\n\nDen faste feilslutningen: å plassere tjenestene i transportlaget fordi de bruker TCP eller UDP. Å bruke et lag er ikke å være i det."
+    },
+    {
+      "id": "in1020-4-5-bank-25",
+      "type": "definition",
+      "title": "Hvorfor adressemangelen ikke ble akutt",
+      "content": "IPv4 gikk tom for ledige adresser i praksis for mange år siden, uten at internett sluttet å virke.\n\nGrunnen er NAT: så lenge en hel husstand eller en hel bedrift klarer seg med én offentlig adresse, holder puljen mye lenger enn den ellers ville gjort.\n\nDen faste feilslutningen: å tro at IPv6 måtte tas i bruk raskt fordi alt ellers ville stoppe. Omgåelsen virket for godt til det — og det er nettopp derfor overgangen har tatt lang tid."
+    },
+    {
+      "id": "in1020-4-5-bank-26",
+      "type": "definition",
+      "title": "Å lese en tjeneste-oppgave",
+      "content": "Framgangsmåten som gjør sjangeren mekanisk:\n\n1. Les hva **problemet** i beskrivelsen er — ikke hvilke ord som brukes.\n2. Hold problemet opp mot de seks tjenestene og deres ene problem hver.\n3. Gjør de koblingene du er sikker på først.\n4. Se om de gjenstående gir seg selv når de sikre er brukt opp.\n5. Sjekk om noen kategori ikke skal brukes — det er vanlig, og å tvinge den inn koster poeng.\n\nDen faste feilslutningen: å fylle ut resten mekanisk når de første koblingene danner et mønster. Kontroller hver kobling for seg."
+    },
+    {
+      "id": "in1020-4-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter tjenestene?",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1020-4-5-repetisjon-tekst",
+          "type": "text",
+          "content": "Ta denne rett før du går videre til [kap. 4.6](/bok/in1020/in1020-4-6). Svar i hodet før du leser videre på linja.\n\n**1. Hva løser NAT?** At mange enheter må dele én offentlig adresse.\n\n**2. Hva løser DHCP?** At en ny maskin ikke har noen adresse og må få en automatisk.\n\n**3. Hvorfor bruker DHCP UDP?** Maskinen har ennå ingen adresse og kan ikke sette opp en forbindelse.\n\n**4. Hva løser DNS?** At mennesker husker navn, mens maskiner bruker tall.\n\n**5. Hvilken transport bruker DNS?** Begge — UDP for vanlige oppslag, TCP for store svar.\n\n**6. Hva løser IPv6?** At adressene i den gamle versjonen tar slutt. Ikke fart, ikke kryptering, ikke ruting.\n\n**7. Hvor mange bit er en IPv6-adresse?** 128, mot IPv4s 32.\n\n**8. Tre gevinster ved et CDN?** Kortere vei for brukeren, avlastning av opprinnelsestjeneren, mindre trafikk i kjernenettet.\n\n**9. Hvem velger kvalitetsnivå i strømming?** Klienten, ut fra hvor fort forrige segment kom.\n\n**10. Hvilken transport bruker strømming, og hvorfor?** TCP — et segment må være helt, og bufferen skjuler omsendingene.\n\nSitter alle ti? Da er tjenestesjangeren dekket, og du har de siste 100 %-poengene i seksjon 4. Neste kapittel, [kap. 4.6](/bok/in1020/in1020-4-6), tar aksessmodeller, svitsjing og operativsystemer — det siste stoffet i delen.\n\nGlapp noe på 6 eller 10? De to er de mest brukte distraktorene i hele seksjonen. Les advarselen om typiske feil en gang til."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
