@@ -475,7 +475,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     {
       question: "Hva menes med at W er lukket under skalarmultiplikasjon?",
       options: ["At u ∈ W og c ∈ ℝ medfører at cu ∈ W", "At produktet av to vektorer i W igjen ligger i W", "At W bare inneholder vektorer med lengde 1", "At summen u + v av to vektorer i W ligger i W"],
-      explanation: "Lukkethet under skalarmultiplikasjon: enhver skalering cu av en vektor i W blir liggende i W. Alternativ fire beskriver lukkethet under addisjon.",
+      explanation: "Lukkethet under skalarmultiplikasjon: enhver skalering cu av en vektor i W blir liggende i W. Svaret om at summen u + v av to vektorer i W ligger i W, beskriver lukkethet under addisjon.",
     },
     {
       question: "Hvilke to underrom har ETHVERT vektorrom V alltid?",
@@ -1589,7 +1589,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     {
       question: "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$ gir Gram–Schmidt på $\\{1,t,t^2\\}$ hvilken ortogonal basis (etter oppskalering)?",
       options: ["$\\{1,\\,t,\\,3t^2-1\\}$", "$\\{1,\\,t,\\,t^2\\}$, som allerede er ortogonal", "$\\{1,\\,t-1,\\,t^2-t\\}$", "$\\{1,\\,2t-1,\\,6t^2-6t+1\\}$"],
-      explanation: "Man får $1$, $t$ (allerede ortogonal på $1$), og $t^2-\\tfrac13\\to 3t^2-1$. Standardbasisen er ikke ortogonal ($\\langle 1,t^2\\rangle=\\tfrac23\\ne0$); det fjerde alternativet er svaret for intervallet $[0,1]$, ikke $[-1,1]$.",
+      explanation: "Man får $1$, $t$ (allerede ortogonal på $1$), og $t^2-\\tfrac13\\to 3t^2-1$. Standardbasisen er ikke ortogonal ($\\langle 1,t^2\\rangle=\\tfrac23\\ne0$); basisen $\\{1,\\,2t-1,\\,6t^2-6t+1\\}$ er svaret for intervallet $[0,1]$, ikke $[-1,1]$.",
     },
     {
       question: "Hva menes med heltalls-oppskalering i Gram–Schmidt?",
