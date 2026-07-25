@@ -12,7 +12,7 @@ import sys
 import urllib.request
 
 TRE, EMNE = sys.argv[1], sys.argv[2]
-HOVED = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+HOVED = "/Users/danielandreasaubert/eksamenssett/Skolesaga"
 
 env = {}
 for linje in open(f"{HOVED}/.env.local", encoding="utf-8"):
