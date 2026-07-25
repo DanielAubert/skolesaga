@@ -35,7 +35,12 @@ def storage_url():
 
 def referanser(emner):
     ut = set()
-    for p in glob.glob(os.path.join(ROOT, "src/lib/data/chapters", "*.json")):
+    # Sidevognene nn/ og sme/ er MED. De arver figurreferansene fra bokmål, men
+    # en oversetter kan ha endret en sti — og en 404 er like tom for den som
+    # leser på nynorsk. (Samme blindsone som sjekk-latex.py hadde.)
+    for p in (glob.glob(os.path.join(ROOT, "src/lib/data/chapters", "*.json"))
+              + glob.glob(os.path.join(ROOT, "src/lib/data/chapters/nn", "*.json"))
+              + glob.glob(os.path.join(ROOT, "src/lib/data/chapters/sme", "*.json"))):
         if os.path.basename(p).startswith("_"):
             continue
         for m in re.finditer(MØNSTER, open(p, encoding="utf-8").read()):
