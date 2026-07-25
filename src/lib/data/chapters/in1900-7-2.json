@@ -1,0 +1,347 @@
+{
+  "id": "in1900-7-2",
+  "courseId": "in1900",
+  "chapterNumber": "7.2",
+  "title": "Det utleverte ODESolver-hierarkiet: bruke ForwardEuler og RungeKutta4",
+  "description": "Bruke den vedlagte ODESolver-basisklassen med subklassene ForwardEuler og RungeKutta4 på en skalar ODE — instansiering, initialbetingelse og solve.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne løse en skalar differensiallikning med det utleverte løser-hierarkiet i tre kall: instansiering, initialbetingelse og solve",
+    "kunne lese den utleverte modulen og peke ut argumentrekkefølgen i høyresiden, hva solve tar imot og hva den returnerer",
+    "kunne begrunne valget mellom en metode av orden 1 og en av orden 4 ut fra målt feil og antall funksjonskall",
+    "kunne kjenne igjen den eldre varianten av grensesnittet og skrive om et program fra den til den nye"
+  ],
+  "content": [
+    {
+      "id": "in1900-7-2-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet er inngangsbilletten til den tyngste oppgaven på hele eksamen. **Sjanger J** — «løs et ODE-system med det utleverte løser-hierarkiet» — står i **hvert** av de åtte gjennomgåtte settene (100 %) og er verdt **9–10 poeng**. Selve systemdelen kommer i [kap. 7.3](/bok/in1900/in1900-7-3); her lærer du bruksmønsteret på en skalar likning, altså en likning med bare én ukjent funksjon.\n\nDet du får utlevert, er et **vedlegg**: en PDF med en ferdigskrevet Python-modul som inneholder klassen `ODESolver` og metodene `ForwardEuler` og `RungeKutta4`. Du skal ikke skrive den. Du skal kunne **lese** den og **bruke** den, og det er tre kall.\n\nDen gode nyheten: bruksmønsteret har vært identisk hvert år. Det eneste som har endret seg, er navnene og rekkefølgen på argumentene — det som i boka kalles API-drift, og som har eget nummer i feilkatalogen (#14). Derfor er regelen: **les vedlegget først, så skriv koden.**\n\nPrioritet: dette må sitte. Del 7 er ett av de fem temaene med 100 % frekvens.\n\n*Løkke 1 — de tre kallene (~14 min) · Løkke 2 — hva som står i vedlegget (~16 min) · Løkke 3 — hvilken metode skal du velge (~13 min) · Løkke 4 — API-driften og fellene (~12 min)*"
+    },
+    {
+      "id": "in1900-7-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n**1. Løser-løkka fra [kap. 7.1](/bok/in1900/in1900-7-1).** Hele hierarkiet i dette kapitlet er denne løkka pakket inn i en klasse:\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -2*u\n\nt, u = forward_euler(f, 3, 30, 1)\nprint(f\"{len(t)} punkter, u(3) = {u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\n31 punkter, u(3) = 0.001238\n```\n\n**2. Klasser med `__init__` og metoder** ([kap. 5.1](/bok/in1900/in1900-5-1)). En **instans** er et objekt laget av en klasse; `self` er instansen selv, og attributtene lagres på den:\n\n```python\nclass Teller:\n    def __init__(self, start):\n        self.verdi = start\n\n    def opp(self):\n        self.verdi = self.verdi + 1\n        return self.verdi\n\nt = Teller(10)\nprint(t.opp(), t.opp(), t.verdi)\n```\n\n**Utskrift:**\n```\n11 12 12\n```\n\n**3. Arv** ([kap. 5.3](/bok/in1900/in1900-5-3)). En subklasse arver alt fra basisklassen og kan legge til eller overskrive enkeltmetoder:\n\n```python\nclass Grunnform:\n    def hilsen(self):\n        return \"jeg er \" + self.navn()\n\n    def navn(self):\n        return \"ukjent\"\n\nclass Spesial(Grunnform):\n    def navn(self):\n        return \"spesial\"\n\nprint(Spesial().hilsen())\n```\n\n**Utskrift:**\n```\njeg er spesial\n```\n\nDet siste er nøkkelen til hele hierarkiet: `ODESolver` er grunnformen, og `ForwardEuler` og `RungeKutta4` overskriver **én** metode hver."
+    },
+    {
+      "id": "in1900-7-2-t1",
+      "type": "text",
+      "content": "## Løkke 1 — de tre kallene\n\nDu får utlevert en modul som allerede kan løse ODE-er. Da er jobben din redusert til fire ting: skriv høyresiden, velg metode, oppgi startverdien, og løs.\n\n```python\nsolver = RungeKutta4(f)              # 1. velg metode, send høyresiden\nsolver.set_initial_condition(2)      # 2. oppgi startverdien\nt, u = solver.solve((0, 10), 100)    # 3. løs på [0, 10] med 100 steg\n```\n\n**Utskrift:** ingen (fragmentet mangler `f` og importen; det fullstendige programmet står i Eksempel 1).\n\nDet er alt. Legg merke til at `solve` tar **to** argumenter: en tuppel med start- og sluttid, og antall steg. Og at den returnerer **to** arrays, i rekkefølgen tid først."
+    },
+    {
+      "id": "in1900-7-2-def-instans",
+      "type": "definition",
+      "title": "`solver = RungeKutta4(f)`",
+      "content": "Lager en **instans** — et objekt — av løserklassen, og gir den høyresiden. Ingen regning skjer her; løseren bare husker `f`.\n\nVil du bytte metode, bytter du **bare klassenavnet**:\n\n```python\nsolver = ForwardEuler(f)\n```\n\nHøyresiden `f` sendes uten parenteser, fordi løseren skal kalle den selv i hvert steg. Det er samme prinsipp som når du sendte `f` til `forward_euler` i [kap. 7.1](/bok/in1900/in1900-7-1) — forskjellen er bare at den nå lagres på objektet som `self.f`."
+    },
+    {
+      "id": "in1900-7-2-def-init",
+      "type": "definition",
+      "title": "`solver.set_initial_condition(u0)`",
+      "content": "Oppgir startverdien. **Må kalles før `solve`** — glemmer du den, vet ikke løseren hvor den skal begynne, og programmet krasjer.\n\nFor en skalar likning er `u0` ett tall:\n\n```python\nsolver.set_initial_condition(2)\n```\n\nFor et system er `u0` en liste med én startverdi per komponent (`[9990, 10, 0, 0]`) — se [kap. 7.3](/bok/in1900/in1900-7-3). Det er nettopp i denne metoden modulen finner ut om problemet er skalart eller et system, ved å se på hva slags verdi du ga den."
+    },
+    {
+      "id": "in1900-7-2-def-solve",
+      "type": "definition",
+      "title": "`t, u = solver.solve(t_span, N)`",
+      "content": "Gjør regnearbeidet og returnerer **to** arrays: tidspunktene og løsningen.\n\n- `t_span` er en **tuppel** `(t0, T)` med start- og sluttid — legg merke til dobbeltparentesen i `solve((0, 10), 100)`: den ytre hører til metodekallet, den indre er tuppelen.\n- `N` er antall steg. Du får `N+1` punkter tilbake, som alltid.\n\n```python\nt, u = solver.solve((0, 10), 100)\nprint(len(t))\n```\n\n**Utskrift:**\n```\n101\n```\n\nDette er post-2023-signaturen, og den boka bruker overalt. Den eldre varianten tok i stedet et ferdig array av tidspunkter — se advarselen om API-drift nedenfor."
+    },
+    {
+      "id": "in1900-7-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: en skalar likning med RungeKutta4",
+      "problem": "En sparekonto tappes jevnt samtidig som den får renter i takt med årstidene: $u' = -0{,}5u + \\sin t$, $u(0) = 2$. Løs på $[0, 10]$ med `RungeKutta4` og 100 steg. Hvor mange punkter får du, og hvilken form har løsningen?",
+      "solution": "```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.5*u + np.sin(t)\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(2)\nt, u = solver.solve((0, 10), 100)\n\nprint(\"antall punkter:\", len(t))\nprint(\"u.shape =\", u.shape)\nprint(f\"u(0)  = {u[0]:.6f}\")\nprint(f\"u(10) = {u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\nantall punkter: 101\nu.shape = (101,)\nu(0)  = 2.000000\nu(10) = 0.472515\n```\n\n**101 punkter** — `N+1`, som alltid. For en skalar likning er `u` **1-dimensjonal**: ett tall per tidspunkt. `u.shape` er `(101,)`, ikke `(101, 1)`. Det er verdt å merke seg, for i [kap. 7.3](/bok/in1900/in1900-7-3) blir `u` 2-dimensjonal så snart du løser et system, og da endres måten du henter ut verdier.\n\nMerk `from ODESolver import RungeKutta4` på linje 2. På eksamen får du modulen som vedlegg, og du kan anta at den er tilgjengelig for import. Skriv importlinja likevel — den koster ingenting og viser at du vet hvor klassen kommer fra. Filnavnet kan variere fra år til år; står det et annet navn i vedlegget, bruker du det."
+    },
+    {
+      "id": "in1900-7-2-ex-a1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — bruksmønsteret.) Under står et program der én linje er fjernet. Programmet skal løse $u' = -0{,}5u$, $u(0) = 10$, på $[0, 4]$ med 8 steg.\n\n```python\nfrom ODESolver import ForwardEuler\n\ndef f(t, u):\n    return -0.5*u\n\nsolver = ForwardEuler(f)\n\nt, u = solver.solve((0, 4), 8)\nprint(\"t =\", t)\nprint(\"u =\", u.round(4))\n```\n\n**a)** Hvilken linje mangler, og hvor skal den stå?\n**b)** Hvor mange tall står det i `u`?",
+        "solution": "**a)** Linja `solver.set_initial_condition(10)` mangler, og den skal stå mellom instansieringen og `solve`. Uten den vet ikke løseren hvor den skal starte.\n\n**b)** 8 steg gir **9 tall**.\n\n```python\nfrom ODESolver import ForwardEuler\n\ndef f(t, u):\n    return -0.5*u\n\nsolver = ForwardEuler(f)\nsolver.set_initial_condition(10)\nt, u = solver.solve((0, 4), 8)\nprint(\"t =\", t)\nprint(\"u =\", u.round(4))\n```\n\n**Utskrift:**\n```\nt = [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4. ]\nu = [10.      7.5     5.625   4.2188  3.1641  2.373   1.7798  1.3348  1.0011]\n```\n\nHvert steg ganger med $1 - 0{,}5 \\cdot 0{,}5 = 0{,}75$, som stemmer: $10 \\to 7{,}5 \\to 5{,}625$.\n\nDenne oppgavetypen — «hvilken linje mangler?» — er **sjanger E** på eksamen, altså et flervalgsspørsmål der du skal peke ut den manglende linja eller det riktige funksjonskallet. Den er verdt 1–2 poeng og går igjen jevnlig.",
+        "hints": [
+          "Sammenlign med de tre kallene i bruksmønsteret: instansiér, sett startverdi, løs.",
+          "`u.round(4)` runder bare av til utskrift; den endrer ikke arrayet.",
+          "Antall punkter er alltid antall steg pluss én."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-2-t2",
+      "type": "text",
+      "content": "## Løkke 2 — hva som står i vedlegget\n\nDu trenger ikke kunne skrive modulen, men du må kunne lese den, av to grunner: du må sjekke argumentrekkefølgen, og i [kap. 7.4](/bok/in1900/in1900-7-4) skal du utvide den med en egen metode. Da må du vite hvilke attributter du har tilgang til.\n\nStrukturen er alltid den samme. Basisklassen gjør alt det kjedelige — lager arrays, setter startverdien, kjører løkka — og lar **én** metode stå åpen: `advance`, som gjør ett steg. Hver metode er en subklasse som fyller inn nettopp den."
+    },
+    {
+      "id": "in1900-7-2-def-hierarki",
+      "type": "definition",
+      "title": "`ForwardEuler` og `RungeKutta4`",
+      "content": "De to subklassene du får utlevert. Begge arver alt fra `ODESolver` og skiller seg bare i **hvordan ett steg regnes ut**:\n\n- `ForwardEuler`: ett kall til høyresiden per steg, $u_{n+1} = u_n + \\Delta t f(t_n, u_n)$. Orden 1.\n- `RungeKutta4`: fire kall per steg, veid gjennomsnitt av fire stigningstall. Orden 4.\n\nBruken er identisk — bytt klassenavn, ingenting annet:\n\n```python\nsolver = ForwardEuler(f)\nsolver = RungeKutta4(f)\n```\n\n**Utskrift:** ingen (to instansieringer, ingen regning).\n\nEr ikke annet oppgitt, bruk `RungeKutta4`: den er langt nøyaktigere for nesten samme arbeid."
+    },
+    {
+      "id": "in1900-7-2-def-advance",
+      "type": "definition",
+      "title": "`advance()`",
+      "content": "Metoden som gjør **ett** tidssteg og returnerer den neste verdien av `u`. Basisklassen implementerer den ikke — den kaster `NotImplementedError` — og hver subklasse fyller den inn.\n\nDet er hele arvemønsteret: basisklassen kjenner løkka, subklassen kjenner formelen. Derfor er svaret på «skriv en ny ODE-metode» alltid: *skriv bare `advance`*. Se [kap. 7.4](/bok/in1900/in1900-7-4)."
+    },
+    {
+      "id": "in1900-7-2-def-attr",
+      "type": "definition",
+      "title": "Attributtene `self.f`, `self.u`, `self.t`, `self.n`, `self.dt`",
+      "content": "Det basisklassen stiller til rådighet inne i `advance`:\n\n| Attributt | Hva det er |\n|---|---|\n| `self.f` | høyresiden, kallbar som `self.f(t, u)` |\n| `self.u` | hele løsningsarrayet så langt |\n| `self.t` | hele tidsarrayet |\n| `self.n` | indeksen for steget som skal gjøres nå |\n| `self.dt` | steglengden |\n\nMed dem er forlengs Euler-steget én linje: `return self.u[self.n] + self.dt*self.f(self.t[self.n], self.u[self.n])`.\n\nNavnene kan variere mellom årganger. Trenger du steglengden og er usikker, bruk den robuste formen `dt = self.t[self.n+1] - self.t[self.n]` — den virker uansett om modulen har et `self.dt` eller ikke."
+    },
+    {
+      "id": "in1900-7-2-modul",
+      "type": "collapsible",
+      "title": "Den utleverte ODESolver-modulen",
+      "buttonText": "Vis modulen i begge API-varianter",
+      "content": [
+        {
+          "id": "in1900-7-2-modul-1",
+          "type": "text",
+          "content": "Dette er Skolesagas egen implementasjon av det samme grensesnittet — samme metodenavn og samme bruk som modulen du får utlevert, men koden er vår. Vi gjengir verken eksamensvedlegget eller pensumbokas kode.\n\nAlt du **må** kunne, er grensesnittet: `ODESolver(f)`, `set_initial_condition(u0)`, `solve(t_span, N)` som returnerer `(t, u)`, `advance()` i subklassen, og attributtene i tabellen over. Måten kroppen er skrevet på, varierer mellom årganger — og der vi har måttet velge, sier vi det rett ut nedenfor.\n\n### Den nye varianten (2023 og senere) — bokstandard\n\n```python\nimport numpy as np\n\nclass ODESolver:\n    def __init__(self, f):\n        self.f = lambda t, u: np.asarray(f(t, u), dtype=float)\n\n    def set_initial_condition(self, u0):\n        if isinstance(u0, (int, float)):\n            self.neq = 1\n            self.u0 = float(u0)\n        else:\n            self.u0 = np.asarray(u0, dtype=float)\n            self.neq = self.u0.size\n\n    def solve(self, t_span, N):\n        t0, T = t_span\n        self.dt = (T - t0)/N\n        self.t = np.linspace(t0, T, N+1)\n        if self.neq == 1:\n            self.u = np.zeros(N+1)\n        else:\n            self.u = np.zeros((N+1, self.neq))\n        self.u[0] = self.u0\n        for n in range(N):\n            self.n = n\n            self.u[n+1] = self.advance()\n        return self.t, self.u\n\n    def advance(self):\n        raise NotImplementedError('subklassen må implementere metoden advance')\n```\n\n**Utskrift:** ingen (bare klassedefinisjonen).\n\nLegg merke til at `solve` er den samme løkka du skrev selv i [kap. 7.1](/bok/in1900/in1900-7-1): `linspace` med `N+1`, startverdien før løkka, `range(N)` oppdateringer. Det eneste nye er at oppdateringslinja er byttet ut med et kall til `self.advance()`.\n\nDe to subklassene:\n\n```python\nclass ForwardEuler(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        return u[n] + dt*f(t[n], u[n])\n\nclass RungeKutta4(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt/2, u[n] + dt*k1/2)\n        k3 = f(t[n] + dt/2, u[n] + dt*k2/2)\n        k4 = f(t[n] + dt, u[n] + dt*k3)\n        return u[n] + dt*(k1 + 2*k2 + 2*k3 + k4)/6\n```\n\n**Utskrift:** ingen (to subklasser, ingen regning).\n\nFørstelinja i hver `advance` er bare en kortform: den henter attributtene ut i korte lokale navn, slik at formelen blir lesbar. Du kan like godt skrive `self.u[self.n]` hele veien.\n\n### Fire valg vi har tatt, som kan se annerledes ut i vedlegget\n\nGrensesnittet over er fast — det er det du bruker. Men *innmaten* er ikke standardisert, og disse fire punktene er nyttige å kjenne igjen når du leser årets vedlegg:\n\n**1. Skalar og system skilles i `set_initial_condition`.** Vi tester om `u0` er et enkelt tall. Er det det, blir løsningen et 1D-array; ellers blir den 2D med én kolonne per komponent. Noen varianter tester i stedet på `np.size(u0)` eller lagrer alltid 2D. Konsekvensen for deg er den samme: **skalar gir 1D, system gir 2D med komponentene som kolonner.**\n\n**2. `dt` regnes ut én gang i `solve`,** som $(T - t_0)/N$, og lagres som `self.dt`. Noen varianter regner den i hvert steg fra tidsarrayet. Derfor: bruker du `self.dt` i en subklasse og det ikke finnes, er `self.t[self.n+1] - self.t[self.n]` alltid tilgjengelig.\n\n**3. Basisklassens `advance` kaster `NotImplementedError`.** Det er en **exception**, altså en feil som avbryter programmet, og meningen er å si «denne klassen skal ikke brukes direkte». Noen varianter bruker en tom kropp eller en `pass` i stedet. Poenget for deg: `ODESolver` selv er ikke en løser.\n\n**4. Høyresiden pakkes i `np.asarray(..., dtype=float)`.** Det er derfor du kan returnere en vanlig Python-**liste** fra `f` i et system (`return [dS, dI, dR]`) og likevel få regnet ut `u[n] + dt*k1` uten problemer. Uten den pakkingen måtte du returnert et NumPy-array selv.\n\n### Den gamle varianten (2020–2022) — kjenn den igjen\n\n```python\nimport numpy as np\n\nclass ODESolverGammel:\n    def __init__(self, f):\n        self.f = lambda u, t: np.asarray(f(u, t), dtype=float)\n\n    def set_initial_condition(self, U0):\n        if isinstance(U0, (int, float)):\n            self.neq = 1\n            self.U0 = float(U0)\n        else:\n            self.U0 = np.asarray(U0, dtype=float)\n            self.neq = self.U0.size\n\n    def solve(self, time_points):\n        self.t = np.asarray(time_points, dtype=float)\n        M = self.t.size\n        if self.neq == 1:\n            self.u = np.zeros(M)\n        else:\n            self.u = np.zeros((M, self.neq))\n        self.u[0] = self.U0\n        for k in range(M-1):\n            self.k = k\n            self.u[k+1] = self.advance()\n        return self.u, self.t\n\n    def advance(self):\n        raise NotImplementedError\n\nclass ForwardEulerGammel(ODESolverGammel):\n    def advance(self):\n        u, f, k = self.u, self.f, self.k\n        dt = self.t[k+1] - self.t[k]\n        return u[k] + dt*f(u[k], self.t[k])\n```\n\n**Utskrift:** ingen (klassedefinisjoner).\n\nFire forskjeller å se etter, i prioritert rekkefølge:\n\n1. **Høyresiden er `f(u, t)`** — tilstand først, tid sist.\n2. **`solve` tar et ferdig array av tidspunkter**, ikke et intervall og et antall. Du lager arrayet selv med `np.linspace`.\n3. **Returrekkefølgen er `u, t`** i vår gjengivelse av den gamle varianten — altså motsatt av den nye. Dette er et av punktene som varierer mest mellom årganger, så les vedlegget og pakk ut i den rekkefølgen som står der.\n4. **Steg-indeksen heter `k`**, og det finnes ikke noe `self.dt`; steget regnes fra tidsarrayet.\n\nSlik ser bruken ut, med samme svar som i [kap. 7.1](/bok/in1900/in1900-7-1):\n\n```python\nimport numpy as np\nfrom gammel import ForwardEulerGammel\n\ndef f(u, t):\n    return -2*u\n\nsolver = ForwardEulerGammel(f)\nsolver.set_initial_condition(1)\ntidspunkter = np.linspace(0, 3, 31)\nu, t = solver.solve(tidspunkter)\nprint(\"antall punkter:\", len(t))\nprint(f\"u(3) = {u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\nantall punkter: 31\nu(3) = 0.001238\n```\n\nSamme tall som den egenskrevne løkka ga. Metoden er den samme; bare innpakningen er ny.\n\n**Lær den nye, kjenn den gamle.** Møter du et eldre oppgavesett i treningen, er det argumentrekkefølgen og `solve`-argumentet du skal se etter først."
+        }
+      ]
+    },
+    {
+      "id": "in1900-7-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: ForwardEuler mot RungeKutta4",
+      "problem": "Løs $u' = -2u$, $u(0) = 1$, på $[0, 3]$ med begge metodene og $N = 30, 60, 120, 240$. Mål det største avviket fra den eksakte løsningen $e^{-2t}$, og finn ordenen til hver metode.",
+      "solution": "```python\nimport numpy as np\nfrom ODESolver import ForwardEuler, RungeKutta4\n\ndef f(t, u):\n    return -2*u\n\nprint(\"     N   ForwardEuler   RungeKutta4\")\nfor N in [30, 60, 120, 240]:\n    rad = [N]\n    for metode in [ForwardEuler, RungeKutta4]:\n        solver = metode(f)\n        solver.set_initial_condition(1)\n        t, u = solver.solve((0, 3), N)\n        rad.append(np.max(np.abs(u - np.exp(-2*t))))\n    print(f\"{rad[0]:6d}   {rad[1]:12.4e}  {rad[2]:12.4e}\")\n```\n\n**Utskrift:**\n```\n     N   ForwardEuler   RungeKutta4\n    30     4.0199e-02    5.7970e-06\n    60     1.9201e-02    3.3324e-07\n   120     9.3935e-03    1.9976e-08\n   240     4.6470e-03    1.2227e-09\n```\n\n`ForwardEuler`-kolonnen halveres nedover (forhold 2,09 · 2,04 · 2,02): **orden 1**. `RungeKutta4`-kolonnen deles på omtrent 16 (17,4 · 16,7 · 16,3): **orden 4**.\n\nSe på tallene på samme linje: med 30 steg er `RungeKutta4` nesten **7 000 ganger** nøyaktigere enn `ForwardEuler`, for fire funksjonskall i stedet for ett. Det er derfor `RungeKutta4` er standardvalget når oppgaven ikke sier noe annet.\n\nMerk også at kolonnen for `ForwardEuler` er de samme tallene som den egenskrevne `forward_euler` ga i [kap. 7.1](/bok/in1900/in1900-7-1). Det er en god kontroll på at du har forstått at hierarkiet gjør nøyaktig det samme — bare pakket inn i klasser."
+    },
+    {
+      "id": "in1900-7-2-w-1",
+      "type": "warning",
+      "title": "Typiske feil ved bruk av hierarkiet",
+      "content": "**#14 — API-forveksling.** Den store. Skriver du høyresiden som `f(u, t)` mot en modul som kaller `f(t, u)`, blir tid og tilstand byttet om. Det kompilerer og gir tall — bare helt gale tall. Samme problem med `solve`: den nye tar `(t_span, N)`, den gamle et array av tidspunkter. **Les vedlegget først.**\n\n**Glemme `set_initial_condition`.** Da mangler startverdien, og programmet stopper. Med bokas implementasjon får du siste linje:\n\n```text\nAttributeError: 'ForwardEuler' object has no attribute 'neq'\n```\n\nDen eksakte meldingen avhenger av hvordan modulen er skrevet, men mønsteret er alltid det samme: en `AttributeError` fra `solve` fordi noe som skulle vært satt, ikke er satt. Ser du den, er det nesten alltid den glemte startverdien.\n\n**Sende `f` med parenteser.** `RungeKutta4(f(t, u))` sender ett tall inn i stedet for funksjonen. Skriv `RungeKutta4(f)`.\n\n**Glemme dobbeltparentesen.** `solver.solve(0, 10, 100)` er tre argumenter og feiler; det skal være `solver.solve((0, 10), 100)` — tuppelen er ett argument.\n\n**Rekursjon.** Det er fristende å tenke at `advance` kan kalle seg selv for å «gå videre». Den skal ikke det: rekursjon er utenfor pensum i dette emnet og markeres som uønsket i de offisielle løsningsforslagene. Basisklassens løkke gjør framdriften; `advance` gjør bare ett steg."
+    },
+    {
+      "id": "in1900-7-2-ex-a2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger J — skalar variant.) En fiskebestand følger logistisk vekst, $u' = 0{,}3u\\left(1 - \\dfrac{u}{100}\\right)$, med $u(0) = 5$ (målt i tusen tonn).\n\n**a)** Løs likningen på $[0, 50]$ med `RungeKutta4` og 200 steg.\n**b)** Skriv ut bestanden ved $t = 50$.\n**c)** Finn det første tidspunktet der bestanden passerer 50.",
+        "solution": "```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return 0.3*u*(1 - u/100)\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(5)\nt, u = solver.solve((0, 50), 200)\n\nprint(f\"bestanden ved t = 50: {u[-1]:.2f}\")\nfor n in range(len(t)):\n    if u[n] > 50:\n        print(f\"passerer 50 ved t = {t[n]:.2f}\")\n        break\n```\n\n**Utskrift:**\n```\nbestanden ved t = 50: 100.00\npasserer 50 ved t = 10.00\n```\n\nBestanden metter seg mot bærekapasiteten 100, og halvveis-punktet treffes ved $t = 10$. Det er en god fornuftssjekk: for logistisk vekst er vekstfarten størst nettopp når bestanden er halvparten av bærekapasiteten.\n\nUttelling: riktig høyreside (2 p), riktige tre kall med `(0, 50)` og 200 (2 p), løkke med `break` for kryssingen (1 p). Bytter du ut `for` + `break` med en `while`-løkke, er det like riktig.",
+        "hints": [
+          "Høyresiden er `0.3*u*(1 - u/100)` — pass på parentesene rundt `1 - u/100`.",
+          "De tre kallene: instansiér med `f`, sett startverdien 5, og løs med `(0, 50)` og 200.",
+          "For c): løkk over indeksene og `break` ved første `u[n] > 50`. Skriv ut `t[n]`, ikke `n`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-2-ex-a3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger J — nøyaktighetsdel.) Bruk samme fiskebestand som i oppgave 2, men på $[0, 20]$. Den eksakte løsningen er ikke oppgitt, så bruk `RungeKutta4` med 4000 steg som referanse.\n\n**a)** Skriv en hjelpefunksjon som løser problemet med en gitt metode og et gitt antall steg og returnerer sluttverdien.\n**b)** Skriv ut avviket fra referansen for `ForwardEuler` og `RungeKutta4` med $N = 5, 10, 20, 40$.\n**c)** Hvilken metode trenger færrest steg for tre riktige desimaler?",
+        "solution": "```python\nimport numpy as np\nfrom ODESolver import ForwardEuler, RungeKutta4\n\ndef f(t, u):\n    return 0.3*u*(1 - u/100)\n\ndef los(metode, N):\n    solver = metode(f)\n    solver.set_initial_condition(5)\n    t, u = solver.solve((0, 20), N)\n    return u[-1]\n\nreferanse = los(RungeKutta4, 4000)\nprint(f\"referanse (RK4, 4000 steg): u(20) = {referanse:.6f}\")\nprint(\"     N   ForwardEuler   RungeKutta4\")\nfor N in [5, 10, 20, 40]:\n    fe = abs(los(ForwardEuler, N) - referanse)\n    rk = abs(los(RungeKutta4, N) - referanse)\n    print(f\"{N:6d}   {fe:12.4e}  {rk:12.4e}\")\n```\n\n**Utskrift:**\n```\nreferanse (RK4, 4000 steg): u(20) = 95.502201\n     N   ForwardEuler   RungeKutta4\n     5     8.1137e-01    2.2555e-01\n    10     2.8243e-01    1.1563e-02\n    20     9.6280e-02    6.8289e-04\n    40     3.9634e-02    4.1982e-05\n```\n\n**c)** `RungeKutta4` er under $10^{-3}$ allerede ved $N = 20$; `ForwardEuler` ligger på $4 \\cdot 10^{-2}$ ved $N = 40$ og trenger mange tusen steg for samme nøyaktighet.\n\nLegg merke til at kolonnene ikke gir helt reine faktorer 2 og 16 her. Problemet er ikke-lineært, og med bare 5–10 steg er stegene så grove at ordensoppførselen ennå ikke har «satt seg». Forholdene for `RungeKutta4` er 19,5 · 16,9 · 16,3 — de nærmer seg 16 nedover, som forventet for orden 4. Å si dette i en besvarelse er et pluss: ordenen gjelder **asymptotisk**, når steget blir lite.\n\nUttelling: hjelpefunksjonen med `metode` som argument (2 p) er kjernen — den viser at du har skjønt at klassenavnet er en verdi som kan sendes rundt, akkurat som en funksjon.",
+        "hints": [
+          "Lag en funksjon som tar løserklassen som argument: `def los(metode, N):` og bruk `metode(f)` inne i den.",
+          "Referansen er bare et ekstra kall med veldig mange steg.",
+          "Avviket måles på sluttverdien `u[-1]`, ikke over hele arrayet — oppgaven ber om sluttverdien."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-2-t3",
+      "type": "text",
+      "content": "## Løkke 3 — å kontrollere at svaret er riktig\n\n— naturlig pausepunkt —\n\nEn numerisk løsning er alltid feil. Spørsmålet er om den er **nok** riktig, og en besvarelse som viser at du kan sjekke det, skiller seg positivt ut. Du har tre kontroller, og alle tre er raske:\n\n1. **Sammenlign med en eksakt løsning** der du har en.\n2. **Forfin steget** og se om svaret slutter å endre seg.\n3. **Sjekk fornuften**: er høyresiden null i startpunktet, skal løsningen stå stille; en bestand skal ikke bli negativ; en temperatur skal ikke gå under romtemperaturen.\n\nLikningen fra Eksempel 1 kan faktisk løses eksakt, og det gir den beste kontrollen."
+    },
+    {
+      "id": "in1900-7-2-def-rk4",
+      "type": "definition",
+      "title": "Runge–Kutta 4 (RK4)",
+      "content": "Fire prøvesteg per tidssteg, veid slik at feilen blir $O(\\Delta t^4)$:\n\n$$k_1 = f(t_n, u_n), \\quad k_2 = f\\left(t_n + \\tfrac{\\Delta t}{2},\\, u_n + \\tfrac{\\Delta t}{2}k_1\\right), \\quad k_3 = f\\left(t_n + \\tfrac{\\Delta t}{2},\\, u_n + \\tfrac{\\Delta t}{2}k_2\\right), \\quad k_4 = f(t_n + \\Delta t,\\, u_n + \\Delta t k_3)$$\n\n$$u_{n+1} = u_n + \\frac{\\Delta t}{6}\\left(k_1 + 2k_2 + 2k_3 + k_4\\right)$$\n\nDu skal ikke pugge formelen — den står i vedlegget. Du skal kunne **bruke** klassen, og vite at prisen er fire kall til høyresiden per steg og gevinsten er fire ordener."
+    },
+    {
+      "id": "in1900-7-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: kontroll mot den eksakte løsningen",
+      "problem": "Likningen $u' = -0{,}5u + \\sin t$ med $u(0) = 2$ har den eksakte løsningen $u(t) = 2{,}8e^{-0{,}5t} + 0{,}4\\sin t - 0{,}8\\cos t$. Kontroller den numeriske løsningen fra Eksempel 1.",
+      "solution": "```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.5*u + np.sin(t)\n\ndef eksakt(t):\n    return 2.8*np.exp(-0.5*t) + 0.4*np.sin(t) - 0.8*np.cos(t)\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(2)\nt, u = solver.solve((0, 10), 100)\nprint(f\"maks avvik fra den eksakte løsningen: {np.max(np.abs(u - eksakt(t))):.2e}\")\n```\n\n**Utskrift:**\n```\nmaks avvik fra den eksakte løsningen: 7.43e-08\n```\n\nSju siffer riktig med 100 steg. Merk hvordan `eksakt(t)` kalles med hele tidsarrayet og gir hele kurven tilbake — det er vektorisering ([kap. 4.2](/bok/in1900/in1900-4-2)), og det er grunnen til at kontrollen blir én linje.\n\nHvis du vil se hvor den eksakte løsningen kommer fra, er det den lineære førsteordens likningen fra [Differensialligninger: separable og lineære første ordens](/bok/mat1100/mat1100-6-3). På eksamen får du den oppgitt hvis du skal bruke den."
+    },
+    {
+      "id": "in1900-7-2-ex-a4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Modulen `ODESolver` er den fra dette kapitlet.\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -u\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(1)\nt, u = solver.solve((0, 2), 4)\nprint(len(t), u.shape, t[1] - t[0])\n```",
+        "solution": "Tre uttrykk skrives ut, atskilt av mellomrom fordi `print` setter mellomrom mellom argumentene.\n\n| Uttrykk | Resonnement | Verdi |\n|---|---|---|\n| `len(t)` | 4 steg $\\to$ 4 + 1 punkter | `5` |\n| `u.shape` | skalar likning $\\to$ 1D array med 5 elementer | `(5,)` |\n| `t[1] - t[0]` | intervallet 2 delt på 4 steg | `0.5` |\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -u\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(1)\nt, u = solver.solve((0, 2), 4)\nprint(len(t), u.shape, t[1] - t[0])\n```\n\n**Utskrift:**\n```\n5 (5,) 0.5\n```\n\nFellene her er to. Den ene er **#1 — av-én på antall punkter**: `solve((0, 2), 4)` gir 5 punkter, ikke 4. Den andre er formen: for en **skalar** likning er `u` 1-dimensjonal, så `u.shape` skrives `(5,)` med komma og uten noe andre tall. Blir det et system, endres dette til `(5, 2)` — se [kap. 7.3](/bok/in1900/in1900-7-3).\n\nDelvis riktig sporing gir delvis uttelling: får du 5 og 0.5 riktig men skriver `(5, 1)`, har du mistet ett detaljpoeng, ikke hele svaret.",
+        "hints": [
+          "Tell punktene: hvor mange får du av `N` steg?",
+          "`u.shape` er en tuppel. Hvordan ser en tuppel med ett element ut når den skrives ut?",
+          "Steglengden er intervallets bredde delt på antall steg."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-2-ex-a5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger O-moment — «finn feilen».) Et program fra et eldre oppgavesett er skrevet mot den GAMLE modulen:\n\n```text\ndef f(u, t):\n    return -0.2*u\n\nsolver = ForwardEuler(f)\nsolver.set_initial_condition(3)\ntidspunkter = np.linspace(0, 10, 51)\nu, t = solver.solve(tidspunkter)\n```\n\n**a)** Nevn tre ting som må endres for at programmet skal virke mot modulen i dette kapitlet.\n**b)** Skriv om programmet, og skriv ut sluttverdien.",
+        "solution": "**a)** Tre endringer:\n\n1. Høyresiden må være `f(t, u)`, ikke `f(u, t)` — tid først (feilkode #14).\n2. `solve` tar et intervall og et antall steg: `solve((0, 10), 50)`, ikke et ferdig tidsarray. 50 steg gir de samme 51 punktene.\n3. Returverdiene kommer i rekkefølgen `t, u`, ikke `u, t`.\n\n**b)**\n\n```python\nfrom ODESolver import ForwardEuler\n\ndef f(t, u):\n    return -0.2*u\n\nsolver = ForwardEuler(f)\nsolver.set_initial_condition(3)\nt, u = solver.solve((0, 10), 50)\nprint(\"antall punkter:\", len(t))\nprint(f\"u(10) = {u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\nantall punkter: 51\nu(10) = 0.389657\n```\n\nLegg merke til at høyresiden $-0{,}2u$ ser like riktig ut i begge varianter, siden `t` ikke brukes i kroppen. Nettopp derfor er denne feilen så farlig: **den gir ingen feilmelding**. Hadde høyresiden vært for eksempel `-0.2*u + t`, ville argumentbyttet gitt tydelig gale tall, men fortsatt ingen krasj.\n\nUttelling: hver av de tre punktene i **a)** teller, og en besvarelse som bare retter argumentrekkefølgen og glemmer returrekkefølgen, får delvis score.",
+        "hints": [
+          "Sammenlign linje for linje med bruksmønsteret i dette kapitlet: hva heter argumentene, og hva returneres?",
+          "51 punkter svarer til hvor mange steg?",
+          "Merk at den første kodeblokken IKKE er kjørbar som den står — den mangler både import og riktig API."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-2-ex-a6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J + F — bruk med testfunksjon.) `RungeKutta4` gjengir polynomløsninger av lav grad eksakt. Det gir en presis test av at du bruker hierarkiet riktig.\n\n**a)** Skriv en testfunksjon `test_rk4()` uten argumenter som løser $u' = 3t^2$, $u(0) = 0$, på $[0, 2]$ med 4 steg og sjekker sluttverdien mot den eksakte $u(2) = 2^3 = 8$, med toleranse $10^{-10}$.\n**b)** Kall den og skriv ut en bekreftelse.\n**c)** Forklar hvorfor toleransen kan være så stram.",
+        "solution": "```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return 3*t**2\n\ndef test_rk4():\n    solver = RungeKutta4(f)\n    solver.set_initial_condition(0)\n    t, u = solver.solve((0, 2), 4)\n    forventet = 8.0\n    beregnet = u[-1]\n    tol = 1e-10\n    assert abs(forventet - beregnet) < tol, f\"fikk {beregnet}, forventet {forventet}\"\n\ntest_rk4()\nprint(\"testen passerte\")\n```\n\n**Utskrift:**\n```\ntesten passerte\n```\n\n**c)** Høyresiden er uavhengig av $u$, så det løseren egentlig gjør, er å integrere $3t^2$. RK4-veiingen $\\frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)$ er da Simpsons regel, som er eksakt for polynomer opp til tredje grad. Feilen er derfor bare avrundingsfeil, og $10^{-10}$ er trygt selv med fire steg.\n\nDet generelle poenget er verdt å ta med seg: **velg et testproblem der du kjenner svaret eksakt.** Tester du mot $u' = -2u$, må toleransen være romslig, og da tester du egentlig bare at ingenting er katastrofalt galt. Aldri `==` på flyttall — det er feilkode #11.\n\nUttelling: testfunksjonen uten argumenter, `abs(...) < tol` og en melding i `assert` er de tre poenggivende trekkene i **a)**.",
+        "hints": [
+          "Testfunksjonen skal ikke ta argumenter og ikke skrive ut noe selv.",
+          "Legg de tre kallene inne i testfunksjonen, og hent sluttverdien fra `u[-1]`.",
+          "Mønsteret er `forventet = ...`, `beregnet = ...`, `tol = 1e-10`, `assert abs(forventet - beregnet) < tol, melding`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-2-ex-a7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-2-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — anvendelse og sammenligning.) Kaffekoppen fra [kap. 7.1](/bok/in1900/in1900-7-1) igjen: $u' = -0{,}05(u - 20)$, $u(0) = 80$, på $[0, 60]$ minutter.\n\n**a)** Løs med `RungeKutta4` og 600 steg.\n**b)** Finn første tidspunkt under 60 grader og temperaturen etter én time.\n**c)** Sammenlign med svaret din egen `forward_euler` ga i [kap. 7.1](/bok/in1900/in1900-7-1) (8,1 minutter og 22,96 grader). Hvilket svar er nærmest sannheten, og hvorfor?",
+        "solution": "```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.05*(u - 20)\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(80)\nt, u = solver.solve((0, 60), 600)\n\nfor n in range(len(t)):\n    if u[n] < 60:\n        print(f\"under 60 grader etter {t[n]:.1f} minutter\")\n        break\nprint(f\"temperatur etter 60 minutter: {u[-1]:.2f} grader\")\n```\n\n**Utskrift:**\n```\nunder 60 grader etter 8.2 minutter\ntemperatur etter 60 minutter: 22.99 grader\n```\n\n**c)** `RungeKutta4`-svaret er nærmest. Den eksakte løsningen er $u(t) = 20 + 60e^{-0{,}05t}$, som gir $u(60) = 20 + 60e^{-3} = 22{,}9872\\ldots$ — altså 22,99. Forlengs Euler ga 22,96, fordi den underestimerer med orden 1, og krysningstidspunktet forskjøv seg tilsvarende fra 8,2 til 8,1 minutter.\n\nForskjellen er liten her, og det er verdt å si i en besvarelse: **for et glatt problem med små steg er begge metodene brukbare.** Forskjellen blir dramatisk når problemet er stivt eller steget grovt, som i eksemplene i [kap. 7.1](/bok/in1900/in1900-7-1).\n\nUttelling: full score for riktig oppsett og riktig utlesning. Sammenligningen i **c)** trenger ikke være detaljert — det holder å peke på at metoden med høyere orden er nærmere, og å begrunne det med ordenen.",
+        "hints": [
+          "Bruk de tre kallene, med `(0, 60)` og 600 steg.",
+          "Krysningen finner du med en løkke og `break`, akkurat som i kap. 7.1.",
+          "For c): den eksakte løsningen av $u' = -k(u - 20)$ med $u(0) = 80$ er $20 + 60e^{-kt}$."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-2-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-7-2-api-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `from ODESolver import RungeKutta4` | henter klassen fra den utleverte modulen; filnavnet kan variere |\n| `solver = RungeKutta4(f)` | instans; lagrer høyresiden, regner ingenting |\n| `solver = ForwardEuler(f)` | samme bruk, orden 1 i stedet for orden 4 |\n| `solver.set_initial_condition(u0)` | **må** kalles før `solve`; skalar `u0` gir 1D-løsning |\n| `t, u = solver.solve((0, T), N)` | `t_span` er en TUPPEL; `N` steg gir `N+1` punkter; returnerer tid FØRST |\n| `u.shape` | `(N+1,)` for en skalar likning |\n| `u[-1]` | løsningen i sluttiden |\n| `advance()` | ett steg; implementeres i subklassen, ikke i basisklassen |\n| `self.f`, `self.u`, `self.t`, `self.n`, `self.dt` | attributtene `advance` har tilgang til |\n| `self.t[self.n+1] - self.t[self.n]` | robust steglengde, virker uten `self.dt` |\n| `raise NotImplementedError` | basisklassens `advance`; sier at klassen ikke skal brukes direkte |\n| `np.asarray(x, dtype=float)` | gjør lister til flyttall-array, slik at `f` kan returnere en liste |\n| `solve(time_points)` og `f(u, t)` | den GAMLE varianten (2020–2022) — kjenn den igjen, bruk den nye |\n| `np.max(np.abs(u - eksakt(t)))` | maksfeil; `eksakt(t)` kalles med hele arrayet |\n| `metode(f)` der `metode` er et klassenavn | klassenavn er en verdi og kan sendes som argument |\n\n**Formler i dette delkapitlet:**\n\nForlengs Euler: $u_{n+1} = u_n + \\Delta t\\, f(t_n, u_n)$ — ett funksjonskall, orden 1.\n\nRunge–Kutta 4: $u_{n+1} = u_n + \\frac{\\Delta t}{6}(k_1 + 2k_2 + 2k_3 + k_4)$ med de fire prøvestegene i definisjonen over — fire funksjonskall, orden 4.\n\nKontroll mot eksakt løsning for $u' = -0{,}5u + \\sin t$, $u(0) = 2$: $u(t) = 2{,}8e^{-0{,}5t} + 0{,}4\\sin t - 0{,}8\\cos t$.\n\nI dette delkapitlet er `u` **hele løsningsarrayet** når du har fått det ut av `solve`, men **tilstanden i ett tidspunkt** når det er argumentet til `f(t, u)`. `t` er tidsarrayet, `t[n]` ett tidspunkt. `N` er antall steg, `N+1` antall punkter."
+        }
+      ]
+    },
+    {
+      "id": "in1900-7-2-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-7-2-bank-1",
+      "type": "definition",
+      "title": "Utlevert vedlegg (ODE-modulen)",
+      "content": "En PDF med en ferdigskrevet Python-modul som følger ODE-oppgavene på eksamen. Den inneholder `ODESolver` og subklassene, og du skal bruke den, ikke skrive den.\n\nDet ene du **må** gjøre med vedlegget: sjekke argumentrekkefølgen i høyresiden og hva `solve` tar imot. Det er de to tingene som har endret seg mellom årganger."
+    },
+    {
+      "id": "in1900-7-2-bank-2",
+      "type": "definition",
+      "title": "`t_span`-tuppelen",
+      "content": "Start- og sluttid samlet i én verdi: `(0, 10)`. Fordi det er ett argument, blir kallet `solver.solve((0, 10), 100)` med to parenteser.\n\nSkriver du `solve(0, 10, 100)`, sender du tre argumenter og får `TypeError`."
+    },
+    {
+      "id": "in1900-7-2-bank-3",
+      "type": "definition",
+      "title": "Instans",
+      "content": "Et konkret objekt laget fra en klasse. `solver = RungeKutta4(f)` lager én instans; du kan lage flere med forskjellige høyresider samtidig.\n\nAttributtene (`self.u`, `self.t`, …) tilhører instansen, så to løsere tråkker ikke i hverandres data."
+    },
+    {
+      "id": "in1900-7-2-bank-4",
+      "type": "definition",
+      "title": "Kallbar (callable)",
+      "content": "Noe du kan sette parenteser bak. Både en vanlig funksjon og et objekt med `__call__` er kallbart.\n\nDerfor kan høyresiden være enten `def f(t, u):` eller en instans av en klasse med `__call__(self, t, u)`. Løseren merker ingen forskjell — den skriver bare `self.f(t, u)`. Klasse-varianten brukes når modellen har parametre, se [kap. 7.3](/bok/in1900/in1900-7-3)."
+    },
+    {
+      "id": "in1900-7-2-bank-5",
+      "type": "definition",
+      "title": "`NotImplementedError`",
+      "content": "En **exception** — altså en feil som avbryter programmet — som basisklassens `advance` kaster.\n\nMeningen er å si «`ODESolver` er ikke en løser i seg selv; bruk en subklasse». Får du den, har du instansiert basisklassen ved et uhell, eller glemt å skrive `advance` i din egen subklasse."
+    },
+    {
+      "id": "in1900-7-2-bank-6",
+      "type": "definition",
+      "title": "Skalar likning gir 1D-løsning",
+      "content": "Én ukjent funksjon $\\to$ `u` er 1-dimensjonal med `N+1` tall, og `u.shape` er `(N+1,)`.\n\nEtt tall per tidspunkt, hentet med `u[n]` eller `u[-1]`. Så snart du løser et system, blir `u` 2D og du må hente kolonner i stedet."
+    },
+    {
+      "id": "in1900-7-2-bank-7",
+      "type": "definition",
+      "title": "Bytte metode = bytte klassenavn",
+      "content": "Hele poenget med arv i dette hierarkiet: `ForwardEuler(f)` og `RungeKutta4(f)` brukes helt likt.\n\nDet gjør det trivielt å sammenligne metoder, og det er derfor du kan sende klassenavnet som argument til en hjelpefunksjon: `def los(metode, N): solver = metode(f)`."
+    },
+    {
+      "id": "in1900-7-2-bank-8",
+      "type": "definition",
+      "title": "Kostnad per steg",
+      "content": "Antall kall til høyresiden i hvert tidssteg: `ForwardEuler` ett, Heun/midtpunkt to, `RungeKutta4` fire.\n\nRegnestykket som avgjør valget: RK4 med 30 steg koster 120 kall og var i Eksempel 2 nesten 7 000 ganger nøyaktigere enn forlengs Euler med 30 steg. Høyere orden er nesten alltid billigere enn flere steg."
+    },
+    {
+      "id": "in1900-7-2-bank-9",
+      "type": "definition",
+      "title": "API-drift (#14)",
+      "content": "At det utleverte grensesnittet har endret seg over tid: `f(u, t)` og `solve(time_points)` i 2020–2022, `f(t, u)` og `solve(t_span, N)` fra 2023.\n\nFeilen gir ingen feilmelding når `t` ikke brukes i høyresiden — den gir bare gale tall. Derfor: les vedlegget, og vær konsekvent."
+    },
+    {
+      "id": "in1900-7-2-bank-10",
+      "type": "definition",
+      "title": "`AttributeError` fra `solve`",
+      "content": "Symptomet på glemt `set_initial_condition`: `solve` prøver å bruke noe som skulle vært satt.\n\n```text\nAttributeError: 'ForwardEuler' object has no attribute 'neq'\n```\n\nDen nøyaktige meldingen avhenger av modulen. Mønsteret — en `AttributeError` idet du kaller `solve` — er alltid det samme."
+    },
+    {
+      "id": "in1900-7-2-bank-11",
+      "type": "definition",
+      "title": "Referanseløsning",
+      "content": "En numerisk løsning med veldig mange steg, brukt som «sannhet» når det ikke finnes en eksakt løsning.\n\nRegel: bruk den mest nøyaktige metoden du har, med et par tusen steg, og mål de grove løsningene mot den. Sammenlign aldri en metode med seg selv på samme steglengde."
+    },
+    {
+      "id": "in1900-7-2-bank-12",
+      "type": "definition",
+      "title": "Asymptotisk orden",
+      "content": "At ordenen gjelder når steget blir *lite*. Med svært få steg kan forholdene mellom feilene være ganske ulike 2 eller 16.\n\nPraktisk konsekvens: mål alltid over minst tre-fire steglengder, og se om forholdene nærmer seg det teoretiske tallet nedover i tabellen."
+    },
+    {
+      "id": "in1900-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-7-2-rep-1",
+          "type": "text",
+          "content": "**De tre kallene, fra hukommelsen:**\n\n```python\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(u0)\nt, u = solver.solve((0, T), N)\n```\n\n**Utskrift:** ingen (fragment; `f` og `u0` må defineres først).\n\n**Sjekkliste før du leverer en J-oppgave:**\n\n- ☐ Lest vedlegget: er høyresiden `f(t, u)` eller `f(u, t)`?\n- ☐ Tar `solve` et intervall og et antall, eller et array av tidspunkter?\n- ☐ `set_initial_condition` kalt FØR `solve`?\n- ☐ Dobbeltparentes i `solve((0, T), N)`?\n- ☐ Pakket ut i riktig rekkefølge (`t, u` i den nye varianten)?\n- ☐ `f` sendt uten parenteser?\n- ☐ Løkke, ikke rekursjon (rekursjon er utenfor pensum)?\n\n**Neste steg:** [kap. 7.3](/bok/in1900/in1900-7-3) bruker samme tre kall på et **system** av likninger. Det eneste nye der er at `u0` blir en liste, og at `u` blir 2-dimensjonal."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
