@@ -1,0 +1,357 @@
+{
+  "id": "econ1100-4-2",
+  "courseId": "econ1100",
+  "chapterNumber": "4.2",
+  "title": "Stasjonærpunkter, ekstrempunkter og vendepunkter — og fellene",
+  "description": "Klassifisering av stasjonærpunkter, og de to fellene sensor gir null uttelling for: å konkludere fra $f''=0$ i punktet, og å tro at en vannrett tangent alltid betyr topp eller bunn.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille stasjonærpunkt, ekstrempunkt og vendepunkt fra hverandre, og vite hvilken vei slutningene går",
+    "klassifisere stasjonærpunkter med andrederiverttesten, og gjenkjenne når den ikke gir svar",
+    "føre det gyldige argumentet når andrederiverte er null: global krumning eller fortegnsskifte i den deriverte",
+    "avgjøre om et ekstrempunkt er lokalt eller globalt, og finne vendepunkter med krav om fortegnsskifte"
+  ],
+  "content": [
+    {
+      "id": "econ1100-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**To av fagets tre strengeste fallgruver ligger i dette kapitlet — og sensor gir null uttelling for begge.**\n\nKlassifisering av stasjonærpunkter er fast del av **sjanger FD — endimensjonal funksjonsdrøfting**, som har vært egen storoppgave i **alle seks ordinære settene 2020–2025**. I tillegg dukker temaet opp som påstand i eksamens Oppgave 2, **sjanger SU — «sant eller usant? begrunn»**.\n\n**Fallgruve 1 — $x^{4}$-fellen.** Når $f''=0$ i det stasjonære punktet, er andrederiverttesten **inkonklusiv**. Sensor har vært eksplisitt: å sette inn i $f''$ og konkludere gir **null uttelling** når svaret er null. Argumentet må gå gjennom global krumning eller fortegnsskifte i $f'$.\n\n**Fallgruve 2 — stasjonær er ikke ekstrem.** At $f'(a)=0$ betyr bare at tangenten er vannrett. Funksjonen $x^{3}$ har $f'(0)=0$ uten å ha verken toppunkt eller bunnpunkt der.\n\n**Og en tredje, nært beslektet:** et vendepunkt krever at $f''$ **skifter fortegn**, ikke bare at $f''=0$. Funksjonen $x^{4}$ har $f''(0)=0$ og likevel ikke noe vendepunkt i null.\n\nKapitlet har **høyeste prioritet**. Det er her karakterskillet i FD-oppgaven ligger: nesten alle kandidater klarer å sette $f'=0$, men langt færre klarer å klassifisere riktig når testen svikter."
+    },
+    {
+      "id": "econ1100-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger direkte på [kap. 4.1](/bok/econ1100/econ1100-4-1) (fortegnsanalyse av $f'$ og $f''$) og på [kap. 1.1](/bok/econ1100/econ1100-1-1) (derivasjonsreglene). Fra videregående er [Andrederiverte og vendepunkter](/bok/s2/s2-3-2) og [Optimering](/bok/s2/s2-3-3) fra S2 de direkte forløperne.\n\n**Sist du var her — de to fortegnsreglene alt bygger på:**\n\n$$f'(x)>0\\ \\Longrightarrow\\ f\\ \\text{vokser};\\qquad f''(x)>0\\ \\Longrightarrow\\ f\\ \\text{er konveks}$$\n\nOg skjemametoden: finn nullpunktene, sett opp fortegnslinjen, les av intervallene."
+    },
+    {
+      "id": "econ1100-4-2-motivasjon",
+      "type": "text",
+      "content": "Et selskap finner at overskuddet har vannrett tangent ved 5 000 enheter. Er det den beste produksjonsmengden?\n\nIkke nødvendigvis. En vannrett tangent betyr bare at overskuddet står stille akkurat der. Det kan være en topp, en bunn — eller et sted der kurven bare tar en pust i bakken og fortsetter i samme retning.\n\nÅ skille disse tre fra hverandre er hele kapitlet. Standardverktøyet er andrederiverttesten, og den er rask når den virker. Problemet er at den av og til svarer «vet ikke» — og nettopp da mister de fleste kandidatene poengene, fordi de behandler «vet ikke» som «ingen ekstremverdi».\n\nKapitlet er bygget som fire løkker: de tre begrepene, andrederiverttesten, de to fellene, og en samlet klassifisering på eksamensnivå."
+    },
+    {
+      "id": "econ1100-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Tre begreper som ikke er det samme (~13 min)"
+    },
+    {
+      "id": "econ1100-4-2-def-stasjonaer",
+      "type": "definition",
+      "title": "Stasjonærpunkt",
+      "content": "Et stasjonærpunkt er et punkt der den deriverte er null.\n\n$$f'(a)=0$$\n\nDet betyr at tangenten er vannrett i $x=a$, og ingenting mer. Stasjonærpunktene er **kandidatene** til topp- og bunnpunkter — de er stedene du må undersøke, ikke svarene."
+    },
+    {
+      "id": "econ1100-4-2-def-ekstrempunkt",
+      "type": "definition",
+      "title": "Ekstrempunkt (topp- og bunnpunkt)",
+      "content": "Et ekstrempunkt er et punkt der funksjonsverdien er størst eller minst sammenlignet med nabopunktene.\n\n$$f(a)\\ge f(x)\\ \\text{nær }a\\ \\text{(lokalt maksimum)};\\qquad f(a)\\le f(x)\\ \\text{nær }a\\ \\text{(lokalt minimum)}$$\n\nEt ekstrempunkt i det indre av definisjonsområdet er alltid et stasjonærpunkt — men det motsatte gjelder ikke. Det er nettopp den ene veien pilen går, som gjør klassifisering nødvendig."
+    },
+    {
+      "id": "econ1100-4-2-def-vendepunkt",
+      "type": "definition",
+      "title": "Vendepunkt",
+      "content": "Et vendepunkt er et punkt der funksjonen skifter krumning: fra konveks til konkav eller omvendt.\n\n$$f''\\ \\text{skifter fortegn i}\\ x=a$$\n\nKravet er **fortegnsskiftet**, ikke at $f''(a)=0$. At $f''$ er null, er en nødvendig betingelse, men ikke en tilstrekkelig — og forskjellen er et fast sant/usant-punkt på eksamen."
+    },
+    {
+      "id": "econ1100-4-2-def-lokalt-globalt",
+      "type": "definition",
+      "title": "Lokalt og globalt",
+      "content": "Et lokalt ekstrempunkt er best i nærheten; et globalt er best i hele definisjonsområdet.\n\n$$\\text{lokalt: sammenlignet med nabopunktene},\\qquad \\text{globalt: sammenlignet med ALLE punkter}$$\n\nAndrederiverttesten gir bare lokal informasjon. Skal du konkludere globalt, trenger du et argument som gjelder hele området — enten global krumning eller definisjonsområdets rand, som er tema i [kap. 4.3](/bok/econ1100/econ1100-4-3)."
+    },
+    {
+      "id": "econ1100-4-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Tre stasjonærpunkter, tre ulike svar",
+      "problem": "Finn de stasjonære punktene til hver funksjon, og avgjør hva slags punkter de er:\n\n**a)** $f(x)=x^{2}$, **b)** $g(x)=-x^{2}$, **c)** $h(x)=x^{3}$.",
+      "solution": "**a)** $f'(x)=2x$, som er null i $x=0$.\n\n**Fortegnsskifte:** $f'<0$ for $x<0$ og $f'>0$ for $x>0$ — funksjonen faller inn mot null og stiger ut igjen.\n\n**Konklusjon: $x=0$ er et bunnpunkt** (lokalt og faktisk globalt minimum, siden $x^{2}\\ge 0$ for alle $x$).\n\n**b)** $g'(x)=-2x$, null i $x=0$.\n\n**Fortegnsskifte:** $g'>0$ for $x<0$ og $g'<0$ for $x>0$ — funksjonen stiger inn og faller ut.\n\n**Konklusjon: $x=0$ er et toppunkt.**\n\n**c)** $h'(x)=3x^{2}$, null i $x=0$.\n\n**Fortegnsskifte?** Her er $3x^{2}\\ge 0$ for **alle** $x$ — den deriverte er positiv på begge sider av null og bare null i selve punktet. Funksjonen vokser altså gjennom hele definisjonsområdet og tar seg bare en pause i $x=0$.\n\n**Konklusjon: $x=0$ er verken toppunkt eller bunnpunkt.** Det er et stasjonærpunkt uten ekstremverdi. (Det er dessuten et vendepunkt, siden $h''(x)=6x$ skifter fortegn der.)\n\n**Poenget med de tre sammen:** alle har $f'(0)=0$, og bare de to første har en ekstremverdi der. En vannrett tangent er en *kandidat*, aldri en konklusjon. Å hoppe rett fra $f'(a)=0$ til «altså toppunkt» er fagets feil #8 — blande stasjonærpunkt og ekstrempunkt."
+    },
+    {
+      "id": "econ1100-4-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger FD — endimensjonal funksjonsdrøfting, egen storoppgave i alle seks ordinære settene 2020–2025. Innstegsoppgave.) Finn de stasjonære punktene:\n\n**a)** $f(x)=x^{2}-6x+4$\n\n**b)** $g(x)=x^{3}-12x$\n\n**c)** $h(x)=e^{x}-x$",
+        "solution": "**a)** $f'(x)=2x-6=0$ gir $x=3$. Ett stasjonærpunkt, i $x=3$, med $f(3)=9-18+4=-5$.\n\n**b)** $g'(x)=3x^{2}-12=3(x^{2}-4)=3(x-2)(x+2)=0$ gir $x=2$ og $x=-2$. To stasjonærpunkter, med $g(2)=8-24=-16$ og $g(-2)=-8+24=16$.\n\n**c)** $h'(x)=e^{x}-1=0$ gir $e^{x}=1$, altså $x=0$. Ett stasjonærpunkt, med $h(0)=1-0=1$.\n\n**Merk at oppgaven bare ba om stasjonærpunktene**, ikke om klassifisering. Å finne dem er første steg; å avgjøre hva slags punkter de er, kommer i neste løkke.",
+        "hints": [
+          "Sett den deriverte lik null og løs likningen.",
+          "I c): når er $e^{x}$ lik 1?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Andrederiverttesten (~12 min)"
+    },
+    {
+      "id": "econ1100-4-2-teorem-andrederiverttest",
+      "type": "theorem",
+      "title": "Andrederiverttesten",
+      "content": "La $a$ være et stasjonærpunkt, altså $f'(a)=0$. Da gjelder:\n\n$$f''(a)<0\\ \\Longrightarrow\\ a\\ \\text{er et lokalt maksimum}$$\n\n$$f''(a)>0\\ \\Longrightarrow\\ a\\ \\text{er et lokalt minimum}$$\n\n$$f''(a)=0\\ \\Longrightarrow\\ \\textbf{testen gir ingen konklusjon}$$\n\nDet tredje tilfellet er ikke en kuriositet — det er den ene av fagets tre strengeste fallgruver, og den er tema i løkke 3."
+    },
+    {
+      "id": "econ1100-4-2-def-andrederiverttest",
+      "type": "definition",
+      "title": "Andrederiverttesten i praksis",
+      "content": "Testen leser krumningen i selve punktet og oversetter den til topp eller bunn.\n\n$$f''(a)<0\\ \\text{(konkav)}\\ \\Rightarrow\\ \\text{topp};\\qquad f''(a)>0\\ \\text{(konveks)}\\ \\Rightarrow\\ \\text{bunn}$$\n\nHuskeregelen: en konkav kurve bøyer nedover, og en vannrett tangent på en nedoverbøyd kurve må være en topp. Testen er rask, men den gir bare **lokal** informasjon og svikter når $f''(a)=0$."
+    },
+    {
+      "id": "econ1100-4-2-def-forstederiverttest",
+      "type": "definition",
+      "title": "Førstederiverttesten",
+      "content": "Alternativet er å lese fortegnsskiftet til $f'$ rundt punktet — den virker alltid.\n\n$$f'\\ \\text{fra}\\ +\\ \\text{til}\\ -\\ \\Rightarrow\\ \\text{toppunkt};\\qquad f'\\ \\text{fra}\\ -\\ \\text{til}\\ +\\ \\Rightarrow\\ \\text{bunnpunkt}$$\n\nSkifter $f'$ ikke fortegn, er punktet verken topp eller bunn. Denne testen krever fortegnsskjemaet fra [kap. 4.1](/bok/econ1100/econ1100-4-1), men til gjengjeld svarer den også når andrederiverttesten tier — og den er derfor redningen i $x^{4}$-tilfellet."
+    },
+    {
+      "id": "econ1100-4-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Klassifisering med begge tester",
+      "problem": "La $f(x)=x^{4}-8x^{2}$.\n\n**a)** Finn de stasjonære punktene.\n\n**b)** Klassifiser dem med andrederiverttesten.\n\n**c)** Bekreft resultatet med førstederiverttesten.",
+      "solution": "**a)** Vi deriverer og faktoriserer:\n\n$$f'(x)=4x^{3}-16x=4x\\big(x^{2}-4\\big)=4x(x-2)(x+2)$$\n\nNullpunkter: $x=-2$, $x=0$ og $x=2$.\n\nFunksjonsverdiene: $f(-2)=16-32=-16$, $f(0)=0$ og $f(2)=16-32=-16$.\n\n**b) Andrederiverttesten.**\n\n$$f''(x)=12x^{2}-16$$\n\n$$f''(-2)=48-16=32>0\\ \\Longrightarrow\\ \\text{lokalt minimum}$$\n\n$$f''(0)=-16<0\\ \\Longrightarrow\\ \\text{lokalt maksimum}$$\n\n$$f''(2)=48-16=32>0\\ \\Longrightarrow\\ \\text{lokalt minimum}$$\n\n**Konklusjon:** bunnpunkter i $(-2,-16)$ og $(2,-16)$, toppunkt i $(0,0)$.\n\n**c) Førstederiverttesten** som kontroll. Vi setter opp fortegnsskjemaet for $f'(x)=4x(x-2)(x+2)$:\n\n| Intervall | $4x$ | $(x-2)$ | $(x+2)$ | $f'$ |\n|---|---|---|---|---|\n| $x<-2$ | $-$ | $-$ | $-$ | $-$ |\n| $-2<x<0$ | $-$ | $-$ | $+$ | $+$ |\n| $0<x<2$ | $+$ | $-$ | $+$ | $-$ |\n| $x>2$ | $+$ | $+$ | $+$ | $+$ |\n\nI $x=-2$ går $f'$ fra $-$ til $+$ → bunnpunkt ✓. I $x=0$ fra $+$ til $-$ → toppunkt ✓. I $x=2$ fra $-$ til $+$ → bunnpunkt ✓.\n\nBegge testene gir samme svar.\n\n**Er bunnpunktene globale?** Ja, og det krever et eget argument: funksjonen er et fjerdegradspolynom med positiv ledende koeffisient, så $f(x)\\to\\infty$ når $x\\to\\pm\\infty$. De to laveste verdiene blant kandidatene er $-16$, og siden funksjonen bare vokser utover, finnes ingen lavere verdi noe sted. Merk at *det* argumentet ikke følger av andrederiverttesten — den er lokal."
+    },
+    {
+      "id": "econ1100-4-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger FD.) Klassifiser de stasjonære punktene med andrederiverttesten.\n\n**a)** $f(x)=x^{2}-6x+4$\n\n**b)** $g(x)=-x^{2}+8x$\n\n**c)** $h(x)=x^{3}-12x$",
+        "solution": "**a)** $f'(x)=2x-6$, null i $x=3$. Andrederivert: $f''(x)=2>0$ for alle $x$.\n\n$$f''(3)=2>0\\ \\Longrightarrow\\ \\text{bunnpunkt i}\\ (3,-5)$$\n\n*Tillegg:* siden $f''>0$ **overalt**, er funksjonen konveks i hele definisjonsområdet, og bunnpunktet er dermed globalt.\n\n**b)** $g'(x)=-2x+8$, null i $x=4$. Andrederivert: $g''(x)=-2<0$.\n\n$$g''(4)=-2<0\\ \\Longrightarrow\\ \\text{toppunkt i}\\ (4,16)$$\n\n*Tillegg:* $g''<0$ overalt gjør funksjonen konkav i hele definisjonsområdet, så toppunktet er globalt.\n\n**c)** $h'(x)=3x^{2}-12$, null i $x=\\pm 2$. Andrederivert: $h''(x)=6x$.\n\n$$h''(-2)=-12<0\\ \\Longrightarrow\\ \\text{toppunkt i}\\ (-2,16)$$\n\n$$h''(2)=12>0\\ \\Longrightarrow\\ \\text{bunnpunkt i}\\ (2,-16)$$\n\n*Merk forskjellen fra a) og b):* her er ingen av punktene globale. En tredjegradsfunksjon går mot $-\\infty$ til venstre og $+\\infty$ til høyre, så det finnes både lavere og høyere verdier lenger ute.",
+        "hints": [
+          "Regn ut $f''$ én gang, og sett inn hvert stasjonærpunkt for seg.",
+          "Er $f''$ konstant og har samme fortegn overalt, er konklusjonen global."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — De to fellene (~16 min)\n\n— naturlig pausepunkt —\n\nHer kommer den delen sensor har vært mest eksplisitt om. Les den to ganger."
+    },
+    {
+      "id": "econ1100-4-2-warning-x4",
+      "type": "warning",
+      "title": "Fallgruve 1: $x^{4}$-fellen — $f''=0$ gir INGEN konklusjon",
+      "content": "Dette er den ene feilen sensor har sagt gir **null uttelling**, ikke bare delvis.\n\n**Situasjonen.** La $f(x)=x^{4}$. Da er\n\n$$f'(x)=4x^{3}\\ \\Longrightarrow\\ f'(0)=0,\\qquad f''(x)=12x^{2}\\ \\Longrightarrow\\ f''(0)=0$$\n\n**Den gale besvarelsen:** «$f''(0)=0$, altså er $x=0$ verken maksimum eller minimum» — eller like galt: «$f''(0)=0$, altså er det et vendepunkt». Begge konkluderer fra en test som ikke har svart.\n\n**Det korrekte argumentet, vei 1 — global konveksitet:**\n\n$$f''(x)=12x^{2}\\ge 0\\quad\\text{for ALLE }x$$\n\nEn funksjon som er konveks i hele definisjonsområdet, ligger over hver av tangentene sine. Tangenten i $x=0$ er den vannrette linjen $y=0$, altså er\n\n$$f(x)\\ge f(0)=0\\quad\\text{for alle }x$$\n\n**Konklusjon: $x=0$ er et globalt minimum.**\n\n**Det korrekte argumentet, vei 2 — førstederiverttesten:** $f'(x)=4x^{3}$ er negativ for $x<0$ og positiv for $x>0$. Funksjonen faller inn mot null og stiger ut igjen, altså er $x=0$ et minimum.\n\n**Begge veier gir full uttelling. Innsetting i $f''(0)$ gir ingen.**\n\n**Huskeregelen:** når andrederiverttesten svarer null, har den ikke svart. Bytt test."
+    },
+    {
+      "id": "econ1100-4-2-fig-x4",
+      "type": "image",
+      "src": "/images/textbook/econ1100/x4-globalt-minimum.svg",
+      "alt": "Grafen til x opphøyd i fjerde nær origo, med en karakteristisk flat bunn. En vannrett tangentlinje er tegnet inn i bunnpunktet, som er markert med en prikk. Over grafen står tre tekstlinjer om at både førstederiverte og andrederiverte er null i null, at andrederiverte likevel er ikke-negativ overalt, og at punktet derfor er et globalt minimum.",
+      "caption": "Fallgruve 1 i bilde: $f(x)=x^{4}$ har både $f'(0)=0$ og $f''(0)=0$, så andrederiverttesten er inkonklusiv. Den flate bunnen er akkurat det som gjør testen ubrukelig — kurven er så flat rundt null at krumningen forsvinner der. Argumentet må i stedet gå gjennom at $f''(x)=12x^{2}\\ge 0$ for alle $x$, altså global konveksitet, som gir globalt minimum i $x=0$."
+    },
+    {
+      "id": "econ1100-4-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD — direkte på fallgruve 1.) La $f(x)=3x^{4}$.\n\n**a)** Vis at $x=0$ er et stasjonærpunkt, og at andrederiverttesten er inkonklusiv der.\n\n**b)** Avgjør likevel hva slags punkt det er. Bruk et argument som gir full uttelling.\n\n**c)** Er punktet et lokalt eller et globalt minimum? Begrunn.",
+        "solution": "**a)** Vi deriverer to ganger:\n\n$$f'(x)=12x^{3}\\ \\Longrightarrow\\ f'(0)=0$$\n\n$$f''(x)=36x^{2}\\ \\Longrightarrow\\ f''(0)=0$$\n\nFørstederiverte er null, så $x=0$ er et stasjonærpunkt. Andrederiverte er også null der, og **andrederiverttesten gir da ingen konklusjon** — den sier verken topp, bunn eller noe annet.\n\n**b) Argument via global konveksitet.** Vi ser på $f''$ i hele definisjonsområdet, ikke bare i punktet:\n\n$$f''(x)=36x^{2}\\ge 0\\quad\\text{for alle }x$$\n\nFunksjonen er altså **konveks overalt**. En konveks funksjon ligger over alle sine tangenter, og tangenten i $x=0$ er den vannrette linjen $y=f(0)=0$. Derfor er\n\n$$f(x)\\ge 0=f(0)\\quad\\text{for alle }x$$\n\n**Konklusjon: $x=0$ er et minimumspunkt.**\n\n*Alternativ vei — førstederiverttesten:* $f'(x)=12x^{3}$ er negativ for $x<0$ og positiv for $x>0$. Fortegnsskiftet fra minus til pluss gir bunnpunkt ✓. Begge argumentene er fullgode.\n\n**c) Globalt.** Ulikheten $f(x)\\ge f(0)$ ble vist for **alle** $x$, ikke bare for $x$ nær null. Punktet er dermed et globalt minimum.\n\n*Direkte kontroll:* $3x^{4}\\ge 0$ for alle reelle $x$, med likhet bare i $x=0$ ✓.\n\n**Merk hva som skiller full uttelling fra null her.** Konklusjonen «minimum» er den samme uansett hvilken vei du går — men en besvarelse som skriver «$f''(0)=0$, altså ikke ekstremum» har både feil konklusjon og feil metode, og en som skriver «$f''(0)=0$, altså minimum» har riktig konklusjon og ingen begrunnelse. Det er metoden som bærer poengene.",
+        "hints": [
+          "Regn ut $f''$ som uttrykk, ikke bare i punktet — hva er fortegnet for alle $x$?",
+          "En konveks funksjon ligger over tangenten sin. Hva er tangenten i et stasjonærpunkt?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-2-warning-stasjonaer",
+      "type": "warning",
+      "title": "Fallgruve 2: stasjonærpunkt er ikke ekstrempunkt",
+      "content": "Den andre fellen er speilbildet av den første: her *finnes* det en vannrett tangent, men ingen ekstremverdi.\n\n**Situasjonen.** La $f(x)=x^{3}$. Da er\n\n$$f'(x)=3x^{2}\\ \\Longrightarrow\\ f'(0)=0,\\qquad f''(x)=6x\\ \\Longrightarrow\\ f''(0)=0$$\n\nIgjen er andrederiverttesten inkonklusiv — men denne gangen er svaret det motsatte av forrige gang.\n\n**Det korrekte argumentet.** Se på fortegnet til $f'$ på begge sider:\n\n$$f'(x)=3x^{2}\\ge 0\\quad\\text{for alle }x$$\n\nDen deriverte er positiv både til venstre og til høyre for null, og bare null i selve punktet. Det er **ingen fortegnsveksling**, altså vokser funksjonen gjennom punktet.\n\n**Konklusjon: $x=0$ er verken toppunkt eller bunnpunkt.** Funksjonen har bare en flat «hylle» der.\n\n**Hva punktet derimot ER:** et vendepunkt, siden $f''(x)=6x$ skifter fortegn i null (negativ til venstre, positiv til høyre).\n\n**Sammenlign de to fallgruvene.** I begge er $f''(a)=0$. I $x^{4}$-tilfellet er punktet et globalt minimum; i $x^{3}$-tilfellet er det ingen ekstremverdi i det hele tatt. **Samme testresultat, motsatt konklusjon** — og det er nøyaktig derfor testen ikke kan brukes når den gir null.\n\n**Feilkodene:** å hoppe fra $f'(a)=0$ til «ekstrempunkt» er feil #8, og å konkludere fra $f''=0$ er feil #2."
+    },
+    {
+      "id": "econ1100-4-2-fig-x3",
+      "type": "image",
+      "src": "/images/textbook/econ1100/x3-stasjonaer-ikke-ekstrem.svg",
+      "alt": "Grafen til x opphøyd i tredje, som stiger fra nede til venstre til oppe til høyre og flater ut midt på. En vannrett tangentlinje er tegnet inn i punktet der grafen flater ut, markert med en prikk. Over og under står tekstlinjer om at førstederiverte er null i punktet uten å skifte fortegn, og at andrederiverte skifter fortegn slik at punktet er et vendepunkt.",
+      "caption": "Fallgruve 2 i bilde: $f(x)=x^{3}$ har vannrett tangent i $x=0$, men funksjonen fortsetter oppover på begge sider. Fordi $f'(x)=3x^{2}\\ge 0$ ikke skifter fortegn, er punktet verken topp eller bunn — bare en flat hylle. Legg merke til at krumningen derimot snur her ($f''=6x$ går fra negativ til positiv), så punktet er et vendepunkt. Sammenlign med figuren for $x^{4}$: samme testresultat $f''(0)=0$, motsatt konklusjon."
+    },
+    {
+      "id": "econ1100-4-2-def-vendepunkt-krav",
+      "type": "definition",
+      "title": "Vendepunkt krever fortegnsskifte",
+      "content": "At andrederiverte er null i et punkt, er ikke nok — den må skifte fortegn der.\n\n$$f''(a)=0\\ \\text{OG}\\ f''\\ \\text{skifter fortegn i}\\ a\\ \\Longleftrightarrow\\ \\text{vendepunkt}$$\n\nMotsvaret er $f(x)=x^{4}$: her er $f''(0)=0$, men $f''(x)=12x^{2}$ er positiv på begge sider. Krumningen snur aldri, og punktet er derfor **ikke** et vendepunkt. Å kalle det et, er feil #7."
+    },
+    {
+      "id": "econ1100-4-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2.) Avgjør om hver påstand er sann eller usann, og begrunn med utregning.\n\n**a)** «Hvis $f'(a)=0$, er $a$ et topp- eller bunnpunkt.»\n\n**b)** «Hvis $f''(a)=0$, er $a$ et vendepunkt.»\n\n**c)** «Hvis $f''(a)=0$ i et stasjonærpunkt, er $a$ ikke et ekstrempunkt.»",
+        "solution": "**a) Usann.** En vannrett tangent er bare en kandidat.\n\n*Konkret motsvar:* $f(x)=x^{3}$ har $f'(x)=3x^{2}$, altså $f'(0)=0$. Men $f'(x)\\ge 0$ for alle $x$, så den deriverte skifter ikke fortegn, og funksjonen vokser gjennom punktet. Verdiene til venstre for null er negative og til høyre positive — $f(-1)=-1<0=f(0)<1=f(1)$ — så punktet er verken størst eller minst i nærheten.\n\nDette er feil #8: blande stasjonærpunkt og ekstrempunkt.\n\n**b) Usann.** Kravet er at $f''$ **skifter fortegn**, ikke bare at den er null.\n\n*Konkret motsvar:* $f(x)=x^{4}$ har $f''(x)=12x^{2}$, altså $f''(0)=0$. Men $12x^{2}>0$ både for $x<0$ og for $x>0$ — krumningen er konveks på begge sider og snur aldri. Punktet er derfor ikke et vendepunkt.\n\nDette er feil #7: kalle $f''=0$ et vendepunkt uten fortegnsskifte.\n\n**c) Usann.** Testen har ikke svart, og «vet ikke» er ikke det samme som «nei».\n\n*Konkret motsvar:* $f(x)=x^{4}$ har både $f'(0)=0$ og $f''(0)=0$, og likevel er $x=0$ et **globalt minimum**: $f''(x)=12x^{2}\\ge 0$ overalt gir global konveksitet, og dermed $f(x)\\ge f(0)=0$ for alle $x$.\n\nDette er feil #2 — konkludere om ekstrempunkt fra $f''=0$ i punktet — og den gir null uttelling.\n\n**Alle tre påstandene er usanne, og alle tre bygger på samme misforståelse:** at en test som ikke svarer, likevel har svart. Merk at det er *begrunnelsene*, ikke konklusjonene, som gir poeng her — et bart «usant» tre ganger gir null.",
+        "hints": [
+          "Let etter én konkret funksjon som bryter påstanden, og regn ut de deriverte for den.",
+          "Både $x^{3}$ og $x^{4}$ har $f''(0)=0$ — men med motsatt konklusjon."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Samlet klassifisering på eksamensnivå (~14 min)"
+    },
+    {
+      "id": "econ1100-4-2-def-oppskrift",
+      "type": "definition",
+      "title": "Oppskriften for klassifisering",
+      "content": "Hele oppgavetypen kan kjøres som en fast rutine i fire steg.\n\n$$f'=0\\ \\to\\ \\text{regn }f''(a)\\ \\to\\ \\text{svarer den?}\\ \\to\\ \\text{hvis null: fortegnsskifte eller global krumning}$$\n\nSteg tre er det som skiller besvarelsene. Gir $f''(a)$ et tall forskjellig fra null, er du ferdig på ett sekund; gir den null, må du bytte metode — og det er den vanen som er verdt mest poeng i hele Del 4."
+    },
+    {
+      "id": "econ1100-4-2-def-global-konveksitet",
+      "type": "definition",
+      "title": "Global konveksitet som argument",
+      "content": "Er $f''\\ge 0$ i hele definisjonsområdet, er ethvert stasjonærpunkt et globalt minimum.\n\n$$f''(x)\\ge 0\\ \\text{for alle }x\\ \\text{og}\\ f'(a)=0\\ \\Longrightarrow\\ f(a)\\le f(x)\\ \\text{for alle }x$$\n\nBegrunnelsen er at en konveks funksjon ligger over alle sine tangenter, og tangenten i et stasjonærpunkt er vannrett. Tilsvarende gir global konkavitet ($f''\\le 0$ overalt) et globalt maksimum. Dette er det sterkeste argumentet du har, og det gjelder også når $f''(a)=0$."
+    },
+    {
+      "id": "econ1100-4-2-def-vendepunkt-metode",
+      "type": "definition",
+      "title": "Slik finner du vendepunktene",
+      "content": "Vendepunkter finnes med samme skjemametode som alt annet i Del 4.\n\n$$f''(x)=0\\ \\to\\ \\text{fortegnslinje for }f''\\ \\to\\ \\text{behold bare der fortegnet skifter}$$\n\nSiste steg er det som ofte glemmes. Et nullpunkt der $f''$ har samme fortegn på begge sider, er **ikke** et vendepunkt, og å ta det med er feil #7."
+    },
+    {
+      "id": "econ1100-4-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — når testen svikter midt i oppgaven",
+      "problem": "La $f(x)=3x^{4}-4x^{3}$.\n\n**a)** Finn de stasjonære punktene.\n\n**b)** Klassifiser dem. Vær særlig nøye der andrederiverttesten svikter.\n\n**c)** Finn vendepunktene.",
+      "solution": "**a)** Vi deriverer og faktoriserer:\n\n$$f'(x)=12x^{3}-12x^{2}=12x^{2}(x-1)$$\n\nNullpunkter: $x=0$ (fra $x^{2}$) og $x=1$.\n\nFunksjonsverdiene: $f(0)=0$ og $f(1)=3-4=-1$.\n\n**b) Klassifisering.** Andrederiverte:\n\n$$f''(x)=36x^{2}-24x=12x(3x-2)$$\n\n*I $x=1$:* $f''(1)=36-24=12>0$ → **lokalt minimum i $(1,-1)$**. Testen svarte, og vi er ferdige der.\n\n*I $x=0$:* $f''(0)=0$ → **testen er inkonklusiv**. Vi må bytte metode.\n\n**Førstederiverttesten i $x=0$.** Vi ser på $f'(x)=12x^{2}(x-1)$. Faktoren $12x^{2}$ er aldri negativ, så fortegnet bestemmes av $(x-1)$:\n\n- for $x<0$: $(x-1)<0$, altså $f'<0$\n- for $0<x<1$: $(x-1)<0$, altså $f'<0$\n\nDen deriverte er **negativ på begge sider** av null og bare null i selve punktet. Det er ingen fortegnsveksling.\n\n**Konklusjon: $x=0$ er et stasjonærpunkt uten ekstremverdi.** Funksjonen faller gjennom punktet med en flat hylle.\n\n*Merk at dette er $x^{3}$-situasjonen, ikke $x^{4}$-situasjonen* — samme testresultat $f''=0$, men motsatt svar. Det er nettopp derfor testen ikke kan brukes her.\n\n**Er minimumet i $x=1$ globalt?** Ja. Fjerdegradspolynomet har positiv ledende koeffisient, så $f(x)\\to\\infty$ i begge retninger. De eneste kandidatene er $x=0$ (verdi 0) og $x=1$ (verdi $-1$), og $-1$ er den laveste. Altså er $(1,-1)$ et globalt minimum.\n\n**c) Vendepunkter.** Vi setter $f''(x)=12x(3x-2)=0$, som gir $x=0$ og $x=\\tfrac23$.\n\n**Fortegnslinje for $f''$:**\n\n| Intervall | $12x$ | $(3x-2)$ | $f''$ |\n|---|---|---|---|\n| $x<0$ | $-$ | $-$ | $+$ |\n| $0<x<\\tfrac23$ | $+$ | $-$ | $-$ |\n| $x>\\tfrac23$ | $+$ | $+$ | $+$ |\n\nFortegnet skifter i **begge** nullpunktene, så begge er vendepunkter.\n\n$$f(0)=0,\\qquad f\\!\\left(\\tfrac23\\right)=3\\cdot\\tfrac{16}{81}-4\\cdot\\tfrac{8}{27}=\\tfrac{48}{81}-\\tfrac{96}{81}=-\\tfrac{48}{81}=-\\tfrac{16}{27}$$\n\n**Vendepunkter: $(0,0)$ og $\\left(\\tfrac23,-\\tfrac{16}{27}\\right)$.**\n\n**Legg merke til dobbeltrollen til $x=0$:** det er samtidig et stasjonærpunkt (fordi $f'=0$) og et vendepunkt (fordi $f''$ skifter fortegn). Det er fullt mulig, og det er nettopp kombinasjonen som gir den flate hylla i grafen.\n\n*Kontroll av tallene:* $f'(-1)=-12-12=-24<0$ ✓, $f'(0{,}5)=1{,}5-3=-1{,}5<0$ ✓, $f'(2)=96-48=48>0$ ✓; $f''(-1)=36+24=60>0$ ✓, $f''(0{,}5)=9-12=-3<0$ ✓, $f''(1)=12>0$ ✓."
+    },
+    {
+      "id": "econ1100-4-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD.) La $f(x)=x^{4}-4x^{3}+16$.\n\n**a)** Finn de stasjonære punktene.\n\n**b)** Klassifiser dem.\n\n**c)** Finn vendepunktene.",
+        "solution": "**a)** $f'(x)=4x^{3}-12x^{2}=4x^{2}(x-3)$, med nullpunkter $x=0$ og $x=3$.\n\nFunksjonsverdier: $f(0)=16$ og $f(3)=81-108+16=-11$.\n\n**b) Klassifisering.** $f''(x)=12x^{2}-24x=12x(x-2)$.\n\n*I $x=3$:* $f''(3)=108-72=36>0$ → **lokalt minimum i $(3,-11)$**.\n\n*I $x=0$:* $f''(0)=0$ → **inkonklusiv**. Vi bruker førstederiverttesten:\n\nFaktoren $4x^{2}\\ge 0$ alltid, så fortegnet til $f'$ følger $(x-3)$, som er negativ både for $x<0$ og for $0<x<3$. **Ingen fortegnsveksling** → $x=0$ er verken topp eller bunn.\n\n**Er minimumet globalt?** Ja: ledende koeffisient er positiv, så $f\\to\\infty$ i begge retninger, og $-11$ er den laveste kandidatverdien.\n\n**c) Vendepunkter.** $f''(x)=12x(x-2)=0$ gir $x=0$ og $x=2$.\n\n| Intervall | $12x$ | $(x-2)$ | $f''$ |\n|---|---|---|---|\n| $x<0$ | $-$ | $-$ | $+$ |\n| $0<x<2$ | $+$ | $-$ | $-$ |\n| $x>2$ | $+$ | $+$ | $+$ |\n\nFortegnet skifter begge steder, så begge er vendepunkter: $(0,16)$ og $(2,16-32+16)=(2,0)$.\n\n**Merk at $x=0$ igjen har dobbeltrolle** — stasjonærpunkt uten ekstremverdi, og samtidig vendepunkt. Mønsteret er det samme som i eksempel 3, og det gjentar seg for alle funksjoner der $f'$ har et dobbelt nullpunkt.",
+        "hints": [
+          "Faktoriser $f'$ og se etter faktorer i annen potens — de gir stasjonærpunkter uten fortegnsskifte.",
+          "I c): sett opp fortegnslinje for $f''$ og behold bare nullpunktene der fortegnet faktisk snur."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — eksamensnivå.) La\n\n$$f(x)=x^{4}-2x^{2}+3.$$\n\n**a)** Finn og klassifiser alle stasjonære punkter.\n\n**b)** Avgjør om noen av dem er globale ekstrempunkter. Begrunn.\n\n**c)** Finn vendepunktene.",
+        "solution": "**a)** Vi deriverer og faktoriserer:\n\n$$f'(x)=4x^{3}-4x=4x\\big(x^{2}-1\\big)=4x(x-1)(x+1)$$\n\nStasjonærpunkter: $x=-1$, $x=0$ og $x=1$. Verdier: $f(-1)=1-2+3=2$, $f(0)=3$, $f(1)=2$.\n\n**Andrederiverttesten** med $f''(x)=12x^{2}-4$:\n\n$$f''(-1)=8>0\\ \\Longrightarrow\\ \\text{lokalt minimum i}\\ (-1,2)$$\n\n$$f''(0)=-4<0\\ \\Longrightarrow\\ \\text{lokalt maksimum i}\\ (0,3)$$\n\n$$f''(1)=8>0\\ \\Longrightarrow\\ \\text{lokalt minimum i}\\ (1,2)$$\n\nTesten svarte i alle tre punktene, så her trengs ingen omvei.\n\n**b) Globale ekstrempunkter.**\n\n*Minimum:* ledende koeffisient er positiv, så $f(x)\\to\\infty$ når $x\\to\\pm\\infty$. Funksjonen har altså ingen øvre grense, men den må ha et globalt minimum, og det må være blant de stasjonære punktene. Den laveste kandidatverdien er $2$, oppnådd i **både** $x=-1$ og $x=1$.\n\n**Konklusjon: $(-1,2)$ og $(1,2)$ er begge globale minimumspunkter.**\n\n*Kontroll ved omskriving:* $f(x)=x^{4}-2x^{2}+3=\\big(x^{2}-1\\big)^{2}+2\\ge 2$, med likhet nøyaktig når $x^{2}=1$, altså $x=\\pm 1$ ✓. Kvadratkompletteringen gir samme svar på én linje.\n\n*Maksimum:* punktet $(0,3)$ er **bare lokalt**. Funksjonen vokser uten grense i begge retninger — for eksempel er $f(3)=81-18+3=66>3$ — så det finnes ikke noe globalt maksimum.\n\n**Merk hvorfor b) krever et eget argument.** Andrederiverttesten sa «lokalt maksimum» i $x=0$, og en besvarelse som stopper der og skriver «maksimum», har utelatt det som faktisk ble spurt om. Grenseoppførselen må inn.\n\n**c) Vendepunkter.** $f''(x)=12x^{2}-4=4\\big(3x^{2}-1\\big)=0$ gir\n\n$$x^{2}=\\tfrac13\\ \\Longrightarrow\\ x=\\pm\\frac{1}{\\sqrt3}$$\n\nUttrykket $3x^{2}-1$ er et andregradsuttrykk med positiv ledende koeffisient, altså negativt mellom røttene og positivt utenfor. Fortegnet skifter i begge, så begge er vendepunkter.\n\nFunksjonsverdien i $x^{2}=\\tfrac13$:\n\n$$f=\\tfrac19-\\tfrac23+3=\\tfrac{1}{9}-\\tfrac{6}{9}+\\tfrac{27}{9}=\\tfrac{22}{9}$$\n\n**Vendepunkter:** $\\left(-\\tfrac{1}{\\sqrt3},\\tfrac{22}{9}\\right)$ og $\\left(\\tfrac{1}{\\sqrt3},\\tfrac{22}{9}\\right)$.\n\n*Kontroll:* $\\tfrac{22}{9}\\approx 2{,}44$, som ligger mellom bunnverdien 2 og toppverdien 3 ✓ — som det skal, siden vendepunktene ligger på veien mellom dem.",
+        "hints": [
+          "Faktoriser $f'$ fullstendig før du leter etter stasjonærpunkter.",
+          "I b): hva skjer med et fjerdegradspolynom med positiv ledende koeffisient når $x$ blir stor?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger SU — eksamensnivå med generell funksjon.) La $f$ være to ganger deriverbar på hele tallinjen, med $f'(2)=0$.\n\n**a)** En student skriver: «$f''(2)=0$, altså er $x=2$ et vendepunkt.» Vurder resonnementet.\n\n**b)** Anta i tillegg at $f''(x)\\ge 0$ for alle $x$. Hva kan du da si om $x=2$? Begrunn.\n\n**c)** Anta i stedet at $f''(2)=0$ og at $f''$ skifter fortegn i $x=2$. Er $x=2$ da et ekstrempunkt?",
+        "solution": "**a) Resonnementet holder ikke.** At $f''(2)=0$ er nødvendig for et vendepunkt, men ikke tilstrekkelig — $f''$ må i tillegg **skifte fortegn** i punktet.\n\n*Konkret motsvar:* $f(x)=(x-2)^{4}$ har $f'(x)=4(x-2)^{3}$ med $f'(2)=0$, og $f''(x)=12(x-2)^{2}$ med $f''(2)=0$. Men $12(x-2)^{2}>0$ på begge sider av 2, så krumningen snur aldri. Punktet er ikke et vendepunkt — det er et globalt minimum.\n\nFeilen er #7: kalle $f''=0$ et vendepunkt uten fortegnsskifte.\n\n**b) $x=2$ er et globalt minimum.** Antakelsen $f''\\ge 0$ overalt betyr at $f$ er **konveks i hele definisjonsområdet**.\n\nEn konveks funksjon ligger over alle sine tangenter:\n\n$$f(x)\\ge f(2)+f'(2)(x-2)\\quad\\text{for alle }x$$\n\nSiden $f'(2)=0$, faller det siste leddet bort:\n\n$$f(x)\\ge f(2)\\quad\\text{for alle }x$$\n\n**Konklusjon: $f(2)$ er den minste verdien funksjonen tar, altså er $x=2$ et globalt minimumspunkt.**\n\n*Merk styrken i dette argumentet:* det gjelder **uansett** hva $f''(2)$ er — også hvis den er null. Det er nettopp derfor global konveksitet er redningen i $x^{4}$-tilfellet.\n\n**c) Nei, da er $x=2$ ikke et ekstrempunkt.** Anta at $f''$ skifter fortegn i 2, si fra negativ til positiv (det motsatte tilfellet er symmetrisk).\n\nDa er $f'$ avtakende like til venstre for 2 og voksende like til høyre. Siden $f'(2)=0$, må $f'$ være **positiv** like til venstre (den har avtatt ned til null) og **positiv** like til høyre (den vokser opp fra null).\n\nDen deriverte har altså samme fortegn på begge sider, uten fortegnsveksling, og punktet er da verken topp eller bunn.\n\n*Konkret illustrasjon:* $f(x)=(x-2)^{3}$ har $f'(x)=3(x-2)^{2}\\ge 0$ overalt og $f''(x)=6(x-2)$, som skifter fortegn i 2. Punktet er et vendepunkt med vannrett tangent — den flate hylla igjen.\n\n**Sammenstilling av de tre delpunktene:** $f''(2)=0$ alene sier ingenting; global konveksitet gir globalt minimum; fortegnsskifte i $f''$ utelukker ekstremverdi. Tre ulike opplysninger, tre ulike konklusjoner — og alle krever at du sier hvilken du bruker.",
+        "hints": [
+          "I b): skriv opp hva konveksitet betyr for forholdet mellom kurven og tangenten i et punkt.",
+          "I c): hva må $f'$ gjøre på hver side av punktet når $f'$ avtar ned til null og så vokser opp igjen?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-4-2-bb-x4-fellen",
+      "type": "definition",
+      "title": "$x^{4}$-fellen i kortform",
+      "content": "Den ene setningen som er verdt mest poeng i hele Del 4.\n\n$$f''(a)=0\\ \\Longrightarrow\\ \\text{testen har IKKE svart — bytt metode}$$\n\nDe to gyldige alternativene er global krumning ($f''\\ge 0$ eller $f''\\le 0$ i hele definisjonsområdet) og førstederiverttesten (fortegnsskifte i $f'$). Innsetting i $f''(a)$ og en konklusjon derfra gir null uttelling — dette er feil #2."
+    },
+    {
+      "id": "econ1100-4-2-bb-stasjonaer-ikke-ekstrem",
+      "type": "definition",
+      "title": "Stasjonær er ikke ekstrem",
+      "content": "Pilen går bare én vei, og retningen er verdt å memorere.\n\n$$\\text{indre ekstrempunkt}\\ \\Longrightarrow\\ \\text{stasjonærpunkt},\\qquad\\text{men ikke omvendt}$$\n\nMotsvaret er $x^{3}$ i null: vannrett tangent, ingen ekstremverdi. Å slutte fra $f'(a)=0$ til «toppunkt» er feil #8, og den er lett å gjøre under tidspress fordi de fleste stasjonærpunkter *er* ekstrempunkter."
+    },
+    {
+      "id": "econ1100-4-2-bb-vendepunkt-krav",
+      "type": "definition",
+      "title": "Vendepunkt: nullpunkt pluss fortegnsskifte",
+      "content": "To krav, ikke ett — og det andre er det som glemmes.\n\n$$f''(a)=0\\ \\text{alene er ikke nok}$$\n\nMotsvaret er $x^{4}$ i null: $f''(0)=0$, men $f''=12x^{2}$ er positiv på begge sider. Krumningen snur aldri, og punktet er ikke et vendepunkt. Å ta det med er feil #7."
+    },
+    {
+      "id": "econ1100-4-2-bb-de-to-figurene",
+      "type": "definition",
+      "title": "De to figurene ved siden av hverandre",
+      "content": "Den beste huskeregelen i kapitlet er å se de to grafene sammen.\n\n$$x^{4}:\\ f''(0)=0\\ \\to\\ \\text{globalt minimum};\\qquad x^{3}:\\ f''(0)=0\\ \\to\\ \\text{ingen ekstremverdi}$$\n\nSamme testresultat, motsatt konklusjon. Nettopp fordi de to tilfellene er umulige å skille med andrederiverttesten alene, er testen ubrukelig når den gir null."
+    },
+    {
+      "id": "econ1100-4-2-bb-global-argument",
+      "type": "definition",
+      "title": "Argumenter for globalt ekstremum",
+      "content": "Andrederiverttesten er lokal. Skal konklusjonen gjelde globalt, trengs ett av tre argumenter.\n\n$$\\text{(1) global krumning}\\quad\\text{(2) grenseoppførsel}\\quad\\text{(3) omskriving til kvadrat}$$\n\nGlobal krumning: $f''\\ge 0$ overalt gir globalt minimum i ethvert stasjonærpunkt. Grenseoppførsel: et polynom av like grad med positiv ledende koeffisient går mot uendelig i begge retninger, så det laveste stasjonærpunktet er globalt minimum. Omskriving: $x^{4}-2x^{2}+3=(x^{2}-1)^{2}+2\\ge 2$ avgjør saken på én linje."
+    },
+    {
+      "id": "econ1100-4-2-bb-dobbel-rolle",
+      "type": "definition",
+      "title": "Punkter med dobbeltrolle",
+      "content": "Ett og samme punkt kan være både stasjonærpunkt og vendepunkt.\n\n$$f'(a)=0\\ \\text{OG}\\ f''\\ \\text{skifter fortegn i}\\ a$$\n\nDa har grafen en flat hylle: tangenten er vannrett, men kurven fortsetter i samme retning mens krumningen snur. Funksjonen $x^{3}$ i null er standardeksemplet, og mønsteret gjentar seg hver gang $f'$ har et nullpunkt av odde multiplisitet over én."
+    },
+    {
+      "id": "econ1100-4-2-bb-dobbelt-nullpunkt",
+      "type": "definition",
+      "title": "Dobbelt nullpunkt i $f'$",
+      "content": "En faktor i annen potens i den deriverte er varselet om at testen kommer til å svikte.\n\n$$f'(x)=12x^{2}(x-1)\\ \\Longrightarrow\\ f''(0)=0$$\n\nSer du en kvadrert faktor i $f'$, vet du på forhånd at andrederiverttesten vil gi null i det nullpunktet — og at fortegnet ikke skifter der, siden en kvadrert faktor aldri er negativ. Da kan du gå rett på førstederiverttesten og spare tid."
+    },
+    {
+      "id": "econ1100-4-2-bb-tangentulikheten",
+      "type": "definition",
+      "title": "Konveksitet og tangenten",
+      "content": "Den formelle grunnen til at global konveksitet gir globalt minimum.\n\n$$f\\ \\text{konveks}\\ \\Longrightarrow\\ f(x)\\ge f(a)+f'(a)(x-a)\\ \\text{for alle }x$$\n\nEr $a$ et stasjonærpunkt, faller det siste leddet bort, og ulikheten blir $f(x)\\ge f(a)$ — akkurat definisjonen på globalt minimum. Merk at dette er den samme tangentulikheten som ga underestimat i lineær approksimasjon ([kap. 3.2](/bok/econ1100/econ1100-3-2))."
+    },
+    {
+      "id": "econ1100-4-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-4-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 4.1](/bok/econ1100/econ1100-4-1) og [kap. 1.1](/bok/econ1100/econ1100-1-1).\n\n**1.** Faktoriser $4x^{3}-16x$.\n\n*Svar:* $4x(x-2)(x+2)$.\n\n**2.** Hva er fortegnet til $4x^{2}$ for $x\\ne 0$?\n\n*Svar:* Alltid positivt — en kvadrert faktor er aldri negativ.\n\n**3.** Finn $f''$ når $f(x)=x^{4}-8x^{2}$.\n\n*Svar:* $f'=4x^{3}-16x$ og $f''=12x^{2}-16$.\n\n**4.** Hva betyr $f''(x)<0$ på et intervall?\n\n*Svar:* Funksjonen er konkav der — grafen bøyer nedover.\n\n**5.** Sett opp fortegnslinjen for $12x(x-2)$.\n\n*Svar:* Positiv for $x<0$, negativ for $0<x<2$, positiv for $x>2$.\n\n**6.** Skriv $x^{4}-2x^{2}+3$ som et kvadrat pluss en konstant.\n\n*Svar:* $\\big(x^{2}-1\\big)^{2}+2$, som viser at uttrykket alltid er minst 2."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-4-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f'(a)=0$ | Stasjonærpunkt: vannrett tangent i $x=a$ |\n| $f''(a)$ | Krumningen i punktet; brukes i andrederiverttesten |\n| $f''(a)=0$ | Testen er inkonklusiv — bytt metode |\n| $f''(x)\\ge 0$ | Global konveksitet i hele definisjonsområdet |\n| $(a,f(a))$ | Selve punktet på grafen, skrevet som koordinatpar |\n| $\\pm\\tfrac{1}{\\sqrt3}$ | Typiske vendepunktverdier for et fjerdegradspolynom |\n\n**Formler i dette delkapitlet:**\n\n$$f'(a)=0\\ \\text{og}\\ f''(a)<0\\ \\Longrightarrow\\ \\text{lokalt maksimum}$$\n$$f'(a)=0\\ \\text{og}\\ f''(a)>0\\ \\Longrightarrow\\ \\text{lokalt minimum}$$\nAndrederiverttesten. Rask, men bare lokal — og den svikter når $f''(a)=0$.\n\n$$f''(a)=0\\ \\Longrightarrow\\ \\text{ingen konklusjon fra testen}$$\nFallgruve 1 ($x^{4}$-fellen, feil #2). Bruk global krumning eller førstederiverttesten.\n\n$$f''(x)\\ge 0\\ \\text{for alle }x\\ \\text{og}\\ f'(a)=0\\ \\Longrightarrow\\ a\\ \\text{er globalt minimum}$$\nGlobal konveksitet — det sterkeste argumentet, og det virker også når $f''(a)=0$.\n\n$$f'\\ \\text{skifter}\\ +\\to-\\ \\Rightarrow\\ \\text{topp};\\qquad -\\to+\\ \\Rightarrow\\ \\text{bunn};\\qquad\\text{ingen skifte}\\ \\Rightarrow\\ \\text{ingen ekstremverdi}$$\nFørstederiverttesten. Fallgruve 2 (feil #8) er nettopp det siste tilfellet.\n\n$$f''(a)=0\\ \\text{OG fortegnsskifte i}\\ f''\\ \\Longleftrightarrow\\ \\text{vendepunkt}$$\nBegge kravene må være oppfylt. Bare nullpunktet er feil #7.\n\n$$f(x)\\ge f(a)+f'(a)(x-a)\\quad(f\\ \\text{konveks})$$\nTangentulikheten — den formelle grunnen til at global konveksitet gir globalt minimum."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
