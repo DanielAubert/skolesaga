@@ -1,0 +1,308 @@
+{
+  "id": "econ1100-1-5",
+  "courseId": "econ1100",
+  "chapterNumber": "1.5",
+  "title": "Derivasjon av generelle og ukjente funksjoner",
+  "description": "Å derivere symbolsk når funksjonsformen ikke er oppgitt — de deriverte blir stående som $k'$, $g'$ og $b'_x$ i svaret.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke produkt-, kvotient- og kjerneregelen på funksjoner som bare er navngitt, ikke oppgitt",
+    "skrive symbolske deriverte med riktig argument, og se at et slikt uttrykk er et ferdig svar",
+    "partiellderivere uttrykk med generelle funksjoner av to variabler",
+    "derivere symbolske uttrykk to ganger, og drøfte fortegn ut fra antakelser om de deriverte"
+  ],
+  "content": [
+    {
+      "id": "econ1100-1-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Nesten hvert år har eksamens Oppgave 1 ett delpunkt med en funksjon som aldri blir oppgitt.** Du får bare vite at $k(p)$, $g(u)$, $b(x,y)$ eller $m(y)$ er «en deriverbar funksjon», og skal derivere likevel. I denne boka er dette fortsatt **sjanger P1 — partiellderivasjon** («deriver funksjonene med hensyn på argumentene»), åpningsoppgaven som står i alle 16 settene i arkivet.\n\n**Hvorfor sensor liker denne varianten:** den tester om du har forstått derivasjonsreglene, løsrevet fra konkret regning. Kan du produkt-, kvotient- og kjerneregelen bare når du har et tall å regne på, avsløres det her.\n\n**Det viktigste enkeltpoenget:** svaret *skal* inneholde $k'$, $g'$ og lignende. Det er ikke et uferdig svar — det er fasiten. Studenter som prøver å «bli ferdige» ved å anta en konkret form, mister poeng på noe de egentlig kunne.\n\nKapitlet har **høyeste prioritet**, og det er kort. Det peker dessuten fremover: komparativ statikk i Del 9 og de bevis-lette oppgavene i [kap. 2.2](/bok/econ1100/econ1100-2-2) og [kap. 7.2](/bok/econ1100/econ1100-7-2) består i sin helhet av regning med generelle funksjoner."
+    },
+    {
+      "id": "econ1100-1-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på [kap. 1.1](/bok/econ1100/econ1100-1-1) (produkt-, kvotient- og kjerneregelen), [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte) og [kap. 1.3](/bok/econ1100/econ1100-1-3) (kjerneregelen for flere variabler). Ingen nye regler innføres her — de gamle brukes bare uten tall.\n\n**Reglene du bygger på, i sin symbolske form:**\n\n$$(uv)'=u'v+uv',\\qquad \\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}},\\qquad \\big(f(u(x))\\big)'=f'(u)\\,u'(x)$$"
+    },
+    {
+      "id": "econ1100-1-5-motivasjon",
+      "type": "text",
+      "content": "En bedrift står overfor en etterspørselsfunksjon. Du vet ikke hvordan den ser ut — det gjør ikke økonomen heller — men du vet at den finnes, at den er deriverbar, og at den deriverte er negativ (høyere pris gir lavere salg).\n\nDet er nok til å regne. Nesten all økonomisk teori er bygget slik: man antar en generell funksjon $k(p)$, deriverer symbolsk, og leser konklusjoner ut av fortegnene. Resultatene blir da gyldige for *alle* etterspørselsfunksjoner med de egenskapene, ikke bare for én bestemt.\n\nKapitlet er bygget som tre løkker: én ukjent funksjon i produkt og brøk (løkke 1), sammensetning og kjerneregel med ukjente funksjoner (løkke 2), og flere variabler pluss andrederiverte (løkke 3)."
+    },
+    {
+      "id": "econ1100-1-5-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Én ukjent funksjon i produkt og brøk (~12 min)"
+    },
+    {
+      "id": "econ1100-1-5-def-generell-funksjon",
+      "type": "definition",
+      "title": "Generell (ukjent) funksjon",
+      "content": "En generell funksjon er en funksjon som bare er navngitt, ikke oppgitt på formel. Vi vet at den finnes og at den kan deriveres — mer trenger vi ikke.\n\n$$k(p),\\qquad g(u),\\qquad b(x,y),\\qquad m(y)$$\n\nI økonomi er dette normalsituasjonen: en etterspørselsfunksjon, en nyttefunksjon eller en produktfunksjon behandles ofte generelt, slik at konklusjonene gjelder for en hel klasse av modeller og ikke bare for ett tilfeldig regneeksempel."
+    },
+    {
+      "id": "econ1100-1-5-def-deriverbar",
+      "type": "definition",
+      "title": "Antakelsen «deriverbar»",
+      "content": "Når oppgaven sier at $k$ er deriverbar, gir den deg nøyaktig én ting: at $k'(x)$ finnes. Alle vanlige derivasjonsregler kan da brukes på $k$ som på hvilken som helst funksjon.\n\n$$k\\ \\text{deriverbar}\\ \\Longrightarrow\\ k'(x)\\ \\text{eksisterer for alle }x\\ \\text{i definisjonsområdet}$$\n\nDet du **ikke** får vite, er fortegnet på $k'$, om $k$ vokser, eller hvordan grafen ser ut. Antar du noe av dette uten at oppgaven sier det, har du løst en annen oppgave enn den som ble stilt."
+    },
+    {
+      "id": "econ1100-1-5-def-symbolsk-derivert",
+      "type": "definition",
+      "title": "Den symbolske deriverte $k'(x)$",
+      "content": "Skrivemåten $k'(x)$ betyr «den deriverte av $k$, evaluert i $x$». Det er et helt vanlig funksjonsuttrykk, og det skal bli stående i svaret.\n\n$$\\frac{d}{dx}\\,k(x)=k'(x)$$\n\nMerk at $k'$ selv er en **funksjon av $x$**, ikke et tall. Det får konsekvenser med én gang du skal derivere videre: $k'(x)$ deriveres til $k''(x)$, ikke til null."
+    },
+    {
+      "id": "econ1100-1-5-def-produkt-generell",
+      "type": "definition",
+      "title": "Produktregelen med generell funksjon",
+      "content": "Produktregelen brukes helt som vanlig — den ene faktoren kan godt være ukjent.\n\n$$\\frac{d}{dx}\\big[x\\,k(x)\\big]=1\\cdot k(x)+x\\cdot k'(x)=k(x)+x\\,k'(x)$$\n\nLegg merke til at svaret inneholder **både** $k$ og $k'$. Det er typisk: den ukjente funksjonen dukker opp i ett ledd og dens deriverte i et annet. Denne konkrete formen møter du igjen som grenseinntekt i økonomi, der $x\\,k(x)$ er inntekt og $k$ er etterspørselen."
+    },
+    {
+      "id": "econ1100-1-5-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Inntekt med generell etterspørsel",
+      "problem": "Et kraftselskap selger $k(p)$ enheter når prisen er $p$, der $k$ er en deriverbar funksjon. Samlet inntekt er $R(p)=p\\,k(p)$.\n\nFinn $R'(p)$, og forklar de to leddene.",
+      "solution": "**Produktregelen** med $u=p$ ($u'=1$) og $v=k(p)$ ($v'=k'(p)$):\n\n$$R'(p)=k(p)+p\\,k'(p)$$\n\n**Det første leddet, $k(p)$,** er den mengden som allerede selges: hver enhet gir én krone mer i inntekt når prisen øker med én krone.\n\n**Det andre leddet, $p\\,k'(p)$,** er tapet fra at salget faller: $k'(p)$ er hvor mange enheter som forsvinner per krone prisøkning, og hver av dem ville gitt prisen $p$ i inntekt.\n\n**Fortegnsdrøfting.** For en normal etterspørselsfunksjon er $k'(p)<0$, så de to leddene trekker i hver sin retning. Inntekten øker med prisen bare hvis $k(p)>-p\\,k'(p)$, altså hvis mengdefallet er lite nok. Dette er hele elastisitetsanalysen i Del 2 — i kimform.\n\n**Merk at svaret er ferdig.** Vi kan ikke regne ut $k(p)$ eller $k'(p)$ som tall, og det skal vi heller ikke. Uttrykket $k(p)+p\\,k'(p)$ **er** løsningen."
+    },
+    {
+      "id": "econ1100-1-5-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger P1 — «deriver funksjonene», altså eksamens Oppgave 1. Innstegsoppgave.) La $g$ og $k$ være deriverbare funksjoner. Deriver:\n\n**a)** $f(x)=3\\,k(x)$\n\n**b)** $h(x)=k(x)+g(x)$\n\n**c)** $m(x)=x^{2}+k(x)$",
+        "solution": "**a)** Konstantregelen: en konstant faktor står utenfor.\n\n$$f'(x)=3\\,k'(x)$$\n\n**b)** Sumregelen: deriver ledd for ledd.\n\n$$h'(x)=k'(x)+g'(x)$$\n\n**c)** Samme prinsipp, men her er ett ledd konkret og ett ukjent:\n\n$$m'(x)=2x+k'(x)$$\n\n**Merk:** i alle tre står den ukjente deriverte igjen i svaret. Det er riktig og ferdig — det finnes ikke noe mer å gjøre.",
+        "hints": [
+          "Behandle $k$ som en hvilken som helst funksjon: reglene er de samme.",
+          "Konstantregelen og sumregelen gjelder uendret når funksjonen er ukjent."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-5-def-kvotient-generell",
+      "type": "definition",
+      "title": "Kvotientregelen med generell funksjon",
+      "content": "Også kvotientregelen brukes uendret. Er den ukjente funksjonen i telleren, blir dens deriverte stående der.\n\n$$\\frac{d}{dx}\\left(\\frac{k(x)}{x}\\right)=\\frac{k'(x)\\cdot x-k(x)\\cdot 1}{x^{2}}=\\frac{x\\,k'(x)-k(x)}{x^{2}}$$\n\nMerk at telleren har **minus** mellom leddene, i den rekkefølgen. Det er samme felle som i [kap. 1.1](/bok/econ1100/econ1100-1-1) — feil #12, fortegnsfeil i deriverte av brøker — og den er ekstra lett å gjøre når uttrykkene er symbolske og ikke lar seg tallsjekke."
+    },
+    {
+      "id": "econ1100-1-5-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Produkt og brøk i samme uttrykk",
+      "problem": "La $g$ og $k$ være deriverbare funksjoner, og la\n\n$$H(x)=x^{2}g(x)-\\frac{k(x)}{x},\\qquad x>0.$$\n\nFinn $H'(x)$.",
+      "solution": "**Ledd 1 — produktregelen** med $u=x^{2}$ ($u'=2x$) og $v=g(x)$ ($v'=g'(x)$):\n\n$$\\frac{d}{dx}\\big[x^{2}g(x)\\big]=2x\\,g(x)+x^{2}g'(x)$$\n\n**Ledd 2 — kvotientregelen** med $u=k(x)$ og $v=x$:\n\n$$\\frac{d}{dx}\\left(\\frac{k(x)}{x}\\right)=\\frac{k'(x)\\cdot x-k(x)}{x^{2}}$$\n\n**Sett sammen, med minusen fra det opprinnelige uttrykket:**\n\n$$H'(x)=2x\\,g(x)+x^{2}g'(x)-\\frac{x\\,k'(x)-k(x)}{x^{2}}$$\n\n**Åpenbar forenkling:** del opp den siste brøken.\n\n$$H'(x)=2x\\,g(x)+x^{2}g'(x)-\\frac{k'(x)}{x}+\\frac{k(x)}{x^{2}}$$\n\n**Merk fortegnet på siste ledd.** Minusen foran brøken og minusen inne i telleren gir pluss. Det er nøyaktig her feil #12 slår til i symbolske uttrykk — sett alltid hele kvotientregelens resultat i parentes før du setter minus foran.\n\n**Kontroll uten tall:** setter du $k(x)=x$, skal siste del gi $\\frac{d}{dx}\\frac{x}{x}=0$. Formelen gir $-\\frac{1}{x}+\\frac{x}{x^{2}}=-\\frac1x+\\frac1x=0$. ✓ Slike spesialtilfeller er en billig og effektiv kontroll på symbolske svar."
+    },
+    {
+      "id": "econ1100-1-5-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $k$ være en deriverbar funksjon med $k(x)>0$. Deriver:\n\n**a)** $f(x)=\\dfrac{1}{k(x)}$\n\n**b)** $g(x)=\\big(k(x)\\big)^{2}$\n\n**c)** $h(x)=x\\,k(x)+\\ln k(x)$",
+        "solution": "**a)** Kvotientregelen med $u=1$ ($u'=0$) og $v=k(x)$:\n\n$$f'(x)=\\frac{0\\cdot k(x)-1\\cdot k'(x)}{\\big(k(x)\\big)^{2}}=-\\frac{k'(x)}{\\big(k(x)\\big)^{2}}$$\n\n*Alternativt* med kjerneregelen: $f=\\big(k(x)\\big)^{-1}$ gir $-1\\big(k(x)\\big)^{-2}k'(x)$ — samme svar.\n\n**b)** Kjerneregelen på en potens av en funksjon:\n\n$$g'(x)=2\\,k(x)\\,k'(x)$$\n\n**c)** Ledd for ledd. Produktregelen på første ledd, og regelen $\\frac{g'}{g}$ på andre:\n\n$$h'(x)=k(x)+x\\,k'(x)+\\frac{k'(x)}{k(x)}$$\n\n**Merk kravet $k(x)>0$** i c): det er nødvendig for at $\\ln k(x)$ i det hele tatt skal være definert. Å nevne den slags forutsetninger er en billig markør på at du har oversikt.",
+        "hints": [
+          "I a) og b): behandle $k(x)$ som innmaten i en potens, og bruk kjerneregelen.",
+          "I c): to ledd, to ulike regler — produktregelen på det første, $\\frac{g'}{g}$ på det andre."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-5-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Sammensetning av ukjente funksjoner (~11 min)"
+    },
+    {
+      "id": "econ1100-1-5-def-kjerne-generell",
+      "type": "definition",
+      "title": "Kjerneregelen med generell funksjon",
+      "content": "Kjerneregelen virker uendret når den ytre funksjonen er ukjent: du skriver den deriverte av den ytre med kjernen inni, og ganger med kjernens deriverte.\n\n$$\\frac{d}{dx}\\,g\\big(u(x)\\big)=g'\\big(u(x)\\big)\\cdot u'(x)$$\n\nDet viktige er argumentet: det står $g'(u(x))$, ikke $g'(x)$. Den deriverte skal evalueres der kjernen faktisk befinner seg. Å skrive $g'(x)$ er en meningsfeil, ikke bare slurv."
+    },
+    {
+      "id": "econ1100-1-5-def-to-generelle",
+      "type": "definition",
+      "title": "Sammensetning av to ukjente funksjoner",
+      "content": "Er både den ytre og den indre funksjonen ukjent, inneholder svaret to symbolske deriverte — og det er som det skal være.\n\n$$\\frac{d}{dx}\\,g\\big(u(x)\\big)=g'\\big(u(x)\\big)\\,u'(x)$$\n\nFor eksempel: er $u$ en produktfunksjon og $g$ en nyttefunksjon, er $g'(u(x))u'(x)$ den samlede effekten av at $x$ endres. Kjeden er den samme som i [kap. 1.3](/bok/econ1100/econ1100-1-3), bare uten tall."
+    },
+    {
+      "id": "econ1100-1-5-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Kjerneregelen uten formler",
+      "problem": "La $g$, $u$, $k$ og $m$ være deriverbare funksjoner, med $k(x)>0$. Deriver:\n\n**a)** $f(x)=g\\big(u(x)\\big)$, **b)** $F(x)=\\ln k(x)$, **c)** $G(x)=e^{m(x)}$, **d)** $P(x)=\\sqrt{k(x)}$.",
+      "solution": "**a)** Ren kjerneregel:\n\n$$f'(x)=g'\\big(u(x)\\big)\\,u'(x)$$\n\n**b)** Den ytre funksjonen er $\\ln$, som har derivert $\\frac{1}{\\text{innmat}}$:\n\n$$F'(x)=\\frac{k'(x)}{k(x)}$$\n\n**c)** Den ytre funksjonen er $e$, som blir stående:\n\n$$G'(x)=m'(x)\\,e^{m(x)}$$\n\n**d)** Roten er en potens: $P=\\big(k(x)\\big)^{1/2}$, og kjerneregelen gir\n\n$$P'(x)=\\frac{1}{2}\\big(k(x)\\big)^{-1/2}k'(x)=\\frac{k'(x)}{2\\sqrt{k(x)}}$$\n\n**Fellesnevneren i alle fire:** den ukjente funksjonens deriverte kommer som **faktor**, og den ytre regelen bestemmer hva den ganges med. Det er nøyaktig samme mønster som med konkrete funksjoner — bare uten muligheten til å regne ut noe."
+    },
+    {
+      "id": "econ1100-1-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $g$, $u$ og $k$ være deriverbare funksjoner. Deriver:\n\n**a)** $f(x)=x\\,g\\big(x^{2}\\big)$\n\n**b)** $h(x)=k\\big(u(x)\\big)+u\\big(k(x)\\big)$",
+        "solution": "**a)** Produktregelen med $u_1=x$ og $v_1=g(x^{2})$. Den andre faktoren krever kjerneregelen, med kjerne $x^{2}$ og kjernederivert $2x$:\n\n$$f'(x)=1\\cdot g\\big(x^{2}\\big)+x\\cdot g'\\big(x^{2}\\big)\\cdot 2x=g\\big(x^{2}\\big)+2x^{2}g'\\big(x^{2}\\big)$$\n\n**b)** To sammensetninger, hver med kjerneregelen. Merk at rollene er byttet om i det andre leddet:\n\n$$h'(x)=k'\\big(u(x)\\big)\\,u'(x)+u'\\big(k(x)\\big)\\,k'(x)$$\n\n**Merk argumentene nøye.** I første ledd deriveres $k$ og evalueres i $u(x)$; i andre ledd deriveres $u$ og evalueres i $k(x)$. Å skrive $k'(x)u'(x)$ i begge ledd er en meningsfeil, ikke bare en skrivefeil — de to leddene er generelt helt forskjellige.",
+        "hints": [
+          "I a): produktregelen først, og husk kjerneregelen inne i $g(x^{2})$.",
+          "I b): hvilken funksjon er ytterst i hvert ledd? Den skal deriveres og evalueres i det som står inni."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-5-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Flere variabler og andrederiverte (~10 min)"
+    },
+    {
+      "id": "econ1100-1-5-def-partiell-generell",
+      "type": "definition",
+      "title": "Partiellderivasjon med generelle funksjoner",
+      "content": "Har den ukjente funksjonen to argumenter, skriver vi de partiellderiverte som $b'_{x}$ og $b'_{y}$ — nøyaktig som for konkrete funksjoner.\n\n$$\\frac{\\partial}{\\partial y}\\Big[b(x,y)\\,h(y)\\Big]=b'_{y}(x,y)\\,h(y)+b(x,y)\\,h'(y)$$\n\nLegg merke til at $h$ bare har ett argument, så dens deriverte skrives $h'(y)$ uten indeks. Er en generell funksjon *uavhengig* av variabelen du deriverer mht., forsvinner den som en konstant: $\\frac{\\partial}{\\partial x}h(y)=0$."
+    },
+    {
+      "id": "econ1100-1-5-def-andrederivert-generell",
+      "type": "definition",
+      "title": "Andrederiverte av generelle uttrykk",
+      "content": "Skal du derivere et symbolsk uttrykk én gang til, må du huske at $k'(x)$ selv er en funksjon — den deriveres til $k''(x)$, ikke til null.\n\n$$\\frac{d^{2}}{dx^{2}}\\big[x\\,k(x)\\big]=\\frac{d}{dx}\\big[k(x)+x\\,k'(x)\\big]=k'(x)+k'(x)+x\\,k''(x)=2k'(x)+x\\,k''(x)$$\n\nHer ble produktregelen brukt på $x\\,k'(x)$ i det andre steget. Å behandle $k'$ som en konstant er en av de vanligste feilene i denne oppgavetypen — og den er lett å gjøre, fordi $k'$ *ser ut* som et symbol snarere enn en funksjon."
+    },
+    {
+      "id": "econ1100-1-5-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — generelle funksjoner i to variabler",
+      "problem": "La $b$ være en deriverbar funksjon av to variabler og $h$ en deriverbar funksjon av én variabel. La\n\n$$F(x,y)=b(x,y)\\,h(y)+\\frac{x}{h(y)},\\qquad h(y)\\ne 0.$$\n\n**a)** Finn $F'_{x}$.\n\n**b)** Finn $F'_{y}$.",
+      "solution": "**a) Med hensyn på $x$.** Nå er $h(y)$ en **konstant** — den inneholder ingen $x$.\n\n- Første ledd: $h(y)$ er konstant faktor, så vi deriverer bare $b$ mht. $x$ → $b'_{x}(x,y)\\,h(y)$.\n- Andre ledd: $\\dfrac{x}{h(y)}$ er $x$ ganget med konstanten $\\dfrac{1}{h(y)}$ → $\\dfrac{1}{h(y)}$.\n\n$$F'_{x}=b'_{x}(x,y)\\,h(y)+\\frac{1}{h(y)}$$\n\n**b) Med hensyn på $y$.** Nå varierer begge faktorene i første ledd, og nevneren i andre ledd.\n\n- Første ledd, produktregelen: $b'_{y}(x,y)\\,h(y)+b(x,y)\\,h'(y)$.\n- Andre ledd: skriv $x\\big(h(y)\\big)^{-1}$ og bruk kjerneregelen, med $x$ som konstant faktor → $-x\\big(h(y)\\big)^{-2}h'(y)$.\n\n$$F'_{y}=b'_{y}(x,y)\\,h(y)+b(x,y)\\,h'(y)-\\frac{x\\,h'(y)}{\\big(h(y)\\big)^{2}}$$\n\n**Slik ville en A-besvarelse sett ut:** hvert ledd behandles for seg med metoden navngitt, det sies eksplisitt at $h(y)$ er konstant mht. $x$, og sluttsvaret står i symbolsk form uten forsøk på å «regne det ut».\n\n**Kontroll ved et spesialtilfelle:** sett $b(x,y)=x$ og $h(y)=y$. Da er $F=xy+\\frac{x}{y}$, og direkte derivasjon gir $F'_{x}=y+\\frac1y$ og $F'_{y}=x-\\frac{x}{y^{2}}$. Formlene våre gir $b'_{x}=1$, $b'_{y}=0$, $h'=1$, altså $F'_{x}=y+\\frac1y$ ✓ og $F'_{y}=0+x-\\frac{x}{y^{2}}$ ✓."
+    },
+    {
+      "id": "econ1100-1-5-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P1.) La $b$ være en deriverbar funksjon av to variabler og $h$ en deriverbar funksjon av én variabel. Finn de partiellderiverte:\n\n**a)** $\\dfrac{\\partial}{\\partial x}\\Big[b(x,y)+h(y)\\Big]$\n\n**b)** $\\dfrac{\\partial}{\\partial y}\\Big[b(x,y)+h(y)\\Big]$",
+        "solution": "**a)** Leddet $h(y)$ inneholder ingen $x$ og er derfor en konstant mht. $x$:\n\n$$\\frac{\\partial}{\\partial x}\\Big[b(x,y)+h(y)\\Big]=b'_{x}(x,y)$$\n\n**b)** Nå bidrar begge ledd:\n\n$$\\frac{\\partial}{\\partial y}\\Big[b(x,y)+h(y)\\Big]=b'_{y}(x,y)+h'(y)$$\n\n**Merk skrivemåten:** $b$ har to argumenter og får derfor indeks ($b'_{x}$, $b'_{y}$), mens $h$ bare har ett og skrives $h'(y)$ uten indeks.",
+        "hints": [
+          "Spør for hvert ledd: inneholder det variabelen jeg deriverer med hensyn på?",
+          "En generell funksjon av $y$ alene er en konstant når du deriverer mht. $x$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-5-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) En bedrift produserer $F(N)$ enheter med $N$ ansatte, der $F$ er deriverbar. Produktet selges til fast pris $p$, og lønnen per ansatt er $w$. Overskuddet er\n\n$$\\pi(N)=p\\,F(N)-wN.$$\n\n**a)** Finn $\\pi'(N)$.\n\n**b)** Skriv opp betingelsen $\\pi'(N)=0$, og tolk den i ord.\n\n**c)** Anta i tillegg at $F$ er to ganger deriverbar. Finn $\\pi''(N)$.",
+        "solution": "**a)** Ledd for ledd. Konstanten $p$ står utenfor, og $wN$ deriveres til $w$:\n\n$$\\pi'(N)=p\\,F'(N)-w$$\n\n**b)** Betingelsen blir\n\n$$p\\,F'(N)=w$$\n\n**Tolkning:** verdien av det den siste ansatte produserer — prisen ganget med grenseproduktet — skal være lik det den siste ansatte koster. Så lenge $pF'>w$ lønner det seg å ansette flere; når $pF'<w$ er man gått for langt. Dette er profittmaksimeringsbetingelsen som utvikles fullt ut i [kap. 9.1](/bok/econ1100/econ1100-9-1).\n\n**c)** Deriver $\\pi'(N)=pF'(N)-w$ én gang til. Konstanten $w$ forsvinner, og $F'$ deriveres til $F''$:\n\n$$\\pi''(N)=p\\,F''(N)$$\n\nEr $p>0$, har $\\pi''$ samme fortegn som $F''$. Med avtakende grenseprodukt ($F''<0$) er altså $\\pi''<0$ — noe som senere blir begrunnelsen for at betingelsen i b) faktisk gir et maksimum og ikke et minimum.",
+        "hints": [
+          "Behandle $p$ og $w$ som konstanter, og $F(N)$ som en hvilken som helst deriverbar funksjon.",
+          "I c): hva blir den deriverte av $F'(N)$, og hva skjer med konstantleddet $-w$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-5-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil med generelle funksjoner",
+      "content": "- **Å anta en konkret form.** «La oss si at $k(x)=x^{2}$» besvarer en annen og lettere oppgave. Antar du noe oppgaven ikke gir, mister du poengene selv om regningen er riktig.\n- **Å behandle $k'(x)$ som en konstant.** Ved andregangs derivasjon blir $k'$ til $k''$, ikke til null. Dette er den klart vanligste feilen når oppgaven ber om andrederiverte.\n- **Feil argument i den deriverte.** Kjerneregelen gir $g'\\big(u(x)\\big)$, ikke $g'(x)$. Skriv alltid argumentet ut, også når det er tungvint.\n- **Å tro at svaret er uferdig.** Et uttrykk med $k$, $k'$, $g$ og $g'$ i seg **er** fasiten. Sensor forventer nettopp det.\n- **Feil #12 — fortegnsfeil i deriverte av brøker.** Kvotientregelen er ekstra farlig symbolsk, fordi du ikke kan tallsjekke underveis. Sett hele resultatet i parentes før du setter minus foran det.\n- **Å glemme at en funksjon uten den aktuelle variabelen er konstant.** Mht. $x$ er $h(y)$ et tall, og $\\frac{\\partial}{\\partial x}h(y)=0$."
+    },
+    {
+      "id": "econ1100-1-5-drill-intro",
+      "type": "text",
+      "content": "## Eksamensdrill (~7 min)\n\nDe to siste oppgavene ligger på eksamensnivå: den første er den klassiske blandingen av konkrete og ukjente funksjoner, den andre krever andrederiverte."
+    },
+    {
+      "id": "econ1100-1-5-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La $g$ og $k$ være deriverbare funksjoner, og la\n\n$$H(x)=x^{2}g(x)-\\frac{k(x)}{x},\\qquad x>0.$$\n\n**a)** Finn $H'(x)$, og forenkle så langt det går.\n\n**b)** Sett $g(x)=1$ og $k(x)=x$, og kontroller at formelen din gir riktig svar.",
+        "solution": "**a)** Ledd for ledd.\n\n*Første ledd, produktregelen:* $\\dfrac{d}{dx}\\big[x^{2}g(x)\\big]=2x\\,g(x)+x^{2}g'(x)$.\n\n*Andre ledd, kvotientregelen:* $\\dfrac{d}{dx}\\left(\\dfrac{k(x)}{x}\\right)=\\dfrac{x\\,k'(x)-k(x)}{x^{2}}$.\n\nSett sammen med minus foran hele det andre resultatet:\n\n$$H'(x)=2x\\,g(x)+x^{2}g'(x)-\\frac{x\\,k'(x)-k(x)}{x^{2}}$$\n\n**Forenkling** ved å dele opp brøken:\n\n$$H'(x)=2x\\,g(x)+x^{2}g'(x)-\\frac{k'(x)}{x}+\\frac{k(x)}{x^{2}}$$\n\n**b) Kontroll.** Med $g(x)=1$ (så $g'=0$) og $k(x)=x$ (så $k'=1$) er\n\n$$H(x)=x^{2}\\cdot 1-\\frac{x}{x}=x^{2}-1$$\n\nsom deriveres direkte til $2x$. Formelen gir\n\n$$2x\\cdot 1+x^{2}\\cdot 0-\\frac{1}{x}+\\frac{x}{x^{2}}=2x-\\frac1x+\\frac1x=2x$$\n\n✓ Samme svar. **Denne kontrollen er verdt å kunne:** velg de enkleste tenkelige funksjonene, regn begge veier, og se om det stemmer. Den fanger både glemte ledd og fortegnsfeil, og koster under et minutt.",
+        "hints": [
+          "Ta ett ledd om gangen: produktregelen på det første, kvotientregelen på det andre.",
+          "Sett hele kvotientregelens resultat i parentes før du setter minus foran — ellers glipper fortegnet på $k(x)$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-5-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La $k$ være en to ganger deriverbar funksjon, og la $R(x)=x\\,k(x)$.\n\n**a)** Finn $R'(x)$.\n\n**b)** Finn $R''(x)$.\n\n**c)** Anta at $k'(x)<0$ og $k''(x)>0$ for alle $x>0$. Hva kan du si om fortegnet til $R''(x)$? Begrunn.",
+        "solution": "**a)** Produktregelen:\n\n$$R'(x)=k(x)+x\\,k'(x)$$\n\n**b)** Deriver én gang til. Første ledd gir $k'(x)$. Andre ledd er et produkt av $x$ og $k'(x)$, så produktregelen gjelder igjen — og $k'$ deriveres til $k''$:\n\n$$R''(x)=k'(x)+\\big[1\\cdot k'(x)+x\\,k''(x)\\big]=2k'(x)+x\\,k''(x)$$\n\n**c)** Med $k'<0$ er $2k'(x)<0$, og med $k''>0$ og $x>0$ er $x\\,k''(x)>0$. De to leddene har altså **motsatt fortegn**, og fortegnet til summen kan ikke avgjøres uten mer informasjon.\n\nVi kan likevel si presist når hver mulighet inntreffer:\n\n$$R''(x)>0\\quad\\Longleftrightarrow\\quad x\\,k''(x)>-2k'(x)\\quad\\Longleftrightarrow\\quad x>\\frac{-2k'(x)}{k''(x)}$$\n\n(siste omskriving er lovlig fordi $k''>0$, og høyresiden er positiv fordi $-k'>0$).\n\n**Konkret motsvar:** med $k(x)=1/x$ er $k'=-1/x^{2}<0$ og $k''=2/x^{3}>0$, og da er $R=x\\cdot\\frac1x=1$, altså $R''=0$ for alle $x$ — verken positiv eller negativ. Med $k(x)=e^{-x}$ er $k'=-e^{-x}<0$, $k''=e^{-x}>0$, og $R''=e^{-x}(x-2)$, som er negativ for $x<2$ og positiv for $x>2$. Fortegnet skifter altså, akkurat som betingelsen over sier.\n\n**Poenget:** når to ledd trekker i hver sin retning, er «vi vet ikke» et fullgodt svar — så lenge du **viser hvorfor** og oppgir betingelsen som avgjør. Å påstå et bestemt fortegn uten dekning er derimot en direkte feil.",
+        "hints": [
+          "I b): $R'$ har to ledd, og det andre er et produkt — hva skjer med $k'(x)$ når du deriverer det?",
+          "I c): sett inn fortegnene ledd for ledd, og se om de peker samme vei."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-5-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-1-5-bb-fortegnsantakelse",
+      "type": "definition",
+      "title": "Fortegnsantakelser om ukjente funksjoner",
+      "content": "Ofte oppgir oppgaven fortegnet på den deriverte i stedet for funksjonsformen — og det er nok til å trekke konklusjoner.\n\n$$k'(p)<0\\ \\text{(etterspørselen faller med prisen)},\\qquad F''(N)<0\\ \\text{(avtakende grenseprodukt)}$$\n\nSlike antakelser er selve språket i økonomisk teori: de gjør resultatene gyldige for en hel klasse funksjoner. Men bruk bare de antakelsene oppgaven faktisk gir — ikke de du selv synes er rimelige."
+    },
+    {
+      "id": "econ1100-1-5-bb-uferdig",
+      "type": "definition",
+      "title": "Når svaret «ser uferdig ut»",
+      "content": "Et symbolsk svar som inneholder $k$, $k'$, $g$ eller $g'$, er ferdig. Det er ikke mulig — og ikke ønskelig — å regne det videre.\n\n$$R'(p)=k(p)+p\\,k'(p)$$\n\nTegn på at du er ferdig: hver ukjent funksjon står med riktig argument, alle derivasjonsregler er brukt ut, og det finnes ingen uåpnede parenteser. Da er neste steg å *tolke* uttrykket, ikke å regne mer på det."
+    },
+    {
+      "id": "econ1100-1-5-bb-spesialtilfelle",
+      "type": "definition",
+      "title": "Kontroll med spesialtilfelle",
+      "content": "Den beste kontrollen på et symbolsk svar er å sette inn den enkleste tenkelige funksjonen og regne begge veier.\n\n$$\\text{Sett }k(x)=x\\ \\text{eller}\\ k(x)=1,\\ \\text{og sammenlign}$$\n\nFor $R'(x)=k(x)+x\\,k'(x)$ med $k(x)=x$ får vi $R=x^{2}$ og $R'=2x$; formelen gir $x+x\\cdot 1=2x$. ✓ Kontrollen tar under et minutt og fanger både glemte ledd og fortegnsfeil — den bør være standard før du går videre på eksamen."
+    },
+    {
+      "id": "econ1100-1-5-bb-komparativ",
+      "type": "definition",
+      "title": "Broen til komparativ statikk",
+      "content": "Regning med generelle funksjoner er forutsetningen for **komparativ statikk** — analysen av hvordan en optimal tilpasning endrer seg når en parameter (en pris, en lønn, en skattesats) flytter seg.\n\n$$\\text{Førsteordensbetingelse}\\ \\to\\ \\text{deriver symbolsk}\\ \\to\\ \\text{les av fortegnet på}\\ \\frac{dN^{*}}{dw}$$\n\nDer er hele poenget at funksjonsformen ikke er kjent: konklusjonen skal gjelde for alle produktfunksjoner med de antatte egenskapene. Teknikken utvikles i [kap. 9.3](/bok/econ1100/econ1100-9-3), men håndverket er det du øver på her."
+    },
+    {
+      "id": "econ1100-1-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-1-5-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1), [kap. 1.2](/bok/econ1100/econ1100-1-2) og [kap. 1.3](/bok/econ1100/econ1100-1-3).\n\n**1.** Deriver $f(x)=x\\,e^{x}$ med produktregelen.\n\n*Svar:* $f'=e^{x}+xe^{x}=e^{x}(1+x)$. Sammenlign formen med $k(x)+xk'(x)$.\n\n**2.** Deriver $g(x)=\\dfrac{x^{2}}{x+1}$.\n\n*Svar:* $g'=\\dfrac{2x(x+1)-x^{2}}{(x+1)^{2}}=\\dfrac{x^{2}+2x}{(x+1)^{2}}$.\n\n**3.** Deriver $h(x)=\\ln(x^{3}+1)$.\n\n*Svar:* $h'=\\dfrac{3x^{2}}{x^{3}+1}$ — samme mønster som $\\dfrac{k'}{k}$.\n\n**4.** La $f(x,y)=x^{2}y$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=2xy$ og $f'_{y}=x^{2}$.\n\n**5.** La $z=f(x,y)$ med $x=x(t)$ og $y=y(t)$. Skriv opp $\\dfrac{dz}{dt}$.\n\n*Svar:* $\\dfrac{dz}{dt}=f'_{x}\\dfrac{dx}{dt}+f'_{y}\\dfrac{dy}{dt}$ — kjerneregelen fra [kap. 1.3](/bok/econ1100/econ1100-1-3).\n\n**6.** Deriver $\\sqrt{x^{2}+1}$.\n\n*Svar:* $\\dfrac{x}{\\sqrt{x^{2}+1}}$ — samme mønster som $\\dfrac{k'}{2\\sqrt{k}}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-1-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-1-5-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $k(x)$, $g(u)$, $m(y)$, $h(y)$ | Generelle (ukjente) deriverbare funksjoner av én variabel |\n| $b(x,y)$ | Generell deriverbar funksjon av to variabler |\n| $k'(x)$ | Den deriverte av den ukjente funksjonen — selv en funksjon av $x$ |\n| $k''(x)$ | Den andrederiverte av den ukjente funksjonen |\n| $b'_{x}$, $b'_{y}$ | Partiellderiverte av den generelle tovariabelfunksjonen |\n| $g'\\big(u(x)\\big)$ | Den deriverte av $g$, evaluert i punktet $u(x)$ |\n| $k(p)$, $R(p)=p\\,k(p)$ | Etterspørsel og inntekt i kapitlets økonomiske eksempel |\n| $H(x)$, $F(x,y)$ | Sammensatte uttrykk bygget av generelle funksjoner |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{d}{dx}\\big[x\\,k(x)\\big]=k(x)+x\\,k'(x)$$\nProduktregelen med generell funksjon — grunnformen bak grenseinntekt.\n\n$$\\frac{d}{dx}\\left(\\frac{k(x)}{x}\\right)=\\frac{x\\,k'(x)-k(x)}{x^{2}}$$\nKvotientregelen symbolsk. Rekkefølgen i telleren bestemmer fortegnet (feil #12).\n\n$$\\frac{d}{dx}\\,g\\big(u(x)\\big)=g'\\big(u(x)\\big)\\,u'(x)$$\nKjerneregelen med generell ytre funksjon — merk argumentet $u(x)$, ikke $x$.\n\n$$\\frac{d}{dx}\\ln k(x)=\\frac{k'(x)}{k(x)},\\qquad \\frac{d}{dx}e^{m(x)}=m'(x)e^{m(x)},\\qquad \\frac{d}{dx}\\sqrt{k(x)}=\\frac{k'(x)}{2\\sqrt{k(x)}}$$\nDe tre vanligste ytre funksjonene, med ukjent innmat.\n\n$$\\frac{\\partial}{\\partial y}\\big[b(x,y)h(y)\\big]=b'_{y}\\,h(y)+b(x,y)\\,h'(y)$$\nProduktregelen partielt, med generelle funksjoner i begge faktorer.\n\n$$\\frac{d^{2}}{dx^{2}}\\big[x\\,k(x)\\big]=2k'(x)+x\\,k''(x)$$\nAndrederivert: husk at $k'$ er en funksjon og deriveres videre til $k''$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
