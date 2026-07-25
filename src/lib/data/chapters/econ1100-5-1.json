@@ -1,0 +1,375 @@
+{
+  "id": "econ1100-5-1",
+  "courseId": "econ1100",
+  "chapterNumber": "5.1",
+  "title": "Nivåkurver og deres helning",
+  "description": "Helningen $y'(x)=-F'_x/F'_y$ langs en nivåkurve $F(x,y)=c$ — utledet fra differensialet, kontrollert med implisitt derivasjon, og lest økonomisk som bytteforhold.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "forklare hva en nivåkurve er, og skrive den på formen $y=y(x)$ når det lar seg gjøre",
+    "utlede helningsformelen fra differensialet, med betingelsen for at den gjelder",
+    "finne helningen både med formelen og ved implisitt derivasjon, og bruke den ene som kontroll på den andre",
+    "tolke helningen økonomisk som bytteforhold mellom to goder, og knytte den til tangeringsbetingelsen i optimum"
+  ],
+  "content": [
+    {
+      "id": "econ1100-5-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Nivåkurver er det temaet som har vært innom flest eksamenssett uten noen gang å bli vanskeligere.**\n\nNivåkurve og implisitt derivasjon står i **12 av 16 sett** i arkivet (75 prosent) — og i **alle de 9 ordinære** settene. Temaet opptrer i to former: som egen storoppgave blant Oppgave 3–5, og som ett punkt i Oppgave 2, den oppgaven denne boka kaller **sjanger SU — «sant eller usant? begrunn»**. Sjangerkoden for selve temaet er **NK — nivåkurve og implisitt derivasjon**.\n\n**Det oppgaven ber om:** finn helningen $y'(x)$ til kurven $F(x,y)=c$, avgjør om kurven stiger eller faller, og tolk resultatet. I storoppgaveversjonen kommer krumningen i tillegg — det er [kap. 5.2](/bok/econ1100/econ1100-5-2).\n\n**Sensors foretrukne vei** er formelen $y'=-F'_x/F'_y$ «fra forelesning». Implisitt derivasjon rett på likningen godtas likeverdig, og gir like mye uttelling. Du bør kunne begge: formelen er raskest, den implisitte veien er den beste kontrollen.\n\n**Utledningen av formelen kreves aktivt.** Dette er ett av de tre stedene i faget der eksamen kan be deg *vise hvorfor*, ikke bare regne. Utledningen er fire linjer og står i løkke 2.\n\nKapitlet har **høyeste prioritet**, og det er broen inn i Lagrange-oppgaven i Del 8: hele tangeringsbildet der bygger på helningen du regner ut her."
+    },
+    {
+      "id": "econ1100-5-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte) og [kap. 3.1](/bok/econ1100/econ1100-3-1) (differensialet). Utledningen av helningsformelen starter nettopp i differensialet, så det er verdt å ha friskt.\n\n**Sist du var her — de to du trenger:**\n\n$$f'_x=\\text{deriver mht. }x\\text{, hold }y\\text{ konstant},\\qquad f'_y=\\text{deriver mht. }y\\text{, hold }x\\text{ konstant}$$\n\n$$dF=F'_x\\,dx+F'_y\\,dy$$\n\nDu trenger dessuten kvotientregelen fra [kap. 1.1](/bok/econ1100/econ1100-1-1) og kjerneregelen fra [Kjerneregelen](/bok/r1/r1-4-3) i R1 — begge brukes når kurven deriveres implisitt."
+    },
+    {
+      "id": "econ1100-5-1-motivasjon",
+      "type": "text",
+      "content": "Du har 300 kroner å bruke på kaffe og boller, og du liker begge deler. Det finnes mange kombinasjoner som gjør deg *like fornøyd*: fire kaffe og to boller, eller tre kaffe og fire boller. Tegner du alle slike kombinasjoner i et diagram, får du en kurve.\n\nDet er en nivåkurve. Den samler alle punktene der en funksjon — her tilfredsheten din — har samme verdi. Og det interessante spørsmålet er ikke hvor kurven ligger, men hvor bratt den er: **hvor mange boller må du få for å gi fra deg én kaffe og fortsatt være like fornøyd?**\n\nSvaret på det spørsmålet er kurvens helning, og hele resten av økonomifaget bruker den. Den heter noe annet i hvert delfelt — bytteforhold, marginal substitusjonsrate, teknisk substitusjonsforhold — men det er én formel, og du utleder den på fire linjer.\n\nKapitlet er bygget som fire løkker: hva en nivåkurve er, utledningen av helningsformelen, implisitt derivasjon som alternativ vei, og den økonomiske tolkningen."
+    },
+    {
+      "id": "econ1100-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva en nivåkurve er (~12 min)"
+    },
+    {
+      "id": "econ1100-5-1-def-nivaakurve",
+      "type": "definition",
+      "title": "Nivåkurve",
+      "content": "En nivåkurve er samlingen av alle punkter der funksjonen har én og samme verdi.\n\n$$F(x,y)=c$$\n\nTallet $c$ kalles nivået. Endrer du $c$, får du en ny kurve i samme diagram. Navnet kommer fra kart: høydekotene på et turkart er nivåkurver for terrenghøyden, og hver kote binder sammen alle punktene som ligger like høyt."
+    },
+    {
+      "id": "econ1100-5-1-def-nivaakart",
+      "type": "definition",
+      "title": "Nivåkurvekart",
+      "content": "Tegner du flere nivåer i samme diagram, får du et kart over hele funksjonen — uten å tegne den i tre dimensjoner.\n\n$$F(x,y)=c_1,\\quad F(x,y)=c_2,\\quad F(x,y)=c_3,\\ \\dots$$\n\nTett mellom kurvene betyr at funksjonen endrer seg raskt; stor avstand betyr at den endrer seg sakte. To nivåkurver med ulikt nivå kan aldri skjære hverandre, for da ville funksjonen hatt to verdier i samme punkt."
+    },
+    {
+      "id": "econ1100-5-1-def-implisitt-funksjon",
+      "type": "definition",
+      "title": "Implisitt gitt funksjon $y=y(x)$",
+      "content": "Langs en nivåkurve bestemmer $x$ som regel $y$ — selv når vi ikke kan skrive en formel for sammenhengen.\n\n$$F\\big(x,y(x)\\big)=c$$\n\nVi sier at likningen gir $y$ **implisitt** som funksjon av $x$. Nøkkelen til hele kapitlet ligger i denne skrivemåten: så snart $y$ er en funksjon av $x$, kan vi snakke om $y'(x)$ — og siden må vi huske det når vi deriverer videre."
+    },
+    {
+      "id": "econ1100-5-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Nivåkurvene til et produkt",
+      "problem": "La $F(x,y)=xy$, der $x$ og $y$ begge er positive.\n\n**a)** Skriv nivåkurven $F(x,y)=12$ på formen $y=y(x)$.\n\n**b)** Finn tre punkter på kurven, og beskriv hvordan den ser ut.\n\n**c)** Ligger punktet $(2,5)$ på kurven? Hva sier det om nivået der?",
+      "solution": "**a)** Vi løser $xy=12$ for $y$. For $x>0$ kan vi dele på $x$:\n\n$$y=\\frac{12}{x}$$\n\nDette er en hyperbelgren i første kvadrant.\n\n**b) Tre punkter:** $(2,6)$, $(3,4)$ og $(6,2)$. I alle tre er produktet 12 ✓.\n\n**Formen:** kurven faller hele veien — jo større $x$, jo mindre $y$ må til for å holde produktet på 12. Den nærmer seg begge aksene uten å nå dem: for $x\\to\\infty$ går $y\\to 0$, og for $x\\to 0^{+}$ går $y\\to\\infty$. Kurven bøyer dessuten *oppover* (den flater ut mot høyre) — det viser vi i [kap. 5.2](/bok/econ1100/econ1100-5-2).\n\n**c)** Sett inn: $F(2,5)=2\\cdot 5=10\\ne 12$. Punktet ligger altså **ikke** på kurven $xy=12$, men på nivåkurven $xy=10$, som ligger nærmere origo.\n\n**Merk hvordan nivåene ordner seg.** Kurvene for $c=10$, $c=12$ og $c=20$ ligger som skall utenpå hverandre, med den laveste verdien innerst. Det er den strukturen som gjør at man kan lese av hele funksjonen fra kartet: å bevege seg utover betyr høyere verdi."
+    },
+    {
+      "id": "econ1100-5-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger NK — nivåkurve og implisitt derivasjon. Innstegsoppgave.) La $F(x,y)=x+2y$.\n\n**a)** Skriv nivåkurven $F(x,y)=10$ på formen $y=y(x)$.\n\n**b)** Hvilken form har kurven?\n\n**c)** Ligger punktet $(4,3)$ på kurven?",
+        "solution": "**a)** Vi løser $x+2y=10$ for $y$:\n\n$$2y=10-x\\ \\Longrightarrow\\ y=5-\\frac{x}{2}$$\n\n**b)** Dette er en **rett linje** med stigningstall $-\\tfrac12$ og skjæringspunkt 5 på $y$-aksen. Nivåkurvene til en lineær funksjon er alltid rette, parallelle linjer — én for hvert nivå.\n\n**c)** Sett inn: $F(4,3)=4+2\\cdot 3=10$ ✓. Punktet ligger på kurven.\n\n**Merk:** her kunne vi løse for $y$ eksplisitt uten problemer. Det er unntaket. I resten av kapitlet er det nettopp fordi vi *ikke* kan løse for $y$ at vi trenger helningsformelen.",
+        "hints": [
+          "Sett $F(x,y)$ lik nivået, og løs likningen for $y$.",
+          "I c): sett inn punktets koordinater og se om du får riktig nivå."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Helningsformelen, utledet (~15 min)"
+    },
+    {
+      "id": "econ1100-5-1-utledning",
+      "type": "text",
+      "content": "### Utledning med intuisjon\n\nDette er en av de få utledningene eksamen kan be om direkte. Den er fire steg lang, og hvert steg har en tolkning du bør kunne si i én setning.\n\n---\n\n**Steg 1 — skriv opp differensialet til $F$.**\n\n$$dF=F'_x\\,dx+F'_y\\,dy$$\n\n*Intuisjon:* flytter vi oss litt i planet, endres $F$ av to grunner — litt fordi $x$ endret seg, litt fordi $y$ endret seg. Differensialet fra [kap. 3.1](/bok/econ1100/econ1100-3-1) legger de to bidragene sammen.\n\n---\n\n**Steg 2 — bruk at vi holder oss på kurven.**\n\n$$dF=0$$\n\n*Intuisjon:* langs nivåkurven er funksjonsverdien konstant lik $c$. Beveger vi oss langs kurven, endres altså ikke $F$ i det hele tatt — den samlede endringen er null. Dette er hele grunnen til at nivåkurver har en helning som kan regnes ut.\n\n---\n\n**Steg 3 — sett de to sammen og flytt over.**\n\n$$F'_x\\,dx+F'_y\\,dy=0\\ \\Longrightarrow\\ F'_y\\,dy=-F'_x\\,dx$$\n\n*Intuisjon:* de to bidragene må oppheve hverandre nøyaktig. Trekker $x$-bidraget funksjonsverdien opp, må $y$-bidraget trekke like mye ned. Minustegnet i formelen kommer inn her, og det er ikke en regneteknisk detalj — det er selve balansekravet.\n\n---\n\n**Steg 4 — del på $F'_y\\,dx$.**\n\n$$\\frac{dy}{dx}=-\\frac{F'_x}{F'_y},\\qquad F'_y\\ne 0$$\n\n*Intuisjon:* forholdet mellom skrittene bestemmes av forholdet mellom følsomhetene. Er $F$ svært følsom for $x$ og lite følsom for $y$, må $y$ bevege seg mye for å veie opp et lite skritt i $x$ — og da er kurven bratt.\n\n---\n\n**Merk betingelsen $F'_y\\ne 0$.** Vi delte på $F'_y$, og det krever at den ikke er null. Er $F'_y=0$ i et punkt, står kurven loddrett der, og $y'$ finnes ikke. Å nevne betingelsen er en billig markør på at du har oversikt — og den koster deg én linje."
+    },
+    {
+      "id": "econ1100-5-1-teorem-helning",
+      "type": "theorem",
+      "title": "Nivåkurvens helning",
+      "content": "For nivåkurven $F(x,y)=c$, der $y$ er gitt implisitt som funksjon av $x$, er helningen\n\n$$y'(x)=-\\frac{F'_x}{F'_y},\\qquad F'_y\\ne 0.$$\n\nFortegnet på $y'$ avgjør om kurven stiger eller faller. Har $F'_x$ og $F'_y$ **samme** fortegn, er $y'<0$ og kurven faller. Har de **motsatt** fortegn, er $y'>0$ og kurven stiger.\n\nDet vanlige tilfellet i økonomi er at begge er positive — mer av begge goder gir høyere nytte — og da faller kurven alltid."
+    },
+    {
+      "id": "econ1100-5-1-def-Fy-betingelsen",
+      "type": "definition",
+      "title": "Betingelsen $F'_y\\ne 0$",
+      "content": "Formelen krever at nevneren ikke er null, og det er en reell begrensning, ikke en formalitet.\n\n$$F'_y=0\\ \\Longrightarrow\\ \\text{kurven står loddrett; }y'\\text{ finnes ikke}$$\n\nEt eksempel er sirkelen $x^{2}+y^{2}=25$ i punktet $(5,0)$: der er $F'_y=2y=0$, og kurven har en loddrett tangent. I de aller fleste eksamensoppgavene er $F'_y\\ne 0$ i hele det aktuelle området, men å si det er verdt et halvt poeng."
+    },
+    {
+      "id": "econ1100-5-1-def-fortegn-y",
+      "type": "definition",
+      "title": "Hva fortegnet på $y'$ forteller",
+      "content": "Helningens fortegn leses direkte av fortegnene til de to partiellderiverte.\n\n$$y'<0\\ \\text{(fallende)}\\quad\\text{når}\\quad F'_x\\ \\text{og}\\ F'_y\\ \\text{har samme fortegn}$$\n\nEr begge positive — som for en nyttefunksjon der begge goder er ønsket — må mer av det ene kompenseres med mindre av det andre. Kurven faller. Er $F'_y<0$ mens $F'_x>0$, snur konklusjonen, og kurven stiger."
+    },
+    {
+      "id": "econ1100-5-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Helningen på to måter",
+      "problem": "For nivåkurven $xy=12$ med $x,y>0$:\n\n**a)** Finn $y'(x)$ med formelen $-F'_x/F'_y$.\n\n**b)** Finn $y'(x)$ ved å løse for $y$ og derivere direkte.\n\n**c)** Vis at de to svarene er like, og tolk fortegnet.",
+      "solution": "**a) Med formelen.** Sett $F(x,y)=xy$. Da er\n\n$$F'_x=y,\\qquad F'_y=x$$\n\n$$y'(x)=-\\frac{F'_x}{F'_y}=-\\frac{y}{x}$$\n\nBetingelsen $F'_y=x\\ne 0$ er oppfylt siden $x>0$.\n\n**b) Ved å løse eksplisitt.** Fra $xy=12$ får vi $y=12x^{-1}$, som deriveres direkte:\n\n$$y'(x)=-12x^{-2}=-\\frac{12}{x^{2}}$$\n\n**c) Sammenligning.** De to uttrykkene ser ulike ut, men de er det samme. Sett $y=12/x$ inn i svaret fra a):\n\n$$-\\frac{y}{x}=-\\frac{12/x}{x}=-\\frac{12}{x^{2}}$$\n\nIdentisk ✓.\n\n**Merk forskjellen i form.** Formelen gir svaret uttrykt i **både** $x$ og $y$; den eksplisitte veien gir det i $x$ alene. Begge er riktige, og sensor godtar begge. Formelvarianten er den vanlige på eksamen, fordi den virker også når $y$ ikke lar seg isolere.\n\n**Tolkning av fortegnet:** både $F'_x=y$ og $F'_y=x$ er positive i første kvadrant, så $y'=-y/x<0$ og kurven faller overalt. Det stemmer med bildet: skal produktet holdes konstant, må den ene faktoren ned når den andre går opp.\n\n**Størrelsen på helningen** er $y/x$, altså forholdet mellom koordinatene. I $(2,6)$ er helningen $-3$ (bratt), i $(6,2)$ er den $-1/3$ (slak). Kurven flater ut mot høyre."
+    },
+    {
+      "id": "econ1100-5-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger NK.) Finn $y'(x)$ med formelen $-F'_x/F'_y$ for hver nivåkurve:\n\n**a)** $x^{2}+y=7$\n\n**b)** $3x+5y=20$\n\n**c)** $x^{2}y^{3}=72$ med $x,y>0$",
+        "solution": "**a)** Med $F(x,y)=x^{2}+y$ er $F'_x=2x$ og $F'_y=1$:\n\n$$y'=-\\frac{2x}{1}=-2x$$\n\n*Kontroll:* eksplisitt er $y=7-x^{2}$, som deriveres til $-2x$ ✓.\n\n**b)** Med $F(x,y)=3x+5y$ er $F'_x=3$ og $F'_y=5$:\n\n$$y'=-\\frac{3}{5}$$\n\nKonstant helning — nivåkurvene til en lineær funksjon er rette linjer.\n\n**c)** Med $F(x,y)=x^{2}y^{3}$ er $F'_x=2xy^{3}$ og $F'_y=3x^{2}y^{2}$:\n\n$$y'=-\\frac{2xy^{3}}{3x^{2}y^{2}}=-\\frac{2y}{3x}$$\n\n*Forenklingen* er obligatorisk: $y^{3}/y^{2}=y$ og $x/x^{2}=1/x$. Et uforenklet svar koster full uttelling.\n\n**Fortegn i alle tre:** i a) faller kurven for $x>0$; i b) faller den overalt; i c) faller den i første kvadrant, siden både teller og nevner er positive der.",
+        "hints": [
+          "Skriv $F$ på formen «uttrykk lik konstant», og finn $F'_x$ og $F'_y$.",
+          "I c): forkort potensene av $x$ og $y$ før du er ferdig."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger NK.) En bedrift har produktfunksjonen $F(K,L)=K^{1/2}L^{1/2}$ og holder produksjonen fast på $\\bar Y=10$. Vi tegner $K$ langs den loddrette aksen og $L$ langs den vannrette.\n\n**a)** Finn $F'_K$ og $F'_L$.\n\n**b)** Finn helningen $\\dfrac{dK}{dL}$ langs kurven $F(K,L)=10$.\n\n**c)** Regn ut helningen i punktet $(K,L)=(10,10)$, og tolk tallet.",
+        "solution": "**a)** Vi deriverer partielt. Mht. $K$ står $L^{1/2}$ som konstant faktor:\n\n$$F'_K=\\tfrac12 K^{-1/2}L^{1/2}=\\frac12\\sqrt{\\frac{L}{K}},\\qquad F'_L=\\frac12\\sqrt{\\frac{K}{L}}$$\n\n**b)** Her er $L$ den frie variabelen og $K$ den avhengige, så formelen leses med rollene byttet: $\\dfrac{dK}{dL}=-\\dfrac{F'_L}{F'_K}$.\n\n$$\\frac{dK}{dL}=-\\frac{\\tfrac12\\sqrt{K/L}}{\\tfrac12\\sqrt{L/K}}=-\\frac{\\sqrt{K}/\\sqrt{L}}{\\sqrt{L}/\\sqrt{K}}=-\\frac{K}{L}$$\n\n**c)** I $(10,10)$ er\n\n$$\\frac{dK}{dL}=-\\frac{10}{10}=-1$$\n\n**Tolkning:** for å holde produksjonen på 10 må bedriften erstatte hver enhet arbeidskraft den kutter, med nøyaktig én enhet kapital. Bytteforholdet er en-til-en akkurat der.\n\n*Kontroll:* punktet ligger faktisk på kurven, siden $\\sqrt{10}\\cdot\\sqrt{10}=10$ ✓. Det er verdt å sjekke før man tolker.\n\n**Merk at rollene bestemmer hvilken derivert som havner i telleren.** Formelen $-F'_x/F'_y$ forutsetter at $x$ er fri og $y$ avhengig. Bytter du akser, bytter du plass på de to. Å skrive ned hvilken variabel som er hvilken, før du bruker formelen, koster to sekunder og redder svaret.",
+        "hints": [
+          "Regn de to partiellderiverte hver for seg, og forenkl dem til kvadratrotbrøker.",
+          "Her er $L$ den frie variabelen — hvilken derivert skal da stå i telleren?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Implisitt derivasjon som alternativ vei (~12 min)"
+    },
+    {
+      "id": "econ1100-5-1-def-implisitt-derivasjon",
+      "type": "definition",
+      "title": "Implisitt derivasjon",
+      "content": "Implisitt derivasjon er å derivere hele likningen med hensyn på $x$, mens man husker at $y$ selv er en funksjon av $x$.\n\n$$\\frac{d}{dx}\\Big[F\\big(x,y(x)\\big)\\Big]=\\frac{d}{dx}\\,c=0$$\n\nI praksis betyr det at hver gang du deriverer et ledd som inneholder $y$, må kjerneregelen brukes og faktoren $y'$ dukker opp. Til slutt løser du den likningen for $y'$. Metoden gir alltid samme svar som formelen, og sensor godtar begge veier."
+    },
+    {
+      "id": "econ1100-5-1-def-y-som-funksjon",
+      "type": "definition",
+      "title": "Faktoren $y'$ fra kjerneregelen",
+      "content": "Den ene tingen som skiller implisitt derivasjon fra vanlig derivasjon, er at $y$-ledd gir en ekstra faktor.\n\n$$\\frac{d}{dx}\\,y^{n}=n\\,y^{n-1}\\,y',\\qquad \\frac{d}{dx}\\big(xy\\big)=y+x\\,y'$$\n\nGlemmer du faktoren $y'$, har du behandlet $y$ som en konstant, og svaret blir galt. Denne vanen er dessuten selve nøkkelen til [kap. 5.2](/bok/econ1100/econ1100-5-2), der den samme påminnelsen kommer tilbake som fagets feil #3."
+    },
+    {
+      "id": "econ1100-5-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Implisitt derivasjon på en ellipse",
+      "problem": "Betrakt nivåkurven\n\n$$x^{2}+4y^{2}=25,$$\n\nog se på den øvre halvdelen, der $y>0$.\n\n**a)** Finn $y'(x)$ ved implisitt derivasjon.\n\n**b)** Kontroller svaret med formelen $-F'_x/F'_y$.\n\n**c)** Regn ut helningen i punktet $(3,2)$, og bekreft at punktet ligger på kurven.",
+      "solution": "**a) Implisitt derivasjon.** Vi deriverer begge sider mht. $x$ og husker at $y=y(x)$.\n\nLeddet $x^{2}$ gir $2x$. Leddet $4y^{2}$ gir, med kjerneregelen, $8y\\,y'$. Høyresiden er en konstant og gir 0:\n\n$$2x+8y\\,y'=0$$\n\nLøs for $y'$:\n\n$$8y\\,y'=-2x\\ \\Longrightarrow\\ y'=-\\frac{2x}{8y}=-\\frac{x}{4y}$$\n\n**b) Kontroll med formelen.** Sett $F(x,y)=x^{2}+4y^{2}$. Da er $F'_x=2x$ og $F'_y=8y$, så\n\n$$y'=-\\frac{F'_x}{F'_y}=-\\frac{2x}{8y}=-\\frac{x}{4y}$$\n\nIdentisk ✓. De to veiene er den samme regningen, sett fra to kanter.\n\n**c)** Først kontrollen: $3^{2}+4\\cdot 2^{2}=9+16=25$ ✓, så punktet ligger på kurven.\n\n$$y'(3)=-\\frac{3}{4\\cdot 2}=-\\frac{3}{8}=-0{,}375$$\n\n**Tolkning:** kurven faller i dette punktet, og ganske slakt — går vi én enhet mot høyre, faller $y$ med omtrent $0{,}375$.\n\n**Merk hvorfor vi begrenset oss til $y>0$.** Hele ellipsen er ikke en funksjonsgraf: over hver $x$ mellom $-5$ og $5$ ligger det to $y$-verdier. Skrivemåten $y=y(x)$ krever at vi velger én av halvdelene. På nedre halvdel ($y<0$) gir samme formel positiv helning — kurven stiger der."
+    },
+    {
+      "id": "econ1100-5-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger NK.) Finn $y'(x)$ ved **implisitt derivasjon**, og kontroller med formelen $-F'_x/F'_y$:\n\n**a)** $x^{2}+y^{2}=25$\n\n**b)** $xy+y^{2}=20$\n\n**c)** $x+\\ln y=3$ med $y>0$",
+        "solution": "**a)** Implisitt: $2x+2y\\,y'=0$, altså\n\n$$y'=-\\frac{2x}{2y}=-\\frac{x}{y}$$\n\n*Kontroll:* $F'_x=2x$, $F'_y=2y$, og $-F'_x/F'_y=-x/y$ ✓.\n\n**b)** Leddet $xy$ krever produktregelen (og $y$ er en funksjon av $x$), leddet $y^{2}$ krever kjerneregelen:\n\n$$y+x\\,y'+2y\\,y'=0\\ \\Longrightarrow\\ y'\\big(x+2y\\big)=-y\\ \\Longrightarrow\\ y'=-\\frac{y}{x+2y}$$\n\n*Kontroll:* $F'_x=y$, $F'_y=x+2y$, og $-F'_x/F'_y=-\\dfrac{y}{x+2y}$ ✓.\n\n**c)** Leddet $\\ln y$ gir $\\dfrac{y'}{y}$:\n\n$$1+\\frac{y'}{y}=0\\ \\Longrightarrow\\ y'=-y$$\n\n*Kontroll:* $F'_x=1$, $F'_y=\\dfrac1y$, og $-F'_x/F'_y=-\\dfrac{1}{1/y}=-y$ ✓.\n\n*Ekstra kontroll på c):* likningen kan løses eksplisitt. Fra $\\ln y=3-x$ får vi $y=e^{3-x}$, som deriveres til $-e^{3-x}=-y$ ✓.\n\n**Fellesnevneren i alle tre:** faktoren $y'$ dukker opp i hvert ledd som inneholder $y$. Glemmer du den, får du et helt annet svar.",
+        "hints": [
+          "Deriver ledd for ledd, og la $y$-ledd gi en faktor $y'$ fra kjerneregelen.",
+          "I b): leddet $xy$ er et produkt av to ting som begge avhenger av $x$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil med nivåkurver",
+      "content": "- **Å glemme minustegnet.** Formelen er $y'=-F'_x/F'_y$, ikke $F'_x/F'_y$. Minusen kommer fra at de to bidragene skal oppheve hverandre, og uten den snur du konklusjonen om hvorvidt kurven stiger eller faller.\n- **Å bytte om $F'_x$ og $F'_y$.** Den deriverte mht. den **frie** variabelen står i telleren. Bytter du akser (som når $K$ tegnes loddrett og $L$ vannrett), bytter du også plass på dem.\n- **Å behandle $y$ som en konstant ved implisitt derivasjon.** Hvert $y$-ledd gir en faktor $y'$. Dette er storebroren til feil #3, som slår til for alvor i [kap. 5.2](/bok/econ1100/econ1100-5-2).\n- **Å hoppe over forenklingen.** $-\\dfrac{2xy^{3}}{3x^{2}y^{2}}$ skal forkortes til $-\\dfrac{2y}{3x}$. Åpenbar forenkling kreves for full uttelling.\n- **Å ikke nevne $F'_y\\ne 0$.** Du delte på den. Én linje koster ingenting og viser oversikt.\n- **Å påstå at kurven faller uten å se på fortegnene.** Konklusjonen skal begrunnes med fortegnene til $F'_x$ og $F'_y$ i det aktuelle området, ikke antas fordi kurver «pleier» å falle."
+    },
+    {
+      "id": "econ1100-5-1-pausepunkt",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nSå langt er alt regneteknikk. Resten av kapitlet handler om hva tallet $y'$ **betyr** — og det er den delen som kommer igjen i Lagrange-oppgaven i Del 8."
+    },
+    {
+      "id": "econ1100-5-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Den økonomiske lesningen (~16 min)"
+    },
+    {
+      "id": "econ1100-5-1-def-indifferenskurve",
+      "type": "definition",
+      "title": "Indifferenskurve",
+      "content": "En indifferenskurve er nivåkurven til en nyttefunksjon: alle vareknipper som gjør konsumenten like fornøyd.\n\n$$U(x,y)=\\bar u$$\n\nOrdet «indifferent» betyr likegyldig — konsumenten er likegyldig mellom to punkter på samme kurve. Kurver lenger fra origo betyr høyere nytte, og siden mer av begge goder er bedre ($U'_x>0$ og $U'_y>0$), faller kurvene alltid."
+    },
+    {
+      "id": "econ1100-5-1-def-isokvant",
+      "type": "definition",
+      "title": "Isokvant",
+      "content": "En isokvant er nivåkurven til en produktfunksjon: alle kombinasjoner av innsatsfaktorer som gir samme produserte mengde.\n\n$$F(K,L)=\\bar Y$$\n\nNavnet betyr «lik mengde». Isokvanten svarer på spørsmålet: hvor mye mer kapital trengs hvis vi kutter én arbeidstime og likevel skal produsere like mye? Den brukes i kostnadsminimering i [kap. 9.2](/bok/econ1100/econ1100-9-2)."
+    },
+    {
+      "id": "econ1100-5-1-def-mrs",
+      "type": "definition",
+      "title": "Marginal substitusjonsrate (MRS)",
+      "content": "Den marginale substitusjonsraten — forkortet **MRS** — er hvor mye av det ene godet du må få for å gi fra deg én enhet av det andre og fortsatt være like fornøyd.\n\n$$\\mathrm{MRS}=\\left|\\,y'\\,\\right|=\\frac{U'_x}{U'_y}$$\n\nMed andre ord: MRS er helningen på indifferenskurven, uten fortegnet. Den er et **bytteforhold**, ikke en pris — den sier hva konsumenten selv synes, ikke hva markedet krever. Faller MRS når man beveger seg mot høyre langs kurven, kalles det avtakende marginal substitusjonsrate, og det er tema i [kap. 5.2](/bok/econ1100/econ1100-5-2)."
+    },
+    {
+      "id": "econ1100-5-1-def-mrs-prisforhold",
+      "type": "definition",
+      "title": "Broen til Lagrange: MRS = prisforhold",
+      "content": "I optimum velger konsumenten det punktet der hennes eget bytteforhold er lik markedets.\n\n$$\\mathrm{MRS}=\\frac{U'_x}{U'_y}=\\frac{p_1}{p_2}$$\n\nDet betyr geometrisk at indifferenskurven **tangerer** budsjettlinjen $p_1x+p_2y=m$: de to har samme helning i optimumspunktet. Hele Lagrange-metoden i [kap. 8.2](/bok/econ1100/econ1100-8-2) er en algebraisk måte å finne det tangeringspunktet på — og helningsformelen du har lært her, er halve begrunnelsen."
+    },
+    {
+      "id": "econ1100-5-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — indifferenskurve og bytteforhold",
+      "problem": "En husholdning har nyttefunksjonen\n\n$$U(x,y)=\\sqrt{x}\\,\\sqrt{y},\\qquad x,y>0,$$\n\nder $x$ er strøm og $y$ er alt annet forbruk.\n\n**a)** Finn helningen $y'(x)$ langs indifferenskurven $U(x,y)=6$, og avgjør om kurven stiger eller faller. Begrunn.\n\n**b)** Skriv kurven eksplisitt og kontroller svaret i a).\n\n**c)** Regn ut den marginale substitusjonsraten i punktene $(3,12)$ og $(9,4)$, og tolk forskjellen.\n\n**d)** Prisene er $p_1=2$ og $p_2=1$. I hvilket punkt på kurven er MRS lik prisforholdet?",
+      "solution": "**a)** Vi bruker formelen. De partiellderiverte er\n\n$$U'_x=\\frac{1}{2}x^{-1/2}y^{1/2}=\\frac{1}{2}\\sqrt{\\frac{y}{x}},\\qquad U'_y=\\frac{1}{2}\\sqrt{\\frac{x}{y}}$$\n\n$$y'(x)=-\\frac{U'_x}{U'_y}=-\\frac{\\sqrt{y}/\\sqrt{x}}{\\sqrt{x}/\\sqrt{y}}=-\\frac{y}{x}$$\n\n**Begrunnelse for fortegnet:** i første kvadrant er både $U'_x>0$ og $U'_y>0$ (mer av begge goder gir høyere nytte), og $x,y>0$. Derfor er $y'=-y/x<0$ i hele området, og **kurven faller overalt**. Betingelsen $U'_y\\ne 0$ er oppfylt.\n\n**b) Eksplisitt kontroll.** Fra $\\sqrt{xy}=6$ får vi $xy=36$, altså $y=36/x$. Derivert:\n\n$$y'=-\\frac{36}{x^{2}}$$\n\nSetter vi $y=36/x$ inn i svaret fra a), får vi $-\\dfrac{36/x}{x}=-\\dfrac{36}{x^{2}}$ ✓. Samme svar.\n\n**c) Marginal substitusjonsrate** er tallverdien av helningen, altså $\\mathrm{MRS}=y/x$.\n\nI $(3,12)$: kontroller først at punktet ligger på kurven — $3\\cdot 12=36$ ✓. Da er\n\n$$\\mathrm{MRS}=\\frac{12}{3}=4$$\n\nI $(9,4)$: $9\\cdot 4=36$ ✓, og\n\n$$\\mathrm{MRS}=\\frac{4}{9}\\approx 0{,}44$$\n\n**Tolkning.** I $(3,12)$ har husholdningen lite strøm og mye annet. Der er den villig til å gi fra seg **4 enheter** annet forbruk for å få én enhet strøm til. I $(9,4)$ er situasjonen snudd: der gir hun bare fra seg $0{,}44$ enheter annet forbruk for én enhet strøm.\n\nBytteforholdet faller altså når hun får mer strøm. Det er **avtakende marginal substitusjonsrate**, og det er nettopp den egenskapen som gjør at kurven bøyer oppover — vist formelt i [kap. 5.2](/bok/econ1100/econ1100-5-2).\n\n**d)** Vi setter MRS lik prisforholdet:\n\n$$\\frac{y}{x}=\\frac{p_1}{p_2}=\\frac{2}{1}=2\\ \\Longrightarrow\\ y=2x$$\n\nSammen med kurvens likning $xy=36$ gir det\n\n$$x\\cdot 2x=36\\ \\Longrightarrow\\ x^{2}=18\\ \\Longrightarrow\\ x=\\sqrt{18}=3\\sqrt{2}\\approx 4{,}24$$\n\nog dermed $y=2x=6\\sqrt{2}\\approx 8{,}49$.\n\n**Kontroll:** $xy=3\\sqrt2\\cdot 6\\sqrt2=18\\cdot 2=36$ ✓, og $y/x=2$ ✓.\n\n**Konklusjon:** tangeringspunktet er $(3\\sqrt2,\\,6\\sqrt2)$. Det er nøyaktig det punktet Lagrange-metoden i [kap. 8.2](/bok/econ1100/econ1100-8-2) vil finne — bare langs en annen vei."
+    },
+    {
+      "id": "econ1100-5-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger NK.) En husholdning har nyttefunksjonen $U(x,y)=x^{1/3}y^{2/3}$ med $x,y>0$.\n\n**a)** Finn $U'_x$ og $U'_y$.\n\n**b)** Finn helningen $y'(x)$ langs en indifferenskurve, og forenkl.\n\n**c)** Skriv opp den marginale substitusjonsraten, og regn den ut i punktet $(8,8)$.",
+        "solution": "**a)** Vi deriverer partielt.\n\n$$U'_x=\\tfrac13 x^{-2/3}y^{2/3}=\\tfrac13\\left(\\frac{y}{x}\\right)^{2/3},\\qquad U'_y=\\tfrac23 x^{1/3}y^{-1/3}=\\tfrac23\\left(\\frac{x}{y}\\right)^{1/3}$$\n\n**b)** Sett inn i formelen og forkort. Det er enklest å bruke potensformen direkte:\n\n$$y'=-\\frac{U'_x}{U'_y}=-\\frac{\\tfrac13 x^{-2/3}y^{2/3}}{\\tfrac23 x^{1/3}y^{-1/3}}=-\\frac{1}{2}\\,x^{-2/3-1/3}\\,y^{2/3+1/3}=-\\frac{y}{2x}$$\n\n**c)** Den marginale substitusjonsraten er tallverdien av helningen:\n\n$$\\mathrm{MRS}=\\frac{y}{2x}$$\n\nI punktet $(8,8)$:\n\n$$\\mathrm{MRS}=\\frac{8}{16}=\\frac12$$\n\n**Tolkning:** husholdningen er villig til å gi fra seg en halv enhet av gode $y$ for å få én enhet mer av gode $x$. At tallet er under 1, henger sammen med at $y$ har den største eksponenten i nyttefunksjonen — gode $y$ veier tyngst, og hun gir det motvillig fra seg.\n\n**Generelt for Cobb-Douglas** $U=x^{\\alpha}y^{\\beta}$ blir $y'=-\\dfrac{\\alpha y}{\\beta x}$. Forholdet mellom eksponentene er hele svaret; her er det $\\tfrac{1/3}{2/3}=\\tfrac12$.",
+        "hints": [
+          "Bruk potensform ($x^{-2/3}$, ikke brøk med rot) når du deler de to deriverte.",
+          "Legg eksponentene sammen i teller og nevner hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2.) Avgjør om hver påstand er sann eller usann, og begrunn med utregning.\n\n**a)** «For nivåkurven $x^{2}+y^{2}=4$ er $y'=\\dfrac{x}{y}$.»\n\n**b)** «Dersom $F'_x>0$ og $F'_y<0$, faller nivåkurven.»\n\n**c)** «Nivåkurvene til $F(x,y)=2x+3y$ er parallelle rette linjer.»",
+        "solution": "**a) Usann.** Med $F(x,y)=x^{2}+y^{2}$ er $F'_x=2x$ og $F'_y=2y$, så\n\n$$y'=-\\frac{2x}{2y}=-\\frac{x}{y}$$\n\nPåstanden mangler minustegnet. Det er ikke en skrivefeil: fortegnet avgjør om kurven stiger eller faller, og påstanden gir motsatt konklusjon av den riktige.\n\n*Konkret motsvar:* i punktet $(\\sqrt2,\\sqrt2)$ på kurven gir vår formel $y'=-1$, mens påstanden gir $+1$. Sirkelen faller i første kvadrant, så $-1$ er riktig.\n\n**b) Usann.** Sett inn fortegnene i formelen:\n\n$$y'=-\\frac{F'_x}{F'_y}=-\\frac{(+)}{(-)}=+$$\n\nEn positiv teller delt på en negativ nevner gir et negativt tall, og minusen foran snur det til positivt. Altså er $y'>0$, og kurven **stiger**.\n\n*Konkret motsvar:* $F(x,y)=x-y$ har $F'_x=1>0$ og $F'_y=-1<0$. Nivåkurven $x-y=0$ er linjen $y=x$, som stiger ✓.\n\n**c) Sann.** Nivåkurven $2x+3y=c$ løses for $y$:\n\n$$y=\\frac{c}{3}-\\frac{2}{3}x$$\n\nDette er en rett linje med stigningstall $-\\tfrac23$ **uansett hvilken $c$ vi velger**. Ulike nivåer gir bare ulikt konstantledd, altså linjer med samme helning — parallelle.\n\n*Samme konklusjon fra formelen:* $F'_x=2$ og $F'_y=3$ gir $y'=-\\tfrac23$, konstant og uavhengig av punktet.",
+        "hints": [
+          "I a) og b): sett fortegnene inn i formelen og les av resultatet.",
+          "I c): løs likningen for $y$ og se hva som avhenger av $c$ og hva som ikke gjør det."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger NK — eksamensnivå.) Betrakt nivåkurven\n\n$$xy+y^{2}=20,\\qquad x,y>0.$$\n\n**a)** Finn $y'(x)$ med formelen $-F'_x/F'_y$, og med implisitt derivasjon. Vis at de gir samme svar.\n\n**b)** Avgjør om kurven stiger eller faller i første kvadrant. Begrunn.\n\n**c)** Punktet $(1,4)$ ligger på kurven. Finn helningen der, og skriv opp tangentlinjens likning.",
+        "solution": "**a) Med formelen.** Sett $F(x,y)=xy+y^{2}$. Da er\n\n$$F'_x=y,\\qquad F'_y=x+2y$$\n\n$$y'=-\\frac{y}{x+2y}$$\n\n**Med implisitt derivasjon.** Deriver hele likningen mht. $x$, og husk at $y=y(x)$. Leddet $xy$ krever produktregelen; leddet $y^{2}$ krever kjerneregelen:\n\n$$y+x\\,y'+2y\\,y'=0$$\n\nSamle $y'$-leddene:\n\n$$y'\\big(x+2y\\big)=-y\\ \\Longrightarrow\\ y'=-\\frac{y}{x+2y}$$\n\nIdentisk ✓.\n\n**b) Kurven faller.** I første kvadrant er $y>0$, så telleren $F'_x=y$ er positiv. Nevneren $F'_y=x+2y$ er også positiv, siden begge ledd er det. Formelen gir da\n\n$$y'=-\\frac{(+)}{(+)}<0$$\n\naltså negativ helning i **hele** første kvadrant. Betingelsen $F'_y=x+2y\\ne 0$ er oppfylt overalt der.\n\n**c)** Kontroller først at punktet ligger på kurven: $1\\cdot 4+4^{2}=4+16=20$ ✓.\n\n$$y'(1)=-\\frac{4}{1+8}=-\\frac{4}{9}$$\n\n**Tangentlinjen** gjennom $(1,4)$ med stigningstall $-\\tfrac49$:\n\n$$y-4=-\\frac49\\,(x-1)\\ \\Longrightarrow\\ y=4-\\frac49\\,(x-1)=\\frac{40}{9}-\\frac49 x$$\n\n*Kontroll:* sett $x=1$ inn i tangentlikningen: $\\frac{40}{9}-\\frac49=\\frac{36}{9}=4$ ✓. Tangenten treffer kurven i berøringspunktet, som den skal.\n\n**Merk hvorfor formelen er å foretrekke her.** Likningen $xy+y^{2}=20$ kan riktignok løses for $y$ (den er kvadratisk i $y$), men uttrykket blir stygt: $y=\\tfrac12\\big(-x+\\sqrt{x^{2}+80}\\big)$. Formelen gir svaret på tre linjer uten den omveien — og det er nettopp derfor sensor foretrekker den.",
+        "hints": [
+          "Ved implisitt derivasjon: leddet $xy$ er et produkt der begge faktorene avhenger av $x$.",
+          "I c): tangentlinjen gjennom $(x_0,y_0)$ med stigningstall $a$ er $y-y_0=a(x-x_0)$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger NK — eksamensnivå med generell funksjon.) La $F$ være en deriverbar funksjon av to variabler med $F'_x>0$ og $F'_y>0$ i hele første kvadrant, og betrakt nivåkurven $F(x,y)=c$.\n\n**a)** Vis at kurven faller i hele første kvadrant.\n\n**b)** En student hevder: «Siden $F'_x$ og $F'_y$ begge er positive, er kurven brattest der $F'_x$ er størst.» Vurder påstanden.\n\n**c)** La i tillegg $G(x,y)=\\big(F(x,y)\\big)^{3}$. Vis at $G$ og $F$ har nøyaktig samme nivåkurver med samme helning, og forklar hvorfor det er nyttig.",
+        "solution": "**a)** Formelen gir\n\n$$y'=-\\frac{F'_x}{F'_y}$$\n\nI første kvadrant er teller og nevner begge positive etter antakelsen, så brøken er positiv, og minustegnet gjør hele uttrykket negativt:\n\n$$y'<0\\quad\\text{i hele første kvadrant}$$\n\nEn negativ derivert overalt betyr at kurven faller overalt der. Betingelsen $F'_y\\ne 0$ er oppfylt siden $F'_y>0$.\n\n**Økonomisk lesning:** er begge goder ønsket, må mer av det ene kompenseres med mindre av det andre for at nytten skal holde seg konstant.\n\n**b) Påstanden er ikke holdbar.** Brattheten er $\\left|y'\\right|=\\dfrac{F'_x}{F'_y}$, altså et **forhold**. En stor $F'_x$ gir bratt kurve bare hvis $F'_y$ ikke er tilsvarende stor.\n\n*Konkret motsvar:* la $F(x,y)=xy$. I punktet $(1,10)$ er $F'_x=y=10$ og $F'_y=x=1$, så helningen er $-10$. I punktet $(10,100)$ er $F'_x=100$, altså ti ganger større, men $F'_y=10$, og helningen er igjen $-10$. Den partiellderiverte er ti ganger større, mens brattheten er nøyaktig den samme.\n\n**Konklusjon:** det er forholdet mellom de to partiellderiverte som bestemmer brattheten, ikke størrelsen på den ene.\n\n**c)** **Samme nivåkurver:** funksjonen $u\\mapsto u^{3}$ er strengt voksende, så\n\n$$F(x,y)=c\\iff \\big(F(x,y)\\big)^{3}=c^{3}$$\n\nPunktmengden er den samme; bare navnet på nivået endres fra $c$ til $c^{3}$.\n\n**Samme helning:** kjerneregelen gir\n\n$$G'_x=3F^{2}\\,F'_x,\\qquad G'_y=3F^{2}\\,F'_y$$\n\nog dermed\n\n$$y'_{G}=-\\frac{G'_x}{G'_y}=-\\frac{3F^{2}F'_x}{3F^{2}F'_y}=-\\frac{F'_x}{F'_y}=y'_{F}$$\n\nFaktoren $3F^{2}$ forkortes bort ✓.\n\n**Hvorfor er dette nyttig?** Fordi du kan bytte ut en tung funksjon med en lettere som har samme nivåkurver. Skal du finne helningen til $U=\\sqrt{x}\\sqrt{y}$, kan du like gjerne regne på $U^{2}=xy$ — som er langt enklere. Begge gir $y'=-y/x$.\n\nDet samme trikset brukes med logaritmer: $\\ln U=\\alpha\\ln x+\\beta\\ln y$ har samme nivåkurver som $U=x^{\\alpha}y^{\\beta}$, og gir helningen $-\\dfrac{\\alpha y}{\\beta x}$ på to linjer.",
+        "hints": [
+          "I a): hva blir fortegnet på en negativ brøk med positiv teller og positiv nevner?",
+          "I c): bruk kjerneregelen på $G=F^{3}$ og se hva som forkortes i brøken."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-5-1-bb-helningsformelen",
+      "type": "definition",
+      "title": "Helningsformelen",
+      "content": "Den ene formelen hele kapitlet handler om, verdt å kunne utenat i begge retninger.\n\n$$y'(x)=-\\frac{F'_x}{F'_y},\\qquad F'_y\\ne 0$$\n\nDen frie variabelens deriverte står i telleren, den avhengiges i nevneren, og minustegnet kommer fra at de to bidragene til $dF$ skal oppheve hverandre. Sensor forventer denne veien, men godtar implisitt derivasjon som likeverdig."
+    },
+    {
+      "id": "econ1100-5-1-bb-cobb-douglas-nivaa",
+      "type": "definition",
+      "title": "Nivåkurven til en Cobb-Douglas-funksjon",
+      "content": "For funksjonstypen som dominerer faget, har helningen en form du kan skrive ned direkte.\n\n$$U=x^{\\alpha}y^{\\beta}\\ \\Longrightarrow\\ y'=-\\frac{\\alpha\\,y}{\\beta\\,x}$$\n\nForholdet mellom eksponentene er hele svaret. For $U=\\sqrt{x}\\sqrt{y}$ er $\\alpha=\\beta=\\tfrac12$, og helningen blir $-y/x$. Å kjenne igjen dette sparer et halvt minutt hver gang."
+    },
+    {
+      "id": "econ1100-5-1-bb-monoton-transformasjon",
+      "type": "definition",
+      "title": "Nivåkurver tåler strengt voksende omforminger",
+      "content": "Bytter du $F$ med en strengt voksende funksjon av $F$, endres verken kurvene eller helningen.\n\n$$G=g(F),\\ g'>0\\ \\Longrightarrow\\ y'_{G}=y'_{F}$$\n\nGrunnen er at faktoren $g'(F)$ opptrer i både teller og nevner og forkortes bort. Praktisk betyr det at $\\sqrt{xy}$ kan erstattes med $xy$, og $x^{\\alpha}y^{\\beta}$ med $\\alpha\\ln x+\\beta\\ln y$ — samme kurver, mye lettere regning."
+    },
+    {
+      "id": "econ1100-5-1-bb-loddrett-tangent",
+      "type": "definition",
+      "title": "Når helningen ikke finnes",
+      "content": "I punkter der nevneren er null, står kurven loddrett og $y'$ er udefinert.\n\n$$F'_y=0\\ \\Longrightarrow\\ \\text{loddrett tangent}$$\n\nSirkelen $x^{2}+y^{2}=25$ har dette i $(5,0)$ og $(-5,0)$. Der er ikke $y$ en funksjon av $x$ i det hele tatt, siden kurven vender om. I økonomiske modeller med $x,y>0$ inntreffer det sjelden, men å nevne at det er sjekket, viser oversikt."
+    },
+    {
+      "id": "econ1100-5-1-bb-helning-vs-funksjon",
+      "type": "definition",
+      "title": "Helning i et punkt mot helningsfunksjon",
+      "content": "Formelen gir et **uttrykk**; oppgaven spør ofte etter et **tall**.\n\n$$y'=-\\frac{y}{x}\\quad\\text{(uttrykk)},\\qquad y'(3)=-\\frac{4}{3}\\quad\\text{(tall i punktet }(3,4))$$\n\nSkal du regne ut helningen i et punkt, må du først kontrollere at punktet faktisk ligger på kurven. Setter du inn et punkt som ikke gjør det, får du et tall — men det tallet svarer ikke på noe."
+    },
+    {
+      "id": "econ1100-5-1-bb-to-veier",
+      "type": "definition",
+      "title": "To likeverdige veier til svaret",
+      "content": "Sensor godtar begge metodene fullt ut, så velg etter hva som er raskest.\n\n$$\\text{formelen }-\\frac{F'_x}{F'_y}\\qquad\\text{eller}\\qquad\\text{implisitt derivasjon av }F(x,y)=c$$\n\nFormelen er raskest når $F$ er lett å partiellderivere. Implisitt derivasjon er ofte lettere når likningen har få og enkle ledd — og den er alltid den beste kontrollen, fordi den er en helt uavhengig regning."
+    },
+    {
+      "id": "econ1100-5-1-bb-kontroll-eksplisitt",
+      "type": "definition",
+      "title": "Kontroll ved å løse eksplisitt",
+      "content": "Lar likningen seg løse for $y$, har du en gratis fasit.\n\n$$xy=12\\ \\Longrightarrow\\ y=\\frac{12}{x}\\ \\Longrightarrow\\ y'=-\\frac{12}{x^{2}}=-\\frac{y}{x}$$\n\nRegn begge veier og se om de stemmer. Kontrollen tar under et minutt og fanger både glemte minustegn og ombytte av teller og nevner. På eksamen er den vel anvendt tid når svaret skal bæres videre til neste delpunkt."
+    },
+    {
+      "id": "econ1100-5-1-figurord",
+      "type": "text",
+      "content": "## Slik ser en nivåkurve ut\n\n*Figur i ord — nivåkurve med tangent.* Tegn et vanlig koordinatsystem med $x$ vannrett og $y$ loddrett, og hold deg i første kvadrant (begge positive). Kurven $F(x,y)=c$ kommer inn høyt oppe til venstre, faller bratt til å begynne med, og flater deretter ut mot høyre uten å treffe $x$-aksen. Den ligner en glidebane sett fra siden.\n\nMarker et punkt $(x_0,y_0)$ et sted midt på kurven, med stiplede hjelpelinjer ned til $x$-aksen og bort til $y$-aksen, slik at koordinatene kan leses av. Legg en rett linje gjennom punktet som berører kurven uten å krysse den: det er tangenten, og stigningstallet dens er $y'=-F'_x/F'_y$. Fordi kurven faller, heller linjen nedover mot høyre.\n\nTegn til slutt en kurve til, litt lenger ut fra origo. Det er nivåkurven for et **høyere** nivå $c$. De to kurvene har samme form og krysser aldri hverandre.\n\nLeser du diagrammet økonomisk, er den nederste kurven en indifferenskurve for lav nytte og den øverste for høyere nytte, og tangentens bratthet er den marginale substitusjonsraten i punktet."
+    },
+    {
+      "id": "econ1100-5-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-5-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1), [kap. 1.2](/bok/econ1100/econ1100-1-2) og [kap. 3.1](/bok/econ1100/econ1100-3-1).\n\n**1.** La $F(x,y)=x^{2}y^{3}$. Finn $F'_x$ og $F'_y$.\n\n*Svar:* $F'_x=2xy^{3}$ og $F'_y=3x^{2}y^{2}$.\n\n**2.** Sett opp differensialet $dF$ for $F(x,y)=xy$.\n\n*Svar:* $dF=y\\,dx+x\\,dy$.\n\n**3.** Deriver $y=12x^{-1}$.\n\n*Svar:* $y'=-12x^{-2}=-\\dfrac{12}{x^{2}}$.\n\n**4.** La $U(x,y)=x^{1/2}y^{1/2}$. Finn $U'_x$.\n\n*Svar:* $U'_x=\\tfrac12 x^{-1/2}y^{1/2}=\\dfrac{1}{2}\\sqrt{\\dfrac{y}{x}}$.\n\n**5.** Hva er $\\dfrac{d}{dx}\\ln y$ når $y$ er en funksjon av $x$?\n\n*Svar:* $\\dfrac{y'}{y}$ — kjerneregelen gir faktoren $y'$.\n\n**6.** Forkort $\\dfrac{2xy^{3}}{3x^{2}y^{2}}$.\n\n*Svar:* $\\dfrac{2y}{3x}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-5-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F(x,y)=c$ | Nivåkurve: alle punkter der funksjonen har verdien $c$ |\n| $c$ | Nivået — konstanten kurven er definert ved |\n| $y=y(x)$ | Den implisitt gitte funksjonen langs kurven |\n| $y'(x)$ | Nivåkurvens helning i et punkt |\n| $F'_x$, $F'_y$ | Partiellderiverte av $F$; bestemmer helningen |\n| $dF$ | Differensialet til $F$; null langs nivåkurven |\n| $U(x,y)=\\bar u$ | Indifferenskurve — nivåkurven til en nyttefunksjon |\n| $F(K,L)=\\bar Y$ | Isokvant — nivåkurven til en produktfunksjon |\n| $\\mathrm{MRS}$ | Marginal substitusjonsrate: bytteforholdet, lik $\\lvert y'\\rvert$ |\n| $p_1$, $p_2$ | Prisene på gode 1 og gode 2 |\n| $K$, $L$ | Kapital og arbeidskraft |\n\n**Formler i dette delkapitlet:**\n\n$$dF=F'_x\\,dx+F'_y\\,dy=0$$\nStartpunktet for utledningen: langs kurven er den samlede endringen null.\n\n$$y'(x)=-\\frac{F'_x}{F'_y},\\qquad F'_y\\ne 0$$\nNivåkurvens helning. Fri variabel i telleren, avhengig i nevneren, minus foran.\n\n$$\\frac{d}{dx}\\,y^{n}=n\\,y^{n-1}y',\\qquad \\frac{d}{dx}(xy)=y+x\\,y'$$\nImplisitt derivasjon: hvert $y$-ledd gir faktoren $y'$.\n\n$$U=x^{\\alpha}y^{\\beta}\\ \\Longrightarrow\\ y'=-\\frac{\\alpha\\,y}{\\beta\\,x}$$\nCobb-Douglas — forholdet mellom eksponentene er hele svaret.\n\n$$\\mathrm{MRS}=\\left|\\,y'\\,\\right|=\\frac{U'_x}{U'_y}$$\nMarginal substitusjonsrate: hvor mye av $y$ du gir fra deg for én enhet $x$.\n\n$$\\mathrm{MRS}=\\frac{p_1}{p_2}$$\nTangeringsbetingelsen i optimum — broen til Lagrange i [kap. 8.2](/bok/econ1100/econ1100-8-2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
