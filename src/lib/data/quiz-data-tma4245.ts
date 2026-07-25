@@ -2261,7 +2261,7 @@ const quizData_tma4245: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er styrken til en test?",
       options: ["Sannsynligheten for å forkaste $H_0$ når $H_1$ faktisk er sann", "Sannsynligheten for å forkaste $H_0$ når $H_0$ faktisk er sann", "Sannsynligheten for at nullhypotesen $H_0$ er sann i utgangspunktet", "Sannsynligheten for å beholde $H_0$ når $H_1$ faktisk er sann"],
-      explanation: "Styrken er $P(\\text{forkast } H_0 \\mid H_1 \\text{ sann}) = 1$ minus type II-sannsynligheten. Svaret «Sannsynligheten for å forkaste $H_0$ når $H_0$ faktisk er sann» beskriver $\\alpha$ (type I), og siste alternativ er selve type II-sannsynligheten.",
+      explanation: "Styrken er $P(\\text{forkast } H_0 \\mid H_1 \\text{ sann}) = 1$ minus type II-sannsynligheten. Svaret «Sannsynligheten for å forkaste $H_0$ når $H_0$ faktisk er sann» beskriver $\\alpha$ (type I), og svaret «Sannsynligheten for å beholde $H_0$ når $H_1$ faktisk er sann» er selve type II-sannsynligheten.",
     },
     {
       question: "Under hvilken parameterverdi skal styrken regnes?",
