@@ -1,0 +1,423 @@
+{
+  "id": "econ1100-6-1",
+  "courseId": "econ1100",
+  "chapterNumber": "6.1",
+  "title": "Førsteordensbetingelser og Hesse-klassifisering",
+  "description": "Fri optimering i to variabler: finne alle kandidatpunkter fra f'_x = f'_y = 0, og klassifisere hvert av dem som lokalt maksimum, lokalt minimum eller sadelpunkt ved hjelp av Hesse-determinanten D.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne alle stasjonærpunkter til en funksjon av to variabler ved å løse likningssystemet fra førsteordensbetingelsene",
+    "regne ut Hesse-determinanten korrekt, med riktig fortegn på kryssleddet",
+    "klassifisere hvert kandidatpunkt som maksimum, minimum eller sadelpunkt og begrunne konklusjonen",
+    "gjenkjenne når testen ikke gir svar, og si det i stedet for å gjette"
+  ],
+  "content": [
+    {
+      "id": "econ1100-6-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger HD — fri optimering i to variabler med Hesse-klassifisering.** «Fri» betyr at ingen bibetingelse binder deg: du kan velge $x$ og $y$ helt uavhengig av hverandre, i motsetning til Lagrange-oppgaven i Del 8, der et budsjett eller et produksjonskrav står i veien.\n\nSjangeren står i **10 av 16 sett** i arkivet (63 %): **6 av 9 ordinære** og **4 av 7 utsatte**. Den opptrer nesten alltid som en av storoppgavene i et sett, ikke som et lite delpunkt.\n\n**Oppgaveteksten er påfallende lik hver gang:** «finn og klassifiser alle stasjonærpunkter til $f(x,y)=\\dots$». Funksjonene som brukes, er polynomer i to variabler — typisk med ett kryssledd og én tredjegradsterm, valgt slik at kandidatpunktene blir pene tall.\n\n**Kapitlet har prioritet «kunne».** Det betyr at det ikke bærer eksamen alene, men at det er bredden i poengfangsten: en kandidat som mestrer denne oppskriften mekanisk, henter en hel storoppgave med ren rutine.\n\nHele arbeidet består av to trinn — finne kandidatene, og klassifisere dem. Dette kapitlet dekker begge. [Kap. 6.2](/bok/econ1100/econ1100-6-2) tar det som skiller toppsjiktet: når et lokalt svar også gjelder globalt.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025), med tilhørende offisielle sensorveiledninger.*"
+    },
+    {
+      "id": "econ1100-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte av første og andre orden, inkludert den kryssderiverte) og [kap. 4.2](/bok/econ1100/econ1100-4-2) (stasjonærpunkter og andrederiverttesten i én variabel).\n\n**Sist du var her — de tre tingene du trenger med deg inn:**\n\n$$f'_x=\\text{deriver mht. }x,\\ \\text{hold }y\\text{ konstant};\\qquad f''_{xy}=\\text{deriver }f'_x\\text{ mht. }y$$\n\n$$\\text{I én variabel: }f'(a)=0\\ \\text{gir kandidat};\\quad f''(a)>0\\ \\text{min},\\quad f''(a)<0\\ \\text{maks}$$\n\n$$\\text{Youngs teorem: }f''_{xy}=f''_{yx}\\ \\text{— rekkefølgen spiller ingen rolle}$$\n\nDet siste er verdt å merke seg allerede nå: det er derfor du bare trenger å regne ut **én** kryssderivert i dette kapitlet, ikke to."
+    },
+    {
+      "id": "econ1100-6-1-motivasjon",
+      "type": "text",
+      "content": "En kafé bestemmer to ting selv: hvor mange timer den holder åpent, og hvor mange ansatte den har på jobb. Ingen av valgene er låst av et budsjett — begge kan skrus opp eller ned fritt. Overskuddet avhenger av begge, og et sted finnes den kombinasjonen som gir mest.\n\nDet er dette som kalles **fri optimering i to variabler**. I én variabel lette du etter toppen av en kurve. Nå leter du etter toppen av et landskap.\n\nBildet er verdt å holde fast ved. Står du på toppen av en ås, heller bakken nedover uansett hvilken vei du går. Står du i bunnen av en gryte, heller den oppover uansett vei. Men det finnes et tredje sted: **skaret mellom to fjelltopper**. Der heller bakken nedover om du går mot dalene, og oppover om du går mot toppene. Punktet er flatt i begge hovedretninger, men det er verken en topp eller en bunn.\n\nDet tredje tilfellet finnes ikke i én variabel, og det er hele grunnen til at vi trenger et nytt verktøy. Verktøyet heter **Hesse-determinanten**, og det skiller de tre tilfellene fra hverandre med ett eneste tall."
+    },
+    {
+      "id": "econ1100-6-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Kandidatpunktene (~14 min)"
+    },
+    {
+      "id": "econ1100-6-1-def-fri-optimering",
+      "type": "definition",
+      "title": "Fri optimering i to variabler",
+      "content": "Å finne det største eller minste av $f(x,y)$ når $x$ og $y$ kan velges uavhengig av hverandre.\n\n$$\\max_{x,y}\\ f(x,y)\\qquad\\text{eller}\\qquad \\min_{x,y}\\ f(x,y)$$\n\nOrdet «fri» skiller problemet fra det betingede i Del 8, der en likning $g(x,y)=m$ binder valget. Her finnes ingen slik likning, og derfor trengs heller ingen multiplikator."
+    },
+    {
+      "id": "econ1100-6-1-def-stasjonaerpunkt",
+      "type": "definition",
+      "title": "Stasjonærpunkt i to variabler",
+      "content": "Et stasjonærpunkt er et punkt der begge partiellderiverte er null samtidig.\n\n$$f'_x(x_0,y_0)=0\\quad\\text{og}\\quad f'_y(x_0,y_0)=0$$\n\nFlaten er da vannrett i begge koordinatretninger. Andre navn på det samme er **kritisk punkt** og **kandidatpunkt** — det siste sier best hva det er: en kandidat, ikke en konklusjon. Å blande stasjonærpunkt og ekstrempunkt er **feil #8 — å tro at et punkt med flat tangent automatisk er et topp- eller bunnpunkt**, og den er like farlig i to variabler som i én."
+    },
+    {
+      "id": "econ1100-6-1-def-fob",
+      "type": "definition",
+      "title": "Førsteordensbetingelsene i fri optimering",
+      "content": "Betingelsene som må holde i ethvert indre ekstrempunkt, og som dermed peker ut alle kandidatene.\n\n$$\\text{FOB (1)}:\\ f'_x(x,y)=0\\qquad \\text{FOB (2)}:\\ f'_y(x,y)=0$$\n\nDette er to likninger med to ukjente. Å løse dem er halve arbeidet i sjangeren, og det er ren algebra — ikke kalkulus. Legg merke til at det ikke finnes noen FOB (3) her: bibetingelsen fra Lagrange-oppgaven er borte, for det er ingenting som binder."
+    },
+    {
+      "id": "econ1100-6-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Ett kandidatpunkt",
+      "problem": "En bedrift selger to varer. Overskuddet i tusen kroner er\n\n$$f(x,y)=12x+18y-x^2-3y^2,$$\n\nder $x$ og $y$ er solgt mengde av hver vare.\n\n**a)** Finn alle stasjonærpunkter.\n\n**b)** Hva er overskuddet i punktet?",
+      "solution": "**a) Partiellderiver først.** Når vi deriverer mht. $x$, er alle ledd med bare $y$ konstante og forsvinner:\n\n$$f'_x=12-2x,\\qquad f'_y=18-6y$$\n\n**Sett begge lik null:**\n\n$$\\text{FOB (1)}:\\ 12-2x=0\\ \\Longrightarrow\\ x=6$$\n\n$$\\text{FOB (2)}:\\ 18-6y=0\\ \\Longrightarrow\\ y=3$$\n\nHer var systemet enkelt fordi hver likning bare inneholdt én variabel. Det skjer alltid når funksjonen ikke har noe **kryssledd** — altså ingen term der $x$ og $y$ står sammen.\n\n**Kandidatpunktet er $(6,3)$**, og det er det eneste.\n\n**b) Sett inn:**\n\n$$f(6,3)=12\\cdot 6+18\\cdot 3-6^2-3\\cdot 3^2=72+54-36-27=63$$\n\nOverskuddet i punktet er $63\\,000$ kroner.\n\n**Kontroll av at vi har derivert riktig:** sett $x=6$ inn i $f'_x=12-2x$: $12-12=0$ ✓. Sett $y=3$ inn i $f'_y=18-6y$: $18-18=0$ ✓.\n\n**Men merk hva vi ennå ikke vet.** Vi har funnet et punkt der flaten er vannrett. Om det er en topp, en bunn eller et skar, sier førsteordensbetingelsene ingenting om. Det avgjøres i Løkke 2."
+    },
+    {
+      "id": "econ1100-6-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger HD — fri optimering i to variabler med Hesse-klassifisering, storoppgave i 10 av 16 sett. Innstegsoppgave.) Finn alle stasjonærpunkter til\n\n$$f(x,y)=x^2+y^2-6x+8y+3.$$\n\nDu skal ikke klassifisere noe ennå.",
+        "solution": "**Partiellderiver:**\n\n$$f'_x=2x-6,\\qquad f'_y=2y+8$$\n\n*Om derivasjonen:* leddene $y^2$, $8y$ og $3$ er konstante når vi deriverer mht. $x$, og faller bort. Tilsvarende faller $x^2$, $-6x$ og $3$ bort når vi deriverer mht. $y$.\n\n**Sett lik null:**\n\n$$\\text{FOB (1)}:\\ 2x-6=0\\ \\Longrightarrow\\ x=3$$\n\n$$\\text{FOB (2)}:\\ 2y+8=0\\ \\Longrightarrow\\ y=-4$$\n\n**Kandidatpunktet er $(3,-4)$**, og det er det eneste.\n\n*Kontroll:* $f'_x(3,-4)=2\\cdot 3-6=0$ ✓ og $f'_y(3,-4)=2\\cdot(-4)+8=0$ ✓\n\n*Til orientering:* $f(3,-4)=9+16-18-32+3=-22$.",
+        "hints": [
+          "Deriver mht. $x$ først, og behandle alle ledd som bare inneholder $y$ som konstanter.",
+          "Uten kryssledd inneholder hver av de to likningene bare én variabel — de kan løses hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-system-intro",
+      "type": "text",
+      "content": "Eksamensfunksjonene har som regel et kryssledd, og da henger de to likningene sammen. Systemet må løses samlet, og det er her kandidatpunkter går tapt.\n\nDen typiske eksamensfunksjonen gir en $f'_x$ som lar seg **faktorisere**. Da er triksen alltid den samme: et produkt er null når minst én faktor er null, så du får to grener som må undersøkes hver for seg.\n\nMister du én gren, mister du kandidatpunkter — og dermed poeng, selv om alt du faktisk skriver, er riktig."
+    },
+    {
+      "id": "econ1100-6-1-def-faktorisering",
+      "type": "definition",
+      "title": "Å faktorisere seg fram til kandidatpunktene",
+      "content": "Når den ene betingelsen kan skrives som et produkt lik null, deler løsningen seg i grener.\n\n$$A(x,y)\\cdot B(x,y)=0\\ \\Longleftrightarrow\\ A=0\\ \\textbf{eller}\\ B=0$$\n\nHver gren settes inn i den andre betingelsen for seg. Fremgangsmåten er å ta ut felles faktor i den enkleste av de to betingelsene, dele opp i grener, og løse den andre betingelsen på hver gren. Å dele på en faktor i stedet for å faktorisere er den vanligste måten å miste et kandidatpunkt på — da forsvinner grenen der faktoren er null."
+    },
+    {
+      "id": "econ1100-6-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Tre kandidatpunkter fra ett system",
+      "problem": "Finn alle stasjonærpunkter til\n\n$$f(x,y)=x^2y+x^2+2y^2.$$",
+      "solution": "**Partiellderiver.** Ved $f'_x$ er $y$ en konstant, og leddet $2y^2$ forsvinner:\n\n$$f'_x=2xy+2x,\\qquad f'_y=x^2+4y$$\n\n**FOB (1) faktoriseres.** Ta ut $2x$:\n\n$$2xy+2x=2x(y+1)=0$$\n\nEt produkt er null når en av faktorene er null, så vi får **to grener**:\n\n$$\\text{Gren I}:\\ x=0\\qquad\\text{Gren II}:\\ y=-1$$\n\n**Gren I — sett $x=0$ inn i FOB (2):**\n\n$$0^2+4y=0\\ \\Longrightarrow\\ y=0$$\n\nDet gir kandidatpunktet $(0,0)$.\n\n**Gren II — sett $y=-1$ inn i FOB (2):**\n\n$$x^2+4\\cdot(-1)=0\\ \\Longrightarrow\\ x^2=4\\ \\Longrightarrow\\ x=2\\ \\text{eller}\\ x=-2$$\n\nDet gir kandidatpunktene $(2,-1)$ og $(-2,-1)$.\n\n**Til sammen tre kandidatpunkter:**\n\n$$(0,0),\\qquad (2,-1),\\qquad (-2,-1)$$\n\n**Kontroll — sett hvert punkt inn i begge betingelsene:**\n\n- $(0,0)$: $f'_x=2\\cdot 0\\cdot 0+0=0$ ✓, $f'_y=0+0=0$ ✓\n- $(2,-1)$: $f'_x=2\\cdot 2\\cdot(-1)+2\\cdot 2=-4+4=0$ ✓, $f'_y=4+4\\cdot(-1)=0$ ✓\n- $(-2,-1)$: $f'_x=2\\cdot(-2)\\cdot(-1)+2\\cdot(-2)=4-4=0$ ✓, $f'_y=4-4=0$ ✓\n\n**Fellen ligger i det første steget.** Hadde vi delt FOB (1) på $2x$ i stedet for å faktorisere, ville vi fått $y+1=0$ alene og mistet hele Gren I — altså punktet $(0,0)$. Deling forutsetter at det man deler på, ikke er null, og her *kan* $x$ være null. Faktoriser, aldri del."
+    },
+    {
+      "id": "econ1100-6-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger HD.) Finn alle stasjonærpunkter til\n\n$$f(x,y)=x^2y+x^2+8y^2.$$\n\nKontroller hvert punkt mot begge betingelsene.",
+        "solution": "**Partiellderiver:**\n\n$$f'_x=2xy+2x,\\qquad f'_y=x^2+16y$$\n\n**Faktoriser FOB (1):**\n\n$$2x(y+1)=0\\ \\Longrightarrow\\ x=0\\ \\text{eller}\\ y=-1$$\n\n**Gren I ($x=0$):** FOB (2) gir $16y=0$, altså $y=0$. Punkt: $(0,0)$.\n\n**Gren II ($y=-1$):** FOB (2) gir $x^2-16=0$, altså $x^2=16$ og $x=\\pm 4$. Punkter: $(4,-1)$ og $(-4,-1)$.\n\n**De tre kandidatpunktene:**\n\n$$(0,0),\\qquad (4,-1),\\qquad (-4,-1)$$\n\n**Kontroll:**\n\n- $(0,0)$: $f'_x=0$ ✓, $f'_y=0+0=0$ ✓\n- $(4,-1)$: $f'_x=2\\cdot 4\\cdot(-1)+2\\cdot 4=-8+8=0$ ✓, $f'_y=16+16\\cdot(-1)=0$ ✓\n- $(-4,-1)$: $f'_x=8-8=0$ ✓, $f'_y=16-16=0$ ✓\n\n**Konklusjon:** funksjonen har nøyaktig tre stasjonærpunkter. Merk at koeffisienten $8$ foran $y^2$ bare flyttet på $x$-verdien i gren II — strukturen i løsningen er identisk med eksempelet over.",
+        "hints": [
+          "Ta ut felles faktor $2x$ i $f'_x$ i stedet for å dele.",
+          "Grenen $x=0$ og grenen $y=-1$ settes inn i $f'_y=0$ hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hesse-determinanten (~18 min)"
+    },
+    {
+      "id": "econ1100-6-1-hesse-intro",
+      "type": "text",
+      "content": "Nå har du kandidatene. Spørsmålet er hva slags punkter de er.\n\nDen naive tanken er å gjenta andrederiverttesten fra én variabel: se på $f''_{xx}$, og konkluder med minimum hvis den er positiv. Det holder ikke, og grunnen er skaret mellom fjelltoppene.\n\nSe på $f(x,y)=x^2-y^2$ i punktet $(0,0)$. Går du langs $x$-aksen, er $f=x^2$ — en bunn. Går du langs $y$-aksen, er $f=-y^2$ — en topp. Punktet er et **sadelpunkt**, og $f''_{xx}=2>0$ ville ha lurt deg til å si «minimum».\n\nEt punkt er altså bare et minimum hvis flaten krummer oppover i **alle** retninger, ikke bare langs aksene. Det er dette Hesse-determinanten måler, og den gjør det ved å veie krumningen i de to aksretningene mot **kryssleddet** $f''_{xy}$ — som forteller hvor mye flaten vrir seg i retningene imellom."
+    },
+    {
+      "id": "econ1100-6-1-def-andreordens",
+      "type": "definition",
+      "title": "De tre andreordens partiellderiverte",
+      "content": "For å klassifisere trenger du tre andrederiverte, ikke fire.\n\n$$f''_{xx}=(f'_x)'_x,\\qquad f''_{yy}=(f'_y)'_y,\\qquad f''_{xy}=(f'_x)'_y$$\n\nDen fjerde, $f''_{yx}$, er alltid lik $f''_{xy}$ etter Youngs teorem ([kap. 1.2](/bok/econ1100/econ1100-1-2)) så lenge de deriverte er kontinuerlige. Bruk gjerne det som kontroll: regn ut begge veier én gang, og se at du får det samme. Får du ikke det, har du derivert feil."
+    },
+    {
+      "id": "econ1100-6-1-def-hesse",
+      "type": "definition",
+      "title": "Hesse-determinanten $D$",
+      "content": "Hesse-determinanten er ett enkelt tall som samler all krumningsinformasjonen i punktet.\n\n$$D=f''_{xx}\\,f''_{yy}-\\left(f''_{xy}\\right)^2$$\n\nMerk at kryssleddet **kvadreres**, og at det trekkes fra. Fortegnet på $f''_{xy}$ spiller derfor ingen rolle for $D$ — bare størrelsen. Det er en nyttig kontroll: har du fått $D$ til å avhenge av om $f''_{xy}$ er positiv eller negativ, har du regnet feil. $D$ regnes ut på nytt i **hvert** kandidatpunkt, for de andrederiverte varierer normalt fra punkt til punkt."
+    },
+    {
+      "id": "econ1100-6-1-def-sadelpunkt",
+      "type": "definition",
+      "title": "Sadelpunkt",
+      "content": "Et sadelpunkt er et stasjonærpunkt som verken er et maksimum eller et minimum.\n\n$$f\\ \\text{stiger i én retning og faller i en annen, fra samme flate punkt}$$\n\nNavnet kommer av salen på en hest: den buer nedover fra side til side og oppover fra front til bak. Skaret mellom to fjelltopper er det samme. Sadelpunkter finnes ikke i én variabel, og de er hovedgrunnen til at $f''_{xx}$ alene ikke kan brukes til å klassifisere."
+    },
+    {
+      "id": "econ1100-6-1-thm-klassifisering",
+      "type": "theorem",
+      "title": "Klassifisering med Hesse-determinanten",
+      "content": "La $(x_0,y_0)$ være et stasjonærpunkt for $f$, og la $D=f''_{xx}f''_{yy}-(f''_{xy})^2$ være regnet ut i dette punktet. Da gjelder:\n\n$$D<0\\ \\Longrightarrow\\ \\text{sadelpunkt}$$\n\n$$D>0\\ \\text{og}\\ f''_{xx}>0\\ \\Longrightarrow\\ \\text{lokalt minimum}$$\n\n$$D>0\\ \\text{og}\\ f''_{xx}<0\\ \\Longrightarrow\\ \\text{lokalt maksimum}$$\n\n$$D=0\\ \\Longrightarrow\\ \\text{testen gir ikke svar}$$\n\nMerk ordet **lokalt**. Testen ser bare på krumningen i selve punktet, og sier derfor bare noe om nabolaget rundt det. Om resultatet også gjelder globalt, er et eget spørsmål — det tas i [kap. 6.2](/bok/econ1100/econ1100-6-2).\n\nMerk også at når $D>0$, har $f''_{xx}$ og $f''_{yy}$ nødvendigvis samme fortegn: produktet deres må være større enn $(f''_{xy})^2\\ge 0$. Du kan derfor like gjerne sjekke $f''_{yy}$ — svaret blir det samme."
+    },
+    {
+      "id": "econ1100-6-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Klassifiser alle tre punktene",
+      "problem": "Klassifiser de tre stasjonærpunktene $(0,0)$, $(2,-1)$ og $(-2,-1)$ til\n\n$$f(x,y)=x^2y+x^2+2y^2$$\n\nfra Eksempel 2.",
+      "solution": "**Steg 1 — de andreordens partiellderiverte.** Vi har $f'_x=2xy+2x$ og $f'_y=x^2+4y$. Deriver videre:\n\n$$f''_{xx}=(2xy+2x)'_x=2y+2$$\n\n$$f''_{yy}=(x^2+4y)'_y=4$$\n\n$$f''_{xy}=(2xy+2x)'_y=2x$$\n\n*Kontroll med Youngs teorem:* $f''_{yx}=(x^2+4y)'_x=2x$ ✓ — samme svar.\n\n**Steg 2 — det generelle uttrykket for $D$:**\n\n$$D=f''_{xx}f''_{yy}-(f''_{xy})^2=(2y+2)\\cdot 4-(2x)^2=8y+8-4x^2$$\n\n**Steg 3 — regn ut $D$ i hvert punkt.**\n\n*I $(0,0)$:*\n\n$$D=8\\cdot 0+8-4\\cdot 0^2=8>0,\\qquad f''_{xx}=2\\cdot 0+2=2>0$$\n\nBåde $D>0$ og $f''_{xx}>0$, altså **lokalt minimum**. Verdien er $f(0,0)=0$.\n\n*I $(2,-1)$:*\n\n$$D=8\\cdot(-1)+8-4\\cdot 2^2=-8+8-16=-16<0$$\n\n$D<0$, altså **sadelpunkt**. Her trengs ingen sjekk av $f''_{xx}$ — den er uten betydning når $D$ er negativ.\n\n*I $(-2,-1)$:*\n\n$$D=-8+8-4\\cdot(-2)^2=-16<0$$\n\nOgså **sadelpunkt**. Legg merke til at $x$ kvadreres, så fortegnet på $x$ ikke betyr noe her.\n\n**Konklusjon:** $f$ har ett lokalt minimum i $(0,0)$ og to sadelpunkter, i $(2,-1)$ og $(-2,-1)$.\n\n**Sjekk at svaret er rimelig.** I sadelpunktet $(2,-1)$ er $f=4\\cdot(-1)+4+2=2$, mens $f(0,0)=0$. Går vi fra $(2,-1)$ litt i $y$-retning, til $(2,-0{,}5)$, blir $f=4\\cdot(-0{,}5)+4+0{,}5=2{,}5$ — høyere. Går vi litt i $x$-retning, til $(2{,}5\\,;-1)$, blir $f=6{,}25\\cdot(-1)+6{,}25+2=2$ … akkurat like høyt, så vi må litt lenger: i $(3,-1)$ er $f=-9+9+2=2$, og i $(2,-1{,}5)$ er $f=-6+4+4{,}5=2{,}5$. Prøver vi diagonalt, i $(2{,}5\\,;-1{,}25)$, får vi $f=6{,}25\\cdot(-1{,}25)+6{,}25+3{,}125=1{,}5625$ — **lavere**. Fra samme punkt går det altså både opp og ned. Det er nettopp et sadelpunkt ✓"
+    },
+    {
+      "id": "econ1100-6-1-fig-hesse",
+      "type": "image",
+      "src": "/images/textbook/econ1100/hesse-tre-utfall.svg",
+      "alt": "Tre paneler ved siden av hverandre, hvert med et markert punkt i sentrum. Til venstre tre lukkede, konsentriske ovale kurver rundt punktet, merket lokalt minimum. I midten tre tilsvarende lukkede ovale kurver, merket lokalt maksimum. Til høyre åtte hyperbelformede kurvebuer som bøyer bort fra punktet i fire retninger uten å lukke seg, merket sadelpunkt.",
+      "caption": "De tre utfallene tegnet som nivåkurvekart, sett ovenfra — samme språk som i [kap. 5.1](/bok/econ1100/econ1100-5-1). Rundt et **lokalt minimum** ($D>0$, $f''_{xx}>0$) ligger nivåkurvene som lukkede ringer, og funksjonsverdien vokser utover; rundt et **lokalt maksimum** ($D>0$, $f''_{xx}<0$) ligger de også som lukkede ringer, men verdien avtar utover. Rundt et **sadelpunkt** ($D<0$) er kurvene hyperbelformede og lukker seg ikke: går du én vei stiger $f$, går du en annen vei faller den. I Eksempel 3 er $(0,0)$ av den første typen og $(2,-1)$ av den tredje."
+    },
+    {
+      "id": "econ1100-6-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger HD — klassifisering når kandidatpunktet er gitt.) Punktet $(6,3)$ er det eneste stasjonærpunktet til\n\n$$f(x,y)=12x+18y-x^2-3y^2$$\n\nfra Eksempel 1. Klassifiser det.",
+        "solution": "**De andreordens partiellderiverte.** Vi har $f'_x=12-2x$ og $f'_y=18-6y$:\n\n$$f''_{xx}=-2,\\qquad f''_{yy}=-6,\\qquad f''_{xy}=0$$\n\nKryssderiverten er null fordi $f'_x=12-2x$ ikke inneholder $y$ i det hele tatt.\n\n**Hesse-determinanten:**\n\n$$D=(-2)\\cdot(-6)-0^2=12>0$$\n\n**Klassifisering:** $D>0$, og $f''_{xx}=-2<0$, altså **lokalt maksimum**.\n\n**Konklusjon:** bedriften har sitt største overskudd i $(6,3)$, altså ved å selge 6 enheter av den første varen og 3 av den andre, med et overskudd på $f(6,3)=63$ tusen kroner.\n\n*Merk:* her er de andrederiverte konstante — de avhenger verken av $x$ eller $y$. Det betyr at $D=12>0$ og $f''_{xx}=-2<0$ i **hele** planet, ikke bare i punktet. Da er maksimumet faktisk globalt, ikke bare lokalt. Argumentet for det føres i [kap. 6.2](/bok/econ1100/econ1100-6-2).",
+        "hints": [
+          "Deriver $f'_x=12-2x$ én gang til, både mht. $x$ og mht. $y$.",
+          "Er $D>0$, avgjør fortegnet på $f''_{xx}$ om det er topp eller bunn."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger HD — hele kjeden.) Finn og klassifiser alle stasjonærpunkter til\n\n$$f(x,y)=x^3+y^2-3x-4y.$$",
+        "solution": "**Steg 1 — førsteordensbetingelsene:**\n\n$$f'_x=3x^2-3,\\qquad f'_y=2y-4$$\n\n$$\\text{FOB (1)}:\\ 3x^2-3=0\\ \\Longrightarrow\\ x^2=1\\ \\Longrightarrow\\ x=1\\ \\text{eller}\\ x=-1$$\n\n$$\\text{FOB (2)}:\\ 2y-4=0\\ \\Longrightarrow\\ y=2$$\n\n**To kandidatpunkter:** $(1,2)$ og $(-1,2)$.\n\n*Merk at kvadratroten gir to løsninger.* Å bare skrive $x=1$ er den vanligste måten å miste et kandidatpunkt på i denne oppgavetypen.\n\n**Steg 2 — de andreordens partiellderiverte:**\n\n$$f''_{xx}=6x,\\qquad f''_{yy}=2,\\qquad f''_{xy}=0$$\n\n$$D=6x\\cdot 2-0^2=12x$$\n\nHer avhenger $D$ av $x$, så den må regnes ut i hvert punkt for seg.\n\n**Steg 3 — klassifiser.**\n\n*I $(1,2)$:* $D=12\\cdot 1=12>0$ og $f''_{xx}=6>0$ → **lokalt minimum**. Verdien er $f(1,2)=1+4-3-8=-6$.\n\n*I $(-1,2)$:* $D=12\\cdot(-1)=-12<0$ → **sadelpunkt**. Verdien er $f(-1,2)=-1+4+3-8=-2$.\n\n**Konklusjon:** lokalt minimum i $(1,2)$ med verdi $-6$, og sadelpunkt i $(-1,2)$.\n\n*Rimelighetssjekk:* funksjonen er en sum, $x^3-3x$ pluss $y^2-4y$. Den siste delen har bunnpunkt i $y=2$ uansett. Den første delen har bunnpunkt i $x=1$ og toppunkt i $x=-1$ (kjent fra endimensjonal drøfting, [kap. 4.2](/bok/econ1100/econ1100-4-2)). Toppunkt i én retning og bunnpunkt i den andre er nettopp et sadelpunkt ✓",
+        "hints": [
+          "$3x^2-3=0$ har to løsninger — begge gir kandidatpunkter.",
+          "$D$ inneholder her $x$, så den må regnes ut på nytt i hvert punkt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i Hesse-klassifiseringen",
+      "content": "- **Fortegnsfeil i $D$, særlig på kryssleddet.** Det skal være **minus** foran, og kryssleddet skal **kvadreres**: $D=f''_{xx}f''_{yy}-(f''_{xy})^2$. Å skrive $+(f''_{xy})^2$ eller $-f''_{xy}$ uten kvadrat er den hyppigst dokumenterte regnefeilen i sjangeren, og den er en variant av **feil #12 — fortegns- og faktorfeil i partiellderiverte av produkter og kvotienter**. Kontrollen er at $D$ aldri skal avhenge av *fortegnet* på $f''_{xy}$.\n- **Å glemme $f''_{xx}$ når $D>0$.** Da vet du at punktet er et ekstrempunkt, men ikke om det er topp eller bunn. Halve svaret gir halv uttelling.\n- **Å miste kandidatpunkter.** To kilder: å dele på en faktor i stedet for å faktorisere, og å skrive bare den positive roten når $x^2=a$. Begge koster punkter du aldri får sjansen til å klassifisere.\n- **Å regne $D$ bare én gang.** De andrederiverte varierer normalt med $x$ og $y$. Regn ut det generelle uttrykket for $D$, og sett så inn hvert kandidatpunkt.\n- **Å behandle $D=0$ som et svar.** Det er ikke et svar; det er beskjeden om at testen ikke virker her. Se Løkke 3.\n- **Å skrive «globalt» der du bare har vist «lokalt».** Testen gjelder i punktet. Sensor merker forskjellen, og den er en toppsjikt-markør — se [kap. 6.2](/bok/econ1100/econ1100-6-2)."
+    },
+    {
+      "id": "econ1100-6-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Når testen ikke gir svar (~11 min)"
+    },
+    {
+      "id": "econ1100-6-1-def-d-null",
+      "type": "definition",
+      "title": "Når $D=0$",
+      "content": "Er $D$ lik null i kandidatpunktet, sier andrederiverttesten ingenting.\n\n$$D=0\\ \\Longrightarrow\\ \\text{punktet kan være maksimum, minimum eller sadelpunkt}$$\n\nAlle tre er mulige, og testen kan ikke skille dem. Det riktige svaret på eksamen er å skrive nettopp det: «$D=0$, så andrederiverttesten er inkonklusiv her». Dette er tvillingen til $x^4$-fellen i én variabel ([kap. 4.2](/bok/econ1100/econ1100-4-2)), der $f''(0)=0$ og testen på samme måte ikke gir svar. Å gjette gir null uttelling; å si at testen ikke gir svar, er et korrekt svar."
+    },
+    {
+      "id": "econ1100-6-1-def-hva-d-maaler",
+      "type": "definition",
+      "title": "Hva $D$ egentlig måler",
+      "content": "Determinanten veier krumningen langs aksene mot vridningen mellom dem.\n\n$$\\underbrace{f''_{xx}f''_{yy}}_{\\text{krumning i begge akseretninger}}\\ \\text{mot}\\ \\underbrace{(f''_{xy})^2}_{\\text{vridning}}$$\n\nEr kryssleddet stort nok, «vipper» det flaten slik at den krummer én vei i en skrå retning selv om den krummer samme vei langs begge akser. Da blir $D<0$, og punktet er et sadelpunkt. Er kryssleddet lite i forhold til akse-krumningene, dominerer disse, $D>0$, og flaten krummer samme vei i alle retninger."
+    },
+    {
+      "id": "econ1100-6-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: To funksjoner med $D=0$ i samme punkt",
+      "problem": "Både\n\n$$f(x,y)=x^4+y^4\\qquad\\text{og}\\qquad g(x,y)=x^4-y^4$$\n\nhar $(0,0)$ som eneste stasjonærpunkt. Vis at $D=0$ i punktet for begge, og avgjør likevel hva slags punkt det er i hvert tilfelle.",
+      "solution": "**Førsteordensbetingelsene.** For $f$:\n\n$$f'_x=4x^3=0\\ \\Longrightarrow\\ x=0;\\qquad f'_y=4y^3=0\\ \\Longrightarrow\\ y=0$$\n\nFor $g$ er $g'_x=4x^3$ og $g'_y=-4y^3$, som gir samme punkt. Begge har altså $(0,0)$ som eneste kandidat.\n\n**Hesse-determinanten i $(0,0)$.** For $f$:\n\n$$f''_{xx}=12x^2,\\qquad f''_{yy}=12y^2,\\qquad f''_{xy}=0$$\n\n$$D=12x^2\\cdot 12y^2-0^2=144x^2y^2\\ \\Longrightarrow\\ D(0,0)=0$$\n\nFor $g$: $g''_{xx}=12x^2$, $g''_{yy}=-12y^2$, $g''_{xy}=0$, altså $D=-144x^2y^2$ og igjen $D(0,0)=0$.\n\n**Testen gir ingenting i noen av tilfellene.** Vi må argumentere direkte fra funksjonsuttrykket i stedet.\n\n**For $f$ — globalt minimum.** Fjerdepotenser er aldri negative, så\n\n$$f(x,y)=x^4+y^4\\ge 0=f(0,0)\\quad\\text{for alle }(x,y)$$\n\nIngen punkter gir lavere verdi enn origo, så $(0,0)$ er et **globalt minimum**. Dette er nøyaktig det samme argumentet som brukes for $x^4$ i én variabel: ikke innsetting i den andrederiverte, men en ulikhet som holder overalt.\n\n**For $g$ — sadelpunkt.** Se hva som skjer langs hver akse:\n\n$$g(x,0)=x^4\\ge 0\\ \\text{(vokser bort fra origo)};\\qquad g(0,y)=-y^4\\le 0\\ \\text{(faller bort fra origo)}$$\n\nFra samme punkt går det altså opp langs $x$-aksen og ned langs $y$-aksen. Konkret: $g(1,0)=1>0$ og $g(0,1)=-1<0$, mens $g(0,0)=0$. Punktet er dermed et **sadelpunkt**.\n\n**Poenget.** To funksjoner, samme kandidatpunkt, samme $D=0$ — og to helt ulike svar. Det er derfor $D=0$ ikke kan tolkes. Metoden når testen svikter, er å se på selve funksjonsverdiene: finn to retninger der $f$ oppfører seg ulikt (sadelpunkt), eller vis en ulikhet som holder overalt (globalt ekstremum)."
+    },
+    {
+      "id": "econ1100-6-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Alle svar skal begrunnes; en ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn hver av dem.\n\n**a)** «Hvis $f''_{xx}>0$ i et stasjonærpunkt, er punktet et lokalt minimum.»\n\n**b)** «Hvis $D>0$ i et stasjonærpunkt, er punktet enten et lokalt maksimum eller et lokalt minimum.»\n\n**c)** «Hvis $D=0$ i et stasjonærpunkt, er punktet et sadelpunkt.»",
+        "solution": "**a) Usann.**\n\n*Begrunnelse ved moteksempel:* la $f(x,y)=x^2-y^2$. Da er $f'_x=2x$ og $f'_y=-2y$, så $(0,0)$ er stasjonærpunkt. Videre er\n\n$$f''_{xx}=2>0,\\qquad f''_{yy}=-2,\\qquad f''_{xy}=0$$\n\n$$D=2\\cdot(-2)-0^2=-4<0$$\n\nPunktet er altså et sadelpunkt, ikke et minimum — og det ser vi direkte: $f(x,0)=x^2>0$ mens $f(0,y)=-y^2<0$, så fra origo går det opp langs $x$-aksen og ned langs $y$-aksen. Krumning oppover i **én** retning er ikke nok.\n\n**b) Sann.**\n\n*Begrunnelse:* når $D>0$ er $f''_{xx}f''_{yy}>(f''_{xy})^2\\ge 0$, så produktet $f''_{xx}f''_{yy}$ er positivt. Da kan ingen av de to være null, og de må ha samme fortegn. Er begge positive, gir klassifiseringsregelen lokalt minimum; er begge negative, gir den lokalt maksimum. Et tredje utfall finnes ikke når $D>0$. Påstanden dekker altså begge muligheter og er sann.\n\n**c) Usann.**\n\n*Begrunnelse ved to moteksempler:* for $f(x,y)=x^4+y^4$ er $D=144x^2y^2$, som er $0$ i origo, og punktet er et globalt minimum siden $f\\ge 0=f(0,0)$ overalt. For $g(x,y)=x^4-y^4$ er $D=-144x^2y^2$, også $0$ i origo, men her er $g(1,0)=1>0$ og $g(0,1)=-1<0$, så punktet er et sadelpunkt.\n\nSamme verdi på $D$, to ulike svar. $D=0$ betyr derfor at testen ikke gir informasjon — ikke at punktet er av en bestemt type.",
+        "hints": [
+          "I a): finnes det en funksjon der flaten krummer oppover langs $x$-aksen og nedover langs $y$-aksen?",
+          "I b): hva må gjelde for produktet $f''_{xx}f''_{yy}$ når $D>0$?",
+          "I c): prøv to funksjoner som begge gir $D=0$ i origo, men oppfører seg ulikt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensnivå (~12 min)"
+    },
+    {
+      "id": "econ1100-6-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Eksamensnivå — profittmaksimering med to varer",
+      "problem": "En bedrift produserer to varer i mengdene $x$ og $y$. Overskuddet i tusen kroner er\n\n$$\\pi(x,y)=100x+80y-2x^2-2xy-2y^2.$$\n\n**a)** Finn alle stasjonærpunkter.\n\n**b)** Klassifiser punktet, og finn overskuddet der.\n\n**c)** Forklar hva kryssleddet $-2xy$ betyr økonomisk, og hva det gjør med klassifiseringen.",
+      "solution": "**a) Førsteordensbetingelsene.** Ved $\\pi'_x$ er $y$ konstant, så leddet $-2xy$ gir $-2y$:\n\n$$\\pi'_x=100-4x-2y,\\qquad \\pi'_y=80-2x-4y$$\n\n$$\\text{FOB (1)}:\\ 100-4x-2y=0\\ \\Longrightarrow\\ 4x+2y=100\\ \\Longrightarrow\\ 2x+y=50$$\n\n$$\\text{FOB (2)}:\\ 80-2x-4y=0\\ \\Longrightarrow\\ 2x+4y=80\\ \\Longrightarrow\\ x+2y=40$$\n\n**Løs systemet.** Fra den første: $y=50-2x$. Sett inn i den andre:\n\n$$x+2(50-2x)=40\\ \\Longrightarrow\\ x+100-4x=40\\ \\Longrightarrow\\ -3x=-60\\ \\Longrightarrow\\ x=20$$\n\n$$y=50-2\\cdot 20=10$$\n\n**Kandidatpunktet er $(20,10)$**, og systemet er lineært med entydig løsning, så det er det eneste.\n\n*Kontroll:* $\\pi'_x(20,10)=100-80-20=0$ ✓ og $\\pi'_y(20,10)=80-40-40=0$ ✓\n\n**b) Klassifisering.**\n\n$$\\pi''_{xx}=-4,\\qquad \\pi''_{yy}=-4,\\qquad \\pi''_{xy}=-2$$\n\n$$D=(-4)\\cdot(-4)-(-2)^2=16-4=12>0$$\n\nMed $D>0$ og $\\pi''_{xx}=-4<0$ er punktet et **lokalt maksimum**.\n\n**Overskuddet:**\n\n$$\\pi(20,10)=100\\cdot 20+80\\cdot 10-2\\cdot 400-2\\cdot 200-2\\cdot 100$$\n\n$$=2000+800-800-400-200=1400$$\n\nAltså $1{,}4$ millioner kroner.\n\n*Merk:* de andrederiverte er konstanter her, så $D=12>0$ og $\\pi''_{xx}=-4<0$ gjelder i hele planet. Maksimumet er derfor globalt — argumentet føres i [kap. 6.2](/bok/econ1100/econ1100-6-2).\n\n**c) Kryssleddet.** At $\\pi''_{xy}=-2<0$ betyr at grenseinntekten av den ene varen **faller** når bedriften selger mer av den andre. Varene er substitutter: de spiser av hverandres marked, så mer av den ene gjør den andre mindre lønnsom på marginen.\n\nFor klassifiseringen er det størrelsen som betyr noe, ikke fortegnet. Her er $(\\pi''_{xy})^2=4$, godt under $\\pi''_{xx}\\pi''_{yy}=16$, så krumningen nedover i begge akseretninger dominerer, og punktet blir et maksimum. Hadde konkurransen mellom varene vært sterkere — si $\\pi''_{xy}=-5$, altså $(\\pi''_{xy})^2=25>16$ — ville $D$ blitt $16-25=-9<0$, og punktet et sadelpunkt. Modellen ville da ikke hatt noe indre maksimum i det hele tatt: fra det stasjonære punktet finnes det retninger der overskuddet fortsetter å stige, og en slik modell beskriver ikke en bedrift med en veldefinert beste produksjonsplan.\n\n**Verbal konklusjon:** bedriften bør produsere 20 enheter av den første varen og 10 av den andre, og oppnår da et overskudd på 1,4 millioner kroner."
+    },
+    {
+      "id": "econ1100-6-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger HD — økonomisk innramming.) Et forlag gir ut to titler i opplagene $x$ og $y$ (i tusen). Dekningsbidraget i tusen kroner er\n\n$$f(x,y)=12x+15y-x^2-xy-y^2.$$\n\n**a)** Finn det eneste stasjonærpunktet.\n\n**b)** Klassifiser det og finn dekningsbidraget der.",
+        "solution": "**a) Førsteordensbetingelsene:**\n\n$$f'_x=12-2x-y,\\qquad f'_y=15-x-2y$$\n\n$$\\text{FOB (1)}:\\ 2x+y=12\\qquad \\text{FOB (2)}:\\ x+2y=15$$\n\nFra FOB (1): $y=12-2x$. Sett inn i FOB (2):\n\n$$x+2(12-2x)=15\\ \\Longrightarrow\\ x+24-4x=15\\ \\Longrightarrow\\ -3x=-9\\ \\Longrightarrow\\ x=3$$\n\n$$y=12-2\\cdot 3=6$$\n\n**Kandidatpunktet er $(3,6)$.** Systemet er lineært med entydig løsning, så det finnes ingen andre.\n\n*Kontroll:* $f'_x(3,6)=12-6-6=0$ ✓ og $f'_y(3,6)=15-3-12=0$ ✓\n\n**b) Klassifisering:**\n\n$$f''_{xx}=-2,\\qquad f''_{yy}=-2,\\qquad f''_{xy}=-1$$\n\n$$D=(-2)(-2)-(-1)^2=4-1=3>0$$\n\nMed $D>0$ og $f''_{xx}=-2<0$: **lokalt maksimum**.\n\n**Dekningsbidraget:**\n\n$$f(3,6)=36+90-9-18-36=63$$\n\nAltså 63 000 kroner, ved opplag på 3 000 og 6 000 eksemplarer.\n\n*Merk at $(f''_{xy})^2=1$ er langt mindre enn $f''_{xx}f''_{yy}=4$ her.* Titlene konkurrerer bare svakt om de samme leserne, og det er derfor det finnes et indre optimum.",
+        "hints": [
+          "Begge betingelsene blir lineære likninger — løs systemet ved innsetting.",
+          "De andrederiverte er konstanter, så $D$ regnes ut én gang."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger HD — to grener og to utfall.) Finn og klassifiser alle stasjonærpunkter til\n\n$$f(x,y)=x^3+y^3-9xy.$$",
+        "solution": "**Steg 1 — førsteordensbetingelsene:**\n\n$$f'_x=3x^2-9y,\\qquad f'_y=3y^2-9x$$\n\n$$\\text{FOB (1)}:\\ 3x^2=9y\\ \\Longrightarrow\\ y=\\frac{x^2}{3}$$\n\n$$\\text{FOB (2)}:\\ 3y^2=9x\\ \\Longrightarrow\\ x=\\frac{y^2}{3}$$\n\n**Sett den første inn i den andre:**\n\n$$x=\\frac{1}{3}\\left(\\frac{x^2}{3}\\right)^2=\\frac{x^4}{27}$$\n\n$$27x=x^4\\ \\Longrightarrow\\ x^4-27x=0\\ \\Longrightarrow\\ x\\left(x^3-27\\right)=0$$\n\n*Faktoriser — ikke del på $x$*, ellers mister du løsningen $x=0$:\n\n$$x=0\\quad\\text{eller}\\quad x^3=27\\ \\Longrightarrow\\ x=3$$\n\nMed $y=x^2/3$ gir dette $y=0$ og $y=3$.\n\n**To kandidatpunkter:** $(0,0)$ og $(3,3)$.\n\n*Kontroll:* $(3,3)$: $f'_x=27-27=0$ ✓, $f'_y=27-27=0$ ✓. $(0,0)$: begge er åpenbart null ✓\n\n**Steg 2 — andreordens partiellderiverte:**\n\n$$f''_{xx}=6x,\\qquad f''_{yy}=6y,\\qquad f''_{xy}=-9$$\n\n$$D=6x\\cdot 6y-(-9)^2=36xy-81$$\n\n**Steg 3 — klassifiser.**\n\n*I $(0,0)$:* $D=0-81=-81<0$ → **sadelpunkt**.\n\n*I $(3,3)$:* $D=36\\cdot 9-81=324-81=243>0$, og $f''_{xx}=18>0$ → **lokalt minimum**. Verdien er\n\n$$f(3,3)=27+27-9\\cdot 9=54-81=-27$$\n\n**Konklusjon:** sadelpunkt i $(0,0)$ og lokalt minimum i $(3,3)$ med verdi $-27$.\n\n*Hvorfor bare lokalt:* $f''_{xx}=6x$ er negativ for alle $x<0$, så flaten krummer nedover i store deler av planet. Setter vi $y=0$, er $f(x,0)=x^3$, som går mot $-\\infty$ når $x\\to-\\infty$. Funksjonen har altså ingen minste verdi i det hele tatt, og «lokalt» er det sterkeste vi kan si.",
+        "hints": [
+          "Løs FOB (1) for $y$ og sett uttrykket inn i FOB (2).",
+          "Du ender med $x^4=27x$ — faktoriser, ikke del på $x$.",
+          "$D$ inneholder produktet $xy$, så den skifter fortegn mellom de to punktene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-6-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger HD — generelle parametere, en form sensor bruker for å skille toppsjiktet.) La\n\n$$f(x,y)=x^2+bxy+y^2,$$\n\nder $b$ er et reelt tall.\n\n**a)** Vis at $(0,0)$ er et stasjonærpunkt for alle verdier av $b$.\n\n**b)** Finn Hesse-determinanten, og avgjør for hvilke $b$ punktet er et lokalt minimum, et sadelpunkt, og for hvilke $b$ testen ikke gir svar.\n\n**c)** For $b=2$ svikter testen. Avgjør likevel hva slags punkt $(0,0)$ er.",
+        "solution": "**a)**\n\n$$f'_x=2x+by,\\qquad f'_y=bx+2y$$\n\nSatt inn i origo: $f'_x(0,0)=0$ og $f'_y(0,0)=0$ for **enhver** $b$, siden begge uttrykkene er homogene i $x$ og $y$. Origo er altså alltid et stasjonærpunkt.\n\n**b) Andrederiverte og determinant:**\n\n$$f''_{xx}=2,\\qquad f''_{yy}=2,\\qquad f''_{xy}=b$$\n\n$$D=2\\cdot 2-b^2=4-b^2$$\n\nDe andrederiverte er konstanter, så $D$ er den samme i hele planet.\n\n*Lokalt minimum* krever $D>0$:\n\n$$4-b^2>0\\ \\Longleftrightarrow\\ b^2<4\\ \\Longleftrightarrow\\ -2<b<2$$\n\nOg da er $f''_{xx}=2>0$, så det blir minimum og ikke maksimum. Siden $D>0$ og $f''_{xx}>0$ **overalt** i dette tilfellet, er minimumet dessuten globalt.\n\n*Sadelpunkt* krever $D<0$:\n\n$$4-b^2<0\\ \\Longleftrightarrow\\ b<-2\\ \\text{eller}\\ b>2$$\n\n*Testen svikter* når $D=0$, altså for $b=2$ og $b=-2$.\n\n**c) Tilfellet $b=2$.** Da er\n\n$$f(x,y)=x^2+2xy+y^2=(x+y)^2$$\n\nEt kvadrat er aldri negativt, så\n\n$$f(x,y)=(x+y)^2\\ge 0=f(0,0)\\quad\\text{for alle }(x,y)$$\n\nOrigo er derfor et **globalt minimum** — men et spesielt et: funksjonen er null langs hele linja $y=-x$, ikke bare i origo. Minimumsverdien nås altså i uendelig mange punkter, og ingen av dem er et *strengt* minimum. Det er nettopp den slags grensetilfeller $D=0$ varsler om.\n\n*Til sammenligning, for $b=-2$:* da er $f=(x-y)^2\\ge 0$, og konklusjonen blir den samme med linja $y=x$ som bunn.",
+        "hints": [
+          "I a): sett $x=0$ og $y=0$ inn i begge de partiellderiverte — hva blir igjen?",
+          "I b): $D$ blir et andregradsuttrykk i $b$; løs ulikhetene $D>0$ og $D<0$.",
+          "I c): $x^2+2xy+y^2$ er et kjent kvadrat. Skriv det om."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-6-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-6-1-bb-1",
+      "type": "definition",
+      "title": "Oppskriften i fire linjer",
+      "content": "Hele sjangeren, slik den skal stå på arket.\n\n$$1)\\ f'_x=f'_y=0\\ \\to\\ \\text{kandidater};\\quad 2)\\ f''_{xx},f''_{yy},f''_{xy};\\quad 3)\\ D;\\quad 4)\\ \\text{klassifiser}$$\n\nSteg 1 er algebra, steg 2 er derivasjon, steg 3 er ett regnestykke og steg 4 er en regel du kan utenat. Ingen av dem er vanskelige hver for seg — poengene tapes på slurv, ikke på forståelse."
+    },
+    {
+      "id": "econ1100-6-1-bb-2",
+      "type": "definition",
+      "title": "Klassifiseringsregelen i kortform",
+      "content": "De fire utfallene, samlet.\n\n$$D<0\\ \\text{sadel};\\quad D>0,\\ f''_{xx}>0\\ \\text{min};\\quad D>0,\\ f''_{xx}<0\\ \\text{maks};\\quad D=0\\ \\text{ukjent}$$\n\nHusk at $f''_{xx}$ bare skal sjekkes når $D>0$. Er $D<0$, er punktet et sadelpunkt uansett hva $f''_{xx}$ måtte være."
+    },
+    {
+      "id": "econ1100-6-1-bb-3",
+      "type": "definition",
+      "title": "Kryssleddet kvadreres og trekkes fra",
+      "content": "Den ene formelen det er lett å skrive feil.\n\n$$D=f''_{xx}f''_{yy}-\\left(f''_{xy}\\right)^2$$\n\nTo kontroller: leddet skal ha **minus** foran, og det skal være **kvadrert**. Derfor spiller fortegnet på $f''_{xy}$ ingen rolle for $D$ — bare tallverdien."
+    },
+    {
+      "id": "econ1100-6-1-bb-4",
+      "type": "definition",
+      "title": "Faktoriser, aldri del",
+      "content": "Den vanligste måten å miste et kandidatpunkt på.\n\n$$2x(y+1)=0\\ \\Rightarrow\\ x=0\\ \\text{eller}\\ y=-1$$\n\nDeler du på $2x$, forsvinner grenen $x=0$ — og med den ett eller flere kandidatpunkter. Deling forutsetter at det du deler på, ikke er null, og i et likningssystem vet du ikke det på forhånd."
+    },
+    {
+      "id": "econ1100-6-1-bb-5",
+      "type": "definition",
+      "title": "Begge røttene teller",
+      "content": "En kvadratisk betingelse gir to kandidater, ikke én.\n\n$$x^2=4\\ \\Longrightarrow\\ x=2\\ \\textbf{eller}\\ x=-2$$\n\nBegge skal med i kandidatlisten og begge skal klassifiseres. Å bare skrive den positive roten er en av to hovedkilder til tapte kandidatpunkter — den andre er å dele i stedet for å faktorisere."
+    },
+    {
+      "id": "econ1100-6-1-bb-6",
+      "type": "definition",
+      "title": "$D$ regnes ut i hvert punkt",
+      "content": "De andrederiverte varierer normalt over planet.\n\n$$D(x,y)=f''_{xx}(x,y)\\,f''_{yy}(x,y)-\\left(f''_{xy}(x,y)\\right)^2$$\n\nFinn først det generelle uttrykket, sett så inn hvert kandidatpunkt for seg. Bare når alle tre andrederiverte er konstanter, er $D$ det samme overalt."
+    },
+    {
+      "id": "econ1100-6-1-bb-7",
+      "type": "definition",
+      "title": "Sadelpunktet finnes bare i flere variabler",
+      "content": "Det nye tilfellet som ikke har noen parallell i én variabel.\n\n$$f(x,y)=x^2-y^2\\ \\text{i}\\ (0,0):\\ \\text{bunn langs }x,\\ \\text{topp langs }y$$\n\nDerfor holder det ikke å se på $f''_{xx}$ alene — den ser bare én retning. Determinanten ser alle retninger på én gang."
+    },
+    {
+      "id": "econ1100-6-1-bb-8",
+      "type": "definition",
+      "title": "Youngs teorem sparer deg for én derivasjon",
+      "content": "De to kryssderiverte er alltid like når de er kontinuerlige.\n\n$$f''_{xy}=f''_{yx}$$\n\nDu trenger derfor bare regne ut den ene. Regner du ut begge likevel, har du en gratis kontroll på at derivasjonen er riktig."
+    },
+    {
+      "id": "econ1100-6-1-bb-9",
+      "type": "definition",
+      "title": "Lokalt er ikke globalt",
+      "content": "Testen ser bare på krumningen i selve punktet.\n\n$$D>0,\\ f''_{xx}>0\\ \\text{i}\\ (x_0,y_0)\\ \\Longrightarrow\\ \\textbf{lokalt}\\ \\text{minimum}$$\n\nOrdet «lokalt» skal stå i svaret. Skal konklusjonen utvides til hele definisjonsområdet, kreves et eget argument — se [kap. 6.2](/bok/econ1100/econ1100-6-2)."
+    },
+    {
+      "id": "econ1100-6-1-bb-10",
+      "type": "definition",
+      "title": "$D=0$ er en beskjed, ikke et svar",
+      "content": "Testen melder at den ikke kan skille tilfellene.\n\n$$D=0:\\ \\text{maksimum, minimum og sadelpunkt er alle mulige}$$\n\nDa må du argumentere direkte fra funksjonsverdiene: vis en ulikhet som holder overalt, eller finn to retninger der funksjonen oppfører seg motsatt. Å skrive at testen er inkonklusiv, er et riktig svar; å gjette er det ikke."
+    },
+    {
+      "id": "econ1100-6-1-bb-11",
+      "type": "definition",
+      "title": "Kryssleddets rolle",
+      "content": "Determinanten veier akse-krumning mot vridning.\n\n$$f''_{xx}f''_{yy}>\\left(f''_{xy}\\right)^2\\ \\Longleftrightarrow\\ D>0$$\n\nEr vridningen liten i forhold til krumningen langs aksene, krummer flaten samme vei i alle retninger, og punktet er et ekstrempunkt. Er vridningen stor, vipper flaten og punktet blir et sadelpunkt."
+    },
+    {
+      "id": "econ1100-6-1-bb-12",
+      "type": "definition",
+      "title": "Når $D>0$ har begge akse-krumningene samme fortegn",
+      "content": "Derfor kan du sjekke hvilken som helst av dem.\n\n$$D>0\\ \\Longrightarrow\\ f''_{xx}f''_{yy}>0\\ \\Longrightarrow\\ f''_{xx}\\ \\text{og}\\ f''_{yy}\\ \\text{har samme fortegn}$$\n\nDe fleste bruker $f''_{xx}$ av vane. Er den tungvint å regne ut i punktet, gir $f''_{yy}$ nøyaktig samme konklusjon."
+    },
+    {
+      "id": "econ1100-6-1-bb-13",
+      "type": "definition",
+      "title": "Kontrollen som alltid virker",
+      "content": "Sett kandidatpunktet tilbake i begge førsteordensbetingelsene.\n\n$$f'_x(x_0,y_0)\\overset{?}{=}0\\qquad\\text{og}\\qquad f'_y(x_0,y_0)\\overset{?}{=}0$$\n\nDet tar tjue sekunder og fanger nesten alle algebrafeil i steg 1. Er punktet feil, hjelper det ikke at klassifiseringen er teknisk korrekt."
+    },
+    {
+      "id": "econ1100-6-1-bb-14",
+      "type": "definition",
+      "title": "Fri optimering mot betinget optimering",
+      "content": "To sjangre som ser like ut, men har ulikt apparat.\n\n$$\\text{fri}:\\ f'_x=f'_y=0,\\ \\text{deretter }D;\\qquad \\text{betinget}:\\ L=F-\\lambda(g-m),\\ \\text{FOB}$$\n\nEr det en bibetingelse i oppgaven, hører den til Del 8 og Hesse-determinanten skal ikke brukes. Er det ingen bibetingelse, hører den hit og multiplikatoren skal ikke innføres. Å lese hvilken av de to det er, tar fem sekunder og avgjør hele oppgaven."
+    },
+    {
+      "id": "econ1100-6-1-bb-15",
+      "type": "definition",
+      "title": "Kryssleddet i økonomisk språk",
+      "content": "Fortegnet på $f''_{xy}$ sier hvordan de to variablene virker på hverandre.\n\n$$f''_{xy}<0:\\ \\text{substitutter};\\qquad f''_{xy}>0:\\ \\text{komplementer}$$\n\nEr $f''_{xy}$ negativ, faller grenseavkastningen av det ene når det andre øker — varene tar markedsandeler fra hverandre. Er den positiv, forsterker de hverandre. For klassifiseringen er det likevel bare tallverdien som teller."
+    },
+    {
+      "id": "econ1100-6-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-6-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.2](/bok/econ1100/econ1100-1-2) og [kap. 4.2](/bok/econ1100/econ1100-4-2).\n\n**1.** Finn $f'_x$ og $f'_y$ når $f(x,y)=x^2y+3y^2$.\n\n*Svar:* $f'_x=2xy$ og $f'_y=x^2+6y$.\n\n**2.** Finn $f''_{xy}$ for samme funksjon.\n\n*Svar:* deriver $f'_x=2xy$ mht. $y$: $f''_{xy}=2x$.\n\n**3.** Hva sier Youngs teorem?\n\n*Svar:* At $f''_{xy}=f''_{yx}$ når de andrederiverte er kontinuerlige — rekkefølgen spiller ingen rolle.\n\n**4.** I én variabel: hva sier andrederiverttesten når $f'(a)=0$ og $f''(a)<0$?\n\n*Svar:* At $a$ er et lokalt maksimum.\n\n**5.** Hvorfor kan ikke $f''(0)=0$ brukes til å avgjøre om $x=0$ er et minimum for $f(x)=x^4$?\n\n*Svar:* Fordi testen er inkonklusiv når $f''=0$ i punktet. Minimumet vises i stedet med at $f''(x)=12x^2\\ge 0$ overalt, altså global konveksitet — eller ved at $x^4\\ge 0$ for alle $x$.\n\n**6.** Løs likningssystemet $2x+y=7$ og $x+2y=8$.\n\n*Svar:* $y=7-2x$ satt inn i den andre gir $x+14-4x=8$, altså $-3x=-6$ og $x=2$, $y=3$.\n\n**7.** Faktoriser $3xy-6x$.\n\n*Svar:* $3x(y-2)$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-6-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x,y)$ | Funksjonen som skal maksimeres eller minimeres |\n| $f'_x$, $f'_y$ | Førsteordens partiellderiverte |\n| $f''_{xx}$, $f''_{yy}$ | Andreordens partiellderiverte i hver akseretning |\n| $f''_{xy}$ | Den kryssderiverte — deriver først mht. $x$, så mht. $y$ |\n| $D$ | Hesse-determinanten |\n| $(x_0,y_0)$ | Et kandidatpunkt (stasjonærpunkt) |\n| $\\pi(x,y)$ | Overskudds- eller profittfunksjon i de økonomiske eksemplene |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{FOB (1)}:\\ f'_x=0;\\qquad \\text{FOB (2)}:\\ f'_y=0$$\nFørsteordensbetingelsene. To likninger, to ukjente — løsningene er kandidatpunktene.\n\n$$D=f''_{xx}\\,f''_{yy}-\\left(f''_{xy}\\right)^2$$\nHesse-determinanten, regnet ut i hvert kandidatpunkt. Kryssleddet kvadreres og trekkes fra.\n\n$$D<0\\ \\text{sadelpunkt};\\quad D>0,\\ f''_{xx}>0\\ \\text{lokalt minimum};\\quad D>0,\\ f''_{xx}<0\\ \\text{lokalt maksimum};\\quad D=0\\ \\text{inkonklusiv}$$\nKlassifiseringsregelen. Merk at $f''_{xx}$ bare skal sjekkes når $D>0$.\n\n$$f''_{xy}=f''_{yx}$$\nYoungs teorem. Du trenger bare regne ut den ene kryssderiverte."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
