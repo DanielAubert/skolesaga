@@ -131,7 +131,7 @@
   {
    "id": "in1900-6-2-warn-rekkefolge",
    "type": "warning",
-   "title": "Typiske feil: rekkefølge, in-place-overskriving og rekursjon",
+   "title": "Typiske feil: rekkefølge, in-place-overskriving og funksjoner som kaller seg selv",
    "content": "1. **Feil oppdateringsrekkefølge** — dette er **feil #2 i feilkatalogen**: å regne `x[n+1]` før `y[n+1]` når `x[n+1]` trenger den nye `y`-verdien. Symptomet er som i eksempel 3: en av størrelsene står stille eller oppfører seg umulig. Bot: ring rundt $n+1$-ledd på høyresiden før du skriver koden.\n2. **In-place-overskriving.** Bruker du to enkle variabler i stedet for tabeller, og skriver\n\n```text\nx = x + dt*y\ny = y - dt*x\n```\n\nså er `x` allerede endret når `y` oppdateres, og den gamle `x`-verdien er tapt. Med tabeller (`x[n]` og `x[n+1]`) skjer ikke dette, fordi den gamle verdien blir stående på sin egen plass. Det er én av grunnene til at boka alltid bruker tabeller. Blokken over er et fragment, ikke kjørbar kode.\n3. **Glemt startverdi** for den ene av de to størrelsene. Da starter den på 0, og forløpet blir feil fra første skritt.\n4. **Rekursjon.** Det frister å skrive en funksjon som kaller seg selv, siden likningen «henviser til seg selv». La være: rekursjon er **utenfor pensum** i dette emnet og markeres som uønsket i løsningsforslagene. Alle differenslikninger i faget løses med løkke som lagrer verdiene i en tabell — også de som bruker to gamle verdier."
   },
   {
