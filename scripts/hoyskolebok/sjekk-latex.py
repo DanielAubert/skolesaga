@@ -38,6 +38,32 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 KTRL = {7: r"\a (BEL)", 8: r"\b (BS)", 9: r"\t (TAB)", 11: r"\v (VT)",
         12: r"\f (FF)", 13: r"\r (CR)"}
 
+# Kjente LaTeX-kommandoer, brukt av sjekk 0 (enkel backslash i quiz-TS).
+# Lista er bevisst konservativ: bare navn som ALDRI er noe annet enn LaTeX.
+# `n` står IKKE her — `\n` er ekte linjeskift i kodeeksempler. En blank regel
+# «backslash foran bokstav» ga 1539 falske positive i in1900 (kodefag).
+_KOMMANDOER = (
+    "frac dfrac tfrac sqrt cdot cdots times div pm mp leq geq approx equiv "
+    "left right langle rangle lfloor rfloor lceil rceil "
+    # Kommandoer som begynner paa «n» (nu, nabla, neg, neq, notin) er UTELATT:
+    # de er ikke til aa skille fra ekte linjeskift «\n» + tekst i kodeeksempler.
+    
+    "alpha beta gamma delta epsilon varepsilon zeta eta theta vartheta iota "
+    "kappa lambda mu xi rho sigma tau upsilon phi varphi chi psi omega "
+    "Gamma Delta Theta Lambda Xi Pi Sigma Upsilon Phi Psi Omega "
+    "sum prod int oint lim limsup liminf sup arg deg det dim exp "
+    "gcd ker log ln lg sin cos tan cot sec csc sinh cosh tanh arcsin "
+    "arccos arctan partial infty forall exists land lor implies iff "
+    "rightarrow leftarrow Rightarrow Leftarrow leftrightarrow to mapsto "
+    "text textbf textit mathrm mathbf mathit mathcal mathbb mathfrak mathsf "
+    "begin end quad qquad overline underline hat bar vec tilde "
+    "ddot prime circ angle triangle perp parallel subset supset subseteq "
+    "supseteq cup cap setminus emptyset propto sim simeq cong "
+    "boxed displaystyle binom"
+).split()
+LATEX_KOMMANDO = re.compile(
+    r"(?<!\\)\\(" + "|".join(sorted(_KOMMANDOER, key=len, reverse=True)) + r")(?![a-zA-Z])")
+
 NODE_KATEX = r"""
 const katex = require("katex");
 const inn = JSON.parse(require("fs").readFileSync(process.argv[2], "utf8"));
@@ -157,12 +183,15 @@ def main():
     #    '$\frac{1}{16}$' i kilden blir '$<FF>rac{1}{16}$' for eleven, og
     #    \left/\pi/\partial mister backslashen HELT uten å etterlate spor.
     #    395 formler var ødelagt slik i 1t/s2/1p/mat1100/econ2220/fys1001
-    #    25. juli 2026. LaTeX i TS-kilden skal ALLTID ha dobbel backslash, så
-    #    regelen er entydig: én backslash foran en bokstav er en feil.
+    #    25. juli 2026.
+    #    NB: regelen kan IKKE være «én backslash foran en bokstav». I kodefag
+    #    er `\n` ekte linjeskift i Python-eksempler — in1900 har 1539 av dem,
+    #    og en blank regel ga 1539 falske positive. Derfor sjekkes bare
+    #    backslash foran et KJENT LaTeX-kommandonavn.
     q = os.path.join(ROOT, f"src/lib/data/quiz-data-{emne}.ts")
     if os.path.exists(q):
         kilde = open(q, encoding="utf-8").read()
-        for m in re.finditer(r"(?<!\\)\\[a-zA-Z]+", kilde):
+        for m in LATEX_KOMMANDO.finditer(kilde):
             lin = kilde.count("\n", 0, m.start()) + 1
             avvik.append(f"ENKEL BACKSLASH i quiz-data-{emne}.ts linje {lin}: {m.group(0)!r} "
                          f"— må være dobbel, ellers tolker JS den som escape-sekvens")
