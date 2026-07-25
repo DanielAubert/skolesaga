@@ -1,0 +1,431 @@
+{
+  "id": "in1900-1-2",
+  "courseId": "in1900",
+  "chapterNumber": "1.2",
+  "title": "Lister, indeksering og slicing",
+  "description": "Lister og nøstede lister, positiv og negativ indeksering, slicing, og de mekaniske reglene bak matche-tabellene i sjanger B.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne hente ut et enkelt element og et utsnitt fra en liste, og si hvilken av dem som gir en ny liste",
+    "kunne regne ut hva et sammensatt uttrykk med indeks inne i indeks gir, i en nøstet liste",
+    "kunne skille å skjøte sammen to lister fra å legge dem sammen tall for tall",
+    "kunne angi nøyaktig hva et program som skriver ut lister, gir på skjermen"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-2-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet er hele grunnlaget for én egen oppgavetype på eksamen.**\n\n- **Sjanger B — matche-tabell for indeksering og slicing i nøstede lister.** Du får en liten tabell med uttrykk som `data[antall[1]]` i venstre kolonne, og skal parre hvert av dem med riktig verdi fra en nummerert liste. Den er et **fast innslag** i settene, og gir **0,5 poeng per rad**, med maksimalt 2–3,5 poeng på oppgaven.\n- **Sjanger A — kodesporing** («hva skriver dette programmet ut?»), som forekommer i **100 %** av settene. Lister er en av de vanligste innpakningene: hva står i lista nå, og hvordan skriver Python den ut?\n- Fellene fra dette kapitlet er godt dokumenterte: at slicing gir en **liste** og indeksering gir ett **element**, at slutten i et utsnitt er **eksklusiv**, og at `+` på to lister skjøter dem sammen i stedet for å legge dem sammen tall for tall.\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer). Sjanger B er blant de mest forutsigbare poengene på hele eksamenen: reglene er få, mekaniske og de samme hvert år. Det er lærbart til full uttelling."
+    },
+    {
+      "id": "in1900-1-2-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper:** [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1). Du trenger derfra at et navn peker på en verdi, hva heltall og flyttall er, og at `print` skiller argumentene sine med ett mellomrom.\n\nHar du aldri programmert, er [Programmering med Python](/bok/1p/1p-9-2) en mykere inngang du kan bla i først."
+    },
+    {
+      "id": "in1900-1-2-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — Lista som datastruktur (~10 min)\n\nVærstasjonen på Blindern måler temperaturen én gang i timen. Du har ikke bruk for 24 variabler med navn `time1`, `time2` og så videre — du vil ha **én** ting som holder alle 24 tallene i rekkefølge, slik at du kan spørre «hva var den tredje målingen?» og «hvor mange målinger har jeg?».\n\nDet er en **liste**. Den er den mest brukte datastrukturen i faget, og den er inngangen til nesten alt annet: løkker, rekker, tabeller og fillesing."
+    },
+    {
+      "id": "in1900-1-2-def-4",
+      "type": "definition",
+      "title": "Liste `[...]`",
+      "content": "En ordnet samling av verdier, skrevet i hakeparenteser med komma mellom: `[3, 7, 2]`. Verdiene kalles **elementer**, og de kan være av ulike typer i samme liste: `[1, 'to', 3.0]`.\n\nTo ting å merke seg med en gang. Rekkefølgen er en del av lista — `[1, 2]` og `[2, 1]` er ikke samme liste. Og Python skriver en liste ut med hakeparenteser og komma **pluss mellomrom**:\n\n```python\nmaalinger = [3, 7, 2]\nprint(maalinger)\n```\n\n**Utskrift:**\n```\n[3, 7, 2]\n```\n\nDen tomme lista skrives `[]`."
+    },
+    {
+      "id": "in1900-1-2-def-5",
+      "type": "definition",
+      "title": "`len(x)`",
+      "content": "Antall elementer i lista. `len([3, 7, 2])` gir `3`.\n\nMerk sammenhengen med indeksene: en liste med `len(x)` elementer har gyldige indekser fra `0` til `len(x) - 1`. Den siste indeksen er altså **ikke** `len(x)`, og det er kilden til den nest hyppigste feilmeldingen i faget."
+    },
+    {
+      "id": "in1900-1-2-def-6",
+      "type": "definition",
+      "title": "`x.append(v)`",
+      "content": "Legger `v` til på slutten av lista, og gjør lista **én lengre**. Lista endres på plass — du skal ikke skrive `x = x.append(v)`.\n\nGjør du det likevel, blir `x` lik `None`, for `append` returnerer ingenting. Det er en klassisk feil, og den er stum: programmet krasjer først på neste linje som bruker `x`.\n\n```python\nmaalinger = [3, 7]\nmaalinger.append(2)\nprint(maalinger, len(maalinger))\n```\n\n**Utskrift:**\n```\n[3, 7, 2] 3\n```"
+    },
+    {
+      "id": "in1900-1-2-def-7",
+      "type": "definition",
+      "title": "`v in x`",
+      "content": "Sant hvis verdien `v` finnes som element i lista `x`. `7 in [3, 7, 2]` er `True`.\n\nTesten ser bare på hele elementer, ikke på deler av dem, og den sier ingenting om **hvor** verdien står. `not in` finnes også og betyr det motsatte."
+    },
+    {
+      "id": "in1900-1-2-ex-8",
+      "type": "example",
+      "title": "Eksempel 1: Bygg opp en liste og se på den",
+      "problem": "Tre målinger kommer inn etter hverandre. Hva skriver programmet ut?",
+      "solution": "```python\nmaalinger = [12, 15]\nmaalinger.append(9)\nprint(maalinger)\nprint(len(maalinger))\nprint(15 in maalinger, 13 in maalinger)\n```\n\n**Utskrift:**\n```\n[12, 15, 9]\n3\nTrue False\n```\n\nFørste linje ut er hele lista, skrevet slik Python gjør det: hakeparenteser, komma og **mellomrom** etter hvert komma. Skriver du `[12,15,9]` som svar i en sporingsoppgave, er det feil utskrift.\n\nAndre linje er lengden etter at `append` har lagt til ett element. Tredje linje er to sannhetsverdier på samme linje, skilt av mellomrommet `print` setter inn."
+    },
+    {
+      "id": "in1900-1-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) La `verdier = [4, 9, 4, 1]`.\n\n**a)** Hva gir `len(verdier)`?\n\n**b)** Hva gir `9 in verdier`?\n\n**c)** Hva gir `len(verdier)` etter at `verdier.append(0)` er kjørt?\n\n**d)** Skriv nøyaktig hvordan `print(verdier)` viser den opprinnelige lista på skjermen.",
+        "solution": "**a)** `4` — lista har fire elementer. At `4` forekommer to ganger, har ingenting å si for lengden.\n\n**b)** `True` — verdien 9 er ett av elementene.\n\n**c)** `5` — `append` legger til ett element på slutten og gjør lista én lengre.\n\n**d)** `[4, 9, 4, 1]` — hakeparenteser, komma **og** ett mellomrom etter hvert komma.\n\nDeloppgave d) ser trivielt ut, men den er en reell poengkilde: i sjanger A skal utskriften angis tegn for tegn, og et manglende mellomrom er et manglende poeng.",
+        "hints": [
+          "Tell elementene, ikke de ulike verdiene.",
+          "For d): se nøye på hvordan Python selv skriver en liste, med komma og mellomrom."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-t-9",
+      "type": "text",
+      "content": "## Løkke 2 — Indeksering: å plukke ut ett element (~8 min)\n\nNå skal du hente ut den tredje målingen. I Python gjør du det med hakeparentes og et tall — men tellingen begynner på **null**, og det er verdt å venne seg til med en gang."
+    },
+    {
+      "id": "in1900-1-2-def-10",
+      "type": "definition",
+      "title": "Indeksering `x[i]`",
+      "content": "Gir **elementet** på plass `i`. Tellingen starter på `0`, så `x[0]` er det første elementet og `x[2]` er det tredje.\n\nResultatet er selve elementet, med den typen elementet har. Er `x` en liste med tall, er `x[0]` et tall — ikke en liste. Er indeksen utenfor lista, stopper programmet med en `IndexError`."
+    },
+    {
+      "id": "in1900-1-2-def-11",
+      "type": "definition",
+      "title": "Negativ indeksering `x[-k]`",
+      "content": "Teller fra slutten. `x[-1]` er det **siste** elementet, `x[-2]` det nest siste.\n\nDet finnes ingen `x[-0]` som betyr «siste» — `-0` er `0`, altså det første elementet. Negativ indeksering er den idiomatiske måten å nå slutten av en liste uten å regne med `len`: `x[-1]` er penere og tryggere enn `x[len(x) - 1]`."
+    },
+    {
+      "id": "in1900-1-2-def-12",
+      "type": "definition",
+      "title": "`x[i] = v`",
+      "content": "Bytter ut elementet på plass `i` med `v`. Lista endres på plass, og lengden er uendret.\n\nAt dette er lovlig, er det som gjør lister **mutable** (endringsvennlige). Strenger er det motsatte: `tekst[0] = 'A'` stopper programmet."
+    },
+    {
+      "id": "in1900-1-2-ex-13",
+      "type": "example",
+      "title": "Eksempel 2: Indekser forfra og bakfra",
+      "problem": "Fem timesmålinger. Hva skriver programmet ut?",
+      "solution": "```python\ngrader = [12, 15, 9, 11, 14]\nprint(grader[0], grader[2])\nprint(grader[-1], grader[-2])\nprint(grader[len(grader) - 1])\ngrader[1] = 16\nprint(grader)\n```\n\n**Utskrift:**\n```\n12 9\n14 11\n14\n[12, 16, 9, 11, 14]\n```\n\n- `grader[0]` er `12`, altså den **første** målingen. `grader[2]` er `9` — den tredje, ikke den andre.\n- `grader[-1]` er `14` (siste) og `grader[-2]` er `11` (nest siste).\n- `grader[len(grader) - 1]` er `grader[4]`, altså det samme som `grader[-1]`. Den lange formen er unødvendig, men den er verdt å kjenne igjen.\n- Etter `grader[1] = 16` er det andre elementet byttet ut, og lengden er den samme.\n\nRegelen å ha i hodet: **indeksen er antall skritt fra starten**, ikke plassnummeret. Første element ligger null skritt inn."
+    },
+    {
+      "id": "in1900-1-2-adv-14",
+      "type": "warning",
+      "title": "Når indeksen er utenfor lista",
+      "content": "Har lista fem elementer, er `x[5]` ulovlig — gyldige indekser er `0` til `4`. Da stopper programmet:\n\n```python\ngrader = [12, 15, 9, 11, 14]\nprint(grader[5])\n```\n\n**Utskrift:** ingen (programmet stopper med en feilmelding før noe blir skrevet). Siste linje i feilmeldingen er:\n\n```\nIndexError: list index out of range\n```\n\nFeiltypen heter `IndexError`, og den er en av de faste kandidatene i exception-matche-tabellene i [kap. 2.2](/bok/in1900/in1900-2-2). Legg merke til at grensen er `len(x) - 1`, ikke `len(x)`. Dette er slektningen til feilkode **#1** (av-én-feilen), som er den hyppigste feilen i hele faget."
+    },
+    {
+      "id": "in1900-1-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\nnedbor = [0, 4, 12, 3]\nprint(nedbor[1], nedbor[-1])\nprint(nedbor[0] + nedbor[-2])\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Hvilken plass | Verdi |\n|---|---|---|\n| `nedbor[1]` | andre element (én plass inn) | `4` |\n| `nedbor[-1]` | siste element | `3` |\n| `nedbor[0]` | første element | `0` |\n| `nedbor[-2]` | nest siste element | `12` |\n| `nedbor[0] + nedbor[-2]` | `0 + 12` | `12` |\n\n**Utskrift:**\n```\n4 3\n12\n```\n\n**Fellenote:** fellen er #18 — å lese `nedbor[1]` som «første element» og `nedbor[-2]` som «det andre bakfra, altså 3». Første element ligger på indeks `0`, og `-1` er det siste, så `-2` er nest siste.",
+        "hints": [
+          "Skriv indeksene over elementene: `0 1 2 3` forfra og `-4 -3 -2 -1` bakfra.",
+          "Legg merke til at begge linjene henter fra samme liste — den endres ikke underveis."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-t-15",
+      "type": "text",
+      "content": "## Løkke 3 — Slicing: å plukke ut et utsnitt (~12 min)\n\nNå vil du ha de tre første målingene, ikke bare én. Det kalles **slicing** (utsnitt), og det er her sjanger B tjener pengene sine. Reglene er få, men de må være helt presise."
+    },
+    {
+      "id": "in1900-1-2-def-16",
+      "type": "definition",
+      "title": "Slicing `x[a:b]`",
+      "content": "Gir en **ny liste** med elementene fra plass `a` til og med plass `b - 1`. Slutten er **eksklusiv**: `b` er den første plassen som *ikke* blir med.\n\nKonsekvensen er praktisk: `x[a:b]` har `b - a` elementer. `x[1:4]` gir tre elementer, uansett hvor lang lista er. Utelater du `a`, begynner utsnittet på starten (`x[:3]`); utelater du `b`, går det til slutten (`x[2:]`). Utsnittet er en ny liste — den opprinnelige er urørt."
+    },
+    {
+      "id": "in1900-1-2-def-17",
+      "type": "definition",
+      "title": "Indeksering gir element, slicing gir liste",
+      "content": "Dette er kapitlets viktigste enkeltsetning. `x[2]` gir **elementet** på plass 2. `x[2:3]` gir en **liste med ett element** — nemlig det samme elementet, pakket i hakeparenteser.\n\nFor `x = [12, 15, 9]` er `x[2]` altså `9`, mens `x[2:3]` er `[9]`. På en matche-tabell er `9` og `[9]` to forskjellige svaralternativer, og det er hele poenget med raden.\n\nKonsekvens: du kan regne med `x[2] + 1`, men `x[2:3] + 1` stopper programmet, for du kan ikke legge et tall til en liste."
+    },
+    {
+      "id": "in1900-1-2-def-18",
+      "type": "definition",
+      "title": "Steg i utsnitt `x[a:b:s]`",
+      "content": "Tredje tallet er **steget**: `x[0:6:2]` tar hvert andre element fra plass 0 til og med plass 5. Standardsteget er `1`.\n\nAlle tre tallene kan utelates. `x[::2]` er hvert andre element i hele lista, og `x[1::2]` er hvert andre fra plass 1 — altså elementene på oddetallsplassene."
+    },
+    {
+      "id": "in1900-1-2-def-19",
+      "type": "definition",
+      "title": "`x[::-1]`",
+      "content": "Negativt steg snur retningen. `x[::-1]` gir lista **baklengs**, som en ny liste.\n\nDet er det idiomatiske uttrykket for «reverser», og det brukes blant annet til å sjekke om en tekst er et palindrom: `tekst == tekst[::-1]`. Merk at den opprinnelige lista ikke endres."
+    },
+    {
+      "id": "in1900-1-2-def-20",
+      "type": "definition",
+      "title": "`x[:]` — full kopi",
+      "content": "Utsnittet uten grenser gir en **ny liste med samme innhold**. Det er den vanligste måten å kopiere en liste.\n\nGrunnen til at du trenger den, kommer i neste løkke: `b = x` gir deg ikke en kopi, men et nytt navn på den samme lista."
+    },
+    {
+      "id": "in1900-1-2-ex-21",
+      "type": "example",
+      "title": "Eksempel 3: Element eller liste?",
+      "problem": "Seks målinger. Hva skriver programmet ut, og hvilke av linjene gir en liste?",
+      "solution": "```python\ngrader = [12, 15, 9, 11, 14, 8]\nprint(grader[1:4])\nprint(grader[:3])\nprint(grader[3:])\nprint(grader[2], grader[2:3])\nprint(grader[::2])\nprint(grader[::-1])\n```\n\n**Utskrift:**\n```\n[15, 9, 11]\n[12, 15, 9]\n[11, 14, 8]\n9 [9]\n[12, 9, 14]\n[8, 14, 11, 9, 15, 12]\n```\n\n- `grader[1:4]` — start på plass 1, stopp **før** plass 4: tre elementer, `[15, 9, 11]`.\n- `grader[:3]` — fra starten, tre elementer.\n- `grader[3:]` — fra plass 3 til slutten.\n- `grader[2]` er tallet `9`; `grader[2:3]` er lista `[9]`. Se forskjellen i utskriften: den ene har hakeparenteser, den andre ikke.\n- `grader[::2]` — hvert andre element: plassene 0, 2, 4.\n- `grader[::-1]` — hele lista baklengs.\n\nAlle utsnittene er **nye** lister. `grader` selv er uendret hele veien, og det er derfor de seks linjene kan bruke den om og om igjen."
+    },
+    {
+      "id": "in1900-1-2-adv-22",
+      "type": "warning",
+      "title": "Typisk feil #18 — utsnitt og indekser",
+      "content": "Feilkode **#18** (bokas nummerering av vanlige feil, samlet i [kap. 0.1](/bok/in1900/in1900-0-1)) er tre feil i samme familie:\n\n- **Indeksering gir element, slicing gir liste.** `x[2]` og `x[2:3]` er ikke samme svar.\n- **Slutten er eksklusiv.** `x[1:4]` gir tre elementer, ikke fire. Vil du ha «til og med plass 4», må du skrive `x[1:5]`.\n- **Negativ indeks teller fra `-1`.** Det finnes ingen `-0`.\n\nÉn ting som *ikke* er en felle: et utsnitt utenfor lista gir ingen feilmelding. `x[2:99]` gir bare det som finnes, og `x[9:12]` gir den tomme lista `[]`. Det er bare **indeksering** som kan gi `IndexError`, aldri slicing."
+    },
+    {
+      "id": "in1900-1-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nverdier = [5, 8, 2, 9, 4]\nprint(verdier[1:3])\nprint(verdier[-2:])\nprint(verdier[0], verdier[0:1])\nprint(verdier[3:99])\n```",
+        "solution": "**Sporingstavle**\n\nSett indeksene over lista først: plassene er `0 1 2 3 4` forfra og `-5 -4 -3 -2 -1` bakfra.\n\n| Uttrykk | Fra | Til (eksklusiv) | Resultat |\n|---|---|---|---|\n| `verdier[1:3]` | plass 1 | plass 3 | `[8, 2]` — to elementer |\n| `verdier[-2:]` | plass `-2` | slutten | `[9, 4]` |\n| `verdier[0]` | ett element | — | `5` |\n| `verdier[0:1]` | plass 0 | plass 1 | `[5]` — liste med ett element |\n| `verdier[3:99]` | plass 3 | langt utenfor | `[9, 4]` — ingen feil |\n\n**Utskrift:**\n```\n[8, 2]\n[9, 4]\n5 [5]\n[9, 4]\n```\n\n**Fellenote:** fellen er #18 i to varianter. Den ene er `[8, 2, 9]` på første linje (å ta med plass 3). Den andre er tredje linje: `5 5` i stedet for `5 [5]`. Siste linje viser at slicing utenfor lista er helt trygt — det er verdt å huske, for det er ofte et distraktoralternativ som sier «`IndexError`».",
+        "hints": [
+          "Skriv indeksrekkene `0 1 2 3 4` og `-5 -4 -3 -2 -1` over lista før du begynner.",
+          "Ett av uttrykkene gir et tall, resten gir lister. Hvilket?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-t-23",
+      "type": "text",
+      "content": "## Løkke 4 — Å skjøte, gjenta og kopiere lister (~8 min)\n\nNå kommer den fellen som EKSAMENSANALYSEN har som en av de aller vanligste: hva `+` gjør med to lister."
+    },
+    {
+      "id": "in1900-1-2-def-24",
+      "type": "definition",
+      "title": "`+` på lister — konkatenering",
+      "content": "`+` **skjøter sammen**: `[1, 2] + [3, 4]` gir `[1, 2, 3, 4]`, altså en ny liste med fire elementer.\n\nDen legger **ikke** sammen tall for tall. Det finnes ingen `[1, 2] + [3, 4]` som gir `[4, 6]` i vanlig Python — den elementvise addisjonen får du først med NumPy-arrays i [kap. 4.1](/bok/in1900/in1900-4-1), og det er nettopp derfor forskjellen er en så god eksamensfelle.\n\nBegge operandene må være lister. `[1, 2] + 3` stopper programmet."
+    },
+    {
+      "id": "in1900-1-2-def-25",
+      "type": "definition",
+      "title": "`*` på lister — gjentakelse",
+      "content": "`x * n` gir en ny liste der innholdet er gjentatt `n` ganger: `[0] * 4` gir `[0, 0, 0, 0]`, og `[1, 2] * 2` gir `[1, 2, 1, 2]`.\n\n`[0] * n` er den vanlige måten å lage en liste med `n` nuller når du skal fylle den etterpå. (For tallberegninger bruker boka `np.zeros` fra [kap. 4.1](/bok/in1900/in1900-4-1) i stedet, men mønsteret er det samme.)"
+    },
+    {
+      "id": "in1900-1-2-def-26",
+      "type": "definition",
+      "title": "Aliasing og kopi",
+      "content": "`b = x` lager **ikke** en kopi. Det lager et nytt navn på den **samme** lista, så en endring gjennom `b` er synlig gjennom `x` også.\n\nVil du ha en uavhengig kopi, må du be om det: `b = x[:]` eller `b = list(x)`. Dette er feilkode **#23**, og den er ubehagelig fordi programmet ikke gir noen feilmelding — det gir bare et annet svar enn du trodde."
+    },
+    {
+      "id": "in1900-1-2-ex-27",
+      "type": "example",
+      "title": "Eksempel 4: Skjøte, gjenta, kopiere",
+      "problem": "Hva skriver programmet ut? Legg spesielt merke til de to siste linjene.",
+      "solution": "```python\na = [1, 2]\nb = [3, 4]\nprint(a + b)\nprint(a * 2)\nprint(len(a + b))\nc = a\nc.append(99)\nprint(a, c)\nd = a[:]\nd.append(0)\nprint(a, d)\n```\n\n**Utskrift:**\n```\n[1, 2, 3, 4]\n[1, 2, 1, 2]\n4\n[1, 2, 99] [1, 2, 99]\n[1, 2, 99] [1, 2, 99, 0]\n```\n\n- `a + b` skjøter og gir fire elementer. Hadde dette vært NumPy-arrays, ville svaret vært `[4, 6]` — her er det `[1, 2, 3, 4]`.\n- `a * 2` gjentar innholdet.\n- `len(a + b)` er `4`, altså summen av lengdene.\n- `c = a` gir to navn på samme liste. Etter `c.append(99)` inneholder **begge** `[1, 2, 99]`, for det finnes bare én liste.\n- `d = a[:]` gir en ekte kopi. Etter `d.append(0)` er `a` uendret.\n\nSammenlign de to siste utskriftene nøye: det er hele forskjellen mellom aliasing og kopi, og den er verdt å ha sett én gang før eksamen."
+    },
+    {
+      "id": "in1900-1-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — liste-konkatenering mot tallsum.) Hva skriver programmet ut?\n\n```python\nx = [2, 3]\ny = [4]\nprint(x + y)\nprint(x + y + y)\nprint([0] * 3)\nprint(x[0] + y[0])\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Hva operatoren gjør | Resultat |\n|---|---|---|\n| `x + y` | skjøter to lister | `[2, 3, 4]` |\n| `x + y + y` | skjøter tre lister, fra venstre | `[2, 3, 4, 4]` |\n| `[0] * 3` | gjentar innholdet tre ganger | `[0, 0, 0]` |\n| `x[0] + y[0]` | to **elementer**, altså tall: `2 + 4` | `6` |\n\n**Utskrift:**\n```\n[2, 3, 4]\n[2, 3, 4, 4]\n[0, 0, 0]\n6\n```\n\n**Fellenote:** fellen er #5 — å tro at `+` legger sammen tall for tall. Legg merke til at siste linje faktisk **er** en tallsum: der har indekseringen hentet ut elementer først, og da er `+` vanlig addisjon. Det er den forskjellen distraktorene lever av.",
+        "hints": [
+          "Spør for hvert uttrykk: har jeg lister på begge sider av plusstegnet, eller tall?",
+          "Indeksering gir element, og elementer er tall her."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-t-28",
+      "type": "text",
+      "content": "## Løkke 5 — Nøstede lister og indeks inne i indeks (~12 min)\n\n— naturlig pausepunkt —\n\nNå er du framme ved sjanger B. En **nøstet liste** er en liste der elementene selv er lister — for eksempel én liste per målestasjon, med stasjonens målinger inni. Det er slik en tabell ser ut i Python før NumPy kommer inn i bildet."
+    },
+    {
+      "id": "in1900-1-2-def-29",
+      "type": "definition",
+      "title": "Nøstet liste `y[i][j]`",
+      "content": "Er elementene i `y` selv lister, henter `y[i]` **hele den indre lista**, og `y[i][j]` henter element `j` inne i den.\n\nLes uttrykket fra **venstre mot høyre**: `y[1][2]` betyr «gå til den andre indre lista, og hent det tredje elementet der». De indre listene behøver ikke være like lange — `[[9, 8], [7, 6, 5], [2]]` er en helt vanlig nøstet liste, og det gjør at `len(y[i])` varierer med `i`.\n\n`len(y)` er antall **indre lister**, ikke antall tall til sammen."
+    },
+    {
+      "id": "in1900-1-2-def-30",
+      "type": "definition",
+      "title": "Indeks inne i indeks `x[y[0]]`",
+      "content": "Et uttrykk kan bruke en verdi fra én liste som **indeks** i en annen. Regelen er den samme som i regning: den innerste parentesen først.\n\n`x[y[0]]` betyr: regn ut `y[0]`, som må bli et heltall, og bruk det som indeks i `x`. Med `x = [5, 8, 2]` og `y = [2, 0]` blir `y[0]` lik `2`, og `x[2]` lik `2`.\n\nDette er selve konstruksjonen sjanger B tester. Metoden er alltid den samme: **skriv om uttrykket i flere små steg, og skriv verdien over hvert steg.**"
+    },
+    {
+      "id": "in1900-1-2-ex-31",
+      "type": "example",
+      "title": "Eksempel 5: Full sjanger B-oppgave, regnet rad for rad",
+      "problem": "Tre målestasjoner har hver sin liste med døgnnedbør, og en liste holder rekkefølgen stasjonene skal behandles i:\n\n```python\nrekkefolge = [2, 0, 1]\ndata = [[12, 15], [9, 11, 14], [7]]\n```\n\nRegn ut verdien av hvert av uttrykkene `data[rekkefolge[0]]`, `data[rekkefolge[1]][1:]`, `rekkefolge[-1] + rekkefolge[rekkefolge[1]]` og `len(data[rekkefolge[2]])`.",
+      "solution": "Metoden er å bygge ned uttrykket i små steg, og skrive verdien for hvert steg. Aldri prøv å gjøre det i ett hopp.\n\n**Rad 1: `data[rekkefolge[0]]`**\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `rekkefolge[0]` | `2` |\n| 2 | `data[2]` | `[7]` |\n\nSvaret er lista `[7]` — ikke tallet `7`, for indeksering i en nøstet liste gir den indre **lista**.\n\n**Rad 2: `data[rekkefolge[1]][1:]`**\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `rekkefolge[1]` | `0` |\n| 2 | `data[0]` | `[12, 15]` |\n| 3 | `[12, 15][1:]` | `[15]` |\n\nUtsnittet starter på plass 1 og går til slutten, altså ett element.\n\n**Rad 3: `rekkefolge[-1] + rekkefolge[rekkefolge[1]]`**\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `rekkefolge[-1]` | `1` |\n| 2 | `rekkefolge[1]` (innerst i det andre leddet) | `0` |\n| 3 | `rekkefolge[0]` | `2` |\n| 4 | `1 + 2` | `3` |\n\nHer er begge leddene tall, så `+` er vanlig addisjon.\n\n**Rad 4: `len(data[rekkefolge[2]])`**\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `rekkefolge[2]` | `1` |\n| 2 | `data[1]` | `[9, 11, 14]` |\n| 3 | `len([9, 11, 14])` | `3` |\n\nTil slutt kontrollerer vi hele oppgaven ved å la Python svare:\n\n```python\nrekkefolge = [2, 0, 1]\ndata = [[12, 15], [9, 11, 14], [7]]\nprint(data[rekkefolge[0]])\nprint(data[rekkefolge[1]][1:])\nprint(rekkefolge[-1] + rekkefolge[rekkefolge[1]])\nprint(len(data[rekkefolge[2]]))\n```\n\n**Utskrift:**\n```\n[7]\n[15]\n3\n3\n```\n\n**Hva som gir uttelling:** på en matche-tabell er hver rad 0,5 poeng og de rettes uavhengig. Får du tre av fire rader, får du tre halve poeng — det er ingen alt-eller-ingenting-oppgave. Derfor lønner det seg alltid å regne ut de radene du er trygg på, og gjette på resten (blankt og feil gir likt)."
+    },
+    {
+      "id": "in1900-1-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger B — matche-tabell der du regner ut indekserings- og utsnittsuttrykk og parrer dem med verdier.) La\n\n```python\nplass = [1, 3, 0]\ntabell = [[6, 2], [8], [4, 5, 7], [3, 9]]\n```\n\nRegn ut hvert uttrykk i venstre kolonne, og finn riktig verdi blant alternativene under.\n\n| Uttrykk |\n|---|\n| `tabell[plass[0]]` |\n| `tabell[plass[2]][1]` |\n| `tabell[plass[1]][::-1]` |\n| `plass[0] + plass[1]` |\n\nAlternativer: (1) `[9, 3]` · (2) `2` · (3) `[8]` · (4) `4` · (5) `[3, 9]` · (6) `[6, 2]`",
+        "solution": "Steg for steg, ett uttrykk om gangen.\n\n**`tabell[plass[0]]`:** `plass[0]` er `1`, og `tabell[1]` er `[8]`. Svar: **(3)**.\n\n**`tabell[plass[2]][1]`:** `plass[2]` er `0`; `tabell[0]` er `[6, 2]`; element `1` i den er `2`. Svar: **(2)**.\n\n**`tabell[plass[1]][::-1]`:** `plass[1]` er `3`; `tabell[3]` er `[3, 9]`; baklengs blir det `[9, 3]`. Svar: **(1)**.\n\n**`plass[0] + plass[1]`:** to tall, `1 + 3`. Svar: **(4)**.\n\nKontroll med Python:\n\n```python\nplass = [1, 3, 0]\ntabell = [[6, 2], [8], [4, 5, 7], [3, 9]]\nprint(tabell[plass[0]])\nprint(tabell[plass[2]][1])\nprint(tabell[plass[1]][::-1])\nprint(plass[0] + plass[1])\n```\n\n**Utskrift:**\n```\n[8]\n2\n[9, 3]\n4\n```\n\nFasitrekkefølgen er altså 3, 2, 1, 4 — ingen pen stigning, og to av de seks alternativene brukes ikke. Det er normalt: alternativlista inneholder alltid noen svar som bare er der som feller, her `[3, 9]` (utsnittet uten reversering) og `[6, 2]`.\n\n**Fellenote:** to feller. Den ene er å blande `tabell[plass[2]][1]` med `tabell[plass[2]]` og svare `[6, 2]`. Den andre er å glemme at `[::-1]` snur — svaret `[3, 9]` er nettopp den feilen.",
+        "hints": [
+          "Regn alltid ut det innerste uttrykket først, og skriv verdien ned før du går videre.",
+          "Spør for hver rad: ender jeg med et element eller med en liste?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — nøstede lister som endres underveis.) Hva skriver programmet ut?\n\n```python\nrader = [[1, 2], [3, 4]]\nrader[0].append(9)\nrader.append([5])\nprint(rader)\nprint(len(rader), len(rader[0]))\nprint(rader[-1][0] + rader[0][-1])\n```",
+        "solution": "**Sporingstavle** — én rad per linje, med hele strukturen etter hvert steg:\n\n| Linje | Hva skjer | `rader` etter linja |\n|---|---|---|\n| 1 | to indre lister opprettes | `[[1, 2], [3, 4]]` |\n| 2 | `9` legges til i den **indre** lista `rader[0]` | `[[1, 2, 9], [3, 4]]` |\n| 3 | `[5]` legges til som nytt **element** i den ytre lista | `[[1, 2, 9], [3, 4], [5]]` |\n\nDeretter utskriftene:\n\n| Uttrykk | Steg | Verdi |\n|---|---|---|\n| `len(rader)` | antall indre lister | `3` |\n| `len(rader[0])` | `rader[0]` er `[1, 2, 9]` | `3` |\n| `rader[-1][0]` | siste indre liste er `[5]`, element 0 | `5` |\n| `rader[0][-1]` | `[1, 2, 9]`, siste element | `9` |\n| summen | `5 + 9` | `14` |\n\n**Utskrift:**\n```\n[[1, 2, 9], [3, 4], [5]]\n3 3\n14\n```\n\n**Fellenote:** fellen er forskjellen mellom `rader.append(...)` og `rader[0].append(...)`. Den første legger til en ny **rad**, den andre legger til et element **inne i** rad 0. Blander du dem, blir både utskriften av strukturen og begge lengdene feil. Merk også at `len(rader)` er 3 og ikke 6 — den ytre lengden teller rader, ikke tall.\n\n**Hva som gir uttelling:** i fritekstversjonen av sjangeren gir riktig struktur på første utskriftslinje god uttelling selv om du regner feil på siste linje. Skriv derfor alltid ned strukturen underveis, ikke bare sluttsvaret.",
+        "hints": [
+          "Skriv hele lista på nytt etter hver linje som endrer den.",
+          "Merk godt hvem som får det nye elementet: den ytre lista, eller en av de indre?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-t-32",
+      "type": "text",
+      "content": "## Løkke 6 — Å lage lister av tallrekker (~7 min)\n\nTil sist to snarveier du trenger allerede nå, selv om de hører hjemme i [kap. 1.3](/bok/in1900/in1900-1-3): måten å lage en liste med mange tall uten å skrive dem alle."
+    },
+    {
+      "id": "in1900-1-2-def-33",
+      "type": "definition",
+      "title": "`range(start, stop, step)` og `list(range(...))`",
+      "content": "`range` er en oppskrift på en tallrekke. `range(2, 7)` betyr «fra og med 2, til men **ikke med** 7». `range(5)` er kortformen for `range(0, 5)`, og et tredje tall er steget: `range(0, 10, 3)`.\n\n`range` skriver seg ikke ut som en liste — `print(range(5))` gir `range(0, 5)`. Vil du se tallene, må du lage en liste: `list(range(5))` gir `[0, 1, 2, 3, 4]`.\n\n**Antall verdier er `stop - start`** når steget er 1. Det gir den viktigste enkeltregelen i faget: `range(N)` gir `N` verdier, og `range(N+1)` gir `N+1` verdier. Løkkene i [kap. 1.3](/bok/in1900/in1900-1-3) bygger på dette."
+    },
+    {
+      "id": "in1900-1-2-def-34",
+      "type": "definition",
+      "title": "Enkel list comprehension `[uttrykk for e in ...]`",
+      "content": "En kompakt måte å bygge en liste: `[3*e for e in range(4)]` gir `[0, 3, 6, 9]`. Les den som «tre ganger `e`, for hver `e` i tallrekka».\n\nDen gjør samme jobb som en løkke med `append`, på én linje. Boka bruker den bare i denne enkle formen — den store gjennomgangen av løkker kommer i [kap. 1.3](/bok/in1900/in1900-1-3), og der ser du også når en vanlig løkke er den beste besvarelsen."
+    },
+    {
+      "id": "in1900-1-2-def-35",
+      "type": "definition",
+      "title": "`sum(x)`, `min(x)`, `max(x)`",
+      "content": "`sum(x)` legger sammen alle tallene i lista, `min(x)` gir det minste og `max(x)` det største.\n\nDe virker bare på lister av verdier som kan sammenlignes eller legges sammen — `sum([[1], [2]])` stopper programmet, for du kan ikke legge en liste til et tall. Og husk fra advarselen tidligere: bruk aldri `sum` som variabelnavn, ellers mister du funksjonen."
+    },
+    {
+      "id": "in1900-1-2-ex-36",
+      "type": "example",
+      "title": "Eksempel 6: Fra tallrekke til liste, og litt statistikk",
+      "problem": "Hva skriver programmet ut?",
+      "solution": "```python\nprint(range(4))\nprint(list(range(4)))\nprint(list(range(2, 7)))\nprint(list(range(0, 10, 3)))\nkvadrater = [e*e for e in range(5)]\nprint(kvadrater)\nprint(sum(kvadrater), min(kvadrater), max(kvadrater))\n```\n\n**Utskrift:**\n```\nrange(0, 4)\n[0, 1, 2, 3]\n[2, 3, 4, 5, 6]\n[0, 3, 6, 9]\n[0, 1, 4, 9, 16]\n30 0 16\n```\n\n- `print(range(4))` skriver oppskriften, ikke tallene. Det er en yndet felle.\n- `list(range(4))` gir fire tall, fra 0. **Ikke fem** — `4` er ikke med.\n- `list(range(2, 7))` gir `7 - 2 = 5` tall.\n- `list(range(0, 10, 3))` hopper tre av gangen og stopper før 10.\n- `[e*e for e in range(5)]` gir kvadratene av 0 til 4.\n- `sum`, `min` og `max` på den lista gir 30, 0 og 16.\n\nLegg merke til antallet i hvert tilfelle. Det er feilkode **#1** — av-én-feilen — i sin reneste form, og den er den hyppigste feilen i hele faget."
+    },
+    {
+      "id": "in1900-1-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\ntall = list(range(1, 6))\nprint(tall)\nprint(len(tall), sum(tall))\nprint(tall[1:4])\nprint([2*e for e in tall][-1])\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `list(range(1, 6))` — fra 1, ikke med 6, altså `6 - 1 = 5` tall | `[1, 2, 3, 4, 5]` |\n| 3 | `len(tall)` og `sum(tall)` | `5` og `15` |\n| 4 | `tall[1:4]` — plassene 1, 2, 3 | `[2, 3, 4]` |\n| 5 | `[2*e for e in tall]` er `[2, 4, 6, 8, 10]`, og `[-1]` er siste | `10` |\n\n**Utskrift:**\n```\n[1, 2, 3, 4, 5]\n5 15\n[2, 3, 4]\n10\n```\n\n**Fellenote:** fellen er #1 — å tro at `range(1, 6)` gir seks tall, eller at det gir `[1, 2, 3, 4, 5, 6]`. Slutten er eksklusiv, akkurat som i slicing. På siste linje er det verdt å merke seg at `[-1]` står **etter** hakeparentesene til den nye lista og altså plukker fra den, ikke fra `tall`.",
+        "hints": [
+          "`range(a, b)` gir `b - a` verdier når steget er 1.",
+          "På siste linje: lag først hele den nye lista, og hent så det siste elementet."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — matche-tabell med nøsting, utsnitt og indeks i indeks.) La\n\n```python\nn = [3, 0, 2]\nm = [[1, 4, 6], [2], [5, 8], [7, 9, 0, 3]]\n```\n\nRegn ut hvert uttrykk og finn riktig verdi blant alternativene.\n\n| Uttrykk |\n|---|\n| `m[n[0]][1:3]` |\n| `m[n[1]][-1]` |\n| `len(m[n[2]]) + n[2]` |\n| `m[n[2]][0:1]` |\n| `n[n[1]]` |\n\nAlternativer: (1) `4` · (2) `[9, 0]` · (3) `[5]` · (4) `6` · (5) `3` · (6) `[5, 8]` · (7) `2`",
+        "solution": "Ett uttrykk om gangen, innerst først.\n\n**`m[n[0]][1:3]`:** `n[0]` er `3`; `m[3]` er `[7, 9, 0, 3]`; utsnittet fra plass 1 til før plass 3 er `[9, 0]`. Svar: **(2)**.\n\n**`m[n[1]][-1]`:** `n[1]` er `0`; `m[0]` er `[1, 4, 6]`; siste element er `6`. Svar: **(4)**.\n\n**`len(m[n[2]]) + n[2]`:** `n[2]` er `2`; `m[2]` er `[5, 8]`, som har lengde `2`; `2 + 2` er `4`. Svar: **(1)**.\n\n**`m[n[2]][0:1]`:** `m[2]` er `[5, 8]`; utsnittet `[0:1]` gir **lista** `[5]`, ikke tallet 5. Svar: **(3)**.\n\n**`n[n[1]]`:** `n[1]` er `0`, og `n[0]` er `3`. Svar: **(5)**.\n\nKontroll:\n\n```python\nn = [3, 0, 2]\nm = [[1, 4, 6], [2], [5, 8], [7, 9, 0, 3]]\nprint(m[n[0]][1:3])\nprint(m[n[1]][-1])\nprint(len(m[n[2]]) + n[2])\nprint(m[n[2]][0:1])\nprint(n[n[1]])\n```\n\n**Utskrift:**\n```\n[9, 0]\n6\n4\n[5]\n3\n```\n\nFasitrekkefølgen er 2, 4, 1, 3, 5. Alternativene `[5, 8]` og `2` brukes ikke — de er feller for henholdsvis «glemte utsnittet» og «leste `len` av feil rad».\n\n**Fellenote:** fellene er #18 (utsnitt gir liste, slutten er eksklusiv) og indeks-i-indeks der man tar ytterst først. Med fem rader à 0,5 poeng er dette 2,5 poeng, og radene rettes hver for seg — regn ut det du er trygg på, og gjett resten.\n\n**Hva som gir uttelling:** riktig metode synes i mellomregningen. Skriver du opp stegene, ser sensor at du behersker konstruksjonen selv om du regner feil på én rad.",
+        "hints": [
+          "Skriv hvert uttrykk om i to eller tre steg, og noter verdien for hvert steg.",
+          "To av radene ender med en liste. Finn dem først, så er resten enklere."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — aliasing.) Hva skriver programmet ut?\n\n```python\na = [1, 2, 3]\nb = a\nc = a[:]\nb[0] = 99\nc[1] = 77\nprint(a)\nprint(b)\nprint(c)\nprint(a is b, a is c, a == c)\n```",
+        "solution": "**Sporingstavle** — det avgjørende er hvor mange lister som faktisk finnes:\n\n| Linje | Hva skjer | Liste 1 (`a` og `b`) | Liste 2 (`c`) |\n|---|---|---|---|\n| 1 | lista opprettes | `[1, 2, 3]` | — |\n| 2 | `b = a` gir bare et **nytt navn** | `[1, 2, 3]` | — |\n| 3 | `c = a[:]` lager en **ny** liste | `[1, 2, 3]` | `[1, 2, 3]` |\n| 4 | `b[0] = 99` endrer liste 1 | `[99, 2, 3]` | `[1, 2, 3]` |\n| 5 | `c[1] = 77` endrer liste 2 | `[99, 2, 3]` | `[1, 77, 3]` |\n\nSiden `a` og `b` er to navn på liste 1, skriver de to første utskriftene det samme.\n\n**Utskrift:**\n```\n[99, 2, 3]\n[99, 2, 3]\n[1, 77, 3]\nTrue False False\n```\n\nSiste linje: `a is b` er `True` fordi det er **samme** liste. `a is c` er `False` fordi det er to ulike lister. `a == c` er også `False` her — men bare fordi innholdet nå er forskjellig; hadde vi ikke endret noe, ville `a == c` vært `True` og `a is c` fortsatt `False`.\n\n**Fellenote:** fellene er #23 (aliasing — `b = a` er ikke en kopi) og #22 (`is` sammenligner om det er samme objekt, `==` sammenligner innhold). Den vanligste feilbesvarelsen skriver `[1, 2, 3]` på første linje, fordi den tror `a` ble skjermet da `b` fikk sitt eget navn.",
+        "hints": [
+          "Tell hvor mange lister som faktisk blir opprettet i de tre første linjene.",
+          "`is` spør «samme objekt?», `==` spør «samme innhold?»."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-2-adv-37",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "- **#18 — indekser og utsnitt.** Indeksering gir **element**, slicing gir **liste**; slutten i et utsnitt er eksklusiv; negativ indeks teller fra `-1`. Dette er kapitlets hovedfelle.\n- **#5 — liste-konkatenering mot elementvis sum.** `[1, 2] + [3, 4]` er `[1, 2, 3, 4]`, ikke `[4, 6]`. Den elementvise summen kommer først med NumPy i [kap. 4.1](/bok/in1900/in1900-4-1).\n- **#1 — av-én.** `range(a, b)` gir `b - a` verdier, og gyldige indekser i en liste med `n` elementer er `0` til `n - 1`.\n- **#23 — aliasing.** `b = a` gir et nytt navn på samme liste. Kopi krever `a[:]` eller `list(a)`.\n- **#16 — utskriftsdetaljer.** Python skriver lister med mellomrom etter kommaet: `[1, 2, 3]`.\n- **`x = x.append(v)`.** `append` returnerer ingenting, så `x` blir `None`. Skriv bare `x.append(v)`."
+    },
+    {
+      "id": "in1900-1-2-coll-38",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `[a, b, c]` | Ordnet liste. Skrives ut med hakeparenteser, komma og **mellomrom**: `[1, 2, 3]`. |\n| `[]` | Den tomme lista. Regnes som falsk i en ja/nei-test. |\n| `len(x)` | Antall elementer. Gyldige indekser er `0` til `len(x) - 1`. |\n| `x.append(v)` | Legger `v` til på slutten, endrer lista på plass, **returnerer ingenting**. |\n| `v in x` | `True` hvis `v` er et av elementene. `not in` er det motsatte. |\n| `x[i]` | **Elementet** på plass `i`, 0-basert. Utenfor lista gir `IndexError`. |\n| `x[-k]` | Teller fra slutten; `x[-1]` er siste element. |\n| `x[i] = v` | Bytter ut ett element. Lengden er uendret. |\n| `x[a:b]` | **Ny liste** med plassene `a` til `b - 1`. Har `b - a` elementer. Aldri `IndexError`. |\n| `x[a:b:s]` | Som over, men hvert `s`-te element. |\n| `x[::-1]` | Hele lista baklengs, som ny liste. |\n| `x[:]` | Full kopi av lista. |\n| `x + y` | **Skjøter sammen** to lister. Ikke elementvis addisjon. |\n| `x * n` | Gjentar innholdet `n` ganger: `[0] * 3` er `[0, 0, 0]`. |\n| `b = x` | Nytt **navn** på samme liste (aliasing), ikke en kopi. |\n| `y[i][j]` | Element `j` i den indre lista `y[i]`. Leses fra venstre. `len(y)` er antall indre lister. |\n| `x[y[0]]` | Innerst først: regn ut `y[0]`, bruk det som indeks i `x`. |\n| `range(start, stop, step)` | Tallrekke; `stop` er **eksklusiv**. `range(N)` gir `N` verdier. |\n| `list(range(...))` | Gjør tallrekka om til en liste du kan skrive ut. |\n| `[uttrykk for e in ...]` | Bygger en liste på én linje: `[3*e for e in range(4)]` er `[0, 3, 6, 9]`. |\n| `sum(x)`, `min(x)`, `max(x)` | Sum, minste og største element i en tall-liste. |\n| `is` | Sammenligner om det er **samme objekt**; `==` sammenligner innhold. |",
+          "id": "in1900-1-2-c38-1"
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-2-t-39",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-1-2-def-40",
+      "type": "definition",
+      "title": "Lister er mutable",
+      "content": "En liste kan endres etter at den er laget: du kan bytte ut et element (`x[0] = 5`), legge til (`x.append(v)`) og endre en indre liste i en nøstet struktur.\n\nDet er praktisk, men det er også grunnen til at aliasing biter: to navn på samme mutable liste ser hverandres endringer. Strenger er derimot **immutable** — de kan ikke endres, bare erstattes. Se [kap. 1.4](/bok/in1900/in1900-1-4)."
+    },
+    {
+      "id": "in1900-1-2-def-41",
+      "type": "definition",
+      "title": "Utsnitt utenfor grensene",
+      "content": "Slicing feiler aldri. `x[3:99]` gir bare det som finnes, og `x[9:12]` på en kort liste gir den tomme lista `[]`.\n\nDet er en systematisk forskjell fra indeksering, som gir `IndexError` med en gang indeksen er for stor. På en matche-tabell er «`IndexError`» derfor et distraktoralternativ som **aldri** er riktig for et utsnitt."
+    },
+    {
+      "id": "in1900-1-2-def-42",
+      "type": "definition",
+      "title": "Tom liste og lengde null",
+      "content": "`[]` har lengde `0`, ingen gyldige indekser, og regnes som **falsk** i en ja/nei-test. Derfor er `if verdier:` det idiomatiske uttrykket for «hvis lista ikke er tom».\n\n`sum([])` er `0`, som er fornuftig, men `min([])` og `max([])` stopper programmet — det finnes ikke noe minste element i en tom samling."
+    },
+    {
+      "id": "in1900-1-2-coll-43",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "type": "text",
+          "content": "1. Indeksering gir **element**, slicing gir **liste**. `x[2]` er `9`, `x[2:3]` er `[9]`.\n2. Slutten i et utsnitt er **eksklusiv**: `x[1:4]` har `4 - 1 = 3` elementer.\n3. `x[-1]` er siste element; det finnes ingen `-0`.\n4. `+` på lister **skjøter**; elementvis sum kommer først med NumPy.\n5. `b = x` er et nytt navn, `b = x[:]` er en kopi.\n6. Indeks inne i indeks regnes **innerst først** — skriv stegene ned.\n\nEr alle seks på plass, er du klar for løkkene i [kap. 1.3](/bok/in1900/in1900-1-3) og for drillen i [kap. 1.7](/bok/in1900/in1900-1-7).",
+          "id": "in1900-1-2-c43-1"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
