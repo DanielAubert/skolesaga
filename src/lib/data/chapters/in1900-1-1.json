@@ -1,0 +1,426 @@
+{
+  "id": "in1900-1-1",
+  "courseId": "in1900",
+  "chapterNumber": "1.1",
+  "title": "Variabler, datatyper, uttrykk og operatorpresedens",
+  "description": "Tall, boolske verdier, aritmetiske og logiske uttrykk, og presedensreglene som avgjør hva et uttrykk evaluerer til.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne avgjøre hvilken datatype et uttrykk i Python gir, og hvordan heltall og desimaltall blandes",
+    "kunne regne ut hva et sammensatt aritmetisk uttrykk evaluerer til, med riktig rekkefølge på operatorene",
+    "kunne avgjøre om et logisk uttrykk er sant eller falskt, også når det er satt sammen av flere sammenligninger",
+    "kunne angi nøyaktig hva et lite program skriver ut, tegn for tegn"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-1-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet er fundamentet under den best betalte oppgavetypen i faget.**\n\n- **Sjanger A — kodesporing**, altså «hva skriver dette programmet ut?». Den forekommer i **100 %** av settene og gir 1–3 poeng per spørsmål. Den bærer i praksis hele **midtveiseksamen** (UiOs digitale flervalgseksamen i oktober, som teller 25 % av karakteren), og de første oppgavene på den avsluttende eksamenen i desember er samme sjanger.\n- **Sjanger D — matche-tabell**, der du får en liste med uttrykk eller påstander og skal parre hver av dem med et svar («sann/falsk», «terminerer/uendelig»). Her møter du D-varianten for **boolske uttrykk**: er dette uttrykket sant eller falskt?\n- Faste feller fra nettopp dette kapitlet, år etter år: **heltall mot desimaltall**, **heltallsdivisjon** og **operatorpresedens** — altså hvilken operator som regnes ut først.\n\n**Prioritet: dette må sitte** (høyeste prioritet av tre nivåer i boka — «må sitte», «må kunne», «bør kjenne til»). Ikke fordi stoffet er vanskelig, men fordi alt annet i faget hviler på det, og fordi feilene her koster billige poeng du egentlig hadde."
+    },
+    {
+      "id": "in1900-1-1-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet kan leses uten forkunnskaper — det er bokas første møte med Python, og alt forklares fra grunnen.\n\nHar du aldri programmert før, finnes det to mykere innganger på plattformen som du kan bla gjennom først, uten at det er nødvendig:\n\n- **[Programmering med Python](/bok/1p/1p-9-2)** — Python fra null, i et matematikkurs fra videregående.\n- **[Programmering med Python](/bok/10/10-11-2)** — samme innføring, i en litt roligere versjon.\n\nEr du usikker på om du er «god nok i matte» til IN1900: kapitlet her bruker ingen matematikk utover pluss, minus, gange og dele."
+    },
+    {
+      "id": "in1900-1-1-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — Verdier, navn og datatyper\n\nEn værstasjon på Blindern måler temperaturen hver time. Du vil regne på tallene: finne gjennomsnitt, sjekke om det frøs, telle antall målinger. Da må maskinen holde orden på to ting — **verdiene** (21.5, 4, «Blindern») og **navnene** du bruker på dem.\n\nEt Python-program er lite mer enn en liste med slike navngivinger, og uttrykk som regner med dem. Vi begynner der, fordi kodesporing i bunn og grunn er å holde en slik navneliste i hodet."
+    },
+    {
+      "id": "in1900-1-1-def-4",
+      "type": "definition",
+      "title": "Variabel og tilordning `=`",
+      "content": "En **variabel** er et navn som peker på en verdi. Du lager den med et likhetstegn: navnet til venstre, verdien til høyre.\n\nLikhetstegnet i Python betyr ikke «er lik» slik det gjør i matematikk. Det betyr **«regn ut høyresiden, og la navnet på venstresiden peke på resultatet»**. Derfor er `x = x + 1` en helt fornuftig setning: regn ut den gamle `x` pluss 1, og la `x` peke på det nye tallet.\n\n```python\ntemperatur = 21.5\ntemperatur = temperatur + 1\nprint(temperatur)\n```\n\n**Utskrift:**\n```\n22.5\n```"
+    },
+    {
+      "id": "in1900-1-1-def-5",
+      "type": "definition",
+      "title": "`print(a, b, c)`",
+      "content": "Skriver verdiene ut i terminalen og avslutter med linjeskift. Flere argumenter skilles av **ett mellomrom** — det er Python som setter det inn, ikke deg.\n\nDette er detaljen som avgjør flest kodesporingsoppgaver: `print(3, 4)` gir `3 4` med ett mellomrom, mens `print('3' + '4')` gir `34` uten.\n\n```python\nprint(3, 4)\nprint('sum:', 3 + 4)\nprint('3' + '4')\n```\n\n**Utskrift:**\n```\n3 4\nsum: 7\n34\n```"
+    },
+    {
+      "id": "in1900-1-1-def-6",
+      "type": "definition",
+      "title": "Heltall (`int`)",
+      "content": "Tall uten desimalpunkt: `4`, `-7`, `1000`. Heltall i Python har ingen øvre grense — `2**100` regnes ut eksakt, uten avrunding.\n\nSå lenge du bare bruker `+`, `-`, `*` og `**` på heltall, får du et heltall tilbake. Det er `/` som bryter mønsteret: den gir alltid et desimaltall, også når det går opp."
+    },
+    {
+      "id": "in1900-1-1-def-7",
+      "type": "definition",
+      "title": "Flyttall (`float`)",
+      "content": "Desimaltall: `21.5`, `-0.5`, `1e-5` (som betyr $1 \\cdot 10^{-5}$). Python skriver desimalskilletegnet som **punktum**, aldri komma — `21,5` er ikke ett tall i Python, men to.\n\nFlyttall er **tilnærminger**. Maskinen lagrer dem i totallssystemet, og de fleste desimaltall får ikke plass eksakt. Derfor er `0.1 + 0.2` ikke helt lik `0.3`:\n\n```python\nprint(0.1 + 0.2)\nprint(0.1 + 0.2 == 0.3)\n```\n\n**Utskrift:**\n```\n0.30000000000000004\nFalse\n```\n\nDette er ikke en feil i Python, det er slik flyttall virker overalt. Det er også grunnen til at testfunksjoner i [kap. 3.1](/bok/in1900/in1900-3-1) sammenligner med en toleranse i stedet for med likhetstegn."
+    },
+    {
+      "id": "in1900-1-1-def-8",
+      "type": "definition",
+      "title": "Sannhetsverdier (`bool`)",
+      "content": "Datatypen med bare to verdier: `True` og `False`. Stor forbokstav, alltid — `true` finnes ikke i Python.\n\nSannhetsverdier oppstår normalt ikke fordi du skriver dem selv, men fordi du sammenligner noe: `5 > 3` **er** verdien `True`. De er også tall i forkledning: `True` oppfører seg som 1 og `False` som 0 i regnestykker, så `True + True` er `2`."
+    },
+    {
+      "id": "in1900-1-1-def-9",
+      "type": "definition",
+      "title": "Strenger (`str`)",
+      "content": "Tekst, skrevet mellom enkle eller doble fnutter: `'Blindern'` eller `\"Blindern\"`. De to formene er likeverdige.\n\nPå strenger betyr `+` **å skjøte sammen** og `*` **å gjenta**: `'ab' + 'cd'` gir `'abcd'`, og `'ab' * 2` gir `'abab'`. Merk at `'3' + '4'` derfor gir `'34'` og ikke `7` — tallet 3 og tegnet `'3'` er to helt forskjellige verdier. Mer om strenger i [kap. 1.4](/bok/in1900/in1900-1-4)."
+    },
+    {
+      "id": "in1900-1-1-def-10",
+      "type": "definition",
+      "title": "`type(x)`",
+      "content": "Svarer med datatypen til verdien `x`. Utskriften ser slik ut: `<class 'int'>`.\n\nDu bruker den nesten aldri i en eksamensbesvarelse, men den er uvurderlig når du selv skal sjekke om et uttrykk ga heltall eller desimaltall — nettopp det kodesporing spør om."
+    },
+    {
+      "id": "in1900-1-1-ex-11",
+      "type": "example",
+      "title": "Eksempel 1: Hvilken datatype fikk jeg?",
+      "problem": "En værstasjon lagrer fire opplysninger. Hvilken datatype har hver av dem, og hva skriver programmet ut?",
+      "solution": "Vi lar Python svare selv. Legg merke til at `type` skriver typenavnet inne i `<class ...>`:\n\n```python\ntemperatur = 21.5\nantall_stasjoner = 4\nnavn = 'Blindern'\nmaalt_i_dag = True\nprint(type(temperatur))\nprint(type(antall_stasjoner))\nprint(type(navn))\nprint(type(maalt_i_dag))\n```\n\n**Utskrift:**\n```\n<class 'float'>\n<class 'int'>\n<class 'str'>\n<class 'bool'>\n```\n\nFire linjer inn, fire linjer ut: `float`, `int`, `str`, `bool`. Merk at det er **verdien** som bestemmer typen, ikke navnet — Python spør aldri hva du hadde tenkt."
+    },
+    {
+      "id": "in1900-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Skriv ned datatypen til hver av disse verdiene, med Pythons eget navn på typen:\n\n**a)** `-12`\n\n**b)** `-12.0`\n\n**c)** `'-12'`\n\n**d)** `12 > 3`",
+        "solution": "**a)** `int` — heltall, ingen desimaler.\n\n**b)** `float` — desimalpunktet gjør den til et flyttall, selv om verdien er et helt tall.\n\n**c)** `str` — alt mellom fnutter er tekst, også når tegnene ser ut som et tall.\n\n**d)** `bool` — en sammenligning evaluerer til `True` eller `False`, her `True`.\n\nPoenget med b) og c) er at «ser ut som et tall» og «er et tall» ikke er samme sak. Det er en vanlig kilde til feil på eksamen, og du møter den igjen når du leser tall fra fil i [kap. 8.1](/bok/in1900/in1900-8-1).",
+        "hints": [
+          "Se på skrivemåten, ikke på hvor stor verdien er: fnutter, desimalpunkt og sammenligning peker hver sin vei.",
+          "En sammenligning er et uttrykk med en verdi, akkurat som `2 + 2` er det."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-adv-12",
+      "type": "warning",
+      "title": "Variabelnavn du aldri skal bruke",
+      "content": "To grupper navn skal du styre unna hele semesteret:\n\n**1. Enkeltbokstavene `l`, `I` og `O`.** I de fleste skrifttyper er små `l` nesten identisk med sifferet 1, og stor `O` med sifferet 0. På en eksamen der sensor leser koden din på skjerm, er det en unødvendig misforståelse. Bruk `i`, `n`, `k`, `x` — eller et ordentlig ord.\n\n**2. Navn som Python allerede bruker.** `sum`, `list`, `str`, `int`, `float`, `dict`, `max`, `min`, `abs`, `round`, `len`, `type`, `input`, `range`, `id`, `next`, `format`. Skriver du `sum = 0`, virker det fint — helt til du lenger nede prøver å bruke `sum(...)` på en liste og får en feilmelding om at et heltall ikke kan kalles. Feilen er stum og kommer langt fra åstedet, og den er en klassiker i «finn feilen»-oppgaver.\n\nBruk i stedet `s`, `total`, `verdier`, `tekst` eller `ordbok`. Boka gjør det konsekvent, og du bør gjøre det samme i besvarelsen din."
+    },
+    {
+      "id": "in1900-1-1-t-13",
+      "type": "text",
+      "content": "## Løkke 2 — De fire divisjonene\n\nNå kommer den mest lønnsomme halvtimen i kapitlet. Python har tre forskjellige måter å dele på, og de gir tre forskjellige svar på samme regnestykke. Nesten hvert midtveissett har minst ett spørsmål som lever av at studenten blander dem."
+    },
+    {
+      "id": "in1900-1-1-def-14",
+      "type": "definition",
+      "title": "Divisjon `/`",
+      "content": "Vanlig divisjon. Resultatet er **alltid** et flyttall, også når det går opp: `6 / 3` gir `2.0`, ikke `2`.\n\nDet er verdt å merke seg i kodesporing: et desimalpunkt i utskriften avslører at det har vært en `/` inne i regnestykket."
+    },
+    {
+      "id": "in1900-1-1-def-15",
+      "type": "definition",
+      "title": "Heltallsdivisjon `//`",
+      "content": "Deler og **runder resultatet nedover** til nærmeste heltall. `7 // 2` gir `3`.\n\n«Nedover» betyr mot minus uendelig, ikke mot null. Derfor er `-7 // 2` lik `-4`, ikke `-3`. Det er den fellen som går igjen. Får begge operandene være heltall, blir svaret et heltall; er én av dem et flyttall, blir svaret et flyttall med `.0` (`7.0 // 2` gir `3.0`)."
+    },
+    {
+      "id": "in1900-1-1-def-16",
+      "type": "definition",
+      "title": "Modulo `%`",
+      "content": "Resten etter heltallsdivisjon: `7 % 2` gir `1`.\n\nTo bruksområder du får se om og om igjen: `n % 2 == 0` betyr «`n` er et partall», og `n % 5 == 0` betyr «`n` er delelig med 5». I Python har resten alltid **samme fortegn som det du deler på**, så `-7 % 2` gir `1` (ikke `-1`). De to operatorene henger sammen: `(a // b) * b + a % b` gir alltid `a` tilbake."
+    },
+    {
+      "id": "in1900-1-1-ex-17",
+      "type": "example",
+      "title": "Eksempel 2: Tre måter å dele 7 på 2",
+      "problem": "Hva skriver dette programmet ut? Vær nøye med fortegnene.",
+      "solution": "Vi kjører det:\n\n```python\nantall = 7\ngruppestorrelse = 2\nprint(antall / gruppestorrelse)\nprint(antall // gruppestorrelse)\nprint(antall % gruppestorrelse)\nprint(-antall // gruppestorrelse, -antall % gruppestorrelse)\n```\n\n**Utskrift:**\n```\n3.5\n3\n1\n-4 1\n```\n\nLinje for linje: `/` gir flyttallet `3.5`. `//` kaster desimalene og gir `3` — sju personer fordelt to og to blir tre hele par. `%` gir `1` — én person står igjen.\n\nDen siste linja er fellen. `-7 // 2` er **ikke** `-3`. Runder du nedover fra $-3{,}5$, kommer du til $-4$. Og siden `(-4) * 2 + 1` er `-7`, må resten være `1`."
+    },
+    {
+      "id": "in1900-1-1-adv-18",
+      "type": "warning",
+      "title": "Typisk feil #15 — heltallsdivisjon og presedens",
+      "content": "Feilkode **#15** (boka nummererer de vanligste feilene og samler dem i [kap. 0.1](/bok/in1900/in1900-0-1)) dekker tre nære slektninger:\n\n- `//` runder **nedover**, ikke mot null. `-7 // 2` er `-4`.\n- `/` gir **alltid** flyttall. `4 / 2` er `2.0`, og skrives ut med desimalpunkt.\n- `**` regnes ut **fra høyre**. Det kommer i neste løkke.\n\nAlle tre er testet med flervalg der ett av alternativene er nettopp det svaret du får hvis du tar feil. Sjekk fortegnene to ganger når negative tall er inne i bildet."
+    },
+    {
+      "id": "in1900-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med linjeskift slik terminalen viser den.\n\n```python\nmaalinger = 13\nkolonner = 4\nprint(maalinger // kolonner)\nprint(maalinger % kolonner)\nprint(maalinger / kolonner)\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Regnes ut til | Utskrift så langt |\n|---|---|---|---|\n| 1 | `maalinger = 13` | navnet peker på `13` | (ingenting) |\n| 2 | `kolonner = 4` | navnet peker på `4` | (ingenting) |\n| 3 | `13 // 4` | `3` (runder nedover fra 3,25) | `3` |\n| 4 | `13 % 4` | `1` (fordi `3 * 4 + 1 = 13`) | `3` og `1` |\n| 5 | `13 / 4` | `3.25` (flyttall) | `3`, `1` og `3.25` |\n\n**Utskrift:**\n```\n3\n1\n3.25\n```\n\n**Fellenote:** fellen her er #15 — å skrive `3.25` på den første linja fordi man tenker «deling». Legg også merke til at `/` er den eneste av de tre som gir et desimalpunkt i utskriften.",
+        "hints": [
+          "Regn ut hver linje for seg, og hold de tre divisjonene fra hverandre.",
+          "Bare én av de tre operatorene gir et desimaltall."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-def-19",
+      "type": "definition",
+      "title": "Potens `**`",
+      "content": "Opphøyd i: `2 ** 3` gir `8`. Med et negativt eksponentuttrykk får du flyttall: `2 ** -1` gir `0.5`.\n\nTo særegenheter du må huske: `**` binder **sterkest** av alle regneoperatorene, og den regnes ut **fra høyre** (den er høyre-assosiativ). Derfor er `2 ** 3 ** 2` det samme som $2^{(3^2)} = 2^9 = 512$, ikke $(2^3)^2 = 64$. Og fordi `**` binder sterkere enn minustegnet foran et tall, er `-2 ** 2` lik `-4`."
+    },
+    {
+      "id": "in1900-1-1-ex-20",
+      "type": "example",
+      "title": "Eksempel 3: Potenser og fortegn",
+      "problem": "Fire uttrykk som ser nesten like ut. Hva skriver programmet ut?",
+      "solution": "```python\nprint(2 ** 3 ** 2)\nprint((2 ** 3) ** 2)\nprint(-2 ** 2)\nprint((-2) ** 2)\n```\n\n**Utskrift:**\n```\n512\n64\n-4\n4\n```\n\nLinje 1 og 2 skiller seg fordi `**` regnes fra høyre: $2^{3^2} = 2^9 = 512$, mens parentesene i linje 2 tvinger $(2^3)^2 = 8^2 = 64$.\n\nLinje 3 og 4 skiller seg fordi `**` binder sterkere enn det unære minuset: i linje 3 regnes `2 ** 2` først og fortegnet snus etterpå, mens parentesen i linje 4 gjør at hele $-2$ opphøyes.\n\nPraktisk regel i besvarelsen: er du i tvil, sett parentes. Sensor trekker aldri for en parentes du ikke trengte."
+    },
+    {
+      "id": "in1900-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\na = 3\nprint(2 ** a ** 2)\nprint(-a ** 2 + 1)\nprint(2 ** -2)\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Rekkefølge | Verdi | Utskrift så langt |\n|---|---|---|---|---|\n| 2 | `2 ** 3 ** 2` | høyre først: `3 ** 2` er `9`, så `2 ** 9` | `512` | `512` |\n| 3 | `-3 ** 2 + 1` | `3 ** 2` er `9`, så `-9`, så `-9 + 1` | `-8` | `512`, `-8` |\n| 4 | `2 ** -2` | negativ eksponent gir flyttall | `0.25` | `512`, `-8`, `0.25` |\n\n**Utskrift:**\n```\n512\n-8\n0.25\n```\n\n**Fellenote:** fellen er #15 igjen, i to varianter — `64` på første linje (venstre-til-høyre) og `10` på andre linje (fortegnet tatt med inn i potensen). Riktig sporing av én av tre linjer gir uttelling i den fritekstversjonen av sjangeren; på flervalg må hele utskriften stemme.",
+        "hints": [
+          "`**` regnes fra høyre, og binder sterkere enn minustegnet foran et tall.",
+          "Hva skjer med datatypen når eksponenten er negativ?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-t-21",
+      "type": "text",
+      "content": "## Løkke 3 — Presedens: hva regnes ut først?\n\nEt uttrykk som `6 + 4 * 2` har bare ett riktig svar, og Python bruker samme regler du lærte på skolen — pluss noen flere, fordi Python har flere operatorer enn matematikken."
+    },
+    {
+      "id": "in1900-1-1-def-22",
+      "type": "definition",
+      "title": "Operatorpresedens",
+      "content": "Rekkefølgen Python regner ut i, fra det som bindes sterkest til det som bindes svakest:\n\n1. `()` — parentes\n2. `**` — potens (regnes fra høyre)\n3. `-x` — unært minus\n4. `*`, `/`, `//`, `%` — regnes fra venstre mot høyre\n5. `+`, `-` — regnes fra venstre mot høyre\n6. `<`, `<=`, `>`, `>=`, `==`, `!=` — sammenligninger\n7. `not`\n8. `and`\n9. `or`\n\nTo operatorer på samme nivå tas fra venstre: `12 / 3 * 2` er `(12 / 3) * 2` som gir `8.0`, ikke `12 / 6`. Eneste unntak er `**`, som tas fra høyre.\n\nMerk at **alle** regneoperatorene kommer før sammenligningene, og at `not` kommer før `and`, som kommer før `or`."
+    },
+    {
+      "id": "in1900-1-1-ex-23",
+      "type": "example",
+      "title": "Eksempel 4: Fem uttrykk med samme tall",
+      "problem": "Tallene 6 og 4 i fem forskjellige uttrykk. Hva skriver programmet ut?",
+      "solution": "```python\na = 6\nb = 4\nprint(a + b * 2)\nprint((a + b) * 2)\nprint(a / b * 2)\nprint(a - b - 1)\nprint(a % b * 2)\n```\n\n**Utskrift:**\n```\n14\n20\n3.0\n1\n4\n```\n\n- `6 + 4 * 2`: gangetegnet først, altså `6 + 8`.\n- `(6 + 4) * 2`: parentesen først, altså `10 * 2`.\n- `6 / 4 * 2`: samme nivå, fra venstre: `1.5 * 2`. Flyttall, fordi `/` var inne.\n- `6 - 4 - 1`: fra venstre: `2 - 1`. Hadde det vært fra høyre, ville svaret vært `3`.\n- `6 % 4 * 2`: `%` og `*` er samme nivå, fra venstre: `2 * 2`.\n\nDen tredje og den femte linja er de som skiller. Begge lever av regelen «samme nivå tas fra venstre»."
+    },
+    {
+      "id": "in1900-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nx = 10\ny = 3\nprint(x - y * 2 + 1)\nprint(x // y ** 2)\nprint(x / y // 2)\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Steg for steg | Verdi | Utskrift så langt |\n|---|---|---|---|---|\n| 3 | `10 - 3 * 2 + 1` | `3 * 2` er `6`; `10 - 6` er `4`; `4 + 1` | `5` | `5` |\n| 4 | `10 // 3 ** 2` | `3 ** 2` er `9`; `10 // 9` | `1` | `5`, `1` |\n| 5 | `10 / 3 // 2` | `10 / 3` er `3.3333333333333335`; `// 2` gir `1.0` | `1.0` | `5`, `1`, `1.0` |\n\n**Utskrift:**\n```\n5\n1\n1.0\n```\n\n**Fellenote:** fellen er #15. Siste linje er den harde: `/` og `//` er på samme nivå, så uttrykket tas fra venstre, og fordi `/` har gjort resultatet til et flyttall, blir også `//`-resultatet et flyttall og skrives `1.0`. Skriver du `1`, mister du poenget selv om tallverdien er riktig — sjanger A krever utskriften tegn for tegn.",
+        "hints": [
+          "Sett inn parenteser der du mener Python setter dem, og regn ut innenfra.",
+          "Har `/` vært inne i regnestykket, forsvinner ikke desimalpunktet etterpå."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-t-24",
+      "type": "text",
+      "content": "## Løkke 4 — Logiske uttrykk\n\nEn værstasjon skal varsle om frost. Det er et **spørsmål med to svar**, og slike spørsmål skriver du i Python som logiske uttrykk. De er kjernen i alle `if`-setninger og `while`-løkker senere i boka, og de utgjør en egen matche-tabell på eksamen (sjanger D)."
+    },
+    {
+      "id": "in1900-1-1-def-25",
+      "type": "definition",
+      "title": "Sammenligningsoperatorer og kjeding",
+      "content": "`<`, `<=`, `>`, `>=` sammenligner størrelse; `==` spør om likhet og `!=` om ulikhet. Hver av dem gir `True` eller `False`.\n\nTo fallgruver. **Ett** likhetstegn tilordner, **to** sammenligner — `x = 5` og `x == 5` er to helt ulike setninger. Og Python tillater **kjeding**: `0 < x < 10` er lovlig og betyr `0 < x and x < 10`. Det er praktisk, men også en yndet felle, fordi den samme skrivemåten ikke betyr noe fornuftig i mange andre språk."
+    },
+    {
+      "id": "in1900-1-1-def-26",
+      "type": "definition",
+      "title": "`and`, `or`, `not`",
+      "content": "`a and b` er sann bare når begge er sanne. `a or b` er sann når minst én er sann. `not a` snur svaret.\n\nRekkefølgen er `not` før `and` før `or`. Derfor betyr `not x > 3 or x == 5` det samme som `(not (x > 3)) or (x == 5)`: `not`-et gjelder bare den første sammenligningen, ikke hele uttrykket. Er du i tvil, sett parentes.\n\nPython er dessuten **lat**: i `a and b` regnes `b` bare ut hvis `a` var sann. Det er derfor `n != 0 and 10 / n > 1` er trygt selv når `n` er null."
+    },
+    {
+      "id": "in1900-1-1-def-27",
+      "type": "definition",
+      "title": "Sannhetsverdi av en verdi (`bool(x)`)",
+      "content": "Alle verdier kan brukes der Python venter et ja/nei-svar. Regelen er kort: **tallet 0, den tomme strengen `''`, den tomme lista `[]` og den tomme ordboka `{}` regnes som falske. Alt annet er sant.**\n\n`bool(x)` viser hva Python mener om `x`. Dette forklarer hvorfor `if verdier:` er et vanlig og idiomatisk uttrykk for «hvis lista ikke er tom»."
+    },
+    {
+      "id": "in1900-1-1-ex-28",
+      "type": "example",
+      "title": "Eksempel 5: Sanne og falske uttrykk",
+      "problem": "Temperaturen er målt til 5 grader. Hva skriver programmet ut?",
+      "solution": "```python\nt = 5\nprint(0 < t < 10)\nprint(t > 3 and t % 2 == 0)\nprint(not t > 3 or t == 5)\nprint(bool(0), bool(''), bool(-1))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\nFalse False True\n```\n\n- `0 < 5 < 10`: begge leddene i kjeden er sanne.\n- `5 > 3 and 5 % 2 == 0`: første ledd sant, andre ledd falskt (5 er ikke et partall), og `and` krever begge.\n- `not 5 > 3 or 5 == 5`: `not`-et tar bare `5 > 3`, som er sant, så første ledd blir `False`. Andre ledd er sant, og `or` krever bare ett.\n- `bool(0)`, `bool('')` er falske; `bool(-1)` er sann, for det er bare **null** som er falsk, ikke negative tall.\n\nLegg merke til den siste: mange gjetter `False` for `bool(-1)` fordi negativt «føles» som nei."
+    },
+    {
+      "id": "in1900-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger D — matche-tabell der du avgjør sannhetsverdien til hvert uttrykk.) La `n = 12` og `m = 5`. Avgjør for hvert uttrykk om det er `True` eller `False`.\n\n| Uttrykk |\n|---|\n| `n % m == 2` |\n| `n > m and m > 10` |\n| `not n == 12` |\n| `m < n < 20` |\n| `n % 2 == 0 or m % 2 == 0` |",
+        "solution": "Regn ut hvert uttrykk innenfra, med presedensrekkefølgen i hånden.\n\n| Uttrykk | Regnes ut | Svar |\n|---|---|---|\n| `n % m == 2` | `12 % 5` er `2`, og `2 == 2` | `True` |\n| `n > m and m > 10` | `True and False` | `False` |\n| `not n == 12` | `==` før `not`, altså `not True` | `False` |\n| `m < n < 20` | `5 < 12` og `12 < 20`, begge sanne | `True` |\n| `n % 2 == 0 or m % 2 == 0` | `True or False` | `True` |\n\nFasitmønsteret her er `True`, `False`, `False`, `True`, `True` — merk at det ikke er noen fast veksling. På en matche-tabell får du typisk 0,5 poeng per rad, så det er billige poeng å hente selv om du ikke får alle.\n\n**Fellenote:** rad tre er fellen. `not` binder **svakere** enn `==`, så uttrykket er `not (n == 12)`, ikke `(not n) == 12`.",
+        "hints": [
+          "Alle regne- og sammenligningsoperatorer kommer før `not`, `and` og `or`.",
+          "Sett inn parenteser slik du tror Python gjør, og regn ut innenfra."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-t-29",
+      "type": "text",
+      "content": "## Løkke 5 — Konvertering, avrunding og korte tilordninger\n\nTil slutt tre småting som dukker opp i nesten hver eneste kodesporingsoppgave: å bytte datatype, å runde av, og den korte skrivemåten for «legg til»."
+    },
+    {
+      "id": "in1900-1-1-def-30",
+      "type": "definition",
+      "title": "`int(x)`",
+      "content": "Gjør `x` om til et heltall. På et flyttall **kutter** den desimalene bort — den runder ikke. Og den kutter mot null: `int(2.7)` gir `2`, og `int(-2.7)` gir `-2`.\n\nDet er en viktig forskjell fra `//`, som runder nedover: `int(-2.7)` er `-2`, mens `-27 // 10` er `-3`. På en streng virker `int` bare hvis strengen inneholder et helt tall: `int('42')` gir `42`, mens `int('42.0')` og `int('to')` stopper programmet med en feilmelding."
+    },
+    {
+      "id": "in1900-1-1-def-31",
+      "type": "definition",
+      "title": "`float(x)`",
+      "content": "Gjør `x` om til et flyttall: `float(3)` gir `3.0`, og `float('2.5')` gir `2.5`.\n\nDette er konverteringen du bruker når du har lest tall fra fil eller fra kommandolinjen — der kommer alt inn som tekst, og tekst kan man ikke regne med. Se [kap. 2.1](/bok/in1900/in1900-2-1)."
+    },
+    {
+      "id": "in1900-1-1-def-32",
+      "type": "definition",
+      "title": "`round(x)` og `round(x, n)`",
+      "content": "`round(x)` runder av til nærmeste heltall og gir et heltall. `round(x, n)` runder av til `n` desimaler og gir et flyttall.\n\nSæregenhet du bør kjenne: står tallet **midt imellom**, runder Python til det nærmeste **partallet**. Derfor er `round(0.5)` lik `0`, `round(1.5)` lik `2` og `round(2.5)` lik `2`. Regelen kalles bankers avrunding, og den finnes for at mange avrundinger ikke skal skjeve seg systematisk oppover."
+    },
+    {
+      "id": "in1900-1-1-def-33",
+      "type": "definition",
+      "title": "Augmenterte tilordninger (`+=`, `-=`, `*=`, `//=`)",
+      "content": "`s += x` er kortformen for `s = s + x`, og tilsvarende for de andre. Kortformen er den idiomatiske måten å bygge opp en sum eller en teller.\n\nDu får se den i hver rekke-oppgave i [kap. 3.2](/bok/in1900/in1900-3-2), som `s += ledd`. Merk at variabelen må ha en verdi først: `s += 1` på et navn som ikke finnes, stopper programmet."
+    },
+    {
+      "id": "in1900-1-1-ex-34",
+      "type": "example",
+      "title": "Eksempel 6: Konvertering og avrunding i samme sporing",
+      "problem": "Dette er en typisk midtveisoppgave: fem linjer, ingen løkker, men fire ulike feller. Hva skriver programmet ut?",
+      "solution": "```python\nx = 2.7\nprint(int(x), int(-x))\nprint(round(x), round(-x))\nprint(round(0.5), round(1.5), round(2.5))\nt = 10\nt += 5\nt //= 4\nprint(t)\n```\n\n**Utskrift:**\n```\n2 -2\n3 -3\n0 2 2\n3\n```\n\n**Sporingstavle**\n\n| Linje | Hva skjer | `t` | Utskrift |\n|---|---|---|---|\n| 2 | `int` kutter mot null i begge retninger | — | `2 -2` |\n| 3 | `round` runder normalt | — | `3 -3` |\n| 4 | midt imellom: rund til partall | — | `0 2 2` |\n| 5–7 | `t` blir `10`, så `15`, så `15 // 4` som er `3` | `3` | `3` |\n\nDe to linjene som skiller besvarelsene er linje 2 og linje 4. `int(-2.7)` er `-2` fordi `int` kutter, og `round(2.5)` er `2` fordi Python runder til nærmeste partall når det står midt imellom."
+    },
+    {
+      "id": "in1900-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nverdi = -3.6\nprint(int(verdi))\nprint(round(verdi))\nprint(round(verdi, 1))\ns = 7\ns *= 3\ns %= 4\nprint(s)\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi | Utskrift så langt |\n|---|---|---|---|\n| 2 | `int(-3.6)` — kutter mot null | `-3` | `-3` |\n| 3 | `round(-3.6)` — nærmeste heltall | `-4` | `-3`, `-4` |\n| 4 | `round(-3.6, 1)` — én desimal, uendret | `-3.6` | `-3`, `-4`, `-3.6` |\n| 5–7 | `s` er `7`, så `21`, så `21 % 4` | `1` | og `1` |\n\n**Utskrift:**\n```\n-3\n-4\n-3.6\n1\n```\n\n**Fellenote:** fellen er #15 i konverteringsvarianten — `int` og `round` gir **ulikt** svar på et negativt tall, `-3` mot `-4`. Legg også merke til at `round(x, 1)` gir et flyttall, mens `round(x)` gir et heltall.",
+        "hints": [
+          "`int` kutter desimalene bort; `round` går til nærmeste.",
+          "Ta de augmenterte tilordningene i rekkefølge, én linje om gangen."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing med blandede datatyper.) Hva skriver programmet ut?\n\n```python\nantall = 4\nsum_grader = 82.0\nprint(sum_grader / antall)\nprint(sum_grader // antall)\nprint(antall * 2 ** 2)\nprint(antall == 4.0)\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi | Merk |\n|---|---|---|---|\n| 3 | `82.0 / 4` | `20.5` | vanlig divisjon |\n| 4 | `82.0 // 4` | `20.0` | heltallsdivisjon på et flyttall gir **flyttall** |\n| 5 | `4 * 2 ** 2` | `16` | `**` før `*` |\n| 6 | `4 == 4.0` | `True` | ulik type, samme verdi |\n\n**Utskrift:**\n```\n20.5\n20.0\n16\nTrue\n```\n\n**Fellenote:** de to fellene er `20` i stedet for `20.0` på linje 4 (heltallsdivisjon beholder flyttallstypen når en av operandene er flyttall), og `False` på siste linje (`==` sammenligner **verdi**, ikke datatype, så et heltall og et flyttall kan godt være like).",
+        "hints": [
+          "Se på datatypene til begge operandene før du bestemmer hvordan svaret skrives.",
+          "`==` spør om verdiene er like, ikke om typene er like."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — de negative tallene samlet.) Hva skriver programmet ut?\n\n```python\nn = -13\nd = 4\nprint(n // d, n % d)\nprint(-(n // d), int(n / d))\nprint(n // d * d + n % d)\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Steg for steg | Verdi |\n|---|---|---|\n| `-13 // 4` | $-13/4 = -3{,}25$, rund **nedover** | `-4` |\n| `-13 % 4` | resten må gi `-4 * 4 + r = -13`, altså `r = 3` | `3` |\n| `-(n // d)` | `-(-4)` | `4` |\n| `int(n / d)` | `-13 / 4` er `-3.25`, og `int` kutter mot null | `-3` |\n| `n // d * d + n % d` | `-4 * 4 + 3` er `-16 + 3` | `-13` |\n\n**Utskrift:**\n```\n-4 3\n4 -3\n-13\n```\n\nSiste linje er ingen tilfeldighet: `(a // b) * b + a % b` gir **alltid** `a` tilbake. Den identiteten er den enkleste måten å kontrollere fortegnene sine på — får du `-13`, var både heltallsdivisjonen og resten riktig.\n\n**Fellenote:** fellen er #15 i sin verste form. Både `-3` for `-13 // 4` og `-1` for `-13 % 4` er alternativer på flervalgsversjonen. Husk: heltallsdivisjon runder nedover, og resten har samme fortegn som det du deler **på**.",
+        "hints": [
+          "Tegn tallinja: «rund nedover» er ikke det samme som «kutt desimalene».",
+          "Bruk identiteten `(a // b) * b + a % b` til å kontrollere svaret ditt."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — matche-tabell.) La `x = 0`, `tekst = 'null'` og `verdier = []` (en tom liste).\n\nAvgjør for hvert uttrykk om det er `True` eller `False`.\n\n**a)** `bool(x)`\n\n**b)** `bool(tekst)`\n\n**c)** `bool(verdier)`\n\n**d)** `x == 0 and not verdier`\n\n**e)** `x or tekst`\n\n**f)** `not x and not tekst`",
+        "solution": "Regelen er at `0`, `''`, `[]` og `{}` er falske, alt annet sant.\n\n**a)** `False` — `x` er tallet 0.\n\n**b)** `True` — strengen `'null'` er ikke tom. At innholdet *betyr* null, har Python ingen mening om.\n\n**c)** `False` — den tomme lista er falsk.\n\n**d)** `True` — `x == 0` er sann, og `not verdier` er `not False`, altså sann.\n\n**e)** Her er svaret **ikke** `True` eller `False`, men strengen `'null'`. `or` returnerer den **første sanne verdien**, ikke en sannhetsverdi. Siden `x` er falsk, blir svaret hele `tekst`. Brukt i en `if`-test oppfører den seg som sann, men skriver du den ut, ser du `null`.\n\n**f)** `False` — `not x` er sann, men `not tekst` er falsk, og `and` krever begge.\n\nFasitmønsteret er `False`, `True`, `False`, `True`, en streng, `False` — altså ikke en pen veksling, og med én rad som bryter formatet. Det er nettopp poenget: e) er den raden som skiller.\n\n**Fellenote:** to feller. Den ene er b) — «tom» handler om tegnene, ikke om betydningen. Den andre er e) — `and` og `or` gir tilbake en av **operandene**, ikke nødvendigvis `True`/`False`.",
+        "hints": [
+          "Fire verdier er falske i Python. Lær dem, og alt annet er sant.",
+          "For e): tenk på hva `or` faktisk gir tilbake når den første operanden er falsk."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-1-adv-35",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "- **#15 — heltallsdivisjon og presedens.** `//` runder nedover (også for negative tall), `/` gir alltid flyttall, `**` regnes fra høyre og binder sterkere enn unært minus. Dette er den store.\n- **#16 — utskriftsdetaljer.** `print` setter **ett mellomrom** mellom argumentene sine. Et svar med komma mellom tallene er feil, selv om tallene er riktige. Mer om dette i [kap. 1.4](/bok/in1900/in1900-1-4).\n- **#22 — `is` mot `==`.** `==` sammenligner verdier, `is` sammenligner om det er samme objekt. Bruk `==` på tall og strenger; `is` hører bare sammen med `None`.\n- **Datatypen glemt i utskriften.** `1` og `1.0` er samme tall, men to forskjellige utskrifter. I sjanger A teller tegnene.\n- **Ett mot to likhetstegn.** `=` tilordner, `==` sammenligner."
+    },
+    {
+      "id": "in1900-1-1-coll-36",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `navn = verdi` | Regner ut høyresiden og lar navnet peke på resultatet. Ikke en likning. |\n| `print(a, b)` | Skriver argumentene med **ett mellomrom** mellom, og avslutter med linjeskift. |\n| `int` | Heltall, ubegrenset størrelse. Heltall inn i `+ - * **` gir heltall ut. |\n| `float` | Flyttall, skrevet med **punktum**. Tilnærming: `0.1 + 0.2` gir `0.30000000000000004`. |\n| `bool` | `True` eller `False`, med stor forbokstav. Oppfører seg som 1 og 0 i regnestykker. |\n| `str` | Tekst i fnutter. `+` skjøter sammen, `*` gjentar. |\n| `type(x)` | Datatypen til `x`, skrevet som `<class 'int'>`. |\n| `/` | Divisjon. Gir **alltid** flyttall, også `6 / 3` som blir `2.0`. |\n| `//` | Heltallsdivisjon, runder **nedover** (mot minus uendelig): `-7 // 2` er `-4`. |\n| `%` | Resten etter heltallsdivisjon. Samme fortegn som **høyre** operand: `-7 % 2` er `1`. |\n| `**` | Potens. Binder sterkest, regnes **fra høyre**: `2 ** 3 ** 2` er `512`. |\n| Presedens | `()` før `**` før `-x` før `* / // %` før `+ -` før sammenligning før `not` før `and` før `or`. Samme nivå tas fra venstre, unntatt `**`. |\n| `<  <=  >  >=  ==  !=` | Sammenligning, gir `True`/`False`. Kjeding er lovlig: `0 < x < 10`. |\n| `and`, `or`, `not` | `not` før `and` før `or`. Lat evaluering: høyre side regnes bare om nødvendig. Returnerer en av operandene, ikke alltid `True`/`False`. |\n| `bool(x)` | Falsk for `0`, `''`, `[]`, `{}`. Alt annet sant. |\n| `int(x)` | Kutter desimalene mot **null**: `int(-2.7)` er `-2`. På streng: bare hele tall. |\n| `float(x)` | Gjør om til flyttall: `float(3)` er `3.0`. |\n| `round(x)` | Nærmeste heltall; midt imellom rundes til nærmeste **partall**: `round(2.5)` er `2`. |\n| `round(x, n)` | `n` desimaler, resultatet er et flyttall. |\n| `+=`, `-=`, `*=`, `//=`, `%=` | `s += x` er kortform for `s = s + x`. Variabelen må finnes fra før. |\n| `abs(x)` | Tallverdien uten fortegn: `abs(-4.5)` er `4.5`. |",
+          "id": "in1900-1-1-c36-1"
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-1-t-37",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-1-1-def-38",
+      "type": "definition",
+      "title": "`abs(x)`",
+      "content": "Tallverdien til `x`, uten fortegn: `abs(-4.5)` gir `4.5`, og `abs(3)` gir `3`.\n\nDen er viktigere enn den ser ut: hver testfunksjon i boka bruker `abs(forventet - beregnet) < tol` for å sjekke om to flyttall er «nær nok». Se [kap. 3.1](/bok/in1900/in1900-3-1)."
+    },
+    {
+      "id": "in1900-1-1-def-39",
+      "type": "definition",
+      "title": "Dynamisk typing",
+      "content": "I Python bestemmes datatypen av **verdien**, ikke av navnet, og et navn kan peke på ulike typer etter hverandre: `x = 4` og deretter `x = 'fire'` er lovlig.\n\nKonsekvensen for deg er at typefeil ikke oppdages før koden kjører. Skriver du `'3' + 4`, får du ingen advarsel på forhånd — programmet stopper når linja nås, med en `TypeError`. Det er en av exception-typene i [kap. 2.2](/bok/in1900/in1900-2-2)."
+    },
+    {
+      "id": "in1900-1-1-def-40",
+      "type": "definition",
+      "title": "Uttrykk og setning",
+      "content": "Et **uttrykk** har en verdi: `2 + 2`, `x > 3`, `int('42')`. En **setning** gjør noe: `x = 5`, `print(x)`.\n\nSkillet er praktisk i sporing: hvert uttrykk kan du erstatte med verdien sin og gå videre. Det er nettopp det en sporingstavle gjør, linje for linje."
+    },
+    {
+      "id": "in1900-1-1-def-41",
+      "type": "definition",
+      "title": "Flyttall er tilnærminger",
+      "content": "Et flyttall lagres med et endelig antall binære siffer, så de fleste desimaltall blir litt feil i siste siffer. Derfor er `0.1 + 0.2` lik `0.30000000000000004`, og `1 / 3` skrives `0.3333333333333333`.\n\nTre konsekvenser du får bruk for: (1) sammenlign aldri flyttall med `==`, bruk en toleranse; (2) bruk formatert utskrift når du vil vise et pent tall, se [kap. 1.4](/bok/in1900/in1900-1-4); (3) heltall har ikke dette problemet — de er eksakte, uansett størrelse."
+    },
+    {
+      "id": "in1900-1-1-coll-42",
+      "type": "collapsible",
+      "title": "Repetisjon — de fem setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "type": "text",
+          "content": "1. `/` gir alltid flyttall. `//` runder **nedover**, også for negative tall. `%` har fortegn som høyre operand.\n2. `**` binder sterkest og regnes **fra høyre**; `-2 ** 2` er `-4`.\n3. Samme presedensnivå tas fra venstre: `12 / 3 * 2` er `8.0`.\n4. `not` før `and` før `or`, og alle sammenligninger kommer før dem.\n5. Falske verdier: `0`, `''`, `[]`, `{}`. Alt annet er sant.\n\nKlarer du å svare på disse fem uten å slå opp, har du grunnlaget for kodesporingsdrillen i [kap. 1.7](/bok/in1900/in1900-1-7).",
+          "id": "in1900-1-1-c42-1"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
