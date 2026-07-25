@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Hvor mange bit tilsvarer ett oktalt siffer?",
+    "options": [
+      "Tre bit, fordi åtte er to opphøyd i tre",
+      "Fire bit, fordi åtte er halvparten av seksten",
+      "Åtte bit, fordi oktalsystemet har base åtte",
+      "To bit, fordi hvert siffer bare trenger to tilstander"
+    ],
+    "explanation": "Ett oktalsiffer har åtte mulige verdier, og tre bit gir nøyaktig åtte kombinasjoner. Fire bit hører til heksadesimal, der 16 er to opphøyd i fire. Alternativ 3 forveksler basen med antall bit. Alternativ 4 gir bare fire verdier, som er for lite."
+  },
+  {
+    "question": "Hva er `111011₂` skrevet oktalt?",
+    "options": [
+      "`73₈`, ved gruppering i treere fra høyre",
+      "`37₈`, ved gruppering i treere fra venstre",
+      "`3B₈`, ved gruppering i firere fra høyre",
+      "`113₈`, ved omregning via titallssystemet"
+    ],
+    "explanation": "Grupper `111 011` gir sifrene 7 og 3, altså `73₈` — kontroll: 7·8 + 3 = 59, og tallet er 32+16+8+2+1 = 59. Alternativ 2 grupperer fra feil ende. Alternativ 3 bruker firegrupper, som gir heksadesimal, og B er dessuten ikke et lovlig oktalsiffer. Alternativ 4 er 75 i titallssystemet."
+  },
+  {
+    "question": "Hva er verdien til det heksadesimale sifferet A?",
+    "options": [
+      "10, fordi verdiene 0 til 9 allerede er dekket av tallsymbolene",
+      "11, fordi A er den første bokstaven etter tallene 0 til 10",
+      "1, fordi A står først i den alfabetiske delen av rekka",
+      "16, fordi A markerer at basen er seksten"
+    ],
+    "explanation": "Bokstavene overtar der tallsymbolene slutter, så A er 10 og F er 15. Alternativ 2 er den vanligste feilen: rekka forskyves ett hakk. Alternativ 3 forveksler rekkefølge med verdi. Alternativ 4 gir en verdi som ikke kan skrives med ett siffer i base 16."
+  },
+  {
+    "question": "Hva er `0x3F` i titallssystemet?",
+    "options": [
+      "63, fordi 3·16 pluss 15 er 63",
+      "45, fordi 3·10 pluss 15 er 45",
+      "51, fordi 3·16 pluss 3 er 51",
+      "319, fordi sifrene 3 og 15 skrives etter hverandre"
+    ],
+    "explanation": "F har verdien 15, og vekten på førsteplassen er 16, så 48 + 15 = 63. Alternativ 2 bruker vekten 10 og blander base 16 med base 10. Alternativ 3 gir F verdien 3. Alternativ 4 setter sifferverdiene sammen som tekst i stedet for å vekte dem."
+  },
+  {
+    "question": "Hvorfor virker gruppering som konverteringsmetode mellom binær og heksadesimal?",
+    "options": [
+      "Fordi seksten er to opphøyd i fire, så fire bit dekker nøyaktig ett siffer",
+      "Fordi seksten er fire ganger fire, så fire bit dekker ett siffer",
+      "Fordi begge systemene bruker de samme sifrene 0 til 9 i bunnen",
+      "Fordi heksadesimale tall alltid har et antall sifre som er delelig med fire"
+    ],
+    "explanation": "Sammenhengen er at basen er en potens av to, slik at en fast gruppe bit svarer til ett siffer uten rest. Alternativ 2 gir riktig tall, men feil begrunnelse — det er eksponenten, ikke produktet, som avgjør. Alternativ 3 er sant, men irrelevant. Alternativ 4 er ikke sant: `0xFC` har to sifre."
+  },
+  {
+    "question": "Fra hvilken ende skal du gruppere bit når du konverterer?",
+    "options": [
+      "Fra høyre, slik at en ufullstendig gruppe havner til venstre",
+      "Fra venstre, slik at det mest signifikante bitet kommer først",
+      "Fra midten, slik at eventuelle ledende nuller fordeles jevnt",
+      "Det spiller ingen rolle, siden gruppene inneholder de samme bitene uansett"
+    ],
+    "explanation": "Vektene bygges opp fra det minst signifikante bitet, så grupperingen må følge samme retning. Alternativ 2 gir riktig svar bare når antall bit går opp i gruppestørrelsen. Alternativ 3 beskriver ingen reell metode. Alternativ 4 er feil: `1011011₂` blir `133₈` fra høyre, men `551₈` fra venstre."
+  },
+  {
+    "question": "Hva er `216₈` skrevet binært?",
+    "options": [
+      "`10001110₂`, ved å skrive hvert siffer som tre bit",
+      "`11010110₂`, ved å skrive hvert siffer som fire bit",
+      "`1101100₂`, ved omregning via titallssystemet",
+      "`100010110₂`, ved å skrive hvert siffer som fire bit med ledende null"
+    ],
+    "explanation": "2 blir `010`, 1 blir `001` og 6 blir `110`, som gir `010001110₂` = `10001110₂` = 142. Alternativ 2 og 4 bruker firegrupper, som hører til heksadesimal. Alternativ 3 er 108, som ikke stemmer med 142."
+  },
+  {
+    "question": "Hvilken av disse er lik `101101₂`?",
+    "options": [
+      "`0x2D`",
+      "`0x2B`",
+      "`0x1D`",
+      "`0x3D`"
+    ],
+    "explanation": "Firegrupperingen gir `0010 1101`, altså 2 og D, som er 45. `0x2B` er 43, `0x1D` er 29 og `0x3D` er 61 — alle tre er nabotall som oppstår hvis du bytter om eller mister ett bit i nibbelen."
+  },
+  {
+    "question": "Du skal konvertere `345₈` til heksadesimal. Hva er den raskeste veien?",
+    "options": [
+      "Skriv tallet binært med tre bit per siffer, og grupper på nytt i firere",
+      "Regn ut titallsverdien først, og del deretter gjentatte ganger på 16",
+      "Del hvert oktalsiffer på to, siden 16 er dobbelt så stort som 8",
+      "Slå sammen sifrene to og to, siden 16 er 8 ganget med 2"
+    ],
+    "explanation": "Binærtallet er broa mellom to baser som begge er potenser av to: `011 100 101` blir `1110 0101`, altså `0xE5` = 229. Alternativ 2 gir riktig svar, men er omveien via titallssystemet, som er felle #6. Alternativ 3 og 4 beskriver operasjoner som ikke er gyldige konverteringer."
+  },
+  {
+    "question": "Hvor mange ulike verdier kan skrives med åtte bit?",
+    "options": [
+      "256, fra 0 til 255",
+      "255, fra 1 til 255",
+      "128, fra 0 til 127",
+      "512, fra 0 til 511"
+    ],
+    "explanation": "Antallet er to opphøyd i åtte, altså 256, og den største verdien er én mindre enn antallet. Alternativ 2 glemmer at null også er en verdi. Alternativ 3 svarer for sju bit, alternativ 4 for ni."
+  },
+  {
+    "question": "Hva blir `77₁₀` skrevet oktalt?",
+    "options": [
+      "`115₈`",
+      "`107₈`",
+      "`117₈`",
+      "`77₈`"
+    ],
+    "explanation": "Binært er 77 lik `1001101`, som gruppert i treere fra høyre blir `001 001 101` = 1, 1, 5. Kontroll: 64 + 8 + 5 = 77. `107₈` er 71, `117₈` er 79, og `77₈` er 63 — det siste er fella med å tro at sifrene er de samme i alle baser."
+  },
+  {
+    "question": "Hva er den siste resten du får når du deler et desimaltall gjentatte ganger på 2?",
+    "options": [
+      "Det mest signifikante bitet, altså sifferet lengst til venstre",
+      "Det minst signifikante bitet, altså sifferet lengst til høyre",
+      "Fortegnsbitet, som avgjør om tallet er positivt eller negativt",
+      "Antall bit tallet trenger for å kunne skrives binært"
+    ],
+    "explanation": "Restene leses nedenfra og opp, så den siste resten står lengst til venstre. Alternativ 2 beskriver den FØRSTE resten. Alternativ 3 hører til to-er komplement og har ingenting med divisjonsmetoden å gjøre. Alternativ 4 forveksler antall divisjoner med sifferverdi."
+  },
+  {
+    "question": "I et tallsystem med base 6 og symbolene 0, 1, 2, A, B, C der A er 3, hvilken verdi har `AB₆`?",
+    "options": [
+      "22, fordi 3·6 pluss 4 er 22",
+      "34, fordi symbolene A og B leses som tallene 3 og 4 etter hverandre",
+      "18, fordi 3·6 pluss 0 er 18",
+      "11, fordi A og B er de tredje og fjerde symbolene i rekka"
+    ],
+    "explanation": "Vektene i base 6 er 1 og 6, og B har verdien 4, så 18 + 4 = 22. Alternativ 2 setter symbolene sammen som tekst uten å vekte dem. Alternativ 3 gir B verdien 0. Alternativ 4 legger sammen posisjonsnumrene i stedet for verdiene."
+  },
+  {
+    "question": "Hvilket av disse tallene er skrevet feil?",
+    "options": [
+      "`189₈`, fordi 8 og 9 ikke er lovlige oktale sifre",
+      "`0xFE`, fordi F og E ikke kan stå ved siden av hverandre",
+      "`1021₂`, fordi binære tall må ha et partall antall sifre",
+      "`45₁₀`, fordi 45 også kan skrives i andre baser"
+    ],
+    "explanation": "I base 8 er 7 det største lovlige sifferet, så både 8-tallet og 9-tallet er ugyldige. `0xFE` er et helt vanlig byte-tall, 254. `1021₂` er riktignok ugyldig, men fordi 2-tallet ikke finnes i base 2 — ikke fordi antallet sifre er odde. `45₁₀` er gyldig."
+  },
+  {
+    "question": "Hva er `11001₂` skrevet heksadesimalt?",
+    "options": [
+      "`0x19`",
+      "`0x31`",
+      "`0xC1`",
+      "`0x25`"
+    ],
+    "explanation": "Firegrupperingen gir `0001 1001` = 1 og 9, altså `0x19` = 25. `0x31` er 49 og oppstår hvis du grupperer fra venstre. `0xC1` er 193 og oppstår hvis du deler bitene `1100` og `1`. `0x25` er 37."
+  },
+  {
+    "question": "Hvorfor skrives byte-verdier vanligvis heksadesimalt og ikke oktalt?",
+    "options": [
+      "Fordi åtte bit går nøyaktig opp i to heksadesimale sifre, men ikke i et helt antall oktale",
+      "Fordi oktale tall ikke kan representere verdier over 255",
+      "Fordi heksadesimale tall alltid er kortere enn oktale for samme verdi",
+      "Fordi oktalsystemet ikke brukes i datateknologi i det hele tatt"
+    ],
+    "explanation": "Åtte delt på fire er to, mens åtte delt på tre gir to grupper og to bit til overs. Alternativ 2 er feil: `377₈` er 255. Alternativ 3 er som regel sant, men det er ikke grunnen — grunnen er at det går opp uten rest. Alternativ 4 er feil: oktal brukes fortsatt, blant annet i rettighetskoder på Unix-systemer."
+  },
+  {
+    "question": "Hva er `10011101₂` i titallssystemet?",
+    "options": [
+      "157",
+      "141",
+      "163",
+      "173"
+    ],
+    "explanation": "Ettallene står på vektene 128, 16, 8, 4 og 1, som gir 157. 141 mangler bidraget fra 16-vekten, 163 kommer av å telle 32 i stedet for 16 og 8, og 173 kommer av å ta med 32-vekten i tillegg."
+  },
+  {
+    "question": "En kandidat konverterer `1011011₂` til oktal ved å gruppere fra venstre og får `551₈`. Hva er galt?",
+    "options": [
+      "Gruppene må telles fra høyre; riktig svar er `133₈`",
+      "Gruppene må ha fire bit, ikke tre; riktig svar er `5B₈`",
+      "Tallet må først regnes om til titallssystemet; riktig svar er `91₈`",
+      "Ingenting er galt; `551₈` er riktig svar"
+    ],
+    "explanation": "Fra høyre blir grupperingen `001 011 011` = 1, 3, 3, altså 91 i titallssystemet — mens `551₈` er 361. Alternativ 2 blander inn heksadesimal, og B er ikke et oktalt siffer. Alternativ 3 forveksler titallsverdien 91 med et oktalt tall. Alternativ 4 overser at antall bit ikke er delelig med tre."
+  },
+  {
+    "question": "Hva menes med ledende nuller?",
+    "options": [
+      "Nuller helt til venstre som ikke endrer verdien, men gjør grupperingen entydig",
+      "Nuller helt til høyre som gjør tallet dobbelt så stort per null",
+      "Nuller mellom to ettall, som markerer skillet mellom to grupper",
+      "Nuller som må fjernes før et tall kan konverteres til en annen base"
+    ],
+    "explanation": "`0011₂` og `11₂` har samme verdi, men den første formen fyller opp gruppa. Alternativ 2 beskriver etterfølgende nuller, som faktisk dobler verdien. Alternativ 3 gir nullene en rolle de ikke har. Alternativ 4 er motsatt av regelen — du legger gjerne til ledende nuller før du grupperer."
+  },
+  {
+    "question": "Hvilken påstand om plassverdiregelen er riktig?",
+    "options": [
+      "Den gjelder likt i alle baser: siffer ganget med basen opphøyd i posisjonen",
+      "Den gjelder bare i titallssystemet, mens andre baser bruker gruppering",
+      "Den gjelder bare når basen er en potens av to",
+      "Den gjelder bare for tall uten fortegn, og må endres for negative tall"
+    ],
+    "explanation": "Regelen er den samme i alle plassverdisystemer — det er bare basen som byttes ut. Alternativ 2 forveksler en snarvei med selve regelen. Alternativ 3 stemmer for gruppering, ikke for plassverdi. Alternativ 4 er feil: også to-er komplement bygger på plassverdi, bare med negativ vekt på det øverste bitet."
+  },
+  {
+    "question": "Hva er `0xB4` skrevet binært?",
+    "options": [
+      "`10110100₂`",
+      "`10110010₂`",
+      "`11010100₂`",
+      "`10111000₂`"
+    ],
+    "explanation": "B er 11, altså `1011`, og 4 er `0100`. Kontroll: 128 + 32 + 16 + 4 = 180, og 11·16 + 4 = 180. De tre andre alternativene er 178, 212 og 184 — hver av dem oppstår ved å bytte om ett bit i en av nibblene."
+  },
+  {
+    "question": "Du får fire tall i ulike baser og skal rangere dem etter størrelse. Hva gjør du først?",
+    "options": [
+      "Regner alle om til samme base, vanligvis titallssystemet",
+      "Sammenligner antall sifre, siden flere sifre betyr høyere verdi",
+      "Sammenligner det første sifferet i hvert tall",
+      "Sorterer dem etter basen, siden en høyere base gir en høyere verdi"
+    ],
+    "explanation": "Verdier kan bare sammenlignes innenfor samme base. Alternativ 2 er feil: `100₂` har flest sifre, men er bare 4. Alternativ 3 har samme problem — `9₁₀` slår `1000₂`. Alternativ 4 forveksler basen med verdien; `10₁₆` er 16, men `1000₂` er 8."
+  }
+]

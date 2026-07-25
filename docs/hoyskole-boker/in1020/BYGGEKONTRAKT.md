@@ -546,17 +546,62 @@ Moores lov, **OSI-7-lagsmodellen**, detaljert ARP-tabellteori og private
 IP-adresseklasser.
 
 Regel: hvert treff på `Karnaugh`, `K-map`, `multiplekser`, `dekoder`,
-`flip-flop`, `Moores lov`, `OSI` skal stå i **samme setning** som «ikke
-pensum», «utenfor pensum» eller «nedtonet». Kontroll:
+`flip-flop`, `Moores lov`, `OSI-` skal stå i **samme setning** som «ikke
+pensum», «utenfor pensum» eller «nedtonet».
+
+> **⚠️ ALDRI `grep -o` med `.{0,N}`-kontekst mot kapittelfilene.** JSON-filene
+> er kompakt tekst på få, svært lange linjer. `.{0,140}(a|b|c).{0,140}` med `-o`
+> tvinger regexmotoren til å prøve hver startposisjon i hver lengde; arbeidet
+> blir kvadratisk og bufferne eksploderer. Et slikt kall brukte **17 GB RAM** på
+> byggemaskinen 25. juli 2026 og måtte drepes. Maskinen har 8 GB fysisk minne.
+> `grep -c` og `grep -l` UTEN `-o` og uten `.{0,N}` er trygt — det er
+> kombinasjonen som er farlig. Trenger du kontekst, bruk python-sjekkeren under.
+
+Kontroll (rask, minnegjerrig, og viser hvilket felt treffet står i). Konteksten
+er **nærmeste omsluttende objekt** — en blokk, en oppgave eller et quiz-element
+— slik at en avgrensningsformulering i `explanation` dekker et treff i
+`options`:
 
 ```bash
-grep -o -i ".\{0,120\}\(karnaugh\|k-map\|multiplekser\|dekoder\|flip-flop\|moores lov\|OSI\).\{0,120\}" \
-  src/lib/data/chapters/in1020-*.json \
-  | grep -v -i "ikke pensum\|utenfor pensum\|nedtonet\|ikke del av pensum"
+python3 - <<'PY'
+import json, glob, re, sys
+mistenkt = re.compile(r"karnaugh|k-map|multiplekser|dekoder|flip-flop|moores lov|OSI-|7-lagsmodell", re.I)
+unntak   = re.compile(r"ikke pensum|utenfor pensum|nedtonet|ikke del av pensum", re.I)
+forbudt  = re.compile(r"Prioritet: perfekt|en A-besvarelse ville|ville ha drøftet"
+                      r"|sensorveiledningene|A-besvarelse|C-besvarelse|Output:|\(verifiser\)", re.I)
+
+def flat(n):
+    if isinstance(n, str): yield n
+    elif isinstance(n, dict):
+        for v in n.values(): yield from flat(v)
+    elif isinstance(n, list):
+        for v in n: yield from flat(v)
+
+def objekter(n, sti=""):
+    if isinstance(n, dict):
+        yield sti, " ".join(flat(n))
+        for k, v in n.items():
+            if isinstance(v, (dict, list)): yield from objekter(v, f"{sti}.{k}")
+    elif isinstance(n, list):
+        for i, v in enumerate(n): yield from objekter(v, f"{sti}[{i}]")
+
+avvik = 0
+for f in sorted(glob.glob("src/lib/data/chapters/in1020-*.json")
+                + glob.glob("src/lib/data/quiz-staging/in1020-*.json")):
+    for sti, t in objekter(json.load(open(f, encoding="utf-8"))):
+        for m in forbudt.finditer(t):
+            print("FORBUDT", f, sti, m.group(0)); avvik += 1
+        if mistenkt.search(t) and not unntak.search(t):
+            print("PENSUM", f, sti, repr(t[:160])); avvik += 1
+print("avvik:", avvik)
+sys.exit(1 if avvik else 0)
+PY
 ```
 
-→ skal gi 0 linjer. Nevn dem kun i kap. 0.1 (avgrensningen), kap. 2.2
-(K-map/multiplekser/dekoder) og kap. 4.1 (OSI).
+→ skal gi `avvik: 0`. Sjekken dekker BÅDE pensum-avgrensningen og
+forbudt-term-listen under, og den kjøres på kapittelfiler og quiz-staging.
+Nevn de avgrensede emnene kun i kap. 0.1 (avgrensningen), kap. 2.2
+(K-map/multiplekser/dekoder) og kap. 4.1 (OSI-modellen).
 
 ### §N2 Notasjonsstandard (emnets konvensjoner er fasit)
 
@@ -645,8 +690,13 @@ python3 scripts/hoyskolebok/sjekk-bok.py in1020 \
 - **meta-fasit** — «en A-besvarelse ville», «ville ha drøftet».
 - **`Output:`** — utskrift merkes «**Utskrift:**».
 
-Utover regexen: pensum-avgrensnings-grepen i §N2 skal gi 0 linjer, og den
+Utover regexen: pensum-avgrensnings-sjekken i §N2 skal gi `avvik: 0`, og den
 literale markøren `(verifiser)` skal ikke forekomme (porten feiler på den).
+
+**Verktøyregel for ALLE tekstsøk i denne boka:** bruk `grep -c` / `grep -l`
+(uten `-o`, uten `.{0,N}`) for ja/nei-svar, og python-sjekkeren i §N2 når du
+trenger kontekst rundt treffet. `grep -o` med variabel kontekst mot
+JSON-filene er forbudt — se advarselen i §N2.
 
 ---
 
