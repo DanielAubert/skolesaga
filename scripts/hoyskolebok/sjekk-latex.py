@@ -145,6 +145,13 @@ def main():
     uttrykk = []
     for navn, _, s in alle:
         for felt in enkeltfelt(navn, s):
+            # Rendreren parkerer escapet dollar (\$) FØR matten deles opp, så et
+            # \$ kan ikke avgrense et uttrykk. Porten må gjøre det samme, ellers
+            # rapporterer den «$850 til \$260» som KaTeX-feil i ren prosa.
+            felt = felt.replace("\\$", "")
+            # Kode er ikke matte: rendreren tar ```-blokker og `inline-kode` ut først.
+            felt = re.sub(r"```[\s\S]*?```", "", felt)
+            felt = re.sub(r"`[^`\n]*`", "", felt)
             for m in re.finditer(r"\$\$([\s\S]+?)\$\$", felt):
                 uttrykk.append((navn, m.group(1), True))
             for m in re.finditer(r"\$([^$\n]+?)\$", re.sub(r"\$\$[\s\S]+?\$\$", "", felt)):
