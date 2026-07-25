@@ -52,9 +52,42 @@ ls src/lib/data/quiz-staging/in1020-*.quiz.json | wc -l   # skal ende på 32
   `sjekk-latex.py` LATEX-PORT OK, `sjekk-skjelett.py` KVALITETSPORT OK,
   term-sjekkeren `avvik: 0`.
 
-- **Steg 1: gjenstår B2–B5** (Del 2, 3, 4 og 5 — 27 filer, 523 quiz,
-  403 flashcards). Skriv kapitler i rekkefølgen under; commit hvert ferdig
+- **Steg 1: oppdrag B2 og B3 FERDIG** (25. juli 2026) — hele Del 2 og Del 3 er
+  på disk og committet, 16 filer:
+
+  | Kapittel | Quiz | Flashcards | Oppgaver | Min |
+  |---|---|---|---|---|
+  | 2.1 Logiske porter | 22 / 22 | 33 / 24 | 8 | 45 |
+  | 2.2 Kretsanalyse og boolsk algebra | 22 / 22 | 23 / 20 | 9 | 50 |
+  | 2.3 DRILL port-ID og kretsanalyse | 26 / 26 | 11 / 10 | 14 | 80 |
+  | 2.4 Arkitektur (von Neumann, ALU, buss) | 24 / 24 | 43 / 28 | 9 | 55 |
+  | 2.5 Minnehierarki og cache | 20 / 20 | 24 / 20 | 9 | 50 |
+  | 2.6 Abstraksjonsnivåer | 16 / 16 | 20 / 16 | 7 | 40 |
+  | 2.7 DRILL arkitektur, cache, abstraksjon | 24 / 24 | 10 / 10 | 14 | 80 |
+  | 2.P Prøver til del 2 | — | — | 16 | 115 |
+  | 3.1 Sikkerhetsmål og -tiltak | 22 / 22 | 35 / 26 | 8 | 45 |
+  | 3.2 Trusselmodellering og risiko | 20 / 20 | 26 / 20 | 8 | 45 |
+  | 3.3 Symmetrisk og asymmetrisk krypto | 22 / 22 | 27 / 22 | 8 | 50 |
+  | 3.4 Digital signatur, hash og PKI | 22 / 22 | 30 / 24 | 8 | 50 |
+  | 3.5 DRILL mål/tiltak og nøkkelretning | 26 / 26 | 10 / 10 | 14 | 80 |
+  | 3.6 Autentisering og passord | 18 / 18 | 23 / 20 | 8 | 45 |
+  | 3.7 Personvern, GDPR og skadevare | 20 / 20 | 32 / 24 | 8 | 50 |
+  | 3.P Prøver til del 3 | — | — | 16 | 115 |
+  | **Sum B2+B3** | **304 / 304** | **347 / 274** | **164** | **995** |
+
+  Alle porter grønne: `status-bok.py` 22/32 kapitler + tre prøvekapitler,
+  `sjekk-latex.py` LATEX-PORT OK, `sjekk-skjelett.py` KVALITETSPORT OK,
+  term- og pensum-sjekkeren `avvik: 0`, lengde-tell under 30 % i alle
+  quizfiler.
+
+- **Steg 1: gjenstår B4–B5** (Del 4 og 5 — 11 filer, 219 quiz,
+  130 flashcards). Skriv kapitler i rekkefølgen under; commit hvert ferdig
   kapittel for seg.
+
+  **NB for B4:** kap. 0.1, 1.1 og 1.2 har allerede markdown-lenker til
+  `in1020-4-1`, `in1020-4-2`, `in1020-4-3` og `in1020-4-4`. De er døde inntil
+  Del 4 er skrevet — `sjekk-bok.py` vil flagge dem før det. B2 og B3 har ingen
+  døde lenker.
 
 ### Verktøy bygget underveis (i scratchpad, ikke i repoet)
 
