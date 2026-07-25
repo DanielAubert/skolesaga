@@ -1,0 +1,478 @@
+{
+ "id": "in1000-4-1",
+ "courseId": "in1000",
+ "chapterNumber": "4.1",
+ "title": "DRILL — Kodesporing: «hva skrives ut?»",
+ "description": "Systematisk drill i å kjøre kode mekanisk i hodet og angi utskriften eksakt — Oppgave 1, den billigste og mest forutsigbare poengkilden på settet.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "kunne føre en sporingstavle gjennom en løkke som endrer flere variabler",
+  "kunne telle nøyaktig hvor mange runder en løkke kjører",
+  "kunne skille tekst fra tall og heltall fra desimaltall i en utskrift",
+  "kunne skrive utskriften eksakt slik terminalen viser den, uten pynt"
+ ],
+ "content": [
+  {
+   "id": "in1000-4-1-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette kapitlet driller **Oppgave 1**, som står i 6 av 6 moderne eksamenssett\n(100 %) og er verdt rundt 8 poeng. Sjangeren heter **A — kodeforståelse**, altså\n«hva skriver dette programmet ut?», og består av fem til sju korte deloppgaver.\n\nOppgave 1 er den **billigste poengkilden på hele settet**. Den krever ingen\nkreativitet, ingen struktur og ingen god idé — bare at du kan kjøre koden\nmekanisk i hodet og skrive resultatet nøyaktig. Til gjengjeld er den nådeløs:\ni de nyere settene rettes den **automatisk**, så `5` og `5.0` er ikke det samme\nsvaret, og et manglende mellomrom er null poeng.\n\n**Dette må sitte** — bokas høyeste av tre nivåer. Regn med å bruke rundt 20 av de\n240 minuttene her, og regn med å få alle poengene.\n\n**Tidsbudsjett:** kapitlet er på 90 minutter. Sporingsmetoden og det gjennomgåtte\neksempelet tar rundt 25 minutter; de seksten oppgavene er fire økter à ca. 16\nminutter. Ta pause der markørene står."
+  },
+  {
+   "id": "in1000-4-1-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nHele del 1 til 3: [kap. 1.1 — Variabler og datatyper](/bok/in1000/in1000-1-1),\n[kap. 1.2 — Betingelser](/bok/in1000/in1000-1-2),\n[kap. 1.3 — Løkker](/bok/in1000/in1000-1-3),\n[kap. 2.1 — Funksjoner](/bok/in1000/in1000-2-1),\n[kap. 3.1 — Lister](/bok/in1000/in1000-3-1),\n[kap. 3.2 — Ordbøker](/bok/in1000/in1000-3-2) og\n[kap. 3.3 — Strenger](/bok/in1000/in1000-3-3).\n\nDette kapitlet lærer deg ingen ny konstruksjon. Det lærer deg **å lese** dem du\nallerede kan, uten å ta feil.\n\nTre ting du bruker på hver eneste oppgave, kort oppfrisket:\n\n```python\nprint(3, \"a\")\nprint(9 / 3, 9 // 3)\nprint([1, 2], {\"a\": 1})\n```\n\n**Utskrift:**\n```\n3 a\n3.0 3\n[1, 2] {'a': 1}\n```\n\nMerk **ett** mellomrom mellom komma-argumenter, at `/` alltid gir desimaltall, og\nat lister og ordbøker skrives med sine parenteser og med enkle anførselstegn\nrundt tekster. Disse tre detaljene avgjør flere poeng i Oppgave 1 enn all\nalgoritmisk forståelse til sammen."
+  },
+  {
+   "id": "in1000-4-1-3",
+   "type": "text",
+   "content": "## Sporingsmetoden — fem steg (~10 min)\n\nÅ spore kode er et håndverk med en fast oppskrift. Den er kjedelig, og det er\nhele poenget: du skal ikke gjette hva programmet gjør, du skal regne det ut."
+  },
+  {
+   "id": "in1000-4-1-4",
+   "type": "theorem",
+   "title": "Bokas sporingsmetode",
+   "content": "**Steg 1 — Før en tavle.** Tegn en tabell med én kolonne per variabel som\nendrer seg, og én kolonne til høyre som heter «Utskrift så langt». Én rad per\nlinje eller per runde i løkka. Dette er ikke pynt: uten tavle husker du feil.\n\n**Steg 2 — Tell rundene i løkka først.** `range(3)` gir 0, 1, 2 — tre runder.\n`range(1, 4)` gir 1, 2, 3 — også tre. `range(len(liste))` gir nøyaktig de\nlovlige indeksene. Skriv opp verdiene før du begynner å regne, så slipper du\nå telle mens du sporer.\n\n**Steg 3 — Les hver `print` bokstavelig.** Komma gir **ett** mellomrom. En liste\nskrives med hakeparenteser, en ordbok med krøllparenteser, og tekster **inne i**\ndem får enkle anførselstegn. En tekst skrevet ut alene får ingen.\n\n**Steg 4 — Hold styr på typen.** Er verdien et heltall eller et desimaltall? En\ntekst eller et tall? `/` gir alltid `float`; `//` og `%` gir heltall når begge\nsidene er heltall; `+` på to tekster skjøter dem.\n\n**Steg 5 — Skriv svaret eksakt, uten pynt.** Ikke `5.0` for heltallet `5`, ikke\n`'tekst'` med anførselstegn i svarfeltet, ingen ekstra mellomrom. I et\nauto-rettet felt er formen en del av svaret."
+  },
+  {
+   "id": "in1000-4-1-5",
+   "type": "text",
+   "content": "### Fellekatalogen — de sju fellene som går igjen\n\nOppgave 1 er ikke tilfeldig satt sammen. De samme sju fellene roterer, og hver\ndeloppgave tester som regel nøyaktig én av dem.\n\n| Nr. | Fellen | Kjennetegn i koden |\n|---|---|---|\n| 1 | **Tekst forvekslet med tall** (#3) | anførselstegn rundt sifre, eller `+` mellom to verdier som «ser ut som tall» |\n| 2 | **Glemt konvertering** (#4) | `int(...)` står ett sted og ikke et annet |\n| 3 | **Muteringsrekkefølge** | to variabler oppdateres i samme runde, og den andre bruker den nye verdien |\n| 4 | **Nøstet akkumulering** | en løkke inne i en løkke, ofte med en `if` og en teller |\n| 5 | **`while` med flere variabler** | betingelsen avhenger av noe som endres midt i kroppen |\n| 6 | **Indeks og av-med-én** (#5, #6) | `liste[i]`, `liste[-1]`, `range(1, len(...))` |\n| 7 | **Ordbok som endrer seg selv** | `d[k] = d[k] + 1` inne i en løkke |\n\nDe seksten oppgavene i dette kapitlet roterer alle sju, med fire økter etter\ntema. Kjenner du igjen fellen på synet, vet du også hvor du skal være ekstra\nnøye."
+  },
+  {
+   "id": "in1000-4-1-6",
+   "type": "example",
+   "title": "Gjennomsporet eksamenscase — en full Oppgave 1, med sensors blikk",
+   "problem": "**Oppgave 1 (8 poeng).** Fire deloppgaver. Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n**a) (2 p)**\n\n```text\na = \"12\"\nb = \"3\"\nprint(a + b, int(a) + int(b))\n```\n\n**b) (2 p)**\n\n```text\nx = 3\ny = 2\nfor i in range(2):\n    x = x + y\n    y = x - y\nprint(x, y)\n```\n\n**c) (2 p)**\n\n```text\ntall = [4, 8, 15]\nprint(tall[-1] - tall[0], len(tall))\n```\n\n**d) (2 p)**\n\n```text\nd = {}\nfor bokstav in \"banan\":\n    if bokstav not in d:\n        d[bokstav] = 0\n    d[bokstav] = d[bokstav] + 1\nprint(d)\n```",
+   "solution": "**Deloppgave a — felle 1 og 2.** To verdier som ser ut som tall, men er tekster.\n\n| Uttrykk | Type på sidene | Resultat |\n|---|---|---|\n| `a + b` | tekst + tekst | `\"123\"` — skjøtet |\n| `int(a) + int(b)` | tall + tall | `15` — lagt sammen |\n\n```python\na = \"12\"\nb = \"3\"\nprint(a + b, int(a) + int(b))\n```\n\n**Utskrift:**\n```\n123 15\n```\n\n**Margnotat (2 p):** ett poeng per riktig verdi. Skriver du `15 15`, har du\noversett anførselstegnene; skriver du `123 123`, har du oversett `int(...)`.\nFellen er #3 — heltall forvekslet med tekst.\n\n— naturlig pausepunkt —\n\n**Deloppgave b — felle 3.** To variabler oppdateres i samme runde, og den andre\nlinja bruker den **nye** verdien av `x`.\n\n| Runde | `x` etter linje 1 | `y` etter linje 2 |\n|---|---|---|\n| start | 3 | 2 |\n| `i = 0` | `3 + 2` = 5 | `5 - 2` = 3 |\n| `i = 1` | `5 + 3` = 8 | `8 - 3` = 5 |\n\n```python\nx = 3\ny = 2\nfor i in range(2):\n    x = x + y\n    y = x - y\nprint(x, y)\n```\n\n**Utskrift:**\n```\n8 5\n```\n\n**Margnotat (2 p):** her er tavla hele forskjellen. Bruker du den **gamle**\nverdien av `x` på linje to, får du `8 3` — riktig metode, feil rekkefølge, og på\net auto-rettet felt null poeng. Fyll ut én rad om gangen, ovenfra og ned.\n\n**Deloppgave c — felle 6.** Negativ indeks og lengde.\n\n| Uttrykk | Verdi |\n|---|---|\n| `tall[-1]` | 15 — siste element |\n| `tall[0]` | 4 — første element |\n| `len(tall)` | 3 — antall elementer |\n\n```python\ntall = [4, 8, 15]\nprint(tall[-1] - tall[0], len(tall))\n```\n\n**Utskrift:**\n```\n11 3\n```\n\n**Margnotat (2 p):** merk at ingen av de to verdiene har hakeparenteser. Det er\nenkeltverdier hentet ut av lista, ikke lista selv. Fellen er #5 — å lese `-1`\nsom nest siste, eller lengden som største indeks.\n\n**Deloppgave d — felle 7.** En ordbok som endrer seg selv.\n\n| Bokstav | Ny nøkkel? | Ordboka etter runden |\n|---|---|---|\n| `b` | ja | `{'b': 1}` |\n| `a` | ja | `{'b': 1, 'a': 1}` |\n| `n` | ja | `{'b': 1, 'a': 1, 'n': 1}` |\n| `a` | nei | `{'b': 1, 'a': 2, 'n': 1}` |\n| `n` | nei | `{'b': 1, 'a': 2, 'n': 2}` |\n\n```python\nd = {}\nfor bokstav in \"banan\":\n    if bokstav not in d:\n        d[bokstav] = 0\n    d[bokstav] = d[bokstav] + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'b': 1, 'a': 2, 'n': 2}\n```\n\n**Margnotat (2 p):** to ting må stemme samtidig — tallene **og** rekkefølgen.\nNøklene står i den rekkefølgen de ble **opprettet** i, ikke alfabetisk og ikke\netter størrelse. Og tekstnøklene skrives med enkle anførselstegn.\n\n**Om tidsbruk:** hele denne oppgaven er 8 poeng av 100, og bør ta rundt 20\nminutter med tavle. Det er de billigste poengene på settet — men bare hvis du\nskriver formen riktig."
+  },
+  {
+   "id": "in1000-4-1-7",
+   "type": "text",
+   "content": "## Drilløkt 1 — Typer, uttrykk og forgrening (~16 min)\n\nFire oppgaver som tester felle 1, 2 og utskriftsformen. Før tavle på alle fire,\nselv om de ser enkle ut — det er nettopp de enkle som taper poeng på formen."
+  },
+  {
+   "id": "in1000-4-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\na = \"7\"\nb = \"3\"\nprint(a + b)\nprint(int(a) + int(b))\nprint(int(a) // int(b), int(a) % int(b))\n```",
+    "solution": "Tre linjer, tre ulike betydninger av de samme to verdiene.\n\n| Linje | Typer | Resultat |\n|---|---|---|\n| 1 | tekst + tekst | `\"73\"` — skjøtet |\n| 2 | tall + tall | `10` |\n| 3 | heltallsdivisjon og rest | `2` og `1` |\n\n**Utskrift:**\n```\n73\n10\n2 1\n```\n\nFellen er #3 — anførselstegnene avgjør hva plusstegnet betyr. Merk også at siste\nlinje har **ett** mellomrom mellom de to verdiene, fordi `print` skiller\nkomma-argumenter slik.",
+    "hints": [
+     "Se etter anførselstegn før du regner på noe.",
+     "Siste linje har to argumenter — hvordan skiller `print` dem?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nprint(9 / 3)\nprint(9 // 3, 9 % 3)\nprint(2 ** 3, 7 / 2)\n```",
+    "solution": "Fire divisjoner og en potens, og de gir ikke samme type.\n\n| Uttrykk | Verdi | Type |\n|---|---|---|\n| `9 / 3` | `3.0` | desimaltall |\n| `9 // 3` | `3` | heltall |\n| `9 % 3` | `0` | heltall |\n| `2 ** 3` | `8` | heltall |\n| `7 / 2` | `3.5` | desimaltall |\n\n**Utskrift:**\n```\n3.0\n3 0\n8 3.5\n```\n\nFellen er typen. `/` gir **alltid** desimaltall, også når regnestykket går opp —\nderfor `3.0` og ikke `3`. I et auto-rettet svarfelt er de to ulike svar.",
+    "hints": [
+     "Hvilken av de tre divisjonene gir alltid desimaltall?",
+     "Skriv opp typen ved siden av hver verdi før du svarer."
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\npoeng = 60\nif poeng > 60:\n    print(\"bestatt\")\nelif poeng > 40:\n    print(\"nesten\")\nelse:\n    print(\"ikke bestatt\")\nprint(\"ferdig\")\n```",
+    "solution": "En kjede der bare **én** gren kjøres, og en linje som kjøres uansett.\n\n| Test | Verdi | Utfall |\n|---|---|---|\n| `60 > 60` | usann | gå videre |\n| `60 > 40` | sann | denne grenen kjører |\n| `else` | — | prøves aldri |\n\n**Utskrift:**\n```\nnesten\nferdig\n```\n\nFellen er kantverdien: `>` krever **strengt** større, og 60 er ikke større enn\n60. Med `>=` ville svaret vært `bestatt`.\n\nMerk siste linje: `print(\"ferdig\")` står uten innrykk og er derfor utenfor hele\nkjeden. Den kjøres uansett hvilken gren som slo til.",
+    "hints": [
+     "Test kantverdien nøye: er `60 > 60` sann?",
+     "Hvilke linjer står utenfor `if`-kjeden?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nprint(\"a\", \"b\")\nprint(\"a\" + \"b\")\nprint(1, 2.0, True)\nprint(\"2\" * 3)\n```",
+    "solution": "Fire linjer om utskriftsform, og ingen av dem handler om algoritmer.\n\n| Linje | Hva som skjer | Utskrift |\n|---|---|---|\n| 1 | to argumenter, skilt av komma | `a b` — ett mellomrom |\n| 2 | ett argument, tekstene skjøtet | `ab` — ingen mellomrom |\n| 3 | tre argumenter av ulik type | `1 2.0 True` |\n| 4 | tekst ganget med tall | `222` |\n\n**Utskrift:**\n```\na b\nab\n1 2.0 True\n222\n```\n\nTo feller i én oppgave. Den ene er skillet mellom **komma** (gir mellomrom) og\n**pluss** (gir ingenting). Den andre er at `2.0` beholder desimalen og `True`\nskrives med stor forbokstav — begge er en del av det eksakte svaret.\n\nSiste linje er felle #3 igjen: en tekst ganget med et tall **gjentar** teksten.\nHadde `\"2\"` vært tallet 2, ville svaret vært 6.",
+    "hints": [
+     "Hva er forskjellen på komma og pluss inne i en `print`?",
+     "Se etter anførselstegn på siste linje."
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-8",
+   "type": "tip",
+   "title": "Signal: hva de fire første oppgavene testet",
+   "content": "| Oppgave | Felle | Det som avgjør |\n|---|---|---|\n| 1 | tekst mot tall (#3) | anførselstegnene |\n| 2 | typen på resultatet | `/` gir alltid desimaltall |\n| 3 | forgrening og kantverdi | `>` mot `>=`, og innrykket |\n| 4 | utskriftsform | komma gir mellomrom, pluss gir ikke |\n\nIngen av dem krevde en tavle med mange rader — men alle fire krevde at du leste\n**formen** like nøye som verdien. Det er halve Oppgave 1.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-4-1-9",
+   "type": "text",
+   "content": "## Drilløkt 2 — Løkker og oppdateringsrekkefølge (~18 min)\n\nHer kommer fellene som faktisk krever tavle. Fyll ut én rad per runde, ovenfra og\nned, og ikke hopp over en linje fordi du «ser» hva den gjør."
+  },
+  {
+   "id": "in1000-4-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\na = 2\nb = 1\nfor i in range(3):\n    a = 2 * a + b\n    b = a - b\nprint(a, b)\n```",
+    "solution": "Begge variablene oppdateres i samme runde, og linje to bruker den **nye**\nverdien av `a`.\n\n| Runde | `a` etter linje 1 | `b` etter linje 2 |\n|---|---|---|\n| start | 2 | 1 |\n| `i = 0` | `2*2 + 1` = 5 | `5 - 1` = 4 |\n| `i = 1` | `2*5 + 4` = 14 | `14 - 4` = 10 |\n| `i = 2` | `2*14 + 10` = 38 | `38 - 10` = 28 |\n\n**Utskrift:**\n```\n38 28\n```\n\nFellen er muteringsrekkefølgen. Bruker du den gamle `a` på linje to, får du et\nhelt annet svar — og det er nettopp den forvekslingen oppgaven tester.\n\n**Regelen som holder:** en linje ser alltid verdiene slik de er **akkurat da**.\nFyll ut tavla i den rekkefølgen linjene står, aldri parallelt.",
+    "hints": [
+     "Fyll ut én rad per runde, og oppdater `a` før du regner `b`.",
+     "Hvilken verdi av `a` står i variabelen når linje to kjøres?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\ntotal = 0\nfor i in range(4):\n    for j in range(i):\n        if j % 2 == 0:\n            total = total + 1\nprint(total)\n```",
+    "solution": "Den indre løkka går over `range(i)`, så antall runder vokser. Tell dem først.\n\n| `i` | `j`-verdier | Partall blant dem | `total` etter |\n|---|---|---|---|\n| 0 | ingen | 0 | 0 |\n| 1 | 0 | 1 | 1 |\n| 2 | 0, 1 | 1 | 2 |\n| 3 | 0, 1, 2 | 2 | 4 |\n\n**Utskrift:**\n```\n4\n```\n\nTo feller på én gang. Den ene er at `range(0)` gir **null** runder — den ytre\nførste runden gjør ingenting i det hele tatt. Den andre er betingelsen, som bare\nslipper gjennom partall.\n\nMerk at 0 regnes som partall: `0 % 2` er 0. Det er lett å glemme, og det koster\nén av de fire.",
+    "hints": [
+     "Skriv opp hvilke `j`-verdier hver runde i den ytre løkka gir.",
+     "Er 0 et partall etter denne testen?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nn = 20\ns = 0\nrunder = 0\nwhile n > 1:\n    s = s + n\n    n = n // 2\n    runder = runder + 1\nprint(s, n, runder)\n```",
+    "solution": "Tre variabler endres per runde, og betingelsen ser bare på `n`.\n\n| Runde | `n` ved start | `s` etter | `n` etter | `runder` etter |\n|---|---|---|---|---|\n| 1 | 20 | 20 | 10 | 1 |\n| 2 | 10 | 30 | 5 | 2 |\n| 3 | 5 | 35 | 2 | 3 |\n| 4 | 2 | 37 | 1 | 4 |\n| — | 1 | betingelsen svikter | 1 | 4 |\n\n**Utskrift:**\n```\n37 1 4\n```\n\nFellen er at `s` legger til den **gamle** verdien av `n`, før halveringen. Snudde\ndu de to linjene, ville summen blitt en helt annen.\n\nOg merk sluttverdien: `n` er 1, ikke 0. Løkka stopper i det betingelsen blir\nusann, og da har `n` allerede fått sin siste verdi.",
+    "hints": [
+     "Én rad per runde, og les linjene i den rekkefølgen de står.",
+     "Hvilken verdi har `n` når løkka stopper?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nantall = 0\nsum_verdi = 0\nfor i in range(10, 0, -3):\n    antall = antall + 1\n    sum_verdi = sum_verdi + i\nprint(i, antall, sum_verdi)\n```",
+    "solution": "Negativt steg. Skriv opp verdiene før du regner.\n\n`range(10, 0, -3)` gir 10, 7, 4, 1 — stoppverdien 0 er aldri med, og neste steg\netter 1 ville vært -2, som er under stopp.\n\n| Runde | `i` | `antall` | `sum_verdi` |\n|---|---|---|---|\n| 1 | 10 | 1 | 10 |\n| 2 | 7 | 2 | 17 |\n| 3 | 4 | 3 | 21 |\n| 4 | 1 | 4 | 22 |\n\n**Utskrift:**\n```\n1 4 22\n```\n\nTo feller. Den ene er å telle rundene feil: fire, ikke tre og ikke fem. Den andre\ner at **løkkevariabelen lever videre etter løkka** — `print(i, ...)` utenfor\nløkka viser den siste verdien den fikk, altså 1.\n\nDet siste er verdt å merke seg. En løkkevariabel forsvinner ikke når løkka er\nferdig, og oppgaven utnytter det.",
+    "hints": [
+     "Skriv opp alle verdiene `range(10, 0, -3)` gir, før du sporer.",
+     "Hvilken verdi har `i` på linja etter løkka?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-10",
+   "type": "tip",
+   "title": "Signal: hva de fire løkkeoppgavene testet",
+   "content": "| Oppgave | Felle | Kontrollen som fanger den |\n|---|---|---|\n| 5 | muteringsrekkefølge | fyll ut tavla linje for linje, aldri parallelt |\n| 6 | nøstet akkumulering | skriv opp hvilke verdier hver indre løkke gir |\n| 7 | `while` med flere variabler | noter sluttverdien til betingelsesvariabelen |\n| 8 | negativt steg, løkkevariabel etter løkka | skriv opp `range`-verdiene først |\n\nAlle fire har det samme botemiddelet: **tell rundene før du regner**. Det tar\nfemten sekunder og fjerner den vanligste kilden til feil svar.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-4-1-11",
+   "type": "text",
+   "content": "## Drilløkt 3 — Lister og indekser (~16 min)\n\nNå kommer felle 6 for fullt. Skriv alltid indeksene over elementene før du\nbegynner — det tar fem sekunder og fjerner halvparten av feilene."
+  },
+  {
+   "id": "in1000-4-1-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nmaalinger = [3, 9, 12, 5]\nprint(maalinger[1], maalinger[-2])\nprint(maalinger[0] + maalinger[3])\nprint(len(maalinger), maalinger)\n```",
+    "solution": "Skriv indeksene over tallene først: 3 står på 0, 9 på 1, 12 på 2 og 5 på 3.\n\n| Uttrykk | Verdi |\n|---|---|\n| `maalinger[1]` | 9 |\n| `maalinger[-2]` | 12 — nest sist |\n| `maalinger[0] + maalinger[3]` | `3 + 5` = 8 |\n| `len(maalinger)` | 4 |\n\n**Utskrift:**\n```\n9 12\n8\n4 [3, 9, 12, 5]\n```\n\nFellen er #5. Å lese `maalinger[1]` som «det første tallet» gir 3 i stedet for 9,\nog `-2` som «det andre bakfra, altså 5» gir feil vei.\n\nMerk siste linje: de to første verdiene står uten hakeparenteser, mens hele lista\nstår med. Samme `print`, to ulike former.",
+    "hints": [
+     "Skriv indeksene 0, 1, 2, 3 over tallene før du svarer.",
+     "Teller `-1` eller `-2` det siste elementet?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\ntall = [2, 5, 8]\nny = []\nfor t in tall:\n    ny.append(t * 2)\ntall[0] = 99\nprint(tall)\nprint(ny)\nprint(tall + ny)\n```",
+    "solution": "Løkka bygger `ny` **ferdig** før lista endres. Rekkefølgen på linjene avgjør\nalt.\n\n| Steg | `tall` | `ny` |\n|---|---|---|\n| etter løkka | `[2, 5, 8]` | `[4, 10, 16]` |\n| etter `tall[0] = 99` | `[99, 5, 8]` | `[4, 10, 16]` |\n\n**Utskrift:**\n```\n[99, 5, 8]\n[4, 10, 16]\n[99, 5, 8, 4, 10, 16]\n```\n\nTo feller. Den ene er at `ny` **ikke** påvirkes av endringen: den inneholder\nferdig utregnede tall, ikke koblinger tilbake. Den andre er siste linje — `+`\nskjøter to lister, så resultatet har seks elementer.\n\nFellen her er #15, aliasing: hadde det stått `ny = tall` i stedet for løkka,\nville begge navnene pekt på samme liste, og begge utskriftene vist `[99, 5, 8]`.",
+    "hints": [
+     "Fyll ut hva `ny` inneholder før du leser linja som endrer `tall`.",
+     "Hvor mange elementer har resultatet av `+` mellom to lister?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nverdier = [6, 2, 9, 4]\nresultat = []\nfor i in range(1, len(verdier)):\n    resultat.append(verdier[i] - verdier[i - 1])\nprint(resultat)\nprint(len(resultat), verdier[-1] - verdier[0])\n```",
+    "solution": "Løkka starter på 1 og sammenligner hvert element med det forrige.\n\n| `i` | `verdier[i]` | `verdier[i - 1]` | Lagt til |\n|---|---|---|---|\n| 1 | 2 | 6 | -4 |\n| 2 | 9 | 2 | 7 |\n| 3 | 4 | 9 | -5 |\n\n**Utskrift:**\n```\n[-4, 7, -5]\n3 -2\n```\n\nFellen er grensene. `range(1, len(verdier))` gir 1, 2, 3 — tre runder, ikke fire.\nHadde løkka startet på 0, ville `verdier[-1]` blitt slått opp, og det er det\n**siste** elementet, ikke noe utenfor lista — en stille feil som ikke krasjer.\n\nMerk også at resultatlista er **én kortere** enn den opprinnelige. Slik er det\nalltid når du regner på naboer, og det er en grei kontroll når du er ferdig.",
+    "hints": [
+     "Skriv opp hvilke verdier `range(1, 4)` gir.",
+     "Hvor mange avstander får du mellom fire tall?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\ntall = [5, 3, 8, 1, 7]\nvalgt = []\ni = 0\nwhile i < len(tall):\n    if tall[i] > tall[0]:\n        valgt.append(tall[i])\n    i = i + 2\nprint(valgt, len(valgt))\nprint(i, tall[-1])\n```",
+    "solution": "Steget er 2, så bare annenhver indeks besøkes. Lengden er 5.\n\n| `i` ved start | `tall[i]` | Større enn `tall[0]` = 5? | `valgt` etter | `i` etter |\n|---|---|---|---|---|\n| 0 | 5 | nei | `[]` | 2 |\n| 2 | 8 | ja | `[8]` | 4 |\n| 4 | 7 | ja | `[8, 7]` | 6 |\n| 6 | — | betingelsen svikter | `[8, 7]` | 6 |\n\n**Utskrift:**\n```\n[8, 7] 2\n6 7\n```\n\nTre feller. Den første er at `tall[0]` sammenlignes med seg selv i første runde,\nog `5 > 5` er usann. Den andre er at indeks 1 og 3 aldri besøkes. Den tredje er\nat `i` er **6** etter løkka — den rakk å øke en siste gang før betingelsen ble\ntestet på nytt.\n\nMerk formen på svaret: `[8, 7] 2` har hakeparenteser rundt lista og ingenting\nrundt tallet.",
+    "hints": [
+     "Skriv opp hvilke indekser `i` faktisk får, før du sporer.",
+     "Hvilken verdi har `i` når `while`-betingelsen svikter?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-12",
+   "type": "tip",
+   "title": "Signal: hva de fire listeoppgavene testet",
+   "content": "| Oppgave | Felle | Kontrollen som fanger den |\n|---|---|---|\n| 9 | positiv og negativ indeks | skriv indeksene over elementene |\n| 10 | ferdig bygget liste påvirkes ikke | fyll ut begge listene før du leser videre |\n| 11 | grenser i naboløkke | tell hvor mange runder `range(1, n)` gir |\n| 12 | steg, kantverdi og sluttverdi | noter verdien til `i` etter løkka |\n\nAlle fire krever samme forarbeid: **skriv opp indeksene og rundene før du\nregner**. Det er sekundene som avgjør Oppgave 1.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-4-1-13",
+   "type": "text",
+   "content": "## Drilløkt 4 — Ordbøker, tekst og funksjoner (~18 min)\n\nDen siste økta er den tyngste. Her kommer felle 7, og de sammensatte oppgavene\nder du må spore et funksjonskall inne i en løkke."
+  },
+  {
+   "id": "in1000-4-1-oppg-13",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o13",
+    "number": "13",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nd = {\"a\": 2}\nd[\"b\"] = 5\nd[\"a\"] = d[\"a\"] + 3\nprint(d)\nprint(len(d), d[\"a\"], \"c\" in d)\n```",
+    "solution": "Tre operasjoner på ordboka, og de gjør tre ulike ting.\n\n| Linje | Hva som skjer | Ordboka etter |\n|---|---|---|\n| start | ett par | `{'a': 2}` |\n| `d[\"b\"] = 5` | ny nøkkel, havner bakerst | `{'a': 2, 'b': 5}` |\n| `d[\"a\"] = d[\"a\"] + 3` | eksisterende verdi overskrives | `{'a': 5, 'b': 5}` |\n\n**Utskrift:**\n```\n{'a': 5, 'b': 5}\n2 5 False\n```\n\nFellen er at de to tilordningene ser like ut, men den ene **oppretter** og den\nandre **overskriver**. Merk at `'a'` beholder plassen sin først, selv om verdien\nble endret — det er opprettelsen som bestemmer rekkefølgen.\n\nOg merk siste linje: `len(d)` er 2, ikke 10, fordi `len` teller **par**.",
+    "hints": [
+     "Skriv ordboka på nytt etter hver av de to tilordningene.",
+     "Hva teller `len` på en ordbok?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-14",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o14",
+    "number": "14",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nd = {}\nfor tall in [4, 1, 4, 2, 4, 1]:\n    if tall not in d:\n        d[tall] = 0\n    d[tall] = d[tall] + 1\nprint(d)\nprint(len(d), d[4], d[1] + d[2])\n```",
+    "solution": "Teller-idiomet med heltall som nøkler. Skriv ordboka på nytt for hver runde.\n\n| Tall | Ny nøkkel? | Ordboka etter |\n|---|---|---|\n| 4 | ja | `{4: 1}` |\n| 1 | ja | `{4: 1, 1: 1}` |\n| 4 | nei | `{4: 2, 1: 1}` |\n| 2 | ja | `{4: 2, 1: 1, 2: 1}` |\n| 4 | nei | `{4: 3, 1: 1, 2: 1}` |\n| 1 | nei | `{4: 3, 1: 2, 2: 1}` |\n\n**Utskrift:**\n```\n{4: 3, 1: 2, 2: 1}\n3 3 3\n```\n\nFellen er siste linje, der tre tall tilfeldigvis er like og betyr helt ulike\nting: `len(d)` er antall **nøkler**, `d[4]` er antall ganger tallet 4 forekom, og\n`d[1] + d[2]` er 2 + 1. Regn dem hver for seg.\n\nMerk også at nøklene skrives **uten** anførselstegn, siden de er heltall. En\nordbok med tekstnøkler ville vist `{'4': 3}`.",
+    "hints": [
+     "Skriv ordboka på nytt etter hver eneste runde — det er seks runder.",
+     "Regn de tre verdiene på siste linje hver for seg."
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-15",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o15",
+    "number": "15",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\nlinje = \"31;Grorud;Fornebu\"\nfelt = linje.split(\";\")\nny = \"\"\nfor tegn in felt[0]:\n    ny = tegn + ny\nprint(felt)\nprint(len(felt), felt[-1])\nprint(ny, int(ny) + 1)\n```",
+    "solution": "Først delingen, så en tekst som bygges bakfra.\n\n| Uttrykk | Verdi |\n|---|---|\n| `felt` | `['31', 'Grorud', 'Fornebu']` |\n| `felt[0]` | `'31'` |\n| løkka | `ny` blir `'3'`, deretter `'13'` |\n\n**Utskrift:**\n```\n['31', 'Grorud', 'Fornebu']\n3 Fornebu\n13 14\n```\n\nTre feller. Den første er formen på lista: hakeparenteser og enkle\nanførselstegn rundt hver tekst — mens `felt[-1]` alene skrives **uten**\nanførselstegn.\n\nDen andre er retningen: `ny = tegn + ny` setter det nye tegnet **foran**, så\nteksten snus. Hadde det stått `ny = ny + tegn`, ville svaret vært `31 32`.\n\nDen tredje er `int(ny) + 1`. Teksten `'13'` blir tallet 13, og pluss én gir 14.\nUten `int(...)` ville programmet stoppet.",
+    "hints": [
+     "Skriv opp hva `ny` inneholder etter hvert tegn.",
+     "Settes det nye tegnet foran eller bak det som allerede er bygget?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-oppg-16",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-1-o16",
+    "number": "16",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med\nmellomrom og linjeskift slik terminalen viser den.\n\n```python\ndef juster(x, grense):\n    if x > grense:\n        return x - grense\n    return 0\n\nsum_verdi = 0\ntallene = [12, 7, 20]\nfor tall in tallene:\n    sum_verdi = sum_verdi + juster(tall, 10)\nprint(sum_verdi)\nprint(juster(10, 10), juster(3, 10), juster(25, 10))\n```",
+    "solution": "Spor funksjonen for hvert kall før du legger sammen.\n\n| Kall | `x > grense`? | Returnerer | `sum_verdi` etter |\n|---|---|---|---|\n| `juster(12, 10)` | ja | 2 | 2 |\n| `juster(7, 10)` | nei | 0 | 2 |\n| `juster(20, 10)` | ja | 10 | 12 |\n\n**Utskrift:**\n```\n12\n0 0 15\n```\n\nTo feller. Den ene er kantverdien på siste linje. `juster(10, 10)` gir 0 — men\nikke fordi differansen er null: testen `10 > 10` er **usann**, så `if`-blokken\nhoppes over og `return 0` på siste linje kjører. Resultatet er det samme her, men\nresonnementet er ulikt, og det avgjør hva som skjer hvis grensen endres.\n\nDen andre fellen er at `return 0` står **etter** `if`-blokken, uten `else`.\nKommer programmet dit, betyr det at betingelsen var usann — det er den samme\nformen du så i flagg-mønsteret.\n\nMerk formen på siste linje: tre verdier skilt av ett mellomrom hver.",
+    "hints": [
+     "Regn ut hva funksjonen gir for hvert kall, før du legger sammen.",
+     "Sjekk kantverdien: er `10 > 10` sann?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-1-14",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes i Oppgave 1:\n\n- **#3 — tekst forvekslet med tall.** Anførselstegn rundt sifre gjør `+` til\n  skjøting og `*` til gjentakelse. Se etter dem før du regner.\n- **Feil type i svaret.** `/` gir alltid desimaltall. Skriver du `3` der\n  terminalen viser `3.0`, er svaret galt i et auto-rettet felt.\n- **Muteringsrekkefølge.** En linje ser verdiene slik de er akkurat da. Fyll ut\n  tavla ovenfra og ned, aldri parallelt.\n- **#5 — av-med-én.** `range(1, len(...))` gir én runde færre.\n  `liste[len(liste)]` finnes ikke. Skriv indeksene over elementene først.\n- **Feil utskriftsform.** Komma gir ett mellomrom, pluss gir ingenting. Lister\n  og ordbøker får sine parenteser og enkle anførselstegn rundt tekster;\n  enkeltverdier får ingen av delene.\n\nOg én ting som ikke er en feil, men en vane: **skriv aldri svaret uten å ha ført\ntavle.** Oppgavene i Oppgave 1 er valgt nettopp fordi de ser opplagte ut."
+  },
+  {
+   "id": "in1000-4-1-coll-15",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-4-1-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel i en sporing |\n|---|---|\n| `print(a, b)` | Skiller argumentene med **ett** mellomrom, og avslutter med linjeskift. |\n| `print(a + b)` | Ett argument. Er begge tekster, skjøtes de uten mellomrom. |\n| `\"1\" + \"2\"` | `\"12\"` — skjøting. `1 + 2` er `3`. Anførselstegnene avgjør. |\n| `\"ab\" * 3` | `\"ababab\"` — gjentakelse. `2 * 3` er `6`. |\n| `/` | Gir **alltid** desimaltall: `9 / 3` er `3.0`. |\n| `//` og `%` | Heltallsdivisjon og rest. `20 // 6` er `3`, `20 % 6` er `2`. |\n| `range(a, b, s)` | Stoppverdien er **eksklusiv**. `range(10, 0, -3)` gir 10, 7, 4, 1. |\n| løkkevariabelen etter løkka | Lever videre med sin **siste** verdi. |\n| `while` | Betingelsen testes før hver runde. Variabelen beholder verdien som gjorde den usann. |\n| `liste[i]` / `liste[-1]` | Element på plass `i`; siste element. Tellingen starter på 0. |\n| `len(x)` | Antall elementer, tegn eller **par**. Siste indeks er `len(x) - 1`. |\n| `print(liste)` | `[4, 7, 12]` — hakeparenteser, komma og mellomrom; tekster får `'…'`. |\n| `print(ordbok)` | `{'a': 1}` — tekstnøkler med anførselstegn, heltallsnøkler uten. |\n| `d[k] = d[k] + 1` | Leser gammel verdi først. Nøkkelen må finnes fra før. |\n| `tekst.split(\";\")` | Gir en **liste** av tekster. `felt[-1]` alene skrives uten anførselstegn. |\n| `ny = tegn + ny` | Bygger **bakfra**. `ny = ny + tegn` bygger forfra. |\n\n**Det som avgjør poeng i Oppgave 1:** at du fører tavle, teller rundene først, og\nskriver svaret med nøyaktig riktig type og form."
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-1-16",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-4-1-17",
+   "type": "definition",
+   "title": "Sporingstavle",
+   "content": "En tabell med én kolonne per variabel som endrer seg, én rad per linje eller\nrunde, og en siste kolonne «Utskrift så langt».\n\nDen er ikke pynt, og den er ikke for sensor — den er for deg. Uten tavle holder\ndu to eller tre verdier i hodet samtidig, og nettopp det er det oppgaven er\nkonstruert for å gjøre vanskelig.\n\nRegn med et halvt minutt per deloppgave. Det er billig, mot 8 poeng."
+  },
+  {
+   "id": "in1000-4-1-18",
+   "type": "definition",
+   "title": "Antall runder i en `range`",
+   "content": "Det første du skriver opp, før du regner på noe.\n\n`range(3)` gir 0, 1, 2. `range(1, 4)` gir 1, 2, 3. `range(10, 0, -3)` gir 10, 7,\n4, 1. `range(0)` gir **ingen** runder. Stoppverdien er alltid eksklusiv, uansett\nretning.\n\nAntall runder er `stopp - start` når steget er 1. Med et annet steg må du skrive\nverdiene ut — det er raskere enn å regne, og du bommer ikke."
+  },
+  {
+   "id": "in1000-4-1-19",
+   "type": "definition",
+   "title": "Muteringsrekkefølge",
+   "content": "At en linje ser variablenes verdier slik de er **akkurat da**, ikke slik de var\nved rundens start.\n\nStår det\n\n```python\na = 2\nb = 1\na = a + b\nb = a + b\nprint(a, b)\n```\n\n**Utskrift:**\n```\n3 4\n```\n\nbruker den siste linja den **nye** `a` (3), ikke den gamle (2). Å fylle ut tavla\nparallelt i stedet for ovenfra og ned er den vanligste kilden til feil svar i\nløkkeoppgaver."
+  },
+  {
+   "id": "in1000-4-1-20",
+   "type": "definition",
+   "title": "Kantverdi",
+   "content": "Verdien som ligger nøyaktig på grensen i en betingelse.\n\n`60 > 60` er usann; `60 >= 60` er sann. Oppgave 1 velger nesten alltid data som\nligger på kanten, fordi det er der forskjellen mellom `>` og `>=` vises.\n\nVanen som lønner seg: hver gang du ser en sammenligning, sjekk om verdien er\nakkurat like stor. Er den det, er det sannsynligvis hele poenget med\ndeloppgaven."
+  },
+  {
+   "id": "in1000-4-1-21",
+   "type": "definition",
+   "title": "Antall runder i en nøstet løkke",
+   "content": "Med **faste** grenser ganges antallet: `for i in range(3)` med\n`for j in range(2)` inni gir 3 ganger 2, altså 6 runder.\n\nMed en **indre grense som avhenger av den ytre** må du telle: `for j in range(i)`\ngir 0, 1, 2 … runder etter tur. Den første runden gjør da ingenting, fordi\n`range(0)` er tom.\n\nSkriv opp `j`-verdiene per `i` i en egen kolonne. Det er raskere enn å prøve å\nholde dem i hodet."
+  },
+  {
+   "id": "in1000-4-1-22",
+   "type": "definition",
+   "title": "Løkkevariabelen etter løkka",
+   "content": "En løkkevariabel forsvinner ikke når løkka er ferdig. Den beholder den siste\nverdien den fikk, og kan leses på linja etter.\n\nFor `for i in range(10, 0, -3):` er `i` lik 1 etterpå — den siste verdien\n`range` ga, ikke stoppverdien.\n\nFor en `while` gjelder det samme, men med en vri: variabelen har den verdien som\ngjorde betingelsen **usann**. Etter `while i < 5:` med `i = i + 2` fra 0, er `i`\nlik 6, ikke 5."
+  },
+  {
+   "id": "in1000-4-1-23",
+   "type": "definition",
+   "title": "`print` med komma",
+   "content": "Komma mellom argumentene gir **ett** mellomrom mellom dem i utskriften, og\n`print` avslutter alltid med linjeskift.\n\nPluss gjør noe annet: `print(\"a\" + \"b\")` er **ett** argument, og gir `ab` uten\nmellomrom.\n\nSkillet er verdt et poeng i nesten hver eneste Oppgave 1. Les hvert `print`\nbokstavelig: hvor mange argumenter er det, og hva står mellom dem?"
+  },
+  {
+   "id": "in1000-4-1-24",
+   "type": "definition",
+   "title": "Utskrift av en liste",
+   "content": "`print(liste)` viser hakeparenteser, komma og ett mellomrom etter hvert komma —\nog tekster inne i lista får **enkle** anførselstegn.\n\n`print(liste[0])` viser ingen av delene: det er én verdi, ikke en liste.\n\nBegge formene dukker gjerne opp i samme deloppgave, nettopp for å teste om du\nser forskjellen. Skriv svaret slik terminalen ville vist det, tegn for tegn."
+  },
+  {
+   "id": "in1000-4-1-25",
+   "type": "definition",
+   "title": "Utskrift av en ordbok",
+   "content": "`print(ordbok)` viser krøllparenteser, kolon og komma: `{'a': 1, 'b': 2}`.\n\n**Tekstnøkler får enkle anførselstegn, heltallsnøkler får ikke.** En telling over\ntall gir `{4: 3, 1: 2}`, mens en telling over ord gir `{'buss': 3}`.\n\nRekkefølgen er den nøklene ble **opprettet** i. Å overskrive en verdi flytter\nikke nøkkelen bakerst, og ordboka sorterer aldri."
+  },
+  {
+   "id": "in1000-4-1-26",
+   "type": "definition",
+   "title": "Heltall mot desimaltall",
+   "content": "`/` gir alltid desimaltall, også når regnestykket går opp: `9 / 3` er `3.0`.\n`//` og `%` gir heltall når begge sidene er heltall.\n\nI et auto-rettet svarfelt er `3` og `3.0` to ulike svar, og bare det ene er\nriktig. Det samme gjelder `18` mot `18.0`.\n\nVanen som lønner seg: skriv typen i margen ved siden av hver verdi mens du\nsporer. Da ser du selv når en divisjon har gjort et heltall om til et\ndesimaltall."
+  },
+  {
+   "id": "in1000-4-1-27",
+   "type": "definition",
+   "title": "Tekst mot tall i en sporing",
+   "content": "Anførselstegn er det første du leter etter, før du regner på noe.\n\n`\"1\" + \"2\"` er `\"12\"`; `1 + 2` er `3`. `\"ab\" * 3` gjentar; `2 * 3` ganger.\n`\"12\" == 12` er usann. Og alt som kommer fra `input()`, en fil eller `.split()`\ner **tekst**, uansett hvor mye det ser ut som et tall.\n\nDette er feilkode #3 og #4, og de to er tilsammen den hyppigste fellen i\nOppgave 1."
+  },
+  {
+   "id": "in1000-4-1-28",
+   "type": "definition",
+   "title": "Auto-rettet svarfelt",
+   "content": "I de nyere settene rettes Oppgave 1 maskinelt: du skriver svaret i et lite felt,\nog en maskin sammenligner det med fasiten.\n\nDet betyr at **formen er en del av svaret**. Skriv `18`, ikke `18.0`. Skriv\n`tekst`, ikke `'tekst'` med anførselstegn. Ikke legg til mellomrom du ikke ser i\nterminalen, og ikke fjern noen heller.\n\nEr du i tvil om formen, skriv den slik `print` ville vist den — det er alltid\nfasiten."
+  },
+  {
+   "id": "in1000-4-1-29",
+   "type": "definition",
+   "title": "Å spore en betingelseskjede",
+   "content": "I en `if`-`elif`-`else`-kjede kjøres **nøyaktig én** gren: den første som er\nsann. Resten prøves ikke engang.\n\nTo selvstendige `if`-er er noe helt annet — der er begge spørsmål, og begge kan\nslå til. Forskjellen er ett ord i koden, og den snur svaret.\n\nSe også etter linjer **uten** innrykk under kjeden. De står utenfor og kjøres\nuansett hvilken gren som slo til."
+  },
+  {
+   "id": "in1000-4-1-30",
+   "type": "definition",
+   "title": "Å spore et funksjonskall",
+   "content": "Når en løkke kaller en funksjon, sporer du funksjonen for seg først.\n\nLag en liten tavle med én rad per kall: argumentene inn, betingelsene inne i\nfunksjonen, og verdien ut. Deretter setter du returverdiene inn i den ytre\ntavla.\n\nHusk at en funksjon uten `return` gir `None`, og at `return` avslutter\numiddelbart — linjer under blir aldri kjørt."
+  },
+  {
+   "id": "in1000-4-1-31",
+   "type": "definition",
+   "title": "Å spore en ordbok som endrer seg",
+   "content": "Skriv ordboka på nytt, i sin helhet, etter **hver** runde. Ikke prøv å holde\nendringene i hodet.\n\nTo spørsmål per runde: ble nøkkelen **opprettet** nå, eller fantes den fra før?\nOg hva ble den nye verdien?\n\nRekkefølgen i utskriften følger opprettelsen. Derfor må du notere når hver\nnøkkel dukket opp første gang — det er ikke noe du kan rekonstruere til slutt."
+  },
+  {
+   "id": "in1000-4-1-32",
+   "type": "definition",
+   "title": "Tidsbruk på Oppgave 1",
+   "content": "Oppgave 1 er rundt 8 av 100 poeng, fordelt på fem til sju deloppgaver. Det gir\nomtrent 20 av de 240 minuttene.\n\nBruk dem. Dette er den eneste oppgaven der du kan være **sikker** på å få alle\npoengene, fordi svaret er mekanisk og fasiten entydig.\n\nMen ikke bruk mer. Blir du sittende fast på én deloppgave, skriv ditt beste\nforsøk og gå videre — deloppgavene rettes hver for seg, og Oppgave 4 venter med\nnesten halve eksamen."
+  },
+  {
+   "id": "in1000-4-1-coll-33",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-4-1-c2",
+     "type": "text",
+     "content": "1. **Før tavle.** Én kolonne per variabel, én rad per runde, og «Utskrift så\n   langt» til høyre.\n2. **Tell rundene først.** Skriv opp verdiene `range` faktisk gir, før du regner\n   på noe.\n3. **Se etter anførselstegn.** `\"1\" + \"2\"` er `\"12\"`, ikke `3`.\n4. **Fyll tavla ovenfra og ned.** En linje ser verdiene slik de er akkurat da —\n   det er muteringsrekkefølgen.\n5. **Sjekk kantverdien.** `60 > 60` er usann. Oppgaven velger nesten alltid\n   data som ligger på grensen.\n6. **Les `print` bokstavelig.** Komma gir ett mellomrom; lister og ordbøker får\n   sine parenteser og enkle anførselstegn rundt tekster.\n7. **Skriv svaret uten pynt.** `3.0` der `/` er brukt, `3` der `//` er brukt —\n   og ingen anførselstegn rundt en tekst i svarfeltet."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
