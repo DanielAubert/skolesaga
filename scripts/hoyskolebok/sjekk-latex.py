@@ -122,6 +122,23 @@ def strenger(emne):
     q = os.path.join(ROOT, f"src/lib/data/quiz-data-{emne}.ts")
     if os.path.exists(q):
         ut.append((f"quiz-data-{emne}.ts", "", open(q, encoding="utf-8").read()))
+    # Nynorsk-quizen (quiz/nn/) var også utenfor porten. 74 formler var ødelagt
+    # der 25. juli 2026 — «Kva er $\tan v$?» viste TAB + «an v».
+    for p in sorted(glob.glob(os.path.join(ROOT, "src/lib/data/quiz/nn", emne + "-*.json"))):
+        d = json.load(open(p, encoding="utf-8"))
+        navn = "quiz/nn/" + os.path.basename(p)
+
+        def gå_q(o, sti):
+            if isinstance(o, str):
+                ut.append((navn, sti, o))
+            elif isinstance(o, dict):
+                for k, v in o.items():
+                    gå_q(v, f"{sti}.{k}")
+            elif isinstance(o, list):
+                for i, x in enumerate(o):
+                    gå_q(x, f"{sti}[{i}]")
+
+        gå_q(d, "")
     return ut
 
 
@@ -133,6 +150,22 @@ def main():
     if not alle:
         sys.exit(f"fant ingen filer for {emne}")
     avvik = []
+
+    # 0. ENKEL BACKSLASH I QUIZ-KILDEN. Denne må komme først, fordi den fanger
+    #    feil de andre sjekkene er BLINDE for: de leser quiz-data-*.ts som rå
+    #    tekst, der «\f» er to tegn. I en TS-streng er det form feed.
+    #    '$\frac{1}{16}$' i kilden blir '$<FF>rac{1}{16}$' for eleven, og
+    #    \left/\pi/\partial mister backslashen HELT uten å etterlate spor.
+    #    395 formler var ødelagt slik i 1t/s2/1p/mat1100/econ2220/fys1001
+    #    25. juli 2026. LaTeX i TS-kilden skal ALLTID ha dobbel backslash, så
+    #    regelen er entydig: én backslash foran en bokstav er en feil.
+    q = os.path.join(ROOT, f"src/lib/data/quiz-data-{emne}.ts")
+    if os.path.exists(q):
+        kilde = open(q, encoding="utf-8").read()
+        for m in re.finditer(r"(?<!\\)\\[a-zA-Z]+", kilde):
+            lin = kilde.count("\n", 0, m.start()) + 1
+            avvik.append(f"ENKEL BACKSLASH i quiz-data-{emne}.ts linje {lin}: {m.group(0)!r} "
+                         f"— må være dobbel, ellers tolker JS den som escape-sekvens")
 
     # 1. kontrolltegn (TAB godtas i .ts-fila, der det er innrykk, og inne i
     #    ```-kodeblokker, der det er kolonnejustering i programutskrift — begge
