@@ -50,9 +50,9 @@ const quizData_psykologi_2: Record<string, QuizQuestion[]> = {
       explanation: 'Elaboration Likelihood Model (ELM) beskriver to ruter: sentral rute (nøye vurdering av argumenter) og perifer rute (overfladiske signaler som kildens attraktivitet).',
     },
     {
-      question: 'Hva viste Festinger og Carlsmiths $1/$20-eksperiment (1959)?',
+      question: 'Hva viste Festinger og Carlsmiths \\$1/\\$20-eksperiment (1959)?',
       options: ["De som fikk minst betalt for å lyve, endret holdningen mest (kognitiv dissonans)", "De som fikk mest betalt endret holdningen mest", "Betaling og penger har ingen som helst effekt på hvordan mennesker endrer sine holdninger", "De som fikk mest betalt for å lyve, endret holdningen mest fordi belønningen forsterket dem"],
-      explanation: 'De som fikk bare $1 for å lyve, endret holdningen mest – fordi den lave betalingen ga sterkere dissonans de måtte redusere ved å faktisk like oppgaven.',
+      explanation: 'De som fikk bare \\$1 for å lyve, endret holdningen mest – fordi den lave betalingen ga sterkere dissonans de måtte redusere ved å faktisk like oppgaven.',
     },
   ],
   'psykologi-2-1-3': [

@@ -145,6 +145,13 @@ def main():
     uttrykk = []
     for navn, _, s in alle:
         for felt in enkeltfelt(navn, s):
+            # Rendreren parkerer escapet dollar (\$) FØR matten deles opp, så et
+            # \$ kan ikke avgrense et uttrykk. Porten må gjøre det samme, ellers
+            # rapporterer den «$850 til \$260» som KaTeX-feil i ren prosa.
+            felt = felt.replace("\\$", "")
+            # Kode er ikke matte: rendreren tar ```-blokker og `inline-kode` ut først.
+            felt = re.sub(r"```[\s\S]*?```", "", felt)
+            felt = re.sub(r"`[^`\n]*`", "", felt)
             for m in re.finditer(r"\$\$([\s\S]+?)\$\$", felt):
                 uttrykk.append((navn, m.group(1), True))
             for m in re.finditer(r"\$([^$\n]+?)\$", re.sub(r"\$\$[\s\S]+?\$\$", "", felt)):
@@ -164,7 +171,12 @@ def main():
         for felt in enkeltfelt(navn, s):
             if "$" not in felt or "${" in felt:      # ${...} = JS-template omtalt i prosa
                 continue
-            t = re.sub(r"\$\$", "", re.sub(r"\\\$", "", felt))
+            # Kode er ikke matte: ```-blokker og `inline-kode` kan inneholde $ helt
+            # legitimt (`$0` i DevTools-konsollen, `d$kol` i R, «$PATH» i shell).
+            # Rendreren tar kodeblokker ut FØR matten, så de kan ikke danne spenn.
+            t = re.sub(r"```[\s\S]*?```", "", felt)
+            t = re.sub(r"`[^`\n]*`", "", t)
+            t = re.sub(r"\$\$", "", re.sub(r"\\\$", "", t))
             if t.count("$") % 2:
                 avvik.append(f"UBALANSERT $ i {navn}{sti}: {felt.strip()[:80]!r} (avkuttet formel)")
 

@@ -537,7 +537,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva gjør $A$1 i en formel?',
       options: ['Låser cellen ved kopiering', 'Ganger med A1', 'Deler på A1', 'Ingenting'],
-      explanation: 'Dollærtegn ($) gjør cellehenvising absolutt, så den ikke endres ved kopiering.',
+      explanation: 'Dollartegn (\\$) gjør cellehenvisningen absolutt, så den ikke endres ved kopiering.',
     },
     {
       question: 'Hvilken funksjon finner gjennomsnittet i Excel?',

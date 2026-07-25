@@ -83,8 +83,39 @@ function renderMixedContent(content: string): string {
   const KATEX_START = '\u0000KATEX';
   const KATEX_END = 'KATEX\u0000';
 
+  // Kodeblokker (```lang … ```) MÅ tas ut FØR både matte og markdown. Uten det
+  // matcher inline-kode-regexen (/`([^`]+)`/) inn i gjerdet: to backticks blir
+  // stående som synlig tekst, språktaggen havner INNE i koden, innrykket
+  // forsvinner når \n blir <br />, og `$` eller `*` i koden tolkes som
+  // matte/kursiv. 3 256 kodeblokker i 66 bøker rendret slik.
+  const kodeBlokker: string[] = [];
+  const KODE_START = '\u0000KODE';
+  const KODE_END = 'KODE\u0000';
+  let result = content.replace(/```([a-zA-Z0-9+#_-]*)[ \t]*\n?([\s\S]*?)```/g, (_, spraak, kode) => {
+    const klasse = spraak ? ` language-${(spraak as string).toLowerCase()}` : '';
+    kodeBlokker.push(
+      `<pre class="my-4 overflow-x-auto rounded-lg bg-muted p-4 text-sm leading-relaxed"><code class="font-mono${klasse}">${escapeHtml(
+        (kode as string).replace(/\n$/, '')
+      )}</code></pre>`
+    );
+    return `${KODE_START}${kodeBlokker.length - 1}${KODE_END}`;
+  });
+
+  // Inline-kode (`…`) må parkeres på samme måte, og FØR matten. Den ble tidligere
+  // behandlet helt til slutt, etter fet/kursiv, så markdown spiste innholdet:
+  //   `__init__`      -> <code>_<em>init</em></code>
+  //   `x**2 + y**2`   -> <code>x<strong>2 + y</strong>2</code>
+  //   `d$hoy`         -> $-et startet et matteuttrykk
+  // Det rammer alle dunder-metoder i Python og all R-kolonnesyntaks.
+  result = result.replace(/`([^`\n]+)`/g, (_, kode) => {
+    kodeBlokker.push(
+      `<code class="px-1.5 py-0.5 bg-muted rounded text-sm font-mono">${escapeHtml(kode as string)}</code>`
+    );
+    return `${KODE_START}${kodeBlokker.length - 1}${KODE_END}`;
+  });
+
   // Handle display math ($$...$$)
-  let result = parkerEscapetDollar(content).replace(/\$\$([\s\S]*?)\$\$/g, (_, latex) => {
+  result = parkerEscapetDollar(result).replace(/\$\$([\s\S]*?)\$\$/g, (_, latex) => {
     try {
       let rendered = katex.renderToString(latex.trim(), {
         displayMode: true,
@@ -138,8 +169,7 @@ function renderMixedContent(content: string): string {
   result = result.replace(/\*([^*]+)\*/g, '<em>$1</em>');
   result = result.replace(/_([^_]+)_/g, '<em>$1</em>');
 
-  // Code (`code`)
-  result = result.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 bg-muted rounded text-sm font-mono">$1</code>');
+  // (inline-kode håndteres nå sammen med kodeblokkene, før markdown)
 
   // Images (![alt](url)). Lokale /images-stier rutes via mediaUrl (Supabase
   // Storage) — samme som ImageBlockComponent — ellers 404 i prod. Figurer får
@@ -175,8 +205,17 @@ function renderMixedContent(content: string): string {
     (_, index) => katexBlocks[parseInt(index)]
   );
 
+  // Sett kodeblokkene tilbake. Skjer etter markdown og <br />-konverteringen, så
+  // innholdet i <pre> er urørt — inkludert innrykk, stjerner, dollartegn og #.
+  result = result.replace(
+    new RegExp(`${KODE_START}(\\d+)${KODE_END}`, 'g'),
+    (_, index) => kodeBlokker[parseInt(index)]
+  );
+  // <pre> er blokk-nivå: et <br /> rett etter gir et tomt linjeskift i teksten.
+  result = result.replace(/(<\/pre>)<br \/>/g, '$1');
+
   // Wrap in paragraph if not already wrapped and not starting with katex-display
-  if (!result.startsWith('<') && !result.includes('katex-display')) {
+  if (!result.startsWith('<') && !result.includes('katex-display') && !result.startsWith('<pre')) {
     result = `<p class="my-3">${result}</p>`;
   }
 
