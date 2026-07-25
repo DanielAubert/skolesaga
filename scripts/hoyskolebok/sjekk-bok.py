@@ -33,7 +33,10 @@ BARE_CODE = re.compile(r"\b(RED|SIT|SAM|ANV|HYB|S[1-7])\b|\bsjanger [A-N]\b")
 INLINE_SUBTASK = re.compile(r"(?<![*({\[\\])\ba\) [^\n]{8,}?(?<![({])\bb\) ")
 # Har feltet allerede deloppgaver riktig formatert på egen linje, er et inline
 # «a) … b)» lenger nede en tilbakevisning, ikke en formateringsfeil.
-KORREKT_SUBTASK = re.compile(r"^\s*\*\*[a-h]\)\*\*", re.M)
+# Godtar både «**a)** tekst» og «**a) tekst**» — begge er korrekt formatert.
+# Den smale varianten ga tre falske positive i in1020, der fasitlinja er
+# «**Fasit: a) tilgjengelighet, b) integritet.**».
+KORREKT_SUBTASK = re.compile(r"^\s*\*\*[a-h]\)(?:\*\*|\s)", re.M)
 # Statisk prøve-flervalg der fasitlista er «alle a» (død selvtest — panelfunn):
 # fanger fasitlinjer som «1a · 2a · 3a» / «1a, 2a, 3a» med ≥3 a-er på rad.
 ALL_A_FASIT = re.compile(r"\b1a\b[^\n]{0,12}\b2a\b[^\n]{0,12}\b3a\b")

@@ -42,7 +42,12 @@ GROVT = 60.0            # så skjevt at utvalgsstørrelsen ikke redder det
 #   «1b · 2d · 3a · 4c»          — ECON1100 (oppgavenummer + bokstav, samlet)
 # Den andre må ha minst tre par på rad for å skilles fra deloppgave-referanser
 # som «1a og 1b fanger hver bare ett ledd».
-FASIT = re.compile(r"(?:riktig svar|rett svar|fasit|svar)\s*[:=]?\s*\*{0,2}([a-e])\)", re.I)
+# Flerdels-fasiter som «Fasit: a) konfidensialitet, b) integritet, c) …»
+# er IKKE enkeltsvar — de begynner per konstruksjon på a) og ga meg et
+# artefakt der in1020 Del 3 så ut som 100 % a) i 11 av 11.
+# Krev derfor at det IKKE følger et nytt «, b)» like etter.
+FASIT = re.compile(r"(?:riktig svar|rett svar|fasit|svar)\s*[:=]?\s*\*{0,2}([a-e])\)"
+                   r"(?![^\n]{0,60}\bb\))", re.I)
 FASITREKKE = re.compile(r"\b\d+([a-e])\b(?:\s*[·,]\s*\d+[a-e]\b){2,}", re.I)
 REKKELEDD = re.compile(r"\b\d+([a-e])\b")
 
