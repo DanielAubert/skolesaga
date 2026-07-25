@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nline = 'Kvitheia;7.9;1180\\n'\nfelt = line.split(';')\nprint(len(felt), len(felt[2]))\n```",
+    "options": [
+      "`3 5`",
+      "`3 4`",
+      "`2 5`",
+      "`4 5`"
+    ],
+    "explanation": "To semikolon gir tre felt, så `len(felt)` er 3. Siste felt er `'1180\\n'` — fire sifre pluss linjeskiftet, altså 5 tegn. `3 4` er fellen for den som glemmer at linjeskiftet henger med (det er nettopp derfor man skriver `.strip()` før `.split()`), `4 5` for den som teller separatorene feil, og `2 5` for den som tror `split` gir én bit mindre enn antall felt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nline = 'Kvitheia;7.9;1180\\n'\nprint(line.strip().split(';')[2] == '1180')\nprint(line.split(';')[2] == '1180')\n```",
+    "options": [
+      "`True` og deretter `False`",
+      "`False` og deretter `True`",
+      "`True` og deretter `True`",
+      "`False` og deretter `False`"
+    ],
+    "explanation": "Med `.strip()` er siste felt `'1180'` og sammenligningen sann. Uten `.strip()` er feltet `'1180\\n'`, som ikke er lik `'1180'` — derfor `False`. `True` to ganger er fellen for den som tror Python ser bort fra linjeskift i strengsammenligning; det gjør den ikke. Merk at `int('1180\\n')` derimot ville gitt 1180, fordi tallkonvertering tåler blanktegn."
+  },
+  {
+    "question": "Hva skjer når dette kjøres?\n\n```python\nprint(int('1180\\n'), float(' 8.6 '))\n```",
+    "options": [
+      "`1180 8.6` — begge konverteringene tåler blanktegn rundt tallet",
+      "`ValueError` — linjeskiftet er ikke et gyldig siffer i et heltall",
+      "`TypeError` — `int` og `float` godtar ikke tekststrenger som argument",
+      "`118 8.6` — linjeskiftet spiser det siste sifferet i tallet"
+    ],
+    "explanation": "`int` og `float` fjerner blanktegn (mellomrom, TAB, linjeskift) i begge ender før de tolker tallet, så begge konverteringene går fint. Det er en viktig detalj: en glemt `.strip()` gir **ikke** feilmelding på tallfelt, bare på tekstfelt. `ValueError` kommer først når strengen ikke er et tall i det hele tatt, for eksempel `float('ph')` på en header-linje. `TypeError` gjelder helt andre operandtyper."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nlinje = 'Ingrid Hauge;5003;1998\\n'\nprint(linje.split())\n```",
+    "options": [
+      "`['Ingrid', 'Hauge;5003;1998']`",
+      "`['Ingrid Hauge', '5003', '1998']`",
+      "`['Ingrid', 'Hauge', '5003', '1998']`",
+      "`['Ingrid Hauge;5003;1998']`"
+    ],
+    "explanation": "Bar `.split()` deler på blanktegn, og det eneste blanktegnet inne i linja er mellomrommet i navnet — derfor to biter, der den andre inneholder alle semikolonene. Linjeskiftet blir kastet av `split()` selv. `['Ingrid Hauge', '5003', '1998']` er svaret man ville fått med `.split(';')`, og forvekslingen mellom de to er feil #8. Alternativet med fire biter forutsetter deling på både mellomrom og semikolon, som ingen av variantene gjør."
+  },
+  {
+    "question": "Hva skjer når disse to linjene kjøres?\n\n```python\ndata = {}\ndata['Vest']['2025-05-02'] = 7.4\n```",
+    "options": [
+      "`KeyError` — den indre ordboken under `'Vest'` er ikke opprettet ennå",
+      "`IndexError` — `'Vest'` er ikke en gyldig indeks i en tom ordbok",
+      "`TypeError` — en tom ordbok kan ikke ha ordbøker som verdier",
+      "Ingen feil — Python oppretter den indre ordboken automatisk"
+    ],
+    "explanation": "For å sette inn i `data['Vest']` må Python først finne `data['Vest']`, og den nøkkelen finnes ikke — altså `KeyError`. Løsningen er `if 'Vest' not in data: data['Vest'] = {}` først. Alternativet «ingen feil» er feil #20, den vanligste feilen når nøstede ordbøker bygges. `IndexError` gjelder lister, ikke ordbøker, og en ordbok kan gjerne ha ordbøker som verdier — men de må opprettes."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(dict(zip(['temp', 'nedbor', 'vind'], [7.9, 1180])))\n```",
+    "options": [
+      "`{'temp': 7.9, 'nedbor': 1180}` — `zip` stopper ved den korteste",
+      "`{'temp': 7.9, 'nedbor': 1180, 'vind': None}` — siste nøkkel får `None`",
+      "`{'temp': 7.9, 'nedbor': 1180, 'vind': 0}` — siste nøkkel får verdien 0",
+      "`ValueError` fordi de to listene ikke er like lange"
+    ],
+    "explanation": "`zip` parer element for element og stopper når den korteste listen er tom, uten advarsel: `'vind'` forsvinner lydløst. Det er samme regel som for `zip` i løkker (feil #17). Verken `None`, 0 eller en feilmelding kommer — og det er nettopp derfor du må sjekke at antall feltnavn stemmer med antall felt i fila."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndata = {}\nfor navn in ['Vest', 'Aust', 'Vest']:\n    if navn not in data:\n        data[navn] = 0\n    data[navn] += 1\nprint(data)\n```",
+    "options": [
+      "`{'Vest': 2, 'Aust': 1}`",
+      "`{'Vest': 1, 'Aust': 1}`",
+      "`{'Vest': 3, 'Aust': 1}`",
+      "`{'Vest': 1, 'Aust': 2}`"
+    ],
+    "explanation": "`'Vest'` settes til 0 bare første gang, fordi `not in`-testen er falsk andre gang; deretter økes telleren, så `'Vest'` ender på 2 og `'Aust'` på 1. `{'Vest': 1, 'Aust': 1}` er fellen for den som tror tilordningen `data[navn] = 0` kjører hver runde og nullstiller telleren. Rekkefølgen i utskriften er innsettingsrekkefølgen for nøklene, ikke alfabetisk."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {'Kvitheia': {'x': 1}, 'Nordvika': {'x': 4}}\nfor navn, verdier in d.items():\n    print(navn, verdier['x'], end=' ')\n```",
+    "options": [
+      "`Kvitheia 1 Nordvika 4` — alt på én linje, med et mellomrom til slutt",
+      "`Kvitheia 1` og `Nordvika 4` på hver sin linje, som vanlig `print`",
+      "`Kvitheia {'x': 1} Nordvika {'x': 4}` på én linje med mellomrom",
+      "`Kvitheia Nordvika` på én linje — `verdier['x']` skrives ikke ut"
+    ],
+    "explanation": "`.items()` gir nøkkel og verdi samtidig, og `verdier['x']` plukker tallet ut av den indre ordboken. `end=' '` erstatter linjeskiftet med et mellomrom, så begge rundene havner på samme linje. Alternativet med to linjer er fellen for den som overser `end` (feil #16), og alternativet med `{'x': 1}` er fellen for den som tror `verdier` skrives ut i stedet for `verdier['x']`."
+  },
+  {
+    "question": "Fila `land.txt` inneholder fire linjer:\n\n```\nAlveria,4820000,52100\nBrenland,1290000,38400\nCorvia,17650000,9800\nDunmark,610000,71200\n```\n\nHva skriver dette ut?\n\n```python\nwith open('land.txt') as infile:\n    n = 0\n    for line in infile:\n        n += len(line.strip().split(','))\nprint(n)\n```",
+    "options": [
+      "`12` — fire linjer med tre felt hver",
+      "`4` — én telling per linje i fila",
+      "`3` — antall felt på den siste linja",
+      "`8` — fire linjer med to kommaer hver"
+    ],
+    "explanation": "Hver linje gir tre felt (to kommaer), og løkka legger til 3 fire ganger: 12. `4` er fellen for den som tror `n` økes med 1 per linje, `3` for den som tror `n` overskrives, og `8` for den som teller separatorer i stedet for felt — `n` separatorer gir `n+1` felt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {'Kvitheia': 1180}\nprint('Fornebu' in d)\nprint(d['Fornebu'])\n```",
+    "options": [
+      "`False`, og deretter stopper programmet med `KeyError: 'Fornebu'`",
+      "`False`, og deretter skrives `None` fordi nøkkelen mangler",
+      "`KeyError: 'Fornebu'` med én gang — `in`-testen krasjer også",
+      "`False`, og deretter skrives `0` fordi ordboken er tom for den nøkkelen"
+    ],
+    "explanation": "`in`-testen er trygg og gir `False` for en nøkkel som ikke finnes, men oppslaget `d['Fornebu']` krasjer med `KeyError`. Det er nettopp derfor `in`-testen brukes som vakt før oppslag. Python fyller aldri inn `None` eller 0 for manglende nøkler — vil du ha en standardverdi, må du be om den eksplisitt."
+  },
+  {
+    "question": "En fil har header-linja `stasjon;ph;temp`, og programmet glemte å hoppe over den. Hva blir siste linje i feilmeldingen fra `float('ph')`?",
+    "options": [
+      "`ValueError: could not convert string to float: 'ph'`",
+      "`TypeError: float() argument must be a number, not str`",
+      "`KeyError: 'ph'` — kolonnenavnet finnes ikke som nøkkel",
+      "`NameError: name 'ph' is not defined` — variabelen mangler"
+    ],
+    "explanation": "`float` godtar strenger, men bare strenger som faktisk er tall — derfor `ValueError`, med den ugyldige teksten sitert i meldingen. Ser du `ValueError` med et **kolonnenavn** i teksten, er diagnosen alltid den samme: header-linja ble ikke hoppet over med `readline()` (feil #7). `TypeError` gjelder feil operandtype, og `NameError` gjelder udefinerte variabelnavn, ikke strenginnhold."
+  },
+  {
+    "question": "Fila `stasjoner_dobbel.txt` inneholder:\n\n```\nKvitheia;7.9;1180\nOspedalen;8.6;1420\nKvitheia;8.4;1205\n```\n\nHva skriver dette ut?\n\n```python\ndata = {}\nwith open('stasjoner_dobbel.txt') as infile:\n    for line in infile:\n        navn, temp, nedbor = line.strip().split(';')\n        data[navn] = float(temp)\nprint(len(data), data['Kvitheia'])\n```",
+    "options": [
+      "`2 8.4`",
+      "`3 7.9`",
+      "`2 7.9`",
+      "`3 8.4`"
+    ],
+    "explanation": "Nøkler i en ordbok er unike, så den tredje linja **overskriver** den første: to nøkler igjen, og `'Kvitheia'` har verdien fra siste linje, 8.4. `3 8.4` er fellen for den som tror ordboka vokser med antall linjer, og `2 7.9` for den som tror den første verdien beholdes. Skal begge målingene bevares, må neste nøkkelnivå skille dem."
+  },
+  {
+    "question": "Fila `personer.txt` har fem linjer, der den første er en header:\n\n```\nid;navn;postnr;fodselsaar\n1042;Ingrid Hauge;5003;1998\n1043;Mathias Lind;7014;1985\n1044;Sofie Berge;5003;2001\n1045;Jonas Rud;9012;1972\n```\n\nHva skriver dette ut?\n\n```python\nwith open('personer.txt') as infile:\n    infile.readline()\n    n = 0\n    for line in infile:\n        n += 1\nprint(n)\n```",
+    "options": [
+      "`4` — `readline()` har alt lest header-linja",
+      "`5` — `readline()` flytter ikke leseposisjonen",
+      "`3` — `readline()` hopper over de to første linjene",
+      "`1` — løkka rekker bare én linje etter `readline()`"
+    ],
+    "explanation": "`readline()` leser én linje og flytter leseposisjonen fram, så løkka starter på linje 2 og teller de fire dataradene. `5` er fellen for den som tror kallet er uten virkning når returverdien ikke brukes til noe — den er ikke det. Motsatt: kaller du `readline()` på en fil uten header, mister du den første dataraden i stillhet."
+  },
+  {
+    "question": "Hva fjerner `.strip()` fra en streng?",
+    "options": [
+      "Blanktegn — mellomrom, TAB og linjeskift — i begge ender av strengen",
+      "Bare linjeskiftet på slutten av strengen, ikke mellomrom",
+      "Alle mellomrom i strengen, også de som står midt inne i den",
+      "Linjeskift og separatortegnet i begge ender av strengen"
+    ],
+    "explanation": "`.strip()` klipper bort alle blanktegn i begge ender og lar innmaten være urørt — `'  a b \\n'.strip()` gir `'a b'` med mellomrommet i midten intakt. Den rører aldri separatorer. Og den endrer ikke originalen: du må bruke returverdien, typisk som `line.strip().split(';')`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {'Vest': {'ph': 7.4}}\nprint(d['Vest'])\nprint(d['Vest']['ph'])\n```",
+    "options": [
+      "`{'ph': 7.4}` og deretter `7.4`",
+      "`7.4` og deretter `{'ph': 7.4}`",
+      "`7.4` og deretter `KeyError: 'ph'`",
+      "`{'ph': 7.4}` og deretter `{'ph': 7.4}`"
+    ],
+    "explanation": "Ett oppslag i en nøstet ordbok gir **strukturen** (den indre ordboken), to oppslag gir **elementet** (tallet). Å forveksle de to er den vanligste sporingsfeilen i sjangeren — det er samme skille som mellom indeksering og slicing i lister (feil #18). Ordboken skrives ut med klammer og `'nøkkel': verdi`, tallet uten noe rundt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = dict(zip(['a', 'b'], [1, 2]))\nd['c'] = 3\nprint(d, len(d))\n```",
+    "options": [
+      "`{'a': 1, 'b': 2, 'c': 3} 3`",
+      "`{'a': 1, 'b': 2} 2`",
+      "`{'a': 1, 'b': 2, 'c': 3} 4`",
+      "`{'c': 3, 'a': 1, 'b': 2} 3`"
+    ],
+    "explanation": "`dict(zip(...))` gir `{'a': 1, 'b': 2}`, og tilordningen legger til et tredje par — `len` er 3. Nye nøkler havner **bakerst**, i innsettingsrekkefølge, så alternativet med `'c'` først er feil. `{'a': 1, 'b': 2} 2` er fellen for den som tror `dict(zip(...))` gir en ordbok som ikke kan utvides."
+  },
+  {
+    "question": "Fila `stasjoner.txt` inneholder:\n\n```\nKvitheia;7.9;1180\nSandvollen;5.4;760\nOspedalen;8.6;1420\nNordvika;3.1;980\n```\n\nHva skriver dette ut?\n\n```python\nwith open('stasjoner.txt') as infile:\n    linjer = 0\n    tegn = 0\n    for line in infile:\n        linjer += 1\n        tegn += len(line.strip())\nprint(linjer, tegn)\n```",
+    "options": [
+      "`4 69`",
+      "`4 73`",
+      "`5 69`",
+      "`4 65`"
+    ],
+    "explanation": "Fire linjer, og `.strip()` fjerner linjeskiftet før tellingen: 17 + 18 + 18 + 16 = 69 tegn. `4 73` er svaret uten `.strip()`, altså med de fire linjeskiftene med — en fin påminnelse om at hvert linjeskift er ett tegn. `5 69` er fellen for den som teller en tom sluttlinje som ikke finnes."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nfelt = 'Vest;2025-05-02;7.4;11.2'.split(';')\nprint(felt[1:3])\nprint(felt[-1])\n```",
+    "options": [
+      "`['2025-05-02', '7.4']` og deretter `11.2`",
+      "`['2025-05-02', '7.4', '11.2']` og deretter `11.2`",
+      "`'2025-05-02'` og deretter `11.2`",
+      "`['2025-05-02', '7.4']` og deretter `7.4`"
+    ],
+    "explanation": "Slicing `[1:3]` tar med indeks 1 og 2, men **ikke** 3 — slutten er eksklusiv, så `'11.2'` faller utenfor. Og slicing gir en **liste**, mens `felt[-1]` er indeksering og gir **elementet**, siste felt, som skrives ut uten anførselstegn. Å tro at `[1:3]` gir tre elementer er feil #18."
+  }
+]
