@@ -1,0 +1,357 @@
+{
+  "id": "in1900-1-4",
+  "courseId": "in1900",
+  "chapterNumber": "1.4",
+  "title": "Strenger, f-strenger og formatert utskrift",
+  "description": "Strengoperasjoner, f-strenger med formatspesifikatorer, og print med end og sep — utskriftsdetaljene sensor krever nøyaktig.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne dele opp og rydde en tekstlinje med de vanlige strengmetodene",
+    "kunne skrive en formatert utskrift med fast bredde og fast antall desimaler",
+    "kunne angi nøyaktig hva en utskrift blir, inkludert mellomrom og linjeskift",
+    "kunne forklare hvorfor en tekst må gjøres om til tall før du kan regne med den"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-4-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet handler om de tegnene sensor faktisk teller.**\n\n- **Sjanger A — kodesporing** («hva skriver dette programmet ut?»), som forekommer i **100 %** av settene. Her er kravet at utskriften angis **nøyaktig**: riktig antall mellomrom, riktige hakeparenteser, riktig antall desimaler. Et riktig tall med feil formatering er et tapt poeng.\n- To feller er gjennomgående: `end=' '` som **fjerner linjeskiftet**, og f-strengens bredde- og presisjonsangivelse. Sammen utgjør de feilkode **#16**.\n- Strengmetodene `.split()` og `.strip()` er i tillegg ren forkunnskap til fillesing (bokas sjanger L, som forekommer i **100 %** av settene og gir 8–12 poeng). Se [kap. 8.1](/bok/in1900/in1900-8-1).\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer). Ikke fordi stoffet er dypt, men fordi det er her billige poeng forsvinner: du kan ha spore riktig hele veien og likevel skrive utskriften feil."
+    },
+    {
+      "id": "in1900-1-4-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1): at `'3'` og `3` er to ulike verdier, og at `print` skiller argumentene sine med ett mellomrom.\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2): indeksering og slicing — de samme reglene gjelder for strenger.\n- [Kap. 1.3 — Løkker](/bok/in1900/in1900-1-3): `for`-løkker, som vi bruker til å skrive ut tabeller."
+    },
+    {
+      "id": "in1900-1-4-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — Strengen er en sekvens (~10 min)\n\nMålestasjonen leverer én linje per døgn, og den ser slik ut:\n\n```\nBlindern 21.5 4.0\n```\n\nAlt du har er tekst. Skal du regne på tallene, må du først **dele opp** linja, **rydde** vekk usynlige tegn, og **konvertere** til tall. Det er hele fillesingsoppgaven i miniatyr, og den begynner med at en streng er en sekvens av tegn — helt som en liste."
+    },
+    {
+      "id": "in1900-1-4-def-4",
+      "type": "definition",
+      "title": "Strengen som sekvens",
+      "content": "En streng er en ordnet rekke tegn, og alt du kan gjøre med en liste av indeksering og slicing, kan du gjøre med en streng.\n\n`tekst[0]` er første tegn, `tekst[-1]` er siste, `tekst[1:4]` er et utsnitt på tre tegn, og `tekst[::-1]` er teksten baklengs. `len(tekst)` er antall tegn, mellomrom medregnet.\n\nÉn forskjell fra lister: indeksering i en streng gir en **streng** (av lengde 1), ikke en annen datatype. Det finnes ingen egen «tegn»-type i Python."
+    },
+    {
+      "id": "in1900-1-4-def-5",
+      "type": "definition",
+      "title": "Strenger er immutable",
+      "content": "En streng kan ikke endres etter at den er laget. `tekst[0] = 'A'` stopper programmet med en `TypeError`.\n\nAlle strengmetodene du møter nedenfor — `.strip()`, `.replace()`, `.upper()` — **returnerer en ny streng** og lar den gamle være. Derfor må du ta imot resultatet: `tekst = tekst.strip()`. Å skrive bare `tekst.strip()` som en egen linje gjør ingenting, og det er en stille feil som koster poeng i fillesingsoppgaver."
+    },
+    {
+      "id": "in1900-1-4-def-6",
+      "type": "definition",
+      "title": "`+` og `*` på strenger",
+      "content": "`+` skjøter sammen: `'ab' + 'cd'` gir `'abcd'`. `*` gjentar: `'-' * 5` gir `'-----'`.\n\nBegge operandene til `+` må være strenger. `'sum: ' + 4` stopper programmet med en `TypeError` — du må skrive `'sum: ' + str(4)`, eller helst bruke en f-streng. Gjentakelsen med `*` er derimot praktisk til å lage skillelinjer i en tabell."
+    },
+    {
+      "id": "in1900-1-4-def-7",
+      "type": "definition",
+      "title": "`v in tekst`",
+      "content": "På strenger er `in` en **delstreng**-test, ikke en elementtest: `'ind' in 'Blindern'` er `True`.\n\nDet er en viktig forskjell fra lister, der `in` bare finner hele elementer. Testen skiller mellom store og små bokstaver, så `'blindern' in 'Blindern'` er `False`."
+    },
+    {
+      "id": "in1900-1-4-def-8",
+      "type": "definition",
+      "title": "`len(tekst)`",
+      "content": "Antall tegn i strengen, medregnet mellomrom og eventuelle usynlige tegn som linjeskift.\n\nDet er nettopp derfor `len` er et diagnoseverktøy ved fillesing: er lengden én mer enn du forventet, henger det sannsynligvis et linjeskift på slutten, og da trenger du `.strip()`."
+    },
+    {
+      "id": "in1900-1-4-ex-9",
+      "type": "example",
+      "title": "Eksempel 1: Strengen behandlet som en liste av tegn",
+      "problem": "Hva skriver programmet ut?",
+      "solution": "```python\nnavn = 'Blindern'\nprint(navn[0], navn[-1])\nprint(navn[1:4])\nprint(len(navn))\nprint(navn[::-1])\nprint('ind' in navn, 'X' in navn)\nprint('-' * 8)\n```\n\n**Utskrift:**\n```\nB n\nlin\n8\nnrednilB\nTrue False\n--------\n```\n\nAlt her er reglene fra [kap. 1.2](/bok/in1900/in1900-1-2), brukt på tegn i stedet for på tall: `navn[1:4]` gir tre tegn fordi slutten er eksklusiv, og `navn[::-1]` snur rekkefølgen.\n\nMerk at utskriften ikke har fnutter rundt seg. Fnuttene finnes bare i koden."
+    },
+    {
+      "id": "in1900-1-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — minimal sporing. Sjanger A — kodesporing, altså «hva skriver programmet ut?».) La `tekst = 'Tryvann'`.\n\n**a)** Hva gir `tekst[0]`?\n\n**b)** Hva gir `tekst[-2]`?\n\n**c)** Hva gir `len(tekst)`?\n\n**d)** Hva gir `'van' in tekst`?",
+        "solution": "**a)** `T` — første tegn ligger på indeks 0.\n\n**b)** `n` — nest siste tegn. Ordet slutter på to n-er.\n\n**c)** `7` — tegnene `T`, `r`, `y`, `v`, `a`, `n`, `n`.\n\n**d)** `True` — `in` på en streng leter etter en **delstreng**, og `van` finnes midt i ordet.\n\nLegg merke til at svarene i a) og b) skrives uten fnutter når de skrives ut. Verdien er en streng, men `print` viser bare tegnene.",
+        "hints": [
+          "Skriv indeksene 0 til 6 over bokstavene før du begynner.",
+          "På strenger leter `in` etter en delstreng, ikke etter ett tegn av gangen."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-4-adv-10",
+      "type": "warning",
+      "title": "Strengen kan ikke endres",
+      "content": "Prøver du å bytte ut ett tegn direkte, stopper programmet:\n\n```python\nnavn = 'Blindern'\nnavn[0] = 'K'\nprint(navn)\n```\n\n**Utskrift:** ingen (programmet stopper med en feilmelding før noe blir skrevet). Siste linje i feilmeldingen er:\n\n```\nTypeError: 'str' object does not support item assignment\n```\n\nFeiltypen er `TypeError`, en av kandidatene i exception-tabellene i [kap. 2.2](/bok/in1900/in1900-2-2). Vil du ha en endret streng, må du lage en ny: `navn = 'K' + navn[1:]`.\n\nDen praktiske konsekvensen er regelen fra definisjonen over: alle strengmetodene returnerer en ny streng, og du må **ta imot resultatet**. `linje.strip()` alene gjør ingenting."
+    },
+    {
+      "id": "in1900-1-4-t-11",
+      "type": "text",
+      "content": "## Løkke 2 — Å dele opp og rydde en tekstlinje (~10 min)\n\nNå til de fire metodene du får bruk for i hver eneste fillesingsoppgave. Rekkefølgen er alltid den samme: **rydd, del opp, konverter.**"
+    },
+    {
+      "id": "in1900-1-4-def-12",
+      "type": "definition",
+      "title": "`.split(sep)`",
+      "content": "Deler strengen i en **liste** av delstrenger. Med et argument deles den på nøyaktig det tegnet: `'a;b;c'.split(';')` gir `['a', 'b', 'c']`.\n\nUten argument deles den på **vilkårlig blanktegn** — ett eller flere mellomrom, tabulator eller linjeskift — og eventuelle blanktegn i begge ender kastes. Det gjør `linje.split()` robust mot ujevn kolonnebredde.\n\nFellen: bruker du bar `split()` på en fil der feltene er skilt med semikolon, får du **én** lang delstreng i stedet for flere. Det er feilkode **#8**, og den slår først ut når du prøver å konvertere til tall. Bruk `split(';')` når separatoren er et bestemt tegn."
+    },
+    {
+      "id": "in1900-1-4-def-13",
+      "type": "definition",
+      "title": "`.strip()`",
+      "content": "Fjerner blanktegn i **begge ender** av strengen og returnerer en ny streng. Blanktegn inne i strengen røres ikke.\n\nDen viktigste jobben `.strip()` gjør, er å fjerne linjeskiftet som følger med hver linje du leser fra fil. Uten den blir det siste feltet `'4.0\\n'` i stedet for `'4.0'`, og `float` klarer faktisk det — men `int('4\\n')` og enhver sammenligning med en tekstverdi gjør det ikke. Å glemme `.strip()` er feilkode **#7**."
+    },
+    {
+      "id": "in1900-1-4-def-14",
+      "type": "definition",
+      "title": "`sep.join(liste)`",
+      "content": "Motstykket til `split`: skjøter sammen elementene i en liste av **strenger** til én streng, med `sep` mellom. `';'.join(['a', 'b'])` gir `'a;b'`.\n\nMerk hvor separatoren står: den er strengen du kaller metoden **på**, ikke et argument. Og alle elementene må være strenger — `', '.join([1, 2])` stopper programmet. Er de tall, må du gjøre dem om først."
+    },
+    {
+      "id": "in1900-1-4-def-15",
+      "type": "definition",
+      "title": "`.index(delstreng)`",
+      "content": "Gir posisjonen der delstrengen begynner: `'Blindern'.index('n')` gir `2`, altså den **første** forekomsten.\n\nFinnes ikke delstrengen, stopper programmet med en `ValueError`. Vil du bare vite om den finnes, bruk `in` — den gir `True`/`False` og feiler aldri."
+    },
+    {
+      "id": "in1900-1-4-def-16",
+      "type": "definition",
+      "title": "`.lower()`, `.upper()` og `.replace()`",
+      "content": "`.lower()` og `.upper()` gir en ny streng med bare små eller bare store bokstaver. De brukes til å gjøre en sammenligning uavhengig av store bokstaver: `svar.lower() == 'ja'`.\n\n`.replace(gammel, ny)` bytter ut **alle** forekomster og gir en ny streng: `'12,5'.replace(',', '.')` gir `'12.5'`. Nettopp den konverteringen trenger du hvis en datafil bruker komma som desimalskilletegn, for `float('12,5')` stopper programmet."
+    },
+    {
+      "id": "in1900-1-4-ex-17",
+      "type": "example",
+      "title": "Eksempel 2: Fra tekstlinje til tall",
+      "problem": "Én linje fra målestasjonen ser slik ut, med et linjeskift på slutten:\n\n```\n  Blindern ; 21.5 ; 4.0\n```\n\nSkriv koden som henter ut stasjonsnavnet og de to tallene.",
+      "solution": "Rekkefølgen er rydd, del opp, konverter — og hvert felt må ryddes for seg, fordi det står mellomrom rundt semikolonene:\n\n```python\nlinje = '  Blindern ; 21.5 ; 4.0\\n'\ndeler = linje.split(';')\nprint(deler)\nnavn = deler[0].strip()\ntemp = float(deler[1])\nvind = float(deler[2])\nprint(navn, temp, vind)\nprint(len(deler), len(navn))\n```\n\n**Utskrift:**\n```\n['  Blindern ', ' 21.5 ', ' 4.0\\n']\nBlindern 21.5 4.0\n3 8\n```\n\nTre ting å legge merke til:\n\n1. Utskriften av `deler` viser hvor mye søl som ligger i feltene: mellomrom foran og bak, og linjeskiftet i det siste feltet. Fnuttene og `\\n` synes fordi Python viser lister med **kodeformen** til hvert element.\n2. `float` tåler blanktegn rundt tallet, så `float(' 21.5 ')` går fint. Men `navn` må ryddes med `.strip()`, ellers får du to mellomrom foran.\n3. Hadde vi brukt bar `linje.split()` her, ville vi fått fem deler — `Blindern`, `;`, `21.5`, `;`, `4.0` — og feil felt på hver plass. Det er feilkode #8."
+    },
+    {
+      "id": "in1900-1-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nlinje = 'sol;regn;sno'\ndeler = linje.split(';')\nprint(deler)\nprint(len(deler))\nprint(deler[1].upper())\nprint('-'.join(deler))\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi |\n|---|---|---|\n| 2 | `linje.split(';')` | `['sol', 'regn', 'sno']` |\n| 3 | utskrift av lista | vis med fnutter og komma |\n| 4 | `len(deler)` | `3` |\n| 5 | `deler[1].upper()` | `REGN` |\n| 6 | `'-'.join(deler)` | `sol-regn-sno` |\n\n**Utskrift:**\n```\n['sol', 'regn', 'sno']\n3\nREGN\nsol-regn-sno\n```\n\n**Fellenote:** to detaljer avgjør. Den første: når en **liste av strenger** skrives ut, viser Python fnuttene rundt hvert element — men en enkelt streng skrives uten fnutter. Se forskjellen mellom linje 1 og linje 3 i utskriften. Den andre: i `join` er separatoren strengen du kaller metoden på, så resultatet får bindestrek **mellom** delene og ikke i endene.",
+        "hints": [
+          "`split` gir en liste. Hvordan skriver Python ut en liste av strenger?",
+          "I `'-'.join(deler)`: hvor havner bindestrekene?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-4-t-18",
+      "type": "text",
+      "content": "## Løkke 3 — F-strenger: å sette verdier inn i tekst (~12 min)\n\n— naturlig pausepunkt —\n\nNå skal utskriften bli pen. En **f-streng** er en streng med `f` foran fnuttene, der alt du setter i krøllparentes blir regnet ut og satt inn. Det er den moderne, korte måten, og det er den sensor forventer."
+    },
+    {
+      "id": "in1900-1-4-def-19",
+      "type": "definition",
+      "title": "F-streng `f'{x}'`",
+      "content": "En streng med `f` rett foran fnutten. Inne i krøllparentesene kan du skrive **hvilket som helst uttrykk**, og verdien settes inn i teksten.\n\n```python\nnavn = 'Blindern'\ntemp = 21.5\nprint(f'{navn}: {temp} grader')\nprint(f'{navn} har {len(navn)} tegn, og {temp} + 1 er {temp + 1}')\n```\n\n**Utskrift:**\n```\nBlindern: 21.5 grader\nBlindern har 8 tegn, og 21.5 + 1 er 22.5\n```\n\nMerk at `f` her er et **prefiks på en streng**, ikke en variabel. Det har ingenting å gjøre med funksjonen `f` som du skriver i ODE-oppgavene i [kap. 7.1](/bok/in1900/in1900-7-1) — se advarselen om navnekollisjonen nedenfor."
+    },
+    {
+      "id": "in1900-1-4-def-20",
+      "type": "definition",
+      "title": "Bredde og desimaler: `f'{x:8.3f}'`",
+      "content": "Etter kolon kommer formatangivelsen. `f'{x:8.3f}'` betyr: **bredde 8**, **3 desimaler**, `f` for fast desimalform.\n\n- **Bredden** er totalt antall tegn feltet skal fylle, medregnet desimalpunktet og eventuelt minustegn. Er tallet kortere, fylles det ut med mellomrom **foran** (høyrejustert). Er det lengre, får det stå — bredden er et minimum, ikke et maksimum.\n- **Desimalene** er alltid nøyaktig så mange som du ber om, med avrunding: `f'{2.5:.0f}'` gir `2`, og `f'{1.0:.3f}'` gir `1.000`.\n\nBredden er den som overses. `f'{2.5:8.3f}'` gir `2.500` med **tre** mellomrom foran, og de mellomrommene er en del av utskriften."
+    },
+    {
+      "id": "in1900-1-4-def-21",
+      "type": "definition",
+      "title": "Heltall og eksponentform: `f'{n:3d}'` og `f'{x:.3e}'`",
+      "content": "`d` er for heltall: `f'{7:3d}'` gir `7` med to mellomrom foran, altså bredde 3. Bruker du `d` på et flyttall, stopper programmet.\n\n`e` er eksponentform: `f'{1234.5:.3e}'` gir `1.234e+03` — ett siffer foran punktet, tre etter, og eksponenten med fortegn og minst to siffer. Den brukes til å vise svært små eller svært store tall, for eksempel en feil på $10^{-7}$."
+    },
+    {
+      "id": "in1900-1-4-ex-22",
+      "type": "example",
+      "title": "Eksempel 3: En tabell med f-strenger",
+      "problem": "En tabell over potenser av 2, med fast kolonnebredde. Hva skriver programmet ut?",
+      "solution": "```python\nfor k in range(4):\n    print(f'{k:2d}:{2**k:5.2f}', end=' | ')\nprint()\n```\n\n**Utskrift:**\n```\n 0: 1.00 |  1: 2.00 |  2: 4.00 |  3: 8.00 | \n```\n\n**Sporingstavle**\n\n| Runde | `k` | `f'{k:2d}'` | `2**k` | `f'{2**k:5.2f}'` | Legges til |\n|---|---|---|---|---|---|\n| 1 | 0 | ` 0` (ett mellomrom foran) | 1 | ` 1.00` (ett mellomrom foran) | ` 0: 1.00 \\| ` |\n| 2 | 1 | ` 1` | 2 | ` 2.00` | ` 1: 2.00 \\| ` |\n| 3 | 2 | ` 2` | 4 | ` 4.00` | ` 2: 4.00 \\| ` |\n| 4 | 3 | ` 3` | 8 | ` 8.00` | ` 3: 8.00 \\| ` |\n\nRegnestykket for bredden: `1.00` er fire tegn, og bredde 5 gir derfor ett mellomrom foran. `0` er ett tegn, og bredde 2 gir ett mellomrom foran.\n\nFordi `end=' | '` erstatter linjeskiftet, havner alt på én linje, og linja avsluttes av det tomme `print()`. Legg merke til at det også står ` | ` **etter** den siste kolonnen — `end` gjelder hver runde, også den siste."
+    },
+    {
+      "id": "in1900-1-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — formatert utskrift.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med mellomrom.\n\n```python\nx = 3.14159\nprint(f'{x:.2f}')\nprint(f'{x:8.3f}')\nprint(f'{x:.0f}')\nprint(f'{42:5d}|')\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Format | Hva det betyr | Resultat |\n|---|---|---|---|\n| 2 | `.2f` | to desimaler, ingen bredde | `3.14` |\n| 3 | `8.3f` | tre desimaler (`3.142`, fem tegn), bredde 8 | tre mellomrom, så `3.142` |\n| 4 | `.0f` | ingen desimaler, avrundet | `3` |\n| 5 | `5d` | heltall, bredde 5 | fire mellomrom, så `42`, så `|` |\n\n**Utskrift:**\n```\n3.14\n   3.142\n3\n   42|\n```\n\n**Fellenote:** fellen er #16 — å glemme at **bredden fyller ut med mellomrom foran**. Utskriften på linje 3 er ikke `3.142`, men tre mellomrom og så `3.142`. Loddstreken i siste linje er der nettopp for å gjøre de usynlige mellomrommene synlige; det er et triks du kan bruke selv når du kontrollerer koden din.",
+        "hints": [
+          "Regn først ut hvor mange tegn tallet blir med det oppgitte antallet desimaler.",
+          "Bredden er totalt antall tegn — resten fylles med mellomrom foran tallet."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-4-t-23",
+      "type": "text",
+      "content": "## Løkke 4 — `print` i detalj: `end`, `sep` og hvordan Python viser verdier (~10 min)\n\nTil slutt de tre detaljene som avgjør flest kodesporingsoppgaver i hele faget."
+    },
+    {
+      "id": "in1900-1-4-def-24",
+      "type": "definition",
+      "title": "`print(..., end=...)`",
+      "content": "`end` er det `print` skriver **etter** argumentene. Standardverdien er linjeskift, `'\\n'`.\n\nSetter du `end=' '`, forsvinner linjeskiftet og neste utskrift fortsetter på samme linje. Setter du `end=''`, kommer ingenting imellom i det hele tatt. Et tomt `print()` skriver bare linjeskiftet og brukes til å avslutte en linje du har bygget opp med `end`.\n\nDette er halve feilkode **#16**: en sporing der du skriver tre linjer i stedet for én, er feil selv om tallene er riktige."
+    },
+    {
+      "id": "in1900-1-4-def-25",
+      "type": "definition",
+      "title": "`print(..., sep=...)`",
+      "content": "`sep` er det som skrives **mellom** argumentene. Standardverdien er ett mellomrom.\n\n`print(1, 2, 3, sep=';')` gir `1;2;3`, og `print('a', 'b', sep='')` gir `ab`. Merk at `sep` bare virker mellom argumenter — har `print` bare ett argument, har `sep` ingen effekt i det hele tatt. Det er en fin distraktor."
+    },
+    {
+      "id": "in1900-1-4-def-26",
+      "type": "definition",
+      "title": "Hvordan Python viser en verdi",
+      "content": "`print` viser en streng **uten** fnutter, men en liste med fnutter rundt hvert strengelement.\n\nGrunnen er at Python har to visningsformer: den lesbare (som `print` bruker på selve argumentet) og kodeformen (som brukes på elementer **inne i** en samling). Derfor:\n\n```python\nprint('sol')\nprint(['sol', 'regn'])\nprint(3.0, [3.0])\n```\n\n**Utskrift:**\n```\nsol\n['sol', 'regn']\n3.0 [3.0]\n```\n\nRegelen å ta med: lister skrives med hakeparenteser, komma **og** mellomrom, og strenger inne i dem beholder fnuttene."
+    },
+    {
+      "id": "in1900-1-4-def-27",
+      "type": "definition",
+      "title": "Escape-sekvenser `\\n` og `\\t`",
+      "content": "Inne i en streng betyr `\\n` linjeskift og `\\t` tabulator. Det er to tegn i koden, men **ett** tegn i verdien — `len('a\\tb')` er 3.\n\nTabulator hopper til neste faste kolonne og brukes til å justere tabeller:\n\n```python\nprint('navn\\tgrader')\nprint('Blindern\\t21.5')\nprint(len('a\\tb'))\n```\n\n**Utskrift:**\n```\nnavn\tgrader\nBlindern\t21.5\n3\n```\n\nTrenger du en backslash i selve teksten, skriver du `\\\\`. I bokas egen kode holder vi oss til fire mellomrom som innrykk og bruker aldri tabulator i Python-kildekoden (feilkode **#24**)."
+    },
+    {
+      "id": "in1900-1-4-ex-28",
+      "type": "example",
+      "title": "Eksempel 4: `end` og `sep` i samme program",
+      "problem": "Fire linjer med `print`, tre ulike innstillinger. Hva skriver programmet ut?",
+      "solution": "```python\nprint('a', 'b')\nprint('a', 'b', sep='')\nprint(1, 2, 3, sep=' ; ')\nfor i in range(3):\n    print(i, end='')\nprint()\nprint('slutt', end='!')\n```\n\n**Utskrift:**\n```\na b\nab\n1 ; 2 ; 3\n012\nslutt!\n```\n\n- `print('a', 'b')` gir mellomrommet Python setter inn av seg selv.\n- `sep=''` fjerner det.\n- `sep=' ; '` setter inn hele den strengen mellom tallene — merk mellomrommene på begge sider.\n- Løkka med `end=''` skriver tre sifre uten noe imellom og uten linjeskift; det tomme `print()` avslutter linja.\n- Siste linje slutter med `!` og **ikke** med linjeskift.\n\nAt det ikke kommer noe linjeskift til slutt, er verdt å merke seg i sporing: utskriften er `slutt!` uten mer."
+    },
+    {
+      "id": "in1900-1-4-adv-29",
+      "type": "warning",
+      "title": "Navnet `f` betyr to ting",
+      "content": "Bokstaven `f` opptrer i to helt ulike roller i dette faget, og de har ingenting med hverandre å gjøre:\n\n1. **F-streng-prefikset:** `f'{x}'`. Her er `f` en del av **strengskrivemåten** og står rett foran fnutten, uten mellomrom.\n2. **Funksjonen `f`:** i matematiske oppgaver er `f` det vanlige navnet på en funksjon — `def f(x):` i [kap. 1.6](/bok/in1900/in1900-1-6), og høyresiden `def f(t, u):` i ODE-oppgavene i [kap. 7.1](/bok/in1900/in1900-7-1).\n\nPraktisk konsekvens: har du definert en funksjon `f`, kan du fortsatt skrive `f'{x}'` — Python ser på om det står en fnutt rett etter. Men i en kodesporingsoppgave må **du** se det, og et alternativ som later som `f'...'` er et funksjonskall, er en reell distraktor.\n\nBoka bruker derfor alltid `f` med backticks når det er kode, og skriver «f-streng» når det er skrivemåten."
+    },
+    {
+      "id": "in1900-1-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — `end` og `sep`.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nfor i in range(3):\n    print(i, i*i, sep=':', end=' ')\nprint()\nprint('a', 'b', 'c', sep='')\n```",
+        "solution": "**Sporingstavle**\n\n| Runde | `i` | `i*i` | `sep=':'` gir | `end=' '` legger til | Utskrift så langt |\n|---|---|---|---|---|---|\n| 1 | 0 | 0 | `0:0` | mellomrom | `0:0 ` |\n| 2 | 1 | 1 | `1:1` | mellomrom | `0:0 1:1 ` |\n| 3 | 2 | 4 | `2:4` | mellomrom | `0:0 1:1 2:4 ` |\n\nSå avslutter det tomme `print()` linja, og siste linje skriver de tre bokstavene uten noe imellom.\n\n**Utskrift:**\n```\n0:0 1:1 2:4 \nabc\n```\n\n**Fellenote:** fellen er #16, og den har to halvdeler her. `sep` virker **mellom argumentene i samme `print`** — altså mellom `i` og `i*i`. `end` virker **etter hele `print`-kallet** — altså mellom rundene. Bytter du om på de to, får du `0 0:1 1:2 4` i stedet, og det er nettopp det alternativet distraktorene tilbyr.",
+        "hints": [
+          "`sep` står mellom argumentene i ett kall; `end` står etter kallet.",
+          "Skriv ut hva ett enkelt kall gir, før du setter sammen rundene."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — strenger og lister i utskrift.) Hva skriver programmet ut?\n\n```python\nord = 'regn i mars'\ndeler = ord.split()\nprint(deler)\nprint(len(deler), len(ord))\nprint(deler[0][0], ord[0])\nprint(ord.replace(' ', '_'))\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi |\n|---|---|---|\n| 2 | `ord.split()` — deler på blanktegn | `['regn', 'i', 'mars']` |\n| 4 | `len(deler)` er antall ord; `len(ord)` er antall **tegn**, mellomrom med | `3` og `11` |\n| 5 | `deler[0][0]` er første tegn i første ord; `ord[0]` er første tegn i hele strengen | `r` og `r` |\n| 6 | `.replace(' ', '_')` bytter **alle** mellomrom | `regn_i_mars` |\n\n**Utskrift:**\n```\n['regn', 'i', 'mars']\n3 11\nr r\nregn_i_mars\n```\n\n**Fellenote:** to feller. Den ene er å blande `len` av lista (3) med `len` av strengen (11) — det er to helt ulike spørsmål. Den andre er utskriften av lista: fnuttene rundt hvert ord **er** en del av utskriften når du skriver ut en liste, men ikke når du skriver ut en enkelt streng.\n\nMerk også `deler[0][0]`: to indekseringer etter hverandre, først i lista, så i strengen. Det er samme mekanikk som nøstede lister i [kap. 1.2](/bok/in1900/in1900-1-2).",
+        "hints": [
+          "Del først opp strengen på papiret, og skriv ned lista.",
+          "`len` av en liste og `len` av en streng teller to forskjellige ting."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — full tabellutskrift.) Hva skriver programmet ut? Skriv utskriften nøyaktig; marker mellomrom nøye.\n\n```python\nnavn = ['Blindern', 'Tryvann']\ntemp = [21.5, 17.25]\nfor n, t in zip(navn, temp):\n    print(f'{n:10s}{t:6.1f}')\nprint(f'{\"sum\":10s}{sum(temp):6.1f}')\n```",
+        "solution": "Formatangivelsen `s` er for strenger, og der fylles det ut med mellomrom **etter** teksten (venstrejustert), i motsetning til tall som høyrejusteres.\n\n**Sporingstavle**\n\n| Runde | `n` | `f'{n:10s}'` | `t` | `f'{t:6.1f}'` | Linja blir |\n|---|---|---|---|---|---|\n| 1 | `Blindern` (8 tegn) | `Blindern` + 2 mellomrom | 21.5 | `  21.5` (4 tegn + 2 mellomrom foran) | `Blindern    21.5` |\n| 2 | `Tryvann` (7 tegn) | `Tryvann` + 3 mellomrom | 17.25 | `  17.2` (avrundet til én desimal) | `Tryvann     17.2` |\n| — | `sum` (3 tegn) | `sum` + 7 mellomrom | 38.75 | `  38.8` | `sum          38.8` |\n\n**Utskrift:**\n```\nBlindern    21.5\nTryvann     17.2\nsum         38.8\n```\n\n**Fellenote:** tre feller. (1) `17.25` med én desimal blir `17.2`, ikke `17.3` — Python runder til nærmeste **partall** når tallet står midt imellom, akkurat som `round`. (2) Strenger venstrejusteres i et bredt felt, tall høyrejusteres; det er derfor kolonnene faktisk står rett under hverandre. (3) Summen `38.75` blir `38.8`, for her er sifferet etter ikke midt imellom.\n\n**Hva som gir uttelling:** klarer du å vise at hver kolonne er 10 og 6 tegn bred, har du vist at du forstår formatangivelsen — det belønnes selv om du bommer på avrundingen av `17.25`. Det er en av de detaljene sensor selv kaller nesten umulig å få helt riktig under tidspress.",
+        "hints": [
+          "Tell tegnene i hver streng, og regn ut hvor mange mellomrom bredden krever.",
+          "Hva skjer med `17.25` når du ber om nøyaktig én desimal?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — strengbehandling som i en fillesingsoppgave.) Hva skriver programmet ut?\n\n```python\nlinje = '  Bygdoy ; 12,5 ; 3 \\n'\ndeler = linje.split(';')\nnavn = deler[0].strip()\ntemp = float(deler[1].strip().replace(',', '.'))\nantall = int(deler[2].strip())\nprint(len(deler))\nprint(f'[{navn}]')\nprint(temp, antall)\nprint(f'{navn.upper()}: {temp:5.2f} ({antall:2d})')\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `linje.split(';')` | `['  Bygdoy ', ' 12,5 ', ' 3 \\n']` — tre deler |\n| 2 | `deler[0].strip()` | `'Bygdoy'` — mellomrommene i begge ender borte |\n| 3 | `deler[1].strip()` er `'12,5'`, og `.replace(',', '.')` gir `'12.5'` | `12.5` etter `float` |\n| 4 | `deler[2].strip()` er `'3'` (linjeskiftet er blanktegn og fjernes) | `3` etter `int` |\n\nDeretter utskriftene:\n\n**Utskrift:**\n```\n3\n[Bygdoy]\n12.5 3\nBYGDOY: 12.50 ( 3)\n```\n\nHakeparentesene rundt `navn` i utskriften er satt der med vilje, for å vise at `.strip()` faktisk fjernet mellomrommene. Det er en teknikk du bør bruke selv når du feilsøker.\n\n**Fellenote:** tre feller, alle hentet fra fillesingssjangeren. (1) `float('12,5')` med komma stopper programmet — derfor `.replace(',', '.')` først (feilkode #7 og #8 i familie). (2) `int(' 3 \\n')` fungerer faktisk, fordi `int` tåler blanktegn rundt tallet; men vanen med `.strip()` er verdt å holde. (3) `f'{temp:5.2f}'` gir `12.50` — fem tegn, altså **ingen** mellomrom foran, siden tallet nøyaktig fyller bredden.\n\n**Hva som gir uttelling:** rekkefølgen rydd, del opp, konverter er det sensor ser etter. Får du strukturen riktig, belønnes det selv om du bommer på ett mellomrom i formateringen.",
+        "hints": [
+          "Skriv ned lista `deler` med fnutter rundt hvert element, slik Python selv viser den.",
+          "Hvilket av de tre feltene ville stoppet programmet uten `.replace`?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-4-adv-30",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "- **#16 — utskriftsdetaljer.** `end=' '` fjerner linjeskiftet; `print` setter ett mellomrom mellom argumentene; bredden i en f-streng fyller ut med mellomrom; lister skrives med hakeparenteser, komma **og** mellomrom. Dette er kapitlets hovedfelle.\n- **#8 — feil separator i `split`.** Bar `split()` deler på blanktegn, ikke på semikolon. Er filen semikolonseparert, må det stå `split(';')`.\n- **#7 — glemt `.strip()`.** Siste felt på en fillinje får med linjeskiftet.\n- **Resultatet ikke tatt imot.** Strenger er immutable, så `linje.strip()` alene gjør ingenting. Det må stå `linje = linje.strip()`.\n- **`'sum: ' + 4`.** Du kan ikke skjøte en streng og et tall. Bruk en f-streng.\n- **`f'{x:3d}'` på et flyttall.** `d` krever heltall; bruk `f` for desimaltall."
+    },
+    {
+      "id": "in1900-1-4-coll-31",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `tekst[i]`, `tekst[a:b]` | Som for lister. Indeksering gir en **streng** av lengde 1; slicing gir en streng. |\n| `tekst[::-1]` | Teksten baklengs. |\n| `len(tekst)` | Antall tegn, medregnet mellomrom og linjeskift. |\n| `+`, `*` | Skjøter og gjentar. Begge operandene til `+` må være strenger. |\n| `v in tekst` | **Delstreng**-test (ikke elementtest). Skiller store og små bokstaver. |\n| Immutabel | En streng kan ikke endres. Alle metodene returnerer en **ny** streng. |\n| `.split(sep)` | Deler i en liste på `sep`. Uten argument: på vilkårlig blanktegn, og ender ryddes. |\n| `.strip()` | Fjerner blanktegn i **begge** ender. |\n| `sep.join(liste)` | Skjøter en liste av strenger med `sep` mellom. Separatoren er strengen metoden kalles på. |\n| `.index(d)` | Posisjonen der `d` først forekommer; `ValueError` hvis den ikke finnes. |\n| `.lower()`, `.upper()` | Ny streng med bare små/store bokstaver. |\n| `.replace(gml, ny)` | Bytter ut **alle** forekomster. |\n| `f'{x}'` | F-streng: uttrykket i krøllparentes regnes ut og settes inn. |\n| `f'{x:8.3f}'` | Bredde 8, 3 desimaler, fast desimalform. Bredden fyller ut med mellomrom **foran** tall. |\n| `f'{n:3d}'` | Heltall, bredde 3. `d` krever heltall. |\n| `f'{s:10s}'` | Streng, bredde 10 — fylles ut med mellomrom **etter** teksten. |\n| `f'{x:.3e}'` | Eksponentform: `1.234e+03`. |\n| `print(..., end=' ')` | Erstatter linjeskiftet. `print()` alene skriver bare linjeskiftet. |\n| `print(..., sep=';')` | Endrer det som skrives **mellom** argumentene. Ingen effekt med bare ett argument. |\n| `\\n`, `\\t` | Linjeskift og tabulator — to tegn i koden, **ett** tegn i verdien. |",
+          "id": "in1900-1-4-c31-1"
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-4-t-32",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-1-4-def-33",
+      "type": "definition",
+      "title": "Tom streng `''`",
+      "content": "Strengen uten tegn. `len('')` er `0`, og den regnes som **falsk** i en ja/nei-test, akkurat som den tomme lista.\n\nDen oppstår oftere enn du tror: `'a;;b'.split(';')` gir `['a', '', 'b']`, altså med en tom streng i midten. Ved fillesing er en tom linje derfor noe du må håndtere før du prøver å konvertere til tall."
+    },
+    {
+      "id": "in1900-1-4-def-34",
+      "type": "definition",
+      "title": "Tekst mot tall",
+      "content": "`'12'` og `12` er to helt ulike verdier. Tekst kan skjøtes og gjentas; tall kan legges sammen og ganges.\n\nAlt som kommer inn utenfra — fra kommandolinjen ([kap. 2.1](/bok/in1900/in1900-2-1)), fra `input`, fra en fil ([kap. 8.1](/bok/in1900/in1900-8-1)) — er **tekst**, og må konverteres med `int` eller `float` før du kan regne. Glemmer du det, får du `'12' + '5'` som blir `'125'` i stedet for `17`. Det er en av de faste feilene i «finn feilen»-oppgaver."
+    },
+    {
+      "id": "in1900-1-4-def-35",
+      "type": "definition",
+      "title": "Fnutter: enkle eller doble?",
+      "content": "`'sol'` og `\"sol\"` er samme verdi. Valget er praktisk: skal teksten inneholde en apostrof, bruker du doble fnutter, og omvendt.\n\nBoka bruker **enkle fnutter** som standard, fordi det er den vanlige stilen i fagets fasitkode. Inne i en f-streng må du dessuten passe på: bruker du enkle fnutter utenfor, må du bruke doble inni krøllparentesene, som i `f'{\"sum\":10s}'`."
+    },
+    {
+      "id": "in1900-1-4-coll-36",
+      "type": "collapsible",
+      "title": "Repetisjon — de fem setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "type": "text",
+          "content": "1. `print` setter **ett mellomrom** mellom argumentene; `sep` endrer det, `end` endrer det som kommer etter.\n2. Bredde i en f-streng fyller ut med mellomrom — **foran** tall, **etter** strenger.\n3. `.split()` deler på blanktegn, `.split(';')` på semikolon. Feil valg gir ett felt i stedet for flere.\n4. Strenger er immutable: alle metodene returnerer en ny streng, som du må ta imot.\n5. En liste skrives ut med hakeparenteser, komma og mellomrom, og strenger inne i den beholder fnuttene.\n\nEr de fem på plass, klarer du utskriftsdelen av kodesporingsdrillen i [kap. 1.7](/bok/in1900/in1900-1-7).",
+          "id": "in1900-1-4-c36-1"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
