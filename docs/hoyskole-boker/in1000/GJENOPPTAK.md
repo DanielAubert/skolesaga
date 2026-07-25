@@ -2,8 +2,8 @@
 
 - **Branch:** `bok/in1000`
 - **Arbeidsmappe:** `.claude/worktrees/bok-in1000` (eget git-arbeidstre — bruk KUN denne)
-- **Status nå (25. juli 2026):** steg 0 ferdig. Steg 1 pågår — **7 av 37 filer
-  på disk**, alle med grønne porter og hver sin commit:
+- **Status nå (25. juli 2026, kveld):** steg 1 pågår — **16 av 37 filer på
+  disk**, alle med grønne porter og hver sin commit:
 
   | Fil | Quiz | FC | Oppg. | Status |
   |---|---|---|---|---|
@@ -14,24 +14,32 @@
   | `in1000-1-prove` Prøver til del 1 | — | — | 36 kortsvar | ferdig |
   | `in1000-2-1` Funksjoner: def, parametere og return | 20 | 22 | 8 | ferdig |
   | `in1000-2-2` Funksjonssamarbeid og scope | 18 | 18 | 6 | ferdig |
-  | **Sum så langt** | **116** | **124** | **42 + 36** | av 516 · 508 |
+  | `in1000-2-prove` Prøver til del 2 | — | — | 21 | ferdig |
+  | `in1000-3-1` Lister | 22 | 26 | 8 | ferdig |
+  | `in1000-3-2` Ordbøker | 22 | 24 | 8 | ferdig |
+  | `in1000-3-3` Strenger | 20 | 26 | 8 | ferdig |
+  | `in1000-3-4` DRILL — skriv en funksjon | 24 | 14 | 14 | ferdig |
+  | `in1000-3-prove` Prøver til del 3 | — | — | 13 | ferdig |
+  | `in1000-4-1` DRILL — kodesporing | 28 | 16 | 16 | ferdig |
+  | `in1000-4-2` «Finn feilen» og moteksempel | 14 | 18 | 8 | ferdig |
+  | `in1000-4-prove` Prøver til del 4 | — | — | 36 | ferdig |
+  | **Sum så langt** | **246** | **248** | **104 + prøver** | av 516 · 508 |
 
-  **Agent B1 (Del 0 + Del 1) er dermed FULLFØRT**, og B2 er halvferdig (Del 2
-  ferdig, Del 3 gjenstår). Mål alltid disk med `status-bok.py` — aldri gjett.
+  **Oppdrag B1 (Del 0 + 1), B2 (Del 2 + 3) og B3 (Del 4) er dermed
+  FULLFØRT.** Mål alltid disk med `status-bok.py` — aldri gjett.
 
-- **Neste fil:** `in1000-2-prove` (4 prøver, 100 min) eller rett på
-  `in1000-3-1` (Lister). Del 3 er nest tyngste del og bærer hele Oppgave 3.
+- **Neste fil:** `in1000-5-1` (Klasser og objekter). Oppdrag B4 = hele Del 5,
+  seks filer. Del 5 er teorigrunnlaget for BÅDE Oppgave 2 og Oppgave 4.
 - **Arketype:** DNA-regnefag, undertype **kodefag** — plattformens ANDRE.
   Presedens: `docs/hoyskole-boker/in1900/` (bygget og verifisert 25. juli 2026).
-- **Ingen blokkeringer:** renderer-støtten for ```-kodeblokker og inline-kode er
-  på main (commit `274ce8af` + oppfølger), og `sjekk-latex.py` ser bort fra kode
-  når den teller dollartegn.
+- **Ingen blokkeringer.**
 
 ## Sjekk status (kjør etter HVERT ferdig kapittel — gå aldri forbi en rød port)
 
 ```bash
 python3 scripts/hoyskolebok/status-bok.py in1000                    # hva finnes på disk
 python3 scripts/hoyskolebok/sjekk-utskrift.py src/lib/data/chapters/in1000-X-Y.json
+python3 scripts/hoyskolebok/sjekk-sporing.py in1000                 # sjanger A-fasiter
 python3 scripts/hoyskolebok/sjekk-kode.py in1000                    # kodeporten
 python3 scripts/hoyskolebok/sjekk-latex.py in1000                   # LaTeX/kontrolltegn
 python3 scripts/hoyskolebok/sjekk-prosaregel.py in1000 "rekursj" \
@@ -45,7 +53,7 @@ python3 -c "import json; json.load(open('src/lib/data/chapters/in1000-X-Y.json')
 Prod-curl av rendringen (når nok kapitler finnes): HTML-en skal inneholde
 `<pre` og IKKE `<em>init</em>`.
 
-### Tre porter er BYGGET i dette løpet — bruk dem, ikke finn dem opp igjen
+### Fire porter er BYGGET i dette løpet — bruk dem, ikke finn dem opp igjen
 
 - **`sjekk-utskrift.py`** (ny): kjører hver ```python-blokk og sammenligner med
   «**Utskrift:**»-blokken. Gjør IN1900-lærdom 1 deterministisk. Obligatorisk per
@@ -56,6 +64,15 @@ Prod-curl av rendringen (når nok kapitler finnes): HTML-en skal inneholde
 - **`sjekk-kode.py`** (utvidet): kjenner nå forskjell på en «Prøve …»-boks
   (oppgavesett, skal ikke ha fasit ved siden av koden) og en «Fasit …»-boks. Uten
   det ville utskrift-plikten tvunget fasiten inn i selve prøven.
+- **`sjekk-sporing.py`** (ny, 25. juli kveld): utskriftsporten kan IKKE sjekke
+  sporingsoppgaver, fordi koden står i `exercise.task` mens svaret står i
+  `exercise.solution` som en løsrevet «**Utskrift:**»-blokk uten kodeblokk
+  foran. Denne porten kjører koden fra oppgaveteksten og sammenligner. Den er
+  konservativ (hopper over flerprogram-oppgaver, `import`/`sys.argv`, fil,
+  modul, stdin, og fasiter som bare mangler avsluttende linjeskift).
+  **Den fant tre gale sjanger A-fasiter ved første kjøring** — én av dem i et
+  kapittel som allerede var committet. Kjør den på HVERT kapittel med
+  sporingsoppgaver.
 
 ### Fallgruver som allerede har kostet tid
 
@@ -73,6 +90,20 @@ Prod-curl av rendringen (når nok kapitler finnes): HTML-en skal inneholde
 - **Kap. 0.1 lenker til alle bokas kapitler.** `sjekk-bok.py` avviser døde
   lenker, så den porten blir først grønn når hele boka står på disk. Det er
   forventet, ikke et avvik.
+- **Feilmeldinger vises som ```text-blokker, ikke som «**Utskrift:**».**
+  Utskriftsporten sammenligner mot **stdout**, og en traceback går til stderr —
+  et `python`-eksempel som krasjer, gir derfor alltid avvik. Presedensen i boka
+  (kap. 2.1, 3.1, 3.3, 4.2) er å vise den plantede feilen i en ```text-blokk og
+  sitere siste linje i feilmeldingen i prosaen.
+- **Prøvekapitler bør BYGGES med kjørt utskrift.** `in1000-4-prove` har en
+  byggefil (mønster i scratchpad) der hver sporingsoppgave er en tuppel
+  `(poeng, kode, kommentar)`; byggefila kjører koden og limer den faktiske
+  stdout inn i fasiten. Fasiten kan da ikke være skrevet fra hukommelsen, og
+  ingen manuell etterkontroll trengs. Bruk det mønsteret for Del 5–8-prøvene.
+- **Verifiser også påstander om KODE SOM ER FEIL.** I kap. 4.2 var to påstander
+  om plantet kode gale (`NameError` var i virkeligheten `UnboundLocalError`, og
+  «går fint på tom liste» var feil). Kjør alltid den gale koden også, og noter
+  hva den faktisk gjør.
 
 ## Kapittelinndeling og kvoter (kapittel-id-er fra SKJELETT.md §4, kvoter fra §5)
 
