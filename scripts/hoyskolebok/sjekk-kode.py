@@ -15,26 +15,26 @@ Sjekker (alle deterministiske, exit 1 ved avvik):
 2. **Ingen rekursjon.** En funksjon som kaller seg selv inne i sin egen kropp
    (innrykk-bevisst, så «definér f, bruk f etterpå» ikke gir falsk treff).
    Rekursjon er utenfor pensum i in1900 og markeres uønsket i fasit.
-3. **Ingen `$` inne i kodeblokker.** Et bart `$` gjør at $-balansesjekken i
-   sjekk-latex.py rapporterer avkuttet formel, og rendreren kan spise resten.
-4. **Ingen TAB som innrykk i Python-kilde.** TAB er lovlig inne i ```-blokker
+3. **Ingen TAB som innrykk i Python-kilde.** TAB er lovlig inne i ```-blokker
    (kolonnejustering i programutskrift), men Python-kilden skal ha 4 mellomrom.
-5. **Forbudte konstruksjoner i kode** (utenfor pensum / utenfor bokas stil):
+4. **Forbudte konstruksjoner i kode** (utenfor pensum / utenfor bokas stil):
    pandas, sympy, seaborn, dekoratorer, dataclass, walrus, match/case,
    returannotasjoner, `if __name__ == '__main__'`.
-6. **Utskrift-plikt.** En ```python-blokk med `print(` i et FASIT-/teorifelt
+5. **Utskrift-plikt.** En ```python-blokk med `print(` i et FASIT-/teorifelt
    skal følges av en «**Utskrift:**»-blokk med den faktiske utskriften.
    Unntak: `task`/`problem`-felt (sporingsoppgaver skal ikke røpe svaret) og
    blokker merket `# ingen utskrift`.
-7. **Dunder- og potensnavn i kodemarkering.** `__init__` og `x**2` MÅ stå i
-   backticks eller i en kodeblokk. I løpende prosa mangler rendreren
-   kodebeskyttelse: `_([^_]+)_` gjør `__init__` til `_<em>init</em>_`, og to
-   `**` i samme streng blir `<strong>`.
-8. **Gammel ODESolver-API bare der den er tillatt** (`f(u, t)` /
+6. **Gammel ODESolver-API bare der den er tillatt** (`f(u, t)` /
    `solve(time_points)`): kun i Del 7 og i eksamenskartet (Del 0).
-9. **Quiz i staging:** nøyaktig 4 alternativer, ingen duplikater, og
+7. **Quiz i staging:** nøyaktig 4 alternativer, ingen duplikater, og
    options[0] er unikt lengst i under 35 % av spørsmålene (LENGDE-TELL —
    begge retninger: også unikt KORTEST under 35 %).
+
+RÅDGIVENDE merknader (feiler ALDRI porten): dunder-navn (`__init__`) og
+potensuttrykk (`x**2`) som står i løpende prosa uten backticks. Etter
+renderer-fiksen 25. juli 2026 (```-gjerder og inline-kode parkeres før matte og
+markdown) er dette en stilsak, ikke en rendringsfeil — men kode skal se ut som
+kode, jf. BYGGEKONTRAKT §K8.4.
 
 Kjør:  python3 scripts/hoyskolebok/sjekk-kode.py in1900
 """
@@ -110,7 +110,7 @@ def utenfor_kode(s):
     return re.sub(r"`[^`\n]*`", " ", s)
 
 
-def sjekk_kapitler(emne, avvik):
+def sjekk_kapitler(emne, avvik, merknader):
     filer = sorted(glob.glob(os.path.join(CH, emne + "-*.json")))
     if not filer:
         sys.exit(f"fant ingen kapittelfiler for {emne}")
@@ -137,8 +137,6 @@ def sjekk_kapitler(emne, avvik):
                 for f in selvkall(kropp):
                     avvik.append(f"REKURSJON i {navn}{sti}: funksjonen «{f}» kaller seg selv"
                                  f" — rekursjon er utenfor pensum, bruk løkke")
-                if "$" in kropp:
-                    avvik.append(f"$ I KODEBLOKK i {navn}{sti} — knekker $-balansesjekken")
                 for linje in kropp.split("\n"):
                     if linje[: len(linje) - len(linje.lstrip())].count("\t"):
                         avvik.append(f"TAB SOM INNRYKK i {navn}{sti} — Python-kilde skal ha 4 mellomrom")
@@ -153,11 +151,11 @@ def sjekk_kapitler(emne, avvik):
                                      f" «**Utskrift:**»-blokk rett etter (lim inn den KJØRTE utskriften)")
             rå = utenfor_kode(s)
             for m in re.finditer(r"__\w+__", rå):
-                avvik.append(f"DUNDER UTEN BACKTICKS i {navn}{sti}: «{m.group(0)}»"
-                             f" — rendreren gjør __x__ til _<em>x</em>_")
+                merknader.append(f"dunder uten backticks i {navn}{sti}: «{m.group(0)}»"
+                                 f" — skriv `{m.group(0)}` (stil, ikke rendringsfeil)")
             for m in re.finditer(r"\w\*\*\w", rå):
-                avvik.append(f"POTENS UTEN BACKTICKS i {navn}{sti}: «{m.group(0)}»"
-                             f" — to ** i samme streng blir <strong>")
+                merknader.append(f"potens uten backticks i {navn}{sti}: «{m.group(0)}»"
+                                 f" — skriv `{m.group(0)}` (stil, ikke rendringsfeil)")
             if not del7:
                 for rx, hva in GAMMEL_API:
                     if re.search(rx, s):
@@ -203,10 +201,15 @@ def main():
         sys.exit(__doc__)
     emne = sys.argv[1]
     avvik = []
-    n_filer, n_blokker = sjekk_kapitler(emne, avvik)
+    merknader = []
+    n_filer, n_blokker = sjekk_kapitler(emne, avvik, merknader)
     n_quiz, fordeling = sjekk_quiz(emne, avvik)
     print(f"{emne}: {n_filer} kapittelfiler | {n_blokker} python-kodeblokker | {n_quiz} staging-quiz"
           + (f" (options[0] unikt lengst {fordeling[0]}, unikt kortest {fordeling[1]})" if fordeling else ""))
+    if merknader:
+        print(f"MERKNADER — kodemarkering (RÅDGIVENDE, feiler ikke porten; {len(merknader)}):")
+        for m in merknader[:20]:
+            print(" ·", m)
     if avvik:
         print(f"AVVIK ({len(avvik)}):")
         for a in avvik[:60]:
@@ -215,7 +218,7 @@ def main():
             print(f"   … og {len(avvik)-60} flere")
         sys.exit(1)
     print("KODEPORT OK — all kode kompilerer, ingen rekursjon, utskrift dokumentert,"
-          " kodemarkering intakt, quiz-lengder jevne")
+          " quiz-lengder jevne")
 
 
 if __name__ == "__main__":

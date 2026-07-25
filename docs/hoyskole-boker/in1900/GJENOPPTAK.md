@@ -4,23 +4,30 @@
 - **Arbeidsmappe:** `.claude/worktrees/bok-in1900` (eget git-arbeidstre — bruk KUN denne)
 - **Status nå:** steg 0 ferdig (BYGGEKONTRAKT.md, BOKCONFIG.json, GJENOPPTAK.md,
   FIGUR-BESTILLINGER.md + kodeporten `scripts/hoyskolebok/sjekk-kode.py`).
-  Ingen kapittelfiler på disk.
+  Ingen kapittelfiler på disk. Ingen blokkeringer — renderer-støtten for kode er
+  på plass (se under).
 - **Arketype:** DNA-regnefag, undertype **kodefag** — plattformens første.
   Kontrakten setter presedens for IN1000/IN1010/IN2040/TDT4110/TDT4100/TDT4102.
 
-## ⚠️ BLOKKERING FØR BYGGEBØLGEN (byggeleders beslutning)
+## Koderendering — løst (ingen blokkering)
 
-`LatexRenderer` støtter ikke kodeblokker og beskytter ikke kode mot
-markdown-transformene: ```` ```python ````-blokker kollapser til én inline-`<code>`
-uten innrykk, `__init__` blir `_<em>init</em>_`, og `x**2 + y**2` blir
-`x<strong>2 + y</strong>2`. Se **BYGGEKONTRAKT §0** for målingene og den
-minimale patchen (park fences + inline kode før markdown-transformene, med
-`escapeHtml`). Patchen fikser samtidig de 159 eksisterende kapittelfilene som
-bruker ```` ```python ````. Bygg gjerne kapitlene før patchen — formatet er det
-samme — men boka kan ikke deployes før porten er grønn:
+`LatexRenderer` støttet opprinnelig ikke ```-kodeblokker og beskyttet ikke kode
+mot markdown-transformene (```` ```python ````-blokker mistet innrykk,
+`__init__` ble `_<em>init</em>_`, `x**2` ble fet). Funnet i steg 0 og **fikset av
+byggeleder 25. juli 2026** (commit `274ce8af` + oppfølger på main): gjerder og
+inline-kode parkeres nå før både matte og markdown og rendres som
+`<pre><code class="language-x">` med `escapeHtml`. Omfanget som var ødelagt: 3 256
+kodeblokker i 66 bøker + 252 inline-kodesteder i 64 filer. Se BYGGEKONTRAKT §0.
+
+Samtidig ble `sjekk-latex.py` presisert: den ser bort fra ```-blokker og
+inline-kode når den teller dollartegn, så `$` i kode er tillatt (kontrakten §K1).
+
+Fiksen ligger på `main`; dette arbeidstreet er utgått FØR den og får den ved
+neste merge/rebase. Kapitlene skrives likt uansett — men skal du prod-curle
+rendringen lokalt, må treet ha fiksen først:
 
 ```bash
-# etter patch: skal finne <pre og IKKE finne <em>init</em>
+# skal finne <pre og IKKE finne <em>init</em>
 curl -s localhost:3111/bok/in1900/in1900-5-1 | grep -c "<pre"
 curl -s localhost:3111/bok/in1900/in1900-5-1 | grep -c "<em>init</em>"
 ```
