@@ -1165,7 +1165,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er rettferdighet i staten for Platon?",
       options: ["Arbeidsdeling etter naturlige anlegg — hver gjør det han er best egnet til", "At staten skal sikre absolutt alle borgerne de samme grunnleggende kapabilitetene", "At alle borgere skal ha nøyaktig like mye eiendom og makt", "At det til slutt er flertallet som bestemmer gjennom avstemning"],
-      explanation: "Platons sentrale poeng: rettferdighet = arbeidsdeling etter anlegg, hver på sin rette plass. (Det siste alternativet er Nussbaum.)",
+      explanation: "Platons sentrale poeng: rettferdighet = arbeidsdeling etter anlegg, hver på sin rette plass. (Svaret om at staten skal sikre alle borgerne de samme grunnleggende kapabilitetene, er Nussbaum.)",
     },
     {
       question: "Hva er det *sentrale poenget* man må treffe i en redegjørelse for Platons rettferdighet?",
@@ -1272,7 +1272,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er sosial rettferdighet for Nussbaum?",
       options: ["At alle borgere har de artsbestemte kapabilitetene på plass over en terskel", "At hver enkelt borger plasseres etter sine egne helt naturlige medfødte anlegg", "At absolutt alle borgerne til slutt har nøyaktig lik inntekt", "At det er selve flertallet som til slutt bestemmer fordelingen"],
-      explanation: "Sentralt poeng (2025 b): kapabilitetene på plass, ikke bare formell frihet. (Siste alternativ er Platon.)",
+      explanation: "Sentralt poeng (2025 b): kapabilitetene på plass, ikke bare formell frihet. (Svaret om å plassere hver borger etter medfødte anlegg er Platon.)",
     },
     {
       question: "Hva er forskjellen mellom en kapabilitet og en funksjon?",
