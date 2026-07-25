@@ -1,0 +1,334 @@
+{
+  "id": "econ1100-7-1",
+  "courseId": "econ1100",
+  "chapterNumber": "7.1",
+  "title": "Homogene funksjoner og skalautbytte",
+  "description": "Testen f(tx,ty) = t opphøyd i k ganger f(x,y): hvordan homogenitetsgraden finnes, hva den sier om skalautbyttet, og hvorfor en dobling ganger funksjonen med 2 opphøyd i k og aldri med 2k.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "avgjøre om en funksjon er homogen og finne graden ved å skalere alle variablene",
+    "konkludere at en funksjon ikke er homogen når faktoren ikke lar seg trekke rent ut",
+    "tolke graden som konstant, tiltakende eller avtakende skalautbytte",
+    "regne ut doblingsfaktoren riktig og skille homogenitetsgrad fra produksjonselastisitet"
+  ],
+  "content": [
+    {
+      "id": "econ1100-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ett spørsmål går igjen: hva skjer hvis alt dobles?**\n\n**Sjanger HG — homogenitet og skalautbytte**, altså spørsmålet om hva som skjer med en funksjon når *alle* variablene skaleres med samme faktor. Sjangeren står i **9 av 16 sett** i arkivet (56 %), og den er **tyngst representert i de utsatte settene**.\n\n**Formen den kommer i:** som regel et punkt i sant/usant-oppgaven («funksjonen er homogen av grad 2 — sant eller usant?»), eller innvevd i en produsentoppgave der skalautbyttet skal tolkes.\n\n**To ting koster poeng her, hvert år:**\n\n1. **Doblingsfaktoren.** Dobles alle innsatsfaktorer i en funksjon som er homogen av grad $k$, ganges produksjonen med $2^{k}$ — ikke med $2k$. For $k=3$ er forskjellen mellom $8$ og $6$.\n2. **Å påstå homogenitet uten å sjekke.** Faktoren $t^{k}$ må la seg trekke **rent** ut. Går det ikke, er funksjonen ikke homogen, og det er et fullgodt svar.\n\n**Metoden er mekanisk og kan trenes inn på en halvtime:** erstatt $x$ med $tx$ og $y$ med $ty$, regn ut, og se om du sitter igjen med $t^{k}$ ganger den opprinnelige funksjonen.\n\nKapitlet ligger på prioritetsnivået **kunne**.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.1](/bok/econ1100/econ1100-1-1) (potensregler og derivasjon) og [kap. 1.2](/bok/econ1100/econ1100-1-2) (funksjoner av flere variabler). Ingen ny derivasjonsteknikk trengs — dette er regning med eksponenter.\n\n**Sist du var her — de tre potensreglene alt hviler på:**\n\n$$(ab)^{n}=a^{n}b^{n};\\qquad \\big(a^{m}\\big)^{n}=a^{mn};\\qquad a^{m}a^{n}=a^{m+n}$$"
+    },
+    {
+      "id": "econ1100-7-1-motivasjon",
+      "type": "text",
+      "content": "En fabrikk dobler alt: dobbelt så mange maskiner, dobbelt så mange ansatte, dobbelt så stort lokale. Blir produksjonen dobbelt så stor?\n\nSvaret er ikke gitt. Noen ganger blir den nøyaktig dobbelt — bygg en fabrikk til ved siden av, og du produserer dobbelt. Andre ganger blir den mer enn dobbelt, fordi større anlegg kan spesialisere seg. Og noen ganger mindre, fordi koordineringen blir tyngre.\n\nDe tre tilfellene har navn: **konstant**, **tiltakende** og **avtakende skalautbytte**. Og de har en enkel matematisk kjennetegn.\n\nEn funksjon som skalerer pent — der en dobling av alle variabler ganger funksjonen med en fast faktor — kalles **homogen**. Tallet i eksponenten på skaleringsfaktoren er homogenitetsgraden, og den forteller nøyaktig hvilket av de tre tilfellene du står i."
+    },
+    {
+      "id": "econ1100-7-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Definisjonen og testen (~15 min)"
+    },
+    {
+      "id": "econ1100-7-1-def-homogen",
+      "type": "definition",
+      "title": "Homogen funksjon",
+      "content": "En funksjon er homogen av grad $k$ hvis en skalering av alle variablene ganger funksjonen med $t$ opphøyd i $k$.\n\n$$f(tx,ty)=t^{k}f(x,y)\\qquad\\text{for alle }t>0$$\n\nTallet $k$ kalles **homogenitetsgraden**. Kravet «for alle $t$» er vesentlig: det holder ikke at likheten stemmer for én enkelt verdi av $t$. Graden trenger ikke være et helt tall — den kan godt være $\\tfrac56$."
+    },
+    {
+      "id": "econ1100-7-1-def-testen",
+      "type": "definition",
+      "title": "Testen for homogenitet",
+      "content": "Erstatt hver variabel med $t$ ganger seg selv, regn ut, og se om $t^{k}$ lar seg trekke rent ut.\n\n$$f(tx,ty)\\ \\longrightarrow\\ \\text{faktoriser}\\ \\longrightarrow\\ t^{k}f(x,y)?$$\n\nLykkes det, er funksjonen homogen av grad $k$. Blir det stående ledd med **ulike** potenser av $t$, er den **ikke** homogen — og det er et fullgodt svar, ikke en mislykket utregning."
+    },
+    {
+      "id": "econ1100-7-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Testen i tre tilfeller",
+      "problem": "Avgjør om funksjonene er homogene, og finn i så fall graden.\n\n**a)** $f(x,y)=x^{1/3}y^{1/2}$\n\n**b)** $f(x,y)=x^{2}y$\n\n**c)** $f(x,y)=x^{2}+y^{3}$",
+      "solution": "**a)** Erstatt $x\\to tx$ og $y\\to ty$:\n\n$$f(tx,ty)=(tx)^{1/3}(ty)^{1/2}$$\n\nBruk potensregelen $(ab)^{n}=a^{n}b^{n}$ på hver faktor:\n\n$$=t^{1/3}x^{1/3}\\cdot t^{1/2}y^{1/2}$$\n\nSaml $t$-ene med regelen $a^{m}a^{n}=a^{m+n}$:\n\n$$=t^{1/3+1/2}\\,x^{1/3}y^{1/2}=t^{5/6}f(x,y)$$\n\n*Mellomregning på eksponenten:* $\\tfrac13+\\tfrac12=\\tfrac26+\\tfrac36=\\tfrac56$.\n\n**Homogen av grad $k=\\tfrac56$.**\n\n*Numerisk kontroll:* med $x=8$, $y=4$ er $f=8^{1/3}\\cdot 4^{1/2}=2\\cdot 2=4$. Med $t=2$ blir $f(16,8)=16^{1/3}\\cdot 8^{1/2}\\approx 2{,}5198\\cdot 2{,}8284\\approx 7{,}1272$, mens $2^{5/6}\\cdot 4\\approx 1{,}7818\\cdot 4=7{,}1272$ ✓\n\n**b)**\n\n$$f(tx,ty)=(tx)^{2}(ty)=t^{2}x^{2}\\cdot ty=t^{3}x^{2}y=t^{3}f(x,y)$$\n\n**Homogen av grad $k=3$.**\n\n*Merk mønsteret:* for et produkt av potenser er graden **summen av eksponentene**. I a) var det $\\tfrac13+\\tfrac12$, i b) er det $2+1$.\n\n**c)**\n\n$$f(tx,ty)=(tx)^{2}+(ty)^{3}=t^{2}x^{2}+t^{3}y^{3}$$\n\nHer står to ulike potenser av $t$: $t^{2}$ i det første leddet og $t^{3}$ i det andre. Ingen felles $t^{k}$ lar seg trekke ut.\n\n**Ikke homogen.**\n\n*Kontroll med tall:* med $x=y=1$ er $f=2$. Med $t=2$ blir $f(2,2)=4+8=12$. Var funksjonen homogen av grad 2, skulle vi fått $2^{2}\\cdot 2=8$; av grad 3 skulle vi fått $2^{3}\\cdot 2=16$. Verken $8$ eller $16$ er $12$, så ingen grad passer ✓\n\n**Legg merke til at c) er et fullgodt svar.** «Ikke homogen» er en konklusjon, ikke en mislykket utregning — og eksamensoppgaver ber ofte om nettopp den vurderingen."
+    },
+    {
+      "id": "econ1100-7-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger HG — homogenitet og skalautbytte, i 9 av 16 sett. Innstegsoppgave.) Avgjør om funksjonene er homogene, og finn i så fall graden.\n\n**a)** $f(x,y)=x^{1/2}y^{1/2}$\n\n**b)** $f(x,y)=3x^{2}y^{4}$\n\n**c)** $f(x,y)=x+y^{2}$",
+        "solution": "**a)**\n\n$$f(tx,ty)=(tx)^{1/2}(ty)^{1/2}=t^{1/2}t^{1/2}x^{1/2}y^{1/2}=t\\,f(x,y)$$\n\n**Homogen av grad $k=1$.** Eksponentsummen er $\\tfrac12+\\tfrac12=1$.\n\n**b)** Den multiplikative konstanten 3 påvirker ikke testen:\n\n$$f(tx,ty)=3(tx)^{2}(ty)^{4}=3t^{2}x^{2}t^{4}y^{4}=t^{6}\\cdot 3x^{2}y^{4}=t^{6}f(x,y)$$\n\n**Homogen av grad $k=6$.** Eksponentsummen er $2+4$.\n\n**c)**\n\n$$f(tx,ty)=tx+t^{2}y^{2}$$\n\nTo ulike potenser av $t$ — ingen felles faktor lar seg trekke ut.\n\n**Ikke homogen.**\n\n*Kontroll:* med $x=y=1$ er $f=2$; med $t=3$ blir $f(3,3)=3+9=12$. Grad 1 ville gitt $3\\cdot 2=6$ og grad 2 ville gitt $9\\cdot 2=18$. Ingen av dem stemmer ✓",
+        "hints": [
+          "Erstatt $x$ med $tx$ og $y$ med $ty$, og bruk potensregelen $(ab)^{n}=a^{n}b^{n}$.",
+          "For et produkt av potenser er graden summen av eksponentene.",
+          "Blir det stående ulike potenser av $t$ i ulike ledd, er funksjonen ikke homogen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-1-def-cobb-douglas-grad",
+      "type": "definition",
+      "title": "Cobb-Douglas: graden er eksponentsummen",
+      "content": "For et produkt av potenser er homogenitetsgraden summen av eksponentene.\n\n$$f(x,y)=Ax^{\\alpha}y^{\\beta}\\ \\Longrightarrow\\ k=\\alpha+\\beta$$\n\nDen multiplikative konstanten $A$ spiller ingen rolle. Dette er den vanligste formen i eksamensoppgavene, og den lar deg lese graden rett av uten å gjøre testen — men på en «vis at»-oppgave skal testen likevel føres."
+    },
+    {
+      "id": "econ1100-7-1-def-ces-grad",
+      "type": "definition",
+      "title": "CES-funksjonens grad",
+      "content": "Også CES-teknologien er homogen, og graden leses av den ytre eksponenten.\n\n$$f(K,L)=\\big(K^{\\gamma}+L^{\\gamma}\\big)^{\\alpha/\\gamma}\\ \\Longrightarrow\\ k=\\alpha$$\n\n**Hvorfor:** skalering gir $\\big((tK)^{\\gamma}+(tL)^{\\gamma}\\big)^{\\alpha/\\gamma}=\\big(t^{\\gamma}(K^{\\gamma}+L^{\\gamma})\\big)^{\\alpha/\\gamma}=t^{\\alpha}f(K,L)$. Faktoren $t^{\\gamma}$ trekkes ut av parentesen og opphøyes i $\\alpha/\\gamma$, slik at $\\gamma$ stryker seg. Funksjonen kommer igjen i [kap. 9.2](/bok/econ1100/econ1100-9-2)."
+    },
+    {
+      "id": "econ1100-7-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Doblingstolkningen (~15 min)"
+    },
+    {
+      "id": "econ1100-7-1-def-dobling",
+      "type": "definition",
+      "title": "Doblingsfaktoren er $2^{k}$",
+      "content": "Dobles alle variablene, ganges funksjonen med to opphøyd i graden.\n\n$$f(2x,2y)=2^{k}f(x,y)$$\n\nDette følger direkte av definisjonen med $t=2$. **Faktoren er $2^{k}$, aldri $2k$** — det er den vanligste enkeltfeilen i sjangeren. For $k=3$ er svaret $8$, ikke $6$; for $k=\\tfrac12$ er det $\\sqrt2\\approx 1{,}41$, ikke $1$."
+    },
+    {
+      "id": "econ1100-7-1-def-skalautbytte",
+      "type": "definition",
+      "title": "Skalautbytte",
+      "content": "Homogenitetsgraden avgjør hvordan produksjonen svarer på en proporsjonal økning i alle innsatsfaktorer.\n\n$$k=1\\ \\text{konstant};\\qquad k>1\\ \\text{tiltakende};\\qquad k<1\\ \\text{avtakende}$$\n\nVed **konstant** skalautbytte gir en dobling av alt nøyaktig dobbelt produksjon. Ved **tiltakende** gir den mer enn dobbelt — stordriftsfordeler. Ved **avtakende** gir den mindre enn dobbelt."
+    },
+    {
+      "id": "econ1100-7-1-def-generell-skalering",
+      "type": "definition",
+      "title": "Generell skalering",
+      "content": "Regelen gjelder for enhver skaleringsfaktor, ikke bare dobling.\n\n$$\\text{alle variabler ganget med }t\\ \\Longrightarrow\\ f\\ \\text{ganget med }t^{k}$$\n\nKuttes alt med 20 prosent, er $t=0{,}8$, og produksjonen ganges med $0{,}8^{k}$. Med $k=\\tfrac56$ blir det $0{,}8^{5/6}\\approx 0{,}83$ — altså et fall på omtrent 17 prosent, mindre enn kuttet i innsatsfaktorene."
+    },
+    {
+      "id": "econ1100-7-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Fra grad til tolkning",
+      "problem": "En bedrift har produktfunksjonen $Q(K,L)=10K^{0{,}4}L^{0{,}5}$, der $K$ er kapital og $L$ er arbeidskraft.\n\n**a)** Finn homogenitetsgraden.\n\n**b)** Hvilket skalautbytte har bedriften?\n\n**c)** Hva skjer med produksjonen hvis begge innsatsfaktorene dobles?\n\n**d)** Hva skjer hvis begge kuttes med 30 prosent?",
+      "solution": "**a) Testen:**\n\n$$Q(tK,tL)=10(tK)^{0{,}4}(tL)^{0{,}5}=10\\,t^{0{,}4}K^{0{,}4}t^{0{,}5}L^{0{,}5}=t^{0{,}9}\\cdot 10K^{0{,}4}L^{0{,}5}=t^{0{,}9}Q(K,L)$$\n\n**Homogen av grad $k=0{,}9$** — eksponentsummen $0{,}4+0{,}5$.\n\n**b)** Siden $k<1$, har bedriften **avtakende skalautbytte**: en proporsjonal økning i begge innsatsfaktorer gir en mindre enn proporsjonal økning i produksjonen.\n\n**c) Dobling** betyr $t=2$:\n\n$$Q(2K,2L)=2^{0{,}9}Q(K,L)\\approx 1{,}866\\,Q(K,L)$$\n\nProduksjonen stiger med omtrent **87 prosent**, ikke 100 prosent. Bedriften får altså mindre igjen enn den setter inn.\n\n*Merk fellen:* faktoren er $2^{0{,}9}\\approx 1{,}87$, ikke $2\\cdot 0{,}9=1{,}8$. Forskjellen er liten her, men den er stor for større $k$: med $k=3$ er $2^{3}=8$ mot $2\\cdot 3=6$.\n\n**d) Kutt på 30 prosent** betyr $t=0{,}7$:\n\n$$Q(0{,}7K,0{,}7L)=0{,}7^{0{,}9}Q(K,L)\\approx 0{,}726\\,Q(K,L)$$\n\nProduksjonen faller med omtrent **27 prosent** — altså litt mindre enn kuttet på 30 prosent.\n\n**Sammenhengen med avtakende skalautbytte:** når $k<1$, reagerer produksjonen svakere enn innsatsfaktorene i begge retninger. Den stiger mindre enn proporsjonalt ved oppskalering, og den faller mindre enn proporsjonalt ved nedskalering.\n\n*Tallkontroll:* med $K=L=1$ er $Q=10$. Med $K=L=2$ blir $Q=10\\cdot 2^{0{,}4}\\cdot 2^{0{,}5}=10\\cdot 2^{0{,}9}\\approx 18{,}66$ ✓"
+    },
+    {
+      "id": "econ1100-7-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger HG.) La $f(x,y)=x^{1/3}y^{1/2}$.\n\n**a)** Vis at $f$ er homogen, og finn graden.\n\n**b)** Hvilket skalautbytte svarer graden til?\n\n**c)** Hva skjer med $f$ når begge variablene dobles? Oppgi svaret både som faktor og i prosent.\n\n**d)** En medstudent hevder at doblingen ganger $f$ med $2\\cdot\\tfrac56=\\tfrac53$. Hva er galt?",
+        "solution": "**a)**\n\n$$f(tx,ty)=(tx)^{1/3}(ty)^{1/2}=t^{1/3}t^{1/2}x^{1/3}y^{1/2}=t^{5/6}f(x,y)$$\n\n*Mellomregning:* $\\tfrac13+\\tfrac12=\\tfrac{2}{6}+\\tfrac{3}{6}=\\tfrac56$.\n\n**Homogen av grad $k=\\tfrac56$.**\n\n**b)** Siden $\\tfrac56<1$, er skalautbyttet **avtakende**.\n\n**c)** Med $t=2$:\n\n$$f(2x,2y)=2^{5/6}f(x,y)\\approx 1{,}782\\,f(x,y)$$\n\nFunksjonsverdien stiger med omtrent **78 prosent**, ikke 100.\n\n*Tallkontroll:* med $x=8$, $y=4$ er $f=2\\cdot 2=4$. Doblet: $f(16,8)=16^{1/3}\\cdot 8^{1/2}\\approx 2{,}5198\\cdot 2{,}8284\\approx 7{,}127$, og $7{,}127/4\\approx 1{,}782$ ✓\n\n**d)** Feilen er at faktoren er $2^{k}$, ikke $2k$.\n\n*Begrunnelse:* definisjonen sier $f(tx,ty)=t^{k}f(x,y)$, altså $t$ **opphøyd i** $k$. Med $t=2$ og $k=\\tfrac56$ blir det $2^{5/6}\\approx 1{,}782$, ikke $2\\cdot\\tfrac56\\approx 1{,}667$.\n\n*Tallkontrollen over avgjør saken:* det faktiske forholdet var $1{,}782$, som stemmer med $2^{5/6}$ og ikke med $\\tfrac53$ ✓\n\n**Denne feilen er den vanligste i hele sjangeren**, og den er lett å oppdage: prøv med $k=3$, der $2^{3}=8$ mens $2\\cdot 3=6$ — en forskjell det er vanskelig å overse.",
+        "hints": [
+          "Skriv $\\frac13+\\frac12$ med felles nevner før du konkluderer.",
+          "Doblingsfaktoren er 2 opphøyd i graden.",
+          "I d): test påstanden med en grad der de to uttrykkene gir svært ulike tall."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil med homogenitet",
+      "content": "- **Å bruke $2k$ i stedet for $2^{k}$.** Dette er den klart vanligste feilen. Definisjonen sier $t^{k}$ — $t$ **opphøyd i** graden. For $k=3$ er svaret $8$, ikke $6$; for $k=\\tfrac12$ er det $1{,}41$, ikke $1$.\n- **Å påstå homogenitet uten å sjekke at $t^{k}$ trekkes rent ut.** Står det igjen ulike potenser av $t$ i ulike ledd, er funksjonen ikke homogen. Det er en gyldig konklusjon, og oppgaven ber ofte om nettopp den.\n- **Regnefeil i eksponentsummen.** For $x^{1/3}y^{1/2}$ er graden $\\tfrac56$, ikke $\\tfrac25$ eller $\\tfrac16$. Skriv brøkene med felles nevner før du legger sammen.\n- **Å tro at multiplikative konstanter påvirker graden.** Både $x^{2}y$ og $100x^{2}y$ er homogene av grad 3. Konstanten trekkes ut sammen med resten.\n- **Å teste med bare én $t$-verdi.** At $f(2x,2y)=8f(x,y)$ tyder på grad 3, men beviser det ikke. Kravet er «for alle $t>0$», og testen skal føres symbolsk.\n- **Å blande homogenitetsgrad og elastisitet.** For $Q=AK^{\\alpha}L^{\\beta}$ er $\\mathrm{El}_K Q=\\alpha$ ([kap. 2.1](/bok/econ1100/econ1100-2-1)), mens homogenitetsgraden er $\\alpha+\\beta$. Den første gjelder én faktor om gangen, den andre alle samtidig."
+    },
+    {
+      "id": "econ1100-7-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Vanskeligere tilfeller (~15 min)"
+    },
+    {
+      "id": "econ1100-7-1-def-ikke-cobb",
+      "type": "definition",
+      "title": "Homogenitet uten produktform",
+      "content": "Også summer og røtter kan være homogene, så lenge alle ledd har samme grad.\n\n$$f(x,y)=\\sqrt{3x^{2}+2xy+y^{2}}\\ \\text{er homogen av grad }1$$\n\nUnder rottegnet har hvert ledd grad 2, så hele parentesen er homogen av grad 2, og kvadratroten halverer graden. Regelen er generell: er alle ledd i en sum av samme grad, er summen homogen av den graden."
+    },
+    {
+      "id": "econ1100-7-1-def-sammensatt-hom",
+      "type": "definition",
+      "title": "Sammensetning og grad",
+      "content": "En homogen funksjon opphøyd i en potens får graden ganget opp.\n\n$$g\\ \\text{homogen av grad }k\\ \\Longrightarrow\\ g^{\\,n}\\ \\text{homogen av grad }nk$$\n\n**Hvorfor:** $\\big(g(tx,ty)\\big)^{n}=\\big(t^{k}g\\big)^{n}=t^{nk}g^{n}$. Kvadratroten er tilfellet $n=\\tfrac12$, som halverer graden — akkurat som i eksempelet over."
+    },
+    {
+      "id": "econ1100-7-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — fire funksjoner",
+      "problem": "Avgjør for hver funksjon om den er homogen, og finn i så fall graden.\n\n**a)** $f(x,y)=\\sqrt{3x^{2}+2xy+y^{2}}$\n\n**b)** $f(K,L)=\\big(K^{0{,}4}+L^{0{,}4}\\big)^{2{,}5/0{,}4}$\n\n**c)** $f(x,y)=\\dfrac{x^{3}}{y}$\n\n**d)** $f(x,y)=x^{2}y+3$",
+      "solution": "**a)** Se først på uttrykket under rottegnet. Hvert ledd har grad 2 — $x^{2}$ har grad 2, $xy$ har grad $1+1=2$, og $y^{2}$ har grad 2:\n\n$$3(tx)^{2}+2(tx)(ty)+(ty)^{2}=t^{2}\\big(3x^{2}+2xy+y^{2}\\big)$$\n\nKvadratroten gir\n\n$$f(tx,ty)=\\sqrt{t^{2}\\big(3x^{2}+2xy+y^{2}\\big)}=t\\sqrt{3x^{2}+2xy+y^{2}}=t\\,f(x,y)$$\n\n**Homogen av grad $k=1$.** Roten halverte graden fra 2 til 1.\n\n*Numerisk kontroll:* med $x=2$, $y=3$ er $f=\\sqrt{12+12+9}=\\sqrt{33}\\approx 5{,}745$. Med $t=2$: $f(4,6)=\\sqrt{48+48+36}=\\sqrt{132}\\approx 11{,}489$, som er nøyaktig det dobbelte ✓\n\n**b)** Trekk $t$ ut av parentesen først:\n\n$$\\big((tK)^{0{,}4}+(tL)^{0{,}4}\\big)^{2{,}5/0{,}4}=\\big(t^{0{,}4}\\big(K^{0{,}4}+L^{0{,}4}\\big)\\big)^{2{,}5/0{,}4}$$\n\nBruk $(ab)^{n}=a^{n}b^{n}$ og deretter $\\big(a^{m}\\big)^{n}=a^{mn}$:\n\n$$=\\big(t^{0{,}4}\\big)^{2{,}5/0{,}4}\\big(K^{0{,}4}+L^{0{,}4}\\big)^{2{,}5/0{,}4}=t^{2{,}5}f(K,L)$$\n\n*Mellomregning:* $0{,}4\\cdot\\dfrac{2{,}5}{0{,}4}=2{,}5$ — faktoren $0{,}4$ stryker seg.\n\n**Homogen av grad $k=2{,}5$**, altså tiltakende skalautbytte.\n\n**Dette er CES-teknologien**, og resultatet er generelt: $\\big(K^{\\gamma}+L^{\\gamma}\\big)^{\\alpha/\\gamma}$ er homogen av grad $\\alpha$. Graden leses av den **ytre** eksponenten ganget med $\\gamma$.\n\n**c)** En brøk håndteres ledd for ledd:\n\n$$f(tx,ty)=\\frac{(tx)^{3}}{ty}=\\frac{t^{3}x^{3}}{ty}=t^{2}\\cdot\\frac{x^{3}}{y}=t^{2}f(x,y)$$\n\n**Homogen av grad $k=2$.**\n\n*Merk mønsteret:* for en brøk **trekkes** gradene fra hverandre, $3-1=2$ — akkurat som i kvotientregelen for elastisiteter.\n\n**d)**\n\n$$f(tx,ty)=(tx)^{2}(ty)+3=t^{3}x^{2}y+3$$\n\nHer får det første leddet en $t^{3}$, mens konstantleddet 3 blir stående uendret. Ingen felles $t^{k}$ lar seg trekke ut:\n\n$$t^{3}x^{2}y+3\\ne t^{k}\\big(x^{2}y+3\\big)\\quad\\text{for noen }k$$\n\n**Ikke homogen.**\n\n*Kontroll med tall:* med $x=y=1$ er $f=4$. Med $t=2$: $f(2,2)=8+3=11$. Grad 3 ville gitt $8\\cdot 4=32$, grad 1 ville gitt $2\\cdot 4=8$. Ingen grad passer ✓\n\n**Konstantledd ødelegger alltid homogeniteten** — med mindre konstanten er null. Det er et raskt gjenkjenningstegn verdt å ha i bakhodet."
+    },
+    {
+      "id": "econ1100-7-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger HG.) Avgjør om funksjonene er homogene, og finn i så fall graden.\n\n**a)** $f(x,y)=\\dfrac{x^{4}}{y^{2}}$\n\n**b)** $f(x,y)=x^{2}+xy$\n\n**c)** $f(x,y)=\\sqrt{x^{4}+y^{4}}$\n\n**d)** $f(x,y)=x^{2}+y$",
+        "solution": "**a)**\n\n$$f(tx,ty)=\\frac{t^{4}x^{4}}{t^{2}y^{2}}=t^{2}\\cdot\\frac{x^{4}}{y^{2}}=t^{2}f(x,y)$$\n\n**Homogen av grad $2$** — teller minus nevner, $4-2$.\n\n**b)** Begge ledd har grad 2: $x^{2}$ har grad 2, og $xy$ har grad $1+1=2$.\n\n$$f(tx,ty)=t^{2}x^{2}+t^{2}xy=t^{2}\\big(x^{2}+xy\\big)=t^{2}f(x,y)$$\n\n**Homogen av grad $2$.**\n\n**c)** Under rottegnet har begge ledd grad 4:\n\n$$f(tx,ty)=\\sqrt{t^{4}x^{4}+t^{4}y^{4}}=\\sqrt{t^{4}\\big(x^{4}+y^{4}\\big)}=t^{2}\\sqrt{x^{4}+y^{4}}=t^{2}f(x,y)$$\n\n**Homogen av grad $2$** — roten halverte 4 til 2.\n\n**d)** Leddene har ulik grad: $x^{2}$ har grad 2 og $y$ har grad 1.\n\n$$f(tx,ty)=t^{2}x^{2}+ty$$\n\nIngen felles faktor lar seg trekke ut.\n\n**Ikke homogen.**\n\n*Kontroll:* med $x=y=1$ er $f=2$; med $t=3$ blir $f(3,3)=9+3=12$. Grad 2 ville gitt $9\\cdot 2=18$, grad 1 ville gitt $6$. Ingen passer ✓\n\n**Regelen som binder a) til d) sammen:** en sum er homogen hvis og bare hvis **alle** leddene har samme grad. En brøk er homogen hvis teller og nevner er det hver for seg, og graden er differansen.",
+        "hints": [
+          "Regn graden til hvert ledd for seg, og se om de er like.",
+          "For en brøk trekkes nevnerens grad fra tellerens.",
+          "En kvadratrot halverer graden."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. En ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «Er $f$ homogen av grad 3, ganges $f$ med 6 når begge variablene dobles.»\n\n**b)** «Funksjonen $f(x,y)=x^{2}y^{3}+x^{4}y$ er homogen av grad 5.»\n\n**c)** «Homogenitetsgraden til $Q=AK^{\\alpha}L^{\\beta}$ er den samme som produksjonselastisiteten $\\mathrm{El}_K Q$.»",
+        "solution": "**a) Usann.** Faktoren er $2^{k}$, ikke $2k$.\n\n*Begrunnelse:* definisjonen sier $f(tx,ty)=t^{k}f(x,y)$. Med $t=2$ og $k=3$:\n\n$$f(2x,2y)=2^{3}f(x,y)=8f(x,y)$$\n\n*Konkret motsvar:* $f(x,y)=x^{2}y$ er homogen av grad 3. Med $x=y=1$ er $f=1$; med $x=y=2$ er $f=4\\cdot 2=8$, altså åtte ganger så mye — ikke seks ✓\n\n**b) Sann.** Begge leddene har grad 5.\n\n*Begrunnelse:* $x^{2}y^{3}$ har grad $2+3=5$, og $x^{4}y$ har grad $4+1=5$. Testen:\n\n$$f(tx,ty)=t^{2}x^{2}t^{3}y^{3}+t^{4}x^{4}ty=t^{5}x^{2}y^{3}+t^{5}x^{4}y=t^{5}\\big(x^{2}y^{3}+x^{4}y\\big)=t^{5}f(x,y)$$\n\nFaktoren $t^{5}$ trekkes rent ut ✓\n\n*Merk hvorfor dette virker:* en sum er homogen nettopp når alle leddene har samme grad. Hadde det andre leddet vært $x^{4}y^{2}$ (grad 6), ville funksjonen ikke vært homogen.\n\n**c) Usann.** De to størrelsene måler forskjellige ting.\n\n*Begrunnelse:* produksjonselastisiteten $\\mathrm{El}_K Q=\\alpha$ ([kap. 2.1](/bok/econ1100/econ1100-2-1)) gjelder når **bare kapitalen** endres, mens arbeidskraften holdes fast. Homogenitetsgraden $k=\\alpha+\\beta$ gjelder når **begge** endres samtidig.\n\n*Konkret:* med $\\alpha=0{,}4$ og $\\beta=0{,}5$ er $\\mathrm{El}_K Q=0{,}4$, mens homogenitetsgraden er $0{,}9$. De er bare like i det spesialtilfellet $\\beta=0$, altså når arbeidskraft ikke inngår i det hele tatt.\n\n*En nyttig måte å se sammenhengen på:* homogenitetsgraden er **summen** av de partielle produksjonselastisitetene.",
+        "hints": [
+          "I a): les definisjonen nøye — står $k$ som eksponent eller som faktor?",
+          "I b): regn graden til hvert ledd for seg.",
+          "I c): hva holdes fast i hver av de to størrelsene?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger HG — eksamensnivå med tolkning.) En bedrift har produktfunksjonen\n\n$$Q(K,L)=\\big(K^{0{,}5}+L^{0{,}5}\\big)^{2}.$$\n\n**a)** Vis at $Q$ er homogen, og finn graden.\n\n**b)** Hvilket skalautbytte har bedriften? Begrunn.\n\n**c)** Bedriften vurderer å doble både kapital og arbeidskraft. Med hvilken faktor ganges produksjonen?\n\n**d)** Alternativt vurderer den å doble **bare** kapitalen. Vil produksjonen da dobles? Regn ut for $K=L=4$ og forklar forskjellen fra c).",
+        "solution": "**a) Testen.** Trekk $t$ ut av parentesen først:\n\n$$Q(tK,tL)=\\big((tK)^{0{,}5}+(tL)^{0{,}5}\\big)^{2}=\\big(t^{0{,}5}\\big(K^{0{,}5}+L^{0{,}5}\\big)\\big)^{2}$$\n\nBruk $(ab)^{2}=a^{2}b^{2}$:\n\n$$=\\big(t^{0{,}5}\\big)^{2}\\big(K^{0{,}5}+L^{0{,}5}\\big)^{2}=t\\,Q(K,L)$$\n\n**Homogen av grad $k=1$.**\n\n**b) Konstant skalautbytte**, siden $k=1$: en proporsjonal økning i begge innsatsfaktorer gir nøyaktig samme proporsjonale økning i produksjonen.\n\n**c)** Med $t=2$:\n\n$$Q(2K,2L)=2^{1}Q(K,L)=2Q(K,L)$$\n\nProduksjonen **dobles** — faktoren er $2$.\n\n*Tallkontroll med $K=L=4$:* $Q=\\big(2+2\\big)^{2}=16$. Doblet: $Q(8,8)=\\big(\\sqrt8+\\sqrt8\\big)^{2}=\\big(2\\sqrt8\\big)^{2}=4\\cdot 8=32$, altså nøyaktig det dobbelte ✓\n\n**d) Nei.** Å doble bare kapitalen er ikke en homogen skalering, så homogenitetsgraden sier ingenting om utfallet.\n\n**Regn ut.** Med $K=L=4$:\n\n$$Q(4,4)=\\big(\\sqrt4+\\sqrt4\\big)^{2}=(2+2)^{2}=16$$\n\nMed bare kapitalen doblet, altså $K=8$ og $L=4$:\n\n$$Q(8,4)=\\big(\\sqrt8+\\sqrt4\\big)^{2}=\\big(2{,}8284+2\\big)^{2}=4{,}8284^{2}\\approx 23{,}31$$\n\nØkningen er $23{,}31/16\\approx 1{,}457$, altså omtrent **46 prosent** — langt fra en dobling.\n\n**Forklaringen på forskjellen.** Homogenitet handler om at **alle** variablene skaleres med samme faktor. Endres bare én, er det den **partielle** effekten som gjelder, og den måles av produksjonselastisiteten $\\mathrm{El}_K Q$, ikke av homogenitetsgraden.\n\nØkonomisk er dette avtakende grenseprodukt: mer kapital på samme mengde arbeidskraft gir stadig mindre igjen per enhet. Bedriften får full uttelling bare når den skalerer begge deler.\n\n*Kontroll av at $Q(8,4)$ er rimelig:* svaret må ligge mellom $Q(4,4)=16$ og $Q(8,8)=32$, siden $Q$ vokser i begge variabler. Verdien $23{,}31$ ligger midt imellom ✓",
+        "hints": [
+          "I a): trekk $t^{0{,}5}$ ut av parentesen før du opphøyer i 2.",
+          "I c): homogenitetsgraden gir doblingsfaktoren direkte.",
+          "I d): homogenitet krever at ALLE variabler skaleres — hva gjelder når bare én gjør det?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger HG — generell utledning.) La $f$ være homogen av grad $k$ og $g$ homogen av grad $n$, begge i variablene $x$ og $y$.\n\n**a)** Vis at produktet $fg$ er homogent, og finn graden.\n\n**b)** Vis at brøken $f/g$ er homogen (der $g\\ne 0$), og finn graden.\n\n**c)** Er summen $f+g$ nødvendigvis homogen? Begrunn med et eksempel.",
+        "solution": "**a)** Skriv ut definisjonen for hver av dem og gang sammen:\n\n$$f(tx,ty)\\,g(tx,ty)=t^{k}f(x,y)\\cdot t^{n}g(x,y)=t^{k+n}f(x,y)g(x,y)$$\n\nFaktoren $t^{k+n}$ trekkes rent ut, så produktet er **homogent av grad $k+n$**. ∎\n\n*Merk parallellen til elastisiteter:* gradene legges sammen ved multiplikasjon, akkurat som elastisitetene gjorde i [kap. 2.1](/bok/econ1100/econ1100-2-1).\n\n**b)** Tilsvarende for brøken:\n\n$$\\frac{f(tx,ty)}{g(tx,ty)}=\\frac{t^{k}f(x,y)}{t^{n}g(x,y)}=t^{k-n}\\cdot\\frac{f(x,y)}{g(x,y)}$$\n\nAltså **homogen av grad $k-n$**. ∎\n\n*Kontroll mot et kjent tilfelle:* $\\dfrac{x^{3}}{y}$ har teller av grad 3 og nevner av grad 1, altså grad $3-1=2$ ✓ — som vi fant ved direkte regning i eksempel 3.\n\n**c) Nei, ikke nødvendigvis.** Summen er homogen bare når $k=n$.\n\n*Begrunnelse:*\n\n$$f(tx,ty)+g(tx,ty)=t^{k}f(x,y)+t^{n}g(x,y)$$\n\nEr $k\\ne n$, står to ulike potenser av $t$, og ingen felles faktor lar seg trekke ut.\n\n*Konkret moteksempel:* la $f(x,y)=x^{2}$ (grad 2) og $g(x,y)=y^{3}$ (grad 3). Summen er\n\n$$f+g=x^{2}+y^{3}$$\n\nsom vi allerede har vist ikke er homogen (eksempel 1c). Med $x=y=1$ er summen 2, og med $t=2$ blir den $4+8=12$ — verken $2^{2}\\cdot 2=8$ eller $2^{3}\\cdot 2=16$ ✓\n\n*Tilfellet der det går bra:* er $k=n$, blir\n\n$$t^{k}f+t^{k}g=t^{k}(f+g)$$\n\nog summen er homogen av samme grad. Det er nettopp derfor $x^{2}y^{3}+x^{4}y$ (begge grad 5) er homogen, mens $x^{2}+y$ (grad 2 og 1) ikke er det.\n\n**Reglene samlet:** produkt gir sum av grader, brøk gir differanse, potens gir produkt — og sum gir bare noe i det hele tatt når gradene allerede er like.",
+        "hints": [
+          "I a) og b): skriv definisjonen for $f$ og $g$ hver for seg og sett sammen.",
+          "I c): hva må gjelde for at to ulike potenser av $t$ skal kunne samles i én?",
+          "I c): bruk to potensfunksjoner med ulik grad som moteksempel."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-7-1-bb-1",
+      "type": "definition",
+      "title": "Definisjonen på homogenitet",
+      "content": "Kravet som må holde for **alle** positive skaleringsfaktorer.\n\n$$f(tx,ty)=t^{k}f(x,y)\\qquad\\text{for alle }t>0$$\n\nAt likheten stemmer for én verdi av $t$, beviser ingenting. Testen skal føres symbolsk, med $t$ stående."
+    },
+    {
+      "id": "econ1100-7-1-bb-2",
+      "type": "definition",
+      "title": "Testen i tre grep",
+      "content": "Fremgangsmåten er alltid den samme.\n\n$$\\text{erstatt }x\\to tx,\\ y\\to ty\\ \\to\\ \\text{samle }t\\text{-ene}\\ \\to\\ \\text{trekk }t^{k}\\ \\text{ut}$$\n\nLykkes det siste steget, les av $k$. Blir det stående ulike potenser av $t$, er funksjonen ikke homogen — og det er svaret."
+    },
+    {
+      "id": "econ1100-7-1-bb-3",
+      "type": "definition",
+      "title": "Doblingsfaktoren er $2^{k}$",
+      "content": "Den vanligste enkeltfeilen i hele sjangeren.\n\n$$f(2x,2y)=2^{k}f(x,y),\\qquad\\text{ikke }2k\\,f(x,y)$$\n\nFor $k=3$ er svaret $8$, ikke $6$. For $k=\\tfrac56$ er det $1{,}78$, ikke $1{,}67$. Test alltid mot en stor $k$ hvis du er i tvil — der blir forskjellen umulig å overse."
+    },
+    {
+      "id": "econ1100-7-1-bb-4",
+      "type": "definition",
+      "title": "Skalautbytte fra graden",
+      "content": "Tre tilfeller, avgjort av om $k$ er over, under eller lik én.\n\n$$k=1\\ \\text{konstant};\\quad k>1\\ \\text{tiltakende};\\quad k<1\\ \\text{avtakende}$$\n\nVed konstant skalautbytte gir en dobling av alt nøyaktig dobbelt produksjon. Ved avtakende reagerer produksjonen svakere enn innsatsfaktorene, i begge retninger."
+    },
+    {
+      "id": "econ1100-7-1-bb-5",
+      "type": "definition",
+      "title": "Cobb-Douglas: graden er eksponentsummen",
+      "content": "Den vanligste formen i eksamensoppgavene.\n\n$$f=Ax^{\\alpha}y^{\\beta}\\ \\Longrightarrow\\ k=\\alpha+\\beta$$\n\nDen multiplikative konstanten $A$ spiller ingen rolle. Ber oppgaven om at du skal *vise* det, må testen likevel føres — svaret alene gir lite uttelling."
+    },
+    {
+      "id": "econ1100-7-1-bb-6",
+      "type": "definition",
+      "title": "CES-funksjonens grad",
+      "content": "Faktoren $\\gamma$ stryker seg mot seg selv.\n\n$$\\big(K^{\\gamma}+L^{\\gamma}\\big)^{\\alpha/\\gamma}\\ \\Longrightarrow\\ k=\\alpha$$\n\nSkaleringen gir $t^{\\gamma}$ inne i parentesen, og opphøyd i $\\alpha/\\gamma$ blir det $t^{\\alpha}$. Funksjonen brukes igjen i produsentteorien."
+    },
+    {
+      "id": "econ1100-7-1-bb-7",
+      "type": "definition",
+      "title": "En sum er homogen bare når gradene er like",
+      "content": "Kriteriet er enkelt og lett å kontrollere.\n\n$$x^{2}y^{3}+x^{4}y\\ \\text{(begge grad 5)}\\ \\text{homogen};\\qquad x^{2}+y\\ \\text{ikke}$$\n\nRegn graden til hvert ledd for seg og sammenlign. Er de like, er summen homogen av den graden; er de ulike, er den ikke homogen."
+    },
+    {
+      "id": "econ1100-7-1-bb-8",
+      "type": "definition",
+      "title": "Konstantledd ødelegger homogeniteten",
+      "content": "Et raskt gjenkjenningstegn.\n\n$$f=x^{2}y+3\\ \\Longrightarrow\\ \\text{ikke homogen}$$\n\nKonstanten blir stående uendret under skalering, mens resten ganges med $t^{k}$. Eneste unntak er at konstanten er null — da er den ikke der."
+    },
+    {
+      "id": "econ1100-7-1-bb-9",
+      "type": "definition",
+      "title": "Regnereglene for grader",
+      "content": "Tre regler som følger direkte av definisjonen.\n\n$$\\deg(fg)=k+n;\\qquad \\deg(f/g)=k-n;\\qquad \\deg\\big(f^{\\,n}\\big)=nk$$\n\nMultiplikasjon legger sammen, divisjon trekker fra, potens ganger opp. En kvadratrot er tilfellet $n=\\tfrac12$ og halverer derfor graden."
+    },
+    {
+      "id": "econ1100-7-1-bb-10",
+      "type": "definition",
+      "title": "Homogenitetsgrad mot elastisitet",
+      "content": "To størrelser som lett forveksles, men som holder ulike ting fast.\n\n$$\\mathrm{El}_K Q=\\alpha\\ \\text{(bare }K\\text{ endres)};\\qquad k=\\alpha+\\beta\\ \\text{(alt endres)}$$\n\nHomogenitetsgraden er summen av de partielle produksjonselastisitetene. De er bare like når den andre faktoren ikke inngår."
+    },
+    {
+      "id": "econ1100-7-1-bb-11",
+      "type": "definition",
+      "title": "Skalering nedover",
+      "content": "Regelen gjelder også når $t<1$.\n\n$$t=0{,}7,\\ k=0{,}9\\ \\Longrightarrow\\ \\text{faktor}\\ 0{,}7^{0{,}9}\\approx 0{,}726$$\n\nEt kutt på 30 prosent i alle innsatsfaktorer gir omtrent 27 prosent fall i produksjonen når skalautbyttet er avtakende. Effekten er dempet i begge retninger."
+    },
+    {
+      "id": "econ1100-7-1-bb-12",
+      "type": "definition",
+      "title": "Partiell økning er noe annet",
+      "content": "Homogenitet sier bare noe om proporsjonal skalering.\n\n$$Q(2K,L)\\ne 2^{k}Q(K,L)\\ \\text{generelt}$$\n\nDobles bare kapitalen, gjelder den partielle effekten, og den styres av avtakende grenseprodukt. For $Q=\\big(\\sqrt K+\\sqrt L\\big)^{2}$ med $K=L=4$ gir en dobling av $K$ alene bare 46 prosent økning, mot 100 prosent når begge dobles."
+    },
+    {
+      "id": "econ1100-7-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-7-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1), [kap. 1.2](/bok/econ1100/econ1100-1-2) og [kap. 2.1](/bok/econ1100/econ1100-2-1).\n\n**1.** Hva er $(tx)^{3}$?\n\n*Svar:* $t^{3}x^{3}$.\n\n**2.** Regn ut $\\tfrac13+\\tfrac12$.\n\n*Svar:* $\\tfrac{2}{6}+\\tfrac{3}{6}=\\tfrac56$.\n\n**3.** Hva er $\\big(t^{0{,}5}\\big)^{2}$?\n\n*Svar:* $t$.\n\n**4.** Hva er $2^{0{,}9}$ omtrent?\n\n*Svar:* Omtrent $1{,}87$.\n\n**5.** Hva er $\\mathrm{El}_K Q$ når $Q=AK^{\\alpha}L^{\\beta}$?\n\n*Svar:* $\\alpha$ — se [kap. 2.1](/bok/econ1100/econ1100-2-1).\n\n**6.** Forenkle $\\dfrac{t^{4}x^{4}}{t^{2}y^{2}}$.\n\n*Svar:* $t^{2}\\dfrac{x^{4}}{y^{2}}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-7-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $t$ | Skaleringsfaktoren, alltid positiv |\n| $k$ | Homogenitetsgraden |\n| $2^{k}$ | Doblingsfaktoren — aldri $2k$ |\n| $\\alpha,\\beta$ | Eksponentene i en Cobb-Douglas-funksjon |\n| $\\gamma$ | Substitusjonsparameteren i CES-teknologien |\n| $K$, $L$ | Kapital og arbeidskraft |\n| $Q$ | Produksjon |\n| $A$ | Multiplikativ konstant, uten betydning for graden |\n| $\\mathrm{El}_K Q$ | Partiell produksjonselastisitet — en annen størrelse enn $k$ |\n\n**Formler i dette delkapitlet:**\n\n$$f(tx,ty)=t^{k}f(x,y)\\qquad\\text{for alle }t>0$$\nDefinisjonen på homogenitet av grad $k$.\n\n$$f(2x,2y)=2^{k}f(x,y)$$\nDoblingstolkningen. Faktoren er 2 opphøyd i graden.\n\n$$k=1\\ \\text{konstant};\\qquad k>1\\ \\text{tiltakende};\\qquad k<1\\ \\text{avtakende}$$\nSkalautbyttet lest av graden.\n\n$$f=Ax^{\\alpha}y^{\\beta}\\ \\Longrightarrow\\ k=\\alpha+\\beta$$\nCobb-Douglas: graden er eksponentsummen.\n\n$$\\big(K^{\\gamma}+L^{\\gamma}\\big)^{\\alpha/\\gamma}\\ \\Longrightarrow\\ k=\\alpha$$\nCES-teknologien. Faktoren $\\gamma$ stryker seg mot seg selv.\n\n$$\\deg(fg)=k+n;\\qquad \\deg(f/g)=k-n;\\qquad \\deg\\big(f^{\\,n}\\big)=nk$$\nRegnereglene for grader. Kvadratrot er $n=\\tfrac12$ og halverer graden."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
