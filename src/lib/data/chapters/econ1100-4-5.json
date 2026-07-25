@@ -1,0 +1,284 @@
+{
+  "id": "econ1100-4-5",
+  "courseId": "econ1100",
+  "chapterNumber": "4.5",
+  "title": "Drill: funksjonsdrøfting fra ende til annen",
+  "description": "Sjangerdrill på den moderne signaturoppgaven: åtte steg fra definisjonsområde til tangentlinje, med et gjennomregnet eksamenscase og ti oppgaver som roterer alle variantene og alle fellene.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kjøre den åttestegs drøftingsalgoritmen i riktig rekkefølge under tidspress",
+    "velge riktig klassifiseringsmetode, også når andrederiverttesten ikke gir svar",
+    "avgjøre om et ekstrempunkt er lokalt eller globalt, og håndtere randen når området er begrenset",
+    "levere skisse og tangentlinje som er konsistente med egne utregninger"
+  ],
+  "content": [
+    {
+      "id": "econ1100-4-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for fagets moderne signaturoppgave.**\n\n**Sjanger FD — endimensjonal funksjonsdrøfting** har vært egen storoppgave i **alle seks ordinære settene 2020–2025**. Oppgaven er stor (typisk 20–30 poeng), og den er forutsigbar: samme åtte steg, i samme rekkefølge, hver gang.\n\n**Variantene som roterer inn:**\n\n- **Polynomdrøfting** — tredje- eller fjerdegradsfunksjon, hele apparatet fra ende til annen.\n- **Funksjon med $\\ln$ eller kvadratrot** — da kommer definisjonsområdet og eventuelt en randløsning inn (**sjanger HR**).\n- **En $x^{4}$-type** der andrederiverttesten svikter — fallgruve 1 fra [kap. 4.2](/bok/econ1100/econ1100-4-2).\n- **Avlesningsoppgaven** der grafen til $f$ eller $f'$ er gitt og du skal lese av.\n- **Sant/usant-punkter** om vendepunkter og stasjonærpunkter (**sjanger SU**).\n\n**De tre feilene som koster mest, alle i dette kapitlet:** å oppgi intervaller uten fortegnsskjema (feil #10), å konkludere fra $f''=0$ i punktet (feil #2), og å «bevise» et globalt ekstrempunkt ved å sette inn tallverdier (feil #1).\n\nKapitlet har **høyeste prioritet** og er langt — regn med to økter. Målet er ikke å lære noe nytt, men å gjøre rekkefølgen automatisk."
+    },
+    {
+      "id": "econ1100-4-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Drillen forutsetter hele Del 4: [kap. 4.1](/bok/econ1100/econ1100-4-1) (fortegnsanalyse), [kap. 4.2](/bok/econ1100/econ1100-4-2) (klassifisering og fellene), [kap. 4.3](/bok/econ1100/econ1100-4-3) (definisjonsområde og rand) og [kap. 4.4](/bok/econ1100/econ1100-4-4) (skisse, nullpunkter, tangent).\n\n**Sist du var her — de fire resultatene du kommer til å bruke i hver eneste oppgave:**\n\n$$f'>0\\ \\Rightarrow\\ \\text{vokser};\\qquad f''>0\\ \\Rightarrow\\ \\text{konveks}$$\n\n$$f'(a)=0,\\ f''(a)<0\\ \\Rightarrow\\ \\text{topp};\\qquad f''(a)=0\\ \\Rightarrow\\ \\text{testen svarer ikke}$$\n\n$$y=f(x_1)+f'(x_1)(x-x_1);\\qquad x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$$"
+    },
+    {
+      "id": "econ1100-4-5-losningsoppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften — åtte steg\n\nKjør dem i rekkefølge. Hopper du over ett, mister du poengene for det, og ofte også for de neste.\n\n**1. Definisjonsområdet.** Hva krever $\\ln$, kvadratrot eller nevnere? Skriv området ned først. *(Hoppes over → feil #6.)*\n\n**2. Førstederiverte: nullpunkter og fortegn.** Deriver, faktoriser, sett opp fortegnslinjen. Konklusjonen er vekstintervallene. *(Intervaller uten skjema → feil #10.)*\n\n**3. Andrederiverte: nullpunkter og fortegn.** Samme prosedyre. Konklusjonen er krumningsintervallene, og vendepunktene er de nullpunktene der $f''$ faktisk **skifter fortegn**. *(Nullpunkt uten skifte → feil #7.)*\n\n**4. Klassifiser stasjonærpunktene.** Andrederiverttesten når den svarer. Gir den null, bytt til global krumning eller førstederiverttesten. *(Konklusjon fra $f''=0$ → feil #2, null uttelling.)*\n\n**5. Sjekk randen.** Er området begrenset, eller inneholder det $\\ln$/rot? Da kan ekstremverdien ligge på kanten, og argumentet går gjennom definisjonsområdet pluss fortegnet på $f'$. *(Tallinnsetting → feil #1.)*\n\n**6. Nullpunkter.** Faktoriser $f$ selv, eventuelt med ABC. Legg merke til doble nullpunkter — der berører grafen aksen.\n\n**7. Skisse.** Konsistent med steg 2–6, med punktene markert. Nøyaktighet er ikke poenget; konsistens er det.\n\n**8. Tangentlinje ved behov.** $y=f(x_1)+f'(x_1)(x-x_1)$. Stigningstallet er den deriverte, ikke funksjonsverdien.\n\n**Tidsbudsjett:** en full FD-oppgave på 25 poeng bør ta rundt 25 minutter. Steg 2 og 3 er de mekaniske og bør gå på fem minutter til sammen; steg 4 og 5 er der poengene vinnes og tapes."
+    },
+    {
+      "id": "econ1100-4-5-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase — med sensorkommentarer",
+      "problem": "La\n\n$$f(x)=x^{3}-9x^{2}+24x-16.$$\n\n**a)** Bestem vekst og krumning.\n\n**b)** Finn og klassifiser stasjonærpunktene, og finn vendepunktet.\n\n**c)** Finn nullpunktene.\n\n**d)** Lag en skisse, og finn tangentlinjen i $x=1$.",
+      "solution": "**Steg 1 — definisjonsområdet.** Funksjonen er et polynom, så den er definert for alle reelle $x$.\n\n> *Sensorkommentar:* én linje, men den skal stå. På en oppgave med $\\ln$ eller rot er dette et eget poeng.\n\n---\n\n**Steg 2 — førstederiverte.**\n\n$$f'(x)=3x^{2}-18x+24=3\\big(x^{2}-6x+8\\big)=3(x-2)(x-4)$$\n\n| Intervall | $(x-2)$ | $(x-4)$ | $f'$ |\n|---|---|---|---|\n| $x<2$ | $-$ | $-$ | $+$ |\n| $2<x<4$ | $+$ | $-$ | $-$ |\n| $x>4$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{vokser for}\\ x<2\\ \\text{og}\\ x>4;\\ \\text{avtar for}\\ 2<x<4$$\n\n> *Sensorkommentar:* selve tabellen er begrunnelsen. Uten den er konklusjonen en påstand, og det er feil #10.\n\n---\n\n**Steg 3 — andrederiverte.**\n\n$$f''(x)=6x-18=6(x-3)$$\n\nNullpunkt i $x=3$, negativ til venstre og positiv til høyre:\n\n$$f\\ \\text{er konkav for}\\ x<3,\\ \\text{konveks for}\\ x>3$$\n\nFortegnet **skifter** i $x=3$, så det er et ekte vendepunkt. Verdien er $f(3)=27-81+72-16=2$.\n\n> *Sensorkommentar:* si eksplisitt at fortegnet skifter. Å bare oppgi at $f''(3)=0$ er feil #7.\n\n---\n\n**Steg 4 — klassifisering.**\n\n$$f''(2)=-6<0\\ \\Longrightarrow\\ \\text{toppunkt}\\ (2,4)$$\n\n$$f''(4)=6>0\\ \\Longrightarrow\\ \\text{bunnpunkt}\\ (4,0)$$\n\n*Verdiene:* $f(2)=8-36+48-16=4$ og $f(4)=64-144+96-16=0$.\n\n> *Sensorkommentar:* her svarte testen, og da er man ferdig på to linjer. Hadde $f''$ vært null i et av punktene, måtte metoden byttes — det er der de fleste poengene forsvinner.\n\n---\n\n**Steg 5 — randen.** Definisjonsområdet er hele tallinjen, altså uten rand. Funksjonen går mot $-\\infty$ til venstre og $+\\infty$ til høyre, så det finnes **verken globalt maksimum eller globalt minimum**. Begge ekstrempunktene er lokale.\n\n> *Sensorkommentar:* å skrive at ekstrempunktene bare er lokale, er et eget poeng. Mange skriver «maksimum» der svaret er «lokalt maksimum».\n\n---\n\n**Steg 6 — nullpunkter.** Vi prøver $x=1$: $1-9+24-16=0$ ✓. Da er $(x-1)$ en faktor, og polynomdivisjon (eller innsetting og sammenligning) gir\n\n$$f(x)=(x-1)\\big(x^{2}-8x+16\\big)=(x-1)(x-4)^{2}$$\n\nNullpunkter: $x=1$ (enkelt, krysser) og $x=4$ (dobbelt, berører).\n\n*Kontroll:* sett $x=0$ inn i begge former: $(0-1)(0-4)^{2}=-16$ og $0-0+0-16=-16$ ✓.\n\n> *Sensorkommentar:* at det doble nullpunktet i $x=4$ faller sammen med bunnpunktet, er ikke tilfeldig — grafen kommer ned til aksen, berører den og snur. Å påpeke sammenhengen viser oversikt.\n\n---\n\n**Steg 7 — skisse (figur i ord).** Akser med $x$ fra omtrent $0$ til $6$ og $y$ fra $-20$ til $10$.\n\nKurven kommer opp nedenfra til venstre (i $x=0$ er $f=-16$), **krysser $x$-aksen i $x=1$**, stiger konkavt til **toppunktet $(2,4)$**, snur og faller gjennom **vendepunktet $(3,2)$** der krumningen snur, ned til **bunnpunktet $(4,0)$** der den akkurat **berører** $x$-aksen, og stiger så konvekst oppover mot høyre.\n\nMarker de fire punktene med koordinater. Merk at vendepunktet ligger midt mellom topp og bunn ($x=3$ er midt mellom 2 og 4) — en rask kontroll.\n\n**Steg 8 — tangentlinjen i $x=1$:**\n\n$$f(1)=0,\\qquad f'(1)=3(1-2)(1-4)=3\\cdot(-1)\\cdot(-3)=9$$\n\n$$y-0=9\\,(x-1)\\ \\Longrightarrow\\ y=9x-9$$\n\n*Kontroll:* $x=1$ gir $y=0=f(1)$ ✓.\n\n> *Sensorkommentar:* stigningstallet 9 kommer fra $f'$, ikke fra $f$. Kontrollen på slutten koster fem sekunder og fanger den vanligste feilen i delpunktet.\n\n---\n\n**Poengfordeling i en typisk eksamensversjon av dette settet:** vekst og krumning 8 p, klassifisering 6 p, nullpunkter 4 p, skisse 4 p, tangent 3 p — til sammen 25 poeng på omtrent 25 minutter."
+    },
+    {
+      "id": "econ1100-4-5-fig-case",
+      "type": "image",
+      "src": "/images/textbook/econ1100/drofting-syntese.svg",
+      "alt": "En tredjegradskurve i et koordinatsystem, med toppunkt, vendepunkt, bunnpunkt og nullpunkt markert med prikker og navn, stiplede hjelpelinjer ned til x-aksen, og en rett tangentlinje tegnet inn.",
+      "caption": "Referansefigur for skissen i steg 7: slik ser en konsistent tredjegradsskisse ut. Figuren viser en annen funksjon enn kapitlets case, men **formen og markeringene er de samme** — topp, vendepunkt, bunn og nullpunkt navngitt, hjelpelinjer til aksen, og tangenten tegnet inn i det oppgitte punktet. Merk hva som gir poeng: at kurven faller nøyaktig der fortegnsskjemaet sier at $f'<0$, og at den bøyer nedover før vendepunktet og oppover etter."
+    },
+    {
+      "id": "econ1100-4-5-warning-tre-feil",
+      "type": "warning",
+      "title": "De tre feilene drillen skal utrydde",
+      "content": "- **Feil #10 — intervaller uten begrunnelse.** «$f$ vokser for $x>4$» uten fortegnsskjema er en påstand, ikke et svar. Skriv skjemaet, alltid, også når svaret er åpenbart.\n- **Feil #2 — konklusjon fra $f''=0$ i punktet.** Gir andrederiverttesten null, har den ikke svart. Bytt til global krumning ($f''\\ge 0$ overalt) eller førstederiverttesten (fortegnsskifte i $f'$). Sensor gir **null uttelling** for konklusjoner trukket fra $f''(a)=0$.\n- **Feil #1 — tallinnsetting som «bevis» for globalt ekstremum.** Argumentet skal gå gjennom definisjonsområdets endepunkt pluss fortegnet på $f'$. Unntaket er lukkede, begrensede intervaller med komplett kandidatliste, der sammenligning av funksjonsverdier er lovlig.\n\n**To til, som koster mindre men forekommer oftere:**\n\n- **Feil #7 — vendepunkt uten fortegnsskifte.** $f''(a)=0$ er ikke nok; krumningen må snu.\n- **Feil #8 — stasjonær forvekslet med ekstrem.** En vannrett tangent er en kandidat, ikke en konklusjon."
+    },
+    {
+      "id": "econ1100-4-5-drill-intro",
+      "type": "text",
+      "content": "## Eksamensdrill\n\n— naturlig pausepunkt —\n\nTi oppgaver på eksamensnivå. De fire første er hele drøftinger av ulik type; de seks siste isolerer hver sin ferdighet. Ta minst to av dem på tid.\n\n**Slik bruker du dem:** kjør oppskriftens åtte steg i rekkefølge, også når oppgaven bare spør om noen av dem. Det er rekkefølgen som skal automatiseres."
+    },
+    {
+      "id": "econ1100-4-5-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger FD — full drøfting av et tredjegradspolynom. Ca. 15 min.) La\n\n$$f(x)=2x^{3}-3x^{2}-12x+5.$$\n\n**a)** Bestem vekst og krumning.\n\n**b)** Klassifiser stasjonærpunktene, og finn vendepunktet.\n\n**c)** Er ekstrempunktene lokale eller globale? Begrunn.",
+        "solution": "**Steg 1.** Polynom — definert for alle $x$.\n\n**Steg 2 — vekst.**\n\n$$f'(x)=6x^{2}-6x-12=6\\big(x^{2}-x-2\\big)=6(x-2)(x+1)$$\n\n| Intervall | $(x-2)$ | $(x+1)$ | $f'$ |\n|---|---|---|---|\n| $x<-1$ | $-$ | $-$ | $+$ |\n| $-1<x<2$ | $-$ | $+$ | $-$ |\n| $x>2$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{vokser for}\\ x<-1\\ \\text{og}\\ x>2;\\ \\text{avtar for}\\ -1<x<2$$\n\n**Steg 3 — krumning.**\n\n$$f''(x)=12x-6=6(2x-1)$$\n\nNullpunkt i $x=\\tfrac12$, negativ til venstre og positiv til høyre:\n\n$$f\\ \\text{er konkav for}\\ x<\\tfrac12,\\ \\text{konveks for}\\ x>\\tfrac12$$\n\nFortegnet skifter ✓, så $x=\\tfrac12$ er et vendepunkt. Verdien:\n\n$$f\\!\\left(\\tfrac12\\right)=2\\cdot\\tfrac18-3\\cdot\\tfrac14-6+5=\\tfrac14-\\tfrac34-1=-\\tfrac32$$\n\n**Vendepunkt: $\\left(\\tfrac12,-\\tfrac32\\right)$.**\n\n**Steg 4 — klassifisering.**\n\n$$f''(-1)=-18<0\\ \\Longrightarrow\\ \\text{toppunkt}\\ (-1,12)$$\n\n$$f''(2)=18>0\\ \\Longrightarrow\\ \\text{bunnpunkt}\\ (2,-15)$$\n\n*Verdiene:* $f(-1)=-2-3+12+5=12$ og $f(2)=16-12-24+5=-15$.\n\n**c) Begge er bare lokale.** Definisjonsområdet er hele tallinjen, og et tredjegradspolynom med positiv ledende koeffisient går mot $-\\infty$ til venstre og $+\\infty$ til høyre. Det finnes derfor både lavere verdier enn $-15$ og høyere enn $12$.\n\n*Konkret:* $f(-3)=-54-27+36+5=-40<-15$ og $f(4)=128-48-48+5=37>12$ ✓.\n\n**Kontroll:** vendepunktet ligger midt mellom $-1$ og $2$, altså i $x=\\tfrac12$ ✓.",
+        "hints": [
+          "Sett fellesfaktoren utenfor før du faktoriserer andregradsuttrykket.",
+          "I c): hva skjer med et tredjegradspolynom når $x$ blir svært stor eller svært liten?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — $x^{4}$-typen der testen svikter. Ca. 15 min.) La\n\n$$f(x)=x^{4}+4x^{3}.$$\n\n**a)** Finn de stasjonære punktene.\n\n**b)** Klassifiser dem. Vær særlig nøye der andrederiverttesten ikke svarer.\n\n**c)** Finn vendepunktene.\n\n**d)** Har $f$ et globalt minimum? Begrunn.",
+        "solution": "**a)**\n\n$$f'(x)=4x^{3}+12x^{2}=4x^{2}(x+3)$$\n\nNullpunkter: $x=0$ (dobbelt) og $x=-3$. Verdier: $f(0)=0$ og $f(-3)=81-108=-27$.\n\n**b) Klassifisering.** Andrederiverte:\n\n$$f''(x)=12x^{2}+24x=12x(x+2)$$\n\n*I $x=-3$:* $f''(-3)=108-72=36>0$ → **lokalt minimum i $(-3,-27)$**. Testen svarte.\n\n*I $x=0$:* $f''(0)=0$ → **testen svarer ikke**. Vi bytter til førstederiverttesten.\n\nFaktoren $4x^{2}$ er aldri negativ, så fortegnet til $f'$ følger $(x+3)$, som er positiv både for $-3<x<0$ og for $x>0$:\n\n$$f'>0\\ \\text{på begge sider av null}$$\n\n**Ingen fortegnsveksling** → $x=0$ er et **stasjonærpunkt uten ekstremverdi**. Funksjonen vokser gjennom punktet med en flat hylle.\n\n> Merk: hadde vi konkludert fra $f''(0)=0$, ville vi fått null uttelling — uansett hvilken konklusjon vi trakk (feil #2).\n\n**c) Vendepunkter.** $f''(x)=12x(x+2)=0$ gir $x=0$ og $x=-2$.\n\n| Intervall | $12x$ | $(x+2)$ | $f''$ |\n|---|---|---|---|\n| $x<-2$ | $-$ | $-$ | $+$ |\n| $-2<x<0$ | $-$ | $+$ | $-$ |\n| $x>0$ | $+$ | $+$ | $+$ |\n\nFortegnet skifter i **begge** nullpunktene, så begge er vendepunkter:\n\n$$(-2,-16)\\quad\\text{og}\\quad(0,0)$$\n\n*Verdi:* $f(-2)=16-32=-16$ ✓.\n\n**d) Ja, $x=-3$ er et globalt minimum.**\n\nArgumentet: ledende koeffisient er positiv og graden er like, så $f(x)\\to\\infty$ både når $x\\to\\infty$ og når $x\\to-\\infty$. Et globalt minimum må derfor finnes, og det må ligge blant de stasjonære punktene. De to kandidatene har verdiene $-27$ og $0$, og den laveste er $-27$.\n\n$$\\text{globalt minimum i}\\ (-3,-27)$$\n\n**Legg merke til at $x=0$ har dobbeltrolle:** stasjonærpunkt uten ekstremverdi, og samtidig vendepunkt. Det er nøyaktig $x^{3}$-mønsteret fra [kap. 4.2](/bok/econ1100/econ1100-4-2), her innfelt i et fjerdegradspolynom.",
+        "hints": [
+          "Faktoriser $f'$ og se etter faktorer i annen potens — de varsler at testen vil svikte.",
+          "I d): hva gjør et fjerdegradspolynom med positiv ledende koeffisient når $x$ blir stor i begge retninger?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD/HR — funksjon med logaritme. Ca. 12 min.) La\n\n$$f(x)=x^{2}-8\\ln x.$$\n\n**a)** Oppgi definisjonsområdet.\n\n**b)** Finn stasjonærpunktene.\n\n**c)** Vis at funksjonen har et globalt minimum, og finn det. Bruk et argument som gjelder hele området.\n\n**d)** Har funksjonen et globalt maksimum? Begrunn.",
+        "solution": "**a) Definisjonsområdet er $(0,\\infty)$**, siden $\\ln x$ krever $x>0$. Randpunktet $x=0$ er **ikke** med i området og kan derfor ikke være et ekstrempunkt.\n\n**b)**\n\n$$f'(x)=2x-\\frac{8}{x}=\\frac{2x^{2}-8}{x}=\\frac{2(x-2)(x+2)}{x}$$\n\nNevneren er positiv i hele området, så nullpunktene kommer fra telleren: $x=2$ og $x=-2$. Roten $x=-2$ ligger **utenfor** definisjonsområdet og forkastes.\n\n**Eneste stasjonærpunkt: $x=2$**, med\n\n$$f(2)=4-8\\ln 2\\approx 4-5{,}545=-1{,}545$$\n\n**c) Globalt minimum i $x=2$.** To gyldige argumenter:\n\n*Vei 1 — global konveksitet:*\n\n$$f''(x)=2+\\frac{8}{x^{2}}>0\\quad\\text{for alle }x>0$$\n\nFunksjonen er konveks i hele definisjonsområdet, og et stasjonærpunkt er da automatisk et globalt minimum ([kap. 4.2](/bok/econ1100/econ1100-4-2)).\n\n*Vei 2 — fortegnsanalyse:* i hele området er $x>0$ og $(x+2)>0$, så fortegnet til $f'$ følger $(x-2)$:\n\n| Intervall | $f'$ | $f$ |\n|---|---|---|\n| $0<x<2$ | $-$ | avtar |\n| $x>2$ | $+$ | vokser |\n\nFunksjonen avtar på hele $(0,2)$ og vokser på hele $(2,\\infty)$, så $f(2)$ er den laveste verdien i området.\n\n$$\\textbf{Globalt minimum: } (2,\\ 4-8\\ln 2)\\approx(2,\\ -1{,}55)$$\n\n**d) Nei.** Funksjonen vokser uten grense når $x\\to\\infty$: leddet $x^{2}$ dominerer over $8\\ln x$, siden en logaritme vokser langsommere enn enhver potens.\n\n*Talleksempel:* $f(10)=100-8\\ln 10\\approx 100-18{,}4=81{,}6$ og $f(100)=10\\,000-8\\ln 100\\approx 9963$ ✓.\n\nDessuten går $f(x)\\to\\infty$ også når $x\\to 0^{+}$, siden $-8\\ln x\\to\\infty$. Funksjonen stiger altså mot uendelig i begge ender av området.\n\n**Merk hvorfor a) er et eget poeng.** Uten definisjonsområdet ville $x=-2$ sett ut som et gyldig stasjonærpunkt — og et svar med det ville vært galt (feil #6).",
+        "hints": [
+          "Skriv $f'$ som én brøk før du faktoriserer telleren.",
+          "I c): to argumenter er gyldige — global konveksitet eller fortegnslinja for $f'$ i hele området."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger HR — lukket intervall. Ca. 10 min.) La\n\n$$f(x)=x^{3}-12x,\\qquad 0\\le x\\le 3.$$\n\n**a)** Hvilke stasjonærpunkter ligger i intervallet?\n\n**b)** Finn globalt maksimum og globalt minimum, og begrunn at metoden er gyldig.\n\n**c)** Hvor mange av de to ekstrempunktene er randløsninger?",
+        "solution": "**a)**\n\n$$f'(x)=3x^{2}-12=3(x-2)(x+2)$$\n\nNullpunkter: $x=2$ og $x=-2$. Roten $x=-2$ ligger **utenfor** $[0,3]$ og forkastes.\n\n**Eneste stasjonærpunkt i intervallet: $x=2$.**\n\n**b) Kandidatliste:** stasjonærpunktet $x=2$ pluss endepunktene $x=0$ og $x=3$.\n\n$$f(0)=0,\\qquad f(2)=8-24=-16,\\qquad f(3)=27-36=-9$$\n\n$$\\textbf{Globalt minimum: } (2,-16).\\qquad \\textbf{Globalt maksimum: } (0,0).$$\n\n**Hvorfor metoden er gyldig:** intervallet er **lukket og begrenset**, og funksjonen er et polynom og dermed kontinuerlig. Da finnes både globalt maksimum og minimum, og de må ligge enten i et stasjonærpunkt eller på randen. Kandidatlisten er derfor **komplett**, og sammenligning av funksjonsverdiene er en gyldig avslutning — ikke et bevisforsøk (kontrast til feil #1).\n\n*Kontroll med fortegn:* på $[0,3]$ er $(x+2)>0$, så $f'$ følger $(x-2)$: negativ på $[0,2)$ og positiv på $(2,3]$. Funksjonen faller fra 0 til $-16$ og stiger til $-9$ ✓ — konsistent.\n\n**c) Ett av dem.** Maksimum i $x=0$ er en **randløsning** (endepunktet i intervallet, uten vannrett tangent — der er $f'(0)=-12\\ne 0$). Minimum i $x=2$ er derimot et indre stasjonærpunkt.\n\n**Merk hva som ville skjedd på et større intervall.** På $[0,5]$ ville $f(5)=125-60=65$ vært maksimum i stedet — også en randløsning, men i den andre enden. Intervallet er en del av oppgaven, ikke en formalitet.",
+        "hints": [
+          "Forkast røtter som ligger utenfor det oppgitte intervallet.",
+          "På et lukket intervall er kandidatlisten stasjonærpunktene pluss begge endepunktene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD — nullpunkter og skisse. Ca. 8 min.) La $f(x)=x^{3}-3x^{2}$ (samme som i [kap. 4.4](/bok/econ1100/econ1100-4-4)).\n\n**a)** Finn nullpunktene og si hvilke som er doble.\n\n**b)** Finn tangentlinjen i $x=1$.\n\n**c)** Beskriv i én setning hvordan skissen ser ut mellom $x=0$ og $x=3$.",
+        "solution": "**a)** Faktorisering:\n\n$$f(x)=x^{2}(x-3)=0\\ \\Longrightarrow\\ x=0\\ (\\text{dobbelt}),\\quad x=3\\ (\\text{enkelt})$$\n\nGrafen **berører** aksen i $x=0$ og **krysser** den i $x=3$.\n\n**b)** $f(1)=1-3=-2$, og $f'(x)=3x^{2}-6x$ gir $f'(1)=3-6=-3$:\n\n$$y-(-2)=-3(x-1)\\ \\Longrightarrow\\ y=-3x+1$$\n\n*Kontroll:* $x=1$ gir $y=-3+1=-2=f(1)$ ✓.\n\n**c)** Mellom $x=0$ og $x=3$ faller kurven fra toppunktet $(0,0)$ ned til bunnpunktet $(2,-4)$ og stiger tilbake til aksen i $x=3$, med krumningsskifte i vendepunktet $(1,-2)$ — konkav først, konveks etterpå.\n\n**Merk at punktet $x=1$ i b) er vendepunktet.** Tangenten der er den bratteste av alle tangentene i det fallende partiet, siden $f'$ har sitt minimum i vendepunktet.",
+        "hints": [
+          "Sett $x^{2}$ utenfor før du leser av nullpunktene.",
+          "I b): stigningstallet er $f'(1)$, ikke $f(1)$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD — avlesning fra graf. Ca. 8 min.) Du får oppgitt grafen til **den deriverte** $f'$. Kurven er en parabel som åpner nedover, med nullpunkter i $x=-1$ og $x=3$, og med toppunkt i $x=1$.\n\n**a)** Hvor vokser og avtar $f$?\n\n**b)** Hvilke stasjonærpunkter har $f$, og hva slags punkter er de?\n\n**c)** Hvor er $f$ konveks og konkav?",
+        "solution": "**a)** Vi leser av **posisjonen** til $f'$-kurven i forhold til $x$-aksen.\n\nEn parabel som åpner nedover, er positiv mellom røttene og negativ utenfor:\n\n$$f'>0\\ \\text{for}\\ -1<x<3;\\qquad f'<0\\ \\text{for}\\ x<-1\\ \\text{og}\\ x>3$$\n\n$$f\\ \\text{avtar for}\\ x<-1,\\ \\text{vokser for}\\ -1<x<3,\\ \\text{avtar for}\\ x>3$$\n\n**b)** Stasjonærpunktene ligger der $f'$-kurven krysser aksen: $x=-1$ og $x=3$.\n\nI $x=-1$ går $f'$ fra negativ til positiv → **bunnpunkt**.\n\nI $x=3$ går $f'$ fra positiv til negativ → **toppunkt**.\n\n**c)** Krumningen bestemmes av **stigningen** til $f'$-kurven, altså av $f''$.\n\nParabelen stiger på $(-\\infty,1)$ og faller på $(1,\\infty)$:\n\n$$f''>0\\ \\text{for}\\ x<1\\ \\Longrightarrow\\ f\\ \\text{konveks};\\qquad f''<0\\ \\text{for}\\ x>1\\ \\Longrightarrow\\ f\\ \\text{konkav}$$\n\nToppunktet på $f'$-kurven, i $x=1$, svarer til **vendepunktet** til $f$.\n\n**De to avlesningene, samlet:** posisjon gir vekst, stigning gir krumning. Å blande dem er den klassiske feilen — for eksempel å konkludere at $f$ har et toppunkt i $x=1$ fordi $f'$-kurven har det.",
+        "hints": [
+          "Se på om $f'$-kurven ligger over eller under aksen, ikke på om den stiger.",
+          "I c): stigningen til $f'$-kurven er $f''$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Ca. 10 min.) Avgjør om hver påstand er sann eller usann, og begrunn med utregning.\n\n**a)** «Funksjonen $f(x)=x^{4}$ har ikke noe ekstrempunkt, siden $f''(0)=0$.»\n\n**b)** «Hvis $f$ vokser på hele definisjonsområdet, kan den ikke være konkav.»\n\n**c)** «Et polynom av tredje grad har alltid nøyaktig ett vendepunkt.»",
+        "solution": "**a) Usann.** At $f''(0)=0$ betyr at andrederiverttesten ikke svarer, ikke at svaret er nei.\n\n$$f''(x)=12x^{2}\\ge 0\\quad\\text{for alle }x$$\n\nFunksjonen er konveks i hele definisjonsområdet, så den ligger over alle sine tangenter. Tangenten i $x=0$ er $y=0$, altså er $f(x)\\ge f(0)=0$ for alle $x$.\n\n**$x=0$ er et globalt minimum.** Å konkludere fra $f''(0)=0$ er feil #2 og gir null uttelling.\n\n**b) Usann.** Vekst og krumning er uavhengige.\n\n*Konkret motsvar:* $f(x)=\\sqrt{x}$ på $(0,\\infty)$ har $f'(x)=\\dfrac{1}{2\\sqrt{x}}>0$ og $f''(x)=-\\dfrac14 x^{-3/2}<0$ for alle $x>0$. Funksjonen vokser i hele området og er samtidig konkav overalt — den stiger, men saktere og saktere.\n\n**c) Sann.** For $f(x)=ax^{3}+bx^{2}+cx+d$ med $a\\ne 0$ er\n\n$$f''(x)=6ax+2b$$\n\nDette er en **lineær** funksjon med stigningstall $6a\\ne 0$. Den har derfor nøyaktig ett nullpunkt,\n\n$$x=-\\frac{b}{3a}$$\n\nog siden en lineær funksjon med stigningstall forskjellig fra null alltid skifter fortegn i nullpunktet sitt, er dette et ekte vendepunkt.\n\n*Kontroll på et eksempel:* $f(x)=x^{3}-9x^{2}+24x-16$ har $a=1$, $b=-9$, og formelen gir $x=\\dfrac{9}{3}=3$ ✓ — nøyaktig vendepunktet fra kapitlets case.\n\n**Merk kravet i c):** at $a\\ne 0$ er nødvendig. Uten det er polynomet ikke av tredje grad, og $f''$ er konstant.",
+        "hints": [
+          "I a): hva sier $f''$ for ALLE $x$, ikke bare i null?",
+          "I c): hvilken form har $f''$ når $f$ er et tredjegradspolynom?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD — økonomisk innramming. Ca. 10 min.) En bedrift har overskuddet\n\n$$\\pi(x)=-x^{3}+12x^{2}-36x,\\qquad x\\ge 0,$$\n\nder $x$ er produsert mengde i tusen enheter.\n\n**a)** Finn stasjonærpunktene og klassifiser dem.\n\n**b)** Hva er den beste produksjonsmengden for $x\\ge 0$? Begrunn.\n\n**c)** Tolk resultatet.",
+        "solution": "**a)**\n\n$$\\pi'(x)=-3x^{2}+24x-36=-3\\big(x^{2}-8x+12\\big)=-3(x-2)(x-6)$$\n\nStasjonærpunkter: $x=2$ og $x=6$. Verdier:\n\n$$\\pi(2)=-8+48-72=-32,\\qquad \\pi(6)=-216+432-216=0$$\n\n**Klassifisering** med $\\pi''(x)=-6x+24=-6(x-4)$:\n\n$$\\pi''(2)=12>0\\ \\Longrightarrow\\ \\text{lokalt minimum i}\\ (2,-32)$$\n\n$$\\pi''(6)=-12<0\\ \\Longrightarrow\\ \\text{lokalt maksimum i}\\ (6,0)$$\n\n**b) Den beste mengden er $x=0$ — ikke $x=6$.**\n\nDette er en randløsning, og den krever et eget argument. Kandidatlisten på $[0,\\infty)$ er randpunktet $x=0$ pluss de to stasjonærpunktene:\n\n$$\\pi(0)=0,\\qquad \\pi(2)=-32,\\qquad \\pi(6)=0$$\n\nDessuten går $\\pi(x)\\to-\\infty$ når $x\\to\\infty$, siden $-x^{3}$ dominerer. Det finnes derfor ingen verdier over 0 lenger ute.\n\n$$\\textbf{Høyeste overskudd er } 0, \\text{ oppnådd i både } x=0 \\text{ og } x=6.$$\n\n*Fortegnskontroll:* $\\pi'(x)=-3(x-2)(x-6)$ er negativ på $[0,2)$, positiv på $(2,6)$ og negativ for $x>6$. Overskuddet faller fra 0 til $-32$, stiger tilbake til 0, og faller så mot $-\\infty$ ✓.\n\n**c) Tolkning.** Bedriften går i null både om den lar være å produsere og om den produserer 6 000 enheter — og taper penger på alt imellom og alt over.\n\nBildet er typisk for en teknologi med høye oppstartsulemper: små volumer lønner seg ikke, det trengs en viss skala før inntektene tar igjen kostnadene, og over 6 000 enheter presses kapasiteten så hardt at kostnadene løper fra igjen.\n\n**Merk hvorfor b) er den poengtunge delen.** Andrederiverttesten pekte på $x=6$ som «maksimum», men den er **lokal**. Uten å sjekke randen ville man oversett at $x=0$ gir like høyt overskudd — og uten grenseoppførselen ville argumentet vært ufullstendig.",
+        "hints": [
+          "Sett $-3$ utenfor og husk at minusen snur fortegnene i hele skjemaet.",
+          "I b): kandidatlisten på $[0,\\infty)$ må inneholde randpunktet $x=0$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — eksamensnivå med generell funksjon. Ca. 10 min.) La $f$ være to ganger deriverbar på hele tallinjen, med\n\n$$f'(x)=(x-1)^{2}(x-4).$$\n\n**a)** Finn de stasjonære punktene, og klassifiser dem.\n\n**b)** Bestem hvor $f$ vokser og avtar.\n\n**c)** Er noen av de stasjonære punktene også vendepunkter? Begrunn.",
+        "solution": "**a)** Stasjonærpunktene er nullpunktene til $f'$: $x=1$ (dobbelt) og $x=4$ (enkelt).\n\n**Fortegn til $f'$.** Faktoren $(x-1)^{2}$ er aldri negativ, så fortegnet følger $(x-4)$:\n\n| Intervall | $(x-1)^{2}$ | $(x-4)$ | $f'$ |\n|---|---|---|---|\n| $x<1$ | $+$ | $-$ | $-$ |\n| $1<x<4$ | $+$ | $-$ | $-$ |\n| $x>4$ | $+$ | $+$ | $+$ |\n\n*I $x=1$:* $f'$ er negativ på **begge** sider — ingen fortegnsveksling. Punktet er et **stasjonærpunkt uten ekstremverdi**.\n\n*I $x=4$:* $f'$ går fra negativ til positiv → **lokalt minimum**.\n\n**b)** Fra tabellen:\n\n$$f\\ \\text{avtar for}\\ x<4\\ (\\text{med vannrett tangent i}\\ x=1);\\qquad f\\ \\text{vokser for}\\ x>4$$\n\n**c)** Vi trenger $f''$. Produktregelen på $(x-1)^{2}(x-4)$:\n\n$$f''(x)=2(x-1)(x-4)+(x-1)^{2}\\cdot 1=(x-1)\\big[2(x-4)+(x-1)\\big]=(x-1)(3x-9)=3(x-1)(x-3)$$\n\nNullpunkter: $x=1$ og $x=3$.\n\n| Intervall | $(x-1)$ | $(x-3)$ | $f''$ |\n|---|---|---|---|\n| $x<1$ | $-$ | $-$ | $+$ |\n| $1<x<3$ | $+$ | $-$ | $-$ |\n| $x>3$ | $+$ | $+$ | $+$ |\n\nFortegnet skifter i begge, så begge er vendepunkter.\n\n**Svar på c): ja — $x=1$ er både stasjonærpunkt og vendepunkt.** Der har grafen en flat hylle: vannrett tangent, men kurven fortsetter nedover mens krumningen snur. Punktet $x=3$ er et vendepunkt uten å være stasjonært, og $x=4$ er stasjonært uten å være vendepunkt.\n\n**Merk at oppgaven ble løst uten at $f$ selv er kjent.** Alt som trengs, er $f'$ — og det er nettopp poenget med den generelle varianten: vekst, klassifisering og krumning avhenger bare av de deriverte, ikke av funksjonsverdiene.",
+        "hints": [
+          "En faktor i annen potens er aldri negativ og gir derfor ikke fortegnsskifte.",
+          "I c): deriver $f'$ med produktregelen, og sett $(x-1)$ utenfor i svaret."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-5-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — full eksamensoppgave på tid. Ca. 20 min, 25 poeng.) La\n\n$$f(x)=3x^{4}-4x^{3}-12x^{2}+5.$$\n\n**a)** (6 p) Bestem hvor $f$ vokser og avtar.\n\n**b)** (6 p) Finn og klassifiser alle stasjonærpunkter.\n\n**c)** (5 p) Bestem hvor $f$ er konveks og konkav, og finn vendepunktene.\n\n**d)** (4 p) Har $f$ et globalt minimum? Begrunn.\n\n**e)** (4 p) Finn tangentlinjen i $x=0$.",
+        "solution": "**Steg 1.** Polynom — definert for alle $x$.\n\n**a)** Vi deriverer og faktoriserer:\n\n$$f'(x)=12x^{3}-12x^{2}-24x=12x\\big(x^{2}-x-2\\big)=12x(x-2)(x+1)$$\n\nNullpunkter: $x=-1$, $x=0$ og $x=2$.\n\n| Intervall | $12x$ | $(x-2)$ | $(x+1)$ | $f'$ |\n|---|---|---|---|---|\n| $x<-1$ | $-$ | $-$ | $-$ | $-$ |\n| $-1<x<0$ | $-$ | $-$ | $+$ | $+$ |\n| $0<x<2$ | $+$ | $-$ | $+$ | $-$ |\n| $x>2$ | $+$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{avtar for}\\ x<-1\\ \\text{og}\\ 0<x<2;\\qquad f\\ \\text{vokser for}\\ -1<x<0\\ \\text{og}\\ x>2$$\n\n**b) Klassifisering.** Vi kan lese den rett av fortegnstabellen (førstederiverttesten):\n\n- $x=-1$: $f'$ fra $-$ til $+$ → **bunnpunkt**\n- $x=0$: $f'$ fra $+$ til $-$ → **toppunkt**\n- $x=2$: $f'$ fra $-$ til $+$ → **bunnpunkt**\n\n*Funksjonsverdier:*\n\n$$f(-1)=3+4-12+5=0,\\qquad f(0)=5,\\qquad f(2)=48-32-48+5=-27$$\n\n**Bunnpunkter $(-1,0)$ og $(2,-27)$; toppunkt $(0,5)$.**\n\n*Kontroll med andrederiverttesten:* $f''(x)=36x^{2}-24x-24$ gir $f''(-1)=36+24-24=36>0$ ✓, $f''(0)=-24<0$ ✓ og $f''(2)=144-48-24=72>0$ ✓. Begge metodene gir samme svar.\n\n**c) Krumning.**\n\n$$f''(x)=36x^{2}-24x-24=12\\big(3x^{2}-2x-2\\big)$$\n\nABC på $3x^{2}-2x-2$:\n\n$$x=\\frac{2\\pm\\sqrt{4+24}}{6}=\\frac{2\\pm\\sqrt{28}}{6}=\\frac{1\\pm\\sqrt{7}}{3}$$\n\nMed $\\sqrt7\\approx 2{,}646$ blir røttene $x_1\\approx -0{,}549$ og $x_2\\approx 1{,}215$.\n\nLedende koeffisient er positiv, så uttrykket er positivt utenfor røttene og negativt mellom dem:\n\n$$f\\ \\text{er konveks for}\\ x<\\tfrac{1-\\sqrt7}{3}\\ \\text{og}\\ x>\\tfrac{1+\\sqrt7}{3};\\ \\text{konkav imellom}$$\n\nFortegnet skifter i begge røttene, så begge er **vendepunkter**.\n\n> Svaret skal stå med eksakte røtter $\\dfrac{1\\pm\\sqrt7}{3}$; desimalene er en hjelp, ikke fasiten.\n\n**d) Ja.** Ledende koeffisient er positiv og graden er like, så $f(x)\\to\\infty$ i begge retninger. Et globalt minimum finnes derfor, og det må ligge blant de stasjonære punktene.\n\nKandidatverdiene er $0$, $5$ og $-27$, og den laveste er $-27$:\n\n$$\\textbf{Globalt minimum i } (2,-27).$$\n\n*Merk at $(-1,0)$ bare er et lokalt bunnpunkt* — funksjonen kommer lavere lenger til høyre.\n\n**e) Tangentlinjen i $x=0$:**\n\n$$f(0)=5,\\qquad f'(0)=12\\cdot 0\\cdot(-2)\\cdot 1=0$$\n\n$$y=5$$\n\nTangenten er **vannrett**, siden $x=0$ er et stasjonærpunkt.\n\n*Kontroll:* $x=0$ gir $y=5=f(0)$ ✓.\n\n---\n\n**Tidsbudsjett-merknad:** de 20 minuttene er regnetid. På ekte eksamen kommer lesing av settet, kladd og kontrollregning i tillegg.",
+        "hints": [
+          "Faktoriser $f'$ helt ned til tre lineære faktorer før du setter opp skjemaet.",
+          "I c): røttene til $f''$ er ikke pene — bruk ABC og la svaret stå eksakt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-5-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-4-5-bb-attestegs",
+      "type": "definition",
+      "title": "Åttestegsoppskriften",
+      "content": "Rekkefølgen som skal sitte automatisk før eksamen.\n\n$$D_f\\ \\to\\ f'\\ \\to\\ f''\\ \\to\\ \\text{klassifiser}\\ \\to\\ \\text{rand}\\ \\to\\ \\text{nullpunkter}\\ \\to\\ \\text{skisse}\\ \\to\\ \\text{tangent}$$\n\nKjør stegene i rekkefølge også når oppgaven bare spør om noen av dem. Det er rekkefølgen, ikke det enkelte regnestykket, som gjør at ingenting glemmes under tidspress."
+    },
+    {
+      "id": "econ1100-4-5-bb-hvor-poengene-ligger",
+      "type": "definition",
+      "title": "Hvor poengene vinnes og tapes",
+      "content": "To av de åtte stegene er mekaniske; to er det som skiller besvarelsene.\n\n$$\\text{steg 2 og 3: mekanikk}\\qquad\\text{steg 4 og 5: karakterskillet}$$\n\nNesten alle klarer å derivere og faktorisere. Langt færre håndterer et $f''=0$ riktig (steg 4) eller husker å sjekke randen (steg 5). Bruk tiden der."
+    },
+    {
+      "id": "econ1100-4-5-bb-varselsignaler",
+      "type": "definition",
+      "title": "Varselsignaler i oppgaveteksten",
+      "content": "Tre tegn på at en av fallgruvene er innebygd.\n\n$$\\ln\\ \\text{eller}\\ \\sqrt{\\;}\\ \\Rightarrow\\ \\text{definisjonsområde og rand};\\qquad x^{4}\\ \\Rightarrow\\ f''=0\\text{-fellen}$$\n\nEt tredje: en **kvadrert faktor i $f'$** varsler at andrederiverttesten vil gi null i det nullpunktet, og at fortegnet ikke skifter der. Ser du et av signalene, vet du hvilken felle oppgaven tester før du har regnet ferdig."
+    },
+    {
+      "id": "econ1100-4-5-bb-to-tester",
+      "type": "definition",
+      "title": "De to testene side om side",
+      "content": "Andrederiverttesten er raskest; førstederiverttesten virker alltid.\n\n$$f''(a)\\ne 0:\\ \\text{bruk andrederiverttesten};\\qquad f''(a)=0:\\ \\text{bruk fortegnsskiftet i }f'$$\n\nHar du allerede satt opp fortegnsskjemaet for $f'$ i steg 2, er førstederiverttesten gratis — klassifiseringen kan leses rett av tabellen uten å regne $f''$ i det hele tatt."
+    },
+    {
+      "id": "econ1100-4-5-bb-lokal-vs-global",
+      "type": "definition",
+      "title": "Lokalt eller globalt",
+      "content": "Andrederiverttesten svarer alltid lokalt. Det globale krever et tilleggsargument.\n\n$$\\text{like grad},\\ a>0\\ \\Rightarrow\\ f\\to\\infty\\ \\text{i begge ender}\\ \\Rightarrow\\ \\text{globalt minimum finnes}$$\n\nFor odde grad går funksjonen mot uendelig i den ene retningen og minus uendelig i den andre — da finnes **verken** globalt maksimum eller minimum, og ekstrempunktene er bare lokale."
+    },
+    {
+      "id": "econ1100-4-5-bb-vendepunkt-tell",
+      "type": "definition",
+      "title": "Antall vendepunkter",
+      "content": "Graden til polynomet setter en øvre grense, og for tredjegrad er svaret eksakt.\n\n$$\\text{tredjegrad}:\\ f''\\ \\text{lineær}\\ \\Rightarrow\\ \\text{nøyaktig ett vendepunkt}$$\n\n$$\\text{fjerdegrad}:\\ f''\\ \\text{kvadratisk}\\ \\Rightarrow\\ \\text{null, ett eller to}$$\n\nFor fjerdegradspolynomer avgjør diskriminanten til $f''$ hvilket av tilfellene du er i — og et dobbelt nullpunkt i $f''$ gir ingen vendepunkter, siden fortegnet ikke skifter."
+    },
+    {
+      "id": "econ1100-4-5-bb-eksakte-rotter",
+      "type": "definition",
+      "title": "Eksakte røtter i svaret",
+      "content": "Kommer ABC ut med en rot, skal den stå eksakt i konklusjonen.\n\n$$x=\\frac{1\\pm\\sqrt7}{3}\\quad\\text{(eksakt)},\\qquad x\\approx -0{,}55\\ \\text{og}\\ 1{,}22\\quad\\text{(hjelp)}$$\n\nDesimalene er nyttige for å plassere kontrolltall i riktig intervall, men de er ikke svaret. Sensor krever eksakt form der den finnes — det er en del av kravet om åpenbar forenkling."
+    },
+    {
+      "id": "econ1100-4-5-bb-tidsbudsjett",
+      "type": "definition",
+      "title": "Tidsbudsjett for en FD-oppgave",
+      "content": "En full drøfting på 25 poeng bør ta rundt 25 minutter.\n\n$$\\text{steg 2 og 3: 5 min}\\quad\\text{steg 4 og 5: 8 min}\\quad\\text{steg 6–8: 7 min}\\quad\\text{kontroll: 5 min}$$\n\nBruker du mye mer på derivasjon og faktorisering, er det mengdetrening som mangler, ikke forståelse. Bruker du mye mer på klassifisering og rand, er det [kap. 4.2](/bok/econ1100/econ1100-4-2) og [kap. 4.3](/bok/econ1100/econ1100-4-3) som bør leses på nytt."
+    },
+    {
+      "id": "econ1100-4-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-4-5-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $D_f$ | Definisjonsområdet — steg 1 i oppskriften |\n| $f'$, $f''$ | Første- og andrederiverte |\n| $f'(a)=0$ | Stasjonærpunkt: kandidat til topp eller bunn |\n| $f''(a)=0$ | Andrederiverttesten svarer ikke — bytt metode |\n| $(x-a)^{2}$ | Kvadrert faktor: varsel om at testen vil svikte |\n| $x_1$ | Berøringspunktet for tangentlinjen |\n| $\\pi(x)$ | Overskudd som funksjon av produsert mengde |\n| $\\frac{1\\pm\\sqrt7}{3}$ | Typisk eksakt vendepunktverdi for et fjerdegradspolynom |\n\n**Formler brukt i drillen:**\n\n$$f'>0\\ \\Rightarrow\\ \\text{vokser};\\qquad f''>0\\ \\Rightarrow\\ \\text{konveks}$$\nDe to fortegnsreglene som bærer steg 2 og 3.\n\n$$f'(a)=0,\\ f''(a)<0\\ \\Rightarrow\\ \\text{topp};\\qquad f'(a)=0,\\ f''(a)>0\\ \\Rightarrow\\ \\text{bunn}$$\nAndrederiverttesten — rask, lokal, og ubrukelig når $f''(a)=0$.\n\n$$f'\\ \\text{skifter}\\ +\\to-\\ \\Rightarrow\\ \\text{topp};\\quad -\\to+\\ \\Rightarrow\\ \\text{bunn};\\quad\\text{ingen skifte}\\ \\Rightarrow\\ \\text{ingen ekstremverdi}$$\nFørstederiverttesten. Virker alltid, og er gratis når skjemaet allerede står.\n\n$$f''(x)\\ge 0\\ \\text{overalt og}\\ f'(a)=0\\ \\Rightarrow\\ a\\ \\text{er globalt minimum}$$\nGlobal konveksitet — redningen når andrederiverttesten gir null (feil #2).\n\n$$a\\ \\text{første punkt i}\\ D_f\\ \\text{og}\\ f'>0\\ \\text{for alle}\\ x>a\\ \\Rightarrow\\ a\\ \\text{er globalt minimum}$$\nRandargumentet fra [kap. 4.3](/bok/econ1100/econ1100-4-3) — aldri erstattet av tallinnsetting (feil #1).\n\n$$y=f(x_1)+f'(x_1)\\,(x-x_1)$$\nTangentlinjen. Stigningstallet er den deriverte, ikke funksjonsverdien.\n\n$$x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$$\nABC — brukt på $f'$ for stasjonærpunkter, på $f''$ for vendepunkter og på $f$ for nullpunkter."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
