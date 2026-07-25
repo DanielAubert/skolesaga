@@ -1,0 +1,354 @@
+{
+  "id": "in1020-4-3",
+  "courseId": "in1020",
+  "chapterNumber": "4.3",
+  "title": "Overføringstid og ytelse",
+  "description": "Overføringstid som filstørrelsen i byte ganger åtte, delt på raten i bit per sekund — med omregningen som eget steg, riktig valg av opp- eller nedlastingsrate, og de to omformingene baklengs.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne regne ut overføringstid med omregningen fra byte til bit som et eget, synlig steg",
+    "kunne velge riktig rate ut fra hvilken vei dataene går",
+    "kunne løse formelen baklengs for filstørrelse og for nødvendig rate",
+    "kunne kjenne igjen hvilken regnefeil hvert gale talltilbud i en oppgave svarer til"
+  ],
+  "content": [
+    {
+      "id": "in1020-4-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** overføringstid er **sjanger J — nettverk**, altså regneoppgavene i seksjon 4. Denne varianten har egen oppgave i **fem av seks årganger i arkivet (83 %)**.\n\n**Nivå 2 — dette avgjør ofte om seksjonen bestås.** Regningen er en enkelt divisjon, og likevel er dette den vanligste tallfellen i hele faget. Grunnen er én faktor: **filstørrelser oppgis i byte, overføringsrater i bit per sekund.** Glemmer du å gange med 8, blir svaret nøyaktig åtte ganger for lite — og det tallet står blant alternativene.\n\n**Slik kommer den:** nesten alltid som **svarform F4** (nedtrekksmeny: velg ett alternativ per delspørsmål). Alternativene er sekunder, og hvert galt alternativ svarer til en bestemt regnefeil.\n\n**Den ene tingen som skiller bestått fra bom her:** at du skriver ned omregningen `byte × 8 = bit` som et eget steg, i stedet for å gjøre den i hodet. Steget tar tre sekunder og fjerner hele fella.\n\n**Tidsbruk:** 45 minutter, fordelt på tre løkker. Regningen skal gå for hånd, uten kalkulator — alle tallene i kapitlet er valgt så de går opp."
+    },
+    {
+      "id": "in1020-4-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n**Dette kapitlet kan leses uten andre kapitler i boka**, men to ting fra [kap. 1.1](/bok/in1020/in1020-1-1) er verdt å ha friskt:\n\n**1. En byte er åtte bit.** Det er hele fella i dette kapitlet, samlet i én setning. En byte er den minste enheten som lagrer ett tegn; en bit er ett null eller ett ett.\n\n**2. Store og små bokstaver betyr noe.** `B` er byte, `b` er bit. `MB` er megabyte, `Mbit/s` er megabit per sekund. Forskjellen på de to er faktoren 8, og notasjonen er den eneste ledetråden du får.\n\n**Fra [kap. 4.1](/bok/in1020/in1020-4-1):** at data deles i pakker og sendes over et nett. Her ser vi bort fra pakkeinndelingen og regner på den samlede mengden data.\n\n**Konvensjonen denne boka bruker, deklarert én gang:** vi regner **desimalt**, altså `1 MB = 10⁶ byte` og `1 Mbit/s = 10⁶ bit/s`. Da er `1 MB = 8 Mbit` nøyaktig, og alle omregninger blir rene. Dette er den konvensjonen eksamensoppgavene bruker."
+    },
+    {
+      "id": "in1020-4-3-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-4-3-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| `B` (stor B) | Byte — åtte bit. Filstørrelser oppgis i byte |\n| `b` (liten b) | Bit — ett siffer, 0 eller 1 |\n| `MB` | Megabyte, `10⁶` byte. Enheten filer måles i |\n| `Mbit/s` | Megabit per sekund. Enheten overføringsrater måles i |\n| `GB` | Gigabyte, `10⁹` byte, altså `1000 MB` |\n| Rate (båndbredde) | Hvor mange bit linja overfører per sekund |\n| Nedlastingsrate | Farten inn til deg |\n| Opplastingsrate | Farten ut fra deg — som regel lavere |\n| `MiB` | Mebibyte, `2²⁰ = 1 048 576` byte. Brukes sjelden her, men se advarselen |\n\n**Bokas konvensjon, deklarert én gang og holdt hele veien:**\n\n$$1 \\text{ MB} = 8 \\text{ Mbit} \\qquad 1 \\text{ GB} = 1000 \\text{ MB}$$\n\nDesimalt, altså `1 MB = 10⁶ byte` og `1 Mbit/s = 10⁶ bit/s`. Denne boka bruker aldri `2²⁰`-varianten uten å si det uttrykkelig.\n\n**Formler i dette delkapitlet:**\n\n$$t = \\frac{S \\cdot 8}{R}$$\n\nOverføringstiden `t` i sekunder, når `S` er filstørrelsen i megabyte og `R` er raten i megabit per sekund.\n\n$$S = \\frac{t \\cdot R}{8} \\qquad R = \\frac{S \\cdot 8}{t}$$\n\nDe to omformingene: filstørrelse ut fra tid og rate, og rate ut fra filstørrelse og tid."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Den ene faktoren som feller flest (~15 min)\n\nDu skal laste ned en film på 300 MB hjemmefra, og linja er oppgitt til 60 Mbit/s. Hvor lang tid tar det?\n\nDet raske, gale svaret er fem sekunder: `300 ÷ 60`. Det riktige svaret er førti.\n\nForskjellen er én faktor, og den ligger i enhetene. Filen er målt i **byte**. Linja er målt i **bit** per sekund. Og en byte er åtte bit.\n\nDet er hele kapitlet. Alt annet er å skrive det ned ordentlig."
+    },
+    {
+      "id": "in1020-4-3-def-byte-bit",
+      "type": "definition",
+      "title": "Byte og bit",
+      "content": "En **bit** er ett siffer: 0 eller 1. En **byte** er åtte bit.\n\nSkrivemåten skiller dem: stor `B` er byte, liten `b` er bit. `MB` er megabyte, `Mbit/s` er megabit per sekund.\n\nAt filer måles i byte og linjer i bit per sekund, er ikke tilfeldig. En fil er en samling tegn og tall, og den minste enheten som holder ett tegn, er en byte. En linje overfører ett signal om gangen, og det signalet bærer én bit.\n\nDen faste feilslutningen — og den dyreste i hele faget: å dele filstørrelsen rett på raten. Svaret blir da nøyaktig åtte ganger for lite, og det tallet står alltid blant alternativene."
+    },
+    {
+      "id": "in1020-4-3-def-rate",
+      "type": "definition",
+      "title": "Rate (båndbredde)",
+      "content": "Hvor mange bit linja klarer å overføre per sekund, oppgitt i bit per sekund — i praksis Mbit/s.\n\nEn linje på 60 Mbit/s flytter 60 millioner bit hvert sekund. Regner du om til byte, er det `60 ÷ 8 = 7,5` megabyte i sekundet.\n\nRaten er en **øvre grense**, ikke en garanti. I dette faget regner vi som om linja gir full rate hele tida — oppgavene er laget slik.\n\nDen faste feilslutningen: å tro at «60 Mbit/s» betyr 60 megabyte i sekundet. Det ville vært åtte ganger så fort."
+    },
+    {
+      "id": "in1020-4-3-teo-overforingstid",
+      "type": "theorem",
+      "title": "Overføringstid",
+      "content": "**Formelen:**\n\n$$t = \\frac{S \\cdot 8}{R}$$\n\nder `S` er filstørrelsen i megabyte, `R` er raten i megabit per sekund, og `t` er tiden i sekunder.\n\n**Prosedyren, tre steg — skriv alle tre:**\n\n**Steg 1 — gjør filstørrelsen om til bit.**\n\n`S megabyte × 8 bit/byte = 8S megabit`\n\n**Steg 2 — del på raten.**\n\n`8S megabit ÷ R megabit/s = t sekunder`\n\n**Steg 3 — kontroller enhetene.** «megabit delt på megabit per sekund gir sekunder». Går enhetene opp, har du delt riktig vei.\n\n**Regn med enhetene i hvert steg.** Sensorkravet er eksplisitt på dette punktet, og enhetene er dessuten den beste kontrollen du har: deler du feil vei, får du «megabit i annen per sekund», som ikke er noen tid.\n\n**Rimelighetskontrollen:** en fil på `S` MB over en linje på `R` Mbit/s tar omtrent `8S/R` sekunder. Er svaret ditt mindre enn `S/R`, har du garantert glemt åtteren.\n\n**De to omformingene**, for oppgaver som spør baklengs:\n\n$$S = \\frac{t \\cdot R}{8} \\qquad R = \\frac{S \\cdot 8}{t}$$\n\nFilstørrelsen ut fra tid og rate, og raten som kreves for å rekke en gitt tid."
+    },
+    {
+      "id": "in1020-4-3-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Grunnformen, regnet med enheter i hvert steg",
+      "problem": "En film på 300 MB lastes ned over en linje med nedlastingsrate 60 Mbit/s. Hvor lang tid tar overføringen?",
+      "solution": "**Steg 1 — filstørrelsen til bit.**\n\n`300 MB × 8 bit/byte = 2400 Mbit`\n\n**Steg 2 — del på raten.**\n\n`2400 Mbit ÷ 60 Mbit/s = 40 s`\n\n**Steg 3 — kontroller enhetene.** Megabit delt på megabit per sekund gir sekunder. Stemmer.\n\n**Svar: 40 sekunder.**\n\n**Kontroll med sunn fornuft:** linja flytter `60 ÷ 8 = 7,5` MB i sekundet. På 40 sekunder blir det `7,5 · 40 = 300` MB. Stemmer.\n\n**Det gale svaret du kan få:** `300 ÷ 60 = 5` sekunder, uten omregningen. Fem sekunder for en film på 300 megabyte er urimelig fort på en vanlig hjemmelinje, men det ser ikke urimelig ut når man er stresset — og derfor står 5 blant alternativene.\n\n**Merk at det gale svaret alltid er nøyaktig en åttedel av det riktige.** Ser du to alternativer der det ene er åtte ganger det andre, er sannsynligvis det største riktig."
+    },
+    {
+      "id": "in1020-4-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — overføringstid.) En fil på 120 MB lastes ned over en linje på 40 Mbit/s. Hvor lang tid tar det? Vis omregningen som eget steg.",
+        "solution": "**Steg 1 — til bit.**\n\n`120 MB × 8 bit/byte = 960 Mbit`\n\n**Steg 2 — del på raten.**\n\n`960 Mbit ÷ 40 Mbit/s = 24 s`\n\n**Svar: 24 sekunder.**\n\n**Kontroll:** linja gir `40 ÷ 8 = 5` MB i sekundet, og `5 · 24 = 120` MB. Stemmer.\n\nDet gale svaret er `120 ÷ 40 = 3` sekunder — nøyaktig en åttedel av det riktige.",
+        "hints": [
+          "Skriv omregningen byte til bit som et eget steg før du deler.",
+          "Kontroller til slutt at enhetene gir sekunder."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — nettverk, svarform F4.) Hvor lang tid tar hver av disse overføringene?\n\n**a)** 450 MB over 90 Mbit/s\n\n**b)** 75 MB over 25 Mbit/s",
+        "solution": "**a)** `450 MB × 8 = 3600 Mbit`\n\n`3600 Mbit ÷ 90 Mbit/s = 40 s`\n\n**b)** `75 MB × 8 = 600 Mbit`\n\n`600 Mbit ÷ 25 Mbit/s = 24 s`\n\n**Svar: a) 40 sekunder, b) 24 sekunder.**\n\n**Kontroll a):** `90 ÷ 8 = 11,25` MB/s, og `11,25 · 40 = 450` MB. Stemmer.\n\n**Kontroll b):** `25 ÷ 8 = 3,125` MB/s, og `3,125 · 24 = 75` MB. Stemmer.\n\nMerk at de to oppgavene har helt ulike tall og likevel gir svar i samme størrelsesorden. Det er fordi forholdet mellom filstørrelse og rate er det eneste som betyr noe — `450/90 = 5` og `75/25 = 3`, ganger 8 gir 40 og 24.",
+        "hints": [
+          "Gang filstørrelsen med 8 først, i begge oppgavene.",
+          "Kontroller med å regne ut hvor mange megabyte linja gir per sekund."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Opp, ned og de andre enhetene (~15 min)\n\nTo ting til før eksamensnivået: hvilken rate som gjelder, og hva du gjør når enhetene ikke er MB og Mbit/s.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-4-3-def-opp-ned",
+      "type": "definition",
+      "title": "Nedlastings- og opplastingsrate",
+      "content": "**Nedlastingsraten** er farten inn til deg. **Opplastingsraten** er farten ut fra deg.\n\nPå de fleste hjemmelinjer er opplastingsraten lavere enn nedlastingsraten, ofte betydelig. En linje kan være oppgitt som «100 Mbit/s ned, 20 Mbit/s opp».\n\n**Hvilken gjelder?** Den som beskriver retningen dataene faktisk går:\n\n| Situasjon | Rate som gjelder |\n|---|---|\n| Du henter en fil fra en tjener | Din **nedlastingsrate** |\n| Du sender en fil til en tjener | Din **opplastingsrate** |\n| Du sikkerhetskopierer til skyen | Din **opplastingsrate** |\n| Du strømmer video | Din **nedlastingsrate** |\n\nDen faste feilslutningen: å bruke det største tallet fordi det står først i oppgaveteksten. Les hvilken vei dataene går, og velg deretter."
+    },
+    {
+      "id": "in1020-4-3-def-enheter",
+      "type": "definition",
+      "title": "Når enhetene ikke er MB og Mbit/s",
+      "content": "Oppgaver oppgir ikke alltid tallene i de to enhetene formelen bruker. Da regnes de om først:\n\n| Gitt | Regn om til |\n|---|---|\n| `1 GB` | `1000 MB` |\n| `1 kB` | `0,001 MB` |\n| `1 Gbit/s` | `1000 Mbit/s` |\n| `1 minutt` | `60 s` |\n\n**En viktig presisering — `MB` mot `MiB`.** Denne boka regner desimalt: `1 MB = 10⁶ byte`. Enkelte systemer bruker i stedet `MiB` (mebibyte), som er `2²⁰ = 1 048 576` byte — omtrent 4,9 % mer. En fil på 700 MiB er `734,003 MB`.\n\nI dette faget oppgis filstørrelser i `MB` og rater i `Mbit/s`, og da er `1 MB = 8 Mbit` nøyaktig. Møter du `MiB` i en oppgave, si det uttrykkelig i svaret ditt og regn om.\n\nDen faste feilslutningen: å blande de to konvensjonene i samme utregning. Velg én, og si hvilken."
+    },
+    {
+      "id": "in1020-4-3-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Riktig rate, og en enhet som må regnes om",
+      "problem": "Du sikkerhetskopierer en mappe på 1,5 GB til en skytjeneste. Linja di er oppgitt som **100 Mbit/s ned og 25 Mbit/s opp**.\n\nHvor lang tid tar sikkerhetskopieringen?",
+      "solution": "**Steg 1 — hvilken rate gjelder?** Dataene går **fra** deg og til skytjenesten. Da er det **opplastingsraten** som gjelder: 25 Mbit/s.\n\n**Steg 2 — regn om filstørrelsen til megabyte.**\n\n`1,5 GB = 1500 MB`\n\n**Steg 3 — til bit.**\n\n`1500 MB × 8 bit/byte = 12 000 Mbit`\n\n**Steg 4 — del på raten.**\n\n`12 000 Mbit ÷ 25 Mbit/s = 480 s`\n\n**Steg 5 — gjør om til noe leselig.**\n\n`480 s ÷ 60 s/min = 8 min`\n\n**Svar: 480 sekunder, altså 8 minutter.**\n\n**Kontroll:** opplastingslinja gir `25 ÷ 8 = 3,125` MB/s, og `3,125 · 480 = 1500` MB. Stemmer.\n\n**De tre gale svarene du kan få her:**\n\n**120 s** — regnet med nedlastingsraten 100 Mbit/s i stedet for opplastingsraten. Dette er den farligste distraktoren, fordi 100 er det første tallet man ser.\n\n**60 s** — glemt omregningen fra byte til bit: `1500 ÷ 25 = 60`.\n\n**8 s** — begge feilene på én gang: `1500 ÷ 100 · 0,5`... eller rett og slett `1500 ÷ 100 = 15`, avrundet feil. Poenget er at flere av alternativene er små tall, og at små tall ser fristende ut når man har det travelt.\n\n**Regelen å ta med seg:** les hvilken vei dataene går, **før** du ser på tallene."
+    },
+    {
+      "id": "in1020-4-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #2 — glemt omregningen fra byte til bit.** Filstørrelser er i byte, rater i bit per sekund. Uten faktoren 8 blir svaret nøyaktig åtte ganger for lite. Dette er den vanligste tallfellen i hele faget, og motgiften er å skrive omregningen som et eget steg — ikke gjøre den i hodet.\n\n**Å bruke feil rate.** Sender du data, gjelder opplastingsraten. Henter du data, gjelder nedlastingsraten. Oppgaven oppgir gjerne begge, og den som står først, er ikke nødvendigvis den som gjelder.\n\n**Å dele feil vei.** `rate ÷ filstørrelse` gir ikke en tid. Kontroller enhetene: megabit delt på megabit per sekund gir sekunder, og bare den ene rekkefølgen gjør det.\n\n**Å blande MB og MiB.** Denne boka regner `1 MB = 10⁶ byte`. Møter du `MiB`, er det `2²⁰ = 1 048 576` byte, altså omtrent 4,9 % mer. Si hvilken konvensjon du bruker, og bland dem aldri i samme utregning.\n\n**Å glemme å regne om GB.** `1 GB = 1000 MB` i denne konvensjonen. En oppgave som oppgir gigabyte og megabit per sekund, krever to omregninger, ikke én.\n\n**Å oppgi svaret uten enhet.** Et tall uten «sekunder» er et halvferdig svar, og sensorkravet er eksplisitt på at det skal regnes med enheter."
+    },
+    {
+      "id": "in1020-4-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F4.) Du laster opp en videofil på 900 MB til en delingstjeneste. Linja er oppgitt som **150 Mbit/s ned og 30 Mbit/s opp**.\n\nHvor lang tid tar opplastingen?",
+        "solution": "**Steg 1 — hvilken rate?** Dataene går fra deg, altså **opplastingsraten**: 30 Mbit/s.\n\n**Steg 2 — til bit.**\n\n`900 MB × 8 bit/byte = 7200 Mbit`\n\n**Steg 3 — del på raten.**\n\n`7200 Mbit ÷ 30 Mbit/s = 240 s`\n\n**Svar: 240 sekunder, altså 4 minutter.**\n\n**Kontroll:** `30 ÷ 8 = 3,75` MB/s, og `3,75 · 240 = 900` MB. Stemmer.\n\n**De to gale svarene:** 48 sekunder (brukt nedlastingsraten 150) og 30 sekunder (glemt åtteren). Begge er små tall, og begge ser overkommelige ut — som er nettopp poenget med dem.",
+        "hints": [
+          "Les hvilken vei dataene går før du velger tall.",
+          "Skriv omregningen til bit som et eget steg."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk.) En sikkerhetskopi på 5 GB skal overføres over en linje på 250 Mbit/s.\n\n**a)** Hvor lang tid tar det?\n\n**b)** Hvor stor andel av den tida skyldes at filstørrelsen er oppgitt i byte og raten i bit?",
+        "solution": "**a) Steg 1 — regn om til megabyte.**\n\n`5 GB = 5000 MB`\n\n**Steg 2 — til bit.**\n\n`5000 MB × 8 bit/byte = 40 000 Mbit`\n\n**Steg 3 — del på raten.**\n\n`40 000 Mbit ÷ 250 Mbit/s = 160 s`\n\n**Svar a): 160 sekunder, altså 2 minutter og 40 sekunder.**\n\n**b)** Uten omregningen ville man fått `5000 ÷ 250 = 20` s.\n\n`160 s ÷ 20 s = 8`\n\n**Svar b): sju åttedeler av tida, altså 140 av de 160 sekundene, «skyldes» faktoren 8 — eller mer presist: den som glemmer omregningen, oppgir et svar som er en åttedel av det riktige.**\n\n**Kontroll:** `250 ÷ 8 = 31,25` MB/s, og `31,25 · 160 = 5000` MB. Stemmer.\n\nPoenget med deloppgave b) er å feste størrelsesordenen: feilen er ikke en liten unøyaktighet. Den er en faktor 8, og den flytter svaret fra to og et halvt minutt til tjue sekunder.",
+        "hints": [
+          "Husk at 1 GB er 1000 MB i denne bokas konvensjon.",
+          "For b): regn ut hva svaret ville blitt uten omregningen, og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Baklengs, og oppgaven på eksamensnivå (~15 min)\n\nDen siste varianten spør motsatt vei: hvor stor kan filen være, eller hvor rask må linja være, for at overføringen skal rekke en gitt tid?\n\nDet er samme formel, løst for en annen ukjent. Faktoren 8 er der fortsatt — bare på den andre siden av brøkstreken i det ene tilfellet."
+    },
+    {
+      "id": "in1020-4-3-teo-baklengs",
+      "type": "theorem",
+      "title": "De to omformingene",
+      "content": "Fra `t = S · 8 / R` følger de to andre formene direkte:\n\n$$S = \\frac{t \\cdot R}{8}$$\n\n**Filstørrelsen** som rekker på tida `t` med raten `R`. Her **deles** det på 8, fordi svaret skal være i byte og produktet `t · R` er i bit.\n\n$$R = \\frac{S \\cdot 8}{t}$$\n\n**Raten** som kreves for å overføre `S` på tida `t`. Her **ganges** det med 8, som i grunnformen.\n\n**Huskeregelen for hvilken vei åtteren skal:** spør hva svaret skal være målt i.\n\n- Skal svaret være i **byte** (en filstørrelse), deler du på 8.\n- Skal svaret være i **bit per sekund** (en rate), ganger du med 8.\n\n**Kontrollen som alltid virker:** sett svaret ditt inn i grunnformelen og regn tida på nytt. Får du tallet oppgaven oppga, stemmer det."
+    },
+    {
+      "id": "in1020-4-3-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — alternativene forklart ett for ett",
+      "problem": "Svarform F4 — velg ett alternativ per delspørsmål.\n\nEn strømmetjeneste vil at et videosegment skal være ferdig lastet ned på **30 sekunder** over en linje på **40 Mbit/s**.\n\nHvor stort kan segmentet være?\n\n**A.** 1200 MB · **B.** 150 MB · **C.** 9600 MB · **D.** 75 MB",
+      "solution": "**Steg 1 — hva skal svaret være målt i?** Megabyte, altså en filstørrelse. Da skal det **deles** på 8.\n\n**Steg 2 — regn ut hvor mange bit som rekker.**\n\n`30 s × 40 Mbit/s = 1200 Mbit`\n\n**Steg 3 — gjør om til megabyte.**\n\n`1200 Mbit ÷ 8 bit/byte = 150 MB`\n\n**Svar: B — 150 MB.**\n\n**Kontroll:** sett svaret inn i grunnformelen. `150 MB × 8 = 1200 Mbit`, og `1200 ÷ 40 = 30` s. Stemmer med oppgaven.\n\n**Hvert galt alternativ forklart:**\n\n**A — 1200 MB.** Dette er mellomresultatet `30 · 40`, oppgitt uten å dele på 8, og med feil enhet: 1200 er megabit, ikke megabyte. Dette er den farligste distraktoren, fordi tallet står midt i din egen utregning.\n\n**C — 9600 MB.** Her er det **ganget** med 8 i stedet for delt: `30 · 40 · 8 = 9600`. Feilen er å bruke grunnformelens retning på åtteren når svaret skal være en filstørrelse. Kontrollen som avslører den: 9600 MB over 40 Mbit/s ville tatt `9600 · 8 ÷ 40 = 1920` sekunder, ikke 30.\n\n**D — 75 MB.** Halvparten av det riktige, altså `1200 ÷ 16`. Feilen er å dele på 8 to ganger for mange halve steg, eller å bruke halve tida. Kontrollen: 75 MB over 40 Mbit/s tar `75 · 8 ÷ 40 = 15` sekunder, ikke 30.\n\n**Om negativ poenggiving:** her er det bare ett riktig svar, og et galt kryss trekker. Kontrollen i steg 3 tar ti sekunder og gjør svaret sikkert. Gjør den alltid på denne oppgavetypen — den er billig, og den er den eneste måten å skille A fra B på uten å tenke gjennom enhetene på nytt."
+    },
+    {
+      "id": "in1020-4-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F4.) En tjeneste skal overføre en fil på 600 MB på nøyaktig ett minutt.\n\nHvilken rate kreves?",
+        "solution": "**Steg 1 — hva skal svaret være målt i?** Megabit per sekund, altså en rate. Da skal det **ganges** med 8.\n\n**Steg 2 — filstørrelsen til bit.**\n\n`600 MB × 8 bit/byte = 4800 Mbit`\n\n**Steg 3 — del på tida.**\n\n`1 minutt = 60 s`\n\n`4800 Mbit ÷ 60 s = 80 Mbit/s`\n\n**Svar: 80 Mbit/s.**\n\n**Kontroll:** sett inn i grunnformelen. `600 MB × 8 = 4800 Mbit`, og `4800 ÷ 80 = 60` s. Stemmer.\n\n**De to gale svarene:** 10 Mbit/s (glemt åtteren: `600 ÷ 60`) og 4800 Mbit/s (glemt å dele på tida). Det første er en åttedel av det riktige; det andre er mellomresultatet.",
+        "hints": [
+          "Spør deg først hvilken enhet svaret skal ha — det avgjør hvilken vei åtteren går.",
+          "Husk å gjøre om minuttet til sekunder før du deler.",
+          "Kontroller ved å regne tida på nytt med svaret ditt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F1: velg ett *eller flere* alternativer.) En fil på 240 MB skal overføres over en linje på 30 Mbit/s.\n\nKryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Overføringen tar 64 sekunder.\n\n**b)** Overføringen tar 8 sekunder.\n\n**c)** Linja flytter 3,75 MB per sekund.\n\n**d)** En dobbelt så rask linje ville halvert tida til 32 sekunder.\n\n**e)** En dobbelt så stor fil over samme linje ville tatt 128 sekunder.",
+        "solution": "**Regningen først.**\n\n`240 MB × 8 bit/byte = 1920 Mbit`\n\n`1920 Mbit ÷ 30 Mbit/s = 64 s`\n\n**a) Riktig.** 64 sekunder.\n\n**b) Galt.** 8 sekunder er `240 ÷ 30`, altså uten omregningen fra byte til bit. Svaret er nøyaktig en åttedel av det riktige — den klassiske fella.\n\n**c) Riktig.** `30 Mbit/s ÷ 8 bit/byte = 3,75 MB/s`. Kontroll: `3,75 MB/s · 64 s = 240 MB`. Stemmer.\n\n**d) Riktig.** Tida er omvendt proporsjonal med raten. `240 · 8 ÷ 60 = 1920 ÷ 60 = 32` s. Dobbelt så rask linje gir halve tida.\n\n**e) Riktig.** Tida er proporsjonal med filstørrelsen. `480 · 8 ÷ 30 = 3840 ÷ 30 = 128` s. Dobbelt så stor fil gir dobbelt så lang tid.\n\n**Fasit: a, c, d og e.**\n\n**Om negativ poenggiving:** fire av fem er riktige. Dette er den oppgavetypen som skiller mest i dette faget: en kandidat som er redd for å krysse av «for mange», tar kanskje bare a) og mister tre sikre poeng uten å ha svart noe galt. Alle fire kan begrunnes med én utregning hver.\n\n**Merk mønsteret i b):** det gale alternativet er alltid nøyaktig en åttedel av det riktige. Ser du to alternativer med akkurat det forholdet, vet du hva oppgaven tester.",
+        "hints": [
+          "Regn ut grunnoppgaven helt ferdig før du ser på alternativene.",
+          "For c): del raten på 8 for å få megabyte per sekund.",
+          "For d) og e): du trenger ikke regne på nytt hvis du ser hvilken vei proporsjonaliteten går — men regn likevel, det tar ti sekunder."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F2.) En kollega laster ned en fil på 1500 MB over en linje som er oppgitt som **100 Mbit/s ned og 20 Mbit/s opp**.\n\nVurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Overføringen tar 120 sekunder | |\n| b | Opplastingsraten er den som gjelder her | |\n| c | Uten omregningen fra byte til bit ville svaret blitt 15 sekunder | |\n| d | Filen inneholder 12 000 megabit | |\n| e | Samme fil sendt **til** tjeneren ville tatt 600 sekunder | |",
+        "solution": "**Regningen først.** Dataene går **til** kollegaen, altså nedlasting: 100 Mbit/s gjelder.\n\n`1500 MB × 8 bit/byte = 12 000 Mbit`\n\n`12 000 Mbit ÷ 100 Mbit/s = 120 s`\n\n**a) Sann.** 120 sekunder, altså to minutter.\n\n**b) Usann.** Han **laster ned**, så det er nedlastingsraten på 100 Mbit/s som gjelder. Påstanden er den vanligste feilen i oppgaver som oppgir begge ratene.\n\n**c) Sann.** `1500 ÷ 100 = 15` s. Det er nøyaktig en åttedel av 120, som det skal være.\n\n**d) Sann.** `1500 MB × 8 = 12 000 Mbit`. Dette er mellomresultatet fra steg 1, og det er verdt å legge merke til at det står som en egen påstand: en riktig mellomregning er et riktig utsagn, selv om den ikke er svaret på hovedspørsmålet.\n\n**e) Sann.** Til tjeneren gjelder opplastingsraten: `12 000 Mbit ÷ 20 Mbit/s = 600 s`, altså ti minutter. Fem ganger så lang tid som nedlastingen — som stemmer med at raten er en femdel.\n\n**Fasit: a sann, b usann, c sann, d sann, e sann.**\n\nFordelingen er fire sanne og én usann. Det er en helt vanlig fordeling i en matrise, og du må aldri bruke fordelingen som ledetråd — regn hver rad for seg.\n\n**Kontroll av e):** `20 ÷ 8 = 2,5` MB/s, og `2,5 · 600 = 1500` MB. Stemmer.",
+        "hints": [
+          "Avgjør retningen først: laster han ned eller opp?",
+          "For d): mellomresultatet fra steg 1 er også et utsagn som kan være sant.",
+          "For e): bytt bare ut raten, alt annet er likt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-4-3-bank-1",
+      "type": "definition",
+      "title": "Overføringstidsformelen",
+      "content": "$$t = \\frac{S \\cdot 8}{R}$$\n\nTiden `t` i sekunder, filstørrelsen `S` i megabyte, raten `R` i megabit per sekund.\n\nFaktoren 8 er der fordi filer måles i byte og linjer i bit per sekund.\n\nDen faste feilslutningen: å dele filstørrelsen rett på raten. Svaret blir da nøyaktig en åttedel av det riktige."
+    },
+    {
+      "id": "in1020-4-3-bank-2",
+      "type": "definition",
+      "title": "Faktoren 8",
+      "content": "Én byte er åtte bit. Det er hele forskjellen mellom enheten filer måles i og enheten linjer måles i.\n\nSkriv omregningen som et **eget steg** i utregningen: `S MB × 8 bit/byte = 8S Mbit`. Steget tar tre sekunder og fjerner den vanligste tallfellen i faget.\n\nDen faste feilslutningen: å gjøre omregningen i hodet og glemme den under tidspress."
+    },
+    {
+      "id": "in1020-4-3-bank-3",
+      "type": "definition",
+      "title": "Stor B og liten b",
+      "content": "`B` er byte, `b` er bit. `MB` er megabyte, `Mbit/s` er megabit per sekund.\n\nNotasjonen er den eneste ledetråden oppgaven gir deg om hvilken enhet et tall er i. Les den før du regner.\n\nDen faste feilslutningen: å lese `Mbit/s` som «megabyte per sekund» fordi ordet ligner. Forskjellen er faktoren 8."
+    },
+    {
+      "id": "in1020-4-3-bank-4",
+      "type": "definition",
+      "title": "Rate og båndbredde",
+      "content": "Antall bit linja overfører per sekund. I dette faget regnes raten som konstant og fullt utnyttet.\n\nEn linje på 40 Mbit/s flytter `40 ÷ 8 = 5` megabyte i sekundet.\n\nDen faste feilslutningen: å tro at oppgitt rate er en garanti. Den er en øvre grense — men oppgavene i dette faget er laget slik at grensen nås."
+    },
+    {
+      "id": "in1020-4-3-bank-5",
+      "type": "definition",
+      "title": "Nedlastingsrate",
+      "content": "Farten **inn til deg**. Gjelder når du henter en fil, strømmer video eller åpner en nettside.\n\nPå hjemmelinjer er den som regel den høyeste av de to oppgitte ratene.\n\nDen faste feilslutningen: å bruke den fordi den er størst, uten å sjekke hvilken vei dataene går."
+    },
+    {
+      "id": "in1020-4-3-bank-6",
+      "type": "definition",
+      "title": "Opplastingsrate",
+      "content": "Farten **ut fra deg**. Gjelder når du sender en fil, sikkerhetskopierer til skyen eller deler skjerm.\n\nPå hjemmelinjer er den ofte betydelig lavere enn nedlastingsraten, noen ganger en femdel.\n\nDen faste feilslutningen: å overse at oppgaven oppgir to rater, og bare bruke den som står først."
+    },
+    {
+      "id": "in1020-4-3-bank-7",
+      "type": "definition",
+      "title": "Enhetskontrollen",
+      "content": "Kontrollen som avgjør om du har delt riktig vei: «megabit delt på megabit per sekund gir sekunder».\n\nDeler du motsatt vei, får du en enhet som ikke er en tid — og da vet du at noe er galt før du i det hele tatt ser på tallet.\n\nDen faste feilslutningen: å hoppe over enhetene fordi tallene «ser riktige ut». Enhetene er den billigste kontrollen som finnes."
+    },
+    {
+      "id": "in1020-4-3-bank-8",
+      "type": "definition",
+      "title": "Rimelighetskontrollen",
+      "content": "Regn ut hvor mange megabyte linja gir per sekund (`R ÷ 8`), og gang med svaret ditt. Får du filstørrelsen tilbake, stemmer det.\n\nFor 240 MB over 30 Mbit/s: `30 ÷ 8 = 3,75` MB/s, og `3,75 · 64 = 240` MB. Stemmer.\n\nDen faste feilslutningen: å stole på at et svar er riktig fordi det ser rimelig ut. Alle distraktorene i sjangeren ser rimelige ut."
+    },
+    {
+      "id": "in1020-4-3-bank-9",
+      "type": "definition",
+      "title": "Filstørrelsen baklengs",
+      "content": "$$S = \\frac{t \\cdot R}{8}$$\n\nHvor stor fil rekker på tida `t` med raten `R`. Her **deles** det på 8, fordi svaret skal være i byte.\n\nDen faste feilslutningen: å bruke samme retning på åtteren som i grunnformelen. Spør hva svaret skal måles i — byte betyr del, bit per sekund betyr gang."
+    },
+    {
+      "id": "in1020-4-3-bank-10",
+      "type": "definition",
+      "title": "Raten baklengs",
+      "content": "$$R = \\frac{S \\cdot 8}{t}$$\n\nHvilken rate som kreves for å overføre `S` på tida `t`. Her **ganges** det med 8, som i grunnformelen.\n\nDen faste feilslutningen: å glemme å gjøre om tida til sekunder. Ett minutt er 60 s, og en oppgave som oppgir minutter, krever den omregningen i tillegg."
+    },
+    {
+      "id": "in1020-4-3-bank-11",
+      "type": "definition",
+      "title": "Gigabyte",
+      "content": "`1 GB = 1000 MB` i denne bokas desimale konvensjon.\n\nEn oppgave som oppgir gigabyte og megabit per sekund, krever **to** omregninger: først GB til MB, så byte til bit.\n\nDen faste feilslutningen: å gjøre bare den ene av dem. Skriv begge som egne steg."
+    },
+    {
+      "id": "in1020-4-3-bank-12",
+      "type": "definition",
+      "title": "MB mot MiB",
+      "content": "`1 MB = 10⁶ byte` (desimalt). `1 MiB = 2²⁰ = 1 048 576 byte` (binært) — omtrent 4,9 % mer.\n\nEn fil på 700 MiB er `734,003 MB`. Denne boka bruker den desimale varianten, som eksamensoppgavene gjør.\n\nDen faste feilslutningen: å blande de to i samme utregning. Velg én konvensjon, si hvilken, og hold den."
+    },
+    {
+      "id": "in1020-4-3-bank-13",
+      "type": "definition",
+      "title": "Proporsjonalitetene",
+      "content": "Tida er **proporsjonal** med filstørrelsen og **omvendt proporsjonal** med raten.\n\nDobbelt så stor fil gir dobbelt så lang tid. Dobbelt så rask linje gir halve tida. Begge deler kan brukes til å kontrollere et svar uten å regne alt på nytt.\n\nDen faste feilslutningen: å snu den ene av dem. Mer data tar lengre tid; mer fart tar kortere."
+    },
+    {
+      "id": "in1020-4-3-bank-14",
+      "type": "definition",
+      "title": "Feiltallet «en åttedel»",
+      "content": "Det klassiske gale svaret: filstørrelsen delt rett på raten, uten omregning.\n\nDet er alltid nøyaktig en åttedel av det riktige svaret. Ser du to alternativer der det ene er åtte ganger det andre, tester oppgaven nettopp denne fella — og det største er riktig.\n\nKontrollen: er svaret ditt mindre enn `S ÷ R`, har du regnet noe helt galt. Er det nøyaktig `S ÷ R`, har du glemt åtteren."
+    },
+    {
+      "id": "in1020-4-3-bank-15",
+      "type": "definition",
+      "title": "Feiltallet «mellomresultatet»",
+      "content": "Det nest vanligste gale svaret: tallet fra steg 1 eller steg 2, oppgitt som om det var svaret.\n\nFor «hvor stor kan filen være på 30 s over 40 Mbit/s» er `30 · 40 = 1200` mellomresultatet i megabit, mens svaret er `1200 ÷ 8 = 150` megabyte.\n\nDistraktoren er farlig fordi tallet står midt i din egen utregning og derfor kjennes riktig."
+    },
+    {
+      "id": "in1020-4-3-bank-16",
+      "type": "definition",
+      "title": "Feiltallet «feil rate»",
+      "content": "Det tredje faste gale svaret: å bruke nedlastingsraten der opplastingsraten gjelder, eller omvendt.\n\nFeilen gir et svar som er riktig regnet, men på feil premiss — og den er derfor umulig å oppdage med enhetskontrollen.\n\nMotgiften er å avgjøre retningen **før** du ser på tallene: går dataene fra deg eller til deg?"
+    },
+    {
+      "id": "in1020-4-3-bank-17",
+      "type": "definition",
+      "title": "Hva formelen ser bort fra",
+      "content": "Grunnformelen regner bare på selve overføringen ved full rate. Den ser bort fra tida det tar å sette opp forbindelsen, fra hodene som legges på hver pakke, og fra ventetid i køer underveis.\n\nI dette faget er det riktig å se bort fra alt dette: oppgavene er laget for grunnformelen, og tallene går opp.\n\nDen faste feilslutningen: å prøve å korrigere for pakkehoder på eksamen. Det er ikke det som testes, og det gjør bare svaret galt."
+    },
+    {
+      "id": "in1020-4-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter overføringstiden?",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1020-4-3-repetisjon-tekst",
+          "type": "text",
+          "content": "Ta denne rett før du går videre til drillen i [kap. 4.4](/bok/in1020/in1020-4-4). Svar i hodet før du leser videre på linja.\n\n**1. Formelen?** `t = S · 8 / R` — filstørrelse i megabyte, ganger 8, delt på raten i megabit per sekund.\n\n**2. Hvorfor faktoren 8?** Filer måles i byte, linjer i bit per sekund. En byte er åtte bit.\n\n**3. 300 MB over 60 Mbit/s?** `300 · 8 = 2400` Mbit, delt på 60 gir **40 sekunder**.\n\n**4. Hva blir svaret uten omregningen?** Nøyaktig en åttedel — her 5 sekunder.\n\n**5. Hvilken rate gjelder når du sender en fil?** Opplastingsraten.\n\n**6. `1 GB` i megabyte?** 1000 MB i denne bokas konvensjon.\n\n**7. Hvor stor fil rekker på 30 s over 40 Mbit/s?** `30 · 40 = 1200` Mbit, delt på 8 gir **150 MB**.\n\n**8. Hvilken vei går åtteren når svaret er en filstørrelse?** Du **deler** på 8.\n\n**9. Hvilken vei når svaret er en rate?** Du **ganger** med 8.\n\n**10. Enhetskontrollen?** Megabit delt på megabit per sekund gir sekunder.\n\nSitter alle ti? Da er du klar for drillen i [kap. 4.4](/bok/in1020/in1020-4-4), der denne regningen møter subnettingen fra [kap. 4.2](/bok/in1020/in1020-4-2). Glapp noe på 2 eller 4, skriv omregningen som eget steg i hver eneste oppgave framover — det er den ene vanen som fjerner hele fella."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
