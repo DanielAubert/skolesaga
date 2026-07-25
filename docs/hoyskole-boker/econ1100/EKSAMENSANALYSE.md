@@ -1,6 +1,6 @@
 # Eksamensanalyse: ECON1100 Matematikk I (for økonomer) — UiO
 
-> Grunnlagsdokument for en eksamensrettet lærebok. Bygger på **9 ordinære skoleeksamener** (V2018 + H2018–H2025, én pr. høst pluss vårsettet V2018) og **7 utsatte eksamener** (V2018-utsatt, H2020–H2025-utsatt) fra Økonomisk institutt ved UiO — til sammen **16 eksamenssett med tilhørende offisielle sensorveiledninger**. Alle sensorveiledninger er lest grundig; de siste ~8 årgangene er gjennomgått i detalj, de eldste (V2018-settene) skummet. **Alt innhold er omskrevet med egne ord** — ingen ordrette gjengivelser av oppgavetekster eller sensorformuleringer. Analysen er kvantitativ der kildene tillater det.
+> Grunnlagsdokument for en eksamensrettet lærebok. Bygger på **9 ordinære skoleeksamener** (V2018 + H2018–H2025, én pr. høst pluss vårsettet V2018) og **7 utsatte eksamener** (V2018-utsatt, H2020–H2025-utsatt) fra Økonomisk institutt ved UiO — til sammen **16 eksamenssett**, hvorav **14 med offisiell sensorveiledning** (alle 9 ordinære + de 5 utsatte fra H2021–H2025). V2018-utsatt har kun løsningsforslag, og H2020-utsatt kun oppgaveteksten. Alle 14 sensorveiledningene er lest grundig; de siste ~8 årgangene er gjennomgått i detalj, de eldste (V2018-settene) skummet. **Alt innhold er omskrevet med egne ord** — ingen ordrette gjengivelser av oppgavetekster eller sensorformuleringer. Analysen er kvantitativ der kildene tillater det.
 >
 > **Viktig rammemerknad:** ECON1100 er *matematikk for økonomer* — verktøyfaget som leverer regneteknikken til mikroøkonomi (ECON1210), makroøkonomi og videre metodefag. Tyngdepunktet er **anvendt optimering** (nyttemaksimering, kostnadsminimering) og **funksjonsdrøfting**, ikke bevistung matematisk analyse. Dette skiller faget skarpt fra MAT1100 (kalkulus): det er **ingen** lineær algebra/matriser, **ingen** differensiallikninger, **ingen** komplekse tall, og integrasjonstunge teknikker (substitusjon, delvis integrasjon) er fraværende. Se del 2 for det fulle fraværsbildet.
 
@@ -317,9 +317,9 @@ Oppgavenes økonomiske innramming (klimautslipp, energimiks, arbeidskraftettersp
 
 Alle filer ligger under `/Users/danielandreasaubert/Desktop/Eksamner/UiO/ECON1100/`.
 
-**Sensorveiledninger lest grundig (16):**
+**Sensorveiledninger lest grundig (14 av 16 sett):**
 - Ordinære (9): `sensorveiledning/ECON1100-V2018` … `ECON1100-H2025-sensorveiledning.pdf` (V2018, H2018, H2019, H2020, H2021, H2022, H2023, H2024, H2025).
-- Utsatte (7): `utsatt/ECON1100-V2018-utsatt-losning.pdf`, `ECON1100-H2020-utsatt`, `ECON1100-H2021-utsatt-sensorveiledning`, `ECON1100-H2022-utsatt-sensorveiledning`, `ECON1100-H2023-utsatt+sensorveiledning`, `ECON1100-H2024-utsatt-sensorveiledning`, `ECON1100-H2025-utsatt-sensorveiledning.pdf`.
+- Utsatte med sensorveiledning (5): `ECON1100-H2021-utsatt-sensorveiledning`, `ECON1100-H2021-utsatt-sensorveiledning`, `ECON1100-H2022-utsatt-sensorveiledning`, `ECON1100-H2023-utsatt+sensorveiledning`, `ECON1100-H2024-utsatt-sensorveiledning`, `ECON1100-H2025-utsatt-sensorveiledning.pdf`.
 
 **Oppgavetekster (uten fasit) gjennomgått for format/temaregistrering:** `eksamen/ECON1100-*.pdf` (V2018, H2018–H2025) og `utsatt/ECON1100-*-utsatt.pdf`.
 

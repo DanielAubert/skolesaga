@@ -226,7 +226,7 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     courseId: 'econ1100',
     institusjon: 'Universitetet i Oslo (UiO) — Økonomisk institutt',
     sammendrag:
-      'Boka er kalibrert mot ECON1100s eksamensarkiv ved UiO: 16 eksamenssett fra vår 2018 til høst 2025 — 9 ordinære og 7 utsatte — hvert eneste med offisiell sensorveiledning. Det er uvanlig god dekning, og lar oss skille profilen på ordinær og utsatt eksamen fra hverandre. Temavekting, oppgavesjangre og den faste dramaturgien i settene speiler hva arkivet faktisk tester.',
+      'Boka er kalibrert mot ECON1100s eksamensarkiv ved UiO: 16 eksamenssett fra vår 2018 til høst 2025 — 9 ordinære og 7 utsatte. 14 av dem har offisiell sensorveiledning; de to eldste utsatt-settene har bare henholdsvis et løsningsforslag og oppgaveteksten alene. Dekningen er likevel uvanlig god, og lar oss skille profilen på ordinær og utsatt eksamen fra hverandre. Temavekting, oppgavesjangre og den faste dramaturgien i settene speiler hva arkivet faktisk tester.',
     eksamenssett: [
       {
         tittel: '9 ordinære skoleeksamener (V2018, H2018 – H2025)',
@@ -236,14 +236,19 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
       {
         tittel: '7 utsatte eksamener (V2018-utsatt, H2020 – H2025-utsatt)',
         detalj:
-          'ECON1100 har utsatt eksamen hvert år i tillegg til den ordinære. De utsatte settene har en litt annen profil — produsentteori og kostnadsminimering går oftere igjen der — og boka trener begge variantene.',
+          'ECON1100 har utsatt eksamen hvert år i tillegg til den ordinære. De utsatte settene har en litt annen profil — produsentteori og kostnadsminimering går oftere igjen der — og boka trener begge variantene. Merk at H2020-utsatt bare finnes som oppgavetekst: verken sensorveiledning eller løsningsforslag foreligger for det settet.',
       },
     ],
     sensorveiledninger: [
       {
-        tittel: '16 offisielle sensorveiledninger — én per sett',
+        tittel: '14 offisielle sensorveiledninger (av 16 sett)',
         detalj:
-          'Alle 16 settene har offisiell sensorveiledning fra Økonomisk institutt, og alle er lest grundig. De siste åtte årgangene er gjennomgått i detalj, de eldste skummet. Veiledningene gjentar de generelle merknadene nesten ordrett hvert år, og det er dem boka bygger føringsstandarden på: en konklusjon uten begrunnelse gir null, og hvert steg skal vises.',
+          'Alle 9 ordinære sett og de 5 utsatte fra H2021 til H2025 har offisiell sensorveiledning fra Økonomisk institutt, og alle er lest grundig. De siste åtte årgangene er gjennomgått i detalj, de eldste skummet. Veiledningene gjentar de generelle merknadene nesten ordrett hvert år, og det er dem boka bygger føringsstandarden på: en konklusjon uten begrunnelse gir null, og hvert steg skal vises.',
+      },
+      {
+        tittel: 'V2018-utsatt: løsningsforslag, ikke sensorveiledning',
+        detalj:
+          'For det utsatte settet våren 2018 foreligger et løsningsforslag med utregninger, men ingen sensorveiledning med poenggiving og merknader. Det er brukt til fasitkontroll, ikke til å utlede hva sensor belønner.',
       },
     ],
     andreKilder: [
