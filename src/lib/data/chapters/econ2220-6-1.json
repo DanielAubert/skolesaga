@@ -1,0 +1,418 @@
+{
+  "id": "econ2220-6-1",
+  "courseId": "econ2220",
+  "chapterNumber": "6.1",
+  "title": "Produksjonsmulighetskurven og MTB",
+  "description": "Fra teknologi og ressursskranke til produksjonsmulighetskurven — helningen som MTB, krumningen fra avtakende marginalproduktivitet.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne utlede produksjonsmulighetskurven fra oppgitte teknologier og en ressursskranke, i tre eksplisitte steg",
+    "kunne definere den marginale transformasjonsbrøken og tolke den i enheter av de to varene",
+    "kunne begrunne hvorfor produksjonsmulighetskurven krummer utover når marginalproduktiviteten er avtakende",
+    "kunne vise med Lagrange at verdimaksimering til gitte priser krever at transformasjonsbrøken er lik prisforholdet"
+  ],
+  "content": [
+    {
+      "id": "econ2220-6-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet bygger fundamentet for det eksamen kaller **produksjonsøkonomien** — en økonomi der varene ikke bare byttes, men også lages. I denne boka merker vi oppgaver av den typen med bokstaven **K** (kort for «likevekt med produksjon», Robinson–Fredag-sjangeren). Sjangerbokstavene er bokas eget system for å merke hvilken oppgavetype du trener; hele listen står i [kap. 0.1](/bok/econ2220/econ2220-0-1).\n\n**Frekvens i arkivet:** produksjonsmulighetskurven og transformasjonsbrøken er testet i **3 av de 4 utsatt-eksamenene** (V2023-utsatt, der temaet bar 50 % av settet; V2024-utsatt, 30 %; V2025-utsatt, 35 %) og i **2 av de 7 ordinære settene** (V2018 og V2023). Utsatt eksamen — den du tar hvis du stryker eller er syk — er altså der dette stoffet virkelig slår til.\n\n**Prioritet: dette må du kunne.** Stoffet er ikke i den absolutte kjernen som testes hvert år, men det avgjør to ting: konteeksamen, og toppkarakteren på en ordinær eksamen der likevektsoppgaven utvides med produksjon.\n\n**Hva sensor krever her:** at du *utleder* kurven fra teknologien og ressursskranken (ikke bare tegner en pen bue), at du forklarer hva helningen måler **i enheter av de to varene**, og at du begrunner krumningen. En figur uten utledning gir lite; en utledning uten tolkning gir trekk."
+    },
+    {
+      "id": "econ2220-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på:\n\n- **[kap. 5.1](/bok/econ2220/econ2220-5-1)** — produktfunksjonen og marginalproduktet. Du trenger at $x = F(n)$ beskriver hvor mye en sektor får ut av $n$ arbeidstimer, og at **marginalproduktet** $F'(n)$ er økningen i produksjon av den siste timen.\n- **[kap. 4.2](/bok/econ2220/econ2220-4-2)** — markedslikevekt: at priser bestemmes slik at alle markeder klarerer samtidig.\n- **[kap. 2.1](/bok/econ2220/econ2220-2-1)** — konsumentens tilpasning, der du møtte den marginale substitusjonsbrøken MSB. Vi bruker den først i [kap. 6.2](/bok/econ2220/econ2220-6-2), men det hjelper å ha den i bakhodet.\n- **[kap. 1.3](/bok/econ2220/econ2220-1-3)** — Lagrange-metoden. Vi bruker den til å maksimere verdien av produksjonen under en beskrankning.\n\n**Sist du var her — de to tingene du må ha ferskt:**\n\n$$x = F(n), \\qquad F'(n) = \\text{marginalproduktet av den siste arbeidstimen}$$\n\nMarginalproduktet er **avtakende** i de teknologiene vi bruker: jo flere timer som allerede er lagt inn i en sektor, desto mindre får du ut av den neste. For $F(n) = \\sqrt{n}$ er $F'(n) = \\frac{1}{2\\sqrt{n}}$, som synker når $n$ vokser.\n\n$$\\mathcal{L} = \\text{målfunksjon} + \\lambda\\,(\\text{beskrankning skrevet som } 0 = \\ldots)$$\n\nLagrange-oppskriften: deriver $\\mathcal{L}$ med hensyn på hver variabel, sett lik null, og **del førsteordensbetingelsene på hverandre** så $\\lambda$ forsvinner."
+    },
+    {
+      "id": "econ2220-6-1-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Fra teknologi og timer til produksjonsmulighetskurven (~15 min)"
+    },
+    {
+      "id": "econ2220-6-1-anker",
+      "type": "text",
+      "content": "Tenk deg et lite øysamfunn på Helgelandskysten. Der bor det folk som til sammen kan legge ned et bestemt antall arbeidstimer i uka — la oss si 200. Timene kan brukes på to ting: å plukke molte på myra, eller å sette teiner etter taskekrabbe. Ingen andre ressurser er knappe; det er timene det står om.\n\nBruker de alle timene på molte, får de mye molte og ingen krabbe. Bruker de alle på krabbe, blir det omvendt. Og alt imellom er mulig. Spørsmålet dette kapitlet svarer på, er: **hvilke kombinasjoner av molte og krabbe kan øya faktisk få til, og hva koster det å få litt mer av den ene?**\n\nDet er ikke et pengespørsmål. Prisen på én ekstra kurv molte, målt i det øysamfunnet må gi slipp på, er **krabbe**. Dette er alternativkostnad på samfunnsnivå, og hele kapitlet handler om å måle den presist."
+    },
+    {
+      "id": "econ2220-6-1-def-teknologi",
+      "type": "definition",
+      "title": "Teknologi (produktfunksjon i én faktor)",
+      "content": "En **teknologi** i én faktor er en funksjon $x = F(n)$ som forteller hvor mange enheter av varen sektoren produserer når den bruker $n$ enheter av innsatsfaktoren (her: arbeidstimer).\n\nVi skriver de to sektorenes teknologier som\n\n$$x_1 = f(n_1), \\qquad x_2 = g(n_2),$$\n\nder $n_1$ og $n_2$ er timene som brukes i henholdsvis sektor 1 og sektor 2. Begge funksjonene er voksende ($f' > 0$, $g' > 0$) og har **avtakende marginalprodukt** ($f'' < 0$, $g'' < 0$): den neste timen gir mindre enn den forrige.\n\nStandardeksemplet i dette faget er kvadratrot-teknologien $f(n_1) = \\sqrt{n_1}$, som har $f'(n_1) = \\frac{1}{2\\sqrt{n_1}}$ — positivt, men fallende."
+    },
+    {
+      "id": "econ2220-6-1-def-ressursskranke",
+      "type": "definition",
+      "title": "Ressursskranke",
+      "content": "**Ressursskranken** sier at timene som brukes i de to sektorene til sammen ikke kan overstige det samfunnet har:\n\n$$n_1 + n_2 = L.$$\n\nVi skriver den med **likhet**, ikke med «mindre enn eller lik». Begrunnelsen er den samme som for budsjettbetingelsen hos konsumenten: så lenge mer av begge varene er bedre, vil ingen la timer stå ubrukt — en ledig time kan alltid legges i en av sektorene og gi mer av minst én vare. Et punkt med ubrukte timer er derfor aldri effektivt."
+    },
+    {
+      "id": "econ2220-6-1-utledning-pmk",
+      "type": "text",
+      "content": "### Slik utleder du produksjonsmulighetskurven\n\nUtledningen har tre steg, og sensor vil se alle tre.\n\n**Steg 1 — inverter teknologiene.** Teknologien sier hva du får ut av timene. Vi trenger det motsatte: hvor mange timer koster det å produsere en gitt mengde? Løs $x_1 = f(n_1)$ for $n_1$. Med $x_1 = \\sqrt{n_1}$ gir kvadrering $n_1 = x_1^2$.\n\n**Steg 2 — sett inn i ressursskranken.** Erstatt $n_1$ og $n_2$ med uttrykkene i $x_1$ og $x_2$. Da står du igjen med én likning som bare inneholder de to varemengdene.\n\n**Steg 3 — les av kurven.** Likningen fra steg 2 *er* produksjonsmulighetskurven. Finn endepunktene (alt i én sektor) og beskriv formen.\n\nLegg merke til hvorfor steg 1 er nødvendig: kurven skal tegnes i et diagram med **varene** på aksene, ikke timene. Å hoppe over inverteringen er den vanligste tabben i denne utledningen."
+    },
+    {
+      "id": "econ2220-6-1-def-pmk",
+      "type": "definition",
+      "title": "Produksjonsmulighetskurven (PMK)",
+      "content": "**Produksjonsmulighetskurven** er mengden av alle kombinasjoner $(x_1, x_2)$ som samfunnet kan produsere når **alle** ressursene er i bruk og teknologien utnyttes fullt ut.\n\nDen tegnes i et diagram med $x_1$ på den vannrette aksen og $x_2$ på den loddrette. Punkter **på** kurven er effektive i produksjonen: du kan ikke få mer av den ene varen uten å gi opp noe av den andre. Punkter **innenfor** kurven er mulige, men sløsende (timer står ubrukt eller brukes dårlig). Punkter **utenfor** er umulige med dagens ressurser og teknologi.\n\nMed teknologiene $x_1 = f(n_1)$, $x_2 = g(n_2)$ og skranken $n_1 + n_2 = L$ er kurven gitt ved\n\n$$f^{-1}(x_1) + g^{-1}(x_2) = L,$$\n\naltså: timene varen 1 krever, pluss timene varen 2 krever, er nøyaktig de timene som finnes."
+    },
+    {
+      "id": "econ2220-6-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: PMK for kvadratrot-teknologier",
+      "problem": "Øysamfunnet har $L = 100$ arbeidstimer i uka. Molteplukking gir $x_1 = \\sqrt{n_1}$ kurver, krabbefiske gir $x_2 = \\sqrt{n_2}$ kilo. Utled produksjonsmulighetskurven, finn endepunktene, og undersøk om kombinasjonen 6 kurver molte og 8 kilo krabbe er mulig.",
+      "solution": "**Steg 1 — inverter teknologiene.** Fra $x_1 = \\sqrt{n_1}$ følger $n_1 = x_1^2$: skal øya ha 6 kurver molte, må den legge $6^2 = 36$ timer på myra. Tilsvarende $n_2 = x_2^2$.\n\n**Steg 2 — sett inn i ressursskranken.** $n_1 + n_2 = 100$ blir\n\n$$x_1^2 + x_2^2 = 100.$$\n\n**Steg 3 — les av kurven.** Dette er likningen for en sirkel med radius $\\sqrt{100} = 10$ om origo; siden begge mengder er positive, er PMK **kvartsirkelen** i første kvadrant. Endepunktene: alle timene på molte gir $x_1 = \\sqrt{100} = 10$ kurver og $x_2 = 0$; alle på krabbe gir $x_2 = 10$ kilo og $x_1 = 0$.\n\n**Er (6, 8) mulig?** $6^2 + 8^2 = 36 + 64 = 100$. Ja — og siden det summerer til nøyaktig 100, ligger punktet **på** kurven: timefordelingen er $n_1 = 36$ og $n_2 = 64$, til sammen 100 timer, ingen ledige. Punktet er altså effektivt i produksjonen.\n\n**Figur i ord.** Tegn $x_1$ (kurver molte) langs den vannrette aksen og $x_2$ (kilo krabbe) langs den loddrette. Kurven starter i punktet $A = (0, 10)$ på den loddrette aksen, buer utover fra origo og ender i $B = (10, 0)$ på den vannrette. Punktet $P = (6, 8)$ ligger på buen; trekk stiplede hjelpelinjer fra $P$ vannrett inn til $x_2 = 8$ og loddrett ned til $x_1 = 6$. Alt området mellom buen og origo (inkludert et punkt som $(4, 4)$) er mulig, men ineffektivt: der står timer ubrukt. Området utenfor buen, for eksempel $(9, 9)$, er uoppnåelig — $81 + 81 = 162 > 100$."
+    },
+    {
+      "id": "econ2220-6-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger K-fundament — ren gjengivelse, innsteg.) Forklar med egne ord hva produksjonsmulighetskurven er, og forklar hva som kjennetegner et punkt som ligger **innenfor** kurven i motsetning til et punkt **på** kurven.",
+        "solution": "Produksjonsmulighetskurven viser alle kombinasjoner av de to varene samfunnet kan produsere når hele ressursen — her arbeidstimene — er i bruk og teknologien utnyttes fullt ut.\n\nEt punkt **på** kurven er effektivt i produksjonen: alle timene er i bruk, og skal du få mer av den ene varen, må du gi opp noe av den andre.\n\nEt punkt **innenfor** kurven er mulig, men ineffektivt: der ligger det ledige timer, eller timene brukes uten å gi det teknologien kan gi. Fra et slikt punkt kan samfunnet få mer av **begge** varer samtidig — det er nettopp derfor punktet ikke er effektivt.",
+        "hints": [
+          "Tenk på hva ressursskranken $n_1 + n_2 = L$ betyr for et punkt som ligger innenfor.",
+          "Spør deg: kan jeg få mer av begge varer herfra uten å gi opp noe?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger K-fundament — utledningshåndverket.) En kommune har $L = 225$ arbeidstimer til rådighet i restaureringsprosjektet. Timene kan brukes på å rehabilitere bryggehus ($x_1 = \\sqrt{n_1}$ bygg) eller å restaurere trebåter ($x_2 = \\sqrt{n_2}$ båter).\n\n**a)** Utled produksjonsmulighetskurven.\n\n**b)** Finn de to endepunktene.\n\n**c)** Ligger kombinasjonen 9 bryggehus og 12 båter på kurven, innenfor eller utenfor?",
+        "solution": "**a)** Inverter teknologiene: $n_1 = x_1^2$ og $n_2 = x_2^2$. Sett inn i ressursskranken $n_1 + n_2 = 225$:\n\n$$x_1^2 + x_2^2 = 225.$$\n\n**b)** Alle timene på bryggehus: $x_1 = \\sqrt{225} = 15$, $x_2 = 0$. Alle på båter: $x_2 = 15$, $x_1 = 0$. Endepunktene er $(15, 0)$ og $(0, 15)$.\n\n**c)** $9^2 + 12^2 = 81 + 144 = 225$. Summen treffer nøyaktig ressursskranken, så punktet ligger **på** kurven. Timefordelingen er 81 timer på bryggehus og 144 timer på båter.",
+        "hints": [
+          "Start med å skrive teknologien «baklengs»: hvor mange timer koster $x_1$ enheter?",
+          "Sett de to timeuttrykkene inn i $n_1 + n_2 = 225$.",
+          "I c): regn ut hva venstresiden i PMK-likningen blir, og sammenlikn med 225."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K-fundament — teknologier med ulik produktivitet.) I en fjordkommune brukes $L$ arbeidstimer på lakseoppdrett og på tangdyrking. Teknologiene er $x_1 = \\sqrt{n_1}$ (tonn laks) og $x_2 = 2\\sqrt{n_2}$ (tonn tang) — tangsektoren er dobbelt så produktiv per «rot-time».\n\n**a)** Utled produksjonsmulighetskurven generelt i $L$.\n\n**b)** Sett $L = 200$ og finn endepunktene.\n\n**c)** Er kombinasjonen $x_1 = 10$, $x_2 = 20$ mulig når $L = 200$?",
+        "solution": "**a)** Inverter: fra $x_1 = \\sqrt{n_1}$ får vi $n_1 = x_1^2$. Fra $x_2 = 2\\sqrt{n_2}$ får vi $\\sqrt{n_2} = x_2/2$, altså $n_2 = x_2^2/4$. Ressursskranken $n_1 + n_2 = L$ gir\n\n$$x_1^2 + \\frac{x_2^2}{4} = L.$$\n\n**b)** Med $L = 200$: alle timene på laks gir $x_1 = \\sqrt{200} \\approx 14{,}1$ tonn og $x_2 = 0$. Alle på tang gir $x_2^2/4 = 200$, altså $x_2 = \\sqrt{800} = 20\\sqrt{2} \\approx 28{,}3$ tonn og $x_1 = 0$.\n\n**c)** Sett inn: $10^2 + \\frac{20^2}{4} = 100 + 100 = 200$. Det treffer $L = 200$ nøyaktig, så punktet ligger på kurven, med 100 timer i hver sektor.\n\n**Merk fortegnet på produktiviteten:** at tangsektoren har faktoren 2 foran rota, gjør at kurven strekkes utover langs $x_2$-aksen. Formen er den samme buen, men den er «høyere».",
+        "hints": [
+          "Husk at inverteringen av $x_2 = 2\\sqrt{n_2}$ krever at du først deler på 2, så kvadrerer.",
+          "Endepunktene finner du ved å sette den andre varen lik null i PMK-likningen.",
+          "I c): regn ut venstresiden av din egen PMK-likning og sammenlikn med $L$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Helningen: den marginale transformasjonsbrøken (~12 min)"
+    },
+    {
+      "id": "econ2220-6-1-mtb-tekst",
+      "type": "text",
+      "content": "Nå kommer den størrelsen eksamen faktisk spør om. Kurven i seg selv er bare en linje i et diagram; det interessante er **hvor bratt den er**.\n\nStår øysamfunnet i punktet $(6, 8)$ og vil ha én kurv molte til, må timer flyttes fra teiner til myr. Hvor mye krabbe forsvinner? Det er nøyaktig det helningen forteller — og det tallet har et navn."
+    },
+    {
+      "id": "econ2220-6-1-def-mtb",
+      "type": "definition",
+      "title": "Marginal transformasjonsbrøk (MTB)",
+      "content": "**Den marginale transformasjonsbrøken** (på engelsk *marginal rate of transformation*, MRT) er **tallverdien av helningen på produksjonsmulighetskurven**:\n\n$$\\text{MTB} = -\\frac{dx_2}{dx_1}\\bigg|_{\\text{langs PMK}}.$$\n\nI ord: MTB er **hvor mange enheter av vare 2 samfunnet må gi opp for å få én enhet til av vare 1**, når alle ressurser er i bruk.\n\nDet er altså en *alternativkostnad målt i varer*, ikke i kroner: er MTB $= 0{,}75$ i molte-krabbe-økonomien, koster den neste kurven molte 0,75 kilo krabbe. Minustegnet i definisjonen er der bare fordi kurven faller; MTB selv er et positivt tall.\n\nVi bruker den norske forkortelsen MTB gjennom hele boka."
+    },
+    {
+      "id": "econ2220-6-1-thm-mtb",
+      "type": "theorem",
+      "title": "MTB uttrykt ved marginalproduktene",
+      "content": "Med teknologiene $x_1 = f(n_1)$, $x_2 = g(n_2)$ og ressursskranken $n_1 + n_2 = L$ er\n\n$$\\text{MTB} = \\frac{g'(n_2)}{f'(n_1)}.$$\n\n**Utledning.** Flytt $dn_1$ timer inn i sektor 1. Da må sektor 2 avgi like mange: $dn_2 = -dn_1$. Endringene i produksjonen blir\n\n$$dx_1 = f'(n_1)\\,dn_1, \\qquad dx_2 = g'(n_2)\\,dn_2 = -g'(n_2)\\,dn_1.$$\n\nDel den andre på den første:\n\n$$\\frac{dx_2}{dx_1} = -\\frac{g'(n_2)}{f'(n_1)} \\quad\\Longrightarrow\\quad \\text{MTB} = \\frac{g'(n_2)}{f'(n_1)}.$$\n\n**Tolkning i enheter.** Telleren $g'(n_2)$ er hvor mange enheter vare 2 den timen ville gitt i sektor 2. Nevneren $f'(n_1)$ er hvor mange enheter vare 1 den samme timen gir i sektor 1. Brøken er derfor «vare 2 tapt per vare 1 vunnet» — akkurat det MTB skal være."
+    },
+    {
+      "id": "econ2220-6-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: MTB regnet ut og tolket",
+      "problem": "Bruk øysamfunnet fra Eksempel 1 ($x_1^2 + x_2^2 = 100$, kvadratrot-teknologier, $L = 100$). Finn MTB i punktet $P = (6, 8)$ og i punktet $Q = (8, 6)$, og tolk begge tallene i enheter.",
+      "solution": "**Metode 1 — deriver PMK implisitt.** Fra $x_1^2 + x_2^2 = 100$ gir derivasjon med hensyn på $x_1$:\n\n$$2x_1 + 2x_2\\frac{dx_2}{dx_1} = 0 \\quad\\Longrightarrow\\quad \\frac{dx_2}{dx_1} = -\\frac{x_1}{x_2} \\quad\\Longrightarrow\\quad \\text{MTB} = \\frac{x_1}{x_2}.$$\n\n**Metode 2 — via marginalproduktene (kontroll).** $f'(n_1) = \\frac{1}{2\\sqrt{n_1}} = \\frac{1}{2x_1}$ og $g'(n_2) = \\frac{1}{2x_2}$, så\n\n$$\\text{MTB} = \\frac{g'(n_2)}{f'(n_1)} = \\frac{1/(2x_2)}{1/(2x_1)} = \\frac{x_1}{x_2}. \\; ✓$$\n\nDe to metodene gir samme svar, som de skal.\n\n**I punktet $P = (6, 8)$:** $\\text{MTB} = 6/8 = 0{,}75$. **Enhetstolkning:** i dette punktet må øya gi opp **0,75 kilo krabbe for hver ekstra kurv molte**. Regnet motsatt vei: én kilo krabbe til koster $1/0{,}75 \\approx 1{,}33$ kurver molte.\n\n**I punktet $Q = (8, 6)$:** $\\text{MTB} = 8/6 \\approx 1{,}33$. Nå koster den neste kurven molte 1,33 kilo krabbe — nesten dobbelt så mye som i $P$.\n\n**Hvorfor stiger prisen?** I $Q$ ligger allerede 64 timer på myra og bare 36 på teinene. Den neste timen på myra gir lite ekstra molte (avtakende marginalprodukt), mens den samme timen tatt *fra* teinene koster mye krabbe, siden krabbesektoren er tynt bemannet og derfor har høyt marginalprodukt. Begge kreftene trekker samme vei, og MTB vokser.\n\n**Figur i ord.** Kvartsirkelen fra Eksempel 1, med $P = (6, 8)$ og $Q = (8, 6)$ markert. Tegn tangentlinjen i $P$: den er slak (helning $-0{,}75$). Tegn tangenten i $Q$: den er brattere (helning $-1{,}33$). Stiplede hjelpelinjer ned til aksene fra begge punkter. Poenget figuren skal vise, er at tangenten blir brattere jo lenger til høyre du beveger deg."
+    },
+    {
+      "id": "econ2220-6-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — MTB med enhetstolkning.) I restaureringskommunen fra oppgave 2 er PMK gitt ved $x_1^2 + x_2^2 = 225$ (bryggehus $x_1$, trebåter $x_2$).\n\n**a)** Utled et uttrykk for MTB i et vilkårlig punkt på kurven.\n\n**b)** Regn ut MTB i punktet $(9, 12)$ og i punktet $(12, 9)$.\n\n**c)** Tolk tallet fra $(9, 12)$ i enheter, med to setninger som sier hva som gis opp og hva som vinnes.",
+        "solution": "**a)** Deriver $x_1^2 + x_2^2 = 225$ implisitt med hensyn på $x_1$:\n\n$$2x_1 + 2x_2\\frac{dx_2}{dx_1} = 0 \\quad\\Longrightarrow\\quad \\frac{dx_2}{dx_1} = -\\frac{x_1}{x_2}, \\qquad \\text{MTB} = \\frac{x_1}{x_2}.$$\n\n**b)** I $(9, 12)$: $\\text{MTB} = 9/12 = 0{,}75$. I $(12, 9)$: $\\text{MTB} = 12/9 \\approx 1{,}33$.\n\n**c)** I punktet $(9, 12)$ må kommunen gi opp **0,75 restaurerte trebåter for hvert ekstra rehabilitert bryggehus**. Det ekstra bryggehuset krever timer som ellers ville gått til båtene, og de timene ville gitt tre firedels båt. Sagt motsatt vei: én båt til koster her omtrent 1,33 bryggehus.\n\n(Delvise enheter er helt i orden i en marginalbetraktning — tallet beskriver bytteforholdet ved små endringer, ikke at man river tre firedeler av en båt.)",
+        "hints": [
+          "Implisitt derivasjon: deriver begge sider av PMK-likningen med hensyn på $x_1$, og husk kjerneregelen på $x_2$.",
+          "MTB er tallverdien av helningen — det positive tallet.",
+          "I c): si eksplisitt hvilken vare som forsvinner og hvilken som kommer til."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — MTB fra marginalproduktene.) To sektorer bruker til sammen $L$ arbeidstimer. Teknologiene er $x_1 = f(n_1)$ og $x_2 = g(n_2)$ med $f' > 0$, $g' > 0$.\n\n**a)** Utled uttrykket $\\text{MTB} = g'(n_2)/f'(n_1)$ ved å flytte $dn_1$ timer mellom sektorene.\n\n**b)** I et bestemt punkt er $f'(n_1) = 0{,}4$ og $g'(n_2) = 1{,}2$. Hva er MTB, og hva betyr tallet i enheter?",
+        "solution": "**a)** Flytt $dn_1$ timer inn i sektor 1. Ressursskranken $n_1 + n_2 = L$ er bindende, så sektor 2 må avgi nøyaktig like mange: $dn_2 = -dn_1$.\n\nProduksjonsendringene blir $dx_1 = f'(n_1)\\,dn_1$ og $dx_2 = g'(n_2)\\,dn_2 = -g'(n_2)\\,dn_1$.\n\nDel uttrykket for $dx_2$ på uttrykket for $dx_1$; $dn_1$ forkortes bort:\n\n$$\\frac{dx_2}{dx_1} = -\\frac{g'(n_2)}{f'(n_1)}, \\qquad \\text{MTB} = \\frac{g'(n_2)}{f'(n_1)}.$$\n\n**b)** $\\text{MTB} = 1{,}2/0{,}4 = 3$. **Enhetstolkning:** samfunnet må gi opp **3 enheter av vare 2 for hver ekstra enhet av vare 1**. Grunnen ser du direkte i tallene: den timen som flyttes, ga 1,2 enheter vare 2 der den kom fra, men gir bare 0,4 enheter vare 1 der den havner. For å få én hel enhet vare 1 trengs $1/0{,}4 = 2{,}5$ timer, og de 2,5 timene ville gitt $2{,}5 \\cdot 1{,}2 = 3$ enheter vare 2. ✓",
+        "hints": [
+          "Bruk at ressursskranken er bindende: en time inn i én sektor er en time ut av den andre.",
+          "Skriv opp $dx_1$ og $dx_2$ hver for seg før du deler dem på hverandre.",
+          "I b): tenk «hvor mange timer trengs for én enhet vare 1?» som mellomregning."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Krumningen: hvorfor kurven blir brattere mot høyre (~8 min)"
+    },
+    {
+      "id": "econ2220-6-1-krumning-tekst",
+      "type": "text",
+      "content": "Sensor spør nesten alltid: *forklar formen på kurven*. Svaret er alltid det samme, og det er verdt å kunne som en liten fortelling.\n\nSe på $\\text{MTB} = \\dfrac{g'(n_2)}{f'(n_1)}$ og la produksjonen av vare 1 øke. To ting skjer samtidig:\n\n- **Nevneren synker.** Flere timer i sektor 1 betyr at $f'(n_1)$ faller — avtakende marginalprodukt. Du får mindre og mindre igjen for hver time du flytter inn.\n- **Telleren stiger.** Færre timer i sektor 2 betyr at $g'(n_2)$ stiger. Hver time du tar *ut* av sektor 2, koster mer og mer, fordi de gjenværende timene der er svært produktive.\n\nBrøken vokser altså på begge fronter. MTB stiger når $x_1$ øker, og det betyr at kurven blir **brattere mot høyre**: den krummer utover, den er **konkav**.\n\nØkonomisk er dette bare den gamle innsikten at ressurser ikke er like godt egnet overalt: de første timene du flytter til molteplukking, er godt anvendt, de siste er sløsing."
+    },
+    {
+      "id": "econ2220-6-1-def-avtakende-mp",
+      "type": "definition",
+      "title": "Avtakende marginalproduktivitet",
+      "content": "**Avtakende marginalproduktivitet** betyr at marginalproduktet synker når mer av faktoren brukes i sektoren: $f''(n) < 0$.\n\nFor $f(n) = \\sqrt{n}$ er $f'(n) = \\frac{1}{2\\sqrt{n}}$, som faller mot null når $n$ vokser. Den tiende timen på myra gir mindre molte enn den første.\n\nDette er *årsaken* til at produksjonsmulighetskurven krummer. Uten avtakende marginalprodukt — for eksempel med teknologier som $x_1 = n_1/2$ — ville kurven blitt en rett linje."
+    },
+    {
+      "id": "econ2220-6-1-def-konkav-pmk",
+      "type": "definition",
+      "title": "Konkav produksjonsmulighetskurve",
+      "content": "En **konkav** produksjonsmulighetskurve buer utover fra origo: helningen blir brattere når du beveger deg mot høyre, altså MTB stiger med $x_1$.\n\nMatematisk kjennetegn: $\\dfrac{d^2 x_2}{dx_1^2} < 0$ langs kurven. For kvartsirkelen $x_2 = \\sqrt{L - x_1^2}$ er den annenderiverte $-\\dfrac{L}{(L-x_1^2)^{3/2}} < 0$ overalt der kurven er definert. ✓\n\nØkonomisk innhold: **stigende alternativkostnad**. Jo mer av vare 1 samfunnet allerede lager, desto dyrere blir den neste enheten målt i vare 2."
+    },
+    {
+      "id": "econ2220-6-1-def-alternativkostnad-samfunn",
+      "type": "definition",
+      "title": "Alternativkostnad på samfunnsnivå",
+      "content": "**Alternativkostnaden** til én ekstra enhet av vare 1 er det samfunnet må gi slipp på av vare 2 for å skaffe den. Den måles i **varer, ikke i kroner**, og den er nøyaktig MTB.\n\nPoenget er at kostnaden ikke er en regnskapsstørrelse, men en byttefot: ressursene er knappe, så alt som lages av det ene, lages på bekostning av det andre. Dette er den samme tankegangen som ligger under marginalkostnaden $c'(y)$ hos den enkelte bedriften i [kap. 5.3](/bok/econ2220/econ2220-5-3), bare løftet opp til hele økonomien."
+    },
+    {
+      "id": "econ2220-6-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: når krumningen forsvinner",
+      "problem": "En kommune har $L = 120$ arbeidstimer. Teknologiene er nå **lineære**: $x_1 = n_1/2$ (én enhet vare 1 per 2 timer) og $x_2 = n_2/3$ (én enhet vare 2 per 3 timer). Utled PMK, finn MTB, og forklar hva som skiller denne kurven fra kvartsirkelen i Eksempel 1.",
+      "solution": "**Utledning.** Inverter: $n_1 = 2x_1$ og $n_2 = 3x_2$. Ressursskranken $n_1 + n_2 = 120$ gir\n\n$$2x_1 + 3x_2 = 120, \\qquad \\text{altså} \\qquad x_2 = 40 - \\tfrac{2}{3}x_1.$$\n\n**MTB.** Helningen er konstant $-\\tfrac{2}{3}$, så $\\text{MTB} = \\tfrac{2}{3}$ i **alle** punkter på kurven. Kontroll via marginalproduktene: $f'(n_1) = 1/2$ og $g'(n_2) = 1/3$, så $\\text{MTB} = \\frac{1/3}{1/2} = \\frac{2}{3}$. ✓\n\n**Enhetstolkning.** Uansett hvor på kurven økonomien står, koster den neste enheten vare 1 nøyaktig to tredels enhet vare 2. Alternativkostnaden er *konstant*.\n\n**Hva skiller den fra kvartsirkelen?** Her er marginalproduktene konstante: den tiende timen i en sektor gir like mye som den første ($f'' = 0$). Da forsvinner begge kreftene som gjorde brøken $g'/f'$ voksende, og kurven blir en rett linje. Kvartsirkelens krumning kommer altså **utelukkende** fra avtakende marginalproduktivitet — ikke fra noe ved figuren i seg selv.\n\n**Figur i ord.** Tegn den rette linja fra $(0, 40)$ på den loddrette aksen til $(60, 0)$ på den vannrette. Legg kvartsirkelen fra Eksempel 1 inn i samme diagram som referanse (buet utover). Kontrasten er hele poenget: samme type ressursskranke, ulik teknologi, ulik form."
+    },
+    {
+      "id": "econ2220-6-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — krumningsargumentet, som sensor vil ha det formulert.) En økonomi har PMK $x_1^2 + x_2^2 = L$ fra kvadratrot-teknologier i begge sektorer.\n\n**a)** Vis at MTB stiger når $x_1$ øker langs kurven.\n\n**b)** Forklar i ord, uten formler, hvorfor det skjer — bruk begrepet avtakende marginalproduktivitet og si hva som skjer i **begge** sektorer.",
+        "solution": "**a)** Vi vet at $\\text{MTB} = x_1/x_2$ langs denne kurven. Langs PMK er $x_2 = \\sqrt{L - x_1^2}$, som **synker** når $x_1$ øker. Altså vokser telleren og synker nevneren samtidig:\n\n$$\\text{MTB}(x_1) = \\frac{x_1}{\\sqrt{L - x_1^2}},$$\n\nsom er strengt voksende i $x_1$ på hele intervallet $0 < x_1 < \\sqrt{L}$. (Kontroll i tall med $L = 100$: i $(2; 9{,}80)$ er MTB $\\approx 0{,}20$; i $(6, 8)$ er den $0{,}75$; i $(8, 6)$ er den $\\approx 1{,}33$. Stigende. ✓)\n\n**b)** Når vi vrir produksjonen mot vare 1, flytter vi timer inn i sektor 1 og ut av sektor 2. I sektor 1 er marginalproduktet avtakende, så hver ny time gir **mindre** ekstra vare 1 enn den forrige. I sektor 2 skjer det motsatte: når timene der blir færre, blir de gjenværende timene mer produktive, så hver time vi tar bort, koster **mer** vare 2 enn den forrige.\n\nVi får altså mindre igjen og betaler mer, samtidig. Derfor stiger alternativkostnaden ved vare 1 jo mer vi allerede lager av den — og det er nettopp det som gjør kurven brattere mot høyre.",
+        "hints": [
+          "I a): skriv MTB som funksjon av $x_1$ alene ved å bruke PMK-likningen.",
+          "Se på hva som skjer med telleren og nevneren hver for seg når $x_1$ vokser.",
+          "I b): si hva som skjer med marginalproduktet i sektoren timene går TIL, og i sektoren de kommer FRA."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-lokke4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Verdimaksimering: MTB = prisforholdet (~10 min)\n\n*— naturlig pausepunkt før denne løkka, hvis du deler kapitlet over to økter —*"
+    },
+    {
+      "id": "econ2220-6-1-verdimaks-tekst",
+      "type": "text",
+      "content": "Så langt har vi bare beskrevet hva som er *mulig*. Nå kobler vi på markedet.\n\nTenk at bedriftene i de to sektorene er pristakere og møter prisene $p_1$ og $p_2$. De vil samlet sett produsere den kombinasjonen på kurven som gir størst mulig **verdi** av produksjonen, $p_1x_1 + p_2x_2$. (At dette er det bedriftene ender opp med, følger av at hver enkelt bedrift maksimerer sin egen profitt; se [kap. 5.4](/bok/econ2220/econ2220-5-4).)\n\nProblemet er en optimering under beskrankning — altså jobb for Lagrange."
+    },
+    {
+      "id": "econ2220-6-1-thm-verdimaks",
+      "type": "theorem",
+      "title": "Verdimaksimering krever MTB = prisforholdet",
+      "content": "Når produksjonen velges slik at verdien $p_1x_1 + p_2x_2$ er størst mulig på produksjonsmulighetskurven, gjelder\n\n$$\\text{MTB} = \\frac{p_1}{p_2}.$$\n\n**Utledning (tretrinnsmalen).**\n\n*Steg 1 — sett opp problemet formelt.* Maksimer $p_1x_1 + p_2x_2$ gitt at $(x_1, x_2)$ ligger på kurven. Med kvartsirkel-PMK-en skriver vi beskrankningen som $L - x_1^2 - x_2^2 = 0$. Den holder med likhet fordi et punkt innenfor kurven alltid kan forbedres: der finnes ledige timer, og å bruke dem øker verdien.\n\n*Steg 2 — utled.* Lagrange-funksjonen er\n\n$$\\mathcal{L} = p_1x_1 + p_2x_2 + \\lambda\\,(L - x_1^2 - x_2^2).$$\n\nFørsteordensbetingelsene:\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial x_1} = p_1 - 2\\lambda x_1 = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial x_2} = p_2 - 2\\lambda x_2 = 0.$$\n\nDel den første på den andre, slik at $\\lambda$ elimineres:\n\n$$\\frac{p_1}{p_2} = \\frac{x_1}{x_2} = \\text{MTB}.$$\n\n*Steg 3 — oversett til enheter.* Venstresiden $p_1/p_2$ er **markedets** bytteforhold: hvor mange enheter vare 2 du kan kjøpe for det én enhet vare 1 koster. Høyresiden MTB er **teknologiens** bytteforhold: hvor mange enheter vare 2 samfunnet må ofre for å lage én enhet vare 1 til.\n\nEr teknologiens byttefot lavere enn markedets ($\\text{MTB} < p_1/p_2$), lager du én vare 1 til for mindre enn den er verdt i markedet — så flytt timer mot vare 1. Er den høyere, flytt motsatt vei. Bare når de er like, er det ingenting å hente. Det er hele innholdet i betingelsen.\n\n**Generell form.** Med vilkårlige teknologier blir betingelsen $\\dfrac{g'(n_2)}{f'(n_1)} = \\dfrac{p_1}{p_2}$, som kan skrives om til $p_1 f'(n_1) = p_2 g'(n_2)$: **den siste arbeidstimen skal være like mye verdt i kroner i begge sektorer**. Ellers ville en omfordeling av timer øke verdien."
+    },
+    {
+      "id": "econ2220-6-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: full verdimaksimering på eksamensnivå",
+      "problem": "Øysamfunnet fra Eksempel 1 har $L = 100$ timer og PMK $x_1^2 + x_2^2 = 100$. Molte selges for $p_1 = 300$ kroner kurven, krabbe for $p_2 = 400$ kroner kiloen.\n\n**a)** Finn den verdimaksimerende produksjonen.\n\n**b)** Vis at betingelsen MTB $= p_1/p_2$ er oppfylt, og tolk den i enheter.\n\n**c)** Hvor mange timer legges i hver sektor, og hva blir samlet verdi?",
+      "solution": "**a) Steg 1 — problemet.** Maksimer $300x_1 + 400x_2$ gitt $100 - x_1^2 - x_2^2 = 0$.\n\n**Steg 2 — utledning.** $\\mathcal{L} = 300x_1 + 400x_2 + \\lambda(100 - x_1^2 - x_2^2)$.\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial x_1} = 300 - 2\\lambda x_1 = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial x_2} = 400 - 2\\lambda x_2 = 0.$$\n\nDeler vi den første på den andre, forsvinner $\\lambda$:\n\n$$\\frac{300}{400} = \\frac{x_1}{x_2} \\quad\\Longrightarrow\\quad \\frac{x_1}{x_2} = \\frac{3}{4} \\quad\\Longrightarrow\\quad x_2 = \\frac{4}{3}x_1.$$\n\nSett inn i PMK: $x_1^2 + \\left(\\tfrac{4}{3}x_1\\right)^2 = 100$, altså $x_1^2\\left(1 + \\tfrac{16}{9}\\right) = 100$, altså $\\tfrac{25}{9}x_1^2 = 100$, altså $x_1^2 = 36$ og\n\n$$x_1 = 6 \\text{ kurver molte}, \\qquad x_2 = 8 \\text{ kilo krabbe}.$$\n\n**b)** I $(6, 8)$ er $\\text{MTB} = x_1/x_2 = 6/8 = 0{,}75$, og prisforholdet er $p_1/p_2 = 300/400 = 0{,}75$. ✓\n\n**Steg 3 — enhetstolkning.** Prisforholdet 0,75 sier at markedet verdsetter én kurv molte like høyt som 0,75 kilo krabbe. MTB $= 0{,}75$ sier at det *koster* øya 0,75 kilo krabbe å skaffe den kurven. Kostnaden i krabbe er akkurat lik verdien i krabbe — det er ingenting igjen å hente ved å flytte flere timer. Hadde MTB vært 0,5, ville en ekstra kurv kostet en halv kilo krabbe, men vært verdt 0,75 kilo, og øya burde plukket mer molte.\n\n**c)** Timene: $n_1 = x_1^2 = 36$ timer på myra, $n_2 = x_2^2 = 64$ timer på teinene; til sammen 100. ✓ Samlet verdi: $300 \\cdot 6 + 400 \\cdot 8 = 1800 + 3200 = 5000$ kroner.\n\n**Kontroll av at dette virkelig er toppen.** Prøv nabopunktet $(8, 6)$, som også ligger på kurven: verdien blir $300 \\cdot 8 + 400 \\cdot 6 = 2400 + 2400 = 4800 < 5000$. Og $(0, 10)$ gir $4000$. Punktet $(6, 8)$ er best. ✓\n\n**Figur i ord.** Kvartsirkelen med endepunkter $(10, 0)$ og $(0, 10)$. Legg inn en **isoverdilinje** — alle punkter med samme samlede verdi — gitt ved $300x_1 + 400x_2 = 5000$, altså $x_2 = 12{,}5 - 0{,}75x_1$. Linja har helning $-0{,}75$ og tangerer buen nøyaktig i $P = (6, 8)$. Tegn i tillegg en lavere isoverdilinje (for eksempel verdi 4000) som skjærer buen i to punkter, og en høyere (verdi 6000) som ikke treffer buen i det hele tatt. Stiplede hjelpelinjer fra $P$ til aksene ved $x_1 = 6$ og $x_2 = 8$. Poenget figuren viser: den høyest oppnåelige isoverdilinja er den som *tangerer* kurven, og i tangeringspunktet er helningene like."
+    },
+    {
+      "id": "econ2220-6-1-def-isoverdilinje",
+      "type": "definition",
+      "title": "Isoverdilinje",
+      "content": "En **isoverdilinje** samler alle produksjonskombinasjoner med samme samlede verdi:\n\n$$p_1x_1 + p_2x_2 = \\bar{V} \\quad\\Longleftrightarrow\\quad x_2 = \\frac{\\bar{V}}{p_2} - \\frac{p_1}{p_2}x_1.$$\n\nLinjene er parallelle rette linjer med helning $-p_1/p_2$; jo lenger ut fra origo, desto høyere verdi.\n\nVerdimaksimering er derfor det samme som å finne den høyeste isoverdilinja som fortsatt berører produksjonsmulighetskurven — og i det punktet **tangerer** de hverandre. Tangeringen er den grafiske versjonen av betingelsen $\\text{MTB} = p_1/p_2$."
+    },
+    {
+      "id": "econ2220-6-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — verdimaksimering med Lagrange.) En fjordkommune har $L = 225$ arbeidstimer og PMK $x_1^2 + x_2^2 = 225$. Prisene er $p_1 = 600$ og $p_2 = 800$ kroner per enhet.\n\n**a)** Sett opp Lagrange-funksjonen og utled tilpasningsbetingelsen.\n\n**b)** Finn den verdimaksimerende produksjonen.\n\n**c)** Regn ut samlet verdi, og kontroller at et annet punkt på kurven gir lavere verdi.",
+        "solution": "**a)** Maksimer $600x_1 + 800x_2$ gitt $225 - x_1^2 - x_2^2 = 0$. Beskrankningen holder med likhet: et punkt innenfor kurven har ledige timer, og å bruke dem øker verdien.\n\n$$\\mathcal{L} = 600x_1 + 800x_2 + \\lambda(225 - x_1^2 - x_2^2).$$\n\nFørsteordensbetingelsene $600 - 2\\lambda x_1 = 0$ og $800 - 2\\lambda x_2 = 0$. Deling eliminerer $\\lambda$:\n\n$$\\frac{600}{800} = \\frac{x_1}{x_2} = \\text{MTB} \\quad\\Longrightarrow\\quad \\text{MTB} = \\frac{p_1}{p_2} = 0{,}75.$$\n\n**b)** $x_2 = \\frac{4}{3}x_1$ satt inn i PMK: $x_1^2\\left(1 + \\frac{16}{9}\\right) = 225$, altså $\\frac{25}{9}x_1^2 = 225$, $x_1^2 = 81$:\n\n$$x_1 = 9, \\qquad x_2 = 12.$$\n\n(Kontroll: $81 + 144 = 225$ ✓, og $9/12 = 0{,}75$ ✓.)\n\n**c)** Verdi: $600 \\cdot 9 + 800 \\cdot 12 = 5400 + 9600 = 15\\,000$ kroner.\n\nKontrollpunkt $(12, 9)$, som også ligger på kurven: $600 \\cdot 12 + 800 \\cdot 9 = 7200 + 7200 = 14\\,400 < 15\\,000$ ✓. Og endepunktet $(15, 0)$ gir bare $9000$.\n\n**Enhetstolkning:** i optimum koster den neste enheten vare 1 nøyaktig 0,75 enheter vare 2 — like mye som markedet er villig til å bytte den mot.",
+        "hints": [
+          "Skriv beskrankningen på formen $0 = \\ldots$ før du setter opp $\\mathcal{L}$.",
+          "Del de to førsteordensbetingelsene på hverandre slik at $\\lambda$ forsvinner.",
+          "Sett uttrykket for $x_2$ inn i PMK-likningen og løs for $x_1$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger K på eksamensnivå — hele håndverket i én oppgave.) I en øykommune kan $L = 200$ arbeidstimer brukes på laks ($x_1 = \\sqrt{n_1}$ tonn) eller tang ($x_2 = 2\\sqrt{n_2}$ tonn). Prisene er $p_1 = 80\\,000$ kroner per tonn laks og $p_2 = 10\\,000$ kroner per tonn tang.\n\n**a)** Utled produksjonsmulighetskurven.\n\n**b)** Utled et uttrykk for MTB, og forklar i enheter hva det måler.\n\n**c)** Finn den verdimaksimerende produksjonen med Lagrange, og kontroller at betingelsen MTB $= p_1/p_2$ holder.\n\n**d)** Forklar hvorfor kurven er konkav i dette tilfellet.",
+        "solution": "**a)** Inverter teknologiene: $n_1 = x_1^2$ og $n_2 = x_2^2/4$. Ressursskranken $n_1 + n_2 = 200$ gir\n\n$$x_1^2 + \\frac{x_2^2}{4} = 200.$$\n\n**b)** Implisitt derivasjon med hensyn på $x_1$:\n\n$$2x_1 + \\frac{x_2}{2}\\frac{dx_2}{dx_1} = 0 \\quad\\Longrightarrow\\quad \\frac{dx_2}{dx_1} = -\\frac{4x_1}{x_2}, \\qquad \\text{MTB} = \\frac{4x_1}{x_2}.$$\n\nKontroll via marginalproduktene: $f'(n_1) = \\frac{1}{2\\sqrt{n_1}} = \\frac{1}{2x_1}$ og $g'(n_2) = \\frac{1}{\\sqrt{n_2}} = \\frac{2}{x_2}$, så $\\text{MTB} = \\frac{2/x_2}{1/(2x_1)} = \\frac{4x_1}{x_2}$ ✓.\n\n**Enhetstolkning:** MTB er **antall tonn tang kommunen må gi opp for å produsere ett tonn laks til**.\n\n**c)** *Steg 1:* maksimer $80\\,000x_1 + 10\\,000x_2$ gitt $200 - x_1^2 - x_2^2/4 = 0$ (likhet, fordi ledige timer alltid kan brukes til å øke verdien).\n\n*Steg 2:* $\\mathcal{L} = 80\\,000x_1 + 10\\,000x_2 + \\lambda\\left(200 - x_1^2 - \\frac{x_2^2}{4}\\right)$.\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial x_1} = 80\\,000 - 2\\lambda x_1 = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial x_2} = 10\\,000 - \\frac{\\lambda x_2}{2} = 0.$$\n\nDel den første på den andre:\n\n$$\\frac{80\\,000}{10\\,000} = \\frac{2\\lambda x_1}{\\lambda x_2/2} = \\frac{4x_1}{x_2} \\quad\\Longrightarrow\\quad 8 = \\frac{4x_1}{x_2} = \\text{MTB}.$$\n\nAltså $x_2 = x_1/2$. Sett inn i PMK: $x_1^2 + \\frac{(x_1/2)^2}{4} = x_1^2\\left(1 + \\frac{1}{16}\\right) = \\frac{17}{16}x_1^2 = 200$, som gir $x_1^2 = \\frac{3200}{17} \\approx 188{,}2$, altså\n\n$$x_1 \\approx 13{,}72 \\text{ tonn laks}, \\qquad x_2 \\approx 6{,}86 \\text{ tonn tang}.$$\n\n*Steg 3 — kontroll og tolkning:* $\\text{MTB} = \\frac{4 \\cdot 13{,}72}{6{,}86} = 8$ og $p_1/p_2 = 80\\,000/10\\,000 = 8$ ✓. I optimum koster det siste tonnet laks nøyaktig 8 tonn tang — og markedet verdsetter ett tonn laks nøyaktig like høyt som 8 tonn tang. Ingenting å hente på å flytte flere timer.\n\n(Timekontroll: $n_1 = x_1^2 \\approx 188{,}2$ og $n_2 = x_2^2/4 \\approx 11{,}8$, til sammen 200 ✓. Nesten alle timene går til laks, fordi laks er svært mye mer verdt per tonn.)\n\n**d)** Begge teknologier har avtakende marginalprodukt ($f''$ og $g''$ er negative for kvadratrotformer). Når timer flyttes mot laks, faller $f'(n_1)$ — nevneren i MTB — samtidig som $g'(n_2)$ stiger, fordi tangsektoren tømmes for timer. Brøken $\\text{MTB} = g'/f'$ vokser derfor med $x_1$, og kurven blir brattere mot høyre: den er konkav.",
+        "hints": [
+          "I b): deriver PMK-likningen implisitt, og husk at $\\frac{d}{dx_1}\\left(\\frac{x_2^2}{4}\\right) = \\frac{x_2}{2}\\frac{dx_2}{dx_1}$.",
+          "I c): pass på at derivasjon av $\\frac{x_2^2}{4}$ gir $\\frac{x_2}{2}$, ikke $2x_2$.",
+          "Tallene blir ikke runde her — det er greit; kontroller heller at MTB-betingelsen holder eksakt."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-6-1-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — generell form og «kroneverdi per time».) To sektorer deler $L$ arbeidstimer, med teknologier $x_1 = f(n_1)$ og $x_2 = g(n_2)$ og priser $p_1$, $p_2$.\n\n**a)** Vis at verdimaksimering krever $p_1 f'(n_1) = p_2 g'(n_2)$, og forklar hva denne likningen sier i kroner.\n\n**b)** Anta at $p_1 f'(n_1) > p_2 g'(n_2)$ i et punkt. Hvilken vei bør timer flyttes, og hvorfor forsvinner ulikheten etter hvert?",
+        "solution": "**a)** Skriv verdien direkte som funksjon av timefordelingen. Med $n_2 = L - n_1$ er samlet verdi\n\n$$V(n_1) = p_1 f(n_1) + p_2 g(L - n_1).$$\n\nDeriver og sett lik null:\n\n$$V'(n_1) = p_1 f'(n_1) - p_2 g'(L - n_1) = 0 \\quad\\Longrightarrow\\quad p_1 f'(n_1) = p_2 g'(n_2).$$\n\nDette er samme betingelse som $\\text{MTB} = p_1/p_2$: del begge sider på $p_2 f'(n_1)$, så får du $\\frac{p_1}{p_2} = \\frac{g'(n_2)}{f'(n_1)} = \\text{MTB}$ ✓.\n\n**I kroner:** $p_1 f'(n_1)$ er verdien i kroner av det den siste timen produserer i sektor 1, og $p_2 g'(n_2)$ er det samme i sektor 2. Betingelsen sier at **den siste arbeidstimen skal være nøyaktig like mye verdt i kroner uansett hvor den settes inn**. Er den verdt mer ett sted, er timene feilfordelt.\n\n**b)** Er $p_1 f'(n_1) > p_2 g'(n_2)$, gir den siste timen mer kroneverdi i sektor 1 enn i sektor 2. Da bør timer flyttes **fra sektor 2 til sektor 1**: hver flyttet time øker samlet verdi med differansen.\n\nUlikheten forsvinner av seg selv underveis: flere timer i sektor 1 senker $f'(n_1)$ (avtakende marginalprodukt), og færre timer i sektor 2 hever $g'(n_2)$. Venstresiden faller, høyresiden stiger, og flyttingen stopper akkurat når de er like. Det er også grunnen til at betingelsen beskriver et maksimum og ikke et minimum.",
+        "hints": [
+          "I a): du trenger ikke Lagrange her — sett $n_2 = L - n_1$ og deriver verdien med hensyn på $n_1$.",
+          "Husk kjerneregelen: $\\frac{d}{dn_1}g(L-n_1) = -g'(L-n_1)$.",
+          "I b): tenk på hva som skjer med hvert marginalprodukt når timene flyttes."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-6-1-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Boka har et samlet register over de vanligste tabbene på ECON2220, nummerert #1–#13 og presentert i [kap. 0.1](/bok/econ2220/econ2220-0-1). Disse er aktuelle her:\n\n- **Feil #1 — figur i stedet for utledning.** Å tegne en pen bue og skrive «dette er PMK» uten å vise inverteringen og innsettingen i ressursskranken. Sensor gir poeng for de tre stegene, ikke for buen.\n- **Feil #2 — formelen gjentatt som «tolkning».** Å skrive «MTB er helningen på PMK» og kalle det en tolkning. Tolkningen skal være i **enheter**: «samfunnet må gi opp 0,75 kilo krabbe for hver ekstra kurv molte».\n- **Glemme å invertere teknologien.** Å sette $x_1$ og $x_2$ rett inn i $n_1 + n_2 = L$ og få $x_1 + x_2 = L$. Ressursskranken gjelder **timer**, så teknologien må snus først: $n_1 = f^{-1}(x_1)$.\n- **Tegne PMK som en rett linje.** Da har du implisitt antatt konstante marginalprodukter. Med kvadratrot-teknologier krummer kurven, og krumningsargumentet er ofte et eget delspørsmål.\n- **Bytte om aksene i helningsuttrykket.** $\\text{MTB} = g'(n_2)/f'(n_1)$ når vare 1 står på den vannrette aksen. Snur du brøken, får du bytteforholdet den andre veien — som er den inverse. Sjekk alltid mot en tallkontroll: i $(6, 8)$ på kvartsirkelen skal MTB være $0{,}75$, ikke $1{,}33$.\n- **Påstå krumningen i stedet for å vise den.** «Kurven er konkav» er ikke et argument. Argumentet er avtakende marginalprodukt i begge sektorer, som gjør $g'/f'$ voksende i $x_1$."
+    },
+    {
+      "id": "econ2220-6-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Dette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet over.* Alle begrepene er allerede forklart underveis; her står de samlet slik at du kan pugge dem."
+    },
+    {
+      "id": "econ2220-6-1-def-marginalprodukt",
+      "type": "definition",
+      "title": "Marginalprodukt",
+      "content": "**Marginalproduktet** i en sektor er den ekstra produksjonen den siste innsatsenheten gir: $f'(n_1)$ for sektor 1 og $g'(n_2)$ for sektor 2.\n\nMåleenheten er **enheter av varen per arbeidstime**. For $f(n_1) = \\sqrt{n_1}$ er $f'(n_1) = \\frac{1}{2\\sqrt{n_1}}$, som synker når $n_1$ vokser.\n\nMarginalproduktene er byggeklossene i MTB: $\\text{MTB} = g'(n_2)/f'(n_1)$."
+    },
+    {
+      "id": "econ2220-6-1-def-invertert-teknologi",
+      "type": "definition",
+      "title": "Invertert teknologi (faktorkrav)",
+      "content": "Den **inverterte teknologien** $n = F^{-1}(x)$ sier hvor mange innsatsenheter som trengs for å produsere $x$ enheter av varen — teknologien lest baklengs.\n\nFor $x_1 = \\sqrt{n_1}$ er den inverterte $n_1 = x_1^2$; for $x_2 = 2\\sqrt{n_2}$ er den $n_2 = x_2^2/4$.\n\nInverteringen er **steg 1** i enhver PMK-utledning: ressursskranken teller timer, mens kurven skal tegnes i varer."
+    },
+    {
+      "id": "econ2220-6-1-def-effektiv-produksjon",
+      "type": "definition",
+      "title": "Effektiv produksjon",
+      "content": "En produksjon er **effektiv** når det ikke er mulig å få mer av den ene varen uten å få mindre av den andre. Grafisk: punktet ligger **på** produksjonsmulighetskurven.\n\nMerk at dette er effektivitet i *produksjonen* alene. Om punktet også er det samfunnet bør velge, avhenger av hva folk ønsker seg — det spørsmålet tar vi i [kap. 6.2](/bok/econ2220/econ2220-6-2), der konsumentsiden kobles på."
+    },
+    {
+      "id": "econ2220-6-1-def-full-ressursutnyttelse",
+      "type": "definition",
+      "title": "Full ressursutnyttelse",
+      "content": "**Full ressursutnyttelse** betyr at ressursskranken holder med likhet: $n_1 + n_2 = L$, ingen timer står ubrukt.\n\nDette er antakelsen som gjør at vi kan skrive PMK som en kurve og ikke som et helt område. Begrunnelsen er monotoni — mer av en vare er bedre — så en ledig time vil alltid bli brukt."
+    },
+    {
+      "id": "econ2220-6-1-def-lineaer-pmk",
+      "type": "definition",
+      "title": "Lineær produksjonsmulighetskurve",
+      "content": "En **lineær** PMK oppstår når begge teknologier har **konstante** marginalprodukter, for eksempel $x_1 = n_1/2$ og $x_2 = n_2/3$. Da er MTB konstant langs hele kurven.\n\nØkonomisk betyr det konstant alternativkostnad: den hundrede enheten av vare 1 koster like mye vare 2 som den første. Dette er unntaket, ikke regelen — og hvis en eksamensoppgave gir deg kvadratrot- eller andre avtakende teknologier, er lineær kurve et rent regnefeilsvar."
+    },
+    {
+      "id": "econ2220-6-1-def-prisforhold",
+      "type": "definition",
+      "title": "Prisforholdet som bytteforhold",
+      "content": "**Prisforholdet** $p_1/p_2$ forteller hvor mange enheter av vare 2 man må gi fra seg i markedet for å skaffe én enhet av vare 1.\n\nDet er altså markedets byttefot, mens MTB er teknologiens byttefot. Verdimaksimering setter de to like: $\\text{MTB} = p_1/p_2$.\n\nLegg merke til at bare **forholdet** betyr noe, ikke prisnivået: dobles begge prisene, endres ikke tilpasningen."
+    },
+    {
+      "id": "econ2220-6-1-def-verdi-produksjon",
+      "type": "definition",
+      "title": "Verdien av produksjonen",
+      "content": "**Verdien av produksjonen** er $p_1x_1 + p_2x_2$ — samlet salgsverdi av det økonomien lager, målt i kroner.\n\nNår bedriftene er pristakere og maksimerer profitt hver for seg, ender økonomien i det punktet på produksjonsmulighetskurven som gjør denne verdien størst. Det er derfor vi kan analysere hele produsentsiden som ett maksimeringsproblem."
+    },
+    {
+      "id": "econ2220-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-6-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-6-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/econ2220/econ2220-5-1).) Hva betyr det at en teknologi har avtakende marginalprodukt, og hvordan ser du det på funksjonen $f(n) = \\sqrt{n}$?",
+            "solution": "Avtakende marginalprodukt betyr at hver ny innsatsenhet gir mindre ekstra produksjon enn den forrige: $f'' < 0$.\n\nFor $f(n) = \\sqrt{n}$ er $f'(n) = \\frac{1}{2\\sqrt{n}}$. Dette uttrykket synker når $n$ vokser: ved $n = 1$ er marginalproduktet $0{,}5$, ved $n = 25$ er det $0{,}1$. Altså avtakende. (Formelt: $f''(n) = -\\frac{1}{4}n^{-3/2} < 0$.)",
+            "hints": [
+              "Deriver $\\sqrt{n}$ og se hva som skjer med uttrykket når $n$ vokser."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-6-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-6-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En økonomi har $L = 169$ timer og kvadratrot-teknologier i begge sektorer.\n\n**a)** Skriv opp PMK.\n\n**b)** Finn MTB i punktet $(5, 12)$ og i punktet $(12, 5)$.\n\n**c)** Hvilket prisforhold $p_1/p_2$ ville gjort punktet $(5, 12)$ verdimaksimerende?",
+            "solution": "**a)** $n_1 = x_1^2$, $n_2 = x_2^2$, så PMK er $x_1^2 + x_2^2 = 169$. (Kontroll: $25 + 144 = 169$ ✓.)\n\n**b)** $\\text{MTB} = x_1/x_2$. I $(5, 12)$: $5/12 \\approx 0{,}42$. I $(12, 5)$: $12/5 = 2{,}4$.\n\n**c)** Verdimaksimering krever $\\text{MTB} = p_1/p_2$, så prisforholdet må være $5/12 \\approx 0{,}42$: vare 1 må koste omtrent 42 prosent av vare 2 per enhet. Med for eksempel $p_2 = 120$ kroner måtte $p_1$ være 50 kroner.",
+            "hints": [
+              "PMK får du ved å invertere teknologiene og sette inn i ressursskranken.",
+              "Betingelsen for verdimaksimering knytter MTB direkte til prisforholdet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2220-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-6-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $x_1, x_2$ | Produserte mengder av vare 1 og vare 2 |\n| $n_1, n_2$ | Arbeidstimer brukt i sektor 1 og sektor 2 |\n| $L$ | Samfunnets samlede tilgang på arbeidstimer |\n| $f(n_1)$ | Teknologien i sektor 1: produksjon som funksjon av timer |\n| $g(n_2)$ | Teknologien i sektor 2 |\n| $f'(n_1)$, $g'(n_2)$ | Marginalprodukter — ekstra produksjon av den siste timen |\n| $f''$, $g''$ | Annenderiverte; negative ved avtakende marginalprodukt |\n| MTB | Marginal transformasjonsbrøk — tallverdien av PMK-helningen |\n| $p_1, p_2$ | Prisene på vare 1 og vare 2 |\n| $\\mathcal{L}$ | Lagrange-funksjonen |\n| $\\lambda$ | Lagrange-multiplikatoren |\n| $\\bar{V}$ | Et gitt verdinivå (brukes til isoverdilinjer) |\n| PMK | Produksjonsmulighetskurven |\n\n**Formler i dette delkapitlet:**\n\n$$n_1 + n_2 = L$$\nRessursskranken — timene i de to sektorene summerer til det samfunnet har. Holder med likhet.\n\n$$f^{-1}(x_1) + g^{-1}(x_2) = L$$\nProduksjonsmulighetskurven generelt: timekravet for begge varer summerer til $L$. Med kvadratrot-teknologier blir dette $x_1^2 + x_2^2 = L$.\n\n$$\\text{MTB} = -\\frac{dx_2}{dx_1} = \\frac{g'(n_2)}{f'(n_1)}$$\nMarginal transformasjonsbrøk: enheter av vare 2 som må gis opp per ekstra enhet vare 1.\n\n$$\\text{MTB} = \\frac{x_1}{x_2} \\quad (\\text{når } x_1^2 + x_2^2 = L)$$\nSpesialtilfellet for kvadratrot-teknologier i begge sektorer.\n\n$$\\mathcal{L} = p_1x_1 + p_2x_2 + \\lambda\\left(L - x_1^2 - x_2^2\\right)$$\nLagrange-funksjonen for verdimaksimering på kvartsirkel-PMK-en.\n\n$$\\text{MTB} = \\frac{p_1}{p_2}$$\nBetingelsen for verdimaksimerende produksjon: teknologiens byttefot lik markedets byttefot.\n\n$$p_1 f'(n_1) = p_2 g'(n_2)$$\nSamme betingelse i kroneform: den siste arbeidstimen er like mye verdt i begge sektorer."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

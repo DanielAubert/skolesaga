@@ -1,0 +1,338 @@
+{
+  "id": "econ2220-1-3",
+  "courseId": "econ2220",
+  "chapterNumber": "1.3",
+  "title": "Lagrange- og innsettingsmetoden",
+  "description": "Bokas arbeidshest: maksimering og minimering under bibetingelse med Lagrange — og når innsetting fungerer (og når den ikke er et alternativ).",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "løse et maksimeringsproblem med bibetingelse både med innsetting og med Lagrange, og vise at svaret blir det samme",
+    "kombinere førsteordensbetingelsene til tilpasningsbetingelsen og tolke den i enheter",
+    "tolke Lagrange-multiplikatoren som skyggepris, og utlede at den er lik én delt på inntekten for logaritmisk nytte",
+    "sette opp kostnadsminimeringsproblemet med Lagrange og begrunne hvorfor innsetting ikke er metoden der"
+  ],
+  "content": [
+    {
+      "id": "econ2220-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er bokas arbeidshest. Metoden du lærer her, brukes i to av de tre eksamensoppgavene hvert år.\n\n- **Nyttemaksimering med Lagrange** er med i **6 av 7 ordinære sett (86 %)** og 3 av 4 utsatt-sett. Innsettingsmetoden godtas som alternativ der.\n- **Kostnadsminimering** har vært med i alle sett siden 2023 — og der er **Lagrange metoden sensor forventer**. V2025-veiledningen sier eksplisitt at innsetting ikke er tilgjengelig i den oppgaven.\n- **Tolkningen av multiplikatoren $\\lambda$** ble testet i **V2024**, med det pene resultatet at $\\lambda = 1/m$ for logaritmisk nytte.\n- **Kvasi-lineær nytte** ($u = 2\\sqrt{c_1} + c_2$, med førsteordensbetingelsen $1/\\sqrt{c_1} = p_1/p_2$) ble testet i **V2023**, og brukes igjen når vi regner ut likevektspriser i [kap. 4.2](/bok/econ2220/econ2220-4-2).\n\nFerdigheten har **høyeste prioritet**: sitter Lagrange-håndverket, har du et startpunkt på nesten hver eneste regneoppgave i emnet. Kapitlet er på ~50 minutter og er delt i fem løkker med et naturlig pausepunkt etter løkke 3."
+    },
+    {
+      "id": "econ2220-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.**\n\n- **[Kap. 1.2](/bok/econ2220/econ2220-1-2)** — nyttefunksjonen, marginalnyttene $u'_1$ og $u'_2$, og den marginale substitusjonsbrøken.\n- **[Kap. 1.1](/bok/econ2220/econ2220-1-1)** — notasjonen og budsjettbetingelsen.\n- **Sist du var her** fikk du disse tre, som du bruker i dag:\n  - budsjettbetingelsen $p_1c_1 + p_2c_2 = m$, som holder med likhet fordi mer er bedre;\n  - marginalnytten $u'_1$ = den partielle deriverte av $u$ med hensyn på $c_1$;\n  - MSB $= u'_1/u'_2$ = hvor mange enheter av vare 2 konsumenten vil gi for én enhet mer av vare 1.\n- **Matematikk:** derivasjon av potenser og logaritmer, og kjerneregelen. Begge friskes opp i løkke 1."
+    },
+    {
+      "id": "econ2220-1-3-intro",
+      "type": "text",
+      "content": "Tilbake til de 400 kronene i butikken. Du vil ha det best mulig, men du kan ikke bruke mer enn du har. Det er et **maksimeringsproblem med en bibetingelse**, og matematikken har to standardmåter å løse slike:\n\n- **Innsetting:** bruk begrensningen til å kvitte deg med én variabel, og maksimer det som er igjen. Enkelt, men krever at begrensningen kan løses ut.\n- **Lagrange:** bygg begrensningen inn i en ny funksjon med en ekstra ukjent, og deriver alt. Litt mer maskineri, men virker alltid — og gir en bonus: den ekstra ukjente har en økonomisk tolkning.\n\nVi lærer begge, og vi lærer når hver av dem er den rette. Vi bruker samme problem hele veien slik at du ser at svaret blir det samme."
+    },
+    {
+      "id": "econ2220-1-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Verktøyene: partiell derivasjon og kjerneregelen (~8 min)\n\nTo regneteknikker holder for hele boka.\n\n**Partiell derivasjon.** Deriver med hensyn på én variabel og behandle de andre som konstanter. For $u = c_1^{1/4}c_2^{3/4}$:\n\n$$u'_1 = \\frac{1}{4}c_1^{-3/4}c_2^{3/4}, \\qquad u'_2 = \\frac{3}{4}c_1^{1/4}c_2^{-1/4}.$$\n\nTrikset er å behandle $c_2^{3/4}$ som et tall når du deriverer med hensyn på $c_1$.\n\n**Kjerneregelen.** Deriverer du en sammensatt funksjon, ganger du med den indre deriverte: $\\frac{d}{dx}f(g(x)) = f'(g(x)) \\cdot g'(x)$. To former du møter hele tiden:\n\n$$\\frac{d}{dc_1}\\ln(ac_1) = \\frac{1}{c_1}, \\qquad \\frac{d}{dc_1}\\sqrt{c_1} = \\frac{1}{2\\sqrt{c_1}}.$$\n\nDen første kan du også få ved å skrive $\\ln(ac_1) = \\ln a + \\ln c_1$ først — konstanten forsvinner ved derivasjon.\n\n**Ett formelt begrep før vi starter:** en **bibetingelse** er en likning løsningen må oppfylle. Budsjettbetingelsen er en bibetingelse; kravet om å produsere en gitt mengde er en annen. Funksjonen vi maksimerer eller minimerer, kalles **målfunksjonen**."
+    },
+    {
+      "id": "econ2220-1-3-def-malfunksjon",
+      "type": "definition",
+      "title": "Målfunksjon og bibetingelse",
+      "content": "**Målfunksjonen er den størrelsen som skal gjøres størst eller minst — nytten $u(c_1,c_2)$ for konsumenten, kostnaden $rK + wL$ for bedriften. Bibetingelsen er likningen løsningen må oppfylle.**\n\nÅ skille de to er første steg i tretrinnsmalen boka bruker i alle løsningsforslag: (1) sett opp problemet formelt med målfunksjon og bibetingelse, (2) utled steg for steg, (3) oversett resultatet til et bytteforhold i enheter. Sensor gir uttelling for steg 1 alene, så det skal alltid skrives ned — også når du er i tidsnød."
+    },
+    {
+      "id": "econ2220-1-3-def-kjerneregel",
+      "type": "definition",
+      "title": "Kjerneregelen",
+      "content": "**Regelen for å derivere en sammensatt funksjon: den ytre deriverte ganget med den indre deriverte, $\\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$.**\n\nDe to formene du bruker mest i dette emnet er $\\frac{d}{dc}\\ln(ac) = 1/c$ og $\\frac{d}{dc}\\sqrt{c} = 1/(2\\sqrt{c})$. Regnefeil i disse to er en av de vanligste kildene til tapte poeng i utledningsoppgaver — ikke fordi de er vanskelige, men fordi de kommer tidlig i en lang kjede, der én feil forplanter seg til alle svarene etterpå."
+    },
+    {
+      "id": "econ2220-1-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren regning.) Finn de to marginalnyttene:\n\n**a)** $u = c_1^{1/3}c_2^{2/3}$\n**b)** $u = 0{,}2\\ln c_1 + 0{,}8\\ln c_2$\n**c)** $u = 3\\sqrt{c_1} + c_2$",
+        "solution": "**a)** $u'_1 = \\dfrac{1}{3}c_1^{-2/3}c_2^{2/3}$ og $u'_2 = \\dfrac{2}{3}c_1^{1/3}c_2^{-1/3}$.\n\n**b)** $u'_1 = \\dfrac{0{,}2}{c_1}$ og $u'_2 = \\dfrac{0{,}8}{c_2}$.\n\n**c)** $u'_1 = \\dfrac{3}{2\\sqrt{c_1}}$ og $u'_2 = 1$. (Marginalnytten av vare 2 er konstant her — det er nettopp det som gjør nyttefunksjonen *kvasi-lineær*, som vi kommer tilbake til i løkke 5.)",
+        "hints": [
+          "Behandle det andre godet som en konstant faktor når du deriverer.",
+          "Til b): den deriverte av $\\ln c$ er $1/c$; konstanten foran blir stående.",
+          "Til c): skriv $3\\sqrt{c_1}$ som $3c_1^{1/2}$ hvis det er lettere."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Innsettingsmetoden (~10 min)\n\nFramgangsmåten i tre steg:\n\n1. Løs bibetingelsen for én av variablene. Budsjettbetingelsen $p_1c_1 + p_2c_2 = m$ gir $c_2 = (m - p_1c_1)/p_2$.\n2. Sett uttrykket inn i målfunksjonen. Nå er nytten en funksjon av **én** variabel.\n3. Deriver med hensyn på den ene variabelen, sett lik null, og løs.\n\nMetoden er helt legitim på eksamen i nyttemaksimeringsoppgaver — sensor godtar den — og den er ofte raskere når nyttefunksjonen er enkel. Den har to begrensninger: den fungerer bare når bibetingelsen kan løses ut på en håndterlig form, og den gir deg ikke multiplikatoren $\\lambda$, som selv er et eksamenstema."
+    },
+    {
+      "id": "econ2220-1-3-def-innsetting",
+      "type": "definition",
+      "title": "Innsettingsmetoden",
+      "content": "**Metoden der bibetingelsen løses for én variabel, uttrykket settes inn i målfunksjonen, og den resulterende funksjonen av én variabel deriveres og settes lik null.**\n\nMetoden krever at bibetingelsen kan løses ut eksplisitt. Det kan budsjettbetingelsen alltid, siden den er lineær. Den er godtatt som alternativ til Lagrange i nyttemaksimering, men den gir ikke skyggeprisen $\\lambda$ — og i kostnadsminimeringsoppgaver er den en dokumentert felle (feil **#5** i bokas feilregister, den nummererte lista over tabber sensor trekker for)."
+    },
+    {
+      "id": "econ2220-1-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Innsetting på et konkret problem",
+      "problem": "En konsument har nyttefunksjonen $u(c_1,c_2) = c_1^{1/4}c_2^{3/4}$, prisene er $p_1 = 3$ og $p_2 = 5$, og inntekten er $m = 60$. Finn den optimale godekurven med innsettingsmetoden.",
+      "solution": "**Steg 1: sett opp problemet formelt.**\n\n$$\\max_{c_1,\\,c_2}\\; c_1^{1/4}c_2^{3/4} \\quad \\text{gitt} \\quad 3c_1 + 5c_2 = 60.$$\n\nBibetingelsen holder med likhet fordi mer er bedre — å la kroner stå ubrukt kan ikke være optimalt.\n\n**Steg 2: løs bibetingelsen og sett inn.** Fra budsjettet: $c_2 = (60 - 3c_1)/5$. Sett inn:\n\n$$u(c_1) = c_1^{1/4}\\left(\\frac{60-3c_1}{5}\\right)^{3/4}.$$\n\nDeriver med produktregel og kjerneregel, sett lik null. Etter forkorting gir betingelsen\n\n$$\\frac{1}{4c_1} = \\frac{3}{4}\\cdot\\frac{3}{60-3c_1} \\;\\Longrightarrow\\; \\frac{1}{4c_1} = \\frac{9}{4(60-3c_1)}.$$\n\nKryssmultipliser: $60 - 3c_1 = 9c_1$, altså $12c_1 = 60$ og\n\n$$c_1 = 5, \\qquad c_2 = \\frac{60 - 15}{5} = 9.$$\n\n**Steg 3: kontroll og tolkning.** Budsjettet: $3 \\cdot 5 + 5 \\cdot 9 = 15 + 45 = 60$ ✓. Legg merke til utgiftene: 15 kroner på vare 1 og 45 på vare 2 — nøyaktig $1/4$ og $3/4$ av inntekten, som er eksponentene i nyttefunksjonen. Det er ikke tilfeldig, og det er hovedresultatet i [kap. 2.2](/bok/econ2220/econ2220-2-2).\n\nEt raskere spor for den som liker logaritmer: fordi $\\ln$ er en monoton transformasjon ([kap. 1.2](/bok/econ2220/econ2220-1-2)), kan du maksimere $\\tfrac14\\ln c_1 + \\tfrac34\\ln c_2$ i stedet. Innsetting gir da $\\tfrac14\\ln c_1 + \\tfrac34\\ln\\!\\big((60-3c_1)/5\\big)$, og derivasjonen blir langt lettere — samme svar, mindre algebra."
+    },
+    {
+      "id": "econ2220-1-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsetting — samme oppskrift, nye tall.) En konsument har nyttefunksjonen $u = c_1^{1/2}c_2^{1/2}$, prisene $p_1 = 4$ og $p_2 = 2$, og inntekten $m = 48$.\n\n**a)** Sett opp problemet formelt, og begrunn at budsjettbetingelsen holder med likhet.\n**b)** Finn optimum med innsettingsmetoden. Bruk gjerne logaritmeformen.\n**c)** Regn ut hvor stor andel av inntekten som brukes på hvert gode.",
+        "solution": "**a)** Problemet er\n\n$$\\max_{c_1,\\,c_2}\\; c_1^{1/2}c_2^{1/2} \\quad \\text{gitt} \\quad 4c_1 + 2c_2 = 48.$$\n\nBetingelsen holder med likhet fordi preferansene er monotone: mer av et gode er alltid bedre, så det kan ikke være optimalt å la deler av budsjettet være ubrukt.\n\n**b)** Fra budsjettet: $c_2 = (48 - 4c_1)/2 = 24 - 2c_1$. Vi maksimerer logaritmeformen $\\tfrac12\\ln c_1 + \\tfrac12\\ln c_2$, som representerer samme preferanser:\n\n$$u(c_1) = \\tfrac12\\ln c_1 + \\tfrac12\\ln(24 - 2c_1).$$\n\nDeriver og sett lik null:\n\n$$\\frac{1}{2c_1} - \\frac{1}{2}\\cdot\\frac{2}{24-2c_1} = 0 \\;\\Longrightarrow\\; \\frac{1}{2c_1} = \\frac{1}{24-2c_1}.$$\n\nKryssmultipliser: $24 - 2c_1 = 2c_1$, altså $c_1 = 6$ og $c_2 = 24 - 12 = 12$.\n\nKontroll: $4 \\cdot 6 + 2 \\cdot 12 = 24 + 24 = 48$ ✓.\n\n**c)** Utgiften på vare 1 er $4 \\cdot 6 = 24$ kroner, og på vare 2 $2 \\cdot 12 = 24$ kroner — altså **halvparten på hvert gode**. Det svarer til eksponentene $1/2$ og $1/2$ i nyttefunksjonen.",
+        "hints": [
+          "Løs budsjettbetingelsen for $c_2$ først, og sett uttrykket inn i nyttefunksjonen.",
+          "Logaritmeformen gjør derivasjonen enklere, og gir samme svar fordi $\\ln$ er en monoton transformasjon.",
+          "Til c): utgift på et gode er pris ganger mengde; sammenlikn med inntekten."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Lagrange-metoden (~12 min)\n\nLagrange-metoden løser samme problem uten å eliminere noen variabel. I stedet legger vi til én.\n\n**Steg 1: sett opp Lagrange-funksjonen.** Ta målfunksjonen, og trekk fra multiplikatoren $\\lambda$ ganget med bibetingelsen skrevet slik at den er null når den er oppfylt:\n\n$$\\mathcal{L}(c_1,c_2,\\lambda) = u(c_1,c_2) - \\lambda\\left(p_1c_1 + p_2c_2 - m\\right).$$\n\n**Steg 2: deriver med hensyn på alle tre og sett lik null.** Dette gir tre **førsteordensbetingelser**:\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial c_1} = u'_1 - \\lambda p_1 = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial c_2} = u'_2 - \\lambda p_2 = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial \\lambda} = -(p_1c_1 + p_2c_2 - m) = 0.$$\n\nDen siste er bare budsjettbetingelsen tilbake — den er innebygd i metoden, ikke noe du må huske separat.\n\n**Steg 3: del de to første på hverandre.** Dette er selve håndverksgrepet, og det er her de fleste stopper for tidlig:\n\n$$\\frac{u'_1}{u'_2} = \\frac{\\lambda p_1}{\\lambda p_2} = \\frac{p_1}{p_2}.$$\n\nMultiplikatoren $\\lambda$ forsvinner, og vi står igjen med **tilpasningsbetingelsen**:\n\n$$\\boxed{\\;\\frac{u'_1}{u'_2} = \\frac{p_1}{p_2}\\;}$$\n\n**Steg 4: kombiner med budsjettet** for å finne tallene.\n\n**Hvorfor virker metoden?** Betingelsene sier at målfunksjonens nivåkurve — indifferenskurven — har samme helning som bibetingelsen i optimum. Er helningene ulike, kan du bevege deg langs budsjettlinja til en høyere indifferenskurve; da var du ikke i optimum. Tangeringen er altså ikke et *tilleggsargument*, men det geometriske bildet av likningen.\n\n**Tolkning i enheter, som må stå i besvarelsen:** venstresiden er hvor mange enheter av vare 2 konsumenten er villig til å gi fra seg for én enhet mer av vare 1. Høyresiden er hvor mange enheter av vare 2 markedet krever for den samme enheten. I optimum er de like — ellers finnes en byttehandel som gjør henne bedre."
+    },
+    {
+      "id": "econ2220-1-3-def-lagrangefunksjon",
+      "type": "definition",
+      "title": "Lagrange-funksjonen",
+      "content": "**Hjelpefunksjonen $\\mathcal{L} = (\\text{målfunksjon}) - \\lambda\\left(\\text{bibetingelse skrevet som null}\\right)$, for eksempel $\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2 - m)$.**\n\nMetoden består i å derivere $\\mathcal{L}$ med hensyn på alle variablene *og* med hensyn på $\\lambda$, og sette alle de deriverte lik null. Derivasjonen med hensyn på $\\lambda$ gir bibetingelsen tilbake. Fortegnet foran $\\lambda$-leddet kan velges fritt (pluss virker like godt), men da endres fortegnet på $\\lambda$ — vær konsekvent innenfor én oppgave."
+    },
+    {
+      "id": "econ2220-1-3-def-fob",
+      "type": "definition",
+      "title": "Førsteordensbetingelse (FOB)",
+      "content": "**Likningene som sier at de partielle deriverte av Lagrange-funksjonen er null i et optimum: $u'_1 = \\lambda p_1$, $u'_2 = \\lambda p_2$, og bibetingelsen.**\n\nFørsteordensbetingelsene er nødvendige betingelser for indre optimum. De er ikke svaret på oppgaven: sensor forventer at du **kombinerer** dem — deler de to første på hverandre — slik at $\\lambda$ elimineres og du får tilpasningsbetingelsen. Å stoppe ved førsteordensbetingelsene er et av de vanligste stedene besvarelser mister poeng."
+    },
+    {
+      "id": "econ2220-1-3-def-tilpasningsbetingelse",
+      "type": "definition",
+      "title": "Tilpasningsbetingelsen $u'_1/u'_2 = p_1/p_2$",
+      "content": "**Resultatet av å kombinere førsteordensbetingelsene i konsumentens problem: den marginale substitusjonsbrøken er lik prisforholdet.**\n\nTolkning i enheter: venstresiden er antall enheter av vare 2 konsumenten maksimalt vil gi fra seg for én enhet mer av vare 1; høyresiden er antall enheter av vare 2 markedet krever for den samme enheten. Likhet betyr at ingen byttehandel gjenstår. Geometrisk tangerer indifferenskurven budsjettlinja. Betingelsen er utgangspunktet for nesten alle konsumentoppgaver i emnet, og den skal alltid tolkes — å bare gjenta den i ord er feil **#2** i feilregisteret."
+    },
+    {
+      "id": "econ2220-1-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Samme problem med Lagrange",
+      "problem": "Løs problemet fra eksempel 1 på nytt med Lagrange: $u = c_1^{1/4}c_2^{3/4}$, $p_1 = 3$, $p_2 = 5$, $m = 60$. Vis at svaret blir det samme, og tolk tilpasningsbetingelsen i enheter.",
+      "solution": "**Steg 1: sett opp problemet og Lagrange-funksjonen.** Vi bruker logaritmeformen $u = \\tfrac14\\ln c_1 + \\tfrac34\\ln c_2$, som representerer samme preferanser og er lettere å derivere:\n\n$$\\mathcal{L} = \\tfrac14\\ln c_1 + \\tfrac34\\ln c_2 - \\lambda(3c_1 + 5c_2 - 60).$$\n\n**Steg 2: førsteordensbetingelsene.**\n\n$$\\frac{1}{4c_1} - 3\\lambda = 0, \\qquad \\frac{3}{4c_2} - 5\\lambda = 0, \\qquad 3c_1 + 5c_2 = 60.$$\n\n**Steg 3: del de to første på hverandre** for å eliminere $\\lambda$:\n\n$$\\frac{1/(4c_1)}{3/(4c_2)} = \\frac{3\\lambda}{5\\lambda} \\;\\Longrightarrow\\; \\frac{c_2}{3c_1} = \\frac{3}{5} \\;\\Longrightarrow\\; 5c_2 = 9c_1.$$\n\n**Steg 4: kombiner med budsjettet.** Sett $5c_2 = 9c_1$ inn i $3c_1 + 5c_2 = 60$:\n\n$$3c_1 + 9c_1 = 60 \\;\\Longrightarrow\\; c_1 = 5, \\qquad c_2 = \\frac{9 \\cdot 5}{5} = 9.$$\n\nSamme svar som med innsetting: $(5, 9)$.\n\n**Tolkning i enheter.** MSB for denne nyttefunksjonen er\n\n$$\\frac{u'_1}{u'_2} = \\frac{1/(4c_1)}{3/(4c_2)} = \\frac{c_2}{3c_1},$$\n\nsom i optimum blir $9/15 = 0{,}6$. Prisforholdet er $p_1/p_2 = 3/5 = 0{,}6$. Konsumenten er altså villig til å gi fra seg $0{,}6$ enheter av vare 2 for én enhet mer av vare 1 — og markedet krever nøyaktig $0{,}6$ enheter av vare 2 (fordi én enhet av vare 1 koster 3 kroner, og 3 kroner tilsvarer $3/5$ enheter av vare 2). Ingen byttehandel gjenstår.\n\n**Figur i ord (bestilt som figur til dette kapitlet):** i et diagram med $c_1$ vannrett og $c_2$ loddrett går budsjettlinja fra $(0,12)$ til $(20,0)$ med helning $-3/5$. Indifferenskurven gjennom $E = (5,9)$ tangerer linja der, med stiplede hjelpelinjer fra $E$ ned til $c_1 = 5$ og bort til $c_2 = 9$. To andre punkter på linja, $G = (15,3)$ til høyre og $H$ oppe til venstre, ligger på lavere indifferenskurver som **krysser** budsjettlinja — det er den grafiske versjonen av at MSB der er ulik prisforholdet."
+    },
+    {
+      "id": "econ2220-1-3-fig-tangering",
+      "type": "image",
+      "src": "/images/textbook/econ2220/econ2220-1-3-tangering-lagrange.svg",
+      "alt": "Diagram med vare 1 vannrett og vare 2 loddrett. En rett budsjettlinje går fra tolv enheter av vare 2 på den loddrette aksen til tjue enheter av vare 1 på den vannrette, merket med helning minus tre femdeler. En konveks indifferenskurve tangerer linja i punktet E med fem enheter av vare 1 og ni av vare 2, markert med stiplede hjelpelinjer til begge akser. Punktene H oppe til venstre og G nede til høyre ligger også på budsjettlinja, men på lavere indifferenskurver som krysser linja. Grønne piler langs linja peker fra H og fra G inn mot E.",
+      "caption": "Løsningen fra eksempel 2 sett fra figursiden: budsjettlinja $3c_1 + 5c_2 = 60$ har helning $-3/5$, og optimum $E = (5,9)$ er punktet der indifferenskurven akkurat berører linja. I $H$ er MSB større enn prisforholdet og i $G$ mindre — begge steder krysser kurven linja, og da finnes det et bytte langs linja som løfter nytten. Tangering er altså det samme som at Lagrange-betingelsen $u'_1/u'_2 = p_1/p_2$ holder."
+    },
+    {
+      "id": "econ2220-1-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjangeren fra eksamen — begge metoder på samme problem.) En konsument har nyttefunksjonen $u = c_1^{2/5}c_2^{3/5}$, prisene $p_1 = 8$ og $p_2 = 6$, og inntekten $m = 240$.\n\n**a)** Sett opp Lagrange-funksjonen og førsteordensbetingelsene.\n**b)** Kombiner betingelsene og finn optimum.\n**c)** Løs problemet på nytt med innsetting, og kontroller at du får samme svar.\n**d)** Tolk tilpasningsbetingelsen i enheter.",
+        "solution": "**a)** Vi bruker logaritmeformen $u = \\tfrac25\\ln c_1 + \\tfrac35\\ln c_2$ (samme preferanser, enklere derivasjon):\n\n$$\\mathcal{L} = \\tfrac25\\ln c_1 + \\tfrac35\\ln c_2 - \\lambda(8c_1 + 6c_2 - 240).$$\n\nFørsteordensbetingelsene:\n\n$$\\frac{2}{5c_1} - 8\\lambda = 0, \\qquad \\frac{3}{5c_2} - 6\\lambda = 0, \\qquad 8c_1 + 6c_2 = 240.$$\n\n**b)** Del de to første på hverandre:\n\n$$\\frac{2/(5c_1)}{3/(5c_2)} = \\frac{8}{6} \\;\\Longrightarrow\\; \\frac{2c_2}{3c_1} = \\frac{4}{3} \\;\\Longrightarrow\\; 2c_2 = 4c_1 \\;\\Longrightarrow\\; c_2 = 2c_1.$$\n\nSett inn i budsjettet: $8c_1 + 12c_1 = 240$, altså $c_1 = 12$ og $c_2 = 24$.\n\nKontroll: $8 \\cdot 12 + 6 \\cdot 24 = 96 + 144 = 240$ ✓. Utgiftsandelene er $96/240 = 0{,}4$ og $144/240 = 0{,}6$ — nøyaktig eksponentene.\n\n**c)** Innsetting: fra budsjettet er $c_2 = (240 - 8c_1)/6 = 40 - \\tfrac43 c_1$. Sett inn i logaritmeformen og deriver:\n\n$$\\frac{2}{5c_1} - \\frac{3}{5}\\cdot\\frac{4/3}{40 - \\tfrac43 c_1} = 0 \\;\\Longrightarrow\\; \\frac{2}{5c_1} = \\frac{4}{5\\left(40 - \\tfrac43 c_1\\right)}.$$\n\nKryssmultipliser: $2\\left(40 - \\tfrac43c_1\\right) = 4c_1$, altså $80 - \\tfrac83c_1 = 4c_1$, som gir $80 = \\tfrac{20}{3}c_1$ og $c_1 = 12$. Samme svar, og $c_2 = 40 - 16 = 24$ ✓.\n\n**d)** MSB $= \\dfrac{2c_2}{3c_1} = \\dfrac{2 \\cdot 24}{3 \\cdot 12} = \\dfrac{4}{3}$, og prisforholdet er $8/6 = 4/3$. Konsumenten er villig til å gi fra seg $4/3$ enheter av vare 2 for én enhet mer av vare 1, og markedet krever nøyaktig $4/3$ enheter (én enhet av vare 1 koster 8 kroner, og 8 kroner er $8/6 = 4/3$ enheter av vare 2). I optimum er byttevilje og markedets bytteforhold like, og ingen omdisponering av budsjettet kan gi høyere nytte.",
+        "hints": [
+          "Skriv nyttefunksjonen på logaritmeform først — det sparer deg for produktregelen.",
+          "Del de to første førsteordensbetingelsene på hverandre slik at $\\lambda$ forsvinner.",
+          "Kontroller til slutt at utgiftene på hvert gode svarer til eksponentene i nyttefunksjonen."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-3-pausepunkt",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå selve håndverket: to metoder som gir samme svar, og tilpasningsbetingelsen med enhetstolkning. Resten av kapitlet handler om hva $\\lambda$ betyr, og om det ene problemet der innsetting ikke er et alternativ."
+    },
+    {
+      "id": "econ2220-1-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Hva $\\lambda$ betyr: skyggeprisen (~10 min)\n\nMultiplikatoren er ikke bare regneteknisk søppel du kvitter deg med. Den har en presis tolkning:\n\n$$\\lambda = \\text{hvor mye målfunksjonen øker når bibetingelsen slakkes med én enhet.}$$\n\nI konsumentproblemet er bibetingelsen budsjettet, så $\\lambda$ er **hvor mye nytten øker av én ekstra krone** — marginalnytten av penger. Det er derfor $\\lambda$ kalles **skyggeprisen** på bibetingelsen.\n\nFørsteordensbetingelsene sier det samme på en annen måte. Skriv om $u'_1 = \\lambda p_1$ til\n\n$$\\lambda = \\frac{u'_1}{p_1} = \\frac{u'_2}{p_2}.$$\n\nNytten per krone brukt skal være **den samme uansett hvilket gode du bruker kronen på**. Var den ikke det, ville du flyttet en krone dit den ga mer. Dette er den samme innsikten som butikkeksemplet i innledningen — nå som en likning.\n\n**Det pene resultatet fra V2024.** For logaritmisk nytte $u = a\\ln c_1 + (1-a)\\ln c_2$ blir\n\n$$\\lambda = \\frac{1}{m}.$$\n\nUtledningen tar tre linjer: førsteordensbetingelsen $a/c_1 = \\lambda p_1$ gir $p_1c_1 = a/\\lambda$, og på samme måte $p_2c_2 = (1-a)/\\lambda$. Legg sammen og bruk budsjettet:\n\n$$m = p_1c_1 + p_2c_2 = \\frac{a + (1-a)}{\\lambda} = \\frac{1}{\\lambda} \\;\\Longrightarrow\\; \\lambda = \\frac{1}{m}.$$\n\n**Merk hvor forsiktig man må være med å tolke tallnivået.** Nyttenivået er ordinalt ([kap. 1.2](/bok/econ2220/econ2220-1-2)), og en monoton transformasjon endrer $\\lambda$: bruker du potensformen $u = c_1^ac_2^{1-a}$ i stedet for logaritmeformen, blir $\\lambda = u^*/m$ der $u^*$ er nytten i optimum — et helt annet tall. Det som *ikke* endres, er tilpasningsbetingelsen og etterspørselen. Tolkningen «nytteøkning per ekstra krone» er derfor riktig, men tallet betyr bare noe innenfor den nyttefunksjonen du har valgt."
+    },
+    {
+      "id": "econ2220-1-3-def-lambda",
+      "type": "definition",
+      "title": "Lagrange-multiplikatoren $\\lambda$",
+      "content": "**Den ekstra ukjente i Lagrange-funksjonen. I optimum måler den hvor mye målfunksjonen øker når bibetingelsen slakkes med én enhet.**\n\nI konsumentproblemet er $\\lambda$ nytteøkningen av én ekstra krone i inntekt, og førsteordensbetingelsene gir $\\lambda = u'_1/p_1 = u'_2/p_2$ — nytten per krone er lik i alle anvendelser. I kostnadsminimeringsproblemet er $\\lambda$ derimot kostnadsøkningen av å kreve én enhet mer produsert, altså **marginalkostnaden**. $\\lambda$ er aldri svaret på oppgaven i seg selv; den er en størrelse du tolker."
+    },
+    {
+      "id": "econ2220-1-3-def-skyggepris",
+      "type": "definition",
+      "title": "Skyggepris",
+      "content": "**Verdien av å slakke en bibetingelse med én enhet — altså hva du maksimalt ville betalt for én enhet mer av den knappe ressursen.**\n\nSkyggeprisen er ikke en pris i et marked; den er en pris modellen impliserer. I konsumentproblemet er skyggeprisen på budsjettet marginalnytten av penger; i bedriftens kostnadsminimering er skyggeprisen på produksjonskravet marginalkostnaden. Navnet «skyggepris» brukes fordi tallet forteller hva ressursen er verdt *for denne aktøren i denne situasjonen*, uavhengig av om noen faktisk selger den."
+    },
+    {
+      "id": "econ2220-1-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: $\\lambda = 1/m$ regnet ut på tall",
+      "problem": "En konsument har nyttefunksjonen $u = 0{,}4\\ln c_1 + 0{,}6\\ln c_2$, prisene $p_1 = 5$ og $p_2 = 8$, og inntekten $m = 200$. Finn optimum og $\\lambda$, og tolk $\\lambda$.",
+      "solution": "**Steg 1: Lagrange og førsteordensbetingelser.**\n\n$$\\mathcal{L} = 0{,}4\\ln c_1 + 0{,}6\\ln c_2 - \\lambda(5c_1 + 8c_2 - 200),$$\n\n$$\\frac{0{,}4}{c_1} = 5\\lambda, \\qquad \\frac{0{,}6}{c_2} = 8\\lambda, \\qquad 5c_1 + 8c_2 = 200.$$\n\n**Steg 2: kombiner.** Fra de to første: $5c_1 = 0{,}4/\\lambda$ og $8c_2 = 0{,}6/\\lambda$. Legg sammen og bruk budsjettet:\n\n$$200 = \\frac{0{,}4 + 0{,}6}{\\lambda} = \\frac{1}{\\lambda} \\;\\Longrightarrow\\; \\lambda = \\frac{1}{200} = 0{,}005.$$\n\n**Steg 3: mengdene.** Sett $\\lambda$ tilbake:\n\n$$c_1 = \\frac{0{,}4}{5\\lambda} = \\frac{0{,}4 \\cdot 200}{5} = 16, \\qquad c_2 = \\frac{0{,}6}{8\\lambda} = \\frac{0{,}6 \\cdot 200}{8} = 15.$$\n\nKontroll: $5 \\cdot 16 + 8 \\cdot 15 = 80 + 120 = 200$ ✓. Utgiftsandelene er $80/200 = 0{,}4$ og $120/200 = 0{,}6$ ✓.\n\n**Tolkning av $\\lambda = 0{,}005$:** én krone mer i inntekt øker nytten med $0{,}005$ nytteenheter, målt i den nyttefunksjonen vi har valgt. Kontroll via førsteordensbetingelsen: marginalnytten av vare 1 er $0{,}4/16 = 0{,}025$, og godet koster 5 kroner, så nytte per krone er $0{,}025/5 = 0{,}005$ ✓. Samme regnestykke for vare 2: $(0{,}6/15)/8 = 0{,}04/8 = 0{,}005$ ✓. Nytten per krone er altså den samme i begge anvendelser — som er nettopp hva optimum betyr.\n\n**Og legg merke til:** $\\lambda = 1/m$ betyr at én ekstra krone er mindre verdt jo rikere du er. Det er en rimelig egenskap ved logaritmisk nytte, ikke en universell sannhet — den følger av den funksjonsformen vi valgte."
+    },
+    {
+      "id": "econ2220-1-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjangeren fra V2024 — $\\lambda$-tolkning.) En konsument har nyttefunksjonen $u = 0{,}25\\ln c_1 + 0{,}75\\ln c_2$, prisene $p_1 = 10$ og $p_2 = 4$, og inntekten $m = 400$.\n\n**a)** Finn optimum og $\\lambda$.\n**b)** Kontroller at nytten per krone er den samme for begge goder.\n**c)** Anta at inntekten øker til 500. Hva blir $\\lambda$ nå, og hva sier endringen?",
+        "solution": "**a)** Førsteordensbetingelsene er $0{,}25/c_1 = 10\\lambda$ og $0{,}75/c_2 = 4\\lambda$, som gir $10c_1 = 0{,}25/\\lambda$ og $4c_2 = 0{,}75/\\lambda$. Summen er budsjettet:\n\n$$400 = \\frac{0{,}25 + 0{,}75}{\\lambda} = \\frac{1}{\\lambda} \\;\\Longrightarrow\\; \\lambda = \\frac{1}{400} = 0{,}0025.$$\n\nMengdene: $c_1 = \\dfrac{0{,}25 \\cdot 400}{10} = 10$ og $c_2 = \\dfrac{0{,}75 \\cdot 400}{4} = 75$.\n\nKontroll: $10 \\cdot 10 + 4 \\cdot 75 = 100 + 300 = 400$ ✓.\n\n**b)** Marginalnytten av vare 1 er $0{,}25/10 = 0{,}025$, delt på prisen 10 gir $0{,}0025$. Marginalnytten av vare 2 er $0{,}75/75 = 0{,}01$, delt på prisen 4 gir $0{,}0025$. Like — og lik $\\lambda$ ✓.\n\n**c)** Med $m = 500$ blir $\\lambda = 1/500 = 0{,}002$, altså lavere. Tolkningen: den ekstra kronen er mindre verdt når du har mer å rutte med. Nytten per krone faller når inntekten stiger, og det er nettopp innholdet i resultatet $\\lambda = 1/m$ for logaritmisk nytte.",
+        "hints": [
+          "Skriv om førsteordensbetingelsene til $p_ic_i = (\\text{eksponent})/\\lambda$ og legg dem sammen.",
+          "Eksponentene summerer til 1 — det er nettopp det som gir det pene svaret.",
+          "Til b): regn marginalnytten i optimum og del på prisen, for hvert gode."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Når innsetting ikke er et alternativ (~10 min)\n\nBedriftens **kostnadsminimeringsproblem** ser slik ut: produsér en gitt mengde $\\bar y$ så billig som mulig, gitt teknologien og faktorprisene $r$ (kapital) og $w$ (arbeid):\n\n$$\\min_{K,\\,L}\\; rK + wL \\quad \\text{gitt} \\quad F(K,L) = \\bar y.$$\n\nLagrange-funksjonen bygges likt som før, med kostnaden som målfunksjon:\n\n$$\\mathcal{L} = rK + wL - \\lambda\\left(F(K,L) - \\bar y\\right).$$\n\nFørsteordensbetingelsene er $r = \\lambda F'_K$ og $w = \\lambda F'_L$, og deler vi dem på hverandre:\n\n$$\\frac{F'_K}{F'_L} = \\frac{r}{w}.$$\n\nVenstresiden kalles den **marginale tekniske substitusjonsbrøken** (MTSB) — hvor mye arbeid du kan spare ved å bruke én enhet mer kapital og fortsatt lage det samme. Høyresiden er prisforholdet mellom faktorene. Betingelsen sier at kroneverdien av det siste du putter inn, skal være like stor uansett hvilken faktor du velger.\n\n**Hvorfor Lagrange er metoden her.** Bibetingelsen $F(K,L) = \\bar y$ er en **implisitt nivåkurve** i teknologien. For de fleste teknologier finnes ingen pen lukket form for $L$ som funksjon av $K$, og der den finnes, blir uttrykket tungt å derivere. Enda viktigere: sensorveiledningen for V2025 sier eksplisitt at innsetting ikke er tilgjengelig her, fordi det er **betingelsen** $F'_K/F'_L = r/w$ oppgaven ber om — og den får du bare ved å kombinere førsteordensbetingelsene. Å forsøke innsetting er feil **#5** i bokas feilregister.\n\nVær presis på nyansen: for en teknologi som $F(K,L) = \\sqrt{KL}$ **kan** man faktisk løse ut $L = \\bar y^2/K$, og innsetting gir riktig tallsvar. Men du mister betingelsen sensor spør etter, og metoden bryter sammen så snart teknologien er mindre snill. Lær Lagrange-sporet, og bruk det hver gang.\n\n**Til sist en nyttefunksjon med en spesiell egenskap.** **Kvasi-lineær nytte** har formen $u = f(c_1) + c_2$: vare 2 går rett inn, uten krumning. Da er $u'_2 = 1$, og tilpasningsbetingelsen blir særlig enkel. For $u = 2\\sqrt{c_1} + c_2$ er $u'_1 = 1/\\sqrt{c_1}$, så\n\n$$\\frac{1}{\\sqrt{c_1}} = \\frac{p_1}{p_2} \\;\\Longrightarrow\\; c_1 = \\left(\\frac{p_2}{p_1}\\right)^2.$$\n\nEtterspørselen etter vare 1 avhenger **bare av prisforholdet, ikke av inntekten** — så lenge inntekten er stor nok til at det blir noe igjen til vare 2. Denne formen ble testet i V2023, og vi bruker den igjen når vi regner ut likevektspriser i [kap. 4.2](/bok/econ2220/econ2220-4-2)."
+    },
+    {
+      "id": "econ2220-1-3-def-kostnadsmin",
+      "type": "definition",
+      "title": "Kostnadsminimeringsproblemet",
+      "content": "**Problemet $\\min rK + wL$ gitt $F(K,L) = \\bar y$: produsér en gitt mengde så billig som mulig.**\n\nLøsningen gir den billigste faktorkombinasjonen for hver mengde, og dermed kostnadsfunksjonen $c(y)$. Merk hva problemet **ikke** bestemmer: hvor mye som skal produseres. Mengden $\\bar y$ er gitt utenfra i dette problemet, og valget av kvantum er et eget problem (profittmaksimering). Å tro at kostnadsminimering bestemmer kvantum, er feil **#4** i feilregisteret. Problemet løses i full bredde i [kap. 5.2](/bok/econ2220/econ2220-5-2)."
+    },
+    {
+      "id": "econ2220-1-3-def-mtsb",
+      "type": "definition",
+      "title": "Marginal teknisk substitusjonsbrøk (MTSB)",
+      "content": "**Forholdet mellom grenseproduktene, $F'_K/F'_L$: hvor mange enheter arbeid bedriften kan spare ved å bruke én enhet mer kapital og fortsatt produsere like mye.**\n\nMTSB er teknologiens byttekurs mellom innsatsfaktorene, og den spiller samme rolle på produsentsiden som MSB gjør på konsumentsiden. I kostnadsminimum er den lik faktorprisforholdet: $F'_K/F'_L = r/w$. Grenseproduktene $F'_K$ og $F'_L$ er de partielle deriverte av produktfunksjonen — hvor mye mer bedriften kan lage av én enhet mer av hver faktor."
+    },
+    {
+      "id": "econ2220-1-3-def-kvasilinear",
+      "type": "definition",
+      "title": "Kvasi-lineær nytte",
+      "content": "**Nytte på formen $u = f(c_1) + c_2$, der det ene godet går inn lineært.**\n\nDa er $u'_2 = 1$, og tilpasningsbetingelsen blir $f'(c_1) = p_1/p_2$ — en likning i $c_1$ alene. Etterspørselen etter vare 1 avhenger derfor bare av prisforholdet, ikke av inntekten, så lenge inntekten er stor nok til at det er noe igjen til vare 2. For $u = 2\\sqrt{c_1} + c_2$ gir dette $c_1 = (p_2/p_1)^2$. Formen ble testet i V2023 og brukes til å regne ut likevektspriser, fordi den gir enkle aggregerte etterspørselsfunksjoner."
+    },
+    {
+      "id": "econ2220-1-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Kostnadsminimering med Lagrange",
+      "problem": "Et trykkeri har produktfunksjonen $F(K,L) = \\sqrt{KL}$, der $K$ er maskintimer og $L$ er arbeidstimer. Faktorprisene er $r = 4$ og $w = 9$ kroner per time. Finn den billigste måten å produsere $\\bar y = 12$ enheter, og tolk resultatet.",
+      "solution": "**Steg 1: sett opp problemet formelt.**\n\n$$\\min_{K,\\,L}\\; 4K + 9L \\quad \\text{gitt} \\quad \\sqrt{KL} = 12.$$\n\nBibetingelsen holder med likhet: å produsere mer enn kravet koster penger uten å gi noe igjen.\n\n**Steg 2: Lagrange og førsteordensbetingelser.** Med $F(K,L) = K^{1/2}L^{1/2}$ er $F'_K = \\tfrac12 K^{-1/2}L^{1/2}$ og $F'_L = \\tfrac12 K^{1/2}L^{-1/2}$, så\n\n$$\\mathcal{L} = 4K + 9L - \\lambda\\left(K^{1/2}L^{1/2} - 12\\right),$$\n\n$$4 = \\lambda \\cdot \\tfrac12 K^{-1/2}L^{1/2}, \\qquad 9 = \\lambda \\cdot \\tfrac12 K^{1/2}L^{-1/2}.$$\n\n**Steg 3: del dem på hverandre** — $\\lambda$ forsvinner:\n\n$$\\frac{4}{9} = \\frac{K^{-1/2}L^{1/2}}{K^{1/2}L^{-1/2}} = \\frac{L}{K} \\;\\Longrightarrow\\; K = \\frac{9L}{4}.$$\n\n**Steg 4: bruk produksjonskravet.** $\\sqrt{KL} = 12$ betyr $KL = 144$, så\n\n$$\\frac{9L}{4} \\cdot L = 144 \\;\\Longrightarrow\\; L^2 = 64 \\;\\Longrightarrow\\; L = 8, \\qquad K = \\frac{9 \\cdot 8}{4} = 18.$$\n\nKostnaden blir $4 \\cdot 18 + 9 \\cdot 8 = 72 + 72 = 144$ kroner.\n\n**Steg 5: tolkning i enheter.** Betingelsen $F'_K/F'_L = r/w$ blir her $L/K = 4/9$: forholdet mellom faktorene skal speile forholdet mellom prisene. Arbeid koster $9/4 = 2{,}25$ ganger så mye som kapital per time, så bedriften bruker $2{,}25$ ganger så mange maskintimer som arbeidstimer. Tolket på marginen: den siste kronen brukt på maskintimer gir like mye ekstra produksjon som den siste kronen brukt på arbeidstimer. Var det ikke slik, kunne bedriften flytte en krone til den faktoren som ga mer, og lage det samme for mindre.\n\n**Bonus — hva $\\lambda$ er her.** Sett $L = 8$, $K = 18$ inn i én av førsteordensbetingelsene: $4 = \\lambda \\cdot \\tfrac12 \\cdot 18^{-1/2}8^{1/2}$, altså $4 = \\lambda \\cdot \\tfrac12 \\cdot \\sqrt{8/18} = \\lambda \\cdot \\tfrac12 \\cdot \\tfrac23 = \\lambda/3$, som gir $\\lambda = 12$. Skyggeprisen på produksjonskravet er altså 12 kroner: krever vi én enhet mer produsert, stiger den minimerte kostnaden med 12 kroner. Det er nettopp **marginalkostnaden** — og siden totalkostnaden her er $144$ for $12$ enheter, ser vi at $c(y) = 12y$ i dette tilfellet, med $c'(y) = 12$ ✓."
+    },
+    {
+      "id": "econ2220-1-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjangeren fra 2023 og framover — Lagrange på kostnadsminimering.) Et gartneri har produktfunksjonen $F(K,L) = \\sqrt{KL}$, faktorprisene $r = 2$ og $w = 8$, og skal produsere $\\bar y = 10$ enheter.\n\n**a)** Sett opp problemet formelt og forklar i én setning hvorfor bibetingelsen holder med likhet.\n**b)** Finn den billigste faktorkombinasjonen med Lagrange, og regn ut kostnaden.\n**c)** Tolk betingelsen $F'_K/F'_L = r/w$ i enheter.\n**d)** Hvorfor er Lagrange metoden sensor forventer i denne oppgavetypen?",
+        "solution": "**a)** Problemet er\n\n$$\\min_{K,\\,L}\\; 2K + 8L \\quad \\text{gitt} \\quad \\sqrt{KL} = 10.$$\n\nBibetingelsen holder med likhet fordi det koster penger å produsere mer enn kravet, uten at bedriften får noe igjen for det.\n\n**b)** Med $F'_K = \\tfrac12K^{-1/2}L^{1/2}$ og $F'_L = \\tfrac12K^{1/2}L^{-1/2}$ er førsteordensbetingelsene $2 = \\lambda F'_K$ og $8 = \\lambda F'_L$. Deler vi dem:\n\n$$\\frac{2}{8} = \\frac{L}{K} \\;\\Longrightarrow\\; K = 4L.$$\n\nProduksjonskravet gir $KL = 100$, så $4L^2 = 100$, altså $L = 5$ og $K = 20$.\n\nKostnaden: $2 \\cdot 20 + 8 \\cdot 5 = 40 + 40 = 80$ kroner.\n\n**c)** Betingelsen blir $L/K = 2/8 = 0{,}25$. Arbeid er fire ganger så dyrt per time som kapital, og bedriften bruker derfor fire ganger så mange kapitalenheter som arbeidsenheter. På marginen: den siste kronen brukt på kapital gir like stort produksjonsbidrag som den siste kronen brukt på arbeid. Skjevhet her ville betydd at bedriften kunne laget de samme 10 enhetene billigere ved å flytte en krone fra den ene faktoren til den andre.\n\n**d)** Fordi det oppgaven spør om, er selve **betingelsen** $F'_K/F'_L = r/w$ — og den får du bare ved å sette opp førsteordensbetingelsene og kombinere dem. Bibetingelsen $F(K,L) = \\bar y$ er dessuten en implisitt nivåkurve som i alminnelighet ikke kan løses ut på en håndterlig form; at det tilfeldigvis går for $\\sqrt{KL}$, hjelper deg ikke på en teknologi som ikke er like snill. Å forsøke innsetting her er feil #5 i feilregisteret.\n\nInteressant kontroll: kostnaden per enhet er $80/10 = 8$ kroner. Regner du oppgaven på nytt med $\\bar y = 20$, får du $L = 10$, $K = 40$ og kostnad 160 — altså $c(y) = 8y$. Teknologien har konstant skalautbytte, som vi tar fatt i i [kap. 5.1](/bok/econ2220/econ2220-5-1).",
+        "hints": [
+          "Sett opp Lagrange-funksjonen med kostnaden som målfunksjon og produksjonskravet som bibetingelse.",
+          "Grenseproduktene av $\\sqrt{KL}$: deriver $K^{1/2}L^{1/2}$ partielt med hensyn på hver faktor.",
+          "Del de to førsteordensbetingelsene på hverandre — mye forkorter seg, og du står igjen med forholdet $L/K$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-3-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Kvasi-lineær nytte",
+      "problem": "En konsument har nyttefunksjonen $u = 2\\sqrt{c_1} + c_2$, der $c_1$ er antall ferjebilletter og $c_2$ er alt annet konsum. Prisene er $p_1 = 1$ og $p_2 = 2$, og inntekten er $m = 20$. Finn optimum, og forklar hva som er spesielt med etterspørselen etter vare 1.",
+      "solution": "**Steg 1: problemet.**\n\n$$\\max_{c_1,\\,c_2}\\; 2\\sqrt{c_1} + c_2 \\quad \\text{gitt} \\quad c_1 + 2c_2 = 20.$$\n\n**Steg 2: førsteordensbetingelsene.** Marginalnyttene er $u'_1 = 1/\\sqrt{c_1}$ og $u'_2 = 1$, så Lagrange gir $1/\\sqrt{c_1} = \\lambda p_1$ og $1 = \\lambda p_2$. Del den første på den andre:\n\n$$\\frac{1}{\\sqrt{c_1}} = \\frac{p_1}{p_2} = \\frac{1}{2} \\;\\Longrightarrow\\; \\sqrt{c_1} = 2 \\;\\Longrightarrow\\; c_1 = 4.$$\n\n**Steg 3: resten til vare 2.** Fra budsjettet: $c_2 = (20 - 4)/2 = 8$.\n\nKontroll med innsetting: sett $c_2 = (20 - c_1)/2$ inn i nytten, som gir $2\\sqrt{c_1} + 10 - c_1/2$; deriver: $1/\\sqrt{c_1} - 1/2 = 0$, altså $c_1 = 4$ ✓.\n\n**Steg 4: det spesielle.** Løsningen for $c_1$ inneholder **ikke** $m$:\n\n$$c_1 = \\left(\\frac{p_2}{p_1}\\right)^2.$$\n\nAll ekstra inntekt går til vare 2. Grunnen er at marginalnytten av vare 2 er konstant lik 1: vare 2 fungerer som en «nyttemåler» som aldri blir mettet, mens vare 1 har avtakende marginalnytte og derfor et fast metningspunkt for gitte priser.\n\n**Enhetstolkning:** betingelsen $1/\\sqrt{c_1} = p_1/p_2$ sier at når konsumenten har fire ferjebilletter, er hun villig til å gi fra seg $1/2$ enhet av «alt annet» for én billett til — nøyaktig det markedet krever, siden en billett koster 1 krone og «alt annet» koster 2 kroner per enhet.\n\n**Én forutsetning som må sjekkes:** svaret krever at inntekten er stor nok til at $c_2 \\ge 0$, altså $m \\ge p_1(p_2/p_1)^2 = p_2^2/p_1$. Her er $p_2^2/p_1 = 4 \\le 20$, så vi er trygt innenfor. Er inntekten mindre, bruker konsumenten alt på vare 1, og formelen gjelder ikke."
+    },
+    {
+      "id": "econ2220-1-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjangeren fra V2023.) En konsument har nyttefunksjonen $u = 6\\sqrt{c_1} + c_2$, prisene $p_1 = 3$ og $p_2 = 1$, og inntekten $m = 40$.\n\n**a)** Finn etterspørselen etter vare 1 fra tilpasningsbetingelsen.\n**b)** Finn $c_2$.\n**c)** Hva skjer med $c_1$ og $c_2$ hvis inntekten øker til 60? Forklar.\n**d)** Hvor liten kan inntekten være før svaret i a) slutter å gjelde?",
+        "solution": "**a)** Marginalnyttene er $u'_1 = 3/\\sqrt{c_1}$ og $u'_2 = 1$. Tilpasningsbetingelsen gir\n\n$$\\frac{3}{\\sqrt{c_1}} = \\frac{p_1}{p_2} = \\frac{3}{1} = 3 \\;\\Longrightarrow\\; \\sqrt{c_1} = 1 \\;\\Longrightarrow\\; c_1 = 1.$$\n\n**b)** Fra budsjettet $3c_1 + c_2 = 40$: $c_2 = 40 - 3 = 37$.\n\n**c)** $c_1$ blir **uendret lik 1**, mens $c_2$ øker til $60 - 3 = 57$. All ekstra inntekt går til vare 2, fordi marginalnytten av vare 2 er konstant og marginalnytten av vare 1 er avtakende: ved $c_1 = 1$ er bytteviljen for vare 1 akkurat lik prisforholdet, og mer inntekt endrer ikke det regnestykket.\n\n**d)** Svaret krever $c_2 \\ge 0$, altså $m \\ge p_1c_1 = 3 \\cdot 1 = 3$. For $m < 3$ har hun ikke råd til den mengden av vare 1 som tilpasningsbetingelsen peker på, og bruker i stedet hele inntekten på vare 1 ($c_1 = m/3$, $c_2 = 0$).\n\n**Generelt:** grensen er $m \\ge p_1 \\left(\\dfrac{\\alpha p_2}{p_1}\\right)^2$ når nytten er $u = 2\\alpha\\sqrt{c_1} + c_2$. Her med $\\alpha = 3$: $m \\ge 3 \\cdot 1 = 3$ ✓.",
+        "hints": [
+          "Marginalnytten av vare 2 er 1 — hva gjør det med tilpasningsbetingelsen?",
+          "Til c): se på uttrykket for $c_1$ og spør om $m$ står i det.",
+          "Til d): hvilken betingelse må være oppfylt for at det skal være noe inntekt igjen til vare 2?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-3-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — velg metode selv, og begrunn valget.) For hvert av de tre problemene under: si hvilken metode du vil bruke og hvorfor, og løs det.\n\n**a)** $\\max c_1^{1/3}c_2^{2/3}$ gitt $2c_1 + 6c_2 = 90$.\n**b)** $\\min 5K + 5L$ gitt $\\sqrt{KL} = 20$.\n**c)** $\\max 4\\sqrt{c_1} + c_2$ gitt $2c_1 + c_2 = 50$.",
+        "solution": "**a) Begge metoder virker; Lagrange på logaritmeform er raskest.** Budsjettbetingelsen er lineær og kan løses ut, så innsetting er tilgjengelig — men når nyttefunksjonen er Cobb-Douglas, gir Lagrange på logaritmeform minst algebra.\n\nMed $u = \\tfrac13\\ln c_1 + \\tfrac23 \\ln c_2$: førsteordensbetingelsene $\\tfrac{1}{3c_1} = 2\\lambda$ og $\\tfrac{2}{3c_2} = 6\\lambda$. Delt på hverandre:\n\n$$\\frac{c_2}{2c_1} = \\frac{2}{6} = \\frac13 \\;\\Longrightarrow\\; 3c_2 = 2c_1 \\cdot 1 \\;\\Longrightarrow\\; c_2 = \\frac{2c_1}{3}.$$\n\nSett inn i budsjettet: $2c_1 + 6 \\cdot \\tfrac{2c_1}{3} = 2c_1 + 4c_1 = 90$, altså $c_1 = 15$ og $c_2 = 10$.\n\nKontroll: $2 \\cdot 15 + 6 \\cdot 10 = 30 + 60 = 90$ ✓. Utgiftsandeler: $30/90 = 1/3$ og $60/90 = 2/3$ — eksponentene ✓.\n\n**b) Lagrange, fordi bibetingelsen er en nivåkurve i teknologien.** Førsteordensbetingelsene $5 = \\lambda F'_K$ og $5 = \\lambda F'_L$ gir $F'_K = F'_L$, altså $L/K = 1$ og $K = L$. Produksjonskravet $KL = 400$ gir $K = L = 20$, og kostnaden blir $5 \\cdot 20 + 5 \\cdot 20 = 200$.\n\nTolkning: like faktorpriser gir like mengder av faktorene, siden teknologien er symmetrisk i $K$ og $L$. Betingelsen $F'_K/F'_L = r/w = 1$ sier at den siste kronen skal gi like mye igjen i begge retninger.\n\n**c) Tilpasningsbetingelsen direkte, fordi nytten er kvasi-lineær.** $u'_1 = 2/\\sqrt{c_1}$ og $u'_2 = 1$, så\n\n$$\\frac{2}{\\sqrt{c_1}} = \\frac{p_1}{p_2} = 2 \\;\\Longrightarrow\\; \\sqrt{c_1} = 1 \\;\\Longrightarrow\\; c_1 = 1,$$\n\nog $c_2 = 50 - 2 = 48$. Sjekk at $c_2 \\ge 0$: ja, med god margin.\n\n**Regelen å ta med videre:** budsjettbetingelser kan alltid løses ut, så der har du valget. Produksjonskrav bør du alltid ta med Lagrange. Og er nytten kvasi-lineær, faller den ene betingelsen bort av seg selv, så du kan gå rett på tilpasningsbetingelsen.",
+        "hints": [
+          "Spør for hvert problem: kan bibetingelsen løses ut for én variabel på en enkel form?",
+          "Ett av problemene har en bibetingelse som er en nivåkurve i produktfunksjonen.",
+          "I ett av problemene er marginalnytten av det ene godet konstant — det forenkler betingelsen kraftig."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-3-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å stoppe før $\\lambda$ er eliminert.** Førsteordensbetingelsene er ikke svaret. Selve håndverksgrepet er å dele dem på hverandre, slik at $\\lambda$ forsvinner og du står igjen med tilpasningsbetingelsen. Uten det steget mangler du det sensor faktisk ser etter.\n- **Å prøve innsetting på kostnadsminimering** — feil **#5** i bokas feilregister, altså den nummererte lista over tabber sensor trekker for. Produksjonskravet er en nivåkurve i teknologien, og oppgaven ber om betingelsen $F'_K/F'_L = r/w$, som bare kommer ut av å kombinere førsteordensbetingelsene.\n- **Å tro at kostnadsminimering bestemmer hvor mye som skal produseres** (feil **#4**). Den bestemmer bare faktormiksen for en gitt mengde. Kvantumsvalget er profittmaksimering, og det er et annet problem.\n- **Fortegnsfeil i Lagrange-oppsettet.** Skriv alltid bibetingelsen som «noe minus noe lik null» før du setter den inn, og vær konsekvent med fortegnet foran $\\lambda$ gjennom hele oppgaven.\n- **Derivasjonsfeil i potenser og logaritmer.** $\\frac{d}{dc_1}c_1^{1/4}c_2^{3/4} = \\frac14 c_1^{-3/4}c_2^{3/4}$ — eksponenten synker med 1, den blir ikke borte. En feil her forplanter seg til alle svarene etterpå.\n- **Å behandle $\\lambda$ som svaret.** $\\lambda$ er en skyggepris som skal tolkes: nytteøkning per krone i konsumentproblemet, marginalkostnad i kostnadsminimeringen. Å skrive «$\\lambda = 0{,}005$» uten tolkning er halve poenget.\n- **Å glemme å sjekke at løsningen er innenfor.** I kvasi-lineære problemer gjelder formelen bare når inntekten er stor nok til at det er noe igjen til det andre godet."
+    },
+    {
+      "id": "econ2220-1-3-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2220-1-3-def-tangeringsargument",
+      "type": "definition",
+      "title": "Nivåkurve og tangeringsargumentet",
+      "content": "**Begrunnelsen for at Lagrange-metoden virker: i optimum har målfunksjonens nivåkurve samme helning som bibetingelsen.**\n\nEr helningene ulike, kan du bevege deg langs bibetingelsen til en høyere nivåkurve — og da var du ikke i optimum. Førsteordensbetingelsene er den algebraiske formen av dette tangeringskravet. Poenget er verdt å ha klart: figuren med tangering er ikke et selvstendig argument ved siden av utledningen, men samme sak fortalt geometrisk. Derfor holder ikke figuren alene når oppgaven ber om en utledning."
+    },
+    {
+      "id": "econ2220-1-3-def-andreordens",
+      "type": "definition",
+      "title": "Andreordensbetingelse",
+      "content": "**Kravet som skiller maksimum fra minimum: for et maksimum må målfunksjonen krumme riktig vei i punktet.**\n\nI konsumentproblemet er betingelsen oppfylt automatisk når preferansene er strengt konvekse ([kap. 1.2](/bok/econ2220/econ2220-1-2)) — det er derfor boka antar konveksitet. I produsentproblemet svarer det til $c''(y) \\ge 0$ i optimum. På eksamen er det sjelden krevd å vise andreordensbetingelsen eksplisitt, men det er et pluss å nevne at den er oppfylt, med én setning om hvorfor. Dette hører til stoffet du **bør kjenne**."
+    },
+    {
+      "id": "econ2220-1-3-def-grenseprodukt",
+      "type": "definition",
+      "title": "Grenseproduktene $F'_K$ og $F'_L$",
+      "content": "**De partielle deriverte av produktfunksjonen: hvor mye mer bedriften kan produsere av én enhet mer kapital, henholdsvis én enhet mer arbeid.**\n\nFor $F(K,L) = \\sqrt{KL} = K^{1/2}L^{1/2}$ er $F'_K = \\tfrac12K^{-1/2}L^{1/2}$ og $F'_L = \\tfrac12K^{1/2}L^{-1/2}$. Grenseproduktene er positive og avtakende i egen faktor for de teknologiene boka bruker. Forholdet mellom dem er MTSB, og det er den størrelsen som skal være lik faktorprisforholdet i kostnadsminimum."
+    },
+    {
+      "id": "econ2220-1-3-def-eliminere-lambda",
+      "type": "definition",
+      "title": "Å eliminere $\\lambda$",
+      "content": "**Håndverksgrepet i Lagrange-metoden: del de to første førsteordensbetingelsene på hverandre, slik at multiplikatoren forkortes bort.**\n\nFra $u'_1 = \\lambda p_1$ og $u'_2 = \\lambda p_2$ gir divisjonen $u'_1/u'_2 = p_1/p_2$. Grepet virker fordi $\\lambda$ står som faktor i begge betingelsene. Samme grep på produsentsiden gir $F'_K/F'_L = r/w$. Trenger du derimot $\\lambda$ selv — for eksempel for å tolke skyggeprisen — bruker du betingelsene hver for seg sammen med bibetingelsen, som i eksempel 3."
+    },
+    {
+      "id": "econ2220-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-1-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $c_1, c_2$ | Konsumert mengde av vare 1 og vare 2 |\n| $p_1, p_2$ | Prisene på vare 1 og vare 2 |\n| $m$ | Pengeinntekt |\n| $u(c_1,c_2)$ | Nyttefunksjonen; $u'_1, u'_2$ er marginalnyttene |\n| $\\mathcal{L}$ | Lagrange-funksjonen |\n| $\\lambda$ | Lagrange-multiplikatoren, skyggeprisen på bibetingelsen |\n| $u^*$ | Nytten i optimum |\n| $K, L$ | Innsatsfaktorene kapital og arbeid |\n| $r, w$ | Faktorprisene: leiepris på kapital og lønn per arbeidsenhet |\n| $F(K,L)$ | Produktfunksjonen; $F'_K, F'_L$ er grenseproduktene |\n| $\\bar y$ | Den mengden bedriften er pålagt å produsere |\n| $y$, $c(y)$, $c'(y)$ | Produsert mengde, kostnadsfunksjonen og marginalkostnaden |\n| MSB | Marginal substitusjonsbrøk $= u'_1/u'_2$ |\n| MTSB | Marginal teknisk substitusjonsbrøk $= F'_K/F'_L$ |\n| $f(c_1)$ | Den krumme delen av en kvasi-lineær nyttefunksjon |\n| $\\alpha$ | Parameter i den kvasi-lineære formen $u = 2\\alpha\\sqrt{c_1} + c_2$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathcal{L} = u(c_1,c_2) - \\lambda\\left(p_1c_1 + p_2c_2 - m\\right)$$\n\nLagrange-funksjonen for konsumentproblemet: målfunksjonen minus multiplikatoren ganget med bibetingelsen skrevet som null.\n\n$$u'_1 = \\lambda p_1, \\qquad u'_2 = \\lambda p_2, \\qquad p_1c_1 + p_2c_2 = m$$\n\nFørsteordensbetingelsene. Den siste er bibetingelsen, som kommer tilbake av seg selv når du deriverer med hensyn på $\\lambda$.\n\n$$\\frac{u'_1}{u'_2} = \\frac{p_1}{p_2}$$\n\nTilpasningsbetingelsen, etter at $\\lambda$ er eliminert: byttevilje lik markedets bytteforhold, målt i enheter av vare 2 per enhet vare 1.\n\n$$\\lambda = \\frac{u'_1}{p_1} = \\frac{u'_2}{p_2}$$\n\nSkyggeprisen: nytten per krone er den samme uansett hvilket gode kronen brukes på.\n\n$$\\lambda = \\frac{1}{m} \\quad \\text{for } u = a\\ln c_1 + (1-a)\\ln c_2$$\n\nResultatet fra V2024. Følger av at eksponentene summerer til én. Med potensformen blir $\\lambda = u^*/m$ i stedet — tallet avhenger av hvilken nyttefunksjon du velger, tolkningen gjør ikke.\n\n$$\\mathcal{L} = rK + wL - \\lambda\\left(F(K,L) - \\bar y\\right) \\;\\Longrightarrow\\; \\frac{F'_K}{F'_L} = \\frac{r}{w}$$\n\nKostnadsminimering: teknologiens byttekurs mellom faktorene skal være lik faktorprisforholdet. Her er $\\lambda$ marginalkostnaden.\n\n$$\\frac{1}{\\sqrt{c_1}} = \\frac{p_1}{p_2} \\;\\Longrightarrow\\; c_1 = \\left(\\frac{p_2}{p_1}\\right)^2$$\n\nKvasi-lineær nytte $u = 2\\sqrt{c_1} + c_2$: etterspørselen avhenger bare av prisforholdet, gitt at inntekten er stor nok til at $c_2 \\ge 0$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

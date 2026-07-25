@@ -1,0 +1,477 @@
+{
+  "id": "econ2220-5-1",
+  "courseId": "econ2220",
+  "chapterNumber": "5.1",
+  "title": "Produktfunksjonen og skalautbytte",
+  "description": "Teknologien: produktfunksjon, marginalprodukter — og skalautbytte-testen $F(tK,tL) \\gtreqless tF(K,L)$ som sensor krever utført, ikke påstått.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne sette opp produktfunksjonen F(K,L) og regne ut marginalproduktene som partielle deriverte, med tolkning i enheter",
+    "kunne utføre skalautbytte-testen ved å sette inn tK og tL, trekke ut t og lese av regimet — og tolke svaret i kostnadsspråk",
+    "kunne skille avtakende marginalproduktivitet (én faktor økes) fra avtakende skalautbytte (alle faktorer skaleres)",
+    "kunne forklare hvordan skalaregimet henger sammen med formen på kostnadsfunksjonen og tilbudskurven"
+  ],
+  "content": [
+    {
+      "id": "econ2220-5-1-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Produsentteori har vært egen oppgave på hver eneste ordinære eksamen siden 2022** — V2022, V2023, V2024 og V2025, fire sett på rad — og i 2 av de 4 utsatt-settene i arkivet (V2023-utsatt og V2024-utsatt). Oppgaven er typisk verdt 20–50 % av settet. Boka kaller denne oppgavetypen **sjanger J**: produsentens optimering, skalautbytte og kostnads-/tilbudskurvene. Kodene A–N er bare boka sin egen etikettering av oppgavetypene, slik at du kan kjenne dem igjen — de står ikke på eksamen.\n\nDette kapitlet leverer fundamentet i sjanger J: **skalautbytte**. Temaet er testet i alle tre siste ordinære sett — V2023, V2024 og V2025 — og i 2 av 4 utsatt-sett (V2023-utsatt, V2024-utsatt). Det er tre av tre siste år, altså noe du kan regne med å møte.\n\n**Sensorkravet du må kjenne:** skalautbytte skal *vises* med testen $F(tK,tL)$ sammenliknet med $tF(K,L)$ — ikke påstås. En besvarelse som skriver «eksponentene summerer seg til 1, altså konstant skalautbytte» uten å ha utført testen, får trekk. Det er den samme regelen som gjelder normale goder i konsumentoppgaven: egenskaper skal vises, aldri påstås.\n\nKapitlet har høyeste prioritet i pensum. Det er kort, men alt i det brukes videre i [kap. 5.2](/bok/econ2220/econ2220-5-2), [kap. 5.3](/bok/econ2220/econ2220-5-3) og [kap. 5.4](/bok/econ2220/econ2220-5-4)."
+    },
+    {
+      "id": "econ2220-5-1-forkunn",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på:\n\n- **[kap. 1.3](/bok/econ2220/econ2220-1-3)** — Lagrange- og innsettingsmetoden. Her trenger du bare derivasjonshåndverket derfra; selve Lagrange-oppsettet kommer i gang i [kap. 5.2](/bok/econ2220/econ2220-5-2).\n- **Partiell derivasjon av potensuttrykk.** Du må kunne derivere $K^{a}L^{b}$ med hensyn på én variabel om gangen og holde den andre fast.\n- **Potensregning.** Særlig regelen $(tK)^{a} = t^{a}K^{a}$ — den er hele skalautbytte-testen.\n\n**Sist du var her — de tre reglene du får bruk for med én gang:**\n\n$$\\frac{\\partial}{\\partial K}\\,K^{a}L^{b} = a\\,K^{a-1}L^{b}, \\qquad \\frac{\\partial}{\\partial L}\\,K^{a}L^{b} = b\\,K^{a}L^{b-1}$$\n\n$$(tK)^{a}(tL)^{b} = t^{a+b}K^{a}L^{b}$$\n\n$$\\sqrt{KL} = K^{1/2}L^{1/2}$$\n\nKan du disse tre, kan du gjøre alt i kapitlet. Ingenting annet kreves."
+    },
+    {
+      "id": "econ2220-5-1-anker",
+      "type": "text",
+      "content": "Et kaffebrenneri i Trondheim har én brennmaskin og to ansatte, og leverer 200 kilo brent kaffe i uka. Eieren vurderer å bygge en kopi av hele driften vegg i vegg: én brennmaskin til, to ansatte til. Spørsmålet er enkelt å stille og overraskende vanskelig å svare på: får hun da nøyaktig 400 kilo — eller mer, eller mindre?\n\nSvaret bestemmer om kaffe blir billigere eller dyrere per kilo når hun vokser. Det bestemmer formen på kostnadskurven, og dermed hva slags tilbudskurve bedriften har. **Dette ene spørsmålet — hva skjer når alt skaleres opp med samme faktor — er det eksamen kaller skalautbytte**, og det er dette kapitlet.\n\nKapitlet er bygd som tre læringsløkker: først teknologien og marginalproduktene (løkke 1, ~15 min), så skalautbytte-testen (løkke 2, ~20 min), og til slutt skillet mot avtakende marginalproduktivitet, som er den vanligste tabben i sjangeren (løkke 3, ~10 min). Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "econ2220-5-1-l1-h",
+      "type": "text",
+      "content": "## Løkke 1 — Teknologien: produktfunksjon og marginalprodukter (~15 min)"
+    },
+    {
+      "id": "econ2220-5-1-l1-t1",
+      "type": "text",
+      "content": "### Produktfunksjonen\n\nI ECON2220 beskriver vi en bedrifts teknologi med én funksjon. Den forteller hvor mye bedriften klarer å produsere av mengder av innsatsfaktorene, når den bruker faktorene så godt som mulig.\n\nDe to standardfaktorene i kurset er **kapital** $K$ (maskiner, bygninger, utstyr) og **arbeid** $L$ (arbeidstimer). Produsert mengde kalles $y$. Eksamen bruker stor $F$ for produktfunksjonen, og det gjør vi også."
+    },
+    {
+      "id": "econ2220-5-1-def-prodfunk",
+      "type": "definition",
+      "title": "Produktfunksjonen $F(K,L)$",
+      "content": "**Produktfunksjonen $y = F(K,L)$ gir den største mengden $y$ bedriften kan produsere med kapitalmengden $K$ og arbeidsmengden $L$.**\n\nDen er en ren teknologisk beskrivelse: den sier ingenting om priser, kostnader eller hva bedriften *bør* gjøre. Den sier bare hva som er teknisk mulig.\n\nMerk at $F$ er definert som det *beste* bedriften får ut av faktorene. Sløsing ligger ikke inne i funksjonen — det ligger under kurven, som en mulighet bedriften velger bort."
+    },
+    {
+      "id": "econ2220-5-1-def-enfaktor",
+      "type": "definition",
+      "title": "Én-faktor-varianten $x = F(n)$",
+      "content": "**Når bare én innsatsfaktor varierer, skriver vi produktfunksjonen $x = F(n)$**, der $n$ er mengden av den ene faktoren (typisk arbeidstimer) og $x$ er produsert mengde.\n\nDenne varianten brukes når kapitalen er fast (kort sikt, [kap. 5.3](/bok/econ2220/econ2220-5-3)) og i profittmaksimering med én faktor, $\\max_n\\,pF(n) - wn$ ([kap. 5.4](/bok/econ2220/econ2220-5-4)). Eksamen veksler mellom de to variantene, så du må kjenne begge.\n\nEt typisk eksempel er $x = \\sqrt{n}$: dobler du timene, øker produksjonen med faktoren $\\sqrt{2} \\approx 1{,}41$."
+    },
+    {
+      "id": "econ2220-5-1-l1-t2",
+      "type": "text",
+      "content": "### Marginalproduktene\n\nDet neste spørsmålet er hva én ekstra enhet av *én* faktor gir, når den andre holdes fast. Det er en partiell derivert."
+    },
+    {
+      "id": "econ2220-5-1-def-mp",
+      "type": "definition",
+      "title": "Marginalprodukt",
+      "content": "**Marginalproduktet av en faktor er den ekstra produksjonen den siste enheten av faktoren gir, når den andre faktoren holdes fast.** Formelt er det den partielle deriverte:\n\n$$F'_K = \\frac{\\partial F(K,L)}{\\partial K}, \\qquad F'_L = \\frac{\\partial F(K,L)}{\\partial L}$$\n\n$F'_K$ er marginalproduktet av kapital, $F'_L$ marginalproduktet av arbeid.\n\n**Enheten er avgjørende for tolkningen:** $F'_L$ måles i *produserte enheter per arbeidstime*. Er $F'_L = 3$ i et bakeri, betyr det at den siste arbeidstimen gir tre brød ekstra — ikke tre kroner, ikke tre prosent."
+    },
+    {
+      "id": "econ2220-5-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: marginalproduktene i et kaffebrenneri",
+      "problem": "Kaffebrenneriet har produktfunksjonen $F(K,L) = \\sqrt{KL}$, der $K$ er antall brennmaskiner og $L$ antall arbeidstimer per uke, og $y$ måles i kilo brent kaffe.\n\nFinn marginalproduktene, og forklar i enheter hva $F'_L$ betyr når $K = 4$ og $L = 9$.",
+      "solution": "**Trinn 1 — sett opp problemet.** Vi skal derivere $F(K,L) = K^{1/2}L^{1/2}$ partielt, altså med hensyn på én faktor om gangen mens den andre holdes fast.\n\n**Trinn 2 — utled.**\n\n$$F'_K = \\frac{\\partial}{\\partial K}K^{1/2}L^{1/2} = \\tfrac{1}{2}K^{-1/2}L^{1/2} = \\frac{1}{2}\\sqrt{\\frac{L}{K}}$$\n\n$$F'_L = \\frac{\\partial}{\\partial L}K^{1/2}L^{1/2} = \\tfrac{1}{2}K^{1/2}L^{-1/2} = \\frac{1}{2}\\sqrt{\\frac{K}{L}}$$\n\nMed $K = 4$ og $L = 9$:\n\n$$F'_L = \\frac{1}{2}\\sqrt{\\frac{4}{9}} = \\frac{1}{2}\\cdot\\frac{2}{3} = \\frac{1}{3}$$\n\n**Trinn 3 — tolk i enheter.** $F'_L = 1/3$ betyr at den neste arbeidstimen, med fire maskiner i drift og ni timer allerede brukt, gir **en tredels kilo brent kaffe ekstra**. Skal brenneriet ha ett kilo til, må det legge til rundt tre arbeidstimer — så lenge maskinparken står fast.\n\nKontroll av produsert mengde: $F(4,9) = \\sqrt{36} = 6$ kilo. Marginalproduktet er altså lite i forhold til totalproduksjonen, som det skal være når $L$ allerede er stor i forhold til $K$."
+    },
+    {
+      "id": "econ2220-5-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-1-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger J-fundament, altså produsentteoriens oppgavetype: teknologi, skalautbytte og kurvene.)\n\nEt sagbruk har produktfunksjonen $F(K,L) = K^{1/3}L^{2/3}$, der $y$ måles i kubikkmeter skurlast per dag.\n\n**a)** Finn $F'_K$ og $F'_L$.\n\n**b)** Forklar med egne ord, i enheter, hva $F'_L$ betyr.",
+        "solution": "**a)** Vi deriverer partielt:\n\n$$F'_K = \\tfrac{1}{3}K^{-2/3}L^{2/3} = \\frac{1}{3}\\left(\\frac{L}{K}\\right)^{2/3}$$\n\n$$F'_L = \\tfrac{2}{3}K^{1/3}L^{-1/3} = \\frac{2}{3}\\left(\\frac{K}{L}\\right)^{1/3}$$\n\n**b)** $F'_L$ er antall ekstra kubikkmeter skurlast den siste arbeidstimen gir, når maskinparken $K$ holdes fast. Er $F'_L = 0{,}5$, gir den neste timen en halv kubikkmeter mer. Enheten er altså *kubikkmeter per arbeidstime*, ikke kroner og ikke prosent.",
+        "hints": [
+          "Skriv om til potensform: $K^{1/3}L^{2/3}$, og deriver den ene variabelen mens den andre står fast som en konstant.",
+          "Husk at $\\frac{\\partial}{\\partial L}L^{2/3} = \\tfrac{2}{3}L^{-1/3}$, og at en negativ eksponent kan skrives som brøk."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-1-l1-t3",
+      "type": "text",
+      "content": "### Avtakende marginalproduktivitet\n\nLegg merke til hva som skjedde i eksempel 1: $F'_L = \\tfrac{1}{2}\\sqrt{K/L}$ blir *mindre* jo større $L$ er. Femtende arbeidstime gir mindre kaffe enn tiende, når maskinparken står stille. Det er en egenskap eksamen bruker igjen og igjen — blant annet til å begrunne krumningen på produksjonsmulighetskurven i [kap. 6.1](/bok/econ2220/econ2220-6-1)."
+    },
+    {
+      "id": "econ2220-5-1-def-amp",
+      "type": "definition",
+      "title": "Avtakende marginalproduktivitet",
+      "content": "**En faktor har avtakende marginalproduktivitet når marginalproduktet synker etter hvert som mengden av nettopp den faktoren øker, mens de andre faktorene holdes fast.**\n\nFormelt: $\\dfrac{\\partial^2 F}{\\partial L^2} < 0$ (og tilsvarende for $K$).\n\nIntuisjonen er trengsel: med fire brennmaskiner og stadig flere ansatte står folk etter hvert og venter på maskinene. Den tiende timen får mindre maskintid enn den første.\n\n**Dette handler om at ÉN faktor økes.** Skalautbytte handler om at *alle* faktorene økes samtidig. De to er helt forskjellige spørsmål — se løkke 3."
+    },
+    {
+      "id": "econ2220-5-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-1-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Kaffebrenneriet fra eksempel 1 har $F(K,L) = \\sqrt{KL}$ og $K = 4$ maskiner.\n\n**a)** Regn ut $F'_L$ når $L = 4$, og når $L = 16$.\n\n**b)** Hva viser sammenlikningen?",
+        "solution": "**a)** Vi bruker $F'_L = \\tfrac{1}{2}\\sqrt{K/L}$ med $K = 4$:\n\n- $L = 4$: $F'_L = \\tfrac{1}{2}\\sqrt{4/4} = \\tfrac{1}{2}\\cdot 1 = 0{,}5$ kilo per time.\n- $L = 16$: $F'_L = \\tfrac{1}{2}\\sqrt{4/16} = \\tfrac{1}{2}\\cdot\\tfrac{1}{2} = 0{,}25$ kilo per time.\n\n**b)** Marginalproduktet av arbeid er halvert når arbeidsmengden er firedoblet, med maskinparken fast. Det er **avtakende marginalproduktivitet**: hver ny time gir mindre enn den forrige fordi den må dele på de samme fire maskinene.\n\nLegg merke til at dette ikke sier noe om skalautbyttet — der skal *begge* faktorene økes samtidig.",
+        "hints": [
+          "Bruk uttrykket $F'_L = \\tfrac{1}{2}\\sqrt{K/L}$ fra eksempel 1 og sett inn tallene.",
+          "Sammenlikn de to tallene: går marginalproduktet opp eller ned når $L$ øker?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-1-l1-t4",
+      "type": "text",
+      "content": "### Isokvanter — teknologiens høydekurver\n\nProduktfunksjonen har to argumenter, så grafen er en flate. Den tegner vi ikke. I stedet tegner vi **høydekurvene**: alle kombinasjoner av $K$ og $L$ som gir nøyaktig samme produserte mengde. Det er samme grep som indifferenskurvene i konsumentteorien, der vi tegner alle godekurver som gir samme nytte ([kap. 2.1](/bok/econ2220/econ2220-2-1))."
+    },
+    {
+      "id": "econ2220-5-1-def-isokvant",
+      "type": "definition",
+      "title": "Isokvant",
+      "content": "**En isokvant er mengden av alle faktorkombinasjoner $(K,L)$ som gir én og samme produserte mengde $\\bar{y}$**, altså løsningene av $F(K,L) = \\bar{y}$.\n\nIsokvanten er teknologiens svar på indifferenskurven. Den er som regel fallende (bruker du mindre kapital, trengs mer arbeid for samme produksjon) og konveks mot origo (jo mindre du har igjen av en faktor, jo mer av den andre kreves for å erstatte enda en enhet).\n\nHøyere isokvanter, altså kurver lenger fra origo, svarer til større produsert mengde."
+    },
+    {
+      "id": "econ2220-5-1-l1-fig",
+      "type": "text",
+      "content": "**Figuren i ord (isokvantkartet):** Sett arbeidsmengden $L$ vannrett og kapitalmengden $K$ loddrett. Tegn tre fallende, konvekse kurver som bøyer mot origo. Merk dem $\\bar{y} = 4$, $\\bar{y} = 6$ og $\\bar{y} = 8$ innenfra og ut; de krysser aldri hverandre. Et punkt $A$ på mellomkurven er én måte å lage 6 enheter på; punktet $B$ lenger til høyre på samme kurve er en annen måte, med mer arbeid og mindre kapital. At $A$ og $B$ ligger på samme kurve, betyr at *begge* gir 6 enheter — de er teknisk likeverdige, men de er ikke like dyre. Hvilken som er billigst, avgjøres først når faktorprisene kommer inn i [kap. 5.2](/bok/econ2220/econ2220-5-2)."
+    },
+    {
+      "id": "econ2220-5-1-fig-isokvantkart",
+      "type": "image",
+      "src": "/images/textbook/econ2220/econ2220-5-1-isokvantkart.svg",
+      "alt": "Isokvantkart med arbeidsmengden L på den vannrette aksen og kapitalmengden K på den loddrette. Tre fallende, konvekse kurver bøyer mot origo og nærmer seg aksene uten å krysse hverandre; innerst ligger kurven for produksjonsnivå fire, i midten seks og ytterst åtte. På mellomkurven er punktet A merket med fire arbeidsenheter og ni kapitalenheter, og punktet B med ni arbeidsenheter og fire kapitalenheter, begge med stiplede hjelpelinjer ned til aksene. En pil som peker utover, bort fra origo, er merket høyere produksjon.",
+      "caption": "Isokvantkartet for kaffebrenneriets teknologi: $A = (4,9)$ og $B = (9,4)$ ligger på samme kurve og gir begge 6 enheter — teknisk likeverdige, men ikke like dyre. Prisene avgjør valget først i [kap. 5.2](/bok/econ2220/econ2220-5-2)."
+    },
+    {
+      "id": "econ2220-5-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-1-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et trykkeri har $F(K,L) = \\sqrt{KL}$, der $y$ er tusen trykte ark per dag.\n\n**a)** Finn likningen for isokvanten som gir $\\bar{y} = 6$, uttrykt som $K$ som funksjon av $L$.\n\n**b)** Regn ut hvor mye kapital som trengs når $L = 4$, og når $L = 9$.\n\n**c)** Beskriv i ord hvordan kurven ser ut, og hva sammenlikningen i b) viser.",
+        "solution": "**a)** Isokvanten er løsningen av $F(K,L) = 6$:\n\n$$\\sqrt{KL} = 6 \\;\\Longleftrightarrow\\; KL = 36 \\;\\Longleftrightarrow\\; K = \\frac{36}{L}$$\n\n**b)** $L = 4$ gir $K = 36/4 = 9$. $L = 9$ gir $K = 36/9 = 4$.\n\n**c)** Kurven er en hyperbel: fallende og konveks mot origo, med $L$ vannrett og $K$ loddrett. Den nærmer seg begge aksene uten å treffe dem — trykkeriet kan ikke produsere noe uten *begge* faktorene.\n\nSammenlikningen viser at 6 000 ark kan lages på flere teknisk likeverdige måter: 4 timer og 9 maskiner, eller 9 timer og 4 maskiner. Teknologien alene rangerer dem ikke; det gjør først prisene på arbeid og kapital.",
+        "hints": [
+          "Sett $F(K,L)$ lik $6$ og kvadrer begge sider for å bli kvitt rottegnet.",
+          "Løs likningen $KL = 36$ for $K$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-1-l2-h",
+      "type": "text",
+      "content": "## Løkke 2 — Skalautbytte og testen sensor krever (~20 min)"
+    },
+    {
+      "id": "econ2220-5-1-l2-t1",
+      "type": "text",
+      "content": "### Spørsmålet, presist stilt\n\nTilbake til kaffebrenneriet. Eieren vil doble *alt*: dobbelt så mange maskiner og dobbelt så mange arbeidstimer. Blir produksjonen dobbelt så stor?\n\nGenerelt spør vi: hva skjer med $F$ når begge faktorene ganges med samme tall $t > 1$? Vi sammenlikner $F(tK,tL)$ med $tF(K,L)$ — altså «hva teknologien faktisk gir» mot «det dobbelte/tredobbelte av det den ga før»."
+    },
+    {
+      "id": "econ2220-5-1-def-skala",
+      "type": "definition",
+      "title": "Skalautbytte",
+      "content": "**Skalautbytte beskriver hva som skjer med produksjonen når ALLE innsatsfaktorene skaleres opp med samme faktor $t > 1$.** Sammenlikningen er alltid $F(tK,tL)$ mot $tF(K,L)$:\n\n- $F(tK,tL) = tF(K,L)$ — **konstant** skalautbytte\n- $F(tK,tL) > tF(K,L)$ — **tiltakende** skalautbytte\n- $F(tK,tL) < tF(K,L)$ — **avtakende** skalautbytte\n\nKravet er at det gjelder for alle $t > 1$ og alle $(K,L)$, ikke bare i ett punkt.\n\nSkalautbytte er en egenskap ved *teknologien*, ikke ved bedriftens valg. Den bestemmer formen på kostnadsfunksjonen ([kap. 5.3](/bok/econ2220/econ2220-5-3)) og dermed tilbudskurven ([kap. 5.4](/bok/econ2220/econ2220-5-4))."
+    },
+    {
+      "id": "econ2220-5-1-thm-test",
+      "type": "theorem",
+      "title": "Skalautbytte-testen",
+      "content": "**Slik utfører du testen — dette er håndverket sensor krever:**\n\n1. **Sett inn $tK$ og $tL$** i produktfunksjonen der $K$ og $L$ står.\n2. **Trekk $t$ ut** ved hjelp av potensregelen $(tK)^{a} = t^{a}K^{a}$, til uttrykket har formen $t^{\\,q}F(K,L)$.\n3. **Sammenlikn eksponenten $q$ med 1:** $q = 1$ gir konstant, $q > 1$ tiltakende, $q < 1$ avtakende skalautbytte.\n4. **Tolk svaret i ord** — hva betyr det for bedriften å doble innsatsen?\n\nTrinn 4 er ikke pynt. Sensor krever både utledningen og tolkningen; en test uten tolkning er et halvt svar."
+    },
+    {
+      "id": "econ2220-5-1-fig-skalaregimer",
+      "type": "image",
+      "src": "/images/textbook/econ2220/econ2220-5-1-skalaregimer.svg",
+      "alt": "Tre små diagrammer side om side, hvert med arbeidsmengden L vannrett og kapitalmengden K loddrett. Hvert diagram har to isokvanter, én for produksjonsnivå én og én for nivå to, og en rett stråle fra origo gjennom utgangspunktet på den nederste isokvanten. Doblingspunktet D ligger dobbelt så langt ut på strålen. I det første diagrammet, konstant skalautbytte, treffer D nøyaktig isokvanten for nivå to. I det andre, tiltakende skalautbytte, ligger D utenfor den. I det tredje, avtakende skalautbytte, ligger D innenfor den.",
+      "caption": "Testen i steg 1–3 sett geometrisk: doble begge faktorene og se hvor du havner i forhold til isokvanten for dobbelt produksjon. Nøyaktig på den er konstant skalautbytte, utenfor er tiltakende, innenfor er avtakende."
+    },
+    {
+      "id": "econ2220-5-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: kaffebrenneriet — konstant skalautbytte",
+      "problem": "Kaffebrenneriet har $F(K,L) = \\sqrt{KL}$. Avgjør hvilket skalautbytte teknologien har, og forklar hva svaret betyr for eieren som vil bygge en kopi av driften.",
+      "solution": "**Trinn 1 — sett opp testen.** Vi skal sammenlikne $F(tK,tL)$ med $tF(K,L)$ for $t > 1$. Skriv først funksjonen i potensform: $F(K,L) = K^{1/2}L^{1/2}$.\n\n**Trinn 2 — utled.** Sett inn $tK$ og $tL$:\n\n$$F(tK,tL) = (tK)^{1/2}(tL)^{1/2} = t^{1/2}K^{1/2}\\cdot t^{1/2}L^{1/2} = t^{1/2+1/2}K^{1/2}L^{1/2} = t\\,F(K,L)$$\n\nEksponenten på $t$ er $q = 1$. Altså er $F(tK,tL) = tF(K,L)$ for alle $t > 1$: **konstant skalautbytte**.\n\n**Trinn 3 — tolk.** Doble alt ($t = 2$), og produksjonen dobles nøyaktig. Kaffebrenneriet som i dag lager 200 kilo i uka med én maskin og to ansatte, lager 400 kilo med to maskiner og fire ansatte — verken mer eller mindre.\n\nFor eieren betyr det at **kostnaden per kilo ikke endrer seg når hun vokser**: en kopi av driften koster like mye som originalen og gir like mye. Kostnadene stiger altså i takt med produksjonen, og kostnadsfunksjonen blir en rett linje gjennom origo. Det følges opp i [kap. 5.3](/bok/econ2220/econ2220-5-3), der vi viser at konstant skalautbytte gir $c(y) = k\\,y$.\n\n**Kontroll med tall:** $F(1,4) = \\sqrt{4} = 2$. Dobler vi: $F(2,8) = \\sqrt{16} = 4 = 2\\cdot 2$ ✓."
+    },
+    {
+      "id": "econ2220-5-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-1-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — skalautbytte-testen.)\n\nEt gartneri har produktfunksjonen $F(K,L) = K^{0{,}3}L^{0{,}5}$.\n\n**a)** Utfør skalautbytte-testen.\n\n**b)** Tolk svaret: hva skjer med produksjonen hvis gartneriet dobler både drivhusareal og arbeidstimer?",
+        "solution": "**a)** Sett inn $tK$ og $tL$:\n\n$$F(tK,tL) = (tK)^{0{,}3}(tL)^{0{,}5} = t^{0{,}3}K^{0{,}3}\\cdot t^{0{,}5}L^{0{,}5} = t^{0{,}8}K^{0{,}3}L^{0{,}5} = t^{0{,}8}F(K,L)$$\n\nEksponenten er $q = 0{,}8 < 1$, og siden $t > 1$ er $t^{0{,}8} < t$. Altså $F(tK,tL) < tF(K,L)$: **avtakende skalautbytte**.\n\n**b)** Med $t = 2$ blir produksjonen ganget med $2^{0{,}8} \\approx 1{,}74$, ikke med 2. Gartneriet som produserer 1 000 kasser i dag, får rundt 1 740 kasser av dobbel innsats — ikke 2 000. Dobbelt så mye innsats gir altså mindre enn dobbelt så mye ut, så **kostnaden per kasse stiger når gartneriet vokser**.",
+        "hints": [
+          "Skriv $F(tK,tL)$ og bruk potensregelen $(tK)^{a} = t^{a}K^{a}$ på begge faktorene.",
+          "Legg sammen eksponentene på $t$ og sammenlikn summen med 1."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: datasenteret — tiltakende skalautbytte",
+      "problem": "Et datasenter har produktfunksjonen $F(K,L) = K^{2/3}L^{2/3}$, der $y$ er antall behandlede forespørsler. Avgjør skalautbyttet og tolk resultatet.",
+      "solution": "**Trinn 1 — sett opp testen.** Sammenlikn $F(tK,tL)$ med $tF(K,L)$ for $t > 1$.\n\n**Trinn 2 — utled.**\n\n$$F(tK,tL) = (tK)^{2/3}(tL)^{2/3} = t^{2/3}t^{2/3}K^{2/3}L^{2/3} = t^{4/3}F(K,L)$$\n\nEksponenten er $q = 4/3 > 1$. For $t > 1$ er $t^{4/3} > t$, så $F(tK,tL) > tF(K,L)$: **tiltakende skalautbytte**.\n\n**Trinn 3 — tolk.** Dobler datasenteret både serverpark og bemanning ($t = 2$), blir produksjonen ganget med $2^{4/3} \\approx 2{,}52$ — altså mer enn dobbelt. Det gir **fallende kostnad per behandlet forespørsel** når driften vokser: den doble driften koster dobbelt, men leverer 2,5 ganger så mye.\n\n**Kontroll med tall:** $F(1,1) = 1$; $F(2,2) = 2^{2/3}\\cdot 2^{2/3} = 2^{4/3} \\approx 2{,}52 > 2$ ✓.\n\nSlike teknologier er vanlige der en stor del av innsatsen er felles infrastruktur som kan deles av flere brukere. Vi bruker resultatet igjen i [kap. 5.3](/bok/econ2220/econ2220-5-3): tiltakende skalautbytte gir fallende gjennomsnittskostnad."
+    },
+    {
+      "id": "econ2220-5-1-l2-t2",
+      "type": "text",
+      "content": "### Huskeregelen for Cobb-Douglas — etter testen, aldri i stedet for\n\nProduktfunksjoner av typen $F(K,L) = AK^{a}L^{b}$ kalles **Cobb-Douglas-funksjoner**. De tre eksemplene over var alle av denne typen, og du har sikkert sett mønsteret: eksponenten som kom ut på $t$, var alltid $a + b$.\n\nDet gir en rask kontroll. Men les advarselen som følger med."
+    },
+    {
+      "id": "econ2220-5-1-def-cd",
+      "type": "definition",
+      "title": "Cobb-Douglas-produktfunksjon",
+      "content": "**En Cobb-Douglas-produktfunksjon har formen $F(K,L) = AK^{a}L^{b}$** med $A > 0$, $a > 0$ og $b > 0$.\n\nSkalautbytte-testen gir alltid\n\n$$F(tK,tL) = A(tK)^{a}(tL)^{b} = t^{a+b}AK^{a}L^{b} = t^{a+b}F(K,L),$$\n\nså **eksponentsummen $a+b$ avgjør regimet**: $a+b = 1$ gir konstant, $a+b > 1$ tiltakende og $a+b < 1$ avtakende skalautbytte.\n\nKonstanten $A$ er en effektivitetsparameter og påvirker ikke skalautbyttet — den bare skalerer hele produksjonen opp eller ned."
+    },
+    {
+      "id": "econ2220-5-1-warn-huskeregel",
+      "type": "warning",
+      "title": "Huskeregelen er en kontroll, ikke et svar",
+      "content": "Å skrive «$a + b = 0{,}8 < 1$, altså avtakende skalautbytte» **uten å ha utført testen** er dokumentert trekkgrunnlag. Sensor vil se de to linjene der $tK$ og $tL$ settes inn og $t$ trekkes ut. Boka kaller dette **feil #3 — egenskap påstått uten derivasjon eller test** (feilene har et samlet register i [kap. 0.1](/bok/econ2220/econ2220-0-1)).\n\nBruk huskeregelen slik: utfør testen, og sjekk *etterpå* at eksponentsummen stemmer med svaret du kom fram til. Regelen gjelder dessuten bare for Cobb-Douglas; møter du $F(K,L) = 2K + 3L$ eller $F(K,L) = \\min\\{K, 2L\\}$, finnes det ingen eksponentsum å telle — da må du teste."
+    },
+    {
+      "id": "econ2220-5-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-1-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — testen på en teknologi uten eksponenter.)\n\nEt pukkverk kan kjøre to helt uavhengige knuselinjer, og produksjonen er $F(K,L) = 2K + 3L$, der $K$ er maskintimer og $L$ arbeidstimer.\n\n**a)** Utfør skalautbytte-testen på denne teknologien.\n\n**b)** Forklar hvorfor huskeregelen om eksponentsummen ikke kan brukes her.",
+        "solution": "**a)** Sett inn $tK$ og $tL$:\n\n$$F(tK,tL) = 2(tK) + 3(tL) = t(2K + 3L) = t\\,F(K,L)$$\n\nHer kan $t$ settes rett utenfor parentesen. Vi får $q = 1$: **konstant skalautbytte**. Dobler pukkverket både maskintimer og arbeidstimer, dobles produksjonen nøyaktig.\n\n**b)** Huskeregelen gjelder bare Cobb-Douglas-formen $AK^{a}L^{b}$, der eksponentene $a$ og $b$ finnes. Her er faktorene lagt sammen, ikke ganget, og det står ingen eksponenter å summere. Testen derimot virker på enhver produktfunksjon — den er grunnlaget, huskeregelen er en snarvei i ett spesialtilfelle.",
+        "hints": [
+          "Sett inn $tK$ og $tL$ og se om du kan sette $t$ utenfor en parentes.",
+          "Spør deg hva $a$ og $b$ skulle vært i uttrykket $2K + 3L$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-1-l3-h",
+      "type": "text",
+      "content": "## Løkke 3 — Skalautbytte er IKKE avtakende marginalproduktivitet (~10 min)"
+    },
+    {
+      "id": "econ2220-5-1-l3-t1",
+      "type": "text",
+      "content": "Dette er den vanligste tabben i sjangeren, og den koster poeng hvert år. De to begrepene høres like ut, men svarer på hvert sitt spørsmål:\n\n- **Marginalproduktivitet:** hva skjer når *én* faktor økes og de andre holdes fast? Svar: marginalproduktet, $F'_L$ eller $F'_K$.\n- **Skalautbytte:** hva skjer når *alle* faktorene økes med samme faktor $t$? Svar: sammenlikningen $F(tK,tL)$ mot $tF(K,L)$.\n\nEn teknologi kan godt ha avtakende marginalproduktivitet i begge faktorer og likevel konstant skalautbytte. Det er faktisk normaltilfellet i kurset."
+    },
+    {
+      "id": "econ2220-5-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: begge deler samtidig",
+      "problem": "Vis at $F(K,L) = \\sqrt{KL}$ har avtakende marginalproduktivitet i begge faktorer, men konstant skalautbytte. Forklar hvordan det henger sammen.",
+      "solution": "**Trinn 1 — marginalproduktivitet.** Fra eksempel 1 er $F'_L = \\tfrac{1}{2}K^{1/2}L^{-1/2}$. Deriver én gang til:\n\n$$\\frac{\\partial^2 F}{\\partial L^2} = -\\tfrac{1}{4}K^{1/2}L^{-3/2} < 0$$\n\nfor alle $K, L > 0$. Tilsvarende er $\\dfrac{\\partial^2 F}{\\partial K^2} = -\\tfrac{1}{4}L^{1/2}K^{-3/2} < 0$. Begge faktorene har altså avtakende marginalproduktivitet.\n\n**Trinn 2 — skalautbytte.** Fra eksempel 2: $F(tK,tL) = tF(K,L)$ — konstant skalautbytte.\n\n**Trinn 3 — tolk sammenhengen.** Det er ingen motsetning. Sett $K = 4$ fast: da gir 4 → 16 arbeidstimer bare en dobling av produksjonen fra $\\sqrt{16} = 4$ til $\\sqrt{64} = 8$, ikke en firedobling — arbeidet må dele på de samme fire maskinene, og det er avtakende marginalproduktivitet.\n\nSkalerer vi derimot *begge* opp, forsvinner trengselen: $F(8,32) = \\sqrt{256} = 16$, nøyaktig det dobbelte av $F(4,16) = 8$. **Trengsel oppstår bare når én faktor blir liggende etter.** Å bygge en full kopi av driften gir ingen trengsel — derfor konstant skalautbytte."
+    },
+    {
+      "id": "econ2220-5-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-1-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — påstandsoppgave: ta stilling og begrunn. Denne oppgavetypen er testet flere ganger i arkivet, blant annet på produsentteori i V2023.)\n\nTa stilling til påstanden og begrunn svaret:\n\n«En teknologi med avtakende marginalproduktivitet i arbeid må ha avtakende skalautbytte.»",
+        "solution": "**Påstanden er usann.**\n\nBegrunnelsen er at de to egenskapene svarer på ulike spørsmål. Avtakende marginalproduktivitet i arbeid betyr $\\partial^2 F/\\partial L^2 < 0$: den siste arbeidstimen gir mindre enn den forrige *når kapitalen holdes fast*. Avtakende skalautbytte betyr $F(tK,tL) < tF(K,L)$: produksjonen vokser mindre enn proporsjonalt *når begge faktorer skaleres opp samtidig*.\n\n**Moteksempel:** $F(K,L) = \\sqrt{KL}$. Her er $\\partial^2 F/\\partial L^2 = -\\tfrac{1}{4}K^{1/2}L^{-3/2} < 0$, altså avtakende marginalproduktivitet i arbeid. Samtidig gir testen $F(tK,tL) = (tK)^{1/2}(tL)^{1/2} = tF(K,L)$, altså konstant skalautbytte. Påstanden slår dermed feil på en helt vanlig teknologi.\n\nDet som *derimot* er riktig, er at avtakende marginalproduktivitet i alle faktorer er forenlig med alle tre skalaregimene — se datasenteret i eksempel 3, som har både avtakende marginalproduktivitet og tiltakende skalautbytte.",
+        "hints": [
+          "Spør først: hva holdes fast i hvert av de to begrepene?",
+          "Prøv å finne én teknologi der marginalproduktet faller, men testen gir eksponent nøyaktig 1."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-1-l3-t2",
+      "type": "text",
+      "content": "### Hvorfor blir skalautbyttet som det blir?\n\nTesten gir svaret, men eksamen ber ofte om intuisjonen i tillegg. Tre standardforklaringer dekker det meste:\n\n**Kopieringsargumentet (taler for konstant skalautbytte).** Kan du bygge en nøyaktig kopi av hele driften — samme maskiner, samme folk, samme rutiner — bør kopien gi like mye som originalen. Da er dobbel innsats lik dobbelt utbytte.\n\n**Koordinasjonskostnader (taler for avtakende skalautbytte).** I praksis må kopien styres av den samme ledelsen, den samme IT-avdelingen og de samme rutinene. Jo større organisasjonen blir, jo mer går med til intern koordinering. Da gir dobbel innsats mindre enn dobbelt utbytte.\n\n**En fast faktor i det skjulte (taler også for avtakende skalautbytte).** Ofte er det noe som *ikke* dobles: tomta, konsesjonen, elvestrekket, gründerens egen oppmerksomhet. Da er «alt doblet» egentlig ikke alt, og produksjonen henger etter. Dette poenget kommer igjen i [kap. 5.4](/bok/econ2220/econ2220-5-4), der en knapp faktor ingen kan kopiere er nøkkelen til varig høy lønnsomhet.\n\n**Deling av felles infrastruktur (taler for tiltakende skalautbytte).** Er en stor del av innsatsen noe som kan deles — et program som er skrevet én gang, et strømnett, en tunnel — koster den neste brukeren lite, og produksjonen vokser raskere enn innsatsen."
+    },
+    {
+      "id": "econ2220-5-1-l3-t3",
+      "type": "text",
+      "content": "### Hvorfor eksamen bryr seg: koblingen framover\n\nSkalautbytte spørres nesten aldri om alene. Det spørres om fordi det bestemmer kostnadsbildet, og kostnadsbildet bestemmer tilbudet. Denne kjeden er sjanger J i én linje, og den kommer tilbake i alle de neste kapitlene:\n\n| Skalautbytte | Kostnadsfunksjonen $c(y)$ | Marginalkostnaden $c'(y)$ | Tilbudet |\n|---|---|---|---|\n| Konstant | lineær, $c(y) = k\\,y$ | konstant | vannrett tilbudskurve |\n| Avtakende | konveks, $c''(y) > 0$ | stigende | stigende tilbudskurve |\n| Tiltakende | gjennomsnittskostnaden faller | fallende | ingen vanlig tilbudskurve |\n\nTabellen står her som **varsel om hva som kommer** — hvert ledd i den utledes og vises i [kap. 5.3](/bok/econ2220/econ2220-5-3) og [kap. 5.4](/bok/econ2220/econ2220-5-4). Du skal ikke pugge den nå; du skal vite at testen du nettopp lærte, er inngangen til den."
+    },
+    {
+      "id": "econ2220-5-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-1-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå — sjanger J, slik skalautbytte-batteriet har blitt spurt i alle tre siste ordinære sett.)\n\nEn solkraftpark har produktfunksjonen $F(K,L) = K^{0{,}6}L^{0{,}6}$, der $K$ er antall paneler og $L$ er antall driftstimer, og $y$ måles i megawattimer.\n\n**a)** Avgjør ved å teste $F(tK,tL)$ hvilket skalautbytte teknologien har.\n\n**b)** Forklar i ord hva svaret betyr for kostnaden ved å doble produksjonen.\n\n**c)** En kollega sier: «Marginalproduktet av arbeid faller jo når $L$ øker — da må dere ha avtakende skalautbytte.» Ta stilling til utsagnet.",
+        "solution": "**a) Testen.** Sett inn $tK$ og $tL$:\n\n$$F(tK,tL) = (tK)^{0{,}6}(tL)^{0{,}6} = t^{0{,}6}t^{0{,}6}K^{0{,}6}L^{0{,}6} = t^{1{,}2}F(K,L)$$\n\nEksponenten er $q = 1{,}2 > 1$, og for $t > 1$ er $t^{1{,}2} > t$. Altså $F(tK,tL) > tF(K,L)$: **tiltakende skalautbytte**. (Kontroll med huskeregelen: $0{,}6 + 0{,}6 = 1{,}2 > 1$ ✓ — men testen er svaret, kontrollen bare bekrefter den.)\n\n**b) Tolkningen i kostnadsspråk.** Med $t = 2$ ganges produksjonen med $2^{1{,}2} \\approx 2{,}30$. Vil parken derimot ha nøyaktig dobbel produksjon, holder det å øke begge faktorene med mindre enn det dobbelte: vi trenger $t^{1{,}2} = 2$, altså $t = 2^{1/1{,}2} = 2^{5/6} \\approx 1{,}78$.\n\nFaktorbruken må altså opp med 78 %, mens produksjonen dobles. Siden faktorprisene ikke endrer seg, betyr det at **kostnaden ved å doble produksjonen er mindre enn dobbel** — kostnaden per megawattime faller når parken vokser.\n\n**c) Utsagnet er feil.** Marginalproduktet av arbeid er\n\n$$F'_L = 0{,}6\\,K^{0{,}6}L^{-0{,}4},$$\n\nsom ganske riktig faller når $L$ øker med $K$ fast ($\\partial^2 F/\\partial L^2 = -0{,}24K^{0{,}6}L^{-1{,}4} < 0$). Men det er et utsagn om at *arbeidet alene* økes, mens panelene står fast — trengsel om en fast ressurs.\n\nSkalautbytte handler om at panelene og driftstimene økes *samtidig*, og testen i a) viser at produksjonen da vokser mer enn proporsjonalt. Kollegaen blander to spørsmål. Denne teknologien har både avtakende marginalproduktivitet i hver faktor for seg og tiltakende skalautbytte — det er fullt forenlig.",
+        "hints": [
+          "Skriv $0{,}6$ som eksponent på både $t^{0{,}6}$-leddene, og legg dem sammen.",
+          "I b): du leter etter den $t$-en som gir $t^{1{,}2} = 2$, ikke etter hva $t=2$ gir.",
+          "I c): still spørsmålet «hva holdes fast?» for hvert av de to begrepene."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene under er hentet fra bokas **feilkatalog** — den samlede lista over de vanligste tabbene på ECON2220, som står i [kap. 0.1](/bok/econ2220/econ2220-0-1). Disse er aktuelle i dette kapitlet:\n\n- **Feil #3 — egenskap påstått uten derivasjon eller test.** Å skrive «eksponentene summerer seg til 1, altså konstant skalautbytte» uten å ha satt inn $tK$ og $tL$. Dette er dokumentert trekkgrunnlag i sensorveiledningene. Skriv testen ut, hver gang.\n- **Å blande avtakende marginalproduktivitet med avtakende skalautbytte.** Det første holder én faktor fast, det andre skalerer alle. $\\sqrt{KL}$ har det første og ikke det andre.\n- **Å sette $t$ inn feil.** Testen krever $tK$ *og* $tL$ samtidig — sett du bare inn $tL$, tester du noe helt annet (marginalproduktivitet i arbeid).\n- **Å stoppe før tolkningen.** Testen gir eksponenten; besvarelsen må i tillegg si hva regimet betyr for bedriften (kostnaden ved å vokse). Boka kaller det **feil #2 — formelen gjentatt som «tolkning»** når svaret bare omskriver ulikheten uten å nevne enheter eller kroner.\n- **Å tro at $A$-parameteren i $AK^{a}L^{b}$ påvirker skalautbyttet.** Den skalerer produksjonen, men forsvinner ut av sammenlikningen: $A$ står på begge sider.\n- **Å konkludere fra ett tallpar.** At $F(2,2) = 2F(1,1)$ tilfeldigvis stemmer, viser ingenting; testen må gjøres symbolsk for alle $t > 1$."
+    },
+    {
+      "id": "econ2220-5-1-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2220-5-1-bank-innsats",
+      "type": "definition",
+      "title": "Innsatsfaktorer ($K$ og $L$)",
+      "content": "**Innsatsfaktorer er det bedriften bruker opp eller binder for å produsere.** I ECON2220 er standardparet **kapital $K$** (maskiner, bygninger, utstyr — målt i maskintimer eller enheter utstyr) og **arbeid $L$** (arbeidstimer).\n\nFaktorprisene heter $r$ for kapital og $w$ for arbeid. Boka bruker aldri $\\omega$ om en faktorpris; $\\omega$ er reservert for beholdninger i konsumentteorien."
+    },
+    {
+      "id": "econ2220-5-1-bank-y",
+      "type": "definition",
+      "title": "Produsert mengde $y$",
+      "content": "**$y$ er mengden bedriften produserer**, målt i fysiske enheter av varen: kilo kaffe, kubikkmeter skurlast, megawattimer.\n\n$y$ er alltid *resultatet* av faktorbruken: $y = F(K,L)$. I kostnadsminimering ([kap. 5.2](/bok/econ2220/econ2220-5-2)) er en bestemt mengde gitt på forhånd og skrives $\\bar{y}$; i profittmaksimering ([kap. 5.4](/bok/econ2220/econ2220-5-4)) er $y$ det bedriften velger."
+    },
+    {
+      "id": "econ2220-5-1-bank-teknologi",
+      "type": "definition",
+      "title": "Teknologi",
+      "content": "**Teknologien er alt bedriften teknisk kan få til**: hvilke kombinasjoner av faktorer som gir hvilke produksjonsmengder. Produktfunksjonen $F(K,L)$ er den kompakte beskrivelsen av teknologien — den gir det *maksimale* utbyttet av hver faktorkombinasjon.\n\nTeknologien er gitt utenfra i denne modellen. Bedriften velger hvor på teknologien den vil ligge, ikke hvordan teknologien ser ut."
+    },
+    {
+      "id": "econ2220-5-1-bank-skalapar",
+      "type": "definition",
+      "title": "Skalaparameteren $t$",
+      "content": "**$t$ er tallet alle faktorene ganges med i skalautbytte-testen.** Vi ser alltid på $t > 1$ (en oppskalering); $t = 2$ svarer til å doble alt, $t = 1{,}5$ til å øke alt med 50 %.\n\nPoenget med å bruke en bokstav og ikke et tall er at konklusjonen skal gjelde generelt. Å sjekke bare $t = 2$ er ikke en test — det er ett tallpar."
+    },
+    {
+      "id": "econ2220-5-1-bank-konstant",
+      "type": "definition",
+      "title": "Konstant skalautbytte",
+      "content": "**Konstant skalautbytte betyr at $F(tK,tL) = tF(K,L)$ for alle $t > 1$: doble alle faktorene, og produksjonen dobles nøyaktig.**\n\nFor Cobb-Douglas $AK^{a}L^{b}$ svarer det til $a + b = 1$; $\\sqrt{KL}$ er standardeksempelet i kurset.\n\nKonsekvensen som eksamen spør om: kostnadene stiger i takt med produksjonen, så kostnadsfunksjonen er lineær, $c(y) = k\\,y$, marginalkostnaden er konstant, og tilbudskurven blir vannrett ([kap. 5.4](/bok/econ2220/econ2220-5-4))."
+    },
+    {
+      "id": "econ2220-5-1-bank-tiltakende",
+      "type": "definition",
+      "title": "Tiltakende skalautbytte",
+      "content": "**Tiltakende skalautbytte betyr at $F(tK,tL) > tF(K,L)$ for $t > 1$: doble alle faktorene, og produksjonen blir mer enn dobbelt så stor.**\n\nFor Cobb-Douglas svarer det til $a + b > 1$, som i datasenteret $K^{2/3}L^{2/3}$ med eksponentsum $4/3$.\n\nKonsekvensen: kostnaden per produsert enhet faller når driften vokser. Store bedrifter har da en kostnadsfordel, og markedet får ikke den vanlige stigende tilbudskurven."
+    },
+    {
+      "id": "econ2220-5-1-bank-avtakende",
+      "type": "definition",
+      "title": "Avtakende skalautbytte",
+      "content": "**Avtakende skalautbytte betyr at $F(tK,tL) < tF(K,L)$ for $t > 1$: doble alle faktorene, og produksjonen blir mindre enn dobbelt så stor.**\n\nFor Cobb-Douglas svarer det til $a + b < 1$, som i gartneriet $K^{0{,}3}L^{0{,}5}$ med eksponentsum $0{,}8$.\n\nKonsekvensen: kostnaden per enhet stiger med produksjonen. Kostnadsfunksjonen blir konveks ($c''(y) > 0$), marginalkostnaden stigende, og tilbudskurven stigende ([kap. 5.3](/bok/econ2220/econ2220-5-3)–[5.4](/bok/econ2220/econ2220-5-4))."
+    },
+    {
+      "id": "econ2220-5-1-bank-homogen",
+      "type": "definition",
+      "title": "Homogen funksjon av grad $q$ (bør kjenne til)",
+      "content": "**En funksjon er homogen av grad $q$ hvis $F(tK,tL) = t^{q}F(K,L)$ for alle $t > 0$.**\n\nDette er bare et navn på det testen produserer: eksponenten $q$ er homogenitetsgraden, og skalaregimet leses av som $q = 1$ (konstant), $q > 1$ (tiltakende), $q < 1$ (avtakende).\n\nBegrepet er nyttig å kjenne fordi noen lærebøker bruker det, men eksamen krever ikke ordet — den krever testen."
+    },
+    {
+      "id": "econ2220-5-1-bank-kortlang",
+      "type": "definition",
+      "title": "Kort sikt og lang sikt",
+      "content": "**På kort sikt er minst én innsatsfaktor fast** (typisk kapitalen: bygningen er bygd, maskinen er kjøpt). **På lang sikt kan alle faktorer varieres.**\n\nSkalautbytte er et **langsiktig** begrep: testen forutsetter at *begge* faktorer kan skaleres. Er kapitalen låst, er det marginalproduktivitet — ikke skalautbytte — som styrer bildet.\n\nKort sikt behandles i [kap. 5.3](/bok/econ2220/econ2220-5-3), der en fast kapitalmengde gir variable kostnader $c_v(y)$ og faste kostnader."
+    },
+    {
+      "id": "econ2220-5-1-bank-kopi",
+      "type": "definition",
+      "title": "Kopieringsargumentet",
+      "content": "**Kopieringsargumentet sier at en teknologi minst bør ha konstant skalautbytte: kan du bygge en nøyaktig kopi av driften, får du i det minste det dobbelte av det dobbelte.**\n\nArgumentet forklarer hvorfor konstant skalautbytte er en naturlig referanse. Avvik nedover forklares med koordinasjonskostnader eller med en faktor som i praksis ikke lar seg kopiere (tomta, konsesjonen, elvestrekket); avvik oppover forklares med felles infrastruktur som kan deles."
+    },
+    {
+      "id": "econ2220-5-1-bank-effektivitet",
+      "type": "definition",
+      "title": "Effektivitetsparameteren $A$",
+      "content": "**$A$ i $F(K,L) = AK^{a}L^{b}$ måler hvor produktiv teknologien er samlet sett.** En dobling av $A$ dobler produksjonen ved enhver faktorbruk.\n\n$A$ påvirker *nivået*, ikke *skalaregimet*: i testen står $A$ på begge sider og forsvinner ut av sammenlikningen. Bedre teknologi flytter altså isokvantene innover mot origo, men endrer ikke om skalautbyttet er konstant, tiltakende eller avtakende."
+    },
+    {
+      "id": "econ2220-5-1-bank-isokvantkart",
+      "type": "definition",
+      "title": "Isokvantkart",
+      "content": "**Isokvantkartet er en samling isokvanter tegnet i samme diagram, én for hvert produksjonsnivå.** Med $L$ vannrett og $K$ loddrett ligger høyere produksjon på kurver lenger fra origo.\n\nIsokvantene krysser aldri hverandre: krysset punkt ville gitt to ulike maksimale produksjonsmengder for samme faktorkombinasjon, noe produktfunksjonen utelukker.\n\nKartet er teknologiens svar på indifferenskartet i konsumentteorien — og i [kap. 5.2](/bok/econ2220/econ2220-5-2) møter det en kostnadslinje, akkurat som indifferenskurvene møter budsjettlinja."
+    },
+    {
+      "id": "econ2220-5-1-bank-regimetabell",
+      "type": "definition",
+      "title": "Skalaregime-koblingen",
+      "content": "**Skalaregimet bestemmer kostnadsbildet:** konstant skalautbytte gir lineær kostnadsfunksjon $c(y) = k\\,y$ og konstant marginalkostnad; avtakende skalautbytte gir konveks kostnadsfunksjon med $c''(y) > 0$ og stigende marginalkostnad; tiltakende skalautbytte gir fallende gjennomsnittskostnad.\n\nDenne koblingen er hovedgrunnen til at eksamen spør om skalautbytte i det hele tatt. Hvert ledd utledes i [kap. 5.3](/bok/econ2220/econ2220-5-3), og tilbudskurvene som følger av dem, i [kap. 5.4](/bok/econ2220/econ2220-5-4)."
+    },
+    {
+      "id": "econ2220-5-1-bank-fastfaktor",
+      "type": "definition",
+      "title": "Den skjulte faste faktoren",
+      "content": "**En «skjult» fast faktor er noe som ikke lar seg skalere sammen med resten — en tomt, en konsesjon, et elvestrekk, en fiskelokalitet eller eierens egen oppmerksomhet.**\n\nNår en slik faktor finnes, er «alt doblet» ikke egentlig alt, og målt skalautbytte blir avtakende. Begrepet er også nøkkelen til grunnrente-drøftingen i [kap. 5.4](/bok/econ2220/econ2220-5-4): en knapp faktor ingen kan kopiere, er nettopp det som kan holde lønnsomheten oppe i årevis."
+    },
+    {
+      "id": "econ2220-5-1-bank-tolkning",
+      "type": "definition",
+      "title": "Tolkningskravet i produsentoppgaven",
+      "content": "**Sensor krever både utledningen og oversettelsen til økonomiske enheter.** For skalautbytte betyr det at testen må følges av en setning om hva regimet innebærer for bedriften: hva som skjer med produksjonen og med kostnaden per enhet når driften vokser.\n\nRegelen gjelder hele boka og hver eneste optimeringsbetingelse: utled matematisk, og oversett så resultatet til enheter. En formel gjentatt med ord er ikke en tolkning."
+    },
+    {
+      "id": "econ2220-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-5-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-1-e-R1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Et meieri har $F(K,L) = 5K^{1/4}L^{1/2}$. Utfør skalautbytte-testen og konkluder.",
+            "solution": "$$F(tK,tL) = 5(tK)^{1/4}(tL)^{1/2} = t^{1/4+1/2}\\cdot 5K^{1/4}L^{1/2} = t^{3/4}F(K,L)$$\n\nEksponenten er $q = 3/4 < 1$, så $F(tK,tL) < tF(K,L)$ for $t > 1$: **avtakende skalautbytte**. Dobler meieriet både utstyr og bemanning, ganges produksjonen bare med $2^{3/4} \\approx 1{,}68$.\n\nLegg merke til at konstanten 5 står på begge sider og ikke påvirker konklusjonen.",
+            "hints": [
+              "Sett inn $tK$ og $tL$, og hold tallkonstanten 5 utenfor.",
+              "Legg sammen eksponentene på $t$ og sammenlikn med 1."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-5-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-1-e-R2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et snekkerverksted har $F(K,L) = K^{1/2}L^{1/2}$.\n\n**a)** Finn isokvanten for $\\bar{y} = 10$.\n\n**b)** Verkstedet vurderer $(K,L) = (20,5)$ og $(K,L) = (10,10)$. Ligger begge på isokvanten?",
+            "solution": "**a)** $\\sqrt{KL} = 10 \\Rightarrow KL = 100 \\Rightarrow K = 100/L$.\n\n**b)** $(20,5)$: $KL = 100$ ✓ — punktet ligger på isokvanten. $(10,10)$: $KL = 100$ ✓ — også på isokvanten.\n\nBegge kombinasjonene gir altså nøyaktig 10 enheter. Teknologien rangerer dem ikke; hvilken som er billigst, avgjøres av faktorprisene $r$ og $w$ i [kap. 5.2](/bok/econ2220/econ2220-5-2).",
+            "hints": [
+              "Kvadrer likningen $\\sqrt{KL} = 10$.",
+              "Sjekk produktet $K\\cdot L$ i hvert punkt."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-5-1-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-1-e-R3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En bedrift har $F(K,L) = K^{a}L^{b}$ og vil vite hvor mye alle faktorene må økes for at produksjonen skal dobles. Uttrykk svaret ved $a$ og $b$, og regn det ut for $a = b = 0{,}5$ og for $a = b = 0{,}4$.",
+            "solution": "Testen gir $F(tK,tL) = t^{a+b}F(K,L)$. Vi vil ha dobling, altså $t^{a+b} = 2$, som gir\n\n$$t = 2^{\\frac{1}{a+b}}$$\n\n- $a = b = 0{,}5$: $a+b = 1$, så $t = 2^{1} = 2$. Alle faktorer må dobles (konstant skalautbytte).\n- $a = b = 0{,}4$: $a+b = 0{,}8$, så $t = 2^{1/0{,}8} = 2^{1{,}25} \\approx 2{,}38$. Faktorene må økes med 138 % for å doble produksjonen (avtakende skalautbytte).\n\nSammenlikningen viser hva avtakende skalautbytte koster: produksjonen dobles bare hvis innsatsen mer enn dobles.",
+            "hints": [
+              "Start med testresultatet $F(tK,tL) = t^{a+b}F(K,L)$.",
+              "Løs likningen $t^{a+b} = 2$ ved å opphøye begge sider i $1/(a+b)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2220-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-5-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $K$ | Kapital — maskiner, bygninger, utstyr (innsatsfaktor) |\n| $L$ | Arbeid — arbeidstimer (innsatsfaktor) |\n| $y$ | Produsert mengde, målt i fysiske enheter av varen |\n| $\\bar{y}$ | En bestemt, gitt produksjonsmengde |\n| $F(K,L)$ | Produktfunksjonen — største mengde som kan produseres av $K$ og $L$ |\n| $x = F(n)$ | Én-faktor-varianten av produktfunksjonen; $n$ = mengden av den ene faktoren |\n| $F'_K$ | Marginalproduktet av kapital, $\\partial F/\\partial K$ |\n| $F'_L$ | Marginalproduktet av arbeid, $\\partial F/\\partial L$ |\n| $t$ | Skalaparameteren i skalautbytte-testen, $t > 1$ |\n| $q$ | Eksponenten på $t$ etter testen (homogenitetsgraden) |\n| $a, b$ | Eksponentene i en Cobb-Douglas-produktfunksjon $AK^{a}L^{b}$ |\n| $A$ | Effektivitetsparameteren i $AK^{a}L^{b}$ |\n| $r$ | Kapitalens pris (brukes fra [kap. 5.2](/bok/econ2220/econ2220-5-2)) |\n| $w$ | Arbeidets pris, lønn per time (brukes fra [kap. 5.2](/bok/econ2220/econ2220-5-2)) |\n| $c(y)$ | Kostnadsfunksjonen (bygges i [kap. 5.2](/bok/econ2220/econ2220-5-2)–[5.3](/bok/econ2220/econ2220-5-3)) |\n\n**Formler i dette delkapitlet:**\n\n$$y = F(K,L)$$\nProduktfunksjonen: største produksjon som kan hentes ut av faktormengdene $K$ og $L$.\n\n$$F'_K = \\frac{\\partial F}{\\partial K}, \\qquad F'_L = \\frac{\\partial F}{\\partial L}$$\nMarginalproduktene: ekstra produksjon per ekstra enhet av én faktor, med den andre fast. Enhet: produserte enheter per faktorenhet.\n\n$$\\frac{\\partial^2 F}{\\partial L^2} < 0$$\nAvtakende marginalproduktivitet i arbeid: marginalproduktet synker når $L$ øker med $K$ fast.\n\n$$F(tK,tL) \\gtreqless tF(K,L), \\quad t > 1$$\nSkalautbytte-testen: større enn gir tiltakende, lik gir konstant, mindre enn gir avtakende skalautbytte.\n\n$$F(tK,tL) = t^{a+b}F(K,L) \\quad \\text{for } F = AK^{a}L^{b}$$\nCobb-Douglas: eksponentsummen $a+b$ leser av regimet — brukes som kontroll etter testen, aldri i stedet for den.\n\n$$F(K,L) = \\bar{y}$$\nIsokvanten: alle faktorkombinasjoner som gir samme produksjonsmengde $\\bar{y}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

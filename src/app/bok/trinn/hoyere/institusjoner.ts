@@ -30,6 +30,7 @@ export const INSTITUSJONER: Institusjon[] = [
     color: 'from-red-600 to-rose-700',
     subjects: [
       { courseId: 'fys1001', name: 'FYS1001 Innføring i fysikk', icon: '⚛️', color: 'from-slate-500 to-slate-700' },
+      { courseId: 'econ2220', name: 'ECON2220 Mikroøkonomi 2', icon: '⚖️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'stk1110', name: 'STK1110 Statistiske metoder og dataanalyse', icon: '📊', color: 'from-slate-500 to-slate-700' },
       { courseId: 'stk1100', name: 'STK1100 Sannsynlighetsregning og statistisk modellering', icon: '📈', color: 'from-slate-500 to-slate-700' },
       { courseId: 'mat1120', name: 'MAT1120 Lineær algebra', icon: '🧮', color: 'from-slate-500 to-slate-700' },

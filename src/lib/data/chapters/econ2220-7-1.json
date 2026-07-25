@@ -1,0 +1,368 @@
+{
+  "id": "econ2220-7-1",
+  "courseId": "econ2220",
+  "chapterNumber": "7.1",
+  "title": "Statisk spillteori: Nash, dominans og rasjonaliserbarhet",
+  "description": "Nash-likevekten definert presist, beste-svar-analyse i matrisen og iterert eliminering — vedlikeholdsdose for et tema som kan komme tilbake.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne definere Nash-likevekt presist og finne alle likevekter i en matrise ved beste-svar-analyse",
+    "kunne skille strengt fra svakt dominerte strategier og gjennomføre iterert eliminering med rekkefølgen begrunnet",
+    "kunne avgjøre om en ren strategi er dominert av en blandet strategi, ved regning",
+    "kunne forklare hvorfor en Nash-likevekt kan være dårligere for alle enn et annet utfall"
+  ],
+  "content": [
+    {
+      "id": "econ2220-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel — dette er beredskapsstoff",
+      "content": "**Les dette først, så du vet hvor du er.** Hele del 7 er **beredskapsstoff**: den er tatt med som forsikring, ikke fordi den er sannsynlig. Er du presset på tid før eksamen, er dette det første du kan hoppe over — og det siste du bør lese hvis du har tid til overs.\n\nOppgavetypen heter i denne boka **sjanger N** (spillteori og atferdsøkonomi). Sjangerbokstavene er bokas eget merkesystem for oppgavetyper, og hele listen står i [kap. 0.1](/bok/econ2220/econ2220-0-1).\n\n**Frekvens i arkivet — og derfor prioriteringen.** Spillteori bar 30–40 % av eksamen i årene 2018–2022, og temaet finnes i **4 av de 7 ordinære settene**: V2018 (30 % av settet), V2019 (30 %, som en egen flervalgsbolk med ti delspørsmål), V2020 (30 %) og V2022 (20 %). I tillegg opptrer det i **1 av de 4 utsatt-settene** (V2022-utsatt). Men: det finnes **null forekomster i settene fra 2023 og framover**, verken ordinære eller utsatte. Faget la om i 2023, og produsentteori tok plassen.\n\nHvorfor da lese det i det hele tatt? Fordi temaet **fortsatt står i emnebeskrivelsen** (verifisert 2026), og fordi fire årganger med tunge spilloppgaver ligger i arkivet studentene øver på. Et bytte av foreleser kan reversere bortfallet.\n\n**Prioritet: dette bør du kjenne.** Det er den laveste av bokas tre nivåer — «må sitte», «må kunne», «bør kjenne».\n\n**Kravene fra den gangen temaet ble testet:** definere Nash-likevekt presist, finne den ved beste-svar-analyse i matrisen, og skille rasjonelle fra **rasjonaliserbare** strategier ved iterert eliminering av strengt dominerte strategier — inkludert dominans via **blandede** strategier, som ble eksplisitt testet i V2022.\n\nKapitlet er kompakt med vilje: dette er vedlikehold, ikke fordypning. Trenger du en mykere inngang til matrisespill, finnes den i forgjengerboka: [Spillteori: 2×2-matrisen, Nash og fangens dilemma](/bok/econ1210/econ1210-7-2)."
+    },
+    {
+      "id": "econ2220-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet krever nesten ingenting fra resten av boka:\n\n- **[kap. 0.1](/bok/econ2220/econ2220-0-1)** — eksamenskartet, som forklarer sjangerkodene og hvorfor del 7 er beredskapsstoff.\n- Nyttig, men ikke nødvendig: [Spillteori: 2×2-matrisen, Nash og fangens dilemma](/bok/econ1210/econ1210-7-2) fra forgjengerboka gir en roligere første gjennomgang av matrisespill.\n\nDu trenger **ingen** Lagrange, ingen nyttefunksjoner og ingen produksjonsteori her. Det eneste regnetekniske er å regne et gjennomsnitt (til blandede strategier i løkke 4).\n\nEtt begrep du bør ha med deg fra resten av boka: **Pareto-forbedring** — en endring der minst én får det bedre og ingen får det verre. Vi bruker det for å vise at en Nash-likevekt godt kan være dårlig for alle."
+    },
+    {
+      "id": "econ2220-7-1-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Spillet, beste svar og Nash-likevekten (~13 min)"
+    },
+    {
+      "id": "econ2220-7-1-anker",
+      "type": "text",
+      "content": "To reketrålere fisker på samme felt utenfor Jæren. Hver av dem bestemmer seg om kvelden for hvor hardt de skal fiske neste dag — mye eller moderat — og de gjør det **samtidig**, uten å vite hva den andre velger.\n\nDet er dette som gjør situasjonen til et *spill* og ikke et vanlig optimeringsproblem: det beste valget for den ene avhenger av hva den andre gjør. Fisker begge hardt, tømmes feltet og begge tjener lite. Fisker begge moderat, tjener begge godt. Men fisker naboen moderat, er det svært lønnsomt for meg å fiske hardt.\n\nSpillteori er verktøykassa for slike situasjoner. Den består i praksis av tre ting: en måte å skrive ned spillet, et begrep om hva som er «best svar», og en likevektsdefinisjon."
+    },
+    {
+      "id": "econ2220-7-1-def-normalform",
+      "type": "definition",
+      "title": "Spill i normalform",
+      "content": "Et **spill i normalform** (også kalt strategisk form) består av tre deler:\n\n1. **Spillerne** — hvem som bestemmer, her to.\n2. **Strategiene** — hva hver spiller kan velge.\n3. **Utbetalingene** — hva hver spiller får, for hver kombinasjon av valg.\n\nMed to spillere skrives spillet som en **matrise**: den ene spillerens strategier langs radene, den andres langs kolonnene, og i hver celle et tallpar $(\\text{rad-spillerens utbetaling}, \\text{kolonne-spillerens utbetaling})$ — rad først, alltid.\n\nNormalformen forutsetter at valgene tas **samtidig**, eller i det minste at ingen ser den andres valg før hun velger selv."
+    },
+    {
+      "id": "econ2220-7-1-def-strategi-ren",
+      "type": "definition",
+      "title": "Ren strategi",
+      "content": "En **ren strategi** er ett av de valgene en spiller kan gjøre — «fisk mye», «sett prisen til 40 kroner», «velg standard A».\n\nOrdet «ren» skiller den fra en **blandet** strategi, der spilleren trekker lodd mellom flere valg. Blandede strategier møter du i løkke 4; fram til da er alle strategier rene.\n\nI et spill på matriseform er de rene strategiene nettopp radene og kolonnene."
+    },
+    {
+      "id": "econ2220-7-1-def-utbetaling",
+      "type": "definition",
+      "title": "Utbetaling (payoff)",
+      "content": "En **utbetaling** er tallet en spiller får i en gitt cellekombinasjon. Det kan være kroner, profitt, nytte eller poeng — det som betyr noe, er **rangeringen**: at høyere tall er bedre for den spilleren.\n\nI matrisen står radspillerens utbetaling **først** i hvert par. Å lese dem i feil rekkefølge er en av de vanligste tabbene, og den forplanter seg til hele analysen.\n\nUtbetalingene antas kjent for begge spillere. Denne antakelsen — at spillet er felles kunnskap — er det som gjør det meningsfullt å spørre hva den andre kommer til å gjøre."
+    },
+    {
+      "id": "econ2220-7-1-def-beste-svar",
+      "type": "definition",
+      "title": "Beste svar",
+      "content": "En strategi er et **beste svar** til motspillerens valg hvis den gir spilleren høyest mulig utbetaling gitt nettopp det valget.\n\nI matrisen finner du dem mekanisk:\n\n- **For radspilleren:** gå gjennom hver kolonne for seg, og marker den største verdien blant radspillerens tall i den kolonnen.\n- **For kolonnespilleren:** gå gjennom hver rad for seg, og marker den største verdien blant kolonnespillerens tall i den raden.\n\nMerk at «beste svar» alltid er relativt til én bestemt antakelse om den andre. Det er ikke et beste valg i seg selv."
+    },
+    {
+      "id": "econ2220-7-1-def-nash",
+      "type": "definition",
+      "title": "Nash-likevekt",
+      "content": "En **Nash-likevekt** er en kombinasjon av strategier der **hver spiller spiller et beste svar på det de andre gjør**.\n\nDen intuitive formuleringen er verdt å pugge ordrett, fordi den er sensors kontrollspørsmål: **ingen angrer, gitt de andres valg**. Får du vite hva de andre gjorde, ville du ikke ønsket å endre ditt eget valg.\n\nI matrisen er en Nash-likevekt en celle der **begge** tall er markert som beste svar.\n\nLegg merke til hva definisjonen *ikke* sier. Den sier ingenting om at utfallet er godt for spillerne samlet, ingenting om rettferdighet, og ingenting om at likevekten er den eneste. Et spill kan ha én, flere eller ingen Nash-likevekter i rene strategier."
+    },
+    {
+      "id": "econ2220-7-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: reketrålerne — Nash-likevekt funnet ved beste svar",
+      "problem": "To reketrålere, A og B, velger samtidig mellom å fiske **mye** eller **moderat**. Utbetalingene er årsprofitt i hundre tusen kroner, med A først:\n\n| A (rad) / B (kolonne) | mye | moderat |\n|---|---|---|\n| **mye** | $(2, 2)$ | $(6, 1)$ |\n| **moderat** | $(1, 6)$ | $(4, 4)$ |\n\nFinn alle Nash-likevekter ved beste-svar-analyse, og kommenter utfallet.",
+      "solution": "**Steg 1 — radspillerens beste svar (A).** Gå kolonnevis og se bare på det **første** tallet i hvert par.\n\n- Kolonnen «B: mye»: A får 2 av *mye* og 1 av *moderat*. Beste svar: **mye**.\n- Kolonnen «B: moderat»: A får 6 av *mye* og 4 av *moderat*. Beste svar: **mye**.\n\nA har altså samme beste svar uansett — *mye* er et beste svar mot alt.\n\n**Steg 2 — kolonnespillerens beste svar (B).** Gå radvis og se bare på det **andre** tallet.\n\n- Raden «A: mye»: B får 2 av *mye* og 1 av *moderat*. Beste svar: **mye**.\n- Raden «A: moderat»: B får 6 av *mye* og 4 av *moderat*. Beste svar: **mye**.\n\n**Steg 3 — der markeringene møtes.** Den eneste cellen der begge spiller beste svar, er $(\\text{mye}, \\text{mye})$ med utbetalingene $(2, 2)$.\n\n$$\\text{Nash-likevekt: } (\\text{mye},\\, \\text{mye}), \\quad \\text{utbetalinger } (2, 2).$$\n\n**Kontroll mot definisjonen.** Angrer noen? A får 2. Hadde A gått over til *moderat* mens B fisker mye, ville A fått 1 — dårligere. Samme for B. Ingen angrer, gitt den andres valg ✓.\n\n**Kommentaren som gir uttelling.** Legg merke til at $(\\text{moderat}, \\text{moderat})$ gir $(4, 4)$ — **begge** tjener mer der enn i likevekten. Utfallet $(2,2)$ er altså Pareto-dominert: det finnes et annet utfall som er bedre for alle.\n\nDet er ingen selvmotsigelse. Nash-likevekt handler om hva ingen vil avvike fra **på egen hånd**, ikke om hva som er best samlet. Fra $(4,4)$ ville hver trålers ensidige avvik til *mye* gitt 6 i stedet for 4 — så det gode utfallet er ikke stabilt uten en avtale som binder.\n\nDette mønsteret heter **fangens dilemma**, og feltet trålerne fisker på, er et skolebokeksempel: den enkeltes gevinst av å fiske hardt bæres av begge."
+    },
+    {
+      "id": "econ2220-7-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger N-fundament — innsteg, ren gjengivelse.) Definer Nash-likevekt så presist du kan, og forklar hvorfor formuleringen «Nash-likevekten er det som er best for alle» er feil.",
+        "solution": "En Nash-likevekt er en kombinasjon av strategier der hver spiller spiller et **beste svar** på det de andre gjør. Sagt annerledes: **ingen angrer, gitt de andres valg** — får du vite hva motspilleren valgte, ville du ikke ønsket å endre ditt eget valg.\n\nFormuleringen «best for alle» er feil fordi definisjonen bare handler om **ensidige** avvik: at ingen kan forbedre seg ved å endre *sin egen* strategi alene, med de andres valg holdt fast. Den sier ingenting om hva som er best samlet.\n\nReketrålerspillet viser forskjellen tydelig: likevekten gir $(2,2)$, mens $(4,4)$ er bedre for **begge**. Det gode utfallet er likevel ingen likevekt, fordi hver spiller ville tjent på å bryte ut av det på egen hånd.",
+        "hints": [
+          "Formuleringen sensor ser etter, inneholder ordene «gitt de andres valg».",
+          "Tenk på hva som kan endres i definisjonen — én spillers valg, eller alles samtidig?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N — beste-svar-analyse i 2×2.) To bakerier i samme gate velger samtidig om de skal holde **søndagsåpent** eller **søndagsstengt**. Utbetalingene er ukeprofitt i tusen kroner, bakeri A først:\n\n| A (rad) / B (kolonne) | åpent | stengt |\n|---|---|---|\n| **åpent** | $(9, 9)$ | $(14, 6)$ |\n| **stengt** | $(6, 14)$ | $(11, 11)$ |\n\n**a)** Finn alle Nash-likevekter ved beste-svar-analyse. Vis markeringene.\n\n**b)** Er likevekten Pareto-dominert av et annet utfall? Forklar hvorfor det utfallet likevel ikke er en likevekt.",
+        "solution": "**a)** **A sine beste svar (kolonnevis, første tall):**\n\n- Mot «B: åpent»: 9 av *åpent* mot 6 av *stengt* → **åpent**.\n- Mot «B: stengt»: 14 av *åpent* mot 11 av *stengt* → **åpent**.\n\n**B sine beste svar (radvis, andre tall):**\n\n- I raden «A: åpent»: 9 av *åpent* mot 6 av *stengt* → **åpent**.\n- I raden «A: stengt»: 14 av *åpent* mot 11 av *stengt* → **åpent**.\n\nMarkeringene møtes bare i $(\\text{åpent}, \\text{åpent})$, med utbetalinger $(9, 9)$. Det er den eneste Nash-likevekten.\n\n**b)** Ja. Utfallet $(\\text{stengt}, \\text{stengt})$ gir $(11, 11)$, altså mer til **begge**. Likevekten er dermed Pareto-dominert.\n\nMen $(\\text{stengt}, \\text{stengt})$ er ingen likevekt: sto begge stengt, ville A tjent 14 i stedet for 11 ved å åpne alene. Det samme gjelder B. Ensidige avvik er lønnsomme, og derfor faller utfallet sammen med en gang begge tenker på seg selv. Dette er samme struktur som reketrålerspillet — et fangens dilemma i ny drakt.",
+        "hints": [
+          "Se bare på det første tallet i hvert par når du finner A sine beste svar, og bare på det andre for B.",
+          "Sammenlikn likevektsutbetalingene med de andre cellene for å svare på b).",
+          "Spør om noen tjener på å avvike alene fra det gode utfallet."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-1-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Større matriser og flere likevekter (~11 min)"
+    },
+    {
+      "id": "econ2220-7-1-storre-matriser",
+      "type": "text",
+      "content": "Metoden er den samme når matrisen vokser — men to ting forandrer seg, og de er nettopp det eksamen har testet.\n\nDet første er at **flere** Nash-likevekter kan finnes samtidig. En kandidat som stopper etter den første, mister poeng. Gå derfor **alltid** gjennom hele matrisen systematisk, kolonne for kolonne og rad for rad, og finn alle cellene der begge markeringer møtes.\n\nDet andre er at det kan finnes strategier ingen ville valgt uansett. Dem tar vi i løkke 3.\n\n**Arbeidsmåten som holder orden:** skriv opp matrisen, sett en strek eller stjerne ved radspillerens beste tall i hver kolonne, og en annen markering ved kolonnespillerens beste tall i hver rad. Der begge markeringene sitter i samme celle, har du en likevekt. Ikke gjett — gå gjennom alle."
+    },
+    {
+      "id": "econ2220-7-1-def-koordinasjonsspill",
+      "type": "definition",
+      "title": "Koordinasjonsspill",
+      "content": "Et **koordinasjonsspill** er et spill der spillerne tjener på å gjøre det samme, men der det finnes flere måter å gjøre det samme på.\n\nTypisk struktur: to Nash-likevekter, én der begge velger A og én der begge velger B, og ingen av dem er stabilt bedre for begge — eller den ene er bedre, men den andre er likevel en likevekt.\n\nEksempler er valg av teknisk standard, hvilken side av veien man kjører på, og hvilke rutetider to transportselskaper legger seg på. Kjennemerket er at **koordineringen** i seg selv er verdifull, uavhengig av hvilket alternativ man samler seg om.\n\nPoenget i sjangeren: at det finnes flere likevekter betyr at teorien ikke alltid gir én prediksjon — og det er et helt legitimt svar på eksamen, så lenge du sier det."
+    },
+    {
+      "id": "econ2220-7-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: to likevekter i et 3×3-spill",
+      "problem": "To selskaper skal velge kontakttype for hurtiglading og gjør det samtidig. Selskap R (rad) velger mellom **T**, **C** og **B**; selskap K (kolonne) mellom **L**, **M** og **R**. Utbetalingene er anslått nåverdi i millioner, R først:\n\n| R (rad) / K (kolonne) | L | M | R |\n|---|---|---|---|\n| **T** | $(5, 5)$ | $(2, 2)$ | $(0, 1)$ |\n| **C** | $(2, 2)$ | $(4, 4)$ | $(1, 0)$ |\n| **B** | $(1, 0)$ | $(1, 1)$ | $(-1, 3)$ |\n\nFinn alle Nash-likevekter.",
+      "solution": "**Radspilleren R sine beste svar** (kolonnevis, første tall i hvert par):\n\n- Kolonne **L**: tallene er 5, 2, 1 → beste svar **T**.\n- Kolonne **M**: tallene er 2, 4, 1 → beste svar **C**.\n- Kolonne **R**: tallene er 0, 1, $-1$ → beste svar **C**.\n\n**Kolonnespilleren K sine beste svar** (radvis, andre tall i hvert par):\n\n- Rad **T**: tallene er 5, 2, 1 → beste svar **L**.\n- Rad **C**: tallene er 2, 4, 0 → beste svar **M**.\n- Rad **B**: tallene er 0, 1, 3 → beste svar **R**.\n\n**Der markeringene møtes:**\n\n- $(T, L)$: R sitt beste svar mot $L$ er $T$ ✓, og K sitt beste svar mot $T$ er $L$ ✓. **Nash-likevekt**, utbetalinger $(5,5)$.\n- $(C, M)$: R sitt beste svar mot $M$ er $C$ ✓, og K sitt beste svar mot $C$ er $M$ ✓. **Nash-likevekt**, utbetalinger $(4,4)$.\n- $(C, R)$: R spiller beste svar ✓, men K sitt beste svar mot $C$ er $M$, ikke $R$ ✗. Ikke likevekt.\n- $(B, R)$: K spiller beste svar ✓, men R sitt beste svar mot $R$ er $C$, ikke $B$ ✗. Ikke likevekt.\n\n$$\\text{To Nash-likevekter: } (T, L) \\text{ med } (5,5) \\text{ og } (C, M) \\text{ med } (4,4).$$\n\n**Kommentar.** Dette er et koordinasjonsspill: begge selskaper vil velge samme standard, men de har to å velge mellom. Den ene likevekten er bedre for begge — $(5,5)$ mot $(4,4)$ — men $(C, M)$ er likevel en fullgod Nash-likevekt: står vi der, taper hver den som bytter alene. Teorien peker altså ikke ut ett svar her, og det skal du si rett ut i en besvarelse.\n\n**Den dyre feilen å unngå:** å finne $(T, L)$, se at det er det beste utfallet, og stoppe. Gå alltid gjennom hele matrisen."
+    },
+    {
+      "id": "econ2220-7-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N — finn ALLE likevekter.) To bussoperatører velger samtidig avgangsprofil på en strekning. Operatør R velger mellom **morgen**, **midt** og **kveld**; operatør K velger mellom **morgen**, **midt** og **kveld**. Utbetalingene er månedsresultat i tusen kroner, R først:\n\n| R (rad) / K (kolonne) | morgen | midt | kveld |\n|---|---|---|---|\n| **morgen** | $(3, 3)$ | $(7, 4)$ | $(6, 2)$ |\n| **midt** | $(4, 7)$ | $(2, 2)$ | $(5, 5)$ |\n| **kveld** | $(2, 6)$ | $(5, 5)$ | $(1, 1)$ |\n\nFinn alle Nash-likevekter ved beste-svar-analyse. Vis arbeidet kolonne for kolonne og rad for rad.",
+        "solution": "**R sine beste svar (kolonnevis, første tall):**\n\n- Kolonne **morgen**: 3, 4, 2 → beste svar **midt**.\n- Kolonne **midt**: 7, 2, 5 → beste svar **morgen**.\n- Kolonne **kveld**: 6, 5, 1 → beste svar **morgen**.\n\n**K sine beste svar (radvis, andre tall):**\n\n- Rad **morgen**: 3, 4, 2 → beste svar **midt**.\n- Rad **midt**: 7, 2, 5 → beste svar **morgen**.\n- Rad **kveld**: 6, 5, 1 → beste svar **morgen**.\n\n**Sjekk hver kandidatcelle der begge kan møtes:**\n\n- $(\\text{morgen}, \\text{midt})$: R sitt beste svar mot *midt* er *morgen* ✓; K sitt beste svar mot *morgen* er *midt* ✓. **Nash-likevekt**, utbetalinger $(7, 4)$.\n- $(\\text{midt}, \\text{morgen})$: R sitt beste svar mot *morgen* er *midt* ✓; K sitt beste svar mot *midt* er *morgen* ✓. **Nash-likevekt**, utbetalinger $(4, 7)$.\n- $(\\text{morgen}, \\text{kveld})$: R spiller beste svar ✓, men K sitt beste svar mot *morgen* er *midt* ✗.\n- $(\\text{kveld}, \\text{midt})$: K spiller ikke beste svar mot *kveld* (*morgen* gir 6 mot 5) ✗.\n\n$$\\text{To Nash-likevekter: } (\\text{morgen}, \\text{midt}) \\text{ og } (\\text{midt}, \\text{morgen}).$$\n\n**Kommentar.** Spillet har en anti-koordinasjonsstruktur: hver operatør vil ha den profilen den andre *ikke* tar, og i begge likevekter får den ene 7 og den andre 4. Teorien peker ikke ut hvem som får hvilken rolle — det er en av de tingene modellen ikke svarer på, og det er riktig å skrive.",
+        "hints": [
+          "Se bare på det første tallet i hvert par når du finner R sine beste svar.",
+          "Gå gjennom ALLE kolonner og ALLE rader før du konkluderer — det kan være mer enn én likevekt.",
+          "En celle er likevekt bare hvis begge markeringene sitter i den."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-1-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Dominans, iterert eliminering og rasjonaliserbarhet (~12 min)"
+    },
+    {
+      "id": "econ2220-7-1-dominans-tekst",
+      "type": "text",
+      "content": "Noen ganger finnes det strategier en spiller aldri ville velge, uansett hva den andre gjør. Å luke dem ut først gjør analysen enklere — og eksamen har testet nettopp dette håndverket, med et vesentlig krav: **elimineringen må gjøres i runder, og rekkefølgen kan ha noe å si.**\n\nIdeen er enkel. Er strategi $s$ dårligere enn strategi $s'$ **i alle kolonner**, kommer en rasjonell spiller aldri til å bruke $s$. Da kan vi stryke den. Men da har vi også endret spillet: motspilleren vet at $s$ er strøket, og i det reduserte spillet kan *hun* ha en strategi som nå er blitt dårligere enn en annen — selv om den ikke var det før.\n\nDerfor gjentar vi prosessen til ingenting mer kan strykes. Det som står igjen, kalles de **rasjonaliserbare** strategiene."
+    },
+    {
+      "id": "econ2220-7-1-def-strengt-dominert",
+      "type": "definition",
+      "title": "Strengt dominert strategi",
+      "content": "En strategi $s$ er **strengt dominert** av en annen strategi $s'$ hvis $s'$ gir spilleren **strengt høyere** utbetaling enn $s$ mot **hvert enkelt** av motspillerens valg.\n\nNøkkelordene er «strengt» og «hvert enkelt». Er $s'$ bedre i noen kolonner og dårligere i andre, er $s$ ikke dominert. Er de like i én kolonne og $s'$ bedre i resten, er dominansen bare **svak** — og svakt dominerte strategier skal ikke elimineres i denne prosedyren, siden de kan inngå i en Nash-likevekt.\n\nEn rasjonell spiller bruker aldri en strengt dominert strategi, og det kan hun konkludere uten å vite noe som helst om hva motspilleren gjør."
+    },
+    {
+      "id": "econ2220-7-1-def-svakt-dominert",
+      "type": "definition",
+      "title": "Svakt dominert strategi",
+      "content": "En strategi er **svakt dominert** hvis en annen strategi er minst like god mot alt, og strengt bedre mot minst én ting.\n\nForskjellen fra streng dominans er at det finnes minst én kolonne der de to gir **likt**. Da kan spilleren ikke utelukkes fra å bruke den svakt dominerte strategien — hun taper ingenting ved det, gitt akkurat den kolonnen.\n\n**Praktisk regel for eksamen:** i iterert eliminering stryker du bare **strengt** dominerte strategier. Stryker du svakt dominerte, kan du komme til å slette en ekte Nash-likevekt, og det er en reell feil."
+    },
+    {
+      "id": "econ2220-7-1-def-iterert-eliminering",
+      "type": "definition",
+      "title": "Iterert eliminering av strengt dominerte strategier",
+      "content": "**Iterert eliminering** er å stryke strengt dominerte strategier i runder:\n\n1. Finn og stryk alle strengt dominerte strategier for begge spillere.\n2. Se på det reduserte spillet som er igjen, og gjenta.\n3. Stopp når ingen strategi er strengt dominert.\n\nDet viktige poenget: en strategi som **ikke** var dominert i det opprinnelige spillet, kan bli dominert etter at motspillerens dårlige strategier er strøket. Derfor holder det ikke med én runde — og eksamen har testet nettopp at kandidaten fortsetter til det stopper.\n\nSkriv alltid ned **rekkefølgen** og begrunn hver stryking. Det er der uttellingen ligger."
+    },
+    {
+      "id": "econ2220-7-1-def-rasjonaliserbar",
+      "type": "definition",
+      "title": "Rasjonaliserbar strategi",
+      "content": "En strategi er **rasjonaliserbar** hvis den overlever den itererte elimineringen av strengt dominerte strategier.\n\nTolkningen: strategien kan forsvares som et beste svar mot en fornuftig antakelse om hva motspilleren gjør, der «fornuftig» i sin tur betyr at motspillerens antatte strategi selv er forsvarlig, og så videre.\n\nSammenhengen med Nash-likevekt er verdt å ha klart: **hver strategi som inngår i en Nash-likevekt, er rasjonaliserbar** — men det finnes rasjonaliserbare strategier som ikke inngår i noen Nash-likevekt. Rasjonaliserbarhet er altså et svakere krav, og gir typisk en større mengde strategier."
+    },
+    {
+      "id": "econ2220-7-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: iterert eliminering der rekkefølgen betyr noe",
+      "problem": "Bruk hurtiglade-spillet fra Eksempel 2:\n\n| R (rad) / K (kolonne) | L | M | R |\n|---|---|---|---|\n| **T** | $(5, 5)$ | $(2, 2)$ | $(0, 1)$ |\n| **C** | $(2, 2)$ | $(4, 4)$ | $(1, 0)$ |\n| **B** | $(1, 0)$ | $(1, 1)$ | $(-1, 3)$ |\n\nUtfør iterert eliminering av strengt dominerte strategier, og angi hvilke strategier som er rasjonaliserbare.",
+      "solution": "**Runde 1 — radspilleren.** Sammenlikn radene på R sine tall.\n\n- **B** gir $(1, 1, -1)$. **C** gir $(2, 4, 1)$. C er strengt bedre i alle tre kolonner ($2>1$, $4>1$, $1>-1$), så **B er strengt dominert av C** og strykes.\n- (B er også strengt dominert av **T**: $5 > 1$, $2 > 1$ og $0 > -1$. Det holder å peke på én dominerende strategi, men det skader ikke å nevne begge.)\n\n**Runde 1 — kolonnespilleren.** Sammenlikn kolonnene på K sine tall i det **opprinnelige** spillet:\n\n- **R** gir $(1, 0, 3)$. **M** gir $(2, 4, 1)$. Her er M bedre i de to første radene, men **dårligere i rad B** ($1 < 3$). Så R er **ikke** dominert ennå.\n- **L** gir $(5, 2, 0)$, og heller ikke den dominerer eller domineres.\n\nIngen kolonne kan strykes i runde 1.\n\n**Runde 2 — etter at B er strøket.** Det reduserte spillet er:\n\n| R (rad) / K (kolonne) | L | M | R |\n|---|---|---|---|\n| **T** | $(5, 5)$ | $(2, 2)$ | $(0, 1)$ |\n| **C** | $(2, 2)$ | $(4, 4)$ | $(1, 0)$ |\n\nNå gir **M** K-tallene $(2, 4)$ og **R** gir $(1, 0)$. M er strengt bedre i begge rader ($2>1$, $4>0$), så **R er strengt dominert av M** og strykes.\n\nDette er poenget i eksemplet: kolonnen $R$ var **ikke** dominert før $B$ ble fjernet. Det var bare fordi $R$ ga hele 3 mot $B$ at den holdt seg. Én runde er ikke nok.\n\n**Runde 3.** Det som står igjen:\n\n| R (rad) / K (kolonne) | L | M |\n|---|---|---|\n| **T** | $(5, 5)$ | $(2, 2)$ |\n| **C** | $(2, 2)$ | $(4, 4)$ |\n\nFor R: $T = (5, 2)$ og $C = (2, 4)$ — ingen dominerer den andre. For K: $L = (5, 2)$ og $M = (2, 4)$ — heller ikke. Prosessen stopper.\n\n**Konklusjon.** De rasjonaliserbare strategiene er\n\n$$\\{T, C\\} \\text{ for radspilleren og } \\{L, M\\} \\text{ for kolonnespilleren.}$$\n\nKontroll mot Eksempel 2: de to Nash-likevektene $(T, L)$ og $(C, M)$ bruker bare rasjonaliserbare strategier ✓, som teorien krever."
+    },
+    {
+      "id": "econ2220-7-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N — dominans i én runde.) I et spill har radspilleren strategiene $H$, $M$ og $S$, og kolonnespilleren $K_1$ og $K_2$. Radspillerens utbetalinger er:\n\n| | $K_1$ | $K_2$ |\n|---|---|---|\n| $H$ | 6 | 3 |\n| $M$ | 4 | 5 |\n| $S$ | 3 | 2 |\n\n**a)** Er noen av radspillerens strategier strengt dominert? Begrunn ved å sammenlikne kolonne for kolonne.\n\n**b)** Hvorfor kan vi konkludere om dette uten å kjenne kolonnespillerens utbetalinger i det hele tatt?",
+        "solution": "**a)** Vi må sammenlikne hvert par av rader i **begge** kolonner.\n\n- $H$ mot $M$: $6 > 4$ i $K_1$, men $3 < 5$ i $K_2$. Ingen dominans.\n- $H$ mot $S$: $6 > 3$ i $K_1$ og $3 > 2$ i $K_2$. **$S$ er strengt dominert av $H$.**\n- $M$ mot $S$: $4 > 3$ og $5 > 2$. $S$ er strengt dominert av $M$ også.\n\nAltså: **$S$ er strengt dominert** (av både $H$ og $M$) og strykes. $H$ og $M$ er ikke dominert av noe.\n\n**b)** Fordi streng dominans bare handler om **radspillerens egne** utbetalinger. Påstanden er at $H$ gir mer enn $S$ uansett hva kolonnespilleren gjør — og det kan vi lese direkte av radspillerens tallrekker.\n\nKolonnespillerens utbetalinger avgjør hva *hun* kommer til å gjøre, men de kan ikke gjøre $S$ lønnsom for radspilleren i noen kolonne. Det er nettopp det som gjør dominansargumentet så kraftig: det krever ingen antakelse om motspillerens oppførsel.",
+        "hints": [
+          "Sammenlikn radene parvis, og krev at den ene er større i BEGGE kolonner.",
+          "Husk at «strengt» betyr strengt større, ikke større eller lik.",
+          "I b): tenk på hvilke tall som inngår i selve dominanspåstanden."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — full iterert eliminering med rekkefølge.) To leverandører byr på en rammeavtale. Rad-leverandøren velger mellom $A$, $B$ og $C$; kolonne-leverandøren mellom $X$, $Y$ og $Z$. Utbetalinger (rad først):\n\n| | $X$ | $Y$ | $Z$ |\n|---|---|---|---|\n| $A$ | $(6, 4)$ | $(3, 6)$ | $(1, 2)$ |\n| $B$ | $(5, 3)$ | $(4, 5)$ | $(2, 1)$ |\n| $C$ | $(2, 2)$ | $(1, 1)$ | $(0, 5)$ |\n\n**a)** Utfør iterert eliminering av strengt dominerte strategier. Angi rekkefølgen eksplisitt og begrunn hver stryking.\n\n**b)** Hvilke strategier er rasjonaliserbare?\n\n**c)** Finn alle Nash-likevekter i det opprinnelige spillet, og kontroller at de bare bruker rasjonaliserbare strategier.",
+        "solution": "**a) Runde 1 — radspilleren.** Sammenlikn radene på det første tallet i hvert par.\n\n- $A = (6, 3, 1)$ mot $B = (5, 4, 2)$: $A$ er bedre i $X$, dårligere i $Y$ og $Z$. Ingen dominans.\n- $B = (5, 4, 2)$ mot $C = (2, 1, 0)$: $5 > 2$, $4 > 1$, $2 > 0$ → **$C$ er strengt dominert av $B$** og strykes.\n- ($A$ dominerer også $C$: $6>2$, $3>1$, $1>0$. Én dominerende strategi er nok.)\n\n**Runde 1 — kolonnespilleren.** Sammenlikn kolonnene på det andre tallet, i det opprinnelige spillet:\n\n- $Z = (2, 1, 5)$ mot $Y = (6, 5, 1)$: $Y$ er bedre i radene $A$ og $B$, men **dårligere i rad $C$** ($1 < 5$). Ingen dominans ennå.\n- $X = (4, 3, 2)$ mot $Y = (6, 5, 1)$: $Y$ bedre i $A$ og $B$, dårligere i $C$. Ingen dominans.\n\nIngen kolonne strykes i runde 1.\n\n**Runde 2 — etter at $C$ er strøket.** Det reduserte spillet:\n\n| | $X$ | $Y$ | $Z$ |\n|---|---|---|---|\n| $A$ | $(6, 4)$ | $(3, 6)$ | $(1, 2)$ |\n| $B$ | $(5, 3)$ | $(4, 5)$ | $(2, 1)$ |\n\nNå er $Z = (2, 1)$ og $Y = (6, 5)$: $6 > 2$ og $5 > 1$, så **$Z$ er strengt dominert av $Y$** og strykes. Legg merke til at dette bare ble mulig fordi rad $C$ — der $Z$ ga hele 5 — er borte.\n\nEr $X$ nå dominert? $X = (4, 3)$ mot $Y = (6, 5)$: $6 > 4$ og $5 > 3$ → **ja, $X$ er strengt dominert av $Y$** og strykes også.\n\n**Runde 3 — etter at $X$ og $Z$ er strøket.** Bare kolonne $Y$ står igjen:\n\n| | $Y$ |\n|---|---|\n| $A$ | $(3, 6)$ |\n| $B$ | $(4, 5)$ |\n\nNå er $A = (3)$ og $B = (4)$ for radspilleren: $4 > 3$, så **$A$ er strengt dominert av $B$** i det reduserte spillet, og strykes.\n\n**Runde 4.** Bare $(B, Y)$ står igjen, og prosessen stopper.\n\n**Rekkefølgen oppsummert:** $C$ → $Z$ og $X$ → $A$.\n\n**b)** Rasjonaliserbare strategier: **$B$** for radspilleren og **$Y$** for kolonnespilleren. Spillet er løsbart ved dominans alene, og elimineringen peker ut ett eneste strategipar.\n\n**c) Nash-likevekter i det opprinnelige spillet.**\n\nRadspillerens beste svar: mot $X$ er 6, 5, 2 → $A$. Mot $Y$ er 3, 4, 1 → $B$. Mot $Z$ er 1, 2, 0 → $B$.\n\nKolonnespillerens beste svar: i rad $A$ er 4, 6, 2 → $Y$. I rad $B$ er 3, 5, 1 → $Y$. I rad $C$ er 2, 1, 5 → $Z$.\n\nCellene der begge er beste svar: $(B, Y)$ — radspilleren svarer $B$ på $Y$ ✓ og kolonnespilleren svarer $Y$ på $B$ ✓. Sjekk de andre kandidatene: $(A, Y)$ — kolonnespilleren er fornøyd, men radspillerens beste svar på $Y$ er $B$ ✗. $(C, Z)$ — kolonnespilleren er fornøyd, men radspillerens beste svar på $Z$ er $B$ ✗.\n\n$$\\text{Én Nash-likevekt: } (B, Y) \\text{ med utbetalinger } (4, 5).$$\n\n**Kontroll:** likevekten bruker nøyaktig de to strategiene som overlevde elimineringen ✓. Det er som forventet — når iterert eliminering ender i ett strategipar, er det paret den eneste Nash-likevekten.",
+        "hints": [
+          "Start med å sammenlikne radene på radspillerens tall alene; se etter én rad som er dårligere i ALLE kolonner.",
+          "Etter hver stryking må du sette opp det reduserte spillet på nytt før du leter videre.",
+          "Legg merke til hvilken rad som gjør at en kolonne «holder seg» i runde 1 — den er nøkkelen til rekkefølgen."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-1-lokke4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Blandede strategier og blandet dominans (~9 min)"
+    },
+    {
+      "id": "econ2220-7-1-blandet-tekst",
+      "type": "text",
+      "content": "Til slutt et poeng som ble eksplisitt testet i V2022, og som mange overser: **en ren strategi kan være dominert av en blanding av andre, selv om ingen enkelt ren strategi dominerer den.**\n\nEn **blandet strategi** er en sannsynlighetsfordeling over de rene: «velg $H$ med sannsynlighet $\\tfrac12$ og $L$ med sannsynlighet $\\tfrac12$». Utbetalingen av en blanding er det vanlige **gjennomsnittet** (den forventede verdien) av utbetalingene til de rene strategiene, vektet med sannsynlighetene.\n\nOg da åpner det seg en ny mulighet. En strategi som ligger «trygt i midten» — middels bra mot alt — kan bli slått av en miks som er svært god halvparten av tiden og svært dårlig den andre halvparten, fordi gjennomsnittet av de to ytterpunktene kan være høyere enn midten.\n\nDet er denne muligheten du må huske å sjekke når en oppgave ber deg eliminere alt som kan elimineres."
+    },
+    {
+      "id": "econ2220-7-1-def-blandet-strategi",
+      "type": "definition",
+      "title": "Blandet strategi",
+      "content": "En **blandet strategi** er en sannsynlighetsfordeling over spillerens rene strategier: hun trekker lodd i stedet for å velge fast.\n\nSkriver vi $\\sigma = (p_1, p_2, \\ldots)$ for sannsynlighetene, er den forventede utbetalingen mot en gitt motstrategi\n\n$$\\sum_i p_i \\cdot (\\text{utbetalingen av ren strategi } i).$$\n\nMed to strategier og lik sannsynlighet er dette bare gjennomsnittet av de to tallene.\n\nEn ren strategi er et spesialtilfelle: all sannsynlighet på ett valg."
+    },
+    {
+      "id": "econ2220-7-1-def-blandet-dominans",
+      "type": "definition",
+      "title": "Dominans via blandet strategi",
+      "content": "En ren strategi $s$ er **dominert av en blandet strategi** hvis det finnes en sannsynlighetsfordeling over spillerens andre strategier som gir **høyere forventet utbetaling enn $s$ mot hvert av motspillerens valg**.\n\nDette kan skje selv når **ingen** enkelt ren strategi dominerer $s$. Standardmønsteret: $s$ er middels bra mot alt, mens to andre strategier er svært gode i hver sin kolonne. Halvparten av hver kan da slå $s$ overalt.\n\nEn strategi som er dominert av en blanding, skal elimineres på samme måte som en som er dominert av en ren strategi — den kan aldri inngå i en Nash-likevekt.\n\nDette var et dokumentert eksamenskrav i V2022, og det er den vanligste tingen kandidater glemmer i elimineringsoppgaver."
+    },
+    {
+      "id": "econ2220-7-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: midten slått av en miks",
+      "problem": "En underleverandør (rad) velger om den skal spesialisere seg mot **produkt H**, mot **produkt L**, eller kjøre en **mellomløsning** som dekker litt av begge. Verftet (kolonne) velger samtidig hvilken av de to produktlinjene det satser på, $V_H$ eller $V_L$. Utbetalinger i millioner, leverandøren først:\n\n| | $V_H$ | $V_L$ |\n|---|---|---|\n| **H** | $(8, 7)$ | $(0, 2)$ |\n| **L** | $(0, 1)$ | $(8, 6)$ |\n| **Mellom** | $(3, 4)$ | $(3, 4)$ |\n\n**a)** Vis at ingen ren strategi dominerer *Mellom*.\n\n**b)** Vis at *Mellom* likevel er strengt dominert av en blandet strategi.\n\n**c)** Finn Nash-likevektene i spillet som står igjen.",
+      "solution": "**a) Ingen ren dominans.**\n\n- **H** mot **Mellom**: $8 > 3$ i kolonnen $V_H$, men $0 < 3$ i kolonnen $V_L$. Ikke dominans.\n- **L** mot **Mellom**: $0 < 3$ i $V_H$, men $8 > 3$ i $V_L$. Ikke dominans.\n\nHver av ytterpunktene er altså bedre i sin egen kolonne og mye dårligere i den andre. *Mellom* er tryggest — og derfor ikke dominert av noen enkelt ren strategi.\n\n**b) Dominans via blanding.**\n\nPrøv den blandede strategien «H med sannsynlighet $\\tfrac12$, L med sannsynlighet $\\tfrac12$». Forventet utbetaling:\n\n- Mot $V_H$: $\\tfrac12 \\cdot 8 + \\tfrac12 \\cdot 0 = 4$.\n- Mot $V_L$: $\\tfrac12 \\cdot 0 + \\tfrac12 \\cdot 8 = 4$.\n\n*Mellom* gir 3 mot begge. Siden $4 > 3$ i **begge** kolonner, er **Mellom strengt dominert av blandingen** og skal elimineres.\n\n(Miksen behøver ikke være 50–50. Enhver blanding med sannsynlighet $p$ på H gir $8p$ mot $V_H$ og $8(1-p)$ mot $V_L$, og begge overstiger 3 så lenge $3/8 < p < 5/8$. Det holder å finne én.)\n\n**c) Spillet som står igjen.**\n\n| | $V_H$ | $V_L$ |\n|---|---|---|\n| **H** | $(8, 7)$ | $(0, 2)$ |\n| **L** | $(0, 1)$ | $(8, 6)$ |\n\nLeverandørens beste svar: mot $V_H$ er 8 mot 0 → **H**. Mot $V_L$ er 0 mot 8 → **L**.\n\nVerftets beste svar: i rad **H** er 7 mot 2 → $V_H$. I rad **L** er 1 mot 6 → $V_L$.\n\nBegge markeringer møtes i $(\\text{H}, V_H)$ med $(8, 7)$ og i $(\\text{L}, V_L)$ med $(8, 6)$.\n\n$$\\text{To Nash-likevekter: } (\\text{H}, V_H) \\text{ og } (\\text{L}, V_L).$$\n\n**Tolkning.** Spillet er et koordinasjonsspill: leverandøren og verftet må satse på samme produktlinje, og begge måter å koordinere seg på er stabile. Mellomløsningen — som virket som den fornuftige risikospredningen — er den ene strategien som *aldri* kan være riktig, fordi det å satse med et loddtrekk slår det å nøle med sikkerhet."
+    },
+    {
+      "id": "econ2220-7-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — blandet dominans, dokumentert V2022-krav.) En entreprenør (rad) velger mellom å satse på **tre**, **stål** eller en **kombinasjon**. Byggherren (kolonne) velger samtidig regelverk $R_1$ eller $R_2$. Entreprenørens utbetalinger er:\n\n| | $R_1$ | $R_2$ |\n|---|---|---|\n| **tre** | 12 | 0 |\n| **stål** | 0 | 12 |\n| **kombinasjon** | 5 | 5 |\n\n**a)** Undersøk om *kombinasjon* er dominert av en ren strategi.\n\n**b)** Undersøk om den er dominert av en blandet strategi, og finn hvilke blandinger som gjør det.\n\n**c)** Hva ville svaret vært hvis utbetalingen i *kombinasjon* hadde vært 7 i stedet for 5? Begrunn.",
+        "solution": "**a)** Sammenlikn rad for rad:\n\n- *tre* mot *kombinasjon*: $12 > 5$ i $R_1$, men $0 < 5$ i $R_2$. Ingen dominans.\n- *stål* mot *kombinasjon*: $0 < 5$ i $R_1$, men $12 > 5$ i $R_2$. Ingen dominans.\n\nIngen ren strategi dominerer *kombinasjon*.\n\n**b)** La blandingen legge sannsynlighet $p$ på *tre* og $1-p$ på *stål*. Forventet utbetaling:\n\n- Mot $R_1$: $12p + 0(1-p) = 12p$.\n- Mot $R_2$: $0 \\cdot p + 12(1-p) = 12(1-p)$.\n\nFor at blandingen skal dominere *kombinasjon* strengt, må begge overstige 5:\n\n$$12p > 5 \\quad\\Longrightarrow\\quad p > \\tfrac{5}{12}, \\qquad 12(1-p) > 5 \\quad\\Longrightarrow\\quad p < \\tfrac{7}{12}.$$\n\nAltså: **enhver blanding med $\\tfrac{5}{12} < p < \\tfrac{7}{12}$ dominerer *kombinasjon* strengt.** For eksempel $p = \\tfrac12$, som gir 6 mot begge regelverk — mot 5 for *kombinasjon*.\n\nKonklusjon: *kombinasjon* er strengt dominert av en blandet strategi og skal elimineres, selv om ingen ren strategi dominerer den.\n\n**c) Med 7 i stedet for 5.** Nå kreves $12p > 7$ og $12(1-p) > 7$, altså $p > \\tfrac{7}{12}$ **og** $p < \\tfrac{5}{12}$ samtidig. Det er umulig.\n\nMed utbetaling 7 er *kombinasjon* altså **ikke** dominert — verken av en ren eller av en blandet strategi. Grensen ligger ved 6: er midtverdien under 6, finnes en dominerende blanding; er den 6 eller mer, gjør den det ikke. (Ved nøyaktig 6 gir 50–50-blandingen likt, altså ingen **streng** dominans.)\n\n**Poenget å ta med seg:** hvor «trygg» midtstrategien må være for å overleve, er et regnestykke — ikke en vurdering. Regn ut grensen framfor å anslå den.",
+        "hints": [
+          "I b): skriv opp den forventede utbetalingen av blandingen mot hver kolonne som en funksjon av $p$.",
+          "Krev at begge forventningene er strengt større enn utbetalingen til midtstrategien, og løs de to ulikhetene.",
+          "I c): sett inn den nye verdien i de samme to ulikhetene og se om de kan holde samtidig."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-1-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Boka har et samlet register over de vanligste tabbene, nummerert #1–#13 og presentert i [kap. 0.1](/bok/econ2220/econ2220-0-1). I dette kapitlet er det særlig **feil #12 — spillteori-arven** som gjelder: å bruke mye tid på fire årganger med gamle spilloppgaver på bekostning av produsentteorien, som faktisk testes hvert år. Les dette kapitlet som vedlikehold, ikke som hovedsak.\n\nDe rene fagfeilene:\n\n- **Definere Nash-likevekt upresist.** «Det som er best for alle» er galt, og «ingen kan gjøre det bedre» er upresist. Formuleringen som holder, er: **ingen angrer, gitt de andres valg** — altså at ingen tjener på et *ensidig* avvik.\n- **Blande Nash-likevekt med Pareto-optimalitet.** Fangens dilemma har en likevekt som er dårligere for **begge** enn et annet utfall. Det er ikke en motsigelse; det er poenget.\n- **Stoppe elimineringen for tidlig.** En kolonne som ikke var dominert i runde 1, kan bli dominert etter at en rad er strøket. Fortsett til ingenting mer kan strykes, og skriv ned rekkefølgen.\n- **Overse dominans via blandet strategi.** Dokumentert trekk fra V2022. En midtstrategi som ikke er dominert av noen ren strategi, kan likevel bli slått av en miks. Sjekk det med regning.\n- **Stryke svakt dominerte strategier i elimineringen.** Da kan du slette en ekte Nash-likevekt. Bare **strengt** dominerte strategier elimineres.\n- **Finne bare én likevekt når det er flere.** Gå systematisk gjennom hele matrisen, kolonne for kolonne og rad for rad. Å stoppe ved den likevekten som ser «best» ut, er en klassiker.\n- **Lese tallparet i feil rekkefølge.** Radspillerens utbetaling står **først**. Bytter du om, blir hele beste-svar-analysen feil, og feilen er vanskelig å oppdage i etterkant."
+    },
+    {
+      "id": "econ2220-7-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Dette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet over.* Begrepene er forklart underveis; her står de samlet for pugging."
+    },
+    {
+      "id": "econ2220-7-1-def-simultant-spill",
+      "type": "definition",
+      "title": "Simultant spill",
+      "content": "Et **simultant spill** er et spill der spillerne velger uten å kjenne de andres valg. Det behøver ikke bety at de velger i samme sekund — bare at ingen har informasjon om den andres valg når hun bestemmer seg.\n\nSimultane spill skrives på **normalform** (matrise). Spill der noen ser den andres valg først, skrives i stedet på ekstensiv form som et spilltre, og analyseres i [kap. 7.2](/bok/econ2220/econ2220-7-2).\n\nSkillet er ikke kosmetisk: det avgjør hvilken likevektsdefinisjon som er den riktige."
+    },
+    {
+      "id": "econ2220-7-1-def-felles-kunnskap",
+      "type": "definition",
+      "title": "Felles kunnskap om spillet",
+      "content": "**Felles kunnskap** betyr at begge spillere kjenner spillets strategier og utbetalinger, at begge vet at den andre kjenner dem, at begge vet at den andre vet det, og så videre.\n\nAntakelsen er det som gjør resonnementer av typen «hun vil aldri spille en dominert strategi, altså kan jeg stryke den, altså blir min egen strategi X dominert …» meningsfulle. Uten felles kunnskap kollapser iterert eliminering etter første runde.\n\nDet er også her rasjonaliserbarhet henter sitt innhold: en rasjonaliserbar strategi er en som kan forsvares i en slik kjede av antakelser."
+    },
+    {
+      "id": "econ2220-7-1-def-fangens-dilemma",
+      "type": "definition",
+      "title": "Fangens dilemma",
+      "content": "**Fangens dilemma** er et spill der begge spillere har en strengt dominerende strategi, og der utfallet når begge spiller den, er dårligere for **begge** enn et annet mulig utfall.\n\nStrukturen er alltid den samme: samarbeid gir god gevinst for begge, men å svikte gir høyere gevinst for den som svikter — og derfor svikter begge.\n\nKlassiske økonomiske eksempler er overfiske på et felles felt, priskrig og utslipp som ingen enkelt aktør har grunn til å kutte. Poenget for eksamen er at det viser hvorfor Nash-likevekt og Pareto-effektivitet er to helt ulike begreper."
+    },
+    {
+      "id": "econ2220-7-1-def-pareto-dominans-spill",
+      "type": "definition",
+      "title": "Pareto-dominans mellom utfall i et spill",
+      "content": "Et utfall **Pareto-dominerer** et annet hvis minst én spiller får det bedre og ingen får det verre.\n\nI reketrålerspillet Pareto-dominerer $(4,4)$ likevekten $(2,2)$. At et Pareto-dominert utfall er en Nash-likevekt, er helt mulig — likevektsbegrepet ser bare på ensidige avvik.\n\nMerk at Pareto-dominans mellom **utfall** er noe helt annet enn dominans mellom **strategier**. Det første sammenlikner celler i matrisen for begge spillere samtidig; det andre sammenlikner rader eller kolonner for én spiller. Å blande de to er en klassisk begrepsforvirring."
+    },
+    {
+      "id": "econ2220-7-1-def-antikoordinasjon",
+      "type": "definition",
+      "title": "Anti-koordinasjonsspill",
+      "content": "Et **anti-koordinasjonsspill** er et spill der hver spiller tjener på å gjøre det **motsatte** av den andre.\n\nTypisk resultat: to Nash-likevekter, der rollene er byttet om, og der den ene spilleren gjør det bedre enn den andre i hver av dem. Bussoperatørene i oppgave 3 er et eksempel: begge vil ha den avgangsprofilen den andre ikke tar.\n\nSjangerpoenget: modellen forteller *at* rollene fordeles, men ikke *hvem* som får den gode rollen. Det er en ekte begrensning ved teorien, og det er riktig å skrive at prediksjonen ikke er entydig."
+    },
+    {
+      "id": "econ2220-7-1-def-nash-vs-rasjonaliserbar",
+      "type": "definition",
+      "title": "Nash-likevekt kontra rasjonaliserbarhet",
+      "content": "Sammenhengen mellom de to løsningsbegrepene:\n\n- **Hver strategi som inngår i en Nash-likevekt, er rasjonaliserbar.** Den overlever elimineringen.\n- **Det motsatte gjelder ikke.** Det finnes rasjonaliserbare strategier som ikke inngår i noen Nash-likevekt.\n\nRasjonaliserbarhet er altså et **svakere** krav og gir en **større** mengde strategier. Nash-likevekt krever i tillegg at antakelsene spillerne gjør om hverandre, faktisk stemmer.\n\nPraktisk konsekvens: ender iterert eliminering i ett eneste strategipar, er det paret den eneste Nash-likevekten. Ender den med flere strategier igjen, må du finne likevektene ved beste-svar-analyse i det reduserte spillet."
+    },
+    {
+      "id": "econ2220-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-7-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-7-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hva er forskjellen mellom at en **strategi** er dominert og at et **utfall** er Pareto-dominert?",
+            "solution": "En **strategi** er dominert hvis en annen strategi for **samme spiller** gir henne høyere utbetaling mot alt motspilleren kan gjøre. Sammenlikningen skjer innenfor én spillers tallrekker — rader mot rader, eller kolonner mot kolonner.\n\nEt **utfall** er Pareto-dominert hvis en annen celle i matrisen gir minst én spiller mer og ingen mindre. Her sammenliknes hele celler, med **begge** spilleres utbetalinger samtidig.\n\nDe to har ingenting med hverandre å gjøre logisk: et Pareto-dominert utfall kan godt være en Nash-likevekt bygget av strategier som ikke er dominert i det hele tatt. Fangens dilemma er nettopp det.",
+            "hints": [
+              "Spør hvem sine utbetalinger som sammenliknes i hvert av de to begrepene."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-7-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-7-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn alle Nash-likevekter i dette spillet (rad først):\n\n| | $L$ | $R$ |\n|---|---|---|\n| $T$ | $(2, 1)$ | $(0, 0)$ |\n| $B$ | $(0, 0)$ | $(1, 2)$ |",
+            "solution": "**Radspillerens beste svar:** mot $L$ er 2 mot 0 → $T$. Mot $R$ er 0 mot 1 → $B$.\n\n**Kolonnespillerens beste svar:** i rad $T$ er 1 mot 0 → $L$. I rad $B$ er 0 mot 2 → $R$.\n\nMarkeringene møtes i $(T, L)$ med $(2,1)$ og i $(B, R)$ med $(1,2)$.\n\n$$\\text{To Nash-likevekter: } (T, L) \\text{ og } (B, R).$$\n\nDette er et koordinasjonsspill der partene må samle seg om det samme, men der de har motstridende ønsker om **hvilket** av de to. Teorien peker ikke ut ett svar.",
+            "hints": [
+              "Gå kolonnevis for radspilleren og radvis for kolonnespilleren.",
+              "Sjekk alle fire cellene før du konkluderer."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2220-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-7-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $s$, $s'$ | Rene strategier for én spiller |\n| $\\sigma = (p_1, p_2, \\ldots)$ | En blandet strategi: sannsynlighetsfordeling over de rene |\n| $p$ | Sannsynligheten som legges på én bestemt ren strategi |\n| $(u_R, u_K)$ | Tallparet i en celle: radspillerens utbetaling først, kolonnespillerens sist |\n| NE | Nash-likevekt |\n| $T$, $C$, $B$ / $L$, $M$, $R$ | Vanlige navn på rader og kolonner i en matrise (topp/midt/bunn, venstre/midt/høyre) |\n\n**Formler og prosedyrer i dette delkapitlet:**\n\n$$\\text{Forventet utbetaling av } \\sigma = \\sum_i p_i \\cdot (\\text{utbetalingen av ren strategi } i)$$\nUtbetalingen av en blandet strategi er gjennomsnittet av de rene, vektet med sannsynlighetene.\n\n$$s \\text{ strengt dominert av } s' \\iff u(s') > u(s) \\text{ mot ETHVERT valg motspilleren kan gjøre}$$\nStreng dominans: bedre i hver enkelt kolonne (eller rad), ikke bare i gjennomsnitt.\n\n**Beste-svar-prosedyren (Nash-likevekt i matrise):**\n1. For radspilleren: marker største verdi blant hennes tall i hver **kolonne**.\n2. For kolonnespilleren: marker største verdi blant hennes tall i hver **rad**.\n3. Nash-likevekt = celle der **begge** markeringer sitter. Gå gjennom hele matrisen — det kan være flere.\n\n**Iterert eliminering (rasjonaliserbarhet):**\n1. Stryk alle **strengt** dominerte strategier (også dem som er dominert av en blanding).\n2. Sett opp det reduserte spillet og gjenta.\n3. Stopp når ingenting mer kan strykes. Det som står igjen, er de rasjonaliserbare strategiene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
