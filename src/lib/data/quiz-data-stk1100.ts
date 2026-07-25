@@ -87,7 +87,7 @@ const quizData_stk1100: Record<string, QuizQuestion[]> = {
     {
       question: "Spesifisiteten til en diagnosetest er:",
       options: ["$P(T^c \\mid S^c)$", "$P(T \\mid S)$", "$P(S^c \\mid T^c)$", "$P(T \\mid S^c)$"],
-      explanation: "Spesifisitet er sann negativ-rate, $P(T^c \\mid S^c)$. Siste alternativ er falsk positiv-rate.",
+      explanation: "Spesifisitet er sann negativ-rate, $P(T^c \\mid S^c)$. $P(T \\mid S^c)$ er falsk positiv-rate.",
     },
     {
       question: "Prevalensen i en diagnosetest svarer til:",
@@ -291,7 +291,7 @@ const quizData_stk1100: Record<string, QuizQuestion[]> = {
     {
       question: "Den binomiske punktsannsynligheten er:",
       options: ["$\\binom{n}{k}p^k(1-p)^{n-k}$", "$\\binom{n}{k}p^{n-k}(1-p)^k$", "$p^k(1-p)^{n-k}$", "$\\frac{\\mu^k e^{-\\mu}}{k!}$"],
-      explanation: "$\\binom{n}{k}$ teller plasseringene av de $k$ suksessene; siste alternativ er Poisson.",
+      explanation: "$\\binom{n}{k}$ teller plasseringene av de $k$ suksessene; $\\frac{\\mu^k e^{-\\mu}}{k!}$ er Poisson-punktsannsynligheten.",
     },
     {
       question: "For $X \\sim \\text{bin}(n, p)$ er forventning og varians:",
