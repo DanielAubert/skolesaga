@@ -1215,9 +1215,9 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "Fra paritetsbetingelsen trekker høyere rente kursen ned igjen, så banken kan dempe den direkte kanalen ved en kronesvekkelse. Ved høyere priser ute finnes ingen slik kanal, og renten kan bare virke gjennom å dempe aktiviteten ytterligere — i en situasjon der aktiviteten allerede faller.",
     },
     {
-      question: "Hva skal med når en effekt ikke kan signeres?",
-      options: ["At effekten er ubestemt, hva den avhenger av, og hva som ville avgjort saken", "Bare at effekten er usikker — mer enn det kan man ikke si", "Det mest sannsynlige fortegnet, med en kort merknad om usikkerhet", "En vurdering av hvor stor sannsynligheten er for hvert av de to utfallene"],
-      explanation: "Alle tre delene må med. «Det er usikkert» alene er nesten like svakt som å signere feil, fordi det ikke viser hvor usikkerheten sitter. Å flagge ubestemtheten fullstendig er tvert imot det tydeligste tegnet på at du forstår modellen.",
+      question: "To land har samme kronesvekkelse, men land A har en langt større importandel $\\alpha$ enn land B. Hva følger av det?",
+      options: ["KPI-inflasjonen stiger mer i A, siden det direkte gjennomslaget er $\\alpha$ ganget med importprisveksten", "KPI-inflasjonen stiger mer i B, fordi en liten importandel gir større utslag per krone", "Begge får samme utslag i KPI, siden gjennomslagsgraden er den samme", "Bare prisveksten på norskproduserte varer skiller de to landene"],
+      explanation: "Det direkte gjennomslaget er $\\alpha \\cdot p_i$: samme importprisvekst gir større KPI-utslag jo større importandelen er. Den indirekte kanalen virker i tillegg i begge land, men den går via $p_s$ og er ikke signerbar uten mer informasjon. Alternativet om at liten $\\alpha$ gir større utslag snur sammenhengen, og at utslagene skulle bli like forveksler gjennomslagsGRADEN (en egenskap ved prisdannelsen) med det samlede gjennomslaget til KPI (som også avhenger av vekten $\\alpha$).",
     },
     {
       question: "Hva er riktig vurderingskriterium for om sentralbanken har «sluppet» et kurssjokk inn i økonomien?",
