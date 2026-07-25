@@ -15,7 +15,24 @@ Erfaringstall per bok (fra econ1310/jus1111): ~9 byggeagenter + wiring +
 Bøkene er uavhengige — rekkefølgen under er anbefalt prioritet (størst
 studentvolum + sterkest rammeverk først), men plukk fritt.
 
-## PRIORITET: 1.-SEMESTEREMNER FØRST (produkteier 25. juli 2026)
+## PRIORITET: UiO BACHELOR, 1. SEMESTER (produkteier 25. juli 2026)
+
+**Skjerpet fokus samme dag:** prioriteten er **UiO bachelor, 1. semester**. Det
+tar `nokut-afb` (nasjonal sykepleieeksamen, ~6 000 kandidater) og `tdt4110` (NTNU,
+~1 375 plasser) ut av toppen selv om de har størst volum — de er ikke UiO-bachelor.
+Tier 1-tabellen under er derfor delt: UiO-bachelor-emnene først, resten som
+reserve når UiO-listen er tom.
+
+**UiO bachelor 1. semester, i volumrekkefølge:** `in1000` (~600) · `in1020` (~600)
+· `in1900` (≥250, 🔄 under bygging) · `econ1100` (≥215) · `sos1004` (~140) ·
+`fys1100` (~120) · `sosant1000` (91) · `fil1001` (59) · `ling1100` (40).
+Alt bygget fra før i denne kategorien: `exphil03`, `jus1111`, `mat1100`, `econ1210`.
+
+En komplett kartlegging av ALLE UiO-bachelorprogrammenes 1. semester er under
+arbeid — inkludert hullene der vi ikke har materiale i det hele tatt. Den blir
+den nye kilden for denne lista.
+
+## Tidligere prioritetsnotat: 1.-semesteremner generelt
 
 **Regel:** emner studentene tar i sitt FØRSTE semester bygges først. Innenfor
 gruppa sorteres det etter studentvolum. Førstesemesterstudenten trenger boka mest
