@@ -93,6 +93,22 @@ nøyaktig hva som er landet.
 5. **Steg 4** — sluttport: studentpanel-port, KaTeX-port, build, prod-curl, merge
    main inn, push.
 
+## Portene (kjør alle tre før «ferdig»)
+
+```bash
+python3 scripts/hoyskolebok/sjekk-bok.py   <emne>   # struktur, kvoter, BOKPORT
+python3 scripts/hoyskolebok/sjekk-latex.py <emne>   # 6 LaTeX-klasser, LATEX-PORT
+python3 scripts/hoyskolebok/sjekk-figurer.py <emne> # 404 i produksjon, FIGURPORT
+```
+
+`sjekk-latex.py` fanger seks feilklasser som alle har nådd produksjon: kontrolltegn
+fra enkel backslash (`\text` -> TAB, rendrer galt UTEN KaTeX-feil), KaTeX-feil,
+løs avsluttende backslash, gåseøyne i matte (ingen glyffmetrikk), **ubalansert `$`
+i ett felt** (avkuttet formel -> resten vises som kilde) og **bart `%` i matte**
+(starter LaTeX-kommentar og spiser resten). `sjekk-figurer.py` HTTP-sjekker hver
+figurreferanse mot Storage — «fila ligger i repoet» beviser ingenting, siden
+bildene serveres fra Storage og 196 av 596 referanser er Storage-bare.
+
 ## Faste feller (dyrekjøpt erfaring — les før du fortsetter)
 
 - **Mål alltid disk før du bygger videre.** Døde agenter etterlater som regel
@@ -121,6 +137,14 @@ nøyaktig hva som er landet.
 - **Flashcards ligger på KURSNIVÅ**, ikke kapittelnivå: prod-curl skal treffe
   `/bok/<emne>/flashcards`, ikke `/bok/<emne>/<kap>/flashcards` (404). Rutene
   `<kap>/trening` og `<kap>/oppgave` gir 404 også i live bøker — ikke et avvik.
+- **Posisjonsreferanser i quizforklaringer er alltid feil:** rendereren stokker
+  alternativene (`quiz-client.tsx`: «Shuffle options»), så «alternativ 2» eller
+  «Alternativ b)» peker på en rekkefølge studenten aldri ser. Siter innholdet i
+  svaret i stedet. Alle 51 i plattformen er nå rettet — hold tallet på 0.
+- **Fasit må ikke være systematisk KORTEST heller.** LENGDE-TELL gjelder begge
+  veier: en fasit som alltid er det korteste alternativet gir samme gratis-signal
+  som en som alltid er lengst. Rett det ved å KORTE distraktorene, ikke ved å
+  blåse opp fasiten.
 - **Figurbestillinger:** agentene skriver ikke SVG selv i econ-bøkene; de fører
   `docs/hoyskole-boker/<emne>/FIGUR-BESTILLINGER.md`. Den lista er arbeidsordren
   for figurgenereringen før sluttporten.
