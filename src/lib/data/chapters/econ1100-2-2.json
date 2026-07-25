@@ -1,0 +1,308 @@
+{
+  "id": "econ1100-2-2",
+  "courseId": "econ1100",
+  "chapterNumber": "2.2",
+  "title": "Kjerneregelen for elastisiteter",
+  "description": "Elastisitetene ganges sammen langs en kjede av funksjoner. Kapitlet utleder regelen steg for steg slik en bevis-oppgave krever, og bruker den på sammensatte uttrykk — med tilbakesubstitusjon og kontroll på to måter.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "utlede kjerneregelen for elastisiteter steg for steg fra definisjonen",
+    "skille den ytre elastisiteten fra den indre og skrive indeksene riktig",
+    "bruke regelen på sammensatte uttrykk og substituere tilbake til opprinnelig variabel",
+    "kontrollere et elastisitetssvar på to uavhengige måter"
+  ],
+  "content": [
+    {
+      "id": "econ1100-2-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er en av de få oppgavene i faget som ber om et bevis — og den skiller toppsjiktet.**\n\n**Sjanger EL — elastisitet** — står i **11 av 16 sett** i arkivet (69 %). Kjerneregelen for elastisiteter er den varianten som av og til kommer som en **bevis-lett oppgave**: «vis at $\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u$». Ett av settene har den formen.\n\n**Sensor omtaler slike oppgaver som forholdsvis vanskelige** — ikke fordi matematikken er tung, men fordi de fleste studentene har lite trening i å føre et bevis. Det er nettopp derfor de differensierer: den som har øvd på utledningen, får poengene nesten gratis.\n\n**Å hoppe over utledningen er ikke et alternativ.** Ber oppgaven om at du skal *vise* noe, gir et svar som bare oppgir formelen lite uttelling. Regelen er den samme som i sant/usant-oppgaven: begrunnelsen bærer poengene.\n\n**Den gode nyheten:** utledningen er fem linjer, og den er den samme hver gang. Lær den som en oppskrift, ikke som en innsikt du må gjenoppdage under eksamen.\n\nKapitlet ligger på prioritetsnivået **kunne**, men det er en **toppsjikt-markør**: det er her forskjellen mellom en god og en meget god besvarelse ofte synes.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-2-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet fortsetter direkte fra [kap. 2.1](/bok/econ1100/econ1100-2-1). Du trenger også den vanlige kjerneregelen fra [kap. 1.3](/bok/econ1100/econ1100-1-3).\n\n**Sist du var her — de tre tingene utledningen hviler på:**\n\n$$\\mathrm{El}_x f=\\frac{x}{f}\\,f'(x)$$\n\n$$f(x)=g\\big(u(x)\\big)\\ \\Longrightarrow\\ f'(x)=g'\\big(u(x)\\big)\\cdot u'(x)$$\n\n$$f=Cx^{a}\\ \\Longrightarrow\\ \\mathrm{El}_x f=a$$"
+    },
+    {
+      "id": "econ1100-2-2-motivasjon",
+      "type": "text",
+      "content": "En bedrift selger et produkt der etterspørselen avhenger av reklamebudsjettet, og reklamebudsjettet avhenger av omsetningen. Hvor følsom er etterspørselen for omsetningen?\n\nDet er en kjede: én størrelse virker gjennom en annen. For deriverte løses slikt med kjerneregelen — du ganger sammen leddene i kjeden. Spørsmålet er om det samme gjelder for elastisiteter.\n\nSvaret er ja, og det er nesten for pent til å være sant: elastisitetene ganges sammen akkurat som de deriverte. Én prosent på inngangen som gir to prosent i midten som gir tre prosent på utgangen, blir seks prosent til sammen.\n\nDette kapitlet gjør to ting. Først utleder vi regelen, steg for steg, slik en bevis-oppgave krever. Deretter bruker vi den — og oppdager at den ofte er raskere enn å regne direkte."
+    },
+    {
+      "id": "econ1100-2-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Utledningen (~15 min)"
+    },
+    {
+      "id": "econ1100-2-2-def-sammensatt",
+      "type": "definition",
+      "title": "Sammensatt funksjon",
+      "content": "En sammensatt funksjon er en funksjon av en funksjon.\n\n$$f(x)=g\\big(u(x)\\big)$$\n\nHer er $u$ den **indre** funksjonen og $g$ den **ytre**. Variabelen $x$ virker først på $u$, og resultatet mates inn i $g$. Det er denne kjeden både den vanlige kjerneregelen og elastisitetsversjonen handler om."
+    },
+    {
+      "id": "econ1100-2-2-thm-kjerneregel",
+      "type": "theorem",
+      "title": "Kjerneregelen for elastisiteter",
+      "content": "La $f(x)=g\\big(u(x)\\big)$, der $g$ og $u$ er deriverbare og $u(x)\\ne 0$, $g(u)\\ne 0$. Da er\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u$$\n\n**I ord:** elastisitetene ganges sammen langs kjeden, akkurat som de deriverte gjør i den vanlige kjerneregelen.\n\n**Merk indeksene nøye.** Den ytre elastisiteten tas med hensyn på $u$, ikke på $x$: det er $\\mathrm{El}_u g$, ikke $\\mathrm{El}_x g$. Å bytte om er den vanligste feilen i sjangeren, og den ødelegger både utledningen og svaret."
+    },
+    {
+      "id": "econ1100-2-2-utledning",
+      "type": "text",
+      "content": "### Utledningen — fem linjer, med intuisjon underveis\n\nDette er selve bevis-oppgaven. Lær rekkefølgen; den er den samme hver gang.\n\n**Steg 1 — start med definisjonen.**\n\n$$\\mathrm{El}_x f=\\frac{x}{f(x)}\\,f'(x)$$\n\n*Intuisjon:* et bevis om elastisiteter må begynne med det elastisitet **er**. Alt annet er omskrivning.\n\n**Steg 2 — bruk den vanlige kjerneregelen på $f'$.**\n\n$$f'(x)=g'\\big(u(x)\\big)\\cdot u'(x)$$\n\n$$\\Longrightarrow\\quad \\mathrm{El}_x f=\\frac{x}{g(u)}\\cdot g'(u)\\cdot u'(x)$$\n\n*Intuisjon:* nå har vi et uttrykk der begge leddene i kjeden står synlig. Det som gjenstår, er å sortere dem.\n\n**Steg 3 — utvid brøken med $u$.** Vi ganger med $u/u$, som er lov siden $u\\ne 0$:\n\n$$\\mathrm{El}_x f=\\frac{x}{g(u)}\\cdot g'(u)\\cdot u'(x)\\cdot\\frac{u}{u}$$\n\n*Intuisjon:* dette er hele trikset. Vi trenger en $u$ i telleren for å bygge $\\mathrm{El}_u g$, og en $u$ i nevneren for å bygge $\\mathrm{El}_x u$. Å gange med $u/u$ gir oss begge deler uten å endre verdien.\n\n**Steg 4 — grupper faktorene i to.**\n\n$$\\mathrm{El}_x f=\\underbrace{\\frac{u}{g(u)}\\,g'(u)}_{\\textstyle \\mathrm{El}_u g}\\cdot\\underbrace{\\frac{x}{u}\\,u'(x)}_{\\textstyle \\mathrm{El}_x u}$$\n\n*Intuisjon:* hver av de to gruppene har nøyaktig formen «variabel delt på funksjon, ganget med den deriverte» — altså definisjonen på elastisitet, én gang for hvert ledd i kjeden.\n\n**Steg 5 — konkluder.**\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u\\qquad\\blacksquare$$\n\n*Intuisjon:* konklusjonssetningen hører med. Et bevis som stopper ved et uttrykk uten å si at det er det vi skulle vise, ser uferdig ut."
+    },
+    {
+      "id": "econ1100-2-2-def-uu-trikset",
+      "type": "definition",
+      "title": "Trikset i beviset: gang med $u/u$",
+      "content": "Hele utledningen står og faller på ett grep.\n\n$$\\frac{x}{g(u)}g'(u)u'(x)\\cdot\\frac{u}{u}=\\left(\\frac{u}{g}g'\\right)\\left(\\frac{x}{u}u'\\right)$$\n\nVi ganger med noe som er lik én, og bruker de to nye faktorene til å bygge hver sin elastisitet. Det er samme type grep som når man utvider en brøk for å få felles nevner — og det er verdt å øve inn, fordi det er stedet de fleste stopper opp."
+    },
+    {
+      "id": "econ1100-2-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Regelen brukt på $\\ln(x^{3})$",
+      "problem": "La $f(x)=\\ln\\big(x^{3}\\big)$ for $x>1$.\n\n**a)** Finn $\\mathrm{El}_x f$ ved hjelp av kjerneregelen for elastisiteter.\n\n**b)** Kontroller svaret ved å regne direkte fra definisjonen.",
+      "solution": "**a) Identifiser kjeden.** Den indre funksjonen er $u(x)=x^{3}$, og den ytre er $g(u)=\\ln u$.\n\n**Den indre elastisiteten** leses rett av eksponenten (potensregelen fra [kap. 2.1](/bok/econ1100/econ1100-2-1)):\n\n$$\\mathrm{El}_x u=3$$\n\n**Den ytre elastisiteten** regnes fra definisjonen, med $g'(u)=\\dfrac1u$:\n\n$$\\mathrm{El}_u g=\\frac{u}{g(u)}\\,g'(u)=\\frac{u}{\\ln u}\\cdot\\frac{1}{u}=\\frac{1}{\\ln u}$$\n\n**Sett sammen:**\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u=\\frac{3}{\\ln u}$$\n\n**Tilbakesubstitusjon.** Svaret skal uttrykkes i den opprinnelige variabelen, så vi setter $u=x^{3}$ tilbake:\n\n$$\\mathrm{El}_x f=\\frac{3}{\\ln\\big(x^{3}\\big)}=\\frac{3}{3\\ln x}=\\boxed{\\frac{1}{\\ln x}}$$\n\n*Merk tilbakesubstitusjonen.* Et svar som blir stående som $3/\\ln u$ er ikke ferdig — dette er samme krav som i den vanlige kjerneregelen ([kap. 1.3](/bok/econ1100/econ1100-1-3)).\n\n**b) Kontroll direkte.** Bruk logaritmeregelen $\\ln(x^{3})=3\\ln x$ først:\n\n$$f(x)=3\\ln x\\ \\Longrightarrow\\ f'(x)=\\frac3x$$\n\n$$\\mathrm{El}_x f=\\frac{x}{3\\ln x}\\cdot\\frac{3}{x}=\\frac{3}{3\\ln x}=\\frac{1}{\\ln x}\\ ✓$$\n\nSamme svar.\n\n**Tallkontroll i $x=2$:** formelen gir $\\dfrac{1}{\\ln 2}\\approx 1{,}443$. Direkte: $f(2)=3\\ln 2\\approx 2{,}0794$, og $f(2{,}02)=3\\ln 2{,}02\\approx 2{,}1093$. Endringen er $0{,}0299/2{,}0794\\approx 1{,}44$ prosent for en prosents økning i $x$ ✓\n\n**Legg merke til at direktemetoden var raskere her**, fordi logaritmeregelen forenklet uttrykket med én gang. Kjerneregelen viser seg først når den indre funksjonen ikke lar seg forenkle bort — og når oppgaven eksplisitt ber om den."
+    },
+    {
+      "id": "econ1100-2-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger EL — elastisitet, i 11 av 16 sett. Innstegsoppgave.) La $f(x)=\\big(x^{2}\\big)^{4}$.\n\n**a)** Identifiser den indre funksjonen $u$ og den ytre funksjonen $g$.\n\n**b)** Finn $\\mathrm{El}_x u$ og $\\mathrm{El}_u g$.\n\n**c)** Bruk kjerneregelen, og kontroller mot potensregelen.",
+        "solution": "**a)** Den indre funksjonen er $u(x)=x^{2}$, og den ytre er $g(u)=u^{4}$.\n\n**b)** Begge er potensfunksjoner, så begge elastisitetene leses rett av eksponenten:\n\n$$\\mathrm{El}_x u=2,\\qquad \\mathrm{El}_u g=4$$\n\n**c)** Kjerneregelen:\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u=4\\cdot 2=8$$\n\n**Kontroll med potensregelen:** $f(x)=\\big(x^{2}\\big)^{4}=x^{8}$, og elastisiteten til en potensfunksjon er eksponenten:\n\n$$\\mathrm{El}_x f=8\\ ✓$$\n\n*Merk hvor pent det stemmer:* eksponentregelen $\\big(x^{a}\\big)^{b}=x^{ab}$ og kjerneregelen for elastisiteter sier akkurat det samme her. Det er ikke tilfeldig — for potensfunksjoner **er** elastisiteten eksponenten, og eksponentene ganges sammen.",
+        "hints": [
+          "Den indre funksjonen er det som står innenfor parentesen.",
+          "Begge deler er potensfunksjoner, så begge elastisitetene er eksponenter."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger EL — bevis-lett, en form sensor omtaler som forholdsvis vanskelig.) Vis at\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u$$\n\nnår $f(x)=g\\big(u(x)\\big)$, og bruk deretter resultatet på $f(x)=\\big(x^{2}+1\\big)^{5}$ i punktet $x=2$.",
+        "solution": "**Beviset.**\n\n*Steg 1 — definisjonen:*\n\n$$\\mathrm{El}_x f=\\frac{x}{f(x)}\\,f'(x)$$\n\n*Steg 2 — vanlig kjerneregel på $f'$:* siden $f(x)=g(u(x))$ er $f'(x)=g'(u)u'(x)$, altså\n\n$$\\mathrm{El}_x f=\\frac{x}{g(u)}\\,g'(u)\\,u'(x)$$\n\n*Steg 3 — gang med $u/u$*, som er lov fordi $u\\ne 0$:\n\n$$\\mathrm{El}_x f=\\frac{x}{g(u)}\\,g'(u)\\,u'(x)\\cdot\\frac{u}{u}$$\n\n*Steg 4 — grupper i to faktorer:*\n\n$$\\mathrm{El}_x f=\\left(\\frac{u}{g(u)}\\,g'(u)\\right)\\left(\\frac{x}{u}\\,u'(x)\\right)$$\n\nHver parentes har formen «variabel delt på funksjon, ganget med den deriverte», altså definisjonen på elastisitet.\n\n*Steg 5 — konkluder:*\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u\\qquad\\blacksquare$$\n\n---\n\n**Anvendelsen.** Med $u(x)=x^{2}+1$ og $g(u)=u^{5}$:\n\n**Ytre elastisitet:** $g$ er en ren potens, så $\\mathrm{El}_u g=5$.\n\n**Indre elastisitet:** her må vi bruke definisjonen, siden $x^{2}+1$ ikke er en ren potens. Med $u'(x)=2x$:\n\n$$\\mathrm{El}_x u=\\frac{x}{x^{2}+1}\\cdot 2x=\\frac{2x^{2}}{x^{2}+1}$$\n\n**Sett sammen:**\n\n$$\\mathrm{El}_x f=5\\cdot\\frac{2x^{2}}{x^{2}+1}=\\frac{10x^{2}}{x^{2}+1}$$\n\n**I punktet $x=2$:**\n\n$$\\mathrm{El}_x f=\\frac{10\\cdot 4}{4+1}=\\frac{40}{5}=8$$\n\n**Kontroll direkte.** $f(x)=\\big(x^{2}+1\\big)^{5}$ gir $f'(x)=5\\big(x^{2}+1\\big)^{4}\\cdot 2x=10x\\big(x^{2}+1\\big)^{4}$, altså\n\n$$\\mathrm{El}_x f=\\frac{x}{\\big(x^{2}+1\\big)^{5}}\\cdot 10x\\big(x^{2}+1\\big)^{4}=\\frac{10x^{2}}{x^{2}+1}\\ ✓$$\n\nI $x=2$ blir det $8$ ✓\n\n*Tolkning:* øker $x$ med én prosent fra 2, øker $f$ med omtrent åtte prosent. Funksjonen er sterkt elastisk der.",
+        "hints": [
+          "Start med definisjonen på elastisitet, ikke med formelen du skal bevise.",
+          "Etter at kjerneregelen er brukt på $f'$: hva mangler du for å bygge to elastisiteter?",
+          "I anvendelsen: den ytre er en ren potens, den indre må regnes fra definisjonen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-2-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i kjerneregeloppgaver",
+      "content": "- **Å hoppe over utledningen.** Sier oppgaven «vis at», er formelen alene ikke et svar. Dette er den samme regelen som i sant/usant-oppgaven: begrunnelsen bærer poengene, ikke konklusjonen.\n- **Å blande $\\mathrm{El}_u g$ og $\\mathrm{El}_x g$.** Den ytre elastisiteten tas med hensyn på **den indre funksjonen**, ikke på $x$. Skriv indeksen hver gang, også i kladden.\n- **Å glemme tilbakesubstitusjonen.** Et svar som inneholder $u$ er ikke ferdig — sluttsvaret skal stå i de opprinnelige variablene. Dette er den samme feilen som i den vanlige kjerneregelen: **feil #5 — å ikke substituere tilbake for indre variabler**.\n- **Å bruke potensregelen på noe som ikke er en ren potens.** Uttrykket $x^{2}+1$ er ikke $Cx^{a}$, så elastisiteten er ikke $2$. Den må regnes fra definisjonen, og blir $\\dfrac{2x^{2}}{x^{2}+1}$.\n- **Å avslutte uten konklusjonssetning.** Et bevis skal si at det er ferdig. Én linje — «som var det vi skulle vise» — koster ingenting og ser komplett ut."
+    },
+    {
+      "id": "econ1100-2-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Regelen i bruk (~13 min)"
+    },
+    {
+      "id": "econ1100-2-2-def-nar-lonner",
+      "type": "definition",
+      "title": "Når kjerneregelen lønner seg",
+      "content": "Regelen er raskest når begge leddene i kjeden er potensfunksjoner.\n\n$$f(x)=\\big(Cx^{a}\\big)^{b}\\ \\Longrightarrow\\ \\mathrm{El}_x f=b\\cdot a$$\n\nDa leses begge elastisitetene rett av eksponentene, og svaret er ferdig på én linje. Er den ytre funksjonen en logaritme eller en sum, må én av dem regnes fra definisjonen — men den andre er fortsatt gratis."
+    },
+    {
+      "id": "econ1100-2-2-def-lengre-kjeder",
+      "type": "definition",
+      "title": "Lengre kjeder",
+      "content": "Regelen gjelder for så mange ledd du vil.\n\n$$\\mathrm{El}_x f=\\mathrm{El}_v g\\cdot\\mathrm{El}_u v\\cdot\\mathrm{El}_x u$$\n\nElastisitetene ganges sammen langs hele kjeden, akkurat som de deriverte gjør. Beviset er det samme grepet gjentatt, eller regelen brukt to ganger etter hverandre."
+    },
+    {
+      "id": "econ1100-2-2-def-elastisitet-kjede-tolkning",
+      "type": "definition",
+      "title": "Kjeden lest i prosent",
+      "content": "Tolkningen er det som gjør regelen lett å huske.\n\n$$1\\ \\%\\ \\text{på }x\\ \\to\\ 2\\ \\%\\ \\text{på }u\\ \\to\\ 6\\ \\%\\ \\text{på }f$$\n\nEr $\\mathrm{El}_x u=2$ og $\\mathrm{El}_u g=3$, forsterkes prosentendringen i to trinn: først dobles den, så tredobles den, til sammen seks ganger. Multiplikasjonen er derfor ikke en teknisk tilfeldighet, men selve innholdet i en kjede av relative endringer."
+    },
+    {
+      "id": "econ1100-2-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: To ledd som begge må regnes",
+      "problem": "La $f(x)=\\ln\\big(x^{2}+4\\big)$ for $x>0$.\n\n**a)** Finn $\\mathrm{El}_x f$ med kjerneregelen.\n\n**b)** Regn ut elastisiteten i $x=2$, og tolk tallet.\n\n**c)** Er $f$ elastisk eller uelastisk der?",
+      "solution": "**a) Kjeden.** Indre funksjon $u(x)=x^{2}+4$, ytre funksjon $g(u)=\\ln u$.\n\n**Indre elastisitet** fra definisjonen, med $u'(x)=2x$:\n\n$$\\mathrm{El}_x u=\\frac{x}{x^{2}+4}\\cdot 2x=\\frac{2x^{2}}{x^{2}+4}$$\n\n**Ytre elastisitet** fra definisjonen, med $g'(u)=\\dfrac1u$:\n\n$$\\mathrm{El}_u g=\\frac{u}{\\ln u}\\cdot\\frac1u=\\frac{1}{\\ln u}$$\n\n**Sett sammen og substituer tilbake:**\n\n$$\\mathrm{El}_x f=\\frac{1}{\\ln u}\\cdot\\frac{2x^{2}}{x^{2}+4}=\\boxed{\\frac{2x^{2}}{\\big(x^{2}+4\\big)\\ln\\big(x^{2}+4\\big)}}$$\n\n*Merk tilbakesubstitusjonen:* $u$ er erstattet med $x^{2}+4$ overalt.\n\n**Kontroll direkte.** Kjerneregelen for derivasjon gir $f'(x)=\\dfrac{2x}{x^{2}+4}$, altså\n\n$$\\mathrm{El}_x f=\\frac{x}{\\ln\\big(x^{2}+4\\big)}\\cdot\\frac{2x}{x^{2}+4}=\\frac{2x^{2}}{\\big(x^{2}+4\\big)\\ln\\big(x^{2}+4\\big)}\\ ✓$$\n\n**b) I punktet $x=2$:**\n\n$$\\mathrm{El}_x f=\\frac{2\\cdot 4}{8\\cdot\\ln 8}=\\frac{8}{8\\ln 8}=\\frac{1}{\\ln 8}\\approx\\frac{1}{2{,}0794}\\approx 0{,}481$$\n\n**Tolkning:** øker $x$ med én prosent fra 2, øker $f$ med omtrent $0{,}48$ prosent.\n\n*Tallkontroll:* $f(2)=\\ln 8\\approx 2{,}0794$, og $f(2{,}02)=\\ln\\big(2{,}02^{2}+4\\big)=\\ln 8{,}0804\\approx 2{,}0894$. Endringen er $0{,}0100/2{,}0794\\approx 0{,}48$ prosent ✓\n\n**c) Uelastisk.** Tallverdien $0{,}48$ er mindre enn 1, så $f$ reagerer svakere enn prosentvis.\n\n*Merk at konklusjonen er knyttet til punktet.* Elastisiteten her er ikke konstant — den avhenger av $x$ gjennom begge faktorene."
+    },
+    {
+      "id": "econ1100-2-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger EL.) Bruk kjerneregelen for elastisiteter.\n\n**a)** $f(x)=\\big(x^{3}\\big)^{2}$\n\n**b)** $f(x)=\\sqrt{x^{4}+1}$\n\n**c)** $f(x)=\\ln\\big(x^{5}\\big)$ for $x>1$",
+        "solution": "**a)** Indre $u=x^{3}$ med $\\mathrm{El}_x u=3$; ytre $g=u^{2}$ med $\\mathrm{El}_u g=2$.\n\n$$\\mathrm{El}_x f=2\\cdot 3=6$$\n\n*Kontroll:* $f(x)=x^{6}$, og potensregelen gir $6$ ✓\n\n**b)** Indre $u=x^{4}+1$, ytre $g=u^{1/2}$.\n\n**Ytre:** ren potens, så $\\mathrm{El}_u g=\\dfrac12$.\n\n**Indre:** fra definisjonen, med $u'=4x^{3}$:\n\n$$\\mathrm{El}_x u=\\frac{x}{x^{4}+1}\\cdot 4x^{3}=\\frac{4x^{4}}{x^{4}+1}$$\n\n**Sammensatt, med tilbakesubstitusjon:**\n\n$$\\mathrm{El}_x f=\\frac12\\cdot\\frac{4x^{4}}{x^{4}+1}=\\frac{2x^{4}}{x^{4}+1}$$\n\n**c)** Indre $u=x^{5}$ med $\\mathrm{El}_x u=5$; ytre $g=\\ln u$ med $\\mathrm{El}_u g=\\dfrac{1}{\\ln u}$.\n\n$$\\mathrm{El}_x f=\\frac{5}{\\ln u}=\\frac{5}{\\ln\\big(x^{5}\\big)}=\\frac{5}{5\\ln x}=\\frac{1}{\\ln x}$$\n\n*Merk at svaret er det samme som for $\\ln(x^{3})$ i eksempel 1.* Grunnen er logaritmeregelen: $\\ln(x^{n})=n\\ln x$, og den multiplikative konstanten $n$ forsvinner i elastisiteten — akkurat som potensregelen sier.",
+        "hints": [
+          "Skill kjeden i indre og ytre funksjon før du regner noe.",
+          "Ren potens? Da er elastisiteten eksponenten. Ellers må definisjonen brukes.",
+          "Husk å erstatte $u$ med uttrykket i $x$ til slutt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. En ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «$\\mathrm{El}_x f=\\mathrm{El}_x g\\cdot\\mathrm{El}_x u$ når $f(x)=g(u(x))$.»\n\n**b)** «For $f(x)=\\big(x^{a}\\big)^{b}$ er $\\mathrm{El}_x f=ab$.»\n\n**c)** «Kjerneregelen for elastisiteter kan bare brukes når begge funksjonene er potensfunksjoner.»",
+        "solution": "**a) Usann.** Indeksen på den ytre elastisiteten er feil.\n\n*Begrunnelse:* riktig formel er\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u$$\n\nDen ytre funksjonen $g$ har $u$ som variabel, ikke $x$. Uttrykket $\\mathrm{El}_x g$ er strengt tatt ikke definert med mindre man tenker på $g$ som en funksjon av $x$ — og da ville det vært hele $\\mathrm{El}_x f$, ikke bare den ytre faktoren.\n\n*Konkret:* for $f(x)=(x^{2})^{4}$ er $\\mathrm{El}_u g=4$ og $\\mathrm{El}_x u=2$, som gir $8$. Det stemmer med $f(x)=x^{8}$ ✓. Hadde vi tolket «$\\mathrm{El}_x g$» som elastisiteten til $u^{4}$ regnet med $u=x$, ville vi fått $4\\cdot 2=8$ ved et sammentreff — men formuleringen er likevel gal, og på en funksjon som $\\ln(x^{3})$ bryter den sammen.\n\n**b) Sann.** Både utregning og kjerneregel gir samme svar.\n\n*Begrunnelse ved potensregelen:* $\\big(x^{a}\\big)^{b}=x^{ab}$, og elastisiteten til en potensfunksjon er eksponenten, altså $ab$.\n\n*Begrunnelse ved kjerneregelen:* med $u=x^{a}$ er $\\mathrm{El}_x u=a$, og med $g=u^{b}$ er $\\mathrm{El}_u g=b$. Produktet er $ab$ ✓\n\nAt de to veiene stemmer overens, er en fin kontroll på at regelen er riktig formulert.\n\n**c) Usann.** Regelen gjelder for alle deriverbare funksjoner der elastisitetene er definert.\n\n*Begrunnelse:* i utledningen brukte vi bare definisjonen på elastisitet og den vanlige kjerneregelen. Ingen av dem forutsetter potensform — kravene er at $g$ og $u$ er deriverbare, og at $u\\ne 0$ og $g(u)\\ne 0$ slik at brøkene finnes.\n\n*Konkret motsvar:* for $f(x)=\\ln\\big(x^{3}\\big)$ er den ytre funksjonen en logaritme, og regelen virker likevel: $\\mathrm{El}_u g=\\dfrac{1}{\\ln u}$ og $\\mathrm{El}_x u=3$ gir $\\dfrac{3}{3\\ln x}=\\dfrac{1}{\\ln x}$, som stemmer med direkte regning ✓\n\n*Det som er sant*, er at regelen er **raskest** når begge er potensfunksjoner — for da er begge elastisitetene bare eksponenter.",
+        "hints": [
+          "I a): hvilken variabel har den ytre funksjonen?",
+          "I b): regn ut på to måter og sammenlign.",
+          "I c): se på hvilke forutsetninger utledningen faktisk brukte."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger EL — bevis-lett, eksamensnivå.) La $f(x)=g\\big(v(u(x))\\big)$ være en kjede med tre ledd, der alle funksjonene er deriverbare og ulik null.\n\n**a)** Vis at $\\mathrm{El}_x f=\\mathrm{El}_v g\\cdot\\mathrm{El}_u v\\cdot\\mathrm{El}_x u$.\n\n**b)** Bruk resultatet på $f(x)=\\ln\\Big(\\big(x^{2}\\big)^{3}\\Big)$ for $x>1$.\n\n**c)** Kontroller svaret i b) ved å forenkle uttrykket først.",
+        "solution": "**a) Beviset.** Vi bruker totrinnsregelen to ganger.\n\nSett $w(x)=v\\big(u(x)\\big)$, slik at $f(x)=g\\big(w(x)\\big)$. Etter kjerneregelen for elastisiteter, brukt på det ytterste leddet:\n\n$$\\mathrm{El}_x f=\\mathrm{El}_w g\\cdot\\mathrm{El}_x w$$\n\nMen $w$ er selv en sammensatt funksjon, $w(x)=v(u(x))$, så regelen kan brukes én gang til:\n\n$$\\mathrm{El}_x w=\\mathrm{El}_u v\\cdot\\mathrm{El}_x u$$\n\nSett inn:\n\n$$\\mathrm{El}_x f=\\mathrm{El}_w g\\cdot\\mathrm{El}_u v\\cdot\\mathrm{El}_x u$$\n\nOg siden $w=v$ som funksjonsverdi, skriver vi den ytterste elastisiteten som $\\mathrm{El}_v g$:\n\n$$\\mathrm{El}_x f=\\mathrm{El}_v g\\cdot\\mathrm{El}_u v\\cdot\\mathrm{El}_x u\\qquad\\blacksquare$$\n\n*Merk fremgangsmåten:* vi beviste ikke noe nytt fra grunnen av, men brukte et resultat vi allerede hadde, to ganger. Det er en helt gyldig og ofte forventet bevisstrategi.\n\n**b) Anvendelsen.** Identifiser de tre leddene innenfra og ut:\n\n$$u(x)=x^{2},\\qquad v(u)=u^{3},\\qquad g(v)=\\ln v$$\n\n**Elastisitetene:**\n\n$$\\mathrm{El}_x u=2\\quad\\text{(potensregelen)}$$\n\n$$\\mathrm{El}_u v=3\\quad\\text{(potensregelen)}$$\n\n$$\\mathrm{El}_v g=\\frac{v}{\\ln v}\\cdot\\frac1v=\\frac{1}{\\ln v}\\quad\\text{(definisjonen)}$$\n\n**Produktet:**\n\n$$\\mathrm{El}_x f=\\frac{1}{\\ln v}\\cdot 3\\cdot 2=\\frac{6}{\\ln v}$$\n\n**Tilbakesubstitusjon.** Her er $v=\\big(x^{2}\\big)^{3}=x^{6}$, så\n\n$$\\mathrm{El}_x f=\\frac{6}{\\ln\\big(x^{6}\\big)}=\\frac{6}{6\\ln x}=\\boxed{\\frac{1}{\\ln x}}$$\n\n**c) Kontroll ved forenkling først.** Bruk potens- og logaritmeregler:\n\n$$f(x)=\\ln\\Big(\\big(x^{2}\\big)^{3}\\Big)=\\ln\\big(x^{6}\\big)=6\\ln x$$\n\n$$f'(x)=\\frac6x\\ \\Longrightarrow\\ \\mathrm{El}_x f=\\frac{x}{6\\ln x}\\cdot\\frac6x=\\frac{1}{\\ln x}\\ ✓$$\n\nSamme svar.\n\n**Legg merke til noe verdt å ta med seg.** Alle funksjoner på formen $\\ln(x^{n})$ har elastisitet $\\dfrac{1}{\\ln x}$, uansett $n$. Grunnen er at $\\ln(x^{n})=n\\ln x$, og en multiplikativ konstant forsvinner alltid i elastisiteten.\n\n*Tallkontroll i $x=3$:* formelen gir $\\dfrac{1}{\\ln 3}\\approx 0{,}910$. Direkte: $f(3)=6\\ln 3\\approx 6{,}5917$ og $f(3{,}03)=6\\ln 3{,}03\\approx 6{,}6514$, altså en endring på $0{,}0597/6{,}5917\\approx 0{,}91$ prosent ✓",
+        "hints": [
+          "I a): bruk totrinnsregelen på den ytterste sammensetningen først, og deretter på det som blir igjen.",
+          "I b): skriv opp de tre funksjonene innenfra og ut før du regner.",
+          "I c): $\\ln(x^{n})=n\\ln x$ gjør uttrykket mye enklere."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger EL — økonomisk innramming, eksamensnivå.) Etterspørselen etter et gode avhenger av reklamemengden $R$ gjennom kjennskapen $K$:\n\n$$K(R)=5R^{1/2},\\qquad D(K)=40K^{3}.$$\n\n**a)** Finn $\\mathrm{El}_R D$ ved hjelp av kjerneregelen.\n\n**b)** Tolk svaret i ord.\n\n**c)** Kontroller ved å sette sammen uttrykkene til én funksjon av $R$ og bruke potensregelen.\n\n**d)** Reklamebudsjettet økes med 4 prosent. Omtrent hvor mange prosent stiger etterspørselen?",
+        "solution": "**a)** Kjeden er $R\\to K\\to D$. Begge leddene er rene potensfunksjoner, så begge elastisitetene leses av eksponentene:\n\n$$\\mathrm{El}_R K=\\frac12,\\qquad \\mathrm{El}_K D=3$$\n\nKjerneregelen gir\n\n$$\\mathrm{El}_R D=\\mathrm{El}_K D\\cdot\\mathrm{El}_R K=3\\cdot\\frac12=\\frac32=1{,}5$$\n\nMerk at konstantene $5$ og $40$ ikke inngår i det hele tatt — multiplikative konstanter forsvinner i elastisiteter.\n\n**b) Tolkning.** Øker reklamebudsjettet med én prosent, stiger etterspørselen med omtrent $1{,}5$ prosent.\n\nKjeden leses slik: én prosent mer reklame gir en halv prosent mer kjennskap, og en halv prosent mer kjennskap gir $3\\cdot 0{,}5=1{,}5$ prosent mer etterspørsel. Effekten dempes i første ledd og forsterkes i andre.\n\nSiden tallverdien er større enn 1, er etterspørselen **elastisk** med hensyn på reklame.\n\n**c) Kontroll ved sammensetning.**\n\n$$D(R)=40\\big(5R^{1/2}\\big)^{3}=40\\cdot 125\\cdot R^{3/2}=5000\\,R^{3/2}$$\n\n*Mellomregning:* $\\big(5R^{1/2}\\big)^{3}=5^{3}\\big(R^{1/2}\\big)^{3}=125R^{3/2}$.\n\nPotensregelen gir\n\n$$\\mathrm{El}_R D=\\frac32\\ ✓$$\n\nSamme svar, og konstanten $5000$ spiller ingen rolle.\n\n**d)** Elastisiteten er en marginal størrelse, men for moderate endringer gir den et godt anslag:\n\n$$\\Delta D\\ \\%\\approx 1{,}5\\cdot 4\\ \\%=6\\ \\%$$\n\nEtterspørselen stiger med omtrent seks prosent.\n\n*Kontroll av tilnærmingen:* en økning på fire prosent betyr at $R$ ganges med $1{,}04$, og da ganges $D$ med $1{,}04^{3/2}\\approx 1{,}0606$ — altså en økning på $6{,}06$ prosent ✓ Tilnærmingen er god fordi endringen er liten; ved en dobling ville den vært langt dårligere ($2^{3/2}\\approx 2{,}83$, altså 183 prosent, ikke 150).",
+        "hints": [
+          "Begge funksjonene er rene potenser — hva sier potensregelen da?",
+          "Konstantene 5 og 40 skal ikke inngå i svaret.",
+          "I d): gang elastisiteten med den prosentvise endringen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-2-2-bb-1",
+      "type": "definition",
+      "title": "Kjerneregelen for elastisiteter",
+      "content": "Formelen, med indeksene som må stå riktig.\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u$$\n\nDen ytre elastisiteten tas med hensyn på $u$, ikke på $x$. Å bytte om indeksene er den vanligste feilen, og den ødelegger både utledningen og svaret."
+    },
+    {
+      "id": "econ1100-2-2-bb-2",
+      "type": "definition",
+      "title": "Beviset i fem steg",
+      "content": "Rekkefølgen er den samme hver gang, og den er verdt å lære utenat.\n\n$$\\text{definisjon}\\to\\text{kjerneregel på }f'\\to\\text{gang med }u/u\\to\\text{grupper}\\to\\text{konkludér}$$\n\nSteg tre er der de fleste stopper opp. Det eneste du gjør, er å gange med noe som er lik én."
+    },
+    {
+      "id": "econ1100-2-2-bb-3",
+      "type": "definition",
+      "title": "Trikset: gang med $u/u$",
+      "content": "Grepet som gjør at to elastisiteter kan bygges av ett uttrykk.\n\n$$\\frac{x}{g}g'u'\\cdot\\frac{u}{u}=\\left(\\frac{u}{g}g'\\right)\\left(\\frac{x}{u}u'\\right)$$\n\nDu trenger en $u$ i telleren til den ytre elastisiteten og en i nevneren til den indre. Å gange med én endrer ingenting, men gjør begge tilgjengelige."
+    },
+    {
+      "id": "econ1100-2-2-bb-4",
+      "type": "definition",
+      "title": "Bevisoppgaver: konklusjonssetningen hører med",
+      "content": "Et bevis skal si at det er ferdig.\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u\\qquad\\blacksquare$$\n\nSkriv «som var det vi skulle vise» eller sett et bevis-tegn. Det koster ingenting og skiller et komplett svar fra et som ser avbrutt ut."
+    },
+    {
+      "id": "econ1100-2-2-bb-5",
+      "type": "definition",
+      "title": "Tilbakesubstitusjon",
+      "content": "Sluttsvaret skal stå i den opprinnelige variabelen.\n\n$$\\frac{3}{\\ln u}\\ \\text{med}\\ u=x^{3}\\ \\Longrightarrow\\ \\frac{3}{3\\ln x}=\\frac{1}{\\ln x}$$\n\nEt svar som fortsatt inneholder $u$, er ikke ferdig. Dette er samme krav som i den vanlige kjerneregelen — feilkatalogens #5."
+    },
+    {
+      "id": "econ1100-2-2-bb-6",
+      "type": "definition",
+      "title": "Når regelen er raskest",
+      "content": "To potensfunksjoner i kjede gir svaret på én linje.\n\n$$f=\\big(Cx^{a}\\big)^{b}\\ \\Longrightarrow\\ \\mathrm{El}_x f=ab$$\n\nEr den ytre en logaritme eller en sum, må én elastisitet regnes fra definisjonen — men den andre er fortsatt gratis."
+    },
+    {
+      "id": "econ1100-2-2-bb-7",
+      "type": "definition",
+      "title": "Lengre kjeder",
+      "content": "Regelen gjelder for så mange ledd du vil.\n\n$$\\mathrm{El}_x f=\\mathrm{El}_v g\\cdot\\mathrm{El}_u v\\cdot\\mathrm{El}_x u$$\n\nBeviset er totrinnsregelen brukt to ganger. Å bygge videre på et resultat du allerede har vist, er en helt gyldig bevisstrategi."
+    },
+    {
+      "id": "econ1100-2-2-bb-8",
+      "type": "definition",
+      "title": "Kjeden lest i prosent",
+      "content": "Multiplikasjonen er ikke teknisk, den er innholdet.\n\n$$1\\ \\%\\ \\text{inn}\\ \\to\\ \\tfrac12\\ \\%\\ \\text{i midten}\\ \\to\\ 1{,}5\\ \\%\\ \\text{ut}$$\n\nHvert ledd i kjeden skalerer den prosentvise endringen. Effekten kan dempes i ett ledd og forsterkes i det neste."
+    },
+    {
+      "id": "econ1100-2-2-bb-9",
+      "type": "definition",
+      "title": "$\\ln(x^{n})$ har alltid samme elastisitet",
+      "content": "Eksponenten forsvinner, uansett hva den er.\n\n$$\\mathrm{El}_x\\ln\\big(x^{n}\\big)=\\frac{1}{\\ln x}$$\n\nGrunnen er logaritmeregelen $\\ln(x^{n})=n\\ln x$: faktoren $n$ er multiplikativ og stryker seg i elastisiteten. Et resultat som er lett å kontrollere seg fram til."
+    },
+    {
+      "id": "econ1100-2-2-bb-10",
+      "type": "definition",
+      "title": "Elastisiteten til $x^{2}+a$",
+      "content": "En sum er ikke en potens, og må regnes fra definisjonen.\n\n$$\\mathrm{El}_x\\big(x^{2}+a\\big)=\\frac{2x^{2}}{x^{2}+a}$$\n\nÅ lese av «eksponenten $2$» her er feil. Legg merke til at uttrykket nærmer seg $2$ når $x$ blir stor — da dominerer $x^{2}$-leddet."
+    },
+    {
+      "id": "econ1100-2-2-bb-11",
+      "type": "definition",
+      "title": "Kontroll på to måter",
+      "content": "Bevis-oppgaver skal alltid etterprøves.\n\n$$\\text{kjerneregel}\\ \\overset{?}{=}\\ \\text{direkte fra definisjonen}$$\n\nStemmer ikke de to, er det som regel en indeksforveksling eller en glemt tilbakesubstitusjon. Kontrollen tar to minutter og fanger begge deler."
+    },
+    {
+      "id": "econ1100-2-2-bb-12",
+      "type": "definition",
+      "title": "Prosentanslag fra elastisiteten",
+      "content": "Elastisiteten kan brukes som en tommelfingerregel for endelige endringer.\n\n$$\\Delta f\\ \\%\\approx \\mathrm{El}_x f\\cdot\\Delta x\\ \\%$$\n\nFor små endringer er anslaget godt: en fire prosents økning med elastisitet $1{,}5$ gir omtrent seks prosent. For store endringer bryter det sammen — ved en dobling gir eksakt regning 183 prosent, ikke 150."
+    },
+    {
+      "id": "econ1100-2-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-2-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 2.1](/bok/econ1100/econ1100-2-1) og [kap. 1.3](/bok/econ1100/econ1100-1-3).\n\n**1.** Hva er $\\mathrm{El}_x(7x^{4})$?\n\n*Svar:* $4$ — konstanten forsvinner.\n\n**2.** Deriver $f(x)=\\big(x^{2}+1\\big)^{5}$ med kjerneregelen.\n\n*Svar:* $f'(x)=5\\big(x^{2}+1\\big)^{4}\\cdot 2x=10x\\big(x^{2}+1\\big)^{4}$.\n\n**3.** Hva er $\\mathrm{El}_x(x^{2}+4)$?\n\n*Svar:* $\\dfrac{x}{x^{2}+4}\\cdot 2x=\\dfrac{2x^{2}}{x^{2}+4}$ — ikke $2$, siden dette ikke er en ren potens.\n\n**4.** Forenkle $\\ln\\big(x^{6}\\big)$.\n\n*Svar:* $6\\ln x$.\n\n**5.** Hva er $\\big(5R^{1/2}\\big)^{3}$?\n\n*Svar:* $125R^{3/2}$.\n\n**6.** Hva er $\\mathrm{El}(fg)$ uttrykt ved $\\mathrm{El}\\,f$ og $\\mathrm{El}\\,g$?\n\n*Svar:* $\\mathrm{El}\\,f+\\mathrm{El}\\,g$ — summen, ikke produktet. Kjerneregelen er den som gir produkt."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-2-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathrm{El}_x f$ | Elastisiteten til $f$ med hensyn på $x$ |\n| $u(x)$ | Den indre funksjonen i en kjede |\n| $g(u)$ | Den ytre funksjonen i en kjede |\n| $\\mathrm{El}_u g$ | Den ytre elastisiteten — tatt mht. $u$, ikke $x$ |\n| $v$ | Mellomledd i en kjede med tre funksjoner |\n| $f'(x)$ | Den deriverte, brukt i steg 2 av utledningen |\n| $\\blacksquare$ | Markerer at et bevis er ferdig |\n| $K$, $R$, $D$ | Kjennskap, reklame og etterspørsel i eksempelet |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u$$\nKjerneregelen for elastisiteter. Elastisitetene ganges sammen langs kjeden.\n\n$$\\mathrm{El}_x f=\\frac{x}{f}\\,f'(x)$$\nDefinisjonen, som utledningen starter fra.\n\n$$f'(x)=g'\\big(u(x)\\big)\\cdot u'(x)$$\nDen vanlige kjerneregelen, som brukes i steg 2.\n\n$$\\frac{x}{g}g'u'\\cdot\\frac{u}{u}=\\left(\\frac{u}{g}g'\\right)\\left(\\frac{x}{u}u'\\right)$$\nTrikset i steg 3: gang med én, og grupper i to elastisiteter.\n\n$$\\mathrm{El}_x f=\\mathrm{El}_v g\\cdot\\mathrm{El}_u v\\cdot\\mathrm{El}_x u$$\nRegelen for en kjede med tre ledd.\n\n$$\\mathrm{El}_x\\ln\\big(x^{n}\\big)=\\frac{1}{\\ln x}$$\nEt resultat verdt å kjenne igjen: eksponenten forsvinner.\n\n$$\\Delta f\\ \\%\\approx \\mathrm{El}_x f\\cdot\\Delta x\\ \\%$$\nProsentanslaget. Godt for små endringer, dårlig for store."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
