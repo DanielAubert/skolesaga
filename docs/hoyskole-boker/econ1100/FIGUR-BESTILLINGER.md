@@ -69,6 +69,10 @@ med ny `id` og ny, skreddersydd `caption`.
 | F14 ✅ | 10.1 | `invers-speiling.svg` (LEVERT av B7 25. juli 2026 — bygget, wiret inn i kap. 10.1, lastet opp og verifisert 200) | En strengt voksende funksjon $f$ og dens inverse $g$ speilet om linjen $y=x$ (stiplet), med et punkt $(a,b)$ på $f$ og speilpunktet $(b,a)$ på $g$. Gjør både eksistenskravet (monotoni) og $g'(y)=1/f'(x)$ visuelt. |
 | F15 ✅ | 10.2 | `areal-mellom-kurver.svg` (LEVERT av B7 25. juli 2026 — bygget, wiret inn i kap. 10.2, lastet opp og verifisert 200) | To kurver med det skraverte arealet mellom dem fra $x=a$ til $x=b$, grensene merket på $x$-aksen. Brukes til arealtolkningen av det bestemte integralet. |
 
+| F18 ✅ | 4.5 | `drofting-case-4-5.svg` (LEVERT av verifiseringen 25. juli 2026 — erstatter gjenbruken av F6 i drillens gjennomregnete case) | Fasitfigur til skisse-steget (steg 7) i kap. 4.5: $f(x)=x^3-9x^2+24x-16$ med nullpunkt $(1,0)$, toppunkt $(2,4)$, vendepunkt $(3,2)$ og bunnpunkt $(4,0)$ (dobbelt nullpunkt — kurven berører aksen), og tangenten $y=9x-9$ fra steg 8 tegnet inn. |
+| F19 ✅ | `econ1100-4-prove` | `drofting-prove-4d.svg` (LEVERT av verifiseringen 25. juli 2026 — erstatter gjenbruken av F6 i prøve 4.D) | Fasitfigur til skisse-delpunktet i prøve 4.D: $f(x)=x^3-3x^2-9x+11$ med toppunkt $(-1,16)$, vendepunkt $(1,0)$, bunnpunkt $(3,-16)$, alle tre nullpunkter ($1$, $1\pm2\sqrt3$) og tangenten $y=-12x+12$ i vendepunktet. |
+| F20 ✅ | `econ1100-5-prove` | `indifferens-rotsum.svg` (LEVERT av verifiseringen 25. juli 2026 — erstatter gjenbruken av F9 i prøve 5.D) | Fasitfigur til skisse-delpunktet i prøve 5.D: indifferenskurven $\sqrt x+\sqrt y=6$ på $0<x<36$, like skalaer på begge akser (symmetrien om $y=x$ skal være synlig), de tre punktene $(4,16)$, $(9,9)$, $(16,4)$ markert med hjelpelinjer, og tangenten i $(9,9)$ med stigningstall $-1$. |
+
 | F16 ✅ | 11.2 | `oe1-drofting-skisse.svg` (LEVERT av B8 25. juli 2026 — bygget, wiret inn i løsningen til Oppgave 4d i øvingseksamen 1, lastet opp og verifisert 200) | Fasitfigur til skisse-delpunktet i ØE1 Oppgave 4: $f(x)=4\sqrt x-x$ på $[0,16]$ med begge nullpunkter merket, toppunktet $(4,4)$ med stiplede hjelpelinjer, og tangenten i $x=1$ (stigningstall 1) inntegnet. Konkav i hele området — ingen vendepunkt. |
 | F17 ✅ | 11.2 | `oe1-nivakurve.svg` (LEVERT av B8 25. juli 2026 — bygget, wiret inn i løsningen til Oppgave 5c i øvingseksamen 1, lastet opp og verifisert 200) | Fasitfigur til skisse-delpunktet i ØE1 Oppgave 5: nivåkurven $x^2y=12$ i første kvadrant med tangenten i $(2,3)$ (stigningstall $-3$). Fallende og konveks, med begge akser som asymptoter. |
 
@@ -147,7 +151,17 @@ Begge løsninger har figur-i-ord ved siden av SVG-en, så delpunktet er komplett
 for den som leser uten bilder.
 
 **Teknisk merknad fra figurbyggingen (B4):** unicode-senkeskrift for `y` finnes ikke
-(`&#8337;` er senket **e**, ikke y — feilen står fortsatt i `nivakurve-helning.svg`,
-der «F&#8242;&#8337;» rendres som *F′ₑ*). Bruk i stedet ekte `<tspan font-size="9"
+(`&#8337;` er senket **e**, ikke y). Bruk i stedet ekte `<tspan font-size="9"
 dy="3">y</tspan><tspan dy="-3"></tspan>`. Kontroller alltid figuren visuelt før
 opplasting: `qlmanage -t -s 700 -o <mappe> <fil>.svg` gir en PNG som kan leses.
+
+**Status 25. juli 2026 (verifisering Del 3–5):** feilen over er RETTET i
+`nivakurve-helning.svg` — teksten er nå `y′ = −F′ₓ / F′_y` med ekte `<tspan>`-senkeskrift,
+verifisert visuelt. I tillegg er F18–F20 bygget: tre skisse-delpunkter (kap. 4.5 steg 7,
+prøve 4.D e, prøve 5.D e) hadde fasitfigurer som viste en **annen funksjon** enn oppgavens
+(gjenbruk av F6/F9 med ærlig caption). Regelen «figuren skal stemme med kapitlets faktiske
+eksempel» krever kurven til oppgavens egen funksjon, så de tre er nå erstattet med
+kalibrerte fasitfigurer. `sjekk-figurer.py econ1100` er grønn (19 figurer, alle 200 +
+`image/svg+xml`). F6 og F9 er fortsatt i bruk i sine opprinnelige kapitler (4.4 og 5.2).
+F1 (kap. 3.2, `tangent-under-konveks.svg`) er fremdeles ikke bygget — ingen oppgave der
+lover figur, så porten er grønn, men bestillingen står.
