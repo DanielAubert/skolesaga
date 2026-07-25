@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nruter = [\"31\", \"20\", \"37\"]\nprint(ruter[1])\n```",
+    "options": [
+      "20",
+      "31",
+      "37",
+      "en feilmelding"
+    ],
+    "explanation": "Indeks 1 er det **andre** elementet, fordi tellingen starter på null. `31` er svaret hvis man leser indeks som telling; `37` er indeks 2."
+  },
+  {
+    "question": "En liste har 6 elementer. Hva er den største lovlige indeksen?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "0"
+    ],
+    "explanation": "Lengden er 6, men indeksene går fra 0 til `len(liste) - 1`, altså til 5. Å bruke 6 gir `IndexError`, og det er feilkode #5 i sin reneste form."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nmaalinger = [4, 7, 12]\nprint(maalinger)\n```",
+    "options": [
+      "[4, 7, 12]",
+      "4 7 12",
+      "[4,7,12]",
+      "(4, 7, 12)"
+    ],
+    "explanation": "`print` av hele lista viser hakeparenteser, komma **og** ett mellomrom etter hvert komma. `4 7 12` er svaret hvis man skriver ut elementene enkeltvis i stedet."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntall = [2, 4, 6]\nprint(tall[-1] + tall[0])\n```",
+    "options": [
+      "8",
+      "6",
+      "10",
+      "2"
+    ],
+    "explanation": "`tall[-1]` er siste element, altså 6, og `tall[0]` er 2. Svaret `10` kommer av å lese `-1` som nest siste; `6` av å lese `tall[0]` som elementet på plass én."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\na = [1, 2]\na.append([3, 4])\nprint(a)\n```",
+    "options": [
+      "[1, 2, [3, 4]]",
+      "[1, 2, 3, 4]",
+      "[[1, 2], [3, 4]]",
+      "[1, 2, 3]"
+    ],
+    "explanation": "`append` legger til **ett** element. Er elementet en liste, havner hele lista inn som ett element, med egne hakeparenteser. `[1, 2, 3, 4]` er det du får med `a + [3, 4]`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\na = [1, 2]\nb = [3, 4]\nprint(a + b)\n```",
+    "options": [
+      "[1, 2, 3, 4]",
+      "[4, 6]",
+      "[1, 2, [3, 4]]",
+      "[[1, 2], 3, 4]"
+    ],
+    "explanation": "`+` skjøter to lister til en ny med alle elementene etter hverandre. `[4, 6]` er svaret hvis man tror plusstegnet legger sammen parvis, noe det ikke gjør."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\npriser = [30, 45, 20]\ntotal = 0\nfor pris in priser:\n    total = total + pris\nprint(total)\n```",
+    "options": [
+      "95",
+      "75",
+      "50",
+      "3"
+    ],
+    "explanation": "Akkumulatormønsteret legger sammen alle tre prisene. `75` er svaret hvis man hopper over det første elementet, og `3` er antall elementer, ikke summen."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndyr = [\"rev\", \"elg\"]\nfor i in range(len(dyr)):\n    print(i, dyr[i])\n```",
+    "options": [
+      "0 rev\n1 elg",
+      "1 rev\n2 elg",
+      "rev 0\nelg 1",
+      "0 elg\n1 rev"
+    ],
+    "explanation": "`range(len(dyr))` gir 0 og 1 — nøyaktig de lovlige indeksene. `print(i, dyr[i])` skriver indeksen først og elementet etter, skilt av ett mellomrom."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nruter = [\"20\", \"31\"]\nprint(20 in ruter)\n```",
+    "options": [
+      "False",
+      "True",
+      "20",
+      "en feilmelding"
+    ],
+    "explanation": "Tallet `20` og teksten `\"20\"` er ikke samme verdi, så `in`-testen finner ingenting. `True` er svaret hvis man ser bort fra anførselstegnene — samme type-forveksling som feilkode #3."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntomme = []\nantall = 0\nfor e in tomme:\n    antall = antall + 1\nprint(antall)\n```",
+    "options": [
+      "0",
+      "1",
+      "en feilmelding",
+      "None"
+    ],
+    "explanation": "En løkke over en tom liste kjører **null** runder, så telleren beholder startverdien. Det er derfor tellermønsteret tåler tomme lister uten en eneste ekstra sjekk."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntall = [4, 11, 7, 20]\nstore = []\nfor t in tall:\n    if t > 9:\n        store.append(t)\nprint(store)\n```",
+    "options": [
+      "[11, 20]",
+      "[4, 7]",
+      "[11, 20, 7]",
+      "[1, 3]"
+    ],
+    "explanation": "Bygg-en-ny-liste-mønsteret tar med bare de som er større enn 9. `[4, 7]` er svaret hvis man snur betingelsen, og `[1, 3]` er indeksene til de riktige elementene."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nplasser = [12, 8, 5]\nplasser[1] = 99\nprint(plasser)\n```",
+    "options": [
+      "[12, 99, 5]",
+      "[99, 8, 5]",
+      "[12, 8, 99]",
+      "[12, 8, 5, 99]"
+    ],
+    "explanation": "Tilordning til `plasser[1]` bytter ut det **andre** elementet. `[12, 8, 5, 99]` er det du får av `append`, som legger til bakerst i stedet for å bytte ut."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nliste = [10, 20, 30, 40, 50]\nny = []\nfor i in range(0, len(liste), 2):\n    ny.append(liste[i])\nprint(ny)\n```",
+    "options": [
+      "[10, 30, 50]",
+      "[20, 40]",
+      "[10, 20, 30]",
+      "[0, 2, 4]"
+    ],
+    "explanation": "Steget 2 treffer indeksene 0, 2 og 4. `[20, 40]` er elementene på oddetallsindeks, og `[0, 2, 4]` er indeksene selv, ikke verdiene."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nverdier = [4, 8, 15]\nresultat = []\nfor i in range(len(verdier) - 1):\n    resultat.append(verdier[i + 1] - verdier[i])\nprint(resultat)\n```",
+    "options": [
+      "[4, 7]",
+      "[4, 7, 15]",
+      "[-4, -7]",
+      "[4, 8, 15]"
+    ],
+    "explanation": "Løkka regner avstanden til neste element, og tre tall gir to avstander. Minus én i grensen er nødvendig fordi `verdier[i + 1]` ellers ville pekt utenfor lista."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nblandet = [1, \"to\", 3.0]\nprint(blandet)\n```",
+    "options": [
+      "[1, 'to', 3.0]",
+      "[1, \"to\", 3.0]",
+      "[1, to, 3.0]",
+      "[1, 'to', 3]"
+    ],
+    "explanation": "Python viser tekster inne i en liste med **enkle** anførselstegn, og beholder `3.0` som desimaltall. I et auto-rettet felt er alle tre detaljene forskjellen på rett og galt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nliste = [5]\nprint(len(liste), liste[0], liste[-1])\n```",
+    "options": [
+      "1 5 5",
+      "1 5 1",
+      "5 5 5",
+      "1 0 5"
+    ],
+    "explanation": "Lista har ett element, så lengden er 1, og både første og siste element er det samme tallet. `1 5 1` er svaret hvis man leser `liste[-1]` som en indeks i stedet for et element."
+  },
+  {
+    "question": "Hva gjør `ledige.append(4)`?",
+    "options": [
+      "Legger tallet 4 bakerst i lista `ledige`",
+      "Lager en ny liste med 4 lagt til bakerst",
+      "Bytter ut det første elementet i `ledige` med 4",
+      "Setter inn tallet 4 fremst i lista `ledige`"
+    ],
+    "explanation": "`append` endrer lista på stedet og legger alltid til bakerst. Alternativet om en ny liste beskriver `ledige + [4]`, som lar den opprinnelige lista være urørt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nledige = [1]\nsvar = ledige.append(4)\nprint(svar)\n```",
+    "options": [
+      "None",
+      "[1, 4]",
+      "4",
+      "1"
+    ],
+    "explanation": "`append` endrer lista, men **returnerer ingenting**. Derfor er `svar` lik `None`. Å skrive `ledige = ledige.append(4)` er den vanlige varianten av samme feil, og den ødelegger hele lista."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\na = [1, 2]\nb = a\nb.append(3)\nprint(a)\n```",
+    "options": [
+      "[1, 2, 3]",
+      "[1, 2]",
+      "[3]",
+      "[1, 2, [3]]"
+    ],
+    "explanation": "`b = a` lager ikke en kopi, men et navn til på **samme** liste, så endringen sees begge veier. `[1, 2]` er svaret hvis man tror likhetstegnet kopierer — det er feilkode #15."
+  },
+  {
+    "question": "En funksjon starter med `beste = tallene[0]`. Hva skjer hvis den kalles med en tom liste?",
+    "options": [
+      "Programmet stopper med `IndexError`",
+      "Funksjonen returnerer `None` av seg selv",
+      "Funksjonen returnerer tallet 0 som startverdi",
+      "Løkka hopper over, og `beste` blir stående tom"
+    ],
+    "explanation": "Indeks 0 finnes ikke i en tom liste, så programmet stopper allerede på den linja. Det er feilkode #6, og løsningen er en tomsjekk øverst i funksjonen."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntall = [5, 3, 8, 1]\nresultat = []\ni = 0\nwhile i < len(tall):\n    resultat.append(tall[i])\n    i = i + 2\nprint(resultat)\n```",
+    "options": [
+      "[5, 8]",
+      "[5, 3, 8, 1]",
+      "[3, 1]",
+      "[5, 8, 1]"
+    ],
+    "explanation": "`i` øker med 2, så bare indeks 0 og 2 besøkes; ved `i = 4` er betingelsen usann. `[3, 1]` er elementene på oddetallsindeks, som løkka aldri kommer til."
+  },
+  {
+    "question": "Hvorfor er `beste = 0` en dårlig startverdi når du skal finne den største verdien i en liste?",
+    "options": [
+      "Fordi funksjonen svarer 0 når alle tallene er negative",
+      "Fordi 0 alltid er mindre enn det første elementet i lista",
+      "Fordi Python ikke tillater at en teller starter på null",
+      "Fordi startverdien må være et desimaltall for å kunne økes"
+    ],
+    "explanation": "Er alle målingene minusgrader, returnerer funksjonen en verdi som ikke finnes i dataene. Startverdien skal hentes fra dataene selv, typisk `tallene[0]` etter en tomsjekk."
+  }
+]
