@@ -930,7 +930,7 @@ const quizData_mat111uib: Record<string, QuizQuestion[]> = {
     {
       question: "Steg 2 (deriverbarhet i $0$): differansekvotienten for $f(x)=x^k\\sin(1/x^m)$, $f(0)=0$, er",
       options: ["$h^{k-1}\\sin(1/h^m)$", "$h^{k}\\sin(1/h^m)$", "$k h^{k-1}\\sin(1/h^m) - m h^{k-m-1}\\cos(1/h^m)$", "$h^{k-1}\\sin(1/h^{m-1})$"],
-      explanation: "$\\frac{f(h)-f(0)}{h} = \\frac{h^k\\sin(1/h^m)}{h} = h^{k-1}\\sin(1/h^m)$. Det tredje alternativet er derivertformelen for $x\\neq0$ — feil verktøy i punktet.",
+      explanation: "$\\frac{f(h)-f(0)}{h} = \\frac{h^k\\sin(1/h^m)}{h} = h^{k-1}\\sin(1/h^m)$. Svaret $k h^{k-1}\\sin(1/h^m) - m h^{k-m-1}\\cos(1/h^m)$ er derivertformelen for $x\\neq0$ — feil verktøy i punktet.",
     },
     {
       question: "$f(x)=x\\sin(1/x)$, $f(0)=0$. Fasitkonklusjonen i $0$ er:",
