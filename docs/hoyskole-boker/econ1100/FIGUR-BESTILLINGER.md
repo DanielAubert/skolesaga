@@ -63,8 +63,8 @@ med ny `id` og ny, skreddersydd `caption`.
 | F8 ✅ | 5.1 | `nivakurve-helning.svg` (LEVERT av B2 25. juli 2026 — bygget, wiret inn i kap. 5.1 og lastet opp til Storage, verifisert 200) | En nivåkurve $F(x,y)=c$ i $xy$-planet med tangenten i et markert punkt. Helningen merket som $y'=-F'_x/F'_y$, med stiplede hjelpelinjer til aksene. Økonomitolkningen (indifferenskurve / MRS) står i `caption`, ikke i figuren. |
 | F9 ✅ | 5.2 | `nivakurve-krumning.svg` (LEVERT av B2 25. juli 2026 — bygget, wiret inn i kap. 5.2 OG gjenbrukt som fasitfigur i `econ1100-5-prove` prøve 5.D, lastet opp til Storage, verifisert 200) | To nivåkurver ved siden av hverandre: én konveks ($y''>0$, avtakende marginal substitusjonsrate) og én konkav ($y''<0$), begge fallende, med tangenter i to punkter som viser hvordan helningen endrer seg. Bærer krumningsargumentet i kap. 5.2. |
 | F10 | 6.1 | `hesse-tre-utfall.svg` | Tre små paneler side ved side, hvert med nivåkurvebildet rundt et stasjonærpunkt: lukkede kurver rundt et **lokalt minimum** ($D>0$, $f''_{xx}>0$), lukkede kurver rundt et **lokalt maksimum** ($D>0$, $f''_{xx}<0$), og hyperbelformede kurver rundt et **sadelpunkt** ($D<0$). Ingen 3D-flate — nivåkurvespråket er allerede lært i Del 5. |
-| F11 | 8.2 | `tangering-budsjett.svg` | Budsjettlinjen $p_1x+p_2y=m$ og en indifferenskurve som tangerer den i $(x^*,y^*)$, med stiplede hjelpelinjer til aksene og tangeringsbetingelsen merket som «MRS = prisforhold». Bokas viktigste økonomifigur; gjenbrukes i 8.5, Del 8-prøvene og øvingseksamen 1 (Oppgave 3). |
-| F12 | 8.3 | `skyggepris-budsjettskift.svg` | Samme diagram som F11, men med budsjettlinjen skiftet utover ved økt $m$ og en ny tangering på en høyere indifferenskurve. Merket: «$dU^*/dm=\lambda$ — verdien av én krone til». Gjør skyggeprisen synlig. |
+| F11 ✅ | 8.2 | `tangering-budsjett.svg` (LEVERT av B4 25. juli 2026 — bygget, wiret inn i kap. 8.2, gjenbrukt som referansefigur i kap. 8.5 og som fasitfigur i `econ1100-8-prove` prøve 8.A, lastet opp til Storage og verifisert 200) | Budsjettlinjen $p_1x+p_2y=m$ og en indifferenskurve som tangerer den i $(x^*,y^*)$, med stiplede hjelpelinjer til aksene og tangeringsbetingelsen merket som «MRS = prisforhold». Bokas viktigste økonomifigur; gjenbrukes i 8.5, Del 8-prøvene og øvingseksamen 1 (Oppgave 3). |
+| F12 ✅ | 8.3 | `skyggepris-budsjettskift.svg` (LEVERT av B4 25. juli 2026 — bygget, wiret inn i kap. 8.3, lastet opp til Storage og verifisert 200) | Samme diagram som F11, men med budsjettlinjen skiftet utover ved økt $m$ og en ny tangering på en høyere indifferenskurve. Merket: «$dU^*/dm=\lambda$ — verdien av én krone til». Gjør skyggeprisen synlig. |
 | F13 | 9.2 | `isokvant-isokost.svg` | Isokvanten $F(K,L)=\bar Y$ med en isokostlinje $rK+wL=\text{konst.}$ som tangerer den i $(K^*,L^*)$; tangeringsbetingelsen $MP_K/MP_L=r/w$ merket. Akser $L$ (horisontalt) og $K$ (vertikalt). Gjenbrukes i Del 9-prøvene og øvingseksamen 3. |
 | F14 | 10.1 | `invers-speiling.svg` | En strengt voksende funksjon $f$ og dens inverse $g$ speilet om linjen $y=x$ (stiplet), med et punkt $(a,b)$ på $f$ og speilpunktet $(b,a)$ på $g$. Gjør både eksistenskravet (monotoni) og $g'(y)=1/f'(x)$ visuelt. |
 | F15 | 10.2 | `areal-mellom-kurver.svg` | To kurver med det skraverte arealet mellom dem fra $x=a$ til $x=b$, grensene merket på $x$-aksen. Brukes til arealtolkningen av det bestemte integralet. |
@@ -100,3 +100,18 @@ fortsatt og bør bygges i figurfasen. **NB for figurfasen:** worktreet
 at `sjekk-figurer.py` kan kjøres derfra. Opplasting gjøres med
 `python3 scripts/hoyskolebok/last-opp-figurer.py <arbeidstre> econ1100` (leser
 nøkler fra hovedtreets `.env.local`).
+
+**Status 25. juli 2026 (B4 — Del 8):** F11 og F12 er bygget, wiret inn og lastet opp;
+`sjekk-figurer.py econ1100` er grønn (10 figurreferanser, alle 200 + `image/svg+xml`).
+F11 er brukt tre steder med hver sin skreddersydde `caption`: som tangeringsbilde i
+kap. 8.2 (`econ1100-8-2-fig-tangering`), som referansefigur foran drilloppgavene i
+kap. 8.5 (`econ1100-8-5-fig-tangering`) og som fasitfigur til skisse-delpunktet i
+prøve 8.A (`econ1100-8-prove-p1-fig`). Prøve 8.A er dermed innfridd — delpunktet som
+sier «skisser budsjettlinjen og indifferenskurven» har både figur-i-ord og SVG.
+F12 bærer skyggepris-argumentet i kap. 8.3 (`econ1100-8-3-fig-skyggepris`).
+
+**Teknisk merknad fra figurbyggingen (B4):** unicode-senkeskrift for `y` finnes ikke
+(`&#8337;` er senket **e**, ikke y — feilen står fortsatt i `nivakurve-helning.svg`,
+der «F&#8242;&#8337;» rendres som *F′ₑ*). Bruk i stedet ekte `<tspan font-size="9"
+dy="3">y</tspan><tspan dy="-3"></tspan>`. Kontroller alltid figuren visuelt før
+opplasting: `qlmanage -t -s 700 -o <mappe> <fil>.svg` gir en PNG som kan leses.
