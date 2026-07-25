@@ -1,0 +1,323 @@
+{
+  "id": "econ1100-10-2",
+  "courseId": "econ1100",
+  "chapterNumber": "10.2",
+  "title": "Elementær integrasjon",
+  "description": "De tre antideriverte du trenger i ECON1100 — potenser, 1/x og e opphøyd i kx — pluss bestemte integraler, areal mellom kurver, og veien fra grensekostnad tilbake til kostnadsnivå. Integrasjonsteknikker er ikke pensum.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "finne antideriverte av potenser, av én delt på x og av eksponentialfunksjoner",
+    "regne ut bestemte integraler ved korrekt grenseinnsetting og kontrollere svaret ved derivasjon",
+    "finne arealet mellom to kurver og skille areal fra integral med fortegn",
+    "besvare et sant-eller-usant-delpunkt om integraler med utregningen synlig"
+  ],
+  "content": [
+    {
+      "id": "econ1100-10-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Det minst omfattende temaet i faget — og det med den klareste avgrensningen.**\n\n**Sjanger IT — elementær integrasjon** står i **5 av 16 sett** (31 prosent). I de gamle settene fra 2018 var integrasjon en egen storoppgave; i den moderne malen kommer den som **ett delpunkt i sant/usant-oppgaven**: «Avgjør om $\\int_a^b f(x)\\,dx$ er lik dette tallet.» Prioriteten er **kjenne**.\n\n**Avgrensningen er streng og verdt å merke seg.** Integrasjonsteknikker — substitusjon, delvis integrasjon, delbrøkoppspalting — er **ikke pensum** i ECON1100 og har null forekomster i arkivet. Du trenger tre antideriverte og evnen til å sette inn grenser. Det er alt.\n\n**Delpunktet ser slik ut:** regn ut integralet, sammenlign med den påståtte verdien, konkluder. Hele leveransen er utregningen — en påstand besvart med «usant» uten regnestykke gir null.\n\n**Sensors egen kontroll er verdt å låne:** deriver den antideriverte og se om du får integranden tilbake. Det tar fem sekunder og fanger nesten alle fortegn- og eksponentfeil.\n\nTidsanslaget er **45 minutter**.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-10-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.1](/bok/econ1100/econ1100-1-1) (derivasjonsreglene — integrasjon er derivasjon baklengs) og på [Ubestemt integral](/bok/r2/r2-2-2), [Bestemt integral som grenseverdi](/bok/r2/r2-2-4) og [Areal mellom kurver](/bok/r2/r2-2-7) fra R2.\n\n**Merk avgrensningen:** integrasjon ved substitusjon og delvis integrasjon er IKKE pensum i ECON1100. Møter du et integral som ser ut til å kreve dem, har du sannsynligvis lest oppgaven feil.\n\n**Sist du var her — de tre derivasjonsreglene alt bygger på:**\n\n$$\\frac{d}{dx}x^{n}=nx^{n-1};\\qquad \\frac{d}{dx}\\ln x=\\frac1x;\\qquad \\frac{d}{dx}e^{kx}=ke^{kx}$$"
+    },
+    {
+      "id": "econ1100-10-2-motivasjon",
+      "type": "text",
+      "content": "En bedrift kjenner grensekostnaden — hva den neste enheten koster — for hvert produksjonsnivå. Spørsmålet er hva de første hundre enhetene koster til sammen.\n\nGrensekostnaden er en derivert. Å legge sammen alle de små bidragene er å gå den andre veien: å finne funksjonen som har grensekostnaden som derivert. Det er integrasjon.\n\nI ECON1100 trenger du bare tre slike «baklengs-regler», og du trenger dem for å kunne avgjøre om et påstått tall stemmer."
+    },
+    {
+      "id": "econ1100-10-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De tre antideriverte (~14 min)"
+    },
+    {
+      "id": "econ1100-10-2-def-antiderivert",
+      "type": "definition",
+      "title": "Den antideriverte",
+      "content": "En antiderivert til $f$ er en funksjon som har $f$ som sin deriverte.\n\n$$F'(x)=f(x)\\ \\Longleftrightarrow\\ \\int f(x)\\,dx=F(x)+C$$\n\nKonstanten $C$ er med fordi enhver konstant forsvinner ved derivasjon — det finnes uendelig mange antideriverte, og de skiller seg bare med et konstantledd. I et **bestemt** integral faller $C$ bort av seg selv, siden den trekkes fra seg selv ved grenseinnsettingen."
+    },
+    {
+      "id": "econ1100-10-2-thm-tre",
+      "type": "theorem",
+      "title": "De tre antideriverte du trenger",
+      "content": "Hele integrasjonspensumet i ECON1100 er disse tre.\n\n$$\\int x^{n}\\,dx=\\frac{x^{n+1}}{n+1}+C\\quad (n\\ne -1)$$\n\n$$\\int \\frac{1}{x}\\,dx=\\ln\\lvert x\\rvert+C$$\n\n$$\\int e^{kx}\\,dx=\\frac{1}{k}e^{kx}+C\\quad (k\\ne 0)$$\n\n**Merk unntaket i den første:** for $n=-1$ ville nevneren blitt null. Det er nettopp derfor $\\int x^{-1}dx$ trenger sin egen regel — og den gir logaritmen, ikke en potens.\n\nI tillegg trenger du at integralet er **lineært**: en sum integreres ledd for ledd, og konstante faktorer settes utenfor."
+    },
+    {
+      "id": "econ1100-10-2-eks1",
+      "type": "example",
+      "title": "Eksempel 1: De tre reglene i arbeid",
+      "problem": "Finn de ubestemte integralene, og kontroller hvert svar ved derivasjon.\n\n**a)** $\\displaystyle\\int\\left(x^{2}-2x+5\\right)dx$\n\n**b)** $\\displaystyle\\int\\frac{3}{x}\\,dx$\n\n**c)** $\\displaystyle\\int e^{2x}\\,dx$\n\n**d)** $\\displaystyle\\int\\frac{1}{\\sqrt x}\\,dx$",
+      "solution": "**a)** Integrer ledd for ledd med potensregelen:\n\n$$\\int\\left(x^{2}-2x+5\\right)dx=\\frac{x^{3}}{3}-2\\cdot\\frac{x^{2}}{2}+5x+C=\\frac{x^{3}}{3}-x^{2}+5x+C$$\n\n*Kontroll ved derivasjon:* $\\dfrac{d}{dx}\\left(\\dfrac{x^{3}}{3}-x^{2}+5x\\right)=x^{2}-2x+5$ ✓\n\n**b)** Konstanten settes utenfor:\n\n$$\\int\\frac{3}{x}\\,dx=3\\int\\frac1x\\,dx=3\\ln\\lvert x\\rvert+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(3\\ln\\lvert x\\rvert\\right)=\\dfrac3x$ ✓\n\n**c)** Her er $k=2$:\n\n$$\\int e^{2x}\\,dx=\\frac12 e^{2x}+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(\\tfrac12 e^{2x}\\right)=\\tfrac12\\cdot 2e^{2x}=e^{2x}$ ✓\n\n*Merk hvor faktoren $\\tfrac12$ kommer fra:* derivasjon av $e^{2x}$ gir en ekstra faktor 2, så den antideriverte må ha $\\tfrac12$ for å veie den opp.\n\n**d)** Skriv om til potensform først — det er nesten alltid første grep:\n\n$$\\frac{1}{\\sqrt x}=x^{-1/2}$$\n\n$$\\int x^{-1/2}\\,dx=\\frac{x^{1/2}}{1/2}+C=2\\sqrt x+C$$\n\n*Mellomregning på eksponenten:* $-\\tfrac12+1=\\tfrac12$, og å dele på $\\tfrac12$ er å gange med 2.\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(2x^{1/2}\\right)=2\\cdot\\tfrac12 x^{-1/2}=\\dfrac{1}{\\sqrt x}$ ✓\n\n**Verbal konklusjon:** kontrollen ved derivasjon er gratis og fanger så godt som alle feil. Bruk den hver gang."
+    },
+    {
+      "id": "econ1100-10-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger IT — elementær integrasjon, i 5 av 16 sett, nesten alltid som del av sant/usant-oppgaven. Innstegsoppgave.) Finn de ubestemte integralene, og kontroller hvert svar ved derivasjon.\n\n**a)** $\\displaystyle\\int\\left(4x^{3}+2x\\right)dx$\n\n**b)** $\\displaystyle\\int\\frac{5}{x}\\,dx$\n\n**c)** $\\displaystyle\\int e^{-3x}\\,dx$\n\n**d)** $\\displaystyle\\int\\sqrt{x}\\,dx$",
+        "solution": "**a)**\n\n$$\\int\\left(4x^{3}+2x\\right)dx=4\\cdot\\frac{x^{4}}{4}+2\\cdot\\frac{x^{2}}{2}+C=x^{4}+x^{2}+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(x^{4}+x^{2}\\right)=4x^{3}+2x$ ✓\n\n**b)**\n\n$$\\int\\frac{5}{x}\\,dx=5\\ln\\lvert x\\rvert+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(5\\ln\\lvert x\\rvert\\right)=\\dfrac5x$ ✓\n\n**c)** Her er $k=-3$:\n\n$$\\int e^{-3x}\\,dx=-\\frac13 e^{-3x}+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(-\\tfrac13 e^{-3x}\\right)=-\\tfrac13\\cdot(-3)e^{-3x}=e^{-3x}$ ✓\n\n*Merk fortegnet:* faktoren blir $1/k=-\\tfrac13$, ikke $+\\tfrac13$.\n\n**d)** Skriv om: $\\sqrt x=x^{1/2}$.\n\n$$\\int x^{1/2}\\,dx=\\frac{x^{3/2}}{3/2}+C=\\frac23 x^{3/2}+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(\\tfrac23 x^{3/2}\\right)=\\tfrac23\\cdot\\tfrac32 x^{1/2}=\\sqrt x$ ✓",
+        "hints": [
+          "Skriv røtter og brøker om til potensform før du bruker potensregelen.",
+          "Konstante faktorer kan settes utenfor integraltegnet.",
+          "For $e^{kx}$ er den antideriverte $\\dfrac{1}{k}e^{kx}$ — også når $k$ er negativ."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Det bestemte integralet (~15 min)"
+    },
+    {
+      "id": "econ1100-10-2-def-bestemt",
+      "type": "definition",
+      "title": "Det bestemte integralet",
+      "content": "Det bestemte integralet er differansen mellom den antideriverte i de to grensene.\n\n$$\\int_a^b f(x)\\,dx=\\Big[F(x)\\Big]_a^b=F(b)-F(a)$$\n\nResultatet er et **tall**, ikke en funksjon, og integrasjonskonstanten faller bort fordi den trekkes fra seg selv. Geometrisk er tallet arealet mellom kurven og $x$-aksen fra $a$ til $b$, regnet med fortegn: bidrag under aksen teller negativt."
+    },
+    {
+      "id": "econ1100-10-2-eks2",
+      "type": "example",
+      "title": "Eksempel 2: Bestemte integraler",
+      "problem": "Regn ut.\n\n**a)** $\\displaystyle\\int_0^3\\left(x^{2}-2x+5\\right)dx$\n\n**b)** $\\displaystyle\\int_1^9\\frac{1}{\\sqrt x}\\,dx$\n\n**c)** $\\displaystyle\\int_1^{e^{2}}\\frac1x\\,dx$\n\n**d)** $\\displaystyle\\int_0^1 e^{2x}\\,dx$",
+      "solution": "**a)** Den antideriverte fant vi i Eksempel 1:\n\n$$\\int_0^3\\left(x^{2}-2x+5\\right)dx=\\left[\\frac{x^{3}}{3}-x^{2}+5x\\right]_0^3$$\n\n**Øvre grense:** $\\dfrac{27}{3}-9+15=9-9+15=15$\n\n**Nedre grense:** $0-0+0=0$\n\n$$=15-0=15$$\n\n**b)** Med $\\int x^{-1/2}dx=2\\sqrt x$:\n\n$$\\int_1^9\\frac{1}{\\sqrt x}\\,dx=\\Big[2\\sqrt x\\Big]_1^9=2\\cdot 3-2\\cdot 1=6-2=4$$\n\n**c)**\n\n$$\\int_1^{e^{2}}\\frac1x\\,dx=\\Big[\\ln x\\Big]_1^{e^{2}}=\\ln e^{2}-\\ln 1=2-0=2$$\n\n*Merk:* absoluttverditegnet er unødvendig her fordi begge grensene er positive, men det skader ikke å ha det med.\n\n**d)**\n\n$$\\int_0^1 e^{2x}\\,dx=\\left[\\frac12 e^{2x}\\right]_0^1=\\frac12 e^{2}-\\frac12 e^{0}=\\frac{e^{2}-1}{2}$$\n\n*Tallverdi:* $e^{2}\\approx 7{,}389$, så integralet er omtrent $3{,}19$.\n\n**Verbal konklusjon:** framgangsmåten er alltid den samme — finn den antideriverte, sett inn øvre grense, sett inn nedre grense, trekk fra. Regnefeil oppstår oftest i det siste steget, når to negative tall skal trekkes fra hverandre."
+    },
+    {
+      "id": "econ1100-10-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger IT.) Regn ut.\n\n**a)** $\\displaystyle\\int_1^4\\frac{1}{\\sqrt x}\\,dx$\n\n**b)** $\\displaystyle\\int_{-1}^{2}\\left(3x^{2}+1\\right)dx$\n\n**c)** $\\displaystyle\\int_1^{e}\\frac1x\\,dx$",
+        "solution": "**a)**\n\n$$\\int_1^4\\frac{1}{\\sqrt x}\\,dx=\\Big[2\\sqrt x\\Big]_1^4=2\\cdot 2-2\\cdot 1=4-2=2$$\n\n**b)**\n\n$$\\int_{-1}^{2}\\left(3x^{2}+1\\right)dx=\\Big[x^{3}+x\\Big]_{-1}^{2}$$\n\n**Øvre grense:** $8+2=10$\n\n**Nedre grense:** $(-1)^{3}+(-1)=-1-1=-2$\n\n$$=10-(-2)=12$$\n\n*Merk det siste steget:* å trekke fra et negativt tall er å legge til. Dette er den vanligste regnefeilen i sjangeren.\n\n**c)**\n\n$$\\int_1^{e}\\frac1x\\,dx=\\Big[\\ln x\\Big]_1^{e}=\\ln e-\\ln 1=1-0=1$$\n\n*Verdt å huske:* $\\int_1^{e}\\frac1x dx=1$ er en fin kontrollverdi å ha i hodet.",
+        "hints": [
+          "Skriv $1/\\sqrt x$ som $x^{-1/2}$ først.",
+          "Sett inn øvre grense, så nedre, og trekk fra — i den rekkefølgen.",
+          "Pass på fortegnene når nedre grense er negativ."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-2-def-areal",
+      "type": "definition",
+      "title": "Areal mellom to kurver",
+      "content": "Arealet mellom to kurver er integralet av differansen — den øverste minus den nederste.\n\n$$A=\\int_a^b\\big(f(x)-g(x)\\big)\\,dx,\\qquad f(x)\\ge g(x)\\ \\text{på }[a,b]$$\n\n**Framgangsmåten:** finn skjæringspunktene ved å løse $f(x)=g(x)$ — de gir grensene $a$ og $b$. Avgjør så hvilken kurve som ligger øverst, og integrer differansen. Er rekkefølgen snudd, får du samme tall med negativt fortegn, og et areal er aldri negativt."
+    },
+    {
+      "id": "econ1100-10-2-eks3",
+      "type": "example",
+      "title": "Eksempel 3: Areal mellom kurver",
+      "problem": "Finn arealet mellom kurvene $f(x)=6-x^{2}$ og $g(x)=2$.",
+      "solution": "**Steg 1 — finn skjæringspunktene.**\n\n$$6-x^{2}=2\\ \\Longrightarrow\\ x^{2}=4\\ \\Longrightarrow\\ x=-2\\ \\text{ eller }\\ x=2$$\n\nGrensene er altså $a=-2$ og $b=2$.\n\n**Steg 2 — hvilken ligger øverst?** Prøv et punkt mellom grensene, for eksempel $x=0$:\n\n$$f(0)=6,\\qquad g(0)=2$$\n\nParabelen ligger øverst på hele intervallet.\n\n**Steg 3 — integrer differansen.**\n\n$$A=\\int_{-2}^{2}\\big(6-x^{2}-2\\big)dx=\\int_{-2}^{2}\\big(4-x^{2}\\big)dx=\\left[4x-\\frac{x^{3}}{3}\\right]_{-2}^{2}$$\n\n**Øvre grense:** $8-\\dfrac83=\\dfrac{24-8}{3}=\\dfrac{16}{3}$\n\n**Nedre grense:** $-8+\\dfrac83=\\dfrac{-24+8}{3}=-\\dfrac{16}{3}$\n\n$$A=\\frac{16}{3}-\\left(-\\frac{16}{3}\\right)=\\frac{32}{3}\\approx 10{,}67$$\n\n*Rimelighetssjekk:* området ligger innenfor et rektangel med bredde 4 og høyde 4, altså areal 16. Svaret $10{,}67$ er under det, og over halvparten — som stemmer for en parabelform ✓\n\n**Verbal konklusjon:** arealet mellom kurvene er $\\tfrac{32}{3}$. Legg merke til at differansen $4-x^{2}$ er enklere å integrere enn hver kurve for seg — trekk alltid fra først, integrer etterpå."
+    },
+    {
+      "id": "econ1100-10-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger IT — areal mellom kurver.) Finn arealet mellom kurvene $f(x)=2x$ og $g(x)=x^{2}$.",
+        "solution": "**Steg 1 — skjæringspunktene.**\n\n$$2x=x^{2}\\ \\Longrightarrow\\ x^{2}-2x=0\\ \\Longrightarrow\\ x(x-2)=0$$\n\n$$x=0\\ \\text{ eller }\\ x=2$$\n\n**Steg 2 — hvilken ligger øverst?** Prøv $x=1$:\n\n$$f(1)=2,\\qquad g(1)=1$$\n\nDen rette linja ligger øverst på $[0,2]$.\n\n**Steg 3 — integrer differansen.**\n\n$$A=\\int_0^2\\big(2x-x^{2}\\big)dx=\\left[x^{2}-\\frac{x^{3}}{3}\\right]_0^2$$\n\n**Øvre grense:** $4-\\dfrac83=\\dfrac{12-8}{3}=\\dfrac43$\n\n**Nedre grense:** $0$\n\n$$A=\\frac43\\approx 1{,}33$$\n\n*Rimelighetssjekk:* trekanten under linja fra 0 til 2 har areal $\\tfrac12\\cdot 2\\cdot 4=4$, og parabelen tar en del av den. Svaret $\\tfrac43$ er en tredel av 4 — rimelig ✓\n\n**Konklusjon:** arealet er $\\tfrac43$.\n\n*Vanlig felle:* å integrere $x^{2}-2x$ i stedet og svare $-\\tfrac43$. Et areal er aldri negativt — får du negativt svar, har du snudd rekkefølgen.",
+        "hints": [
+          "Finn først hvor kurvene møtes: løs $2x=x^{2}$ ved å faktorisere.",
+          "Sjekk med et punkt mellom skjæringspunktene hvilken kurve som ligger øverst.",
+          "Integrer differansen «øverst minus nederst» — det gir ett enkelt polynom."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Eksamensformatet og økonomibruken (~16 min)"
+    },
+    {
+      "id": "econ1100-10-2-def-su-fremgangsmate",
+      "type": "definition",
+      "title": "Fremgangsmåten på et IT-delpunkt",
+      "content": "Fire steg løser standarddelpunktet i sant/usant-oppgaven.\n\n$$1)\\ \\text{finn antiderivert};\\quad 2)\\ \\text{sett inn grensene};\\quad 3)\\ \\text{sammenlign};\\quad 4)\\ \\text{konkluder}$$\n\n**Hele leveransen er utregningen.** «Usant» uten regnestykke gir null uttelling (feil #9 — ubegrunnet ja eller nei). Skriv ut den antideriverte, vis begge grenseinnsettingene, og si så om tallet stemmer."
+    },
+    {
+      "id": "econ1100-10-2-def-grensekostnad",
+      "type": "definition",
+      "title": "Integralet i økonomisk bruk",
+      "content": "Integralet av grensekostnaden fra null til $q$ er de variable kostnadene ved å produsere $q$ enheter.\n\n$$C(q)-C(0)=\\int_0^{q}C'(x)\\,dx$$\n\nGrensekostnaden $C'$ er den deriverte av kostnadsfunksjonen, så å integrere den er å gå tilbake. Samme logikk gjelder grenseinntekt og grenseprodukt: **den deriverte integreres opp igjen til nivået**."
+    },
+    {
+      "id": "econ1100-10-2-eks4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — sant eller usant",
+      "problem": "Avgjør om påstandene er sanne eller usanne, og begrunn ved å regne ut.\n\n**a)** «$\\displaystyle\\int_1^9\\frac{1}{\\sqrt x}\\,dx=4$»\n\n**b)** «$\\displaystyle\\int x^{-1}\\,dx=\\frac{x^{0}}{0}+C$»\n\n**c)** En bedrift har grensekostnad $C'(q)=3+0{,}2q$. «De variable kostnadene ved å produsere 10 enheter er 40.»",
+      "solution": "**a) Sann.**\n\n*Begrunnelse ved utregning:*\n\n$$\\int_1^9 x^{-1/2}\\,dx=\\Big[2\\sqrt x\\Big]_1^9=2\\sqrt 9-2\\sqrt 1=6-2=4\\ ✓$$\n\nPåstanden stemmer.\n\n*Kontroll av den antideriverte:* $\\dfrac{d}{dx}\\left(2x^{1/2}\\right)=x^{-1/2}$ ✓\n\n**b) Usann.**\n\n*Begrunnelse:* potensregelen $\\int x^{n}dx=\\dfrac{x^{n+1}}{n+1}$ krever $n\\ne -1$. Med $n=-1$ blir nevneren $n+1=0$, og uttrykket er udefinert — man kan ikke dele på null.\n\nDen riktige antideriverte er\n\n$$\\int x^{-1}\\,dx=\\ln\\lvert x\\rvert+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\ln\\lvert x\\rvert=\\dfrac1x=x^{-1}$ ✓\n\n**Dette er sjangerens klassiske felle:** potensregelen ser ut til å gjelde alle eksponenter, men det ene unntaket er nettopp det som testes.\n\n**c) Sann.**\n\n*Begrunnelse ved utregning:*\n\n$$\\int_0^{10}\\left(3+0{,}2q\\right)dq=\\Big[3q+0{,}1q^{2}\\Big]_0^{10}$$\n\n**Øvre grense:** $30+0{,}1\\cdot 100=30+10=40$\n\n**Nedre grense:** $0$\n\n$$=40\\ ✓$$\n\n*Merk hvor $0{,}1$ kom fra:* $\\int 0{,}2q\\,dq=0{,}2\\cdot\\dfrac{q^{2}}{2}=0{,}1q^{2}$.\n\n**Økonomisk lesning:** grensekostnaden starter på 3 og stiger til $3+0{,}2\\cdot 10=5$ ved ti enheter. Gjennomsnittet er 4, og ti enheter à 4 gir 40 — som stemmer, siden grensekostnaden her er lineær."
+    },
+    {
+      "id": "econ1100-10-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Alle svar skal begrunnes; en ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn ved utregning.\n\n**a)** «$\\displaystyle\\int_0^3\\left(x^{2}-2x+5\\right)dx=15$»\n\n**b)** «$\\displaystyle\\int e^{-2x}\\,dx=\\frac12 e^{-2x}+C$»\n\n**c)** «$\\displaystyle\\int_1^{e}\\frac1x\\,dx=e-1$»",
+        "solution": "**a) Sann.**\n\n*Begrunnelse ved utregning:*\n\n$$\\int_0^3\\left(x^{2}-2x+5\\right)dx=\\left[\\frac{x^{3}}{3}-x^{2}+5x\\right]_0^3$$\n\n**Øvre grense:** $\\dfrac{27}{3}-9+15=9-9+15=15$\n\n**Nedre grense:** $0$\n\n$$=15\\ ✓$$\n\n**b) Usann.**\n\n*Begrunnelse ved kontroll:* deriver det påståtte svaret.\n\n$$\\frac{d}{dx}\\left(\\frac12 e^{-2x}\\right)=\\frac12\\cdot(-2)e^{-2x}=-e^{-2x}$$\n\nDette er integranden med **feil fortegn**. Riktig antiderivert er\n\n$$\\int e^{-2x}\\,dx=-\\frac12 e^{-2x}+C$$\n\n*Kontroll:* $\\dfrac{d}{dx}\\left(-\\tfrac12 e^{-2x}\\right)=e^{-2x}$ ✓\n\n**Regelen er $\\dfrac1k e^{kx}$ med $k=-2$**, altså faktoren $-\\tfrac12$. Fortegnet følger med når $k$ er negativ — det glemmes ofte.\n\n**c) Usann.**\n\n*Begrunnelse ved utregning:*\n\n$$\\int_1^{e}\\frac1x\\,dx=\\Big[\\ln x\\Big]_1^{e}=\\ln e-\\ln 1=1-0=1$$\n\nRiktig svar er 1, ikke $e-1\\approx 1{,}718$.\n\n**Hva påstanden gjør galt:** den bruker den antideriverte til $e^{x}$ i stedet for til $1/x$. Antiderivert av $1/x$ er logaritmen, ikke eksponentialfunksjonen.",
+        "hints": [
+          "Regn ut hvert integral fra bunnen — ikke godta påstanden fordi den ser rimelig ut.",
+          "For b): deriver det påståtte svaret og se om du får integranden tilbake.",
+          "For c): hvilken funksjon har $1/x$ som derivert?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger IT — økonomisk innramming.) En bedrift har grensekostnad $C'(q)=4+0{,}6q$ og faste kostnader $C(0)=100$.\n\n**a)** Finn kostnadsfunksjonen $C(q)$.\n\n**b)** Hva koster det å produsere de første 20 enhetene?\n\n**c)** Hva koster enhetene fra 20 til 30?",
+        "solution": "**a)** Integrer grensekostnaden:\n\n$$C(q)=\\int\\left(4+0{,}6q\\right)dq=4q+0{,}3q^{2}+K$$\n\n*Mellomregning:* $\\int 0{,}6q\\,dq=0{,}6\\cdot\\dfrac{q^{2}}{2}=0{,}3q^{2}$.\n\n**Bestem konstanten** fra de faste kostnadene. Med $q=0$ er $C(0)=K=100$:\n\n$$\\boxed{C(q)=4q+0{,}3q^{2}+100}$$\n\n*Kontroll:* $C'(q)=4+0{,}6q$ ✓\n\n*Merk:* her har integrasjonskonstanten en konkret tolkning — den ER de faste kostnadene, altså det som påløper selv ved null produksjon.\n\n**b)** De **variable** kostnadene ved 20 enheter:\n\n$$\\int_0^{20}\\left(4+0{,}6q\\right)dq=\\Big[4q+0{,}3q^{2}\\Big]_0^{20}=80+0{,}3\\cdot 400=80+120=200$$\n\nSkal de faste kostnadene med, blir totalen\n\n$$C(20)=200+100=300$$\n\n**c)** Kostnaden ved enhetene fra 20 til 30 er integralet over nettopp det intervallet:\n\n$$\\int_{20}^{30}\\left(4+0{,}6q\\right)dq=\\Big[4q+0{,}3q^{2}\\Big]_{20}^{30}$$\n\n**Øvre grense:** $120+0{,}3\\cdot 900=120+270=390$\n\n**Nedre grense:** $80+120=200$\n\n$$=390-200=190$$\n\n*Kontroll via kostnadsfunksjonen:* $C(30)-C(20)=(390+100)-(300)=490-300=190$ ✓ De faste kostnadene faller bort i differansen, som de skal.\n\n**Verbal konklusjon:** de ti enhetene fra 20 til 30 koster 190, altså 19 per enhet i snitt — mer enn de første tjue, som kostet 10 per enhet i snitt. Det er stigende grensekostnad i praksis.",
+        "hints": [
+          "Integrer grensekostnaden ledd for ledd, og husk integrasjonskonstanten.",
+          "Konstanten bestemmes av $C(0)$, som er de faste kostnadene.",
+          "For c): integrer over intervallet $[20,30]$ direkte, eller regn $C(30)-C(20)$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger IT — med fortegn og areal.) La $f(x)=x^{2}-4$.\n\n**a)** Regn ut $\\displaystyle\\int_0^{3}f(x)\\,dx$.\n\n**b)** Finn **arealet** mellom kurven og $x$-aksen fra $x=0$ til $x=3$.\n\n**c)** Forklar hvorfor svarene i a) og b) er forskjellige.",
+        "solution": "**a)**\n\n$$\\int_0^{3}\\left(x^{2}-4\\right)dx=\\left[\\frac{x^{3}}{3}-4x\\right]_0^{3}=\\left(9-12\\right)-0=-3$$\n\n**b) Arealet er ikke det samme.** Kurven skjærer $x$-aksen der $x^{2}-4=0$, altså i $x=2$ (og $x=-2$, som ligger utenfor intervallet).\n\n**Del opp i to intervaller:**\n\nPå $[0,2]$ er $f(x)<0$ — prøv $x=0$: $f(0)=-4<0$. Her ligger kurven under aksen.\n\n$$\\int_0^{2}\\left(x^{2}-4\\right)dx=\\left[\\frac{x^{3}}{3}-4x\\right]_0^{2}=\\frac83-8=\\frac{8-24}{3}=-\\frac{16}{3}$$\n\nArealet av denne delen er tallverdien: $\\dfrac{16}{3}$.\n\nPå $[2,3]$ er $f(x)>0$ — prøv $x=3$: $f(3)=5>0$.\n\n$$\\int_2^{3}\\left(x^{2}-4\\right)dx=\\left(9-12\\right)-\\left(\\frac83-8\\right)=-3+\\frac{16}{3}=\\frac{-9+16}{3}=\\frac73$$\n\n**Samlet areal:**\n\n$$A=\\frac{16}{3}+\\frac73=\\frac{23}{3}\\approx 7{,}67$$\n\n*Kontroll av delregnestykket:* $-\\dfrac{16}{3}+\\dfrac73=\\dfrac{-16+7}{3}=-3$, som stemmer med a) ✓\n\n**c) Forklaringen.** Det bestemte integralet regner arealet **med fortegn**: bidrag der kurven ligger under $x$-aksen teller negativt. Fra 0 til 2 ligger kurven under aksen og bidrar med $-\\tfrac{16}{3}$; fra 2 til 3 ligger den over og bidrar med $+\\tfrac73$. Summen blir $-3$.\n\nEt **areal** er derimot alltid positivt. Da må hvert delintervall regnes for seg og tallverdiene legges sammen, som gir $\\tfrac{23}{3}$.\n\n**Praktisk regel:** spør oppgaven om «integralet», regner du rett fram. Spør den om «arealet», må du først finne nullpunktene og dele opp.\n\n*Denne forskjellen er nettopp det et sant/usant-delpunkt kan teste* — en påstand om at «arealet er $-3$» er usann av to grunner: tallet er feil, og et areal kan ikke være negativt.",
+        "hints": [
+          "Regn a) rett fram med den antideriverte til $x^{2}-4$.",
+          "For b): finn først hvor kurven skjærer $x$-aksen innenfor intervallet.",
+          "Del opp i intervaller der kurven har fast fortegn, og legg sammen tallverdiene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i integrasjon",
+      "content": "- **Å bruke potensregelen på $x^{-1}$.** Regelen $\\int x^{n}dx=\\dfrac{x^{n+1}}{n+1}$ krever $n\\ne -1$, ellers deler du på null. Riktig svar er $\\ln\\lvert x\\rvert+C$. Dette er sjangerens mest testede felle.\n- **Fortegnsfeil i $\\int e^{kx}dx$ når $k$ er negativ.** Faktoren er $\\dfrac1k$, så $k=-2$ gir $-\\tfrac12 e^{-2x}$, ikke $+\\tfrac12$. Kontroller ved derivasjon.\n- **Regnefeil i grenseinnsettingen.** Er nedre grense negativ, blir det ofte minus foran en parentes med minus inni. Skriv opp $F(b)$ og $F(a)$ hver for seg før du trekker fra.\n- **Å forveksle integral og areal.** Integralet regner med fortegn; arealet gjør ikke det. Ligger kurven under aksen på deler av intervallet, må du dele opp.\n- **Å lete etter en teknikk som ikke er pensum.** Substitusjon og delvis integrasjon inngår ikke i ECON1100. Ser et integral ut til å kreve dem, har du sannsynligvis lest oppgaven feil — skriv om integranden til potensform og se etter."
+    },
+    {
+      "id": "econ1100-10-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-10-2-bb-potensregel",
+      "type": "definition",
+      "title": "Potensregelen for integrasjon",
+      "content": "Den første av de tre antideriverte — med sitt ene unntak.\n\n$$\\int x^{n}\\,dx=\\frac{x^{n+1}}{n+1}+C\\quad (n\\ne -1)$$\n\nLegg til én på eksponenten og del på den nye eksponenten. Unntaket $n=-1$ ville gitt null i nevneren."
+    },
+    {
+      "id": "econ1100-10-2-bb-logaritme",
+      "type": "definition",
+      "title": "Logaritmeregelen",
+      "content": "Regelen som dekker unntaket i potensregelen.\n\n$$\\int\\frac1x\\,dx=\\ln\\lvert x\\rvert+C$$\n\nAbsoluttverdien er med fordi $1/x$ også er definert for negative $x$, mens logaritmen bare tar positive argumenter."
+    },
+    {
+      "id": "econ1100-10-2-bb-eksponential",
+      "type": "definition",
+      "title": "Eksponentialregelen",
+      "content": "Den tredje antideriverte, med faktoren som veier opp kjerneregelen.\n\n$$\\int e^{kx}\\,dx=\\frac1k e^{kx}+C\\quad (k\\ne 0)$$\n\nEr $k$ negativ, blir faktoren negativ: $\\int e^{-3x}dx=-\\tfrac13 e^{-3x}+C$."
+    },
+    {
+      "id": "econ1100-10-2-bb-bestemt",
+      "type": "definition",
+      "title": "Det bestemte integralet",
+      "content": "Fra funksjon til tall, ved å sette inn to grenser.\n\n$$\\int_a^b f(x)\\,dx=F(b)-F(a)$$\n\nIntegrasjonskonstanten faller bort fordi den trekkes fra seg selv. Skriv opp $F(b)$ og $F(a)$ hver for seg før du trekker fra."
+    },
+    {
+      "id": "econ1100-10-2-bb-linearitet",
+      "type": "definition",
+      "title": "Integralet er lineært",
+      "content": "Derfor kan sammensatte uttrykk tas ledd for ledd.\n\n$$\\int\\big(af(x)+bg(x)\\big)dx=a\\int f(x)\\,dx+b\\int g(x)\\,dx$$\n\nKonstante faktorer settes utenfor; ledd i en sum integreres hver for seg."
+    },
+    {
+      "id": "econ1100-10-2-bb-kontrollen",
+      "type": "definition",
+      "title": "Sensors egen kontroll",
+      "content": "Den raskeste feilsjekken som finnes i dette temaet.\n\n$$\\frac{d}{dx}F(x)\\overset{?}{=}f(x)$$\n\nDeriver den antideriverte og se om du får integranden tilbake. Fanger nesten alle fortegn- og eksponentfeil på fem sekunder."
+    },
+    {
+      "id": "econ1100-10-2-bb-areal-kurver",
+      "type": "definition",
+      "title": "Areal mellom kurver",
+      "content": "Øverste minus nederste, integrert mellom skjæringspunktene.\n\n$$A=\\int_a^b\\big(f(x)-g(x)\\big)dx,\\qquad f\\ge g\\ \\text{på }[a,b]$$\n\nSkjæringspunktene finnes ved å løse $f(x)=g(x)$. Får du negativt svar, har du snudd rekkefølgen."
+    },
+    {
+      "id": "econ1100-10-2-bb-areal-fortegn",
+      "type": "definition",
+      "title": "Integral mot areal",
+      "content": "De to er ikke det samme når kurven krysser aksen.\n\n$$\\int_a^b f\\,dx\\ \\text{regner med fortegn};\\qquad \\text{areal}=\\sum\\lvert\\text{delintegraler}\\rvert$$\n\nSpør oppgaven om areal, må du først finne nullpunktene og dele opp intervallet."
+    },
+    {
+      "id": "econ1100-10-2-bb-potensform",
+      "type": "definition",
+      "title": "Skriv om til potensform først",
+      "content": "Første grep på nesten enhver integrand som ser vanskelig ut.\n\n$$\\frac{1}{\\sqrt x}=x^{-1/2};\\qquad \\sqrt[3]{x^{2}}=x^{2/3};\\qquad \\frac{1}{x^{3}}=x^{-3}$$\n\nEtter omskrivingen er potensregelen som regel alt du trenger."
+    },
+    {
+      "id": "econ1100-10-2-bb-ikke-pensum",
+      "type": "definition",
+      "title": "Det som ikke er pensum",
+      "content": "Avgrensningen som sparer deg for arbeid.\n\n$$\\text{substitusjon, delvis integrasjon, delbrøk: ikke pensum i ECON1100}$$\n\nNull forekomster i alle 16 sett. Ser et integral ut til å kreve dem, har du lest oppgaven feil."
+    },
+    {
+      "id": "econ1100-10-2-bb-okonomi",
+      "type": "definition",
+      "title": "Fra grensestørrelse til nivå",
+      "content": "Integralet i sin økonomiske rolle.\n\n$$C(q)-C(0)=\\int_0^{q}C'(x)\\,dx$$\n\nGrensekostnaden integreres opp til de variable kostnadene. Integrasjonskonstanten er de faste kostnadene."
+    },
+    {
+      "id": "econ1100-10-2-bb-fire-steg",
+      "type": "definition",
+      "title": "IT-delpunktet i fire steg",
+      "content": "Hele sjangeren, slik den skal føres.\n\n$$1)\\ \\text{antiderivert};\\quad 2)\\ \\text{grenser inn};\\quad 3)\\ \\text{sammenlign};\\quad 4)\\ \\text{konkluder}$$\n\nHele leveransen er utregningen. En konklusjon uten regnestykke gir null uttelling."
+    },
+    {
+      "id": "econ1100-10-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-10-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1).\n\n**1.** Deriver $f(x)=\\dfrac{x^{3}}{3}-x^{2}+5x$.\n\n*Svar:* $f'(x)=x^{2}-2x+5$.\n\n**2.** Deriver $f(x)=\\ln\\lvert x\\rvert$.\n\n*Svar:* $f'(x)=\\dfrac1x$.\n\n**3.** Deriver $f(x)=\\tfrac12 e^{2x}$.\n\n*Svar:* $f'(x)=e^{2x}$ — kjerneregelen gir faktoren 2, som forkorter mot $\\tfrac12$.\n\n**4.** Skriv $\\dfrac{1}{\\sqrt x}$ på potensform.\n\n*Svar:* $x^{-1/2}$.\n\n**5.** Regn ut $\\ln e^{2}$.\n\n*Svar:* 2 — logaritmen og eksponentialfunksjonen er hverandres inverse ([kap. 10.1](/bok/econ1100/econ1100-10-1)).\n\n**6.** Løs $x^{2}=4$.\n\n*Svar:* $x=2$ eller $x=-2$.\n\n**7.** Regn ut $9-\\dfrac83$.\n\n*Svar:* $\\dfrac{27-8}{3}=\\dfrac{19}{3}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-10-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-10-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\int f(x)\\,dx$ | Det ubestemte integralet — familien av antideriverte |\n| $\\int_a^b f(x)\\,dx$ | Det bestemte integralet — et tall |\n| $F(x)$ | En antiderivert til $f$, altså $F'=f$ |\n| $C$, $K$ | Integrasjonskonstanten |\n| $a$, $b$ | Nedre og øvre integrasjonsgrense |\n| $\\left[F(x)\\right]_a^b$ | Notasjon for $F(b)-F(a)$ |\n| $\\lvert x\\rvert$ | Absoluttverdien, nødvendig i $\\ln\\lvert x\\rvert$ |\n| $q$ | Produsert mengde, i den økonomiske innrammingen |\n| $C'(q)$ | Grensekostnaden |\n\n**Formler i dette delkapitlet:**\n\n$$\\int x^{n}\\,dx=\\frac{x^{n+1}}{n+1}+C\\quad (n\\ne -1)$$\nPotensregelen. Unntaket $n=-1$ er det som oftest testes.\n\n$$\\int\\frac1x\\,dx=\\ln\\lvert x\\rvert+C$$\nRegelen som dekker unntaket. Absoluttverdien hører med.\n\n$$\\int e^{kx}\\,dx=\\frac1k e^{kx}+C\\quad (k\\ne 0)$$\nEksponentialregelen. Faktoren blir negativ når $k$ er negativ.\n\n$$\\int_a^b f(x)\\,dx=F(b)-F(a)$$\nDet bestemte integralet. Konstanten faller bort.\n\n$$A=\\int_a^b\\big(f(x)-g(x)\\big)dx,\\qquad f\\ge g$$\nAreal mellom kurver. Grensene er skjæringspunktene.\n\n$$C(q)-C(0)=\\int_0^{q}C'(x)\\,dx$$\nFra grensekostnad til variable kostnader."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
