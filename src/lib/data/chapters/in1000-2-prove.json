@@ -1,0 +1,137 @@
+{
+ "id": "in1000-2-prove",
+ "courseId": "in1000",
+ "chapterNumber": "2.P",
+ "title": "Prøver til del 2: Funksjoner",
+ "description": "Fire prøver på til sammen 100 minutter som dekker definisjon og kall, return og None, flagg med tidlig retur og scope — med full fasit, poengfordeling og selvdiagnose.",
+ "estimatedMinutes": 100,
+ "competenceGoals": [
+  "kunne angi nøyaktig hva et program med funksjonskall skriver ut",
+  "kunne skrive en liten funksjon med flagg og tidlig retur i sensors grunnform",
+  "kunne avgjøre om en tilordning inne i en funksjon er lokal eller ikke",
+  "kunne kjenne igjen de feilene som koster flest poeng på Oppgave 3"
+ ],
+ "content": [
+  {
+   "id": "in1000-2-prove-1",
+   "type": "tip",
+   "title": "Fire prøver til del 2 — dekning og tidsbruk",
+   "content": "Denne delen har **4 prøver à 20, 30, 20 og 30 minutter** — til sammen 100\nminutter. De kan trygt deles over flere kvelder: **én prøve per økt** er en helt\nvanlig og fornuftig rytme.\n\n| Prøve | Dekker | Tid |\n|---|---|---|\n| 2.A | Definere og kalle, `return`, `None`, flere returverdier ([kap. 2.1](/bok/in1000/in1000-2-1)) | 20 min |\n| 2.B | Skriv funksjonen — flagg med tidlig retur ([kap. 2.1](/bok/in1000/in1000-2-1)) | 30 min |\n| 2.C | Scope: lokal mot ytre variabel ([kap. 2.2](/bok/in1000/in1000-2-2)) | 20 min |\n| 2.D | Blandet, på tvers av hele delen | 30 min |\n\nPrøvene treffer to av eksamenssjangrene. **Sjanger A — kodeforståelse**, altså\n«hva skriver dette programmet ut?», er formen Oppgave 1 har, og den rettes\nmaskinelt i de nyere settene: skriv **eksakt** verdi, riktig type, ingen pynt.\n**Sjanger C — skriv en liten funksjon** er formen Oppgave 3 har, og den rettes\nav et menneske som gir delvis uttelling for riktig struktur.\n\n**Flervalgsoppgavene bor to steder.** De faste, statiske flervalgene ligger inne\ni prøve 2.D under. Vil du ha flere, tar du den interaktive quizen som hører til\nhvert kapittel — der stokkes rekkefølgen hver gang.\n\nSkriv svarene på papir før du åpner fasiten. På eksamen har du ingen maskin å\nprøve koden på, så det er nettopp denne vanen prøvene skal bygge. Fasiten ligger\ni en egen boks under hver prøve, slik at du ikke ser den ved et uhell."
+  },
+  {
+   "id": "in1000-2-prove-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nHele del 2: [kap. 2.1 — Funksjoner: def, parametere og return](/bok/in1000/in1000-2-1)\nog [kap. 2.2 — Funksjonssamarbeid og scope](/bok/in1000/in1000-2-2). Under dem\nligger løkkene og betingelsene fra\n[kap. 1.3](/bok/in1000/in1000-1-3) og [kap. 1.2](/bok/in1000/in1000-1-2).\n\nDe fem tingene prøvene tester hardest:\n\n- `return` avslutter funksjonen **umiddelbart**, og gir verdien tilbake til\n  kallstedet,\n- en funksjon uten `return` gir **`None`** — også når den regnet riktig,\n- **flagg med tidlig retur**: `return False` ved første moteksempel inne i\n  løkka, `return True` **etter** løkka (feil #7 er å bytte om på det),\n- en tilordning inne i en funksjon lager en **lokal** variabel, og endrer ikke\n  den ytre med samme navn (feil #12),\n- argumentene fylles inn i parameterne i **rekkefølge** — Python vet ingenting\n  om hva navnene betyr.\n\nTrenger du å friske opp ett av punktene, gjør det før du starter klokka."
+  },
+  {
+   "id": "in1000-2-prove-coll-p1",
+   "type": "collapsible",
+   "title": "Prøve 2.A — Definere og kalle",
+   "buttonText": "Vis prøve 1",
+   "content": [
+    {
+     "id": "in1000-2-prove-cp1",
+     "type": "text",
+     "content": "**Prøve 2.A — Definere og kalle** — 20 minutter. Seks sporingsoppgaver om `return`, `None`, argumentrekkefølge og flere returverdier.\n\n\nTotalt 12 poeng. Skriv utskriften nøyaktig slik terminalen viser den — riktig type, ingen pynt, riktige mellomrom.\n\n\n**Oppgave 1** (1 p). Hva skriver programmet ut?\n\n```python\ndef dobbel(tall):\n    return tall * 2\n\nprint(dobbel(6))\n```\n\n**Oppgave 2** (2 p). Hva skriver programmet ut?\n\n```python\ndef legg_sammen(a, b):\n    resultat = a + b\n\nsvar = legg_sammen(3, 4)\nprint(svar)\n```\n\n**Oppgave 3** (2 p). Hva skriver programmet ut?\n\n```python\ndef status(ledige):\n    if ledige == 0:\n        return \"fullt\"\n    elif ledige < 5:\n        return \"nesten fullt\"\n    return \"god plass\"\n\nprint(status(0), status(3), status(9))\n```\n\n**Oppgave 4** (2 p). Hva skriver programmet ut?\n\n```python\ndef melding(sted, tid):\n    return sted + \" klokka \" + tid\n\nprint(melding(\"kantina\", \"12\"))\nprint(melding(\"12\", \"kantina\"))\n```\n\n**Oppgave 5** (2 p). Hva skriver programmet ut?\n\n```python\ndef del_opp(minutter):\n    return minutter // 60, minutter % 60\n\ntimer, rest = del_opp(135)\nprint(timer, rest)\nprint(del_opp(90))\n```\n\n**Oppgave 6** (3 p). Hva skriver programmet ut?\n\n```python\ndef finn(tekst):\n    for tegn in tekst:\n        if tegn == \"-\":\n            return \"har bindestrek\"\n    return \"ingen bindestrek\"\n\nprint(finn(\"sykkel-utleie\"))\nprint(finn(\"resirkulering\"))\n```"
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-coll-f1",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 2.A — Definere og kalle",
+   "buttonText": "Vis fasit 1",
+   "content": [
+    {
+     "id": "in1000-2-prove-cf1",
+     "type": "text",
+     "content": "**Fasit — Prøve 2.A — Definere og kalle.** Utskriftene under er kjørt, ikke gjettet. Riktig utskrift teller; delvis riktig sporing gir delvis uttelling.\n\n\n**Oppgave 1** (1 p):\n\n```\n12\n```\n\nKallet regnes ut, og `print` viser returverdien.\n\n**Oppgave 2** (2 p):\n\n```\nNone\n```\n\nFunksjonen regner riktig, men mangler `return` — så kallet gir `None`. Dette er den feilen som er vanskeligst å finne, fordi den ikke stopper noe der den ble gjort.\n\n**Oppgave 3** (2 p):\n\n```\nfullt nesten fullt god plass\n```\n\nTre kall på samme linje, skilt av ett mellomrom hver. Siste linje i funksjonen trenger ingen `else`: kommer programmet dit, har ingen tidligere `return` kjørt.\n\n**Oppgave 4** (2 p):\n\n```\nkantina klokka 12\n12 klokka kantina\n```\n\nArgumentene fylles inn i **rekkefølge**. Den andre linja er ikke en feilmelding, bare et meningsløst svar — og det er nettopp derfor rekkefølgefeil er så lette å overse.\n\n**Oppgave 5** (2 p):\n\n```\n2 15\n(1, 30)\n```\n\n135 minutter er to timer og 15 minutter. Siste linje tar ikke imot verdiene med to navn, og da viser Python dem samlet som et par i parentes.\n\n**Oppgave 6** (3 p):\n\n```\nhar bindestrek\ningen bindestrek\n```\n\nFørste kall returnerer så snart bindestreken dukker opp, og ser aldri på resten av teksten. Andre kall går gjennom hele teksten uten treff, og først da kjøres linja etter løkka.\n\n**Selvdiagnose — kryss av:**\n\n☐ Lette du etter et `return` i hver funksjon før du svarte?\n☐ Skrev du `None` med stor forbokstav, slik Python gjør?\n☐ Husket du at `print` setter ett mellomrom mellom argumenter?\n☐ Så du hvor `return` sto i forhold til løkka i siste oppgave?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-coll-p2",
+   "type": "collapsible",
+   "title": "Prøve 2.B — Skriv funksjonen",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1000-2-prove-cp2",
+     "type": "text",
+     "content": "**Prøve 2.B — Skriv funksjonen** — 30 minutter. Tre små funksjoner i sjanger C, alle bygd på flagg med tidlig retur.\n\n\nTotalt 18 poeng. Skriv kort og eksplisitt kode: løkke, `if` og `return`. Ingen snarveier — grunnformen er den som gir uttelling.\n\n\nEn resirkuleringsstasjon merker hver kasse med en **kode**, som er en tekst. Alle tre oppgavene handler om å undersøke slike koder.\n\n**Oppgave 1** (5 p). Skriv funksjonen `har_siffer(kode)` som returnerer `True` hvis minst ett tegn i `kode` er et siffer, og `False` ellers. Et tegn er et siffer når det ligger mellom `\"0\"` og `\"9\"`.\n\n**Oppgave 2** (5 p). Skriv funksjonen `bare_smaa(tekst)` som returnerer `True` hvis alle tegnene i `tekst` er små bokstaver mellom `\"a\"` og `\"z\"`, og `False` ellers.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer den for den tomme teksten `\"\"`, og hvorfor?\n\n**Oppgave 3** (8 p). En kode er **gyldig** når den både inneholder minst ett siffer og ikke inneholder mellomrom.\n\n**a)** Skriv `uten_mellomrom(kode)` som returnerer `True` hvis koden ikke inneholder mellomrom.\n\n**b)** Skriv `gyldig_kode(kode)` som bruker `har_siffer` fra oppgave 1 og `uten_mellomrom` fra deloppgave a, og returnerer `True` bare hvis begge kravene er oppfylt.\n\n**c)** Forklar i én setning hvorfor det lønner seg å dele opp i tre funksjoner i stedet for å skrive alt i én."
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-coll-f2",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 2.B — Skriv funksjonen",
+   "buttonText": "Vis fasit 2",
+   "content": [
+    {
+     "id": "in1000-2-prove-cf2",
+     "type": "text",
+     "content": "**Fasit — Prøve 2.B — Skriv funksjonen.** All kode under er kjørt. Riktig struktur gir god uttelling selv om en detalj er feil, og deloppgavene rettes uavhengig av hverandre.\n\n\n**Oppgave 1** (5 p). Dette er «finnes det noen»-mønsteret: svar `True` ved første treff, `False` først etter løkka.\n\n```python\ndef har_siffer(kode):\n    for tegn in kode:\n        if tegn >= \"0\" and tegn <= \"9\":\n            return True\n    return False\n\nprint(har_siffer(\"plast7\"))\nprint(har_siffer(\"plast\"))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\n**Slik gir det poeng:** løkka over tegnene (2 p), riktig sifferbetingelse (1 p), `return True` inne i løkka (1 p) og `return False` **etter** løkka (1 p). Har du de to `return`-ene riktig plassert, men en litt annen sifferbetingelse, er strukturen riktig og trekket lite.\n\n**Oppgave 2** (5 p).\n\n**a)** Nå er spørsmålet snudd: du leter etter et **moteksempel**.\n\n```python\ndef bare_smaa(tekst):\n    for tegn in tekst:\n        if tegn < \"a\" or tegn > \"z\":\n            return False\n    return True\n\nprint(bare_smaa(\"kantine\"))\nprint(bare_smaa(\"Kantine\"))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\n**b)** Den returnerer `True`. Løkka kjører null ganger over en tom tekst, så programmet går rett til `return True` etter løkka.\n\nDet er et rimelig svar — en tom tekst inneholder ingen tegn som bryter kravet. Men merk at du fikk svaret **gratis** av mønsteret, ikke av en egen sjekk. Å kontrollere hva funksjonen din gjør med tom inndata er feilkode #6, og en fast kilde til poengtap.\n\n**Oppgave 3** (8 p).\n\n**a)** og **b)** — tre korte funksjoner der den siste bruker de to andre:\n\n```python\ndef har_siffer(kode):\n    for tegn in kode:\n        if tegn >= \"0\" and tegn <= \"9\":\n            return True\n    return False\n\ndef uten_mellomrom(kode):\n    for tegn in kode:\n        if tegn == \" \":\n            return False\n    return True\n\ndef gyldig_kode(kode):\n    if har_siffer(kode) and uten_mellomrom(kode):\n        return True\n    return False\n\nprint(gyldig_kode(\"boks12\"))\nprint(gyldig_kode(\"boks 12\"))\nprint(gyldig_kode(\"boks\"))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\n```\n\nLegg merke til at `gyldig_kode` kunne vært skrevet enda kortere som\n`return har_siffer(kode) and uten_mellomrom(kode)`. Begge formene er riktige og\ngir full uttelling; den lange er lettere å lese og lettere å spore.\n\n**c)** Fordi hver funksjon svarer på ett spørsmål og kan rettes for seg. Får du\ndelvis uttelling per deloppgave, betyr det at en `har_siffer` som virker, gir\npoeng selv om `gyldig_kode` skulle bli feil — og på eksamen har du dessuten lov\ntil å **kalle en funksjon oppgaveteksten beskriver** selv om du ikke selv rakk\nå skrive den.\n\n**Selvdiagnose — kryss av:**\n\n☐ Sto `return` for «hele samlingen»-svaret **etter** løkka, ikke inne i den?\n☐ Returnerte funksjonene en verdi, i stedet for å skrive den ut?\n☐ Sjekket du hva funksjonen gjør med tom tekst?\n☐ Brukte du bare løkke, `if` og `return` — ingen snarveier?\n☐ Ga du hjelpefunksjonene navn som sier hva de svarer på?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-coll-p3",
+   "type": "collapsible",
+   "title": "Prøve 2.C — Scope",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1000-2-prove-cp3",
+     "type": "text",
+     "content": "**Prøve 2.C — Scope** — 20 minutter. Seks sporingsoppgaver om hva som er synlig hvor, og hva en tilordning inne i en funksjon egentlig gjør.\n\n\nTotalt 13 poeng. Skriv utskriften nøyaktig slik terminalen viser den — riktig type, ingen pynt, riktige mellomrom.\n\n\n**Oppgave 1** (2 p). Hva skriver programmet ut?\n\n```python\nantall = 5\n\ndef nullstill():\n    antall = 0\n    return antall\n\nprint(nullstill(), antall)\n```\n\n**Oppgave 2** (2 p). Hva skriver programmet ut?\n\n```python\ngrense = 10\n\ndef over_grensen(x):\n    return x > grense\n\nprint(over_grensen(12), over_grensen(3))\n```\n\n**Oppgave 3** (2 p). Hva skriver programmet ut?\n\n```python\nnavn = \"utsiden\"\n\ndef vis(navn):\n    navn = navn + \"!\"\n    return navn\n\nprint(vis(\"innsiden\"))\nprint(navn)\n```\n\n**Oppgave 4** (2 p). Hva skriver programmet ut?\n\n```python\ndef en():\n    tall = 1\n    return tall\n\ndef to():\n    tall = 2\n    return tall\n\nprint(en(), to(), en())\n```\n\n**Oppgave 5** (2 p). Hva skriver programmet ut?\n\n```python\ndef teller():\n    n = 0\n    n = n + 1\n    return n\n\nprint(teller(), teller(), teller())\n```\n\n**Oppgave 6** (3 p). Hva skjer når programmet kjøres? Skriv den siste linja i feilmeldingen hvis det stopper.\n\n```python\npoeng = 3\n\ndef oek():\n    poeng = poeng + 1\n    return poeng\n\nprint(oek())\n```"
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-coll-f3",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 2.C — Scope",
+   "buttonText": "Vis fasit 3",
+   "content": [
+    {
+     "id": "in1000-2-prove-cf3",
+     "type": "text",
+     "content": "**Fasit — Prøve 2.C — Scope.** Utskriftene under er kjørt, ikke gjettet. Riktig utskrift teller; delvis riktig sporing gir delvis uttelling.\n\n\n**Oppgave 1** (2 p):\n\n```\n0 5\n```\n\nTilordningen inne i funksjonen laget en **ny, lokal** variabel som forsvant da funksjonen returnerte. Den ytre `antall` er urørt. Dette er feilkode #12, og den samme mekanikken ligger under `self`-fella i [kap. 5.1](/bok/in1000/in1000-5-1).\n\n**Oppgave 2** (2 p):\n\n```\nTrue False\n```\n\nFunksjonen **leser** en ytre variabel den ikke selv tilordner, og det er helt lovlig. Det er tilordningen, ikke lesingen, som lager en lokal variabel.\n\n**Oppgave 3** (2 p):\n\n```\ninnsiden!\nutsiden\n```\n\nParameteren heter det samme som den ytre variabelen og **skygger** den inne i funksjonen. Det som endres, er parameteren — en lokal kopi av navnet.\n\n**Oppgave 4** (2 p):\n\n```\n1 2 1\n```\n\nDe to `tall`-ene er to helt ulike variabler som tilfeldigvis har samme navn. Ingen av dem vet om den andre.\n\n**Oppgave 5** (2 p):\n\n```\n1 1 1\n```\n\nLokale variabler lages på nytt ved hvert kall. `n` starter på null hver eneste gang, så funksjonen kan ikke telle oppover mellom kall. Skal den det, må tallet inn som parameter og ut med `return`.\n\n**Oppgave 6** (3 p): programmet stopper. Siste linje i feilmeldingen er:\n\n```\nUnboundLocalError: local variable 'poeng' referenced before assignment\n```\n\nFordi det står en tilordning til `poeng` inne i funksjonen, regnes `poeng` som lokal i **hele** funksjonen — også på høyre side av likhetstegnet, der den ennå ikke har fått noen verdi. Løsningen er å sende verdien inn som parameter og returnere den nye.\n\n**Selvdiagnose — kryss av:**\n\n☐ Skilte du mellom å **lese** en ytre variabel og å **tilordne** til den?\n☐ Sjekket du om et navn inne i funksjonen var en parameter?\n☐ Husket du at lokale variabler lages på nytt ved hvert kall?\n☐ Skrev du feilmeldingens siste linje ordrett, uten å oversette den?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-coll-p4",
+   "type": "collapsible",
+   "title": "Prøve 2.D — Blandet",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1000-2-prove-cp4",
+     "type": "text",
+     "content": "**Prøve 2.D — Blandet** — 30 minutter. Fire sporingsoppgaver, tre flervalg og to funksjoner å skrive, på tvers av hele del 2. Kryss alltid av på flervalgene — blankt og galt gir samme null.\n\n\nTotalt 29 poeng. Skriv utskriften nøyaktig slik terminalen viser den — riktig type, ingen pynt, riktige mellomrom.\n\n\n**Oppgave 1** (2 p). Hva skriver programmet ut?\n\n```python\ndef lengde_type(tekst):\n    antall = 0\n    for tegn in tekst:\n        antall = antall + 1\n    if antall < 5:\n        return \"kort\"\n    return \"lang\"\n\nprint(lengde_type(\"buss\"), lengde_type(\"trikken\"))\n```\n\n**Oppgave 2** (3 p). Hva skriver programmet ut?\n\n```python\ndef prosent(andel, hele):\n    return andel * 100 // hele\n\ndef vurder(andel, hele):\n    p = prosent(andel, hele)\n    if p >= 50:\n        return \"flertall\"\n    return \"mindretall\"\n\nprint(prosent(3, 8), vurder(3, 8), vurder(5, 8))\n```\n\n**Oppgave 3** (3 p). Hva skriver programmet ut?\n\n```python\ntotal = 0\n\ndef legg_til(x):\n    total = x\n    return total\n\nprint(legg_til(4), legg_til(7), total)\n```\n\n**Oppgave 4** (3 p). Hva skriver programmet ut?\n\n```python\ndef forste_plass(tekst, tegn):\n    n = 0\n    for t in tekst:\n        if t == tegn:\n            return n\n        n = n + 1\n    return -1\n\nprint(forste_plass(\"resirkulering\", \"s\"), forste_plass(\"resirkulering\", \"z\"))\n```\n\n**Oppgave 5** (2 p). Flervalg: hva returnerer en funksjon som kommer til slutten av kroppen uten å ha kjørt en `return`? Alternativene er **a)** `0`, **b)** den siste verdien som ble regnet ut, **c)** `None`, **d)** programmet stopper med en feilmelding.\n\n**Oppgave 6** (2 p). Flervalg: `x = 5` står utenfor en funksjon. Inne i funksjonen står linja `x = 9`, og funksjonen returnerer ingenting. Hva er `x` utenfor funksjonen etter at den er kalt? Alternativene er **a)** `5`, **b)** `9`, **c)** `None`, **d)** programmet stopper med en feilmelding.\n\n**Oppgave 7** (2 p). Flervalg: i en funksjon som skal svare «er alle tegnene sifre?», hvor hører `return True`? Alternativene er **a)** inne i løkka, i `if`-grenen, **b)** inne i løkka, i `else`-grenen, **c)** på linja rett før løkka, **d)** etter løkka, med samme innrykk som `for`.\n\n**Oppgave 8** (5 p). Skriv funksjonen `sum_sifre(tekst)` som returnerer summen av alle sifrene i teksten. Andre tegn skal ignoreres. For `\"rute21buss4\"` skal funksjonen gi `7`.\n\n**Oppgave 9** (7 p). En kollektivrute er beskrevet med en tekst.\n\n**a)** Skriv `antall_av(tekst, tegn)` som returnerer hvor mange ganger `tegn` forekommer i `tekst`.\n\n**b)** Skriv `flest_av_to(tekst, a, b)` som returnerer det av de to tegnene som forekommer flest ganger. Er antallet likt, skal `a` returneres. Bruk funksjonen fra deloppgave a."
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-coll-f4",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 2.D — Blandet",
+   "buttonText": "Vis fasit 4",
+   "content": [
+    {
+     "id": "in1000-2-prove-cf4",
+     "type": "text",
+     "content": "**Fasit — Prøve 2.D — Blandet.** Utskriftene under er kjørt, ikke gjettet. Riktig utskrift teller; delvis riktig sporing gir delvis uttelling, og funksjonsoppgavene rettes uavhengig av sporingsoppgavene.\n\n\n**Oppgave 1** (2 p):\n\n```\nkort lang\n```\n\nTelleren ender på antall tegn: fire i `\"buss\"` og sju i `\"trikken\"`. Grensen er `< 5`, så fire er kort og sju er lang.\n\n**Oppgave 2** (3 p):\n\n```\n37 mindretall flertall\n```\n\n`3 * 100` er 300, og 300 delt på 8 med heltallsdivisjon gir 37 — resten kastes. 37 er under 50, mens `vurder(5, 8)` gir 62 og dermed flertall. Merk at `//` gir et heltall, ikke `37.5`.\n\n**Oppgave 3** (3 p):\n\n```\n4 7 0\n```\n\nFunksjonen returnerer riktig verdi hver gang, men tilordningen inne i den er **lokal**. Den ytre `total` er aldri rørt og står fortsatt på 0. Dette er feilkode #12 i sin reneste form — og grunnen til at man kommuniserer resultat med `return`, ikke ved å endre en ytre variabel.\n\n**Oppgave 4** (3 p):\n\n```\n2 -1\n```\n\nTeksten er `resirkulering`. Tegnene er `r` på plass 0, `e` på plass 1 og `s` på plass 2, så første treff gir 2. Andre kall finner ingen `z`, løkka blir ferdig, og `return -1` etter løkka kjører.\n\nMerk sentinel-verdien `-1` for «ikke funnet». Den er trygg her fordi en plass aldri kan være negativ — men den er farlig når `-1` kan være gyldige data. Det er feilkode #10, og den har eget avsnitt i [kap. 4.2](/bok/in1000/in1000-4-2).\n\n**Oppgave 5** (2 p): **c) `None`.** Alternativ a) er en vanlig forestilling, men Python fyller ikke inn noen nullverdi; b) beskriver ingen språk jeg kjenner; d) ville vært mye lettere å oppdage enn det som faktisk skjer.\n\n**Oppgave 6** (2 p): **a) `5`.** Tilordningen laget en lokal variabel som forsvant. Alternativ b) er selve feilkode #12; c) forveksler variabelen med funksjonens returverdi.\n\n**Oppgave 7** (2 p): **d) etter løkka, med samme innrykk som `for`.** Alternativ a) er feilkode #7 — da avgjør det aller første tegnet hele svaret; c) ville gjort løkka meningsløs, siden funksjonen returnerte før den så på noe.\n\n**Oppgave 8** (5 p). Akkumulator, sifferbetingelse og konvertering:\n\n```python\ndef sum_sifre(tekst):\n    total = 0\n    for tegn in tekst:\n        if tegn >= \"0\" and tegn <= \"9\":\n            total = total + int(tegn)\n    return total\n\nprint(sum_sifre(\"rute21buss4\"))\nprint(sum_sifre(\"ingen tall\"))\n```\n\n**Utskrift:**\n```\n7\n0\n```\n\n**Slik gir det poeng:** `total = 0` før løkka (1 p), løkke over tegnene (1 p), sifferbetingelsen (1 p), `int(tegn)` i oppdateringen (1 p) og `return` etter løkka (1 p). Glemmer du `int(...)`, prøver du å legge en tekst til et tall, og programmet stopper — det er feilkode #4.\n\n**Oppgave 9** (7 p).\n\n**a)** Rent tellermønster:\n\n```python\ndef antall_av(tekst, tegn):\n    antall = 0\n    for t in tekst:\n        if t == tegn:\n            antall = antall + 1\n    return antall\n\nprint(antall_av(\"kollektivtrafikk\", \"k\"))\nprint(antall_av(\"kollektivtrafikk\", \"t\"))\n```\n\n**Utskrift:**\n```\n4\n2\n```\n\n**b)** Sammenlign de to tellingene, og la likhet falle til `a`:\n\n```python\ndef antall_av(tekst, tegn):\n    antall = 0\n    for t in tekst:\n        if t == tegn:\n            antall = antall + 1\n    return antall\n\ndef flest_av_to(tekst, a, b):\n    if antall_av(tekst, b) > antall_av(tekst, a):\n        return b\n    return a\n\nprint(flest_av_to(\"kollektivtrafikk\", \"k\", \"t\"))\nprint(flest_av_to(\"kollektivtrafikk\", \"i\", \"l\"))\n```\n\n**Utskrift:**\n```\nk\ni\n```\n\nAndre linje er kravet om likhet i praksis: både `i` og `l` forekommer to ganger, og da skal `a` vinne. Legg merke til hvordan **den strenge `>`-testen** gjør akkurat det av seg selv — hadde du skrevet `>=`, ville `b` vunnet ved likhet, og funksjonen vært feil. Det er en enkelt-tegns forskjell som avgjør en hel deloppgave.\n\n**Selvdiagnose — kryss av:**\n\n☐ Krysset du av på alle tre flervalgene, også de du var usikker på?\n☐ Skilte du mellom heltallsdivisjon `//` og vanlig `/` i sporingen?\n☐ Sjekket du om en tilordning inne i en funksjon var lokal?\n☐ Sto akkumulatoren `total = 0` før løkka, og `return` etter?\n☐ Testet du funksjonen din på tilfellet der de to antallene er like?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-prove-3",
+   "type": "text",
+   "content": "## Etter prøvene\n\nFikk du under halvparten på prøve 2.B, er det verdt å lese\n[kap. 2.1](/bok/in1000/in1000-2-1) på nytt før du går videre. Sjanger C — «skriv\nen liten funksjon» — er formen på Oppgave 3, som alene er rundt 28 av de 100\npoengene, og mønsteret der er det samme uansett om dataene er en tekst, en liste\neller en ordbok.\n\nBommet du derimot bare på **scope** i prøve 2.C, trenger du ikke lese kapitlet på\nnytt. Da trenger du én vane: hver gang du ser en tilordning inne i en funksjon,\nspør du deg selv om navnet finnes utenfor også. Gjør det det, er de to\nvariablene likevel to helt ulike ting.\n\nNeste steg er [kap. 3.1 — Lister](/bok/in1000/in1000-3-1). Der får funksjonene\ndine noe større å jobbe på enn tekster, men mønstrene du nettopp har øvd på —\nteller, akkumulator og flagg med tidlig retur — er nøyaktig de samme."
+  }
+ ],
+ "exercises": []
+}
