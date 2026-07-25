@@ -204,6 +204,24 @@
       }
     },
     {
+      "id": "in1900-5-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-2-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G.) En værstasjon lagrer vinden som to komponenter: `o` mot øst og `n` mot nord, begge i meter per sekund.\n\n**a)** Skriv en klasse `Vind` der de to komponentene gis i konstruktøren, og en `__str__` som gir teksten `10.0 m/s øst, 5.0 m/s nord` — begge tallene med én desimal.\n**b)** Skriv **én** `__mul__` som dekker begge betydningene av gangetegnet: `v * tall` skal gi en ny `Vind` der begge komponentene er ganget med tallet, mens `v * w` med to `Vind`-instanser skal gi indreproduktet som et tall.\n**c)** Lag vinden $(10, 5)$ og retningsvektoren $(0{,}6,\\ 0{,}8)$, som peker langs en fjord og har lengde 1. Skriv ut vinden, vinden ganget med 1,5, og vindkomponenten langs fjorden. Hva skjer hvis du snur siste produkt til `1.5 * v`, og hva gjør du med det på eksamen?",
+        "solution": "**a), b) og c):**\n\n```python\nclass Vind:\n    def __init__(self, o, n):\n        self.o = o\n        self.n = n\n\n    def __str__(self):\n        return f'{self.o:.1f} m/s øst, {self.n:.1f} m/s nord'\n\n    def __mul__(self, other):\n        if isinstance(other, Vind):\n            return self.o*other.o + self.n*other.n\n        else:\n            return Vind(other*self.o, other*self.n)\n\nv = Vind(10, 5)\nlangs = Vind(0.6, 0.8)\n\nprint(v)\nprint(v*1.5)\nprint(v*langs)\n```\n\n**Utskrift:**\n```\n10.0 m/s øst, 5.0 m/s nord\n15.0 m/s øst, 7.5 m/s nord\n10.0\n```\n\n**Les de tre linjene i utskriften som tre forskjellige ting.** Den første er en `Vind` skrevet ut av `__str__`. Den andre er en **ny** `Vind`, laget i `else`-grenen — den opprinnelige `v` er uendret. Den tredje er et **tall**: 10,0 meter per sekund er den delen av vinden som blåser langs fjorden, og den er mindre enn vindstyrken $\\sqrt{10^2 + 5^2} \\approx 11{,}2$ fordi vinden ikke peker helt langs fjorden.\n\n**Om `1.5 * v`:** det virker ikke. Python spør venstre operand først, og et flyttall vet ikke hva en `Vind` er:\n\n```\nTypeError: unsupported operand type(s) for *: 'float' and 'Vind'\n```\n\nPå eksamen skriver du derfor objektet til venstre, `v * 1.5`, og nevner gjerne i en kommentar at klassen støtter den rekkefølgen. Det koster ingenting og viser at du vet hvorfor.\n\n**Hva gir uttelling:** (i) de to attributtene i konstruktøren, (ii) `isinstance`-testen som skiller de to tilfellene, (iii) at `else`-grenen returnerer `Vind(...)` og ikke et tuppel — det er feil #4 (`__add__`/`__mul__` som returnerer feil type) som lurer her, (iv) at instans-grenen returnerer et tall. Får du bare den ene grenen ferdig, skriv en kommentar om hva den andre skulle gjort: strukturen er det tyngste, og den ser sensor med én gang.",
+        "hints": [
+          "Start med de to attributtene i konstruktøren og en `__str__` som returnerer en f-streng med `:.1f` på begge tallene.",
+          "`__mul__` trenger en test som skiller de to tilfellene — spørsmålet er hvilken klasse `other` tilhører.",
+          "De to grenene har hver sin returtype. Skriv ned hvilken som skal gi et objekt og hvilken som skal gi et tall før du koder.",
+          "Til siste del av c): hvilken av operandene spør Python først?"
+        ]
+      }
+    },
+    {
       "id": "in1900-5-2-lokke4",
       "type": "text",
       "content": "## Løkke 4 — Ulik lengde: polynomer som legges sammen (~20 min)"
@@ -233,11 +251,11 @@
       "solution": "```python\nclass Polynom:\n    def __init__(self, koeff):\n        self.koeff = koeff\n\n    def __call__(self, x):\n        s = 0\n        for i, c in enumerate(self.koeff):\n            s += c*x**i\n        return s\n\n    def __str__(self):\n        s = ''\n        for i, c in enumerate(self.koeff):\n            if c == 0:\n                continue\n            if s != '':\n                s += ' + '\n            if i == 0:\n                s += f'{c}'\n            elif i == 1:\n                s += f'{c}*x'\n            else:\n                s += f'{c}*x**{i}'\n        if s == '':\n            s = '0'\n        return s\n\n    def __add__(self, other):\n        lang, kort = self.koeff, other.koeff\n        if len(kort) > len(lang):\n            lang, kort = kort, lang\n        ny = lang[:]\n        for i in range(len(kort)):\n            ny[i] = ny[i] + kort[i]\n        return Polynom(ny)\n\np = Polynom([2, 3])\nq = Polynom([1, -1, 4])\n\nprint(p)\nprint(q)\nprint(p + q)\nprint(p.koeff)\nprint((p + q)(2))\n```\n\n**Utskrift:**\n```\n2 + 3*x\n1 + -1*x + 4*x**2\n3 + 2*x + 4*x**2\n[2, 3]\n23\n```\n\nDette er en av de tyngste klasseoppgavene som stilles, og den er verdt å gå gjennom bit for bit:\n\n- **`__call__`** er rekke-summeringsmønsteret du kjenner: `s = 0`, løkke, `s += ...`. `enumerate` gir deg indeksen og koeffisienten samtidig, og indeksen er nettopp eksponenten.\n- **`__str__`** hopper over ledd med koeffisient 0, og setter ` + ` mellom leddene bare når det allerede står noe i strengen. Det er en enkel måte å slippe et ` + ` på slutten.\n- **`__add__`** bytter om på `lang` og `kort` hvis det trengs, kopierer den lengste med `lang[:]`, og legger den korteste oppå. Resultatet er en **ny** `Polynom`.\n\nSe på nest siste linje: `p.koeff` er fortsatt `[2, 3]` etter addisjonen. Det er kopien `lang[:]` som sørger for det.\n\nOg siste linje viser hvorfor returtypen er verdt kampen: `(p + q)(2)` — først `__add__`, så `__call__` på resultatet. Hadde `__add__` returnert en liste, ville dette vært en feilmelding.\n\n**Uttelling:** riktig struktur (fire metoder med riktige navn og returtyper) bærer mesteparten av poengene. En besvarelse som håndterer ulik lengde galt, men ellers er riktig, gjør det fortsatt godt — mens en som returnerer en liste fra `__add__`, mister uttelling flere steder samtidig."
     },
     {
-      "id": "in1900-5-2-oppg-4",
+      "id": "in1900-5-2-oppg-5",
       "type": "exercise",
       "exercise": {
-        "id": "in1900-5-2-o4",
-        "number": "4",
+        "id": "in1900-5-2-oppg-5",
+        "number": "5",
         "type": "classic",
         "difficulty": "middels",
         "task": "(Midtveisnivå, sjanger A — kodesporing.) Klassen `Polynom` fra eksempel 4 er definert. Hva skriver disse linjene ut?\n\n```python\np = Polynom([0, 0, 5])\nq = Polynom([1, 2])\nprint(p)\nprint(q + p)\nprint(p(3))\nprint(len((q + p).koeff))\n```",
@@ -250,11 +268,11 @@
       }
     },
     {
-      "id": "in1900-5-2-oppg-5",
+      "id": "in1900-5-2-oppg-6",
       "type": "exercise",
       "exercise": {
-        "id": "in1900-5-2-o5",
-        "number": "5",
+        "id": "in1900-5-2-oppg-6",
+        "number": "6",
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger G.) Utvid `Polynom` fra eksempel 4.\n\n**a)** Legg til `__mul__` som ganger polynomet med et **tall** og returnerer et nytt polynom.\n\n**b)** Legg til en metode `derivert` som returnerer et nytt `Polynom` — den deriverte. Husk at den deriverte av $c_i x^i$ er $i\\,c_i x^{i-1}$, så konstantleddet forsvinner.\n\n**c)** Vis at $p(x) = 1 + 2x + 3x^2$ ganget med 2 og deretter derivert gir $4 + 12x$.",
