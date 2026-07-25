@@ -1,0 +1,354 @@
+{
+ "id": "in1900-6-3",
+ "courseId": "in1900",
+ "chapterNumber": "6.3",
+ "title": "DRILL — Differenslikninger",
+ "description": "Full drill på H-sjangeren, med roterende innpakning og fast fokus på oppdateringsrekkefølge og plott.",
+ "estimatedMinutes": 75,
+ "competenceGoals": [
+  "kunne gjennomføre løsningsoppskriften for differenslikninger på sju steg, uansett hvilken innpakning modellen har",
+  "kunne avgjøre på et blikk om oppdateringsrekkefølgen er kritisk, og begrunne svaret ut fra likningene",
+  "kunne skrive plott-deloppgaven med tidsakse, forklaring og navngitte akser, og beskrive figuren i ord",
+  "kunne bruke bevaringssjekk og likevektsregning som kontroll uten fasit"
+ ],
+ "content": [
+  {
+   "id": "in1900-6-3-tip-vinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel: 5–12 poeng, og fast siden 2022",
+   "content": "Dette er drillkapitlet for **sjanger H** — differenslikninger, altså «regn ut hvordan en eller flere størrelser utvikler seg skritt for skritt». Sjangeren står i **6 av 8 gjennomgåtte avsluttende sett (75 prosent)** og i **4 av 4 siste**, og teller **5–12 poeng**. Trenden er tydelig: den har vært med hvert år siden 2022.\n\nPrioriteten er nivå 2 i bokas skala — **kunne** — men gitt at den har vært på hvert av de fire siste settene, bør du behandle den som om den var nivå 1.\n\nOppgaven er nesten alltid todelt: **(a)** skriv funksjonen som simulerer, og **(b)** plott resultatet. Innpakningen roterer — rovdyr og byttedyr, et smitteutbrudd, to sammenkoblede beholdere, en diskret vekstmodell — men koden er den samme fire linjene hver gang.\n\nDu besvarer alt som **fritekst** i Inspera, UiOs digitale eksamenssystem, uten hjelpemidler og uten å kunne kjøre koden.\n\nKapitlet har tre deler: én løsningsoppskrift på sju steg, ett gjennomarbeidet eksamenscase med sensorkommentar ved hvert steg, og ti oppgaver på eksamensnivå med roterende innpakning.\n\n**Om delpoeng:** sensor gir uttelling for hvert steg for seg — allokering, startverdier, løkkegrense, oppdateringslinjer, retur og plott. Riktig løkkestruktur belønnes selv med en indeksfeil. Det ene stedet delvis riktig **ikke** hjelper, er oppdateringsrekkefølgen i koblede likninger: bytter du om linjene, har du regnet på en annen modell."
+  },
+  {
+   "id": "in1900-6-3-forkunn",
+   "type": "text",
+   "content": "## Sist du var her\n\nDrillen forutsetter [kap. 6.2](/bok/in1900/in1900-6-2) (differenslikninger), [kap. 4.1](/bok/in1900/in1900-4-1) (NumPy-tabeller) og [kap. 4.3](/bok/in1900/in1900-4-3) (plotting). Her er de tre grepene du kommer til å bruke i hver eneste oppgave, oppfrisket med kjørt utskrift.\n\n**1. Allokeringsmønsteret.** Lag tabellen, sett startverdien før løkka, oppdater `n+1`.\n\n```python\nimport numpy as np\n\ndef simuler(x0, N):\n    x = np.zeros(N+1)\n    x[0] = x0\n    for n in range(N):\n        x[n+1] = 0.8*x[n] + 4\n    return x\n\nprint(simuler(50.0, 4))\n```\n\n**Utskrift:**\n```\n[50.    44.    39.2   35.36  32.288]\n```\n\n**2. Tellingen.** `N` skritt gir `N+1` verdier, fordi startverdien også er en verdi.\n\n```python\nimport numpy as np\n\nx = np.zeros(5)\nx[0] = 2.0\nfor n in range(3):\n    x[n+1] = 3*x[n] - 1\nprint(x)\nprint(x.size, x[-1])\n```\n\n**Utskrift:**\n```\n[ 2.  5. 14. 41.  0.]\n5 0.0\n```\n\nLegg merke til den siste nullen: tabellen har fem plasser, men løkka gjorde bare tre oppdateringer, så `x[4]` er aldri skrevet til. Det er nettopp av-én-feilen i sin mest lumske form — programmet krasjer ikke, det gir bare en tabell med en null på slutten.\n\n**3. Plottet.** Én `label=` per kurve, ett `plt.legend()`, og navngitte akser.\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(t, B, label='byttedyr')\nplt.plot(t, R, label='rovdyr')\nplt.xlabel('tid (maaneder)')\nplt.ylabel('antall dyr')\nplt.legend()\nplt.show()\n```\n\nBlokken over er et fragment: `t`, `B` og `R` kommer fra simuleringen og finnes ikke alene, så den er ikke kjørbar som den står.\n\nEr noe av dette uklart, les [kap. 6.2](/bok/in1900/in1900-6-2) først — drillen forklarer ikke konstruksjonene på nytt."
+  },
+  {
+   "id": "in1900-6-3-oppskrift",
+   "type": "theorem",
+   "title": "Løsningsoppskriften for sjanger H — sju steg",
+   "content": "Les likningene i oppgaven, og gjør så dette, i rekkefølge.\n\n1. **Tell størrelsene.** Én likning gir én tabell; to koblede gir to tabeller. Navnene tas fra oppgaven: `B` og `R`, `S` og `I`, `x` og `y`.\n2. **Allokér** med `np.zeros(N+1)` — én linje per størrelse. `N` er antall skritt, og `N+1` er antall verdier.\n3. **Sett startverdiene** før løkka: `x[0] = x0`, `y[0] = y0`. Glemmer du én, starter den størrelsen på 0 og hele forløpet blir feil.\n4. **Én løkke**, `for n in range(N):` — ikke to løkker etter hverandre. Begge størrelsene oppdateres i samme runde.\n5. **Bestem oppdateringsrekkefølgen.** Spør: bruker den ene likningen den **nye** verdien av den andre? Står det $y_{n+1}$ i uttrykket for $x_{n+1}$, må `y[n+1]` regnes først. Bruker begge bare $x_n$ og $y_n$, spiller rekkefølgen ingen rolle.\n6. **`return`** tabellene i den rekkefølgen oppgaven navngir dem, utenfor løkka.\n7. **Del (b) — plottet.** Lag tidsaksen med `np.linspace(0, T, N+1)` eller bruk `range(len(x))`, ett `plot`-kall per kurve med `label=`, aksenavn, `legend()` og `show()`.\n\nSkjelettet er alltid dette, og det er verdt å skrive ned først, før du fyller inn uttrykkene:\n\n```python\nimport numpy as np\n\ndef simuler(x0, y0, N):\n    x = np.zeros(N+1)\n    y = np.zeros(N+1)\n    x[0] = x0\n    y[0] = y0\n    for n in range(N):\n        y[n+1] = y[n]\n        x[n+1] = x[n]\n    return x, y\n\nx, y = simuler(3.0, 1.0, 4)\nprint(x, y)\n```\n\n**Utskrift:**\n```\n[3. 3. 3. 3. 3.] [1. 1. 1. 1. 1.]\n```\n\nSkjelettet gir uttelling i seg selv — her holder hver størrelse seg konstant, fordi oppdateringslinjene ennå ikke gjør noe. Fyller du inn uttrykkene feil, mister du ett eller to poeng; glemmer du skjelettet, mister du oppgaven."
+  },
+  {
+   "id": "in1900-6-3-warn",
+   "type": "warning",
+   "title": "Typiske feil i sjanger H — de fire som koster mest",
+   "content": "**#2 — feil oppdateringsrekkefølge i koblede likninger.** Bruker uttrykket for $x_{n+1}$ den nye verdien $y_{n+1}$, må `y[n+1]` regnes først. Bytter du om, leser du en plass i tabellen som ennå er 0.0, og feilen forplanter seg gjennom hele forløpet. Dette er **ikke** en detaljfeil — det er en annen modell.\n\n**#1 — av-én på tabellstørrelse eller løkkegrense.** `np.zeros(N)` gir én plass for lite og krasjer med `IndexError` på siste runde. `range(N+1)` gjør det samme. Og `np.zeros(N+1)` med `range(N-1)` etterlater nuller på slutten uten noen feilmelding — den varianten er verst, fordi den ser riktig ut.\n\n**Glemt startverdi.** Er `y[0]` ikke satt, starter den på 0, og alle senere verdier blir gale. Sjekk at antall `[0] = `-linjer er lik antall tabeller.\n\n**Oppdatering «in place».** Skriver du `x = x + dt*(...)` uten indeks, eller regner du `x[n]` om til den nye verdien før `y[n+1]` har brukt den gamle, går informasjon tapt. Bruk alltid `x[n+1] = x[n] + ...`; det er hele poenget med å ha en tabell.\n\nOg én til som gjelder del (b): **glemt `label=` eller glemt `plt.legend()`.** Figuren tegnes pent, men ingen kan se hvilken kurve som er hvilken, og det koster et halvt til ett poeng hver gang.\n\n**Rekursjon er utenfor pensum i IN1900.** En differenslikning $x_{n+1} = f(x_n)$ ser ut som en invitasjon til å la en funksjon kalle seg selv; det er utenfor pensum, markeres uønsket i de offisielle løsningsforslagene, og gir dessuten ingen tabell å plotte. Løkka er den forventede løsningen — alltid."
+  },
+  {
+   "id": "in1900-6-3-case-intro",
+   "type": "text",
+   "content": "## Det gjennomarbeidede caset (~20 min)\n\nUnder står en komplett, todelt sjanger-H-oppgave av samme type og vekt som på et virkelig sett, med sensorkommentar ved hvert steg.\n\n**Oppgaven (9 poeng).** I et økosystem beskrives antall byttedyr $B_n$ og rovdyr $R_n$ ved tidspunkt $n$ av differenslikningene\n\n$$B_{n+1} = B_n + \\Delta t\\,(aB_n - bB_nR_n)$$\n$$R_{n+1} = R_n + \\Delta t\\,(cB_nR_n - dR_n)$$\n\nder $a$ er byttedyrenes fødselsrate, $b$ hvor effektivt rovdyrene jakter, $c$ hvor mye et fanget byttedyr bidrar til rovdyrbestanden, og $d$ rovdyrenes dødsrate.\n\n**a)** (6 p) Skriv `lotka_volterra(B0, R0, a, b, c, d, dt, N)` som returnerer tabellene `B` og `R`.\n\n**b)** (3 p) Skriv koden som simulerer 200 måneder med $B_0 = 40$, $R_0 = 9$, $a = 0{,}4$, $b = 0{,}02$, $c = 0{,}01$, $d = 0{,}3$, $\\Delta t = 0{,}05$ og $N = 4000$, og plotter begge bestandene mot tid. Beskriv figuren."
+  },
+  {
+   "id": "in1900-6-3-case-a",
+   "type": "example",
+   "title": "Modellbesvarelse del (a): to tabeller, én løkke",
+   "problem": "Del (a), 6 poeng: `lotka_volterra(B0, R0, a, b, c, d, dt, N)` skal returnere tabellene `B` og `R`.",
+   "solution": "Gå gjennom oppskriften. To størrelser gir to tabeller. Begge likningene bruker bare $B_n$ og $R_n$ — de gamle verdiene — så rekkefølgen inne i løkka spiller **ingen** rolle her. Det er verdt å si i én setning i besvarelsen: det viser at du har sjekket.\n\n```python\nimport numpy as np\n\ndef lotka_volterra(B0, R0, a, b, c, d, dt, N):\n    B = np.zeros(N+1)\n    R = np.zeros(N+1)\n    B[0] = B0\n    R[0] = R0\n    for n in range(N):\n        B[n+1] = B[n] + dt*(a*B[n] - b*B[n]*R[n])\n        R[n+1] = R[n] + dt*(c*B[n]*R[n] - d*R[n])\n    return B, R\n\n\nB, R = lotka_volterra(40.0, 9.0, 0.4, 0.02, 0.01, 0.3, 0.05, 4000)\nprint(f'B[0] = {B[0]:.2f}   R[0] = {R[0]:.2f}')\nprint(f'B[1] = {B[1]:.4f}   R[1] = {R[1]:.4f}')\nprint(f'maks B = {B.max():.2f}   maks R = {R.max():.2f}')\nprint(f'B[4000] = {B[-1]:.2f}   R[4000] = {R[-1]:.2f}')\n```\n\n**Utskrift:**\n```\nB[0] = 40.00   R[0] = 9.00\nB[1] = 40.4400   R[1] = 9.0450\nmaks B = 97.85   maks R = 58.04\nB[4000] = 29.87   R[4000] = 3.65\n```\n\nRegn gjerne første skritt for hånd som kontroll: $B_1 = 40 + 0{,}05\\,(0{,}4\\cdot 40 - 0{,}02\\cdot 40\\cdot 9) = 40 + 0{,}05\\cdot 8{,}8 = 40{,}44$. Utskriften bekrefter det.\n\n**Sensorkommentar, steg for steg:**\n\n- `import numpy as np` — **0,5 p**. Nødvendige importer skal med når oppgaven ber om kjørbar kode.\n- `B = np.zeros(N+1)` og `R = np.zeros(N+1)` — **1,5 p**. Her ligger av-én-poenget: `np.zeros(N)` gir `IndexError` på siste runde.\n- `B[0] = B0` og `R[0] = R0` før løkka — **1 p**. Glemmer du én, starter den bestanden på 0 og hele forløpet kollapser.\n- `for n in range(N):` — **1 p**. `N` skritt, ikke `N+1`.\n- De to oppdateringslinjene — **1,5 p**, altså 0,75 hver. Bommer du på ett fortegn, får du halve.\n- `return B, R` utenfor løkka — **0,5 p**. Står `return` inne i løkka, returneres tabellene etter første skritt, med nuller i resten.\n\n**Hva som er godt nok.** Regner du de to endringene i egne variabler først, er det like riktig og lettere å lese:\n\n```python\nimport numpy as np\n\ndef lotka_volterra(B0, R0, a, b, c, d, dt, N):\n    B = np.zeros(N+1)\n    R = np.zeros(N+1)\n    B[0] = B0\n    R[0] = R0\n    for n in range(N):\n        dB = a*B[n] - b*B[n]*R[n]\n        dR = c*B[n]*R[n] - d*R[n]\n        B[n+1] = B[n] + dt*dB\n        R[n+1] = R[n] + dt*dR\n    return B, R\n\nB, R = lotka_volterra(40.0, 9.0, 0.4, 0.02, 0.01, 0.3, 0.05, 4000)\nprint(f'{B[1]:.4f} {R[1]:.4f}')\n```\n\n**Utskrift:**\n```\n40.4400 9.0450\n```\n\nMerk at `dB` og `dR` her regnes **begge** ut fra de gamle verdiene før noen tabell oppdateres. Det er en robust vane: skriver du det slik, kan rekkefølgen aldri bli feil."
+  },
+  {
+   "id": "in1900-6-3-case-b",
+   "type": "example",
+   "title": "Modellbesvarelse del (b): plottet, og figuren i ord",
+   "problem": "Del (b), 3 poeng: simuler 200 måneder og plott begge bestandene mot tid.",
+   "solution": "Tidsaksen lages med `np.linspace`. Med $\\Delta t = 0{,}05$ og 4000 skritt dekker simuleringen $4000\\cdot 0{,}05 = 200$ måneder, og tabellene har 4001 verdier — derfor `np.linspace(0, 200, 4001)`.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef lotka_volterra(B0, R0, a, b, c, d, dt, N):\n    B = np.zeros(N+1)\n    R = np.zeros(N+1)\n    B[0] = B0\n    R[0] = R0\n    for n in range(N):\n        B[n+1] = B[n] + dt*(a*B[n] - b*B[n]*R[n])\n        R[n+1] = R[n] + dt*(c*B[n]*R[n] - d*R[n])\n    return B, R\n\n\nB, R = lotka_volterra(40.0, 9.0, 0.4, 0.02, 0.01, 0.3, 0.05, 4000)\nt = np.linspace(0, 200, 4001)\nplt.plot(t, B, label='byttedyr')\nplt.plot(t, R, label='rovdyr')\nplt.xlabel('tid (maaneder)')\nplt.ylabel('antall dyr')\nplt.legend()\nplt.show()\nprint('likevekt B =', 0.3/0.01, ' R =', 0.4/0.02)\n```\n\n**Utskrift:**\n```\nlikevekt B = 30.0  R = 20.0\n```\n\n**Figuren i ord.** Førsteaksen viser tid fra 0 til 200 måneder, andreaksen antall dyr fra 0 til rundt 100. Byttedyrkurven starter i 40 og stiger til en topp på nesten 98; rovdyrkurven starter i 9, ligger lavt en stund, og stiger så til sin topp på rundt 58 **etter** byttedyrtoppen. Deretter faller byttedyrene bratt, rovdyrene følger etter med samme forsinkelse, og mønsteret gjentar seg. Kurvene svinger altså i takt, men rovdyrene ligger et kvart svingeslag bak — det er den karakteristiske forsinkelsen i rovdyr–byttedyr-dynamikk. Forklaringen navngir de to kurvene.\n\nSvingningene er ikke helt jevne over de 200 månedene: amplituden vokser sakte. Det er ikke en feil i modellen, men i **metoden** — den enkle skrittformelen legger til litt energi hver runde. Nevner du det, viser du at du forstår forskjellen på modell og numerisk metode. Det kreves ikke for full score.\n\nLikevektspunktet kan regnes ut for hånd: bestandene står stille når $aB = bBR$ og $cBR = dR$, altså $R = a/b = 20$ og $B = d/c = 30$. Utskriften bekrefter tallene, og de er sentrum kurvene svinger rundt.\n\n**Sensorkommentar del (b):** tidsaksen med riktig antall punkter (1 p) · to `plot`-kall med `label=` (1 p) · aksenavn, `legend()` og `show()` (1 p). Bruker du `range(len(B))` som førsteakse i stedet for `np.linspace`, er det like riktig — men da er enheten skritt, ikke måneder, og aksenavnet må si det."
+  },
+  {
+   "id": "in1900-6-3-opg-intro",
+   "type": "text",
+   "content": "## Oppgaver: samme mønster, ny innpakning (~30 min for oppgave 1–5)\n\n— naturlig pausepunkt —\n\nAlle oppgavene under er på eksamensnivå. Innpakningen roterer bevisst, og noen av likningene er koblet gjennom **nye** verdier mens andre ikke er det. Steg 5 i oppskriften er derfor det første du skal svare på hver gang."
+  },
+  {
+   "id": "in1900-6-3-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? NumPy skriver tabeller uten komma.\n\n```python\nimport numpy as np\n\nx = np.zeros(5)\nx[0] = 2.0\nfor n in range(3):\n    x[n+1] = 3*x[n] - 1\nprint(x)\nprint(x.size, x[-1])\n```",
+    "solution": "**Sporingstavle.** Tabellen har fem plasser, alle 0.0 fra `np.zeros(5)`, og løkka gjør **tre** oppdateringer.\n\n| `n` | Regner | Verdi | `x` etter |\n|---|---|---|---|\n| — | — | — | `[2. 0. 0. 0. 0.]` |\n| 0 | $3\\cdot 2 - 1$ | 5 | `[2. 5. 0. 0. 0.]` |\n| 1 | $3\\cdot 5 - 1$ | 14 | `[2. 5. 14. 0. 0.]` |\n| 2 | $3\\cdot 14 - 1$ | 41 | `[2. 5. 14. 41. 0.]` |\n\n`x.size` er antall plasser i tabellen, altså 5 — uansett hvor mange som er fylt ut. Og `x[-1]` er siste plass, som aldri ble skrevet til.\n\n**Utskrift:**\n```\n[ 2.  5. 14. 41.  0.]\n5 0.0\n```\n\nMerk mellomrommene: NumPy høyrejusterer tallene i like brede kolonner, så det står ett ekstra mellomrom foran `2.` og `5.` for å matche `14.` og `41.`\n\nFellenote: dette er **#1 — av-én-feilen** i sin lumskeste form. Programmet krasjer ikke; det gir bare en tabell med en null på slutten. Delvis riktig sporing gir delvis uttelling: har du tallene riktig men glemmer den avsluttende nullen, mister du et halvt poeng.",
+    "hints": [
+     "Tegn tabellen med fem plasser og fyll inn én plass per runde.",
+     "Hvor mange oppdateringer gjør `range(3)`?",
+     "Hva er `x[-1]` når bare de fire første plassene er skrevet til?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — én differenslikning.) En fiskebestand i et oppdrettsanlegg vokser etter den diskrete logistiske modellen\n\n$$x_{n+1} = x_n + rx_n\\left(1 - \\frac{x_n}{K}\\right)$$\n\nder $r$ er veksttakten per uke og $K$ er bæreevnen.\n\n**a)** Skriv `logistisk(x0, r, K, N)` som returnerer tabellen `x`.\n\n**b)** Kjør den med $x_0 = 20$, $r = 0{,}35$, $K = 900$ og $N = 40$, og skriv ut startverdien, første skritt, verdien etter 10 uker og etter 40 uker.\n\n**c)** Hvor mange verdier har tabellen, og hvorfor?",
+    "solution": "**a)** og **b)**. Én størrelse gir én tabell:\n\n```python\nimport numpy as np\n\ndef logistisk(x0, r, K, N):\n    x = np.zeros(N+1)\n    x[0] = x0\n    for n in range(N):\n        x[n+1] = x[n] + r*x[n]*(1 - x[n]/K)\n    return x\n\n\nx = logistisk(20.0, 0.35, 900.0, 40)\nprint(f'{x[0]:.1f} {x[1]:.4f} {x[10]:.2f} {x[40]:.2f}')\nprint(len(x))\n```\n\n**Utskrift:**\n```\n20.0 26.8444 302.54 899.99\n41\n```\n\nKontroller første skritt for hånd: $20 + 0{,}35\\cdot 20\\,(1 - 20/900) = 20 + 7\\cdot 0{,}9778 = 26{,}844$.\n\n**c)** Tabellen har **41** verdier. `N = 40` er antall **skritt**, og startverdien er også en verdi, så antall verdier er $N+1$. Dette er tellingen som ligger bak av-én-feilen: skritt og verdier er to forskjellige ting.\n\nLegg merke til forløpet: bestanden vokser først nesten eksponentielt, er halvveis til bæreevnen etter rundt ti uker, og flater ut mot 900. Det er den karakteristiske S-formen til logistisk vekst.\n\n**Hva gir uttelling (6 poeng):** `np.zeros(N+1)` (1 p), `x[0] = x0` før løkka (1 p), `for n in range(N):` (1 p), oppdateringsuttrykket med parentesen på rett sted (2 p), `return x` utenfor løkka (1 p). Skriver du `x[n+1] = x[n]*(1 + r*(1 - x[n]/K))`, er det algebraisk det samme og gir full uttelling.",
+    "hints": [
+     "Én størrelse gir én tabell.",
+     "Sett startverdien før løkka.",
+     "Til c): tell startverdien som en verdi."
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H — koblet, med kritisk oppdateringsrekkefølge.) En forenklet modell for en oscillerende kjemisk reaksjon er\n\n$$y_{n+1} = y_n + a\\,y_n(1 - x_n)$$\n$$x_{n+1} = x_n + y_{n+1}$$\n\nLegg merke til at $x_{n+1}$ bruker den **nye** verdien $y_{n+1}$.\n\n**a)** Skriv `simuler(x0, y0, a, N)` som returnerer tabellene `x` og `y`.\n\n**b)** Kjør med $x_0 = 0{,}2$, $y_0 = 0{,}1$, $a = 0{,}5$ og $N = 5$, og skriv ut alle verdiene.\n\n**c)** Hva skjer hvis du bytter om de to oppdateringslinjene? Vis tallene.",
+    "solution": "**a)** og **b)**. Fordi $x_{n+1}$ bruker $y_{n+1}$, må `y[n+1]` regnes **først**:\n\n```python\nimport numpy as np\n\ndef simuler(x0, y0, a, N):\n    x = np.zeros(N+1)\n    y = np.zeros(N+1)\n    x[0] = x0\n    y[0] = y0\n    for n in range(N):\n        y[n+1] = y[n] + a*y[n]*(1 - x[n])\n        x[n+1] = x[n] + y[n+1]\n    return x, y\n\n\nx, y = simuler(0.2, 0.1, 0.5, 5)\nfor n in range(6):\n    print(f'{n} {x[n]:9.5f} {y[n]:9.5f}')\n```\n\n**Utskrift:**\n```\n0   0.20000   0.10000\n1   0.34000   0.14000\n2   0.52620   0.18620\n3   0.75651   0.23031\n4   1.01486   0.25835\n5   1.27129   0.25643\n```\n\nKontroller første skritt: $y_1 = 0{,}1 + 0{,}5\\cdot 0{,}1\\,(1 - 0{,}2) = 0{,}1 + 0{,}04 = 0{,}14$, og $x_1 = 0{,}2 + 0{,}14 = 0{,}34$.\n\n**c)** Bytter du om linjene, leser `x[n+1] = x[n] + y[n+1]` en plass i tabellen som ennå er 0.0. Da blir `x` stående helt stille på 0,2 hele veien:\n\n```python\nimport numpy as np\n\ndef galt(x0, y0, a, N):\n    x = np.zeros(N+1)\n    y = np.zeros(N+1)\n    x[0] = x0\n    y[0] = y0\n    for n in range(N):\n        x[n+1] = x[n] + y[n+1]\n        y[n+1] = y[n] + a*y[n]*(1 - x[n])\n    return x, y\n\nx, y = galt(0.2, 0.1, 0.5, 5)\nfor n in range(6):\n    print(f'{n} {x[n]:9.5f} {y[n]:9.5f}')\n```\n\n**Utskrift:**\n```\n0   0.20000   0.10000\n1   0.20000   0.14000\n2   0.20000   0.19600\n3   0.20000   0.27440\n4   0.20000   0.38416\n5   0.20000   0.53782\n```\n\nBlokken over er skrevet slik med vilje for å vise feilen; den skal ikke brukes. Merk at programmet **ikke** krasjer og ikke gir noen feilmelding — det gir bare en helt annen modell, der $x$ aldri beveger seg og $y$ vokser ukontrollert. Dette er felle **#2**, og den er den ene i denne sjangeren der delvis riktig ikke hjelper.\n\n**Hva gir uttelling (8 poeng):** to tabeller med `np.zeros(N+1)` (1 p), begge startverdiene (1 p), `for n in range(N):` (1 p), **rekkefølgen** med `y[n+1]` først (2 p), de to uttrykkene (2 p), `return x, y` (1 p). Rekkefølgepoengene er de eneste i hele kapitlet som ikke gis delvis.",
+    "hints": [
+     "Hvilken av de to likningene bruker den andres nye verdi?",
+     "Den som blir **brukt** må regnes først.",
+     "Til c): hva står i `y[n+1]` før den er tilordnet noe?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-signal-1",
+   "type": "tip",
+   "title": "Signal: hva oppgave 1–3 testet",
+   "content": "**Oppgave 1** var ikke en kodeskrivingsoppgave, men en sporing. Slik ser differenslikninger ut på **midtveiseksamen**: du skal ikke skrive løkka, du skal si nøyaktig hva tabellen inneholder etterpå. Da er tellingen — hvor mange plasser, hvor mange oppdateringer — hele temaet.\n\n**Oppgave 2** testet steg 1 til 6 i den enkleste formen: én størrelse, én tabell, ingen rekkefølgeproblematikk. Legg merke til at deloppgave c) om antall verdier er verdt like mye som en kodelinje. Sensor spør om den fordi den avslører om du forstår tellingen eller bare har pugget mønsteret.\n\n**Oppgave 3** testet steg 5 alene. Signalet i oppgaveteksten er at det står $y_{n+1}$ — med indeks $n+1$ — inne i uttrykket for $x_{n+1}$. Ser du en indeks $n+1$ på **høyre** side av likhetstegnet, er rekkefølgen kritisk. Ser du bare $n$-indekser på høyresidene, spiller den ingen rolle, og da bør du si det i én setning."
+  },
+  {
+   "id": "in1900-6-3-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H — tre koblede størrelser, med plott.) Et smitteutbrudd modelleres dag for dag med mottakelige $S_n$, smittsomme $I_n$ og immune $R_n$:\n\n$$S_{n+1} = S_n - \\beta S_nI_n, \\qquad I_{n+1} = I_n + \\beta S_nI_n - \\gamma I_n, \\qquad R_{n+1} = R_n + \\gamma I_n$$\n\n**a)** Skriv `sir(S0, I0, R0, beta, gamma, N)` som returnerer de tre tabellene.\n\n**b)** Kjør med $S_0 = 9990$, $I_0 = 10$, $R_0 = 0$, $\\beta = 3\\cdot 10^{-5}$, $\\gamma = 0{,}12$ og $N = 120$. Skriv ut første skritt, toppen i $I$ med dagen den kommer, og sluttverdiene.\n\n**c)** Skriv plottekoden for de tre kurvene mot dag, og beskriv figuren.\n\n**d)** Summen $S + I + R$ er en fornuftssjekk. Forklar hvorfor.",
+    "solution": "**a)** og **b)**. Alle tre likningene bruker bare de gamle verdiene $S_n$, $I_n$ og $R_n$, så rekkefølgen inne i løkka spiller ingen rolle. Å regne de to overgangene i egne variabler først gjør det åpenbart:\n\n```python\nimport numpy as np\n\ndef sir(S0, I0, R0, beta, gamma, N):\n    S = np.zeros(N+1)\n    I = np.zeros(N+1)\n    R = np.zeros(N+1)\n    S[0] = S0\n    I[0] = I0\n    R[0] = R0\n    for n in range(N):\n        nysmittet = beta*S[n]*I[n]\n        friskmeldt = gamma*I[n]\n        S[n+1] = S[n] - nysmittet\n        I[n+1] = I[n] + nysmittet - friskmeldt\n        R[n+1] = R[n] + friskmeldt\n    return S, I, R\n\n\nS, I, R = sir(9990.0, 10.0, 0.0, 3e-5, 0.12, 120)\nprint(f'S[1] = {S[1]:.4f}  I[1] = {I[1]:.4f}  R[1] = {R[1]:.4f}')\nprint(f'maks I = {I.max():.1f} paa dag {int(I.argmax())}')\nprint(f'slutt: S = {S[-1]:.1f}  I = {I[-1]:.1f}  R = {R[-1]:.1f}')\nprint(f'sum = {S[-1]+I[-1]+R[-1]:.1f}')\n```\n\n**Utskrift:**\n```\nS[1] = 9987.0030  I[1] = 11.7970  R[1] = 1.2000\nmaks I = 2430.8 paa dag 43\nslutt: S = 995.3  I = 4.2  R = 9000.5\nsum = 10000.0\n```\n\n**c)** Tre `plot`-kall, én `legend()`:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef sir(S0, I0, R0, beta, gamma, N):\n    S = np.zeros(N+1)\n    I = np.zeros(N+1)\n    R = np.zeros(N+1)\n    S[0] = S0\n    I[0] = I0\n    R[0] = R0\n    for n in range(N):\n        nysmittet = beta*S[n]*I[n]\n        friskmeldt = gamma*I[n]\n        S[n+1] = S[n] - nysmittet\n        I[n+1] = I[n] + nysmittet - friskmeldt\n        R[n+1] = R[n] + friskmeldt\n    return S, I, R\n\nS, I, R = sir(9990.0, 10.0, 0.0, 3e-5, 0.12, 120)\ndager = np.linspace(0, 120, 121)\nplt.plot(dager, S, label='mottakelige')\nplt.plot(dager, I, label='smittsomme')\nplt.plot(dager, R, label='immune')\nplt.xlabel('dag')\nplt.ylabel('antall personer')\nplt.legend()\nplt.show()\nprint(f'{len(dager)} punkter')\n```\n\n**Utskrift:**\n```\n121 punkter\n```\n\n**Figuren i ord.** Førsteaksen viser dag 0 til 120, andreaksen antall personer fra 0 til 10 000. Kurven for mottakelige starter i 9990, ligger nesten flat den første måneden, faller deretter bratt, og flater ut rundt 995. Kurven for smittsomme starter nær 0, vokser sakte, og skyter i været til en topp på rundt 2430 på dag 43 før den faller mot 0. Kurven for immune stiger monotont fra 0 og flater ut rundt 9000. Toppen i smittsomme ligger nøyaktig der kurven for mottakelige er brattest — det er dagen da flest smittes per døgn. Forklaringen navngir de tre kurvene.\n\n**d)** Ingen forsvinner og ingen kommer til i denne modellen: hver person er enten mottakelig, smittsom eller immun. Summen skal derfor være 10 000 på hvert eneste tidspunkt. At utskriften viser nøyaktig 10 000,0 er en kontroll du kan gjøre **uten fasit**, og det er verdt et poeng å nevne den. Ser du at summen driver, har du enten mistet et ledd eller brukt en ny verdi der en gammel skulle stått.\n\n**Hva gir uttelling (10 poeng):** a) 5 p — tre tabeller (1 p), tre startverdier (1 p), løkkegrensen (1 p), de tre uttrykkene (2 p). b) 2 p — kallet og de tre utskriftene. c) 2 p — tre kurver med `label=`, `legend()`, aksenavn og en figurbeskrivelse med topp og retning. d) 1 p — bevaringsargumentet.",
+    "hints": [
+     "Tre størrelser gir tre tabeller og tre startverdier.",
+     "Regn `nysmittet` og `friskmeldt` i egne variabler før du oppdaterer.",
+     "Til d): kan en person forsvinne ut av modellen?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal simulere to sammenkoblede vanntanker der væske strømmer fra den fulleste til den tommeste:\n\n$$\\text{overført} = k\\,\\Delta t\\,(A_n - B_n), \\qquad A_{n+1} = A_n - \\text{overført}, \\qquad B_{n+1} = B_n + \\text{overført}$$\n\nProgrammet har **tre** feil.\n\n```text\nimport numpy as np\n\ndef tanker(A0, B0, k, dt, N):\n    A = np.zeros(N)\n    B = np.zeros(N)\n    A[0] = A0\n    for n in range(N):\n        overfort = k*dt*(A[n] - B[n])\n        A[n+1] = A[n] - overfort\n        B[n+1] = B[n] - overfort\n    return A, B\n```\n\n**a)** Nevn de tre feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden, og kjør den med $A_0 = 80$, $B_0 = 20$, $k = 0{,}4$, $\\Delta t = 0{,}1$ og $N = 200$.",
+    "solution": "**a)** De tre feilene:\n\n1. **`np.zeros(N)` i stedet for `np.zeros(N+1)`.** Tabellene har én plass for lite, og siste runde i løkka skriver til `A[N]`, som ikke finnes. Programmet stopper med `IndexError: index 200 is out of bounds for axis 0 with size 200`. Dette er felle **#1**.\n2. **`B[0] = B0` mangler.** Tank B starter på 0 i stedet for 20, og hele forløpet blir feil — likevekten havner på 40 i stedet for 50.\n3. **`B[n+1] = B[n] - overfort` har feil fortegn.** Væsken som forsvinner fra A skal komme **til** B, så det skal være pluss. Med minus lekker væske ut av systemet, og summen $A + B$ synker mot 0.\n\n**b)** Rettet:\n\n```python\nimport numpy as np\n\ndef tanker(A0, B0, k, dt, N):\n    A = np.zeros(N+1)\n    B = np.zeros(N+1)\n    A[0] = A0\n    B[0] = B0\n    for n in range(N):\n        overfort = k*dt*(A[n] - B[n])\n        A[n+1] = A[n] - overfort\n        B[n+1] = B[n] + overfort\n    return A, B\n\n\nA, B = tanker(80.0, 20.0, 0.4, 0.1, 200)\nprint(f'{A[0]:.2f} {B[0]:.2f}')\nprint(f'{A[1]:.4f} {B[1]:.4f}')\nprint(f'{A[-1]:.4f} {B[-1]:.4f}')\nprint(f'sum = {A[-1]+B[-1]:.4f}')\n```\n\n**Utskrift:**\n```\n80.00 20.00\n77.6000 22.4000\n50.0000 50.0000\nsum = 100.0000\n```\n\nKontroller første skritt: overført er $0{,}4\\cdot 0{,}1\\cdot(80-20) = 2{,}4$, så A går til 77,6 og B til 22,4. Og legg merke til bevaringssjekken: summen er 100 hele veien, og begge tankene ender på 50 — akkurat som fysikken sier.\n\n**Hva gir uttelling (7 poeng):** 1 poeng per navngitt feil (3 p), 3 for rettet kode som kjører, 1 for å nevne bevaringssjekken. Sjanger O er poengmessig snill: finner du to av tre feil, har du fortsatt flertallet av poengene.",
+    "hints": [
+     "Tell plassene i tabellene mot antall oppdateringer løkka gjør.",
+     "Sjekk at antall startverdier er lik antall tabeller.",
+     "Hvor blir det av væsken som forlater tank A?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-opg-intro-2",
+   "type": "text",
+   "content": "## Oppgave 6–10: variantene som skiller (~25 min)\n\n— naturlig pausepunkt —\n\nDe neste fem oppgavene ligner mest på det du møter når sjangeren er verdt ti poeng eller mer: en fasekurve i stedet for et tidsplott, en modell der koblingen går gjennom nye verdier, en påstandstabell, og en full tredelt oppgave."
+  },
+  {
+   "id": "in1900-6-3-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, del-b på sjanger H — fasekurve.) Du har tabellene `B` (byttedyr) og `R` (rovdyr) fra det gjennomarbeidede caset.\n\n**a)** Skriv koden som plotter **fasekurven**, altså rovdyr mot byttedyr, med byttedyr langs førsteaksen.\n\n**b)** Kurven blir en lukket løkke som beveger seg mot klokka rundt punktet $(30, 20)$. Forklar i ord hva det forteller om de to bestandene, og hva punktet er.\n\n**c)** Hva er forskjellen på et tidsplott og en fasekurve, og hvilken informasjon mister du i den siste?",
+    "solution": "**a)** Fasekurven plotter den ene tabellen mot den andre. Det finnes ingen tidsakse:\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.show()\n```\n\nBlokken er et fragment: `B` og `R` kommer fra simuleringen i caset, så den kjører ikke alene.\n\n**b)** At kurven er en **lukket løkke** betyr at systemet kommer tilbake til utgangspunktet: bestandene svinger med samme utslag om og om igjen, uten å dø ut og uten å eksplodere. Punktet $(30, 20)$ er **likevektspunktet**, der begge bestandene ville stått helt stille — det er tallene $B = d/c$ og $R = a/b$ fra caset.\n\nAt kurven går mot klokka forteller om rekkefølgen: fra mange byttedyr og få rovdyr vokser rovdyrbestanden, deretter faller byttedyrene, deretter faller rovdyrene fordi maten er borte, og til slutt tar byttedyrene seg opp igjen. Det er den samme forsinkelsen du så i tidsplottet, sett fra en annen vinkel.\n\n**c)** I et tidsplott er førsteaksen tid, og hver kurve viser én størrelse. I en fasekurve er begge aksene størrelser, og tiden er bare rekkefølgen punktene tegnes i.\n\nDet du mister, er **når** ting skjer. Fasekurven viser at bestandene svinger og hvor stort utslaget er, men ikke om én runde tar ti måneder eller hundre. Til gjengjeld ser du noe tidsplottet skjuler: om systemet nærmer seg en likevekt (spiral innover), fjerner seg fra den (spiral utover), eller gjentar seg nøyaktig (lukket løkke).\n\n**Hva gir uttelling (5 poeng):** riktig argumentrekkefølge i `plot(B, R)` (1 p), aksenavn som viser at ingen av aksene er tid (1 p), tolkningen av den lukkede løkka og likevektspunktet (2 p), skillet i c) (1 p). En vanlig feil er å skrive `plt.plot(t, B, R)` — det er tre argumenter til `plot` og betyr noe helt annet.",
+    "hints": [
+     "En fasekurve har ingen tidsakse — hva står da i `plot`?",
+     "Hva betyr det at kurven kommer tilbake til der den startet?",
+     "Til c): kan du lese av hvor lang en svingning er fra fasekurven?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H — kobling gjennom ny verdi.) Sedimentlaget i en innsjø vokser med en hastighet som avtar når laget blir tykt:\n\n$$v_{n+1} = v_n + a\\left(1 - \\frac{h_n}{b}\\right), \\qquad h_{n+1} = h_n + v_{n+1}$$\n\nder $h_n$ er tykkelsen i millimeter etter $n$ år og $v_n$ er årets tilvekst.\n\n**a)** Skriv `sediment(h0, v0, a, b, N)` som returnerer tabellene `h` og `v`.\n\n**b)** Kjør med $h_0 = 0$, $v_0 = 1$, $a = 0{,}2$, $b = 50$ og $N = 8$, og skriv ut begge tabellene år for år.\n\n**c)** Hvilken av de to likningene må regnes først, og hvordan ser du det i oppgaveteksten?",
+    "solution": "**a)** og **b)**. Uttrykket for $h_{n+1}$ inneholder $v_{n+1}$, altså en indeks $n+1$ på høyre side. Da må `v[n+1]` regnes først:\n\n```python\nimport numpy as np\n\ndef sediment(h0, v0, a, b, N):\n    h = np.zeros(N+1)\n    v = np.zeros(N+1)\n    h[0] = h0\n    v[0] = v0\n    for n in range(N):\n        v[n+1] = v[n] + a*(1 - h[n]/b)\n        h[n+1] = h[n] + v[n+1]\n    return h, v\n\n\nh, v = sediment(0.0, 1.0, 0.2, 50.0, 8)\nfor n in range(9):\n    print(f'{n} {h[n]:8.4f} {v[n]:8.4f}')\n```\n\n**Utskrift:**\n```\n0   0.0000   1.0000\n1   1.2000   1.2000\n2   2.5952   1.3952\n3   4.1800   1.5848\n4   5.9481   1.7681\n5   7.8924   1.9443\n6  10.0052   2.1127\n7  12.2779   2.2727\n8  14.7015   2.4236\n```\n\nKontroller første år: $v_1 = 1 + 0{,}2\\,(1 - 0/50) = 1{,}2$, og $h_1 = 0 + 1{,}2 = 1{,}2$.\n\n**c)** `v[n+1]` må regnes først, og det ser du **direkte i formelen**: uttrykket for $h_{n+1}$ inneholder $v_{n+1}$, med indeks $n+1$. Regelen er kort: **en indeks $n+1$ på høyre side betyr at den likningen må stå sist.**\n\nMotsatt: hadde det stått $h_{n+1} = h_n + v_n$, ville begge høyresidene bare hatt $n$-indekser, og rekkefølgen ville vært likegyldig. Det er verdt å skrive én setning om hvilken av de to situasjonene du er i — sensor ser etter at du har sjekket.\n\n**Hva gir uttelling (7 poeng):** to tabeller (1 p), begge startverdiene (1 p), løkkegrensen (1 p), rekkefølgen med `v[n+1]` først (2 p), de to uttrykkene (1 p), begrunnelsen i c) (1 p).\n\nLegg merke til at tilveksten `v` **vokser** i dette forløpet, fordi $h$ er langt under $b = 50$ og parentesen derfor er positiv. Først når laget nærmer seg 50 mm snur det. Det er en fornuftssjekk du kan gjøre uten å kjøre koden: er parentesen positiv, øker tilveksten.",
+    "hints": [
+     "Se etter en indeks `n+1` på høyre side av likhetstegnet.",
+     "Den likningen som **bruker** en ny verdi, må stå sist.",
+     "Kontroller første år for hånd før du stoler på tabellen."
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-o8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger D — «hvilke av påstandene er riktige?». Sjanger D er matche-typen der du avgjør om hver påstand holder.) Se på denne funksjonen:\n\n```text\ndef simuler(x0, N):\n    x = np.zeros(N+1)\n    x[0] = x0\n    for n in range(N):\n        x[n+1] = 0.9*x[n] + 2\n    return x\n```\n\nAvgjør for hver påstand om den er **riktig** eller **gal**.\n\n| Rad | Påstand |\n|---|---|\n| 1 | Tabellen `x` har `N+1` plasser |\n| 2 | Løkka gjør `N+1` oppdateringer |\n| 3 | `x[N]` blir skrevet til i siste runde |\n| 4 | Bytter du til `range(N+1)`, får du `IndexError` |\n| 5 | Startverdien kan like gjerne settes inne i løkka |\n| 6 | Med `N = 0` returneres en tabell med bare startverdien |",
+    "solution": "**Fasit: 1 riktig · 2 gal · 3 riktig · 4 riktig · 5 gal · 6 riktig.**\n\n**Rad 1 — riktig.** `np.zeros(N+1)` gir nøyaktig `N+1` plasser, indeksert 0 til `N`.\n\n**Rad 2 — gal.** `range(N)` gir `n = 0, 1, …, N-1`, altså **`N`** oppdateringer. Skillet mellom skritt og verdier er hele tellingen i denne sjangeren: `N` skritt, `N+1` verdier.\n\n**Rad 3 — riktig.** Siste runde har `n = N-1`, og skriver til `x[N]` — den siste plassen. Alt passer nøyaktig, og det er ingen tilfeldighet: malen er bygget slik.\n\n**Rad 4 — riktig.** Med `range(N+1)` går siste runde med `n = N` og skriver til `x[N+1]`, som ikke finnes. Programmet stopper med `IndexError`.\n\n**Rad 5 — gal.** Settes `x[0] = x0` inne i løkka, overskrives startverdien i hver eneste runde. Verdiene som allerede er regnet ut, blir stående, men plass 0 tilbakestilles — og i en modell der oppdateringen leser `x[n]` med `n = 0` i første runde, betyr det at du får riktig svar av gal grunn. Sett den alltid før løkka.\n\n**Rad 6 — riktig.** Med `N = 0` har tabellen én plass, og `range(0)` er tom, så løkka kjører aldri. Du får `[x0]`. Det er en fin grensetilfellekontroll.\n\n**Poeng:** 3, altså 0,5 per rad. Radene vurderes uavhengig, så det er seks separate sjanser.",
+    "hints": [
+     "Skriv opp hvilke verdier `range(N)` faktisk gir.",
+     "Tell plassene i tabellen og oppdateringene i løkka hver for seg.",
+     "Til rad 6: hva gjør `range(0)`?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-o9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H — full tredelt oppgave.) I havet beskrives biomassen av planteplankton $P_n$ og dyreplankton $Z_n$ av\n\n$$P_{n+1} = P_n + \\Delta t\\,(aP_n - bP_nZ_n), \\qquad Z_{n+1} = Z_n + \\Delta t\\,(cP_nZ_n - dZ_n)$$\n\nmed målt i milligram per kubikkmeter og $\\Delta t$ i døgn.\n\n**a)** Skriv `biomasse(P0, Z0, a, b, c, d, dt, N)`.\n\n**b)** Kjør med $P_0 = 120$, $Z_0 = 15$, $a = 0{,}5$, $b = 0{,}01$, $c = 0{,}005$, $d = 0{,}4$, $\\Delta t = 0{,}02$ og $N = 10000$. Skriv ut første skritt, samt høyeste og laveste verdi av $P$.\n\n**c)** Regn ut likevektsverdiene for hånd, og sjekk at simuleringen svinger rundt dem.\n\n**d)** Skriv plottekoden for begge kurvene mot tid.",
+    "solution": "**a)**, **b)** og **c)**. Begge høyresidene bruker bare $P_n$ og $Z_n$, så rekkefølgen er likegyldig — men skriv én setning om at du har sjekket:\n\n```python\nimport numpy as np\n\ndef biomasse(P0, Z0, a, b, c, d, dt, N):\n    P = np.zeros(N+1)\n    Z = np.zeros(N+1)\n    P[0] = P0\n    Z[0] = Z0\n    for n in range(N):\n        P[n+1] = P[n] + dt*(a*P[n] - b*P[n]*Z[n])\n        Z[n+1] = Z[n] + dt*(c*P[n]*Z[n] - d*Z[n])\n    return P, Z\n\n\nP, Z = biomasse(120.0, 15.0, 0.5, 0.01, 0.005, 0.4, 0.02, 10000)\nprint(f'{P[1]:.5f} {Z[1]:.5f}')\nprint(f'maks P = {P.max():.2f}  min P = {P.min():.2f}')\nprint(f'likevekt: P = {0.4/0.005:.1f}  Z = {0.5/0.01:.1f}')\n```\n\n**Utskrift:**\n```\n120.84000 15.06000\nmaks P = 310.37  min P = 7.33\nlikevekt: P = 80.0  Z = 50.0\n```\n\n**c)** Likevekt betyr at ingen av størrelsene endrer seg, altså at begge parentesene er null. Fra $aP = bPZ$ følger $Z = a/b = 0{,}5/0{,}01 = 50$, og fra $cPZ = dZ$ følger $P = d/c = 0{,}4/0{,}005 = 80$.\n\nSimuleringen svinger mellom 7,3 og 310,4 for $P$, altså **rundt** 80 — men langt fra symmetrisk. Slik er det alltid i denne modellen: bestanden bruker lang tid på lave verdier og kort tid på høye, så gjennomsnittet ligger nærmere bunnen enn midtpunktet mellom ytterpunktene.\n\n**d)** Simuleringen dekker $10000\\cdot 0{,}02 = 200$ døgn, og tabellene har 10001 verdier:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef biomasse(P0, Z0, a, b, c, d, dt, N):\n    P = np.zeros(N+1)\n    Z = np.zeros(N+1)\n    P[0] = P0\n    Z[0] = Z0\n    for n in range(N):\n        P[n+1] = P[n] + dt*(a*P[n] - b*P[n]*Z[n])\n        Z[n+1] = Z[n] + dt*(c*P[n]*Z[n] - d*Z[n])\n    return P, Z\n\nP, Z = biomasse(120.0, 15.0, 0.5, 0.01, 0.005, 0.4, 0.02, 10000)\nt = np.linspace(0, 200, 10001)\nplt.plot(t, P, label='planteplankton')\nplt.plot(t, Z, label='dyreplankton')\nplt.xlabel('tid (dogn)')\nplt.ylabel('biomasse (mg/m3)')\nplt.legend()\nplt.show()\nprint(f'{len(t)} punkter, siste tid {t[-1]:.1f}')\n```\n\n**Utskrift:**\n```\n10001 punkter, siste tid 200.0\n```\n\n**Figuren i ord.** Førsteaksen viser tid fra 0 til 200 døgn, andreaksen biomasse fra rundt 7 til rundt 310. Planteplanktonkurven har høye, spisse topper med lange lavperioder imellom; dyreplanktonkurven har lavere og bredere topper som kommer litt **etter** planteplanktontoppene. Begge svinger rundt likevektsverdiene 80 og 50, og forsinkelsen mellom kurvene er den samme rovdyr–byttedyr-dynamikken som i caset — bare med plankton i stedet for pattedyr. Forklaringen navngir de to kurvene.\n\n**Hva gir uttelling (12 poeng):** a) 5 p etter samme fordeling som i caset. b) 2 p — kallet og utskriftene. c) 2 p — de to likevektsuttrykkene med utregning. d) 3 p — tidsakse med riktig lengde (1 p), to kurver med `label=` (1 p), aksenavn, `legend()`, `show()` og figurbeskrivelse (1 p).\n\n**Selvdiagnose:** ☐ satte du begge startverdiene **før** løkka? ☐ ga `range(N)` deg $N$ oppdateringer og $N+1$ verdier? ☐ sjekket du om noen høyreside inneholder en indeks $n+1$? ☐ har tidsaksen like mange punkter som tabellene? ☐ har hver kurve `label=`, og kalte du `legend()`?",
+    "hints": [
+     "Bruk skjelettet: to tabeller, to startverdier, én løkke, to oppdateringer.",
+     "Likevekt betyr at begge parentesene er null.",
+     "Tidsaksen må ha like mange punkter som tabellene: `N+1`."
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-o10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-6-3-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H — steglengde og stabilitet.) Bruk `logistisk(x0, r, K, N)` fra oppgave 2.\n\n**a)** Kjør modellen med $K = 900$, $x_0 = 20$, $N = 60$ og tre verdier av $r$: $0{,}35$, $2{,}1$ og $2{,}6$. Skriv ut de fem siste verdiene for hver.\n\n**b)** Beskriv hva som skjer i hvert av de tre tilfellene.\n\n**c)** Er dette en programmeringsfeil eller en egenskap ved modellen? Begrunn.",
+    "solution": "**a)** En løkke over de tre verdiene av $r$, med et utsnitt av tabellen:\n\n```python\nimport numpy as np\n\ndef logistisk(x0, r, K, N):\n    x = np.zeros(N+1)\n    x[0] = x0\n    for n in range(N):\n        x[n+1] = x[n] + r*x[n]*(1 - x[n]/K)\n    return x\n\n\nfor r in [0.35, 2.1, 2.6]:\n    x = logistisk(20.0, r, 900.0, 60)\n    siste = ' '.join(f'{v:8.2f}' for v in x[-5:])\n    print(f'r = {r:4.2f}: {siste}')\n```\n\n**Utskrift:**\n```\nr = 0.35:   900.00   900.00   900.00   900.00   900.00\nr = 2.10:  1015.78   741.36  1015.78   741.36  1015.78\nr = 2.60:  1117.82   414.43   995.78   720.26  1094.25\n```\n\nMerk at utsnittet `x[-5:]` gir de fem siste verdiene, og at `' '.join(...)` setter dem sammen til én linje — begge er grep fra [kap. 1.2](/bok/in1900/in1900-1-2) og [kap. 1.4](/bok/in1900/in1900-1-4).\n\n**b)** Med $r = 0{,}35$ går bestanden rolig mot bæreevnen 900 og blir stående der: alle fem verdiene er like. Med $r = 2{,}1$ nærmer den seg aldri én verdi, men veksler nøyaktig mellom 1015,78 og 741,36 — en **to-syklus**, der annenhver verdi er lik. Med $r = 2{,}6$ er forløpet uregelmessig: verdiene hopper rundt uten å gjenta seg, og små endringer i startverdien gir helt andre tall etter tretti skritt.\n\n**c)** Dette er en **egenskap ved modellen**, ikke en programmeringsfeil. Den diskrete logistiske likningen er det klassiske skoleeksempelet på at en helt enkel formel kan gi rolig vekst, periodiske svingninger eller kaotisk oppførsel, avhengig av én parameter.\n\nSkillet er verdt å ha klart på eksamen: en **programmeringsfeil** gir feil svar for alle parametere og skyldes koden. En **modellegenskap** endrer seg med parameterne og er der uansett hvor riktig du koder. Ser du villskap i utskriften, sjekk først om koden stemmer med likningene — og hvis den gjør det, si at forløpet er modellens, ikke ditt.\n\nMerk også at bestanden i to av tilfellene går over bæreevnen 900. Det er tillatt i denne modellen: parentesen $1 - x/K$ blir negativ, og bestanden trekkes ned igjen neste skritt.\n\n**Hva gir uttelling (6 poeng):** a) 2 p — løkke over parameterne og et utsnitt av tabellen. b) 2 p — de tre forløpene beskrevet med riktige ord. c) 2 p — skillet mellom kodefeil og modellegenskap, med begrunnelse.\n\nDenne oppgavetypen — «forklar hva du ser» — kommer ofte som siste deloppgave, og den kan besvares selv om du ikke fikk simuleringen til å virke. Skriv alltid noe der.",
+    "hints": [
+     "Løkk over de tre verdiene av `r` og gjenbruk funksjonen fra oppgave 2.",
+     "`x[-5:]` gir de fem siste verdiene i tabellen.",
+     "Til c): endrer oppførselen seg med parameteren, eller er den feil uansett?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-6-3-signal-2",
+   "type": "tip",
+   "title": "Signal: hva oppgave 4–10 testet",
+   "content": "**Oppgave 4** var den fulle formen sjangeren har når den er verdt ti poeng: tre koblede størrelser, plott og en fornuftssjekk. Legg merke til at bevaringssjekken — at summen er konstant — er den eneste kontrollen du kan gjøre uten fasit og uten datamaskin. Bruk den hver gang modellen tillater det.\n\n**Oppgave 5** testet feilkatalogen baklengs. De tre du skal kjenne igjen på et blunk er tabellstørrelsen, en glemt startverdi og et fortegn som bryter bevaringen.\n\n**Oppgave 6** testet fasekurven, som er den andre plottevarianten i sjangeren. Signalet i oppgaveteksten er at ingen av aksene skal være tid.\n\n**Oppgave 7** testet steg 5 igjen, nå med signalet skrevet rett inn i formelen: en indeks $n+1$ på høyre side.\n\n**Oppgave 8** var midtveisformatet: ingen kode skal skrives, bare tellingen vurderes. Fire av seks påstander handler om forholdet mellom skritt og verdier.\n\n**Oppgave 9** var den tredelte oppgaven med likevektsregning — den eneste deloppgaven i kapitlet som gjøres med penn og papir, ikke med kode.\n\n**Oppgave 10** var «forklar hva du ser». Den kan besvares selv om simuleringen ikke virker, og den er derfor et sted du alltid skal skrive noe."
+  },
+  {
+   "id": "in1900-6-3-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1900-6-3-api-txt",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `import numpy as np` | nødvendig import; skal alltid med når oppgaven ber om kjørbar kode |\n| `np.zeros(N+1)` | tabell med `N+1` plasser, alle 0.0; `N` skritt krever `N+1` plasser |\n| `x[0] = x0` | startverdien, satt **før** løkka; én linje per tabell |\n| `for n in range(N):` | `N` oppdateringer, `n` fra 0 til `N-1`; siste tilordning treffer `x[N]` |\n| `x[n+1] = x[n] + ...` | oppdateringslinja; leser den gamle verdien, skriver den nye |\n| `y[n+1]` på **høyre** side | signalet om at rekkefølgen er kritisk: den likningen må stå sist |\n| `dB = ...` før oppdateringene | robust vane: begge endringene regnes fra gamle verdier først |\n| `return x, y` | flere tabeller som tuppel, utenfor løkka; pakkes ut med `x, y = f(...)` |\n| `x.size` / `len(x)` | antall plasser i tabellen, uansett hvor mange som er fylt ut |\n| `x[-1]` | siste plass; er 0.0 hvis løkka ikke rakk dit |\n| `x[-5:]` | utsnitt med de fem siste verdiene |\n| `x.max()` / `x.min()` | største og minste verdi i tabellen |\n| `x.argmax()` | **indeksen** til den største verdien, ikke verdien selv |\n| `np.linspace(0, T, N+1)` | tidsaksen; like mange punkter som tabellene |\n| `range(len(x))` | alternativ førsteakse når enheten er skritt og ikke tid |\n| `plt.plot(t, x, label='navn')` | én kurve med navn; `label` uten `legend()` vises ikke |\n| `plt.plot(B, R)` | fasekurve: den ene tabellen mot den andre, ingen tidsakse |\n| `plt.xlabel` / `plt.ylabel` / `plt.legend()` / `plt.show()` | aksenavn, forklaring og visning; `show()` sist |\n| `' '.join(f'{v:8.2f}' for v in x[-5:])` | flere tall på én linje med fast bredde |\n\n**Formler i dette delkapitlet:**\n\nLogistisk vekst: $x_{n+1} = x_n + rx_n\\left(1 - \\dfrac{x_n}{K}\\right)$\n\nRovdyr og byttedyr: $B_{n+1} = B_n + \\Delta t\\,(aB_n - bB_nR_n)$, $\\;R_{n+1} = R_n + \\Delta t\\,(cB_nR_n - dR_n)$, med likevekt $B = d/c$ og $R = a/b$\n\nSmittemodell: $S_{n+1} = S_n - \\beta S_nI_n$, $\\;I_{n+1} = I_n + \\beta S_nI_n - \\gamma I_n$, $\\;R_{n+1} = R_n + \\gamma I_n$, med $S + I + R$ konstant\n\nUtveksling mellom to beholdere: $A_{n+1} = A_n - k\\Delta t(A_n - B_n)$, $\\;B_{n+1} = B_n + k\\Delta t(A_n - B_n)$, med $A + B$ konstant\n\n**Navnekollisjoner å være klar over:** `N` er antall **skritt**, mens `N+1` er antall **verdier** — de to blandes i felle #1. `n` er løkkevariabelen i differenslikningen, men også et vanlig navn på et antall; i dette kapitlet er `n` alltid skrittnummeret. `R` er både rovdyrbestanden i caset og de immune i smittemodellen — les alltid oppgavens egen navngiving.\n\n**Feilkodene som hører til dette delkapitlet:** #1 (av-én på tabellstørrelse eller løkkegrense), #2 (feil oppdateringsrekkefølge i koblede likninger), pluss de to kapittelspesifikke: glemt startverdi, og glemt `label=` eller `legend()` i plottet."
+    }
+   ]
+  },
+  {
+   "id": "in1900-6-3-bank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "in1900-6-3-bank-1",
+   "type": "definition",
+   "title": "Sjanger H",
+   "content": "Differenslikninger: oppgaven der du regner ut hvordan en eller flere størrelser utvikler seg skritt for skritt. Sjangeren står i 6 av 8 gjennomgåtte avsluttende sett og i 4 av 4 siste, og teller 5–12 poeng. Den er nesten alltid todelt: (a) skriv simuleringen, (b) plott resultatet."
+  },
+  {
+   "id": "in1900-6-3-bank-2",
+   "type": "definition",
+   "title": "Steg 1 og 2 — tell størrelsene og allokér",
+   "content": "Én likning gir én tabell, to koblede gir to. Hver tabell lages med `np.zeros(N+1)`, der `N` er antall skritt. Å allokere betyr å be om lagerplassen på forhånd, før du vet hva som skal stå der."
+  },
+  {
+   "id": "in1900-6-3-bank-3",
+   "type": "definition",
+   "title": "Steg 3 — startverdiene før løkka",
+   "content": "`x[0] = x0` og `y[0] = y0` settes **før** løkka, én linje per tabell. Er antall startverdier mindre enn antall tabeller, starter en av størrelsene på 0 og hele forløpet blir feil."
+  },
+  {
+   "id": "in1900-6-3-bank-4",
+   "type": "definition",
+   "title": "Steg 4 — én løkke for alle størrelsene",
+   "content": "`for n in range(N):`, og begge oppdateringene inne i samme runde. To løkker etter hverandre er feil: da bruker den andre løkka ferdige verdier fra den første i stedet for verdier fra samme skritt."
+  },
+  {
+   "id": "in1900-6-3-bank-5",
+   "type": "definition",
+   "title": "Steg 5 — oppdateringsrekkefølgen",
+   "content": "Spørsmålet er: bruker den ene likningen den **nye** verdien av den andre? Signalet er en indeks $n+1$ på høyre side av likhetstegnet. Da må den likningen stå sist. Har alle høyresider bare $n$-indekser, er rekkefølgen likegyldig — og det er verdt en setning å si at du har sjekket."
+  },
+  {
+   "id": "in1900-6-3-bank-6",
+   "type": "definition",
+   "title": "Skritt mot verdier",
+   "content": "`N` skritt gir `N+1` verdier, fordi startverdien også er en verdi. `range(N)` gir `n` fra 0 til `N-1`, og siste tilordning treffer `x[N]` — den siste plassen i en tabell med `N+1` plasser. Alt passer nøyaktig."
+  },
+  {
+   "id": "in1900-6-3-bank-7",
+   "type": "definition",
+   "title": "Av-én-feilens tre former",
+   "content": "`np.zeros(N)` gir `IndexError` på siste runde. `range(N+1)` gir samme feil. `np.zeros(N+1)` med for kort løkke gir ingen feilmelding i det hele tatt, bare nuller på slutten av tabellen — den siste er verst, fordi den ser riktig ut."
+  },
+  {
+   "id": "in1900-6-3-bank-8",
+   "type": "definition",
+   "title": "Bevaringssjekken",
+   "content": "I modeller der ingenting forsvinner — smittemodellen, to sammenkoblede beholdere — skal summen av størrelsene være konstant. Det er den eneste kontrollen du kan gjøre uten fasit og uten datamaskin, og den er verdt et poeng å nevne."
+  },
+  {
+   "id": "in1900-6-3-bank-9",
+   "type": "definition",
+   "title": "Likevektspunkt",
+   "content": "Verdiene der ingen av størrelsene endrer seg, altså der alle endringsuttrykkene er null. For rovdyr–byttedyr-modellen er de $B = d/c$ og $R = a/b$. Simuleringen svinger rundt dem, og de regnes ut med penn og papir, ikke med kode."
+  },
+  {
+   "id": "in1900-6-3-bank-10",
+   "type": "definition",
+   "title": "Tidsplott mot fasekurve",
+   "content": "I et tidsplott er førsteaksen tid og hver kurve viser én størrelse. I en fasekurve er begge aksene størrelser, og tiden er bare rekkefølgen punktene tegnes i. Fasekurven viser om systemet nærmer seg en likevekt, fjerner seg fra den, eller gjentar seg — men ikke når noe skjer."
+  },
+  {
+   "id": "in1900-6-3-bank-11",
+   "type": "definition",
+   "title": "Tidsaksen i del (b)",
+   "content": "`np.linspace(0, T, N+1)` der $T = N\\cdot\\Delta t$, eller `range(len(x))` når enheten er skritt. Aksen må ha **like mange punkter** som tabellene, ellers stopper plottekallet med en feil om ulik lengde."
+  },
+  {
+   "id": "in1900-6-3-bank-12",
+   "type": "definition",
+   "title": "Modellegenskap mot programmeringsfeil",
+   "content": "Endrer den rare oppførselen seg når du endrer en parameter, er den modellens; er svaret feil for alle parametere, er den kodens. Den diskrete logistiske likningen gir rolig vekst, periodiske svingninger eller uregelmessig forløp avhengig av én parameter alene — helt uten at koden er gal."
+  },
+  {
+   "id": "in1900-6-3-rep",
+   "type": "collapsible",
+   "title": "Repetisjon: oppskriften på ett kort",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1900-6-3-rep-txt",
+     "type": "text",
+     "content": "**De sju spørsmålene, i rekkefølge:**\n\n1. Hvor mange størrelser — hvor mange tabeller?\n2. `np.zeros(N+1)` for hver.\n3. Startverdi for hver, **før** løkka.\n4. Én løkke, `for n in range(N):`.\n5. Bruker den ene likningen den andres **nye** verdi? Da står den sist.\n6. `return` tabellene, utenfor løkka.\n7. Del (b): tidsakse med `N+1` punkter, `label=` per kurve, `legend()`, aksenavn, `show()`.\n\n**Skjelettet du skriver først, hver gang:**\n\n```python\nimport numpy as np\n\ndef simuler(x0, y0, N):\n    x = np.zeros(N+1)\n    y = np.zeros(N+1)\n    x[0] = x0\n    y[0] = y0\n    for n in range(N):\n        y[n+1] = y[n]\n        x[n+1] = x[n]\n    return x, y\n\nx, y = simuler(5.0, 2.0, 3)\nprint(x, y)\n```\n\n**Utskrift:**\n```\n[5. 5. 5. 5.] [2. 2. 2. 2.]\n```\n\n**De fire feilene som koster mest:** feil oppdateringsrekkefølge (#2) · av-én på tabellstørrelse eller løkkegrense (#1) · glemt startverdi · glemt `label=` eller `legend()`.\n\n**To kontroller du kan gjøre uten datamaskin:** regn første skritt for hånd, og sjekk om summen av størrelsene skal være konstant.\n\n**Neste steg:** prøvene til denne delen ligger i [prøvekapitlet](/bok/in1900/in1900-6-prove), og [kap. 9.2](/bok/in1900/in1900-9-2) har en sjanger-H-oppgave midt i et fullt sett under tidspress. Den kontinuerlige varianten — der differenslikningen erstattes av en differensiallikning og løses med det utleverte hierarkiet — står i [kap. 7.3](/bok/in1900/in1900-7-3)."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
