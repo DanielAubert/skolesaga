@@ -1,0 +1,395 @@
+{
+  "id": "in1900-7-1",
+  "courseId": "in1900",
+  "chapterNumber": "7.1",
+  "title": "ODE-løser som funksjon: forward Euler",
+  "description": "Skrive en forward-Euler-løser fra bunnen som en funksjon — det enkleste ODE-mønsteret, og grunnlaget for å forstå det utleverte hierarkiet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne skrive en løser for et initialverdiproblem som en funksjon som tar høyresiden, sluttiden, antall steg og startverdien, og returnerer tidspunktene og løsningen",
+    "kunne begrunne hvorfor N steg gir N+1 punkter, og plassere startverdien før løkka",
+    "kunne måle nøyaktigheten ved å halvere steglengden, og gjenkjenne at forlengs Euler har orden 1 og Heun orden 2",
+    "kunne bytte oppdateringsformel til baklengs Euler eller Heun uten å endre resten av mønsteret"
+  ],
+  "content": [
+    {
+      "id": "in1900-7-1-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Differensiallikninger er ett av de fem temaene som står i **alle** de åtte gjennomgåtte avsluttende settene (100 %, 8 av 8). Del 7 er derfor et av kapitlene som må sitte — høyeste prioritet.\n\nDette kapitlet trener **sjanger I** — altså oppgavetypen «skriv en ODE-løser som en vanlig funksjon», der du selv setter opp tidspunktene, løsningsarrayet og løkka. Den går igjen jevnlig og er verdt rundt **5 poeng**. Sjangeren dukker opp som **fritekst-koding**: du skriver koden i et tekstfelt i Inspera (UiOs digitale eksamenssystem), uten hjelpemidler og uten å kunne kjøre den.\n\nDe to store ODE-sjangrene kommer i kapitlene etter: sjanger J (bruke det utleverte løser-hierarkiet, 9–10 poeng, i hvert sett) i [kap. 7.2](/bok/in1900/in1900-7-2) og [kap. 7.3](/bok/in1900/in1900-7-3), og sjanger K (skrive en subklasse) i [kap. 7.4](/bok/in1900/in1900-7-4). Dette kapitlet er grunnmuren under alle tre: skjønner du løkka her, leser du hierarkiet uten problemer.\n\nDu får uttelling for riktig struktur selv om en indeks glipper. Det er nesten umulig å få alle indekser 100 % riktige på en hjelpemiddelfri eksamen, og de offisielle løsningsforslagene sier eksplisitt at god score gis til besvarelser som får den overordnede løkkestrukturen riktig.\n\n*Løkke 1 — hva en ODE er, og Eulers idé (~12 min) · Løkke 2 — hele løser-funksjonen (~15 min) · Løkke 3 — nøyaktighet og steglengde (~13 min) · Løkke 4 — varianter du kan bli bedt om (~15 min)*"
+    },
+    {
+      "id": "in1900-7-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på tre ting fra tidligere i boka. Her er de, ferdig oppfrisket, så du ikke trenger å bla.\n\n**1. `np.linspace` og punkttelling** ([kap. 4.1](/bok/in1900/in1900-4-1)). `np.linspace(a, b, M)` gir `M` punkter der begge endepunktene er med. Deler du $[0, 3]$ i 30 like store steg, får du **31 punkter**:\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 3, 31)\nprint(\"antall punkter:\", len(t))\nprint(\"avstanden mellom to punkter:\", t[1] - t[0])\nprint(\"siste punkt:\", t[-1])\nu = np.zeros_like(t)\nprint(\"u har form\", u.shape, \"og starter som\", u[:4])\n```\n\n**Utskrift:**\n```\nantall punkter: 31\navstanden mellom to punkter: 0.1\nsiste punkt: 3.0\nu har form (31,) og starter som [0. 0. 0. 0.]\n```\n\n**2. En funksjon kan sendes som argument** ([kap. 1.6](/bok/in1900/in1900-1-6)). Et funksjonsnavn uten parenteser er bare en verdi, og kan sendes videre og kalles inne i den andre funksjonen:\n\n```python\ndef bruk(g, x):\n    return g(x) + g(2*x)\n\ndef kvadrat(x):\n    return x**2\n\nprint(bruk(kvadrat, 3))\n```\n\n**Utskrift:**\n```\n45\n```\n\n**3. Differenslikning-mønsteret** ([kap. 6.2](/bok/in1900/in1900-6-2)): allokér arrayet, sett startverdien FØR løkka, og la løkka fylle inn neste indeks.\n\n```python\nimport numpy as np\n\nx = np.zeros(5)\nx[0] = 100\nfor n in range(4):\n    x[n+1] = 1.5*x[n]\nprint(x)\n```\n\n**Utskrift:**\n```\n[100.   150.   225.   337.5  506.25]\n```\n\nMatematikken bak — hva en differensiallikning er, og hvordan de enkleste løses eksakt — står i [Differensialligninger: separable og lineære første ordens](/bok/mat1100/mat1100-6-3). Du trenger den ikke for å kode, men den er nyttig når du skal sjekke svaret ditt."
+    },
+    {
+      "id": "in1900-7-1-t1",
+      "type": "text",
+      "content": "## Løkke 1 — hva en ODE er, og Eulers idé\n\nEn kopp kaffe på 80 grader står i et rom på 20 grader. Kaffen kjøles ned raskt i starten og saktere etter hvert, og farten avhenger av hvor varm kaffen er akkurat nå. Det er nettopp den situasjonen en differensiallikning beskriver: **den forteller deg stigningstallet, ikke verdien**.\n\nSkriver vi $u(t)$ for kaffetemperaturen, sier Newtons avkjølingslov at $u'(t) = -k\\,(u(t) - 20)$. Vi kjenner ikke $u$, men vi kjenner farten $u'$ i hvert punkt — uttrykt ved $u$ selv. En slik likning kalles en **ordinær differensiallikning**, forkortet **ODE** (fra engelsk *ordinary differential equation*).\n\nLegger vi til startverdien $u(0) = 80$, er problemet fastlagt: én temperatur i starten, og en regel for hvordan den endrer seg. Det er dette du skal løse numerisk."
+    },
+    {
+      "id": "in1900-7-1-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem: $u' = f(t, u)$, $u(t_0) = u_0$",
+      "content": "Et **initialverdiproblem** består av to deler: en differensiallikning som gir stigningstallet, og én kjent startverdi.\n\n$$u'(t) = f(t, u(t)), \\qquad u(t_0) = u_0$$\n\nFunksjonen $f$ kalles **høyresiden**: den tar tidspunktet $t$ og den nåværende verdien $u$, og returnerer stigningstallet der. I Python er høyresiden en helt vanlig funksjon med to argumenter, og rekkefølgen er `t` først:\n\n```python\ndef f(t, u):\n    return -0.1*(u - 20)\n```\n\nLegg merke til at `t` ikke behøver å brukes i kroppen. Argumentet skal likevel være med, fordi løseren alltid kaller `f(t, u)` med to argumenter.\n\n**Startverdien er data, ikke en del av `f`.** Den sendes til løseren separat."
+    },
+    {
+      "id": "in1900-7-1-th-euler",
+      "type": "theorem",
+      "title": "Forlengs Euler-oppdateringen",
+      "content": "Idéen: står du i punktet $(t_n, u_n)$ og kjenner stigningstallet der, følg tangenten et lite steg $\\Delta t$ framover.\n\n$$u_{n+1} = u_n + \\Delta t \\cdot f(t_n, u_n)$$\n\nDet er hele metoden. Den kalles **forlengs Euler** (engelsk *forward Euler*), og er den eksplisitte metoden alt annet måles mot: neste verdi regnes ut direkte fra den forrige, uten å løse noen likning.\n\nI Python blir oppdateringen én linje inne i en løkke:\n\n```python\nu[n+1] = u[n] + dt*f(t[n], u[n])\n```\n\nTre ting å merke seg, alle tre er poenggivende detaljer på eksamen:\n\n- `f` kalles med **to** argumenter, `t[n]` og `u[n]` — i den rekkefølgen.\n- Både `t[n]` og `u[n]` er *ett tall*, ikke hele arrayet.\n- Løkka skriver til indeks `n+1`, så den må stoppe én før slutten."
+    },
+    {
+      "id": "in1900-7-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: tre Euler-steg for hånd",
+      "problem": "Løs $u' = -2u$ med $u(0) = 1$ og steglengde $\\Delta t = 0{,}2$. Regn ut de tre første stegene for hånd, og sjekk med en løkke.",
+      "solution": "For hånd, med $f(t, u) = -2u$:\n\n- $u_1 = 1 + 0{,}2 \\cdot (-2 \\cdot 1) = 1 - 0{,}4 = 0{,}6$\n- $u_2 = 0{,}6 + 0{,}2 \\cdot (-2 \\cdot 0{,}6) = 0{,}6 - 0{,}24 = 0{,}36$\n- $u_3 = 0{,}36 + 0{,}2 \\cdot (-2 \\cdot 0{,}36) = 0{,}36 - 0{,}144 = 0{,}216$\n\nHvert steg ganger altså verdien med $1 - 2 \\cdot 0{,}2 = 0{,}6$. Samme regnestykke i kode:\n\n```python\ndef f(t, u):\n    return -2*u\n\nu = 1.0\nt = 0.0\ndt = 0.2\nfor n in range(3):\n    u = u + dt*f(t, u)\n    t = t + dt\n    print(f\"t = {t:.1f}   u = {u:.4f}\")\n```\n\n**Utskrift:**\n```\nt = 0.2   u = 0.6000\nt = 0.4   u = 0.3600\nt = 0.6   u = 0.2160\n```\n\nDen eksakte løsningen er $u(t) = e^{-2t}$, som gir $u(0{,}6) = 0{,}3012$. Eulers svar 0,216 er altså tydelig for lavt — steglengden er stor. Det retter vi opp i Løkke 3.\n\nMerk at denne varianten bare holder styr på **én** verdi av gangen. Skal du kunne plotte kurven etterpå, må alle verdiene lagres i et array. Det er neste løkke."
+    },
+    {
+      "id": "in1900-7-1-ex-a1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — punkttelling.) Du skal løse $u' = -3u$ på intervallet $[0, 2]$ med 40 steg.\n\n**a)** Hvor mange punkter må tidsarrayet `t` ha?\n**b)** Hva blir steglengden `dt`?\n**c)** Hvor mange ganger kjører løkkekroppen som gjør oppdateringen?",
+        "solution": "**a)** 40 steg gir **41 punkter**: startpunktet pluss ett punkt per steg. Altså `np.linspace(0, 2, 41)`.\n\n**b)** `dt` er intervallengden delt på antall steg: $2/40 = 0{,}05$.\n\n**c)** **40 ganger** — én oppdatering per steg, altså `for n in range(40)`. Løkka skriver til `u[1]` … `u[40]`, og `u[0]` er satt på forhånd.\n\nSjekk i kode:\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 2, 41)\nprint(\"punkter:\", len(t))\nprint(\"dt =\", t[1] - t[0])\nprint(\"antall oppdateringer:\", len(range(40)))\n```\n\n**Utskrift:**\n```\npunkter: 41\ndt = 0.05\nantall oppdateringer: 40\n```",
+        "hints": [
+          "Tell punktene på en linjal: 2 steg fra 0 til 2 gir punktene 0, 1 og 2 — altså tre punkter.",
+          "Steglengden er alltid (slutt − start) delt på antall steg, ikke på antall punkter.",
+          "Hver runde i løkka fyller inn ÉN ny verdi."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-1-t2",
+      "type": "text",
+      "content": "## Løkke 2 — hele løser-funksjonen\n\nNå skal alle verdiene lagres. Mønsteret er akkurat det samme som for differenslikninger: lag tidspunktene, allokér et løsningsarray av samme størrelse, sett startverdien, og la løkka fylle resten.\n\nSignaturen boka bruker — og som eksamensoppgavene i denne sjangeren spør etter — er `forward_euler(f, T, N, u0)`: høyresiden, sluttiden, antall steg og startverdien. Funksjonen returnerer **to** ting: tidspunktene og løsningen."
+    },
+    {
+      "id": "in1900-7-1-def-linspace",
+      "type": "definition",
+      "title": "`np.linspace(a, b, N+1)`",
+      "content": "Lager et array med jevnt fordelte tall fra `a` til `b`, der **begge endepunktene er med**. Det tredje argumentet er antall PUNKTER, ikke antall steg.\n\nSkal intervallet deles i `N` like store steg, trenger du derfor `N+1` punkter:\n\n```python\nimport numpy as np\nprint(np.linspace(0, 1, 5))\n```\n\n**Utskrift:**\n```\n[0.   0.25 0.5  0.75 1.  ]\n```\n\nFire steg på 0,25 — fem punkter. Dette er kilden til den hyppigste feilen i faget, og den har eget nummer i feilkatalogen: **#1 — av-én-feilen på antall punkter**."
+    },
+    {
+      "id": "in1900-7-1-def-zeroslike",
+      "type": "definition",
+      "title": "`np.zeros_like(t)`",
+      "content": "Lager et nytt array med **samme form og samme datatype** som `t`, fylt med nuller. Brukes til å allokere løsningsarrayet, så det garantert blir like langt som tidsarrayet:\n\n```python\nimport numpy as np\nt = np.linspace(0, 1, 4)\nu = np.zeros_like(t)\nprint(u, u.shape)\n```\n\n**Utskrift:**\n```\n[0. 0. 0. 0.] (4,)\n```\n\nAlternativet `np.zeros(N+1)` gjør det samme når du vet tallet. Fordelen med `zeros_like` er at formen ikke kan komme i utakt med `t`."
+    },
+    {
+      "id": "in1900-7-1-th-monster",
+      "type": "theorem",
+      "title": "Forward-Euler-mønsteret (allokér, sett `u[0]`, løkke over `range(N)`)",
+      "content": "Fire linjer i fast rekkefølge — dette er skjelettet du skal kunne skrive uten å tenke:\n\n1. `t = np.linspace(0, T, N+1)` — tidspunktene. `N` steg, `N+1` punkter.\n2. `u = np.zeros_like(t)` — plass til løsningen, like lang som `t`.\n3. `u[0] = u0` — startverdien, **før** løkka.\n4. `for n in range(N): u[n+1] = u[n] + dt*f(t[n], u[n])` — `N` oppdateringer.\n\nDeretter `return t, u`.\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n```\n\n**Utskrift:** ingen (funksjonen definerer bare mønsteret; den kalles i eksempelet under).\n\nLegg merke til at `range(N)` gir `n = 0, 1, …, N-1`, slik at siste tilordning treffer `u[N]` — det siste punktet. Bytter du til `range(N+1)`, krasjer programmet med `IndexError` på siste runde."
+    },
+    {
+      "id": "in1900-7-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: løs $u' = -2u$ på $[0, 3]$ med 30 steg",
+      "problem": "Bruk `forward_euler` til å løse $u' = -2u$, $u(0) = 1$, på $[0, 3]$ med 30 steg. Hvor mange punkter har løsningen? Sammenlign sluttverdien med den eksakte $u(3) = e^{-6}$.",
+      "solution": "```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -2*u\n\nt, u = forward_euler(f, 3, 30, 1)\nprint(\"antall punkter:\", len(t))\nprint(\"dt =\", t[1] - t[0])\nprint(f\"u(3) numerisk = {u[-1]:.6f}\")\nprint(f\"u(3) eksakt   = {np.exp(-6):.6f}\")\n```\n\n**Utskrift:**\n```\nantall punkter: 31\ndt = 0.1\nu(3) numerisk = 0.001238\nu(3) eksakt   = 0.002479\n```\n\n**31 punkter** — det er svaret på spørsmålet oppgaven stiller, og det er alltid `N+1`.\n\nSluttverdien er omtrent halvparten av den riktige. Det er ikke en programmeringsfeil: forlengs Euler underestimerer systematisk når løsningen er konveks og avtakende, og med $\\Delta t = 0{,}1$ og $\\lambda = 2$ er steget grovt. Absolutt sett er avviket bittelite (0,0012), men *relativt* er det stort. Løkke 3 viser hvordan feilen oppfører seg når du forfiner."
+    },
+    {
+      "id": "in1900-7-1-w-1",
+      "type": "warning",
+      "title": "Typiske feil i løser-løkka",
+      "content": "Fire feil står for nesten alle tapte poeng i denne sjangeren.\n\n**#1 — av-én på antall punkter.** `np.zeros(N)` i stedet for `np.zeros(N+1)`, eller `np.linspace(0, T, N)`. Da mangler siste punkt, og siste tilordning gir `IndexError`. Regelen: **`N` steg, `N+1` punkter.**\n\n**Sette `u[0]` etter løkka.** Da regner løkka med nuller hele veien, og du får et array fullt av nuller med startverdien limt på til slutt. Startverdien skal settes **før** løkka.\n\n**Regne `dt` feil.** `dt = T/N` er riktig når du starter i 0, men `dt = T/(N+1)` er galt, og `dt = t[1] - t[0]` er alltid riktig. Bruk den formen — den følger av arrayet du nettopp lagde.\n\n**#14 — feil argumentrekkefølge til `f`.** Boka og alle nyere sett bruker `f(t, u)`. Kaller du `f(u[n], t[n])`, kompilerer det fint og gir tull. Mer om denne API-driften nedenfor."
+    },
+    {
+      "id": "in1900-7-1-ex-a2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I — ODE-løser som funksjon.) En vanntank fylles og lekker samtidig, slik at vannhøyden $u$ (i meter) oppfyller\n\n$$u' = -0{,}4u + 2, \\qquad u(0) = 5.$$\n\n**a)** Skriv funksjonen `forward_euler(f, T, N, u0)` som løser et vilkårlig initialverdiproblem med forlengs Euler og returnerer `t, u`.\n**b)** Bruk den til å løse likningen over på $[0, 10]$ med 50 steg, og skriv ut vannhøyden ved $t = 10$.",
+        "solution": "```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -0.4*u + 2\n\nt, u = forward_euler(f, 10, 50, 5)\nprint(\"antall punkter:\", len(t))\nprint(f\"vannhøyden ved t = 10: {u[-1]:.4f} m\")\n```\n\n**Utskrift:**\n```\nantall punkter: 51\nvannhøyden ved t = 10: 5.0000\n```\n\nStartverdien 5 er tilfeldigvis likevekten: $-0{,}4 \\cdot 5 + 2 = 0$, så stigningstallet er null hele veien og løsningen står stille. Det er et godt tegn på at koden virker, ikke et tegn på at den er feil — og det er et poeng verdt å nevne i en besvarelse: **sjekk alltid om høyresiden er null i startpunktet.**\n\nUttelling: full score for riktig struktur i **a)** (linspace med `N+1`, `u[0]` før løkka, `range(N)`, `return t, u`), selv om **b)** skulle glippe.",
+        "hints": [
+          "Start med de fire linjene i mønsteret: `t = np.linspace(...)`, `u = np.zeros_like(t)`, `u[0] = u0`, `for n in range(N):`.",
+          "Høyresiden skrives som en egen funksjon `def f(t, u):` selv om `t` ikke brukes.",
+          "Sluttverdien ligger i `u[-1]`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-1-t3",
+      "type": "text",
+      "content": "## Løkke 3 — nøyaktighet og steglengde\n\n— naturlig pausepunkt —\n\nEksempel 2 ga et svar som var nesten dobbelt for lite. Spørsmålet er hva som skjer når du gjør stegene mindre. Svaret er en av de få «teoretiske» tingene du kan bli spurt om i denne sjangeren, og den er lett å huske fordi du kan **måle** den.\n\nMål feilen som det største avviket fra den eksakte løsningen over alle punktene, og halvér steglengden gang på gang."
+    },
+    {
+      "id": "in1900-7-1-def-dt",
+      "type": "definition",
+      "title": "`dt = t[1] - t[0]`",
+      "content": "Steglengden lest ut av tidsarrayet, i stedet for regnet ut på nytt. Den er alltid riktig når `t` kommer fra `np.linspace`, og du unngår å blande antall punkter og antall steg.\n\n```python\nimport numpy as np\nt = np.linspace(0, 3, 31)\nprint(t[1] - t[0], 3/30, 3/31)\n```\n\n**Utskrift:**\n```\n0.1 0.1 0.0967741935483871\n```\n\nDe to første er like, den tredje er den klassiske av-én-feilen (#1). Merk symbolkollisjonen: i numerisk derivasjon het steget `h` ([kap. 6.1](/bok/in1900/in1900-6-1)), her heter det `dt` fordi det er et steg i **tid**. Det er samme slags størrelse."
+    },
+    {
+      "id": "in1900-7-1-def-orden",
+      "type": "definition",
+      "title": "Konvergensorden",
+      "content": "En metode har **konvergensorden** $p$ hvis feilen oppfører seg som $\\Delta t^p$ når steget blir lite. Praktisk konsekvens, og det du måler i en tabell:\n\n- orden 1: halvér $\\Delta t$ $\\to$ feilen halveres (faktor 2)\n- orden 2: halvér $\\Delta t$ $\\to$ feilen firedeles (faktor 4)\n- orden 4: halvér $\\Delta t$ $\\to$ feilen deles på 16\n\nForlengs Euler har **orden 1**. Det er derfor den er billig per steg, men trenger mange steg for god nøyaktighet."
+    },
+    {
+      "id": "in1900-7-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: måle konvergensordenen",
+      "problem": "Løs $u' = -2u$, $u(0) = 1$, på $[0, 3]$ med $N = 30, 60, 120, 240$ steg. Mål det største avviket fra den eksakte løsningen $e^{-2t}$, og avgjør hvilken orden metoden har.",
+      "solution": "```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -2*u\n\nprint(\"     N        dt     maks feil\")\nfor N in [30, 60, 120, 240]:\n    t, u = forward_euler(f, 3, N, 1)\n    feil = np.max(np.abs(u - np.exp(-2*t)))\n    print(f\"{N:6d}  {t[1]-t[0]:8.5f}  {feil:12.4e}\")\n```\n\n**Utskrift:**\n```\n     N        dt     maks feil\n    30   0.10000    4.0199e-02\n    60   0.05000    1.9201e-02\n   120   0.02500    9.3935e-03\n   240   0.01250    4.6470e-03\n```\n\nFeilen går fra 4,02e-02 til 1,92e-02 til 9,39e-03 til 4,65e-03. Hver gang steget halveres, halveres feilen: forholdet er 2,09, 2,04 og 2,02. Det er **orden 1**, akkurat som teorien sier.\n\nTo detaljer verdt å legge seg på minnet:\n\n- `np.exp(-2*t)` regner den eksakte løsningen i alle punktene på én gang — `t` er et array, så resultatet er et array (vektorisering, [kap. 4.2](/bok/in1900/in1900-4-2)).\n- `np.max(np.abs(...))` er standardmåten å måle «største avvik» på, og den forventes i besvarelser som skal vise nøyaktighet."
+    },
+    {
+      "id": "in1900-7-1-ex-a3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I — nøyaktighetsdel.) Bruk `forward_euler` fra oppgave 2 på $u' = -u$, $u(0) = 1$, over $[0, 2]$, der den eksakte løsningen er $u(t) = e^{-t}$.\n\n**a)** Skriv kode som regner ut det største avviket for $N = 50$ og for $N = 100$.\n**b)** Skriv ut forholdet mellom de to feilene, og forklar hva tallet forteller.",
+        "solution": "```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -u\n\nfeil = []\nfor N in [50, 100]:\n    t, u = forward_euler(f, 2, N, 1)\n    feil.append(np.max(np.abs(u - np.exp(-t))))\n    print(f\"N = {N:3d}:  maks feil = {feil[-1]:.4e}\")\nprint(f\"forhold: {feil[0]/feil[1]:.2f}\")\n```\n\n**Utskrift:**\n```\nN =  50:  maks feil = 7.4827e-03\nN = 100:  maks feil = 3.7098e-03\nforhold: 2.02\n```\n\n**b)** Forholdet er ca. 2. Dobbelt så mange steg gir halvparten så stor feil, altså feil $\\propto \\Delta t^1$: forlengs Euler har konvergensorden 1. Skal du redusere feilen til en tidel, må du bruke ti ganger så mange steg.\n\nUttelling: å samle feilene i en liste og dele er nok — sensor ser etter at du måler feilen som `np.max(np.abs(...))` og sammenligner to steglengder.",
+        "hints": [
+          "Kall `forward_euler` to ganger i en løkke over `[50, 100]` og lagre feilene i en liste.",
+          "Den eksakte løsningen regnes ut i alle punktene med `np.exp(-t)` fordi `t` er et array.",
+          "Forholdet er `feil[0]/feil[1]` — og for en orden-1-metode skal det ligge nær 2."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-1-ex-a4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Skriv utskriften nøyaktig, med mellomrom slik terminalen viser den.\n\n```python\nimport numpy as np\n\nu = np.zeros(4)\nu[0] = 2\ndt = 0.5\nfor n in range(3):\n    u[n+1] = u[n] + dt*(1 - u[n])\n    print(f\"{u[n+1]:.3f}\", end=' ')\n```",
+        "solution": "Høyresiden er $f(u) = 1 - u$, så oppdateringen er $u_{n+1} = u_n + 0{,}5(1 - u_n)$. Det er «gå halvveis mot 1».\n\n| Iterasjon | `n` | `u[n]` | `1 - u[n]` | `u[n+1]` | Skriver | Utskrift så langt |\n|---|---|---|---|---|---|---|\n| 1 | 0 | 2,0 | −1,0 | 2,0 + 0,5·(−1,0) = 1,5 | `1.500 ` | `1.500 ` |\n| 2 | 1 | 1,5 | −0,5 | 1,5 + 0,5·(−0,5) = 1,25 | `1.250 ` | `1.500 1.250 ` |\n| 3 | 2 | 1,25 | −0,25 | 1,25 + 0,5·(−0,25) = 1,125 | `1.125 ` | `1.500 1.250 1.125 ` |\n\n```python\nimport numpy as np\n\nu = np.zeros(4)\nu[0] = 2\ndt = 0.5\nfor n in range(3):\n    u[n+1] = u[n] + dt*(1 - u[n])\n    print(f\"{u[n+1]:.3f}\", end=' ')\n```\n\n**Utskrift:**\n```\n1.500 1.250 1.125 \n```\n\nMerk: `end=' '` erstatter linjeskiftet med et mellomrom, så alt kommer på **én** linje — og det står et mellomrom også helt til slutt. Det er felle **#16 — utskriftsdetaljer oversett**. `u[3]` blir fylt inn, men aldri skrevet ut, og `u[0]` skrives heller aldri.\n\nDelvis riktig sporing gir delvis uttelling: har du riktig rekke av tall men glemmer at de kommer på én linje, mister du bare formatpoenget.",
+        "hints": [
+          "Sett opp en tavle med kolonnene `n`, `u[n]` og `u[n+1]`, og fyll inn én rad per runde.",
+          "`range(3)` gir tre runder: n = 0, 1, 2.",
+          "Se nøye på `end=' '` og på hvor mange desimaler `:.3f` gir."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-1-t4",
+      "type": "text",
+      "content": "## Løkke 4 — de variantene du kan bli bedt om\n\nOppgaveteksten spør sjelden om forlengs Euler alene. Den ber om «en løser etter dette skjemaet», og så står det en litt annen formel. Da skal du gjenkjenne at **bare oppdateringslinja endres** — de fire linjene rundt er de samme.\n\nTo varianter er verdt å kunne skrive fra bunnen: baklengs Euler for det enkle henfallsproblemet, og en av de to-stegs metodene (Heun eller midtpunkt)."
+    },
+    {
+      "id": "in1900-7-1-def-baklengs",
+      "type": "definition",
+      "title": "Baklengs Euler for $u' = -\\lambda u$",
+      "content": "**Baklengs Euler** bruker stigningstallet i det *nye* punktet:\n\n$$u_{n+1} = u_n + \\Delta t \\cdot f(t_{n+1}, u_{n+1})$$\n\nDen ukjente står på begge sider — metoden er **implisitt**. For den spesielle høyresiden $f = -\\lambda u$ kan du løse for $u_{n+1}$ med algebra:\n\n$$u_{n+1} = u_n - \\Delta t \\lambda u_{n+1} \\quad \\Longrightarrow \\quad u_{n+1}(1 + \\Delta t \\lambda) = u_n \\quad \\Longrightarrow \\quad u_{n+1} = \\frac{u_n}{1 + \\Delta t \\lambda}$$\n\nI kode blir det én linje:\n\n```python\nu[n+1] = u[n]/(1 + dt*lam)\n```\n\nMetoden har også orden 1, men den er **stabil** for alle steglengder: nevneren er alltid større enn 1, så løsningen kan aldri vokse. For en generell høyreside må du løse en likning i hvert steg — det gjør vi i [kap. 7.4](/bok/in1900/in1900-7-4)."
+    },
+    {
+      "id": "in1900-7-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: når forlengs Euler sprenger",
+      "problem": "Løs $u' = -50u$, $u(0) = 1$, på $[0, 1]$ med bare 10 steg, med forlengs og baklengs Euler. Hva skjer?",
+      "solution": "```python\nimport numpy as np\n\ndef forward_euler_lam(lam, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] - dt*lam*u[n]\n    return t, u\n\ndef backward_euler_lam(lam, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n]/(1 + dt*lam)\n    return t, u\n\nt, uf = forward_euler_lam(50, 1, 10, 1)\nt, ub = backward_euler_lam(50, 1, 10, 1)\nprint(\"   t     forlengs      baklengs\")\nfor n in range(5):\n    print(f\"{t[n]:5.1f}  {uf[n]:11.2f}  {ub[n]:12.6f}\")\n```\n\n**Utskrift:**\n```\n   t     forlengs      baklengs\n  0.0         1.00      1.000000\n  0.1        -4.00      0.166667\n  0.2        16.00      0.027778\n  0.3       -64.00      0.004630\n  0.4       256.00      0.000772\n```\n\nForlengs Euler bytter fortegn og firedobler seg hvert steg: faktoren er $1 - \\Delta t \\lambda = 1 - 5 = -4$. Løsningen sprenger, selv om den eksakte løsningen faller mot null. Baklengs Euler ganger med $1/(1 + 5) = 1/6$ hvert steg og oppfører seg pent.\n\nDette er hele poenget med **stive** problemer: er $\\lambda$ stor, krever en eksplisitt metode små steg for å ikke sprenge. Med forlengs Euler må $\\Delta t < 2/\\lambda = 0{,}04$ her, altså minst 25 steg.\n\nMerk at begge funksjonene er skrevet for den spesielle høyresiden $-\\lambda u$, og tar `lam` i stedet for en funksjon `f`. Det er et bevisst valg fordi den lukkede formelen for baklengs Euler bare gjelder denne høyresiden. Det er verdt en kommentar i en eksamensbesvarelse."
+    },
+    {
+      "id": "in1900-7-1-def-heun",
+      "type": "definition",
+      "title": "Heuns metode (RK2)",
+      "content": "**Heuns metode**, også kalt en Runge–Kutta-metode av orden 2 (RK2), gjør et prøvesteg med forlengs Euler og bruker deretter gjennomsnittet av de to stigningstallene:\n\n$$k_1 = f(t_n, u_n), \\qquad k_2 = f(t_n + \\Delta t,\\; u_n + \\Delta t k_1), \\qquad u_{n+1} = u_n + \\frac{\\Delta t}{2}(k_1 + k_2)$$\n\nI kode er det tre linjer inne i løkka:\n\n```python\nk1 = f(t[n], u[n])\nk2 = f(t[n] + dt, u[n] + dt*k1)\nu[n+1] = u[n] + dt*(k1 + k2)/2\n```\n\n**Utskrift:** ingen (fragmentet hører inne i løkka i eksempelet under).\n\nMetoden har orden 2: halvert steg gir en firedel av feilen. Prisen er to kall til `f` per steg i stedet for ett."
+    },
+    {
+      "id": "in1900-7-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Heun har orden 2",
+      "problem": "Skriv `heun(f, T, N, u0)` etter samme mønster som `forward_euler`, og mål feilen for $u' = -2u$ på $[0, 3]$ med $N = 30, 60, 120, 240$.",
+      "solution": "```python\nimport numpy as np\n\ndef heun(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt, u[n] + dt*k1)\n        u[n+1] = u[n] + dt*(k1 + k2)/2\n    return t, u\n\ndef f(t, u):\n    return -2*u\n\nprint(\"     N     maks feil\")\nfor N in [30, 60, 120, 240]:\n    t, u = heun(f, 3, N, 1)\n    print(f\"{N:6d}  {np.max(np.abs(u - np.exp(-2*t))):12.4e}\")\n```\n\n**Utskrift:**\n```\n     N     maks feil\n    30    2.8604e-03\n    60    6.6154e-04\n   120    1.5918e-04\n   240    3.9049e-05\n```\n\nForholdene er 4,32, 4,16 og 4,08 — feilen firedeles når steget halveres, altså **orden 2**. Sammenlign med Eksempel 3: med 30 steg er Heun ca. 14 ganger nøyaktigere enn forlengs Euler, for dobbelt så mange funksjonskall.\n\nLegg merke til at bare de tre linjene inne i løkka er nye. Alt annet — `linspace` med `N+1`, `zeros_like`, `u[0]` før løkka, `range(N)`, `return t, u` — er ordrett det samme som i `forward_euler`. Det er slik du skal lese en oppgave som ber om «en annen metode etter samme skjema»."
+    },
+    {
+      "id": "in1900-7-1-w-2",
+      "type": "warning",
+      "title": "API-drift og rekursjon",
+      "content": "**API-drift i argumentrekkefølgen (#14).** Fra og med 2023 skriver oppgavene høyresiden som `f(t, u)` — tid først. I eldre sett (2020–2022) var rekkefølgen omvendt, `f(u, t)`. Boka bruker konsekvent den nye, `f(t, u)`, fordi det er den du møter nå. To forholdsregler på eksamen:\n\n- **Les vedlegget.** Får du en ODE-modul utlevert, står rekkefølgen der. Den kan endres fra år til år.\n- **Vær konsekvent.** Skriver du selv løseren *og* høyresiden, er alle konsistente valg riktige — men de må stemme med hverandre. En besvarelse som er konsekvent, får uttelling selv om den bruker den gamle rekkefølgen.\n\n**Rekursjon er utenfor pensum.** Oppdateringsformelen $u_{n+1} = u_n + \\Delta t f(t_n, u_n)$ *ser* rekursiv ut, og det er fristende å skrive en funksjon som kaller seg selv. Ikke gjør det: rekursjon er utenfor pensum i dette emnet, gir dårligere eller ingen uttelling, og markeres som uønsket i de offisielle løsningsforslagene. Alt løses med løkke som lagrer verdiene i et array — i tillegg til at du da har hele løsningen tilgjengelig for plotting."
+    },
+    {
+      "id": "in1900-7-1-ex-a5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I — variant med implisitt formel.) Radioaktivt henfall følger $u' = -\\lambda u$ med $u(0) = u_0$.\n\n**a)** Skriv `backward_euler_lam(lam, T, N, u0)` som bruker den lukkede oppdateringsformelen for baklengs Euler.\n**b)** Kjør den for $\\lambda = 20$, $u_0 = 1$, $T = 1$ og $N = 5$, og skriv ut alle verdiene sammen med den eksakte løsningen.\n**c)** Ville forlengs Euler vært brukbar med samme steglengde? Grunngi med ett regnestykke.",
+        "solution": "```python\nimport numpy as np\n\ndef backward_euler_lam(lam, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n]/(1 + dt*lam)\n    return t, u\n\nt, u = backward_euler_lam(20, 1, 5, 1)\nfor n in range(len(t)):\n    print(f\"t = {t[n]:.1f}   u = {u[n]:.6f}   eksakt = {np.exp(-20*t[n]):.6f}\")\n```\n\n**Utskrift:**\n```\nt = 0.0   u = 1.000000   eksakt = 1.000000\nt = 0.2   u = 0.200000   eksakt = 0.018316\nt = 0.4   u = 0.040000   eksakt = 0.000335\nt = 0.6   u = 0.008000   eksakt = 0.000006\nt = 0.8   u = 0.001600   eksakt = 0.000000\nt = 1.0   u = 0.000320   eksakt = 0.000000\n```\n\n**c)** Nei. Med $\\Delta t = 0{,}2$ og $\\lambda = 20$ er faktoren i forlengs Euler $1 - \\Delta t\\lambda = 1 - 4 = -3$: verdiene ville byttet fortegn og tredoblet seg hvert steg. Kravet er $\\Delta t < 2/\\lambda = 0{,}1$, altså minst 10 steg.\n\nMerk at baklengs Euler er *stabil* men ikke *nøyaktig* her — den faller mot null, men mye saktere enn den eksakte løsningen. Stabilitet og nøyaktighet er to forskjellige ting, og en besvarelse som sier det, viser forståelse.",
+        "hints": [
+          "De fire linjene rundt løkka er ordrett som i `forward_euler`; bare oppdateringslinja er ny.",
+          "Oppdateringen er `u[n+1] = u[n]/(1 + dt*lam)` — ingen kall til noen `f`.",
+          "For c): regn ut faktoren `1 - dt*lam` og se om tallverdien er større enn 1."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-1-ex-a6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I + F — løser med testfunksjon.) Runge–Kutta-metoder av orden 2 gjengir polynomer av grad 2 eksakt. Det gir en presis test.\n\n**a)** Skriv `heun(f, T, N, u0)`.\n**b)** Skriv en testfunksjon `test_heun()` uten argumenter som sjekker at løseren treffer den eksakte løsningen av $u' = 2t$, $u(0) = 0$ (altså $u = t^2$) i sluttpunktet, med toleranse $10^{-10}$.\n**c)** Kall testfunksjonen og skriv ut en bekreftelse.",
+        "solution": "```python\nimport numpy as np\n\ndef heun(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt, u[n] + dt*k1)\n        u[n+1] = u[n] + dt*(k1 + k2)/2\n    return t, u\n\ndef test_heun():\n    def f(t, u):\n        return 2*t\n    t, u = heun(f, 2, 8, 0)\n    forventet = 4.0\n    beregnet = u[-1]\n    tol = 1e-10\n    assert abs(forventet - beregnet) < tol, f\"fikk {beregnet}, forventet {forventet}\"\n\ntest_heun()\nprint(\"testen passerte\")\n```\n\n**Utskrift:**\n```\ntesten passerte\n```\n\nTre ting sensor ser etter i **b)**: testfunksjonen tar **ingen argumenter**, den bruker `abs(forventet - beregnet) < tol` og ikke `==` (felle **#11 — likhetstest på flyttall**), og den har en melding i `assert`-setningen. At funksjonen ikke skriver ut noe selv, er også en del av idiomet: den sier bare fra når noe er galt.\n\nHvorfor virker testen? Høyresiden $2t$ er ikke avhengig av $u$, så Heun blir trapesmetoden for integralet av $2t$ — og trapesmetoden er eksakt for lineære integrander. Feilen er dermed null helt ned til maskinpresisjon, og en toleranse på $10^{-10}$ er trygg. Hadde du testet mot $u' = -2u$, måtte toleransen vært mye romsligere, og det er en dårligere test.",
+        "hints": [
+          "Bygg `heun` av mønsteret fra `forward_euler` og bytt bare oppdateringslinja.",
+          "En testfunksjon i dette faget har formen `def test_x(): forventet = ...; beregnet = ...; tol = 1e-10; assert abs(forventet - beregnet) < tol, melding`.",
+          "Velg et problem der du kjenner svaret eksakt — $u' = 2t$ med $u(0) = 0$ gir $u(2) = 4$."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-1-ex-a7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — anvendelse med etterbehandling.) En kopp kaffe på 80 °C står i et rom på 20 °C og følger Newtons avkjølingslov $u' = -k(u - 20)$ med $k = 0{,}05$ per minutt.\n\n**a)** Løs likningen på $[0, 60]$ (minutter) med `forward_euler` og 600 steg.\n**b)** Finn det første tidspunktet der temperaturen er under 60 °C, ved å løkke gjennom løsningen.\n**c)** Skriv ut temperaturen etter én time.",
+        "solution": "```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -0.05*(u - 20)\n\nt, u = forward_euler(f, 60, 600, 80)\n\nfor n in range(len(t)):\n    if u[n] < 60:\n        print(f\"under 60 grader etter {t[n]:.1f} minutter\")\n        break\n\nprint(f\"temperatur etter 60 minutter: {u[-1]:.2f} grader\")\n```\n\n**Utskrift:**\n```\nunder 60 grader etter 8.1 minutter\ntemperatur etter 60 minutter: 22.96 grader\n```\n\nUttelling steg for steg: riktig høyreside med `-0.05*(u - 20)` (2 p), riktig kall med `N = 600` og `u0 = 80` (1 p), en løkke med `break` som finner første kryssing (1 p), og utskriften (1 p). Bruker du `np.where` eller en `while`-løkke i stedet for `for` + `break`, er det like riktig.\n\nLegg merke til at likevekten er 20 grader, og at løsningen nærmer seg den nedenfra og aldri går under. Det er en god fornuftssjekk: en avkjølingsmodell skal aldri gi en temperatur under romtemperaturen.",
+        "hints": [
+          "Høyresiden er `-0.05*(u - 20)` — parentesen rundt `u - 20` er avgjørende.",
+          "For b): løkk over indeksene, test `if u[n] < 60:` og bruk `break` når du har funnet den første.",
+          "Skriv ut `t[n]`, ikke `n` — indeksen er ikke tiden."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-1-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-7-1-api-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `np.linspace(0, T, N+1)` | `N+1` punkter fra 0 til `T`, **begge endepunkt med**. `N` steg. |\n| `np.zeros_like(t)` | nytt nullarray med samme form og type som `t` |\n| `np.zeros(N+1)` | nullarray med `N+1` elementer |\n| `t[1] - t[0]` | steglengden `dt`, alltid riktig når `t` kom fra `linspace` |\n| `range(N)` | `n = 0, 1, …, N-1` — `N` runder, siste tilordning treffer `u[N]` |\n| `u[n+1] = u[n] + dt*f(t[n], u[n])` | forlengs Euler. `f` kalles med **to** tall, tid først |\n| `u[n+1] = u[n]/(1 + dt*lam)` | baklengs Euler for $u' = -\\lambda u$, lukket form |\n| `def f(t, u):` | høyresiden. `t` skal stå selv om den ikke brukes |\n| `return t, u` | returnerer en tuppel; pakkes ut med `t, u = ...` |\n| `u[-1]` | siste element — løsningen i sluttpunktet |\n| `np.exp(-2*t)` | eksakt løsning i ALLE punkter når `t` er et array |\n| `np.max(np.abs(u - eksakt))` | største avvik over alle punktene |\n| `assert abs(forventet - beregnet) < tol, melding` | testfunksjon-idiomet; aldri `==` på flyttall |\n| `print(f\"{x:.3f}\", end=' ')` | tre desimaler, mellomrom i stedet for linjeskift |\n\n**Formler i dette delkapitlet:**\n\nInitialverdiproblemet: $u'(t) = f(t, u(t))$, $u(t_0) = u_0$.\n\nForlengs Euler: $u_{n+1} = u_n + \\Delta t\\, f(t_n, u_n)$ — orden 1.\n\nBaklengs Euler: $u_{n+1} = u_n + \\Delta t\\, f(t_{n+1}, u_{n+1})$, som for $f = -\\lambda u$ gir $u_{n+1} = \\dfrac{u_n}{1 + \\Delta t \\lambda}$ — orden 1, stabil for alle $\\Delta t$.\n\nHeun (RK2): $k_1 = f(t_n, u_n)$, $k_2 = f(t_n + \\Delta t, u_n + \\Delta t k_1)$, $u_{n+1} = u_n + \\frac{\\Delta t}{2}(k_1 + k_2)$ — orden 2.\n\nStabilitetskravet for forlengs Euler på $u' = -\\lambda u$: $\\Delta t < 2/\\lambda$.\n\nI dette delkapitlet betyr `N` **antall steg** og `N+1` antall punkter; `n` er løkkevariabelen i oppdateringen; `u` er hele løsningsarrayet mens `u[n]` er én verdi; `dt` er steget i tid (samme størrelse som `h` i numerisk derivasjon)."
+        }
+      ]
+    },
+    {
+      "id": "in1900-7-1-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-7-1-bank-1",
+      "type": "definition",
+      "title": "Høyresiden `f(t, u)`",
+      "content": "Python-funksjonen som gir stigningstallet i et initialverdiproblem. Tar **to** argumenter — tid først, tilstand etterpå — og returnerer $u'$ i det punktet.\n\n```python\ndef f(t, u):\n    return -2*u\n```\n\nBoka og alle sett fra 2023 og senere bruker denne rekkefølgen. Argumentet `t` skal med selv om kroppen ikke bruker det."
+    },
+    {
+      "id": "in1900-7-1-bank-2",
+      "type": "definition",
+      "title": "Steglengde $\\Delta t$ (`dt`)",
+      "content": "Avstanden i tid mellom to nabopunkter i løsningen. Regnes ut som `t[1] - t[0]` eller `T/N`, aldri `T/(N+1)`.\n\nMindre `dt` gir mindre feil, men flere steg. For forlengs Euler er feilen omtrent proporsjonal med `dt`."
+    },
+    {
+      "id": "in1900-7-1-bank-3",
+      "type": "definition",
+      "title": "`N` steg gir `N+1` punkter",
+      "content": "Bokas viktigste tellergel. Deler du et intervall i `N` like store steg, er det `N+1` punkter fordi startpunktet også teller.\n\nKonsekvens: `np.linspace(0, T, N+1)`, `np.zeros(N+1)` og `for n in range(N)`. Feil her er feilkode **#1**, den hyppigste i faget."
+    },
+    {
+      "id": "in1900-7-1-bank-4",
+      "type": "definition",
+      "title": "Eksplisitt metode",
+      "content": "En metode der neste verdi regnes **direkte** ut av verdier du allerede har. Forlengs Euler og Heun er eksplisitte.\n\nFordel: én enkel oppdateringslinje. Ulempe: steget må være lite nok, ellers sprenger løsningen (se stabilitet)."
+    },
+    {
+      "id": "in1900-7-1-bank-5",
+      "type": "definition",
+      "title": "Implisitt metode",
+      "content": "En metode der den ukjente `u[n+1]` står på **begge** sider av oppdateringen, slik som baklengs Euler.\n\nDa må hvert steg løse en likning. For $f = -\\lambda u$ kan du løse den med algebra; for en generell høyreside trenger du en likningsløser ([kap. 7.4](/bok/in1900/in1900-7-4))."
+    },
+    {
+      "id": "in1900-7-1-bank-6",
+      "type": "definition",
+      "title": "Stabilitet",
+      "content": "Om den numeriske løsningen holder seg begrenset når den eksakte gjør det. For forlengs Euler på $u' = -\\lambda u$ er kravet\n\n$$\\Delta t < \\frac{2}{\\lambda}.$$\n\nBrytes det, veksler verdiene fortegn og vokser. Baklengs Euler er stabil for alle steglengder."
+    },
+    {
+      "id": "in1900-7-1-bank-7",
+      "type": "definition",
+      "title": "Stivt problem",
+      "content": "Et problem der en av prosessene går mye raskere enn de andre, typisk stor $\\lambda$. Da tvinger stabilitetskravet en eksplisitt metode til å bruke veldig små steg selv om løsningen er kjedelig.\n\nImplisitte metoder er svaret på stive problemer."
+    },
+    {
+      "id": "in1900-7-1-bank-8",
+      "type": "definition",
+      "title": "Lagringsmønsteret `u[0] = u0` FØR løkka",
+      "content": "Startverdien settes utenfor løkka, og løkka fyller bare inn `u[1]` … `u[N]`.\n\nSettes den etter løkka, regner løkka med nuller hele veien og du får et array av nuller med startverdien limt på. Det er en av de klassiske strukturfeilene i denne sjangeren."
+    },
+    {
+      "id": "in1900-7-1-bank-9",
+      "type": "definition",
+      "title": "`return t, u`",
+      "content": "En løser returnerer **både** tidspunktene og løsningen, som en tuppel. Kalleren pakker ut med to navn:\n\n```python\nt, u = forward_euler(f, 3, 30, 1)\nprint(len(t), len(u))\n```\n\n**Utskrift:**\n```\n31 31\n```\n\nUten `t` kan du verken plotte eller finne ut når noe skjer."
+    },
+    {
+      "id": "in1900-7-1-bank-10",
+      "type": "definition",
+      "title": "Maksimalfeil `np.max(np.abs(u - eksakt))`",
+      "content": "Standardmålet på hvor god en numerisk løsning er: det største avviket over alle punktene.\n\nBåde `u` og `eksakt` er arrays, så subtraksjonen skjer elementvis og `np.abs` virker på hele arrayet. Bruk dette, ikke feilen i ett tilfeldig punkt."
+    },
+    {
+      "id": "in1900-7-1-bank-11",
+      "type": "definition",
+      "title": "Sluttverdien `u[-1]`",
+      "content": "Siste element i løsningsarrayet, altså verdien i sluttiden `T`. Negativ indeks teller fra slutten.\n\nMange oppgaver spør nettopp «hva er verdien ved $t = T$» — svaret er `u[-1]`, ikke `u[N-1]`."
+    },
+    {
+      "id": "in1900-7-1-bank-12",
+      "type": "definition",
+      "title": "Funksjon som argument",
+      "content": "At `f` sendes inn til løseren, er det som gjør løseren gjenbrukbar: samme funksjon løser alle initialverdiproblemer.\n\nSend funksjonsnavnet **uten** parenteser (`forward_euler(f, ...)`). Skriver du `f(t, u)` i kallet, sender du et tall, og løseren krasjer med `TypeError` når den prøver å kalle det."
+    },
+    {
+      "id": "in1900-7-1-bank-13",
+      "type": "definition",
+      "title": "Konvergensordenens halveringstest",
+      "content": "Slik måler du orden uten teori: kjør med `N` og `2N` steg og se på forholdet mellom feilene.\n\nForhold ca. 2 betyr orden 1, ca. 4 betyr orden 2, ca. 16 betyr orden 4. Metoden fungerer bare hvis du har en eksakt løsning å måle mot."
+    },
+    {
+      "id": "in1900-7-1-bank-14",
+      "type": "definition",
+      "title": "Prøvesteg (`k1`, `k2`)",
+      "content": "Mellomresultatene i en to-stegs metode: `k1` er stigningstallet der du står, `k2` stigningstallet i et prøvepunkt.\n\nHeun bruker gjennomsnittet av de to. Midtpunktsmetoden bruker `k2` alene, målt et halvt steg fram. Begge har orden 2."
+    },
+    {
+      "id": "in1900-7-1-bank-15",
+      "type": "definition",
+      "title": "Likevekt (der høyresiden er null)",
+      "content": "En verdi $u^*$ med $f(t, u^*) = 0$ gir stigningstall null: løsningen står stille hvis den starter der.\n\nRask fornuftssjekk av en ODE-besvarelse: regn ut `f(0, u0)`. Er den null, skal løsningen være konstant — og er den det, virker koden."
+    },
+    {
+      "id": "in1900-7-1-bank-16",
+      "type": "definition",
+      "title": "Løkkevariabelen `n` mot antallet `N`",
+      "content": "`n` er indeksen inne i løkka, `N` er antall steg. `for n in range(N)` gir `n` fra 0 til `N-1`, og oppdateringen skriver til `u[n+1]`.\n\nBlander du de to (`range(N+1)`), treffer siste tilordning `u[N+1]`, som ikke finnes: `IndexError`."
+    },
+    {
+      "id": "in1900-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-7-1-rep-1",
+          "type": "text",
+          "content": "**Skriv dette fra bunnen, uten å se:**\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n```\n\n**Utskrift:** ingen (funksjonsdefinisjon).\n\n**Sjekkliste for hver ODE-oppgave i denne sjangeren:**\n\n- ☐ `np.linspace(0, T, N+1)` — `N+1` punkter?\n- ☐ `u[0] = u0` satt FØR løkka?\n- ☐ `for n in range(N)` — `N` oppdateringer?\n- ☐ `f` kalt som `f(t[n], u[n])` med tid først?\n- ☐ `dt = t[1] - t[0]`?\n- ☐ `return t, u` — begge?\n- ☐ Løkke, ikke rekursjon (rekursjon er utenfor pensum)?\n\n**Tre formler:** forlengs Euler $u_{n+1} = u_n + \\Delta t f(t_n, u_n)$ · baklengs Euler for henfall $u_{n+1} = u_n/(1 + \\Delta t \\lambda)$ · Heun $u_{n+1} = u_n + \\frac{\\Delta t}{2}(k_1 + k_2)$.\n\n**Neste steg:** i [kap. 7.2](/bok/in1900/in1900-7-2) er nøyaktig denne løkka pakket inn i en klasse du får utlevert på eksamen, og der skriver du bare høyresiden og tre kall."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
