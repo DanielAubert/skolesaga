@@ -1,0 +1,353 @@
+{
+  "id": "econ1100-3-2",
+  "courseId": "econ1100",
+  "chapterNumber": "3.2",
+  "title": "Lineær approksimasjon og approksimasjonsfeil",
+  "description": "Å anslå funksjonsverdier rundt et kjent punkt — med alle tre ledd på plass — og å avgjøre om anslaget er for stort eller for lite ut fra krumningen.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "sette opp den lineære approksimasjonen til en funksjon av én og to variabler rundt et oppgitt basispunkt",
+    "avgjøre om et oppgitt approksimasjonsuttrykk er riktig, ved å regne ut og sammenligne ledd for ledd",
+    "begrunne fortegnet på approksimasjonsfeilen ut fra funksjonens krumning, uten å regne ut den eksakte verdien",
+    "bruke standardtilnærmingene rundt null og vurdere når metoden er pålitelig"
+  ],
+  "content": [
+    {
+      "id": "econ1100-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den mest forutsigbare enkeltpåstanden i hele eksamensarkivet.**\n\nLineær approksimasjon er ett punkt i eksamens Oppgave 2 — «sant eller usant? begrunn» — i **fire av de fem siste ordinære settene** i arkivet (H2021, H2023, H2024 og H2025). Temaet differensial og lineær approksimasjon samlet står i **11 av 16 sett** (69 prosent) og i **8 av 9 ordinære** (89 prosent).\n\n**Sjangeren heter DA — differensial og lineær approksimasjon.** Oppgaven har alltid samme skjelett: du får en funksjon, et basispunkt og et ferdig oppskrevet uttrykk, og skal avgjøre om uttrykket er den riktige lineære approksimasjonen. Løsningen er ren mekanikk: regn ut $f$, $f'_x$ og $f'_y$ i punktet, sett inn i formelen, forenkl, og sammenlign ledd for ledd.\n\n**Den andre varianten** ber om fortegnet på approksimasjonsfeilen. Da skal du ikke regne ut differansen — du skal argumentere fra krumningen: konveks funksjon gir underestimat, konkav gir overestimat.\n\n**Sensorregelen som styrer alt:** ubegrunnet ja eller nei gir **null poeng**, også når konklusjonen er riktig. Kapitlet har **høyeste prioritet**, og det er blant de raskeste å mekanisere i hele boka."
+    },
+    {
+      "id": "econ1100-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger direkte på [kap. 3.1](/bok/econ1100/econ1100-3-1) (differensialet) og på [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte). Krumningsbegrepet ($f''$) utvides i [kap. 4.1](/bok/econ1100/econ1100-4-1), men alt du trenger her, forklares underveis.\n\n**Sist du var her — differensialet, som er halve formelen:**\n\n$$df=f'_x\\,dx+f'_y\\,dy$$\n\nDen lineære approksimasjonen er ikke annet enn dette lagt til startverdien: $f_{\\text{ny}}\\approx f_{\\text{gammel}}+df$."
+    },
+    {
+      "id": "econ1100-3-2-motivasjon",
+      "type": "text",
+      "content": "Du skal anslå $\\sqrt{25{,}4}$ uten kalkulator. Du vet at $\\sqrt{25}=5$, og du vet hvor bratt kvadratrotfunksjonen er akkurat der. Da er svaret nesten gratis: gå ut fra 5, og legg til brattheten ganget med skrittet $0{,}4$.\n\nDet er hele ideen. En kjent verdi i nærheten, pluss en korreksjon som er lineær i avstanden. På eksamen brukes den samme ideen på nyttefunksjoner og produktfunksjoner: hva skjer med nytten hvis prisen endrer seg litt, uten at hele modellen løses på nytt?\n\nFordi vi følger tangenten og ikke kurven, bommer vi litt. Det interessante er at vi kan si **hvilken vei** vi bommer, bare ved å se på om funksjonen krummer opp eller ned. Det er kapitlets siste og mest poenggivende del.\n\nKapitlet er bygget som fire løkker: approksimasjonen i én variabel, i to variabler, eksamensvarianten «sett inn og sammenlign», og feilens fortegn."
+    },
+    {
+      "id": "econ1100-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Approksimasjon i én variabel (~10 min)"
+    },
+    {
+      "id": "econ1100-3-2-def-lin-approks-1d",
+      "type": "definition",
+      "title": "Lineær approksimasjon i én variabel",
+      "content": "Nær et punkt du kjenner, kan funksjonen erstattes av tangenten sin.\n\n$$f(x)\\approx f(x_0)+f'(x_0)\\,(x-x_0)$$\n\nFørste ledd er verdien du starter fra, andre ledd er korreksjonen: bratthet ganget med hvor langt du har gått. Tilnærmingen er god så lenge $x$ ligger nær $x_0$, og den blir raskt dårligere jo lenger du beveger deg."
+    },
+    {
+      "id": "econ1100-3-2-def-basispunkt",
+      "type": "definition",
+      "title": "Basispunktet $x_0$",
+      "content": "Basispunktet er det kjente punktet du regner ut fra, og du velger det selv.\n\n$$x_0=\\text{det nærmeste punktet der }f(x_0)\\text{ og }f'(x_0)\\text{ er enkle å regne}$$\n\nSkal du anslå $\\sqrt{25{,}4}$, velger du $x_0=25$ og ikke $x_0=24$, selv om begge ligger i nærheten. Regelen er: pent nok til å regne i hodet, nært nok til at tilnærmingen holder. Er basispunktet oppgitt i teksten, skal det brukes — også når et annet ville vært penere."
+    },
+    {
+      "id": "econ1100-3-2-def-tangentlinje",
+      "type": "definition",
+      "title": "Tangentlinjen som tilnærming",
+      "content": "Den lineære approksimasjonen ER likningen for tangenten, skrevet på en litt annen måte.\n\n$$y=f(x_0)+f'(x_0)(x-x_0)$$\n\nDet gir en nyttig geometrisk kontroll: tilnærmingen er en rett linje som berører grafen i $x_0$ og har samme stigning der. Alle avvik mellom linjen og kurven skyldes at kurven krummer, og det er nettopp det vi utnytter i løkke 4."
+    },
+    {
+      "id": "econ1100-3-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Kvadratrot uten kalkulator",
+      "problem": "Bruk lineær approksimasjon til å anslå $\\sqrt{25{,}4}$, og avgjør om anslaget er for stort eller for lite.",
+      "solution": "**Steg 1 — velg funksjon og basispunkt.** La $f(x)=\\sqrt{x}$ og $x_0=25$, siden $\\sqrt{25}=5$ er kjent og $25{,}4$ ligger nær.\n\n**Steg 2 — regn ut de to størrelsene i basispunktet.**\n\n$$f(25)=5,\\qquad f'(x)=\\frac{1}{2\\sqrt{x}}\\ \\Longrightarrow\\ f'(25)=\\frac{1}{10}$$\n\n**Steg 3 — sett inn i formelen** med $x-x_0=0{,}4$:\n\n$$\\sqrt{25{,}4}\\approx 5+\\frac{1}{10}\\cdot 0{,}4=5{,}04$$\n\n**Steg 4 — avgjør retningen på bommen.** Den andrederiverte er\n\n$$f''(x)=-\\tfrac14 x^{-3/2}<0\\quad\\text{for alle }x>0,$$\n\nså $\\sqrt{x}$ er **konkav**: kurven bøyer nedover, og tangenten ligger over kurven. Anslaget er derfor **for stort**.\n\n**Kontroll:** den eksakte verdien er $5{,}039841\\ldots$, og anslaget $5{,}04$ er, som forutsagt, litt større. Bommen er $0{,}00016$ — under fire hundredels promille.\n\n**Merk hva som gir uttelling her:** ikke tallet, men at fortegnet på bommen er *begrunnet* med fortegnet på $f''$. Å regne ut fasiten og sammenligne er ikke et argument; på eksamen har du ikke fasiten."
+    },
+    {
+      "id": "econ1100-3-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger DA — differensial og lineær approksimasjon, oftest ett punkt i eksamens Oppgave 2. Innstegsoppgave.) La $f(x)=x^{3}$ og $x_0=2$.\n\n**a)** Skriv opp den lineære approksimasjonen til $f$ rundt $x_0=2$.\n\n**b)** Bruk den til å anslå $f(2{,}1)$.\n\n**c)** Regn ut den eksakte verdien $f(2{,}1)$ og sammenlign.",
+        "solution": "**a)** Vi trenger $f(2)$ og $f'(2)$. Med $f'(x)=3x^{2}$ er $f(2)=8$ og $f'(2)=12$:\n\n$$f(x)\\approx 8+12\\,(x-2)$$\n\n**b)** Sett inn $x=2{,}1$, altså $x-x_0=0{,}1$:\n\n$$f(2{,}1)\\approx 8+12\\cdot 0{,}1=9{,}2$$\n\n**c)** Eksakt: $2{,}1^{3}=9{,}261$.\n\n**Sammenligning:** anslaget $9{,}2$ er litt **for lite**. Det stemmer med krumningen: $f''(x)=6x$, som er positiv for $x=2$, så funksjonen er konveks og tangenten ligger under kurven.",
+        "hints": [
+          "Formelen er $f(x_0)+f'(x_0)(x-x_0)$ — regn de to størrelsene i basispunktet først.",
+          "I c): se på fortegnet til $f''(2)$ for å forklare retningen på avviket."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Approksimasjon i to variabler (~12 min)"
+    },
+    {
+      "id": "econ1100-3-2-def-lin-approks-2d",
+      "type": "definition",
+      "title": "Lineær approksimasjon i to variabler",
+      "content": "Med to variabler får korreksjonen to ledd — ett for hver retning du har beveget deg.\n\n$$f(x,y)\\approx f(x_0,y_0)+f'_x(x_0,y_0)\\,(x-x_0)+f'_y(x_0,y_0)\\,(y-y_0)$$\n\nAlle tre ledd er nødvendige: startverdien, bidraget fra $x$ og bidraget fra $y$. Et uttrykk med bare to av dem er den vanligste usanne påstanden i hele sjangeren."
+    },
+    {
+      "id": "econ1100-3-2-def-df-og-approks",
+      "type": "definition",
+      "title": "Sammenhengen med differensialet",
+      "content": "Approksimasjonen er ikke en ny formel — det er differensialet lagt til startverdien.\n\n$$f(x,y)\\approx f(x_0,y_0)+df,\\qquad df=f'_x\\,dx+f'_y\\,dy$$\n\nHer er $dx=x-x_0$ og $dy=y-y_0$. Skillet mellom de to formene er praktisk: differensialet svarer på «hvor mye endrer $f$ seg?», approksimasjonen på «hva blir den nye verdien?». Regner du det ene, har du det andre."
+    },
+    {
+      "id": "econ1100-3-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: To variabler, med kontroll",
+      "problem": "La $f(x,y)=x^{2}\\sqrt{y}$.\n\n**a)** Finn den lineære approksimasjonen rundt $(x_0,y_0)=(3,4)$.\n\n**b)** Bruk den til å anslå $f(3{,}1\\,;\\,3{,}9)$, og sammenlign med den eksakte verdien.",
+      "solution": "**a) Steg 1 — verdien i basispunktet.**\n\n$$f(3,4)=9\\cdot 2=18$$\n\n**Steg 2 — de partiellderiverte.** Mht. $x$ står $\\sqrt{y}$ som konstant faktor; mht. $y$ står $x^{2}$ som konstant faktor:\n\n$$f'_x=2x\\sqrt{y}\\ \\Longrightarrow\\ f'_x(3,4)=2\\cdot 3\\cdot 2=12$$\n\n$$f'_y=\\frac{x^{2}}{2\\sqrt{y}}\\ \\Longrightarrow\\ f'_y(3,4)=\\frac{9}{4}=2{,}25$$\n\n**Steg 3 — sett inn i formelen:**\n\n$$f(x,y)\\approx 18+12\\,(x-3)+2{,}25\\,(y-4)$$\n\n**b)** Med $x-3=0{,}1$ og $y-4=-0{,}1$:\n\n$$f(3{,}1\\,;\\,3{,}9)\\approx 18+12\\cdot 0{,}1+2{,}25\\cdot(-0{,}1)=18+1{,}2-0{,}225=18{,}975$$\n\n**Kontroll mot eksakt verdi:** $3{,}1^{2}\\sqrt{3{,}9}=9{,}61\\cdot 1{,}97484\\ldots=18{,}9782$. Anslaget $18{,}975$ bommer med $0{,}003$, altså under to hundredels prosent.\n\n**Legg merke til fortegnene.** Bidraget fra $x$ er positivt fordi $x$ økte, og bidraget fra $y$ er negativt fordi $y$ falt. Å sette inn $y-y_0$ med riktig fortegn er det stedet flest mister poeng i denne oppgavetypen — mer enn selve derivasjonen.\n\n**Konklusjon:** $f(3{,}1\\,;\\,3{,}9)\\approx 18{,}975$, mot den eksakte verdien $18{,}978$."
+    },
+    {
+      "id": "econ1100-3-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger DA.) La $f(x,y)=x^{2}y^{3}$ og $(x_0,y_0)=(1,2)$.\n\n**a)** Regn ut $f(1,2)$, $f'_x(1,2)$ og $f'_y(1,2)$.\n\n**b)** Skriv opp den lineære approksimasjonen rundt punktet.",
+        "solution": "**a)** Vi regner ut de tre størrelsene.\n\n$$f(1,2)=1\\cdot 8=8$$\n\n$$f'_x=2xy^{3}\\ \\Longrightarrow\\ f'_x(1,2)=2\\cdot 1\\cdot 8=16$$\n\n$$f'_y=3x^{2}y^{2}\\ \\Longrightarrow\\ f'_y(1,2)=3\\cdot 1\\cdot 4=12$$\n\n**b)** Satt inn i formelen:\n\n$$f(x,y)\\approx 8+16\\,(x-1)+12\\,(y-2)$$\n\n**Kontroll av rimeligheten:** i selve basispunktet gir uttrykket $8+0+0=8$, som er riktig verdi. Den kontrollen tar to sekunder og fanger feil i det første leddet.",
+        "hints": [
+          "Regn ut de to partiellderiverte generelt først, og sett inn punktet etterpå.",
+          "Sett $x=1$ og $y=2$ inn i det ferdige uttrykket — du skal få tilbake $f(1,2)$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i lineær approksimasjon",
+      "content": "- **Å utelate ett ledd (#4 — utelate ett ledd i differensialet eller den lineære approksimasjonen).** Tre ledd i to variabler: startverdi, $x$-bidrag, $y$-bidrag. Tell dem hver gang.\n- **Å glemme startverdien $f(x_0,y_0)$.** Approksimasjonen anslår funksjons*verdien*, ikke endringen. Uten første ledd har du regnet ut $df$ og besvart en annen oppgave.\n- **Å sette inn i $f$ i stedet for i approksimasjonen.** Oppgaven ber om anslaget, ikke fasiten. Regner du eksakt, har du ikke vist det oppgaven spør etter.\n- **Feil fortegn på $(y-y_0)$.** Faller $y$, er parentesen negativ. Sett inn tallet med sitt fortegn.\n- **Feil basispunkt.** Er $(x_0,y_0)$ oppgitt, skal det brukes — også når et annet punkt ville gitt penere tall.\n- **Å konkludere om fortegnet på feilen ved å regne ut fasiten.** På eksamen har du ikke fasiten. Argumentet skal gå gjennom krumningen ($f''$), ikke gjennom en sammenligning."
+    },
+    {
+      "id": "econ1100-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Eksamensvarianten: sett inn og sammenlign (~12 min)"
+    },
+    {
+      "id": "econ1100-3-2-def-su-oppskrift",
+      "type": "definition",
+      "title": "Oppskriften for sant/usant-varianten",
+      "content": "Påstandene om lineær approksimasjon besvares alltid med den samme mekaniske rutinen.\n\n$$\\text{regn }f(x_0,y_0),\\ f'_x,\\ f'_y\\ \\to\\ \\text{sett inn}\\ \\to\\ \\text{forenkl}\\ \\to\\ \\text{sammenlign ledd for ledd}$$\n\nDet siste steget er poengbæreren: pek eksplisitt på hvilket ledd som mangler, er feil, eller stemmer. Sensor leter etter sammenligningen, ikke etter ordet «usant»."
+    },
+    {
+      "id": "econ1100-3-2-def-standard-approks",
+      "type": "definition",
+      "title": "Tre standardtilnærminger verdt å kunne",
+      "content": "Rundt $u=0$ gir formelen tre uttrykk som dukker opp igjen og igjen i økonomimodeller.\n\n$$(1+u)^{a}\\approx 1+au,\\qquad \\ln(1+u)\\approx u,\\qquad e^{u}\\approx 1+u$$\n\nAlle tre er den lineære approksimasjonen med $x_0=0$. Den midterste er grunnen til at små prosentvise endringer og logaritmiske differanser kan brukes om hverandre: en vekst på 3 prosent gir $\\ln(1{,}03)=0{,}0296$, altså nesten $0{,}03$."
+    },
+    {
+      "id": "econ1100-3-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Er den oppgitte approksimasjonen riktig?",
+      "problem": "La $f(x,y)=\\ln\\!\\big(x^{2}+y\\big)$ for $x^{2}+y>0$.\n\nAvgjør om påstanden\n\n«$f(x,y)\\approx \\ln 5+\\tfrac45\\,(x-2)+\\tfrac15\\,(y-1)$ nær $(2,1)$»\n\ner sann eller usann. Begrunn.",
+      "solution": "**Steg 1 — verdien i basispunktet.** Med $x_0=2$ og $y_0=1$ er $x_0^{2}+y_0=5$, så\n\n$$f(2,1)=\\ln 5$$\n\n**Steg 2 — de partiellderiverte.** Regelen $g'/g$ med $g=x^{2}+y$:\n\n$$f'_x=\\frac{2x}{x^{2}+y}\\ \\Longrightarrow\\ f'_x(2,1)=\\frac{4}{5}$$\n\n$$f'_y=\\frac{1}{x^{2}+y}\\ \\Longrightarrow\\ f'_y(2,1)=\\frac{1}{5}$$\n\n**Steg 3 — sett inn i formelen:**\n\n$$f(x,y)\\approx \\ln 5+\\frac45\\,(x-2)+\\frac15\\,(y-1)$$\n\n**Steg 4 — sammenlign ledd for ledd.** Startverdi $\\ln 5$ ✓. Koeffisienten foran $(x-2)$ er $4/5$ ✓. Koeffisienten foran $(y-1)$ er $1/5$ ✓. Ingen ledd mangler, og ingen koeffisient avviker.\n\n**Konklusjon: påstanden er sann.**\n\n**Numerisk kontroll (ikke nødvendig, men beroligende):** i $(2{,}05\\,;\\,1{,}1)$ gir uttrykket $\\ln 5+0{,}04+0{,}02=1{,}6694$, mens den eksakte verdien er $\\ln(5{,}3025)=1{,}6681$. Nær hverandre, som ventet.\n\n**Merk at «sann» er et fullgodt svar.** Påstandene i denne sjangeren er ofte, men ikke alltid, usanne. En student som svarer «usant» på alt, kommer dårlig ut — og uten begrunnelse gir begge svar null."
+    },
+    {
+      "id": "econ1100-3-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger DA i sant/usant-format. Sjanger SU betyr «sant eller usant? begrunn».) La $f(x,y)=x^{2}y^{3}$ og basispunktet $(1,2)$.\n\nAvgjør om hver påstand er sann eller usann, og begrunn med utregning.\n\n**a)** «$f(x,y)\\approx 8+16(x-1)+12(y-2)$»\n\n**b)** «$f(x,y)\\approx 16(x-1)+12(y-2)$»\n\n**c)** «$f(1{,}05\\,;\\,1{,}9)\\approx 7{,}6$»",
+        "solution": "**Felles utgangspunkt.** Fra oppgave 2 har vi $f(1,2)=8$, $f'_x(1,2)=16$ og $f'_y(1,2)=12$, altså\n\n$$f(x,y)\\approx 8+16\\,(x-1)+12\\,(y-2)$$\n\n**a) Sann.** Uttrykket er ledd for ledd identisk med utregningen: startverdi 8 ✓, koeffisient 16 ✓, koeffisient 12 ✓.\n\n**b) Usann.** Startverdien $f(1,2)=8$ mangler. Uttrykket som står der, er *differensialet* $df$ — altså den anslåtte **endringen**, ikke den anslåtte **verdien**. Setter man inn basispunktet selv, gir påstanden 0, mens $f(1,2)=8$.\n\n**c) Sann.** Sett inn $x-1=0{,}05$ og $y-2=-0{,}1$:\n\n$$f\\approx 8+16\\cdot 0{,}05+12\\cdot(-0{,}1)=8+0{,}8-1{,}2=7{,}6$$\n\nPåstanden stemmer med approksimasjonen ✓.\n\n*Presisering:* den eksakte verdien er $1{,}05^{2}\\cdot 1{,}9^{3}=1{,}1025\\cdot 6{,}859=7{,}562$. Påstanden gjelder approksimasjonen, som spurt om, og den er riktig — men merk at det eksakte tallet er et annet.\n\n**Kontrollen som avslører b):** sett alltid basispunktet inn i det oppgitte uttrykket. Får du ikke tilbake $f(x_0,y_0)$, mangler startverdien.",
+        "hints": [
+          "Regn ut approksimasjonen din én gang, og bruk den som fasit mot alle tre påstandene.",
+          "I b): hva gir uttrykket når du setter inn selve basispunktet?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger DA.) En bedrift har produktfunksjonen $Q(K,L)=40\\,K^{1/2}L^{1/2}$ og befinner seg i $(K,L)=(25,16)$.\n\n**a)** Sett opp den lineære approksimasjonen til $Q$ rundt dette punktet.\n\n**b)** Anslå produksjonen når kapitalen øker til 26 og arbeidskraften faller til $15{,}5$.\n\n**c)** Den eksakte verdien er $802{,}99$. Kommenter avviket.",
+        "solution": "**a)** Vi regner ut de tre størrelsene i punktet.\n\n$$Q(25,16)=40\\cdot 5\\cdot 4=800$$\n\n$$Q'_K=20\\sqrt{\\frac{L}{K}}\\ \\Longrightarrow\\ Q'_K(25,16)=20\\cdot\\frac{4}{5}=16$$\n\n$$Q'_L=20\\sqrt{\\frac{K}{L}}\\ \\Longrightarrow\\ Q'_L(25,16)=20\\cdot\\frac{5}{4}=25$$\n\n$$Q(K,L)\\approx 800+16\\,(K-25)+25\\,(L-16)$$\n\n**b)** Med $K-25=1$ og $L-16=-0{,}5$:\n\n$$Q\\approx 800+16\\cdot 1+25\\cdot(-0{,}5)=800+16-12{,}5=803{,}5$$\n\n**c)** Anslaget $803{,}5$ ligger $0{,}51$ over den eksakte verdien $802{,}99$ — et avvik på omtrent $0{,}06$ prosent.\n\n**Kommentar med begrunnelse:** at anslaget er for stort, er ikke tilfeldig. Cobb-Douglas-funksjonen $40K^{1/2}L^{1/2}$ krummer nedover i hver av retningene ($Q''_{KK}<0$ og $Q''_{LL}<0$), så tangentplanet ligger over flaten. Da overestimerer approksimasjonen — akkurat som for $\\sqrt{x}$ i eksempel 1.\n\nAvviket er dessuten større her enn i eksempel 2, fordi skrittene er større i forhold til nivåene. Approksimasjonsfeilen vokser omtrent med kvadratet av skrittlengden.",
+        "hints": [
+          "Skriv $Q'_K$ og $Q'_L$ som $20\\sqrt{L/K}$ og $20\\sqrt{K/L}$ — da blir tallene pene.",
+          "I c): er funksjonen konkav i hver retning, ligger tangentplanet over flaten."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Approksimasjonsfeilens fortegn (~11 min)\n\n— naturlig pausepunkt —\n\nHer skifter kapitlet karakter: fra regning til argumentasjon. Denne delen er det som skiller full uttelling fra halv."
+    },
+    {
+      "id": "econ1100-3-2-def-approksfeil",
+      "type": "definition",
+      "title": "Approksimasjonsfeilen",
+      "content": "Feilen er det du bommer med: sannheten minus anslaget.\n\n$$\\text{feil}=\\Delta f-df$$\n\nMed $\\Delta f$ som den faktiske tilveksten og $df$ som den anslåtte. Er feilen positiv, har du underestimert; er den negativ, har du overestimert. Fortegnet er ikke tilfeldig — det følger av om funksjonen krummer opp eller ned."
+    },
+    {
+      "id": "econ1100-3-2-def-konveks-under",
+      "type": "definition",
+      "title": "Konveks funksjon: anslaget blir for lite",
+      "content": "En konveks funksjon bøyer oppover, og da ligger tangenten under kurven overalt.\n\n$$f''\\ge 0\\ \\text{overalt}\\ \\Longrightarrow\\ \\Delta f\\ge df\\ \\text{(underestimat)}$$\n\nEksempel: $f(x)=e^{x}$ rundt $x_0=0$ gir approksimasjonen $1+x$. For $x=0{,}2$ blir anslaget $1{,}2$, mens sannheten er $1{,}2214$. Kurven ligger over linjen, som lovet — og det gjelder for **både** positive og negative skritt, siden krumningen er den samme på begge sider."
+    },
+    {
+      "id": "econ1100-3-2-def-konkav-over",
+      "type": "definition",
+      "title": "Konkav funksjon: anslaget blir for stort",
+      "content": "En konkav funksjon bøyer nedover, og tangenten ligger over kurven.\n\n$$f''\\le 0\\ \\text{overalt}\\ \\Longrightarrow\\ \\Delta f\\le df\\ \\text{(overestimat)}$$\n\nEksempel: $f(x)=\\ln(1+x)$ rundt $x_0=0$ gir approksimasjonen $x$. For $x=0{,}1$ blir anslaget $0{,}1$, mens sannheten er $0{,}0953$. De vanlige konkave funksjonene i økonomi — $\\sqrt{x}$, $\\ln x$ og Cobb-Douglas i hver retning — overestimeres alltid."
+    },
+    {
+      "id": "econ1100-3-2-def-feilens-storrelse",
+      "type": "definition",
+      "title": "Hvor stor blir feilen?",
+      "content": "Feilen vokser omtrent med kvadratet av skrittlengden, ikke lineært med den.\n\n$$\\text{halvert skritt}\\ \\Longrightarrow\\ \\text{omtrent fjerdedels feil}$$\n\nDet er grunnen til at tilnærmingen er så god for små endringer og så dårlig for store. I eksempel 1 ga et skritt på $0{,}4$ en feil på under to hundredels promille; et skritt på 4 ville gitt en feil hundre ganger større."
+    },
+    {
+      "id": "econ1100-3-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — feilens fortegn uten fasit",
+      "problem": "En husholdnings nytte av strøm er $U(x)=100\\sqrt{x}$, der $x$ er antall kilowattimer i tusen.\n\n**a)** Finn den lineære approksimasjonen til $U$ rundt $x_0=9$.\n\n**b)** Bruk den til å anslå $U(9{,}6)$.\n\n**c)** Avgjør **uten å regne ut den eksakte verdien** om anslaget er for stort eller for lite. Begrunn.",
+      "solution": "**a)** Vi regner ut verdien og stigningen i basispunktet.\n\n$$U(9)=100\\cdot 3=300,\\qquad U'(x)=\\frac{100}{2\\sqrt{x}}=\\frac{50}{\\sqrt{x}}\\ \\Longrightarrow\\ U'(9)=\\frac{50}{3}$$\n\n$$U(x)\\approx 300+\\frac{50}{3}\\,(x-9)$$\n\n**b)** Med $x-9=0{,}6$:\n\n$$U(9{,}6)\\approx 300+\\frac{50}{3}\\cdot 0{,}6=300+10=310$$\n\n**c) Argumentet går gjennom krumningen.** Vi deriverer én gang til:\n\n$$U'(x)=50\\,x^{-1/2}\\ \\Longrightarrow\\ U''(x)=-25\\,x^{-3/2}$$\n\nFor alle $x>0$ er $x^{-3/2}>0$, altså $U''(x)<0$. Funksjonen er **konkav i hele definisjonsområdet** $x>0$, og tangenten ligger derfor over kurven.\n\n**Konklusjon: anslaget $310$ er for stort.** Den faktiske nytten i $x=9{,}6$ er lavere.\n\n**Merk hvorfor dette er det etterspurte argumentet.** Oppgaven ber om fortegnet uten fasit, og da må konklusjonen komme fra $U''$, ikke fra en sammenligning. Legg også merke til at konkaviteten er begrunnet **for hele området**, ikke bare i ett punkt — det er kravet når konklusjonen skal gjelde et helt skritt.\n\n*Til orientering, ikke som argument:* den eksakte verdien er $100\\sqrt{9{,}6}=309{,}84$, som ganske riktig er litt lavere enn 310.\n\n**Økonomisk lesning:** at nyttefunksjonen er konkav, betyr avtakende grensenytte — den 9 601. kilowattimen er mindre verdt enn den 9 000. Tangenten «tror» grensenytten holder seg konstant, og overvurderer derfor gevinsten. Matematikken og økonomien sier det samme."
+    },
+    {
+      "id": "econ1100-3-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn».) Avgjør om hver påstand er sann eller usann, og begrunn.\n\n**a)** «For en konveks funksjon gir lineær approksimasjon alltid et for lavt anslag.»\n\n**b)** «Approksimasjonsfeilen halveres når skrittlengden halveres.»\n\n**c)** «Den lineære approksimasjonen til $f$ rundt $x_0$ treffer eksakt i $x=x_0$.»",
+        "solution": "**a) Sann.** Konveksitet betyr $f''\\ge 0$, og da ligger tangenten under kurven i hele området. Da er $f(x)\\ge f(x_0)+f'(x_0)(x-x_0)$, altså er anslaget for lavt.\n\n*Merk kravet:* konveksiteten må gjelde i hele intervallet mellom $x_0$ og $x$, ikke bare i basispunktet. Krummer funksjonen om undervegs, faller argumentet.\n\n**b) Usann.** Feilen vokser omtrent med **kvadratet** av skrittlengden, så halvert skritt gir omtrent en fjerdedel av feilen.\n\n*Konkret motsvar:* for $f(x)=x^{2}$ rundt $x_0=1$ er approksimasjonen $1+2(x-1)$, og feilen er nøyaktig $(x-1)^{2}$. Med skritt $0{,}2$ er feilen $0{,}04$; med skritt $0{,}1$ er den $0{,}01$ — en firedel, ikke en halvdel.\n\n**c) Sann.** Sett $x=x_0$ inn i formelen:\n\n$$f(x_0)+f'(x_0)\\,(x_0-x_0)=f(x_0)+0=f(x_0)$$\n\nTangenten berører kurven i berøringspunktet, så der er avviket null. Dette er dessuten den raskeste kontrollen på at du har skrevet approksimasjonen riktig.",
+        "hints": [
+          "I a): hva sier fortegnet på $f''$ om hvor tangenten ligger i forhold til kurven?",
+          "I b): finn en funksjon der du kan regne ut feilen eksakt, og prøv to skrittlengder."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger DA.) Bruk lineær approksimasjon rundt $u=0$ til å vise standardtilnærmingene, og bruk dem:\n\n**a)** Vis at $(1+u)^{a}\\approx 1+au$ for små $u$.\n\n**b)** Anslå $\\sqrt{1{,}08}$ med formelen fra a), og avgjør om anslaget er for stort eller for lite.\n\n**c)** Anslå $\\ln(1{,}03)$, og forklar hvorfor tallet er så nær 3 prosent.",
+        "solution": "**a)** La $f(u)=(1+u)^{a}$ og $u_0=0$. Da er\n\n$$f(0)=1,\\qquad f'(u)=a(1+u)^{a-1}\\ \\Longrightarrow\\ f'(0)=a$$\n\nSatt inn i formelen:\n\n$$f(u)\\approx f(0)+f'(0)\\,u=1+au$$\n\n**b)** Med $a=\\tfrac12$ og $u=0{,}08$:\n\n$$\\sqrt{1{,}08}\\approx 1+\\tfrac12\\cdot 0{,}08=1{,}04$$\n\nAnslaget er **for stort**: $f''(u)=\\tfrac12\\cdot(-\\tfrac12)(1+u)^{-3/2}<0$, så funksjonen er konkav, og tangenten ligger over kurven.\n\n*Til kontroll:* eksakt er $\\sqrt{1{,}08}=1{,}03923$, altså litt under 1,04 ✓.\n\n**c)** La $f(u)=\\ln(1+u)$ med $f(0)=0$ og $f'(u)=\\dfrac{1}{1+u}$, så $f'(0)=1$:\n\n$$\\ln(1+u)\\approx u\\ \\Longrightarrow\\ \\ln(1{,}03)\\approx 0{,}03$$\n\nEksakt er $\\ln(1{,}03)=0{,}029559$, altså litt lavere (funksjonen er konkav).\n\n**Hvorfor så nær?** Fordi stigningen til $\\ln(1+u)$ er nøyaktig 1 i $u=0$: for små $u$ oppfører logaritmen seg som identitetsfunksjonen. Det er grunnen til at økonomer bruker logaritmiske differanser om hverandre med prosentvis vekst — for vekstrater under noen få prosent er forskjellen forsvinnende.",
+        "hints": [
+          "Alle tre er den vanlige formelen med $u_0=0$ — regn $f(0)$ og $f'(0)$.",
+          "I b) og c): begge funksjonene er konkave, så tangenten ligger over kurven."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger SU — eksamensnivå.) La $f(x,y)=\\sqrt{x}\\,\\ln y$ for $x>0$ og $y>0$, med basispunkt $(4,e)$.\n\n**a)** Finn den lineære approksimasjonen til $f$ rundt $(4,e)$.\n\n**b)** Avgjør om påstanden «$f(x,y)\\approx 2+\\tfrac14(x-4)$» er sann eller usann. Begrunn.\n\n**c)** Anslå $f(4{,}2\\,;\\,e)$, og avgjør uten å regne eksakt om anslaget er for stort eller for lite.",
+        "solution": "**a) Steg 1 — verdien i basispunktet.** Med $\\sqrt{4}=2$ og $\\ln e=1$:\n\n$$f(4,e)=2\\cdot 1=2$$\n\n**Steg 2 — de partiellderiverte.**\n\n$$f'_x=\\frac{\\ln y}{2\\sqrt{x}}\\ \\Longrightarrow\\ f'_x(4,e)=\\frac{1}{4}$$\n\n$$f'_y=\\frac{\\sqrt{x}}{y}\\ \\Longrightarrow\\ f'_y(4,e)=\\frac{2}{e}$$\n\n**Steg 3 — sett inn:**\n\n$$f(x,y)\\approx 2+\\frac14\\,(x-4)+\\frac{2}{e}\\,(y-e)$$\n\n**b) Usann.** Sammenligning ledd for ledd: startverdien 2 ✓ og koeffisienten $1/4$ ✓, men leddet $\\dfrac{2}{e}(y-e)$ er utelatt helt. Dette er feil #4 — utelate ett ledd i den lineære approksimasjonen.\n\nUttrykket i påstanden er riktig bare når $y=e$, altså langs én enkelt linje i planet. Som generell approksimasjon er det galt.\n\n**c)** Med $x-4=0{,}2$ og $y-e=0$ faller det siste leddet bort:\n\n$$f(4{,}2\\,;\\,e)\\approx 2+\\frac14\\cdot 0{,}2=2{,}05$$\n\n**Fortegnet på feilen.** Siden $y$ holdes fast på $e$, beveger vi oss langs $x$, og der er $f(x,e)=\\sqrt{x}\\cdot 1=\\sqrt{x}$. Vi trenger altså krumningen i $x$-retningen:\n\n$$f''_{xx}=-\\frac{\\ln y}{4\\,x^{3/2}}$$\n\nI området rundt $y=e$ er $\\ln y=1>0$, så $f''_{xx}<0$ — funksjonen er konkav i $x$-retningen, og anslaget er **for stort**.\n\n*Kontroll:* $\\sqrt{4{,}2}=2{,}04939$, som ganske riktig er litt under 2,05.\n\n**Merk hvorfor c) er en presisjonsoppgave.** Krumningen i $x$-retningen avhenger av fortegnet på $\\ln y$: for $y<1$ er $\\ln y<0$, og da snur konklusjonen. Å skrive «konkav» uten å si hvor, er derfor ikke godt nok her.",
+        "hints": [
+          "Regn $f'_x$ og $f'_y$ generelt, og husk at $\\ln e=1$ forenkler mye.",
+          "I c): siden $y$ ikke endres, er det bare krumningen i $x$-retningen som betyr noe."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger DA — eksamensnivå med generell funksjon.) La $g$ være en to ganger deriverbar funksjon med $g(10)=50$, $g'(10)=3$ og $g''(x)<0$ for alle $x>0$.\n\n**a)** Skriv opp den lineære approksimasjonen til $g$ rundt $x_0=10$, og anslå $g(10{,}4)$.\n\n**b)** Er anslaget et over- eller underestimat? Begrunn.\n\n**c)** En annen student hevder at $g(20)\\approx 80$ ved samme metode. Kommenter påstanden.",
+        "solution": "**a)** Formelen krever bare $g(10)$ og $g'(10)$, som begge er oppgitt:\n\n$$g(x)\\approx 50+3\\,(x-10)$$\n\nMed $x-10=0{,}4$:\n\n$$g(10{,}4)\\approx 50+3\\cdot 0{,}4=51{,}2$$\n\n**b) Overestimat.** Antakelsen $g''(x)<0$ for alle $x>0$ betyr at $g$ er konkav i hele området. Da ligger tangenten i $x_0=10$ over grafen for alle $x\\ne 10$, og spesielt i $x=10{,}4$. Derfor er\n\n$$g(10{,}4)<51{,}2$$\n\n**Merk at vi ikke kan si hvor mye for stort anslaget er.** Vi vet bare at $g''<0$, ikke hvor negativ den er. Retningen er sikker, størrelsen er ukjent — og et ærlig svar sier begge deler.\n\n**c) Regnestykket er riktig, men bruken er tvilsom.** Formelen gir\n\n$$g(20)\\approx 50+3\\cdot 10=80$$\n\nSkrittet er nå 10 enheter i stedet for $0{,}4$, altså 25 ganger så langt. Siden feilen vokser omtrent med kvadratet av skrittlengden, kan bommen bli flere hundre ganger større.\n\nVi kan dessuten si noe skarpere: fordi $g$ er konkav i hele området, ligger tangenten over grafen overalt, og derfor er $g(20)<80$ **sikkert**. Anslaget er en øvre grense, ikke et anslag man bør stole på.\n\n**Konklusjon:** tallet 80 er en gyldig øvre skranke for $g(20)$, men en lite pålitelig tilnærming. Lineær approksimasjon er et lokalt verktøy.",
+        "hints": [
+          "Du trenger bare funksjonsverdien og stigningen i basispunktet — resten er innsetting.",
+          "I c): to ting kan sies om lange skritt — hva feilen gjør, og hva konkaviteten garanterer."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-3-2-bb-tre-ledd",
+      "type": "definition",
+      "title": "Tre-ledds-kontrollen",
+      "content": "Den raskeste kontrollen på en approksimasjon i to variabler er å telle ledd.\n\n$$\\underbrace{f(x_0,y_0)}_{1}+\\underbrace{f'_x\\,(x-x_0)}_{2}+\\underbrace{f'_y\\,(y-y_0)}_{3}$$\n\nMangler ett av dem, er uttrykket galt. Mangler det første, har noen skrevet differensialet i stedet for approksimasjonen — en feil som er lett å se når man vet hva man skal se etter."
+    },
+    {
+      "id": "econ1100-3-2-bb-basispunkt-test",
+      "type": "definition",
+      "title": "Basispunkt-testen",
+      "content": "Sett basispunktet inn i det ferdige uttrykket. Da skal alle korreksjonsledd bli null.\n\n$$x=x_0,\\ y=y_0\\ \\Longrightarrow\\ \\text{uttrykket}=f(x_0,y_0)$$\n\nFår du noe annet, er startverdien feil eller borte. Kontrollen tar to sekunder, krever ingen ekstra regning, og fanger den vanligste av alle feilene i sjangeren."
+    },
+    {
+      "id": "econ1100-3-2-bb-avtakende-grensenytte",
+      "type": "definition",
+      "title": "Konkavitet som avtakende grensenytte",
+      "content": "Krumningen har en direkte økonomisk lesning, og den er verdt å skrive i besvarelsen.\n\n$$U''<0\\ \\Longleftrightarrow\\ \\text{avtakende grensenytte}$$\n\nEn konkav nyttefunksjon betyr at hver ekstra enhet er mindre verdt enn den forrige. Den lineære approksimasjonen antar at grensenytten holder seg konstant, og overvurderer derfor gevinsten ved en økning. Samme resonnement gjelder produktfunksjoner med avtakende grenseprodukt."
+    },
+    {
+      "id": "econ1100-3-2-bb-lokal-metode",
+      "type": "definition",
+      "title": "Approksimasjonen er lokal",
+      "content": "Metoden er bygget for små skritt, og garantien svekkes raskt når skrittet vokser.\n\n$$\\text{feil}\\ \\sim\\ (\\text{skrittlengde})^{2}$$\n\nDet betyr at et anslag over et langt intervall kan være helt ubrukelig, selv om regnestykket er feilfritt. På eksamen er skrittene alltid små; i praksis er det din jobb å vurdere om de er det."
+    },
+    {
+      "id": "econ1100-3-2-bb-en-vs-to-variabler",
+      "type": "definition",
+      "title": "Én variabel som spesialtilfelle",
+      "content": "Formelen i to variabler blir formelen i én når den andre variabelen holdes fast.\n\n$$dy=0\\ \\Longrightarrow\\ f(x,y_0)\\approx f(x_0,y_0)+f'_x(x_0,y_0)\\,(x-x_0)$$\n\nDet er nyttig å vite, fordi mange eksamensvarianter holder én variabel konstant. Men merk forskjellen: at oppgaven *velger* $dy=0$, er noe annet enn at påstanden *utelater* $y$-leddet. Det første er lovlig, det andre er feil #4."
+    },
+    {
+      "id": "econ1100-3-2-bb-forenkling",
+      "type": "definition",
+      "title": "Åpenbar forenkling kreves",
+      "content": "Sensor krever at sluttsvaret ryddes, også når regningen er riktig.\n\n$$8+16(x-1)+12(y-2)\\quad\\text{eller}\\quad 16x+12y-32$$\n\nBegge formene er riktige og godtas. Men lar uttrykket seg trekke sammen med et par åpenbare grep, forventes det gjort — uforenklede svar koster full uttelling selv når de er korrekte."
+    },
+    {
+      "id": "econ1100-3-2-figurord",
+      "type": "text",
+      "content": "## Slik ser bommen ut\n\n*Figur i ord — tangenten under en konveks kurve.* Tenk deg et vanlig koordinatsystem med $x$ vannrett og $y$ loddrett. Kurven $f$ starter nede til venstre og stiger mot høyre, samtidig som den bøyer oppover: den blir brattere hele veien. I punktet $x_0$ tegnes den rette tangentlinjen inn; den berører kurven akkurat der og fortsetter rett fram i begge retninger.\n\nGå nå et lite skritt $\\Delta x$ mot høyre, til $x_0+\\Delta x$, og reis to loddrette streker opp fra $x$-aksen: den ene stopper på tangenten, den andre på kurven. Streken til tangenten er $df$; streken til kurven er $\\Delta f$. Fordi kurven bøyer oppover, ligger kurvepunktet **høyest** — og differansen mellom de to strekene er approksimasjonsfeilen $\\Delta f-df$, som her er positiv.\n\nBøyde kurven i stedet nedover (konkav), ville tangenten ligget øverst og fortegnet snudd. Det er hele argumentet i kapitlets siste del, i én tegning."
+    },
+    {
+      "id": "econ1100-3-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-3-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1), [kap. 1.2](/bok/econ1100/econ1100-1-2) og [kap. 3.1](/bok/econ1100/econ1100-3-1).\n\n**1.** Deriver $f(x)=\\sqrt{x}$ og regn ut $f'(9)$.\n\n*Svar:* $f'(x)=\\dfrac{1}{2\\sqrt{x}}$, så $f'(9)=\\dfrac16$.\n\n**2.** La $f(x,y)=x^{2}\\sqrt{y}$. Finn $f'_y$.\n\n*Svar:* $f'_y=\\dfrac{x^{2}}{2\\sqrt{y}}$ — faktoren $x^{2}$ står som konstant.\n\n**3.** Sett opp $df$ for $f(x,y)=x^{3}y$.\n\n*Svar:* $df=3x^{2}y\\,dx+x^{3}\\,dy$.\n\n**4.** Hva er $\\dfrac{d}{dx}\\ln(1+x)$?\n\n*Svar:* $\\dfrac{1}{1+x}$ — regelen $g'/g$ med $g=1+x$.\n\n**5.** Hva er $f''(x)$ når $f(x)=x^{1/2}$?\n\n*Svar:* $f'=\\tfrac12 x^{-1/2}$ og $f''=-\\tfrac14 x^{-3/2}$, som er negativ for alle $x>0$.\n\n**6.** La $Q(K,L)=40K^{1/2}L^{1/2}$. Finn $Q'_K$.\n\n*Svar:* $Q'_K=20K^{-1/2}L^{1/2}=20\\sqrt{\\dfrac{L}{K}}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-3-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $x_0$, $y_0$ | Basispunktet: det kjente punktet approksimasjonen bygges rundt |\n| $x-x_0$, $y-y_0$ | Skrittene bort fra basispunktet; bærer fortegn |\n| $f(x_0,y_0)$ | Startverdien — det første av de tre leddene |\n| $f'_x(x_0,y_0)$ | Partiellderivert evaluert i basispunktet, ikke som generelt uttrykk |\n| $f''$, $f''_{xx}$ | Andrederiverte; fortegnet gir krumningen |\n| $\\Delta f$ | Den faktiske tilveksten i funksjonsverdien |\n| $df$ | Differensialet: den anslåtte endringen |\n| $\\Delta f-df$ | Approksimasjonsfeilen; fortegnet følger av krumningen |\n| $u$ | Hjelpevariabel i standardtilnærmingene rundt null |\n| $U(x)$, $Q(K,L)$ | Nytte- og produktfunksjon i kapitlets økonomiske eksempler |\n\n**Formler i dette delkapitlet:**\n\n$$f(x)\\approx f(x_0)+f'(x_0)\\,(x-x_0)$$\nLineær approksimasjon i én variabel — tangentlinjen brukt som erstatning for kurven.\n\n$$f(x,y)\\approx f(x_0,y_0)+f'_x(x_0,y_0)\\,(x-x_0)+f'_y(x_0,y_0)\\,(y-y_0)$$\nLineær approksimasjon i to variabler. Tre ledd; alle skal med (feil #4).\n\n$$f(x,y)\\approx f(x_0,y_0)+df$$\nSamme formel skrevet med differensialet fra [kap. 3.1](/bok/econ1100/econ1100-3-1).\n\n$$\\text{feil}=\\Delta f-df$$\nApproksimasjonsfeilen — sannheten minus anslaget.\n\n$$f''\\ge 0\\ \\Rightarrow\\ \\text{underestimat},\\qquad f''\\le 0\\ \\Rightarrow\\ \\text{overestimat}$$\nKrumningen bestemmer retningen på bommen. Må gjelde i hele intervallet, ikke bare i punktet.\n\n$$(1+u)^{a}\\approx 1+au,\\qquad \\ln(1+u)\\approx u,\\qquad e^{u}\\approx 1+u$$\nDe tre standardtilnærmingene rundt $u=0$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
