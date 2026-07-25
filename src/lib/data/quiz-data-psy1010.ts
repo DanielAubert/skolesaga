@@ -124,7 +124,7 @@ const quizData_psy1010: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilke fire kilder til forskningsideer nevnes i kapitlet?",
       options: ["Tilfeldig observasjon, systematisk observasjon, litteraturen og teori", "Intuisjon, tro, tradisjon og autoritet", "Eksperiment, spørreskjema, systematisk intervju og direkte observasjon i felt", "Hypotese, design, utvalg og analyse"],
-      explanation: "Idéene kommer fra tilfeldig og systematisk observasjon, fra litteraturen og fra teori. De tre siste alternativene blander inn metoder og trinn som kommer senere.",
+      explanation: "Idéene kommer fra tilfeldig og systematisk observasjon, fra litteraturen og fra teori. Listene med intuisjon, tro, tradisjon og autoritet, med datainnsamlingsmetoder som eksperiment og spørreskjema, og med forskningstrinnene hypotese, design, utvalg og analyse, blander inn metoder og trinn som kommer senere.",
     },
     {
       question: "Hvilke tre krav må et godt forskningsspørsmål oppfylle?",
