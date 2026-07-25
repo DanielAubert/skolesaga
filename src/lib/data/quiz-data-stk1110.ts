@@ -144,7 +144,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     {
       question: "Når er en estimator $\\hat\\Theta$ forventningsrett for $\\theta$?",
       options: ["Når $E(\\hat\\Theta)=\\theta$ for alle mulige verdier av $\\theta$", "Når $\\text{Var}(\\hat\\Theta)=\\theta$ for alle mulige verdier av $\\theta$", "Når $\\hat\\Theta$ gir samme tall uansett hvilket utvalg vi trekker", "Når $\\hat\\Theta$ nærmer seg $\\theta$ etter hvert som utvalget vokser"],
-      explanation: "Forventningsretthet betyr at forventningen treffer parameteren eksakt: $E(\\hat\\Theta)=\\theta$. Det siste alternativet beskriver konsistens, ikke forventningsretthet.",
+      explanation: "Forventningsretthet betyr at forventningen treffer parameteren eksakt: $E(\\hat\\Theta)=\\theta$. Svaret om at $\\hat\\Theta$ nærmer seg $\\theta$ etter hvert som utvalget vokser, beskriver konsistens, ikke forventningsretthet.",
     },
     {
       question: "Hvordan defineres skjevheten $b(\\hat\\Theta)$ til en estimator?",
@@ -209,7 +209,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     {
       question: "Hva betyr at estimatorfølgen $\\hat\\Theta_n$ konvergerer i sannsynlighet mot $\\theta$?",
       options: ["$P(|\\hat\\Theta_n-\\theta|\\ge\\varepsilon)\\to 0$ når $n\\to\\infty$, for enhver $\\varepsilon>0$", "$E(\\hat\\Theta_n)=\\theta$ for enhver fast utvalgsstørrelse $n$", "$\\hat\\Theta_n$ gir nøyaktig $\\theta$ når $n$ er større enn en grense", "Variansen $\\text{Var}(\\hat\\Theta_n)$ er konstant lik $\\theta$ uansett hvor stort utvalget blir"],
-      explanation: "Konvergens i sannsynlighet betyr at sannsynligheten for å bomme mer enn en vilkårlig liten $\\varepsilon$ dør ut når utvalget vokser. Det andre alternativet er forventningsretthet, ikke konvergens.",
+      explanation: "Konvergens i sannsynlighet betyr at sannsynligheten for å bomme mer enn en vilkårlig liten $\\varepsilon$ dør ut når utvalget vokser. Kravet $E(\\hat\\Theta_n)=\\theta$ for hver fast $n$ er forventningsretthet, ikke konvergens.",
     },
     {
       question: "Hva sier Tsjebysjeffs ulikhet for en variabel $Y$ med endelig varians?",
@@ -261,7 +261,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er grunnideen bak momentmetoden med én ukjent parameter?",
       options: ["Sett teoretisk moment lik empirisk: $E(X)=\\bar X$, og løs for parameteren", "Maksimer likelihood-funksjonen $L(\\theta)$ og løs $s(\\hat\\theta)=0$", "Minimer summen av kvadrerte avvik mellom data og modell", "Sett andrederiverte lik null og løs den resulterende ligningen"],
-      explanation: "Momentmetoden setter det teoretiske momentet $E(X)$ (en funksjon av parameteren) lik det empiriske $\\bar X$ og løser. Det andre alternativet beskriver ML, det tredje minste kvadrater.",
+      explanation: "Momentmetoden setter det teoretiske momentet $E(X)$ (en funksjon av parameteren) lik det empiriske $\\bar X$ og løser. Å maksimere likelihood-funksjonen beskriver ML, og å minimere summen av kvadrerte avvik er minste kvadrater.",
     },
     {
       question: "Hva er det $k$-te *teoretiske* momentet?",
