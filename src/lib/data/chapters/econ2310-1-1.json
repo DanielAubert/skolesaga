@@ -1,0 +1,418 @@
+{
+  "id": "econ2310-1-1",
+  "courseId": "econ2310",
+  "chapterNumber": "1.1",
+  "title": "Solow-oppsettet: fra verbale egenskaper til modell",
+  "description": "Oversette en punktliste med økonomiske egenskaper til formell vekstmodell — og begrunne hver antakelse, slik utsatt-malen krever.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "sette opp vekstmodellens to relasjoner fra en verbal beskrivelse av en økonomi",
+    "begrunne økonomisk hvorfor produktfunksjonen per arbeider er stigende og konkav",
+    "tolke hvert ledd i bevegelsesligningen for kapital per arbeider i ord",
+    "skille mellom det modellen bestemmer selv og det den tar som gitt utenfra"
+  ],
+  "content": [
+    {
+      "id": "econ2310-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er åpningsoppgaven i vekstblokken — og på utsatt eksamen er den nesten obligatorisk.**\n\n- **Å sette opp vekstmodellen fra en verbal beskrivelse** (bokas sjanger A — vi merker oppgavetypene med bokstaver, se [kap. 0.1](/bok/econ2310/econ2310-0-1)) har vært fast åpning på utsatt eksamen tre år på rad, med formuleringen «sett opp en modell med disse fire hovedegenskapene».\n- **Ordinært** er samme sjanger stilt som «hvilke antagelser ligger bak modellen» og «når er *sparerate* et dekkende navn på $s$».\n- Vekstmodellen som helhet bærer **7 av 13 sett (54 %)**, og oppsettet er inngangsbilletten til alt det andre.\n\nDette kapitlet har **høyeste prioritet**: du skal kunne skrive ned modellen, begrunne hver antakelse økonomisk og tolke hvert ledd i ord — uten oppslag.\n\nDet du *ikke* skal gjøre her, er å regne. Emnet har ingen rene talloppgaver; jobben er å oversette ord til relasjoner og relasjoner tilbake til ord."
+    },
+    {
+      "id": "econ2310-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet kan i praksis leses uten forkunnskaper, men to ting fra ECON1310 gjør det lettere:\n\n- **[Nasjonalregnskapet: BNP, BNI og disponibel inntekt](/bok/econ1310/econ1310-1-1)** — særlig at sparing er lik investering i en lukket økonomi. Vi bruker den sammenhengen når vi kobler spareraten til kapitaloppbyggingen.\n- **[Modellens anatomi: atferdsligninger, endogene variabler og telleregelen](/bok/econ1310/econ1310-2-1)** — skillet mellom det modellen bestemmer selv og det den tar som gitt. Vi bruker det skillet aktivt allerede i dette kapitlet.\n\nHar du ikke hatt ECON1310, klarer du deg fint: begge poengene forklares i klartekst der de brukes."
+    },
+    {
+      "id": "econ2310-1-1-intro",
+      "type": "text",
+      "content": "## Hvorfor er noen land rike?\n\nEn norsk industriarbeider produserer i løpet av en time noe som er verdt mange ganger det en arbeider i et lavinntektsland produserer på samme time. Forskjellen skyldes ikke at nordmenn jobber hardere. Den skyldes i stor grad at hver norsk arbeider har langt mer **realkapital** rundt seg: maskiner, bygninger, veier, datasystemer, kraftnett.\n\nVekstmodellen — Solow-modellen — er redskapet for å tenke systematisk om nettopp dette. Den stiller ett spørsmål: hvis et land setter av en fast andel av produksjonen til å bygge opp kapital, hvor mye kapital per arbeider ender landet opp med, og hvor rikt blir det?\n\nKapitlet er bygget som **tre læringsløkker**. Først setter vi opp produksjonssiden og begrunner formen på den (løkke 1). Deretter setter vi opp loven som styrer hvordan kapitalen utvikler seg over tid (løkke 2). Til slutt trener vi selve eksamenssjangeren: å oversette en punktliste med verbale egenskaper til en ferdig modell, og å forklare den slik sensor krever (løkke 3)."
+    },
+    {
+      "id": "econ2310-1-1-symbolvarsel-k",
+      "type": "warning",
+      "title": "Om symbolet $k$ i denne delen",
+      "content": "I hele **Del 1** betyr $k$ **kapital per arbeider** — kapitalbeholdningen delt på antall arbeidere. Fra og med [kap. 1.4](/bok/econ2310/econ2310-1-4) utvides betydningen litt, til kapital per *effektivitetsenhet*, og du får en egen advarsel der.\n\nI **Del 5** (hovedkursmodellen) brukes den samme bokstaven om noe helt annet: **ekstraordinær lønnsvekst**. Det er ikke vår oppfinnelse — eksamenssettene gjør det selv, fordi de to modellene har hver sin faste notasjonstradisjon.\n\nPraktisk regel på eksamen: skriv alltid ut hva symbolene dine betyr før du bruker dem. Da er du trygg uansett hvilken tradisjon settet følger."
+    },
+    {
+      "id": "econ2310-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Produksjonssiden (~20 min)"
+    },
+    {
+      "id": "econ2310-1-1-produktfunksjon",
+      "type": "text",
+      "content": "### Fra samlet produksjon til produksjon per arbeider\n\nVi starter med at produksjonen i økonomien lages av to innsatsfaktorer: realkapital $K$ og arbeidskraft $L$.\n\n$$Y = F(K, L)$$\n\nDette er ingen dyp påstand ennå — det er bare en måte å si at produksjonen avhenger av hvor mye kapital og hvor mange arbeidere vi har. Det interessante kommer når vi legger på **én** antakelse om formen: **konstant skalaavkastning**.\n\nKonstant skalaavkastning betyr at hvis vi dobler begge innsatsfaktorene, dobles produksjonen. Bygger vi en fabrikk til, helt maken til den første, og bemanner den med like mange arbeidere som den første, får vi dobbelt så mye ut. Det er en rimelig antakelse nettopp fordi den beskriver *replikering*: det finnes ingenting i veien for å gjøre det samme en gang til."
+    },
+    {
+      "id": "econ2310-1-1-def-realkapital",
+      "type": "definition",
+      "title": "Realkapital $K$",
+      "content": "Beholdningen av produserte varer som brukes til å produsere andre varer: maskiner, bygninger, transportmidler, infrastruktur, datasystemer.\n\nRealkapital er en **beholdning** — den måles på et tidspunkt, ikke over en periode. Det er nettopp derfor den kan bygges opp over tid, og det er den oppbyggingen vekstmodellen handler om.\n\nMerk skillet mot *finanskapital*: aksjer og bankinnskudd er ikke realkapital. De er krav på realkapital, og de produserer ingenting i seg selv."
+    },
+    {
+      "id": "econ2310-1-1-def-arbeidsstyrke",
+      "type": "definition",
+      "title": "Arbeidsstyrken $L$",
+      "content": "Antallet arbeidere i økonomien. I vekstmodellen antar vi at alle er sysselsatt — modellen handler om langsiktig vekst, ikke om konjunkturledighet.\n\nArbeidsstyrken er den andre innsatsfaktoren, og den vokser med en fast rate $n$ som modellen tar som gitt utenfra.\n\nAt ledighet er utelatt, er en bevisst forenkling, og den er verdt å nevne når du setter opp modellen: den forteller sensor at du vet hvilken horisont du befinner deg på."
+    },
+    {
+      "id": "econ2310-1-1-def-produktfunksjon",
+      "type": "definition",
+      "title": "Produktfunksjonen $Y = F(K,L)$",
+      "content": "Sammenhengen mellom innsatsfaktorene og samlet produksjon: hvor mye økonomien får ut av en gitt mengde kapital og arbeidskraft.\n\n$$Y = F(K, L)$$\n\nFunksjonen er stigende i begge argumenter — mer kapital gir mer produksjon, og flere arbeidere gir mer produksjon.\n\nProduktfunksjonen representerer **tilbudssiden** i økonomien. Det er verdt å merke seg allerede nå: i denne modellen er det produksjonskapasiteten som bestemmer produksjonen, ikke etterspørselen. Kontrasten til etterspørselsmodellene kommer i Del 2, og den er en av de tingene sensor belønner når du trekker den inn selv."
+    },
+    {
+      "id": "econ2310-1-1-def-konstant-skalaavkastning",
+      "type": "definition",
+      "title": "Konstant skalaavkastning",
+      "content": "Egenskapen at en proporsjonal økning i *begge* innsatsfaktorene gir samme proporsjonale økning i produksjonen: dobler du både $K$ og $L$, dobles $Y$.\n\nFormelt er produktfunksjonen da homogen av grad 1: $F(\\lambda K, \\lambda L) = \\lambda F(K, L)$ for enhver positiv $\\lambda$.\n\nBegrunnelsen er replikering: en kopi av hele produksjonsapparatet, bemannet på samme måte, gir en kopi av produksjonen. Antakelsen er avgjørende for hele modellen, fordi den er det som lar oss skrive alt per arbeider."
+    },
+    {
+      "id": "econ2310-1-1-per-arbeider",
+      "type": "text",
+      "content": "### Hele modellen skrives per arbeider\n\nKonstant skalaavkastning har en konsekvens som er lett å undervurdere: den lar oss krympe hele modellen ned til **per arbeider**-størrelser.\n\nSett $\\lambda = 1/L$ i egenskapen over:\n\n$$\\frac{Y}{L} = F\\!\\left(\\frac{K}{L}, 1\\right)$$\n\n*Intuisjon:* har alt skalert med samme faktor ingen betydning for produktiviteten, så er det bare **forholdet** mellom kapital og arbeidere som betyr noe. Et land med dobbelt så mye av alt er ikke rikere per innbygger.\n\nVi gir de to størrelsene egne navn — $y = Y/L$ og $k = K/L$ — og skriver funksjonen på høyresiden som $f$:\n\n$$y = f(k)$$\n\n*Intuisjon:* produksjonen per arbeider avhenger bare av hvor mye kapital hver arbeider har å jobbe med. Dette er modellens produksjonsside, ferdig krympet."
+    },
+    {
+      "id": "econ2310-1-1-def-k",
+      "type": "definition",
+      "title": "Kapital per arbeider $k$",
+      "content": "Realkapitalbeholdningen delt på antall arbeidere, $k = K/L$ — også kalt kapitalintensiteten.\n\nDette er vekstmodellens hovedstørrelse. Hele analysen handler om hvordan $k$ utvikler seg over tid, og hvor den ender.\n\nGrunnen til at modellen regner per arbeider og ikke i totaltall, er at det er per arbeider-størrelsene som sier noe om **velstand**. Et land med mye kapital og enda flere innbyggere er ikke rikt."
+    },
+    {
+      "id": "econ2310-1-1-def-y",
+      "type": "definition",
+      "title": "Produksjon per arbeider $y$",
+      "content": "Samlet produksjon delt på antall arbeidere, $y = Y/L$ — i praksis et mål på arbeidsproduktiviteten, og modellens velstandsmål.\n\nMed konstant skalaavkastning følger $y$ direkte av $k$: $y = f(k)$.\n\nDet gjør vekstmodellens hovedpåstand veldig enkel å uttrykke: vil du forklare hvorfor et land er rikt, må du forklare hvorfor det har mye kapital per arbeider."
+    },
+    {
+      "id": "econ2310-1-1-def-per-arbeider-formen",
+      "type": "definition",
+      "title": "Per arbeider-formen $y = f(k)$",
+      "content": "Produktfunksjonen omskrevet slik at både produksjon og kapital måles per arbeider.\n\n$$y = f(k), \\qquad y = \\frac{Y}{L}, \\quad k = \\frac{K}{L}$$\n\nOmskrivingen er **ikke** en ny antakelse — den følger av konstant skalaavkastning, ved å sette $\\lambda = 1/L$ i homogenitetsegenskapen.\n\nPå eksamen bør du si nettopp det: at per arbeider-formen er en konsekvens av skalaantakelsen, ikke en tilleggsforutsetning. Det er et lite, billig presisjonspoeng som viser at du forstår hvor formen kommer fra."
+    },
+    {
+      "id": "econ2310-1-1-konkavitet",
+      "type": "text",
+      "content": "### Hvorfor kurven er stigende og krummer nedover\n\nTo fortegnsantakelser bærer hele figuren du skal tegne senere:\n\n$$f'(k) > 0 \\qquad \\text{og} \\qquad f''(k) < 0$$\n\n**Den første** sier at mer kapital per arbeider gir mer produksjon per arbeider. Gi en snekker en bedre sag, og hun får gjort mer.\n\n**Den andre** — at kurven flater ut — er den du må *begrunne*, ikke bare postulere. Begrunnelsen henter du fra skalaantakelsen: konstant skalaavkastning gjelder når **begge** faktorene øker. Når bare kapitalen øker mens antallet arbeidere står stille, får hver arbeider stadig mer utstyr å betjene. Den første sagen forandrer alt for snekkeren. Sag nummer to er nyttig når den første er på verksted. Sag nummer femten står i skuret.\n\n*Intuisjon:* det er knappheten på det **andre** — arbeidskraften — som gjør at avkastningen på kapital avtar. Uten den bindingen ville avkastningen vært konstant.\n\nDette er det vanligste stedet å tape et poeng i sjanger A: å skrive «vi antar avtakende grenseproduktivitet» uten å si hvor antakelsen kommer fra."
+    },
+    {
+      "id": "econ2310-1-1-def-grenseproduktivitet",
+      "type": "definition",
+      "title": "Grenseproduktiviteten til kapital $f'(k)$",
+      "content": "Den ekstra produksjonen per arbeider man får av å øke kapitalen per arbeider med én enhet — helningen på kurven $f(k)$.\n\nAt $f'(k) > 0$ betyr at mer utstyr per arbeider gir mer produksjon per arbeider. Fortegnet er selvsagt; størrelsen er det ikke.\n\nStørrelsen på $f'(k)$ er nemlig det som avgjør flere av modellens viktigste resultater. Blant annet er den avgjørende for gullregelen i [kap. 1.5](/bok/econ2310/econ2310-1-5), der betingelsen for høyest mulig varig forbruk handler om nettopp helningen."
+    },
+    {
+      "id": "econ2310-1-1-def-avtakende",
+      "type": "definition",
+      "title": "Avtakende grenseproduktivitet $f''(k) < 0$",
+      "content": "Egenskapen at hver ekstra kapitalenhet per arbeider gir mindre ekstra produksjon enn den forrige — kurven $f(k)$ stiger, men flater ut. Grafisk: den er **konkav**.\n\nBegrunnelsen skal alltid med, og den kommer fra skalaantakelsen: konstant skalaavkastning gjelder når begge faktorene øker sammen. Øker bare kapitalen, blir arbeidskraften den knappe faktoren, og utbyttet av mer utstyr per arbeider avtar.\n\nDette er den ene antakelsen som gjør at modellen har en likevekt i det hele tatt. Uten avtakende avkastning ville sparekurven aldri innhentes av utvanningen, og kapitalen per arbeider ville vokse uten grense."
+    },
+    {
+      "id": "econ2310-1-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra skalaavkastning til konkavitet (sjanger A)",
+      "problem": "En økonomi har konstant skalaavkastning i kapital og arbeidskraft. Vis hvorfor dette gir en produktfunksjon per arbeider som stiger og flater ut, og forklar forskjellen på de to situasjonene «begge faktorer dobles» og «bare kapitalen dobles».",
+      "solution": "**Steg 1 — skriv opp antakelsen.** Konstant skalaavkastning betyr $F(\\lambda K, \\lambda L) = \\lambda F(K,L)$ for alle $\\lambda > 0$. Med $\\lambda = 1/L$ gir dette $Y/L = F(K/L, 1)$, altså $y = f(k)$.\n\n**Steg 2 — begge faktorer dobles.** Sett $\\lambda = 2$: produksjonen dobles, men antall arbeidere dobles også. Produksjonen *per arbeider* er derfor **uendret**. Økonomien er blitt større, men ikke rikere per hode. Merk at $k = K/L$ heller ikke har endret seg — vi har flyttet oss langs figuren uten å flytte oss i det hele tatt, siden vi står i samme punkt.\n\n**Steg 3 — bare kapitalen dobles.** Nå stiger $k$ til $2k$, og vi flytter oss mot høyre langs kurven $f(k)$. Produksjonen per arbeider stiger, altså $f'(k) > 0$. Men den stiger **mindre enn dobbelt**: hadde den doblet seg, ville vi hatt konstant avkastning på kapital alene, og da måtte en dobling av bare kapitalen gitt samme utslag som en dobling av begge — i strid med at arbeidskraften faktisk gjør en forskjell.\n\n**Steg 4 — konklusjonen.** Siden hver ny kapitalenhet må kombineres med den samme, uendrede arbeidsstyrken, blir arbeidskraften den knappe faktoren. Utbyttet av ytterligere kapital avtar: $f''(k) < 0$. Kurven $f(k)$ er derfor stigende og konkav.\n\n**Slik ville du skrevet det på eksamen (kort versjon):** «Konstant skalaavkastning lar oss skrive $y = f(k)$. Når bare kapitalen per arbeider øker, økes ikke den andre innsatsfaktoren tilsvarende; arbeidskraften blir knapp, og hver ny maskin per arbeider gir mindre tillegg enn den forrige. Derfor er $f'(k) > 0$ og $f''(k) < 0$.»"
+    },
+    {
+      "id": "econ2310-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse. Sjanger A.) Skriv ned per arbeider-formen av produktfunksjonen, og forklar med én setning hver:\n\n**a)** hva $y$ og $k$ betyr,\n\n**b)** hva fortegnet på $f'(k)$ sier,\n\n**c)** hva fortegnet på $f''(k)$ sier.",
+        "solution": "Per arbeider-formen er\n\n$$y = f(k), \\qquad y = Y/L, \\quad k = K/L.$$\n\n**a)** $y$ er produksjonen per arbeider (arbeidsproduktiviteten), og $k$ er realkapitalen per arbeider (kapitalintensiteten).\n\n**b)** $f'(k) > 0$ sier at mer kapital per arbeider gir mer produksjon per arbeider — kurven stiger.\n\n**c)** $f''(k) < 0$ sier at tillegget avtar: hver ekstra kapitalenhet per arbeider gir mindre enn den forrige, slik at kurven flater ut (den er konkav).",
+        "hints": [
+          "Begge størrelsene er noe delt på antall arbeidere.",
+          "$f'$ er helningen på kurven, $f''$ sier hvordan helningen endrer seg."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — begrunnelse av antakelsene.) En besvarelse skriver: «Vi antar at produktfunksjonen har avtakende grenseproduktivitet, altså at $f''(k) < 0$.»\n\n**a)** Hva mangler i denne setningen, målt mot det sensor ber om?\n\n**b)** Skriv setningen om slik at den holder mål, i høyst tre setninger.",
+        "solution": "**a)** Setningen **postulerer** antakelsen i stedet for å begrunne den. Sensorveiledningene i denne sjangeren ber uttrykkelig om at antakelsene begrunnes økonomisk, og begrunnelsen for konkaviteten finnes allerede i skalaantakelsen som er gjort et par linjer tidligere. Å hoppe over den er å la modellen framstå som et sett vilkårlige forutsetninger.\n\n**b)** For eksempel:\n\n«Produktfunksjonen har konstant skalaavkastning, slik at en proporsjonal økning i både kapital og arbeidskraft gir samme proporsjonale økning i produksjonen. Når *bare* kapitalen per arbeider øker, økes derimot ikke den andre innsatsfaktoren, og arbeidskraften blir den knappe faktoren. Derfor gir hver ekstra kapitalenhet per arbeider et mindre tillegg enn den forrige: $f'(k) > 0$ og $f''(k) < 0$.»",
+        "hints": [
+          "Sammenlign med hva oppgaveteksten i sjanger A faktisk ber om: «begrunn hver antakelse».",
+          "Begrunnelsen ligger i forskjellen mellom å øke begge faktorene og å øke bare den ene."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Loven som styrer kapitalen (~20 min)\n\n— naturlig pausepunkt —\n\nVi har produksjonssiden på plass. Nå trenger vi den andre halvdelen av modellen: hva som bestemmer hvordan kapitalen per arbeider **endrer seg fra periode til periode**."
+    },
+    {
+      "id": "econ2310-1-1-sparing",
+      "type": "text",
+      "content": "### Sparing, investering og slit\n\nTre antakelser, hver med en økonomisk begrunnelse.\n\n**1. En fast andel av produksjonen spares og investeres.** Vi skriver $S = sY$, der $0 < s < 1$. I en lukket økonomi er sparing lik investering, så investeringene blir $I = sY$.\n\n*Intuisjon:* det som ikke forbrukes, blir stående igjen som produserte varer — og i en lukket økonomi finnes det ingen andre å selge dem til. Da må de bli til realkapital.\n\n**2. Kapitalen slites.** En andel $\\delta$ av kapitalbeholdningen forsvinner hver periode: maskiner går i stykker, bygninger forfaller, datamaskiner blir uegnet. Slitet er $\\delta K$.\n\n*Intuisjon:* $\\delta$ er den delen av investeringene som bare holder tritt med forfallet. Investerer økonomien nøyaktig $\\delta K$, står kapitalbeholdningen stille.\n\n**3. Arbeidsstyrken vokser med raten $n$.** Det kommer flere arbeidere hvert år, og de har i utgangspunktet ingen kapital.\n\nSetter vi de to første sammen, får vi loven for **samlet** kapital:\n\n$$\\Delta K = sY - \\delta K$$\n\n*Intuisjon:* beholdningen vokser med det som investeres og krymper med det som slites."
+    },
+    {
+      "id": "econ2310-1-1-def-sparerate",
+      "type": "definition",
+      "title": "Spareraten $s$",
+      "content": "Den andelen av produksjonen som ikke forbrukes, men spares og investeres: $S = sY$, med $0 < s < 1$.\n\nSpareraten er **eksogen** i vekstmodellen — modellen forklarer den ikke, den tar den som gitt. Det betyr også at spareraten er nettopp den størrelsen vi endrer når vi gjør komparativ statikk i [kap. 1.3](/bok/econ2310/econ2310-1-3).\n\nKonsumandelen er resten: forbruket per arbeider er $(1-s)f(k)$. Det er verdt å legge merke til allerede nå, for det er den størrelsen gullregelen i [kap. 1.5](/bok/econ2310/econ2310-1-5) handler om."
+    },
+    {
+      "id": "econ2310-1-1-def-s-lik-i",
+      "type": "definition",
+      "title": "Sparing er lik investering (lukket økonomi)",
+      "content": "I en økonomi uten handel med utlandet må all sparing bli til realinvestering: det som produseres og ikke forbrukes, er per definisjon investeringsvarer.\n\n$$S = I$$\n\nDette er grunnen til at vekstmodellen kan bruke *spare*raten som en *investerings*rate uten videre. Antakelsen er ikke uskyldig, og den er verdt å si høyt når du setter opp modellen.\n\nI en åpen økonomi holder ikke likheten: da kan innenlandsk investering finansieres av utlandet, og innenlandsk sparing kan plasseres i utlandet. Se begrepet «direkteinvesteringer fra utlandet» nedenfor."
+    },
+    {
+      "id": "econ2310-1-1-def-bruttoinvestering",
+      "type": "definition",
+      "title": "Bruttoinvestering",
+      "content": "De samlede investeringene i en periode, før man trekker fra kapitalslitet: $I = sY$ i denne modellen.\n\nBruttoinvesteringen er altså alle nye maskiner, bygg og anlegg som anskaffes — også de som bare erstatter noe som er slitt ut.\n\nSkillet mot netto er sentralt for å forstå bevegelsesligningen: det er bare det som er igjen etter at slitet er dekket, som faktisk øker kapitalbeholdningen."
+    },
+    {
+      "id": "econ2310-1-1-def-kapitalslit",
+      "type": "definition",
+      "title": "Kapitalslit $\\delta$",
+      "content": "Den andelen av kapitalbeholdningen som forsvinner hver periode gjennom slitasje og foreldelse: slitet er $\\delta K$, eller $\\delta k$ per arbeider.\n\nSymbolet $\\delta$ uttales «delta» (den greske bokstaven d). **Merk:** nyere eksamenssett i dette emnet skriver ofte $d$ i stedet, av rene skrivetekniske grunner. Det er samme størrelse. Denne boka skriver konsekvent $\\delta$.\n\nKapitalslitet er eksogent, og det er én av de tre parametrene som endres i standardskiftene i [kap. 1.3](/bok/econ2310/econ2310-1-3)."
+    },
+    {
+      "id": "econ2310-1-1-def-nettoinvestering",
+      "type": "definition",
+      "title": "Nettoinvestering",
+      "content": "Bruttoinvesteringen minus kapitalslitet: den delen av investeringene som faktisk øker kapitalbeholdningen.\n\n$$\\Delta K = sY - \\delta K$$\n\nNetto kan godt være negativ. Investerer en økonomi mindre enn det som slites ut, krymper kapitalbeholdningen — noe som er helt vanlig i kriser og i land der spareraten er svært lav.\n\nVær oppmerksom på at *netto* i denne forstand fortsatt ikke tar hensyn til at det kommer flere arbeidere. Det gjør det neste begrepet."
+    },
+    {
+      "id": "econ2310-1-1-def-n",
+      "type": "definition",
+      "title": "Befolkningsvekst $n$",
+      "content": "Vekstraten i arbeidsstyrken: $L$ vokser med raten $n$ per periode, som modellen tar som gitt.\n\nI vekstmodellen har $n$ en litt uventet rolle. Flere arbeidere er ikke et problem for *samlet* produksjon — tvert imot, den vokser raskere. Men de nye arbeiderne kommer uten kapital, og skal den eksisterende kapitalen fordeles på flere hoder, må det investeres bare for å holde kapitalen per arbeider på stedet hvil.\n\nDet er derfor $n$ havner sammen med $\\delta$ i det såkalte utvanningsleddet."
+    },
+    {
+      "id": "econ2310-1-1-utvanning",
+      "type": "text",
+      "content": "### Utvanning: hvorfor $n$ og $\\delta$ havner sammen\n\nVi vil ha loven for kapital per arbeider, ikke for samlet kapital. Da må vi ta hensyn til to ting samtidig: at kapitalen slites, og at det kommer flere arbeidere å dele den på.\n\nResultatet er modellens sentrale relasjon, **bevegelsesligningen**:\n\n$$\\Delta k = s f(k) - (n+\\delta)k$$\n\n*Intuisjon, ledd for ledd:*\n\n- $s f(k)$ er **investeringen per arbeider**. Produksjonen per arbeider er $f(k)$; av den spares og investeres andelen $s$.\n- $(n+\\delta)k$ er det som må investeres bare for å **holde $k$ uendret**. Andelen $\\delta k$ erstatter det som er slitt ut. Leddet $nk$ utstyrer de nye arbeiderne med like mye kapital som de gamle har — ellers synker gjennomsnittet.\n- Differansen er endringen i kapital per arbeider. Er sparingen større enn utvanningen, vokser $k$. Er den mindre, faller $k$.\n\nLegg merke til hvorfor $n$ og $\\delta$ opptrer som en sum: for kapitalen *per arbeider* er det likegyldig om en maskin forsvinner, eller om det kommer en ny arbeider som skal dele på maskinene. Begge deler senker gjennomsnittet like mye. Denne likheten gjelder **bare per arbeider** — for samlet produksjon virker de to helt ulikt, og det er poenget i [kap. 1.3](/bok/econ2310/econ2310-1-3)."
+    },
+    {
+      "id": "econ2310-1-1-def-utvanning",
+      "type": "definition",
+      "title": "Utvanningsleddet $(n+\\delta)k$",
+      "content": "Den investeringen per arbeider som skal til bare for å holde kapitalen per arbeider uendret — også kalt nødvendig investering.\n\n$$(n+\\delta)k = \\underbrace{\\delta k}_{\\text{erstatte slitasje}} + \\underbrace{nk}_{\\text{utstyre de nye arbeiderne}}$$\n\nNavnet «utvanning» sier hva $n$-delen gjør: den fortynner kapitalen ved å fordele den på flere hoder.\n\nGrafisk er dette leddet en **rett stråle fra origo** med helning $n+\\delta$ — den ene av de to kurvene i figuren du skal tegne i [kap. 1.2](/bok/econ2310/econ2310-1-2). At den er rett, følger direkte av at $k$ inngår lineært."
+    },
+    {
+      "id": "econ2310-1-1-def-bevegelsesligningen",
+      "type": "definition",
+      "title": "Bevegelsesligningen for kapital per arbeider",
+      "content": "Modellens sentrale relasjon: den sier hvordan kapitalen per arbeider endrer seg fra én periode til den neste.\n\n$$\\Delta k = s f(k) - (n+\\delta)k$$\n\nEndringen er investering per arbeider minus utvanning. Er første ledd størst, vokser kapitalintensiteten; er andre ledd størst, faller den.\n\nDette er den ene formelen du må kunne skrive ned uten oppslag. Alt annet i vekstblokken — likevekten, figurene, alle skiftene, gullregelen og modellene med flere likevekter — er konsekvenser av denne ene ligningen."
+    },
+    {
+      "id": "econ2310-1-1-def-endogen-eksogen-solow",
+      "type": "definition",
+      "title": "Endogent og eksogent i vekstmodellen",
+      "content": "Modellen bestemmer selv hvordan $k$ og dermed $y$ og forbruket per arbeider utvikler seg over tid — disse er **endogene**.\n\nSpareraten $s$, befolkningsveksten $n$, kapitalslitet $\\delta$ og formen på produktfunksjonen er derimot gitt utenfra — de er **eksogene**.\n\nSkillet er ikke pedantisk: all komparativ statikk i vekstblokken består i å endre én av de eksogene parametrene og spore hva som skjer med de endogene. Sier du ikke hva som er eksogent, har du heller ikke sagt hva det er du endrer."
+    },
+    {
+      "id": "econ2310-1-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Tolk bevegelsesligningen ledd for ledd (sjanger A)",
+      "problem": "Et eksamenssett oppgir uten forklaring:\n\n$$\\Delta k = s f(k) - (n+\\delta)k$$\n\nGjør rede for hva ligningen sier, og forklar hvert ledd økonomisk.",
+      "solution": "**Definer symbolene først.** $k = K/L$ er realkapital per arbeider og $f(k)$ produksjon per arbeider; $s$ er den andelen av produksjonen som spares og investeres, $n$ vekstraten i arbeidsstyrken og $\\delta$ den andelen av kapitalen som slites ut hver periode. Alle fire parametrene er eksogene og positive, og $0<s<1$.\n\n**Hva slags relasjon er dette?** Det er ingen atferdsligning og ingen likevektsbetingelse, men en **bevegelsesligning**: den beskriver hvordan en beholdning utvikler seg over tid, gitt hvor den står i dag.\n\n**Første ledd, $s f(k)$ — tilførselen.** Hver arbeider produserer $f(k)$. Av dette spares andelen $s$, og siden økonomien er lukket, blir all sparing til realinvestering. Dette er altså bruttoinvesteringen per arbeider. Fordi $f$ er konkav, vokser dette leddet stadig langsommere når $k$ øker.\n\n**Andre ledd, $(n+\\delta)k$ — avgangen.** Det består av to deler. Delen $\\delta k$ erstatter kapitalen som slites ut. Delen $nk$ utstyrer de nye arbeiderne: kommer det $n$ prosent flere arbeidere, må kapitalbeholdningen vokse med $n$ prosent bare for at gjennomsnittet per arbeider skal stå stille. Leddet er lineært i $k$ — det vokser proporsjonalt.\n\n**Differansen.** Overstiger investeringen per arbeider utvanningen, stiger kapitalintensiteten, og økonomien blir rikere per hode. Er den mindre, faller den. Er de like store, står $k$ stille — det er likevekten vi ser nærmere på i [kap. 1.2](/bok/econ2310/econ2310-1-2).\n\n**Én setning som binder det sammen:** «Kapitalen per arbeider vokser når det som spares per arbeider, er mer enn nok til å erstatte slitasjen og utstyre de nye arbeiderne.»"
+    },
+    {
+      "id": "econ2310-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A.) Forklar med én til to setninger hver hva disse leddene i bevegelsesligningen betyr:\n\n**a)** $s f(k)$,\n\n**b)** $\\delta k$,\n\n**c)** $n k$.",
+        "solution": "**a)** $s f(k)$ er investeringen per arbeider: hver arbeider produserer $f(k)$, og andelen $s$ av dette spares og blir — i en lukket økonomi — til realinvestering.\n\n**b)** $\\delta k$ er kapitalslitet per arbeider: den delen av kapitalen hver arbeider har, som forsvinner gjennom slitasje og foreldelse i løpet av perioden.\n\n**c)** $n k$ er det som må investeres per arbeider for å utstyre de nye arbeiderne med like mye kapital som de eksisterende har. Uten dette leddet ville gjennomsnittet falle bare fordi det blir flere å dele på.",
+        "hints": [
+          "Ett ledd er tilførsel, to er avgang.",
+          "For $nk$: tenk på hva som skjer med gjennomsnittet når nevneren vokser."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A.) Hvorfor står $n$ og $\\delta$ i samme parentes i bevegelsesligningen? Forklar hva de har til felles i denne sammenhengen — og nevn samtidig én ting de *ikke* har felles.",
+        "solution": "**Det de har felles:** begge senker kapitalen *per arbeider* proporsjonalt med hvor mye kapital hver arbeider har. En slitt maskin er borte, og en ny arbeider som skal dele på de eksisterende maskinene, gir samme utslag på gjennomsnittet. Sett fra brøken $K/L$ er det likegyldig om telleren krymper eller nevneren vokser — begge deler krever samme ekstra investering for å motvirkes, nemlig $\\delta k$ og $nk$ per arbeider. Derfor kan de skrives som ett samlet krav, $(n+\\delta)k$, og derfor blir dette leddet en rett stråle med helning $n+\\delta$.\n\n**Det de ikke har felles:** de virker helt ulikt på **totalstørrelsene**. Høyere kapitalslit gjør økonomien fattigere uten å gi noe igjen — samlet produksjon blir lavere, og vokser fortsatt bare med $n$. Høyere befolkningsvekst senker riktignok produksjonen per arbeider, men den øker samtidig veksten i *samlet* produksjon, siden det blir flere som produserer. Land med høy befolkningsvekst er derfor ikke nødvendigvis land med lav samlet vekst. Denne forskjellen er selve poenget i [kap. 1.3](/bok/econ2310/econ2310-1-3).",
+        "hints": [
+          "Se på hva som skjer med brøken $K/L$ i de to tilfellene.",
+          "Skill konsekvent mellom per arbeider-størrelser og totalstørrelser når du leter etter forskjellen."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Eksamenssjangeren: fra ord til modell (~10 min)\n\n— naturlig pausepunkt —\n\nNå har du hele modellen. Det som gjenstår, er selve håndverket eksamen tester: å få en punktliste med verbale egenskaper og gjøre den om til relasjoner — og å forklare relasjonene slik at sensor ser at du forstår dem."
+    },
+    {
+      "id": "econ2310-1-1-forklar-relasjonen-mal",
+      "type": "text",
+      "content": "### «Forklar relasjonen»-malen\n\nDette er den ene malen som går igjen i hele boka, fordi den er sensorens metaregel nummer én. **Hver relasjon du bruker, får to til fem setninger** som dekker fire ting:\n\n1. **Symbolene.** Hva står hver bokstav for, og i hvilken enhet? «$k$ er realkapital per arbeider.»\n2. **Logikken.** Hva sier ligningen økonomisk, i vanlig norsk? «Kapitalen per arbeider vokser med det som spares, og krymper med slitasje og med at det kommer flere arbeidere å dele på.»\n3. **Fortegn og mekanisme.** Hvilken vei virker hver størrelse, og hvorfor? «$f'(k) > 0$ fordi mer utstyr per arbeider gir mer produksjon; $f''(k) < 0$ fordi arbeidskraften blir den knappe faktoren.»\n4. **Hva som er eksogent.** «$s$, $n$ og $\\delta$ er gitt utenfra; modellen bestemmer $k$ og dermed $y$.»\n\nBruker du malen på hver relasjon i settet, har du gjort det sensor faktisk ber om — og du har gjort det før du regner eller tegner noe som helst.\n\nHer er malen brukt på hele vekstmodellen, som en ferdig blokk du kan gjenbruke:\n\n> «Modellen består av to relasjoner. Produktfunksjonen $y = f(k)$ sier at produksjonen per arbeider bare avhenger av kapitalen per arbeider; dette følger av at samlet produktfunksjon har konstant skalaavkastning. Vi antar $f'(k) > 0$ og $f''(k) < 0$: mer kapital per arbeider gir mer produksjon, men avtakende tillegg, fordi arbeidskraften ikke øker tilsvarende. Bevegelsesligningen $\\Delta k = s f(k) - (n+\\delta)k$ sier at kapitalen per arbeider endres med investeringen per arbeider minus det som kreves for å erstatte slitasje ($\\delta k$) og utstyre nye arbeidere ($nk$). Spareraten $s$, befolkningsveksten $n$ og kapitalslitet $\\delta$ er eksogene og positive; modellen bestemmer $k$ og dermed $y = f(k)$ og forbruket per arbeider $(1-s)f(k)$.»"
+    },
+    {
+      "id": "econ2310-1-1-def-forklaringsmalen",
+      "type": "definition",
+      "title": "Forklaringsmalen for en relasjon",
+      "content": "Bokas faste oppskrift på hvordan en oppgitt ligning skal presenteres: to til fem setninger som (i) definerer symbolene, (ii) gir den økonomiske logikken, (iii) angir fortegn og mekanisme, og (iv) sier hva som er bestemt utenfor modellen.\n\nMalen finnes fordi eksamenssettene oppgir relasjonene **uforklart**, med formuleringen at de «kan komme til nytte». Forklaringen er da selve oppgaven, ikke en innledning til den.\n\nRegelen har en hard konsekvens: å regne eller tegne på ligninger du ikke har forklart, gir svært lite uttelling — selv om regnestykket og figuren er riktige."
+    },
+    {
+      "id": "econ2310-1-1-def-sjanger-a",
+      "type": "definition",
+      "title": "Sjanger A: å sette opp modellen fra verbale egenskaper",
+      "content": "Oppgavetypen som gir deg en punktliste med økonomiske egenskaper og ber deg formulere modellen matematisk og begrunne hver antakelse.\n\nTypisk formulering: «En økonomi har følgende fire hovedegenskaper … Sett opp en modell som fanger disse egenskapene, og begrunn antakelsene.»\n\nOppskriften er alltid den samme: oversett hver kulepunkt-egenskap til én relasjon eller ett fortegn, begrunn den økonomisk, og tolk til slutt hvert ledd i bevegelsesligningen i ord. Det er en av de mest forutsigbare oppgavene i emnet — og en av dem det er lettest å svare halvveis på, ved å skrive ned ligningene uten begrunnelsene."
+    },
+    {
+      "id": "econ2310-1-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Full sjanger A-besvarelse på eksamensnivå",
+      "problem": "Et land har følgende egenskaper:\n\n- produksjonen per sysselsatt øker med mengden utstyr per sysselsatt, men stadig mindre for hver ny enhet utstyr,\n- en fast andel av det som produseres, settes av til å bygge opp utstyr,\n- utstyret forringes over tid,\n- antallet sysselsatte øker jevnt.\n\nFormuler dette som en modell, og begrunn hver antakelse økonomisk.",
+      "solution": "**Notasjon.** La $K$ være beholdningen av realkapital («utstyr»), $L$ antall sysselsatte, $Y$ samlet produksjon, og la $k = K/L$ og $y = Y/L$ betegne kapital og produksjon per sysselsatt.\n\n**Egenskap 1 → produktfunksjonen med konkavitet.**\n\n$$y = f(k), \\qquad f'(k) > 0, \\quad f''(k) < 0$$\n\nAt produksjonen per sysselsatt bare avhenger av kapitalen per sysselsatt, er ikke en tilleggsantakelse, men en konsekvens av at samlet produktfunksjon $Y = F(K,L)$ har konstant skalaavkastning: dobles begge innsatsfaktorene, dobles produksjonen, og bare forholdet mellom dem betyr da noe. Fortegnet $f' > 0$ er direkte gitt av oppgavens «øker med». Fortegnet $f'' < 0$ er oppgavens «stadig mindre», og det har en økonomisk begrunnelse: når bare kapitalen per sysselsatt øker, holdes den andre innsatsfaktoren fast, og arbeidskraften blir den knappe faktoren. Hver ny maskin per sysselsatt får dermed mindre å bidra med enn den forrige.\n\n**Egenskap 2 → spare- og investeringsatferden.**\n\n$$I = sY, \\qquad 0 < s < 1$$\n\nEn fast andel $s$ av produksjonen spares. Økonomien behandles som lukket, slik at all sparing blir realinvestering. Per sysselsatt er investeringen $s f(k)$. Antakelsen er en grov, men vanlig forenkling: den sier at spareatferden ikke avhenger av rente eller inntektsnivå.\n\n**Egenskap 3 → kapitalslit.**\n\n$$\\text{slit} = \\delta K, \\qquad \\delta > 0$$\n\nEn fast andel $\\delta$ av kapitalbeholdningen forsvinner hver periode gjennom slitasje og foreldelse. Per sysselsatt utgjør dette $\\delta k$.\n\n**Egenskap 4 → befolkningsvekst.**\n\n$$\\frac{\\Delta L}{L} = n, \\qquad n > 0$$\n\nArbeidsstyrken vokser med en fast rate. De nye sysselsatte kommer uten kapital, så kapitalbeholdningen må vokse med raten $n$ bare for at kapitalen per sysselsatt skal stå stille; per sysselsatt er dette kravet $nk$.\n\n**Modellen samlet.** De fire egenskapene gir bevegelsesligningen\n\n$$\\Delta k = s f(k) - (n+\\delta)k,$$\n\nder første ledd er investeringen per sysselsatt og andre ledd er det som kreves for å holde kapitalintensiteten uendret. Parametrene $s$, $n$ og $\\delta$ er eksogene; modellen bestemmer utviklingen i $k$, og dermed i $y = f(k)$ og forbruket per sysselsatt $(1-s)f(k)$.\n\n**Én presisering som er billig å ta med.** Å kalle $s$ «spareraten» forutsetter at økonomien er lukket, slik at sparing og investering er samme størrelse. I en åpen økonomi kan kapitaloppbyggingen også finansieres utenfra — gjennom direkteinvesteringer, lån eller bistand — og da er $s$ strengt tatt en investeringsrate, ikke en sparerate."
+    },
+    {
+      "id": "econ2310-1-1-def-fdi",
+      "type": "definition",
+      "title": "Direkteinvesteringer fra utlandet (bør kjenne til)",
+      "content": "Investeringer der utenlandske eiere bygger eller kjøper produksjonskapital i et land — den vanligste måten kapitaloppbygging finansieres utenfra på, ved siden av lån og bistand.\n\nPoenget for oss er avgrenset og lite, men det har vært spurt om direkte: å kalle $s$ «spareraten» er bare dekkende i en **lukket** økonomi, der sparing og investering nødvendigvis er like store. I en åpen økonomi kan investeringene overstige den innenlandske sparingen, finansiert av utlendinger — eller innenlandsk sparing kan plasseres ute i stedet for hjemme.\n\nDette er stoff du **bør kjenne til**, ikke stoff du skal bygge en analyse på. Én presis setning i en oppsettsoppgave er nok, og den er billig å ta med."
+    },
+    {
+      "id": "econ2310-1-1-def-notasjon-gamma",
+      "type": "definition",
+      "title": "Notasjonsvarianten $\\gamma$ for spareraten",
+      "content": "Eldre eksamenssett i dette emnet skriver spareraten som $\\gamma$ (gresk gamma) i stedet for $s$. Det er nøyaktig samme størrelse: andelen av produksjonen som spares og investeres.\n\nBoka skriver konsekvent $s$, men du skal kjenne igjen varianten, siden du kan møte den i gamle sett.\n\nVær samtidig på vakt: i Del 2 dukker $\\gamma$ opp igjen i en helt annen rolle, som navnet på $1-c_1$ i en variant av etterspørselsmodellen. Du får varsel der. Regelen som redder deg begge steder er den samme: definer symbolene dine før du bruker dem."
+    },
+    {
+      "id": "econ2310-1-1-def-notasjon-d",
+      "type": "definition",
+      "title": "Notasjonsvarianten $d$ for kapitalslitet",
+      "content": "Nyere eksamenssett skriver kapitalslitet som $d$ i stedet for $\\delta$, fordi det er raskere å skrive på tastatur i Inspera. Størrelsen er den samme: andelen av kapitalbeholdningen som forsvinner per periode.\n\nSettene sier selv at greske bokstaver kan erstattes med latinske, og at fotskrifter kan droppes. Du kan altså trygt skrive $d$ selv.\n\nBoka bruker $\\delta$ gjennomgående, slik at notasjonen er entydig — men skriver du $d$ på eksamen og definerer den, er alt i orden."
+    },
+    {
+      "id": "econ2310-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — eksamensklone.) En økonomi beskrives slik:\n\n- hver arbeider produserer mer jo mer maskiner hun har til rådighet, men tillegget avtar,\n- en fast del av produksjonen investeres i nye maskiner,\n- maskinparken forfaller med en fast andel hvert år,\n- arbeidsstyrken er konstant.\n\n**a)** Sett opp modellen matematisk, og begrunn hver antakelse med én setning.\n\n**b)** Hvordan skiller bevegelsesligningen seg fra standardformen, og hva betyr forskjellen økonomisk?",
+        "solution": "**a)** Med $k = K/L$ og $y = Y/L$:\n\n- Første strekpunkt gir produktfunksjonen per arbeider $y = f(k)$ med $f'(k) > 0$ og $f''(k) < 0$. Begrunnelse: samlet produktfunksjon har konstant skalaavkastning, slik at bare forholdet mellom kapital og arbeidskraft betyr noe; og når bare kapitalen per arbeider øker, blir arbeidskraften den knappe faktoren, slik at tillegget avtar.\n- Andre strekpunkt gir $I = sY$ med $0 < s < 1$, altså investering per arbeider $s f(k)$. Begrunnelse: sparingen er en fast andel av inntekten, og i en lukket økonomi blir all sparing til realinvestering.\n- Tredje strekpunkt gir slit $\\delta K$, per arbeider $\\delta k$, med $\\delta > 0$. Begrunnelse: maskiner slites ut og blir foreldet, så en del av investeringene går bare med til å opprettholde beholdningen.\n- Fjerde strekpunkt gir $n = 0$. Begrunnelse: det kommer ingen nye arbeidere som den eksisterende kapitalen må fordeles på.\n\n**b)** Bevegelsesligningen blir\n\n$$\\Delta k = s f(k) - \\delta k,$$\n\naltså standardformen med $n$ satt til null. Utvanningsstrålen blir slakere, siden helningen er $\\delta$ i stedet for $n+\\delta$.\n\nØkonomisk betyr det at hele investeringen utover å erstatte slitasje går til å heve kapitalen per arbeider — ingenting «lekker ut» til å utstyre nye arbeidere. En slik økonomi vil derfor ende opp med høyere kapital og produksjon per arbeider enn en ellers lik økonomi med voksende befolkning. Samtidig vokser ikke *samlet* produksjon i det hele tatt på lang sikt, siden verken kapitalen per arbeider eller antallet arbeidere endrer seg til slutt.",
+        "hints": [
+          "Ta ett strekpunkt om gangen og oversett det til én relasjon eller ett fortegn.",
+          "Fjerde strekpunkt endrer ikke ligningens form — bare verdien av én parameter.",
+          "Husk å skille per arbeider-størrelser fra samlet produksjon i b)."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — presisjonspoenget om $s$.) Et eksamenssett spør: «Er *sparerate* et dekkende navn på parameteren $s$?»\n\nSkriv et svar på tre til fem setninger.",
+        "solution": "I modellen slik den er satt opp, er $s$ den andelen av produksjonen som ikke forbrukes, og som blir til realinvestering. Navnet «sparerate» er derfor dekkende **så lenge økonomien er lukket**: da er sparing og investering nødvendigvis samme størrelse, siden det som produseres og ikke forbrukes, må bli stående igjen som realkapital.\n\nI en åpen økonomi holder ikke likheten. Kapitaloppbyggingen kan da også finansieres utenfra, gjennom direkteinvesteringer fra utenlandske eiere, gjennom lån eller gjennom bistand — og motsatt kan innenlandsk sparing plasseres i utlandet i stedet for hjemme.\n\nDa er $s$ strengt tatt en **investeringsrate**: den beskriver hvor mye kapital som bygges opp per produsert krone, uansett hvem som har spart pengene. For et lite, åpent land som Norge er skillet reelt og ikke bare pedantisk.",
+        "hints": [
+          "Spør deg selv hvilken forutsetning som gjør sparing og investering til samme størrelse.",
+          "Tenk på hvordan et fattig land faktisk kan finansiere ny kapital."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger A — utfordrer antakelsen.) Anta at en økonom foreslår å droppe antakelsen om avtakende grenseproduktivitet, slik at $f(k) = Ak$ med $A > 0$ konstant, mens resten av modellen er som før.\n\n**a)** Skriv bevegelsesligningen for denne økonomien, og vis hva som avgjør om kapitalen per arbeider vokser.\n\n**b)** Forklar hvorfor denne modellen ikke kan brukes til å svare på de vanlige eksamensspørsmålene i vekstblokken — og hva det forteller om hvor viktig konkaviteten er.",
+        "solution": "**a)** Med $f(k) = Ak$ blir investeringen per arbeider $sAk$, og bevegelsesligningen\n\n$$\\Delta k = sAk - (n+\\delta)k = \\left[sA - (n+\\delta)\\right]k.$$\n\nUttrykket i klammen er en konstant. Kapitalen per arbeider vokser derfor med en konstant rate $sA - (n+\\delta)$ dersom $sA > n+\\delta$, og krymper mot null dersom $sA < n+\\delta$. Bare i det knivskarpe grensetilfellet $sA = n+\\delta$ står $k$ stille — og da står den stille uansett hvilken verdi $k$ har.\n\n**b)** Modellen har ingen likevekt å konvergere mot. Sparekurven er nå en rett linje gjennom origo med helning $sA$, og utvanningen er en rett linje gjennom origo med helning $n+\\delta$. To rette linjer gjennom origo krysser enten bare i origo, eller de faller sammen overalt — de kan ikke krysse i ett indre punkt.\n\nDet betyr at samtlige standardspørsmål i vekstblokken faller bort. Det finnes ingen $k^*$ å bestemme, ingen tilpasningsbane mot en likevekt, ingen komparativ statikk der man sammenligner to likevekter, og ingen gullregel.\n\nPoenget er at **konkaviteten er det som skaper likevekten**. Fordi $f$ flater ut mens strålen fortsetter rett fram, blir sparekurven før eller siden innhentet — og det møtepunktet er hele modellens omdreiningspunkt. Uten avtakende avkastning gir en høyere sparerate varig høyere *vekstrate*, ikke bare et høyere nivå. Det er ingen liten forskjell: nettopp den forskjellen er skillet mellom Solow-modellen og den senere litteraturen om endogen vekst.",
+        "hints": [
+          "Sett $f(k) = Ak$ rett inn i bevegelsesligningen og faktoriser ut $k$.",
+          "Tegn de to leddene som funksjoner av $k$ — hva slags kurver blir de nå?",
+          "Tenk på hva et skjæringspunkt mellom kurvene brukes til i resten av vekstblokken."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "1. **Å postulere at $f''(k) < 0$ uten å begrunne det.** Begrunnelsen ligger i skalaantakelsen, og den koster deg to setninger. Sjanger A ber uttrykkelig om at antakelsene begrunnes.\n2. **Å skrive ned bevegelsesligningen uten å tolke leddene i ord.** Dette er feil #7 i bokas feilregister (#7 — å bare regne, ikke forklare). Ligningen er oppgitt i settet; poengene ligger i tolkningen.\n3. **Å blande totalstørrelser og per arbeider-størrelser allerede i oppsettet.** Skriv $\\Delta K = sY - \\delta K$ for totalen og $\\Delta k = s f(k) - (n+\\delta)k$ per arbeider, og hold dem fra hverandre. Legg merke til at $n$ *bare* står i den siste.\n4. **Å anta åpen økonomi og likevel kalle $s$ «spareraten» uten forbehold.** Se oppgave 6 over — dette er et gratis presisjonspoeng når det spørres om det, og en unøyaktighet når det ikke gjøres.\n5. **Å hoppe rett til figuren.** Ber oppgaven om at du setter opp modellen, må ligningene og begrunnelsene komme først. Figuren er neste kapittel."
+    },
+    {
+      "id": "econ2310-1-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2310-1-1-def-homogenitet",
+      "type": "definition",
+      "title": "Homogenitet av grad 1",
+      "content": "Den matematiske måten å uttrykke konstant skalaavkastning på: $F(\\lambda K, \\lambda L) = \\lambda F(K,L)$ for enhver positiv skaleringsfaktor $\\lambda$.\n\nDet er denne egenskapen som gjør at hele modellen kan skrives per arbeider — du velger bare $\\lambda = 1/L$.\n\nDu trenger ikke bruke ordet «homogen» på eksamen. Men du bør kunne gjøre nettopp dette valget av $\\lambda$, siden det er selve broen fra $Y = F(K,L)$ til $y = f(k)$."
+    },
+    {
+      "id": "econ2310-1-1-def-vekstrate",
+      "type": "definition",
+      "title": "Vekstrate",
+      "content": "Den relative endringen i en størrelse fra én periode til den neste: $\\Delta x / x$, oftest oppgitt i prosent.\n\nSkillet mellom **nivå** og **vekstrate** er en gjenganger i dette emnet, og en av de vanligste kildene til upresise svar. Vekstmodellen sier for eksempel at en høyere sparerate gir et høyere *nivå* på produksjonen per arbeider, men ikke en varig høyere *vekstrate*.\n\nBefolkningsveksten $n$, kapitalslitet $\\delta$ og produktivitetsveksten $g$ (som kommer i [kap. 1.4](/bok/econ2310/econ2310-1-4)) er alle vekstrater eller andeler per periode — ikke nivåer."
+    },
+    {
+      "id": "econ2310-1-1-def-forbruk-per-arbeider",
+      "type": "definition",
+      "title": "Forbruk per arbeider $(1-s)f(k)$",
+      "content": "Den delen av produksjonen per arbeider som ikke spares, men brukes til konsum.\n\n$$c = (1-s)f(k)$$\n\nStørrelsen er verdt å notere allerede i oppsettskapitlet, av to grunner. For det første er det forbruket, ikke produksjonen, som er velferdsmålet folk faktisk bryr seg om. For det andre er den kilden til modellens mest kjente ubestemte fortegn: en høyere sparerate gir høyere $f(k)$, men lavere andel $(1-s)$.\n\nHvilken av de to effektene som vinner, er nettopp det gullregelen i [kap. 1.5](/bok/econ2310/econ2310-1-5) svarer på."
+    },
+    {
+      "id": "econ2310-1-1-def-lukket-okonomi",
+      "type": "definition",
+      "title": "Lukket økonomi",
+      "content": "En økonomi uten handel eller kapitalbevegelser med utlandet — alt som produseres, brukes eller investeres innenlands.\n\nVekstmodellen slik den settes opp her, er lukket. Det er nettopp derfor sparing og investering er samme størrelse, og derfor spareraten uten videre kan brukes som investeringsrate.\n\nAntakelsen er en forenkling som er verdt å si høyt. Den er også kilden til nyansen om hva $s$ egentlig heter, og den står i skarp kontrast til Del 3 og Del 4, der hele poenget er at økonomien er åpen."
+    },
+    {
+      "id": "econ2310-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon: sjekk deg selv før du går videre",
+      "buttonText": "Vis repetisjonssjekk",
+      "content": [
+        {
+          "id": "econ2310-1-1-repetisjon-text",
+          "type": "text",
+          "content": "## Kan du dette, er du klar for kap. 1.2\n\nGå gjennom listen uten å slå opp. Klarer du alle sju, er oppsettet på plass.\n\n☐ Skrive ned $y = f(k)$ og si hvorfor per arbeider-formen følger av konstant skalaavkastning.\n\n☐ Begrunne $f'(k) > 0$ og $f''(k) < 0$ økonomisk — særlig det andre.\n\n☐ Skrive ned $\\Delta k = s f(k) - (n+\\delta)k$ uten oppslag.\n\n☐ Tolke alle tre leddene $s f(k)$, $\\delta k$ og $nk$ i ord.\n\n☐ Forklare hvorfor $n$ og $\\delta$ havner i samme parentes — og hvor de skiller lag.\n\n☐ Si hvilke størrelser som er eksogene og hvilke modellen bestemmer.\n\n☐ Si når «sparerate» er et dekkende navn på $s$, og når det ikke er det.\n\n**Neste steg:** i [kap. 1.2](/bok/econ2310/econ2310-1-2) bruker vi denne ene ligningen til å finne likevekten, tegne de to figurene sensor krever, og forklare dynamikken mot likevekten."
+        }
+      ]
+    },
+    {
+      "id": "econ2310-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2310-1-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning i dette delkapitlet |\n|---|---|\n| $Y$ | Samlet produksjon (BNP) — endogen |\n| $K$ | Samlet realkapitalbeholdning — endogen |\n| $L$ | Arbeidsstyrken (antall arbeidere) — vokser eksogent med rate $n$ |\n| $y$ | Produksjon per arbeider, $y = Y/L$ — endogen |\n| $k$ | **Kapital per arbeider**, $k = K/L$ — endogen. (I Del 5 betyr $k$ noe annet: ekstraordinær lønnsvekst.) |\n| $F(K,L)$ | Samlet produktfunksjon, med konstant skalaavkastning |\n| $f(k)$ | Produktfunksjonen per arbeider |\n| $f'(k)$ | Grenseproduktiviteten til kapital; antas positiv |\n| $f''(k)$ | Krumningen; antas negativ (avtakende grenseproduktivitet) |\n| $s$ | Sparerate (investeringsandel), $0 < s < 1$ — eksogen. Eldre sett skriver $\\gamma$ |\n| $\\delta$ | Kapitalslit per periode, $\\delta > 0$ — eksogen. Nyere sett skriver $d$ |\n| $n$ | Vekstrate i arbeidsstyrken, $n \\ge 0$ — eksogen |\n| $\\lambda$ | Vilkårlig skaleringsfaktor, brukt i definisjonen av konstant skalaavkastning |\n| $I$ | Bruttoinvestering |\n| $S$ | Sparing |\n| $\\Delta k$ | Endringen i kapital per arbeider fra én periode til neste |\n| $c$ | Forbruk per arbeider, $c = (1-s)f(k)$ |\n\n**Formler i dette delkapitlet:**\n\n$$Y = F(K, L), \\qquad F(\\lambda K, \\lambda L) = \\lambda F(K, L)$$\nSamlet produktfunksjon med konstant skalaavkastning: en proporsjonal økning i begge innsatsfaktorene gir samme proporsjonale økning i produksjonen.\n\n$$y = f(k), \\qquad f'(k) > 0, \\quad f''(k) < 0$$\nPer arbeider-formen: produksjonen per arbeider avhenger bare av kapitalen per arbeider, stigende og konkav.\n\n$$S = I = sY$$\nSparing er lik investering i en lukket økonomi, og utgjør andelen $s$ av produksjonen.\n\n$$\\Delta K = sY - \\delta K$$\nBevegelsesligningen for **samlet** kapital: investering minus slit.\n\n$$\\Delta k = s f(k) - (n+\\delta)k$$\nBevegelsesligningen **per arbeider**: investering per arbeider minus utvanning. Legg merke til at $n$ bare opptrer i denne, ikke i totalversjonen.\n\n$$c = (1-s)f(k)$$\nForbruk per arbeider: den delen av produksjonen som ikke spares."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

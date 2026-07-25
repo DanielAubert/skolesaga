@@ -1,0 +1,560 @@
+{
+  "id": "econ2310-4-1",
+  "courseId": "econ2310",
+  "chapterNumber": "4.1",
+  "title": "IS-relasjonen: tre rentekanaler og multiplikatoren med prisvirkning",
+  "description": "Den åpne IS-relasjonen forklart slik sensor forventer: alle tre rentekanaler, og multiplikatoren som dempes av både import og priser.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "forklare den åpne IS-relasjonen ledd for ledd og si hva som er endogent og eksogent",
+    "gjøre rede for alle tre kanalene renta virker gjennom, inkludert valutakurskanalen",
+    "forklare hvorfor prisveksten demper multiplikatoren, og hva en brattere Phillips-kurve betyr",
+    "skille mellom etterspørsels-, valutakurs- og prisimpulser i modellen"
+  ],
+  "content": [
+    {
+      "id": "econ2310-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er det ene av bokas to tyngste kapitler — og det som oftest åpner en eksamensoppgave i åpen økonomi.**\n\n- Åpen økonomi med IS, renteregel og Phillips-kurve bærer **6 av 13 sett** (H2019, H2022, H2023, H2024, H2025 og H2021-utsatt) — og har båret hvert eneste ordinære sett fra 2022 til 2025.\n- Å **forklare IS-relasjonen** er etterspurt i **5 av disse settene** (H2019, H2022, H2023, H2024, H2025). Relasjonen blir oppgitt på oppgavearket, men *uforklart* — jobben din er forklaringen.\n- **Rentens tre kanaler** spørres nesten ordrett i **3 sett** (H2019, H2024, H2025), og **H2023** spør direkte hvorfor en brattere Phillips-kurve gir mindre multiplikator.\n\nKapitlet har derfor **høyeste prioritet**: dette må sitte. Du skal ikke regne på relasjonen — du skal kunne lese den, forklare hvert ledd og si hvilken vei hver mekanisme trekker.\n\n*Ordforklaring:* en **sjanger** er en oppgavetype som går igjen på eksamen. Sjangeren dette kapitlet trener, heter i boka **sjanger E — «forklar IS-relasjonen»**. Du møter sjangerbokstavene i oppgaveoverskriftene, og de er samlet på ett kort i [kap. 0.1](/bok/econ2310/econ2310-0-1)."
+    },
+    {
+      "id": "econ2310-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her — det du trenger ferskt (fem linjer, så er du i gang):**\n\n1. **Multiplikatoren fra ECON1310.** Et etterspørselssjokk forplanter seg: mer etterspørsel gir mer produksjon, som gir mer inntekt, som gir mer konsum. Summen er sjokket ganget med en multiplikator $m$, som blir *større* jo mer av hver ekstra krone som brukes innenlands, og *mindre* av alt som lekker ut i sparing, skatt og import. Se [Multiplikatoren på tilvekstform: kjerneteknikken](/bok/econ1310/econ1310-2-2).\n2. **Importlekkasjen.** I åpen økonomi går en andel $a$ av hver ekstra etterspurt krone til utenlandske varer og forsvinner ut av den innenlandske inntektsstrømmen. Se [Modellvarianter: åpen økonomi, eksogen skatt og finanspolitiske regler](/bok/econ1310/econ1310-2-4).\n3. **Kurskonvensjonen: høyere $E$ betyr *svakere* krone** (flere kroner per euro). Svakere krone gjør norske varer billigere for utlendinger og importvarer dyrere for oss. Se [kap. 3.1](/bok/econ2310/econ2310-3-1).\n4. **Udekket renteparitet (UIP):** $E = E^e + \\kappa\\,(i^F - i)$. Krona styrker seg når norsk rente $i$ stiger, og svekkes når utenlandsk rente $i^F$ eller den forventede langsiktskursen $E^e$ stiger.\n5. **Phillips-kurven:** høyere aktivitet gir lavere ledighet, som gir høyere lønns- og prisvekst. Styrken i koblingen heter $\\beta$. Se [Phillips-kurven: β-mekanismen og kausalkjeden](/bok/econ1310/econ1310-4-2).\n\nDet *nye* i dette kapitlet er punkt 3–5 satt inn i etterspørselssiden: valutakursen blir en egen rentekanal, og prisveksten blir en egen demper på multiplikatoren."
+    },
+    {
+      "id": "econ2310-4-1-intro",
+      "type": "text",
+      "content": "Klokka ti en torsdag morgen melder Norges Bank at styringsrenta settes opp. I løpet av minutter beveger kronekursen seg, i løpet av måneder merker husholdninger med flytende boliglån det på kontoen, og i løpet av et år merker eksportbedriftene det på ordrebøkene. IS-relasjonen er økonomenes måte å skrive ned nettopp denne kjeden på: **hvordan renta til slutt havner i BNP**.\n\nPå eksamen får du relasjonen servert på arket, ofte med en formulering om at den «kan komme til nytte» — og uten et eneste ord om hva den betyr. Sensorveiledningene er entydige: å regne på en uforklart relasjon gir ikke uttelling. Det er forklaringen som er varen. Derfor bruker vi dette kapitlet på å lese relasjonen ledd for ledd, og nesten ingenting på å manipulere den."
+    },
+    {
+      "id": "econ2310-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Relasjonen, og hva som er endogent (~20 min)"
+    },
+    {
+      "id": "econ2310-4-1-is-oppsett",
+      "type": "text",
+      "content": "### Slik ser relasjonen ut i denne boka\n\nVi skriver den åpne IS-relasjonen på den formen de nyeste settene bruker, med multiplikatoren $m$ trukket utenfor:\n\n$$Y = m\\,Z^D + m\\,a_2 Z^E - m\\,a_3 Z^\\pi - m\\,(c_2 + b_2 + a_2\\kappa)\\,i$$\n\nBak den ene ligningen ligger to skritt du bør se for deg:\n\n**Skritt 1 — etterspørselen.** Samlet etterspørsel består av konsum, investeringer, offentlige kjøp og nettoeksport. Konsumet faller med renta (koeffisient $c_2$), investeringene faller med renta (koeffisient $b_2$), nettoeksporten stiger med valutakursen $E$ (koeffisient $a_2$) og faller når norske varer blir relativt dyrere (koeffisient $a_3$).\n\n**Skritt 2 — valutakursen.** Kursen er ikke fri: den bestemmes av renteparitet, $E = E^e + \\kappa\\,(i^F - i)$. Samler vi alt som flytter kursen *uten* at norsk rente er endret, i én impuls\n\n$$Z^E \\equiv E^e + \\kappa\\, i^F \\;(+\\ \\text{risikopremie}),$$\n\nkan renteparitetsbetingelsen skrives kompakt som $E = Z^E - \\kappa\\, i$. Setter du dette inn i etterspørselen, dukker valutakursen opp som en *tredje* måte renta virker på — leddet $a_2\\kappa$ i parentesen over.\n\n*Intuisjon:* relasjonen sier at produksjonen er summen av alle etterspørselsimpulser, ganget opp med multiplikatoren, minus det renta trekker fra gjennom tre kanaler."
+    },
+    {
+      "id": "econ2310-4-1-def-is",
+      "type": "definition",
+      "title": "IS-relasjonen i åpen økonomi",
+      "content": "Sammenhengen mellom renta og produksjonen på etterspørselssiden: den forteller hvilket BNP som gir likevekt i produktmarkedet for et gitt rentenivå. I symboler:\n\n$$Y = m\\,Z^D + m\\,a_2 Z^E - m\\,a_3 Z^\\pi - m\\,(c_2 + b_2 + a_2\\kappa)\\,i$$\n\nRelasjonen er *fallende* i renta: høyere $i$ gir lavere $Y$. I et diagram med $Y$ vannrett og $i$ loddrett er IS derfor en fallende kurve. Den er ingen atferdsligning for én aktør, men summen av husholdningenes, bedriftenes og utlandets etterspørsel etter norske varer."
+    },
+    {
+      "id": "econ2310-4-1-def-uip",
+      "type": "definition",
+      "title": "Udekket renteparitet (UIP)",
+      "content": "Betingelsen som binder valutakursen til rentedifferansen mot utlandet: kursen legger seg slik at forventet kursendring akkurat veier opp for renteforskjellen, slik at investorene er likegyldige mellom å plassere i kroner og i utenlandsk valuta. I symboler:\n\n$$E = E^e + \\kappa\\,(i^F - i)$$\n\nHer er $E^e$ den kursen markedet venter på lengre sikt, $i^F$ utenlandsk rente og $\\kappa > 0$ hvor kraftig kursen reagerer på rentedifferansen. Høyere norsk rente $i$ gir lavere $E$, altså **sterkere krone**. På eksamen oppgis UIP sjelden sammen med IS — den ligger «skjult» inne i rentekoeffisienten, og du skal skrive den opp selv."
+    },
+    {
+      "id": "econ2310-4-1-def-E",
+      "type": "definition",
+      "title": "Valutakursen $E$ (kursnotering)",
+      "content": "Prisen på utenlandsk valuta målt i kroner — hvor mange kroner én euro koster. Konvensjonen er avgjørende for alle fortegn i dette kapitlet:\n\n$$E \\uparrow \\;=\\; \\text{svakere krone}, \\qquad E \\downarrow \\;=\\; \\text{sterkere krone}.$$\n\nSvakere krone gjør norske varer billigere målt i utenlandsk valuta, slik at eksporten stiger, og importvarer dyrere målt i kroner. Bruker du motsatt konvensjon på eksamen, snur *alle* fortegnene — si i så fall eksplisitt hvilken konvensjon du bruker, og hold den gjennom hele besvarelsen."
+    },
+    {
+      "id": "econ2310-4-1-endo-ekso",
+      "type": "text",
+      "content": "### Hva bestemmer modellen selv?\n\nEn modell bestemmer noen størrelser og får resten servert utenfra. De den bestemmer selv, kalles **endogene**; de den får servert, kalles **eksogene**. I det fulle systemet vi bygger i dette og de neste kapitlene, er\n\n- **endogene:** produksjonen $Y$, renta $i$ og inflasjonen $\\pi$ — og dermed også valutakursen $E$, som følger av renta gjennom renteparitetsbetingelsen;\n- **eksogene:** impulsene $Z^D$, $Z^E$, $Z^\\pi$, $Z^i$ og potensielt BNP $Y^n$ — pluss alle parametrene, som alle er positive.\n\nIS-relasjonen alene bestemmer ikke $Y$: den gir bare *kombinasjoner* av $Y$ og $i$. Først når renteregelen kommer til i [kap. 4.2](/bok/econ2310/econ2310-4-2), har vi like mange relasjoner som endogene variabler."
+    },
+    {
+      "id": "econ2310-4-1-def-endo-ekso",
+      "type": "definition",
+      "title": "Endogene og eksogene størrelser i IS-RR-PK",
+      "content": "Skillet mellom det modellen forklarer og det den forutsetter. Modellen forklarer $Y$, $i$ og $\\pi$ — og dermed indirekte $E$. Den forutsetter impulsene $Z^D$, $Z^E$, $Z^\\pi$ og $Z^i$, potensielt BNP $Y^n$ og alle parametre.\n\nNytten er praktisk: en **skiftanalyse** starter alltid med å endre noe eksogent og spore hva som skjer med det endogene. Endrer du noe endogent «for hånd», har du ikke gjort en skiftanalyse — du har brutt modellen."
+    },
+    {
+      "id": "econ2310-4-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Les relasjonen linje for linje (sjanger E)",
+      "problem": "Relasjonen $Y = m Z^D + m a_2 Z^E - m a_3 Z^\\pi - m(c_2+b_2+a_2\\kappa)\\,i$ er oppgitt uten forklaring. Si hva hvert ledd betyr, og hvilken vei det trekker.",
+      "solution": "**Venstresiden.** $Y$ er BNP — samlet produksjon, som på kort sikt bestemmes av etterspørselen fordi prisene ikke rekker å tilpasse seg fullt ut.\n\n**Leddet $m Z^D$.** $Z^D$ samler alle etterspørselsimpulser som ikke skyldes rente eller valutakurs: offentlige kjøp, investeringsvilje, forbrukertillit, etterspørselen fra utlandet. Fortegnet er positivt — mer etterspørsel gir mer produksjon. Ganget med $m$ fordi impulsen forplanter seg gjennom inntektsstrømmen.\n\n**Leddet $m a_2 Z^E$.** $Z^E$ samler alt som svekker krona uten at norsk rente er endret: høyere utenlandsk rente, høyere forventet langsiktskurs, høyere risikopremie på kroner. Svakere krone bedrer konkurranseevnen, så nettoeksporten og dermed $Y$ stiger. Positivt fortegn.\n\n**Leddet $-m a_3 Z^\\pi$.** $Z^\\pi$ er en impuls som gjør norske varer dyrere *relativt til* utenlandske — for eksempel et lønnsoppgjør langt over det handelspartnerne har. Da svekkes konkurranseevnen og nettoeksporten faller. Negativt fortegn.\n\n**Leddet $-m(c_2+b_2+a_2\\kappa)\\,i$.** Renta trekker ned, og parentesen forteller *hvordan*: gjennom konsumet ($c_2$), gjennom investeringene ($b_2$) og gjennom krona og dermed eksporten ($a_2\\kappa$). Dette er de tre kanalene i løkke 2.\n\n**Multiplikatoren $m$.** Alt ganges med $m$: enhver impuls som treffer etterspørselen, forsterkes gjennom inntektsstrømmen før den lander i BNP."
+    },
+    {
+      "id": "econ2310-4-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger E — innstegsoppgave, ren gjengivelse med egne ord.)\n\nForklar med to–tre setninger, uten formler, hva IS-relasjonen sier.",
+        "solution": "IS-relasjonen sier hvor stor produksjonen blir på etterspørselssiden for et gitt rentenivå. Den summerer alle etterspørselsimpulser, ganger dem opp med multiplikatoren og trekker fra det renta demper. Fordi høyere rente demper etterspørselen, er sammenhengen mellom rente og produksjon fallende: tegner vi den i et diagram med produksjonen vannrett og renta loddrett, skråner IS nedover mot høyre.",
+        "hints": [
+          "Start med spørsmålet relasjonen svarer på: «hvor mye blir produsert hvis renta er så og så høy?»",
+          "Nevn både impulsene som løfter, og renta som demper."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger E — begrepskontroll.)\n\nAvgjør for hver størrelse om den er endogen eller eksogen i modellen, og begrunn med én setning hver.\n\n**a)** $Y$\n\n**b)** $Z^D$\n\n**c)** $E$\n\n**d)** $\\kappa$",
+        "solution": "**a)** $Y$ er **endogen** — den er nettopp det modellen skal forklare.\n\n**b)** $Z^D$ er **eksogen** — den samler etterspørselsimpulser som kommer utenfra (politiske vedtak, stemningsskifter, etterspørsel fra utlandet), og modellen forklarer dem ikke.\n\n**c)** $E$ er **endogen**, men indirekte: kursen følger av renteparitetsbetingelsen $E = Z^E - \\kappa i$, så når modellen har bestemt renta, er kursen bestemt. Selve impulsen $Z^E$ er derimot eksogen.\n\n**d)** $\\kappa$ er en **parameter** — en fast, positiv størrelse som beskriver hvor følsom kursen er for rentedifferansen. Parametre regnes som gitte, altså eksogene.",
+        "hints": [
+          "Spør for hver størrelse: har modellen en relasjon som bestemmer den?",
+          "Skill mellom kursen $E$ og kursimpulsen $Z^E$ — bare den ene er endogen."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Rentens tre kanaler (~20 min)"
+    },
+    {
+      "id": "econ2310-4-1-tre-kanaler",
+      "type": "text",
+      "content": "### Parentesen som er hele poenget\n\nRentekoeffisienten er $m(c_2 + b_2 + a_2\\kappa)$. De tre leddene i parentesen er ikke pynt — de er tre *økonomisk forskjellige* veier fra rentemøtet til BNP, og sensorveiledningene ber om alle tre. Går du glipp av én, er det nesten alltid den siste.\n\n**Kanal 1 — konsumet ($c_2$).** Høyere rente gjør det dyrere å låne og mer lønnsomt å spare. Husholdninger med boliglån får mindre igjen etter renteutgifter, og noen utsetter kjøp av bil og oppussing. Konsumet faller.\n\n**Kanal 2 — investeringene ($b_2$).** Høyere rente hever avkastningskravet til nye prosjekter. Færre bygg, maskiner og utvidelser er lønnsomme, så investeringene faller.\n\n**Kanal 3 — valutakursen og eksporten ($a_2\\kappa$).** Høyere norsk rente gjør kroneplasseringer mer attraktive. Etter renteparitetsbetingelsen styrker krona seg — $E$ faller med $\\kappa$ per renteenhet. Sterkere krone gjør norske varer dyrere for utlendinger, så eksporten faller, og importvarer billigere for oss, så en større del av etterspørselen går ut av landet. Nettoeksporten faller, og virkningen på $Y$ er $a_2$ ganger kursendringen, altså $a_2\\kappa$.\n\n*Legg merke til byggeklossene:* kanal 3 er et **produkt** av to ting — hvor mye kursen reagerer på renta ($\\kappa$), og hvor mye nettoeksporten reagerer på kursen ($a_2$). Er én av dem liten, er hele kanalen svak. Det er nettopp derfor kanalen betyr mer i en liten, åpen økonomi som den norske enn i en stor økonomi med lite handel."
+    },
+    {
+      "id": "econ2310-4-1-def-konsumkanal",
+      "type": "definition",
+      "title": "Konsumkanalen ($c_2$)",
+      "content": "Den delen av rentens virkning som går gjennom husholdningenes forbruk. Høyere rente gjør sparing mer lønnsomt og lån dyrere, og for husholdninger med mye gjeld spiser renteutgiftene direkte av det som er igjen til forbruk. Begge deler trekker konsumet ned.\n\nKoeffisienten $c_2 > 0$ måler hvor mye konsumet faller per renteenhet. I Norge regnes kanalen som sterk, fordi husholdningene har høy gjeld og stor andel flytende rente."
+    },
+    {
+      "id": "econ2310-4-1-def-investeringskanal",
+      "type": "definition",
+      "title": "Investeringskanalen ($b_2$)",
+      "content": "Den delen av rentens virkning som går gjennom bedriftenes realinvesteringer. Høyere rente hever både lånekostnaden og alternativavkastningen, så terskelen for at et prosjekt er lønnsomt heves, og færre prosjekter settes i gang.\n\nKoeffisienten $b_2 > 0$ måler hvor mye investeringene faller per renteenhet."
+    },
+    {
+      "id": "econ2310-4-1-def-valutakurskanal",
+      "type": "definition",
+      "title": "Valutakurskanalen ($a_2\\kappa$)",
+      "content": "Den delen av rentens virkning som går via kronekursen og utenrikshandelen — kanalen som finnes i den åpne modellen og ikke i den lukkede. Høyere norsk rente trekker kapital til kroner, krona styrker seg, norske varer blir dyrere for utlendinger og importvarer billigere for oss. Nettoeksporten faller.\n\nKanalen er et produkt av to ledd: $\\kappa$ (hvor mye kursen reagerer på renta, fra renteparitetsbetingelsen) og $a_2$ (hvor mye nettoeksporten reagerer på kursen). Dette er kanalen som glemmes oftest på eksamen."
+    },
+    {
+      "id": "econ2310-4-1-fig-kanaler",
+      "type": "image",
+      "src": "/images/textbook/econ2310/rentens-tre-kanaler.svg",
+      "alt": "Flytdiagram uten akser. Fra en boks der renta settes opp går tre piler til tre bokser: lavere konsum, lavere investeringer, og sterkere krone som gir lavere nettoeksport. Alle tre peker inn i en felles boks der produksjonen faller. En sirkelpil ved den siste pilen er merket med multiplikatoren.",
+      "caption": "Parentesen $c_2+b_2+a_2\\kappa$ tegnet ut: tre kanaler inn, ett samlet fall i produksjonen ut — og hele summen ganges opp av multiplikatoren $m$. Utelater du valutakurskanalen, mangler figuren sin tredje pil."
+    },
+    {
+      "id": "econ2310-4-1-is-figur",
+      "type": "text",
+      "content": "### IS-kurven i diagrammet\n\n*Figur i ord:* Tegn et diagram med **produksjonen $Y$ vannrett** og **renta $i$ loddrett**. IS er en **fallende, rett linje** fra øvre venstre mot nedre høyre. Helningen er $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$: jo sterkere de tre kanalene er, og jo større multiplikatoren er, desto *flatere* er kurven — da skal det lite renteendring til for å flytte produksjonen mye. Marker et punkt $A$ på kurven med stiplede hjelpelinjer ned til $Y_0$ på den vannrette aksen og bort til $i_0$ på den loddrette.\n\nDen verbale mekanismen bak helningen: beveger du deg oppover langs kurven, setter du renta opp. Da faller konsum, investeringer og nettoeksport, og produksjonen må være lavere for at produktmarkedet fortsatt skal være i balanse."
+    },
+    {
+      "id": "econ2310-4-1-fig-is",
+      "type": "image",
+      "src": "/images/textbook/econ2310/is-kurven-aapen.svg",
+      "alt": "Diagram med produksjonen Y langs den vannrette aksen og renta i langs den loddrette. IS-kurven er en rett, fallende linje fra øvre venstre mot nedre høyre. Punkt A ligger på kurven, med stiplede hjelpelinjer ned til produksjonen på den vannrette aksen og bort til renta på den loddrette. Helningen er merket som minus én delt på multiplikatoren ganger summen av rentens tre kanaler.",
+      "caption": "Figuren over i tegnet form. Merk at helningen $-1/[m(c_2+b_2+a_2\\kappa)]$ er hele poenget: sterke rentekanaler og stor multiplikator gir en FLAT kurve. Renteregelen er ikke med — den kommer først i [kap. 4.2](/bok/econ2310/econ2310-4-2)."
+    },
+    {
+      "id": "econ2310-4-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: «Forklar hvorfor en renteøkning demper aktiviteten» (sjanger E)",
+      "problem": "Sentralbanken setter renta opp. Gjør rede for mekanismene som gjør at produksjonen faller, og for hva gjennomslaget avhenger av.",
+      "solution": "**Kanalene.** En renteøkning demper produksjonen gjennom tre kanaler:\n\n1. **Konsumet.** Sparing blir mer lønnsomt og lån dyrere. Husholdninger med gjeld får mindre igjen etter renteutgifter, og noe forbruk utsettes. Effekten fanges av $c_2$.\n2. **Investeringene.** Avkastningskravet stiger, og prosjekter som var marginalt lønnsomme, legges bort. Effekten fanges av $b_2$.\n3. **Valutakursen og nettoeksporten.** Etter renteparitetsbetingelsen $E = E^e + \\kappa(i^F - i)$ styrker krona seg når norsk rente stiger. Norske varer blir dyrere i utenlandsk valuta og importvarer billigere i kroner, så nettoeksporten faller. Effekten fanges av $a_2\\kappa$.\n\nSamlet er den direkte demningen $(c_2+b_2+a_2\\kappa)$ per renteenhet.\n\n**Gjennomslaget.** Den direkte demningen er bare første runde. Lavere etterspørsel gir lavere produksjon, lavere inntekt og dermed enda lavere konsum og investeringer — ringvirkningene. Summen er den direkte effekten ganget med multiplikatoren $m$, som er stor når mye av hver ekstra krone brukes innenlands, og liten når mye lekker ut i sparing, skatt og import — eller når prisveksten reagerer sterkt, som vi ser i løkke 3.\n\n**Konklusjon.** Samlet virkning på produksjonen er $-m(c_2+b_2+a_2\\kappa)$ per renteenhet: tre kanaler, én forsterker."
+    },
+    {
+      "id": "econ2310-4-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — rentens tre kanaler, spurt nesten ordrett i 3 av 13 sett.)\n\nEn avisartikkel oppsummerer rentehevingen slik: «renta virker på BNP fordi folk låner mindre og bedriftene investerer mindre».\n\n**a)** Hvilken kanal mangler, og hvordan virker den?\n\n**b)** Hvorfor betyr nettopp denne kanalen mer i Norge enn i USA?",
+        "solution": "**a)** Valutakurskanalen mangler. Høyere norsk rente gjør kroneplasseringer mer attraktive, og etter renteparitetsbetingelsen $E = E^e + \\kappa(i^F-i)$ styrker krona seg. Sterkere krone gjør norske varer dyrere for utenlandske kjøpere og importvarer billigere for norske, slik at nettoeksporten faller. Bidraget til rentekoeffisienten er $a_2\\kappa$.\n\n**b)** Kanalen virker gjennom utenrikshandelen, og den betyr mer jo større handelen er i forhold til økonomien. Norge er en liten, åpen økonomi der en stor del av produksjonen eksporteres og en stor del av forbruket importeres, så en kursendring flytter mye etterspørsel. USA er en stor økonomi der handelen utgjør en mindre andel, og der mye av handelen dessuten faktureres i egen valuta — kursendringen slår derfor svakere inn.",
+        "hints": [
+          "Tell kanalene i rentekoeffisienten $m(c_2+b_2+a_2\\kappa)$ og se hvilken av de tre studenten ikke har nevnt.",
+          "Kanalens styrke er et produkt av to ting: hvor mye kursen rører seg, og hvor mye handelen rører seg av kursen."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — helningsforståelse.)\n\nTo land har samme multiplikator, men land A har mye høyere $\\kappa$ enn land B, altså en kurs som reagerer kraftigere på rentedifferansen.\n\n**a)** Hvilket land har flatest IS-kurve, og hvorfor?\n\n**b)** I hvilket land må sentralbanken endre renta mest for å flytte produksjonen like mye? Begrunn.",
+        "solution": "**a)** Land A. Helningen på IS er $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$. Høyere $\\kappa$ gjør parentesen større, altså nevneren større og helningen mindre bratt i tallverdi — kurven blir **flatere**. Økonomisk: i land A gir en gitt renteendring en større kursbevegelse, som flytter mer nettoeksport.\n\n**b)** Land B. Der er rentekoeffisienten mindre, så hver renteenhet flytter produksjonen mindre; sentralbanken må bruke en større renteendring for å oppnå samme utslag i $Y$. Dette er en av grunnene til at små, åpne økonomier med flytende kurs kan klare seg med mindre rentebevegelser enn store økonomier med lite handel.",
+        "hints": [
+          "Skriv opp helningsuttrykket og se hvor $\\kappa$ står — i teller eller nevner?",
+          "«Flat kurve» betyr at små renteendringer gir store produksjonsendringer."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-pause-1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —"
+    },
+    {
+      "id": "econ2310-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Multiplikatoren, og prisvirkningen som demper den (~20 min)"
+    },
+    {
+      "id": "econ2310-4-1-multiplikator-tekst",
+      "type": "text",
+      "content": "### Fra 1310-multiplikatoren til 2310-multiplikatoren\n\nI ECON1310 var multiplikatoren i åpen økonomi\n\n$$m_0 = \\frac{1}{1 - c_1(1-t) - b_1 + a}.$$\n\nNevneren er et regnskap over hva som skjer med den neste krona: $c_1(1-t)$ av den brukes på nytt konsum etter skatt, $b_1$ trekker med seg nye investeringer, mens $a$ lekker ut i import. Jo mer som lekker, desto mindre multiplikator.\n\nDet **nye i ECON2310** er at prisene ikke lenger står stille. Nå har vi en Phillips-kurve i modellen:\n\n$$\\pi = Z^\\pi + \\beta\\,\\frac{Y - Y^n}{Y^n}.$$\n\nDen sier at når produksjonen ligger over det nivået økonomien tåler over tid ($Y^n$), presses ledigheten ned, lønnsveksten opp og prisene opp. Og dyrere norske varer er nøyaktig det IS-relasjonen straffer gjennom $a_3$-leddet."
+    },
+    {
+      "id": "econ2310-4-1-prisvirkning-utledning",
+      "type": "text",
+      "content": "### Utledningen: β havner i multiplikatoren\n\nStart med etterspørselen før prisreaksjonen, der $\\pi$ står som en vanlig variabel:\n\n$$Y = m_0\\left[Z^D + a_2 E - a_3\\,\\pi - (c_2+b_2)\\,i\\right]$$\n\n*Intuisjon:* dette er 1310-modellen pluss to åpne-økonomi-ledd — kursen løfter, relativ prisvekst hjemme demper.\n\n**Steg 1 — sett inn Phillips-kurven** for $\\pi$:\n\n$$Y = m_0\\left[Z^D + a_2 E - a_3 Z^\\pi - a_3\\beta\\,\\frac{Y-Y^n}{Y^n} - (c_2+b_2)\\,i\\right]$$\n\n*Intuisjon:* nå står $Y$ på begge sider — prisveksten er blitt en del av kretsløpet, ikke noe utenforstående.\n\n**Steg 2 — samle $Y$-leddene.** Det nye $Y$-leddet på høyresiden har koeffisient $-m_0 a_3\\beta/Y^n$. Flytter du det over, får du\n\n$$Y\\left(1 + m_0\\,\\frac{a_3\\beta}{Y^n}\\right) = m_0\\left[Z^D + a_2 E - a_3 Z^\\pi - (c_2+b_2)\\,i\\right] + m_0 a_3\\beta$$\n\n*Intuisjon:* konstantleddet $m_0 a_3\\beta$ som følger med, legger seg til de øvrige eksogene leddene og påvirker ikke resonnementet om multiplikatorens størrelse.\n\n**Steg 3 — les av den nye multiplikatoren:**\n\n$$m = \\frac{m_0}{1 + m_0\\,\\dfrac{a_3\\beta}{Y^n}} \\;=\\; \\frac{1}{1 - c_1(1-t) - b_1 + a + \\dfrac{a_3\\beta}{Y^n}}$$\n\n*Intuisjon:* prisvirkningen legger seg i nevneren **ved siden av importlekkasjen** — den er en lekkasje av akkurat samme type. Jo brattere Phillips-kurve (høyere $\\beta$), desto større nevner og desto mindre multiplikator.\n\n**Steg 4 — sett til slutt inn $E = Z^E - \\kappa i$**, og du er tilbake i formen øverst i kapitlet, med $a_2\\kappa$ som del av rentekoeffisienten."
+    },
+    {
+      "id": "econ2310-4-1-def-multiplikator",
+      "type": "definition",
+      "title": "Multiplikatoren $m$ (med prisvirkning)",
+      "content": "Faktoren som forteller hvor mye BNP endrer seg til slutt når en etterspørselsimpuls på én krone treffer økonomien — etter at alle ringvirkninger har gått rundt. I bokas åpne modell med endogene priser:\n\n$$m = \\frac{1}{1 - c_1(1-t) - b_1 + a + \\dfrac{a_3\\beta}{Y^n}}$$\n\nMultiplikatoren **forsterkes** av at inntekt skaper nytt konsum ($c_1$) og nye investeringer ($b_1$), og **dempes** av alle lekkasjer: sparing, skatt ($t$), import ($a$) — og av prisvirkningen ($a_3\\beta/Y^n$), som er ny i forhold til ECON1310."
+    },
+    {
+      "id": "econ2310-4-1-def-prisvirkning",
+      "type": "definition",
+      "title": "Prisvirkningen i multiplikatoren (β-kanalen)",
+      "content": "Dempingen av multiplikatoren som skyldes at prisene reagerer på aktivitetsnivået. Kjeden går slik, og rekkefølgen må sitte:\n\n$$Y \\uparrow \\;\\Rightarrow\\; \\text{ledighet} \\downarrow \\;\\Rightarrow\\; \\text{lønnsvekst} \\uparrow \\;\\Rightarrow\\; \\text{norske varer dyrere} \\;\\Rightarrow\\; \\text{nettoeksport} \\downarrow$$\n\nBidraget til nevneren i multiplikatoren er $a_3\\beta/Y^n$. Dette er det viktigste tillegget til multiplikatorlæren fra ECON1310, og sensorveiledningene omtaler det som noe som absolutt bør være med i en god forklaring."
+    },
+    {
+      "id": "econ2310-4-1-def-importlekkasje",
+      "type": "definition",
+      "title": "Importlekkasjen ($a$)",
+      "content": "Den andelen av en ekstra etterspurt krone som går til utenlandske varer og dermed ikke skaper norsk inntekt. Den står i nevneren i multiplikatoren og demper ringvirkningene.\n\nI en liten, åpen økonomi som den norske er $a$ stor, og multiplikatoren tilsvarende mindre enn i en stor økonomi med lite handel. Importlekkasjen og prisvirkningen virker likt i formelen, men har ulik økonomisk historie: den ene handler om hvor krona brukes, den andre om hva som skjer med prisene når kapasiteten strammes til."
+    },
+    {
+      "id": "econ2310-4-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: «Hvorfor gir en brattere Phillips-kurve mindre multiplikator?» (sjanger E, eksamensnivå)",
+      "problem": "Anta at lønns- og prisveksten reagerer sterkere på presset i økonomien enn før, altså at $\\beta$ er blitt større. Forklar hvorfor multiplikatoren da blir mindre, og hva det betyr for hvor mye et etterspørselssjokk flytter produksjonen.",
+      "solution": "**Mekanismen, steg for steg.** En etterspørselsimpuls løfter produksjonen. Høyere produksjon krever mer arbeidskraft, så ledigheten faller. Lavere ledighet styrker arbeidstakernes forhandlingsposisjon, så lønnsveksten tar seg opp. Høyere lønnsvekst velter over i prisene på norske varer. Dermed blir norske varer dyrere *relativt til* utenlandske: eksporten svekkes, og importen tar en større del av etterspørselen. Dette trekker produksjonen ned igjen og spiser av den opprinnelige impulsen.\n\n**Hvor sterk dempingen er, avhenger av $\\beta$.** $\\beta$ er nettopp hvor mye prisveksten reagerer på produksjonsgapet. Er $\\beta$ stor, er hele kjeden over kraftig, og mye av impulsen spises opp.\n\n**I formelen.** Multiplikatoren er $m = 1/\\left[1 - c_1(1-t) - b_1 + a + a_3\\beta/Y^n\\right]$. Leddet $a_3\\beta/Y^n$ står i nevneren sammen med de andre lekkasjene. Større $\\beta$ gir større nevner og dermed mindre $m$.\n\n**Konsekvensen.** Et gitt etterspørselssjokk flytter produksjonen mindre når $\\beta$ er stor. Grafisk blir IS-kurven brattere, siden helningen $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$ vokser i tallverdi når $m$ krymper. Hva dette gjør med hele systemet, tar vi i [kap. 4.3](/bok/econ2310/econ2310-4-3) — der er det selve skillet mellom en god og en veldig god besvarelse.\n\n**Fallgruven.** Kjeden må gå riktig vei: *høyere* produksjon gir *lavere* ledighet gir *høyere* lønnsvekst gir *lavere* eksport. Snur du ett av leddene, får du dempingen til å se ut som en forsterkning."
+    },
+    {
+      "id": "econ2310-4-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — multiplikatoren med prisvirkning. Dette spørsmålet er stilt direkte i ett av settene.)\n\nSkriv ned kjeden fra et positivt etterspørselssjokk til prisvirkningens demping, ledd for ledd, og forklar hvor i multiplikatoruttrykket dempingen står.",
+        "solution": "Kjeden: etterspørselssjokket løfter produksjonen $\\Rightarrow$ bedriftene ansetter flere, så ledigheten faller $\\Rightarrow$ lavere ledighet gir høyere lønnsvekst $\\Rightarrow$ høyere lønnsvekst gir høyere prisvekst på norske varer $\\Rightarrow$ norske varer blir dyrere relativt til utenlandske, så eksporten faller og importandelen stiger $\\Rightarrow$ nettoeksporten trekker produksjonen ned igjen.\n\nI formelen står dempingen som leddet $a_3\\beta/Y^n$ i nevneren i\n\n$$m = \\frac{1}{1 - c_1(1-t) - b_1 + a + a_3\\beta/Y^n},$$\n\naltså ved siden av importlekkasjen $a$. Den virker som en lekkasje: en del av impulsen forsvinner ut av det innenlandske kretsløpet.",
+        "hints": [
+          "Fem ledd: produksjon, ledighet, lønnsvekst, priser, nettoeksport.",
+          "Dempere står alltid i nevneren i multiplikatoren."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — sammenligning av dempere.)\n\nImportlekkasjen $a$ og prisvirkningen $a_3\\beta/Y^n$ står side om side i nevneren i multiplikatoren.\n\n**a)** Forklar hva som er økonomisk forskjellig ved de to.\n\n**b)** Hvilken av dem finnes også i en økonomi uten utenrikshandel? Begrunn.",
+        "solution": "**a)** Importlekkasjen handler om *hvor krona brukes*: en andel av hver ekstra etterspurt krone går rett til utenlandske varer og skaper ikke norsk inntekt. Den virker umiddelbart og krever ingen prisendring. Prisvirkningen handler om *hva som skjer med prisene når kapasiteten strammes til*: høyere aktivitet gir lavere ledighet, høyere lønnsvekst og dyrere norske varer, og først da svekkes konkurranseevnen. Den går altså via arbeidsmarkedet og prisdannelsen, og virker med et tidsetterslep.\n\n**b)** Ingen av dem i den formen vi har skrevet dem her. Importlekkasjen finnes per definisjon ikke uten utenrikshandel, og prisvirkningen slik den er formulert, virker gjennom *konkurranseevnen* overfor utlandet — som en økonomi uten handel heller ikke har. Selve prisreaksjonen finnes likevel: der virker den i stedet gjennom sentralbankens renterespons, som er tema i [kap. 4.2](/bok/econ2310/econ2310-4-2). Poenget her er at åpenheten gir prisreaksjonen en *ekstra* vei inn i etterspørselen.",
+        "hints": [
+          "Den ene virker uten at noen pris endrer seg; den andre krever at lønninger og priser beveger seg.",
+          "Sjekk hva $a_3$-leddet i IS faktisk måler: relativ pris på norske varer mot utenlandske."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Impulsene, og malen du skriver på eksamen (~15 min)"
+    },
+    {
+      "id": "econ2310-4-1-impulsene",
+      "type": "text",
+      "content": "### De tre impulsene i IS — og hvordan du holder dem fra hverandre\n\nModellen har fire eksogene impulser. Tre av dem står i IS, og de forveksles ofte:\n\n- $Z^D$ er **mengdeimpulser i etterspørselen**: statsbudsjettet øker offentlige kjøp, bedriftene blir mer investeringslystne, husholdningene blir mer forsiktige, etterspørselen fra utlandet stiger. Ingen priser eller kurser er involvert.\n- $Z^E$ er **kursimpulser**: alt som flytter kronekursen uten at norsk rente er endret — utenlandsk rente $i^F$, den forventede langsiktskursen $E^e$ (som blant annet reflekterer tilliten til norsk økonomi og eksportevne), og risikopremien investorene krever for å sitte i kroner.\n- $Z^\\pi$ er **relative prisimpulser**: alt som gjør norske varer dyrere i forhold til utenlandske uten at aktiviteten har endret seg — et lønnsoppgjør langt over handelspartnernes, eller en avgiftsøkning som velter over i prisene.\n\nEn huskeregel: spør deg om impulsen flytter **mengder** ($Z^D$), **kursen** ($Z^E$) eller **relative priser** ($Z^\\pi$)."
+    },
+    {
+      "id": "econ2310-4-1-def-ZD",
+      "type": "definition",
+      "title": "$Z^D$ — etterspørselsimpulsen",
+      "content": "Sekkeposten for alt som flytter samlet etterspørsel uten å gå veien om rente, kurs eller relative priser: offentlige kjøp og skatteendringer, investeringsvilje, forbrukertillit, etterspørsel fra utlandet.\n\nFortegnet i IS er positivt ($+m Z^D$). Dette er impulsen som treffer i finanspolitiske oppgaver og i «etterspørselen faller»-scenarier, og den treffer **bare IS** — verken renteregelen eller Phillips-kurven direkte."
+    },
+    {
+      "id": "econ2310-4-1-def-ZE",
+      "type": "definition",
+      "title": "$Z^E$ — valutakursimpulsen",
+      "content": "Sekkeposten for alt som svekker eller styrker krona uten at norsk rente er endret: utenlandsk rente $i^F$, forventet langsiktskurs $E^e$ og risikopremien på kroner. Formelt $Z^E = E^e + \\kappa i^F$ pluss eventuell risikopremie, slik at renteparitetsbetingelsen kan skrives $E = Z^E - \\kappa i$.\n\nHøyere $Z^E$ betyr **svakere krone**, som løfter nettoeksporten: fortegnet i IS er positivt. Merk at $Z^E$ også står i renteregelen ([kap. 4.2](/bok/econ2310/econ2310-4-2)) — den er den eneste impulsen som treffer to relasjoner, og det er nøkkelen til skiftanalysen i [kap. 4.4](/bok/econ2310/econ2310-4-4)."
+    },
+    {
+      "id": "econ2310-4-1-def-Zpi",
+      "type": "definition",
+      "title": "$Z^\\pi$ — prisimpulsen",
+      "content": "Sekkeposten for prisimpulser som ikke skyldes presset i økonomien: et lønnsoppgjør langt over handelspartnernes, en avgiftsøkning, et kostnadssjokk som velter over i norske priser.\n\nI IS står den med negativt fortegn ($-m a_3 Z^\\pi$), fordi dyrere norske varer *relativt til* utenlandske svekker konkurranseevnen og dermed nettoeksporten. Impulsen står også i Phillips-kurven og i renteregelen. Vær nøye med hva som gjøres relativt dyrere: stiger prisene ute i stedet, virker det motsatt vei på konkurranseevnen."
+    },
+    {
+      "id": "econ2310-4-1-forklar-relasjonen-mal",
+      "type": "text",
+      "content": "### «Forklar relasjonen»-malen for IS\n\nDette er sensorens metaregel nummer én: relasjonene oppgis uforklart, og forklaringen forventes. Malen under er fire til seks setninger og dekker de fire tingene sensor ser etter — (i) hva symbolene er, (ii) den økonomiske logikken, (iii) fortegn og mekanisme, (iv) hva som er eksogent.\n\n> **Mal (skriv den ut, ikke bare tenk den):**\n>\n> «Relasjonen er etterspørselssiden i økonomien og gir produksjonen $Y$ som funksjon av renta $i$ og de eksogene impulsene, der $Y$ og $i$ er endogene mens $Z^D$, $Z^E$ og $Z^\\pi$ er gitt utenfra. Leddet $mZ^D$ er etterspørselsimpulser — offentlige kjøp, investeringsvilje, etterspørsel fra utlandet — ganget opp med multiplikatoren. Leddet $ma_2Z^E$ sier at en svakere krone bedrer konkurranseevnen og løfter nettoeksporten, mens $-ma_3Z^\\pi$ sier at dyrere norske varer svekker den. Renta demper produksjonen gjennom tre kanaler: lavere konsum ($c_2$), lavere investeringer ($b_2$) og en sterkere krone som demper nettoeksporten ($a_2\\kappa$, der kurseffekten følger av renteparitetsbetingelsen $E = E^e + \\kappa(i^F - i)$). Multiplikatoren $m$ forsterker alle impulser gjennom inntektsstrømmen, men dempes av sparing, skatt, import — og av prisvirkningen, siden høyere aktivitet gir lavere ledighet, høyere lønnsvekst, dyrere norske varer og dermed lavere nettoeksport.»\n\nTre grep skiller en god forklaring fra en middels: du **supplerer selv** renteparitetsbetingelsen som ikke er oppgitt, du **dekomponerer** rentekoeffisienten i tre kanaler i stedet for å kalle den «renteeffekten», og du **nevner prisvirkningen** i multiplikatoren."
+    },
+    {
+      "id": "econ2310-4-1-tip-merknad-mi",
+      "type": "tip",
+      "title": "Merknad: parameteren $m_i$ i pensumboka",
+      "content": "I læreboka finner du IS-relasjonen med en ekstra parameter $m_i$ foran rentekoeffisienten, altså noe i retning av $m_i(c_2+b_2+a_2\\kappa)$. I eksamensformene er denne parameteren satt lik 1, og den forsvinner derfor fra uttrykkene. Ser du den i pensum og ikke på oppgavearket, er det ikke en trykkfeil, bare en forenkling. Du taper ingenting på å nevne i en besvarelse at du setter den lik 1."
+    },
+    {
+      "id": "econ2310-4-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Full besvarelse på eksamensnivå (sjanger E)",
+      "problem": "På eksamensarket står relasjonen $Y = m Z^D + m a_2 Z^E - m a_3 Z^\\pi - m(c_2+b_2+a_2\\kappa)i$, med opplysningen at alle parametre er positive og at relasjonen «kan komme til nytte». Oppgaven lyder: *Forklar relasjonen, og gjør rede for hvordan renta virker på produksjonen.*",
+      "solution": "**Hva relasjonen er.** Relasjonen beskriver etterspørselssiden i en liten, åpen økonomi med flytende valutakurs, og gir likevektsproduksjonen i produktmarkedet for et gitt rentenivå. Endogene størrelser er $Y$ og $i$ — og valutakursen $E$, som følger av renta. Eksogent er impulsene $Z^D$, $Z^E$ og $Z^\\pi$ samt alle parametre, som er positive.\n\n**Leddene.** $mZ^D$ er etterspørselsimpulser — offentlige kjøp, investeringsvilje, forbrukertillit, etterspørsel fra utlandet — forsterket av multiplikatoren. $ma_2Z^E$ fanger at impulser som svekker krona (høyere utenlandsk rente, høyere forventet langsiktskurs, høyere risikopremie) bedrer konkurranseevnen og løfter nettoeksporten. $-ma_3Z^\\pi$ fanger det motsatte: impulser som gjør norske varer dyrere relativt til utenlandske, svekker nettoeksporten.\n\n**Renta — tre kanaler.** Rentekoeffisienten er $m(c_2+b_2+a_2\\kappa)$, og de tre leddene er tre atskilte mekanismer. (i) *Konsum:* høyere rente gjør sparing mer lønnsomt og lån dyrere, og gjeldstyngede husholdninger får mindre igjen til forbruk. (ii) *Investeringer:* avkastningskravet stiger, og færre prosjekter er lønnsomme. (iii) *Valutakurs:* her supplerer jeg renteparitetsbetingelsen $E = E^e + \\kappa(i^F-i)$, som ikke er oppgitt. Den sier at høyere norsk rente styrker krona; sterkere krone gjør norske varer dyrere for utlendinger og importvarer billigere for oss, så nettoeksporten faller. Bidraget er $a_2\\kappa$ — produktet av kursens rentefølsomhet og nettoeksportens kursfølsomhet.\n\n**Multiplikatoren.** Alle impulser ganges med $m$, fordi økt etterspørsel gir økt inntekt, som gir nytt konsum og nye investeringer. $m$ dempes av lekkasjene sparing, skatt og import — og av prisvirkningen: høyere produksjon gir lavere ledighet, høyere lønnsvekst, dyrere norske varer og dermed lavere nettoeksport. Formelt står denne dempingen som leddet $a_3\\beta/Y^n$ i nevneren, der $\\beta$ er Phillips-kurvens helning.\n\n**Grafisk.** *Figur i ord:* I et diagram med $Y$ vannrett og $i$ loddrett er relasjonen en fallende linje med helning $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$. Sterke rentekanaler og stor multiplikator gir en flat kurve; svake kanaler og mye prisdemping gir en bratt kurve. Likevektspunktet $A$ markeres med stiplede hjelpelinjer ned til $Y_0$ og bort til $i_0$.\n\n**Konklusjon.** En renteøkning demper produksjonen gjennom konsum, investeringer og valutakurs, og det samlede utslaget er den direkte demningen $(c_2+b_2+a_2\\kappa)$ ganget med multiplikatoren $m$."
+    },
+    {
+      "id": "econ2310-4-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — impulsklassifisering.)\n\nKlassifiser hver hendelse som en $Z^D$-, $Z^E$- eller $Z^\\pi$-impuls, og angi fortegnet på virkningen på $Y$ gjennom IS-relasjonen isolert sett.\n\n**a)** Regjeringen vedtar et større vedlikeholdsprogram for jernbanen.\n\n**b)** Sentralbanken i euroområdet setter opp renta.\n\n**c)** Et lønnsoppgjør gir vesentlig høyere lønnsvekst i Norge enn hos handelspartnerne.\n\n**d)** Internasjonale investorer krever plutselig en høyere risikopremie for å sitte i kroner.",
+        "solution": "**a)** $Z^D$ opp — offentlige kjøp er en ren etterspørselsimpuls. Virkningen på $Y$ gjennom IS er positiv.\n\n**b)** $Z^E$ opp — høyere $i^F$ gjør utenlandske plasseringer mer attraktive og svekker krona. Gjennom IS isolert sett er virkningen på $Y$ positiv, fordi konkurranseevnen bedres. At renteregelen også reagerer, kommer i [kap. 4.4](/bok/econ2310/econ2310-4-4).\n\n**c)** $Z^\\pi$ opp — norske varer blir dyrere relativt til utenlandske uten at aktiviteten har endret seg. Virkningen på $Y$ gjennom IS er negativ.\n\n**d)** $Z^E$ opp — risikopremien inngår i kursimpulsen og svekker krona. Virkningen på $Y$ gjennom IS er positiv, av samme grunn som i b).\n\nLegg merke til at b) og d) havner i samme sekk selv om historiene er ulike: begge svekker krona uten at norsk rente er endret.",
+        "hints": [
+          "Spør: flytter hendelsen mengder, kursen eller relative priser?",
+          "Husk kurskonvensjonen — høyere $E$ betyr svakere krone."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger E på eksamensnivå — «forklar relasjonen».)\n\nDu får oppgitt relasjonen $Y = m Z^D + m a_2 Z^E - m a_3 Z^\\pi - m(c_2+b_2+a_2\\kappa)i$ og beskjed om at alle parametre er positive. Skriv en forklaring på fire til seks setninger som dekker det sensor ser etter. Pass særlig på å ta med det som *ikke* står i relasjonen.",
+        "solution": "Et fullgodt svar kan se slik ut:\n\n«Relasjonen er etterspørselssiden i en liten, åpen økonomi med flytende kurs og gir produksjonen for et gitt rentenivå; $Y$ og $i$ er endogene, mens $Z^D$, $Z^E$ og $Z^\\pi$ er eksogene impulser. $Z^D$ samler etterspørselsimpulser som offentlige kjøp og investeringsvilje og virker positivt; $Z^E$ samler impulser som svekker krona og løfter nettoeksporten, mens $Z^\\pi$ gjør norske varer relativt dyrere og demper nettoeksporten. Renta demper produksjonen gjennom tre kanaler: lavere konsum ($c_2$), lavere investeringer ($b_2$) og en sterkere krone som demper nettoeksporten ($a_2\\kappa$) — kursvirkningen følger av renteparitetsbetingelsen $E = E^e + \\kappa(i^F-i)$, som ikke er oppgitt, men som ligger inne i rentekoeffisienten. Multiplikatoren $m$ forsterker alle impulser gjennom inntektsstrømmen og dempes av sparing, skatt, import og av prisvirkningen: høyere aktivitet gir lavere ledighet, høyere lønnsvekst, dyrere norske varer og dermed svakere nettoeksport.»\n\n**Det som ikke står i relasjonen, og som må med:** renteparitetsbetingelsen (den forklarer hvor $a_2\\kappa$ kommer fra) og Phillips-kurvens prisvirkning (den forklarer hvorfor $m$ er mindre enn i en modell med faste priser). Å supplere relasjoner som ikke er oppgitt, er et av de tydeligste kjennetegnene på en god besvarelse i dette faget.",
+        "hints": [
+          "Bruk malen i fire trinn: symboler, logikk, fortegn og mekanisme, hva som er eksogent.",
+          "To relasjoner ligger skjult i uttrykket og bør skrives opp selv."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-1-oppg-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger E på eksamensnivå — krevende.)\n\nAnta at Norge blir mindre åpen: både importandelen $a$ og nettoeksportens kursfølsomhet $a_2$ faller.\n\n**a)** Hva skjer med multiplikatoren?\n\n**b)** Hva skjer med rentekoeffisienten i IS?\n\n**c)** Kan du på grunnlag av a) og b) si entydig om IS-kurven blir brattere eller flatere? Begrunn nøye.",
+        "solution": "**a)** Lavere $a$ betyr mindre importlekkasje, altså mindre nevner i $m = 1/\\left[1-c_1(1-t)-b_1+a+a_3\\beta/Y^n\\right]$. Multiplikatoren blir **større**.\n\n**b)** Rentekoeffisienten er $m(c_2+b_2+a_2\\kappa)$. Lavere $a_2$ svekker valutakurskanalen, så parentesen blir **mindre**. Men $m$ er blitt større etter a), så de to virkningene trekker hver sin vei på produktet.\n\n**c)** Nei — retningen kan ikke avgjøres uten mer informasjon. Helningen på IS er $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$, og i nevneren står en større $m$ ganget med en mindre parentes. Faller $a_2$ mye mens $a$ knapt endres, dominerer den svakere kurskanalen, og IS blir brattere. Faller $a$ mye mens $a_2$ knapt endres, dominerer den større multiplikatoren, og IS blir flatere. Konklusjonen er altså **ubestemt**, og den avhenger av den relative størrelsen på de to endringene. Å påpeke dette er riktig svar; å signere en retning uten betingelse er feil.",
+        "hints": [
+          "Skriv opp både multiplikatoruttrykket og helningsuttrykket før du konkluderer.",
+          "Sjekk om de to endringene trekker samme vei i uttrykket helningen består av.",
+          "Er svaret ubestemt, er jobben din å si hva det avhenger av — ikke å velge en retning."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Utelate én av rentens tre kanaler** (feil #2 i bokas feilregister — registeret er den samlede lista over de tolv feilene sensorene ser oftest). Den som glemmes, er nesten alltid valutakurskanalen. Tell til tre hver gang du skriver om renta.\n- **Glemme prisvirkningen i multiplikatoren, eller få kjeden feil vei** (feil #3 — glemt prisvirkning). Riktig rekkefølge: høyere $Y$ $\\to$ *lavere* ledighet $\\to$ høyere lønnsvekst $\\to$ dyrere norske varer $\\to$ *lavere* nettoeksport.\n- **Regne på relasjonen uten å forklare den** (feil #7 — regne uten å forklare). Relasjonen er oppgitt nettopp fordi forklaringen er oppgaven. Å sette inn og trekke sammen uten et ord om økonomien gir lite uttelling.\n- **Blande $Z^E$ og $Z^\\pi$.** $Z^E$ flytter kursen; $Z^\\pi$ flytter relative priser. Høyere utenlandsk rente er $Z^E$, ikke $Z^\\pi$.\n- **Snu kurskonvensjonen.** Høyere $E$ er *svakere* krone. Bruker du motsatt konvensjon, må du si det og holde det gjennom hele besvarelsen.\n- **Behandle $m$ som en konstant du ikke trenger å forklare.** Hele poenget med sjangeren er at du kan si hva som forsterker og hva som demper."
+    },
+    {
+      "id": "econ2310-4-1-warn-symbolvarsel",
+      "type": "warning",
+      "title": "NB: symboler som skifter betydning i denne boka",
+      "content": "Fire symboler har to betydninger i ECON2310, og eksamenssettene bytter mellom dem. Sjekk alltid hva det aktuelle settet bruker.\n\n- **$g$**: I Del 1 (vekstmodellen) er $g$ produktivitetsvekst. **I Del 4 er $g$ ikke en vekstrate i det hele tatt** — $g_Y$, $g_E$ og $g_\\pi$ er koeffisientene i sentralbankens renteregel ([kap. 4.2](/bok/econ2310/econ2310-4-2)). I dette kapitlet brukes $g$-symbolene ikke ennå.\n- **$\\alpha$**: I hovedkursmodellen (Del 5) er $\\alpha$ importandelen i konsumprisindeksen. I Keynes-varianten i [kap. 2.1](/bok/econ2310/econ2310-2-1) er $\\alpha$ en investeringskoeffisient. I dette kapitlet brukes symbolet ikke.\n- **$\\gamma$**: brukes i eldre sett både som sparerate i vekstmodellen og som koeffisientnavn i renteregelen. Boka skriver $s$ for sparerate og $g_Y, g_E, g_\\pi$ for regelkoeffisientene.\n- **$k$**: kapital per arbeider i Del 1, ekstraordinær lønnsvekst i Del 5."
+    },
+    {
+      "id": "econ2310-4-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-1",
+      "type": "definition",
+      "title": "Redusert form",
+      "content": "En modellrelasjon der alle endogene variabler er eliminert fra høyresiden, slik at en endogen variabel står uttrykt bare ved eksogene størrelser og parametre.\n\nIS-relasjonen slik vi skriver den, er delvis på redusert form: $Y$ er uttrykt ved impulsene og renta. Løser vi hele systemet i [kap. 4.3](/bok/econ2310/econ2310-4-3), får vi $Y$ og $i$ uttrykt bare ved eksogene størrelser. Poenget å huske: en redusert form viser bare $Y$ og $i$ — den sier ingenting om konsum, investeringer og handelsbalanse. Det må du spore selv."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-2",
+      "type": "definition",
+      "title": "«Under panseret»-formen",
+      "content": "Skrivemåten der multiplikatoren og de strukturelle koeffisientene står synlige i relasjonen, slik at man ser hvor hver mekanisme sitter:\n\n$$Y = m Z^D + m a_2 Z^E - m a_3 Z^\\pi - m(c_2+b_2+a_2\\kappa)\\,i$$\n\nEnkelte sett skriver samme relasjon mer kompakt, med sammenslåtte koeffisienter. Da er det din jobb å pakke opp igjen: si at rentekoeffisienten består av tre kanaler, og at multiplikatoren dempes av import og priser."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-3",
+      "type": "definition",
+      "title": "Nettoeksport (handelsbalansen)",
+      "content": "Eksport minus import, altså utlandets netto etterspørsel etter norske varer og tjenester. I IS-relasjonen er det nettoeksporten som bærer valutakurskanalen og konkurranseevne-leddet.\n\nNettoeksporten stiger når krona svekkes, og faller når krona styrkes. Den faller også når norsk aktivitet stiger, fordi høyere inntekt trekker med seg mer import."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-4",
+      "type": "definition",
+      "title": "Konkurranseevne",
+      "content": "Prisen på norske varer sett i forhold til prisen på utenlandske varer, målt i samme valuta. Konkurranseevnen bedres når krona svekkes, når utenlandske priser stiger, eller når norske kostnader vokser saktere enn handelspartnernes.\n\nI IS-relasjonen er det konkurranseevnen som ligger bak både $a_2$-leddet (kursen) og $a_3$-leddet (relative priser)."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-5",
+      "type": "definition",
+      "title": "Depresiering og appresiering",
+      "content": "To ord for at kursen beveger seg under et flytende kursregime. **Depresiering** er at krona svekkes ($E$ stiger — flere kroner per euro); **appresiering** er at krona styrker seg ($E$ faller).\n\nDepresiering bedrer konkurranseevnen og løfter nettoeksporten, men gjør importvarer dyrere. Appresiering virker motsatt vei."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-6",
+      "type": "definition",
+      "title": "Risikopremie på kroner",
+      "content": "Den ekstra avkastningen investorene krever for å plassere i kroner framfor i en valuta de oppfatter som tryggere. Krona er en liten valuta i et lite marked, og premien svinger med uroen i verdensøkonomien.\n\nStiger risikopremien, svekkes krona uten at noen rente er endret — altså en positiv $Z^E$-impuls."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-7",
+      "type": "definition",
+      "title": "Forventet langsiktskurs $E^e$",
+      "content": "Den kronekursen markedet venter seg på lengre sikt. Den er ankeret i renteparitetsbetingelsen: dagens kurs ligger nær $E^e$, justert for rentedifferansen mot utlandet.\n\n$E^e$ endrer seg når markedet endrer syn på norsk økonomi — for eksempel ved varig lavere etterspørsel etter norsk eksport. Høyere $E^e$ betyr at krona ventes å bli svakere, og trekker dagens kurs opp med én gang."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-8",
+      "type": "definition",
+      "title": "Utenlandsk rente $i^F$",
+      "content": "Rentenivået hos handelspartnerne, som Norge ikke påvirker. Den inngår i renteparitetsbetingelsen og dermed i kursimpulsen $Z^E$.\n\nStiger $i^F$, blir utenlandske plasseringer mer attraktive og krona svekkes. Det løfter isolert sett norsk nettoeksport, men får også sentralbanken til å reagere ([kap. 4.2](/bok/econ2310/econ2310-4-2))."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-9",
+      "type": "definition",
+      "title": "Kursfølsomheten $\\kappa$",
+      "content": "Parameteren i renteparitetsbetingelsen $E = E^e + \\kappa(i^F-i)$, som sier hvor mye kursen beveger seg når rentedifferansen mot utlandet endres med én enhet.\n\nStor $\\kappa$ betyr at kursen reagerer kraftig på renta, og gjør valutakurskanalen i IS sterk. $\\kappa$ er dermed den ene av de to byggeklossene i kanalen $a_2\\kappa$."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-10",
+      "type": "definition",
+      "title": "Rentekoeffisienten i IS",
+      "content": "Det samlede tallet som sier hvor mye produksjonen faller når renta settes opp med én enhet: $m(c_2+b_2+a_2\\kappa)$.\n\nÅ behandle den som ett udelt tall er en av de vanligste svakhetene på eksamen. Den skal alltid pakkes opp i tre kanaler — konsum, investering og valutakurs — og ganges med multiplikatoren."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-11",
+      "type": "definition",
+      "title": "Skiftvariabel (impuls)",
+      "content": "En eksogen størrelse som flytter en hel relasjon i diagrammet, i stedet for å flytte oss langs den. $Z^D$, $Z^E$, $Z^\\pi$ og $Z^i$ er skiftvariabler.\n\nSkillet er avgjørende i skiftanalyse: en renteendring som følger av regelen, flytter oss *langs* IS, mens en endring i $Z^D$ flytter *hele* IS-kurven."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-12",
+      "type": "definition",
+      "title": "Potensielt BNP $Y^n$",
+      "content": "Det produksjonsnivået økonomien kan holde over tid uten at inflasjonen tiltar eller avtar — nivået som svarer til likevektsledigheten. Det bestemmes av tilbudssiden: arbeidsstyrken, produktiviteten og hvordan lønns- og prisdannelsen fungerer.\n\nI dette kapitlet møter du $Y^n$ bare i prisvirkningen $a_3\\beta/Y^n$; den fulle behandlingen kommer i [kap. 4.2](/bok/econ2310/econ2310-4-2)."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-13",
+      "type": "definition",
+      "title": "Phillips-kurven (PK)",
+      "content": "Relasjonen som knytter inflasjonen til presset i økonomien: $\\pi = Z^\\pi + \\beta (Y-Y^n)/Y^n$.\n\nLigger produksjonen over $Y^n$, er ledigheten lav, lønnsveksten høy og inflasjonen høyere enn impulsen alene skulle tilsi. Parameteren $\\beta$ er styrken i koblingen — og det er nettopp $\\beta$ som demper multiplikatoren i dette kapitlet."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-14",
+      "type": "definition",
+      "title": "Produksjonsgapet",
+      "content": "Den relative avstanden mellom faktisk og potensielt BNP: $(Y-Y^n)/Y^n$. Positivt gap betyr høykonjunktur med press i arbeidsmarkedet; negativt gap betyr ledig kapasitet.\n\nGapet er den størrelsen både Phillips-kurven og renteregelen reagerer på, og derfor bindeleddet mellom aktivitet, priser og rente."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-15",
+      "type": "definition",
+      "title": "Marginal konsumtilbøyelighet $c_1$",
+      "content": "Andelen av en ekstra krone i disponibel inntekt som går til forbruk, med $0 < c_1 < 1$. Den er motoren i multiplikatorprosessen: jo større $c_1$, desto mer av hver inntektsøkning kommer tilbake som ny etterspørsel.\n\nIkke forveksle $c_1$ med rentefølsomheten $c_2$: den første kobler konsum til inntekt, den andre kobler konsum til renta."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-16",
+      "type": "definition",
+      "title": "Investeringsakseleratoren $b_1$",
+      "content": "Sammenhengen mellom aktivitetsnivået og investeringene: høyere produksjon gjør at bedriftene trenger mer kapasitet og har bedre inntjening, så investeringene stiger.\n\nI multiplikatoren står $b_1$ i nevneren med negativt fortegn — den er en forsterker, ikke en lekkasje."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-17",
+      "type": "definition",
+      "title": "Etterspørselsbestemt produksjon",
+      "content": "Forutsetningen som gjør hele IS-apparatet meningsfullt på kort sikt: bedriftene produserer det de får solgt, så det er etterspørselen som bestemmer produksjonen.\n\nDette står i skarp kontrast til vekstmodellen i Del 1, der produksjonen er bestemt av tilbudssiden — kapital, arbeidskraft og teknologi. Kontrasten er en av bokas røde tråder, og et poeng sensor belønner når du trekker det fram uoppfordret."
+    },
+    {
+      "id": "econ2310-4-1-def-bb-18",
+      "type": "definition",
+      "title": "Fortegnsubestemthet",
+      "content": "At en modell ikke gir ett entydig fortegn på virkningen av et sjokk, fordi to mekanismer trekker hver sin vei. Da er riktig svar å si at effekten er ubestemt — og å si nøyaktig hva den avhenger av.\n\nÅ signere et ubestemt fortegn er en av de tyngste feilene i dette faget; å påpeke ubestemtheten er tvert imot et kjennetegn på en god besvarelse."
+    },
+    {
+      "id": "econ2310-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjon: sjekk at dette sitter",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "econ2310-4-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-1-oppg-R1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp renteparitetsbetingelsen og forklar med én setning hva den sier.",
+            "solution": "$E = E^e + \\kappa\\,(i^F - i)$. Den sier at kursen legger seg slik at forventet kursendring akkurat oppveier rentedifferansen mot utlandet, slik at investorene er likegyldige mellom kroner og utenlandsk valuta.",
+            "hints": [
+              "Tre størrelser på høyresiden: forventet langsiktskurs, utenlandsk rente og norsk rente."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-4-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-1-oppg-R2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvilke fire ting demper multiplikatoren i bokas åpne modell?",
+            "solution": "Sparingen (det som ikke konsumeres av en ekstra krone), skatten ($t$), importlekkasjen ($a$) og prisvirkningen ($a_3\\beta/Y^n$). De tre første kjenner du fra ECON1310; den fjerde er ny i dette faget.",
+            "hints": [
+              "Se på leddene i nevneren i multiplikatoruttrykket."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-4-1-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-1-oppg-R3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Forklar hvorfor valutakurskanalen er sterkere jo større $\\kappa$ og $a_2$ er, og hva det betyr at kanalen er et produkt av de to.",
+            "solution": "$\\kappa$ sier hvor mye kursen beveger seg per renteenhet, og $a_2$ hvor mye nettoeksporten beveger seg per kursenhet. Kanalen er derfor kjeden «rente $\\to$ kurs $\\to$ nettoeksport», og styrken er produktet $a_2\\kappa$. At det er et produkt, betyr at kanalen er svak hvis bare ett av leddene er svakt: en kurs som ikke rører seg av renta, eller en handel som ikke rører seg av kursen, bryter kjeden alene.",
+            "hints": [
+              "Følg kjeden i to steg og spør hva hvert steg avhenger av."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2310-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2310-4-1-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $Y$ | Produksjon / BNP — **endogen** |\n| $i$ | Nominell rente — **endogen** i det fulle systemet ([kap. 4.3](/bok/econ2310/econ2310-4-3)) |\n| $E$ | Valutakurs, kroner per enhet utenlandsk valuta. Høyere $E$ = **svakere** krone |\n| $\\pi$ | Inflasjon (prisvekst) — endogen gjennom Phillips-kurven |\n| $Z^D$ | Etterspørselsimpuls (offentlige kjøp, investeringsvilje, etterspørsel ute) — eksogen |\n| $Z^E$ | Valutakursimpuls, $Z^E = E^e + \\kappa i^F$ (+ risikopremie) — eksogen |\n| $Z^\\pi$ | Prisimpuls som gjør norske varer relativt dyrere — eksogen |\n| $Y^n$ | Potensielt BNP — produksjonsnivået forenlig med stabil inflasjon |\n| $E^e$ | Forventet langsiktig valutakurs |\n| $i^F$ | Utenlandsk rente |\n| $\\kappa$ | Kursens følsomhet for rentedifferansen, $\\kappa>0$ |\n| $m$ | Multiplikatoren **med** prisvirkning |\n| $m_0$ | Multiplikatoren uten prisvirkning (ECON1310-varianten) |\n| $c_1$ | Marginal konsumtilbøyelighet, $0<c_1<1$ |\n| $c_2$ | Konsumets rentefølsomhet — **kanal 1** |\n| $b_1$ | Investeringsakseleratoren |\n| $b_2$ | Investeringenes rentefølsomhet — **kanal 2** |\n| $a$ | Importlekkasjen (marginal importtilbøyelighet) |\n| $a_2$ | Nettoeksportens følsomhet for valutakursen — inngår i **kanal 3** |\n| $a_3$ | Nettoeksportens følsomhet for relativ prisvekst hjemme |\n| $t$ | Marginal skattesats |\n| $\\beta$ | Phillips-kurvens helning — hvor mye prisveksten reagerer på produksjonsgapet |\n| $m_i$ | Parameter i pensumbokas IS-form; satt lik 1 i eksamensformene |\n\n**Merk symbolbruken i dette kapitlet:** $g$ brukes ikke her som produktivitetsvekst (det er Del 1-betydningen); $g_Y$, $g_E$ og $g_\\pi$ er renteregelens koeffisienter og innføres i [kap. 4.2](/bok/econ2310/econ2310-4-2). $k$ og $\\alpha$ brukes ikke i dette kapitlet.\n\n**Formler i dette delkapitlet:**\n\n$$Y = m\\,Z^D + m\\,a_2 Z^E - m\\,a_3 Z^\\pi - m\\,(c_2+b_2+a_2\\kappa)\\,i$$\n\nIS-relasjonen: etterspørselssiden — produksjonen for et gitt rentenivå.\n\n$$E = E^e + \\kappa\\,(i^F - i) \\qquad\\Longleftrightarrow\\qquad E = Z^E - \\kappa\\,i$$\n\nRenteparitetsbetingelsen (UIP), som ligger skjult inne i rentekoeffisienten.\n\n$$m = \\frac{1}{1 - c_1(1-t) - b_1 + a + \\dfrac{a_3\\beta}{Y^n}}$$\n\nMultiplikatoren med prisvirkning: forsterkes av konsum og investeringer, dempes av skatt, import og prisreaksjon.\n\n$$\\pi = Z^\\pi + \\beta\\,\\frac{Y-Y^n}{Y^n}$$\n\nPhillips-kurven, som leverer prisvirkningen inn i multiplikatoren.\n\n$$\\text{Helning på IS} = -\\frac{1}{m\\,(c_2+b_2+a_2\\kappa)}$$\n\nSterke rentekanaler og stor multiplikator gir flat IS; sterk prisdemping gir bratt IS."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

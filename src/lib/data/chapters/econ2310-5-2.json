@@ -1,0 +1,441 @@
+{
+  "id": "econ2310-5-2",
+  "courseId": "econ2310",
+  "chapterNumber": "5.2",
+  "title": "Utledningene: inflasjon og reallønnsvekst av hovedkursen",
+  "description": "Fra relasjonssettet til uttrykkene for π og w − π, steg for steg — og spesialtilfellet som gir de eksamensklare konklusjonene.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne utlede uttrykket for konsumprisveksten fra hovedkursmodellens relasjoner, uten å se på notater",
+    "kunne utlede uttrykket for reallønnsveksten og forklare hvorfor valutakursveksten faller ut",
+    "kunne tolke hvert ledd i begge uttrykk økonomisk, ikke bare gjengi dem",
+    "kunne bruke spesialtilfellet til å formulere konklusjonene om importert inflasjon og om kravet til lønnsveksten ved inflasjonsmål"
+  ],
+  "content": [
+    {
+      "id": "econ2310-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er selve regnehåndverket i hovedkursmodellen — og det eneste stedet i emnet der du «utleder» i vanlig forstand.**\n\n- Hovedkursmodellen bærer **2 av 13 sett** (H2022 og H2024) — 15 %. Begge ganger var kjerneøvelsen den samme: kombiner relasjonene til uttrykk for inflasjonen og reallønnsveksten, og analyser et sjokk (typisk prisvekst ute).\n- Oppgavetypen er **sjanger I** («hovedkursmodellen: utled $\\pi$ og $w-\\pi$, tolk $k$» — bokstavkodene A–L står forklart i [kap. 0.1](/bok/econ2310/econ2310-0-1)). Stoffet ligger i **prioritetsklasse 2 av 3**, «må kunne».\n- **Utledningen alene er ikke svaret.** Sensorveiledningene er tydelige: et uttrykk uten tolkning av leddene er en mekanisk besvarelse. Regelen for dette kapitlet er derfor at hvert ledd du skriver ned, skal få en setning som sier hva det betyr økonomisk.\n- Merk at faget **ikke har rene regneoppgaver** — de tallene som forekommer nedenfor, er illustrasjoner. Det du skal kunne på eksamen, er den symbolske utledningen og tolkningen.\n\nTolkningen av $k$ og samspillet med rentemodellen kommer i [kap. 5.3](/bok/econ2310/econ2310-5-3)."
+    },
+    {
+      "id": "econ2310-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper**\n\n- **[kap. 5.1](/bok/econ2310/econ2310-5-1)** — relasjonssettet, frontfagslogikken og konsumprisdefinisjonen du må supplere selv. Kapitlet her bygger direkte videre.\n- Ingen andre forkunnskaper. Matematikken er ren innsetting og opprydding i plusser og minuser.\n\n**Sist du var her — de fem relasjonene du regner med (alle i vekstrater):**\n\n$$p_s = w - z_s \\qquad\\text{(skjermet sektor priser seg etter lønn minus produktivitet)}$$\n$$w = p_k + z_k + k \\qquad\\text{(frontfaget: lønnsevnen i K-sektor, pluss avviket } k)$$\n$$p_k = q_k + v, \\qquad p_i = q_i + v \\qquad\\text{(kronepris = utenlandsk pris + valutakursvekst)}$$\n$$\\pi = \\alpha p_i + (1-\\alpha)p_s \\qquad\\text{(konsumprisdefinisjonen — oppgis ikke på eksamen)}$$\n\nOg de to fortegnsreglene du trenger: $v > 0$ betyr **svakere krone**, og $k > 0$ betyr **lønnsvekst utover hovedkursen**."
+    },
+    {
+      "id": "econ2310-5-2-warn-symbol",
+      "type": "warning",
+      "title": "NB: $k$ betyr fortsatt ekstraordinær lønnsvekst",
+      "content": "I dette kapitlet — som i hele Del 5 — er $k$ **ekstraordinær lønnsvekst**, ikke kapital per arbeider som i vekstmodellen i Del 1. Bokstaven dukker opp i nesten hver linje nedenfor, så det er verdt å feste: $k$ måler hvor mye lønnsveksten avviker fra det konkurranseutsatt sektor tåler.\n\nOg som alltid i Del 5: alle små bokstaver er **vekstrater**. Når vi skriver $\\pi = \\pi^* + v + (1-\\alpha)k$ senere, betyr det ikke at prisnivåer legges sammen, men at veksttakter gjør det."
+    },
+    {
+      "id": "econ2310-5-2-intro",
+      "type": "text",
+      "content": "Du har relasjonssettet, og du har supplert konsumprisdefinisjonen. Nå skal modellen faktisk brukes: hva bestemmer inflasjonen, og hva bestemmer kjøpekraften?\n\nSvaret får du ved å sette relasjonene inn i hverandre til bare eksogene størrelser står igjen på høyre side. Det er en kort øvelse — fem linjer med algebra — men den må sitte så godt at du kan gjøre den under tidspress uten å nøle. Og enda viktigere: du må kunne si hva hvert ledd i sluttresultatet betyr.\n\nKapitlet er tre læringsløkker:\n\n- **Løkke 1 (~20 min):** utledningen av inflasjonsuttrykket, steg for steg med intuisjon underveis.\n- **Løkke 2 (~20 min):** utledningen av reallønnsveksten — og resultatet som overrasker de fleste.\n- **Løkke 3 (~20 min):** spesialtilfellet med de rene konklusjonene, og analysen av et prissjokk ute."
+    },
+    {
+      "id": "econ2310-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Inflasjonsuttrykket, steg for steg (~20 min)"
+    },
+    {
+      "id": "econ2310-5-2-l1-strategi",
+      "type": "text",
+      "content": "**Strategien er alltid den samme:** start med den relasjonen som inneholder ting du ikke kjenner, og bytt ut de ukjente med relasjoner som forklarer dem — helt til bare eksogene størrelser står igjen.\n\nI hovedkursmodellen er kjeden kort. Konsumprisveksten avhenger av $p_i$ og $p_s$. Vi kjenner $p_i$ direkte. Og $p_s$ avhenger av $w$, som avhenger av $p_k$, som vi også kjenner direkte. Tre innsettinger, så er vi i mål."
+    },
+    {
+      "id": "econ2310-5-2-l1-steg1",
+      "type": "text",
+      "content": "### Steg 1: Lønnsveksten uttrykt ved eksogene størrelser\n\nLønnsrelasjonen er $w = p_k + z_k + k$, og $p_k = q_k + v$. Sett inn:\n\n$$w = q_k + v + z_k + k$$\n\n*Intuisjon:* lønnsveksten i Norge er summen av fire ting utenfor lønnsforhandlingene selv — prisveksten på det norsk industri selger ute, kroneeffekten av valutakursen, produktivitetsveksten i industrien, og partenes eget avvik fra normen. De tre første er hovedkursen; den fjerde er avviket. Legg merke til at én av dem, $v$, er ren valutakurs: en svakere krone gir høyere lønnsvekst i Norge, fordi den løfter kroneprisene industrien får og dermed lønnsevnen."
+    },
+    {
+      "id": "econ2310-5-2-l1-steg2",
+      "type": "text",
+      "content": "### Steg 2: Prisveksten i skjermet sektor\n\nSkjermet sektor priser seg etter $p_s = w - z_s$. Sett inn uttrykket for $w$:\n\n$$p_s = q_k + v + z_k + k - z_s$$\n\n*Intuisjon:* prisveksten på norske tjenester bestemmes altså ikke av noe som skjer i tjenestesektoren, bortsett fra sektorens egen produktivitetsvekst. Alt annet er importert gjennom lønnsdannelsen: verdensmarkedets priser, kronekursen og industriens produktivitet. Det er en sterk påstand, og den er en direkte konsekvens av koordinert lønnsdannelse."
+    },
+    {
+      "id": "econ2310-5-2-l1-steg3",
+      "type": "text",
+      "content": "### Steg 3: Konsumprisveksten\n\nSett $p_i = q_i + v$ og uttrykket for $p_s$ inn i den supplerte definisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$:\n\n$$\\pi = \\alpha(q_i + v) + (1-\\alpha)(q_k + v + z_k + k - z_s)$$\n\nValutakursleddet står i begge parenteser med vektene $\\alpha$ og $1-\\alpha$, som summerer til én. Det kan derfor trekkes ut som ett enkelt $v$:\n\n$$\\boxed{\\;\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s)\\;}$$\n\n*Intuisjon, ledd for ledd:*\n\n- $\\alpha q_i$ — den delen av forbruket som er importert, arver prisveksten ute direkte.\n- $(1-\\alpha)q_k$ — den norskproduserte delen arver også prisveksten ute, men den lange veien: verdensmarkedet setter industriens priser, industriens priser setter lønna, og lønna setter prisene på tjenester.\n- $v$ — **valutakursveksten slår fullt ut, med koeffisient 1.** Krona treffer både importvarene direkte og de norske varene via lønnsdannelsen, og de to andelene summerer til hele forbruket.\n- $(1-\\alpha)(z_k - z_s)$ — produktivitetsforskjellen mellom sektorene. Høy produktivitetsvekst i industrien løfter lønnsevnen og dermed lønnsveksten for alle, mens tjenestesektoren ikke har produktivitet nok til å absorbere den. Resultatet er prispress på tjenester.\n- $(1-\\alpha)k$ — ekstraordinær lønnsvekst velter over i skjermede priser, men bare med vekten $1-\\alpha$: importprisene bryr seg ikke om norske lønnsoppgjør."
+    },
+    {
+      "id": "econ2310-5-2-def-w-redusert",
+      "type": "definition",
+      "title": "Redusert form for lønnsveksten",
+      "content": "Lønnsveksten uttrykt bare ved eksogene størrelser:\n\n$$w = q_k + v + z_k + k$$\n\nUttrykket sier at lønnsveksten i Norge bestemmes av verdensmarkedets priser på det industrien selger, av kronekursen, av produktivitetsveksten i industrien og av partenes avvik fra normen. En «redusert form» er nettopp dette: en likning der alt på høyre side er eksogent, slik at venstresiden kan leses av direkte."
+    },
+    {
+      "id": "econ2310-5-2-def-ps-redusert",
+      "type": "definition",
+      "title": "Redusert form for prisveksten i skjermet sektor",
+      "content": "$$p_s = q_k + v + z_k + k - z_s$$\n\nPrisveksten på skjermede varer og tjenester bestemmes altså av forhold utenfor sektoren — verdensmarkedspriser, valutakurs, industriens produktivitet og lønnsoppgjøret — korrigert for sektorens egen produktivitetsvekst. Det er koordinert lønnsdannelse som gjør dette mulig: uten felles lønnsvekst ville ikke industriens forhold slått inn i tjenesteprisene."
+    },
+    {
+      "id": "econ2310-5-2-def-pi-uttrykk",
+      "type": "definition",
+      "title": "Inflasjonsuttrykket i hovedkursmodellen",
+      "content": "$$\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s)$$\n\nKonsumprisveksten er et veid gjennomsnitt av prisveksten ute (importvarer med vekt $\\alpha$, konkurranseutsatte varer med vekt $1-\\alpha$), pluss hele valutakursveksten, pluss et innenlandsk ledd som fanger produktivitetsforskjellen mellom sektorene og lønnsoppgjørets avvik fra hovedkursen.\n\nUttrykket er kjerneresultatet i sjanger I og skal kunne utledes fra bunnen på under fem minutter — og tolkes ledd for ledd."
+    },
+    {
+      "id": "econ2310-5-2-def-v-ledd",
+      "type": "definition",
+      "title": "Valutakursleddets fulle gjennomslag",
+      "content": "At $v$ står med koeffisient 1 i inflasjonsuttrykket betyr at en kronesvekkelse på ett prosentpoeng løfter konsumprisveksten med ett prosentpoeng — fullt gjennomslag, uansett hvor stor importandelen er.\n\nGrunnen er at krona treffer begge deler av forbrukskurven: importvarene direkte (vekt $\\alpha$) og de norske varene gjennom lønnsdannelsen (vekt $1-\\alpha$). Vektene summerer til én.\n\n**Sammenlign med [kap. 3.2](/bok/econ2310/econ2310-3-2)**, der bare den direkte kanalen har vekt $\\alpha$ og virkningen på norske varepriser er ubestemt. Her ligger et skille du må kunne gjøre rede for, og det er **ikke bare et horisontskille** — det er to ulike teorier om hvordan lønna dannes:\n\n- **I kap. 3.2 (og i IS-RR-PK)** går kursen inn i norske priser via *aktiviteten*: svakere krone bedrer konkurranseevnen, aktiviteten stiger, ledigheten faller, lønnsveksten tar seg opp. Det er Phillips-kurve-mekanismen, og den er betinget — nettopp fordi sentralbanken kan svare med høyere rente og hindre at aktiviteten stiger i det hele tatt. Gjør den det, blir gjennomslaget i konsumprisveksten stående på $\\alpha$, også på lang sikt.\n- **I hovedkursmodellen** går kursen inn i norske priser via *lønnsevnen*: svakere krone løfter kroneprisene konkurranseutsatt sektor får, hovedkursen stiger, og frontfagsoppgjøret løfter lønna i hele økonomien — uavhengig av hva produksjonsgapet gjør. Derfor er gjennomslaget 1 og ikke $\\alpha$.\n\nBegge svar er riktige innenfor sin egen modell, men du må si **hvilken mekanisme** du bruker, ikke bare hvilken horisont. Horisonten hører med, siden hovedkursmodellen beskriver en tilstand der lønnsoppgjørene har rukket å tilpasse seg (og forutsetter at $k$ er uendret), mens kap. 3.2 ser på den umiddelbare virkningen. Men å si «det er bare snakk om kort og lang sikt» er for løst: da får du ikke forklart hvorfor en sterkt stabiliserende sentralbank *ikke* kan hindre det fulle gjennomslaget i hovedkursmodellen, mens den kan hindre det i kap. 3.2s apparat."
+    },
+    {
+      "id": "econ2310-5-2-def-produktivitetsledd",
+      "type": "definition",
+      "title": "Produktivitetsleddet $(1-\\alpha)(z_k - z_s)$",
+      "content": "Leddet som fanger at de to sektorene har ulik produktivitetsvekst. Høy produktivitetsvekst i konkurranseutsatt sektor løfter lønnsevnen der, og fordi lønnsdannelsen er koordinert, får hele arbeidslivet den samme lønnsveksten. Skjermet sektor må da dekke inn lønnsveksten gjennom prisene, siden produktiviteten der vokser saktere.\n\nKonsekvensen er at et land med rask produktivitetsvekst i industrien og treg produktivitetsvekst i tjenester får høyere inflasjon enn ellers — ikke på grunn av dårlig pengepolitikk, men som en ren strukturell konsekvens. Er $z_k = z_s$, forsvinner leddet."
+    },
+    {
+      "id": "econ2310-5-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Ledd-for-ledd-tolkning av inflasjonsuttrykket",
+      "problem": "Utled inflasjonsuttrykket i hovedkursmodellen, og gjør rede for hva hvert ledd betyr økonomisk.",
+      "solution": "**Utledningen.** Jeg supplerer først relasjonssettet med konsumprisdefinisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$, som ikke er oppgitt, men som er nødvendig for å si noe om prisveksten husholdningene møter.\n\nFra $p_k = q_k + v$ og $w = p_k + z_k + k$ får jeg $w = q_k + v + z_k + k$. Satt inn i $p_s = w - z_s$ gir det $p_s = q_k + v + z_k + k - z_s$. Med $p_i = q_i + v$ blir konsumprisveksten\n\n$$\\pi = \\alpha(q_i + v) + (1-\\alpha)(q_k + v + z_k + k - z_s) = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s).$$\n\n**Tolkningen.**\n\n*Prisveksten ute* kommer inn på to måter. Importvarene arver $q_i$ direkte, med vekten $\\alpha$. De norskproduserte varene arver $q_k$ indirekte, med vekten $1-\\alpha$: verdensmarkedet bestemmer industriens priser, industrien bestemmer lønnsveksten, og lønnsveksten bestemmer prisene i skjermet sektor.\n\n*Valutakursen* står alene, med koeffisient 1. En svakere krone løfter både importprisene og — gjennom lønnsdannelsen — de skjermede prisene, og siden vektene summerer til én, blir gjennomslaget fullt. Dette er et sterkt resultat: i denne modellen kan ikke en varig kronesvekkelse «absorberes» noe sted.\n\n*Produktivitetsforskjellen* $(1-\\alpha)(z_k - z_s)$ virker inflasjonsdrivende når industrien har raskere produktivitetsvekst enn tjenestesektoren. Lønnsevnen i industrien løfter lønnsveksten for alle, og tjenestesektoren må ta det ut i pris.\n\n*Den ekstraordinære lønnsveksten* $k$ slår inn med vekten $1-\\alpha$: et oppgjør over hovedkursen presser opp de norske prisene, men ikke importprisene.\n\n**Sammenfatning.** Norsk inflasjon er i denne modellen i hovedsak importert — enten direkte gjennom importvarene, indirekte gjennom industriens priser, eller gjennom valutakursen. Bare de to siste leddene er innenlandske, og bare det ene av dem, $k$, kan partene i arbeidslivet gjøre noe med."
+    },
+    {
+      "id": "econ2310-5-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-5-2-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.)\n\nSett $p_k = q_k + v$ inn i lønnsrelasjonen og finn den reduserte formen for lønnsveksten. Forklar i to setninger hva uttrykket sier.",
+        "solution": "$$w = p_k + z_k + k = q_k + v + z_k + k$$\n\nLønnsveksten i Norge er summen av prisveksten på det industrien selger ute, valutakursveksten, produktivitetsveksten i industrien og partenes avvik fra hovedkursen. De tre første leddene er lønnsevnen (hovedkursen), det siste er avviket — og alle fire er eksogene, altså bestemt utenfor selve lønnsdannelsen.",
+        "hints": [
+          "Bytt ut $p_k$ i lønnsrelasjonen med relasjonen som forklarer $p_k$."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-5-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-5-2-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — utledning med tolkning.)\n\n**a)** Utled uttrykket for prisveksten i skjermet sektor, uttrykt bare ved eksogene størrelser.\n**b)** En kommentator sier at «prisveksten på norske tjenester bestemmes av hvor grådige tjenestebedriftene er». Bruk uttrykket til å svare.",
+        "solution": "**a)** Fra $w = q_k + v + z_k + k$ og $p_s = w - z_s$:\n\n$$p_s = q_k + v + z_k + k - z_s$$\n\n**b)** Uttrykket inneholder ikke noe grådighetsledd. Prisveksten i skjermet sektor bestemmes av prisveksten på verdensmarkedet, kronekursen, produktivitetsveksten i industrien og lønnsoppgjørets avvik fra hovedkursen — korrigert for sektorens egen produktivitetsvekst. Alt dette ligger utenfor den enkelte tjenestebedrifts kontroll.\n\nModellen forutsetter riktignok et uendret påslag i skjermet sektor. Stiger påslaget, vil prisveksten der bli høyere enn uttrykket tilsier — men det er en endring i en forutsetning, ikke noe modellen sier noe om. Poenget står: den store bevegelsen i tjenesteprisene kommer fra lønnsveksten, som er forankret i konkurranseutsatt sektor.",
+        "hints": [
+          "Bruk resultatet fra oppgave 1 og sett det inn i prisrelasjonen for skjermet sektor.",
+          "I b): les hvilke størrelser som faktisk står i uttrykket — og hvilke som ikke gjør det."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Reallønnsveksten (~20 min)"
+    },
+    {
+      "id": "econ2310-5-2-l2-hvorfor",
+      "type": "text",
+      "content": "Nominell lønnsvekst sier lite alene. Får du 6 prosent mer i lønn mens prisene stiger med 6 prosent, står du på stedet hvil. Det som betyr noe for kjøpekraften, er **reallønnsveksten** $w - \\pi$.\n\nI hovedkursmodellen har vi begge deler på redusert form allerede, så det er bare å trekke fra."
+    },
+    {
+      "id": "econ2310-5-2-l2-utledning",
+      "type": "text",
+      "content": "### Utledningen\n\n$$w - \\pi = \\underbrace{(q_k + v + z_k + k)}_{w} - \\underbrace{\\big[\\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s)\\big]}_{\\pi}$$\n\nRydd ledd for ledd. Valutakursleddet $v$ står i begge og faller ut. For $q_k$ står $1$ i første parentes og $1-\\alpha$ i andre, altså blir det igjen $\\alpha q_k$. På samme måte gir $z_k$ og $k$ hver seg igjen med faktoren $\\alpha$. Importprisveksten står bare i $\\pi$, med negativt fortegn og vekt $\\alpha$. Og $z_s$ sto med negativt fortegn inne i $\\pi$-parentesen, så det kommer ut positivt med vekt $1-\\alpha$:\n\n$$\\boxed{\\;w - \\pi = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k\\;}$$\n\n*Intuisjon, ledd for ledd:*\n\n- $\\alpha(q_k - q_i)$ — **bytteforholdet.** Stiger prisene på det Norge selger raskere enn prisene på det Norge kjøper, blir landet rikere, og reallønnsveksten øker. Leddet veier med importandelen, fordi det bare er den importerte delen av forbruket som gjør bytteforholdet relevant for kjøpekraften.\n- $\\alpha z_k + (1-\\alpha)z_s$ — **produktivitetsveksten i økonomien**, veid med sektorenes vekt i forbruket. Dette er den grunnleggende kilden til varig reallønnsvekst: mer produksjon per time gir mer å fordele.\n- $\\alpha k$ — den ekstraordinære lønnsveksten. Et oppgjør over hovedkursen gir *noe* høyere reallønnsvekst, men bare med vekten $\\alpha$: en stor del av den nominelle lønnsveksten spises opp av at norske priser stiger i takt.\n\n**Og legg merke til hva som IKKE står der:** valutakursveksten $v$ er borte. Det er kanskje det mest slående resultatet i hele modellen."
+    },
+    {
+      "id": "econ2310-5-2-def-reallonn-uttrykk",
+      "type": "definition",
+      "title": "Reallønnsvekstuttrykket i hovedkursmodellen",
+      "content": "$$w - \\pi = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k$$\n\nReallønnsveksten bestemmes av tre ting: bytteforholdet mot utlandet, produktivitetsveksten i økonomien (veid med sektorenes forbruksvekt) og lønnsoppgjørets avvik fra hovedkursen.\n\nTo ting mangler bevisst: **valutakursveksten $v$ faller helt ut**, og prisveksten ute virker bare gjennom *differansen* $q_k - q_i$, ikke gjennom nivået. Begge deler er sentrale eksamenspoenger."
+    },
+    {
+      "id": "econ2310-5-2-def-bytteforhold",
+      "type": "definition",
+      "title": "Bytteforholdet på vekstrateform",
+      "content": "Forholdet mellom prisene på det landet eksporterer og prisene på det landet importerer. På vekstrateform er endringen i bytteforholdet $q_k - q_i$.\n\nEr $q_k > q_i$, forbedres bytteforholdet: Norge får mer importerte varer igjen for hver enhet det selger. Det er en ekte velstandsøkning som ikke krever at noen jobber hardere, og i hovedkursmodellen kommer den fram som et positivt bidrag til reallønnsveksten, veid med importandelen $\\alpha$.\n\nNorsk økonomi har erfart begge retninger: høye gasspriser bedrer bytteforholdet kraftig, mens dyrere importerte innsatsvarer forverrer det."
+    },
+    {
+      "id": "econ2310-5-2-def-v-noytral",
+      "type": "definition",
+      "title": "Valutakursnøytraliteten for reallønnsveksten",
+      "content": "At $v$ ikke står i uttrykket for $w - \\pi$ betyr at valutakursveksten i denne modellen ikke påvirker reallønnsveksten i det hele tatt — den løfter lønnsveksten og konsumprisveksten *like mye*.\n\nMekanismen: en svakere krone løfter kroneprisene industrien får, som løfter lønnsevnen og dermed lønnsveksten med hele $v$; samtidig løfter den konsumprisveksten med hele $v$, direkte via importvarene og indirekte via lønnsdannelsen. De to effektene er like store og nøytraliserer hverandre.\n\n**Forbeholdet du må si høyt:** resultatet gjelder *gitt $k$*, altså under forutsetning av at lønnsdannelsen faktisk følger hovedkursen. I praksis tar det tid før lønnsoppgjørene fanger opp en kronesvekkelse, og i mellomtiden faller reallønna — det svarer til en periode med negativ $k$."
+    },
+    {
+      "id": "econ2310-5-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: «Krona har svekket seg — blir vi fattigere?»",
+      "problem": "En avis skriver at kronesvekkelsen «gjør nordmenn fattigere fordi alt importert blir dyrere». Bruk hovedkursmodellen til å vurdere påstanden.",
+      "solution": "**Modellsvaret er nei — i alle fall ikke på den horisonten modellen beskriver.**\n\nFra uttrykket for reallønnsveksten,\n\n$$w - \\pi = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k,$$\n\nser vi at valutakursveksten $v$ ikke inngår. En kronesvekkelse løfter riktignok konsumprisveksten med hele $v$ — det stemmer at importerte varer blir dyrere. Men den løfter også lønnsveksten med hele $v$: kroneprisene i industrien stiger, lønnsevnen der stiger, og fordi frontfaget er normgivende, stiger lønnsveksten i hele økonomien. Netto er kjøpekraftsveksten upåvirket.\n\n**Der avisen har et poeng.** Resultatet forutsetter at lønnsdannelsen faktisk følger hovedkursen, altså at $k$ er uendret. Lønnsoppgjør holdes én gang i året, mens kronekursen endrer seg daglig. I året etter en brå kronesvekkelse vil derfor prisene ha steget før lønna har fulgt etter, og reallønna faller. I modellspråk: kronesvekkelsen gir en periode med negativ $k$, som ifølge uttrykket trekker reallønnsveksten ned med $\\alpha k$.\n\n**Konklusjon, skarpt formulert:** en kronesvekkelse er ikke en varig velstandsreduksjon i denne modellen, men den flytter kjøpekraft bort fra lønnstakerne i overgangsperioden — og den bedrer samtidig lønnsomheten i konkurranseutsatt sektor, siden negativ $k$ betyr at lønnskostnadene vokser saktere enn prisene bedriftene får.\n\n**Merk hva som ville vært en ekte varig forverring:** at $q_i$ stiger raskere enn $q_k$, altså et forverret bytteforhold. Da faller reallønnsveksten permanent, med $\\alpha(q_k - q_i) < 0$. Det er en helt annen mekanisme enn en kursbevegelse, og den forveksles ofte med den."
+    },
+    {
+      "id": "econ2310-5-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-5-2-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — utledning med tolkning.)\n\nUtled uttrykket for reallønnsveksten $w - \\pi$ fra de reduserte formene, og forklar de tre leddene økonomisk. Kommentér også hvilken størrelse som faller ut, og hvorfor.",
+        "solution": "Med $w = q_k + v + z_k + k$ og $\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s)$:\n\n$$w - \\pi = q_k + v + z_k + k - \\alpha q_i - (1-\\alpha)q_k - v - (1-\\alpha)(z_k + k) + (1-\\alpha)z_s$$\n$$= \\alpha q_k - \\alpha q_i + \\alpha(z_k + k) + (1-\\alpha)z_s = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k$$\n\n**Tolkning.** Leddet $\\alpha(q_k - q_i)$ er bytteforholdet: stiger eksportprisene raskere enn importprisene, får landet mer igjen for det det selger, og kjøpekraften øker. Leddene $\\alpha z_k + (1-\\alpha)z_s$ er produktivitetsveksten i økonomien veid med sektorenes andel av forbruket — den grunnleggende kilden til varig reallønnsvekst. Leddet $\\alpha k$ sier at et oppgjør over hovedkursen gir noe høyere kjøpekraft, men bare delvis: den nominelle lønnsveksten velter i stor grad over i norske priser og spiser seg selv opp.\n\n**Det som faller ut, er valutakursveksten $v$.** Den løfter lønnsveksten og konsumprisveksten nøyaktig like mye — lønnsveksten fordi kroneprisene i industrien stiger, og konsumprisveksten fordi både importvarene og (via lønna) de skjermede varene blir dyrere. Effektene nøytraliserer hverandre, gitt at lønnsdannelsen følger hovedkursen.",
+        "hints": [
+          "Trekk uttrykket for $\\pi$ fra uttrykket for $w$, og samle ett symbol om gangen.",
+          "Se særlig etter hvilke ledd som står med koeffisient 1 i begge uttrykk."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-5-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-5-2-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I. Fortegnsdrill — svarene skal IKKE alle gå samme vei.)\n\nBruk uttrykkene for $\\pi$ og $w - \\pi$ og angi fortegnet på virkningen av hver isolerte endring. Begrunn hver med én setning.\n\n**a)** Prisveksten på importvarer ute, $q_i$, øker.\n**b)** Produktivitetsveksten i skjermet sektor, $z_s$, øker.\n**c)** Produktivitetsveksten i konkurranseutsatt sektor, $z_k$, øker.\n**d)** Valutakursveksten $v$ øker (krona svekkes raskere).",
+        "solution": "**a)** $q_i$ opp: $\\pi$ **opp** med $\\alpha$ — importvarene i forbrukskurven blir dyrere. $w - \\pi$ **ned** med $\\alpha$ — lønnsveksten påvirkes ikke (importpriser inngår ikke i industriens lønnsevne), mens prisene stiger, så kjøpekraften faller. Bytteforholdet er forverret.\n\n**b)** $z_s$ opp: $\\pi$ **ned** med $1-\\alpha$ — tjenestesektoren kan dekke lønnsveksten med mindre prisøkning. $w - \\pi$ **opp** med $1-\\alpha$ — samme lønnsvekst, lavere priser, altså høyere kjøpekraft.\n\n**c)** $z_k$ opp: $\\pi$ **opp** med $1-\\alpha$ — høyere lønnsevne i industrien gir høyere lønnsvekst for alle, og skjermet sektor må ta det ut i pris. $w - \\pi$ **opp** med $\\alpha$ — lønnsveksten stiger med hele $z_k$, mens prisveksten bare stiger med $(1-\\alpha)z_k$, så netto kjøpekraft øker.\n\n**d)** $v$ opp: $\\pi$ **opp** med 1 — fullt gjennomslag, både direkte på importvarene og via lønnsdannelsen på de norske. $w - \\pi$ **uendret** — lønnsveksten stiger like mye som prisveksten, gitt at lønnsdannelsen følger hovedkursen.\n\nLegg merke til at c) er den eneste endringen som løfter både inflasjonen og kjøpekraften, og at høyere produktivitetsvekst i de to sektorene virker *motsatt* på inflasjonen. Det er verdt å kunne forklare uoppfordret.",
+        "hints": [
+          "Les koeffisienten foran hvert symbol i de to uttrykkene — fortegnene ligger der.",
+          "Husk at $z_k$ står i BEGGE uttrykk, men med ulik vekt, mens $z_s$ bare står i det ene med hvert fortegn.",
+          "Fasitene her går ikke alle samme vei — sjekk hvert ledd for seg."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Spesialtilfellet og prissjokket ute (~20 min)"
+    },
+    {
+      "id": "econ2310-5-2-l3-spesial",
+      "type": "text",
+      "content": "De to uttrykkene er komplette, men litt tunge å snakke om. Derfor gjør eksamensoppgavene nesten alltid to forenklinger, og du bør gjøre dem selv når spørsmålet er kvalitativt:\n\n- **prisveksten ute er den samme på det vi kjøper og det vi selger:** $q_k = q_i = \\pi^*$ (utenlandsk inflasjon),\n- **produktivitetsveksten er den samme i begge sektorer:** $z_k = z_s = z$.\n\nSett dette inn i inflasjonsuttrykket. De to første leddene blir $\\alpha \\pi^* + (1-\\alpha)\\pi^* = \\pi^*$, og i det siste leddet står $z_k - z_s = 0$ igjen, slik at bare $k$ blir stående:\n\n$$\\boxed{\\;\\pi = \\pi^* + v + (1-\\alpha)k\\;}$$\n\nOg i reallønnsuttrykket forsvinner bytteforholdsleddet ($q_k - q_i = 0$), mens produktivitetsleddene blir $\\alpha z + (1-\\alpha)z = z$:\n\n$$\\boxed{\\;w - \\pi = z + \\alpha k\\;}$$\n\nTo linjer, og alt det viktige står der."
+    },
+    {
+      "id": "econ2310-5-2-def-spesialtilfellet",
+      "type": "definition",
+      "title": "Spesialtilfellet i hovedkursmodellen",
+      "content": "Forenklingen $q_k = q_i = \\pi^*$ (lik prisvekst ute på det vi kjøper og selger) og $z_k = z_s = z$ (lik produktivitetsvekst i begge sektorer). Resultatet er de to rene uttrykkene\n\n$$\\pi = \\pi^* + v + (1-\\alpha)k, \\qquad w - \\pi = z + \\alpha k.$$\n\nForenklingen er legitim og forventet, men den er en **forutsetning du må si eksplisitt at du gjør** — og deretter holde gjennom hele besvarelsen. Skal du drøfte bytteforholdet eller forskjellen i produktivitetsvekst mellom sektorene, må du tilbake til de fulle uttrykkene."
+    },
+    {
+      "id": "econ2310-5-2-def-en-til-en",
+      "type": "definition",
+      "title": "Én-til-én-gjennomslaget fra utenlandsk inflasjon",
+      "content": "I spesialtilfellet er $\\pi = \\pi^* + v + (1-\\alpha)k$. Med uendret valutakurs og lønnsdannelse etter hovedkursen ($v = k = 0$) er norsk inflasjon nøyaktig lik utenlandsk: $\\pi = \\pi^*$.\n\nMed andre ord importerer en liten åpen økonomi med koordinert lønnsdannelse og fast kurs prisveksten ute — helt og fullt. Norge er ikke herre over sin egen inflasjon i denne modellen, med mindre kursen eller lønnsdannelsen brukes aktivt.\n\nDette er kjerneresultatet du bør kunne formulere i én setning på eksamen."
+    },
+    {
+      "id": "econ2310-5-2-def-reallonn-spesial",
+      "type": "definition",
+      "title": "Reallønnsveksten i spesialtilfellet",
+      "content": "$$w - \\pi = z + \\alpha k$$\n\nKjøpekraften vokser med produktivitetsveksten, pluss et bidrag fra ekstraordinær lønnsvekst veid med importandelen. To ting følger direkte:\n\n- **Utenlandsk inflasjon påvirker ikke reallønnsveksten** — $\\pi^*$ står ikke i uttrykket. Prisveksten ute løfter norske lønninger og norske priser like mye.\n- **Er $k < 0$, vokser reallønna saktere enn produktiviteten.** Lønnstakerne får da ikke hele produktivitetsgevinsten; resten tilfaller eierne i form av bedret lønnsomhet. Dette er utgangspunktet for tolkningen i [kap. 5.3](/bok/econ2310/econ2310-5-3)."
+    },
+    {
+      "id": "econ2310-5-2-def-inflasjonsmaal-k",
+      "type": "definition",
+      "title": "Inflasjonsmål og kravet om negativ $k$",
+      "content": "Fra $\\pi = \\pi^* + v + (1-\\alpha)k$ følger at dersom prisveksten ute ligger over inflasjonsmålet og krona ikke styrkes ($v \\geq 0$), må den ekstraordinære lønnsveksten være **negativ** for at norsk inflasjon skal nå målet:\n\n$$(1-\\alpha)k = \\pi^{\\text{mål}} - \\pi^* - v.$$\n\nPolitisk er dette en ubehagelig konklusjon: å nå inflasjonsmålet uten kronestyrking krever lønnsoppgjør under hovedkursen, altså at lønnstakerne tar en reallønnsvekst lavere enn produktivitetsveksten. Alternativet er at krona styrkes ($v < 0$), som isteden legger byrden på konkurranseutsatt sektor gjennom svakere kroneinntekter — men merk at *marginveksten* i sektoren er $-k$ og dermed uavhengig av $v$: byrden går gjennom lavere eksportvolum, og gjennom at en kursbevegelse etter et avtalt oppgjør gjør $k$ midlertidig positiv. Mekanismen er utdypet i [kap. 5.3](/bok/econ2310/econ2310-5-3).\n\nSammenhengen drøftes videre i [kap. 5.3](/bok/econ2310/econ2310-5-3)."
+    },
+    {
+      "id": "econ2310-5-2-def-prissjokk-ute",
+      "type": "definition",
+      "title": "Prissjokk ute",
+      "content": "En eksogen økning i prisveksten på verdensmarkedet — $q_k$ og/eller $q_i$ opp. Dette er standardsjokket i sjanger I og har vært utgangspunktet begge gangene hovedkursmodellen har båret et sett.\n\nEr sjokket symmetrisk ($q_k$ og $q_i$ opp like mye, altså $\\pi^*$ opp), stiger norsk inflasjon én-til-én mens reallønnsveksten er upåvirket. Er sjokket asymmetrisk, endres bytteforholdet i tillegg, og reallønnsveksten påvirkes med $\\alpha(q_k - q_i)$. Å skille de to tilfellene er en billig måte å vise presisjon på."
+    },
+    {
+      "id": "econ2310-5-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Internasjonalt prisløft (sjanger I, eksamensnivå)",
+      "problem": "Prisene stiger raskt hos Norges handelspartnere, både på varer Norge importerer og på varer Norge eksporterer. Bruk hovedkursmodellen til å avgjøre hva som skjer med norsk inflasjon og reallønnsvekst. Utled uttrykkene du trenger, og tolk leddene.",
+      "solution": "**Forutsetninger jeg legger til grunn.** Jeg supplerer relasjonssettet med konsumprisdefinisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$, som ikke er oppgitt. Jeg antar først at prisveksten ute stiger like mye på import- og eksportvarer, altså $q_k = q_i = \\pi^*$, og at produktivitetsveksten er den samme i begge sektorer, $z_k = z_s = z$. Jeg holder valutakursveksten $v$ og den ekstraordinære lønnsveksten $k$ uendret, og drøfter til slutt hva som skjer om disse forutsetningene svikter.\n\n**Utledningen.** Fra $p_k = q_k + v$ og $w = p_k + z_k + k$ får jeg $w = q_k + v + z_k + k$. Med $p_s = w - z_s$ og $p_i = q_i + v$ gir konsumprisdefinisjonen\n\n$$\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s), \\qquad w - \\pi = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k.$$\n\nUnder forutsetningene mine forenkles disse til\n\n$$\\pi = \\pi^* + v + (1-\\alpha)k, \\qquad w - \\pi = z + \\alpha k.$$\n\n**Svaret på inflasjonen.** Norsk inflasjon stiger én-til-én med den utenlandske. Mekanismen går to veier samtidig: de importerte varene i forbrukskurven blir direkte dyrere, og de norskproduserte blir dyrere fordi høyere verdensmarkedspriser løfter lønnsevnen i konkurranseutsatt sektor, som gjennom frontfagsoppgjøret løfter lønnsveksten i hele økonomien, som skjermet sektor tar ut i pris. Norge importerer altså prisveksten fullstendig — med uendret kurs og uendret $k$.\n\n**Svaret på reallønnsveksten.** Den er upåvirket: $\\pi^*$ står ikke i uttrykket $w - \\pi = z + \\alpha k$. Nominelle lønninger og konsumpriser stiger like mye, og kjøpekraften vokser fortsatt med produktivitetsveksten. Dette er et resultat som overrasker mange, og det er verdt å si eksplisitt: høy importert inflasjon er ikke i seg selv et velstandstap i denne modellen.\n\n— naturlig pausepunkt —\n\n**Når forutsetningene svikter — tre forbehold jeg vil ha med.**\n\n*Asymmetrisk sjokk.* Stiger importprisene mer enn eksportprisene ($q_i > q_k$), forverres bytteforholdet, og leddet $\\alpha(q_k - q_i)$ blir negativt: reallønnsveksten faller. Det er dette som skjedde da energi- og innsatsvarepriser steg kraftig uten tilsvarende løft i det Norge selger. Her er velstandstapet ekte, og det kan ikke forhandles bort — det er et *realt* tap som må bæres et sted.\n\n*Tidsforløpet.* Lønnsoppgjør holdes én gang i året, mens importprisene endrer seg fortløpende. I overgangen stiger prisene før lønna, altså en periode med negativ $k$: reallønnsveksten faller med $\\alpha k$, mens lønnsomheten i konkurranseutsatt sektor bedres tilsvarende. Modellen beskriver punktet der tilpasningen er fullført.\n\n*Inflasjonsmålet.* Med $\\pi = \\pi^* + v + (1-\\alpha)k$ ser vi at norsk inflasjon bare kan bringes tilbake til målet på to måter: krona styrkes ($v < 0$), eller lønnsveksten legges under hovedkursen ($k < 0$). Sentralbanken kan påvirke det første gjennom renta; det andre ligger hos partene i arbeidslivet. Dette er broen til rentemodellen, og temaet i [kap. 5.3](/bok/econ2310/econ2310-5-3).\n\n**Konklusjon.** Et symmetrisk internasjonalt prisløft gir full gjennomslag i norsk inflasjon og ingen varig endring i kjøpekraften. Det er asymmetrien — at det vi kjøper blir dyrere enn det vi selger — og forsinkelsen i lønnsdannelsen som gjør at et prissjokk ute likevel oppleves som et velstandstap."
+    },
+    {
+      "id": "econ2310-5-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-5-2-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — spesialtilfellet.)\n\nVis at spesialtilfellet $q_k = q_i = \\pi^*$ og $z_k = z_s = z$ gir $\\pi = \\pi^* + v + (1-\\alpha)k$ og $w - \\pi = z + \\alpha k$. Forklar deretter, i to setninger, hvorfor utenlandsk inflasjon ikke står i det siste uttrykket.",
+        "solution": "**Inflasjonen.** I $\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s)$ gir $q_k = q_i = \\pi^*$ at de to første leddene blir $\\alpha \\pi^* + (1-\\alpha)\\pi^* = \\pi^*$, og $z_k = z_s$ gir at $z_k - z_s = 0$. Altså $\\pi = \\pi^* + v + (1-\\alpha)k$.\n\n**Reallønnsveksten.** I $w - \\pi = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k$ gir $q_k = q_i$ at bytteforholdsleddet blir null, og $z_k = z_s = z$ gir $\\alpha z + (1-\\alpha)z = z$. Altså $w - \\pi = z + \\alpha k$.\n\n**Hvorfor $\\pi^*$ mangler:** når prisveksten ute er den samme på det Norge kjøper og det Norge selger, løfter den lønnsevnen i konkurranseutsatt sektor — og dermed lønnsveksten i hele økonomien — nøyaktig like mye som den løfter konsumprisveksten. Kjøpekraften er derfor uberørt, gitt at lønnsdannelsen følger hovedkursen.",
+        "hints": [
+          "Bruk at $\\alpha + (1-\\alpha) = 1$ når du samler de to første leddene i inflasjonsuttrykket.",
+          "I reallønnsuttrykket: hva blir $q_k - q_i$ når de to er like?"
+        ]
+      }
+    },
+    {
+      "id": "econ2310-5-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-5-2-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — politikkoblingen.)\n\nPrisveksten hos handelspartnerne ligger på 5 prosent, mens det norske inflasjonsmålet er 2 prosent. Anta spesialtilfellet.\n\n**a)** Skriv opp betingelsen som må være oppfylt for at norsk inflasjon skal treffe målet.\n**b)** Drøft kort de to måtene betingelsen kan oppfylles på, og hvem som bærer byrden i hvert tilfelle.",
+        "solution": "**a)** Fra $\\pi = \\pi^* + v + (1-\\alpha)k$ og kravet $\\pi = \\pi^{\\text{mål}}$:\n\n$$v + (1-\\alpha)k = \\pi^{\\text{mål}} - \\pi^*$$\n\nMed prisvekst ute over målet er høyresiden negativ, så $v$ og/eller $k$ må være negativ.\n\n**b)** *Kronestyrking ($v < 0$).* En sterkere krone trekker kroneprisene på både import- og eksportvarer ned. Byrden bæres da av konkurranseutsatt sektor: kroneinntektene svekkes uten at kostnadene faller tilsvarende, altså presses lønnsomheten. Sentralbanken kan påvirke kursen gjennom renta.\n\n*Lønnsvekst under hovedkursen ($k < 0$).* Da bæres byrden av lønnstakerne: fra $w - \\pi = z + \\alpha k$ ser vi at reallønnsveksten blir lavere enn produktivitetsveksten. Til gjengjeld bedres lønnsomheten i konkurranseutsatt sektor, siden lønnskostnadene vokser saktere enn prisene bedriftene får.\n\nPoenget er at prisveksten ute må absorberes et sted. Modellen sier ikke hvem som *bør* ta den, men den viser at valget står mellom eierne i konkurranseutsatt sektor og lønnstakerne — og at det ikke finnes noen tredje utvei så lenge forutsetningene holder.",
+        "hints": [
+          "Sett $\\pi$ lik målet i uttrykket for spesialtilfellet og løs for det som kan endres.",
+          "I b): sjekk hva hver av de to størrelsene gjør med reallønnsuttrykket $w - \\pi = z + \\alpha k$."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-5-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-5-2-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I, krevende. Asymmetrisk sjokk — her holder ikke spesialtilfellet.)\n\nEnergiprisene i Europa skyter i været. For Norge betyr det at prisveksten på det landet *importerer* av innsatsvarer og forbruksvarer, $q_i$, stiger kraftig, mens prisveksten på det landet *eksporterer*, $q_k$, stiger enda mer, fordi Norge selv selger energi.\n\n**a)** Bruk de fulle uttrykkene til å bestemme hva som skjer med norsk inflasjon og med reallønnsveksten.\n**b)** Forklar hvorfor du her IKKE kan bruke spesialtilfellet, og hva du ville mistet om du gjorde det.\n**c)** Vurder påstanden: «Når både import- og eksportprisene stiger, går det opp i opp for norsk økonomi.»",
+        "solution": "**a)** *Inflasjonen.* Fra $\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s)$ stiger begge de to første leddene, og siden vektene er positive og summerer til én, stiger $\\pi$ entydig — med et veid gjennomsnitt av de to prisvekstene ute. Både importvarene blir direkte dyrere, og de norskproduserte blir dyrere fordi høyere eksportpriser løfter lønnsevnen i konkurranseutsatt sektor og dermed lønnsveksten for alle.\n\n*Reallønnsveksten.* Fra $w - \\pi = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k$ er det bare differansen som betyr noe. Siden $q_k$ stiger mer enn $q_i$, er $q_k - q_i > 0$: bytteforholdet forbedres, og reallønnsveksten **stiger** med $\\alpha(q_k - q_i)$.\n\nKonklusjonen er altså at norsk inflasjon stiger *samtidig* som kjøpekraften vokser raskere. Det er ikke en selvmotsigelse: nominelle lønninger stiger mer enn prisene, fordi lønnsevnen i eksportsektoren har økt mer enn levekostnadene.\n\n**b)** Spesialtilfellet forutsetter $q_k = q_i$. Her er hele poenget at de to er forskjellige. Brukte du spesialtilfellet, ville du fått $w - \\pi = z + \\alpha k$ og konkludert med at kjøpekraften er upåvirket — altså mistet hele bytteforholdseffekten, som er den økonomisk interessante mekanismen i denne situasjonen. Forenklingen ville dessuten skjult forskjellen mellom Norge og et land som bare importerer energi, der $q_i > q_k$ gir motsatt fortegn og fallende reallønn.\n\n**c)** Påstanden er feil, og den er feil på en presis måte. Det er ikke *nivået* på prisveksten ute som avgjør kjøpekraften, men *differansen* mellom eksport- og importprisvekst. Går begge opp like mye, går det riktignok opp i opp for reallønnsveksten (men ikke for inflasjonen, som stiger). Går eksportprisene mest opp, som her, blir Norge rikere. Går importprisene mest opp, blir Norge fattigere, og tapet kan ikke forhandles bort — det må fordeles mellom lønnstakere (gjennom $k < 0$) og eiere.\n\nAt Norge tjener på et generelt energiprissjokk mens de fleste europeiske land taper, er nettopp bytteforholdsleddet i arbeid.",
+        "hints": [
+          "Skriv opp begge fulle uttrykk før du gjør noe annet, og se hvilke ledd som endres.",
+          "I reallønnsuttrykket inngår de utenlandske prisvekstene bare på én bestemt måte — finn den.",
+          "I c): skill mellom hva som skjer med inflasjonen og hva som skjer med kjøpekraften."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-5-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å hoppe over suppleringen.** Begynner du å regne uten å ha skrevet ned $\\pi = \\alpha p_i + (1-\\alpha)p_s$, har du ingen konsumprisvekst å regne på — og du mister et poeng sensorveiledningene fremhever *(feil #4 — å ikke skille konsumprisveksten fra prisveksten på norske varer)*.\n- **Slurv i innsettingen.** Den vanligste er å glemme minustegnet foran $z_s$ når parentesen ganges ut, eller å la $v$ stå igjen med feil vekt. Kontrollen er enkel: koeffisienten foran $v$ i $\\pi$ skal være nøyaktig 1, og $v$ skal *ikke* stå i $w - \\pi$ i det hele tatt.\n- **Å utlede uten å tolke** *(feil #7 — bare regne, ikke forklare)*. To bokser med uttrykk og ingen ord er en mekanisk besvarelse. Regelen: én setning per ledd.\n- **Å bruke spesialtilfellet på et asymmetrisk sjokk.** Setter du $q_k = q_i$ når oppgaven handler om at importprisene stiger mer enn eksportprisene, forsvinner nettopp den mekanismen som spørsmålet handler om.\n- **Å ikke si hvilke forutsetninger du gjør** *(feil #9 — inkonsistente forutsetninger)*. Velger du spesialtilfellet, skal det stå én setning om at du gjør det, og forutsetningen skal holdes ut hele besvarelsen.\n- **Å tro at høy importert inflasjon automatisk betyr lavere reallønn.** I modellen er reallønnsveksten upåvirket av et symmetrisk prisløft ute. Velstandstapet kommer fra bytteforholdet eller fra forsinkelsen i lønnsdannelsen — si hvilken av delene du mener."
+    },
+    {
+      "id": "econ2310-5-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2310-5-2-def-innsettingsmetoden",
+      "type": "definition",
+      "title": "Innsettingsmetoden i hovedkursmodellen",
+      "content": "Fremgangsmåten for å komme fra relasjonssettet til de reduserte formene: start med den relasjonen som inneholder endogene størrelser, og bytt dem ut med relasjonene som forklarer dem, til bare eksogene størrelser står igjen.\n\nRekkefølgen i hovedkursmodellen er fast: $p_k$ inn i $w$, deretter $w$ inn i $p_s$, deretter $p_s$ og $p_i$ inn i konsumprisdefinisjonen. Tre innsettinger. Øv til du kan gjøre dem uten å tenke, for på eksamen er selve algebraen ikke der poengene ligger."
+    },
+    {
+      "id": "econ2310-5-2-def-redusert-form-5-2",
+      "type": "definition",
+      "title": "Redusert form",
+      "content": "En likning der en endogen variabel står alene på venstre side og bare eksogene størrelser og parametre står på høyre. Da kan virkningen av ethvert sjokk leses direkte av koeffisientene.\n\nI hovedkursmodellen er $\\pi$-uttrykket og $(w-\\pi)$-uttrykket reduserte former. Begrepet går igjen i hele emnet: i den åpne IS-RR-PK-modellen er $Y$-uttrykket den reduserte formen, og sensorkravet der er at du «åpner panseret» og sporer hva som ligger bak."
+    },
+    {
+      "id": "econ2310-5-2-def-ledd-for-ledd",
+      "type": "definition",
+      "title": "Ledd-for-ledd-tolkning",
+      "content": "Kravet om at hvert ledd i et utledet uttrykk skal forklares økonomisk: hva står leddet for, hvorfor har det det fortegnet det har, og hvorfor akkurat den vekten?\n\nDette er føringsstandarden i sjanger I. En utledning uten tolkning regnes som en mekanisk besvarelse, mens en tolkning uten utledning ofte blir upresis. Begge deler kreves — og tolkningen er den delen som tar minst plass og gir mest."
+    },
+    {
+      "id": "econ2310-5-2-def-konsistenskrav",
+      "type": "definition",
+      "title": "Konsistenskravet",
+      "content": "Regelen om at forutsetningene du velger, skal sies eksplisitt og holdes gjennom hele besvarelsen. I hovedkursmodellen gjelder det særlig valget mellom de fulle uttrykkene og spesialtilfellet, og om du holder $k$ fast eller lar den bevege seg.\n\nSensorveiledningene aksepterer gjennomgående flere spor, så lenge antakelsen står der og analysen er konsekvent. Å bytte spor midtveis — for eksempel å anta $q_k = q_i$ i én deloppgave og drøfte bytteforholdet i den neste uten å nevne det — trekker ned selv når begge delene isolert er riktige."
+    },
+    {
+      "id": "econ2310-5-2-def-importandel-gjennomslag",
+      "type": "definition",
+      "title": "Importandelens rolle for gjennomslaget",
+      "content": "Importandelen $\\alpha$ styrer hvordan et sjokk fordeler seg mellom de to kanalene, men ikke alltid hvor stort det samlede gjennomslaget blir.\n\nFor valutakursen spiller $\\alpha$ ingen rolle for totalen: gjennomslaget i $\\pi$ er 1 uansett, fordi det som ikke går direkte gjennom importvarene, går indirekte gjennom lønnsdannelsen. For ekstraordinær lønnsvekst er derimot $\\alpha$ avgjørende: $k$ slår inn i inflasjonen med vekt $1-\\alpha$ og i reallønnsveksten med vekt $\\alpha$. Et land med høy importandel får altså mindre inflasjon, men mer reallønnsvekst, ut av et raust lønnsoppgjør."
+    },
+    {
+      "id": "econ2310-5-2-def-kroneappresiering",
+      "type": "definition",
+      "title": "Kronestyrking og kronesvekkelse i vekstrateform",
+      "content": "$v < 0$ betyr at krona styrkes (appresierer), $v > 0$ at den svekkes (depresierer). I hovedkursmodellen virker $v$ på to steder samtidig: den løfter kroneprisene på importvarer direkte, og den løfter kroneprisene i konkurranseutsatt sektor, som via lønnsdannelsen løfter de skjermede prisene.\n\nDerfor står $v$ med koeffisient 1 i inflasjonsuttrykket og med koeffisient 0 i reallønnsuttrykket. En kronestyrking er i denne modellen et rent inflasjonsdempende virkemiddel — som til gjengjeld svekker lønnsomheten i konkurranseutsatt sektor."
+    },
+    {
+      "id": "econ2310-5-2-def-noytralitet",
+      "type": "definition",
+      "title": "Nøytralitetsresultatet for utenlandsk inflasjon",
+      "content": "I spesialtilfellet påvirker ikke utenlandsk inflasjon $\\pi^*$ reallønnsveksten: $w - \\pi = z + \\alpha k$. Prisveksten ute løfter norske lønninger og norske priser like mye.\n\nResultatet er nyttig fordi det skiller to ting som ofte blandes sammen i den offentlige debatten: *inflasjon* (et nominelt fenomen, som modellen sier importeres én-til-én) og *kjøpekraft* (et realt fenomen, som avhenger av produktivitet, bytteforhold og lønnsoppgjørets avvik). Å holde de to fra hverandre er den enkleste måten å vise modellforståelse på i denne sjangeren."
+    },
+    {
+      "id": "econ2310-5-2-def-lonnsandel",
+      "type": "definition",
+      "title": "Fordelingen mellom lønn og overskudd",
+      "content": "Fordi $w - \\pi = z + \\alpha k$, ligger reallønnsveksten under produktivitetsveksten når $k < 0$ og over når $k > 0$. Differansen tilfaller eierne: negativ $k$ betyr at en større del av verdiskapingen blir sittende igjen som overskudd, positiv $k$ at en større del går til lønn.\n\nModellen har altså en innebygd fordelingsmekanisme, selv om den ikke inneholder noen eksplisitt kapitalside. Det er denne koblingen som gjør tolkningen av $k$ i [kap. 5.3](/bok/econ2310/econ2310-5-3) til noe mer enn en fortegnsøvelse."
+    },
+    {
+      "id": "econ2310-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2310-5-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n**I dette kapitlet er alle små bokstaver vekstrater.** Merk: $k$ betyr *ekstraordinær lønnsvekst*, ikke kapital per arbeider som i Del 1. $\\alpha$ betyr *importandelen i forbruket*, ikke investeringskoeffisienten fra Keynes-varianten i kap. 2.1.\n\n| Symbol | Betydning |\n|---|---|\n| $w$ | lønnsvekst, felles for begge sektorer |\n| $p_s$ | prisvekst på skjermede varer og tjenester |\n| $p_k$ | prisvekst på konkurranseutsatte varer, i kroner |\n| $p_i$ | prisvekst på importvarer, i kroner |\n| $q_k$ | prisvekst på konkurranseutsatte varer ute (eksogen) |\n| $q_i$ | prisvekst på importvarer ute (eksogen) |\n| $\\pi^*$ | felles utenlandsk prisvekst i spesialtilfellet, $q_k = q_i = \\pi^*$ |\n| $v$ | vekst i valutakursen; $v > 0$ = svakere krone (eksogen) |\n| $z_k$ | produktivitetsvekst i konkurranseutsatt sektor (eksogen) |\n| $z_s$ | produktivitetsvekst i skjermet sektor (eksogen) |\n| $z$ | felles produktivitetsvekst i spesialtilfellet, $z_k = z_s = z$ |\n| $k$ | ekstraordinær lønnsvekst — avvik fra hovedkursen (eksogen) |\n| $\\alpha$ | importandelen i forbruket, $0 < \\alpha < 1$ |\n| $\\pi$ | konsumprisvekst (inflasjon) |\n| $w - \\pi$ | reallønnsvekst |\n| $\\pi^{\\text{mål}}$ | sentralbankens inflasjonsmål |\n\n**Formler i dette delkapitlet:**\n\n$$w = q_k + v + z_k + k$$\nRedusert form for lønnsveksten: verdensmarkedets priser, kursen, industriens produktivitet og avviket fra normen.\n\n$$p_s = q_k + v + z_k + k - z_s$$\nRedusert form for prisveksten i skjermet sektor.\n\n$$\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s)$$\nInflasjonen: veid prisvekst ute, pluss fullt gjennomslag fra valutakursen, pluss produktivitetsforskjell og lønnsavvik.\n\n$$w - \\pi = \\alpha(q_k - q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k$$\nReallønnsveksten: bytteforhold, veid produktivitetsvekst og lønnsavvik. Valutakursen faller ut.\n\n$$\\pi = \\pi^* + v + (1-\\alpha)k, \\qquad w - \\pi = z + \\alpha k$$\nSpesialtilfellet $q_k = q_i = \\pi^*$, $z_k = z_s = z$ — de eksamensklare konklusjonene."
+        }
+      ]
+    },
+    {
+      "id": "econ2310-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2310-5-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-5-2-oppg-R1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Utled inflasjonsuttrykket fra bunnen, uten å se på notatene. Ta tiden — målet er under fem minutter.",
+            "solution": "$p_k = q_k + v$ inn i $w = p_k + z_k + k$ gir $w = q_k + v + z_k + k$.\n\n$w$ inn i $p_s = w - z_s$ gir $p_s = q_k + v + z_k + k - z_s$.\n\n$p_i = q_i + v$ og $p_s$ inn i $\\pi = \\alpha p_i + (1-\\alpha)p_s$ gir\n\n$$\\pi = \\alpha q_i + (1-\\alpha)q_k + v + (1-\\alpha)(z_k + k - z_s).$$\n\nKontroll: koeffisienten foran $v$ skal være nøyaktig 1.",
+            "hints": [
+              "Tre innsettinger i fast rekkefølge: $p_k$ inn i $w$, $w$ inn i $p_s$, så begge prisvekster inn i definisjonen."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-5-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-5-2-oppg-R2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvilken størrelse faller ut av uttrykket for reallønnsveksten, og hva er den økonomiske grunnen?",
+            "solution": "Valutakursveksten $v$. Grunnen er at en kronesvekkelse løfter lønnsveksten og konsumprisveksten nøyaktig like mye: kroneprisene i industrien stiger, lønnsevnen stiger, og lønnsveksten følger — samtidig som både importvarene og de skjermede varene blir dyrere. Netto er kjøpekraften uberørt, gitt at lønnsdannelsen følger hovedkursen.",
+            "hints": [
+              "Sammenlign koeffisienten foran symbolet i uttrykket for $w$ og i uttrykket for $\\pi$."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-5-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-5-2-oppg-R3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/econ2310/econ2310-5-1).) Før du kan utlede noe som helst, må du gjøre ett grep med relasjonssettet. Hvilket, og hvorfor?",
+            "solution": "Du må supplere med konsumprisdefinisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$, som ikke oppgis på eksamen. Uten den inneholder modellen ingen konsumprisvekst, og du kan verken si noe om inflasjonen eller om reallønnsveksten — sistnevnte fordi $\\pi$ inngår i den. Å legge relasjonen til, og skrive eksplisitt at du gjør det, er dokumentert poenggivende.",
+            "hints": [
+              "Tell hvilke prisvekster relasjonssettet faktisk bestemmer, og se etter hvilken som mangler."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-5-2-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-5-2-oppg-R4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En kandidat skriver: «Siden $\\pi = \\pi^* + v + (1-\\alpha)k$, er norsk inflasjon alltid lik utenlandsk inflasjon.» Rett opp påstanden.",
+            "solution": "Påstanden gjelder bare når $v = 0$ og $k = 0$ — altså med uendret valutakurs og lønnsdannelse nøyaktig etter hovedkursen. Riktig formulering: med uendret kurs og lønnsvekst på hovedkursen importerer Norge den utenlandske inflasjonen én-til-én. Svekkes krona, blir norsk inflasjon høyere; styrkes den, lavere. Og et lønnsoppgjør over hovedkursen løfter inflasjonen med $(1-\\alpha)k$.\n\nI tillegg forutsetter uttrykket spesialtilfellet $q_k = q_i$ og $z_k = z_s$ — er produktivitetsveksten ulik i de to sektorene, kommer et eget ledd i tillegg.",
+            "hints": [
+              "Les uttrykket som en likning med tre ledd på høyre side, ikke bare det første."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
