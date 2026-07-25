@@ -25,7 +25,15 @@ GRADE_SLANG = re.compile(r"\b[A-E]-(stoff|porten|markør|kandidat)\b")
 BARE_CODE = re.compile(r"\b(RED|SIT|SAM|ANV|HYB|S[1-7])\b|\bsjanger [A-N]\b")
 # Deloppgaver a) b) i løpende tekst (skal stå på egen linje med **a)**).
 # Krav: a) og b) i SAMME linje med ≥8 tegn mellom (utelukker «jf. a) og b)»).
-INLINE_SUBTASK = re.compile(r"(?<!\*)\ba\) [^\n]{8,}?\bb\) ")
+# Regelen gjelder deloppgaver som STARTER inline — ikke referanser til dem.
+# Derfor er tre former unntatt (alle ti treffene 25. juli 2026 var av disse):
+#   «**Svar:** (a) … (b) …»  oppsummering med parentes-form
+#   «\boxed{\text{a) }…}»    markør inne i LaTeX
+#   «etterspørsel mot a) og b)»  prosa som viser tilbake til punkter over
+INLINE_SUBTASK = re.compile(r"(?<![*({\[\\])\ba\) [^\n]{8,}?(?<![({])\bb\) ")
+# Har feltet allerede deloppgaver riktig formatert på egen linje, er et inline
+# «a) … b)» lenger nede en tilbakevisning, ikke en formateringsfeil.
+KORREKT_SUBTASK = re.compile(r"^\s*\*\*[a-h]\)\*\*", re.M)
 # Statisk prøve-flervalg der fasitlista er «alle a» (død selvtest — panelfunn):
 # fanger fasitlinjer som «1a · 2a · 3a» / «1a, 2a, 3a» med ≥3 a-er på rad.
 ALL_A_FASIT = re.compile(r"\b1a\b[^\n]{0,12}\b2a\b[^\n]{0,12}\b3a\b")
@@ -103,7 +111,7 @@ for f in files:
         e = b.get("exercise", b)  # oppgavedata ligger nestet i 'exercise'-objektet
         for felt in ("task", "solution"):
             s = e.get(felt, "") or ""
-            if isinstance(s, str) and INLINE_SUBTASK.search(s):
+            if isinstance(s, str) and INLINE_SUBTASK.search(s) and not KORREKT_SUBTASK.search(s):
                 notes.append(f"{cid}: deloppgaver a) b) i løpende {felt} (id {b.get('id','?')}) — skal ha egen linje + **fet** merking")
                 break
     #  (d) statisk flervalg med «alle a»-fasit (død selvtest) og (e) tomme
