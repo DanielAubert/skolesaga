@@ -1,0 +1,433 @@
+{
+  "id": "in1900-1-7",
+  "courseId": "in1900",
+  "chapterNumber": "1.7",
+  "title": "DRILL — Kodesporing: «hva skrives ut?»",
+  "description": "Systematisk drill i å kjøre kode mekanisk i hodet og angi utskriften nøyaktig — sjangeren som bærer hele midtveis.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kunne føre en sporingstavle som viser variablenes verdier iterasjon for iterasjon",
+    "kunne telle nøyaktig hvor mange runder en løkke går, også når den ligger inne i en annen løkke",
+    "kunne skrive utskriften tegn for tegn, med riktige mellomrom, linjeskift og desimaler",
+    "kunne avgjøre om en betingelsesstyrt løkke stopper eller går i det uendelige"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-7-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel: den best betalte timen i hele emnet",
+      "content": "**Dette er sjangeren som bærer hele midtveiseksamen.**\n\n- **Sjanger A — kodesporing**, altså «hva skriver dette programmet ut?». Den forekommer i **100 % av settene** (8 av 8 avsluttende sett 2018–2025) og utgjør **10–12 av de 20 spørsmålene** på midtveiseksamen — UiOs digitale flervalgseksamen i oktober, som teller 25 % av karakteren. På den avsluttende eksamenen i desember er den de første oppgavene, 1–3 poeng hver.\n- **Sjanger B — matche-tabell**, der du får en liste med indekserings- og utsnittsuttrykk og skal parre hvert av dem med riktig verdi. Den er et fast innslag, og gir 0,5 poeng per rad, opptil 3,5 poeng.\n- **Sjanger D — matche-tabell**, der du avgjør om en løkke stopper eller går i det uendelige, eller hvilke av flere kodealternativer som er riktige. Den kommer jevnlig, 2–3,5 poeng.\n\nTil sammen er dette de billigste poengene i faget: de krever ingen ny teori, bare at du kan kjøre koden mekanisk i hodet uten å ta snarveier.\n\n**Prioritet: dette må sitte** (høyeste prioritet av bokas tre nivåer — «må sitte», «må kunne», «bør kjenne til»). Du får delvis uttelling for delvis riktig sporing på fritekstoppgavene, og på flervalg gir blankt og feil likt — så kryss alltid av."
+    },
+    {
+      "id": "in1900-1-7-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper:** dette er drillkapitlet til hele Del 1, så alt herfra er i bruk:\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1) — `//`, `%`, `**` og presedens.\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2) — indeksering, negative indekser og utsnitt.\n- [Kap. 1.3 — Løkker — for, while, range og nøstede løkker](/bok/in1900/in1900-1-3) — `range`, nøstede løkker, `enumerate`, `zip` og terminering.\n- [Kap. 1.4 — Strenger, f-strenger og formatert utskrift](/bok/in1900/in1900-1-4) — `end`, `sep`, bredde og desimaler.\n- [Kap. 1.5 — Dictionaries og nøstede dictionaries](/bok/in1900/in1900-1-5) — oppslag og løkker over ordbøker.\n- [Kap. 1.6 — Funksjoner, scope og lambda](/bok/in1900/in1900-1-6) — scope og returverdier.\n\nKapitlet er langt (~90 minutter) og er delt i tre bolker med pausepunkter. Ta gjerne én bolk per økt — det er drill, ikke ny teori."
+    },
+    {
+      "id": "in1900-1-7-t-3",
+      "type": "text",
+      "content": "## Bolk 1 — Sporingsmetoden og det gjennomarbeidede caset (~20 min)\n\nÅ spore kode er ikke å lese den. Det er å **kjøre** den, med blyant, ett skritt om gangen. De fleste feil på midtveis kommer av at man leste hva programmet så ut som det gjorde, i stedet for å regne ut hva det faktisk gjør.\n\nOppskriften under er bokas metode, og den brukes i hver eneste fasit i dette kapitlet."
+    },
+    {
+      "id": "in1900-1-7-thm-4",
+      "type": "theorem",
+      "title": "Sporingsmetoden — fem steg",
+      "content": "1. **Før en tavle over variablene.** Skriv navnene øverst, én kolonne per variabel som endrer seg, og én rad per linje eller per iterasjon. Legg til en siste kolonne: «utskrift så langt».\n2. **Tell løkkerundene før du begynner.** `range(a, b)` gir `b - a` runder, og stoppverdien er **aldri med**. Nøstede løkker telles innenfra: for hver runde i den ytre, hvor mange runder går den indre?\n3. **Noter hva hvert `print` faktisk skriver.** Ikke bare verdiene — også mellomrommene `print` setter mellom argumentene, effekten av `end` og `sep`, og bredden og antall desimaler i en f-streng.\n4. **Hold styr på om du har et element eller en struktur.** `x[1]` gir et element, `x[1:3]` gir en liste. En liste skrives med hakeparenteser og `, `, en tuppel med parenteser, en ordbok med krøllparenteser og kolon.\n5. **Skriv svaret tegn for tegn.** Til slutt setter du sammen utskriften linje for linje, med de mellomrommene og linjeskiftene du noterte i steg 3. Et svar med riktige tall og feil skilletegn er feil svar.\n\nMetoden tar 60–90 sekunder per oppgave når den sitter. Det er raskt nok til de 20 midtveisspørsmålene, og den er den eneste måten å svare presist på en oppgave som ber om utskriften «nøyaktig slik terminalen viser den»."
+    },
+    {
+      "id": "in1900-1-7-ex-5",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet eksamenscase, med sensorens blikk i margen",
+      "problem": "Et program behandler fire målinger fra tre stasjoner. Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nmaalinger = [3, 8, 2, 9]\nnavn = ['nord', 'sor', 'ost']\ntotal = 0\nfor i, v in enumerate(maalinger):\n    if v > 4:\n        total += v\n    print(i, total, end='; ')\nprint()\nfor n, v in zip(navn, maalinger):\n    print(f'{n:5s}{v:3d}')\nprint(maalinger[1:3], maalinger[-1])\n```",
+      "solution": "**Steg 1–2: tavlen for den første løkka.** `enumerate` gir `(indeks, verdi)`, i den rekkefølgen. Lista har fire elementer, så løkka går fire runder. Merk at `print` står **utenfor** `if`-en, med mindre innrykk, og derfor kjører hver runde.\n\n| Runde | `i` | `v` | `v > 4`? | `total` etter | Skriver |\n|---|---|---|---|---|---|\n| 1 | 0 | 3 | nei | 0 | `0 0; ` |\n| 2 | 1 | 8 | ja | 8 | `1 8; ` |\n| 3 | 2 | 2 | nei | 8 | `2 8; ` |\n| 4 | 3 | 9 | ja | 17 | `3 17; ` |\n\n*Margnotat:* her ligger to poeng. Det ene er at `total` bare oppdateres i to av fire runder; det andre er at `end='; '` fjerner linjeskiftet, så alle fire rundene havner på **samme linje**. `print()` uten argumenter etterpå avslutter den linja.\n\n**Steg 3: den andre løkka.** `zip` stopper ved den korteste — `navn` har tre elementer, `maalinger` fire — så løkka går tre runder, og tallet 9 blir aldri brukt her. F-strengen gir navnet bredde 5 (venstrejustert, som strenger alltid er) og tallet bredde 3 (høyrejustert, som tall alltid er).\n\n| Runde | `n` | `v` | Skriver |\n|---|---|---|---|\n| 1 | `'nord'` | 3 | `nord   3` |\n| 2 | `'sor'` | 8 | `sor    8` |\n| 3 | `'ost'` | 2 | `ost    2` |\n\n*Margnotat:* `'nord'` er fire tegn og fylles ut til fem, så det blir ett mellomrom etter navnet pluss to fra tallets bredde — til sammen tre. `'sor'` er tre tegn og får fire mellomrom. Å telle disse riktig er forskjellen på full og halv uttelling.\n\n**Steg 4: siste linje.** `maalinger[1:3]` er et **utsnitt** og gir en liste med elementene på plass 1 og 2 — stoppverdien 3 er ikke med. `maalinger[-1]` er en **indeks** og gir elementet 9. `print` med to argumenter setter ett mellomrom mellom.\n\n**Steg 5: utskriften, tegn for tegn.**\n\n**Utskrift:**\n```\n0 0; 1 8; 2 8; 3 17; \nnord   3\nsor    8\nost    2\n[8, 2] 9\n```\n\nLegg merke til at den første linja slutter med `; ` — også det siste skilletegnet skrives, fordi `end` gjelder hver gang.\n\n*Uttelling:* på en fritekstoppgave gis poeng per riktig linje. Får du strukturen riktig — fire par på linje 1, tre navnelinjer, en sisterad med liste og tall — teller det tungt selv om du skulle bomme på ett mellomrom. Skriv derfor alltid ned det du har, også når du er usikker på detaljene."
+    },
+    {
+      "id": "in1900-1-7-t-6",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Bolk 2 — Fellekatalogen: de ti fellene som går igjen (~25 min)\n\nKodesporingsoppgavene er ikke tilfeldige. De er bygget rundt et lite antall feller, og de samme ti går igjen år etter år. Under står de hver for seg, med et minimalt eksempel og den kjørte utskriften. Lærer du deg å kjenne igjen hvilken felle en oppgave sikter mot, vet du også hva du skal sjekke to ganger."
+    },
+    {
+      "id": "in1900-1-7-def-7",
+      "type": "definition",
+      "title": "Felle 1 — `range`-grensene (feilkode #1)",
+      "content": "`range(b)` starter på 0 og stopper **før** `b`. `range(a, b)` gir `b - a` verdier. Stoppverdien er aldri med.\n\n```python\nfor i in range(3):\n    print(i, end=' ')\nprint()\nfor i in range(1, 4):\n    print(i, end=' ')\n```\n\n**Utskrift:**\n```\n0 1 2 \n1 2 3 \n```\n\nBegge løkkene går tre runder, men med ulike verdier. Dette er feilkode #1 i bokas feilkatalog — av-én-feilen — og den hyppigste feilen i hele faget. Regelen å huske: **`n` intervaller krever `n + 1` punkter**, altså `range(n + 1)`."
+    },
+    {
+      "id": "in1900-1-7-def-8",
+      "type": "definition",
+      "title": "Felle 2 — indeksering gir element, utsnitt gir liste (#18)",
+      "content": "`x[i]` gir **elementet**; `x[a:b]` gir en **liste** med elementene fra og med `a` til, men ikke med, `b`. Negative indekser teller fra `-1` bakerst.\n\n```python\nx = [10, 20, 30, 40]\nprint(x[1], x[-1])\nprint(x[1:3], x[:2], x[::-1])\n```\n\n**Utskrift:**\n```\n20 40\n[20, 30] [10, 20] [40, 30, 20, 10]\n```\n\nFeilkode #18. To detaljer avgjør poenget: at utsnittet skrives **med hakeparenteser** selv når det bare inneholder ett element, og at et utsnitt utenfor kanten gir en tom liste `[]` i stedet for en feilmelding."
+    },
+    {
+      "id": "in1900-1-7-def-9",
+      "type": "definition",
+      "title": "Felle 3 — `+` på lister skjøter, det legger ikke sammen (#5)",
+      "content": "På lister betyr `+` **skjøting** og `*` **gjentakelse**. Elementvis addisjon finnes ikke for lister — den kommer først med NumPy i [kap. 4.1](/bok/in1900/in1900-4-1).\n\n```python\nprint([1, 2] + [3, 4])\nprint([1, 2] * 2)\nprint(sum([1, 2]) + sum([3, 4]))\n```\n\n**Utskrift:**\n```\n[1, 2, 3, 4]\n[1, 2, 1, 2]\n10\n```\n\nFeilkode #5. Merk at bare siste linje gir et tall — de to første gir lister, og skrives med hakeparenteser."
+    },
+    {
+      "id": "in1900-1-7-def-10",
+      "type": "definition",
+      "title": "Felle 4 — utskriftsdetaljene: `end`, `sep` og mellomrom (#16)",
+      "content": "`print` setter **ett mellomrom** mellom argumentene og avslutter med linjeskift. `end=` bytter ut linjeskiftet, `sep=` bytter ut mellomrommet.\n\n```python\nprint(3, 4)\nprint(3, 4, sep='')\nprint('a', end='')\nprint('b')\nprint([1, 2])\n```\n\n**Utskrift:**\n```\n3 4\n34\nab\n[1, 2]\n```\n\nFeilkode #16. Fem `print` ga fire linjer, fordi den tredje ikke avsluttet sin. Og legg merke til at en liste skrives med mellomrom **etter** kommaet: `[1, 2]`, ikke `[1,2]`."
+    },
+    {
+      "id": "in1900-1-7-def-11",
+      "type": "definition",
+      "title": "Felle 5 — `zip` stopper ved korteste, `enumerate` gir indeks først (#17)",
+      "content": "`zip(a, b)` parer posisjon for posisjon og stopper ved den **korteste**; den fyller ikke ut. `enumerate(seq)` gir `(indeks, verdi)` — alltid i den rekkefølgen.\n\n```python\na = [1, 2, 3]\nb = ['x', 'y']\nfor p, q in zip(a, b):\n    print(p, q, end=' | ')\nprint()\nfor i, v in enumerate(b):\n    print(i, v, end=' | ')\n```\n\n**Utskrift:**\n```\n1 x | 2 y | \n0 x | 1 y | \n```\n\nFeilkode #17. Den første løkka går to runder, ikke tre — tallet 3 blir aldri brukt. Den andre begynner på indeks 0, ikke 1."
+    },
+    {
+      "id": "in1900-1-7-def-12",
+      "type": "definition",
+      "title": "Felle 6 — nøstede løkker med avhengige grenser (#12)",
+      "content": "Når den indre løkkas grense avhenger av den ytre løkkevariabelen, må du telle rundene på nytt for hver ytre runde. Og `range(0)` er tom — den indre løkka kjører da ingen ganger.\n\n```python\nfor i in range(1, 4):\n    for j in range(i):\n        print(i * j, end=' ')\n    print()\n```\n\n**Utskrift:**\n```\n0 \n0 2 \n0 3 6 \n```\n\nFeilkode #12. For `i = 1` går den indre løkka én runde med `j = 0`; for `i = 2` to runder; for `i = 3` tre. Legg merke til at `print()` står i den **ytre** løkka, med samme innrykk som den indre `for`-linja — derfor ett linjeskift per ytre runde."
+    },
+    {
+      "id": "in1900-1-7-def-13",
+      "type": "definition",
+      "title": "Felle 7 — `while`-tellere og terminering",
+      "content": "En `while`-løkke går så lenge betingelsen er sann. Spørsmålet «stopper den?» besvares ved å se om verdien beveger seg mot betingelsen — og om den **treffer** den.\n\n```python\nn = 10\nantall = 0\nwhile n > 1:\n    n = n - 3\n    antall += 1\nprint(n, antall)\n```\n\n**Utskrift:**\n```\n1 3\n```\n\n`n` går 10, 7, 4, 1 — og ved 1 er `n > 1` usann, så løkka stopper etter tre runder. Hadde betingelsen vært `n != 1` med steget `-4`, ville `n` gått 10, 6, 2, −2, … og aldri truffet 1: uendelig løkke. Det er nøyaktig det sjanger D spør om."
+    },
+    {
+      "id": "in1900-1-7-def-14",
+      "type": "definition",
+      "title": "Felle 8 — scope: lokal tilordning endrer ikke den globale (#13)",
+      "content": "Et likhetstegn inne i en funksjon lager **alltid** en ny, lokal variabel.\n\n```python\nx = 5\ndef f():\n    x = 10\n    return x\nprint(f(), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nFeilkode #13. Unntaket å huske: `liste.append(...)` og `d[nøkkel] = ...` **endrer innholdet** i noe som ble sendt inn, og det ser du utenfor. Skillet er mellom å bytte ut et navn og å endre et objekt — se [kap. 1.6](/bok/in1900/in1900-1-6)."
+    },
+    {
+      "id": "in1900-1-7-def-15",
+      "type": "definition",
+      "title": "Felle 9 — heltall, flyttall og presedens (#15)",
+      "content": "`/` gir alltid flyttall, `//` runder **nedover** (også for negative tall), og `**` regnes fra høyre.\n\n```python\nprint(7 // 2, -7 // 2, 7 / 2)\nprint(2 ** 3 ** 2)\nprint(int(-2.7), round(2.5))\n```\n\n**Utskrift:**\n```\n3 -4 3.5\n512\n-2 2\n```\n\nFeilkode #15. Tre feller på tre linjer: `-7 // 2` er `-4` og ikke `-3`; `2 ** 3 ** 2` er $2^9$ og ikke $8^2$; `int` kutter mot null mens `round` runder til nærmeste **partall** ved 5. Og husk at `3.5` og `3` er to forskjellige utskrifter."
+    },
+    {
+      "id": "in1900-1-7-def-16",
+      "type": "definition",
+      "title": "Felle 10 — ordbøker: løkkevariabelen er nøkkelen",
+      "content": "`for k in d` gir **nøklene**, og `in` og `len` ser bare på nøklene, på det nivået du peker på.\n\n```python\nd = {'a': 1, 'b': 2}\nfor k in d:\n    print(k, d[k], end='; ')\nprint()\nprint(len(d), 'a' in d, 1 in d)\n```\n\n**Utskrift:**\n```\na 1; b 2; \n2 True False\n```\n\nSiste verdi er fellen: tallet 1 er en **verdi** i ordboka, ikke en nøkkel, så svaret er `False`. Parene kommer i innsettingsrekkefølge — se [kap. 1.5](/bok/in1900/in1900-1-5)."
+    },
+    {
+      "id": "in1900-1-7-adv-17",
+      "type": "warning",
+      "title": "Tre snarveier som koster poeng",
+      "content": "- **Å lese i stedet for å regne.** «Denne løkka summerer jo lista» — kanskje, men `range`-grensene avgjør hvor mange ledd som faktisk kommer med. Tell dem.\n- **Å svare med tallene, men ikke med tegnene.** `[8, 2] 9` og `8 2 9` er ikke samme svar. Hakeparenteser, komma-mellomrom, fnutter og desimaler er en del av utskriften.\n- **Å hoppe over de siste linjene.** Mange sporinger har en avsluttende linje etter løkka, som tester noe helt annet enn løkka gjorde. Den er ofte det halve poenget."
+    },
+    {
+      "id": "in1900-1-7-t-18",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Bolk 3 — Drilloppgavene (~45 min)\n\nFjorten oppgaver på eksamensnivå, alle med fullstendig sporing i fasiten. De roterer gjennom fellene over og gjennom de tre sjangrene: rene «hva skrives ut» (A), matche-tabeller for indeksering og utsnitt (B), og «terminerer løkken?» (D).\n\nGjør dem med blyant og uten maskin. Eksamen er hjelpemiddelfri, og hele poenget med sporing er at du skal klare den i hodet."
+    },
+    {
+      "id": "in1900-1-7-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Skriv utskriften nøyaktig, med mellomrom slik terminalen viser den.\n\n```python\ntotal = 0\nfor i in range(4):\n    total += i\n    print(total, end=' ')\n```",
+        "solution": "**Sporingstavle**\n\n| Runde | `i` | `total` etter | Utskrift så langt |\n|---|---|---|---|\n| 1 | 0 | 0 | `0 ` |\n| 2 | 1 | 1 | `0 1 ` |\n| 3 | 2 | 3 | `0 1 3 ` |\n| 4 | 3 | 6 | `0 1 3 6 ` |\n\n`range(4)` gir verdiene 0, 1, 2, 3 — fire runder, og stoppverdien 4 er ikke med.\n\n**Utskrift:**\n```\n0 1 3 6 \n```\n\nAlt havner på én linje fordi `end=' '` erstatter linjeskiftet, og det siste mellomrommet skrives også. Fellen er #1 — av-én i `range`: et svar som begynner på `1` er tegnet på at man har lest `range(4)` som «fra 1 til 4».",
+        "hints": [
+          "Skriv opp hvilke verdier `range(4)` faktisk gir, før du starter tavlen.",
+          "`print` står inne i løkka, så den kjører hver runde.",
+          "Hva gjør `end=' '` med linjeskiftet?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — nøstet løkke.) Hva skriver programmet ut?\n\n```python\nfor i in range(2, 5):\n    for j in range(i - 1):\n        print(i + j, end=' ')\n    print('|', end=' ')\n```",
+        "solution": "**Sporingstavle**\n\n| Ytre runde | `i` | `range(i - 1)` gir | Skriver |\n|---|---|---|---|\n| 1 | 2 | `0` | `2 ` deretter `| ` |\n| 2 | 3 | `0, 1` | `3 4 ` deretter `| ` |\n| 3 | 4 | `0, 1, 2` | `4 5 6 ` deretter `| ` |\n\nDen ytre løkka går tre runder (`range(2, 5)` gir 2, 3, 4). Den indre grensen er `i - 1`, så antall indre runder øker med én for hver ytre runde. Begge `print` har `end=' '`, så alt havner på samme linje.\n\n**Utskrift:**\n```\n2 | 3 4 | 4 5 6 | \n```\n\nFellen er #12 — grensene i den indre løkka avhenger av den ytre. Merk at det er `i + j` som skrives, ikke `j`: for `i = 3` gir `j = 0, 1` verdiene 3 og 4.",
+        "hints": [
+          "Skriv opp verdiene `range(2, 5)` gir, og regn ut `i - 1` for hver av dem.",
+          "Den indre løkka starter alltid på `j = 0`, uansett hva `i` er.",
+          "Begge `print`-kallene har `end=' '` — hvor mange linjer blir det da?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-tip-19",
+      "type": "tip",
+      "title": "Hva oppgave 2 tester",
+      "content": "Dette er den mest utbredte nøstede-løkke-fellen på midtveis: den indre grensen er et **uttrykk** i den ytre løkkevariabelen. Tre spørsmål avgjør svaret hver gang: hvor mange ytre runder, hvor mange indre runder per ytre runde, og hva som faktisk skrives.\n\nEn trekantet utskrift som denne er alltid et signal om at `range(i)` eller `range(i - 1)` er i sving."
+    },
+    {
+      "id": "in1900-1-7-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — strenger som sekvenser.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\nnavn = 'Blindern'\nprint(navn[0], navn[-2], len(navn))\nprint(navn[2:5], navn[:3] + navn[-1])\n```",
+        "solution": "**Sporingstavle**\n\nBokstavene med sine indekser: `B`(0) `l`(1) `i`(2) `n`(3) `d`(4) `e`(5) `r`(6) `n`(7).\n\n| Uttrykk | Verdi |\n|---|---|\n| `navn[0]` | `B` |\n| `navn[-2]` | nest siste tegn: `r` |\n| `len(navn)` | `8` |\n| `navn[2:5]` | tegn 2, 3 og 4: `ind` |\n| `navn[:3]` | `Bli` |\n| `navn[:3] + navn[-1]` | `Bli` skjøtt med `n`: `Blin` |\n\n**Utskrift:**\n```\nB r 8\nind Blin\n```\n\nTo ting å merke seg. Strenger skrives **uten** fnutter når de er argument til `print` — det er bare inne i en liste eller ordbok at fnuttene kommer med. Og på strenger betyr `+` skjøting, akkurat som på lister (felle #5).\n\nUtsnittet `navn[2:5]` slutter før indeks 5, altså tre tegn — feilkode #18.",
+        "hints": [
+          "Skriv opp strengen med en indeks under hver bokstav, både positiv og negativ.",
+          "Et utsnitt `a:b` tar med `b - a` tegn.",
+          "Blir strengene skrevet med eller uten fnutter?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — formatert utskrift.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med mellomrom.\n\n```python\nfor k in range(3):\n    print(f'{k:2d}:{2 ** k:6.2f}', end=' # ')\n```",
+        "solution": "**Sporingstavle**\n\n| Runde | `k` | `2 ** k` | `f'{k:2d}'` | `f'{2 ** k:6.2f}'` |\n|---|---|---|---|---|\n| 1 | 0 | 1 | ` 0` | `  1.00` |\n| 2 | 1 | 2 | ` 1` | `  2.00` |\n| 3 | 2 | 4 | ` 2` | `  4.00` |\n\nBredden `2d` gir ett mellomrom foran ensifrede tall. Bredden `6.2f` betyr totalt seks tegn med to desimaler: `1.00` er fire tegn, så det blir to mellomrom foran.\n\n**Utskrift:**\n```\n 0:  1.00 #  1:  2.00 #  2:  4.00 # \n```\n\nFellen er #16 — utskriftsdetaljer. Bredden fyller ut med mellomrom **foran** tall, og mellomrommene er en del av svaret. Merk også at hele utskriften står på én linje, og at det avsluttende ` # ` skrives også etter siste runde.",
+        "hints": [
+          "Regn ut potensen først, og formatér deretter.",
+          "Bredden er totalt antall tegn, medregnet desimalpunktet.",
+          "Tell mellomrommene — de teller like mye som tallene."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger B — matche-tabell der du regner ut indekserings- og utsnittsuttrykk og parer dem med riktig verdi.) La\n\n```python\nx = [4, 1, 3]\ny = [[9, 8], [7, 6, 5], [2]]\n```\n\n| Rad | Uttrykk |\n|---|---|\n| 1 | `y[x[1]]` |\n| 2 | `y[x[0] - 2][x[2]:]` |\n| 3 | `x[-1] + x[x[1]]` |\n| 4 | `y[0] + y[2]` |\n\n**Alternativer:** (i) `4`, (ii) `[]`, (iii) `[9, 8, 2]`, (iv) `[7, 6, 5]`, (v) `[2, 9, 8]`.",
+        "solution": "**Rad 1 — `y[x[1]]`.** Innerst først: `x[1]` er `1`. Så `y[1]`, som er den andre indre lista. **(iv) `[7, 6, 5]`.**\n\n**Rad 2 — `y[x[0] - 2][x[2]:]`.** `x[0]` er `4`, så `4 - 2` er `2`, og `y[2]` er `[2]`. Deretter `x[2]` som er `3`, altså utsnittet `[2][3:]` — start etter siste element. Det gir en tom liste, ikke en feilmelding. **(ii) `[]`.**\n\n**Rad 3 — `x[-1] + x[x[1]]`.** `x[-1]` er `3`, og `x[x[1]]` er `x[1]` som er `1`. Begge er **tall**, så `+` legger sammen: `3 + 1`. **(i) `4`.**\n\n**Rad 4 — `y[0] + y[2]`.** Begge er **lister**, så `+` skjøter: `[9, 8]` og `[2]` blir `[9, 8, 2]`. **(iii) `[9, 8, 2]`.**\n\n**Fasit:** 1–(iv), 2–(ii), 3–(i), 4–(iii). Alternativ (v) `[2, 9, 8]` brukes ikke: det ville vært `y[2] + y[0]`, altså motsatt rekkefølge — ren felle.\n\nRad 3 og 4 er hele poenget med sjangeren: samme `+`-tegn gjør to helt forskjellige ting, avhengig av om operandene er tall eller lister (feilkode #5). *Uttelling:* hver rad gis for seg med 0,5 poeng, så en usikker rad skal alltid besvares — blankt og feil gir likt.",
+        "hints": [
+          "Regn alltid det innerste uttrykket først, og skriv verdien over det.",
+          "Skill mellom indeksering (gir element) og utsnitt (gir liste) før du velger alternativ.",
+          "Et utsnitt som starter utenfor lista gir en tom liste."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — liste-skjøting mot tallsum.) Hva skriver programmet ut?\n\n```python\na = [1, 2]\nb = [3, 4]\nprint(a + b, len(a + b))\nprint(sum(a) + sum(b))\nprint(a * 2)\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdi | Type |\n|---|---|---|\n| `a + b` | `[1, 2, 3, 4]` | liste (skjøting) |\n| `len(a + b)` | `4` | tall |\n| `sum(a) + sum(b)` | `3 + 7` som er `10` | tall |\n| `a * 2` | `[1, 2, 1, 2]` | liste (gjentakelse) |\n\n**Utskrift:**\n```\n[1, 2, 3, 4] 4\n10\n[1, 2, 1, 2]\n```\n\nFellen er #5 — å tro at `+` legger sammen element for element. Det gjør den først når listene er NumPy-tabeller, i [kap. 4.1](/bok/in1900/in1900-4-1). Og `a * 2` gjentar lista; det ganger ikke tallene med 2.\n\nMerk at første linje har to argumenter og derfor ett mellomrom mellom lista og tallet.",
+        "hints": [
+          "Avgjør for hvert uttrykk om resultatet er en liste eller et tall.",
+          "`sum` på en liste gir ett tall — det er noe helt annet enn `+` mellom to lister.",
+          "Husk mellomrommet `print` setter mellom to argumenter."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — `zip` og `enumerate`.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ndager = ['man', 'tir', 'ons', 'tor']\nmm = [4, 0, 12]\nfor d, v in zip(dager, mm):\n    print(d, v, end='; ')\nprint()\nfor i, d in enumerate(dager):\n    if i % 2 == 0:\n        print(i, d, end='; ')\n```",
+        "solution": "**Sporingstavle — første løkke.** `zip` stopper ved den korteste: `mm` har tre elementer, så løkka går tre runder og `'tor'` blir aldri brukt.\n\n| Runde | `d` | `v` | Skriver |\n|---|---|---|---|\n| 1 | `man` | 4 | `man 4; ` |\n| 2 | `tir` | 0 | `tir 0; ` |\n| 3 | `ons` | 12 | `ons 12; ` |\n\n**Andre løkke.** `enumerate` gir indeksen først, og går over hele `dager` — fire runder. `if i % 2 == 0` slipper bare gjennom partallsindeksene 0 og 2.\n\n| Runde | `i` | `d` | `i % 2` | Skriver |\n|---|---|---|---|---|\n| 1 | 0 | `man` | 0 | `0 man; ` |\n| 2 | 1 | `tir` | 1 | — |\n| 3 | 2 | `ons` | 0 | `2 ons; ` |\n| 4 | 3 | `tor` | 1 | — |\n\n**Utskrift:**\n```\nman 4; tir 0; ons 12; \n0 man; 2 ons; \n```\n\nTo feller i samme oppgave. Den første er #17 — `zip` fyller ikke ut den korteste lista. Den andre er rekkefølgen i `enumerate`: indeksen kommer først, så løkkevariablene heter `i, d` og ikke `d, i`.",
+        "hints": [
+          "Tell hvor mange runder hver løkke går, før du skriver noe.",
+          "`zip` stopper ved den korteste sekvensen.",
+          "`i % 2 == 0` er sant for 0, 2, 4 — husk at 0 er et partall."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger D — matche-tabell der du avgjør om løkka stopper.) Avgjør for hver av de fire løkkene om den **terminerer** eller går **uendelig**. Alle starter med de verdiene som står.\n\n| Rad | Løkke |\n|---|---|\n| 1 | `n = 12` og `while n != 0: n = n - 4` |\n| 2 | `n = 12` og `while n != 0: n = n - 5` |\n| 3 | `n = 1` og `while n < 100: n = n * 3` |\n| 4 | `n = 5` og `while n > 0: n = n + 1` |\n\n**Alternativer:** (i) terminerer, (ii) uendelig.",
+        "solution": "**Rad 1 — steg −4 fra 12.** Verdiene blir 12, 8, 4, 0. Ved 0 er `n != 0` usann, og løkka stopper etter **tre** runder. **(i) terminerer.**\n\n**Rad 2 — steg −5 fra 12.** Verdiene blir 12, 7, 2, −3, −8, … Den treffer aldri nøyaktig 0, og fortsetter nedover for alltid. **(ii) uendelig.**\n\n**Rad 3 — ganging med 3 fra 1.** Verdiene blir 1, 3, 9, 27, 81, 243. Ved 243 er `n < 100` usann, og løkka stopper etter **fem** runder. **(i) terminerer.**\n\n**Rad 4 — steg +1 fra 5.** `n` vokser og blir aldri mindre enn eller lik 0. **(ii) uendelig.**\n\n**Fasit:** 1–(i), 2–(ii), 3–(i), 4–(ii).\n\nMetoden er den samme hver gang: skriv ned de fire–fem første verdiene, og spør om betingelsen **kan** bli usann. Rad 1 og 2 viser hvorfor `!=` er farligere enn `<` eller `>`: med `!=` må verdien treffe nøyaktig, og gjør den ikke det, hopper den forbi.\n\n*Uttelling:* hver rad gis for seg. Er du usikker, gjett — blankt og feil gir likt (0 poeng), og negativ scoring er fjernet fra 2024/2025.",
+        "hints": [
+          "Skriv ned de fire første verdiene `n` får, for hver rad.",
+          "Spør om betingelsen kan bli usann, ikke om den ser rimelig ut.",
+          "`!=` krever at verdien treffer nøyaktig; `<` og `>` gjør ikke det."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — scope og muterbare argumenter.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ngrense = 4\ndef sjekk(verdi):\n    grense = 100\n    return verdi > grense\nprint(sjekk(10), grense)\nverdier = [1, 2]\ndef utvid(liste):\n    liste.append(9)\n    liste = [0]\n    return liste\nprint(utvid(verdier), verdier)\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | Globalt nivå | Inne i funksjonen | Verdi ut |\n|---|---|---|---|\n| `sjekk(10)` | `grense` er 4 | lokal `grense` blir 100 | `10 > 100` er `False` |\n| etter kallet | `grense` fortsatt 4 | — | — |\n| `utvid(verdier)` | `verdier` er `[1, 2]` | `liste.append(9)` endrer originalen | — |\n| | `verdier` er nå `[1, 2, 9]` | `liste = [0]` bytter bare det lokale navnet | `[0]` |\n\n**Utskrift:**\n```\nFalse 4\n[0] [1, 2, 9]\n```\n\nBegge scope-reglene står mot hverandre her. `grense = 100` er en **tilordning** og lager en lokal variabel (feilkode #13), så den globale er urørt. Men `liste.append(9)` **endrer objektet** som ble sendt inn, og den endringen ser du utenfor — mens `liste = [0]` rett etterpå bare kobler det lokale navnet til noe nytt.\n\nDerfor returneres `[0]`, mens `verdier` sitter igjen med niertallet.",
+        "hints": [
+          "Tegn to bokser, en for det globale nivået og en for hver funksjon.",
+          "Skill mellom en tilordning (nytt navn) og et metodekall som endrer innholdet.",
+          "Rekkefølgen på de to linjene inne i `utvid` er avgjørende."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-tip-20",
+      "type": "tip",
+      "title": "Hva oppgave 9 tester",
+      "content": "Dette er scope-spørsmålet i sin vanskeligste form: **begge** reglene i samme program. Sensor plasserer dem ofte slik at det ene svaret ser ut til å motsi det andre.\n\nRegelen som løser alle varianter: et **likhetstegn** peker et navn mot noe nytt og virker bare lokalt; et **metodekall eller en indeksert innsetting** endrer objektet, og virker overalt der objektet er kjent."
+    },
+    {
+      "id": "in1900-1-7-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — ordbok bygget i en løkke.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\nd = {}\nfor tegn in 'banan':\n    d[tegn] = d.get(tegn, 0) + 1\nprint(d)\nfor k, v in d.items():\n    print(k * v, end='-')\n```",
+        "solution": "**Sporingstavle — oppbyggingen.**\n\n| Runde | `tegn` | `d.get(tegn, 0)` | `d` etterpå |\n|---|---|---|---|\n| 1 | `b` | 0 | `{'b': 1}` |\n| 2 | `a` | 0 | `{'b': 1, 'a': 1}` |\n| 3 | `n` | 0 | `{'b': 1, 'a': 1, 'n': 1}` |\n| 4 | `a` | 1 | `{'b': 1, 'a': 2, 'n': 1}` |\n| 5 | `n` | 1 | `{'b': 1, 'a': 2, 'n': 2}` |\n\nRekkefølgen er den bokstavene dukket opp **første gang** — `b`, `a`, `n` — ikke alfabetisk og ikke etter antall.\n\n**Andre løkke.** `k * v` er en streng ganget med et tall, altså gjentakelse: `'b' * 1` gir `b`, `'a' * 2` gir `aa`, `'n' * 2` gir `nn`. `end='-'` skriver bindestrek etter hver, også den siste.\n\n**Utskrift:**\n```\n{'b': 1, 'a': 2, 'n': 2}\nb-aa-nn-\n```\n\nTo feller. Den ene er innsettingsrekkefølgen; den andre er at `*` mellom en streng og et tall gjentar strengen — det er samme regel som `[1, 2] * 2` for lister (feilkode #5).",
+        "hints": [
+          "Før en rad per bokstav i ordet, og skriv hele ordboka etter hver runde.",
+          "`.get(tegn, 0)` gir 0 første gang en bokstav dukker opp.",
+          "Hva betyr `*` når venstre operand er en streng?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — tekstbehandling og formatering.) En målelinje skal deles opp. Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ntekst = 'temp=21.5;vind=3'\nfelt = tekst.split(';')\nprint(felt)\nforste = felt[0].split('=')\nprint(forste[1], float(forste[1]) + 1)\nprint(f'{float(forste[1]):7.3f}|')\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | Verdi |\n|---|---|\n| `tekst.split(';')` | `['temp=21.5', 'vind=3']` |\n| `felt[0]` | `'temp=21.5'` |\n| `felt[0].split('=')` | `['temp', '21.5']` |\n| `forste[1]` | strengen `'21.5'` |\n| `float(forste[1]) + 1` | tallet `22.5` |\n| `f'{21.5:7.3f}'` | ` 21.500` — sju tegn, tre desimaler |\n\n**Utskrift:**\n```\n['temp=21.5', 'vind=3']\n21.5 22.5\n 21.500|\n```\n\nTre detaljer avgjør. Den første: en **liste** skrives med hakeparenteser og fnutter rundt strengene, mens en enkelt streng skrives uten fnutter — derfor har linje 1 fnutter og linje 2 ikke. Den andre: `forste[1]` er teksten `'21.5'`, ikke et tall, så `float` må til før du kan legge til 1. Den tredje: `21.500` er seks tegn, og bredden 7 gir derfor **ett** mellomrom foran — loddrettstreken viser hvor feltet slutter.\n\nDette er nøyaktig mønsteret fillesingsoppgavene bruker, se [kap. 8.1](/bok/in1900/in1900-8-1).",
+        "hints": [
+          "Skriv opp resultatet av hver `split` som en liste, med fnutter rundt hvert felt.",
+          "Skill mellom teksten `'21.5'` og tallet `21.5`.",
+          "Tell tegnene i `21.500` og sammenlign med bredden 7."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — matche-tabell for nøstede lister.) La\n\n```python\nrader = [[1, 2, 3], [4, 5], [6]]\n```\n\n| Rad | Uttrykk |\n|---|---|\n| 1 | `len(rader), len(rader[0])` |\n| 2 | `rader[1][-1], rader[-1][0]` |\n| 3 | `rader[0][1:]` |\n| 4 | `rader[0] + rader[2]` |\n\n**Alternativer:** (i) `3 3`, (ii) `5 6`, (iii) `[2, 3]`, (iv) `[1, 2, 3, 6]`, (v) `[3]`.",
+        "solution": "**Rad 1 — `len(rader), len(rader[0])`.** Den ytre lista har tre elementer, og det første elementet er lista `[1, 2, 3]` med tre elementer. **(i) `3 3`.** At begge ble 3 er tilfeldig, og nettopp derfor er dette en god felle: `len` teller på det nivået du peker på.\n\n**Rad 2 — `rader[1][-1], rader[-1][0]`.** `rader[1]` er `[4, 5]`, og siste element der er `5`. `rader[-1]` er `[6]`, og første element der er `6`. **(ii) `5 6`.**\n\n**Rad 3 — `rader[0][1:]`.** Utsnitt fra og med plass 1 i `[1, 2, 3]`. Utsnitt gir en **liste**. **(iii) `[2, 3]`.**\n\n**Rad 4 — `rader[0] + rader[2]`.** To lister skjøtes. **(iv) `[1, 2, 3, 6]`.**\n\n**Fasit:** 1–(i), 2–(ii), 3–(iii), 4–(iv). Alternativ (v) `[3]` brukes ikke: det ville vært `rader[0][2:]`, altså ett hakk lenger ut i utsnittet — ren felle.\n\nFeilkode #18 er i sving i rad 2 og 3: **indeksering gir element, utsnitt gir liste**. Rad 2 gir to tall, rad 3 gir en liste med to tall, og de skrives helt ulikt.",
+        "hints": [
+          "Tegn strukturen som tre rader under hverandre, med indekser både forfra og bakfra.",
+          "To hakeparenteser etter hverandre betyr to nivåer: først rad, så element i raden.",
+          "Avgjør for hver rad om resultatet er tall eller liste før du velger alternativ."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — funksjon med standardverdi.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ndef snitt(verdier, start=0):\n    total = start\n    for v in verdier:\n        total += v\n    return total / len(verdier)\ntall = [2, 4, 9]\nprint(snitt(tall))\nprint(f'{snitt(tall, 5):.2f}')\nprint(snitt(tall) == 5.0)\n```",
+        "solution": "**Sporingstavle**\n\n| Kall | `start` | `total` etter løkka | Returnerer |\n|---|---|---|---|\n| `snitt(tall)` | 0 (standardverdien) | 15 | `15 / 3` som er `5.0` |\n| `snitt(tall, 5)` | 5 | 20 | `20 / 3` som er `6.666…` |\n| `snitt(tall)` | 0 | 15 | `5.0` |\n\n**Utskrift:**\n```\n5.0\n6.67\nTrue\n```\n\nTre detaljer. `/` gir alltid flyttall, så første linje er `5.0` og ikke `5`. F-strengen `.2f` runder til to desimaler, så `6.666…` blir `6.67`. Og siste linje er `True` fordi `15 / 3` er eksakt `5.0` — her er likhetstest på flyttall trygt, siden begge tallene er «runde».\n\nMerk at det er nettopp slike likhetstester du **ikke** skal stole på generelt: i testfunksjoner sammenlignes flyttall alltid med en toleranse, se [kap. 3.1](/bok/in1900/in1900-3-1). Legg også merke til at `len(verdier)` er 3 uansett hva `start` er — startverdien teller ikke som en måling.",
+        "hints": [
+          "Regn ut `total` etter løkka for hvert kall, før du deler.",
+          "Hva slags datatype gir `/` alltid?",
+          "Antall verdier endres ikke av at `start` er ulik null."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-7-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — nøstet struktur, teller og utskrift.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\nstasjoner = {'nord': [3, 8], 'sor': [2]}\nantall = 0\nfor navn in stasjoner:\n    for v in stasjoner[navn]:\n        antall += 1\n        print(navn[0], v, end=' ')\n    print(antall, end=' | ')\nprint()\nprint(len(stasjoner), antall)\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | `navn` | `v` | `antall` | Skriver |\n|---|---|---|---|---|\n| ytre 1, indre 1 | `nord` | 3 | 1 | `n 3 ` |\n| ytre 1, indre 2 | `nord` | 8 | 2 | `n 8 ` |\n| ytre 1, etter indre | `nord` | — | 2 | `2 | ` |\n| ytre 2, indre 1 | `sor` | 2 | 3 | `s 2 ` |\n| ytre 2, etter indre | `sor` | — | 3 | `3 | ` |\n\nDen ytre løkka går over **nøklene**, den indre over lista `stasjoner[navn]`. `navn[0]` er første **tegn** i nøkkelen, ikke første element i lista — en streng er en sekvens av tegn.\n\nAlle `print` i løkkene har `end`, så alt havner på én linje. `print()` etterpå avslutter den.\n\n**Utskrift:**\n```\nn 3 n 8 2 | s 2 3 | \n2 3\n```\n\nSiste linje er kjernen: `len(stasjoner)` er **2** fordi det er to nøkler, mens `antall` er **3** fordi det er tre tall til sammen. Å blande de to nivåene er feilkode #20 — og telleren `antall` overlever begge løkkene fordi den er satt opp før dem.\n\n*Uttelling:* strukturen — to bokstavpar for nord, ett for sør, med delsummene imellom — er det som gir mesteparten av poengene. Er du usikker på ett mellomrom, skriv linja likevel.",
+        "hints": [
+          "Skriv opp de to nivåene før du starter: nøkler ytterst, lister innerst.",
+          "Se nøye på innrykket: hvilken `print` står i den ytre løkka, og hvilken i den indre?",
+          "`navn[0]` gjør noe med nøkkelen, ikke med lista."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-7-adv-21",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "- **#1 — av-én i `range`.** Stoppverdien er aldri med. `n` intervaller krever `range(n + 1)`.\n- **#12 — grenser i nøstede løkker.** Er den indre grensen et uttrykk i den ytre løkkevariabelen, må du telle på nytt for hver ytre runde.\n- **#18 — indeksering mot utsnitt.** Element eller liste? Det avgjør hvordan svaret skrives.\n- **#5 — `+` på lister skjøter.** Elementvis addisjon finnes ikke før NumPy.\n- **#16 — utskriftsdetaljer.** `end`, `sep`, mellomrommet mellom `print`-argumenter, og bredde og desimaler i f-strenger.\n- **#17 — `zip` stopper ved korteste**, og `enumerate` gir indeksen først.\n- **#13 — scope.** Tilordning inne i en funksjon er lokal; `append` og innsetting i en ordbok er det ikke.\n- **#15 — heltall og presedens.** `//` runder nedover, `**` regnes fra høyre, `/` gir alltid flyttall.\n\nMerk at rekursjon — at en funksjon kaller seg selv — er **utenfor pensum** i dette emnet og aldri forutsettes i en sporingsoppgave. Alt du møter, er løkker."
+    },
+    {
+      "id": "in1900-1-7-coll-22",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-1-7-c22-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel i en sporing |\n|---|---|\n| `range(b)` | `0, 1, …, b-1`. Stoppverdien er **aldri** med. |\n| `range(a, b)` | `b - a` verdier, fra `a` til og med `b-1`. |\n| `range(a, b, s)` | Steg `s`, også negativt. `range(5, 0, -2)` gir `5, 3, 1`. |\n| `range(0)` | Tom — løkka kjører ingen ganger. |\n| `x[i]` | **Elementet** på plass `i`. Negativ `i` teller fra `-1` bakerst. |\n| `x[a:b]` | **Liste** med elementene `a` til `b-1`. Utenfor kanten gir `[]`. |\n| `x[::-1]` | Hele sekvensen baklengs. |\n| `y[i][j]` | To nivåer: rad `i`, element `j` i den raden. |\n| `a + b` på lister | **Skjøting**, ikke elementvis addisjon. |\n| `a * 2` på liste/streng | **Gjentakelse**. |\n| `sum(x)`, `len(x)` | Ett tall ut. `len` teller på det nivået du peker på. |\n| `print(a, b)` | Ett mellomrom mellom argumentene, linjeskift til slutt. |\n| `print(..., end='x')` | Bytter ut linjeskiftet — også etter siste runde. |\n| `print(..., sep='x')` | Bytter ut mellomrommet mellom argumentene. |\n| `f'{k:3d}'` | Heltall i bredde 3, høyrejustert med mellomrom foran. |\n| `f'{x:6.2f}'` | Totalt 6 tegn, 2 desimaler, avrundet. |\n| `f'{s:5s}'` | Streng i bredde 5, venstrejustert (tall er høyrejustert). |\n| `enumerate(x)` | Parene `(indeks, verdi)`, indeks først, fra 0. |\n| `zip(a, b)` | Parer posisjon for posisjon, stopper ved den **korteste**. |\n| `for k in d` | Ordbokens **nøkler**, i innsettingsrekkefølge. |\n| `d.get(k, 0)` | Verdien, eller 0 om nøkkelen mangler. Endrer ikke ordboka. |\n| `.split(sep)` | Deler en streng i en **liste** av strenger. |\n| `float(s)` | Gjør en tallstreng om til flyttall. |\n| `//`, `%`, `**` | Heltallsdivisjon (nedover), rest, potens (regnes fra høyre). |\n| Lokal tilordning | `=` inne i en funksjon lager alltid en lokal variabel. |\n| `liste.append(x)` | Endrer objektet — synlig også utenfor funksjonen. |\n\n**Utskriftsformene å kunne utenat:** liste `[1, 2]` (mellomrom etter komma), tuppel `(1, 2)`, ordbok `{'a': 1}` (fnutter rundt strengnøkler), streng som `print`-argument **uten** fnutter, flyttall alltid med desimalpunkt: `5.0`."
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-7-t-23",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-1-7-def-24",
+      "type": "definition",
+      "title": "Sporingstavle",
+      "content": "Tabellen du fører mens du kjører koden i hodet: én kolonne per variabel som endrer seg, én rad per iterasjon, og en siste kolonne med «utskrift så langt».\n\nTavlen er ikke pynt. På en fritekstoppgave gir en synlig, delvis riktig tavle uttelling selv om sluttsvaret bommer, fordi den viser at du har riktig forståelse av løkkestrukturen."
+    },
+    {
+      "id": "in1900-1-7-def-25",
+      "type": "definition",
+      "title": "Å telle løkkerunder",
+      "content": "Antall runder avgjøres før du begynner å regne. `range(a, b)` gir `b - a` runder; `range(a, b, s)` gir antallet steg som får plass før `b`; en `for` over en liste gir `len(liste)` runder; en `zip` gir like mange som den **korteste**.\n\nFor nøstede løkker: tell den indre for hver ytre runde, og legg sammen. Er den indre grensen `range(i)`, blir totalen $0 + 1 + 2 + \\ldots$ — en trekant, ikke et rektangel."
+    },
+    {
+      "id": "in1900-1-7-def-26",
+      "type": "definition",
+      "title": "Element eller struktur",
+      "content": "Spørsmålet du skal stille ved hvert uttrykk: gir dette **ett element** eller **en samling**?\n\nIndeksering, `sum`, `len` og et oppslag i en ordbok gir ett element. Utsnitt, liste-skjøting, `.split()` og `.keys()` gir en samling. Svaret avgjør hvordan utskriften ser ut — med eller uten hakeparenteser — og det er der halvparten av poengene i sjanger A ligger."
+    },
+    {
+      "id": "in1900-1-7-def-27",
+      "type": "definition",
+      "title": "Delvis uttelling i sporing",
+      "content": "På fritekstoppgaver rettes sporing linje for linje: hver riktig utskriftslinje teller, og riktig struktur belønnes selv med en feil i detaljene.\n\nPå flervalg gir blankt og feil det samme, og negativ scoring er fjernet fra 2024/2025. Praktisk konsekvens: **kryss alltid av**, og skriv alltid ned den sporingen du har rukket, selv om du ikke er ferdig."
+    },
+    {
+      "id": "in1900-1-7-coll-28",
+      "type": "collapsible",
+      "title": "Repetisjon — sjekklisten før du svarer",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-1-7-c28-1",
+          "type": "text",
+          "content": "Gå gjennom denne før du skriver svaret på en sporingsoppgave:\n\n1. Hvor mange runder går hver løkke? (Stoppverdien er ikke med.)\n2. Hvilke `print` står inne i løkka, og hvilke står utenfor? Se på innrykket.\n3. Har noen `print` `end` eller `sep`? Hvor mange linjer blir det da?\n4. Gir hvert uttrykk et element eller en samling?\n5. Er noen verdi et flyttall? Da skal utskriften ha desimalpunkt.\n6. Finnes samme navn både inne i og utenfor en funksjon?\n\nSitter disse seks spørsmålene i ryggmargen, klarer du 10–12 midtveisspørsmål på under 20 minutter. Neste steg er å ta hele Del 1 under tidspress i [prøvene til del 1](/bok/in1900/in1900-1-prove), og deretter midtveis-simuleringen i [kap. 9.1](/bok/in1900/in1900-9-1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,292 @@
+[
+  {
+    "question": "Hva skriver `for i in range(2, 6): print(i, end='')` ut?",
+    "options": [
+      "`2345`",
+      "`23456`",
+      "`2 3 4 5`",
+      "`012345`"
+    ],
+    "explanation": "`range(2, 6)` gir 2, 3, 4, 5 — stoppverdien 6 er aldri med (felle #1). `end=''` fjerner både linjeskiftet og gir ingen skilletegn, så sifrene henger sammen. Alternativ b) tar med stoppverdien, c) antar mellomrom, og d) starter på 0."
+  },
+  {
+    "question": "Hva skriver `print(x[2], x[-3])` ut når `x = [5, 6, 7, 8]`?",
+    "options": [
+      "`7 6`",
+      "`7 7`",
+      "`6 6`",
+      "`8 6`"
+    ],
+    "explanation": "Indeks 2 er tredje element, altså 7. Negativ indeks teller fra `-1` bakerst: `-1` er 8, `-2` er 7, `-3` er 6. Alternativ b) er svaret om du tror `-3` teller fra `0`, og d) om du leser `x[2]` som «det andre fra slutten»."
+  },
+  {
+    "question": "Hva skriver `print(x[1:3])` ut når `x = [5, 6, 7, 8]`?",
+    "options": [
+      "`[6, 7]`",
+      "`[6, 7, 8]`",
+      "`6 7`",
+      "`[5, 6, 7]`"
+    ],
+    "explanation": "Et utsnitt tar med fra og med 1 til, men ikke med, 3 — altså to elementer. Utsnitt gir en **liste**, og lister skrives med hakeparenteser og mellomrom etter kommaet (felle #18). Alternativ b) tar med stoppindeksen, og c) glemmer at resultatet er en liste."
+  },
+  {
+    "question": "Hva skriver `print([1, 2] + [3])` ut?",
+    "options": [
+      "`[1, 2, 3]`",
+      "`[4, 5]`",
+      "`6`",
+      "`[1, 2, [3]]`"
+    ],
+    "explanation": "`+` på lister betyr **skjøting**, ikke elementvis addisjon (felle #5). Alternativ b) er hva elementvis addisjon ville gitt om det fantes — det kommer først med NumPy-tabeller i [kap. 4.1](/bok/in1900/in1900-4-1). Alternativ c) er summen av alle tallene."
+  },
+  {
+    "question": "Hva skriver `print(sum([1, 2, 3]) * 2)` ut?",
+    "options": [
+      "`12`",
+      "`[1, 2, 3, 1, 2, 3]`",
+      "`[2, 4, 6]`",
+      "`6`"
+    ],
+    "explanation": "`sum` gir ett tall, 6, og deretter ganges tallet med 2. Alternativ b) er hva `[1, 2, 3] * 2` ville gitt — gjentakelse av lista. Alternativ c) er elementvis multiplikasjon, som lister ikke har, og d) glemmer siste ledd."
+  },
+  {
+    "question": "Hva skriver `print(9 // 4, 9 % 4, -9 // 4)` ut?",
+    "options": [
+      "`2 1 -3`",
+      "`2 1 -2`",
+      "`2.25 1 -2.25`",
+      "`2 1 -2.25`"
+    ],
+    "explanation": "`//` runder **nedover**, også for negative tall: −2,25 blir −3 (felle #15). `%` gir resten 1. Alternativ b) er svaret om du tror `//` kutter mot null slik `int()` gjør, og c)/d) forveksler `//` med `/`, som alltid gir flyttall."
+  },
+  {
+    "question": "Hva skriver `print(3 ** 2 ** 2)` ut?",
+    "options": [
+      "`81`",
+      "`9`",
+      "`12`",
+      "`729`"
+    ],
+    "explanation": "`**` regnes **fra høyre**, så uttrykket er $3^{(2^2)} = 3^4 = 81$ (felle #15). Alternativ d) er $(3^2)^2 \\cdot 9$, b) er $3^2$, og c) er svaret om du ganger eksponentene. Potensen binder også sterkere enn unært minus."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nfor i in range(1, 4):\n    for j in range(i):\n        print(j, end='')\n```",
+    "options": [
+      "`001012`",
+      "`012012`",
+      "`000111`",
+      "`0110122`"
+    ],
+    "explanation": "Den indre grensen avhenger av `i` (felle #12): for `i = 1` skrives `0`, for `i = 2` skrives `01`, for `i = 3` skrives `012`. Til sammen `001012`. Alternativ b) antar tre indre runder hver gang, og c) antar at det er `i` som skrives."
+  },
+  {
+    "question": "Hva skriver `for i in range(4, 0, -1): print(i, end=' ')` ut?",
+    "options": [
+      "`4 3 2 1 ` (med mellomrom til slutt)",
+      "`4 3 2 1 0 ` (med mellomrom til slutt)",
+      "`3 2 1 0 ` (med mellomrom til slutt)",
+      "`1 2 3 4 ` (med mellomrom til slutt)"
+    ],
+    "explanation": "Med negativt steg teller `range` nedover, og stoppverdien 0 er fortsatt **eksklusiv**. Alternativ b) tar med stoppverdien, c) starter feil sted, og d) snur rekkefølgen. Merk at `end=' '` også skriver et mellomrom etter siste tall."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\na = [1, 2, 3]\nb = [9, 8]\nfor p, q in zip(a, b):\n    print(p + q, end=' ')\n```",
+    "options": [
+      "`10 10 ` (med mellomrom til slutt)",
+      "`10 10 3 ` (med mellomrom til slutt)",
+      "`10 10 11 ` (med mellomrom til slutt)",
+      "`1 9 2 8 ` (med mellomrom til slutt)"
+    ],
+    "explanation": "`zip` stopper ved den korteste sekvensen (felle #17), så løkka går to runder: $1 + 9 = 10$ og $2 + 8 = 10$. Tallet 3 blir aldri brukt. Alternativ b) og c) er fellene der `zip` antas å fylle ut den korteste lista."
+  },
+  {
+    "question": "Hva skriver `for i, v in enumerate(['a', 'b']): print(i, v, end=';')` ut?",
+    "options": [
+      "`0 a;1 b;`",
+      "`1 a;2 b;`",
+      "`a 0;b 1;`",
+      "`0 a; 1 b;`"
+    ],
+    "explanation": "`enumerate` gir indeksen **først** og starter på 0 (felle #17). `print` med to argumenter setter ett mellomrom mellom dem, mens `end=';'` gir semikolon uten mellomrom etter. Alternativ c) snur paret, og d) legger inn et mellomrom som ikke skrives."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nn = 7\nk = 0\nwhile n > 0:\n    n = n - 2\n    k += 1\nprint(n, k)\n```",
+    "options": [
+      "`-1 4`",
+      "`1 3`",
+      "`0 4`",
+      "`-1 3`"
+    ],
+    "explanation": "`n` går 7, 5, 3, 1, −1. Etter fjerde runde er `n` lik −1, og betingelsen `n > 0` er usann. Alternativ b) stopper en runde for tidlig — men ved `n = 1` er `1 > 0` fortsatt sant. Alternativ c) antar at løkka treffer 0 nøyaktig, som den ikke gjør med steg 2 fra et oddetall."
+  },
+  {
+    "question": "Hva skriver `print(len(d), 2 in d)` ut når `d = {'a': 1, 'b': 2}`?",
+    "options": [
+      "`2 False`",
+      "`2 True`",
+      "`4 False`",
+      "`2 None`"
+    ],
+    "explanation": "`len` teller parene, altså 2. `in` på en ordbok ser **bare** på nøklene, og 2 er en verdi — derfor `False`. Alternativ b) er fellen der man tror `in` også leter i verdiene; det krever `2 in d.values()`. Alternativ c) teller nøkler og verdier hver for seg."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nd = {'a': 1}\nd['b'] = d.get('b', 0) + 3\nprint(d)\n```",
+    "options": [
+      "`{'a': 1, 'b': 3}`",
+      "`{'a': 1, 'b': 0}`",
+      "`{'a': 1}`",
+      "`{'a': 4, 'b': 3}`"
+    ],
+    "explanation": "`.get('b', 0)` gir 0 fordi nøkkelen mangler, og verdien blir 3. Nye nøkler legges bakerst, i innsettingsrekkefølge. Alternativ b) glemmer leddet `+ 3`, og c) forutsetter at `.get` alene ville lagt til nøkkelen — det gjør den ikke, men tilordningen gjør det."
+  },
+  {
+    "question": "Hva skriver `print(s[1:4], s[-1])` ut når `s = 'python'`?",
+    "options": [
+      "`yth n`",
+      "`ytho n`",
+      "`yth h`",
+      "`'yth' 'n'`"
+    ],
+    "explanation": "Utsnittet tar tegn 1, 2 og 3 — stoppindeksen 4 er ikke med. `s[-1]` er siste tegn. Strenger skrives **uten** fnutter når de er argument til `print`; fnutter kommer bare med inne i en liste eller ordbok (alternativ d). Alternativ b) tar med stoppindeksen."
+  },
+  {
+    "question": "Hva skriver `print(f'{7:4d}|{2.5:6.1f}|')` ut?",
+    "options": [
+      "`   7|   2.5|`",
+      "`7   |2.5   |`",
+      "`   7|  2.50|`",
+      "`0007|   2.5|`"
+    ],
+    "explanation": "Bredden fyller ut med mellomrom **foran** tall (høyrejustering): `7` er ett tegn i et felt på 4, og `2.5` er tre tegn i et felt på 6. Alternativ b) venstrejusterer, som bare gjelder strenger, og c) bruker to desimaler der `.1f` ba om én (felle #16)."
+  },
+  {
+    "question": "Hva skriver `print('a', 'b', sep='-', end='!')` ut?",
+    "options": [
+      "`a-b!`",
+      "`a b!`",
+      "`a-b-!`",
+      "`a-b` med linjeskift etter"
+    ],
+    "explanation": "`sep` bytter ut mellomrommet **mellom** argumentene, `end` bytter ut linjeskiftet **etter** hele utskriften. Alternativ c) bruker separatoren også til slutt, som den ikke gjør, og d) overser at `end` fjerner linjeskiftet (felle #16)."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\ny = 2\ndef f():\n    y = 9\n    return y + 1\nprint(f(), y)\n```",
+    "options": [
+      "`10 2`",
+      "`10 9`",
+      "`3 2`",
+      "`10 10`"
+    ],
+    "explanation": "Tilordningen inne i funksjonen lager en **lokal** `y` (felle #13), så funksjonen returnerer 10 mens den globale `y` fortsatt er 2. Alternativ b) og d) er svarene om du tror funksjonen endrer den globale, og c) om du tror funksjonen leser den globale verdien."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\ndef g(liste):\n    liste.append(4)\n    return sum(liste)\nx = [1, 2]\nprint(g(x), x)\n```",
+    "options": [
+      "`7 [1, 2, 4]`",
+      "`7 [1, 2]`",
+      "`3 [1, 2, 4]`",
+      "`7 [4]`"
+    ],
+    "explanation": "`append` endrer selve lista som ble sendt inn, så endringen er synlig utenfor — dette er unntaket fra scope-regelen, som bare gjelder tilordning. Summen blir $1 + 2 + 4 = 7$. Alternativ b) antar at funksjonen jobber på en kopi, og c) summerer før tillegget."
+  },
+  {
+    "question": "Hva skriver `print(y[1][0], len(y[1]))` ut når `y = [[1, 2], [3, 4, 5]]`?",
+    "options": [
+      "`3 3`",
+      "`1 2`",
+      "`3 2`",
+      "`2 3`"
+    ],
+    "explanation": "`y[1]` er den andre indre lista, `[3, 4, 5]`; første element der er 3, og lengden er 3. At begge tallene ble 3 er tilfeldig — `len` teller på det nivået du peker på. Alternativ b) leser rad 0, og c) teller lengden på feil rad."
+  },
+  {
+    "question": "Hva skriver `print(y[0] + y[1][:1])` ut når `y = [[1, 2], [3, 4, 5]]`?",
+    "options": [
+      "`[1, 2, 3]`",
+      "`[1, 2, 3, 4, 5]`",
+      "`[1, 2, [3]]`",
+      "`6`"
+    ],
+    "explanation": "`y[1][:1]` er et **utsnitt** og gir lista `[3]`, ikke tallet 3. To lister skjøtes med `+`. Alternativ c) er fellen der man tror en liste legges inn som ett element, og d) forutsetter at `+` summerer tall (felle #5 og #18 i samme uttrykk)."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(3):\n    total = total + i * 2\nprint(total)\n```",
+    "options": [
+      "`6`",
+      "`12`",
+      "`4`",
+      "`0`"
+    ],
+    "explanation": "`range(3)` gir 0, 1, 2, og summen av det dobbelte er $0 + 2 + 4 = 6$. Alternativ b) er svaret om løkka gikk til og med 3, og c) om startverdien var glemt. Merk at `print` står utenfor løkka, så den skriver bare én gang."
+  },
+  {
+    "question": "Hva skriver `print(list(range(0, 7, 3)))` ut?",
+    "options": [
+      "`[0, 3, 6]`",
+      "`[0, 3, 6, 9]`",
+      "`[0, 3, 6, 7]`",
+      "`[3, 6]`"
+    ],
+    "explanation": "Steget er 3, og stoppverdien 7 er eksklusiv — 9 ville uansett vært for stort. Alternativ b) og c) tar med en verdi for mye, og d) glemmer at `range` starter på startverdien. Merk at `list` må til for at et `range`-objekt skal vises som en liste."
+  },
+  {
+    "question": "Hva skriver `print(10 / 5, 10 // 5)` ut?",
+    "options": [
+      "`2.0 2`",
+      "`2 2`",
+      "`2.0 2.0`",
+      "`2 2.0`"
+    ],
+    "explanation": "`/` gir **alltid** flyttall, også når divisjonen går opp; `//` gir heltall når begge operandene er heltall (felle #15). Et svar med `2` der det skal stå `2.0` er feil i sjanger A, selv om tallverdien stemmer."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nd = {'x': 3, 'y': 1}\nfor k in d:\n    print(k, end='')\nprint(sum(d.values()))\n```",
+    "options": [
+      "`xy4`",
+      "`x y 4`",
+      "`31 4`",
+      "`xy 4`"
+    ],
+    "explanation": "Løkka går over **nøklene** og skriver dem uten skilletegn, siden `end=''`. Deretter skriver `print` summen av verdiene, 4, på samme linje — fordi forrige `print` aldri avsluttet linja. Alternativ c) er fellen der løkkevariabelen forveksles med verdien."
+  },
+  {
+    "question": "Hva skriver `print(tekst.split(','), len(tekst.split(',')))` ut når `tekst = 'a,b,,c'`?",
+    "options": [
+      "`['a', 'b', '', 'c'] 4`",
+      "`['a', 'b', 'c'] 3`",
+      "`['a', 'b', ' ', 'c'] 4`",
+      "`'a b  c' 4`"
+    ],
+    "explanation": "`.split(',')` deler på hvert komma, også der det ikke står noe mellom to av dem — resultatet blir en tom streng `''` som eget felt. Alternativ b) er fellen der man tror tomme felt hoppes over, og c) forveksler tom streng med mellomrom."
+  },
+  {
+    "question": "Hva skriver `print(h(7), h(7, 4))` ut for `def h(n, m=3): return n % m`?",
+    "options": [
+      "`1 3`",
+      "`1 1`",
+      "`2 3`",
+      "`3 1`"
+    ],
+    "explanation": "Første kall bruker standardverdien 3, så $7 \\bmod 3 = 1$; andre kall setter `m` til 4, og $7 \\bmod 4 = 3$. Alternativ d) bytter om de to kallene, og c) regner $7 // 3$ i stedet for resten."
+  },
+  {
+    "question": "Hva skriver `print(x[::-1], x[3:])` ut når `x = [1, 2, 3]`?",
+    "options": [
+      "`[3, 2, 1] []`",
+      "`[3, 2, 1] [3]`",
+      "`[1, 2, 3] []`",
+      "`[3, 2, 1]` og deretter `IndexError`"
+    ],
+    "explanation": "`[::-1]` snur lista, og `x[3:]` starter etter siste element og gir en **tom liste** — et utsnitt utenfor kanten er lovlig og gir ikke feilmelding (felle #18). Alternativ d) forveksler utsnitt med indeksering: `x[3]` ville derimot gitt `IndexError`."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nk = 0\nfor i in range(3):\n    for j in range(2):\n        k += 1\nprint(k)\n```",
+    "options": [
+      "`6`",
+      "`5`",
+      "`3`",
+      "`9`"
+    ],
+    "explanation": "Den ytre løkka går tre runder og den indre to per ytre runde, altså $3 \\cdot 2 = 6$ oppdateringer. Når den indre grensen er fast, blir totalen et rektangel; er den `range(i)`, blir den en trekant (felle #12). Alternativ b) og c) teller bare den ene løkka."
+  }
+]
