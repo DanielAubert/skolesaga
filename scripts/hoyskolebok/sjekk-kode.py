@@ -85,7 +85,13 @@ def fences(s):
 
 
 def selvkall(kropp):
-    """Funksjonsnavn som kalles inne i sin EGEN kropp (innrykk-bevisst)."""
+    """Funksjonsnavn som kalles inne i sin EGEN kropp (innrykk-bevisst).
+
+    `super().__init__(...)` inne i en subklasses `__init__` er IKKE rekursjon —
+    det er basisklassens konstruktør (BYGGEKONTRAKT §K5, subklasse-malen), og
+    står i hver arv-oppgave i Del 5 og Del 7. Negativ lookbehind på `super().`
+    holder den utenfor.
+    """
     treff = []
     linjer = kropp.split("\n")
     for i, linje in enumerate(linjer):
@@ -98,7 +104,7 @@ def selvkall(kropp):
                 continue
             if len(neste) - len(neste.lstrip()) <= innrykk:
                 break
-            if re.search(r"\b" + re.escape(navn) + r"\s*\(", neste):
+            if re.search(r"(?<!super\(\)\.)\b" + re.escape(navn) + r"\s*\(", neste):
                 treff.append(navn)
                 break
     return treff

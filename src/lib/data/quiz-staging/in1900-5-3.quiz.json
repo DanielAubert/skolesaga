@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Hva betyr parentesen i `class Linje(Parabel):`?",
+    "options": [
+      "At `Linje` arver alle metoder og attributter fra `Parabel`",
+      "At `Linje` må få en `Parabel` som argument i konstruktøren",
+      "At `Parabel` arver alle metodene som skrives i `Linje`",
+      "At de to klassene deler ett felles sett attributter"
+    ],
+    "explanation": "Parentesen angir basisklassen, og subklassen får alt den har. Retningen er enveis — `Parabel` påvirkes ikke av `Linje` — og parentesen har ingenting å gjøre med argumenter til konstruktøren. Instansene deler heller ingenting; hver har sine egne attributter."
+  },
+  {
+    "question": "Hvorfor skrives ikke `self` i kallet `super().__init__(0, b, c)`?",
+    "options": [
+      "`super()` er bundet til instansen, som sendes automatisk",
+      "`self` er ikke tilgjengelig inne i en konstruktør i det hele tatt",
+      "Basisklassens konstruktør har ikke `self` i signaturen",
+      "Fordi `super()` lager en ny instans som `self` ikke gjelder for"
+    ],
+    "explanation": "`super()` gir deg basisklassen bundet til den instansen du er inne i, så instansen sendes automatisk som første argument — akkurat som ved et vanlig metodekall. Skriver du `self` selv, får basisklassens konstruktør ett argument for mye. `self` er selvsagt tilgjengelig, og basisklassens konstruktør har `self` i signaturen sin."
+  },
+  {
+    "question": "En subklasse setter `self.b` og `self.c` selv, uten `super()`-kall. Basisklassens `__call__` bruker også `self.a`. Hva skjer ved `l(3)`?",
+    "options": [
+      "`AttributeError`, fordi attributtet `a` aldri ble satt",
+      "`TypeError`, fordi den arvede metoden mangler et argument",
+      "Verdien regnes med `a` som 0 automatisk",
+      "`NameError`, fordi `a` ikke er en global variabel"
+    ],
+    "explanation": "Attributtet `a` finnes ikke på instansen, og Python sier `AttributeError: 'Linje' object has no attribute 'a'`. Python setter aldri attributter automatisk, og feilen er et attributtoppslag, ikke et navneoppslag eller et argumentproblem."
+  },
+  {
+    "question": "Hvor skal `super().__init__(...)` stå i subklassens konstruktør?",
+    "options": [
+      "Først, altså før subklassens egne tilordninger",
+      "Sist, etter at subklassens attributter er satt",
+      "Hvor som helst — rekkefølgen har ingen betydning",
+      "I `__call__` i stedet, slik at det kjøres ved hvert kall"
+    ],
+    "explanation": "Basisklassen skal være ferdig satt opp før du bygger videre, ellers kan dens konstruktør overskrive det du nettopp satte — en stille feil uten feilmelding. Kallet hører i konstruktøren, ikke i `__call__`, som kjøres på nytt for hvert kall."
+  },
+  {
+    "question": "`Linje` arver `__call__` fra `Parabel` og setter `a = 0` gjennom `super()`. Hva gir `l(3)` for `Linje(2, 1)`?",
+    "options": [
+      "7",
+      "13",
+      "6",
+      "0"
+    ],
+    "explanation": "Den arvede metoden regner $0\\\\cdot 3^2 + 2\\\\cdot 3 + 1 = 7$. Svaret 13 kommer av å tro at `a` er 1, 6 av å glemme konstantleddet, og 0 av å tro at hele uttrykket nulles ut når `a` er 0."
+  },
+  {
+    "question": "Subklassen skriver en metode med samme navn som en i basisklassen. Hva kalles det, og hva skjer med basisklassen?",
+    "options": [
+      "Overstyring — basisklassen er uendret, subklassens versjon brukes",
+      "Overstyring — metoden slettes fra basisklassen for alle instanser",
+      "Arv — de to metodene kjøres etter hverandre ved hvert kall",
+      "Utvidelse — basisklassens metode kalles helt automatisk etterpå"
+    ],
+    "explanation": "Det heter overstyring, og basisklassen er helt urørt: dens egne instanser bruker fortsatt sin versjon. Python kjører aldri to metoder med samme navn automatisk — vil du ha basisklassens versjon i tillegg, må du kalle den selv."
+  },
+  {
+    "question": "`v` er en `Vec3D`, som arver fra `Vec2D`. Hva er `isinstance(v, Vec2D)`?",
+    "options": [
+      "`True` — en subklasseinstans er også en basisklasseinstans",
+      "`False` — `v` er av klassen `Vec3D` og ingen annen",
+      "`True`, men bare hvis `Vec3D` ikke overstyrer noen metoder",
+      "`False`, siden `Vec3D` har et attributt `Vec2D` mangler"
+    ],
+    "explanation": "`isinstance` godtar subklasser, og det er selve poenget med «er en»-forholdet i arv. Overstyring og ekstra attributter endrer ikke dette; motsatt vei er svaret `False` — en `Vec2D` er ingen `Vec3D`."
+  },
+  {
+    "question": "En subklasse skal ha ett attributt mer enn basisklassen. Hvordan ser konstruktøren ut?",
+    "options": [
+      "`super().__init__(x, y)`, og deretter `self.z = z`",
+      "`self.z = z` og deretter `super().__init__(x, y, z)`",
+      "`super().__init__(x, y, z)` alene, som fordeler alle tre",
+      "`self.x = x`, `self.y = y` og `self.z = z` i subklassen"
+    ],
+    "explanation": "Basisklassens konstruktør setter de arvede attributtene, og det nye settes etterpå. Å sende `z` videre til basisklassen ville gitt ett argument for mye, og å sette alle tre selv er nettopp den kopieringen arven skal spare deg for."
+  },
+  {
+    "question": "Hva er problemet med å skrive `class Linje:` i stedet for `class Linje(Parabel):` når oppgaven ber om en subklasse?",
+    "options": [
+      "Koden virker, men arven mangler — og det var det som ble testet",
+      "Koden krasjer, siden `Parabel` da blir ukjent inne i `Linje`-kroppen",
+      "Koden virker, men `Linje` kan ikke ha egne metoder",
+      "Koden gir `AttributeError` ved første kall på instansen"
+    ],
+    "explanation": "Uten parentesen er det ingen arv, og du må skrive alle metodene selv — koden kan gjerne regne riktig, men oppgaven ba om arv, og uttellingen faller. Det er ingen feilmelding å oppdage feilen på; kjennetegnet er bare den manglende parentesen."
+  },
+  {
+    "question": "Basisklassen har `__call__`. Subklassen skriver ingen `__call__`. Er subklasseinstanser kallbare?",
+    "options": [
+      "Ja — spesialmetoder arves som alle andre metoder",
+      "Nei — spesialmetoder må gjentas i hver subklasse",
+      "Ja, men bare hvis subklassen kaller `super()` i `__call__`",
+      "Nei, ikke før `__call__` er nevnt i klassekroppen"
+    ],
+    "explanation": "Spesialmetoder arves akkurat som vanlige metoder, så instansen er kallbar uten at du skriver noe. Det er nettopp derfor `Linje` ble en fullverdig funksjonsklasse på tre linjer."
+  },
+  {
+    "question": "I hvilken av disse situasjonene er arv det riktige valget?",
+    "options": [
+      "To klasser deler mest av koden, og den ene er et spesialtilfelle",
+      "To klasser har tilfeldigvis noen metoder med like navn",
+      "To klasser skal begge kunne skrives ut med `print`",
+      "En klasse trenger et attributt som selv er en instans av en annen klasse"
+    ],
+    "explanation": "Testen er «er en»: en linje er en parabel med $a = 0$. Like metodenavn eller felles evne til å skrives ut er ikke nok grunn, og et attributt som er et annet objekt er noe helt annet enn arv."
+  },
+  {
+    "question": "Hva gir `Vec3D.__add__` som returnerer `Vec2D(...)` i stedet for `Vec3D(...)`?",
+    "options": [
+      "Et resultat som mister `z`-komponenten, uten noen feilmelding",
+      "En feilmelding, siden `Vec2D` mangler tre argumenter",
+      "Et helt riktig resultat, siden `Vec3D` arver fra `Vec2D`",
+      "Et resultat der `z` settes til null automatisk"
+    ],
+    "explanation": "Instansen som lages er en `Vec2D`, og den har ingen `z` i det hele tatt — summen er dermed feil, og feilen forplanter seg videre uten at noe krasjer. Arven i motsatt retning hjelper ikke: en `Vec2D` er ingen `Vec3D`."
+  },
+  {
+    "question": "Hvorfor er arv «hele forutsetningen» for ODESolver-oppgavene i Del 7?",
+    "options": [
+      "Du skriver bare metoden som skiller løseren din fra basisklassen",
+      "Du må arve for å få lov til å bruke en utlevert modul",
+      "Fordi ODE-løsere umulig kan skrives som frittstående funksjoner",
+      "Fordi `solve` må overstyres i hver ny løser du skriver"
+    ],
+    "explanation": "Hele tidsløkka ligger i basisklassen; subklassen implementerer bare steget som er spesielt for metoden. Det er derfor oppgavetypen er kort å svare på når du kjenner malen — og `solve` skal nettopp ikke overstyres."
+  },
+  {
+    "question": "Hva blir siste linje i feilmeldingen fra `super().__init__(self, 0, b, c)` når basisklassen tar tre argumenter utenom `self`?",
+    "options": [
+      "`TypeError: __init__() takes 4 positional arguments but 5 were given`",
+      "`AttributeError: 'super' object has no attribute '__init__'`",
+      "`NameError: name 'self' is not defined` i konstruktørkallet",
+      "`TypeError: super() takes no keyword arguments` på samme linje"
+    ],
+    "explanation": "Instansen sendes automatisk, så det ekstra `self`-argumentet gjør at konstruktøren får fem argumenter der den venter fire. De tre andre meldingene hører til helt andre feil — manglende navn, eller feil bruk av `super()` selv."
+  }
+]
