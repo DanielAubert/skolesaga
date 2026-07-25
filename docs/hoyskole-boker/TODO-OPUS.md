@@ -15,6 +15,67 @@ Erfaringstall per bok (fra econ1310/jus1111): ~9 byggeagenter + wiring +
 Bøkene er uavhengige — rekkefølgen under er anbefalt prioritet (størst
 studentvolum + sterkest rammeverk først), men plukk fritt.
 
+## PRIORITET: 1.-SEMESTEREMNER FØRST (produkteier 25. juli 2026)
+
+**Regel:** emner studentene tar i sitt FØRSTE semester bygges først. Innenfor
+gruppa sorteres det etter studentvolum. Førstesemesterstudenten trenger boka mest
+og har minst alternativer, og emnene er oftest obligatoriske for hele kull.
+
+**Belegg:** semesterplasseringen under er verifisert 25. juli 2026 mot lærestedenes
+emnesider OG programmenes anbefalte studieløp — undervisningssemester alene holder
+ikke, siden 3. og 5. semester også er høst. Skjelettenes «Studieløp»-felt er lesevei
+gjennom boka, ikke semesterplassering.
+
+### Tier 1 — 1. semester, ferske studenter (bygg i denne rekkefølgen)
+
+| # | Emne | Lærested | Volum | Merknad |
+|---|---|---|---|---|
+| 1 | `nokut-afb` | Nasjonal (13 inst.) | **~6 000 kandidater/år** | Eneste reelle kandidattall i lista (NOKUT). 1. sem. ved alle sjekkede sykepleierutdanninger |
+| 2 | `tdt4110` | NTNU | ~1 375 plasser | Obligatorisk 1. sem. i 14 program. **NB:** de datatunge bruker søsterkoden TDT4109 med identisk navn — boka bør adressere begge |
+| 3 | `in1000` | UiO | ~600 plasser | 1. sem. i fem IFI-bachelorprogram |
+| 4 | `in1020` | UiO | ~600 plasser | Samme kull som IN1000 — to bøker mot samme ferske studenter |
+| 5 | `med1100` | UiO | 275 plasser | Alle nye medisinstudenter, to kull i året. Modulen spenner 1.–2. sem. |
+| 6 | `in1900` | UiO | ≥250 plasser | 🔄 UNDER BYGGING. Realfagsprogrammene + lektor + honours |
+| 7 | `econ1100` | UiO | ≥215 plasser | Fem økonomiprogram |
+| 8 | `sos1004` | UiO | ~140 plasser | Bachelor + årsstudium sosiologi |
+| 9 | `fys1100` | UiO | ~120 plasser | 1. sem. i Fysikk og astronomi + Elektronikk/IT |
+| 10 | `sosant1000` | UiO | 91 plasser | NB: emnet har byttet tittel til «Antropologisk samfunnsanalyse» — bruk begge navn i SEO |
+| 11 | `fil1001` | UiO | 59 plasser | Bachelor filosofi |
+| 12 | `ling1100` | UiO | 40 plasser | Bachelor lingvistikk |
+| 13 | `oslomet-mat1000` | OsloMet | 70 + 110 plasser | **Delvis:** 1. sem. for maskin/elektro, 1.–2. for bygg/energi, men **2. sem. for dataingeniør** (den største gruppa) |
+
+### Tier 2 — 1. semester i et 2-årig MASTERprogram (annen målgruppe)
+
+Ikke ferske studenter, men fortsatt «første semester» i sitt løp:
+`nokut-barnevern` (~300–400 kandidater/år), `econ4310` (~115 plasser),
+`tdt4120` (66 plasser i MITK; 3. sem. i BIT), `tdt4136` (85+ i MIDT/MSIT; 5. sem. i BIT).
+
+### Tier 3 — senere semestre
+
+Alt annet i listene under. To bøker som alt er bygget lå her (`econ2130` 2. sem.,
+`fys1120` 3. sem.) — steg 0 for dem er ferdig og gyldig, men kapasiteten går til
+Tier 1 først.
+
+### ⚠ Emner som er NEDLAGT eller UTGÅTT — verifiser før bygging
+
+| Emne | Status | Etterfølger |
+|---|---|---|
+| `psy1000` | Nedlagt, siste eksamen h2018 | PSY1301 / PSY1250 / PSY1200 |
+| `kjm1110` | Nedlagt, siste eksamen v2019 | KJM1111 (2. sem.) |
+| `sos1120` | Nedlagt 2019 | SOSGEO1120 (2. sem.) |
+| `tma4106` | Utgått ved NTNU | — |
+| `tma4135` | Borte fra NTNUs 2025-/2026-planer | — |
+| `sok1002` | NTNU-emnet erstattet av SØK1023 (h2024). **Mappenavnet kolliderer med UiTs aktive SOK-1002** — to ulike emner ved to læresteder | SØK1023 |
+
+En bok for et nedlagt emne har ingen studenter. Avklar med produkteier om arkivet
+skal beholdes for etterfølgeremnet i stedet.
+
+### Én kodeavklaring
+
+`econ3120` er kodet på bachelor-koden (5. sem.). Masterens 1. semester har
+tvillingkoden **ECON4120** — vil du treffe den målgruppa, er det den koden som
+gjelder.
+
 ## A. Klare til bygging (rammeverk ferdig — bare kjør kickoff)
 
 - [x] `exphil03` — **BYGGET (i main per 24. juli 2026, 34 kap).** EXPHIL03 Examen
@@ -74,26 +135,26 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       BOKPORT OK, prod-curl 13/13).** MAT111 (UiB). Åpen bok; difflikninger/Newton/Taylor.
 - [x] `stk1100` — **BYGGET (i main per 24. juli 2026, 35 kap).** STK1100 (UiO).
       Pivotal-kjeden som ryggrad; ingen hypotesetesting/kombinatorikk (UiO-egenart).
-- [ ] `in1900` — IN1900 (UiO). Kodefag-DNA (API-lister, kodesporing);
+- [ ] `in1900` **[1. sem]** — IN1900 (UiO). Kodefag-DNA (API-lister, kodesporing);
       ODESolver post-2023-signatur; rekursjon forbudt.
-- [ ] `tdt4120` — TDT4120 (NTNU). Kortsvars-presisjon («lange svar teller
+- [ ] `tdt4120` **[1. sem master]** — TDT4120 (NTNU). Kortsvars-presisjon («lange svar teller
       ikke positivt»); CLRS-standard; reduksjonsretning-drill.
 - [ ] `met4-nhh` — MET4 (NHH). 2025-formen (6 t, R-del + regnedel);
       tidsrekker tungt; IV/DiD/RDD utelatt (aldri testet på skoleeksamen).
 - [ ] `jus2111` — JUS2111 (UiO). Jus; rettstilstandssjekk gjort (§ 89-ordlyd
       2020, CRPD inkorporert 1.1.2026, derogasjon nedstemt). Fase 6 SKAL ha
       Lovdata-verifikatør.
-- [ ] `sosant1000` — SOSANT1000 (UiO). Drøfting; etnografisk eksempellager
+- [ ] `sosant1000` **[1. sem]** — SOSANT1000 (UiO). Drøfting; etnografisk eksempellager
       per tema; monografikapittel ⚠ utgavesensitiv (sjekk pensumliste).
 
 ## C. Transje 2 — rammeverk FERDIG (klare til bygging, samme kickoff som A)
 
 Prioritert etter studentvolum og materialstyrke:
-- [ ] `nokut-afb` — Nasjonal deleksamen anatomi/fysiologi/biokjemi, sykepleie (87 filer; alle sykepleiestudenter i Norge)
-- [ ] `oslomet-mat1000` — Matematikk 1000, ingeniør (OsloMet, 669 filer)
-- [ ] `econ1100` — Matematikk I (UiO, 60 filer, SV)
+- [ ] `nokut-afb` **[1. sem]** — Nasjonal deleksamen anatomi/fysiologi/biokjemi, sykepleie (87 filer; alle sykepleiestudenter i Norge)
+- [ ] `oslomet-mat1000` **[1. sem]** — Matematikk 1000, ingeniør (OsloMet, 669 filer)
+- [ ] `econ1100` **[1. sem]** — Matematikk I (UiO, 60 filer, SV)
 - [ ] `econ1410` — Internasjonal økonomi (UiO, 45 filer, SV)
-- [ ] `fys1100` — Mekanikk og modellering (UiO, 36 filer, SV)
+- [ ] `fys1100` **[1. sem]** — Mekanikk og modellering (UiO, 36 filer, SV)
 - [ ] `mek1100` — Feltteori og vektoranalyse (UiO, 50 filer)
 - [ ] `mat1110` — Kalkulus og lineær algebra (UiO, 26 filer)
 - [x] `stk1110` — **BYGGET 24. juli 2026** (28 kap, 515 quiz, 505 fc, BOKPORT OK,
@@ -112,26 +173,26 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `tfy4115` — Fysikk (NTNU, 50 filer)
 - [ ] `mat2200` — Grupper, ringer og kropper (UiO, 43 filer)
 - [ ] `ma0301` — Elementær diskret matematikk (NTNU, 43 filer)
-- [ ] `sos1120` — Kvantitativ metode (UiO, 41 filer)
+- [ ] `sos1120` **[⚠ NEDLAGT/UTGÅTT]** — Kvantitativ metode (UiO, 41 filer)
 - [ ] `mat2400` — Reell analyse (UiO, 33 filer)
 - [ ] `stv1020` — Politisk analyse 2: forskningsdesign/kvantitativ (UiO, 32 filer)
 - [ ] `kj2050` — Analytisk kjemi grunnkurs (NTNU, 28 filer)
-- [ ] `in1000` — Introduksjon til objektorientert programmering (UiO, 27 filer)
-- [ ] `fil1001` — Innføring i metafysikk og bevissthetsfilosofi (UiO, 22 filer)
+- [ ] `in1000` **[1. sem]** — Introduksjon til objektorientert programmering (UiO, 27 filer)
+- [ ] `fil1001` **[1. sem]** — Innføring i metafysikk og bevissthetsfilosofi (UiO, 22 filer)
 
 ## C4. Transje 4 — rammeverk FERDIG (klare til bygging, samme kickoff som A)
 
 - [ ] `mat112-uib` — Kalkulus II (UiB, 65 filer; oppfølger MAT111)
 - [ ] `tfy4104` — Fysikk (NTNU, 55 filer; nær TFY4115)
-- [ ] `psy1000` — Innføring i generell psykologi (UiO, 42 filer)
+- [ ] `psy1000` **[⚠ NEDLAGT/UTGÅTT]** — Innføring i generell psykologi (UiO, 42 filer)
 - [ ] ~~`econ2200`~~ — NEDLAGT (siste V2018); pensum delt mellom ECON1100 + ECON2220, som begge har rammeverk. Skjelett droppet (redundant); analyse beholdt.
-- [ ] `sok1002` — Mikroøkonomi (NTNU, 34 filer)
-- [ ] `tma4135` — Matematikk 4D (NTNU, 26 filer)
-- [ ] `sos1004` — Innføring i sosiologi (UiO; SOS1001/SOS1000/SOS1003 nedlagt →
+- [ ] `sok1002` **[⚠ NEDLAGT/UTGÅTT]** — Mikroøkonomi (NTNU, 34 filer)
+- [ ] `tma4135` **[⚠ NEDLAGT/UTGÅTT]** — Matematikk 4D (NTNU, 26 filer)
+- [ ] `sos1004` **[1. sem]** — Innføring i sosiologi (UiO; SOS1001/SOS1000/SOS1003 nedlagt →
       etterfølger-profilert mot aktivt SOS1004, arkiv ~72 filer på tvers av
       forgjengerkodene). Rammeverk underveis (8. juli 2026).
-- [ ] `kjm1110` — Kjemi (UiO, 22 filer)
-- [ ] `in1020` — Introduksjon til datateknologi (UiO, 22 filer)
+- [ ] `kjm1110` **[⚠ NEDLAGT/UTGÅTT]** — Kjemi (UiO, 22 filer)
+- [ ] `in1020` **[1. sem]** — Introduksjon til datateknologi (UiO, 22 filer)
 - [ ] `econ1220` — Velferd og økonomisk politikk (UiO, 22 filer)
 - [ ] `psyc1201` — Sosialpsykologi (UiO, 17 filer)
 - [ ] `sosant1090` — Antropologisk metode (UiO, 16 filer; AKTIVT — sensor-
@@ -143,9 +204,9 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `jus4111` — Metode og etikk (UiO, 22 filer; jus)
 - [ ] `econ2500` — Investering og finansiering (UiO, 22 filer)
 - [ ] `econ1910` — Poverty and Distribution in Developing Countries (UiO, 21 filer)
-- [ ] `tdt4136` — Introduksjon til kunstig intelligens (NTNU, 17 filer)
-- [ ] `tdt4110` — Informasjonsteknologi grunnkurs (NTNU, 17 filer)
-- [ ] `econ4310` — Macroeconomic Theory (UiO, 16 filer)
+- [ ] `tdt4136` **[1. sem master]** — Introduksjon til kunstig intelligens (NTNU, 17 filer)
+- [ ] `tdt4110` **[1. sem]** — Informasjonsteknologi grunnkurs (NTNU, 17 filer)
+- [ ] `econ4310` **[1. sem master]** — Macroeconomic Theory (UiO, 16 filer)
 - [ ] `tdt4171` — Metoder i kunstig intelligens (NTNU, 15 filer)
 - [ ] `fys2140` — Kvantefysikk (UiO, 15 filer)
 - [ ] `mat1120` — Lineær algebra (UiO, 12 filer)
@@ -155,7 +216,7 @@ Prioritert etter studentvolum og materialstyrke:
 ## C6. Transje 6 — analyse + skjelett underveis (8. juli 2026; status verifisert per fag)
 
 - [ ] `jus2211` — Forvaltningsrett og EØS-rett (UiO, 22 filer; jus, AKTIV)
-- [ ] `med1100` — Medisinstudiet modul 1 (UiO, 42 filer; AKTIV)
+- [ ] `med1100` **[1. sem]** — Medisinstudiet modul 1 (UiO, 42 filer; AKTIV)
 - [ ] `ttm4100` — Kommunikasjon: Tjenester og nett (NTNU, 32 filer; AKTIV)
 - [ ] `met2910-bi` — Matematikk for økonomer (BI, 23 filer; AKTIV)
 - [ ] `sok3500-bi` — Samfunnsøkonomi II (BI, 21 filer; AKTIV)
@@ -168,10 +229,10 @@ Prioritert etter studentvolum og materialstyrke:
       steg 3 komplett: ~475 sjekker over alle 11 deler, 0 fasitavvik; build grønn
       11 023 kap, prod-curl 11/11). Arkiv TMA4110 196 filer; kodetilhørighet merket
       (NTNU-reformen spredte stoffet på TMA4101/4106/4111 — dokumentert i Del 0).
-- [ ] `tma4106` — Matematikk 2 (NTNU; arkiv TMA4105 114 filer; ERSTATTET av
+- [ ] `tma4106` **[⚠ NEDLAGT/UTGÅTT]** — Matematikk 2 (NTNU; arkiv TMA4105 114 filer; ERSTATTET av
       TMA4106 — etterfølger-profilert)
 - [ ] `tdt4237` — Programvaresikkerhet og personvern (NTNU, 13 filer; AKTIV)
-- [ ] `ling1100` — Innføring i semantikk og pragmatikk (UiO, 13 filer; AKTIV)
+- [ ] `ling1100` **[1. sem]** — Innføring i semantikk og pragmatikk (UiO, 13 filer; AKTIV)
 - [ ] `econ4915` — Development Economics (UiO, 11 filer; AKTIV; bygger på econ1910)
 - [ ] `econ4260` — Behavioral Economics (UiO, 10 filer; AKTIV)
 
@@ -238,7 +299,7 @@ sensorveiledninger som aldri var i mandatet. Prioritert etter kategori:
 - [ ] `nokut-glu-matte` — NOKUT nasjonal deleksamen GLU-matematikk (103 filer,
       30 sensorveil.; ALLE grunnskolelærerstudenter nasjonalt — søster til
       nokut-afb som ble bygget). Klarest glipp i hele korpuset.
-- [ ] `nokut-barnevern` — NOKUT nasjonal deleksamen barnevern (36 f, 8 sv).
+- [ ] `nokut-barnevern` **[1. sem master]** — NOKUT nasjonal deleksamen barnevern (36 f, 8 sv).
 - [ ] `med-avsluttende` — UiO/nasjonal felles avsluttende deleksamen medisin
       (71 f, 56 m/fasit!); med1100-analysen holdt den bevisst utenfor modul
       1-boka — men den bærer sin EGEN bok (klinisk sluttkompetanse).
