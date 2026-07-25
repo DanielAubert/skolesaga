@@ -78,6 +78,30 @@ def strenger(obj, sti=""):
             yield from strenger(v, f"{sti}[{i}]")
 
 
+OPPGAVEBOKS = re.compile(r"^\s*(prøve|prove|kald bank|oppgavesett|øvingseksamen)\b", re.I)
+
+
+def strenger_ctx(obj, sti="", i_oppgaveboks=False):
+    """Som strenger(), men flagger strenger som står inne i en OPPGAVEBOKS.
+
+    En sporingsoppgave i et prøvekapittel bor i en `collapsible` med tittel
+    «Prøve 1.A …», ikke i et `exercise.task`-felt. Utskriften SKAL da ikke stå
+    ved siden av koden — den hører i den separate «Fasit …»-boksen. Uten dette
+    flagget ville utskrift-plikten (punkt 5) tvunget fasiten inn i selve
+    oppgaven og ødelagt prøven. Fasit-bokser beholder plikten.
+    """
+    if isinstance(obj, str):
+        yield sti, obj, i_oppgaveboks
+    elif isinstance(obj, dict):
+        nå = i_oppgaveboks or (obj.get("type") == "collapsible"
+                               and bool(OPPGAVEBOKS.match(str(obj.get("title", "")))))
+        for k, v in obj.items():
+            yield from strenger_ctx(v, f"{sti}.{k}", nå)
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            yield from strenger_ctx(v, f"{sti}[{i}]", i_oppgaveboks)
+
+
 def fences(s):
     """(tagg, kropp, start, slutt) for hver ```-blokk."""
     for m in re.finditer(r"```([A-Za-z0-9_-]*)\n([\s\S]*?)```", s):
@@ -129,8 +153,9 @@ def sjekk_kapitler(emne, avvik, merknader):
             avvik.append(f"UGYLDIG JSON i {navn}: {e}")
             continue
         del7 = re.match(rf"{emne}-(7|0)-", navn) is not None
-        for sti, s in strenger(d):
-            fasitfelt = ("task" not in sti) and (not sti.endswith(".problem"))
+        for sti, s, i_oppgaveboks in strenger_ctx(d):
+            fasitfelt = (("task" not in sti) and (not sti.endswith(".problem"))
+                         and not i_oppgaveboks)
             for tagg, kropp, _, slutt in fences(s):
                 if tagg != "python":
                     continue
