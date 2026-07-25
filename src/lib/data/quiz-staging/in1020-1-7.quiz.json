@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hvor mange bit bruker ASCII per tegn?",
+    "options": [
+      "7 bit, som gir 128 tegn",
+      "8 bit, som gir 256 tegn",
+      "16 bit, som gir 65 536 tegn",
+      "Variabelt, mellom 1 og 4 byte"
+    ],
+    "explanation": "ASCII har 128 koder, og 128 er to opphøyd i sju. Alternativ 2 er den vanligste misforståelsen — den åttende biten i en byte var ubrukt eller en kontrollbit. Alternativ 3 beskriver en annen unicode-koding. Alternativ 4 beskriver UTF-8."
+  },
+  {
+    "question": "Hva er R, G og B i fargekoden `0x2E8B57`?",
+    "options": [
+      "46, 139, 87",
+      "2, 8, 5",
+      "28, 85, 57",
+      "46, 87, 139"
+    ],
+    "explanation": "Parene `2E`, `8B` og `57` gir 46, 139 og 87. Alternativ 2 tar bare det første sifferet i hvert par. Alternativ 3 leser parene som desimaltall. Alternativ 4 har grønn og blå byttet om — rekkefølgen er alltid rød, grønn, blå fra venstre."
+  },
+  {
+    "question": "Hvilket av disse formatene er tapsfritt?",
+    "options": [
+      "PNG",
+      "JPEG",
+      "MP3",
+      "MP4"
+    ],
+    "explanation": "PNG gjenskaper hver piksel eksakt og brukes til grafikk, tekst og skjermbilder. JPEG forkaster fargedetaljer, MP3 forkaster maskert lyd og MP4 forkaster både bilde- og lyddetaljer. Merk at PNG og JPEG begge er bildeformater, men i hver sin kategori."
+  },
+  {
+    "question": "Hvorfor er UTF-8 bakoverkompatibel med ASCII?",
+    "options": [
+      "Fordi de 128 ASCII-tegnene har samme koder i UTF-8",
+      "Fordi UTF-8 alltid bruker like mange byte per tegn som ASCII gjorde",
+      "Fordi ASCII-filer må konverteres før de kan leses som UTF-8",
+      "Fordi UTF-8 legger til en ekstra byte foran hver ASCII-fil"
+    ],
+    "explanation": "En ren ASCII-fil er allerede en gyldig UTF-8-fil. Alternativ 2 er feil for tegn utenfor ASCII, som tar to til fire byte. Alternativ 3 sier det motsatte av bakoverkompatibilitet. Alternativ 4 beskriver en mekanisme UTF-8 ikke har."
+  },
+  {
+    "question": "Hvor mange byte tar teksten `Hæ?` i UTF-8?",
+    "options": [
+      "4 byte",
+      "3 byte",
+      "6 byte",
+      "2 byte"
+    ],
+    "explanation": "`H` og `?` tar én byte hver, mens `æ` ikke er et ASCII-tegn og tar to. Alternativ 2 teller tegn i stedet for byte. Alternativ 3 antar to byte per tegn gjennomgående. Alternativ 4 utelater ett av tegnene."
+  },
+  {
+    "question": "Hva menes med at tapskomprimering er kumulativ?",
+    "options": [
+      "At hver ny lagring forkaster mer, uten vei tilbake",
+      "At fila blir større for hver gang den lagres på nytt",
+      "At tapet fordeles jevnt utover hele fila ved første lagring",
+      "At komprimeringen stopper når fila har nådd en minstestørrelse"
+    ],
+    "explanation": "En JPEG som redigeres og lagres ti ganger, er merkbart dårligere enn originalen. Alternativ 2 er motsatt av hva som skjer. Alternativ 3 beskriver hvordan tapet fordeles, ikke at det stabler seg opp. Alternativ 4 beskriver ingen reell mekanisme."
+  },
+  {
+    "question": "Hva er hovedegenskapen ved vektorgrafikk?",
+    "options": [
+      "Bildet kan forstørres fritt uten å bli uskarpt",
+      "Bildet komprimeres tapsfritt uansett innhold",
+      "Bildet får flere farger enn et rasterbilde av samme størrelse",
+      "Bildet lagres alltid som en mindre fil enn tilsvarende raster"
+    ],
+    "explanation": "Formene regnes ut på nytt for hver visningsstørrelse. Alternativ 2 blander sammen to uavhengige egenskaper. Alternativ 3 er feil — fargedybde har ingenting med lagringsmåten å gjøre. Alternativ 4 stemmer for enkel grafikk, men ikke for komplekse motiver."
+  },
+  {
+    "question": "Hvorfor egner ikke vektorgrafikk seg til fotografier?",
+    "options": [
+      "Fordi et fotografi ikke består av rene former",
+      "Fordi vektorformater ikke støtter mer enn 256 farger",
+      "Fordi vektorfiler alltid blir større enn rasterfiler",
+      "Fordi kameraer ikke kan lagre bilder i vektorformat"
+    ],
+    "explanation": "En formbeskrivelse av et fotografi ville blitt både enorm og unøyaktig. Alternativ 2 er feil: vektorformater støtter full fargedybde. Alternativ 3 gjelder bare for komplekse motiver, og er en følge av det første alternativet, ikke en selvstendig grunn. Alternativ 4 er sant, men er en konsekvens, ikke årsaken."
+  },
+  {
+    "question": "Hvor mange farger gir 24-bits farge?",
+    "options": [
+      "Omtrent 16,8 millioner",
+      "16 384",
+      "256",
+      "Omtrent 4,3 milliarder"
+    ],
+    "explanation": "Tre kanaler à 256 verdier gir $256^3 = 2^{24}$, altså 16 777 216. 16 384 er to opphøyd i 14. 256 er én kanal alene. 4,3 milliarder er to opphøyd i 32, altså 32-bits farge med gjennomsiktighetskanal."
+  },
+  {
+    "question": "Hvilken ASCII-kode har siffertegnet `0`?",
+    "options": [
+      "48",
+      "0",
+      "30",
+      "65"
+    ],
+    "explanation": "Siffertegnene ligger sammenhengende fra 48, så `9` er 57. Alternativ 2 forveksler tegnet med tallverdien. Alternativ 3 er den heksadesimale formen av 48, altså riktig verdi i feil base. Alternativ 4 er koden for `A`."
+  },
+  {
+    "question": "Hva er R-komponenten i `0xC0392B`?",
+    "options": [
+      "192",
+      "12",
+      "57",
+      "43"
+    ],
+    "explanation": "Første par er `C0`, altså 12 ganger 16 pluss 0 lik 192. Alternativ 2 tar bare verdien av C. Alternativ 3 er grønnkomponenten (`0x39`), og alternativ 4 er blåkomponenten (`0x2B`)."
+  },
+  {
+    "question": "Hvilket format ville du valgt til et skjermbilde med lesbar tekst?",
+    "options": [
+      "PNG, som er tapsfritt og bevarer skarpe kanter",
+      "JPEG, som gir minst mulig filstørrelse uansett bildetype",
+      "MP3, som er standard for komprimert innhold",
+      "SVG, siden tekst alltid bør lagres som vektor"
+    ],
+    "explanation": "JPEG lager synlige artefakter rundt skarpe kanter, og tekst blir grumsete. Alternativ 2 overser at kvaliteten går ut over lesbarheten. Alternativ 3 er et lydformat. Alternativ 4 ville krevd at skjermbildet var laget som former, noe det ikke er — det er et rutenett av piksler."
+  },
+  {
+    "question": "Hva er forskjellen på fargedybde og oppløsning?",
+    "options": [
+      "Fargedybde er bit per piksel, oppløsning er antall",
+      "Fargedybde er antall piksler, oppløsning er bit per piksel",
+      "De to er to navn på det samme forholdet",
+      "Fargedybde gjelder skjermer, mens oppløsning gjelder filer"
+    ],
+    "explanation": "De to er uavhengige: et lite bilde kan ha 24-bits farge, og et stort bilde kan ha få farger. Alternativ 2 bytter om definisjonene. Alternativ 3 er feil. Alternativ 4 innfører et skille som ikke finnes."
+  },
+  {
+    "question": "Hvorfor kan generell filkomprimering som ZIP aldri være tapskomprimert?",
+    "options": [
+      "Fordi et program må komme ut bit for bit identisk",
+      "Fordi ZIP-formatet er for gammelt til å støtte tap",
+      "Fordi tapskomprimering bare virker på bilder og lyd",
+      "Fordi ZIP-filer alltid er mindre enn originalen"
+    ],
+    "explanation": "En eneste endret bit kan gjøre et program ubrukelig. Alternativ 2 blander alder med egenskap. Alternativ 3 er nesten sant i praksis, men er en følge av det første alternativet, ikke årsaken. Alternativ 4 er ikke engang alltid sant — en allerede komprimert fil kan bli marginalt større."
+  },
+  {
+    "question": "Hva er en artefakt i sammenheng med komprimering?",
+    "options": [
+      "Synlig eller hørbar feil etter forkastet informasjon",
+      "En del av fila som beskriver hvordan den pakkes ut",
+      "Metadata om når og hvor bildet ble tatt",
+      "Et ekstra lag med gjennomsiktighet i bildet"
+    ],
+    "explanation": "Firkantmønstre rundt tekst i et bilde er den forkastede informasjonen som mangler. Alternativ 2 beskriver et filhode. Alternativ 3 er metadata. Alternativ 4 er en alfakanal."
+  },
+  {
+    "question": "Hva er den vanligste fella når du leser et heksadesimalt fargepar som `39`?",
+    "options": [
+      "Å lese det som desimaltallet 39 i stedet for 57",
+      "Å lese det som binærtallet 39, som ikke finnes",
+      "Å bytte om de to sifrene og få 93",
+      "Å tro at paret beskriver to ulike fargekanaler"
+    ],
+    "explanation": "Par som bare inneholder sifre 0–9 ser ut som desimaltall og blir lest som det. Alternativ 2 er ikke en reell forveksling. Alternativ 3 og 4 beskriver feil som forekommer sjeldnere og gir mer åpenbart gale svar."
+  },
+  {
+    "question": "Hva betyr det at RGB-modellen er additiv?",
+    "options": [
+      "Fargene lages ved å legge til lys; alle tre gir hvitt",
+      "Fargene lages ved å trekke lys fra hvitt, som blekk på papir",
+      "Fargeverdiene legges sammen til én samlet lysstyrke",
+      "Modellen kan utvides med flere fargekanaler ved behov"
+    ],
+    "explanation": "Skjermer sender ut lys i rødt, grønt og blått. Alternativ 2 beskriver den subtraktive modellen som brukes i trykk. Alternativ 3 beskriver ingen reell operasjon i modellen. Alternativ 4 blander sammen additivitet med utvidbarhet."
+  },
+  {
+    "question": "En tekst har hundre tegn, hvorav ti er norske spesialtegn. Hvor mange byte i UTF-8?",
+    "options": [
+      "110 byte",
+      "100 byte",
+      "200 byte",
+      "120 byte"
+    ],
+    "explanation": "Nitti tegn tar én byte og ti tar to: 90 pluss 20 er 110. Alternativ 2 teller tegn i stedet for byte. Alternativ 3 antar to byte gjennomgående. Alternativ 4 ville krevd at spesialtegnene tok tre byte hver."
+  },
+  {
+    "question": "Hva er `0x00FF00`?",
+    "options": [
+      "Rent grønt — bare grønnkanalen er på",
+      "Rent rødt — første par er høyest",
+      "Svart — to av tre kanaler er null",
+      "Hvitt — mønsteret er symmetrisk"
+    ],
+    "explanation": "Parene er `00`, `FF`, `00`, altså R = 0, G = 255, B = 0. Alternativ 2 leser feil par som høyest. Alternativ 3 overser at midtparet er på full styrke. Alternativ 4 ville krevd `0xFFFFFF`."
+  },
+  {
+    "question": "Hvilken påstand om filstørrelse på rasterbilder stemmer?",
+    "options": [
+      "Den avhenger av antall piksler, men komprimeringen teller sterkt",
+      "Den avhenger bare av hvor komplisert motivet er",
+      "Den er den samme for alle bilder med samme fargedybde",
+      "Den halveres hver gang oppløsningen halveres i én retning"
+    ],
+    "explanation": "Et rutenett med mange ruter krever mye lagring, men to bilder med like mange piksler kan ende svært ulikt etter komprimering. Alternativ 2 utelater pikselantallet. Alternativ 3 overser oppløsningen. Alternativ 4 stemmer for ubehandlede data, men ikke etter komprimering."
+  }
+]
