@@ -92,11 +92,21 @@ def kodespenn(s):
 
 
 def strenger(emne):
-    """Alle tekststrenger i bokas kapittelfiler, med filnavn og sti."""
+    """Alle tekststrenger i bokas kapittelfiler, med filnavn og sti.
+
+    Sidevognene nn/ (nynorsk) og sme/ (nordsamisk) er MED. De ble tidligere
+    aldri sjekket — 10 509 oversatte kapittelfiler sto utenfor porten, selv om
+    en oversetter like gjerne kan knekke en formel som en forfatter.
+    """
     ut = []
-    for p in sorted(glob.glob(os.path.join(ROOT, "src/lib/data/chapters", emne + "-*.json"))):
+    kilder = (
+        sorted(glob.glob(os.path.join(ROOT, "src/lib/data/chapters", emne + "-*.json")))
+        + sorted(glob.glob(os.path.join(ROOT, "src/lib/data/chapters/nn", emne + "-*.json")))
+        + sorted(glob.glob(os.path.join(ROOT, "src/lib/data/chapters/sme", emne + "-*.json")))
+    )
+    for p in kilder:
         d = json.load(open(p, encoding="utf-8"))
-        navn = os.path.basename(p)
+        navn = os.path.relpath(p, os.path.join(ROOT, "src/lib/data/chapters"))
 
         def gå(o, sti):
             if isinstance(o, str):
