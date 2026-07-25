@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hva er de fire første stegene i oppskriften for Oppgave 4?",
+  "options": [
+   "Finn klassene, sett opp konstruktørene, avgjør multiplisiteten, list opp metodene.",
+   "Skriv konstruktøren, skriv filinnlesingen, skriv algoritmemetoden, test koden.",
+   "Les oppgaveteksten, velg variabelnavn, skriv `__str__`, og lag testdata.",
+   "Tell deloppgavene, fordel tiden, skriv den letteste først, og les gjennom."
+  ],
+  "explanation": "De fire første er blyant og papir og tar ti minutter. De avgjør de seks–sju deloppgavene under — å skrive kode med én gang er den vanligste tidsfellen."
+ },
+ {
+  "question": "Hvor mye av eksamen er Oppgave 4 verdt?",
+  "options": [
+   "47–50 poeng av 100 — nesten halve eksamen, i alle de seks moderne settene.",
+   "Rundt 25 poeng av 100, altså en fjerdedel av den samlede poengsummen.",
+   "8–9 poeng av 100, siden den bare er én av fem oppgaver i settet.",
+   "Det varierer fra 10 til 80 poeng, avhengig av hvilket år settet er fra."
+  ],
+  "explanation": "Den er delt i seks–sju deloppgaver à 3–12 poeng, og hver av dem rettes for seg. Derfor lønner det seg alltid å levere noe på hver."
+ },
+ {
+  "question": "Du står fast på deloppgave c). Hva bør du gjøre?",
+  "options": [
+   "Gå videre til d) — deloppgavene rettes hver for seg, og du kan bruke metoder oppgaveteksten beskriver.",
+   "Bli sittende til du løser den, siden d) bygger på at c) er skrevet ferdig.",
+   "Levere blankt på resten, siden en ufullstendig modell ikke gir uttelling.",
+   "Skrive om hele modellen fra bunnen, slik at c) blir enklere å få til."
+  ],
+  "explanation": "Sier teksten at `Bok` har `hent_tittel()`, kan du kalle den i d) selv om du sto fast i a). Sensor vet at metoden finnes, fordi oppgaven sa det."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Bok:\n    def __init__(self, tittel, utlaan):\n        self._tittel = tittel\n        self._utlaan = utlaan\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_utlaan(self):\n        return self._utlaan\n\n    def laan_ut(self):\n        self._utlaan = self._utlaan + 1\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = {}\n\n    def legg_til(self, b):\n        self._boker[b.hent_tittel()] = b\n\n    def finn(self, t):\n        if t in self._boker:\n            return self._boker[t]\n        return None\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", 3))\nbib.finn(\"Sult\").laan_ut()\nbib.finn(\"Sult\").laan_ut()\nprint(bib.finn(\"Sult\").hent_utlaan())\n```",
+  "options": [
+   "5",
+   "3",
+   "4",
+   "None"
+  ],
+  "explanation": "`finn` gir en **referanse** til det samme objektet begge gangene, ikke en kopi — så begge utlånene registreres på boka i ordboka."
+ },
+ {
+  "question": "Hva er den dyreste enkeltbeslutningen i Oppgave 4?",
+  "options": [
+   "Å lagre rådata i samlingen i stedet for objektreferanser — det slår ut i fire deloppgaver samtidig.",
+   "Å velge liste der oppgaven ba om ordbok, siden oppslag da blir umulig.",
+   "Å glemme `fil.close()` etter innlesingsløkka, siden fila da blir liggende åpen.",
+   "Å skrive klassene i én fil i stedet for i hver sin fil, som fasiten gjør."
+  ],
+  "explanation": "`self._boker[tittel] = felt[1]` gjør at biblioteket ikke lenger kan be en bok om noe. Da faller filinnlesingen, delegeringen, algoritmemetoden og utskriften."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        pris = pris\n        self._solgte = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def selg(self, n):\n        self._solgte = self._solgte + n\n\n    def hent_solgte(self):\n        return self._solgte\n\nr = Rett(\"Suppe\", 89)\nr.selg(3)\nprint(r.hent_solgte())\n```",
+  "options": [
+   "3",
+   "267",
+   "0",
+   "89"
+  ],
+  "explanation": "Salget registreres riktig, men `pris = pris` er `self`-fella: `self._pris` finnes ikke. Et senere kall på en `omsetning`-metode ville stoppet med `AttributeError`."
+ },
+ {
+  "question": "En klasse skal både kunne slås opp på navn og gås gjennom i sin helhet. Hva gjør du?",
+  "options": [
+   "Bruker en ordbok — du kan alltid løpe gjennom nøklene og slå opp objektet.",
+   "Bruker to samlinger med de samme objektene, én ordbok og én liste.",
+   "Bruker en liste, og skriver en `finn`-metode som sammenligner navnene.",
+   "Bruker en liste, siden en ordbok ikke kan gås gjennom med en løkke."
+  ],
+  "explanation": "`for n in self._d:` gir nøklene, og `self._d[n]` gir objektet. En klasse kan godt ha både en ordbok og en liste — men da for **ulike** ting."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Sal:\n    def __init__(self, navn, kap):\n        self._navn = navn\n        self._kap = kap\n        self._paa = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def ledige(self):\n        return self._kap - len(self._paa)\n\n    def meld_paa(self, m):\n        if self.ledige() < 1:\n            print(\"Fullt i\", self._navn)\n        else:\n            self._paa.append(m)\n\n    def antall(self):\n        return len(self._paa)\n\ns = Sal(\"A\", 2)\ns.meld_paa(\"x\")\ns.meld_paa(\"y\")\ns.meld_paa(\"z\")\nprint(s.antall(), s.ledige())\n```",
+  "options": [
+   "Fullt i A\n2 0",
+   "Fullt i A\n3 -1",
+   "3 0",
+   "Fullt i A\n2 1"
+  ],
+  "explanation": "Det tredje forsøket avvises, så antallet står på 2 av 2 og ingen plasser er ledige. `3 -1` er svaret hvis man tror påmeldingen skjer likevel."
+ },
+ {
+  "question": "Hva må stå i konstruktøren selv om det ikke sendes inn som parameter?",
+  "options": [
+   "Startverdiene: `self._solgte = 0`, `self._utlaant = False`, `self._boker = []`.",
+   "Ingenting — konstruktøren skal bare lagre de verdiene som kommer utenfra.",
+   "Alle aksessorene, slik at de finnes før noen kaller dem utenfra.",
+   "En kommentar som beskriver hva hver instansvariabel skal brukes til."
+  ],
+  "explanation": "Kjenn dem igjen på «starter på null», «er ikke utlånt når den registreres» og «har ingen … til å begynne med». De er det oftest glemte, og et selvstendig poeng."
+ },
+ {
+  "question": "Hvorfor kan ikke en metode i containeren hete det samme som metoden den kaller på underobjektet?",
+  "options": [
+   "Fordi linjen da ser ut som om metoden kaller seg selv, og en metode som kaller seg selv, er utenfor pensum her.",
+   "Fordi Python ikke tillater at to klasser i samme program har en metode med samme navn.",
+   "Fordi containeren da ville kalt sin egen metode og gått i en uendelig løkke.",
+   "Fordi sensor trekker for alle metodenavn som er kortere enn ti tegn."
+  ],
+  "explanation": "`selg_rett` på kantina som kaller `selg` på retten, er formen boka bruker. Navnene beskriver dessuten to ulike jobber: én rett mot hele menyen."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Bok:\n    def __init__(self, t, f, u):\n        self._t = t\n        self._f = f\n        self._u = u\n\n    def hent_f(self):\n        return self._f\n\n    def hent_u(self):\n        return self._u\n\nboker = [Bok(\"Sult\", \"Hamsun\", 3), Bok(\"Vaar\", \"Undset\", 7), Bok(\"Pan\", \"Hamsun\", 5)]\nteller = {}\nfor b in boker:\n    f = b.hent_f()\n    if f not in teller:\n        teller[f] = 0\n    teller[f] = teller[f] + b.hent_u()\nbeste = None\nbeste_antall = 0\nfor f in teller:\n    if teller[f] > beste_antall:\n        beste = f\n        beste_antall = teller[f]\nprint(teller)\nprint(beste, beste_antall)\n```",
+  "options": [
+   "{'Hamsun': 8, 'Undset': 7}\nHamsun 8",
+   "{'Hamsun': 5, 'Undset': 7}\nUndset 7",
+   "{'Hamsun': 8, 'Undset': 7}\nUndset 7",
+   "{'Undset': 7, 'Hamsun': 8}\nHamsun 8"
+  ],
+  "explanation": "Hamsun står på to bøker, så summen 3 pluss 5 finnes ikke i noen enkelt bok — derfor må regnskapet bygges i én løkke og leses i neste."
+ },
+ {
+  "question": "Hva bør du bruke de siste fem minuttene på Oppgave 4 til?",
+  "options": [
+   "Å lese gjennom med konvensjonene i hodet: `self._` overalt, ingen `obj._x` utenfra, sjekk før hvert oppslag.",
+   "Å kjøre koden en gang til for å se at den fortsatt gir riktig svar.",
+   "Å skrive kommentarer over hver metode som forklarer hva den gjør.",
+   "Å legge til flere aksessorer og mutatorer, siden de alltid gir poeng."
+  ],
+  "explanation": "De stumme feilene — feilkode #1 og #11 — finnes ikke ved å teste, bare ved å lese. Og eksamen er hjelpemiddelfri, så koden kan ikke kjøres i det hele tatt."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Stativ:\n    def __init__(self, navn):\n        self._navn = navn\n        self._sykler = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def sett_inn(self, s):\n        self._sykler.append(s)\n\n    def antall_sykler(self):\n        return len(self._sykler)\n\nclass Utleie:\n    def __init__(self):\n        self._stativer = {}\n\n    def legg_til(self, s):\n        self._stativer[s.hent_navn()] = s\n\n    def totalt_antall_sykler(self):\n        t = 0\n        for n in self._stativer:\n            t = t + self._stativer[n].antall_sykler()\n        return t\n\nu = Utleie()\na = Stativ(\"A\")\nb = Stativ(\"B\")\nu.legg_til(a)\nu.legg_til(b)\na.sett_inn(\"R31\")\na.sett_inn(\"R48\")\nb.sett_inn(\"R07\")\nprint(u.totalt_antall_sykler())\n```",
+  "options": [
+   "3",
+   "2",
+   "1",
+   "0"
+  ],
+  "explanation": "To nivåer av en-til-mange: utleien har en ordbok av stativer, hvert stativ en liste av sykler. Delegeringsløkka summerer det stativene svarer."
+ },
+ {
+  "question": "Hva er riktig plassering av `return` i en algoritmemetode som skal finne det største elementet?",
+  "options": [
+   "Etter løkka — inne i den ville metoden svart på det første elementet over grensen.",
+   "Inne i løkka, rett etter oppdateringen av begge variablene.",
+   "Både før og etter løkka, slik at metoden alltid gir en verdi.",
+   "Inne i `if`-en, men bare når det er siste runde av løkka."
+  ],
+  "explanation": "Det er feilkode #7, for tidlig retur. Malen har to linjer over løkka og én linje under den — sitter den plasseringen, kan du ikke gjøre feilen."
+ },
+ {
+  "question": "Oppgaveteksten sier ikke hva som skal skje når en nøkkel mangler. Hva gjør du?",
+  "options": [
+   "Velger noe fornuftig — som `return None` — og skriver én kommentarlinje om forutsetningen.",
+   "Lar metoden krasje, siden oppgaven ikke ba om noen håndtering.",
+   "Skriver alle mulige varianter, slik at én av dem treffer det sensor ville hatt.",
+   "Hopper over deloppgaven, siden en gal antakelse trekker mer enn et blankt svar."
+  ],
+  "explanation": "Egne rimelige forutsetninger er uttrykkelig tillatt. Den dokumenterte antakelsen er den ene legitime bruken av kommentarer i en besvarelse."
+ },
+ {
+  "question": "Hvor mye av de fire timene bør Oppgave 4 få?",
+  "options": [
+   "Rundt 100 minutter — ti på modellen med blyant, fem på gjennomlesingen, resten på koden.",
+   "Rundt 40 minutter, slik at det blir god tid til de fire andre oppgavene.",
+   "All tiden som blir til overs når de fire andre oppgavene er ferdige.",
+   "Nøyaktig 48 minutter, altså like mange minutter som oppgaven har poeng."
+  ],
+  "explanation": "Nesten halve tiden til nesten halve poengsummen. Blir du sittende fast på én deloppgave i mer enn ti minutter, gå videre — den rettes ikke bedre av at du bruker tjue."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Container:\n    def __init__(self, m, kap):\n        self._m = m\n        self._kap = kap\n        self._fyll = 0\n\n    def grad(self):\n        return self._fyll * 100 // self._kap\n\n    def ta_imot(self, kilo):\n        if self._fyll + kilo > self._kap:\n            print(\"Ikke plass i\", self._m)\n        else:\n            self._fyll = self._fyll + kilo\n\nc = Container(\"glass\", 200)\nc.ta_imot(60)\nc.ta_imot(160)\nprint(c.grad())\n```",
+  "options": [
+   "Ikke plass i glass\n30",
+   "30",
+   "Ikke plass i glass\n110",
+   "Ikke plass i glass\n80"
+  ],
+  "explanation": "Det andre forsøket ville gitt 220 av 200, så det avvises og fyllingen står på 60. Heltallsdivisjonen `//` gir 30 uten desimaler."
+ },
+ {
+  "question": "Hva er poenget med å skrive skjelettet — klasser og signaturer uten kropper — først?",
+  "options": [
+   "Du ser hele modellen før du bruker tid på detaljer, og strukturen gir poeng i seg selv.",
+   "Python krever at alle metoder deklareres før noen av dem kan brukes.",
+   "Skjelettet er den eneste delen sensor retter; kroppene leses ikke.",
+   "Det gjør at koden kjører raskere, siden Python slipper å lete etter metodene."
+  ],
+  "explanation": "Rekker du bare halve modellen, teller den halvparten fullt ut. Å skrive ferdig kode på den første klassen med én gang er den vanligste tidsfellen."
+ }
+]
