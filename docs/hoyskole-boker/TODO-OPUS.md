@@ -34,8 +34,16 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       omløpsretning for ladd partikkel, en figur med fysisk umulig kraftretning,
       feil netto stråling (255 W), og 6 øvingseksamen-oppgaver som var ordrett
       identiske med gjennomregnede eksempler tidligere i boka.
-- [ ] `econ2310` — ECON2310 Makroøkonomi 2 (UiO). Bygger videre på
-      econ1310-boka (kryssbok-lenker dit er spesifisert i skjelettet).
+- [x] `econ2310` — **BYGGET 25. juli 2026** (29 kap + 6 prøver = 35 filer, 542 fc,
+      528 quiz, 54 SVG i Storage, BOKPORT + LATEX-PORT + FIGURPORT OK). Bygger videre
+      på econ1310-boka. Steg 3 komplett: ~5 100 sjekker i tre verifikatorbølger,
+      ~40 avvik rettet — bl.a. en hovedkursanalyse som påsto at kronestyrking kunne
+      skåne både inflasjon OG lønnsomhet (K-sektors margin er uavhengig av kursen),
+      en fasit som signerte en produksjonsvirkning som ikke kan signeres, tre
+      figurer som motsa fasiten (én med «Renta stiger entydig» der renta er
+      ubestemt), fire av åtte hendelser i prøve 3.B som var gjenbruk av
+      gjennomregnede eksempler, og «fasit alltid kortest»-skjevheten (73 % i ett
+      kapittel) fjernet ved å korte distraktorene.
 - [x] `econ2220` — **BYGGET 25. juli 2026** (34 kap + 7 prøver = 41 filer, 554 fc,
       570 quiz, 53 SVG i Storage, BOKPORT + LATEX-PORT OK). Bygger på econ1210-boka;
       brokapittel CORE→c′(y) på plass. Steg 3 komplett: ~2 400 sjekker i tre

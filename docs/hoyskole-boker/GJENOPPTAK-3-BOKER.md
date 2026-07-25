@@ -1,55 +1,34 @@
 # GJENOPPTAK — tre bøker under bygging (startet 24. juli 2026)
 
-## STATUS 25. juli, natt (oppdater denne blokken ved hvert avbrudd)
+## STATUS 25. juli 2026 — ALLE TRE BØKENE FERDIGE
 
 | Bok | Steg 1 kapitler | Steg 2 wiring | Figurer | Steg 3 verifikasjon | Steg 4 sluttport |
 |---|---|---|---|---|---|
-| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ BOKPORT OK (42 filer / 550 fc / 558 quiz) | ✅ 109 SVG i Storage, verifisert 200 | ✅ komplett (~1 880 sjekker, 48 fiks) | ✅ ferdig, ligger på `land/econ2220` |
-| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | ✅ Del 1, 4–7 · 🔄 Del 2–3 (10 SVG tegnet, wires nå) | ✅ Del 0–1, 4–7 (~3 460 sjekker) · 🔄 Del 2–3 | ⬜ |
+| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ 42 filer / 550 fc / 558 quiz | ✅ 109 SVG, 200 fra Storage | ✅ ~1 880 sjekker, 48 fiks | ✅ ferdig |
+| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ 41 filer / 554 fc / 570 quiz | ✅ 53 SVG, 200 fra Storage | ✅ ~2 400 sjekker, ~60 fiks | ✅ ferdig |
+| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ 35 filer / 542 fc / 528 quiz | ✅ 54 SVG, 200 fra Storage | ✅ ~5 100 sjekker, ~40 fiks | ✅ ferdig |
 
-**G1 stallet halvveis (natt til 25. juli):** figuragenten for Del 2–3 tegnet alle
-10 SVG-ene (01:58) men døde før wiringen — kapitlene hadde 0 image-blokker, og
-ingenting var committet. Lærdom: **mål alltid disk OG `git log` i arbeidstreet**;
-en agent som ikke har committet på en time er sannsynligvis død, og en SendMessage
-til den leveres «ved neste tool-runde» — som aldri kommer. Stopp den med TaskStop
-og sett inn en fersk agent med `FIGUR-BESTILLINGER.md` som arbeidsordre.
-| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ BOKPORT OK (41 filer / 554 fc / 570 quiz) | ✅ alle 53 SVG i Storage, verifisert 200 | ✅ komplett (~2 400 sjekker i W1+W2+W3) | ✅ **SLUTTPORT OK** — tsc rent, build exit 0, prod-curl 11/11 |
+Til sammen **118 kapittelfiler, 1 646 flashcards, 1 656 quizspørsmål og 216 figurer**,
+med ~9 400 verifikasjonssjekker bak. Alle tre er merget i kjede på landingsbranchen
+og gjennom hele sluttporten der: `npx tsc --noEmit` rent, `npm run build` exit 0,
+BOKPORT + LATEX-PORT + FIGURPORT OK for hver bok, og prod-curl 200 med reelt
+innhold på bokforside, kapitler, quiz, flashcards, eksamen og kildegrunnlag.
 
-**NB om landing:** `main` står fortsatt på `0cc69421` (tma4110). Både fys1001 og
-econ2220 ligger ferdige på landingsbranchen **`land/econ2220`**, som er 80+
-commits foran main. Den skal merges til main og pushes når econ2310 også er
-ferdig — da landes alle tre i én kjede.
+**Landing:** kjeden ligger på `land/econ2220` (pushet til GitHub). Merges til `main`
+til slutt — se «Landingsoppskrift» under.
 
-**Ferdig i natt utover dette:** quiz i begge econ-bøker ryddet sentralt (LENGDE-TELL
-under terskel i alle kapitler, 0 duplikatspørsmål), ny port `sjekk-latex.py` lagt til
-og selv debugget (KaTeX-sjekken ble stille droppet), fys1001s enhetsnotasjon
-normalisert, og UIP-frekvenspåstanden i econ2310-skjelettet rettet.
+## Landingsoppskrift (bruk `los-wiring-konflikt.py`)
 
-Alle tre branchene er **pushet til GitHub** (`bok/fys1001`, `bok/econ2310`,
-`bok/econ2220`), så arbeidet er trygt selv om maskinen dør.
-
-**Rekkefølgen som gjelder:** figurer må være ferdige før verifikasjon starter i
-samme del (ellers redigerer to agenter samme fil), og verifikasjon må være
-ferdig før sluttporten.
-
-**Sluttporten per bok (gjennomført for fys1001 — bruk den som mal):**
-1. Last opp figurene: `python3 scripts/hoyskolebok/last-opp-figurer.py <arbeidstre> <emne>`
-   (målrettet variant som bare tar `public/images/textbook/<emne>/` i stedet for å
-   skanne hele `public/` på 2,4 GB — og som verifiserer HTTP 200 + `image/svg+xml`
-   på hver fil etterpå). Kjøres fra hovedtreet, som har `.env.local`.
-2. `npx tsc --noEmit` + `npm run build` fra hovedtreet (merge bokbranchen inn i
-   et landingsbranch der først).
-3. Prod-curl `PORT=3063 npm run start` → 200 + innholdssjekk på bokforside,
-   3 kapittelruter, quiz, flashcards, kildegrunnlag.
-4. Statustavle i `docs/hoyskole-boker/README.md` + kryss av i `TODO-OPUS.md`.
-5. Merge `origin/main` inn i bokbranchen (additive konflikter i delte
-   wiring-filer — behold BEGGE sider; `_registry.json` har både `chapterIds` og
-   `aliases`), så push og land på main.
-
-Denne siden er inngangen hvis en økt blir avbrutt (kvotestopp, ECONNRESET,
-død agent). **Alt arbeid ligger på disk og i git — ingenting bor i en samtale.**
-Lim inn gjenopptakssetningen nederst i en ny Claude Code-økt, så fortsetter den
-der forrige stoppet.
+```bash
+git merge --no-commit --no-ff bok/<emne>
+python3 scripts/hoyskolebok/los-wiring-konflikt.py <emne> COURSE_<EMNE>
+git add -A src/ docs/ scripts/ public/ && npx tsc --noEmit
+python3 scripts/hoyskolebok/sjekk-bok.py <emne>
+python3 scripts/hoyskolebok/sjekk-latex.py <emne>
+python3 scripts/hoyskolebok/last-opp-figurer.py <arbeidstre> <emne>
+python3 scripts/hoyskolebok/sjekk-figurer.py <emne>
+npm run build && kill -9 $(lsof -ti :3063); PORT=3063 npm run start   # prod-curl
+```
 
 ## Hvor arbeidet foregår
 

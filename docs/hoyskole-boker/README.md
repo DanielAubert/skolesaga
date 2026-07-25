@@ -327,7 +327,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
 | ECON2220 Mikroøkonomi 2 (UiO) | regnefag | **bok** (live) |
 | ECON4220 Microeconomics 3 (UiO) | regnefag | skjelett |
-| ECON2310 Makroøkonomi 2 (UiO) | regnefag | skjelett |
+| ECON2310 Makroøkonomi 2 (UiO) | regnefag | **bok** (live) |
 | ECON2500 Investering og finansiering (UiO) | regnefag | skjelett |
 | ECON3150 Introductory Econometrics (UiO) | regnefag | skjelett |
 | ECON4310 Macroeconomic Theory (UiO) | regnefag/essay-hybrid | skjelett |
