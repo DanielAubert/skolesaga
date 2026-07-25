@@ -43,6 +43,7 @@ export const INSTITUSJONER: Institusjon[] = [
       { courseId: 'stv1100', name: 'STV1100 Politisk teori', icon: '🏛️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'econ1310', name: 'ECON1310 Makroøkonomi I', icon: '📈', color: 'from-emerald-500 to-teal-600' },
       { courseId: 'jus1111', name: 'JUS1111 Privatrett I', icon: '⚖️', color: 'from-slate-600 to-gray-700' },
+      { courseId: 'in1900', name: 'IN1900 Introduksjon til programmering med vitenskapelige anvendelser', icon: '🐍', color: 'from-slate-500 to-slate-700' },
     ],
   },
   {

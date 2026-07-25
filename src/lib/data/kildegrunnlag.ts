@@ -342,6 +342,51 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     analysedato: 'juli 2026',
   },
 
+  in1900: {
+    courseId: 'in1900',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for informatikk (IFI)',
+    sammendrag:
+      'Boka er kalibrert mot IN1900s eksamensarkiv ved UiO: 76 PDF-filer som dekker H2007–H2025, både midtveis- og avsluttende eksamen, med UiOs egne løsningsforslag. Sju avsluttende sett fra H2018–H2025 er lest grundig oppgave for oppgave sammen med fasitene. Temafrekvens, oppgavesjangrene (A–N), poengfordelingen og den faste todelingen mellom flervalg og fritekst-koding speiler hva arkivet faktisk tester.',
+    eksamenssett: [
+      {
+        tittel: '7 avsluttende sett lest grundig med løsningsforslag (H2018, H2020–H2025)',
+        detalj:
+          'Avsluttende eksamen er 4 timer i Inspera, teller 75 %, og har 13–16 spørsmål som blander flervalg/matche med fritekst-koding. Settene er lest oppgave for oppgave sammen med de offisielle løsningsforslagene. Merk at H2020 var hjemmeeksamen med en spørsmålspool større enn det én kandidat fikk — det er hensyntatt i frekvenstellingen.',
+      },
+      {
+        tittel: '9 eldre avsluttende sett skumlest (H2007–H2019)',
+        detalj:
+          'Brukt til form- og temaregistrering, ikke til frekvensvekting. De dokumenterer overgangen fra papir til digital eksamen og at det faglige innholdet er kontinuerlig gjennom navneskiftet fra INF1100.',
+      },
+      {
+        tittel: 'Midtveiseksamen: H2025 lest grundig, 9 sett skumlest (H2007–H2024)',
+        detalj:
+          'Midtveis teller 25 %, er ren flervalg med 20 spørsmål og maks 25 poeng. H2025 med løsningsforslag er lest grundig som representativt for formatet 2018–2025, kontrollert mot H2019 for endringen i negativ scoring. Et parallellemne-sett (MAT-IN1105 H2020) er lest for variantregistrering.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Offisielle løsningsforslag — ikke sensorveiledninger i egentlig forstand',
+        detalj:
+          'UiO publiserer løsningsforslag, ikke egne sensorveiledninger. Fasitene bærer likevel gjentatte sensursignaler som boka lærer bort: kort og idiomatisk kode framfor lange programmer, rimelige antagelser er tillatt men må dokumenteres i kommentar, og åpenbare skrivefeil i oppgaveteksten hensyntas ved retting (eksplisitt dokumentert for H2018 O3.2 og H2024 O14). Poenggivningen er ikke tallfestet like eksplisitt som i samfunnsfag.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for IN1900',
+        detalj:
+          'Omskrevet sammendrag, brukt til å avgrense hva som faktisk testes. Den forankrer også vurderingsformen: to digitale eksamener i Inspera uten hjelpemidler, karakterskala A–F, all kode i Python 3.',
+      },
+    ],
+    forbehold: [
+      'Emnet het INF1100 til rundt 2016 og IN1900 fra 2017; settene fra 2017–2020 bærer begge navn. Faglig innhold er kontinuerlig, men de eldste settene er brukt til sjangerregistrering, ikke til frekvensprognosene.',
+      'Det utleverte ODESolver-hierarkiet har byttet API underveis: f(u,t) og solve(time_points) i 2020–2022, f(t,u) og solve(t_span, N) fra 2023. Boka lærer den nyeste signaturen og nevner den eldre eksplisitt, siden eldre eksamensoppgaver bruker den.',
+      'Siste oppgave i hvert avsluttende sett skal ikke besvares — den er bare feltet der midtveispoengene legges inn. Boka trener ikke på den.',
+      'Alle oppgaver, tall og kontekster i boka er nyskrevne. Arkivet er brukt som mønster for sjangre og temavekting, aldri gjengitt ordrett. Kodemønstrene er standard Python-idiomer.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   tma4245: {
     courseId: 'tma4245',
     institusjon: 'Norges teknisk-naturvitenskapelige universitet (NTNU) — Institutt for matematiske fag',
