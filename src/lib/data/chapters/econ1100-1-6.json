@@ -1,0 +1,356 @@
+{
+  "id": "econ1100-1-6",
+  "courseId": "econ1100",
+  "chapterNumber": "1.6",
+  "title": "Drill: Oppgave 1 — partiellderivasjonspakken",
+  "description": "Sjangerdrill på hele Oppgave 1: tre–fire funksjoner blandet fra alle metodene, mot fart og fortegnssikkerhet.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "velge riktig derivasjonsmetode på under ti sekunder ut fra hvordan funksjonen er bygget",
+    "gjennomføre hele Oppgave 1 med korrekt fortegn, tilbakesubstitusjon og åpenbar forenkling",
+    "kontrollere egne svar med kryssderivert, innsetting eller enkle spesialtilfeller",
+    "disponere tiden på en oppgave der poengene er likt fordelt mellom delpunktene"
+  ],
+  "content": [
+    {
+      "id": "econ1100-1-6-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet mekaniserer eksamens Oppgave 1** — den oppgaven vi i denne boka kaller **sjanger P1 — partiellderivasjon** («deriver disse funksjonene med hensyn på argumentene»). Den er åpningsoppgaven i **16 av 16 sett** i arkivet (9 ordinære og 7 utsatte, 2018–2025), og er verdt 15–25 av 100 poeng.\n\n**Slik ser den ut.** Tre til fire funksjoner, hver med sitt delpunkt, med poengene likt fordelt mellom delpunktene. Sammensetningen har vært påfallende stabil siden 2020, og varianter fra denne menyen går igjen:\n\n| Variant | Hva som testes | Dekket i |\n|---|---|---|\n| Ren regneteknikk (potens, produkt, kvotient, kjerne) | fart og fortegn | [kap. 1.1](/bok/econ1100/econ1100-1-1) |\n| Funksjon av to variabler ($f'_x$, $f'_y$, av og til $f''_{xy}$) | partiellderivasjon | [kap. 1.2](/bok/econ1100/econ1100-1-2) |\n| Indre variabler som selv er funksjoner | kjerneregel + tilbakesubstitusjon | [kap. 1.3](/bok/econ1100/econ1100-1-3) |\n| Variabel eksponent ($x^{x}$-typer) | logaritmisk derivasjon | [kap. 1.4](/bok/econ1100/econ1100-1-4) |\n| Ukjent funksjonsform ($k(p)$, $b(x,y)$) | symbolsk derivasjon | [kap. 1.5](/bok/econ1100/econ1100-1-5) |\n\n**Dette er de billigste og sikreste poengene i hele eksamen.** De krever ingen innsikt, bare håndverk — og håndverk kan automatiseres. Målet med kapitlet er at du skal kjenne igjen metoden på under ti sekunder og levere et forenklet svar uten å nøle.\n\n**Tidsbudsjett:** med 100 poeng på 180 minutter er 20 poeng verdt om lag 36 minutter. Klarer du Oppgave 1 på 20–25 minutter, har du kjøpt deg tid til storoppgavene."
+    },
+    {
+      "id": "econ1100-1-6-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet forutsetter hele Del 1: [kap. 1.1](/bok/econ1100/econ1100-1-1) (derivasjonsreglene), [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte), [kap. 1.3](/bok/econ1100/econ1100-1-3) (kjerneregelen for flere variabler), [kap. 1.4](/bok/econ1100/econ1100-1-4) (logaritmisk derivasjon) og [kap. 1.5](/bok/econ1100/econ1100-1-5) (generelle funksjoner).\n\n**Sist du var her — de fem formlene hele Oppgave 1 hviler på:**\n\n$$\\frac{d}{dx}x^{a}=ax^{a-1},\\qquad \\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}},\\qquad \\frac{d}{dx}f\\big(u(x)\\big)=f'(u)\\,u'(x)$$\n\n$$\\frac{\\partial G}{\\partial s}=G'_{x}\\frac{\\partial x}{\\partial s}+G'_{y}\\frac{\\partial y}{\\partial s},\\qquad y=f^{g}\\ \\Longrightarrow\\ \\frac{y'}{y}=g'\\ln f+g\\frac{f'}{f}$$\n\nOg de to funksjonene: $\\frac{d}{dx}\\ln g=\\dfrac{g'}{g}$ og $\\frac{d}{dx}e^{g}=e^{g}g'$."
+    },
+    {
+      "id": "econ1100-1-6-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften for Oppgave 1\n\nFire steg, hver gang, uansett hvilken funksjon som står der. Bruk ti sekunder på steg 1 — det er det som avgjør resten.\n\n**Steg 1 — identifiser metoden.** Gå gjennom spørsmålene i denne rekkefølgen:\n\n1. *Står variabelen i eksponenten OG i grunntallet?* → logaritmisk derivasjon ([kap. 1.4](/bok/econ1100/econ1100-1-4)).\n2. *Er de indre variablene selv funksjoner av noe annet?* → kjerneregelen for flere variabler, med tilbakesubstitusjon ([kap. 1.3](/bok/econ1100/econ1100-1-3)).\n3. *Er funksjonsformen ukjent (bare navngitt)?* → symbolsk derivasjon; svaret skal inneholde $k'$, $g'$ ([kap. 1.5](/bok/econ1100/econ1100-1-5)).\n4. *Er det en brøk?* → kan den skrives om til ledd med negative eksponenter? Hvis ikke: kvotientregelen, med $u$, $v$, $u'$, $v'$ skrevet opp først.\n5. *Ellers* → potens-, produkt- og kjerneregel som vanlig.\n\n**Steg 2 — deriver med hensyn på hvert argument.** Har funksjonen to variabler, skal du levere både $f'_{x}$ og $f'_{y}$ med mindre oppgaven sier noe annet. Skriv hvilken variabel som holdes konstant.\n\n**Steg 3 — substituer tilbake.** Er det innført hjelpevariabler ($x$, $y$ som funksjoner av $s$, $t$), skal sluttsvaret stå i de opprinnelige variablene. Sjekkspørsmål: *står det noen hjelpevariabler igjen?*\n\n**Steg 4 — forenkl åpenbart.** Sett fellesfaktorer utenfor, forkort brøker, samle like ledd. Sensor krever åpenbar forenkling for full uttelling — men forventer ikke at du ganger ut store parenteser.\n\n**Steg 5 (valgfritt, men billig) — kontroller.** Regn den kryssderiverte begge veier, eller sett inn en enkel spesialverdi. Det tar under ett minutt og fanger de fleste feil."
+    },
+    {
+      "id": "econ1100-1-6-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: en komplett Oppgave 1",
+      "problem": "Deriver funksjonene med hensyn på de angitte variablene:\n\n**a)** $f(x,y)=\\dfrac{y}{x^{2}+y}$ — finn $f'_{x}$ og $f'_{y}$.\n\n**b)** $g(x)=(x+1)^{x}$, $x>-1$ — finn $g'(x)$.\n\n**c)** $G(s,t)=x-y^{2}$ der $x=st$ og $y=s-t$ — finn $\\partial G/\\partial s$ og $\\partial G/\\partial t$.\n\n**d)** $h(x)=x^{2}g(x)+\\dfrac{1}{g(x)}$, der $g$ er deriverbar og $g(x)\\ne 0$ — finn $h'(x)$.",
+      "solution": "*Hvert delpunkt er verdt like mange poeng. Margnotatene i kursiv viser hva som gir uttelling ved hvert steg.*\n\n---\n\n**a) Brøk i to variabler.**\n\n*Metodevalg (steg 1): telleren er ren $y$, nevneren inneholder begge — kvotientregelen, men merk at mht. $x$ er telleren konstant, så da holder kjerneregelen.*\n\nMht. $x$: skriv $f=y\\,(x^{2}+y)^{-1}$ med $y$ som konstant faktor:\n\n$$f'_{x}=y\\cdot(-1)(x^{2}+y)^{-2}\\cdot 2x=-\\frac{2xy}{(x^{2}+y)^{2}}$$\n\nMht. $y$: nå varierer både teller og nevner. Kvotientregelen med $u=y$ ($u'_{y}=1$) og $v=x^{2}+y$ ($v'_{y}=1$):\n\n$$f'_{y}=\\frac{1\\cdot(x^{2}+y)-y\\cdot 1}{(x^{2}+y)^{2}}=\\frac{x^{2}}{(x^{2}+y)^{2}}$$\n\n*Uttelling her: at de to deriverte behandles med hver sin metode, og at telleren i $f'_{y}$ er ryddet til $x^{2}$. Å levere $\\frac{x^{2}+y-y}{(x^{2}+y)^{2}}$ er uforenklet.*\n\n---\n\n**b) Variabel eksponent.**\n\n*Metodevalg: variabelen står både i grunntallet ($x+1$) og i eksponenten ($x$) — logaritmisk derivasjon. Dette er delpunktet som skiller, fordi feil metode her gir svært lite.*\n\n$$\\ln g=x\\,\\ln(x+1)$$\n\nDeriver begge sider; høyresiden er et produkt:\n\n$$\\frac{g'}{g}=\\ln(x+1)+x\\cdot\\frac{1}{x+1}$$\n\nGang opp og sett inn:\n\n$$g'(x)=(x+1)^{x}\\left[\\ln(x+1)+\\frac{x}{x+1}\\right]$$\n\n*Uttelling: at metoden navngis, at alle fire steg vises, og at funksjonen står som faktor til slutt. Kontroll: ved $x=0$ er $g=1$ og klammen $\\ln 1+0=0$, så $g'(0)=0$.*\n\n---\n\n**c) Indre variabler.**\n\n*Metodevalg: $x$ og $y$ er selv funksjoner av $s$ og $t$ — kjerneregelen for flere variabler. Her ligger tilbakesubstitusjonen sensor ser etter (feil #5 — ikke substituere tilbake for de indre variablene).*\n\nPartiellderiverte av den ytre funksjonen: $G'_{x}=1$ og $G'_{y}=-2y$.\n\nIndre deriverte: $\\dfrac{\\partial x}{\\partial s}=t$, $\\dfrac{\\partial x}{\\partial t}=s$, $\\dfrac{\\partial y}{\\partial s}=1$, $\\dfrac{\\partial y}{\\partial t}=-1$.\n\n$$\\frac{\\partial G}{\\partial s}=1\\cdot t+(-2y)\\cdot 1=t-2y=t-2(s-t)=3t-2s$$\n\n$$\\frac{\\partial G}{\\partial t}=1\\cdot s+(-2y)\\cdot(-1)=s+2y=s+2(s-t)=3s-2t$$\n\n*Uttelling: begge ledd med, riktig fortegn på $\\partial y/\\partial t=-1$, og tilbakesubstitusjon utført. Kontroll: $G=st-(s-t)^{2}$ derivert direkte gir $t-2(s-t)=3t-2s$ ✓.*\n\n---\n\n**d) Ukjent funksjonsform.**\n\n*Metodevalg: $g$ er bare navngitt — symbolsk derivasjon. Svaret skal inneholde $g$ og $g'$.*\n\nFørste ledd, produktregelen: $2x\\,g(x)+x^{2}g'(x)$.\n\nAndre ledd: skriv $\\big(g(x)\\big)^{-1}$ og bruk kjerneregelen: $-\\big(g(x)\\big)^{-2}g'(x)$.\n\n$$h'(x)=2x\\,g(x)+x^{2}g'(x)-\\frac{g'(x)}{\\big(g(x)\\big)^{2}}$$\n\n*Uttelling: at svaret leveres symbolsk uten forsøk på å anta en form for $g$, og at fortegnet på siste ledd er negativt. Kontroll med spesialtilfelle $g(x)=x$: da er $h=x^{3}+\\frac1x$ med $h'=3x^{2}-\\frac{1}{x^{2}}$, og formelen gir $2x\\cdot x+x^{2}\\cdot 1-\\frac{1}{x^{2}}=3x^{2}-\\frac{1}{x^{2}}$ ✓.*\n\n---\n\n**Samlet tidsbruk:** dette settet skal kunne skrives på 20–25 minutter når metodevalget sitter. Det aller meste av tiden går til delpunkt b) og c)."
+    },
+    {
+      "id": "econ1100-1-6-warning-feil",
+      "type": "warning",
+      "title": "Feilene som koster mest i Oppgave 1",
+      "content": "Alle fem er dokumentert som gjengangere. To har eget nummer i bokas feilregister:\n\n- **Feil #12 — fortegnsfeil i deriverte av brøker og sammensatte uttrykk.** Skriv opp $u$, $v$, $u'$, $v'$ på egen linje, og sett hele kvotientregelens resultat i parentes før du setter minus foran det.\n- **Feil #5 — ikke substituere tilbake for de indre variablene.** Sluttsvaret skal stå i $s$ og $t$, ikke i $x$ og $y$. Sjekk før du går videre til neste delpunkt.\n- **Feil metode på $x^{x}$-typer.** Potensregelen og $a^{x}$-regelen gir hver bare ett av de to leddene. Metodevalget er det oppgaven tester.\n- **Uforenklet svar.** Fellesfaktorer skal settes utenfor og brøker forkortes. Dette koster de siste poengene på ellers riktige delpunkter.\n- **Å behandle $k'$ som en konstant.** Skal du derivere et symbolsk uttrykk to ganger, blir $k'$ til $k''$, ikke til null."
+    },
+    {
+      "id": "econ1100-1-6-runde1",
+      "type": "text",
+      "content": "## Runde 1 — Grunnreglene på fart (~15 min)\n\nTre oppgaver på ren regneteknikk. Ta tiden: målet er under fem minutter per oppgave, med forenklet svar."
+    },
+    {
+      "id": "econ1100-1-6-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger P1 — «deriver funksjonene», eksamens Oppgave 1. Innstegsoppgave.) Deriver og forenkle:\n\n**a)** $f(x)=4x^{3}-\\dfrac{6}{x^{2}}+\\sqrt{x}$\n\n**b)** $g(x)=\\big(3x^{2}-2\\big)^{4}$",
+        "solution": "**a)** Skriv alt som potenser: $f(x)=4x^{3}-6x^{-2}+x^{1/2}$.\n\n- $4x^{3}\\to 12x^{2}$\n- $-6x^{-2}\\to -6\\cdot(-2)x^{-3}=12x^{-3}$\n- $x^{1/2}\\to \\tfrac12 x^{-1/2}$\n\n$$f'(x)=12x^{2}+\\frac{12}{x^{3}}+\\frac{1}{2\\sqrt{x}}$$\n\nMerk at midtleddet blir **positivt** — to minuser opphever hverandre (feil #12).\n\n**b)** Kjerneregelen med kjerne $u=3x^{2}-2$ og $u'=6x$:\n\n$$g'(x)=4\\big(3x^{2}-2\\big)^{3}\\cdot 6x=24x\\big(3x^{2}-2\\big)^{3}$$\n\nParentesen skal stå — å gange ut en tredjegradsparentes er ikke forenkling, bare tidsbruk.",
+        "hints": [
+          "I a): skriv $\\dfrac{6}{x^{2}}$ som $6x^{-2}$ og $\\sqrt{x}$ som $x^{1/2}$ før du deriverer.",
+          "I b): identifiser kjernen først, og husk faktoren $u'$ til slutt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Deriver og forenkle:\n\n**a)** $h(x)=\\dfrac{2x+1}{x^{2}+3}$\n\n**b)** $k(x)=e^{-3x}\\ln x$, $x>0$",
+        "solution": "**a)** Kvotientregelen med $u=2x+1$ ($u'=2$) og $v=x^{2}+3$ ($v'=2x$):\n\n$$h'(x)=\\frac{2(x^{2}+3)-(2x+1)\\cdot 2x}{(x^{2}+3)^{2}}$$\n\nRydd telleren — minusen gjelder hele produktet:\n\n$$2x^{2}+6-4x^{2}-2x=-2x^{2}-2x+6$$\n\n$$h'(x)=\\frac{-2x^{2}-2x+6}{(x^{2}+3)^{2}}=\\frac{-2\\big(x^{2}+x-3\\big)}{(x^{2}+3)^{2}}$$\n\n**b)** Produktregelen med $u=e^{-3x}$ ($u'=-3e^{-3x}$, kjerneregelen) og $v=\\ln x$ ($v'=\\frac1x$):\n\n$$k'(x)=-3e^{-3x}\\ln x+e^{-3x}\\cdot\\frac{1}{x}=e^{-3x}\\left(\\frac{1}{x}-3\\ln x\\right)$$\n\nFellesfaktoren $e^{-3x}$ settes utenfor — det er den åpenbare forenklingen her, og den gjør fortegnet lesbart: siden $e^{-3x}>0$, bestemmes fortegnet på $k'$ helt av parentesen.",
+        "hints": [
+          "I a): $u'v-uv'$, og pass på at minusen gjelder hele $uv'$.",
+          "I b): produktregelen, med kjerneregelen inne i $e^{-3x}$ — kjernen er $-3x$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Deriver og forenkle til én brøk:\n\n$$m(x)=x\\sqrt{x^{2}+4}.$$",
+        "solution": "Produktregelen med $u=x$ ($u'=1$) og $v=\\sqrt{x^{2}+4}$. Kjerneregelen gir $v'=\\dfrac{2x}{2\\sqrt{x^{2}+4}}=\\dfrac{x}{\\sqrt{x^{2}+4}}$:\n\n$$m'(x)=\\sqrt{x^{2}+4}+x\\cdot\\frac{x}{\\sqrt{x^{2}+4}}$$\n\n**Felles nevner** $\\sqrt{x^{2}+4}$. Det første leddet blir $\\dfrac{x^{2}+4}{\\sqrt{x^{2}+4}}$:\n\n$$m'(x)=\\frac{x^{2}+4+x^{2}}{\\sqrt{x^{2}+4}}=\\frac{2x^{2}+4}{\\sqrt{x^{2}+4}}$$\n\n**Kontroll ved $x=0$:** formelen gir $\\frac{4}{2}=2$, og direkte regning gir $\\sqrt{4}+0=2$ ✓. Legg dessuten merke til at $m'>0$ for alle $x$ — funksjonen vokser overalt.",
+        "hints": [
+          "Produktregelen, med kjerneregelen på roten: $\\big(\\sqrt{u}\\big)'=\\dfrac{u'}{2\\sqrt{u}}$.",
+          "For å slå sammen: skriv $\\sqrt{x^{2}+4}$ som $\\dfrac{x^{2}+4}{\\sqrt{x^{2}+4}}$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-runde2",
+      "type": "text",
+      "content": "## Runde 2 — Partiellderivasjon (~20 min)\n\n*— naturlig pausepunkt —*\n\nNå med to variabler. Husk å levere begge de partiellderiverte når oppgaven ber om «alle argumenter»."
+    },
+    {
+      "id": "econ1100-1-6-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $f(x,y)=x^{3}y-2xy^{2}+y^{3}$.\n\n**a)** Finn $f'_{x}$ og $f'_{y}$.\n\n**b)** Finn $f''_{xy}$, og kontroller ved å regne $f''_{yx}$.",
+        "solution": "**a) Mht. $x$** (hold $y$ fast): $x^{3}y\\to 3x^{2}y$; $-2xy^{2}\\to -2y^{2}$; $y^{3}\\to 0$.\n\n$$f'_{x}=3x^{2}y-2y^{2}$$\n\n**Mht. $y$** (hold $x$ fast): $x^{3}y\\to x^{3}$; $-2xy^{2}\\to -4xy$; $y^{3}\\to 3y^{2}$.\n\n$$f'_{y}=x^{3}-4xy+3y^{2}$$\n\n**b)** Deriver $f'_{x}=3x^{2}y-2y^{2}$ mht. $y$:\n\n$$f''_{xy}=3x^{2}-4y$$\n\n**Kontroll:** deriver $f'_{y}=x^{3}-4xy+3y^{2}$ mht. $x$:\n\n$$f''_{yx}=3x^{2}-4y$$\n\nIdentisk ✓ — Youngs teorem holder, og dermed er også førsteordens deriverte sannsynligvis riktige. Denne kontrollen tar ti sekunder og bør være standard.",
+        "hints": [
+          "Ta ett ledd om gangen, og spør om leddet inneholder variabelen du deriverer mht.",
+          "I b): start fra $f'_x$ og deriver videre mht. $y$ — kontroller så den andre veien."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La\n\n$$g(x,y)=\\frac{x+y}{xy},\\qquad x,y>0.$$\n\nFinn $g'_{x}$ og $g'_{y}$. *Tips: se på uttrykket før du setter i gang med kvotientregelen.*",
+        "solution": "**Steg 1 — forenkle først.** Del opp brøken:\n\n$$g(x,y)=\\frac{x}{xy}+\\frac{y}{xy}=\\frac{1}{y}+\\frac{1}{x}=x^{-1}+y^{-1}$$\n\n**Steg 2 — deriver.** Nå er begge deriverte trivielle:\n\n$$g'_{x}=-x^{-2}=-\\frac{1}{x^{2}},\\qquad g'_{y}=-\\frac{1}{y^{2}}$$\n\n**Sammenlign med kvotientregelen.** Mht. $x$ ville den gitt\n\n$$\\frac{1\\cdot xy-(x+y)\\cdot y}{(xy)^{2}}=\\frac{xy-xy-y^{2}}{x^{2}y^{2}}=\\frac{-y^{2}}{x^{2}y^{2}}=-\\frac{1}{x^{2}}$$\n\nSamme svar, men med tre ekstra ryddesteg og tre ekstra sjanser til fortegnsfeil.\n\n**Lærdom:** bruk ti sekunder på å se om brøken kan deles opp eller forkortes *før* du velger metode. Det er selve steg 1 i løsningsoppskriften.",
+        "hints": [
+          "Kan brøken deles i to enklere ledd? Prøv å dele hvert ledd i telleren på nevneren.",
+          "$\\dfrac{x}{xy}$ forkortes til $\\dfrac{1}{y}$ — hva blir da $g$ som sum av to potenser?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) En bedrift har produktfunksjonen\n\n$$Q(K,L)=5K^{0{,}6}L^{0{,}4},$$\n\nder $K$ er kapital og $L$ er arbeidskraft.\n\n**a)** Finn grenseproduktene $Q'_{K}$ og $Q'_{L}$.\n\n**b)** Finn $Q''_{KL}$, og forklar fortegnet økonomisk.",
+        "solution": "**a)** Potensregelen på hver variabel, med den andre potensen som konstant faktor:\n\n$$Q'_{K}=5\\cdot 0{,}6\\,K^{-0{,}4}L^{0{,}4}=3\\left(\\frac{L}{K}\\right)^{0{,}4}$$\n\n$$Q'_{L}=5\\cdot 0{,}4\\,K^{0{,}6}L^{-0{,}6}=2\\left(\\frac{K}{L}\\right)^{0{,}6}$$\n\n**b)** Deriver $Q'_{K}=3K^{-0{,}4}L^{0{,}4}$ videre mht. $L$:\n\n$$Q''_{KL}=3\\cdot 0{,}4\\,K^{-0{,}4}L^{-0{,}6}=1{,}2\\,K^{-0{,}4}L^{-0{,}6}$$\n\nFor $K,L>0$ er begge potensene positive, så $Q''_{KL}>0$ i hele definisjonsområdet.\n\n**Økonomisk tolkning:** grenseproduktet av kapital *øker* når arbeidsstokken vokser. De to innsatsfaktorene er komplementære — flere ansatte gjør hver maskin mer verdt. Det er en typisk egenskap ved denne funksjonsformen, og en av grunnene til at den brukes så mye.",
+        "hints": [
+          "Cobb-Douglas: $\\big(AK^{\\alpha}L^{\\beta}\\big)'_K=\\alpha AK^{\\alpha-1}L^{\\beta}$.",
+          "I b): start fra $Q'_K$ og deriver mht. $L$; hvilket fortegn har koeffisienten?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-runde3",
+      "type": "text",
+      "content": "## Runde 3 — Logaritmisk derivasjon og indre variabler (~22 min)\n\nDe to variantene som skiller mest på eksamen. Begge har en fast oppskrift — bruk den, ikke improviser."
+    },
+    {
+      "id": "econ1100-1-6-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Bruk logaritmisk derivasjon til å finne $y'$ når\n\n$$y=x^{3x},\\qquad x>0.$$",
+        "solution": "**Steg 1:** $\\ln y=3x\\ln x$.\n\n**Steg 2 — produktregelen** på høyresiden:\n\n$$\\frac{y'}{y}=3\\ln x+3x\\cdot\\frac{1}{x}=3\\ln x+3$$\n\n**Steg 3–4 — gang opp, sett inn og forenkle** ved å sette 3 utenfor:\n\n$$y'=x^{3x}\\cdot 3\\big(\\ln x+1\\big)$$\n\n**Kontroll ved $x=1$:** $y=1$ og formelen gir $y'=3$. Numerisk er $\\frac{1{,}001^{3{,}003}-1}{0{,}001}\\approx 3{,}00$ ✓.\n\nLegg merke til mønsteret: samme form som for $x^{x}$, med koeffisienten fra eksponenten som faktor utenfor.",
+        "hints": [
+          "Steg 1 er alltid $\\ln y=g(x)\\ln f(x)$ — her $3x\\ln x$.",
+          "Etter derivasjon står du igjen med $y'/y$; hva må du gjøre for å få $y'$ alene?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) Finn den deriverte av\n\n$$y=\\big(\\ln x\\big)^{x},\\qquad x>1.$$\n\nForklar kort hvorfor kravet $x>1$ står der.",
+        "solution": "**Steg 1:** ta logaritmen på begge sider. Grunntallet er nå $\\ln x$:\n\n$$\\ln y=x\\,\\ln(\\ln x)$$\n\n**Steg 2 — produktregelen** med $u=x$ ($u'=1$) og $v=\\ln(\\ln x)$. Den siste krever kjerneregelen: den ytre logaritmen har innmat $\\ln x$, hvis deriverte er $\\frac1x$, så\n\n$$v'=\\frac{1/x}{\\ln x}=\\frac{1}{x\\ln x}$$\n\nDermed:\n\n$$\\frac{y'}{y}=\\ln(\\ln x)+x\\cdot\\frac{1}{x\\ln x}=\\ln(\\ln x)+\\frac{1}{\\ln x}$$\n\n**Steg 3–4:**\n\n$$y'=\\big(\\ln x\\big)^{x}\\left[\\ln(\\ln x)+\\frac{1}{\\ln x}\\right]$$\n\n**Hvorfor $x>1$?** Logaritmisk derivasjon krever at grunntallet er positivt, altså $\\ln x>0$, som betyr $x>1$. I tillegg tar vi $\\ln$ av $\\ln x$ i steg 1, og det krever nøyaktig det samme. Å nevne definisjonsområdet er en billig markør på at du har oversikt — og samme resonnement blir avgjørende i [kap. 4.3](/bok/econ1100/econ1100-4-3).",
+        "hints": [
+          "Steg 1 gir $\\ln y=x\\ln(\\ln x)$ — et produkt med en dobbel logaritme i.",
+          "Deriver $\\ln(\\ln x)$ med regelen $\\frac{g'}{g}$, der $g=\\ln x$ og $g'=\\frac1x$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La\n\n$$G(x,y)=x^{2}y,\\qquad x=s+t,\\qquad y=s-t.$$\n\n**a)** Finn $\\partial G/\\partial s$ og $\\partial G/\\partial t$, uttrykt ved $s$ og $t$.\n\n**b)** Kontroller ved å sette inn for $x$ og $y$ først.",
+        "solution": "**a) Partiellderiverte av den ytre funksjonen:** $G'_{x}=2xy$ og $G'_{y}=x^{2}$.\n\n**Indre deriverte:** $\\dfrac{\\partial x}{\\partial s}=1$, $\\dfrac{\\partial x}{\\partial t}=1$, $\\dfrac{\\partial y}{\\partial s}=1$, $\\dfrac{\\partial y}{\\partial t}=-1$.\n\n**Mht. $s$:**\n\n$$\\frac{\\partial G}{\\partial s}=2xy\\cdot 1+x^{2}\\cdot 1=2xy+x^{2}$$\n\nTilbakesubstitusjon: $2(s+t)(s-t)+(s+t)^{2}=2(s^{2}-t^{2})+s^{2}+2st+t^{2}$\n\n$$\\frac{\\partial G}{\\partial s}=3s^{2}+2st-t^{2}$$\n\n**Mht. $t$:**\n\n$$\\frac{\\partial G}{\\partial t}=2xy\\cdot 1+x^{2}\\cdot(-1)=2xy-x^{2}$$\n\nTilbakesubstitusjon: $2(s^{2}-t^{2})-(s^{2}+2st+t^{2})$\n\n$$\\frac{\\partial G}{\\partial t}=s^{2}-2st-3t^{2}$$\n\n**b) Kontroll.** Med innsetting først er $G=(s+t)^{2}(s-t)$. Produktregelen mht. $s$ gir $2(s+t)(s-t)+(s+t)^{2}$, som er nøyaktig uttrykket over ✓. Mht. $t$ gir den $2(s+t)(s-t)-(s+t)^{2}$ ✓.\n\n**Merk minusen** fra $\\partial y/\\partial t=-1$. Det er den ene detaljen som oftest går tapt i dette delpunktet.",
+        "hints": [
+          "Skriv de fire indre deriverte opp med fortegn før du setter sammen.",
+          "Etter sammensetting: gang ut $(s+t)(s-t)$ og $(s+t)^{2}$ og samle like ledd."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La $z=\\ln\\big(u^{2}+v\\big)$, der $u=t^{2}$ og $v=e^{t}$.\n\nFinn $\\dfrac{dz}{dt}$, uttrykt ved $t$.",
+        "solution": "**Partiellderiverte av den ytre funksjonen:**\n\n$$z'_{u}=\\frac{2u}{u^{2}+v},\\qquad z'_{v}=\\frac{1}{u^{2}+v}$$\n\n**Indre deriverte:** $\\dfrac{du}{dt}=2t$ og $\\dfrac{dv}{dt}=e^{t}$.\n\n**Kjerneregelen:**\n\n$$\\frac{dz}{dt}=\\frac{2u}{u^{2}+v}\\cdot 2t+\\frac{1}{u^{2}+v}\\cdot e^{t}=\\frac{4tu+e^{t}}{u^{2}+v}$$\n\n**Tilbakesubstitusjon** ($u=t^{2}$, $v=e^{t}$, så $u^{2}=t^{4}$ og $4tu=4t^{3}$):\n\n$$\\frac{dz}{dt}=\\frac{4t^{3}+e^{t}}{t^{4}+e^{t}}$$\n\n**Kontroll:** med innsetting først er $z=\\ln(t^{4}+e^{t})$, og regelen $\\frac{g'}{g}$ gir nøyaktig samme svar ✓.\n\nMerk at begge ledd hadde samme nevner — det er typisk for $\\ln$-uttrykk, og gjør sammenslåingen enkel.",
+        "hints": [
+          "Begge partiellderiverte av $\\ln(u^{2}+v)$ har samme nevner $u^{2}+v$.",
+          "Etter sammensetting: bytt $u$ med $t^{2}$ og $v$ med $e^{t}$, og husk at $u^{2}=t^{4}$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-runde4",
+      "type": "text",
+      "content": "## Runde 4 — Generelle funksjoner og et komplett sett (~23 min)\n\n*— naturlig pausepunkt —*\n\nTil slutt de symbolske delpunktene, og et helt Oppgave 1-sett du skal ta på tid."
+    },
+    {
+      "id": "econ1100-1-6-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $k$ være en deriverbar funksjon med $k(p)>0$, og la\n\n$$H(p)=p\\,k(p)+\\ln k(p).$$\n\nFinn $H'(p)$.",
+        "solution": "**Første ledd, produktregelen:**\n\n$$\\frac{d}{dp}\\big[p\\,k(p)\\big]=k(p)+p\\,k'(p)$$\n\n**Andre ledd,** regelen $\\dfrac{g'}{g}$:\n\n$$\\frac{d}{dp}\\ln k(p)=\\frac{k'(p)}{k(p)}$$\n\n**Samlet:**\n\n$$H'(p)=k(p)+p\\,k'(p)+\\frac{k'(p)}{k(p)}$$\n\n**Svaret er ferdig.** Det inneholder $k$ og $k'$, som det skal, siden funksjonsformen ikke er oppgitt. Kravet $k(p)>0$ er nødvendig for at $\\ln k(p)$ skal være definert — det er verdt å nevne.\n\n*Kontroll med spesialtilfelle:* sett $k(p)=p$. Da er $H=p^{2}+\\ln p$ med $H'=2p+\\frac1p$, og formelen gir $p+p\\cdot 1+\\frac{1}{p}=2p+\\frac1p$ ✓.",
+        "hints": [
+          "To ledd, to regler: produktregelen på det første, $\\frac{g'}{g}$ på det andre.",
+          "Svaret skal inneholde både $k$ og $k'$ — det er ikke uferdig."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $b$ være en deriverbar funksjon av to variabler og $g$ en deriverbar funksjon av én variabel. La\n\n$$F(x,y)=b(x,y)\\,g(x).$$\n\nFinn $F'_{x}$ og $F'_{y}$.",
+        "solution": "**Mht. $x$:** begge faktorene inneholder $x$, så produktregelen gjelder:\n\n$$F'_{x}=b'_{x}(x,y)\\,g(x)+b(x,y)\\,g'(x)$$\n\n**Mht. $y$:** faktoren $g(x)$ inneholder ingen $y$ og er derfor en **konstant** i dette regnestykket:\n\n$$F'_{y}=b'_{y}(x,y)\\,g(x)$$\n\n**Merk kontrasten mellom de to.** Den samme funksjonen krever produktregelen den ene veien og ingenting spesielt den andre. Det er nettopp dette delpunktet tester: at du sjekker hvilke faktorer som faktisk avhenger av variabelen du deriverer med hensyn på.",
+        "hints": [
+          "Spør for hver faktor: inneholder den variabelen jeg deriverer mht.?",
+          "Mht. $y$ er $g(x)$ bare et tall — hva skjer da med produktregelen?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå, komplett sett på tid.) Sett klokka på **22 minutter** og løs hele settet. Deriver med hensyn på de angitte variablene, og forenkl åpenbart.\n\n**a)** $f(x,y)=\\dfrac{y}{x^{2}+y}$ — finn $f'_{x}$ og $f'_{y}$.\n\n**b)** $g(x)=(x+1)^{x}$, $x>-1$ — finn $g'(x)$.\n\n**c)** $G(s,t)=x-y^{2}$ der $x=st$ og $y=s-t$ — finn $\\partial G/\\partial s$ og $\\partial G/\\partial t$.\n\n**d)** $h(x)=x^{2}g(x)+\\dfrac{1}{g(x)}$, $g$ deriverbar med $g(x)\\ne 0$ — finn $h'(x)$.",
+        "solution": "Dette er nøyaktig settet som er gjennomregnet i kapitlets eksamenscase over. Sammenlign din egen føring med den, delpunkt for delpunkt — særlig **hvor mye** som er skrevet ned, ikke bare om svaret stemmer.\n\n**a)** $f'_{x}=-\\dfrac{2xy}{(x^{2}+y)^{2}}$ og $f'_{y}=\\dfrac{x^{2}}{(x^{2}+y)^{2}}$.\n\n**b)** $g'(x)=(x+1)^{x}\\left[\\ln(x+1)+\\dfrac{x}{x+1}\\right]$.\n\n**c)** $\\dfrac{\\partial G}{\\partial s}=3t-2s$ og $\\dfrac{\\partial G}{\\partial t}=3s-2t$.\n\n**d)** $h'(x)=2x\\,g(x)+x^{2}g'(x)-\\dfrac{g'(x)}{\\big(g(x)\\big)^{2}}$.\n\n**Selvdiagnose — kryss av (☐):**\n\n- ☐ Jeg valgte riktig metode på alle fire delpunkter uten å prøve meg frem.\n- ☐ I b) navnga jeg metoden (logaritmisk derivasjon) og viste alle fire steg.\n- ☐ I c) substituerte jeg tilbake, slik at svaret bare inneholder $s$ og $t$.\n- ☐ I c) fikk jeg riktig fortegn fra $\\partial y/\\partial t=-1$.\n- ☐ I d) lot jeg $g$ og $g'$ stå, uten å anta en funksjonsform.\n- ☐ Jeg forenklet alle fire svarene (fellesfaktor utenfor, brøker forkortet).\n- ☐ Jeg ble ferdig innenfor 22 minutter.\n\n**Er du over tiden?** Se hvilket delpunkt som tok lengst, og gjør de tilsvarende oppgavene i den runden om igjen. Fart på Oppgave 1 er ren mengdetrening — og den kjøper deg minutter til storoppgavene.",
+        "hints": [
+          "Bruk løsningsoppskriftens steg 1 på hvert delpunkt før du regner: hvilken metode?",
+          "Sett av omtrent like mye tid per delpunkt — poengene er likt fordelt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-6-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La $k$ være en to ganger deriverbar funksjon, og la\n\n$$R(x)=\\frac{k(x)}{x},\\qquad x>0.$$\n\n**a)** Finn $R'(x)$.\n\n**b)** Vis at $R'(x)=0$ er ekvivalent med $x\\,k'(x)=k(x)$.\n\n**c)** Anta at $k(x)>0$ og $k'(x)>0$ for alle $x>0$. Hva sier betingelsen i b) om forholdet mellom $k'$ og gjennomsnittet $k/x$ i et slikt punkt?",
+        "solution": "**a)** Kvotientregelen med $u=k(x)$ og $v=x$:\n\n$$R'(x)=\\frac{k'(x)\\cdot x-k(x)\\cdot 1}{x^{2}}=\\frac{x\\,k'(x)-k(x)}{x^{2}}$$\n\n**b)** For $x>0$ er nevneren $x^{2}$ alltid positiv og aldri null. En brøk er null nøyaktig når telleren er null, så\n\n$$R'(x)=0\\quad\\Longleftrightarrow\\quad x\\,k'(x)-k(x)=0\\quad\\Longleftrightarrow\\quad x\\,k'(x)=k(x)$$\n\n**c)** Del begge sider av $x\\,k'(x)=k(x)$ på $x$ (lovlig siden $x>0$):\n\n$$k'(x)=\\frac{k(x)}{x}$$\n\nI et slikt punkt er altså **den deriverte lik gjennomsnittet** $k(x)/x$. Dette er et velkjent økonomisk resultat: grensestørrelsen er lik gjennomsnittsstørrelsen nøyaktig der gjennomsnittet har flatt punkt. Er $k$ en kostnadsfunksjon, sier betingelsen at grensekostnaden krysser gjennomsnittskostnaden i dens ytterpunkt.\n\n**Merk fremgangsmåten i b):** vi begrunnet at nevneren er positiv *før* vi konkluderte om telleren. Det er nettopp den typen begrunnelse sensor krever — og som ellers ville vært en ubegrunnet påstand.",
+        "hints": [
+          "I a): kvotientregelen med $u=k(x)$, $v=x$ — pass på rekkefølgen i telleren.",
+          "I b): hva må være sant om telleren for at en brøk skal være null, og hva må du si om nevneren først?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-6-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-1-6-bb-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg-treet for Oppgave 1",
+      "content": "Fem spørsmål, stilt i fast rekkefølge, avgjør hvilken metode hvert delpunkt krever.\n\n$$\\text{eksponent OG grunntall variable?}\\to\\text{log.derivasjon};\\quad \\text{indre variabler?}\\to\\text{kjerneregel + tilbakesubstitusjon}$$\n\nDeretter: er formen ukjent, blir svaret symbolsk; er det en brøk, prøv oppdeling før kvotientregelen; ellers gjelder potens-, produkt- og kjerneregel. Ti sekunder på dette valget sparer minutter på regningen — og hindrer at du starter på feil vei."
+    },
+    {
+      "id": "econ1100-1-6-bb-oppskrift",
+      "type": "definition",
+      "title": "Løsningsoppskriften i fire steg",
+      "content": "Fremgangsmåten er den samme for hvert eneste delpunkt i Oppgave 1.\n\n$$\\text{1) velg metode}\\ \\to\\ \\text{2) deriver mht. hvert argument}\\ \\to\\ \\text{3) substituer tilbake}\\ \\to\\ \\text{4) forenkl}$$\n\nSteg 3 er bare aktuelt når det finnes indre variabler, men steg 4 gjelder alltid. Et femte, valgfritt steg — kontrollregning — koster under et minutt og fanger de fleste feilene."
+    },
+    {
+      "id": "econ1100-1-6-bb-sjekkliste",
+      "type": "definition",
+      "title": "Sjekklisten før du går videre",
+      "content": "Tre spørsmål før du forlater et delpunkt, hver knyttet til en dokumentert feilkilde.\n\n$$\\text{Står det hjelpevariabler igjen?}\\quad \\text{Er alle ledd med?}\\quad \\text{Er svaret forenklet?}$$\n\nDet første fanger feil #5 (manglende tilbakesubstitusjon), det andre glemte bidrag i kjerneregelen eller produktregelen, og det tredje kravet om åpenbar forenkling. Til sammen dekker de det aller meste av poengtapet på oppgaven."
+    },
+    {
+      "id": "econ1100-1-6-bb-tidsbudsjett",
+      "type": "definition",
+      "title": "Tidsbudsjettet for Oppgave 1",
+      "content": "Med 100 poeng fordelt på 180 minutter er ett poeng verdt om lag 1,8 minutter — og Oppgave 1 gir typisk 15–25 poeng.\n\n$$20\\ \\text{poeng}\\ \\approx\\ 36\\ \\text{minutter «rettmessig» tid}$$\n\nMålet er likevel å bli ferdig på **20–25 minutter**, fordi delpunktene er mekaniske. Overskuddet er ren gevinst: det gir deg tid til storoppgavene, der poengene er dyrere å hente. Merk at tallet gjelder skrivetid — lesing av settet og kontrollregning kommer i tillegg."
+    },
+    {
+      "id": "econ1100-1-6-bb-tilbakesub",
+      "type": "definition",
+      "title": "Tilbakesubstitusjon i drillen",
+      "content": "Er det innført hjelpevariabler, skal sluttsvaret stå i de variablene oppgaven faktisk spør om.\n\n$$\\frac{\\partial G}{\\partial s}=2xy+x^{2}\\ \\longrightarrow\\ 3s^{2}+2st-t^{2}$$\n\nDette er feil #5 i bokas feilregister, og det er den enkleste feilen å unngå: still deg selv spørsmålet «står det noen $x$ eller $y$ igjen?» før du går videre til neste delpunkt."
+    },
+    {
+      "id": "econ1100-1-6-bb-forenkling",
+      "type": "definition",
+      "title": "Åpenbar forenkling i praksis",
+      "content": "Sensor krever forenkling for full uttelling, men forventer ikke maksimal utregning. Skillet er lettere enn det høres ut.\n\n$$2xe^{-2x}-2x^{2}e^{-2x}\\ \\to\\ 2xe^{-2x}(1-x)\\qquad\\text{men}\\qquad 5(x^{2}+3x)^{4}(2x+3)\\ \\text{står som det er}$$\n\nRegelen er: **faktoriser når det avslører struktur** (typisk fortegn), og la store parenteser stå. Forkort alltid brøker, og skriv aldri $\\frac{8x}{2}$ når du kan skrive $4x$."
+    },
+    {
+      "id": "econ1100-1-6-bb-poengfordeling",
+      "type": "definition",
+      "title": "Poeng likt fordelt per delpunkt",
+      "content": "Sensorveiledningene oppgir hvert år at poengene fordeles likt mellom delpunktene innenfor en oppgave.\n\n$$\\text{4 delpunkter}\\ \\Longrightarrow\\ \\text{hvert delpunkt er verdt like mye}$$\n\nKonsekvensen for strategien er tydelig: et delpunkt du står helt fast på, er ikke verdt mer enn de andre. Sett av omtrent lik tid til hvert, og gå videre når tiden er brukt opp — det siste delpunktet gir like mange poeng som det første."
+    },
+    {
+      "id": "econ1100-1-6-bb-folgefeil",
+      "type": "definition",
+      "title": "Følgefeil straffes ikke",
+      "content": "Regner du feil ett sted, men bygger korrekt videre på ditt eget mellomresultat, trekkes du ikke for det samme igjen.\n\n$$\\text{feil i}\\ f'_{x}\\ \\to\\ \\text{riktig bruk av det feilaktige}\\ f'_{x}\\ \\text{i}\\ f''_{xy}\\ \\to\\ \\text{full uttelling for siste steg}$$\n\nUnntaket er når feilen gjør resten vesentlig lettere. Praktisk konsekvens: **stopp aldri opp fordi et tall ser rart ut** — skriv videre med det du har, og noter gjerne at du er usikker. Metoden bærer poengene, ikke svaret."
+    },
+    {
+      "id": "econ1100-1-6-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-1-6-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f'(x)$, $f''(x)$ | Første- og andrederivert av en funksjon av én variabel |\n| $f'_{x}$, $f'_{y}$ | Partiellderiverte — deriver mht. én variabel, hold de andre fast |\n| $f''_{xy}$ | Kryssderivert: først mht. $x$, så mht. $y$ |\n| $\\partial G/\\partial s$ | Partiellderivert av $G$ mht. den ytre variabelen $s$ |\n| $u$, $v$ | Delfunksjonene i produkt- og kvotientregelen |\n| $x=x(s,t)$, $y=y(s,t)$ | Indre variabler (hjelpevariabler) i kjerneregelen |\n| $k(p)$, $g(x)$, $b(x,y)$ | Generelle (ukjente) deriverbare funksjoner |\n| $k'(p)$, $b'_{x}$ | Deriverte av de generelle funksjonene — står i svaret |\n| $K$, $L$, $Q(K,L)$ | Kapital, arbeidskraft og produsert mengde |\n| $Q'_{K}$, $Q'_{L}$ | Grenseprodukt av kapital og arbeidskraft |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{d}{dx}x^{a}=ax^{a-1},\\qquad \\frac{d}{dx}\\sqrt{x}=\\frac{1}{2\\sqrt{x}}$$\nPotensregelen med sitt viktigste spesialtilfelle.\n\n$$(uv)'=u'v+uv',\\qquad \\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}}$$\nProdukt- og kvotientregelen. Rekkefølgen i den siste avgjør fortegnet (feil #12).\n\n$$\\frac{d}{dx}f\\big(u(x)\\big)=f'(u)\\,u'(x),\\qquad \\frac{d}{dx}\\ln g=\\frac{g'}{g},\\qquad \\frac{d}{dx}e^{g}=e^{g}g'$$\nKjerneregelen og de to funksjonene den brukes mest på.\n\n$$\\frac{\\partial G}{\\partial s}=G'_{x}\\frac{\\partial x}{\\partial s}+G'_{y}\\frac{\\partial y}{\\partial s}$$\nKjerneregelen for flere variabler — ett ledd per indre variabel, og tilbakesubstitusjon til slutt.\n\n$$y=f^{g}\\ \\Longrightarrow\\ \\ln y=g\\ln f\\ \\Longrightarrow\\ y'=f^{g}\\left[g'\\ln f+g\\frac{f'}{f}\\right]$$\nLogaritmisk derivasjon for variabel eksponent.\n\n$$Q=AK^{\\alpha}L^{\\beta}\\ \\Longrightarrow\\ Q'_{K}=\\alpha AK^{\\alpha-1}L^{\\beta},\\qquad f''_{xy}=f''_{yx}$$\nCobb-Douglas-derivasjon og Youngs teorem — bokas raskeste kontrollregning."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
