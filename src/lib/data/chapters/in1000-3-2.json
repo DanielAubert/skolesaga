@@ -1,0 +1,415 @@
+{
+ "id": "in1000-3-2",
+ "courseId": "in1000",
+ "chapterNumber": "3.2",
+ "title": "Ordbøker",
+ "description": "Ordbøker som oppslagstabell, teller og grupperingsstruktur — den nest viktigste datastrukturen, og datamodellen bak en-til-mange i klassemodelleringen.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne slå opp, sette inn og oppdatere verdier i en ordbok uten å stoppe programmet",
+  "kunne telle forekomster med en ordbok, skrevet med vanlig løkke og betingelse",
+  "kunne gruppere elementer slik at hver nøkkel peker på en liste",
+  "kunne finne nøkkelen med størst verdi, og svare ærlig når samlingen er tom"
+ ],
+ "content": [
+  {
+   "id": "in1000-3-2-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Ordbøker står i 6 av 6 moderne eksamenssett (100 %)**, og de er den\ndatastrukturen som skiller en middels besvarelse fra en god. To sjangre bruker\ndem direkte. **Sjanger D — skriv en funksjon over en ordbok** er en fast del av\nOppgave 3 og Oppgave 5, verdt 5–8 poeng per deloppgave. Og i **sjanger A —\nkodeforståelse** er «en ordbok som endrer seg selv inne i en løkke» en av de\nsikreste fellene i Oppgave 1.\n\nEnda viktigere: ordboka er datamodellen bak **«en-til-mange»** i den store\nklassemodelleringen i Oppgave 4, som alene er rundt halve eksamen. Skal ett\nobjekt holde mange andre og kunne slå dem opp på navn, er en ordbok svaret.\n\n**Dette må sitte** — bokas høyeste av tre nivåer. Tre idiomer bærer nesten alt:\n**teller**, **gruppering** og **finn beste**. De er korte, de gjentar seg, og de\ner skrevet med vanlig løkke og `if` — ikke med ferdige hjelpemidler."
+  },
+  {
+   "id": "in1000-3-2-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 3.1 — Lister](/bok/in1000/in1000-3-1) og, gjennom den,\n[kap. 1.3 — Løkker](/bok/in1000/in1000-1-3) og\n[kap. 2.1 — Funksjoner](/bok/in1000/in1000-2-1).\n\nDe tre tingene du bruker mest her:\n\n- **bygg-en-ny-liste-mønsteret**: tom liste før løkka, `append` inne i den,\n  `return` etter,\n- **`len(...)`**, som virker både på lister og tekster,\n- **finn beste med en startverdi hentet fra dataene**, ikke fra hva du tror om\n  dem.\n\nKort oppfrisket:\n\n```python\ntall = [4, 11, 7]\nstore = []\nfor e in tall:\n    if e > 5:\n        store.append(e)\nprint(store, len(store))\n```\n\n**Utskrift:**\n```\n[11, 7] 2\n```\n\nI dette kapitlet får samlingen **navn på plassene** i stedet for nummer. Det er\nhele forskjellen mellom en liste og en ordbok — og den forskjellen avgjør hvilke\nspørsmål du kan svare på uten å lete."
+  },
+  {
+   "id": "in1000-3-2-3",
+   "type": "text",
+   "content": "## Løkke 1 — Hva en ordbok er, og hvordan du slår opp (~13 min)\n\nEn resirkuleringsstasjon veier inn kartong, glass og metall. Med en liste kunne\ndu lagret de tre tallene — men da måtte du huske at kartong står først og metall\nsist, og hver gang noen la til en ny avfallstype, ville rekkefølgen bli en\nkilde til feil.\n\nDet du egentlig vil, er å slå opp på **navnet**: «hvor mange kilo glass?». Det er\nakkurat det en ordbok gjør."
+  },
+  {
+   "id": "in1000-3-2-4",
+   "type": "definition",
+   "title": "Ordbok",
+   "content": "En samling **par** av en nøkkel og en verdi, der du slår opp verdien ved å oppgi\nnøkkelen.\n\nDu skriver den med krøllparenteser, kolon mellom nøkkel og verdi, og komma\nmellom parene:\n\n```python\nlevert = {\"kartong\": 12, \"glass\": 7, \"metall\": 3}\nprint(levert)\nprint(levert[\"glass\"])\n```\n\n**Utskrift:**\n```\n{'kartong': 12, 'glass': 7, 'metall': 3}\n7\n```\n\nSammenlign med lista: der er plassen et **tall** du må holde styr på selv, her er\nplassen et **navn** du velger. Det er hele forskjellen, og den gjør oppslag\nenkle: du trenger ikke lete gjennom samlingen for å finne det du er ute etter.\n\nOrdboka heter `dict` i Python, etter det engelske ordet for ordbok. Du vil se\ndet navnet i feilmeldinger."
+  },
+  {
+   "id": "in1000-3-2-5",
+   "type": "definition",
+   "title": "`{nøkkel: verdi}` — ordboklitteral og tom ordbok",
+   "content": "En ordbok skrevet rett inn i koden. Den kan være tom:\n\n```python\ntom = {}\nantall = {\"kartong\": 12, \"glass\": 7}\nprint(tom, len(tom))\nprint(antall, len(antall))\n```\n\n**Utskrift:**\n```\n{} 0\n{'kartong': 12, 'glass': 7} 2\n```\n\n`len(...)` gir antall **par**, ikke antall tegn eller verdier.\n\nDen tomme ordboka `{}` er startpunktet i alle tre idiomene du skal lære her —\nakkurat som den tomme lista var det i forrige kapittel. Merk at det er\nkrøllparenteser, ikke hakeparenteser: `[]` er en tom liste, `{}` er en tom\nordbok."
+  },
+  {
+   "id": "in1000-3-2-6",
+   "type": "definition",
+   "title": "Nøkkel og verdi",
+   "content": "De to halvdelene av et par.\n\n**Nøkkelen** er det du slår opp på — som regel en tekst, men den kan også være et\ntall. **Verdien** er det du får igjen, og den kan være hva som helst: et tall, en\ntekst, en liste, eller senere i boka et helt objekt.\n\nI `{\"kartong\": 12}` er `\"kartong\"` nøkkelen og `12` verdien. Rekkefølgen i\nskrivemåten er alltid nøkkel først, så kolon, så verdi.\n\nÉn regel skiller de to: **nøklene er unike**, mens verdiene godt kan gjenta seg.\nTo varer kan ha tallet 12, men det finnes bare én `\"kartong\"`."
+  },
+  {
+   "id": "in1000-3-2-7",
+   "type": "definition",
+   "title": "Oppslag `ordbok[nøkkel]`",
+   "content": "Henter verdien som hører til nøkkelen. Skrivemåten er den samme hakeparentesen\nsom i en liste — men innholdet er en nøkkel, ikke en plass:\n\n```python\nlevert = {\"kartong\": 12, \"glass\": 7, \"metall\": 3}\nprint(levert[\"glass\"])\nprint(levert[\"kartong\"] + levert[\"metall\"])\n```\n\n**Utskrift:**\n```\n7\n15\n```\n\nResultatet er en helt vanlig verdi. Du kan regne med den, sammenligne den eller\nsende den videre til en funksjon.\n\n**Rekkefølgen betyr ingenting for oppslaget.** `levert[\"metall\"]` finner det\nsamme uansett om metall står først eller sist. Det er derfor du slipper å telle."
+  },
+  {
+   "id": "in1000-3-2-8",
+   "type": "definition",
+   "title": "`ordbok[nøkkel] = verdi`",
+   "content": "Setter inn et nytt par — eller **overskriver** verdien hvis nøkkelen finnes fra\nfør:\n\n```python\nlevert = {\"kartong\": 12}\nlevert[\"glass\"] = 7\nlevert[\"kartong\"] = 20\nprint(levert)\n```\n\n**Utskrift:**\n```\n{'kartong': 20, 'glass': 7}\n```\n\nLegg merke til at de to siste linjene ser helt like ut, men gjør to ulike ting.\nDen første **oppretter** nøkkelen `\"glass\"`, som ikke fantes. Den andre\n**erstatter** verdien til `\"kartong\"`, og det gamle tallet 12 er borte for godt.\n\nDette er en viktig forskjell fra lista: der måtte plassen finnes fra før for at\n`liste[i] = v` skulle virke. I en ordbok lages nøkkelen ved behov."
+  },
+  {
+   "id": "in1000-3-2-9",
+   "type": "definition",
+   "title": "`nøkkel in ordbok`",
+   "content": "Svarer `True` eller `False` på om **nøkkelen** finnes:\n\n```python\nlevert = {\"kartong\": 12, \"glass\": 7}\nprint(\"glass\" in levert)\nprint(\"plast\" in levert)\nprint(12 in levert)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\n```\n\nSiste linje er fellen. Testen ser bare på nøklene, aldri på verdiene — og 12 er\nen verdi her, ikke en nøkkel.\n\n`in` er selve sikkerhetsnettet foran et oppslag: slår du opp en nøkkel som ikke\nfinnes, stopper programmet. Vanen som lønner seg er å skrive `if k in d:` før\n`d[k]` hver gang du ikke er helt sikker."
+  },
+  {
+   "id": "in1000-3-2-10",
+   "type": "warning",
+   "title": "Typisk feil #14 — oppslag på en nøkkel som ikke finnes",
+   "content": "Feilkode #14 er å bruke en nøkkel før den er opprettet. Det ser slik ut:\n\n```text\nlevert = {\"kartong\": 12}\nprint(levert[\"plast\"])\n```\n\nProgrammet stopper, og siste linje i feilmeldingen er `KeyError: 'plast'`.\nBlokken er merket som ikke-kjørbar fordi feilen er plantet med vilje.\n\nMerk at feilmeldingen viser **nøkkelen** som manglet. Det gjør den til en av de\ngreieste feilene å rette — du får vite nøyaktig hva du lette etter.\n\nDen trygge formen er en sjekk foran:\n\n```python\nlevert = {\"kartong\": 12}\nif \"plast\" in levert:\n    print(levert[\"plast\"])\nelse:\n    print(0)\n```\n\n**Utskrift:**\n```\n0\n```\n\nDette er nøyaktig samme mekanikk som i teller-idiomet lenger nede: der er\n`if k not in d:` grepet som sørger for at nøkkelen finnes før du regner på den."
+  },
+  {
+   "id": "in1000-3-2-11",
+   "type": "example",
+   "title": "Eksempel 1: En dags innveiing på resirkuleringsstasjonen",
+   "problem": "Stasjonen starter dagen med 12 kilo kartong, 7 kilo glass og 3 kilo metall.\nI løpet av dagen kommer det inn 9 kilo plast, som er en ny avfallstype, og 5\nkilo glass i tillegg til det som allerede var registrert. Skriv ut hele\noversikten, hvor mange typer som er registrert, og hva som er levert av glass\n— og svar pent på et oppslag av en type som ikke finnes.",
+   "solution": "Alt skjer i den samme ordboka:\n\n```python\nlevert = {\"kartong\": 12, \"glass\": 7, \"metall\": 3}\nlevert[\"plast\"] = 9\nlevert[\"glass\"] = levert[\"glass\"] + 5\nprint(levert)\nprint(len(levert))\nprint(levert[\"glass\"], \"kilo glass\")\nif \"papir\" in levert:\n    print(levert[\"papir\"])\nelse:\n    print(\"ingen papir levert\")\n```\n\n**Utskrift:**\n```\n{'kartong': 12, 'glass': 12, 'metall': 3, 'plast': 9}\n4\n12 kilo glass\ningen papir levert\n```\n\nFire ting er verdt å merke seg.\n\n**De to tilordningene ser like ut, men gjør ulike ting.** `levert[\"plast\"] = 9`\noppretter en ny nøkkel; `levert[\"glass\"] = levert[\"glass\"] + 5` leser den gamle\nverdien først og skriver den nye tilbake. Det siste er selve mønsteret bak alle\ntellere i ordbok.\n\n**Den nye nøkkelen havner bakerst.** Python husker rekkefølgen parene ble satt\ninn i, og `\"plast\"` kom sist.\n\n**`len` teller par, ikke kilo.** Svaret er 4 fordi det er fire avfallstyper.\n\n**Oppslaget av `\"papir\"` er beskyttet av en `if`.** Uten den ville programmet\nstoppet med `KeyError`, og alle linjer under ville aldri kjørt — også de\nriktige."
+  },
+  {
+   "id": "in1000-3-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — ren gjengivelse.) En brettspillklubb registrerer hvor mange\neksemplarer de har av hvert spill:\n\n```python\nlager = {\"sjakk\": 4, \"yatzy\": 2, \"domino\": 6}\n```\n\n**a)** Hva gir `len(lager)`?\n\n**b)** Hva gir `lager[\"yatzy\"]`?\n\n**c)** Hva gir `\"domino\" in lager`?\n\n**d)** Hva gir `6 in lager`?\n\n**e)** Hva skjer hvis du skriver `lager[\"ludo\"]`?",
+    "solution": "**a)** `3` — ordboka har tre par.\n\n**b)** `2`. Nøkkelen `\"yatzy\"` gir verdien som står etter kolon.\n\n**c)** `True` — nøkkelen finnes.\n\n**d)** `False`. Testen ser bare på **nøklene**. Tallet 6 er en verdi her, ikke en\nnøkkel, og verdier finner `in` aldri.\n\n**e)** Programmet stopper med `KeyError: 'ludo'`. Nøkkelen finnes ikke, og et\noppslag krever at den gjør det. Skal koden tåle det, må du skrive\n`if \"ludo\" in lager:` først.",
+    "hints": [
+     "Tell parene, ikke tegnene, når du svarer på lengden.",
+     "For d): ser `in` på det som står før eller etter kolon?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\npris = {\"kaffe\": 25, \"te\": 20}\npris[\"kaffe\"] = pris[\"kaffe\"] + 5\npris[\"kakao\"] = 30\nprint(pris)\nprint(len(pris), pris[\"kaffe\"])\nprint(\"te\" in pris, \"juice\" in pris)\n```",
+    "solution": "Spor de to endringene før du leser utskriftslinjene.\n\n| Linje | Hva som skjer | Ordboka etter |\n|---|---|---|\n| start | to par | `{'kaffe': 25, 'te': 20}` |\n| `pris[\"kaffe\"] = … + 5` | eksisterende verdi overskrives | `{'kaffe': 30, 'te': 20}` |\n| `pris[\"kakao\"] = 30` | ny nøkkel, havner bakerst | `{'kaffe': 30, 'te': 20, 'kakao': 30}` |\n\n**Utskrift:**\n```\n{'kaffe': 30, 'te': 20, 'kakao': 30}\n3 30\nTrue False\n```\n\nTo detaljer avgjør poeng her. **Rekkefølgen** i utskriften er\ninnsettingsrekkefølgen, ikke alfabetisk — `\"kakao\"` står sist selv om den\nbegynner på k. Og **tekster inne i en ordbok vises med enkle anførselstegn**,\nakkurat som i en liste, mens `True` og `False` skrives med stor forbokstav.",
+    "hints": [
+     "Skriv opp ordboka på nytt etter hver av de to tilordningene.",
+     "Hvilken av de to tilordningene lager en ny nøkkel, og hvilken bytter ut en verdi?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-12",
+   "type": "text",
+   "content": "## Løkke 2 — Å gå gjennom en ordbok, og teller-idiomet (~14 min)\n\nNå kommer det viktigste enkeltmønsteret i hele Oppgave 3. Men først må du vite\nhva en løkke over en ordbok egentlig gir deg — og svaret overrasker mange."
+  },
+  {
+   "id": "in1000-3-2-13",
+   "type": "definition",
+   "title": "`for nøkkel in ordbok:`",
+   "content": "Går gjennom **nøklene**, ikke verdiene. Verdien henter du selv med et oppslag:\n\n```python\nlevert = {\"kartong\": 12, \"glass\": 7}\nfor vare in levert:\n    print(vare, levert[vare])\n```\n\n**Utskrift:**\n```\nkartong 12\nglass 7\n```\n\nDette er den ene tingen alle bommer på første gang: løkkevariabelen er\n**nøkkelen**. Vil du ha verdien, skriver du `levert[vare]` inne i løkka.\n\nRekkefølgen er den parene ble satt inn i. Det er ikke noe du skal bygge en\nløsning på, men det er greit å vite når du sporer en utskrift."
+  },
+  {
+   "id": "in1000-3-2-14",
+   "type": "definition",
+   "title": "`len(ordbok)` og summering",
+   "content": "`len` gir antall par. Skal du ha summen av verdiene, må du løpe gjennom og\nakkumulere selv:\n\n```python\nlevert = {\"kartong\": 12, \"glass\": 7, \"metall\": 3}\nprint(len(levert))\ntotal = 0\nfor vare in levert:\n    total = total + levert[vare]\nprint(total)\n```\n\n**Utskrift:**\n```\n3\n22\n```\n\nLegg merke til at akkumulatormønsteret er helt uendret fra\n[kap. 1.3](/bok/in1000/in1000-1-3): startverdi før løkka, oppdatering inne i\nden, bruk etter. Det eneste nye er at verdien hentes med et oppslag.\n\nDet er verdt å si høyt: `len` teller **par**, ikke kilo. Å blande antall nøkler\nmed summen av verdiene er en klassisk lesefeil i en sporingsoppgave."
+  },
+  {
+   "id": "in1000-3-2-15",
+   "type": "theorem",
+   "title": "Teller-idiomet — ordbok som forekomsttabell",
+   "content": "Bokas femte kodemønster, og det som gir flest poeng i Oppgave 3. Det brukes\nhver gang oppgaven sier «tell hvor mange ganger …».\n\nOppskriften har tre faste steg:\n\n1. **Før løkka:** lag en tom ordbok, `antall = {}`.\n2. **Inne i løkka, først:** finnes ikke nøkkelen ennå, opprett den med verdien\n   0 — `if vare not in antall: antall[vare] = 0`.\n3. **Inne i løkka, deretter:** øk med én —\n   `antall[vare] = antall[vare] + 1`.\n\n```python\nleveranser = [\"glass\", \"kartong\", \"glass\", \"plast\", \"glass\"]\nantall = {}\nfor vare in leveranser:\n    if vare not in antall:\n        antall[vare] = 0\n    antall[vare] = antall[vare] + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n{'glass': 3, 'kartong': 1, 'plast': 1}\n```\n\n**Steg 2 er ikke valgfritt.** Uten det ville første `antall[vare] + 1` slå opp en\nnøkkel som ikke finnes, og programmet ville stoppet med `KeyError` — feilkode\n#14. De to linjene hører sammen som ett grep, og du bør skrive dem som ett.\n\nLegg merke til at `if`-en **ikke** har noen `else`. Etter `if`-blokken er\nnøkkelen garantert på plass, uansett om den nettopp ble opprettet eller fantes\nfra før, og da kan økningen skje på én linje for begge tilfeller."
+  },
+  {
+   "id": "in1000-3-2-16",
+   "type": "example",
+   "title": "Eksempel 2: Tell forekomster, som en gjenbrukbar funksjon",
+   "problem": "Skriv `tell_forekomster(elementer)` som tar imot en liste og returnerer en ordbok\nfra hvert element til hvor mange ganger det finnes i lista. Vis også hva\nfunksjonen gjør med en tom liste.",
+   "solution": "Idiomet flyttes rett inn i en funksjon:\n\n```python\ndef tell_forekomster(elementer):\n    antall = {}\n    for e in elementer:\n        if e not in antall:\n            antall[e] = 0\n        antall[e] = antall[e] + 1\n    return antall\n\nprint(tell_forekomster([\"buss\", \"trikk\", \"buss\"]))\nprint(tell_forekomster([]))\n```\n\n**Utskrift:**\n```\n{'buss': 2, 'trikk': 1}\n{}\n```\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg. Den tomme\nordboka før løkka, løkka over lista, opprettelsen av nøkkelen med 0, og\n`return` **etter** løkka. Har du de tre første riktig, men glemt `return`, er\nstrukturen på plass og trekket lite — men funksjonen gir `None`, og alle\ndeloppgaver som bygger videre, faller sammen.\n\n**Den tomme lista** gir en tom ordbok. Løkka kjører null ganger, og `antall`\nreturneres slik den ble laget. Det er et rimelig svar, og du fikk det gratis av\nmønsteret — men det er verdt å sjekke bevisst, jf. feilkode #6.\n\nFunksjonen er verdt å legge på minnet. Den er halve svaret på ethvert «hvilken\nforekommer flest ganger?»-spørsmål, og andre halvdel kommer i løkke 4."
+  },
+  {
+   "id": "in1000-3-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\npoeng = {\"ada\": 1, \"bo\": 2, \"cato\": 3}\nfor navn in poeng:\n    poeng[navn] = poeng[navn] * 2\nprint(poeng)\ntotal = 0\nfor navn in poeng:\n    total = total + poeng[navn]\nprint(total)\n```",
+    "solution": "Den første løkka endrer ordboka mens den går gjennom den — men bare\n**verdiene**, ikke nøklene, og det er lovlig.\n\n| Nøkkel | Verdi før | Verdi etter |\n|---|---|---|\n| `ada` | 1 | 2 |\n| `bo` | 2 | 4 |\n| `cato` | 3 | 6 |\n\nDen andre løkka summerer de nye verdiene: 2 + 4 + 6.\n\n**Utskrift:**\n```\n{'ada': 2, 'bo': 4, 'cato': 6}\n12\n```\n\nTo ting å merke seg. **Løkkevariabelen `navn` er nøkkelen**, så oppdateringen må\nskrives `poeng[navn] = poeng[navn] * 2` — å skrive `navn = navn * 2` ville bare\nendret en lokal kopi av navnet og latt ordboka være i fred.\n\nOg **summen bruker de doblede verdiene**, fordi den andre løkka kjører etter at\nden første er ferdig. Hadde de to løkkene stått i motsatt rekkefølge, ville\nsvaret vært 6.",
+    "hints": [
+     "Hva er løkkevariabelen når du går gjennom en ordbok — nøkkelen eller verdien?",
+     "Skriv opp ordboka på nytt før du begynner på den andre løkka."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-17",
+   "type": "warning",
+   "title": "Snarveiene finnes — men grunnformen er den som belønnes",
+   "content": "Python har ferdige hjelpemidler for nettopp disse oppgavene. `Counter` teller\nforekomster i én linje, `set(...)` fjerner duplikater, `sum(...)` legger sammen,\n`max(..., key=...)` finner nøkkelen med størst verdi, og `d.get(k, 0)` slipper\nunna `if k not in d`-sjekken.\n\n**Denne boka bruker dem ikke, og det er et bevisst valg.** Fagets egne\nløsningsforslag skriver den eksplisitte løkka, fordi det er løkka og\noppdateringsrekkefølgen som er ferdigheten kurset måler. På Oppgave 4 — den\nstore klassemodelleringen — finnes det heller ingen ferdig funksjon å ty til:\nder må du bygge tellingen inn i en metode selv.\n\nLær grunnformen først. Den er fem linjer, den virker overalt, og den er det du\nfaktisk blir bedt om."
+  },
+  {
+   "id": "in1000-3-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) Skriv funksjonen\n`tell_tegn(tekst)` som returnerer en ordbok fra hvert tegn i teksten til hvor\nmange ganger tegnet forekommer.\n\n**a)** Skriv funksjonen med teller-idiomet.\n\n**b)** Hva returnerer `tell_tegn(\"\")`?\n\n**c)** Hva ville gått galt hvis du droppet linja `if tegn not in antall:`?",
+    "solution": "**a)** Teller-idiomet virker uendret på en tekst, siden en tekst også kan\ngjennomløpes tegn for tegn:\n\n```python\ndef tell_tegn(tekst):\n    antall = {}\n    for tegn in tekst:\n        if tegn not in antall:\n            antall[tegn] = 0\n        antall[tegn] = antall[tegn] + 1\n    return antall\n\nprint(tell_tegn(\"kanoen\"))\nprint(tell_tegn(\"aaa\"))\n```\n\n**Utskrift:**\n```\n{'k': 1, 'a': 1, 'n': 2, 'o': 1, 'e': 1}\n{'a': 3}\n```\n\n**b)** En tom ordbok, `{}`. Løkka kjører null ganger, og ordboka returneres slik\nden ble laget.\n\n**c)** Første gang et tegn dukker opp, ville `antall[tegn] + 1` slått opp en\nnøkkel som ikke finnes, og programmet ville stoppet med `KeyError` allerede på\ndet aller første tegnet. Det er feilkode #14, og den rammer alltid første\nrunde — så feilen er lett å oppdage så snart du prøver koden. På en\nhjelpemiddelfri eksamen må du derimot se den selv.",
+    "hints": [
+     "Bruk nøyaktig samme tre steg som i teller-idiomet, med tegn i stedet for varer.",
+     "For c): hva er verdien til `antall[tegn]` aller første gang tegnet dukker opp?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-18",
+   "type": "text",
+   "content": "## Løkke 3 — Gruppering: en liste som verdi (~12 min)\n\nTeller-idiomet svarer på «hvor mange». Det neste idiomet svarer på «hvilke»: du\nvil ikke bare vite at tre turer var korte, du vil ha turene.\n\nGrepet er å la **verdien være en liste**. Da holder ordboka en hel gruppe per\nnøkkel, og det er nøyaktig den strukturen «en-til-mange» har i den store\nklassemodelleringen."
+  },
+  {
+   "id": "in1000-3-2-19",
+   "type": "theorem",
+   "title": "Grupperings-idiomet",
+   "content": "Bokas sjette kodemønster. Det er teller-idiomet med to endringer: startverdien\ner en tom **liste** i stedet for 0, og oppdateringen er `append` i stedet for\n`+ 1`.\n\n1. **Før løkka:** `grupper = {}`.\n2. **Inne i løkka, først:** `if merkelapp not in grupper: grupper[merkelapp] = []`.\n3. **Inne i løkka, deretter:** `grupper[merkelapp].append(verdien)`.\n\n```python\nturer = [12, 45, 8, 30, 60]\ngrupper = {}\nfor minutter in turer:\n    if minutter < 15:\n        merkelapp = \"kort\"\n    elif minutter < 45:\n        merkelapp = \"middels\"\n    else:\n        merkelapp = \"lang\"\n    if merkelapp not in grupper:\n        grupper[merkelapp] = []\n    grupper[merkelapp].append(minutter)\nprint(grupper)\n```\n\n**Utskrift:**\n```\n{'kort': [12, 8], 'lang': [45, 60], 'middels': [30]}\n```\n\nResultatet er en ordbok der **hver verdi er en liste**. Formen `{nøkkel: [liste]}`\ner verdt å kjenne igjen på synet — den dukker opp både i Oppgave 3, i Oppgave 5\nog som instansvariabel i den store modelleringen.\n\nTo detaljer. **Nøkkelrekkefølgen** er den gruppene ble opprettet i: `kort` kom\nførst (12 minutter), `lang` som nummer to (45 minutter), og `middels` sist (30\nminutter). Og **`grupper[merkelapp].append(...)`** gjør to ting på én linje —\nførst slår den opp lista, så legger den til i den. Nettopp derfor må lista\nfinnes fra før, og det er hva steg 2 sørger for."
+  },
+  {
+   "id": "in1000-3-2-20",
+   "type": "definition",
+   "title": "Liste som verdi i en ordbok",
+   "content": "En verdi i en ordbok kan være hva som helst — også en liste.\n\n```python\ngrupper = {\"kort\": [12, 8, 3], \"lang\": [45]}\nprint(grupper[\"kort\"])\nprint(grupper[\"kort\"][1])\nprint(len(grupper), len(grupper[\"kort\"]))\n```\n\n**Utskrift:**\n```\n[12, 8, 3]\n8\n2 3\n```\n\nLegg merke til den doble hakeparentesen på linje 2: `grupper[\"kort\"]` gir lista,\nog `[1]` henter det andre elementet i den. Du leser slike uttrykk **fra venstre**,\nett steg om gangen.\n\nOg merk de to `len`-ene på siste linje. Den ene teller **grupper** og gir 2, den\nandre teller **elementer i én gruppe** og gir 3. De svarer på helt ulike\nspørsmål, og å blande dem er en klassisk lesefeil."
+  },
+  {
+   "id": "in1000-3-2-21",
+   "type": "example",
+   "title": "Eksempel 3: Gruppering som funksjon",
+   "problem": "Skriv `grupper_etter_lengde(ordene)` som tar imot en liste med tekster og\nreturnerer en ordbok fra ordlengde til lista over ord med den lengden. Vis også\nhva funksjonen gjør med en tom liste.",
+   "solution": "Nøkkelen er her et **tall**, ikke en tekst — det er helt lovlig:\n\n```python\ndef grupper_etter_lengde(ordene):\n    grupper = {}\n    for tekst in ordene:\n        n = len(tekst)\n        if n not in grupper:\n            grupper[n] = []\n        grupper[n].append(tekst)\n    return grupper\n\nprint(grupper_etter_lengde([\"buss\", \"tog\", \"trikk\", \"fly\"]))\nprint(grupper_etter_lengde([]))\n```\n\n**Utskrift:**\n```\n{4: ['buss'], 3: ['tog', 'fly'], 5: ['trikk']}\n{}\n```\n\n**Slik ville sensor sett på det:** den tomme ordboka før løkka, opprettelsen av\nden indre lista, `append` på riktig nøkkel og `return` etter løkka gir uttelling\nhver for seg. Glemmer du linja som oppretter den indre lista, stopper programmet\nmed `KeyError` — men ideen er riktig, og trekket er lite.\n\n**Legg merke til at nøklene skrives uten anførselstegn** i utskriften. Det er\nfordi de er heltall. Er nøkkelen en tekst, får den enkle anførselstegn; er den et\ntall, får den ikke. Den forskjellen er verdt poeng i et auto-rettet felt.\n\n**Og merk rekkefølgen:** 4 først, fordi `buss` var det første ordet. Ordboka\nsorterer ikke."
+  },
+  {
+   "id": "in1000-3-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) En kantine\nregistrerer antall solgte porsjoner per dag i en liste med heltall. Skriv\nfunksjonen `del_i_to(tallene)` som returnerer en ordbok med nøklene `\"partall\"`\nog `\"oddetall\"`, der hver verdi er lista over tallene i den gruppen.\n\n**a)** Skriv funksjonen med grupperings-idiomet.\n\n**b)** Hva returnerer `del_i_to([2, 4])`, og hvorfor er ikke begge nøklene med?\n\n**c)** Hva måtte du gjort annerledes hvis begge nøklene alltid skulle finnes?",
+    "solution": "**a)** Merkelappen bestemmes av en `if`, resten er idiomet:\n\n```python\ndef del_i_to(tallene):\n    grupper = {}\n    for tall in tallene:\n        if tall % 2 == 0:\n            merkelapp = \"partall\"\n        else:\n            merkelapp = \"oddetall\"\n        if merkelapp not in grupper:\n            grupper[merkelapp] = []\n        grupper[merkelapp].append(tall)\n    return grupper\n\nprint(del_i_to([7, 12, 3, 8]))\nprint(del_i_to([2, 4]))\n```\n\n**Utskrift:**\n```\n{'oddetall': [7, 3], 'partall': [12, 8]}\n{'partall': [2, 4]}\n```\n\n**b)** Bare `{'partall': [2, 4]}`. Nøkkelen `\"oddetall\"` opprettes først i det\nøyeblikket et oddetall dukker opp — og her gjør det aldri det. Grupperings-idiomet\nlager bare de gruppene som faktisk trengs.\n\n**c)** Da måtte du opprettet begge nøklene **før** løkka:\n\n```python\ndef del_i_to_alltid(tallene):\n    grupper = {}\n    grupper[\"partall\"] = []\n    grupper[\"oddetall\"] = []\n    for tall in tallene:\n        if tall % 2 == 0:\n            grupper[\"partall\"].append(tall)\n        else:\n            grupper[\"oddetall\"].append(tall)\n    return grupper\n\nprint(del_i_to_alltid([2, 4]))\nprint(del_i_to_alltid([]))\n```\n\n**Utskrift:**\n```\n{'partall': [2, 4], 'oddetall': []}\n{'partall': [], 'oddetall': []}\n```\n\nNå er begge alltid med, om enn tomme. Hvilken av de to variantene som er riktig,\navgjøres av oppgaveteksten — les den nøye, og skriv en kommentar om\nforutsetningen din hvis den er uklar.",
+    "hints": [
+     "Bestem merkelappen først, og bruk deretter de to faste stegene i idiomet.",
+     "For b): når opprettes en nøkkel i grupperings-idiomet?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nd = {}\nfor tall in [3, 1, 3, 2, 1, 3]:\n    if tall not in d:\n        d[tall] = 0\n    d[tall] = d[tall] + 1\nprint(d)\nprint(len(d), d[3])\n```",
+    "solution": "Dette er teller-idiomet med heltall som nøkler. Før sporingstavle over ordboka:\n\n| Tall | Ny nøkkel? | Ordboka etter runden |\n|---|---|---|\n| 3 | ja | `{3: 1}` |\n| 1 | ja | `{3: 1, 1: 1}` |\n| 3 | nei | `{3: 2, 1: 1}` |\n| 2 | ja | `{3: 2, 1: 1, 2: 1}` |\n| 1 | nei | `{3: 2, 1: 2, 2: 1}` |\n| 3 | nei | `{3: 3, 1: 2, 2: 1}` |\n\n**Utskrift:**\n```\n{3: 3, 1: 2, 2: 1}\n3 1\n```\n\n**Fellen er siste linje**, og den fanger mange. De to tallene betyr helt ulike\nting, men er tilfeldigvis like: `len(d)` er **3** fordi det finnes tre ulike\nnøkler, mens `d[3]` er **3** fordi tallet 3 forekom tre ganger. Skriv opp de to\nhver for seg før du svarer, så ser du at likheten er en tilfeldighet ved akkurat\ndisse dataene.\n\nOg legg merke til at nøklene her skrives **uten** anførselstegn, siden de er\nheltall. En ordbok med tekstnøkler ville vist `{'3': 3}`.",
+    "hints": [
+     "Skriv ordboka på nytt etter hver eneste runde — det er seks runder.",
+     "Skiller du mellom antall nøkler og verdien som hører til nøkkelen 3?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-22",
+   "type": "text",
+   "content": "## Løkke 4 — Finn beste: nøkkelen med størst verdi (~13 min)\n\nTeller-idiomet gir deg en ordbok. Men eksamensoppgaven spør sjelden om ordboka\n— den spør om **hvilken** som forekom flest ganger. Det er andre halvdel, og den\ner et eget mønster."
+  },
+  {
+   "id": "in1000-3-2-23",
+   "type": "theorem",
+   "title": "Finn-beste-løkka over en ordbok",
+   "content": "Bokas sjuende kodemønster. Det brukes hver gang oppgaven sier «hvilken … flest»,\n«den største», «den travleste».\n\nOppskriften har tre faste steg, og det avgjørende er at du holder styr på **to**\nting samtidig:\n\n1. **Før løkka:** `beste = None` og `beste_antall = 0`.\n2. **Inne i løkka:** er verdien større enn den beste hittil, oppdater **begge**.\n3. **Etter løkka:** `return beste`.\n\n```python\nantall = {\"glass\": 3, \"kartong\": 7, \"plast\": 5}\nbeste = None\nbeste_antall = 0\nfor vare in antall:\n    if antall[vare] > beste_antall:\n        beste = vare\n        beste_antall = antall[vare]\nprint(beste, beste_antall)\n```\n\n**Utskrift:**\n```\nkartong 7\n```\n\n**Å oppdatere bare den ene er den vanligste feilen.** Glemmer du\n`beste_antall = antall[vare]`, sammenligner du for alltid mot 0, og svaret blir\nden **siste** nøkkelen med positiv verdi i stedet for den største. Skriv de to\nlinjene som ett grep.\n\n**Startverdien `None` betyr «ingen funnet ennå».** Er ordboka tom, kjører løkka\nnull ganger og `None` returneres — et ærlig svar på et spørsmål som ikke har\nnoe. Startverdien `beste_antall = 0` er trygg så lenge alle antall er positive,\nsom de er i en telling. Kan verdiene være negative, må du i stedet ta den\nførste nøkkelen som utgangspunkt, slik du gjorde med lister i\n[kap. 3.1](/bok/in1000/in1000-3-1).\n\n**Ved likhet vinner den første**, fordi testen er streng (`>`). Skriver du `>=`,\nvinner den siste. Les oppgaveteksten: sier den noe om uavgjort?"
+  },
+  {
+   "id": "in1000-3-2-24",
+   "type": "example",
+   "title": "Eksempel 4: Full Oppgave 3-oppgave — hvilken forekommer flest ganger?",
+   "problem": "En frivilligsentral fører en liste over hvilke oppgaver de frivillige har meldt\nseg til. Skriv `flest_av(elementer)` som returnerer det elementet som forekommer\nflest ganger. Er lista tom, skal funksjonen returnere `None`. Bruk de to\nidiomene du nå kan, og la dem være hver sin funksjon.",
+   "solution": "Del problemet i to: først tell, så finn beste.\n\n```python\ndef tell_forekomster(elementer):\n    antall = {}\n    for e in elementer:\n        if e not in antall:\n            antall[e] = 0\n        antall[e] = antall[e] + 1\n    return antall\n\ndef flest_av(elementer):\n    antall = tell_forekomster(elementer)\n    beste = None\n    beste_antall = 0\n    for e in antall:\n        if antall[e] > beste_antall:\n            beste = e\n            beste_antall = antall[e]\n    return beste\n\nprint(flest_av([\"handletur\", \"lekselesing\", \"handletur\", \"besok\", \"handletur\"]))\nprint(flest_av([\"a\", \"b\"]))\nprint(flest_av([]))\n```\n\n**Utskrift:**\n```\nhandletur\na\nNone\n```\n\n**Slik ville sensor sett på det, steg for steg.** Tellingen er halve oppgaven og\nrettes for seg — en `tell_forekomster` som virker, gir uttelling selv om\nfinn-beste skulle bli feil. Finn-beste-løkka gir uttelling for riktig struktur\nselv om du glemte å oppdatere `beste_antall`. Og tomsjekken løses her av\nstartverdien `None`, uten en eneste ekstra `if`.\n\n**Andre linje viser uavgjort-regelen.** Både `a` og `b` forekommer én gang, og\nden strenge `>`-testen lar den første beholde plassen. Sier oppgaven ingenting\nom uavgjort, er begge svar forsvarlige — men skriv en kommentar om hvilken\nregel du valgte. Det er den ene legitime bruken av kommentarer i en besvarelse.\n\n**Og legg merke til at de to funksjonene ikke deler navn.** Hadde den ytre også\nhett `tell_forekomster`, ville koden blitt umulig å lese — og en metode som\nkaller noe med sitt eget navn, er en feilkilde du skal holde deg unna gjennom\nhele boka."
+  },
+  {
+   "id": "in1000-3-2-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) En værstasjon\nhar talt opp antall regnvær per måned i en ordbok fra månedsnavn til antall\ndager, for eksempel `{\"mai\": 8, \"juni\": 14, \"juli\": 3}`.\n\n**a)** Skriv `over_grensen(dager, grense)` som returnerer en **ny** ordbok med\nbare de parene der antallet er strengt større enn grensen.\n\n**b)** Skriv `travleste(dager)` som returnerer månedsnavnet med flest regndager,\neller `None` hvis ordboka er tom.\n\n**c)** Hva returnerer `over_grensen(dager, 100)`, og er det et problem?",
+    "solution": "**a)** Samme bygg-mønster som for lister, men med en tom **ordbok** som\nstartpunkt:\n\n```python\ndef over_grensen(dager, grense):\n    ny = {}\n    for maaned in dager:\n        if dager[maaned] > grense:\n            ny[maaned] = dager[maaned]\n    return ny\n\nregn = {\"mai\": 8, \"juni\": 14, \"juli\": 3}\nprint(over_grensen(regn, 5))\nprint(regn)\n```\n\n**Utskrift:**\n```\n{'mai': 8, 'juni': 14}\n{'mai': 8, 'juni': 14, 'juli': 3}\n```\n\nDen andre linja viser at den opprinnelige ordboka er urørt. Det er hele poenget\nmed å bygge en **ny**.\n\n**b)** Finn-beste-løkka, uendret:\n\n```python\ndef travleste(dager):\n    beste = None\n    beste_antall = 0\n    for maaned in dager:\n        if dager[maaned] > beste_antall:\n            beste = maaned\n            beste_antall = dager[maaned]\n    return beste\n\nprint(travleste({\"mai\": 8, \"juni\": 14, \"juli\": 3}))\nprint(travleste({}))\n```\n\n**Utskrift:**\n```\njuni\nNone\n```\n\n**Slik gir det poeng:** to startverdier før løkka (2 p), sammenligningen (1 p),\noppdatering av **begge** variablene (2 p) og `return` etter løkka (1 p).\nOppdaterer du bare `beste`, får du feil svar på nesten alle data — men\nstrukturen er riktig, og det gir fortsatt uttelling.\n\n**c)** Den returnerer den tomme ordboka `{}`. Det er ikke et problem, men et\nriktig svar: ingen måned har over 100 regndager. Funksjonen som mottar\nresultatet, må bare tåle at det kan være tomt — en løkke gjør det av seg selv,\nmens et oppslag ikke gjør det.",
+    "hints": [
+     "For a): hva er startverdien i bygg-mønsteret når resultatet skal være en ordbok?",
+     "For b): hvor mange variabler må oppdateres inne i `if`-en?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-2-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En student skal telle hvor mange\nganger hvert navn forekommer i en liste. Hun leverer:\n\n```text\ndef tell(navnene):\n    antall = {}\n    for navn in navnene:\n        antall[navn] = antall[navn] + 1\n    return antall\n```\n\n**a)** Hva skjer når funksjonen kalles med `[\"ada\", \"bo\", \"ada\"]`?\n\n**b)** Gi et konkret moteksempel og forklar i én setning hvorfor det går galt.\n\n**c)** Rett feilen, og vis at den rettede funksjonen virker.",
+    "solution": "**a)** Programmet stopper allerede på det første navnet, med\n`KeyError: 'ada'`. Ordboka er tom når løkka starter, så `antall[\"ada\"]` på\nhøyre side av likhetstegnet slår opp en nøkkel som ikke finnes ennå.\n\n**b)** Moteksempelet er kallet `tell([\"ada\"])`, som gir `KeyError: 'ada'` i\nstedet for `{'ada': 1}`. Årsaken er at koden leser den gamle verdien før den har\nsørget for at nøkkelen finnes.\n\nLegg merke til formen på svaret: **ett konkret kall med et konkret galt utfall**.\nDet er nettopp det sensor ber om når oppgaven sier «gi et moteksempel» — en\nforklaring i ord alene er en halv besvarelse.\n\nMerk at feilen ikke rammer helt alle kall. `tell([])` går fint og gir `{}`,\nfordi løkka aldri kjører. En funksjon kan altså være grunnleggende feil og\nlikevel virke på ett kanttilfelle — derfor er det den **typiske** inndataen du\nskal prøve moteksempelet på, ikke den tomme.\n\n**c)** Legg inn opprettelsen av nøkkelen, så er idiomet komplett:\n\n```python\ndef tell(navnene):\n    antall = {}\n    for navn in navnene:\n        if navn not in antall:\n            antall[navn] = 0\n        antall[navn] = antall[navn] + 1\n    return antall\n\nprint(tell([\"ada\", \"bo\", \"ada\"]))\nprint(tell([\"ada\"]))\nprint(tell([]))\n```\n\n**Utskrift:**\n```\n{'ada': 2, 'bo': 1}\n{'ada': 1}\n{}\n```\n\nDette er feilkode #14, og den er den vanligste enkeltfeilen i sjanger D. De to\nlinjene — `if navn not in antall:` og `antall[navn] = 0` — hører sammen med\nøkningen som ett grep. Skriv dem alltid samlet, så glemmer du dem ikke.",
+    "hints": [
+     "Hva er verdien til `antall[navn]` aller første gang navnet dukker opp?",
+     "Et moteksempel er ett konkret kall, ikke en forklaring i ord."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-2-25",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på ordbøker:\n\n- **#14 — glemt å opprette nøkkelen.** `d[k] = d[k] + 1` uten\n  `if k not in d: d[k] = 0` foran stopper på første runde. Det samme gjelder\n  `d[k].append(...)` uten `d[k] = []` foran.\n- **Oppslag uten sjekk.** `d[k]` på en nøkkel som ikke finnes, gir `KeyError`.\n  Skriv `if k in d:` når du ikke er sikker.\n- **Løkkevariabelen lest som verdi.** `for k in d:` gir **nøkkelen**. Verdien\n  må hentes med `d[k]`.\n- **Bare den ene variabelen oppdatert i finn-beste.** Både `beste` og\n  `beste_antall` må settes inne i `if`-en, ellers sammenligner du mot 0 for\n  alltid.\n- **`in` lest som verdisøk.** `12 in d` spør om **nøkkelen** 12, aldri om\n  verdien.\n\nOg én formfeil som koster poeng i et auto-rettet felt: tekstnøkler skrives med\nenkle anførselstegn i utskriften, heltallsnøkler uten."
+  },
+  {
+   "id": "in1000-3-2-coll-26",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-3-2-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `{\"a\": 1, \"b\": 2}` | Ordboklitteral. Nøkkel, kolon, verdi; komma mellom parene. |\n| `{}` | Tom ordbok, lengde 0. Merk krøllparentesene — `[]` er en tom liste. |\n| `ordbok[k]` | Verdien som hører til nøkkelen `k`. Finnes ikke `k`, stopper programmet. |\n| `ordbok[k] = v` | **Oppretter** nøkkelen hvis den mangler, **overskriver** ellers. |\n| `k in ordbok` | `True`/`False` om **nøkkelen** finnes. Ser aldri på verdiene. |\n| `k not in ordbok` | Motsatt av `in`. Grepet som gjør teller- og grupperings-idiomene trygge. |\n| `for k in ordbok:` | Går gjennom **nøklene**, i innsettingsrekkefølge. Verdien hentes med `ordbok[k]`. |\n| `len(ordbok)` | Antall **par**, ikke summen av verdiene. |\n| `KeyError` | Feilmeldingen ved oppslag på en nøkkel som ikke finnes. Viser nøkkelen. |\n| teller-idiom | `if k not in d: d[k] = 0` og deretter `d[k] = d[k] + 1`. |\n| grupperings-idiom | `if k not in d: d[k] = []` og deretter `d[k].append(v)` → `{nøkkel: [liste]}`. |\n| finn beste | `beste = None`, `beste_antall = 0`; oppdater **begge** inne i `if`-en. |\n| `d[k][i]` | Element `i` i lista som er verdien til `k`. Leses fra venstre, ett steg om gangen. |\n| `print(ordbok)` | Viser `{'a': 1}` — tekstnøkler med enkle anførselstegn, heltallsnøkler uten. |\n\n**Det som avgjør poeng i Oppgave 3:** at nøkkelen opprettes før den brukes, og at\nfinn-beste-løkka oppdaterer begge variablene."
+    }
+   ]
+  },
+  {
+   "id": "in1000-3-2-27",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-3-2-28",
+   "type": "definition",
+   "title": "Par",
+   "content": "Én nøkkel med tilhørende verdi, altså én oppføring i ordboka. `\"glass\": 7` er\nett par.\n\n`len(ordbok)` teller nøyaktig disse — ikke tegnene i nøklene og ikke summen av\nverdiene.\n\nNår du sporer en ordbok gjennom en løkke, er det parene du skal skrive opp på\nnytt for hver runde. Det er den eneste måten å holde styr på hva som ble\nopprettet når."
+  },
+  {
+   "id": "in1000-3-2-29",
+   "type": "definition",
+   "title": "Nøkler er unike",
+   "content": "En ordbok kan ikke ha to like nøkler. Skriver du `d[\"glass\"] = 7` og deretter\n`d[\"glass\"] = 9`, står det 9 igjen — den gamle verdien er borte.\n\nDet er nettopp derfor tilordning kan brukes både til å opprette og til å\noppdatere: Python trenger ikke spørre deg hva du mente.\n\nVerdiene har ingen slik regel. To ulike nøkler kan gjerne peke på samme tall,\nog i en telling gjør de det ofte."
+  },
+  {
+   "id": "in1000-3-2-30",
+   "type": "definition",
+   "title": "Hva som kan være nøkkel",
+   "content": "Tekster og tall er de to nøkkeltypene du trenger i dette faget, og de dekker\nalt du møter på eksamen: navn, koder, årstall, lengder.\n\nEn **liste** kan derimot ikke være nøkkel. Prøver du det, stopper programmet.\nGrunnen er at nøkkelen må være en verdi som ikke kan endres etter at den er\nbrukt — og en liste kan jo endres.\n\nVerdien har ingen slik begrensning. Der kan du legge hva du vil, også lister og\netter hvert dine egne objekter."
+  },
+  {
+   "id": "in1000-3-2-31",
+   "type": "definition",
+   "title": "Innsettingsrekkefølge",
+   "content": "Python husker rekkefølgen parene ble satt inn i, og både `print(ordbok)` og\n`for k in ordbok:` følger den.\n\nDet gjør sporingsoppgaver forutsigbare: den nøkkelen som ble opprettet først,\nkommer først. Merk at det er **opprettelsen** som teller — å overskrive en verdi\nflytter ikke nøkkelen bakerst.\n\nBygg likevel aldri en løsning på rekkefølgen. Ber oppgaven om «den første», er\ndet som regel den første i inndataene, ikke i ordboka."
+  },
+  {
+   "id": "in1000-3-2-32",
+   "type": "definition",
+   "title": "Teller-ordbok",
+   "content": "En ordbok fra element til antall, bygget med teller-idiomet. Resultatet ser slik\nut: `{'glass': 3, 'kartong': 1}`.\n\nKjenn den igjen på oppgaveteksten: «tell hvor mange ganger», «hvor mange av\nhver», «hvor mange ganger forekommer».\n\nDen er halve svaret på ethvert «hvilken flest»-spørsmål. Andre halvdel er\nfinn-beste-løkka, og de to skrives helst som hver sin funksjon — da rettes de\nhver for seg."
+  },
+  {
+   "id": "in1000-3-2-33",
+   "type": "definition",
+   "title": "Grupperings-ordbok",
+   "content": "En ordbok der hver verdi er en **liste**: `{'kort': [12, 8], 'lang': [45]}`.\n\nKjenn den igjen på oppgaveteksten: «samle», «gruppér etter», «hvilke hører til\nhver».\n\nForskjellen fra teller-ordboka er bare startverdien og oppdateringen — tom liste\ni stedet for 0, `append` i stedet for `+ 1`. Skjelettet er ellers identisk, og\ndet er verdt å se de to som ett mønster med to varianter."
+  },
+  {
+   "id": "in1000-3-2-34",
+   "type": "definition",
+   "title": "Finn beste",
+   "content": "Løkka som finner nøkkelen med størst verdi, med `beste` og `beste_antall`\noppdatert sammen inne i `if`-en.\n\nDen vanligste feilen er å oppdatere bare `beste`. Da sammenlignes alt mot\nstartverdien 0 for alltid, og svaret blir den **siste** nøkkelen med positiv\nverdi.\n\nDen nest vanligste er å returnere `beste_antall` når oppgaven ba om `beste`.\nLes spørsmålet en siste gang før du skriver `return`: ba den om **hvilken** eller\nom **hvor mange**?"
+  },
+  {
+   "id": "in1000-3-2-35",
+   "type": "definition",
+   "title": "Ordbok mot liste",
+   "content": "Valget avgjøres av ett spørsmål: **slår du opp på plass eller på navn?**\n\nEr rekkefølgen selve dataene — køen, ruta, målingene time for time — er lista\nriktig. Skal du finne noe igjen på et navn, en kode eller et årstall, er ordboka\nriktig, og du slipper å lete.\n\nEn huskeregel: må du skrive en løkke bare for å **finne** det du skal bruke, har\ndu sannsynligvis valgt feil struktur."
+  },
+  {
+   "id": "in1000-3-2-36",
+   "type": "definition",
+   "title": "En-til-mange",
+   "content": "Mønsteret der én nøkkel peker på **flere** ting: `{nøkkel: [liste]}`.\n\nDet er formen grupperings-idiomet lager, og det er den samme formen den store\nklassemodelleringen bruker når ett objekt skal holde mange andre — et bibliotek\nmed sine bøker, en klubb med sine medlemmer.\n\nKjenner du igjen strukturen her, kjenner du den igjen der. Forskjellen er bare\nat elementene i lista blir objekter i stedet for tall."
+  },
+  {
+   "id": "in1000-3-2-37",
+   "type": "definition",
+   "title": "Å bygge en ny ordbok",
+   "content": "Samme tre steg som for lister, med `{}` i stedet for `[]`:\n\n```python\ngamle = {\"a\": 3, \"b\": 9}\nny = {}\nfor k in gamle:\n    if gamle[k] > 5:\n        ny[k] = gamle[k]\nprint(ny)\nprint(gamle)\n```\n\n**Utskrift:**\n```\n{'b': 9}\n{'a': 3, 'b': 9}\n```\n\nMerk at den opprinnelige ordboka er urørt — det er hele poenget med å bygge en\nny. Å endre ordboka du fikk inn som parameter, er sjelden det oppgaven ber om,\nog det gir overraskelser hos den som kalte funksjonen."
+  },
+  {
+   "id": "in1000-3-2-38",
+   "type": "definition",
+   "title": "Ordbok som parameter",
+   "content": "En ordbok sendes inn i en funksjon som et hvilket som helst annet argument.\n\nInne i funksjonen er navnet et navn på den **samme** ordboka som utenfor, ikke en\nkopi. Leser du bare fra den, spiller det ingen rolle. Skriver du `d[k] = v`,\nendrer du kallerens ordbok også.\n\n**Den trygge stilen** er den du har brukt her: les fra ordboka du fikk inn, bygg\nen ny, og returner den nye."
+  },
+  {
+   "id": "in1000-3-2-39",
+   "type": "definition",
+   "title": "`d[k] = d[k] + 1`",
+   "content": "Linja som øker en teller. Den gjør tre ting i én: slår opp den gamle verdien,\nlegger til én, og skriver resultatet tilbake på samme nøkkel.\n\nFordi høyresiden leses **først**, må nøkkelen finnes fra før. Det er hele\ngrunnen til at `if k not in d: d[k] = 0` står rett foran.\n\nKortformen `d[k] += 1` betyr nøyaktig det samme, og begge er greie på eksamen.\nVelg én av dem og hold deg til den gjennom hele besvarelsen."
+  },
+  {
+   "id": "in1000-3-2-40",
+   "type": "definition",
+   "title": "Tom ordbok som svar",
+   "content": "En funksjon som bygger en ordbok, returnerer `{}` når det ikke var noe å legge\ninn. Det er et riktig svar, ikke en feil.\n\nDen som **mottar** svaret, må bare tåle det. En løkke over en tom ordbok kjører\nnull runder og går fint. Et oppslag gjør det ikke.\n\nSkal funksjonen din i stedet si «fant ingenting», er `None` det ærlige svaret —\nog det er nettopp derfor finn-beste starter med `beste = None`."
+  },
+  {
+   "id": "in1000-3-2-41",
+   "type": "definition",
+   "title": "Å endre en ordbok mens du går gjennom den",
+   "content": "Å endre **verdiene** i en løkke er trygt: `for k in d: d[k] = d[k] * 2` virker\nsom forventet.\n\nÅ legge til eller fjerne **nøkler** mens løkka går, er derimot ikke trygt.\nPython kan stoppe med en feilmelding, fordi samlingen du løper gjennom, endrer\nstørrelse under føttene på deg.\n\nRegelen som holder: løp gjennom den ene samlingen, bygg den andre. Det er\nnøyaktig det både teller-idiomet og bygg-mønsteret gjør — de leser fra en liste\nog skriver til en ordbok."
+  },
+  {
+   "id": "in1000-3-2-42",
+   "type": "definition",
+   "title": "Å telle uten ferdige hjelpemidler",
+   "content": "Python har `Counter`, `set(...)`, `sum(...)`, `max(..., key=...)` og\n`d.get(k, 0)`, som gjør flere av oppgavene i dette kapitlet til én linje.\n\nBoka bruker dem ikke. Fagets løsningsforslag skriver den eksplisitte løkka,\nfordi løkka er ferdigheten som måles — og på den store klassemodelleringen\nfinnes det ingen ferdig funksjon å ty til.\n\nSnarveiene er verdt å kjenne til, slik at du forstår kode andre har skrevet.\nMen lær grunnformen først, og lever den på eksamen."
+  },
+  {
+   "id": "in1000-3-2-coll-43",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-3-2-c2",
+     "type": "text",
+     "content": "1. En ordbok slår opp på **navn** i stedet for på plass, og skrives\n   `{nøkkel: verdi}`. Nøklene er unike.\n2. `d[k] = v` **oppretter** nøkkelen hvis den mangler, og **overskriver** ellers.\n3. `for k in d:` gir **nøkkelen**. Verdien henter du med `d[k]`.\n4. **Teller-idiomet:** `if k not in d: d[k] = 0`, deretter `d[k] = d[k] + 1`.\n   Uten første linje får du `KeyError` — feilkode #14.\n5. **Grupperings-idiomet:** `if k not in d: d[k] = []`, deretter\n   `d[k].append(v)`. Resultatet er `{nøkkel: [liste]}`.\n6. **Finn beste:** `beste = None` og `beste_antall = 0` før løkka, og oppdater\n   **begge** inne i `if`-en. Streng `>` lar den første vinne ved uavgjort.\n7. `len(d)` teller **par**. `k in d` spør om **nøkkelen**, aldri om verdien."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
