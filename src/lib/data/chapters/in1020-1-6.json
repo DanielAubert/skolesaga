@@ -1,0 +1,372 @@
+{
+  "id": "in1020-1-6",
+  "courseId": "in1020",
+  "chapterNumber": "1.6",
+  "title": "DRILL — LMC-sporing, fyll-inn og reverse tracing",
+  "description": "Full drill på LMC-sjangeren: spor programmer mekanisk, fyll inn riktig instruksjon, dekod maskinkode, håndter selvmodifiserende kode og løs baklengs sporing.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne spore et LMC-program mekanisk med tabell og lese ut utskriften for gitte inndata",
+    "kunne velge riktig instruksjon i en fyll-inn-oppgave og teste valget mot flere inndata",
+    "kunne dekode et program gitt som ren maskinkode og spore det",
+    "kunne finne alle inndataverdier som gir en gitt utskrift, også over og under en grenseverdi"
+  ],
+  "content": [
+    {
+      "id": "in1020-1-6-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** LMC-assembly og maskinkode — **sjanger C** — har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**, ofte som tre eller fire deloppgaver.\n\n**Nivå 1 — dette må sitte.** Kapitlet inneholder ingen ny teori. Det er treningsbanken: fjorten programmer som roterer alle variantene sjangeren kommer i.\n\n**De fem variantene:**\n\n1. **Ren sporing** — «hva skriver programmet ut?»\n2. **Fyll inn** — «hvilken instruksjon må stå i celle N for at programmet skal gjøre X?»\n3. **Maskinkode** — «hva gjør dette programmet, gitt som rene tall?»\n4. **Selvmodifiserende kode** — programmet endrer sine egne instruksjoner underveis.\n5. **Baklengs sporing** — «hvilke inndata gir denne utskriften?», ofte med flere svar.\n\n**Tidsbruk:** 80 minutter. Kapitlet tåler å deles over to kvelder — oppgave 1–7 den ene, 8–14 den andre. Er du kort i tid, gjør oppgave 4, 7, 9, 11 og 13: de fem dekker alle variantene.\n\n**Én regel for hele drillen:** før sporetabell. Hver eneste gang."
+    },
+    {
+      "id": "in1020-1-6-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 1.4](/bok/in1020/in1020-1-4) og [kap. 1.5](/bok/in1020/in1020-1-5). Her er alt du trenger, ferdig oppfrisket:\n\n**1. Instruksjonssettet.**\n\n| Mnemonic | Kode | Virkning |\n|---|---|---|\n| `INP` / `OUT` / `OTC` | `901` / `902` / `922` | Les inn · skriv ut som tall · skriv ut som tegn |\n| `LDA xx` / `STA xx` | `5xx` / `3xx` | Last fra celle · lagre til celle |\n| `ADD xx` / `SUB xx` | `1xx` / `2xx` | Legg til · trekk fra celleinnholdet |\n| `BRA xx` / `BRZ xx` / `BRP xx` | `6xx` / `7xx` / `8xx` | Hopp alltid · hopp hvis 0 · hopp hvis 0 eller større |\n| `HLT` / `DAT n` | `000` / — | Stopp · datacelle med startverdi |\n\n**2. De tre kontraktspørsmålene.** Hva ble akkumulatoren? Hvilken celle endret seg? Hvor peker programtelleren?\n\n**3. Sporetabellen.** Én rad per **utført** instruksjon, med egen kolonne for hver navngitt celle — og for hver kodecelle som blir modifisert.\n\n**4. ASCII-utdraget:** `A` = 65, `H` = 72, `I` = 73, `K` = 75, `O` = 79, `!` = 33, mellomrom = 32."
+    },
+    {
+      "id": "in1020-1-6-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-1-6-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning |\n|---|---|\n| `LDA 30` | Assemblerkode: mnemonic pluss tosifret celleadresse |\n| `530` | Maskinkode: opkode pluss adresse, som ett tresifret tall |\n| `DAT 0` | Datacelle med startverdi 0 |\n| PC | Programtelleren — adressen til neste instruksjon |\n| Akk | Akkumulatoren — det ene arbeidsregisteret |\n| Sporetabell | Tabell med én rad per utført instruksjon |\n| Instruksjonsmal | En `DAT`-verdi som ser ut som en instruksjon, ment for modifisering |\n\n**Løkkemønsteret** du møter i nesten hver oppgave:\n\n```text\n02  LDA 50      ; hent telleren\n03  ...         ; gjør arbeidet\n06  SUB 52      ; tell ned\n07  STA 50      ; lagre telleren\n08  BRP 02      ; en runde til?\n09  ...         ; her ender løkka\n```\n\n**Grenmønsteret:**\n\n```text\n03  BRP 07      ; hopp til gren A\n04  ...         ; gren B\n06  BRA 08      ; hopp over gren A\n07  ...         ; gren A\n08  OUT         ; felles fortsettelse\n```\n\n**Formler i dette delkapitlet:**\n\n$$\\text{maskinkode} = \\text{opkode} \\cdot 100 + \\text{adresse}$$\n\nBrukes begge veier: til å dekode tall til instruksjon, og til å regne ut hva en modifisert instruksjon blir."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-6-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften — fem varianter, fem ruter",
+      "content": "**Variant 1 — ren sporing.**\n\n1. Sett opp tabellen: PC, instruksjon, akkumulator, hver navngitt celle, ut-kurv.\n2. Start med PC = 00, akkumulator = 0 og datacellene på sine `DAT`-verdier.\n3. Én rad per utført instruksjon. Skriv av verdier også når de er uendret.\n4. Ved betinget hopp: noter hva betingelsen var («akk = 2, ikke 0, hopper ikke»).\n5. Fortsett til `HLT`.\n\n**Variant 2 — fyll inn instruksjon.**\n\n1. Les hva programmet **skal** gjøre, i ord.\n2. Spor programmet fram til den tomme cellen, og skriv ned hva akkumulatoren og cellene inneholder der.\n3. Spør: hvilken instruksjon tar oss fra denne tilstanden til det ønskede resultatet?\n4. **Test svaret** ved å spore ferdig med instruksjonen på plass — og test det med minst to ulike inndata.\n\n**Variant 3 — maskinkode.**\n\n1. Dekod celle for celle: første siffer i opkodetabellen, de to siste er adressen.\n2. Skriv programmet om til assemblerkode før du sporer.\n3. Kontroller ved å kode tilbake.\n\n**Variant 4 — selvmodifiserende kode.**\n\n1. Se etter `STA` med adresse i kodeområdet. Der er modifikasjonen.\n2. Gi den cellen **egen kolonne** i tabellen.\n3. Dekod den nye verdien som instruksjon før du sporer videre.\n4. Sjekk at cellen rekker å bli skrevet før programtelleren når den.\n\n**Variant 5 — baklengs sporing.**\n\n1. Beskriv i ord hva programmet gjør, gren for gren.\n2. Spør hvilke inndata som gir den oppgitte utskriften, **for hver gren**.\n3. Sjekk grenseverdien eksplisitt — `BRP` hopper også på null.\n4. Oppgi **alle** løsningene."
+    },
+    {
+      "id": "in1020-1-6-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet fyll-inn-case",
+      "problem": "Programmet skal gange to tall ved å legge det første til seg selv så mange ganger som det andre tallet sier. Med inndataene 3 og 4 skal det skrive ut 12.\n\nHvilken instruksjon må stå i celle 10?\n\n```text\n00  INP\n01  STA 60\n02  INP\n03  STA 61\n04  LDA 62\n05  ADD 60\n06  STA 62\n07  LDA 61\n08  SUB 63\n09  STA 61\n10  ?\n11  BRA 04\n12  LDA 62\n13  OUT\n14  HLT\n60  DAT\n61  DAT\n62  DAT 0\n63  DAT 1\n```",
+      "solution": "**Steg 1 — les programmet i ord.**\n\nLinje 00–03 leser de to tallene inn i celle 60 og 61. Linje 04–06 legger celle 60 til en sum som ligger i celle 62. Linje 07–09 teller celle 61 ned med 1.\n\nLinje 11 er `BRA 04`, altså tilbake til toppen av løkka. Da må linje 10 være det som **avslutter** løkka når telleren er brukt opp.\n\n**Steg 2 — spor fram til den tomme cellen.**\n\nMed inndataene 3 og 4: celle 60 er 3, celle 61 er 4, celle 62 er 0.\n\n| PC | Instruksjon | Akk | Celle 61 | Celle 62 |\n|---|---|---|---|---|\n| 04 | `LDA 62` | 0 | 4 | 0 |\n| 05 | `ADD 60` | 3 | 4 | 0 |\n| 06 | `STA 62` | 3 | 4 | **3** |\n| 07 | `LDA 61` | 4 | 4 | 3 |\n| 08 | `SUB 63` | **3** | 4 | 3 |\n| 09 | `STA 61` | 3 | **3** | 3 |\n| 10 | ? | 3 | 3 | 3 |\n\nAkkumulatoren inneholder telleren, nettopp redusert med 1.\n\n**Steg 3 — hvilken instruksjon trengs?**\n\nLøkka skal kjøre til telleren er brukt opp, altså til akkumulatoren er 0. Da skal programmet ut av løkka og videre til linje 12, som henter summen.\n\nInstruksjonen må altså hoppe til 12 når akkumulatoren er nøyaktig 0: **`BRZ 12`**.\n\n**Steg 4 — test svaret.**\n\nMed `BRZ 12` på plass: telleren går 4 → 3 → 2 → 1 → 0, altså fire runder. Summen blir `3 + 3 + 3 + 3 = 12`. Riktig.\n\nTest med 5 og 2: to runder gir `5 + 5 = 10`. Riktig. Test med 7 og 1: én runde gir 7. Riktig.\n\n— naturlig pausepunkt —\n\n**Margnotat: hvorfor ikke `BRP 12`?**\n\n`BRP` hopper på 0 **og alt over**. Da ville løkka avsluttet allerede første gang telleren var 3, altså etter én runde, og svaret blitt 3 i stedet for 12.\n\nDette er den vanligste bommen i fyll-inn-oppgaver: å velge `BRP` når `BRZ` er riktig, eller motsatt. **Testen er alltid å spore med begge og se hvilken som gir riktig antall runder.**\n\n**Margnotat: hvorfor ikke `BRA 12`?**\n\nDa ville løkka kjørt nøyaktig én runde uansett, siden `BRA` hopper hver gang. Utskriften ville alltid vært det første tallet."
+    },
+    {
+      "id": "in1020-1-6-drill-intro",
+      "type": "text",
+      "content": "## Drillen — fjorten oppgaver\n\nOppgave 1–4 er ren sporing, 5–7 er maskinkode og tekstutskrift, 8–10 er fyll inn, 11–12 er selvmodifiserende kode, og 13–14 er baklengs sporing.\n\nAlle har full sporetabell i løsningen. Sammenlign din egen tabell rad for rad — det er der du finner ut hvor du sklir."
+    },
+    {
+      "id": "in1020-1-6-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver programmet ut med inndataene 2, 3 og 4?\n\n```text\n00  INP\n01  STA 90\n02  INP\n03  ADD 90\n04  STA 90\n05  INP\n06  ADD 90\n07  OUT\n08  HLT\n90  DAT\n```",
+        "solution": "| PC | Instruksjon | Akk | Celle 90 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 2 | 0 | |\n| 01 | `STA 90` | 2 | 2 | |\n| 02 | `INP` | 3 | 2 | |\n| 03 | `ADD 90` | 5 | 2 | |\n| 04 | `STA 90` | 5 | 5 | |\n| 05 | `INP` | 4 | 5 | |\n| 06 | `ADD 90` | 9 | 5 | |\n| 07 | `OUT` | 9 | 5 | **9** |\n| 08 | `HLT` | 9 | 5 | 9 |\n\n**Utskrift: `9`.**\n\nProgrammet summerer tre inndata. Mønsteret `ADD` fulgt av `STA` til samme celle er akkumuleringsmønsteret: cellen holder summen så langt, og akkumulatoren brukes til å regne.\n\nKontroll med inndataene 10, 1 og 1: summen blir 12.",
+        "hints": [
+          "Sett opp kolonner for akkumulatoren og celle 90, og skriv én rad per instruksjon.",
+          "Legg merke til hva `STA 90` på linje 04 gjør — hvorfor er den nødvendig?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver programmet ut med inndataene 4 og 9?\n\n```text\n00  INP\n01  STA 70\n02  INP\n03  STA 71\n04  LDA 71\n05  OUT\n06  LDA 70\n07  OUT\n08  HLT\n70  DAT\n71  DAT\n```",
+        "solution": "| PC | Instruksjon | Akk | Celle 70 | Celle 71 | Ut-kurv |\n|---|---|---|---|---|---|\n| 00 | `INP` | 4 | 0 | 0 | |\n| 01 | `STA 70` | 4 | 4 | 0 | |\n| 02 | `INP` | 9 | 4 | 0 | |\n| 03 | `STA 71` | 9 | 4 | 9 | |\n| 04 | `LDA 71` | 9 | 4 | 9 | |\n| 05 | `OUT` | 9 | 4 | 9 | **9** |\n| 06 | `LDA 70` | 4 | 4 | 9 | 9 |\n| 07 | `OUT` | 4 | 4 | 9 | **9 4** |\n| 08 | `HLT` | 4 | 4 | 9 | 9 4 |\n\n**Utskrift: `9 4`.**\n\nProgrammet skriver ut de to tallene i omvendt rekkefølge. Legg merke til at linje 04 er nødvendig selv om akkumulatoren allerede inneholder 9 — det er god skikk å hente eksplisitt, og på eksamen er den slags «unødvendige» linjer ofte et hint om at rekkefølgen er poenget.",
+        "hints": [
+          "Følg med på hvilken celle hver `LDA` henter fra.",
+          "Skriv ut-kurven kumulativt, så du ser rekkefølgen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver programmet ut med inndata 4?\n\n```text\n00  INP\n01  STA 50\n02  LDA 51\n03  ADD 50\n04  STA 51\n05  LDA 50\n06  SUB 52\n07  STA 50\n08  BRP 02\n09  LDA 51\n10  OUT\n11  HLT\n50  DAT\n51  DAT 0\n52  DAT 1\n```",
+        "solution": "Programmet summerer 4 + 3 + 2 + 1 + 0.\n\n| PC | Instruksjon | Akk | Celle 50 | Celle 51 | Merknad |\n|---|---|---|---|---|---|\n| 00 | `INP` | 4 | 0 | 0 | |\n| 01 | `STA 50` | 4 | 4 | 0 | |\n| 02 | `LDA 51` | 0 | 4 | 0 | |\n| 03 | `ADD 50` | 4 | 4 | 0 | |\n| 04 | `STA 51` | 4 | 4 | 4 | sum = 4 |\n| 05 | `LDA 50` | 4 | 4 | 4 | |\n| 06 | `SUB 52` | 3 | 4 | 4 | |\n| 07 | `STA 50` | 3 | 3 | 4 | |\n| 08 | `BRP 02` | 3 | 3 | 4 | 3 ≥ 0, hopper |\n| … | (runde 2) | | 2 | 7 | sum = 4+3 |\n| … | (runde 3) | | 1 | 9 | sum = 7+2 |\n| … | (runde 4) | | 0 | 10 | sum = 9+1 |\n| … | (runde 5) | | −1 | 10 | sum = 10+0 |\n| 08 | `BRP 02` | −1 | −1 | 10 | negativ, hopper ikke |\n| 09 | `LDA 51` | 10 | −1 | 10 | |\n| 10 | `OUT` | 10 | −1 | 10 | **10** |\n\n**Utskrift: `10`.**\n\nLøkka kjører **fem** ganger, ikke fire: den siste runden legger til 0, fordi `BRP` hopper også når telleren er nøyaktig 0. Det endrer ikke summen her, men det ville gjort det hvis løkka gjorde noe annet enn å addere.\n\nKontroll: inndata 3 gir 6, inndata 1 gir 1.",
+        "hints": [
+          "Skriv ned verdien i celle 50 og celle 51 etter hver runde før du fører hele tabellen.",
+          "Tell rundene nøye — hva skjer i runden der telleren er nøyaktig 0?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — LMC-sporing.) Hvor mange ganger kjøres løkka, og hva skrives ut, med inndata 6? Og med inndata 7?\n\n```text\n00  INP\n01  STA 20\n02  LDA 21\n03  ADD 22\n04  STA 21\n05  LDA 20\n06  SUB 23\n07  STA 20\n08  BRP 02\n09  LDA 21\n10  OUT\n11  HLT\n20  DAT\n21  DAT 0\n22  DAT 1\n23  DAT 2\n```",
+        "solution": "Celle 21 er en rundeteller som øker med 1 per runde. Celle 20 telles ned med 2.\n\n**Med inndata 6:** celle 20 går 6 → 4 → 2 → 0 → −2. `BRP` hopper så lenge verdien er 0 eller større, altså etter verdiene 4, 2 og 0. Løkka kjører når celle 20 er 6, 4, 2 og 0 — **fire runder**.\n\n**Utskrift: `4`.**\n\n**Med inndata 7:** celle 20 går 7 → 5 → 3 → 1 → −1. Løkka kjører når verdien er 7, 5, 3 og 1 — også **fire runder**.\n\n**Utskrift: `4`.**\n\n**Poenget:** to ulike inndata gir samme utskrift. Programmet mister informasjon, fordi det bare teller hvor mange ganger det kan trekke fra 2 før verdien blir negativ. Ser du et slikt program i en baklengs sporing, skal du lete etter flere svar.\n\nKontroll: inndata 5 gir 3 runder (5, 3, 1).",
+        "hints": [
+          "Skriv opp verdiene i celle 20 etter hver nedtelling, og marker hvor `BRP` slutter å hoppe.",
+          "Tell hvor mange ganger løkkekroppen kjøres, ikke hvor mange verdier som listes."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — maskinkode.) Cellene 00 til 08 inneholder tallene under. Dekod programmet, og si hva det skriver ut med inndataene 8 og 3.\n\n```text\ncelle:   00   01   02   03   04   05   06   07   08\ntall:   901  380  901  381  580  281  902  000  000\n```",
+        "solution": "**Dekoding:**\n\n| Celle | Tall | Instruksjon |\n|---|---|---|\n| 00 | `901` | `INP` |\n| 01 | `380` | `STA 80` |\n| 02 | `901` | `INP` |\n| 03 | `381` | `STA 81` |\n| 04 | `580` | `LDA 80` |\n| 05 | `281` | `SUB 81` |\n| 06 | `902` | `OUT` |\n| 07 | `000` | `HLT` |\n| 08 | `000` | datacelle |\n\n**Programmet:**\n\n```text\n00  INP\n01  STA 80\n02  INP\n03  STA 81\n04  LDA 80\n05  SUB 81\n06  OUT\n07  HLT\n```\n\n**Sporing med 8 og 3:** celle 80 blir 8, celle 81 blir 3, `LDA 80` gir 8, `SUB 81` gir 5.\n\n**Utskrift: `5`.**\n\nProgrammet trekker det andre tallet fra det første. Kontroller dekodingen ved å kode tilbake: `STA 80` er `3·100 + 80 = 380`. Stemmer.",
+        "hints": [
+          "Del hvert tresifrede tall i første siffer og de to siste.",
+          "Skriv hele programmet om til assemblerkode før du begynner å spore."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver programmet ut? Bruk ASCII-utdraget i forkunnskapene.\n\n```text\n00  LDA 30\n01  OTC\n02  LDA 31\n03  OTC\n04  LDA 32\n05  OTC\n06  HLT\n30  DAT 79\n31  DAT 75\n32  DAT 33\n```",
+        "solution": "| PC | Instruksjon | Akk | Ut-kurv |\n|---|---|---|---|\n| 00 | `LDA 30` | 79 | |\n| 01 | `OTC` | 79 | `O` |\n| 02 | `LDA 31` | 75 | `O` |\n| 03 | `OTC` | 75 | `OK` |\n| 04 | `LDA 32` | 33 | `OK` |\n| 05 | `OTC` | 33 | `OK!` |\n| 06 | `HLT` | 33 | `OK!` |\n\n**Utskrift: `OK!`**\n\nASCII-kodene er 79 for `O`, 75 for `K` og 33 for utropstegnet.\n\nHadde instruksjonene vært `OUT`, ville utskriften vært `79 75 33`. Det er hele forskjellen mellom de to alternativene i en typisk eksamensoppgave — og den fanges bare av å legge merke til at instruksjonen er `OTC`.",
+        "hints": [
+          "Slå opp hver av de tre verdiene i ASCII-utdraget.",
+          "Merk om instruksjonen er `OUT` eller `OTC` før du svarer."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — LMC-sporing, svarform F1.) Kryss av alle påstandene som stemmer om programmet under, kjørt med inndata 4.\n\n```text\n00  INP\n01  STA 40\n02  SUB 41\n03  BRP 07\n04  LDA 40\n05  ADD 40\n06  BRA 08\n07  LDA 40\n08  OUT\n09  HLT\n40  DAT\n41  DAT 5\n```\n\n**a)** Programmet skriver ut 8.\n\n**b)** Instruksjonen i celle 07 blir ikke utført.\n\n**c)** Programmet dobler alle inndata under 5.\n\n**d)** Med inndata 5 skriver programmet ut 10.",
+        "solution": "**Sporing med inndata 4:** `STA 40` lagrer 4, `SUB 41` gir `4 − 5 = −1`. `BRP` hopper ikke (negativ). Linje 04 henter 4, linje 05 legger til 4 og gir 8, linje 06 hopper til 08, som skriver ut.\n\n**a) Riktig.** Utskriften er 8.\n\n**b) Riktig.** `BRP` hoppet ikke, og `BRA 08` på linje 06 hopper over celle 07. Den utføres aldri med denne inndataen.\n\n**c) Riktig.** Alle inndata under 5 gir negativ differanse, `BRP` hopper ikke, og den doblende grenen kjøres. Kontroll: inndata 2 gir 4.\n\n**d) Galt.** Med inndata 5 blir differansen `5 − 5 = 0`, og `BRP` hopper **også på null**. Programmet går til celle 07, henter 5 og skriver ut **5**, ikke 10. Distraktoren tester nettopp om du husker at null hører til den positive grenen.\n\n**Fasit: a, b og c.**",
+        "hints": [
+          "Regn ut differansen først, og avgjør hvilken gren `BRP` sender programmet til.",
+          "For alternativ d: hva er `5 − 5`, og hva gjør `BRP` med den verdien?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — fyll inn, svarform F4.) Programmet skal skrive ut inndataen og deretter hver verdi to lavere, ned til og med 0. Med inndata 8 skal utskriften være `8 6 4 2 0`. Hvilken instruksjon må stå i celle 06?\n\n```text\n00  INP\n01  STA 20\n02  LDA 20\n03  OUT\n04  SUB 21\n05  STA 20\n06  ?\n07  HLT\n20  DAT\n21  DAT 2\n```\n\nAlternativene er `BRZ 02`, `BRP 02`, `BRA 02` og `BRZ 07`.",
+        "solution": "**Hva programmet gjør fram til celle 06:** henter telleren, skriver den ut, trekker fra 2 og lagrer tilbake. Akkumulatoren inneholder den nye telleren når celle 06 nås.\n\n**Test alle fire alternativene med inndata 8:**\n\n| Instruksjon | Hva som skjer | Utskrift |\n|---|---|---|\n| `BRZ 02` | Etter første runde er akkumulatoren 6, ikke 0, så hoppet skjer ikke | `8` |\n| **`BRP 02`** | Hopper så lenge telleren er 0 eller større: 6, 4, 2, 0, og stopper på −2 | **`8 6 4 2 0`** |\n| `BRA 02` | Hopper alltid — løkka stopper aldri og fortsetter i negative tall | `8 6 4 2 0 −2 −4 …` |\n| `BRZ 07` | Sender til `HLT` når telleren er 0, men har ingen vei tilbake til 02 | `8` |\n\n**Svar: `BRP 02`.**\n\n**Hvorfor `BRZ 02` bommer så stygt:** den treffer bare på nøyaktig null, og telleren er 6 etter første runde. Løkka avsluttes altså umiddelbart. Forskjellen mellom `BRZ` og `BRP` er her forskjellen på én utskrift og fem.\n\n**Hvorfor 0 skal med:** `BRP` hopper også når akkumulatoren er nøyaktig 0, så løkka kjører én gang til med telleren på 0 — og skriver den ut. Først når verdien er −2, faller programmet gjennom til `HLT`.\n\n**Kontroll med inndata 5:** telleren går 5, 3, 1, −1. Utskriften blir `5 3 1`, og nullpunktet treffes aldri. Programmet stopper likevel, fordi `BRP` slutter å hoppe når verdien er negativ — i motsetning til `BRZ`, som ville løpt evig.",
+        "hints": [
+          "Skriv ned hva akkumulatoren inneholder når celle 06 nås.",
+          "Spor programmet med hvert av de fire alternativene og sammenlign utskriften med kravet.",
+          "Husk at `BRP` hopper også når akkumulatoren er nøyaktig 0."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — fyll inn, svarform F4.) Programmet skal gange to tall. Med inndataene 3 og 4 skal det skrive ut 12. Hvilken instruksjon må stå i celle 10?\n\n```text\n00  INP\n01  STA 60\n02  INP\n03  STA 61\n04  LDA 62\n05  ADD 60\n06  STA 62\n07  LDA 61\n08  SUB 63\n09  STA 61\n10  ?\n11  BRA 04\n12  LDA 62\n13  OUT\n14  HLT\n60  DAT\n61  DAT\n62  DAT 0\n63  DAT 1\n```",
+        "solution": "**Svar: `BRZ 12`.**\n\nDette er programmet fra eksempel 1, og løsningen er gjennomgått der. Kort oppsummert:\n\nNår celle 10 nås, inneholder akkumulatoren telleren fra celle 61, nettopp redusert med 1. Løkka skal avsluttes når telleren er brukt opp, altså når akkumulatoren er nøyaktig 0, og programmet skal da fortsette på linje 12 som henter summen.\n\n**Kontroll med tre ulike inndatapar:**\n\n| Inndata | Runder | Sum | Utskrift |\n|---|---|---|---|\n| 3 og 4 | 4 | 3+3+3+3 | 12 |\n| 5 og 2 | 2 | 5+5 | 10 |\n| 7 og 1 | 1 | 7 | 7 |\n\nAlle stemmer.\n\n**Hvorfor ikke `BRP 12`:** `BRP` hopper på 0 og alt over, så løkka ville avsluttet etter første runde, med utskriften 3.\n\n**Hvorfor ikke `BRA 12`:** da hoppes det ut hver gang, og programmet gjør nøyaktig én runde uansett.",
+        "hints": [
+          "Spor programmet fram til celle 10 og skriv ned hva akkumulatoren inneholder der.",
+          "Hva må være sant om telleren for at løkka skal avsluttes?",
+          "Test kandidatene ved å telle antall runder for inndataene 3 og 4."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — fyll inn.) I programmet fra oppgave 9: hva skjer hvis celle 62 hadde hatt startverdien `DAT 5` i stedet for `DAT 0`? Vis med inndataene 3 og 4.",
+        "solution": "Celle 62 er summen som bygges opp. Starter den på 5, legges alle produktleddene oppå den verdien.\n\nMed inndataene 3 og 4 kjører løkka fire runder og legger til 3 hver gang: `5 + 3 + 3 + 3 + 3 = 17`.\n\n**Utskrift: `17` i stedet for `12`.**\n\n**Hvorfor dette er verdt å merke seg:** startverdien i en akkumuleringscelle er en del av algoritmen, ikke pynt. En sum må starte på 0, et produkt må starte på 1.\n\nPå eksamen dukker dette opp som en distraktor der `DAT`-verdien er endret med en liten verdi — og svaret forskyves med nøyaktig den verdien. Ser du et svar som er «riktig pluss noe lite», sjekk startverdiene.",
+        "hints": [
+          "Hva er rollen til celle 62 i programmet?",
+          "Legg startverdien til det riktige produktet og se hva du får."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — selvmodifiserende kode, svarform F1.) Kryss av alle påstandene som stemmer om programmet under.\n\n```text\n00  INP\n01  ADD 40\n02  STA 05\n03  LDA 41\n04  OUT\n05  DAT 0\n06  LDA 30\n07  OUT\n08  HLT\n30  DAT 0\n31  DAT 0\n40  DAT 330\n41  DAT 99\n```\n\n**a)** Celle 40 inneholder malen for en `STA`-instruksjon.\n\n**b)** Med inndata 0 skriver programmet ut 99 to ganger.\n\n**c)** Med inndata 1 skriver programmet ut 99 og deretter 0.\n\n**d)** Celle 05 utføres før den blir modifisert.",
+        "solution": "**Kjennetegnet:** `STA 05` i celle 02, og celle 05 er en kodecelle med `DAT 0`. Selvmodifiserende kode.\n\n**a) Riktig.** `330` er opkode 3 (`STA`) og adresse 30, altså malen `STA 30`.\n\n**b) Riktig.** Med inndata 0 blir akkumulatoren `330`, som skrives til celle 05 og dekodes som `STA 30`.\n\n| PC | Instruksjon | Akk | Celle 05 | Celle 30 | Ut-kurv |\n|---|---|---|---|---|---|\n| 00 | `INP` | 0 | `000` | 0 | |\n| 01 | `ADD 40` | 330 | `000` | 0 | |\n| 02 | `STA 05` | 330 | **`330`** | 0 | |\n| 03 | `LDA 41` | 99 | `330` | 0 | |\n| 04 | `OUT` | 99 | `330` | 0 | **99** |\n| 05 | `STA 30` | 99 | `330` | **99** | 99 |\n| 06 | `LDA 30` | 99 | `330` | 99 | 99 |\n| 07 | `OUT` | 99 | `330` | 99 | **99 99** |\n| 08 | `HLT` | 99 | `330` | 99 | 99 99 |\n\n**c) Riktig.** Med inndata 1 blir verdien `331`, altså `STA 31`. Da lagres 99 i celle 31, mens celle 30 forblir 0. Linje 06 henter celle 30, og utskriften blir `99 0`.\n\n**d) Galt.** `STA 05` står i celle 02, og programtelleren går 02, 03, 04, 05. Modifikasjonen skjer altså **tre instruksjoner før** celle 05 utføres — den rekker godt fram.\n\n**Fasit: a, b og c.**",
+        "hints": [
+          "Finn `STA`-instruksjonen som skriver til kodeområdet, og gi den cellen egen kolonne.",
+          "Dekod den beregnede verdien før du sporer videre.",
+          "For alternativ d: sammenlign hvilken celle som skriver, med hvilken celle som skrives til."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — maskinkode og selvmodifisering.) Hva blir instruksjonen i celle 05 i programmet fra oppgave 11 med inndata 2, og hvor havner verdien 99?",
+        "solution": "Malen i celle 40 er `330`. Med inndata 2 blir akkumulatoren `330 + 2 = 332`.\n\n`332` dekodes som opkode 3 (`STA`) og adresse 32, altså **`STA 32`**.\n\nVerdien 99 lagres derfor i **celle 32**, ikke i celle 30 eller 31.\n\nProgrammet henter fortsatt celle 30 på linje 06, og den er uendret 0. **Utskriften blir `99 0`.**\n\n**Merk:** celle 32 er ikke nevnt i programmet i det hele tatt. Den finnes likevel — alle 100 celler finnes alltid, med startverdien 0 hvis programmet ikke har satt dem. Et selvmodifiserende program kan derfor skrive til en celle som ikke er «erklært», uten at noe går galt eller varsles.",
+        "hints": [
+          "Regn ut `330` pluss inndataen, og dekod resultatet.",
+          "Hvilken celle peker den nye adressen på, og hentes den cellen noe sted i programmet?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — baklengs sporing, svarform F1.) Programmet under skriver ut ett tall. Kryss av alle inndataene som gir utskriften `8`.\n\n```text\n00  INP\n01  STA 40\n02  SUB 41\n03  BRP 07\n04  LDA 40\n05  ADD 40\n06  BRA 08\n07  LDA 40\n08  OUT\n09  HLT\n40  DAT\n41  DAT 5\n```\n\n**a)** 4\n\n**b)** 8\n\n**c)** 3\n\n**d)** 5",
+        "solution": "**Hva programmet gjør:** er inndataen minst 5, skrives den ut som den er. Er den under 5, dobles den.\n\n**a) 4 — riktig.** 4 er under 5, så den dobles: `4 + 4 = 8`. ✓\n\n**b) 8 — riktig.** 8 er minst 5, så den skrives ut som den er: 8. ✓\n\n**c) 3 — galt.** 3 er under 5 og dobles til 6, ikke 8.\n\n**d) 5 — galt.** 5 gir differansen 0, og `BRP` hopper også på null, så tallet skrives ut som det er: 5. Distraktoren tester grenseverdien.\n\n**Fasit: a og b.**\n\nUtskriften 8 kan altså nås fra **begge** grenene. Det er den typiske konstruksjonen i baklengs sporing, og grunnen til at oppgaven er en «velg ett eller flere»-oppgave.",
+        "hints": [
+          "Beskriv de to grenene i ord: hva skjer over terskelen, og hva skjer under?",
+          "Test hvert alternativ mot terskelen 5, og husk at `BRP` hopper også på nøyaktig null.",
+          "Sjekk om utskriften kan nås fra begge grenene."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-6-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — baklengs sporing, svarform F1.) Programmet under skriver ut ett tall. Kryss av alle inndataene som gir utskriften `10`.\n\n```text\n00  INP\n01  STA 80\n02  BRP 06\n03  LDA 81\n04  SUB 80\n05  BRA 07\n06  LDA 80\n07  ADD 82\n08  OUT\n09  HLT\n80  DAT\n81  DAT 0\n82  DAT 3\n```\n\n**a)** 7\n\n**b)** −7\n\n**c)** 10\n\n**d)** 13",
+        "solution": "**Hva programmet gjør, gren for gren:**\n\n- Er inndataen 0 eller større, hopper `BRP` til celle 06, som henter inndataen tilbake.\n- Er den negativ, setter celle 03 akkumulatoren til 0, og celle 04 trekker inndataen fra: `0 − (−7) = 7`.\n\nBegge grener ender i celle 07, som legger til 3 fra celle 82.\n\nProgrammet regner altså ut **absoluttverdien pluss 3**.\n\n**a) 7 — riktig.** Absoluttverdien er 7, pluss 3 gir 10. ✓\n\n**b) −7 — riktig.** Absoluttverdien er også 7, pluss 3 gir 10. ✓\n\n**c) 10 — galt.** Absoluttverdien er 10, pluss 3 gir 13. Distraktoren fanger den som glemmer `ADD 82` helt.\n\n**d) 13 — galt.** Absoluttverdien er 13, pluss 3 gir 16. Distraktoren fanger den som legger til 3 i feil retning, altså trekker fra i stedet.\n\n**Fasit: a og b.**\n\n**Kontroll av grenseverdien:** inndata 0 hopper til celle 06 (siden `BRP` inkluderer null), henter 0 og legger til 3 — utskrift 3. Det bekrefter at også nullpunktet oppfører seg som forventet.",
+        "hints": [
+          "Beskriv hva hele programmet gjør som én funksjon av inndataen, før du tester alternativene.",
+          "Husk at `ADD 82` kjøres i BEGGE grenene — det er felles fortsettelse.",
+          "Sjekk om utskriften kan nås fra to ulike inndata."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-6-warn",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "1. **Å slurve med sporetabellen.** Én rad per **utført** instruksjon, ikke per programlinje. Og skriv av verdier også når de er uendret — en tom celle blir til tvil to minutter senere.\n\n2. **Å velge feil hoppinstruksjon i fyll-inn.** `BRZ` treffer bare på nøyaktig null; `BRP` treffer null og alt over. Forskjellen er typisk én runde, og i oppgave 8 var den forskjellen på `3 2 1` og `3 2 1 0`. **Test alltid alle alternativene ved å spore.**\n\n3. **Å glemme selvmodifisering (felle #7).** Se etter `STA` med adresse i kodeområdet. Overser du den, ser sporet ditt helt fornuftig ut — og er feil fra det punktet av.\n\n4. **Å oppgi bare én inndata i baklengs sporing.** I oppgave 13 og 14 hadde begge oppgavene to riktige svar, fra hver sin gren. Spør alltid: kan denne utskriften nås fra begge grenene?\n\n5. **Å overse grenseverdien.** Inndataen som ligger nøyaktig på terskelen, er alltid med som alternativ. Regn den ut eksplisitt — `BRP` hopper også på null.\n\n6. **Å ignorere startverdiene i `DAT`-cellene.** En sum som starter på 5 i stedet for 0, forskyver hele svaret med 5. Se oppgave 10."
+    },
+    {
+      "id": "in1020-1-6-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-1-6-bank-1",
+      "type": "definition",
+      "title": "Akkumuleringsmønsteret",
+      "content": "Standardformen for å bygge opp en sum i LMC: `LDA` summecellen, `ADD` det nye leddet, `STA` tilbake til summecellen.\n\n```text\n04  LDA 62      ; hent summen så langt\n05  ADD 60      ; legg til neste ledd\n06  STA 62      ; lagre den nye summen\n```\n\nSummecellen må starte på 0. Starter den på noe annet, forskyves hele svaret med den verdien — se oppgave 10."
+    },
+    {
+      "id": "in1020-1-6-bank-2",
+      "type": "definition",
+      "title": "Nedtellingsmønsteret",
+      "content": "Standardformen for en teller: `LDA` telleren, `SUB` steget, `STA` tilbake, og deretter et betinget hopp.\n\nAntall runder avhenger av tre ting: startverdien, steget og hvilken hoppinstruksjon som brukes. Med `BRP` og steg 1 kjører løkka én gang mer enn startverdien tilsier, fordi null også hopper."
+    },
+    {
+      "id": "in1020-1-6-bank-3",
+      "type": "definition",
+      "title": "Fyll-inn-oppgaven",
+      "content": "Oppgavetypen der én instruksjon er fjernet, og du skal velge den som får programmet til å gjøre det oppgaven beskriver.\n\nFramgangsmåten: spor fram til den tomme cellen, skriv ned tilstanden der, og spør hvilken instruksjon som tar deg videre til målet.\n\n**Test alltid alle alternativene ved å spore ferdig** — og med minst to ulike inndata. En instruksjon som gir riktig svar for én inndata, kan bomme for en annen."
+    },
+    {
+      "id": "in1020-1-6-bank-4",
+      "type": "definition",
+      "title": "Rundetelling",
+      "content": "Å avgjøre hvor mange ganger en løkke kjøres. Dette er det som oftest testes i sporeoppgaver, fordi det er der intuisjonen bommer.\n\nMetoden: skriv opp verdien telleren har ved hver test, og marker hvor betingelsen slår om. Antall runder er antall verdier der betingelsen fortsatt holdt.\n\nHusk at `BRP` inkluderer null — det gir én runde mer enn `BRZ` ville gitt."
+    },
+    {
+      "id": "in1020-1-6-bank-5",
+      "type": "definition",
+      "title": "Grenseverdien i en test",
+      "content": "Inndataen som gir nøyaktig 0 i testen, og som derfor havner i den «positive» grenen når hoppet er `BRP`.\n\nTester programmet med `SUB 41` der celle 41 er 5, ligger grensen på inndata 5.\n\nEksamensoppgavene har nesten alltid ett alternativ nøyaktig på grensen. Regn den ut eksplisitt før du krysser av — det er den enkeltdistraktoren som tar flest."
+    },
+    {
+      "id": "in1020-1-6-bank-6",
+      "type": "definition",
+      "title": "Felles fortsettelse",
+      "content": "Cellen der to grener møtes igjen, typisk en `OUT` som begge veier ender opp i.\n\nAlt som står i den felles fortsettelsen, gjelder for **begge** grenene. I oppgave 14 var `ADD 82` felles, så pluss 3 gjaldt uansett hvilken vei programmet gikk.\n\nDen faste feilen er å tro at instruksjonene etter et grenmønster bare gjelder den ene grenen."
+    },
+    {
+      "id": "in1020-1-6-bank-7",
+      "type": "definition",
+      "title": "Uerklært celle",
+      "content": "En minnecelle som ikke er nevnt i programmet, men som likevel finnes med startverdien 0.\n\nAlle 100 celler eksisterer alltid. Et selvmodifiserende program kan derfor skrive til celle 32 selv om ingen `DAT 32` står i listingen — uten at noe varsles.\n\nDette er en del av grunnen til at selvmodifiserende kode er vanskelig å feilsøke: det finnes ingen «ugyldig adresse» i LMC."
+    },
+    {
+      "id": "in1020-1-6-bank-8",
+      "type": "definition",
+      "title": "Testing med flere inndata",
+      "content": "Vanen med å kontrollere et svar mot minst to, helst tre, ulike inndataverdier før du er fornøyd.\n\nEn instruksjon eller en `DAT`-verdi kan gi riktig svar for det ene tallet oppgaven nevner, og feil for alle andre.\n\nVelg inndataene bevisst: én under grensen, én på grensen, én over. De tre avslører nesten enhver feil i et LMC-program."
+    },
+    {
+      "id": "in1020-1-6-bank-9",
+      "type": "definition",
+      "title": "Sporing framover mot resonnering bakover",
+      "content": "De to arbeidsmåtene sjangeren krever.\n\n**Framover** brukes når inndataen er gitt: før tabell, mekanisk, rad for rad. Ingen tolkning nødvendig.\n\n**Bakover** brukes når utskriften er gitt: beskriv først hva programmet gjør som helhet, og løs deretter hvilke inndata som gir det resultatet. Å reversere instruksjon for instruksjon virker sjelden."
+    },
+    {
+      "id": "in1020-1-6-bank-10",
+      "type": "definition",
+      "title": "Programmet som funksjon",
+      "content": "Vanen med å oppsummere hva et helt program gjør i én setning: «det regner ut absoluttverdien pluss 3», «det ganger de to inndataene», «det teller hvor mange ganger 2 går opp i tallet».\n\nDenne setningen er ofte hele svaret på en flervalgsoppgave, og den er alltid første steg i baklengs sporing.\n\nSkriv den ned før du begynner å teste alternativer — den sparer deg for å spore hvert alternativ for seg."
+    },
+    {
+      "id": "in1020-1-6-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — er sporingen automatisk?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-1-6-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte kontrollspørsmål.\n\n1. Hvor mange rader har sporetabellen for en løkke på fem linjer som kjøres tre ganger?\n2. Hva er kjennetegnet på selvmodifiserende kode?\n3. Hvilken hoppinstruksjon gir én runde mer enn den andre, og hvorfor?\n4. Hva må startverdien i en summecelle være?\n5. Hvorfor har baklengs sporing ofte to riktige svar?\n6. Hva er `330` som instruksjon?\n7. Hvilke tre inndataverdier bør du teste et fyll-inn-svar med?\n8. Hva gjelder instruksjonene i den felles fortsettelsen etter et grenmønster?\n\n**Fasit.**\n\n1. Femten — én rad per utført instruksjon, ikke per linje.\n2. En `STA` med adresse i kodeområdet, altså blant de lave cellenumrene.\n3. `BRP`, fordi den hopper også når akkumulatoren er nøyaktig null, mens `BRZ` bare treffer på eksakt null.\n4. 0 for en sum. En celle som skal bygge opp et produkt, må derimot starte på 1.\n5. Fordi programmet mister informasjon: to grener kan ende i samme utskrift.\n6. `STA 30` — opkode 3 og adresse 30. Som `DAT`-verdi er den en instruksjonsmal.\n7. Én under grensen, én nøyaktig på grensen, én over.\n8. De gjelder begge grenene.\n\nSjekk deg selv: ☐ førte du sporetabell på alle fjorten? ☐ noterte du betingelsen ved hvert betinget hopp? ☐ testet du fyll-inn-svarene med flere inndata? ☐ lette du etter mer enn ett svar i de baklengs oppgavene? ☐ regnet du ut grenseverdien eksplisitt?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
