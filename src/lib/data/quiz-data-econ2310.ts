@@ -845,7 +845,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-2-1': [
     {
       question: "Hva bestemmer produksjonen i Keynes-krysset?",
-      options: ["Samlet etterspørsel", "Kapitalbeholdningen, arbeidsstyrken og teknologien, som til sammen setter grensen for hvor mye økonomien kan produsere", "Sentralbankens rentesetting, som styrer aktivitetsnivået gjennom konsum og investeringer", "Sparingen, fordi den skaffer midlene som investeringene finansieres med"],
+      options: ["Samlet etterspørsel", "Kapitalbeholdningen, arbeidsstyrken og teknologien", "Sentralbankens rentesetting, som styrer aktiviteten", "Sparingen"],
       explanation: "Modellen forutsetter faste priser og ledige ressurser. Da møter bedriftene høyere etterspørsel med høyere produksjon i stedet for høyere priser, og det er etterspørselen som avgjør $Y$. Alternativet om kapital og arbeidskraft beskriver vekstmodellen, som gjelder på lang sikt. Alternativet om sparing snur kausaliteten: i denne modellen tilpasser sparingen seg investeringene, ikke omvendt.",
     },
     {
@@ -860,8 +860,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Husholdningene blir mer sparevillige i grunnmodellen med eksogene investeringer. Hva skjer med realisert sparing?",
-      options: ["Den er uendret, og det er produksjonen som faller i stedet", "Den stiger, siden alle sparer en større andel av inntekten sin enn før", "Den stiger, men mindre enn den ønskede sparingen, fordi inntekten faller samtidig", "Den faller, fordi investeringene faller når aktiviteten faller"],
-      explanation: "I likevekt må $S = I_0$, og $I_0$ er eksogent gitt. Inntekten faller helt til husholdningene med sin nye sparevilje sparer nøyaktig $I_0$. Det siste alternativet er riktig i varianten med akselerator ($I = I_0 + \\alpha Y$), men ikke her — modellvarianten avgjør svaret.",
+      options: ["Den er uendret, og det er produksjonen som faller i stedet", "Den stiger, siden alle sparer en større andel av inntekten", "Den stiger, men mindre enn den ønskede sparingen", "Den faller, fordi investeringene faller"],
+      explanation: "I likevekt må $S = I_0$, og $I_0$ er eksogent gitt. Inntekten faller helt til husholdningene med sin nye sparevilje sparer nøyaktig $I_0$. Alternativet om at sparingen faller, er riktig i varianten med akselerator ($I = I_0 + \\alpha Y$), men ikke her — modellvarianten avgjør svaret.",
     },
     {
       question: "Hvorfor er multiplikatoren $1/(1-c_1)$ større enn 1?",
@@ -900,7 +900,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr $\\alpha$ i relasjonen $I = I_0 + \\alpha Y$?",
-      options: ["Akseleratoren — hvor mye investeringene øker per ekstra krone produksjon", "Importandelen i konsumprisindeksen, altså vekten importerte varer har i inflasjonen", "Investeringenes rentefølsomhet, altså hvor mye de faller når renten stiger", "Andelen av samlet produksjon som består av investeringsvarer i stedet for konsumvarer"],
+      options: ["Akseleratoren — hvor mye investeringene øker per ekstra krone produksjon", "Importandelen i konsumprisindeksen", "Investeringenes rentefølsomhet", "Investeringsvarenes andel av produksjonen"],
       explanation: "Begrunnelsen for $\\alpha > 0$ er at høy aktivitet presser kapasiteten, gir bedre inntjening og lettere finansiering. Alternativet om importandelen er den andre betydningen $\\alpha$ har i denne boka — den gjelder i kapittel 3.2 og i hovedkursmodellen, ikke her. Sjekk alltid hvilken modell oppgaven bruker.",
     },
     {
@@ -935,7 +935,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan flytter etterspørselslinjen i Keynes-krysset seg når $c_0$ faller?",
-      options: ["Den forskyves parallelt nedover, uten at helningen endres", "Den blir brattere, siden husholdningene da reagerer sterkere på inntektsendringer", "Den blir slakere og roterer rundt skjæringspunktet med den vertikale aksen", "Den ligger i ro, mens det er 45-graderslinjen som flytter seg"],
+      options: ["Den forskyves parallelt nedover, uten at helningen endres", "Den blir brattere, siden husholdningene reagerer sterkere", "Den blir slakere og roterer om skjæringspunktet", "Den ligger i ro, mens 45-graderslinjen flytter seg"],
       explanation: "$c_0$ er skjæringspunktet med den vertikale aksen, ikke helningen — derfor et parallelt skift nedover og en ny krysning til venstre for den gamle. Modelleres økt sparevilje i stedet som lavere $c_1$, blir linjen slakere; da roterer den, men det er en annen måte å modellere det samme sjokket på.",
     },
     {
@@ -1024,7 +1024,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-3-1': [
     {
       question: "Kursen går fra 11,60 til 12,10 kroner per euro. Hva har skjedd med krona?",
-      options: ["Den har svekket seg", "Den har styrket seg, siden tallet på kroner per euro har gått opp", "Ingenting — kursen måler bare euroens verdi, ikke kronas", "Det kan ikke avgjøres uten å kjenne prisnivåene i de to landene"],
+      options: ["Den har svekket seg", "Den har styrket seg", "Kursen måler bare euroens verdi", "Det avhenger av prisnivåene i de to landene"],
       explanation: "$E$ er prisen på utenlandsk valuta målt i kroner. Når du må betale flere kroner for én euro, er utenlandsk valuta blitt dyrere og krona mindre verdt. Høyere $E$ betyr altså svakere krone. Alternativet om prisnivåer gjelder *realvalutakursen*; her spørres det om den nominelle.",
     },
     {
@@ -1034,12 +1034,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Norges Bank hever renten uventet. Hva skjer med kronekursen?",
-      options: ["$E$ faller, altså styrkes krona", "$E$ stiger — krona svekkes, fordi høyere rente demper aktiviteten i økonomien", "$E$ er uendret, fordi renten ikke inngår i paritetsbetingelsen", "Effekten kan ikke signeres uten å kjenne kursens rentefølsomhet $\\kappa$"],
+      options: ["$E$ faller, altså styrkes krona", "$E$ stiger, altså svekkes krona", "$E$ er uendret, siden renten ikke står i paritetsbetingelsen", "Effekten kan ikke signeres uten å kjenne $\\kappa$"],
       explanation: "Kroneplasseringer blir mer attraktive, kapital strømmer inn, og krona blir dyrere. I relasjonen står $i$ med negativt fortegn, så høyere $i$ senker $E$. Alternativet om $\\kappa$ er feil: $\\kappa$ påvirker hvor *mye* kursen beveger seg, men ikke retningen, siden $\\kappa > 0$.",
     },
     {
       question: "Den amerikanske sentralbanken hever renten. Hva skjer med krona?",
-      options: ["Den svekkes", "Den styrkes, siden høyere renter ute gjør norsk økonomi mer attraktiv", "Den er upåvirket, siden Norge har flytende valutakurs og eget inflasjonsmål", "Den svekkes bare dersom Norges Bank samtidig kutter renten"],
+      options: ["Den svekkes", "Den styrkes", "Den er upåvirket, siden Norge har flytende valutakurs", "Den svekkes bare dersom Norges Bank kutter samtidig"],
       explanation: "Høyere $i^F$ gjør utenlandske plasseringer mer attraktive, kapital strømmer ut, og $E$ stiger. At Norge har flytende kurs er nettopp grunnen til at kursen *kan* bevege seg — med fast kurs hadde renten måttet følge etter i stedet.",
     },
     {
@@ -1074,8 +1074,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Norges Bank hever renten nøyaktig så mye som markedet hadde ventet. Hva skjer med kursen?",
-      options: ["Ingenting skjer med kursen", "Krona styrker seg, siden renten faktisk er blitt høyere enn den var før vedtaket ble fattet", "Krona svekker seg, siden hevingen viser at inflasjonen er et problem", "Krona styrker seg, men bare med halvparten av det en uventet heving ville gitt"],
-      explanation: "Bare den uventede delen av en renteendring flytter kursen. Den forventede delen ligger allerede i dagens kurs. Alternativet om at renten «faktisk er blitt høyere» er nettopp fellen: markedet handlet på forventningen, ikke på vedtaket.",
+      options: ["Ingenting skjer med kursen", "Krona styrker seg", "Krona svekker seg, siden hevingen viser at inflasjonen er et problem", "Krona styrker seg, men bare halvparten så mye"],
+      explanation: "Bare den uventede delen av en renteendring flytter kursen. Den forventede delen ligger allerede i dagens kurs. Alternativet om at krona styrker seg fordi renten «faktisk er blitt høyere», er nettopp fellen: markedet handlet på forventningen, ikke på vedtaket.",
     },
     {
       question: "Norges Bank hever renten, men krona svekker seg samme dag. Hva kan ha skjedd?",
@@ -1119,8 +1119,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Den utenlandske renten stiger, og samtidig oppjusterer markedet norsk eksportevne på lang sikt. Hva skjer med krona?",
-      options: ["Effekten kan ikke signeres", "Krona svekkes, siden rentekanalen alltid dominerer forventningskanalen", "Krona styrkes, siden en oppjustering av $E^e$ virker med full styrke", "Krona er uendret, siden de to effektene per konstruksjon er like store"],
-      explanation: "Høyere $i^F$ løfter $E$ med $\\kappa\\Delta i^F$, mens en bedre langsiktsvurdering senker $E^e$ og dermed $E$. Hvilken som dominerer, avhenger av størrelsene, og modellen avgjør det ikke. Merk at det tredje alternativet forveksler retningen: bedre eksportutsikter gir *lavere* $E^e$, ikke høyere.",
+      options: ["Effekten kan ikke signeres", "Krona svekkes, siden rentekanalen alltid dominerer forventningskanalen", "Krona styrkes, siden en oppjustering av $E^e$ virker med full styrke", "Krona er uendret"],
+      explanation: "Høyere $i^F$ løfter $E$ med $\\kappa\\Delta i^F$, mens en bedre langsiktsvurdering senker $E^e$ og dermed $E$. Hvilken som dominerer, avhenger av størrelsene, og modellen avgjør det ikke. Merk at alternativet om at krona styrkes «med full styrke», forveksler retningen: bedre eksportutsikter gir *lavere* $E^e$, ikke høyere.",
     },
     {
       question: "Hva bør en besvarelse gjøre når fortegnet på en effekt ikke kan signeres?",
@@ -1144,8 +1144,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er en «sterk» krone ikke uten videre gode nyheter?",
-      options: ["Fordi norske varer blir dyrere for utlandet", "Fordi importerte varer blir dyrere målt i kroner", "Fordi sentralbanken da må heve renten for å holde kursen oppe", "Fordi statens inntekter fra petroleumsvirksomheten faller når de måles i utenlandsk valuta i stedet for i kroner"],
-      explanation: "En sterk krone er god for importører og demper prisveksten, men krevende for konkurranseutsatt næringsliv. Merk at det andre alternativet har fortegnet feil: med en sterkere krone blir importerte varer *billigere* i kroner, ikke dyrere.",
+      options: ["Fordi norske varer blir dyrere for utlandet", "Fordi importerte varer blir dyrere målt i kroner", "Fordi sentralbanken da må heve renten for å holde kursen oppe", "Fordi oljeinntektene faller målt i dollar"],
+      explanation: "En sterk krone er god for importører og demper prisveksten, men krevende for konkurranseutsatt næringsliv. Merk at alternativet om dyrere importvarer har fortegnet feil: med en sterkere krone blir importerte varer *billigere* i kroner, ikke dyrere.",
     },
   ],
   'econ2310-3-2': [
@@ -1156,12 +1156,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr $\\alpha$ i dette kapitlet?",
-      options: ["Importandelen i konsumprisindeksen", "Akseleratoren i investeringsfunksjonen, altså hvor mye investeringene stiger med aktiviteten", "Valutakursens følsomhet for renteforskjellen mot utlandet", "Andelen av norsk produksjon som går til eksport i stedet for hjemmemarkedet"],
+      options: ["Importandelen i konsumprisindeksen", "Akseleratoren i investeringsfunksjonen", "Valutakursens følsomhet for renteforskjellen", "Eksportandelen av produksjonen"],
       explanation: "$\\alpha$ er vekten importerte varer har i det husholdningene kjøper. Akseleratorbetydningen er den $\\alpha$ hadde i kapittel 2.1 — samme bokstav, ingen sammenheng. Importandel-betydningen er derimot den samme som i hovedkursmodellen i Del 5.",
     },
     {
       question: "Krona svekker seg. Hva skjer med prisveksten på importerte varer?",
-      options: ["Den stiger raskt og mekanisk", "Den stiger, men først etter at lønnsveksten har tatt seg opp i Norge", "Den faller, siden norske varer blir mer konkurransedyktige", "Den er uendret, siden prisene i utlandet ikke har endret seg"],
+      options: ["Den stiger raskt og mekanisk", "Den stiger, men først etter at lønnsveksten har tatt seg opp", "Den faller, siden norske varer blir mer konkurransedyktige", "Den er uendret"],
       explanation: "Importvarer er priset i utenlandsk valuta, så en svakere krone gjør dem dyrere i kroner umiddelbart. Kanalen krever ingen antakelser om arbeidsmarkedet — bare at kostnadsøkningen videreformidles. Det siste alternativet overser at kroneprisen er den utenlandske prisen ganget med kursen.",
     },
     {
@@ -1186,7 +1186,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Krona svekker seg. Hva skjer med prisveksten på norskproduserte varer?",
-      options: ["Effekten kan ikke signeres", "Den stiger med sikkerhet, siden lønnsveksten alltid følger etter aktiviteten", "Den er uendret, siden norske varer ikke importeres", "Den faller, siden bedret konkurranseevne demper prispresset hjemme"],
+      options: ["Effekten kan ikke signeres", "Den stiger med sikkerhet, siden lønnsveksten alltid følger aktiviteten", "Den er uendret", "Den faller, siden bedret konkurranseevne demper prispresset"],
       explanation: "Effekten går via aktiviteten, og om aktiviteten faktisk stiger, avhenger av om sentralbanken motvirker kronesvekkelsen med høyere rente. Strammer banken nok inn, uteblir aktivitetsøkningen, og $p_s$ trenger ikke stige i det hele tatt.",
     },
     {
@@ -1333,8 +1333,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av disse hendelsene er en $Z^E$-impuls?",
-      options: ["Investorene krever høyere risikopremie for å sitte i kroner", "Regjeringen kutter selskapsskatten i statsbudsjettet", "Et lønnsoppgjør gir høyere lønnsvekst i Norge enn hos handelspartnerne", "Bedriftene blir mer optimistiske og øker investeringene"],
-      explanation: "Risikopremien inngår i kursimpulsen $Z^E$. Skattekutt og investeringsvilje er $Z^D$; et særnorsk lønnsoppgjør er $Z^\\pi$.",
+      options: ["Investorene krever høyere risikopremie for å sitte i kroner", "Etterspørselen fra handelspartnerne tar seg opp", "Et lønnsoppgjør gir høyere lønnsvekst i Norge enn hos handelspartnerne", "Bedriftene blir mer optimistiske og øker investeringene"],
+      explanation: "Risikopremien på kroner står i $Z^E = E^e + \\kappa i^F$ (+ risikopremie), og treffer derfor både IS og renteregelen. Høyere etterspørsel fra handelspartnerne og sterkere investeringsvilje er $Z^D$ og treffer bare IS; et særnorsk lønnsoppgjør gjør norske varer relativt dyrere og er $Z^\\pi$. Og pass på skattekutt, som ikke er én kategori: lettelser som løfter etterspørselen virker som en $Z^D$-impuls, mens en endring i den marginale skattesatsen $t$ er en parameterendring i multiplikatoren $m$ — ikke en impuls.",
     },
     {
       question: "Hvilken impuls treffer både IS-relasjonen og renteregelen?",
@@ -1416,7 +1416,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Hva fanges av $Z^i$ i renteregelen?",
       options: ["Grunnivået: nøytral rente, linjeskifte og hensynet til finansielle ubalanser", "Produksjonsgapets virkning på renta, altså hele bankens konjunkturrespons", "Utenlandsk rente og forventet valutakurs", "Inflasjonsimpulser fra prisvekst ute"],
-      explanation: "$Z^i$ er konstantleddet i regelen. Endringer i det skifter hele RR-kurven loddrett.",
+      explanation: "$Z^i$ er den delen av grunnivået som ikke skyldes kurs- eller prisimpulser: RR-kurvens skjæringspunkt er $Z^i + g_E Z^E + g_\\pi Z^\\pi$, så et løft i $Z^i$ skifter hele kurven loddrett uten å endre helningen. Produksjonsgapet står som variabel i regelen og er ikke en del av $Z^i$; utenlandsk rente og forventet kurs hører i $Z^E$, og prisimpulser utenfra i $Z^\\pi$.",
     },
     {
       question: "Hvorfor hever banken renta når krona svekkes?",
@@ -1606,9 +1606,9 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "Krysningspunktet mellom IS og RR kan ligge på begge sider av $Y^n$. Fleksibel inflasjonsstyring betyr nettopp at gapet tolereres delvis.",
     },
     {
-      question: "Hva er den viktigste økonomiske grunnen til at en bratt IS-kurve demper virkningen av et skift?",
-      options: ["Renta virker mindre på etterspørselen, så likevekten flytter seg lite i $Y$", "Sentralbanken slutter å reagere når kurven er bratt", "Importlekkasjen forsvinner når kurven er bratt", "Produksjonen blir mer følsom for renteendringer når IS-kurven er bratt"],
-      explanation: "Bratt IS betyr liten rentekoeffisient eller liten multiplikator. Kombinert med bratt RR blir produksjonen nesten låst.",
+      question: "Høy $\\beta$ gjør IS brattere. Hva er den økonomiske grunnen til at det demper produksjonsvirkningen av et etterspørselssjokk?",
+      options: ["Multiplikatoren $m$ er mindre, så en gitt impuls flytter IS-kurven kortere vei", "Renta virker mindre på etterspørselen, så likevekten flytter seg lite i $Y$", "Importlekkasjen forsvinner når kurven er bratt", "Produksjonen blir mer følsom for renteendringer når IS-kurven er bratt"],
+      explanation: "Bratt IS kan komme av liten multiplikator ELLER liten rentekoeffisient — og de to virker motsatt vei. Det er $m$-kanalen som demper: en mindre multiplikator gjør selve IS-skiftet kortere. En mindre rentekoeffisient ville tvert imot gitt et større produksjonsutslag, så den vanlige formuleringen «renta virker mindre» er nettopp forvekslingen.",
     },
     {
       question: "Hvilken relasjon er en reaksjonsfunksjon, og hvilken er en likevektsbetingelse?",
@@ -1626,9 +1626,9 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "$Z^\\pi$ står i IS (relativ pris), i RR (bankens respons) og i PK (inflasjonsimpulsen).",
     },
     {
-      question: "Hva er en god selvkontroll når du har sporet alle komponentene i en skiftanalyse?",
-      options: ["Sjekk at komponentene summerer seg til endringen i $Y$", "Sjekk at renta har endret seg mer enn produksjonen", "Sjekk at inflasjonen er lik målet i den nye likevekten", "Sjekk at valutakursen er uendret"],
-      explanation: "Generalbudsjettligningen $Y = C+I+G+(X-Q)$ avslører fortegnsfeil raskere enn noen annen kontroll.",
+      question: "Hva skjer med inflasjonen i høy-$\\beta$-tilfellet når offentlige kjøp øker?",
+      options: ["Den stiger bare litt, siden gapet nesten ikke endres", "Den stiger kraftig, siden prisveksten reagerer sterkt på alt", "Den er uendret, siden Phillips-kurven ikke skifter", "Den faller, siden den sterkere krona demper prispresset"],
+      explanation: "Med stor men endelig $\\beta$ er produksjonen nesten låst, så gapet — og dermed inflasjonsendringen — er lite, men ikke null. At kurven ikke skifter, betyr ikke at inflasjonen står stille: vi beveger oss langs den til et litt større gap. Og kursen står ikke i Phillips-kurven; den virker på norske priser bare indirekte gjennom aktiviteten.",
     },
     {
       question: "Når oppstår det en målkonflikt for sentralbanken i denne modellen?",
@@ -1648,9 +1648,9 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "Uten et navn i modellen ($Z^D$, $Z^E$, $Z^\\pi$ eller $Z^i$) vet du ikke hvilke relasjoner som treffes.",
     },
     {
-      question: "Hvilke relasjoner treffes av økte offentlige kjøp?",
-      options: ["Bare IS", "Bare RR", "IS og RR", "Alle tre"],
-      explanation: "$Z^D$ står bare i IS. Renta endres likevel, men ved bevegelse langs en uendret RR-kurve.",
+      question: "Offentlige kjøp øker og renta stiger — men RR-kurven har ikke flyttet seg. Hvorfor stiger renta?",
+      options: ["Gapet er blitt større, og banken går oppover langs en uendret RR", "Fordi $Z^D$ også står i renteregelen", "Fordi banken reagerer på at krona styrker seg", "Fordi Phillips-kurven skifter opp og løfter inflasjonen"],
+      explanation: "Produksjonen står som variabel i regelen, så et større gap flytter oss langs kurven i stedet for å skifte den. $Z^D$ står bare i IS; regelen reagerer på kursIMPULSEN $Z^E$, ikke på en kronestyrking som selv er en følge av renteøkningen; og Phillips-kurven skifter bare når $Z^\\pi$ eller $Y^n$ endres.",
     },
     {
       question: "Hva skjer med valutakursen når offentlige kjøp øker?",
@@ -1693,9 +1693,9 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "Kursen virker på norske priser bare indirekte, gjennom aktivitet, ledighet og lønnsvekst. Siden produksjonseffekten er ubestemt, er også denne prisveksten ubestemt.",
     },
     {
-      question: "Hva er den vanligste feilen når en kronesvekkelse skal analyseres?",
+      question: "Hvilken feil får produksjonen til å stige ENTYDIG i en analyse av en kronesvekkelse?",
       options: ["Å skifte bare IS og glemme at RR også skifter", "Å skifte bare RR og glemme at IS også skifter", "Å skifte Phillips-kurven i tillegg til de to andre", "Å regne på multiplikatoren i stedet for å tegne"],
-      explanation: "Da får renta til å stige for lite og produksjonen til å stige entydig — og hele poenget med sjokket forsvinner.",
+      explanation: "Skifter du bare IS, får du renta til å stige for lite og produksjonen til å stige entydig — men det entydige fortegnet i dette sjokket er renta, ikke produksjonen. Skifter du bare RR, gjør du den motsatte feilen og får produksjonen til å falle entydig. Å skifte Phillips-kurven er også galt (den skifter bare når $Z^\\pi$ eller $Y^n$ endres), men gir ikke dette fortegnsfeilet, og multiplikatorregning erstatter ikke figuren.",
     },
     {
       question: "Hva skjer med krona på nettobasis etter en kronesvekkelses-impuls?",
@@ -1738,14 +1738,14 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "Ved etterspørselssjokk peker inflasjons- og produksjonshensynet samme vei. Ved en prisimpuls utenfra peker de hver sin vei.",
     },
     {
-      question: "Hvor mange størrelser bør du spore når du «åpner panseret»?",
+      question: "Hvilke størrelser står på panser-listen du sporer i steg 5?",
       options: ["Konsum, investeringer, eksport, import, valutakurs, ledighet og inflasjon", "Bare konsum og investeringer, siden de er de private komponentene", "Bare produksjon og rente, som er modellens endogene variabler", "Bare inflasjonen, siden det er den størrelsen sentralbanken har som mål i mandatet"],
-      explanation: "Den reduserte formen viser $Y$ og $i$; resten må du spore selv. Inflasjonen splittes i konsumprisvekst og prisvekst på norske varer.",
+      explanation: "Panser-listen har sju poster, og den reduserte formen viser bare to av dem ($Y$ og $i$) — resten må du spore selv. Inflasjonen splittes i konsumprisvekst og prisvekst på norske varer. Å nøye seg med de private komponentene, med produksjon og rente, eller med inflasjonen alene, er tre varianter av samme utelatelse.",
     },
     {
       question: "Hva er riktig håndtering av et ubestemt fortegn?",
-      options: ["Si at det er ubestemt, og si hva det avhenger av", "Velg den retningen som er mest sannsynlig, og begrunn valget", "Hopp over spørsmålet, siden modellen ikke gir svar", "Anta at effektene nøytraliserer hverandre eksakt"],
-      explanation: "Å signere det usignerbare er feil #10 i bokas feilregister. Å påpeke ubestemtheten og betingelsen er selve svaret.",
+      options: ["Si at det er ubestemt, og si hva det avhenger av", "Skriv den mest sannsynlige retningen som modellens konklusjon", "Hopp over spørsmålet, siden modellen ikke gir svar", "Anta at effektene nøytraliserer hverandre eksakt"],
+      explanation: "Å signere det usignerbare er feil #10 i bokas feilregister: du kan godt argumentere for hvilken kanal du tror dominerer, men da som en eksplisitt vurdering — aldri som noe modellen har vist. Å påpeke ubestemtheten og si hva den avhenger av, er selve svaret; eksakt nøytralisering er et spesialtilfelle du ikke kan påstå.",
     },
     {
       question: "Hvilket mønster går igjen i sjokk som treffer to relasjoner?",
@@ -1764,8 +1764,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en god selvkontroll når du har sporet alle komponentene?",
-      options: ["Sjekk at komponentene summerer seg til endringen i $Y$", "Sjekk at renta har endret seg mindre enn produksjonen", "Sjekk at valutakursen har endret seg i samme retning som renta", "Sjekk at inflasjonen er lik målet i ny likevekt"],
-      explanation: "$Y = C + I + G + (X-Q)$ avslører fortegnsfeil raskt: sier du at produksjonen stiger mens alle komponentene faller, er noe galt.",
+      options: ["Sjekk at komponentfortegnene er forenlige med fortegnet på $\\Delta Y$", "Sjekk at renta har endret seg mindre enn produksjonen", "Sjekk at kursen har endret seg samme vei som renta", "Sjekk at inflasjonen er lik målet i ny likevekt"],
+      explanation: "Emnet har ingen tallregning, så generalbudsjettligningen $Y = C + I + G + (X-Q)$ brukes som fortegnskontroll, ikke som en addisjon: stiger $Y$, må minst én komponent stige. Sier du at produksjonen stiger mens alle komponentene faller, er noe galt. De tre andre kontrollene er ingen krav i modellen — banken lukker ikke gapet fullt ut, og kursen kan gå både med og mot renta alt etter om den er impuls eller virkning.",
     },
     {
       question: "Når kan et ellers ubestemt fortegn signeres?",
@@ -1811,8 +1811,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor gir finanspolitikk dosert ved uendret rente ingen valutakurseffekt?",
-      options: ["Verken renta eller kursimpulsen endres, så kursen ligger stille", "Fordi offentlige kjøp bare treffer innenlandske varer", "Fordi budsjettunderskudd finansieres i utenlandsk valuta", "Fordi valutakursen bare reagerer på inflasjonsforskjellen mot handelspartnerne"],
-      explanation: "Renteparitetsbetingelsen har to størrelser på høyresiden. Endres ingen av dem, endres ikke kursen.",
+      options: ["Verken renta eller $Z^E$ endres, så den nominelle kursen ligger stille", "Fordi offentlige kjøp bare treffer innenlandske varer", "Fordi budsjettunderskudd finansieres i utenlandsk valuta", "Fordi kursen bare reagerer på inflasjonsforskjellen mot utlandet"],
+      explanation: "Av $E = Z^E - \\kappa i$ beveger kursen seg bare når renta eller kursimpulsen endres, og i dette scenarioet er begge holdt fast. Merk presisjonen: det er den NOMINELLE kursen som ligger stille. Konkurranseevnen endres likevel, siden høyere aktivitet gir lavere ledighet, høyere lønns- og prisvekst og dermed relativt dyrere norske varer ($a_3$-leddet). Offentlige kjøp treffer også importerte varer, og underskuddet lånes i kroner.",
     },
     {
       question: "Hvilken komponent er høyest i finanspolitikk-scenarioet?",
@@ -1897,9 +1897,9 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "Det er en ren etterspørselsimpuls og treffer bare IS. En vanlig felle er å tro at «utenlandsk» automatisk betyr at renteregelen treffes.",
     },
     {
-      question: "Hvor mange relasjoner treffes av en $Z^\\pi$-impuls?",
-      options: ["Alle tre", "Bare IS", "IS og RR", "Bare PK"],
-      explanation: "$Z^\\pi$ står i IS (relativ pris), i RR (bankens respons) og i PK (inflasjonsimpulsen). Det er den eneste impulsen som treffer alle tre.",
+      question: "Hva betyr opplysningen «norsk eksport er lite følsom for kursen» i modellspråk?",
+      options: ["Liten $a_2$", "Liten $\\kappa$", "Stor $g_E$", "Liten $\\beta$"],
+      explanation: "$a_2$ er nettoeksportens kursfølsomhet, altså siste ledd i kjeden rente → kurs → nettoeksport. Er $a_2$ liten, blir hele kanalen $a_2\\kappa$ svak selv om kursen beveger seg mye. $\\kappa$ er kursens rentefølsomhet, $g_E$ bankens kursrespons og $\\beta$ Phillips-kurvens helning — ingen av dem sier noe om eksportens kursfølsomhet.",
     },
     {
       question: "Hva betyr opplysningen «sentralbanken legger stor vekt på kronekursen» i modellspråk?",
@@ -1917,9 +1917,9 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       explanation: "Steg 5–6 er best betalt og kuttes oftest ved tidsnød. Ingenting i sjangeren krever utregninger.",
     },
     {
-      question: "Hvordan sjekker du raskt om panser-åpningen er konsistent?",
-      options: ["Se om komponentene stemmer med endringen i $Y$", "Se om renta har endret seg mer enn produksjonen", "Se om valutakursen og renta går samme vei", "Se om inflasjonen er lik målet i ny likevekt"],
-      explanation: "$Y = C + I + G + (X-Q)$ avslører fortegnsfeil raskt: stiger produksjonen mens alle komponenter faller, er noe galt.",
+      question: "Hvorfor holder det ikke å skrive «inflasjonen stiger» i panser-åpningen etter en kronesvekkelse?",
+      options: ["Konsumprisveksten stiger entydig, men prisveksten på norske varer er ubestemt", "Inflasjonen er ikke en av postene på panser-listen", "Phillips-kurven skifter opp, så inflasjonen må tallfestes", "Inflasjonen er alltid lik målet i den nye likevekten"],
+      explanation: "Panser-listen splitter inflasjonen i to: importvarene blir dyrere i kroner med en gang (entydig opp), mens prisveksten på norske varer følger produksjonen — og den er ubestemt ved dette sjokket. Å slå de to sammen er feil #4 i bokas feilregister. Phillips-kurven skifter ikke ved en kursimpuls, og banken lukker ikke gapet fullt ut, så inflasjonen lander ikke på målet.",
     },
     {
       question: "Hva er den drill-spesifikke fellen når en oppgave har mange delspørsmål?",
@@ -2005,27 +2005,27 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-5-1': [
     {
       question: "Hvorfor er konkurranseutsatt sektor lønnsledende i frontfagsmodellen?",
-      options: ["Fordi den møter priser bestemt på verdensmarkedet og derfor har en lønnsevne gitt utenfra", "Fordi den er den største sektoren målt i antall sysselsatte og dermed har mest forhandlingsmakt ved bordet", "Fordi bedriftene der kan velte høyere lønnskostnader over i prisene raskere enn andre bedrifter kan", "Fordi produktivitetsveksten der alltid er lavere enn i skjermet sektor og lønna derfor må styres"],
+      options: ["Fordi den møter priser bestemt på verdensmarkedet og derfor har en lønnsevne gitt utenfra", "Fordi den er den største sektoren målt i sysselsatte", "Fordi bedriftene der kan velte kostnadene over i prisene", "Fordi produktivitetsveksten der alltid er lavere enn i skjermet sektor og lønna derfor må styres"],
       explanation: "Argumentet er et koordineringsargument: bare K-sektor har et ytre tak på lønnsveksten (prisvekst pluss produktivitetsvekst), og ved å la den forhandle først forankres hele lønnsdannelsen i det økonomien tåler i møte med utlandet. Størrelse er ikke begrunnelsen, og K-sektor kan nettopp IKKE velte kostnader over i prisen.",
     },
     {
       question: "Hva betyr symbolet $k$ i hovedkursmodellen?",
-      options: ["Ekstraordinær lønnsvekst — lønnsvekst utover hovedkursen", "Kapital per arbeider, slik symbolet brukes i vekstmodellen i Del 1 av boka", "Produktivitetsveksten i konkurranseutsatt sektor, altså kostnadsbesparelsen per produsert enhet", "Kroneprisveksten på konkurranseutsatte varer, målt som utenlandsk pris pluss valutakursvekst"],
+      options: ["Ekstraordinær lønnsvekst — lønnsvekst utover hovedkursen", "Kapital per arbeider, som i Del 1", "Produktivitetsveksten i konkurranseutsatt sektor, altså kostnadsbesparelsen per enhet", "Kroneprisveksten på konkurranseutsatte varer"],
       explanation: "$k = w - (p_k + z_k)$ måler hvor mye lønnsveksten avviker fra konkurranseutsatt sektors lønnsevne. Symbolet betyr noe helt annet enn i Del 1, der $k$ er kapital per arbeider — sjekk alltid hvilken modell du står i. Produktivitetsveksten i K-sektor heter $z_k$, og kroneprisveksten heter $p_k$.",
     },
     {
       question: "Relasjonen $p_s = w - z_s$ sier at ...",
-      options: ["prisveksten i skjermet sektor er lønnsveksten minus produktivitetsveksten der", "prisnivået i skjermet sektor er lik lønnsnivået fratrukket produktivitetsnivået i samme sektor", "lønnsveksten i skjermet sektor bestemmes av prisveksten der pluss sektorens egen produktivitetsvekst", "prisveksten i skjermet sektor bestemmes på verdensmarkedet og regnes om til kroner med valutakursen"],
+      options: ["prisveksten i skjermet sektor er lønnsveksten minus produktivitetsveksten der", "prisnivået i skjermet sektor er lønnsnivået minus produktivitetsnivået", "lønnsveksten i skjermet sektor er prisveksten der pluss produktivitetsveksten", "prisveksten i skjermet sektor bestemmes på verdensmarkedet"],
       explanation: "Alle bokstavene er vekstrater, ikke nivåer. Lønn er hovedkostnaden i skjermet sektor, og med uendret påslag følger prisveksten kostnadsveksten per produsert enhet, altså $w - z_s$. Årsakspilen går fra lønn til pris her — motsatt av i konkurranseutsatt sektor.",
     },
     {
       question: "Hvilken relasjon oppgis IKKE på eksamen, og må du legge til selv?",
-      options: ["Konsumprisdefinisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$", "Lønnsrelasjonen $w = p_k + z_k + k$, som knytter lønnsveksten til lønnsevnen i konkurranseutsatt sektor", "Prisrelasjonen for skjermet sektor, $p_s = w - z_s$, som følger av påslagsprising på lønnskostnaden", "Kroneprisrelasjonen $p_k = q_k + v$, som omregner verdensmarkedsprisen til norske kroner"],
+      options: ["Konsumprisdefinisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$", "Lønnsrelasjonen $w = p_k + z_k + k$, som forankrer lønnsveksten i K-sektors lønnsevne", "Prisrelasjonen for skjermet sektor, $p_s = w - z_s$", "Kroneprisrelasjonen $p_k = q_k + v$"],
       explanation: "De fire relasjonene i settet bestemmer $p_k$, $p_i$, $w$ og $p_s$, men ingen av dem er konsumprisveksten. Uten den supplerte definisjonen kan modellen ikke svare på et eneste inflasjonsspørsmål — og å legge den til, og si at du gjør det, er dokumentert poenggivende.",
     },
     {
       question: "Hva måler $\\alpha$ i konsumprisdefinisjonen?",
-      options: ["Importandelen i husholdningenes forbruk", "Andelen av arbeidsstyrken som er sysselsatt i konkurranseutsatt sektor i forhold til skjermet sektor", "Investeringenes følsomhet for produksjonsnivået, slik parameteren brukes i Keynes-varianten i kap. 2.1", "Gjennomslaget fra valutakursendringer til prisveksten på norskproduserte varer og tjenester"],
+      options: ["Importandelen i husholdningenes forbruk", "Andelen sysselsatte i konkurranseutsatt sektor", "Investeringenes følsomhet for produksjonen, som i Keynes-varianten i kap. 2.1", "Vekten av norske varer i konsumkorga"],
       explanation: "$\\alpha$ er vekten på importert prisvekst i konsumprisindeksen, og $1-\\alpha$ vekten på skjermede varer. Merk symbolkollisjonen: i Keynes-varianten i kap. 2.1 brukes $\\alpha$ om en investeringskoeffisient — samme bokstav, helt annen betydning.",
     },
     {
@@ -2035,22 +2035,22 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kalles summen $p_k + z_k$?",
-      options: ["Hovedkursen — lønnsevnen i konkurranseutsatt sektor", "Konsumprisveksten, altså den inflasjonen husholdningene faktisk møter i butikken", "Reallønnsveksten i konkurranseutsatt sektor, korrigert for prisveksten på importerte varer", "Bytteforholdet mellom eksport- og importpriser, målt som differansen i vekstrater"],
+      options: ["Hovedkursen — lønnsevnen i konkurranseutsatt sektor", "Konsumprisveksten husholdningene møter", "Reallønnsveksten i konkurranseutsatt sektor", "Bytteforholdet mellom eksport- og importpriser, målt i vekstrater"],
       explanation: "Hovedkursen er den lønnsveksten K-sektor kan bære med uendret lønnsomhet: prisveksten sektoren møter pluss produktivitetsveksten. Lønnsrelasjonen sier at faktisk lønnsvekst er hovedkursen pluss avviket $k$.",
     },
     {
       question: "En kandidat skriver: «Prisen i skjermet sektor er $w - z_s$.» Hva er problemet?",
-      options: ["Det er prisVEKSTEN, ikke prisnivået, som er lik $w - z_s$ — alle bokstavene er vekstrater", "Fortegnet er feil: prisveksten skal være lønnsveksten pluss produktivitetsveksten i sektoren", "Relasjonen gjelder konkurranseutsatt sektor, ikke skjermet sektor, og skal skrives med fotskrift $k$", "Produktivitetsveksten hører ikke hjemme i prisrelasjonen, siden lønn er den eneste kostnaden"],
+      options: ["Det er prisVEKSTEN, ikke prisnivået, som er lik $w - z_s$ — alle bokstavene er vekstrater", "Fortegnet er feil: det skal være pluss $z_s$", "Relasjonen gjelder konkurranseutsatt sektor, ikke skjermet sektor, og skal skrives med fotskrift $k$", "Produktivitetsveksten hører ikke hjemme i en prisrelasjon"],
       explanation: "Hovedkursmodellen er skrevet i vekstrateform. Å si «prisen er» i stedet for «prisveksten er» er den vanligste sammenblandingen i Del 5, og den gjør resten av besvarelsen uklar. Fortegnet er riktig: produktivitetsvekst demper prisveksten.",
     },
     {
       question: "Hvorfor bestemmes prisen i konkurranseutsatt sektor utenfra?",
-      options: ["Fordi kundene kan kjøpe tilsvarende varer fra utenlandske produsenter i stedet", "Fordi myndighetene regulerer prisene i industrien gjennom særskilte konkurransepolitiske vedtak", "Fordi produktivitetsveksten der er så høy at bedriftene ikke trenger å ta hensyn til kostnadene", "Fordi lønnsoppgjøret i sektoren avtales før prisene for kommende år er kjent i markedet"],
+      options: ["Fordi kundene kan kjøpe tilsvarende varer fra utenlandske produsenter i stedet", "Fordi myndighetene regulerer industriprisene", "Fordi produktivitetsveksten der er så høy at bedriftene ikke trenger å tenke på kostnadene", "Fordi lønnsoppgjøret kommer før prisene er kjent"],
       explanation: "Konkurranse med utlandet gjør at en norsk produsent som setter prisen opp, taper kunder til utenlandske konkurrenter. Prisen er derfor i praksis gitt av verdensmarkedet, omregnet til kroner — og det er nettopp dette som gir sektoren et ytre tak på lønnsveksten.",
     },
     {
       question: "Hva er den viktigste grunnen til at sensor forventer at du forklarer relasjonene?",
-      options: ["Relasjonene oppgis bevisst uforklart, og forklaringen er selve ferdigheten som testes", "Relasjonene inneholder ofte trykkfeil, slik at kandidaten må dokumentere sin egen tolkning", "Forklaringen er nødvendig for å kunne bruke ordbok, som er eneste tillatte hjelpemiddel", "Eksamen har ingen regneoppgaver, så forklaringen brukes som erstatning for utregninger"],
+      options: ["Relasjonene oppgis bevisst uforklart, og forklaringen er selve ferdigheten som testes", "Relasjonene inneholder ofte trykkfeil som må tolkes", "Forklaringen er nødvendig for å kunne bruke ordbok", "Eksamen har ingen regneoppgaver, så forklaringen brukes som erstatning for utregninger"],
       explanation: "Sensorveiledningene sier det gjentatte ganger: å regne på uforklarte ligninger gir ikke uttelling. Settene oppgir relasjonene med formuleringen at de «kan komme til nytte» nettopp for at kandidaten skal vise at hun forstår dem. Det stemmer at faget ikke har rene regneoppgaver, men det er ikke begrunnelsen for forklaringskravet.",
     },
     {
@@ -2087,12 +2087,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken koeffisient har valutakursveksten $v$ i uttrykket for konsumprisveksten?",
-      options: ["1 — fullt gjennomslag", "$\\alpha$ — bare den importerte delen av forbruket rammes av kursen", "$1-\\alpha$ — bare de norskproduserte varene rammes via lønnsdannelsen", "0 — kursen påvirker bare relative priser, ikke konsumprisveksten"],
+      options: ["1 — fullt gjennomslag", "$\\alpha$ — bare den importerte delen av forbruket rammes", "$1-\\alpha$ — bare de norske varene rammes via lønnsdannelsen", "0 — intet gjennomslag"],
       explanation: "Krona treffer begge deler av forbrukskurven: importvarene direkte med vekt $\\alpha$, og de norske varene via lønnsdannelsen med vekt $1-\\alpha$. Vektene summerer til én, så gjennomslaget blir fullt uansett importandel.",
     },
     {
       question: "Hvilken størrelse faller HELT ut av uttrykket for reallønnsveksten?",
-      options: ["Valutakursveksten $v$", "Produktivitetsveksten $z_k$", "Den ekstraordinære lønnsveksten $k$", "Importandelen $\\alpha$"],
+      options: ["Valutakursveksten $v$", "Produktivitetsveksten $z_k$", "Den ekstraordinære lønnsveksten $k$", "Importandelen"],
       explanation: "$v$ løfter lønnsveksten og konsumprisveksten nøyaktig like mye og nøytraliserer seg selv. De tre andre står i uttrykket $w-\\pi = \\alpha(q_k-q_i) + \\alpha z_k + (1-\\alpha)z_s + \\alpha k$.",
     },
     {
@@ -2112,7 +2112,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med norsk inflasjon når prisveksten ute stiger like mye på import- og eksportvarer, med uendret kurs og $k = 0$?",
-      options: ["Den stiger én-til-én med den utenlandske", "Den stiger med $\\alpha$ ganger den utenlandske", "Den er upåvirket, siden lønnsdannelsen absorberer sjokket", "Den faller, fordi konkurranseevnen bedres"],
+      options: ["Den stiger én-til-én med den utenlandske", "Den stiger med $\\alpha$ ganger den utenlandske", "Den er upåvirket, siden lønnsdannelsen absorberer sjokket", "Den faller"],
       explanation: "Importvarene arver prisveksten direkte, og de norske varene arver den via industriens priser, lønnsevnen, lønnsveksten og til slutt de skjermede prisene. Vektene summerer til én, så gjennomslaget er fullt: $\\pi = \\pi^*$.",
     },
     {
@@ -2122,7 +2122,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva måler leddet $\\alpha(q_k - q_i)$ i reallønnsuttrykket?",
-      options: ["Endringen i bytteforholdet mot utlandet", "Den samlede prisveksten på verdensmarkedet, veid med importandelen i forbruket", "Forskjellen i produktivitetsvekst mellom konkurranseutsatt og skjermet sektor", "Gjennomslaget fra valutakursen til prisene på importerte forbruksvarer"],
+      options: ["Endringen i bytteforholdet mot utlandet", "Den samlede prisveksten på verdensmarkedet, veid med importandelen", "Forskjellen i produktivitetsvekst mellom de to sektorene", "Kursgjennomslaget til importprisene"],
       explanation: "Stiger prisene på det Norge selger raskere enn på det Norge kjøper, får landet mer igjen for eksporten, og kjøpekraften øker. Det er en ekte velstandsendring som ikke krever at noen arbeider mer.",
     },
     {
@@ -2234,8 +2234,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et kostnadssjokk utenfra beskrives hvordan i de to modellene?",
-      options: ["Som høyere $q_k$ og $q_i$ i hovedkursmodellen, og som en inflasjonsimpuls $Z^\\pi$ i IS-RR-PK", "Som høyere $k$ i hovedkursmodellen, og som et skift i potensielt BNP $Y^n$ i IS-RR-PK-apparatet", "Som lavere $z_k$ i hovedkursmodellen, og som en etterspørselsimpuls $Z^D$ i IS-RR-PK", "Som høyere $v$ i hovedkursmodellen, og som en renteimpuls $Z^i$ i IS-RR-PK"],
-      explanation: "Det er samme hendelse i to modellspråk. Å påpeke det gjør overgangen mellom de to delene av besvarelsen naturlig — og viser at du har forstått hva modellene er, ikke bare hvordan de regnes på.",
+      options: ["Som høyere $q_k$ og $q_i$ i hovedkursmodellen, og som importert prispress i IS-RR-PK", "Som høyere $k$ i hovedkursmodellen, og som et skift i potensielt BNP $Y^n$ i IS-RR-PK-apparatet", "Som lavere $z_k$ i hovedkursmodellen, og som en etterspørselsimpuls $Z^D$ i IS-RR-PK", "Som høyere $v$ i hovedkursmodellen, og som en renteimpuls $Z^i$ i IS-RR-PK"],
+      explanation: "Det er samme hendelse i to modellspråk: i IS-RR-PK skifter IS mot høyre (norske varer blir relativt billigere — en negativ $Z^\\pi$ i bokas relative tolkning) mens RR skifter opp gjennom importert prisvekst. Å påpeke at det er samme hendelse gjør overgangen mellom de to delene av besvarelsen naturlig — og viser at du har forstått hva modellene er, ikke bare hvordan de regnes på.",
     },
     {
       question: "Hvorfor er produksjonsvirkningen av en kronesvekkelse ubestemt?",
@@ -2261,17 +2261,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-6-1': [
     {
       question: "Hva er det første steget i aktualitetsoversettelsen?",
-      options: ["Avgjøre hvilke modeller som er relevante for spørsmålets horisont", "Skifte den kurven som er mest berørt av hendelsen, og finne ny likevekt i diagrammet", "Skrive ned alt du husker om temaet, slik at sensor ser bredden i kunnskapen din", "Vurdere hvor sannsynlig hendelsen er, og om den vil vare over tid eller ikke"],
+      options: ["Avgjøre hvilke modeller som er relevante for spørsmålets horisont", "Skifte den kurven som er mest berørt av hendelsen, og finne ny likevekt", "Skrive ned alt du husker om temaet, så sensor ser bredden", "Vurdere hvor sannsynlig hendelsen er"],
       explanation: "Modellvalget må komme først, fordi hvilke eksogene variabler som i det hele tatt finnes, avhenger av modellen: $Z^D$ finnes ikke i vekstmodellen, og spareraten $s$ finnes ikke i IS-RR-PK. Velger du modell etter at du har begynt å analysere, ender du med den du husker best.",
     },
     {
       question: "Hvilken sjokkvariabel treffer BÅDE IS og RR?",
       options: ["$Z^E$", "$Z^D$", "$Z^\\pi$", "$Z^i$"],
-      explanation: "Valutakursimpulsen treffer IS gjennom konkurranseevnen og eksporten, og RR gjennom importert prispress som sentralbanken reagerer på. Derfor stiger renta entydig ved kronesvekkelse, mens produksjonsvirkningen er ubestemt. $Z^D$ treffer bare IS, $Z^\\pi$ treffer RR og PK, $Z^i$ bare RR.",
+      explanation: "Valutakursimpulsen treffer IS gjennom konkurranseevnen og eksporten, og RR gjennom importert prispress som sentralbanken reagerer på. Derfor stiger renta entydig ved kronesvekkelse, mens produksjonsvirkningen er ubestemt. $Z^D$ treffer bare IS, $Y^n$ bare RR (gjennom produksjonsgapet), $Z^i$ bare RR — og $Z^\\pi$ treffer alle tre.",
     },
     {
       question: "Den amerikanske sentralbanken hever renta kraftig. Hva skjer med krona?",
-      options: ["Den svekkes, siden høyere $i^F$ gir høyere $E$", "Den styrkes, siden internasjonal uro får investorer til å søke mot kroner", "Den er upåvirket, siden norsk rente ikke er endret i denne situasjonen", "Retningen kan ikke bestemmes uten å kjenne størrelsen på importandelen"],
+      options: ["Den svekkes, siden høyere $i^F$ gir høyere $E$", "Den styrkes, siden uro får investorer til å søke mot kroner", "Den er upåvirket av utenlandske renter", "Retningen kan ikke bestemmes uten å kjenne importandelen"],
       explanation: "Fra $E = E^e + \\kappa(i^F - i)$ gir høyere $i^F$ høyere $E$, altså svakere krone: utenlandske plasseringer blir relativt mer attraktive. Merk at norsk rente ikke behøver å endres for at kursen skal bevege seg — det er differansen som betyr noe.",
     },
     {
@@ -2306,7 +2306,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor bør et sektorspesifikt sjokk ikke behandles som et aggregert etterspørselsfall?",
-      options: ["Fordi politikken virker annerledes når én sektor ikke kan levere", "Fordi multiplikatoren alltid er større i skjermet enn i konkurranseutsatt sektor", "Fordi et sektorsjokk aldri påvirker det samlede aktivitetsnivået i økonomien", "Fordi renteregelen ikke reagerer på sjokk som bare rammer én næring"],
+      options: ["Fordi politikken virker annerledes når én sektor ikke kan levere", "Fordi multiplikatoren alltid er større i skjermet enn i konkurranseutsatt sektor", "Fordi et sektorsjokk aldri påvirker samlet aktivitet", "Fordi renteregelen ikke reagerer på næringssjokk"],
       explanation: "Generell stimulans treffer dårlig når en sektor er administrativt stengt eller teknologisk hindret — pengene lekker til sparing eller til den sektoren som alt går for fullt. Rammen for slike sjokk er den todelte modellen i kap. 6.2, og å hente den inn uoppfordret er et selvstendig poeng.",
     },
     {
@@ -2326,8 +2326,8 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Aktiviteten ute faller, og styringsrentene ute settes ned. Hvordan virker rentenedsettelsen ute på norsk økonomi?",
-      options: ["Den styrker krona og forsterker dermed etterspørselsfallet", "Den svekker krona og demper dermed etterspørselsfallet", "Den har ingen virkning på Norge så lenge norsk rente holdes uendret", "Den løfter norsk inflasjon gjennom dyrere importvarer i kroner"],
-      explanation: "Lavere $i^F$ gir lavere $E$ i paritetsbetingelsen, altså sterkere krone — og sterkere krone svekker norsk konkurranseevne. Kanalen forsterker altså nedgangen. Forbeholdet er at internasjonal uro samtidig kan løfte risikopremien på små valutaer og trekke motsatt vei.",
+      options: ["Krona styrker seg, men produksjonsvirkningen kan ikke signeres", "Krona styrker seg, og dermed forsterkes etterspørselsfallet entydig", "Krona svekkes, og etterspørselsfallet dempes", "Krona styrker seg, og norsk inflasjon løftes av dyrere import"],
+      explanation: "Lavere $i^F$ er en negativ $Z^E$-impuls: $E = Z^E - \\kappa i$ gir lavere $E$, altså sterkere krone, og siden både IS og renteregelen treffes, faller renta entydig. Men de to skiftene trekker produksjonen hver sin vei — IS mot venstre (svakere konkurranseevne), RR ned (banken ser lavere importert prispress) — så produksjonsvirkningen avhenger av $g_E$ mot $a_2$, speilvendt av kronesvekkelsen i kap. 4.4. Å skrive at fallet forsterkes entydig er å signere det usignerbare; sterkere krone gir dessuten billigere import, ikke dyrere, og at norsk rente er uendret er ingen forutsetning her.",
     },
     {
       question: "Hva bør du gjøre når to kanaler fra samme hendelse trekker i motsatt retning?",
@@ -2353,7 +2353,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilket virkemiddel gir høyest etterspørsel per krone når én sektor er administrativt stengt?",
-      options: ["Offentlige kjøp rettet mot den åpne sektoren", "Generell skattelette til alle husholdninger i økonomien", "Rentekutt fra sentralbanken, som virker bredt og raskt på hele økonomien", "Brede kontantoverføringer fordelt likt på hele befolkningen"],
+      options: ["Offentlige kjøp rettet mot den åpne sektoren", "Generell skattelette til alle", "Rentekutt fra sentralbanken, som virker bredt og raskt", "Brede kontantoverføringer til hele befolkningen"],
       explanation: "Beløpet blir i sin helhet produksjon, siden den åpne sektoren både kan og får levere, og inntekten går videre inn i kretsløpet. Forbeholdet er at det må finnes ledig kapasitet der — går sektoren alt for fullt, gir kjøpene pris- og rentepress i stedet.",
     },
     {
@@ -2435,7 +2435,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken politikk følger IKKE av KI-analysen i vekstmodellen?",
-      options: ["Å bremse teknologien", "Å styrke omstilling gjennom utdanning og kvalifisering", "Å spre eierskapet til teknologien bredere i befolkningen", "Å beskatte kapitalavkastning for å finansiere fellesgoder"],
+      options: ["Å bremse teknologien", "Å styrke omstilling gjennom utdanning", "Å spre eierskapet", "Å beskatte kapitalavkastning for å finansiere fellesgoder"],
       explanation: "Å bremse teknologien ville gjort samlet produksjon lavere uten å løse fordelingsproblemet — man gir opp gevinsten for å slippe å fordele den. Analysen sier at kaka blir større, og at utfordringen ligger i fordelingen, ikke i størrelsen.",
     },
   ],
@@ -2621,17 +2621,17 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-7-2': [
     {
       question: "Et brått fall i næringslivets investeringsvilje treffer modellen som et sjokk i hvilken variabel?",
-      options: ["$Z^D$, etterspørselssjokket", "$Z^E$, valutakursimpulsen, siden investeringene finansieres internasjonalt og kursen derfor beveger seg først", "$Z^\\pi$, inflasjonsimpulsen, fordi lavere investeringer gir lavere prispress i økonomien", "$Y^n$, potensielt BNP, ettersom mindre kapital senker produksjonsnivået som er forenlig med stabil inflasjon"],
+      options: ["$Z^D$, etterspørselssjokket", "$Z^E$, valutakursimpulsen, siden investeringene finansieres ute", "$Z^\\pi$, prisimpulsen", "$Y^n$, potensielt BNP, siden mindre kapital senker potensialet"],
       explanation: "$Z^D$ samler alt som flytter etterspørselen uten at rente eller priser er endret, og investeringsvilje er nettopp det. Kurs og priser endres som en FØLGE av sjokket, ikke som sjokket selv.",
     },
     {
       question: "Ved et negativt etterspørselssjokk faller både produksjon og rente. Hva skjer med kronekursen?",
-      options: ["Krona svekkes, fordi lavere norsk rente gjør kroneplasseringer mindre attraktive", "Krona styrkes, fordi lavere aktivitet gir lavere import og dermed mindre etterspørsel etter utenlandsk valuta", "Krona er upåvirket, siden sjokket traff etterspørselen og ikke valutamarkedet direkte", "Krona styrkes, fordi sentralbankens rentekutt signaliserer at inflasjonen er under kontroll og tilliten øker"],
+      options: ["Krona svekkes, fordi lavere norsk rente gjør kroneplasseringer mindre attraktive", "Krona styrkes, fordi lavere import gir mindre valutabehov", "Krona er upåvirket, siden sjokket traff etterspørselen", "Krona styrkes, fordi rentekuttet styrker tilliten"],
       explanation: "Paritetsbetingelsen $E = E^e + \\kappa(i^F-i)$ gir høyere $E$, altså svakere krone, når $i$ faller. Kursen reagerer på rentedifferansen, ikke på handelsstrømmene i denne modellen.",
     },
     {
       question: "Hvilke to virkninger kan IKKE signeres entydig ved et negativt etterspørselssjokk i denne modellen?",
-      options: ["Privat konsum og konsumprisveksten", "Handelsbalansen og ledigheten, siden begge avhenger av hvor kraftig sentralbanken svarer på fallet", "Renten og produksjonen, som begge avhenger av helningen på renteregelen og av multiplikatoren", "Prisveksten på norske varer og investeringene, fordi renteresponsen trekker begge i motsatt retning av sjokket"],
+      options: ["Privat konsum og konsumprisveksten", "Handelsbalansen og ledigheten, siden begge avhenger av bankens respons", "Renta og produksjonen", "Prisveksten på norske varer og investeringene, siden renteresponsen trekker motsatt vei"],
       explanation: "Konsumet trekkes ned av lavere inntekt og opp av lavere rente. Konsumprisveksten trekkes opp av dyrere import (svakere krone) og ned av svakere prisvekst på norske varer. Handelsbalansen bedres entydig, og ledigheten stiger entydig.",
     },
     {
@@ -2641,29 +2641,29 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer i modellen når Phillips-kurven er svært bratt (stor $\\beta$)?",
-      options: ["Både etterspørselskurven og renteregelen blir brattere, og et etterspørselssjokk gir nesten uendret produksjon men markert renteendring", "Etterspørselskurven blir flatere, slik at et etterspørselssjokk gir stort utslag i produksjonen og lite i renten", "Renteregelen blir flatere, siden banken kan la gapet ligge når prisveksten reagerer raskt av seg selv", "Multiplikatoren blir større, fordi høyere lønnsvekst gir høyere inntekt og dermed mer konsum i neste runde"],
+      options: ["Begge kurvene blir brattere, og et etterspørselssjokk gir nesten uendret produksjon", "Etterspørselskurven blir flatere, slik at et etterspørselssjokk gir stort utslag i produksjonen", "Renteregelen blir flatere, siden banken kan la gapet ligge", "Multiplikatoren blir større, fordi høyere lønnsvekst gir mer konsum"],
       explanation: "Stor $\\beta$ gir kraftig prisdemping av multiplikatoren (brattere etterspørselskurve) og kraftigere respons per gapenhet (brattere renteregel). Produksjonen blir da nesten låst, mens renten bærer tilpasningen — økonomien minner om en bindende tilbudsside.",
     },
   ],
   'econ2310-7-3': [
     {
       question: "Hovedkursmodellen oppgis på eksamen med fire relasjoner. Hvilken må kandidaten legge til selv?",
-      options: ["Konsumprisdefinisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$", "Lønnsrelasjonen $w = p_k + z_k + k$, som beskriver hvordan frontfaget setter normen for lønnsveksten i resten av økonomien", "Prisrelasjonen for skjermet sektor $p_s = w - z_s$, som viser at kostnadene veltes over i prisene der", "Kroneprisrelasjonen $p_i = q_i + v$, som omregner utenlandske priser til kroner ved hjelp av kursveksten"],
+      options: ["Konsumprisdefinisjonen $\\pi = \\alpha p_i + (1-\\alpha)p_s$", "Lønnsrelasjonen $w = p_k + z_k + k$", "Prisrelasjonen for skjermet sektor $p_s = w - z_s$, som følger av påslagsprising", "Kroneprisrelasjonen $p_i = q_i + v$"],
       explanation: "De tre andre står i settet. Uten konsumprisdefinisjonen finnes ikke konsumprisveksten i modellen, og spørsmål om kjøpekraft kan ikke besvares. Å supplere den er dokumentert god eksamensadferd.",
     },
     {
       question: "Hvorfor er reallønnsveksten $w-\\pi$ upåvirket av valutakursveksten $v$ i hovedkursmodellen?",
-      options: ["Fordi kursveksten løfter både lønnsveksten (via frontfaget) og konsumprisveksten i samme takt", "Fordi valutakursen bare påvirker prisene på importvarer, som er en liten del av konsumet og derfor kan neglisjeres", "Fordi lønnsveksten er nominelt fastsatt i tariffavtaler og derfor ikke kan reagere på kursendringer i det hele tatt", "Fordi kursveksten inngår med motsatt fortegn i de to kroneprisrelasjonene og derfor faller bort i summen"],
+      options: ["Fordi kursveksten løfter både lønnsveksten (via frontfaget) og konsumprisveksten i samme takt", "Fordi kursen bare treffer importvarene, som er en liten del av forbruket", "Fordi lønnsveksten er nominelt fastsatt i tariffavtaler og derfor ikke kan reagere på kursendringer", "Fordi kursveksten inngår med motsatt fortegn i de to kroneprisrelasjonene"],
       explanation: "$v$ går inn i kroneprisene i konkurranseutsatt sektor, løfter lønnsveksten gjennom frontfagsrelasjonen, og løfter konsumprisene like mye. Nettovirkningen på kjøpekraften blir null.",
     },
     {
       question: "Hva betyr et krav om «kompensasjon for tapt kjøpekraft» i hovedkursmodellens språk?",
-      options: ["Et krav om positiv ekstraordinær lønnsvekst, altså $k > 0$", "Et krav om høyere produktivitetsvekst i skjermet sektor, slik at prisveksten der kan holdes lavere", "Et krav om at sentralbanken senker renten for å styrke kronen og dempe importprisveksten", "Et krav om lavere importandel i konsumet, slik at utenlandsk prisvekst får mindre gjennomslag"],
+      options: ["Et krav om positiv ekstraordinær lønnsvekst, altså $k > 0$", "Et krav om høyere produktivitetsvekst i skjermet sektor", "Et krav om at sentralbanken styrker krona", "Et krav om lavere importandel i konsumet, slik at prisvekst ute betyr mindre"],
       explanation: "$k$ er lønnsvekst utover hovedkursen. Modellen viser at positiv $k$ løfter reallønnsveksten med $\\alpha k$, men også konsumprisveksten med $(1-\\alpha)k$, og svekker lønnsomheten i konkurranseutsatt sektor.",
     },
     {
       question: "En kronesvekkelse er en $Z^E$-impuls. Hvilke relasjoner treffer den?",
-      options: ["Både etterspørselsrelasjonen og renteregelen — derfor skifter to kurver samtidig", "Bare etterspørselsrelasjonen, siden valutakursen virker gjennom eksport og import og ikke gjennom pengepolitikken", "Bare renteregelen, siden sentralbanken er den eneste aktøren som reagerer direkte på kursendringer", "Bare Phillips-kurven, siden en svakere krone er et rent prissjokk som ikke berører etterspørselen"],
+      options: ["Både etterspørselsrelasjonen og renteregelen — derfor skifter to kurver samtidig", "Bare etterspørselsrelasjonen, siden kursen virker gjennom eksport og import og ikke gjennom pengepolitikken", "Bare renteregelen, siden bare sentralbanken reagerer på kursen", "Bare Phillips-kurven, siden svakere krone er et rent prissjokk"],
       explanation: "Kurssvekkelsen bedrer konkurranseevnen (etterspørselen opp) og løfter importprisene, som banken må svare på direkte. Renten stiger entydig, mens produksjonsvirkningen er ubestemt.",
     },
     {
@@ -2675,7 +2675,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
   'econ2310-7-4': [
     {
       question: "Hva skjer med samlet kapital og samlet produksjon når økonomien har nådd likevekt i vekstmodellen?",
-      options: ["De vokser med befolkningsveksten $n$, mens størrelsene per arbeider står stille", "De står stille, siden likevekt per definisjon betyr at ingenting endrer seg i økonomien lenger", "De vokser med spareraten $s$, siden det er den som bestemmer hvor mye kapital som bygges opp hvert år", "De faller gradvis, fordi kapitalslitet fortsetter mens investeringene har stanset i likevekten"],
+      options: ["De vokser med befolkningsveksten $n$, mens størrelsene per arbeider står stille", "De står stille, siden likevekt betyr at ingenting endrer seg", "De vokser med spareraten $s$, siden den bestemmer hvor mye kapital som bygges opp", "De faller gradvis, fordi kapitalslitet fortsetter uten investeringer"],
       explanation: "Med $k$ og $y$ konstante og $L$ voksende med $n$, vokser $K = kL$ og $Y = yL$ med $n$. Å hevde at de står stille er en av de feilene sensorveiledningene flagger sterkest.",
     },
     {
@@ -2690,12 +2690,12 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er betingelsen for den spareraten som gir høyest varig konsum per arbeider, og hva betyr den grafisk?",
-      options: ["$f'(k^*) = n+\\delta$ — produksjonskurvens helning er lik utvanningslinjens, altså der avstanden mellom dem er størst", "$s = n+\\delta$ — spareraten skal være lik summen av befolkningsvekst og kapitalslit for at kapitalen skal holde seg", "$f(k^*) = (n+\\delta)k^*$ — produksjonen skal akkurat dekke det som kreves for å opprettholde kapitalen per arbeider", "$s f'(k^*) = \\delta$ — den marginale avkastningen på det som spares, skal være lik kapitalslitet i likevekt"],
+      options: ["$f'(k^*) = n+\\delta$ — produksjonskurvens helning er lik utvanningslinjens, der avstanden mellom dem er størst", "$s = n+\\delta$ — spareraten skal være lik summen av befolkningsvekst og kapitalslit for at kapitalen skal holde seg", "$f(k^*) = (n+\\delta)k^*$ — produksjonen skal akkurat dekke det som kreves for å opprettholde kapitalen per arbeider", "$s f'(k^*) = \\delta$ — den marginale avkastningen på det som spares, skal være lik kapitalslitet i likevekt"],
       explanation: "Konsumet i likevekt er $c^* = f(k^*)-(n+\\delta)k^*$; deriverer man med hensyn på $k^*$ og setter lik null, får man $f'(k^*)=n+\\delta$. Grafisk er $c^*$ den loddrette avstanden mellom kurven og linjen, og den er størst der helningene er like.",
     },
     {
       question: "Produktivitetsveksten $g$ dobles. Hva skjer?",
-      options: ["Kapitalen per effektivitetsenhet faller, men produksjonen per arbeider vokser varig med den nye, høyere raten", "Både kapitalen per effektivitetsenhet og produksjonen per arbeider faller, siden strålen blir brattere i fasediagrammet", "Ingenting endres på lang sikt, siden produktivitetsvekst bare flytter nivået og ikke den langsiktige vekstbanen", "Kapitalen per effektivitetsenhet stiger, fordi høyere produktivitet gir mer produksjon å investere av hvert år"],
+      options: ["Kapitalen per effektivitetsenhet faller, men produksjonen per arbeider vokser varig med den nye, høyere raten", "Både kapitalen per effektivitetsenhet og produksjonen per arbeider faller, siden strålen blir brattere i fasediagrammet", "Ingenting endres på lang sikt, siden $g$ bare flytter nivået", "Kapitalen per effektivitetsenhet stiger, siden høyere produktivitet gir mer å investere"],
       explanation: "Strålen $(n+g+\\delta)k$ blir brattere, så $k^*$ per effektivitetsenhet faller. Men enheten vokser selv: produksjonen per arbeider vokser med $g$ i likevekt, og en dobling av $g$ dobler den varige veksttakten. Nivå og bane må skilles.",
     },
   ],
