@@ -186,6 +186,12 @@ if '2' in DELER:
     assert KY1 < KY0, 'lavere c0 må gi lavere likevektsproduksjon'
     # skjæringene ligger PÅ 45-graderslinja:
     assert near(A0 + C1 * KY0, KY0) and near(A1 + C1 * KY1, KY1)
+    # figuren PÅSTÅR at det vannrette fallet er større enn det loddrette
+    # skiftet i linjen (det er multiplikatoren leseren skal se) — sjekk det:
+    assert (KY0 - KY1) > (A0 - A1), 'ΔY må overstige det loddrette skiftet'
+    assert 0.0 < C1 < 1.0, 'etterspørselslinja må være slakere enn 45-graderslinja'
+    # skiftet er PARALLELT: uendret helning, lavere skjæringspunkt
+    assert near(((A1 + C1 * 70.0) - A1) / 70.0, C1) and A1 < A0
 
     # H2018-varianten: S = gY, I = I0 + aY, likevekt Y* = I0/(g-a).
     G0, G1, ALF, I0 = 0.25, 0.35, 0.15, 6.0
@@ -196,6 +202,13 @@ if '2' in DELER:
     assert near(HS0, I0 + ALF * HY0) and near(HS1, I0 + ALF * HY1), 'S = I i likevekt'
     assert HY1 < HY0, 'høyere sparerate må gi lavere Y'
     assert HS1 < HS0, 'realisert sparing/investering må FALLE (B lavere enn A)'
+    # sparelinja MÅ være brattere enn investeringslinja (stabilitetsvilkåret
+    # γ > α), og B skal ligge PÅ den uendrede investeringslinja:
+    assert G0 > ALF and G1 > ALF
+    assert near(HS1, I0 + ALF * HY1), 'B må ligge på investeringslinja'
+    # fasiten i kap. 2.1 v1 b): dS*/dγ = -αI0/(γ-α)^2 < 0 når α > 0, og
+    # nøyaktig 0 når α = 0 (grunnvarianten). Sjekk fortegnet numerisk:
+    assert -ALF * I0 / (G0 - ALF) ** 2 < 0 and near(-0.0 * I0 / G0 ** 2, 0.0)
 
     # Vekstmodellen: y = f(k) = k^0.5, sparekurve s*f(k), utvanning (n+d)k.
     NDEL, S0, S1 = 0.10, 0.20, 0.30
@@ -207,6 +220,14 @@ if '2' in DELER:
     assert (S0 * fk(2) - S0 * fk(1)) > (S0 * fk(9) - S0 * fk(8))
     # og sparekurven skal krysse strålen ovenfra->nedenfra (stabilitet)
     assert S0 * fk(KS0 - 1) > NDEL * (KS0 - 1) and S0 * fk(KS0 + 1) < NDEL * (KS0 + 1)
+    # den nye sparekurven skal ligge OVER den gamle for all k > 0 (og bare
+    # møte den i origo) — ellers er «svinger opp» feil ord:
+    assert all(S1 * fk(0.25 * j) > S0 * fk(0.25 * j) for j in range(1, 49))
+    assert near(S1 * fk(0.0), S0 * fk(0.0))
+    # i den gamle likevekten gir den nye sparekurven Δk > 0 (pila mot høyre):
+    assert S1 * fk(KS0) > NDEL * KS0, 'dynamikkpila må peke mot høyre'
+    # kontrastfiguren PÅSTÅR motsatt pilretning i de to panelene:
+    assert KS1 > KS0 and KY1 < KY0, 'samme sjokk, motsatt retning i panelene'
 
     print(f'  [Del 2] Keynes: Y0={KY0:.0f} Y1={KY1:.0f} (multiplikator {MULT:.1f})')
     print(f'  [Del 2] H2018:  Y0={HY0:.0f} (S=I={HS0:.1f}) -> Y1={HY1:.0f} (S=I={HS1:.1f})')
@@ -228,11 +249,14 @@ if '2' in DELER:
     # 45-graderslinja
     b += line((kx(0), kv(0)), (kx(YEND), kv(YEND)), INK, 1.8)
     # etterspørselslinjene
+    # husstil: BEGGE etterspørselslinjene gjelder (før og etter sjokket), så
+    # begge er heltrukne — utgangspunktet rødt, den nye oransje. Stiplet er
+    # reservert for hjelpelinjer og hypotetiske grener.
     b += line((kx(0), kv(A0)), (kx(YEND), kv(A0 + C1 * YEND)), RED, 2.4)
-    b += line((kx(0), kv(A1)), (kx(YEND), kv(A1 + C1 * YEND)), RED, 2.2, '7 4')
+    b += line((kx(0), kv(A1)), (kx(YEND), kv(A1 + C1 * YEND)), ORG, 2.4)
     b += rt(96, 46, '45°-linja: Y = etterspørsel', 11, GREY)
     b += rt(kx(YEND) + 6, kv(A0 + C1 * YEND) + 4, 'C + I_{0}', 13, RED)
-    b += rt(kx(YEND) + 6, kv(A1 + C1 * YEND) + 4, 'lavere c_{0}', 12, RED)
+    b += rt(kx(YEND) + 6, kv(A1 + C1 * YEND) + 4, 'lavere c_{0}', 12, ORG)
     # likevektene
     # A merkes nede til høyre for krysset (den eneste kilen som er fri for linjer)
     for Y, lab, dxy in ((KY0, 'A', (9, 15)), (KY1, 'B', (-17, -7))):
@@ -247,7 +271,9 @@ if '2' in DELER:
     xs = 92.0
     Ys = (xs - OX) / KX
     b += darrow((xs, kv(A0 + C1 * Ys)), (xs, kv(A1 + C1 * Ys)), INK)
-    b += rt(xs + 8, kv(A1 + C1 * Ys) - 6, 'fall i c_{0}', 11, INK)
+    # etiketten midt på dobbeltpila, til høyre for den (ikke oppå pilspissen)
+    b += rt(xs + 11, (kv(A0 + C1 * Ys) + kv(A1 + C1 * Ys)) / 2 + 4,
+            'fall i c_{0}', 11, INK)
     save('keynes-kryss-spareparadoks', b)
 
     # ------------------------- 2) sparing mot investering (H2018) ----------
@@ -261,21 +287,25 @@ if '2' in DELER:
         s = axes('Y', 'sparing og investering', ylab_italic=False, ylab_size=12)
         # investeringslinja (etterspørselssiden: rød), i ro
         s += line((hx(0), hv(I0)), (hx(HEND), hv(I0 + ALF * HEND)), RED, 2.4)
-        s += rt(hx(HEND) - 4, hv(I0 + ALF * HEND) - 10, 'I = I_{0} + αY', 13, RED, anchor='end')
+        # etiketten står i den frie høyremargen (over linja kolliderer den med
+        # sparestrålen, som er brattere og passerer rett over den her)
+        s += rt(hx(HEND) + 4, hv(I0 + ALF * HEND) + 5, 'I = I_{0}+αY', 12, RED)
         s += dot(OX, hv(I0), RED, 3.5)
         s += rt(OX - 30, hv(I0) + 5, 'I_{0}', 13, RED)
         # sparelinja/-linjene (blå)
         if with_shift:
-            s += line((hx(0), hv(0)), (hx(HEND), hv(G0 * HEND)), BLUE, 1.8, '6 4')
+            # husstil: begge sparestrålene gjelder, så begge er heltrukne —
+            # utgangspunktet blått, den nye lilla.
+            s += line((hx(0), hv(0)), (hx(HEND), hv(G0 * HEND)), BLUE, 2.4)
             kend = 23.0 / G1
-            s += line((hx(0), hv(0)), (hx(kend), hv(23.0)), BLUE, 2.4)
+            s += line((hx(0), hv(0)), (hx(kend), hv(23.0)), PUR, 2.4)
             s += rt(hx(HEND) + 4, hv(G0 * HEND) + 5, 'S = γ_{0}Y', 13, BLUE)
-            s += rt(hx(kend) + 4, hv(23.0) + 4, 'S = γ_{1}Y', 13, BLUE)
+            s += rt(hx(kend) + 4, hv(23.0) + 4, 'S = γ_{1}Y', 13, PUR)
             # pila viser at strålen svinger OPP om origo; de to merkede strålene
             # forteller hvilken som er ny, så pila står uten tekst (ellers kolliderer
             # etiketten med A eller med γ1-strålen).
             xa = 54.5
-            s += arrow((hx(xa), hv(G0 * xa)), (hx(xa), hv(G1 * xa)), GREY, 1.4)
+            s += arrow((hx(xa), hv(G0 * xa)), (hx(xa), hv(G1 * xa)), PUR, 1.5)
         else:
             s += line((hx(0), hv(0)), (hx(HEND), hv(G0 * HEND)), BLUE, 2.4)
             s += rt(hx(HEND) + 4, hv(G0 * HEND) + 5, 'S = γY', 13, BLUE)
@@ -344,11 +374,13 @@ if '2' in DELER:
     def solow_panel(xf, vf, oy):
         s = ''
         ks = [0.03 * j for j in range(1, int(KEND / 0.03) + 1)]
-        s += polyline([(xf(k), vf(S0 * fk(k))) for k in ks], BLUE, 2.2, '6 4')
-        s += polyline([(xf(k), vf(S1 * fk(k))) for k in ks], BLUE, 2.4)
+        # husstil: begge sparekurvene gjelder (før og etter), så begge er
+        # heltrukne — utgangspunktet blått, den nye lilla.
+        s += polyline([(xf(k), vf(S0 * fk(k))) for k in ks], BLUE, 2.4)
+        s += polyline([(xf(k), vf(S1 * fk(k))) for k in ks], PUR, 2.4)
         s += line((xf(0), vf(0)), (xf(KEND), vf(NDEL * KEND)), GRN, 2.2)
         s += rt(xf(KEND) + 5, vf(NDEL * KEND) + 4, '(n+δ)k', 12, GRN)
-        s += rt(xf(KEND) + 5, vf(S1 * fk(KEND)) + 4, 's_{1} f(k)', 12, BLUE)
+        s += rt(xf(KEND) + 5, vf(S1 * fk(KEND)) + 4, 's_{1} f(k)', 12, PUR)
         s += rt(xf(KEND) + 5, vf(S0 * fk(KEND)) + 4, 's_{0} f(k)', 12, BLUE)
         for k, lab, dxy in ((KS0, 'A', (-17, -7)), (KS1, 'B', (7, -8))):
             s += line((xf(k), vf(NDEL * k)), (xf(k), oy), GREY, 1.2, '5 4')
@@ -399,10 +431,10 @@ if '2' in DELER:
     RE = 78.0
     b += line((rx(0), rv(0)), (rx(RE), rv(RE)), INK, 1.8)
     b += line((rx(0), rv(A0)), (rx(RE), rv(A0 + C1 * RE)), RED, 2.4)
-    b += line((rx(0), rv(A1)), (rx(RE), rv(A1 + C1 * RE)), RED, 2.2, '7 4')
+    b += line((rx(0), rv(A1)), (rx(RE), rv(A1 + C1 * RE)), ORG, 2.4)
     b += rt(rx(RE) + 6, rv(RE) + 4, '45°', 11, GREY, False)
     b += rt(rx(RE) + 6, rv(A0 + C1 * RE) + 4, 'C + I_{0}', 12, RED)
-    b += rt(rx(RE) + 6, rv(A1 + C1 * RE) + 4, 'lavere c_{0}', 11, RED)
+    b += rt(rx(RE) + 6, rv(A1 + C1 * RE) + 4, 'lavere c_{0}', 11, ORG)
     for Y, lab, dxy in ((KY0, 'A', (9, 15)), (KY1, 'B', (-18, -7))):
         b += line((rx(Y), rv(Y)), (rx(Y), POY), GREY, 1.2, '5 4')
         b += dot(rx(Y), rv(Y))
@@ -440,6 +472,13 @@ if '3' in DELER:
     assert EM > EA and EBD > EM, 'to skift oppover skal gi stigende E hele veien'
     assert near(EBD - EA, D_IF + D_EE), 'samlet skift = summen av delskiftene'
     assert near((Euip(4, IC2) - Euip(2, IC2)) / 2, -KAP), 'helningen er uendret'
+    # prøve 3.D i kap. 3.P konkluderer at effekten KAN signeres (krona svekkes),
+    # fordi dE = dEe + kappa*diF med BEGGE ledd positive. Bevis fortegnet:
+    assert D_EE > 0 and KAP * D_IF > 0 and (D_EE + KAP * D_IF) > 0
+    # ... og at det ubestemte tilfellet i kap. 3.1 v2 / prøve 3.B g) faktisk ER
+    # ubestemt: med dEe < 0 og diF > 0 finnes moteksempler i BEGGE retninger.
+    assert (-3.0 + KAP * 1.0) < 0, 'stort tillitsløft mot lite renteløft: krona styrkes'
+    assert (-1.0 + KAP * 3.0) > 0, 'lite tillitsløft mot stort renteløft: krona svekkes'
 
     def ux(i): return OX + 40.0 * i
     def uv(E): return OY - 18.571 * E
@@ -534,8 +573,10 @@ if '3' in DELER:
                'så samleteffekten kan signeres — krona svekkes. Stiplede hjelpelinjer går fra alle tre '
                'punktene til begge akser.')
     b += uip_axes(290, 225)
+    # husstil: alle tre linjene er faktiske stadier i analysen (utgangspunkt,
+    # etter delskift 1, etter delskift 2), så alle tre er heltrukne.
     b += uip_line(IC2, ORG, 2.4, vf=uv3)
-    b += uip_line(IC1, PUR, 2.2, '7 4', vf=uv3)
+    b += uip_line(IC1, PUR, 2.2, vf=uv3)
     b += uip_line(ICEPT, BLUE, 2.4, vf=uv3)
     b += rt(362, uv3(Euip(IEND, IC2)) + 4, 'E^{e} opp', 11, ORG)
     b += rt(362, uv3(Euip(IEND, IC1)) + 4, 'i^{F} opp', 11, PUR)
