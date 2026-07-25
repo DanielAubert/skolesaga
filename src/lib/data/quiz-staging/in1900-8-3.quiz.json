@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Fila `vind.txt` har header og feltene `stasjon;dato;vind;retning`:\n\n```\nstasjon;dato;vind;retning\nKvitheia;2025-01-04;12.4;SV\nKvitheia;2025-01-05;7.1;NV\nOspedalen;2025-01-04;18.9;S\nOspedalen;2025-01-05;21.3;SV\nNordvika;2025-01-04;5.2;N\n```\n\nHva skriver dette ut?\n\n```python\ndata = {}\nwith open('vind.txt') as infile:\n    infile.readline()\n    for line in infile:\n        felt = line.strip().split(';')\n        if felt[0] not in data:\n            data[felt[0]] = {}\n        data[felt[0]][felt[1]] = float(felt[2])\nprint(len(data), len(data['Kvitheia']))\n```",
+    "options": [
+      "`3 2`",
+      "`5 2`",
+      "`3 5`",
+      "`2 3`"
+    ],
+    "explanation": "Fila har fem datalinjer, men bare tre ulike stasjoner — `len(data)` er antall **nøkler**, ikke antall linjer, altså 3. Kvitheia har to datoer, så den indre ordboka har to nøkler. `5 2` er fellen for den som teller linjer i stedet for nøkler, og `3 5` for den som tror `len` på den indre gir hele filas radantall."
+  },
+  {
+    "question": "Fila `vind.txt` har header og feltene `stasjon;dato;vind;retning`:\n\n```\nstasjon;dato;vind;retning\nKvitheia;2025-01-04;12.4;SV\nKvitheia;2025-01-05;7.1;NV\nOspedalen;2025-01-04;18.9;S\nOspedalen;2025-01-05;21.3;SV\nNordvika;2025-01-04;5.2;N\n```\n\nHva skriver dette ut?\n\n```python\nwith open('vind.txt') as infile:\n    for line in infile:\n        felt = line.split()\n        print(len(felt))\n```",
+    "options": [
+      "Tallet `1` seks ganger, på seks linjer",
+      "Tallet `4` fem ganger, på fem linjer",
+      "Tallet `1` fem ganger, på fem linjer",
+      "Tallet `4` seks ganger, på seks linjer"
+    ],
+    "explanation": "Bar `.split()` deler på blanktegn, og linjene har ingen — så hver linje gir **én** bit. Og løkka går over **alle** seks linjene, header-linja inkludert, siden ingen `readline()` er kalt. Alternativene med 4 er fellen for den som leser `.split()` som om det stod `.split(';')`; de med fem linjer glemmer headeren."
+  },
+  {
+    "question": "En fillesingsoppgave sier: «samme stasjon har flere målinger». Hva må koden ha, som den ikke trenger når hver nøkkel har én linje?",
+    "options": [
+      "Et nøkkelnivå til, og `if stasjon not in data: data[stasjon] = {}`",
+      "En ekstra `readline()` for hver gang stasjonen gjentar seg i fila",
+      "En liste i stedet for en ordbok, siden nøkler ikke kan gjentas",
+      "En `try/except KeyError` rundt innsettingen i den indre ordboken"
+    ],
+    "explanation": "Med flere linjer per stasjon må noe skille målingene — typisk datoen som neste nøkkel — og den indre ordboka må opprettes første gang stasjonen dukker opp. Uten sjekken får du `KeyError`. En liste er ikke nødvendig (og ville gjort oppslag på navn umulig), og `readline()` har ingenting å gjøre med gjentatte nøkler."
+  },
+  {
+    "question": "Hvor skal `total = 0` stå i en funksjon som regner ut gjennomsnitt **per stasjon** i en nøstet ordbok?",
+    "options": [
+      "Øverst inne i den ytre løkka, slik at den nullstilles for hver stasjon",
+      "Før den ytre løkka, slik at summen bare opprettes én gang i funksjonen",
+      "Inne i den indre løkka, rett før verdien legges til",
+      "Etter begge løkkene, sammen med divisjonen på antall målinger"
+    ],
+    "explanation": "Nullstilles `total` før den ytre løkka, lekker forrige stasjons sum inn i neste, og alle unntatt den første stasjonen får feil gjennomsnitt. Nullstilling inne i den **indre** løkka gjør at bare den siste målingen teller. Og etter løkkene er det for sent — da har du ingenting å summere i."
+  },
+  {
+    "question": "Et filter over en nøstet ordbok skal returnere en ny struktur. Hvor skal `if ytre not in ny: ny[ytre] = {}` stå?",
+    "options": [
+      "Inne i den indre løkka, **etter** at betingelsen på målingen er oppfylt",
+      "Øverst i den ytre løkka, før den indre løkka over målingene starter",
+      "Før den ytre løkka, sammen med `ny = {}`",
+      "Etter den indre løkka, når alle målingene er sjekket"
+    ],
+    "explanation": "Står opprettelsen øverst i den ytre løkka, får resultatet med **alle** ytre nøkler — også de som ikke har en eneste kvalifisert måling, med tom indre ordbok. Oppgaveteksten sier normalt at slike ikke skal være med. Derfor står vakten etter betingelsen: nøkkelen opprettes bare når det faktisk finnes noe å putte i den."
+  },
+  {
+    "question": "Fila `vind.txt` har header og feltene `stasjon;dato;vind;retning`:\n\n```\nstasjon;dato;vind;retning\nKvitheia;2025-01-04;12.4;SV\nKvitheia;2025-01-05;7.1;NV\nOspedalen;2025-01-04;18.9;S\nOspedalen;2025-01-05;21.3;SV\nNordvika;2025-01-04;5.2;N\n```\n\nHva skriver dette ut?\n\n```python\ndata = {}\nwith open('vind.txt') as infile:\n    infile.readline()\n    for line in infile:\n        felt = line.strip().split(';')\n        data[felt[0]] = float(felt[2])\nprint(len(data), data['Ospedalen'])\n```",
+    "options": [
+      "`3 21.3`",
+      "`5 18.9`",
+      "`3 18.9`",
+      "`5 21.3`"
+    ],
+    "explanation": "Uten et andre nøkkelnivå overskriver hver ny måling den forrige for samme stasjon: `data['Ospedalen']` ender med verdien fra den **siste** linja, 21.3. Og antall nøkler er 3, ikke 5. `3 18.9` er fellen for den som tror den første verdien beholdes. Dette er nettopp grunnen til at oppgaven ber om datoen som nøkkel."
+  },
+  {
+    "question": "Fila `land.txt` er kommaseparert. Hva skjer med `data` når koden bruker `line.strip().split(';')`?",
+    "options": [
+      "Hele linja blir én nøkkel, og koden kjører uten feilmelding",
+      "Koden krasjer umiddelbart med `ValueError` på første linje",
+      "Kommaene blir automatisk tolket som separator likevel",
+      "Koden krasjer med `IndexError` fordi listen får null elementer"
+    ],
+    "explanation": "`.split(';')` på en linje uten semikolon gir en liste med **ett** element: hele linja. Bruker du bare `felt[0]` som nøkkel, kjører programmet fint — og gir en helt ubrukelig struktur, uten et eneste varsel. `IndexError` kommer først når du rører `felt[1]`. Det er derfor «hva er separatoren» er et eget steg i oppskriften, ikke noe du sjekker etterpå."
+  },
+  {
+    "question": "Hva er forskjellen mellom `data[nøkkel] = verdi` og `data[nøkkel].append(verdi)`?",
+    "options": [
+      "Tilordning overskriver den gamle verdien; `.append` utvider en liste som alt finnes",
+      "Tilordning virker bare på ordbøker, `.append` virker bare på nøstede ordbøker",
+      "Tilordning oppretter nøkkelen, `.append` krever at nøkkelen ikke finnes fra før",
+      "De gjør det samme, men `.append` er raskere på store datamengder"
+    ],
+    "explanation": "Skal flere rader samles under samme nøkkel, må verdien være en liste som opprettes tom første gang (`data[nøkkel] = []`) og deretter utvides med `.append`. Bruker du tilordning i stedet, overlever bare den siste raden. `.append` forutsetter at nøkkelen alt peker på en liste — ellers får du `KeyError`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndata = {}\nwith open('personer.txt') as infile:\n    infile.readline()\n    for line in infile:\n        felt = line.strip().split(';')\n        if felt[2] not in data:\n            data[felt[2]] = []\n        data[felt[2]].append(felt[1])\nprint(len(data), len(data['5003']))\n```\n\nFila `personer.txt` har header og fire datalinjer, der to personer har postnummer 5003 og de to andre har hvert sitt.",
+    "options": [
+      "`3 2`",
+      "`4 2`",
+      "`3 1`",
+      "`4 4`"
+    ],
+    "explanation": "Tre ulike postnumre gir tre nøkler, og postnummer 5003 har to navn i lista si. `4 2` er fellen for den som teller datalinjer i stedet for ulike nøkler, og `3 1` for den som tror `.append` overskriver. Legg merke til at postnummeret beholdes som **tekst** — `int('0150')` ville gitt 150 og ødelagt nøkkelen."
+  },
+  {
+    "question": "En fil skrives med `outfile.write(f'{navn};{x:.2f}')` inne i en løkke over tre oppføringer. Hvor mange linjer har fila etterpå?",
+    "options": [
+      "Én — `write` legger ikke til linjeskift, så alt skjøtes sammen",
+      "Tre — én linje per `write`-kall, akkurat som med et vanlig `print`",
+      "Fire — tre oppføringer pluss en tom linje til slutt",
+      "Null — fila er tom fordi ingen linjeskift ble skrevet"
+    ],
+    "explanation": "`write` skriver strengen nøyaktig som den står, uten linjeskift, så de tre strengene blir én linje der siste tall og neste navn gror sammen. Svaret «tre» er fellen for den som blander `write` med `print`. Fila er ikke tom — den har innhold, bare uten linjedeling, og neste program som leser den, får `ValueError` på det sammensmeltede feltet."
+  },
+  {
+    "question": "En innlesingsfunksjon har `return data` **inne** i løkka over linjene. Hva blir resultatet?",
+    "options": [
+      "En ordbok med bare den første linjas oppføring, siden funksjonen avsluttes straks",
+      "En tom ordbok, siden `return` rekker å kjøre før noe blir satt inn i den",
+      "En ordbok med alle oppføringene, men i omvendt rekkefølge",
+      "En feilmelding, siden `return` ikke er lovlig inne i en løkke"
+    ],
+    "explanation": "`return` avslutter funksjonen umiddelbart, så bare den første linja er behandlet. Dette er en klassisk delpoengfelle: strukturen i koden er ellers helt riktig, og feilen synes ikke uten å kjøre. `return` skal stå utenfor både løkka og `with`-blokken, på samme innrykk som `data = {}`. `return` **er** lovlig inne i en løkke — det er nettopp derfor feilen er lett å gjøre."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {'K1201': {'IN1900': 71, 'MAT1100': 60}, 'K1203': {'IN1900': 88}}\nn = 0\nfor kandidat in d:\n    n += len(d[kandidat])\nprint(len(d), n)\n```",
+    "options": [
+      "`2 3`",
+      "`3 2`",
+      "`2 2`",
+      "`3 3`"
+    ],
+    "explanation": "`len(d)` er antall kandidater, 2. Løkka legger sammen antall emner per kandidat: 2 + 1 = 3. Mønsteret er hvordan man teller **rader i den opprinnelige fila** når strukturen er nøstet — nyttig når oppgaven ber om «antall målinger totalt». `2 2` er fellen for den som tror `len(d[kandidat])` alltid er 1."
+  },
+  {
+    "question": "Fila `land.txt` er kommaseparert med fire linjer og feltene `land,befolkning,bnp`. Hva skriver dette ut?\n\n```python\ntotal = 0\nn = 0\nwith open('land.txt') as infile:\n    for line in infile:\n        felt = line.strip().split(',')\n        total += int(felt[2])\n        n += 1\nprint(f'{total / n:.1f}')\n```\n\nBNP-verdiene er 52100, 38400, 9800 og 71200.",
+    "options": [
+      "`42875.0`",
+      "`42875`",
+      "`171500.0`",
+      "`42875.00`"
+    ],
+    "explanation": "Summen er 171 500 og `n` er 4, så gjennomsnittet er 42 875,0 — og `:.1f` tvinger nøyaktig én desimal, derfor `.0` til slutt. `42875` uten desimal er svaret man ville fått uten formatspesifikatoren, og `171500.0` er summen, ikke gjennomsnittet. Formatspesifikatoren avgjør hvordan tallet **vises**, ikke hva det er."
+  },
+  {
+    "question": "Hvilken feilmelding får du når header-linja `stasjon;ph;temp` ikke hoppes over, og koden gjør `float(felt[1])`?",
+    "options": [
+      "`ValueError: could not convert string to float: 'ph'`",
+      "`KeyError: 'ph'` — kolonnenavnet finnes ikke som nøkkel",
+      "`IndexError: list index out of range` på header-linja",
+      "`TypeError: float() argument must be a number, not str`"
+    ],
+    "explanation": "`float` godtar strenger, men bare tallstrenger — `'ph'` er ikke et tall, altså `ValueError` med teksten sitert. Ser du `ValueError` med et **kolonnenavn** i meldingen, er diagnosen alltid glemt `readline()` (feil #7). `IndexError` ville krevd at header-linja hadde færre felt enn datalinjene, og `TypeError` gjelder helt andre operandtyper."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nline = 'Kvitheia      1180    7.9\\n'\nprint(line[0:12].strip(), int(line[12:18]), float(line[18:25]))\n```",
+    "options": [
+      "`Kvitheia 1180 7.9`",
+      "`Kvitheia      1180 7.9`",
+      "`Kvitheia 1180.0 7.9`",
+      "`Kvitheia 1180 7.90`"
+    ],
+    "explanation": "`.strip()` fjerner utfyllingsmellomrommene i navnefeltet, og `print` setter selv ett mellomrom mellom argumentene. `int` gir `1180` uten desimal, `float` gir `7.9` uten ekstra null — det er `f'{x:.2f}'` som ville gitt `7.90`. Alternativet med de mange mellomrommene er svaret **uten** `.strip()`."
+  },
+  {
+    "question": "Hva er problemet med `ny = data` som første linje i en filterfunksjon?",
+    "options": [
+      "Det gir bare et nytt navn på samme ordbok, så endringer treffer originalen",
+      "Det er ikke lovlig Python — en ordbok kan ikke tilordnes et nytt navn",
+      "Det lager en kopi, men bare av nøklene i ordboken, ikke av verdiene",
+      "Det gjør funksjonen langsommere fordi hele ordboken kopieres"
+    ],
+    "explanation": "En tilordning kopierer ikke — den lar to navn peke på samme objekt (aliasing, feil #23). Alt du gjør med `ny`, skjer med `data`, og oppgavens krav om at argumentet skal være urørt, er brutt. Tilordningen er både lovlig og lynrask; det er nettopp derfor feilen er lett å gjøre. Riktig start er `ny = {}`."
+  },
+  {
+    "question": "Oppgaveteksten sier «alle stasjoner med **minst** 60 poeng». Hvilken betingelse er riktig?",
+    "options": [
+      "`if verdier['poeng'] >= 60:`",
+      "`if verdier['poeng'] > 60:`",
+      "`if verdier['poeng'] == 60:`",
+      "`if verdier['poeng'] <= 60:`"
+    ],
+    "explanation": "«Minst 60» betyr 60 eller mer, altså `>=`. Med `>` faller den som har nøyaktig 60, utenfor — og eksamensdataene er som regel laget slik at det finnes en oppføring på grensen, nettopp for å skille de to. «Over 60» ville vært `>`, «under» `<`, og «høyst» `<=`. Er teksten tvetydig, velg og skriv en kommentar om valget."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndata = {}\nwith open('land.txt') as infile:\n    for line in infile:\n        felt = line.strip().split(',')\n        data[felt[0]] = int(felt[1])\n\nn = 0\nfor navn in data:\n    if data[navn] > 1000000:\n        n += 1\n        print(navn, end=' ')\nprint()\nprint(n, len(data))\n```\n\nBefolkningstallene er Alveria 4820000, Brenland 1290000, Corvia 17650000 og Dunmark 610000.",
+    "options": [
+      "`Alveria Brenland Corvia` på én linje, deretter `3 4`",
+      "`Alveria Brenland Corvia` på tre linjer, deretter `3 4`",
+      "`Alveria Brenland Corvia Dunmark` på én linje, deretter `4 4`",
+      "`Alveria Brenland Corvia` på én linje, deretter `3 3`"
+    ],
+    "explanation": "`end=' '` erstatter linjeskiftet med et mellomrom, så de tre kvalifiserte navnene havner på samme linje; det tomme `print()` avslutter linja. Dunmark har 610 000 og faller utenfor, så `n` er 3 — men `len(data)` er 4, siden ordboka inneholder alle landene. `3 3` er fellen for den som blander telleren med ordbokstørrelsen."
+  }
+]
