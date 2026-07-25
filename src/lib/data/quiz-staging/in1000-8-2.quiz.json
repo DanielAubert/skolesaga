@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hva er steg 1 i oppskriften for sjanger G?",
+  "options": [
+   "Å skrive ned hva det ytre og det indre nivået er, og hva verdien er.",
+   "Å velge om svaret skal bli en liste eller en ordbok, før du leser strukturen.",
+   "Å telle hvor mange elementer strukturen har på hvert av de to nivåene.",
+   "Å skrive løkkene først, og finne ut underveis hva variablene inneholder."
+  ],
+  "explanation": "«Ytre = dag, indre = aktivitet, verdi = antall.» Ti sekunder på kladden, og halvparten av fellene forsvinner — du blander ikke nivåene."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef f(y):\n    ut = []\n    for indre in y:\n        s = 0\n        for x in indre:\n            s = s + x\n        ut.append(s)\n    return ut\n\nprint(f([[1, 2], [3], [4, 5]]))\n```",
+  "options": [
+   "[3, 3, 9]",
+   "[3, 6, 15]",
+   "[15]",
+   "[1, 3, 4]"
+  ],
+  "explanation": "`s = 0` står inne i den ytre løkka og nullstilles per indre liste. Står den utenfor begge, blir svaret løpende summer: `[3, 6, 15]`."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef f(y):\n    ut = []\n    s = 0\n    for indre in y:\n        for x in indre:\n            s = s + x\n        ut.append(s)\n    return ut\n\nprint(f([[1, 2], [3], [4, 5]]))\n```",
+  "options": [
+   "[3, 6, 15]",
+   "[3, 3, 9]",
+   "[15, 15, 15]",
+   "[1, 3, 4]"
+  ],
+  "explanation": "Her står `s = 0` utenfor begge løkkene og nullstilles aldri, så lista får løpende summer. Én linjes forskjell i innrykk gir et helt annet svar."
+ },
+ {
+  "question": "En funksjon skal svare om aktiviteten finnes på ALLE dager. Hvordan står returene?",
+  "options": [
+   "`return False` inne i løkka, `return True` etter den.",
+   "`return True` inne i løkka, `return False` etter den.",
+   "`return True` både inne i og etter løkka, med en `if` rundt begge.",
+   "Bare `return True` etter løkka — det indre tilfellet trenger ingen retur."
+  ],
+  "explanation": "Å snu dem gjør at funksjonen svarer ja så snart aktiviteten finnes på **én** dag. Det er feilkode #7, for tidlig retur — og «finnes det …» er motsatt vei."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef alle(uke, akt):\n    for dag in uke:\n        if akt not in uke[dag]:\n            return False\n    return True\n\nuke = {\"mandag\": {\"yoga\": 9, \"spinning\": 14}, \"tirsdag\": {\"yoga\": 4}}\nprint(alle(uke, \"yoga\"), alle(uke, \"spinning\"), alle({}, \"yoga\"))\n```",
+  "options": [
+   "True False True",
+   "True False False",
+   "False True True",
+   "True True False"
+  ],
+  "explanation": "Yoga finnes begge dager, spinning bare mandag. En tom uke gir `True`: løkka går ingen runder, og koden faller til `return True`."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef per_akt(uke):\n    ut = {}\n    for dag in uke:\n        for akt in uke[dag]:\n            ut[akt] = uke[dag][akt]\n    return ut\n\nuke = {\"mandag\": {\"yoga\": 9}, \"tirsdag\": {\"yoga\": 4}}\nprint(per_akt(uke))\n```",
+  "options": [
+   "{'yoga': 4}",
+   "{'yoga': 13}",
+   "{'yoga': 9}",
+   "{'mandag': 9, 'tirsdag': 4}"
+  ],
+  "explanation": "Linjen bruker `=` og overskriver, så verdien fra den **siste** dagen blir stående. Skal dagene summeres, trengs `if akt not in ut:` og `+`."
+ },
+ {
+  "question": "Hva skiller grupperings-idiomet fra teller-idiomet i en nøstet struktur?",
+  "options": [
+   "Startverdien er `[]` i stedet for `0`, og du bruker `.append(...)` i stedet for `+`.",
+   "Grupperingen trenger bare én `if`-sjekk, mens telleren trenger to.",
+   "Grupperingen virker bare på lister, mens telleren virker bare på ordbøker.",
+   "Grupperingen bygger den ytre strukturen, mens telleren bygger den indre."
+  ],
+  "explanation": "De to `if`-sjekkene er nøyaktig de samme. To tegn skiller mønstrene, og resultatet er en ordbok fra nøkkel til liste i stedet for til tall."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef felles(d, a, b):\n    ut = []\n    for x in d[a]:\n        if x in d[b]:\n            ut.append(x)\n    return ut\n\nd = {\"Ada\": [\"Sjakk\", \"Kolonier\", \"Ordjakt\"], \"Nora\": [\"Kolonier\", \"Sjakk\"]}\nprint(felles(d, \"Ada\", \"Nora\"))\nprint(felles(d, \"Nora\", \"Ada\"))\n```",
+  "options": [
+   "['Sjakk', 'Kolonier']\n['Kolonier', 'Sjakk']",
+   "['Sjakk', 'Kolonier']\n['Sjakk', 'Kolonier']",
+   "['Kolonier', 'Sjakk']\n['Sjakk', 'Kolonier']",
+   "['Ordjakt']\n[]"
+  ],
+  "explanation": "Innholdet er det samme, men rekkefølgen følger den **første** lista. Det er verdt å vite når du skal spore en utskrift av resultatet."
+ },
+ {
+  "question": "Hvorfor trenger «hvilke spill liker bare én av dem» to løkker?",
+  "options": [
+   "Fordi én løkke bare finner det den første har alene — det den andre har alene, oversees.",
+   "Fordi Python ikke kan sammenligne to lister i den samme løkka.",
+   "Fordi den ene løkka må telle mens den andre bygger resultatlista.",
+   "Fordi listene kan ha ulik lengde, og da må hver av dem gås gjennom for seg."
+  ],
+  "explanation": "Den første løkka går over `d[a]` og tar med det `d[b]` mangler; den andre går motsatt vei. Å glemme den andre er den vanligste feilen i mønsteret."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nd = {\"a\": {\"x\": 1, \"y\": 2}, \"b\": {\"y\": 5}, \"c\": {}}\nytre = 0\nindre = 0\nfor k1 in d:\n    ytre = ytre + 1\n    for k2 in d[k1]:\n        indre = indre + 1\nprint(ytre, indre, len(d[\"c\"]))\n```",
+  "options": [
+   "3 3 0",
+   "3 4 0",
+   "2 3 0",
+   "3 3 1"
+  ],
+  "explanation": "Den tomme indre ordboka teller med i den ytre løkka, men gir null runder i den indre. En tom ordbok er en gyldig verdi, ikke en manglende nøkkel."
+ },
+ {
+  "question": "Når holder det med én løkke i en funksjon over en nøstet struktur?",
+  "options": [
+   "Når det indre nivået bare skal testes med `in` eller måles med `len`, ikke gås gjennom.",
+   "Når den nøstede strukturen har færre enn tre elementer på det ytre nivået.",
+   "Når svaret skal være et tall og ikke en liste eller en ordbok.",
+   "Aldri — en nøstet struktur krever alltid to løkker."
+  ],
+  "explanation": "`if vare in d[butikk]:` og `if len(spiller) < minst:` er begge én-løkke-varianter. Å skrive to der én holder, er ikke galt — bare lengre og lettere å bomme på."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef lager(d, butikk, vare):\n    if butikk not in d:\n        return 0\n    if vare not in d[butikk]:\n        return 0\n    return d[butikk][vare]\n\ndef totalt(d, vare):\n    t = 0\n    for butikk in d:\n        t = t + lager(d, butikk, vare)\n    return t\n\nlagre = {\"A\": {\"skrue\": 120, \"bolt\": 45}, \"B\": {\"skrue\": 80}, \"C\": {\"bolt\": 10}}\nprint(totalt(lagre, \"skrue\"), totalt(lagre, \"bolt\"), totalt(lagre, \"mutter\"))\n```",
+  "options": [
+   "200 55 0",
+   "200 55 3",
+   "120 45 0",
+   "200 45 0"
+  ],
+  "explanation": "`totalt` gjenbruker `lager`, som gir 0 for butikker uten varen. Gjenbruken er et selvstendig poeng — oppgaveteksten legger ofte opp til den."
+ },
+ {
+  "question": "Hva returnerer en «er alle …»-funksjon på en helt tom struktur?",
+  "options": [
+   "`True` — løkka går ingen runder, og koden faller rett til `return True`.",
+   "`False` — det finnes ingen elementer som oppfyller kravet.",
+   "`None` — funksjonen rekker aldri fram til noen `return`-setning.",
+   "En feilmelding, siden løkka ikke har noe å gå gjennom."
+  ],
+  "explanation": "Det er logisk riktig: «alle elementene oppfyller kravet» er sant når det ikke finnes noen. Men det kan overraske — skriv en kommentarlinje om valget."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef bygg(data):\n    d = {}\n    for rad in data:\n        if rad[0] not in d:\n            d[rad[0]] = {}\n        if rad[1] not in d[rad[0]]:\n            d[rad[0]][rad[1]] = []\n        d[rad[0]][rad[1]].append(rad[2])\n    return d\n\nprint(bygg([[\"m\", \"s\", \"Ada\"], [\"m\", \"s\", \"Nora\"], [\"m\", \"y\", \"Ada\"]]))\n```",
+  "options": [
+   "{'m': {'s': ['Ada', 'Nora'], 'y': ['Ada']}}",
+   "{'m': {'s': ['Nora'], 'y': ['Ada']}}",
+   "{'m': {'s': 2, 'y': 1}}",
+   "{'s': ['Ada', 'Nora'], 'y': ['Ada']}"
+  ],
+  "explanation": "Grupperingen bruker `[]` og `.append(...)`, så begge navnene under samme nøkkel kommer med. Første distraktor er svaret hvis lista opprettes på nytt hver runde."
+ },
+ {
+  "question": "Hva må til for å snu nivåene i en nøstet ordbok — fra dag→sal til sal→dag?",
+  "options": [
+   "En to nivåers løkke inn, og de samme to `if`-sjekkene ut, siden målstrukturen bygges fra bunnen.",
+   "Bare å bytte om variabelnavnene i den eksisterende løkka, siden dataene alt finnes.",
+   "Én løkke som setter `ut[sal] = nostet[dag]`, siden de indre ordbøkene kan gjenbrukes.",
+   "Ingenting spesielt — Python har en innebygd måte å snu en ordbok på."
+  ],
+  "explanation": "At kildestrukturen finnes, hjelper ikke: målstrukturen starter tom, og begge nivåene i den må opprettes før du kan skrive i dem."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nsett = []\nnostet = {\"m\": {\"s\": [\"Ada\", \"Nora\"], \"y\": [\"Ada\"]}, \"t\": {\"s\": [\"Per\", \"Ada\"]}}\nfor dag in nostet:\n    for akt in nostet[dag]:\n        for navn in nostet[dag][akt]:\n            if navn not in sett:\n                sett.append(navn)\nprint(sett, len(sett))\n```",
+  "options": [
+   "['Ada', 'Nora', 'Per'] 3",
+   "['Ada', 'Nora', 'Ada', 'Per', 'Ada'] 5",
+   "['Ada', 'Nora', 'Per'] 5",
+   "['Per', 'Nora', 'Ada'] 3"
+  ],
+  "explanation": "Duplikat-mønsteret tar hvert navn med én gang, i den rekkefølgen de først dukket opp. Ada står fire steder, men telles én gang."
+ },
+ {
+  "question": "En verdi i strukturen er allerede `True` eller `False`. Hva er den ryddigste måten å returnere den på?",
+  "options": [
+   "`return d[a][b]` — verdien er allerede en sannhetsverdi, så en ekstra `if` er overflødig.",
+   "`if d[a][b]: return True else: return False` — det er tydeligere hva som skjer.",
+   "`return str(d[a][b])` — verdien må gjøres om til tekst før den returneres.",
+   "`return d[a][b] == True` — sammenligningen sikrer at svaret får riktig type."
+  ],
+  "explanation": "Formen er kort og lesbar når verdien faktisk **er** en sannhetsverdi. Er den et tall, betyr `if tall:` «tallet er ikke null», og det er sjelden det du mente."
+ },
+ {
+  "question": "Oppgave 5 ber deg om å bruke funksjonen fra a) i b). Hva bør du gjøre hvis a) ikke ble helt riktig?",
+  "options": [
+   "Kalle den likevel — sensor vet hva den skulle gjøre, og b) rettes for seg.",
+   "Skrive hele logikken fra a) på nytt inne i b), slik at b) ikke arver feilen.",
+   "Hoppe over b), siden den bygger på noe som ikke virker.",
+   "Rette a) først, uansett hvor lang tid det tar, før du begynner på b)."
+  ],
+  "explanation": "Gjenbruken er et selvstendig poeng, og deloppgavene rettes hver for seg. Det er den samme regelen som i den store oppgaven: stå aldri fast."
+ }
+]

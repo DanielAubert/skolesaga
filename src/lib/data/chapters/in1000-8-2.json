@@ -1,0 +1,343 @@
+{
+ "id": "in1000-8-2",
+ "courseId": "in1000",
+ "chapterNumber": "8.2",
+ "title": "DRILL — Funksjoner over nøstede strukturer",
+ "description": "Full drill på den siste oppgaven: litt tyngre funksjoner over nøstede lister og ordbøker, med to nivåers løkke, flagg og oppbygging av nye strukturer.",
+ "estimatedMinutes": 75,
+ "competenceGoals": [
+  "kunne avgjøre hvilket av fire mønstre en oppgavetekst ber om",
+  "kunne plassere akkumulatoren på det nivået oppgaven faktisk krever",
+  "kunne bygge en ny nøstet struktur av en gammel, med de sjekkene som trengs",
+  "kunne tenke gjennom hva funksjonen svarer på tomme og ulike store strukturer"
+ ],
+ "content": [
+  {
+   "id": "in1000-8-2-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette kapitlet trener **Oppgave 5**, og bare den.\n\n**Sjanger G — skriv en funksjon over en nøstet liste eller ordbok** står i\n**4 av 6 moderne eksamenssett (67 %)** og er verdt 8–10 poeng, typisk fordelt på\nto funksjoner à 4–5 poeng. Den andre bygger ofte på den første.\n\n**Dette skal du kunne** — bokas midterste av tre prioritetsnivåer.\n\nBestillingene går igjen: «finn alt som er felles», «grupper etter …», «sjekk om\nalle …», «bygg en ny nøstet struktur». Alle er de samme fire mønstrene, og alle\nhar den samme todelte løkka i seg.\n\nKapitlet er langt (~75 min) og er delt i tre økter med tidsanslag. Ta gjerne én\nøkt om gangen."
+  },
+  {
+   "id": "in1000-8-2-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 8.1 — Nøstede lister og ordbøker](/bok/in1000/in1000-8-1)\nog [kap. 2.1 — Funksjoner](/bok/in1000/in1000-2-1).\n\n**De tre tingene drillen hviler på**, friskes opp med kjørt kode.\n\n**1. To nivåers løkke over en nøstet ordbok:**\n\n```python\nuke = {\"mandag\": {\"a\": 3, \"b\": 5}, \"tirsdag\": {\"a\": 7}}\nfor dag in uke:\n    for akt in uke[dag]:\n        print(dag, akt, uke[dag][akt])\n```\n\n**Utskrift:**\n```\nmandag a 3\nmandag b 5\ntirsdag a 7\n```\n\n**2. Oppbygging med to sjekker:**\n\n```python\nd = {}\nfor rad in [[\"a\", \"x\", 1], [\"a\", \"x\", 4]]:\n    if rad[0] not in d:\n        d[rad[0]] = {}\n    if rad[1] not in d[rad[0]]:\n        d[rad[0]][rad[1]] = 0\n    d[rad[0]][rad[1]] = d[rad[0]][rad[1]] + rad[2]\nprint(d)\n```\n\n**Utskrift:**\n```\n{'a': {'x': 5}}\n```\n\n**3. Funksjon med parameter og `return` etter løkka:**\n\n```python\ndef tell_over(liste, grense):\n    antall = 0\n    for x in liste:\n        if x > grense:\n            antall = antall + 1\n    return antall\n\nprint(tell_over([3, 8, 5], 4))\n```\n\n**Utskrift:**\n```\n2\n```\n\nHar du de tre, er resten rotasjon av mønsteret."
+  },
+  {
+   "id": "in1000-8-2-3",
+   "type": "theorem",
+   "title": "Løsningsoppskriften for sjanger G — fire steg",
+   "content": "Bruk den samme framgangsmåten hver gang.\n\n**Steg 1 — Avgjør de to nivåene.** Skriv ned hva det ytre nivået er, og hva det\nindre er. «Ytre = dag, indre = aktivitet, verdi = antall deltakere.» Ti sekunder,\nog halve fellene forsvinner.\n\n**Steg 2 — Velg mønster.** Fire dekker nesten alt:\n\n- **teller eller akkumulator** over to nivåer — «hvor mange», «hvor mye til\n  sammen»,\n- **flagg med tidlig retur** — «finnes det …», «er alle …»,\n- **bygg en ny struktur** — «lag en ordbok fra … til …», «finn alt som er\n  felles»,\n- **oppslag med sjekk på begge nivåer** — «hva var antallet for …».\n\n**Steg 3 — Håndter kant-tilfellene.** Tom struktur, én indre struktur, indre\nstrukturer med ulik størrelse, og verdier som finnes på begge nivåer.\n\n**Steg 4 — Plassér akkumulatoren.** Utenfor begge løkkene for en total, inne i\nden ytre for «per rad». Det er det ene valget som oftest avgjør poenget.\n\nOg til slutt: **gjenbruk gjerne en funksjon du har skrevet i a).** Oppgaveteksten\nlegger som regel opp til det, og du kan kalle den selv om den ikke ble helt\nriktig."
+  },
+  {
+   "id": "in1000-8-2-4",
+   "type": "definition",
+   "title": "De fire mønstrene",
+   "content": "Kjenn dem igjen på formuleringen i oppgaveteksten:\n\n| Formulering | Mønster |\n|---|---|\n| «hvor mange …», «hvor mye til sammen» | teller eller akkumulator |\n| «finnes det …», «er alle …» | flagg med tidlig retur |\n| «lag en ordbok fra … til …», «grupper etter …» | bygg en ny struktur |\n| «hva er antallet for …» | oppslag med sjekk på begge nivåer |\n\nAlle fire har den samme todelte løkka i seg. Det som skiller dem, er hva som står\ninne i løkka, og hvor akkumulatoren eller returen står.\n\n**Den todelte løkkestrukturen er selve poenget i sjanger G**, og riktig struktur\nbelønnes selv med en indeksfeil."
+  },
+  {
+   "id": "in1000-8-2-5",
+   "type": "text",
+   "content": "## Økt 1 — Den gjennomarbeidede casen (~20 min)\n\nUnder står en komplett Oppgave 5 med to funksjoner, slik den kommer på eksamen,\nmed margnotater om hva som gir uttelling."
+  },
+  {
+   "id": "in1000-8-2-6",
+   "type": "example",
+   "title": "Eksempel 1: Full Oppgave 5 med sensor-margnotater",
+   "problem": "> En nøstet ordbok går fra ukedag til aktivitet til antall deltakere.\n>\n> **a)** Skriv `deltakere_per_aktivitet(uke)` som returnerer en **flat** ordbok fra\n> aktivitet til samlet antall over alle dagene.\n>\n> **b)** Skriv `finnes_paa_alle_dager(uke, aktivitet)` som returnerer `True` bare\n> hvis aktiviteten finnes på **hver** dag i uka.",
+   "solution": "**Steg 1 — nivåene.** Ytre = dag, indre = aktivitet, verdi = antall deltakere.\n\n**Steg 2 — mønstre.** a) er «bygg en ny struktur» med en teller inni. b) er «er\nalle …», altså flagg med tidlig retur.\n\n```python\ndef deltakere_per_aktivitet(uke):\n    ut = {}\n    for dag in uke:\n        for akt in uke[dag]:\n            if akt not in ut:\n                ut[akt] = 0\n            ut[akt] = ut[akt] + uke[dag][akt]\n    return ut\n\ndef finnes_paa_alle_dager(uke, aktivitet):\n    for dag in uke:\n        if aktivitet not in uke[dag]:\n            return False\n    return True\n\nuke = {\"mandag\": {\"spinning\": 14, \"yoga\": 9},\n       \"tirsdag\": {\"spinning\": 20, \"yoga\": 4},\n       \"onsdag\": {\"yoga\": 3, \"styrke\": 11}}\n\nprint(deltakere_per_aktivitet(uke))\nprint(finnes_paa_alle_dager(uke, \"yoga\"))\nprint(finnes_paa_alle_dager(uke, \"spinning\"))\nprint(finnes_paa_alle_dager({}, \"yoga\"))\n```\n\n**Utskrift:**\n```\n{'spinning': 34, 'yoga': 16, 'styrke': 11}\nTrue\nFalse\nTrue\n```\n\n**Sensors margnotater.**\n\n**a)** (5 p): `ut = {}` **før** begge løkkene (1 p), den todelte løkka (1 p),\n`if akt not in ut:` og `ut[akt] = 0` (2 p), akkumuleringen med `+` og det doble\noppslaget `uke[dag][akt]` (1 p). `return` står **etter** begge løkkene — inne i\ndem ville funksjonen svart etter første dag.\n\n**b)** (5 p): løkka over ytternøklene (1 p), `if aktivitet not in uke[dag]:`\n(2 p), `return False` **inne** i løkka (1 p), `return True` **etter** den (1 p).\n\n**Å snu de to returene er feilkode #7.** Med `return True` inne i løkka ville\nfunksjonen svart ja så snart aktiviteten fantes på **én** dag — og da hadde\n`spinning` også gitt `True`.\n\n**Legg merke til den siste linja: en tom uke gir `True`.** Løkka går ingen runder,\nså koden faller rett til `return True`. Det er logisk riktig — «alle dager har\naktiviteten» er sant når det ikke finnes noen dager — men det er verdt en\nkommentar hvis oppgaven kan tolkes annerledes.\n\n**Og legg merke til at b) bare trenger én løkke.** Det indre nivået sjekkes med\n`not in`, ikke med en løkke. Å skrive to løkker der én holder, er ikke galt, men\ndet er lengre og lettere å bomme på.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-8-2-7",
+   "type": "text",
+   "content": "## Økt 2 — Teller, flagg og oppslag (~28 min)\n\nDe fem første oppgavene roterer de tre enkleste mønstrene over ulike strukturer:\nnøstet liste, nøstet ordbok, og en ordbok med lister som verdier."
+  },
+  {
+   "id": "in1000-8-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing.) Gitt\n`y = [[4, 9], [2], [7, 1, 8]]`.\n\n**a)** Skriv `antall_tall(y)` som returnerer hvor mange tall det er til sammen.\n\n**b)** Skriv `sum_alle(y)` som returnerer summen.\n\n**c)** Hvorfor kan du ikke bare bruke `len(y)` i a)?",
+    "solution": "**a)–b)** Teller og akkumulator, begge utenfor begge løkkene:\n\n```python\ndef antall_tall(y):\n    antall = 0\n    for indre in y:\n        for x in indre:\n            antall = antall + 1\n    return antall\n\ndef sum_alle(y):\n    total = 0\n    for indre in y:\n        for x in indre:\n            total = total + x\n    return total\n\ny = [[4, 9], [2], [7, 1, 8]]\nprint(antall_tall(y), sum_alle(y), len(y))\n```\n\n**Utskrift:**\n```\n6 31 3\n```\n\n**c)** Fordi `len(y)` teller de **indre listene**, ikke tallene. Her er svaret 3,\nmens det er 6 tall til sammen.\n\n`len` teller alltid ett nivå. Totalen finnes ikke i noe enkelt `len`-kall — den\nmå telles med en to nivåers løkke, eller regnes ut som summen av `len` på hver\nindre liste.\n\n**Begge akkumulatorene står utenfor begge løkkene**, fordi begge skal samle opp\nalt. Det er den plasseringen som gjelder for «til sammen»-spørsmål.",
+    "hints": [
+     "`len` teller alltid ett nivå.",
+     "Akkumulatoren skal samle opp alt — hvor må den da stå?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — skriv en funksjon over en nøstet struktur.) En nøstet\nliste holder poeng per runde for hver spiller: `[[3, 5, 2], [7, 1], [4, 4, 4]]`.\n\n**a)** Skriv `sum_per_spiller(data)` som returnerer en liste med summen for hver\nspiller.\n\n**b)** Skriv `beste_runde(data)` som returnerer det høyeste enkeltpoenget i hele\nstrukturen.\n\n**c)** Skriv `alle_har_spilt(data, minst)` som returnerer `True` bare hvis alle\nspillerne har spilt minst så mange runder.",
+    "solution": "**a)–c)** Tre mønstre, tre ulike plasseringer:\n\n```python\ndef sum_per_spiller(data):\n    ut = []\n    for spiller in data:\n        s = 0\n        for p in spiller:\n            s = s + p\n        ut.append(s)\n    return ut\n\ndef beste_runde(data):\n    beste = 0\n    for spiller in data:\n        for p in spiller:\n            if p > beste:\n                beste = p\n    return beste\n\ndef alle_har_spilt(data, minst):\n    for spiller in data:\n        if len(spiller) < minst:\n            return False\n    return True\n\ndata = [[3, 5, 2], [7, 1], [4, 4, 4]]\nprint(sum_per_spiller(data))\nprint(beste_runde(data))\nprint(alle_har_spilt(data, 2), alle_har_spilt(data, 3))\n```\n\n**Utskrift:**\n```\n[10, 8, 12]\n7\nTrue False\n```\n\n**`s = 0` står inne i den ytre løkka** i a), fordi den skal nullstilles per\nspiller. I b) står `beste = 0` utenfor begge, fordi den skal finne det største i\nhele strukturen. **Det er hele forskjellen mellom de to funksjonene.**\n\n**c) trenger bare én løkke.** Antall runder er `len(spiller)`, så det indre nivået\nmåles i stedet for å gås gjennom.\n\n**Kantverdien i c):** «minst så mange» betyr at `len(spiller) < minst` er det\nugyldige. Spiller nummer to har 2 runder, så `alle_har_spilt(data, 2)` er sann og\n`alle_har_spilt(data, 3)` er usann.\n\n**Slik ville sensor sett på det:** i a) er `ut = []` før løkka, `s = 0` inne i\nden ytre, og `append` etter den indre — tre selvstendige plasseringer, og hver av\ndem gir poeng.",
+    "hints": [
+     "I a) skal akkumulatoren nullstilles per spiller; i b) skal den ikke det.",
+     "I c): antall runder for én spiller er `len` av den indre lista."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Hva skriver programmet ut?\n\n```python\ndef f(y):\n    ut = []\n    s = 0\n    for indre in y:\n        for x in indre:\n            s = s + x\n        ut.append(s)\n    return ut\n\nprint(f([[1, 2], [3], [4, 5]]))\n```",
+    "solution": "**Sporingstavle.** Se nøye på hvor `s = 0` står:\n\n| Indre liste | `s` før | `s` etter | `ut` etter |\n|---|---|---|---|\n| `[1, 2]` | 0 | 3 | `[3]` |\n| `[3]` | 3 | 6 | `[3, 6]` |\n| `[4, 5]` | 6 | 15 | `[3, 6, 15]` |\n\n**Utskrift:**\n```\n[3, 6, 15]\n```\n\n**Fellen er at `s = 0` står utenfor begge løkkene**, ikke inne i den ytre. Den\nnullstilles derfor aldri, og resultatet blir en liste med **løpende** summer i\nstedet for én sum per indre liste.\n\nRiktig plassering — `s = 0` som første linje inne i den ytre løkka — ville gitt\n`[3, 3, 9]`.\n\n**Begge varianter er nyttige**, og oppgaveteksten avgjør hvilken som er riktig.\n«Summen for hver spiller» betyr nullstilling; «summen så langt etter hver runde»\nbetyr ikke.\n\n**Les alltid hvor akkumulatoren står før du sporer.** Én linjes forskjell i\ninnrykk gir et helt annet svar.\n\n**På eksamen** skrives lista nøyaktig som terminalen viser den, med\nhakeparenteser og komma.",
+    "hints": [
+     "Skriv opp verdien til `s` før og etter hver indre liste.",
+     "Blir `s` nullstilt noe sted?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — funksjon over nøstet ordbok.) En nøstet ordbok går fra\nbutikknavn til varenavn til antall på lager.\n\n**a)** Skriv `lager(d, butikk, vare)` som gir antallet, eller `0` hvis butikken\neller varen ikke finnes.\n\n**b)** Skriv `butikker_med(d, vare)` som returnerer en **liste** over navnene på\nde butikkene som har varen.\n\n**c)** Skriv `totalt_av(d, vare)` som gir det samlede antallet av varen over alle\nbutikkene.",
+    "solution": "**a)–c)** Oppslag med to sjekker, og to samlemønstre som gjenbruker det:\n\n```python\ndef lager(d, butikk, vare):\n    if butikk not in d:\n        return 0\n    if vare not in d[butikk]:\n        return 0\n    return d[butikk][vare]\n\ndef butikker_med(d, vare):\n    ut = []\n    for butikk in d:\n        if vare in d[butikk]:\n            ut.append(butikk)\n    return ut\n\ndef totalt_av(d, vare):\n    total = 0\n    for butikk in d:\n        total = total + lager(d, butikk, vare)\n    return total\n\nlagre = {\"Grunerlokka\": {\"skrue\": 120, \"bolt\": 45},\n         \"Toyen\": {\"skrue\": 80},\n         \"Majorstuen\": {\"bolt\": 10, \"mutter\": 30}}\n\nprint(lager(lagre, \"Toyen\", \"skrue\"))\nprint(lager(lagre, \"Toyen\", \"bolt\"))\nprint(lager(lagre, \"Ryen\", \"skrue\"))\nprint(butikker_med(lagre, \"skrue\"))\nprint(totalt_av(lagre, \"bolt\"))\n```\n\n**Utskrift:**\n```\n80\n0\n0\n['Grunerlokka', 'Toyen']\n55\n```\n\n**`totalt_av` gjenbruker `lager`.** Det er både kortere og tryggere enn å skrive\noppslaget på nytt: sjekkene ligger ett sted, og en butikk som mangler varen,\nbidrar med 0 uten at noe stopper.\n\n**`butikker_med` trenger bare én løkke.** Det indre nivået sjekkes med\n`if vare in d[butikk]:`, ikke gås gjennom.\n\n**Rekkefølgen i svaret følger ytterordboka**, altså opprettelsesrekkefølgen.\n\n**Slik ville sensor sett på det:** de to sjekkene i `lager` er to poeng, og at de\nstår i rekkefølgen butikk før vare, er en av dem. Gjenbruken i `totalt_av` er et\nselvstendig poeng — oppgaveteksten legger ofte opp til den ved å be om a) før\nc).",
+    "hints": [
+     "Skriv oppslagsfunksjonen først, og bruk den i de andre.",
+     "Sjekk ytternøkkelen før indrenøkkelen — ellers slås den opp for tidlig."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nd = {\"a\": {\"x\": 1, \"y\": 2}, \"b\": {\"y\": 5}, \"c\": {}}\n\nantall_ytre = 0\nantall_indre = 0\nsum_alle = 0\nfor ytre in d:\n    antall_ytre = antall_ytre + 1\n    for indre in d[ytre]:\n        antall_indre = antall_indre + 1\n        sum_alle = sum_alle + d[ytre][indre]\nprint(antall_ytre, antall_indre, sum_alle)\nprint(len(d), len(d[\"c\"]))\n```",
+    "solution": "**Sporingstavle.** Legg merke til den tomme indre ordboka:\n\n| Ytternøkkel | Indre nøkler | Indre runder | `sum_alle` etter |\n|---|---|---|---|\n| `a` | `x`, `y` | 2 | 3 |\n| `b` | `y` | 1 | 8 |\n| `c` | ingen | 0 | 8 |\n\n**Utskrift:**\n```\n3 3 8\n3 0\n```\n\n**Fellen er den tomme indre ordboka.** `c` teller med i den ytre løkka — den er en\ngyldig ytternøkkel — men den indre løkka går **null** runder. Antall ytre og\nantall indre er derfor 3 og 3, ikke 3 og 4.\n\n**`len(d)` er 3**, og `len(d[\"c\"])` er **0**. En tom ordbok er en helt gyldig\nverdi, og den er ikke det samme som at nøkkelen mangler.\n\nLegg også merke til at nøkkelen `y` finnes under både `a` og `b`. De to er helt\nuavhengige verdier i hver sin indre ordbok.\n\n**På eksamen** skrives begge linjene, med ett mellomrom mellom tallene.",
+    "hints": [
+     "Hva skjer i den indre løkka når den indre ordboka er tom?",
+     "Er en tom ordbok det samme som en manglende nøkkel?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-8",
+   "type": "text",
+   "content": "## Økt 3 — Bygg nye strukturer og finn feil (~27 min)\n\nDe siste fem oppgavene er de tyngste: å bygge en ny nøstet struktur, å finne det\nsom er felles, og å rette en modell som ser riktig ut."
+  },
+  {
+   "id": "in1000-8-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — bygg en ny struktur.) En liste av registreringer har\nformen `[dag, sal, antall]`.\n\n**a)** Skriv `bygg(data)` som returnerer en nøstet ordbok fra dag til sal til\nsamlet antall.\n\n**b)** Skriv `snu(nostet)` som returnerer en **ny** nøstet ordbok med nivåene\nbyttet om: fra sal til dag til antall.\n\n**c)** Test begge, og forklar hvorfor `snu` trenger de samme to sjekkene som\n`bygg`.",
+    "solution": "**a)–b)** Oppbyggings-malen brukt to ganger, med nivåene byttet om i den andre:\n\n```python\ndef bygg(data):\n    d = {}\n    for rad in data:\n        dag = rad[0]\n        sal = rad[1]\n        if dag not in d:\n            d[dag] = {}\n        if sal not in d[dag]:\n            d[dag][sal] = 0\n        d[dag][sal] = d[dag][sal] + rad[2]\n    return d\n\ndef snu(nostet):\n    ut = {}\n    for dag in nostet:\n        for sal in nostet[dag]:\n            if sal not in ut:\n                ut[sal] = {}\n            if dag not in ut[sal]:\n                ut[sal][dag] = 0\n            ut[sal][dag] = ut[sal][dag] + nostet[dag][sal]\n    return ut\n\ndata = [[\"mandag\", \"Speilsal\", 14],\n        [\"mandag\", \"Yoga\", 9],\n        [\"tirsdag\", \"Speilsal\", 20],\n        [\"mandag\", \"Speilsal\", 6]]\n\nnostet = bygg(data)\nprint(nostet)\nprint(snu(nostet))\n```\n\n**Utskrift:**\n```\n{'mandag': {'Speilsal': 20, 'Yoga': 9}, 'tirsdag': {'Speilsal': 20}}\n{'Speilsal': {'mandag': 20, 'tirsdag': 20}, 'Yoga': {'mandag': 9}}\n```\n\n**c)** Fordi `snu` bygger en **nøstet** struktur, akkurat som `bygg`. Den nye\nytternøkkelen (salen) kan mangle, og den nye indrenøkkelen (dagen) kan mangle —\nog hver av dem stopper programmet hvis den ikke opprettes først.\n\nAt kildestrukturen allerede finnes, hjelper ikke: det er **målstrukturen** som må\nbygges opp, og den starter tom.\n\n**Legg merke til at `snu` har to nivåers løkke inn og to sjekker ut.** Det er\nformen når du skal omorganisere data — og den er verdt å kjenne igjen, fordi\noppgaveteksten sjelden sier «bygg en nøstet ordbok» rett ut. Den sier «lag en\noversikt over hvilke dager hver sal er i bruk».\n\n**Slik ville sensor sett på det:** de fire `if`-sjekkene til sammen er halve\npoengsummen her. Riktig todelt løkkestruktur i begge funksjonene er den andre\nhalvparten.",
+    "hints": [
+     "`snu` bygger en ny nøstet ordbok — da trengs oppbyggings-malen på nytt.",
+     "Den nye ytternøkkelen er den gamle indrenøkkelen."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — finn det felles.) En ordbok går fra spillernavn til\nen **liste** over spill spilleren liker.\n\n**a)** Skriv `felles(d, a, b)` som returnerer en liste over spillene både `a` og\n`b` liker. Returner en tom liste hvis en av dem ikke finnes.\n\n**b)** Skriv `adskilt(d, a, b)` som returnerer en liste over spillene bare **én**\nav dem liker.\n\n**c)** Skriv `mest_populaere(d)` som returnerer tittelen på det spillet flest\nliker.",
+    "solution": "**a)–c)** Tre mønstre: to sammenligninger og en teller-ordbok:\n\n```python\ndef felles(d, a, b):\n    ut = []\n    if a not in d:\n        return ut\n    if b not in d:\n        return ut\n    for spill in d[a]:\n        if spill in d[b]:\n            ut.append(spill)\n    return ut\n\ndef adskilt(d, a, b):\n    ut = []\n    if a not in d:\n        return ut\n    if b not in d:\n        return ut\n    for spill in d[a]:\n        if spill not in d[b]:\n            ut.append(spill)\n    for spill in d[b]:\n        if spill not in d[a]:\n            ut.append(spill)\n    return ut\n\ndef mest_populaere(d):\n    teller = {}\n    for navn in d:\n        for spill in d[navn]:\n            if spill not in teller:\n                teller[spill] = 0\n            teller[spill] = teller[spill] + 1\n    beste = None\n    beste_antall = 0\n    for spill in teller:\n        if teller[spill] > beste_antall:\n            beste = spill\n            beste_antall = teller[spill]\n    return beste\n\nd = {\"Ada\": [\"Sjakk\", \"Kolonier\", \"Ordjakt\"],\n     \"Nora\": [\"Kolonier\", \"Sjakk\"],\n     \"Per\": [\"Yatzy\", \"Sjakk\"]}\n\nprint(felles(d, \"Ada\", \"Nora\"))\nprint(adskilt(d, \"Ada\", \"Nora\"))\nprint(felles(d, \"Ada\", \"Kari\"))\nprint(mest_populaere(d))\n```\n\n**Utskrift:**\n```\n['Sjakk', 'Kolonier']\n['Ordjakt']\n[]\nSjakk\n```\n\n**`felles` er en løkke med en `in`-test.** Den går over den ene lista og sjekker\nmot den andre. Rekkefølgen i svaret følger `d[a]`.\n\n**`adskilt` trenger to løkker etter hverandre** — én hver vei. Med bare den første\nville spill som bare `b` liker, blitt oversett. Her har Nora ingen spill Ada ikke\nliker, så bare `Ordjakt` kommer med.\n\n**`mest_populaere` bygger regnskapet i én løkke og leser det i neste**, som i\n[kap. 6.3](/bok/in1000/in1000-6-3). Sjakk er med hos alle tre.\n\n**De tidlige returene i a) og b)** returnerer den **tomme lista**, ikke `None`. Det\ner et bevisst valg: den som kaller, kan da bruke svaret i en løkke uten å sjekke\nførst. Skriv en kommentar hvis oppgaveteksten kan tolkes annerledes.\n\n**Slik ville sensor sett på det:** at `adskilt` har **to** løkker, er et\nselvstendig poeng, og det er det folk oftest glemmer. De tre funksjonene rettes\nhver for seg.",
+    "hints": [
+     "`felles` går over den ene lista og sjekker mot den andre.",
+     "`adskilt` må gå begge veier — ellers oversees den enes egne spill."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — oppslag i en nøstet regelstruktur.) En nøstet ordbok\nbeskriver hvilke soner en kollektivbillett er gyldig i: fra billettype til sone\ntil `True` eller `False`.\n\n**a)** Skriv `gyldig(regler, billett, sone)` som returnerer `True` bare hvis\nbilletten er registrert som gyldig i sonen. Manglende billett eller sone gir\n`False`.\n\n**b)** Skriv `soner_for(regler, billett)` som returnerer en liste over sonene\nbilletten er gyldig i.\n\n**c)** Skriv `kan_reise(regler, billett, reise)` der `reise` er en liste av soner,\nog som returnerer `True` bare hvis billetten er gyldig i **alle** sonene.\n\n**d)** Test alle tre, inkludert en tom reise.",
+    "solution": "**a)–d)** Oppslag, filtrering og «alle»-sjekk:\n\n```python\ndef gyldig(regler, billett, sone):\n    if billett not in regler:\n        return False\n    if sone not in regler[billett]:\n        return False\n    return regler[billett][sone]\n\ndef soner_for(regler, billett):\n    ut = []\n    if billett not in regler:\n        return ut\n    for sone in regler[billett]:\n        if regler[billett][sone]:\n            ut.append(sone)\n    return ut\n\ndef kan_reise(regler, billett, reise):\n    for sone in reise:\n        if gyldig(regler, billett, sone) == False:\n            return False\n    return True\n\nregler = {\"enkelt\": {\"1\": True, \"2\": False},\n          \"periode\": {\"1\": True, \"2\": True, \"3\": True}}\n\nprint(gyldig(regler, \"enkelt\", \"1\"), gyldig(regler, \"enkelt\", \"2\"))\nprint(gyldig(regler, \"enkelt\", \"9\"), gyldig(regler, \"student\", \"1\"))\nprint(soner_for(regler, \"periode\"))\nprint(kan_reise(regler, \"periode\", [\"1\", \"3\"]))\nprint(kan_reise(regler, \"enkelt\", [\"1\", \"2\"]))\nprint(kan_reise(regler, \"enkelt\", []))\n```\n\n**Utskrift:**\n```\nTrue False\nFalse False\n['1', '2', '3']\nTrue\nFalse\nTrue\n```\n\n**`gyldig` returnerer selve verdien til slutt**, ikke `True`. Verdien **er**\nallerede `True` eller `False`, så en ekstra `if` ville vært overflødig.\n\n**`soner_for` tar bare med sonene der verdien er sann.** Legg merke til\n`if regler[billett][sone]:` — verdien brukes rett som betingelse. For `enkelt`\nville svaret bare vært `['1']`, siden sone 2 er `False`.\n\n**`kan_reise` gjenbruker `gyldig`**, og det er hele poenget med å skrive a) først.\nDen er en «alle»-sjekk: `return False` inne i løkka, `return True` etter.\n\n**Den tomme reisen gir `True`.** Løkka går ingen runder, og koden faller til\n`return True`. Det er logisk riktig — «alle soner er gyldige» er sant når det ikke\ner noen soner — men det er verdt en kommentar hvis oppgaven kan tolkes annerledes.\n\n**Slik ville sensor sett på det:** gjenbruken i c) er et selvstendig poeng, og de\nto sjekkene i a) er to til. Kant-tilfellet med tom reise er ofte en egen\ndeloppgave: «hva returnerer funksjonen for en tom liste, og er det riktig?»",
+    "hints": [
+     "Skriv oppslagsfunksjonen først, og bruk den i c).",
+     "«Alle» returnerer `False` inne i løkka og `True` etter."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — bygg en nøstet struktur med lister.) En liste av\nregistreringer har formen `[dag, aktivitet, deltakernavn]`.\n\n**a)** Skriv `bygg(data)` som returnerer en nøstet ordbok fra dag til aktivitet\ntil en **liste** av deltakernavn.\n\n**b)** Skriv `antall_unike(nostet)` som returnerer hvor mange **ulike** deltakere\ndet er til sammen, uansett dag og aktivitet.\n\n**c)** Test begge.",
+    "solution": "**a)–b)** Oppbyggings-malen med `[]` og `.append(...)` i stedet for `0` og `+`,\nog et duplikat-mønster over tre nivåer:\n\n```python\ndef bygg(data):\n    d = {}\n    for rad in data:\n        dag = rad[0]\n        akt = rad[1]\n        if dag not in d:\n            d[dag] = {}\n        if akt not in d[dag]:\n            d[dag][akt] = []\n        d[dag][akt].append(rad[2])\n    return d\n\ndef antall_unike(nostet):\n    sett = []\n    for dag in nostet:\n        for akt in nostet[dag]:\n            for navn in nostet[dag][akt]:\n                if navn not in sett:\n                    sett.append(navn)\n    return len(sett)\n\ndata = [[\"mandag\", \"spinning\", \"Ada\"],\n        [\"mandag\", \"spinning\", \"Nora\"],\n        [\"mandag\", \"yoga\", \"Ada\"],\n        [\"tirsdag\", \"spinning\", \"Per\"],\n        [\"tirsdag\", \"spinning\", \"Ada\"]]\n\nnostet = bygg(data)\nprint(nostet)\nprint(antall_unike(nostet))\n```\n\n**Utskrift:**\n```\n{'mandag': {'spinning': ['Ada', 'Nora'], 'yoga': ['Ada']}, 'tirsdag': {'spinning': ['Per', 'Ada']}}\n3\n```\n\n**Grupperingen skiller seg fra telleren med to tegn:** `[]` i stedet for `0`, og\n`.append(...)` i stedet for `+`. De to `if`-sjekkene er nøyaktig de samme.\n\n**`antall_unike` har tre nivåers løkke**, fordi verdien på det innerste nivået\nselv er en liste. Det er ett nivå mer enn resten av kapitlet, men mønsteret er\nuendret — hver løkke gir deg neste lag.\n\n**Ada står fire steder**, men telles én gang. Duplikat-mønsteret — bygg en liste\nover dem du har sett, og returner `len` — er det samme som i\n[kap. 6.3](/bok/in1000/in1000-6-3).\n\n**Slik ville sensor sett på det:** i a) er `[]` som startverdi og `.append(...)`\nde to tingene som skiller den fra teller-varianten. I b) er den tredoble løkka og\n`if navn not in sett:` poengene.\n\n**Merk variabelnavnet `sett`.** Python har en innebygd datatype som heter\n`set` — den er ikke pensum her, og navnet `sett` er derfor trygt. Men et navn som\n`set` ville skygget den innebygde funksjonen, og det er feilkode **#13**.",
+    "hints": [
+     "Grupperingen bruker `[]` og `.append(...)` der telleren bruker `0` og `+`.",
+     "For b): hvor mange nivåer må du gjennom for å nå navnene?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-2-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — «finn feilen», med konkret moteksempel.) En\nmedstudent har skrevet:\n\n```python\ndef per_aktivitet(uke):\n    ut = {}\n    for dag in uke:\n        for akt in uke[dag]:\n            ut[akt] = uke[dag][akt]\n    return ut\n\ndef alle_dager(uke, akt):\n    for dag in uke:\n        if akt in uke[dag]:\n            return True\n    return False\n```\n\n**a)** Hva er feil i `per_aktivitet`?\n\n**b)** Hva er feil i `alle_dager`, gitt at den skal svare om aktiviteten finnes på\n**alle** dager?\n\n**c)** Gi et **konkret moteksempel** på hver av dem, og skriv de rettede\nfunksjonene.",
+    "solution": "**a)** `per_aktivitet` **overskriver** i stedet for å akkumulere. Linjen\n`ut[akt] = uke[dag][akt]` setter verdien på nytt for hver dag, så resultatet blir\nverdien fra den **siste** dagen — ikke summen.\n\nDen mangler både `if akt not in ut:` med `ut[akt] = 0` og `+` i siste linje.\n\n**b)** `alle_dager` er en «finnes det …»-sjekk, ikke en «er alle …»-sjekk.\nReturene står feil vei: den svarer `True` så snart aktiviteten finnes på **én**\ndag. Det er feilkode **#7**, for tidlig retur.\n\n**c)** Moteksempler og rettinger:\n\n```python\ndef per_aktivitet(uke):\n    ut = {}\n    for dag in uke:\n        for akt in uke[dag]:\n            ut[akt] = uke[dag][akt]\n    return ut\n\ndef alle_dager(uke, akt):\n    for dag in uke:\n        if akt in uke[dag]:\n            return True\n    return False\n\nuke = {\"mandag\": {\"yoga\": 9, \"spinning\": 14},\n       \"tirsdag\": {\"yoga\": 4}}\n\nprint(per_aktivitet(uke))\nprint(alle_dager(uke, \"spinning\"))\n```\n\n**Utskrift:**\n```\n{'yoga': 4, 'spinning': 14}\nTrue\n```\n\n**Moteksempel 1:** `per_aktivitet(uke)` gir `yoga` verdien **4**. Det skulle vært\n**13**, altså 9 pluss 4.\n\n**Moteksempel 2:** `alle_dager(uke, \"spinning\")` gir `True`. Det skulle gitt\n`False` — spinning finnes bare på mandag.\n\nDe rettede funksjonene:\n\n```python\ndef per_aktivitet(uke):\n    ut = {}\n    for dag in uke:\n        for akt in uke[dag]:\n            if akt not in ut:\n                ut[akt] = 0\n            ut[akt] = ut[akt] + uke[dag][akt]\n    return ut\n\ndef alle_dager(uke, akt):\n    for dag in uke:\n        if akt not in uke[dag]:\n            return False\n    return True\n\nuke = {\"mandag\": {\"yoga\": 9, \"spinning\": 14},\n       \"tirsdag\": {\"yoga\": 4}}\n\nprint(per_aktivitet(uke))\nprint(alle_dager(uke, \"spinning\"), alle_dager(uke, \"yoga\"))\n```\n\n**Utskrift:**\n```\n{'yoga': 13, 'spinning': 14}\nFalse True\n```\n\n**Les den siste linja mot kallene:** `alle_dager(uke, \"spinning\")` gir `False`,\nfordi spinning bare finnes på mandag, og `alle_dager(uke, \"yoga\")` gir `True`,\nfordi yoga finnes begge dager. Det er nettopp motsatt av hva den gale versjonen\nsvarte.\n\n**To rettinger:** `if akt not in ut:` med `ut[akt] = 0` og `+` i den første, og\nreturene snudd i den andre.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling — hvilket kall som gir galt svar, og hva det riktige\nville vært. De to funksjonene rettes hver for seg.",
+    "hints": [
+     "Hva skjer med verdien for `yoga` når den finnes på to dager?",
+     "Hvilken vei skal returene stå i en «er alle …»-sjekk?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-2-9",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på sjanger G:\n\n- **Å blande de to nivåene.** `for akt in uke:` i den indre løkka går gjennom\n  dagene på nytt; `y[j][i]` er et annet oppslag enn `y[i][j]`.\n- **#7 — feil vei på returene.** «Finnes det …» gir `True` inne i løkka og\n  `False` etter; «er alle …» er motsatt. Å snu dem gir riktig type svar og feil\n  innhold.\n- **#14 — å bygge uten å opprette først.** Både den indre strukturen og den indre\n  nøkkelen må opprettes, i den rekkefølgen.\n- **Å overskrive der du skulle akkumulere.** `ut[akt] = verdi` i stedet for\n  `ut[akt] = ut[akt] + verdi` gir verdien fra den siste runden i stedet for\n  summen.\n- **#6 — kant-tilfellene.** Tom struktur, tom indre struktur, og indre strukturer\n  med ulik størrelse. En «alle»-sjekk gir `True` på en tom struktur — riktig, men\n  verdt en kommentar.\n\nOg én plasseringsfeil: **akkumulatoren utenfor den ytre løkka når den skulle vært\ninne i den.** Den gir løpende summer i stedet for én sum per rad."
+  },
+  {
+   "id": "in1000-8-2-coll-10",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-8-2-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `for indre in y:` `for x in indre:` | To nivåers løkke over nøstet liste. Ytre variabel er en liste. |\n| `for ytre in d:` `for indre in d[ytre]:` | To nivåers løkke over nøstet ordbok. Begge variabler er **nøkler**. |\n| `d[ytre][indre]` | Verdien. Begge nivåer kan mangle. |\n| `total = 0` utenfor begge løkkene | Én sum for hele strukturen. |\n| `s = 0` inne i den ytre løkka | Én sum **per** indre struktur. Den vanligste plasseringsfellen. |\n| `ut = []` før løkka, `ut.append(s)` etter den indre | Bygg en liste med ett svar per indre struktur. |\n| `if k not in ut:` `ut[k] = 0` | Teller-ordbok når du flater ut strukturen. |\n| `if k not in d[y]:` `d[y][k] = []` … `.append(v)` | Gruppering på det indre nivået. |\n| `if x in d[a]:` | Sjekk uten løkke — når det indre nivået bare skal testes. |\n| `for x in d[a]:` `if x in d[b]:` `ut.append(x)` | Finn det felles mellom to lister. |\n| To løkker, én hver vei | Finn det som er i **bare** den ene. Én løkke er ikke nok. |\n| `if …: return True` … `return False` | «Finnes det …» — tidlig retur. |\n| `if …: return False` … `return True` | «Er alle …» — motsatt vei (**#7** hvis snudd). |\n| `if a not in d: return ut` | Tidlig retur med tom liste, når svaret skal brukes i en løkke. |\n| `if navn not in sett:` `sett.append(navn)` `return len(sett)` | Tell ulike verdier. |\n| `if regler[b][s]:` | En verdi som allerede er `True`/`False`, brukes rett som betingelse. |\n\n**Det som avgjør poeng i Oppgave 5:** den todelte løkkestrukturen, plasseringen\nav akkumulatoren, og at returene i en flagg-sjekk står riktig vei."
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-2-11",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-8-2-12",
+   "type": "definition",
+   "title": "Sjanger G — formen",
+   "content": "To funksjoner over nøstede lister eller ordbøker, 4–5 poeng hver, til sammen\n8–10 poeng. Sjangeren står i 4 av 6 moderne sett (67 %), som Oppgave 5.\n\nDen andre funksjonen bygger ofte på den første: «bruk funksjonen fra a) til å …».\nDa kan du kalle den selv om den ikke ble helt riktig — sensor vet hva den skulle\ngjøre.\n\nDen todelte løkkestrukturen er selve poenget, og riktig struktur belønnes selv\nmed en indeksfeil."
+  },
+  {
+   "id": "in1000-8-2-13",
+   "type": "definition",
+   "title": "Steg 1 — skriv ned de to nivåene",
+   "content": "«Ytre = dag, indre = aktivitet, verdi = antall deltakere.»\n\nTi sekunder på kladden, og halve fellene forsvinner: du blander ikke nivåene, du\nvet hvilken variabel som er en nøkkel, og du vet hvor verdien hentes.\n\nDet er den samme disiplinen som steg 0 i fil-deloppgaven — å lese formatet før du\nkoder."
+  },
+  {
+   "id": "in1000-8-2-14",
+   "type": "definition",
+   "title": "De fire mønstrene",
+   "content": "**Teller eller akkumulator** — «hvor mange», «hvor mye til sammen».\n\n**Flagg med tidlig retur** — «finnes det …», «er alle …».\n\n**Bygg en ny struktur** — «lag en ordbok fra … til …», «grupper etter …», «snu\nnivåene».\n\n**Oppslag med sjekk på begge nivåer** — «hva var antallet for …».\n\nAlle fire har den samme todelte løkka. Det som skiller dem, er hva som står inne\ni løkka, og hvor akkumulatoren eller returen står."
+  },
+  {
+   "id": "in1000-8-2-15",
+   "type": "definition",
+   "title": "Akkumulatorens plassering",
+   "content": "Den ene avgjørelsen som oftest bestemmer om svaret blir riktig.\n\n**Utenfor begge løkkene:** én sum for hele strukturen.\n**Inne i den ytre løkka:** én sum per indre struktur — «per spiller», «per dag».\n\nEn akkumulator som skulle vært nullstilt og ikke blir det, gir **løpende** summer\ni stedet for enkeltsummer. Begge deler kan være riktig; oppgaveteksten avgjør.\n\nLes hvor den står før du sporer. Én linjes forskjell i innrykk gir et helt annet\nsvar."
+  },
+  {
+   "id": "in1000-8-2-16",
+   "type": "definition",
+   "title": "Når én løkke holder",
+   "content": "Skal det indre nivået bare **testes**, ikke gås gjennom, holder én løkke:\n`if vare in d[butikk]:`.\n\nSkal det indre nivået **måles**, holder også én: `if len(spiller) < minst:`.\n\nÅ skrive to løkker der én holder, er ikke galt — bare lengre og lettere å bomme\npå. Spør alltid: må jeg se hvert element, eller bare vite om noe finnes?"
+  },
+  {
+   "id": "in1000-8-2-17",
+   "type": "definition",
+   "title": "Å snu nivåene",
+   "content": "Å bygge en ny nøstet ordbok der den gamle indrenøkkelen blir den nye\nytternøkkelen.\n\nMønsteret er en to nivåers løkke inn og **to** `if`-sjekker ut — oppbyggings-malen\nbrukt på målstrukturen.\n\nAt kildestrukturen finnes, hjelper ikke: målstrukturen starter tom, og begge\nnivåene i den må opprettes.\n\nKjenn den igjen i oppgaveteksten på «lag en oversikt over hvilke dager hver sal er\ni bruk»."
+  },
+  {
+   "id": "in1000-8-2-18",
+   "type": "definition",
+   "title": "Å flate ut",
+   "content": "Å summere bort det ene nivået: fra `dag → aktivitet → antall` til\n`aktivitet → totalt antall`.\n\nFormen er teller-idiomet med en to nivåers løkke rundt seg, og resultatet er en\n**vanlig** ordbok.\n\n**Den vanligste feilen er å overskrive i stedet for å akkumulere.**\n`ut[akt] = uke[dag][akt]` gir verdien fra den siste dagen; `ut[akt] = ut[akt] +\nuke[dag][akt]` gir summen."
+  },
+  {
+   "id": "in1000-8-2-19",
+   "type": "definition",
+   "title": "Finn det felles",
+   "content": "`for x in d[a]:` med `if x in d[b]:` inne i seg, og `.append(x)` når begge har\nden.\n\nRekkefølgen i svaret følger den **første** lista. Det er verdt å vite når du skal\nspore en utskrift.\n\nMotstykket — «det bare én av dem har» — trenger **to** løkker, én hver vei. Med\nbare den første overses det den andre har alene, og det er den vanligste feilen i\nmønsteret."
+  },
+  {
+   "id": "in1000-8-2-20",
+   "type": "definition",
+   "title": "Duplikater over flere nivåer",
+   "content": "`sett = []`, `if navn not in sett: sett.append(navn)`, og `return len(sett)`.\n\nMønsteret er det samme uansett hvor dypt navnene ligger — du trenger bare én\nløkke per nivå for å nå dem.\n\nVariabelnavnet `sett` er trygt; `set` ville skygget en innebygd funksjon, og det\ner feilkode **#13**."
+  },
+  {
+   "id": "in1000-8-2-21",
+   "type": "definition",
+   "title": "Verdien brukt rett som betingelse",
+   "content": "Er verdien allerede `True` eller `False`, kan den stå rett i en `if`:\n`if regler[billett][sone]:`.\n\nOg en funksjon kan returnere den direkte: `return regler[billett][sone]`. En\nekstra `if` som gjør om `True` til `True`, er overflødig.\n\nFormen er kort og lesbar — men bare når verdien faktisk **er** en sannhetsverdi.\nEr den et tall, betyr `if tall:` «tallet er ikke null», og det er sjelden det du\nmente."
+  },
+  {
+   "id": "in1000-8-2-22",
+   "type": "definition",
+   "title": "Tomme strukturer",
+   "content": "En tom indre ordbok er en helt gyldig verdi, og den er **ikke** det samme som at\nnøkkelen mangler.\n\n`len(d[\"c\"])` er 0 når `c` finnes med en tom ordbok; `d[\"z\"]` stopper programmet\nnår `z` ikke finnes i det hele tatt.\n\nI en to nivåers løkke teller den tomme indre strukturen med i den ytre løkka, men\ngir null runder i den indre. Det er en fast sporingsfelle."
+  },
+  {
+   "id": "in1000-8-2-23",
+   "type": "definition",
+   "title": "«Alle»-sjekk på tom struktur",
+   "content": "En «er alle …»-funksjon returnerer `True` på en tom struktur: løkka går ingen\nrunder, og koden faller rett til `return True`.\n\nDet er logisk riktig — «alle elementene oppfyller kravet» er sant når det ikke\nfinnes noen elementer — og det er slik matematikken definerer det.\n\nMen det kan overraske, og oppgaveteksten kan mene noe annet. **Skriv en\nkommentarlinje om valget**, så ser sensor at det er bevisst."
+  },
+  {
+   "id": "in1000-8-2-24",
+   "type": "definition",
+   "title": "Tidlig retur med tom liste",
+   "content": "`if a not in d: return ut` der `ut` er den tomme lista.\n\nDet er et bevisst valg framfor `None`: den som kaller, kan bruke svaret i en løkke\nuten å sjekke først, og en tom liste betyr naturlig «ingen treff».\n\n`None` er bedre når svaret skal sammenlignes eller brukes som et objekt. Les hva\noppgaven skal gjøre med resultatet."
+  },
+  {
+   "id": "in1000-8-2-25",
+   "type": "definition",
+   "title": "Å gjenbruke funksjonen fra a)",
+   "content": "`kan_reise` kaller `gyldig`; `totalt_av` kaller `lager`; `beste_spiller` kaller\n`sum_per_spiller`.\n\nOppgaveteksten legger nesten alltid opp til det ved å be om den enkle funksjonen\nførst. Gjenbruken er et **selvstendig poeng**, ikke bare en snarvei.\n\nOg den er trygg: du kan kalle funksjonen fra a) selv om du ikke fikk den helt\nriktig. Sensor vet hva den skulle gjøre."
+  },
+  {
+   "id": "in1000-8-2-coll-26",
+   "type": "collapsible",
+   "title": "Repetisjon — de seks setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-8-2-c2",
+     "type": "text",
+     "content": "1. **Skriv ned de to nivåene først.** «Ytre = dag, indre = aktivitet, verdi =\n   antall.»\n2. **Fire mønstre dekker sjangeren:** teller, flagg med tidlig retur, bygg ny\n   struktur, oppslag med to sjekker.\n3. **Akkumulatorens plassering avgjør svaret:** utenfor begge løkkene for en\n   total, inne i den ytre for «per rad».\n4. **«Finnes det …» gir `True` inne i løkka og `False` etter; «er alle …» er\n   motsatt.** Å snu dem er feilkode **#7**.\n5. **Bygging krever to sjekker**, i rekkefølgen ytre, indre — og akkumulering med\n   `+`, ikke `=`.\n6. **Gjenbruk funksjonen fra a) i b).** Det er et selvstendig poeng, og du kan\n   kalle den selv om den ikke ble helt riktig."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
