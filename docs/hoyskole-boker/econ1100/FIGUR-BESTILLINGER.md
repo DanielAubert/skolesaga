@@ -66,8 +66,8 @@ med ny `id` og ny, skreddersydd `caption`.
 | F11 ✅ | 8.2 | `tangering-budsjett.svg` (LEVERT av B4 25. juli 2026 — bygget, wiret inn i kap. 8.2, gjenbrukt som referansefigur i kap. 8.5 og som fasitfigur i `econ1100-8-prove` prøve 8.A, lastet opp til Storage og verifisert 200) | Budsjettlinjen $p_1x+p_2y=m$ og en indifferenskurve som tangerer den i $(x^*,y^*)$, med stiplede hjelpelinjer til aksene og tangeringsbetingelsen merket som «MRS = prisforhold». Bokas viktigste økonomifigur; gjenbrukes i 8.5, Del 8-prøvene og øvingseksamen 1 (Oppgave 3). |
 | F12 ✅ | 8.3 | `skyggepris-budsjettskift.svg` (LEVERT av B4 25. juli 2026 — bygget, wiret inn i kap. 8.3, lastet opp til Storage og verifisert 200) | Samme diagram som F11, men med budsjettlinjen skiftet utover ved økt $m$ og en ny tangering på en høyere indifferenskurve. Merket: «$dU^*/dm=\lambda$ — verdien av én krone til». Gjør skyggeprisen synlig. |
 | F13 ✅ | 9.2 | `isokvant-isokost.svg` (LEVERT av B6 25. juli 2026 — bygget, wiret inn i kap. 9.2, lastet opp til Storage og verifisert 200) | Isokvanten $F(K,L)=\bar Y$ med en isokostlinje $rK+wL=\text{konst.}$ som tangerer den i $(K^*,L^*)$; tangeringsbetingelsen $MP_K/MP_L=r/w$ merket. Akser $L$ (horisontalt) og $K$ (vertikalt). Gjenbrukes i Del 9-prøvene og øvingseksamen 3. |
-| F14 | 10.1 | `invers-speiling.svg` | En strengt voksende funksjon $f$ og dens inverse $g$ speilet om linjen $y=x$ (stiplet), med et punkt $(a,b)$ på $f$ og speilpunktet $(b,a)$ på $g$. Gjør både eksistenskravet (monotoni) og $g'(y)=1/f'(x)$ visuelt. |
-| F15 | 10.2 | `areal-mellom-kurver.svg` | To kurver med det skraverte arealet mellom dem fra $x=a$ til $x=b$, grensene merket på $x$-aksen. Brukes til arealtolkningen av det bestemte integralet. |
+| F14 ✅ | 10.1 | `invers-speiling.svg` (LEVERT av B7 25. juli 2026 — bygget, wiret inn i kap. 10.1, lastet opp og verifisert 200) | En strengt voksende funksjon $f$ og dens inverse $g$ speilet om linjen $y=x$ (stiplet), med et punkt $(a,b)$ på $f$ og speilpunktet $(b,a)$ på $g$. Gjør både eksistenskravet (monotoni) og $g'(y)=1/f'(x)$ visuelt. |
+| F15 ✅ | 10.2 | `areal-mellom-kurver.svg` (LEVERT av B7 25. juli 2026 — bygget, wiret inn i kap. 10.2, lastet opp og verifisert 200) | To kurver med det skraverte arealet mellom dem fra $x=a$ til $x=b$, grensene merket på $x$-aksen. Brukes til arealtolkningen av det bestemte integralet. |
 
 ## Figurløfter som verifikator skal sjekke
 
@@ -120,6 +120,18 @@ Akser: $L$ vannrett, $K$ loddrett, jf. bestillingen. Ingen oppgave i kap. 9.2 be
 om skisse, så porten var grønn også før — figuren er bygget fordi
 tangeringsbildet ER kapitlets kjerne, og fordi Del 9-prøvene og øvingseksamen 3
 skal kunne gjenbruke den med skreddersydd `caption`.
+
+**Status 25. juli 2026 (B7 — Del 10):** F14 og F15 er bygget, wiret inn og lastet
+opp; `sjekk-figurer.py econ1100` er grønn (14 figurreferanser, alle 200 +
+`image/svg+xml`). F14 (`econ1100-10-1-fig-speiling`) er tegnet med **like skalaer
+på begge akser** — en speilingsfigur er meningsløs hvis rutenettet ikke er
+kvadratisk, og den viser $f(x)=2\sqrt x$ mot $g(y)=y^2/4$, altså paret
+voksende+konkav mot voksende+konveks som kap. 10.1 oppgave 6 beviser. F15
+(`econ1100-10-2-fig-areal`) er kalibrert mot kapitlets Eksempel 3
+($f=6-x^2$ over $g=2$, grenser $\pm 2$). Ingen oppgave i Del 10 ber om skisse, så
+porten var grønn også uten dem — figurene er bygget fordi begge diagrammene er
+bestilt og bærer hvert sitt kjerneargument. Begge har figur-i-ord ved siden av seg,
+så kapitlene er lesbare uten dem.
 
 **Teknisk merknad fra figurbyggingen (B4):** unicode-senkeskrift for `y` finnes ikke
 (`&#8337;` er senket **e**, ikke y — feilen står fortsatt i `nivakurve-helning.svg`,
