@@ -4,9 +4,14 @@
 
 | Bok | Steg 1 kapitler | Steg 2 wiring | Figurer | Steg 3 verifikasjon | Steg 4 sluttport |
 |---|---|---|---|---|---|
-| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ BOKPORT OK (42 filer / 550 fc / 558 quiz) | ✅ 95 SVG bygget | 🔄 5 agenter (V1–V5) | ⬜ |
-| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | 🔄 3 agenter (G1–G3), 49 bestillinger | ⬜ | ⬜ |
-| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ BOKPORT OK (41 filer / 554 fc / 570 quiz) | 🔄 2 agenter (F1–F2), 64 bestillinger | 🔄 Del 6–7 (W1) | ⬜ |
+| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ BOKPORT OK (42 filer / 550 fc / 558 quiz) | ✅ 109 SVG i Storage, verifisert 200 | ✅ komplett (~1 880 sjekker, 48 fiks) | ✅ **LANDET PÅ MAIN 26ae6270** |
+| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | ✅ Del 1, 4–7 (G2+G3) · 🔄 Del 2–3 (G1) | 🔄 Del 4–6 (X1) | ⬜ |
+| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ BOKPORT OK (41 filer / 554 fc / 570 quiz) | ✅ Del 4–5, 8 (F2) · 🔄 Del 0–3 (F1) | ✅ Del 6–7 (W1) · 🔄 Del 4–5+8 (W2) | ⬜ |
+
+**Ferdig i natt utover dette:** quiz i begge econ-bøker ryddet sentralt (LENGDE-TELL
+under terskel i alle kapitler, 0 duplikatspørsmål), ny port `sjekk-latex.py` lagt til
+og selv debugget (KaTeX-sjekken ble stille droppet), fys1001s enhetsnotasjon
+normalisert, og UIP-frekvenspåstanden i econ2310-skjelettet rettet.
 
 Alle tre branchene er **pushet til GitHub** (`bok/fys1001`, `bok/econ2310`,
 `bok/econ2220`), så arbeidet er trygt selv om maskinen dør.
