@@ -317,7 +317,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | MET 2910 Matematikk for økonomer (BI) | regnefag | skjelett |
 | MET 2920 Statistikk for økonomer (BI) | regnefag | skjelett |
 | MET 1190 Statistikk (BI) | regnefag | skjelett |
-| ECON1100 Matematikk I for økonomer (UiO) | regnefag | skjelett |
+| ECON1100 Matematikk I for økonomer (UiO) | regnefag | **bok** (live) |
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | **bok** (live) |
 | ECON1220 Velferd og økonomisk politikk (UiO) | drøfting/hybrid | skjelett |
 | ECON1410 Internasjonal økonomi (UiO) | regnefag | skjelett |

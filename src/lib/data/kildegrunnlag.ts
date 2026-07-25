@@ -222,6 +222,46 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  econ1100: {
+    courseId: 'econ1100',
+    institusjon: 'Universitetet i Oslo (UiO) — Økonomisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot ECON1100s eksamensarkiv ved UiO: 16 eksamenssett fra vår 2018 til høst 2025 — 9 ordinære og 7 utsatte — hvert eneste med offisiell sensorveiledning. Det er uvanlig god dekning, og lar oss skille profilen på ordinær og utsatt eksamen fra hverandre. Temavekting, oppgavesjangre og den faste dramaturgien i settene speiler hva arkivet faktisk tester.',
+    eksamenssett: [
+      {
+        tittel: '9 ordinære skoleeksamener (V2018, H2018 – H2025)',
+        detalj:
+          'Én ordinær eksamen per høst, pluss vårsettet V2018. Settene fra H2020 og senere følger en stabilisert mal med fem oppgaver og fast dramaturgi; de er lest i detalj. V2018-settene er minst representative — integrasjonstunge, med andrederiverte allerede i oppgave 1 — og er skummet for formhistorikk.',
+      },
+      {
+        tittel: '7 utsatte eksamener (V2018-utsatt, H2020 – H2025-utsatt)',
+        detalj:
+          'ECON1100 har utsatt eksamen hvert år i tillegg til den ordinære. De utsatte settene har en litt annen profil — produsentteori og kostnadsminimering går oftere igjen der — og boka trener begge variantene.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '16 offisielle sensorveiledninger — én per sett',
+        detalj:
+          'Alle 16 settene har offisiell sensorveiledning fra Økonomisk institutt, og alle er lest grundig. De siste åtte årgangene er gjennomgått i detalj, de eldste skummet. Veiledningene gjentar de generelle merknadene nesten ordrett hvert år, og det er dem boka bygger føringsstandarden på: en konklusjon uten begrunnelse gir null, og hvert steg skal vises.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for ECON1100',
+        detalj:
+          'Omskrevet sammendrag, verifisert aktiv for 2026. Brukt til å avgrense pensum og forankre at emnet er obligatorisk i fem økonomiprogram.',
+      },
+    ],
+    forbehold: [
+      'V2018-settene er formmessig utdaterte: eksamen ble lagt om til dagens femoppgavers mal fra H2020. De teller derfor lite i frekvensprognosene, og boka er kalibrert mot H2021–H2025.',
+      'Arkivmappen inneholder flere kopier av samme sett under ulike filnavn. Analysen bygger på de organiserte undermappe-versjonene, ikke rotnivået.',
+      'De tre øvingseksamenene i Del 11 er nyskrevne av oss — de er ikke offisielle UiO-sett, og det står eksplisitt i kapitlene.',
+      'Alle oppgaver, tall og kontekster i boka er nyskrevne. Arkivet er brukt som mønster for sjangre, temavekting og føringskrav — aldri gjengitt ordrett. Sensorformuleringer er parafrasert.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   econ1210: {
     courseId: 'econ1210',
     institusjon: 'Universitetet i Oslo (UiO) — Økonomisk institutt',
