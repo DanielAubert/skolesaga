@@ -18,6 +18,10 @@ Deler:
   1  Vekst/Solow: fasediagram, tidsbaner, skift i s/n/delta/g, gullregelen,
      to stabile likevekter med ustabil terskel, drilloversikten, prøvefigurene
   7  Øvingseksamenene: (Y,i)-figurene til kap. 7.2 og 7.3
+  4  Den åpne modellen i (Y,i)-planet: IS og RR alene, likevekten, høy-β-paret,
+     de fire standardsjokkene, penge- mot finanspolitikk, drill- og prøvefigurer
+  5  Hovedkurskjeden, målbetingelsen i (v,k)-planet, broen mellom relasjonssettene
+  6  Todelt økonomi, kriselikevekt med tre skjæringer, KI i arbeidsmarkedet
 
 Etterpå: wire som image-blokker MED SKREDDERSYDD caption per plassering, og
 kjør `npx tsx scripts/upload-media-storage.ts` (ellers 404 i prod).
@@ -31,7 +35,13 @@ ARGS = sys.argv[1:]
 DELER = {'2', '3'}
 if '--dele' in ARGS:
     i = ARGS.index('--dele')
-    DELER = set(ARGS[i + 1].replace('-', ',').split(','))
+    DELER = set()
+    for _tok in ARGS[i + 1].split(','):
+        if '-' in _tok:                      # intervall: «4-6» betyr 4, 5 og 6
+            _lo, _hi = _tok.split('-')
+            DELER |= {str(n) for n in range(int(_lo), int(_hi) + 1)}
+        elif _tok:
+            DELER.add(_tok)
     del ARGS[i:i + 2]
 OUT = ARGS[0] if ARGS else 'public/images/textbook/econ2310'
 os.makedirs(OUT, exist_ok=True)
@@ -1442,5 +1452,1024 @@ if '7' in DELER:
     b += rt(yx(YL) - 68, iv(IB3) - 25, 'Y-retning', 10.5, INK, False, anchor='end')
     b += rt(yx(YL) - 68, iv(IB3) - 13, 'ubestemt', 10.5, INK, False, anchor='end')
     save('is-rr-kostnadssjokk-stramt', b)
+
+# ===========================================================================
+# G2 — DEL 4, 5 og 6: den åpne modellen i (Y,i)-planet, hovedkursmodellens
+# flytskjemaer, målbetingelsen i (v,k)-planet, kriselikevekt med tre
+# skjæringer, og KI-arbeidsmarkedet i to paneler.
+# All geometri REGNES UT: helninger, skjæringer og skiftretninger verifiseres
+# med assert før SVG-en skrives, og linjene klippes numerisk til plottvinduet.
+# ===========================================================================
+if DELER & {'4', '5', '6'}:
+
+    def g2_arc(p1, p2, bow, color, w=1.8, dash=None, head=True):
+        """Kvadratisk bézier fra p1 til p2, buet `bow` piksler ut fra korda."""
+        mx, my = (p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2
+        dx, dy = p2[0] - p1[0], p2[1] - p1[1]
+        L = math.hypot(dx, dy) or 1.0
+        nx, ny = -dy / L, dx / L
+        cx, cy = mx + nx * bow * 2, my + ny * bow * 2
+        d = f' stroke-dasharray="{dash}"' if dash else ''
+        s = (f'  <path d="M {p1[0]:.1f} {p1[1]:.1f} Q {cx:.1f} {cy:.1f} '
+             f'{p2[0]:.1f} {p2[1]:.1f}" fill="none" stroke="{color}" '
+             f'stroke-width="{w}"{d}/>\n')
+        if head:
+            s += _head((cx, cy), p2, color, 7)
+        return s
+
+    def g2_polyarrow(pts, color, w=1.6, dash=None):
+        """Knekt pil: polylinje med pilspiss i siste punkt."""
+        return polyline(pts, color, w, dash) + _head(pts[-2], pts[-1], color, 7)
+
+
+# ===========================================================================
+# G2 — DEL 4: IS-RR i (Y,i)-planet (kap. 4.1–4.6 + prøvene)
+# ===========================================================================
+if DELER & {'4', '5', '6'}:
+    # ---------------- felles tallgrunnlag for alle (Y,i)-figurer ------------
+    # IS (kap. 4.1):  i = c_IS + s_IS·Y  der  s_IS = −1/[m(c2+b2+a2κ)]
+    # RR (kap. 4.2):  i = c_RR + s_RR·Y  der  s_RR = g_Y/Y^n
+    G2_YN = 100.0                      # potensielt BNP
+    G2_YA, G2_IA = 96.0, 3.0           # utgangslikevekt A (svakt negativt gap)
+    G2_M = 5.0 / 3.0                   # multiplikatoren m i standardtilfellet
+    G2_R = 4.0                         # rentekanalene c2 + b2 + a2·κ
+    G2_GY = 10.0                       # g_Y i renteregelen
+    G2_SIS = -1.0 / (G2_M * G2_R)      # IS-helning  = −0,15
+    G2_SRR = G2_GY / G2_YN             # RR-helning  = +0,10
+    assert near(G2_SIS, -0.15) and near(G2_SRR, 0.10), (G2_SIS, G2_SRR)
+    assert G2_SIS < 0 < G2_SRR, 'IS må falle og RR må stige'
+    G2_CIS = G2_IA - G2_SIS * G2_YA    # konstantledd slik at A ligger på IS
+    G2_CRR = G2_IA - G2_SRR * G2_YA    # ... og på RR
+    assert near(G2_CIS + G2_SIS * G2_YA, G2_IA)
+    assert near(G2_CRR + G2_SRR * G2_YA, G2_IA)
+
+    def g2_kryss(cis, sis, crr, srr):
+        """Skjæringen mellom IS og RR — regnet ut, ikke tegnet på øyemål."""
+        assert not near(sis, srr), 'parallelle kurver har ingen skjæring'
+        Y = (crr - cis) / (sis - srr)
+        i = cis + sis * Y
+        assert near(i, crr + srr * Y), 'punktet må ligge på BEGGE kurver'
+        return Y, i
+
+    assert near(g2_kryss(G2_CIS, G2_SIS, G2_CRR, G2_SRR)[0], G2_YA)
+    assert near(g2_kryss(G2_CIS, G2_SIS, G2_CRR, G2_SRR)[1], G2_IA)
+
+    def g2_cis_skift(h):
+        """Konstantledd for IS parallellforskjøvet h Y-enheter mot høyre (h>0)."""
+        return G2_CIS - G2_SIS * h
+
+    # ---------------- plottvindu og pikselavbildning ------------------------
+    G2_YLO, G2_YHI = 70.0, 136.0
+    G2_ILO, G2_IHI = 0.30, 7.60
+    G2_SX = (XMAX - 10 - OX) / (G2_YHI - G2_YLO)      # px per Y-enhet
+    G2_SY = 33.0                                      # px per rentepoeng
+    assert OY - G2_SY * G2_IHI > YTOP, 'renteaksen må romme hele intervallet'
+
+    def g2x(Y, ox=OX):
+        return ox + G2_SX * (Y - G2_YLO)
+
+    def g2y(i, oy=OY):
+        return oy - G2_SY * i
+
+    def g2_clip(s, c, ylo=None, yhi=None):
+        """Klipper linja i = c + s·Y til plottvinduet; returnerer endepunktene."""
+        ylo = G2_YLO if ylo is None else ylo
+        yhi = G2_YHI if yhi is None else yhi
+        cand = []
+        for Y in (ylo, yhi):
+            i = c + s * Y
+            if G2_ILO - 1e-9 <= i <= G2_IHI + 1e-9:
+                cand.append((Y, i))
+        if abs(s) > 1e-12:
+            for i in (G2_ILO, G2_IHI):
+                Y = (i - c) / s
+                if ylo - 1e-9 <= Y <= yhi + 1e-9:
+                    cand.append((Y, i))
+        cand.sort()
+        assert len(cand) >= 2, f'linja (s={s}, c={c}) treffer ikke plottvinduet'
+        return cand[0], cand[-1]
+
+    def g2_kurve(s, c, color, w=2.4, dash=None, lab=None, lab_size=12,
+                 at='end', dx=6, dy=4, anchor='start', ylo=None, yhi=None,
+                 ox=OX, oy=OY):
+        p, q = g2_clip(s, c, ylo, yhi)
+        out = line((g2x(p[0], ox), g2y(p[1], oy)),
+                   (g2x(q[0], ox), g2y(q[1], oy)), color, w, dash)
+        if lab:
+            ref = q if at == 'end' else p
+            out += rt(g2x(ref[0], ox) + dx, g2y(ref[1], oy) + dy, lab, lab_size,
+                      color, anchor=anchor)
+        return out
+
+    def g2_pt(Y, i, lab, dxy=(9, -10), open_=False, color=INK, xlab=None,
+              ilab=None, ox=OX, oy=OY, helpers=True):
+        x, y = g2x(Y, ox), g2y(i, oy)
+        out = ''
+        if helpers:
+            out += line((x, y), (x, oy), GREY, 1.2, '5 4')
+            out += line((ox, y), (x, y), GREY, 1.2, '5 4')
+        out += (odot(x, y, color) if open_ else dot(x, y, color))
+        out += rt(x + dxy[0], y + dxy[1], lab, 15, color, False, True)
+        if xlab:
+            out += rt(x - 9, oy + 17, xlab, 12.5)
+        if ilab:
+            out += rt(ox - 36, y + 5, ilab, 12.5)
+        return out
+
+    def g2_yn(ox=OX, oy=OY, lab=True):
+        x = g2x(G2_YN, ox)
+        out = line((x, oy), (x, oy - G2_SY * G2_IHI), GREY, 1.4, '6 4')
+        if lab:
+            out += rt(x - 9, oy + 34, 'Y^{n}', 12.5, GREY)
+        return out
+
+
+if '4' in DELER:
+    # ---------------------- 1) IS-kurven alene (kap. 4.1) ------------------
+    b = header('Diagram med produksjonen Y langs den vannrette aksen og renta i langs den '
+               'loddrette. IS-kurven er en rett, fallende linje fra øvre venstre mot nedre '
+               'høyre. Et punkt A ligger på kurven, med stiplede hjelpelinjer ned til '
+               'produksjonen Y-null på den vannrette aksen og bort til renta i-null på den '
+               'loddrette. Helningen er minus én delt på multiplikatoren ganger summen av '
+               'rentens tre kanaler: konsumkanalen, investeringskanalen og valutakurskanalen.')
+    b += axes('Y', 'i')
+    b += g2_kurve(G2_SIS, G2_CIS, RED, 2.6, lab='IS', lab_size=15, dx=8, dy=5)
+    b += g2_pt(G2_YA, G2_IA, 'A', (9, -10), xlab='Y_{0}', ilab='i_{0}')
+    b += rt(236, 92, 'helning', 11.5, GREY, False)
+    b += rt(236, 107, '−1 / [ m (c_{2}+b_{2}+a_{2}κ) ]', 11.5, GREY)
+    b += rt(236, 128, 'flatere kurve = sterkere', 10.5, GREY, False)
+    b += rt(236, 141, 'rentekanaler og større m', 10.5, GREY, False)
+    save('is-kurven-aapen', b)
+
+    # -------------------- 2) rentens tre kanaler (flytdiagram) ------------
+    W, H = 620, 344
+    b = header('Flytdiagram uten akser. Til venstre en boks der renta settes opp. Fra den går '
+               'tre piler til tre bokser: lavere konsum, lavere investeringer, og sterkere krone '
+               'som gir lavere nettoeksport. Alle tre peker inn i en felles boks der '
+               'produksjonen faller. Ved den siste pilen står en sirkelpil merket med '
+               'multiplikatoren.', W, H)
+    b += box(82, 170, 132, 50, ['Renta opp', '(i opp)'], INK, 13, '#f4f6f8')
+    b += box(300, 66, 236, 40, ['Konsum ned  (c_{2})'], BLUE, 12.5, '#eef4fa')
+    b += box(300, 170, 236, 40, ['Investeringer ned  (b_{2})'], BLUE, 12.5, '#eef4fa')
+    b += box(300, 274, 236, 50, ['Sterkere krone —',
+                                 'nettoeksport ned  (a_{2}κ)'], BLUE, 12.5, '#eef4fa')
+    for cy in (66, 170, 274):
+        b += arrow((150, 170), (180, cy), GREY, 1.7)
+        b += arrow((420, cy), (468, 170), GREY, 1.7)
+    b += box(538, 170, 124, 50, ['Y ned'], RED, 14, '#fdeeec')
+    b += g2_arc((458, 208), (458, 132), -22, ORG, 1.7)
+    b += rt(538, 232, '× m', 12.5, ORG, anchor='middle')
+    b += rt(538, 246, '(multiplikatoren)', 10.5, ORG, False, anchor='middle')
+    b += rt(W / 2, 326, 'Tre kanaler — og hele summen ganges opp av multiplikatoren.',
+            11, GREY, False, anchor='middle')
+    save('rentens-tre-kanaler', b)
+
+    # ---------------------- 3) RR-kurven alene (kap. 4.2) -----------------
+    b = header('Diagram med produksjonen Y langs den vannrette aksen og renta i langs den '
+               'loddrette. Renteregelen RR er en rett, stigende linje. En loddrett stiplet linje '
+               'markerer potensielt BNP. Et punkt A ligger på kurven med stiplede hjelpelinjer '
+               'til begge akser. Helningen er bankens respons på produksjonsgapet delt på '
+               'potensielt BNP.')
+    b += axes('Y', 'i')
+    b += g2_yn()
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.6, lab='RR', lab_size=15, dx=8, dy=5)
+    b += g2_pt(G2_YA, G2_IA, 'A', (-22, -11), xlab='Y_{0}', ilab='i_{0}')
+    b += rt(118, 82, 'helning  g_{Y} / Y^{n}', 12, GREY)
+    b += rt(118, 99, 'brattere kurve = banken', 10.5, GREY, False)
+    b += rt(118, 112, 'svarer kraftigere på gapet', 10.5, GREY, False)
+    save('rr-kurven', b)
+
+    # -------------------- 4) RR-skift ved Z^i opp (kap. 4.2) --------------
+    G2_UZI = 1.6
+    b = header('Samme diagram med produksjonen vannrett og renta loddrett. To parallelle, '
+               'stigende renteregelkurver: den nye ligger over den gamle, forskjøvet rett '
+               'oppover og med uendret helning. Piler mellom dem peker oppover. En loddrett '
+               'stiplet linje markerer potensielt BNP. Figuren viser at renta blir høyere for '
+               'ethvert produksjonsnivå.')
+    b += axes('Y', 'i')
+    b += g2_yn()
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR_{0}', dx=7, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR + G2_UZI, PUR, 2.4, lab='RR_{1}', dx=7, dy=5)
+    for Yv in (84.0, 116.0):
+        b += arrow((g2x(Yv), g2y(G2_CRR + G2_SRR * Yv) - 4),
+                   (g2x(Yv), g2y(G2_CRR + G2_UZI + G2_SRR * Yv) + 6), PUR, 1.6)
+    b += rt(g2x(84.0) + 9, g2y(G2_CRR + G2_UZI + G2_SRR * 84.0) - 9, 'Z^{i} opp', 12, PUR)
+    b += rt(112, 64, 'samme helning, høyere nivå:', 10.5, GREY, False)
+    b += rt(112, 77, 'høyere rente for ethvert Y', 10.5, GREY, False)
+    save('rr-skift-zi', b)
+
+    # ------------- 5) likevekten der IS krysser RR (kap. 4.3) -------------
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. En fallende IS-kurve og '
+               'en stigende renteregelkurve krysser hverandre i punkt A, med stiplede '
+               'hjelpelinjer ned til likevektsproduksjonen og bort til likevektsrenta. En '
+               'loddrett stiplet linje ved potensielt BNP ligger til høyre for likevekten, så '
+               'produksjonsgapet er negativt i utgangspunktet.')
+    b += axes('Y', 'i')
+    b += g2_yn()
+    b += g2_kurve(G2_SIS, G2_CIS, RED, 2.6, lab='IS', lab_size=15, dx=8, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.6, lab='RR', lab_size=15, dx=8, dy=5)
+    b += g2_pt(G2_YA, G2_IA, 'A', (-22, -11), xlab='Y*', ilab='i*')
+    b += rt(g2x(100.0) + 8, 64, 'negativt produksjonsgap', 10.5, GREY, False)
+    b += rt(g2x(100.0) + 8, 78, 'i utgangspunktet: Y* < Y^{n}', 10.5, GREY)
+    save('is-rr-likevekt', b)
+
+    # ----------------- 6) høy β: begge kurver brattere (kap. 4.3) --------
+    G2_MH = 10.0 / 11.0                    # m når a3·β/Y^n er stor
+    G2_SISH = -1.0 / (G2_MH * G2_R)        # brattere IS
+    G2_SRRH = 0.85                         # brattere RR (kraftig g_Y)
+    assert abs(G2_SISH) > abs(G2_SIS), 'høy β må gi brattere IS'
+    assert G2_SRRH > G2_SRR, 'høy β må gi brattere RR'
+    G2_H = 18.0                            # samme vannrette IS-skift i begge par
+    G2_CISH = G2_IA - G2_SISH * G2_YA
+    G2_CRRH = G2_IA - G2_SRRH * G2_YA
+    G2_YB, G2_IB = g2_kryss(g2_cis_skift(G2_H), G2_SIS, G2_CRR, G2_SRR)
+    G2_YBH, G2_IBH = g2_kryss(G2_CISH - G2_SISH * G2_H, G2_SISH, G2_CRRH, G2_SRRH)
+    assert G2_YB > G2_YA and G2_IB > G2_IA, 'B skal ligge opp til høyre for A'
+    assert G2_YBH > G2_YA and G2_IBH > G2_IA
+    assert (G2_YBH - G2_YA) < 0.5 * (G2_YB - G2_YA), \
+        'produksjonsvirkningen må være klart mindre i høy-β-tilfellet'
+    assert (G2_IBH - G2_IA) > 2.0 * (G2_IB - G2_IA), \
+        'rentevirkningen må være klart større i høy-β-tilfellet'
+    print(f'  [Del 4] standard:  A=({G2_YA:.0f}; {G2_IA:.2f}) -> B=({G2_YB:.2f}; {G2_IB:.2f})')
+    print(f'  [Del 4] høy β:     A=({G2_YA:.0f}; {G2_IA:.2f}) -> B′=({G2_YBH:.2f}; {G2_IBH:.2f})')
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett, og to kurvepar gjennom '
+               'samme utgangspunkt A. Det slake paret er IS og renteregelen i standardtilfellet; '
+               'det bratte paret gjelder når lønns- og prisveksten reagerer sterkt på presset i '
+               'økonomien. Begge IS-kurver er skjøvet like langt mot høyre. Det slake paret gir '
+               'en ny likevekt B langt til høyre og litt høyere; det bratte paret gir en ny '
+               'likevekt bare litt til høyre for A, men mye høyere. Stiplede hjelpelinjer går '
+               'fra begge nye likevekter til begge akser.', 440, 400)
+    b += axes('Y', 'i')
+    b += g2_kurve(G2_SIS, G2_CIS, RED, 2.2, lab='IS', dx=7, dy=5)
+    b += g2_kurve(G2_SIS, g2_cis_skift(G2_H), RED, 2.2, '7 4', lab='IS_{1}', dx=7, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.2, lab='RR', dx=7, dy=5)
+    b += g2_kurve(G2_SISH, G2_CISH, ORG, 2.2, lab='IS′', at='start', dx=-6, dy=-7, anchor='end')
+    b += g2_kurve(G2_SISH, G2_CISH - G2_SISH * G2_H, ORG, 2.2, '7 4',
+                  lab='IS_{1}′', at='start', dx=-6, dy=-7, anchor='end')
+    b += g2_kurve(G2_SRRH, G2_CRRH, PUR, 2.2, lab='RR′', dx=6, dy=-6)
+    b += g2_pt(G2_YB, G2_IB, 'B', (10, 18), xlab='Y_{B}', ilab='i_{B}')
+    b += g2_pt(G2_YBH, G2_IBH, 'B′', (11, -10), color=PUR, ilab='i_{B}′')
+    b += g2_pt(G2_YA, G2_IA, 'A', (-22, 18))
+    _y82 = g2y(G2_CIS + G2_SIS * 82.0)
+    b += arrow((g2x(82.0), _y82 - 3), (g2x(82.0 + G2_H), _y82 - 3), GREY, 1.6)
+    b += rt((g2x(82.0) + g2x(82.0 + G2_H)) / 2, _y82 - 15, 'samme skift',
+            10.5, GREY, False, anchor='middle')
+    b += rt(OX, 358, 'IS og RR: standardtilfellet  ·  IS′ og RR′: høy β (begge brattere)',
+            11, INK, False, True)
+    b += rt(OX, 378, 'Samme IS-skift gir mye mindre Y-virkning — og mye større i-virkning.',
+            10.5, GREY, False)
+    save('hoy-beta-begge-brattere', b)
+
+    # ------------------ 7) Z^D opp: bare IS skifter (kap. 4.4) -----------
+    def g2_zd_opp(merke='Z^{D} opp'):
+        s = axes('Y', 'i')
+        s += g2_yn()
+        s += g2_kurve(G2_SIS, G2_CIS, RED, 2.4, lab='IS_{0}', dx=7, dy=5)
+        s += g2_kurve(G2_SIS, g2_cis_skift(G2_H), ORG, 2.4, lab='IS_{1}', dx=7, dy=5)
+        s += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR', dx=7, dy=5)
+        s += g2_pt(G2_YB, G2_IB, 'B', (10, -10), xlab='Y_{B}', ilab='i_{B}')
+        s += g2_pt(G2_YA, G2_IA, 'A', (-22, 18), xlab='Y_{A}', ilab='i_{A}')
+        s += arrow((g2x(78.0), g2y(G2_CIS + G2_SIS * 78.0) - 3),
+                   (g2x(78.0 + G2_H), g2y(G2_CIS + G2_SIS * 78.0) - 3), ORG, 1.7)
+        s += rt(g2x(78.0) + 6, g2y(G2_CIS + G2_SIS * 78.0) - 10, merke, 12, ORG)
+        return s
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. En fallende IS-kurve og '
+               'en stigende renteregelkurve krysser i punkt A. IS skifter parallelt mot høyre '
+               'fordi etterspørselsimpulsen øker, mens renteregelen ligger i ro. Den nye '
+               'likevekten B ligger opp til høyre for A: både produksjonen og renta er høyere. '
+               'Stiplede hjelpelinjer går fra A og B til begge akser, og en loddrett stiplet '
+               'linje markerer potensielt BNP.')
+    b += g2_zd_opp()
+    save('skift-zd', b)
+
+    # -------------- 8) Z^E opp: IS mot høyre OG RR opp (kap. 4.4) --------
+    G2_HE = 20.0                       # vannrett IS-skift = m·a2·ΔZ^E
+    G2_UA, G2_UB = 1.2, 4.5            # RR-skift = g_E·ΔZ^E: moderat og kraftig
+    G2_CISE = g2_cis_skift(G2_HE)
+    G2_YB1, G2_IB1 = g2_kryss(G2_CISE, G2_SIS, G2_CRR + G2_UA, G2_SRR)
+    G2_YB2, G2_IB2 = g2_kryss(G2_CISE, G2_SIS, G2_CRR + G2_UB, G2_SRR)
+    assert G2_IB1 > G2_IA and G2_IB2 > G2_IA, 'renta skal stige ENTYDIG i begge alternativer'
+    assert G2_YB1 > G2_YA > G2_YB2, 'produksjonen skal være ubestemt — én B på hver side av A'
+    print(f'  [Del 4] Z^E opp:   B1=({G2_YB1:.2f}; {G2_IB1:.2f})  B2=({G2_YB2:.2f}; {G2_IB2:.2f})')
+
+    def g2_to_relasjoner(merke_is, merke_rr, note, undertekst):
+        """Sjokk som treffer TO relasjoner: IS mot høyre og RR opp. Renta stiger
+        entydig; produksjonen er ubestemt, vist med to alternative RR-skift
+        (moderat og kraftig respons). Panelet er 400 px høyt — legenden ligger
+        under aksen, slik at plottflaten holdes ren."""
+        s = axes('Y', 'i')
+        s += g2_yn()
+        s += g2_kurve(G2_SIS, G2_CIS, RED, 2.4, lab='IS_{0}', dx=7, dy=5)
+        s += g2_kurve(G2_SIS, G2_CISE, ORG, 2.4, lab='IS_{1}', dx=7, dy=5)
+        s += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR_{0}', dx=7, dy=5)
+        s += g2_kurve(G2_SRR, G2_CRR + G2_UA, BLUE, 2.0, '7 4',
+                      lab='RR_{1}', lab_size=11.5, dx=6, dy=14)
+        s += g2_kurve(G2_SRR, G2_CRR + G2_UB, PUR, 2.0, '7 4',
+                      lab='RR_{1}′', lab_size=11.5, dx=-6, dy=-9, anchor='end')
+        s += g2_pt(G2_YB2, G2_IB2, 'B_{2}', (-33, 5), color=PUR, ilab='i_{B2}')
+        s += g2_pt(G2_YB1, G2_IB1, 'B_{1}', (10, -10), color=ORG, ilab='i_{B1}')
+        s += g2_pt(G2_YA, G2_IA, 'A', (-9, 20), xlab='Y_{A}', ilab='i_{A}')
+        _yis = g2y(G2_CIS + G2_SIS * 104.0)
+        s += arrow((g2x(104.0), _yis - 3), (g2x(104.0 + G2_HE), _yis - 3), ORG, 1.7)
+        s += rt((g2x(104.0) + g2x(104.0 + G2_HE)) / 2, _yis - 14, merke_is, 10.5,
+                ORG, False, anchor='middle')
+        s += arrow((g2x(80.0), g2y(G2_CRR + G2_SRR * 80.0) - 4),
+                   (g2x(80.0), g2y(G2_CRR + G2_UB + G2_SRR * 80.0) + 6), PUR, 1.7)
+        s += rt(g2x(80.0) + 8, g2y(G2_CRR + G2_UB + G2_SRR * 80.0) + 14, merke_rr,
+                10.5, PUR, False)
+        s += darrow((g2x(G2_YB2), 292), (g2x(G2_YB1), 292), INK)
+        s += rt((g2x(G2_YB2) + g2x(G2_YB1)) / 2, 282, note, 10.5, INK, False, anchor='middle')
+        s += rt(OX, 358, undertekst, 11.5, INK, False, True)
+        s += rt(OX, 378, 'RR_{1} = moderat respons', 10.5, BLUE)
+        s += rt(OX + 176, 378, 'RR_{1}′ = kraftig respons', 10.5, PUR)
+        return s
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. IS-kurven og '
+               'renteregelen krysser i punkt A. Kronesvekkelsen skifter IS mot høyre fordi '
+               'konkurranseevnen bedres, og renteregelen oppover fordi banken svarer. To '
+               'stiplede renteregelkurver er tegnet, én for moderat og én for kraftig respons. '
+               'De gir to nye likevekter på den nye IS-kurven: B-én til høyre for A og B-to til '
+               'venstre for A. Begge ligger høyere enn A, så renta stiger entydig, mens '
+               'retningen på produksjonen er ubestemt.', 440, 400)
+    b += g2_to_relasjoner('bedret konkurranseevne', 'banken svarer', 'Y-retning ubestemt',
+                          'Z^{E} opp — begge kurver skifter: i entydig opp, Y ubestemt')
+    save('skift-ze', b)
+
+    # -------------- 9) Z^D ned, med og uten renterespons (kap. 4.4) ------
+    G2_CISN = g2_cis_skift(-G2_H)
+    G2_YBN, G2_IBN = g2_kryss(G2_CISN, G2_SIS, G2_CRR, G2_SRR)
+    G2_YC = (G2_IA - G2_CISN) / G2_SIS          # Y på IS_1 ved UENDRET rente
+    assert G2_YBN < G2_YA and G2_IBN < G2_IA, 'B skal ligge ned til venstre for A'
+    assert G2_YC < G2_YBN, 'uten rentekutt ville produksjonen falt LENGER'
+    assert near(G2_CISN + G2_SIS * G2_YC, G2_IA), 'C skal ligge i samme høyde som A'
+    print(f'  [Del 4] Z^D ned:   B=({G2_YBN:.2f}; {G2_IBN:.2f})  C=({G2_YC:.2f}; {G2_IA:.2f})')
+
+    def g2_zd_ned(merke, med_c=True):
+        s = axes('Y', 'i')
+        s += g2_yn()
+        s += g2_kurve(G2_SIS, G2_CIS, RED, 2.4, lab='IS_{0}', dx=7, dy=5)
+        s += g2_kurve(G2_SIS, G2_CISN, ORG, 2.4, lab='IS_{1}', at='start',
+                      dx=-6, dy=-7, anchor='end')
+        s += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR', dx=7, dy=5)
+        if med_c:
+            s += line((g2x(G2_YC), g2y(G2_IA)), (g2x(G2_YC), OY), GREY, 1.2, '5 4')
+            s += odot(g2x(G2_YC), g2y(G2_IA), GREY)
+            s += rt(g2x(G2_YC) - 9, g2y(G2_IA) - 13, 'C', 14, GREY, False, True)
+            s += rt(OX + 4, 282, 'uten renterespons', 10, GREY, False)
+            s += rt(g2x(G2_YC) - 9, OY + 17, 'Y_{C}', 12.5, GREY)
+        s += g2_pt(G2_YBN, G2_IBN, 'B', (-22, -11), xlab='Y_{B}', ilab='i_{B}')
+        s += g2_pt(G2_YA, G2_IA, 'A', (10, -10), xlab='Y_{A}', ilab='i_{A}')
+        _yn114 = g2y(G2_CIS + G2_SIS * 114.0)
+        s += arrow((g2x(114.0), _yn114 - 3), (g2x(114.0 - G2_H), _yn114 - 3), ORG, 1.7)
+        s += rt((g2x(114.0) + g2x(114.0 - G2_H)) / 2, _yn114 - 14, merke, 11,
+                ORG, anchor='middle')
+        return s
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. IS-kurven skifter '
+               'parallelt mot venstre langs en uendret renteregel, og den nye likevekten B '
+               'ligger ned til venstre for A: både produksjonen og renta er lavere. Et lyst '
+               'punkt C med åpen sirkel ligger lenger til venstre, i samme høyde som A, og '
+               'viser hvor produksjonen ville havnet uten rentekuttet. En loddrett stiplet linje '
+               'markerer potensielt BNP.')
+    b += g2_zd_ned('Z^{D} ned')
+    save('skift-zd-ned', b)
+
+    # ----------------- 10) prisløft ute (kap. 4.4, sjokk 4) --------------
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. Prisløftet ute skifter '
+               'IS mot høyre fordi norske varer blir relativt billigere, og renteregelen oppover '
+               'fordi importert prisvekst må motvirkes. To stiplede renteregelkurver gir to '
+               'alternative likevekter på hver sin side av A vannrett, begge høyere enn A. Renta '
+               'stiger entydig, mens retningen på produksjonen er ubestemt.', 440, 400)
+    b += g2_to_relasjoner('bedret konkurranseevne', 'importert prisvekst',
+                          'Y ubestemt — avhenger av g_{π}',
+                          'Prisløft ute — i entydig opp, Y ubestemt')
+    save('prissjokk-ute', b)
+
+    # ------------- 11) penge- mot finanspolitikk (kap. 4.5) --------------
+    G2_HP = 12.0                                    # sjokkets størrelse her
+    G2_CISP = g2_cis_skift(-G2_HP)
+    G2_IB1P = G2_CISP + G2_SIS * G2_YA              # renta som gir Y = Y_A på IS_1
+    G2_CRRP = G2_IB1P - G2_SRR * G2_YA              # nytt RR-konstantledd
+    assert G2_IB1P < G2_IA, 'pengepolitikken må kutte renta'
+    assert G2_CRRP < G2_CRR, 'renteregelen skal skifte NED'
+    assert near(g2_kryss(G2_CISP, G2_SIS, G2_CRRP, G2_SRR)[0], G2_YA), \
+        'B1 skal ligge rett under A — samme produksjon'
+    assert near(g2_kryss(G2_CIS, G2_SIS, G2_CRR, G2_SRR)[1], G2_IA), \
+        'finanspolitikken fører likevekten tilbake til A'
+    print(f'  [Del 4] dosering:  B1=({G2_YA:.0f}; {G2_IB1P:.2f}) mot A=({G2_YA:.0f}; {G2_IA:.2f})')
+
+    W, H = 880, 404
+    POY, PTOP = 330, 76
+    b = header('To paneler side ved side med samme akser: produksjonen Y vannrett og renta i '
+               'loddrett. I begge paneler er IS skjøvet fra IS-null til IS-én mot venstre etter '
+               'et etterspørselsfall. I venstre panel, pengepolitikk, skifter renteregelen ned '
+               'til RR-én, og den nye likevekten B-én ligger rett under A: samme produksjon, '
+               'lavere rente. I høyre panel, finanspolitikk, skyves IS-én tilbake til IS-null '
+               'mens renteregelen ligger i ro, og likevekten er tilbake i A: samme produksjon og '
+               'samme rente. Undertekst: samme produksjon, ulik sammensetning.', W, H)
+    b += rt(W / 2, 28, 'Dosert til samme produksjonseffekt', 16, INK, False, True, anchor='middle')
+    b += rt(224, 58, 'Panel 1 — pengepolitikk', 13, INK, False, True, anchor='middle')
+    b += rt(664, 58, 'Panel 2 — finanspolitikk', 13, INK, False, True, anchor='middle')
+    b += line((440, 72), (440, 360), '#d0d4da', 1.4)
+    for ox, xmax in ((OX, 400), (510, 840)):
+        b += axes('Y', 'i', ox=ox, oy=POY, xmax=xmax, ytop=PTOP)
+        b += g2_kurve(G2_SIS, G2_CIS, RED, 2.2, '7 4', lab='IS_{0}', dx=6, dy=5, ox=ox, oy=POY)
+        b += g2_kurve(G2_SIS, G2_CISP, ORG, 2.4, lab='IS_{1}', at='start',
+                      dx=-6, dy=-7, anchor='end', ox=ox, oy=POY)
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.2, '7 4', lab='RR_{0}', dx=6, dy=5, ox=OX, oy=POY)
+    b += g2_kurve(G2_SRR, G2_CRRP, PUR, 2.4, lab='RR_{1}', dx=6, dy=5, ox=OX, oy=POY)
+    b += g2_pt(G2_YA, G2_IA, 'A', (10, -10), ox=OX, oy=POY, ilab='i_{A}')
+    b += g2_pt(G2_YA, G2_IB1P, 'B_{1}', (12, 21), color=PUR, ox=OX, oy=POY,
+               xlab='Y_{A}', ilab='i_{B1}')
+    b += arrow((g2x(126.0, OX), g2y(G2_CRR + G2_SRR * 126.0, POY) + 4),
+               (g2x(126.0, OX), g2y(G2_CRRP + G2_SRR * 126.0, POY) - 6), PUR, 1.6)
+    b += rt(g2x(126.0, OX) - 8, (g2y(G2_CRR + G2_SRR * 126.0, POY)
+                                 + g2y(G2_CRRP + G2_SRR * 126.0, POY)) / 2 + 4,
+            'rentekutt', 10.5, PUR, False, anchor='end')
+    _ysj = g2y(G2_CIS + G2_SIS * 112.0, POY)
+    b += arrow((g2x(112.0, OX), _ysj - 4), (g2x(100.0, OX), _ysj - 4), GREY, 1.6)
+    b += rt((g2x(112.0, OX) + g2x(100.0, OX)) / 2, _ysj - 12, 'sjokket: Z^{D} ned',
+            10.5, GREY, anchor='middle')
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR', dx=6, dy=5, ox=510, oy=POY)
+    b += g2_pt(G2_YA, G2_IA, 'A', (10, -10), ox=510, oy=POY, xlab='Y_{A}', ilab='i_{A}')
+    _yfp = g2y(G2_CISP + G2_SIS * 100.0, POY)
+    b += arrow((g2x(100.0, 510), _yfp - 4), (g2x(100.0 + G2_HP, 510), _yfp - 4), GRN, 1.8)
+    b += rt((g2x(100.0, 510) + g2x(100.0 + G2_HP, 510)) / 2, _yfp - 15,
+            'offentlige kjøp opp', 10.5, GRN, False, anchor='middle')
+    b += rt(W / 2, 388, 'Samme Y, ulik sammensetning — og krona beveges bare i panel 1.',
+            11.5, GREY, False, anchor='middle')
+    save('penge-vs-finans', b)
+
+    # -------------------- 12) drill: eksportsvikt (kap. 4.6) -------------
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. Etterspørselsfallet fra '
+               'utlandet skifter IS parallelt mot venstre langs en uendret renteregel. Den nye '
+               'likevekten B ligger ned til venstre for A, med lavere produksjon og lavere '
+               'rente. Et lyst punkt C med åpen sirkel viser hvor produksjonen ville havnet uten '
+               'rentekuttet. En loddrett stiplet linje markerer potensielt BNP.')
+    b += g2_zd_ned('Z^{D} ned — treffer bare IS')
+    save('drill-eksportsvikt', b)
+
+    # ------------------ 13) drill: kombinasjonssjokk (kap. 4.6) ----------
+    G2_UK1, G2_UK2 = 1.0, -2.8          # RR opp (prisimpuls) mot RR ned (Z^i ned)
+    G2_CISK = g2_cis_skift(G2_H)
+    G2_YK1, G2_IK1 = g2_kryss(G2_CISK, G2_SIS, G2_CRR + G2_UK1, G2_SRR)
+    G2_YK2, G2_IK2 = g2_kryss(G2_CISK, G2_SIS, G2_CRR + G2_UK2, G2_SRR)
+    assert G2_YK1 > G2_YA and G2_YK2 > G2_YA, 'produksjonen skal stige uansett RR-retning'
+    assert G2_IK1 > G2_IA > G2_IK2, 'renta skal være ubestemt — én over og én under A'
+    print(f'  [Del 4] kombinasjon: B1=({G2_YK1:.2f}; {G2_IK1:.2f})  B2=({G2_YK2:.2f}; {G2_IK2:.2f})')
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. IS skifter entydig mot '
+               'høyre. Renteregelen er tegnet med to stiplede alternativer, ett oppover og ett '
+               'nedover, og et stort spørsmålstegn, fordi de to impulsene trekker rentenivået i '
+               'motsatt retning. De to alternativene gir likevektene B-én og B-to på den nye '
+               'IS-kurven: begge til høyre for A, så produksjonen stiger uansett, men den ene '
+               'ligger høyere og den andre lavere enn A, så renta er ubestemt.')
+    b += axes('Y', 'i')
+    b += g2_yn()
+    b += g2_kurve(G2_SIS, G2_CIS, RED, 2.2, '7 4', lab='IS_{0}', at='start',
+                  dx=-6, dy=-7, anchor='end')
+    b += g2_kurve(G2_SIS, G2_CISK, ORG, 2.6, lab='IS_{1}', dx=7, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR_{0}', dx=7, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR + G2_UK1, PUR, 2.0, '7 4', lab='RR opp?', lab_size=10.5,
+                  dx=-6, dy=-9, anchor='end')
+    b += g2_kurve(G2_SRR, G2_CRR + G2_UK2, GRN, 2.0, '7 4', lab='RR ned?', lab_size=10.5,
+                  dx=-6, dy=-9, anchor='end')
+    b += rt(g2x(126.0), 100, '?', 26, INK, False, True, anchor='middle')
+    b += g2_pt(G2_YK1, G2_IK1, 'B_{1}', (10, -10), color=PUR, ilab='i_{B1}')
+    b += g2_pt(G2_YK2, G2_IK2, 'B_{2}', (10, 19), color=GRN, ilab='i_{B2}')
+    b += g2_pt(G2_YA, G2_IA, 'A', (-22, 18), xlab='Y_{A}', ilab='i_{A}')
+    _yk = g2y(G2_CIS + G2_SIS * 78.0)
+    b += arrow((g2x(78.0), _yk - 3), (g2x(78.0 + G2_H), _yk - 3), ORG, 1.7)
+    b += rt((g2x(78.0) + g2x(78.0 + G2_H)) / 2, _yk - 14, 'IS entydig mot høyre', 10.5,
+            ORG, False, anchor='middle')
+    b += darrow((g2x(G2_YK1), 288), (g2x(G2_YK2), 288), INK)
+    b += rt((g2x(G2_YK1) + g2x(G2_YK2)) / 2, 280, 'Y stiger uansett', 10.5, INK, False,
+            anchor='middle')
+    save('drill-kombinasjonssjokk', b)
+
+    # ---------------- 14–16) prøvefigurene i kap. 4.prøve ----------------
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett, med kurvene merket '
+               'IS-null, IS-én og RR. Boligbyggingsfallet skifter IS parallelt mot venstre langs '
+               'en uendret renteregel, og den nye likevekten B ligger ned til venstre for A. '
+               'Stiplede hjelpelinjer går fra A og B til begge akser, og en loddrett stiplet '
+               'linje markerer potensielt BNP.')
+    b += g2_zd_ned('boligbygging ned = Z^{D} ned', med_c=False)
+    save('prove4-c-boligfall', b)
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. En høyere risikopremie '
+               'på kroner skifter IS mot høyre og renteregelen oppover. To stiplede '
+               'renteregelkurver gir to alternative likevekter, B-én til høyre for A og B-to til '
+               'venstre, begge høyere enn A. Renta stiger entydig, mens retningen på '
+               'produksjonen er ubestemt.', 440, 400)
+    b += g2_to_relasjoner('bedret konkurranseevne', 'banken svarer på kursen', 'Y ubestemt',
+                          'Risikopremie opp (Z^{E} opp) — i entydig opp, Y ubestemt')
+    save('prove4-c-risikopremie', b)
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. Det internasjonale '
+               'prisløftet skifter IS mot høyre og renteregelen oppover. To stiplede '
+               'renteregelkurver gir to alternative likevekter, B-én til høyre for A og B-to til '
+               'venstre, begge høyere enn A. En loddrett stiplet linje markerer potensielt BNP. '
+               'Renta stiger entydig, mens retningen på produksjonen er ubestemt.', 440, 400)
+    b += g2_to_relasjoner('bedret konkurranseevne', 'importert prisvekst', 'Y ubestemt',
+                          'Prisløft ute — to skift, to mulige B-punkter')
+    save('prove4-d-prisloft-ute', b)
+
+# ===========================================================================
+# G2 — DEL 5: hovedkursmodellen (flytskjema), målbetingelsen i (v,k)-planet,
+# broen mellom relasjonssettene, og prøvefiguren med prissjokk.
+# ===========================================================================
+if '5' in DELER:
+    # ------------------ 1) hovedkurskjeden utenfra og inn -----------------
+    W, H = 880, 424
+    b = header('Flytdiagram uten akser, lest fra venstre mot høyre. Lengst til venstre en boks '
+               'med de eksogene størrelsene utenfra: prisvekst på konkurranseutsatte varer, '
+               'prisvekst på importvarer og vekst i valutakursen. Derfra går piler til to bokser '
+               'med kroneprisveksten på konkurranseutsatte varer og på importvarer. Fra den '
+               'første går pilen videre til lønnsveksten, som er kroneprisveksten pluss '
+               'produktivitetsveksten i konkurranseutsatt sektor pluss et avvik fra hovedkursen; '
+               'to sidepiler ovenfra markerer disse to tilleggene. Fra lønnsveksten går pilen til '
+               'prisveksten i skjermet sektor, som er lønnsveksten minus produktivitetsveksten '
+               'der; en sidepil ovenfra markerer fradraget. Til slutt går piler fra '
+               'importprisveksten og fra prisveksten i skjermet sektor inn i en stiplet boks med '
+               'konsumprisveksten, et vektet snitt der importandelen er vekten på importprisene. '
+               'Den stiplede boksen er merket med at den ikke oppgis på eksamen og må suppleres '
+               'selv. Underteksten sier at alle størrelser er vekstrater.', W, H)
+    b += box(86, 210, 140, 70, ['Utenfra:', 'q_{k}, q_{i}, v'], INK, 13, '#f4f6f8')
+    b += box(268, 118, 158, 46, ['p_{k} = q_{k} + v'], BLUE, 13, '#eef4fa')
+    b += box(268, 302, 158, 46, ['p_{i} = q_{i} + v'], BLUE, 13, '#eef4fa')
+    b += box(468, 118, 194, 46, ['w = p_{k} + z_{k} + k'], GRN, 13, '#eef7ef')
+    b += box(678, 118, 172, 46, ['p_{s} = w − z_{s}'], GRN, 13, '#eef7ef')
+    b += box(560, 316, 302, 78, ['π = α p_{i} + (1 − α) p_{s}',
+                                 'oppgis ikke på eksamen —', 'suppleres selv'],
+             ORG, 12.5, '#fdf6e6', dash='6 4')
+    b += arrow((158, 192), (188, 132), GREY, 1.8)
+    b += arrow((158, 228), (188, 288), GREY, 1.8)
+    b += arrow((348, 118), (370, 118), GREY, 1.8)
+    b += arrow((566, 118), (590, 118), GREY, 1.8)
+    b += arrow((432, 66), (440, 93), GRN, 1.6)
+    b += rt(432, 58, '+ z_{k}', 11.5, GRN, anchor='middle')
+    b += arrow((506, 66), (498, 93), GRN, 1.6)
+    b += rt(506, 58, '+ k', 11.5, GRN, anchor='middle')
+    b += arrow((678, 66), (678, 93), GRN, 1.6)
+    b += rt(678, 58, '− z_{s}', 11.5, GRN, anchor='middle')
+    b += arrow((348, 302), (406, 308), ORG, 1.8)
+    b += rt(370, 292, 'α', 14, ORG)
+    b += arrow((678, 142), (660, 274), ORG, 1.8)
+    b += rt(686, 208, '1 − α', 12.5, ORG)
+    b += rt(86, 264, 'eksogent utenfra', 10.5, GREY, False, anchor='middle')
+    b += rt(468, 154, 'frontfagsmodellen: hovedkursen p_{k} + z_{k}', 10.5, GREY,
+            anchor='middle')
+    b += rt(W / 2, 410, 'Alle størrelser er vekstrater — ikke nivåer.', 11.5, GREY, False,
+            anchor='middle')
+    save('econ2310-5-1-hovedkurskjeden', b)
+
+    # ------------- 2) målbetingelsen som linje i (v,k)-planet -------------
+    # π = π* + v + (1−α)k. Målet krever v + (1−α)k = π^mål − π*.
+    G2_ALFA = 0.30                       # importandel i konsumet
+    G2_PISTAR, G2_PIMAL = 5.0, 2.0       # prisvekst ute over inflasjonsmålet
+    G2_RHS = G2_PIMAL - G2_PISTAR        # høyresiden: −3, altså negativ
+    G2_HELN = -1.0 / (1.0 - G2_ALFA)     # helningen dk/dv = −1/(1−α)
+    assert G2_RHS < 0, 'figuren gjelder tilfellet der prisveksten ute ligger OVER målet'
+    assert near(G2_HELN, -1.0 / 0.7)
+
+    def g2_k_av_v(v):
+        return (G2_RHS - v) / (1.0 - G2_ALFA)
+
+    G2_KA = g2_k_av_v(0.0)                       # punkt A: uendret krone
+    G2_VB = G2_RHS                               # punkt B: uendret lønnsvekst
+    assert G2_KA < 0, 'med uendret krone må lønnsveksten ligge UNDER hovedkursen'
+    assert near(G2_KA, G2_RHS / (1 - G2_ALFA))
+    assert near(g2_k_av_v(G2_VB), 0.0) and G2_VB < 0, 'i punkt B må krona STYRKE seg'
+    assert near((g2_k_av_v(2.0) - g2_k_av_v(0.0)) / 2.0, G2_HELN), 'helningen skal være −1/(1−α)'
+    # kontroll: inflasjonen treffer målet i BEGGE punkter, og ligger over til høyre
+    def g2_pi(v, k):
+        return G2_PISTAR + v + (1 - G2_ALFA) * k
+    assert near(g2_pi(0.0, G2_KA), G2_PIMAL) and near(g2_pi(G2_VB, 0.0), G2_PIMAL)
+    assert g2_pi(1.0, 0.0) > G2_PIMAL, 'over/til høyre for linja må inflasjonen ligge over målet'
+    print(f'  [Del 5] målbetingelsen: helning {G2_HELN:.3f}, A=(0; {G2_KA:.3f}), '
+          f'B=({G2_VB:.1f}; 0)')
+
+    W, H = 470, 400
+    CX, CY = 246, 178                    # origo midt i figuren
+    VSC, KSC = 33.0, 21.5                # px per prosentpoeng
+    VLO, VHI = -6.0, 4.0
+    KLO, KHI = -7.0, 5.0
+
+    def vx(v):
+        return CX + VSC * v
+
+    def ky(k):
+        return CY - KSC * k
+
+    assert vx(VLO) > 8 and vx(VHI) < W - 40 and ky(KHI) > 26 and ky(KLO) < H - 44
+
+    b = header('Koordinatsystem med origo midt i figuren. Den vannrette aksen er veksten i '
+               'valutakursen: mot venstre styrkes krona, mot høyre svekkes den. Den loddrette '
+               'aksen er den ekstraordinære lønnsveksten, altså avviket fra hovedkursen. En rett, '
+               'fallende linje viser alle kombinasjoner som gir inflasjon lik målet når '
+               'prisveksten hos handelspartnerne ligger over målet. Linja skjærer den loddrette '
+               'aksen under origo i punkt A, der krona er uendret og lønnsveksten ligger under '
+               'hovedkursen, og den vannrette aksen til venstre for origo i punkt B, der '
+               'lønnsveksten følger hovedkursen og krona styrker seg. Området over og til høyre '
+               'for linja er skyggelagt og merket at inflasjonen ligger over målet.', W, H)
+    # skyggelagt område: v + (1−α)k > høyresiden
+    _p1 = (vx(VLO), ky(g2_k_av_v(VLO)))
+    _vk = G2_RHS - (1 - G2_ALFA) * KLO           # v der linja treffer nedre kant
+    _p2 = (vx(_vk), ky(KLO))
+    b += (f'  <polygon points="{_p1[0]:.1f},{_p1[1]:.1f} {vx(VLO):.1f},{ky(KHI):.1f} '
+          f'{vx(VHI):.1f},{ky(KHI):.1f} {vx(VHI):.1f},{ky(KLO):.1f} '
+          f'{_p2[0]:.1f},{_p2[1]:.1f}" fill="{RED}" opacity="0.09"/>\n')
+    # aksekors
+    b += line((vx(VLO) - 8, CY), (vx(VHI) + 14, CY), AX, 1.6)
+    b += line((CX, ky(KLO) - 14), (CX, ky(KHI) - 12), AX, 1.6)
+    b += (f'  <polygon points="{vx(VHI)+14:.1f},{CY} {vx(VHI)+6:.1f},{CY-4} '
+          f'{vx(VHI)+6:.1f},{CY+4}" fill="{AX}"/>\n')
+    b += (f'  <polygon points="{CX},{ky(KHI)-12:.1f} {CX-4},{ky(KHI)-4:.1f} '
+          f'{CX+4},{ky(KHI)-4:.1f}" fill="{AX}"/>\n')
+    b += rt(vx(VHI) + 18, CY + 5, 'v', 15, INK)
+    b += rt(CX - 12, ky(KHI) - 18, 'k', 15, INK)
+    b += rt(CX - 14, CY + 16, '0', 11, GREY, False, anchor='end')
+    b += rt(vx(-1.0), CY + 20, 'krona styrkes', 10.5, GREY, False, anchor='end')
+    b += rt(vx(0.6), CY + 20, 'krona svekkes', 10.5, GREY, False)
+    b += rt(CX + 10, ky(KHI) - 2, 'lønnsvekst over hovedkursen', 10, GREY, False)
+    b += rt(CX - 12, ky(KLO) + 4, 'lønnsvekst under hovedkursen', 10, GREY, False, anchor='end')
+    # sjølve linja
+    b += line(_p1, _p2, BLUE, 2.6)
+    b += rt(_p1[0] + 8, _p1[1] - 8, 'v + (1 − α)k = π^{mål} − π*', 12, BLUE)
+    b += rt(_p1[0] + 8, _p1[1] + 8, 'helning −1/(1 − α)', 10.5, BLUE)
+    # punktene A og B
+    b += line((CX, ky(G2_KA)), (vx(1.4), ky(G2_KA)), GREY, 1.2, '5 4')
+    b += dot(CX, ky(G2_KA))
+    b += rt(CX + 10, ky(G2_KA) + 18, 'A', 15, INK, False, True)
+    b += rt(CX + 26, ky(G2_KA) + 18, 'uendret krone, k < 0', 10.5, GREY, False)
+    b += line((vx(G2_VB), CY), (vx(G2_VB), ky(-2.2)), GREY, 1.2, '5 4')
+    b += dot(vx(G2_VB), CY)
+    b += rt(vx(G2_VB) - 10, CY - 12, 'B', 15, INK, False, True, anchor='end')
+    b += rt(vx(G2_VB) + 9, CY - 15, 'k = 0: krona styrkes', 10.5, GREY, False)
+    b += rt(vx(1.1), ky(3.4), 'inflasjon over målet', 11, RED, False, True)
+    b += rt(vx(-4.9), ky(-4.6), 'inflasjon under målet', 10.5, GREY, False)
+    b += rt(24, H - 26, 'Modellen gir to knapper når prisveksten ute ligger over målet:',
+            11, INK, False, True)
+    b += rt(24, H - 10, 'styrke krona (v < 0) eller holde lønnsveksten under hovedkursen '
+            '(k < 0) — eller en blanding.', 10.5, GREY, False)
+    save('econ2310-5-3-inflasjonsmaal-linje', b)
+
+    # -------------------- 3) broen mellom relasjonssettene ---------------
+    W, H = 700, 344
+    b = header('Diagram med to like store bokser side ved side. Venstre boks er merket '
+               'hovedkursmodellen og har kulepunktene inflasjon, reallønnsvekst og lønnsomhet i '
+               'konkurranseutsatt sektor. Høyre boks er merket den åpne modellen med IS, '
+               'renteregelen og Phillips-kurven, og har kulepunktene produksjon, rente og '
+               'valutakurs. Mellom boksene går en bred tosidig pil merket at valutakursen er '
+               'broen mellom dem, med underteksten at høyere rente styrker krona, slik at '
+               'kursveksten blir negativ. Under høyre boks står en note om at prisimpulsen er '
+               'samme sjokk som høyere prisvekst ute.', W, H)
+    for cx, tittel, punkter in ((152, 'Hovedkursmodellen',
+                                 ['inflasjon  π', 'reallønnsvekst  w − π',
+                                  'lønnsomhet i K-sektor  (k)']),
+                                (548, 'Åpen IS-RR-PK',
+                                 ['produksjon  Y', 'rente  i', 'valutakurs  E'])):
+        b += (f'  <rect x="{cx-120}" y="82" width="240" height="180" rx="8" '
+              f'fill="#f7f9fb" stroke="{INK}" stroke-width="1.8"/>\n')
+        b += rt(cx, 112, tittel, 13, INK, False, True, anchor='middle')
+        for j, pk in enumerate(punkter):
+            b += rt(cx - 100, 148 + 30 * j, '•', 12, GREY, False)
+            b += rt(cx - 86, 148 + 30 * j, pk, 12, INK)
+    b += rt(350, 130, 'valutakursen', 11.5, INK, False, True, anchor='middle')
+    b += rt(350, 145, '— broen —', 11.5, INK, False, True, anchor='middle')
+    b += darrow((284, 176), (416, 176), INK, 3.0, 9)
+    b += rt(350, 202, 'i ↑  ⇒  E ↓  ⇒  v < 0', 11, GREY, anchor='middle')
+    b += rt(350, 218, '(sterkere krone)', 10, GREY, False, anchor='middle')
+    b += rt(548, 288, 'Z^{π} = samme sjokk som høyere q_{k}, q_{i}', 11, GREY,
+            anchor='middle')
+    b += rt(152, 288, 'lønns- og prisdannelsen', 11, GREY, False, anchor='middle')
+    b += rt(W / 2, 326, 'To relasjonssett, én kobling: renta bestemmer kursen, og '
+            'kursveksten går rett inn i kroneprisene.', 10.5, GREY, False, anchor='middle')
+    save('econ2310-5-3-samspill-bro', b)
+
+    # ------------- 4) prøve 5.D: prissjokk ute + kronesvekkelse ----------
+    # Dosert slik at de to skiftene nøyaktig nuller ut hverandre i Y-retningen:
+    # da ligger B rett over A, og retningen på Y er nettopp det ubestemte.
+    G2_H5 = 20.0
+    G2_U5 = -G2_SIS * G2_H5                      # = 3,0: gir Y_B = Y_A eksakt
+    G2_CIS5 = g2_cis_skift(G2_H5)
+    G2_YB5, G2_IB5 = g2_kryss(G2_CIS5, G2_SIS, G2_CRR + G2_U5, G2_SRR)
+    assert near(G2_YB5, G2_YA), 'B skal ligge rett over A i denne doseringen'
+    assert G2_IB5 > G2_IA, 'renta skal stige entydig'
+    print(f'  [Del 5] prøve 5.D: B=({G2_YB5:.2f}; {G2_IB5:.2f}) rett over A=({G2_YA:.0f}; {G2_IA:.2f})')
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. En fallende IS-kurve og '
+               'en stigende renteregelkurve krysser i punkt A. Renteregelen skifter oppover fordi '
+               'prisimpulsen og kursimpulsen begge tilsier høyere rente, og IS skifter mot høyre '
+               'fordi konkurranseevnen bedres. Den nye likevekten B ligger klart høyere enn A og '
+               'omtrent rett over A langs den vannrette aksen. Et spørsmålstegn ved '
+               'produksjonsnivået i B og en tosidig vannrett pil gjennom B viser at retningen på '
+               'produksjonen er ubestemt. Stiplede hjelpelinjer går fra A og B til begge akser.',
+               440, 412)
+    b += axes('Y', 'i')
+    b += g2_yn()
+    b += g2_kurve(G2_SIS, G2_CIS, RED, 2.4, lab='IS_{0}', dx=7, dy=5)
+    b += g2_kurve(G2_SIS, G2_CIS5, ORG, 2.4, lab='IS_{1}', dx=7, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR_{0}', dx=7, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR + G2_U5, PUR, 2.4, lab='RR_{1}', dx=-6, dy=-9, anchor='end')
+    _y5 = g2y(G2_CIS + G2_SIS * 106.0)
+    b += arrow((g2x(106.0), _y5 - 3), (g2x(106.0 + G2_H5), _y5 - 3), ORG, 2.0)
+    b += arrow((g2x(78.0), g2y(G2_CRR + G2_SRR * 78.0) - 4),
+               (g2x(78.0), g2y(G2_CRR + G2_U5 + G2_SRR * 78.0) + 6), PUR, 2.0)
+    b += g2_pt(G2_YB5, G2_IB5, 'B', (11, -10), color=PUR, ilab='i_{B}')
+    b += g2_pt(G2_YA, G2_IA, 'A', (-22, 18), xlab='Y_{A}', ilab='i_{A}')
+    b += darrow((g2x(G2_YB5) - 46, g2y(G2_IB5)), (g2x(G2_YB5) + 46, g2y(G2_IB5)), INK)
+    b += rt(g2x(G2_YB5) + 54, g2y(G2_IB5) + 5, '?', 20, INK, False, True)
+    b += rt(OX, 352, 'Renta stiger entydig — retningen på Y er ubestemt', 11.5, INK, False, True)
+    b += rt(OX, 372, 'IS_{0} → IS_{1}: bedret konkurranseevne', 10.5, ORG)
+    b += rt(OX + 196, 372, 'RR_{0} → RR_{1}: Z^{π} og Z^{E} opp', 10.5, PUR)
+    b += rt(OX, 390, 'Hvor B havner vannrett, avhenger av hvor kraftig banken svarer '
+            'på kursimpulsen.', 10.5, GREY, False)
+    save('econ2310-5-prove-is-rr-prissjokk', b)
+
+
+# ===========================================================================
+# G2 — DEL 6: todelt økonomi, kriselikevekt med tre skjæringer, KI i
+# arbeidsmarkedet, og prøvefiguren med to motstridende IS-skift.
+# ===========================================================================
+if '6' in DELER:
+    # ------------------ 1) todelt økonomi og ringvirkningen --------------
+    W, H = 690, 402
+    b = header('Diagram med to like store sektorbokser side ved side: varesektoren, som er åpen, '
+               'og tjenestesektoren, som er delvis stengt. Mellom boksene går to buede piler i '
+               'motsatt retning, merket kryssvis etterspørsel. En tykk pil utenfra treffer '
+               'tjenestesektoren ovenfra og er merket nedstenging, altså en tilbudsbegrensning. '
+               'Under boksene går en stiplet pil fra tjenestesektoren til varesektoren, merket at '
+               'lavere inntekt gir lavere vareetterspørsel, og en tynnere stiplet pil tilbake, '
+               'merket ringvirkning. Underteksten sier at det samlede fallet er større enn den '
+               'direkte nedstengingen.', W, H)
+    b += box(160, 162, 214, 92, ['Varesektor', '(åpen)'], BLUE, 13.5, '#eef4fa')
+    b += box(504, 162, 234, 92, ['Tjenestesektor', '(delvis stengt)'], RED, 13.5, '#fdeeec')
+    b += arrow((504, 52), (504, 112), INK, 4.2, size=11)
+    b += rt(504, 30, 'Nedstenging', 12.5, INK, False, True, anchor='middle')
+    b += rt(504, 44, '(tilbudsbegrensning)', 10.5, GREY, False, anchor='middle')
+    b += g2_arc((270, 142), (384, 142), 16, GREY, 1.8)
+    b += g2_arc((384, 182), (270, 182), 16, GREY, 1.8)
+    b += rt(327, 108, 'kryssvis', 10.5, GREY, False, anchor='middle')
+    b += rt(327, 121, 'etterspørsel', 10.5, GREY, False, anchor='middle')
+    b += g2_polyarrow([(504, 208), (504, 264), (170, 264), (170, 210)], RED, 1.8, '7 4')
+    b += rt(337, 286, '1.  lavere inntekt  →  lavere vareetterspørsel', 11, RED, False,
+            anchor='middle')
+    b += g2_polyarrow([(148, 208), (148, 318), (492, 318), (492, 210)], ORG, 1.5, '7 4')
+    b += rt(337, 336, '2.  ringvirkning tilbake til tjenestene', 10.5, ORG, False,
+            anchor='middle')
+    b += rt(W / 2, 372, 'Samlet fall  >  direkte nedstenging', 13, INK, False, True,
+            anchor='middle')
+    b += rt(W / 2, 390, 'En aggregert modell ser bare summen — den todelte ser hvor fallet '
+            'kommer fra.', 10.5, GREY, False, anchor='middle')
+    save('econ2310-6-2-todelt-ringvirkning', b)
+
+    # ---------- 2) kriselikevekt: S-formet etterspørsel, TRE kryss -------
+    # D(Y) = a·Y + K + Amp·L((Y−Ym)/s) med L logistisk. Stabilitetsregelen i
+    # kap. 6.3: D′ < 1 gir stabil likevekt, D′ > 1 ustabil terskel.
+    G2_A6, G2_K6, G2_AMP, G2_S6, G2_YM = 0.55, 5.7, 33.6, 8.0, 50.0
+
+    def g2_L(x):
+        return 1.0 / (1.0 + math.exp(-x))
+
+    def g2_D(Y):
+        return G2_A6 * Y + G2_K6 + G2_AMP * g2_L((Y - G2_YM) / G2_S6)
+
+    def g2_Dd(Y):
+        u = g2_L((Y - G2_YM) / G2_S6)
+        return G2_A6 + (G2_AMP / G2_S6) * u * (1.0 - u)
+
+    def g2_rot(lo, hi):
+        """Halveringsmetoden på D(Y) − Y = 0."""
+        f = lambda Y: g2_D(Y) - Y
+        assert f(lo) * f(hi) < 0, (lo, hi, f(lo), f(hi))
+        for _ in range(200):
+            mid = 0.5 * (lo + hi)
+            if f(lo) * f(mid) <= 0:
+                hi = mid
+            else:
+                lo = mid
+        return 0.5 * (lo + hi)
+
+    G2_YL = g2_rot(1.0, 30.0)
+    G2_YT = g2_rot(30.0, 70.0)
+    G2_YH = g2_rot(70.0, 99.0)
+    assert G2_YL < G2_YT < G2_YH, 'de tre skjæringene skal ligge i rekkefølge'
+    for _Y in (G2_YL, G2_YT, G2_YH):
+        assert near(g2_D(_Y), _Y, 1e-6), 'skjæringen skal ligge PÅ 45-graderslinja'
+    assert g2_Dd(G2_YL) < 1.0, 'lavlikevekten skal være stabil (D′ < 1)'
+    assert g2_Dd(G2_YT) > 1.0, 'terskelen skal være ustabil (D′ > 1)'
+    assert g2_Dd(G2_YH) < 1.0, 'høylikevekten skal være stabil (D′ < 1)'
+    # dynamikkretningene: D > Y gir pil mot høyre, D < Y gir pil mot venstre
+    G2_DYN = [(0.5 * G2_YL, +1), (0.5 * (G2_YL + G2_YT), -1),
+              (0.5 * (G2_YT + G2_YH), +1), (0.5 * (G2_YH + 100.0), -1)]
+    for _Y, _sign in G2_DYN:
+        assert (1 if g2_D(_Y) > _Y else -1) == _sign, f'feil pilretning ved Y = {_Y:.1f}'
+    print(f'  [Del 6] kriselikevekt: Y_L={G2_YL:.2f} (D′={g2_Dd(G2_YL):.3f}), '
+          f'Ȳ={G2_YT:.2f} (D′={g2_Dd(G2_YT):.3f}), Y_H={G2_YH:.2f} (D′={g2_Dd(G2_YH):.3f})')
+
+    W, H = 440, 386
+    SC = 2.6                                     # LIK skala på begge akser -> ekte 45°
+    K6OY, K6OX = 300, 70
+
+    def k6x(Y):
+        return K6OX + SC * Y
+
+    def k6y(v):
+        return K6OY - SC * v
+
+    assert near(SC, SC), 'begge akser må ha samme skala for at 45-graderslinja skal bli 45°'
+    assert k6x(100.0) < 400 and k6y(100.0) > 30
+
+    b = header('Diagram med samlet produksjon langs den vannrette aksen og samlet etterspørsel '
+               'langs den loddrette, med samme skala på begge akser. En stiplet rett linje fra '
+               'origo viser alle punkter der etterspørselen er lik produksjonen. '
+               'Etterspørselskurven er S-formet: slak ved lav produksjon fordi risikopremien er '
+               'høy, brattere enn den stiplede linja i midtområdet fordi premien faller raskt, og '
+               'slak igjen ved høy produksjon. Kurven krysser den stiplede linja i tre punkter. '
+               'De to ytterste er stabile og merket kriselikevekten og høylikevekten; det '
+               'midterste er en ustabil terskel og tegnet med åpen sirkel. Alle tre har stiplede '
+               'hjelpelinjer ned til den vannrette aksen. Under aksen peker dynamikkpiler mot '
+               'kriselikevekten i de to intervallene under terskelen og mot høylikevekten i de to '
+               'intervallene over den.', W, H)
+    b += axes('Y', 'samlet etterspørsel', ox=K6OX, oy=K6OY, xmax=400, ytop=30,
+              ylab_italic=False, ylab_size=12)
+    b += line((k6x(0), k6y(0)), (k6x(100), k6y(100)), GREY, 1.8, '7 5')
+    b += rt(k6x(100) + 6, k6y(100) + 5, '45°', 11, GREY, False)
+    _pts = [(k6x(Y * 0.5), k6y(g2_D(Y * 0.5))) for Y in range(0, 201)]
+    b += polyline(_pts, BLUE, 2.6)
+    b += rt(k6x(100) + 6, k6y(g2_D(100.0)) + 5, 'D(Y)', 12, BLUE)
+    for _Y, _lab, _open, _dx in ((G2_YL, 'Y_{L}', False, -20), (G2_YT, 'Ȳ', True, -8),
+                                 (G2_YH, 'Y_{H}', False, 10)):
+        b += line((k6x(_Y), k6y(_Y)), (k6x(_Y), K6OY), GREY, 1.2, '5 4')
+        b += (odot(k6x(_Y), k6y(_Y)) if _open else dot(k6x(_Y), k6y(_Y)))
+        b += rt(k6x(_Y) + _dx, k6y(_Y) - 10, _lab, 14, INK, False, True)
+        b += rt(k6x(_Y) - 9, K6OY + 17, _lab, 12, GREY)
+    b += rt(k6x(G2_YL) - 4, k6y(G2_YL) + 22, 'stabil', 9.5, GREY, False, anchor='middle')
+    b += rt(k6x(G2_YT) - 14, k6y(G2_YT) + 16, 'ustabil terskel', 9.5, GREY, False,
+            anchor='end')
+    b += rt(k6x(G2_YH) + 6, k6y(G2_YH) + 22, 'stabil', 9.5, GREY, False)
+    for _Y, _sign in G2_DYN:
+        _len = 22.0
+        _x0 = k6x(_Y) - _sign * _len / 2
+        b += arrow((_x0, K6OY + 34), (_x0 + _sign * _len, K6OY + 34), INK, 1.5, size=6)
+    b += rt(78, 214, 'høy risikopremie —', 10, GREY, False)
+    b += rt(78, 226, 'dyre lån, svak etterspørsel', 10, GREY, False)
+    b += rt(228, 46, 'lav risikopremie', 10, GREY, False)
+    b += rt(K6OX, 366, 'Slakere enn 45°-linja = stabil  ·  brattere = ustabil terskel',
+            11, INK, False, True)
+    save('econ2310-6-3-kriselikevekt', b)
+
+    # ------------- 3) KI i arbeidsmarkedet: erstatte mot forsterke -------
+    # Etterspørsel: w = 100 − 0,8·L. Tilbud: w = 20 + 0,6·L.
+    G2_WD0, G2_BD = 100.0, 0.8
+    G2_WS0, G2_BS = 20.0, 0.6
+    G2_SKIFT = 25.0
+
+    def g2_am(wd0, ws0):
+        """Likevekten der arbeidsetterspørsel møter arbeidstilbud."""
+        L = (wd0 - ws0) / (G2_BD + G2_BS)
+        w = wd0 - G2_BD * L
+        assert near(w, ws0 + G2_BS * L), 'punktet må ligge på BEGGE kurver'
+        return L, w
+
+    G2_LA, G2_WA = g2_am(G2_WD0, G2_WS0)
+    # erstattende teknologi: tilbudet skifter mot høyre (robotene er «nye arbeidere»)
+    G2_LB1, G2_WB1 = g2_am(G2_WD0, G2_WS0 - G2_BS * G2_SKIFT)
+    # forsterkende teknologi: etterspørselen skifter mot høyre (høyere verdi per time)
+    G2_LB2, G2_WB2 = g2_am(G2_WD0 + G2_BD * G2_SKIFT, G2_WS0)
+    assert G2_WB1 < G2_WA and G2_LB1 > G2_LA, 'erstattende teknologi må gi LAVERE lønn'
+    assert G2_WB2 > G2_WA and G2_LB2 > G2_LA, 'forsterkende teknologi må gi HØYERE lønn'
+    print(f'  [Del 6] arbeidsmarked: A=({G2_LA:.2f}; {G2_WA:.2f}), '
+          f'erstattende B=({G2_LB1:.2f}; {G2_WB1:.2f}), '
+          f'forsterkende B=({G2_LB2:.2f}; {G2_WB2:.2f})')
+
+    W, H = 880, 400
+    AOY, ATOP = 322, 76
+    LSC, WSC = 3.1, 2.35
+
+    def amx(L, ox):
+        return ox + LSC * L
+
+    def amy(w):
+        return AOY - WSC * w
+
+    assert amy(102.0) > ATOP and amx(100.0, 510) < 840
+
+    b = header('Todelt figur med to arbeidsmarkedsdiagrammer side ved side. I begge har den '
+               'vannrette aksen arbeidsmengde og den loddrette lønn, med en fallende '
+               'arbeidsetterspørselskurve, en stigende arbeidstilbudskurve og likevekten A merket '
+               'med stiplede hjelpelinjer. I venstre panel, erstattende teknologi, skifter '
+               'tilbudskurven mot høyre fordi maskinene virker som nye arbeidere, og den nye '
+               'likevekten B har lavere lønn og større arbeidsmengde. I høyre panel, forsterkende '
+               'teknologi, skifter etterspørselskurven mot høyre fordi verdien av en arbeidstime '
+               'stiger, og den nye likevekten B har høyere lønn og større arbeidsmengde. Samme '
+               'teknologi, motsatt fortegn på lønna.', W, H)
+    b += rt(W / 2, 28, 'Kunstig intelligens i arbeidsmarkedet', 16, INK, False, True,
+            anchor='middle')
+    b += rt(224, 58, 'Erstattende teknologi', 13, INK, False, True, anchor='middle')
+    b += rt(664, 58, 'Forsterkende teknologi', 13, INK, False, True, anchor='middle')
+    b += line((440, 72), (440, 352), '#d0d4da', 1.4)
+    for _ox, _xmax, _erstatt in ((70, 400, True), (510, 840, False)):
+        b += axes('L', 'w', ox=_ox, oy=AOY, xmax=_xmax, ytop=ATOP)
+        b += line((amx(0, _ox), amy(G2_WD0)), (amx(96.0, _ox), amy(G2_WD0 - G2_BD * 96.0)),
+                  RED, 2.4)
+        b += line((amx(0, _ox), amy(G2_WS0)), (amx(96.0, _ox), amy(G2_WS0 + G2_BS * 96.0)),
+                  BLUE, 2.4)
+        if _erstatt:
+            b += line((amx(G2_SKIFT, _ox), amy(G2_WS0)),
+                      (amx(96.0, _ox), amy(G2_WS0 + G2_BS * (96.0 - G2_SKIFT))),
+                      PUR, 2.4, '7 4')
+            b += rt(amx(96.0, _ox) + 6, amy(G2_WS0 + G2_BS * 96.0) + 4, 'T_{0}', 12.5, BLUE)
+            b += rt(amx(96.0, _ox) + 6, amy(G2_WS0 + G2_BS * (96.0 - G2_SKIFT)) + 4,
+                    'T_{1}', 12.5, PUR)
+            b += rt(amx(96.0, _ox) - 6, amy(G2_WD0 - G2_BD * 96.0) - 8, 'E', 12.5, RED,
+                    anchor='end')
+            _wp = 40.0
+            _L0 = (_wp - G2_WS0) / G2_BS
+            b += arrow((amx(_L0, _ox), amy(_wp)), (amx(_L0 + G2_SKIFT, _ox), amy(_wp)),
+                       PUR, 1.7)
+            b += rt(amx(_L0 + 1.0, _ox), amy(_wp) + 16, 'roboter = nye arbeidere',
+                    10.5, PUR, False)
+            _LB, _WB, _dxy = G2_LB1, G2_WB1, (11, 18)
+        else:
+            b += line((amx(G2_SKIFT, _ox), amy(G2_WD0)),
+                      (amx(96.0, _ox), amy(G2_WD0 - G2_BD * (96.0 - G2_SKIFT))),
+                      ORG, 2.4, '7 4')
+            b += rt(amx(96.0, _ox) - 6, amy(G2_WD0 - G2_BD * 96.0) - 8, 'E_{0}', 12.5, RED,
+                    anchor='end')
+            b += rt(amx(96.0, _ox) + 6, amy(G2_WD0 - G2_BD * (96.0 - G2_SKIFT)) + 4,
+                    'E_{1}', 12.5, ORG)
+            b += rt(amx(96.0, _ox) + 6, amy(G2_WS0 + G2_BS * 96.0) + 4, 'T', 12.5, BLUE)
+            _wp = 90.0
+            _L0 = (G2_WD0 - _wp) / G2_BD
+            b += arrow((amx(_L0, _ox), amy(_wp)), (amx(_L0 + G2_SKIFT, _ox), amy(_wp)),
+                       ORG, 1.7)
+            b += rt(amx(_L0 + 1.0, _ox), amy(_wp) + 16, 'høyere verdi per arbeidstime',
+                    10.5, ORG, False)
+            _LB, _WB, _dxy = G2_LB2, G2_WB2, (11, -11)
+        for _L, _w, _lab, _d, _col in ((G2_LA, G2_WA, 'A', (-22, -11), INK),
+                                       (_LB, _WB, 'B', _dxy, PUR if _erstatt else ORG)):
+            _x, _y = amx(_L, _ox), amy(_w)
+            b += line((_x, _y), (_x, AOY), GREY, 1.2, '5 4')
+            b += line((_ox, _y), (_x, _y), GREY, 1.2, '5 4')
+            b += dot(_x, _y, _col)
+            b += rt(_x + _d[0], _y + _d[1], _lab, 15, _col, False, True)
+        b += rt(_ox - 30, amy(G2_WA) + 5, 'w_{A}', 12, INK)
+        b += rt(_ox - 30, amy(_WB) + 5, 'w_{B}', 12, PUR if _erstatt else ORG)
+    b += rt(224, 372, 'Lønna FALLER — inntekt flyttes fra lønn til kapital', 11, PUR, False,
+            True, anchor='middle')
+    b += rt(664, 372, 'Lønna STIGER — arbeidskraften blir mer verdt', 11, ORG, False, True,
+            anchor='middle')
+    b += rt(W / 2, 390, 'L = utført arbeid, w = lønn per time.  Samme teknologi kan '
+            'erstatte i ett yrke og forsterke i et annet.', 10.5, GREY, False,
+            anchor='middle')
+    save('econ2310-6-3-ki-arbeidsmarked', b)
+
+    # ------- 4) prøve 6.D: RR opp og TO motstridende IS-skift ------------
+    G2_U6 = 2.5                        # RR opp: svakere krone
+    G2_H6 = 20.0                       # like store, motsatte IS-impulser
+    G2_CIS6H = g2_cis_skift(G2_H6)     # bedret konkurranseevne
+    G2_CIS6V = g2_cis_skift(-G2_H6)    # svakere vekst ute
+    G2_YB6, G2_IB6 = g2_kryss(G2_CIS, G2_SIS, G2_CRR + G2_U6, G2_SRR)     # nettoskift null
+    G2_YB6H, G2_IB6H = g2_kryss(G2_CIS6H, G2_SIS, G2_CRR + G2_U6, G2_SRR)
+    G2_YB6V, G2_IB6V = g2_kryss(G2_CIS6V, G2_SIS, G2_CRR + G2_U6, G2_SRR)
+    assert G2_IB6 > G2_IA and G2_IB6H > G2_IA and G2_IB6V > G2_IA, \
+        'renta skal stige i ALLE tre utfallene'
+    assert G2_YB6V < G2_YA < G2_YB6H, 'de to IS-alternativene skal ramme hver sin side av A'
+    print(f'  [Del 6] prøve 6.D: B=({G2_YB6:.2f}; {G2_IB6:.2f}); Y-intervall '
+          f'[{G2_YB6V:.2f}, {G2_YB6H:.2f}]')
+
+    b = header('Diagram med produksjonen Y vannrett og renta i loddrett. En fallende IS-kurve og '
+               'en stigende renteregelkurve krysser i punkt A. Renteregelen skifter oppover fordi '
+               'krona er svekket. IS er tegnet med to stiplede alternativer på hver sin side av '
+               'utgangskurven: ett mot høyre fordi konkurranseevnen bedres, og ett mot venstre '
+               'fordi veksten ute er svakere. Den nye likevekten B ligger på den nye '
+               'renteregelkurven, klart høyere enn A. En tosidig vannrett pil gjennom B og et '
+               'spørsmålstegn viser at retningen på produksjonen er ubestemt. Stiplede '
+               'hjelpelinjer går fra A og B til begge akser.', 440, 412)
+    b += axes('Y', 'i')
+    b += g2_yn()
+    b += g2_kurve(G2_SIS, G2_CIS, RED, 2.6, lab='IS_{0}', dx=7, dy=5)
+    b += g2_kurve(G2_SIS, G2_CIS6H, ORG, 2.0, '7 4', lab='IS høyre', lab_size=10.5,
+                  dx=-6, dy=-8, anchor='end')
+    b += g2_kurve(G2_SIS, G2_CIS6V, GRN, 2.0, '7 4', lab='IS venstre', lab_size=10.5,
+                  dx=6, dy=-6)
+    b += g2_kurve(G2_SRR, G2_CRR, BLUE, 2.4, lab='RR_{0}', dx=7, dy=5)
+    b += g2_kurve(G2_SRR, G2_CRR + G2_U6, PUR, 2.6, lab='RR_{1}', dx=-6, dy=-9, anchor='end')
+    b += arrow((g2x(108.0), g2y(G2_CRR + G2_SRR * 108.0) - 4),
+               (g2x(108.0), g2y(G2_CRR + G2_U6 + G2_SRR * 108.0) + 6), PUR, 2.0)
+    b += darrow((g2x(G2_YB6V), g2y(G2_IB6)), (g2x(G2_YB6H), g2y(G2_IB6)), INK, 1.6)
+    b += g2_pt(G2_YB6, G2_IB6, 'B', (-24, 18), color=PUR, ilab='i_{B}')
+    b += g2_pt(G2_YA, G2_IA, 'A', (11, 18), xlab='Y_{A}', ilab='i_{A}')
+    b += rt(g2x(G2_YB6H) + 11, g2y(G2_IB6) + 5, '?', 20, INK, False, True)
+    b += rt(OX, 352, 'Renta stiger entydig — produksjonen kan gå begge veier', 11.5, INK,
+            False, True)
+    b += rt(OX, 372, 'RR_{0} → RR_{1}: Z^{E} opp (svakere krone)', 10.5, PUR)
+    b += rt(OX, 390, 'IS høyre: bedret konkurranseevne', 10.5, ORG)
+    b += rt(OX + 196, 390, 'IS venstre: svakere vekst ute', 10.5, GRN)
+    save('econ2310-6-prove-is-rr-6d', b)
 
 print('\nFerdig — ECON2310-figurer for del ' + '+'.join(sorted(DELER)) + ' generert.')
