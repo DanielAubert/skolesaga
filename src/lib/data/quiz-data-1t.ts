@@ -48,12 +48,12 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er $4^{-2}$?',
-    options: ['$\frac{1}{16}$', '$-8$', '$16$', '$-16$'],
-    explanation: 'Negativ eksponent betyr at vi tar den omvendte: $4^{-2} = \frac{1}{4^2} = \frac{1}{16}$.',
+    options: ['$\\frac{1}{16}$', '$-8$', '$16$', '$-16$'],
+    explanation: 'Negativ eksponent betyr at vi tar den omvendte: $4^{-2} = \\frac{1}{4^2} = \\frac{1}{16}$.',
   },
   {
-    question: 'Hva er $\left(\frac{a}{b}\right)^2$?',
-    options: ['$\frac{a^2}{b^2}$', '$a^2 \cdot b^2$', '$\frac{2a}{2b}$', '$\frac{a}{b^2}$'],
+    question: 'Hva er $\\left(\\frac{a}{b}\\right)^2$?',
+    options: ['$\\frac{a^2}{b^2}$', '$a^2 \\cdot b^2$', '$\\frac{2a}{2b}$', '$\\frac{a}{b^2}$'],
     explanation: 'Når vi opphøyer en brøk i en potens, opphøyer vi både teller og nevner: $\\left(\\frac{a}{b}\\right)^2 = \\frac{a^2}{b^2}$.',
   },
 ],
@@ -90,87 +90,87 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
 
   '1t-1-4': [
   {
-    question: 'Hva er $\frac{2}{3} \cdot \frac{3}{4}$?',
-    options: ['$\frac{1}{2}$', '$\frac{6}{12}$', '$\frac{5}{7}$', '$\frac{2}{4}$'],
-    explanation: 'Når vi ganger brøker, ganger vi teller med teller og nevner med nevner: $\frac{2 \cdot 3}{3 \cdot 4} = \frac{6}{12} = \frac{1}{2}$.',
+    question: 'Hva er $\\frac{2}{3} \\cdot \\frac{3}{4}$?',
+    options: ['$\\frac{1}{2}$', '$\\frac{6}{12}$', '$\\frac{5}{7}$', '$\\frac{2}{4}$'],
+    explanation: 'Når vi ganger brøker, ganger vi teller med teller og nevner med nevner: $\\frac{2 \\cdot 3}{3 \\cdot 4} = \\frac{6}{12} = \\frac{1}{2}$.',
   },
   {
-    question: 'Hva er $\frac{2}{5} \div \frac{4}{3}$?',
-    options: ['$\frac{3}{10}$', '$\frac{8}{15}$', '$\frac{6}{20}$', '$\frac{2}{5}$'],
-    explanation: 'Å dele med en brøk er det samme som å gange med den omvendte: $\frac{2}{5} \cdot \frac{3}{4} = \frac{6}{20} = \frac{3}{10}$.',
+    question: 'Hva er $\\frac{2}{5} \\div \\frac{4}{3}$?',
+    options: ['$\\frac{3}{10}$', '$\\frac{8}{15}$', '$\\frac{6}{20}$', '$\\frac{2}{5}$'],
+    explanation: 'Å dele med en brøk er det samme som å gange med den omvendte: $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20} = \\frac{3}{10}$.',
   },
   {
-    question: 'Hva får vi når vi forkorter $\frac{12}{18}$?',
-    options: ['$\frac{2}{3}$', '$\frac{6}{9}$', '$\frac{4}{6}$', '$\frac{3}{2}$'],
-    explanation: 'Både $12$ og $18$ kan deles på $6$: $\frac{12}{18} = \frac{2}{3}$.',
+    question: 'Hva får vi når vi forkorter $\\frac{12}{18}$?',
+    options: ['$\\frac{2}{3}$', '$\\frac{6}{9}$', '$\\frac{4}{6}$', '$\\frac{3}{2}$'],
+    explanation: 'Både $12$ og $18$ kan deles på $6$: $\\frac{12}{18} = \\frac{2}{3}$.',
   },
   {
-    question: 'Hva er $\frac{1}{3} + \frac{1}{4}$?',
-    options: ['$\frac{7}{12}$', '$\frac{2}{7}$', '$\frac{1}{7}$', '$\frac{2}{12}$'],
-    explanation: 'Vi må ha fellesnevner: $\frac{1}{3} = \frac{4}{12}$ og $\frac{1}{4} = \frac{3}{12}$. $\frac{4}{12} + \frac{3}{12} = \frac{7}{12}$.',
+    question: 'Hva er $\\frac{1}{3} + \\frac{1}{4}$?',
+    options: ['$\\frac{7}{12}$', '$\\frac{2}{7}$', '$\\frac{1}{7}$', '$\\frac{2}{12}$'],
+    explanation: 'Vi må ha fellesnevner: $\\frac{1}{3} = \\frac{4}{12}$ og $\\frac{1}{4} = \\frac{3}{12}$. $\\frac{4}{12} + \\frac{3}{12} = \\frac{7}{12}$.',
   },
   {
-    question: 'Hvordan utvider vi $\frac{2}{5}$ til nevner $15$?',
-    options: ['$\frac{6}{15}$', '$\frac{10}{15}$', '$\frac{2}{15}$', '$\frac{3}{15}$'],
-    explanation: 'Vi ganger både teller og nevner med $3$: $\frac{2 \cdot 3}{5 \cdot 3} = \frac{6}{15}$.',
+    question: 'Hvordan utvider vi $\\frac{2}{5}$ til nevner $15$?',
+    options: ['$\\frac{6}{15}$', '$\\frac{10}{15}$', '$\\frac{2}{15}$', '$\\frac{3}{15}$'],
+    explanation: 'Vi ganger både teller og nevner med $3$: $\\frac{2 \\cdot 3}{5 \\cdot 3} = \\frac{6}{15}$.',
   },
 ],
 
 
   '1t-1-5': [
   {
-    question: 'Hva er $\sqrt{16}$?',
+    question: 'Hva er $\\sqrt{16}$?',
     options: ['$4$', '$8$', '$256$', '$2$'],
-    explanation: 'Kvadratroten av $16$ er $4$ fordi $4 \cdot 4 = 16$.',
+    explanation: 'Kvadratroten av $16$ er $4$ fordi $4 \\cdot 4 = 16$.',
   },
   {
-    question: 'Hva er $\sqrt{a} \cdot \sqrt{b}$?',
-    options: ['$\sqrt{ab}$', '$\sqrt{a+b}$', '$ab$', '$\frac{\sqrt{a}}{\sqrt{b}}$'],
-    explanation: 'Produktregelen for roter: $\sqrt{a} \cdot \sqrt{b} = \sqrt{ab}$.',
+    question: 'Hva er $\\sqrt{a} \\cdot \\sqrt{b}$?',
+    options: ['$\\sqrt{ab}$', '$\\sqrt{a+b}$', '$ab$', '$\\frac{\\sqrt{a}}{\\sqrt{b}}$'],
+    explanation: 'Produktregelen for roter: $\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{ab}$.',
   },
   {
-    question: 'Hvordan førenkles $\sqrt{50}$?',
-    options: ['$5\sqrt{2}$', '$25\sqrt{2}$', '$\sqrt{50}$', '$10\sqrt{5}$'],
-    explanation: '$\sqrt{50} = \sqrt{25 \cdot 2} = \sqrt{25} \cdot \sqrt{2} = 5\sqrt{2}$.',
+    question: 'Hvordan førenkles $\\sqrt{50}$?',
+    options: ['$5\\sqrt{2}$', '$25\\sqrt{2}$', '$\\sqrt{50}$', '$10\\sqrt{5}$'],
+    explanation: '$\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$.',
   },
   {
-    question: 'Hva er $\sqrt{a^2}$?',
-    options: ['$|a|$', '$a$', '$a^2$', '$\sqrt{a}$'],
-    explanation: '$\sqrt{a^2} = |a|$ fordi kvadratroten alltid er positiv.',
+    question: 'Hva er $\\sqrt{a^2}$?',
+    options: ['$|a|$', '$a$', '$a^2$', '$\\sqrt{a}$'],
+    explanation: '$\\sqrt{a^2} = |a|$ fordi kvadratroten alltid er positiv.',
   },
   {
-    question: 'Hva er $3\sqrt{2} + 5\sqrt{2}$?',
-    options: ['$8\sqrt{2}$', '$15\sqrt{2}$', '$\sqrt{8}$', '$8\sqrt{4}$'],
-    explanation: 'Vi legger sammen like rotuttrykk: $3\sqrt{2} + 5\sqrt{2} = 8\sqrt{2}$.',
+    question: 'Hva er $3\\sqrt{2} + 5\\sqrt{2}$?',
+    options: ['$8\\sqrt{2}$', '$15\\sqrt{2}$', '$\\sqrt{8}$', '$8\\sqrt{4}$'],
+    explanation: 'Vi legger sammen like rotuttrykk: $3\\sqrt{2} + 5\\sqrt{2} = 8\\sqrt{2}$.',
   },
 ],
 
 
   '1t-1-6': [
   {
-    question: 'Hvordan forkortes $\frac{x^2 - 4}{x + 2}$?',
-    options: ['$x - 2$', '$x + 2$', '$x^2 - 2$', '$\frac{x-4}{x+2}$'],
+    question: 'Hvordan forkortes $\\frac{x^2 - 4}{x + 2}$?',
+    options: ['$x - 2$', '$x + 2$', '$x^2 - 2$', '$\\frac{x-4}{x+2}$'],
     explanation: '$x^2 - 4 = (x-2)(x+2)$. Når vi forkorter med $(x+2)$ får vi $x - 2$.',
   },
   {
-    question: 'Hva er $\frac{2}{x} + \frac{3}{x}$?',
-    options: ['$\frac{5}{x}$', '$\frac{6}{x^2}$', '$\frac{5}{2x}$', '$2x + 3x$'],
-    explanation: 'Når nevnerne er like, adderer vi tellerne: $\frac{2}{x} + \frac{3}{x} = \frac{5}{x}$.',
+    question: 'Hva er $\\frac{2}{x} + \\frac{3}{x}$?',
+    options: ['$\\frac{5}{x}$', '$\\frac{6}{x^2}$', '$\\frac{5}{2x}$', '$2x + 3x$'],
+    explanation: 'Når nevnerne er like, adderer vi tellerne: $\\frac{2}{x} + \\frac{3}{x} = \\frac{5}{x}$.',
   },
   {
-    question: 'Hva er fellesnevneren for $\frac{1}{x}$ og $\frac{1}{x+1}$?',
+    question: 'Hva er fellesnevneren for $\\frac{1}{x}$ og $\\frac{1}{x+1}$?',
     options: ['$x(x+1)$', '$x + x + 1$', '$1$', '$x^2 + 1$'],
     explanation: 'Fellesnevneren er produktet av de to nevnerne: $x(x+1)$.',
   },
   {
-    question: 'Hvordan førenkles $\frac{3x}{6x^2}$?',
+    question: 'Hvordan førenkles $\\frac{3x}{6x^2}$?',
     options: ['1/(2x)', '$\\frac{1}{2}$', 'x/2', '2/x'],
-    explanation: 'Vi forkorter med $3x$: $\frac{3x}{6x^2} = \frac{1}{2x}$.',
+    explanation: 'Vi forkorter med $3x$: $\\frac{3x}{6x^2} = \\frac{1}{2x}$.',
   },
   {
-    question: 'Hva er $\frac{x}{2} \div \frac{x}{4}$?',
+    question: 'Hva er $\\frac{x}{2} \\div \\frac{x}{4}$?',
     options: ['2', '$\\frac{1}{2}$', 'x^2/8', '4x'],
-    explanation: 'Å dele med en brøk er å gange med den omvendte: $\frac{x}{2} \cdot \frac{4}{x} = \frac{4x}{2x} = 2$.',
+    explanation: 'Å dele med en brøk er å gange med den omvendte: $\\frac{x}{2} \\cdot \\frac{4}{x} = \\frac{4x}{2x} = 2$.',
   },
 ],
 
@@ -206,7 +206,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
 
   '1t-1-8': [
   {
-    question: 'Hva er $\frac{6x^3}{2x}$?',
+    question: 'Hva er $\\frac{6x^3}{2x}$?',
     options: ['$3x^2$', '$3x^3$', '$4x^2$', '$6x^2$'],
     explanation: 'Vi deler koeffisientene ($6/2=3$) og trekker fra eksponentene ($3-1=2$): $3x^2$.',
   },
@@ -216,9 +216,9 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Når vi deler P(x) på D(x), kalles svåret Q(x) for kvotienten.',
   },
   {
-    question: 'Hva er $\frac{8x^4 + 4x^2}{2x}$?',
+    question: 'Hva er $\\frac{8x^4 + 4x^2}{2x}$?',
     options: ['$4x^3 + 2x$', '$4x^4 + 2x^2$', '$6x^3$', '$4x^3 + 4x$'],
-    explanation: 'Vi deler hvert ledd: $\frac{8x^4}{2x} = 4x^3$ og $\frac{4x^2}{2x} = 2x$.',
+    explanation: 'Vi deler hvert ledd: $\\frac{8x^4}{2x} = 4x^3$ og $\\frac{4x^2}{2x} = 2x$.',
   },
   {
     question: 'Hva betyr det at resten er 0 ved polynomdivisjon?',
@@ -226,7 +226,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Når resten er 0, går divisoren opp i dividenden uten rest.',
   },
   {
-    question: 'Hva er $\frac{12x^5}{4x^2}$?',
+    question: 'Hva er $\\frac{12x^5}{4x^2}$?',
     options: ['$3x^3$', '$3x^7$', '$8x^3$', '$3x^2$'],
     explanation: 'Vi deler koeffisientene ($12/4=3$) og trekker fra eksponentene ($5-2=3$): $3x^3$.',
   },
@@ -271,7 +271,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvis $3x = 15$, hva er $x$?',
     options: ['$x = 5$', '$x = 45$', '$x = 12$', '$x = 18$'],
-    explanation: 'Vi deler begge sider på $3$: $x = \frac{15}{3} = 5$.',
+    explanation: 'Vi deler begge sider på $3$: $x = \\frac{15}{3} = 5$.',
   },
   {
     question: 'Løs likningen $2x - 4 = 10$.',
@@ -294,7 +294,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   '1t-2-2': [
   {
     question: 'Hva er nullregelen?',
-    options: ['Hvis $A \cdot B = 0$, så er $A = 0$ eller $B = 0$', '$A + B = 0$ betyr $A = B$', '$0 \cdot x = x$', '$A/0 = 0$'],
+    options: ['Hvis $A \\cdot B = 0$, så er $A = 0$ eller $B = 0$', '$A + B = 0$ betyr $A = B$', '$0 \\cdot x = x$', '$A/0 = 0$'],
     explanation: 'Nullregelen sier at hvis et produkt er null, må minst en av faktorene være null.',
   },
   {
@@ -323,7 +323,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   '1t-2-3': [
   {
     question: 'Hva er abc-formelen?',
-    options: ['$x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$', '$x = -\frac{b}{a}$', '$x = \frac{c}{a}$', '$x = a + b + c$'],
+    options: ['$x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$', '$x = -\\frac{b}{a}$', '$x = \\frac{c}{a}$', '$x = a + b + c$'],
     explanation: 'ABC-formelen gir løsningene til $ax^2 + bx + c = 0$.',
   },
   {
@@ -351,12 +351,12 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
 
   '1t-2-5': [
   {
-    question: 'Hvordan løser vi $\frac{x}{3} = 4$?',
+    question: 'Hvordan løser vi $\\frac{x}{3} = 4$?',
     options: ['Ganger begge sider med 3', 'Deler begge sider på 3', 'Trekker fra 3', 'Legger til 3'],
-    explanation: 'Vi ganger begge sider med nevneren $3$: $x = 4 \cdot 3 = 12$.',
+    explanation: 'Vi ganger begge sider med nevneren $3$: $x = 4 \\cdot 3 = 12$.',
   },
   {
-    question: 'Hva er løsningen på $\frac{6}{x} = 2$?',
+    question: 'Hva er løsningen på $\\frac{6}{x} = 2$?',
     options: ['x = 3', 'x = 12', 'x = 4', 'x = $\\frac{1}{3}$'],
     explanation: 'Vi ganger begge sider med $x$: $6 = 2x$, så $x = 3$.',
   },
@@ -366,9 +366,9 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Vi kan ikke dele på 0, så vi må sjekke at løsningen ikke gjør nevneren lik 0.',
   },
   {
-    question: 'Hvordan løser vi $\frac{2}{x} + \frac{3}{x} = 10$?',
+    question: 'Hvordan løser vi $\\frac{2}{x} + \\frac{3}{x} = 10$?',
     options: ['5/x = 10, så x = $\\frac{1}{2}$', 'x = 50', 'x = 5', 'x = 2'],
-    explanation: 'Vi trekker sammen: $\frac{5}{x} = 10$, så $x = \frac{5}{10} = \frac{1}{2}$.',
+    explanation: 'Vi trekker sammen: $\\frac{5}{x} = 10$, så $x = \\frac{5}{10} = \\frac{1}{2}$.',
   },
   {
     question: 'Hva er produktregelen for brøklikninger?',
@@ -380,9 +380,9 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
 
   '1t-2-6': [
   {
-    question: 'Hvordan løser vi $\sqrt{x} = 5$?',
-    options: ['Kvadrerer begge sider: $x = 25$', 'Tar roten: $x = \sqrt{5}$', 'Deler på $2$: $x = 2{,}5$', '$x = 10$'],
-    explanation: 'Vi kvadrerer begge sider: $(\sqrt{x})^2 = 5^2$, så $x = 25$.',
+    question: 'Hvordan løser vi $\\sqrt{x} = 5$?',
+    options: ['Kvadrerer begge sider: $x = 25$', 'Tar roten: $x = \\sqrt{5}$', 'Deler på $2$: $x = 2{,}5$', '$x = 10$'],
+    explanation: 'Vi kvadrerer begge sider: $(\\sqrt{x})^2 = 5^2$, så $x = 25$.',
   },
   {
     question: 'Hvorfor må vi kontrollære løsningene i rotlikninger?',
@@ -390,17 +390,17 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Når vi kvadrerer, kan vi introdusere løsninger som ikke fungerer i den opprinnelige likningen.',
   },
   {
-    question: 'Hva er løsningen på $\sqrt{x+3} = 4$?',
+    question: 'Hva er løsningen på $\\sqrt{x+3} = 4$?',
     options: ['$x = 13$', '$x = 1$', '$x = 7$', '$x = 19$'],
-    explanation: 'Vi kvadrerer: $x + 3 = 16$, så $x = 13$. Kontroll: $\sqrt{16} = 4$.',
+    explanation: 'Vi kvadrerer: $x + 3 = 16$, så $x = 13$. Kontroll: $\\sqrt{16} = 4$.',
   },
   {
-    question: 'Kan $\sqrt{x} = -3$ ha en løsning?',
-    options: ['Nei, $\sqrt{}$ gir alltid positiv verdi', 'Ja, $x = 9$', 'Ja, $x = -9$', 'Ja, $x = -3$'],
-    explanation: 'Kvadratroten er alltid positiv eller null, så $\sqrt{x} = -3$ har ingen løsning.',
+    question: 'Kan $\\sqrt{x} = -3$ ha en løsning?',
+    options: ['Nei, $\\sqrt{}$ gir alltid positiv verdi', 'Ja, $x = 9$', 'Ja, $x = -9$', 'Ja, $x = -3$'],
+    explanation: 'Kvadratroten er alltid positiv eller null, så $\\sqrt{x} = -3$ har ingen løsning.',
   },
   {
-    question: 'Løs $\sqrt{2x-1} = 3$.',
+    question: 'Løs $\\sqrt{2x-1} = 3$.',
     options: ['$x = 5$', '$x = 4$', '$x = 2$', '$x = 8$'],
     explanation: 'Vi kvadrerer: $2x - 1 = 9$, $2x = 10$, $x = 5$.',
   },
@@ -459,7 +459,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken formel brukes for arealet av en trekant?',
-    options: ['$A = \frac{1}{2} \cdot g \cdot h$', '$A = g \cdot h$', '$A = g + h$', '$A = g^2$'],
+    options: ['$A = \\frac{1}{2} \\cdot g \\cdot h$', '$A = g \\cdot h$', '$A = g + h$', '$A = g^2$'],
     explanation: 'Arealet av en trekant er halvparten av grunnlinje ganger høyde.',
   },
 ],
@@ -482,7 +482,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Et polynom av grad n har maksimalt n nullpunkter.',
   },
   {
-    question: 'Hvis $x^3 + 2x^2 - 5x - 6 = (x-2) \cdot Q(x)$, hva er graden til $Q(x)$?',
+    question: 'Hvis $x^3 + 2x^2 - 5x - 6 = (x-2) \\cdot Q(x)$, hva er graden til $Q(x)$?',
     options: ['$2$', '$3$', '$1$', '$4$'],
     explanation: 'Når vi deler et tredjegradspolynom på en førstegradsuttrykk, blir kvotienten et andregradspolynom.',
   },
@@ -556,7 +556,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er $f(2)$ når $f(x) = 3x + 1$?',
     options: ['$7$', '$6$', '$5$', '$8$'],
-    explanation: 'Vi setter inn $x = 2$: $f(2) = 3 \cdot 2 + 1 = 6 + 1 = 7$.',
+    explanation: 'Vi setter inn $x = 2$: $f(2) = 3 \\cdot 2 + 1 = 6 + 1 = 7$.',
   },
   {
     question: 'Hva kjennetegner en funksjon?',
@@ -595,7 +595,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er symmetrilinjen til $f(x) = x^2 - 4x + 3$?',
     options: ['$x = 2$', '$x = -2$', '$x = 4$', '$x = 3$'],
-    explanation: 'Symmetrilinjen er $x = -\frac{b}{2a} = -\frac{-4}{2 \cdot 1} = \frac{4}{2} = 2$.',
+    explanation: 'Symmetrilinjen er $x = -\\frac{b}{2a} = -\\frac{-4}{2 \\cdot 1} = \\frac{4}{2} = 2$.',
   },
   {
     question: 'Hvor krysser $f(x) = x^2 - 1$ y-aksen?',
@@ -675,17 +675,17 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'Vertikal asymptote er der nevneren er null og funksjonen går mot uendelig.',
   },
   {
-    question: 'Hva er definisjonsmengden til $f(x) = \frac{1}{x-3}$?',
+    question: 'Hva er definisjonsmengden til $f(x) = \\frac{1}{x-3}$?',
     options: ['Alle $x$ unntatt $3$', 'Alle $x$', 'Bare $x = 3$', '$x > 3$'],
     explanation: 'Nevneren er null når $x = 3$, så $x = 3$ er utelukket.',
   },
   {
-    question: 'Hvor har $f(x) = \frac{2}{x^2-4}$ vertikale asymptoter?',
+    question: 'Hvor har $f(x) = \\frac{2}{x^2-4}$ vertikale asymptoter?',
     options: ['$x = 2$ og $x = -2$', '$x = 4$ og $x = -4$', '$x = 0$', 'Ingen'],
     explanation: '$x^2 - 4 = 0$ når $x = 2$ eller $x = -2$.',
   },
   {
-    question: 'Hva skjer med $f(x) = \frac{1}{x}$ når $x$ går mot uendelig?',
+    question: 'Hva skjer med $f(x) = \\frac{1}{x}$ når $x$ går mot uendelig?',
     options: ['$f(x)$ går mot $0$', '$f(x)$ går mot uendelig', '$f(x)$ går mot $1$', '$f(x)$ går mot $-1$'],
     explanation: 'Når nevneren blir stor, blir brøken liten og nærmer seg $0$.',
   },
@@ -699,7 +699,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
 
   '1t-3-8': [
   {
-    question: 'Hva er vekstfaktoren i $f(x) = 500 \cdot 1{,}05^x$?',
+    question: 'Hva er vekstfaktoren i $f(x) = 500 \\cdot 1{,}05^x$?',
     options: ['$1{,}05$', '$500$', '$0{,}05$', '$5$'],
     explanation: 'Vekstfaktoren er grunntallet i eksponenten, altså $1{,}05$.',
   },
@@ -709,7 +709,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: '$3\%$ økning betyr at vi beholder $100\%$ og legger til $3\%$: $1 + 0{,}03 = 1{,}03$.',
   },
   {
-    question: 'Hvis $b < 1$ i $f(x) = a \cdot b^x$, hva skjer?',
+    question: 'Hvis $b < 1$ i $f(x) = a \\cdot b^x$, hva skjer?',
     options: ['Funksjonen synker (eksponentiell nedgang)', 'Funksjonen øker', 'Funksjonen er konstant', 'Funksjonen oscillærer'],
     explanation: 'Når $0 < b < 1$, minker funksjonsverdien når $x$ øker.',
   },
@@ -787,13 +787,13 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   '1t-5-3': [
   {
     question: 'Hva sier Pytagoras setning?',
-    options: ['$a^2 + b^2 = c^2$ i en rettvinklet trekant', '$a + b = c$', '$a \cdot b = c$', '$a^2 = b^2 + c^2$'],
+    options: ['$a^2 + b^2 = c^2$ i en rettvinklet trekant', '$a + b = c$', '$a \\cdot b = c$', '$a^2 = b^2 + c^2$'],
     explanation: 'I en rettvinklet trekant er summen av katetenes kvadrater lik hypotenusens kvadrat.',
   },
   {
     question: 'I en rettvinklet trekant med kateter $3$ og $4$, hva er hypotenusen?',
     options: ['$5$', '$7$', '$12$', '$25$'],
-    explanation: '$c = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$.',
+    explanation: '$c = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$.',
   },
   {
     question: 'Hva er hypotenusen?',
@@ -808,24 +808,24 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hypotenusen er $13$ og en katet er $5$. Hva er den andre kateten?',
     options: ['$12$', '$8$', '$18$', '$144$'],
-    explanation: '$b = \sqrt{13^2 - 5^2} = \sqrt{169 - 25} = \sqrt{144} = 12$.',
+    explanation: '$b = \\sqrt{13^2 - 5^2} = \\sqrt{169 - 25} = \\sqrt{144} = 12$.',
   },
 ],
 
 
   '1t-5-4': [
   {
-    question: 'Hva er $\sin v$ i en rettvinklet trekant?',
+    question: 'Hva er $\\sin v$ i en rettvinklet trekant?',
     options: ['Motstående katet / hypotenus', 'Hosliggende katet / hypotenus', 'Motstående / hosliggende', 'Hypotenus / motstående'],
     explanation: 'Sinus er forholdet mellom motstående katet og hypotenus.',
   },
   {
-    question: 'Hva er $\cos v$?',
+    question: 'Hva er $\\cos v$?',
     options: ['Hosliggende katet / hypotenus', 'Motstående katet / hypotenus', 'Motstående / hosliggende', 'Hypotenus / hosliggende'],
     explanation: 'Cosinus er forholdet mellom hosliggende katet og hypotenus.',
   },
   {
-    question: 'Hva er $\tan v$?',
+    question: 'Hva er $\\tan v$?',
     options: ['Motstående katet / hosliggende katet', 'Hosliggende / motstående', 'Hypotenus / motstående', 'Motstående / hypotenus'],
     explanation: 'Tangens er forholdet mellom motstående og hosliggende katet.',
   },
@@ -835,9 +835,9 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
     explanation: 'SOH-CAH-TOA: Sin=Opposite/Hypotenuse, Cos=Adjacent/Hypotenuse, Tan=Opposite/Adjacent.',
   },
   {
-    question: 'Hva er $\sin 30°$?',
-    options: ['$0{,}5$', '$1$', '$0$', '$\frac{\sqrt{3}}{2}$'],
-    explanation: '$\sin 30° = \frac{1}{2} = 0{,}5$.',
+    question: 'Hva er $\\sin 30°$?',
+    options: ['$0{,}5$', '$1$', '$0$', '$\\frac{\\sqrt{3}}{2}$'],
+    explanation: '$\\sin 30° = \\frac{1}{2} = 0{,}5$.',
   },
 ],
 
@@ -845,18 +845,18 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   '1t-5-5': [
   {
     question: 'Hva er grunnformelen for arealet av en trekant?',
-    options: ['$A = \frac{1}{2}gh$', '$A = gh$', '$A = g + h$', '$A = 2gh$'],
+    options: ['$A = \\frac{1}{2}gh$', '$A = gh$', '$A = g + h$', '$A = 2gh$'],
     explanation: 'Arealet av en trekant er halvparten av grunnlinje ganger høyde.',
   },
   {
     question: 'Hva er arealsetningen?',
-    options: ['$A = \frac{1}{2}ab\sin C$', '$A = ab\sin C$', '$A = a + b + c$', '$A = \frac{1}{2}ab$'],
+    options: ['$A = \\frac{1}{2}ab\\sin C$', '$A = ab\\sin C$', '$A = a + b + c$', '$A = \\frac{1}{2}ab$'],
     explanation: 'Arealsetningen bruker to sider og vinkelen mellom dem.',
   },
   {
     question: 'Finn arealet av en trekant med grunnlinje $8$ og høyde $5$.',
     options: ['$20$', '$40$', '$13$', '$80$'],
-    explanation: '$A = \frac{1}{2} \cdot 8 \cdot 5 = 20$.',
+    explanation: '$A = \\frac{1}{2} \\cdot 8 \\cdot 5 = 20$.',
   },
   {
     question: 'Når bruker vi arealsetningen?',
@@ -865,8 +865,8 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er arealet av en likesidet trekant med side $6$?',
-    options: ['$9\sqrt{3}$', '$18$', '$36$', '$6\sqrt{3}$'],
-    explanation: '$A = \frac{1}{2} \cdot 6 \cdot 6 \cdot \sin 60° = 18 \cdot \frac{\sqrt{3}}{2} = 9\sqrt{3}$.',
+    options: ['$9\\sqrt{3}$', '$18$', '$36$', '$6\\sqrt{3}$'],
+    explanation: '$A = \\frac{1}{2} \\cdot 6 \\cdot 6 \\cdot \\sin 60° = 18 \\cdot \\frac{\\sqrt{3}}{2} = 9\\sqrt{3}$.',
   },
 ],
 
@@ -874,7 +874,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   '1t-5-6': [
   {
     question: 'Hva sier sinussetningen?',
-    options: ['$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$', '$a + b = c$', '$\sin A = \sin B$', '$a \cdot \sin A = b \cdot \sin B$'],
+    options: ['$\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$', '$a + b = c$', '$\\sin A = \\sin B$', '$a \\cdot \\sin A = b \\cdot \\sin B$'],
     explanation: 'Sinussetningen gir forholdet mellom sider og sinus til motstående vinkler.',
   },
   {
@@ -885,12 +885,12 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er det tvetydige tilfellet i sinussetningen?',
     options: ['Når vi finner en vinkel, kan det være to mulige løsninger', 'Når det ikke finnes løsning', 'Når det er tre løsninger', 'Når alle vinkler er like'],
-    explanation: 'Siden $\sin v = \sin(180° - v)$, kan en vinkel ha to mulige verdier.',
+    explanation: 'Siden $\\sin v = \\sin(180° - v)$, kan en vinkel ha to mulige verdier.',
   },
   {
     question: 'I trekant ABC er $A = 30°$, $a = 5$ og $B = 60°$. Finn $b$.',
-    options: ['$5\sqrt{3}$', '$5$', '$10$', '$2{,}5$'],
-    explanation: '$b = a \cdot \frac{\sin B}{\sin A} = 5 \cdot \frac{\sin 60°}{\sin 30°} = 5 \cdot \frac{\sqrt{3}/2}{1/2} = 5\sqrt{3}$.',
+    options: ['$5\\sqrt{3}$', '$5$', '$10$', '$2{,}5$'],
+    explanation: '$b = a \\cdot \\frac{\\sin B}{\\sin A} = 5 \\cdot \\frac{\\sin 60°}{\\sin 30°} = 5 \\cdot \\frac{\\sqrt{3}/2}{1/2} = 5\\sqrt{3}$.',
   },
   {
     question: 'Gjelder sinussetningen for alle trekanter?',
@@ -903,7 +903,7 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   '1t-5-7': [
   {
     question: 'Hva sier cosinussetningen?',
-    options: ['$c^2 = a^2 + b^2 - 2ab\cos C$', '$c = a + b$', '$\cos C = a + b$', '$c^2 = a^2 + b^2$'],
+    options: ['$c^2 = a^2 + b^2 - 2ab\\cos C$', '$c = a + b$', '$\\cos C = a + b$', '$c^2 = a^2 + b^2$'],
     explanation: 'Cosinussetningen generaliserer Pytagoras til alle trekanter.',
   },
   {
@@ -914,12 +914,12 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva blir cosinussetningen når $C = 90°$?',
     options: ['Pytagoras setning: $c^2 = a^2 + b^2$', '$c = a + b$', '$c^2 = a^2 - b^2$', '$c = ab$'],
-    explanation: 'Når $C = 90°$, er $\cos C = 0$, og vi får $c^2 = a^2 + b^2$.',
+    explanation: 'Når $C = 90°$, er $\\cos C = 0$, og vi får $c^2 = a^2 + b^2$.',
   },
   {
     question: 'I en trekant er $a = 7$, $b = 8$, $C = 60°$. Finn $c$.',
-    options: ['$\sqrt{57}$', '$\sqrt{113}$', '$15$', '$\sqrt{169}$'],
-    explanation: '$c^2 = 49 + 64 - 2 \cdot 7 \cdot 8 \cdot \cos 60° = 113 - 56 = 57$, så $c = \sqrt{57}$.',
+    options: ['$\\sqrt{57}$', '$\\sqrt{113}$', '$15$', '$\\sqrt{169}$'],
+    explanation: '$c^2 = 49 + 64 - 2 \\cdot 7 \\cdot 8 \\cdot \\cos 60° = 113 - 56 = 57$, så $c = \\sqrt{57}$.',
   },
   {
     question: 'Kan cosinussetningen brukes til å finne vinkler?',

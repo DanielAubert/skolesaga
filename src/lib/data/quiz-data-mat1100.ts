@@ -896,7 +896,7 @@ const quizData_mat1100: Record<string, QuizQuestion[]> = {
     {
       question: "At $f$ er høyrekontinuerlig i $a$ betyr at:",
       options: ["$\\lim_{x\\to a^+} f(x) = f(a)$", "$\\lim_{x\\to a^-} f(x) = f(a)$", "$\\lim_{x\\to a} f(x) = \\infty$", "$f(a)$ er større enn grensen"],
-      explanation: "Høyrekontinuitet er at høyregrensen treffer funksjonsverdien. Svaret «$\lim_{x\to a^-} f(x) = f(a)$» er venstrekontinuitet.",
+      explanation: "Høyrekontinuitet er at høyregrensen treffer funksjonsverdien. Svaret «$\\lim_{x\\to a^-} f(x) = f(a)$» er venstrekontinuitet.",
     },
     {
       question: "Venstre- og høyregrensen finnes, men er ulike. Diskontinuiteten er:",

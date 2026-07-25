@@ -179,7 +179,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Gitt $f(x) = 2x + 1$. Finn $f(3)$.',
       options: ['$7$', '$6$', '$5$', '$9$'],
-      explanation: '$f(3) = 2 \times 3 + 1 = 6 + 1 = 7$.',
+      explanation: '$f(3) = 2 \\times 3 + 1 = 6 + 1 = 7$.',
     },
     {
       question: 'Hva kalles $x$ i en funksjon $f(x)$?',
@@ -266,27 +266,27 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er arealet av et rektangel med lengde 8 cm og bredde 5 cm?',
       options: ['$40$ cm$^2$', '$26$ cm$^2$', '$13$ cm$^2$', '$80$ cm$^2$'],
-      explanation: '$A = l \times b = 8 \times 5 = 40$ cm$^2$.',
+      explanation: '$A = l \\times b = 8 \\times 5 = 40$ cm$^2$.',
     },
     {
       question: 'Hva er omkretsen av et rektangel med lengde 10 m og bredde 6 m?',
       options: ['32 m', '60 m', '16 m', '120 m'],
-      explanation: '$O = 2l + 2b = 2 \times 10 + 2 \times 6 = 20 + 12 = 32$ m.',
+      explanation: '$O = 2l + 2b = 2 \\times 10 + 2 \\times 6 = 20 + 12 = 32$ m.',
     },
     {
       question: 'Hva er formelen for areal av en trekant?',
-      options: ['$A = (g \times h) / 2$', '$A = g \times h$', '$A = g + h$', '$A = 2g \times h$'],
+      options: ['$A = (g \\times h) / 2$', '$A = g \\times h$', '$A = g + h$', '$A = 2g \\times h$'],
       explanation: 'Arealet av en trekant er grunnlinje ganger høyde delt på 2.',
     },
     {
       question: 'Hva er arealet av en sirkel med radius 5 cm? (bruk π ≈ 3,14)',
       options: ['$78{,}5$ cm$^2$', '$31{,}4$ cm$^2$', '$15{,}7$ cm$^2$', '$157$ cm$^2$'],
-      explanation: '$A = \pi \times r^2 = 3{,}14 \times 5^2 = 3{,}14 \times 25 = 78{,}5$ cm$^2$.',
+      explanation: '$A = \\pi \\times r^2 = 3{,}14 \\times 5^2 = 3{,}14 \\times 25 = 78{,}5$ cm$^2$.',
     },
     {
       question: 'Hva er omkretsen av en sirkel med radius 7 m? (bruk π ≈ 3,14)',
       options: ['44 m', '22 m', '154 m', '14 m'],
-      explanation: '$O = 2\pi r = 2 \times 3{,}14 \times 7 \approx 44$ m.',
+      explanation: '$O = 2\\pi r = 2 \\times 3{,}14 \\times 7 \\approx 44$ m.',
     },
   ],
 
@@ -294,18 +294,18 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
   '1p-4-2': [
     {
       question: 'Hva er Pytagoras setning?',
-      options: ['$a^2 + b^2 = c^2$', '$a + b = c$', '$a \times b = c$', '$(a + b)^2 = c^2$'],
+      options: ['$a^2 + b^2 = c^2$', '$a + b = c$', '$a \\times b = c$', '$(a + b)^2 = c^2$'],
       explanation: 'I en rettvinklet trekant er summen av katetenes kvadrater lik hypotenusens kvadrat.',
     },
     {
       question: 'Finn hypotenusen når katetene er 3 og 4.',
       options: ['$5$', '$7$', '$12$', '$25$'],
-      explanation: '$c = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$.',
+      explanation: '$c = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$.',
     },
     {
       question: 'Finn kateten når hypotenusen er 13 og den andre kateten er 5.',
       options: ['$12$', '$8$', '$18$', '$144$'],
-      explanation: '$b = \sqrt{13^2 - 5^2} = \sqrt{169 - 25} = \sqrt{144} = 12$.',
+      explanation: '$b = \\sqrt{13^2 - 5^2} = \\sqrt{169 - 25} = \\sqrt{144} = 12$.',
     },
     {
       question: 'Hva kalles den lengste siden i en rettvinklet trekant?',
@@ -315,7 +315,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'En stige på 5 m står 3 m fra veggen. Hvor høyt opp rekker den?',
       options: ['4 m', '2 m', '8 m', '16 m'],
-      explanation: '$h = \sqrt{5^2 - 3^2} = \sqrt{25 - 9} = \sqrt{16} = 4$ m.',
+      explanation: '$h = \\sqrt{5^2 - 3^2} = \\sqrt{25 - 9} = \\sqrt{16} = 4$ m.',
     },
   ],
 
@@ -324,12 +324,12 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er volumet av en boks med mål 4 × 3 × 2 cm?',
       options: ['$24$ cm$^3$', '$9$ cm$^3$', '$12$ cm$^3$', '$48$ cm$^3$'],
-      explanation: '$V = l \times b \times h = 4 \times 3 \times 2 = 24$ cm$^3$.',
+      explanation: '$V = l \\times b \\times h = 4 \\times 3 \\times 2 = 24$ cm$^3$.',
     },
     {
       question: 'Hva er formelen for volum av en sylinder?',
-      options: ['$V = \pi r^2 h$', '$V = 2\pi rh$', '$V = \pi r^2$', '$V = \frac{4}{3}\pi r^3$'],
-      explanation: 'Volum av sylinder = grunnflate $\times$ høyde = $\pi r^2 \times h$.',
+      options: ['$V = \\pi r^2 h$', '$V = 2\\pi rh$', '$V = \\pi r^2$', '$V = \\frac{4}{3}\\pi r^3$'],
+      explanation: 'Volum av sylinder = grunnflate $\\times$ høyde = $\\pi r^2 \\times h$.',
     },
     {
       question: 'Hvor mange liter er 1000 cm³?',
@@ -382,7 +382,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er variasjonsbredden av tallene 5, 12, 3, 18, 7?',
       options: ['15', '18', '3', '9'],
-      explanation: 'Variasjonsbredde $= \text{maks} - \text{min} = 18 - 3 = 15$.',
+      explanation: 'Variasjonsbredde $= \\text{maks} - \\text{min} = 18 - 3 = 15$.',
     },
     {
       question: 'Hva måler standardavviket?',
@@ -426,7 +426,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: '20% skal vises i et sektordiagram. Hvor stor vinkel?',
       options: ['72°', '20°', '36°', '90°'],
-      explanation: '$20\%$ av $360°$ = $0{,}20 \times 360° = 72°$.',
+      explanation: '$20\%$ av $360°$ = $0{,}20 \\times 360° = 72°$.',
     },
     {
       question: 'Hvilket diagram er best for å sammenligne kategorier?',
@@ -469,12 +469,12 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Du har 3 bukser og 4 skjorter. Hvor mange antrekk kan du lage?',
       options: ['12', '7', '34', '1'],
-      explanation: 'Multiplikasjonsprinsippet: $3 \times 4 = 12$ kombinasjoner.',
+      explanation: 'Multiplikasjonsprinsippet: $3 \\times 4 = 12$ kombinasjoner.',
     },
     {
       question: 'En PIN-kode har 4 siffer (0-9). Hvor mange muligheter?',
       options: ['10 000', '40', '10', '1000'],
-      explanation: '$10 \times 10 \times 10 \times 10 = 10^4 = 10\,000$ muligheter.',
+      explanation: '$10 \\times 10 \\times 10 \\times 10 = 10^4 = 10\,000$ muligheter.',
     },
     {
       question: 'Hva er multiplikasjonsprinsippet?',
@@ -484,12 +484,12 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: '5 forretter og 4 hovedretter. Hvor mange menyer?',
       options: ['20', '9', '54', '1'],
-      explanation: '$5 \times 4 = 20$ mulige kombinasjoner.',
+      explanation: '$5 \\times 4 = 20$ mulige kombinasjoner.',
     },
     {
       question: 'Et passord har 3 bokstaver (26 muligheter hver). Hvor mange passord?',
       options: ['17 576', '78', '26', '702'],
-      explanation: '$26 \times 26 \times 26 = 26^3 = 17\,576$ muligheter.',
+      explanation: '$26 \\times 26 \\times 26 = 26^3 = 17\,576$ muligheter.',
     },
   ],
 
@@ -498,12 +498,12 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Taxi: 60 kr stårtpris + 15 kr/km. Hva er funksjonen $P(x)$?',
       options: ['$P(x) = 15x + 60$', '$P(x) = 60x + 15$', '$P(x) = 75x$', '$P(x) = 60 - 15x$'],
-      explanation: 'Pris = pris per km $\times$ antall km + startpris $= 15x + 60$.',
+      explanation: 'Pris = pris per km $\\times$ antall km + startpris $= 15x + 60$.',
     },
     {
       question: 'Med modellen $P(x) = 15x + 60$, hva koster 10 km?',
       options: ['210 kr', '150 kr', '600 kr', '75 kr'],
-      explanation: '$P(10) = 15 \times 10 + 60 = 150 + 60 = 210$ kr.',
+      explanation: '$P(10) = 15 \\times 10 + 60 = 150 + 60 = 210$ kr.',
     },
     {
       question: 'Hva er en matematisk modell?',
@@ -513,7 +513,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Leie: 400 kr/dag + 2 kr/km. Hva er kostnaden for 150 km på én dag?',
       options: ['700 kr', '302 kr', '600 kr', '550 kr'],
-      explanation: 'Kostnad $= 400 + 2 \times 150 = 400 + 300 = 700$ kr.',
+      explanation: 'Kostnad $= 400 + 2 \\times 150 = 400 + 300 = 700$ kr.',
     },
     {
       question: 'Hva bør vi alltid vurdere ved en modell?',
@@ -561,7 +561,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Bruttolønn 40 000 kr, skatt 25%. Hva er nettolønnen?',
       options: ['30 000 kr', '10 000 kr', '50 000 kr', '35 000 kr'],
-      explanation: 'Netto $= 40\,000 \times (1 - 0{,}25) = 40\,000 \times 0{,}75 = 30\,000$ kr.',
+      explanation: 'Netto $= 40\,000 \\times (1 - 0{,}25) = 40\,000 \\times 0{,}75 = 30\,000$ kr.',
     },
     {
       question: 'Hva finansierer skatten?',
@@ -571,7 +571,7 @@ const quizData_1p: Record<string, QuizQuestion[]> = {
     {
       question: 'Bruttolønn 50 000 kr, skatt 30%. Hvor mye er skatten?',
       options: ['15 000 kr', '35 000 kr', '20 000 kr', '50 000 kr'],
-      explanation: 'Skatt $= 50\,000 \times 0{,}30 = 15\,000$ kr.',
+      explanation: 'Skatt $= 50\,000 \\times 0{,}30 = 15\,000$ kr.',
     },
     {
       question: 'Hva er inntekt?',

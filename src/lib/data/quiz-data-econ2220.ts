@@ -211,7 +211,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan settes Lagrange-funksjonen opp for konsumentens problem?",
       options: ["$\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2 - m)$", "$\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2)$", "$\\mathcal{L} = u(c_1,c_2) \\cdot \\lambda(p_1c_1 + p_2c_2 - m)$", "$\\mathcal{L} = p_1c_1 + p_2c_2 - \\lambda(u(c_1,c_2) - m)$"],
-      explanation: "Målfunksjonen minus multiplikatoren ganget med bibetingelsen skrevet som null. Svaret «$\mathcal{L} = u(c_1,c_2) - \lambda(p_1c_1 + p_2c_2)$» mangler $m$, så bibetingelsen er ikke null når den er oppfylt; «$\mathcal{L} = u(c_1,c_2) \cdot \lambda(p_1c_1 + p_2c_2 - m)$» ganger i stedet for å trekke fra; «$\mathcal{L} = p_1c_1 + p_2c_2 - \lambda(u(c_1,c_2) - m)$» bytter om på hva som er mål og hva som er bibetingelse.",
+      explanation: "Målfunksjonen minus multiplikatoren ganget med bibetingelsen skrevet som null. Svaret «$\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2)$» mangler $m$, så bibetingelsen er ikke null når den er oppfylt; «$\\mathcal{L} = u(c_1,c_2) \\cdot \\lambda(p_1c_1 + p_2c_2 - m)$» ganger i stedet for å trekke fra; «$\\mathcal{L} = p_1c_1 + p_2c_2 - \\lambda(u(c_1,c_2) - m)$» bytter om på hva som er mål og hva som er bibetingelse.",
     },
     {
       question: "Hva er det avgjørende steget etter at førsteordensbetingelsene er skrevet ned?",
@@ -925,7 +925,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan ser Slutsky-likningen med beholdningsledd ut?",
       options: ["$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + (\\omega_1 - c_1)\\,\\partial c_1/\\partial m$", "$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 - c_1\\,\\partial c_1/\\partial m$ også med beholdning", "$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + \\omega_1\\,\\partial c_1/\\partial m$", "$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + (c_1 - \\omega_1)\\,\\partial c_1/\\partial m$"],
-      explanation: "Inntektsleddet skaleres med nettoposisjonen $\\omega_1 - c_1$. Svaret «$\partial c_1/\partial p_1 = \partial c_1^s/\partial p_1 - c_1\,\partial c_1/\partial m$ også med beholdning» er likningen uten beholdning, svaret «$\partial c_1/\partial p_1 = \partial c_1^s/\partial p_1 + \omega_1\,\partial c_1/\partial m$» glemmer den ordinære inntektseffekten, og svaret «$\partial c_1/\partial p_1 = \partial c_1^s/\partial p_1 + (c_1 - \omega_1)\,\partial c_1/\partial m$» har snudd fortegnet i parentesen.",
+      explanation: "Inntektsleddet skaleres med nettoposisjonen $\\omega_1 - c_1$. Svaret «$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 - c_1\,\\partial c_1/\\partial m$ også med beholdning» er likningen uten beholdning, svaret «$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + \\omega_1\,\\partial c_1/\\partial m$» glemmer den ordinære inntektseffekten, og svaret «$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + (c_1 - \\omega_1)\,\\partial c_1/\\partial m$» har snudd fortegnet i parentesen.",
     },
     {
       question: "Hvorfor får Slutsky-likningen et ekstra ledd når inntekten er en beholdning?",

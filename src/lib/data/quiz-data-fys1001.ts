@@ -791,7 +791,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "En kloss sklir ut på et vannrett gulv med fart $v$ og friksjonstall $\\mu$. Hvilket uttrykk gir stopplengden?",
       options: ["$s = \\dfrac{v^2}{2\\mu g}$", "$s = \\dfrac{v}{2\\mu g}$", "$s = \\dfrac{mv^2}{2\\mu g}$", "$s = 2\\mu g v^2$"],
-      explanation: "$\\tfrac12 mv^2 = \\mu mgs$ gir $s = v^2/(2\\mu g)$ etter at massen er forkortet bort. Svaret «$s = \dfrac{mv^2}{2\mu g}$» beholder massen feilaktig, og svaret «$s = \dfrac{v}{2\mu g}$» glemmer kvadratet.",
+      explanation: "$\\tfrac12 mv^2 = \\mu mgs$ gir $s = v^2/(2\\mu g)$ etter at massen er forkortet bort. Svaret «$s = \\dfrac{mv^2}{2\\mu g}$» beholder massen feilaktig, og svaret «$s = \\dfrac{v}{2\\mu g}$» glemmer kvadratet.",
     },
     {
       question: "Hva skjer med stopplengden på et vannrett underlag når farten dobles?",

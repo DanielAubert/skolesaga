@@ -52,7 +52,7 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
     explanation: 'Integral over et punktintervall er null: $F(a) - F(a) = 0$.',
   },
   {
-    question: 'Hvis $f(x) \geq 0$ på $[a,b]$, hva representerer integralet?',
+    question: 'Hvis $f(x) \\geq 0$ på $[a,b]$, hva representerer integralet?',
     options: ['Arealet mellom grafen og $x$-aksen', 'Lengden av kurven', 'Stigningstallet', 'Gjennomsnittet av $f$'],
     explanation: 'For ikke-negative funksjoner gir det bestemte integralet arealet under kurven.',
   },
@@ -62,7 +62,7 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   's2-1-3': [
   {
     question: 'Hvordan finner man arealet mellom to kurver $f(x)$ og $g(x)$?',
-    options: ['Integral av $|f(x) - g(x)| \, dx$', 'Integral av $f(x) \cdot g(x) \, dx$', '$f(x) - g(x)$ for alle $x$', 'Integral av $f(x) + g(x) \, dx$'],
+    options: ['Integral av $|f(x) - g(x)| \, dx$', 'Integral av $f(x) \\cdot g(x) \, dx$', '$f(x) - g(x)$ for alle $x$', 'Integral av $f(x) + g(x) \, dx$'],
     explanation: 'Arealet mellom to kurver er integralet av absoluttverdien av differansen.',
   },
   {
@@ -73,7 +73,7 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   {
     question: 'Finn arealet mellom $f(x) = x$ og $g(x) = x^2$ fra 0 til 1.',
     options: ['$\\frac{1}{6}$', '$\\frac{1}{3}$', '$\\frac{1}{2}$', '$\\frac{1}{4}$'],
-    explanation: 'Integral av $(x - x^2)$ fra 0 til 1 = $[\frac{x^2}{2} - \frac{x^3}{3}] = \frac{1}{2} - \frac{1}{3} = \frac{1}{6}$.',
+    explanation: 'Integral av $(x - x^2)$ fra 0 til 1 = $[\\frac{x^2}{2} - \\frac{x^3}{3}] = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$.',
   },
   {
     question: 'Når vi beregner areal, hvorfor deler vi noen ganger opp intervallet?',
@@ -92,11 +92,11 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvis $v(t)$ er hastighet, hva gir integralet av $v(t)$?',
     options: ['Posisjonen $s(t)$ (+ konstant)', 'Akselerasjonen $a(t)$', 'Farten', 'Strekningen direkte'],
-    explanation: 'Posisjon er integralet av hastighet: $s(t) = \int v(t) \, dt$.',
+    explanation: 'Posisjon er integralet av hastighet: $s(t) = \\int v(t) \, dt$.',
   },
   {
     question: 'Hva er gjennomsnittsverdien av $f$ på $[a,b]$?',
-    options: ['$\frac{1}{b-a} \cdot \int_a^b f(x) \, dx$', '$\int_a^b f(x) \, dx$', '$\frac{f(a) + f(b)}{2}$', '$f\left(\frac{a+b}{2}\right)$'],
+    options: ['$\\frac{1}{b-a} \\cdot \\int_a^b f(x) \, dx$', '$\\int_a^b f(x) \, dx$', '$\\frac{f(a) + f(b)}{2}$', '$f\\left(\\frac{a+b}{2}\\right)$'],
     explanation: 'Gjennomsnittsverdien er integralet delt på intervallets lengde.',
   },
   {
@@ -111,8 +111,8 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'For å finne arbeid utført av en variabel kraft $F(x)$, bruker man:',
-    options: ['$\int F(x) \, dx$', '$F \cdot d$ direkte', 'Derivasjon av $F$', '$F(b) - F(a)$'],
-    explanation: 'Arbeid med variabel kraft er $W = \int F(x) \, dx$ over strekningen.',
+    options: ['$\\int F(x) \, dx$', '$F \\cdot d$ direkte', 'Derivasjon av $F$', '$F(b) - F(a)$'],
+    explanation: 'Arbeid med variabel kraft er $W = \\int F(x) \, dx$ over strekningen.',
   },
 ],
 
@@ -131,7 +131,7 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er den generelle løsningen på $y\' = 2x$?',
     options: ['$y = x^2 + C$', '$y = 2x + C$', '$y = 2$', '$y = x^2$'],
-    explanation: 'Integrerer: $y = \int 2x \, dx = x^2 + C$.',
+    explanation: 'Integrerer: $y = \\int 2x \, dx = x^2 + C$.',
   },
   {
     question: 'Hva er en initialverdi-betingelse?',
@@ -150,27 +150,27 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en separabel differensiallikning?',
     options: ['En likning der $y$ og $x$ kan separeres til hver sin side', 'En likning som ikke kan løses', 'En likning der $y\'$ = konstant', 'En likning med bare $x$'],
-    explanation: 'En separabel likning kan skrives på formen $\frac{dy}{dx} = f(x)g(y)$, så vi kan separere variablene.',
+    explanation: 'En separabel likning kan skrives på formen $\\frac{dy}{dx} = f(x)g(y)$, så vi kan separere variablene.',
   },
   {
-    question: 'Hvordan løser man $\frac{dy}{dx} = xy$?',
-    options: ['Separerer: $\frac{1}{y}dy = x \, dx$, integrerer begge sider', 'Deriverer begge sider', 'Setter $y = x$', 'Bruker kjerneregelen'],
-    explanation: 'Separerer til $\frac{dy}{y} = x \, dx$. Integrerer: $\ln|y| = \frac{x^2}{2} + C$, så $y = Ae^{x^2/2}$.',
+    question: 'Hvordan løser man $\\frac{dy}{dx} = xy$?',
+    options: ['Separerer: $\\frac{1}{y}dy = x \, dx$, integrerer begge sider', 'Deriverer begge sider', 'Setter $y = x$', 'Bruker kjerneregelen'],
+    explanation: 'Separerer til $\\frac{dy}{y} = x \, dx$. Integrerer: $\\ln|y| = \\frac{x^2}{2} + C$, så $y = Ae^{x^2/2}$.',
   },
   {
-    question: 'Løs $\frac{dy}{dx} = y$ med $y(0) = 2$.',
+    question: 'Løs $\\frac{dy}{dx} = y$ med $y(0) = 2$.',
     options: ['$y = 2e^x$', '$y = e^x$', '$y = 2x$', '$y = e^{2x}$'],
-    explanation: 'Separerer: $\frac{dy}{y} = dx$. Integrerer: $\ln|y| = x + C$. $y = Ae^x$. $y(0)=2$ gir $A=2$.',
+    explanation: 'Separerer: $\\frac{dy}{y} = dx$. Integrerer: $\\ln|y| = x + C$. $y = Ae^x$. $y(0)=2$ gir $A=2$.',
   },
   {
-    question: 'Når man integrerer $\frac{1}{y}dy$, hva får man?',
-    options: ['$\ln|y| + C$', '$\frac{1}{y^2} + C$', '$y + C$', '$-\frac{1}{y} + C$'],
-    explanation: 'Integralet av $\frac{1}{y} dy$ er $\ln|y| + C$.',
+    question: 'Når man integrerer $\\frac{1}{y}dy$, hva får man?',
+    options: ['$\\ln|y| + C$', '$\\frac{1}{y^2} + C$', '$y + C$', '$-\\frac{1}{y} + C$'],
+    explanation: 'Integralet av $\\frac{1}{y} dy$ er $\\ln|y| + C$.',
   },
   {
-    question: 'Løs $\frac{dy}{dx} = y^2$ med $y(0) = 1$.',
-    options: ['$y = \frac{1}{1-x}$', '$y = x^2$', '$y = e^x$', '$y = \frac{1}{1+x}$'],
-    explanation: 'Separerer: $\frac{dy}{y^2} = dx$. Integrerer: $-\frac{1}{y} = x + C$. $y(0)=1$ gir $C=-1$. Så $y = \frac{1}{1-x}$.',
+    question: 'Løs $\\frac{dy}{dx} = y^2$ med $y(0) = 1$.',
+    options: ['$y = \\frac{1}{1-x}$', '$y = x^2$', '$y = e^x$', '$y = \\frac{1}{1+x}$'],
+    explanation: 'Separerer: $\\frac{dy}{y^2} = dx$. Integrerer: $-\\frac{1}{y} = x + C$. $y(0)=1$ gir $C=-1$. Så $y = \\frac{1}{1-x}$.',
   },
 ],
 
@@ -184,12 +184,12 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en integrerende faktor?',
     options: ['En funksjon man multipliserer med for å gjøre venstre side til en derivert', 'Et tall man legger til', 'Integrasjonskonstanten', 'En type løsning'],
-    explanation: 'Integrerende faktor $\mu(x) = e^{\int p(x)dx}$ gjør likningen enklære å løse.',
+    explanation: 'Integrerende faktor $\\mu(x) = e^{\\int p(x)dx}$ gjør likningen enklære å løse.',
   },
   {
     question: 'For $y\' + 2y = 0$, hva er løsningen?',
-    options: ['$y = Ce^{-2x}$', '$y = Ce^{2x}$', '$y = 2x + C$', '$y = \frac{C}{x^2}$'],
-    explanation: 'Dette er separabel: $\frac{dy}{y} = -2dx$. Integrerer: $\ln|y| = -2x + C$, så $y = Ae^{-2x}$.',
+    options: ['$y = Ce^{-2x}$', '$y = Ce^{2x}$', '$y = 2x + C$', '$y = \\frac{C}{x^2}$'],
+    explanation: 'Dette er separabel: $\\frac{dy}{y} = -2dx$. Integrerer: $\\ln|y| = -2x + C$, så $y = Ae^{-2x}$.',
   },
   {
     question: 'Hva betyr "homogen" differensiallikning?',
@@ -207,27 +207,27 @@ const quizData_s2: Record<string, QuizQuestion[]> = {
   's2-2-4': [
   {
     question: 'Hvilken differensiallikning beskriver eksponentiell vekst?',
-    options: ['$\frac{dy}{dt} = ky$ der $k > 0$', '$\frac{dy}{dt} = -ky$', '$\frac{dy}{dt} = k$', '$\frac{dy}{dt} = y^2$'],
+    options: ['$\\frac{dy}{dt} = ky$ der $k > 0$', '$\\frac{dy}{dt} = -ky$', '$\\frac{dy}{dt} = k$', '$\\frac{dy}{dt} = y^2$'],
     explanation: 'Eksponentiell vekst: veksthastigheten er proporsjonal med nåværende mengde ($k > 0$).',
   },
   {
-    question: 'Hva er løsningen på $\frac{dy}{dt} = ky$ med $y(0) = y_0$?',
-    options: ['$y = y_0 \cdot e^{kt}$', '$y = y_0 + kt$', '$y = y_0 \cdot t^k$', '$y = ke^t$'],
-    explanation: 'Løsningen på eksponentiell vekst/nedgang er $y = y_0 \cdot e^{kt}$.',
+    question: 'Hva er løsningen på $\\frac{dy}{dt} = ky$ med $y(0) = y_0$?',
+    options: ['$y = y_0 \\cdot e^{kt}$', '$y = y_0 + kt$', '$y = y_0 \\cdot t^k$', '$y = ke^t$'],
+    explanation: 'Løsningen på eksponentiell vekst/nedgang er $y = y_0 \\cdot e^{kt}$.',
   },
   {
     question: 'Hva er formelen for halvveringstid i radioaktivt henfall?',
-    options: ['$T = \frac{\ln(2)}{k}$', '$T = \frac{k}{\ln(2)}$', '$T = 2k$', '$T = e^k$'],
-    explanation: 'Ved halvveringstid er $y = \frac{y_0}{2}$, så $e^{-kT} = 0{,}5$, som gir $T = \frac{\ln(2)}{k}$.',
+    options: ['$T = \\frac{\\ln(2)}{k}$', '$T = \\frac{k}{\\ln(2)}$', '$T = 2k$', '$T = e^k$'],
+    explanation: 'Ved halvveringstid er $y = \\frac{y_0}{2}$, så $e^{-kT} = 0{,}5$, som gir $T = \\frac{\\ln(2)}{k}$.',
   },
   {
     question: 'Newtons avkjølingslov sier at:',
     options: ['Endringshastigheten i temperatur er proporsjonal med temperaturforskjellen til omgivelsene', 'Temperaturen faller lineært', 'Temperaturen er konstant', 'Varme stiger alltid'],
-    explanation: '$\frac{dT}{dt} = -k(T - T_{omgivelser})$, der $T$ er objektets temperatur.',
+    explanation: '$\\frac{dT}{dt} = -k(T - T_{omgivelser})$, der $T$ er objektets temperatur.',
   },
   {
     question: 'Den logistiske vekstmodellen har likningen:',
-    options: ['$\frac{dy}{dt} = ky(1 - \frac{y}{M})$', '$\frac{dy}{dt} = ky$', '$\frac{dy}{dt} = \frac{k}{y}$', '$\frac{dy}{dt} = y - k$'],
+    options: ['$\\frac{dy}{dt} = ky(1 - \\frac{y}{M})$', '$\\frac{dy}{dt} = ky$', '$\\frac{dy}{dt} = \\frac{k}{y}$', '$\\frac{dy}{dt} = y - k$'],
     explanation: 'Logistisk vekst begrenses av bæreevnen $M$: veksten avtar når $y$ nærmer seg $M$.',
   },
 ],
