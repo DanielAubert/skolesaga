@@ -291,8 +291,9 @@ kap. 9.1 som en egen `collapsible` «Kald bank — uten hint».
     samlet register, og setningen om at hver Python-konstruksjon forklares der
     den brukes.
 - **Del 0-pakken (kap. 0.1):** «Lite tid?»-boks (`tip`) med hurtigrute 3–5
-  dager + ukeplan summert fra `estimatedMinutes` (bokas sum er **1 985 min ≈ 33
-  timer**) + presiseringen at anslagene er LESEtid og at den som skriver koden
+  dager + ukeplan summert fra `estimatedMinutes` (bokas sum er **3 425 min ≈ 57
+  timer** — etterregnet over alle 43 filer 25. juli 2026; det gamle tallet
+  1 985 min var ~70 % for lavt) + presiseringen at anslagene er LESEtid og at den som skriver koden
   selv bør regne ca. ×1,5 · **kildenote** (§ «Sannferdig kildenote») ·
   **sjangerkortet A–O på ÉN side** (kortet SELV: sjanger → én linjes oppskrift →
   typisk vekt → vanligste feil, ikke en lenkeliste) · **deltidsrute** 10–12 uker
