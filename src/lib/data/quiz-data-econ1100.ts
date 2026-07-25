@@ -92,7 +92,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}\\ln(x^{2}+1)$?",
       options: ["$\\dfrac{2x}{x^{2}+1}$", "$\\dfrac{1}{x^{2}+1}$", "$\\dfrac{x^{2}+1}{2x}$", "$\\dfrac{2x}{(x^{2}+1)^{2}}$"],
-      explanation: "Regelen er $\\frac{d}{dx}\\ln g=\\frac{g'}{g}$, med $g'=2x$. Alternativet $\\frac{1}{x^{2}+1}$ glemmer kjernefaktoren; det siste alternativet kvadrerer nevneren, noe bare kvotientregelen gjør.",
+      explanation: "Regelen er $\\frac{d}{dx}\\ln g=\\frac{g'}{g}$, med $g'=2x$. Alternativet $\\frac{1}{x^{2}+1}$ glemmer kjernefaktoren; svaret $\\frac{2x}{(x^{2}+1)^{2}}$ kvadrerer nevneren, noe bare kvotientregelen gjør.",
     },
     {
       question: "Hva er $\\dfrac{d}{dx}\\,3^{x}$?",
@@ -107,7 +107,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den deriverte av $f(x)=(x^{2}+3x)^{5}$?",
       options: ["$5(x^{2}+3x)^{4}(2x+3)$", "$5(x^{2}+3x)^{4}$", "$5(2x+3)^{4}$", "$4(x^{2}+3x)^{5}(2x+3)$"],
-      explanation: "Potens av en funksjon: $n g^{n-1}g'$, altså eksponenten ned, ny eksponent $4$, ganget med $g'=2x+3$. Alternativ to glemmer kjernefaktoren, og alternativ tre deriverer innmaten og setter den i parentesen.",
+      explanation: "Potens av en funksjon: $n g^{n-1}g'$, altså eksponenten ned, ny eksponent $4$, ganget med $g'=2x+3$. Svaret $5(x^{2}+3x)^{4}$ glemmer kjernefaktoren, og $5(2x+3)^{4}$ deriverer innmaten og setter den i parentesen.",
     },
     {
       question: "En funksjon er $f(x)=\\dfrac{3x-1}{x^{2}}$. Hvilken vei gir minst fortegnsrisiko?",
@@ -122,7 +122,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}\\sqrt{4x^{2}+1}$ på forenklet form?",
       options: ["$\\dfrac{4x}{\\sqrt{4x^{2}+1}}$", "$\\dfrac{8x}{\\sqrt{4x^{2}+1}}$", "$\\dfrac{1}{2\\sqrt{4x^{2}+1}}$", "$\\dfrac{4x}{2\\sqrt{4x^{2}+1}}$"],
-      explanation: "Kjerneregelen gir $\\frac{8x}{2\\sqrt{4x^{2}+1}}$, som forkortes til $\\frac{4x}{\\sqrt{4x^{2}+1}}$. Det siste alternativet er riktig, men uforenklet — og manglende åpenbar forenkling koster uttelling.",
+      explanation: "Kjerneregelen gir $\\frac{8x}{2\\sqrt{4x^{2}+1}}$, som forkortes til $\\frac{4x}{\\sqrt{4x^{2}+1}}$. Svaret $\\frac{4x}{2\\sqrt{4x^{2}+1}}$ er riktig, men uforenklet — og manglende åpenbar forenkling koster uttelling.",
     },
     {
       question: "Hva betyr det at $f''(x)>0$ i et intervall?",
@@ -132,12 +132,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den deriverte av $f(x)=x^{0{,}4}$?",
       options: ["$0{,}4x^{-0{,}6}$", "$0{,}4x^{0{,}6}$", "$0{,}4x^{1{,}4}$", "$x^{-0{,}6}$"],
-      explanation: "Potensregelen gjelder for alle reelle eksponenter: ned som faktor, og ny eksponent $0{,}4-1=-0{,}6$. Alternativ to og tre senker ikke eksponenten korrekt, og alternativ fire glemmer faktoren foran.",
+      explanation: "Potensregelen gjelder for alle reelle eksponenter: ned som faktor, og ny eksponent $0{,}4-1=-0{,}6$. Svarene $0{,}4x^{0{,}6}$ og $0{,}4x^{1{,}4}$ senker ikke eksponenten korrekt, og $x^{-0{,}6}$ glemmer faktoren foran.",
     },
     {
       question: "Hva er $\\dfrac{d}{dx}\\ln\\!\\left(\\dfrac{x}{x+1}\\right)$ for $x>0$?",
       options: ["$\\dfrac{1}{x(x+1)}$", "$\\dfrac{1}{x}+\\dfrac{1}{x+1}$", "$\\dfrac{x+1}{x}$", "$\\dfrac{1}{(x+1)^{2}}$"],
-      explanation: "Logaritmeregelen gir $\\ln x-\\ln(x+1)$, som deriveres til $\\frac1x-\\frac1{x+1}=\\frac{1}{x(x+1)}$. Alternativ to har pluss i stedet for minus — det svarer til $\\ln(x(x+1))$, altså et produkt, ikke en brøk.",
+      explanation: "Logaritmeregelen gir $\\ln x-\\ln(x+1)$, som deriveres til $\\frac1x-\\frac1{x+1}=\\frac{1}{x(x+1)}$. Svaret $\\frac{1}{x}+\\frac{1}{x+1}$ har pluss i stedet for minus — det svarer til $\\ln(x(x+1))$, altså et produkt, ikke en brøk.",
     },
     {
       question: "Hvilken forenkling forventer sensor av svaret $2xe^{-2x}-2x^{2}e^{-2x}$?",
@@ -164,12 +164,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $f(x,y)=x^{2}y+x^{2}+2y^{2}$. Hva er $f'_x$?",
       options: ["$2xy+2x$", "$2xy+2x+4y$", "$x^{2}+2x$", "$2xy+2x+2y^{2}$"],
-      explanation: "Leddet $2y^{2}$ inneholder ingen $x$ og forsvinner. Alternativ to og fire tar med $y$-leddet som om det var en variabel, som er den vanligste feilen på denne oppgavetypen.",
+      explanation: "Leddet $2y^{2}$ inneholder ingen $x$ og forsvinner. Svarene som ender på $+4y$ eller $+2y^{2}$, tar med $y$-leddet som om det var en variabel, som er den vanligste feilen på denne oppgavetypen.",
     },
     {
       question: "La $f(x,y)=x^{2}y+x^{2}+2y^{2}$. Hva er $f'_y$?",
       options: ["$x^{2}+4y$", "$2xy+4y$", "$x^{2}+2x+4y$", "$x^{2}y+4y$"],
-      explanation: "Mht. $y$ gir $x^{2}y$ leddet $x^{2}$, leddet $x^{2}$ forsvinner, og $2y^{2}$ blir $4y$. Alternativ tre lar $x^{2}$-leddet overleve, selv om det ikke inneholder $y$.",
+      explanation: "Mht. $y$ gir $x^{2}y$ leddet $x^{2}$, leddet $x^{2}$ forsvinner, og $2y^{2}$ blir $4y$. Svaret $x^{2}+2x+4y$ lar $x^{2}$-leddet overleve som $2x$, selv om det ikke inneholder $y$.",
     },
     {
       question: "Skrivemåten $\\partial f/\\partial x$ betyr det samme som",
@@ -189,12 +189,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\big(\\ln(x^{2}+y)\\big)'_y$?",
       options: ["$\\dfrac{1}{x^{2}+y}$", "$\\dfrac{2x}{x^{2}+y}$", "$\\dfrac{y}{x^{2}+y}$", "$\\dfrac{1}{(x^{2}+y)^{2}}$"],
-      explanation: "Regelen er $g'_y/g$, og $g'_y=1$ her. Alternativ to er svaret på $f'_x$, og det siste kvadrerer nevneren, noe bare kvotientregelen ville gjort.",
+      explanation: "Regelen er $g'_y/g$, og $g'_y=1$ her. Svaret $\\frac{2x}{x^{2}+y}$ er $f'_x$, og $\\frac{1}{(x^{2}+y)^{2}}$ kvadrerer nevneren, noe bare kvotientregelen ville gjort.",
     },
     {
       question: "Hva er $\\big(e^{3xy}\\big)'_x$?",
       options: ["$3y\\,e^{3xy}$", "$3x\\,e^{3xy}$", "$3xy\\,e^{3xy}$", "$e^{3xy}$"],
-      explanation: "Eksponentens deriverte mht. $x$ er $3y$, og den blir faktoren foran. Alternativ to er svaret mht. $y$; det siste glemmer kjernefaktoren helt.",
+      explanation: "Eksponentens deriverte mht. $x$ er $3y$, og den blir faktoren foran. Svaret $3x\\,e^{3xy}$ er derivasjon mht. $y$; $e^{3xy}$ alene glemmer kjernefaktoren helt.",
     },
     {
       question: "For $Q=AK^{\\alpha}L^{\\beta}$ er den partiellderiverte $Q'_K$ lik",
@@ -209,7 +209,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $f(x,y)=x^{2}\\ln y$. Hva er $f''_{xy}$?",
       options: ["$\\dfrac{2x}{y}$", "$2\\ln y$", "$-\\dfrac{x^{2}}{y^{2}}$", "$\\dfrac{x^{2}}{y}$"],
-      explanation: "Først $f'_x=2x\\ln y$, så derivert mht. $y$ gir $2x/y$. Alternativ to er $f''_{xx}$, alternativ tre er $f''_{yy}$, og det siste er $f'_y$.",
+      explanation: "Først $f'_x=2x\\ln y$, så derivert mht. $y$ gir $2x/y$. Svaret $2\\ln y$ er $f''_{xx}$, $-\\frac{x^{2}}{y^{2}}$ er $f''_{yy}$, og $\\frac{x^{2}}{y}$ er $f'_y$.",
     },
     {
       question: "Hvorfor forsvinner leddet $5y$ når $f(x,y)=3x^{2}+5y-7$ deriveres mht. $x$?",
@@ -219,7 +219,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\big(y\\,e^{xy}\\big)'_x$?",
       options: ["$y^{2}e^{xy}$", "$y\\,e^{xy}$", "$e^{xy}(1+xy)$", "$xy\\,e^{xy}$"],
-      explanation: "Faktoren $y$ er konstant mht. $x$, og eksponentens deriverte er $y$, så vi får $y\\cdot y\\,e^{xy}$. Alternativ tre er svaret mht. $y$, der produktregelen faktisk trengs.",
+      explanation: "Faktoren $y$ er konstant mht. $x$, og eksponentens deriverte er $y$, så vi får $y\\cdot y\\,e^{xy}$. Svaret $e^{xy}(1+xy)$ er derivasjon mht. $y$, der produktregelen faktisk trengs.",
     },
     {
       question: "Hva forteller fortegnet på $f''_{xx}$?",
@@ -239,7 +239,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $f'_y$ når $f(x,y)=\\ln(x^{2}+xy)$, ferdig forenklet?",
       options: ["$\\dfrac{1}{x+y}$", "$\\dfrac{x}{x^{2}+xy}$", "$\\dfrac{2x+y}{x^{2}+xy}$", "$\\dfrac{x}{x+y}$"],
-      explanation: "$g'_y=x$, så $f'_y=\\frac{x}{x(x+y)}=\\frac{1}{x+y}$. Alternativ to er riktig, men uforenklet — og manglende åpenbar forenkling koster uttelling. Alternativ tre er $f'_x$.",
+      explanation: "$g'_y=x$, så $f'_y=\\frac{x}{x(x+y)}=\\frac{1}{x+y}$. Svaret $\\frac{x}{x^{2}+xy}$ er riktig, men uforenklet — og manglende åpenbar forenkling koster uttelling. $\\frac{2x+y}{x^{2}+xy}$ er $f'_x$.",
     },
     {
       question: "Hvorfor er kryssderiverten nyttig som kontroll på eksamen?",
@@ -259,7 +259,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $f(x,y)=(x^{2}+y^{2})^{3}$. Hva er $f'_x$?",
       options: ["$6x(x^{2}+y^{2})^{2}$", "$3(x^{2}+y^{2})^{2}$", "$6x(x^{2}+y^{2})^{3}$", "$2x(x^{2}+y^{2})^{2}$"],
-      explanation: "Kjerneregelen: $3(x^{2}+y^{2})^{2}$ ganget med kjernens deriverte $2x$. Alternativ to glemmer kjernefaktoren, og alternativ tre senker ikke eksponenten.",
+      explanation: "Kjerneregelen: $3(x^{2}+y^{2})^{2}$ ganget med kjernens deriverte $2x$. Svaret $3(x^{2}+y^{2})^{2}$ glemmer kjernefaktoren, og $6x(x^{2}+y^{2})^{3}$ senker ikke eksponenten.",
     },
     {
       question: "Hvilken fremgangsmåte gir minst arbeid når du skal finne $f''_{xy}$?",
@@ -271,7 +271,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $z=f(x,y)$ der $x=x(t)$ og $y=y(t)$. Hva er $\\dfrac{dz}{dt}$?",
       options: ["$f'_x\\dfrac{dx}{dt}+f'_y\\dfrac{dy}{dt}$", "$f'_x\\dfrac{dx}{dt}\\cdot f'_y\\dfrac{dy}{dt}$", "$f'_x+f'_y$", "$\\dfrac{dx}{dt}+\\dfrac{dy}{dt}$"],
-      explanation: "Hver indre variabel gir ett bidrag, og bidragene legges sammen. Alternativ to ganger bidragene i stedet for å summere dem, og de to siste glemmer den ene av de to faktorene i hvert ledd.",
+      explanation: "Hver indre variabel gir ett bidrag, og bidragene legges sammen. Svaret som ganger de to bidragene i stedet for å summere dem, tar feil regneart, og svarene $f'_x+f'_y$ og $\\frac{dx}{dt}+\\frac{dy}{dt}$ glemmer den ene av de to faktorene i hvert ledd.",
     },
     {
       question: "Hvor mange ledd har kjerneregelen når $G(x,y)$ har to indre variabler?",
@@ -286,17 +286,17 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $G(x,y)=x^{2}+3xy$ med $x=2s+t$ og $y=s-t$. Hva er $\\partial G/\\partial s$ uttrykt ved $x$ og $y$?",
       options: ["$7x+6y$", "$2x+3y$", "$4x+6y$", "$2x+3y+3x$"],
-      explanation: "Kjerneregelen gir $(2x+3y)\\cdot 2+3x\\cdot 1=4x+6y+3x$. Alternativ to er bare $G'_x$ uten kjernefaktorene, og alternativ fire er riktig utgangspunkt, men uforenklet.",
+      explanation: "Kjerneregelen gir $(2x+3y)\\cdot 2+3x\\cdot 1=4x+6y+3x$. Svaret $2x+3y$ er bare $G'_x$ uten kjernefaktorene, og $2x+3y+3x$ er riktig utgangspunkt, men uforenklet.",
     },
     {
       question: "Samme oppgave: hva blir $\\partial G/\\partial s$ etter tilbakesubstitusjon?",
       options: ["$20s+t$", "$14s+7t$", "$20s-t$", "$7s+6t$"],
-      explanation: "$7(2s+t)+6(s-t)=14s+7t+6s-6t=20s+t$. Alternativ to har bare tatt med bidraget fra $x$, og alternativ tre har fortegnsfeil i $t$-leddet.",
+      explanation: "$7(2s+t)+6(s-t)=14s+7t+6s-6t=20s+t$. Svaret $14s+7t$ har bare tatt med bidraget fra $x$, og $20s-t$ har fortegnsfeil i $t$-leddet.",
     },
     {
       question: "Hva er totalderiverten $\\dfrac{df}{dx}$ når $f=f(x,y)$ og $y=y(x)$?",
       options: ["$f'_x+f'_y\\,y'(x)$", "$f'_x\\cdot f'_y\\,y'(x)$", "$f'_x\\,y'(x)$", "$f'_x+f'_y$"],
-      explanation: "Første ledd er den direkte effekten, andre den indirekte gjennom $y$. Alternativ fire glemmer at $y$ endrer seg i en bestemt takt med $x$, nemlig $y'(x)$.",
+      explanation: "Første ledd er den direkte effekten, andre den indirekte gjennom $y$. Svaret $f'_x+f'_y$ glemmer at $y$ endrer seg i en bestemt takt med $x$, nemlig $y'(x)$.",
     },
     {
       question: "Når er den partiellderiverte $f'_x$ og totalderiverten $df/dx$ like?",
@@ -306,7 +306,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $z=xy^{2}$ med $x=t^{2}$ og $y=e^{t}$. Hva er $dz/dt$ på forenklet form?",
       options: ["$2te^{2t}(1+t)$", "$2te^{2t}$", "$2t^{2}e^{2t}$", "$e^{2t}(2t+t^{2})$"],
-      explanation: "Kjerneregelen gir $y^{2}\\cdot2t+2xy\\cdot e^{t}=2te^{2t}+2t^{2}e^{2t}$, som faktoriseres. Alternativ to og tre er hvert sitt enkeltledd; alternativ fire er nesten riktig, men mangler faktoren 2 i andre ledd.",
+      explanation: "Kjerneregelen gir $y^{2}\\cdot2t+2xy\\cdot e^{t}=2te^{2t}+2t^{2}e^{2t}$, som faktoriseres. Svarene $2te^{2t}$ og $2t^{2}e^{2t}$ er hvert sitt enkeltledd; $e^{2t}(2t+t^{2})$ er nesten riktig, men mangler faktoren 2 i andre ledd.",
     },
     {
       question: "Hvorfor må sluttsvaret uttrykkes i $s$ og $t$ og ikke i $x$ og $y$?",
@@ -316,7 +316,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $G=e^{xy}$ med $x=s-t$ og $y=s+t$. Hva er $\\partial G/\\partial t$?",
       options: ["$-2t\\,e^{s^{2}-t^{2}}$", "$2t\\,e^{s^{2}-t^{2}}$", "$2s\\,e^{s^{2}-t^{2}}$", "$(x-y)e^{s^{2}+t^{2}}$"],
-      explanation: "Kjerneregelen gir $(x-y)e^{xy}$, og $x-y=-2t$ mens $xy=s^{2}-t^{2}$. Alternativ tre er svaret mht. $s$, og det siste har både uforenklet form og feil eksponent.",
+      explanation: "Kjerneregelen gir $(x-y)e^{xy}$, og $x-y=-2t$ mens $xy=s^{2}-t^{2}$. Svaret $2s\\,e^{s^{2}-t^{2}}$ er derivasjon mht. $s$, og $(x-y)e^{s^{2}+t^{2}}$ har både uforenklet form og feil eksponent.",
     },
     {
       question: "Hva er den indre deriverte $\\partial y/\\partial t$ når $y=s-t$?",
@@ -331,7 +331,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "En bedrift har kostnad $K=x^{2}w$ der lønnen avhenger av produksjonen: $w=10+\\tfrac12x$. Hva er $dK/dx$?",
       options: ["$20x+\\tfrac32x^{2}$", "$20x+x^{2}$", "$2xw$", "$20x+\\tfrac12x^{2}$"],
-      explanation: "Totalderiverten er $2xw+x^{2}\\cdot\\tfrac12$, og etter innsetting blir det $20x+x^{2}+\\tfrac12x^{2}$. Alternativ to er bare den direkte effekten $K'_x$, som undervurderer grensekostnaden.",
+      explanation: "Totalderiverten er $2xw+x^{2}\\cdot\\tfrac12$, og etter innsetting blir det $20x+x^{2}+\\tfrac12x^{2}$. Svaret $20x+x^{2}$ er bare den direkte effekten $K'_x$, som undervurderer grensekostnaden.",
     },
     {
       question: "I totalderiverten $df/dx=f'_x+f'_y\\,y'(x)$ kalles andre ledd",
@@ -341,7 +341,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $G(x,y)$ være generell, med $x=s+2t$ og $y=s-t$. Hva er $\\partial G/\\partial t$?",
       options: ["$2G'_x-G'_y$", "$G'_x+G'_y$", "$2G'_x+G'_y$", "$G'_x-2G'_y$"],
-      explanation: "Bidragene har faktorene $\\partial x/\\partial t=2$ og $\\partial y/\\partial t=-1$. Alternativ to er svaret mht. $s$, og de to siste bytter om hvilken faktor som hører til hvilken indre variabel.",
+      explanation: "Bidragene har faktorene $\\partial x/\\partial t=2$ og $\\partial y/\\partial t=-1$. Svaret $G'_x+G'_y$ er derivasjon mht. $s$, og svarene $2G'_x+G'_y$ og $G'_x-2G'_y$ bytter om hvilken faktor som hører til hvilken indre variabel.",
     },
     {
       question: "Når svaret inneholder ukjente deriverte som $G'_x$, betyr det at",
@@ -368,7 +368,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}x^{x}$ for $x>0$?",
       options: ["$x^{x}(\\ln x+1)$", "$x\\cdot x^{x-1}$", "$x^{x}\\ln x$", "$x^{x}(\\ln x-1)$"],
-      explanation: "Logaritmisk derivasjon gir begge virkningene. Alternativ to er potensregelen og alternativ tre er $a^{x}$-regelen — hver av dem fanger bare ett av de to leddene i det riktige svaret.",
+      explanation: "Logaritmisk derivasjon gir begge virkningene. Svaret $x\\cdot x^{x-1}$ er potensregelen og $x^{x}\\ln x$ er $a^{x}$-regelen — hver av dem fanger bare ett av de to leddene i det riktige svaret.",
     },
     {
       question: "Hva er første steg i logaritmisk derivasjon av $y=f(x)^{g(x)}$?",
@@ -378,7 +378,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}\\ln y$ når $y$ er en funksjon av $x$?",
       options: ["$\\dfrac{y'}{y}$", "$\\dfrac{1}{y}$", "$y'\\ln y$", "$\\dfrac{1}{y'}$"],
-      explanation: "Kjerneregelen på $\\ln$ med innmat $y$ gir innmatens deriverte delt på innmaten. Alternativ to glemmer kjernefaktoren $y'$, som er selve grunnen til at metoden virker.",
+      explanation: "Kjerneregelen på $\\ln$ med innmat $y$ gir innmatens deriverte delt på innmaten. Svaret $\\frac{1}{y}$ glemmer kjernefaktoren $y'$, som er selve grunnen til at metoden virker.",
     },
     {
       question: "Hva glemmes oftest i steg 3 av logaritmisk derivasjon?",
@@ -388,7 +388,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}(2x)^{2x}$?",
       options: ["$2(2x)^{2x}(\\ln(2x)+1)$", "$(2x)^{2x}(\\ln(2x)+1)$", "$2x(2x)^{2x-1}$", "$(2x)^{2x}\\ln(2x)$"],
-      explanation: "$\\ln y=2x\\ln(2x)$ gir $y'/y=2\\ln(2x)+2$. Alternativ to mangler faktoren 2, alternativ tre bruker potensregelen, og det siste mangler leddet fra grunntallet.",
+      explanation: "$\\ln y=2x\\ln(2x)$ gir $y'/y=2\\ln(2x)+2$. Svaret $(2x)^{2x}(\\ln(2x)+1)$ mangler faktoren 2, $2x(2x)^{2x-1}$ bruker potensregelen, og $(2x)^{2x}\\ln(2x)$ mangler leddet fra grunntallet.",
     },
     {
       question: "Hvilket krav må grunntallet oppfylle for at logaritmisk derivasjon skal være lovlig?",
@@ -398,12 +398,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}x^{\\sqrt{x}}$ for $x>0$?",
       options: ["$x^{\\sqrt{x}}\\cdot\\dfrac{\\ln x+2}{2\\sqrt{x}}$", "$x^{\\sqrt{x}}\\cdot\\dfrac{\\ln x}{2\\sqrt{x}}$", "$\\sqrt{x}\\cdot x^{\\sqrt{x}-1}$", "$x^{\\sqrt{x}}\\cdot\\dfrac{\\ln x+1}{\\sqrt{x}}$"],
-      explanation: "$\\ln y=\\sqrt{x}\\ln x$ gir $\\frac{\\ln x}{2\\sqrt{x}}+\\frac{1}{\\sqrt{x}}$, som slås sammen til $\\frac{\\ln x+2}{2\\sqrt{x}}$. Alternativ to har glemt det andre leddet fra produktregelen.",
+      explanation: "$\\ln y=\\sqrt{x}\\ln x$ gir $\\frac{\\ln x}{2\\sqrt{x}}+\\frac{1}{\\sqrt{x}}$, som slås sammen til $\\frac{\\ln x+2}{2\\sqrt{x}}$. Svaret med bare $\\frac{\\ln x}{2\\sqrt{x}}$ i parentesen har glemt det andre leddet fra produktregelen.",
     },
     {
       question: "For $y=x^{a(x)}$ med $a$ deriverbar er $y'$ lik",
       options: ["$x^{a(x)}\\left[a'(x)\\ln x+\\dfrac{a(x)}{x}\\right]$", "$x^{a(x)}\\left[a'(x)\\ln x-\\dfrac{a(x)}{x}\\right]$", "$a(x)\\,x^{a(x)-1}\\,a'(x)$", "$x^{a(x)}\\left[a'(x)\\ln x+a(x)\\ln x\\right]$"],
-      explanation: "Produktregelen på $a(x)\\ln x$ gir to ledd med pluss mellom. Setter du $a(x)=x$, må formelen reduseres til $x^{x}(\\ln x+1)$ — det gjør bare det første alternativet.",
+      explanation: "Produktregelen på $a(x)\\ln x$ gir to ledd med pluss mellom. Setter du $a(x)=x$, må formelen reduseres til $x^{x}(\\ln x+1)$ — det gjør bare svaret der andre ledd er $\\frac{a(x)}{x}$.",
     },
     {
       question: "Hvilken metode forventer sensor på et delpunkt med $x^{x}$-type i Oppgave 1?",
@@ -413,7 +413,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "La $z=(xy)^{xy}$. Hva er $z'_x$?",
       options: ["$(xy)^{xy}\\,y\\,(\\ln(xy)+1)$", "$(xy)^{xy}\\,x\\,(\\ln(xy)+1)$", "$(xy)^{xy}\\,(\\ln(xy)+1)$", "$(xy)^{xy}\\,y\\ln(xy)$"],
-      explanation: "$\\ln z=xy\\ln(xy)$ derivert mht. $x$ gir $y\\ln(xy)+y$. Alternativ to er svaret mht. $y$ — funksjonen er symmetrisk, så det er lett å forveksle de to.",
+      explanation: "$\\ln z=xy\\ln(xy)$ derivert mht. $x$ gir $y\\ln(xy)+y$. Svaret med faktoren $x$ i stedet for $y$ er derivasjon mht. $y$ — funksjonen er symmetrisk, så det er lett å forveksle de to.",
     },
     {
       question: "Hva er den relative endringen $y'/y$ et uttrykk for?",
@@ -455,7 +455,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}\\big[x\\,k(x)\\big]$ når $k$ er deriverbar?",
       options: ["$k(x)+x\\,k'(x)$", "$x\\,k'(x)$", "$k'(x)$", "$k(x)\\,k'(x)+x$"],
-      explanation: "Produktregelen gir «derivert ganger urørt pluss urørt ganger derivert». Alternativ to og tre tar bare med ett av de to leddene, som er den vanligste feilen her.",
+      explanation: "Produktregelen gir «derivert ganger urørt pluss urørt ganger derivert». Svarene $x\\,k'(x)$ og $k'(x)$ tar bare med ett av de to leddene, som er den vanligste feilen her.",
     },
     {
       question: "Hva betyr det at oppgaven sier at $k$ er «deriverbar»?",
@@ -475,12 +475,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}\\ln k(x)$ når $k(x)>0$?",
       options: ["$\\dfrac{k'(x)}{k(x)}$", "$\\dfrac{1}{k(x)}$", "$k'(x)\\ln k(x)$", "$\\dfrac{k(x)}{k'(x)}$"],
-      explanation: "Regelen $\\frac{g'}{g}$ gjelder uendret med ukjent innmat. Alternativ to glemmer kjernefaktoren, som er nøyaktig samme felle som med konkrete funksjoner.",
+      explanation: "Regelen $\\frac{g'}{g}$ gjelder uendret med ukjent innmat. Svaret $\\frac{1}{k(x)}$ glemmer kjernefaktoren, som er nøyaktig samme felle som med konkrete funksjoner.",
     },
     {
       question: "Hva er $\\dfrac{d^{2}}{dx^{2}}\\big[x\\,k(x)\\big]$?",
       options: ["$2k'(x)+x\\,k''(x)$", "$k'(x)+2x\\,k''(x)$", "$x\\,k''(x)+k(x)$", "$2k'(x)$"],
-      explanation: "Deriverer du $k(x)+xk'(x)$, gir første ledd $k'$ og andre ledd $k'+xk''$. Alternativ to har glemt at det kommer et $k'$ fra hvert av de to leddene.",
+      explanation: "Deriverer du $k(x)+xk'(x)$, gir første ledd $k'$ og andre ledd $k'+xk''$. Svaret $k'(x)+2x\\,k''(x)$ har glemt at det kommer et $k'$ fra hvert av de to leddene.",
     },
     {
       question: "Hva er den vanligste feilen ved andregangs derivasjon av symbolske uttrykk?",
@@ -490,7 +490,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{\\partial}{\\partial x}h(y)$ når $h$ er deriverbar?",
       options: ["$0$, siden $h(y)$ ikke inneholder $x$", "$h'(y)$, som er den vanlige deriverte", "$h'(y)\\cdot y'$, etter kjerneregelen", "$h(y)$, siden funksjonen står urørt"],
-      explanation: "Mht. $x$ er $h(y)$ en konstant, og konstanter har derivert null. Alternativ tre ville krevd at $y$ selv var en funksjon av $x$, noe oppgaven ikke sier.",
+      explanation: "Mht. $x$ er $h(y)$ en konstant, og konstanter har derivert null. Svaret $h'(y)\\cdot y'$ ville krevd at $y$ selv var en funksjon av $x$, noe oppgaven ikke sier.",
     },
     {
       question: "En bedrift har inntekt $R(p)=p\\,k(p)$. Hva betyr leddet $p\\,k'(p)$ i $R'(p)$?",
@@ -500,7 +500,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}\\left(\\dfrac{k(x)}{x}\\right)$?",
       options: ["$\\dfrac{x\\,k'(x)-k(x)}{x^{2}}$", "$\\dfrac{k(x)-x\\,k'(x)}{x^{2}}$", "$\\dfrac{k'(x)}{x}$", "$\\dfrac{k'(x)-k(x)}{x^{2}}$"],
-      explanation: "Kvotientregelen: derivert teller ganger nevner, minus teller ganger derivert nevner. Alternativ to har byttet om leddene, som gir feil fortegn på hele svaret — feil #12.",
+      explanation: "Kvotientregelen: derivert teller ganger nevner, minus teller ganger derivert nevner. Svaret med telleren $k(x)-x\\,k'(x)$ har byttet om leddene, som gir feil fortegn på hele svaret — feil #12.",
     },
     {
       question: "Hvordan kan du kontrollere et symbolsk svar uten fasit?",
@@ -510,12 +510,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\dfrac{d}{dx}\\big(k(x)\\big)^{2}$?",
       options: ["$2k(x)\\,k'(x)$", "$2k(x)$", "$2k'(x)$", "$\\big(k'(x)\\big)^{2}$"],
-      explanation: "Potens av en funksjon: $n g^{n-1}g'$ med $n=2$. Alternativ to glemmer kjernefaktoren, og det siste kvadrerer den deriverte i stedet for å bruke kjerneregelen.",
+      explanation: "Potens av en funksjon: $n g^{n-1}g'$ med $n=2$. Svaret $2k(x)$ glemmer kjernefaktoren, og $\\big(k'(x)\\big)^{2}$ kvadrerer den deriverte i stedet for å bruke kjerneregelen.",
     },
     {
       question: "Hva er $\\dfrac{\\partial}{\\partial y}\\big[b(x,y)\\,h(y)\\big]$?",
       options: ["$b'_{y}\\,h(y)+b(x,y)\\,h'(y)$", "$b'_{y}(x,y)\\,h'(y)$", "$b(x,y)\\,h'(y)$", "$b'_{x}\\,h(y)+b(x,y)\\,h'(y)$"],
-      explanation: "Begge faktorene varierer med $y$, så produktregelen gjelder med partiellderivert av $b$. Alternativ to ganger de deriverte i stedet for å bruke produktregelen, og det siste deriverer $b$ mht. feil variabel.",
+      explanation: "Begge faktorene varierer med $y$, så produktregelen gjelder med partiellderivert av $b$. Svaret $b'_{y}(x,y)\\,h'(y)$ ganger de deriverte i stedet for å bruke produktregelen, og svaret med $b'_{x}$ deriverer $b$ mht. feil variabel.",
     },
     {
       question: "Hvorfor bruker økonomisk teori generelle funksjoner i stedet for konkrete formler?",
@@ -525,7 +525,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Et overskudd er $\\pi(N)=p\\,F(N)-wN$ med $p$ og $w$ konstante. Hva er $\\pi'(N)$?",
       options: ["$p\\,F'(N)-w$", "$p\\,F'(N)-wN$", "$F'(N)-w$", "$p\\,F(N)-w$"],
-      explanation: "Konstanten $p$ står utenfor, $F$ deriveres til $F'$, og $wN$ deriveres til $w$. Alternativ to har glemt å derivere det siste leddet i det hele tatt.",
+      explanation: "Konstanten $p$ står utenfor, $F$ deriveres til $F'$, og $wN$ deriveres til $w$. Svaret $p\\,F'(N)-wN$ har glemt å derivere det siste leddet i det hele tatt.",
     },
   ],
   'econ1100-1-6': [
@@ -567,12 +567,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $f'_y$ når $f(x,y)=\\dfrac{y}{x^{2}+y}$?",
       options: ["$\\dfrac{x^{2}}{(x^{2}+y)^{2}}$", "$\\dfrac{1}{(x^{2}+y)^{2}}$", "$\\dfrac{-2xy}{(x^{2}+y)^{2}}$", "$\\dfrac{x^{2}+2y}{(x^{2}+y)^{2}}$"],
-      explanation: "Kvotientregelen gir $\\frac{(x^{2}+y)-y}{(x^{2}+y)^{2}}$, og telleren ryddes til $x^{2}$. Alternativ tre er svaret for $f'_x$, som deriveres med en helt annen metode.",
+      explanation: "Kvotientregelen gir $\\frac{(x^{2}+y)-y}{(x^{2}+y)^{2}}$, og telleren ryddes til $x^{2}$. Svaret $\\frac{-2xy}{(x^{2}+y)^{2}}$ er $f'_x$, som deriveres med en helt annen metode.",
     },
     {
       question: "La $G(s,t)=x-y^{2}$ med $x=st$ og $y=s-t$. Hva er $\\partial G/\\partial t$?",
       options: ["$3s-2t$", "$s-2t$", "$3t-2s$", "$s+2t$"],
-      explanation: "Kjerneregelen gir $1\\cdot s+(-2y)\\cdot(-1)=s+2y$, og $y=s-t$ gir $3s-2t$. Alternativ tre er svaret mht. $s$ — den vanligste forvekslingen i dette delpunktet.",
+      explanation: "Kjerneregelen gir $1\\cdot s+(-2y)\\cdot(-1)=s+2y$, og $y=s-t$ gir $3s-2t$. Svaret $3t-2s$ er derivasjon mht. $s$ — den vanligste forvekslingen i dette delpunktet.",
     },
     {
       question: "Hva er den beste kontrollen når du har regnet ut $f'_x$ og $f'_y$?",
@@ -587,7 +587,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $R'(x)$ når $R(x)=\\dfrac{k(x)}{x}$ og $k$ er deriverbar?",
       options: ["$\\dfrac{x\\,k'(x)-k(x)}{x^{2}}$", "$\\dfrac{k(x)-x\\,k'(x)}{x^{2}}$", "$\\dfrac{k'(x)}{x^{2}}$", "$\\dfrac{k'(x)-k(x)}{x}+k'(x)$"],
-      explanation: "Kvotientregelen med $u=k(x)$ og $v=x$. Alternativ to har byttet om leddene i telleren, som snur fortegnet på hele svaret — feil #12 i sin symbolske form.",
+      explanation: "Kvotientregelen med $u=k(x)$ og $v=x$. Svaret med telleren $k(x)-x\\,k'(x)$ har byttet om leddene, som snur fortegnet på hele svaret — feil #12 i sin symbolske form.",
     },
   ],
   'econ1100-10-1': [
@@ -870,7 +870,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva sier Eulers relasjon?",
       options: ["$xf'_x+yf'_y=kf$", "$xf'_x+yf'_y=f$", "$f'_x+f'_y=kf$", "$xf'_x\\cdot yf'_y=kf$"],
-      explanation: "Relasjonen gjelder for enhver funksjon homogen av grad $k$. Alternativ to er spesialtilfellet $k=1$, som er riktig bare da.",
+      explanation: "Relasjonen gjelder for enhver funksjon homogen av grad $k$. Varianten med $f$ i stedet for $kf$ på høyresiden er spesialtilfellet $k=1$, som er riktig bare da.",
     },
     {
       question: "$f$ er konveks. Hvor ligger den lineære approksimasjonen?",
@@ -956,7 +956,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva sier Eulers relasjon for en produktfunksjon homogen av grad $k$?",
       options: ["$K F'_K+L F'_L=kF$", "$K F'_K+L F'_L=F$", "$F'_K+F'_L=kF$", "$K F'_K\\cdot L F'_L=kF$"],
-      explanation: "Alternativ to er spesialtilfellet $k=1$, som er riktig bare ved konstant skalautbytte. Da fordeles hele produktet på faktorene etter grenseprodukt.",
+      explanation: "Varianten $K F'_K+L F'_L=F$, uten $k$ på høyresiden, er spesialtilfellet $k=1$, som er riktig bare ved konstant skalautbytte. Da fordeles hele produktet på faktorene etter grenseprodukt.",
     },
     {
       question: "Hvordan begrunnes symmetri i et $n$-variabelproblem med like priser?",
@@ -968,7 +968,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er definisjonen av elastisitet?",
       options: ["$\\mathrm{El}_x f=\\frac{x}{f}f'(x)$", "$\\mathrm{El}_x f=\\frac{f}{x}f'(x)$", "$\\mathrm{El}_x f=f'(x)$", "$\\mathrm{El}_x f=\\frac{x}{f'(x)}$"],
-      explanation: "Den deriverte skaleres med forholdet $x/f$, og det er skaleringen som gjør tallet enhetsløst. Alternativ tre er den vanligste feilen: å stoppe ved den deriverte.",
+      explanation: "Den deriverte skaleres med forholdet $x/f$, og det er skaleringen som gjør tallet enhetsløst. Svaret $\\mathrm{El}_x f=f'(x)$ er den vanligste feilen: å stoppe ved den deriverte.",
     },
     {
       question: "Hva er $\\mathrm{El}_x(5x^{3})$?",
@@ -983,7 +983,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\mathrm{El}_x(f\\cdot g)$?",
       options: ["$\\mathrm{El}_x f+\\mathrm{El}_x g$", "$\\mathrm{El}_x f\\cdot\\mathrm{El}_x g$", "$\\mathrm{El}_x f-\\mathrm{El}_x g$", "$f\\,\\mathrm{El}_x g+g\\,\\mathrm{El}_x f$"],
-      explanation: "Prosentvise endringer legges sammen ved multiplikasjon, akkurat som logaritmer. Det siste alternativet er den vanlige produktregelen for derivasjon, ikke for elastisitet.",
+      explanation: "Prosentvise endringer legges sammen ved multiplikasjon, akkurat som logaritmer. Svaret $f\\,\\mathrm{El}_x g+g\\,\\mathrm{El}_x f$ er den vanlige produktregelen for derivasjon, ikke for elastisitet.",
     },
     {
       question: "Hva er $\\mathrm{El}_x(f/g)$?",
@@ -1038,7 +1038,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\mathrm{El}_x\\big(5x^{3}(x+2)\\big)$?",
       options: ["$3+\\frac{x}{x+2}$", "$3-\\frac{x}{x+2}$", "$15+\\frac{x}{x+2}$", "$3+\\frac{x+2}{x}$"],
-      explanation: "Produktregelen gir potensleddet $3$ pluss elastisiteten til $x+2$, som er $x/(x+2)$. Alternativ to bruker kvotientregelen på et produkt.",
+      explanation: "Produktregelen gir potensleddet $3$ pluss elastisiteten til $x+2$, som er $x/(x+2)$. Svaret $3-\\frac{x}{x+2}$ bruker kvotientregelen på et produkt.",
     },
     {
       question: "Hvorfor forsvinner konstanten $C$ i potensregelen?",
@@ -1060,7 +1060,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kjerneregelen for elastisiteter?",
       options: ["$\\mathrm{El}_x f=\\mathrm{El}_u g\\cdot\\mathrm{El}_x u$", "$\\mathrm{El}_x f=\\mathrm{El}_x g\\cdot\\mathrm{El}_x u$", "$\\mathrm{El}_x f=\\mathrm{El}_u g+\\mathrm{El}_x u$", "$\\mathrm{El}_x f=\\mathrm{El}_u g/\\mathrm{El}_x u$"],
-      explanation: "Elastisitetene ganges sammen langs kjeden, og den ytre tas mht. $u$. Alternativ tre forveksler kjerneregelen med produktregelen, der elastisiteter legges sammen.",
+      explanation: "Elastisitetene ganges sammen langs kjeden, og den ytre tas mht. $u$. Svaret som legger sammen $\\mathrm{El}_u g$ og $\\mathrm{El}_x u$, forveksler kjerneregelen med produktregelen, der elastisiteter legges sammen.",
     },
     {
       question: "Hvilken variabel tas den ytre elastisiteten med hensyn på?",
@@ -1085,12 +1085,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\mathrm{El}_x\\ln\\big(x^{3}\\big)$ for $x>1$?",
       options: ["$1/\\ln x$", "$3/\\ln x$", "$3$", "$1/(3\\ln x)$"],
-      explanation: "Kjerneregelen gir $3/\\ln(x^{3})$, som forenkles til $1/\\ln x$. Alternativ to har glemt tilbakesubstitusjonen og forenklingen.",
+      explanation: "Kjerneregelen gir $3/\\ln(x^{3})$, som forenkles til $1/\\ln x$. Svaret $3/\\ln x$ har glemt tilbakesubstitusjonen og forenklingen.",
     },
     {
       question: "Hva er $\\mathrm{El}_u g$ når $g(u)=\\ln u$?",
       options: ["$1/\\ln u$", "$1/u$", "$\\ln u$", "$u/\\ln u$"],
-      explanation: "Definisjonen gir $\\frac{u}{\\ln u}\\cdot\\frac1u$, der $u$ stryker seg. Alternativ to er den deriverte, ikke elastisiteten.",
+      explanation: "Definisjonen gir $\\frac{u}{\\ln u}\\cdot\\frac1u$, der $u$ stryker seg. Svaret $1/u$ er den deriverte, ikke elastisiteten.",
     },
     {
       question: "Hva er $\\mathrm{El}_x\\big(x^{2}+4\\big)$?",
@@ -1110,12 +1110,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $\\mathrm{El}_x f$ for en kjede med tre ledd?",
       options: ["$\\mathrm{El}_v g\\cdot\\mathrm{El}_u v\\cdot\\mathrm{El}_x u$", "$\\mathrm{El}_v g+\\mathrm{El}_u v+\\mathrm{El}_x u$", "$\\mathrm{El}_x g\\cdot\\mathrm{El}_x v\\cdot\\mathrm{El}_x u$", "$\\mathrm{El}_v g\\cdot\\mathrm{El}_x u$"],
-      explanation: "Regelen brukes to ganger etter hverandre, og faktorene ganges sammen. Det siste alternativet hopper over mellomleddet.",
+      explanation: "Regelen brukes to ganger etter hverandre, og faktorene ganges sammen. Svaret $\\mathrm{El}_v g\\cdot\\mathrm{El}_x u$ hopper over mellomleddet.",
     },
     {
       question: "Reklame har elastisitet $1/2$ på kjennskap, som har elastisitet $3$ på etterspørsel. Hva er $\\mathrm{El}_R D$?",
       options: ["$1{,}5$", "$3{,}5$", "$6$", "$0{,}5$"],
-      explanation: "Kjerneregelen gir $3\\cdot\\frac12$. Alternativ to legger sammen i stedet for å gange, som er produktregelen og ikke kjerneregelen.",
+      explanation: "Kjerneregelen gir $3\\cdot\\frac12$. Svaret $3{,}5$ legger sammen i stedet for å gange, som er produktregelen og ikke kjerneregelen.",
     },
     {
       question: "Hva gir en fire prosents økning når elastisiteten er $1{,}5$?",
@@ -1132,12 +1132,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er differensialet til $f(x,y)$ av to variabler?",
       options: ["$df=f'_x\\,dx+f'_y\\,dy$", "$df=f'_x\\,dx$", "$df=f'_x\\,dy+f'_y\\,dx$", "$df=f'_x\\cdot f'_y\\,dx\\,dy$"],
-      explanation: "Antall ledd er likt antall variabler, og hver derivert hører sammen med sin egen differensial. Alternativ to utelater $y$-leddet (feil #4), og alternativ tre har byttet om hvilken differensial som følger hvilken derivert.",
+      explanation: "Antall ledd er likt antall variabler, og hver derivert hører sammen med sin egen differensial. Svaret $df=f'_x\\,dx$ utelater $y$-leddet (feil #4), og $df=f'_x\\,dy+f'_y\\,dx$ har byttet om hvilken differensial som følger hvilken derivert.",
     },
     {
       question: "La $f(x,y)=x^{2}y$. Hva er $df$?",
       options: ["$2xy\\,dx+x^{2}\\,dy$", "$2xy\\,dx$", "$x^{2}\\,dx+2xy\\,dy$", "$2xy\\,dx+2xy\\,dy$"],
-      explanation: "Her er $f'_x=2xy$ og $f'_y=x^{2}$, og begge ledd skal med. Alternativ to er nettopp den påstanden eksamen bruker som felle, og alternativ tre har byttet om de to partiellderiverte.",
+      explanation: "Her er $f'_x=2xy$ og $f'_y=x^{2}$, og begge ledd skal med. Svaret $2xy\\,dx$ alene er nettopp den påstanden eksamen bruker som felle, og $x^{2}\\,dx+2xy\\,dy$ har byttet om de to partiellderiverte.",
     },
     {
       question: "Hva er forskjellen på $df$ og $\\Delta f$?",
@@ -1157,12 +1157,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $d(\\ln u)$ når $u$ er et uttrykk i $x$ og $y$?",
       options: ["$\\dfrac{du}{u}$", "$\\dfrac{1}{u}$", "$u\\,du$", "$\\dfrac{du}{u^{2}}$"],
-      explanation: "Regelen $g'/g$ blir til $du/u$ på differensialform. Alternativ to glemmer differensialet til innmaten, som er nøyaktig samme felle som å glemme kjerneregelen.",
+      explanation: "Regelen $g'/g$ blir til $du/u$ på differensialform. Svaret $\\frac{1}{u}$ glemmer differensialet til innmaten, som er nøyaktig samme felle som å glemme kjerneregelen.",
     },
     {
       question: "La $f(x,y)=e^{xy}$. Hva er $df$?",
       options: ["$e^{xy}\\big(y\\,dx+x\\,dy\\big)$", "$e^{xy}\\big(dx+dy\\big)$", "$e^{xy}\\,xy\\big(dx+dy\\big)$", "$xy\\,e^{xy-1}\\big(dx+dy\\big)$"],
-      explanation: "Regelen $e^{u}\\,du$ med $u=xy$ gir $du=y\\,dx+x\\,dy$. Alternativ to glemmer de indre deriverte, og det siste bruker potensregelen på en eksponentialfunksjon.",
+      explanation: "Regelen $e^{u}\\,du$ med $u=xy$ gir $du=y\\,dx+x\\,dy$. Svaret $e^{xy}(dx+dy)$ glemmer de indre deriverte, og $xy\\,e^{xy-1}(dx+dy)$ bruker potensregelen på en eksponentialfunksjon.",
     },
     {
       question: "Hvor mange ledd har differensialet til $f(x,y,z)$?",
@@ -1177,7 +1177,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "En bedrift har $Q'_K=16$ og $Q'_L=25$. Hva er $dQ$ når $dK=1$ og $dL=-0{,}5$?",
       options: ["$3{,}5$", "$-3{,}5$", "$28{,}5$", "$41$"],
-      explanation: "Regnestykket er $16\\cdot 1+25\\cdot(-0{,}5)=16-12{,}5$. Alternativ tre glemmer fortegnet på $dL$, og det siste legger sammen grenseproduktene uten å gange med skrittene.",
+      explanation: "Regnestykket er $16\\cdot 1+25\\cdot(-0{,}5)=16-12{,}5$. Svaret $28{,}5$ glemmer fortegnet på $dL$, og $41$ legger sammen grenseproduktene uten å gange med skrittene.",
     },
     {
       question: "Hva betyr leddet $f'_x\\,dx$ i differensialet?",
@@ -1187,7 +1187,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $df$ for $f(x,y)=\\dfrac{x}{y}$ med $y\\ne 0$?",
       options: ["$\\dfrac{dx}{y}-\\dfrac{x}{y^{2}}\\,dy$", "$\\dfrac{dx}{y}+\\dfrac{x}{y^{2}}\\,dy$", "$\\dfrac{dx}{dy}$", "$\\dfrac{dx-dy}{y^{2}}$"],
-      explanation: "Her er $f'_x=1/y$ og $f'_y=-x/y^{2}$, så minusen er innholdet i regnestykket: øker $y$, faller brøken. Alternativ to har mistet fortegnet, som er den klassiske kvotientfellen (feil #12).",
+      explanation: "Her er $f'_x=1/y$ og $f'_y=-x/y^{2}$, så minusen er innholdet i regnestykket: øker $y$, faller brøken. Svaret med pluss foran $\\frac{x}{y^{2}}\\,dy$ har mistet fortegnet, som er den klassiske kvotientfellen (feil #12).",
     },
     {
       question: "Hva sier den relative formen $df/f$?",
@@ -1197,7 +1197,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "For $Q=AK^{\\alpha}L^{\\beta}$: hva er $dQ/Q$?",
       options: ["$\\alpha\\,\\dfrac{dK}{K}+\\beta\\,\\dfrac{dL}{L}$", "$\\alpha\\,dK+\\beta\\,dL$", "$\\dfrac{\\alpha}{K}+\\dfrac{\\beta}{L}$", "$(\\alpha+\\beta)\\,\\dfrac{dK+dL}{K+L}$"],
-      explanation: "På relativ form er eksponentene selv omregningsfaktorene mellom prosenter. Alternativ to blander absolutt og relativ endring, og alternativ tre har mistet differensialene helt.",
+      explanation: "På relativ form er eksponentene selv omregningsfaktorene mellom prosenter. Svaret $\\alpha\\,dK+\\beta\\,dL$ blander absolutt og relativ endring, og $\\frac{\\alpha}{K}+\\frac{\\beta}{L}$ har mistet differensialene helt.",
     },
     {
       question: "Oppgaven sier at en størrelse «faller med $0{,}5$». Hva settes inn?",
@@ -1214,7 +1214,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den lineære approksimasjonen til $f(x,y)$ rundt $(x_0,y_0)$?",
       options: ["$f(x_0,y_0)+f'_x\\,(x-x_0)+f'_y\\,(y-y_0)$", "$f'_x\\,(x-x_0)+f'_y\\,(y-y_0)$", "$f(x_0,y_0)+f'_x\\,(x-x_0)$", "$f(x_0,y_0)+f'_x\\,(y-y_0)+f'_y\\,(x-x_0)$"],
-      explanation: "Tre ledd: startverdien og ett bidrag per variabel. Alternativ to har mistet startverdien og er egentlig differensialet, mens det siste har byttet om hvilken parentes som følger hvilken derivert.",
+      explanation: "Tre ledd: startverdien og ett bidrag per variabel. Svaret uten leddet $f(x_0,y_0)$ har mistet startverdien og er egentlig differensialet, mens svaret der $f'_x$ ganges med $(y-y_0)$, har byttet om hvilken parentes som følger hvilken derivert.",
     },
     {
       question: "Hva blir den lineære approksimasjonen når du setter inn selve basispunktet?",
@@ -1239,7 +1239,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den lineære approksimasjonen til $\\sqrt{x}$ rundt $x_0=25$?",
       options: ["$5+\\tfrac{1}{10}(x-25)$", "$5+\\tfrac{1}{5}(x-25)$", "$5+\\tfrac{1}{10}\\,x$", "$\\tfrac{1}{10}(x-25)$"],
-      explanation: "Her er $f(25)=5$ og $f'(25)=1/(2\\cdot 5)=1/10$. Alternativ to glemmer faktoren $\\tfrac12$, og de to siste har rotet med henholdsvis parentesen og startverdien.",
+      explanation: "Her er $f(25)=5$ og $f'(25)=1/(2\\cdot 5)=1/10$. Svaret $5+\\tfrac{1}{5}(x-25)$ glemmer faktoren $\\tfrac12$, mens $5+\\tfrac{1}{10}\\,x$ har rotet med parentesen og $\\tfrac{1}{10}(x-25)$ mangler startverdien.",
     },
     {
       question: "Hvordan vokser approksimasjonsfeilen med skrittlengden?",
@@ -1249,7 +1249,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken standardtilnærming gjelder rundt $u=0$?",
       options: ["$\\ln(1+u)\\approx u$", "$\\ln(1+u)\\approx 1+u$", "$\\ln(1+u)\\approx \\tfrac{1}{1+u}$", "$\\ln(1+u)\\approx u-1$"],
-      explanation: "Med $f(0)=0$ og $f'(0)=1$ blir approksimasjonen bare $u$. Alternativ tre forveksler funksjonen med sin egen deriverte, og de to andre har feil startverdi.",
+      explanation: "Med $f(0)=0$ og $f'(0)=1$ blir approksimasjonen bare $u$. Svaret $\\ln(1+u)\\approx\\tfrac{1}{1+u}$ forveksler funksjonen med sin egen deriverte, mens $1+u$ og $u-1$ har feil startverdi.",
     },
     {
       question: "En konkav nyttefunksjon approksimeres lineært. Hva skjer?",
@@ -1259,7 +1259,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "$Q(25,16)=800$, $Q'_K=16$ og $Q'_L=25$. Hva er anslaget for $Q(26\\,;\\,15{,}5)$?",
       options: ["$803{,}5$", "$828{,}5$", "$800$", "$841$"],
-      explanation: "Regnestykket er $800+16\\cdot 1+25\\cdot(-0{,}5)$. Alternativ to glemmer fortegnet på endringen i $L$, og det siste legger sammen alt uten å gange med skrittene.",
+      explanation: "Regnestykket er $800+16\\cdot 1+25\\cdot(-0{,}5)$. Svaret $828{,}5$ glemmer fortegnet på endringen i $L$, og $841$ legger sammen alt uten å gange med skrittene.",
     },
     {
       question: "Hva er sammenhengen mellom $df$ og den lineære approksimasjonen?",
@@ -1311,7 +1311,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "$f'(x)=3(x+1)(x-3)$. Hvor er $f'$ negativ?",
       options: ["For $-1<x<3$", "For $x<-1$", "For $x>3$", "For $x<-1$ og $x>3$"],
-      explanation: "Et andregradsuttrykk med positiv ledende koeffisient er negativt mellom røttene og positivt utenfor. Alternativ fire beskriver nettopp der uttrykket er positivt.",
+      explanation: "Et andregradsuttrykk med positiv ledende koeffisient er negativt mellom røttene og positivt utenfor. Området $x<-1$ og $x>3$ er nettopp der uttrykket er positivt.",
     },
     {
       question: "Hva betyr det at diskriminanten $b^{2}-4ac$ er negativ?",
@@ -1473,7 +1473,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den korrekte reaksjonen på $f''(a)=0$ i et stasjonærpunkt?",
       options: ["Bytte til førstederiverttesten eller global krumning", "Konkludere at punktet ikke er et ekstrempunkt", "Konkludere at punktet er et vendepunkt", "Regne ut $f'''(a)$ og bruke fortegnet der"],
-      explanation: "Testen har ikke svart, så metoden må byttes. De to alternativene i alternativ én er begge fullgode og gir full uttelling.",
+      explanation: "Testen har ikke svart, så metoden må byttes. Både førstederiverttesten og global krumning er fullgode veier videre og gir full uttelling.",
     },
   ],
   'econ1100-4-3': [
@@ -1597,7 +1597,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er tangentlinjen til $f(x)=x^{3}-3x^{2}$ i $x=3$?",
       options: ["$y=9x-27$", "$y=9x$", "$y=0$", "$y=27x-9$"],
-      explanation: "Her er $f(3)=0$ og $f'(3)=27-18=9$, satt inn i punktformelen. Alternativ tre kommer av å bruke funksjonsverdien som stigningstall.",
+      explanation: "Her er $f(3)=0$ og $f'(3)=27-18=9$, satt inn i punktformelen. Svaret $y=0$ kommer av å bruke funksjonsverdien som stigningstall.",
     },
     {
       question: "Hvor ligger vendepunktet til en tredjegradsfunksjon?",
@@ -1696,7 +1696,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er helningen til nivåkurven $F(x,y)=c$?",
       options: ["$y'=-\\dfrac{F'_x}{F'_y}$", "$y'=\\dfrac{F'_x}{F'_y}$", "$y'=-\\dfrac{F'_y}{F'_x}$", "$y'=F'_x\\cdot F'_y$"],
-      explanation: "Den frie variabelens deriverte står i telleren, og minustegnet kommer fra at bidragene i $dF$ skal oppheve hverandre. Alternativ to mister minusen og snur konklusjonen om kurven stiger eller faller.",
+      explanation: "Den frie variabelens deriverte står i telleren, og minustegnet kommer fra at bidragene i $dF$ skal oppheve hverandre. Svaret $y'=\\frac{F'_x}{F'_y}$ mister minusen og snur konklusjonen om kurven stiger eller faller.",
     },
     {
       question: "Hvorfor er $dF=0$ langs en nivåkurve?",
@@ -1711,7 +1711,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "For $xy=12$ med $x,y>0$: hva er $y'$?",
       options: ["$-\\dfrac{y}{x}$", "$\\dfrac{y}{x}$", "$-\\dfrac{x}{y}$", "$-\\dfrac{1}{x}$"],
-      explanation: "Her er $F'_x=y$ og $F'_y=x$, så formelen gir $-y/x$. Alternativ tre har byttet om teller og nevner, noe som gir feil tall i alle punkter unntatt på diagonalen.",
+      explanation: "Her er $F'_x=y$ og $F'_y=x$, så formelen gir $-y/x$. Svaret $-\\frac{x}{y}$ har byttet om teller og nevner, noe som gir feil tall i alle punkter unntatt på diagonalen.",
     },
     {
       question: "$F'_x>0$ og $F'_y>0$. Hva gjelder for nivåkurven?",
@@ -1726,7 +1726,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva blir $\\dfrac{d}{dx}\\big(y^{2}\\big)$ når $y$ er en funksjon av $x$?",
       options: ["$2y\\,y'$", "$2y$", "$2y'$", "$y^{2}y'$"],
-      explanation: "Kjerneregelen på en potens av $y$ gir $2y$ ganget med den indre deriverte $y'$. Alternativ to har glemt faktoren og har dermed regnet som om $y$ var den frie variabelen.",
+      explanation: "Kjerneregelen på en potens av $y$ gir $2y$ ganget med den indre deriverte $y'$. Svaret $2y$ har glemt faktoren $y'$ og har dermed regnet som om $y$ var den frie variabelen.",
     },
     {
       question: "Hva er en indifferenskurve?",
@@ -1746,7 +1746,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "For $U=x^{\\alpha}y^{\\beta}$: hva er indifferenskurvens helning?",
       options: ["$-\\dfrac{\\alpha y}{\\beta x}$", "$-\\dfrac{\\beta y}{\\alpha x}$", "$-\\dfrac{\\alpha}{\\beta}$", "$-\\dfrac{\\alpha x}{\\beta y}$"],
-      explanation: "Deriverer man begge veier og forkorter potensene, blir eksponentforholdet stående sammen med $y/x$. Alternativ to har byttet om eksponentene, som gir omvendt bytteforhold.",
+      explanation: "Deriverer man begge veier og forkorter potensene, blir eksponentforholdet stående sammen med $y/x$. Svaret $-\\frac{\\beta y}{\\alpha x}$ har byttet om eksponentene, som gir omvendt bytteforhold.",
     },
     {
       question: "Hva skjer med nivåkurvene hvis $F$ erstattes med $F^{3}$?",
@@ -1771,7 +1771,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Ved implisitt derivasjon av $xy+y^{2}=20$ får man",
       options: ["$y+x\\,y'+2y\\,y'=0$", "$y+x\\,y'+2y=0$", "$x\\,y'+2y\\,y'=0$", "$y'+2y\\,y'=0$"],
-      explanation: "Leddet $xy$ krever produktregelen og gir $y+xy'$, mens $y^{2}$ gir $2yy'$. Alternativ to har glemt faktoren $y'$ på det siste leddet.",
+      explanation: "Leddet $xy$ krever produktregelen og gir $y+xy'$, mens $y^{2}$ gir $2yy'$. Svaret $y+x\\,y'+2y=0$ har glemt faktoren $y'$ på det siste leddet.",
     },
     {
       question: "Kurven $x^{2}+y^{2}=25$ i punktet $(5,0)$ har",
@@ -1793,7 +1793,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "For $xy=c$ med $x,y>0$: hva er $y''$?",
       options: ["$\\dfrac{2y}{x^{2}}$", "$\\dfrac{y}{x^{2}}$", "$-\\dfrac{y}{x^{2}}$", "$\\dfrac{2}{x^{2}}$"],
-      explanation: "Kvotientregelen på $-y/x$ med $y'=-y/x$ satt inn gir $2y/x^{2}$. Alternativ to er nettopp svaret man får hvis $y$ behandles som en konstant — samme fortegn, men feil metode.",
+      explanation: "Kvotientregelen på $-y/x$ med $y'=-y/x$ satt inn gir $2y/x^{2}$. Svaret $\\frac{y}{x^{2}}$ er nettopp det man får hvis $y$ behandles som en konstant — samme fortegn, men feil metode.",
     },
     {
       question: "Hva betyr $y''>0$ i hele området for en fallende nivåkurve?",
@@ -1813,12 +1813,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "For nivåkurven $x+\\ln y=3$ er $y'=-y$. Hva er $y''$?",
       options: ["$y$", "$-y$", "$0$", "$-y'$ uten videre forenkling"],
-      explanation: "Deriverer man $-y$ mht. $x$, gir det $-y'$, og med $y'=-y$ blir svaret $y$. Alternativ tre er resultatet hvis $y$ behandles som konstant, og ville betydd at kurven er en rett linje.",
+      explanation: "Deriverer man $-y$ mht. $x$, gir det $-y'$, og med $y'=-y$ blir svaret $y$. Svaret $0$ er resultatet hvis $y$ behandles som konstant, og ville betydd at kurven er en rett linje.",
     },
     {
       question: "Hva er $\\dfrac{d}{dx}\\,y^{2}$ langs en nivåkurve?",
       options: ["$2y\\,y'$", "$2y$", "$2y'$", "$y^{2}y'$"],
-      explanation: "Kjerneregelen gir $2y$ ganget med den indre deriverte $y'$. Alternativ to glemmer faktoren og har dermed regnet som om $y$ var uavhengig av $x$.",
+      explanation: "Kjerneregelen gir $2y$ ganget med den indre deriverte $y'$. Svaret $2y$ glemmer faktoren $y'$ og har dermed regnet som om $y$ var uavhengig av $x$.",
     },
     {
       question: "Kurven $x^{2}+y^{2}=25$ i første kvadrant har $y''=-25/y^{3}$. Hva følger?",
@@ -1848,7 +1848,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "En fallende kurve har $y''<0$. Hvordan ser den ut?",
       options: ["Slak til venstre, brattere mot høyre", "Bratt til venstre, slakere mot høyre", "Like bratt hele veien", "Først fallende, deretter stigende"],
-      explanation: "Negativ andrederivert betyr at helningen avtar, altså blir mer negativ mot høyre. Alternativ to beskriver den konvekse kurven, som er standardformen på indifferenskurver.",
+      explanation: "Negativ andrederivert betyr at helningen avtar, altså blir mer negativ mot høyre. Beskrivelsen «bratt til venstre, slakere mot høyre» passer den konvekse kurven, som er standardformen på indifferenskurver.",
     },
     {
       question: "For $x^{2}y^{3}=c$ er $y'=-\\dfrac{2y}{3x}$. Hva er $y''$ i første kvadrant?",
@@ -1865,12 +1865,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er førsteordensbetingelsene i fri optimering av $f(x,y)$?",
       options: ["$f'_x=0$ og $f'_y=0$", "$f'_x=0$ og $f''_{xx}=0$", "$f'_x=f'_y$ og $f''_{xy}=0$", "$f'_x+f'_y=0$ og $D=0$"],
-      explanation: "Begge partiellderiverte må være null samtidig — flaten er da vannrett i begge akseretninger. Alternativ tre blander sammen «like» og «null», en vanlig lesefeil.",
+      explanation: "Begge partiellderiverte må være null samtidig — flaten er da vannrett i begge akseretninger. Svaret $f'_x=f'_y$ blander sammen «like» og «null», en vanlig lesefeil.",
     },
     {
       question: "Hvordan skrives Hesse-determinanten?",
       options: ["$D=f''_{xx}f''_{yy}-(f''_{xy})^2$", "$D=f''_{xx}f''_{yy}+(f''_{xy})^2$", "$D=f''_{xx}f''_{yy}-f''_{xy}$", "$D=f''_{xx}+f''_{yy}-(f''_{xy})^2$"],
-      explanation: "Kryssleddet kvadreres og trekkes fra. Alternativ to har feil fortegn foran kryssleddet, og alternativ tre har glemt kvadratet — begge er dokumenterte regnefeil i sjangeren.",
+      explanation: "Kryssleddet kvadreres og trekkes fra. Svaret med pluss foran kryssleddet har feil fortegn, og $D=f''_{xx}f''_{yy}-f''_{xy}$ har glemt kvadratet — begge er dokumenterte regnefeil i sjangeren.",
     },
     {
       question: "Hva betyr $D<0$ i et stasjonærpunkt?",
@@ -1900,12 +1900,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva blir $f''_{xy}$ når $f(x,y)=x^2y+x^2+2y^2$?",
       options: ["$2x$", "$2y+2$", "$4$", "$x^2$"],
-      explanation: "Deriver $f'_x=2xy+2x$ mht. $y$, og alle ledd uten $y$ faller bort. Alternativ to er $f''_{xx}$ og alternativ tre er $f''_{yy}$ — begge for samme funksjon.",
+      explanation: "Deriver $f'_x=2xy+2x$ mht. $y$, og alle ledd uten $y$ faller bort. Svaret $2y+2$ er $f''_{xx}$ og $4$ er $f''_{yy}$ — begge for samme funksjon.",
     },
     {
       question: "Hva er den vanligste måten å miste et kandidatpunkt på?",
       options: ["Å dele på en faktor i stedet for å faktorisere", "Å regne $D$ i feil kandidatpunkt", "Å bruke $f''_{yy}$ i stedet for $f''_{xx}$", "Å derivere i feil rekkefølge i $f''_{xy}$"],
-      explanation: "Deling forutsetter at faktoren ikke er null, og da forsvinner hele grenen der den er null. De to siste alternativene er uskadelige: $f''_{yy}$ gir samme konklusjon når $D>0$, og Youngs teorem gjør rekkefølgen likegyldig.",
+      explanation: "Deling forutsetter at faktoren ikke er null, og da forsvinner hele grenen der den er null. De to andre feilgrepene er uskadelige: $f''_{yy}$ i stedet for $f''_{xx}$ gir samme konklusjon når $D>0$, og Youngs teorem gjør rekkefølgen i $f''_{xy}$ likegyldig.",
     },
     {
       question: "Hva sier Youngs teorem om de kryssderiverte?",
@@ -1915,7 +1915,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva blir $D$ for $f(x,y)=x^3+y^3-9xy$ i punktet $(3,3)$?",
       options: ["$243$", "$81$", "$-81$", "$324$"],
-      explanation: "Med $f''_{xx}=6x$, $f''_{yy}=6y$ og $f''_{xy}=-9$ blir $D=36xy-81=324-81$. Alternativ fire har glemt å trekke fra kryssleddet.",
+      explanation: "Med $f''_{xx}=6x$, $f''_{yy}=6y$ og $f''_{xy}=-9$ blir $D=36xy-81=324-81$. Svaret $324$ har glemt å trekke fra kryssleddet.",
     },
     {
       question: "Hva slags punkt er $(0,0)$ for $f(x,y)=x^3+y^3-9xy$?",
@@ -1935,7 +1935,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kandidatpunktet til $\\pi(x,y)=100x+80y-2x^2-2xy-2y^2$?",
       options: ["$(20,10)$", "$(10,20)$", "$(25,15)$", "$(20,20)$"],
-      explanation: "Betingelsene $2x+y=50$ og $x+2y=40$ har entydig løsning $x=20$, $y=10$. Alternativ to bytter om koordinatene, som skjer hvis man løser feil likning for feil variabel.",
+      explanation: "Betingelsene $2x+y=50$ og $x+2y=40$ har entydig løsning $x=20$, $y=10$. Svaret $(10,20)$ bytter om koordinatene, som skjer hvis man løser feil likning for feil variabel.",
     },
     {
       question: "Hva skiller fri optimering fra Lagrange-oppgaven i lesningen av teksten?",
@@ -1972,7 +1972,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er stasjonærpunktet til $f(x,y)=2x^2+y^2+2xy-8x-6y$?",
       options: ["$(1,2)$", "$(2,1)$", "$(2,0)$", "$(0,3)$"],
-      explanation: "Betingelsene $2x+y=4$ og $x+y=3$ gir $x=1$, $y=2$. Alternativ to bytter om koordinatene, som skjer hvis man løser feil betingelse for feil variabel.",
+      explanation: "Betingelsene $2x+y=4$ og $x+y=3$ gir $x=1$, $y=2$. Svaret $(2,1)$ bytter om koordinatene, som skjer hvis man løser feil betingelse for feil variabel.",
     },
     {
       question: "Hva slags punkt er $(0,0)$ for $f(x,y)=x^2+3xy+y^2$?",
@@ -1987,7 +1987,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $D$ for $f(x,y)=x^3-12xy+8y^3$?",
       options: ["$288xy-144$", "$288xy+144$", "$288xy-12$", "$48xy-144$"],
-      explanation: "Med $f''_{xx}=6x$, $f''_{yy}=48y$ og $f''_{xy}=-12$ blir $D=288xy-(-12)^2$. Alternativ tre har glemt å kvadrere kryssleddet, alternativ to har feil fortegn.",
+      explanation: "Med $f''_{xx}=6x$, $f''_{yy}=48y$ og $f''_{xy}=-12$ blir $D=288xy-(-12)^2$. Svaret $288xy-12$ har glemt å kvadrere kryssleddet, og $288xy+144$ har feil fortegn.",
     },
     {
       question: "Hvor mange globale maksimumspunkter har $f(x,y)=4xy-x^4-y^4$?",
@@ -2019,7 +2019,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva betyr det at $f$ er homogen av grad $k$?",
       options: ["$f(tx,ty)=t^{k}f(x,y)$ for alle $t$", "$f(tx,ty)=kf(x,y)$ for alle $t>0$", "$f(x+t,y+t)=t^{k}f(x,y)$ for alle $t$", "$f(tx,y)=t^{k}f(x,y)$ for alle $t$"],
-      explanation: "Alle variablene skaleres med samme faktor, og kravet gjelder for enhver positiv $t$. Alternativ fire skalerer bare den ene variabelen, som er noe helt annet.",
+      explanation: "Alle variablene skaleres med samme faktor, og kravet gjelder for enhver positiv $t$. Svaret $f(tx,y)=t^{k}f(x,y)$ skalerer bare den ene variabelen, som er noe helt annet.",
     },
     {
       question: "Hva er homogenitetsgraden til $f(x,y)=Ax^{\\alpha}y^{\\beta}$?",
@@ -2091,7 +2091,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva sier Eulers teorem?",
       options: ["$xf'_x+yf'_y=kf$", "$xf'_x+yf'_y=f$", "$f'_x+f'_y=kf$", "$xf'_x\\cdot yf'_y=kf$"],
-      explanation: "Variablene er vekter på sine egne partiellderiverte, og summen er graden ganget med funksjonen. Alternativ to er spesialtilfellet $k=1$.",
+      explanation: "Variablene er vekter på sine egne partiellderiverte, og summen er graden ganget med funksjonen. Varianten med $f$ i stedet for $kf$ på høyresiden er spesialtilfellet $k=1$.",
     },
     {
       question: "Hvilken grad har $f'_x$ når $f$ er homogen av grad $k$?",
@@ -2101,7 +2101,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan utledes Eulers relasjon?",
       options: ["Deriver identiteten mht. $t$ og sett $t=1$", "Deriver identiteten mht. $x$ og del på $t$", "Sett $t=0$ i identiteten", "Deriver funksjonen to ganger"],
-      explanation: "Identiteten gjelder for alle $t$, så begge sider har like deriverte. Alternativ to er utledningen for homogene deriverte, ikke for Euler.",
+      explanation: "Identiteten gjelder for alle $t$, så begge sider har like deriverte. Å derivere identiteten mht. $x$ og dele på $t$ er utledningen for homogene deriverte, ikke for Euler.",
     },
     {
       question: "Hvorfor er valget $t=1$ lov i Euler-beviset?",
@@ -2153,7 +2153,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er Lagrange-funksjonen for $\\max F(x,y)$ under $g(x,y)=m$?",
       options: ["$L=F-\\lambda(g-m)$", "$L=F-\\lambda(g+m)$", "$L=F\\cdot\\lambda(g-m)$", "$L=g-\\lambda(F-m)$"],
-      explanation: "Parentesen skal være null nøyaktig når bibetingelsen holder, og målfunksjonen står utenfor. Det siste alternativet bytter om $F$ og $g$ — den dyreste lesefeilen i sjangeren.",
+      explanation: "Parentesen skal være null nøyaktig når bibetingelsen holder, og målfunksjonen står utenfor. Svaret $L=g-\\lambda(F-m)$ bytter om $F$ og $g$ — den dyreste lesefeilen i sjangeren.",
     },
     {
       question: "Hvor mange betingelser inngår i FOB-systemet?",
@@ -2203,7 +2203,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er FOB (2) for $L=x^{1/2}y^{1/2}-\\lambda(2x+3y-60)$?",
       options: ["$\\tfrac12 x^{1/2}y^{-1/2}-3\\lambda=0$", "$\\tfrac12 x^{-1/2}y^{1/2}-3\\lambda=0$", "$\\tfrac12 x^{1/2}y^{-1/2}-2\\lambda=0$", "$x^{1/2}y^{-1/2}-3\\lambda=0$"],
-      explanation: "Deriveres mht. $y$, er $x^{1/2}$ en konstant faktor og eksponenten på $y$ faller med én. Alternativ to deriverer mht. feil variabel, alternativ tre henter feil pris.",
+      explanation: "Deriveres mht. $y$, er $x^{1/2}$ en konstant faktor og eksponenten på $y$ faller med én. Svaret $\\tfrac12 x^{-1/2}y^{1/2}-3\\lambda=0$ deriverer mht. feil variabel, og varianten med $-2\\lambda$ henter feil pris.",
     },
     {
       question: "Gir $L=F-\\lambda(g-m)$ og $L=F+\\lambda(m-g)$ samme løsning?",
@@ -2250,12 +2250,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva blir tangeringsbetingelsen for $\\max\\ \\ln x+\\ln y$ under $p_1x+p_2y=m$?",
       options: ["$y/x=p_1/p_2$", "$y/x=p_2/p_1$", "$xy=p_1p_2$", "$x/y=p_1p_2$"],
-      explanation: "Deling av FOB gir $(1/x)/(1/y)=p_1/p_2$, altså $y/x=p_1/p_2$. Alternativ to er den snudde brøken, den vanligste regnefeilen i steget.",
+      explanation: "Deling av FOB gir $(1/x)/(1/y)=p_1/p_2$, altså $y/x=p_1/p_2$. Svaret $y/x=p_2/p_1$ er den snudde brøken, den vanligste regnefeilen i steget.",
     },
     {
       question: "Hva er $x^*$ for $\\max\\ \\ln x+\\ln y$ under $p_1x+p_2y=m$?",
       options: ["$m/(2p_1)$", "$m/(2p_2)$", "$m/p_1$", "$2m/p_1$"],
-      explanation: "Tangeringsbetingelsen gir like utgifter på hvert gode, altså $p_1x=m/2$. Alternativ tre glemmer at halve budsjettet går til det andre godet.",
+      explanation: "Tangeringsbetingelsen gir like utgifter på hvert gode, altså $p_1x=m/2$. Svaret $m/p_1$ glemmer at halve budsjettet går til det andre godet.",
     },
     {
       question: "Hva er $\\lambda$ for $\\max\\ \\ln x+\\ln y$ under $p_1x+p_2y=m$?",
@@ -2347,7 +2347,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $dU^*/dp_1$?",
       options: ["$-\\lambda x^*$", "$\\lambda x^*$", "$-\\lambda y^*$", "$-x^*/\\lambda$"],
-      explanation: "Prisen står i leddet $-\\lambda p_1x$, som gir $-\\lambda x$ evaluert i optimum. Alternativ tre bruker mengden av feil gode.",
+      explanation: "Prisen står i leddet $-\\lambda p_1x$, som gir $-\\lambda x$ evaluert i optimum. Svaret $-\\lambda y^*$ bruker mengden av feil gode.",
     },
     {
       question: "Hvorfor faller leddene fra $dx^*/da$ bort i omhyllingsteoremet?",
@@ -2424,7 +2424,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $x_i^*$ for $\\max\\sum\\ln x_i$ under $p\\sum x_i=m$?",
       options: ["$m/(np)$", "$m/p$", "$np/m$", "$m/(n+p)$"],
-      explanation: "Symmetrien gir $n$ like verdier, og bibetingelsen $pnx=m$ løses for $x$. Alternativ to glemmer faktoren $n$, den vanligste feilen her.",
+      explanation: "Symmetrien gir $n$ like verdier, og bibetingelsen $pnx=m$ løses for $x$. Svaret $m/p$ glemmer faktoren $n$, den vanligste feilen her.",
     },
     {
       question: "Hva er $\\lambda$ i samme problem?",
@@ -2506,7 +2506,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva blir tangeringsbetingelsen for $\\max\\ x^{1/3}y^{2/3}$ under $x+4y=90$?",
       options: ["$x=2y$", "$y=2x$", "$x=4y$", "$x=y$"],
-      explanation: "Deling av FOB gir $\\frac12\\cdot\\frac{y}{x}=\\frac14$, altså $x=2y$. Alternativ tre forveksler tangeringsbetingelsen med prisforholdet alene.",
+      explanation: "Deling av FOB gir $\\frac12\\cdot\\frac{y}{x}=\\frac14$, altså $x=2y$. Svaret $x=4y$ forveksler tangeringsbetingelsen med prisforholdet alene.",
     },
     {
       question: "Har $U=\\sqrt{x}+\\sqrt{y}$ faste budsjettandeler?",
@@ -2613,17 +2613,17 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva utgjør lønnskostnaden $wN^*$ når $F(N)=AN^{a}$?",
       options: ["$a\\cdot pF(N^*)$", "$(1-a)\\,pF(N^*)$", "$pF(N^*)$", "$a\\cdot F(N^*)$"],
-      explanation: "Innsatt fra betingelsen blir $wN^*=paA(N^*)^{a}$, altså andelen $a$ av salgsinntekten. Andelen $1-a$ er profittens del, og siste alternativ har mistet prisen $p$.",
+      explanation: "Innsatt fra betingelsen blir $wN^*=paA(N^*)^{a}$, altså andelen $a$ av salgsinntekten. Andelen $1-a$ er profittens del, og $a\\cdot F(N^*)$ har mistet prisen $p$.",
     },
     {
       question: "Hva er den maksimale profitten for $F(N)=AN^{a}$?",
       options: ["$(1-a)\\,pA(N^*)^{a}$", "$a\\,pA(N^*)^{a}$", "$(1-a)\\,pA(N^*)^{a-1}$", "$(1-a)\\,wA(N^*)^{a}$"],
-      explanation: "Salgsinntekten er $pA(N^*)^{a}$ og lønnskostnaden andelen $a$ av den, så resten er $1-a$. Alternativ to bytter om de to andelene, og de siste roter med eksponenten og prisen.",
+      explanation: "Salgsinntekten er $pA(N^*)^{a}$ og lønnskostnaden andelen $a$ av den, så resten er $1-a$. Svaret $a\\,pA(N^*)^{a}$ bytter om de to andelene, mens varianten med eksponenten $a-1$ og varianten med $w$ i stedet for $p$ roter med henholdsvis eksponenten og prisen.",
     },
     {
       question: "Hva er førsteordensbetingelsene når bedriften bruker både $K$ og $N$?",
       options: ["$p\\,F'_K=r$ og $p\\,F'_N=w$", "$p\\,F'_K=w$ og $p\\,F'_N=r$", "$F'_K=r$ og $F'_N=w$", "$p\\,F'_K=p\\,F'_N$ og $r=w$"],
-      explanation: "Hver faktor får sin egen betingelse: grenseinntektsproduktet skal møte faktorens egen pris. Alternativ to bytter om $r$ og $w$, og tredje glemmer prisen slik at mengder settes lik kroner.",
+      explanation: "Hver faktor får sin egen betingelse: grenseinntektsproduktet skal møte faktorens egen pris. Svaret $p\\,F'_K=w$ og $p\\,F'_N=r$ bytter om $r$ og $w$, og svaret uten $p$ foran glemmer prisen slik at mengder settes lik kroner.",
     },
     {
       question: "$F(K,N)=K^{1/4}N^{1/4}$, $p=24$ og $r=w=3$. Hva blir $K^*$ og $N^*$?",
@@ -2680,12 +2680,12 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kostnadsandelen til kapital for $F=K^{a}L^{b}$?",
       options: ["$\\dfrac{a}{a+b}$", "$\\dfrac{b}{a+b}$", "$\\dfrac{a}{b}$", "$\\dfrac{ar}{a+b}$"],
-      explanation: "Tangeringsbetingelsen gir $wL^*=\\tfrac{b}{a}rK^*$, og andelen følger direkte. Alternativ to er arbeidskraftens andel, og prisene inngår ikke — de påvirker mengdene, ikke andelene.",
+      explanation: "Tangeringsbetingelsen gir $wL^*=\\tfrac{b}{a}rK^*$, og andelen følger direkte. Svaret $\\frac{b}{a+b}$ er arbeidskraftens andel, og prisene inngår ikke — de påvirker mengdene, ikke andelene.",
     },
     {
       question: "Hva blir $MP_K/MP_L$ for CES-teknologien $\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma}$?",
       options: ["$\\left(\\dfrac{K}{L}\\right)^{\\gamma-1}$", "$\\left(\\dfrac{K}{L}\\right)^{\\gamma}$", "$\\dfrac{\\alpha}{\\gamma}\\left(\\dfrac{K}{L}\\right)^{\\gamma-1}$", "$\\left(\\dfrac{L}{K}\\right)^{\\gamma-1}$"],
-      explanation: "Både $\\alpha$ og hele parentesen er felles faktorer og forkortes bort. At $\\alpha$ blir stående er den vanligste slurvefeilen, og siste alternativ snur faktorforholdet.",
+      explanation: "Både $\\alpha$ og hele parentesen er felles faktorer og forkortes bort. At $\\alpha$ blir stående er den vanligste slurvefeilen, og $\\left(\\frac{L}{K}\\right)^{\\gamma-1}$ snur faktorforholdet.",
     },
     {
       question: "Hva er substitusjonselastisiteten for CES-teknologien?",
@@ -2737,7 +2737,7 @@ const quizData_econ1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er $dN^*/dw$ når $pF'(N^*)=w$?",
       options: ["$\\dfrac{1}{p\\,F''(N^*)}$", "$\\dfrac{1}{F''(N^*)}$", "$\\dfrac{p}{F''(N^*)}$", "$-\\dfrac{1}{p\\,F''(N^*)}$"],
-      explanation: "Implisitt derivasjon gir $pF''(N^*)\\cdot dN^*/dw=1$. Prisen står i nevneren fordi den er med i venstresiden; det ekstra minustegnet i siste alternativ ville snudd fortegnet til positivt.",
+      explanation: "Implisitt derivasjon gir $pF''(N^*)\\cdot dN^*/dw=1$. Prisen står i nevneren fordi den er med i venstresiden; det ekstra minustegnet i $-\\frac{1}{p\\,F''(N^*)}$ ville snudd fortegnet til positivt.",
     },
     {
       question: "Hvorfor er $dN^*/dw$ negativ?",
