@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor k in range(2, 11, 3):\n    total += k\nprint(total)\n```",
+    "options": [
+      "15",
+      "26",
+      "18",
+      "8"
+    ],
+    "explanation": "`range(2, 11, 3)` gir 2, 5 og 8 — `stop` er eksklusiv, så 11 er ikke med, og summen blir 15. Svaret 26 er summen hvis du tar 11 med (av-én-feilen i `range`), 18 er $0+3+6+9$ hvis du glemmer at `start` er 2, og 8 er den siste `k`-verdien i stedet for summen."
+  },
+  {
+    "question": "Programmet skriver ut én linje. Hvilken?\n\n```python\nfor i in range(1, 4):\n    for j in range(i):\n        print(i + j, end=' ')\nprint()\n```",
+    "options": [
+      "1 2 3 3 4 5",
+      "1 2 3 4 5 6",
+      "2 3 4 4 5 6",
+      "1 3 5"
+    ],
+    "explanation": "Den indre løkka går `i` runder, så det skrives 1 + 2 + 3 = 6 tall: 1; 2, 3; 3, 4, 5. `end=' '` samler alt på én linje. Alternativet `2 3 4 4 5 6` er svaret hvis den indre løkka leses som `range(1, i + 1)`, `1 3 5` er bare siste `j` i hver runde, og `1 2 3 4 5 6` er en løpende telling uten at `i + j` regnes ut."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\ntall = [4, 9, 16, 25, 36]\nprint(tall[-2], tall[1:4])\n```",
+    "options": [
+      "25 [9, 16, 25]",
+      "36 [9, 16, 25]",
+      "25 [9, 16, 25, 36]",
+      "16 [4, 9, 16]"
+    ],
+    "explanation": "`tall[-2]` er nest siste element (25), og `tall[1:4]` er utsnittet fra indeks 1 til og med 3, altså `[9, 16, 25]` — slutten er eksklusiv. Svaret `36 …` leser `-2` som siste element, `… [9, 16, 25, 36]` tar med indeks 4, og `16 [4, 9, 16]` teller indeksene fra 1 i stedet for fra 0."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nrute = ['R1', 'R2', 'R3', 'R4']\nfunn = [4, 9, 2]\ns = 0\nfor navn, antall in zip(rute, funn):\n    s += antall\nprint(len(rute), s)\n```",
+    "options": [
+      "4 15",
+      "3 15",
+      "4 20",
+      "3 20"
+    ],
+    "explanation": "`zip` stopper ved den korteste sekvensen, så løkka går tre runder og summen blir 4 + 9 + 2 = 15 — men `len(rute)` spør om lista og er fortsatt 4. Svaret `3 15` forveksler listelengden med antall iterasjoner, og de to med 20 later som `zip` fyller ut en fjerde rute."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nmasse = 80.0\nhalveringer = 0\nwhile masse > 5:\n    masse = masse / 2\n    halveringer += 1\nprint(masse, halveringer)\n```",
+    "options": [
+      "5.0 4",
+      "2.5 5",
+      "5 4",
+      "10.0 3"
+    ],
+    "explanation": "Massen går 80, 40, 20, 10, 5 — ved femte sjekk er `masse` nøyaktig 5.0, og `5.0 > 5` er usann, så det blir fire halveringer. `2.5 5` er svaret med `>=` i stedet for `>`, `5 4` skriver flyttallet som heltall, og `10.0 3` stopper én runde for tidlig."
+  },
+  {
+    "question": "Hva er verdien av `y[x[0]][x[-1]:]` når `x = [2, 0, 3]` og `y = [[5, 8, 13], [21, 34, 55], [89, 144, 233]]`?",
+    "options": [
+      "`[]` — utsnittet blir tomt",
+      "`[233]` — bare siste element",
+      "`89` — første element i raden",
+      "`IndexError` — indeksen finnes ikke"
+    ],
+    "explanation": "`x[0]` er 2, så vi er i raden `[89, 144, 233]`, og `x[-1]` er 3, så utsnittet `[3:]` starter etter siste element og blir tomt. Et utsnitt utenfor kanten gir tom liste, ikke feil — derfor er `IndexError` galt, mens `y[2][3]` (indeksering) faktisk ville gitt `IndexError`. `[233]` og `89` er svarene hvis du leser uttrykket som indeksering av ett element."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nprint(-11 // 4, 2 ** 2 ** 3, 8 / 4)\n```",
+    "options": [
+      "-3 256 2.0",
+      "-2 256 2.0",
+      "-3 64 2",
+      "-2 64 2.0"
+    ],
+    "explanation": "`//` runder nedover, så $-2.75$ blir −3; `**` er høyre-assosiativ, så uttrykket er $2^{8} = 256$; og `/` gir alltid flyttall, altså `2.0`. Svarene med −2 runder mot null slik `int` gjør, 64 regner $(2^2)^3$ fra venstre, og `2` glemmer at `/` aldri gir heltall."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nmaling = [2, 3]\nvektor = np.array([2, 3])\nprint(maling + maling, vektor + vektor)\n```",
+    "options": [
+      "[2, 3, 2, 3] [4 6]",
+      "[4, 6] [4 6]",
+      "[2, 3, 2, 3] [2, 3, 2, 3]",
+      "[4, 6] [2 3 2 3]"
+    ],
+    "explanation": "`+` på to lister skjøter dem sammen, mens `+` på to NumPy-arrayer legger sammen element for element — og arrayet skrives uten komma. Alternativene bytter om de to betydningene eller bruker samme regel for begge, som er den vanligste forvekslingen mellom liste og array."
+  },
+  {
+    "question": "Hva skriver programmet ut? Utskriften er vist mellom fnutter så mellomrommene blir synlige.\n\n```python\ntid = 3.14159\nnummer = 7\nprint(f'{tid:6.2f}|{nummer:03d}')\n```",
+    "options": [
+      "'  3.14|007'",
+      "'3.14|007'",
+      "'  3.14|7'",
+      "'  3.142|007'"
+    ],
+    "explanation": "`{tid:6.2f}` betyr to desimaler og minst seks tegn bredde, så `3.14` fylles ut med to mellomrom foran; `{nummer:03d}` fyller med nuller til tre tegn. Alternativene glemmer bredden, glemmer nullfyllet, eller leser 6 som antall desimaler i stedet for total bredde."
+  },
+  {
+    "question": "Filen `analyse.py` inneholder:\n\n```python\nimport sys\n\nmaling = [8.0, 0.0, 2.5]\ni = int(sys.argv[1])\nfaktor = float(sys.argv[2])\nprint(maling[i] / (faktor * maling[i - 1]))\n```\n\nHvilken feil utløses av `python analyse.py 2 1.5`?",
+    "options": [
+      "`ZeroDivisionError` — float division by zero",
+      "`IndexError` — list index out of range",
+      "`ValueError` — invalid literal for int()",
+      "`TypeError` — unsupported operand type(s)"
+    ],
+    "explanation": "`sys.argv[0]` er filnavnet, så `i` blir 2 og `faktor` 1.5. Siste linje regner `maling[2] / (1.5 * maling[1])`, og `maling[1]` er 0.0 — nevneren blir null. `IndexError` ville kommet av et manglende argument eller en indeks utenfor lista, og `ValueError` av `int('to')`; ingen av dem inntreffer her."
+  },
+  {
+    "question": "Programmet skriver to linjer. Hvilket alternativ har begge riktig?\n\n```python\ncelle = {'A1': {'spenning': 4, 'strom': 7}, 'B2': {'spenning': 9}}\ncelle['B2']['strom'] = 3\nprint(len(celle), celle['A1']['strom'] + celle['B2']['strom'])\nprint('strom' in celle, 'A1' in celle)\n```",
+    "options": [
+      "2 10 og False True",
+      "2 10 og True True",
+      "2 12 og False True",
+      "3 10 og False True"
+    ],
+    "explanation": "Innsettingen legger `strom` til i den indre dictionaryen, så den ytre har fortsatt to nøkler og summen er 7 + 3 = 10. `in` på en dictionary spør bare om de ytre nøklene, derfor er `'strom' in celle` usann. `3 10` teller den indre nøkkelen som en ytre, `2 12` summerer feil nøkler, og `True True` tror `in` søker gjennom hele strukturen."
+  },
+  {
+    "question": "Filen `rystelser.txt` inneholder linjene `dato;styrke`, `2026-03-02;2.4`, `2026-03-05;3.1` og `2026-03-11;1.7`. Hva skriver programmet ut?\n\n```python\nsum_styrke = 0\nwith open('rystelser.txt') as infile:\n    infile.readline()\n    for linje in infile:\n        felt = linje.split(';')\n        sum_styrke += float(felt[1])\nprint(sum_styrke)\n```",
+    "options": [
+      "7.2",
+      "4.8",
+      "7",
+      "programmet stopper med ValueError"
+    ],
+    "explanation": "`infile.readline()` kaster overskriftslinja, og løkka summerer 2.4 + 3.1 + 1.7 = 7.2 — flyttall, fordi `float` brukes. `ValueError` er det som ville skjedd UTEN `readline()`-linja, `4.8` er svaret hvis du tror to linjer hoppes over, og `7` skriver summen som heltall."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\nlinje = 'prove-7; 12.5 ;3\\n'\nfelt = linje.split(';')\nprint(len(felt), repr(felt[-1]))\n```",
+    "options": [
+      "`3` og `'3\\n'`",
+      "`3` og `'3'`",
+      "`2` og `'3'`",
+      "`2` og `' 12.5 '`"
+    ],
+    "explanation": "To semikolon gir tre felt, og `split` fjerner ingenting annet enn skilletegnet — linjeskiftet henger igjen i siste felt, noe `repr` viser. Med `linje.strip().split(';')` ville siste felt vært `'3'`; alternativene med 2 teller feltene feil."
+  },
+  {
+    "question": "Hva skjer med denne løkka?\n\n```python\ns = 0.0\nwhile s != 1.0:\n    s = s + 0.1\n```",
+    "options": [
+      "Den går uendelig, fordi `s` aldri blir eksakt 1.0",
+      "Den terminerer etter 10 tillegg, når `s` er 1.0",
+      "Den terminerer etter 11 tillegg, ett skritt forbi 1.0",
+      "Den går uendelig, fordi `s` vokser uten øvre grense"
+    ],
+    "explanation": "Etter ti tillegg er `s` lik 0.9999999999999999 og etter elleve 1.0999999999999999, så likhetstesten blir aldri sann og løkka går evig. At `s` vokser er riktig, men det er ikke grunnen — med `while s < 1.0` ville løkka terminert. Dette er samme grunn til at testfunksjoner bruker `abs(forventet - beregnet) < tol` og aldri `==` på flyttall."
+  },
+  {
+    "question": "Lista `verdier` er ikke-tom og kan inneholde negative tall. Hvilken kodebit ender med den største verdien i `storst`?",
+    "options": [
+      "`storst = verdier[0]` og så `for v in verdier: if v > storst: storst = v`",
+      "`storst = 0` og så `for v in verdier: if v > storst: storst = v`",
+      "`storst = 0` og så `for v in verdier: if v < storst: storst = v`",
+      "`storst = verdier[-1]` og så `for v in verdier: if v < storst: storst = v`"
+    ],
+    "explanation": "Startverdien må hentes fra lista selv, ellers svarer koden med et tall som ikke finnes der: med `storst = 0` og bare negative verdier blir svaret 0. De to siste alternativene snur dessuten sammenligningen og finner den minste verdien."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\ndef juster(verdi):\n    verdi = verdi + 10\n    return verdi\n\nverdi = 5\nny = juster(verdi)\nprint(verdi, ny)\n```",
+    "options": [
+      "5 15",
+      "15 15",
+      "5 5",
+      "15 5"
+    ],
+    "explanation": "Tilordningen inne i funksjonen lager en lokal variabel; den globale `verdi` er urørt, mens returverdien blir 15. `15 15` er svaret hvis du tror funksjonen endrer den globale variabelen. Merk at en endring på plass i en liste (`verdier[0] = ...`) derimot ville vært synlig utenfor."
+  },
+  {
+    "question": "Hva skriver programmet ut?\n\n```python\ntekst = 'nord-sor-ost'\ndeler = tekst.split('-')\nprint(deler[1], '+'.join(deler[:2]), tekst.index('sor'))\n```",
+    "options": [
+      "sor nord+sor 5",
+      "sor nord+sor 4",
+      "sor nord+sor+ost 5",
+      "nord nord+sor 5"
+    ],
+    "explanation": "`deler` er `['nord', 'sor', 'ost']`, `deler[:2]` er de to første, og `index` gir posisjonen til `s` i `'nord-sor-ost'` — tegnene er n(0) o(1) r(2) d(3) -(4) s(5). Svaret 4 glemmer at bindestreken er et tegn, `nord+sor+ost` glemmer at utsnittets slutt er eksklusiv, og `nord …` leser `deler[1]` som første element."
+  },
+  {
+    "question": "Funksjonen `derivert` regner ut en numerisk derivert:\n\n```python\ndef derivert(g, x, h=1e-5):\n    return (g(x + h) - g(x - h)) / (2 * h)\n```\n\nHvilket kall gir en tilnærming til den deriverte av $f(x) = x^3$ i $x = 2$?",
+    "options": [
+      "`derivert(lambda x: x**3, 2)`",
+      "`derivert(x**3, 2)`",
+      "`derivert('x**3', 2)`",
+      "`derivert(x**3, 2, 1e-5)`"
+    ],
+    "explanation": "`derivert` kaller `g` som funksjon, så det første argumentet må være kallbart — en `lambda` er nettopp det. `x**3` er et uttrykk som regnes ut på stedet (og gir `NameError` fordi `x` ikke finnes der kallet står), og en streng kan ikke kalles. Riktig `h`-verdi hjelper ikke når første argument er feil."
+  },
+  {
+    "question": "Hva gir `t[1:4:2]` når `t = [0.0, 0.5, 1.0, 1.5, 2.0]`?",
+    "options": [
+      "[0.5, 1.5]",
+      "[0.5, 1.0]",
+      "[0.5, 1.0, 1.5]",
+      "0.5"
+    ],
+    "explanation": "Utsnittet leses `[start:stopp:skritt]`, akkurat som `range(start, stop, step)`: indeks 1, deretter 3, og stopp før indeks 4. `[0.5, 1.0]` leser 2 som «to elementer» i stedet for skrittlengde, `[0.5, 1.0, 1.5]` glemmer skrittet, og `0.5` gjør et utsnitt til et element."
+  },
+  {
+    "question": "Gitt funksjonen\n\n```python\ndef middel(verdier):\n    assert len(verdier) > 0, 'tom liste'\n    return sum(verdier) / len(verdier)\n```\n\nHvilken feil utløses av `middel([2, 'tre'])`?",
+    "options": [
+      "`TypeError` — `sum` kan ikke legge sammen tall og streng",
+      "`AssertionError` — testen i `assert`-linja slår til",
+      "`ValueError` — strengen kan ikke tolkes som tall",
+      "Ingen feil — funksjonen returnerer et tall"
+    ],
+    "explanation": "`assert`-testen går fint fordi lengden er 2, men `sum` prøver `2 + 'tre'` og gir `TypeError: unsupported operand type(s) for +: 'int' and 'str'`. `AssertionError` kommer bare for en tom liste, og `ValueError` ville krevd et forsøk på `float('tre')`, som denne koden ikke gjør."
+  }
+]

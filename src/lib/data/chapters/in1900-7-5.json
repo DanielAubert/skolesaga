@@ -1,0 +1,360 @@
+{
+ "id": "in1900-7-5",
+ "courseId": "in1900",
+ "chapterNumber": "7.5",
+ "title": "DRILL — ODE-oppgaver med roterende innpakning",
+ "description": "Full drill på I-, J- og K-sjangrene: samme ODE-øvelse under skiftende vitenskapelig innpakning, slik at mønsteret gjenkjennes uansett kontekst.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "kunne oversette en modell med flere størrelser til en høyreside med utpakking og returliste, uansett hvilken innpakning oppgaven bruker",
+  "kunne sette opp og kjøre det utleverte løserhierarkiet, og pakke ut komponentene riktig før plottet",
+  "kunne skrive en egen løser som funksjon og en ny metode som subklasse, inkludert den implisitte varianten med nullpunktsløser",
+  "kunne finne og rette de fem feilene som koster mest, og bruke fornuftssjekker når det ikke finnes noen fasit"
+ ],
+ "content": [
+  {
+   "id": "in1900-7-5-tip-vinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel: den tyngste oppgaven på settet",
+   "content": "Dette er drillkapitlet for Del 7 — ODE-oppgavene, altså «løs en differensiallikning numerisk». Tre sjangre møtes her:\n\n- **Sjanger J** — ODE-system løst med det utleverte `ODESolver`-hierarkiet. Står i **hvert eneste av de åtte gjennomgåtte avsluttende settene (100 prosent)** og teller **9–10 poeng**. Det er den tyngste enkeltoppgaven på et typisk sett.\n- **Sjanger I** — skriv en ODE-løser som funksjon fra bunnen, typisk forlengs Euler. Kommer jevnlig og teller **5 poeng**.\n- **Sjanger K** — subklasse av `ODESolver` der du skriver kun `advance`. Topp-differensierende, **3–5 poeng**.\n\nPrioriteten er den høyeste boka har: dette **må sitte**. Sjanger J alene er verdt mer enn hele flervalgsskallet på et typisk sett.\n\nGrunnen til at et helt kapittel går til drill, er at oppgaven er den samme hvert år, mens **innpakningen roterer**: et smitteutbrudd, en planetbane, en nervecelle, en værmodell, to bestander som spiser hverandre. Klarer du å oversette modellen til en høyreside `f(t, u)`, er resten fire faste linjer.\n\nDu besvarer alt som **fritekst** i Inspera, UiOs digitale eksamenssystem, uten hjelpemidler og uten å kunne kjøre koden. `ODESolver`-modulen leveres derimot som **vedlegg**, og du skal bruke den — ikke skrive den.\n\nKapitlet har tre deler: én løsningsoppskrift på sju steg, ett gjennomarbeidet eksamenscase med sensorkommentar ved hvert steg, og ti oppgaver på eksamensnivå med roterende innpakning.\n\n**Om delpoeng:** sensor gir uttelling for hvert steg for seg — høyresidens signatur, utpakkingen av tilstandsvektoren, returtypen, de tre kallene på løseren, utpakkingen av kolonnene, plottet. Riktig ODE-oppsett belønnes selv med en indeksfeil eller en glemt etikett."
+  },
+  {
+   "id": "in1900-7-5-forkunn",
+   "type": "text",
+   "content": "## Sist du var her\n\nDrillen forutsetter hele Del 7: [kap. 7.1](/bok/in1900/in1900-7-1) (egen forlengs-Euler-funksjon), [kap. 7.2](/bok/in1900/in1900-7-2) (bruk av hierarkiet), [kap. 7.3](/bok/in1900/in1900-7-3) (systemer) og [kap. 7.4](/bok/in1900/in1900-7-4) (subklasser). Her er de tre grepene du kommer til å bruke i hver eneste oppgave, oppfrisket med kjørt utskrift.\n\n**1. Egen løser som funksjon (sjanger I).** `N` skritt, `N+1` punkter, startverdien før løkka.\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -0.5*u\n\nt, u = forward_euler(f, 4.0, 40, 3.0)\nprint(len(t), f'{u[-1]:.6f}', f'{3*np.exp(-2):.6f}')\n```\n\n**Utskrift:**\n```\n41 0.385536 0.406006\n```\n\nMed bare 40 skritt er forlengs Euler nesten fem prosent unna. Det er metodens feil, ikke kodens.\n\n**2. Det utleverte hierarkiet (sjanger J).** Tre kall: konstruktør, startbetingelse, `solve`.\n\n```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.5*u\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(3.0)\nt, u = solver.solve((0, 4), 40)\nprint(len(t), f'{u[-1]:.6f}', f'{3*np.exp(-2):.6f}')\n```\n\n**Utskrift:**\n```\n41 0.406006 0.406006\n```\n\nSamme antall skritt, seks riktige desimaler. Det er derfor `RungeKutta4` er standardvalget når oppgaven ikke sier noe annet.\n\n**3. Systemer.** Pakk ut `u` i høyresiden, returner en liste, og pakk ut **kolonnene** etterpå.\n\n```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    x, y = u\n    return [y, -x]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([1.0, 0.0])\nt, u = solver.solve((0, 6), 600)\nx, y = u[:, 0], u[:, 1]\nprint(u.shape)\nprint(f'{x[-1]:.6f} {np.cos(6):.6f}')\n```\n\n**Utskrift:**\n```\n(601, 2)\n0.960170 0.960170\n```\n\nFormen `(601, 2)` sier alt: 601 tidspunkter i radene, 2 komponenter i kolonnene. Er noe av dette uklart, les [kap. 7.3](/bok/in1900/in1900-7-3) først — drillen forklarer ikke konstruksjonene på nytt.\n\n## Forkunnskaper\n\n- **Egen forlengs-Euler-løser som funksjon (sjanger I):** [kap. 7.1](/bok/in1900/in1900-7-1).\n- **Det utleverte `ODESolver`-hierarkiet og de tre kallene:** [kap. 7.2](/bok/in1900/in1900-7-2).\n- **ODE-systemer: høyresiden `f(t, u)` og utpakking av kolonnene:** [kap. 7.3](/bok/in1900/in1900-7-3).\n- **Subklasse av `ODESolver` med `advance` (sjanger K):** [kap. 7.4](/bok/in1900/in1900-7-4).\n- **NumPy-tabeller, `np.zeros` og `np.linspace`:** [kap. 4.1](/bok/in1900/in1900-4-1).\n- **Plotting med `label=` og `plt.legend()`:** [kap. 4.3](/bok/in1900/in1900-4-3)."
+  },
+  {
+   "id": "in1900-7-5-oppskrift",
+   "type": "theorem",
+   "title": "Løsningsoppskriften for sjanger J — sju steg",
+   "content": "Les modellen i oppgaven, og gjør så dette, i rekkefølge.\n\n1. **Identifisér tilstandsvariablene.** Hvor mange størrelser endrer seg over tid? Det er antall likninger, antall komponenter i `u`, og antall kolonner i svaret.\n2. **Skriv høyresiden** `def f(t, u):` — tiden **først**. Første linje pakker ut: `S, E, I, D = u`. Deretter én linje per derivert, og `return [dS, dE, dI, dD]` som **liste**, i samme rekkefølge som utpakkingen.\n3. **Sett parametrene** som variabler over funksjonen, eller lagre dem i en klasse med `__call__(self, t, u)` hvis oppgaven ber om det. Løseren kaller `f` med bare to argumenter, så parametrene kan ikke sendes inn.\n4. **Sett `u0`** som en **liste** av startverdier, i samme rekkefølge som utpakkingen.\n5. **De tre kallene:** `solver = RungeKutta4(f)`, `solver.set_initial_condition(u0)`, `t, u = solver.solve((0, T), N)`. Merk at `t_span` er én tuppel, altså ett argument.\n6. **Pakk ut kolonnene:** `S, E, I, D = u[:, 0], u[:, 1], u[:, 2], u[:, 3]`. `u[k]` er hele tilstanden ved tidspunkt `k` — noe helt annet.\n7. **Plott:** ett `plt.plot(t, komponent, label='navn')` per kurve, aksenavn, `plt.legend()`, `plt.show()`. Beskriv figuren i ord hvis oppgaven ber om det.\n\nSkjelettet er alltid dette, og det er verdt å skrive ned først, før du fyller inn modellen:\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    x, y = u\n    dx = 0.0\n    dy = 0.0\n    return [dx, dy]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([2.0, 5.0])\nt, u = solver.solve((0, 10), 100)\nprint(u.shape, u[-1, 0], u[-1, 1])\n```\n\n**Utskrift:**\n```\n(101, 2) 2.0 5.0\n```\n\nSkjelettet gir uttelling i seg selv — her står begge komponentene stille, fordi de deriverte er null. Fyller du inn modellen feil, mister du ett eller to poeng; glemmer du skjelettet, mister du oppgaven."
+  },
+  {
+   "id": "in1900-7-5-warn-api",
+   "type": "warning",
+   "title": "Les vedlegget før du skriver — API-driften (#14)",
+   "content": "ODE-oppgavene kommer med `ODESolver`-hierarkiet som vedlegg, og **grensesnittet har endret seg over tid**. Bokas standard, og formen som gjelder fra 2023, er:\n\n- høyresiden skrives `f(t, u)` — **tid først**\n- løseren kalles `solver.solve((0, T), N)` — et tidsintervall som tuppel, og antall skritt\n\nI eldre sett (2020–2022) var rekkefølgen omvendt i høyresiden, `f(u, t)`, og `solve` tok **én** liste med ferdig utregnede tidspunkter i stedet for intervall og antall. Begge variantene er gjengitt i [kap. 7.2](/bok/in1900/in1900-7-2), i collapsiblen «Den utleverte ODESolver-modulen».\n\n**Praktisk regel på eksamen:** bruk to minutter på å lese vedleggets `solve`-signatur og `advance`-metode før du skriver noe. To minutter kan redde en tipoengsoppgave.\n\nDen lumske delen er at feil argumentrekkefølge i `f` **ikke alltid gir feilmelding**. Bruker høyresiden bare `u` og ikke `t` — som de fleste modellene i dette kapitlet gjør — kjører programmet fint og gir feil svar. Skriv derfor signaturen av vedlegget, ikke av hukommelsen.\n\n**Attributtnavnene kan også variere.** Trenger du steglengden inne i en subklasse og `self.dt` ikke finnes, virker `dt = self.t[self.n+1] - self.t[self.n]` uansett."
+  },
+  {
+   "id": "in1900-7-5-warn-typiske",
+   "type": "warning",
+   "title": "Typiske feil i sjanger I, J og K — de fem som koster mest",
+   "content": "**Feil utpakking av løsningen.** `u[:, k]` er komponent `k` gjennom hele tiden; `u[k]` er hele tilstanden ved tidspunkt `k`. Blander du dem, plotter du fire punkter i stedet for fire kurver — og figuren ser tom ut.\n\n**Høyresiden returnerer noe annet enn en liste.** For et system skal `return [dS, dI, dR]` — ikke tre separate verdier, ikke et tuppel av arrayer, og ikke bare den første. Rekkefølgen i lista må være den samme som i utpakkingen.\n\n**#1 — av-én på antall punkter.** `N` skritt gir `N+1` punkter. Det gjelder både i din egen `forward_euler` og i det utleverte hierarkiet: `solve((0, T), 100)` gir et `t` med 101 elementer.\n\n**`set_initial_condition` med flere argumenter.** For et system er startverdien **én liste**: `solver.set_initial_condition([49980, 20, 0, 0])`. Fire separate argumenter gir `TypeError`.\n\n**Glemt `label=` eller `plt.legend()`.** Figuren tegnes pent, men ingen ser hvilken kurve som er hvilken. Det koster et halvt til ett poeng hver gang, og det er den billigste feilen å unngå på hele settet.\n\n**Rekursjon er utenfor pensum i IN1900.** Et ODE-steg som avhenger av det forrige frister til å la en funksjon kalle seg selv; det er utenfor pensum, markeres uønsket i de offisielle løsningsforslagene, og gir dessuten ingen tabell å plotte. Løkka — eller det utleverte hierarkiets løkke — er den forventede løsningen."
+  },
+  {
+   "id": "in1900-7-5-case-intro",
+   "type": "text",
+   "content": "## Det gjennomarbeidede caset (~20 min)\n\nUnder står en komplett sjanger-J-oppgave av samme type og vekt som på et virkelig sett, med sensorkommentar ved hvert steg.\n\n**Oppgaven (10 poeng).** Et utbrudd i en befolkning på $N = 50\\,000$ modelleres med fire grupper: mottakelige $S$, eksponerte $E$ (smittet, men ikke smittsomme ennå), smittsomme $I$ og gjennomgått $D$. Modellen er\n\n$$S' = -\\beta\\frac{SI}{N}, \\qquad E' = \\beta\\frac{SI}{N} - \\sigma E, \\qquad I' = \\sigma E - \\gamma I, \\qquad D' = \\gamma I$$\n\nmed $\\beta = 0{,}45$, $\\sigma = 0{,}2$ og $\\gamma = 0{,}14$. Ved $t = 0$ er $E = 20$, $S = 49\\,980$ og $I = D = 0$. Tiden måles i døgn. Du har `ODESolver`-modulen med `ForwardEuler` og `RungeKutta4` tilgjengelig.\n\n**a)** (4 p) Skriv høyresiden `f(t, u)`.\n\n**b)** (3 p) Skriv koden som løser systemet fra $t = 0$ til $t = 200$ med 2000 skritt ved hjelp av `RungeKutta4`, og pakker ut de fire komponentene.\n\n**c)** (3 p) Skriv plottekoden og beskriv figuren."
+  },
+  {
+   "id": "in1900-7-5-case-ab",
+   "type": "example",
+   "title": "Modellbesvarelse del (a) og (b): høyresiden og de tre kallene",
+   "problem": "Del (a), 4 poeng: skriv `f(t, u)`. Del (b), 3 poeng: løs systemet og pakk ut komponentene.",
+   "solution": "Gå gjennom oppskriften. Fire tilstandsvariabler gir fire likninger, fire komponenter i `u` og fire kolonner i svaret. Parametrene settes som variabler over funksjonen — løseren kaller `f` med bare to argumenter, så de kan ikke sendes inn.\n\nLegg merke til navnet `N_tot` på befolkningsstørrelsen. Bokstaven `N` er allerede opptatt av antall skritt i `solve`, og de to må ikke blandes.\n\n```python\nN_tot = 50000\nbeta = 0.45\nsigma = 0.2\ngamma = 0.14\n\ndef f(t, u):\n    S, E, I, D = u\n    dS = -beta*S*I/N_tot\n    dE = beta*S*I/N_tot - sigma*E\n    dI = sigma*E - gamma*I\n    dD = gamma*I\n    return [dS, dE, dI, dD]\n\nprint(f(0, [49980, 20, 0, 0]))\n```\n\n**Utskrift:**\n```\n[-0.0, -4.0, 4.0, 0.0]\n```\n\nKontrollen ved $t = 0$ er verdt de ti sekundene den tar. Med $I = 0$ smittes ingen ennå, så den første komponenten er null. De 20 eksponerte blir smittsomme med rate $\\sigma = 0{,}2$, altså 4 personer per døgn — derfor $-4$ i den andre komponenten og $+4$ i den tredje. Og ingen har gjennomgått sykdommen ennå, så den fjerde er null.\n\n**Del (b).** De tre kallene, og deretter utpakkingen. For et system er `u` **todimensjonalt**: rad `n` er tilstanden ved tidspunkt `n`, kolonne `k` er komponent nummer `k`.\n\n```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\nN_tot = 50000\nbeta = 0.45\nsigma = 0.2\ngamma = 0.14\n\ndef f(t, u):\n    S, E, I, D = u\n    return [-beta*S*I/N_tot, beta*S*I/N_tot - sigma*E, sigma*E - gamma*I, gamma*I]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([49980, 20, 0, 0])\nt, u = solver.solve((0, 200), 2000)\nS, E, I, D = u[:, 0], u[:, 1], u[:, 2], u[:, 3]\n\nprint('u.shape =', u.shape)\nprint(f'maks I = {I.max():.1f} paa dag {t[I.argmax()]:.1f}')\nprint(f'slutt: S = {S[-1]:.1f}  E = {E[-1]:.1f}  I = {I[-1]:.1f}  D = {D[-1]:.1f}')\nprint(f'sum = {S[-1]+E[-1]+I[-1]+D[-1]:.1f}')\n```\n\n**Utskrift:**\n```\nu.shape = (2001, 4)\nmaks I = 9339.2 paa dag 67.8\nslutt: S = 2333.5  E = 0.0  I = 0.1  D = 47666.4\nsum = 50000.0\n```\n\nTre kontroller verdt å gjøre på eksamen. Formen er `(2001, 4)`: 2000 skritt gir **2001** punkter, og fire kolonner fordi systemet har fire likninger. Summen av komponentene er 50 000 hele veien, som den skal være når ingen forsvinner ut av modellen. Og toppen i `I` kommer rundt dag 68.\n\n**Sensorkommentar del (a), steg for steg:**\n\n- Signaturen `def f(t, u):` med tiden **først** — **1 p**. Dette er stedet API-forvekslingen (#14) slår til.\n- Utpakkingen `S, E, I, D = u` som første linje — **1 p**.\n- De fire uttrykkene — **1 p**. Bommer du på ett ledd, får du halve.\n- `return [dS, dE, dI, dD]` som liste, i samme rekkefølge som utpakkingen — **1 p**. Returnerer du et tall eller en tuppel av feil lengde, faller hele oppgaven.\n\n**Sensorkommentar del (b):**\n\n- `RungeKutta4(f)` — **1 p**.\n- `set_initial_condition` med **én liste** av fire startverdier — **1 p**. Fire separate argumenter gir `TypeError`.\n- `solve((0, 200), 2000)` med tuppelen som ett argument, og utpakkingen med `u[:, k]` — **1 p**.\n\n**Hva som er godt nok.** Skriver du de fire uttrykkene i egne variabler først, som i den øverste blokka, er det like riktig og lettere å lese. Bruker du `ForwardEuler` i stedet for `RungeKutta4` fordi oppgaven ikke sier noe, mister du ingenting — men si i en kommentar hvorfor du valgte."
+  },
+  {
+   "id": "in1900-7-5-case-c",
+   "type": "example",
+   "title": "Modellbesvarelse del (c): plottet, og figuren i ord",
+   "problem": "Del (c), 3 poeng: plott de fire kurvene i samme figur, med forklaring, og beskriv figuren.",
+   "solution": "Fire `plot`-kall med `label=`, ett `legend()`. Komponentene kan plottes direkte fra `u` uten å pakkes ut først:\n\n```python\nimport matplotlib.pyplot as plt\nfrom ODESolver import RungeKutta4\n\nN_tot = 50000\nbeta = 0.45\nsigma = 0.2\ngamma = 0.14\n\ndef f(t, u):\n    S, E, I, D = u\n    return [-beta*S*I/N_tot, beta*S*I/N_tot - sigma*E, sigma*E - gamma*I, gamma*I]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([49980, 20, 0, 0])\nt, u = solver.solve((0, 200), 2000)\n\nplt.plot(t, u[:, 0], label='S mottakelige')\nplt.plot(t, u[:, 1], label='E eksponerte')\nplt.plot(t, u[:, 2], label='I smittsomme')\nplt.plot(t, u[:, 3], label='D gjennomgatt')\nplt.xlabel('tid (dogn)')\nplt.ylabel('antall personer')\nplt.legend()\nplt.show()\nprint(f'{len(t)} punkter')\n```\n\n**Utskrift:**\n```\n2001 punkter\n```\n\n**Figuren i ord.** Førsteaksen viser tid fra 0 til 200 døgn, andreaksen antall personer fra 0 til 50 000. Kurven for mottakelige starter øverst i nesten 50 000, ligger nesten flat de første tretti døgnene, faller deretter bratt gjennom dag 50 til 90, og flater ut rundt 2300. Kurven for eksponerte og kurven for smittsomme er begge klokkeformede: de starter nær null, vokser eksponentielt, og har topper på henholdsvis rundt 7420 (dag 62) og 9340 (dag 68) — der de eksponerte topper seg knapt seks døgn **før** de smittsomme, siden man må være eksponert før man blir smittsom. Kurven for gjennomgått stiger monotont fra null og flater ut rundt 47 700. Toppen i smittsomme ligger der kurven for mottakelige er brattest. Forklaringen navngir de fire kurvene.\n\n**Sensorkommentar del (c):** fire `plot`-kall med riktige kolonner (1 p) · `label=` på alle fire pluss `legend()` (1 p) · aksenavn, `show()` og en figurbeskrivelse med topper og retning (1 p).\n\n**Den ene dyre feilen** er å skrive `plt.plot(t, u[0])` i stedet for `plt.plot(t, u[:, 0])`. Det første er hele tilstanden ved tidspunkt 0 — fire tall — og plottekallet feiler eller tegner noe meningsløst. Skriv utpakkingen én gang og bruk variabelnavnene etterpå, så unngår du det.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1900-7-5-opg-intro",
+   "type": "text",
+   "content": "## Oppgaver: samme mønster, ny innpakning (~35 min for oppgave 1–5)\n\nAlle oppgavene under er på eksamensnivå. Innpakningen roterer bevisst mellom biologi, mekanikk, fysiologi og meteorologi. Bruk oppskriftens sju steg på hver oppgave før du skriver en linje kode — det første spørsmålet er alltid «hvor mange tilstandsvariabler?»."
+  },
+  {
+   "id": "in1900-7-5-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — skriv løseren selv.) En bakteriekultur vokser logistisk:\n\n$$u' = ru\\left(1 - \\frac{u}{K}\\right), \\qquad u(0) = 20$$\n\nmed $r = 0{,}08$ per time og $K = 500$.\n\n**a)** Skriv `forward_euler(f, T, N, u0)` fra bunnen. Den skal returnere `t` og `u`.\n\n**b)** Løs på $[0, 60]$ med 600 skritt. Skriv ut antall punkter, steglengden, startverdien, verdien etter 10 timer og sluttverdien.\n\n**c)** Hvor mange punkter har løsningen, og hvorfor?",
+    "solution": "**a)** og **b)**. Fire faste linjer: tidsakse, plass til løsningen, startverdi før løkka, og `N` oppdateringer.\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return 0.08*u*(1 - u/500)\n\n\nt, u = forward_euler(f, 60.0, 600, 20.0)\nprint(len(t), f'{t[1]-t[0]:.2f}')\nprint(f'{u[0]:.2f} {u[100]:.4f} {u[-1]:.4f}')\n```\n\n**Utskrift:**\n```\n601 0.10\n20.00 42.3220 417.1783\n```\n\nMerk at høyresiden ikke bruker `t` i det hele tatt. Argumentet skal likevel stå i signaturen — løseren kaller alltid `f` med to argumenter.\n\n**c)** 601 punkter. `N = 600` er antall **skritt**, og startpunktet er også et punkt, så antall punkter er $N+1$. Dette er samme telling som i differenslikningene i [kap. 6.2](/bok/in1900/in1900-6-2), og det er felle **#1** i sin ODE-form.\n\nSteglengden er $\\Delta t = 60/600 = 0{,}1$ timer, og den regnes trygt som `t[1] - t[0]` — da kan den ikke bli feil, uansett hvordan `t` ble laget.\n\n**Hva gir uttelling (7 poeng):** `np.linspace(0, T, N+1)` (1 p), `np.zeros_like(t)` eller `np.zeros(N+1)` (1 p), `u[0] = u0` **før** løkka (1 p), `dt` regnet fra tidsaksen (1 p), `for n in range(N):` med oppdateringslinja og `f(t[n], u[n])` i riktig argumentrekkefølge (2 p), `return t, u` (1 p).\n\nSetter du `u[0] = u0` etter løkka, mister du både det poenget og hele resultatet — løsningen blir null overalt.",
+    "hints": [
+     "Fire linjer før løkka: tidsakse, plass, startverdi, steglengde.",
+     "`dt = t[1] - t[0]` er tryggere enn å regne den fra `T` og `N`.",
+     "Til c): tell startpunktet som et punkt."
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — mekanikk-innpakning.) En planet i bane rundt en stjerne beskrives av posisjonen $(x, y)$ og farten $(v_x, v_y)$. Med enheter der tyngdekonstanten og stjernens masse begge er 1, er likningene\n\n$$x' = v_x, \\qquad y' = v_y, \\qquad v_x' = -\\frac{x}{r^3}, \\qquad v_y' = -\\frac{y}{r^3}, \\qquad r = \\sqrt{x^2+y^2}$$\n\nVed $t = 0$ er planeten i $(1, 0)$ med farten $(0, 1)$. Da er banen en sirkel med omløpstid $2\\pi$.\n\n**a)** Skriv høyresiden `f(t, u)` med fire komponenter.\n\n**b)** Løs ett helt omløp med `RungeKutta4` og 2000 skritt, og skriv ut formen på `u`, start- og sluttposisjon, og avstanden til stjernen ved slutten.\n\n**c)** Hva er fornuftssjekken her, og hva ville det betydd om avstanden ikke var 1?",
+    "solution": "**a)** og **b)**. Fire tilstandsvariabler: to posisjoner og to fartskomponenter. Legg merke til at de to første deriverte **er** de to siste variablene — det er slik en annenordens likning gjøres om til et system av førsteordens.\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    x, y, vx, vy = u\n    r = (x**2 + y**2)**0.5\n    return [vx, vy, -x/r**3, -y/r**3]\n\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([1.0, 0.0, 0.0, 1.0])\nt, u = solver.solve((0, 6.2831853), 2000)\nx, y = u[:, 0], u[:, 1]\nprint('u.shape =', u.shape)\nprint(f'{x[0]:.6f} {y[0]:.6f}')\nprint(f'{x[-1]:.6f} {y[-1]:.6f}')\nprint(f'radius ved slutt = {(x[-1]**2 + y[-1]**2)**0.5:.6f}')\n```\n\n**Utskrift:**\n```\nu.shape = (2001, 4)\n1.000000 0.000000\n1.000000 -0.000000\nradius ved slutt = 1.000000\n```\n\nPlaneten er tilbake der den startet etter ett omløp, og avstanden til stjernen er 1 hele veien.\n\n**c)** Fornuftssjekken er at **avstanden $r$ skal være konstant lik 1** i en sirkelbane. Den kan regnes ut uten fasit og uten å kjenne den eksakte løsningen.\n\nVar avstanden ikke 1, ville det betydd én av tre ting: at startbetingelsene ikke tilsvarer en sirkelbane, at høyresiden er feil skrevet — for eksempel `-x/r**2` i stedet for `-x/r**3` — eller at metoden er for unøyaktig for antall skritt du valgte. Prøv i så fall `ForwardEuler` med de samme 2000 skrittene: da spiraler banen sakte utover, fordi metoden legger til litt energi hvert skritt. Det er et fint eksempel på at feil i figuren ikke alltid er feil i koden.\n\n**Hva gir uttelling (9 poeng):** a) 5 p — signaturen `f(t, u)` (1 p), utpakking av fire variabler (1 p), `r` regnet ut (1 p), de fire uttrykkene i riktig rekkefølge (2 p). b) 3 p — de tre kallene og utpakkingen med `u[:, k]`. c) 1 p — bevaringssjekken.\n\n**Den vanligste feilen** er å returnere de fire deriverte i feil rekkefølge. Rekkefølgen i lista **skal være den samme** som i utpakkingen: pakker du ut `x, y, vx, vy`, må lista være `[dx, dy, dvx, dvy]`, altså `[vx, vy, ...]`. Bytter du om to, får du en helt annen bane — og programmet klager ikke.",
+    "hints": [
+     "Fire tilstandsvariabler: to posisjoner og to fartskomponenter.",
+     "De to første deriverte er de to siste variablene.",
+     "Til c): hva skal være konstant i en sirkelbane?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — fysiologi-innpakning.) Fitzhugh–Nagumo-modellen beskriver hvordan en nervecelle fyrer:\n\n$$v' = v - \\frac{v^3}{3} - w + I, \\qquad w' = \\frac{v + a - bw}{\\tau}$$\n\nder $v$ er membranpotensialet, $w$ er en tilbakestillingsvariabel, og $a = 0{,}7$, $b = 0{,}8$, $\\tau = 12{,}5$ og $I = 0{,}5$ er den ytre strømmen.\n\n**a)** Skriv høyresiden `f(t, u)`.\n\n**b)** Løs på $[0, 200]$ med 4000 skritt fra $v(0) = -1$, $w(0) = -0{,}5$, og skriv ut formen på `u` samt største og minste verdi av begge komponentene.\n\n**c)** Hvorfor kan ikke parameteren $I$ sendes inn som et tredje argument til `f`, og hva er de to lovlige måtene å håndtere den på?",
+    "solution": "**a)** og **b)**. To tilstandsvariabler. Merk navnet `I_ytre` på strømmen: `I` alene er lett å forveksle med tallet 1 i mange skrifttyper, og boka fraråder enkeltbokstavene `l`, `I` og `O` som variabelnavn.\n\n```python\nfrom ODESolver import RungeKutta4\n\na = 0.7\nb = 0.8\ntau = 12.5\nI_ytre = 0.5\n\ndef f(t, u):\n    v, w = u\n    dv = v - v**3/3 - w + I_ytre\n    dw = (v + a - b*w)/tau\n    return [dv, dw]\n\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([-1.0, -0.5])\nt, u = solver.solve((0, 200), 4000)\nv, w = u[:, 0], u[:, 1]\nprint('u.shape =', u.shape)\nprint(f'{v.min():.4f} {v.max():.4f}')\nprint(f'{w.min():.4f} {w.max():.4f}')\n```\n\n**Utskrift:**\n```\nu.shape = (4001, 2)\n-1.9704 1.9502\n-0.5000 1.3938\n```\n\nMembranpotensialet svinger mellom om lag $-1{,}97$ og $1{,}95$: cellen fyrer gjentatte ganger. Med en mindre ytre strøm ville den funnet ro i ett punkt i stedet.\n\n**c)** Fordi løseren **kaller `f` med nøyaktig to argumenter** — tid og tilstand. Et tredje argument ville gitt `TypeError` inne i `solve`, og du ville aldri fått lest feilmeldingen som noe annet enn «koden virker ikke».\n\nDe to lovlige måtene er:\n\n1. **Parametrene som variabler over funksjonen**, som i koden over. Kortest, og det de offisielle løsningsforslagene bruker.\n2. **Høyresiden som en klasse** med `__init__` som lagrer parametrene og `__call__(self, t, u)` som regner ut de deriverte. Da er instansen kallbar med to argumenter, akkurat som en funksjon, og du kan lage flere med ulike parametere:\n\n```text\nclass FitzhughNagumo:\n    def __init__(self, a, b, tau, I_ytre):\n        self.a = a\n        self.b = b\n        self.tau = tau\n        self.I_ytre = I_ytre\n\n    def __call__(self, t, u):\n        v, w = u\n        dv = v - v**3/3 - w + self.I_ytre\n        dw = (v + self.a - self.b*w)/self.tau\n        return [dv, dw]\n```\n\nBlokken er et utdrag: den viser bare klassen, som deretter brukes som `solver = RungeKutta4(FitzhughNagumo(0.7, 0.8, 12.5, 0.5))`.\n\n**Hva gir uttelling (9 poeng):** a) 4 p — signatur, utpakking, de to uttrykkene. b) 3 p — de tre kallene og utpakkingen. c) 2 p — begrunnelsen og minst én av de to lovlige måtene, med kode.",
+    "hints": [
+     "To tilstandsvariabler gir to komponenter i `u`.",
+     "Løseren kaller `f` med bare to argumenter — hvor kan parametrene da bo?",
+     "Klassevarianten trenger `__call__(self, t, u)`."
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-signal-1",
+   "type": "tip",
+   "title": "Signal: hva oppgave 1–3 testet",
+   "content": "**Oppgave 1** var sjanger I: du skriver løseren selv. Signalet i oppgaveteksten er formuleringen «skriv en funksjon som løser» — da skal du **ikke** bruke det utleverte hierarkiet. De fire linjene før løkka er der poengene ligger.\n\n**Oppgave 2** testet steg 1 og 2 i den formen som skiller: en annenordens likning gjort om til fire førsteordens. Kjenner du igjen mønsteret «posisjon og fart», er de to første deriverte alltid de to siste variablene.\n\n**Oppgave 3** testet steg 3, altså hvor parametrene bor. Spørsmålet «hvorfor kan ikke parameteren sendes inn?» kommer igjen og igjen, fordi det tvinger fram forståelsen av at `f` **kalles av løseren**, ikke av deg.\n\nLegg merke til at alle tre oppgavene har en fornuftssjekk innebygd: den logistiske veksten skal flate ut mot bæreevnen, planetbanen skal ha konstant radius, og nervecellen skal svinge. Har du ingen fasit, er slike sjekker det eneste du har."
+  },
+  {
+   "id": "in1900-7-5-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger K — subklasse av `ODESolver`.) Midtpunktsmetoden tar først et halvt prøvesteg og bruker stigningstallet der for hele skrittet:\n\n$$k_1 = f(t_n, u_n), \\qquad k_2 = f\\!\\left(t_n + \\frac{\\Delta t}{2},\\ u_n + \\frac{\\Delta t}{2}k_1\\right), \\qquad u_{n+1} = u_n + \\Delta t\\,k_2$$\n\n**a)** Skriv subklassen `Midtpunkt(ODESolver)` med kun `advance`.\n\n**b)** Sammenlign den med `ForwardEuler` på $u' = -0{,}4u$, $u(0) = 5$, over $[0, 5]$ med bare 10 skritt. Den eksakte løsningen er $u(t) = 5e^{-0{,}4t}$.\n\n**c)** Hvorfor skal du bare skrive `advance`, og ikke hele klassen?",
+    "solution": "**a)** og **b)**. Subklasse-malen: klasselinja, `def advance(self):` uten andre argumenter, en hentelinje som gir korte lokale navn, og formelen med `return`.\n\n```python\nimport numpy as np\nfrom ODESolver import ODESolver, ForwardEuler\n\nclass Midtpunkt(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt/2, u[n] + dt*k1/2)\n        return u[n] + dt*k2\n\n\ndef f(t, u):\n    return -0.4*u\n\nfor Metode in [ForwardEuler, Midtpunkt]:\n    solver = Metode(f)\n    solver.set_initial_condition(5.0)\n    t, u = solver.solve((0, 5), 10)\n    print(f'{Metode.__name__:14s} u(5) = {u[-1]:.6f}   eksakt = {5*np.exp(-2):.6f}')\n```\n\n**Utskrift:**\n```\nForwardEuler   u(5) = 0.536871   eksakt = 0.676676\nMidtpunkt      u(5) = 0.687240   eksakt = 0.676676\n```\n\nMed bare ti skritt bommer forlengs Euler med over 20 prosent, mens midtpunktsmetoden er innenfor 2 prosent. Ett ekstra funksjonskall per skritt kjøper altså en helt annen nøyaktighet.\n\nMerk at `for Metode in [ForwardEuler, Midtpunkt]` løkker over selve **klassene**, ikke over instanser — `Metode(f)` lager instansen inne i løkka, og `Metode.__name__` gir klassenavnet som tekst.\n\n**c)** Fordi basisklassen allerede inneholder alt det andre: konstruktøren som lagrer høyresiden, `set_initial_condition` som avgjør om problemet er skalart eller et system, og `solve` som lager tidsaksen, setter startverdien og går i løkke. Det eneste som skiller én ODE-metode fra en annen, er **hvordan ett skritt regnes ut** — og det er nettopp `advance`.\n\nSkriver du om hele klassen, gjør du fire ting om igjen som allerede virker, bruker fem ganger så lang tid, og innfører fire nye steder å gjøre feil. Sensor ser etter subklasselinja og `advance`; alt annet er støy.\n\n**Hva gir uttelling (7 poeng):** `class Midtpunkt(ODESolver):` (1 p), `def advance(self):` uten andre argumenter (1 p), `k1` og `k2` med riktige argumenter til `f` (2 p), `return u[n] + dt*k2` (1 p), sammenligningen i b) (1 p), begrunnelsen i c) (1 p).\n\n**Den vanligste feilen** er å glemme `return` — da gir `advance` verdien `None`, og løsningen fylles med `nan` uten noen feilmelding. Den nest vanligste er å skrive til `self.u[self.n+1]` inne i `advance` i stedet for å returnere verdien; basisklassen gjør tilordningen selv.",
+    "hints": [
+     "Malen er fire linjer: klasselinje, metodelinje, hentelinje, formel med `return`.",
+     "`advance` tar ingen argumenter utenom `self` — alt ligger på instansen.",
+     "Til c): hva gjør basisklassen som du slipper å skrive?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger K — implisitt metode med nullpunktsløser. Nivå 3.) En metallplate kjøles svært raskt mot omgivelsene:\n\n$$u' = -25(u - 4), \\qquad u(0) = 30$$\n\nProblemet er **stivt**: forlengs Euler krever ekstremt små skritt for å holde seg i ro.\n\n**a)** Skriv subklassen `BaklengsEuler(ODESolver)`. Hvert skritt løser likningen $v - u_n - \\Delta t\\,f(t_{n+1}, v) = 0$ for den nye verdien $v$, med `root` fra `scipy.optimize`.\n\n**b)** Sammenlign med `ForwardEuler` over $[0, 2]$ med bare 10 skritt. Den eksakte løsningen er $u(t) = 4 + 26e^{-25t}$.\n\n**c)** Hvorfor må tiden i likningen være $t_{n+1}$ og ikke $t_n$?",
+    "solution": "**a)** og **b)**. Likningen defineres som en **indre funksjon** inne i `advance`, slik at den ser `u[n]`, `t[n+1]` og `dt` for nettopp dette skrittet:\n\n```python\nimport numpy as np\nfrom scipy.optimize import root\nfrom ODESolver import ODESolver, ForwardEuler\n\nclass BaklengsEuler(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n\n        def likning(v):\n            return v - u[n] - dt*f(t[n+1], v)\n\n        sol = root(likning, u[n])\n        return sol.x\n\n\ndef f(t, u):\n    return -25*(u - 4)\n\nfor Metode in [ForwardEuler, BaklengsEuler]:\n    solver = Metode(f)\n    solver.set_initial_condition(30.0)\n    t, u = solver.solve((0, 2), 10)\n    print(f'{Metode.__name__:15s} u(2) = {u[-1]:14.4f}')\nprint(f'eksakt u(2) = {4 + 26*np.exp(-50):.4f}')\n```\n\n**Utskrift:**\n```\nForwardEuler    u(2) =  27262980.0000\nBaklengsEuler   u(2) =         4.0000\neksakt u(2) = 4.0000\n```\n\nSteglengden er $\\Delta t = 0{,}2$, og forlengs Euler ganger med $1 - 25\\cdot 0{,}2 = -4$ hvert skritt. Tallet skifter fortegn og firedobles i tallverdi hver runde, så etter ti skritt er «temperaturen» over 27 millioner grader. Det er ikke en programmeringsfeil — det er metodens stabilitetsgrense.\n\nBaklengs Euler ganger med $1/(1 + 25\\cdot 0{,}2) = 1/6$ i stedet, og faller derfor pent mot 4 uansett steglengde. Prisen er ett `root`-kall per skritt.\n\n**c)** Fordi det er nettopp **det** som skiller baklengs fra forlengs Euler. Forlengs Euler bruker stigningstallet ved det punktet du står i, $f(t_n, u_n)$, og regner den nye verdien direkte. Baklengs Euler bruker stigningstallet ved det punktet du skal **til**, $f(t_{n+1}, u_{n+1})$ — og siden $u_{n+1}$ er nettopp det du leter etter, må du løse en likning for å finne den.\n\nSkriver du `t[n]` i stedet, har du laget en tungvint variant av forlengs Euler: en implisitt metode som løser en likning hvis svar er det samme du kunne regnet direkte. Stabiliteten forsvinner, og med den hele poenget.\n\n**Hva gir uttelling (7 poeng):** `class BaklengsEuler(ODESolver):` og `def advance(self):` (1 p), den indre funksjonen `likning(v)` (2 p), `t[n+1]` i kallet på `f` (1 p), `root(likning, u[n])` med forrige verdi som startgjetning (1 p), `return sol.x` (1 p), begrunnelsen i c) (1 p).\n\n**Merk at `sol.x` er et array**, også når likningen har én ukjent — og det er nettopp den formen basisklassen vil ha. Skriver du `return sol.x[0]`, virker det for skalare problemer, men bryter for systemer.\n\n**Om vedlegget:** dokumentasjonen for `root` leveres på eksamen. Det du må kunne uten hjelp, er innpakningen: en funksjon som er null i løsningen, en startgjetning, og at svaret ligger i `sol.x`.",
+    "hints": [
+     "Definer likningen som en funksjon inne i `advance`.",
+     "Startgjetningen er forrige verdi, `u[n]`.",
+     "Til c): hvilket punkt bruker baklengs Euler stigningstallet fra?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-opg-intro-2",
+   "type": "text",
+   "content": "## Oppgave 6–10: sporing, feilsøking og de fulle settoppgavene (~35 min)\n\n— naturlig pausepunkt —\n\nDe neste fem oppgavene dekker de øvrige formene ODE-stoffet tar på et sett: en sporingsoppgave fra flervalgsskallet, en «hvilken linje mangler», en «finn feilen», en påstandstabell, og en full tipoengsoppgave."
+  },
+  {
+   "id": "in1900-7-5-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? NumPy skriver tabeller uten komma. Løseren er den utleverte `ForwardEuler`.\n\n```python\nimport numpy as np\nfrom ODESolver import ForwardEuler\n\ndef f(t, u):\n    return t - u\n\nsolver = ForwardEuler(f)\nsolver.set_initial_condition(1.0)\nt, u = solver.solve((0, 1), 4)\nprint(u)\nprint(len(t), t[1] - t[0])\n```",
+    "solution": "**Sporingstavle.** Fire skritt over intervallet $[0, 1]$ gir $\\Delta t = 0{,}25$, og oppdateringen er $u_{n+1} = u_n + \\Delta t(t_n - u_n)$.\n\n| `n` | `t[n]` | `u[n]` | $f = t_n - u_n$ | $u_{n+1}$ |\n|---|---|---|---|---|\n| 0 | 0.00 | 1.0 | $-1$ | $1 + 0{,}25\\cdot(-1) = 0{,}75$ |\n| 1 | 0.25 | 0.75 | $-0{,}5$ | $0{,}75 - 0{,}125 = 0{,}625$ |\n| 2 | 0.50 | 0.625 | $-0{,}125$ | $0{,}625 - 0{,}03125 = 0{,}59375$ |\n| 3 | 0.75 | 0.59375 | $0{,}15625$ | $0{,}59375 + 0{,}0390625 = 0{,}6328125$ |\n\nLegg merke til at høyresiden skifter fortegn mellom skritt 2 og 3: løsningen synker først og snur så oppover.\n\n**Utskrift:**\n```\n[1.        0.75      0.625     0.59375   0.6328125]\n5 0.25\n```\n\nFem verdier for fire skritt, og NumPy justerer kolonnene så alle tallene får like bred plass.\n\nFellenote: to feller på én gang. **#1 — av-én**: `solve((0, 1), 4)` gir fire skritt og **fem** punkter. Og **#14 — API-forvekslingen**: her brukes `f(t, u)` med tiden først, og denne høyresiden bruker faktisk `t`, så en ombytting ville gitt helt andre tall — men **ingen** feilmelding.\n\nDelvis riktig sporing gir delvis uttelling: har du de tre første verdiene riktig men bommer på den siste, mister du et halvt poeng.",
+    "hints": [
+     "Regn ut steglengden først: intervallets lengde delt på antall skritt.",
+     "Sett opp én rad per skritt med `t[n]`, `u[n]` og høyresiden.",
+     "Hvor mange verdier har løsningen for fire skritt?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Midtveisnivå, sjanger E — «hvilken linje mangler?». Sjanger E er flervalgstypen der ett kall eller én linje er fjernet fra et ellers riktig program.) Programmet skal løse et system med to likninger. Én linje er fjernet.\n\n```text\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    x, y = u\n    return [y, -4*x]\n\nsolver = RungeKutta4(f)\n# HER MANGLER ÉN LINJE\nt, u = solver.solve((0, 10), 500)\nx, y = u[:, 0], u[:, 1]\n```\n\nHvilken linje hører på plassen?\n\na) `solver.u0 = [1.0, 0.0]`\nb) `solver.set_initial_condition(1.0, 0.0)`\nc) `solver.set_initial_condition([1.0, 0.0])`\nd) `solver.solve([1.0, 0.0])`",
+    "solution": "**c)** `solver.set_initial_condition([1.0, 0.0])`.\n\nGrensesnittet har tre faste steg, i denne rekkefølgen:\n\n| Steg | Kall | Hva det gjør |\n|---|---|---|\n| 1 | `RungeKutta4(f)` | lager løseren og lagrer høyresiden |\n| 2 | `set_initial_condition(u0)` | setter startverdien og avgjør om problemet er skalart eller et system |\n| 3 | `solve(t_span, N)` | regner ut løsningen og returnerer `(t, u)` |\n\nHvorfor de tre andre er gale:\n\n- **a)** setter et attributt direkte og hopper over jobben `set_initial_condition` gjør — å telle hvor mange likninger systemet har. Uten den vet ikke `solve` om løsningen skal være 1D eller 2D.\n- **b)** sender to separate argumenter. Metoden tar **ett**: for et system er startverdien én liste. Dette gir `TypeError`.\n- **d)** kaller `solve` med startverdien i stedet for tidsintervallet og antall skritt.\n\nMed riktig linje på plass:\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    x, y = u\n    return [y, -4*x]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([1.0, 0.0])\nt, u = solver.solve((0, 10), 500)\nx, y = u[:, 0], u[:, 1]\nprint(u.shape)\nprint(f'{x[0]:.4f} {x[-1]:.4f}')\n```\n\n**Utskrift:**\n```\n(501, 2)\n1.0000 0.4081\n```\n\nSystemet er en svingning med $x'' = -4x$, altså $x(t) = \\cos(2t)$, og $\\cos 20 \\approx 0{,}4081$ når 20 leses som radianer. Kontrollen stemmer.\n\n**Poeng:** 1. Kryss alltid av på flervalg — blankt og feil gir det samme, og fra 2024/2025 er det ingen kostnad ved å gjette.",
+    "hints": [
+     "Hva må løseren vite, i tillegg til høyresiden, før den kan begynne å regne?",
+     "For et system er startverdien én liste, ikke flere argumenter."
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-o8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal løse rovdyr–byttedyr-systemet $x' = 0{,}4x - 0{,}02xy$, $y' = 0{,}01xy - 0{,}3y$ fra $(40, 9)$ over $[0, 60]$ med 1200 skritt, og plotte begge bestandene. Det har **fire** feil.\n\n```text\nfrom ODESolver import RungeKutta4\nimport matplotlib.pyplot as plt\n\ndef f(u, t):\n    x, y = u\n    return 0.4*x - 0.02*x*y, 0.01*x*y - 0.3*y\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(40, 9)\nt, u = solver.solve((0, 60), 1200)\nplt.plot(t, u[0])\nplt.plot(t, u[1])\nplt.show()\n```\n\n**a)** Nevn de fire feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden.",
+    "solution": "**a)** De fire feilene:\n\n1. **`def f(u, t):` — feil argumentrekkefølge.** Bokstandard og formen fra 2023 er `f(t, u)`, tid først. Dette er felle **#14**, API-forvekslingen. Det lumske er at denne høyresiden ikke bruker `t` i det hele tatt, så programmet ville kjørt uten feilmelding — bare med feil betydning av navnene.\n2. **`return` gir en tuppel, ikke en liste.** Boka og de offisielle løsningsforslagene skriver `return [dx, dy]`. En tuppel kan tilfeldigvis virke, men lista er formen sensor ser etter, og den er entydig.\n3. **`set_initial_condition(40, 9)` med to argumenter.** Metoden tar **ett**: for et system er startverdien én liste, `[40, 9]`. To argumenter gir `TypeError`.\n4. **`u[0]` og `u[1]` i plottekallene.** Det er hele tilstanden ved tidspunkt 0 og 1 — to tall hver. Komponentene gjennom tiden er `u[:, 0]` og `u[:, 1]`.\n\nEn femte ting mangler også: `label=` på plottekallene og `plt.legend()`, samt aksenavn. Nevner du det, er det et pluss.\n\n**b)** Rettet:\n\n```python\nfrom ODESolver import RungeKutta4\nimport matplotlib.pyplot as plt\n\ndef f(t, u):\n    x, y = u\n    return [0.4*x - 0.02*x*y, 0.01*x*y - 0.3*y]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([40, 9])\nt, u = solver.solve((0, 60), 1200)\nplt.plot(t, u[:, 0], label='byttedyr')\nplt.plot(t, u[:, 1], label='rovdyr')\nplt.xlabel('tid (maaneder)')\nplt.ylabel('antall dyr')\nplt.legend()\nplt.show()\nprint(u.shape, f'{u[-1, 0]:.3f} {u[-1, 1]:.3f}')\n```\n\n**Utskrift:**\n```\n(1201, 2) 61.922 15.619\n```\n\n**Figuren i ord:** førsteaksen viser tid fra 0 til 60 måneder, andreaksen antall dyr. Begge kurvene svinger periodisk, med rovdyrkurven et kvart svingeslag etter byttedyrkurven. Forklaringen navngir de to kurvene.\n\n**Hva gir uttelling (8 poeng):** 1 poeng per navngitt feil (4 p), 3 for rettet kode som kjører, 1 for å nevne de manglende etikettene. Sjanger O er poengmessig snill: finner du tre av fire feil, har du fortsatt flertallet av poengene.",
+    "hints": [
+     "Les signaturen til `f` mot bokstandarden.",
+     "Hvor mange argumenter tar `set_initial_condition`?",
+     "Hva er forskjellen på `u[0]` og `u[:, 0]`?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-o9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger D — «hvilke av påstandene er riktige?». Sjanger D er matche-typen der du avgjør om hver påstand holder.) Et system med tre likninger løses med `t, u = solver.solve((0, 20), 400)`.\n\nAvgjør for hver påstand om den er **riktig** eller **gal**.\n\n| Rad | Påstand |\n|---|---|\n| 1 | `t` har 401 elementer |\n| 2 | `u` har formen `(401, 3)` |\n| 3 | `u[:, 1]` er komponent nummer 1 gjennom hele tiden |\n| 4 | `u[5]` er komponent nummer 5 gjennom hele tiden |\n| 5 | Steglengden er 0,05 |\n| 6 | `solve` kan kalles uten `set_initial_condition` først |",
+    "solution": "**Fasit: 1 riktig · 2 riktig · 3 riktig · 4 gal · 5 riktig · 6 gal.**\n\n**Rad 1 — riktig.** 400 skritt gir 401 punkter. Startpunktet er også et punkt.\n\n**Rad 2 — riktig.** Radene er tidspunkter og kolonnene komponenter, så formen er `(401, 3)` for et system med tre likninger.\n\n**Rad 3 — riktig.** Kolon på første plass betyr «alle rader», altså hele tidsforløpet for komponent 1. Dette er utpakkingen du bruker før plottet.\n\n**Rad 4 — gal.** `u[5]` er rad 5, altså hele **tilstanden** ved tidspunkt 5 — tre tall. Å blande de to er den vanligste feilen i sjanger J, og den gir en figur som ser tom ut.\n\n**Rad 5 — riktig.** $\\Delta t = 20/400 = 0{,}05$. Intervallets lengde delt på antall skritt.\n\n**Rad 6 — gal.** Uten startbetingelse vet ikke løseren hvor den skal begynne, og heller ikke hvor mange likninger systemet har. `solve` feiler med `AttributeError`, fordi attributtet den leter etter aldri ble satt.\n\n**Poeng:** 3, altså 0,5 per rad. Radene vurderes uavhengig, så det er seks separate sjanser. Legg merke til at fasiten blander riktig og gal uten system — det gjør den på eksamen også.",
+    "hints": [
+     "Tell punkter og skritt hver for seg.",
+     "Hva betyr kolon på første plass i en 2D-indeksering?",
+     "Til rad 6: hva vet løseren etter konstruktørkallet alene?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-o10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-7-5-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger J — full tipoengsoppgave med meteorologisk innpakning.) Lorenz-systemet er en sterkt forenklet værmodell:\n\n$$x' = \\sigma(y - x), \\qquad y' = x(\\rho - z) - y, \\qquad z' = xy - \\beta z$$\n\nmed $\\sigma = 10$, $\\rho = 28$ og $\\beta = 8/3$.\n\n**a)** (4 p) Skriv høyresiden `f(t, u)`.\n\n**b)** (3 p) Løs på $[0, 30]$ med 6000 skritt fra $(1, 1, 1)$ med `RungeKutta4`. Skriv ut formen på `u` og ytterverdiene for $x$ og $z$.\n\n**c)** (2 p) Kjør på nytt med startverdien $x(0) = 1{,}000001$ og sammenlign sluttverdien for $x$.\n\n**d)** (1 p) Hva forteller resultatet i c) om værvarsling?",
+    "solution": "**a)**, **b)** og **c)** i ett program. Tre tilstandsvariabler. Merk at `beta` her er en modellparameter — ikke smitteraten fra epidemimodellene; navnene gjenbrukes på tvers av innpakninger, og du skal alltid bruke oppgavens egne.\n\n```python\nfrom ODESolver import RungeKutta4\n\nsigma = 10.0\nrho = 28.0\nbeta = 8.0/3.0\n\ndef f(t, u):\n    x, y, z = u\n    return [sigma*(y - x), x*(rho - z) - y, x*y - beta*z]\n\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([1.0, 1.0, 1.0])\nt, u = solver.solve((0, 30), 6000)\nx, y, z = u[:, 0], u[:, 1], u[:, 2]\nprint('u.shape =', u.shape)\nprint(f'{x.min():.3f} {x.max():.3f}')\nprint(f'{z.min():.3f} {z.max():.3f}')\n\nsolver2 = RungeKutta4(f)\nsolver2.set_initial_condition([1.000001, 1.0, 1.0])\nt2, u2 = solver2.solve((0, 30), 6000)\nprint(f'avvik i x ved t = 30: {abs(u2[-1, 0] - x[-1]):.4f}')\n```\n\n**Utskrift:**\n```\nu.shape = (6001, 3)\n-17.230 19.563\n0.962 47.834\navvik i x ved t = 30: 0.0504\n```\n\n**d)** Startverdiene skilte seg med **en milliondel**, og etter 30 tidsenheter er avviket i $x$ blitt om lag 0,05 — femti tusen ganger større. Systemet forsterker små forskjeller systematisk, og det er kjernen i det som kalles kaotisk oppførsel.\n\nFor værvarsling betyr det at nøyaktigheten i målingene setter en grense for hvor langt fram det er mulig å varsle, uansett hvor god modellen og datamaskinen er. Du kan ikke måle atmosfærens tilstand med uendelig presisjon, og den usikkerheten vokser. Det er grunnen til at værvarsler går noen dager fram, ikke noen uker.\n\nLegg merke til at dette **ikke** er en numerisk feil. Kjører du med flere skritt, blir hver enkelt bane mer nøyaktig, men de to banene sprikere like mye — forskjellen ligger i modellen, ikke i metoden.\n\n**Hva gir uttelling (10 poeng):**\n\n- a) 4 p: signaturen `f(t, u)` (1 p), utpakking av tre variabler (1 p), de tre uttrykkene (2 p).\n- b) 3 p: de tre kallene (2 p), utpakking med `u[:, k]` og utskriftene (1 p).\n- c) 2 p: en ny løser med endret startverdi (1 p), sammenligningen av sluttverdiene (1 p).\n- d) 1 p: sammenhengen mellom følsomhet for startverdier og varslingshorisont.\n\nMerk at du må lage en **ny** løser i c). Kaller du `set_initial_condition` på nytt på den samme og kjører `solve` igjen, virker det også — men to separate løsere er tydeligere, og tydelighet er verdt noe når sensor leser tjue besvarelser i timen.\n\n**Selvdiagnose:** ☐ sto tiden først i `f(t, u)`? ☐ pakket du ut tilstandsvektoren som første linje? ☐ returnerte du en **liste** i samme rekkefølge som utpakkingen? ☐ var startverdien én liste i `set_initial_condition`? ☐ ga `solve((0, T), N)` deg `N+1` punkter? ☐ pakket du ut komponentene med `u[:, k]` og ikke `u[k]`?",
+    "hints": [
+     "Tre tilstandsvariabler gir tre komponenter og tre uttrykk i returlista.",
+     "Bruk oppgavens egne parameternavn, også når de kolliderer med navn fra andre modeller.",
+     "I c): lag en ny løser i stedet for å gjenbruke den gamle.",
+     "Til d): hvor mye vokste avviket, og hva betyr det for hvor langt fram man kan varsle?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-7-5-signal-2",
+   "type": "tip",
+   "title": "Signal: hva oppgave 4–10 testet",
+   "content": "**Oppgave 4** testet subklasse-malen i sin enkleste form. Signalet er formuleringen «utvid hierarkiet med en metode som …» — da skal du skrive `advance` og ingenting annet.\n\n**Oppgave 5** testet den implisitte varianten, som er nivå 3-stoffet i Del 7. Signalet er ordet **stiv**, eller at oppgaven ber om baklengs Euler. Da skal `root` inn, og tiden skal være $t_{n+1}$.\n\n**Oppgave 6** var ODE-stoffet slik det ser ut på **midtveiseksamen**: ingen kode skal skrives, bare spores. Steglengden og antall punkter er hele temaet.\n\n**Oppgave 7** var sjanger E, den billigste oppgavetypen på settet: ett poeng, tretti sekunder, og de tre faste kallene er alt du trenger å huske.\n\n**Oppgave 8** testet feilkatalogen baklengs. De fire du skal kjenne igjen på et blunk er argumentrekkefølgen i `f`, returtypen, antall argumenter til `set_initial_condition`, og `u[k]` mot `u[:, k]`.\n\n**Oppgave 9** var påstandstabellen. Fire av seks rader handler om telling og indeksering — det er der poengene ligger i denne sjangeren.\n\n**Oppgave 10** var den fulle tipoengsoppgaven, med en avsluttende «forklar hva du ser». Den siste deloppgaven kan besvares selv om koden ikke virker, og du skal alltid skrive noe der."
+  },
+  {
+   "id": "in1900-7-5-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1900-7-5-api-txt",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def f(t, u):` | høyresiden, **tid først** (bokstandard fra 2023); kalles av løseren med nøyaktig to argumenter |\n| `S, E, I, D = u` | utpakking av tilstandsvektoren, alltid første linje i høyresiden |\n| `return [dS, dE, dI, dD]` | liste, i **samme rekkefølge** som utpakkingen; aldri et enkelt tall for et system |\n| `RungeKutta4(f)` / `ForwardEuler(f)` | lager løseren og lagrer høyresiden; ingen startverdi her |\n| `solver.set_initial_condition(u0)` | **ett** argument; en liste for et system, et tall for en skalar likning |\n| `t, u = solver.solve((0, T), N)` | `t_span` er én tuppel; `N` skritt gir `N+1` punkter |\n| `u.shape` | `(N+1, antall likninger)` for et system; 1D-array for en skalar |\n| `u[:, k]` | komponent `k` gjennom hele tiden — formen du plotter |\n| `u[k]` | hele tilstanden ved tidspunkt `k` — noe helt annet |\n| `u[-1, 0]` | første komponent ved siste tidspunkt |\n| `t[u[:, 0].argmax()]` | tidspunktet der en komponent er størst |\n| `class Ny(ODESolver):` | subklasse; arver konstruktør, startbetingelse og `solve` |\n| `def advance(self):` | eneste metode du skriver; **returnerer** neste `u`-verdi, skriver aldri til `self.u` |\n| `u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt` | hentelinja som gjør formelen lesbar |\n| `self.t[self.n+1] - self.t[self.n]` | robust steglengde når `self.dt` ikke finnes i vedlegget |\n| `root(likning, u[n])` | løser `likning(v) = 0` med forrige verdi som startgjetning |\n| `sol.x` | svaret fra `root`, alltid et array — også med én ukjent |\n| `def likning(v):` inne i `advance` | indre funksjon; ser `u[n]`, `t[n+1]` og `dt` fra den ytre |\n| `np.linspace(0, T, N+1)` | tidsaksen i din egen løser |\n| `np.zeros_like(t)` | plass til løsningen, like lang som `t` |\n| `dt = t[1] - t[0]` | steglengden, lest av tidsaksen |\n| `Metode.__name__` | klassenavnet som tekst; nyttig når du løkker over flere klasser |\n| `plt.plot(t, u[:, k], label='navn')` + `plt.legend()` | én kurve med navn; etiketten vises først når `legend` kalles |\n\n**Formler i dette delkapitlet:**\n\nForlengs Euler: $u_{n+1} = u_n + \\Delta t f(t_n, u_n)$\n\nMidtpunkt: $k_1 = f(t_n, u_n)$, $\\;k_2 = f\\!\\left(t_n + \\frac{\\Delta t}{2}, u_n + \\frac{\\Delta t}{2}k_1\\right)$, $\\;u_{n+1} = u_n + \\Delta t k_2$\n\nBaklengs Euler: $u_{n+1} = u_n + \\Delta t f(t_{n+1}, u_{n+1})$, løst som $g(v) = v - u_n - \\Delta t f(t_{n+1}, v) = 0$\n\nLogistisk vekst: $u' = ru(1 - u/K)$\n\nPlanetbane: $x' = v_x$, $\\;y' = v_y$, $\\;v_x' = -x/r^3$, $\\;v_y' = -y/r^3$ med $r = \\sqrt{x^2+y^2}$\n\nFitzhugh–Nagumo: $v' = v - v^3/3 - w + I$, $\\;w' = (v + a - bw)/\\tau$\n\nLorenz: $x' = \\sigma(y-x)$, $\\;y' = x(\\rho - z) - y$, $\\;z' = xy - \\beta z$\n\n**Navnekollisjoner å være klar over:** `N` er antall skritt i `solve`, mens `N_tot` eller `befolkning` bør brukes om en befolkningsstørrelse — de to blandes lett i epidemimodeller. `u` er både hele løsningstabellen og tilstandsvektoren inne i `f`; `t` er både tidsaksen og ett tidspunkt `t[n]`. `beta` er smitteraten i epidemimodellene og en helt annen parameter i Lorenz-systemet — bruk alltid oppgavens egne navn.\n\n**Feilkodene som hører til dette delkapitlet:** #1 (av-én på antall punkter), #14 (API-forveksling i `f` og `solve`), pluss de tre kapittelspesifikke: `u[k]` i stedet for `u[:, k]`, flere argumenter til `set_initial_condition`, og glemt `label=` eller `legend()`."
+    }
+   ]
+  },
+  {
+   "id": "in1900-7-5-bank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "in1900-7-5-bank-1",
+   "type": "definition",
+   "title": "Sjanger J",
+   "content": "ODE-system løst med det utleverte hierarkiet. Står i 8 av 8 gjennomgåtte avsluttende sett og teller 9–10 poeng — den tyngste enkeltoppgaven på et typisk sett. Innpakningen roterer mellom epidemi, populasjonsdynamikk, mekanikk, nervecelle og vær; kodemønsteret er identisk."
+  },
+  {
+   "id": "in1900-7-5-bank-2",
+   "type": "definition",
+   "title": "Sjanger I og K",
+   "content": "Sjanger I er å skrive ODE-løseren selv som en funksjon, typisk forlengs Euler, og teller 5 poeng. Sjanger K er å lage en subklasse av `ODESolver` der du bare skriver `advance`, og teller 3–5 poeng. Signalordene i oppgaveteksten er «skriv en funksjon som løser» for I og «utvid hierarkiet» for K."
+  },
+  {
+   "id": "in1900-7-5-bank-3",
+   "type": "definition",
+   "title": "Steg 1 — tell tilstandsvariablene",
+   "content": "Antall størrelser som endrer seg over tid er antall likninger, antall komponenter i `u`, antall elementer i startlista og antall kolonner i svaret. Alt henger sammen, og tellingen gjøres én gang før du skriver noe."
+  },
+  {
+   "id": "in1900-7-5-bank-4",
+   "type": "definition",
+   "title": "Steg 2 — høyresiden",
+   "content": "`def f(t, u):` med tiden først, utpakking som første linje, én linje per derivert, og `return` som **liste** i samme rekkefølge som utpakkingen. Argumentet `t` skal stå der selv om modellen ikke bruker det."
+  },
+  {
+   "id": "in1900-7-5-bank-5",
+   "type": "definition",
+   "title": "Steg 3 — hvor parametrene bor",
+   "content": "Løseren kaller `f` med nøyaktig to argumenter, så parametrene kan ikke sendes inn. De to lovlige måtene er variabler over funksjonen, eller en klasse med `__init__` som lagrer dem og `__call__(self, t, u)` som regner."
+  },
+  {
+   "id": "in1900-7-5-bank-6",
+   "type": "definition",
+   "title": "De tre kallene",
+   "content": "`RungeKutta4(f)`, `set_initial_condition(u0)`, `solve(t_span, N)`. Rekkefølgen er fast, `t_span` er én tuppel, og `set_initial_condition` tar **ett** argument — en liste for et system."
+  },
+  {
+   "id": "in1900-7-5-bank-7",
+   "type": "definition",
+   "title": "`u[:, k]` mot `u[k]`",
+   "content": "`u[:, k]` er komponent `k` gjennom hele tiden, altså kurven du plotter. `u[k]` er hele tilstanden ved tidspunkt `k`, altså like mange tall som systemet har likninger. Å blande dem er den vanligste feilen i sjanger J, og den gir en figur som ser tom ut."
+  },
+  {
+   "id": "in1900-7-5-bank-8",
+   "type": "definition",
+   "title": "Skritt mot punkter i en ODE",
+   "content": "`solve((0, T), N)` gir `N` skritt og `N+1` punkter, og `u.shape` er `(N+1, antall likninger)`. Samme telling gjelder i din egen løser: `np.linspace(0, T, N+1)` og `range(N)`."
+  },
+  {
+   "id": "in1900-7-5-bank-9",
+   "type": "definition",
+   "title": "API-driften (#14)",
+   "content": "Bokstandard er `f(t, u)` og `solve((0, T), N)`. I eldre sett var det `f(u, t)` og `solve(time_points)`. Feil argumentrekkefølge gir ofte **ingen** feilmelding, fordi mange høyresider ikke bruker `t` — les vedlegget hvert år."
+  },
+  {
+   "id": "in1900-7-5-bank-10",
+   "type": "definition",
+   "title": "Subklasse-malen",
+   "content": "Klasselinja `class Ny(ODESolver):`, `def advance(self):` uten andre argumenter, hentelinja med korte lokale navn, og formelen med `return`. Basisklassen gjør tilordningen til `self.u` selv — `advance` skal bare returnere neste verdi."
+  },
+  {
+   "id": "in1900-7-5-bank-11",
+   "type": "definition",
+   "title": "Implisitt metode med nullpunktsløser",
+   "content": "Baklengs Euler bruker stigningstallet ved punktet du skal **til**, altså $f(t_{n+1}, u_{n+1})$. Siden $u_{n+1}$ er den ukjente, defineres en indre funksjon som er null i løsningen, og `root` løser den med forrige verdi som startgjetning. Svaret ligger i `sol.x`, som alltid er et array."
+  },
+  {
+   "id": "in1900-7-5-bank-12",
+   "type": "definition",
+   "title": "Fornuftssjekker uten fasit",
+   "content": "Summen av komponentene i en lukket modell skal være konstant. En sirkelbane skal ha konstant radius. En løsning som skal dø ut, skal nærme seg null. Slike sjekker er alt du har på en hjelpemiddelfri eksamen, og det er verdt et poeng å nevne dem."
+  },
+  {
+   "id": "in1900-7-5-rep",
+   "type": "collapsible",
+   "title": "Repetisjon: oppskriften på ett kort",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1900-7-5-rep-txt",
+     "type": "text",
+     "content": "**De sju spørsmålene, i rekkefølge:**\n\n1. Hvor mange tilstandsvariabler?\n2. Skriv `f(t, u)`: pakk ut, regn de deriverte, returner en **liste**.\n3. Hvor bor parametrene — over funksjonen, eller i en klasse med `__call__`?\n4. `u0` som liste, i samme rekkefølge som utpakkingen.\n5. De tre kallene: konstruktør, `set_initial_condition`, `solve((0, T), N)`.\n6. Pakk ut kolonnene med `u[:, k]`.\n7. Plott med `label=` per kurve, aksenavn, `legend()`, `show()`.\n\n**Skjelettet du skriver først, hver gang:**\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    x, y = u\n    return [y, -x]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([1.0, 0.0])\nt, u = solver.solve((0, 3), 300)\nx, y = u[:, 0], u[:, 1]\nprint(u.shape, f'{x[-1]:.6f}')\n```\n\n**Utskrift:**\n```\n(301, 2) -0.989992\n```\n\n**Subklasse-malen, fire linjer:**\n\n```python\nfrom ODESolver import ODESolver\n\nclass Heun(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt, u[n] + dt*k1)\n        return u[n] + dt*(k1 + k2)/2\n\ndef f(t, u):\n    return -u\n\nsolver = Heun(f)\nsolver.set_initial_condition(1.0)\nt, u = solver.solve((0, 1), 2)\nprint(f'{u[-1]:.6f}')\n```\n\n**Utskrift:**\n```\n0.390625\n```\n\n**De fem feilene som koster mest:** `u[k]` i stedet for `u[:, k]` · returtype som ikke er en liste · av-én på antall punkter (#1) · API-forveksling i `f` og `solve` (#14) · glemt `label=` eller `legend()`.\n\n**Neste steg:** prøvene til denne delen ligger i [prøvekapitlet](/bok/in1900/in1900-7-prove). [Kap. 9.2](/bok/in1900/in1900-9-2) har en sjanger-J-oppgave midt i et fullt sett, og [kap. 9.3](/bok/in1900/in1900-9-3) avslutter med en subklasse-oppgave — begge under tidspress."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

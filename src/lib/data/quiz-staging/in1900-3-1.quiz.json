@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Variabelen `x` er 5, og programmet kjører linja `assert x > 0`. Hva skjer?",
+  "options": [
+   "Ingenting skjer, og programmet fortsetter på neste linje",
+   "Programmet skriver `True` og fortsetter på neste linje",
+   "Programmet stopper og skriver `AssertionError` i terminalen",
+   "Programmet skriver `x > 0` og fortsetter på neste linje"
+  ],
+  "explanation": "En `assert` med en sann påstand er helt taus: den skriver ingenting og returnerer ingenting, og programmet går videre som om linja ikke sto der. Alternativ b) og d) forutsetter at `assert` skriver ut noe — det gjør den aldri. Alternativ c) er det som skjer når påstanden er **usann**."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef test_f():\n    expected = 6\n    computed = 2*3\n    tol = 1e-10\n    assert abs(expected - computed) < tol, 'feil'\n\ntest_f()\nprint('A')\n```",
+  "options": [
+   "Bare `A` — testen er stille når den går gjennom",
+   "Bare `feil` — meldingen skrives ut av `assert`",
+   "Både `True` og `A`, på hver sin linje i terminalen",
+   "Ingenting — `assert` stopper programmet på den linja"
+  ],
+  "explanation": "Avviket er `abs(6 - 6)`, altså 0, som er mindre enn toleransen, så `assert` gjør ingenting og `print('A')` kjøres. Meldingen `'feil'` vises bare hvis påstanden er usann (b), og `assert` skriver aldri `True` (c). Alternativ d) er svaret hvis du tror `assert` alltid avbryter."
+ },
+ {
+  "question": "Hva skriver `print(0.1 + 0.2 == 0.3)` ut, og hvorfor?",
+  "options": [
+   "`False`, fordi summen blir 0.30000000000000004",
+   "`True`, fordi 0.1 og 0.2 til sammen blir 0.3",
+   "`False`, fordi `==` aldri virker mellom to tall",
+   "`0.30000000000000004`, altså selve summen av de to"
+  ],
+  "explanation": "Flyttall er tilnærminger, og summen av tilnærmingene til 0,1 og 0,2 blir litt større enn tilnærmingen til 0,3. `==` krever at hvert siffer stemmer og gir derfor `False`. Alternativ c) er en overdrivelse: `==` virker helt fint mellom heltall, og er bit-for-bit-eksakt også for flyttall — det er nettopp derfor det svarer `False` her. Alternativ d) forveksler sammenligningen med selve summen."
+ },
+ {
+  "question": "Hvilken linje er den riktige sjekken i en testfunksjon?",
+  "options": [
+   "`assert abs(expected - computed) < tol, msg`",
+   "`assert abs(expected - computed) > tol, msg`",
+   "`assert expected - computed < tol, msg`",
+   "`assert expected == computed, msg`"
+  ],
+  "explanation": "Fasiten er standardformen: absoluttverdien av avviket skal være **mindre** enn toleransen. Alternativ b) har snudd ulikheten og tester at svaret er galt. Alternativ c) mangler `abs`, så et hvilket som helst negativt avvik slipper gjennom. Alternativ d) er feil #11 — likhetstegn på flyttall."
+ },
+ {
+  "question": "En rekke som kuttes etter få ledd avviker med om lag $3 \\cdot 10^{-5}$ fra den eksakte verdien. Hvilken toleranse er fornuftig i testfunksjonen?",
+  "options": [
+   "`tol = 1e-4`, litt over det avviket metoden faktisk har",
+   "`tol = 1e-12`, så nær maskinens nøyaktighet som mulig",
+   "`tol = 0`, slik at bare helt eksakt like tall godtas",
+   "`tol = 1e-1`, med god margin ned til alle slags avvik"
+  ],
+  "explanation": "Toleransen skal ligge like over avviket metoden faktisk har, og $10^{-4}$ er nærmeste trygge valg over $3 \\cdot 10^{-5}$. Alternativ b) og c) melder feil på helt riktig kode, siden metoden aldri kan bli så nøyaktig. Alternativ d) er så løs at den også ville sluppet gjennom en kode med reell feil, og en test som aldri feiler er ikke en test."
+ },
+ {
+  "question": "Hva skjer når programmet kjøres?\n\n```python\ns = 0\nfor k in range(3):\n    s += k\n    print(s, end='-')\nassert s == 5, 'feil sum'\nprint('slutt')\n```",
+  "options": [
+   "`0-1-3-` skrives, og deretter en `AssertionError`",
+   "`0-1-3-slutt` skrives, og ingen feilmelding i det hele tatt",
+   "`0-1-2-` skrives, og deretter en `AssertionError`",
+   "`1-3-6-` skrives, og deretter en `AssertionError`"
+  ],
+  "explanation": "Løkka legger til 0, 1 og 2, så `s` er 0, 1 og 3 etter de tre rundene, og `end='-'` samler dem på én linje. Summen blir 3, ikke 5, så `assert` avbryter og `print('slutt')` nås aldri. Alternativ c) skriver løkkevariabelen i stedet for summen, og d) starter summeringen på 1."
+ },
+ {
+  "question": "Hvilken linje starter en testfunksjon slik oppgaveteksten ber om?",
+  "options": [
+   "`def test_sum_rekke():` — helt uten argumenter",
+   "`def test_sum_rekke(x, N):` — med to argumenter",
+   "`def sum_rekke_test(x):` — med navnet bakerst",
+   "`def test_sum_rekke:` — helt uten parenteser"
+  ],
+  "explanation": "En testfunksjon heter `test_` pluss navnet på det som testes og har tomme parenteser: testverdiene velges inne i funksjonen. Alternativ b) er en helt vanlig funksjon, ikke en testfunksjon. Alternativ c) bryter navnekonvensjonen sensor ser etter. Alternativ d) er en syntaksfeil — `def` krever parenteser."
+ },
+ {
+  "question": "Hva skriver en testfunksjon ut når alle sjekkene går gjennom?",
+  "options": [
+   "Ingenting — den er helt taus når alt stemmer",
+   "Teksten `True`, én gang per `assert`-linje i den",
+   "Meldingen `msg` som står i `assert`-linja bakerst",
+   "Verdien `None`, som er det funksjonen returnerer"
+  ],
+  "explanation": "En testfunksjon kommuniserer ved å stoppe programmet, ikke ved å skrive ut. Går alt bra, skjer ingenting. Alternativ b) og c) forutsetter at `assert` skriver noe. Alternativ d) blander sammen retur og utskrift: funksjonen returnerer riktignok `None`, men den verdien skrives ikke ut med mindre du selv ber om det."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nexpected = 10.0\ncomputed = 4.0\ntol = 1e-10\nprint(expected - computed < tol)\nprint(computed - expected < tol)\n```",
+  "options": [
+   "`False` på første linje og `True` på den andre",
+   "`True` på første linje og `False` på den andre",
+   "`False` på begge linjene, siden avviket er hele 6",
+   "`True` på begge linjene, siden `abs` mangler helt"
+  ],
+  "explanation": "Første uttrykk er $10 - 4 = 6$, som ikke er mindre enn $10^{-10}$, altså `False`. Andre uttrykk er $4 - 10 = -6$, som er mindre enn toleransen, altså `True` — enda avviket er like stort. Det er nettopp derfor `abs` må stå der: uten den godtar testen ethvert negativt avvik."
+ },
+ {
+  "question": "Hva skriver `print(sqrt(2)**2 == 2)` ut, når `sqrt` er importert fra `math`?",
+  "options": [
+   "`False`, fordi resultatet blir 2.0000000000000004",
+   "`True`, fordi kvadratroten opphøyd i andre er 2",
+   "`False`, fordi `**` alltid gir et helt tall tilbake",
+   "`True`, fordi Python runder av før den sammenligner"
+  ],
+  "explanation": "Kvadratroten av 2 lagres som en tilnærming, og kvadratet av tilnærmingen ligger ett siste siffer over 2. `==` fanger den forskjellen. Alternativ c) gir riktig svar av gal grunn — `**` gir flyttall når grunntallet er et flyttall. Alternativ d) beskriver noe Python ikke gjør: det finnes ingen automatisk avrunding før en sammenligning."
+ },
+ {
+  "question": "Hvilken importsetning henter kvadratrot og eksponentialfunksjon fra `math`?",
+  "options": [
+   "`from math import sqrt, exp`",
+   "`import sqrt, exp from math`",
+   "`from sqrt, exp import math`",
+   "`import math.sqrt, math.exp`"
+  ],
+  "explanation": "Formen er `from modul import navn`: modulen står først, deretter navnene. Alternativ b) er feil #10 — importsetningen skrevet i motsatt rekkefølge, en klassisk felle i «finn feilen»-oppgaver. Alternativ c) bytter om modul og navn, og d) er ikke gyldig syntaks for å importere enkeltfunksjoner."
+ },
+ {
+  "question": "En testfunksjon setter `expected` til nøyaktig det samme uttrykket som står inne i funksjonen den tester. Hva er problemet?",
+  "options": [
+   "Testen går gjennom selv om formelen er helt feil",
+   "Testen kan ikke bruke `exp` og `log` på begge sider",
+   "To like uttrykk gir alltid avvik i det siste sifferet",
+   "Verdien i `expected` må være et helt tall i en test"
+  ],
+  "explanation": "Fasiten må komme fra en uavhengig kilde — håndregning, en kjent eksakt verdi eller `math` — ellers sammenligner du koden med seg selv, og feil i formelen oppdages aldri. Alternativ b) og d) er oppdiktede regler. Alternativ c) er galt: nøyaktig samme uttrykk regnet på samme måte gir nøyaktig samme flyttall."
+ },
+ {
+  "question": "Hva skjer når programmet kjøres?\n\n```python\nfasit = [1.0, 2.0, 9.0]\nregnet = [1.0, 2.0, 3.0]\ntol = 1e-10\nfor e, c in zip(fasit, regnet):\n    print(e, end=' ')\n    assert abs(e - c) < tol, 'avvik'\nprint('ferdig')\n```",
+  "options": [
+   "`1.0 2.0 9.0 ` skrives, og deretter en `AssertionError`",
+   "`1.0 2.0 ` skrives, og deretter en `AssertionError`",
+   "`1.0 2.0 9.0 ferdig` skrives, uten noen feilmelding",
+   "Ingen utskrift, siden `assert` feiler i tredje runde"
+  ],
+  "explanation": "`print` står **før** `assert` i løkkekroppen, så tallet 9.0 rekker å bli skrevet før sjekken feiler i tredje runde. Alternativ b) er svaret hvis du tror `assert` kjøres først. Alternativ c) overser at 9 og 3 er ulike, og d) overser at de to første rundene fullførte."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ntider = [0.0, 1.0, 2.0]\nfasit = [5.0, 7.0]\nfor t, e in zip(tider, fasit):\n    print(t, e)\n```",
+  "options": [
+   "To linjer: `0.0 5.0` og så `1.0 7.0`",
+   "Tre linjer, der den siste blir `2.0 None`",
+   "To linjer: `0.0 5.0` og så `2.0 7.0`",
+   "Tre linjer, der den siste blir hoppet over"
+  ],
+  "explanation": "`zip` stopper ved den korteste sekvensen, så tallet 2.0 blir aldri brukt, og løkka går to runder. Dette er feil #17 — `zip` fyller ikke ut den korte lista med `None` (b) og hopper ikke over noe underveis (d). Alternativ c) parer feil elementer: `zip` tar dem i rekkefølge, ikke fra hver sin ende."
+ }
+]

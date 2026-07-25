@@ -1,0 +1,379 @@
+{
+  "id": "in1900-7-4",
+  "courseId": "in1900",
+  "chapterNumber": "7.4",
+  "title": "Subklasse av ODESolver: skriv advance",
+  "description": "Implementere en ny ODE-metode ved arv — skrive kun advance og arve resten — inkludert baklengs Euler med scipy.optimize.root.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne utvide et ferdig løser-hierarki med en ny metode ved å arve alt og skrive bare den ene metoden som gjør ett tidssteg",
+    "kunne bruke løserens egne verdier for høyreside, løsning, tid, stegnummer og steglengde inne i den metoden",
+    "kunne gi en subklasse egne parametre uten å miste oppsettet fra klassen den arver fra",
+    "kunne implementere en implisitt metode der hvert tidssteg løser en likning numerisk"
+  ],
+  "content": [
+    {
+      "id": "in1900-7-4-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er kapitlet som skiller toppen fra midten. Oppgavetypen heter i denne boka **sjanger K — subklasse av løser-hierarkiet**, altså «utvid det utleverte hierarkiet med en ny metode ved å skrive én eneste metode». Den er **topp-differensierende** og teller **3–5 poeng**: den dukker gjerne opp som siste deloppgave på det avsluttende settet, etter at systemoppgaven er unnagjort.\n\nBelegget i arkivet er konkret. En andreordens Runge–Kutta-metode som subklasse er gitt på settene fra høsten 2018 og høsten 2020. Høsten 2025 kom den tyngste varianten: **baklengs Euler som subklasse**, der hvert tidssteg løser en likning med `root` fra `scipy.optimize`. Den kombinerer tre ting eksamen liker å teste samtidig — differensiallikninger, likningsløsing og arv — og er derfor en sannsynlig gjenganger.\n\nPrioriteten her er **nivå 3, «kjenne»**. Boka bruker tre nivåer: «må sitte» (nivå 1), «må kunne» (nivå 2) og «kjenne» (nivå 3). At dette er nivå 3, betyr ikke at du kan hoppe over det — Del 7 som helhet må sitte — men at du kan få en god karakter uten å ha denne siste deloppgaven helt på plass. C er en god og vanlig karakter, og den får du på systemoppgaven i [kap. 7.3](/bok/in1900/in1900-7-3), ikke her. Er du ute etter A, er det derimot nettopp her poengene ligger.\n\nDen gode nyheten er at oppgaven er **liten**. Du skal ikke skrive en løser. Du skal skrive fire til seks linjer inne i en klasse som arver alt annet.\n\n*Løkke 1 — arv én metode (~12 min) · Løkke 2 — attributtene inne i metoden (~14 min) · Løkke 3 — egne parametre i subklassen (~13 min) · Løkke 4 — implisitt metode med likningsløsing (~16 min)*"
+    },
+    {
+      "id": "in1900-7-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n**1. Hierarkiet i bruk** ([kap. 7.2](/bok/in1900/in1900-7-2) og [kap. 7.3](/bok/in1900/in1900-7-3)). Tre kall, og løsningen er ferdig. Her er utgangspunktet vi bygger videre på:\n\n```python\nfrom ODESolver import ForwardEuler\n\ndef f(t, u):\n    return -0.3*u + 1.2\n\nsolver = ForwardEuler(f)\nsolver.set_initial_condition(10)\nt, u = solver.solve((0, 20), 40)\nprint(f\"{len(t)} punkter, u(20) = {u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\n41 punkter, u(20) = 4.009014\n```\n\nDet viktige for dette kapitlet er hva som skjer *inne* i `solve`: den lager tidsarrayet, setter startverdien og går i løkke over `range(N)`. For hvert steg kaller den én metode — `advance()` — som regner ut den neste verdien. Det er den metoden, og bare den, du skal skrive.\n\n**2. Arv med `super().__init__` ([kap. 5.3](/bok/in1900/in1900-5-3)).** En subklasse arver alt fra basisklassen. Skriver den sin egen `__init__` — altså sin egen oppstartsmetode — må basisklassens oppstart kalles først, ellers mister du attributtene den setter:\n\n```python\nclass Maaler:\n    def __init__(self, enhet):\n        self.enhet = enhet\n\n    def vis(self, x):\n        return f\"{x} {self.enhet}\"\n\nclass Presis(Maaler):\n    def __init__(self, enhet, desimaler):\n        super().__init__(enhet)\n        self.desimaler = desimaler\n\n    def vis(self, x):\n        return f\"{x:.{self.desimaler}f} {self.enhet}\"\n\nprint(Maaler(\"m\").vis(3.14159))\nprint(Presis(\"m\", 3).vis(3.14159))\n```\n\n**Utskrift:**\n```\n3.14159 m\n3.142 m\n```\n\n**3. `root` fra `scipy.optimize` ([kap. 6.1](/bok/in1900/in1900-6-1)).** Løser $g(x) = 0$ numerisk. Funksjonen tar **ett array inn** og gir **ett array ut**, startgjetningen er også et array, og svaret ligger i `sol.x`:\n\n```python\nimport numpy as np\nfrom scipy.optimize import root\n\ndef g(x):\n    return np.array([x[0]**3 - 2*x[0] - 5])\n\nsol = root(g, np.array([2.0]))\nprint(f\"{sol.x[0]:.6f}\", sol.success)\n```\n\n**Utskrift:**\n```\n2.094551 True\n```\n\nTrenger du bare det første og det andre punktet, kan du lese Løkke 1 til 3 og la Løkke 4 ligge til repetisjonen — den siste løkka er nivå 3-stoffet."
+    },
+    {
+      "id": "in1900-7-4-t1",
+      "type": "text",
+      "content": "## Løkke 1 — arbeidsdelingen: løkka nedarves, formelen skrives\n\nTenk på en bilfabrikk som lager samme understell til alle modellene sine. Karosseriet varierer, understellet gjør det ikke. `ODESolver` er understellet: den vet hvordan et tidsarray lages, hvor startverdien settes inn, og hvor mange ganger det skal itereres. Karosseriet er formelen for **ett** steg — og den er forskjellig for Euler, Heun og Runge–Kutta.\n\nDerfor er svaret på «implementér en ny ODE-metode» alltid det samme: *arv fra `ODESolver` og skriv bare `advance`*. Å skrive om hele klassen er ikke bare unødvendig arbeid; det er en feilkilde, og sensor gir ikke ekstra poeng for det.\n\nEn liten, men avgjørende detalj: `advance` skal **returnere** den neste verdien. Den skal ikke skrive den inn i `self.u` selv. Basisklassen tar imot returverdien og legger den på riktig plass."
+    },
+    {
+      "id": "in1900-7-4-def-subklasse",
+      "type": "definition",
+      "title": "`class Metode(ODESolver):`",
+      "content": "Arv fra basisklassen i løser-hierarkiet. Klassen på innsiden av parentesen kalles **basisklassen**, og den nye klassen arver alle metodene dens: `set_initial_condition`, `solve` og oppstartsmetoden `__init__`.\n\nSubklassen trenger derfor ingen `__init__` med mindre den skal lagre noe eget, og den skal aldri skrive sin egen `solve`. Bruken er identisk med de utleverte metodene:\n\n```python\nfrom ODESolver import ODESolver\n\nclass Metode(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        return u[n] + dt*f(t[n], u[n])\n\ndef f(t, u):\n    return -u\n\nsolver = Metode(f)\nsolver.set_initial_condition(1)\nt, u = solver.solve((0, 1), 4)\nprint(f\"{u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\n0.316406\n```\n\nMerk hvor lite som står i klassen: én metode, to linjer. Alt det andre kom med arven."
+    },
+    {
+      "id": "in1900-7-4-th-mal",
+      "type": "theorem",
+      "title": "Subklasse-malen — fire faste linjer",
+      "content": "Dette er malen du skal kunne skrive fra bunnen, uten å slå opp. Den er den samme hver gang, og bare formellinja skifter.\n\n**1. Klasselinja.** `class NavnPaaMetoden(ODESolver):` — navnet er ditt, basisklassen er den utleverte.\n\n**2. Metodelinja.** `def advance(self):` — ingen argumenter utenom `self`. Alt metoden trenger, ligger allerede på instansen.\n\n**3. Uthentingslinja.** `u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt` — korte lokale navn, slik at formelen blir lesbar. Den er valgfri; du kan skrive `self.u[self.n]` hele veien, men da blir linjene lange.\n\n**4. Formelen, med `return`.** Ett eller flere prøvesteg, og til slutt `return` av den nye verdien.\n\n```python\nfrom ODESolver import ODESolver\n\nclass Heun(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt, u[n] + dt*k1)\n        return u[n] + dt*(k1 + k2)/2\n```\n\n**Utskrift:** ingen (bare klassedefinisjonen; den brukes i Eksempel 1).\n\nMalen virker uendret for systemer. Er `u[n]` en vektor med fire komponenter, er `k1` også en vektor med fire komponenter, og aritmetikken er elementvis. Du skriver altså **samme** `advance` enten likningen har én eller ti ukjente — det er en av grunnene til at hierarkiet er bygget slik."
+    },
+    {
+      "id": "in1900-7-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Heuns metode som subklasse",
+      "problem": "Et sporstoff i en innsjø brytes ned og tilføres samtidig, slik at konsentrasjonen $u$ (i milligram per liter) oppfyller\n\n$$u' = -0{,}3u + 1{,}2, \\qquad u(0) = 10.$$\n\nDen eksakte løsningen er $u(t) = 4 + 6e^{-0{,}3t}$. Utvid hierarkiet med Heuns metode som en subklasse, løs på $[0, 20]$ med 40 steg, og mål hvor stor feilen blir.",
+      "solution": "Heuns metode tar først et Euler-steg som prøvesteg, regner høyresiden på nytt der, og bruker gjennomsnittet av de to stigningstallene.\n\n```python\nimport numpy as np\nfrom ODESolver import ODESolver\n\nclass Heun(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt, u[n] + dt*k1)\n        return u[n] + dt*(k1 + k2)/2\n\ndef f(t, u):\n    return -0.3*u + 1.2\n\nsolver = Heun(f)\nsolver.set_initial_condition(10)\nt, u = solver.solve((0, 20), 40)\n\neksakt = 4 + 6*np.exp(-0.3*t)\nprint(f\"{len(t)} punkter, dt = {t[1] - t[0]}\")\nprint(f\"u(20) = {u[-1]:.6f}   eksakt = {eksakt[-1]:.6f}\")\nprint(f\"maksfeil = {np.max(np.abs(u - eksakt)):.2e}\")\n```\n\n**Utskrift:**\n```\n41 punkter, dt = 0.5\nu(20) = 4.015252   eksakt = 4.014873\nmaksfeil = 9.27e-03\n```\n\nSammenlign med forkunnskapsblokken øverst: `ForwardEuler` ga $u(20) = 4{,}009014$ på nøyaktig samme oppgave, med en største avvik på $1{,}77 \\cdot 10^{-1}$. Heun kommer til $4{,}015252$ mot den eksakte $4{,}014873$, og største avvik er $9{,}27 \\cdot 10^{-3}$ — nesten **tjue ganger** mindre, for prisen av to ekstra linjer og ett ekstra kall til høyresiden per steg. Det er hele poenget med å legge til en metode.\n\nLegg merke til hva som **ikke** står i klassen: ingen `__init__`, ingen `solve`, ingen `set_initial_condition`, ingen løkke og ingen `np.linspace`. Fire linjer, og resten er arvet."
+    },
+    {
+      "id": "in1900-7-4-ex-a1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — hva arves, og hva skriver du?) Du skal utvide det utleverte hierarkiet med en ny metode.\n\n**a)** Hvilke tre metoder arver subklassen fra `ODESolver` uten at du skriver en linje?\n\n**b)** Hva skal `advance` returnere?\n\n**c)** Du løser en skalar likning på $[0, 6]$ med 24 steg. Hvor mange ganger blir `advance` kalt, og hvor mange rader har `u`?",
+        "solution": "**a)** `__init__` (som tar imot høyresiden `f`), `set_initial_condition` (som tar imot startverdien) og `solve` (som lager tidsarrayet og kjører løkka). Du skriver bare `advance`.\n\n**b)** Den **nye verdien** av `u`, altså verdien ved tidspunkt `n+1`. Ikke hele arrayet, ikke en tuppel, og ikke ingenting: basisklassen gjør `self.u[n+1] = self.advance()`, så returverdien er det eneste som blir lagret.\n\n**c)** `advance` kalles **24** ganger — én gang per steg, i løkka `for n in range(N)`. `u` har **25** rader, fordi startverdien ligger i rad 0 og hvert steg legger til én rad. Dette er #1 i feilkatalogen, av-én-feilen på antall punkter: `N` steg gir `N+1` punkter.",
+        "hints": [
+          "Se på hva basisklassen gjør med returverdien fra `advance`.",
+          "Skill mellom antall oppdateringer og antall lagrede punkter."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-ex-a2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Modulen `ODESolver` er den fra [kap. 7.2](/bok/in1900/in1900-7-2). Skriv utskriften nøyaktig.\n\n```python\nfrom ODESolver import ODESolver\n\nclass HalvtSteg(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        return u[n] + dt*f(t[n], u[n])/2\n\ndef f(t, u):\n    return u\n\nsolver = HalvtSteg(f)\nsolver.set_initial_condition(2)\nt, u = solver.solve((0, 2), 4)\nprint(len(u))\nprint(u)\n```",
+        "solution": "**Sporingstavle.** Intervallet $[0, 2]$ med 4 steg gir `dt = 0.5`. Høyresiden er `f(t, u) = u`, så oppdateringen blir `u[n] + 0.5*u[n]/2`, altså `1.25*u[n]`.\n\n| `n` | `u[n]` | `dt*f/2` | `u[n+1]` |\n|---|---|---|---|\n| 0 | 2.0 | 0.5 | 2.5 |\n| 1 | 2.5 | 0.625 | 3.125 |\n| 2 | 3.125 | 0.78125 | 3.90625 |\n| 3 | 3.90625 | 0.9765625 | 4.8828125 |\n\n`len(u)` er 5: fire steg gir fem punkter. Arrayet skrives med hakeparenteser og uten komma, med kolonnejustering.\n\n**Utskrift:**\n```\n5\n[2.        2.5       3.125     3.90625   4.8828125]\n```\n\n**Fellenote:** to feller. Den første er #1, av-én-feilen: fire steg gir fem rader, ikke fire. Den andre er utskriftsformen — et NumPy-array skrives **uten** komma mellom tallene, i motsetning til en liste. Deler du på 2 i formelen, halverer du steget i praksis, og metoden er ikke lenger konsistent med likningen; det er nettopp det programmet demonstrerer.",
+        "hints": [
+          "Start med å regne ut `dt` fra intervallet og antall steg.",
+          "Skriv opp faktoren hvert steg ganger med, før du regner tallene."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-t2",
+      "type": "text",
+      "content": "## Løkke 2 — de fem attributtene du har til rådighet (~14 min)\n\n`advance` tar ingen argumenter. Alt den trenger, ligger allerede lagret på instansen, og basisklassen har oppdatert det før hvert kall. Kjenner du de fem navnene, kan du skrive hvilken som helst eksplisitt metode.\n\nDen vanligste feilen her er ikke matematisk, men navnemessig: du skriver `self.dt` i en subklasse der den utleverte modulen ikke har noe `self.dt`. Derfor kommer den robuste formen rett etter tabellen — den virker uansett årgang."
+    },
+    {
+      "id": "in1900-7-4-def-attr",
+      "type": "definition",
+      "title": "`self.u`, `self.t`, `self.n`, `self.f` og `self.dt` inne i `advance`",
+      "content": "De fem attributtene basisklassen stiller til rådighet. Et **attributt** er en verdi som er lagret på objektet selv.\n\n| Attributt | Hva det er | Typisk bruk |\n|---|---|---|\n| `self.u` | hele løsningsarrayet, med radene før `n` ferdig utfylt | `self.u[self.n]` er verdien nå |\n| `self.t` | hele tidsarrayet | `self.t[self.n]` er tiden nå |\n| `self.n` | indeksen for steget som skal gjøres | grensetilfeller, som det aller første steget |\n| `self.f` | høyresiden, kallbar som `self.f(t, u)` | `self.f(self.t[self.n], self.u[self.n])` |\n| `self.dt` | steglengden | faktoren foran stigningstallet |\n\nAlle fem er satt av basisklassen før kallet. Du skal aldri sette dem selv inne i `advance`, og du skal ikke skrive til `self.u` — bare lese fra det.\n\nÉn ting til: fordi `self.u` inneholder **alle** tidligere verdier, kan du også se bakover. `self.u[self.n-1]` er verdien fra forrige steg, og det er nettopp det flerstegsmetoder trenger."
+    },
+    {
+      "id": "in1900-7-4-def-robustdt",
+      "type": "definition",
+      "title": "`dt = self.t[self.n+1] - self.t[self.n]`",
+      "content": "Den robuste måten å finne steglengden på. Den regner differansen mellom to nabotidspunkter i tidsarrayet, i stedet for å stole på at modulen har lagret et attributt som heter `dt`.\n\nGrunnen til å kunne den: attributtnavnene i modulen du får utlevert **kan variere fra år til år**. Tidsarrayet heter derimot alltid `self.t`, for det er halvparten av det `solve` returnerer.\n\n```python\nfrom ODESolver import ODESolver\n\nclass EulerRobust(ODESolver):\n    def advance(self):\n        u, f, t, n = self.u, self.f, self.t, self.n\n        dt = t[n+1] - t[n]\n        return u[n] + dt*f(t[n], u[n])\n\ndef f(t, u):\n    return -u\n\nsolver = EulerRobust(f)\nsolver.set_initial_condition(1)\nt, u = solver.solve((0, 2), 8)\nprint(f\"{u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\n0.100113\n```\n\nIndeksen `n+1` er alltid trygg her: `advance` kalles bare for `n` opp til `N-1`, og tidsarrayet har `N+1` elementer."
+    },
+    {
+      "id": "in1900-7-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: midtpunktsmetoden på en reaksjonskjede",
+      "problem": "Et stoff A brytes ned til B, som igjen brytes ned til C:\n\n$$A' = -k_A A, \\qquad B' = k_A A - k_B B, \\qquad C' = k_B B,$$\n\nmed $k_A = 0{,}7$, $k_B = 0{,}25$ og startverdiene $A(0) = 1$, $B(0) = 0$, $C(0) = 0$. Skriv midtpunktsmetoden som subklasse — den tar et halvt Euler-steg fram til midten av intervallet, regner stigningstallet der, og bruker det for hele steget — og løs på $[0, 20]$ med 400 steg. Når topper mellomproduktet B seg?",
+      "solution": "Subklassen bruker den robuste formen for `dt`, så den virker også om årets vedlegg ikke har `self.dt`.\n\n```python\nimport numpy as np\nfrom ODESolver import ODESolver\n\nclass Midtpunkt(ODESolver):\n    def advance(self):\n        u, f, t, n = self.u, self.f, self.t, self.n\n        dt = t[n+1] - t[n]\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt/2, u[n] + dt*k1/2)\n        return u[n] + dt*k2\n\nka, kb = 0.7, 0.25\n\ndef f(t, u):\n    A, B, C = u\n    return [-ka*A, ka*A - kb*B, kb*B]\n\nsolver = Midtpunkt(f)\nsolver.set_initial_condition([1.0, 0.0, 0.0])\nt, u = solver.solve((0, 20), 400)\n\nA, B, C = u[:, 0], u[:, 1], u[:, 2]\nprint(\"u.shape =\", u.shape)\nprint(f\"B topper seg ved t = {t[np.argmax(B)]:.2f} med B = {B.max():.4f}\")\nprint(f\"ved t = 20: A = {A[-1]:.5f}  B = {B[-1]:.5f}  C = {C[-1]:.5f}\")\nprint(f\"summen ved t = 20: {A[-1] + B[-1] + C[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\nu.shape = (401, 3)\nB topper seg ved t = 2.30 med B = 0.5643\nved t = 20: A = 0.00000  B = 0.01048  C = 0.98952\nsummen ved t = 20: 1.000000\n```\n\nTo ting er verdt å merke seg. For det første er `advance` **ordrett den samme** som i skalartilfellet — `u[n]` er nå en vektor med tre tall, og `k1` og `k2` likeså, men aritmetikken er elementvis og formelen uendret. For det andre er summen $A + B + C$ nøyaktig 1 hele veien: stoffet forsvinner ikke, det flytter seg. Den slags bevart størrelse er en gratis fornuftssjekk, og på eksamen er det verdt å nevne den i en setning.\n\nLegg også merke til at parametrene heter `ka` og `kb`, ikke `k1` og `k2`. Prøvestegene inne i `advance` heter allerede `k1` og `k2`, og selv om de er lokale variabler og derfor ikke krasjer, blir koden umulig å lese med to betydninger av samme bokstav."
+    },
+    {
+      "id": "in1900-7-4-w-1",
+      "type": "warning",
+      "title": "Typiske feil når du skriver `advance`",
+      "content": "**Å skrive om hele klassen.** Den vanligste sløsingen: kandidaten skriver `__init__`, `set_initial_condition` og en egen `solve` på nytt. Det tar ti minutter, gir ingen ekstra poeng, og introduserer nye feil. Sensor ser etter én ting: at du har forstått at bare `advance` skal skrives.\n\n**Å skrive i stedet for å returnere.** Skriver du `u[n+1] = ...` inne i `advance` og glemmer `return`, returnerer metoden `None`. Basisklassen legger da `None` inn i et flyttallsarray, og du får `nan` i alle radene — **uten** feilmelding. Dette er den styggeste feilen i kapitlet, fordi programmet ser ut til å kjøre.\n\n**Feil attributtnavn.** Er du usikker på om vedlegget har `self.dt`, bruk `self.t[self.n+1] - self.t[self.n]`. Er du usikker på om stegtelleren heter `self.n` eller noe annet, må du lese vedlegget — det er den ene tingen du ikke kan gjette deg til.\n\n**#3 — glemme `self`.** Å skrive `u[n]` uten å ha hentet det ut fra `self.u` først gir `NameError`. Uthentingslinja øverst i `advance` finnes nettopp for å gjøre dette vanskeligere å glemme.\n\n**#14 — API-drift.** Høyresiden kalles `self.f(t, u)`, tid først. I eldre sett var rekkefølgen motsatt, `f(u, t)`. Bruker du feil rekkefølge i et system der høyresiden ikke bruker `t`, får du **ingen** feilmelding — bare feil svar. Les vedlegget før du skriver.\n\n**Rekursjon.** Det kan friste å la `advance` kalle seg selv for å ta et halvt steg til. Ikke gjør det: rekursjon er utenfor pensum i dette emnet og markeres som uønsket i de offisielle løsningsforslagene. Trenger du to prøvesteg, skriver du dem som to linjer."
+    },
+    {
+      "id": "in1900-7-4-ex-a3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger K — subklasse av løser-hierarkiet.) Ralstons metode er en andreordens metode med prøvesteget to tredeler ut i intervallet:\n\n$$k_1 = f(t_n, u_n), \\qquad k_2 = f\\left(t_n + \\tfrac{2}{3}\\Delta t,\\; u_n + \\tfrac{2}{3}\\Delta t\\, k_1\\right), \\qquad u_{n+1} = u_n + \\Delta t\\,\\frac{k_1 + 3k_2}{4}.$$\n\n**a)** Skriv subklassen `Ralston` av `ODESolver` med kun metoden `advance`.\n\n**b)** En bakteriekultur vokser logistisk, $u' = 0{,}45u\\left(1 - \\dfrac{u}{8000}\\right)$, med $u(0) = 200$ celler. Løs med `Ralston` på $[0, 30]$ (i timer) med 300 steg, og skriv ut steglengden, bestanden etter 10 timer og bestanden ved slutten.",
+        "solution": "**a) og b)** samlet, siden det er ett program:\n\n```python\nfrom ODESolver import ODESolver\n\nclass Ralston(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + 2*dt/3, u[n] + 2*dt*k1/3)\n        return u[n] + dt*(k1 + 3*k2)/4\n\ndef f(t, u):\n    return 0.45*u*(1 - u/8000)\n\nsolver = Ralston(f)\nsolver.set_initial_condition(200)\nt, u = solver.solve((0, 30), 300)\nprint(f\"{len(t)} punkter, dt = {t[1] - t[0]}\")\nprint(f\"u(10) = {u[100]:.2f}\")\nprint(f\"u(30) = {u[-1]:.2f}\")\n```\n\n**Utskrift:**\n```\n301 punkter, dt = 0.1\nu(10) = 5580.71\nu(30) = 7999.57\n```\n\n**Hva som gir uttelling.** Klasselinja med riktig basisklasse og `def advance(self):` er det første poenget — det viser at du har forstått oppgaven. De to prøvestegene er det andre. Bytter du om vektene og skriver `(3*k1 + k2)/4`, mister du et halvt poeng, men strukturen står, og resten av besvarelsen er intakt. Indeksen `u[100]` for $t = 10$ krever at du ser at steglengden er 0,1; skriver du `u[10]` i stedet, er det en indeksfeil av samme type som #1, og den koster lite når resten er riktig.\n\nBestanden nærmer seg bæreevnen 8000 og er nesten der etter 30 timer — en fornuftssjekk du kan gjøre uten å kjøre koden.",
+        "hints": [
+          "Start med `class Ralston(ODESolver):` og `def advance(self):` — ingen andre metoder.",
+          "Hent ut `u, f, t, n, dt` fra `self` på første linje, så blir formlene korte.",
+          "Steglengden følger av intervallets lengde delt på antall steg; bruk den til å finne riktig indeks for $t = 10$."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-ex-a4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger O — «finn feilen», altså «hva er galt i programmet?».) En medstudents subklasse kjører uten feilmelding, men gir dette:\n\n```text\n[ 1. nan nan nan nan]\n```\n\nKoden er:\n\n```text\nclass Glemsom(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n```\n\n**a)** Forklar hvorfor utskriften blir `nan` fra og med den andre verdien, når selve Euler-formelen er riktig.\n\n**b)** Rett feilen med minst mulig endring.",
+        "solution": "**a)** Formelen er riktig, og linja skriver til og med riktig verdi inn i `u[n+1]`. Problemet er at metoden ikke har noen `return`. En Python-funksjon uten `return` returnerer `None`, og basisklassen gjør `self.u[n+1] = self.advance()`. Den korrekte verdien som `advance` nettopp la inn, blir altså **overskrevet** av `None` i samme steg. Et flyttallsarray kan ikke lagre `None`, så det blir `nan` («not a number»). Neste steg leser den `nan`-verdien, og fra da av forplanter den seg gjennom hele arrayet. Ingen exception — altså ingen feil som avbryter programmet — blir kastet, og det er derfor feilen er farlig.\n\nRad 0 er uberørt fordi den settes av `solve` før løkka.\n\n**b)** Bytt tilordningen med en `return`. Én linje endres:\n\n```python\nfrom ODESolver import ODESolver\n\nclass Rettet(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        return u[n] + dt*f(t[n], u[n])\n\ndef f(t, u):\n    return -u\n\nsolver = Rettet(f)\nsolver.set_initial_condition(1)\nt, u = solver.solve((0, 1), 4)\nprint(u)\n```\n\n**Utskrift:**\n```\n[1.         0.75       0.5625     0.421875   0.31640625]\n```\n\n**Regelen å ta med seg:** `advance` **leser** fra `self.u` og **returnerer** en verdi. Den skriver aldri.",
+        "hints": [
+          "Se på hva basisklassen gjør med det `advance` gir tilbake.",
+          "Hva returnerer en Python-funksjon som ikke har noen `return`-setning?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-t3",
+      "type": "text",
+      "content": "## Løkke 3 — når subklassen trenger noe eget (~13 min)\n\nSå langt har subklassene bare hatt `advance`. Noen ganger trenger metoden en **parameter** — en vekt, en toleranse, en teller. Da må subklassen ha sin egen oppstartsmetode, og det er her arven kan gå galt.\n\nBasisklassens `__init__` gjør noe viktig: den tar imot høyresiden `f` og pakker den slik at den alltid gir et NumPy-array tilbake. Overskriver du `__init__` uten å kalle basisklassens, mister du den pakkingen, og `self.f` finnes ikke i det hele tatt. Symptomet er `AttributeError` ved første steg.\n\nLøsningen er én linje, og den skal stå **først**."
+    },
+    {
+      "id": "in1900-7-4-def-super",
+      "type": "definition",
+      "title": "`super().__init__(f)` i en subklasse med egne parametre",
+      "content": "Kallet som kjører basisklassens oppstartsmetode fra subklassens egen. Det skal stå som **første linje** i subklassens `__init__`, før du setter dine egne attributter.\n\n```python\nfrom ODESolver import ODESolver\n\nclass EulerMedTelling(ODESolver):\n    def __init__(self, f):\n        super().__init__(f)\n        self.antall_kall = 0\n\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        self.antall_kall = self.antall_kall + 1\n        return u[n] + dt*f(t[n], u[n])\n\ndef f(t, u):\n    return -0.5*u\n\nsolver = EulerMedTelling(f)\nsolver.set_initial_condition(4)\nt, u = solver.solve((0, 6), 60)\nprint(f\"u(6) = {u[-1]:.5f}\")\nprint(\"kall til hoyresiden:\", solver.antall_kall)\n```\n\n**Utskrift:**\n```\nu(6) = 0.18428\nkall til hoyresiden: 60\n```\n\nRegelen er den samme som i [kap. 5.3](/bok/in1900/in1900-5-3): `super().__init__(...)` først, egne attributter etterpå. Trenger subklassen ingen egne attributter, skriver du ingen `__init__` i det hele tatt — den arves.\n\nTallet 60 er verdt en tanke: forlengs Euler kaller høyresiden **én** gang per steg. Runge–Kutta 4 ville brukt 240 kall på samme antall steg. Det er den prisen du betaler for høyere orden."
+    },
+    {
+      "id": "in1900-7-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: en hel familie av metoder med én parameter",
+      "problem": "Alle eksplisitte andreordens Runge–Kutta-metoder kan skrives med **én** parameter $\\alpha$:\n\n$$k_1 = f(t_n, u_n), \\qquad k_2 = f(t_n + \\alpha\\Delta t,\\; u_n + \\alpha\\Delta t\\, k_1), \\qquad u_{n+1} = u_n + \\Delta t\\left[\\left(1 - \\frac{1}{2\\alpha}\\right)k_1 + \\frac{1}{2\\alpha}k_2\\right].$$\n\nMed $\\alpha = 1/2$ får du midtpunktsmetoden, med $\\alpha = 2/3$ Ralstons metode og med $\\alpha = 1$ Heuns metode. Skriv én subklasse som dekker alle tre, og sammenlign dem på $u' = -u + \\sin t$, $u(0) = 1$, over $[0, 10]$ med 50 steg. Den eksakte løsningen er $u(t) = \\tfrac{3}{2}e^{-t} + \\tfrac{1}{2}(\\sin t - \\cos t)$.",
+      "solution": "Parameteren lagres i subklassens egen oppstartsmetode, med basisklassens kalt først.\n\n```python\nimport numpy as np\nfrom ODESolver import ODESolver\n\nclass RK2Alpha(ODESolver):\n    def __init__(self, f, alpha):\n        super().__init__(f)\n        self.alpha = alpha\n\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        a = self.alpha\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + a*dt, u[n] + a*dt*k1)\n        return u[n] + dt*((1 - 1/(2*a))*k1 + k2/(2*a))\n\ndef f(t, u):\n    return -u + np.sin(t)\n\nfor alpha in [0.5, 2/3, 1.0]:\n    solver = RK2Alpha(f, alpha)\n    solver.set_initial_condition(1)\n    t, u = solver.solve((0, 10), 50)\n    eksakt = 1.5*np.exp(-t) + (np.sin(t) - np.cos(t))/2\n    print(f\"alpha = {alpha:.4f}   u(10) = {u[-1]:.6f}   maksfeil = {np.max(np.abs(u - eksakt)):.2e}\")\n```\n\n**Utskrift:**\n```\nalpha = 0.5000   u(10) = 0.144672   maksfeil = 5.71e-03\nalpha = 0.6667   u(10) = 0.144362   maksfeil = 5.26e-03\nalpha = 1.0000   u(10) = 0.143827   maksfeil = 5.94e-03\n```\n\nAlle tre er andreordens, og feilene er derfor av samme størrelsesorden. Ralstons valg $\\alpha = 2/3$ er marginalt best her, og det er ikke tilfeldig: den er konstruert for å gjøre den ledende feilkoeffisienten så liten som mulig. Forskjellen er likevel liten nok til at valget mellom dem sjelden betyr noe i praksis.\n\nDet instruktive er konstruksjonen: **én** klasse, **tre** metoder, og instansieringen `RK2Alpha(f, 2/3)` tar nå to argumenter i stedet for ett. Så snart subklassen har en egen `__init__`, endres måten du lager løseren på — og det er lett å glemme når du skal bruke den senere i besvarelsen."
+    },
+    {
+      "id": "in1900-7-4-ex-a5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger K — subklasse med egen parameter.) Skriv subklassen `EulerSkalert(ODESolver)` som tar imot høyresiden og et positivt tall `vekt`, og som gjør et forlengs Euler-steg der bidraget fra høyresiden ganges med `vekt`:\n\n$$u_{n+1} = u_n + w\\,\\Delta t\\, f(t_n, u_n).$$\n\n**a)** Skriv klassen. Husk at den skal kunne lages med `EulerSkalert(f, 1.0)`.\n\n**b)** Løs $u' = -u$, $u(0) = 1$, på $[0, 2]$ med 8 steg for `vekt` lik 1,0 og 0,5, og skriv ut sluttverdien for hver. Forklar i én setning hvorfor den ene er riktig og den andre ikke.",
+        "solution": "**a)** og **b)**:\n\n```python\nfrom ODESolver import ODESolver\n\nclass EulerSkalert(ODESolver):\n    def __init__(self, f, vekt):\n        super().__init__(f)\n        self.vekt = vekt\n\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        return u[n] + self.vekt*dt*f(t[n], u[n])\n\ndef f(t, u):\n    return -u\n\nfor vekt in [1.0, 0.5]:\n    solver = EulerSkalert(f, vekt)\n    solver.set_initial_condition(1)\n    t, u = solver.solve((0, 2), 8)\n    print(f\"vekt = {vekt}   u(2) = {u[-1]:.6f}\")\n```\n\n**Utskrift:**\n```\nvekt = 1.0   u(2) = 0.100113\nvekt = 0.5   u(2) = 0.343609\n```\n\nMed `vekt = 1.0` er dette vanlig forlengs Euler, og svaret 0,100113 ligger i nærheten av den eksakte verdien $e^{-2} \\approx 0{,}1353$. Med `vekt = 0.5` regner metoden som om bare halve steget ble tatt hver gang, så løsningen faller for sakte og havner på 0,343609 — mer enn dobbelt så høyt som den skal. Metoden er ikke lenger konsistent med likningen, uansett hvor lite steget gjøres.\n\n**Hva som gir uttelling.** `super().__init__(f)` som første linje er det avgjørende: uten den finnes ikke `self.f`, og programmet stopper med `AttributeError` allerede i første steg. `self.vekt` i `advance` er det andre poenget. Skriver du `vekt` uten `self.`, får du `NameError` — det er feil #3, å glemme `self`.",
+        "hints": [
+          "Subklassen trenger en egen `__init__` fordi den skal lagre noe utover høyresiden.",
+          "Første linje i den `__init__`-en skal kalle basisklassens.",
+          "Inne i `advance` må parameteren hentes fra instansen, ikke fra et fritt navn."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-ex-a6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger K + nøyaktighetsdel.) Kuttas tredjeordens metode er\n\n$$k_1 = f(t_n, u_n), \\quad k_2 = f\\left(t_n + \\tfrac{\\Delta t}{2},\\, u_n + \\tfrac{\\Delta t}{2}k_1\\right), \\quad k_3 = f\\left(t_n + \\Delta t,\\, u_n - \\Delta t\\,k_1 + 2\\Delta t\\,k_2\\right),$$\n\n$$u_{n+1} = u_n + \\Delta t\\,\\frac{k_1 + 4k_2 + k_3}{6}.$$\n\n**a)** Skriv subklassen `RK3`.\n\n**b)** Bruk den på $u' = -0{,}8u + 2$, $u(0) = 6$, over $[0, 5]$, som har den eksakte løsningen $u(t) = 2{,}5 + 3{,}5e^{-0{,}8t}$. Regn ut den største avviket for $N = 10, 20, 40, 80$.\n\n**c)** Hva sier tallrekken om ordenen til metoden?",
+        "solution": "**a)** og **b)**:\n\n```python\nimport numpy as np\nfrom ODESolver import ODESolver\n\nclass RK3(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + dt/2, u[n] + dt*k1/2)\n        k3 = f(t[n] + dt, u[n] - dt*k1 + 2*dt*k2)\n        return u[n] + dt*(k1 + 4*k2 + k3)/6\n\ndef f(t, u):\n    return -0.8*u + 2\n\nfor N in [10, 20, 40, 80]:\n    solver = RK3(f)\n    solver.set_initial_condition(6)\n    t, u = solver.solve((0, 5), N)\n    eksakt = 2.5 + 3.5*np.exp(-0.8*t)\n    print(f\"N = {N:3d}   maksfeil = {np.max(np.abs(u - eksakt)):.3e}\")\n```\n\n**Utskrift:**\n```\nN =  10   maksfeil = 4.648e-03\nN =  20   maksfeil = 5.038e-04\nN =  40   maksfeil = 5.812e-05\nN =  80   maksfeil = 6.980e-06\n```\n\n**c)** Hver dobling av $N$ halverer steglengden, og feilen faller med faktorene $4{,}648/0{,}5038 \\approx 9{,}2$, deretter $\\approx 8{,}7$ og $\\approx 8{,}3$. Tallene nærmer seg 8, altså $2^3$. En metode der halvert steg gir åtte ganger mindre feil, har **orden 3** — som navnet lover. De to første forholdstallene ligger litt over 8 fordi steget ennå er grovt; det er normalt, og du skal se på tendensen, ikke på ett enkelt tall.\n\n**Hva som gir uttelling.** De tre prøvestegene med riktige argumenter er hovedpoenget; det tredje er det lette å skrive feil, siden det bruker $-\\Delta t k_1 + 2\\Delta t k_2$ og ikke bare $k_2$. Løkka over flere $N$ med maksimalfeilen er det andre poenget, og konklusjonen i del c) det tredje. Får du et fortegn galt i $k_3$, faller feilen som $2^2$ i stedet, og en ærlig kommentar om at «tallet ble 4, altså orden 2» gir fortsatt uttelling for metoden.",
+        "hints": [
+          "Skriv de tre prøvestegene på hver sin linje før du setter dem sammen i returlinja.",
+          "Legg merke til at det tredje prøvesteget bruker begge de to foregående.",
+          "Sammenlign nabotall i feilkolonnen: hva ganges feilen med når steget halveres?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-t4",
+      "type": "text",
+      "content": "## Løkke 4 — implisitte metoder: når hvert steg er en likning (~16 min)\n\n— naturlig pausepunkt —\n\nDenne siste løkka er nivå 3-stoffet i kapitlet: **bør kjenne til**. Den er den tyngste enkeltdelen i Del 7, og den er samtidig den mest sannsynlige toppoppgaven. Har du kort tid, ta den etter at resten av Del 7 sitter.\n\nAlle metodene så langt har vært **eksplisitte**: den nye verdien regnes ut av gamle verdier, ferdig. Baklengs Euler er **implisitt** — den bruker høyresiden evaluert i det nye punktet:\n\n$$u_{n+1} = u_n + \\Delta t\\, f(t_{n+1}, u_{n+1}).$$\n\nDen ukjente står på begge sider. Det er ikke en formel du kan regne ut; det er en **likning** du må løse, én gang per tidssteg. Og det er nettopp derfor oppgaven er attraktiv på eksamen: den krever at du kombinerer ODE-løsing med `root` fra [kap. 6.1](/bok/in1900/in1900-6-1).\n\nHvorfor gidde? Fordi implisitte metoder er **stabile**. For såkalt stive problemer — der noe skjer svært raskt i forhold til tidsrommet du er interessert i — sprenger forlengs Euler med mindre steget er absurd lite, mens baklengs Euler holder seg i ro. Eksempel 4 viser forskjellen."
+    },
+    {
+      "id": "in1900-7-4-def-baklengs",
+      "type": "definition",
+      "title": "Baklengs Euler: likningen som skal løses hvert steg",
+      "content": "Den implisitte oppdateringen $u_{n+1} = u_n + \\Delta t f(t_{n+1}, u_{n+1})$ skrives om til et nullpunktsproblem ved å flytte alt over på én side. Kall den ukjente $v$:\n\n$$g(v) = v - u_n - \\Delta t\\, f(t_{n+1}, v) = 0.$$\n\nNullpunktet $v$ er den nye verdien. Alt annet — $u_n$, $t_{n+1}$ og $\\Delta t$ — er kjent når steget starter, og fungerer som konstanter i likningen.\n\nFormen er den samme for systemer: da er $v$ en vektor, $g$ returnerer en vektor like lang, og du løser like mange likninger som du har ukjente funksjoner. Du skriver ikke noe ekstra for det tilfellet.\n\n**Startgjetningen** er nesten alltid `u[n]`, altså den forrige verdien. Den er per definisjon nær svaret når steget er lite, og det er akkurat det en nullpunktsmetode trenger for å konvergere raskt."
+    },
+    {
+      "id": "in1900-7-4-def-rootinne",
+      "type": "definition",
+      "title": "`root` inne i `advance`",
+      "content": "Nullpunktsløseren fra [kap. 6.1](/bok/in1900/in1900-6-1), brukt én gang per tidssteg. Mønsteret er fast:\n\n```python\nfrom scipy.optimize import root\nfrom ODESolver import ODESolver\n\nclass BaklengsEuler(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n\n        def likning(v):\n            return v - u[n] - dt*f(t[n+1], v)\n\n        sol = root(likning, u[n])\n        return sol.x\n```\n\n**Utskrift:** ingen (bare klassedefinisjonen; den brukes i Eksempel 4).\n\nTre detaljer avgjør om det virker:\n\n- **`likning` defineres inne i `advance`.** Den må se `u[n]`, `t[n+1]` og `dt`, og de er forskjellige for hvert steg. En funksjon definert inne i en annen ser den ytre funksjonens variabler.\n- **Tiden er `t[n+1]`, ikke `t[n]`.** Det er hele forskjellen på baklengs og forlengs Euler. Skriver du `t[n]`, har du laget en tungvint variant av forlengs Euler.\n- **Svaret er `sol.x`.** `root` returnerer et resultatobjekt, ikke et tall. `sol.x` er alltid et array — også når likningen har én ukjent — og det er nettopp den formen basisklassen vil ha.\n\nDokumentasjonen for `root` leveres som vedlegg på eksamen, så signaturen trenger du ikke pugge. Innpakningen må du kunne."
+    },
+    {
+      "id": "in1900-7-4-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: en stiv avkjøling der forlengs Euler sprenger",
+      "problem": "En tynn metallplate kjøles svært raskt mot omgivelsene på 20 °C:\n\n$$u' = -15(u - 20), \\qquad u(0) = 100.$$\n\nDen eksakte løsningen er $u(t) = 20 + 80e^{-15t}$, som er nede på romtemperatur nesten med én gang. Løs på $[0, 2]$ med bare 8 steg, med `ForwardEuler` fra vedlegget og med en egenskrevet baklengs Euler. Hva skjer?",
+      "solution": "```python\nimport numpy as np\nfrom scipy.optimize import root\nfrom ODESolver import ODESolver, ForwardEuler\n\nclass BaklengsEuler(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n\n        def likning(v):\n            return v - u[n] - dt*f(t[n+1], v)\n\n        sol = root(likning, u[n])\n        return sol.x\n\ndef f(t, u):\n    return -15*(u - 20)\n\nfor Metode in [ForwardEuler, BaklengsEuler]:\n    solver = Metode(f)\n    solver.set_initial_condition(100)\n    t, u = solver.solve((0, 2), 8)\n    eksakt = 20 + 80*np.exp(-15*t)\n    print(f\"{Metode.__name__:15s} u(2) = {u[-1]:14.4f}   eksakt = {eksakt[-1]:.4f}\")\n```\n\n**Utskrift:**\n```\nForwardEuler    u(2) =    261688.5559   eksakt = 20.0000\nBaklengsEuler   u(2) =        20.0003   eksakt = 20.0000\n```\n\nSteglengden er $\\Delta t = 0{,}25$, og forlengs Euler ganger med $1 - 15 \\cdot 0{,}25 = -2{,}75$ hvert steg. Tallet skifter fortegn og blir 2,75 ganger større hver runde, og etter åtte steg er temperaturen «over to hundre tusen grader». Det er ikke en programmeringsfeil — det er metodens stabilitetsgrense, og den er nådd fordi problemet er **stivt**.\n\nBaklengs Euler ganger med $1/(1 + 15 \\cdot 0{,}25) = 0{,}31$ i stedet, og faller derfor pent mot 20 uansett hvor stort steget er. Prisen er at hvert steg krever et kall til `root`.\n\nMerk at `for Metode in [ForwardEuler, BaklengsEuler]` løkker over selve **klassene**, ikke over instanser. `Metode(f)` lager instansen inne i løkka, og `Metode.__name__` gir klassenavnet som tekst. Det er en kompakt måte å sammenligne to metoder på, og den er verdt å kunne til en «sammenlign metodene»-deloppgave."
+    },
+    {
+      "id": "in1900-7-4-ex-a7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger K — implisitt metode på et system. Nivå 3.) To former av et molekyl går fram og tilbake, og den ene reaksjonen er mye raskere enn den andre:\n\n$$A' = -80A + 2B, \\qquad B' = 80A - 2B,$$\n\nmed $A(0) = 1$ og $B(0) = 0$.\n\n**a)** Skriv subklassen `BaklengsEuler(ODESolver)` med kun `advance`, der hvert steg løser likningen for den nye verdien med `root`.\n\n**b)** Løs på $[0, 5]$ med 50 steg. Skriv ut formen på `u`, sluttverdiene og summen $A + B$ ved slutten.\n\n**c)** Hvorfor er summen en god fornuftssjekk her, og hvorfor er det en fordel at metoden er implisitt?",
+        "solution": "**a)** og **b)**:\n\n```python\nimport numpy as np\nfrom scipy.optimize import root\nfrom ODESolver import ODESolver\n\nclass BaklengsEuler(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n\n        def likning(v):\n            return v - u[n] - dt*f(t[n+1], v)\n\n        sol = root(likning, u[n])\n        return sol.x\n\ndef f(t, u):\n    A, B = u\n    return [-80*A + 2*B, 80*A - 2*B]\n\nsolver = BaklengsEuler(f)\nsolver.set_initial_condition([1.0, 0.0])\nt, u = solver.solve((0, 5), 50)\nprint(\"u.shape =\", u.shape)\nprint(f\"A(5) = {u[-1, 0]:.6f}   B(5) = {u[-1, 1]:.6f}\")\nprint(f\"summen = {u[-1, 0] + u[-1, 1]:.6f}\")\n```\n\n**Utskrift:**\n```\nu.shape = (51, 2)\nA(5) = 0.024390   B(5) = 0.975610\nsummen = 1.000000\n```\n\n**c)** Ingenting skapes eller forsvinner: hvert molekyl er enten i form A eller i form B, så $A + B$ skal være 1 hele veien. At summen kommer ut som nøyaktig 1,000000 er derfor en sjekk du kan gjøre uten fasit — og det er verdt et poeng å nevne den.\n\nMetoden bør være implisitt fordi systemet er stivt: raten 80 gjør at forlengs Euler krever $\\Delta t < 2/82 \\approx 0{,}024$ for å holde seg i ro, altså minst 205 steg over intervallet. Med 50 steg er $\\Delta t = 0{,}1$, og en eksplisitt metode ville sprengt. Baklengs Euler gir en fornuftig løsning uansett steglengde. Likevektsverdien $A = 2/82 \\approx 0{,}0244$ stemmer med utskriften.\n\n**Hva som gir uttelling.** Klasselinja og `def advance(self):` gir første poeng; den indre funksjonen `likning(v)` med `t[n+1]` gir andre; `sol.x` som returverdi gir tredje. Skriver du `t[n]` i stedet for `t[n+1]`, har du laget forlengs Euler i implisitt forkledning — det koster ett poeng, men strukturen er der, og deloppgave b) og c) kan fortsatt gi full uttelling. Merk også at `advance` er **ordrett den samme** som i skalartilfellet i Eksempel 4; det er verdt å si i én setning.",
+        "hints": [
+          "Sett opp likningen $g(v) = 0$ på papir før du skriver koden.",
+          "Den indre funksjonen må ligge inne i `advance` for å se `u[n]` og `dt`.",
+          "Startgjetningen til nullpunktsløseren er den forrige verdien."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-w-2",
+      "type": "warning",
+      "title": "API-drift og andre feller i vedlegget",
+      "content": "**Signaturen kan skifte fra år til år.** Bokstandarden er høyresiden `f(t, u)` og kallet `solver.solve(t_span, N)`, som er formen fra 2023 og senere. På settene fra 2020 til 2022 var høyresiden `f(u, t)` og løseren ble kalt `solve(time_points)` med et ferdig array av tidspunkter. Det er feilkode **#14** — API-forveksling — og den rammer subklasser hardt, fordi `advance` da må kalle `self.f(u[k], t[k])` og finne steget fra tidsarrayet. Begge variantene står i sin helhet i kapitlets siste boks og i [kap. 7.2](/bok/in1900/in1900-7-2).\n\n**Steg-indeksen kan hete noe annet.** I den eldre varianten heter den `self.k`. Skriver du `self.n` da, får du `AttributeError` ved første steg. Dette er den ene tingen du **må** lese ut av vedlegget — den kan ikke gjettes.\n\n**`self.dt` finnes ikke alltid.** Bruk `dt = self.t[self.n+1] - self.t[self.n]` når du er usikker.\n\n**Rekursjon.** En implisitt metode frister til å «kalle seg selv til svaret er godt nok». Ikke gjør det: rekursjon er utenfor pensum i dette emnet og markeres som uønsket i de offisielle løsningsforslagene. Bruk `root`, eller en `while`-løkke om oppgaven ber om en egen iterasjon.\n\n**Til slutt:** riktig overordnet struktur belønnes. Har du riktig klasselinje, riktig `advance`-signatur og riktig oppbygging av formelen, gir sensor uttelling selv om en koeffisient eller en indeks er feil. Å få alt 100 % riktig uten å kunne kjøre koden er nesten umulig, og oppgavene er poengsatt deretter."
+    },
+    {
+      "id": "in1900-7-4-ex-a8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-7-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger K og J — full flerdelt oppgave.) En tostegs metode bruker høyresiden fra **både** dette og forrige tidspunkt:\n\n$$u_{n+1} = u_n + \\Delta t\\left(\\tfrac{3}{2}f(t_n, u_n) - \\tfrac{1}{2}f(t_{n-1}, u_{n-1})\\right).$$\n\nDet finnes ikke noe punkt før det første, så det aller første steget må gjøres med forlengs Euler.\n\n**a)** Skriv subklassen `AdamsBashforth2(ODESolver)` med kun `advance`. Behandle det første steget som et spesialtilfelle.\n\n**b)** To vanntanker står over hverandre. Den øvre tømmes med raten $0{,}6$ per time, alt renner ned i den nedre, og den nedre tømmes med raten $0{,}2$ per time:\n\n$$x' = -0{,}6x, \\qquad y' = 0{,}6x - 0{,}2y,$$\n\nmed $x(0) = 5$ og $y(0) = 0$ kubikkmeter. Løs på $[0, 25]$ timer med 500 steg, og skriv ut formen på `u`, når den nedre tanken er på sitt fylleste, og volumene ved slutten.\n\n**c)** Plott begge volumene mot tiden med navngitte akser og legende, og beskriv figuren i ord.",
+        "solution": "**a)**, **b)** og **c)** i ett program:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom ODESolver import ODESolver\n\nclass AdamsBashforth2(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        if n == 0:\n            return u[0] + dt*f(t[0], u[0])\n        return u[n] + dt*(1.5*f(t[n], u[n]) - 0.5*f(t[n-1], u[n-1]))\n\ndef f(t, u):\n    x, y = u\n    return [-0.6*x, 0.6*x - 0.2*y]\n\nsolver = AdamsBashforth2(f)\nsolver.set_initial_condition([5.0, 0.0])\nt, u = solver.solve((0, 25), 500)\n\novre, nedre = u[:, 0], u[:, 1]\nprint(\"u.shape =\", u.shape)\nprint(f\"nedre tank topper seg ved t = {t[np.argmax(nedre)]:.2f} med {nedre.max():.4f}\")\nprint(f\"ved t = 25: ovre = {ovre[-1]:.5f}   nedre = {nedre[-1]:.5f}\")\n```\n\n**Utskrift:**\n```\nu.shape = (501, 2)\nnedre tank topper seg ved t = 2.75 med 2.8864\nved t = 25: ovre = 0.00000   nedre = 0.05054\n```\n\nPlottekoden, som fortsetter i samme program:\n\n```python\nplt.plot(t, ovre, label='ovre tank')\nplt.plot(t, nedre, label='nedre tank')\nplt.xlabel('tid (timer)')\nplt.ylabel('volum (m3)')\nplt.legend()\nplt.show()\n```\n\n**Figuren i ord.** Vannrett akse er tid i timer fra 0 til 25, loddrett akse er volum i kubikkmeter fra 0 til 5. Den øvre tanken starter i 5 og faller jevnt og glatt mot null; den er praktisk talt tom etter omtrent 12 timer. Den nedre starter i null, stiger raskt til en topp på rundt 2,9 kubikkmeter ved 2,75 timer, og faller deretter langsommere enn den øvre — den har fortsatt vel 0,05 kubikkmeter igjen ved slutten. Kurvene krysser hverandre én gang, litt før toppen på den nedre. Legenden skiller de to kurvene.\n\n**Hva som gir uttelling.** Spesialtilfellet `if n == 0:` er kjernen i deloppgave a) og det sensor ser etter først — uten det gir `u[n-1]` med `n = 0` deg **siste** rad i arrayet, som er ren null på det tidspunktet, og løsningen blir feil uten at noe krasjer. Formelen med vektene 3/2 og −1/2 er det andre poenget. I b) er utpakkingen `u[:, 0]` og `u[:, 1]` som kolonner det avgjørende; `np.argmax` gir indeksen for det største elementet, og `t[...]` gjør den om til et tidspunkt. I c) er `label=` på hver kurve pluss `plt.legend()` det som skiller full og halv uttelling — glemt legende er den vanligste plottefeilen i faget.\n\nHar du fått strukturen riktig, men bommet på et fortegn i vektene, står resten av besvarelsen. Skriv gjerne én setning om at summen av de to volumene ikke er bevart her, siden den nedre tanken lekker ut av systemet — den slags fornuftssjekk teller.",
+        "hints": [
+          "Metoden trenger verdien fra forrige steg; den ligger allerede i løsningsarrayet.",
+          "Tenk gjennom hva indeksen `n-1` betyr når `n` er 0, og hvorfor det krever en egen gren.",
+          "Til plottet: én `plot`-linje per kolonne, med `label=` på hver."
+        ]
+      }
+    },
+    {
+      "id": "in1900-7-4-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-7-4-api-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `class Metode(ODESolver):` | arver `__init__`, `set_initial_condition` og `solve`; du skriver bare `advance` |\n| `def advance(self):` | ingen argumenter utenom `self`; **returnerer** neste verdi av `u`, skriver aldri til `self.u` |\n| `self.u` | hele løsningsarrayet; radene til og med `self.n` er ferdige |\n| `self.t` | hele tidsarrayet, med `N+1` elementer |\n| `self.n` | indeksen for steget som skal gjøres; går fra 0 til `N-1` |\n| `self.f` | høyresiden, kallbar som `self.f(t, u)` — tid først |\n| `self.dt` | steglengden; finnes ikke i alle årganger av vedlegget |\n| `self.t[self.n+1] - self.t[self.n]` | robust steglengde; virker uansett attributtnavn |\n| `super().__init__(f)` | basisklassens oppstart; **første** linje i subklassens egen `__init__` |\n| `self.u[self.n-1]` | verdien fra forrige steg; udefinert mening når `self.n` er 0, derfor egen gren |\n| `root(likning, u[n])` | løser `likning(v) = 0` med forrige verdi som startgjetning |\n| `sol.x` | løsningen fra `root`, alltid et array — også med én ukjent |\n| `sol.success` | `True` når nullpunktsmetoden konvergerte |\n| `def likning(v):` inne i `advance` | indre funksjon; ser `u[n]`, `t[n+1]` og `dt` fra den ytre |\n| `np.argmax(a)` | indeksen til det største elementet i `a` |\n| `Metode.__name__` | klassenavnet som tekst; nyttig når du løkker over flere klasser |\n| `u[:, k]` | kolonne `k`: hele tidsforløpet for komponent `k` i et system |\n| `plt.plot(t, y, label='navn')` + `plt.legend()` | én kurve med navn; legenden må kalles for å vises |\n\n**Formler i dette delkapitlet:**\n\nForlengs Euler (eksplisitt): $u_{n+1} = u_n + \\Delta t f(t_n, u_n)$.\n\nHeun (andreordens): $k_1 = f(t_n, u_n)$, $k_2 = f(t_n + \\Delta t, u_n + \\Delta t k_1)$, $u_{n+1} = u_n + \\Delta t \\frac{k_1 + k_2}{2}$.\n\nMidtpunkt (andreordens): $k_2 = f\\left(t_n + \\frac{\\Delta t}{2}, u_n + \\frac{\\Delta t}{2}k_1\\right)$, $u_{n+1} = u_n + \\Delta t k_2$.\n\nRalston (andreordens): $k_2 = f\\left(t_n + \\frac{2}{3}\\Delta t, u_n + \\frac{2}{3}\\Delta t k_1\\right)$, $u_{n+1} = u_n + \\Delta t \\frac{k_1 + 3k_2}{4}$.\n\nFamilien av andreordens metoder: $u_{n+1} = u_n + \\Delta t\\left[\\left(1 - \\frac{1}{2\\alpha}\\right)k_1 + \\frac{1}{2\\alpha}k_2\\right]$ med $k_2 = f(t_n + \\alpha \\Delta t, u_n + \\alpha \\Delta t k_1)$.\n\nKutta, orden 3: $u_{n+1} = u_n + \\Delta t \\frac{k_1 + 4k_2 + k_3}{6}$.\n\nBaklengs Euler (implisitt): $u_{n+1} = u_n + \\Delta t f(t_{n+1}, u_{n+1})$, løst som $g(v) = v - u_n - \\Delta t f(t_{n+1}, v) = 0$.\n\nAdams–Bashforth, to steg: $u_{n+1} = u_n + \\Delta t\\left(\\frac{3}{2}f(t_n, u_n) - \\frac{1}{2}f(t_{n-1}, u_{n-1})\\right)$."
+        }
+      ]
+    },
+    {
+      "id": "in1900-7-4-modul",
+      "type": "collapsible",
+      "title": "Den utleverte ODESolver-modulen — begge API-variantene",
+      "buttonText": "Vis begge API-variantene",
+      "content": [
+        {
+          "id": "in1900-7-4-modul-1",
+          "type": "text",
+          "content": "Dette er Skolesagas egen implementasjon av det samme grensesnittet — samme metodenavn og samme bruk som modulen du får utlevert, men koden er vår. Vi gjengir verken eksamensvedlegget eller pensumbokas kode. Den samme boksen står i [kap. 7.2](/bok/in1900/in1900-7-2), og gjentas her fordi det er subklassen som må lese den nøyaktig.\n\n**Det du trenger fra basisklassen når du skriver `advance`:** hva `solve` gjør før den kaller deg, og hva den gjør med det du returnerer.\n\n### Den nye varianten (2023 og senere) — bokstandard\n\n```python\nimport numpy as np\n\nclass ODESolver:\n    def __init__(self, f):\n        self.f = lambda t, u: np.asarray(f(t, u), dtype=float)\n\n    def set_initial_condition(self, u0):\n        if isinstance(u0, (int, float)):\n            self.neq = 1\n            self.u0 = float(u0)\n        else:\n            self.u0 = np.asarray(u0, dtype=float)\n            self.neq = self.u0.size\n\n    def solve(self, t_span, N):\n        t0, T = t_span\n        self.dt = (T - t0)/N\n        self.t = np.linspace(t0, T, N+1)\n        if self.neq == 1:\n            self.u = np.zeros(N+1)\n        else:\n            self.u = np.zeros((N+1, self.neq))\n        self.u[0] = self.u0\n        for n in range(N):\n            self.n = n\n            self.u[n+1] = self.advance()\n        return self.t, self.u\n\n    def advance(self):\n        raise NotImplementedError('subklassen må implementere metoden advance')\n```\n\n**Utskrift:** ingen (bare klassedefinisjonen).\n\nLes de tre siste linjene i `solve` en gang til: `self.n` settes **før** kallet, og returverdien legges i `self.u[n+1]`. Det er kontrakten mellom basisklassen og subklassen din, og alt i dette kapitlet følger av den. Legg også merke til at basisklassens egen `advance` kaster `NotImplementedError` — den er en **exception**, altså en feil som avbryter programmet, og den betyr «`ODESolver` er ikke en løser i seg selv».\n\n### Den gamle varianten (2020–2022) — kjenn den igjen\n\n```python\nimport numpy as np\n\nclass ODESolverGammel:\n    def __init__(self, f):\n        self.f = lambda u, t: np.asarray(f(u, t), dtype=float)\n\n    def set_initial_condition(self, U0):\n        if isinstance(U0, (int, float)):\n            self.neq = 1\n            self.U0 = float(U0)\n        else:\n            self.U0 = np.asarray(U0, dtype=float)\n            self.neq = self.U0.size\n\n    def solve(self, time_points):\n        self.t = np.asarray(time_points, dtype=float)\n        M = self.t.size\n        if self.neq == 1:\n            self.u = np.zeros(M)\n        else:\n            self.u = np.zeros((M, self.neq))\n        self.u[0] = self.U0\n        for k in range(M-1):\n            self.k = k\n            self.u[k+1] = self.advance()\n        return self.u, self.t\n\n    def advance(self):\n        raise NotImplementedError\n```\n\n**Utskrift:** ingen (bare klassedefinisjonen).\n\n**Samme subklasse, skrevet mot den gamle varianten.** Heun fra Eksempel 1 ser slik ut når vedlegget bruker den eldre konvensjonen — tre endringer: stegtelleren heter `k`, steget må regnes fra tidsarrayet, og høyresiden kalles med tilstanden først:\n\n```text\nclass HeunGammel(ODESolverGammel):\n    def advance(self):\n        u, f, k = self.u, self.f, self.k\n        dt = self.t[k+1] - self.t[k]\n        k1 = f(u[k], self.t[k])\n        k2 = f(u[k] + dt*k1, self.t[k] + dt)\n        return u[k] + dt*(k1 + k2)/2\n```\n\nDenne blokken er merket som ikke-kjørbar fordi den krever den gamle basisklassen over; den står her for å vise forskjellene side om side, ikke for å kjøres.\n\n**Lær den nye, kjenn den gamle.** Møter du et eldre sett i treningen, er det tre ting du sjekker i vedlegget før du skriver en linje: argumentrekkefølgen i høyresiden, hva `solve` tar imot, og hva stegtelleren heter."
+        }
+      ]
+    },
+    {
+      "id": "in1900-7-4-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-7-4-bank-1",
+      "type": "definition",
+      "title": "Sjanger K",
+      "content": "Bokas navn på oppgavetypen «utvid det utleverte løser-hierarkiet med en ny metode». Den er topp-differensierende og teller 3–5 poeng, ofte som siste deloppgave på det avsluttende settet.\n\nKjennetegnet i oppgaveteksten: du får en formel for **ett** steg og blir bedt om å implementere den «ved arv» eller «som en subklasse». Svaret er alltid en klasselinje, en `advance` og ingenting mer."
+    },
+    {
+      "id": "in1900-7-4-bank-2",
+      "type": "definition",
+      "title": "Basisklasse og subklasse",
+      "content": "**Basisklassen** er den som står i parentesen: `class Ny(ODESolver):`. **Subklassen** er den nye. Subklassen arver alle basisklassens metoder og kan legge til nye eller overskrive enkelte.\n\nI løser-hierarkiet er arbeidsdelingen fast: basisklassen eier tidsløkka, subklassen eier formelen for ett steg."
+    },
+    {
+      "id": "in1900-7-4-bank-3",
+      "type": "definition",
+      "title": "Eksplisitt metode",
+      "content": "En metode der den nye verdien regnes ut av verdier som allerede er kjent. Forlengs Euler, Heun, midtpunkt, Ralston og Runge–Kutta 4 er alle eksplisitte.\n\nFordelen er at hvert steg er én utregning. Ulempen er en stabilitetsgrense: for stive problemer må steget være svært lite, ellers sprenger løsningen."
+    },
+    {
+      "id": "in1900-7-4-bank-4",
+      "type": "definition",
+      "title": "Implisitt metode",
+      "content": "En metode der den nye verdien står på begge sider av likhetstegnet, slik som baklengs Euler: $u_{n+1} = u_n + \\Delta t f(t_{n+1}, u_{n+1})$.\n\nHvert steg krever at du løser en likning — i denne boka med `root`. Prisen er regnearbeid; gevinsten er stabilitet uansett steglengde."
+    },
+    {
+      "id": "in1900-7-4-bank-5",
+      "type": "definition",
+      "title": "Stivt problem",
+      "content": "Et problem der noe skjer svært raskt sammenlignet med tidsrommet du er interessert i — for eksempel $u' = -15(u - 20)$ studert over to tidsenheter.\n\nEn eksplisitt metode må da ta absurd små steg for å holde seg i ro. En implisitt metode slipper unna med store steg. Kjennetegnet i en oppgave er en stor negativ rate."
+    },
+    {
+      "id": "in1900-7-4-bank-6",
+      "type": "definition",
+      "title": "Prøvesteg (`k1`, `k2`, `k3`)",
+      "content": "Mellomregninger inne i `advance`: høyresiden evaluert i punkter du foreløpig bare gjetter deg fram til. Antallet prøvesteg er omtrent metodens orden, og hvert prøvesteg koster ett kall til høyresiden.\n\nNavnene `k1`, `k2`, `k3` er standard. Bruk dem ikke om modellparametre samtidig — kall parametrene noe annet, som `ka` og `kb`."
+    },
+    {
+      "id": "in1900-7-4-bank-7",
+      "type": "definition",
+      "title": "Konvergensorden målt ved halvering",
+      "content": "Halvér steget og se hva feilen ganges med. Faktor 2 betyr orden 1, faktor 4 orden 2, faktor 8 orden 3 og faktor 16 orden 4.\n\nTallene treffer sjelden eksakt for grove steg; du ser på tendensen over flere halveringer, ikke på ett enkelt forholdstall."
+    },
+    {
+      "id": "in1900-7-4-bank-8",
+      "type": "definition",
+      "title": "Flerstegsmetode",
+      "content": "En metode som bruker mer enn den siste verdien — for eksempel Adams–Bashforth med to steg, som også trenger `u[n-1]` og høyresiden der.\n\nFordi `self.u` inneholder hele historien, er det lett å slå opp bakover. Det aller første steget må gjøres med en énstegsmetode, siden `u[-1]` ville pekt på siste rad i arrayet."
+    },
+    {
+      "id": "in1900-7-4-bank-9",
+      "type": "definition",
+      "title": "Startgjetning til nullpunktsløseren",
+      "content": "Det arrayet `root` starter fra. I en implisitt ODE-metode er `u[n]` det naturlige valget: den forrige verdien ligger nær den nye når steget er lite.\n\nEn dårlig startgjetning kan gi `sol.success` lik `False`, og da er svaret i `sol.x` ikke til å stole på."
+    },
+    {
+      "id": "in1900-7-4-bank-10",
+      "type": "definition",
+      "title": "Indre funksjon",
+      "content": "En funksjon definert inne i en annen funksjon eller metode. Den ser den ytre funksjonens lokale variabler, og det er nettopp derfor `likning(v)` defineres inne i `advance`: den trenger `u[n]`, `t[n+1]` og `dt`, som skifter for hvert steg.\n\nDefinerer du `likning` utenfor, må du sende alle disse verdiene inn som argumenter — det virker, men blir tungvint."
+    },
+    {
+      "id": "in1900-7-4-bank-11",
+      "type": "definition",
+      "title": "`nan` uten feilmelding",
+      "content": "Resultatet når `advance` glemmer `return`: metoden gir `None`, basisklassen lagrer det i et flyttallsarray, og alle radene fra og med den andre blir `nan`.\n\nSymptomet er farlig fordi ingen exception kastes. Ser du `nan` i et løsningsarray, er den første mistanken en manglende `return`."
+    },
+    {
+      "id": "in1900-7-4-bank-12",
+      "type": "definition",
+      "title": "Riktig struktur belønnes",
+      "content": "Sensorprinsippet som gjelder hele Del 7: riktig klasselinje, riktig `advance`-signatur og riktig oppbygging av formelen gir uttelling selv når en koeffisient eller en indeks er feil.\n\nÅ skrive plettfri kode uten å kunne kjøre den er nesten umulig, og oppgavene er poengsatt med det i tankene. Skriv derfor strukturen først, og fyll inn detaljene etterpå."
+    },
+    {
+      "id": "in1900-7-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjon: subklassen på ett kort",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-7-4-rep-1",
+          "type": "text",
+          "content": "**Malen, fire linjer:**\n\n```python\nfrom ODESolver import ODESolver\n\nclass Ny(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        return u[n] + dt*f(t[n], u[n])\n\ndef f(t, u):\n    return -u\n\nsolver = Ny(f)\nsolver.set_initial_condition(1)\nt, u = solver.solve((0, 1), 2)\nprint(f\"{u[-1]:.4f}\")\n```\n\n**Utskrift:**\n```\n0.2500\n```\n\n**De fire spørsmålene du stiller deg selv, i rekkefølge:**\n\n1. Hvilken formel gjelder for **ett** steg? Skriv den opp på papir først.\n2. Trenger metoden en egen parameter? Da, og bare da, en `__init__` med `super().__init__(f)` som første linje.\n3. Trenger den noe fra før steget — `u[n-1]`? Da må `n == 0` ha sin egen gren.\n4. Er metoden implisitt? Da defineres `likning(v)` inne i `advance`, og `root(likning, u[n])` gir svaret i `sol.x`.\n\n**De fire feilene som koster mest:** glemt `return` (gir `nan` uten feilmelding) · skrevet om hele klassen i stedet for bare `advance` · feil attributtnavn fra vedlegget (#14) · `t[n]` i stedet for `t[n+1]` i en implisitt metode.\n\n**Neste steg:** [kap. 7.5](/bok/in1900/in1900-7-5) driller hele Del 7 under skiftende vitenskapelig innpakning, og prøve 7.D i [prøvekapitlet](/bok/in1900/in1900-7-prove) er en ren subklasse-prøve på tid."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

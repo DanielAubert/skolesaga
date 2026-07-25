@@ -1,0 +1,202 @@
+[
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\na = np.array([1, 2])\nb = np.array([3, 4])\nprint(a + b)\n```",
+  "options": [
+   "[4 6]",
+   "[1 2 3 4]",
+   "[4, 6]",
+   "[3 8]"
+  ],
+  "explanation": "To arrays av samme lengde legges sammen element for element, og et array skrives ut uten komma. `[1 2 3 4]` er svaret hvis du tror `+` skjøter slik det gjør for lister (feil #5), `[4, 6]` er array-summen skrevet med listeformat, og `[3 8]` er det elementvise produktet."
+ },
+ {
+  "question": "Hvor mange tall inneholder `np.linspace(0, 10, 21)`?",
+  "options": [
+   "21 tall, med 0 og 10 blant dem",
+   "20 tall, med 0 og 10 blant dem",
+   "22 tall, med 0 og 10 blant dem",
+   "11 tall, med 0 og 10 blant dem"
+  ],
+  "explanation": "Tredje argument til `np.linspace` er antall punkter, ikke antall intervaller: du får 21 punkter og dermed 20 intervaller av lengde 0,5. Svaret 20 er av-én-feilen #1, 22 kommer av å legge til ett i tillegg, og 11 er antallet du hadde fått med steglengde 1."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nt = np.linspace(0, 5, 11)\nprint(t[1] - t[0])\n```",
+  "options": [
+   "0.5",
+   "0.45454545454545453",
+   "1.0",
+   "0.55"
+  ],
+  "explanation": "Elleve punkter gir ti intervaller, så steglengden er $5/10 = 0.5$. Verdien 0.45 kommer av å dele på antall punkter minus null, altså $5/11$, 1.0 av å tro at `linspace` bruker steg 1, og 0.55 av å dele $5/11$ og runde av."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nx = [1, 2, 3]\nprint(x * 2)\n```",
+  "options": [
+   "[1, 2, 3, 1, 2, 3]",
+   "[2, 4, 6]",
+   "[1 2 3 1 2 3]",
+   "[2 4 6]"
+  ],
+  "explanation": "For en liste betyr `*` gjentakelse, så lista står to ganger etter hverandre med komma mellom tallene. `[2, 4, 6]` ville vært svaret hvis `x` var et array (da er `*` elementvis), og de to variantene uten komma er array-utskrifter — men `x` er en vanlig liste her."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nprint(np.zeros(3))\n```",
+  "options": [
+   "[0. 0. 0.]",
+   "[0 0 0]",
+   "[0. 0. 0. 0.]",
+   "[0.0, 0.0, 0.0]"
+  ],
+  "explanation": "`np.zeros(3)` gir tre nuller som flyttall, og flyttall skrives med punktum uten desimaler etter. `[0 0 0]` er heltallsformatet, fire nuller er av-én-feilen, og den siste varianten er listeformat med komma."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nprint(np.arange(1, 4, 1))\n```",
+  "options": [
+   "[1 2 3]",
+   "[1 2 3 4]",
+   "[1. 2. 3.]",
+   "[0 1 2 3]"
+  ],
+  "explanation": "`np.arange` stopper før stoppverdien, akkurat som `range`, så 4 er ikke med. Med heltallsargumenter blir også resultatet heltall, derfor ingen punktum. `[1 2 3 4]` er fellen med inklusiv stopp, og `[0 1 2 3]` overser at startverdien er 1."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\na = np.array([2.0, 4.0, 6.0])\nprint(a / 2)\n```",
+  "options": [
+   "[1. 2. 3.]",
+   "[1.0, 2.0, 3.0]",
+   "[2. 4. 6.]",
+   "[1 2 3]"
+  ],
+  "explanation": "Divisjon med ett tall utføres på hvert element, og resultatet er flyttall skrevet uten komma. Listeformatet med komma hører til lister, `[2. 4. 6.]` er tabellen uendret, og heltallsformatet stemmer ikke fordi elementene er flyttall."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\na = np.array([10, 20, 30, 40])\nprint(a[1:3])\n```",
+  "options": [
+   "[20 30]",
+   "[20 30 40]",
+   "[10 20 30]",
+   "[20]"
+  ],
+  "explanation": "Slutindeksen i et utsnitt er eksklusiv, så `a[1:3]` gir element 1 og 2, altså 20 og 30. `[20 30 40]` er svaret hvis du tror sluttindeksen er inklusiv, `[10 20 30]` teller fra 1 i stedet for 0, og `[20]` forveksler utsnitt med indeksering."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\na = np.array([3, 7, 12, 20])\nprint(a[1:] - a[:-1])\n```",
+  "options": [
+   "[4 5 8]",
+   "[4 5 8 0]",
+   "[3 7 12]",
+   "[-4 -5 -8]"
+  ],
+  "explanation": "De to utsnittene har tre elementer hver, så differansen har tre: $7-3$, $12-7$ og $20-12$. Fire elementer er av-én-feilen (fire tall gir bare tre endringer), `[3 7 12]` er utsnittet `a[:-1]` alene, og fortegnene blir negative bare hvis du bytter om på de to utsnittene."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.array([1, 4, 4, 7])\ny = np.array([1, 5, 4, 8])\nprint(sum(x == y))\n```",
+  "options": [
+   "2",
+   "False",
+   "[ True False  True False]",
+   "4"
+  ],
+  "explanation": "`x == y` gir et array med sann/falsk for hvert element, og den innebygde `sum` teller `True` som 1 — to elementer er like. `False` ville vært svaret om sammenligningen ga én verdi for hele tabellen, det boolske arrayet er mellomresultatet før summeringen, og 4 er antall elementer i alt."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nA = np.zeros((2, 3))\nprint(A.shape, A.size)\n```",
+  "options": [
+   "(2, 3) 6",
+   "(3, 2) 6",
+   "(2, 3) 5",
+   "(2, 3) (6,)"
+  ],
+  "explanation": "`.shape` gir formen som tuppel med rader først og kolonner sist, og `.size` gir antall tall i alt, altså $2 \\cdot 3 = 6$. `(3, 2)` bytter om aksene, 5 er en ren telle-feil, og `.size` er alltid ett tall og aldri en tuppel."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nA = np.zeros((2, 3))\nA[1, 0] = 4.0\nA[1, 2] = 9.0\nprint(A[1, :])\n```",
+  "options": [
+   "[4. 0. 9.]",
+   "[0. 4. 9.]",
+   "[4. 9.]",
+   "[0. 0.]"
+  ],
+  "explanation": "`A[1, :]` er hele rad 1, altså tre tall: kolonne 0 er satt til 4, kolonne 1 er fortsatt 0, og kolonne 2 er 9. `[0. 4. 9.]` plasserer nullen først, `[4. 9.]` glemmer det urørte elementet, og `[0. 0.]` er kolonneutsnittet `A[:, 1]`."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.array([4.0, 9.0])\nprint(np.sqrt(x))\n```",
+  "options": [
+   "[2. 3.]",
+   "[2.0, 3.0]",
+   "[4. 9.]",
+   "[2. 3. ]"
+  ],
+  "explanation": "En ufunksjon som `np.sqrt` virker på hvert element og gir et array av samme lengde, skrevet uten komma. Listeformatet med komma er feil format, `[4. 9.]` er tabellen uendret, og et ekstra mellomrom før klammen setter NumPy bare når tallene har ulikt antall desimaler."
+ },
+ {
+  "question": "Hva skjer hvis du kaller `math.sqrt(x)` der `x` er et NumPy-array med fem elementer?",
+  "options": [
+   "Programmet stopper med en `TypeError`, fordi `math.sqrt` bare tar ett tall",
+   "Du får et array med fem kvadratrøtter, akkurat som med `np.sqrt`",
+   "Du får kvadratroten av det første elementet, og resten forkastes",
+   "Du får et array med fem nuller, fordi `math` ikke kjenner arrays"
+  ],
+  "explanation": "Funksjonene i `math` tar ett tall om gangen, og et array med flere elementer kan ikke gjøres om til ett tall — derfor en `TypeError`. Skal koden virke på en hel tabell, må den bruke `np.sqrt`. Ingen av de andre alternativene skjer: Python velger ikke stilltiende ett element eller nuller."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nprint(np.array([1, 2, 3]) ** 2)\n```",
+  "options": [
+   "[1 4 9]",
+   "[1 2 3 1 2 3]",
+   "[2 4 6]",
+   "[1. 4. 9.]"
+  ],
+  "explanation": "Potens er elementvis for arrays, så hvert element kvadreres, og heltall inn gir heltall ut. Den gjentatte tabellen er hva `* 2` ville gitt for en liste, `[2 4 6]` er dobling i stedet for kvadrering, og flyttallformatet krever at minst ett element var flyttall."
+ },
+ {
+  "question": "Du skal lage et array med 101 punkter i intervallet fra 1 til 10, med begge endepunktene inkludert. Hvilken linje er riktig?",
+  "options": [
+   "`x = np.linspace(1, 10, 101)`",
+   "`x = np.linspace(1, 10, 100)`",
+   "`x = np.arange(1, 10, 101)`",
+   "`x = np.linspace(1, 11, 101)`"
+  ],
+  "explanation": "Tredje argument til `np.linspace` er antall punkter, så 101 gir 101 punkter og 100 intervaller. Med 100 som tredje argument får du 100 punkter (feil #1), `np.arange` tolker tredje argument som steglengde, og 11 som sluttverdi flytter høyre endepunkt."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nt = np.linspace(0, 1, 4)\nu = np.zeros_like(t)\nprint(u.size, t.size)\n```",
+  "options": [
+   "4 4",
+   "3 4",
+   "4 3",
+   "5 4"
+  ],
+  "explanation": "`np.zeros_like(t)` gir et nullarray med nøyaktig samme lengde som `t`, og `t` har fire punkter fordi tredje argument er antall punkter. Alternativene med 3 kommer av å telle intervaller i stedet for punkter, og 5 av å legge til ett i tillegg."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nA = np.zeros((2, 2))\nfor i in range(2):\n    for j in range(2):\n        A[i, j] = i + j\nprint(A[:, 1])\n```",
+  "options": [
+   "[1. 2.]",
+   "[1. 1.]",
+   "[0. 1.]",
+   "[1. 2. ]"
+  ],
+  "explanation": "Kolonne 1 består av elementene med `j` lik 1, altså $0+1$ og $1+1$. `[1. 1.]` er svaret hvis du glemmer at `i` også endrer seg, `[0. 1.]` er kolonne 0, og et ekstra mellomrom foran klammen bruker NumPy ikke her."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\na = np.array([1, 2])\nb = np.array([3, 4])\nprint(a * b)\n```",
+  "options": [
+   "[3 8]",
+   "[4 6]",
+   "11",
+   "[3 4 6 8]"
+  ],
+  "explanation": "Multiplikasjon mellom to arrays er elementvis: $1 \\cdot 3$ og $2 \\cdot 4$. `[4 6]` er summen, 11 er indreproduktet (som `*` ikke regner ut i NumPy), og fire elementer ville krevd at operasjonen skjøtet tabellene."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.array([0, 2, 5])\nprint(x > 1)\n```",
+  "options": [
+   "[False  True  True]",
+   "True",
+   "[0 2 5]",
+   "[ True  True False]"
+  ],
+  "explanation": "En sammenligning med et tall gjøres elementvis og gir et array av sann/falsk, ett per element. NumPy setter et ekstra mellomrom foran `True` slik at kolonnene står rett under `False`. `True` ville vært svaret om sammenligningen ga én verdi, og den siste varianten snur rekkefølgen."
+ }
+]

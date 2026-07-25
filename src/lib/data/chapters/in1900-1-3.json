@@ -1,0 +1,413 @@
+{
+  "id": "in1900-1-3",
+  "courseId": "in1900",
+  "chapterNumber": "1.3",
+  "title": "Løkker: for, while, range og nøstede løkker",
+  "description": "For- og while-løkker, range med tre argumenter, nøstede løkker og løkketerminering — kjernen i kodesporing og i sjanger D.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne telle nøyaktig hvor mange ganger en løkke kjører, og hvilke verdier tellevariabelen får",
+    "kunne bygge opp en sum eller en teller i en løkke, med riktig startverdi",
+    "kunne spore en løkke inne i en løkke der den indre grensen avhenger av den ytre",
+    "kunne avgjøre om en betingelsesstyrt løkke stopper etter et endelig antall runder, eller aldri"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-3-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet som gir flest poeng per lest side i hele boka.**\n\n- **Sjanger A — kodesporing** («hva skriver dette programmet ut?») forekommer i **100 %** av settene, og løkkesporing er den klart vanligste innpakningen på midtveiseksamen (UiOs digitale flervalgseksamen i oktober, 25 % av karakteren).\n- **Sjanger D — matche-tabell**, i varianten «terminerer denne løkken, eller går den for alltid?». Den er et jevnlig innslag og gir 2–3,5 poeng.\n- To feller går igjen år etter år: **av-én-feilen** i `range` (feilkode #1, den hyppigste feilen i hele faget), og **nøstede løkker der den indre grensen avhenger av den ytre** (`for j in range(i)`, feilkode #12). Begge er rene tellefeil, og begge er lærbare.\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer — «må sitte», «må kunne», «bør kjenne til»). Alt du gjør senere i faget er en løkke: rekker, differenslikninger og ODE-løsere er alle den samme konstruksjonen med ulikt innhold."
+    },
+    {
+      "id": "in1900-1-3-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1): tilordning, `+=`, sammenligninger og logiske uttrykk.\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2): lister, `len`, `append`, og `range` som oppskrift på en tallrekke.\n\nHar du ikke lest dem, er `range(a, b)` det du trenger å ta med deg: tallrekka fra og med `a` til men **ikke med** `b`."
+    },
+    {
+      "id": "in1900-1-3-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — For-løkka over en sekvens (~8 min)\n\nVærstasjonen har levert fire døgnmålinger, og du vil skrive ut hver av dem. Du kunne skrevet fire `print`-setninger. Men med 8 760 timesmålinger i året går ikke det, og derfor har alle programmeringsspråk en konstruksjon som sier «gjør dette én gang for hvert element».\n\nI Python heter den `for`, og den leses nesten som norsk."
+    },
+    {
+      "id": "in1900-1-3-def-4",
+      "type": "definition",
+      "title": "`for e in sekvens:`",
+      "content": "Kjører kodeblokken under én gang for hvert element i sekvensen. Variabelen `e` peker på **elementet** i hver runde — ikke på plassnummeret.\n\nEn «sekvens» er noe det går an å gå gjennom: en liste, en streng, en tallrekke fra `range`. Kolon på slutten av `for`-linja er obligatorisk.\n\n```python\nfor grad in [12, 15, 9]:\n    print(grad)\n```\n\n**Utskrift:**\n```\n12\n15\n9\n```"
+    },
+    {
+      "id": "in1900-1-3-def-5",
+      "type": "definition",
+      "title": "Løkkekropp og innrykk",
+      "content": "Alt som skal gjentas, står **rykket inn** under `for`-linja. Innrykket er ikke pynt — det er Pythons måte å avgjøre hva som hører til løkka.\n\nBokas standard er **fire mellomrom** per nivå, og du skal aldri blande mellomrom og tabulator i samme fil (feilkode **#24**). Den første linja som ikke er rykket inn, er utenfor løkka og kjøres bare én gang, etter at løkka er ferdig. Nettopp det skillet er en yndet kodesporingsfelle: står `print` inne i løkka, skrives det én linje per runde; står den utenfor, skrives det én linje til slutt."
+    },
+    {
+      "id": "in1900-1-3-ex-6",
+      "type": "example",
+      "title": "Eksempel 1: Inne i eller utenfor løkka?",
+      "problem": "Samme fire linjer, to plasseringer av `print`. Hva skriver programmet ut?",
+      "solution": "Først med `print` **inne** i løkka:\n\n```python\nfor grad in [12, 15, 9]:\n    total = grad * 2\n    print(total)\n```\n\n**Utskrift:**\n```\n24\n30\n18\n```\n\nSå med `print` **utenfor**, altså uten innrykk:\n\n```python\nfor grad in [12, 15, 9]:\n    total = grad * 2\nprint(total)\n```\n\n**Utskrift:**\n```\n18\n```\n\nDen andre versjonen skriver bare **én** linje, og den viser den siste verdien `total` fikk. Løkka kjørte tre ganger, men `print` kjørte én gang.\n\nLegg også merke til at `total` fortsatt finnes etter at løkka er ferdig. Variabler som lages inne i en løkke, forsvinner ikke når løkka slutter — de beholder sin siste verdi."
+    },
+    {
+      "id": "in1900-1-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — minimal sporing. Sjanger A — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\nfor tekst in ['sol', 'regn']:\n    print(tekst)\nprint('ferdig')\n```",
+        "solution": "**Sporingstavle**\n\n| Runde | `tekst` | Skriver | Utskrift så langt |\n|---|---|---|---|\n| 1 | `'sol'` | `sol` | `sol` |\n| 2 | `'regn'` | `regn` | `sol`, `regn` |\n| — | løkka er ferdig | `ferdig` (utenfor løkka) | `sol`, `regn`, `ferdig` |\n\n**Utskrift:**\n```\nsol\nregn\nferdig\n```\n\nMerk at strengene skrives **uten** fnutter. Fnuttene er en del av koden, ikke av teksten. Skriver du `'sol'` som svar, er utskriften feil.\n\n**Fellenote:** fellen er innrykket. `print('ferdig')` står utenfor løkka og kjøres derfor én gang, ikke to.",
+        "hints": [
+          "Gå gjennom elementene i lista i rekkefølge, ett per runde.",
+          "Se nøye på hvilke linjer som er rykket inn."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-t-7",
+      "type": "text",
+      "content": "## Løkke 2 — `range`, tellevariabel og akkumulator (~12 min)\n\nOfte vil du ikke gå gjennom en liste, men gjennom **tallene** 0, 1, 2, … — for eksempel fordi du summerer et matematisk uttrykk. Da bruker du `range`, og da må du telle nøyaktig."
+    },
+    {
+      "id": "in1900-1-3-def-8",
+      "type": "definition",
+      "title": "`for i in range(start, stop, step):`",
+      "content": "Løkka kjører én gang for hver verdi i tallrekka. `stop` er **eksklusiv**.\n\nAntall runder, når steget er 1, er `stop - start`:\n\n- `range(5)` gir 5 runder, med `i` lik 0, 1, 2, 3, 4.\n- `range(1, 5)` gir 4 runder, med `i` lik 1, 2, 3, 4.\n- `range(0, 10, 3)` gir 4 runder, med `i` lik 0, 3, 6, 9.\n\nRegelen «`range(N)` gir `N` runder» er verdt å pugge, for den er kilden til feilkode **#1**."
+    },
+    {
+      "id": "in1900-1-3-def-9",
+      "type": "definition",
+      "title": "Antall steg og antall punkter",
+      "content": "Dette er den viktigste tellesetningen i faget, og den forvirrer fordi bokstaven `N` brukes om to nære, men ulike ting.\n\nDeler du et intervall i `N` like **steg**, får du `N + 1` **punkter** — endepunktene begge medregnet. Tre steg gir fire punkter, akkurat som tre skritt gir fire fotavtrykk hvis du teller det du startet på.\n\nKonsekvensen i kode: skal du **oppdatere** noe `N` ganger, skriver du `for n in range(N)`. Skal du **fylle** `N + 1` punkter, skriver du `for i in range(N+1)`. Begge er riktige — i ulike oppgaver. Du møter det igjen i differenslikningene i [kap. 6.2](/bok/in1900/in1900-6-2) og i ODE-løserne i [kap. 7.1](/bok/in1900/in1900-7-1)."
+    },
+    {
+      "id": "in1900-1-3-def-10",
+      "type": "definition",
+      "title": "Negativt steg i `range`",
+      "content": "`range(10, 0, -2)` teller nedover: 10, 8, 6, 4, 2. Startverdien er med, sluttverdien er fortsatt eksklusiv, så `0` blir ikke med.\n\nEr steget negativt og `start` mindre enn `stop`, blir rekka **tom** og løkka kjører ingen ganger. `range(0, 5, -1)` gir ingen runder — ingen feilmelding, bare stille ingenting."
+    },
+    {
+      "id": "in1900-1-3-def-11",
+      "type": "definition",
+      "title": "Tom løkke",
+      "content": "`range(0)` er en tom tallrekke, og en `for`-løkke over den kjører **null ganger**. Kroppen blir aldri utført, og det gis ingen feilmelding.\n\nDet er en yndet felle i nøstede løkker: `for j in range(i)` med `i` lik `0` gir ingen runder i det hele tatt. Konsekvensen er at den første runden i den ytre løkka ofte ikke skriver noe."
+    },
+    {
+      "id": "in1900-1-3-th-12",
+      "type": "theorem",
+      "title": "Akkumulatormønsteret",
+      "content": "Det kanoniske mønsteret for å bygge opp én verdi av mange. Tre faste deler, i denne rekkefølgen:\n\n```python\ns = 0\nfor i in range(1, 5):\n    s += i\nprint(s)\n```\n\n**Utskrift:**\n```\n10\n```\n\n1. **Startverdi før løkka.** `s = 0` for en sum, `p = 1` for et produkt. Står den inne i løkka, nullstilles den hver runde, og resultatet blir bare det siste leddet — en av de mest lærerike feilene å ha gjort én gang.\n2. **Oppdatering inne i løkka**, med `+=`.\n3. **Bruk av resultatet etter løkka**, utenfor innrykket.\n\nDette er samme mønster som bærer alle rekke-oppgavene i [kap. 3.2](/bok/in1900/in1900-3-2), der det står som `s = 0; for k in range(N+1): s += ledd(k); return s`. Lær det her, og du kan det der."
+    },
+    {
+      "id": "in1900-1-3-ex-13",
+      "type": "example",
+      "title": "Eksempel 2: Summen av kvadrater",
+      "problem": "Programmet skal legge sammen $1^2 + 2^2 + 3^2 + 4^2$. Hva skriver det ut, og hvor mange runder kjører løkka?",
+      "solution": "```python\ns = 0\nfor i in range(1, 5):\n    s += i**2\n    print(i, s)\nprint('sum:', s)\n```\n\n**Utskrift:**\n```\n1 1\n2 5\n3 14\n4 30\nsum: 30\n```\n\n**Sporingstavle**\n\n| Runde | `i` | `i**2` | `s` etter oppdatering | Skriver |\n|---|---|---|---|---|\n| 1 | 1 | 1 | 1 | `1 1` |\n| 2 | 2 | 4 | 5 | `2 5` |\n| 3 | 3 | 9 | 14 | `3 14` |\n| 4 | 4 | 16 | 30 | `4 30` |\n\nLøkka kjører `5 - 1 = 4` runder, og `i` blir aldri `5`. Merk at matematikken over har summasjonsindeks $i$ og at koden bruker `i` — det er bevisst. **Bruk samme bokstav i formelen og i koden**; da er sporingen langt lettere å kontrollere, både for deg og for sensor."
+    },
+    {
+      "id": "in1900-1-3-adv-14",
+      "type": "warning",
+      "title": "Typisk feil #1 — av-én i `range`",
+      "content": "Feilkode **#1** (bokas nummerering av vanlige feil, samlet i [kap. 0.1](/bok/in1900/in1900-0-1)) er den hyppigste feilen i hele faget:\n\n- Skal summen gå til og med `N`, altså $\\sum_{k=0}^{N}$, må du skrive `range(N+1)`. `range(N)` stopper på `N-1` og mister siste ledd.\n- Skal du oppdatere en verdi `N` ganger, er `range(N)` riktig, og `range(N+1)` gjør én oppdatering for mye.\n\nSpør deg derfor alltid: **teller jeg steg eller punkter?** Det er samme spørsmål som skiller `N` og `N+1` i definisjonen over, og den forveksles i alt fra rekker til ODE-løsere.\n\nPraktisk kontroll på eksamen: sett `N = 2` og tell rundene på papir. Får du to eller tre? Da vet du hvilken variant oppgaven trenger."
+    },
+    {
+      "id": "in1900-1-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\ns = 0\nfor i in range(4):\n    s += i\nprint(i, s)\n```",
+        "solution": "**Sporingstavle**\n\n| Runde | `i` | `s` etter `s += i` |\n|---|---|---|\n| 1 | 0 | 0 |\n| 2 | 1 | 1 |\n| 3 | 2 | 3 |\n| 4 | 3 | 6 |\n\nLøkka kjører fire runder (`range(4)`), og `print` står **utenfor** løkka, så den skriver bare én linje — med den siste verdien `i` hadde, og den ferdige summen.\n\n**Utskrift:**\n```\n3 6\n```\n\n**Fellenote:** to feller. Den første er #1 — å tro at `range(4)` gir `i` verdien 4 til slutt. Den siste verdien er `3`. Den andre er å tro at `i` ikke finnes etter løkka; løkkevariabelen lever videre med sin siste verdi.",
+        "hints": [
+          "`range(4)` gir fire verdier, og den første er 0.",
+          "Se på innrykket: hvor mange ganger kjøres `print`?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — negativt steg.) I koden under står `end=' '` inne i `print`. Det bytter ut linjeskiftet `print` normalt avslutter med, slik at verdiene havner etter hverandre på samme linje med et mellomrom imellom; et tomt `print()` avslutter linja. Mer om `end` i [kap. 1.4](/bok/in1900/in1900-1-4).\n\nHva skriver programmet ut?\n\n```python\nfor i in range(6, 1, -2):\n    print(i, end=' ')\nprint()\nfor j in range(0, 4, -1):\n    print('aldri')\nprint('slutt')\n```",
+        "solution": "**Sporingstavle for den første løkka**\n\n| Runde | `i` | Skriver |\n|---|---|---|\n| 1 | 6 | `6 ` |\n| 2 | 4 | `4 ` |\n| 3 | 2 | `2 ` |\n\nNeste verdi ville vært `0`, men rekka stopper **før** `1` når den teller nedover, så `0` blir ikke med.\n\nDen andre løkka har negativt steg men `start` mindre enn `stop`, så tallrekka er **tom**: løkka kjører null ganger, uten feilmelding.\n\n**Utskrift:**\n```\n6 4 2 \nslutt\n```\n\nMerk to utskriftsdetaljer: `end=' '` erstatter linjeskiftet med et mellomrom, så de tre tallene havner på samme linje med et mellomrom bak det siste. Det tomme `print()` avslutter linja. Mer om dette i [kap. 1.4](/bok/in1900/in1900-1-4).\n\n**Fellenote:** fellene er at `1` ikke er med (eksklusiv stopp gjelder også nedover) og at den andre løkka kjører null ganger i stedet for å gi en feilmelding.",
+        "hints": [
+          "Skriv ned verdiene tellevariabelen faktisk får, én for én, før du ser på utskriften.",
+          "Hva skjer når steget peker bort fra `stop`?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-t-15",
+      "type": "text",
+      "content": "## Løkke 3 — Løkke inne i løkke (~10 min)\n\n— naturlig pausepunkt —\n\nEn nøstet liste krever en nøstet løkke: én løkke over radene, og inne i den én løkke over elementene i raden. Sporingen blir mekanisk så snart du innser at **den indre løkka kjøres helt ferdig for hver enkelt runde i den ytre**."
+    },
+    {
+      "id": "in1900-1-3-def-16",
+      "type": "definition",
+      "title": "Nøstet løkke",
+      "content": "En løkke inne i kroppen til en annen løkke, med ett innrykksnivå mer.\n\nAntall runder i den indre kroppen er **produktet** av rundene, når grensene er uavhengige: en ytre løkke over 3 verdier med en indre over 4 gir 12 runder i den innerste kroppen. Rekkefølgen er at den indre går helt ferdig, så tar den ytre ett skritt, så starter den indre på nytt fra begynnelsen."
+    },
+    {
+      "id": "in1900-1-3-def-17",
+      "type": "definition",
+      "title": "Løkkevariabel-avhengige grenser",
+      "content": "Den indre grensen kan avhenge av den ytre løkkevariabelen: `for j in range(i)`. Da varierer antall indre runder fra runde til runde.\n\nMed `for i in range(1, 4)` og `for j in range(i)` blir det 1 + 2 + 3 = 6 runder i den innerste kroppen. Og med `for i in range(3)` blir første ytre runde helt **tom**, fordi `range(0)` ikke gir noen verdier.\n\nDette er feilkode **#12**, og det er den nest hyppigste kodesporingsfellen etter av-én. Metoden er alltid den samme: **skriv en tabell med én rad per innerste runde.**"
+    },
+    {
+      "id": "in1900-1-3-ex-18",
+      "type": "example",
+      "title": "Eksempel 3: Trekanten som skifter bredde",
+      "problem": "Dette mønsteret er en gjenganger. Hva skriver programmet ut?",
+      "solution": "```python\nfor i in range(1, 4):\n    for j in range(i):\n        print(i*j, end=' ')\n    print()\n```\n\n**Utskrift:**\n```\n0 \n0 2 \n0 3 6 \n```\n\n**Sporingstavle** — én rad per innerste runde:\n\n| Ytre `i` | Indre `j` fra | Runder | `i*j`-verdiene | Linja blir |\n|---|---|---|---|---|\n| 1 | `range(1)` | 1 | `0` | `0 ` |\n| 2 | `range(2)` | 2 | `0`, `2` | `0 2 ` |\n| 3 | `range(3)` | 3 | `0`, `3`, `6` | `0 3 6 ` |\n\nTre detaljer avgjør oppgaven:\n\n1. `range(i)` starter alltid på **0**, så første tall på hver linje er `i*0`, altså `0`.\n2. Antall tall per linje er `i`, ikke `i+1`.\n3. `print()` uten argumenter står i den **ytre** kroppen (ett innrykksnivå), og avslutter linja etter hver ytre runde. Hadde den stått i den indre, ville hvert tall fått sin egen linje.\n\nTil sammen 1 + 2 + 3 = 6 tall."
+    },
+    {
+      "id": "in1900-1-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — nøstet løkke.) Hva skriver programmet ut?\n\n```python\nfor i in range(3):\n    for j in range(i, 3):\n        print(i + j, end=' ')\nprint()\n```",
+        "solution": "**Sporingstavle** — én rad per innerste runde:\n\n| Ytre `i` | Indre `j` | `i + j` | Utskrift så langt |\n|---|---|---|---|\n| 0 | 0 | 0 | `0 ` |\n| 0 | 1 | 1 | `0 1 ` |\n| 0 | 2 | 2 | `0 1 2 ` |\n| 1 | 1 | 2 | `0 1 2 2 ` |\n| 1 | 2 | 3 | `0 1 2 2 3 ` |\n| 2 | 2 | 4 | `0 1 2 2 3 4 ` |\n\nLegg merke til at den indre løkka starter på `i` og derfor blir kortere for hver ytre runde: 3, 2 og 1 runder. Til sammen 6 tall.\n\n**Utskrift:**\n```\n0 1 2 2 3 4 \n```\n\n`print()` står helt uten innrykk, altså **utenfor begge** løkkene, og avslutter derfor linja bare én gang, til slutt.\n\n**Fellenote:** fellen er #12 — den indre grensen avhenger av `i`, her som startverdi i stedet for som stoppverdi. Antall runder er ikke 9, men 6. Delvis riktig sporing gir uttelling i fritekstversjonen: får du de tre første tallene riktig, har du vist at du forstår mekanikken.",
+        "hints": [
+          "Lag en tabell med én rad per gang den innerste linja kjører.",
+          "Hva er første og siste verdi `j` får når `i` er 1?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-t-19",
+      "type": "text",
+      "content": "## Løkke 4 — While-løkka og spørsmålet om terminering (~12 min)\n\nEn `for`-løkke vet på forhånd hvor mange runder den skal kjøre. Noen ganger vet du det ikke: «fortsett å halvere til tallet er under 1». Da bruker du `while`, og da får du et nytt problem — løkka kan gå for alltid."
+    },
+    {
+      "id": "in1900-1-3-def-20",
+      "type": "definition",
+      "title": "`while betingelse:`",
+      "content": "Kjører kroppen så lenge betingelsen er sann. Betingelsen sjekkes **før** hver runde, så er den falsk fra starten, kjøres kroppen null ganger.\n\nDet avgjørende er at **noe inne i kroppen må endre betingelsen**. Glemmer du det, er du i en uendelig løkke:\n\n```python\nn = 10\nwhile n > 1:\n    n = n // 2\n    print(n, end=' ')\n```\n\n**Utskrift:**\n```\n5 2 1 \n```\n\nHer er det `n = n // 2` som til slutt gjør betingelsen falsk."
+    },
+    {
+      "id": "in1900-1-3-th-21",
+      "type": "theorem",
+      "title": "Tellermønsteret",
+      "content": "Standardmåten å telle hvor mange runder noe tok. Samme tredeling som akkumulatoren, men med `while`:\n\n```python\nn = 100\nantall = 0\nwhile n > 1:\n    n = n // 3\n    antall += 1\nprint(antall, n)\n```\n\n**Utskrift:**\n```\n4 1\n```\n\n1. **Teller og starttilstand før løkka** (`antall = 0`).\n2. **Endring av tilstanden pluss `antall += 1` inne i kroppen.** Rekkefølgen mellom de to har ingenting å si for sluttsvaret her, men den har det for hva som skrives ut hvis du skriver ut underveis — og det er nettopp den detaljen kodesporing spør om.\n3. **Resultatet brukes etter løkka.**\n\nSporingen av dette mønsteret er: `100 → 33 → 11 → 3 → 1`, altså fire runder. Legg merke til at `n` etter løkka er `1`, ikke `0` — løkka stanset i det øyeblikket betingelsen ble falsk."
+    },
+    {
+      "id": "in1900-1-3-def-22",
+      "type": "definition",
+      "title": "Løkketerminering",
+      "content": "En løkke **terminerer** hvis betingelsen blir falsk etter et endelig antall runder. Spørsmålet «terminerer denne løkken?» er en egen oppgavesjanger (D), og metoden er alltid den samme:\n\n1. Skriv ned tilstanden før første runde.\n2. Regn ut de første tre-fire rundene.\n3. Spør: **beveger tilstanden seg mot betingelsens grense, og kan den treffe eller passere den?**\n\nFaller `n` med 3 om gangen fra 10 mot betingelsen `n != 1`, får du 10, 7, 4, 1 — treff, altså terminering. Starter du på 9, får du 9, 6, 3, 0, -3, … og passerer 1 uten å treffe: uendelig løkke. Det er ikke retningen alene som avgjør, men om verdien **treffer** betingelsen."
+    },
+    {
+      "id": "in1900-1-3-def-23",
+      "type": "definition",
+      "title": "Uendelig løkke",
+      "content": "En `while`-løkke der betingelsen aldri blir falsk. Programmet henger til du avbryter det.\n\nDe to vanligste årsakene: kroppen endrer aldri det betingelsen ser på, eller den endrer det i feil retning. En tredje, mer lumsk variant er en betingelse med `!=` som testverdien hopper **over** — som i eksempelet i definisjonen over. Bruk `<=` eller `>=` i stedet for `!=` når du kan; da kan verdien passere grensen og løkka stopper likevel."
+    },
+    {
+      "id": "in1900-1-3-def-24",
+      "type": "definition",
+      "title": "`break`",
+      "content": "Avbryter løkka umiddelbart, uten å fullføre resten av kroppen og uten flere runder. Programmet fortsetter på første linje etter løkka.\n\nI en nøstet løkke bryter `break` bare ut av den **innerste** løkka den står i — den ytre fortsetter. Det er en fast felle i kodesporing."
+    },
+    {
+      "id": "in1900-1-3-def-25",
+      "type": "definition",
+      "title": "`continue`",
+      "content": "Hopper til neste runde uten å gjøre resten av kroppen. Løkka fortsetter som normalt.\n\nMerk forskjellen mot `break`: `continue` hopper over resten av **denne** runden, `break` avslutter hele løkka. I en `while`-løkke er `continue` farlig hvis oppdateringen av tellevariabelen står nedenfor — da hoppes den over, og du har laget en uendelig løkke."
+    },
+    {
+      "id": "in1900-1-3-ex-26",
+      "type": "example",
+      "title": "Eksempel 4: break og continue i samme løkke",
+      "problem": "Hva skriver programmet ut?",
+      "solution": "```python\nfor i in range(6):\n    if i == 2:\n        continue\n    if i == 4:\n        break\n    print(i, end=' ')\nprint('| ferdig')\n```\n\n**Utskrift:**\n```\n0 1 3 | ferdig\n```\n\n**Sporingstavle**\n\n| Runde | `i` | Hva skjer | Utskrift så langt |\n|---|---|---|---|\n| 1 | 0 | ingen av testene slår til | `0 ` |\n| 2 | 1 | ingen av testene slår til | `0 1 ` |\n| 3 | 2 | `continue` — hopper over `print` | `0 1 ` |\n| 4 | 3 | skriver | `0 1 3 ` |\n| 5 | 4 | `break` — løkka avsluttes | `0 1 3 ` |\n\n`5` blir aldri behandlet, for `break` avsluttet hele løkka. Så kjøres linja etter løkka.\n\nMerk at `2` mangler i utskriften, men at løkka fortsatte etterpå. Det er forskjellen mellom `continue` og `break` i én utskrift."
+    },
+    {
+      "id": "in1900-1-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — while-løkke med teller.) Hva skriver programmet ut?\n\n```python\nn = 40\nantall = 0\nwhile n > 2:\n    n = n // 3\n    antall += 1\n    print(n, end=' ')\nprint('|', antall)\n```",
+        "solution": "**Sporingstavle**\n\n| Runde | `n` før | `n // 3` | `antall` | Utskrift så langt |\n|---|---|---|---|---|\n| 1 | 40 | 13 | 1 | `13 ` |\n| 2 | 13 | 4 | 2 | `13 4 ` |\n| 3 | 4 | 1 | 3 | `13 4 1 ` |\n| — | 1 | betingelsen `1 > 2` er falsk | 3 | løkka stopper |\n\n**Utskrift:**\n```\n13 4 1 | 3\n```\n\n**Fellenote:** to feller. Den ene er å skrive ut `n`-verdien **før** oppdateringen (`40 13 4`) — men `print` står etter `n = n // 3`, så det er den nye verdien som skrives. Den andre er å tro at løkka kjører én runde til fordi `1 > 2` «nesten» er sant. Betingelsen sjekkes før hver runde, og da er den falsk.\n\nMerk også at `print('|', antall)` gir et mellomrom mellom `|` og tallet, fordi `print` skiller argumenter med ett mellomrom.",
+        "hints": [
+          "Skriv en rad per runde med kolonnene «`n` før», «`n` etter» og «`antall`».",
+          "Sjekk betingelsen på nytt før hver runde — også før den aller første."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger D — matche-tabell der du avgjør om løkka stopper.) Avgjør for hver av de fire løkkene om den **terminerer** eller går **uendelig**. Alle starter med `n` som angitt.\n\n**a)** `n = 10`, løkka `while n != 1: n = n - 3`\n\n**b)** `n = 9`, løkka `while n != 1: n = n - 3`\n\n**c)** `n = 5`, løkka `while n > 0: n = n + 1`\n\n**d)** `n = 64`, løkka `while n > 1: n = n // 2`",
+        "solution": "Metoden er å regne ut de første rundene og spørre om verdien kan **treffe** eller **passere** grensen.\n\n**a) Terminerer.** Verdiene blir 10, 7, 4, 1 — og da er `n != 1` falsk. Fire verdier, tre runder.\n\n**b) Uendelig.** Verdiene blir 9, 6, 3, 0, -3, -6, … Den treffer aldri 1 nøyaktig, og betingelsen `!=` slipper den derfor aldri. Dette er den lumske varianten: samme løkke som i a), men annen startverdi.\n\n**c) Uendelig.** `n` vokser, så `n > 0` blir aldri falsk. Feil retning.\n\n**d) Terminerer.** 64, 32, 16, 8, 4, 2, 1 — seks runder, og så er `1 > 1` falsk.\n\nFasitmønsteret er altså **terminerer, uendelig, uendelig, terminerer** — det veksler ikke pent, og det er nettopp poenget med sjangeren.\n\n**Fellenote:** fellen er å svare ut fra retningen alene. I b) beveger `n` seg helt riktig nedover, men betingelsen bruker `!=`, og da må verdien treffe **eksakt**. Hadde betingelsen vært `n > 1`, ville også b) terminert. Regelen å ta med: `!=` i en løkkebetingelse er en varsellampe.",
+        "hints": [
+          "Regn ut de fire-fem første verdiene for hver løkke, og se om de nærmer seg grensen.",
+          "Spør spesielt: kan verdien hoppe **over** grensen uten å treffe den?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-t-27",
+      "type": "text",
+      "content": "## Løkke 5 — Når du trenger både plass og verdi: `enumerate` og `zip` (~10 min)\n\nTo hjelpere som gjør løkkene korte og lesbare — og som begge har en presis oppførsel du må kunne, fordi de er faste kodesporingsfeller."
+    },
+    {
+      "id": "in1900-1-3-def-28",
+      "type": "definition",
+      "title": "`range(len(x))`",
+      "content": "Løkker over **plassnumrene** i lista i stedet for over elementene: `for i in range(len(x))` gir `i` lik 0, 1, …, `len(x) - 1`.\n\nDu bruker den når du trenger indeksen til noe — for eksempel når du skal skrive til `x[i]`, eller sammenligne `x[i]` med `x[i+1]`. Trenger du bare verdiene, er `for e in x` penere, og sensor foretrekker det."
+    },
+    {
+      "id": "in1900-1-3-def-29",
+      "type": "definition",
+      "title": "`enumerate(sekvens)`",
+      "content": "Gir **paret** `(indeks, verdi)` i hver runde, i den rekkefølgen. Du pakker det ut i to variabler:\n\n```python\nfor i, grad in enumerate([12, 15, 9]):\n    print(i, grad)\n```\n\n**Utskrift:**\n```\n0 12\n1 15\n2 9\n```\n\nIndeksen starter på `0`. Rekkefølgen `(indeks, verdi)` — ikke omvendt — er feilkode **#17**, og den er lett å bytte om under press."
+    },
+    {
+      "id": "in1900-1-3-def-30",
+      "type": "definition",
+      "title": "`zip(a, b)`",
+      "content": "Går gjennom to sekvenser samtidig, og gir paret `(a[i], b[i])` i hver runde.\n\nDet avgjørende: **`zip` stopper ved den korteste** sekvensen. Er `a` fem lang og `b` tre lang, får du tre runder, og de to siste elementene i `a` blir aldri sett. `zip` fyller ikke ut, gir ingen feilmelding, og advarer ikke. Dette er den andre halvparten av feilkode **#17**, og den koster poeng hvert år."
+    },
+    {
+      "id": "in1900-1-3-ex-31",
+      "type": "example",
+      "title": "Eksempel 5: `enumerate` og `zip` side om side",
+      "problem": "Tre stasjonsnavn og fem målinger — merk hvor mange runder `zip` gir. Hva skriver programmet ut?",
+      "solution": "```python\nnavn = ['Blindern', 'Tryvann', 'Bygdoy']\ngrader = [12, 15, 9, 11, 14]\nfor i, n in enumerate(navn):\n    print(i, n)\nfor n, g in zip(navn, grader):\n    print(n, g)\nprint(len(navn), len(grader))\n```\n\n**Utskrift:**\n```\n0 Blindern\n1 Tryvann\n2 Bygdoy\nBlindern 12\nTryvann 15\nBygdoy 9\n3 5\n```\n\n`enumerate` gir tre runder med indeks og navn. `zip` gir også bare **tre** runder — ikke fem — fordi `navn` er den korteste. Målingene `11` og `14` blir aldri brukt, og programmet sier ikke et ord om det.\n\nDet er nettopp derfor `zip` er en god eksamensfelle: koden ser riktig ut, den kjører uten feilmelding, og likevel behandler den bare en del av dataene. Skal du være sikker på at alt blir med, må du sjekke lengdene selv."
+    },
+    {
+      "id": "in1900-1-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — `zip` og `enumerate`.) Hva skriver programmet ut?\n\n```python\na = [1, 2, 3, 4]\nb = [10, 20]\nfor x, y in zip(a, b):\n    print(x + y, end=' ')\nprint()\nfor i, v in enumerate(b):\n    print(i, v, end=' | ')\n```",
+        "solution": "**Sporingstavle for `zip`-løkka** — `b` er kortest, med to elementer, så det blir **to** runder:\n\n| Runde | `x` | `y` | `x + y` | Utskrift så langt |\n|---|---|---|---|---|\n| 1 | 1 | 10 | 11 | `11 ` |\n| 2 | 2 | 20 | 22 | `11 22 ` |\n\n`3` og `4` i `a` blir aldri sett.\n\n**Sporingstavle for `enumerate`-løkka:**\n\n| Runde | `i` | `v` | Skriver |\n|---|---|---|---|\n| 1 | 0 | 10 | `0 10 \\| ` |\n| 2 | 1 | 20 | `1 20 \\| ` |\n\n**Utskrift:**\n```\n11 22 \n0 10 | 1 20 | \n```\n\nMerk at det ikke kommer noe linjeskift til slutt, siden den siste `print` bruker `end=' | '`.\n\n**Fellenote:** fellen er #17 i to varianter. Den ene er å tro at `zip` gir fire runder og fyller ut `b` med noe. Den andre er å bytte om rekkefølgen i `enumerate` og skrive `10 0` i stedet for `0 10`.",
+        "hints": [
+          "Tell lengden av begge listene før du begynner på `zip`-løkka.",
+          "`enumerate` gir indeksen først, verdien etterpå."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — nøstet løkke med `break`.) Hva skriver programmet ut?\n\n```python\nfor i in range(1, 4):\n    for j in range(1, 4):\n        if i * j > 4:\n            break\n        print(i * j, end=' ')\n    print('|', end=' ')\n```",
+        "solution": "**Sporingstavle** — én rad per innerste runde. `break` bryter bare ut av den **indre** løkka:\n\n| Ytre `i` | Indre `j` | `i*j` | Over 4? | Utskrift så langt |\n|---|---|---|---|---|\n| 1 | 1 | 1 | nei | `1 ` |\n| 1 | 2 | 2 | nei | `1 2 ` |\n| 1 | 3 | 3 | nei | `1 2 3 ` |\n| 1 | ferdig | — | — | `1 2 3 \\| ` |\n| 2 | 1 | 2 | nei | `1 2 3 \\| 2 ` |\n| 2 | 2 | 4 | nei (4 er ikke over 4) | `... 2 4 ` |\n| 2 | 3 | 6 | **ja** — `break` | uendret |\n| 2 | ferdig | — | — | `... 2 4 \\| ` |\n| 3 | 1 | 3 | nei | `... 3 ` |\n| 3 | 2 | 6 | **ja** — `break` | uendret |\n| 3 | ferdig | — | — | `... 3 \\| ` |\n\n**Utskrift:**\n```\n1 2 3 | 2 4 | 3 | \n```\n\n**Fellenote:** tre feller på én oppgave. (1) `break` avslutter bare den **indre** løkka, så den ytre fortsetter — svarer du at programmet stopper helt etter `4`, har du gått i den. (2) `if i * j > 4` er falsk når produktet er nøyaktig 4, så `4` blir skrevet. (3) `print('|', end=' ')` står i den **ytre** kroppen og kjøres derfor tre ganger, også etter runden som ble avbrutt.\n\n**Hva som gir uttelling:** riktig antall og plassering av `|`-tegnene viser at du har forstått nøstingen, selv om du skulle regne feil på ett produkt. Delvis riktig sporing gir delvis uttelling i fritekstversjonen av sjangeren.",
+        "hints": [
+          "Lag en tabell med én rad per gang den innerste linja kjører, og marker hvor `break` slår inn.",
+          "Hvilken av de to løkkene avbrytes egentlig av `break`?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — akkumulator med feilplassert startverdi.) De to programmene under ser nesten like ut. Hva skriver hvert av dem ut, og hvilken linje utgjør forskjellen?\n\n**Program 1:**\n\n```python\ns = 0\nfor i in range(1, 4):\n    s += i\n    print(s, end=' ')\n```\n\n**Program 2:**\n\n```python\nfor i in range(1, 4):\n    s = 0\n    s += i\n    print(s, end=' ')\n```",
+        "solution": "**Program 1 — startverdien står før løkka:**\n\n| Runde | `i` | `s` etter `s += i` | Utskrift så langt |\n|---|---|---|---|\n| 1 | 1 | 1 | `1 ` |\n| 2 | 2 | 3 | `1 3 ` |\n| 3 | 3 | 6 | `1 3 6 ` |\n\n**Utskrift:**\n```\n1 3 6 \n```\n\n**Program 2 — startverdien står inne i løkka:**\n\n| Runde | `i` | `s` etter nullstilling | `s` etter `s += i` | Utskrift så langt |\n|---|---|---|---|---|\n| 1 | 1 | 0 | 1 | `1 ` |\n| 2 | 2 | 0 | 2 | `1 2 ` |\n| 3 | 3 | 0 | 3 | `1 2 3 ` |\n\n**Utskrift:**\n```\n1 2 3 \n```\n\n**Forskjellen** er den ene linja `s = 0`. I program 2 nullstilles akkumulatoren hver runde, så den husker aldri noe: hver utskrift er bare det aktuelle leddet. Summeringen er borte, men programmet gir ingen feilmelding — det gir bare et annet svar.\n\n**Fellenote:** dette er den vanligste strukturfeilen i rekke-oppgavene i [kap. 3.2](/bok/in1900/in1900-3-2) og [kap. 3.3](/bok/in1900/in1900-3-3). Regelen er kort: **startverdien hører alltid før løkka.** Og i «finn feilen»-oppgaver er nettopp en `s = 0` som har glidd inn i løkkekroppen, en plantet feil du skal kunne se med det blotte øye.",
+        "hints": [
+          "Skriv en rad per runde for begge programmene, med en kolonne for `s` ved rundens begynnelse.",
+          "Spør: hvilken verdi har `s` når runde 2 starter, i hvert av programmene?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-3-adv-32",
+      "type": "warning",
+      "title": "Navn som betyr to ting — `i`, `n` og `N`",
+      "content": "Tre navnekollisjoner du bør være bevisst på i dette kapitlet, fordi de er kilden til feil som ser ut som slurv men er misforståelser:\n\n- **`i`** er både løkkevariabelen i koden og summasjonsindeksen $i$ i formelen over koden. Det er ikke et problem — det er en fordel, og bokas regel er at de **skal ha samme bokstav**. Skriver formelen $\\sum_{i=1}^{4} i^2$, skal løkka hete `i`.\n- **`N`** er antall **steg** i noen oppgaver og `N+1` er antall **punkter**. Se definisjonen «Antall steg og antall punkter» over. Blandingen er feilkode #1.\n- **`n`** brukes både som løkkevariabel (`for n in range(N)`) og som «antall» (`range(n)`). Boka bruker `n` som løkkevariabel i differenslikninger og ODE-er ([kap. 6.2](/bok/in1900/in1900-6-2), [kap. 7.1](/bok/in1900/in1900-7-1)), og `N` med stor bokstav om antallet. Hold deg til det."
+    },
+    {
+      "id": "in1900-1-3-adv-33",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "- **#1 — av-én i `range`.** `range(N)` gir `N` runder og siste verdi `N-1`. Skal siste ledd `N` være med, må det stå `range(N+1)`. Den hyppigste feilen i faget.\n- **#12 — grenser i nøstede løkker.** `for j in range(i)` gir ulikt antall runder for hver `i`, og null runder når `i` er 0.\n- **#17 — `zip` og `enumerate`.** `zip` stopper ved den **korteste** sekvensen, uten advarsel. `enumerate` gir `(indeks, verdi)` i den rekkefølgen.\n- **Startverdien inne i løkka.** `s = 0` hører før løkka, ellers nullstilles summen hver runde.\n- **Uendelig løkke med `!=`.** Bruk `<=`/`>=` når verdien kan hoppe over grensen.\n- **Innrykket.** En linje som ikke er rykket inn, kjøres én gang etter løkka — ikke én gang per runde."
+    },
+    {
+      "id": "in1900-1-3-coll-34",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `for e in sekvens:` | Én runde per **element**. Kolon obligatorisk, kroppen rykket inn fire mellomrom. |\n| `for i in range(start, stop, step)` | `stop` er **eksklusiv**. Antall runder er `stop - start` når steget er 1. |\n| `range(N)` | `N` runder, verdiene `0` til `N-1`. `range(N+1)` gir `N+1` runder til og med `N`. |\n| `range(10, 0, -2)` | Teller nedover: 10, 8, 6, 4, 2. `stop` fortsatt eksklusiv. |\n| `range(0)` og `range(0, 5, -1)` | Tomme rekker — løkka kjører **null** ganger, uten feilmelding. |\n| `range(len(x))` | Løkker over plassnumrene `0` til `len(x)-1`. |\n| Akkumulatormønsteret | `s = 0` **før** løkka, `s += ...` inne i den, bruk av `s` etter. |\n| Tellermønsteret | `antall = 0` før løkka, `antall += 1` i kroppen. |\n| `while betingelse:` | Sjekker betingelsen **før** hver runde. Noe i kroppen må endre den. |\n| Terminering | Løkka stopper hvis betingelsen blir falsk etter endelig mange runder. `!=` krever eksakt treff. |\n| `break` | Avbryter løkka umiddelbart — bare den **innerste** løkka den står i. |\n| `continue` | Hopper til neste runde, over resten av kroppen. |\n| Nøstet løkke | Den indre kjøres helt ferdig for hver runde i den ytre. Antall innerste runder er produktet, hvis grensene er uavhengige. |\n| `for j in range(i)` | Indre grense avhenger av ytre løkkevariabel; ulikt antall runder per ytre runde. |\n| `enumerate(seq)` | Gir `(indeks, verdi)` i den rekkefølgen. Indeksen starter på `0`. |\n| `zip(a, b)` | Gir `(a[i], b[i])`; stopper ved den **korteste** sekvensen. |\n| Løkkevariabelen etter løkka | Lever videre, med sin **siste** verdi. |\n| `print(..., end=' ')` | Erstatter linjeskiftet med et mellomrom, så neste utskrift havner på samme linje. |\n\n**Formler i dette delkapitlet:**\n\nSummen i eksempel 2 er den endelige rekka\n\n$$s = \\sum_{i=1}^{4} i^2 = 1 + 4 + 9 + 16 = 30,$$\n\nimplementert med akkumulatormønsteret. Formelens indeks $i$ og løkkevariabelen `i` er den samme bokstaven med vilje.",
+          "id": "in1900-1-3-c34-1"
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-3-t-35",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-1-3-def-36",
+      "type": "definition",
+      "title": "Å iterere",
+      "content": "Å gå gjennom elementene i en samling, ett om gangen. En `for`-løkke **itererer** over en liste, en streng eller en tallrekke.\n\nOrdet brukes også om hver enkelt runde: «i den tredje iterasjonen er `i` lik 2». I sporingstavlene i denne boka er «iterasjon» og «runde» samme ting."
+    },
+    {
+      "id": "in1900-1-3-def-37",
+      "type": "definition",
+      "title": "`for` over en streng",
+      "content": "En streng er også en sekvens, så `for tegn in 'sol'` gir tre runder, med `tegn` lik `'s'`, `'o'` og `'l'`.\n\nDet er derfor tegn-for-tegn-algoritmer (tell vokaler, sjekk palindrom) blir korte i Python. Mer om strenger i [kap. 1.4](/bok/in1900/in1900-1-4)."
+    },
+    {
+      "id": "in1900-1-3-def-38",
+      "type": "definition",
+      "title": "Løkkevariabelen etter løkka",
+      "content": "Etter at en `for`-løkke er ferdig, finnes løkkevariabelen fortsatt, med den **siste** verdien den fikk. Etter `for i in range(4)` er `i` lik `3`.\n\nEtt unntak er verdt å kjenne: kjørte løkka null ganger, ble variabelen aldri laget, og et forsøk på å bruke den stopper programmet med en `NameError`. Det er en av exception-typene i [kap. 2.2](/bok/in1900/in1900-2-2)."
+    },
+    {
+      "id": "in1900-1-3-def-39",
+      "type": "definition",
+      "title": "`while` mot `for` — hvilken skal du velge?",
+      "content": "Bruk `for` når du **vet** hvor mange runder du trenger, eller når du går gjennom en samling. Bruk `while` når antall runder avhenger av noe som skjer underveis.\n\nI IN1900 er `for` det vanlige: rekker, differenslikninger og ODE-løsere har alle et kjent antall steg. `while` dukker opp i iterative metoder som stopper på en toleranse — som Newtons metode i [kap. 6.1](/bok/in1900/in1900-6-1) — og i kodesporingsoppgaver om tellere."
+    },
+    {
+      "id": "in1900-1-3-coll-40",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "type": "text",
+          "content": "1. `range(N)` gir `N` runder, verdiene `0` til `N-1`. `N` steg gir `N+1` punkter.\n2. Startverdien til en akkumulator står **før** løkka.\n3. Den indre løkka kjøres helt ferdig for **hver** runde i den ytre.\n4. `range(i)` gir `i` runder — og null runder når `i` er 0.\n5. `zip` stopper ved den **korteste**; `enumerate` gir `(indeks, verdi)`.\n6. `break` avslutter bare den innerste løkka; `continue` hopper over resten av runden.\n\nEr de på plass, er du klar for strengformateringen i [kap. 1.4](/bok/in1900/in1900-1-4) og for drillen i [kap. 1.7](/bok/in1900/in1900-1-7).",
+          "id": "in1900-1-3-c40-1"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

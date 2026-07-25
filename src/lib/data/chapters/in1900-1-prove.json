@@ -1,0 +1,758 @@
+{
+  "id": "in1900-1-prove",
+  "courseId": "in1900",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Python-grunnlaget og kodesporing",
+  "description": "Fire nyskrevne temaprøver i eksamensformat med fullstendige løsningsforslag: datatyper og presedens, lister og utsnitt, løkker og ordbøker, og et blandet midtveissett. Fire prøver à 25–35 min — kan tas som separate økter.",
+  "estimatedMinutes": 120,
+  "competenceGoals": [
+    "kunne spore et lite Python-program under tidspress og angi utskriften nøyaktig",
+    "kunne regne ut indekserings- og utsnittsuttrykk i nøstede lister og pare dem med riktig verdi",
+    "kunne avgjøre om en løkke stopper, og hvor mange runder den går",
+    "kunne kjenne igjen hvilken felle et midtveisspørsmål sikter mot, og sjekke nettopp den"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-prove-om",
+      "type": "tip",
+      "title": "Om prøvene til del 1",
+      "content": "**Fire prøver à 25–35 minutter.** Til sammen dekker de hele Del 1: datatyper og uttrykk fra [kap. 1.1](/bok/in1900/in1900-1-1), lister og utsnitt fra [kap. 1.2](/bok/in1900/in1900-1-2), løkker fra [kap. 1.3](/bok/in1900/in1900-1-3), strenger og formatert utskrift fra [kap. 1.4](/bok/in1900/in1900-1-4), ordbøker fra [kap. 1.5](/bok/in1900/in1900-1-5) og funksjoner og scope fra [kap. 1.6](/bok/in1900/in1900-1-6). Alle oppgaver er nyskrevne og i eksamens sjangre.\n\n- **Prøve 1.A (25 min, 10 p):** datatyper, uttrykk og operatorpresedens — ti korte sporingsspørsmål (sjanger A — kodesporing, altså «hva skriver programmet ut?»).\n- **Prøve 1.B (30 min, 12 p):** lister, indeksering og utsnitt — åtte sporingsspørsmål pluss én matche-tabell (sjanger B).\n- **Prøve 1.C (30 min, 10 p):** løkker, strenger og ordbøker — ti sporingsspørsmål med vekt på utskriftsdetaljer.\n- **Prøve 1.D (35 min, 12 p):** blandet midtveisformat — tolv flervalgsspørsmål på tvers av hele delen (sjangrene A, B, D og E).\n\n**Hvor flervalget bor:** de tolv rene flervalgsspørsmålene ligger inline i prøve 1.D her, med alternativene skrevet ut under hvert spørsmål. Den store flervalgsbanken for Del 1 ligger i den interaktive quizen til kapitlene 1.1–1.7 — bruk den til hurtigrepetisjon, og prøvene her til å øve på å spore selv, med blyant.\n\n**Anbefalt bruk:** ta hver prøve på tid, uten fasit og uten maskin. Eksamen er hjelpemiddelfri, så du må trene på å kjøre koden i hodet. Åpne løsningsforslaget først etterpå, og gå gjennom selvdiagnose-listen som står under hver fasit.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Målet er å fullføre settet, ikke å ta alt på én gang."
+    },
+    {
+      "id": "in1900-1-prove-forkunn",
+      "type": "text",
+      "content": "**Forkunnskaper.** Prøvene forutsetter hele Del 1:\n\n- [kap. 1.1](/bok/in1900/in1900-1-1) — datatyper, de fire divisjonene, presedens og logiske uttrykk.\n- [kap. 1.2](/bok/in1900/in1900-1-2) — lister, negativ indeksering og utsnitt, og at `+` skjøter lister.\n- [kap. 1.3](/bok/in1900/in1900-1-3) — `range`, nøstede løkker, `while`-terminering, `enumerate` og `zip`.\n- [kap. 1.4](/bok/in1900/in1900-1-4) — strengmetoder, f-strenger med bredde og desimaler, og `end`/`sep`.\n- [kap. 1.5](/bok/in1900/in1900-1-5) — ordbøker, `.items()`, `.get` og nøstede ordbøker.\n- [kap. 1.6](/bok/in1900/in1900-1-6) — funksjoner, standardverdier og variabel-scope.\n\nSporingsmetoden du skal bruke — tavlen, rundetellingen og «skriv svaret tegn for tegn» — står i [kap. 1.7](/bok/in1900/in1900-1-7)."
+    },
+    {
+      "id": "in1900-1-prove-coll-a",
+      "type": "collapsible",
+      "title": "Prøve 1.A — Datatyper, uttrykk og presedens (25 min)",
+      "buttonText": "Vis prøve 1.A",
+      "content": [
+        {
+          "id": "in1900-1-prove-pa-intro",
+          "type": "text",
+          "content": "**Prøve 1.A — Datatyper, uttrykk og operatorpresedens (25 minutter, 10 poeng).**\n\nTi korte spørsmål i sjanger A: kodesporing, altså «hva skriver programmet ut?». Skriv utskriften nøyaktig, med mellomrom slik terminalen viser den, og pass på om et tall er heltall eller desimaltall. Ett poeng per spørsmål."
+        },
+        {
+          "id": "in1900-1-prove-pa1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(11 // 4, 11 % 4, 11 / 4)` ut?",
+            "solution": "`11 // 4` er heltallsdivisjon og gir `2`; `11 % 4` er resten `3`; `11 / 4` gir **alltid** flyttall, altså `2.75`. `print` skiller argumentene med ett mellomrom.\n\n**Utskrift:**\n```\n2 3 2.75\n```\n\nFellen er #15 — å skrive `2.75` også for `//`.",
+            "hints": [
+              "De tre uttrykkene bruker tre ulike operatorer på samme tallpar.",
+              "Hvilken av dem gir alltid et desimaltall?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(-11 // 4, -11 % 4)` ut?",
+            "solution": "`//` runder **nedover**, ikke mot null: $-11/4 = -2{,}75$ rundes til `-3`. Resten får samme fortegn som **høyre** operand, så `-11 % 4` er `1` — kontroller med $-3 \\cdot 4 + 1 = -11$.\n\n**Utskrift:**\n```\n-3 1\n```\n\nFellen er #15 i sin ubehageligste variant. Svaret `-2 -3` er det du får hvis du tror `//` kutter mot null slik `int()` gjør.",
+            "hints": [
+              "Tegn tallinja og spør hva «nedover» betyr for et negativt tall.",
+              "Sjekk svaret ditt med regnestykket kvotient ganger 4 pluss rest."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(2 + 3 * 4 ** 2)` ut?",
+            "solution": "Presedensen er potens før multiplikasjon før addisjon: først $4^2 = 16$, så $3 \\cdot 16 = 48$, så $2 + 48 = 50$. Alle tallene er heltall, så svaret har ingen desimaler.\n\n**Utskrift:**\n```\n50\n```",
+            "hints": [
+              "Skriv opp rekkefølgen operatorene regnes i, før du regner.",
+              "Potens binder sterkest av de tre."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa4-o",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(-3 ** 2, (-3) ** 2)` ut?",
+            "solution": "Potens binder sterkere enn **unært minus**, så `-3 ** 2` leses som $-(3^2) = -9$. Med parentes er det $(-3)^2 = 9$.\n\n**Utskrift:**\n```\n-9 9\n```\n\nDette er en av de mest brukte presedensfellene på midtveis, og forskjellen er bare ett parentespar.",
+            "hints": [
+              "Hvilken operator regnes først: minustegnet eller potensen?",
+              "Parentesen i det andre uttrykket er der av en grunn."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa5",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa5-o",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nx = 7\nx += 3\nx //= 2\nprint(x, type(x))\n```",
+            "solution": "`x += 3` gir 10, og `x //= 2` gir 5 med heltallsdivisjon. Siden begge operandene er heltall, forblir `x` et heltall — og `type` skrives på formen `<class '...'>`.\n\n**Utskrift:**\n```\n5 <class 'int'>\n```\n\nHadde siste linja vært `x /= 2`, ville svaret vært `5.0 <class 'float'>`.",
+            "hints": [
+              "`x += 3` er kortform for `x = x + 3`.",
+              "Hvilken datatype gir heltallsdivisjon mellom to heltall?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa6",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa6-o",
+            "number": "6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(int(-3.9), round(3.5), round(4.5))` ut?",
+            "solution": "`int` **kutter mot null**, så `int(-3.9)` er `-3` (ikke `-4`). `round` runder til nærmeste heltall, men ved nøyaktig 0,5 rundes det til nærmeste **partall**: `round(3.5)` er `4` og `round(4.5)` er også `4`.\n\n**Utskrift:**\n```\n-3 4 4\n```\n\nDe to siste er den overraskende delen, og en klassisk distraktor.",
+            "hints": [
+              "`int` og `//` gjør ikke det samme med negative tall.",
+              "Hva skjer når et tall ligger nøyaktig midt mellom to heltall?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa7",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa7-o",
+            "number": "7",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A/D.) Hva skriver `print(0 < 5 < 3, not 0, True + True)` ut?",
+            "solution": "Kjedet sammenligning betyr «begge deler»: `0 < 5` er sant, men `5 < 3` er usant, så hele uttrykket er `False`. `not 0` er `True`, fordi 0 regnes som usant. Og sannhetsverdier oppfører seg som tall i regnestykker, så `True + True` er `2`.\n\n**Utskrift:**\n```\nFalse True 2\n```",
+            "hints": [
+              "En kjedet sammenligning krever at alle leddene er sanne.",
+              "Hvilke verdier regnes som usanne i Python?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa8",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa8-o",
+            "number": "8",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A/D.) Hva skriver `print(bool(0), bool(''), bool([0]))` ut?",
+            "solution": "Tallet 0 og den tomme strengen er begge usanne. Lista `[0]` er derimot **ikke tom** — den har ett element — så den er sann, uansett hva elementet er.\n\n**Utskrift:**\n```\nFalse False True\n```\n\nFellen er å se nullen inne i lista og svare `False`. Det er lengden som avgjør, ikke innholdet.",
+            "hints": [
+              "Hvilke verdier er usanne? Lag deg en kort liste.",
+              "Er en liste med ett element tom?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa9",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa9-o",
+            "number": "9",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print('3' * 2, 3 * 2, '3' + '2')` ut?",
+            "solution": "På en streng betyr `*` gjentakelse, så `'3' * 2` er `33`. På tall er `*` multiplikasjon, så `3 * 2` er `6`. Og `+` på strenger skjøter: `'3' + '2'` er `32`.\n\n**Utskrift:**\n```\n33 6 32\n```\n\nStrenger skrives uten fnutter når de er argument til `print`. Poenget er at tegnet `'3'` og tallet 3 er to helt forskjellige verdier.",
+            "hints": [
+              "Avgjør for hvert uttrykk om operandene er tall eller tekst.",
+              "Hva betyr `+` og `*` når venstre operand er en streng?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa10",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pa10-o",
+            "number": "10",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A/D.) Hva skriver `print(10 / 2 == 5, 0.1 + 0.2 == 0.3)` ut?",
+            "solution": "`10 / 2` er `5.0`, og `5.0 == 5` er `True` — et flyttall og et heltall med samme verdi er like. Men `0.1 + 0.2` blir `0.30000000000000004` i flyttallsaritmetikk, så den andre testen er `False`.\n\n**Utskrift:**\n```\nTrue False\n```\n\nDen andre linja er grunnen til at testfunksjoner i [kap. 3.1](/bok/in1900/in1900-3-1) alltid sammenligner med en toleranse i stedet for med likhetstegn — feilkode #11.",
+            "hints": [
+              "Er `5.0` og `5` like i verdi?",
+              "Hva vet du om hvordan desimaltall lagres i maskinen?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pa-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.A**\n\n- ☐ Skilte du `/` fra `//` og fikk med desimalpunktet der det skulle være?\n- ☐ Rundet du `//` **nedover** også for negative tall?\n- ☐ Regnet du potens før multiplikasjon, og potens før unært minus?\n- ☐ Husket du at `print` setter ett mellomrom mellom argumentene?\n- ☐ Behandlet du `'3'` som tekst og `3` som tall?\n- ☐ Fikk du med at en ikke-tom liste er sann, uansett innhold?\n\n**Poengsum:** 10 mulige. Under 6: les [kap. 1.1](/bok/in1900/in1900-1-1) på nytt, med vekt på definisjonsblokkene om de fire divisjonene og om presedens."
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-prove-coll-b",
+      "type": "collapsible",
+      "title": "Prøve 1.B — Lister, indeksering og slicing (30 min)",
+      "buttonText": "Vis prøve 1.B",
+      "content": [
+        {
+          "id": "in1900-1-prove-pb-intro",
+          "type": "text",
+          "content": "**Prøve 1.B — Lister, indeksering og slicing (30 minutter, 12 poeng).**\n\nÅtte korte sporingsspørsmål (sjanger A) til ett poeng hver, og til slutt én matche-tabell (sjanger B — der du regner ut indekserings- og utsnittsuttrykk og parer dem med riktig verdi) til fire poeng. Skriv utskriften nøyaktig, og pass på om svaret er et element eller en liste."
+        },
+        {
+          "id": "in1900-1-prove-pb1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) La `x = [2, 4, 6, 8, 10]`. Hva skriver `print(x[0], x[-2])` ut?",
+            "solution": "Indeks 0 er første element, `2`. Negativ indeks teller fra `-1` bakerst, så `-2` er nest siste element, `8`.\n\n**Utskrift:**\n```\n2 8\n```",
+            "hints": [
+              "Skriv opp lista med indekser både forfra og bakfra.",
+              "Bakfra starter tellingen på `-1`, ikke på `0`."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) La `x = [2, 4, 6, 8, 10]`. Hva skriver `print(x[1:4], x[:2], x[3:])` ut?",
+            "solution": "Alle tre er utsnitt, og gir derfor **lister**. `x[1:4]` er elementene på plass 1, 2 og 3 — stoppverdien 4 er ikke med. `x[:2]` starter fra begynnelsen, `x[3:]` går til slutten.\n\n**Utskrift:**\n```\n[4, 6, 8] [2, 4] [8, 10]\n```\n\nFeilkode #18: hakeparentesene er en del av svaret.",
+            "hints": [
+              "Et utsnitt `a:b` tar med `b - a` elementer.",
+              "Utsnitt gir alltid en liste, aldri et enkelt element."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) La `x = [2, 4, 6, 8, 10]`. Hva skriver `print(x[::2], x[::-1])` ut?",
+            "solution": "`x[::2]` tar annethvert element fra starten. `x[::-1]` er hele lista baklengs.\n\n**Utskrift:**\n```\n[2, 6, 10] [10, 8, 6, 4, 2]\n```",
+            "hints": [
+              "Det tredje tallet i et utsnitt er steget.",
+              "Et negativt steg går bakover gjennom lista."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb4-o",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) La `x = [1, 2]` og `y = [3]`. Hva skriver `print(x + y, x * 2, len(x + y))` ut?",
+            "solution": "`+` mellom to lister **skjøter** dem, og `*` gjentar. `len` på den skjøtte lista gir 3.\n\n**Utskrift:**\n```\n[1, 2, 3] [1, 2, 1, 2] 3\n```\n\nFeilkode #5 — elementvis addisjon finnes ikke for lister; den kommer først med NumPy-tabeller i [kap. 4.1](/bok/in1900/in1900-4-1).",
+            "hints": [
+              "Avgjør om hvert uttrykk gir en liste eller et tall.",
+              "Hva gjør `+` når begge operandene er lister?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb5",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb5-o",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nx = [5, 3, 9]\nx.append(1)\nprint(x, max(x), sum(x))\n```",
+            "solution": "`append` legger elementet bakerst og endrer lista. Deretter er største element 9 og summen $5 + 3 + 9 + 1 = 18$.\n\n**Utskrift:**\n```\n[5, 3, 9, 1] 9 18\n```\n\nMerk at `append` ikke returnerer noe — den endrer lista på plass.",
+            "hints": [
+              "`append` legger til bakerst, ikke sortert.",
+              "Regn summen etter at det nye elementet er lagt til."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb6",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb6-o",
+            "number": "6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) La `y = [[1, 2, 3], [4, 5], [6]]`. Hva skriver `print(y[1], y[1][1], len(y))` ut?",
+            "solution": "`y[1]` er hele den andre indre lista. `y[1][1]` går ett nivå til og gir elementet `5`. `len(y)` teller de **ytre** elementene, altså 3.\n\n**Utskrift:**\n```\n[4, 5] 5 3\n```\n\nÅ blande nivåene er feilkode #20 i sin listevariant.",
+            "hints": [
+              "To hakeparenteser etter hverandre betyr to nivåer.",
+              "`len` teller på det nivået du peker på."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb7",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb7-o",
+            "number": "7",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) La `y = [[1, 2, 3], [4, 5], [6]]`. Hva skriver `print(y[0][1:], y[-1] + y[1])` ut?",
+            "solution": "`y[0][1:]` er utsnitt fra plass 1 i den første indre lista, altså `[2, 3]`. `y[-1]` er `[6]` og `y[1]` er `[4, 5]`, og `+` skjøter dem i den rekkefølgen de står.\n\n**Utskrift:**\n```\n[2, 3] [6, 4, 5]\n```\n\nRekkefølgen er poenget: `y[1] + y[-1]` ville gitt `[4, 5, 6]`.",
+            "hints": [
+              "Regn det innerste uttrykket først i hvert ledd.",
+              "Rekkefølgen på operandene avgjør rekkefølgen i den skjøtte lista."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb8",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb8-o",
+            "number": "8",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) La `x = [3, 1, 2]`. Hva skriver `print([2 * e for e in x], 3 in x, [3] in x)` ut?",
+            "solution": "Det første uttrykket bygger en ny liste ved å gange hvert element med 2, i samme rekkefølge. `3 in x` spør om **elementet** 3 finnes, som det gjør. `[3] in x` spør om **lista** `[3]` er et element i `x` — det er den ikke, for `x` inneholder tall, ikke lister.\n\n**Utskrift:**\n```\n[6, 2, 4] True False\n```",
+            "hints": [
+              "Den nye lista beholder rekkefølgen fra den gamle.",
+              "`in` spør alltid om noe er et **element** i sekvensen."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb9",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pb9-o",
+            "number": "9",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(4 poeng, 1 per rad. Sjanger B — matche-tabell der du regner ut indekserings- og utsnittsuttrykk og parer dem med riktig verdi.) La\n\n```python\nx = [7, 0, 5]\ny = [[1, 2], [3, 4, 5], [6]]\n```\n\n| Rad | Uttrykk |\n|---|---|\n| 1 | `y[x[1]]` |\n| 2 | `y[x[2] - 4][x[0] - 6:]` |\n| 3 | `x[-1] + x[x[1]]` |\n| 4 | `y[2] + y[0]` |\n\n**Alternativer:** (i) `12`, (ii) `[1, 2]`, (iii) `[4, 5]`, (iv) `[6, 1, 2]`, (v) `[1, 2, 6]`.",
+            "solution": "**Rad 1 — `y[x[1]]`.** `x[1]` er `0`, så uttrykket er `y[0]`. **(ii) `[1, 2]`.**\n\n**Rad 2 — `y[x[2] - 4][x[0] - 6:]`.** `x[2]` er `5`, så `5 - 4` er `1` og `y[1]` er `[3, 4, 5]`. `x[0]` er `7`, så `7 - 6` er `1`, og utsnittet `[3, 4, 5][1:]` gir **(iii) `[4, 5]`**.\n\n**Rad 3 — `x[-1] + x[x[1]]`.** `x[-1]` er `5`, og `x[x[1]]` er `x[0]` som er `7`. Begge er **tall**, så `+` legger sammen: **(i) `12`**.\n\n**Rad 4 — `y[2] + y[0]`.** Begge er **lister**, så `+` skjøter: `[6]` og `[1, 2]` blir **(iv) `[6, 1, 2]`**.\n\n**Fasit:** 1–(ii), 2–(iii), 3–(i), 4–(iv). Alternativ (v) `[1, 2, 6]` brukes ikke: det er `y[0] + y[2]`, altså motsatt rekkefølge.\n\nRad 3 og 4 er hele poenget: samme `+`-tegn gjør to forskjellige ting alt etter om operandene er tall eller lister (feilkode #5).\n\n*Uttelling:* radene gis hver for seg. Er du usikker på én, gjett — blankt og feil gir likt.",
+            "hints": [
+              "Regn alltid det innerste uttrykket først, og skriv verdien over det.",
+              "Avgjør for hver rad om resultatet er et tall eller en liste.",
+              "Sjekk rekkefølgen på operandene i rad 4."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pb-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.B**\n\n- ☐ Skrev du hakeparenteser rundt alle svar som var lister?\n- ☐ Husket du at stoppverdien i et utsnitt ikke er med?\n- ☐ Telte du riktig bakfra, med `-1` som siste element?\n- ☐ Skilte du mellom `+` på tall og `+` på lister?\n- ☐ Regnet du de innerste indeksuttrykkene først?\n- ☐ Talte `len` på riktig nivå i den nøstede lista?\n\n**Poengsum:** 12 mulige. Under 7: les [kap. 1.2](/bok/in1900/in1900-1-2) på nytt, særlig avsnittet om at indeksering gir element og utsnitt gir liste."
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-prove-coll-c",
+      "type": "collapsible",
+      "title": "Prøve 1.C — Løkker, strenger og dictionaries (30 min)",
+      "buttonText": "Vis prøve 1.C",
+      "content": [
+        {
+          "id": "in1900-1-prove-pc-intro",
+          "type": "text",
+          "content": "**Prøve 1.C — Løkker, strenger og ordbøker (30 minutter, 10 poeng).**\n\nTi sporingsspørsmål i sjanger A, ett poeng hver. Her er utskriftsdetaljene med i regningen: `end`, bredde og desimaler i f-strenger, og hvordan Python skriver ut lister og ordbøker. Skriv utskriften nøyaktig, med mellomrom og linjeskift."
+        },
+        {
+          "id": "in1900-1-prove-pc1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nfor i in range(3, 0, -1):\n    print(i, end='*')\n```",
+            "solution": "Negativt steg teller nedover, og stoppverdien 0 er fortsatt eksklusiv: verdiene blir 3, 2, 1. `end='*'` erstatter linjeskiftet, også etter siste runde.\n\n**Utskrift:**\n```\n3*2*1*\n```",
+            "hints": [
+              "Skriv opp hvilke verdier `range(3, 0, -1)` faktisk gir.",
+              "Stoppverdien er aldri med, heller ikke med negativt steg."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(1, 5):\n    total += i * i\nprint(total)\n```",
+            "solution": "`range(1, 5)` gir 1, 2, 3, 4, og summen av kvadratene er $1 + 4 + 9 + 16 = 30$. `print` står utenfor løkka og skriver bare én gang.\n\n**Utskrift:**\n```\n30\n```\n\nFellen er #1 — å ta med 5 og svare 55.",
+            "hints": [
+              "Tell løkkerundene før du regner.",
+              "Se på innrykket: står `print` inne i eller utenfor løkka?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nfor i in range(3):\n    for j in range(i + 1):\n        print(i + j, end='')\n    print('/', end='')\n```",
+            "solution": "Den ytre løkka gir `i` lik 0, 1, 2, og den indre går `i + 1` runder.\n\n| `i` | `j`-verdier | Skriver |\n|---|---|---|\n| 0 | 0 | `0` deretter `/` |\n| 1 | 0, 1 | `12` deretter `/` |\n| 2 | 0, 1, 2 | `234` deretter `/` |\n\n**Utskrift:**\n```\n0/12/234/\n```\n\nFeilkode #12 — den indre grensen avhenger av den ytre. Merk at det er `i + j` som skrives, ikke `j`.",
+            "hints": [
+              "Regn ut hvor mange runder den indre løkka går, for hver verdi av `i`.",
+              "Skilletegnet `/` skrives i den ytre løkka."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc4-o",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A/D.) Hva skriver programmet ut?\n\n```python\nn = 20\nk = 0\nwhile n > 3:\n    n = n // 2\n    k += 1\nprint(n, k)\n```",
+            "solution": "`n` går 20, 10, 5, 2. Ved 2 er `n > 3` usann, og løkka stopper etter tre runder.\n\n**Utskrift:**\n```\n2 3\n```\n\nHeltallsdivisjonen er det som gjør at løkka terminerer: 5 halveres til 2, ikke til 2,5.",
+            "hints": [
+              "Skriv ned verdien `n` har etter hver runde.",
+              "Husk at `//` gir heltall."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc5",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc5-o",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) La `s = 'malestasjon'`. Hva skriver `print(s[0:4], s[-4:], len(s))` ut?",
+            "solution": "Strengen har 11 tegn. `s[0:4]` er de fire første, `male`. `s[-4:]` er de fire siste, `sjon`.\n\n**Utskrift:**\n```\nmale sjon 11\n```\n\nUtsnitt av en streng gir en **streng**, og den skrives uten fnutter når den er argument til `print`.",
+            "hints": [
+              "Skriv opp strengen med en indeks under hver bokstav.",
+              "Et utsnitt `a:b` tar med `b - a` tegn."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc6",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc6-o",
+            "number": "6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\ns = 'a-b-c'\nfelt = s.split('-')\nprint(felt, '+'.join(felt))\n```",
+            "solution": "`.split('-')` deler på bindestrekene og gir en **liste** med tre strenger. `.join` gjør motsatt vei, og kalles på skilletegnet.\n\n**Utskrift:**\n```\n['a', 'b', 'c'] a+b+c\n```\n\nDetaljen som avgjør poenget: strengene inne i lista skrives **med** fnutter, mens den sammenskjøtte strengen skrives uten.",
+            "hints": [
+              "`.split` gir alltid en liste, også når det bare er ett felt.",
+              "Hvem kalles `.join` på — lista eller skilletegnet?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc7",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc7-o",
+            "number": "7",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(1 poeng. Sjanger A — formatert utskrift.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med mellomrom.\n\n```python\nfor k in range(1, 4):\n    print(f'{k:3d}{1 / k:7.3f}')\n```",
+            "solution": "Tre runder, med `k` lik 1, 2, 3. Bredden `3d` gir to mellomrom foran et ensifret tall. Bredden `7.3f` betyr sju tegn med tre desimaler: `1.000` er fem tegn og får to mellomrom foran.\n\n| `k` | `f'{k:3d}'` | `1 / k` | `f'{1 / k:7.3f}'` |\n|---|---|---|---|\n| 1 | `  1` | 1.0 | `  1.000` |\n| 2 | `  2` | 0.5 | `  0.500` |\n| 3 | `  3` | 0.333… | `  0.333` |\n\n**Utskrift:**\n```\n  1  1.000\n  2  0.500\n  3  0.333\n```\n\nFeilkode #16. Det avrundes til tre desimaler, så $1/3$ blir `0.333`.",
+            "hints": [
+              "Regn ut divisjonen først, og formatér deretter.",
+              "Bredden er totalt antall tegn, medregnet desimalpunktet.",
+              "Tell mellomrommene — de er en del av svaret."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc8",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc8-o",
+            "number": "8",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nd = {'x': 2, 'y': 5}\nd['z'] = d['x'] + d['y']\nfor k, v in d.items():\n    print(k, v, end=' ')\n```",
+            "solution": "Den nye nøkkelen får verdien $2 + 5 = 7$ og legges bakerst, i innsettingsrekkefølge. `.items()` gir nøkkel først, verdi etterpå, og `print` med to argumenter setter ett mellomrom mellom dem.\n\n**Utskrift:**\n```\nx 2 y 5 z 7 \n```\n\nAlt på én linje, med et avsluttende mellomrom fra `end=' '`.",
+            "hints": [
+              "Regn ut verdien til den nye nøkkelen før du starter løkka.",
+              "I hvilken rekkefølge kommer parene ut av en ordbok?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc9",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc9-o",
+            "number": "9",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nnavn = ['a', 'b', 'c']\ntall = [10, 20]\nd = dict(zip(navn, tall))\nprint(d, len(d), d.get('c', -1))\n```",
+            "solution": "`zip` stopper ved den korteste, så bare to par lages og `'c'` forsvinner uten advarsel. `.get('c', -1)` gir derfor standardverdien.\n\n**Utskrift:**\n```\n{'a': 10, 'b': 20} 2 -1\n```\n\nFeilkode #17. Ordboka skrives med krøllparenteser, fnutter rundt strengnøklene, kolon og mellomrom.",
+            "hints": [
+              "Skriv opp parene `zip` faktisk lager.",
+              "Hva skjer med et element som ikke får noen partner?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc10",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pc10-o",
+            "number": "10",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(1 poeng. Sjanger A — nøstet ordbok.) Hva skriver programmet ut?\n\n```python\nd = {'nord': {'u1': 4}, 'sor': {'u1': 2, 'u2': 6}}\ntotal = 0\nfor omr in d:\n    for u in d[omr]:\n        total += d[omr][u]\nprint(len(d), total, 'u2' in d['nord'])\n```",
+            "solution": "Den ytre løkka gir områdenavnene, den indre går over `d[omr]` og gir ukenavnene. Summen er $4 + 2 + 6 = 12$. `len(d)` teller de to ytre nøklene, og `'u2'` finnes ikke blant nordens nøkler.\n\n**Utskrift:**\n```\n2 12 False\n```\n\nFeilkode #20 — å blande nivåene. `len(d)` er 2, ikke 3, selv om det er tre tall i strukturen.",
+            "hints": [
+              "Tegn de to nivåene før du begynner: ytre nøkler øverst, indre under.",
+              "`len` og `in` ser bare på nøklene, på det nivået du peker på."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pc-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.C**\n\n- ☐ Telte du løkkerundene før du begynte å regne?\n- ☐ Så du på innrykket for å avgjøre hvilke `print` som står inne i løkka?\n- ☐ Fikk du med at `end` fjerner linjeskiftet — også etter siste runde?\n- ☐ Telte du mellomrommene som bredden i f-strengen legger inn?\n- ☐ Skrev du strenger med fnutter inne i lister, og uten når de var `print`-argument?\n- ☐ Holdt du de to nivåene i den nøstede ordboka fra hverandre?\n\n**Poengsum:** 10 mulige. Under 6: repeter [kap. 1.3](/bok/in1900/in1900-1-3) og [kap. 1.4](/bok/in1900/in1900-1-4), og gjør fellekatalogen i [kap. 1.7](/bok/in1900/in1900-1-7) en gang til."
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-prove-coll-d",
+      "type": "collapsible",
+      "title": "Prøve 1.D — Blandet midtveisformat, 12 flervalg (35 min)",
+      "buttonText": "Vis prøve 1.D",
+      "content": [
+        {
+          "id": "in1900-1-prove-pd-intro",
+          "type": "text",
+          "content": "**Prøve 1.D — Blandet midtveisformat (35 minutter, 12 poeng).**\n\nTolv flervalgsspørsmål på tvers av hele Del 1, i samme form som midtveiseksamen: du velger **ett** alternativ per spørsmål, og hvert riktig svar gir ett poeng. Sjangrene er A (kodesporing), B (indeksering), D (løkker og logiske uttrykk) og E (hvilken linje mangler).\n\nAlternativene står under hvert spørsmål som a), b), c) og d). Blankt og feil gir likt, så kryss av på alle tolv. Ta prøven på tid, uten maskin."
+        },
+        {
+          "id": "in1900-1-prove-pd1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd1-o",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(9 % 4 + 9 // 4)` ut?\n\n**a)** `4`  **b)** `5`  **c)** `3`  **d)** `2`",
+            "solution": "**Riktig: c.** `9 % 4` er resten `1`, og `9 // 4` er `2`. Summen er `3`. Både `%` og `//` binder sterkere enn `+`.\n\n**Utskrift:**\n```\n3\n```\n\nAlternativ a) er `9 % 4 + 9` regnet feil vei, og b) er svaret om du tror `//` runder oppover.",
+            "hints": [
+              "Regn ut de to leddene hver for seg først.",
+              "Hvilke operatorer binder sterkest her?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd2-o",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger B.) La `x = [1, 2, 3, 4]`. Hva skriver `print(x[1:3] + x[:1])` ut?\n\n**a)** `[2, 3, 1]`  **b)** `[2, 3, 4, 1]`  **c)** `[3, 1]`  **d)** `6`",
+            "solution": "**Riktig: a.** `x[1:3]` er `[2, 3]` — stoppverdien 3 er ikke med — og `x[:1]` er `[1]`. To lister skjøtes i den rekkefølgen de står.\n\n**Utskrift:**\n```\n[2, 3, 1]\n```\n\nAlternativ b) tar med stoppverdien, og d) forutsetter at `+` summerer tallene (feilkode #5).",
+            "hints": [
+              "Regn ut hvert utsnitt for seg og skriv dem ned som lister.",
+              "Hva gjør `+` når begge operandene er lister?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd3-o",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nfor i in range(2):\n    for j in range(3):\n        print(i * j, end='')\n```\n\n**a)** `012012`  **b)** `000111`  **c)** `00012`  **d)** `000012`",
+            "solution": "**Riktig: d.** For `i = 0` skrives `0` tre ganger; for `i = 1` skrives `0`, `1`, `2`. Til sammen seks tegn: `000012`.\n\n**Utskrift:**\n```\n000012\n```\n\nAlternativ a) er svaret om du skriver `j` i stedet for `i * j`, og b) om du skriver `i`. Alternativ c) mister ett tegn i den første runden.",
+            "hints": [
+              "Begge løkkene har fast antall runder — hvor mange tegn blir det til sammen?",
+              "Regn ut `i * j` for hvert par."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd4-o",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(list(range(1, 10, 4)))` ut?\n\n**a)** `[1, 5, 9, 13]`  **b)** `[1, 5, 9]`  **c)** `[1, 4, 7, 10]`  **d)** `[4, 8]`",
+            "solution": "**Riktig: b.** Startverdien 1 er med, steget er 4, og stoppverdien 10 er eksklusiv — 13 ville uansett vært for stort.\n\n**Utskrift:**\n```\n[1, 5, 9]\n```\n\nAlternativ c) forveksler steget med startverdien, og a) tar med en verdi over grensen.",
+            "hints": [
+              "Det tredje argumentet er steget, ikke antall verdier.",
+              "Stoppverdien er alltid eksklusiv."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd5",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd5-o",
+            "number": "5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\na = [1, 2]\nb = ['p', 'q', 'r']\nfor u, v in zip(a, b):\n    print(v, u, end=';')\n```\n\n**a)** `1 p;2 q;`  **b)** `p 1;q 2;r ;`  **c)** `p q r;`  **d)** `p 1;q 2;`",
+            "solution": "**Riktig: d.** `zip` stopper ved den korteste, så løkka går to runder og `'r'` blir aldri brukt. Løkkevariablene er `u, v`, men `print` skriver `v` **først**.\n\n**Utskrift:**\n```\np 1;q 2;\n```\n\nAlternativ a) bytter om rekkefølgen i `print`, og b) er fellen der `zip` antas å fylle ut den korteste lista (feilkode #17).",
+            "hints": [
+              "Tell hvor mange runder `zip` gir.",
+              "Se nøye på rekkefølgen argumentene står i inne i `print`."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd6",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd6-o",
+            "number": "6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(f'{4.567:8.2f}|')` ut?\n\n**a)** `    4.57|`  **b)** `4.57    |`  **c)** `    4.567|`  **d)** `  4.5670|`",
+            "solution": "**Riktig: a.** `.2f` runder til to desimaler, og bredden 8 fyller ut med mellomrom **foran**: `4.57` er fire tegn, så det blir fire mellomrom.\n\n**Utskrift:**\n```\n    4.57|\n```\n\nAlternativ b) venstrejusterer, som bare gjelder strenger, og c) glemmer avrundingen (feilkode #16).",
+            "hints": [
+              "Formatér tallet først, tell tegnene etterpå.",
+              "Fylles det ut med mellomrom foran eller bak et tall?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd7",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd7-o",
+            "number": "7",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) La `d = {'a': 1, 'b': 2}`. Hva skriver `print(list(d.values()), 'c' in d)` ut?\n\n**a)** `['a', 'b'] False`  **b)** `[1, 2] False`  **c)** `[1, 2] True`  **d)** `['a', 'b'] True`",
+            "solution": "**Riktig: b.** `.values()` gir verdiene, i innsettingsrekkefølge, og `'c'` er ikke en av nøklene.\n\n**Utskrift:**\n```\n[1, 2] False\n```\n\nAlternativ a) og d) forveksler `.values()` med `.keys()`.",
+            "hints": [
+              "Hva gir `.values()` — nøklene eller verdiene?",
+              "`in` på en ordbok ser bare på nøklene."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd8",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd8-o",
+            "number": "8",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A — scope.) Hva skriver programmet ut?\n\n```python\nk = 3\ndef f(n):\n    k = 100\n    return n + k\nprint(f(1), k)\n```\n\n**a)** `4 3`  **b)** `101 100`  **c)** `101 3`  **d)** `4 100`",
+            "solution": "**Riktig: c.** Tilordningen inne i funksjonen lager en **lokal** `k` med verdien 100, så returverdien er 101. Den globale `k` er fortsatt 3.\n\n**Utskrift:**\n```\n101 3\n```\n\nAlternativ b) er svaret om du tror funksjonen endrer den globale variabelen, og a) om du tror funksjonen leser den globale verdien (feilkode #13).",
+            "hints": [
+              "Tegn to bokser: en for det globale nivået og en for funksjonen.",
+              "Et likhetstegn inne i en funksjon lager alltid en lokal variabel."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd9",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd9-o",
+            "number": "9",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) La `def g(v, m=2): return v * m`. Hva skriver `print(g(3), g(3, 3))` ut?\n\n**a)** `6 9`  **b)** `6 6`  **c)** `9 9`  **d)** `5 6`",
+            "solution": "**Riktig: a.** Første kall bruker standardverdien 2, altså $3 \\cdot 2 = 6$; andre kall overstyrer den med 3, altså $3 \\cdot 3 = 9$.\n\n**Utskrift:**\n```\n6 9\n```\n\nAlternativ b) overser at standardverdien kan overstyres, og d) forveksler multiplikasjon med addisjon.",
+            "hints": [
+              "Hvilken verdi får `m` i hvert av de to kallene?",
+              "Standardverdien brukes bare når argumentet mangler."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd10",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd10-o",
+            "number": "10",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print('ab' + 'c' * 2)` ut?\n\n**a)** `abcabc`  **b)** `ababcc`  **c)** `abc2`  **d)** `abcc`",
+            "solution": "**Riktig: d.** `*` binder sterkere enn `+`, så `'c' * 2` regnes først og gir `cc`. Deretter skjøtes `ab` foran.\n\n**Utskrift:**\n```\nabcc\n```\n\nAlternativ a) er svaret om du tror hele uttrykket gjentas, altså `('ab' + 'c') * 2` — presedensen avgjør.",
+            "hints": [
+              "Hvilken operator regnes først?",
+              "Hva betyr `*` når venstre operand er en streng?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd11",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd11-o",
+            "number": "11",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\ndef s(liste):\n    liste.append(0)\n    return len(liste)\nx = [4]\nprint(s(x), x)\n```\n\n**a)** `1 [4]`  **b)** `2 [4]`  **c)** `2 [4, 0]`  **d)** `1 [4, 0]`",
+            "solution": "**Riktig: c.** `append` endrer selve lista som ble sendt inn, så den er `[4, 0]` også utenfor funksjonen, og lengden er 2.\n\n**Utskrift:**\n```\n2 [4, 0]\n```\n\nAlternativ b) er fellen der man tror funksjonen jobber på en kopi. Merk at dette **ikke** motsier scope-regelen i spørsmål 8: der gjaldt det en tilordning, her endres innholdet i et objekt.",
+            "hints": [
+              "Endrer `append` lista, eller lager den en ny?",
+              "Regn lengden etter at elementet er lagt til."
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd12",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-1-prove-pd12-o",
+            "number": "12",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(1 poeng. Sjanger A.) Hva skriver `print(sum([1, 2, 3]) / len([1, 2, 3]))` ut?\n\n**a)** `2`  **b)** `2.0`  **c)** `6`  **d)** `1.0`",
+            "solution": "**Riktig: b.** Summen er 6 og lengden 3, og `/` gir **alltid** flyttall — også når divisjonen går opp.\n\n**Utskrift:**\n```\n2.0\n```\n\nAlternativ a) er riktig tall, men feil utskrift: i sjanger A teller tegnene, og `2` og `2.0` er to forskjellige svar (feilkode #15).",
+            "hints": [
+              "Regn ut teller og nevner hver for seg.",
+              "Hvilken datatype gir `/` alltid?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-1-prove-pd-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.D**\n\n- ☐ Krysset du av på alle tolv, også der du var usikker?\n- ☐ Regnet du presedensen riktig — potens, så multiplikasjon, så addisjon?\n- ☐ Skilte du et element fra et utsnitt før du valgte alternativ?\n- ☐ Fikk du med at `/` alltid gir desimaltall?\n- ☐ Skilte du mellom en tilordning inne i en funksjon og en endring av innholdet?\n- ☐ Telte du riktig antall runder i `zip` og i `range` med steg?\n\n**Poengsum:** 12 mulige. Dette er den beste enkeltmålingen på om du er klar til midtveiseksamen: **10 av 12 eller mer** betyr at sporingen sitter. Under 8: gjør drilloppgavene i [kap. 1.7](/bok/in1900/in1900-1-7) en gang til, og ta deretter midtveis-simuleringen i [kap. 9.1](/bok/in1900/in1900-9-1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

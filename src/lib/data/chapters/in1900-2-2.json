@@ -1,0 +1,441 @@
+{
+  "id": "in1900-2-2",
+  "courseId": "in1900",
+  "chapterNumber": "2.2",
+  "title": "DRILL — Feilhåndtering: hvilken exception utløses?",
+  "description": "`try/except` og den mekaniske øvelsen med å avgjøre hvilken exception som utløses **først** og hvilken `except`-blokk som fanger den.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne gå gjennom et kort program linje for linje og navngi den første feilen som utløses for et gitt kommandolinjekall",
+    "kunne skille `ValueError`, `TypeError`, `IndexError`, `KeyError`, `ZeroDivisionError` og `AssertionError` fra hverandre",
+    "kunne skrive `try`/`except`-blokker i riktig rekkefølge, med spesifikke feiltyper før generelle",
+    "kunne bruke `assert` og `raise` til å avvise ugyldige verdier, og forutsi hvilken melding brukeren ser"
+  ],
+  "content": [
+    {
+      "id": "in1900-2-2-vinkel",
+      "title": "Eksamensvinkel: den mest forutsigbare poengkilden i faget",
+      "content": "Dette er et **drillkapittel**. Du skal ikke lære noe nytt og vanskelig — du skal gjøre én bestemt øvelse så mange ganger at den går på autopilot.\n\nØvelsen er **sjanger C — matche-tabell om feilhåndtering**: du får et kort program og flere måter å kjøre det på, og skal for hver kjøring si hvilken feil som utløses. En **matche-tabell** («match the values» i Inspera, UiOs eksamenssystem) er en tabell der hver rad skal pares med ett svaralternativ. Hver rad gir 0,5 poeng, og oppgaven er vanligvis verdt 2,5–3 poeng i alt.\n\nSjanger C er i **75 % av de avsluttende settene** og på **nesten hvert midtveissett**. Prioriteten er **må kunne** (nivå 2 av bokas tre: «må sitte», «må kunne», «bør kjenne til») — men på midtveiseksamen, som er 100 % flervalg, grenser den til å måtte sitte perfekt, fordi poengene er nesten gratis når mekanikken er automatisert.\n\nKapitlet tar rundt 60 minutter. Det er delt i tre bolker med markerte pausepunkter: oppskriften og feiltypene (~20 min), det gjennomarbeidede eksamenscaset (~10 min) og tolv drilloppgaver (~30 min). Du kan trygt ta bolkene på tre forskjellige dager.",
+      "type": "tip"
+    },
+    {
+      "id": "in1900-2-2-forkunn",
+      "content": "**Forkunnskaper.** Alt du trenger ligger i tre kapitler:\n\n- [kap. 2.1](/bok/in1900/in1900-2-1) — `sys.argv`, `input`, `int`/`float` og `sys.exit`. Uten dette kan du ikke lese oppgaveteksten «programmet kjøres som `python p.py 6 0`».\n- [kap. 1.2](/bok/in1900/in1900-1-2) — lister og indeksering, som er kilden til `IndexError`.\n- [kap. 1.5](/bok/in1900/in1900-1-5) — ordbøker (dictionaries), som er kilden til `KeyError`.\n\nEn **exception** er en feil som avbryter programmet. Ordet betyr «unntak»: noe uventet skjedde, og Python kan ikke fortsette som planlagt. Alle exceptions i Python har et navn (`ValueError`, `IndexError`, …), og hele øvelsen i dette kapitlet er å kunne navnet på den som utløses **først**.",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-oppskrift",
+      "title": "Løsningsoppskriften for sjanger C",
+      "content": "**Bolk 1 — oppskriften og feiltypene (~20 min).**\n\nAlle oppgaver i denne sjangeren løses med den samme femstegsalgoritmen. Følg den mekanisk, i denne rekkefølgen, én kjøring om gangen:\n\n1. **Skriv opp `sys.argv`.** For kallet `python p.py 6 0` er det `['p.py', '6', '0']` — filnavnet først, alle elementene som strenger.\n2. **Gå gjennom programmet linje for linje**, ovenfra og ned, med de verdiene du nettopp skrev opp. Ikke hopp.\n3. **Stopp ved den FØRSTE operasjonen som ikke kan utføres.** Det er den som avgjør svaret. Alt som ligger lenger ned i programmet er irrelevant — det kjøres aldri.\n4. **Navngi feilen** ut fra hva som gikk galt: manglet et element (`IndexError`), var innholdet i en streng utolkbart (`ValueError`), var typene uforenlige (`TypeError`), manglet en nøkkel (`KeyError`), ble det delt på null (`ZeroDivisionError`), feilet en `assert` (`AssertionError`), eller fantes ikke navnet (`NameError`).\n5. **Match mot riktig `except`-blokk**, eller mot alternativet «ingen feil» hvis programmet kom helt gjennom.\n\nSteg 3 er hele hemmeligheten. De aller fleste tapte poengene på denne sjangeren skyldes at kandidaten finner *en* mulig feil lenger nede i programmet og svarer med den, uten å sjekke at programmet i det hele tatt kom dit.",
+      "type": "theorem"
+    },
+    {
+      "id": "in1900-2-2-tryintro",
+      "content": "### Å fange en feil i stedet for å stoppe\n\nUten `try` stopper programmet på første feil. Med `try` får du sjansen til å reagere: du legger den koden som kan feile inne i `try`, og skriver hva som skal skje for hver feiltype i en `except`-blokk under.\n\nVi bruker samme lille program hele veien i dette kapitlet — det deler to tall fra kommandolinjen:",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-def1",
+      "type": "definition",
+      "title": "`try` / `except FeilType` — fang en feil i stedet for å stoppe",
+      "content": "Koden inne i `try` kjøres som normalt. Utløses en exception, avbrytes `try`-blokken **umiddelbart** på den linja, og Python leter nedover etter en `except`-blokk som passer til feiltypen. Passer én, kjøres den, og programmet fortsetter etterpå. Passer ingen, stopper programmet med feilmeldingen som før.\n\nDet viktigste for eksamen: resten av `try`-blokken kjøres **aldri** etter at feilen oppsto.\n\n```python\nimport sys\ntry:\n    x = float(sys.argv[1])\n    y = float(sys.argv[2])\n    print(x / y)\nexcept IndexError:\n    print('Du må gi to tall på kommandolinjen')\nexcept ValueError:\n    print('Begge argumentene må være tall')\nexcept ZeroDivisionError:\n    print('Kan ikke dele på null')\n```\n\n**Utskrift:**\n```\nKan ikke dele på null\n```\n\nKjørt som `python3 robust.py 6 0`: `float('6')` og `float('0')` går bra, men divisjonen feiler, `print(x / y)` fullføres aldri, og `ZeroDivisionError`-blokken kjører."
+    },
+    {
+      "id": "in1900-2-2-eks1",
+      "title": "Eksempel 1: Samme program, fire kjøringer, fire utfall",
+      "problem": "Programmet `deling.py` under kjøres på fire måter: `python3 deling.py 6 2`, `python3 deling.py 6 0`, `python3 deling.py 6 to` og `python3 deling.py 6`. Hva skjer i hvert tilfelle?",
+      "solution": "Her er programmet, kjørt som `python3 deling.py 6 2`:\n\n```python\nimport sys\nx = float(sys.argv[1])\ny = float(sys.argv[2])\nprint(x / y)\n```\n\n**Utskrift:**\n```\n3.0\n```\n\nGå gjennom oppskriften for hver av de fire kjøringene:\n\n| Kjøring | `sys.argv` | Første linje som ikke kan utføres | Utfall |\n|---|---|---|---|\n| `python3 deling.py 6 2` | `['deling.py', '6', '2']` | ingen | skriver `3.0` |\n| `python3 deling.py 6 0` | `['deling.py', '6', '0']` | `print(x / y)` — deling på 0.0 | `ZeroDivisionError` |\n| `python3 deling.py 6 to` | `['deling.py', '6', 'to']` | `float(sys.argv[2])` | `ValueError` |\n| `python3 deling.py 6` | `['deling.py', '6']` | `sys.argv[2]` finnes ikke | `IndexError` |\n\nDe tre siste stopper, og siste linje i feilmeldingen er henholdsvis:\n\n```\nZeroDivisionError: float division by zero\nValueError: could not convert string to float: 'to'\nIndexError: list index out of range\n```\n\nLegg merke til den viktige detaljen i rad 3: `float(sys.argv[2])` feiler **før** divisjonen i det hele tatt forsøkes. Hadde du svart `ZeroDivisionError` der, hadde du lest for langt ned i programmet.",
+      "type": "example"
+    },
+    {
+      "id": "in1900-2-2-signal1",
+      "title": "Hva denne oppgavetypen tester",
+      "content": "Legg merke til hva eksamensoppgaven egentlig spør om: ikke «hvilke feil kan dette programmet gi?», men «hvilken feil kommer **først** for nettopp denne kjøringen». Programmet er alltid kort nok til at du kan gå gjennom alle linjene — og du skal gjøre det, hver gang, uten å ta snarveier.\n\nMerk også at én rad i tabellen nesten alltid er «ingen feil». Ser du ingen slik rad, dobbeltsjekk at du ikke har oversett et helt lovlig kall.",
+      "type": "tip"
+    },
+    {
+      "id": "in1900-2-2-eks2",
+      "title": "Eksempel 2: Den robuste versjonen",
+      "problem": "Skriv om `deling.py` slik at brukeren får en forståelig beskjed i stedet for en feilmelding, uansett hvilken av de tre feilene som oppstår. Vis utskriften for `python3 robust.py 6 to` og `python3 robust.py 6`.",
+      "solution": "Legg all koden som kan feile inne i `try`, og gi hver feiltype sin egen `except`-blokk:\n\n```python\nimport sys\ntry:\n    x = float(sys.argv[1])\n    y = float(sys.argv[2])\n    print(x / y)\nexcept IndexError:\n    print('Du må gi to tall på kommandolinjen')\nexcept ValueError:\n    print('Begge argumentene må være tall')\nexcept ZeroDivisionError:\n    print('Kan ikke dele på null')\n```\n\n`python3 robust.py 6 to` gir:\n\n**Utskrift:**\n```\nBegge argumentene må være tall\n```\n\n`python3 robust.py 6` gir:\n\n**Utskrift:**\n```\nDu må gi to tall på kommandolinjen\n```\n\nOg `python3 robust.py 6 2` går som før:\n\n**Utskrift:**\n```\n3.0\n```\n\nUttellingen på en slik oppgave ligger i strukturen: at *all* koden som kan feile ligger inne i `try`, og at hver `except` nevner en feiltype som faktisk kan oppstå. Bytter du om rekkefølgen på de tre `except`-blokkene, er svaret like riktig — de er uavhengige feiltyper, ingen av dem er en spesialisering av en annen.",
+      "type": "example"
+    },
+    {
+      "id": "in1900-2-2-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger C — hvilken feil utløses?) Hva skjer når linja under kjøres?\n\n```python\nantall = int('3.5')\n```",
+        "solution": "Programmet stopper med **`ValueError`**.\n\n`int` godtar bare tekst som er et helt tall uten desimalpunkt. Typen er helt i orden — `int` forventer nettopp en streng — men *innholdet* kan ikke tolkes, og det er kjennetegnet på en `ValueError`.\n\nVil du ha heltallet 3, må du gå via flyttall: `int(float('3.5'))` gir 3 (den kutter mot null). Og hadde du skrevet `int(3.5)` med et tall i stedet for en tekst, ville du fått 3 uten feil i det hele tatt.",
+        "hints": [
+          "Spør deg selv: er det *typen* eller *innholdet* som er galt?",
+          "`int` og desimalpunkt i tekst er ikke venner."
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-typer",
+      "content": "### De sju feiltypene du trenger\n\nEksamen bruker de samme sju navnene år etter år. Her er hver av dem med den minste kodesnutten som utløser den, og med den faktiske meldingen Python gir. Lær deg å kjenne meldingene igjen — de er ofte selve svaralternativet i en matche-tabell.",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-def2",
+      "type": "definition",
+      "title": "`IndexError` — elementet finnes ikke",
+      "content": "Utløses når du indekserer en liste (eller en streng, eller `sys.argv`) med en posisjon som ikke finnes. Den vanligste kilden på eksamen er at brukeren ga for få kommandolinjeargumenter, slik at `sys.argv[2]` ikke eksisterer.\n\n```python\nx = [1, 2, 3]\nprint(x[3])\n```\n\n**Utskrift:**\n```\nIndexError: list index out of range\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nLista har elementene på indeks 0, 1 og 2 — indeks 3 er én for langt. Merk at *utsnitt* aldri gir `IndexError`: `x[3:]` gir bare den tomme lista."
+    },
+    {
+      "id": "in1900-2-2-def3",
+      "type": "definition",
+      "title": "`ValueError` — riktig type, ubrukelig innhold",
+      "content": "Utløses når en funksjon får en verdi av riktig type, men med et innhold den ikke kan bruke. De to faste kildene på eksamen er `int('tekst')` og `float('tekst')`.\n\n```python\nprint(float('Precip'))\n```\n\n**Utskrift:**\n```\nValueError: could not convert string to float: 'Precip'\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nMeldingen navngir alltid verdien som ikke kunne tolkes, og det gjør `ValueError` lett å kjenne igjen. `Precip` er en typisk kolonneoverskrift i en datafil — å glemme å hoppe over overskriftslinja før man konverterer, er en fast felle i fillesingsoppgavene senere i boka."
+    },
+    {
+      "id": "in1900-2-2-def4",
+      "type": "definition",
+      "title": "`ZeroDivisionError` — deling på null",
+      "content": "Utløses av `/`, `//` og `%` med 0 på høyre side. Meldingen er ikke helt den samme for heltall og flyttall, og det er verdt å legge merke til:\n\n```python\nprint(7 // 0)\n```\n\n**Utskrift:**\n```\nZeroDivisionError: integer division or modulo by zero\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nMed flyttall blir meldingen `ZeroDivisionError: division by zero` i stedet. Selve feiltypen er den samme, så på en matche-tabell er det aldri forskjell på dem."
+    },
+    {
+      "id": "in1900-2-2-def5",
+      "type": "definition",
+      "title": "`TypeError` — typene passer ikke sammen",
+      "content": "Utløses når en operasjon er umulig for de *typene* du gir den, uansett innhold. Det klassiske tilfellet er å legge et tall til en streng.\n\n```python\nprint('a' + 1)\n```\n\n**Utskrift:**\n```\nTypeError: can only concatenate str (not \"int\") to str\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nSamme mønster med lister: `[1, 2] + 3` gir `TypeError: can only concatenate list (not \"int\") to list`. Skillet mot `ValueError` er det du må ha klart: `float('to')` er en `ValueError` (rett type, gal verdi), mens `'to' + 1` er en `TypeError` (uforenlige typer)."
+    },
+    {
+      "id": "in1900-2-2-def6",
+      "type": "definition",
+      "title": "`KeyError` — nøkkelen finnes ikke i ordboka",
+      "content": "Utløses når du slår opp `d[nøkkel]` i en ordbok som ikke har den nøkkelen. Dette er ordbokas motstykke til `IndexError`.\n\n```python\nd = {'blindern': 4.2, 'tryvann': 1.8}\nprint(d['bergen'])\n```\n\n**Utskrift:**\n```\nKeyError: 'bergen'\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nMeldingen er bare nøkkelen som manglet, i anførselstegn. Vil du unngå feilen, bruker du `d.get('bergen', 0)`, som gir standardverdien i stedet for å feile."
+    },
+    {
+      "id": "in1900-2-2-def7",
+      "type": "definition",
+      "title": "`NameError` — navnet finnes ikke",
+      "content": "Utløses når du bruker et navn som aldri er blitt tilordnet — oftest en skrivefeil, eller en glemt `import`.\n\n```python\nantall = 5\nprint(antal)\n```\n\n**Utskrift:**\n```\nNameError: name 'antal' is not defined\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nHer er `antall` definert, men `antal` er skrevet i `print`. Samme feil får du hvis du bruker `sys.argv` uten `import sys`, eller `sqrt(2)` uten `from math import sqrt` — begge er faste plantede feil i «finn feilen»-oppgaver."
+    },
+    {
+      "id": "in1900-2-2-def8",
+      "type": "definition",
+      "title": "`AssertionError` — en `assert` slo til",
+      "content": "`assert betingelse, melding` sjekker at betingelsen er sann. Er den falsk, avbrytes programmet med `AssertionError` og din egen melding.\n\n```python\nantall = 0\nassert antall > 0, 'antall må være positivt'\nprint(antall)\n```\n\n**Utskrift:**\n```\nAssertionError: antall må være positivt\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nDette er verdt å merke seg for matche-tabellene: en `assert` som står *før* en risikabel beregning, fanger opp problemet først, slik at svaret blir `AssertionError` og ikke `ZeroDivisionError`. Vi bruker `assert` for testfunksjoner i [kap. 3.1](/bok/in1900/in1900-3-1)."
+    },
+    {
+      "id": "in1900-2-2-adv1",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "- **#6 — feil exception-match.** To varianter: å overse hvilken feil som kommer *først*, og å glemme at `sys.argv[0]` er filnavnet. Den siste avgjør om svaret blir `IndexError` eller ikke: `python p.py 6` gir en liste med to elementer, så `sys.argv[2]` mangler.\n- **Blande `ValueError` og `TypeError`.** Spør: er typen gal, eller er innholdet i en streng utolkbart? `float('to')` er `ValueError`; `'to' + 1` er `TypeError`.\n- **Sette en generell `except` før en spesifikk.** Den generelle fanger alt, og den spesifikke under blir aldri brukt.\n- **Glemme at `try`-blokken avbrytes.** Etter at feilen oppsto, kjøres ingen flere linjer i `try` — heller ikke `print`-linjer som står der.\n- **Å svare på alle radene med samme feil.** En eksamenstabell har nesten alltid minst én rad uten feil, og sjelden to like svar.",
+      "type": "warning"
+    },
+    {
+      "id": "in1900-2-2-pause1",
+      "content": "— naturlig pausepunkt —",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-case-intro",
+      "content": "### Bolk 2 — Det gjennomarbeidede eksamenscaset (~10 min)\n\nNå setter vi oppskriften på et program som er like langt og like sammensatt som et reelt eksamensprogram: det leser to kommandolinjeargumenter, slår opp i en ordbok, har en `assert` og en divisjon. Alle fem feiltypene vi har sett, kan oppstå i det.",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-eks3",
+      "title": "Eksempel 3: Eksamenscase — fem kjøringer, med sensorens blikk i margen",
+      "problem": "Programmet `stasjonssnitt.py` under er lagret på maskinen. Match hver av de fem kjøringene mot utfallet:\n\n```python\nimport sys\nstasjoner = {'blindern': 4.2, 'tryvann': 1.8}\nnavn = sys.argv[1]\nantall = int(sys.argv[2])\nassert antall > 0, 'antall må være positivt'\nsnitt = stasjoner[navn] / antall\nprint(f'{navn}: {snitt:.2f}')\n```\n\n**Kjøringer:**\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 stasjonssnitt.py blindern 2` |\n| 2 | `python3 stasjonssnitt.py bergen 2` |\n| 3 | `python3 stasjonssnitt.py blindern to` |\n| 4 | `python3 stasjonssnitt.py blindern` |\n| 5 | `python3 stasjonssnitt.py blindern 0` |\n\n**Alternativer:** (i) ingen feil, (ii) `ValueError`, (iii) `IndexError`, (iv) `KeyError`, (v) `AssertionError`, (vi) `ZeroDivisionError`.",
+      "solution": "Rad for rad, med oppskriften:\n\n**Rad 1 — `blindern 2`.** `sys.argv` er `['stasjonssnitt.py', 'blindern', '2']`. `navn` blir `'blindern'`, `int('2')` gir 2, `assert 2 > 0` holder, `stasjoner['blindern']` finnes, og $4.2/2 = 2.1$. Ingen feil — **(i)**.\n\n**Utskrift:**\n```\nblindern: 2.10\n```\n\n*Sensorens blikk:* denne raden er gratis hvis du husker at én rad nesten alltid er «ingen feil». Mange kandidater leter etter en feil i alle radene og roter bort et halvt poeng her.\n\n**Rad 2 — `bergen 2`.** Lista er `['stasjonssnitt.py', 'bergen', '2']`. Navnet hentes greit, `int('2')` går bra, `assert` holder — og så feiler `stasjoner['bergen']`, fordi ordboka bare har `blindern` og `tryvann`. **(iv) `KeyError`**:\n\n```\nKeyError: 'bergen'\n```\n\n**Rad 3 — `blindern to`.** Nå feiler `int('to')` på linje 4, altså *før* ordboksoppslaget. **(ii) `ValueError`**:\n\n```\nValueError: invalid literal for int() with base 10: 'to'\n```\n\n*Sensorens blikk:* her ligger den vanligste feilen i hele sjangeren. Ordboka inneholder `blindern`, så det er lett å slappe av og svare «ingen feil». Men programmet kommer aldri til oppslaget.\n\n**Rad 4 — `blindern`.** Lista har bare to elementer, så `sys.argv[2]` på linje 4 finnes ikke. **(iii) `IndexError`**:\n\n```\nIndexError: list index out of range\n```\n\n**Rad 5 — `blindern 0`.** `int('0')` gir 0, og så slår `assert 0 > 0` til. **(v) `AssertionError`** med din egen melding:\n\n```\nAssertionError: antall må være positivt\n```\n\n*Sensorens blikk:* dette er radens hele poeng. Uten `assert`-linja ville divisjonen `4.2 / 0` gitt `ZeroDivisionError`. Assertion-linja står foran og griper inn først. Alternativ (vi) er derfor med i lista nettopp som felle, og brukes ikke.\n\n**Fasit:** 1–(i), 2–(iv), 3–(ii), 4–(iii), 5–(v).\n\n*Om uttelling:* hver rad gis eller mistes for seg. Får du fire av fem, får du fire femdeler av poengene — det er aldri alt-eller-ingenting på en matche-tabell, så gjett alltid på radene du er usikker på. Blankt og feil gir likt (0 poeng), og fra 2024/2025 er negativ scoring fjernet.",
+      "type": "example"
+    },
+    {
+      "id": "in1900-2-2-pause2",
+      "content": "— naturlig pausepunkt —",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-mer",
+      "content": "### Bolk 3 — Resten av apparatet, og tolv drilloppgaver (~30 min)\n\nFire konstruksjoner gjenstår før du har hele verktøykassen: å få tak i feilmeldingen, rekkefølgen på `except`-blokkene, `else`/`finally`, og å kaste en feil selv med `raise`.",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-def9",
+      "type": "definition",
+      "title": "`except FeilType as e` — få tak i feilmeldingen",
+      "content": "Skriver du `except ValueError as e`, får du selve feilobjektet i variabelen `e`. Skriver du `e` ut, får du meldingen Python ville vist. Det er praktisk når du behandler mange verdier og vil vite hvilken som feilet.\n\n```python\ntekster = ['3.5', 'to', '7']\nfor t in tekster:\n    try:\n        print(float(t) * 2)\n    except ValueError as e:\n        print('Hoppet over:', e)\n```\n\n**Utskrift:**\n```\n7.0\nHoppet over: could not convert string to float: 'to'\n14.0\n```\n\nLegg merke til at løkka fortsetter etter feilen: `try`/`except` inne i en løkke lar deg hoppe over de dårlige verdiene og fortsette med resten."
+    },
+    {
+      "id": "in1900-2-2-def10",
+      "type": "definition",
+      "title": "Rekkefølgen på `except`-blokkene",
+      "content": "Python leter nedover og bruker den **første** `except` som passer. Er en av dem generell (`except Exception` fanger alt), må den stå **sist** — ellers blir de spesifikke under aldri brukt.\n\n```python\ntry:\n    x = int('to')\nexcept Exception:\n    print('Noe gikk galt')\nexcept ValueError:\n    print('Ikke et tall')\n```\n\n**Utskrift:**\n```\nNoe gikk galt\n```\n\nHer utløses en `ValueError`, men det er `except Exception` som kjører, fordi den står først. Meldingen `Ikke et tall` er død kode. Er blokkene derimot uavhengige feiltyper — `IndexError`, `ValueError`, `ZeroDivisionError` — kan de stå i hvilken som helst rekkefølge."
+    },
+    {
+      "id": "in1900-2-2-def11",
+      "type": "definition",
+      "title": "`else` og `finally` i en `try`-setning",
+      "content": "`else` kjøres bare hvis `try`-blokken gikk helt gjennom uten feil. `finally` kjøres **alltid**, med eller uten feil, og brukes til opprydding.\n\n```python\ntry:\n    x = int('42')\nexcept ValueError:\n    print('Ikke et tall')\nelse:\n    print('Konverteringen gikk bra:', x)\nfinally:\n    print('Ferdig uansett')\n```\n\n**Utskrift:**\n```\nKonverteringen gikk bra: 42\nFerdig uansett\n```\n\nMed `int('to')` i stedet, altså en verdi som feiler, blir utskriften:\n\n**Utskrift:**\n```\nIkke et tall\nFerdig uansett\n```\n\nLegg merke til at `else` faller bort mens `finally` kjører uansett. På eksamen er `finally` sjelden, men den dukker opp i sporingsoppgaver nettopp fordi «kjøres alltid» er lett å glemme."
+    },
+    {
+      "id": "in1900-2-2-def12",
+      "type": "definition",
+      "title": "`raise` — kast en feil selv",
+      "content": "`raise ValueError('melding')` utløser en exception fra din egen kode. Det brukes til å avvise ugyldige argumenter i en funksjon: du sier hva som er galt, og la den som kalte funksjonen bestemme hva som skal skje.\n\n```python\ndef temp_i_kelvin(t):\n    if t < -273.15:\n        raise ValueError('temperatur under absolutt nullpunkt')\n    return t + 273.15\n\nprint(temp_i_kelvin(-300))\n```\n\n**Utskrift:**\n```\nValueError: temperatur under absolutt nullpunkt\n```\n\nDette er siste linje i feilmeldingen; til vanlig utskrift skriver programmet ingenting før det stopper.\n\nFanges feilen, oppfører den seg som alle andre exceptions:\n\n```python\ndef temp_i_kelvin(t):\n    if t < -273.15:\n        raise ValueError('temperatur under absolutt nullpunkt')\n    return t + 273.15\n\nfor t in [20.0, -300.0]:\n    try:\n        print(temp_i_kelvin(t))\n    except ValueError as e:\n        print('Avvist:', e)\n```\n\n**Utskrift:**\n```\n293.15\nAvvist: temperatur under absolutt nullpunkt\n```\n\nMerk at $20 + 273.15 = 293.15$ skrives ut helt normalt for den gyldige verdien."
+    },
+    {
+      "id": "in1900-2-2-drill",
+      "content": "### Drilloppgavene\n\nTolv oppgaver, alle på eksamensnivå og med full løsning. De veksler mellom matche-tabeller (sjanger C), sporing av `try`/`except` (sjanger A) og «finn feilen» (sjanger O). Gjør dem med papir og penn — du har ingen maskin på eksamen.",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.) Programmet under er lagret som `deling.py`. Match hver kjøring mot utfallet.\n\n```python\nimport sys\nx = float(sys.argv[1])\ny = float(sys.argv[2])\nprint(x / y)\n```\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 deling.py 8 4` |\n| 2 | `python3 deling.py 8 0` |\n| 3 | `python3 deling.py åtte 4` |\n| 4 | `python3 deling.py 8` |\n\n**Alternativer:** (i) `IndexError`, (ii) `ValueError`, (iii) `ZeroDivisionError`, (iv) ingen feil.",
+        "solution": "**Rad 1 — `8 4`.** `['deling.py', '8', '4']`. Begge konverteringene går bra, og $8.0/4.0 = 2.0$. **(iv) ingen feil** — programmet skriver `2.0`.\n\n**Rad 2 — `8 0`.** Konverteringene går bra, men `x / y` med `y` lik 0.0 feiler. **(iii) `ZeroDivisionError`**, med meldingen `float division by zero`.\n\n**Rad 3 — `åtte 4`.** `float('åtte')` på linje 2 feiler straks. **(ii) `ValueError`** — og merk at programmet aldri kommer til divisjonen.\n\n**Rad 4 — `8`.** Lista er `['deling.py', '8']` med to elementer, så `sys.argv[2]` på linje 3 finnes ikke. **(i) `IndexError`**.\n\n**Fasit:** 1–(iv), 2–(iii), 3–(ii), 4–(i). Hver rad er et halvt poeng for seg; har du tre riktige, har du 1,5 poeng.",
+        "hints": [
+          "Skriv opp `sys.argv` for hver rad før du leser programmet.",
+          "Gå ovenfra og ned og stopp på første linje som ikke kan utføres."
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med én linje per `print`.\n\n```python\nverdier = ['4', '0', 'x', '2']\nfor v in verdier:\n    try:\n        print(10 / int(v))\n    except ValueError:\n        print('V')\n    except ZeroDivisionError:\n        print('Z')\n```",
+        "solution": "**Sporingstavle**\n\n| `v` | `int(v)` | `10 / int(v)` | Hvilken blokk kjører | Skriver |\n|---|---|---|---|---|\n| `'4'` | 4 | 2.5 | ingen — `try` gikk gjennom | `2.5` |\n| `'0'` | 0 | feiler | `except ZeroDivisionError` | `Z` |\n| `'x'` | feiler | nås ikke | `except ValueError` | `V` |\n| `'2'` | 2 | 5.0 | ingen | `5.0` |\n\n**Utskrift:**\n```\n2.5\nZ\nV\n5.0\n```\n\nFellen er #6 i sporingsdrakt: for `'x'` er det `int(v)` som feiler, ikke divisjonen, så det er `ValueError`-blokken som kjører. Og legg merke til at `10 / 4` gir `2.5` og ikke `2` — `/` gir alltid flyttall.\n\n*Uttelling:* selv om du bommer på én linje, gir en ellers riktig sporing god uttelling på fritekstvarianten av denne sjangeren.",
+        "hints": [
+          "Gå gjennom løkka én verdi om gangen og skriv ned hvilken linje som feiler.",
+          "`/` mellom to heltall gir et flyttall i Python 3."
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.) Programmet under er lagret som `oppslag.py`.\n\n```python\nimport sys\nmaalinger = {'mandag': [4.2, 5.1], 'tirsdag': [3.8]}\ndag = sys.argv[1]\nnr = int(sys.argv[2])\nprint(maalinger[dag][nr])\n```\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 oppslag.py mandag 1` |\n| 2 | `python3 oppslag.py tirsdag 1` |\n| 3 | `python3 oppslag.py onsdag 0` |\n| 4 | `python3 oppslag.py mandag null` |\n\n**Alternativer:** (i) `KeyError`, (ii) `IndexError`, (iii) `ValueError`, (iv) ingen feil.",
+        "solution": "**Rad 1 — `mandag 1`.** `maalinger['mandag']` er `[4.2, 5.1]`, og element 1 er `5.1`. **(iv) ingen feil.**\n\n**Rad 2 — `tirsdag 1`.** Nøkkelen finnes, men lista `[3.8]` har bare indeks 0. **(ii) `IndexError`** — merk at oppslaget i ordboka lyktes, det er *listeindeksen* som svikter.\n\n**Rad 3 — `onsdag 0`.** `int('0')` går bra, men `maalinger['onsdag']` finnes ikke. **(i) `KeyError`.**\n\n**Rad 4 — `mandag null`.** `int('null')` på linje 4 feiler før oppslaget. **(iii) `ValueError`.**\n\n**Fasit:** 1–(iv), 2–(ii), 3–(i), 4–(iii). Her er hele poenget å skille `KeyError` (ordbok) fra `IndexError` (liste) i det samme uttrykket `maalinger[dag][nr]`: den venstre hakeparentesen er ordboka, den høyre er lista.",
+        "hints": [
+          "`maalinger[dag][nr]` gjør to oppslag — hvilket skjer først?",
+          "Ordbok gir `KeyError`, liste gir `IndexError`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-signal2",
+      "title": "Hva oppgave 4 tester",
+      "content": "Nøstede oppslag er den formen sjanger C liker best, fordi den skiller kandidater som leser mekanisk fra dem som gjetter. `maalinger[dag][nr]` evalueres fra venstre: først ordboka, så lista. Har du glemt hvilken feiltype som hører til hvilken struktur, mister du to rader i stedet for én.",
+      "type": "tip"
+    },
+    {
+      "id": "in1900-2-2-ex5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.) Programmet under kjøres som `python3 doser.py 0 to`. Hvilken exception utløses?\n\n```python\nimport sys\nvekt = float(sys.argv[1])\ndose = float(sys.argv[2])\nprint(100 / vekt * dose)\n```\n\n**Alternativer:** (i) `ValueError`, (ii) `ZeroDivisionError`, (iii) `IndexError`, (iv) `TypeError`.",
+        "solution": "Svaret er **(i) `ValueError`**.\n\nGå linje for linje. `sys.argv` er `['doser.py', '0', 'to']`. Linje 2: `float('0')` gir 0.0 — helt lovlig, ingen feil. Linje 3: `float('to')` kan ikke tolkes, og programmet stopper med `ValueError: could not convert string to float: 'to'`.\n\nFellen er at `vekt` er 0, så øyet ditt hopper til divisjonen på linje 4 og svarer `ZeroDivisionError`. Men linje 4 kjøres aldri. Dette er kjernen i steg 3 i oppskriften: den **første** feilen vinner, uansett hvor åpenbar en senere feil ser ut.\n\n`IndexError` krever et manglende element (her er begge til stede), og `TypeError` krever uforenlige typer, som ikke forekommer.",
+        "hints": [
+          "Er `float('0')` en gyldig operasjon? Svar på det før du ser på divisjonen.",
+          "Hvilken linje er den første som ikke kan utføres?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C.) Programmet under er lagret som `snitt.py`.\n\n```python\nimport sys\ntall = sys.argv[1:]\nsum_tall = 0\nfor t in tall:\n    sum_tall += float(t)\nprint(sum_tall / len(tall))\n```\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 snitt.py 2 4 6` |\n| 2 | `python3 snitt.py` |\n| 3 | `python3 snitt.py 2 fire` |\n| 4 | `python3 snitt.py 0` |\n\n**Alternativer:** (i) ingen feil, (ii) `ValueError`, (iii) `ZeroDivisionError`, (iv) `IndexError`.",
+        "solution": "**Rad 1 — `2 4 6`.** `tall` blir `['2', '4', '6']`, summen 12.0, og $12.0/3 = 4.0$. **(i) ingen feil.**\n\n**Rad 2 — ingen argumenter.** `sys.argv[1:]` gir den **tomme lista** — et utsnitt gir aldri `IndexError`. Løkka kjører null ganger, `sum_tall` blir 0, og `sum_tall / len(tall)` blir $0/0$. **(iii) `ZeroDivisionError`.**\n\n**Rad 3 — `2 fire`.** Første runde i løkka går bra, andre runde feiler på `float('fire')`. **(ii) `ValueError`.**\n\n**Rad 4 — `0`.** `tall` er `['0']`, summen 0.0, og $0.0/1 = 0.0$. **(i) ingen feil** — det er *antallet* som ikke må være null, ikke verdien.\n\n**Fasit:** 1–(i), 2–(iii), 3–(ii), 4–(i). To rader har samme svar her, og det er lov: les alltid alternativlista som en liste du kan bruke flere ganger, med mindre oppgaven sier noe annet.\n\n*Uttelling:* rad 2 er den differensierende. Husker du at utsnitt aldri feiler, får du et halvt poeng de fleste andre mister.",
+        "hints": [
+          "Hva gir `sys.argv[1:]` når det ikke er noen argumenter — feil, eller en tom liste?",
+          "Sjekk `len(tall)` i nevneren for hver rad."
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.) Programmet under er lagret som `vekst.py`.\n\n```python\nimport sys\nrater = {'lav': 0.01, 'hoy': 0.05}\nnivaa = sys.argv[1]\naar = int(sys.argv[2])\nassert aar > 0, 'antall år må være positivt'\nstart = 100.0\nfor n in range(aar):\n    start = start * (1 + rater[nivaa])\nprint(f'{start:.2f}')\n```\n\n| Rad | Kall |\n|---|---|\n| 1 | `python3 vekst.py hoy 3` |\n| 2 | `python3 vekst.py middels 3` |\n| 3 | `python3 vekst.py hoy 0` |\n| 4 | `python3 vekst.py hoy -2` |\n| 5 | `python3 vekst.py hoy 3.0` |\n\n**Alternativer:** (i) ingen feil, (ii) `ValueError`, (iii) `KeyError`, (iv) `AssertionError`, (v) `IndexError`.",
+        "solution": "**Rad 1 — `hoy 3`.** Alt går gjennom: `int('3')` gir 3, `assert 3 > 0` holder, `rater['hoy']` finnes, og løkka kjører tre ganger. **(i) ingen feil.**\n\n**Rad 2 — `middels 3`.** `int('3')` og `assert` går bra. Så feiler `rater['middels']` inne i løkka, i første runde. **(iii) `KeyError`.** Legg merke til at feilen oppstår *inne i* løkka, men det endrer ingenting: den første feilen vinner uansett hvor den er.\n\n**Rad 3 — `hoy 0`.** `int('0')` gir 0, og `assert 0 > 0` er falsk. **(iv) `AssertionError`.** Uten `assert`-linja ville programmet kjørt løkka null ganger og skrevet `100.00` uten feil — så assertion-linja er det eneste som gjør denne raden til en feil.\n\n**Rad 4 — `hoy -2`.** `int('-2')` gir −2 (minustegn er lovlig for `int`), og `assert -2 > 0` er falsk. **(iv) `AssertionError`** igjen.\n\n**Rad 5 — `hoy 3.0`.** `int('3.0')` godtar ikke desimalpunkt. **(ii) `ValueError`** — og her kommer feilen før `assert`-linja i det hele tatt vurderes.\n\n**Fasit:** 1–(i), 2–(iii), 3–(iv), 4–(iv), 5–(ii). Alternativ (v) `IndexError` brukes ikke: alle radene gir to argumenter.\n\n*Uttelling:* fem rader, 0,5 poeng hver, 2,5 poeng i alt. Rad 4 og 5 er de vanskelige — de tester at du vet at `int` godtar fortegn, men ikke desimalpunkt.",
+        "hints": [
+          "Skriv opp `sys.argv` og gå linje for linje: konvertering, `assert`, oppslag, løkke.",
+          "Tenk nøye over hva `int('-2')` og `int('3.0')` gjør — bare én av dem virker."
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A.) Hva skriver programmet under ut?\n\n```python\ntry:\n    x = int('to')\nexcept Exception:\n    print('Noe gikk galt')\nexcept ValueError:\n    print('Ikke et tall')\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | Hva skjer |\n|---|---|\n| `int('to')` | utløser `ValueError` |\n| Python leter nedover | første `except` er `except Exception` |\n| `Exception` passer? | ja — alle exceptions er av typen `Exception` |\n| `except ValueError` | nås aldri |\n\n**Utskrift:**\n```\nNoe gikk galt\n```\n\nFellen er rekkefølgen: `except Exception` fanger alt, så en spesifikk blokk under den er død kode. Regelen er å sette generelle fangere sist. Merk at Python ikke gir noen advarsel om dette — koden kjører helt fint, den gjør bare noe annet enn du trodde.",
+        "hints": [
+          "Hvilken `except`-blokk leter Python i først?",
+          "Er en `ValueError` også en `Exception`?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet under ut?\n\n```python\nd = {'a': 1, 'b': 0}\nfor k in ['a', 'b', 'c']:\n    try:\n        print(k, 5 // d[k])\n    except KeyError as e:\n        print('mangler nøkkel', e)\n    except ZeroDivisionError as e:\n        print('null:', e)\n```",
+        "solution": "**Sporingstavle**\n\n| `k` | `d[k]` | `5 // d[k]` | Blokk | Skriver |\n|---|---|---|---|---|\n| `'a'` | 1 | 5 | ingen | `a 5` |\n| `'b'` | 0 | feiler | `ZeroDivisionError` | `null:` + meldingen |\n| `'c'` | feiler | nås ikke | `KeyError` | `mangler nøkkel` + nøkkelen |\n\n**Utskrift:**\n```\na 5\nnull: integer division or modulo by zero\nmangler nøkkel 'c'\n```\n\nTre detaljer å merke seg. `print(k, 5 // d[k])` skriver `a 5` med ett mellomrom, fordi `print` skiller argumentene sine slik. Meldingen fra en `ZeroDivisionError` på heltall er `integer division or modulo by zero`. Og meldingen fra en `KeyError` er bare nøkkelen **i anførselstegn** — derfor står det `'c'` med fnutter i utskriften.",
+        "hints": [
+          "Gå gjennom løkka én nøkkel om gangen; skriv ned hvilken linje som feiler for hver.",
+          "Hva er den eksakte meldingen i en `KeyError`? Husk anførselstegnene."
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger O — «finn feilen».) Programmet `bmi.py` skal ta vekt i kilo og høyde i meter på kommandolinjen og skrive ut kroppsmasseindeksen, med en forståelig beskjed hvis noe er galt. Det gjør ikke det. Finn alle feilene og skriv den rettede koden.\n\n```python\nimport sys\nvekt = float(sys.argv[1])\ntry:\n    hoyde = float(sys.argv[2])\n    print(f'BMI: {vekt / hoyde**2:.1f}')\nexcept Exception:\n    print('Noe gikk galt')\nexcept ZeroDivisionError:\n    print('Høyden kan ikke være null')\n```",
+        "solution": "Det er tre feil:\n\n**1)** `vekt = float(sys.argv[1])` står **utenfor** `try`. Kjøres programmet uten argumenter, får brukeren en rå `IndexError` som ingen `except` fanger. All kode som kan feile skal inn i `try`.\n\n**2)** `except Exception` står **før** `except ZeroDivisionError`. Den generelle fanger alt, så meldingen om høyden brukes aldri. Generelle fangere sist — eller, som her, erstattes av spesifikke.\n\n**3)** Beskjeden `Noe gikk galt` er ubrukelig for brukeren. Poenget med feilhåndtering er å si *hva* som er galt, og oppgaveteksten ber om en forståelig beskjed.\n\nRettet:\n\n```python\nimport sys\ntry:\n    vekt = float(sys.argv[1])\n    hoyde = float(sys.argv[2])\n    print(f'BMI: {vekt / hoyde**2:.1f}')\nexcept IndexError:\n    print('Bruk: python bmi.py vekt hoyde')\nexcept ValueError:\n    print('Både vekt og høyde må være tall')\nexcept ZeroDivisionError:\n    print('Høyden kan ikke være null')\n```\n\nKjørt som `python3 bmi.py 72 1.80`:\n\n**Utskrift:**\n```\nBMI: 22.2\n```\n\n*Uttelling:* poeng gis per feil du peker ut og forklarer. Får du med de to første, har du det vesentlige — den tredje er en stilfeil som ofte gir det siste poenget. Skriv ned alle du ser, også de du er usikker på.",
+        "hints": [
+          "Sjekk hvilke linjer som ligger utenfor `try` — kan noen av dem feile?",
+          "I hvilken rekkefølge leter Python gjennom `except`-blokkene?",
+          "Les oppgaveteksten på nytt: hva slags beskjed ber den om?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C og O.) Skriv et program `hent.py` som tar en indeks på kommandolinjen og skriver ut det tilsvarende elementet i lista `[2.0, 4.0, 8.0]` med én desimal.\n\n**a)** Programmet skal skrive `Indeksen finnes ikke` hvis indeksen er utenfor lista, og `Argumentet må være et heltall` hvis argumentet ikke kan tolkes som heltall.\n**b)** Vis utskriften for `python3 hent.py 1` og for `python3 hent.py 7`.\n**c)** Hva skjer med programmet ditt hvis det kjøres helt uten argumenter, og hvordan kan du rette det?",
+        "solution": "**a)** Legg all koden som kan feile inne i `try`:\n\n```python\nimport sys\ntry:\n    n = int(sys.argv[1])\n    verdier = [2.0, 4.0, 8.0]\n    print(f'{verdier[n]:.1f}')\nexcept IndexError:\n    print('Indeksen finnes ikke')\nexcept ValueError:\n    print('Argumentet må være et heltall')\n```\n\nUttellingen ligger i tre ting: at `int(sys.argv[1])` ligger *inne* i `try`, at det er to separate `except`-blokker med riktige feiltyper, og at ingen av dem er generelle.\n\n**b)** `python3 hent.py 1`:\n\n**Utskrift:**\n```\n4.0\n```\n\n`python3 hent.py 7`:\n\n**Utskrift:**\n```\nIndeksen finnes ikke\n```\n\n**c)** Uten argumenter feiler `sys.argv[1]` med `IndexError` — og den *fanges* faktisk av `except IndexError`, så brukeren får `Indeksen finnes ikke`. Det er teknisk sett riktig, men misvisende: problemet er at argumentet mangler, ikke at det er for stort.\n\nDen ryddige løsningen er å sjekke antallet først, slik vi gjorde i [kap. 2.1](/bok/in1900/in1900-2-1): `if len(sys.argv) != 2: sys.exit('Bruk: python hent.py indeks')` øverst. Da er `IndexError` inne i `try` forbeholdt selve listeoppslaget.\n\n*Uttelling:* deloppgave c) er en drøftingsdel. Å se at *to* helt ulike situasjoner ender i samme `except`-blokk, er det som skiller en god besvarelse fra en middels.",
+        "hints": [
+          "Start med `try:` og legg både `int(...)` og listeoppslaget inne i blokken.",
+          "To feiltyper kan oppstå — hvilke to `except`-blokker trenger du?",
+          "For c): hvilken av de to feilkildene gir `IndexError` når argumentet mangler?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-ex12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-2-2-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet under ut?\n\n```python\ndef sjekk(x):\n    assert x >= 0, 'negativ verdi'\n    return x ** 0.5\n\nfor x in [9, -4, 16]:\n    try:\n        print(sjekk(x))\n    except AssertionError as e:\n        print('Avvist:', e)\n```",
+        "solution": "**Sporingstavle**\n\n| `x` | `assert x >= 0` | `x ** 0.5` | Blokk | Skriver |\n|---|---|---|---|---|\n| 9 | holder | 3.0 | ingen | `3.0` |\n| −4 | falsk | nås ikke | `AssertionError` | `Avvist: negativ verdi` |\n| 16 | holder | 4.0 | ingen | `4.0` |\n\n**Utskrift:**\n```\n3.0\nAvvist: negativ verdi\n4.0\n```\n\nTo ting å legge merke til. `9 ** 0.5` gir flyttallet `3.0`, ikke heltallet `3` — en brøkeksponent gir alltid flyttall. Og meldingen i `assert` er nettopp det som havner i `e`, så `print('Avvist:', e)` gir `Avvist: negativ verdi`.\n\nDette mønsteret — `assert` inne i en funksjon, `try`/`except AssertionError` rundt kallet — er nyttig når du skal validere data, og det er nært beslektet med testfunksjonene i [kap. 3.1](/bok/in1900/in1900-3-1).",
+        "hints": [
+          "Gå gjennom løkka én verdi om gangen og avgjør om `assert` holder.",
+          "Hvilken type gir `9 ** 0.5`?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-2-2-api",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-2-2-api-t",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `try:` | Blokken kjøres normalt, men avbrytes ved første exception. Resten av blokken kjøres ALDRI. |\n| `except FeilType:` | Kjøres hvis feilen var av denne typen. Python bruker den FØRSTE som passer. |\n| `except FeilType as e:` | Som over, men feilobjektet blir tilgjengelig i `e`; `print(e)` gir meldingen. |\n| `except Exception:` | Fanger alle exceptions. MÅ stå sist, ellers blir spesifikke blokker død kode. |\n| `else:` (i `try`) | Kjøres bare hvis `try` gikk gjennom uten feil. |\n| `finally:` | Kjøres ALLTID, med eller uten feil. |\n| `raise FeilType('melding')` | Utløser en exception fra din egen kode. |\n| `assert betingelse, melding` | Feiler med `AssertionError` og meldingen hvis betingelsen er falsk. |\n| `IndexError` | Listeindeks utenfor rekkevidde, f.eks. manglende `sys.argv`-element. Utsnitt gir ALDRI denne. |\n| `ValueError` | Riktig type, ubrukelig innhold: `int('to')`, `float('Precip')`, `int('4.0')`. |\n| `ZeroDivisionError` | `/`, `//` eller `%` med 0 til høyre. Meldingen skiller heltall og flyttall. |\n| `TypeError` | Uforenlige typer: `'a' + 1`, `[1, 2] + 3`. |\n| `KeyError` | Nøkkelen finnes ikke i ordboka. Meldingen er nøkkelen i anførselstegn. |\n| `NameError` | Navnet er aldri tilordnet — skrivefeil eller glemt `import`. |\n| `AssertionError` | En `assert` slo til. Kommer FØR senere feil i samme program. |\n| `d.get(nøkkel, standard)` | Oppslag som ikke feiler: gir standardverdien hvis nøkkelen mangler. |\n\n**Formler i dette delkapitlet:** eksamenscaset regner snittet $\\bar{x} = x_{\\text{stasjon}}/n$, og oppgave 7 bruker vekstuttrykket $V_n = V_0(1 + r)^n$ implementert som en løkke."
+        }
+      ],
+      "type": "collapsible"
+    },
+    {
+      "id": "in1900-2-2-bank-intro",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.",
+      "type": "text"
+    },
+    {
+      "id": "in1900-2-2-bank1",
+      "type": "definition",
+      "title": "Regelen om den første feilen",
+      "content": "Et program stopper på den **første** operasjonen som ikke kan utføres, og det er den feilen oppgaven spør om. Alt som ligger lenger ned, kjøres aldri — heller ikke en åpenbar deling på null. Praktisk konsekvens: les alltid ovenfra og ned, og stopp der du står, i stedet for å lete etter den «verste» feilen i programmet."
+    },
+    {
+      "id": "in1900-2-2-bank2",
+      "type": "definition",
+      "title": "`ValueError` mot `TypeError` — testen som skiller dem",
+      "content": "Spør: er *typen* gal, eller er *innholdet* i en riktig type ubrukelig?\n\n`float('to')` er en `ValueError`: `float` skal ha en streng, og det fikk den — teksten kan bare ikke tolkes som tall. `'to' + 1` er en `TypeError`: operasjonen er umulig for en streng og et heltall, uansett hva de inneholder. Samme test virker på `[1, 2] + 3` (`TypeError`) og `int('4.0')` (`ValueError`)."
+    },
+    {
+      "id": "in1900-2-2-bank3",
+      "type": "definition",
+      "title": "`int` godtar fortegn, men ikke desimalpunkt",
+      "content": "`int('-2')` gir −2, mens `int('3.0')` og `int('3.5')` gir `ValueError`. `float` godtar alle tre, og i tillegg eksponentform som `'1e-3'`. Derfor er den vanlige oppskriften i kommandolinjeprogrammer å bruke `float` for fysiske målinger og `int` bare for antall og indekser."
+    },
+    {
+      "id": "in1900-2-2-bank4",
+      "type": "definition",
+      "title": "Heltalls- mot flyttallsdivisjon på null",
+      "content": "`7 // 0` og `7 / 0` gir samme *feiltype* (`ZeroDivisionError`), men ikke samme melding: `ZeroDivisionError: integer division or modulo by zero` mot `ZeroDivisionError: division by zero`. På en matche-tabell spør oppgaven om typen, så forskjellen betyr ingenting der — men i en sporingsoppgave der du skal skrive meldingen, gjør den det."
+    },
+    {
+      "id": "in1900-2-2-bank5",
+      "type": "definition",
+      "title": "`except Exception` — den generelle fangeren",
+      "content": "`except Exception` fanger alle exceptions. Den er nyttig som siste utpost, men farlig lenger opp: alle spesifikke `except`-blokker under den blir død kode uten at Python advarer. Regelen er derfor «spesifikk før generell», og i eksamensbesvarelser er det tryggest å bare bruke spesifikke feiltyper — da viser du at du vet hva som faktisk kan gå galt."
+    },
+    {
+      "id": "in1900-2-2-bank6",
+      "type": "definition",
+      "title": "`d.get(nøkkel, standard)` — oppslag som ikke feiler",
+      "content": "`d['bergen']` gir `KeyError` hvis nøkkelen mangler. `d.get('bergen', 0)` gir i stedet standardverdien `0` og feiler aldri. Det er den ryddige måten å håndtere manglende data på — og i en matche-tabell er det verdt å se etter: står det `.get`, er `KeyError` utelukket for den raden."
+    },
+    {
+      "id": "in1900-2-2-rep",
+      "title": "Repetisjon — sjekk deg selv før du går videre",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-2-2-rep-t",
+          "type": "text",
+          "content": "**Seks spørsmål. Svar høyt før du leser fasit.**\n\n1. Hva er de fem stegene i oppskriften for sjanger C?\n2. Hvilken feil gir `int('3.0')`, og hvorfor?\n3. Hvilken feil gir `sys.argv[2]` når programmet kjøres med ett argument?\n4. Hva gir `sys.argv[1:]` når det ikke er noen argumenter?\n5. Hvorfor må `except Exception` stå sist?\n6. Programmet har en `assert` foran en deling på null. Hvilken feil kommer?\n\n**Svar:** (1) Skriv opp `sys.argv`; gå linje for linje; stopp på første umulige operasjon; navngi feilen; match mot `except`-blokk eller «ingen feil». (2) `ValueError` — riktig type, men `int` godtar ikke desimalpunkt. (3) `IndexError`, fordi lista bare har filnavnet og det ene argumentet. (4) Den tomme lista — utsnitt feiler aldri. (5) Fordi den fanger alt, så spesifikke blokker under den aldri brukes. (6) `AssertionError` — den kommer først.\n\n**Selvdiagnose før du går videre:**\n\n- ☐ Skrev du opp `sys.argv` med filnavnet på indeks 0 i alle oppgavene?\n- ☐ Stoppet du på den *første* umulige operasjonen, ikke den mest åpenbare?\n- ☐ Skilte du `KeyError` (ordbok) fra `IndexError` (liste)?\n- ☐ Husket du at én rad i tabellen nesten alltid er «ingen feil»?\n\nSitter alt dette, er du klar for Del 3, som begynner med `assert` i en helt annen rolle: [kap. 3.1](/bok/in1900/in1900-3-1) om testfunksjoner."
+        }
+      ],
+      "type": "collapsible"
+    }
+  ],
+  "exercises": []
+}

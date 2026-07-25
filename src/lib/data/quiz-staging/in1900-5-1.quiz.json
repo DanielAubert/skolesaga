@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hvilken metode kjører Python når du skriver `g = Gauss(0, 1)`?",
+    "options": [
+      "`__init__`, med `m = 0` og `s = 1`",
+      "`__call__`, med `x = 0` og `s = 1`",
+      "`__str__`, som lager en tekst av objektet",
+      "ingen metode — bare et navn bindes"
+    ],
+    "explanation": "Parentes rett etter et klassenavn instansierer: Python lager objektet og kjører konstruktøren `__init__` med argumentene 0 og 1. `__call__` kjøres først når du skriver parentes etter INSTANSEN, altså `g(1)`, og `__str__` først når objektet skrives ut. At «bare et navn bindes» er galt fordi høyresiden må regnes ut først, og det er nettopp konstruktørkallet."
+  },
+  {
+    "question": "Klassen `Rampe` har `__init__` og `__call__`. Hva kjører uttrykket `r.a`, der `r` er en instans?",
+    "options": [
+      "Ingen metode — det er ren attributt-tilgang",
+      "`__call__`, fordi `a` er et argument til den",
+      "`__init__`, som setter attributtet på nytt",
+      "`__str__`, fordi verdien skal vises"
+    ],
+    "explanation": "Punktum uten parentes etterpå er et oppslag i instansen, og det utløser ingen spesialmetode. `__call__` krever parentes etter instansen (`r(2)`), `__init__` kjøres bare ved instansiering, og `__str__` bare når objektet gjøres om til tekst."
+  },
+  {
+    "question": "Klassen `Rampe` har bare `__init__`, ingen `__call__`. Hva blir siste linje i feilmeldingen fra `r(2)`?",
+    "options": [
+      "`TypeError: 'Rampe' object is not callable`",
+      "`AttributeError: 'Rampe' object has no attribute '__call__'`",
+      "`NameError: name '__call__' is not defined`",
+      "`TypeError: __call__() missing 1 required argument`"
+    ],
+    "explanation": "Python sier at objektet ikke er kallbart: `TypeError: 'Rampe' object is not callable`. Dette er standardmeldingen når du setter parentes etter en instans av en klasse uten `__call__`. `AttributeError` og `NameError` gjelder navn som ikke finnes, ikke manglende kallbarhet, og den siste meldingen ville betydd at `__call__` faktisk fantes, men fikk for få argumenter."
+  },
+  {
+    "question": "Hva skriver `print(p(3))` ut, gitt `class Potens` med `def __init__(self, n=2)` og `def __call__(self, x): return x**self.n`, og `p = Potens()`?",
+    "options": [
+      "9",
+      "6",
+      "8",
+      "3"
+    ],
+    "explanation": "Uten argument brukes default-verdien, så `self.n` er 2, og `__call__` gir $3^2 = 9$. Svaret 6 kommer av å gange i stedet for å opphøye, 8 av å bytte om grunntall og eksponent ($2^3$), og 3 av å tro at `Potens()` uten argument gir `n = 1`."
+  },
+  {
+    "question": "Hvor skal en default-verdi som `h=1e-5` stå i en funksjonsklasse?",
+    "options": [
+      "I parameterlisten til `__init__`, sist blant parametrene",
+      "I parameterlisten til `__call__`, sammen med `x`",
+      "Som første parameter i `__init__`, rett etter `self`",
+      "Som en vanlig tilordning `h = 1e-5` øverst i klassekroppen"
+    ],
+    "explanation": "Steget er fast for objektet, så det hører i konstruktøren — og parametre med default-verdi må stå etter dem uten. Å legge det i `__call__` gjør det til noe som varierer per kall, å legge det først i `__init__` gir syntaksfeil når de andre parametrene ikke har default, og en bar tilordning i klassekroppen er et helt annet (og upensum) fenomen."
+  },
+  {
+    "question": "Hva er galt med `def __call__(x): return x*self.a`?",
+    "options": [
+      "`self` mangler som første parameter, så `x` blir instansen",
+      "`self.a` kan ikke leses inne i `__call__` uten et ekstra argument",
+      "`__call__` kan ikke ha andre parametre enn `self`",
+      "Metoden må hete `call` uten understreker"
+    ],
+    "explanation": "Python sender alltid instansen som første argument, så uten `self` i signaturen havner instansen i `x`, og det egentlige argumentet får ingen plass: `TypeError: __call__() takes 1 positional argument but 2 were given`. `self.a` er helt lovlig i `__call__` — men bare når `self` faktisk er et parameter — og `__call__` kan ha så mange parametre den vil."
+  },
+  {
+    "question": "Hva gjør linjen `m = m` i en konstruktør som skulle lagret parameteret `m`?",
+    "options": [
+      "Ingenting varig — den lager en lokal variabel som forsvinner",
+      "Den setter attributtet `m`, akkurat som `self.m = m`",
+      "Den gir `SyntaxError`, siden navnet står på begge sider",
+      "Den setter attributtet, men bare for den instansen som lages først"
+    ],
+    "explanation": "Uten `self.` er venstresiden en lokal variabel i metoden, og den forsvinner når `__init__` er ferdig — instansen får ingen attributter. Linjen er lovlig Python, så det blir ingen `SyntaxError`; feilen viser seg senere som `AttributeError` når noen leser `self.m`."
+  },
+  {
+    "question": "`g = Gauss(0, 1)` og `h = Gauss(2, 0.5)`. Hva er `g.s` etter at du har skrevet `h.s = 3`?",
+    "options": [
+      "1 — instansene har hver sine attributter",
+      "3 — attributtet er felles for klassen",
+      "0.5 — `g` peker nå på samme objekt som `h`",
+      "0 — attributtet nullstilles ved endring"
+    ],
+    "explanation": "Attributter er per instans, så `h.s = 3` rører ikke `g`, som beholder verdien den fikk i konstruktøren. Alternativet «felles for klassen» er den vanligste misforståelsen her, og den gir feil svar i alle sporingsoppgaver med to instanser."
+  },
+  {
+    "question": "Hvilken av disse gjør en instans klar til bruk i `maksverdi(f, a, b, n)`, som bare kaller `f(x)`?",
+    "options": [
+      "Klassen må ha en `__call__`-metode med parameteret `x`",
+      "Klassen må ha en metode som heter `f` og tar `x`",
+      "Instansen må sendes videre som `maksverdi(g(x), a, b, n)`",
+      "Klassen må ha `__init__` med `x` som siste parameter"
+    ],
+    "explanation": "`maksverdi` kaller `f(x)`, og parentes etter en instans utløser `__call__` — det er alt som kreves. Metodenavnet `f` hjelper ikke, siden `maksverdi` bruker parentesformen. Å skrive `g(x)` i kallet sender inn ett TALL, ikke funksjonen, og `x` i `__init__` ville låst instansen til ett punkt."
+  },
+  {
+    "question": "I `class Diff` med `self.f = f` — hva er `self.f` etter `d = Diff(sin)`?",
+    "options": [
+      "Funksjonen `sin` selv, som kan kalles med `self.f(x)`",
+      "Tallet `sin(0)`, altså funksjonens verdi i null",
+      "En streng med navnet `'sin'`",
+      "En kopi av `sin` som må importeres på nytt"
+    ],
+    "explanation": "Funksjonsnavnet uten parentes er funksjonen selv, så attributtet holder `sin`, og `self.f(x)` kaller den. Hadde du skrevet `Diff(sin(0))`, ville attributtet vært tallet 0.0 — det er nettopp forvekslingen mellom `f` og `f(x)` som er fellen her."
+  },
+  {
+    "question": "Et program har `print('a')` før `g = Gauss(0, 1)`, og `__init__` starter med `print('b')`. Hva skrives ut først?",
+    "options": [
+      "`a`, deretter `b` når konstruktøren kjører",
+      "`b`, deretter `a`, siden klassen leses først",
+      "bare `a` — utskrift i `__init__` vises ikke",
+      "`b` to ganger, én per argument"
+    ],
+    "explanation": "Klassedefinisjonen kjører ikke metodekroppene; `__init__` kjøres først i det instansen lages, altså etter den første utskriften. Konstruktøren kjøres én gang per instans, uansett hvor mange argumenter den tar."
+  },
+  {
+    "question": "Hvor mange ganger kjøres `__init__` i `for i in range(3): g = Gauss(i, 1)`?",
+    "options": [
+      "3 — én gang per gjennomløp av løkka",
+      "1 — klassen instansieres bare første gang",
+      "4 — én gang mer enn `range(3)` gir",
+      "0 — instansen brukes aldri til noe"
+    ],
+    "explanation": "`range(3)` gir tre gjennomløp, og hvert gjennomløp utfører `Gauss(i, 1)`, altså tre konstruktørkall og tre instanser (de to første kastes når navnet `g` gjenbrukes). `range(3)` gir tre verdier, ikke fire — det er av-én-fellen #1."
+  },
+  {
+    "question": "Hva er verdien av uttrykket `Gauss(0, 1)` når det ikke lagres i noen variabel?",
+    "options": [
+      "En ny instans av `Gauss`, som forsvinner rett etter",
+      "Tallet `__init__` regner ut av 0 og 1",
+      "`None`, siden `__init__` ikke returnerer noe",
+      "En feil, siden instansen må ha et navn"
+    ],
+    "explanation": "Verdien av et konstruktørkall er alltid instansen, selv om `__init__` ikke returnerer noe: det er Python som leverer objektet. Uten en variabel er det ingen som peker på det, så det ryddes bort — men det er ingen feil."
+  },
+  {
+    "question": "`d = Diff(sin)` og så `d(0)`. Hvilke kall skjer, i hvilken rekkefølge?",
+    "options": [
+      "`__init__` ved `Diff(sin)`, så `__call__` ved `d(0)`, som kaller `sin` to ganger",
+      "`__call__` ved `Diff(sin)`, så `__init__` ved `d(0)`, som kaller `sin` én gang",
+      "`__init__` ved begge, siden `sin` er et attributt",
+      "bare `__call__`, som selv setter attributtene"
+    ],
+    "explanation": "Instansiering kjører konstruktøren; kallet på instansen kjører `__call__`, og den sentrerte deriverte trenger `f(x+h)` og `f(x-h)`, altså to `sin`-kall. `__init__` kjøres aldri av et instanskall, og `__call__` setter ingen attributter."
+  },
+  {
+    "question": "Hva må endres for at `Gauss` skal kunne lages med `Gauss()` uten argumenter?",
+    "options": [
+      "Begge parametrene i `__init__` må få default-verdier",
+      "`__call__` må få default-verdi på `x`",
+      "Klassen må ha en metode som heter `standard`",
+      "`self` må fjernes fra `__init__`-signaturen"
+    ],
+    "explanation": "`Gauss()` sender ingen argumenter, så alle parametre i konstruktøren må ha standardverdier, typisk `m=0, s=1`. Default på `x` i `__call__` handler om kallet, ikke om instansieringen, og å fjerne `self` ville bare gitt en ny feil."
+  },
+  {
+    "question": "Hva skriver `print(q(2), q.n)` ut, gitt `class Potens` med `def __call__(self, x): return x**self.n` og `q = Potens(3)`?",
+    "options": [
+      "`8 3`",
+      "`8, 3`",
+      "`6 3`",
+      "`9 3`"
+    ],
+    "explanation": "`q(2)` gir $2^3 = 8$, `q.n` gir 3, og `print` med to argumenter skiller dem med ett mellomrom og ingen komma. Formen `8, 3` er hva du får hvis du skriver ut en tuppel, 6 kommer av å gange, og 9 av å bytte om grunntall og eksponent."
+  },
+  {
+    "question": "En oppgave sier: «lag en klasse for $f(x) = ax^2 + b$ der `a` og `b` gis når objektet lages». Hvor hører `x`?",
+    "options": [
+      "Som parameter i `__call__`, siden det er det som varierer",
+      "Som tredje parameter i `__init__`, etter `a` og `b`",
+      "Som attributt satt utenfra med `p.x = 2` før hvert kall",
+      "Som global variabel, slik at begge metodene ser den"
+    ],
+    "explanation": "Det faste for objektet (`a` og `b`) hører i konstruktøren, det som varierer fra kall til kall (`x`) hører i `__call__`. Legger du `x` i `__init__`, må du lage en ny instans per punkt, og da kan objektet ikke lenger brukes som en funksjon av $x$."
+  },
+  {
+    "question": "Hvorfor skriver `f, h = self.f, self.h` i starten av `__call__` ofte bedre kode?",
+    "options": [
+      "Formelen etterpå blir kortere og lettere å lese",
+      "Det er nødvendig for at `self.f` skal kunne kalles",
+      "Det gjør attributtene raskere å endre utenfra",
+      "Det hindrer at de to instansene deler attributter"
+    ],
+    "explanation": "Linjen er ren lesbarhet: den lar deg skrive `(f(x+h) - f(x-h))/(2*h)` i stedet for den samme formelen med `self.` fem steder. Den er ikke nødvendig for at kallet skal virke, endrer ingen attributter, og instanser deler aldri attributter uansett."
+  }
+]

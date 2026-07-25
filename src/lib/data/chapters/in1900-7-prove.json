@@ -1,0 +1,236 @@
+{
+ "id": "in1900-7-prove",
+ "courseId": "in1900",
+ "chapterNumber": "7.P",
+ "title": "Prøver til del 7: ODE-løsere og ODESolver-hierarkiet",
+ "description": "Fire prøver med full fasit: egen forlengs-Euler-funksjon, bruk av det utleverte hierarkiet, et fullt ODE-system med plott, og subklasser med eksplisitt og implisitt metode.",
+ "estimatedMinutes": 150,
+ "competenceGoals": [
+  "kunne skrive en ODE-løser som funksjon fra bunnen, med riktig telling av skritt og punkter",
+  "kunne bruke det utleverte hierarkiet på en skalar likning og på et system, og pakke ut komponentene riktig",
+  "kunne løse en tipoengsoppgave med høyreside, løsning, plott og fornuftssjekk under tidspress",
+  "kunne implementere en ny ODE-metode som subklasse, både eksplisitt og implisitt med nullpunktsløser"
+ ],
+ "content": [
+  {
+   "id": "in1900-7-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 7",
+   "content": "**Fire prøver à 30–45 minutter.** Prøvene dekker hele Del 7: egen ODE-løser, bruk av det utleverte hierarkiet, systemer og subklasser. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 7.A (30 min):** `forward_euler` fra bunnen på en skalar likning (sjanger I).\n- **Prøve 7.B (35 min):** Bruk av det vedlagte hierarkiet med `ForwardEuler` og `RungeKutta4` (sjanger J, skalar).\n- **Prøve 7.C (45 min):** ODE-system — skriv høyresiden, løs, pakk ut og plott (sjanger J, roterende innpakning).\n- **Prøve 7.D (40 min):** Subklasse — skriv `advance`, både en eksplisitt og en implisitt metode (sjanger K).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 7.B står inline med bokstavsvar; den interaktive quizen til kapitlene 7.1–7.5 er den store flervalgsbanken og tas separat.\n\n**Om vedlegget:** `ODESolver`-modulen leveres på eksamen, og du skal bruke den — ikke skrive den. Men **les signaturen** før du skriver noe: grensesnittet har endret seg mellom årganger, og feil argumentrekkefølge i høyresiden gir ofte ingen feilmelding i det hele tatt. Begge API-variantene står i [kap. 7.2](/bok/in1900/in1900-7-2)."
+  },
+  {
+   "id": "in1900-7-prove-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 7: [kap. 7.1](/bok/in1900/in1900-7-1) om egen forlengs-Euler-funksjon, [kap. 7.2](/bok/in1900/in1900-7-2) om det utleverte hierarkiet, [kap. 7.3](/bok/in1900/in1900-7-3) om systemer, [kap. 7.4](/bok/in1900/in1900-7-4) om subklasser, og [kap. 7.5](/bok/in1900/in1900-7-5) som driller sjangrene.\n\nFra tidligere deler trengs NumPy-tabeller ([kap. 4.1](/bok/in1900/in1900-4-1)), plotting ([kap. 4.3](/bok/in1900/in1900-4-3)), arv med `super()` ([kap. 5.3](/bok/in1900/in1900-5-3)), nullpunktsløseren `root` ([kap. 6.1](/bok/in1900/in1900-6-1)) og testfunksjoner ([kap. 3.1](/bok/in1900/in1900-3-1))."
+  },
+  {
+   "id": "in1900-7-prove-A",
+   "type": "collapsible",
+   "title": "Prøve 7.A — Egen ODE-løser (30 min)",
+   "buttonText": "Vis prøve 1",
+   "content": [
+    {
+     "id": "in1900-7-prove-A-intro",
+     "type": "text",
+     "content": "**Prøve 7.A — egen ODE-løser (30 minutter, sjanger I).** Tre oppgaver. Her skal du **ikke** bruke det utleverte hierarkiet — du skriver løkka selv. Ikke kjør koden."
+    },
+    {
+     "id": "in1900-7-prove-A-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-A-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger I.) En kopp kaffe kjøles mot romtemperaturen 18 grader etter Newtons avkjølingslov\n\n$$u' = -k(u - 18), \\qquad u(0) = 85$$\n\nmed $k = 0{,}12$ per minutt.\n\n**a)** Skriv `forward_euler(f, T, N, u0)` fra bunnen. Den skal returnere `t` og `u`.\n\n**b)** Løs på $[0, 30]$ minutter med 300 skritt. Skriv ut antall punkter, steglengden, startverdien, temperaturen etter 10 minutter og etter 30 minutter.\n\n**c)** Den eksakte løsningen er $u(t) = 18 + 67e^{-0{,}12t}$. Sammenlign, og forklar avviket.",
+      "solution": "**a)** og **b)**. Fire faste linjer før løkka: tidsakse, plass til løsningen, startverdi, steglengde.\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -0.12*(u - 18)\n\n\nt, u = forward_euler(f, 30.0, 300, 85.0)\nprint(len(t), f'{t[1]-t[0]:.2f}')\nprint(f'{u[0]:.2f} {u[100]:.4f} {u[-1]:.4f}')\nprint(f'eksakt: {18 + 67*np.exp(-0.12*30):.4f}')\n```\n\n**Utskrift:**\n```\n301 0.10\n85.00 38.0341 19.7913\neksakt: 19.8307\n```\n\n**c)** Etter 30 minutter gir metoden 19,7913 mot den eksakte verdien 19,8307 — et avvik på om lag 0,04 grader, altså to tideler av en prosent.\n\nAvviket er **metodens**, ikke kodens. Forlengs Euler følger tangenten et helt skritt av gangen, og for en kurve som krummer, havner den systematisk på feil side. Feilen er proporsjonal med steglengden: halverer du $\\Delta t$, halveres avviket. Det er lett å vise med en liten tabell:\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -0.12*(u - 18)\n\neksakt = 18 + 67*np.exp(-0.12*30)\nfor N in [30, 60, 120, 240]:\n    t, u = forward_euler(f, 30.0, N, 85.0)\n    print(f'{N:4d} {u[-1]:10.5f} {abs(u[-1]-eksakt):10.2e}')\n```\n\n**Utskrift:**\n```\n  30   19.44729   3.83e-01\n  60   19.63586   1.95e-01\n 120   19.73254   9.82e-02\n 240   19.78144   4.93e-02\n```\n\nDobler du antall skritt, halveres avviket. Det er signaturen til en **førsteordens** metode.\n\n**Hva gir uttelling (8 poeng):** `np.linspace(0, T, N+1)` (1 p), plass til løsningen (1 p), `u[0] = u0` **før** løkka (1 p), `dt` regnet fra tidsaksen (1 p), `for n in range(N):` (1 p), oppdateringslinja med `f(t[n], u[n])` i riktig argumentrekkefølge (1 p), `return t, u` (1 p), forklaringen i c) med ordet førsteordens (1 p).",
+      "hints": [
+       "Fire linjer før løkka: tidsakse, plass, startverdi, steglengde.",
+       "`dt = t[1] - t[0]` kan ikke bli feil, uansett hvordan `t` ble laget.",
+       "Til c): kjør med flere verdier av N og se hva som skjer med avviket."
+      ]
+     }
+    },
+    {
+     "id": "in1900-7-prove-A-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-A-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut? NumPy skriver tabeller uten komma. `forward_euler` er som i oppgave 1.\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return 2*t\n\nt, u = forward_euler(f, 2.0, 4, 0.0)\nprint(u)\nprint(t)\n```",
+      "solution": "**Sporingstavle.** Fire skritt over $[0, 2]$ gir $\\Delta t = 0{,}5$, og høyresiden bruker **bare tiden**, ikke $u$.\n\n| `n` | `t[n]` | `f = 2t[n]` | `u[n]` | $u_{n+1} = u_n + 0{,}5\\cdot f$ |\n|---|---|---|---|---|\n| 0 | 0.0 | 0 | 0.0 | 0.0 |\n| 1 | 0.5 | 1 | 0.0 | 0.5 |\n| 2 | 1.0 | 2 | 0.5 | 1.5 |\n| 3 | 1.5 | 3 | 1.5 | 3.0 |\n\n**Utskrift:**\n```\n[0.  0.  0.5 1.5 3. ]\n[0.  0.5 1.  1.5 2. ]\n```\n\nLegg merke til at `u[1]` fortsatt er 0: høyresiden er null ved $t = 0$, så første skritt flytter ingenting.\n\nDen eksakte løsningen er $u(t) = t^2$, som gir $u(2) = 4$. Metoden gir 3. Avviket er stort fordi steglengden er stor — dette er samme førsteordens oppførsel som i oppgave 1, bare med bare fire skritt.\n\nFellenote: **#1 — av-én**. Fire skritt gir fem verdier i begge tabellene. Og legg merke til at høyresiden **må** ha argumentet `t` selv om andre høyresider ikke bruker det — her er det omvendt, den bruker bare `t` og ikke `u`.\n\n**Poeng:** 3. Delvis riktig sporing gir delvis uttelling.",
+      "hints": [
+       "Regn ut steglengden først.",
+       "Høyresiden bruker bare `t` her — ikke `u`.",
+       "Hvor mange verdier har tabellene for fire skritt?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-7-prove-A-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-A-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal løse $u' = -0{,}5u$ fra $u(0) = 4$ over $[0, 6]$ med 60 skritt. Det har **fire** feil.\n\n```text\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N)\n    u = np.zeros(N)\n    dt = T/(N+1)\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(u[n], t[n])\n    u[0] = u0\n    return t, u\n```\n\n**a)** Nevn de fire feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden og kjør den.",
+      "solution": "**a)** De fire feilene:\n\n1. **`np.linspace(0, T, N)` og `np.zeros(N)`.** Begge tabellene har én plass for lite: `N` skritt krever `N+1` punkter. Siste runde skriver til `u[N]`, som ikke finnes, og programmet stopper med `IndexError`. Dette er felle **#1**.\n2. **`dt = T/(N+1)`.** Steglengden er intervallets lengde delt på antall **skritt**, altså `T/N` — eller enda tryggere `t[1] - t[0]`. Med `T/(N+1)` blir hvert skritt litt for kort, og løsningen ender på feil tidspunkt.\n3. **`f(u[n], t[n])` — feil argumentrekkefølge.** Bokstandard er `f(t, u)`, tid først. Dette er felle **#14**. Her ville feilen faktisk gitt feil svar, siden høyresiden bruker sitt første argument.\n4. **`u[0] = u0` står etter løkka.** Startverdien settes for sent: hele løsningen er allerede regnet ut fra 0, og bare plass 0 blir riktig til slutt. Resultatet er en løsning som er null overalt.\n\n**b)** Rettet:\n\n```python\nimport numpy as np\n\ndef forward_euler(f, T, N, u0):\n    t = np.linspace(0, T, N+1)\n    u = np.zeros_like(t)\n    u[0] = u0\n    dt = t[1] - t[0]\n    for n in range(N):\n        u[n+1] = u[n] + dt*f(t[n], u[n])\n    return t, u\n\ndef f(t, u):\n    return -0.5*u\n\n\nt, u = forward_euler(f, 6.0, 60, 4.0)\nprint(len(t), f'{t[1]-t[0]:.1f}')\nprint(f'{u[-1]:.6f} {4*np.exp(-3):.6f}')\n```\n\n**Utskrift:**\n```\n61 0.1\n0.184279 0.199148\n```\n\nMed 60 skritt er forlengs Euler drøyt sju prosent under den eksakte verdien — igjen metodens feil, ikke kodens.\n\n**Hva gir uttelling (8 poeng):** 1 poeng per navngitt feil (4 p), 3 for rettet kode som kjører, 1 for å påpeke at avviket som gjenstår er metodens. Sjanger O er poengmessig snill: finner du tre av fire feil, har du fortsatt flertallet av poengene.\n\n**Selvdiagnose etter prøve 7.A**\n\n☐ Hadde tidsaksen og løsningstabellen begge $N+1$ plasser?\n\n☐ Sto startverdien **før** løkka?\n\n☐ Var steglengden intervallets lengde delt på antall skritt?\n\n☐ Sto tiden først i kallet på høyresiden?\n\n☐ Kontrollerte du mot en eksakt løsning der du hadde en?",
+      "hints": [
+       "Tell plassene i begge tabellene mot antall oppdateringer.",
+       "Steglengden er intervallet delt på antall skritt.",
+       "Se på rekkefølgen av argumentene i kallet på `f`.",
+       "Hvor i funksjonen settes startverdien?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-7-prove-B",
+   "type": "collapsible",
+   "title": "Prøve 7.B — Det utleverte hierarkiet (35 min)",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1900-7-prove-B-intro",
+     "type": "text",
+     "content": "**Prøve 7.B — det utleverte hierarkiet (35 minutter, sjanger J, skalar).** Fem flervalgsspørsmål og to skriveoppgaver. Her skal du bruke `ODESolver`-modulen, ikke skrive løkka selv."
+    },
+    {
+     "id": "in1900-7-prove-B-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-B-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A og E — flervalg.) Velg ett svar per spørsmål.\n\n**1)** Hvilke tre kall utgjør bruksmønsteret, i riktig rekkefølge?\n\na) `solve`, `set_initial_condition`, konstruktør\nb) konstruktør, `set_initial_condition`, `solve`\nc) konstruktør, `solve`, `set_initial_condition`\nd) `set_initial_condition`, konstruktør, `solve`\n\n**2)** Hva returnerer `solve`?\n\na) bare `u` b) bare `t` c) `(t, u)` d) `(u, t)`\n\n**3)** Hva er første argument til `solve` i bokstandarden?\n\na) et tall `T` b) en liste med tidspunkter c) en tuppel `(t0, T)` d) antall skritt\n\n**4)** Hvor mange punkter gir `solve((0, 4), 80)`?\n\na) 80 b) 79 c) 4 d) 81\n\n**5)** Hva må du gjøre for å bytte fra Euler til Runge–Kutta?\n\na) skrive om høyresiden b) bytte klassenavn c) endre `solve`-kallet d) skrive en ny `advance`",
+      "solution": "**1) b)** Konstruktør, `set_initial_condition`, `solve`. Rekkefølgen er fast: løseren må kjenne høyresiden og startverdien før den kan regne.\n\n**2) c)** `(t, u)` — tidsaksen først. I den gamle API-varianten fra 2020–2022 var rekkefølgen motsatt, så les vedlegget.\n\n**3) c)** En tuppel `(t0, T)`, altså **ett** argument. `solve(0, 4, 80)` med tre argumenter er en klassisk feil.\n\n**4) d)** 81. Andre argument er antall skritt, og startpunktet er også et punkt.\n\n**5) b)** Bare bytte klassenavn: `RungeKutta4(f)` i stedet for `ForwardEuler(f)`. Alt annet er identisk — det er hele poenget med hierarkiet.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Fasitbokstavene er b, c, c, d, b — uten mønster. Blankt og feil gir likt, altså 0, så kryss alltid av på noe.",
+      "hints": [
+       "Hva må løseren vite før den kan begynne å regne?",
+       "Tidsintervallet er ett argument, ikke to.",
+       "Tell startpunktet som et punkt."
+      ]
+     }
+    },
+    {
+     "id": "in1900-7-prove-B-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-B-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger J — skalar likning.) En innsjø får tilført næringsstoff periodisk gjennom året, og konsentrasjonen tilfredsstiller\n\n$$u' = -0{,}3u + 2\\sin t, \\qquad u(0) = 5$$\n\n**a)** Løs likningen på $[0, 20]$ med 200 skritt, med **både** `ForwardEuler` og `RungeKutta4` fra det vedlagte hierarkiet. Skriv ut antall punkter og sluttverdien for hver.\n\n**b)** Hvorfor gir de to metodene ulikt svar, og hvilket bør du stole mest på?\n\n**c)** Hva måtte du endret i koden for å bytte metode?",
+      "solution": "**a)** En løkke over de to klassene, slik at bruksmønsteret bare skrives én gang:\n\n```python\nimport numpy as np\nfrom ODESolver import ForwardEuler, RungeKutta4\n\ndef f(t, u):\n    return -0.3*u + 2.0*np.sin(t)\n\n\nfor Metode in [ForwardEuler, RungeKutta4]:\n    solver = Metode(f)\n    solver.set_initial_condition(5.0)\n    t, u = solver.solve((0, 20), 200)\n    print(f'{Metode.__name__:14s} {len(t):4d} punkter, u(20) = {u[-1]:.6f}')\n```\n\n**Utskrift:**\n```\nForwardEuler    201 punkter, u(20) = -0.322666\nRungeKutta4     201 punkter, u(20) = -0.229294\n```\n\nBegge gir 201 punkter for 200 skritt. Merk at `for Metode in [ForwardEuler, RungeKutta4]` løkker over selve **klassene**, ikke over instanser; `Metode(f)` lager instansen inne i løkka, og `Metode.__name__` gir klassenavnet som tekst.\n\n**b)** De to metodene tar ulikt mange prøvesteg per skritt. Forlengs Euler bruker stigningstallet i startpunktet alene og er en **førsteordens** metode; Runge–Kutta 4 tar fire prøvesteg og veier dem sammen, og er **fjerdeordens**. Med samme steglengde er den siste derfor langt mer nøyaktig.\n\nDu bør stole mest på `RungeKutta4`. En praktisk kontroll uten fasit er å halvere steglengden: den metoden som endrer svaret minst når du gjør det, er nærmest den riktige løsningen.\n\n**c)** Bare **klassenavnet**. Høyresiden, startbetingelsen og `solve`-kallet er identiske. Det er hele poenget med at metodene er subklasser av samme basisklasse: bruksmønsteret er felles, og bare `advance` er forskjellig.\n\n**Hva gir uttelling (7 poeng):** høyresiden med riktig signatur og `np.sin` (1 p), de tre kallene i riktig rekkefølge (2 p), `solve((0, 20), 200)` med tuppelen som ett argument (1 p), begge metodene kjørt (1 p), begrunnelsen i b) med ordene førsteordens og fjerdeordens (1 p), svaret i c) (1 p).\n\nSkriver du de to metodene i to separate blokker i stedet for en løkke, er det like riktig og gir full uttelling.",
+      "hints": [
+       "De tre kallene er de samme uansett metode.",
+       "`np.sin` virker på både tall og tabeller; `math.sin` bare på tall.",
+       "Til b): hvor mange ganger kalles høyresiden per skritt i hver metode?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-7-prove-B-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-B-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger J med testfunksjon.) En radioaktiv prøve avtar som $u' = -0{,}4u$ med $u(0) = 12$. Den eksakte løsningen er $u(t) = 12e^{-0{,}4t}$.\n\n**a)** Løs numerisk på $[0, 8]$ med 400 skritt og `RungeKutta4`, og sammenlign hele løsningen med den eksakte.\n\n**b)** Skriv ut sluttverdien fra begge, og det største avviket over hele intervallet.\n\n**c)** Ville du brukt `abs(...) < tol` eller `==` i en testfunksjon for denne løsningen, og hvilken toleranse?",
+      "solution": "**a)** og **b)**. Den eksakte løsningen kan regnes ut for hele tidsaksen på én linje, fordi `np.exp` virker elementvis på en tabell:\n\n```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.4*u\n\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(12.0)\nt, u = solver.solve((0, 8), 400)\neksakt = 12*np.exp(-0.4*t)\nprint(f'{u[-1]:.8f} {eksakt[-1]:.8f}')\nprint(f'maks avvik = {np.max(np.abs(u - eksakt)):.2e}')\n```\n\n**Utskrift:**\n```\n0.48914645 0.48914645\nmaks avvik = 1.52e-10\n```\n\nÅtte riktige siffer over hele intervallet, med 400 skritt. Det er typisk for Runge–Kutta 4 på en glatt likning.\n\n**c)** Alltid `abs(expected - computed) < tol`, aldri `==`. Flyttall er tilnærminger, og to matematisk like uttrykk regnet langs ulike veier — her en numerisk metode mot en eksponentialfunksjon — vil aldri stemme siffer for siffer. Dette er felle **#11**.\n\nToleransen velges etter **metodens** nøyaktighet, ikke etter ønske. Målingen viser at avviket er om lag $1{,}5\\cdot 10^{-10}$, så `tol = 1e-9` er et fornuftig valg — like over. `1e-12` ville feilet på helt riktig kode, og `1e-4` ville sluppet gjennom en løsning med reelle feil.\n\nEn testfunksjon for dette ville sett slik ut:\n\n```python\nimport numpy as np\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.4*u\n\ndef test_losning():\n    solver = RungeKutta4(f)\n    solver.set_initial_condition(12.0)\n    t, u = solver.solve((0, 8), 400)\n    expected = 12*np.exp(-0.4*t)\n    tol = 1e-9  # RK4 med 400 skritt gir avvik av storrelsen 1e-10\n    msg = f'maks avvik ble {np.max(np.abs(expected - u))}'\n    assert np.max(np.abs(expected - u)) < tol, msg\n\ntest_losning()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\n**Hva gir uttelling (7 poeng):** de tre kallene (2 p), den eksakte løsningen regnet vektorisert over hele `t` (1 p), sluttverdiene skrevet ut med nok desimaler (1 p), maksimalt avvik med `np.max(np.abs(...))` (1 p), svaret i c) med `abs(...) < tol` (1 p), en begrunnet toleranse (1 p).\n\n**Selvdiagnose etter prøve 7.B**\n\n☐ Sto de tre kallene i riktig rekkefølge?\n\n☐ Var tidsintervallet én tuppel, altså ett argument?\n\n☐ Ga `solve((0, T), N)` deg $N+1$ punkter?\n\n☐ Brukte du `np.exp` og ikke `math.exp` på tidstabellen?\n\n☐ Valgte du en toleranse som passer metodens faktiske nøyaktighet?",
+      "hints": [
+       "`np.exp` virker på hele tidsaksen på én gang.",
+       "Maksimalt avvik: `np.max(np.abs(u - eksakt))`.",
+       "Les av det faktiske avviket før du velger toleranse."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-7-prove-C",
+   "type": "collapsible",
+   "title": "Prøve 7.C — ODE-system (45 min)",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1900-7-prove-C-intro",
+     "type": "text",
+     "content": "**Prøve 7.C — ODE-system (45 minutter, sjanger J).** Én stor flerdelt oppgave i eksamensform, av samme type og vekt som den reelle tipoengsoppgaven. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på b), c) og d)."
+    },
+    {
+     "id": "in1900-7-prove-C-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-C-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger J — full oppgave.) Et legemiddel brytes ned i to trinn: virkestoffet $A$ omdannes til mellomproduktet $B$, som igjen brytes ned til det inaktive $C$. Konsentrasjonene i millimol per liter tilfredsstiller\n\n$$A' = -k_1A, \\qquad B' = k_1A - k_2B, \\qquad C' = k_2B$$\n\nmed $k_1 = 0{,}35$ og $k_2 = 0{,}12$ per time. Ved $t = 0$ er $A = 2$ og $B = C = 0$. Du har `ODESolver`-modulen tilgjengelig.\n\n**a)** (4 p) Skriv høyresiden `f(t, u)`.\n\n**b)** (3 p) Løs på $[0, 40]$ timer med 800 skritt og `RungeKutta4`, pakk ut komponentene, og skriv ut formen på `u`, toppen i $B$ med tidspunktet, sluttverdiene og summen.\n\n**c)** (3 p) Skriv plottekoden og beskriv figuren.\n\n**d)** (2 p) Hvorfor er summen en god fornuftssjekk, og hva forteller toppen i $B$?",
+      "solution": "**a)** og **b)**. Tre tilstandsvariabler gir tre likninger, tre komponenter i `u` og tre kolonner i svaret. Parametrene settes som variabler over funksjonen — løseren kaller `f` med bare to argumenter.\n\n```python\nfrom ODESolver import RungeKutta4\n\nk1 = 0.35\nk2 = 0.12\n\ndef f(t, u):\n    A, B, C = u\n    dA = -k1*A\n    dB = k1*A - k2*B\n    dC = k2*B\n    return [dA, dB, dC]\n\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([2.0, 0.0, 0.0])\nt, u = solver.solve((0, 40), 800)\nA, B, C = u[:, 0], u[:, 1], u[:, 2]\nprint('u.shape =', u.shape)\nprint(f'maks B = {B.max():.5f} ved t = {t[B.argmax()]:.2f}')\nprint(f'slutt: {A[-1]:.5f} {B[-1]:.5f} {C[-1]:.5f}')\nprint(f'sum = {A[-1]+B[-1]+C[-1]:.5f}')\n```\n\n**Utskrift:**\n```\nu.shape = (801, 3)\nmaks B = 1.14414 ved t = 4.65\nslutt: 0.00000 0.02504 1.97495\nsum = 2.00000\n```\n\nFormen `(801, 3)` bekrefter tellingen: 800 skritt gir 801 punkter, og tre kolonner fordi systemet har tre likninger.\n\n**c)** Tre `plot`-kall med `label=`, ett `legend()`:\n\n```python\nimport matplotlib.pyplot as plt\nfrom ODESolver import RungeKutta4\n\nk1 = 0.35\nk2 = 0.12\n\ndef f(t, u):\n    A, B, C = u\n    return [-k1*A, k1*A - k2*B, k2*B]\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([2.0, 0.0, 0.0])\nt, u = solver.solve((0, 40), 800)\n\nplt.plot(t, u[:, 0], label='A virkestoff')\nplt.plot(t, u[:, 1], label='B mellomprodukt')\nplt.plot(t, u[:, 2], label='C inaktivt')\nplt.xlabel('tid (timer)')\nplt.ylabel('konsentrasjon (mmol/L)')\nplt.legend()\nplt.show()\nprint(f'{len(t)} punkter')\n```\n\n**Utskrift:**\n```\n801 punkter\n```\n\n**Figuren i ord.** Førsteaksen viser tid fra 0 til 40 timer, andreaksen konsentrasjon fra 0 til 2. A-kurven starter i 2 og faller rent eksponentielt mot null; den er praktisk talt borte etter rundt 15 timer. B-kurven starter i 0, stiger til en topp på om lag 1,14 rundt 4,7 timer, og faller deretter langsomt mot null — langsommere enn A steg, fordi $k_2$ er mindre enn $k_1$. C-kurven stiger monotont fra 0 og flater ut like under 2. De tre kurvene krysser hverandre to steder, og summen av dem er 2 hele veien. Forklaringen navngir de tre kurvene.\n\n**d)** Summen er en god sjekk fordi **ingenting forsvinner**: hvert molekyl er til enhver tid enten i form A, B eller C. Summen skal derfor være 2 mmol/L på hvert eneste tidspunkt, og det kan du kontrollere uten fasit. Driver den, har du mistet et ledd — typisk ved at et ledd har feil fortegn eller mangler i én av likningene.\n\nToppen i B forteller når mellomproduktet er mest til stede. Det er et praktisk viktig tall: er mellomproduktet det virksomme stoffet, sier toppen når virkningen er størst; er det giftig, sier den når belastningen er høyest. Toppen kommer der $B' = 0$, altså der $k_1A = k_2B$ — nedbrytningen av B akkurat innhenter tilførselen fra A.\n\n**Hva gir uttelling (12 poeng):**\n\n- a) 4 p: signaturen `f(t, u)` med tiden først (1 p), utpakkingen `A, B, C = u` (1 p), de tre uttrykkene (1 p), `return` som liste i samme rekkefølge (1 p).\n- b) 3 p: `RungeKutta4(f)` og `set_initial_condition` med **én** liste (1 p), `solve((0, 40), 800)` (1 p), utpakking med `u[:, k]` og utskriftene (1 p).\n- c) 3 p: tre `plot`-kall med riktige kolonner (1 p), `label=` og `legend()` (1 p), aksenavn, `show()` og figurbeskrivelse (1 p).\n- d) 2 p: bevaringsargumentet (1 p), tolkningen av toppen (1 p).\n\nSensor belønner riktig ODE-oppsett selv med en indeksfeil eller en glemt etikett. Får du høyresiden riktig men roter i utpakkingen, har du fortsatt mesteparten av poengene — det er `f(t, u)` som er kjernen i sjangeren.\n\n**Selvdiagnose etter prøve 7.C**\n\n☐ Sto tiden først i `f(t, u)`?\n\n☐ Pakket du ut tilstandsvektoren som første linje?\n\n☐ Returnerte du en **liste** i samme rekkefølge som utpakkingen?\n\n☐ Var startverdien én liste i `set_initial_condition`?\n\n☐ Pakket du ut komponentene med `u[:, k]` og ikke `u[k]`?\n\n☐ Hadde hver kurve `label=`, og kalte du `legend()`?\n\n☐ Sjekket du at summen er bevart?",
+      "hints": [
+       "Tre tilstandsvariabler gir tre uttrykk i returlista.",
+       "Parametrene bor over funksjonen — løseren kaller `f` med to argumenter.",
+       "`t[B.argmax()]` gir tidspunktet der B er størst.",
+       "Til d): kan et molekyl forsvinne ut av modellen?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-7-prove-D",
+   "type": "collapsible",
+   "title": "Prøve 7.D — Subklasser (40 min)",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1900-7-prove-D-intro",
+     "type": "text",
+     "content": "**Prøve 7.D — subklasser (40 minutter, sjanger K).** To oppgaver: én eksplisitt og én implisitt metode. Dette er det topp-differensierende stoffet i Del 7 — den siste oppgaven på et sett er ofte nettopp dette."
+    },
+    {
+     "id": "in1900-7-prove-D-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-D-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger K — eksplisitt metode.) Ralstons metode er en andreordens metode som velger prøvesteget slik at feilen blir minst mulig:\n\n$$k_1 = f(t_n, u_n), \\qquad k_2 = f\\!\\left(t_n + \\tfrac{2}{3}\\Delta t,\\ u_n + \\tfrac{2}{3}\\Delta t\\,k_1\\right), \\qquad u_{n+1} = u_n + \\Delta t\\,\\frac{k_1 + 3k_2}{4}$$\n\n**a)** Skriv subklassen `Ralston(ODESolver)` med kun `advance`.\n\n**b)** Sammenlign `ForwardEuler`, `Ralston` og `RungeKutta4` på $u' = -0{,}6u$, $u(0) = 4$, over $[0, 6]$ med bare 12 skritt. Den eksakte løsningen er $u(t) = 4e^{-0{,}6t}$.\n\n**c)** Hva koster hver metode per skritt, og hva får du igjen?",
+      "solution": "**a)** og **b)**. Subklasse-malen: klasselinja, `def advance(self):` uten andre argumenter, hentelinja, og formelen med `return`.\n\n```python\nimport numpy as np\nfrom ODESolver import ODESolver, ForwardEuler, RungeKutta4\n\nclass Ralston(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n        k1 = f(t[n], u[n])\n        k2 = f(t[n] + 2*dt/3, u[n] + 2*dt*k1/3)\n        return u[n] + dt*(k1 + 3*k2)/4\n\n\ndef f(t, u):\n    return -0.6*u\n\neksakt = 4*np.exp(-0.6*6)\nfor Metode in [ForwardEuler, Ralston, RungeKutta4]:\n    solver = Metode(f)\n    solver.set_initial_condition(4.0)\n    t, u = solver.solve((0, 6), 12)\n    print(f'{Metode.__name__:14s} u(6) = {u[-1]:.6f}   avvik = {abs(u[-1]-eksakt):.2e}')\nprint(f'eksakt u(6) = {eksakt:.6f}')\n```\n\n**Utskrift:**\n```\nForwardEuler   u(6) = 0.055365   avvik = 5.39e-02\nRalston        u(6) = 0.116933   avvik = 7.64e-03\nRungeKutta4    u(6) = 0.109329   avvik = 3.41e-05\neksakt u(6) = 0.109295\n```\n\nMed bare tolv skritt bommer forlengs Euler med nesten femti prosent av verdien, Ralston med sju prosent, og Runge–Kutta 4 med tre hundredeler av en prosent.\n\n**c)** Kostnaden måles i **antall kall på høyresiden per skritt**: forlengs Euler bruker ett, Ralston to, og Runge–Kutta 4 fire. Regnearbeidet firedobles altså fra den første til den siste.\n\nGevinsten er langt større. Feilen i tabellen faller med en faktor på om lag 7 fra Euler til Ralston, og med ytterligere en faktor på 200 fra Ralston til RK4 — for fire ganger så mye regning. Det er derfor `RungeKutta4` er standardvalget når oppgaven ikke sier noe annet: du kan bruke langt færre skritt og likevel få bedre svar.\n\n**Hva gir uttelling (7 poeng):** `class Ralston(ODESolver):` (1 p), `def advance(self):` uten andre argumenter (1 p), `k1` og `k2` med riktige argumenter til `f` (2 p), returlinja med vektene $1/4$ og $3/4$ (1 p), sammenligningen i b) (1 p), kostnadsargumentet i c) (1 p).\n\n**Den vanligste feilen** er å glemme `return` — da gir `advance` verdien `None`, og løsningen fylles med `nan` uten noen feilmelding.",
+      "hints": [
+       "Malen er fire linjer: klasselinje, metodelinje, hentelinje, formel med `return`.",
+       "`advance` tar ingen argumenter utenom `self`.",
+       "Til c): tell hvor mange ganger `f` kalles i hver metode."
+      ]
+     }
+    },
+    {
+     "id": "in1900-7-prove-D-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-7-prove-D-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger K — implisitt metode med nullpunktsløser. Nivå 3.) To former av et enzym veksler svært raskt den ene veien og langsomt den andre:\n\n$$A' = -60A + 3B, \\qquad B' = 60A - 3B$$\n\nmed $A(0) = 1$ og $B(0) = 0$. Systemet er **stivt**: forlengs Euler trenger ekstremt små skritt.\n\n**a)** Skriv `BaklengsEuler(ODESolver)` der hvert skritt løser $v - u_n - \\Delta t\\,f(t_{n+1}, v) = 0$ med `root` fra `scipy.optimize`.\n\n**b)** Løs på $[0, 4]$ med 40 skritt. Skriv ut formen på `u`, sluttverdiene og summen. Sammenlign med `ForwardEuler` på samme skritt.\n\n**c)** Regn ut likevekten for hånd og sjekk mot resultatet.\n\n**d)** Hvorfor virker den samme `advance` for både skalare likninger og systemer?",
+      "solution": "**a)**, **b)** og **c)**. Likningen defineres som en **indre funksjon** inne i `advance`, slik at den ser `u[n]`, `t[n+1]` og `dt` for nettopp dette skrittet:\n\n```python\nimport numpy as np\nfrom scipy.optimize import root\nfrom ODESolver import ODESolver, ForwardEuler\n\nclass BaklengsEuler(ODESolver):\n    def advance(self):\n        u, f, t, n, dt = self.u, self.f, self.t, self.n, self.dt\n\n        def likning(v):\n            return v - u[n] - dt*f(t[n+1], v)\n\n        sol = root(likning, u[n])\n        return sol.x\n\n\ndef f(t, u):\n    A, B = u\n    return [-60*A + 3*B, 60*A - 3*B]\n\n\nsolver = BaklengsEuler(f)\nsolver.set_initial_condition([1.0, 0.0])\nt, u = solver.solve((0, 4), 40)\nprint('u.shape =', u.shape)\nprint(f'A(4) = {u[-1, 0]:.6f}  B(4) = {u[-1, 1]:.6f}')\nprint(f'sum = {u[-1, 0] + u[-1, 1]:.6f}')\nprint(f'likevekt A = {3/63:.6f}')\n\nsolver2 = ForwardEuler(f)\nsolver2.set_initial_condition([1.0, 0.0])\nt2, u2 = solver2.solve((0, 4), 40)\nprint(f'ForwardEuler A(4) = {u2[-1, 0]:.3e}')\n```\n\n**Utskrift:**\n```\nu.shape = (41, 2)\nA(4) = 0.047619  B(4) = 0.952381\nsum = 1.000000\nlikevekt A = 0.047619\nForwardEuler A(4) = 8.909e+28\n```\n\n**c)** Likevekt betyr at begge de deriverte er null, altså $60A = 3B$. Sammen med bevaringen $A + B = 1$ gir det\n\n$$A = \\frac{3}{63} \\approx 0{,}047619, \\qquad B = \\frac{60}{63} \\approx 0{,}952381$$\n\nBaklengs Euler treffer nøyaktig disse verdiene. Forlengs Euler gir derimot $8{,}9\\cdot 10^{28}$ — den har sprengt. Steglengden er $\\Delta t = 0{,}1$, og den raske raten 63 krever $\\Delta t < 2/63 \\approx 0{,}032$ for at en eksplisitt metode skal holde seg i ro. Med 40 skritt er vi tre ganger over grensen.\n\nDette er **ikke** en programmeringsfeil. Det er metodens stabilitetsgrense, og hele grunnen til at implisitte metoder finnes.\n\n**d)** Fordi all aritmetikken i `advance` er **elementvis**. Er `u[n]` et enkelt tall, er `likning(v)` en likning i én ukjent; er `u[n]` en vektor med to komponenter, er `likning(v)` to likninger i to ukjente — og `root` løser begge deler med samme kall, fordi den er skrevet for systemer.\n\nDet er nettopp derfor `sol.x` returneres uendret, uten indeksering: `sol.x` er alltid et array, og basisklassen legger det rett inn i raden `self.u[n+1]`. Skriver du `return sol.x[0]`, virker det for skalare problemer og bryter for systemer.\n\n**Hva gir uttelling (10 poeng):** a) 5 p — klasselinja og `advance` (1 p), den indre funksjonen (2 p), `t[n+1]` og ikke `t[n]` (1 p), `root(likning, u[n])` og `return sol.x` (1 p). b) 3 p — de tre kallene, utskriftene og sammenligningen med den eksplisitte metoden. c) 1 p — likevekten regnet fra likningen og bevaringen. d) 1 p — elementvis aritmetikk.\n\n**Om vedlegget:** dokumentasjonen for `root` leveres på eksamen. Det du må kunne uten hjelp, er innpakningen: en funksjon som er null i løsningen, forrige verdi som startgjetning, og at svaret ligger i `sol.x`.\n\n**Selvdiagnose etter prøve 7.D**\n\n☐ Arvet subklassen fra `ODESolver`, og skrev du bare `advance`?\n\n☐ Sto `return` foran uttrykket, slik at metoden faktisk gir en verdi?\n\n☐ Brukte du `t[n+1]` og ikke `t[n]` i den implisitte metoden?\n\n☐ Var startgjetningen til `root` forrige verdi, `u[n]`?\n\n☐ Returnerte du `sol.x` uendret, uten indeksering?\n\n☐ Kontrollerte du mot en eksakt løsning eller en likevekt du kunne regne for hånd?",
+      "hints": [
+       "Definer likningen som en funksjon inne i `advance`.",
+       "Tiden i den implisitte likningen er `t[n+1]`.",
+       "Til c): kombiner likevektsbetingelsen med at summen er bevart.",
+       "Til d): hva gjør `+` og `*` når operandene er vektorer?"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

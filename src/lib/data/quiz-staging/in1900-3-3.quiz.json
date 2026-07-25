@@ -1,0 +1,202 @@
+[
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ns = 0\nfor k in range(1, 4):\n    s += (-1)**k * k\nprint(s)\n```",
+  "options": [
+   "`-2`",
+   "`2`",
+   "`6`",
+   "`0`"
+  ],
+  "explanation": "Leddene er $-1$, $+2$ og $-3$, altså $-2$ til sammen. Alternativ b) har snudd fortegnet og svarer til `(-1)**(k+1)`. Alternativ c) glemmer fortegnsfaktoren helt, og d) forutsetter at leddene kansellerer."
+ },
+ {
+  "question": "En oppgave sier «summer leddene fra $n = 0$ til og med $n = N$». Hvilken løkkelinje er riktig?",
+  "options": [
+   "`for n in range(N+1):`",
+   "`for n in range(N):`",
+   "`for n in range(1, N):`",
+   "`for n in range(N-1):`"
+  ],
+  "explanation": "«Til og med $N$» krever `range(N+1)`, siden stoppverdien er eksklusiv. Alternativ b) er felle #1 og mister siste ledd. Alternativ c) hopper i tillegg over ledd null, og d) mister to ledd."
+ },
+ {
+  "question": "Rekka $\\sum_{n=0}^{N} x^{2n}/(2n)!$ skal implementeres. Hvilket ledd er riktig?",
+  "options": [
+   "`s += x**(2*n) / factorial(2*n)`",
+   "`s += x**(2*n) / factorial(n)`",
+   "`s += x**n / factorial(2*n)`",
+   "`s += x**(2*n+1) / factorial(2*n+1)`"
+  ],
+  "explanation": "Uttrykket `2*n` skal stå både i eksponenten og i fakultetet. Alternativ b) og c) har ulik indeksering i teller og nevner. Alternativ d) er oddetallsvarianten, som hører til sinus hyperbolicus."
+ },
+ {
+  "question": "Hva skjer når denne funksjonen kalles med `N = 4`?\n\n```python\ndef rekke(N):\n    s = 0\n    for k in range(N+1):\n        s += k\n        return s\n```",
+  "options": [
+   "Den returnerer 0",
+   "Den returnerer 10",
+   "Den returnerer 4",
+   "Den gir en feilmelding"
+  ],
+  "explanation": "`return` står inne i løkka, så funksjonen avbrytes i første runde der `k` og `s` begge er 0. Alternativ b) er svaret når `return` står riktig, altså etter løkka. Alternativ d) forutsetter en feil som ikke oppstår — koden er syntaktisk gyldig."
+ },
+ {
+  "question": "Hvor skal `s = 0` stå?",
+  "options": [
+   "Før løkka",
+   "Som første linje inne i løkka",
+   "Rett før `return`",
+   "I funksjonssignaturen"
+  ],
+  "explanation": "Akkumulatoren nullstilles én gang, før løkka. Alternativ b) nullstiller hver runde og gir bare siste ledd. Alternativ c) sletter hele summen. Alternativ d) ville gjort startverdien til noe den som kaller funksjonen må sende inn."
+ },
+ {
+  "question": "En rekke kuttet etter få ledd avviker med om lag $5\\cdot 10^{-7}$. Hvilken toleranse passer i testfunksjonen?",
+  "options": [
+   "`1e-6`",
+   "`1e-12`",
+   "`1e-16`",
+   "`1e-1`"
+  ],
+  "explanation": "Toleransen skal ligge like over avviket metoden faktisk har. Alternativ b) og c) melder feil på helt riktig kode. Alternativ d) er så løs at kode med reelle feil også ville sluppet gjennom, og en test som aldri feiler er ikke en test."
+ },
+ {
+  "question": "Hva gir `arcsin_rekke(x, 0)` når rekka er $\\sum_{n=0}^{N} \\frac{(2n)!}{4^n (n!)^2(2n+1)}x^{2n+1}$?",
+  "options": [
+   "$x$",
+   "1",
+   "0",
+   "$x^3/6$"
+  ],
+  "explanation": "Med $n = 0$ er $0! = 1$, $4^0 = 1$ og $2n+1 = 1$, så leddet er $x$ selv. Dette er gratiskontrollen for oddetallsrekker. Alternativ b) er svaret for partallsrekker, og d) er ledd nummer én."
+ },
+ {
+  "question": "Hvilken importsetning er riktig?",
+  "options": [
+   "`from math import asin`",
+   "`import asin from math`",
+   "`from asin import math`",
+   "`import math as asin`"
+  ],
+  "explanation": "Modulen står først: `from modul import navn`. Alternativ b) er felle #10, importsetningen i motsatt rekkefølge. Alternativ c) bytter om navnene. Alternativ d) er gyldig syntaks, men gir modulen et nytt navn og importerer ingen funksjon."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nfrom math import factorial\nfor n in range(3):\n    print(factorial(2*n+1), end=' ')\n```",
+  "options": [
+   "`1 6 120 `",
+   "`1 2 24 `",
+   "`1 3 5 `",
+   "`0 6 120 `"
+  ],
+  "explanation": "Med $n = 0, 1, 2$ er $2n+1$ lik 1, 3 og 5, og fakultetene er 1, 6 og 120. Alternativ b) regner `factorial(2*n)`. Alternativ c) skriver oddetallet i stedet for fakultetet. Merk mellomrommet til slutt, som `end=' '` gir."
+ },
+ {
+  "question": "En rekurrens $T_{n+1} = 2xT_n - T_{n-1}$ skal løses med løkke. Hvilken oppdatering er riktig?",
+  "options": [
+   "`T_neste = 2*x*T_denne - T_forrige`, så flytt lagrene",
+   "Flytt lagrene, så `T_denne = 2*x*T_denne - T_forrige`",
+   "`T_forrige = 2*x*T_denne - T_forrige`, uten flytting",
+   "La funksjonen kalle seg selv for hvert ledd"
+  ],
+  "explanation": "Den nye verdien må regnes ut mens begge de gamle finnes, derfor hjelpevariabelen først. Alternativ b) overskriver `T_forrige` før den brukes. Alternativ c) mister `T_denne`. Alternativ d) er en teknikk utenfor pensum i IN1900 som markeres uønsket i fasit."
+ },
+ {
+  "question": "Hva er riktig løkkegrense i en rekurrens som skal gi $T_n$, når $T_0$ og $T_1$ allerede er satt?",
+  "options": [
+   "`for k in range(1, n):`",
+   "`for k in range(1, n+1):`",
+   "`for k in range(n+1):`",
+   "`for k in range(2, n):`"
+  ],
+  "explanation": "Med $T_1$ på plass trengs $n-1$ steg for å nå $T_n$, altså `range(1, n)`. Alternativ b) gir ett steg for mye og returnerer $T_{n+1}$. Alternativ c) starter på 0 og gir to for mye. Alternativ d) gir ett for lite."
+ },
+ {
+  "question": "Oppgaven sier: «summer leddene til det siste leddet er mindre enn `eps`». Hvilken løkketype passer?",
+  "options": [
+   "`while`, siden antall runder er ukjent",
+   "`for`, med `range(eps)` som grense",
+   "`for`, med `range(1/eps)` som grense",
+   "En løkke er unødvendig her"
+  ],
+  "explanation": "Når stoppkriteriet er en størrelse og ikke et antall, er `while` riktig, og leddnummeret telles opp for hånd. Alternativ b) og c) prøver å gjøre om en toleranse til et antall runder, som `range` uansett ikke godtar for flyttall."
+ },
+ {
+  "question": "Hvorfor må `ledd` settes til en verdi større enn `eps` før en `while abs(ledd) > eps:`-løkke?",
+  "options": [
+   "Ellers kjører løkka aldri",
+   "Ellers blir summen for stor",
+   "Ellers får `eps` feil datatype",
+   "Ellers stopper løkka aldri"
+  ],
+  "explanation": "`while` sjekker betingelsen før første runde, så en for liten startverdi gjør at kroppen aldri kjøres. Startverdien er ikke selv et ledd i summen — den overskrives på første linje inne i løkka. Alternativ d) beskriver det motsatte problemet."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ns = 0\nledd = 1.0\nk = 0\nwhile abs(ledd) > 0.3:\n    ledd = 0.5**k\n    s += ledd\n    k += 1\nprint(k, s)\n```",
+  "options": [
+   "`3 1.75`",
+   "`2 1.5`",
+   "`4 1.875`",
+   "`3 0.25`"
+  ],
+  "explanation": "Leddene er 1, 0.5 og 0.25. Etter det tredje er `abs(ledd)` lik 0.25, som ikke er større enn 0.3, så løkka stopper med `k` lik 3 og summen 1.75. Alternativ b) glemmer at leddet som utløser stoppen også ble lagt til, og d) skriver siste ledd i stedet for summen."
+ },
+ {
+  "question": "En testfunksjon setter `expected` til nøyaktig samme uttrykk som funksjonen den tester. Hva er galt?",
+  "options": [
+   "Testen går gjennom selv om formelen er feil",
+   "Testen kan ikke bruke `math` på begge sider",
+   "Like uttrykk gir alltid avvik i siste siffer",
+   "Fasiten må alltid være et helt tall"
+  ],
+  "explanation": "Fasiten må komme fra en uavhengig kilde — `math`, en kjent eksplisitt formel eller håndregning. Ellers sammenligner du koden med seg selv. Alternativ c) er galt: samme uttrykk regnet på samme måte gir nøyaktig samme flyttall."
+ },
+ {
+  "question": "Hvilken av rekkene trenger flest ledd for ti riktige desimaler?",
+  "options": [
+   "$\\sum x^{2n+1}/(2n+1)$",
+   "$\\sum x^{2n+1}/(2n+1)!$",
+   "$\\sum x^{2n}/(2n)!$",
+   "$\\sum x^k/k!$"
+  ],
+  "explanation": "Bare alternativ a) mangler fakultet i nevneren, så leddene minker lineært i stedet for eksplosivt. Invers tangens hyperbolicus trenger derfor titalls ledd der de tre andre klarer seg med under tjue."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef f(n, x):\n    if n == 0:\n        return 1.0\n    a = 1.0\n    b = x\n    for k in range(1, n):\n        c = 2*x*b - a\n        a = b\n        b = c\n    return b\n\nprint(f(2, 2.0), f(3, 2.0))\n```",
+  "options": [
+   "`7.0 26.0`",
+   "`2.0 7.0`",
+   "`26.0 97.0`",
+   "`7.0 7.0`"
+  ],
+  "explanation": "Med $x = 2$ er $T_2 = 2\\cdot 2\\cdot 2 - 1 = 7$ og $T_3 = 2\\cdot 2\\cdot 7 - 2 = 26$. Alternativ b) ligger ett steg bak, og c) ett steg foran — begge er typiske av-én-feil på løkkegrensen."
+ },
+ {
+  "question": "I formelen $P_{n+1} = ((2n+1)xP_n - nP_{n-1})/(n+1)$ løkker du med variabelen `k`. Hvilken variabel skal stå i koeffisientene?",
+  "options": [
+   "`k`, løkkevariabelen",
+   "`n`, funksjonsargumentet",
+   "`n+1`, altså neste leddnummer",
+   "Det spiller ingen rolle"
+  ],
+  "explanation": "Koeffisientene hører til det leddnummeret løkka står på akkurat nå, altså `k`. Bruker du funksjonsargumentet `n`, får du samme koeffisienter i alle rundene og et helt annet polynom. Dette er navnekollisjonen mellom argumentet og leddnummeret."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nfrom math import factorial\ns = 0\nfor k in range(4):\n    s += 2**k / factorial(k)\nprint(f'{s:.4f}')\n```",
+  "options": [
+   "`6.3333`",
+   "`6.0000`",
+   "`7.0000`",
+   "`5.0000`"
+  ],
+  "explanation": "Leddene er 1, 2, 2 og 4/3, altså 6,3333. Alternativ b) glemmer det siste leddet, som er felle #1 i praksis. Alternativ c) er verdien med ett ledd for mye, og d) forutsetter feil verdi av `factorial(0)`."
+ },
+ {
+  "question": "Hva er den vanligste konsekvensen av `range(N)` i stedet for `range(N+1)` i en rekkesum?",
+  "options": [
+   "Ett ledd mangler, og testen feiler",
+   "Programmet stopper med `IndexError`",
+   "Summen blir dobbelt så stor",
+   "Løkka går uendelig lenge"
+  ],
+  "explanation": "`range` er eksklusiv i den øvre enden, så du mister systematisk siste ledd. Alternativ b) hører til lister og arrayer, ikke til en ren sum. Alternativ d) kan bare skje med `while`. Feilen er stille — den gir feil svar, ikke feilmelding."
+ }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Programmet gjør `x = float(sys.argv[1])` og kjøres som `python3 p.py`. Hvilken exception utløses?",
+    "options": [
+      "`IndexError`",
+      "`ValueError`",
+      "`TypeError`",
+      "`NameError`"
+    ],
+    "explanation": "Uten argumenter er `sys.argv` lik `['p.py']`, så `sys.argv[1]` finnes ikke, og oppslaget gir `IndexError`. `ValueError` ville krevd at et argument fantes men var utolkbart som tall. `TypeError` gjelder uforenlige typer, og `NameError` gjelder navn som ikke er tilordnet."
+  },
+  {
+    "question": "Hvilken exception gir `int('4.0')`?",
+    "options": [
+      "`ValueError`",
+      "`TypeError`",
+      "`SyntaxError`",
+      "ingen — resultatet er 4"
+    ],
+    "explanation": "`int` får en streng, som er riktig type, men godtar ikke desimalpunkt i innholdet, og da er feilen `ValueError`. `TypeError` ville kommet hvis typen var umulig, som i `int([4])`. Vil du ha heltallet 4, må du skrive `int(float('4.0'))`."
+  },
+  {
+    "question": "Hvilken exception gir `'sum: ' + 42`?",
+    "options": [
+      "`TypeError`",
+      "`ValueError`",
+      "`NameError`",
+      "`SyntaxError`"
+    ],
+    "explanation": "Å legge et heltall til en streng er umulig uansett verdier, så typene er problemet og feilen er `TypeError`. `ValueError` er forbeholdt riktig type med ubrukelig innhold, som `int('to')`. Uttrykket er syntaktisk helt gyldig, så det er ingen `SyntaxError`."
+  },
+  {
+    "question": "`d = {'a': 1}`. Hvilken exception gir `print(d['b'])`?",
+    "options": [
+      "`KeyError`",
+      "`IndexError`",
+      "`ValueError`",
+      "`AttributeError`"
+    ],
+    "explanation": "Oppslag på en nøkkel som ikke finnes i en ordbok gir `KeyError`, og meldingen er nøkkelen i anførselstegn: `KeyError: 'b'`. `IndexError` hører til lister og strenger, ikke ordbøker. Vil du unngå feilen, bruker du `d.get('b', 0)`."
+  },
+  {
+    "question": "Programmet gjør `print(x / y)` etter at `x = 6.0` og `y = 0.0`. Hva blir siste linje i feilmeldingen?",
+    "options": [
+      "`ZeroDivisionError: float division by zero`",
+      "`ZeroDivisionError: integer division or modulo by zero`",
+      "`ValueError: cannot divide by zero`",
+      "`ArithmeticError: division by zero`"
+    ],
+    "explanation": "Med flyttall er meldingen `float division by zero`; formuleringen om heltall hører til `//` og `%` mellom heltall. Feiltypen er `ZeroDivisionError` i begge tilfeller, så på en matche-tabell er de likeverdige. `ValueError` og `ArithmeticError` brukes ikke her — den siste er en overordnet type Python ikke navngir i meldingen."
+  },
+  {
+    "question": "Programmet kjøres som `python3 p.py 0 to` og gjør `a = float(sys.argv[1])`, deretter `b = float(sys.argv[2])`, deretter `print(1 / a * b)`. Hvilken exception utløses?",
+    "options": [
+      "`ValueError`",
+      "`ZeroDivisionError`",
+      "`IndexError`",
+      "`TypeError`"
+    ],
+    "explanation": "`float('0')` er helt lovlig og gir 0.0, så programmet fortsetter til `float('to')`, som feiler med `ValueError`. Divisjonen på 0 ville gitt `ZeroDivisionError`, men den linja kjøres aldri — den første feilen vinner. Begge argumentene finnes, så `IndexError` er utelukket."
+  },
+  {
+    "question": "Hva skriver `x = [1, 2, 3]` etterfulgt av `print(x[3:])` ut?",
+    "options": [
+      "`[]`",
+      "`IndexError`",
+      "`3`",
+      "`[3]`"
+    ],
+    "explanation": "Et utsnitt utenfor lista gir den tomme lista og aldri `IndexError` — det er bare indeksering med `x[3]` som feiler. `3` ville vært `x[2]`, og `[3]` ville vært `x[2:]`. Dette er en gjenganger i matche-tabeller: `sys.argv[1:]` gir en tom liste når ingen argumenter er gitt."
+  },
+  {
+    "question": "I hvilken rekkefølge må `except`-blokkene stå når én av dem er `except Exception`?",
+    "options": [
+      "De spesifikke først, `except Exception` sist",
+      "`except Exception` først, de spesifikke etter",
+      "Rekkefølgen er alltid uten betydning",
+      "Alfabetisk etter navnet på feiltypen"
+    ],
+    "explanation": "Python bruker den første `except` som passer, og `Exception` passer til alt — derfor må den stå sist, ellers blir de spesifikke blokkene død kode. Rekkefølgen mellom uavhengige feiltyper som `IndexError` og `ValueError` er derimot fritt valgt. Alfabetisk rekkefølge har ingen betydning i Python."
+  },
+  {
+    "question": "Hva skjer med resten av `try`-blokken etter at en exception er utløst i den?",
+    "options": [
+      "Den kjøres ikke; Python går rett til `except`",
+      "Den kjøres ferdig, og `except` kjøres etterpå",
+      "Bare `print`-linjene i den kjøres",
+      "Den kjøres om igjen fra starten"
+    ],
+    "explanation": "`try`-blokken avbrytes umiddelbart på linja som feilet, og Python leter etter en passende `except`. Ingen senere linjer i blokken kjøres, uansett hva de gjør. Det er nettopp derfor «hvilken feil kommer først» er hele øvelsen i denne sjangeren."
+  },
+  {
+    "question": "`antall = 0`, deretter `assert antall > 0, 'må være positivt'`, deretter `print(10 / antall)`. Hvilken exception utløses?",
+    "options": [
+      "`AssertionError`",
+      "`ZeroDivisionError`",
+      "`ValueError`",
+      "ingen — `assert` gir bare en advarsel"
+    ],
+    "explanation": "`assert`-linja står først og betingelsen er falsk, så programmet stopper der med `AssertionError: må være positivt`. Divisjonen ville gitt `ZeroDivisionError`, men den nås aldri. En `assert` er ingen advarsel — den avbryter programmet."
+  },
+  {
+    "question": "Hva gir `except ValueError as e` deg tilgang til?",
+    "options": [
+      "Feilobjektet, slik at `print(e)` viser meldingen",
+      "En kopi av `try`-blokken som feilet",
+      "Linjenummeret der feilen oppsto, som et heltall",
+      "En liste over alle feilene som kan oppstå"
+    ],
+    "explanation": "`as e` binder feilobjektet til navnet `e`, og `print(e)` skriver ut meldingen Python ellers ville vist. Den gir ikke linjenummeret som en verdi du kan regne med, og den gjenskaper ikke koden. Formen er nyttig i løkker der du vil rapportere hvilken verdi som feilet og fortsette."
+  },
+  {
+    "question": "Programmet gjør `maalinger[dag][nr]` der `maalinger` er en ordbok av lister. `dag` finnes, men `nr` er for stor. Hvilken exception utløses?",
+    "options": [
+      "`IndexError`",
+      "`KeyError`",
+      "`TypeError`",
+      "`ValueError`"
+    ],
+    "explanation": "Ordboksoppslaget lykkes fordi nøkkelen finnes; det er listeindekseringen etterpå som svikter, og lister gir `IndexError`. `KeyError` hadde kommet hvis `dag` manglet. Uttrykket evalueres fra venstre, så du må avgjøre hvilket av de to oppslagene som feiler først."
+  },
+  {
+    "question": "Programmet gjør `print(sys.argv)` uten `import sys` øverst. Hvilken exception utløses?",
+    "options": [
+      "`NameError`",
+      "`ImportError`",
+      "`AttributeError`",
+      "`IndexError`"
+    ],
+    "explanation": "Navnet `sys` er aldri blitt tilordnet, så Python gir `NameError: name 'sys' is not defined`. `ImportError` krever at du faktisk forsøkte en import som mislyktes. Dette er en fast plantet feil i «finn feilen»-oppgaver, sammen med `sqrt(2)` uten `from math import sqrt`."
+  },
+  {
+    "question": "Når kjøres `finally`-blokken i en `try`-setning?",
+    "options": [
+      "Alltid, både med og uten feil",
+      "Bare når ingen feil oppsto",
+      "Bare når en feil oppsto",
+      "Bare når feilen ikke ble fanget"
+    ],
+    "explanation": "`finally` kjøres i alle tilfeller og brukes til opprydding. Blokken som kjøres bare når alt gikk bra, heter `else`. Det finnes ingen blokk som kjøres bare når feilen var ufanget."
+  },
+  {
+    "question": "Programmet kjøres som `python3 p.py 6 2`. Hva er `len(sys.argv)`?",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "6"
+    ],
+    "explanation": "Lista er `['p.py', '6', '2']`, altså tre elementer, fordi programnavnet ligger på indeks 0. Svaret 2 er den klassiske tellefeilen som gjør at kandidater bommer på `IndexError`-radene. 4 ville krevd tre argumenter, og 6 er en verdi, ikke et antall."
+  },
+  {
+    "question": "`verdier = ['4', 'x']`, og for hver `v` gjør programmet `print(10 / int(v))` inne i en `try` med `except ValueError: print('V')` og `except ZeroDivisionError: print('Z')`. Hva skrives ut?",
+    "options": [
+      "`2.5` og deretter `V`",
+      "`2.5` og deretter `Z`",
+      "`2` og deretter `V`",
+      "`V` og deretter `2.5`"
+    ],
+    "explanation": "For `'4'` gir `10 / 4` flyttallet `2.5` — `/` gir alltid float i Python 3. For `'x'` feiler `int('x')` før divisjonen, så `ValueError`-blokken kjører og skriver `V`. `Z` ville krevd at konverteringen lyktes og verdien var 0."
+  },
+  {
+    "question": "Hva gjør `raise ValueError('for kald')` inne i en funksjon?",
+    "options": [
+      "Utløser en `ValueError` med den meldingen",
+      "Skriver meldingen og fortsetter kjøringen",
+      "Returnerer meldingen til den som kalte",
+      "Fanger en `ValueError` som allerede har oppstått"
+    ],
+    "explanation": "`raise` utløser exceptionen der og da, med teksten som melding; funksjonen returnerer ingenting. Den skriver ikke bare ut noe, og den fanger ingenting — å fange er `except` sin jobb. Fanges den utenfor, oppfører den seg som alle andre `ValueError`-er."
+  },
+  {
+    "question": "Hvilket alternativ er den vanligste årsaken til tapte poeng på exception-matching?",
+    "options": [
+      "Å svare med en feil som ligger lenger ned i programmet",
+      "Å velge en feiltype som ikke finnes i Python",
+      "Å bruke for lang tid på hver rad",
+      "Å svare «ingen feil» på for mange rader"
+    ],
+    "explanation": "Kandidaten finner en mulig feil lenger ned og svarer med den, uten å sjekke at programmet i det hele tatt kommer dit — derfor er steg 3 i oppskriften «stopp ved den første umulige operasjonen». Alternativlista i oppgaven inneholder bare gyldige feiltyper, så det er ikke der problemet ligger. Tidsbruk er sjelden en begrensning på en fire-radstabell."
+  },
+  {
+    "question": "`snitt.py` gjør `tall = sys.argv[1:]` og til slutt `print(sum_tall / len(tall))`. Hva skjer ved `python3 snitt.py`?",
+    "options": [
+      "`ZeroDivisionError`",
+      "`IndexError`",
+      "`ValueError`",
+      "Programmet skriver `0.0`"
+    ],
+    "explanation": "Utsnittet gir den tomme lista, løkka kjører null ganger, og `len(tall)` er 0 — så divisjonen feiler med `ZeroDivisionError`. `IndexError` er utelukket nettopp fordi utsnitt aldri feiler. Ingenting konverteres feil, så `ValueError` er også ute."
+  },
+  {
+    "question": "Hva er `sys.argv[1]` når programmet kjøres som `python3 p.py 007`?",
+    "options": [
+      "Strengen `'007'`",
+      "Heltallet 7",
+      "Heltallet 007",
+      "Flyttallet 7.0"
+    ],
+    "explanation": "Alle elementene i `sys.argv` er strenger, så du får `'007'` med begge nullene bevart. Skal du regne, må du selv kalle `int` — og `int('007')` gir 7, siden ledende nuller er lovlige for `int`. Python konverterer aldri kommandolinjeargumenter for deg."
+  },
+  {
+    "question": "I en `try` med `except Exception` først og `except ValueError` etter utløses en `ValueError`. Hvilken blokk kjører?",
+    "options": [
+      "`except Exception`, fordi den står først",
+      "`except ValueError`, fordi den er mest spesifikk",
+      "Begge, i den rekkefølgen de står",
+      "Ingen — Python gir en feil om at blokkene er i gal rekkefølge"
+    ],
+    "explanation": "Python bruker den første `except` som passer, og `Exception` passer til alt, så den generelle blokken kjører. Python velger ikke den mest spesifikke, og bare én blokk kjøres per feil. Rekkefølgen gir ingen feilmelding — koden kjører, den gjør bare noe annet enn du trodde."
+  },
+  {
+    "question": "Hvor mange rader i en typisk exception-matche-tabell er «ingen feil»?",
+    "options": [
+      "Vanligvis minst én",
+      "Aldri noen",
+      "Alltid nøyaktig to",
+      "Alle unntatt én"
+    ],
+    "explanation": "Settene tar nesten alltid med ett kall som går helt gjennom, for å sjekke at du faktisk sporer koden i stedet for å lete etter feil overalt. Å anta at hver rad må ha en feil, koster typisk et halvt poeng. Noen sett har to slike rader, men det er ikke fast."
+  }
+]

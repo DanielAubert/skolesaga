@@ -1,0 +1,392 @@
+{
+ "id": "in1900-3-2",
+ "courseId": "in1900",
+ "chapterNumber": "3.2",
+ "title": "Rekker og summer: Taylor- og potensrekker",
+ "description": "Implementere en endelig sum som tilnærmer en funksjon — det kanoniske mønsteret med en akkumulator, en løkke og en retur, inkludert rekurrente rekker løst med løkke.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne lese et summetegn som en oppskrift på en løkke, og oversette grensene riktig",
+  "kunne skrive en funksjon som summerer en endelig rekke, med akkumulator, riktig løkkegrense og retur på rett sted",
+  "kunne håndtere ledd som skifter fortegn og ledd som bare har oddetalls- eller partallspotenser",
+  "kunne løse en rekurrent rekke med løkke og to lagervariabler, og teste svaret mot en uavhengig fasit"
+ ],
+ "content": [
+  {
+   "id": "in1900-3-2-tip-vinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet lærer deg den ene oppgaven som har stått på hvert eneste sett.**\n\nI IN1900 er det to eksamener. **Midtveiseksamen** i oktober er en heldigital flervalgseksamen i Inspera, UiOs eksamenssystem, og teller 25 prosent. **Den avsluttende eksamenen** i desember varer fire timer, teller 75 prosent, og består for det meste av **fritekst-koding**: du skriver Python-kode rett inn i et tekstfelt, uten hjelpemidler og uten å kunne kjøre den.\n\nDer møter du **sjanger F**. Sjanger F er bokas kode for oppgaven «skriv en funksjon som summerer en rekke, og skriv en testfunksjon til den». Tallene:\n\n- Sjanger F står i **hvert eneste sett (100 prosent)** av de åtte nyere avsluttende settene.\n- Den er verdt **4–6 poeng**, altså rundt en tolvdel av hele eksamenen.\n- Testfunksjonen, som er del-b, er et selvstendig delkrav i **7 av 8 sett (88 prosent)**. Den tok vi i [kap. 3.1](/bok/in1900/in1900-3-1); her tar vi selve summen.\n\nPrioriteten er den høyeste boka opererer med. Boka bruker tre nivåer: **må sitte** (nivå 1), **kunne** (nivå 2) og **kjenne til** (nivå 3). Rekker er nivå 1.\n\n**Det beste med sjangeren er at den nesten ikke forandrer seg.** Innpakningen roterer år for år — eksponentialfunksjonen, logaritmen, invers tangens hyperbolicus, sinus hyperbolicus, arcus sinus, cosinus, Chebyshev-polynomer — men programmeringsøvelsen er identisk hver gang: en variabel som starter på null, en løkke, en addisjon, og en `return`. Lærer du mønsteret her, gjenkjenner du oppgaven uansett hvilken funksjon de har valgt.\n\n**Om delpoeng:** sensor gir uttelling for deler av en løsning. Riktig løkkestruktur belønnes selv om du bommer på ett ledd eller på en indeks. De offisielle løsningsforslagene sier det rett ut: å få alle indekser 100 prosent riktig under tidspress er nesten umulig."
+  },
+  {
+   "id": "in1900-3-2-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nFire ting fra tidligere i boka:\n\n- **Løkker og `range`** fra [kap. 1.3](/bok/in1900/in1900-1-3), særlig at stoppverdien i `range` er **eksklusiv**. Det er den enkeltdetaljen som avgjør flest poeng i dette kapitlet.\n- **Funksjoner** fra [kap. 1.6](/bok/in1900/in1900-1-6): `def`, argumenter og `return`.\n- **Potenser og heltallsdivisjon** fra [kap. 1.1](/bok/in1900/in1900-1-1). Du trenger å vite at `/` alltid gir flyttall, og at `**` er potens.\n- **Testfunksjoner** fra [kap. 3.1](/bok/in1900/in1900-3-1) — hver oppgave i dette kapitlet ender med en test.\n\nMatematikken bak er ikke pensum her; du skal implementere formelen, ikke utlede den. Vil du likevel vite hvorfor en endelig sum kan tilnærme en funksjon, står utledningen i [Taylorpolynomer med restledd](/bok/mat1100/mat1100-6-1) og [Uendelige rekker og konvergenstester](/bok/mat1100/mat1100-6-2).\n\nKapitlet er delt i fire løkker med tidsanslag og tar knapt en time."
+  },
+  {
+   "id": "in1900-3-2-t-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — fra summetegn til løkke (~12 min)\n\nEn kalkulator har ingen «eksponentialknapp» inni seg. Den regner ut $e^x$ ved å legge sammen ledd fra en uendelig rekke og stoppe når leddene blir små nok. Formelen er\n\n$$e^x = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$$\n\nVi kan selvsagt ikke legge sammen uendelig mange ledd. Det vi kan, er å stoppe etter ledd nummer $N$:\n\n$$e^x \\approx \\sum_{k=0}^{N} \\frac{x^k}{k!}$$\n\n**Les summetegnet som en oppskrift på en løkke.** Under tegnet står `k = 0`: det er der løkka begynner. Over står $N$: det er der den slutter, og $N$ skal **være med**. Til høyre står leddet: det er uttrykket som legges til hver runde.\n\nDet er hele oversettelsen. Alt annet i dette kapitlet er varianter av den samme fire linjene."
+  },
+  {
+   "id": "in1900-3-2-thm-mal",
+   "type": "theorem",
+   "title": "Rekke-summeringsmønsteret",
+   "content": "Bokas faste mal for sjanger F. Fire steg, alltid i denne rekkefølgen:\n\n1. **Nullstill akkumulatoren** før løkka: `s = 0`.\n2. **Løkke over leddnumrene**, med `range(N+1)` når summen går til og med $N$.\n3. **Legg til leddet**: `s += <uttrykk med k>`.\n4. **Returnér summen** etter løkka: `return s`.\n\n```python\nfrom math import factorial\n\ndef exp_rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\nprint(exp_rekke(1.0, 5))\n```\n\n**Utskrift:**\n```\n2.7166666666666663\n```\n\nTre detaljer som er poenggivende hver gang:\n\n- **`range(N+1)`, ikke `range(N)`.** Summen går til *og med* $N$, og stoppverdien i `range` er eksklusiv. Med `range(N)` mister du det siste leddet.\n- **`return s` står utenfor løkka.** Havner `return` inne i løkka, avbrytes funksjonen etter første runde og du får bare det første leddet.\n- **Løkkevariabelen heter det samme som i formelen.** Står det $k$ under summetegnet, skriv `k` i koden. Sensor leser koden mot formelen, og like navn gjør sammenligningen umiddelbar."
+  },
+  {
+   "id": "in1900-3-2-def-akkumulator",
+   "type": "definition",
+   "title": "Akkumulatoren `s = 0` … `s += ledd`",
+   "content": "En **akkumulator** er en variabel som samler opp et resultat gjennom en løkke. Den settes til null før løkka og økes med ett ledd per runde.\n\n`s += ledd` betyr nøyaktig det samme som `s = s + ledd`: hent den gamle verdien, legg til, og lagre tilbake i samme variabel. Skrivemåten kalles en augmentert tilordning.\n\nStartverdien må stå **før** løkka. Står `s = 0` inne i løkka, nullstilles summen hver runde, og funksjonen returnerer bare siste ledd.\n\n```python\ns = 0\nfor k in range(1, 5):\n    s += k*(k+1)\nprint(s)\n```\n\n**Utskrift:**\n```\n40\n```"
+  },
+  {
+   "id": "in1900-3-2-def-rangeN1",
+   "type": "definition",
+   "title": "`range(N+1)` i en rekkesum",
+   "content": "Går summen fra $k = 0$ til og med $k = N$, har den $N+1$ ledd, og løkka skrives `for k in range(N+1):`. Stoppverdien i `range` er **eksklusiv**, så `range(N+1)` gir verdiene $0, 1, \\ldots, N$.\n\nBegynner summen på $k = 1$ i stedet, skrives løkka `for k in range(1, N+1):` — første argument er startverdien, som er inklusiv.\n\n```python\nN = 3\nprint(list(range(N+1)), list(range(1, N+1)))\n```\n\n**Utskrift:**\n```\n[0, 1, 2, 3] [1, 2, 3]\n```\n\nRegelen i én setning: **les grensene rett av summetegnet, og legg alltid én til den øvre.**"
+  },
+  {
+   "id": "in1900-3-2-def-factorial",
+   "type": "definition",
+   "title": "`factorial(k)` fra `math`",
+   "content": "Fakultet: produktet av alle heltall fra 1 til og med $k$, og $0! = 1$ per definisjon. Funksjonen hentes med `from math import factorial` — modulen står **først** i importsetningen.\n\nDen tar et ikke-negativt heltall og returnerer et heltall. Sender du et flyttall inn, får du `ValueError`.\n\n```python\nfrom math import factorial\nfor k in range(5):\n    print(k, factorial(k))\n```\n\n**Utskrift:**\n```\n0 1\n1 1\n2 2\n3 6\n4 24\n```\n\nDu skal **ikke** implementere fakultet selv. Det er bortkastet tid på eksamen, og de offisielle løsningsforslagene bruker `factorial` direkte."
+  },
+  {
+   "id": "in1900-3-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: eksponentialrekka, ledd for ledd",
+   "problem": "Hvor mange ledd trengs før rekka for $e^{0{,}5}$ treffer verdien fra `math.exp` på ti desimaler? Vis summen for $N = 1, 3, 6$ og $15$.",
+   "solution": "\nVi bruker malen uendret og kaller funksjonen med fire ulike verdier av $N$.\n\n```python\nfrom math import factorial, exp\n\ndef exp_rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\nfor N in [1, 3, 6, 15]:\n    print(N, exp_rekke(0.5, N))\nprint('math.exp(0.5) =', exp(0.5))\n```\n\n**Utskrift:**\n```\n1 1.5\n3 1.6458333333333333\n6 1.6487196180555554\n15 1.6487212707001278\nmath.exp(0.5) = 1.6487212707001282\n```\n\nMed ett ledd ($N = 1$) er svaret bare $1 + 0{,}5$. Med seks ledd stemmer fem desimaler, og med seksten ledd stemmer alle sifrene bortsett fra det siste — avviket er om lag $4\\cdot 10^{-16}$, altså ren avrundingsstøy.\n\nDet er nettopp derfor testfunksjonen fra [kap. 3.1](/bok/in1900/in1900-3-1) bruker `abs(expected - computed) < tol` og aldri `==`.\n\n**Legg merke til hvor raskt fakultetet i nevneren vokser.** Ledd nummer 15 er $0{,}5^{15}/15!$, altså rundt $2\\cdot 10^{-17}$. Det er grunnen til at få ledd holder når $x$ er liten — og et varsel om at mange flere ledd trengs når $x$ er stor."
+  },
+  {
+   "id": "in1900-3-2-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-3-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut?\n\n```python\ns = 0\nfor k in range(4):\n    s += 2*k\n    print(s, end=' ')\n```",
+    "solution": "**Sporingstavle**\n\n| Runde | `k` | `2*k` | `s` etter | Skriver |\n|---|---|---|---|---|\n| — | — | — | 0 | — |\n| 1 | 0 | 0 | 0 | `0 ` |\n| 2 | 1 | 2 | 2 | `2 ` |\n| 3 | 2 | 4 | 6 | `6 ` |\n| 4 | 3 | 6 | 12 | `12 ` |\n\n`range(4)` gir fire verdier: 0, 1, 2 og 3 — ikke 1 til 4. Og `end=' '` bytter ut linjeskiftet med et mellomrom, så alt havner på samme linje, med et avsluttende mellomrom etter det siste tallet.\n\n**Utskrift:**\n```\n0 2 6 12 \n```\n\nFellenote: her møter du felle **#1 — av-én-feilen i `range`** i sin enkleste form. Fire runder, og den siste verdien er 3.",
+    "hints": [
+     "Skriv opp verdien av `s` etter hver runde før du ser på utskriften.",
+     "Hvilke fire verdier gir `range(4)`?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-3-2-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-3-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger A — kodesporing av en rekkesum.) Hva skriver programmet ut? Pass på formateringen: `{ledd:6.3f}` betyr totalbredde 6 med 3 desimaler.\n\n```python\nfrom math import factorial\ns = 0\nfor k in range(3):\n    ledd = 2**k / factorial(k)\n    s += ledd\n    print(f'{k} {ledd:6.3f} {s:6.3f}')\n```",
+    "solution": "**Sporingstavle**\n\n| `k` | `2**k` | `factorial(k)` | `ledd` | `s` etter |\n|---|---|---|---|---|\n| 0 | 1 | 1 | 1.0 | 1.0 |\n| 1 | 2 | 1 | 2.0 | 3.0 |\n| 2 | 4 | 2 | 2.0 | 5.0 |\n\nAlle tre leddene er flyttall, fordi `/` alltid gir flyttall. Feltet `6.3f` er seks tegn totalt: `1.000` er fem tegn, så det kommer ett mellomrom foran.\n\n**Utskrift:**\n```\n0  1.000  1.000\n1  2.000  3.000\n2  2.000  5.000\n```\n\nFellenote: to feller i én. Den første er **#16 — utskriftsdetaljer**: bredden 6 er totalbredde, ikke antall desimaler. Den andre er at $0! = 1$ og $1! = 1$, slik at ledd nummer 0 og 1 begge har nevner 1 — mange venter seg 0 eller en feil på ledd nummer null.",
+    "hints": [
+     "Regn ut telleren og nevneren hver for seg for hver `k`.",
+     "Hva er `factorial(0)`?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-3-2-warn-aven",
+   "type": "warning",
+   "title": "Typiske feil: av-én i `range` (#1)",
+   "content": "Feilkatalogen er bokas nummererte register over feil som går igjen; hver feil har et nummer du kan slå opp. **Feil #1 — av-én i `range` eller i antall punkter** — er den hyppigste i hele emnet, og i rekkeoppgaver ser den slik ut:\n\n```python\nfrom math import factorial, exp\n\ndef galt(x, N):\n    s = 0\n    for k in range(N):\n        s += x**k / factorial(k)\n    return s\n\ndef riktig(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\nprint(galt(1.0, 5), riktig(1.0, 5))\nprint(exp(1.0))\n```\n\n**Utskrift:**\n```\n2.708333333333333 2.7166666666666663\n2.718281828459045\n```\n\nForskjellen ser liten ut, men den er systematisk: `galt` summerer bare til $k = N-1$ og mister alltid det siste leddet. På en testfunksjon med stram toleranse gir det `AssertionError` uansett hvor mange ledd du tar med.\n\n**Sjekklista er kort.** Sier oppgaven «fra 0 til og med $N$», skriv `range(N+1)`. Sier den «de første $N$ leddene», er `range(N)` riktig. Sier den ingenting presist, velg én tolkning og skriv én kommentarlinje om valget — det er den ene legitime bruken av kommentarer i dette faget, og den gir uttelling."
+  },
+  {
+   "id": "in1900-3-2-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-3-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — skriv rekke og testfunksjon.) Rekka for $e^x$ er\n\n$$e^x = \\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$$\n\n**a)** Skriv `exp_rekke(x, N)` som summerer leddene fra $k = 0$ til og med $k = N$.\n\n**b)** Skriv en testfunksjon som sammenligner med `math.exp` for $x = 0{,}5$ med $N = 15$.\n\n**c)** Hva skjer med testen hvis du bytter `range(N+1)` til `range(N)`?",
+    "solution": "**a)** og **b)** i samme program:\n\n```python\nfrom math import factorial, exp\n\ndef exp_rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\ndef test_exp_rekke():\n    x = 0.5\n    expected = exp(x)\n    computed = exp_rekke(x, 15)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_exp_rekke()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\n**c)** Testen feiler. Med `range(N)` mangler leddet $0{,}5^{15}/15!$, som er rundt $2\\cdot 10^{-17}$ — det er faktisk mindre enn toleransen, så akkurat her ville testen gått gjennom likevel. Men med $N = 6$ ville det manglende leddet vært $0{,}5^{6}/6! \\approx 2\\cdot 10^{-5}$, altså langt over `1e-10`, og testen ville stoppet programmet med `AssertionError`. Poenget står: feilen er der uansett, den er bare skjult når $N$ er stor.\n\n**Hva gir uttelling (5 poeng):** 1 for `s = 0` før løkka, 1 for `range(N+1)`, 1 for leddet `x**k / factorial(k)`, 1 for `return s` utenfor løkka, 1 for en testfunksjon uten argumenter med `abs(...) < tol` og melding. Skriver du `s = 0.0` i stedet for `s = 0`, er det like riktig.",
+    "hints": [
+     "Bruk malen: nullstill, løkke, legg til, returnér.",
+     "Fasiten i testen skal komme fra `math.exp`, ikke fra din egen rekke.",
+     "Til c): hvor stort er det leddet du mister, sammenlignet med toleransen?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-3-2-t-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — ledd som skifter fortegn (~12 min)\n\n— naturlig pausepunkt —\n\nMange av de nyttigste rekkene har ledd som veksler mellom pluss og minus. Den naturlige logaritmen er et eksempel:\n\n$$\\ln(1+x) = \\sum_{k=1}^{\\infty} (-1)^{k+1}\\frac{x^k}{k} = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots$$\n\nI koden løses dette med én faktor. Du trenger ingen `if`-setning og ingen hjelpevariabel som skifter fortegn — bare et fortegnsledd som er en potens av $-1$.\n\nLegg samtidig merke til at denne summen starter på $k = 1$, ikke på $k = 0$. Det er en av de tre tingene du leser rett av summetegnet: **startverdi, sluttverdi og leddets uttrykk.**"
+  },
+  {
+   "id": "in1900-3-2-def-fortegn",
+   "type": "definition",
+   "title": "`(-1)**k` — det alternerende fortegnet",
+   "content": "Uttrykket `(-1)**k` er 1 når $k$ er et partall og $-1$ når $k$ er et oddetall. Det er standardmåten å få et ledd til å skifte fortegn på.\n\nParentesen rundt $-1$ er nødvendig: `-1**k` betyr `-(1**k)`, som alltid er $-1$, fordi `**` binder sterkere enn det unære minustegnet.\n\nSkal det første leddet være positivt når summen starter på $k = 1$, bruker du `(-1)**(k+1)`.\n\n```python\nfor k in range(4):\n    print(k, (-1)**k, end='  ')\nprint()\n```\n\n**Utskrift:**\n```\n0 1  1 -1  2 1  3 -1  \n```"
+  },
+  {
+   "id": "in1900-3-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: logaritmerekka, med start på k = 1",
+   "problem": "Skriv `ln1p_rekke(x, N)` som tilnærmer $\\ln(1+x)$ med leddene fra $k = 1$ til og med $k = N$, og sammenlign med `math.log` for $x = 0{,}5$.",
+   "solution": "\nTo ting skiller denne fra eksponentialrekka: løkka starter på 1, og fortegnet veksler. Begge deler leses rett av formelen.\n\n```python\nfrom math import log\n\ndef ln1p_rekke(x, N):\n    s = 0\n    for k in range(1, N+1):\n        s += (-1)**(k+1) * x**k / k\n    return s\n\nprint(ln1p_rekke(0.5, 5))\nprint(ln1p_rekke(0.5, 30))\nprint(log(1.5))\n```\n\n**Utskrift:**\n```\n0.40729166666666666\n0.4054651080980436\n0.4054651081081644\n```\n\nMed fem ledd stemmer to desimaler. Med tretti ledd stemmer ni. Sammenlign med eksponentialrekka, der seks ledd ga fem riktige desimaler: **denne rekka konvergerer langt saktere**, fordi nevneren bare er $k$ og ikke $k!$.\n\nKonsekvensen for en testfunksjon er praktisk. Toleransen må velges etter metoden, ikke etter ønske: med $N = 30$ er avviket rundt $10^{-11}$, så `tol = 1e-10` går akkurat. Med $N = 5$ måtte du hatt `tol = 1e-2`.\n\n**Margnotat om uttelling:** de to detaljene sensor ser etter her er `range(1, N+1)` — altså at løkka starter der summetegnet sier — og at fortegnet er `(-1)**(k+1)` slik at det første leddet blir positivt. Bommer du på eksponenten i fortegnet, får du hele summen med motsatt fortegn; det er ett poeng, ikke oppgaven."
+  },
+  {
+   "id": "in1900-3-2-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-3-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — alternerende rekke.) Cosinus kan skrives\n\n$$\\cos x = \\sum_{k=0}^{\\infty} (-1)^k \\frac{x^{2k}}{(2k)!}$$\n\n**a)** Skriv `cos_rekke(x, N)` som summerer leddene til og med $k = N$.\n\n**b)** Skriv en testfunksjon mot `math.cos` for $x = 1{,}2$ med $N = 10$ og toleranse `1e-10`.\n\n**c)** Hvorfor kan du ikke bruke `tol = 1e-10` med $N = 2$?",
+    "solution": "**a)** og **b)**:\n\n```python\nfrom math import factorial, cos\n\ndef cos_rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += (-1)**k * x**(2*k) / factorial(2*k)\n    return s\n\ndef test_cos_rekke():\n    x = 1.2\n    expected = cos(x)\n    computed = cos_rekke(x, 10)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_cos_rekke()\nfor N in [1, 2, 4, 10]:\n    print(N, cos_rekke(1.2, N))\nprint(cos(1.2))\n```\n\n**Utskrift:**\n```\n1 0.28\n2 0.3664\n4 0.36235944228571426\n10 0.3623577544766735\n0.3623577544766736\n```\n\nMerk at både eksponenten og fakultetet bruker `2*k`, ikke `k`: leddene i cosinusrekka har bare partallseksponenter.\n\n**c)** Fordi rekka med $N = 2$ gir 0,3664, mens den riktige verdien er 0,36236. Avviket er om lag $4\\cdot 10^{-3}$, altså ti milliarder ganger større enn toleransen `1e-10`. Testen ville stoppet programmet — ikke fordi koden er gal, men fordi tre ledd ikke kan gi ti riktige desimaler. Toleransen skal passe til metodens nøyaktighet.\n\n**Hva gir uttelling (5 poeng):** 1 for løkkestrukturen, 1 for `(-1)**k`, 1 for `x**(2*k)` og `factorial(2*k)` med samme `2*k` begge steder, 1 for testfunksjonen med toleranse, 1 for resonnementet i c).",
+    "hints": [
+     "Både eksponenten og fakultetet skal ha `2*k`.",
+     "Fortegnet er `(-1)**k`, med parentes rundt minus én.",
+     "Til c): regn ut hvor stort avviket er med tre ledd, og sammenlign med toleransen."
+    ]
+   }
+  },
+  {
+   "id": "in1900-3-2-t-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — rekker med bare oddetallsledd (~15 min)\n\nSinus hyperbolicus beskriver blant annet formen på en hengende kjede, og har rekka\n\n$$\\sinh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{(2n+1)!} = x + \\frac{x^3}{3!} + \\frac{x^5}{5!} + \\cdots$$\n\nHer er hvert eneste ledd en oddetallspotens. Fristelsen er å løkke over alle heltall og hoppe over partallene med en `if`. Ikke gjør det. **Løkk over leddnummeret, og la uttrykket lage oddetallet.**\n\nDet er nettopp det $2n+1$ gjør: med $n = 0, 1, 2, 3$ blir $2n+1$ lik $1, 3, 5, 7$. Løkkevariabelen teller ledd; uttrykket regner ut hvilken potens leddet har."
+  },
+  {
+   "id": "in1900-3-2-def-odde",
+   "type": "definition",
+   "title": "Oddetallsindeksering `2*n+1`",
+   "content": "Når rekka bare har oddetallspotenser, løkker du over **leddnummeret** `n` og bruker `2*n+1` der eksponenten og fakultetet skal stå. Løkkevariabelen er da antall ledd du har tatt med, ikke potensen.\n\nMed `n = 0, 1, 2, 3` gir `2*n+1` verdiene 1, 3, 5 og 7. Skal du ha partallspotenser i stedet, er uttrykket `2*n`.\n\n```python\nfor n in range(4):\n    print(n, 2*n+1)\n```\n\n**Utskrift:**\n```\n0 1\n1 3\n2 5\n3 7\n```\n\nRegelen som sparer deg for feil: **det samme uttrykket skal stå både i eksponenten og i fakultetet.** Står det `x**(2*n+1)` i telleren, skal nevneren være `factorial(2*n+1)` — ikke `factorial(n)`."
+  },
+  {
+   "id": "in1900-3-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: sinus hyperbolicus med fire ledd",
+   "problem": "Skriv `sinh_rekke(x, N)` som summerer de $N+1$ første oddetallsleddene, og sjekk mot `math.sinh` for $x = 0{,}8$.",
+   "solution": "\nMalen er uendret. Det eneste nye er at `2*n+1` erstatter `k` to steder.\n\n```python\nfrom math import factorial, sinh\n\ndef sinh_rekke(x, N):\n    s = 0\n    for n in range(N+1):\n        s += x**(2*n+1) / factorial(2*n+1)\n    return s\n\nprint(sinh_rekke(0.8, 3))\nprint(sinh_rekke(0.8, 8))\nprint(sinh(0.8))\n```\n\n**Utskrift:**\n```\n0.8881056101587302\n0.8881059821876232\n0.888105982187623\n```\n\nFire ledd ($N = 3$) gir seks riktige desimaler, og ni ledd treffer alle sifrene bortsett fra det siste. Rekka konvergerer nesten like raskt som eksponentialrekka, og av samme grunn: fakultetet i nevneren.\n\nEn liten kontroll du kan gjøre i hodet på eksamen: **det første leddet er $x$ selv**, siden $2\\cdot 0 + 1 = 1$ og $1! = 1$. Gir funksjonen din noe annet enn 0,8 når du kaller den med $N = 0$, er indekseringen gal.\n\n**Margnotat om uttelling:** her er det to poenggivende ting og én felle. Poengene ligger i `range(N+1)` og i at `2*n+1` står begge steder. Fellen er å skrive `factorial(n)` i nevneren; da får du en helt annen funksjon, og testen mot `math.sinh` avslører det med en gang."
+  },
+  {
+   "id": "in1900-3-2-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-3-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — oddetallsledd med testfunksjon.) Invers tangens hyperbolicus har rekka\n\n$$\\operatorname{artanh} x = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{2n+1}, \\qquad |x| < 1$$\n\nLegg merke til at nevneren er $2n+1$ — ikke $(2n+1)!$.\n\n**a)** Skriv `atanh_rekke(x, N)`.\n\n**b)** Skriv en testfunksjon mot `math.atanh` for $x = 0{,}5$. Velg $N$ og toleranse som passer sammen, og begrunn valget i en kommentar.\n\n**c)** Kontroller i hodet hva funksjonen gir for $N = 0$, og forklar hvorfor.",
+    "solution": "**a)** og **b)**. Uten fakultet i nevneren konvergerer rekka langsomt, så det trengs mange ledd:\n\n```python\nfrom math import atanh\n\ndef atanh_rekke(x, N):\n    s = 0\n    for n in range(N+1):\n        s += x**(2*n+1) / (2*n+1)\n    return s\n\ndef test_atanh_rekke():\n    x = 0.5\n    expected = atanh(x)\n    computed = atanh_rekke(x, 40)\n    tol = 1e-10  # 41 ledd gir avvik under 1e-15 for x = 0.5\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_atanh_rekke()\nprint(atanh_rekke(0.5, 4))\nprint(atanh_rekke(0.5, 40))\nprint(atanh(0.5))\n```\n\n**Utskrift:**\n```\n0.5492497519841268\n0.5493061443340544\n0.5493061443340549\n```\n\nMed fem ledd stemmer tre desimaler; med 41 ledd stemmer alle sifrene bortsett fra de to siste. Kommentaren i koden er nettopp den typen dokumentert antakelse som gir uttelling.\n\n**c)** For $N = 0$ går løkka én runde med $n = 0$, og leddet er $x^{1}/1 = x$. Funksjonen gir altså 0,5. Det er en gratis kontroll: **første ledd i en oddetallsrekke er alltid $x$ selv**, og gir funksjonen noe annet, er indekseringen gal.\n\n**Hva gir uttelling (6 poeng):** 1 for `s = 0` og `return s` på rett sted, 1 for `range(N+1)`, 1 for `x**(2*n+1)`, 1 for nevneren `(2*n+1)` uten fakultet, 1 for testfunksjonen med `abs(...) < tol`, 1 for at $N$ og toleransen henger sammen med en begrunnelse. Velger du $N = 20$ og `tol = 1e-6`, er det like riktig — det er sammenhengen som vurderes, ikke tallene.",
+    "hints": [
+     "Løkk over leddnummeret `n`, og la `2*n+1` lage oddetallet.",
+     "Nevneren her er `(2*n+1)`, ikke `factorial(2*n+1)` — les formelen nøye.",
+     "Prøv deg fram med noen verdier av N før du velger toleranse."
+    ]
+   }
+  },
+  {
+   "id": "in1900-3-2-t-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — rekurrente rekker, løst med løkke (~16 min)\n\nNoen rekker er ikke gitt ved en formel for leddet, men ved en **rekurrens**: hvert ledd defineres ut fra de forrige. Chebyshev-polynomene er det klassiske eksempelet:\n\n$$T_0(x) = 1, \\qquad T_1(x) = x, \\qquad T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$$\n\nDe brukes i numerisk analyse fordi de fordeler tilnærmingsfeilen jevnt over et intervall. For oss er de interessante av en helt annen grunn: de er den ene rekketypen der studenter systematisk velger feil verktøy.\n\n**Løsningen er en løkke som husker de to siste verdiene.** Du trenger to variabler, og du oppdaterer dem i takt."
+  },
+  {
+   "id": "in1900-3-2-warn-lokkekrav",
+   "type": "warning",
+   "title": "Rekursjon er utenfor pensum i IN1900",
+   "content": "En rekurrensformel ser ut som en invitasjon til å la en funksjon kalle seg selv. **Det er utenfor pensum i dette emnet**, og en slik løsning markeres som uønsket i de offisielle løsningsforslagene. Dette er felle **#9 — rekursjon der løkke er forventet**.\n\nBegrunnelsen er både faglig og praktisk. Emnet underviser aldri teknikken, så den forventes ikke; og en funksjon som kaller seg selv to ganger per nivå gjør eksponentielt mange kall, slik at $T_{30}$ tar minutter i stedet for mikrosekunder.\n\n**Alt løses med løkke.** Oppskriften er den samme hver gang: lagre de verdiene formelen trenger, gå ett steg av gangen, og oppdater lagrene i riktig rekkefølge."
+  },
+  {
+   "id": "in1900-3-2-thm-rekurrent",
+   "type": "theorem",
+   "title": "Rekurrent rekke med løkke — hold på de to siste",
+   "content": "Malen for en rekurrens som trenger de to foregående verdiene:\n\n1. **Ta unna basistilfellene** med en `if` øverst: den minste verdien returneres direkte.\n2. **Sett de to lagrene** til de kjente startverdiene: `T_forrige` og `T_denne`.\n3. **Løkke fra 1 til $n$** — én runde per steg du må ta deg fram.\n4. **Regn den nye verdien først**, i en egen variabel, og flytt deretter lagrene ett hakk.\n5. **Returnér** den siste verdien.\n\n```python\ndef chebyshev(n, x):\n    if n == 0:\n        return 1.0\n    T_forrige = 1.0\n    T_denne = x\n    for k in range(1, n):\n        T_neste = 2*x*T_denne - T_forrige\n        T_forrige = T_denne\n        T_denne = T_neste\n    return T_denne\n\nfor n in range(6):\n    print(n, chebyshev(n, 0.5))\n```\n\n**Utskrift:**\n```\n0 1.0\n1 0.5\n2 -0.5\n3 -1.0\n4 -0.5\n5 0.5\n```\n\n**Punkt 4 er hele oppgaven.** Skriver du `T_forrige = T_denne` før du har regnet ut den nye verdien, er den gamle `T_forrige` allerede overskrevet, og formelen bruker feil tall. Hjelpevariabelen `T_neste` finnes utelukkende for å hindre det.\n\nMerk også at løkka går til `range(1, n)`, ikke `range(1, n+1)`: når $T_1$ allerede er satt, trengs bare $n-1$ steg for å komme fram til $T_n$. Sjekk det med $n = 2$: løkka går én runde og regner ut $T_2$."
+  },
+  {
+   "id": "in1900-3-2-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: Chebyshev-polynomet med testfunksjon",
+   "problem": "Test `chebyshev(n, x)` mot den kjente formelen $T_3(x) = 4x^3 - 3x$ for $x = 0{,}3$.",
+   "solution": "\nFasiten kommer her ikke fra `math`, men fra en formel du kan skrive opp uavhengig av koden. Det er en helt gyldig — og ofte bedre — kilde til `expected`.\n\n```python\ndef chebyshev(n, x):\n    if n == 0:\n        return 1.0\n    T_forrige = 1.0\n    T_denne = x\n    for k in range(1, n):\n        T_neste = 2*x*T_denne - T_forrige\n        T_forrige = T_denne\n        T_denne = T_neste\n    return T_denne\n\ndef test_chebyshev():\n    x = 0.3\n    expected = 4*x**3 - 3*x\n    computed = chebyshev(3, x)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_chebyshev()\nprint('Testen gikk gjennom')\nprint(chebyshev(3, 0.3))\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n-0.792\n```\n\nRegn gjerne etter for hånd: $T_2 = 2\\cdot 0{,}3\\cdot 0{,}3 - 1 = -0{,}82$, og $T_3 = 2\\cdot 0{,}3\\cdot(-0{,}82) - 0{,}3 = -0{,}792$. Formelen $4x^3 - 3x$ gir $4\\cdot 0{,}027 - 0{,}9 = -0{,}792$. De to veiene møtes.\n\n**Margnotat om uttelling.** Sensor krysser av for fire ting: at basistilfellet $n = 0$ er behandlet, at begge startverdiene er satt, at oppdateringen bruker en hjelpevariabel slik at ingen verdi går tapt, og at løsningen bruker løkke. Bommer du på løkkegrensen — `range(1, n+1)` i stedet for `range(1, n)` — får du $T_{n+1}$ i stedet for $T_n$. Det er ett poeng, og strukturen står."
+  },
+  {
+   "id": "in1900-3-2-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-3-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — rekurrent rekke.) Fibonacci-tallene er definert ved $F_0 = 0$, $F_1 = 1$ og $F_{n+1} = F_n + F_{n-1}$, og dukker opp i modeller for bestandsvekst.\n\n**a)** Skriv `fib(n)` med en løkke, etter malen for rekurrente rekker.\n\n**b)** Skriv en testfunksjon som sjekker tre verdier du kan slå opp i hodet.\n\n**c)** Forklar i én setning hvorfor `T_neste`-triksen fra malen ikke er strengt nødvendig her, men hvorfor du likevel bør skrive det slik.",
+    "solution": "**a)** og **b)**. To basistilfeller denne gangen, siden $F_0$ og $F_1$ er ulike:\n\n```python\ndef fib(n):\n    if n == 0:\n        return 0\n    F_forrige = 0\n    F_denne = 1\n    for k in range(1, n):\n        F_neste = F_denne + F_forrige\n        F_forrige = F_denne\n        F_denne = F_neste\n    return F_denne\n\ndef test_fib():\n    fasit = {0: 0, 1: 1, 7: 13, 10: 55}\n    for n in fasit:\n        expected = fasit[n]\n        computed = fib(n)\n        msg = f'fib({n}) ga {computed}, ventet {expected}'\n        assert expected == computed, msg\n\ntest_fib()\nfor n in range(9):\n    print(fib(n), end=' ')\nprint()\n```\n\n**Utskrift:**\n```\n0 1 1 2 3 5 8 13 21 \n```\n\nLegg merke til at testen her bruker `==` og ikke en toleranse. Det er lov — og riktig — fordi Fibonacci-tallene er **heltall**. Regelen om toleranse gjelder flyttall, altså felle **#11 — likhetstegn på flyttall**. Her er det ingen flyttall inne i bildet.\n\n**c)** Fordi de to oppdateringene kunne vært skrevet som en samtidig tilordning, men rekkefølgen i den eksplisitte varianten er den samme du trenger i Chebyshev og i alle koblede oppdateringer senere i boka — så det du øver inn her, er mønsteret du får bruk for i [kap. 6.2](/bok/in1900/in1900-6-2).\n\n**Hva gir uttelling (5 poeng):** 1 for basistilfellet, 1 for begge startverdiene, 1 for oppdateringen i riktig rekkefølge, 1 for løkkegrensen, 1 for testfunksjonen. At du bruker løkke og ikke noe annet er en forutsetning: den tilnærmingen ligger utenfor pensum og trekker.",
+    "hints": [
+     "Sett `F_forrige = 0` og `F_denne = 1` før løkka.",
+     "Hvor mange steg må du ta for å komme fra F₁ til Fₙ?",
+     "Fibonacci-tall er heltall — trenger testen da en toleranse?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-3-2-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-3-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal summere rekka $\\sum_{k=0}^{N} x^k/k!$ og teste den. Det har **tre** feil.\n\n```text\nimport factorial from math\n\ndef exp_rekke(x, N):\n    for k in range(N):\n        s = 0\n        s += x**k / factorial(k)\n    return s\n\ndef test_exp_rekke(x, N):\n    assert exp_rekke(x, N) == 2.718281828\n```\n\n**a)** Nevn de tre feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden.",
+    "solution": "**a)** De tre feilene:\n\n1. **Importsetningen er snudd.** `import factorial from math` finnes ikke i Python; formen er `from math import factorial`, med modulen først. Programmet stopper på første linje med `SyntaxError`. Dette er felle **#10 — importsetningen i feil rekkefølge**.\n2. **`s = 0` står inne i løkka.** Akkumulatoren nullstilles hver runde, så funksjonen returnerer bare det siste leddet, ikke summen. Med `x = 1` og `N = 5` ville den gitt $1/4! = 0{,}0417$ i stedet for 2,7167. Legg merke til at løkka i tillegg går til `range(N)` — nok en av-én — men det er den nullstilte akkumulatoren som gjør resultatet meningsløst.\n3. **Testfunksjonen tar argumenter og bruker `==` på flyttall.** En testfunksjon skal kunne kalles som `test_exp_rekke()` og velge sine egne verdier, og sammenligningen må være `abs(expected - computed) < tol`. Dette er felle **#11 — likhetstegn på flyttall**. Fasiten `2.718281828` er dessuten en avrundet verdi, så testen ville feilet på helt riktig kode.\n\n**b)** Rettet:\n\n```python\nfrom math import factorial, exp\n\ndef exp_rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\ndef test_exp_rekke():\n    x = 1.0\n    expected = exp(x)\n    computed = exp_rekke(x, 20)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_exp_rekke()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\n**Hva gir uttelling (5 poeng):** 1 poeng per navngitt feil, 2 for rettet kode som kjører. Sjanger O er poengmessig snill: finner du to av tre feil, har du fortsatt flertallet av poengene. Nevner du av-én-feilen i `range(N)` som en fjerde feil, er det et pluss — den er reell.",
+    "hints": [
+     "Se på importlinja først: hvilken del står forrest i Python?",
+     "Hvor skal akkumulatoren nullstilles — før eller inne i løkka?",
+     "Hva er de tre kravene til en testfunksjon fra [kap. 3.1](/bok/in1900/in1900-3-1)?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-3-2-warn-samlet",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet — samlet",
+   "content": "Fem feil, i den rekkefølgen de oftest dukker opp i besvarelser:\n\n1. **#1 — av-én i `range`.** «Til og med $N$» betyr `range(N+1)`. Dette er den hyppigste feilen i hele emnet.\n2. **Akkumulatoren nullstilt inne i løkka, eller `return` inne i løkka.** Begge gir ett ledd i stedet for en sum. `s = 0` står før løkka, `return s` etter.\n3. **Feil ledd-indeksering i oddetallsrekker.** Løkk over leddnummeret og bruk `2*n+1` — og bruk **samme** uttrykk i eksponenten og i fakultetet.\n4. **#9 — å velge en teknikk som ligger utenfor pensum for rekurrente rekker.** Rekurrens løses med løkke og to lagervariabler, ikke ved at en funksjon kaller seg selv; det siste er utenfor pensum og markeres uønsket i fasit.\n5. **#10 — importsetningen i feil rekkefølge.** `from math import factorial`, aldri motsatt.\n\nOg én som ikke har eget nummer, men som koster like mye: **å reimplementere `factorial` selv**. Det tar tid du ikke har, og gir ingen ekstra poeng."
+  },
+  {
+   "id": "in1900-3-2-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1900-3-2-api-txt",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `s = 0` | akkumulatoren, nullstilt **før** løkka |\n| `s += ledd` | augmentert tilordning; samme som `s = s + ledd` |\n| `for k in range(N+1):` | leddnumrene $0, 1, \\ldots, N$ — stoppverdien er eksklusiv, derfor `N+1` |\n| `for k in range(1, N+1):` | leddnumrene $1, \\ldots, N$; første argument er inklusiv |\n| `return s` | **etter** løkka, på samme innrykk som `s = 0` |\n| `from math import factorial` | modulen først; motsatt rekkefølge er syntaksfeil (#10) |\n| `factorial(k)` | $k!$; tar et ikke-negativt heltall, gir et heltall, og `factorial(0)` er 1 |\n| `x**k` | potens; `**` binder sterkere enn unært minus, så `-1**k` er alltid $-1$ |\n| `(-1)**k` | alternerende fortegn: 1 for partall, $-1$ for oddetall |\n| `(-1)**(k+1)` | samme, men positivt først når summen starter på $k = 1$ |\n| `x**(2*n+1)` | oddetallspotens; samme uttrykk skal stå i fakultetet |\n| `factorial(2*n+1)` | fakultetet av oddetallet — ikke `factorial(n)` |\n| `x**(2*k)` og `factorial(2*k)` | partallsvarianten, brukt i cosinusrekka |\n| `T_neste = ...` før flyttingen | hjelpevariabel i en rekurrens, så ingen verdi overskrives før den er brukt |\n| `if n == 0: return ...` | basistilfellet øverst i en rekurrent funksjon |\n| `assert abs(expected - computed) < tol, msg` | testkriteriet fra [kap. 3.1](/bok/in1900/in1900-3-1) |\n| `assert expected == computed, msg` | lovlig **kun** når begge sider er heltall |\n| `from math import exp, log, sinh, atanh, cos` | fasitkilder for testfunksjonene |\n\n**Formler i dette delkapitlet:**\n\n$$e^x = \\sum_{k=0}^{N} \\frac{x^k}{k!}$$\n\n$$\\ln(1+x) = \\sum_{k=1}^{N} (-1)^{k+1}\\frac{x^k}{k}$$\n\n$$\\cos x = \\sum_{k=0}^{N} (-1)^k\\frac{x^{2k}}{(2k)!}$$\n\n$$\\sinh x = \\sum_{n=0}^{N} \\frac{x^{2n+1}}{(2n+1)!}$$\n\n$$\\operatorname{artanh} x = \\sum_{n=0}^{N} \\frac{x^{2n+1}}{2n+1}, \\qquad |x| < 1$$\n\n$$T_0 = 1, \\quad T_1 = x, \\quad T_{n+1} = 2xT_n - T_{n-1}$$\n\n**Navnekollisjon å være klar over:** bokstaven $k$ er både summasjonsindeksen i formelen og løkkevariabelen i koden — og det er med vilje. Regelen i boka er at de skal hete det samme. Bokstaven $e$ er derimot to ting: grunntallet $e \\approx 2{,}718$ i matematikken, og et vanlig navn på et element i en løkke (`for e in liste`). I dette kapitlet brukes `e` aldri som variabelnavn, nettopp for å unngå forvekslingen."
+    }
+   ]
+  },
+  {
+   "id": "in1900-3-2-bank-notis",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "in1900-3-2-bank-1",
+   "type": "definition",
+   "title": "Rekke",
+   "content": "En sum av ledd som følger et mønster. I dette emnet er rekkene alltid **endelige**: du summerer fra ledd 0 (eller 1) til og med ledd $N$, og bruker summen som en tilnærming til en funksjonsverdi. Jo flere ledd, jo bedre tilnærming — hvor mange som trengs, avhenger av hvor raskt leddene minker."
+  },
+  {
+   "id": "in1900-3-2-bank-2",
+   "type": "definition",
+   "title": "Sjanger F",
+   "content": "Bokas kode for oppgaven «skriv en funksjon som summerer en rekke, og skriv en testfunksjon til den». Sjangeren står i hvert eneste av de åtte nyere avsluttende settene og er verdt 4–6 poeng. Innpakningen roterer mellom eksponential, logaritme, cosinus, sinus hyperbolicus, invers tangens hyperbolicus, arcus sinus og Chebyshev — øvelsen er identisk."
+  },
+  {
+   "id": "in1900-3-2-bank-3",
+   "type": "definition",
+   "title": "Å lese et summetegn som en løkke",
+   "content": "Tre ting leses rett av tegnet: startverdien under tegnet blir første argument i `range`, sluttverdien over tegnet blir stoppverdien **pluss én**, og uttrykket til høyre blir det du legger til hver runde. Alt annet er den samme malen hver gang."
+  },
+  {
+   "id": "in1900-3-2-bank-4",
+   "type": "definition",
+   "title": "Akkumulator",
+   "content": "Variabelen som samler opp summen. Den settes til 0 før løkka og økes med `+=` inne i løkka. Nullstilles den inne i løkka, mister du hele summen og sitter igjen med siste ledd."
+  },
+  {
+   "id": "in1900-3-2-bank-5",
+   "type": "definition",
+   "title": "Trunkering av en rekke",
+   "content": "Å stoppe en uendelig sum etter ledd $N$. Feilen du gjør, kalles trunkeringsfeilen, og den er omtrent lik det første leddet du utelot. Det er derfor toleransen i testfunksjonen må velges etter hvor mange ledd du tar med."
+  },
+  {
+   "id": "in1900-3-2-bank-6",
+   "type": "definition",
+   "title": "Konvergenshastighet",
+   "content": "Hvor raskt leddene minker. Rekker med fakultet i nevneren — eksponential, cosinus, sinus hyperbolicus — treffer mange desimaler med få ledd. Rekker med bare $k$ eller $2n+1$ i nevneren — logaritme, invers tangens hyperbolicus — trenger titalls ledd for samme nøyaktighet."
+  },
+  {
+   "id": "in1900-3-2-bank-7",
+   "type": "definition",
+   "title": "Alternerende rekke",
+   "content": "En rekke der leddene skifter fortegn. Løses med faktoren `(-1)**k`, aldri med en `if`-setning. Parentesen rundt minus én er nødvendig, fordi `**` binder sterkere enn det unære minustegnet."
+  },
+  {
+   "id": "in1900-3-2-bank-8",
+   "type": "definition",
+   "title": "Oddetallsrekke",
+   "content": "En rekke der bare oddetallspotensene er med, som sinus hyperbolicus og invers tangens hyperbolicus. Du løkker over **leddnummeret** og lar `2*n+1` lage potensen. Samme uttrykk skal stå i eksponenten og i nevneren."
+  },
+  {
+   "id": "in1900-3-2-bank-9",
+   "type": "definition",
+   "title": "Partallsrekke",
+   "content": "Samme idé med `2*k` i stedet: cosinusrekka har leddene $x^{2k}/(2k)!$. Kontrollen er den samme — det samme uttrykket begge steder."
+  },
+  {
+   "id": "in1900-3-2-bank-10",
+   "type": "definition",
+   "title": "Rekurrens",
+   "content": "En definisjon der hvert ledd bygger på de foregående, som $T_{n+1} = 2xT_n - T_{n-1}$. Løses alltid med løkke og to lagervariabler i dette emnet."
+  },
+  {
+   "id": "in1900-3-2-bank-11",
+   "type": "definition",
+   "title": "Lagervariablene i en rekurrens",
+   "content": "To variabler som holder de to siste verdiene, pluss en hjelpevariabel for den nye. Rekkefølgen er: regn ut den nye verdien først, flytt deretter lagrene ett hakk. Flytter du først, er verdien du trengte allerede overskrevet."
+  },
+  {
+   "id": "in1900-3-2-bank-12",
+   "type": "definition",
+   "title": "Basistilfelle",
+   "content": "Den minste verdien i en rekurrens, som returneres direkte med en `if` øverst i funksjonen. Chebyshev trenger ett ($n = 0$), Fibonacci trenger at både $F_0$ og $F_1$ er dekket av startverdiene."
+  },
+  {
+   "id": "in1900-3-2-bank-13",
+   "type": "definition",
+   "title": "Hvorfor løkke og ikke selvkall",
+   "content": "En funksjon som kaller seg selv er utenfor pensum i IN1900 og markeres uønsket i de offisielle løsningsforslagene (#9). I tillegg blir den svært treg for rekurrenser med to ledd, fordi antall kall dobles for hvert nivå."
+  },
+  {
+   "id": "in1900-3-2-bank-14",
+   "type": "definition",
+   "title": "Ledd-uttrykket",
+   "content": "Uttrykket til høyre for summetegnet, oversatt direkte til Python. Teller og nevner skrives som de står: `x**k / factorial(k)`, `(-1)**k * x**(2*k) / factorial(2*k)`. Ingen forenkling er nødvendig, og forenkling er en vanlig kilde til feil."
+  },
+  {
+   "id": "in1900-3-2-bank-15",
+   "type": "definition",
+   "title": "Valg av toleranse i en rekketest",
+   "content": "Toleransen skal ligge like over avviket rekka faktisk har med det antall ledd du valgte. Med fakultet i nevneren og 15 ledd er `1e-10` trygt; med en langsom rekke og 5 ledd må du opp i `1e-2`. Skriv én kommentarlinje om valget."
+  },
+  {
+   "id": "in1900-3-2-bank-16",
+   "type": "definition",
+   "title": "Fasit fra en kjent formel",
+   "content": "`expected` trenger ikke komme fra `math`. En eksakt formel du kan skrive opp uavhengig — som $T_3(x) = 4x^3 - 3x$ — er en like god, og ofte bedre, kilde: den er tydelig uavhengig av koden du tester."
+  },
+  {
+   "id": "in1900-3-2-bank-17",
+   "type": "definition",
+   "title": "Heltallsrekker og `==`",
+   "content": "Regelen om toleranse gjelder flyttall. Er alle verdiene heltall, som i Fibonacci, er `assert expected == computed` helt riktig, og en toleranse ville vært unødvendig pynt."
+  },
+  {
+   "id": "in1900-3-2-bank-18",
+   "type": "definition",
+   "title": "Kontrollen «hva gir N = 0?»",
+   "content": "En gratis fornuftssjekk på eksamen: første ledd i eksponentialrekka er 1, i oddetallsrekkene er det $x$ selv, og i logaritmerekka er det $x$. Stemmer ikke det, er indekseringen gal — og du har oppdaget det uten å kunne kjøre koden."
+  },
+  {
+   "id": "in1900-3-2-rep",
+   "type": "collapsible",
+   "title": "Repetisjon: malen på ett kort",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1900-3-2-rep-txt",
+     "type": "text",
+     "content": "**Malen, fire linjer:**\n\n```python\nfrom math import factorial\n\ndef rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\nprint(rekke(1.0, 10))\n```\n\n**Utskrift:**\n```\n2.7182818011463845\n```\n\n**De fire spørsmålene du stiller deg selv, i rekkefølge:**\n\n1. Hvor starter summen — på 0 eller på 1?\n2. Går den til og med $N$? Da er det `range(N+1)`.\n3. Er leddet en oddetalls- eller partallspotens? Da erstattes `k` av `2*n+1` eller `2*k` **både** i eksponenten og i nevneren.\n4. Skifter fortegnet? Da ganges leddet med `(-1)**k` eller `(-1)**(k+1)`.\n\nEr rekka rekurrent i stedet, er malen en annen: basistilfelle med `if`, to lagervariabler, hjelpevariabel for den nye verdien, og løkke fra 1 til $n$.\n\n**De fire feilene som koster mest:** av-én i `range` (#1) · akkumulator eller `return` inne i løkka · ulik indeksering i teller og nevner · en teknikk som ligger utenfor pensum for rekurrente rekker (#9).\n\n**Neste steg:** [kap. 3.3](/bok/in1900/in1900-3-3) driller sjanger F under alle innpakningene, og prøvene til delen ligger i [prøvekapitlet](/bok/in1900/in1900-3-prove)."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

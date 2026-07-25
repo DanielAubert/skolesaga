@@ -1,0 +1,342 @@
+{
+  "id": "in1900-8-3",
+  "courseId": "in1900",
+  "chapterNumber": "8.3",
+  "title": "DRILL — Fillesing til nøstet dict med filtrering",
+  "description": "Full drill på L-sjangeren: les→bygg nøstet dict→filtrer→skriv, med roterende datainnhold.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne gjennomføre løsningsoppskriften for fillesingsoppgaven på seks steg, uansett hvilken innpakning dataene har",
+    "kunne skrive den tredelte eksamensbesvarelsen — les til nøstet ordbok, skriv struktur til fil, filtrer og returner en ny ordbok",
+    "kunne aggregere per ytre nøkkel og gruppere flere rader i en liste, med akkumulatoren nullstilt på rett sted",
+    "kunne finne og rette de fire feilene som koster mest: separator, header, mutasjon av argumentet og manglende linjeskift"
+  ],
+  "content": [
+    {
+      "id": "in1900-8-3-tip-eksamen",
+      "type": "tip",
+      "title": "Eksamensvinkel: 8–12 poeng du kan sikre på forhånd",
+      "content": "Dette er drillkapitlet for **sjanger L** — fillesing til nøstet ordbok, altså «les fila linje for linje og bygg datastrukturen». Sjangeren forekommer i **8 av 8 gjennomgåtte avsluttende sett (100 %)** og teller **8–12 poeng**, oftest delt i tre: (a) les fila til en nøstet ordbok, (b) skriv en struktur til fil, (c) filtrer og returner en ny ordbok. Prioriteten er den høyeste boka har: dette **må sitte**.\n\nGrunnen til at et helt kapittel går til drill, er at oppgaven er nesten uforandret fra år til år. Bare **innpakningen** roterer: målestasjoner, folkeregister, landstatistikk, karakterlister, vannprøver. Separatoren varierer (semikolon, komma, faste kolonner), og noen filer har header-linje. Alt annet er identisk. Klarer du å kjenne igjen mønsteret bak innpakningen, er dette de mest forutsigbare poengene på hele eksamen.\n\nKapitlet har tre deler: én løsningsoppskrift på seks steg, ett gjennomarbeidet eksamenscase med sensorkommentar ved hvert steg, og ti oppgaver på eksamensnivå med roterende data. Du besvarer alt som **fritekst** i Inspera, UiOs digitale eksamenssystem, uten hjelpemidler og uten å kunne kjøre koden — derfor er poenget her å få oppskriften ned i fingrene, ikke å lese den.\n\n**Om delpoeng:** sensor gir uttelling for hvert steg i oppskriften for seg. Riktig `with open`, riktig løkke og riktig oppbygging av strukturen belønnes selv om separatoren er feil eller en `.strip()` mangler. Å få alle detaljer 100 % riktig på en hjelpemiddelfri eksamen er nesten umulig — riktig **struktur** er det som teller."
+    },
+    {
+      "id": "in1900-8-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDrillen forutsetter [kap. 8.1](/bok/in1900/in1900-8-1) (lesing) og [kap. 8.2](/bok/in1900/in1900-8-2) (skriving og filtrering). Her er de tre grepene du kommer til å bruke i hver eneste oppgave, oppfrisket med kjørt utskrift.\n\n**1. Lesing til nøstet ordbok.** Strip før split, konverter med én gang, `return` utenfor løkka.\n\n```python\ndef les_stasjoner(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            navn, temp, nedbor = line.strip().split(';')\n            data[navn] = {'temp': float(temp), 'nedbor': int(nedbor)}\n    return data\n\nprint(len(les_stasjoner('stasjoner.txt')))\n```\n\n**Utskrift:**\n```\n4\n```\n\n**2. Den indre ordboka må opprettes** når flere linjer deler samme ytre nøkkel:\n\n```python\ndata = {}\nfor stasjon in ['Vest', 'Aust', 'Vest']:\n    if stasjon not in data:\n        data[stasjon] = {'antall': 0}\n    data[stasjon]['antall'] += 1\nprint(data)\n```\n\n**Utskrift:**\n```\n{'Vest': {'antall': 2}, 'Aust': {'antall': 1}}\n```\n\n**3. Filtrering bygger en ny ordbok** — aldri `ny = data`:\n\n```python\ndef storre_enn(d, grense):\n    ny = {}\n    for k, v in d.items():\n        if v > grense:\n            ny[k] = v\n    return ny\n\nd = {'Kvitheia': 1180, 'Sandvollen': 760}\nprint(storre_enn(d, 1000))\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Kvitheia': 1180}\n{'Kvitheia': 1180, 'Sandvollen': 760}\n```\n\nEr noe av dette uklart, les de to forrige kapitlene først — drillen forklarer ikke konstruksjonene på nytt. Feilmeldingene som dukker opp underveis, er katalogisert i [kap. 2.2](/bok/in1900/in1900-2-2)."
+    },
+    {
+      "id": "in1900-8-3-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger L — seks steg",
+      "content": "Les oppgaveteksten, og gjør så dette, i rekkefølge. Hvert steg svarer til ett spørsmål du besvarer ved å se på fila som er gjengitt i oppgaven.\n\n1. **Hva er den ytre nøkkelen?** Det som identifiserer raden: stasjonsnavn, ID, land, kandidatnummer. Er det bare **én** linje per nøkkel, kan hele den indre ordboka settes inn i én tilordning. Har samme nøkkel **flere** linjer, trenger du et nøkkelnivå mer (typisk dato) og en `if nøkkel not in data:`-sjekk.\n2. **Er det en header-linje?** Står det kolonnenavn på den første linja, hopper du over den med `infile.readline()` før løkka — eller bruker den som kilde til feltnavnene. Er det ingen header, skal `readline()` ikke være der.\n3. **Hva er separatoren?** Semikolon gir `.split(';')`, komma gir `.split(',')`, mellomrom eller TAB gir bar `.split()`, faste kolonner gir `line[a:b]`. Les det ut av fila; ikke gjett.\n4. **Hvilke felt er tall, og hvilke er tekst?** Konverter tallfeltene med `int` eller `float` med én gang, inne i løkka, og la tekstfeltene være. Da inneholder strukturen ferdige verdier.\n5. **Del (b) — skriving:** `with open(filnavn, 'w') as outfile:`, én `write` per linje, hver linje bygget som f-streng og avsluttet med `'\\n'`. Skriver du en header, må leseren senere hoppe over den.\n6. **Del (c) — filtrering:** `ny = {}`, løkke over `.items()`, `if`-betingelse, innsetting, og `return ny` **utenfor** løkka. Argumentet skal være urørt.\n\nSkjelettet er alltid dette, og det er verdt å skrive ned først, før du fyller inn detaljene:\n\n```python\ndef les(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            felt = line.strip().split(';')\n            data[felt[0]] = {}\n    return data\n\nprint(len(les('stasjoner.txt')))\n```\n\n**Utskrift:**\n```\n4\n```\n\nSkjelettet gir uttelling i seg selv. Fyller du inn de indre feltene feil, mister du ett eller to poeng — glemmer du skjelettet, mister du oppgaven."
+    },
+    {
+      "id": "in1900-8-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil i sjanger L — de fire som koster mest",
+      "content": "**#8 — feil separator.** Bar `.split()` på en semikolonfil gir **én** bit per linje, og neste linje krasjer med `IndexError: list index out of range`. Sjekk fila.\n\n**#7 — glemt `.strip()` eller glemt `readline()`.** Uten `.strip()` drar siste felt linjeskiftet med seg. På tallfelt merker du det ikke, fordi `int` og `float` tåler blanktegn; på **tekstfelt** får du en verdi som `'regn\\n'` som aldri er lik `'regn'`. Uten `readline()` havner kolonnenavnet i en `int()` og gir `ValueError` med kolonnenavnet sitert.\n\n**#20 — mutasjon i stedet for ny ordbok.** `ny = data` er aliasing, ikke kopiering: du endrer originalen. Skriv alltid `ny = {}`.\n\n**Glemt `'\\n'` i `write`.** Alt havner på én linje, og feltene gror sammen: `1180Sandvollen`. `write` legger aldri til linjeskift.\n\nOg én som ikke har eget nummer, men koster like mye: **`return` inne i løkka**. Da returnerer funksjonen etter første linje, og du får en ordbok med ett element. `return data` skal stå på samme innrykk som `data = {}`.\n\n**Rekursjon er utenfor pensum i IN1900.** Fristes du til å lese fila «rekursivt» ved å la en funksjon kalle seg selv for hver linje, er svaret nei: det er uønsket i fasit og gir dårligere eller ingen uttelling. Løkka er den forventede løsningen — alltid."
+    },
+    {
+      "id": "in1900-8-3-case-intro",
+      "type": "text",
+      "content": "## Det gjennomarbeidede caset (~20 min)\n\nUnder står en komplett, tredelt sjanger-L-oppgave av samme type og vekt som på et virkelig sett, med sensorkommentar ved hvert steg. Les den som en modell: det er nøyaktig denne formen svarene dine skal ha.\n\n**Oppgaven (10 poeng).** Fila `vind.txt` har en header-linje og deretter én linje per måling, med feltene `stasjon;dato;vind;retning` der vindstyrken er i meter per sekund. Samme stasjon har flere målinger.\n\n**Innholdet i `vind.txt`:**\n```\nstasjon;dato;vind;retning\nKvitheia;2025-01-04;12.4;SV\nKvitheia;2025-01-05;7.1;NV\nOspedalen;2025-01-04;18.9;S\nOspedalen;2025-01-05;21.3;SV\nNordvika;2025-01-04;5.2;N\n```\n\n**a)** (4 p) Skriv `les_vind(filnavn)` som returnerer en nøstet ordbok med stasjon som ytre nøkkel, dato som neste, og `{'vind': ..., 'retning': ...}` innerst.\n\n**b)** (3 p) Skriv `skriv_sterk_vind(data, filnavn, grense)` som lagrer alle målingene over en gitt vindstyrke til fil, med header-linja `stasjon;dato;vind`.\n\n**c)** (3 p) Skriv `snitt_per_stasjon(data)` som returnerer en **ny** ordbok fra stasjonsnavn til gjennomsnittlig vindstyrke, uten å endre argumentet.\n\n**Denne fila kan du lage selv på to sekunder** — det er dataene løsningen under leser."
+    },
+    {
+      "id": "in1900-8-3-case-a",
+      "type": "example",
+      "title": "Modellbesvarelse del (a): les til nøstet ordbok",
+      "problem": "Del (a), 4 poeng: `les_vind(filnavn)` skal returnere en nøstet ordbok med stasjon → dato → `{'vind': ..., 'retning': ...}`.",
+      "solution": "Gå gjennom oppskriften. Ytre nøkkel er stasjonen, og **samme stasjon har flere linjer** — altså trengs et nøkkelnivå til (datoen) og en `not in`-sjekk. Det er header-linje, så `readline()` skal med. Separatoren er semikolon. `vind` er tall, `retning` er tekst.\n\n```python\ndef les_vind(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        infile.readline()\n        for line in infile:\n            stasjon, dato, vind, retning = line.strip().split(';')\n            if stasjon not in data:\n                data[stasjon] = {}\n            data[stasjon][dato] = {'vind': float(vind), 'retning': retning}\n    return data\n\n\ndata = les_vind('vind.txt')\nprint(data['Kvitheia'])\nprint(data['Ospedalen']['2025-01-05']['vind'])\nprint(len(data))\n```\n\n**Utskrift:**\n```\n{'2025-01-04': {'vind': 12.4, 'retning': 'SV'}, '2025-01-05': {'vind': 7.1, 'retning': 'NV'}}\n21.3\n3\n```\n\n**Sensorkommentar, steg for steg:**\n\n- `data = {}` og `with open(filnavn) as infile:` — **1 p**. Rene rutinelinjer, men de gis poeng, og de er de eneste du kan skrive før du har forstått fila.\n- `infile.readline()` før løkka — **0,5 p**. Glemmer du den, får du `ValueError: could not convert string to float: 'vind'`, og du mister dette halve poenget. Resten av oppgaven står.\n- `line.strip().split(';')` — **1 p**. Riktig separator er det halve; `.strip()` er nødvendig her fordi `retning` er **tekstfeltet** til slutt på linja, og uten strip blir verdien `'SV\\n'`.\n- `if stasjon not in data: data[stasjon] = {}` — **1 p**. Dette er kjernen. Skriver du i stedet `data[stasjon][dato] = ...` direkte, krasjer programmet med `KeyError` på første linje.\n- Innsetting på tre nivåer med `float(vind)` og `retning` som tekst — **0,5 p**.\n- `return data` utenfor løkka — inngår i det første poenget, men står `return` **inne** i løkka, mister du hele strukturpoenget: funksjonen returnerer etter første måling.\n\n**Hva som er godt nok:** hadde du skrevet `data[stasjon][dato] = float(vind)` og droppet retningen, ville du fått 3 av 4 — strukturen er riktig, ett felt er glemt."
+    },
+    {
+      "id": "in1900-8-3-case-bc",
+      "type": "example",
+      "title": "Modellbesvarelse del (b) og (c): skriv til fil og aggreger",
+      "problem": "Del (b), 3 poeng: `skriv_sterk_vind(data, filnavn, grense)` skal lagre målingene over `grense` til fil med header. Del (c), 3 poeng: `snitt_per_stasjon(data)` skal returnere en ny ordbok med gjennomsnittlig vindstyrke per stasjon.",
+      "solution": "**Del (b).** To løkker, fordi strukturen har to nivåer: en over stasjonene og en over datoene under hver stasjon. Betingelsen står innerst, der målingen er.\n\n```python\ndef skriv_sterk_vind(data, filnavn, grense):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('stasjon;dato;vind\\n')\n        for stasjon, dager in data.items():\n            for dato, verdier in dager.items():\n                if verdier['vind'] > grense:\n                    outfile.write(f'{stasjon};{dato};{verdier[\"vind\"]:.1f}\\n')\n```\n\n**Del (c).** Aggregeringsmønsteret: for hver ytre nøkkel, summer over de indre og del på antall. `len(dager)` er antall målinger for den stasjonen.\n\n```python\ndef snitt_per_stasjon(data):\n    ny = {}\n    for stasjon, dager in data.items():\n        total = 0\n        for dato in dager:\n            total += dager[dato]['vind']\n        ny[stasjon] = total / len(dager)\n    return ny\n```\n\nKjørt sammen med `les_vind` fra del (a), med grensen 10,0 m/s:\n\n```python\ndata = les_vind('vind.txt')\nskriv_sterk_vind(data, 'sterk.txt', 10.0)\nwith open('sterk.txt') as infile:\n    for line in infile:\n        print(line, end='')\nsnitt = snitt_per_stasjon(data)\nfor stasjon in snitt:\n    print(f'{stasjon:11s}{snitt[stasjon]:6.2f}')\n```\n\n**Utskrift:**\n```\nstasjon;dato;vind\nKvitheia;2025-01-04;12.4\nOspedalen;2025-01-04;18.9\nOspedalen;2025-01-05;21.3\nKvitheia     9.75\nOspedalen   20.10\nNordvika     5.20\n```\n\n**Sensorkommentar del (b):** `with open(filnavn, 'w')` (1 p) · header skrevet én gang **før** løkkene (0,5 p) · to nøstede løkker som når ned til målingene (1 p) · f-streng som slutter på `'\\n'` (0,5 p). Glemmer du `'\\n'`, ligger alle målingene på én linje — det koster det halve poenget, ikke mer.\n\n**Sensorkommentar del (c):** `ny = {}` og `return ny` utenfor løkka (1 p) · summeringsløkke over de indre nøklene (1 p) · deling på `len(dager)`, altså antall målinger for **den** stasjonen (1 p). Den vanligste feilen her er å dele på `len(data)`, antall stasjoner — det gir tre i stedet for to, og koster ett poeng.\n\n**Merk hva som ikke kreves:** ingen `main`-blokk, ingen brukerinput, ingen kommentarer utover eventuelle antakelser. Tolv linjer kode for ti poeng."
+    },
+    {
+      "id": "in1900-8-3-opg-intro",
+      "type": "text",
+      "content": "## Oppgaver: samme mønster, ny innpakning (~30 min for oppgave 1–5)\n\n— naturlig pausepunkt —\n\nAlle oppgavene under er på eksamensnivå. Datainnholdet roterer bevisst, og separatoren og header-linja varierer. Bruk oppskriftens seks spørsmål på hver oppgave før du skriver en linje kode. Filene kan du lage selv i en tekstredigerer — innholdet står i oppgaven."
+    },
+    {
+      "id": "in1900-8-3-opg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger L — fillesing til nøstet ordbok.) Et folkeregisterutdrag ligger i `personer.txt` med header-linje og semikolon som separator.\n\n**Innholdet i `personer.txt`:**\n```\nid;navn;postnr;fodselsaar\n1042;Ingrid Hauge;5003;1998\n1043;Mathias Lind;7014;1985\n1044;Sofie Berge;5003;2001\n1045;Jonas Rud;9012;1972\n```\n\n**a)** Skriv `les_personer(filnavn)` som returnerer en nøstet ordbok med **id-en som heltallsnøkkel** og en indre ordbok med feltnavnene fra header-linja. Navnet skal være tekst, postnummer og fødselsår heltall.\n\n**b)** Skriv ut den indre ordboka for id 1044, navnet og fødselsåret til 1043, og antall personer.",
+        "solution": "Header-linja gir feltnavnene, og `[1:]` kutter bort `'id'`, som blir den ytre nøkkelen. Legg merke til `int(felt[0])`: oppgaven ber om **heltallsnøkkel**, så oppslag gjøres med `d[1044]`, ikke `d['1044']`.\n\n```python\ndef les_personer(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        feltnavn = infile.readline().strip().split(';')[1:]\n        for line in infile:\n            felt = line.strip().split(';')\n            verdier = [felt[1], int(felt[2]), int(felt[3])]\n            data[int(felt[0])] = dict(zip(feltnavn, verdier))\n    return data\n\n\nd = les_personer('personer.txt')\nprint(d[1044])\nprint(d[1043]['navn'], d[1043]['fodselsaar'])\nprint(len(d))\n```\n\n**Utskrift:**\n```\n{'navn': 'Sofie Berge', 'postnr': 5003, 'fodselsaar': 2001}\nMathias Lind 1985\n4\n```\n\n**Dette gir uttelling:** `readline()` med `[1:]` for feltnavnene (1 p), riktig separator og `.strip()` (1 p), `dict(zip(...))` eller eksplisitt oppbygging av den indre ordboka (1 p), `int(felt[0])` som nøkkel (1 p), riktig typekonvertering av de to tallfeltene (1 p).\n\nBruker du eksplisitt oppbygging i stedet — `data[int(felt[0])] = {'navn': felt[1], 'postnr': int(felt[2]), 'fodselsaar': int(felt[3])}` — er det like riktig og litt lettere å lese.",
+        "hints": [
+          "Les headeren først og kutt bort den første kolonnenavnet med slicing.",
+          "Den ytre nøkkelen skal være et heltall — husk `int(...)` rundt id-feltet.",
+          "Bygg verdilista i samme rekkefølge som feltnavnene før du sender dem til `dict(zip(...))`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger L — fillesing til nøstet ordbok.) Fila `land.txt` er **kommaseparert og har ingen header**. Feltene er `land,befolkning,bnp_per_innbygger`.\n\n**Innholdet i `land.txt`:**\n```\nAlveria,4820000,52100\nBrenland,1290000,38400\nCorvia,17650000,9800\nDunmark,610000,71200\n```\n\n**a)** Skriv `les_land(filnavn)` som returnerer en nøstet ordbok fra landnavn til `{'folketall': ..., 'bnp': ...}` med heltall som verdier.\n\n**b)** Skriv `rikeste(data)` som returnerer navnet på landet med høyest BNP per innbygger.\n\n**c)** Vis den indre ordboka for Corvia, resultatet av `rikeste` og antall land.",
+        "solution": "Ingen header her, så **ingen** `readline()`. Separatoren er komma.\n\n```python\ndef les_land(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            navn, folk, bnp = line.strip().split(',')\n            data[navn] = {'folketall': int(folk), 'bnp': int(bnp)}\n    return data\n\n\ndef rikeste(data):\n    beste = ''\n    for navn in data:\n        if beste == '' or data[navn]['bnp'] > data[beste]['bnp']:\n            beste = navn\n    return beste\n\n\nd = les_land('land.txt')\nprint(d['Corvia'])\nprint(rikeste(d))\nprint(len(d))\n```\n\n**Utskrift:**\n```\n{'folketall': 17650000, 'bnp': 9800}\nDunmark\n4\n```\n\n**Dette gir uttelling:** innlesingen uten `readline()` (2 p — å **ikke** hoppe over en linje er også et valg som vurderes), riktig separator (1 p), «beste så langt»-mønsteret i `rikeste` (2 p). Startverdien `beste = ''` betyr «ingen kandidat ennå», slik at den første stasjonen alltid blir første kandidat. Bruker du i stedet den første nøkkelen som startverdi, er det like riktig — men da må du hente den ut, og det er mer kode.\n\nMerk at Dunmark er rikest per innbygger selv om det er det minste landet. Å blande `folketall` og `bnp` i sammenligningen er den enkleste måten å miste to poeng her.",
+        "hints": [
+          "Har fila en header-linje? Sjekk før du skriver `readline()`.",
+          "Separatoren er komma.",
+          "«Beste så langt»: start med en tom streng som betyr «ingen kandidat ennå»."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Programmet leser `land.txt` fra forrige oppgave. Hva skriver det ut? Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\ndata = {}\nwith open('land.txt') as infile:\n    for line in infile:\n        felt = line.strip().split(',')\n        data[felt[0]] = int(felt[1])\n\nn = 0\nfor navn in data:\n    if data[navn] > 1000000:\n        n += 1\n        print(navn, end=' ')\nprint()\nprint(n, len(data))\n```",
+        "solution": "**Sporingstavle.** Første løkke bygger en **flat** ordbok fra land til folketall.\n\n| Runde | `felt[0]` | `int(felt[1])` | `data` etter innsetting |\n|---|---|---|---|\n| 1 | `'Alveria'` | 4820000 | `{'Alveria': 4820000}` |\n| 2 | `'Brenland'` | 1290000 | `{..., 'Brenland': 1290000}` |\n| 3 | `'Corvia'` | 17650000 | `{..., 'Corvia': 17650000}` |\n| 4 | `'Dunmark'` | 610000 | `{..., 'Dunmark': 610000}` |\n\nAndre løkke tester hvert folketall mot 1 000 000:\n\n| Runde | `navn` | `data[navn]` | Over grensen? | `n` | Skriver |\n|---|---|---|---|---|---|\n| 1 | `'Alveria'` | 4820000 | ja | 1 | `Alveria` + mellomrom |\n| 2 | `'Brenland'` | 1290000 | ja | 2 | `Brenland` + mellomrom |\n| 3 | `'Corvia'` | 17650000 | ja | 3 | `Corvia` + mellomrom |\n| 4 | `'Dunmark'` | 610000 | nei | 3 | ingenting |\n\n`print(navn, end=' ')` skriver navnet og ett mellomrom, **uten** linjeskift, så de tre navnene havner på samme linje — med et mellomrom også etter det siste. `print()` uten argumenter avslutter linja.\n\n**Utskrift:**\n```\nAlveria Brenland Corvia\n3 4\n```\n\nFellen her er #16 — utskriftsdetaljene: `end=' '` fjerner linjeskiftet, og det bare tomme `print()` finnes der nettopp for å avslutte linja. Delvis riktig sporing gir delvis uttelling: får du navnene riktig men glemmer at de står på én linje, mister du et halvt poeng, ikke oppgaven.",
+        "hints": [
+          "Bygg opp den flate ordboka først, land for land.",
+          "`end=' '` gir ikke linjeskift — hva gjør `print()` uten argumenter da?",
+          "Tell hvor mange land som faktisk er over grensen, og hvor mange som er i ordboka."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-signal-1",
+      "type": "tip",
+      "title": "Signal: hva oppgave 1–3 testet",
+      "content": "**Oppgave 1** testet steg 1 og 2 i oppskriften: valg av ytre nøkkel (og at den skulle være et **heltall**) og bruk av header-linja som kilde til feltnavn. Ser du «bruk feltnavnene fra header-linja» i en oppgavetekst, er `readline().strip().split(sep)[1:]` svaret.\n\n**Oppgave 2** testet det motsatte: en fil **uten** header, med en annen separator. Å skrive `readline()` av vane er en reell feil som koster en datarad.\n\n**Oppgave 3** var ikke en kodeskrivingsoppgave i det hele tatt, men en sporingsoppgave om samme kode. Slik ser fillesing ut på **midtveiseksamen**: du skal ikke skrive innlesingen, du skal si nøyaktig hva den skriver ut. Da er `end=' '` og det tomme `print()` det egentlige temaet."
+    },
+    {
+      "id": "in1900-8-3-opg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger L — fillesing til nøstet ordbok.) Bruk `vind.txt` og `les_vind` fra det gjennomarbeidede caset.\n\n**a)** Skriv `maks_per_stasjon(data)` som returnerer en **ny** ordbok fra stasjonsnavn til den høyeste vindstyrken som er målt på stasjonen. Argumentet skal ikke endres.\n\n**b)** Vis resultatet for hele fila.",
+        "solution": "Aggregeringsmønsteret, men med maksimum i stedet for sum. `beste = 0.0` er en trygg startverdi her fordi vindstyrke aldri er negativ — er det tvil om fortegnet i dataene, bruk «ingen kandidat ennå»-varianten fra oppgave 2 i stedet.\n\n`les_vind` er som i caset og gjentas ikke:\n\n```python\ndef maks_per_stasjon(data):\n    ny = {}\n    for stasjon, dager in data.items():\n        beste = 0.0\n        for dato in dager:\n            if dager[dato]['vind'] > beste:\n                beste = dager[dato]['vind']\n        ny[stasjon] = beste\n    return ny\n\n\nd = les_vind('vind.txt')\nprint(maks_per_stasjon(d))\n```\n\n**Utskrift:**\n```\n{'Kvitheia': 12.4, 'Ospedalen': 21.3, 'Nordvika': 5.2}\n```\n\n**Dette gir uttelling:** `ny = {}` og `return ny` utenfor løkkene (1 p), ytre løkke over `.items()` (1 p), indre løkke over datoene (1 p), sammenligningen mot `beste` med oppdatering (2 p). Den vanligste feilen er å sette `beste = 0.0` **utenfor** den ytre løkka — da lekker forrige stasjons maksimum inn i neste, og Nordvika ville fått 21,3. Nullstillingen hører hjemme øverst i den ytre løkka.",
+        "hints": [
+          "To løkker: én over stasjonene, én over datoene under hver stasjon.",
+          "Hvor skal `beste` nullstilles — før den ytre løkka eller inne i den?",
+          "Sammenlign `dager[dato]['vind']` mot `beste` og oppdater ved treff."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger L — skriv en struktur til fil.) Gitt en ordbok fra person-id til `{'navn': ..., 'fodselsaar': ...}`, som den `les_personer` fra oppgave 1 lager.\n\n**a)** Skriv `skriv_unge(data, filnavn, aar)` som lagrer alle personer født **etter** `aar` til fil, med header-linja `id;navn` og deretter én semikolonseparert linje per person.\n\n**b)** Kall funksjonen med `aar = 1990` på Ingrid Hauge (id 1042, født 1998), Mathias Lind (1043, 1985) og Sofie Berge (1044, 2001), og les fila tilbake.",
+        "solution": "Betingelsen står inne i løkka, og bare de kvalifiserte skrives. Header-linja skrives én gang, før løkka.\n\n```python\ndef skriv_unge(data, filnavn, aar):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('id;navn\\n')\n        for pid, verdier in data.items():\n            if verdier['fodselsaar'] > aar:\n                outfile.write(f'{pid};{verdier[\"navn\"]}\\n')\n\n\ndata = {1042: {'navn': 'Ingrid Hauge', 'fodselsaar': 1998},\n        1043: {'navn': 'Mathias Lind', 'fodselsaar': 1985},\n        1044: {'navn': 'Sofie Berge', 'fodselsaar': 2001}}\nskriv_unge(data, 'unge.txt', 1990)\nwith open('unge.txt') as infile:\n    for line in infile:\n        print(line, end='')\n```\n\n**Utskrift:**\n```\nid;navn\n1042;Ingrid Hauge\n1044;Sofie Berge\n```\n\n**Dette gir uttelling:** `'w'`-modus og `with` (1 p), header før løkka (0,5 p), `if`-betingelsen på riktig felt og med riktig retning (1 p), f-streng som slutter på `'\\n'` (1 p), og at id-en skrives uten anførselstegn — den er et heltall og settes rett inn i f-strengen (0,5 p).\n\nMerk at «født etter 1990» betyr `> 1990`, altså at en person født **i** 1990 faller utenfor. Sier oppgaveteksten «fra og med», skal det være `>=`. Er teksten tvetydig, velg og skriv en kommentar om valget.",
+        "hints": [
+          "Header-linja skrives én gang, utenfor løkka.",
+          "Betingelsen `verdier['fodselsaar'] > aar` avgjør om linja skrives.",
+          "Hver `write` må slutte på `'\\n'`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-intro-2",
+      "type": "text",
+      "content": "## Oppgave 6–10: tredelte oppgaver og de vanskeligere variantene (~25 min)\n\n— naturlig pausepunkt —\n\nDe neste fem oppgavene ligner mest på det du møter til slutt i et sett: flere deler som bygger på hverandre, én «finn feilen», og én kolonnefil. Har du de fem første inne, er dette samme mønster med flere nivåer."
+    },
+    {
+      "id": "in1900-8-3-opg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger L — les, filtrer og skriv, tredelt.) Fila `karakterer.txt` har header-linje og feltene `kandidat;emne;karakter;poeng`. Samme kandidat kan ha flere emner.\n\n**Innholdet i `karakterer.txt`:**\n```\nkandidat;emne;karakter;poeng\nK1201;IN1900;B;71\nK1202;IN1900;D;48\nK1201;MAT1100;C;60\nK1203;IN1900;A;88\n```\n\n**a)** Skriv `les_karakterer(filnavn)` som returnerer en nøstet ordbok med kandidatnummer som ytre nøkkel, emnekode som neste, og `{'karakter': ..., 'poeng': ...}` innerst, der poengsummen er et heltall.\n\n**b)** Skriv `bestatt(data, grense)` som returnerer en **ny** ordbok med bare de resultatene som har minst `grense` poeng. Kandidater uten kvalifiserte resultater skal ikke være med i det hele tatt.\n\n**c)** Skriv `skriv(data, filnavn)` som lagrer en slik struktur til fil med linjer `kandidat;emne;karakter`, og kjør hele kjeden med grensen 60.",
+        "solution": "Del (b) er den vanskelige: filteret må bygge **begge** nivåene på nytt, og den ytre nøkkelen skal bare opprettes hvis kandidaten har minst ett kvalifisert resultat. Derfor står `if kandidat not in ny:` **inne** i den indre løkka, etter betingelsen — ikke før.\n\n```python\ndef les_karakterer(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        infile.readline()\n        for line in infile:\n            kandidat, emne, karakter, poeng = line.strip().split(';')\n            if kandidat not in data:\n                data[kandidat] = {}\n            data[kandidat][emne] = {'karakter': karakter, 'poeng': int(poeng)}\n    return data\n\n\ndef bestatt(data, grense):\n    ny = {}\n    for kandidat, emner in data.items():\n        for emne, verdier in emner.items():\n            if verdier['poeng'] >= grense:\n                if kandidat not in ny:\n                    ny[kandidat] = {}\n                ny[kandidat][emne] = {'karakter': verdier['karakter'],\n                                      'poeng': verdier['poeng']}\n    return ny\n\n\ndef skriv(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        for kandidat, emner in data.items():\n            for emne, verdier in emner.items():\n                outfile.write(f'{kandidat};{emne};{verdier[\"karakter\"]}\\n')\n```\n\nKjeden:\n\n```python\nd = les_karakterer('karakterer.txt')\nprint(d['K1201'])\nb = bestatt(d, 60)\nprint(len(d), len(b))\nskriv(b, 'bestatt.txt')\nwith open('bestatt.txt') as infile:\n    for line in infile:\n        print(line, end='')\n```\n\n**Utskrift:**\n```\n{'IN1900': {'karakter': 'B', 'poeng': 71}, 'MAT1100': {'karakter': 'C', 'poeng': 60}}\n3 2\nK1201;IN1900;B\nK1201;MAT1100;C\nK1203;IN1900;A\n```\n\n`3 2` viser at K1202 forsvant helt: 48 poeng er under grensen, og kandidaten hadde ingen andre emner. Merk også at MAT1100 med nøyaktig 60 poeng **er** med, fordi oppgaven sier «minst» og koden derfor bruker `>=`.\n\n**Dette gir uttelling:** del (a) 4 p — `readline()`, separator, `not in`-sjekk, tre nivåer med `int` på poeng. Del (b) 4 p — `ny = {}` (1 p), begge løkkene (1 p), betingelsen med `>=` (1 p), at den ytre nøkkelen bare opprettes ved treff (1 p). Del (c) 2 p — `'w'`, to løkker, f-streng med `'\\n'`.\n\n**Selvdiagnose:** ☐ opprettet du `data[kandidat] = {}` før innsetting i (a)? ☐ står `if kandidat not in ny:` **etter** poengbetingelsen i (b)? ☐ ble `poeng` konvertert med `int`, og `karakter` latt være tekst? ☐ er `>=` brukt der oppgaven sier «minst»?",
+        "hints": [
+          "Både (a) og (b) trenger `if nøkkel not in ...: ... = {}` — men på ulike steder.",
+          "I (b): opprett den ytre nøkkelen bare når et resultat faktisk kvalifiserer.",
+          "«Minst `grense` poeng» betyr `>=`, ikke `>`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal lese `vind.txt` fra caset til en ordbok med stasjon og dato som nøkler og vindstyrken som verdi. Det krasjer på første linje.\n\n```python\ndata = {}\nwith open('vind.txt') as infile:\n    for line in infile:\n        felt = line.split()\n        data[felt[0]][felt[1]] = float(felt[2])\nprint(data)\n```\n\n**a)** Hvilken feilmelding kommer, og hvorfor?\n\n**b)** Programmet har **tre** feil. Nevn alle tre, og skriv den rettede koden.",
+        "solution": "**a)** Siste linje i feilmeldingen er:\n\n**Utskrift:**\n```\nIndexError: list index out of range\n```\n\nÅrsaken er separatoren. `line.split()` uten argument deler på blanktegn, og fila har ingen — den er semikolonseparert. `felt` blir derfor en liste med **ett** element (hele linja), og `felt[1]` finnes ikke.\n\n**b)** De tre feilene:\n\n1. **Feil separator** (#8): `.split()` må være `.strip().split(';')`. Uten `.strip()` ville dessuten siste felt drege linjeskiftet med seg.\n2. **Header-linja hoppes ikke over** (#7): `infile.readline()` mangler før løkka. Uten den forsøker programmet å lese `stasjon;dato;vind;retning` som data, og `float('vind')` gir `ValueError`.\n3. **Den indre ordboka opprettes ikke** (#20): `data[felt[0]][felt[1]] = ...` krever at `data[felt[0]]` alt er en ordbok. Uten `if felt[0] not in data: data[felt[0]] = {}` får du `KeyError` så snart de to første feilene er rettet.\n\nRettet:\n\n```python\ndata = {}\nwith open('vind.txt') as infile:\n    infile.readline()\n    for line in infile:\n        felt = line.strip().split(';')\n        if felt[0] not in data:\n            data[felt[0]] = {}\n        data[felt[0]][felt[1]] = float(felt[2])\nprint(data['Ospedalen'])\nprint(len(data))\n```\n\n**Utskrift:**\n```\n{'2025-01-04': 18.9, '2025-01-05': 21.3}\n3\n```\n\n**Dette gir uttelling:** 1 p for å navngi `IndexError` og knytte den til separatoren, deretter 1 p per identifisert feil (3 p), og 2 p for rettet kode som kjører. Sjanger O er poengmessig snill nettopp fordi hver feil teller for seg: finner du to av tre, har du fortsatt de fleste poengene. Legg merke til rekkefølgen feilene ville dukket opp i under kjøring — først `IndexError`, så `ValueError`, så `KeyError` — det er den samme «hvilken feil kommer først»-logikken som i [kap. 2.2](/bok/in1900/in1900-2-2).",
+        "hints": [
+          "Kjør første linje i hodet: hva blir `felt` når fila ikke har mellomrom?",
+          "Se på den første linja i fila — er den data?",
+          "Selv med riktig separator og hoppet header gjenstår én feil i innsettingen."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Bør kjenne til, sjanger L — fast-bredde-felt.) Fila `kolonner.txt` har ingen separator; feltene står i faste kolonner. Navnet er i posisjon 0–11, nedbøren i 12–17 og temperaturen i 18–24. Hver linje er 25 tegn.\n\n**Innholdet i `kolonner.txt`:**\n```\nKvitheia      1180    7.9\nSandvollen     760    5.4\nOspedalen     1420    8.6\n```\n\n**a)** Skriv koden som leser fila til en nøstet ordbok fra stasjonsnavn til `{'nedbor': ..., 'temp': ...}`, med heltall og flyttall.\n\n**b)** Skriv ut den indre ordboka for Sandvollen og summen av nedbøren for Ospedalen og Kvitheia.",
+        "solution": "Slicing erstatter `.split()`. Bare navnet trenger `.strip()` — tallkonverteringene tåler utfyllingsmellomrommene.\n\n```python\ndata = {}\nwith open('kolonner.txt') as infile:\n    for line in infile:\n        navn = line[0:12].strip()\n        nedbor = int(line[12:18])\n        temp = float(line[18:25])\n        data[navn] = {'nedbor': nedbor, 'temp': temp}\n\nprint(data['Sandvollen'])\nprint(data['Ospedalen']['nedbor'] + data['Kvitheia']['nedbor'])\n```\n\n**Utskrift:**\n```\n{'nedbor': 760, 'temp': 5.4}\n2600\n```\n\n**Dette gir uttelling:** riktig bruk av slicing i stedet for `.split()` (2 p), `.strip()` på tekstfeltet (1 p), typekonvertering av de to tallfeltene (1 p), oppslag og addisjon i (b) (1 p).\n\nOg her gjelder sensors uttalte praksis: **å treffe kolonnegrensene helt nøyaktig uten fila foran seg er nesten umulig**, og du får uttelling for metoden selv om et tall er ett fra. Skriv en kommentar om hvilke posisjoner du antar, og gå videre. Glemmer du `.strip()` på navnet, blir nøkkelen `'Sandvollen  '` med mellomrom — og oppslaget `data['Sandvollen']` gir `KeyError`.",
+        "hints": [
+          "`.split()` er ubrukelig her — bruk `line[a:b]`.",
+          "Husk at slutten i slicing er eksklusiv, og at Python teller fra 0.",
+          "Bare tekstfeltet trenger `.strip()`; `int` og `float` tåler mellomrom."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger L — gruppering i lister.) Bruk `personer.txt` fra oppgave 1.\n\n**a)** Skriv `per_postnr(filnavn)` som returnerer en ordbok fra postnummer (som **tekst**) til en **liste** med navnene på personene som bor der.\n\n**b)** Vis hele ordboka og antall personer i postnummer 5003.",
+        "solution": "Her er verdien en liste, ikke en ordbok — samme mønster, annen beholder. Lista må opprettes tom første gang postnummeret dukker opp, og deretter utvides med `.append`.\n\n```python\ndef per_postnr(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        infile.readline()\n        for line in infile:\n            felt = line.strip().split(';')\n            postnr = felt[2]\n            if postnr not in data:\n                data[postnr] = []\n            data[postnr].append(felt[1])\n    return data\n\n\nd = per_postnr('personer.txt')\nprint(d)\nprint(len(d['5003']))\n```\n\n**Utskrift:**\n```\n{'5003': ['Ingrid Hauge', 'Sofie Berge'], '7014': ['Mathias Lind'], '9012': ['Jonas Rud']}\n2\n```\n\n**Dette gir uttelling:** `readline()` og riktig separator (1 p), `if postnr not in data: data[postnr] = []` (2 p — dette er kjernen), `.append` i stedet for tilordning (1 p), riktig felt som nøkkel og riktig felt som verdi (1 p).\n\n**Den vanligste feilen** er å skrive `data[postnr] = felt[1]` i stedet for `.append` — da overskrives navnet hver gang, og postnummer 5003 ender med bare `'Sofie Berge'`. Nest vanligst er å opprette lista **utenfor** løkka, slik at alle postnumre deler den samme lista.\n\nMerk at postnummeret her skal være **tekst**: postnumre kan begynne på null, og `int('0150')` ville gitt 150.",
+        "hints": [
+          "Verdien er en liste, ikke en ordbok — men den må likevel opprettes før bruk.",
+          "`if postnr not in data: data[postnr] = []` og deretter `.append(...)`.",
+          "Hvorfor bør postnummeret være tekst og ikke heltall?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-opg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-8-3-opg-10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger L — full tredelt oppgave.) Fila `avlop.txt` har header-linje og feltene `stasjon;dato;ph;temp`. Samme stasjon har flere prøver.\n\n**Innholdet i `avlop.txt`:**\n```\nstasjon;dato;ph;temp\nVest;2025-05-02;7.4;11.2\nVest;2025-05-03;6.9;12.0\nAust;2025-05-02;8.1;10.4\n```\n\n**a)** Skriv `les_avlop(filnavn)` som returnerer en nøstet ordbok stasjon → dato → `{'ph': ..., 'temp': ...}` med flyttall.\n\n**b)** Skriv `sure_dogn(data, grense)` som returnerer en **ny** struktur med bare prøvene der pH er lavere enn `grense`, uten å endre argumentet.\n\n**c)** Skriv `skriv_snitt(data, filnavn)` som lagrer gjennomsnittlig pH per stasjon til fil, med header-linja `stasjon;snitt_ph` og to desimaler.\n\n**d)** Kjør kjeden med grensen 7,0 og vis resultatene.",
+        "solution": "Alle tre delene er mønstre du har sett: (a) er caset med to felt i stedet for to, (b) er filteret fra oppgave 6, og (c) er aggregeringen fra caset skrevet til fil i stedet for skjerm.\n\n```python\ndef les_avlop(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        infile.readline()\n        for line in infile:\n            stasjon, dato, ph, temp = line.strip().split(';')\n            if stasjon not in data:\n                data[stasjon] = {}\n            data[stasjon][dato] = {'ph': float(ph), 'temp': float(temp)}\n    return data\n\n\ndef sure_dogn(data, grense):\n    ny = {}\n    for stasjon, dager in data.items():\n        for dato, verdier in dager.items():\n            if verdier['ph'] < grense:\n                if stasjon not in ny:\n                    ny[stasjon] = {}\n                ny[stasjon][dato] = {'ph': verdier['ph'], 'temp': verdier['temp']}\n    return ny\n```\n\nSkrivingen samler summen per stasjon og deler før den skriver linja:\n\n```python\ndef skriv_snitt(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('stasjon;snitt_ph\\n')\n        for stasjon, dager in data.items():\n            total = 0\n            for dato in dager:\n                total += dager[dato]['ph']\n            outfile.write(f'{stasjon};{total / len(dager):.2f}\\n')\n```\n\nKjeden:\n\n```python\ndata = les_avlop('avlop.txt')\nprint(data['Vest'])\nprint(sure_dogn(data, 7.0))\nskriv_snitt(data, 'snitt.txt')\nwith open('snitt.txt') as infile:\n    for line in infile:\n        print(line, end='')\n```\n\n**Utskrift:**\n```\n{'2025-05-02': {'ph': 7.4, 'temp': 11.2}, '2025-05-03': {'ph': 6.9, 'temp': 12.0}}\n{'Vest': {'2025-05-03': {'ph': 6.9, 'temp': 12.0}}}\nstasjon;snitt_ph\nVest;7.15\nAust;8.10\n```\n\nAust er ikke med i det sure resultatet i det hele tatt, fordi stasjonen ikke har noen prøve under pH 7,0 — det er nettopp derfor `if stasjon not in ny:` må stå **etter** betingelsen.\n\n**Dette gir uttelling:** (a) 4 p etter samme fordeling som i caset. (b) 4 p — ny ordbok, to løkker, betingelse, ytre nøkkel bare ved treff. (c) 4 p — `'w'` og header (1 p), ytre løkke (1 p), summering og deling på `len(dager)` (1 p), f-streng med to desimaler og `'\\n'` (1 p).\n\n**Selvdiagnose:** ☐ hoppet du over header-linja? ☐ ble begge tallfeltene `float`? ☐ deler du på antall prøver for **den** stasjonen, ikke på antall stasjoner? ☐ er `total` nullstilt inne i den ytre løkka? ☐ er argumentet til `sure_dogn` urørt etterpå?",
+        "hints": [
+          "Alle tre delene er mønstre du har brukt før — skriv skjelettet først.",
+          "I (b): opprett den ytre nøkkelen bare når en prøve faktisk kvalifiserer.",
+          "I (c): `total` må nullstilles inne i den ytre løkka, og du deler på `len(dager)`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-8-3-signal-2",
+      "type": "tip",
+      "title": "Signal: hva oppgave 4–10 testet",
+      "content": "**Oppgave 4** testet aggregering over det indre nivået, og særlig **hvor** akkumulatoren nullstilles. Lekker `beste` eller `total` mellom stasjonene, er svaret galt for alle unntatt den første.\n\n**Oppgave 5** testet skriving med betingelse: header én gang, `if` inne i løkka, `'\\n'` på hver linje.\n\n**Oppgave 6 og 10** var de fulle tredelte oppgavene, den formen sjanger L har når den er verdt 10–12 poeng. Kjernen i begge er at filteret må opprette den ytre nøkkelen **bare ved treff** — ellers får du med kandidater og stasjoner som ikke har noe å vise til.\n\n**Oppgave 7** testet feilkatalogen baklengs: gitt et program som krasjer, finn feilene. De tre du skal kjenne igjen på et blunk er separator, header og manglende indre ordbok.\n\n**Oppgave 8** var kolonnefila — nivå 3, «bør kjenne til». Metoden gir uttelling selv med bommede posisjoner.\n\n**Oppgave 9** testet at verdien i en ordbok gjerne kan være en **liste**, og at `.append` er forskjellig fra tilordning. Grupperingsmønsteret dukker opp hver gang oppgaveteksten sier «alle X som hører til Y»."
+    },
+    {
+      "id": "in1900-8-3-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-8-3-api-text",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `with open(filnavn) as infile:` | åpner for lesing, lukker automatisk ved blokkslutt |\n| `with open(filnavn, 'w') as outfile:` | åpner for skriving og **tømmer** fila i samme øyeblikk |\n| `for line in infile:` | én linje per runde, med linjeskiftet på slutten |\n| `infile.readline()` | leser én linje og flytter leseposisjonen; hopper over header når den kalles før løkka |\n| `line.strip().split(';')` | standardgrepet: fjern linjeskift, del på separator, få en liste |\n| `line.split(',')` / `line.split()` | komma-separert / blanktegn-separert; bar `.split()` på en semikolonfil gir **én** bit |\n| `line[a:b]` | fast-bredde-felt, posisjon `a` til og med `b-1`; krever `.strip()` på tekstfelt |\n| `int(...)` / `float(...)` | typekonvertering; tåler blanktegn rundt tallet, `ValueError` på ikke-tall |\n| `data[nøkkel] = {}` | oppretter den indre ordboka; nødvendig når flere linjer deler samme ytre nøkkel |\n| `data[nøkkel] = []` | oppretter en tom liste som verdi; grupperingsvarianten |\n| `.append(verdi)` | legger til i lista — i motsetning til tilordning, som overskriver |\n| `if nøkkel not in data:` | vakten før opprettelse; i et **filter** står den etter betingelsen, så nøkkelen bare opprettes ved treff |\n| `for k, v in data.items():` | nøkkel og verdi samtidig; to nivåer krever to slike løkker |\n| `outfile.write(f'{a};{b:.2f}\\n')` | én linje til fil, med separator og linjeskift inne i f-strengen |\n| `total = 0` … `total += …` … `total / len(dager)` | aggregeringsmønsteret; `total` nullstilles **inne** i den ytre løkka |\n| `beste = 0.0` / `beste = ''` | «beste så langt»-mønsteret; tom streng betyr «ingen kandidat ennå» |\n| `return data` / `return ny` | **utenfor** løkka, på samme innrykk som opprettelsen |\n| `print(line, end='')` | tilbakelesing uten dobbelt linjeskift |\n| `print(..., end=' ')` og `print()` | flere verdier på én linje, og en tom `print` for å avslutte linja |\n\n**Navnebruk i dette delkapitlet:** `data` er den innleste strukturen, `ny` resultatet av et filter, `felt` lista `.split()` gir, `dager`/`emner` den indre ordboka, `infile`/`outfile` filobjektene.\n\n**Feilkodene som hører til dette delkapitlet:** #7 (glemt `.strip()` eller `readline()`), #8 (feil separator), #16 (utskriftsdetaljer — `end=' '`), #20 (mutasjon i stedet for ny ordbok), pluss de to kapittelspesifikke: glemt `'\\n'` i `write`, og `return` inne i løkka.\n\n**Regnestykker i dette delkapitlet:** en linje med $n$ separatorer har $n+1$ felt. Gjennomsnittet av $m$ målinger er $\\frac{1}{m}\\sum_{i=1}^{m} x_i$ — i kode `total / len(dager)`, der `len(dager)` er $m$ for **den** ytre nøkkelen."
+        }
+      ]
+    },
+    {
+      "id": "in1900-8-3-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-8-3-def-1",
+      "type": "definition",
+      "title": "Sjanger L",
+      "content": "Fillesing til nøstet ordbok: oppgaven der du leser en tekstfil linje for linje og bygger en datastruktur. Den forekommer i 8 av 8 gjennomgåtte avsluttende sett og teller 8–12 poeng, oftest delt i tre: (a) les til ordbok, (b) skriv struktur til fil, (c) filtrer og returner en ny ordbok. Innpakningen roterer år for år, programmeringsøvelsen er den samme."
+    },
+    {
+      "id": "in1900-8-3-def-2",
+      "type": "definition",
+      "title": "Steg 1 — velg den ytre nøkkelen",
+      "content": "Det feltet som identifiserer raden: stasjonsnavn, ID, land, kandidatnummer. Har hver nøkkel **én** linje, settes hele den indre ordboka inn i én tilordning. Har samme nøkkel **flere** linjer, trengs et nøkkelnivå til (typisk dato) og en `if nøkkel not in data:`-sjekk. Dette valget avgjør hele resten av koden."
+    },
+    {
+      "id": "in1900-8-3-def-3",
+      "type": "definition",
+      "title": "Steg 2 — header eller ikke",
+      "content": "Er den første linja kolonnenavn, hoppes den over med `infile.readline()` før løkka — eller den brukes som kilde til feltnavnene med `readline().strip().split(sep)[1:]`. Er det ingen header, skal `readline()` **ikke** stå der; ellers mister du den første dataraden i stillhet."
+    },
+    {
+      "id": "in1900-8-3-def-4",
+      "type": "definition",
+      "title": "Steg 3 — velg separator",
+      "content": "Semikolon gir `.split(';')`, komma gir `.split(',')`, mellomrom eller TAB gir bar `.split()`, faste kolonner gir `line[a:b]`. Separatoren leses ut av fila slik den er gjengitt i oppgaveteksten. Feil valg gir `IndexError` med én gang, fordi `felt[1]` da ikke finnes."
+    },
+    {
+      "id": "in1900-8-3-def-5",
+      "type": "definition",
+      "title": "Steg 4 — typekonvertering",
+      "content": "Konverter tallfeltene med `int` eller `float` med én gang, inne i innlesingsløkka, og la tekstfeltene være tekst. Da inneholder strukturen ferdige verdier. Glemt konvertering gir ingen feilmelding, bare gale resultater: `+` på to tallstrenger skjøter dem sammen."
+    },
+    {
+      "id": "in1900-8-3-def-6",
+      "type": "definition",
+      "title": "Steg 5 — skriving til fil",
+      "content": "`with open(filnavn, 'w') as outfile:`, header én gang før løkka, deretter én `write` per linje der linja er bygget som f-streng og slutter på `'\\n'`. `write` legger aldri til linjeskift, og godtar bare strenger. Skriver du header, må leseren senere hoppe over den."
+    },
+    {
+      "id": "in1900-8-3-def-7",
+      "type": "definition",
+      "title": "Steg 6 — filtrering uten mutasjon",
+      "content": "`ny = {}` → løkke over `.items()` → `if`-betingelse → innsetting → `return ny` utenfor løkka. I en nøstet struktur står `if ytre not in ny:` **etter** betingelsen, slik at ytre nøkler uten treff ikke havner i resultatet med tom indre ordbok. Skriv aldri `ny = data`."
+    },
+    {
+      "id": "in1900-8-3-def-8",
+      "type": "definition",
+      "title": "Aggregeringsmønsteret",
+      "content": "Ett tall per ytre nøkkel, regnet ut fra det indre nivået: `total = 0` øverst i den ytre løkka, `total += …` i den indre, og `ny[ytre] = total / len(indre)` etter den indre løkka. To feil koster poeng: å nullstille `total` utenfor den ytre løkka (verdier lekker mellom nøklene), og å dele på `len(data)` i stedet for `len(indre)`."
+    },
+    {
+      "id": "in1900-8-3-def-9",
+      "type": "definition",
+      "title": "«Beste så langt»-mønsteret",
+      "content": "Å finne største eller minste verdi uten `max`: en variabel som holder den beste kandidaten, oppdatert ved hver sammenligning. `beste = ''` betyr «ingen kandidat ennå» og gjør at den første oppføringen alltid vinner første runde. Nullstillingen hører øverst i den ytre løkka når resultatet skal beregnes per nøkkel."
+    },
+    {
+      "id": "in1900-8-3-def-10",
+      "type": "definition",
+      "title": "Grupperingsmønsteret",
+      "content": "Når flere rader skal samles under samme nøkkel som en **liste**: `if nøkkel not in data: data[nøkkel] = []` og deretter `data[nøkkel].append(verdi)`. Tilordning i stedet for `.append` overskriver, så bare den siste raden overlever. Mønsteret gjenkjennes på oppgaveformuleringen «alle X som hører til Y»."
+    },
+    {
+      "id": "in1900-8-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjon: oppskriften på ett kort",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-8-3-rep-text",
+          "type": "text",
+          "content": "**De seks spørsmålene, i rekkefølge:**\n\n1. Hva er den ytre nøkkelen — og har den én eller flere linjer?\n2. Er det en header-linje?\n3. Hva er separatoren?\n4. Hvilke felt er tall?\n5. Del (b): `'w'`, header, f-streng, `'\\n'`.\n6. Del (c): `ny = {}`, `if`, `return ny` utenfor løkka.\n\n**Skjelettet du skriver først, hver gang:**\n\n```python\ndef les(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            felt = line.strip().split(';')\n            data[felt[0]] = {}\n    return data\n\nprint(len(les('land.txt')))\n```\n\n**Utskrift:**\n```\n4\n```\n\nMerk at samme skjelett leser `land.txt` uten å krasje selv om separatoren er komma — da blir hele linja én nøkkel. Det er nettopp derfor steg 3 er et eget spørsmål: koden kjører, men strukturen er ubrukelig.\n\n**De fire feilene som koster mest:** feil separator (#8) · glemt `.strip()` eller `readline()` (#7) · `ny = data` i stedet for `ny = {}` (#20) · glemt `'\\n'` i `write`.\n\n**Neste steg:** de tre komplette settene i [kap. 9.1](/bok/in1900/in1900-9-1), [kap. 9.2](/bok/in1900/in1900-9-2) og [kap. 9.3](/bok/in1900/in1900-9-3) har hver sin sjanger-L-oppgave, midt i et fullt sett under tidspress. Prøvene til denne delen ligger i [prøvekapitlet](/bok/in1900/in1900-8-prove)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

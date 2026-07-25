@@ -1,0 +1,397 @@
+{
+  "id": "in1900-1-5",
+  "courseId": "in1900",
+  "chapterNumber": "1.5",
+  "title": "Dictionaries og nøstede dictionaries",
+  "description": "Ordbøker, nøstede ordbøker og `dict(zip(...))` — datastrukturen fillesingsoppgavene (sjanger L, 100 %) bygger på.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne slå opp, sette inn og oppdatere verdier i en ordbok, og forklare hvorfor et oppslag noen ganger stopper programmet",
+    "kunne gå gjennom en ordbok med løkke og angi nøyaktig hva den skriver ut",
+    "kunne bygge en ordbok fra to lister, og telle opp verdier uten å vite nøklene på forhånd",
+    "kunne bygge og lese en nøstet ordbok, og holde de to nivåene fra hverandre"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-5-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ordboka er datastrukturen bak den nest tyngste kodeoppgaven på eksamen.**\n\n- **Sjanger L — fillesing til nøstet ordbok**, altså å lese en datafil inn i en oppslagsstruktur og deretter hente tall ut av den. Den forekommer i **100 % av settene** (8 av 8 avsluttende sett 2018–2025) og gir 8–12 poeng — blant de høyest betalte oppgavene i faget. Hele den sjangeren hviler på det du lærer her; selve fillesingen kommer i Del 8.\n- **Sjanger A — kodesporing**, altså «hva skriver dette programmet ut?». Ordbøker er fast materiale på **midtveiseksamen** (UiOs digitale flervalgseksamen i oktober, som teller 25 % av karakteren): et oppslag, en løkke over nøklene, en verdi som oppdateres.\n- Fellene er alltid de samme to: å blande **nøkkel** og **posisjon**, og å glemme å opprette den indre ordboka før du setter noe inn i den.\n\n**Prioritet: dette må sitte** (høyeste prioritet av bokas tre nivåer — «må sitte», «må kunne», «bør kjenne til»). Kapitlet er kort, men det er inngangsbilletten til en oppgavetype du kan regne med at kommer."
+    },
+    {
+      "id": "in1900-1-5-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1) — at en verdi har en datatype, og at `=` betyr «la navnet peke på resultatet».\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2) — lister og indeksering, som ordboka skal sammenlignes med.\n- [Kap. 1.3 — Løkker — for, while, range og nøstede løkker](/bok/in1900/in1900-1-3) — `for`-løkka, akkumulatormønsteret og `zip`.\n- [Kap. 1.4 — Strenger, f-strenger og formatert utskrift](/bok/in1900/in1900-1-4) — f-strenger, som brukes til å skrive pene tabeller i eksemplene.\n\nHar du aldri programmert før, er [Programmering med Python](/bok/1p/1p-9-2) en mykere inngang du kan bla gjennom først."
+    },
+    {
+      "id": "in1900-1-5-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — Oppslag etter navn i stedet for etter posisjon (~10 min)\n\nTre målestasjoner rapporterer temperatur: Blindern 4,2 grader, Tryvann −1,5 grader og Bygdøy 5,0 grader. Med lister må du holde to ting i hodet samtidig — en liste med navn og en liste med tall — og passe på at plass nummer 1 i den ene hører til plass nummer 1 i den andre.\n\nEn **ordbok** fjerner det bokholderiet. Der slår du opp på navnet direkte: «hva målte Tryvann?». Det er samme idé som i en ordliste, der du slår opp på ordet og får forklaringen. Datastrukturen heter `dict` i Python, og den er ryggraden i alle fillesingsoppgavene i Del 8."
+    },
+    {
+      "id": "in1900-1-5-def-4",
+      "type": "definition",
+      "title": "Ordbok (`dict`)",
+      "content": "En **ordbok** er en samling par av **nøkkel** og **verdi**. Du skriver den med krøllparenteser, kolon mellom nøkkel og verdi, og komma mellom parene.\n\nNøkkelen er det du slår opp på, verdien er det du får. En tom ordbok skrives `{}`.\n\n```python\ntemperatur = {'Blindern': 4.2, 'Tryvann': -1.5, 'Bygdoy': 5.0}\nprint(temperatur['Tryvann'])\nprint(len(temperatur))\nprint(temperatur)\n```\n\n**Utskrift:**\n```\n-1.5\n3\n{'Blindern': 4.2, 'Tryvann': -1.5, 'Bygdoy': 5.0}\n```\n\nMerk hvordan Python skriver ut en hel ordbok: krøllparenteser, fnutter rundt strengnøklene, kolon og mellomrom. Det er den formen du må gjengi tegn for tegn i en sporingsoppgave."
+    },
+    {
+      "id": "in1900-1-5-def-5",
+      "type": "definition",
+      "title": "Oppslag `d[nøkkel]`",
+      "content": "Hakeparentes med **nøkkelen** inni gir verdien: `temperatur['Tryvann']` er `-1.5`.\n\nDette er den store forskjellen fra en liste. I en liste betyr `x[1]` «element nummer 1 regnet fra 0». I en ordbok betyr `d[1]` «verdien som hører til nøkkelen 1» — og finnes ikke den nøkkelen, stopper programmet. Posisjon spiller ingen rolle.\n\nFinnes ikke nøkkelen, får du feilen `KeyError` med nøkkelen i meldingen."
+    },
+    {
+      "id": "in1900-1-5-def-6",
+      "type": "definition",
+      "title": "Innsetting og oppdatering `d[nøkkel] = verdi`",
+      "content": "Samme skrivemåte brukes til to ting, og Python avgjør selv hvilken:\n\n- Finnes nøkkelen ikke, blir paret **lagt til**.\n- Finnes den fra før, blir verdien **overskrevet**.\n\nDet er ingen egen «legg til»-metode slik lister har `append`.\n\n```python\ntemperatur = {'Blindern': 4.2}\ntemperatur['Tryvann'] = -1.5\ntemperatur['Blindern'] = 4.8\nprint(temperatur)\n```\n\n**Utskrift:**\n```\n{'Blindern': 4.8, 'Tryvann': -1.5}\n```\n\nFørste linje la til et nytt par, andre linje endret et som fantes. Ordboka har fortsatt to par."
+    },
+    {
+      "id": "in1900-1-5-def-7",
+      "type": "definition",
+      "title": "`nøkkel in d`",
+      "content": "Sjekker om **nøkkelen** finnes, og gir `True` eller `False`. Den ser bare på nøklene — aldri på verdiene.\n\n```python\ntemperatur = {'Blindern': 4.2, 'Tryvann': -1.5}\nprint('Tryvann' in temperatur)\nprint(-1.5 in temperatur)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nAndre linje er fellen: `-1.5` er en verdi i ordboka, men ingen nøkkel, så svaret er `False`. Vil du lete i verdiene, må du skrive `-1.5 in temperatur.values()`.\n\nDenne testen er den vanlige måten å unngå `KeyError` på: sjekk først, slå opp etterpå."
+    },
+    {
+      "id": "in1900-1-5-def-8",
+      "type": "definition",
+      "title": "`len(d)`",
+      "content": "Antall **par** i ordboka — altså antall nøkler, ikke antall tegn eller antall nivåer.\n\nFor en nøstet ordbok teller `len` bare det ytterste nivået: har du tre stasjoner med tolv måneder hver, gir `len(data)` tallet 3. Vil du telle månedene for én stasjon, skriver du `len(data['Blindern'])`."
+    },
+    {
+      "id": "in1900-1-5-ex-9",
+      "type": "example",
+      "title": "Eksempel 1: Én måling som ordbok",
+      "problem": "En værstasjon leverer fire opplysninger om samme måling: stasjonsnavn, temperatur, vindstyrke og om det frøs. Legg dem i én ordbok, skriv ut navn og temperatur, trekk fra 0,5 grader for en kjent målefeil, og sjekk om nedbør er registrert.",
+      "solution": "Her er nøklene beskrivelser av hva tallene betyr. Det gjør koden lesbar: `maaling['temp']` sier hva verdien er, mens `maaling[1]` ikke hadde sagt noe.\n\n```python\nmaaling = {'stasjon': 'Blindern', 'temp': 4.2, 'vind': 3, 'frost': False}\nprint(len(maaling))\nprint(maaling['stasjon'], maaling['temp'])\nmaaling['temp'] = maaling['temp'] - 0.5\nprint(maaling['temp'])\nprint('nedbor' in maaling)\n```\n\n**Utskrift:**\n```\n4\nBlindern 4.2\n3.7\nFalse\n```\n\nFire ting å merke seg. `len` gir 4 fordi det er fire par. `print` med to argumenter setter **ett mellomrom** mellom dem. Linjen som oppdaterer `temp` leser den gamle verdien på høyresiden og skriver den nye på venstresiden — nøyaktig som `x = x + 1`. Og siste linje er `False` fordi ordboka aldri fikk noen `'nedbor'`-nøkkel."
+    },
+    {
+      "id": "in1900-1-5-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse og minimal sporing.) La\n\n```python\nkilder = {'vann': 41, 'vind': 16, 'sol': 3}\n```\n\nSvar på hvert punkt for seg.\n\n**a)** Hva gir `kilder['vind']`?\n\n**b)** Hva gir `len(kilder)`?\n\n**c)** Hva gir `'sol' in kilder`?\n\n**d)** Hva gir `41 in kilder`?",
+        "solution": "**a)** `16` — oppslag på nøkkelen `'vind'`.\n\n**b)** `3` — tre par i ordboka.\n\n**c)** `True` — `'sol'` er en av nøklene.\n\n**d)** `False` — 41 er en **verdi**, ikke en nøkkel. `in` ser bare på nøklene.\n\nPunkt d) er hele poenget med oppgaven: det er den vanligste misforståelsen om `in` på en ordbok, og den dukker opp igjen som distraktor i flervalgsspørsmål.",
+        "hints": [
+          "Skriv opp de tre nøklene for seg og de tre verdiene for seg før du svarer.",
+          "`in` på en ordbok stiller alltid samme spørsmål: finnes denne **nøkkelen**?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-adv-10",
+      "type": "warning",
+      "title": "Når nøkkelen ikke finnes — `KeyError`",
+      "content": "Et oppslag på en nøkkel som ikke finnes, stopper programmet med en feil. En **exception** er en feil som avbryter kjøringen; denne heter `KeyError`, og meldingen viser hvilken nøkkel den ikke fant:\n\n```python\ntemperatur = {'Blindern': 4.2, 'Tryvann': -1.5}\nprint(temperatur['Fornebu'])\n```\n\n**Utskrift:**\n```\nKeyError: 'Fornebu'\n```\n\nDette er **siste linje** i feilmeldingen; over den lister Python opp hvilken fil og hvilken linje som feilet. `print` rakk aldri å skrive noe.\n\nDette er en av de sju feiltypene du skal kunne kjenne igjen i [kap. 2.2](/bok/in1900/in1900-2-2). To måter å unngå den på finnes: test med `in` først, eller bruk `.get` — begge deler kommer i løkke 3."
+    },
+    {
+      "id": "in1900-1-5-t-11",
+      "type": "text",
+      "content": "## Løkke 2 — Å gå gjennom en ordbok (~10 min)\n\nEn ukes nedbørsmålinger ligger i en ordbok med ukedag som nøkkel. Du vil skrive ut alle parene, summere millimeterne og finne den våteste dagen. Til alt dette trenger du å gå gjennom ordboka med en `for`-løkke.\n\nPython gir deg tre innganger: over nøklene, over verdiene, eller over begge samtidig. Å velge riktig av dem er halve jobben, og å vite hvilken av dem en gitt løkke faktisk bruker, er en fast kodesporingsfelle."
+    },
+    {
+      "id": "in1900-1-5-def-12",
+      "type": "definition",
+      "title": "`for k in d:`",
+      "content": "En `for`-løkke rett på ordboka går gjennom **nøklene** — ikke verdiene, ikke parene.\n\nVil du ha verdien også, slår du den opp inne i løkka med `d[k]`.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12}\nfor dag in nedbor:\n    print(dag, nedbor[dag])\n```\n\n**Utskrift:**\n```\nmandag 4\ntirsdag 0\nonsdag 12\n```\n\nDette er den vanligste dict-løkka i faget, og den vanligste sporingsfellen er å tro at `dag` er verdien. Løkkevariabelen er alltid nøkkelen."
+    },
+    {
+      "id": "in1900-1-5-def-13",
+      "type": "definition",
+      "title": "`d.keys()` og `d.values()`",
+      "content": "`d.keys()` gir alle nøklene, `d.values()` alle verdiene — begge i **innsettingsrekkefølge**.\n\nDe er ikke lister, men de kan brukes i en `for`-løkke og i `sum`, `max`, `min` og `len`. Trenger du en ekte liste (for å indeksere eller skrive ut), pakker du dem i `list(...)`.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12}\nprint(list(nedbor.keys()))\nprint(list(nedbor.values()))\nprint(sum(nedbor.values()))\n```\n\n**Utskrift:**\n```\n['mandag', 'tirsdag', 'onsdag']\n[4, 0, 12]\n16\n```\n\n`sum(nedbor.values())` er kortformen for hele akkumulatormønsteret fra [kap. 1.3](/bok/in1900/in1900-1-3), på én linje."
+    },
+    {
+      "id": "in1900-1-5-def-14",
+      "type": "definition",
+      "title": "`d.items()`",
+      "content": "Gir **paret** `(nøkkel, verdi)` for hvert par i ordboka, slik at du kan pakke det ut i to løkkevariabler i én operasjon.\n\nEt slikt par kalles en **tuppel**: en fast sammenstilling av to eller flere verdier, skrevet med komma og vanligvis parenteser rundt. Den ligner en liste, men kan ikke endres etterpå. Du møter tupler igjen som returverdi fra funksjoner i [kap. 1.6](/bok/in1900/in1900-1-6).\n\nRekkefølgen er alltid nøkkel først, verdi etterpå — akkurat som `enumerate` alltid gir indeks først.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12}\nfor dag, mm in nedbor.items():\n    print(f'{dag:9s}{mm:3d} mm')\n```\n\n**Utskrift:**\n```\nmandag     4 mm\ntirsdag    0 mm\nonsdag    12 mm\n```\n\nBredden `9` og `3` i f-strengen sørger for at kolonnene står rett — se [kap. 1.4](/bok/in1900/in1900-1-4)."
+    },
+    {
+      "id": "in1900-1-5-def-15",
+      "type": "definition",
+      "title": "Rekkefølgen i en ordbok",
+      "content": "Fra Python 3.7 husker en ordbok **innsettingsrekkefølgen**: parene kommer ut i den rekkefølgen de ble satt inn, uansett hva nøklene heter.\n\nDen er altså ikke sortert alfabetisk, og ikke tilfeldig.\n\n```python\nd = {}\nd['c'] = 3\nd['a'] = 1\nd['b'] = 2\nprint(d)\nprint(list(d))\n```\n\n**Utskrift:**\n```\n{'c': 3, 'a': 1, 'b': 2}\n['c', 'a', 'b']\n```\n\nLegg merke til at `list(d)` gir nøklene, ikke parene — det er samme regel som for `for k in d`. I en sporingsoppgave må du derfor holde orden på i hvilken rekkefølge nøklene ble satt inn."
+    },
+    {
+      "id": "in1900-1-5-ex-16",
+      "type": "example",
+      "title": "Eksempel 2: Total, snitt og våteste dag",
+      "problem": "Fire dagers nedbør ligger i en ordbok. Skriv ut samlet nedbør, hvilken dag som var våtest, og gjennomsnittet med to desimaler.",
+      "solution": "Mønsteret er akkumulatoren fra [kap. 1.3](/bok/in1900/in1900-1-3), men over `.items()` i stedet for over en liste. Startverdien for «våteste dag» er den første nøkkelen — ikke et tall, for det er en dag vi skal svare med.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12, 'torsdag': 7}\ntotal = 0\ntoppdag = 'mandag'\nfor dag, mm in nedbor.items():\n    total += mm\n    if mm > nedbor[toppdag]:\n        toppdag = dag\nprint(total, toppdag)\nprint(f'{total / len(nedbor):.2f}')\n```\n\n**Utskrift:**\n```\n23 onsdag\n5.75\n```\n\nTre detaljer sensor ser etter. `total` starter på 0 **før** løkka, ellers nullstilles den hver runde. Sammenligningen er `mm > nedbor[toppdag]` — vi må slå opp verdien til den nåværende topplederen, for `toppdag` er et navn, ikke et tall. Og `len(nedbor)` er antall dager, som er det vi skal dele på."
+    },
+    {
+      "id": "in1900-1-5-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\nd = {'p': 2, 'q': 5}\nfor k in d:\n    d[k] = d[k] * 10\nprint(d)\nprint(sum(d.values()), max(d.values()))\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | `k` | `d` etter steget |\n|---|---|---|\n| start | — | `{'p': 2, 'q': 5}` |\n| runde 1 | `'p'` | `{'p': 20, 'q': 5}` |\n| runde 2 | `'q'` | `{'p': 20, 'q': 50}` |\n\nLøkkevariabelen `k` er **nøkkelen**, så `d[k]` henter verdien, ganger med 10 og legger den tilbake på samme nøkkel. Ingen nye nøkler kommer til, så løkka går nøyaktig to runder.\n\nDeretter er `sum(d.values())` lik `20 + 50 = 70`, og `max(d.values())` lik `50`. `print` med to argumenter skiller dem med ett mellomrom.\n\n**Utskrift:**\n```\n{'p': 20, 'q': 50}\n70 50\n```\n\nFellen her er å tro at `k` er verdien og skrive `20 50` som første linje. Løkka skriver ingenting selv — bare de to `print`-linjene etterpå gir utskrift.",
+        "hints": [
+          "Før en tavle med én rad per runde, og skriv opp hele ordboka etter hver runde.",
+          "Løkkevariabelen i `for k in d` er nøkkelen. Verdien får du med `d[k]`.",
+          "Husk at Python skriver en ordbok med krøllparenteser, kolon og mellomrom."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-t-17",
+      "type": "text",
+      "content": "## Løkke 3 — Å bygge en ordbok fra to lister, og å slå opp trygt (~8 min)\n\nData kommer sjelden ferdig som ordbok. Oftere har du to lister som hører sammen — en med navn og en med tall — eller du skal telle opp noe der du ikke vet på forhånd hvilke nøkler som dukker opp. Til begge deler finnes det ett fast grep hver."
+    },
+    {
+      "id": "in1900-1-5-def-18",
+      "type": "definition",
+      "title": "`dict(zip(nøkler, verdier))`",
+      "content": "Lager en ordbok av to sekvenser: den første leverer nøklene, den andre verdiene, parret posisjon for posisjon.\n\n`zip` stopper ved den **korteste** av de to — det fyller ikke ut. Er navnelista lengre enn tallista, forsvinner de overskytende navnene uten noen feilmelding. Det er samme regel som i [kap. 1.3](/bok/in1900/in1900-1-3), og den er lett å overse her fordi resultatet ser helt normalt ut.\n\n```python\nstasjoner = ['Blindern', 'Tryvann', 'Bygdoy']\nmaalinger = [4.2, -1.5]\nprint(dict(zip(stasjoner, maalinger)))\n```\n\n**Utskrift:**\n```\n{'Blindern': 4.2, 'Tryvann': -1.5}\n```\n\nTre navn inn, to tall inn, to par ut. Bygdøy ble borte."
+    },
+    {
+      "id": "in1900-1-5-def-19",
+      "type": "definition",
+      "title": "`d.get(nøkkel, standard)`",
+      "content": "Slår opp som `d[nøkkel]`, men gir **standardverdien** i stedet for å stoppe programmet når nøkkelen mangler.\n\nUtelater du standardverdien, blir den `None` — Pythons verdi for «ingenting», som skrives ut som `None`. Merk at `.get` aldri endrer ordboka: den setter ikke inn noe.\n\n```python\ntemperatur = {'Blindern': 4.2, 'Tryvann': -1.5}\nprint(temperatur.get('Tryvann', 0.0))\nprint(temperatur.get('Fornebu', 0.0))\nprint(temperatur.get('Fornebu'))\nprint(temperatur)\n```\n\n**Utskrift:**\n```\n-1.5\n0.0\nNone\n{'Blindern': 4.2, 'Tryvann': -1.5}\n```\n\nSiste linje viser at ordboka er uendret — `'Fornebu'` ble aldri lagt til."
+    },
+    {
+      "id": "in1900-1-5-def-20",
+      "type": "definition",
+      "title": "Nøkler er unike",
+      "content": "En nøkkel kan bare finnes én gang. Skriver du samme nøkkel to ganger i samme krøllparentes, vinner den **siste** — uten advarsel.\n\n```python\ntemperatur = {'Blindern': 4.2, 'Tryvann': -1.5, 'Blindern': 4.8}\nprint(temperatur)\nprint(len(temperatur))\n```\n\n**Utskrift:**\n```\n{'Blindern': 4.8, 'Tryvann': -1.5}\n2\n```\n\nMerk at `'Blindern'` beholder sin **plass** fra første gang den ble satt inn, men får verdien fra siste. Det er nøyaktig samme regel som ved oppdatering."
+    },
+    {
+      "id": "in1900-1-5-def-21",
+      "type": "definition",
+      "title": "Hva kan være nøkkel?",
+      "content": "Nøkler må være verdier som ikke kan endres: strenger, tall og sannhetsverdier går bra. Tekstnøkler er det vanlige i faget, men årstall som heltall er også naturlig.\n\nEn **liste kan ikke være nøkkel** — den kan endres, og Python nekter med en `TypeError`. Verdien derimot kan være hva som helst, også en liste eller en ny ordbok. Nettopp det siste er det nøstede ordbøker bygger på."
+    },
+    {
+      "id": "in1900-1-5-ex-22",
+      "type": "example",
+      "title": "Eksempel 3: Telle uten å vite nøklene på forhånd",
+      "problem": "Tell hvor mange ganger hver bokstav forekommer i teksten `'abrakadabra'`, og skriv ut resultatet, antall forekomster av `'a'` og antall ulike bokstaver.",
+      "solution": "Problemet er at du ikke vet hvilke nøkler som trengs før du har sett teksten. `.get(tegn, 0)` løser det på én linje: «hent den gamle tellingen, eller 0 hvis bokstaven ikke er sett før».\n\n```python\nantall = {}\nfor tegn in 'abrakadabra':\n    antall[tegn] = antall.get(tegn, 0) + 1\nprint(antall)\nprint(antall['a'], len(antall))\n```\n\n**Utskrift:**\n```\n{'a': 5, 'b': 2, 'r': 2, 'k': 1, 'd': 1}\n5 5\n```\n\nLegg merke til rekkefølgen i utskriften: `a`, `b`, `r`, `k`, `d` — det er den rekkefølgen bokstavene dukker opp **første gang** i ordet, ikke alfabetisk og ikke etter antall. Og de to femtallene på siste linje betyr to helt forskjellige ting: fem `a`-er, og fem ulike bokstaver.\n\nUten `.get` måtte du skrevet tre linjer med `if tegn in antall:`. Begge deler gir full uttelling; `.get`-formen er den korte, idiomatiske."
+    },
+    {
+      "id": "in1900-1-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nkilder = {'vann': 41, 'vind': 16, 'sol': 3}\nnavn = list(kilder.keys())\ntall = list(kilder.values())\nprint(navn[0], tall[-1])\nprint(dict(zip(tall, navn)))\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdi |\n|---|---|\n| `list(kilder.keys())` | `['vann', 'vind', 'sol']` |\n| `list(kilder.values())` | `[41, 16, 3]` |\n| `navn[0]` | `'vann'` |\n| `tall[-1]` | `3` (siste element) |\n| `dict(zip(tall, navn))` | tallene blir nøkler, navnene blir verdier |\n\nNøklene og verdiene kommer i innsettingsrekkefølge, så listene står parvis på linje. `zip(tall, navn)` parer dem i den rekkefølgen argumentene står — altså med tallet først, og tallet blir dermed nøkkel.\n\n**Utskrift:**\n```\nvann 3\n{41: 'vann', 16: 'vind', 3: 'sol'}\n```\n\nMerk at strengen `vann` skrives uten fnutter når den er argument til `print`, men **med** fnutter når den ligger inne i en ordbok som skrives ut. Heltallsnøklene får ingen fnutter. Det er en tegn-for-tegn-detalj som avgjør poenget i sjanger A.",
+        "hints": [
+          "Skriv opp de to listene først, og hold rekkefølgen fra ordboka.",
+          "`zip(a, b)` parer første element i `a` med første i `b`; rekkefølgen på argumentene avgjør hva som blir nøkkel.",
+          "Tenk over når Python setter fnutter rundt en streng i utskriften, og når den ikke gjør det."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nmaaned = ['mai', 'juni', 'juli']\ngrader = [12.4, 16.1]\nd = dict(zip(maaned, grader))\nprint(len(d))\nprint(d.get('juli', -1))\nprint(d)\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | Resultat |\n|---|---|\n| `zip` parer posisjon for posisjon | `'mai'`–`12.4`, `'juni'`–`16.1` |\n| `zip` stopper ved korteste | `'juli'` får ingen partner og forsvinner |\n| `d` | `{'mai': 12.4, 'juni': 16.1}` |\n| `len(d)` | `2` |\n| `d.get('juli', -1)` | nøkkelen mangler, standardverdien brukes: `-1` |\n\n**Utskrift:**\n```\n2\n-1\n{'mai': 12.4, 'juni': 16.1}\n```\n\nTo feller er i sving samtidig. Den første er #17 — `zip` stopper ved den korteste sekvensen og fyller ikke ut, så `len(d)` er 2 og ikke 3. Den andre er at `.get` med standardverdi ikke gir `KeyError`, men heller ikke legger `'juli'` inn i ordboka — derfor er siste linje fortsatt to par.",
+        "hints": [
+          "Skriv opp parene `zip` faktisk lager, ett og ett.",
+          "Hva skjer med et element som ikke får noen partner?",
+          "`.get` med standardverdi endrer aldri ordboka."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger L-forkunnskap — bygg en oppslagsstruktur.) En liste med energikilder er registrert flere ganger, én linje per kraftverk:\n\n```python\nkraftverk = [['vann', 12], ['vind', 5], ['vann', 30], ['sol', 3], ['vind', 11]]\n```\n\n**a)** Skriv kode som bygger ordboka `total` der nøkkelen er energikilden og verdien er summen av alle tallene for den kilden.\n\n**b)** Skriv ut hver kilde og summen på formen `vann 42`, én linje per kilde.",
+        "solution": "**a)** Mønsteret er telleoppskriften fra eksempel 3, men med tallet fra lista i stedet for 1:\n\n```python\nkraftverk = [['vann', 12], ['vind', 5], ['vann', 30], ['sol', 3], ['vind', 11]]\ntotal = {}\nfor kilde, mengde in kraftverk:\n    total[kilde] = total.get(kilde, 0) + mengde\n```\n\nLøkka pakker hver indre liste ut i to navn på én gang, på samme måte som `.items()` gjør for en ordbok.\n\n**b)** Utskriften går over `.items()`:\n\n```python\nfor kilde, sum_kilde in total.items():\n    print(kilde, sum_kilde)\n```\n\n**Utskrift:**\n```\nvann 42\nvind 16\nsol 3\n```\n\nRekkefølgen er den kildene dukket opp i første gang. *Uttelling:* selve `.get`-linja er kjernen — den som skriver den tre linjer lange `if`-varianten i stedet, får samme uttelling. Å bruke `sum_kilde` og ikke `sum` som variabelnavn er også et poeng: `sum` er navnet på en innebygd funksjon, og overskriver du det, virker ikke `sum(...)` resten av programmet.",
+        "hints": [
+          "Start med en tom ordbok `total = {}` før løkka.",
+          "Hver rad i `kraftverk` er en liste med to elementer og kan pakkes ut i to løkkevariabler.",
+          "Bruk `.get(kilde, 0)` for å slippe å teste om kilden er sett før."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-t-23",
+      "type": "text",
+      "content": "## Løkke 4 — Nøstede ordbøker (~12 min)\n\n— naturlig pausepunkt —\n\nNå kommer den delen eksamen faktisk måler. Målestasjonene leverer ikke ett tall hver, men en verdi per måned. Du trenger altså to nøkler for å komme fram til et tall: først hvilken stasjon, så hvilken måned.\n\nLøsningen er at **verdien i en ordbok selv er en ordbok**. Det kalles en nøstet ordbok, og det er nøyaktig den strukturen fillesingsoppgavene i Del 8 ber om — 8 til 12 poeng, i hvert eneste sett."
+    },
+    {
+      "id": "in1900-1-5-def-24",
+      "type": "definition",
+      "title": "Nøstet ordbok `d[ytre][indre]`",
+      "content": "En ordbok der hver verdi selv er en ordbok. Oppslaget skjer i to trinn, fra venstre: `data['Blindern']` gir hele den indre ordboka, og `data['Blindern']['juni']` går ett skritt videre og gir tallet.\n\n```python\ndata = {}\ndata['Blindern'] = {}\ndata['Blindern']['mai'] = 12.4\ndata['Blindern']['juni'] = 16.1\ndata['Tryvann'] = {'mai': 9.8, 'juni': 13.2}\nprint(data['Blindern']['juni'])\nprint(data)\n```\n\n**Utskrift:**\n```\n16.1\n{'Blindern': {'mai': 12.4, 'juni': 16.1}, 'Tryvann': {'mai': 9.8, 'juni': 13.2}}\n```\n\nDe to stasjonene er bygget på hver sin måte — den første par for par, den andre med hele den indre ordboka ferdig skrevet. Resultatet er det samme."
+    },
+    {
+      "id": "in1900-1-5-thm-25",
+      "type": "theorem",
+      "title": "Mønsteret: bygg en nøstet ordbok rad for rad",
+      "content": "Dette er kodemønsteret hele sjanger L hviler på, og det ser likt ut hver gang. Du har rader med tre opplysninger — ytre nøkkel, indre nøkkel og en verdi — og skal bygge opp strukturen mens du går gjennom dem:\n\n```python\nrader = [['Blindern', 'mai', 12.4], ['Blindern', 'juni', 16.1], ['Tryvann', 'mai', 9.8]]\ndata = {}\nfor stasjon, maaned, verdi in rader:\n    if stasjon not in data:\n        data[stasjon] = {}\n    data[stasjon][maaned] = verdi\nprint(data)\nfor stasjon in data:\n    for maaned in data[stasjon]:\n        print(stasjon, maaned, data[stasjon][maaned])\n```\n\n**Utskrift:**\n```\n{'Blindern': {'mai': 12.4, 'juni': 16.1}, 'Tryvann': {'mai': 9.8}}\nBlindern mai 12.4\nBlindern juni 16.1\nTryvann mai 9.8\n```\n\nTre faste trekk, og de tre er det sensor ser etter:\n\n1. **`data = {}` før løkka.** Strukturen bygges opp underveis, ikke skrives ferdig.\n2. **`if stasjon not in data: data[stasjon] = {}`.** Den indre ordboka må finnes før du kan sette noe inn i den. Uten disse to linjene stopper programmet.\n3. **`data[stasjon][maaned] = verdi`** — først da settes tallet inn, med begge nøklene.\n\nUtlesningen er speilbildet: en ytre løkke over stasjonene og en indre over månedene for nettopp den stasjonen. Legg merke til at den indre løkka går over `data[stasjon]`, ikke over `data`."
+    },
+    {
+      "id": "in1900-1-5-def-26",
+      "type": "definition",
+      "title": "Iterasjon over to nivåer",
+      "content": "En nøstet ordbok leses med en løkke inne i en løkke: den ytre gir deg de ytre nøklene, den indre går over `d[ytre]`.\n\nVil du ha både indre nøkkel og verdi, bruker du `.items()` på det indre nivået. Og trenger du hele den indre ordboka som en enhet — for eksempel for å summere den — kan du bruke `.items()` på det ytre nivået i stedet:\n\n```python\ndata = {'nord': {'uke1': 3, 'uke2': 5}, 'sor': {'uke1': 8}}\ntotal = 0\nfor omrade in data:\n    for uke in data[omrade]:\n        total += data[omrade][uke]\nprint(total)\n```\n\n**Utskrift:**\n```\n16\n```\n\nDe indre ordbøkene trenger ikke ha like mange nøkler. Her har `'nord'` to uker og `'sor'` bare én, og løkka bryr seg ikke."
+    },
+    {
+      "id": "in1900-1-5-adv-27",
+      "type": "warning",
+      "title": "Typisk feil #20 — den indre ordboka må opprettes først",
+      "content": "Feil #20 i bokas feilkatalog er å glemme å opprette den indre ordboka før du setter noe inn i den. Den ser slik ut:\n\n```python\ndata = {'Blindern': {'mai': 12.4}}\ndata['Tryvann']['mai'] = 9.8\n```\n\nSiste linje i feilmeldingen blir:\n\n```\nKeyError: 'Tryvann'\n```\n\nGrunnen er at Python må regne ut `data['Tryvann']` **først**, for å vite hva den skal sette `['mai']` inn i — og den nøkkelen finnes ikke. Feilen kommer altså på oppslaget, ikke på innsettingen.\n\nKuren er de to linjene fra mønsteret over: `if nokkel not in data: data[nokkel] = {}`. Skriv dem inn som en refleks hver gang du bygger et nivå to."
+    },
+    {
+      "id": "in1900-1-5-ex-28",
+      "type": "example",
+      "title": "Eksempel 4: Månedstemperaturer for tre stasjoner (eksamensnivå)",
+      "problem": "Tre målestasjoner har månedssnitt for mai og juni. Skriv ut en tabell med stasjonsnavn og årssnittet for de månedene stasjonen har, med to desimaler, og til slutt antall stasjoner og antall måneder for Blindern.",
+      "solution": "Når hele strukturen er skrevet ferdig i koden, kan den ytre løkka bruke `.items()` og få den indre ordboka rett i hånda som `maaneder`. Da er `maaneder.values()` alle tallene for den stasjonen, og snittet er én linje.\n\n```python\ndata = {'Blindern': {'mai': 12.4, 'juni': 16.1},\n        'Tryvann': {'mai': 9.8, 'juni': 13.2},\n        'Bygdoy': {'mai': 13.0, 'juni': 16.6}}\nfor stasjon, maaneder in data.items():\n    snitt = sum(maaneder.values()) / len(maaneder)\n    print(f'{stasjon:9s}{snitt:6.2f}')\nprint(len(data), len(data['Blindern']))\n```\n\n**Utskrift:**\n```\nBlindern  14.25\nTryvann   11.50\nBygdoy    14.80\n3 2\n```\n\nMerk de to `len`-verdiene på siste linje: `len(data)` er 3 fordi det er tre stasjoner på ytterste nivå, mens `len(data['Blindern'])` er 2 fordi Blindern har to måneder. Det er den forskjellen som avgjør flest ordbok-flervalg på midtveis.\n\nSnittet regnes ut fra den enkelte stasjonens egne måneder, ikke fra et fast tall. Det er en vane verdt å ta med seg: hardkodet `/ 2` ville vært feil så snart en stasjon manglet en måned."
+    },
+    {
+      "id": "in1900-1-5-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing i nøstet ordbok.) Hva skriver programmet ut?\n\n```python\ndata = {'nord': {'uke1': 3, 'uke2': 5}, 'sor': {'uke1': 8}}\nprint(len(data), len(data['nord']))\nprint('uke2' in data['sor'])\nprint(data['sor'].get('uke2', 0))\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Hva det ser på | Verdi |\n|---|---|---|\n| `len(data)` | ytre nivå: `'nord'`, `'sor'` | `2` |\n| `len(data['nord'])` | indre ordbok for nord: `'uke1'`, `'uke2'` | `2` |\n| `'uke2' in data['sor']` | nøklene i sørs indre ordbok: bare `'uke1'` | `False` |\n| `data['sor'].get('uke2', 0)` | mangler, så standardverdien brukes | `0` |\n\n**Utskrift:**\n```\n2 2\nFalse\n0\n```\n\nFellen er #20 — å blande nivåene. `len(data)` teller stasjoner, ikke uker, og det er ren flaks at begge tallene ble 2 her. Legg også merke til at `.get` kan kalles rett på den indre ordboka: `data['sor']` **er** en ordbok, og har alle ordbok-metodene.",
+        "hints": [
+          "Tegn strukturen som to nivåer før du svarer — ytre nøkler øverst, indre under.",
+          "`len` teller alltid parene på det nivået du peker på.",
+          "`data['sor']` er i seg selv en ordbok, og kan brukes som en."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger L-forkunnskap — bygg og filtrer en nøstet ordbok.) Målinger fra tre bydeler ligger som rader med bydel, uke og antall:\n\n```python\nrader = [['Sagene', 'uke1', 12], ['Grunerlokka', 'uke1', 30],\n         ['Sagene', 'uke2', 4], ['Grunerlokka', 'uke2', 25], ['Frogner', 'uke1', 9]]\n```\n\n**a)** Bygg den nøstede ordboka `data` slik at `data['Sagene']['uke2']` er `4`.\n\n**b)** Skriv ut bydelen med høyest total, og totalen.\n\n**c)** Forklar hvorfor programmet stopper hvis du fjerner de to linjene som oppretter den indre ordboka.",
+        "solution": "**a)** Standardmønsteret, med testen på plass:\n\n```python\nrader = [['Sagene', 'uke1', 12], ['Grunerlokka', 'uke1', 30],\n         ['Sagene', 'uke2', 4], ['Grunerlokka', 'uke2', 25], ['Frogner', 'uke1', 9]]\ndata = {}\nfor bydel, uke, antall in rader:\n    if bydel not in data:\n        data[bydel] = {}\n    data[bydel][uke] = antall\nprint(data['Sagene']['uke2'])\n```\n\n**Utskrift:**\n```\n4\n```\n\n**b)** Summér den indre ordboka for hver bydel, og hold på den beste underveis. Startverdien `-1` for `beste_total` virker fordi alle tellinger er positive:\n\n```python\nbeste = ''\nbeste_total = -1\nfor bydel, uker in data.items():\n    s = sum(uker.values())\n    if s > beste_total:\n        beste_total = s\n        beste = bydel\nprint(beste, beste_total)\n```\n\n**Utskrift:**\n```\nGrunerlokka 55\n```\n\nSagene har 16, Grünerløkka 55 og Frogner 9.\n\n**c)** Fordi `data[bydel][uke] = antall` regnes ut fra venstre: Python må først finne `data[bydel]` for å vite hvilken ordbok den skal sette `[uke]` inn i. Første gang en bydel dukker opp, finnes ikke den nøkkelen, og oppslaget gir `KeyError` med bydelsnavnet i meldingen. Innsettingsformen `d[nøkkel] = verdi` oppretter bare det **ytterste** leddet, aldri et nivå den må gå gjennom.\n\n*Uttelling:* de to linjene som oppretter den indre ordboka, og selve `data[bydel][uke] = antall`, er kjernen i a). Får du strukturen riktig, teller det tungt selv om du skulle rote med variabelnavn eller glemme en `print`.",
+        "hints": [
+          "Start med `data = {}` og gå gjennom radene én for én.",
+          "Hver rad er en liste med tre elementer og kan pakkes ut i tre løkkevariabler.",
+          "I b) er `uker.values()` alle tallene for én bydel; `sum` tar dem direkte."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-t-29",
+      "type": "text",
+      "content": "## Løkke 5 — Ordbok eller liste? (~5 min)\n\nTil slutt en avgjørelse du må ta i hver eneste kodeoppgave: skal dataene ligge i en liste eller i en ordbok? Svaret følger av hvordan du skal finne dem igjen."
+    },
+    {
+      "id": "in1900-1-5-def-30",
+      "type": "definition",
+      "title": "Ordbok mot liste",
+      "content": "**Liste** når tingene har en naturlig rekkefølge og du henter dem etter **posisjon**: målinger i tidsrekkefølge, punkter langs en akse, ledd i en rekke.\n\n**Ordbok** når tingene har et navn og du henter dem etter **navn**: stasjon, bydel, år, artsnavn.\n\n```python\nmaaling = {2020: 5.1, 2021: 6.3}\nprint(maaling[2021])\nliste = [5.1, 6.3]\nprint(liste[1])\n```\n\n**Utskrift:**\n```\n6.3\n6.3\n```\n\nSamme svar, to helt ulike spørsmål: ordboka ble spurt om **året 2021**, lista om **plass nummer 1**. Blander du de to, får du enten feil tall eller en `KeyError` — og på eksamen er «hvilken av disse to er dette?» selve poenget i mange flervalgsspørsmål."
+    },
+    {
+      "id": "in1900-1-5-adv-31",
+      "type": "warning",
+      "title": "Navnet `d` betyr to ting",
+      "content": "I bokas kodeeksempler er `d` det vanlige korte navnet på en **ordbok** — `d['a']`, `d.items()`. Det gjelder også i [kap. 8.1](/bok/in1900/in1900-8-1).\n\nMen i modelloppgaver står `d` like ofte for en **parameter i en modell**: en dødsrate, en dempningskoeffisient eller en avstand. Da er `d` et tall, ikke en struktur.\n\nRegelen i denne boka: `d` betyr ordbok bare når det står `d[...]` med en nøkkel eller et metodekall etter. Skriv heller `data`, `ordbok` eller `temperatur` i egne besvarelser — sensor leser koden fortere, og du unngår å forveksle dem selv."
+    },
+    {
+      "id": "in1900-1-5-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — kodesporing med ordbok og liste side om side.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\nd = {'x': [1, 2], 'y': [3]}\nd['x'].append(9)\nprint(d)\nprint(len(d), len(d['x']))\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Hva som skjer | `d` etterpå |\n|---|---|---|\n| 1 | to nøkler, verdiene er lister | `{'x': [1, 2], 'y': [3]}` |\n| 2 | `d['x']` gir **lista**, `append` endrer den | `{'x': [1, 2, 9], 'y': [3]}` |\n| 3 | skriver hele ordboka | — |\n| 4 | `len(d)` er 2 nøkler, `len(d['x'])` er 3 elementer | — |\n\n**Utskrift:**\n```\n{'x': [1, 2, 9], 'y': [3]}\n2 3\n```\n\nTo ting gjør denne krevende. Det første er at `d['x']` ikke gir en kopi av lista, men **selve** lista — så `append` endrer det som ligger i ordboka. Det andre er de to `len`-ene, som teller på hvert sitt nivå: to par i ordboka, tre elementer i lista under nøkkelen `'x'`. Det er felle #20 i sin enkleste form — å blande nivåene.\n\nMerk også at lister skrives med hakeparenteser og `, ` inne i ordbokutskriften, mens ordboka selv har krøllparenteser og kolon.",
+        "hints": [
+          "Tegn ordboka som to rader, med lista tegnet ut for seg.",
+          "Hva gir `d['x']` — en kopi av lista, eller lista selv?",
+          "De to `len`-kallene ser på hvert sitt nivå."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-5-adv-32",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "- **#20 — den indre ordboka må opprettes først.** `data[ytre][indre] = verdi` krever at `data[ytre]` allerede er en ordbok. Refleksen er `if ytre not in data: data[ytre] = {}`.\n- **#20, variant: å blande nivåene.** `len(data)` teller de ytre nøklene, `len(data[ytre])` de indre. Les alltid `len` som «på hvilket nivå spør jeg?».\n- **Nøkkel mot posisjon.** `d[1]` er et oppslag på nøkkelen 1, ikke element nummer 1. Det er derfor `d[0]` gir `KeyError` på en ordbok med tekstnøkler.\n- **#17 — `zip` stopper ved den korteste.** `dict(zip(navn, tall))` gir like mange par som den korteste lista, uten noen advarsel.\n- **`in` ser bare på nøklene.** `4.2 in temperatur` er `False` selv om 4,2 er en verdi. Skal du lete i verdiene, må du skrive `in temperatur.values()`.\n- **Løkkevariabelen er nøkkelen.** `for k in d` gir nøkler; verdiene må du slå opp. Vil du ha begge, bruk `.items()`."
+    },
+    {
+      "id": "in1900-1-5-coll-33",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-1-5-c33-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `{}` | Tom ordbok. Ikke en tom liste — den skrives `[]`. |\n| `{n1: v1, n2: v2}` | Ordbok med to par. Nøkkel til venstre for kolon, verdi til høyre. |\n| `d[nøkkel]` | Verdien for nøkkelen. `KeyError` hvis nøkkelen mangler. Posisjon spiller ingen rolle. |\n| `d[nøkkel] = verdi` | Legger til hvis nøkkelen er ny, **overskriver** hvis den finnes. Oppretter aldri et mellomliggende nivå. |\n| `nøkkel in d` | `True`/`False`. Ser **bare** på nøklene, aldri på verdiene. |\n| `len(d)` | Antall par på **det nivået** du peker på. |\n| `for k in d:` | Går over **nøklene**, i innsettingsrekkefølge. |\n| `d.keys()` | Alle nøklene, i innsettingsrekkefølge. `list(...)` for en ekte liste. |\n| `d.values()` | Alle verdiene. Kan brukes i `sum`, `max`, `min`, `len`. |\n| `d.items()` | Parene `(nøkkel, verdi)`; pakkes ut som `for k, v in d.items():`. |\n| `d.get(nøkkel, standard)` | Som oppslag, men gir `standard` når nøkkelen mangler. Uten andre argument: `None`. Endrer aldri ordboka. |\n| `dict(zip(a, b))` | Ordbok av to sekvenser; `a` gir nøkler, `b` verdier. Stopper ved den **korteste**. |\n| `d[ytre][indre]` | Nøstet oppslag, regnes fra venstre. Krever at `d[ytre]` allerede er en ordbok. |\n| `if ytre not in d: d[ytre] = {}` | Standardgrepet før innsetting på nivå to. |\n| `None` | Pythons «ingenting». Skrives ut som `None`. |\n| Innsettingsrekkefølge | Fra Python 3.7 kommer parene ut slik de ble satt inn — ikke sortert. |\n| Lovlige nøkler | Strenger, tall, sannhetsverdier. **Ikke** lister. Verdier kan være hva som helst. |"
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-5-t-34",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-1-5-def-35",
+      "type": "definition",
+      "title": "Nøkkel og verdi",
+      "content": "**Nøkkelen** er det du slår opp på, **verdien** er det du får igjen. Paret hører sammen, og ordboka er en samling slike par.\n\nNøklene er unike, verdiene trenger ikke være det: to stasjoner kan gjerne ha målt samme temperatur, men to nøkler kan ikke hete det samme."
+    },
+    {
+      "id": "in1900-1-5-def-36",
+      "type": "definition",
+      "title": "Tuppel",
+      "content": "En fast sammenstilling av flere verdier, skrevet med komma: `('mandag', 4)`. Den ligner en liste, men kan ikke endres etter at den er laget.\n\nDu møter tupler tre steder i boka: som par fra `.items()` og `enumerate`, som flere returverdier fra en funksjon i [kap. 1.6](/bok/in1900/in1900-1-6), og som tidsintervallet `(0, T)` i ODE-løserne i [kap. 7.2](/bok/in1900/in1900-7-2)."
+    },
+    {
+      "id": "in1900-1-5-def-37",
+      "type": "definition",
+      "title": "`None`",
+      "content": "Pythons verdi for «ingenting». Den skrives ut som `None`, uten fnutter.\n\nDu møter den to steder: som standardsvar fra `.get` når nøkkelen mangler og du ikke har oppgitt noe annet, og som returverdi fra en funksjon som mangler `return` — se [kap. 1.6](/bok/in1900/in1900-1-6). Begge deler er klassiske sporingsfeller, for `None` er ikke det samme som 0 eller tom streng."
+    },
+    {
+      "id": "in1900-1-5-def-38",
+      "type": "definition",
+      "title": "Ordboka i fillesingsoppgaven",
+      "content": "Standardoppgaven i Del 8 leser en tekstfil der hver linje har tre felt, og bygger nøyaktig den nøstede ordboka du har sett her — typisk `data[stasjon][år] = verdi`.\n\nSelve fillesingen legger bare to linjer til mønsteret: åpne fila, og del hver linje i felt. Alt det andre er det du har lært i dette kapitlet. Se [kap. 8.1](/bok/in1900/in1900-8-1)."
+    },
+    {
+      "id": "in1900-1-5-coll-39",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-1-5-c39-1",
+          "type": "text",
+          "content": "1. `d[nøkkel]` slår opp på **nøkkel**, ikke på posisjon; mangler nøkkelen, blir det `KeyError`.\n2. `d[nøkkel] = verdi` legger til eller overskriver — og oppretter aldri et nivå den må gå gjennom.\n3. `for k in d` gir **nøklene**. Vil du ha begge deler, bruk `.items()`.\n4. `in` og `len` ser bare på nøklene, på det nivået du peker på.\n5. Før innsetting på nivå to: `if ytre not in d: d[ytre] = {}`.\n6. Parene kommer ut i **innsettingsrekkefølge**, ikke alfabetisk.\n\nSitter disse seks, har du forkunnskapen både til kodesporingsdrillen i [kap. 1.7](/bok/in1900/in1900-1-7) og til fillesingsoppgavene i [kap. 8.1](/bok/in1900/in1900-8-1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

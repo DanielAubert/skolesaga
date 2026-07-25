@@ -1,0 +1,323 @@
+{
+  "id": "in1900-9-2",
+  "courseId": "in1900",
+  "chapterNumber": "9.2",
+  "title": "Avsluttende øvingseksamen 1 — epidemi-innpakning",
+  "description": "Komplett 4-timers avsluttende sett etter 13–16-oppgavemalen: et flervalgsskall etterfulgt av full kodeskriving, med epidemimodell som ODE-innpakning.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "kunne disponere et firetimers eksamenssett: 16 poeng flervalg på en halvtime, og 59 poeng kodeskriving på resten",
+    "kunne skrive de fem kjernemønstrene fra bunnen uten å kjøre koden — rekke med testfunksjon, klasse med spesialmetoder, differenslikning, ODE-system med det utleverte hierarkiet, og fillesing til nøstet dictionary",
+    "kunne vurdere egen besvarelse mot poenglistene og se hva som gir uttelling selv når koden ikke er helt riktig",
+    "kunne gjengi de faste mekaniske detaljene ved eksamenen, blant annet at siste oppgave er sensors poengfelt og ikke skal besvares"
+  ],
+  "content": [
+    {
+      "id": "in1900-9-2-tip-format",
+      "type": "tip",
+      "title": "Slik er den avsluttende eksamenen — og slik er dette settet",
+      "content": "**Den avsluttende eksamenen i IN1900 holdes i desember, teller 75 % av karakteren, varer 4 timer og gir maks 75 poeng.** Den gjennomføres i **Inspera** — UiOs digitale eksamenssystem — uten hjelpemidler utover Insperas kalkulator, og all kode skrives i tekstfelt. Karakterskalaen er A–F.\n\nSettet består av 13–16 nummererte oppgaver, og formen er fast: **et flervalgsskall først**, med kodesporing og matche-tabeller som gir 15–25 % av poengene, og deretter **fritekst-koding** som gir 75–85 %. Dette settet følger den malen:\n\n| Del | Oppgaver | Poeng | Andel | Tid |\n|---|---|---|---|---|\n| Flervalgsskall | 1–6 | 16 | 21 % | ~30 min |\n| Kodeskriving | 7–14 | 59 | 79 % | ~210 min |\n| **Totalt** | **14 + poengfelt** | **75** | **100 %** | **240 min** |\n\n**Oppgave 15 skal ikke besvares.** På hvert reelle sett er den siste «oppgaven» (nummerert 15, 16 eller 17, avhengig av året) bare et felt der sensor legger inn poengene dine fra midtveiseksamen, slik at de to eksamenene til sammen blir 100 poeng. Den er med her også, som en påminnelse — se helt nederst.\n\n**Tre sensorregler som gjelder hele settet.** De står i innledningen på hvert reelle sett, og de er verdt poeng:\n\n1. **Kort, idiomatisk kode.** Sensor forventer korte svar. Ingen `main`-program, ingen ekstra utskrift, ingen kommentarer for kommentarenes skyld.\n2. **Rimelige antakelser er tillatt** når oppgaveteksten er underspesifisert — men de skal dokumenteres i en kommentar.\n3. **Nødvendige `import` skal med** når oppgaven ber om kjørbar kode.\n\nOg den viktigste: **delvis riktig kode gir uttelling.** Riktig overordnet struktur — riktig løkke, riktig klasseoppsett, riktig ODE-oppsett — belønnes selv med feil i indekser eller detaljer. Å få alle indekser 100 % riktig under tidspress er nesten umulig, og de offisielle løsningsforslagene sier det rett ut. Deloppgaver kan dessuten løses uavhengig av hverandre: du kan skrive testfunksjonen i oppgave 14 selv om du ikke fikk klassen i oppgave 9 til å virke.\n\nSettet er nyskrevet av Skolesaga. Det er ikke et offisielt UiO-sett, og det forutsier ikke hva som kommer på din eksamen."
+    },
+    {
+      "id": "in1900-9-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele boka til og med Del 8, og [kap. 9.1](/bok/in1900/in1900-9-1) som oppvarming. Settet trekker på sju kapitler mer enn de andre:\n\n- [kap. 3.1](/bok/in1900/in1900-3-1) og [kap. 3.2](/bok/in1900/in1900-3-2) — testfunksjoner og rekker (oppgave 7 og 14)\n- [kap. 5.1](/bok/in1900/in1900-5-1) og [kap. 5.2](/bok/in1900/in1900-5-2) — `__init__`, `__call__`, `__str__` og `__mul__` (oppgave 2 og 9)\n- [kap. 6.2](/bok/in1900/in1900-6-2) — differenslikninger og oppdateringsrekkefølge (oppgave 10)\n- [kap. 7.2](/bok/in1900/in1900-7-2) og [kap. 7.3](/bok/in1900/in1900-7-3) — det utleverte ODESolver-hierarkiet og ODE-systemer (oppgave 6 og 11)\n- [kap. 8.1](/bok/in1900/in1900-8-1) og [kap. 8.2](/bok/in1900/in1900-8-2) — fillesing til nøstet dictionary, filtrering og skriving (oppgave 12 og 13)\n- [kap. 4.3](/bok/in1900/in1900-4-3) — plotting med `label=` og `legend()` (oppgave 10b og 11c)\n\nInnpakningen i dette settet er en **epidemi**: smittetall, en smitterate som varierer med årstiden, en diskret modell med karantene, og et vaksinasjonsscenario løst som ODE-system. Innpakningen roterer år for år på den reelle eksamenen — det er kodemønsteret bak som gjentar seg."
+    },
+    {
+      "id": "in1900-9-2-instruks",
+      "type": "text",
+      "content": "## Slik tar du settet\n\nSett av **fire timer** i ett stykke, og bruk minuttbudsjettet under som klokke. Skriv koden **for hånd eller i en editor uten å kjøre den** — i desember har du bare tekstfeltet i Inspera. Å oppdage at man er avhengig av å trykke «kjør» er den dyreste erkjennelsen man kan gjøre på eksamensdagen, og den bør komme nå.\n\n| Oppgave | Sjanger | Poeng | Tid |\n|---|---|---|---|\n| 1 | A — kodesporing | 2 | 4 min |\n| 2 | A — kodesporing (klasse) | 3 | 5 min |\n| 3 | A — kodesporing (array) | 3 | 5 min |\n| 4 | B — indekserings-matche | 2 | 5 min |\n| 5 | C — exception-matche | 3 | 6 min |\n| 6 | E — hvilken linje mangler | 3 | 5 min |\n| **Skall** | | **16** | **30 min** |\n| 7 | F — rekke + testfunksjon | 6 | 20 min |\n| 8 | A — skriv utskriften | 4 | 12 min |\n| 9 | G — klasse med spesialmetoder | 10 | 35 min |\n| 10 | H — differenslikning + plott | 9 | 30 min |\n| 11 | J — ODE-system med hierarkiet | 10 | 35 min |\n| 12 | L — fillesing til nøstet dictionary | 8 | 30 min |\n| 13 | L — filtrering og skriving | 6 | 25 min |\n| 14 | F — testfunksjon og bruk | 6 | 23 min |\n| **Kodedel** | | **59** | **210 min** |\n| **Sum** | | **75** | **240 min** |\n\n**Disponering.** Skallet er billige poeng: seks oppgaver, 16 poeng, en halvtime. Bruker du 45 minutter der, stjeler du fra oppgave 9 og 11, som er de tyngste enkeltoppgavene i settet. Er du usikker på et flervalg, kryss av og gå videre — blankt og feil gir det samme.\n\nDe store oppgavene har deloppgaver som kan løses uavhengig. Får du ikke klassen i oppgave 9 til å virke, skriv testfunksjonen i oppgave 14 likevel: du vet hva klassen **skal** gjøre, og det er nok.\n\nEtter oppgave 6 er det et naturlig pausepunkt. Tar du settet som lesetrening over flere kvelder, er skallet én økt, oppgave 7–10 en annen, og oppgave 11–14 en tredje."
+    },
+    {
+      "id": "in1900-9-2-del1",
+      "type": "text",
+      "content": "## Del 1 — flervalgsskallet\n\n**Oppgave 1–6 · 16 poeng · ~30 minutter.**\n\nFire «select one» og to matche-tabeller. I matche-tabellene er hver rad 0,5 poeng og vurderes for seg."
+    },
+    {
+      "id": "in1900-9-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-1",
+        "number": "9.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) **Oppgave 1 (2 poeng).**\n\nTre kohorter i en smittesporing er lagt i en nøstet liste. Hva skriver programmet ut?\n\n```python\nkohort = [[3, 5], [2], [7, 1, 4]]\ntotal = 0\nfor gruppe in kohort:\n    total += len(gruppe) * gruppe[-1]\nprint(total, len(kohort))\n```\n\n**a)** `24 3`\n**b)** `22 3`\n**c)** `24 6`\n**d)** `12 3`",
+        "solution": "**Riktig svar: a) `24 3`.**\n\n**Sporingstavle.** For hver indre liste ganges lengden med **siste** element.\n\n| Iterasjon | `gruppe` | `len(gruppe)` | `gruppe[-1]` | Bidrag | `total` |\n|---|---|---|---|---|---|\n| — | — | — | — | — | 0 |\n| 1 | `[3, 5]` | 2 | 5 | 10 | 10 |\n| 2 | `[2]` | 1 | 2 | 2 | 12 |\n| 3 | `[7, 1, 4]` | 3 | 4 | 12 | 24 |\n\n`len(kohort)` er antall **indre lister**, altså 3 — ikke antall tall.\n\n**Utskrift:**\n```\n24 3\n```\n\n**Fellene:** `gruppe[-1]` er siste element, ikke første (alternativ b) regner med `gruppe[0]` i den siste kohorten), og `len` på en nøstet liste teller det ytre nivået (alternativ c) teller alle seks tallene). Dette er skallets billigste oppgave: to poeng for å holde to nivåer fra hverandre.",
+        "hints": [
+          "Skriv én rad per indre liste, med lengde og siste element som egne kolonner.",
+          "`len` på en nøstet liste teller det ytre nivået."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-2",
+        "number": "9.2.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodesporing av en klasse.) **Oppgave 2 (3 poeng).**\n\nHva skriver programmet ut?\n\n```python\nclass Teller:\n    def __init__(self, start):\n        self.n = start\n\n    def __call__(self, okning):\n        self.n = self.n + okning\n        return self.n\n\nt = Teller(4)\nprint(t(3), t(3), t.n)\n```\n\n**a)** `7 7 4`\n**b)** `7 10 10`\n**c)** `4 7 10`\n**d)** `7 10 4`",
+        "solution": "**Riktig svar: b) `7 10 10`.**\n\nTre ting må sitte samtidig: at `__call__` gjør instansen kallbar, at `self.n` **overlever mellom kallene**, og at argumentene til `print` regnes ut fra venstre mot høyre.\n\n| Steg | Uttrykk | `self.n` etter | Verdi som havner i `print` |\n|---|---|---|---|\n| 1 | `Teller(4)` | 4 | — |\n| 2 | `t(3)` | 7 | 7 |\n| 3 | `t(3)` | 10 | 10 |\n| 4 | `t.n` | 10 | 10 |\n\n**Utskrift:**\n```\n7 10 10\n```\n\n**Fellene.** Alternativ a) og d) tror at hvert kall starter fra 4 på nytt, eller at `t.n` er uendret — men et attributt er lagret **på instansen** og endres hver gang `__call__` kjører. Alternativ c) leser `t(3)` som «hent verdien før økningen». Merk også at `__call__` her både endrer tilstanden og returnerer en verdi; det er lovlig, men det er nettopp derfor rekkefølgen på utregningen betyr noe.",
+        "hints": [
+          "Følg `self.n` gjennom hele programmet — attributtet lever videre mellom kallene.",
+          "Argumentene til `print` regnes ut i rekkefølge fra venstre."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-3",
+        "number": "9.2.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodesporing med NumPy-array.) **Oppgave 3 (3 poeng).**\n\nHva skriver programmet ut? Legg merke til at NumPy skriver arrayer uten komma.\n\n```python\nimport numpy as np\n\nu = np.zeros(6)\nu[0] = 100.0\nfor n in range(3):\n    u[n + 1] = u[n] * 0.8\nprint(u[:4], u.size, u[-1])\n```\n\n**a)** `[100.   80.   64.   51.2] 6 0.0`\n**b)** `[100.   80.   64.   51.2] 4 51.2`\n**c)** `[100.   80.   64.] 6 0.0`\n**d)** `[80.   64.   51.2  41.0] 6 0.0`",
+        "solution": "**Riktig svar: a) `[100.   80.   64.   51.2] 6 0.0`.**\n\n**Sporingstavle.** Arrayet har seks plasser, alle 0.0 fra `np.zeros(6)`. Løkka gjør **tre** oppdateringer, så bare de fire første plassene får verdi.\n\n| `n` | Regner | `u` etter |\n|---|---|---|\n| — | — | `[0. 0. 0. 0. 0. 0.]` med `u[0] = 100.0` |\n| 0 | `u[1] = 100.0*0.8` | `[100. 80. 0. 0. 0. 0.]` |\n| 1 | `u[2] = 80.0*0.8` | `[100. 80. 64. 0. 0. 0.]` |\n| 2 | `u[3] = 64.0*0.8` | `[100. 80. 64. 51.2 0. 0.]` |\n\n`u[:4]` er de fire første, `u.size` er hele arrayet (6, uansett hvor mye som er fylt ut), og `u[-1]` er siste plass — som aldri ble skrevet til, altså `0.0`.\n\n**Utskrift:**\n```\n[100.   80.   64.   51.2] 6 0.0\n```\n\n**Fellene.** Dette er #1 — av-én-feilen — i sin arrayvariant: `range(3)` gir tre oppdateringer, og et array som skal fylles helt må ha nøyaktig så mange plasser som løkka rekker. Alternativ b) forveksler `u.size` med lengden på utsnittet, c) glemmer at `u[:4]` har fire elementer, og d) forskyver hele arrayet ett skritt. Merk også utskriftsformen: `100.` med punktum og uten null bak, og flere mellomrom mellom tallene fordi NumPy justerer kolonnene.",
+        "hints": [
+          "Tegn arrayet med seks plasser og fyll inn én plass per iterasjon.",
+          "`u.size` handler om arrayet, ikke om utsnittet du skriver ut."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-4",
+        "number": "9.2.4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — matche-tabell der du regner ut indekserings- og slicing-uttrykk og parer dem med svaralternativer.) **Oppgave 4 (2 poeng, 0,5 per rad).**\n\nGitt\n\n```python\nuker = [10, 11, 12]\ntall = [[41, 3], [58, 6], [73, 9]]\n```\n\nPar hvert uttrykk med verdien.\n\n| Rad | Uttrykk |\n|---|---|\n| 1 | `tall[uker[0] - 10][1]` |\n| 2 | `tall[-1][:1]` |\n| 3 | `tall[1][uker[1] - 11:]` |\n| 4 | `uker[tall[0][1] - 2]` |\n\nAlternativer:\n\n1. `[58, 6]`\n2. `11`\n3. `3`\n4. `[73]`\n5. `[73, 9]`\n6. `41`\n7. `[3]`\n8. `12`",
+        "solution": "**Riktig paring: rad 1 → 3, rad 2 → 4, rad 3 → 1, rad 4 → 2.**\n\nRegn innenfra og ut, og skriv ned hver indre verdi som et tall før du bruker den.\n\n**Rad 1: `tall[uker[0] - 10][1]`.** `uker[0]` er 10, så indeksen er $10 - 10 = 0$. `tall[0]` er `[41, 3]`, og `[1]` gir siste element: **3**. → alternativ 3.\n\n**Rad 2: `tall[-1][:1]`.** `tall[-1]` er `[73, 9]`. Utsnittet `[:1]` gir de **elementene før indeks 1**, altså en liste med ett element: **`[73]`**. → alternativ 4. Alternativ 6 (`41`) og 5 (`[73, 9]`) er fellene for den som leser `[:1]` som indeksering eller glemmer at slutten er eksklusiv.\n\n**Rad 3: `tall[1][uker[1] - 11:]`.** `uker[1]` er 11, så utsnittet er `[0:]`, altså hele raden: **`[58, 6]`**. → alternativ 1.\n\n**Rad 4: `uker[tall[0][1] - 2]`.** `tall[0][1]` er 3, så indeksen er $3 - 2 = 1$, og `uker[1]` er **11**. → alternativ 2.\n\n**Fellen er #18 — indeksering gir ELEMENT, slicing gir LISTE.** Rad 1 og rad 2 ser nesten like ut, men den ene ender i et tall og den andre i en liste. Legg merke til at alternativ 7 (`[3]`) og alternativ 3 (`3`) er samme verdi i to ulike innpakninger — den distinksjonen er hele poenget med sjangeren.\n\n**Delvis uttelling:** 0,5 poeng per rad, fire uavhengige sjanser.",
+        "hints": [
+          "Skriv `uker[0]`, `uker[1]` og `tall[0][1]` som tall først, og sett dem inn.",
+          "Ender uttrykket på et enkelt tall i hakeparentes, eller på et kolon?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-5",
+        "number": "9.2.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — matche-tabell der du avgjør hvilken feil, altså hvilken exception, programmet utløser først.) **Oppgave 5 (3 poeng, 0,5 per rad).**\n\nFilen `andel.py` inneholder:\n\n```python\nimport sys\n\ndef andel(smittede, testede):\n    assert testede > 0, 'ingen tester'\n    return 100 * smittede / testede\n\nverdier = {'u10': ['41', '500'], 'u11': ['58', '0'], 'u12': ['sju', '300']}\nuke = sys.argv[1]\npar = verdier[uke]\nprint(andel(int(par[0]), int(par[1])))\n```\n\nPar hver kommandolinje med det som skjer.\n\n| Rad | Kommandolinje |\n|---|---|\n| 1 | `python andel.py u10` |\n| 2 | `python andel.py u11` |\n| 3 | `python andel.py u12` |\n| 4 | `python andel.py` |\n| 5 | `python andel.py U10` |\n| 6 | `python andel.py u10 ekstra` |\n\nAlternativer:\n\n1. `AssertionError`\n2. `KeyError`\n3. Ingen feil — programmet skriver et tall\n4. `ValueError`\n5. `IndexError`\n6. `ZeroDivisionError`",
+        "solution": "**Riktig paring: rad 1 → 3, rad 2 → 1, rad 3 → 4, rad 4 → 5, rad 5 → 2, rad 6 → 3.**\n\nHusk at **`sys.argv[0]` er filnavnet**, så `sys.argv[1]` er det første argumentet du skriver etter programnavnet.\n\n**Rad 1 — `u10`.** `verdier['u10']` er `['41', '500']`, `int` går fint på begge, og `assert 500 > 0` slår ikke til. Programmet skriver `8.2` → **ingen feil**.\n\n**Rad 2 — `u11`.** Her er `testede` lik 0. `assert`-linja slår til og kaster **`AssertionError`** med meldingen `ingen tester`. Legg merke til at `ZeroDivisionError` — alternativ 6 — aldri inntreffer i dette programmet: `assert`-linja står der nettopp for å stoppe det, og den kjører først. Alternativ 6 brukes ikke i noen rad.\n\n**Rad 3 — `u12`.** `assert 300 > 0` er sann, men `int('sju')` er umulig → **`ValueError`**. Merk at feilen kommer i argumentuttrykket, altså **før** `andel` i det hele tatt begynner å kjøre.\n\n**Rad 4 — ingen argument.** `sys.argv` har bare filnavnet, så `sys.argv[1]` finnes ikke → **`IndexError`**, og det skjer på linja over dictionary-oppslaget.\n\n**Rad 5 — `U10`.** Oppslaget `verdier['U10']` finner ingen nøkkel: nøkler er forskjell på store og små bokstaver → **`KeyError`**.\n\n**Rad 6 — `u10 ekstra`.** Et ekstra argument blir liggende i `sys.argv[2]` uten at noen ser på det. Programmet oppfører seg som i rad 1 → **ingen feil**.\n\n**Fellen er #6 — feil exception-match.** Tre ting avgjør: at `sys.argv[0]` er filnavnet, at du leter etter feilen som kommer **først**, og at ekstra argumenter er harmløse. Legg også merke til at to rader går helt fint: i denne sjangeren er «ingen feil» nesten alltid ett av svarene.\n\n**Delvis uttelling:** 0,5 poeng per rad, seks uavhengige sjanser.",
+        "hints": [
+          "Skriv opp `sys.argv` for hver kommandolinje, med filnavnet på plass 0.",
+          "Gå linje for linje ovenfra og stopp ved den første linja som ikke kan gjennomføres.",
+          "Hva beskytter `assert`-linja mot — og betyr det at den andre feilen aldri kan inntreffe?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-6",
+        "number": "9.2.6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — «hvilken linje mangler / hvilket funksjonskall er riktig».) **Oppgave 6 (3 poeng).**\n\nProgrammet skal løse $u' = -0.2u$ fra $t = 0$ til $t = 10$ med 100 steg, med `u(0) = 50`, ved hjelp av det utleverte ODESolver-hierarkiet. Én linje er fjernet:\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.2 * u\n\nsolver = RungeKutta4(f)\n# HER MANGLER ÉN LINJE\nt, u = solver.solve((0, 10), 100)\nprint(u[-1])\n```\n\nHvilken linje hører på plassen?\n\n**a)** `solver.u0 = 50.0`\n**b)** `solver.set_initial_condition(50.0)`\n**c)** `solver.solve(50.0)`\n**d)** `solver = RungeKutta4(f, 50.0)`",
+        "solution": "**Riktig svar: b) `solver.set_initial_condition(50.0)`.**\n\nGrensesnittet til det utleverte hierarkiet har tre faste steg, i denne rekkefølgen:\n\n| Steg | Kall | Hva det gjør |\n|---|---|---|\n| 1 | `RungeKutta4(f)` | lager løseren og lagrer høyresiden `f` |\n| 2 | `set_initial_condition(u0)` | setter startverdien og finner ut om problemet er skalart eller et system |\n| 3 | `solve(t_span, N)` | regner ut løsningen og returnerer `(t, u)` |\n\n**Hvorfor de tre andre er feil.** Alternativ a) setter et attributt direkte. Det kan tilfeldigvis virke i noen implementasjoner, men det hopper over jobben `set_initial_condition` gjør — å avgjøre hvor mange likninger systemet har — og er ikke grensesnittet oppgaven ber om. Alternativ c) kaller `solve` med startverdien i stedet for tidsintervallet. Alternativ d) sender startverdien til konstruktøren, som bare tar `f`.\n\nMed riktig linje på plass:\n\n```python\nfrom ODESolver import RungeKutta4\n\ndef f(t, u):\n    return -0.2 * u\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition(50.0)\nt, u = solver.solve((0, 10), 100)\nprint(f'{u[-1]:.4f}')\n```\n\n**Utskrift:**\n```\n6.7668\n```\n\nDen eksakte løsningen er $u(t) = 50e^{-0.2t}$, og $50e^{-2} = 6.7668$. At Runge–Kutta 4 treffer fire desimaler med bare 100 steg, er verdt å merke seg — det er derfor `RungeKutta4` er standardvalget når oppgaven ikke sier noe annet.\n\n**Fellen er #14 — ODESolver-API-forveksling.** Skriv de tre stegene ned i rekkefølge hver gang du ser en ODE-oppgave; da har du strukturpoengene selv om resten skulle skli.",
+        "hints": [
+          "Hva må løseren vite, i tillegg til høyresiden, før den kan begynne å regne?",
+          "`solve` tar tidsintervallet og antall steg — hva står da igjen?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-del2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Del 2 — kodeskriving\n\n**Oppgave 7–14 · 59 poeng · ~210 minutter.**\n\nHerfra er alt fritekst: du skriver kode i et tekstfelt. Skriv den ferdig uten å kjøre den, og skriv den **kort**. Deloppgavene kan løses uavhengig av hverandre."
+    },
+    {
+      "id": "in1900-9-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-7",
+        "number": "9.2.7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — skriv en rekke og en testfunksjon.) **Oppgave 7 (6 poeng).**\n\nCosinus kan skrives som en uendelig rekke:\n\n$$\\cos x = \\sum_{k=0}^{\\infty} (-1)^k \\frac{x^{2k}}{(2k)!}$$\n\n**a)** Skriv en funksjon `cos_rekke(x, N)` som returnerer summen av leddene fra $k = 0$ til og med $k = N$. *(4 poeng)*\n\n**b)** Skriv en testfunksjon `test_cos_rekke()` som sjekker at `cos_rekke` gir omtrent samme svar som `math.cos` for $x = 0.5$ med $N = 10$. Testfunksjonen skal ikke ta argumenter og ikke skrive ut noe. *(2 poeng)*",
+        "solution": "**a)** Rekke-summeringsmønsteret: en akkumulator, en løkke over `range(N + 1)`, og `return` etter løkka. Merk `range(N + 1)`: oppgaven sier «til og med $k = N$», så øvre grense er $N + 1$.\n\n```python\nfrom math import factorial, cos\n\ndef cos_rekke(x, N):\n    s = 0\n    for k in range(N + 1):\n        s += (-1)**k * x**(2*k) / factorial(2*k)\n    return s\n```\n\n**b)** Testfunksjonen sammenligner alltid med **toleranse**, aldri med `==` på flyttall, og har en melding som sier hva som gikk galt:\n\n```python\ndef test_cos_rekke():\n    x = 0.5\n    expected = cos(x)\n    computed = cos_rekke(x, 10)\n    tol = 1e-10\n    msg = f'cos_rekke ga {computed}, ventet {expected}'\n    assert abs(expected - computed) < tol, msg\n```\n\nSlik konvergerer rekka — kjørt med fire verdier av $N$:\n\n```python\ntest_cos_rekke()\nfor N in [1, 3, 5, 10]:\n    print(N, cos_rekke(0.5, N))\nprint('math.cos(0.5) =', cos(0.5))\n```\n\n**Utskrift:**\n```\n1 0.875\n3 0.8775824652777777\n5 0.8775825618898637\n10 0.8775825618903728\nmath.cos(0.5) = 0.8775825618903728\n```\n\nMed $N = 10$ er alle 16 sifrene like, og det er grunnen til at toleransen `1e-10` er trygg her. At `test_cos_rekke()` ikke skriver noe når den kalles, er meningen: en testfunksjon er stille når alt er i orden.\n\n**Dette gir uttelling.** Del a): `s = 0` før løkka (1 p), `range(N + 1)` (1 p), riktig ledd med `factorial(2*k)` og fortegnet $(-1)^k$ (1 p), `return s` etter løkka (1 p). Del b): `abs(...) < tol` i stedet for `==` (1 p), riktig sammenligningsverdi fra `math.cos` (1 p). Skriver du `s = 0.0`, eller bruker `x**(2*k)` skrevet som `(x*x)**k`, er det like riktig. Bommer du på fortegnet men har resten av strukturen, får du fortsatt mesteparten av poengene — det er strukturen sensor leter etter.\n\n**Én advarsel:** rekker som denne skal alltid løses **med løkke**. Rekursjon er utenfor pensum i IN1900 og markeres som uønsket i løsningsforslagene.",
+        "hints": [
+          "Start med `s = 0` og en løkke over `range(N + 1)`.",
+          "Fortegnet $(-1)^k$ skrives `(-1)**k`, og fakultetet hentes med `from math import factorial`.",
+          "Testfunksjonen skal ha formen `assert abs(expected - computed) < tol, msg`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-8",
+        "number": "9.2.8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — skriv utskriften i fritekst.) **Oppgave 8 (4 poeng).**\n\nSkriv **nøyaktig** hva programmet skriver ut, med mellomrom og desimaler slik terminalen viser det.\n\n```python\ntilfeller = {'u10': 41, 'u11': 58, 'u12': 73}\nforrige = 0\nfor uke in tilfeller:\n    if forrige == 0:\n        vekst = 0.0\n    else:\n        vekst = (tilfeller[uke] - forrige) / forrige\n    print(f'{uke:>4s}{tilfeller[uke]:5d}{vekst:7.2f}')\n    forrige = tilfeller[uke]\n```",
+        "solution": "**Sporingstavle.** Løkka går over **nøklene** i innsettingsrekkefølge. `forrige` er 0 bare i første runde, så veksten regnes fra og med andre runde.\n\n| Runde | `uke` | `tilfeller[uke]` | `forrige` før | `vekst` |\n|---|---|---|---|---|\n| 1 | `'u10'` | 41 | 0 | 0.0 |\n| 2 | `'u11'` | 58 | 41 | $(58-41)/41 = 0.41463…$ |\n| 3 | `'u12'` | 73 | 58 | $(73-58)/58 = 0.25862…$ |\n\nFormatfeltene avgjør hvordan linjene ser ut:\n\n- `{uke:>4s}` — streng, høyrejustert i **4** tegn. `'u10'` er tre tegn, så det kommer ett mellomrom foran.\n- `{tilfeller[uke]:5d}` — heltall i **5** tegn: tre mellomrom foran et totallssiffer.\n- `{vekst:7.2f}` — flyttall i **7** tegn med **2** desimaler: `0.41` er fire tegn, så tre mellomrom foran.\n\n**Utskrift:**\n```\n u10   41   0.00\n u11   58   0.41\n u12   73   0.26\n```\n\n**Fellene.** Den første er #16 — utskriftsdetaljer: bredden `7` er totalbredde, ikke antall desimaler, og `0.2586…` avrundes til `0.26`, ikke `0.25`. Den andre er at `vekst` er `0.0` i første runde, ikke tom eller udefinert — `if forrige == 0` er det som gjør det. Og den tredje er rekkefølgen: en dictionary bevarer innsettingsrekkefølgen i Python 3.7 og nyere, så utskriften kommer i uke-rekkefølge.\n\n**Dette gir uttelling.** Tre riktige tall per linje (1 p per linje) og riktig kolonnebredde (1 p). Er tallene riktige men mellomrommene feil, får du mesteparten — men på en «skriv utskriften»-oppgave er det nettopp tegnene som er svaret, så bruk de tolv minuttene på å telle mellomrom.",
+        "hints": [
+          "Skriv en tavle med `uke`, `forrige` og `vekst` for hver runde før du formaterer noe.",
+          "Tell tegnene i hvert formatfelt: bredden står før punktet, desimalene etter."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-9",
+        "number": "9.2.9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — skriv en klasse med spesialmetoder.) **Oppgave 9 (10 poeng).**\n\nSmitteraten i en luftveisinfeksjon varierer med årstiden. En vanlig modell er\n\n$$\\beta(t) = \\beta_0 \\left(1 + a \\sin\\!\\left(\\frac{2\\pi t}{P}\\right)\\right)$$\n\nder $t$ måles i døgn, $\\beta_0$ er grunnraten, $a$ er svingningens relative størrelse og $P$ er perioden i døgn.\n\n**a)** Skriv en klasse `Smitterate` som tar $\\beta_0$, $a$ og $P$ i konstruktøren, og som gjør instansen **kallbar**, slik at `beta(t)` gir $\\beta(t)$. *(5 poeng)*\n\n**b)** Utvid klassen med to spesialmetoder: `__str__`, som returnerer en lesbar formel for raten, og `__mul__`, slik at `beta * k` gir en **ny** `Smitterate` der grunnraten er ganget med `k` — det er slik man modellerer et smitteverntiltak som reduserer kontaktraten. *(5 poeng)*",
+        "solution": "**a)** `__init__` lagrer argumentene som attributter, og `__call__` gjør instansen kallbar. En **spesialmetode** er en metode med to understreker på hver side av navnet, som Python kaller automatisk: `__call__` kjøres når du skriver `beta(90)`.\n\n```python\nfrom math import pi, sin\n\nclass Smitterate:\n    def __init__(self, beta0, a, P):\n        self.beta0 = beta0\n        self.a = a\n        self.P = P\n\n    def __call__(self, t):\n        return self.beta0 * (1 + self.a * sin(2 * pi * t / self.P))\n```\n\n**b)** `__str__` returnerer en f-streng, og `__mul__` returnerer en **ny instans** — ikke en tuppel, og ikke et tall. De to metodene skrives inn i den samme klassen, med samme innrykk som `__call__`, så utdraget under er ikke et program i seg selv — resten av klassen er som i del a):\n\n```text\n    def __str__(self):\n        return f'beta(t) = {self.beta0}*(1 + {self.a}*sin(2*pi*t/{self.P}))'\n\n    def __mul__(self, k):\n        return Smitterate(self.beta0 * k, self.a, self.P)\n```\n\nSlik oppfører klassen seg. Perioden er satt til 360 døgn, så $t = 90$ er en fjerdedel inn i syklusen, der sinusleddet er 1 og raten er på topp:\n\n```python\nbeta = Smitterate(0.30, 0.25, 360)\nprint(f'{beta(0):.4f} {beta(90):.4f} {beta(180):.4f}')\nprint(beta)\ntiltak = beta * 0.5\nprint(f'{tiltak(90):.4f}')\nprint(tiltak)\nprint(type(tiltak).__name__)\n```\n\n**Utskrift:**\n```\n0.3000 0.3750 0.3000\nbeta(t) = 0.3*(1 + 0.25*sin(2*pi*t/360))\n0.1875\nbeta(t) = 0.15*(1 + 0.25*sin(2*pi*t/360))\nSmitterate\n```\n\nLegg merke til tre ting i utskriften. Ved $t = 90$ er raten $0.30 \\cdot 1.25 = 0.375$. `print(beta)` kaller `__str__` automatisk. Og `tiltak` er en **ny** `Smitterate` med halvert grunnrate — siste linje bekrefter typen, og at `print(beta)` fortsatt viser 0.3, bekrefter at den opprinnelige er urørt.\n\n— naturlig pausepunkt —\n\n**Dette gir uttelling.** Del a): `class Smitterate:` med riktig `__init__`-signatur inkludert `self` (1 p), de tre attributtene lagret som `self.…` (2 p), `__call__(self, t)` med riktig formel (2 p). Del b): `__str__` som **returnerer** en streng i stedet for å skrive den ut (2 p), `__mul__` som returnerer en ny instans av klassen (3 p).\n\n**De to dyreste fellene** er #3 — å glemme `self`, enten i signaturen (`def __call__(t):`) eller i attributt-tilgangen (`beta0` for `self.beta0`) — og #4: at `__mul__` returnerer feil type. Skriver du `return self.beta0 * k`, har du laget en metode som gir et **tall**, og da virker ikke `tiltak(90)` i neste oppgave. Får du strukturen riktig men bommer på formelen inne i `__call__`, gir sensor uttelling for oppsettet: det er klasseskjelettet og spesialmetodenes signaturer som bærer poengene.",
+        "hints": [
+          "Start med `class Smitterate:` og en `__init__` som lagrer de tre argumentene som `self.…`.",
+          "`__call__(self, t)` er metoden som gjør at `beta(90)` virker.",
+          "`__mul__` skal returnere `Smitterate(...)`, altså et nytt objekt av samme klasse."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-warn-rekkefolge",
+      "type": "warning",
+      "title": "Før oppgave 10: oppdateringsrekkefølgen i koblede differenslikninger",
+      "content": "Oppgave 10 har en detalj som avgjør om svaret blir riktig eller meningsløst, og som er en av de mest belagte fellene i faget (#2 — feil oppdateringsrekkefølge i koblede differenslikninger).\n\nNår den ene likningen bruker den **nye** verdien av den andre — altså $S_{n+1}$ i uttrykket for $I_{n+1}$ — må du regne dem i riktig rekkefølge inne i løkka. Bytter du om linjene, leser du en plass i arrayet som ennå er 0.0, og feilen forplanter seg gjennom hele beregningen. Slik ser det ut i praksis med tallene i oppgaven:\n\n| Variant | `S[1]` | `I[1]` | Maks `I` |\n|---|---|---|---|\n| Riktig rekkefølge (`S` først) | 4990.0000 | 17.5000 | 2309.6 på dag 12 |\n| Byttet om (`I` først) | 4990.0000 | 5007.5000 | 8745.6 på dag 2 |\n\nDen nederste raden er ikke «litt feil» — den er en helt annen modell. Les alltid likningene og spør: **bruker den ene den nye verdien av den andre?**"
+    },
+    {
+      "id": "in1900-9-2-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-10",
+        "number": "9.2.10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — differenslikning med plott.) **Oppgave 10 (9 poeng).**\n\nEn kommune modellerer et utbrudd dag for dag. $S_n$ er antall mottakelige og $I_n$ antall smittsomme på dag $n$. Alle som smittes, settes i karantene og regnes som smittsomme; en fast andel $\\gamma$ av de smittsomme friskmeldes hvert døgn:\n\n$$S_{n+1} = S_n - \\beta S_n I_n$$\n$$I_{n+1} = I_n + (S_n - S_{n+1}) - \\gamma I_n$$\n\nLegg merke til at $I_{n+1}$ bruker $S_{n+1}$: antall nysmittede er nettopp nedgangen i $S$.\n\n**a)** Skriv en funksjon `karantene(S0, I0, beta, gamma, N)` som regner ut $N$ steg og returnerer de to arrayene `S` og `I`. *(6 poeng)*\n\n**b)** Skriv koden som plotter de to kurvene i samme figur med `S0 = 5000`, `I0 = 10`, `beta = 2e-4`, `gamma = 0.25` og `N = 60`, med aksenavn og forklaring (legende). *(3 poeng)*",
+        "solution": "**a)** Differenslikning-mønsteret: allokér arrayene med `N + 1` plasser, sett startverdiene **før** løkka, og gjør `N` oppdateringer. `S[n + 1]` regnes først, fordi `I[n + 1]` bruker den.\n\n```python\nimport numpy as np\n\ndef karantene(S0, I0, beta, gamma, N):\n    S = np.zeros(N + 1)\n    I = np.zeros(N + 1)\n    S[0] = S0\n    I[0] = I0\n    for n in range(N):\n        S[n + 1] = S[n] - beta * S[n] * I[n]\n        I[n + 1] = I[n] + (S[n] - S[n + 1]) - gamma * I[n]\n    return S, I\n```\n\nKjørt med tallene fra del b):\n\n```python\nS, I = karantene(5000, 10, 2e-4, 0.25, 60)\nprint(f'S[0] = {S[0]:.1f}   I[0] = {I[0]:.1f}')\nprint(f'S[1] = {S[1]:.4f}   I[1] = {I[1]:.4f}')\nprint(f'S[60] = {S[60]:.1f}   I[60] = {I[60]:.1f}')\nprint(f'maks I = {I.max():.1f} paa dag {int(I.argmax())}')\n```\n\n**Utskrift:**\n```\nS[0] = 5000.0   I[0] = 10.0\nS[1] = 4990.0000   I[1] = 17.5000\nS[60] = 43.0   I[60] = 0.0\nmaks I = 2309.6 paa dag 12\n```\n\nRegn gjerne første steg for hånd som kontroll: $S_1 = 5000 - 2\\cdot 10^{-4}\\cdot 5000 \\cdot 10 = 4990$, og $I_1 = 10 + 10 - 0.25 \\cdot 10 = 17.5$.\n\n**b)** Plottet legger begge kurvene i samme figur. `label=` i hvert `plot`-kall og ett `plt.legend()` er det som gir forklaringen:\n\n```python\nimport matplotlib.pyplot as plt\n\nS, I = karantene(5000, 10, 2e-4, 0.25, 60)\ndager = range(len(S))\nplt.plot(dager, S, label='mottakelige')\nplt.plot(dager, I, label='smittsomme i karantene')\nplt.xlabel('dag')\nplt.ylabel('antall personer')\nplt.legend()\nplt.show()\n```\n\n**Figuren i ord:** vannrett akse er dag 0 til 60, loddrett akse antall personer fra 0 til 5000. `S`-kurven starter i 5000, ligger nesten flat de første fem–seks dagene, faller deretter bratt, og flater ut nær 43 mot slutten. `I`-kurven starter nær 0, vokser eksponentielt til en topp på rundt 2310 rundt dag 12, og faller så mot 0. Toppen i `I` kommer der `S`-kurven er brattest — det er dagen da flest smittes per døgn. Forklaringen nede til høyre navngir de to kurvene.\n\n**Dette gir uttelling.** Del a): `np.zeros(N + 1)` for begge arrayene (1 p), startverdiene satt før løkka (1 p), `for n in range(N)` (1 p), riktig oppdateringsformel for `S` (1 p), riktig formel for `I` (1 p), `return S, I` (1 p). Del b): begge kurvene plottet mot dag (1 p), `label=` på begge pluss `legend()` (1 p), aksenavn og `show()` (1 p).\n\n**Den kritiske linja** er rekkefølgen inne i løkka. Sensor gir god uttelling for riktig løkkestruktur selv med feil i indeksene — men bytter du om de to oppdateringslinjene, er det ikke en indeksfeil, det er en annen modell. Skriver du `I[n+1] = I[n] + beta*S[n]*I[n] - gamma*I[n]` i stedet, er det matematisk det samme og fullt ut riktig, siden $S_n - S_{n+1} = \\beta S_n I_n$; da er rekkefølgen likegyldig, og det er verdt å nevne i en kommentar hvis du velger den formen.",
+        "hints": [
+          "Allokér `S = np.zeros(N + 1)` og `I = np.zeros(N + 1)`, og sett `S[0]` og `I[0]` før løkka.",
+          "Løkka går over `range(N)` — `N` oppdateringer gir `N + 1` punkter.",
+          "Se på hvilken likning som bruker den nye verdien av den andre, og regn den sist."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-warn-api",
+      "type": "warning",
+      "title": "Før oppgave 11: les den utleverte ODESolver-modulen før du bruker den",
+      "content": "ODE-oppgavene på eksamen kommer med `ODESolver`-hierarkiet som vedlegg, og **grensesnittet har endret seg over tid** (#14 — ODESolver-API-forveksling). Bokas standard, og formen som gjelder fra 2023, er:\n\n- høyresiden skrives `f(t, u)` — **tid først**\n- løseren kalles `solver.solve((0, T), N)` — et tidsintervall som tuppel, og antall steg\n\nI eldre sett (2020–2022) var rekkefølgen omvendt i høyresiden, `f(u, t)`, og `solve` tok **én** liste med ferdig utregnede tidspunkter i stedet for intervall og antall steg. Begge variantene er beskrevet i [kap. 7.2](/bok/in1900/in1900-7-2), der du også finner Skolesagas egen referanseimplementasjon av grensesnittet.\n\n**Praktisk regel på eksamen:** bruk to minutter på å lese vedleggets `solve`-signatur og `advance`-metode før du skriver noe. Det er to minutter som kan redde en tipoengsoppgave. Skriv deretter de tre stegene — konstruktør, `set_initial_condition`, `solve` — ned i rekkefølge; de bærer strukturpoengene."
+    },
+    {
+      "id": "in1900-9-2-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-11",
+        "number": "9.2.11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — ODE-system løst med det utleverte ODESolver-hierarkiet.) **Oppgave 11 (10 poeng).**\n\nEn befolkning på $N = 100\\,000$ deles i fire grupper: mottakelige $S$, smittsomme $I$, immune $R$ og vaksinerte $V$. Modellen er\n\n$$S' = -\\beta \\frac{SI}{N} - \\nu S, \\qquad I' = \\beta \\frac{SI}{N} - \\gamma I, \\qquad R' = \\gamma I, \\qquad V' = \\nu S$$\n\nmed $\\beta = 0.32$, $\\gamma = 0.10$ og $\\nu = 0.005$ (vaksinasjonsraten). Ved $t = 0$ er $I = 10$, $S = 99\\,990$ og $R = V = 0$. Tiden måles i døgn.\n\nDu har `ODESolver`-modulen med klassene `ForwardEuler` og `RungeKutta4` tilgjengelig.\n\n**a)** Skriv høyresiden som en funksjon `f(t, u)` som pakker ut tilstandsvektoren og returnerer de fire deriverte. *(4 poeng)*\n\n**b)** Skriv koden som løser systemet fra $t = 0$ til $t = 180$ med 1800 steg ved hjelp av `RungeKutta4`, og som pakker ut de fire komponentene i egne variabler. *(3 poeng)*\n\n**c)** Skriv koden som plotter de fire kurvene i samme figur med forklaring, og beskriv hva figuren viser. *(3 poeng)*",
+        "solution": "**a)** Høyresiden pakker ut `u` med én tilordning og returnerer en liste med de fire deriverte, i **samme rekkefølge** som komponentene ble pakket ut. Parametrene settes som variabler over funksjonen — det er kortere enn å sende dem inn, og løseren kaller `f` med bare to argumenter.\n\n```python\nN_tot = 100000\nbeta = 0.32\ngamma = 0.10\nnu = 0.005\n\ndef f(t, u):\n    S, I, R, V = u\n    dS = -beta * S * I / N_tot - nu * S\n    dI = beta * S * I / N_tot - gamma * I\n    dR = gamma * I\n    dV = nu * S\n    return [dS, dI, dR, dV]\n```\n\nNavnet `N_tot` er valgt med vilje: `N` brukes allerede om antall steg i `solve`, og de to må ikke blandes.\n\n**b)** De tre stegene, og deretter utpakkingen. For et system er `u` **todimensjonalt**: rad `n` er tilstanden ved tidspunkt `n`, kolonne `k` er komponent nummer `k`.\n\n```python\nfrom ODESolver import RungeKutta4\n\nsolver = RungeKutta4(f)\nsolver.set_initial_condition([99990, 10, 0, 0])\nt, u = solver.solve((0, 180), 1800)\nS, I, R, V = u[:, 0], u[:, 1], u[:, 2], u[:, 3]\n\nprint(f'u har form {u.shape}')\nprint(f'maks I = {I.max():.1f} paa dag {t[I.argmax()]:.1f}')\nprint(f'ved t = 180: S = {S[-1]:.1f}  I = {I[-1]:.1f}  R = {R[-1]:.1f}  V = {V[-1]:.1f}')\nprint(f'sum = {S[-1] + I[-1] + R[-1] + V[-1]:.1f}')\n```\n\n**Utskrift:**\n```\nu har form (1801, 4)\nmaks I = 20490.3 paa dag 50.8\nved t = 180: S = 4203.2  I = 1.3  R = 70913.5  V = 24882.1\nsum = 100000.0\n```\n\nTre kontroller verdt å gjøre på eksamen: formen på `u` er `(1801, 4)` — 1800 steg gir **1801** punkter (#1, av-én-feilen), og fire kolonner fordi systemet har fire likninger. Summen av de fire komponentene er 100 000 hele veien, slik den skal være når ingen forsvinner ut av modellen. Og toppen i `I` kommer rundt dag 51.\n\n**c)** Fire `plot`-kall med `label=`, ett `legend()`:\n\n```python\nimport matplotlib.pyplot as plt\n\nplt.plot(t, S, label='S mottakelige')\nplt.plot(t, I, label='I smittsomme')\nplt.plot(t, R, label='R immune')\nplt.plot(t, V, label='V vaksinerte')\nplt.xlabel('tid (dogn)')\nplt.ylabel('antall personer')\nplt.legend()\nplt.show()\n```\n\n**Figuren i ord:** vannrett akse er tid i døgn fra 0 til 180, loddrett akse antall personer fra 0 til 100 000. `S`-kurven starter øverst i 100 000 og faller — først langsomt, fra rundt dag 30 bratt — ned mot 4200. `I`-kurven starter nær 0, stiger til en topp på rundt 20 500 rundt dag 51, og faller deretter mot 0. `R`-kurven stiger monotont og flater ut rundt 71 000. `V`-kurven stiger jevnt fra 0 og flater ut rundt 24 900, fordi vaksinasjon bare kan skje så lenge det er mottakelige igjen. Toppen i `I` ligger der `S`-kurven er brattest. Forklaringen navngir de fire kurvene.\n\n**Dette gir uttelling.** Del a): riktig signatur `f(t, u)` med tiden først (1 p), utpakking `S, I, R, V = u` (1 p), de fire uttrykkene (1 p), `return` som liste i riktig rekkefølge (1 p). Del b): `RungeKutta4(f)` (1 p), `set_initial_condition` med en **liste** av fire startverdier (1 p), `solve((0, 180), 1800)` og utpakking med `u[:, k]` (1 p). Del c): fire kurver med `label=` (1 p), `legend()` og aksenavn (1 p), figurbeskrivelse med topp og retning (1 p).\n\n**De to vanligste tapene** er å pakke ut komponentene med `u[k]` i stedet for `u[:, k]` — `u[k]` er hele tilstanden ved tidspunkt `k`, ikke komponent `k` gjennom tiden — og å sende `set_initial_condition(99990, 10, 0, 0)` som fire argumenter i stedet for én liste. Får du høyresiden riktig men roter i utpakkingen, har du fortsatt mesteparten av poengene: det er `f(t, u)` som er kjernen i sjangeren.",
+        "hints": [
+          "Pakk ut tilstandsvektoren med `S, I, R, V = u` som første linje i `f`.",
+          "De tre stegene er `RungeKutta4(f)`, `set_initial_condition(u0)` og `solve(t_span, N)`.",
+          "For et system er `u` todimensjonalt: komponent `k` gjennom tiden er `u[:, k]`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-12",
+        "number": "9.2.12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger L — fillesing til nøstet dictionary.) **Oppgave 12 (8 poeng).**\n\nFilen `smittetall.txt` har én linje per bydel og uke, med semikolon som skilletegn og en overskriftslinje først:\n\n```\nbydel;uke;smittede;innlagte\nStorhaug;10;41;3\nStorhaug;11;58;6\nStorhaug;12;73;9\nHillevag;10;22;1\nHillevag;11;19;2\nHillevag;12;31;4\nTasta;10;7;0\nTasta;11;12;1\nTasta;12;9;1\n```\n\n**a)** Skriv `les_smittetall(filnavn)` som returnerer en nøstet dictionary der ytre nøkkel er bydelsnavnet, indre nøkkel er ukenummeret som **heltall**, og verdien er en dictionary `{'smittede': ..., 'innlagte': ...}` med heltall. *(5 poeng)*\n\n**b)** Skriv `toppuke(data, bydel)` som returnerer ukenummeret der bydelen hadde flest smittede. *(3 poeng)*",
+        "solution": "**a)** Her har hver bydel **flere** linjer, så den indre dictionaryen må opprettes første gang bydelen dukker opp. Det er den ene linja som skiller denne oppgaven fra den enkle varianten der hver linje har sin egen ytre nøkkel:\n\n```python\ndef les_smittetall(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        infile.readline()\n        for linje in infile:\n            bydel, uke, smittede, innlagte = linje.strip().split(';')\n            if bydel not in data:\n                data[bydel] = {}\n            data[bydel][int(uke)] = {'smittede': int(smittede), 'innlagte': int(innlagte)}\n    return data\n```\n\n**b)** «Beste så langt»-mønsteret, med en startverdi som betyr «ingen kandidat ennå»:\n\n```python\ndef toppuke(data, bydel):\n    beste = 0\n    for uke in data[bydel]:\n        if beste == 0 or data[bydel][uke]['smittede'] > data[bydel][beste]['smittede']:\n            beste = uke\n    return beste\n```\n\nKjørt:\n\n```python\ndata = les_smittetall('smittetall.txt')\nprint(len(data))\nprint(data['Hillevag'])\nprint(data['Hillevag'][11]['smittede'])\nprint(toppuke(data, 'Storhaug'), toppuke(data, 'Hillevag'))\n```\n\n**Utskrift:**\n```\n3\n{10: {'smittede': 22, 'innlagte': 1}, 11: {'smittede': 19, 'innlagte': 2}, 12: {'smittede': 31, 'innlagte': 4}}\n19\n12 12\n```\n\nMerk at `len(data)` er 3 — antall bydeler, ikke antall linjer i fila. Og at ukenøkkelen skrives **uten** fnutter i utskriften, fordi den er et heltall: hadde du glemt `int(uke)`, ville `data['Hillevag'][11]` gitt `KeyError`, siden `'11'` og `11` er to ulike nøkler.\n\n**Dette gir uttelling.** Del a): `data = {}` og `with open(...)` (1 p), `infile.readline()` for overskriftslinja (1 p), `strip().split(';')` med riktig skilletegn (1 p), opprettelsen av den indre dictionaryen med `if bydel not in data` (1 p), innsetting med `int`-konvertering av alle tre tallene (1 p). Del b): løkke over de indre nøklene (1 p), sammenligning mot beste så langt (1 p), `return beste` etter løkka (1 p).\n\n**De tre klassiske tapene:** å glemme `readline()` (#7 — da havner overskriftslinja i `int()` og gir `ValueError`), å bruke bar `split()` på en semikolonfil (#8), og å hoppe over opprettelsen av den indre dictionaryen (#20 — `data[bydel][uke] = ...` gir `KeyError` når `data[bydel]` ikke finnes ennå). Har du de fem stegene i riktig rekkefølge men roter i typekonverteringen, gir sensor uttelling for strukturen.",
+        "hints": [
+          "Fem steg: tom dictionary, åpne fila, hopp over overskriften, del hver linje, sett inn.",
+          "Hver bydel har flere linjer — hva må skje første gang en bydel dukker opp?",
+          "Ukenummeret skal være heltall både når du setter inn og når du slår opp."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-13",
+        "number": "9.2.13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger L — filtrering og skriving til fil.) **Oppgave 13 (6 poeng).**\n\nBruk dictionaryen fra oppgave 12. Du kan løse denne oppgaven selv om du ikke fikk den forrige til å virke — du vet hvordan strukturen ser ut.\n\n**a)** Skriv `filtrer(data, grense)` som returnerer en **ny** dictionary med bare de bydelene der summen av smittede over alle uker er minst `grense`. Argumentet `data` skal ikke endres. *(3 poeng)*\n\n**b)** Skriv `skriv_totaler(data, filnavn)` som skriver en fil med overskriftslinja `bydel;total` og deretter én linje per bydel på formen `navn;sum`. *(3 poeng)*",
+        "solution": "**a)** Nøkkelordet i oppgaven er «en **ny** dictionary»: du bygger `utvalg` og lar `data` være i fred. Summeringen skjer over de indre nøklene:\n\n```python\ndef filtrer(data, grense):\n    utvalg = {}\n    for bydel in data:\n        total = 0\n        for uke in data[bydel]:\n            total += data[bydel][uke]['smittede']\n        if total >= grense:\n            utvalg[bydel] = data[bydel]\n    return utvalg\n```\n\n**b)** Skriving bruker `'w'`-modus, og hver linje må avsluttes med `'\\n'` — `write` legger ikke til linjeskift selv:\n\n```python\ndef skriv_totaler(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('bydel;total\\n')\n        for bydel in data:\n            total = 0\n            for uke in data[bydel]:\n                total += data[bydel][uke]['smittede']\n            outfile.write(bydel + ';' + str(total) + '\\n')\n```\n\nKjørt, med fila lest tilbake for kontroll:\n\n```python\ndata = les_smittetall('smittetall.txt')\nutvalg = filtrer(data, 70)\nprint(len(data), len(utvalg))\nprint(list(utvalg))\nskriv_totaler(utvalg, 'utvalg.txt')\nwith open('utvalg.txt') as infile:\n    print(infile.read(), end='')\n```\n\n**Utskrift:**\n```\n3 2\n['Storhaug', 'Hillevag']\nbydel;total\nStorhaug;172\nHillevag;72\n```\n\nTotalene er $41+58+73 = 172$, $22+19+31 = 72$ og $7+12+9 = 28$; med grensen 70 faller Tasta ut. At `len(data)` fortsatt er 3 er selve kontrollen på at argumentet ikke ble endret.\n\n**Dette gir uttelling.** Del a): ny tom dictionary og løkke over de ytre nøklene (1 p), riktig summering over de indre nøklene (1 p), innsetting bare når testen holder, og `return utvalg` (1 p). Del b): `with open(filnavn, 'w')` (1 p), overskriftslinja (1 p), én linje per bydel med `'\\n'` (1 p).\n\n**Fellen er #20 — å endre argumentet i stedet for å bygge en ny dictionary.** Løsningen `del data[bydel]` inne i løkka er feil på to måter: den ødelegger dataene for kallende kode, og den endrer en dictionary mens du itererer over den, som gir `RuntimeError`. Den andre vanlige tapen er glemt `'\\n'`, så hele fila blir én linje. Bruker du en f-streng, `outfile.write(f'{bydel};{total}\\n')`, er det like riktig som strengskjøtingen over.",
+        "hints": [
+          "Bygg en ny, tom dictionary og legg bare inn bydelene som består testen.",
+          "Summen finner du med en indre løkke over ukene.",
+          "`write` legger ikke til linjeskift — det må du gjøre selv."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-9-2-oppg-14",
+        "number": "9.2.14",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — testfunksjon og bruk av en klasse.) **Oppgave 14 (6 poeng).**\n\nDenne oppgaven bruker `Smitterate`-klassen fra oppgave 9. Du kan løse den selv om du ikke fikk klassen til å virke: du vet at `beta(t)` gir $\\beta_0(1 + a\\sin(2\\pi t/P))$, og at `beta * k` gir en ny `Smitterate` med grunnraten ganget med `k`.\n\n**a)** Skriv to testfunksjoner: `test_smitterate()`, som sjekker at raten er riktig i to punkter du kan regne ut for hånd, og `test_mul()`, som sjekker at `beta * k` gir riktig type og riktige verdier. *(4 poeng)*\n\n**b)** Skriv koden som lager en `Smitterate` med $\\beta_0 = 0.30$, $a = 0.25$, $P = 360$, lager et tiltak som reduserer grunnraten til 60 %, og skriver en tabell over begge ratene ved $t = 0, 90, 180, 270$. *(2 poeng)*",
+        "solution": "**a)** De to punktene som er lette å regne for hånd, er $t = 0$, der sinusleddet er 0 og raten er $\\beta_0$, og $t = P/4 = 90$, der sinusleddet er 1 og raten er $\\beta_0(1 + a)$. Toleransen er alltid med — `==` på flyttall er felle #11:\n\n```python\ndef test_smitterate():\n    beta = Smitterate(0.30, 0.25, 360)\n    tol = 1e-10\n    expected = 0.30\n    computed = beta(0)\n    assert abs(expected - computed) < tol, f'beta(0) ga {computed}, ventet {expected}'\n    expected = 0.30 * 1.25\n    computed = beta(90)\n    assert abs(expected - computed) < tol, f'beta(90) ga {computed}, ventet {expected}'\n```\n\nDen andre testen sjekker begge kravene til `__mul__` — at den gir riktig **type**, og at verdiene skaleres:\n\n```python\ndef test_mul():\n    beta = Smitterate(0.30, 0.25, 360)\n    halv = beta * 0.5\n    tol = 1e-10\n    assert isinstance(halv, Smitterate), '__mul__ maa returnere en ny Smitterate'\n    for t in [0, 90, 180, 270]:\n        assert abs(0.5 * beta(t) - halv(t)) < tol, f'feil skalering i t = {t}'\n```\n\n**b)** Tiltaket er `beta * 0.6`, og tabellen er en løkke med f-strenger:\n\n```python\ntest_smitterate()\ntest_mul()\nprint('begge testene gikk gjennom')\n\nbeta = Smitterate(0.30, 0.25, 360)\ntiltak = beta * 0.6\nfor t in [0, 90, 180, 270]:\n    print(f'{t:4d}{beta(t):8.4f}{tiltak(t):8.4f}')\n```\n\n**Utskrift:**\n```\nbegge testene gikk gjennom\n   0  0.3000  0.1800\n  90  0.3750  0.2250\n 180  0.3000  0.1800\n 270  0.2250  0.1350\n```\n\nTabellen viser sesongsvingningen: raten er høyest ved $t = 90$ og lavest ved $t = 270$, der sinusleddet er −1. Tiltakskolonnen er nøyaktig 60 % av den første, slik `__mul__` skal gi.\n\n**Dette gir uttelling.** Del a): testfunksjoner uten argumenter og uten utskrift (1 p), `assert abs(expected - computed) < tol` med melding (1 p), riktige forventede verdier regnet for hånd (1 p), `isinstance`-sjekken på returtypen fra `__mul__` (1 p). Del b): riktig konstruktørkall og `beta * 0.6` (1 p), løkke med formatert utskrift (1 p).\n\n**Merk hva en testfunksjon ikke er.** Den skriver ikke ut noe, den tar ikke argumenter, og den sammenligner ikke med `==`. Velger du andre testpunkter enn 0 og 90 — for eksempel $t = 180$, der sinusleddet er 0 igjen — er det like riktig, så lenge du kan regne den forventede verdien uten datamaskin. Det er nettopp derfor $t = 0$ og $t = P/4$ er de smarte valgene.",
+        "hints": [
+          "En testfunksjon tar ingen argumenter, skriver ikke ut noe, og bruker `assert abs(...) < tol`.",
+          "Velg testpunkter der du kan regne svaret for hånd: hvor er sinusleddet 0, og hvor er det 1?",
+          "`isinstance(x, Smitterate)` sjekker at `__mul__` ga et objekt av riktig klasse."
+        ]
+      }
+    },
+    {
+      "id": "in1900-9-2-oppgave15",
+      "type": "text",
+      "content": "## Oppgave 15 — skal ikke besvares\n\nPå det reelle settet står det til slutt en «oppgave» med et tomt svarfelt og en beskjed om at den ikke skal besvares. Nummeret varierer — 15, 16 eller 17, avhengig av hvor mange oppgaver settet har — men funksjonen er alltid den samme: **det er feltet der sensor legger inn poengene dine fra midtveiseksamen.**\n\nRegnestykket er enkelt. Den avsluttende eksamenen gir maks 75 poeng, midtveiseksamen maks 25, og til sammen blir det 100. Ved å legge midtveispoengene inn i samme oppgavesett kan Inspera regne ut totalen automatisk.\n\n**Hva du skal gjøre med den:** ingenting. La feltet stå tomt og gå videre. Hvert år er det kandidater som bruker minutter på å lure på hva som skal stå der, og noen som skriver inn en gjetning på egen midtveisscore. Det siste er ikke farlig, men det er bortkastet tid — og tid er det du har minst av på et firetimerssett."
+    },
+    {
+      "id": "in1900-9-2-retting",
+      "type": "text",
+      "content": "## Rett deg selv\n\n| Oppgave | Sjanger | Riktig | Poeng |\n|---|---|---|---|\n| 1 | A | a | 2 |\n| 2 | A | b | 3 |\n| 3 | A | a | 3 |\n| 4 | B | rad 1→3, 2→4, 3→1, 4→2 | 2 |\n| 5 | C | rad 1→3, 2→1, 3→4, 4→5, 5→2, 6→3 | 3 |\n| 6 | E | b | 3 |\n| 7 | F | rekke + testfunksjon | 6 |\n| 8 | A | tre linjer med riktige kolonner | 4 |\n| 9 | G | klasse med tre spesialmetoder | 10 |\n| 10 | H | differenslikning + plott | 9 |\n| 11 | J | ODE-system + plott | 10 |\n| 12 | L | nøstet dictionary | 8 |\n| 13 | L | filtrering + skriving | 6 |\n| 14 | F | testfunksjoner + bruk | 6 |\n| **Sum** | | | **75** |\n\n**Slik gir du deg selv poeng på kodeoppgavene.** Gå gjennom «Dette gir uttelling»-listen i hver fasit og kryss av det du faktisk skrev. Regelen er mildere enn du tror: riktig struktur teller mest, og en indeksfeil i en ellers riktig løkke koster ett poeng, ikke hele oppgaven. Er du i tvil om noe er «riktig nok», er svaret nesten alltid ja — de offisielle løsningsforslagene i dette faget presenterer sin egen kode som bare **ett** eksempel på en besvarelse som ville fått full score, ikke som den eneste.\n\n**Selvdiagnose — kryss av:**\n\n- ☐ Satte du startverdiene **før** løkka i differenslikningen, og oppdaterte du `S` før `I`? *([kap. 6.2](/bok/in1900/in1900-6-2))*\n- ☐ Ga `range(N)` deg `N` oppdateringer og `N + 1` punkter i både oppgave 10 og 11? *([kap. 7.1](/bok/in1900/in1900-7-1))*\n- ☐ Returnerte `__mul__` en **ny instans** av klassen, ikke et tall eller en tuppel? *([kap. 5.2](/bok/in1900/in1900-5-2))*\n- ☐ Sto `self` både i metodesignaturene og foran attributtene? *([kap. 5.1](/bok/in1900/in1900-5-1))*\n- ☐ Skrev du `f(t, u)` med tiden først, og `solve((0, T), N)`? *([kap. 7.3](/bok/in1900/in1900-7-3))*\n- ☐ Pakket du ut systemkomponentene med `u[:, k]` og ikke `u[k]`? *([kap. 7.3](/bok/in1900/in1900-7-3))*\n- ☐ Opprettet du den indre dictionaryen før du satte noe inn i den? *([kap. 8.1](/bok/in1900/in1900-8-1))*\n- ☐ Bygde `filtrer` en **ny** dictionary uten å endre argumentet? *([kap. 8.2](/bok/in1900/in1900-8-2))*\n- ☐ Brukte testfunksjonene `abs(expected - computed) < tol` og ikke `==`? *([kap. 3.1](/bok/in1900/in1900-3-1))*\n- ☐ Hadde hvert `plot`-kall `label=`, og fulgte `legend()` etter? *([kap. 4.3](/bok/in1900/in1900-4-3))*\n- ☐ Lot du oppgave 15 stå tom?\n\n**Om karakteren.** Ikke regn poengsummen om til en bokstav. Karakteren settes samlet av begge eksamenene, og C er en god og vanlig karakter i IN1900. Målet med dette settet er ikke å bevise noe, men å finne ut hvilke to eller tre mønstre du fortsatt må skrive ut i sin helhet noen ganger til."
+    },
+    {
+      "id": "in1900-9-2-sensorblikket",
+      "type": "collapsible",
+      "title": "Sensorblikket — hva som gir uttelling når koden ikke er perfekt",
+      "buttonText": "Vis sensorblikket",
+      "content": [
+        {
+          "id": "in1900-9-2-sensorblikket-tekst",
+          "type": "text",
+          "content": "Alt her er destillert fra de offisielle løsningsforslagene i UiO-arkivet, som i praksis fungerer som sensorveiledning.\n\n**1. Strukturen bærer poengene.** I en løkkebasert oppgave er det løkkens oppsett — allokering, startverdi, `range`-grense, oppdateringslinje, `return` på riktig sted — som vurderes steg for steg. Løsningsforslagene sier rett ut at god score gis til besvarelser som får den overordnede strukturen riktig, «selv med små feil i indekser». Ett tapt poeng, ikke fem.\n\n**2. Flere løsninger gir full score.** Fasitens kode presenteres som «et eksempel på en relativt enkel og kompakt besvarelse som ville fått full score». Løser du oppgave 12 med `dict(zip(...))` i stedet for eksplisitt innsetting, eller oppgave 13 med f-streng i stedet for strengskjøting, er det like bra.\n\n**3. Deloppgaver er uavhengige.** Flere oppgaver sier eksplisitt at du kan skrive testfunksjonen eller bruke klassen selv om du ikke løste forrige deloppgave — «siden du vet hva den skal gjøre». Hopp aldri over del b) fordi del a) ikke ble ferdig.\n\n**4. Rimelige antakelser er lov, i kommentar.** Er oppgaveteksten uklar, velger du en tolkning og skriver én kommentarlinje om valget. Det er den ene legitime bruken av kommentarer i dette faget.\n\n**5. Skrivefeil i oppgaveteksten straffer ikke deg.** Det har hendt flere ganger at et reelt sett har hatt feil ODE-signatur eller feil indeks i oppgaveteksten. Alle konsistente tolkninger godtas ved retting.\n\n**6. Kort kode er en del av svaret.** Et `main`-program, ekstra utskrift eller en kommentar over hver linje gir ingen uttelling. Det gjør heller ingen skade, men det koster tid du trenger andre steder.\n\n**Og motsatt — tre ting som faktisk koster.** Feil oppdateringsrekkefølge i koblede differenslikninger er ikke en detaljfeil, men en annen modell. `__mul__` eller `__add__` som returnerer et tall i stedet for en ny instans ødelegger alt som bygger videre på klassen. Og en filtreringsfunksjon som endrer argumentet i stedet for å bygge en ny dictionary svarer på et annet spørsmål enn det som ble stilt."
+        }
+      ]
+    },
+    {
+      "id": "in1900-9-2-sjangerkart",
+      "type": "collapsible",
+      "title": "Sjangerkartet for dette settet",
+      "buttonText": "Vis sjangerkartet",
+      "content": [
+        {
+          "id": "in1900-9-2-sjangerkart-tabell",
+          "type": "text",
+          "content": "Settet dekker ni av bokas femten sjangre. De seks som mangler — D, I, K, M, N og O — står i [kap. 9.3](/bok/in1900/in1900-9-3), som er bygget for å utfylle dette settet.\n\n| Sjanger | Hva den er | Her | Trenes i |\n|---|---|---|---|\n| A | kodesporing: «hva skrives ut?» | 1, 2, 3, 8 | [kap. 1.7](/bok/in1900/in1900-1-7) |\n| B | matche-tabell, indeksering og slicing | 4 | [kap. 1.2](/bok/in1900/in1900-1-2) |\n| C | matche-tabell, hvilken exception først | 5 | [kap. 2.2](/bok/in1900/in1900-2-2) |\n| E | hvilken linje mangler | 6 | [kap. 7.2](/bok/in1900/in1900-7-2) |\n| F | rekke eller sum med testfunksjon | 7, 14 | [kap. 3.3](/bok/in1900/in1900-3-3) |\n| G | klasse med spesialmetoder | 9 | [kap. 5.5](/bok/in1900/in1900-5-5) |\n| H | differenslikning | 10 | [kap. 6.3](/bok/in1900/in1900-6-3) |\n| J | ODE-system med det utleverte hierarkiet | 11 | [kap. 7.5](/bok/in1900/in1900-7-5) |\n| L | fillesing til nøstet dictionary | 12, 13 | [kap. 8.3](/bok/in1900/in1900-8-3) |\n\n**Fem av temaene i dette settet har stått på hvert eneste av de åtte nyere settene (2018–2025):** kodesporing, klasser med spesialmetoder, ODE-løsere, rekke-implementering og fillesing til dictionary. Det er ryggraden i faget, og de fem er grunnen til at oppgave 7, 9, 11 og 12 er de fire dyreste oppgavene her."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
