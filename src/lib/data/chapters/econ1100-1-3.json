@@ -1,0 +1,362 @@
+{
+  "id": "econ1100-1-3",
+  "courseId": "econ1100",
+  "chapterNumber": "1.3",
+  "title": "Kjerneregelen for flere variabler (totalderivert)",
+  "description": "Når de indre variablene selv er funksjoner: kjerneregelen som sum av bidrag, og totalderiverten.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke kjerneregelen når de indre variablene selv avhenger av én eller flere ytre variabler",
+    "sette opp riktig antall bidrag i summen, med korrekt fortegn på hver indre derivert",
+    "substituere tilbake slik at sluttsvaret står i de variablene oppgaven spør om",
+    "regne ut totalderiverten og skille den direkte effekten fra den indirekte"
+  ],
+  "content": [
+    {
+      "id": "econ1100-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er delpunktet i Oppgave 1 som skiller de rutinerte fra resten.** Eksamens åpningsoppgave — i denne boka kalt **sjanger P1 — partiellderivasjon** («deriver funksjonene med hensyn på argumentene») — har i mange sett ett delpunkt der de indre variablene selv er funksjoner: du får $G(x,y)$ sammen med opplysningen at $x$ og $y$ avhenger av $s$ og $t$, og skal finne $\\partial G/\\partial s$ og $\\partial G/\\partial t$.\n\n**Det strengeste punktet her er ikke selve derivasjonen, men avslutningen.** Sensor forventer at sluttsvaret uttrykkes i de **opprinnelige** variablene ($s$ og $t$), ikke i hjelpevariablene $x$ og $y$. Å stoppe før tilbakesubstitusjonen er så vanlig at det har eget nummer i bokas feilregister: **feil #5 — ikke substituere tilbake for de indre variablene**.\n\nKapitlet har **høyeste prioritet**. Det samme regnegrepet dukker opp igjen som *totalderivert* i Del 5 (nivåkurver) og som komparativ statikk i Del 9 — så det du lærer her, brukes tre ganger til."
+    },
+    {
+      "id": "econ1100-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte, $f'_x$ og $f'_y$) og [kap. 1.1](/bok/econ1100/econ1100-1-1) (kjerneregelen i én variabel). Trenger du å friske opp hva en sammensatt funksjon er, ligger det i [Sammensatte funksjoner](/bok/r1/r1-2-3) og [Kjerneregelen](/bok/r1/r1-4-3) i R1-boka.\n\n**Nøkkelen du bygger videre på** er kjerneregelen slik du kjenner den fra én variabel:\n\n$$\\frac{d}{dx}f\\big(u(x)\\big)=f'\\big(u(x)\\big)\\cdot u'(x)$$\n\nI dette kapitlet skjer det bare én ting nytt: det er **flere veier inn** til den ytre funksjonen, og da må du legge sammen bidragene fra hver vei."
+    },
+    {
+      "id": "econ1100-1-3-motivasjon",
+      "type": "text",
+      "content": "Strømprisen påvirker to ting i en husholdning: hvor mye strøm som brukes, og hvor mye som brukes på alt annet. Begge deler påvirker den samlede utgiften. Vil du vite hva én øre høyere strømpris gjør med utgiften totalt, må du legge sammen **begge** virkningene — den gjennom strømforbruket og den gjennom resten av forbruket.\n\nDet er nøyaktig hva kjerneregelen for flere variabler gjør. Når en størrelse påvirker en annen langs flere veier, får hver vei sitt eget bidrag, og bidragene legges sammen.\n\nKapitlet er bygget som fire løkker: én ytre variabel (løkke 1), to ytre variabler (løkke 2), tilbakesubstitusjon og kontroll (løkke 3), og totalderiverten $df/dx=f'_x+f'_y\\,y'(x)$ (løkke 4), som er broen til nivåkurvene i Del 5."
+    },
+    {
+      "id": "econ1100-1-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Én ytre variabel: kjeden $t\\to(x,y)\\to z$ (~11 min)"
+    },
+    {
+      "id": "econ1100-1-3-def-sammensatt-flere",
+      "type": "definition",
+      "title": "Sammensatt funksjon av flere variabler",
+      "content": "En sammensatt funksjon av flere variabler oppstår når de variablene en funksjon avhenger av, selv avhenger av noe annet. Da er den ytre funksjonen indirekte en funksjon av de nye størrelsene.\n\n$$z=f(x,y)\\quad\\text{med}\\quad x=x(t),\\ y=y(t)\\quad\\Longrightarrow\\quad z=z(t)$$\n\nVi kaller $x$ og $y$ de **indre** variablene (eller kjernene) og $t$ den **ytre** variabelen. Eksempel: nytten din avhenger av mat og transport, og begge deler avhenger av inntekten din — så nytten avhenger indirekte av inntekten."
+    },
+    {
+      "id": "econ1100-1-3-def-indre-ytre",
+      "type": "definition",
+      "title": "Indre og ytre variabler",
+      "content": "Den **ytre** variabelen er den du deriverer med hensyn på til slutt — den du faktisk skrur på. De **indre** variablene er mellomleddene som formidler effekten.\n\nI $G(x,y)$ med $x=x(s,t)$ og $y=y(s,t)$ er $s$ og $t$ ytre, mens $x$ og $y$ er indre. Retningen i kjeden er alltid: ytre variabel → indre variabler → funksjonsverdi.\n\nÅ tegne et lite avhengighetsdiagram (piler fra $s$ til $x$ og $y$, og videre fra $x$ og $y$ til $G$) tar fem sekunder og forhindrer den vanligste feilen: å glemme et bidrag."
+    },
+    {
+      "id": "econ1100-1-3-th-kjerne1",
+      "type": "theorem",
+      "title": "Kjerneregelen med én ytre variabel",
+      "content": "Er $z=f(x,y)$ der $x=x(t)$ og $y=y(t)$, får du den deriverte av $z$ mht. $t$ ved å legge sammen bidraget fra hver indre variabel:\n\n$$\\frac{dz}{dt}=f'_{x}\\cdot\\frac{dx}{dt}+f'_{y}\\cdot\\frac{dy}{dt}$$\n\nHvert ledd har samme form: «hvor følsom $f$ er for den indre variabelen» ganger «hvor følsom den indre variabelen er for $t$». Antall ledd i summen er alltid lik antall indre variabler — to indre variabler gir to ledd.\n\nMerk skrivemåten: $dz/dt$ (rett $d$), fordi $z$ til slutt bare avhenger av $t$ alene."
+    },
+    {
+      "id": "econ1100-1-3-def-bidrag",
+      "type": "definition",
+      "title": "Bidragsprinsippet",
+      "content": "Hver vei fra den ytre variabelen inn til funksjonen gir ett bidrag, og bidragene legges sammen. Dette er hele ideen bak kjerneregelen for flere variabler.\n\n$$\\frac{dz}{dt}=\\underbrace{f'_{x}\\,x'(t)}_{\\text{veien via }x}+\\underbrace{f'_{y}\\,y'(t)}_{\\text{veien via }y}$$\n\nIntuisjonen: når $t$ øker litt, flytter både $x$ og $y$ på seg, og *begge* flyttingene endrer $f$. Den samlede endringen er summen. Å glemme det ene bidraget er det samme som å late som om den ene variabelen sto stille — og det er den nest vanligste feilen i denne oppgavetypen."
+    },
+    {
+      "id": "econ1100-1-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: To indre variabler, én ytre",
+      "problem": "La $z=x\\,y^{2}$, der $x=t^{2}$ og $y=e^{t}$. Finn $\\dfrac{dz}{dt}$, uttrykt ved $t$.",
+      "solution": "**Steg 1 — de partiellderiverte av den ytre funksjonen.**\n\n$$z'_{x}=y^{2},\\qquad z'_{y}=2xy$$\n\n*Intuisjon:* $z'_x$ måler hvor mye $z$ endres når bare $x$ flyttes; $z'_y$ det samme for $y$.\n\n**Steg 2 — de deriverte av de indre funksjonene.**\n\n$$\\frac{dx}{dt}=2t,\\qquad \\frac{dy}{dt}=e^{t}$$\n\n*Intuisjon:* dette er hvor raskt hver indre variabel flytter seg når $t$ øker.\n\n**Steg 3 — sett sammen etter kjerneregelen.**\n\n$$\\frac{dz}{dt}=y^{2}\\cdot 2t+2xy\\cdot e^{t}$$\n\n**Steg 4 — substituer tilbake** for $x$ og $y$, slik at svaret står i den opprinnelige variabelen $t$. Med $x=t^{2}$ og $y=e^{t}$ er $y^{2}=e^{2t}$ og $2xy=2t^{2}e^{t}$:\n\n$$\\frac{dz}{dt}=2t\\,e^{2t}+2t^{2}e^{t}\\cdot e^{t}=2t\\,e^{2t}+2t^{2}e^{2t}$$\n\n**Steg 5 — forenkle** (sensorkrav): sett $2te^{2t}$ utenfor.\n\n$$\\frac{dz}{dt}=2t\\,e^{2t}\\,(1+t)$$\n\n**Kontroll ved direkte innsetting.** Setter vi inn med én gang, er $z=t^{2}\\big(e^{t}\\big)^{2}=t^{2}e^{2t}$, og produktregelen gir $2te^{2t}+t^{2}\\cdot 2e^{2t}=2te^{2t}(1+t)$. ✓ Samme svar.\n\n**Når lønner det seg å sette inn først?** Her var det raskest, fordi uttrykket ble enkelt. Men på eksamen er de indre funksjonene ofte *generelle* (bare kalt $x(t)$), og da er innsetting umulig — kjerneregelen er den eneste veien. Øv på begge."
+    },
+    {
+      "id": "econ1100-1-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger P1 — «deriver med hensyn på argumentene», altså eksamens Oppgave 1. Innstegsoppgave.) La $z=3x+4y$, der $x=t^{2}$ og $y=5t$.\n\n**a)** Finn $z'_{x}$ og $z'_{y}$.\n\n**b)** Finn $\\dfrac{dx}{dt}$ og $\\dfrac{dy}{dt}$.\n\n**c)** Sett sammen til $\\dfrac{dz}{dt}$, uttrykt ved $t$, og kontroller ved å sette inn for $x$ og $y$ først.",
+        "solution": "**a)** $z'_{x}=3$ og $z'_{y}=4$.\n\n**b)** $\\dfrac{dx}{dt}=2t$ og $\\dfrac{dy}{dt}=5$.\n\n**c)** Kjerneregelen:\n\n$$\\frac{dz}{dt}=3\\cdot 2t+4\\cdot 5=6t+20$$\n\n*Kontroll:* setter vi inn direkte, er $z=3t^{2}+20t$, som deriveres til $6t+20$. ✓ Samme svar.",
+        "hints": [
+          "Kjerneregelen: $\\dfrac{dz}{dt}=z'_x\\dfrac{dx}{dt}+z'_y\\dfrac{dy}{dt}$ — to indre variabler gir to ledd.",
+          "I a) er $z$ lineær i begge variablene, så de partiellderiverte er rene tall."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $z=\\ln(x+y)$, der $x=t^{3}$ og $y=2t$. Finn $\\dfrac{dz}{dt}$, uttrykt ved $t$.",
+        "solution": "**Partiellderiverte av den ytre funksjonen:**\n\n$$z'_{x}=\\frac{1}{x+y},\\qquad z'_{y}=\\frac{1}{x+y}$$\n\n**Deriverte av de indre funksjonene:** $\\dfrac{dx}{dt}=3t^{2}$ og $\\dfrac{dy}{dt}=2$.\n\n**Kjerneregelen:**\n\n$$\\frac{dz}{dt}=\\frac{1}{x+y}\\cdot 3t^{2}+\\frac{1}{x+y}\\cdot 2=\\frac{3t^{2}+2}{x+y}$$\n\n**Tilbakesubstitusjon** — dette er steget sensor ser etter. Med $x+y=t^{3}+2t$:\n\n$$\\frac{dz}{dt}=\\frac{3t^{2}+2}{t^{3}+2t}$$\n\n*Kontroll:* setter vi inn først, er $z=\\ln(t^{3}+2t)$, og regelen $\\frac{g'}{g}$ gir nøyaktig samme svar. ✓",
+        "hints": [
+          "Begge partiellderiverte av $\\ln(x+y)$ er $\\frac{1}{x+y}$ — nevneren er den samme uansett variabel.",
+          "Husk siste steg: erstatt $x+y$ med uttrykket i $t$, slik at svaret bare inneholder $t$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — To ytre variabler: $\\partial G/\\partial s$ og $\\partial G/\\partial t$ (~12 min)"
+    },
+    {
+      "id": "econ1100-1-3-lokke2-intro",
+      "type": "text",
+      "content": "Eksamensvarianten har som regel **to** ytre variabler. Du får $G(x,y)$ og opplysningen at $x=x(s,t)$ og $y=y(s,t)$, og skal finne begge de partiellderiverte av $G$ mht. $s$ og $t$.\n\nPrinsippet er akkurat det samme — du gjør bare den samme jobben to ganger, én gang for hver ytre variabel. Og fordi det nå finnes flere variabler igjen etter derivasjonen, skriver vi $\\partial$ i stedet for $d$."
+    },
+    {
+      "id": "econ1100-1-3-th-kjerne2",
+      "type": "theorem",
+      "title": "Kjerneregelen med to ytre variabler",
+      "content": "Er $G=G(x,y)$ der $x=x(s,t)$ og $y=y(s,t)$, deriverer du mht. én ytre variabel om gangen, og summerer bidragene fra begge de indre:\n\n$$\\frac{\\partial G}{\\partial s}=G'_{x}\\,\\frac{\\partial x}{\\partial s}+G'_{y}\\,\\frac{\\partial y}{\\partial s},\\qquad \\frac{\\partial G}{\\partial t}=G'_{x}\\,\\frac{\\partial x}{\\partial t}+G'_{y}\\,\\frac{\\partial y}{\\partial t}$$\n\nLegg merke til at $G'_{x}$ og $G'_{y}$ er *de samme* i begge formlene — du regner dem ut én gang og gjenbruker dem. Det er bare de indre deriverte som skifter."
+    },
+    {
+      "id": "econ1100-1-3-def-antall-ledd",
+      "type": "definition",
+      "title": "Antall ledd i summen",
+      "content": "Antall ledd i kjerneregelen er alltid lik antall **indre** variabler, uansett hvor mange ytre variabler oppgaven har.\n\n$$\\text{to indre variabler}\\ (x,y)\\ \\Longrightarrow\\ \\text{to ledd i hver formel}$$\n\nHar du bare skrevet ett ledd, har du glemt en vei. Rask kontroll før du regner videre: tell leddene, og sammenlign med antall indre variabler i oppgaveteksten."
+    },
+    {
+      "id": "econ1100-1-3-def-notasjon-d",
+      "type": "definition",
+      "title": "Når skrives $d$ og når skrives $\\partial$?",
+      "content": "Skrivemåten forteller om det er flere variabler igjen etter derivasjonen. Er det bare én ytre variabel igjen, skriver vi rett $d$; er det flere, skriver vi $\\partial$.\n\n$$\\frac{dz}{dt}\\ \\text{(én ytre variabel)},\\qquad \\frac{\\partial G}{\\partial s}\\ \\text{(to ytre variabler, }s\\text{ og }t)$$\n\nSensor er ikke pirkete på dette, men konsekvent notasjon gjør besvarelsen lettere å lese — og hjelper deg selv å holde styr på hvilke størrelser som holdes fast."
+    },
+    {
+      "id": "econ1100-1-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensformen — to inn, to ut",
+      "problem": "La $G(x,y)=x^{2}+3xy$, der $x=2s+t$ og $y=s-t$. Finn $\\dfrac{\\partial G}{\\partial s}$ og $\\dfrac{\\partial G}{\\partial t}$, uttrykt ved $s$ og $t$.",
+      "solution": "**Steg 1 — partiellderiver den ytre funksjonen én gang for alle.**\n\n$$G'_{x}=2x+3y,\\qquad G'_{y}=3x$$\n\n**Steg 2 — deriver de indre funksjonene mht. begge ytre variabler.**\n\n$$\\frac{\\partial x}{\\partial s}=2,\\quad \\frac{\\partial x}{\\partial t}=1,\\qquad \\frac{\\partial y}{\\partial s}=1,\\quad \\frac{\\partial y}{\\partial t}=-1$$\n\n**Steg 3 — sett sammen mht. $s$.**\n\n$$\\frac{\\partial G}{\\partial s}=(2x+3y)\\cdot 2+3x\\cdot 1=4x+6y+3x=7x+6y$$\n\n**Steg 4 — substituer tilbake.** Dette er poenget sensor ser etter (feil #5):\n\n$$\\frac{\\partial G}{\\partial s}=7(2s+t)+6(s-t)=14s+7t+6s-6t=20s+t$$\n\n**Steg 5 — samme jobb mht. $t$.**\n\n$$\\frac{\\partial G}{\\partial t}=(2x+3y)\\cdot 1+3x\\cdot(-1)=2x+3y-3x=-x+3y$$\n\nTilbakesubstitusjon:\n\n$$\\frac{\\partial G}{\\partial t}=-(2s+t)+3(s-t)=-2s-t+3s-3t=s-4t$$\n\n**Kontroll ved direkte innsetting.** Med $x=2s+t$ og $y=s-t$ er\n\n$$G=(2s+t)^{2}+3(2s+t)(s-t)=4s^{2}+4st+t^{2}+3(2s^{2}-2st+st-t^{2})=10s^{2}+st-2t^{2}$$\n\nDa er $\\partial G/\\partial s=20s+t$ ✓ og $\\partial G/\\partial t=s-4t$ ✓.\n\n**Fire grep bar føringen over:** de fire indre deriverte ble listet opp først, kjerneregelen ble skrevet med begge ledd synlig, tilbakesubstitusjonen ble gjort eksplisitt, og sluttsvaret ble ryddet til en enkel form i $s$ og $t$."
+    },
+    {
+      "id": "econ1100-1-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $G(x,y)=\\dfrac{x}{y}$, der $x=s^{2}$ og $y=t$.\n\n**a)** Finn $\\dfrac{\\partial G}{\\partial s}$.\n\n**b)** Finn $\\dfrac{\\partial G}{\\partial t}$.\n\nUttrykk begge svarene ved $s$ og $t$.",
+        "solution": "**Partiellderiverte av den ytre funksjonen:** $G'_{x}=\\dfrac{1}{y}$ og $G'_{y}=-\\dfrac{x}{y^{2}}$.\n\n**Indre deriverte:** $\\dfrac{\\partial x}{\\partial s}=2s$, $\\dfrac{\\partial x}{\\partial t}=0$, $\\dfrac{\\partial y}{\\partial s}=0$, $\\dfrac{\\partial y}{\\partial t}=1$.\n\n**a)** $\\dfrac{\\partial G}{\\partial s}=\\dfrac{1}{y}\\cdot 2s+\\left(-\\dfrac{x}{y^{2}}\\right)\\cdot 0=\\dfrac{2s}{y}$\n\nTilbakesubstitusjon ($y=t$):\n\n$$\\frac{\\partial G}{\\partial s}=\\frac{2s}{t}$$\n\n**b)** $\\dfrac{\\partial G}{\\partial t}=\\dfrac{1}{y}\\cdot 0+\\left(-\\dfrac{x}{y^{2}}\\right)\\cdot 1=-\\dfrac{x}{y^{2}}$\n\nTilbakesubstitusjon ($x=s^{2}$, $y=t$):\n\n$$\\frac{\\partial G}{\\partial t}=-\\frac{s^{2}}{t^{2}}$$\n\n**Merk:** her var det ene bidraget null i begge tilfeller, fordi $x$ ikke avhenger av $t$ og $y$ ikke avhenger av $s$. Det er helt legitimt å skrive nullbidraget opp og la det falle bort — det viser sensor at du så begge veiene.",
+        "hints": [
+          "Skriv opp alle fire indre deriverte først; noen av dem er null.",
+          "$G=x\\,y^{-1}$ gir $G'_y=-x y^{-2}$ — pass på fortegnet."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Tilbakesubstitusjon og kontroll (~11 min)"
+    },
+    {
+      "id": "econ1100-1-3-def-tilbakesubstitusjon",
+      "type": "definition",
+      "title": "Tilbakesubstitusjon",
+      "content": "Tilbakesubstitusjon er det siste steget i kjerneregelen: du erstatter de indre variablene med uttrykkene deres, slik at sluttsvaret bare inneholder de opprinnelige variablene oppgaven spurte om.\n\n$$\\frac{\\partial G}{\\partial s}=7x+6y\\quad\\xrightarrow{\\ x=2s+t,\\ y=s-t\\ }\\quad \\frac{\\partial G}{\\partial s}=20s+t$$\n\nUten dette steget har du svart på et annet spørsmål enn det som ble stilt: uttrykket $7x+6y$ inneholder hjelpevariabler oppgaven aldri ba om. Det er derfor sensor trekker for det."
+    },
+    {
+      "id": "econ1100-1-3-warning-feil5",
+      "type": "warning",
+      "title": "Typiske feil i kjerneregelen for flere variabler",
+      "content": "- **Feil #5 — ikke substituere tilbake for de indre variablene.** Sluttsvaret skal stå i de variablene oppgaven spør om ($s$ og $t$), ikke i hjelpevariablene ($x$ og $y$). Å stoppe ved $7x+6y$ gir trekk selv om regningen frem dit er feilfri. Sjekkspørsmålet før du går videre: *står det noen $x$ eller $y$ igjen i svaret mitt?*\n- **Å glemme ett av bidragene.** To indre variabler gir alltid to ledd. Tell leddene mot antall indre variabler før du forenkler.\n- **Å blande hvilken indre variabel som deriveres mot hvilken ytre.** Bidraget fra $x$ skal ha faktoren $\\partial x/\\partial s$, ikke $\\partial y/\\partial s$. Å skrive opp alle de indre deriverte i en liten tabell før du setter sammen, fjerner denne feilen helt.\n- **Å gange sammen i stedet for å legge sammen.** Kjerneregelen i flere variabler er en *sum* av produkter, ikke et produkt av summer.\n- **Uforenklet svar.** Etter tilbakesubstitusjonen skal parenteser ganges ut og like ledd samles: $7(2s+t)+6(s-t)$ skal bli $20s+t$."
+    },
+    {
+      "id": "econ1100-1-3-def-kontrollmetode",
+      "type": "definition",
+      "title": "Kontrollmetoden: sett inn først",
+      "content": "Når de indre funksjonene er konkrete uttrykk, kan du alltid kontrollere svaret ved å sette inn *først* og derivere etterpå. De to veiene må gi samme svar.\n\n$$G(x(s,t),y(s,t))\\ \\text{skrevet ut i }s,t\\ \\longrightarrow\\ \\text{deriver direkte}$$\n\nKontrollen koster ett minutt og fanger både glemte bidrag og fortegnsfeil. **Men:** den virker bare når uttrykkene er konkrete. Er de indre funksjonene generelle — bare kalt $x(s,t)$ — er kjerneregelen den eneste veien, og da må du stole på systematikken i stedet."
+    },
+    {
+      "id": "econ1100-1-3-def-nar-substituere",
+      "type": "definition",
+      "title": "Når lønner det seg å sette inn først?",
+      "content": "Er de indre funksjonene enkle og den ytre funksjonen blir kort etter innsetting, er direkte innsetting både raskere og tryggere. Er det motsatte tilfelle, er kjerneregelen best.\n\nTommelfingerregel: **sett inn først når innsettingen forenkler, bruk kjerneregelen når den ikke gjør det.**\n\nEksempel på det siste: $G=e^{xy}$ med $x=s-t$ og $y=s+t$. Her *lønner* innsetting seg likevel, fordi $xy=(s-t)(s+t)=s^{2}-t^{2}$ — et pent uttrykk. Men er den ytre funksjonen en stor brøk, blir innsetting fort uoversiktlig."
+    },
+    {
+      "id": "econ1100-1-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $G(x,y)=e^{xy}$, der $x=s-t$ og $y=s+t$.\n\n**a)** Finn $\\dfrac{\\partial G}{\\partial s}$ med kjerneregelen, og uttrykk svaret ved $s$ og $t$.\n\n**b)** Finn $\\dfrac{\\partial G}{\\partial t}$ på samme måte.\n\n**c)** Kontroller begge svarene ved å sette inn for $x$ og $y$ først.",
+        "solution": "**Partiellderiverte av den ytre funksjonen:** $G'_{x}=y\\,e^{xy}$ og $G'_{y}=x\\,e^{xy}$.\n\n**Indre deriverte:** $\\dfrac{\\partial x}{\\partial s}=1$, $\\dfrac{\\partial x}{\\partial t}=-1$, $\\dfrac{\\partial y}{\\partial s}=1$, $\\dfrac{\\partial y}{\\partial t}=1$.\n\n**a)** $\\dfrac{\\partial G}{\\partial s}=y\\,e^{xy}\\cdot 1+x\\,e^{xy}\\cdot 1=(x+y)e^{xy}$\n\nTilbakesubstitusjon: $x+y=(s-t)+(s+t)=2s$ og $xy=(s-t)(s+t)=s^{2}-t^{2}$:\n\n$$\\frac{\\partial G}{\\partial s}=2s\\,e^{\\,s^{2}-t^{2}}$$\n\n**b)** $\\dfrac{\\partial G}{\\partial t}=y\\,e^{xy}\\cdot(-1)+x\\,e^{xy}\\cdot 1=(x-y)e^{xy}$\n\nMed $x-y=(s-t)-(s+t)=-2t$:\n\n$$\\frac{\\partial G}{\\partial t}=-2t\\,e^{\\,s^{2}-t^{2}}$$\n\n**c) Kontroll.** Setter vi inn først, er $G=e^{(s-t)(s+t)}=e^{s^{2}-t^{2}}$. Kjerneregelen i én variabel gir da $\\partial G/\\partial s=2s\\,e^{s^{2}-t^{2}}$ ✓ og $\\partial G/\\partial t=-2t\\,e^{s^{2}-t^{2}}$ ✓.\n\n**Merk fortegnet i b):** det kommer fra $\\partial x/\\partial t=-1$. Det er akkurat her fortegnsfeilene oppstår — skriv derfor alltid de indre deriverte eksplisitt opp, med fortegn.",
+        "hints": [
+          "$G=e^{xy}$ gir $G'_x=y e^{xy}$ (faktoren $y$ er eksponentens deriverte mht. $x$).",
+          "Etter sammensetting: regn ut $x+y$, $x-y$ og $xy$ i $s$ og $t$ — de blir bemerkelsesverdig pene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Totalderiverten $df/dx=f'_x+f'_y\\,y'(x)$ (~11 min)"
+    },
+    {
+      "id": "econ1100-1-3-lokke4-intro",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*\n\nDet siste tilfellet er litt spesielt, og det er samtidig det viktigste for resten av boka: den ene indre variabelen **er** den ytre.\n\nTenk deg $f(x,y)$ der $y$ selv er en funksjon av $x$. Da påvirker $x$ funksjonen på to måter: direkte (gjennom sin egen plass i $f$) og indirekte (ved å flytte $y$). Den samlede effekten kalles **totalderiverten**."
+    },
+    {
+      "id": "econ1100-1-3-def-totalderivert",
+      "type": "definition",
+      "title": "Totalderiverten",
+      "content": "Totalderiverten er den samlede endringen i $f$ når $x$ øker, når man tar med at $y$ endrer seg med $x$. Den består av en direkte og en indirekte virkning.\n\n$$\\frac{df}{dx}=f'_{x}+f'_{y}\\,\\frac{dy}{dx}$$\n\nFørste ledd er den direkte effekten (den vanlige partiellderiverte), andre ledd er den indirekte: $x$ flytter $y$, og $y$ flytter $f$. Dette er bare kjerneregelen fra løkke 1, med den ene indre variabelen lik den ytre — så $dx/dx=1$."
+    },
+    {
+      "id": "econ1100-1-3-def-partiell-vs-total",
+      "type": "definition",
+      "title": "Partiellderivert eller totalderivert?",
+      "content": "Skillet er hva du holder fast. Den **partiellderiverte** $f'_{x}$ holder $y$ helt i ro; **totalderiverten** $df/dx$ lar $y$ følge med på lasset.\n\n$$f'_{x}\\ \\text{(}y\\text{ fast)}\\qquad\\text{mot}\\qquad \\frac{df}{dx}=f'_{x}+f'_{y}y'(x)\\ \\text{(}y=y(x)\\text{)}$$\n\nDe er like bare når $f'_{y}=0$ eller $y'(x)=0$. Å bruke feil av de to er en meningsfeil, ikke en regnefeil — og den er hele grunnlaget for nivåkurveoppgavene i [kap. 5.1](/bok/econ1100/econ1100-5-1), der kravet $df/dx=0$ gir helningsformelen."
+    },
+    {
+      "id": "econ1100-1-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Totalderiverten i en kostnadsmodell",
+      "problem": "En bedrifts lønnskostnad er $K(x,w)=x^{2}w$, der $x$ er produsert mengde og $w$ er timelønnen. Bedriften er så stor at den presser opp lønningene når den produserer mer: $w=10+\\tfrac12 x$.\n\nFinn den totalderiverte $\\dfrac{dK}{dx}$, og forklar hva de to leddene betyr.",
+      "solution": "**Steg 1 — de partiellderiverte.**\n\n$$K'_{x}=2xw,\\qquad K'_{w}=x^{2}$$\n\n*Intuisjon:* $K'_x$ er kostnadsøkningen av mer produksjon *til fast lønn*; $K'_w$ er kostnadsøkningen av høyere lønn *ved fast produksjon*.\n\n**Steg 2 — den indre deriverte.**\n\n$$\\frac{dw}{dx}=\\tfrac12$$\n\n*Intuisjon:* hver ekstra produsert enhet presser timelønnen opp med en halv krone.\n\n**Steg 3 — totalderiverten.**\n\n$$\\frac{dK}{dx}=K'_{x}+K'_{w}\\,\\frac{dw}{dx}=2xw+x^{2}\\cdot\\tfrac12$$\n\n**Steg 4 — tilbakesubstitusjon** ($w=10+\\tfrac12x$):\n\n$$\\frac{dK}{dx}=2x\\left(10+\\tfrac12 x\\right)+\\tfrac12 x^{2}=20x+x^{2}+\\tfrac12 x^{2}=20x+\\tfrac32 x^{2}$$\n\n**Kontroll ved innsetting først:** $K=x^{2}\\left(10+\\tfrac12x\\right)=10x^{2}+\\tfrac12x^{3}$, som deriveres til $20x+\\tfrac32x^{2}$. ✓\n\n**Tolkning av de to leddene.** Leddet $20x$ er den **direkte** effekten: mer produksjon koster mer ved uendret lønn. Leddet $\\tfrac12x^{2}$ er den **indirekte**: den økte produksjonen presser opp lønnen, og den høyere lønnen må betales for hele produksjonen. Den som bare regner $K'_{x}$, undervurderer den sanne grensekostnaden — her med hele $\\tfrac12x^{2}$."
+    },
+    {
+      "id": "econ1100-1-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $f(x,y)=x^{2}y$, der $y=3x+1$.\n\n**a)** Finn $f'_{x}$ og $f'_{y}$.\n\n**b)** Finn totalderiverten $\\dfrac{df}{dx}$, uttrykt ved $x$.\n\n**c)** Forklar med én setning hvorfor $\\dfrac{df}{dx}\\ne f'_{x}$ her.",
+        "solution": "**a)** $f'_{x}=2xy$ og $f'_{y}=x^{2}$.\n\n**b)** Med $\\dfrac{dy}{dx}=3$:\n\n$$\\frac{df}{dx}=2xy+x^{2}\\cdot 3=2x(3x+1)+3x^{2}=6x^{2}+2x+3x^{2}=9x^{2}+2x$$\n\n*Kontroll:* $f=x^{2}(3x+1)=3x^{3}+x^{2}$, som deriveres til $9x^{2}+2x$. ✓\n\n**c)** Fordi $y$ ikke står stille når $x$ øker: den partiellderiverte $f'_{x}=2x(3x+1)=6x^{2}+2x$ tar bare med den direkte effekten, mens totalderiverten i tillegg fanger opp at $y$ selv vokser med $x$ og drar $f$ videre opp — leddet $3x^{2}$.",
+        "hints": [
+          "Totalderiverten er $f'_x+f'_y\\dfrac{dy}{dx}$, og $\\dfrac{dy}{dx}=3$ her.",
+          "Sammenlign svaret ditt med det du får ved å sette inn $y=3x+1$ i $f$ først."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-drill-intro",
+      "type": "text",
+      "content": "## Eksamensdrill (~8 min)\n\nDe to siste oppgavene ligger på eksamensnivå. Den første er en full variant av delpunktet slik det pleier å se ut i Oppgave 1; den andre bruker generelle funksjoner, som er den vanskeligste varianten."
+    },
+    {
+      "id": "econ1100-1-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La\n\n$$G(x,y)=x^{2}-y^{2},\\qquad x=st,\\qquad y=s+t.$$\n\n**a)** Finn $\\dfrac{\\partial G}{\\partial s}$ og $\\dfrac{\\partial G}{\\partial t}$, uttrykt ved $s$ og $t$.\n\n**b)** Kontroller svarene ved å sette inn for $x$ og $y$ først.",
+        "solution": "**a) Partiellderiverte av den ytre funksjonen:** $G'_{x}=2x$ og $G'_{y}=-2y$.\n\n**Indre deriverte:** $\\dfrac{\\partial x}{\\partial s}=t$, $\\dfrac{\\partial x}{\\partial t}=s$, $\\dfrac{\\partial y}{\\partial s}=1$, $\\dfrac{\\partial y}{\\partial t}=1$.\n\n**Mht. $s$:**\n\n$$\\frac{\\partial G}{\\partial s}=2x\\cdot t+(-2y)\\cdot 1=2xt-2y$$\n\nTilbakesubstitusjon ($x=st$, $y=s+t$):\n\n$$\\frac{\\partial G}{\\partial s}=2st\\cdot t-2(s+t)=2st^{2}-2s-2t$$\n\n**Mht. $t$:**\n\n$$\\frac{\\partial G}{\\partial t}=2x\\cdot s+(-2y)\\cdot 1=2xs-2y=2s^{2}t-2s-2t$$\n\n**b) Kontroll.** Med innsetting først er\n\n$$G=(st)^{2}-(s+t)^{2}=s^{2}t^{2}-s^{2}-2st-t^{2}$$\n\nDa er $\\dfrac{\\partial G}{\\partial s}=2st^{2}-2s-2t$ ✓ og $\\dfrac{\\partial G}{\\partial t}=2s^{2}t-2s-2t$ ✓.\n\n**Merk:** svarene er *ikke* symmetriske i $s$ og $t$ i første ledd, men de siste to leddene er identiske. Det er en nyttig plausibilitetssjekk: $y=s+t$ er symmetrisk, mens $x=st$ ikke gir symmetriske deriverte.",
+        "hints": [
+          "Fire indre deriverte først: $\\partial x/\\partial s=t$, $\\partial x/\\partial t=s$, og begge for $y$ er 1.",
+          "Etter sammensetting: bytt ut $x$ med $st$ og $y$ med $s+t$, og gang ut."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå, generelle funksjoner.) La $G(x,y)$ være en deriverbar funksjon av to variabler, og la\n\n$$x=s+2t,\\qquad y=s-t.$$\n\n**a)** Sett opp uttrykk for $\\dfrac{\\partial G}{\\partial s}$ og $\\dfrac{\\partial G}{\\partial t}$ ved hjelp av $G'_{x}$ og $G'_{y}$.\n\n**b)** Vis at $\\dfrac{\\partial G}{\\partial t}=2\\,G'_{x}-G'_{y}$, og forklar hvorfor svaret her *ikke* skal substitueres videre.",
+        "solution": "**a)** Indre deriverte: $\\dfrac{\\partial x}{\\partial s}=1$, $\\dfrac{\\partial x}{\\partial t}=2$, $\\dfrac{\\partial y}{\\partial s}=1$, $\\dfrac{\\partial y}{\\partial t}=-1$.\n\nKjerneregelen gir\n\n$$\\frac{\\partial G}{\\partial s}=G'_{x}\\cdot 1+G'_{y}\\cdot 1=G'_{x}+G'_{y}$$\n\n$$\\frac{\\partial G}{\\partial t}=G'_{x}\\cdot 2+G'_{y}\\cdot(-1)=2G'_{x}-G'_{y}$$\n\n**b)** Utregningen over *er* beviset: bidraget gjennom $x$ har faktoren $\\partial x/\\partial t=2$, og bidraget gjennom $y$ har faktoren $\\partial y/\\partial t=-1$, som gir minustegnet.\n\n**Hvorfor ingen videre substitusjon her?** Fordi $G$ ikke er oppgitt på konkret form. De partiellderiverte $G'_{x}$ og $G'_{y}$ er ukjente funksjoner, og svaret *skal* inneholde dem — det er ikke et uferdig svar. Det du derimot skal huske, er at $G'_{x}$ og $G'_{y}$ er evaluert i punktet $(x,y)=(s+2t,\\;s-t)$, og en grundig besvarelse sier det eksplisitt:\n\n$$\\frac{\\partial G}{\\partial t}=2\\,G'_{x}(s+2t,\\,s-t)-G'_{y}(s+2t,\\,s-t)$$\n\nDette er den varianten av oppgaven som skiller: kravet om tilbakesubstitusjon gjelder de **indre variablene**, ikke de ukjente deriverte. Mer om derivasjon av generelle funksjoner i [kap. 1.5](/bok/econ1100/econ1100-1-5).",
+        "hints": [
+          "Skriv opp de fire indre deriverte — de er alle rene tall her.",
+          "I b): hvilken faktor følger med bidraget gjennom $y$, når $\\partial y/\\partial t=-1$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) En husholdnings samlede strømutgift er $U=p\\cdot m$, der $p$ er prisen per kilowattime og $m$ er forbruket. Forbruket avhenger av prisen: $m=800-20p$ (kilowattimer per måned).\n\n**a)** Finn $U'_{p}$ og $U'_{m}$.\n\n**b)** Finn totalderiverten $\\dfrac{dU}{dp}$, uttrykt ved $p$.\n\n**c)** Ved hvilken pris slutter utgiften å øke når prisen stiger videre?",
+        "solution": "**a)** $U=pm$ gir\n\n$$U'_{p}=m,\\qquad U'_{m}=p$$\n\n**b)** Med $\\dfrac{dm}{dp}=-20$:\n\n$$\\frac{dU}{dp}=U'_{p}+U'_{m}\\,\\frac{dm}{dp}=m+p\\cdot(-20)$$\n\nTilbakesubstitusjon ($m=800-20p$):\n\n$$\\frac{dU}{dp}=800-20p-20p=800-40p$$\n\n*Kontroll:* $U=p(800-20p)=800p-20p^{2}$, som deriveres til $800-40p$. ✓\n\n**c)** Utgiften slutter å øke der $\\dfrac{dU}{dp}=0$:\n\n$$800-40p=0\\quad\\Longrightarrow\\quad p=20$$\n\nFor $p<20$ er $\\frac{dU}{dp}>0$ (utgiften stiger med prisen), for $p>20$ er den negativ (forbruket faller så mye at regningen blir mindre).\n\n**Tolkning av de to leddene:** den direkte effekten $m=800-20p$ er at hver kilowattime blir dyrere; den indirekte, $-20p$, er at husholdningen kutter forbruket. Ved $p=20$ veier de to hverandre nøyaktig opp.",
+        "hints": [
+          "Totalderiverten er $U'_p+U'_m\\dfrac{dm}{dp}$, og $\\dfrac{dm}{dp}=-20$.",
+          "I c): sett det ferdige uttrykket for $\\dfrac{dU}{dp}$ lik null og løs for $p$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-1-3-bb-avhengighetsdiagram",
+      "type": "definition",
+      "title": "Avhengighetsdiagram",
+      "content": "Et avhengighetsdiagram er en liten skisse med piler fra de ytre variablene til de indre, og videre til funksjonen. Den viser hvor mange veier — og dermed hvor mange ledd — kjerneregelen skal ha.\n\n$$s\\ \\longrightarrow\\ x\\ \\longrightarrow\\ G,\\qquad s\\ \\longrightarrow\\ y\\ \\longrightarrow\\ G$$\n\nTo piler ut fra $s$ betyr to ledd i $\\partial G/\\partial s$. Tegn diagrammet i kladden før du regner: det tar fem sekunder og fjerner den vanligste feilen, nemlig et glemt bidrag."
+    },
+    {
+      "id": "econ1100-1-3-bb-indre-derivert",
+      "type": "definition",
+      "title": "Den indre deriverte",
+      "content": "Den indre deriverte er faktoren som følger med hvert bidrag: hvor mye den indre variabelen selv endrer seg når den ytre øker.\n\n$$\\frac{\\partial x}{\\partial s},\\qquad \\frac{\\partial y}{\\partial s}$$\n\nDet er her fortegnene skjuler seg. Er $y=s-t$, er $\\partial y/\\partial t=-1$, og minusen må følge med hele veien inn i sluttsvaret. Skriv derfor alle de indre deriverte opp med fortegn *før* du setter sammen."
+    },
+    {
+      "id": "econ1100-1-3-bb-kjedeeffekt",
+      "type": "definition",
+      "title": "Kjedeeffekt i økonomi",
+      "content": "En kjedeeffekt er en virkning som går gjennom et mellomledd: en pris endrer et kvantum, som igjen endrer en kostnad eller en nytte.\n\n$$\\text{lønn}\\ \\to\\ \\text{sysselsetting}\\ \\to\\ \\text{produksjon}$$\n\nKjerneregelen er det matematiske språket for slike kjeder, og den samlede effekten er summen av alle veiene. Nettopp derfor er den grunnlaget for komparativ statikk i Del 9 — der spørsmålet alltid er hvordan en optimal tilpasning endrer seg når en parameter flyttes."
+    },
+    {
+      "id": "econ1100-1-3-bb-direkte-indirekte",
+      "type": "definition",
+      "title": "Direkte og indirekte effekt",
+      "content": "I totalderiverten er første ledd den direkte effekten og andre ledd den indirekte. Å skille dem er ofte hele den økonomiske tolkningen oppgaven ber om.\n\n$$\\frac{df}{dx}=\\underbrace{f'_{x}}_{\\text{direkte}}+\\underbrace{f'_{y}\\,y'(x)}_{\\text{indirekte}}$$\n\nDe to kan ha motsatt fortegn, og da avgjør størrelsen hvilken vei totaleffekten går. Et svar som bare oppgir tallet uten å nevne hvilke to krefter som virker, mister tolkningspoengene."
+    },
+    {
+      "id": "econ1100-1-3-bb-tre-indre",
+      "type": "definition",
+      "title": "Flere enn to indre variabler",
+      "content": "Prinsippet endrer seg ikke om det er tre eller flere indre variabler — du får bare ett ledd til i summen, ett per vei.\n\n$$z=f(x,y,u),\\ x=x(t),\\ y=y(t),\\ u=u(t)\\ \\Longrightarrow\\ \\frac{dz}{dt}=f'_{x}x'(t)+f'_{y}y'(t)+f'_{u}u'(t)$$\n\nDette er verdt å merke seg fordi produsentteorien i Del 9 og de flervariable Lagrange-oppgavene i [kap. 8.4](/bok/econ1100/econ1100-8-4) ofte har tre eller flere størrelser i spill samtidig."
+    },
+    {
+      "id": "econ1100-1-3-bb-evalueringspunkt",
+      "type": "definition",
+      "title": "Hvor de deriverte skal evalueres",
+      "content": "De partiellderiverte i kjerneregelen skal regnes ut i det punktet de indre variablene faktisk befinner seg i — altså i $\\big(x(s,t),\\,y(s,t)\\big)$, ikke i $(s,t)$.\n\n$$\\frac{\\partial G}{\\partial t}=2\\,G'_{x}\\big(x(s,t),y(s,t)\\big)-G'_{y}\\big(x(s,t),y(s,t)\\big)$$\n\nMed konkrete funksjoner ordner dette seg av seg selv når du substituerer tilbake. Med *generelle* funksjoner er presiseringen derimot verdt poeng: den viser at du vet hva argumentene til $G'_{x}$ er."
+    },
+    {
+      "id": "econ1100-1-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-1-3-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1) og [kap. 1.2](/bok/econ1100/econ1100-1-2).\n\n**1.** Deriver $f(x)=(3x+1)^{4}$ med kjerneregelen.\n\n*Svar:* $f'=4(3x+1)^{3}\\cdot 3=12(3x+1)^{3}$.\n\n**2.** La $f(x,y)=x^{2}+3xy$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=2x+3y$ og $f'_{y}=3x$.\n\n**3.** La $f(x,y)=\\dfrac{x}{y}$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=\\dfrac1y$ og $f'_{y}=-\\dfrac{x}{y^{2}}$.\n\n**4.** La $f(x,y)=e^{xy}$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=y\\,e^{xy}$ og $f'_{y}=x\\,e^{xy}$.\n\n**5.** Gang ut og forenkl: $(s-t)(s+t)$ og $(2s+t)^{2}$.\n\n*Svar:* $s^{2}-t^{2}$ og $4s^{2}+4st+t^{2}$.\n\n**6.** Deriver $g(t)=e^{2t}$ og $h(t)=\\ln(t^{3}+2t)$.\n\n*Svar:* $g'=2e^{2t}$ og $h'=\\dfrac{3t^{2}+2}{t^{3}+2t}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-1-3-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $G(x,y)$, $f(x,y)$, $z$ | Den ytre funksjonen — den som avhenger av de indre variablene |\n| $x$, $y$ | Indre variabler (kjerner) som selv er funksjoner av noe annet |\n| $s$, $t$ | Ytre variabler — de oppgaven til slutt spør om |\n| $G'_{x}$, $G'_{y}$ | Partiellderiverte av den ytre funksjonen mht. hver indre variabel |\n| $\\dfrac{\\partial x}{\\partial s}$ | Indre derivert — hvor mye $x$ flytter seg når $s$ øker |\n| $\\dfrac{\\partial G}{\\partial s}$ | Partiellderivert av $G$ mht. en ytre variabel (flere ytre igjen) |\n| $\\dfrac{dz}{dt}$ | Derivert når det bare er én ytre variabel igjen |\n| $\\dfrac{df}{dx}$ | Totalderivert — direkte pluss indirekte effekt av $x$ |\n| $w$, $K$ | Timelønn og lønnskostnad i kapitlets økonomiske eksempel |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{dz}{dt}=f'_{x}\\frac{dx}{dt}+f'_{y}\\frac{dy}{dt}$$\nKjerneregelen med én ytre variabel: ett ledd per indre variabel.\n\n$$\\frac{\\partial G}{\\partial s}=G'_{x}\\frac{\\partial x}{\\partial s}+G'_{y}\\frac{\\partial y}{\\partial s},\\qquad \\frac{\\partial G}{\\partial t}=G'_{x}\\frac{\\partial x}{\\partial t}+G'_{y}\\frac{\\partial y}{\\partial t}$$\nKjerneregelen med to ytre variabler — samme $G'_{x}$, $G'_{y}$ i begge, bare de indre deriverte skifter.\n\n$$\\frac{df}{dx}=f'_{x}+f'_{y}\\,\\frac{dy}{dx}$$\nTotalderiverten: direkte effekt pluss indirekte effekt gjennom $y=y(x)$. Grunnlaget for nivåkurvene i Del 5.\n\n$$\\text{Sluttsvaret skal stå i }s\\text{ og }t,\\ \\text{ikke i }x\\text{ og }y$$\nTilbakesubstitusjon — sensorkravet som utgjør feil #5."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

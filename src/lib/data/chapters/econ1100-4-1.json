@@ -1,0 +1,389 @@
+{
+  "id": "econ1100-4-1",
+  "courseId": "econ1100",
+  "chapterNumber": "4.1",
+  "title": "Vekst og krumning: fortegnsanalyse av $f'$ og $f''$",
+  "description": "Hvor funksjonen vokser og avtar, og hvor den er konveks og konkav — begrunnet med fortegnsskjema, slik sensor krever, og med ABC-formelen som faktoriseringsverktøy.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "finne vekstintervaller ved å faktorisere den deriverte og sette opp en fortegnslinje",
+    "bruke ABC-formelen og diskriminanten til å avgjøre om og hvor den deriverte skifter fortegn",
+    "bestemme krumningen fra fortegnet på andrederiverte, og holde vekst og krumning fra hverandre",
+    "begrunne intervallkonklusjoner med skjema i stedet for å oppgi dem, og tolke fortegnene økonomisk"
+  ],
+  "content": [
+    {
+      "id": "econ1100-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er inngangen til den moderne signaturoppgaven.**\n\nEndimensjonal funksjonsdrøfting — **sjanger FD** — har vært en egen storoppgave i **alle seks ordinære settene fra 2020 til 2025**. Den åpner alltid likt: bestem hvor funksjonen vokser og avtar, og hvor den er konveks og konkav. Det er nøyaktig det dette kapitlet handler om.\n\n**Sensorregelen som avgjør poengene:** intervallene skal **begrunnes** med en fortegnsanalyse, ikke bare oppgis. Å skrive «$f$ vokser for $x>3$» uten å vise fortegnslinjen er fagets feil #10 — ikke begrunne fortegnsintervaller i drøfting — og det koster uttelling selv når intervallet er riktig.\n\n**Verktøyet du får bruk for hele veien** er ABC-formelen, ikke som ligningsløser, men som *faktoriseringsverktøy*: en tredjegradsfunksjon har en kvadratisk derivert, og faktoriserer du den, faller fortegnene rett ut.\n\nKapitlet har **høyeste prioritet**. Det er første av fem i Del 4, og alt som kommer etterpå — klassifisering, randløsninger, skisse og drill — hviler på fortegnsskjemaet du bygger her."
+    },
+    {
+      "id": "econ1100-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.1](/bok/econ1100/econ1100-1-1) (derivasjonsreglene). Fra videregående er [Funksjonsdrøfting](/bok/r1/r1-4-6) fra R1 den direkte forløperen, og [Fullstendig funksjonsdrøfting](/bok/s2/s2-3-1) fra S2 dekker samme metode i økonomisk innramming. Ingen av dem forutsettes uforklart — alt du trenger, står her.\n\n**Sist du var her — de derivasjonsreglene som brukes mest i drøfting:**\n\n$$\\frac{d}{dx}x^{a}=ax^{a-1},\\qquad \\frac{d}{dx}\\ln x=\\frac1x,\\qquad \\frac{d}{dx}e^{kx}=k\\,e^{kx}$$"
+    },
+    {
+      "id": "econ1100-4-1-motivasjon",
+      "type": "text",
+      "content": "Et energiselskap ser på hvordan kostnaden per måned utvikler seg med produsert mengde. To spørsmål er interessante, og de er ikke det samme.\n\nDet første er: **stiger kostnaden?** Det svarer den deriverte på — er $f'>0$, går det oppover.\n\nDet andre er: **stiger den stadig raskere, eller flater det ut?** Det svarer den andrederiverte på. En kostnad som stiger i et stadig brattere tempo, er noe helt annet for bedriften enn en som stiger, men saktere og saktere.\n\nDe to spørsmålene er uavhengige. En funksjon kan godt vokse og samtidig krumme nedover — det er nettopp det som skjer når avkastningen avtar. Å holde de to fra hverandre er halve poenget med kapitlet.\n\nKapitlet er bygget som fire løkker: vekst fra fortegnet på $f'$, ABC som faktoriseringsverktøy, krumning fra fortegnet på $f''$, og en samlet drøfting på eksamensnivå."
+    },
+    {
+      "id": "econ1100-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Vekst fra fortegnet på $f'$ (~14 min)"
+    },
+    {
+      "id": "econ1100-4-1-def-voksende",
+      "type": "definition",
+      "title": "Voksende funksjon",
+      "content": "En funksjon vokser på et intervall når den deriverte er positiv der.\n\n$$f'(x)>0\\ \\text{for alle }x\\ \\text{i intervallet}\\ \\Longrightarrow\\ f\\ \\text{vokser der}$$\n\nGrafisk: går du mot høyre, går du oppover. Merk formuleringen «for alle $x$ i intervallet» — vekst er en egenskap ved et **område**, ikke ved et punkt, og det er derfor konklusjonen alltid skrives som et intervall."
+    },
+    {
+      "id": "econ1100-4-1-def-avtakende",
+      "type": "definition",
+      "title": "Avtakende funksjon",
+      "content": "En funksjon avtar på et intervall når den deriverte er negativ der.\n\n$$f'(x)<0\\ \\text{for alle }x\\ \\text{i intervallet}\\ \\Longrightarrow\\ f\\ \\text{avtar der}$$\n\nDe to begrepene dekker mellom seg alt bortsett fra punktene der $f'=0$. Nettopp de punktene er skillelinjene i fortegnsskjemaet, og de får sitt eget navn i neste definisjon."
+    },
+    {
+      "id": "econ1100-4-1-def-stasjonaerpunkt",
+      "type": "definition",
+      "title": "Stasjonærpunkt",
+      "content": "Et stasjonærpunkt er et punkt der den deriverte er null — tangenten er vannrett.\n\n$$f'(a)=0\\ \\Longrightarrow\\ a\\ \\text{er et stasjonærpunkt}$$\n\nOrdet «stasjonær» betyr at funksjonen står stille akkurat der. Det betyr **ikke** at punktet er et toppunkt eller et bunnpunkt — det avgjøres først av fortegnene på hver side, og det er tema i [kap. 4.2](/bok/econ1100/econ1100-4-2). Her bruker vi stasjonærpunktene bare som skillelinjer i skjemaet."
+    },
+    {
+      "id": "econ1100-4-1-def-fortegnslinje",
+      "type": "definition",
+      "title": "Fortegnslinje (fortegnsskjema)",
+      "content": "En fortegnslinje er en tallinje der nullpunktene til $f'$ er markert, med fortegnet til $f'$ skrevet i hvert intervall mellom dem.\n\n$$\\text{nullpunkter}\\ \\to\\ \\text{intervaller}\\ \\to\\ \\text{fortegn i hvert}\\ \\to\\ \\text{konklusjon}$$\n\nSkjemaet er ikke et hjelpemiddel du kan velge bort — det **er** begrunnelsen sensor ser etter. En besvarelse som oppgir intervaller uten skjemaet, har svart uten å vise hvorfor, og det er feil #10 (ikke begrunne fortegnsintervaller i drøfting)."
+    },
+    {
+      "id": "econ1100-4-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Fortegnsanalyse av $f'$",
+      "problem": "La $f(x)=x^{3}-3x^{2}-9x+5$.\n\nBestem hvor $f$ vokser og hvor den avtar. Begrunn med fortegnsanalyse.",
+      "solution": "**Steg 1 — deriver.**\n\n$$f'(x)=3x^{2}-6x-9$$\n\n**Steg 2 — finn nullpunktene til $f'$.** Sett $f'(x)=0$ og del på 3:\n\n$$x^{2}-2x-3=0$$\n\nUttrykket faktoriserer pent (to tall med produkt $-3$ og sum $-2$ er $-3$ og $1$):\n\n$$(x-3)(x+1)=0\\ \\Longrightarrow\\ x=-1\\ \\text{eller}\\ x=3$$\n\nAltså er\n\n$$f'(x)=3(x+1)(x-3)$$\n\n**Steg 3 — sett opp fortegnslinjen.** Nullpunktene $-1$ og $3$ deler tallinjen i tre intervaller. Vi leser av fortegnet til hver faktor:\n\n| Intervall | $(x+1)$ | $(x-3)$ | $f'(x)$ |\n|---|---|---|---|\n| $x<-1$ | $-$ | $-$ | $+$ |\n| $-1<x<3$ | $+$ | $-$ | $-$ |\n| $x>3$ | $+$ | $+$ | $+$ |\n\n**Steg 4 — konkluder.**\n\n$$f\\ \\text{vokser for}\\ x<-1\\ \\text{og for}\\ x>3;\\qquad f\\ \\text{avtar for}\\ -1<x<3$$\n\n**Kontroll ved innsetting.** Vi tester ett tall i hvert intervall: $f'(-2)=12+12-9=15>0$ ✓, $f'(0)=-9<0$ ✓, $f'(4)=48-24-9=15>0$ ✓.\n\n**Merk hva som gir uttelling.** Selve tabellen — eller en tegnet fortegnslinje — ER begrunnelsen. Innsettingskontrollen er en fin ekstra sikkerhet, men den kan ikke erstatte skjemaet: tre tilfeldige tall beviser ikke noe om tre hele intervaller."
+    },
+    {
+      "id": "econ1100-4-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger FD — endimensjonal funksjonsdrøfting, som har vært egen storoppgave i alle seks ordinære settene 2020–2025. Innstegsoppgave.) Bestem hvor funksjonen vokser og avtar. Begrunn med fortegn.\n\n**a)** $f(x)=x^{2}-6x+1$\n\n**b)** $g(x)=-2x+7$\n\n**c)** $h(x)=e^{x}$",
+        "solution": "**a)** $f'(x)=2x-6=2(x-3)$, som er null i $x=3$.\n\nFor $x<3$ er $(x-3)<0$, altså $f'<0$; for $x>3$ er $f'>0$.\n\n$$f\\ \\text{avtar for}\\ x<3,\\ \\text{vokser for}\\ x>3$$\n\n**b)** $g'(x)=-2$, som er negativ for alle $x$ — ingen nullpunkter.\n\n$$g\\ \\text{avtar overalt}$$\n\n**c)** $h'(x)=e^{x}$, som er positiv for alle $x$.\n\n$$h\\ \\text{vokser overalt}$$\n\n**Merk mønsteret:** en funksjon uten stasjonærpunkter har samme fortegn på $f'$ i hele definisjonsområdet, og da er den enten voksende overalt eller avtakende overalt.",
+        "hints": [
+          "Deriver først, og finn deretter nullpunktene til den deriverte.",
+          "Finner du ingen nullpunkter, har $f'$ samme fortegn overalt — sjekk fortegnet i ett tall."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger FD.) La $f(x)=2x^{3}-9x^{2}+12x$.\n\n**a)** Finn $f'(x)$ og faktoriser den.\n\n**b)** Sett opp fortegnslinjen, og bestem hvor $f$ vokser og avtar.",
+        "solution": "**a)** Vi deriverer og setter 6 utenfor:\n\n$$f'(x)=6x^{2}-18x+12=6\\big(x^{2}-3x+2\\big)$$\n\nNullpunktene til andregradsuttrykket: to tall med produkt 2 og sum $-3$ er $-1$ og $-2$, altså\n\n$$f'(x)=6(x-1)(x-2)$$\n\n**b) Fortegnslinje** med skillepunktene $x=1$ og $x=2$:\n\n| Intervall | $(x-1)$ | $(x-2)$ | $f'(x)$ |\n|---|---|---|---|\n| $x<1$ | $-$ | $-$ | $+$ |\n| $1<x<2$ | $+$ | $-$ | $-$ |\n| $x>2$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{vokser for}\\ x<1\\ \\text{og}\\ x>2;\\qquad f\\ \\text{avtar for}\\ 1<x<2$$\n\n*Kontroll:* $f'(0)=12>0$ ✓, $f'(1{,}5)=13{,}5-27+12=-1{,}5<0$ ✓, $f'(3)=54-54+12=12>0$ ✓.\n\n**Merk formen.** Dette er standardbildet for en tredjegradsfunksjon med positiv ledende koeffisient: opp, ned, opp. Kjenner du igjen formen, vet du hva du leter etter før du regner.",
+        "hints": [
+          "Sett den felles faktoren utenfor før du faktoriserer andregradsuttrykket.",
+          "To faktorer med hvert sitt fortegn gir minus; to like fortegn gir pluss."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-warning-feil10",
+      "type": "warning",
+      "title": "Feil #10: intervaller uten begrunnelse",
+      "content": "Dette er den vanligste poenglekkasjen i hele FD-oppgaven, og den er lett å unngå.\n\n**Slik ser feilen ut:** «$f$ vokser for $x<-1$ og $x>3$, og avtar mellom.» Riktig svar — null vist arbeid.\n\n**Slik ser full uttelling ut:** faktoriser $f'$, sett opp fortegnslinjen med nullpunktene markert, skriv fortegnet til hver faktor i hvert intervall, og les av konklusjonen fra skjemaet.\n\n**Hvorfor er sensor streng her?** Fordi drøftingsoppgaven tester *metoden*, ikke svaret. Intervallene kan gjettes riktig fra en skisse; skjemaet viser at du kan finne dem uten.\n\n**Tre andre feil i samme familie:**\n\n- **Å blande $f'$ og $f''$.** $f'$ svarer på om funksjonen går opp eller ned; $f''$ på hvordan den bøyer. Å konkludere «konveks fordi $f'>0$» er en meningsfeil.\n- **Å teste med tallverdier i stedet for faktorer.** Innsetting av tre tall er en fin kontroll, men ikke et argument for tre hele intervaller.\n- **Å glemme et nullpunkt.** Et andregradsuttrykk kan ha to røtter; regner du bare med én, blir hele skjemaet feil. Bruk ABC når faktoriseringen ikke er åpenbar."
+    },
+    {
+      "id": "econ1100-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — ABC som faktoriseringsverktøy (~11 min)"
+    },
+    {
+      "id": "econ1100-4-1-def-abc",
+      "type": "definition",
+      "title": "ABC-formelen",
+      "content": "Formelen gir nullpunktene til et andregradsuttrykk, og de er det du trenger for å sette opp fortegnslinjen.\n\n$$ax^{2}+bx+c=0\\ \\Longrightarrow\\ x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$$\n\nI drøftingsoppgaver brukes den nesten alltid på $f'$, ikke på $f$ selv: den deriverte av en tredjegradsfunksjon er kvadratisk. Formelen skal bare **brukes** — den utledes ikke på eksamen."
+    },
+    {
+      "id": "econ1100-4-1-def-faktorisering",
+      "type": "definition",
+      "title": "Faktorisering fra nullpunktene",
+      "content": "Kjenner du røttene, kan uttrykket skrives som et produkt — og da er fortegnene lette å lese.\n\n$$ax^{2}+bx+c=a\\,(x-x_1)(x-x_2)$$\n\nFaktorisert form er hele grunnen til at vi bruker ABC her. Uttrykket $3x^{2}-6x-9$ sier lite om fortegn; formen $3(x+1)(x-3)$ sier alt, fordi hver faktor skifter fortegn i sitt eget nullpunkt."
+    },
+    {
+      "id": "econ1100-4-1-def-fortegn-andregrad",
+      "type": "definition",
+      "title": "Fortegnet til et andregradsuttrykk",
+      "content": "Har uttrykket to røtter, ligger det på «feil side» mellom dem og på «riktig side» utenfor.\n\n$$a>0:\\ \\text{positivt utenfor røttene, negativt mellom dem}$$\n\nEr $a<0$, snur bildet. Har uttrykket ingen reelle røtter ($b^{2}-4ac<0$), skifter det aldri fortegn — da har det samme fortegn som $a$ overalt, og funksjonen er enten voksende eller avtakende i hele definisjonsområdet."
+    },
+    {
+      "id": "econ1100-4-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Når faktoriseringen ikke er åpenbar",
+      "problem": "La $f(x)=x^{3}-3x^{2}-6x+2$.\n\n**a)** Finn nullpunktene til $f'$ med ABC-formelen.\n\n**b)** Bestem hvor $f$ vokser og avtar.",
+      "solution": "**a)** Vi deriverer:\n\n$$f'(x)=3x^{2}-6x-6$$\n\nDel på 3 for enklere tall: $x^{2}-2x-2=0$. Her finnes ingen pen faktorisering, så vi bruker ABC med $a=1$, $b=-2$, $c=-2$:\n\n$$x=\\frac{2\\pm\\sqrt{4+8}}{2}=\\frac{2\\pm\\sqrt{12}}{2}=\\frac{2\\pm 2\\sqrt{3}}{2}=1\\pm\\sqrt{3}$$\n\nAltså\n\n$$x_1=1-\\sqrt{3}\\approx -0{,}73,\\qquad x_2=1+\\sqrt{3}\\approx 2{,}73$$\n\n**Faktorisert form:**\n\n$$f'(x)=3\\big(x-(1-\\sqrt3)\\big)\\big(x-(1+\\sqrt3)\\big)$$\n\n**b) Fortegn.** Den ledende koeffisienten er positiv ($a=3>0$), så uttrykket er positivt utenfor røttene og negativt mellom dem:\n\n$$f\\ \\text{vokser for}\\ x<1-\\sqrt3\\ \\text{og for}\\ x>1+\\sqrt3;\\qquad f\\ \\text{avtar for}\\ 1-\\sqrt3<x<1+\\sqrt3$$\n\n**Kontroll:** $f'(0)=-6<0$ ✓ (0 ligger mellom røttene), og $f'(4)=48-24-6=18>0$ ✓.\n\n**Merk to ting om føringen.** For det første: svaret skal stå med **eksakte** røtter, $1\\pm\\sqrt3$, ikke bare med desimalene. For det andre: desimaltallene er likevel verdt å skrive ned, fordi de gjør det raskt å se hvilket intervall et kontrolltall havner i."
+    },
+    {
+      "id": "econ1100-4-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD.) Bruk ABC-formelen til å bestemme hvor funksjonene vokser og avtar.\n\n**a)** $f(x)=x^{3}-3x^{2}+1$\n\n**b)** $g(x)=x^{3}+3x+4$",
+        "solution": "**a)** $f'(x)=3x^{2}-6x=3x(x-2)$ — her trengs ikke ABC, uttrykket har en åpenbar felles faktor. Nullpunkter: $x=0$ og $x=2$.\n\n| Intervall | $x$ | $(x-2)$ | $f'$ |\n|---|---|---|---|\n| $x<0$ | $-$ | $-$ | $+$ |\n| $0<x<2$ | $+$ | $-$ | $-$ |\n| $x>2$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{vokser for}\\ x<0\\ \\text{og}\\ x>2;\\ \\text{avtar for}\\ 0<x<2$$\n\n*Poeng:* se etter felles faktor før du setter i gang med ABC. Det sparer tid og reduserer regnefeil.\n\n**b)** $g'(x)=3x^{2}+3=3\\big(x^{2}+1\\big)$.\n\nNullpunkter? Diskriminanten til $x^{2}+1$ er $b^{2}-4ac=0-4=-4<0$, altså **ingen reelle røtter**. Uttrykket skifter dermed aldri fortegn, og siden $x^{2}+1\\ge 1>0$ for alle $x$, er\n\n$$g'(x)\\ge 3>0\\quad\\text{for alle }x$$\n\n$$g\\ \\text{vokser i hele definisjonsområdet}$$\n\n**Merk konklusjonen i b).** «Ingen stasjonærpunkter» er et fullgodt og informativt svar — det betyr at funksjonen er strengt voksende overalt, uten topper eller bunner.",
+        "hints": [
+          "Se etter felles faktor eller pen faktorisering før du bruker ABC.",
+          "I b): hva sier diskriminanten $b^{2}-4ac$ når den er negativ?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD — økonomisk innramming.) En bedrifts overskudd ved produsert mengde $x$ (i tusen enheter) er\n\n$$\\pi(x)=-x^{3}+9x^{2}-15x,\\qquad x\\ge 0.$$\n\n**a)** Finn $\\pi'(x)$ og faktoriser den.\n\n**b)** Bestem hvor overskuddet vokser og hvor det avtar, for $x\\ge 0$.\n\n**c)** Tolk resultatet økonomisk.",
+        "solution": "**a)**\n\n$$\\pi'(x)=-3x^{2}+18x-15=-3\\big(x^{2}-6x+5\\big)=-3(x-1)(x-5)$$\n\n**b) Fortegnslinje** med skillepunktene $x=1$ og $x=5$. Merk minusen foran — den snur alle fortegn:\n\n| Intervall | $(x-1)$ | $(x-5)$ | $(x-1)(x-5)$ | $\\pi'=-3(\\dots)$ |\n|---|---|---|---|---|\n| $0\\le x<1$ | $-$ | $-$ | $+$ | $-$ |\n| $1<x<5$ | $+$ | $-$ | $-$ | $+$ |\n| $x>5$ | $+$ | $+$ | $+$ | $-$ |\n\n$$\\pi\\ \\text{avtar for}\\ 0\\le x<1,\\ \\text{vokser for}\\ 1<x<5,\\ \\text{avtar for}\\ x>5$$\n\n*Kontroll:* $\\pi'(0)=-15<0$ ✓, $\\pi'(3)=-27+54-15=12>0$ ✓, $\\pi'(6)=-108+108-15=-15<0$ ✓.\n\n**c) Økonomisk tolkning.** De første tusen enhetene gir tap: overskuddet faller fra 0 og nedover, fordi de faste ulempene ved lav produksjon dominerer. Mellom 1 000 og 5 000 enheter vokser overskuddet — hver ekstra enhet bidrar positivt. Over 5 000 enheter faller det igjen, typisk fordi kostnadene stiger raskere enn inntekten.\n\nDet beste produksjonsnivået ligger derfor ved $x=5$, altså 5 000 enheter. *At det er et maksimum og ikke bare et stasjonærpunkt, følger av at $\\pi'$ skifter fra pluss til minus der* — klassifiseringen behandles i [kap. 4.2](/bok/econ1100/econ1100-4-2).\n\n**Merk minusen.** Den vanligste regnefeilen i denne oppgavetypen er å faktorisere $-3x^{2}+18x-15$ og så glemme at minus tre snur fortegnene i hele skjemaet.",
+        "hints": [
+          "Sett $-3$ utenfor som felles faktor før du faktoriserer.",
+          "En negativ konstant foran produktet snur fortegnet i alle intervaller — før den inn i skjemaet som en egen kolonne."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Krumning fra fortegnet på $f''$ (~13 min)"
+    },
+    {
+      "id": "econ1100-4-1-def-konveks",
+      "type": "definition",
+      "title": "Konveks funksjon",
+      "content": "En funksjon er konveks på et intervall når den andrederiverte er positiv der: grafen bøyer oppover.\n\n$$f''(x)>0\\ \\text{i intervallet}\\ \\Longrightarrow\\ f\\ \\text{er konveks der}$$\n\nKonveksitet betyr at stigningen selv vokser. Er funksjonen voksende, stiger den stadig brattere; er den avtakende, avtar den stadig saktere. Tangenten ligger under grafen — det var nettopp den egenskapen som ga underestimat i [kap. 3.2](/bok/econ1100/econ1100-3-2)."
+    },
+    {
+      "id": "econ1100-4-1-def-konkav",
+      "type": "definition",
+      "title": "Konkav funksjon",
+      "content": "En funksjon er konkav på et intervall når den andrederiverte er negativ der: grafen bøyer nedover.\n\n$$f''(x)<0\\ \\text{i intervallet}\\ \\Longrightarrow\\ f\\ \\text{er konkav der}$$\n\nDette er formen på nesten alle nyttefunksjoner og produktfunksjoner i økonomi, og den har et navn: **avtakende grenseutbytte**. Hver ekstra enhet gir mindre enn den forrige."
+    },
+    {
+      "id": "econ1100-4-1-def-fortegnsanalyse-f2",
+      "type": "definition",
+      "title": "Fortegnsanalyse av $f''$",
+      "content": "Krumningen bestemmes med nøyaktig samme metode som veksten — bare med den andrederiverte.\n\n$$f''(x)=0\\ \\to\\ \\text{skillepunkter}\\ \\to\\ \\text{fortegn i hvert intervall}\\ \\to\\ \\text{konveks/konkav}$$\n\nFor en tredjegradsfunksjon er $f''$ lineær, så det finnes akkurat ett skillepunkt, og skjemaet har to intervaller. Konklusjonen skrives på samme form som for veksten: som intervaller, aldri som løse påstander."
+    },
+    {
+      "id": "econ1100-4-1-def-uavhengige",
+      "type": "definition",
+      "title": "Vekst og krumning er uavhengige",
+      "content": "De to spørsmålene «går funksjonen opp?» og «bøyer den oppover?» har ingenting med hverandre å gjøre.\n\n$$f'>0\\ \\text{og}\\ f''<0\\ \\text{samtidig er helt vanlig}$$\n\nEksempel: $f(x)=\\sqrt{x}$ vokser overalt ($f'>0$) og er konkav overalt ($f''<0$) — den stiger, men saktere og saktere. Alle fire kombinasjoner forekommer, og en påstand om at vekst medfører en bestemt krumning, er derfor usann. Dette er et yndet sant/usant-punkt."
+    },
+    {
+      "id": "econ1100-4-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Full drøfting av vekst og krumning",
+      "problem": "La igjen $f(x)=x^{3}-3x^{2}-9x+5$, som i eksempel 1.\n\n**a)** Bestem hvor $f$ er konveks og hvor den er konkav.\n\n**b)** Sett vekst og krumning sammen i ett samlet skjema.",
+      "solution": "**a) Steg 1 — deriver to ganger.** Fra eksempel 1 er $f'(x)=3x^{2}-6x-9$, så\n\n$$f''(x)=6x-6=6(x-1)$$\n\n**Steg 2 — nullpunkt.** $f''(x)=0$ gir $x=1$.\n\n**Steg 3 — fortegn.** Uttrykket $6(x-1)$ er negativt for $x<1$ og positivt for $x>1$:\n\n$$f\\ \\text{er konkav for}\\ x<1,\\ \\text{konveks for}\\ x>1$$\n\n*Kontroll:* $f''(0)=-6<0$ ✓ og $f''(2)=6>0$ ✓.\n\n**b) Samlet skjema.** Vi legger de to linjene under hverandre, med alle tre skillepunkter markert:\n\n| Intervall | $f'$ | $f''$ | Oppførsel |\n|---|---|---|---|\n| $x<-1$ | $+$ | $-$ | vokser, konkav |\n| $-1<x<1$ | $-$ | $-$ | avtar, konkav |\n| $1<x<3$ | $-$ | $+$ | avtar, konveks |\n| $x>3$ | $+$ | $+$ | vokser, konveks |\n\n**Les av bildet.** Funksjonen stiger til $x=-1$, snur og faller til $x=3$, og stiger igjen. Underveis skifter den krumning én gang, i $x=1$ — det punktet kalles et vendepunkt og behandles i [kap. 4.2](/bok/econ1100/econ1100-4-2).\n\nLegg merke til den første raden: der **vokser** funksjonen og er samtidig **konkav**. Den stiger, men flater ut — akkurat den kombinasjonen mange feilaktig tror er umulig.\n\n**Punktverdiene**, til bruk i en skisse: $f(-1)=-1-3+9+5=10$, $f(1)=1-3-9+5=-6$ og $f(3)=27-27-27+5=-22$."
+    },
+    {
+      "id": "econ1100-4-1-fig-fortegnsskjema",
+      "type": "image",
+      "src": "/images/textbook/econ1100/fortegnsskjema.svg",
+      "alt": "To vannrette tallinjer over hverandre. Den øverste er merket f-derivert, med sirkler i minus 1 og 3 og fortegnene pluss, minus, pluss i de tre intervallene, og ordene vokser, avtar, vokser under. Den nederste er merket f-dobbeltderivert, med en sirkel i 1 og fortegnene minus og pluss, og ordene konkav og konveks under. Nederst står en konklusjonstekst.",
+      "caption": "Fortegnsskjemaet fra eksempel 3, med begge linjene under hverandre. Den øverste linja gir vekstintervallene fra $f'(x)=3(x+1)(x-3)$; den nederste gir krumningen fra $f''(x)=6(x-1)$. Sirklene markerer nullpunktene. Det er dette skjemaet som ER begrunnelsen sensor krever — intervallene skal leses av her, ikke påstås (feil #10)."
+    },
+    {
+      "id": "econ1100-4-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD.) La $f(x)=x^{3}-6x^{2}+5$.\n\n**a)** Bestem hvor $f$ vokser og avtar.\n\n**b)** Bestem hvor $f$ er konveks og konkav.\n\n**c)** Sett opp et samlet skjema med alle intervallene.",
+        "solution": "**a)** $f'(x)=3x^{2}-12x=3x(x-4)$, med nullpunkter $x=0$ og $x=4$.\n\n| Intervall | $x$ | $(x-4)$ | $f'$ |\n|---|---|---|---|\n| $x<0$ | $-$ | $-$ | $+$ |\n| $0<x<4$ | $+$ | $-$ | $-$ |\n| $x>4$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{vokser for}\\ x<0\\ \\text{og}\\ x>4;\\ \\text{avtar for}\\ 0<x<4$$\n\n**b)** $f''(x)=6x-12=6(x-2)$, med nullpunkt $x=2$.\n\n$$f\\ \\text{er konkav for}\\ x<2,\\ \\text{konveks for}\\ x>2$$\n\n**c) Samlet skjema:**\n\n| Intervall | $f'$ | $f''$ | Oppførsel |\n|---|---|---|---|\n| $x<0$ | $+$ | $-$ | vokser, konkav |\n| $0<x<2$ | $-$ | $-$ | avtar, konkav |\n| $2<x<4$ | $-$ | $+$ | avtar, konveks |\n| $x>4$ | $+$ | $+$ | vokser, konveks |\n\n*Kontroll i ett punkt per intervall:* $f'(-1)=3+12=15>0$ og $f''(-1)=-18<0$ ✓; $f'(1)=3-12=-9<0$ og $f''(1)=-6<0$ ✓; $f'(3)=27-36=-9<0$ og $f''(3)=6>0$ ✓; $f'(5)=75-60=15>0$ og $f''(5)=18>0$ ✓.\n\n**Merk mønsteret.** Skillepunktet for krumningen ($x=2$) ligger midt mellom de to stasjonærpunktene (0 og 4). Det er ingen tilfeldighet: for en tredjegradsfunksjon ligger vendepunktet alltid nøyaktig midt mellom topp- og bunnpunkt.",
+        "hints": [
+          "Bruk samme metode to ganger — én gang på $f'$ og én gang på $f''$.",
+          "Skriv opp alle skillepunktene før du lager det samlede skjemaet, så du får med alle intervallene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2.) Avgjør om hver påstand er sann eller usann, og begrunn.\n\n**a)** «Hvis $f'(x)>0$ for alle $x$, må $f''(x)>0$ for alle $x$.»\n\n**b)** «Hvis $f''(x)>0$ for alle $x$, kan $f$ ikke være avtakende noe sted.»\n\n**c)** «En funksjon uten stasjonærpunkter er enten voksende overalt eller avtakende overalt.»",
+        "solution": "**a) Usann.** Vekst og krumning er uavhengige egenskaper.\n\n*Konkret motsvar:* $f(x)=\\sqrt{x}$ på $(0,\\infty)$ har\n\n$$f'(x)=\\frac{1}{2\\sqrt{x}}>0\\quad\\text{for alle }x>0$$\n\n$$f''(x)=-\\frac{1}{4}x^{-3/2}<0\\quad\\text{for alle }x>0$$\n\nFunksjonen vokser overalt og er samtidig konkav overalt. Påstanden faller.\n\n**b) Usann.** Konveksitet sier at stigningen *vokser*, ikke at den er positiv.\n\n*Konkret motsvar:* $f(x)=x^{2}$ har $f''(x)=2>0$ for alle $x$, men $f'(x)=2x$ er negativ for $x<0$. Funksjonen avtar altså på hele $(-\\infty,0)$, samtidig som den er konveks overalt.\n\n**c) Sann — men den må begrunnes.** Anta at $f$ er deriverbar uten stasjonærpunkter, altså $f'(x)\\ne 0$ for alle $x$ i et intervall.\n\nHadde $f'$ vært positiv ett sted og negativ et annet, måtte den vært null et sted imellom — en kontinuerlig funksjon kan ikke hoppe fra pluss til minus uten å innom null. Siden $f'$ aldri er null, kan den ikke skifte fortegn, og da har den samme fortegn i hele intervallet.\n\n$$f'>0\\ \\text{overalt}\\ \\Longrightarrow\\ \\text{voksende overalt},\\qquad f'<0\\ \\text{overalt}\\ \\Longrightarrow\\ \\text{avtakende overalt}$$\n\n*Eksempel:* $g(x)=x^{3}+3x+4$ har $g'(x)=3x^{2}+3\\ge 3>0$ og er derfor strengt voksende i hele definisjonsområdet.",
+        "hints": [
+          "I a) og b): let etter én funksjon der påstanden bryter sammen.",
+          "I c): hva må skje med en kontinuerlig $f'$ på veien fra positiv til negativ?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensdrill (~12 min)"
+    },
+    {
+      "id": "econ1100-4-1-def-avtakende-grenseutbytte",
+      "type": "definition",
+      "title": "Avtakende grenseutbytte",
+      "content": "Den økonomiske lesningen av konkavitet: hver ekstra enhet gir mindre enn den forrige.\n\n$$f'>0\\ \\text{og}\\ f''<0\\ \\Longleftrightarrow\\ \\text{vokser, men saktere og saktere}$$\n\nEr $f$ en produktfunksjon, kalles $f'$ grenseproduktet, og $f''<0$ betyr at grenseproduktet faller. Er $f$ en nyttefunksjon, er $f'$ grensenytten. Denne kombinasjonen er standardantakelsen i økonomi, og du bør kjenne den igjen på fortegnene alene."
+    },
+    {
+      "id": "econ1100-4-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — kostnadsfunksjon med definisjonsområde",
+      "problem": "En bedrift har kostnadsfunksjonen\n\n$$K(x)=x^{3}-12x^{2}+60x,\\qquad x>0,$$\n\nder $x$ er produsert mengde i tusen enheter og $K$ er kostnaden i tusen kroner.\n\n**a)** Vis at kostnaden vokser for alle $x>0$.\n\n**b)** Bestem hvor grensekostnaden $K'$ faller og hvor den stiger.\n\n**c)** Tolk resultatet.",
+      "solution": "**a) Steg 1 — deriver.**\n\n$$K'(x)=3x^{2}-24x+60=3\\big(x^{2}-8x+20\\big)$$\n\n**Steg 2 — finnes det nullpunkter?** Vi regner diskriminanten:\n\n$$b^{2}-4ac=64-80=-16<0$$\n\nIngen reelle røtter. Uttrykket $x^{2}-8x+20$ skifter derfor aldri fortegn, og siden det er positivt for eksempel i $x=0$ (verdien 20), er det positivt overalt.\n\n$$K'(x)=3\\big(x^{2}-8x+20\\big)>0\\quad\\text{for alle }x$$\n\n**Konklusjon:** kostnaden vokser for alle $x>0$ — det finnes ingen produksjonsmengde der det å produsere mer gjør totalkostnaden lavere. (Det er som det skal være for en kostnadsfunksjon.)\n\n*Alternativ begrunnelse med kvadratkomplettering:* $x^{2}-8x+20=(x-4)^{2}+4\\ge 4>0$. Den formen viser fortegnet direkte og er ofte raskere enn diskriminanten.\n\n**b)** Spørsmålet gjelder $K'$, altså om **grensekostnaden** stiger eller faller. Det avgjøres av $K''$:\n\n$$K''(x)=6x-24=6(x-4)$$\n\nNullpunkt i $x=4$, og fortegnet skifter der:\n\n$$K''<0\\ \\text{for}\\ 0<x<4\\ \\Longrightarrow\\ K'\\ \\text{faller};\\qquad K''>0\\ \\text{for}\\ x>4\\ \\Longrightarrow\\ K'\\ \\text{stiger}$$\n\nMed andre ord: $K$ er **konkav** på $(0,4)$ og **konveks** på $(4,\\infty)$.\n\n**c) Tolkning.** Kostnaden stiger alltid, men ikke i samme tempo hele veien.\n\nFor produksjon under 4 000 enheter faller grensekostnaden: bedriften utnytter kapasiteten stadig bedre, og hver ekstra enhet koster mindre enn den forrige. Det er stordriftsfordeler.\n\nOver 4 000 enheter snur det: grensekostnaden stiger, og hver ekstra enhet koster mer enn den forrige — kapasiteten begynner å bli presset. Punktet $x=4$ er altså der stordriftsfordelene er uttømt.\n\n*Tallillustrasjon:* $K'(1)=3(1-8+20)=39$, $K'(4)=3(16-32+20)=12$ og $K'(7)=3(49-56+20)=39$. Grensekostnaden faller fra 39 til 12 og stiger tilbake til 39 ✓.\n\n**Merk skillet oppgaven tester.** Delpunkt a) handler om $K$ og bruker $K'$; delpunkt b) handler om $K'$ og bruker $K''$. Å blande disse to nivåene er den vanligste feilen i økonomiske drøftingsoppgaver."
+    },
+    {
+      "id": "econ1100-4-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD.) La $f(x)=\\ln x-x$ for $x>0$.\n\n**a)** Oppgi definisjonsområdet, og forklar hvorfor det er begrenset.\n\n**b)** Bestem hvor $f$ vokser og avtar.\n\n**c)** Bestem krumningen.",
+        "solution": "**a) Definisjonsområdet er $x>0$.** Logaritmen $\\ln x$ er bare definert for positive tall, så funksjonen finnes ikke for $x\\le 0$.\n\n*Dette skal alltid stå først* når $\\ln$ eller kvadratrot inngår — det er en av de billigste poengene i drøftingsoppgaven, og å hoppe over det er feil #6 (ikke sjekke definisjonsområdet før man leter etter ekstrempunkter).\n\n**b)** Vi deriverer:\n\n$$f'(x)=\\frac{1}{x}-1=\\frac{1-x}{x}$$\n\nNevneren $x$ er positiv i hele definisjonsområdet, så fortegnet bestemmes av telleren $1-x$:\n\n| Intervall | $1-x$ | $x$ | $f'$ |\n|---|---|---|---|\n| $0<x<1$ | $+$ | $+$ | $+$ |\n| $x>1$ | $-$ | $+$ | $-$ |\n\n$$f\\ \\text{vokser for}\\ 0<x<1,\\ \\text{avtar for}\\ x>1$$\n\n*Kontroll:* $f'(0{,}5)=2-1=1>0$ ✓ og $f'(2)=0{,}5-1=-0{,}5<0$ ✓.\n\n**c)** Andrederivert:\n\n$$f''(x)=-\\frac{1}{x^{2}}$$\n\nFor alle $x>0$ er $x^{2}>0$, så $f''(x)<0$ i hele definisjonsområdet.\n\n$$f\\ \\text{er konkav for alle}\\ x>0$$\n\n**Merk at det ikke finnes noe vendepunkt her.** $f''$ er negativ overalt og skifter aldri fortegn. En funksjon kan godt ha samme krumning i hele definisjonsområdet — vendepunkt er ingen selvfølge.",
+        "hints": [
+          "Skriv $f'$ som én brøk, så blir fortegnsanalysen enklere.",
+          "Husk at nevneren $x$ er positiv i hele definisjonsområdet — da bestemmer telleren fortegnet alene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — eksamensnivå.) La\n\n$$f(x)=x^{4}-4x^{3}+10.$$\n\n**a)** Bestem hvor $f$ vokser og avtar.\n\n**b)** Bestem hvor $f$ er konveks og konkav.\n\n**c)** Sett opp et samlet skjema, og beskriv hvordan grafen oppfører seg.",
+        "solution": "**a)** Vi deriverer og faktoriserer:\n\n$$f'(x)=4x^{3}-12x^{2}=4x^{2}(x-3)$$\n\nNullpunkter: $x=0$ (dobbel) og $x=3$.\n\n**Fortegn:** faktoren $4x^{2}$ er **aldri negativ** — den er null i $x=0$ og positiv ellers. Fortegnet til $f'$ bestemmes derfor helt av $(x-3)$:\n\n| Intervall | $4x^{2}$ | $(x-3)$ | $f'$ |\n|---|---|---|---|\n| $x<0$ | $+$ | $-$ | $-$ |\n| $0<x<3$ | $+$ | $-$ | $-$ |\n| $x>3$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{avtar for}\\ x<3\\ \\text{(bortsett fra det ene punktet }x=0\\text{ der }f'=0),\\ \\text{vokser for}\\ x>3$$\n\n**Legg merke til det uvanlige:** $x=0$ er et stasjonærpunkt, men $f'$ skifter **ikke** fortegn der. Funksjonen bare flater ut et øyeblikk og fortsetter nedover. Det er derfor ikke et topp- eller bunnpunkt — en felle som behandles grundig i [kap. 4.2](/bok/econ1100/econ1100-4-2).\n\n**b)** Andrederivert:\n\n$$f''(x)=12x^{2}-24x=12x(x-2)$$\n\nNullpunkter: $x=0$ og $x=2$.\n\n| Intervall | $12x$ | $(x-2)$ | $f''$ |\n|---|---|---|---|\n| $x<0$ | $-$ | $-$ | $+$ |\n| $0<x<2$ | $+$ | $-$ | $-$ |\n| $x>2$ | $+$ | $+$ | $+$ |\n\n$$f\\ \\text{er konveks for}\\ x<0\\ \\text{og}\\ x>2;\\ \\text{konkav for}\\ 0<x<2$$\n\n**c) Samlet skjema:**\n\n| Intervall | $f'$ | $f''$ | Oppførsel |\n|---|---|---|---|\n| $x<0$ | $-$ | $+$ | avtar, konveks |\n| $0<x<2$ | $-$ | $-$ | avtar, konkav |\n| $2<x<3$ | $-$ | $+$ | avtar, konveks |\n| $x>3$ | $+$ | $+$ | vokser, konveks |\n\n**Beskrivelse av grafen.** Funksjonen faller hele veien fram til $x=3$ og stiger deretter. Underveis skifter krumningen to ganger, i $x=0$ og $x=2$ — begge er vendepunkter, siden $f''$ faktisk skifter fortegn begge steder.\n\nI $x=0$ er tangenten vannrett samtidig som funksjonen fortsetter å falle: grafen har en flat «hylle» der. Det er den geometriske forklaringen på at et stasjonærpunkt ikke trenger å være et ekstrempunkt.\n\n**Punktverdier til en skisse:** $f(0)=10$, $f(2)=16-32+10=-6$, $f(3)=81-108+10=-17$.\n\n*Kontroll av fortegnene:* $f'(-1)=-4-12=-16<0$ ✓, $f'(1)=4-12=-8<0$ ✓, $f'(4)=256-192=64>0$ ✓; $f''(-1)=12+24=36>0$ ✓, $f''(1)=12-24=-12<0$ ✓, $f''(3)=108-72=36>0$ ✓.",
+        "hints": [
+          "I a): hva er fortegnet til $4x^{2}$, og hva betyr det for resten av skjemaet?",
+          "Et nullpunkt der en faktor opptrer i annen potens, gir ikke fortegnsskifte."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — eksamensnivå med generell funksjon.) La $f$ være to ganger deriverbar på $(0,\\infty)$, med $f'(x)>0$ og $f''(x)<0$ for alle $x>0$.\n\n**a)** Beskriv i ord hvordan grafen til $f$ ser ut.\n\n**b)** Sett $g(x)=f(x)+cx$ for en konstant $c$. For hvilke $c$ er $g$ voksende i hele $(0,\\infty)$?\n\n**c)** Hva kan du si om krumningen til $g$?",
+        "solution": "**a)** Med $f'>0$ overalt **vokser** funksjonen i hele definisjonsområdet; med $f''<0$ overalt er den **konkav** der.\n\n**Beskrivelse:** grafen stiger hele veien, men stadig saktere — den flater ut mot høyre. Stigningstallet er positivt overalt, men avtar. Dette er standardformen på en produktfunksjon med avtakende grenseprodukt eller en nyttefunksjon med avtakende grensenytte.\n\nMerk at vi **ikke** kan si om grafen flater helt ut mot en vannrett asymptote eller fortsetter å stige uten grense. Antakelsene gir formen, ikke oppførselen i det uendelige.\n\n**b)** Vi deriverer:\n\n$$g'(x)=f'(x)+c$$\n\n$g$ er voksende når $g'>0$, altså når $f'(x)>-c$ for alle $x>0$.\n\n**Er $c\\ge 0$:** da er $g'(x)=f'(x)+c>0+0=0$, siden $f'>0$. Altså er $g$ voksende for **alle** $c\\ge 0$.\n\n**Er $c<0$:** nå kreves $f'(x)>-c=\\lvert c\\rvert$ for alle $x>0$. Men $f'$ er avtakende (fordi $f''<0$), så $f'$ blir stadig mindre. Om kravet holder, avhenger av hvor lavt $f'$ synker — og det vet vi ikke.\n\n**Presist svar:** $g$ er voksende i hele $(0,\\infty)$ for alle $c\\ge 0$. For $c<0$ avhenger det av $f$, og betingelsen er\n\n$$f'(x)>\\lvert c\\rvert\\quad\\text{for alle }x>0$$\n\n*To illustrasjoner som viser at begge utfall er mulige:* med $f(x)=\\sqrt{x}$ er $f'=\\frac{1}{2\\sqrt x}$, som går mot null når $x$ vokser — da vil et hvilket som helst $c<0$ til slutt gjøre $g'$ negativ. Med $f(x)=x+\\ln x$ er $f'=1+\\frac1x>1$, og da holder betingelsen for alle $c$ med $\\lvert c\\rvert\\le 1$.\n\n**c)** Konstantleddet forsvinner ved andregangs derivasjon:\n\n$$g''(x)=f''(x)<0\\quad\\text{for alle }x>0$$\n\n**Konklusjon: $g$ er konkav i hele $(0,\\infty)$, uansett verdi av $c$.**\n\n**Poenget å ta med seg:** å legge til en rett linje flytter på veksten, men rører ikke krumningen. Det er en nyttig ting å vite når man drøfter overskudd $\\pi(x)=R(x)-cx$: kostnadsleddet endrer hvor optimum ligger, men ikke om inntektsfunksjonen er konkav.",
+        "hints": [
+          "I b): behandle $c\\ge 0$ og $c<0$ hver for seg — de to tilfellene har ulike svar.",
+          "I c): hva skjer med et lineært ledd når du deriverer to ganger?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-4-1-bb-strengt-svakt",
+      "type": "definition",
+      "title": "Strengt og svakt voksende",
+      "content": "Skillet er lite, men verdt å kjenne når en oppgave er nøye på formuleringen.\n\n$$f'>0\\ \\text{(strengt voksende)},\\qquad f'\\ge 0\\ \\text{(svakt voksende)}$$\n\nEn svakt voksende funksjon kan ha flate partier, som $f(x)=x^{3}$ har i $x=0$. I eksamensbesvarelser holder det som regel å skrive «voksende», men om $f'$ er null i enkeltpunkter, er det ryddig å nevne det."
+    },
+    {
+      "id": "econ1100-4-1-bb-skjema-er-begrunnelsen",
+      "type": "definition",
+      "title": "Skjemaet ER begrunnelsen",
+      "content": "Fortegnsskjemaet er ikke en kladd du kan la være å skrive — det er selve svaret på «hvorfor».\n\n$$\\text{faktoriser}\\ f'\\ \\to\\ \\text{tegn linja}\\ \\to\\ \\text{les av intervallene}$$\n\nSensor gir uttelling for metoden, ikke for konklusjonen. Et riktig intervall uten skjema er feil #10; et skjema med en liten regnefeil koster derimot lite. Skriv alltid skjemaet, også når svaret er åpenbart."
+    },
+    {
+      "id": "econ1100-4-1-bb-nullpunkt-f-vs-fmerket",
+      "type": "definition",
+      "title": "Nullpunkt til $f$ og nullpunkt til $f'$",
+      "content": "To helt ulike ting som er lette å forveksle når man har det travelt.\n\n$$f(x)=0\\ \\text{(kurven krysser }x\\text{-aksen)},\\qquad f'(x)=0\\ \\text{(tangenten er vannrett)}$$\n\nDrøftingen bruker nullpunktene til $f'$; skissen bruker i tillegg nullpunktene til $f$. Å regne ABC på feil av de to er en klassisk tidstyv — les alltid oppgaveteksten en gang til før du setter i gang."
+    },
+    {
+      "id": "econ1100-4-1-bb-fire-kombinasjoner",
+      "type": "definition",
+      "title": "De fire kombinasjonene",
+      "content": "Vekst og krumning kan opptre i alle fire kombinasjoner, og hver har sin form.\n\n$$f'>0,f''>0\\ \\text{(stiger raskere)};\\qquad f'>0,f''<0\\ \\text{(stiger saktere)}$$\n\n$$f'<0,f''<0\\ \\text{(faller raskere)};\\qquad f'<0,f''>0\\ \\text{(faller saktere)}$$\n\nÅ kjenne igjen kombinasjonen fra fortegnene alene er nyttig både i skissen og i sant/usant-oppgaven. Den andre — voksende og konkav — er den økonomiske normalformen."
+    },
+    {
+      "id": "econ1100-4-1-bb-kontroll-innsetting",
+      "type": "definition",
+      "title": "Kontroll ved innsetting",
+      "content": "Etter at skjemaet står, er det verdt å teste ett tall i hvert intervall.\n\n$$f'(-2)=15>0\\ \\checkmark,\\qquad f'(0)=-9<0\\ \\checkmark,\\qquad f'(4)=15>0\\ \\checkmark$$\n\nKontrollen tar under et halvt minutt og fanger fortegnsfeil i faktoriseringen. Men merk: den er en **kontroll**, ikke en begrunnelse. Tre tall sier ingenting om tre hele intervaller, og et skjema kan ikke erstattes av dem."
+    },
+    {
+      "id": "econ1100-4-1-bb-tredjegrad-form",
+      "type": "definition",
+      "title": "Tredjegradsfunksjonens standardform",
+      "content": "Kjenner du formen på forhånd, vet du hva du leter etter — og oppdager regnefeil raskere.\n\n$$f(x)=ax^{3}+\\dots,\\ a>0:\\ \\text{opp}\\ \\to\\ \\text{ned}\\ \\to\\ \\text{opp}$$\n\nMed $a>0$ har grafen først et toppunkt, så et bunnpunkt, og vendepunktet ligger nøyaktig midt mellom dem. Med $a<0$ er alt speilvendt. Får du et skjema som ikke passer med denne formen, er det som regel en fortegnsfeil et sted."
+    },
+    {
+      "id": "econ1100-4-1-bb-ingen-rotter",
+      "type": "definition",
+      "title": "Når $f'$ ikke har nullpunkter",
+      "content": "Er diskriminanten negativ, skifter den deriverte aldri fortegn — og konklusjonen blir kort.\n\n$$b^{2}-4ac<0\\ \\Longrightarrow\\ f'\\ \\text{har samme fortegn overalt}$$\n\nDa er funksjonen enten voksende i hele definisjonsområdet eller avtakende i hele. Test ett enkelt tall for å finne ut hvilket, og skriv konklusjonen. Dette er et fullgodt svar, ikke et tegn på at du har regnet feil."
+    },
+    {
+      "id": "econ1100-4-1-bb-kvadratkomplettering",
+      "type": "definition",
+      "title": "Kvadratkomplettering som fortegnsargument",
+      "content": "Et andregradsuttrykk uten reelle røtter får ofte det peneste argumentet fra kvadratkomplettering.\n\n$$x^{2}-8x+20=(x-4)^{2}+4\\ \\ge 4>0$$\n\nFormen viser fortegnet direkte, uten diskriminant og uten innsetting av testtall. Den er særlig nyttig når du skal *vise* at noe alltid er positivt — sensor liker argumenter som gjelder for alle $x$ på én linje."
+    },
+    {
+      "id": "econ1100-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-4-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1) og [Funksjonsdrøfting](/bok/r1/r1-4-6) i R1.\n\n**1.** Deriver $f(x)=x^{3}-4x^{2}+7$.\n\n*Svar:* $f'(x)=3x^{2}-8x$.\n\n**2.** Faktoriser $x^{2}-5x+6$.\n\n*Svar:* $(x-2)(x-3)$ — to tall med produkt 6 og sum $-5$.\n\n**3.** Løs $2x^{2}-3x-2=0$ med ABC.\n\n*Svar:* $x=\\dfrac{3\\pm\\sqrt{9+16}}{4}=\\dfrac{3\\pm 5}{4}$, altså $x=2$ eller $x=-\\tfrac12$.\n\n**4.** Hva er fortegnet til $(x-1)(x-4)$ for $x=2$?\n\n*Svar:* $(+)(-)=-$, altså negativt.\n\n**5.** Deriver $f(x)=\\ln x-x$ for $x>0$.\n\n*Svar:* $f'(x)=\\dfrac1x-1$.\n\n**6.** Hva er $f''$ når $f(x)=x^{4}$?\n\n*Svar:* $f'=4x^{3}$ og $f''=12x^{2}$, som er null bare i $x=0$ og positiv ellers."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-4-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f'(x)$ | Førstederivert — stigningen; fortegnet gir vekst eller fall |\n| $f''(x)$ | Andrederivert — stigningens endring; fortegnet gir krumning |\n| $f'(a)=0$ | Stasjonærpunkt: vannrett tangent i $x=a$ |\n| $a$, $b$, $c$ | Koeffisientene i et andregradsuttrykk $ax^{2}+bx+c$ |\n| $b^{2}-4ac$ | Diskriminanten; negativ betyr ingen reelle nullpunkter |\n| $x_1$, $x_2$ | Nullpunktene til den deriverte — skillepunktene i skjemaet |\n| $K(x)$, $K'(x)$ | Kostnadsfunksjon og grensekostnad |\n| $\\pi(x)$ | Overskudd som funksjon av produsert mengde |\n\n**Formler i dette delkapitlet:**\n\n$$f'(x)>0\\ \\Longrightarrow\\ f\\ \\text{vokser};\\qquad f'(x)<0\\ \\Longrightarrow\\ f\\ \\text{avtar}$$\nVekst leses av fortegnet på førstederiverte — som intervall, aldri som punkt.\n\n$$f''(x)>0\\ \\Longrightarrow\\ f\\ \\text{konveks};\\qquad f''(x)<0\\ \\Longrightarrow\\ f\\ \\text{konkav}$$\nKrumning leses av fortegnet på andrederiverte. Uavhengig av veksten.\n\n$$x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$$\nABC-formelen — brukes til å finne nullpunktene til $f'$, ikke til $f$.\n\n$$ax^{2}+bx+c=a\\,(x-x_1)(x-x_2)$$\nFaktorisert form: hver faktor skifter fortegn i sitt eget nullpunkt.\n\n$$b^{2}-4ac<0\\ \\Longrightarrow\\ \\text{samme fortegn overalt}$$\nUten reelle røtter skifter uttrykket aldri fortegn.\n\n$$x^{2}-8x+20=(x-4)^{2}+4\\ge 4>0$$\nKvadratkomplettering som fortegnsargument, gyldig for alle $x$ på én linje."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,349 @@
+{
+  "id": "econ1100-3-1",
+  "courseId": "econ1100",
+  "chapterNumber": "3.1",
+  "title": "Differensialet",
+  "description": "Den tilnærmede endringen $df=f'_x\\,dx+f'_y\\,dy$ — med alle ledd med, og med skillet mot den faktiske tilveksten $\\Delta f$ klart.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "sette opp differensialet til en funksjon av to eller flere variabler med alle ledd på plass",
+    "skille den tilnærmede endringen fra den faktiske tilveksten, og forklare hvorfor de avviker",
+    "avgjøre om en påstand om et differensial er sann eller usann, og begrunne konklusjonen med utregning",
+    "bruke differensialet til å anslå virkningen av små endringer i en økonomisk modell"
+  ],
+  "content": [
+    {
+      "id": "econ1100-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Differensialet er den billigste poengfangsten i hele eksamen — hvis du husker alle leddene.**\n\nTemaet differensial og lineær approksimasjon står i **11 av 16 sett** i arkivet (69 prosent), og i **8 av de 9 ordinære** settene (89 prosent). Det kommer nesten alltid som ett punkt i eksamens Oppgave 2, den oppgaven som i denne boka kalles **sjanger SU — «sant eller usant? begrunn»**. Selve regnestykket kalles **sjanger DA — differensial og lineær approksimasjon**.\n\n**Slik ser punktet ut:** du får en funksjon av to variabler og en påstand om hva differensialet er. Påstanden er som regel *usann*, og grunnen er alltid den samme: den mangler ett ledd. Du skal sette opp differensialet riktig, sammenligne ledd for ledd med påstanden, og skrive konklusjonen.\n\n**Merk sensorregelen som gjør dette til fagets viktigste vane:** et ubegrunnet «usant» gir **null poeng**, selv om konklusjonen er riktig. Regningen ER svaret. To linjer med utregning og én konklusjonssetning gir full uttelling; ett ord gir ingenting.\n\nKapitlet har **høyeste prioritet**. Det er kort, mekanisk og gir poeng hver gang."
+    },
+    {
+      "id": "econ1100-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.1](/bok/econ1100/econ1100-1-1) (derivasjonsreglene) og [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte). Du trenger å kunne finne $f'_x$ og $f'_y$ raskt — resten av kapitlet er én formel brukt om og om igjen.\n\n**Sist du var her — de to du trenger:**\n\n$$f'_x=\\text{deriver mht. }x\\text{, hold }y\\text{ konstant},\\qquad f'_y=\\text{deriver mht. }y\\text{, hold }x\\text{ konstant}$$\n\n$$\\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}},\\qquad \\frac{d}{dx}\\ln g=\\frac{g'}{g},\\qquad \\frac{d}{dx}e^{g}=e^{g}g'$$"
+    },
+    {
+      "id": "econ1100-3-1-motivasjon",
+      "type": "text",
+      "content": "Strømprisen stiger med tre øre, og nettleien faller med ett. Hva skjer med den samlede regningen din?\n\nDu kunne regnet ut den nye regningen fra bunnen av og trukket fra den gamle. Men når endringene er små, finnes det en snarvei som er både raskere og mer opplysende: gang hver liten endring med hvor følsom regningen er for akkurat den størrelsen, og legg sammen. Det er alt differensialet er.\n\nSnarveien er nyttig fordi den skiller bidragene fra hverandre. Du ser med én gang hvor mye av endringen som kommer fra prisen og hvor mye som kommer fra nettleien — noe totalregningen skjuler.\n\nKapitlet er bygget som tre løkker: differensialet i én variabel (løkke 1), differensialet i to variabler med alle ledd (løkke 2), og regnereglene pluss eksamensformatet (løkke 3)."
+    },
+    {
+      "id": "econ1100-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Differensialet i én variabel (~10 min)"
+    },
+    {
+      "id": "econ1100-3-1-def-differensial-1d",
+      "type": "definition",
+      "title": "Differensialet i én variabel",
+      "content": "Differensialet er den *tilnærmede* endringen i funksjonsverdien når variabelen endrer seg litt: stigningstallet ganget med skrittlengden.\n\n$$df=f'(x)\\,dx$$\n\nHer er $dx$ den lille endringen du velger selv, og $f'(x)$ forteller hvor bratt funksjonen er akkurat der. Produktet er hvor langt du beveger deg langs **tangenten** — ikke langs kurven. Det er nettopp derfor det bare er en tilnærming."
+    },
+    {
+      "id": "econ1100-3-1-def-tilvekst",
+      "type": "definition",
+      "title": "Tilveksten $\\Delta f$",
+      "content": "Tilveksten er den *faktiske* endringen i funksjonsverdien: ny verdi minus gammel verdi.\n\n$$\\Delta f=f(x+\\Delta x)-f(x)$$\n\nDette er sannheten, målt langs kurven selv. Differensialet $df$ er tilnærmingen til den. De to er nesten like når skrittet er lite, men de er aldri det samme begrepet — og eksamen tester om du kjenner forskjellen."
+    },
+    {
+      "id": "econ1100-3-1-def-dx",
+      "type": "definition",
+      "title": "$dx$ og $\\Delta x$ — hva som er hva",
+      "content": "For den frie variabelen er det ingen forskjell: skrittet du tar, er skrittet du tar.\n\n$$dx=\\Delta x$$\n\nForskjellen ligger på funksjonssiden. Der er $\\Delta f$ det kurven faktisk gjør, mens $df$ er det tangenten gjør. Skriv derfor $dx$ og $dy$ på høyresiden av differensialet, og reserver $\\Delta$ for den faktiske utregnede endringen."
+    },
+    {
+      "id": "econ1100-3-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Tangent mot kurve",
+      "problem": "En strømleverandør har kostnadsfunksjonen $K(x)=x^{2}$ (i tusen kroner) når den leverer $x$ enheter.\n\n**a)** Sett opp differensialet $dK$ i punktet $x=3$ med $dx=0{,}1$.\n\n**b)** Regn ut den faktiske tilveksten $\\Delta K$, og sammenlign.",
+      "solution": "**a)** Den deriverte er $K'(x)=2x$, som i $x=3$ gir $K'(3)=6$. Differensialet er derfor\n\n$$dK=K'(3)\\,dx=6\\cdot 0{,}1=0{,}6$$\n\n**b)** Den faktiske tilveksten regnes ut direkte:\n\n$$\\Delta K=K(3{,}1)-K(3)=9{,}61-9=0{,}61$$\n\n**Sammenligning.** Differensialet gir $0{,}6$; sannheten er $0{,}61$. Avviket er $0{,}01$, altså under to prosent av endringen.\n\n**Hvorfor avviker de?** Fordi $dK$ følger tangenten i $x=3$, mens $\\Delta K$ følger kurven. Kurven $x^{2}$ krummer oppover, så den stiger litt raskere enn tangenten — og differensialet blir litt for lite. Fortegnet på avviket er altså ikke tilfeldig; det følger av krumningen. Det utnytter vi systematisk i [kap. 3.2](/bok/econ1100/econ1100-3-2).\n\n**Konklusjon:** $dK=0{,}6$ og $\\Delta K=0{,}61$; differensialet underestimerer med $0{,}01$ fordi funksjonen er konveks."
+    },
+    {
+      "id": "econ1100-3-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger DA — differensial og lineær approksimasjon, som oftest ett punkt i eksamens Oppgave 2. Innstegsoppgave.) Sett opp differensialet $df$ for hver funksjon:\n\n**a)** $f(x)=5x^{3}$\n\n**b)** $f(x)=\\ln x$, $x>0$\n\n**c)** $f(x)=e^{2x}$",
+        "solution": "**a)** $f'(x)=15x^{2}$, altså\n\n$$df=15x^{2}\\,dx$$\n\n**b)** $f'(x)=\\dfrac{1}{x}$, altså\n\n$$df=\\frac{dx}{x}$$\n\n**c)** Kjerneregelen gir $f'(x)=2e^{2x}$, altså\n\n$$df=2e^{2x}\\,dx$$\n\n**Merk mønsteret:** differensialet er alltid «den deriverte ganger $dx$». Det finnes ingen ekstra regel å huske i én variabel.",
+        "hints": [
+          "Finn den deriverte først; differensialet er den deriverte ganget med $dx$.",
+          "I c): kjernen er $2x$, og dens deriverte er 2."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger DA.) La $f(x)=\\sqrt{x}$.\n\n**a)** Sett opp $df$ i punktet $x=16$ med $dx=0{,}2$, og regn ut tallverdien.\n\n**b)** Regn ut $\\Delta f=f(16{,}2)-f(16)$ med tre desimaler, og si hvilken av de to som er størst.",
+        "solution": "**a)** Med $f(x)=x^{1/2}$ er $f'(x)=\\dfrac{1}{2\\sqrt{x}}$, som i $x=16$ gir $f'(16)=\\dfrac{1}{8}$. Da er\n\n$$df=\\frac{1}{8}\\cdot 0{,}2=0{,}025$$\n\n**b)** Direkte utregning: $\\sqrt{16{,}2}=4{,}02492\\ldots$ og $\\sqrt{16}=4$, så\n\n$$\\Delta f=4{,}025-4=0{,}025\\ (\\text{mer presist } 0{,}02492)$$\n\n**Sammenligning:** $df=0{,}02500$ er litt **større** enn $\\Delta f=0{,}02492$.\n\n**Begrunnelse for retningen:** $f''(x)=-\\tfrac14 x^{-3/2}<0$, så $\\sqrt{x}$ er konkav og krummer nedover. Tangenten ligger da over kurven, og differensialet overestimerer. Motsatt av eksempel 1, der funksjonen var konveks.",
+        "hints": [
+          "Skriv $\\sqrt{x}$ som $x^{1/2}$ før du deriverer.",
+          "Se på fortegnet til $f''$ for å avgjøre hvilken vei tangenten bøyer av fra kurven."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Differensialet i to variabler: alle ledd med (~14 min)"
+    },
+    {
+      "id": "econ1100-3-1-def-differensial-2d",
+      "type": "definition",
+      "title": "Differensialet i to variabler",
+      "content": "Med to variabler kan begge endre seg samtidig, og da må begge bidragene med. Differensialet er summen av dem.\n\n$$df=f'_x\\,dx+f'_y\\,dy$$\n\nDet første leddet er endringen som skyldes $x$ alene, det andre er endringen som skyldes $y$ alene. Formelen sier at når endringene er små, kan de to virkningene bare legges sammen — de forstyrrer ikke hverandre nevneverdig."
+    },
+    {
+      "id": "econ1100-3-1-def-leddstruktur",
+      "type": "definition",
+      "title": "Ett ledd per variabel",
+      "content": "Antall ledd i differensialet er alltid likt antall variabler funksjonen har. Ingen variabel kan hoppes over, uansett hvor liten dens rolle ser ut til å være.\n\n$$f(x,y)\\ \\Rightarrow\\ 2\\ \\text{ledd},\\qquad f(x,y,z)\\ \\Rightarrow\\ 3\\ \\text{ledd}$$\n\nDette er den enkleste kontrollen du har: tell variablene, tell leddene, og se at tallene stemmer. Kontrollen tar to sekunder og fanger den vanligste feilen i hele sjangeren."
+    },
+    {
+      "id": "econ1100-3-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensformatet — en påstand som mangler et ledd",
+      "problem": "La $f(x,y)=x^{2}y$.\n\n**a)** Sett opp $df$.\n\n**b)** Avgjør om påstanden «$df=2xy\\,dx$» er sann eller usann. Begrunn.",
+      "solution": "**a)** Vi finner begge partiellderiverte.\n\nMht. $x$ (hold $y$ fast): $f'_x=2xy$.\n\nMht. $y$ (hold $x$ fast): $f'_y=x^{2}$.\n\nSatt inn i formelen:\n\n$$df=2xy\\,dx+x^{2}\\,dy$$\n\n**b) Sammenligning ledd for ledd.** Påstanden er $2xy\\,dx$. Vår utregning gir $2xy\\,dx+x^{2}\\,dy$. Det første leddet stemmer, men leddet $x^{2}\\,dy$ mangler helt i påstanden.\n\n**Konklusjon: påstanden er usann.** Den er riktig bare i det spesialtilfellet der $y$ holdes fast, altså $dy=0$ — og det står det ingenting om i påstanden. For alle andre endringer mangler bidraget fra $y$.\n\n**Slik føres svaret på eksamen:** regn ut begge partiellderiverte, skriv differensialet fullt ut, pek på leddet som mangler, og skriv konklusjonssetningen. Fire linjer, full uttelling. Skriver du bare «usant», får du null — også når det står usant i fasiten."
+    },
+    {
+      "id": "econ1100-3-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger DA.) Sett opp differensialet $df$ for:\n\n**a)** $f(x,y)=3x^{2}+5y$\n\n**b)** $f(x,y)=xy$\n\n**c)** $f(x,y)=x^{3}y^{2}$",
+        "solution": "**a)** $f'_x=6x$ og $f'_y=5$:\n\n$$df=6x\\,dx+5\\,dy$$\n\n**b)** $f'_x=y$ og $f'_y=x$:\n\n$$df=y\\,dx+x\\,dy$$\n\n**c)** $f'_x=3x^{2}y^{2}$ og $f'_y=2x^{3}y$:\n\n$$df=3x^{2}y^{2}\\,dx+2x^{3}y\\,dy$$\n\n**Kontroll:** to variabler, to ledd i alle tre. Legg merke til at hvert ledd inneholder både den partiellderiverte og «sin egen» differensial — $f'_x$ hører alltid sammen med $dx$.",
+        "hints": [
+          "Finn $f'_x$ og $f'_y$ hver for seg, og sett dem inn i $df=f'_x\\,dx+f'_y\\,dy$.",
+          "Tell til slutt: to variabler skal gi to ledd."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil med differensialet",
+      "content": "- **Å utelate ett ledd (#4 — utelate ett ledd i differensialet eller den lineære approksimasjonen).** Dette er den desidert vanligste feilen, og hele grunnen til at oppgavetypen finnes. Tell variablene, tell leddene.\n- **Å forveksle $df$ og $\\Delta f$.** $df$ følger tangenten (tilnærming), $\\Delta f$ følger kurven (sannhet). En påstand om at de er *like*, er usann for enhver funksjon som krummer.\n- **Å svare ubegrunnet.** «Usant» alene gir null poeng, selv når det er riktig. Vis utregningen, pek på leddet som mangler, og skriv konklusjonen.\n- **Fortegnsfeil når en endring er negativ.** Faller $y$, er $dy$ negativ. Sett tallet inn med fortegn, og ikke «snu» leddet manuelt i tillegg.\n- **Å bytte om hvilken differensial som hører til hvilken derivert.** Det heter $f'_x\\,dx$, aldri $f'_x\\,dy$. Feilen er lett å gjøre når uttrykkene er symmetriske."
+    },
+    {
+      "id": "econ1100-3-1-def-regneregler",
+      "type": "definition",
+      "title": "Regneregler: sum og konstant faktor",
+      "content": "Differensialet arver alle derivasjonsreglene, fordi det bare er en derivert ganget med en skrittlengde.\n\n$$d(f+g)=df+dg,\\qquad d(cf)=c\\,df$$\n\nPraktisk betyr det at du kan differensiere ledd for ledd, akkurat som du deriverer ledd for ledd. Konstanter står utenfor, og et ledd uten variabler bidrar med null."
+    },
+    {
+      "id": "econ1100-3-1-def-produkt-kvotient",
+      "type": "definition",
+      "title": "Produkt- og kvotientregelen for differensialer",
+      "content": "De to sammensatte reglene ser ut som sine kjente slektninger fra derivasjon.\n\n$$d(fg)=g\\,df+f\\,dg,\\qquad d\\!\\left(\\frac{f}{g}\\right)=\\frac{g\\,df-f\\,dg}{g^{2}}$$\n\nMerk rekkefølgen i telleren i den siste — den bestemmer fortegnet, og det er samme felle som i [kap. 1.1](/bok/econ1100/econ1100-1-1). I praksis er det ofte raskere å finne $f'_x$ og $f'_y$ direkte og sette inn, men reglene er nyttige når uttrykket er et rent produkt."
+    },
+    {
+      "id": "econ1100-3-1-def-ln-e",
+      "type": "definition",
+      "title": "Differensialet av $\\ln$ og $e$",
+      "content": "De to funksjonene som oftest dukker opp i økonomimodeller, har spesielt enkle differensialer.\n\n$$d\\big(\\ln u\\big)=\\frac{du}{u},\\qquad d\\big(e^{u}\\big)=e^{u}\\,du$$\n\nHer er $u$ et hvilket som helst uttrykk, og $du$ er dets eget differensial. Formen $du/u$ er verdt å legge merke til: den måler den **relative** endringen i $u$, altså endringen som andel av nivået."
+    },
+    {
+      "id": "econ1100-3-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Differensialet av en brøk i to variabler",
+      "problem": "To fabrikkhaller produserer sammen etter formelen\n\n$$P(K,L)=\\frac{KL}{K+L},\\qquad K,L>0,$$\n\nder $K$ er kapital og $L$ er arbeidskraft.\n\n**a)** Finn $dP$.\n\n**b)** Regn ut den tilnærmede endringen når $(K,L)=(6,3)$, kapitalen øker med $0{,}06$ og arbeidskraften faller med $0{,}03$.",
+      "solution": "**a) Kvotientregelen begge veier.**\n\nMht. $K$, med teller $KL$ (derivert $L$) og nevner $K+L$ (derivert 1):\n\n$$P'_K=\\frac{L(K+L)-KL}{(K+L)^{2}}=\\frac{LK+L^{2}-KL}{(K+L)^{2}}=\\frac{L^{2}}{(K+L)^{2}}$$\n\nMht. $L$, helt symmetrisk:\n\n$$P'_L=\\frac{K^{2}}{(K+L)^{2}}$$\n\nDifferensialet blir dermed\n\n$$dP=\\frac{L^{2}}{(K+L)^{2}}\\,dK+\\frac{K^{2}}{(K+L)^{2}}\\,dL$$\n\n**b) Innsetting.** I punktet er $K+L=9$, så $(K+L)^{2}=81$.\n\n$$P'_K=\\frac{9}{81}=\\frac{1}{9},\\qquad P'_L=\\frac{36}{81}=\\frac{4}{9}$$\n\nMed $dK=0{,}06$ og $dL=-0{,}03$:\n\n$$dP=\\frac{1}{9}\\cdot 0{,}06+\\frac{4}{9}\\cdot(-0{,}03)=0{,}00667-0{,}01333=-0{,}00667$$\n\n**Konklusjon:** produksjonen faller med omtrent $0{,}0067$ enheter. Til kontroll: den faktiske endringen er $P(6{,}06\\,;\\,2{,}97)-P(6,3)=-0{,}00684$, altså samme størrelsesorden og samme fortegn.\n\n**Legg merke til hva differensialet forteller:** arbeidskraften er fire ganger så «tungtveiende» som kapitalen i dette punktet ($4/9$ mot $1/9$), så et lite kutt i $L$ spiser opp en dobbelt så stor økning i $K$. Det er den innsikten totalregnestykket skjuler."
+    },
+    {
+      "id": "econ1100-3-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger DA.) Sett opp differensialet:\n\n**a)** $f(x,y)=\\ln(x^{2}+y)$ for $x^{2}+y>0$\n\n**b)** $g(x,y)=e^{xy}$\n\n**c)** $h(x,y)=\\dfrac{x}{y}$ for $y\\ne 0$",
+        "solution": "**a)** Regelen $\\dfrac{du}{u}$ med $u=x^{2}+y$, der $u'_x=2x$ og $u'_y=1$:\n\n$$df=\\frac{2x\\,dx+dy}{x^{2}+y}$$\n\n**b)** Regelen $e^{u}\\,du$ med $u=xy$, der $u'_x=y$ og $u'_y=x$:\n\n$$dg=e^{xy}\\big(y\\,dx+x\\,dy\\big)$$\n\n**c)** $h'_x=\\dfrac{1}{y}$ og $h'_y=-\\dfrac{x}{y^{2}}$:\n\n$$dh=\\frac{dx}{y}-\\frac{x}{y^{2}}\\,dy$$\n\n**Merk fortegnet i c):** øker $y$, faller brøken. Minusen er altså ikke en regnefeil, men innholdet i regnestykket.",
+        "hints": [
+          "Finn først differensialet til innmaten, og bruk så $d(\\ln u)=du/u$ og $d(e^u)=e^u\\,du$.",
+          "I c): skriv $x/y$ som $x\\,y^{-1}$ hvis kvotientregelen føles tung."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger DA — sant/usant-format, som i eksamens Oppgave 2. Sjanger SU betyr «sant eller usant? begrunn».) La $f(x,y)=x^{2}y^{3}$.\n\nAvgjør om hver påstand er sann eller usann. **Begrunn hver konklusjon med utregning** — et ubegrunnet svar gir null poeng.\n\n**a)** «$df=2xy^{3}\\,dx+3x^{2}y^{2}\\,dy$»\n\n**b)** «$df=3x^{2}y^{2}\\,dy$»\n\n**c)** «$\\Delta f=df$ når $dx$ og $dy$ er små»",
+        "solution": "**Felles utgangspunkt.** Vi regner ut differensialet én gang og bruker det på alle tre.\n\n$$f'_x=2xy^{3},\\qquad f'_y=3x^{2}y^{2}\\ \\Longrightarrow\\ df=2xy^{3}\\,dx+3x^{2}y^{2}\\,dy$$\n\n**a) Sann.** Påstanden er ledd for ledd identisk med utregningen: første ledd $2xy^{3}\\,dx$ ✓, andre ledd $3x^{2}y^{2}\\,dy$ ✓. Ingenting mangler, og ingenting er lagt til.\n\n**b) Usann.** Påstanden inneholder bare $y$-leddet; leddet $2xy^{3}\\,dx$ er utelatt. Uttrykket stemmer altså bare hvis $dx=0$, og det står det ingenting om. Dette er feil #4 — utelate ett ledd i differensialet.\n\n**c) Usann.** $df$ er endringen langs tangentplanet, $\\Delta f$ er endringen langs flaten selv. De er tilnærmet like, men ikke like, så lenge funksjonen krummer.\n\n*Konkret motsvar:* i $(x,y)=(1,2)$ med $dx=dy=0{,}1$ gir formelen $df=2\\cdot 1\\cdot 8\\cdot 0{,}1+3\\cdot 1\\cdot 4\\cdot 0{,}1=1{,}6+1{,}2=2{,}8$. Den faktiske tilveksten er $f(1{,}1\\,;\\,2{,}1)-f(1,2)=1{,}21\\cdot 9{,}261-8=3{,}2058$. Tallene $2{,}8$ og $3{,}21$ er ikke like, og påstanden faller.\n\n**Merk formuleringen i c):** ordet «små» redder ikke påstanden. Skulle den vært sann, måtte det stått «tilnærmet lik» — og nettopp den nyansen er det oppgaven tester.",
+        "hints": [
+          "Regn ut differensialet én gang, og bruk det som fasit mot alle tre påstandene.",
+          "I c): finnes det ett tallpar der de to størrelsene er forskjellige, er påstanden usann."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Tolkning, relativ endring og eksamensdrill (~14 min)"
+    },
+    {
+      "id": "econ1100-3-1-def-flere-variabler",
+      "type": "definition",
+      "title": "Differensialet i flere enn to variabler",
+      "content": "Mønsteret fortsetter uendret når modellen får flere variabler: ett ledd per variabel, alle lagt sammen.\n\n$$df=f'_x\\,dx+f'_y\\,dy+f'_z\\,dz$$\n\nØkonomiske modeller har ofte tre eller fire argumenter (pris, inntekt, avgift, kvote), og da er lengden på differensialet i seg selv en del av svaret. Et differensial med for få ledd er en ufullstendig modell, ikke bare en slurvefeil."
+    },
+    {
+      "id": "econ1100-3-1-def-grenseendring",
+      "type": "definition",
+      "title": "Hva $f'_x\\,dx$ betyr økonomisk",
+      "content": "Hvert ledd er en grenseeffekt ganget med hvor mye størrelsen faktisk endrer seg.\n\n$$\\underbrace{f'_x}_{\\text{effekt per enhet}}\\cdot\\underbrace{dx}_{\\text{antall enheter}}=\\text{bidraget fra }x$$\n\nEr $f$ en nyttefunksjon, er $f'_x$ grensenytten av gode $x$; er $f$ en produktfunksjon, er $f'_K$ grenseproduktet av kapital. Differensialet setter dermed sammen alle grenseeffektene til én samlet virkning — og lar deg se hvilken av dem som dominerer."
+    },
+    {
+      "id": "econ1100-3-1-def-nivaakurve-dF",
+      "type": "definition",
+      "title": "Differensialet langs en nivåkurve",
+      "content": "Beveger du deg slik at funksjonsverdien holder seg konstant, er den samlede endringen null per definisjon.\n\n$$dF=F'_x\\,dx+F'_y\\,dy=0$$\n\nDenne ene linjen er startpunktet for hele [kap. 5.1](/bok/econ1100/econ1100-5-1): løser du den for $dy/dx$, får du helningen på nivåkurven. Differensialet er altså ikke bare et tilnærmingsverktøy — det er også maskineriet bak indifferenskurver og isokvanter."
+    },
+    {
+      "id": "econ1100-3-1-def-relativ-endring",
+      "type": "definition",
+      "title": "Relativ endring: $df/f$",
+      "content": "Deler du differensialet på funksjonsverdien, får du den relative endringen — endringen som andel av nivået.\n\n$$\\frac{df}{f}=d\\big(\\ln f\\big)$$\n\nDette er broen til elastisitet i [kap. 2.1](/bok/econ1100/econ1100-2-1). For $f=x^{2}y$ gir regelen $\\dfrac{df}{f}=2\\dfrac{dx}{x}+\\dfrac{dy}{y}$: en økning på én prosent i $x$ og én prosent i $y$ gir omtrent tre prosents økning i $f$. Eksponentene leses av direkte."
+    },
+    {
+      "id": "econ1100-3-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — differensial i en produksjonsmodell",
+      "problem": "En bedrift har produktfunksjonen\n\n$$Q(K,L)=40\\,K^{1/2}L^{1/2}$$\n\nog befinner seg i punktet $(K,L)=(25,16)$.\n\n**a)** Sett opp $dQ$ generelt.\n\n**b)** Regn ut $Q$, $Q'_K$ og $Q'_L$ i punktet.\n\n**c)** Bedriften vurderer å øke kapitalen med 1 enhet og samtidig kutte arbeidskraften med $0{,}5$ enheter. Bruk differensialet til å anslå virkningen på produksjonen, og avgjør om påstanden «produksjonen faller» er sann eller usann. Begrunn.",
+      "solution": "**a)** Vi deriverer partielt. Mht. $K$ står $L^{1/2}$ som konstant faktor:\n\n$$Q'_K=40\\cdot\\tfrac12 K^{-1/2}L^{1/2}=20\\sqrt{\\frac{L}{K}},\\qquad Q'_L=20\\sqrt{\\frac{K}{L}}$$\n\n$$dQ=20\\sqrt{\\frac{L}{K}}\\,dK+20\\sqrt{\\frac{K}{L}}\\,dL$$\n\n**b) Innsetting** med $\\sqrt{25}=5$ og $\\sqrt{16}=4$:\n\n$$Q=40\\cdot 5\\cdot 4=800,\\qquad Q'_K=20\\cdot\\frac{4}{5}=16,\\qquad Q'_L=20\\cdot\\frac{5}{4}=25$$\n\n**c)** Med $dK=1$ og $dL=-0{,}5$:\n\n$$dQ=16\\cdot 1+25\\cdot(-0{,}5)=16-12{,}5=3{,}5$$\n\n**Konklusjon: påstanden er usann.** Differensialet er positivt, så produksjonen anslås å **stige** med omtrent $3{,}5$ enheter — fra 800 til rundt $803{,}5$.\n\n**Hvorfor blir det slik?** Grenseproduktet av arbeidskraft (25) er større enn grenseproduktet av kapital (16), så et kutt i $L$ er isolert sett dyrere enn en tilsvarende økning i $K$ er verdt. Men kuttet er bare halvparten så stort som økningen, og $16\\cdot 1>25\\cdot 0{,}5$. Det er balansen mellom effekt og skrittlengde som avgjør — og det er nettopp den differensialet gjør synlig.\n\n**Kontroll mot fasit:** den eksakte verdien er $Q(26\\,;\\,15{,}5)=802{,}99$, mot anslaget $803{,}5$. Anslaget bommer med $0{,}5$ enheter, altså omtrent $0{,}06$ prosent — akseptabelt for et skritt av denne størrelsen, men et nyttig minne om at differensialet blir mindre presist jo større skrittet er."
+    },
+    {
+      "id": "econ1100-3-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger DA.) En husholdning har nyttefunksjonen $U(x,y)=x^{1/3}y^{2/3}$, der $x$ er strøm og $y$ er alt annet forbruk. Husholdningen er i punktet $(x,y)=(8,27)$.\n\n**a)** Finn $U'_x$ og $U'_y$ i punktet.\n\n**b)** Sett opp $dU$ og anslå endringen i nytten når strømforbruket øker med $0{,}4$ enheter mens annet forbruk faller med $0{,}6$ enheter.\n\n**c)** Blir husholdningen bedre eller dårligere stilt? Begrunn.",
+        "solution": "**a)** Vi deriverer partielt.\n\n$$U'_x=\\tfrac13 x^{-2/3}y^{2/3}=\\tfrac13\\left(\\frac{y}{x}\\right)^{2/3},\\qquad U'_y=\\tfrac23 x^{1/3}y^{-1/3}=\\tfrac23\\left(\\frac{x}{y}\\right)^{1/3}$$\n\nI punktet er $\\dfrac{y}{x}=\\dfrac{27}{8}$, så $\\left(\\dfrac{27}{8}\\right)^{2/3}=\\dfrac{9}{4}$, og $\\left(\\dfrac{8}{27}\\right)^{1/3}=\\dfrac{2}{3}$:\n\n$$U'_x=\\tfrac13\\cdot\\tfrac94=\\tfrac34=0{,}75,\\qquad U'_y=\\tfrac23\\cdot\\tfrac23=\\tfrac49\\approx 0{,}444$$\n\n**b)**\n\n$$dU=0{,}75\\cdot 0{,}4+0{,}444\\cdot(-0{,}6)=0{,}30-0{,}267=0{,}033$$\n\n**c) Bedre stilt.** Differensialet er positivt, så nytten anslås å øke med omtrent $0{,}033$ enheter. Til sammenligning er nyttenivået $U(8,27)=2\\cdot 9=18$, så økningen er marginal — men den er positiv, og fortegnet er det oppgaven spør etter.\n\n**Merk begrunnelsen:** det holder ikke å si «bedre stilt». Sensor vil se de to leddene, tallene og at summen er positiv. Vær også presis på at dette er et *anslag* — den eksakte nytteendringen krever innsetting i $U$.",
+        "hints": [
+          "Regn $U'_x$ og $U'_y$ som brøker; potensene $27/8$ og $8/27$ har pene røtter.",
+          "Bidragene har motsatt fortegn — det er summen, ikke det største enkeltleddet, som avgjør."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2.) La $f(x,y)=\\dfrac{x}{x+y}$ for $x+y>0$.\n\nAvgjør om hver påstand er sann eller usann, og begrunn med utregning.\n\n**a)** «$df=\\dfrac{y\\,dx-x\\,dy}{(x+y)^{2}}$»\n\n**b)** «Beveger vi oss slik at $dx=dy$, endres ikke $f$ når $x=y$.»",
+        "solution": "**a) Sann.** Vi regner ut begge partiellderiverte med kvotientregelen.\n\nMht. $x$: teller $x$ (derivert 1), nevner $x+y$ (derivert 1):\n\n$$f'_x=\\frac{1\\cdot(x+y)-x\\cdot 1}{(x+y)^{2}}=\\frac{y}{(x+y)^{2}}$$\n\nMht. $y$: telleren $x$ er konstant, nevneren har derivert 1:\n\n$$f'_y=\\frac{0\\cdot(x+y)-x\\cdot 1}{(x+y)^{2}}=-\\frac{x}{(x+y)^{2}}$$\n\nSatt inn:\n\n$$df=\\frac{y}{(x+y)^{2}}\\,dx-\\frac{x}{(x+y)^{2}}\\,dy=\\frac{y\\,dx-x\\,dy}{(x+y)^{2}}$$\n\nDette er ledd for ledd identisk med påstanden ✓.\n\n**b) Sann — men den må begrunnes, ikke gjettes.** Sett $dx=dy=h$ inn i differensialet:\n\n$$df=\\frac{y\\,h-x\\,h}{(x+y)^{2}}=\\frac{(y-x)\\,h}{(x+y)^{2}}$$\n\nEr $x=y$, blir telleren null, og dermed $df=0$ ✓.\n\n*Presisering som gir full uttelling:* dette gjelder **tilnærmet**, siden $df$ er en tilnærming. At $df=0$ betyr at $f$ ikke endrer seg til første orden. Her er påstanden faktisk eksakt sann i tillegg, for $f(x+h,x+h)=\\dfrac{x+h}{2x+2h}=\\dfrac12=f(x,x)$ — funksjonen er konstant langs diagonalen. Men *det* måtte vises separat; det følger ikke av differensialet alene.",
+        "hints": [
+          "I a): pass på at telleren er konstant mht. $y$, slik at $f'_y$ får minus.",
+          "I b): sett $dx=dy=h$ inn i uttrykket for $df$ og se når det blir null."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-3-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger DA — eksamensnivå med generell funksjon.) La $F$ være en deriverbar funksjon av to variabler, og la et selskaps kostnad være\n\n$$C(r,w)=r\\,K_0+w\\,L_0+F(r,w),$$\n\nder $K_0$ og $L_0$ er faste tall, $r$ er kapitalprisen og $w$ er lønnen.\n\n**a)** Sett opp $dC$.\n\n**b)** Anta at $F'_r<0$ og $F'_w<0$. Selskapet står overfor at $r$ stiger med $dr>0$ mens $w$ er uendret. Kan kostnaden falle? Begrunn.",
+        "solution": "**a)** Vi deriverer partielt ledd for ledd. Mht. $r$ bidrar $rK_0$ med $K_0$, mens $wL_0$ er konstant:\n\n$$C'_r=K_0+F'_r,\\qquad C'_w=L_0+F'_w$$\n\n$$dC=\\big(K_0+F'_r\\big)\\,dr+\\big(L_0+F'_w\\big)\\,dw$$\n\n**b)** Med $dw=0$ faller det andre leddet bort, og\n\n$$dC=\\big(K_0+F'_r\\big)\\,dr$$\n\nSiden $dr>0$, har $dC$ samme fortegn som $K_0+F'_r$.\n\n**Ja, kostnaden kan falle** — men bare hvis $F'_r<-K_0$, altså hvis den negative virkningen gjennom $F$ er sterkere enn den direkte kostnadsøkningen $K_0$. Vi vet at $F'_r<0$, men ikke *hvor* negativ den er, så fortegnet kan ikke avgjøres av opplysningene alene.\n\n**Presist svar:**\n\n$$dC<0\\iff F'_r<-K_0,\\qquad dC>0\\iff F'_r>-K_0$$\n\n**Konkret illustrasjon:** med $K_0=10$ og $F'_r=-3$ er $dC=7\\,dr>0$ (kostnaden stiger). Med $K_0=10$ og $F'_r=-14$ er $dC=-4\\,dr<0$ (kostnaden faller). Begge er forenlige med antakelsene.\n\n**Poenget:** når to ledd trekker i hver sin retning, er «det kommer an på» et fullgodt svar — så lenge du skriver ut betingelsen som avgjør. Å påstå et bestemt fortegn uten dekning er derimot en direkte feil.",
+        "hints": [
+          "Behandle $K_0$ og $L_0$ som konstanter og $F$ som en hvilken som helst deriverbar funksjon.",
+          "Med $dw=0$ står bare ett ledd igjen — hva må til for at parentesen foran $dr$ skal bli negativ?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-3-1-warning-df-delta",
+      "type": "warning",
+      "title": "Konvensjon: $df$ er ikke $\\Delta f$",
+      "content": "Disse to forveksles i hver eneste eksamensbesvarelse som mister poeng på temaet, så det er verdt å slå det fast:\n\n- **$df=f'_x\\,dx+f'_y\\,dy$** er den *tilnærmede* endringen, målt langs tangentplanet. Den er lineær i $dx$ og $dy$: doble skrittene, og $df$ dobles.\n- **$\\Delta f=f(x+\\Delta x,\\,y+\\Delta y)-f(x,y)$** er den *faktiske* endringen, målt på funksjonen selv. Den er ikke lineær.\n\nDe er like store bare når funksjonen er lineær (et plan). For alt annet er $\\Delta f-df\\ne 0$, og differansen kalles approksimasjonsfeilen. Fortegnet på den følger av krumningen, og det er tema i [kap. 3.2](/bok/econ1100/econ1100-3-2).\n\n**Praktisk regel på eksamen:** ser du ordet «tilnærmet» eller «omtrent» i oppgaven, er det $df$ som etterspørres. Ser du «nøyaktig» eller «faktisk», skal du regne ut $\\Delta f$ ved innsetting."
+    },
+    {
+      "id": "econ1100-3-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-3-1-bb-prosent",
+      "type": "definition",
+      "title": "Prosenttolkning av differensialet",
+      "content": "Skriver du differensialet på relativ form, kan hvert ledd leses som et prosentbidrag.\n\n$$\\frac{df}{f}=\\frac{f'_x\\,x}{f}\\cdot\\frac{dx}{x}+\\frac{f'_y\\,y}{f}\\cdot\\frac{dy}{y}$$\n\nFaktorene foran er nettopp elastisitetene fra [kap. 2.1](/bok/econ1100/econ1100-2-1). Setningen «prisen stiger med to prosent og inntekten med én prosent» blir dermed direkte oversettbar til en prosentvis endring i $f$, uten at du trenger å kjenne nivåene."
+    },
+    {
+      "id": "econ1100-3-1-bb-su-mal",
+      "type": "definition",
+      "title": "Malen for en differensialpåstand på eksamen",
+      "content": "Sant/usant-punktene om differensialer besvares alltid etter samme fire linjer.\n\n$$\\text{regn }f'_x,\\ f'_y\\ \\to\\ \\text{skriv }df\\ \\to\\ \\text{sammenlign ledd}\\ \\to\\ \\text{konkluder}$$\n\nSammenligningen er den delen sensor leter etter: pek eksplisitt på leddet som mangler eller på at alle ledd stemmer. Konklusjonen alene gir null uttelling, uansett om den er riktig."
+    },
+    {
+      "id": "econ1100-3-1-bb-numerisk-kontroll",
+      "type": "definition",
+      "title": "Numerisk kontroll av et differensial",
+      "content": "Er du usikker på om differensialet ditt er riktig, kan du sjekke det med tall på under ett minutt.\n\n$$df\\approx\\Delta f\\quad\\text{for små }dx,\\,dy$$\n\nVelg et enkelt punkt og små skritt, regn ut begge sider, og se om de ligger nær hverandre. Er avviket stort, har du sannsynligvis mistet et ledd eller en faktor. Metoden beviser ingenting, men den fanger de fleste regnefeil."
+    },
+    {
+      "id": "econ1100-3-1-bb-cobb-douglas",
+      "type": "definition",
+      "title": "Differensialet av en Cobb-Douglas-funksjon",
+      "content": "Funksjonstypen $AK^{\\alpha}L^{\\beta}$ går igjen i hele faget, og differensialet har en form verdt å kjenne igjen.\n\n$$Q=AK^{\\alpha}L^{\\beta}\\ \\Longrightarrow\\ \\frac{dQ}{Q}=\\alpha\\,\\frac{dK}{K}+\\beta\\,\\frac{dL}{L}$$\n\nI ord: eksponentene ER de prosentvise omregningsfaktorene. Øker kapitalen med én prosent, øker produksjonen med $\\alpha$ prosent. Dette er den korteste veien inn i både elastisitet ([kap. 2.1](/bok/econ1100/econ1100-2-1)) og skalautbytte ([kap. 7.1](/bok/econ1100/econ1100-7-1))."
+    },
+    {
+      "id": "econ1100-3-1-bb-fortegn",
+      "type": "definition",
+      "title": "Fortegn på $dx$ og $dy$",
+      "content": "Differensialene bærer fortegn, og fortegnet er en del av opplysningene i oppgaven.\n\n$$\\text{faller med }0{,}5\\ \\Longrightarrow\\ dy=-0{,}5$$\n\nSett tallet inn med sitt fortegn og la regnestykket gjøre resten. Å både sette inn et negativt tall og «snu» leddet manuelt er en dobbeltbokføring som gir feil svar — og den er vanskelig å oppdage, fordi uttrykket ser riktig ut."
+    },
+    {
+      "id": "econ1100-3-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-3-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1) og [kap. 1.2](/bok/econ1100/econ1100-1-2) — differensialet krever bare at partiellderivasjonen sitter.\n\n**1.** La $f(x,y)=x^{3}y-4y^{2}$. Finn $f'_x$ og $f'_y$.\n\n*Svar:* $f'_x=3x^{2}y$ og $f'_y=x^{3}-8y$.\n\n**2.** La $g(x,y)=e^{3x+y}$. Finn $g'_x$ og $g'_y$.\n\n*Svar:* $g'_x=3e^{3x+y}$ og $g'_y=e^{3x+y}$ — kjerneregelen gir faktoren fra eksponenten.\n\n**3.** Deriver $h(x)=\\dfrac{1}{x^{2}}$.\n\n*Svar:* Skriv $h=x^{-2}$; da er $h'=-2x^{-3}=-\\dfrac{2}{x^{3}}$.\n\n**4.** La $f(x,y)=\\ln(xy)$ for $x,y>0$. Finn $f'_x$.\n\n*Svar:* $f'_x=\\dfrac{y}{xy}=\\dfrac{1}{x}$. (Eller: $\\ln(xy)=\\ln x+\\ln y$, og da er det åpenbart.)\n\n**5.** La $Q(K,L)=K^{0{,}3}L^{0{,}7}$. Finn $Q'_K$.\n\n*Svar:* $Q'_K=0{,}3K^{-0{,}7}L^{0{,}7}=0{,}3\\left(\\dfrac{L}{K}\\right)^{0{,}7}$.\n\n**6.** Hva er $\\dfrac{\\partial}{\\partial x}\\big(7y^{3}\\big)$?\n\n*Svar:* $0$ — uttrykket inneholder ingen $x$ og er derfor en konstant her."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-3-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $df$ | Differensialet: den tilnærmede endringen i $f$, målt langs tangenten |\n| $\\Delta f$ | Tilveksten: den faktiske endringen $f(\\text{nytt})-f(\\text{gammelt})$ |\n| $dx$, $dy$ | De valgte små endringene i variablene; bærer fortegn |\n| $\\Delta x$, $\\Delta y$ | Samme skritt som $dx$, $dy$ — for de frie variablene er de identiske |\n| $f'_x$, $f'_y$ | Partiellderiverte: effekten per enhet av hver variabel |\n| $K$, $L$, $Q(K,L)$ | Kapital, arbeidskraft og produsert mengde |\n| $Q'_K$, $Q'_L$ | Grenseprodukt av kapital og arbeidskraft |\n| $U(x,y)$, $U'_x$ | Nyttefunksjon og grensenytte |\n| $F(x,y)=c$ | En nivåkurve — funksjonsverdien holdes konstant |\n| $df/f$ | Relativ (prosentvis) endring i $f$ |\n\n**Formler i dette delkapitlet:**\n\n$$df=f'(x)\\,dx$$\nDifferensialet i én variabel: stigningstall ganget med skrittlengde.\n\n$$df=f'_x\\,dx+f'_y\\,dy$$\nDifferensialet i to variabler — ett ledd per variabel, begge alltid med (feil #4).\n\n$$\\Delta f=f(x+\\Delta x,\\,y+\\Delta y)-f(x,y)$$\nDen faktiske tilveksten. Ikke det samme som $df$, uansett hvor små skrittene er.\n\n$$d(f+g)=df+dg,\\qquad d(cf)=c\\,df,\\qquad d(fg)=g\\,df+f\\,dg$$\nRegnereglene arves rett fra derivasjon.\n\n$$d\\big(\\ln u\\big)=\\frac{du}{u},\\qquad d\\big(e^{u}\\big)=e^{u}\\,du$$\nDe to funksjonsformene som dominerer økonomimodeller.\n\n$$dF=F'_x\\,dx+F'_y\\,dy=0$$\nLangs en nivåkurve er den samlede endringen null — startpunktet for [kap. 5.1](/bok/econ1100/econ1100-5-1).\n\n$$\\frac{df}{f}=d(\\ln f)$$\nRelativ endring; broen til elastisitet i [kap. 2.1](/bok/econ1100/econ1100-2-1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

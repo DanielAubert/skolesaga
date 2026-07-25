@@ -1,0 +1,319 @@
+{
+  "id": "econ1100-8-3",
+  "courseId": "econ1100",
+  "chapterNumber": "8.3",
+  "title": "Omhyllingsteoremet og skyggeprisen",
+  "description": "Hvordan den beste oppnåelige verdien endrer seg når en parameter endres — uten å løse problemet på nytt. Skyggeprisen dU*/dm = lambda, nyttetapet ved en prisøkning, og den generelle regelen dV/da = partiell L* / partiell a, brukt direkte slik sensor forventer.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke omhyllingsteoremet direkte i stedet for å reutlede det",
+    "tolke multiplikatoren som skyggepris på en ramme og som grensekostnad i produksjon",
+    "finne endringen i optimal verdi når en pris eller en vekt i målfunksjonen endres, med riktig fortegn",
+    "skille verdifunksjonens deriverte fra den partiellderiverte av målfunksjonen"
+  ],
+  "content": [
+    {
+      "id": "econ1100-8-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her får du et svar uten å regne oppgaven på nytt — og det er hele poenget.**\n\n**Sjanger OM — omhyllingsteoremet**, altså regelen for hvordan den *beste oppnåelige verdien* endrer seg når en parameter i problemet endres. Sjangeren står i **5 av 16 sett** i arkivet (31 %), og andelen er **stigende**: den forekommer både som et halepunkt på Lagrange-storoppgaven og som en påstand i sant/usant-oppgaven.\n\n**Sensor forventer at teoremet brukes direkte.** Å reutlede det er ikke en dyd her — det er bortkastet tid og gir ikke ekstra poeng. Skriv formelen, sett inn, tolk.\n\n**Det er også her $\\lambda$ endelig får mening.** Frem til nå har multiplikatoren vært et regnehjelpemiddel. I dette kapitlet viser det seg at den er en **skyggepris**: verdien av å slakke bibetingelsen med én enhet.\n\nKapitlet har **høyeste prioritet** — ikke fordi det er stort, men fordi det er karakterdifferensierende. Det er ofte her skillet mellom midtsjiktet og toppen går.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-8-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet forutsetter [kap. 8.1](/bok/econ1100/econ1100-8-1) og [kap. 8.2](/bok/econ1100/econ1100-8-2). Du bør også kjenne partiellderivasjon fra [kap. 1.2](/bok/econ1100/econ1100-1-2).\n\n**Sist du var her — de tre resultatene vi skal bygge videre på:**\n\n$$L=F(x,y)-\\lambda\\big(g(x,y)-m\\big)$$\n\n$$\\max\\ \\ln x+\\ln y\\ \\text{under}\\ p_1x+p_2y=m\\ \\Longrightarrow\\ x^*=\\frac{m}{2p_1},\\quad y^*=\\frac{m}{2p_2},\\quad \\lambda=\\frac{2}{m}$$\n\n$$\\min\\ c_1x_1+c_2x_2\\ \\text{under}\\ x_1^{1/2}x_2^{1/2}=\\bar Q\\ \\Longrightarrow\\ C^*=2\\bar Q\\sqrt{c_1c_2},\\quad \\lambda=2\\sqrt{c_1c_2}$$\n\nLegg allerede nå merke til den siste: $\\dfrac{dC^*}{d\\bar Q}=2\\sqrt{c_1c_2}=\\lambda$. Det er ikke et sammentreff, og dette kapitlet forklarer hvorfor."
+    },
+    {
+      "id": "econ1100-8-3-motivasjon",
+      "type": "text",
+      "content": "En kommune har 40 millioner til et velferdstiltak og har regnet ut den beste fordelingen. Så kommer spørsmålet fra politisk hold: *hva ville vi fått ut av én million til?*\n\nDen tunge veien er å løse hele optimeringsproblemet på nytt med 41 millioner og sammenligne. Den lette veien er å slå opp et tall du allerede har regnet ut.\n\nDet tallet er $\\lambda$. Multiplikatoren, som til nå bare har vært noe som skulle elimineres, måler nøyaktig hvor mye den beste oppnåelige verdien stiger når rammen løsnes med én enhet. Derfor kalles den en **skyggepris** — den er hva rammen er verdt på marginen, selv om ingen har satt en pris på den.\n\nDen generelle regelen bak dette heter **omhyllingsteoremet**, og den gjelder for enhver parameter i problemet: en pris, en inntekt, et produksjonskrav, en vekt i målfunksjonen."
+    },
+    {
+      "id": "econ1100-8-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Verdifunksjonen og skyggeprisen (~16 min)"
+    },
+    {
+      "id": "econ1100-8-3-def-verdifunksjon",
+      "type": "definition",
+      "title": "Verdifunksjonen",
+      "content": "Verdifunksjonen er den *beste oppnåelige* verdien av målfunksjonen, som funksjon av parameterne.\n\n$$V(a)=F\\big(x^*(a),y^*(a)\\big)$$\n\nHer står $a$ for en hvilken som helst parameter i problemet — inntekten $m$, en pris $p_1$, et produksjonskrav $\\bar Q$. Poenget er at $x^*$ og $y^*$ selv avhenger av $a$: endrer parameteren seg, flytter optimum seg. Verdifunksjonen tar hensyn til begge deler."
+    },
+    {
+      "id": "econ1100-8-3-def-skyggepris",
+      "type": "definition",
+      "title": "Skyggeprisen $\\lambda$",
+      "content": "Skyggeprisen er hva én enhet ekstra av den bindende ressursen er verdt.\n\n$$\\frac{dU^*}{dm}=\\lambda$$\n\nOrdet «skygge» viser til at prisen ikke står i noe marked — ingen selger deg en ekstra krone budsjett. Den er likevel et helt konkret tall: den maksimale nytten stiger med $\\lambda$ per krone. I kostnadsminimering er den tilsvarende tolkningen **grensekostnad**: hva den neste produserte enheten koster."
+    },
+    {
+      "id": "econ1100-8-3-thm-omhylling",
+      "type": "theorem",
+      "title": "Omhyllingsteoremet",
+      "content": "La $V(a)=F\\big(x^*(a),y^*(a)\\big)$ være verdifunksjonen for problemet\n\n$$\\max\\ F(x,y;a)\\quad\\text{under}\\quad g(x,y;a)=m,$$\n\nog la $L^*$ være Lagrange-funksjonen evaluert i optimum. Da er\n\n$$\\frac{dV}{da}=\\frac{\\partial L^*}{\\partial a}$$\n\n**I ord:** for å finne hvordan den optimale verdien endrer seg med en parameter, deriverer du Lagrange-funksjonen **partielt** med hensyn på parameteren og setter inn optimum. Du trenger ikke ta hensyn til at $x^*$ og $y^*$ flytter seg.\n\n**Hvorfor det virker (kort intuisjon, ikke en utledning du skal gjengi):** i optimum er de partiellderiverte av $L$ med hensyn på $x$ og $y$ lik null. Bidragene fra at optimum flytter seg, blir derfor ganget med null og forsvinner. Bare det direkte bidraget fra parameteren står igjen.\n\n**Sensor forventer at teoremet brukes, ikke reutledes.** Skriv formelen, deriver, sett inn."
+    },
+    {
+      "id": "econ1100-8-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Skyggeprisen på inntekt",
+      "problem": "For problemet $\\max\\ \\ln x+\\ln y$ under $p_1x+p_2y=m$ fant vi $x^*=\\dfrac{m}{2p_1}$, $y^*=\\dfrac{m}{2p_2}$ og $\\lambda=\\dfrac{2}{m}$.\n\n**a)** Bruk omhyllingsteoremet til å finne $dU^*/dm$.\n\n**b)** Kontroller svaret ved å regne ut $U^*(m)$ eksplisitt og derivere.\n\n**c)** Med $p_1=2$, $p_2=5$ og $m=200$: hvor mye stiger den maksimale nytten hvis inntekten øker med én krone?",
+      "solution": "**a) Bruk teoremet.** Lagrange-funksjonen er\n\n$$L=\\ln x+\\ln y-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\nParameteren er $m$. Deriver **partielt** mht. $m$, altså hold $x$, $y$ og $\\lambda$ faste:\n\n$$\\frac{\\partial L}{\\partial m}=-\\lambda\\cdot(-1)=\\lambda$$\n\nOmhyllingsteoremet gir dermed\n\n$$\\frac{dU^*}{dm}=\\lambda=\\frac{2}{m}$$\n\nDet er hele utregningen. Ingen reoptimering, ingen kjerneregel.\n\n**b) Kontroll ved direkte regning.** Sett de optimale verdiene inn i nyttefunksjonen:\n\n$$U^*(m)=\\ln\\frac{m}{2p_1}+\\ln\\frac{m}{2p_2}=\\ln\\frac{m^2}{4p_1p_2}=2\\ln m-\\ln(4p_1p_2)$$\n\nDeriver mht. $m$. Det siste leddet er konstant når prisene er faste:\n\n$$\\frac{dU^*}{dm}=\\frac{2}{m}\\ ✓$$\n\nSamme svar. Kontrollen tok lengre tid enn selve teoremet — det er nettopp derfor teoremet er verdt å kunne.\n\n**c) Tallcaset.** Med $m=200$ er\n\n$$\\lambda=\\frac{2}{200}=0{,}01$$\n\nÉn krone mer i inntekt gir omtrent $0{,}01$ nytteenheter mer. Ordet «omtrent» er viktig: $\\lambda$ er en **marginal** størrelse, altså stigningstallet i punktet. For små endringer er tilnærmingen god; for store endringer er den bare en tilnærming, akkurat som den lineære approksimasjonen i [kap. 3.2](/bok/econ1100/econ1100-3-2).\n\n*Merk at $\\lambda$ faller når $m$ stiger:* med $m=400$ er $\\lambda=0{,}005$. Den første kronen er verdt mer enn den fire hundrede. Det er avtakende grensenytte av inntekt, direkte lesbart fra formelen."
+    },
+    {
+      "id": "econ1100-8-3-fig-skyggepris",
+      "type": "image",
+      "src": "/images/textbook/econ1100/skyggepris-budsjettskift.svg",
+      "alt": "Et koordinatsystem med to fallende rette linjer, én stiplet og én heltrukket lenger ut fra origo. Hver linje berører sin egen fallende, konvekse kurve i ett punkt. Det ene berøringspunktet er markert med en blek prikk, det andre med en fylt prikk lenger opp til høyre. En tekst øverst oppgir at den deriverte av den optimale verdien med hensyn på rammen er lik multiplikatoren.",
+      "caption": "Skyggeprisen sett som bilde. Den stiplede linjen er budsjettet $m$, den heltrukne er $m+\\Delta m$. Når rammen løsnes, skyves budsjettlinjen utover, og konsumenten havner på en **høyere** indifferenskurve: fra $U^*(m)$ til $U^*(m+\\Delta m)$. Avstanden mellom de to nyttenivåene er nettopp det $\\lambda$ måler — per krone. I tallcaset fra eksempel 1 ($p_1=2$, $p_2=5$, $m=200$) er $\\lambda=0{,}01$, og hver ekstra krone løfter nytten med omtrent hundredelen av en nytteenhet."
+    },
+    {
+      "id": "econ1100-8-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger OM — omhyllingsteoremet, i 5 av 16 sett. Innstegsoppgave.) I problemet\n\n$$\\max\\ \\ln x+\\ln y\\quad\\text{under}\\quad 4x+y=40$$\n\ner løsningen $x^*=5$, $y^*=20$ og $\\lambda=\\tfrac{1}{20}$.\n\n**a)** Hvor mye øker den maksimale nytten omtrent hvis budsjettet øker fra 40 til 41?\n\n**b)** Kontroller svaret ved å regne ut $U^*(m)$ eksplisitt og derivere.",
+        "solution": "**a)** Omhyllingsteoremet gir direkte\n\n$$\\frac{dU^*}{dm}=\\lambda=\\frac{1}{20}=0{,}05$$\n\nÉn krone mer i budsjett løfter den maksimale nytten med omtrent $0{,}05$ nytteenheter.\n\n**b) Kontroll.** Med den generelle formelen fra [kap. 8.2](/bok/econ1100/econ1100-8-2) er $x^*=\\dfrac{m}{2\\cdot 4}=\\dfrac{m}{8}$ og $y^*=\\dfrac{m}{2\\cdot 1}=\\dfrac{m}{2}$, så\n\n$$U^*(m)=\\ln\\frac{m}{8}+\\ln\\frac{m}{2}=\\ln\\frac{m^2}{16}=2\\ln m-\\ln 16$$\n\n$$\\frac{dU^*}{dm}=\\frac{2}{m}$$\n\nMed $m=40$ blir dette $\\dfrac{2}{40}=0{,}05$ ✓ — samme svar som teoremet ga.\n\n*Kontroll av selve løsningen først:* $x^*=40/8=5$ ✓ og $y^*=40/2=20$ ✓, og bibetingelsen gir $4\\cdot 5+20=40$ ✓.\n\n*Til sammenligning, den eksakte endringen:* $U^*(41)-U^*(40)=2\\ln 41-2\\ln 40=2\\ln\\frac{41}{40}\\approx 0{,}0494$. Tilnærmingen $0{,}05$ er god, men ikke eksakt — den er marginal.",
+        "hints": [
+          "Omhyllingsteoremet sier at $dU^*/dm$ er noe du allerede har regnet ut.",
+          "I b): sett $x^*$ og $y^*$ inn i nyttefunksjonen og bruk at $\\ln a+\\ln b=\\ln(ab)$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Derivasjon med hensyn på en pris (~14 min)"
+    },
+    {
+      "id": "econ1100-8-3-def-prisderivert",
+      "type": "definition",
+      "title": "Endring i optimal verdi når en pris endres",
+      "content": "Stiger en pris, faller den maksimale nytten — og fallet har en enkel formel.\n\n$$\\frac{dU^*}{dp_i}=-\\lambda\\,x_i^*$$\n\nFortegnet er negativt: dyrere varer gjør konsumenten dårligere stilt. Størrelsen er skyggeprisen ganget med **hvor mye du kjøper**. Kjøper du mye av varen, svir en prisøkning tilsvarende mer — noe som stemmer godt med hverdagserfaring."
+    },
+    {
+      "id": "econ1100-8-3-def-hvorfor-fortegn",
+      "type": "definition",
+      "title": "Hvor minustegnet kommer fra",
+      "content": "Fortegnet følger av at prisen står inne i bibetingelsen, ikke av en egen regel.\n\n$$\\frac{\\partial L}{\\partial p_1}=-\\lambda\\frac{\\partial}{\\partial p_1}\\big(p_1x+p_2y-m\\big)=-\\lambda x$$\n\nDeriverer du Lagrange-funksjonen partielt mht. $p_1$, treffer du bare det ene leddet $-\\lambda p_1x$, og det gir $-\\lambda x$. Evaluert i optimum blir det $-\\lambda x^*$. Å huske formelen uten minus er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "econ1100-8-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Prisøkning og nyttetap",
+      "problem": "I problemet $\\max\\ \\ln x+\\ln y$ under $p_1x+p_2y=m$:\n\n**a)** Bruk omhyllingsteoremet til å finne $dU^*/dp_1$.\n\n**b)** Kontroller ved direkte derivasjon.\n\n**c)** Med $p_1=2$, $p_2=5$, $m=200$: hva skjer med den maksimale nytten hvis $p_1$ stiger med 0,1?",
+      "solution": "**a) Bruk teoremet.**\n\n$$L=\\ln x+\\ln y-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\n$$\\frac{\\partial L}{\\partial p_1}=-\\lambda x$$\n\nEvaluert i optimum, med $\\lambda=\\dfrac{2}{m}$ og $x^*=\\dfrac{m}{2p_1}$:\n\n$$\\frac{dU^*}{dp_1}=-\\lambda x^*=-\\frac{2}{m}\\cdot\\frac{m}{2p_1}=-\\frac{1}{p_1}$$\n\n**Forenklingen er poenget:** $m$ faller ut, og svaret er ganske enkelt $-1/p_1$.\n\n**b) Kontroll ved direkte derivasjon.** Fra eksempel 1 er\n\n$$U^*=2\\ln m-\\ln 4-\\ln p_1-\\ln p_2$$\n\n$$\\frac{dU^*}{dp_1}=-\\frac{1}{p_1}\\ ✓$$\n\n*Mellomregning:* $\\ln(4p_1p_2)=\\ln 4+\\ln p_1+\\ln p_2$, og bare det midterste leddet avhenger av $p_1$.\n\n**c) Tallcaset.** Med $p_1=2$ er\n\n$$\\frac{dU^*}{dp_1}=-\\frac12=-0{,}5$$\n\nEn prisøkning på $\\Delta p_1=0{,}1$ gir dermed omtrent\n\n$$\\Delta U^*\\approx -0{,}5\\cdot 0{,}1=-0{,}05$$\n\nNytten faller altså med rundt $0{,}05$ enheter.\n\n**Sammenlign med eksempel 1:** der ga én ekstra krone i inntekt $+0{,}01$. En prisøkning på 5 % på gode 1 koster altså like mye som å miste fem kroner i inntekt. Det er nettopp slike sammenligninger omhyllingsteoremet gjør mulige uten å regne noe på nytt.\n\n*Kontroll av fortegnet mot intuisjonen:* dyrere varer gjør konsumenten dårligere stilt ✓."
+    },
+    {
+      "id": "econ1100-8-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger OM.) Betrakt $\\max\\ \\ln x+2\\ln y$ under $p_1x+p_2y=m$, med løsningen\n\n$$x^*=\\frac{m}{3p_1},\\qquad y^*=\\frac{2m}{3p_2},\\qquad \\lambda=\\frac{3}{m}.$$\n\n**a)** Finn $dU^*/dm$ og $dU^*/dp_2$ ved hjelp av omhyllingsteoremet.\n\n**b)** Kontroller $dU^*/dp_2$ ved direkte derivasjon av $U^*$.",
+        "solution": "**a) Inntekten.** Parameteren $m$ står i bibetingelsen med fortegn $-(-m)$, så\n\n$$\\frac{\\partial L}{\\partial m}=\\lambda\\ \\Longrightarrow\\ \\frac{dU^*}{dm}=\\lambda=\\frac{3}{m}$$\n\n**Prisen på gode 2.**\n\n$$\\frac{dU^*}{dp_2}=-\\lambda y^*=-\\frac{3}{m}\\cdot\\frac{2m}{3p_2}=-\\frac{2}{p_2}$$\n\nMerk at det er $y^*$ som skal inn, ikke $x^*$ — formelen bruker mengden av det godet hvis pris endres.\n\n**b) Kontroll.** Sett inn i nyttefunksjonen:\n\n$$U^*=\\ln\\frac{m}{3p_1}+2\\ln\\frac{2m}{3p_2}$$\n\nSkriv ut logaritmene:\n\n$$U^*=\\ln m-\\ln 3-\\ln p_1+2\\ln 2+2\\ln m-2\\ln 3-2\\ln p_2$$\n\nBare ett ledd avhenger av $p_2$:\n\n$$\\frac{dU^*}{dp_2}=-\\frac{2}{p_2}\\ ✓$$\n\n*Legg merke til mønsteret:* koeffisienten $2$ foran $\\ln y$ går rett igjen i svaret. Generelt gir $a\\ln x+b\\ln y$ resultatet $dU^*/dp_2=-b/p_2$.",
+        "hints": [
+          "Formelen er $dU^*/dp_i=-\\lambda x_i^*$ — hvilken mengde hører til $p_2$?",
+          "I b): bruk $\\ln(u/v)=\\ln u-\\ln v$ og skill ut leddet med $p_2$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Ubegrunnet ja eller nei gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «$dU^*/dm$ og $\\partial U/\\partial m$ er to navn på samme størrelse.»\n\n**b)** «Skyggeprisen $\\lambda$ er den samme uansett hvor stort budsjettet er.»\n\n**c)** «En prisøkning på et gode konsumenten kjøper mye av, koster mer i nytte enn samme prisøkning på et gode hun kjøper lite av.»",
+        "solution": "**a) Usann.** De to størrelsene måler helt forskjellige ting.\n\n*Begrunnelse:* nyttefunksjonen $U(x,y)$ har ikke $m$ som argument i det hele tatt. Inntekten står i **bibetingelsen**, ikke i nyttefunksjonen, så $\\partial U/\\partial m=0$.\n\nStørrelsen $U^*$ er derimot **verdifunksjonen** — den optimale nytten som funksjon av $m$ — og den avhenger av inntekten gjennom $x^*(m)$ og $y^*(m)$. For $\\ln x+\\ln y$ er\n\n$$U^*(m)=2\\ln m-\\ln(4p_1p_2)\\ \\Longrightarrow\\ \\frac{dU^*}{dm}=\\frac{2}{m}\\ne 0$$\n\nDen rette streken $d$ mot den runde $\\partial$ er altså ikke en skrivemåte-detalj her; den skiller to ulike spørsmål.\n\n**b) Usann.** Skyggeprisen faller når budsjettet vokser.\n\n*Begrunnelse med utregning:* $\\lambda=\\dfrac{2}{m}$, som er strengt avtakende i $m$:\n\n$$m=100\\ \\Rightarrow\\ \\lambda=0{,}02;\\qquad m=400\\ \\Rightarrow\\ \\lambda=0{,}005$$\n\n*Økonomisk innhold:* den første kronen er verdt mer enn den fire hundrede. Det er avtakende grensenytte av inntekt, og det er lesbart rett ut av formelen.\n\n**c) Sann.** Det følger direkte av formelen.\n\n*Begrunnelse:* nyttetapet er\n\n$$\\frac{dU^*}{dp_i}=-\\lambda x_i^*$$\n\nMultiplikatoren $\\lambda$ er den samme for begge godene i ett og samme problem. Fortegnet er negativt for begge. Derfor er det bare $x_i^*$ som skiller: jo større mengde, desto større tap i tallverdi.\n\n*Konkret:* med $p_1=2$, $p_2=5$, $m=200$ er $x^*=50$ og $y^*=20$, og $\\lambda=0{,}01$. Da er $dU^*/dp_1=-0{,}5$ mot $dU^*/dp_2=-0{,}2$. En krones prisøkning på gode 1 koster mer enn dobbelt så mye som på gode 2 ✓.",
+        "hints": [
+          "I a): står $m$ i nyttefunksjonen $U(x,y)$ i det hele tatt?",
+          "I b): skriv opp formelen for $\\lambda$ og se om $m$ inngår.",
+          "I c): hva er det eneste som skiller de to uttrykkene $-\\lambda x^*$ og $-\\lambda y^*$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-3-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil med omhyllingsteoremet",
+      "content": "- **Å reutlede teoremet i stedet for å bruke det.** Sensor forventer direkte bruk. En lang utledning med kjerneregel og leddene fra $dx^*/dm$ er ikke galt, men det tar tid du ikke har, og det gir ingen ekstra poeng.\n- **Å glemme minustegnet i $-\\lambda x_i^*$.** Prisøkninger gjør konsumenten **dårligere** stilt. Kontroller alltid mot intuisjonen: er svaret positivt, har du sannsynligvis mistet et fortegn.\n- **Å forveksle $dU^*/dm$ og $\\partial U/\\partial m$.** Inntekten står ikke i nyttefunksjonen, bare i bibetingelsen. Den siste er null; den første er $\\lambda$.\n- **Å ikke evaluere i optimum.** Teoremet sier $\\partial L^*/\\partial a$ — stjernen betyr at $x$ og $y$ skal erstattes med $x^*$ og $y^*$ **etter** derivasjonen. Et svar som fortsatt inneholder $x$ og $y$, er ikke ferdig.\n- **Å bruke feil mengde i $-\\lambda x_i^*$.** Deriverer du mht. $p_2$, skal $y^*$ inn. Dette er en ren avlesningsfeil, og den er lett å unngå ved å skrive ned hvilket ledd i bibetingelsen prisen står i."
+    },
+    {
+      "id": "econ1100-8-3-pausepunkt",
+      "type": "text",
+      "content": "— naturlig pausepunkt —"
+    },
+    {
+      "id": "econ1100-8-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Den generelle formen (~15 min)"
+    },
+    {
+      "id": "econ1100-8-3-def-generell",
+      "type": "definition",
+      "title": "Omhyllingsteoremet i generell form",
+      "content": "Regelen gjelder for enhver parameter, uansett om den står i målfunksjonen eller i bibetingelsen.\n\n$$\\frac{dV}{da}=\\frac{\\partial L^*}{\\partial a}$$\n\nOppskriften er tre steg: (1) skriv opp $L$ med parameteren synlig, (2) deriver partielt mht. parameteren, (3) sett inn de optimale verdiene. Spesialtilfellene $dU^*/dm=\\lambda$ og $dU^*/dp_i=-\\lambda x_i^*$ er bare denne regelen brukt på hver sin parameter."
+    },
+    {
+      "id": "econ1100-8-3-def-indirekte",
+      "type": "definition",
+      "title": "Hvorfor de indirekte leddene faller bort",
+      "content": "At optimum flytter seg når parameteren endres, spiller ingen rolle på marginen.\n\n$$L'_x=0\\ \\text{og}\\ L'_y=0\\ \\text{i optimum}$$\n\nBidragene fra $dx^*/da$ og $dy^*/da$ blir ganget med nettopp disse to nullene. Derfor står bare det **direkte** bidraget fra parameteren igjen. Dette er hele innholdet i teoremet, og det er grunnen til at det sparer så mye arbeid."
+    },
+    {
+      "id": "econ1100-8-3-def-parameter-i-maal",
+      "type": "definition",
+      "title": "Parameter i målfunksjonen",
+      "content": "Står parameteren i målfunksjonen i stedet for i bibetingelsen, er oppskriften den samme.\n\n$$U=a\\ln x+\\ln y\\ \\Longrightarrow\\ \\frac{\\partial L}{\\partial a}=\\ln x\\ \\Longrightarrow\\ \\frac{dU^*}{da}=\\ln x^*$$\n\nMerk at multiplikatoren ikke er med her — den dukker bare opp når parameteren står i bibetingelsen. Fremgangsmåten er identisk: deriver $L$ partielt mht. parameteren, og sett inn optimum."
+    },
+    {
+      "id": "econ1100-8-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — grensekostnad og faktorpris",
+      "problem": "En bedrift minimerer $c_1x_1+c_2x_2$ under produksjonskravet $x_1^{1/2}x_2^{1/2}=\\bar Q$. Fra [kap. 8.2](/bok/econ1100/econ1100-8-2):\n\n$$x_1^*=\\bar Q\\sqrt{\\frac{c_2}{c_1}},\\qquad x_2^*=\\bar Q\\sqrt{\\frac{c_1}{c_2}},\\qquad C^*=2\\bar Q\\sqrt{c_1c_2},\\qquad \\lambda=2\\sqrt{c_1c_2}$$\n\n**a)** Bruk omhyllingsteoremet til å finne $dC^*/d\\bar Q$, og tolk resultatet.\n\n**b)** Bruk teoremet til å finne $dC^*/dc_1$, og tolk resultatet.\n\n**c)** Regn ut begge for $c_1=4$, $c_2=9$, $\\bar Q=6$, og kontroller mot direkte derivasjon.",
+      "solution": "**a) Produksjonskravet.** Lagrange-funksjonen er\n\n$$L=c_1x_1+c_2x_2-\\lambda\\big(x_1^{1/2}x_2^{1/2}-\\bar Q\\big)$$\n\nParameteren $\\bar Q$ står bare i det siste leddet, med fortegn $-\\lambda\\cdot(-\\bar Q)$:\n\n$$\\frac{\\partial L}{\\partial \\bar Q}=\\lambda\\ \\Longrightarrow\\ \\frac{dC^*}{d\\bar Q}=\\lambda=2\\sqrt{c_1c_2}$$\n\n**Tolkning:** multiplikatoren er **grensekostnaden** — hva den neste produserte enheten koster. Her er den konstant, uavhengig av hvor mye som produseres. Det er en egenskap ved denne teknologien (konstant skalautbytte), ikke en generell regel.\n\n**b) Faktorprisen.** Parameteren $c_1$ står i målfunksjonen:\n\n$$\\frac{\\partial L}{\\partial c_1}=x_1\\ \\Longrightarrow\\ \\frac{dC^*}{dc_1}=x_1^*=\\bar Q\\sqrt{\\frac{c_2}{c_1}}$$\n\n**Tolkning:** stiger prisen på faktor 1 med én krone, stiger den minimale kostnaden med $x_1^*$ kroner — altså med det antallet enheter bedriften faktisk bruker.\n\nDet er et pent og intuitivt resultat: bedriften vil tilpasse seg og bruke litt mindre av den dyrere faktoren, men **på marginen** teller bare mengden den bruker i dag. Tilpasningen gir ingen gevinst av første orden, og det er nettopp innholdet i omhyllingsteoremet.\n\nMerk fortegnet: her er det **positivt**. Dyrere innsatsfaktorer gir høyere kostnad, mens dyrere konsumvarer ga lavere nytte. Fortegnet følger av hva parameteren gjør med målfunksjonen, ikke av en fast regel.\n\n**c) Tallcaset** $c_1=4$, $c_2=9$, $\\bar Q=6$:\n\n$$\\frac{dC^*}{d\\bar Q}=2\\sqrt{36}=12,\\qquad \\frac{dC^*}{dc_1}=x_1^*=6\\sqrt{\\frac94}=9$$\n\n**Kontroll ved direkte derivasjon.** Verdifunksjonen er $C^*=2\\bar Q\\sqrt{c_1c_2}$.\n\nMht. $\\bar Q$ er dette en lineær funksjon:\n\n$$\\frac{dC^*}{d\\bar Q}=2\\sqrt{c_1c_2}=2\\sqrt{36}=12\\ ✓$$\n\nMht. $c_1$, skriv $C^*=2\\bar Q\\sqrt{c_2}\\cdot c_1^{1/2}$ og deriver:\n\n$$\\frac{dC^*}{dc_1}=2\\bar Q\\sqrt{c_2}\\cdot\\tfrac12 c_1^{-1/2}=\\bar Q\\sqrt{\\frac{c_2}{c_1}}=6\\cdot\\frac32=9\\ ✓$$\n\nBegge stemmer.\n\n**Legg merke til hvor mye kortere teoremveien var.** I b) var hele utregningen «deriver $c_1x_1$ mht. $c_1$, det gir $x_1$, sett inn optimum». Kontrollen krevde potensregler på et sammensatt uttrykk. På eksamen er den første veien den du skal gå."
+    },
+    {
+      "id": "econ1100-8-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger OM — kostnadsminimering.) En bedrift har $Q=K^{1/2}N^{1/2}$, kapitalpris $r=5$, lønn $w=20$ og produksjonskrav $\\bar Q=40$. Løsningen er $K^*=80$, $N^*=20$, $C^*=800$ og $\\lambda=20$.\n\n**a)** Hvor mye øker den minimale kostnaden omtrent hvis produksjonskravet øker til 41?\n\n**b)** Hvor mye øker den minimale kostnaden omtrent hvis lønna stiger fra 20 til 21?\n\n**c)** Hvilken av de to endringene koster bedriften mest?",
+        "solution": "**a)** Produksjonskravet står i bibetingelsen, så\n\n$$\\frac{dC^*}{d\\bar Q}=\\lambda=20$$\n\nÉn enhet mer produksjon koster omtrent 20 kroner.\n\n**b)** Lønna står i målfunksjonen $5K+20N$. (Lagrange-funksjonen skrives $\\mathcal{L}$ i produsentoppgaver, der $L$ er reservert for arbeidskraft.) Deriver partielt:\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial w}=N\\ \\Longrightarrow\\ \\frac{dC^*}{dw}=N^*=20$$\n\nÉn krone mer i lønn koster omtrent 20 kroner ekstra — fordi bedriften sysselsetter 20 enheter arbeidskraft.\n\n**c)** De to er like store her, begge 20 kroner. Det er et rent sammentreff i akkurat disse tallene, og ikke noe mønster.\n\n*Kontroll av a) ved direkte regning:* den generelle formelen gir $C^*=2\\bar Q\\sqrt{rw}=2\\bar Q\\sqrt{100}=20\\bar Q$, som er lineær i $\\bar Q$ med stigningstall $20$ ✓.\n\n*Kontroll av b):* $C^*=2\\cdot 40\\sqrt{5w}=80\\sqrt5\\cdot w^{1/2}$, så\n\n$$\\frac{dC^*}{dw}=80\\sqrt5\\cdot\\tfrac12 w^{-1/2}=\\frac{40\\sqrt5}{\\sqrt{20}}=\\frac{40\\sqrt5}{2\\sqrt5}=20\\ ✓$$",
+        "hints": [
+          "I a): produksjonskravet står i bibetingelsen — hvilken størrelse måler endringen da?",
+          "I b): lønna står i kostnadsuttrykket. Deriver $5K+20N$ mht. lønnssatsen og sett inn optimum."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger OM — parameter i målfunksjonen.) Betrakt\n\n$$\\max\\ a\\ln x+\\ln y\\quad\\text{under}\\quad p_1x+p_2y=m,$$\n\nder $a>0$ er en vekt som sier hvor mye gode 1 betyr for konsumenten.\n\n**a)** Finn $x^*$, $y^*$ og $\\lambda$ uttrykt ved $a$, $p_1$, $p_2$ og $m$.\n\n**b)** Bruk omhyllingsteoremet til å finne $dU^*/da$.\n\n**c)** Kontroller svaret i b) for $a=2$, $p_1=3$, $p_2=4$, $m=90$ ved å regne ut $U^*(a)$ og derivere numerisk med et lite steg.",
+        "solution": "**a)** Dette er den generelle Cobb-Douglas-formelen fra [kap. 8.2](/bok/econ1100/econ1100-8-2) med vekter $a$ og $b=1$:\n\n$$x^*=\\frac{a}{a+1}\\cdot\\frac{m}{p_1},\\qquad y^*=\\frac{1}{a+1}\\cdot\\frac{m}{p_2},\\qquad \\lambda=\\frac{a+1}{m}$$\n\n*Kontroll:* $p_1x^*+p_2y^*=\\dfrac{am}{a+1}+\\dfrac{m}{a+1}=m$ ✓\n\n**b)** Parameteren $a$ står i målfunksjonen:\n\n$$L=a\\ln x+\\ln y-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\n$$\\frac{\\partial L}{\\partial a}=\\ln x$$\n\nEvaluert i optimum:\n\n$$\\frac{dU^*}{da}=\\ln x^*=\\ln\\left(\\frac{a}{a+1}\\cdot\\frac{m}{p_1}\\right)$$\n\n**Tolkning:** legger konsumenten litt mer vekt på gode 1, stiger den optimale nytten med logaritmen av hvor mye hun allerede kjøper av det. Merk at multiplikatoren ikke er med — den dukker bare opp når parameteren står i bibetingelsen.\n\n**c) Kontroll med tall.** Med $a=2$, $p_1=3$, $p_2=4$, $m=90$:\n\n$$x^*=\\frac{2}{3}\\cdot\\frac{90}{3}=\\frac{2}{3}\\cdot 30=20,\\qquad y^*=\\frac13\\cdot\\frac{90}{4}=7{,}5$$\n\n*Kontroll:* $3\\cdot 20+4\\cdot 7{,}5=60+30=90$ ✓\n\nTeoremet gir\n\n$$\\frac{dU^*}{da}=\\ln 20\\approx 2{,}9957$$\n\n**Numerisk kontroll.** Verdifunksjonen er\n\n$$U^*(a)=a\\ln\\left(\\frac{a}{a+1}\\cdot 30\\right)+\\ln\\left(\\frac{1}{a+1}\\cdot 22{,}5\\right)$$\n\nMed $a=2{,}01$: $x^*=\\frac{2{,}01}{3{,}01}\\cdot 30\\approx 20{,}0332$ og $y^*=\\frac{22{,}5}{3{,}01}\\approx 7{,}4751$, som gir\n\n$$U^*\\approx 2{,}01\\cdot\\ln 20{,}0332+\\ln 7{,}4751\\approx 6{,}0248+2{,}0116=8{,}0363$$\n\nMed $a=1{,}99$: $x^*\\approx 19{,}9666$, $y^*\\approx 7{,}5251$, og\n\n$$U^*\\approx 1{,}99\\cdot\\ln 19{,}9666+\\ln 7{,}5251\\approx 5{,}9582+2{,}0182=7{,}9764$$\n\nDifferansekvoten blir\n\n$$\\frac{8{,}0363-7{,}9764}{0{,}02}\\approx 2{,}996$$\n\nsom stemmer med $\\ln 20\\approx 2{,}9957$ ✓ innenfor avrundingen i mellomregningene.",
+        "hints": [
+          "I a): bruk den generelle formelen med vektene $a$ og $1$.",
+          "I b): hvor står $a$ i Lagrange-funksjonen, og hva blir den partiellderiverte?",
+          "I c): regn $U^*$ for to nære verdier av $a$ og ta differansekvoten."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger OM — klimainnramming, eksamensnivå.) Et land fordeler et utslippsbudsjett mellom industri ($x$) og transport ($y$). Miljøgevinsten er $G(x,y)=4\\sqrt{x}+6\\sqrt{y}$, og kostnadsrammen er $2x+3y=m$ millioner kroner.\n\n**a)** Vis at $x^*=y^*=m/5$ og finn $\\lambda$.\n\n**b)** Finn den maksimale miljøgevinsten $G^*(m)$.\n\n**c)** Bruk omhyllingsteoremet til å finne $dG^*/dm$, og kontroller mot direkte derivasjon. Hva er den marginale miljøgevinsten av én million kroner til når $m=125$?",
+        "solution": "**a) Oppsett og FOB:**\n\n$$L=4\\sqrt{x}+6\\sqrt{y}-\\lambda\\big(2x+3y-m\\big)$$\n\n$$\\text{FOB (1)}:\\ \\frac{2}{\\sqrt{x}}=2\\lambda\\ \\Longrightarrow\\ \\lambda=\\frac{1}{\\sqrt{x}}$$\n\n$$\\text{FOB (2)}:\\ \\frac{3}{\\sqrt{y}}=3\\lambda\\ \\Longrightarrow\\ \\lambda=\\frac{1}{\\sqrt{y}}$$\n\nDe to uttrykkene for $\\lambda$ er like, altså $\\sqrt{x}=\\sqrt{y}$, og siden begge er positive: $x=y$.\n\n**Sett inn i bibetingelsen:**\n\n$$2x+3x=m\\ \\Longrightarrow\\ 5x=m\\ \\Longrightarrow\\ x^*=y^*=\\frac{m}{5}$$\n\n$$\\lambda=\\frac{1}{\\sqrt{m/5}}=\\sqrt{\\frac{5}{m}}$$\n\n**b) Miljøgevinsten:**\n\n$$G^*(m)=4\\sqrt{\\frac m5}+6\\sqrt{\\frac m5}=10\\sqrt{\\frac m5}$$\n\n**c) Omhyllingsteoremet.** Parameteren $m$ står i bibetingelsen:\n\n$$\\frac{\\partial L}{\\partial m}=\\lambda\\ \\Longrightarrow\\ \\frac{dG^*}{dm}=\\lambda=\\sqrt{\\frac{5}{m}}$$\n\n**Kontroll ved direkte derivasjon.** Skriv $G^*=\\dfrac{10}{\\sqrt5}\\,m^{1/2}$ og deriver:\n\n$$\\frac{dG^*}{dm}=\\frac{10}{\\sqrt5}\\cdot\\frac{1}{2\\sqrt m}=\\frac{5}{\\sqrt5\\sqrt m}=\\frac{\\sqrt5}{\\sqrt m}=\\sqrt{\\frac5m}\\ ✓$$\n\n*Mellomregning:* $\\dfrac{5}{\\sqrt5}=\\dfrac{5}{\\sqrt5}\\cdot\\dfrac{\\sqrt5}{\\sqrt5}=\\dfrac{5\\sqrt5}{5}=\\sqrt5$.\n\n**Tallsvaret for $m=125$:**\n\n$$\\lambda=\\sqrt{\\frac{5}{125}}=\\sqrt{\\frac{1}{25}}=\\frac15=0{,}2$$\n\nÉn million kroner til gir omtrent $0{,}2$ enheter mer miljøgevinst.\n\n*Kontroll av nivået:* med $m=125$ er $x^*=y^*=25$, og $G^*=4\\cdot 5+6\\cdot 5=50$ ✓, som stemmer med $10\\sqrt{125/5}=10\\cdot 5=50$ ✓.\n\n*Merk at $\\lambda$ avtar i $m$:* med dobbelt så stor ramme er den marginale gevinsten bare $1/\\sqrt2$ så stor. De første kronene kjøper mest miljø.",
+        "hints": [
+          "I a): begge FOB kan skrives som «noe $=\\lambda$» — sett de to uttrykkene lik hverandre.",
+          "I b): sett $x^*=y^*=m/5$ inn i $G$ og trekk sammen.",
+          "I c): parameteren står i bibetingelsen, så svaret er en størrelse du allerede har."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-8-3-bb-1",
+      "type": "definition",
+      "title": "Trestegsoppskriften for omhyllingsteoremet",
+      "content": "Hele metoden, uansett hvilken parameter det gjelder.\n\n$$\\text{skriv }L\\ \\to\\ \\text{deriver partielt mht. parameteren}\\ \\to\\ \\text{sett inn optimum}$$\n\nDet er alt. Er svaret ditt lengre enn tre linjer, har du sannsynligvis begynt å reutlede teoremet i stedet for å bruke det."
+    },
+    {
+      "id": "econ1100-8-3-bb-2",
+      "type": "definition",
+      "title": "De to spesialtilfellene du må kunne",
+      "content": "Disse to dekker de fleste eksamensbrukene.\n\n$$\\frac{dU^*}{dm}=\\lambda,\\qquad \\frac{dU^*}{dp_i}=-\\lambda\\,x_i^*$$\n\nDen første er positiv (mer budsjett er bedre), den andre negativ (dyrere varer er verre). Begge følger av den generelle regelen brukt på hver sin parameter."
+    },
+    {
+      "id": "econ1100-8-3-bb-3",
+      "type": "definition",
+      "title": "Verdifunksjon mot målfunksjon",
+      "content": "To ulike funksjoner som lett forveksles.\n\n$$U(x,y)\\ \\text{— nytten av et knippe};\\qquad U^*(m,p_1,p_2)\\ \\text{— den beste oppnåelige nytten}$$\n\nStjernen betyr at optimeringen allerede er gjort. Derfor er $\\partial U/\\partial m=0$ mens $dU^*/dm=\\lambda$ — inntekten står i bibetingelsen, ikke i nyttefunksjonen."
+    },
+    {
+      "id": "econ1100-8-3-bb-4",
+      "type": "definition",
+      "title": "$\\lambda$ i kostnadsminimering",
+      "content": "Samme størrelse, ny drakt.\n\n$$\\lambda=\\frac{dC^*}{d\\bar Q}$$\n\nMultiplikatoren er grensekostnaden — hva den neste enheten koster å produsere. I konsumentproblemet var den grensenytten av inntekt; det er samme idé sett fra kostnadssiden."
+    },
+    {
+      "id": "econ1100-8-3-bb-5",
+      "type": "definition",
+      "title": "Avtakende skyggepris",
+      "content": "Skyggeprisen er ikke en konstant.\n\n$$\\lambda=\\frac{2}{m}\\ \\Longrightarrow\\ \\lambda\\ \\text{faller når}\\ m\\ \\text{stiger}$$\n\nDen første kronen er verdt mer enn den siste. Å påstå at $\\lambda$ er uavhengig av budsjettet er en klassisk sant/usant-felle, og motsvaret er å regne ut $\\lambda$ for to inntektsnivåer."
+    },
+    {
+      "id": "econ1100-8-3-bb-6",
+      "type": "definition",
+      "title": "Parameter i målfunksjonen gir ikke $\\lambda$",
+      "content": "Hvor parameteren står, avgjør hvordan svaret ser ut.\n\n$$\\frac{\\partial L}{\\partial c_1}=x_1\\ \\Longrightarrow\\ \\frac{dC^*}{dc_1}=x_1^*$$\n\nStår parameteren i målfunksjonen, blir svaret en mengde. Står den i bibetingelsen, kommer $\\lambda$ inn. Sjekk alltid hvor parameteren faktisk bor før du skriver formelen."
+    },
+    {
+      "id": "econ1100-8-3-bb-7",
+      "type": "definition",
+      "title": "Marginal, ikke eksakt",
+      "content": "Teoremet gir stigningstallet, ikke den faktiske endringen.\n\n$$\\Delta U^*\\approx\\lambda\\,\\Delta m$$\n\nFor små $\\Delta m$ er tilnærmingen god. Dette er samme tenkning som i den lineære approksimasjonen i [kap. 3.2](/bok/econ1100/econ1100-3-2), og «omtrent» hører med i svarsetningen."
+    },
+    {
+      "id": "econ1100-8-3-bb-8",
+      "type": "definition",
+      "title": "Fortegnskontroll mot intuisjonen",
+      "content": "Et raskt tilregnelighetssjekk før du leverer.\n\n$$\\text{mer budsjett}\\ \\Rightarrow\\ \\text{bedre};\\qquad \\text{høyere pris}\\ \\Rightarrow\\ \\text{verre}$$\n\nFår du et positivt tall for $dU^*/dp_1$, har du mistet et minustegn. Fortegnet på svaret skal alltid kunne forsvares med én setning på norsk."
+    },
+    {
+      "id": "econ1100-8-3-bb-9",
+      "type": "definition",
+      "title": "Hvorfor teoremet sparer arbeid",
+      "content": "Fordi tilpasningen ikke teller på marginen.\n\n$$L'_x=L'_y=0\\ \\Longrightarrow\\ \\text{leddene fra }dx^*/da\\ \\text{og }dy^*/da\\ \\text{forsvinner}$$\n\nBedriften eller konsumenten vil justere seg når parameteren endres, men gevinsten av den justeringen er av andre orden. Bare det direkte bidraget står igjen."
+    },
+    {
+      "id": "econ1100-8-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-8-3-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 8.1](/bok/econ1100/econ1100-8-1), [kap. 8.2](/bok/econ1100/econ1100-8-2) og [kap. 3.2](/bok/econ1100/econ1100-3-2).\n\n**1.** Hva er $\\lambda$ for $\\max\\ \\ln x+\\ln y$ under $p_1x+p_2y=m$?\n\n*Svar:* $\\lambda=2/m$.\n\n**2.** Deriver $-\\lambda(p_1x+p_2y-m)$ partielt mht. $m$.\n\n*Svar:* $\\lambda$ — det eneste leddet med $m$ er $+\\lambda m$.\n\n**3.** Deriver samme uttrykk partielt mht. $p_1$.\n\n*Svar:* $-\\lambda x$.\n\n**4.** Skriv $\\ln\\dfrac{m^2}{4p_1p_2}$ som en sum av logaritmer.\n\n*Svar:* $2\\ln m-\\ln 4-\\ln p_1-\\ln p_2$.\n\n**5.** Hva sier den lineære approksimasjonen om $\\Delta f$ når $f'(a)=0{,}05$ og $\\Delta x=1$?\n\n*Svar:* $\\Delta f\\approx 0{,}05$.\n\n**6.** Hva er $x_1^*$ ved $\\min\\ c_1x_1+c_2x_2$ under $x_1^{1/2}x_2^{1/2}=\\bar Q$?\n\n*Svar:* $x_1^*=\\bar Q\\sqrt{c_2/c_1}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-8-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-8-3-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $V(a)$ | Verdifunksjonen: beste oppnåelige verdi som funksjon av parameteren |\n| $U^*$ | Maksimal nytte — verdifunksjonen i konsumentproblemet |\n| $C^*$ | Minimal kostnad — verdifunksjonen i produsentproblemet |\n| $L^*$ | Lagrange-funksjonen evaluert i optimum |\n| $\\mathcal{L}$ | Lagrange-funksjonen i produsentoppgaver, der $L$ betyr arbeidskraft |\n| $\\lambda$ | Multiplikatoren, tolket som skyggepris |\n| $a$ | En vilkårlig parameter i problemet |\n| $m$ | Inntekt eller budsjettramme |\n| $p_i$ | Prisen på gode $i$ |\n| $c_1,c_2$ | Faktorpriser |\n| $\\bar Q$ | Produksjonskrav |\n| $x_i^*$ | Optimal mengde av gode $i$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{dV}{da}=\\frac{\\partial L^*}{\\partial a}$$\nOmhyllingsteoremet. Deriver Lagrange-funksjonen partielt mht. parameteren og sett inn optimum.\n\n$$\\frac{dU^*}{dm}=\\lambda$$\nSkyggeprisen på inntekt: hva én krone til er verdt i nytte.\n\n$$\\frac{dU^*}{dp_i}=-\\lambda\\,x_i^*$$\nNyttetapet ved en prisøkning. Minustegnet er obligatorisk.\n\n$$\\frac{dC^*}{d\\bar Q}=\\lambda$$\nGrensekostnaden: hva den neste produserte enheten koster.\n\n$$\\frac{dC^*}{dc_1}=x_1^*$$\nParameteren står i målfunksjonen, så svaret er en mengde og ikke en skyggepris.\n\n$$\\Delta U^*\\approx\\lambda\\,\\Delta m$$\nDen marginale tolkningen brukt på en endelig endring — en tilnærming, ikke en likhet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

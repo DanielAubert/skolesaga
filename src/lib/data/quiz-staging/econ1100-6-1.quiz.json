@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er førsteordensbetingelsene i fri optimering av $f(x,y)$?",
+    "options": [
+      "$f'_x=0$ og $f'_y=0$",
+      "$f'_x=0$ og $f''_{xx}=0$",
+      "$f'_x=f'_y$ og $f''_{xy}=0$",
+      "$f'_x+f'_y=0$ og $D=0$"
+    ],
+    "explanation": "Begge partiellderiverte må være null samtidig — flaten er da vannrett i begge akseretninger. Alternativ tre blander sammen «like» og «null», en vanlig lesefeil."
+  },
+  {
+    "question": "Hvordan skrives Hesse-determinanten?",
+    "options": [
+      "$D=f''_{xx}f''_{yy}-(f''_{xy})^2$",
+      "$D=f''_{xx}f''_{yy}+(f''_{xy})^2$",
+      "$D=f''_{xx}f''_{yy}-f''_{xy}$",
+      "$D=f''_{xx}+f''_{yy}-(f''_{xy})^2$"
+    ],
+    "explanation": "Kryssleddet kvadreres og trekkes fra. Alternativ to har feil fortegn foran kryssleddet, og alternativ tre har glemt kvadratet — begge er dokumenterte regnefeil i sjangeren."
+  },
+  {
+    "question": "Hva betyr $D<0$ i et stasjonærpunkt?",
+    "options": [
+      "Punktet er et sadelpunkt",
+      "Punktet er et lokalt maksimum",
+      "Punktet er et lokalt minimum",
+      "Testen gir ikke noe svar"
+    ],
+    "explanation": "Negativ determinant betyr at flaten krummer motsatt vei i to retninger. Da trengs ingen sjekk av $f''_{xx}$ — den er uten betydning når $D<0$."
+  },
+  {
+    "question": "Hva må sjekkes i tillegg når $D>0$?",
+    "options": [
+      "Fortegnet på $f''_{xx}$",
+      "Fortegnet på $f''_{xy}$",
+      "Om $f'_x$ er større enn $f'_y$",
+      "Om punktet ligger i første kvadrant"
+    ],
+    "explanation": "$D>0$ sier at punktet er et ekstrempunkt, men ikke om det er topp eller bunn. Fortegnet på $f''_{xy}$ er uten betydning, siden kryssleddet kvadreres i $D$."
+  },
+  {
+    "question": "Hva er riktig konklusjon når $D=0$ i kandidatpunktet?",
+    "options": [
+      "Testen er inkonklusiv her",
+      "Punktet er et sadelpunkt",
+      "Punktet er et vendepunkt",
+      "Punktet er et globalt minimum"
+    ],
+    "explanation": "Alle tre utfall er mulige når $D=0$, så testen skiller dem ikke. Å skrive at testen ikke gir svar er et korrekt svar; å gjette gir ingen uttelling."
+  },
+  {
+    "question": "Hvorfor holder det ikke å se på $f''_{xx}$ alene?",
+    "options": [
+      "Den ser bare krumningen langs én retning",
+      "Den er alltid null i et stasjonærpunkt",
+      "Den er alltid lik $f''_{yy}$ i et ekstrempunkt",
+      "Den kan ikke regnes ut uten $f''_{xy}$"
+    ],
+    "explanation": "I $f(x,y)=x^2-y^2$ er $f''_{xx}=2>0$, men origo er et sadelpunkt. Krumning oppover langs $x$-aksen sier ingenting om de andre retningene."
+  },
+  {
+    "question": "Hvor mange stasjonærpunkter har $f(x,y)=x^2y+x^2+2y^2$?",
+    "options": [
+      "Tre",
+      "Ett",
+      "To",
+      "Fire"
+    ],
+    "explanation": "$f'_x=2x(y+1)$ gir grenene $x=0$ og $y=-1$; den første gir ett punkt, den andre to. Svarer man «ett», har man delt på $2x$ i stedet for å faktorisere."
+  },
+  {
+    "question": "Hva blir $f''_{xy}$ når $f(x,y)=x^2y+x^2+2y^2$?",
+    "options": [
+      "$2x$",
+      "$2y+2$",
+      "$4$",
+      "$x^2$"
+    ],
+    "explanation": "Deriver $f'_x=2xy+2x$ mht. $y$, og alle ledd uten $y$ faller bort. Alternativ to er $f''_{xx}$ og alternativ tre er $f''_{yy}$ — begge for samme funksjon."
+  },
+  {
+    "question": "Hva er den vanligste måten å miste et kandidatpunkt på?",
+    "options": [
+      "Å dele på en faktor i stedet for å faktorisere",
+      "Å regne $D$ i feil kandidatpunkt",
+      "Å bruke $f''_{yy}$ i stedet for $f''_{xx}$",
+      "Å derivere i feil rekkefølge i $f''_{xy}$"
+    ],
+    "explanation": "Deling forutsetter at faktoren ikke er null, og da forsvinner hele grenen der den er null. De to siste alternativene er uskadelige: $f''_{yy}$ gir samme konklusjon når $D>0$, og Youngs teorem gjør rekkefølgen likegyldig."
+  },
+  {
+    "question": "Hva sier Youngs teorem om de kryssderiverte?",
+    "options": [
+      "$f''_{xy}=f''_{yx}$",
+      "$f''_{xy}=-f''_{yx}$",
+      "$f''_{xy}=f''_{xx}f''_{yy}$",
+      "$f''_{xy}=0$ i et stasjonærpunkt"
+    ],
+    "explanation": "Rekkefølgen spiller ingen rolle når de andrederiverte er kontinuerlige. Derfor trengs bare én av dem, og regner du ut begge, har du en gratis kontroll."
+  },
+  {
+    "question": "Hva blir $D$ for $f(x,y)=x^3+y^3-9xy$ i punktet $(3,3)$?",
+    "options": [
+      "$243$",
+      "$81$",
+      "$-81$",
+      "$324$"
+    ],
+    "explanation": "Med $f''_{xx}=6x$, $f''_{yy}=6y$ og $f''_{xy}=-9$ blir $D=36xy-81=324-81$. Alternativ fire har glemt å trekke fra kryssleddet."
+  },
+  {
+    "question": "Hva slags punkt er $(0,0)$ for $f(x,y)=x^3+y^3-9xy$?",
+    "options": [
+      "Sadelpunkt",
+      "Lokalt minimum",
+      "Lokalt maksimum",
+      "Ikke et stasjonærpunkt"
+    ],
+    "explanation": "Der er $D=36\\cdot 0-81=-81<0$. Det andre stasjonærpunktet, $(3,3)$, er derimot et lokalt minimum — samme funksjon gir altså ulike utfall."
+  },
+  {
+    "question": "Hvorfor er et lokalt minimum ikke uten videre globalt?",
+    "options": [
+      "Testen ser bare på krumningen i selve punktet",
+      "Fordi $D$ alltid er negativ langt fra punktet",
+      "Fordi globale punkter må ligge på randen",
+      "Fordi $f''_{xy}$ endrer fortegn utenfor punktet"
+    ],
+    "explanation": "Andrederiverttesten er en lokal test og sier bare noe om nabolaget. Et globalt utsagn krever at betingelsene holder i hele definisjonsområdet."
+  },
+  {
+    "question": "Hva forteller fortegnet på $f''_{xy}$ økonomisk?",
+    "options": [
+      "Om variablene er substitutter eller komplementer",
+      "Om punktet er et maksimum eller et minimum",
+      "Om funksjonen er homogen av positiv grad",
+      "Om grenseavkastningen er positiv eller negativ"
+    ],
+    "explanation": "Negativ kryssderivert betyr at mer av det ene senker grenseavkastningen av det andre. For selve klassifiseringen teller likevel bare tallverdien, siden kryssleddet kvadreres."
+  },
+  {
+    "question": "Hva er kandidatpunktet til $\\pi(x,y)=100x+80y-2x^2-2xy-2y^2$?",
+    "options": [
+      "$(20,10)$",
+      "$(10,20)$",
+      "$(25,15)$",
+      "$(20,20)$"
+    ],
+    "explanation": "Betingelsene $2x+y=50$ og $x+2y=40$ har entydig løsning $x=20$, $y=10$. Alternativ to bytter om koordinatene, som skjer hvis man løser feil likning for feil variabel."
+  },
+  {
+    "question": "Hva skiller fri optimering fra Lagrange-oppgaven i lesningen av teksten?",
+    "options": [
+      "Om det finnes en bindende likning i oppgaven",
+      "Om funksjonen har to eller flere variabler",
+      "Om det spørres om maksimum eller minimum",
+      "Om funksjonen inneholder et kryssledd"
+    ],
+    "explanation": "En bibetingelse $g(x,y)=m$ sender oppgaven til Del 8 og multiplikatoren; uten den brukes Hesse-determinanten. Antall variabler og valget mellom maks og min avgjør ikke hvilken metode som gjelder."
+  }
+]

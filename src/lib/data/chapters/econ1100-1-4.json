@@ -1,0 +1,330 @@
+{
+  "id": "econ1100-1-4",
+  "courseId": "econ1100",
+  "chapterNumber": "1.4",
+  "title": "Logaritmisk derivasjon",
+  "description": "Metoden sensor forventer for funksjoner med variabel eksponent: ta logaritmen, deriver, gang opp igjen.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kjenne igjen når en funksjon har variabel eksponent og hvorfor de vanlige derivasjonsreglene svikter",
+    "gjennomføre logaritmisk derivasjon i fire steg og gange opp med funksjonen til slutt",
+    "bruke metoden på uttrykk i grunntallet, i eksponenten, i to variabler og med generell eksponent",
+    "begrunne metodevalget og angi definisjonsområdet der grunntallet må være positivt"
+  ],
+  "content": [
+    {
+      "id": "econ1100-1-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er «signalet» i Oppgave 1.** Eksamens åpningsoppgave — i denne boka **sjanger P1 — partiellderivasjon** («deriver funksjonene med hensyn på argumentene») — inneholder jevnlig ett delpunkt med en funksjon der **eksponenten inneholder variabelen**: $x^{x}$, $(2x)^{2x}$, $(xy)^{xy}$ eller $x^{a(x)}$.\n\nSlike delpunkter dukker opp i flere av settene i arkivet vårt (blant annet H2019, H2021 og H2022), og de har én ting felles: **sensor forventer logaritmisk derivasjon**. Andre veier til svaret finnes, men de gir mindre uttelling, fordi det er nettopp metodevalget oppgaven tester.\n\nGjenkjenningen er det viktigste du tar med deg herfra: ser du variabelen både i grunntallet og i eksponenten — eller bare i eksponenten, med noe mer enn et rent tall som grunntall — er logaritmisk derivasjon svaret.\n\nKapitlet har **høyeste prioritet**, men det er kort: det er én oppskrift på fire linjer, og resten er øvelse."
+    },
+    {
+      "id": "econ1100-1-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte) og på $\\ln$-reglene fra [kap. 1.1](/bok/econ1100/econ1100-1-1). Trenger du å friske opp logaritmeregning, ligger det i [Potenser og logaritmer](/bok/r1/r1-1-2) og [Eksponential- og logaritmeligninger](/bok/r1/r1-1-3) i R1-boka.\n\n**De tre tingene du må ha klart:**\n\n$$\\ln\\big(a^{b}\\big)=b\\ln a,\\qquad \\frac{d}{dx}\\ln\\big(g(x)\\big)=\\frac{g'(x)}{g(x)},\\qquad \\frac{d}{dx}(uv)=u'v+uv'$$\n\nDen midterste brukes på en litt uvant måte her: vi deriverer $\\ln y$ der $y$ selv er en funksjon av $x$, og får $\\dfrac{y'}{y}$."
+    },
+    {
+      "id": "econ1100-1-4-motivasjon",
+      "type": "text",
+      "content": "Du kan derivere $x^{5}$ (potensregelen: eksponenten ned) og du kan derivere $5^{x}$ ($a^{x}$-regelen: gang med $\\ln 5$). Men hva med $x^{x}$?\n\nIngen av de to reglene virker. Potensregelen krever at eksponenten er en konstant, og $a^{x}$-regelen krever at grunntallet er en konstant. I $x^{x}$ er **begge** variable, og da står du fast — helt til du tar logaritmen på begge sider.\n\nTrikset er enkelt: logaritmen gjør en eksponent om til en faktor. Da forsvinner problemet, du deriverer et vanlig produkt, og ganger opp igjen til slutt.\n\nKapitlet er bygget som tre løkker: hvorfor de vanlige reglene ikke virker og hva oppskriften er (løkke 1), de faste eksamensvariantene (løkke 2), og den todimensjonale varianten med generell eksponent (løkke 3)."
+    },
+    {
+      "id": "econ1100-1-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Problemet og oppskriften (~13 min)"
+    },
+    {
+      "id": "econ1100-1-4-def-variabel-eksponent",
+      "type": "definition",
+      "title": "Variabel eksponent",
+      "content": "En funksjon har variabel eksponent når variabelen står oppe i eksponenten — og problemet blir for alvor når den står både oppe og nede.\n\n$$y=f(x)^{g(x)},\\qquad f(x)>0$$\n\nEksempler fra eksamen: $x^{x}$, $(2x)^{2x}$, $x^{\\sqrt{x}}$, $(x^{2}+1)^{x}$, $x^{a(x)}$. Kravet $f(x)>0$ er ikke en teknikalitet: uttrykk som $(-2)^{1/2}$ finnes ikke blant de reelle tallene, så grunntallet må være positivt for at funksjonen skal være definert."
+    },
+    {
+      "id": "econ1100-1-4-def-hvorfor-ikke-potens",
+      "type": "definition",
+      "title": "Hvorfor potensregelen ikke virker",
+      "content": "Potensregelen $\\frac{d}{dx}x^{a}=ax^{a-1}$ forutsetter at eksponenten $a$ er et **fast tall**. Er eksponenten en funksjon av $x$, endrer den seg samtidig med grunntallet, og regelen fanger bare den ene av de to endringene.\n\n$$\\frac{d}{dx}x^{x}\\ \\ne\\ x\\cdot x^{x-1}=x^{x}$$\n\nSjekk gjerne numerisk: den deriverte av $x^{x}$ i $x=2$ er om lag $6{,}77$, mens $x^{x}=4$ i samme punkt. Å levere $x\\cdot x^{x-1}$ er derfor ikke en liten unøyaktighet, men et feil svar."
+    },
+    {
+      "id": "econ1100-1-4-def-hvorfor-ikke-eksp",
+      "type": "definition",
+      "title": "Hvorfor $a^{x}$-regelen ikke virker",
+      "content": "Regelen $\\frac{d}{dx}a^{x}=a^{x}\\ln a$ forutsetter at **grunntallet** $a$ er et fast tall. I $x^{x}$ vokser grunntallet samtidig med eksponenten, så regelen fanger bare den ene virkningen.\n\n$$\\frac{d}{dx}x^{x}\\ \\ne\\ x^{x}\\ln x$$\n\nLegg merke til at både denne og potensregelen gir *deler* av det riktige svaret. Fasiten er $x^{x}(\\ln x+1)$ — summen av de to bidragene. Det er ikke tilfeldig: logaritmisk derivasjon regner nettopp begge virkningene og legger dem sammen."
+    },
+    {
+      "id": "econ1100-1-4-def-lnrelasjon",
+      "type": "definition",
+      "title": "Å derivere $\\ln y$ når $y=y(x)$",
+      "content": "Dette er hele det tekniske grepet i metoden. Deriverer du $\\ln y$ med hensyn på $x$, og $y$ selv er en funksjon av $x$, gir kjerneregelen en brøk:\n\n$$\\frac{d}{dx}\\ln y=\\frac{y'}{y}$$\n\nInnmaten er $y$, den deriverte av innmaten er $y'$, og regelen $\\frac{g'}{g}$ gir $\\frac{y'}{y}$. Størrelsen $\\frac{y'}{y}$ har for øvrig en egen økonomisk betydning — den er den **relative** vekstraten, altså vekst i prosent — og dukker opp igjen når vi behandler elastisitet i Del 2."
+    },
+    {
+      "id": "econ1100-1-4-th-logderivasjon",
+      "type": "theorem",
+      "title": "Logaritmisk derivasjon",
+      "content": "For $y=f(x)^{g(x)}$ med $f(x)>0$ gjør du følgende fire steg:\n\n1. **Ta $\\ln$ på begge sider** og bruk $\\ln(a^{b})=b\\ln a$:\n$$\\ln y=g(x)\\,\\ln f(x)$$\n\n2. **Deriver begge sider mht. $x$.** Venstresiden gir $\\frac{y'}{y}$; høyresiden er et produkt, så produktregelen gjelder:\n$$\\frac{y'}{y}=g'(x)\\ln f(x)+g(x)\\,\\frac{f'(x)}{f(x)}$$\n\n3. **Gang opp med $y$** på begge sider:\n$$y'=y\\left[g'(x)\\ln f(x)+g(x)\\frac{f'(x)}{f(x)}\\right]$$\n\n4. **Sett inn $y=f(x)^{g(x)}$** — svaret skal ikke inneholde $y$:\n$$y'=f(x)^{g(x)}\\left[g'(x)\\ln f(x)+g(x)\\frac{f'(x)}{f(x)}\\right]$$\n\nDe to leddene i klammen er akkurat de to virkningene: den fra eksponenten og den fra grunntallet."
+    },
+    {
+      "id": "econ1100-1-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Klassikeren $x^{x}$",
+      "problem": "Finn $\\dfrac{d}{dx}\\,x^{x}$ for $x>0$.",
+      "solution": "**Steg 1 — ta logaritmen på begge sider.** Sett $y=x^{x}$. Da er\n\n$$\\ln y=\\ln\\big(x^{x}\\big)=x\\ln x$$\n\n*Intuisjon:* logaritmen flytter eksponenten ned som faktor, og dermed er problemet borte — vi står igjen med et helt vanlig produkt.\n\n**Steg 2 — deriver begge sider mht. $x$.** Venstre side gir $\\frac{y'}{y}$. Høyre side er produktet $x\\cdot\\ln x$, så produktregelen gir $1\\cdot\\ln x+x\\cdot\\frac1x$:\n\n$$\\frac{y'}{y}=\\ln x+1$$\n\n*Intuisjon:* det første leddet er virkningen av at eksponenten vokser, det andre av at grunntallet vokser.\n\n**Steg 3 — gang opp med $y$.**\n\n$$y'=y\\,(\\ln x+1)$$\n\n*Intuisjon:* vi har funnet den *relative* endringen $y'/y$; ganget med nivået $y$ får vi den absolutte.\n\n**Steg 4 — sett inn $y=x^{x}$.**\n\n$$\\boxed{\\ \\frac{d}{dx}x^{x}=x^{x}\\,(\\ln x+1)\\ }$$\n\n**Kontroll med tall.** I $x=2$ gir formelen $4(\\ln 2+1)=4\\cdot 1{,}6931=6{,}772$. Regner vi differansekvoten direkte, er $\\frac{2{,}0001^{2{,}0001}-2^{2}}{0{,}0001}=6{,}773$. ✓ Til sammenligning ville potensregelen gitt $4$ og $a^{x}$-regelen $4\\ln 2=2{,}77$ — begge langt unna.\n\n**Merk hvor svaret er null.** $\\ln x+1=0$ gir $x=e^{-1}\\approx 0{,}368$; der har $x^{x}$ sitt bunnpunkt. Det er en fin plausibilitetssjekk: funksjonen faller først og stiger så."
+    },
+    {
+      "id": "econ1100-1-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger P1 — «deriver funksjonene», altså eksamens Oppgave 1. Innstegsoppgave.) Avgjør for hver funksjon hvilken metode som skal brukes — potensregelen, $a^{x}$-regelen eller logaritmisk derivasjon — og begrunn kort.\n\n**a)** $f(x)=x^{7}$\n\n**b)** $g(x)=7^{x}$\n\n**c)** $h(x)=x^{7x}$\n\n**d)** $k(x)=(x^{2}+1)^{x}$",
+        "solution": "**a)** **Potensregelen.** Grunntallet er variabelen og eksponenten er et fast tall, som er nøyaktig forutsetningen for potensregelen. Svar: $f'=7x^{6}$.\n\n**b)** **$a^{x}$-regelen.** Her er grunntallet et fast tall og eksponenten variabelen. Svar: $g'=7^{x}\\ln 7$.\n\n**c)** **Logaritmisk derivasjon.** Variabelen står både i grunntallet og i eksponenten, så ingen av de to reglene gjelder.\n\n**d)** **Logaritmisk derivasjon.** Eksponenten er variabel, og grunntallet er ikke en konstant, men uttrykket $x^{2}+1$.\n\n**Metodevalg-testen i én setning:** er eksponenten et fast tall, bruk potensregelen; er grunntallet et fast tall, bruk $a^{x}$-regelen; er ingen av delene fast, bruk logaritmisk derivasjon.",
+        "hints": [
+          "Spør for hver funksjon: er eksponenten konstant? Er grunntallet konstant?",
+          "Er svaret nei på begge spørsmålene, finnes det bare én vei videre."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Bruk logaritmisk derivasjon til å finne den deriverte av\n\n$$y=x^{2x},\\qquad x>0.$$\n\nVis alle fire stegene.",
+        "solution": "**Steg 1 — ta $\\ln$ på begge sider:**\n\n$$\\ln y=2x\\ln x$$\n\n**Steg 2 — deriver.** Venstre side gir $\\frac{y'}{y}$; høyre side er produktet $2x\\cdot\\ln x$:\n\n$$\\frac{y'}{y}=2\\ln x+2x\\cdot\\frac{1}{x}=2\\ln x+2$$\n\n**Steg 3 — gang opp med $y$:**\n\n$$y'=y\\,(2\\ln x+2)$$\n\n**Steg 4 — sett inn $y=x^{2x}$ og forenkle** ved å sette 2 utenfor:\n\n$$y'=x^{2x}\\cdot 2\\,(\\ln x+1)$$\n\n**Kontroll:** ved $x=1$ er $y=1$ og formelen gir $y'=2$. Numerisk: $\\frac{1{,}001^{2{,}002}-1}{0{,}001}\\approx 2{,}00$. ✓",
+        "hints": [
+          "Første steg er alltid $\\ln y=g(x)\\ln f(x)$ — her blir det $2x\\ln x$.",
+          "Høyresiden er et produkt av $2x$ og $\\ln x$: bruk produktregelen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Eksamensvariantene (~13 min)"
+    },
+    {
+      "id": "econ1100-1-4-lokke2-intro",
+      "type": "text",
+      "content": "Eksamen varierer oppgaven på tre måter: den setter et uttrykk i grunntallet (som $(2x)^{2x}$ eller $(x^{2}+1)^{x}$), den setter et uttrykk i eksponenten (som $x^{\\sqrt{x}}$), eller den gjør begge deler.\n\nOppskriften er den samme hver gang. Det eneste som endrer seg, er hvor mye arbeid steg 2 krever."
+    },
+    {
+      "id": "econ1100-1-4-def-lnregel",
+      "type": "definition",
+      "title": "Logaritmeregelen som bærer metoden",
+      "content": "Hele metoden hviler på én logaritmeregel: en eksponent inne i en logaritme kan flyttes ned som faktor foran.\n\n$$\\ln\\big(a^{b}\\big)=b\\ln a,\\qquad a>0$$\n\nDet er dette som gjør et umulig uttrykk til et vanlig produkt. Merk at regelen gjelder uansett hvor sammensatt $a$ og $b$ er: $\\ln\\big((2x)^{2x}\\big)=2x\\ln(2x)$, og $\\ln\\big((x^{2}+1)^{x}\\big)=x\\ln(x^{2}+1)$."
+    },
+    {
+      "id": "econ1100-1-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Uttrykk i grunntallet — $(2x)^{2x}$",
+      "problem": "Finn $\\dfrac{d}{dx}(2x)^{2x}$ for $x>0$.",
+      "solution": "**Steg 1.** Sett $y=(2x)^{2x}$. Logaritmen flytter eksponenten ned:\n\n$$\\ln y=2x\\,\\ln(2x)$$\n\n**Steg 2 — deriver.** Produktregelen med $u=2x$ og $v=\\ln(2x)$. Her trengs kjerneregelen i $v$: $v'=\\dfrac{2}{2x}=\\dfrac1x$.\n\n$$\\frac{y'}{y}=2\\ln(2x)+2x\\cdot\\frac{1}{x}=2\\ln(2x)+2$$\n\n*Merk forenklingen:* $\\frac{2}{2x}$ ble til $\\frac1x$, og deretter forkortet $2x\\cdot\\frac1x=2$.\n\n**Steg 3–4 — gang opp og sett inn:**\n\n$$y'=(2x)^{2x}\\big(2\\ln(2x)+2\\big)=2\\,(2x)^{2x}\\big(\\ln(2x)+1\\big)$$\n\n**Kontroll ved $x=\\tfrac12$:** da er $2x=1$, $y=1^{1}=1$, og $\\ln 1=0$, så $y'=2$. Numerisk: $\\frac{(2\\cdot 0{,}5001)^{2\\cdot 0{,}5001}-1}{0{,}0001}\\approx 2{,}00$. ✓\n\n**Merk mønsteret:** svaret har samme form som for $x^{x}$, bare med $2x$ inni og en faktor 2 utenfor. Det er ikke tilfeldig — det følger av at $2x$ deriveres til 2."
+    },
+    {
+      "id": "econ1100-1-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Uttrykk i eksponenten — $x^{\\sqrt{x}}$",
+      "problem": "Finn $\\dfrac{d}{dx}\\,x^{\\sqrt{x}}$ for $x>0$.",
+      "solution": "**Steg 1.** Med $y=x^{\\sqrt{x}}$:\n\n$$\\ln y=\\sqrt{x}\\,\\ln x$$\n\n**Steg 2 — deriver med produktregelen**, $u=\\sqrt{x}$ (så $u'=\\frac{1}{2\\sqrt{x}}$) og $v=\\ln x$ (så $v'=\\frac1x$):\n\n$$\\frac{y'}{y}=\\frac{\\ln x}{2\\sqrt{x}}+\\sqrt{x}\\cdot\\frac{1}{x}$$\n\n**Forenkling av klammen.** Siden $\\dfrac{\\sqrt{x}}{x}=\\dfrac{1}{\\sqrt{x}}=\\dfrac{2}{2\\sqrt{x}}$, får begge ledd nevneren $2\\sqrt{x}$:\n\n$$\\frac{y'}{y}=\\frac{\\ln x+2}{2\\sqrt{x}}$$\n\n**Steg 3–4:**\n\n$$\\frac{d}{dx}x^{\\sqrt{x}}=x^{\\sqrt{x}}\\cdot\\frac{\\ln x+2}{2\\sqrt{x}}$$\n\n**Kontroll ved $x=1$:** $y=1$ og formelen gir $\\frac{0+2}{2}=1$. Numerisk: $\\frac{1{,}0001^{\\sqrt{1{,}0001}}-1}{0{,}0001}\\approx 1{,}00$. ✓\n\n**Fire grep bar føringen over:** metoden ble navngitt («logaritmisk derivasjon, siden eksponenten er variabel»), alle fire steg står synlig, klammen ble forenklet til én brøk, og faktoren $y=x^{\\sqrt{x}}$ ble satt inn til slutt."
+    },
+    {
+      "id": "econ1100-1-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Bruk logaritmisk derivasjon til å finne $y'$ når\n\n$$y=(x^{2}+1)^{x}.$$",
+        "solution": "**Steg 1:**\n\n$$\\ln y=x\\,\\ln(x^{2}+1)$$\n\n**Steg 2 — produktregelen** med $u=x$ og $v=\\ln(x^{2}+1)$, der $v'=\\dfrac{2x}{x^{2}+1}$ (kjerneregelen):\n\n$$\\frac{y'}{y}=\\ln(x^{2}+1)+x\\cdot\\frac{2x}{x^{2}+1}=\\ln(x^{2}+1)+\\frac{2x^{2}}{x^{2}+1}$$\n\n**Steg 3–4:**\n\n$$y'=(x^{2}+1)^{x}\\left[\\ln(x^{2}+1)+\\frac{2x^{2}}{x^{2}+1}\\right]$$\n\n**Kontroll ved $x=0$:** $y=1$ og klammen blir $\\ln 1+0=0$, så $y'(0)=0$.\n\n**Er $x=0$ da et topp- eller bunnpunkt?** Nei. Begge leddene i klammen er positive for alle $x\\ne 0$ ($\\ln(x^{2}+1)>0$ når $x\\ne0$, og $\\frac{2x^{2}}{x^{2}+1}>0$), og $y=(x^{2}+1)^{x}>0$ alltid. Altså er $y'>0$ på begge sider av null: funksjonen vokser hele veien, og den flate tangenten i $x=0$ er ikke noe ytterpunkt. Skillet mellom «den deriverte er null» og «her er et ytterpunkt» tar vi grundig i [kap. 4.2](/bok/econ1100/econ1100-4-2).\n\n**Merk at grunntallet $x^{2}+1$ alltid er positivt**, så funksjonen er definert for alle $x$ — ikke bare $x>0$. Det er en detalj verdt å nevne i en besvarelse.",
+        "hints": [
+          "Steg 1 gir $\\ln y=x\\ln(x^{2}+1)$ — et vanlig produkt.",
+          "Deriver $\\ln(x^{2}+1)$ med regelen $\\frac{g'}{g}$, altså $\\frac{2x}{x^{2}+1}$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Finn den deriverte av\n\n$$y=x^{1/x},\\qquad x>0,$$\n\nog bestem hvor $y'=0$.",
+        "solution": "**Steg 1:**\n\n$$\\ln y=\\frac{1}{x}\\ln x=\\frac{\\ln x}{x}$$\n\n**Steg 2 — kvotientregelen** med $u=\\ln x$ ($u'=\\frac1x$) og $v=x$ ($v'=1$):\n\n$$\\frac{y'}{y}=\\frac{\\frac1x\\cdot x-\\ln x\\cdot 1}{x^{2}}=\\frac{1-\\ln x}{x^{2}}$$\n\n**Steg 3–4:**\n\n$$y'=x^{1/x}\\cdot\\frac{1-\\ln x}{x^{2}}$$\n\n**Hvor er $y'=0$?** Faktoren $x^{1/x}$ er positiv for alle $x>0$, og $x^{2}>0$. Derfor er fortegnet til $y'$ bestemt av telleren $1-\\ln x$:\n\n$$1-\\ln x=0\\quad\\Longleftrightarrow\\quad \\ln x=1\\quad\\Longleftrightarrow\\quad x=e$$\n\nFor $x<e$ er $\\ln x<1$, altså $y'>0$; for $x>e$ er $y'<0$. Funksjonen har derfor et **toppunkt** i $x=e$, med verdien $e^{1/e}\\approx 1{,}4447$.\n\n**Merk fremgangsmåten i siste del:** fortegnet ble avgjort ved å argumentere for at de øvrige faktorene er positive, ikke ved å prøve tallverdier. Det er nøyaktig den typen begrunnelse sensor krever — og som vi driller i Del 4.",
+        "hints": [
+          "Steg 1: $\\ln y=\\frac{\\ln x}{x}$ — bruk kvotientregelen i steg 2.",
+          "For siste del: hvilke faktorer i $y'$ er positive uansett $x>0$? Da bestemmer resten fortegnet."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — To variabler og generell eksponent (~11 min)"
+    },
+    {
+      "id": "econ1100-1-4-lokke3-intro",
+      "type": "text",
+      "content": "De to siste variantene er de som skiller på eksamen. Den første er den todimensjonale: $(xy)^{xy}$, der du skal partiellderivere mht. både $x$ og $y$. Den andre har en **generell** eksponent, $x^{a(x)}$, der $a$ er en ukjent deriverbar funksjon.\n\nBegge løses med nøyaktig samme fire steg. Du må bare huske hvilken variabel du deriverer med hensyn på."
+    },
+    {
+      "id": "econ1100-1-4-def-partiell-log",
+      "type": "definition",
+      "title": "Partiell logaritmisk derivasjon",
+      "content": "Har funksjonen to variabler, tar du logaritmen på samme måte og deriverer partielt — den andre variabelen behandles som en konstant.\n\n$$z=f(x,y)^{g(x,y)}\\ \\Longrightarrow\\ \\ln z=g\\ln f\\ \\Longrightarrow\\ \\frac{z'_{x}}{z}=\\big(g\\ln f\\big)'_{x}$$\n\nVenstresiden blir $\\frac{z'_{x}}{z}$ av nøyaktig samme grunn som før: kjerneregelen på $\\ln z$ med $z=z(x,y)$. Til slutt ganger du opp med $z$ og setter inn."
+    },
+    {
+      "id": "econ1100-1-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Den todimensjonale varianten $(xy)^{xy}$",
+      "problem": "La $z=(xy)^{xy}$ for $x,y>0$. Finn $z'_{x}$ og $z'_{y}$.",
+      "solution": "**Steg 1 — ta logaritmen.**\n\n$$\\ln z=xy\\,\\ln(xy)$$\n\n**Steg 2 — deriver mht. $x$**, med $y$ som konstant. Høyresiden er et produkt av $u=xy$ (der $u'_{x}=y$) og $v=\\ln(xy)$ (der $v'_{x}=\\frac{y}{xy}=\\frac1x$):\n\n$$\\frac{z'_{x}}{z}=y\\ln(xy)+xy\\cdot\\frac{1}{x}=y\\ln(xy)+y=y\\big(\\ln(xy)+1\\big)$$\n\n**Steg 3–4 — gang opp og sett inn:**\n\n$$z'_{x}=(xy)^{xy}\\,y\\,\\big(\\ln(xy)+1\\big)$$\n\n**Mht. $y$ — bruk symmetrien.** Uttrykket $z=(xy)^{xy}$ er symmetrisk i $x$ og $y$: bytter du om bokstavene, får du samme funksjon, siden $xy=yx$. Da må også de partiellderiverte bytte plass:\n\n$$z'_{y}=(xy)^{xy}\\,x\\,\\big(\\ln(xy)+1\\big)$$\n\n**Kontroll — regn den ut direkte.** Mht. $y$ er $u'_{y}=x$ og $v'_{y}=\\frac{x}{xy}=\\frac1y$, så $\\frac{z'_{y}}{z}=x\\ln(xy)+xy\\cdot\\frac1y=x(\\ln(xy)+1)$. ✓ Samme svar.\n\n**Merk:** symmetriargumentet er fullt gyldig og sparer halve arbeidet — men det **må sies eksplisitt**, ellers ser det ut som et ubegrunnet svar. Sensor belønner symmetri når den er begrunnet."
+    },
+    {
+      "id": "econ1100-1-4-def-generell-eksponent",
+      "type": "definition",
+      "title": "Generell eksponent $x^{a(x)}$",
+      "content": "Er eksponenten en ukjent, deriverbar funksjon $a(x)$, gjør du nøyaktig det samme — svaret inneholder da $a(x)$ og $a'(x)$, og det er som det skal være.\n\n$$y=x^{a(x)}\\ \\Longrightarrow\\ \\ln y=a(x)\\ln x\\ \\Longrightarrow\\ \\frac{y'}{y}=a'(x)\\ln x+\\frac{a(x)}{x}$$\n\n$$y'=x^{a(x)}\\left[a'(x)\\ln x+\\frac{a(x)}{x}\\right]$$\n\nSetter du $a(x)=x$, får du $a'=1$ og klammen blir $\\ln x+1$ — altså fasiten for $x^{x}$. Det er en fin kontroll på at den generelle formelen er riktig."
+    },
+    {
+      "id": "econ1100-1-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La $a(x)$ være en deriverbar funksjon, og la\n\n$$y=x^{a(x)},\\qquad x>0.$$\n\n**a)** Finn $y'$ uttrykt ved $a(x)$ og $a'(x)$.\n\n**b)** Kontroller formelen ved å sette $a(x)=x$.\n\n**c)** Bruk formelen på $a(x)=\\ln x$, altså $y=x^{\\ln x}$.",
+        "solution": "**a)** **Steg 1:** $\\ln y=a(x)\\ln x$.\n\n**Steg 2 — produktregelen**, med $u=a(x)$ ($u'=a'(x)$) og $v=\\ln x$ ($v'=\\frac1x$):\n\n$$\\frac{y'}{y}=a'(x)\\ln x+a(x)\\cdot\\frac{1}{x}$$\n\n**Steg 3–4:**\n\n$$y'=x^{a(x)}\\left[a'(x)\\ln x+\\frac{a(x)}{x}\\right]$$\n\n**b)** Med $a(x)=x$ er $a'(x)=1$, så klammen blir $\\ln x+\\dfrac{x}{x}=\\ln x+1$, og\n\n$$y'=x^{x}(\\ln x+1)$$\n\n— nøyaktig fasiten fra eksempel 1. ✓\n\n**c)** Med $a(x)=\\ln x$ er $a'(x)=\\dfrac1x$, så klammen blir\n\n$$\\frac{1}{x}\\ln x+\\frac{\\ln x}{x}=\\frac{2\\ln x}{x}$$\n\nog dermed\n\n$$y'=x^{\\ln x}\\cdot\\frac{2\\ln x}{x}$$\n\n**Kontroll ved $x=1$:** $\\ln 1=0$ gir $y'=0$, og $y=1^{0}=1$. Funksjonen $x^{\\ln x}$ har altså bunnpunkt i $x=1$ — som stemmer, siden $\\ln x$ skifter fortegn der.",
+        "hints": [
+          "Steg 1 er $\\ln y=a(x)\\ln x$; steg 2 er produktregelen med to ukjente faktorer.",
+          "I b): hva er $a'(x)$ når $a(x)=x$, og hva blir da $a(x)/x$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-4-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i logaritmisk derivasjon",
+      "content": "- **Å bruke potensregelen eller $a^{x}$-regelen.** Begge gir bare *ett* av de to leddene i det riktige svaret. Metodevalget er det oppgaven tester, så en feil metode koster mer enn en regnefeil ville gjort.\n- **Å glemme å gange opp med $y$ til slutt.** Etter steg 2 har du $\\dfrac{y'}{y}$, ikke $y'$. Å levere klammen alene er halvferdig — og en av de vanligste tabbene under tidspress.\n- **Å la $y$ stå igjen i svaret.** Steg 4 er å sette inn $y=f(x)^{g(x)}$. Et svar som inneholder $y$, uttrykker den deriverte ved seg selv.\n- **Å glemme produktregelen i steg 2.** Høyresiden $g(x)\\ln f(x)$ er et produkt av to funksjoner — begge må deriveres.\n- **Å glemme kjerneregelen inne i logaritmen.** $\\big(\\ln(2x)\\big)'=\\dfrac{2}{2x}=\\dfrac1x$, og $\\big(\\ln(x^{2}+1)\\big)'=\\dfrac{2x}{x^{2}+1}$.\n- **Å overse definisjonsområdet.** Metoden krever $f(x)>0$, siden vi tar logaritmen av grunntallet. For $x^{x}$ betyr det $x>0$; for $(x^{2}+1)^{x}$ er kravet oppfylt for alle $x$."
+    },
+    {
+      "id": "econ1100-1-4-drill-intro",
+      "type": "text",
+      "content": "## Eksamensdrill (~8 min)\n\nDe to siste oppgavene er på eksamensnivå: den ene er den todimensjonale varianten, den andre en blandet oppgave der du selv må velge metode."
+    },
+    {
+      "id": "econ1100-1-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La $z=(3xy)^{x}$ for $x,y>0$.\n\n**a)** Finn $z'_{x}$.\n\n**b)** Finn $z'_{y}$.\n\n**c)** Forklar hvorfor de to deloppgavene krever ulik metode.",
+        "solution": "**a)** **Steg 1:** $\\ln z=x\\,\\ln(3xy)$.\n\n**Steg 2 — mht. $x$**, med $y$ konstant. Produktregelen med $u=x$ ($u'_{x}=1$) og $v=\\ln(3xy)$ (der $v'_{x}=\\frac{3y}{3xy}=\\frac1x$):\n\n$$\\frac{z'_{x}}{z}=\\ln(3xy)+x\\cdot\\frac{1}{x}=\\ln(3xy)+1$$\n\n**Steg 3–4:**\n\n$$z'_{x}=(3xy)^{x}\\big(\\ln(3xy)+1\\big)$$\n\n**b) Mht. $y$** er eksponenten $x$ en **konstant**, og bare grunntallet varierer. Da er logaritmisk derivasjon unødvendig — dette er en ren potens av $3xy$, og kjerneregelen holder:\n\n$$z'_{y}=x\\,(3xy)^{x-1}\\cdot 3x=3x^{2}(3xy)^{x-1}$$\n\n*Kontroll med logaritmisk derivasjon:* $\\frac{z'_{y}}{z}=x\\cdot\\frac{3x}{3xy}=\\frac{x}{y}$, altså $z'_{y}=(3xy)^{x}\\frac{x}{y}$. Er dette det samme? Ja: $(3xy)^{x}\\frac{x}{y}=x\\,(3xy)^{x-1}\\cdot\\frac{3xy}{y}=3x^{2}(3xy)^{x-1}$. ✓\n\n**c)** Mht. $x$ står variabelen både i grunntallet og i eksponenten, så ingen av standardreglene gjelder — logaritmisk derivasjon er nødvendig. Mht. $y$ er eksponenten et fast tall (sett fra $y$-siden), så det er en helt vanlig potens med kjerne, og potensregelen med kjerneregel er nok.\n\n**Poenget:** metodevalget avhenger av *hvilken variabel* du deriverer med hensyn på, ikke bare av hvordan funksjonen ser ut.",
+        "hints": [
+          "I a): står $x$ både i grunntallet og i eksponenten? Da er metoden gitt.",
+          "I b): hvordan ser $z$ ut hvis du later som $x$ er tallet 5? Da er det $(15y)^{5}$ — en ren potens."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå, blandet metodevalg.) Deriver hver av funksjonene, og oppgi hvilken metode du bruker:\n\n**a)** $f(x)=\\big(\\sqrt{x}\\big)^{x}$, $x>0$\n\n**b)** $g(x)=x^{3}\\cdot 2^{x}$\n\n**c)** $h(x)=x^{x^{2}}$, $x>0$",
+        "solution": "**a)** **Logaritmisk derivasjon** (variabel i både grunntall og eksponent). Skriv $\\sqrt{x}=x^{1/2}$; da er\n\n$$\\ln f=x\\ln\\big(x^{1/2}\\big)=\\frac{x\\ln x}{2}$$\n\nProduktregelen på $\\frac{x\\ln x}{2}$ gir $\\frac{\\ln x+1}{2}$, så\n\n$$f'(x)=\\big(\\sqrt{x}\\big)^{x}\\cdot\\frac{\\ln x+1}{2}$$\n\n**b)** **Produktregelen**, kombinert med potensregelen og $a^{x}$-regelen — her er hverken grunntall eller eksponent problematisk, fordi de to funksjonene står ved siden av hverandre og ikke oppå hverandre:\n\n$$g'(x)=3x^{2}\\cdot 2^{x}+x^{3}\\cdot 2^{x}\\ln 2=x^{2}2^{x}\\big(3+x\\ln 2\\big)$$\n\n**c)** **Logaritmisk derivasjon.** Med $\\ln h=x^{2}\\ln x$ gir produktregelen\n\n$$\\frac{h'}{h}=2x\\ln x+x^{2}\\cdot\\frac{1}{x}=2x\\ln x+x=x\\big(2\\ln x+1\\big)$$\n\naltså\n\n$$h'(x)=x^{x^{2}}\\cdot x\\,\\big(2\\ln x+1\\big)$$\n\n**Lærdommen fra b):** ikke alt med en variabel eksponent krever logaritmisk derivasjon. Står $x^{3}$ og $2^{x}$ som et *produkt*, er hver faktor uproblematisk for seg. Metodevalget krever at du leser strukturen først.",
+        "hints": [
+          "Spør for hver: står variabelen både i grunntallet og i eksponenten på SAMME potens?",
+          "I a): forenkle $\\ln\\big(x^{1/2}\\big)$ til $\\tfrac12\\ln x$ før du deriverer."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-4-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-1-4-bb-relativ-vekst",
+      "type": "definition",
+      "title": "Den relative endringen $y'/y$",
+      "content": "Størrelsen $\\dfrac{y'}{y}$ er den relative endringen i $y$ — endringen målt som andel av nivået, altså prosentvis vekst.\n\n$$\\frac{y'}{y}=\\frac{d}{dx}\\ln y$$\n\nI logaritmisk derivasjon er dette mellomresultatet du får etter steg 2, og det er grunnen til at metoden virker: logaritmen oversetter absolutt endring til relativ. Samme størrelse dukker opp igjen som byggekloss i elastisitet i [kap. 2.1](/bok/econ1100/econ1100-2-1)."
+    },
+    {
+      "id": "econ1100-1-4-bb-definisjonsomrade",
+      "type": "definition",
+      "title": "Definisjonsområdet ved logaritmisk derivasjon",
+      "content": "Metoden krever at grunntallet er positivt, siden du tar logaritmen av det. Det bør sies i besvarelsen.\n\n$$y=f(x)^{g(x)}\\ \\text{krever}\\ f(x)>0$$\n\nFor $x^{x}$ betyr det $x>0$; for $(x^{2}+1)^{x}$ er kravet automatisk oppfylt, siden $x^{2}+1\\ge 1$ for alle $x$. Å kommentere definisjonsområdet koster én linje og er en toppsjiktsmarkør — samme grep blir avgjørende i [kap. 4.3](/bok/econ1100/econ1100-4-3)."
+    },
+    {
+      "id": "econ1100-1-4-bb-alternativ-e",
+      "type": "definition",
+      "title": "Alternativ vei: skriv om til $e$-potens",
+      "content": "En likeverdig metode er å skrive uttrykket om ved hjelp av at $a=e^{\\ln a}$, og deretter bruke kjerneregelen på eksponentialfunksjonen.\n\n$$f(x)^{g(x)}=e^{\\,g(x)\\ln f(x)}\\ \\Longrightarrow\\ \\frac{d}{dx}=e^{\\,g\\ln f}\\cdot\\big(g\\ln f\\big)'$$\n\nSvaret blir nøyaktig det samme, siden $e^{g\\ln f}=f^{g}$. Metoden er fullt gyldig, men logaritmisk derivasjon er den sensor forventer å se, og den har færre ledd å holde styr på."
+    },
+    {
+      "id": "econ1100-1-4-bb-kontroll",
+      "type": "definition",
+      "title": "Kontroll av svaret",
+      "content": "Fasiten på en logaritmisk derivasjon har alltid formen «funksjonen selv, ganget med en klamme». Det gir to raske kontroller.\n\n$$y'=\\underbrace{f^{g}}_{\\text{funksjonen}}\\cdot\\underbrace{\\left[\\dots\\right]}_{\\text{den relative endringen}}$$\n\n**Kontroll 1:** står funksjonen som faktor? Hvis ikke, har du glemt steg 3 eller 4. **Kontroll 2:** sett inn et tall (gjerne $x=1$, der $\\ln 1=0$) og sammenlign med en numerisk differansekvote. Det tar et halvt minutt og avslører nesten alle feil."
+    },
+    {
+      "id": "econ1100-1-4-bb-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg-treet for potenser",
+      "content": "Tre spørsmål avgjør hvilken regel som gjelder for et uttrykk av formen «noe opphøyd i noe».\n\n$$x^{a}\\ \\text{(fast eksponent)}\\ \\to\\ \\text{potensregelen},\\qquad a^{x}\\ \\text{(fast grunntall)}\\ \\to\\ a^{x}\\ln a,\\qquad f(x)^{g(x)}\\ \\to\\ \\text{logaritmisk derivasjon}$$\n\nMerk at spørsmålet må stilles **per variabel**: i $(3xy)^{x}$ er eksponenten variabel sett fra $x$, men konstant sett fra $y$, og de to partiellderiverte krever derfor ulike metoder."
+    },
+    {
+      "id": "econ1100-1-4-bb-to-ledd",
+      "type": "definition",
+      "title": "Hvorfor svaret har to ledd",
+      "content": "Klammen i fasiten har alltid to ledd, fordi endringen i $x$ virker på to steder samtidig: i eksponenten og i grunntallet.\n\n$$\\frac{y'}{y}=\\underbrace{g'\\ln f}_{\\text{eksponenten flytter seg}}+\\underbrace{g\\frac{f'}{f}}_{\\text{grunntallet flytter seg}}$$\n\nPotensregelen fanger bare det andre leddet, og $a^{x}$-regelen bare det første. Å kjenne denne oppdelingen gjør at du raskt ser om et svar er halvferdig — mangler ett av leddene, mangler én av virkningene."
+    },
+    {
+      "id": "econ1100-1-4-bb-symmetri-log",
+      "type": "definition",
+      "title": "Symmetri i todimensjonale eksponentuttrykk",
+      "content": "Er uttrykket uendret når du bytter om $x$ og $y$, er det symmetrisk, og da fås den andre partiellderiverte ved å bytte om bokstavene i den første.\n\n$$z=(xy)^{xy}\\ \\text{er symmetrisk, siden}\\ xy=yx$$\n\nDerfor er $z'_{y}$ lik $z'_{x}$ med $x$ og $y$ byttet om. Symmetriargumentet gir full uttelling — men bare når du **sier eksplisitt** at du bruker det. Sensor honorerer begrunnet symmetri, ikke et svar som bare dukker opp."
+    },
+    {
+      "id": "econ1100-1-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-1-4-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1) og [kap. 1.2](/bok/econ1100/econ1100-1-2).\n\n**1.** Skriv om med logaritmereglene: $\\ln\\big(x^{5}\\big)$, $\\ln\\big((2x)^{3}\\big)$ og $\\ln\\big(x^{1/2}\\big)$.\n\n*Svar:* $5\\ln x$, $3\\ln(2x)$ og $\\tfrac12\\ln x$.\n\n**2.** Deriver $f(x)=\\ln(2x)$ og $g(x)=\\ln(x^{2}+1)$.\n\n*Svar:* $f'=\\dfrac{2}{2x}=\\dfrac1x$ og $g'=\\dfrac{2x}{x^{2}+1}$.\n\n**3.** Deriver $h(x)=x\\ln x$ med produktregelen.\n\n*Svar:* $h'=\\ln x+1$.\n\n**4.** Deriver $k(x)=5^{x}$ og $m(x)=x^{5}$.\n\n*Svar:* $k'=5^{x}\\ln 5$ og $m'=5x^{4}$. Merk at reglene er helt forskjellige.\n\n**5.** Deriver $\\dfrac{\\ln x}{x}$ med kvotientregelen.\n\n*Svar:* $\\dfrac{1-\\ln x}{x^{2}}$.\n\n**6.** Hva er $\\ln 1$, og hvorfor er det praktisk ved kontrollregning?\n\n*Svar:* $\\ln 1=0$. Setter du inn $x=1$, forsvinner alle $\\ln x$-ledd, og uttrykket blir enkelt å sjekke."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-1-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-1-4-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $y=f(x)^{g(x)}$ | Funksjon med variabel eksponent — kapitlets hovedform |\n| $f(x)$ | Grunntallet, som må være positivt for at metoden skal virke |\n| $g(x)$ | Eksponenten, som er en funksjon og ikke en konstant |\n| $y'$ | Den deriverte av $y$ |\n| $\\dfrac{y'}{y}$ | Den relative endringen — det du får etter steg 2 |\n| $\\ln$ | Den naturlige logaritmen |\n| $a(x)$, $a'(x)$ | En generell, ukjent deriverbar eksponent og dens deriverte |\n| $z=(xy)^{xy}$ | Den todimensjonale varianten; $z'_{x}$, $z'_{y}$ er de partiellderiverte |\n\n**Formler i dette delkapitlet:**\n\n$$\\ln\\big(a^{b}\\big)=b\\ln a$$\nLogaritmeregelen som gjør en eksponent om til en faktor — hele grunnlaget for metoden.\n\n$$\\frac{d}{dx}\\ln y=\\frac{y'}{y}$$\nKjerneregelen brukt på $\\ln y$ når $y=y(x)$.\n\n$$y=f^{g}\\ \\Longrightarrow\\ \\ln y=g\\ln f\\ \\Longrightarrow\\ \\frac{y'}{y}=g'\\ln f+g\\frac{f'}{f}\\ \\Longrightarrow\\ y'=f^{g}\\left[g'\\ln f+g\\frac{f'}{f}\\right]$$\nLogaritmisk derivasjon i fire steg: ta $\\ln$, deriver, gang opp, sett inn.\n\n$$\\frac{d}{dx}x^{x}=x^{x}\\big(\\ln x+1\\big)$$\nKlassikeren — verdt å kunne utenat, både som svar og som kontroll på den generelle formelen.\n\n$$y=x^{a(x)}\\ \\Longrightarrow\\ y'=x^{a(x)}\\left[a'(x)\\ln x+\\frac{a(x)}{x}\\right]$$\nVarianten med generell eksponent; svaret *skal* inneholde $a$ og $a'$.\n\n$$f^{g}=e^{\\,g\\ln f}$$\nDen likeverdige alternative veien, via eksponentialfunksjonen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

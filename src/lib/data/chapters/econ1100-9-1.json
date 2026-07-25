@@ -1,0 +1,379 @@
+{
+  "id": "econ1100-9-1",
+  "courseId": "econ1100",
+  "chapterNumber": "9.1",
+  "title": "Profittmaksimering og faktoretterspørsel",
+  "description": "Bedriften som velger hvor mye arbeidskraft den vil bruke: førsteordensbetingelsen pF'(N) = w, andreordensbetingelsen F''(N) ≤ 0, og faktoretterspørselen N*(w) som følger av dem.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "sette opp profittfunksjonen til en bedrift og utlede førsteordensbetingelsen",
+    "kontrollere andreordensbetingelsen og si hvorfor den kreves",
+    "løse for faktoretterspørselen når teknologien er en potensfunksjon",
+    "tolke grenseinntektsproduktet økonomisk og gjenkjenne de vanligste fortegns- og eksponentfellene"
+  ],
+  "content": [
+    {
+      "id": "econ1100-9-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger PR — produsentteori.** Det er oppgavene der en bedrift velger hvor mye den skal bruke av en innsatsfaktor: arbeidskraft, kapital eller begge.\n\nSjangeren står i **8 av 16 sett** i arkivet (50 %), men fordelingen er skjev: **3 av 9 ordinære** og **5 av 7 utsatte**. Utsatte eksamener er altså tydelig mer produsentorienterte enn de ordinære, og en kandidat som forbereder seg mot begge, bør vekte temaet høyere enn totalprosenten alene tilsier.\n\n**To varianter deler sjangeren i to:**\n\n- **Profittmaksimering** — bedriften velger fritt hvor mye den vil bruke, og maksimerer inntekt minus kostnad. Det er dette kapitlet.\n- **Kostnadsminimering** — bedriften har et produksjonskrav den må nå, og vil nå det billigst mulig. Det er [kap. 9.2](/bok/econ1100/econ1100-9-2), og der brukes Lagrange fra Del 8.\n\nDet er verdt å legge merke til at profittmaksimering er et **fritt** problem: det finnes ingen bibetingelse. Metoden er derfor den fra Del 4 og Del 6, ikke den fra Del 8.\n\nKapitlet har prioritet **kunne**, vektet opp mot utsatt-profilen.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025), med tilhørende offisielle sensorveiledninger.*"
+    },
+    {
+      "id": "econ1100-9-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 4.2](/bok/econ1100/econ1100-4-2) (stasjonærpunkter og andrederiverttesten i én variabel) og [kap. 8.2](/bok/econ1100/econ1100-8-2) (optimering med Lagrange — nyttig for kontrasten, ikke som metode her). Potensregelen står i [kap. 1.1](/bok/econ1100/econ1100-1-1), potensregelen for elastisitet i [kap. 2.1](/bok/econ1100/econ1100-2-1) (brukes i Løkke 3) og Hesse-determinanten i [kap. 6.1](/bok/econ1100/econ1100-6-1) (brukes i Løkke 4 og i oppgave 6).\n\n**Sist du var her — de fem tingene du trenger med deg inn:**\n\n$$f'(a)=0\\ \\text{gir kandidat};\\qquad f''(a)<0\\ \\Rightarrow\\ \\text{maksimum}$$\n\n$$\\frac{d}{dN}\\,AN^{a}=aAN^{a-1};\\qquad \\frac{d}{dN}\\sqrt{N}=\\frac{1}{2\\sqrt N}$$\n\n$$\\mathrm{El}_x f=\\frac{x}{f}f'(x);\\qquad f=Cx^{a}\\Rightarrow\\mathrm{El}_x f=a$$\n\n$$D=f''_{xx}f''_{yy}-\\left(f''_{xy}\\right)^{2};\\qquad D>0\\ \\text{og}\\ f''_{xx}<0\\Rightarrow\\ \\text{maksimum}$$\n\n$$\\text{Fri optimering: ingen bibetingelse, ingen }\\lambda$$\n\nDen siste er den viktigste å ha klart for seg. Ser oppgaven ut som en Lagrange-oppgave, men mangler en likning som binder, er det ingen Lagrange-oppgave."
+    },
+    {
+      "id": "econ1100-9-1-motivasjon",
+      "type": "text",
+      "content": "En bakeri-eier skal bestemme hvor mange bakere hun vil ansette. Hver ekstra baker gir flere brød, men ikke like mange som den forrige — kjøkkenet blir trangt, ovnene er de samme, og de beste bakeplassene er allerede tatt.\n\nHver ekstra baker koster derimot nøyaktig det samme: en månedslønn.\n\nDa er regnestykket enkelt i prinsippet. Ansett så lenge det den neste bakeren *tilfører* i verdi, er mer enn det hun *koster*. Stopp når de to er like store.\n\nDet er hele innholdet i profittmaksimering, og resten av kapitlet er å skrive den setningen som en likning og løse den. Sammenhengen er verdt å merke seg: den forteller ikke bare hvor mange bakeren skal ansette ved dagens lønn, men hvordan svaret endrer seg når lønna endrer seg — altså bedriftens **etterspørsel etter arbeidskraft**."
+    },
+    {
+      "id": "econ1100-9-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Profittfunksjonen og førsteordensbetingelsen (~14 min)"
+    },
+    {
+      "id": "econ1100-9-1-def-produktfunksjon",
+      "type": "definition",
+      "title": "Produktfunksjon",
+      "content": "Produktfunksjonen sier hvor mye bedriften får produsert av en gitt innsats.\n\n$$Q=F(N)$$\n\nHer er $N$ sysselsettingen — antall arbeidere eller arbeidstimer — og $Q$ produsert mengde. Standardformene i eksamensarkivet er $F(N)=A N^{a}$ med $0<a<1$, og $F(N)=A\\sqrt N$, som er samme form med $a=\\tfrac12$. Bokstaven $N$ brukes gjennomgående for sysselsetting, slik at $L$ kan reserveres for Lagrange-funksjonen."
+    },
+    {
+      "id": "econ1100-9-1-def-grenseprodukt",
+      "type": "definition",
+      "title": "Grenseprodukt",
+      "content": "Grenseproduktet er den ekstra produksjonen én ekstra enhet innsats gir.\n\n$$F'(N)=\\text{grenseprodukt av arbeid}$$\n\nDet er ren derivasjon, men navnet er verdt å kunne: sensor bruker det, og det gjør tolkningen kortere. For $F(N)=10\\sqrt N$ er grenseproduktet $F'(N)=\\dfrac{5}{\\sqrt N}$, som avtar når $N$ vokser — den tiende arbeideren tilfører mindre enn den første."
+    },
+    {
+      "id": "econ1100-9-1-def-profittfunksjonen",
+      "type": "definition",
+      "title": "Profittfunksjonen",
+      "content": "Profitten er salgsinntekten minus lønnskostnaden.\n\n$$\\pi(N)=p\\,F(N)-wN$$\n\nHer er $p$ produktprisen og $w$ lønna per enhet arbeid. Begge er **gitte** for bedriften: den er så liten at den ikke påvirker markedsprisene, og velger bare $N$. Det er derfor problemet har én variabel og ingen bibetingelse."
+    },
+    {
+      "id": "econ1100-9-1-def-fob",
+      "type": "definition",
+      "title": "Førsteordensbetingelsen: grenseinntektsprodukt = lønn",
+      "content": "Bedriften ansetter til den neste arbeideren akkurat betaler for seg.\n\n$$\\pi'(N)=p\\,F'(N)-w=0\\ \\Longleftrightarrow\\ p\\,F'(N)=w$$\n\nVenstresiden $pF'(N)$ heter **grenseinntektsproduktet**: verdien av det den neste arbeideren produserer. Høyresiden er hva hun koster. **Merk prisen $p$ på venstresiden.** Å skrive $F'(N)=w$ er den enkeltfeilen som oftest ødelegger denne oppgavetypen — den sammenligner en *mengde* med en *pengesum*, som ikke engang har samme enhet."
+    },
+    {
+      "id": "econ1100-9-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Hvor mange skal bedriften ansette?",
+      "problem": "En bedrift har produktfunksjonen $F(N)=10\\sqrt N$. Produktprisen er $p=20$ og lønna $w=5$.\n\n**a)** Sett opp profittfunksjonen og førsteordensbetingelsen.\n\n**b)** Finn den profittmaksimerende sysselsettingen $N^*$.\n\n**c)** Hva blir profitten?",
+      "solution": "**a)** Profitten er inntekt minus lønnskostnad:\n\n$$\\pi(N)=20\\cdot 10\\sqrt N-5N=200\\sqrt N-5N$$\n\nGrenseproduktet er\n\n$$F'(N)=10\\cdot\\frac{1}{2\\sqrt N}=\\frac{5}{\\sqrt N}$$\n\n**Førsteordensbetingelsen:**\n\n$$p\\,F'(N)=w\\ \\Longrightarrow\\ 20\\cdot\\frac{5}{\\sqrt N}=5\\ \\Longrightarrow\\ \\frac{100}{\\sqrt N}=5$$\n\n**b) Løs for $N$.** Gang opp med $\\sqrt N$ og del på 5:\n\n$$100=5\\sqrt N\\ \\Longrightarrow\\ \\sqrt N=20\\ \\Longrightarrow\\ N^*=400$$\n\n*Kontroll:* $F'(400)=\\dfrac{5}{20}=0{,}25$, og $pF'=20\\cdot 0{,}25=5=w$ ✓\n\n**c) Profitten:**\n\n$$\\pi(400)=200\\sqrt{400}-5\\cdot 400=200\\cdot 20-2000=4000-2000=2000$$\n\n*Rimelighetssjekk:* prøver vi $N=380$, blir $\\pi=200\\sqrt{380}-1900\\approx 3898{,}7-1900\\approx 1998{,}7$, og med $N=420$ blir $\\pi\\approx 4098{,}8-2100\\approx 1998{,}8$. Begge er lavere enn $2000$ ✓\n\n**Verbal konklusjon:** bedriften bør bruke 400 enheter arbeidskraft. Da er verdien av den neste arbeiderens produksjon nøyaktig 5, som er lønna, og profitten er 2000."
+    },
+    {
+      "id": "econ1100-9-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger PR — produsentteori, i 8 av 16 sett. Innstegsoppgave.) En bedrift har produktfunksjonen $F(N)=20\\sqrt N$, produktpris $p=6$ og lønn $w=4$.\n\n**a)** Sett opp profittfunksjonen.\n\n**b)** Finn $N^*$ og profitten.",
+        "solution": "**a)**\n\n$$\\pi(N)=6\\cdot 20\\sqrt N-4N=120\\sqrt N-4N$$\n\n**b) Grenseproduktet:**\n\n$$F'(N)=20\\cdot\\frac{1}{2\\sqrt N}=\\frac{10}{\\sqrt N}$$\n\n**Førsteordensbetingelsen** $pF'(N)=w$:\n\n$$6\\cdot\\frac{10}{\\sqrt N}=4\\ \\Longrightarrow\\ \\frac{60}{\\sqrt N}=4\\ \\Longrightarrow\\ \\sqrt N=15\\ \\Longrightarrow\\ N^*=225$$\n\n**Profitten:**\n\n$$\\pi(225)=120\\cdot 15-4\\cdot 225=1800-900=900$$\n\n*Kontroll:* $F'(225)=\\dfrac{10}{15}=\\dfrac23$, og $pF'=6\\cdot\\dfrac23=4=w$ ✓",
+        "hints": [
+          "Deriver $20\\sqrt N$ til $\\frac{10}{\\sqrt N}$.",
+          "Husk prisen $p$ på venstresiden av betingelsen — det er $pF'(N)=w$, ikke $F'(N)=w$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Andreordensbetingelsen (~12 min)"
+    },
+    {
+      "id": "econ1100-9-1-aob-intro",
+      "type": "text",
+      "content": "Førsteordensbetingelsen peker ut et kandidatpunkt, ikke et maksimum. Det er samme situasjon som i [kap. 4.2](/bok/econ1100/econ1100-4-2): $f'(a)=0$ holder like godt i et bunnpunkt.\n\nSensor ber derfor jevnlig eksplisitt om at andreordensbetingelsen sjekkes, og det er et selvstendig delpunkt med egne poeng. Å hoppe over den er en variant av **feil #8 — å blande stasjonærpunkt og ekstrempunkt**.\n\nDet fine er at kontrollen som regel er kort: for de teknologiene som brukes i faget, er den andrederiverte negativ overalt, og da er maksimumet dessuten globalt."
+    },
+    {
+      "id": "econ1100-9-1-def-aob",
+      "type": "definition",
+      "title": "Andreordensbetingelsen",
+      "content": "For at kandidatpunktet skal være et maksimum, må profittfunksjonen krumme nedover.\n\n$$\\pi''(N)=p\\,F''(N)\\le 0\\ \\Longleftrightarrow\\ F''(N)\\le 0\\quad (\\text{siden }p>0)$$\n\nLegg merke til at lønnskostnaden $-wN$ er lineær og forsvinner ved andre derivasjon. Kravet gjelder derfor **teknologien alene**: produktfunksjonen må ha avtakende grenseprodukt. Holder $F''(N)\\le 0$ for alle $N>0$, er profittfunksjonen konkav i hele definisjonsområdet, og maksimumet er globalt — ikke bare lokalt."
+    },
+    {
+      "id": "econ1100-9-1-def-avtakende",
+      "type": "definition",
+      "title": "Avtakende grenseprodukt",
+      "content": "Hver ekstra arbeider tilfører mindre enn den forrige.\n\n$$F'(N)>0\\ \\text{og}\\ F''(N)<0$$\n\nDette er standardantakelsen i produsentteori, og den er økonomisk begrunnet: maskiner, lokaler og ledelse holdes fast mens arbeidsstyrken vokser. Potensfunksjonen $F(N)=AN^{a}$ med $0<a<1$ har nøyaktig denne egenskapen, og det er derfor den er standardvalget i eksamenssettene."
+    },
+    {
+      "id": "econ1100-9-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Andreordensbetingelsen for potensteknologi",
+      "problem": "La $F(N)=AN^{a}$ med $A>0$ og $0<a<1$, og la $p,w>0$.\n\n**a)** Vis at $F''(N)<0$ for alle $N>0$.\n\n**b)** Finn den profittmaksimerende sysselsettingen $N^*$ uttrykt ved $p$, $w$, $A$ og $a$.\n\n**c)** Kontroller svaret med tallene fra Eksempel 1.",
+      "solution": "**a) Deriver to ganger:**\n\n$$F'(N)=aAN^{a-1},\\qquad F''(N)=a(a-1)AN^{a-2}$$\n\nSe på faktorene hver for seg:\n\n- $a>0$ er gitt.\n- $a-1<0$, fordi $a<1$.\n- $A>0$ er gitt.\n- $N^{a-2}>0$ for alle $N>0$, siden enhver potens av et positivt tall er positiv.\n\nProduktet av tre positive og én negativ faktor er negativt, så\n\n$$F''(N)<0\\quad\\text{for alle }N>0\\ ✓$$\n\nAndreordensbetingelsen er dermed oppfylt **overalt**, ikke bare i kandidatpunktet. Profittfunksjonen er konkav i hele definisjonsområdet, og kandidatpunktet er et globalt maksimum.\n\n**b) Førsteordensbetingelsen:**\n\n$$p\\,aAN^{a-1}=w\\ \\Longrightarrow\\ N^{a-1}=\\frac{w}{paA}$$\n\nEn negativ eksponent snus ved å ta den omvendte brøken:\n\n$$N^{1-a}=\\frac{paA}{w}\\ \\Longrightarrow\\ \\boxed{N^*=\\left(\\frac{paA}{w}\\right)^{\\frac{1}{1-a}}}$$\n\n*Kontroll av eksponenten:* $\\left(N^{1-a}\\right)^{1/(1-a)}=N^{1}=N$ ✓\n\n**c) Tallene fra Eksempel 1** var $A=10$, $a=\\tfrac12$, $p=20$, $w=5$:\n\n$$N^*=\\left(\\frac{20\\cdot\\tfrac12\\cdot 10}{5}\\right)^{\\frac{1}{1-1/2}}=\\left(\\frac{100}{5}\\right)^{2}=20^2=400\\ ✓$$\n\nSamme svar som før.\n\n**Legg merke til hva vi har fått.** Uttrykket i b) er ikke bare et tall, men en **funksjon av lønna**. Den forteller hvor mye arbeidskraft bedriften vil ha ved *enhver* lønn, og det er nettopp bedriftens etterspørsel etter arbeidskraft."
+    },
+    {
+      "id": "econ1100-9-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger PR.) En bedrift har $F(N)=12N^{1/3}$, produktpris $p=9$ og lønn $w=4$.\n\n**a)** Finn $N^*$.\n\n**b)** Vis at andreordensbetingelsen er oppfylt.\n\n**c)** Finn profitten.",
+        "solution": "**a) Grenseproduktet:**\n\n$$F'(N)=12\\cdot\\tfrac13 N^{-2/3}=4N^{-2/3}$$\n\n**Førsteordensbetingelsen** $pF'(N)=w$:\n\n$$9\\cdot 4N^{-2/3}=4\\ \\Longrightarrow\\ 36N^{-2/3}=4\\ \\Longrightarrow\\ N^{-2/3}=\\frac{1}{9}$$\n\nSnu eksponenten:\n\n$$N^{2/3}=9\\ \\Longrightarrow\\ N=9^{3/2}=27$$\n\n$$N^*=27$$\n\n*Kontroll:* $F'(27)=4\\cdot 27^{-2/3}=\\dfrac{4}{9}$, og $pF'=9\\cdot\\dfrac49=4=w$ ✓\n\n**b) Andreordensbetingelsen:**\n\n$$F''(N)=4\\cdot\\left(-\\tfrac23\\right)N^{-5/3}=-\\tfrac83 N^{-5/3}$$\n\nFor alle $N>0$ er $N^{-5/3}>0$, så $F''(N)<0$. Betingelsen er oppfylt overalt, og maksimumet er dermed globalt.\n\n**c) Profitten:**\n\n$$F(27)=12\\cdot 27^{1/3}=12\\cdot 3=36$$\n\n$$\\pi=9\\cdot 36-4\\cdot 27=324-108=216$$",
+        "hints": [
+          "$\\frac{d}{dN}N^{1/3}=\\frac13 N^{-2/3}$.",
+          "En negativ eksponent snus ved å ta den omvendte brøken på begge sider.",
+          "$9^{3/2}=(\\sqrt9)^3=27$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i profittmaksimeringen",
+      "content": "- **Å glemme prisen $p$ i førsteordensbetingelsen.** Betingelsen er $pF'(N)=w$, ikke $F'(N)=w$. Grenseproduktet er en **mengde**; lønna er en **pengesum**. De kan ikke settes lik hverandre uten at mengden først gjøres om til kroner ved å ganges med prisen.\n- **Å hoppe over andreordensbetingelsen.** Sensor ber jevnlig eksplisitt om den, og den bærer egne poeng. Å behandle et stasjonærpunkt som et maksimum uten sjekk er **feil #8 — å blande stasjonærpunkt og ekstrempunkt**.\n- **Eksponentfeil på potensteknologi.** $\\dfrac{d}{dN}AN^{a}=aAN^{a-1}$ — eksponenten går **ned** med én, og faktoren $a$ kommer foran. Ved løsningen skal $N^{a-1}=\\dots$ snus til $N^{1-a}=\\dots$ ved å ta den omvendte brøken på begge sider.\n- **Å innføre en Lagrange-multiplikator.** Profittmaksimering har ingen bibetingelse. Kommer det en $\\lambda$ inn i regningen, har du lest oppgaven som en kostnadsminimering — se [kap. 9.2](/bok/econ1100/econ1100-9-2) for når det faktisk er riktig.\n- **Å oppgi svaret uten tolkning.** «$N^*=400$» alene gir mindre uttelling enn «$N^*=400$; ved denne sysselsettingen er verdien av den neste arbeiderens produksjon nøyaktig lik lønna». Tolkningen koster én setning."
+    },
+    {
+      "id": "econ1100-9-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Faktoretterspørselen (~12 min)"
+    },
+    {
+      "id": "econ1100-9-1-def-faktoretterspoersel",
+      "type": "definition",
+      "title": "Faktoretterspørsel",
+      "content": "Faktoretterspørselen er den optimale sysselsettingen sett som en funksjon av lønna.\n\n$$N^*(w)=\\left(\\frac{paA}{w}\\right)^{\\frac{1}{1-a}}$$\n\nDen svarer på spørsmålet «hvor mye arbeidskraft vil bedriften ha, hvis lønna er $w$?». Fordi $w$ står i nevneren, faller $N^*$ når $w$ stiger — dyrere arbeidskraft gir lavere sysselsetting. Uttrykket er bedriftens etterspørselskurve i arbeidsmarkedet, og det er broen fra dette kapitlet til arbeidsmarkedsanalysen i senere økonomifag."
+    },
+    {
+      "id": "econ1100-9-1-def-elastisitet",
+      "type": "definition",
+      "title": "Lønnselastisiteten i faktoretterspørselen",
+      "content": "Hvor mange prosent faller sysselsettingen når lønna stiger med én prosent?\n\n$$\\mathrm{El}_w N^*=-\\frac{1}{1-a}$$\n\nDette leses rett av potensregelen for elastisitet ([kap. 2.1](/bok/econ1100/econ1100-2-1)): eksponenten på $w$ i uttrykket $N^*=(paA)^{1/(1-a)}w^{-1/(1-a)}$ **er** elastisiteten. Med $a=\\tfrac12$ blir den $-2$: én prosent høyere lønn gir to prosent lavere sysselsetting. Jo nærmere $a$ er $1$, desto mer følsom er etterspørselen."
+    },
+    {
+      "id": "econ1100-9-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Etterspørselen som funksjon av lønna",
+      "problem": "En bedrift har $F(N)=10\\sqrt N$ og produktpris $p=20$.\n\n**a)** Finn $N^*(w)$.\n\n**b)** Hvor mye faller sysselsettingen hvis lønna stiger fra 5 til 6?\n\n**c)** Finn lønnselastisiteten, og forklar hva den betyr.",
+      "solution": "**a)** Her er $A=10$ og $a=\\tfrac12$. Førsteordensbetingelsen er\n\n$$20\\cdot\\frac{5}{\\sqrt N}=w\\ \\Longrightarrow\\ \\frac{100}{\\sqrt N}=w\\ \\Longrightarrow\\ \\sqrt N=\\frac{100}{w}$$\n\n$$\\boxed{N^*(w)=\\frac{10\\,000}{w^{2}}}$$\n\n*Kontroll mot formelen fra Eksempel 2:* $\\left(\\dfrac{paA}{w}\\right)^{1/(1-a)}=\\left(\\dfrac{100}{w}\\right)^{2}=\\dfrac{10\\,000}{w^2}$ ✓\n\n**b)** Sett inn:\n\n$$N^*(5)=\\frac{10\\,000}{25}=400,\\qquad N^*(6)=\\frac{10\\,000}{36}\\approx 277{,}8$$\n\nSysselsettingen faller altså fra 400 til omtrent 278 — et fall på rundt 122 enheter, eller omtrent 31 prosent.\n\n**c) Elastisiteten.** Skriv om uttrykket til en ren potens av $w$:\n\n$$N^*(w)=10\\,000\\cdot w^{-2}$$\n\nEtter potensregelen for elastisitet er elastisiteten eksponenten:\n\n$$\\mathrm{El}_w N^*=-2$$\n\n*Kontroll mot den generelle formelen:* $-\\dfrac{1}{1-a}=-\\dfrac{1}{1-1/2}=-2$ ✓\n\n**Hva det betyr:** én prosent høyere lønn gir omtrent to prosent lavere sysselsetting. Etterspørselen etter arbeidskraft er altså **elastisk**: den reagerer mer enn proporsjonalt.\n\n*Merk hvorfor det omtrentlige svaret i b) ikke er nøyaktig 2 ganger 20 prosent.* Elastisiteten måler reaksjonen på en **marginal** endring. Fra 5 til 6 er lønnsøkningen 20 prosent, og det er ikke marginalt. Den eksakte endringen i sysselsetting blir da $-30{,}6$ prosent i stedet for de $-40$ prosentene en ren elastisitetsregning ville antydet. For små endringer stemmer de to godt overens; for store gjør de det ikke."
+    },
+    {
+      "id": "econ1100-9-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — etterspørselsfunksjon.) En bedrift har $F(N)=3N^{2/3}$ og produktpris $p=8$.\n\n**a)** Finn $N^*(w)$.\n\n**b)** Finn $N^*$ når $w=4$, og profitten der.\n\n**c)** Finn $\\mathrm{El}_w N^*$.",
+        "solution": "**a) Grenseproduktet:**\n\n$$F'(N)=3\\cdot\\tfrac23 N^{-1/3}=2N^{-1/3}$$\n\n**Førsteordensbetingelsen:**\n\n$$8\\cdot 2N^{-1/3}=w\\ \\Longrightarrow\\ 16N^{-1/3}=w\\ \\Longrightarrow\\ N^{1/3}=\\frac{16}{w}$$\n\n$$\\boxed{N^*(w)=\\left(\\frac{16}{w}\\right)^{3}=\\frac{4096}{w^{3}}}$$\n\n**b)** Med $w=4$:\n\n$$N^*=\\left(\\frac{16}{4}\\right)^3=4^3=64$$\n\n$$F(64)=3\\cdot 64^{2/3}=3\\cdot 16=48$$\n\n$$\\pi=8\\cdot 48-4\\cdot 64=384-256=128$$\n\n*Kontroll:* $F'(64)=2\\cdot 64^{-1/3}=\\dfrac{2}{4}=0{,}5$, og $pF'=8\\cdot 0{,}5=4=w$ ✓\n\n**c)** Skriv $N^*(w)=4096\\,w^{-3}$. Etter potensregelen for elastisitet er\n\n$$\\mathrm{El}_w N^*=-3$$\n\n*Kontroll mot formelen:* $-\\dfrac{1}{1-a}=-\\dfrac{1}{1-2/3}=-3$ ✓\n\nEtterspørselen er sterkt elastisk: én prosent høyere lønn gir omtrent tre prosent lavere sysselsetting. Det henger sammen med at $a=\\tfrac23$ er nær $1$, altså at grenseproduktet avtar langsomt.",
+        "hints": [
+          "$\\frac{d}{dN}N^{2/3}=\\frac23 N^{-1/3}$.",
+          "Snu $N^{-1/3}=w/16$ til $N^{1/3}=16/w$ og opphøy i tredje.",
+          "Elastisiteten er eksponenten på $w$ når uttrykket skrives som en ren potens."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — annen teknologiform.) En bedrift har produktfunksjonen\n\n$$F(N)=100N-N^{2},$$\n\nsom er meningsfull for $0<N<100$. Produktprisen er $p=1$ og lønna $w=20$.\n\n**a)** Finn $N^*$ og vis at andreordensbetingelsen er oppfylt.\n\n**b)** Finn profitten.\n\n**c)** Finn $N^*(w)$, og forklar hvorfor uttrykket blir lineært her og ikke en potens.",
+        "solution": "**a) Grenseproduktet:**\n\n$$F'(N)=100-2N$$\n\n**Førsteordensbetingelsen** $pF'(N)=w$ med $p=1$:\n\n$$100-2N=20\\ \\Longrightarrow\\ 2N=80\\ \\Longrightarrow\\ N^*=40$$\n\n**Andreordensbetingelsen:**\n\n$$F''(N)=-2<0\\quad\\text{for alle }N$$\n\nDen er oppfylt overalt, så profittfunksjonen er konkav i hele definisjonsområdet og $N^*=40$ er et globalt maksimum.\n\n**b) Profitten:**\n\n$$F(40)=100\\cdot 40-40^2=4000-1600=2400$$\n\n$$\\pi=1\\cdot 2400-20\\cdot 40=2400-800=1600$$\n\n**c) Etterspørselsfunksjonen.** Med generell $w$:\n\n$$100-2N=w\\ \\Longrightarrow\\ \\boxed{N^*(w)=\\frac{100-w}{2}=50-\\frac{w}{2}}$$\n\n*Kontroll:* $w=20$ gir $50-10=40$ ✓\n\n**Hvorfor lineært?** Fordi grenseproduktet her er en **lineær** funksjon av $N$, ikke en potens. Førsteordensbetingelsen setter grenseproduktet lik $w/p$, så formen på $N^*(w)$ arver formen på $F'$: er $F'$ lineær, blir $N^*(w)$ lineær; er $F'$ en potens, blir $N^*(w)$ en potens.\n\n*Merk også at etterspørselen her når null ved $w=100$.* Blir lønna høyere enn grenseproduktet av den aller første arbeideren, ansetter bedriften ingen. Det skjer ikke med potensteknologien, der grenseproduktet går mot uendelig når $N\\to 0^+$.",
+        "hints": [
+          "Deriver polynomet ledd for ledd.",
+          "Med $p=1$ blir betingelsen $F'(N)=w$ — men skriv den likevel som $pF'(N)=w$ først.",
+          "I c): løs den samme betingelsen med $w$ stående som bokstav."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensnivå: generelle funksjoner og to faktorer (~12 min)"
+    },
+    {
+      "id": "econ1100-9-1-def-implisitt",
+      "type": "definition",
+      "title": "Faktoretterspørselen bestemt implisitt",
+      "content": "Når produktfunksjonen ikke er oppgitt på formel, defineres $N^*$ av betingelsen selv.\n\n$$p\\,F'\\!\\left(N^*(w)\\right)=w\\quad\\text{for alle }w$$\n\nLikningen kan ikke løses for $N^*$ uten å vite hva $F$ er, men den holder som en **identitet** i $w$: uansett hvilken lønn markedet setter, tilpasser bedriften seg slik at betingelsen gjelder. Det er nok til å si noe om hvordan $N^*$ endrer seg — ved å derivere identiteten på begge sider. Den teknikken er komparativ statikk, og den utfoldes i [kap. 9.3](/bok/econ1100/econ1100-9-3)."
+    },
+    {
+      "id": "econ1100-9-1-def-to-faktorer",
+      "type": "definition",
+      "title": "Profittmaksimering med to faktorer",
+      "content": "Bruker bedriften både kapital og arbeid, blir problemet fri optimering i to variabler.\n\n$$\\max_{K,N}\\ p\\,F(K,N)-rK-wN$$\n\nFørsteordensbetingelsene blir én per faktor: $pF'_K=r$ og $pF'_N=w$. Her er $r$ kapitalprisen og $w$ lønna — de byttes aldri om. Fordi det fortsatt ikke finnes noen bibetingelse, klassifiseres kandidatpunktet med **Hesse-determinanten** fra [kap. 6.1](/bok/econ1100/econ1100-6-1), ikke med en multiplikator:\n\n$$D=\\pi''_{KK}\\pi''_{NN}-\\left(\\pi''_{KN}\\right)^{2}$$\n\nEr $D>0$ og $\\pi''_{KK}<0$, er punktet et maksimum; er $D<0$, er det et sadelpunkt."
+    },
+    {
+      "id": "econ1100-9-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — generell teknologi",
+      "problem": "En bedrift maksimerer $\\pi(N)=pF(N)-wN$, der $F$ ikke er oppgitt på formel, men oppfyller $F'(N)>0$ og $F''(N)<0$ for alle $N>0$. Prisene $p$ og $w$ er positive.\n\n**a)** Skriv førsteordensbetingelsen, og forklar hvorfor den har høyst én løsning.\n\n**b)** Vis at kandidatpunktet er et globalt maksimum.\n\n**c)** Anta at lønna stiger. Bruk førsteordensbetingelsen til å avgjøre om $N^*$ stiger eller faller — uten å regne ut noen derivert av $N^*$.",
+      "solution": "**a) Førsteordensbetingelsen:**\n\n$$p\\,F'(N)=w$$\n\nDe deriverte skrives symbolsk fordi $F$ ikke er oppgitt. Det er ikke en mangel ved svaret — det er slik oppgaven skal føres.\n\n**Høyst én løsning:** siden $F''<0$ overalt, er $F'$ en **strengt avtakende** funksjon av $N$. Da er også $pF'(N)$ strengt avtakende, og en strengt avtakende funksjon treffer verdien $w$ i høyst ett punkt. Betingelsen har altså høyst én løsning.\n\n**b) Globalt maksimum:**\n\n$$\\pi''(N)=p\\,F''(N)$$\n\nMed $p>0$ og $F''(N)<0$ for alle $N>0$ er $\\pi''(N)<0$ i hele definisjonsområdet. Profittfunksjonen er dermed konkav overalt, og et stasjonærpunkt til en konkav funksjon er et globalt maksimum ([kap. 4.2](/bok/econ1100/econ1100-4-2)).\n\n**c) Høyere lønn.** Argumentet går gjennom monotonien til $F'$, ikke gjennom derivasjon.\n\nI optimum gjelder\n\n$$F'\\!\\left(N^*\\right)=\\frac{w}{p}$$\n\nStiger $w$ mens $p$ er fast, stiger høyresiden. Da må også $F'(N^*)$ stige. Men $F'$ er strengt avtakende i $N$, så en høyere verdi av $F'$ svarer til en **lavere** $N$.\n\n$$w\\uparrow\\ \\Longrightarrow\\ \\frac{w}{p}\\uparrow\\ \\Longrightarrow\\ F'(N^*)\\uparrow\\ \\Longrightarrow\\ N^*\\downarrow$$\n\n**Konklusjon:** sysselsettingen faller når lønna stiger, uansett hvilken teknologi bedriften har — så lenge grenseproduktet er avtakende.\n\n*Verdt å merke seg:* dette er en fullstendig begrunnelse uten en eneste utregning. Sensor gir full uttelling for et slikt argument, og det er raskere enn å derivere. Vil du ha selve **størrelsen** på endringen og ikke bare fortegnet, må du derivere identiteten — det er innholdet i [kap. 9.3](/bok/econ1100/econ1100-9-3)."
+    },
+    {
+      "id": "econ1100-9-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Alle svar skal begrunnes; en ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «I profittmaksimum er grenseproduktet lik lønna.»\n\n**b)** «Om andreordensbetingelsen for profittmaksimering er oppfylt, avhenger bare av teknologien — ikke av produktprisen $p$.»\n\n**c)** «En bedrift med produktfunksjon $F(N)=AN$ (konstant grenseprodukt) har en veldefinert profittmaksimerende sysselsetting for enhver $w$.»",
+        "solution": "**a) Usann.**\n\n*Begrunnelse:* betingelsen er $pF'(N)=w$, altså at **grenseinntektsproduktet** er lik lønna. Grenseproduktet $F'(N)$ alene er lik $w/p$, ikke $w$.\n\nForskjellen er ikke bare formell: $F'(N)$ måles i **enheter av varen** per enhet arbeid, mens $w$ måles i **kroner** per enhet arbeid. De to kan ikke være like uten at mengden først gjøres om til kroner. Bare i det spesialtilfellet at $p=1$ faller de sammen.\n\n**b) Sann.**\n\n*Begrunnelse ved utregning:* profittfunksjonen er $\\pi(N)=pF(N)-wN$, så\n\n$$\\pi'(N)=pF'(N)-w,\\qquad \\pi''(N)=pF''(N)$$\n\nSiden $p>0$, er $\\pi''(N)\\le 0$ nøyaktig når $F''(N)\\le 0$. Prisen påvirker altså ikke **om** betingelsen holder — bare tallverdien på $\\pi''$. Betingelsen er en egenskap ved teknologien alene, og påstanden stemmer ✓\n\n*Merk at dette er varianten som ER sann.* Den speilvendte påstanden — «andreordensbetingelsen avhenger av produktprisen» — er usann, og begge formuleringene forekommer. Les nøye hvilken vei påstanden går.\n\n*Merk kontrasten til førsteordensbetingelsen*, der $p$ er helt avgjørende: den bestemmer hvor kandidatpunktet ligger.\n\n**c) Usann.**\n\n*Begrunnelse:* med $F(N)=AN$ er $F'(N)=A$, en konstant, og profitten blir\n\n$$\\pi(N)=pAN-wN=(pA-w)N$$\n\nDette er en **lineær** funksjon av $N$. Tre tilfeller:\n\n- Er $pA>w$, vokser profitten uten grense når $N$ øker — det finnes ingen maksimum.\n- Er $pA<w$, faller profitten i $N$, så bedriften velger $N=0$.\n- Er $pA=w$, er profitten null uansett $N$, og enhver $N$ er like god.\n\nI ingen av tilfellene finnes en entydig indre løsning bestemt av $pF'(N)=w$. Betingelsen blir $pA=w$, som ikke inneholder $N$ i det hele tatt og derfor ikke bestemmer noe.\n\n**Poenget:** det er nettopp det **avtakende** grenseproduktet, altså $F''<0$, som gjør problemet velbestemt. Uten det finnes ingen indre løsning.",
+        "hints": [
+          "I a): hvilke enheter har $F'(N)$, og hvilke har $w$?",
+          "I b): deriver profittfunksjonen to ganger og se hvor $p$ blir stående.",
+          "I c): sett $F(N)=AN$ inn i profittfunksjonen og se hva slags funksjon du får."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger PR — to faktorer, med Hesse-kontroll.) En bedrift har produktfunksjonen\n\n$$F(K,N)=K^{1/4}N^{1/4},$$\n\nproduktpris $p=24$, kapitalpris $r=3$ og lønn $w=3$.\n\n**a)** Sett opp profittfunksjonen og de to førsteordensbetingelsene.\n\n**b)** Finn $K^*$ og $N^*$.\n\n**c)** Kontroller med Hesse-determinanten at punktet er et maksimum, og finn profitten.",
+        "solution": "**a)**\n\n$$\\pi(K,N)=24K^{1/4}N^{1/4}-3K-3N$$\n\nPartiellderiver. Ved $\\pi'_K$ er $N^{1/4}$ en konstant faktor:\n\n$$\\text{FOB (1)}:\\ \\pi'_K=24\\cdot\\tfrac14 K^{-3/4}N^{1/4}-3=6K^{-3/4}N^{1/4}-3=0$$\n\n$$\\text{FOB (2)}:\\ \\pi'_N=6K^{1/4}N^{-3/4}-3=0$$\n\nSkrevet som «grenseinntektsprodukt = faktorpris»:\n\n$$6K^{-3/4}N^{1/4}=3,\\qquad 6K^{1/4}N^{-3/4}=3$$\n\n**b) Del den ene på den andre.** Høyresidene er like, så\n\n$$\\frac{6K^{-3/4}N^{1/4}}{6K^{1/4}N^{-3/4}}=1\\ \\Longrightarrow\\ K^{-1}N^{1}=1\\ \\Longrightarrow\\ N=K$$\n\n*Mellomregning på eksponentene:* $K^{-3/4-1/4}=K^{-1}$ og $N^{1/4+3/4}=N^{1}$.\n\nSett $N=K$ inn i FOB (1):\n\n$$6K^{-3/4}K^{1/4}=3\\ \\Longrightarrow\\ 6K^{-1/2}=3\\ \\Longrightarrow\\ K^{-1/2}=\\tfrac12\\ \\Longrightarrow\\ K^{1/2}=2$$\n\n$$K^*=4,\\qquad N^*=4$$\n\n*Kontroll av FOB (2):* $6\\cdot 4^{1/4}\\cdot 4^{-3/4}=6\\cdot 4^{-1/2}=\\dfrac{6}{2}=3=w$ ✓\n\n**c) Hesse-kontroll.** Deriver de to førsteordens partiellderiverte videre:\n\n$$\\pi''_{KK}=6\\cdot\\left(-\\tfrac34\\right)K^{-7/4}N^{1/4}=-\\tfrac92 K^{-7/4}N^{1/4}$$\n\n$$\\pi''_{NN}=-\\tfrac92 K^{1/4}N^{-7/4}$$\n\n$$\\pi''_{KN}=6\\cdot\\tfrac14 K^{-3/4}N^{-3/4}=\\tfrac32 K^{-3/4}N^{-3/4}$$\n\nI punktet $(4,4)$, der $4^{-7/4}\\cdot 4^{1/4}=4^{-3/2}=\\tfrac18$ og $4^{-3/4}\\cdot 4^{-3/4}=4^{-3/2}=\\tfrac18$:\n\n$$\\pi''_{KK}=-\\tfrac92\\cdot\\tfrac18=-\\tfrac{9}{16},\\qquad \\pi''_{NN}=-\\tfrac{9}{16},\\qquad \\pi''_{KN}=\\tfrac32\\cdot\\tfrac18=\\tfrac{3}{16}$$\n\n$$D=\\left(-\\tfrac{9}{16}\\right)\\left(-\\tfrac{9}{16}\\right)-\\left(\\tfrac{3}{16}\\right)^2=\\frac{81}{256}-\\frac{9}{256}=\\frac{72}{256}=\\frac{9}{32}>0$$\n\nMed $D>0$ og $\\pi''_{KK}<0$ er punktet et **lokalt maksimum**.\n\n**Profitten:**\n\n$$\\pi(4,4)=24\\cdot 4^{1/4}\\cdot 4^{1/4}-3\\cdot 4-3\\cdot 4=24\\cdot 4^{1/2}-24=48-24=24$$\n\n**Konklusjon:** bedriften bruker fire enheter av hver faktor og oppnår en profitt på 24.\n\n*Merk hvorfor kryssleddet er positivt her:* $\\pi''_{KN}>0$ betyr at mer kapital gjør arbeidskraft mer produktiv på marginen. Faktorene er komplementer, noe som er typisk for Cobb-Douglas-teknologi.",
+        "hints": [
+          "a): $N^{1/4}$ er en konstant faktor når du deriverer mht. $K$.",
+          "b): del den ene betingelsen på den andre — tallene er like, så bare potensene står igjen.",
+          "c): regn ut $4^{-7/4}\\cdot 4^{1/4}$ som én potens før du setter inn."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger PR — generelle funksjoner og profittens avhengighet av prisene.) En bedrift maksimerer $\\pi(N)=pF(N)-wN$ med $F'>0$ og $F''<0$ overalt, og har den optimale sysselsettingen $N^*(p,w)$.\n\n**a)** Vis at den maksimale profitten kan skrives $\\pi^*(p,w)=pF(N^*)-wN^*$, og forklar hvorfor $\\pi^*>0$ er mulig selv om den siste arbeideren akkurat betaler for seg.\n\n**b)** For $F(N)=AN^{a}$ med $0<a<1$: vis at den maksimale profitten er\n\n$$\\pi^*=(1-a)\\,p\\,A\\left(N^*\\right)^{a}.$$\n\n**c)** Kontroller formelen i b) med $A=10$, $a=\\tfrac12$, $p=20$, $w=5$.",
+        "solution": "**a)** Den maksimale profitten er profitten evaluert i det optimale valget:\n\n$$\\pi^*(p,w)=p\\,F\\!\\left(N^*\\right)-wN^*$$\n\n**Hvorfor den kan være positiv.** Førsteordensbetingelsen gjelder bare den **siste** enheten arbeid: den tilfører nøyaktig $w$ i verdi. Alle enhetene før den tilførte **mer**, fordi grenseproduktet er avtakende — $F'(N)>F'(N^*)$ for alle $N<N^*$.\n\nSummen av det de tidligere enhetene tilførte utover lønna, er nettopp profitten. Det er derfor helt normalt at $\\pi^*>0$ selv om den marginale arbeideren går i null.\n\n**b)** Sett inn $F(N)=AN^{a}$:\n\n$$\\pi^*=pA\\left(N^*\\right)^{a}-wN^*$$\n\nBruk førsteordensbetingelsen til å erstatte $w$. Fra $paA\\left(N^*\\right)^{a-1}=w$ får vi\n\n$$wN^*=paA\\left(N^*\\right)^{a-1}\\cdot N^*=paA\\left(N^*\\right)^{a}$$\n\n*Mellomregning:* $\\left(N^*\\right)^{a-1}\\cdot N^*=\\left(N^*\\right)^{a}$.\n\nSett dette inn:\n\n$$\\pi^*=pA\\left(N^*\\right)^{a}-paA\\left(N^*\\right)^{a}=(1-a)\\,pA\\left(N^*\\right)^{a}\\ ✓$$\n\n**Tolkning:** lønnskostnaden utgjør nøyaktig andelen $a$ av salgsinntekten, og profitten er resten, $1-a$. Andelen avhenger bare av eksponenten i teknologien — ikke av prisene. Dette er samme mønster som budsjettandelene i Cobb-Douglas-nytte ([kap. 8.2](/bok/econ1100/econ1100-8-2)), og det er ikke tilfeldig: det er den samme algebraen.\n\n**c) Kontrollen.** Med $A=10$, $a=\\tfrac12$, $p=20$, $w=5$ er $N^*=400$ (Eksempel 1), og\n\n$$\\pi^*=(1-\\tfrac12)\\cdot 20\\cdot 10\\cdot 400^{1/2}=\\tfrac12\\cdot 200\\cdot 20=2000\\ ✓$$\n\nSamme svar som ved direkte utregning i Eksempel 1.\n\n*Kontroll av andelen:* salgsinntekten er $pF(N^*)=20\\cdot 10\\cdot 20=4000$, og lønnskostnaden er $wN^*=5\\cdot 400=2000$ — nøyaktig halvparten, som $a=\\tfrac12$ tilsier ✓",
+        "hints": [
+          "a): tenk på hva grenseproduktet var for de tidligere enhetene, ikke bare den siste.",
+          "b): bruk førsteordensbetingelsen til å bytte ut $w$ i uttrykket $wN^*$.",
+          "b): $\\left(N^*\\right)^{a-1}\\cdot N^*$ forenkles til én potens."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-9-1-bb-1",
+      "type": "definition",
+      "title": "Oppskriften i fire linjer",
+      "content": "Hele profittmaksimeringen, slik den skal stå på arket.\n\n$$1)\\ \\pi=pF(N)-wN;\\quad 2)\\ pF'(N)=w;\\quad 3)\\ F''\\le 0;\\quad 4)\\ \\text{løs for }N^*$$\n\nSteg 3 er det steget flest hopper over, og det bærer egne poeng. Avslutt med en tolkningssetning om hva $N^*$ betyr."
+    },
+    {
+      "id": "econ1100-9-1-bb-2",
+      "type": "definition",
+      "title": "Grenseinntektsprodukt",
+      "content": "Verdien i kroner av det den neste arbeideren produserer.\n\n$$p\\,F'(N)$$\n\nDette er venstresiden i førsteordensbetingelsen, og prisen $p$ er det som gjør en mengde om til kroner. Uten $p$ sammenligner du epler og pærer."
+    },
+    {
+      "id": "econ1100-9-1-bb-3",
+      "type": "definition",
+      "title": "Andreordensbetingelsen gjelder teknologien alene",
+      "content": "Prisen påvirker hvor optimum ligger, men ikke om det er et maksimum.\n\n$$\\pi''(N)=p\\,F''(N)\\le 0\\ \\Longleftrightarrow\\ F''(N)\\le 0$$\n\nLønnskostnaden $-wN$ er lineær og forsvinner ved andre derivasjon, og $p>0$ endrer ikke fortegnet. Betingelsen er dermed en ren egenskap ved produktfunksjonen."
+    },
+    {
+      "id": "econ1100-9-1-bb-4",
+      "type": "definition",
+      "title": "Potensteknologien og dens deriverte",
+      "content": "Standardformen i arkivet, og de to deriverte du trenger.\n\n$$F(N)=AN^{a};\\qquad F'=aAN^{a-1};\\qquad F''=a(a-1)AN^{a-2}$$\n\nMed $0<a<1$ er $F'>0$ og $F''<0$ for alle $N>0$ — altså positivt, men avtakende grenseprodukt. Det er nøyaktig egenskapen problemet trenger for å ha en indre løsning."
+    },
+    {
+      "id": "econ1100-9-1-bb-5",
+      "type": "definition",
+      "title": "Faktoretterspørselen for potensteknologi",
+      "content": "Standardresultatet det lønner seg å kjenne igjen.\n\n$$N^*(w)=\\left(\\frac{paA}{w}\\right)^{\\frac{1}{1-a}}$$\n\nHusk snuoperasjonen som gir den: fra $N^{a-1}=w/(paA)$ snus begge sider til $N^{1-a}=paA/w$, og deretter opphøyes i $1/(1-a)$."
+    },
+    {
+      "id": "econ1100-9-1-bb-6",
+      "type": "definition",
+      "title": "Lønnselastisiteten",
+      "content": "Prosentvis fall i sysselsetting per prosent lønnsøkning.\n\n$$\\mathrm{El}_w N^*=-\\frac{1}{1-a}$$\n\nDen leses rett av som eksponenten på $w$ i uttrykket for $N^*$. Med $a=\\tfrac12$ blir den $-2$, med $a=\\tfrac23$ blir den $-3$: jo nærmere $a$ er $1$, desto mer følsom er etterspørselen."
+    },
+    {
+      "id": "econ1100-9-1-bb-7",
+      "type": "definition",
+      "title": "Profittandelen i potensteknologi",
+      "content": "Lønnskostnaden er en fast andel av salgsinntekten.\n\n$$wN^*=a\\cdot pF\\!\\left(N^*\\right);\\qquad \\pi^*=(1-a)\\,pF\\!\\left(N^*\\right)$$\n\nAndelen avhenger bare av eksponenten $a$, ikke av prisene. Det er det samme mønsteret som faste budsjettandeler i Cobb-Douglas-nytte, og det gir en rask kontroll på svaret."
+    },
+    {
+      "id": "econ1100-9-1-bb-8",
+      "type": "definition",
+      "title": "Fritt problem, ingen multiplikator",
+      "content": "Profittmaksimering har ingen bibetingelse.\n\n$$\\max_N\\ pF(N)-wN\\quad\\text{— ingen }g(N)=m,\\ \\text{ingen }\\lambda$$\n\nDukker det opp en $\\lambda$ i regningen din, har du lest oppgaven som en kostnadsminimering. Kontrollen er å lete etter en likning med en fast verdi på høyre side: finnes den ikke, er problemet fritt."
+    },
+    {
+      "id": "econ1100-9-1-bb-9",
+      "type": "definition",
+      "title": "To faktorer gir to betingelser",
+      "content": "Én førsteordensbetingelse per innsatsfaktor.\n\n$$p\\,F'_K=r;\\qquad p\\,F'_N=w$$\n\nHer er $r$ kapitalprisen og $w$ lønna — de byttes aldri om. Klassifiseringen gjøres med Hesse-determinanten, siden problemet fortsatt er fritt."
+    },
+    {
+      "id": "econ1100-9-1-bb-10",
+      "type": "definition",
+      "title": "Fortegnsargumentet uten derivasjon",
+      "content": "Monotonien til grenseproduktet gir svaret direkte.\n\n$$F'\\!\\left(N^*\\right)=\\frac{w}{p};\\qquad F'\\ \\text{avtakende}\\ \\Longrightarrow\\ w\\uparrow\\ \\text{gir}\\ N^*\\downarrow$$\n\nStiger $w/p$, må $F'(N^*)$ stige, og siden $F'$ avtar i $N$, må $N^*$ falle. Det er en fullgod begrunnelse, og den er raskere enn å derivere."
+    },
+    {
+      "id": "econ1100-9-1-bb-11",
+      "type": "definition",
+      "title": "Konstant grenseprodukt gir ingen løsning",
+      "content": "Uten avtakende grenseprodukt er problemet ikke velbestemt.\n\n$$F(N)=AN\\ \\Longrightarrow\\ \\pi(N)=(pA-w)N$$\n\nProfitten blir lineær i $N$: enten vokser den uten grense, eller så er $N=0$ best, eller så er alt like godt. Betingelsen $pA=w$ inneholder ikke $N$ og bestemmer derfor ingenting."
+    },
+    {
+      "id": "econ1100-9-1-bb-12",
+      "type": "definition",
+      "title": "Kontrollen som alltid virker",
+      "content": "Sett $N^*$ tilbake i førsteordensbetingelsen.\n\n$$p\\,F'\\!\\left(N^*\\right)\\overset{?}{=}w$$\n\nDet tar tjue sekunder og fanger nesten alle eksponentfeil. En andre kontroll er å regne profitten i $N^*$ og i to nabopunkter, og se at kandidatpunktet gir høyest verdi."
+    },
+    {
+      "id": "econ1100-9-1-bb-13",
+      "type": "definition",
+      "title": "Grenseprodukt mot gjennomsnittsprodukt",
+      "content": "To størrelser som lett forveksles.\n\n$$F'(N)=\\text{grenseprodukt};\\qquad \\frac{F(N)}{N}=\\text{gjennomsnittsprodukt}$$\n\nFørsteordensbetingelsen bruker **grense**produktet. For $F=AN^{a}$ er de to knyttet sammen ved $F'(N)=a\\cdot F(N)/N$ — grenseproduktet er andelen $a$ av gjennomsnittsproduktet."
+    },
+    {
+      "id": "econ1100-9-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-9-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1), [kap. 2.1](/bok/econ1100/econ1100-2-1) og [kap. 4.2](/bok/econ1100/econ1100-4-2).\n\n**1.** Deriver $F(N)=10\\sqrt N$.\n\n*Svar:* $F'(N)=\\dfrac{5}{\\sqrt N}$, siden $\\dfrac{d}{dN}\\sqrt N=\\dfrac{1}{2\\sqrt N}$.\n\n**2.** Deriver $F(N)=5N^{3/4}$.\n\n*Svar:* $F'(N)=\\dfrac{15}{4}N^{-1/4}$.\n\n**3.** Løs $N^{-1/2}=\\dfrac{1}{4}$ for $N$.\n\n*Svar:* Snu begge sider: $N^{1/2}=4$, altså $N=16$.\n\n**4.** Hva er $\\mathrm{El}_w$ av funksjonen $N(w)=Cw^{-3}$?\n\n*Svar:* $-3$ — potensregelen for elastisitet leser av eksponenten, og konstanten $C$ forsvinner.\n\n**5.** Hva sier andrederiverttesten i én variabel når $f'(a)=0$ og $f''(a)<0$?\n\n*Svar:* At $a$ er et lokalt maksimum. Er $f''<0$ i hele definisjonsområdet, er det dessuten globalt.\n\n**6.** Regn ut $64^{2/3}$.\n\n*Svar:* $\\left(64^{1/3}\\right)^2=4^2=16$.\n\n**7.** Forenkle $N^{a-1}\\cdot N$.\n\n*Svar:* $N^{a}$ — eksponentene legges sammen."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-9-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-9-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $N$ | Sysselsetting — mengden arbeidskraft bedriften bruker |\n| $K$ | Kapital, når bedriften har to innsatsfaktorer |\n| $F(N)$ | Produktfunksjonen — produsert mengde ved innsats $N$ |\n| $F'(N)$ | Grenseproduktet av arbeid |\n| $p$ | Produktprisen, gitt for bedriften |\n| $w$ | Lønn per enhet arbeid |\n| $r$ | Kapitalpris (leiepris på kapital) |\n| $\\pi(N)$ | Profittfunksjonen |\n| $N^*$ | Profittmaksimerende sysselsetting |\n| $N^*(w)$ | Faktoretterspørselen — $N^*$ som funksjon av lønna |\n| $\\pi^*$ | Maksimal profitt |\n| $A$, $a$ | Skalafaktor og eksponent i potensteknologien $AN^{a}$ |\n| $\\mathrm{El}_w N^*$ | Lønnselastisiteten i faktoretterspørselen |\n| $\\pi''_{KK}$, $\\pi''_{KN}$ | Andreordens partiellderiverte av profittfunksjonen i tofaktortilfellet |\n| $D$ | Hesse-determinanten $\\pi''_{KK}\\pi''_{NN}-(\\pi''_{KN})^{2}$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\pi(N)=p\\,F(N)-wN$$\nProfittfunksjonen: salgsinntekt minus lønnskostnad.\n\n$$p\\,F'(N)=w$$\nFørsteordensbetingelsen: grenseinntektsprodukt lik lønn. Prisen $p$ må være med.\n\n$$\\pi''(N)=p\\,F''(N)\\le 0\\ \\Longleftrightarrow\\ F''(N)\\le 0$$\nAndreordensbetingelsen. Gjelder teknologien alene, ikke prisene.\n\n$$N^*(w)=\\left(\\frac{paA}{w}\\right)^{\\frac{1}{1-a}}$$\nFaktoretterspørselen for $F(N)=AN^{a}$.\n\n$$\\mathrm{El}_w N^*=-\\frac{1}{1-a}$$\nLønnselastisiteten, lest av som eksponenten på $w$.\n\n$$\\pi^*=(1-a)\\,p\\,A\\left(N^*\\right)^{a}$$\nMaksimal profitt ved potensteknologi: lønna tar andelen $a$ av inntekten, profitten resten.\n\n$$p\\,F'_K=r;\\qquad p\\,F'_N=w$$\nFørsteordensbetingelsene når bedriften bruker to faktorer.\n\n$$D=\\pi''_{KK}\\pi''_{NN}-\\left(\\pi''_{KN}\\right)^{2}$$\nHesse-determinanten, som klassifiserer kandidatpunktet i tofaktortilfellet. $D>0$ med $\\pi''_{KK}<0$ gir maksimum."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

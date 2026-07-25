@@ -1,0 +1,373 @@
+{
+  "id": "econ1100-2-1",
+  "courseId": "econ1100",
+  "chapterNumber": "2.1",
+  "title": "Elastisitet: definisjon, potensregel og regneregler",
+  "description": "Elastisitet som relativ følsomhet — definisjonen som prosent per prosent, potensregelen der eksponenten er svaret, og de multiplikative regnereglene som lar deg finne elastisiteten til et sammensatt uttrykk uten å derivere det.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne ut elastisiteten fra definisjonen og tolke tallet som prosent per prosent",
+    "lese elastisiteten rett av eksponenten i en potensfunksjon",
+    "bruke produkt- og kvotientregelen på sammensatte uttrykk uten å derivere dem",
+    "kjenne igjen standardresultatene fra konsument- og produsentteori"
+  ],
+  "content": [
+    {
+      "id": "econ1100-2-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Elastisitet er den mest gjenbrukte enkeltstørrelsen i faget — og den er billig å lære.**\n\n**Sjanger EL — elastisitet**, altså hvor mange prosent én størrelse endrer seg når en annen endrer seg med én prosent. Sjangeren står i **11 av 16 sett** i arkivet (69 %). Den er sjelden en egen storoppgave; den er som regel **innvevd** i en annen — et delpunkt i Lagrange-oppgaven, et ledd i produsentteori, eller en påstand i sant/usant-oppgaven.\n\n**Det som gir poeng her, er regnereglene.** Elastisiteten til et produkt er summen av elastisitetene, og elastisiteten til en brøk er differansen. Det betyr at du kan finne elastisiteten til et sammensatt uttrykk **uten å derivere det**. Ett av settene bruker nettopp kvotientregelen på denne måten.\n\n**Den vanligste feilen er den enkleste:** å regne $f'(x)$ og glemme faktoren $x/f$. Elastisitet er ikke en derivert — det er en derivert skalert om til prosenter.\n\nKapitlet ligger på prioritetsnivået **kunne**: du skal beherske det trygt, men det bærer ikke eksamen alene.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.1](/bok/econ1100/econ1100-1-1) (derivasjonsreglene) og [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderivasjon, som brukes i de flervariable eksemplene). Fra videregående er [Derivasjonsregler](/bok/r1/r1-4-1) og [Produktregelen og kvotientregelen](/bok/r1/r1-4-4) nyttig bakgrunn.\n\n**Sist du var her — de tre reglene du trenger:**\n\n$$\\frac{d}{dx}x^{a}=ax^{a-1};\\qquad \\frac{d}{dx}\\ln x=\\frac1x;\\qquad (uv)'=u'v+uv'$$"
+    },
+    {
+      "id": "econ1100-2-1-motivasjon",
+      "type": "text",
+      "content": "Strømprisen stiger med 10 øre. Hvor mye mindre strøm bruker folk?\n\nSpørsmålet er umulig å svare på uten mer informasjon, for svaret avhenger av hva prisen var fra før. Ti øre er mye hvis prisen var 50 øre, og lite hvis den var 5 kroner. Den deriverte alene forteller deg altså ikke hvor følsom etterspørselen er.\n\nDerfor regner økonomer i **prosent per prosent**. Stiger prisen med én prosent, hvor mange prosent faller forbruket? Det tallet kan sammenlignes på tvers av varer, land og valutaer, fordi enhetene har falt bort.\n\nDet tallet er elastisiteten. Kapitlet definerer den, viser hvordan du leser den rett av eksponenten i en potensfunksjon, og gir to regneregler som gjør sammensatte uttrykk overraskende enkle."
+    },
+    {
+      "id": "econ1100-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Definisjonen (~14 min)"
+    },
+    {
+      "id": "econ1100-2-1-def-elastisitet",
+      "type": "definition",
+      "title": "Elastisitet",
+      "content": "Elastisiteten måler hvor mange prosent $f$ endrer seg når $x$ endrer seg med én prosent.\n\n$$\\mathrm{El}_x f=\\frac{x}{f}\\,f'(x)$$\n\nSkrivemåten leses «elastisiteten til $f$ med hensyn på $x$». Legg merke til at den deriverte skaleres med forholdet $x/f$ — det er nettopp den skaleringen som gjør tallet enhetsløst."
+    },
+    {
+      "id": "econ1100-2-1-def-enhetslos",
+      "type": "definition",
+      "title": "Elastisitet er enhetsløs",
+      "content": "Enhetene faller bort, fordi både teller og nevner er relative endringer.\n\n$$\\mathrm{El}_x f\\approx\\frac{\\text{prosentvis endring i }f}{\\text{prosentvis endring i }x}$$\n\nEn elastisitet er derfor **ikke** en endring i kroner. At $\\mathrm{El}_{p_1}x=-1$ betyr at etterspørselen faller like mange prosent som prisen stiger — ikke at den faller med én enhet. Fortegnet er informasjon i seg selv: negativt betyr at de to beveger seg i hver sin retning."
+    },
+    {
+      "id": "econ1100-2-1-def-tolkning",
+      "type": "definition",
+      "title": "Elastisk og uelastisk",
+      "content": "Tallverdien avgjør om responsen er sterk eller svak.\n\n$$\\lvert\\mathrm{El}_x f\\rvert>1\\ \\text{elastisk};\\qquad \\lvert\\mathrm{El}_x f\\rvert<1\\ \\text{uelastisk}$$\n\nEr etterspørselen elastisk, faller den mer enn prisen stiger, målt i prosent — og da faller den samlede omsetningen. Er den uelastisk, går omsetningen opp. Nødvendighetsgoder som strøm og brød er typisk uelastiske; luksusvarer er typisk elastiske."
+    },
+    {
+      "id": "econ1100-2-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Fra derivert til elastisitet",
+      "problem": "Finn elastisiteten.\n\n**a)** $f(x)=x^{2}$ i $x=3$.\n\n**b)** $q(p)=100-2p$ i $p=20$, der $q$ er etterspurt mengde og $p$ er prisen.\n\n**c)** Tolk svaret i b) i ord.",
+      "solution": "**a)** Vi trenger to ting: $f'(x)$ og forholdet $x/f$.\n\n$$f'(x)=2x\\ \\Longrightarrow\\ f'(3)=6,\\qquad f(3)=9$$\n\n$$\\mathrm{El}_x f=\\frac{x}{f}\\,f'(x)=\\frac{3}{9}\\cdot 6=2$$\n\n*Kontroll av tolkningen:* øker $x$ med én prosent, fra 3 til $3{,}03$, blir $f=3{,}03^{2}=9{,}1809$. Det er en økning på $0{,}1809/9=2{,}01$ prosent — altså omtrent to prosent ✓\n\n**b)** Her er $q'(p)=-2$, og $q(20)=100-40=60$.\n\n$$\\mathrm{El}_p q=\\frac{p}{q}\\,q'(p)=\\frac{20}{60}\\cdot(-2)=-\\frac23\\approx -0{,}67$$\n\n**c) Tolkningen.** Stiger prisen med én prosent, faller etterspørselen med omtrent $0{,}67$ prosent.\n\nTallverdien er mindre enn 1, så etterspørselen er **uelastisk** i dette punktet: forbrukerne reagerer svakere enn prisendringen. Fortegnet er negativt, som forventet — dyrere varer selger mindre.\n\n**Merk at elastisiteten avhenger av punktet.** I $p=40$ er $q=20$ og\n\n$$\\mathrm{El}_p q=\\frac{40}{20}\\cdot(-2)=-4$$\n\nSamme etterspørselsfunksjon, men nå sterkt elastisk. En rett etterspørselslinje har altså **ikke** konstant elastisitet — det har derimot potensfunksjonene i neste løkke."
+    },
+    {
+      "id": "econ1100-2-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger EL — elastisitet, i 11 av 16 sett. Innstegsoppgave.) Finn elastisiteten.\n\n**a)** $f(x)=x^{3}$ i $x=2$.\n\n**b)** $f(x)=4x$ i $x=5$.\n\n**c)** $q(p)=200-5p$ i $p=10$.",
+        "solution": "**a)** $f'(x)=3x^{2}$, så $f'(2)=12$, og $f(2)=8$.\n\n$$\\mathrm{El}_x f=\\frac{2}{8}\\cdot 12=3$$\n\n**b)** $f'(x)=4$ og $f(5)=20$.\n\n$$\\mathrm{El}_x f=\\frac{5}{20}\\cdot 4=1$$\n\n*Merk:* en funksjon gjennom origo som er proporsjonal med $x$, har alltid elastisitet 1 — dobler du $x$, dobles $f$.\n\n**c)** $q'(p)=-5$ og $q(10)=200-50=150$.\n\n$$\\mathrm{El}_p q=\\frac{10}{150}\\cdot(-5)=-\\frac13\\approx -0{,}33$$\n\nEtterspørselen er **uelastisk** her: en prosents prisøkning gir bare en tredjedels prosent fall i mengde.\n\n*Fremgangsmåten i alle tre:* regn $f'$, regn $f$ i punktet, gang sammen med $x/f$. Å stoppe etter $f'$ er den vanligste feilen.",
+        "hints": [
+          "Regn $f'(x)$ og $f(x)$ hver for seg før du setter inn i formelen.",
+          "Elastisiteten er ikke den deriverte — faktoren $x/f$ må med."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil med elastisitet",
+      "content": "- **Å glemme faktoren $x/f$.** Dette er den klart vanligste feilen: kandidaten regner $f'(x)$ og stopper der. Elastisiteten er den deriverte **skalert om til prosenter**, og uten skaleringen er svaret en helt annen størrelse med helt andre enheter.\n- **Å ta med multiplikative konstanter i potensregelen.** For $f=Cx^{a}$ er elastisiteten $a$ — konstanten $C$ forsvinner alltid. At $f=5x^{3}$ skulle ha elastisitet $15$ eller $5\\cdot 3$, er feil.\n- **Feil fortegn i kvotientregelen.** $\\mathrm{El}(f/g)=\\mathrm{El}\\,f-\\mathrm{El}\\,g$, med minus. Å skrive pluss der er en av fellene i sant/usant-oppgaven.\n- **Å tro at elastisiteten er den samme i alle punkter.** Bare potensfunksjoner har konstant elastisitet. En rett linje har ulik elastisitet i hvert punkt, som eksempel 1 viste.\n- **Å bruke en «sumregel» som ikke finnes.** Det er ingen enkel regel for $\\mathrm{El}(f+g)$. Regnereglene gjelder for produkter og kvotienter, ikke for summer og differanser.\n- **Å tolke elastisiteten som kroner.** Elastisitet er prosent per prosent. Blandingen med kroneendringer er en tolkningsfeil som koster hele delpunktet i en «forklar i ord»-oppgave."
+    },
+    {
+      "id": "econ1100-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Potensregelen (~12 min)"
+    },
+    {
+      "id": "econ1100-2-1-def-potensregel",
+      "type": "definition",
+      "title": "Potensregelen for elastisitet",
+      "content": "For en potensfunksjon er elastisiteten rett og slett eksponenten.\n\n$$f(x)=Cx^{a}\\ \\Longrightarrow\\ \\mathrm{El}_x f=a$$\n\nKonstanten $C$ forsvinner, og elastisiteten er den samme i **alle** punkter. Dette er grunnen til at potensfunksjoner er så populære i økonomiske modeller: de har konstant elastisitet innebygd, og eksponenten kan leses direkte som en økonomisk parameter."
+    },
+    {
+      "id": "econ1100-2-1-def-hvorfor-potens",
+      "type": "definition",
+      "title": "Hvorfor konstanten forsvinner",
+      "content": "Faktoren $C$ står i både teller og nevner og stryker seg selv.\n\n$$\\mathrm{El}_x f=\\frac{x}{Cx^{a}}\\cdot Cax^{a-1}=\\frac{ax^{a}}{x^{a}}=a$$\n\nDet er hele forklaringen. Elastisitet måler *relativ* endring, og en multiplikativ konstant endrer ikke forholdet mellom to relative størrelser — den bare bytter måleenhet."
+    },
+    {
+      "id": "econ1100-2-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Les av eksponenten",
+      "problem": "Finn elastisiteten.\n\n**a)** $f(x)=7x^{4}$\n\n**b)** $f(x)=\\dfrac{3}{x^{2}}$\n\n**c)** $f(x)=12\\sqrt{x}$\n\n**d)** En produktfunksjon er $Q=AK^{\\alpha}L^{\\beta}$. Finn $\\mathrm{El}_K Q$.",
+      "solution": "**a)** Eksponenten er 4, så\n\n$$\\mathrm{El}_x f=4$$\n\nTallet 7 spiller ingen rolle. *Kontroll med definisjonen:* $f'=28x^{3}$, og $\\dfrac{x}{7x^{4}}\\cdot 28x^{3}=\\dfrac{28x^{4}}{7x^{4}}=4$ ✓\n\n**b)** Skriv om til potensform først:\n\n$$f(x)=3x^{-2}\\ \\Longrightarrow\\ \\mathrm{El}_x f=-2$$\n\nFortegnet er negativt fordi funksjonen avtar: én prosents økning i $x$ gir omtrent to prosents fall i $f$.\n\n**c)** Kvadratroten er en potens:\n\n$$f(x)=12x^{1/2}\\ \\Longrightarrow\\ \\mathrm{El}_x f=\\frac12$$\n\n**d)** Her deriverer vi **partielt** mht. $K$, altså holder vi $L$ konstant. Da er $AL^{\\beta}$ bare en konstant faktor, og funksjonen er en potensfunksjon i $K$:\n\n$$Q=\\big(AL^{\\beta}\\big)K^{\\alpha}\\ \\Longrightarrow\\ \\mathrm{El}_K Q=\\alpha$$\n\n**Dette er et standardresultat verdt å kjenne.** Eksponentene i en Cobb-Douglas-produktfunksjon **er** de partielle produksjonselastisitetene: øker kapitalen med én prosent, øker produksjonen med $\\alpha$ prosent. Det er derfor $\\alpha$ og $\\beta$ tolkes direkte som faktorenes betydning i modellen.\n\n*Kontroll med definisjonen:* $Q'_K=\\alpha AK^{\\alpha-1}L^{\\beta}$, og\n\n$$\\frac{K}{AK^{\\alpha}L^{\\beta}}\\cdot\\alpha AK^{\\alpha-1}L^{\\beta}=\\alpha\\ ✓$$"
+    },
+    {
+      "id": "econ1100-2-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger EL.) Finn elastisiteten uten å derivere.\n\n**a)** $f(x)=9x^{5}$\n\n**b)** $f(x)=\\dfrac{4}{x^{3}}$\n\n**c)** $f(x)=\\dfrac{x^{2}}{6}$\n\n**d)** $f(x)=100$",
+        "solution": "**a)** $\\mathrm{El}_x f=5$ — eksponenten, uavhengig av tallet 9.\n\n**b)** Skriv om: $f(x)=4x^{-3}$, altså\n\n$$\\mathrm{El}_x f=-3$$\n\n**c)** Konstanten står i nevneren, men den er fortsatt en multiplikativ konstant: $f(x)=\\tfrac16 x^{2}$, så\n\n$$\\mathrm{El}_x f=2$$\n\n**d)** En konstant funksjon kan skrives $f(x)=100x^{0}$, altså\n\n$$\\mathrm{El}_x f=0$$\n\n*Sjekk mot definisjonen:* $f'(x)=0$, så $\\dfrac{x}{100}\\cdot 0=0$ ✓ — og det gir god mening: en størrelse som ikke endrer seg, har null prosentvis respons.",
+        "hints": [
+          "Skriv alt om til formen $Cx^{a}$ først, også brøker og røtter.",
+          "En konstant er $x$ opphøyd i null."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Regnereglene (~14 min)"
+    },
+    {
+      "id": "econ1100-2-1-thm-regneregler",
+      "type": "theorem",
+      "title": "Regneregler for elastisitet",
+      "content": "For to deriverbare funksjoner $f$ og $g$ med $f,g\\ne 0$ gjelder\n\n$$\\mathrm{El}_x(f\\cdot g)=\\mathrm{El}_x f+\\mathrm{El}_x g$$\n\n$$\\mathrm{El}_x\\!\\left(\\frac{f}{g}\\right)=\\mathrm{El}_x f-\\mathrm{El}_x g$$\n\n**Intuisjon:** ganger du to størrelser sammen, legges de prosentvise endringene omtrent sammen. Stiger prisen med 3 prosent og mengden med 2 prosent, stiger omsetningen med omtrent 5 prosent. Deler du, trekkes de fra hverandre.\n\n**Merk hva som IKKE finnes:** det er ingen tilsvarende enkel regel for $\\mathrm{El}_x(f+g)$. Regnereglene gjelder produkter og kvotienter — de er multiplikative, akkurat som logaritmeregler."
+    },
+    {
+      "id": "econ1100-2-1-def-produktregel",
+      "type": "definition",
+      "title": "Produktregelen for elastisitet",
+      "content": "Elastisiteten til et produkt er summen av elastisitetene.\n\n$$\\mathrm{El}_x(f\\cdot g)=\\mathrm{El}_x f+\\mathrm{El}_x g$$\n\nDette er den regelen som sparer mest arbeid: du slipper å derivere hele produktet. Har uttrykket en potensfaktor, leses dens bidrag rett av eksponenten."
+    },
+    {
+      "id": "econ1100-2-1-def-kvotientregel",
+      "type": "definition",
+      "title": "Kvotientregelen for elastisitet",
+      "content": "Elastisiteten til en brøk er differansen mellom elastisitetene.\n\n$$\\mathrm{El}_x\\!\\left(\\frac{f}{g}\\right)=\\mathrm{El}_x f-\\mathrm{El}_x g$$\n\nMinustegnet er obligatorisk, og det er nettopp der fellene ligger i sant/usant-oppgaven. Ett av settene i arkivet bruker denne regelen direkte som et delpunkt."
+    },
+    {
+      "id": "econ1100-2-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Regneregler i praksis",
+      "problem": "La $f(x)=5x^{3}(x+2)$ for $x>0$.\n\n**a)** Finn $\\mathrm{El}_x f$ ved hjelp av regnereglene, uten å derivere hele produktet.\n\n**b)** Kontroller svaret ved å derivere direkte.\n\n**c)** Finn $\\mathrm{El}_x h$ når $h(x)=\\dfrac{5x^{3}}{x+2}$.",
+      "solution": "**a) Del uttrykket i to faktorer** og bruk produktregelen:\n\n$$\\mathrm{El}_x f=\\mathrm{El}_x\\big(5x^{3}\\big)+\\mathrm{El}_x(x+2)$$\n\nDen første leses rett av eksponenten:\n\n$$\\mathrm{El}_x\\big(5x^{3}\\big)=3$$\n\nDen andre må regnes fra definisjonen, siden $x+2$ ikke er en ren potens. Med $u(x)=x+2$ er $u'(x)=1$:\n\n$$\\mathrm{El}_x(x+2)=\\frac{x}{x+2}\\cdot 1=\\frac{x}{x+2}$$\n\nTil sammen:\n\n$$\\boxed{\\mathrm{El}_x f=3+\\frac{x}{x+2}=\\frac{3(x+2)+x}{x+2}=\\frac{4x+6}{x+2}}$$\n\n**b) Kontroll ved direkte derivasjon.** Gang ut først:\n\n$$f(x)=5x^{4}+10x^{3}\\ \\Longrightarrow\\ f'(x)=20x^{3}+30x^{2}$$\n\n$$\\mathrm{El}_x f=\\frac{x}{5x^{4}+10x^{3}}\\big(20x^{3}+30x^{2}\\big)=\\frac{20x^{4}+30x^{3}}{5x^{4}+10x^{3}}$$\n\nSett $10x^{3}$ utenfor i telleren og $5x^{3}$ i nevneren:\n\n$$=\\frac{10x^{3}(2x+3)}{5x^{3}(x+2)}=\\frac{2(2x+3)}{x+2}=\\frac{4x+6}{x+2}\\ ✓$$\n\nSamme svar — og regnereglene var betydelig raskere.\n\n**Tallkontroll:** i $x=2$ gir formelen $\\dfrac{8+6}{4}=3{,}5$. Direkte: $f(2)=5\\cdot 8\\cdot 4=160$ og $f'(2)=20\\cdot 8+30\\cdot 4=280$, altså $\\dfrac{2}{160}\\cdot 280=3{,}5$ ✓\n\n**c)** Nå er det en brøk, så vi trekker fra i stedet for å legge til:\n\n$$\\mathrm{El}_x h=\\mathrm{El}_x\\big(5x^{3}\\big)-\\mathrm{El}_x(x+2)=3-\\frac{x}{x+2}=\\frac{3(x+2)-x}{x+2}=\\frac{2x+6}{x+2}$$\n\n**Legg merke til hvor lite som endret seg.** Ett fortegn skilte de to oppgavene. Nettopp derfor er fortegnsfeil i kvotientregelen så lett å gjøre — og så lett for sensor å se."
+    },
+    {
+      "id": "econ1100-2-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger EL.) Bruk regnereglene, og kontroller minst ett av svarene ved direkte derivasjon.\n\n**a)** $f(x)=3x^{2}(x+5)$\n\n**b)** $g(x)=\\dfrac{x^{4}}{x+1}$\n\n**c)** $h(x)=x^{2}\\cdot x^{5}$",
+        "solution": "**a)** Produktregelen:\n\n$$\\mathrm{El}_x f=\\mathrm{El}_x\\big(3x^{2}\\big)+\\mathrm{El}_x(x+5)=2+\\frac{x}{x+5}=\\frac{2(x+5)+x}{x+5}=\\frac{3x+10}{x+5}$$\n\n*Kontroll ved direkte derivasjon:* $f(x)=3x^{3}+15x^{2}$ og $f'(x)=9x^{2}+30x$, så\n\n$$\\mathrm{El}_x f=\\frac{x\\big(9x^{2}+30x\\big)}{3x^{3}+15x^{2}}=\\frac{9x^{3}+30x^{2}}{3x^{3}+15x^{2}}=\\frac{3x^{2}(3x+10)}{3x^{2}(x+5)}=\\frac{3x+10}{x+5}\\ ✓$$\n\n**b)** Kvotientregelen:\n\n$$\\mathrm{El}_x g=\\mathrm{El}_x\\big(x^{4}\\big)-\\mathrm{El}_x(x+1)=4-\\frac{x}{x+1}=\\frac{4(x+1)-x}{x+1}=\\frac{3x+4}{x+1}$$\n\n**c)** Produktregelen gir\n\n$$\\mathrm{El}_x h=2+5=7$$\n\n*Kontroll:* $h(x)=x^{7}$, og potensregelen gir $7$ direkte ✓ — de to reglene er konsistente, som de må være.",
+        "hints": [
+          "Del uttrykket i to faktorer, og bruk potensregelen på den ene.",
+          "For faktoren $x+a$ må du bruke definisjonen: $\\frac{x}{x+a}\\cdot 1$.",
+          "I b): husk minustegnet."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. En ubegrunnet konklusjon gir null uttelling, også når den er riktig.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «$\\mathrm{El}_x(5x^{3})=15$.»\n\n**b)** «$\\mathrm{El}_x\\!\\left(\\dfrac{f}{g}\\right)=\\mathrm{El}_x f+\\mathrm{El}_x g$.»\n\n**c)** «En elastisitet på $-2$ betyr at $f$ faller med to enheter når $x$ stiger med én enhet.»",
+        "solution": "**a) Usann.** Multiplikative konstanter forsvinner i potensregelen.\n\n*Begrunnelse med utregning:* med $f=5x^{3}$ er $f'=15x^{2}$, og\n\n$$\\mathrm{El}_x f=\\frac{x}{5x^{3}}\\cdot 15x^{2}=\\frac{15x^{3}}{5x^{3}}=3$$\n\nSvaret er $3$, ikke $15$. Tallet $15$ er $C\\cdot a$, altså en sammenblanding av konstanten og eksponenten — og det ville dessuten gitt ulike svar for $5x^{3}$ og $10x^{3}$, som er samme funksjon opp til måleenhet.\n\n**b) Usann.** Kvotientregelen har minus, ikke pluss.\n\n$$\\mathrm{El}_x\\!\\left(\\frac{f}{g}\\right)=\\mathrm{El}_x f-\\mathrm{El}_x g$$\n\n*Konkret motsvar:* la $f=x^{4}$ og $g=x^{2}$, slik at $f/g=x^{2}$. Potensregelen gir $\\mathrm{El}_x(f/g)=2$. Påstanden ville gitt $4+2=6$, mens den riktige regelen gir $4-2=2$ ✓\n\n**c) Usann.** Elastisitet måler prosent per prosent, ikke enheter per enhet.\n\n*Begrunnelse:* riktig tolkning er at $f$ faller med omtrent **to prosent** når $x$ stiger med **én prosent**. Elastisiteten er enhetsløs, mens påstanden gir den enhet «$f$-enheter per $x$-enhet» — det er den deriverte $f'$, ikke elastisiteten.\n\n*Konkret:* med $f(x)=100x^{-2}$ er $\\mathrm{El}_x f=-2$ overalt. I $x=10$ er $f=1$, og en økning til $x=10{,}1$ gir $f=100/10{,}1^{2}\\approx 0{,}9803$ — et fall på omtrent to prosent, ikke på to enheter.",
+        "hints": [
+          "I a): regn ut elastisiteten fra definisjonen og se hva konstanten gjør.",
+          "I b): finn to enkle potensfunksjoner der du kan sjekke begge sider.",
+          "I c): hvilken enhet har elastisiteten?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Standardresultatene fra økonomien (~10 min)"
+    },
+    {
+      "id": "econ1100-2-1-def-priselastisitet",
+      "type": "definition",
+      "title": "Priselastisitet i etterspørselen",
+      "content": "Priselastisiteten sier hvor mange prosent etterspurt mengde faller når prisen stiger med én prosent.\n\n$$\\mathrm{El}_{p_1}x=\\frac{p_1}{x}\\cdot\\frac{\\partial x}{\\partial p_1}$$\n\nDen er normalt negativ. Er tallverdien over 1, kalles etterspørselen elastisk, og en prisøkning gir lavere samlet omsetning. Er den under 1, er etterspørselen uelastisk, og omsetningen stiger."
+    },
+    {
+      "id": "econ1100-2-1-def-cobb-douglas-standard",
+      "type": "definition",
+      "title": "Cobb-Douglas-etterspørselens elastisiteter",
+      "content": "Den logaritmiske nyttefunksjonen gir to elastisiteter som er nøyaktig $-1$ og $1$.\n\n$$x^*=\\frac{m}{2p_1}\\ \\Longrightarrow\\ \\mathrm{El}_{p_1}x^*=-1,\\qquad \\mathrm{El}_m x^*=1$$\n\nGrunnen er at $x^*$ er en potensfunksjon i hver av variablene: den er proporsjonal med $p_1^{-1}$ og med $m^{1}$, og eksponentene leses rett av. Økonomisk betyr det at utgiften $p_1x^*$ er konstant — resultatet fra [kap. 8.2](/bok/econ1100/econ1100-8-2), sett fra elastisitetssiden."
+    },
+    {
+      "id": "econ1100-2-1-def-produksjonselastisitet",
+      "type": "definition",
+      "title": "Partiell produksjonselastisitet",
+      "content": "I en Cobb-Douglas-produktfunksjon er eksponentene selve elastisitetene.\n\n$$Q=AK^{\\alpha}L^{\\beta}\\ \\Longrightarrow\\ \\mathrm{El}_K Q=\\alpha,\\qquad \\mathrm{El}_L Q=\\beta$$\n\nDette er grunnen til at $\\alpha$ og $\\beta$ leses direkte som faktorenes betydning: øker kapitalen med én prosent, øker produksjonen med $\\alpha$ prosent. Summen $\\alpha+\\beta$ er homogenitetsgraden og forteller om skalautbyttet — se [kap. 7.1](/bok/econ1100/econ1100-7-1)."
+    },
+    {
+      "id": "econ1100-2-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — elastisitet innvevd i et optimeringsresultat",
+      "problem": "Fra [kap. 8.2](/bok/econ1100/econ1100-8-2) vet vi at nyttemaksimering av $\\ln x+\\ln y$ under budsjettet $p_1x+p_2y=m$ gir etterspørselen\n\n$$x^*(p_1,p_2,m)=\\frac{m}{2p_1}.$$\n\n**a)** Finn $\\mathrm{El}_{p_1}x^*$ og $\\mathrm{El}_m x^*$.\n\n**b)** Finn $\\mathrm{El}_{p_2}x^*$.\n\n**c)** Hva blir elastisiteten til **utgiften** $p_1x^*$ med hensyn på $p_1$? Tolk svaret.",
+      "solution": "**a)** Skriv om til potensform i hver variabel.\n\nMht. $p_1$ er $m$ og tallet 2 konstanter:\n\n$$x^*=\\frac{m}{2}\\cdot p_1^{-1}\\ \\Longrightarrow\\ \\mathrm{El}_{p_1}x^*=-1$$\n\nMht. $m$ er $p_1$ konstant:\n\n$$x^*=\\frac{1}{2p_1}\\cdot m^{1}\\ \\Longrightarrow\\ \\mathrm{El}_m x^*=1$$\n\n*Kontroll av den første med definisjonen:* $\\dfrac{\\partial x^*}{\\partial p_1}=-\\dfrac{m}{2p_1^{2}}$, og\n\n$$\\mathrm{El}_{p_1}x^*=\\frac{p_1}{m/(2p_1)}\\cdot\\left(-\\frac{m}{2p_1^{2}}\\right)=\\frac{2p_1^{2}}{m}\\cdot\\left(-\\frac{m}{2p_1^{2}}\\right)=-1\\ ✓$$\n\n**Tolkning:** priselastisiteten er nøyaktig $-1$ — etterspørselen faller like mange prosent som prisen stiger. Inntektselastisiteten er $1$: dobler du inntekten, dobles kjøpt mengde.\n\n**b)** Prisen på det andre godet inngår ikke i uttrykket i det hele tatt:\n\n$$x^*=\\frac{m}{2p_1}\\cdot p_2^{0}\\ \\Longrightarrow\\ \\mathrm{El}_{p_2}x^*=0$$\n\n**Tolkning:** med logaritmisk Cobb-Douglas-nytte påvirker ikke prisen på gode 2 hvor mye du kjøper av gode 1. Krysspriselastisiteten er null. Det er en spesiell egenskap ved denne nyttefunksjonen, ikke en generell regel.\n\n**c)** Utgiften er $u(p_1)=p_1x^*$. Bruk produktregelen for elastisiteter:\n\n$$\\mathrm{El}_{p_1}\\big(p_1x^*\\big)=\\mathrm{El}_{p_1}p_1+\\mathrm{El}_{p_1}x^*=1+(-1)=0$$\n\n**Tolkning:** utgiften på gode 1 endrer seg **ikke** når prisen endres. Elastisitet null betyr at størrelsen er konstant, og det stemmer: $p_1x^*=p_1\\cdot\\dfrac{m}{2p_1}=\\dfrac{m}{2}$, altså halve inntekten uansett pris ✓\n\n**Legg merke til hvor lite regning c) krevde.** Produktregelen ga svaret på én linje, uten derivasjon. Det er nettopp derfor sensor forventer at regnereglene brukes når uttrykket er et produkt eller en brøk."
+    },
+    {
+      "id": "econ1100-2-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger EL — innvevd i optimering.) Fra [kap. 8.2](/bok/econ1100/econ1100-8-2): nytten $\\ln x+3\\ln y$ under $p_1x+p_2y=m$ gir\n\n$$y^*=\\frac{3m}{4p_2}.$$\n\n**a)** Finn $\\mathrm{El}_{p_2}y^*$ og $\\mathrm{El}_m y^*$.\n\n**b)** Finn elastisiteten til utgiften $p_2y^*$ med hensyn på $p_2$, og tolk svaret.\n\n**c)** Hva er $\\mathrm{El}_{p_1}y^*$?",
+        "solution": "**a)** Skriv om til potensform i hver variabel.\n\n$$y^*=\\frac{3m}{4}\\cdot p_2^{-1}\\ \\Longrightarrow\\ \\mathrm{El}_{p_2}y^*=-1$$\n\n$$y^*=\\frac{3}{4p_2}\\cdot m^{1}\\ \\Longrightarrow\\ \\mathrm{El}_m y^*=1$$\n\nBrøken $3/4$ er en multiplikativ konstant og forsvinner i begge tilfeller.\n\n**b)** Produktregelen:\n\n$$\\mathrm{El}_{p_2}\\big(p_2y^*\\big)=\\mathrm{El}_{p_2}p_2+\\mathrm{El}_{p_2}y^*=1+(-1)=0$$\n\n**Tolkning:** utgiften er konstant. Kontroll ved innsetting:\n\n$$p_2y^*=p_2\\cdot\\frac{3m}{4p_2}=\\frac{3m}{4}$$\n\nTre fjerdedeler av inntekten, uansett hva $p_2$ er ✓ — nøyaktig budsjettandelen fra vektene $1$ og $3$.\n\n**c)** Prisen $p_1$ inngår ikke i uttrykket for $y^*$, så\n\n$$\\mathrm{El}_{p_1}y^*=0$$\n\n*Merk at dette igjen er en Cobb-Douglas-egenskap.* Med en annen nyttefunksjon — for eksempel $\\sqrt{x}+\\sqrt{y}$ — ville $y^*$ avhengt av begge prisene, og kryssprisElastisiteten ville vært ulik null.",
+        "hints": [
+          "Behandle alt annet enn variabelen du deriverer mht. som konstanter.",
+          "I b): bruk produktregelen i stedet for å derivere.",
+          "I c): står $p_1$ i uttrykket i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger EL — eksamensnivå.) La\n\n$$f(x)=\\frac{4x^{3}(x+1)}{x^{2}+9}\\qquad\\text{for }x>0.$$\n\n**a)** Finn $\\mathrm{El}_x f$ ved hjelp av regnereglene.\n\n**b)** Regn ut elastisiteten i $x=3$, og tolk tallet.\n\n**c)** Er $f$ elastisk eller uelastisk i $x=3$?",
+        "solution": "**a)** Uttrykket er et produkt av to faktorer, delt på en tredje. Bruk begge regnereglene:\n\n$$\\mathrm{El}_x f=\\mathrm{El}_x\\big(4x^{3}\\big)+\\mathrm{El}_x(x+1)-\\mathrm{El}_x\\big(x^{2}+9\\big)$$\n\n**Ledd 1** — potensregelen: $\\mathrm{El}_x(4x^{3})=3$.\n\n**Ledd 2** — fra definisjonen, med $u=x+1$ og $u'=1$:\n\n$$\\mathrm{El}_x(x+1)=\\frac{x}{x+1}$$\n\n**Ledd 3** — fra definisjonen, med $v=x^{2}+9$ og $v'=2x$:\n\n$$\\mathrm{El}_x\\big(x^{2}+9\\big)=\\frac{x}{x^{2}+9}\\cdot 2x=\\frac{2x^{2}}{x^{2}+9}$$\n\nTil sammen:\n\n$$\\boxed{\\mathrm{El}_x f=3+\\frac{x}{x+1}-\\frac{2x^{2}}{x^{2}+9}}$$\n\n*Merk at ingen av leddene krevde produkt- eller kvotientregelen for derivasjon.* Hadde vi derivert $f$ direkte, ville vi trengt begge, på et uttrykk med fire ledd i telleren.\n\n**b)** Sett inn $x=3$:\n\n$$\\mathrm{El}_x f=3+\\frac{3}{4}-\\frac{2\\cdot 9}{9+9}=3+0{,}75-\\frac{18}{18}=3+0{,}75-1=2{,}75$$\n\n**Tolkning:** øker $x$ med én prosent fra 3, øker $f$ med omtrent $2{,}75$ prosent.\n\n*Tallkontroll:* $f(3)=\\dfrac{4\\cdot 27\\cdot 4}{18}=\\dfrac{432}{18}=24$. Med $x=3{,}03$ blir\n\n$$f(3{,}03)=\\frac{4\\cdot 27{,}818\\cdot 4{,}03}{18{,}181}\\approx\\frac{448{,}42}{18{,}181}\\approx 24{,}664$$\n\nEndringen er $0{,}664/24\\approx 2{,}77$ prosent, mot forventet $2{,}75$ ✓ — avviket skyldes at elastisiteten er en marginal størrelse.\n\n**c) Elastisk.** Tallverdien $2{,}75$ er større enn 1, så $f$ reagerer sterkere enn prosentvis på endringer i $x$.\n\n*Merk at konklusjonen gjelder punktet $x=3$.* Elastisiteten her er ikke konstant — den varierer med $x$, siden uttrykket inneholder både $\\dfrac{x}{x+1}$ og $\\dfrac{2x^{2}}{x^{2}+9}$.",
+        "hints": [
+          "Del uttrykket i tre biter: en potens, en faktor i telleren og en faktor i nevneren.",
+          "Faktoren i nevneren skal trekkes fra.",
+          "For $x^{2}+9$ må du bruke definisjonen — det er ikke en ren potens."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-2-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger EL — generelle funksjoner.) La $f$ og $g$ være deriverbare og positive funksjoner.\n\n**a)** Utled produktregelen $\\mathrm{El}_x(fg)=\\mathrm{El}_x f+\\mathrm{El}_x g$ fra definisjonen.\n\n**b)** Bruk resultatet i a) til å utlede kvotientregelen.\n\n**c)** Vis med et eksempel at det ikke finnes noen tilsvarende regel $\\mathrm{El}_x(f+g)=\\mathrm{El}_x f+\\mathrm{El}_x g$.",
+        "solution": "**a)** Sett $h=fg$. Etter den vanlige produktregelen for derivasjon er $h'=f'g+fg'$, og definisjonen gir\n\n$$\\mathrm{El}_x h=\\frac{x}{h}\\,h'=\\frac{x}{fg}\\big(f'g+fg'\\big)$$\n\nSkriv brøken som to ledd:\n\n$$=\\frac{xf'g}{fg}+\\frac{xfg'}{fg}$$\n\nStryk fellesfaktorene: i det første leddet stryker $g$ mot $g$, i det andre stryker $f$ mot $f$:\n\n$$=\\frac{x}{f}f'+\\frac{x}{g}g'=\\mathrm{El}_x f+\\mathrm{El}_x g$$\n\nsom var det vi skulle vise. ∎\n\n**b)** Sett $q=f/g$, slik at $f=qg$. Etter a) er\n\n$$\\mathrm{El}_x f=\\mathrm{El}_x(qg)=\\mathrm{El}_x q+\\mathrm{El}_x g$$\n\nLøs for $\\mathrm{El}_x q$:\n\n$$\\mathrm{El}_x q=\\mathrm{El}_x f-\\mathrm{El}_x g$$\n\nsom er kvotientregelen. ∎\n\n*Merk hvor lite arbeid dette krevde.* Vi trengte ikke kvotientregelen for derivasjon i det hele tatt — bare et lite algebraisk grep.\n\n**c) Moteksempel.** La $f(x)=x^{2}$ og $g(x)=x^{4}$.\n\nHver for seg er $\\mathrm{El}_x f=2$ og $\\mathrm{El}_x g=4$, så en «sumregel» ville gitt $6$.\n\nDen faktiske elastisiteten til summen $s(x)=x^{2}+x^{4}$ er\n\n$$s'(x)=2x+4x^{3}\\ \\Longrightarrow\\ \\mathrm{El}_x s=\\frac{x\\big(2x+4x^{3}\\big)}{x^{2}+x^{4}}=\\frac{2x^{2}+4x^{4}}{x^{2}+x^{4}}$$\n\nI $x=1$ blir dette $\\dfrac{2+4}{1+1}=3$, ikke $6$.\n\n**Hvorfor det måtte gå galt:** elastisitetsreglene er *multiplikative*, akkurat som logaritmeregler — og logaritmen til en sum er heller ikke summen av logaritmene. En sum av to størrelser med ulik elastisitet får en elastisitet som ligger **mellom** de to, vektet etter hvor stort hvert ledd er.\n\n*Kontroll av det:* i $x=1$ er de to leddene like store, og svaret $3$ er nettopp gjennomsnittet av $2$ og $4$ ✓. I $x=2$ dominerer $x^{4}$-leddet, og elastisiteten blir $\\dfrac{8+64}{4+16}=3{,}6$ — nærmere $4$, som forventet.",
+        "hints": [
+          "I a): start med definisjonen på $h=fg$ og bruk den vanlige produktregelen på $h'$.",
+          "I b): skriv $f$ som produktet $q\\cdot g$ og bruk resultatet fra a).",
+          "I c): velg to potensfunksjoner med ulik eksponent og regn ut begge sider i ett punkt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-2-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-2-1-bb-1",
+      "type": "definition",
+      "title": "Elastisitet i kortform",
+      "content": "Formelen du skal kunne uten å tenke, med fellen innebygd.\n\n$$\\mathrm{El}_x f=\\frac{x}{f}\\,f'(x)$$\n\nDen deriverte alene er ikke elastisiteten — faktoren $x/f$ må med. Å glemme den er den klart vanligste feilen i sjangeren."
+    },
+    {
+      "id": "econ1100-2-1-bb-2",
+      "type": "definition",
+      "title": "Potensregelen som snarvei",
+      "content": "Én linje som løser halvparten av oppgavene.\n\n$$f=Cx^{a}\\ \\Longrightarrow\\ \\mathrm{El}_x f=a$$\n\nKonstanten $C$ stryker seg mot seg selv i brøken $x/f$. Skriv derfor alltid brøker og røtter om til potensform først — $3/x^{2}$ er $3x^{-2}$, og elastisiteten er $-2$."
+    },
+    {
+      "id": "econ1100-2-1-bb-3",
+      "type": "definition",
+      "title": "Produkt og kvotient",
+      "content": "De to regnereglene, som lar deg unngå derivasjon helt.\n\n$$\\mathrm{El}(fg)=\\mathrm{El}\\,f+\\mathrm{El}\\,g;\\qquad \\mathrm{El}(f/g)=\\mathrm{El}\\,f-\\mathrm{El}\\,g$$\n\nDe er multiplikative, akkurat som logaritmeregler. Minustegnet i den andre er der fellene i sant/usant-oppgaven ligger."
+    },
+    {
+      "id": "econ1100-2-1-bb-4",
+      "type": "definition",
+      "title": "Det finnes ingen sumregel",
+      "content": "Regnereglene gjelder produkter og kvotienter, ikke summer.\n\n$$\\mathrm{El}(f+g)\\ne\\mathrm{El}\\,f+\\mathrm{El}\\,g$$\n\nElastisiteten til en sum ligger **mellom** de to elastisitetene, vektet etter hvor stort hvert ledd er. For $x^{2}+x^{4}$ i $x=1$ blir den $3$, ikke $6$."
+    },
+    {
+      "id": "econ1100-2-1-bb-5",
+      "type": "definition",
+      "title": "Elastisk mot uelastisk",
+      "content": "Grensen går ved tallverdi 1.\n\n$$\\lvert\\mathrm{El}\\rvert>1\\ \\text{elastisk};\\qquad \\lvert\\mathrm{El}\\rvert<1\\ \\text{uelastisk}$$\n\nVed elastisk etterspørsel faller omsetningen når prisen stiger; ved uelastisk stiger den. Nødvendighetsgoder er typisk uelastiske."
+    },
+    {
+      "id": "econ1100-2-1-bb-6",
+      "type": "definition",
+      "title": "Elastisitet er prosent per prosent",
+      "content": "Enhetene faller bort, og det er hele poenget.\n\n$$\\mathrm{El}_x f\\approx\\frac{\\%\\text{-endring i }f}{\\%\\text{-endring i }x}$$\n\nDerfor kan elastisiteter sammenlignes på tvers av varer og valutaer. Å tolke $-2$ som «faller med to enheter» er en tolkningsfeil som koster hele delpunktet."
+    },
+    {
+      "id": "econ1100-2-1-bb-7",
+      "type": "definition",
+      "title": "Konstant elastisitet er unntaket",
+      "content": "Bare potensfunksjoner har samme elastisitet overalt.\n\n$$q=100-2p:\\ \\mathrm{El}_p q=-\\tfrac23\\ \\text{i}\\ p=20,\\ \\text{men}\\ -4\\ \\text{i}\\ p=40$$\n\nEn rett etterspørselslinje har ulik elastisitet i hvert punkt. Derfor må et svar alltid knyttes til punktet det gjelder."
+    },
+    {
+      "id": "econ1100-2-1-bb-8",
+      "type": "definition",
+      "title": "Cobb-Douglas-etterspørselens elastisiteter",
+      "content": "To tall verdt å kjenne igjen fra Lagrange-kapitlene.\n\n$$x^*=\\frac{m}{2p_1}\\ \\Longrightarrow\\ \\mathrm{El}_{p_1}x^*=-1,\\quad \\mathrm{El}_m x^*=1$$\n\nEtterspørselen er en potensfunksjon i hver variabel, så eksponentene leses av. At priselastisiteten er nøyaktig $-1$, er det samme som at utgiften er konstant."
+    },
+    {
+      "id": "econ1100-2-1-bb-9",
+      "type": "definition",
+      "title": "Produksjonselastisitet er eksponenten",
+      "content": "Cobb-Douglas-eksponentene har en direkte økonomisk lesning.\n\n$$Q=AK^{\\alpha}L^{\\beta}\\ \\Longrightarrow\\ \\mathrm{El}_K Q=\\alpha,\\quad \\mathrm{El}_L Q=\\beta$$\n\nÉn prosent mer kapital gir $\\alpha$ prosent mer produksjon. Summen $\\alpha+\\beta$ sier noe annet — den er homogenitetsgraden, og den styrer skalautbyttet."
+    },
+    {
+      "id": "econ1100-2-1-bb-10",
+      "type": "definition",
+      "title": "Elastisitet null betyr konstant",
+      "content": "En størrelse som ikke endrer seg, har null prosentvis respons.\n\n$$\\mathrm{El}_{p_1}\\big(p_1x^*\\big)=1+(-1)=0\\ \\Longleftrightarrow\\ p_1x^*\\ \\text{konstant}$$\n\nDette er en rask kontroll på at en utledning stemmer: får du null, skal størrelsen la seg regne ut til noe uten den variabelen i."
+    },
+    {
+      "id": "econ1100-2-1-bb-11",
+      "type": "definition",
+      "title": "Kryssprissvaret hos Cobb-Douglas",
+      "content": "Prisen på det andre godet spiller ingen rolle her.\n\n$$x^*=\\frac{m}{2p_1}\\ \\Longrightarrow\\ \\mathrm{El}_{p_2}x^*=0$$\n\nVariabelen $p_2$ står ikke i uttrykket, så elastisiteten er null. Det er en **spesiell** egenskap ved logaritmisk Cobb-Douglas-nytte, ikke en generell regel."
+    },
+    {
+      "id": "econ1100-2-1-bb-12",
+      "type": "definition",
+      "title": "Kontrollen med én prosent",
+      "content": "En rask numerisk sjekk på om svaret er rimelig.\n\n$$f(1{,}01x)\\ \\text{mot}\\ f(x)\\cdot\\big(1+0{,}01\\,\\mathrm{El}_x f\\big)$$\n\nØk $x$ med én prosent og se om $f$ endrer seg med omtrent så mange prosent som elastisiteten sier. Avvik i tredje desimal er normalt — elastisiteten er marginal."
+    },
+    {
+      "id": "econ1100-2-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-2-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1) og [kap. 1.2](/bok/econ1100/econ1100-1-2).\n\n**1.** Deriver $f(x)=5x^{3}$.\n\n*Svar:* $f'(x)=15x^{2}$.\n\n**2.** Skriv $\\dfrac{3}{x^{2}}$ på potensform.\n\n*Svar:* $3x^{-2}$.\n\n**3.** Deriver $f(x)=x^{2}(x+5)$ med produktregelen.\n\n*Svar:* $f'(x)=2x(x+5)+x^{2}=3x^{2}+10x$.\n\n**4.** Finn $Q'_K$ når $Q=AK^{\\alpha}L^{\\beta}$.\n\n*Svar:* $Q'_K=\\alpha AK^{\\alpha-1}L^{\\beta}$ — faktoren $L^{\\beta}$ er konstant.\n\n**5.** Hva er $\\dfrac{d}{dx}\\ln x$?\n\n*Svar:* $\\dfrac1x$.\n\n**6.** Forenkle $\\dfrac{10x^{3}(2x+3)}{5x^{3}(x+2)}$.\n\n*Svar:* $\\dfrac{2(2x+3)}{x+2}=\\dfrac{4x+6}{x+2}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-2-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathrm{El}_x f$ | Elastisiteten til $f$ med hensyn på $x$ |\n| $f'(x)$ | Den deriverte — ikke det samme som elastisiteten |\n| $x/f$ | Skaleringsfaktoren som gjør elastisiteten enhetsløs |\n| $C$ | Multiplikativ konstant, som alltid forsvinner |\n| $a$ | Eksponenten i en potensfunksjon — og dermed elastisiteten |\n| $q(p)$ | Etterspurt mengde som funksjon av pris |\n| $x^*$ | Optimal etterspurt mengde fra et Lagrange-problem |\n| $p_1,p_2$ | Priser på de to godene |\n| $m$ | Inntekt |\n| $Q=AK^{\\alpha}L^{\\beta}$ | Cobb-Douglas-produktfunksjon |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathrm{El}_x f=\\frac{x}{f}\\,f'(x)$$\nDefinisjonen. Prosentvis endring i $f$ per prosents endring i $x$.\n\n$$f=Cx^{a}\\ \\Longrightarrow\\ \\mathrm{El}_x f=a$$\nPotensregelen. Konstanten forsvinner; eksponenten er svaret.\n\n$$\\mathrm{El}_x(f\\cdot g)=\\mathrm{El}_x f+\\mathrm{El}_x g$$\nProduktregelen. Lar deg finne elastisiteten uten å derivere produktet.\n\n$$\\mathrm{El}_x\\!\\left(\\frac{f}{g}\\right)=\\mathrm{El}_x f-\\mathrm{El}_x g$$\nKvotientregelen. Minustegnet er obligatorisk.\n\n$$\\lvert\\mathrm{El}_x f\\rvert>1\\ \\text{elastisk};\\qquad \\lvert\\mathrm{El}_x f\\rvert<1\\ \\text{uelastisk}$$\nTolkningsgrensen. Avgjør om omsetningen stiger eller faller ved en prisøkning.\n\n$$\\mathrm{El}_{p_1}x^*=-1,\\qquad \\mathrm{El}_m x^*=1,\\qquad \\mathrm{El}_K Q=\\alpha$$\nDe tre standardresultatene fra økonomien, alle lest av som eksponenter."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

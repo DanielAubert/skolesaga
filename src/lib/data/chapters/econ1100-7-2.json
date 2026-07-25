@@ -1,0 +1,308 @@
+{
+  "id": "econ1100-7-2",
+  "courseId": "econ1100",
+  "chapterNumber": "7.2",
+  "title": "Eulers teorem og homogenitet av deriverte",
+  "description": "To bevis-lette resultater fra samme grep: deriver homogenitetsidentiteten mht. skaleringsfaktoren og få Eulers relasjon, eller mht. en variabel og få at de partiellderiverte selv er homogene av grad k minus én — med den økonomiske tolkningen om faktorandeler ved konstant skalautbytte.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "utlede Eulers relasjon fra homogenitetsidentiteten og begrunne valget av skaleringsfaktor",
+    "vise at de partiellderiverte til en homogen funksjon er homogene av grad k minus én",
+    "verifisere begge resultatene på konkrete funksjoner med tallkontroll",
+    "tolke Eulers relasjon som at faktorandelene summerer til én ved konstant skalautbytte"
+  ],
+  "content": [
+    {
+      "id": "econ1100-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Nok en bevis-lett oppgave — og nok en toppsjikt-markør.**\n\n**Sjanger HG — homogenitet og skalautbytte** — står i **9 av 16 sett** i arkivet (56 %). Eulers relasjon og påstanden om at de partiellderiverte selv er homogene, dukker opp som **teoriutsagn i sant/usant-oppgaven**, og ett av settene har nettopp den formen.\n\n**Sensor omtaler bevis-lette oppgaver som forholdsvis vanskelige**, fordi studentene har lite trening i å føre argumenter. Det gjør dem til en billig kilde til poeng for den som har øvd: begge utledningene i dette kapitlet er tre–fire linjer, og de bygger på samme grep.\n\n**Grepet er det samme begge steder:** ta identiteten $f(tx,ty)=t^{k}f(x,y)$ og deriver den. Deriverer du mht. $t$, får du Eulers relasjon. Deriverer du mht. $x$, får du at $f'_x$ er homogen av grad $k-1$.\n\n**Det som koster poeng:** å oppgi resultatet uten argumentet, og å skrive feil grad ($k$ i stedet for $k-1$).\n\nKapitlet ligger på prioritetsnivået **kunne**, men det er der forskjellen mellom en god og en meget god besvarelse ofte synes.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet fortsetter direkte fra [kap. 7.1](/bok/econ1100/econ1100-7-1). Du trenger også partiellderivasjon fra [kap. 1.2](/bok/econ1100/econ1100-1-2) og kjerneregelen fra [kap. 1.3](/bok/econ1100/econ1100-1-3). Den økonomiske tolkningen i Løkke 3 bruker elastisitetsbegrepet fra [kap. 2.1](/bok/econ1100/econ1100-2-1).\n\n**Sist du var her — de tre tingene utledningene hviler på:**\n\n$$f(tx,ty)=t^{k}f(x,y)\\qquad\\text{for alle }t>0$$\n\n$$f'_x=\\text{deriver mht. }x,\\ \\text{hold }y\\ \\text{konstant}$$\n\n$$\\frac{d}{dt}t^{k}=kt^{k-1}$$"
+    },
+    {
+      "id": "econ1100-7-2-motivasjon",
+      "type": "text",
+      "content": "Ved konstant skalautbytte finnes det et pent resultat fra økonomisk teori: hvis hver innsatsfaktor betales sitt eget grenseprodukt, går regnskapet nøyaktig opp. Ingenting blir til overs, og ingenting mangler.\n\nDet er ikke en tilfeldighet eller en antakelse. Det er en matematisk identitet, og den heter **Eulers relasjon**.\n\nRelasjonen sier at hvis du ganger hver variabel med sin egen partiellderiverte og legger sammen, får du graden ganget med funksjonen. Ved konstant skalautbytte er graden 1, og da er summen nøyaktig lik produksjonen.\n\nDette kapitlet utleder relasjonen — og et beslektet resultat: at de partiellderiverte til en homogen funksjon selv er homogene, med graden redusert med én. Begge utledninger bygger på samme grep, og begge kan læres på en halvtime."
+    },
+    {
+      "id": "econ1100-7-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Eulers relasjon (~15 min)"
+    },
+    {
+      "id": "econ1100-7-2-thm-euler",
+      "type": "theorem",
+      "title": "Eulers teorem",
+      "content": "La $f$ være homogen av grad $k$ og deriverbar. Da gjelder\n\n$$x\\,f'_x+y\\,f'_y=k\\,f(x,y)$$\n\nfor alle punkter der $f$ er definert.\n\n**I ord:** ganger du hver variabel med sin egen partiellderiverte og legger sammen, får du graden ganget med funksjonsverdien.\n\n**Merk hva relasjonen IKKE er.** Den er ikke definisjonen på homogenitet — den er en **konsekvens** av den. Definisjonen handler om skalering ($f(tx,ty)=t^{k}f$), Euler handler om de deriverte i ett fast punkt. Å blande de to er en klassisk feil."
+    },
+    {
+      "id": "econ1100-7-2-utledning-euler",
+      "type": "text",
+      "content": "### Utledningen av Eulers relasjon — tre linjer, med intuisjon\n\n**Steg 1 — start med homogenitetsidentiteten.**\n\n$$f(tx,ty)=t^{k}f(x,y)$$\n\n*Intuisjon:* dette er en likhet som gjelder for **alle** $t$. To funksjoner av $t$ som er like overalt, har også like deriverte. Det er hele nøkkelen.\n\n**Steg 2 — deriver begge sider med hensyn på $t$.**\n\nVenstresiden er en sammensatt funksjon: både første og andre argument avhenger av $t$. Kjerneregelen for flere variabler ([kap. 1.3](/bok/econ1100/econ1100-1-3)) gir\n\n$$\\frac{d}{dt}f(tx,ty)=f'_x(tx,ty)\\cdot x+f'_y(tx,ty)\\cdot y$$\n\nHøyresiden er enklere — $f(x,y)$ er en konstant når vi deriverer mht. $t$:\n\n$$\\frac{d}{dt}\\Big(t^{k}f(x,y)\\Big)=k\\,t^{k-1}f(x,y)$$\n\nSatt lik hverandre:\n\n$$x\\,f'_x(tx,ty)+y\\,f'_y(tx,ty)=k\\,t^{k-1}f(x,y)$$\n\n*Intuisjon:* faktorene $x$ og $y$ kommer fra kjerneregelen — det er de deriverte av de indre funksjonene $tx$ og $ty$ med hensyn på $t$.\n\n**Steg 3 — sett $t=1$.**\n\nLikheten gjelder for alle $t$, så vi står fritt til å velge den verdien som gjør uttrykket enklest. Med $t=1$ er $(tx,ty)=(x,y)$ og $t^{k-1}=1$:\n\n$$x\\,f'_x(x,y)+y\\,f'_y(x,y)=k\\,f(x,y)\\qquad\\blacksquare$$\n\n*Intuisjon:* valget $t=1$ er det som gjør beviset kort. Alle argumentene faller tilbake til det opprinnelige punktet, og potensen forsvinner. Det er verdt å skrive eksplisitt at du **kan** velge $t$ fritt — det er nettopp der begrunnelsen ligger."
+    },
+    {
+      "id": "econ1100-7-2-def-euler-kort",
+      "type": "definition",
+      "title": "Eulers relasjon i kortform",
+      "content": "Relasjonen du skal kunne uten å tenke.\n\n$$x\\,f'_x+y\\,f'_y=k\\,f$$\n\nVenstresiden er en vektet sum av de partiellderiverte, med variablene selv som vekter. Høyresiden er graden ganget med funksjonen. Ved konstant skalautbytte ($k=1$) er summen nøyaktig lik $f$."
+    },
+    {
+      "id": "econ1100-7-2-def-grepet",
+      "type": "definition",
+      "title": "Grepet i begge utledningene",
+      "content": "Begge resultatene i dette kapitlet kommer fra å derivere den samme identiteten.\n\n$$f(tx,ty)=t^{k}f(x,y)$$\n\nDeriver mht. **$t$** og sett $t=1$: du får Eulers relasjon. Deriver mht. **$x$**: du får at $f'_x$ er homogen av grad $k-1$. Én identitet, to resultater — og det er derfor de to alltid dukker opp sammen."
+    },
+    {
+      "id": "econ1100-7-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Euler verifisert på Cobb-Douglas",
+      "problem": "La $f(x,y)=x^{2}y$.\n\n**a)** Finn homogenitetsgraden.\n\n**b)** Verifiser Eulers relasjon.\n\n**c)** Kontroller med tall i punktet $(2,3)$.",
+      "solution": "**a)** Skalering gir\n\n$$f(tx,ty)=(tx)^{2}(ty)=t^{3}x^{2}y=t^{3}f(x,y)$$\n\n**Homogen av grad $k=3$** — eksponentsummen $2+1$.\n\n**b) Regn ut venstresiden i Eulers relasjon.** De partiellderiverte er\n\n$$f'_x=2xy,\\qquad f'_y=x^{2}$$\n\nSett inn:\n\n$$x\\,f'_x+y\\,f'_y=x\\cdot 2xy+y\\cdot x^{2}=2x^{2}y+x^{2}y=3x^{2}y$$\n\nOg høyresiden:\n\n$$k\\,f(x,y)=3\\cdot x^{2}y=3x^{2}y$$\n\nDe er like ✓ Relasjonen holder.\n\n**c) Tallkontroll i $(2,3)$:**\n\n$$f(2,3)=4\\cdot 3=12$$\n\n$$f'_x(2,3)=2\\cdot 2\\cdot 3=12,\\qquad f'_y(2,3)=4$$\n\n$$x\\,f'_x+y\\,f'_y=2\\cdot 12+3\\cdot 4=24+12=36$$\n\n$$k\\,f=3\\cdot 12=36\\ ✓$$\n\n**Legg merke til hva verifiseringen er og ikke er.** Å sjekke relasjonen på en konkret funksjon er en **kontroll**, ikke et bevis. Ber oppgaven om at du skal *vise* Eulers relasjon generelt, må utledningen over føres. Ber den om å *verifisere* på en gitt funksjon, holder regningen her — og da er tallkontrollen i c) en fin ekstra sikring."
+    },
+    {
+      "id": "econ1100-7-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger HG — homogenitet, i 9 av 16 sett. Innstegsoppgave.) La $f(x,y)=x^{1/2}y^{1/2}$.\n\n**a)** Finn homogenitetsgraden.\n\n**b)** Regn ut $f'_x$ og $f'_y$.\n\n**c)** Verifiser Eulers relasjon.",
+        "solution": "**a)**\n\n$$f(tx,ty)=(tx)^{1/2}(ty)^{1/2}=t\\,x^{1/2}y^{1/2}=t\\,f(x,y)$$\n\n**Homogen av grad $k=1$** — konstant skalautbytte.\n\n**b)** Partiellderivasjon, der den andre variabelen behandles som konstant:\n\n$$f'_x=\\tfrac12 x^{-1/2}y^{1/2},\\qquad f'_y=\\tfrac12 x^{1/2}y^{-1/2}$$\n\n**c) Venstresiden:**\n\n$$x\\,f'_x+y\\,f'_y=x\\cdot\\tfrac12 x^{-1/2}y^{1/2}+y\\cdot\\tfrac12 x^{1/2}y^{-1/2}$$\n\n*Mellomregning:* $x\\cdot x^{-1/2}=x^{1/2}$ og $y\\cdot y^{-1/2}=y^{1/2}$, så\n\n$$=\\tfrac12 x^{1/2}y^{1/2}+\\tfrac12 x^{1/2}y^{1/2}=x^{1/2}y^{1/2}$$\n\n**Høyresiden:** $k\\,f=1\\cdot x^{1/2}y^{1/2}=x^{1/2}y^{1/2}$ ✓\n\n**Tolkning:** ved konstant skalautbytte er summen av variablene ganget med sine grenseprodukter nøyaktig lik produksjonen. Betales hver faktor sitt grenseprodukt, går regnskapet opp uten rest.\n\n*Tallkontroll i $(9,4)$:* $f=3\\cdot 2=6$; $f'_x=\\tfrac12\\cdot\\tfrac13\\cdot 2=\\tfrac13$ og $f'_y=\\tfrac12\\cdot 3\\cdot\\tfrac12=\\tfrac34$. Da er $9\\cdot\\tfrac13+4\\cdot\\tfrac34=3+3=6=k\\,f$ ✓",
+        "hints": [
+          "Eksponentsummen gir graden.",
+          "I c): forenkle $x\\cdot x^{-1/2}$ før du legger sammen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De deriverte er selv homogene (~13 min)"
+    },
+    {
+      "id": "econ1100-7-2-thm-deriverte",
+      "type": "theorem",
+      "title": "Homogenitet av de partiellderiverte",
+      "content": "Er $f$ homogen av grad $k$ og deriverbar, så er hver av de partiellderiverte homogen av grad $k-1$.\n\n$$f'_x(tx,ty)=t^{\\,k-1}f'_x(x,y),\\qquad f'_y(tx,ty)=t^{\\,k-1}f'_y(x,y)$$\n\n**Økonomisk innhold:** grenseproduktene til en teknologi med konstant skalautbytte ($k=1$) er homogene av grad $0$ — de er **uendret** ved en proporsjonal oppskalering. Dobler du både kapital og arbeidskraft, er grenseproduktet av kapital nøyaktig det samme som før. Det er en av grunnpilarene i produsentteorien.\n\n**Graden er $k-1$, ikke $k$.** Å skrive feil her er den vanligste feilen i denne påstandstypen."
+    },
+    {
+      "id": "econ1100-7-2-utledning-deriverte",
+      "type": "text",
+      "content": "### Utledningen — tre linjer, samme grep\n\n**Steg 1 — start med den samme identiteten.**\n\n$$f(tx,ty)=t^{k}f(x,y)$$\n\n*Intuisjon:* nå deriverer vi mht. $x$ i stedet for mht. $t$. Identiteten gjelder for alle $x$ og $y$, så også her har begge sider like deriverte.\n\n**Steg 2 — deriver begge sider partielt med hensyn på $x$.**\n\nVenstresiden: det første argumentet er $tx$, og dets deriverte mht. $x$ er $t$. Kjerneregelen gir\n\n$$\\frac{\\partial}{\\partial x}f(tx,ty)=f'_x(tx,ty)\\cdot t$$\n\nHøyresiden: faktoren $t^{k}$ er konstant når vi deriverer mht. $x$:\n\n$$\\frac{\\partial}{\\partial x}\\Big(t^{k}f(x,y)\\Big)=t^{k}f'_x(x,y)$$\n\nSatt lik hverandre:\n\n$$t\\,f'_x(tx,ty)=t^{k}f'_x(x,y)$$\n\n*Intuisjon:* faktoren $t$ på venstresiden er den eneste nye tingen, og den kommer fra at det indre argumentet er $tx$.\n\n**Steg 3 — del på $t$.** Siden $t>0$, er dette lov:\n\n$$f'_x(tx,ty)=t^{\\,k-1}f'_x(x,y)\\qquad\\blacksquare$$\n\n*Intuisjon:* delingen er hele grunnen til at graden faller med én. Den ene $t$-en som kjerneregelen produserte, må flyttes over, og den spiser opp én potens.\n\nArgumentet for $f'_y$ er identisk, med $y$ i stedet for $x$."
+    },
+    {
+      "id": "econ1100-7-2-def-grad-minus-en",
+      "type": "definition",
+      "title": "Graden faller med én",
+      "content": "Hver derivasjon senker homogenitetsgraden med nøyaktig én.\n\n$$f\\ \\text{grad}\\ k\\ \\Longrightarrow\\ f'_x\\ \\text{grad}\\ k-1\\ \\Longrightarrow\\ f''_{xx}\\ \\text{grad}\\ k-2$$\n\nDette er samme mønster som for vanlige potensfunksjoner: deriverer du $x^{k}$, får du $kx^{k-1}$, og eksponenten faller med én. Homogenitetsgraden oppfører seg akkurat slik."
+    },
+    {
+      "id": "econ1100-7-2-def-grad-null",
+      "type": "definition",
+      "title": "Grad null betyr uendret ved skalering",
+      "content": "Ved konstant skalautbytte er grenseproduktene helt upåvirket av skala.\n\n$$k=1\\ \\Longrightarrow\\ f'_x(tx,ty)=t^{0}f'_x(x,y)=f'_x(x,y)$$\n\nDobler du både kapital og arbeidskraft, er grenseproduktet av kapital nøyaktig det samme. Grenseproduktene avhenger bare av **forholdet** mellom faktorene, ikke av nivået — og det er grunnen til at faktorprisene i slike modeller er skalauavhengige."
+    },
+    {
+      "id": "econ1100-7-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Gradene sjekket på $x^{2}y$",
+      "problem": "La $f(x,y)=x^{2}y$, som er homogen av grad 3.\n\n**a)** Vis at $f'_x$ er homogen av grad 2.\n\n**b)** Vis det samme for $f'_y$.\n\n**c)** Hva er graden til $f''_{xx}$?",
+      "solution": "**a)** Den partiellderiverte er $f'_x=2xy$. Test den direkte:\n\n$$f'_x(tx,ty)=2(tx)(ty)=2t^{2}xy=t^{2}\\cdot 2xy=t^{2}f'_x(x,y)$$\n\n**Homogen av grad 2** ✓ — som er $k-1=3-1$.\n\n**b)** Her er $f'_y=x^{2}$, altså et uttrykk som ikke inneholder $y$ i det hele tatt. Det gjør ingen forskjell for testen:\n\n$$f'_y(tx,ty)=(tx)^{2}=t^{2}x^{2}=t^{2}f'_y(x,y)$$\n\n**Homogen av grad 2** ✓\n\n*Merk at begge de partiellderiverte fikk samme grad*, selv om uttrykkene ser helt ulike ut. Det er nettopp det teoremet sier: **alle** de partiellderiverte til en grad-$k$-funksjon er homogene av grad $k-1$.\n\n**c)** Deriverer vi én gang til, faller graden med én til:\n\n$$f''_{xx}=\\frac{\\partial}{\\partial x}(2xy)=2y$$\n\n$$f''_{xx}(tx,ty)=2ty=t^{1}\\cdot 2y$$\n\n**Homogen av grad 1**, altså $k-2=3-2$ ✓\n\n**Mønsteret er entydig:** hver derivasjon senker graden med én, akkurat som eksponenten faller når du deriverer en potensfunksjon.\n\n*Kontroll av Euler på $f'_x$:* siden $f'_x=2xy$ er homogen av grad 2, skal $x\\cdot(f'_x)'_x+y\\cdot(f'_x)'_y=2f'_x$. Regningen gir $x\\cdot 2y+y\\cdot 2x=4xy=2\\cdot 2xy$ ✓ — teoremet gjelder også for de deriverte, med deres egen grad."
+    },
+    {
+      "id": "econ1100-7-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger HG — bevis-lett, en form sensor omtaler som forholdsvis vanskelig.) La $f$ være homogen av grad $k$ og deriverbar.\n\n**a)** Vis at $f'_x$ er homogen av grad $k-1$.\n\n**b)** Illustrer resultatet på $f(x,y)=x^{3}y^{2}$.",
+        "solution": "**a) Beviset.**\n\n*Steg 1 — start med homogenitetsidentiteten:*\n\n$$f(tx,ty)=t^{k}f(x,y)$$\n\nDenne gjelder for alle $x$, $y$ og alle $t>0$, så begge sider har like partiellderiverte mht. $x$.\n\n*Steg 2 — deriver begge sider mht. $x$.* På venstresiden er det indre argumentet $tx$, med derivert $t$, så kjerneregelen gir\n\n$$\\frac{\\partial}{\\partial x}f(tx,ty)=t\\,f'_x(tx,ty)$$\n\nPå høyresiden er $t^{k}$ en konstant:\n\n$$\\frac{\\partial}{\\partial x}\\Big(t^{k}f(x,y)\\Big)=t^{k}f'_x(x,y)$$\n\nAltså:\n\n$$t\\,f'_x(tx,ty)=t^{k}f'_x(x,y)$$\n\n*Steg 3 — del på $t$*, som er lov siden $t>0$:\n\n$$f'_x(tx,ty)=t^{\\,k-1}f'_x(x,y)$$\n\nDette er nettopp definisjonen på at $f'_x$ er homogen av grad $k-1$. ∎\n\n**b) Illustrasjon.** Funksjonen $f(x,y)=x^{3}y^{2}$ har grad $k=3+2=5$.\n\n*Kontroll av graden:* $f(tx,ty)=t^{3}x^{3}t^{2}y^{2}=t^{5}x^{3}y^{2}$ ✓\n\nDen partiellderiverte er\n\n$$f'_x=3x^{2}y^{2}$$\n\nog eksponentsummen er $2+2=4=k-1$ ✓\n\n*Direkte test:*\n\n$$f'_x(tx,ty)=3(tx)^{2}(ty)^{2}=3t^{4}x^{2}y^{2}=t^{4}f'_x(x,y)$$\n\n**Homogen av grad 4**, altså $k-1$ ✓\n\n*Tilsvarende for den andre:* $f'_y=2x^{3}y$ har eksponentsum $3+1=4$ ✓ — samme grad, som teoremet krever.",
+        "hints": [
+          "Start med identiteten $f(tx,ty)=t^{k}f(x,y)$ og deriver mht. $x$, ikke mht. $t$.",
+          "Hva er den deriverte av det indre argumentet $tx$ med hensyn på $x$?",
+          "Til slutt: del på $t$ — det er der graden faller med én."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-2-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil med Euler og homogene deriverte",
+      "content": "- **Å oppgi resultatet uten argumentet.** Ber oppgaven om at du skal *vise* noe, gir formelen alene lite uttelling. Begge utledningene i dette kapitlet er tre linjer — de er raskere å skrive enn å unngå.\n- **Å skrive feil grad på de deriverte.** Graden er $k-1$, ikke $k$. Kontrollen er å regne eksponentsummen i det deriverte uttrykket: for $f=x^{3}y^{2}$ har $f'_x=3x^{2}y^{2}$ summen $4$, ikke $5$.\n- **Å blande Eulers relasjon med homogenitetsdefinisjonen.** Definisjonen handler om skalering av argumentene ($f(tx,ty)=t^{k}f$); Euler handler om de deriverte i ett fast punkt ($xf'_x+yf'_y=kf$). Euler er en konsekvens, ikke en definisjon.\n- **Å glemme å si at $t$ kan velges fritt.** I Euler-beviset er valget $t=1$ selve poenget, og det er lov nettopp fordi identiteten gjelder for **alle** $t$. Sett setningen inn — den er en del av begrunnelsen.\n- **Å glemme faktoren $t$ fra kjerneregelen.** Når $f(tx,ty)$ deriveres mht. $x$, kommer det en faktor $t$ fra det indre argumentet. Uten den blir konklusjonen grad $k$ i stedet for $k-1$.\n- **Å tro at Euler krever konstant skalautbytte.** Relasjonen gjelder for **enhver** grad $k$. Det er bare den økonomiske tolkningen — at faktorinntektene akkurat dekker produktet — som krever $k=1$."
+    },
+    {
+      "id": "econ1100-7-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Den økonomiske tolkningen (~12 min)"
+    },
+    {
+      "id": "econ1100-7-2-def-grenseprodukt",
+      "type": "definition",
+      "title": "Grenseprodukt",
+      "content": "Grenseproduktet er det ekstra produktet én enhet mer av en innsatsfaktor gir.\n\n$$MP_K=Q'_K,\\qquad MP_L=Q'_L$$\n\nDette er ganske enkelt de partiellderiverte, med et økonomisk navn. I en modell med fullkommen konkurranse betales hver faktor sitt eget grenseprodukt, målt i produktenheter."
+    },
+    {
+      "id": "econ1100-7-2-def-utomingsteoremet",
+      "type": "definition",
+      "title": "Euler ved konstant skalautbytte",
+      "content": "Ved grad 1 fordeler produksjonen seg nøyaktig på de to faktorene.\n\n$$K\\,Q'_K+L\\,Q'_L=Q$$\n\nVenstresiden er kapitalens samlede grenseproduktinntekt pluss arbeidskraftens. Høyresiden er hele produksjonen. Regnskapet går altså opp uten rest — verken overskudd eller underskudd. Dette er et hovedresultat i produsentteorien, og det er Eulers relasjon med $k=1$."
+    },
+    {
+      "id": "econ1100-7-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — faktorandeler i en Cobb-Douglas-teknologi",
+      "problem": "En bedrift har produktfunksjonen $Q(K,L)=AK^{\\alpha}L^{\\beta}$ med $A,\\alpha,\\beta>0$.\n\n**a)** Finn homogenitetsgraden, og skriv opp Eulers relasjon for denne funksjonen.\n\n**b)** Vis at kapitalens andel av produksjonen, $\\dfrac{K\\,Q'_K}{Q}$, er nøyaktig $\\alpha$.\n\n**c)** Anta konstant skalautbytte. Hva sier Eulers relasjon da om de to andelene?\n\n**d)** Regn ut for $A=10$, $\\alpha=0{,}3$, $\\beta=0{,}7$, $K=L=1$.",
+      "solution": "**a) Graden:**\n\n$$Q(tK,tL)=A(tK)^{\\alpha}(tL)^{\\beta}=t^{\\alpha+\\beta}AK^{\\alpha}L^{\\beta}=t^{\\alpha+\\beta}Q$$\n\n**Homogen av grad $k=\\alpha+\\beta$.**\n\nEulers relasjon blir dermed\n\n$$K\\,Q'_K+L\\,Q'_L=(\\alpha+\\beta)\\,Q$$\n\n**b) Kapitalens andel.** Partiellderivasjon mht. $K$, med $AL^{\\beta}$ som konstant faktor:\n\n$$Q'_K=\\alpha AK^{\\alpha-1}L^{\\beta}$$\n\nGang med $K$:\n\n$$K\\,Q'_K=\\alpha AK^{\\alpha}L^{\\beta}=\\alpha Q$$\n\n*Mellomregning:* $K\\cdot K^{\\alpha-1}=K^{\\alpha}$.\n\nDel på $Q$:\n\n$$\\frac{K\\,Q'_K}{Q}=\\alpha\\qquad\\blacksquare$$\n\n**Tolkning:** eksponenten $\\alpha$ er kapitalens andel av produktet. Symmetrisk er $\\dfrac{L\\,Q'_L}{Q}=\\beta$.\n\n*Sammenhengen med [kap. 2.1](/bok/econ1100/econ1100-2-1):* dette er nøyaktig den partielle produksjonselastisiteten $\\mathrm{El}_K Q=\\alpha$, sett fra en annen kant. Definisjonen $\\dfrac{K}{Q}Q'_K$ er det samme uttrykket.\n\n**c) Konstant skalautbytte** betyr $\\alpha+\\beta=1$. Eulers relasjon gir da\n\n$$K\\,Q'_K+L\\,Q'_L=Q$$\n\nDelt på $Q$:\n\n$$\\alpha+\\beta=1$$\n\n**Andelene summerer altså til nøyaktig én.** Betales hver faktor sitt grenseprodukt, fordeles hele produktet mellom dem, uten rest og uten underskudd.\n\nDette er et hovedresultat i produsentteorien, og det er en ren konsekvens av Eulers relasjon — ikke en antakelse om markedet.\n\n**d) Tallcaset** $A=10$, $\\alpha=0{,}3$, $\\beta=0{,}7$, $K=L=1$:\n\n$$Q=10\\cdot 1\\cdot 1=10$$\n\n$$Q'_K=0{,}3\\cdot 10\\cdot 1^{-0{,}7}\\cdot 1^{0{,}7}=3,\\qquad Q'_L=0{,}7\\cdot 10\\cdot 1^{0{,}3}\\cdot 1^{-0{,}3}=7$$\n\n**Eulers relasjon:**\n\n$$K\\,Q'_K+L\\,Q'_L=1\\cdot 3+1\\cdot 7=10=Q\\ ✓$$\n\n**Andelene:** $\\dfrac{3}{10}=0{,}3=\\alpha$ ✓ og $\\dfrac{7}{10}=0{,}7=\\beta$ ✓, med sum $1$ ✓\n\n*Kontroll av at graden er 1:* $\\alpha+\\beta=0{,}3+0{,}7=1$, altså konstant skalautbytte. En dobling av begge faktorer gir $2^{1}=2$ ganger produksjonen ✓"
+    },
+    {
+      "id": "econ1100-7-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. En ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «Eulers relasjon $xf'_x+yf'_y=kf$ gjelder bare når $k=1$.»\n\n**b)** «Er $f$ homogen av grad 4, er $f'_y$ homogen av grad 4.»\n\n**c)** «Ved konstant skalautbytte er grenseproduktet av kapital uendret når både kapital og arbeidskraft dobles.»",
+        "solution": "**a) Usann.** Relasjonen gjelder for enhver grad.\n\n*Begrunnelse:* utledningen brukte bare identiteten $f(tx,ty)=t^{k}f(x,y)$ med en vilkårlig $k$, derivasjon mht. $t$ og valget $t=1$. Ingen av stegene forutsetter $k=1$.\n\n*Konkret motsvar:* $f(x,y)=x^{2}y$ er homogen av grad 3, og\n\n$$xf'_x+yf'_y=x\\cdot 2xy+y\\cdot x^{2}=3x^{2}y=3f\\ ✓$$\n\nRelasjonen holder med $k=3$.\n\n*Det som er sant*, er at den **økonomiske tolkningen** — at faktorinntektene akkurat dekker produktet — krever $k=1$. Da, og bare da, blir høyresiden lik $f$ selv.\n\n**b) Usann.** Graden faller med én ved derivasjon.\n\n*Begrunnelse:* teoremet sier at $f'_y$ er homogen av grad $k-1=3$.\n\n*Konkret motsvar:* la $f(x,y)=x^{2}y^{2}$, som har grad 4. Da er $f'_y=2x^{2}y$, med eksponentsum $2+1=3$. Direkte test:\n\n$$f'_y(tx,ty)=2(tx)^{2}(ty)=2t^{3}x^{2}y=t^{3}f'_y(x,y)$$\n\nGrad 3, ikke 4 ✓\n\n*Hvorfor det må være slik:* i utledningen kom det en faktor $t$ fra kjerneregelen, og den ble delt bort — det er nettopp den som spiser opp én potens.\n\n**c) Sann.** Grenseproduktene er homogene av grad null.\n\n*Begrunnelse:* er $Q$ homogen av grad $k=1$, er $Q'_K$ homogen av grad $k-1=0$, altså\n\n$$Q'_K(tK,tL)=t^{0}Q'_K(K,L)=Q'_K(K,L)$$\n\nMed $t=2$ er grenseproduktet nøyaktig det samme som før.\n\n*Konkret:* la $Q=K^{1/2}L^{1/2}$, som har grad 1. Da er $Q'_K=\\tfrac12 K^{-1/2}L^{1/2}=\\tfrac12\\sqrt{L/K}$. I $(4,4)$ er dette $\\tfrac12$; i $(8,8)$ er det $\\tfrac12\\sqrt{8/8}=\\tfrac12$ ✓ Uendret.\n\n*Økonomisk innhold:* grenseproduktene avhenger bare av **forholdet** mellom faktorene, ikke av nivået. Det er derfor faktorprisene i slike modeller er skalauavhengige.",
+        "hints": [
+          "I a): se på hvilke forutsetninger utledningen faktisk brukte.",
+          "I b): regn eksponentsummen i det deriverte uttrykket.",
+          "I c): hvilken grad har de deriverte når $k=1$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger HG — bevis-lett, eksamensnivå.) La $f$ være homogen av grad $k$ og to ganger deriverbar.\n\n**a)** Vis at $f''_{xx}$ er homogen av grad $k-2$.\n\n**b)** Bruk Eulers relasjon på $f'_x$ (som er homogen av grad $k-1$) til å vise at\n\n$$x\\,f''_{xx}+y\\,f''_{xy}=(k-1)f'_x.$$\n\n**c)** Kontroller begge resultatene på $f(x,y)=x^{3}y^{2}$.",
+        "solution": "**a)** Vi bruker resultatet fra løkke 2 to ganger.\n\nFørste anvendelse: $f$ er homogen av grad $k$, så $f'_x$ er homogen av grad $k-1$.\n\nAndre anvendelse: $f'_x$ er nå selv en homogen funksjon, av grad $k-1$. Samme teorem sier da at dens partiellderiverte mht. $x$ — altså $f''_{xx}$ — er homogen av grad\n\n$$(k-1)-1=k-2\\qquad\\blacksquare$$\n\n*Merk bevisstrategien:* vi beviste ikke noe nytt fra grunnen av, men brukte et resultat vi allerede hadde, to ganger. Det er en helt gyldig og ofte forventet fremgangsmåte.\n\n**b)** Eulers relasjon gjelder for **enhver** homogen funksjon, med dens egen grad. Anvendt på $f'_x$, som er homogen av grad $k-1$:\n\n$$x\\cdot\\frac{\\partial f'_x}{\\partial x}+y\\cdot\\frac{\\partial f'_x}{\\partial y}=(k-1)\\,f'_x$$\n\nDe to deriverte er $f''_{xx}$ og $f''_{xy}$, så\n\n$$x\\,f''_{xx}+y\\,f''_{xy}=(k-1)f'_x\\qquad\\blacksquare$$\n\n*Poenget:* Euler er ikke forbeholdt den opprinnelige funksjonen. Den gjelder for hver eneste homogene funksjon i kjeden, med den graden funksjonen faktisk har.\n\n**c) Kontroll på $f(x,y)=x^{3}y^{2}$**, som har grad $k=5$.\n\nDe deriverte:\n\n$$f'_x=3x^{2}y^{2},\\qquad f''_{xx}=6xy^{2},\\qquad f''_{xy}=6x^{2}y$$\n\n**Kontroll av a):** eksponentsummen i $f''_{xx}=6xy^{2}$ er $1+2=3$, som er $k-2=5-2$ ✓\n\n*Direkte test:* $f''_{xx}(tx,ty)=6(tx)(ty)^{2}=6t^{3}xy^{2}=t^{3}f''_{xx}$ ✓\n\n**Kontroll av b):** venstresiden er\n\n$$x\\cdot 6xy^{2}+y\\cdot 6x^{2}y=6x^{2}y^{2}+6x^{2}y^{2}=12x^{2}y^{2}$$\n\nHøyresiden er\n\n$$(k-1)f'_x=4\\cdot 3x^{2}y^{2}=12x^{2}y^{2}\\ ✓$$\n\n**Tallkontroll i $(2,1)$:** $f''_{xx}=6\\cdot 2\\cdot 1=12$ og $f''_{xy}=6\\cdot 4\\cdot 1=24$. Venstresiden blir $2\\cdot 12+1\\cdot 24=48$, og høyresiden $4\\cdot 3\\cdot 4\\cdot 1=48$ ✓",
+        "hints": [
+          "I a): bruk teoremet fra løkke 2 to ganger etter hverandre.",
+          "I b): Euler gjelder for enhver homogen funksjon — også for $f'_x$, med dens egen grad.",
+          "I c): regn ut alle tre andrederiverte og sett inn."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-7-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger HG og PR — produsentinnramming, eksamensnivå.) En bedrift har produktfunksjonen\n\n$$Q(K,L)=\\big(K^{0{,}5}+L^{0{,}5}\\big)^{2}.$$\n\n**a)** Finn homogenitetsgraden.\n\n**b)** Regn ut $Q'_K$ og vis at den er homogen av grad 0.\n\n**c)** Verifiser Eulers relasjon i punktet $K=L=4$.\n\n**d)** Hva sier resultatet i c) om fordelingen av produksjonen mellom de to faktorene?",
+        "solution": "**a)** Trekk $t$ ut av parentesen:\n\n$$Q(tK,tL)=\\big(t^{0{,}5}K^{0{,}5}+t^{0{,}5}L^{0{,}5}\\big)^{2}=\\big(t^{0{,}5}\\big)^{2}\\big(K^{0{,}5}+L^{0{,}5}\\big)^{2}=t\\,Q(K,L)$$\n\n**Homogen av grad $k=1$** — konstant skalautbytte.\n\n**b)** Bruk kjerneregelen, med ytre funksjon $u^{2}$ og indre $u=K^{0{,}5}+L^{0{,}5}$:\n\n$$Q'_K=2\\big(K^{0{,}5}+L^{0{,}5}\\big)\\cdot\\tfrac12 K^{-0{,}5}=\\frac{K^{0{,}5}+L^{0{,}5}}{K^{0{,}5}}=1+\\sqrt{\\frac{L}{K}}$$\n\n*Mellomregning:* faktoren 2 fra ytre derivasjon og $\\tfrac12$ fra indre stryker hverandre.\n\n**Test av homogeniteten:**\n\n$$Q'_K(tK,tL)=1+\\sqrt{\\frac{tL}{tK}}=1+\\sqrt{\\frac{L}{K}}=t^{0}Q'_K(K,L)$$\n\nFaktoren $t$ stryker seg i brøken under rottegnet. **Homogen av grad 0** ✓, som er $k-1=1-1$.\n\n**Tolkning:** grenseproduktet avhenger bare av **forholdet** $L/K$, ikke av nivået. Doble begge, og grenseproduktet er uendret.\n\n**c) Verifisering i $K=L=4$.**\n\nFørst funksjonsverdien:\n\n$$Q(4,4)=\\big(2+2\\big)^{2}=16$$\n\nDe partiellderiverte. Ved symmetri er $Q'_L$ det samme uttrykket med $K$ og $L$ byttet om:\n\n$$Q'_K=1+\\sqrt{\\frac{4}{4}}=2,\\qquad Q'_L=1+\\sqrt{\\frac{4}{4}}=2$$\n\n**Eulers relasjon:**\n\n$$K\\,Q'_K+L\\,Q'_L=4\\cdot 2+4\\cdot 2=16$$\n\n$$k\\,Q=1\\cdot 16=16\\ ✓$$\n\n**d)** Venstresiden i c) er de to faktorenes samlede grenseproduktinntekt: $8$ til kapitalen og $8$ til arbeidskraften. Til sammen $16$, som er nøyaktig hele produksjonen.\n\n**Produksjonen fordeles altså fullt ut på de to faktorene**, med halvparten på hver i dette symmetriske punktet. Ingenting blir til overs, og ingenting mangler.\n\nDette er den økonomiske kjernen i Eulers relasjon ved konstant skalautbytte: betales hver faktor sitt grenseprodukt, går regnskapet opp av seg selv. Det er en matematisk identitet, ikke en antakelse om hvordan markedet oppfører seg.\n\n*Kontroll i et usymmetrisk punkt, $K=9$, $L=1$:* $Q=(3+1)^{2}=16$, $Q'_K=1+\\sqrt{1/9}=\\tfrac43$ og $Q'_L=1+\\sqrt{9/1}=4$. Da er $9\\cdot\\tfrac43+1\\cdot 4=12+4=16=Q$ ✓ — relasjonen holder også der, men andelene er nå $12$ og $4$ i stedet for $8$ og $8$.",
+        "hints": [
+          "I a): trekk $t^{0{,}5}$ ut av parentesen før du opphøyer.",
+          "I b): kjerneregelen — de to tallfaktorene stryker hverandre.",
+          "I c): utnytt symmetrien, siden $K=L$ i punktet."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-7-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-7-2-bb-1",
+      "type": "definition",
+      "title": "Eulers relasjon",
+      "content": "Formelen du skal kunne uten å tenke.\n\n$$x\\,f'_x+y\\,f'_y=k\\,f$$\n\nVariablene er vekter på sine egne partiellderiverte, og summen er graden ganget med funksjonen. Relasjonen gjelder for enhver grad $k$, ikke bare $k=1$."
+    },
+    {
+      "id": "econ1100-7-2-bb-2",
+      "type": "definition",
+      "title": "Beviset for Euler i tre steg",
+      "content": "Rekkefølgen er alltid den samme.\n\n$$\\text{start med }f(tx,ty)=t^{k}f\\ \\to\\ \\text{deriver mht. }t\\ \\to\\ \\text{sett }t=1$$\n\nValget $t=1$ er lov nettopp fordi identiteten gjelder for **alle** $t$, og den setningen hører med i besvarelsen."
+    },
+    {
+      "id": "econ1100-7-2-bb-3",
+      "type": "definition",
+      "title": "De deriverte er homogene av grad $k-1$",
+      "content": "Hver derivasjon senker graden med nøyaktig én.\n\n$$f\\ \\text{grad }k\\ \\Longrightarrow\\ f'_x\\ \\text{grad }k-1\\ \\Longrightarrow\\ f''_{xx}\\ \\text{grad }k-2$$\n\nÅ skrive $k$ i stedet for $k-1$ er den vanligste feilen i denne påstandstypen. Kontrollen er å regne eksponentsummen i det deriverte uttrykket."
+    },
+    {
+      "id": "econ1100-7-2-bb-4",
+      "type": "definition",
+      "title": "Beviset for homogene deriverte",
+      "content": "Samme identitet, men derivert mht. $x$ i stedet for $t$.\n\n$$t\\,f'_x(tx,ty)=t^{k}f'_x(x,y)\\ \\Longrightarrow\\ f'_x(tx,ty)=t^{k-1}f'_x(x,y)$$\n\nFaktoren $t$ på venstresiden kommer fra kjerneregelen, og det er delingen på den som senker graden med én."
+    },
+    {
+      "id": "econ1100-7-2-bb-5",
+      "type": "definition",
+      "title": "Ett grep, to resultater",
+      "content": "Begge teoremene kommer fra å derivere den samme identiteten.\n\n$$f(tx,ty)=t^{k}f(x,y)$$\n\nDeriver mht. $t$ og sett $t=1$: Eulers relasjon. Deriver mht. $x$ og del på $t$: homogenitet av de deriverte. Derfor dukker de to alltid opp sammen."
+    },
+    {
+      "id": "econ1100-7-2-bb-6",
+      "type": "definition",
+      "title": "Grad null betyr skalauavhengig",
+      "content": "Ved konstant skalautbytte er grenseproduktene upåvirket av nivået.\n\n$$k=1\\ \\Longrightarrow\\ f'_x(tx,ty)=f'_x(x,y)$$\n\nGrenseproduktene avhenger bare av forholdet mellom faktorene. For $Q=\\big(\\sqrt K+\\sqrt L\\big)^{2}$ er $Q'_K=1+\\sqrt{L/K}$, der bare brøken $L/K$ inngår."
+    },
+    {
+      "id": "econ1100-7-2-bb-7",
+      "type": "definition",
+      "title": "Faktorandelene i Cobb-Douglas",
+      "content": "Eksponenten er andelen av produktet.\n\n$$\\frac{K\\,Q'_K}{Q}=\\alpha,\\qquad \\frac{L\\,Q'_L}{Q}=\\beta$$\n\nDette er samme uttrykk som den partielle produksjonselastisiteten fra [kap. 2.1](/bok/econ1100/econ1100-2-1). Ved konstant skalautbytte summerer andelene til én."
+    },
+    {
+      "id": "econ1100-7-2-bb-8",
+      "type": "definition",
+      "title": "Regnskapet går opp ved $k=1$",
+      "content": "Den økonomiske kjernen i Eulers relasjon.\n\n$$K\\,Q'_K+L\\,Q'_L=Q$$\n\nBetales hver faktor sitt grenseprodukt, fordeles hele produktet uten rest. Dette er en matematisk identitet, ikke en antakelse om markedet."
+    },
+    {
+      "id": "econ1100-7-2-bb-9",
+      "type": "definition",
+      "title": "Euler gjelder også for de deriverte",
+      "content": "Hver homogen funksjon i kjeden har sin egen Euler-relasjon.\n\n$$x\\,f''_{xx}+y\\,f''_{xy}=(k-1)f'_x$$\n\nSiden $f'_x$ er homogen av grad $k-1$, gjelder relasjonen for den med nettopp den graden. Å bygge videre på et resultat du har vist, er en helt gyldig bevisstrategi."
+    },
+    {
+      "id": "econ1100-7-2-bb-10",
+      "type": "definition",
+      "title": "Euler er ikke definisjonen",
+      "content": "To utsagn som lett forveksles.\n\n$$f(tx,ty)=t^{k}f\\ \\text{(definisjon)};\\qquad xf'_x+yf'_y=kf\\ \\text{(konsekvens)}$$\n\nDefinisjonen handler om skalering av argumentene; Euler om de deriverte i ett fast punkt. Å bruke Euler som definisjon er en klassisk feil i sant/usant-oppgaven."
+    },
+    {
+      "id": "econ1100-7-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-7-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 7.1](/bok/econ1100/econ1100-7-1), [kap. 1.2](/bok/econ1100/econ1100-1-2) og [kap. 1.3](/bok/econ1100/econ1100-1-3).\n\n**1.** Hva er homogenitetsgraden til $x^{3}y^{2}$?\n\n*Svar:* $5$ — eksponentsummen.\n\n**2.** Finn $f'_x$ når $f(x,y)=x^{2}y$.\n\n*Svar:* $f'_x=2xy$ — faktoren $y$ er konstant.\n\n**3.** Hva er $\\dfrac{d}{dt}t^{k}$?\n\n*Svar:* $kt^{k-1}$.\n\n**4.** Hva er $\\dfrac{\\partial}{\\partial x}f(tx,ty)$?\n\n*Svar:* $t\\,f'_x(tx,ty)$ — faktoren $t$ kommer fra kjerneregelen.\n\n**5.** Forenkle $x\\cdot x^{-1/2}$.\n\n*Svar:* $x^{1/2}$.\n\n**6.** Hva er $\\mathrm{El}_K Q$ når $Q=AK^{\\alpha}L^{\\beta}$?\n\n*Svar:* $\\alpha$ — det samme som $\\dfrac{K\\,Q'_K}{Q}$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-7-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $k$ | Homogenitetsgraden |\n| $t$ | Skaleringsfaktoren, alltid positiv |\n| $f'_x$, $f'_y$ | Partiellderiverte — grenseproduktene i produsentspråk |\n| $f''_{xx}$, $f''_{xy}$ | Andrederiverte, homogene av grad $k-2$ |\n| $MP_K$, $MP_L$ | Grenseprodukt av kapital og arbeidskraft |\n| $Q$, $K$, $L$ | Produksjon, kapital og arbeidskraft |\n| $\\alpha,\\beta$ | Cobb-Douglas-eksponentene, som er faktorandelene |\n| $\\blacksquare$ | Markerer at et bevis er ferdig |\n\n**Formler i dette delkapitlet:**\n\n$$x\\,f'_x+y\\,f'_y=k\\,f$$\nEulers relasjon. Gjelder for enhver homogenitetsgrad $k$.\n\n$$f'_x(tx,ty)=t^{\\,k-1}f'_x(x,y)$$\nDe partiellderiverte er homogene av grad $k-1$.\n\n$$f(tx,ty)=t^{k}f(x,y)$$\nIdentiteten begge utledningene starter fra.\n\n$$\\frac{\\partial}{\\partial x}f(tx,ty)=t\\,f'_x(tx,ty)$$\nKjerneregelen på venstresiden. Faktoren $t$ er det som senker graden.\n\n$$K\\,Q'_K+L\\,Q'_L=Q\\qquad(k=1)$$\nVed konstant skalautbytte fordeles hele produktet på de to faktorene.\n\n$$\\frac{K\\,Q'_K}{Q}=\\alpha,\\qquad \\frac{L\\,Q'_L}{Q}=\\beta$$\nFaktorandelene i en Cobb-Douglas-teknologi, som summerer til $\\alpha+\\beta$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,321 @@
+{
+  "id": "econ1100-10-3",
+  "courseId": "econ1100",
+  "chapterNumber": "10.3",
+  "title": "Serier: endelige og geometriske summer",
+  "description": "Endelige summer skrevet ut ledd for ledd, og uendelige geometriske rekker der konvergenskravet er halve svaret: sumformelen gjelder bare når tallverdien til kvotienten er under 1. Med nåverdien av en evig inntektsstrøm som økonomisk anvendelse.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "regne ut endelige summer ved utskriving og med de to standardformlene",
+    "kjenne igjen en geometrisk rekke og bestemme startledd og kvotient",
+    "avgjøre konvergens ut fra tallverdien til kvotienten og begrunne konklusjonen",
+    "regne ut nåverdien av en evig inntektsstrøm og forklare hvorfor den er følsom for diskonteringsfaktoren"
+  ],
+  "content": [
+    {
+      "id": "econ1100-10-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Det siste beredskapstemaet — og det med den enkleste vinneroppskriften.**\n\n**Sjanger SR — serier og geometriske summer** står i **5 av 16 sett** (31 prosent), og nesten alltid som **ett delpunkt i sant/usant-oppgaven**. Prioriteten er **kjenne**.\n\n**Halve poenget ligger i ett spørsmål:** konvergerer rekken? En uendelig geometrisk rekke har en endelig sum **bare når** $\\lvert r\\rvert<1$. Bruker du sumformelen uten å nevne kravet, mister du uttelling selv om regnestykket ellers er riktig — og bruker du den når $\\lvert r\\rvert\\ge 1$, er svaret rett og slett galt.\n\n**Delpunktene som har forekommet, faller i tre grupper:**\n\n1. **Endelige summer** som skal skrives ut og legges sammen.\n2. **Uendelige geometriske rekker** der en påstått sum skal kontrolleres.\n3. **Divergerende rekker** der hele poenget er å oppdage at $\\lvert r\\rvert\\ge 1$.\n\nMerk at gruppe 3 er en felle: påstanden ser ut som en helt vanlig sumoppgave, og formelen gir et pent tall — som bare er meningsløst.\n\nTidsanslaget er **40 minutter**, og kapitlet er kort med vilje.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-10-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet kan leses uten forkunnskaper fra resten av boka. Trenger du å friske opp grunnlaget, ligger det i [Geometriske følger](/bok/r2/r2-1-3), [Rekker og summasjon](/bok/r2/r2-1-4) og [Uendelige rekker og konvergens](/bok/r2/r2-1-5) fra R2.\n\n**Det eneste du må ha med deg** er summetegnet:\n\n$$\\sum_{t=0}^{n}a_t=a_0+a_1+\\dots+a_n$$\n\nBokstaven under tegnet er telleren, tallet under er der den starter, og tallet over er der den slutter."
+    },
+    {
+      "id": "econ1100-10-3-motivasjon",
+      "type": "text",
+      "content": "En bedrift får 50 000 kroner i overskudd hvert år i overskuelig framtid. Hva er hele den strømmen verdt i dag?\n\nKroner i framtida er mindre verdt enn kroner i dag, så hvert års beløp må ganges ned med en faktor — én gang for hvert år som går. Summen blir\n\n$$50\\,000+50\\,000\\beta+50\\,000\\beta^{2}+\\dots$$\n\nDette er en **geometrisk rekke**: hvert ledd er det forrige ganget med den samme faktoren. Og det bemerkelsesverdige er at en slik uendelig sum kan ha en helt endelig verdi — så lenge faktoren er mindre enn 1 i tallverdi.\n\nDet er nettopp det kravet eksamen tester."
+    },
+    {
+      "id": "econ1100-10-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Endelige summer (~11 min)"
+    },
+    {
+      "id": "econ1100-10-3-def-sum",
+      "type": "definition",
+      "title": "Summetegnet",
+      "content": "Summetegnet er en kortform for «legg sammen disse leddene».\n\n$$\\sum_{k=1}^{n}a_k=a_1+a_2+\\dots+a_n$$\n\n$k$ er **summasjonsindeksen** — den løper fra tallet under tegnet til tallet over, ett heltall om gangen. Indeksen er en hjelpevariabel og forsvinner i svaret: summen avhenger av $n$, ikke av $k$.\n\n**Det tryggeste grepet på en kort endelig sum er å skrive den ut.** Fire eller fem ledd tar femten sekunder å legge sammen, og du unngår enhver formelfeil."
+    },
+    {
+      "id": "econ1100-10-3-thm-endelig",
+      "type": "theorem",
+      "title": "To formler for endelige summer",
+      "content": "De to du bør kjenne igjen.\n\n$$\\sum_{k=1}^{n}k=\\frac{n(n+1)}{2}$$\n\n$$\\sum_{t=0}^{n}ar^{t}=a\\,\\frac{1-r^{n+1}}{1-r}\\quad (r\\ne 1)$$\n\nDen første er summen av de $n$ første heltallene. Den andre er den **endelige** geometriske summen — merk eksponenten $n+1$ i telleren, som kommer av at summen har $n+1$ ledd når den starter på $t=0$."
+    },
+    {
+      "id": "econ1100-10-3-eks1",
+      "type": "example",
+      "title": "Eksempel 1: Endelige summer",
+      "problem": "Regn ut.\n\n**a)** $\\displaystyle\\sum_{n=1}^{5}\\left(n^{2}-2n\\right)$\n\n**b)** $\\displaystyle\\sum_{k=1}^{20}k$\n\n**c)** $\\displaystyle\\sum_{t=0}^{4}3\\cdot 2^{t}$, både ved utskriving og med formelen.",
+      "solution": "**a)** *Metode: skriv ut leddene — fem ledd er raskere enn noen formel.*\n\n| $n$ | $n^{2}$ | $2n$ | $n^{2}-2n$ |\n|---|---|---|---|\n| 1 | 1 | 2 | $-1$ |\n| 2 | 4 | 4 | $0$ |\n| 3 | 9 | 6 | $3$ |\n| 4 | 16 | 8 | $8$ |\n| 5 | 25 | 10 | $15$ |\n\n$$\\sum_{n=1}^{5}\\left(n^{2}-2n\\right)=-1+0+3+8+15=25$$\n\n*Merk at det første leddet er negativt* — det er lett å overse når man regner i hodet.\n\n**b)** Med formelen for de $n$ første heltallene:\n\n$$\\sum_{k=1}^{20}k=\\frac{20\\cdot 21}{2}=\\frac{420}{2}=210$$\n\n*Kontroll:* summen av tall fra 1 til 20 er 20 tall med gjennomsnitt $\\tfrac{1+20}{2}=10{,}5$, altså $20\\cdot 10{,}5=210$ ✓\n\n**c) Ved utskriving:**\n\n$$3\\cdot 2^{0}+3\\cdot 2^{1}+3\\cdot 2^{2}+3\\cdot 2^{3}+3\\cdot 2^{4}=3+6+12+24+48=93$$\n\n**Med formelen** — her er $a=3$, $r=2$ og $n=4$, altså fem ledd:\n\n$$\\sum_{t=0}^{4}3\\cdot 2^{t}=3\\cdot\\frac{1-2^{5}}{1-2}=3\\cdot\\frac{1-32}{-1}=3\\cdot 31=93\\ ✓$$\n\n*Merk eksponenten:* $n+1=5$, ikke 4. Summen har fem ledd fordi den starter på $t=0$.\n\n**Verbal konklusjon:** for korte summer er utskriving både raskest og sikrest. Formelen trengs først når antallet ledd er stort — eller uendelig."
+    },
+    {
+      "id": "econ1100-10-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger SR — serier og geometriske summer, i 5 av 16 sett, nesten alltid som del av sant/usant-oppgaven. Innstegsoppgave.) Regn ut.\n\n**a)** $\\displaystyle\\sum_{n=1}^{4}\\left(n^{2}+n\\right)$\n\n**b)** $\\displaystyle\\sum_{k=1}^{10}k$\n\n**c)** $\\displaystyle\\sum_{t=0}^{3}5\\cdot 3^{t}$",
+        "solution": "**a)** Skriv ut leddene:\n\n$$(1+1)+(4+2)+(9+3)+(16+4)=2+6+12+20=40$$\n\n**b)**\n\n$$\\sum_{k=1}^{10}k=\\frac{10\\cdot 11}{2}=55$$\n\n*Kontroll:* $1+2+\\dots+10$ er ti tall med gjennomsnitt $5{,}5$, altså 55 ✓\n\n**c)** Utskriving:\n\n$$5\\cdot 1+5\\cdot 3+5\\cdot 9+5\\cdot 27=5+15+45+135=200$$\n\n*Kontroll med formelen* ($a=5$, $r=3$, $n=3$, altså fire ledd):\n\n$$5\\cdot\\frac{1-3^{4}}{1-3}=5\\cdot\\frac{1-81}{-2}=5\\cdot 40=200\\ ✓$$",
+        "hints": [
+          "Korte summer er raskest å skrive ut ledd for ledd.",
+          "For b): formelen $\\dfrac{n(n+1)}{2}$ gir svaret direkte.",
+          "For c): summen starter på $t=0$, så den har fire ledd, ikke tre."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Den uendelige geometriske rekka (~15 min)"
+    },
+    {
+      "id": "econ1100-10-3-def-geometrisk",
+      "type": "definition",
+      "title": "Geometrisk rekke",
+      "content": "En rekke er geometrisk når hvert ledd er det forrige ganget med den samme faktoren.\n\n$$a+ar+ar^{2}+ar^{3}+\\dots=\\sum_{t=0}^{\\infty}ar^{t}$$\n\n$a$ er **startleddet** og $r$ er **kvotienten** — faktoren mellom to nabotall. Du kjenner den igjen ved å dele et ledd på det forrige: får du samme tall hver gang, er rekka geometrisk."
+    },
+    {
+      "id": "econ1100-10-3-thm-uendelig",
+      "type": "theorem",
+      "title": "Sumformelen og konvergenskravet",
+      "content": "En uendelig geometrisk rekke har en endelig sum bare når kvotienten er mindre enn 1 i tallverdi.\n\n$$\\sum_{t=0}^{\\infty}ar^{t}=\\frac{a}{1-r}\\qquad\\textbf{hvis og bare hvis}\\qquad \\lvert r\\rvert<1$$\n\nEr $\\lvert r\\rvert\\ge 1$, **divergerer** rekka: leddene blir ikke små nok, og summen vokser uten grense (eller svinger uten å nærme seg noe tall).\n\n**Kravet er ikke en teknisk detalj — det er halve svaret.** Skriv det alltid ut: «Her er $r=0{,}8$, og $\\lvert r\\rvert<1$, så rekka konvergerer og sumformelen gjelder.»"
+    },
+    {
+      "id": "econ1100-10-3-hvorfor-krav",
+      "type": "text",
+      "content": "**Hvorfor kravet må være der.** Den endelige summen er\n\n$$\\sum_{t=0}^{n}ar^{t}=a\\,\\frac{1-r^{n+1}}{1-r}$$\n\nSpørsmålet er hva som skjer med $r^{n+1}$ når $n$ vokser.\n\n- Er $\\lvert r\\rvert<1$, krymper $r^{n+1}$ mot null — $0{,}8^{50}\\approx 0{,}000014$. Da nærmer hele uttrykket seg $\\dfrac{a}{1-r}$.\n- Er $\\lvert r\\rvert>1$, vokser $r^{n+1}$ uten grense — $1{,}5^{50}\\approx 6\\cdot 10^{8}$. Summen løper av gårde.\n- Er $r=1$, er hvert ledd like stort som det forrige, og summen av uendelig mange like ledd er uendelig.\n\n*Intuisjon:* rekka konvergerer bare når leddene krymper raskt nok til at halen blir ubetydelig."
+    },
+    {
+      "id": "econ1100-10-3-eks2",
+      "type": "example",
+      "title": "Eksempel 2: Konvergens og divergens",
+      "problem": "Avgjør for hver rekke om den konvergerer, og finn i så fall summen.\n\n**a)** $\\displaystyle\\sum_{t=0}^{\\infty}\\left(0{,}8\\right)^{t}$\n\n**b)** $\\displaystyle\\sum_{t=0}^{\\infty}4\\left(\\tfrac13\\right)^{t}$\n\n**c)** $\\displaystyle\\sum_{t=0}^{\\infty}3\\left(1{,}5\\right)^{t}$\n\n**d)** $\\displaystyle\\sum_{t=0}^{\\infty}5\\left(-0{,}5\\right)^{t}$",
+      "solution": "**a)** Her er $a=1$ og $r=0{,}8$.\n\n**Konvergenssjekk:** $\\lvert 0{,}8\\rvert<1$ ✓ Rekka konvergerer.\n\n$$\\sum_{t=0}^{\\infty}\\left(0{,}8\\right)^{t}=\\frac{1}{1-0{,}8}=\\frac{1}{0{,}2}=5$$\n\n*Rimelighetssjekk:* de fem første leddene er $1+0{,}8+0{,}64+0{,}512+0{,}41=3{,}36$, og halen legger på resten opp mot 5 ✓\n\n**b)** Her er $a=4$ og $r=\\tfrac13$.\n\n**Konvergenssjekk:** $\\left\\lvert\\tfrac13\\right\\rvert<1$ ✓\n\n$$\\sum_{t=0}^{\\infty}4\\left(\\tfrac13\\right)^{t}=\\frac{4}{1-\\tfrac13}=\\frac{4}{\\tfrac23}=4\\cdot\\frac32=6$$\n\n*Merk regningen med brøk i nevneren:* å dele på $\\tfrac23$ er å gange med $\\tfrac32$.\n\n**c)** Her er $a=3$ og $r=1{,}5$.\n\n**Konvergenssjekk:** $\\lvert 1{,}5\\rvert>1$ — rekka **divergerer**, og sumformelen gjelder ikke.\n\n*Hva formelen ville gitt hvis man brukte den ulovlig:* $\\dfrac{3}{1-1{,}5}=\\dfrac{3}{-0{,}5}=-6$. Et **negativt** tall som sum av bare positive ledd er åpenbart meningsløst — og det er selve varselsignalet. En rekke med positive ledd kan aldri summere til noe negativt.\n\n**d)** Her er $a=5$ og $r=-0{,}5$.\n\n**Konvergenssjekk:** $\\lvert -0{,}5\\rvert=0{,}5<1$ ✓ Kravet gjelder **tallverdien**, så en negativ kvotient er helt greit.\n\n$$\\sum_{t=0}^{\\infty}5\\left(-0{,}5\\right)^{t}=\\frac{5}{1-(-0{,}5)}=\\frac{5}{1{,}5}=\\frac{10}{3}\\approx 3{,}33$$\n\n*Merk fortegnet i nevneren:* $1-(-0{,}5)=1{,}5$, ikke $0{,}5$. Å trekke fra et negativt tall er å legge til.\n\n*Rimelighetssjekk:* leddene veksler fortegn — $5-2{,}5+1{,}25-0{,}625+\\dots$ — og delsummene svinger seg inn mot $3{,}33$ ✓\n\n**Verbal konklusjon:** framgangsmåten er alltid den samme. Finn $a$ og $r$, sjekk $\\lvert r\\rvert$, og bruk formelen bare hvis kravet er oppfylt."
+    },
+    {
+      "id": "econ1100-10-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger SR.) Avgjør for hver rekke om den konvergerer, og finn i så fall summen.\n\n**a)** $\\displaystyle\\sum_{t=0}^{\\infty}6\\left(\\tfrac14\\right)^{t}$\n\n**b)** $\\displaystyle\\sum_{i=0}^{\\infty}2^{i}$\n\n**c)** $\\displaystyle\\sum_{t=0}^{\\infty}10\\left(-0{,}2\\right)^{t}$",
+        "solution": "**a)** $a=6$, $r=\\tfrac14$. Siden $\\left\\lvert\\tfrac14\\right\\rvert<1$, konvergerer rekka:\n\n$$\\frac{6}{1-\\tfrac14}=\\frac{6}{\\tfrac34}=6\\cdot\\frac43=8$$\n\n**b)** $a=1$, $r=2$. Siden $\\lvert 2\\rvert>1$, **divergerer** rekka.\n\n*Begrunnelse i ord:* leddene er $1,2,4,8,16,\\dots$ — de vokser i stedet for å krympe, så summen kan ikke nærme seg noe endelig tall.\n\n*Hva formelen ville gitt ulovlig:* $\\dfrac{1}{1-2}=-1$. Igjen et negativt tall som sum av positive ledd, altså meningsløst.\n\n**c)** $a=10$, $r=-0{,}2$. Siden $\\lvert -0{,}2\\rvert=0{,}2<1$, konvergerer rekka:\n\n$$\\frac{10}{1-(-0{,}2)}=\\frac{10}{1{,}2}=\\frac{25}{3}\\approx 8{,}33$$\n\n*Merk nevneren:* $1-(-0{,}2)=1{,}2$.",
+        "hints": [
+          "Identifiser $a$ (første ledd) og $r$ (faktoren mellom nabotall) før du gjør noe annet.",
+          "Sjekk alltid $\\lvert r\\rvert<1$ og skriv sjekken ned — den er halve svaret.",
+          "Er $r$ negativ, pass på fortegnet i nevneren $1-r$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SR — startpunkt og omskriving.) Regn ut, og begrunn konvergensen.\n\n**a)** $\\displaystyle\\sum_{t=1}^{\\infty}\\left(\\tfrac12\\right)^{t}$\n\n**b)** $\\displaystyle\\sum_{t=0}^{\\infty}\\frac{3}{2^{t}}$\n\n**c)** $\\displaystyle\\sum_{t=2}^{\\infty}\\left(0{,}9\\right)^{t}$",
+        "solution": "**a)** Rekka starter på $t=1$, ikke $t=0$. Skriv ut de første leddene for å finne startleddet:\n\n$$\\left(\\tfrac12\\right)^{1}+\\left(\\tfrac12\\right)^{2}+\\dots=\\tfrac12+\\tfrac14+\\tfrac18+\\dots$$\n\nHer er $a=\\tfrac12$ (det **første** leddet som faktisk er med) og $r=\\tfrac12$. Siden $\\left\\lvert\\tfrac12\\right\\rvert<1$, konvergerer rekka:\n\n$$\\frac{\\tfrac12}{1-\\tfrac12}=\\frac{\\tfrac12}{\\tfrac12}=1$$\n\n*Kontroll på en annen måte:* summen fra $t=0$ er $\\dfrac{1}{1-\\tfrac12}=2$, og vi har utelatt leddet $t=0$, som er 1. Da blir $2-1=1$ ✓\n\n**b)** Skriv om til standardform:\n\n$$\\frac{3}{2^{t}}=3\\left(\\tfrac12\\right)^{t}$$\n\nHer er $a=3$ og $r=\\tfrac12$, og $\\left\\lvert\\tfrac12\\right\\rvert<1$:\n\n$$\\frac{3}{1-\\tfrac12}=\\frac{3}{\\tfrac12}=6$$\n\n**c)** Rekka starter på $t=2$. Det første leddet som er med, er\n\n$$a=\\left(0{,}9\\right)^{2}=0{,}81$$\n\nog $r=0{,}9$, med $\\lvert 0{,}9\\rvert<1$:\n\n$$\\frac{0{,}81}{1-0{,}9}=\\frac{0{,}81}{0{,}1}=8{,}1$$\n\n*Kontroll:* hele rekka fra $t=0$ summerer til $\\dfrac{1}{0{,}1}=10$, og de to utelatte leddene er $1+0{,}9=1{,}9$. Da blir $10-1{,}9=8{,}1$ ✓\n\n**Konklusjon:** startpunktet endrer ikke $r$, bare $a$. Regelen er enkel: **$a$ er alltid det første leddet som faktisk er med i summen.**",
+        "hints": [
+          "Skriv ut de to første leddene i hver rekke — da ser du både $a$ og $r$ direkte.",
+          "For b): $\\dfrac{3}{2^{t}}$ er det samme som $3\\left(\\tfrac12\\right)^{t}$.",
+          "Kontroller ved å regne hele rekka fra $t=0$ og trekke fra de utelatte leddene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Eksamensformatet og nåverdien (~14 min)"
+    },
+    {
+      "id": "econ1100-10-3-def-navardi",
+      "type": "definition",
+      "title": "Nåverdien av en evig strøm",
+      "content": "Nåverdien av et fast beløp hvert år i all framtid er en geometrisk rekke.\n\n$$\\sum_{t=0}^{\\infty}z\\beta^{t}=\\frac{z}{1-\\beta},\\qquad 0<\\beta<1$$\n\n$z$ er beløpet per periode og $\\beta$ er **diskonteringsfaktoren** — hvor mye en krone neste år er verdt i dag. Kravet $\\beta<1$ er automatisk oppfylt så lenge renta er positiv, men det skal likevel skrives ut.\n\n**Merk hva formelen sier:** en uendelig strøm har en endelig verdi. Med $\\beta=0{,}95$ er 100 kroner i året i all framtid verdt $\\dfrac{100}{0{,}05}=2000$ kroner i dag."
+    },
+    {
+      "id": "econ1100-10-3-def-fremgangsmate",
+      "type": "definition",
+      "title": "Fremgangsmåten på et SR-delpunkt",
+      "content": "Fire steg løser standarddelpunktet.\n\n$$1)\\ \\text{er den geometrisk?};\\quad 2)\\ \\text{finn }a\\ \\text{og }r;\\quad 3)\\ \\text{sjekk }\\lvert r\\rvert<1;\\quad 4)\\ \\text{regn eller konkluder divergens}$$\n\nSteg 3 er det som gir eller koster poeng. Skriv det ut som en egen setning, også når kravet åpenbart er oppfylt."
+    },
+    {
+      "id": "econ1100-10-3-eks3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — sant eller usant",
+      "problem": "Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «$\\displaystyle\\sum_{t=0}^{\\infty}\\left(0{,}8\\right)^{t}=5$»\n\n**b)** «$\\displaystyle\\sum_{i=0}^{\\infty}2^{i}=-1$»\n\n**c)** «En bedrift får $z$ kroner hvert år i all framtid, med diskonteringsfaktor $\\beta$. Nåverdien er $\\dfrac{z}{1-\\beta}$ uansett verdi på $\\beta$.»",
+      "solution": "**a) Sann.**\n\n*Begrunnelse ved utregning:* rekka er geometrisk med $a=1$ og $r=0{,}8$.\n\n**Konvergenssjekk:** $\\lvert 0{,}8\\rvert<1$, så rekka konvergerer og sumformelen gjelder.\n\n$$\\frac{1}{1-0{,}8}=\\frac{1}{0{,}2}=5\\ ✓$$\n\nPåstanden stemmer.\n\n**b) Usann.**\n\n*Begrunnelse:* rekka er geometrisk med $a=1$ og $r=2$, og $\\lvert 2\\rvert>1$. **Kravet for konvergens er ikke oppfylt**, så rekka divergerer og har ingen sum.\n\nTallet $-1$ er nettopp det man får ved å bruke sumformelen ulovlig:\n\n$$\\frac{1}{1-2}=-1$$\n\n**Hvorfor det ikke kan stemme:** alle leddene $1,2,4,8,\\dots$ er positive, og allerede det første leddet alene er 1. En sum av positive tall kan ikke være negativ.\n\n*Dette er sjangerens signaturfelle:* formelen gir et pent tall, og tallet er meningsløst. Konvergenssjekken er hele forsvaret.\n\n**c) Usann.**\n\n*Begrunnelse:* formelen krever $\\lvert\\beta\\rvert<1$. Er $\\beta\\ge 1$ — altså at en krone neste år er verdt like mye som eller mer enn en krone i dag — divergerer rekka, og nåverdien er ikke endelig.\n\n*Konkret:* med $\\beta=1$ blir summen $z+z+z+\\dots$, som vokser uten grense uansett hvor liten $z$ er.\n\n**Presist sagt:** formelen er riktig, men påstandens «uansett verdi på $\\beta$» er det som gjør den usann. I praksis er $0<\\beta<1$ når renta er positiv, men det er en forutsetning som må nevnes, ikke noe som gjelder automatisk."
+    },
+    {
+      "id": "econ1100-10-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Alle svar skal begrunnes; en ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «$\\displaystyle\\sum_{t=0}^{\\infty}4\\left(\\tfrac13\\right)^{t}=6$»\n\n**b)** «$\\displaystyle\\sum_{t=0}^{\\infty}\\left(-1{,}2\\right)^{t}$ konvergerer, siden kvotienten er negativ.»\n\n**c)** «$\\displaystyle\\sum_{n=1}^{5}\\left(n^{2}-2n\\right)=25$»",
+        "solution": "**a) Sann.**\n\n*Begrunnelse ved utregning:* $a=4$ og $r=\\tfrac13$.\n\n**Konvergenssjekk:** $\\left\\lvert\\tfrac13\\right\\rvert<1$ ✓\n\n$$\\frac{4}{1-\\tfrac13}=\\frac{4}{\\tfrac23}=4\\cdot\\frac32=6\\ ✓$$\n\n**b) Usann.**\n\n*Begrunnelse:* kravet gjelder **tallverdien** til kvotienten, ikke fortegnet. Her er\n\n$$\\lvert -1{,}2\\rvert=1{,}2>1$$\n\nså rekka divergerer.\n\n*Hva som faktisk skjer:* leddene er $1,\\ -1{,}2,\\ 1{,}44,\\ -1{,}728,\\dots$ De veksler fortegn **og** vokser i tallverdi, så delsummene svinger stadig kraftigere uten å nærme seg noe tall.\n\n*Merk kontrasten:* $r=-0{,}5$ ville gitt konvergens, fordi tallverdien da er under 1. Det er ikke fortegnet som avgjør — det er størrelsen.\n\n**c) Sann.**\n\n*Begrunnelse ved utregning:* skriv ut de fem leddene.\n\n$$(1-2)+(4-4)+(9-6)+(16-8)+(25-10)=-1+0+3+8+15=25\\ ✓$$\n\n*Merk at det første leddet er negativt* og det andre er null — begge deler er lette å overse når man regner fort.",
+        "hints": [
+          "For a): identifiser $a$ og $r$, og regn ut $\\dfrac{a}{1-r}$.",
+          "For b): hva sier konvergenskravet nøyaktig — noe om fortegnet eller om tallverdien?",
+          "For c): skriv ut alle fem leddene og legg dem sammen. Pass på de to første."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SR — økonomisk innramming.) En bedrift mottar 60 000 kroner i overskudd ved slutten av hvert år, i all framtid. Diskonteringsfaktoren er $\\beta$.\n\n**a)** Sett opp nåverdien som en rekke, og finn et uttrykk for den når $\\beta=0{,}95$.\n\n**b)** Hvor mye endres nåverdien hvis $\\beta$ faller til $0{,}90$?\n\n**c)** Forklar hvorfor nåverdien er så følsom for $\\beta$.",
+        "solution": "**a)** Nåverdien er summen av alle framtidige beløp, hvert ganget ned med sin egen diskonteringsfaktor:\n\n$$V=\\sum_{t=0}^{\\infty}60\\,000\\,\\beta^{t}$$\n\n**Konvergenssjekk:** med $\\beta=0{,}95$ er $\\lvert\\beta\\rvert<1$ ✓ Rekka konvergerer.\n\n$$V=\\frac{60\\,000}{1-0{,}95}=\\frac{60\\,000}{0{,}05}=1\\,200\\,000$$\n\nNåverdien er altså 1,2 millioner kroner.\n\n**b)** Med $\\beta=0{,}90$:\n\n$$V=\\frac{60\\,000}{1-0{,}90}=\\frac{60\\,000}{0{,}10}=600\\,000$$\n\nNåverdien **halveres**, fra 1,2 millioner til 600 000.\n\n**c) Forklaringen ligger i nevneren.** Nåverdien er $\\dfrac{z}{1-\\beta}$, og det er $1-\\beta$ som står under brøkstreken. Når $\\beta$ er nær 1, er $1-\\beta$ et lite tall, og små endringer i et lite tall gir store utslag i brøken.\n\nHer gikk $\\beta$ ned med bare $0{,}05$, men $1-\\beta$ **doblet seg** fra $0{,}05$ til $0{,}10$ — og da halveres brøken.\n\n*Økonomisk lesning:* jo mer vekt bedriften legger på framtiden (høy $\\beta$), desto flere år bidrar merkbart til summen, og desto mer betyr en liten endring i hvor mye framtiden teller.\n\n**Verbal konklusjon:** nåverdien av en evig strøm er svært følsom for diskonteringsfaktoren når den er nær 1, fordi den står i nevneren som $1-\\beta$.",
+        "hints": [
+          "Skriv opp summen med $\\beta^{t}$ og bruk formelen $\\dfrac{a}{1-r}$.",
+          "Regn ut nevneren $1-\\beta$ først, for hver av de to verdiene.",
+          "Sammenlign de to nevnerne — hvor mye endret de seg i forhold til hverandre?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-10-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger SR — omskriving og betingelser.) Betrakt rekka\n\n$$S(x)=\\sum_{t=0}^{\\infty}\\left(\\frac{x}{2}\\right)^{t}.$$\n\n**a)** For hvilke $x$ konvergerer rekka? Begrunn.\n\n**b)** Finn $S(x)$ der den konvergerer, og forenkle.\n\n**c)** Regn ut $S(1)$ og $S(-1)$, og forklar hvorfor $S(3)$ ikke finnes.",
+        "solution": "**a)** Rekka er geometrisk med $a=1$ og kvotient $r=\\dfrac{x}{2}$.\n\n**Konvergenskravet** er $\\lvert r\\rvert<1$:\n\n$$\\left\\lvert\\frac{x}{2}\\right\\rvert<1\\ \\Longleftrightarrow\\ \\frac{\\lvert x\\rvert}{2}<1\\ \\Longleftrightarrow\\ \\lvert x\\rvert<2$$\n\n$$\\boxed{-2<x<2}$$\n\n*Merk at kravet gjelder tallverdien*, så intervallet er symmetrisk om null. Negative $x$ er like gode som positive, så lenge tallverdien er under 2.\n\n**b)** Innenfor konvergensområdet gjelder sumformelen:\n\n$$S(x)=\\frac{1}{1-\\dfrac{x}{2}}$$\n\n**Forenkling.** Gang teller og nevner med 2:\n\n$$S(x)=\\frac{2}{2-x},\\qquad -2<x<2$$\n\n*Kontroll av forenklingen:* $\\dfrac{1}{1-x/2}=\\dfrac{1}{\\frac{2-x}{2}}=\\dfrac{2}{2-x}$ ✓\n\n**c)**\n\n$$S(1)=\\frac{2}{2-1}=2$$\n\n*Kontroll ved utskriving:* $1+\\tfrac12+\\tfrac14+\\tfrac18+\\dots$, som er den klassiske rekka med sum 2 ✓\n\n$$S(-1)=\\frac{2}{2-(-1)}=\\frac{2}{3}$$\n\n*Kontroll ved utskriving:* $1-\\tfrac12+\\tfrac14-\\tfrac18+\\dots$ Delsummene er $1;\\ 0{,}5;\\ 0{,}75;\\ 0{,}625;\\ 0{,}6875$ — de svinger seg inn mot $\\tfrac23\\approx 0{,}667$ ✓\n\n**Hvorfor $S(3)$ ikke finnes.** Med $x=3$ er kvotienten $r=\\tfrac32$, og\n\n$$\\left\\lvert\\tfrac32\\right\\rvert>1$$\n\nKravet er brutt, og rekka divergerer: leddene $1;\\ 1{,}5;\\ 2{,}25;\\ 3{,}375;\\dots$ vokser i stedet for å krympe.\n\n*Varselsignalet i det formelle uttrykket:* setter du $x=3$ inn i $\\dfrac{2}{2-x}$, får du $\\dfrac{2}{-1}=-2$ — et negativt tall som «sum» av bare positive ledd. Uttrykket $\\dfrac{2}{2-x}$ er en helt fin funksjon også utenfor $(-2,2)$, men **der er den ikke lenger summen av rekka**.\n\n**Verbal konklusjon:** sumformelen gir alltid et tall, men tallet betyr bare noe der konvergenskravet er oppfylt. Det er derfor kravet må skrives ut hver gang.",
+        "hints": [
+          "Kvotienten er hele uttrykket som opphøyes i $t$ — her $x/2$.",
+          "Løs ulikheten $\\lvert x/2\\rvert<1$ ved å gange begge sider med 2.",
+          "For c): kontroller svarene ved å skrive ut de første leddene og se hvor delsummene går."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-10-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil med serier",
+      "content": "- **Å bruke sumformelen uten å sjekke $\\lvert r\\rvert<1$.** Dette er kapitlets hovedfelle. Formelen gir alltid et tall, også når rekka divergerer, og tallet er da meningsløst. Skriv konvergenssjekken som en egen setning hver gang.\n- **Å tro at negativ kvotient betyr divergens.** Kravet gjelder **tallverdien**: $r=-0{,}5$ gir konvergens, $r=-1{,}2$ gir divergens. Fortegnet i seg selv avgjør ingenting.\n- **Å snu nevneren.** Formelen er $\\dfrac{a}{1-r}$, ikke $\\dfrac{a}{r-1}$. Kontroll: med $0<r<1$ skal summen være **større** enn første ledd, aldri negativ.\n- **Feil startledd når summen ikke begynner på $t=0$.** $a$ er alltid det **første leddet som faktisk er med**. Skriv ut de to første leddene, så ser du både $a$ og $r$.\n- **Feil eksponent i den endelige summen.** $\\sum_{t=0}^{n}ar^{t}$ har $n+1$ ledd, og formelen har derfor $r^{n+1}$ i telleren.\n- **Regnefeil i korte endelige summer.** Skriv dem ut i stedet for å bruke formel. Fem ledd tar femten sekunder, og negative eller null-ledd er lette å overse i hoderegning."
+    },
+    {
+      "id": "econ1100-10-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-10-3-bb-uendelig",
+      "type": "definition",
+      "title": "Sumformelen med sitt krav",
+      "content": "Kapitlets viktigste linje — og kravet hører til formelen, ikke ved siden av den.\n\n$$\\sum_{t=0}^{\\infty}ar^{t}=\\frac{a}{1-r}\\qquad\\text{hvis og bare hvis}\\qquad\\lvert r\\rvert<1$$\n\nUten konvergenssjekken er svaret ubegrunnet, selv om tallet skulle være riktig."
+    },
+    {
+      "id": "econ1100-10-3-bb-divergens",
+      "type": "definition",
+      "title": "Når rekka divergerer",
+      "content": "Hva som skjer når kravet brytes.\n\n$$\\lvert r\\rvert\\ge 1\\ \\Longrightarrow\\ \\text{ingen endelig sum}$$\n\nLeddene krymper ikke raskt nok. Sumformelen gir likevel et tall — ofte negativt — og det tallet er meningsløst."
+    },
+    {
+      "id": "econ1100-10-3-bb-tallverdi",
+      "type": "definition",
+      "title": "Kravet gjelder tallverdien",
+      "content": "Den vanligste misforståelsen om konvergens.\n\n$$r=-0{,}5:\\ \\text{konvergerer};\\qquad r=-1{,}2:\\ \\text{divergerer}$$\n\nFortegnet avgjør ingenting. En negativ kvotient gir vekslende ledd, men rekka konvergerer så lenge tallverdien er under 1."
+    },
+    {
+      "id": "econ1100-10-3-bb-endelig-geo",
+      "type": "definition",
+      "title": "Den endelige geometriske summen",
+      "content": "Formelen når rekka stopper etter et bestemt antall ledd.\n\n$$\\sum_{t=0}^{n}ar^{t}=a\\,\\frac{1-r^{n+1}}{1-r}\\quad (r\\ne 1)$$\n\nEksponenten er $n+1$ fordi summen har $n+1$ ledd når den starter på $t=0$."
+    },
+    {
+      "id": "econ1100-10-3-bb-heltall",
+      "type": "definition",
+      "title": "Summen av de n første heltallene",
+      "content": "Den ene endelige summen som har en egen formel verdt å huske.\n\n$$\\sum_{k=1}^{n}k=\\frac{n(n+1)}{2}$$\n\nKontroll: antall tall ganget med gjennomsnittet av det første og det siste."
+    },
+    {
+      "id": "econ1100-10-3-bb-startledd",
+      "type": "definition",
+      "title": "Startleddet når summen ikke begynner på null",
+      "content": "Regelen som løser alle omskrivingsoppgaver.\n\n$$\\sum_{t=2}^{\\infty}\\left(0{,}9\\right)^{t}:\\quad a=\\left(0{,}9\\right)^{2}=0{,}81,\\quad r=0{,}9$$\n\n$a$ er alltid det første leddet som faktisk er med. Kvotienten $r$ endres aldri av startpunktet."
+    },
+    {
+      "id": "econ1100-10-3-bb-gjenkjenning",
+      "type": "definition",
+      "title": "Slik kjenner du igjen en geometrisk rekke",
+      "content": "Testen tar to sekunder.\n\n$$\\frac{a_{t+1}}{a_t}=r\\ \\text{for alle }t$$\n\nDel et ledd på det forrige. Får du samme tall hver gang, er rekka geometrisk, og formlene gjelder."
+    },
+    {
+      "id": "econ1100-10-3-bb-navardi-kort",
+      "type": "definition",
+      "title": "Nåverdien av en evig strøm",
+      "content": "Den økonomiske anvendelsen sensor bruker oftest.\n\n$$\\sum_{t=0}^{\\infty}z\\beta^{t}=\\frac{z}{1-\\beta},\\qquad 0<\\beta<1$$\n\n$z$ er beløpet per periode, $\\beta$ diskonteringsfaktoren. En uendelig strøm har en endelig verdi."
+    },
+    {
+      "id": "econ1100-10-3-bb-folsomhet",
+      "type": "definition",
+      "title": "Hvorfor nåverdien er så følsom",
+      "content": "Grunnen ligger i nevneren.\n\n$$\\beta=0{,}95\\Rightarrow 1-\\beta=0{,}05;\\qquad \\beta=0{,}90\\Rightarrow 1-\\beta=0{,}10$$\n\nEn liten endring i $\\beta$ dobler nevneren og halverer nåverdien. Nær 1 er utslagene dramatiske."
+    },
+    {
+      "id": "econ1100-10-3-bb-varselsignal",
+      "type": "definition",
+      "title": "Varselsignalet: negativ sum av positive ledd",
+      "content": "Kontrollen som avslører ulovlig bruk av sumformelen.\n\n$$\\frac{1}{1-2}=-1\\quad\\text{for}\\quad \\sum_{i=0}^{\\infty}2^{i}$$\n\nAlle leddene i rekka er positive, så summen kan umulig være negativ. Får du negativt svar, har du oversett at rekka divergerer."
+    },
+    {
+      "id": "econ1100-10-3-bb-omskriving",
+      "type": "definition",
+      "title": "Skriv om til standardform",
+      "content": "Første grep når rekka ikke ser geometrisk ut.\n\n$$\\frac{3}{2^{t}}=3\\left(\\tfrac12\\right)^{t};\\qquad \\left(\\frac{x}{2}\\right)^{t}\\ \\text{har}\\ r=\\frac{x}{2}$$\n\nKvotienten er hele uttrykket som opphøyes i $t$ — også når det inneholder en variabel."
+    },
+    {
+      "id": "econ1100-10-3-bb-fire-steg",
+      "type": "definition",
+      "title": "SR-delpunktet i fire steg",
+      "content": "Hele sjangeren, slik den skal føres.\n\n$$1)\\ \\text{geometrisk?};\\quad 2)\\ a\\ \\text{og}\\ r;\\quad 3)\\ \\lvert r\\rvert<1?;\\quad 4)\\ \\text{regn eller konkluder}$$\n\nSteg 3 er det som gir eller koster poeng, også når kravet åpenbart er oppfylt."
+    },
+    {
+      "id": "econ1100-10-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-10-3-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver på regneteknikken kapitlet krever.\n\n**1.** Regn ut $1-(-0{,}5)$.\n\n*Svar:* $1{,}5$ — å trekke fra et negativt tall er å legge til.\n\n**2.** Regn ut $\\dfrac{4}{2/3}$.\n\n*Svar:* $4\\cdot\\dfrac32=6$ — å dele på en brøk er å gange med den omvendte.\n\n**3.** Hva er $\\lvert -1{,}2\\rvert$?\n\n*Svar:* $1{,}2$ — absoluttverdien er tallet uten fortegn.\n\n**4.** Regn ut $2^{5}$.\n\n*Svar:* 32.\n\n**5.** Skriv $\\dfrac{5}{3^{t}}$ på formen $ar^{t}$.\n\n*Svar:* $5\\left(\\dfrac13\\right)^{t}$, altså $a=5$ og $r=\\dfrac13$.\n\n**6.** Løs $\\left\\lvert\\dfrac{x}{2}\\right\\rvert<1$.\n\n*Svar:* $\\lvert x\\rvert<2$, altså $-2<x<2$.\n\n**7.** Regn ut $0{,}9^{2}$.\n\n*Svar:* $0{,}81$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-10-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-10-3-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\sum$ | Summetegnet — «legg sammen disse leddene» |\n| $t$, $k$, $n$, $i$ | Summasjonsindekser — hjelpevariabler som forsvinner i svaret |\n| $a$ | Startleddet — det første leddet som faktisk er med |\n| $r$ | Kvotienten — faktoren mellom to nabotall |\n| $\\lvert r\\rvert$ | Tallverdien til kvotienten; det er den konvergenskravet gjelder |\n| $\\infty$ | Uendelig — rekka stopper aldri |\n| $z$ | Beløp per periode, i nåverdiregningen |\n| $\\beta$ | Diskonteringsfaktoren, med $0<\\beta<1$ |\n| $S(x)$ | Summen som funksjon av en parameter |\n\n**Formler i dette delkapitlet:**\n\n$$\\sum_{k=1}^{n}k=\\frac{n(n+1)}{2}$$\nSummen av de $n$ første heltallene.\n\n$$\\sum_{t=0}^{n}ar^{t}=a\\,\\frac{1-r^{n+1}}{1-r}\\quad (r\\ne 1)$$\nDen endelige geometriske summen. Eksponenten er $n+1$, ikke $n$.\n\n$$\\sum_{t=0}^{\\infty}ar^{t}=\\frac{a}{1-r}\\qquad\\text{hvis og bare hvis}\\qquad\\lvert r\\rvert<1$$\nDen uendelige geometriske rekka. Kravet er halve svaret.\n\n$$\\lvert r\\rvert\\ge 1\\ \\Longrightarrow\\ \\text{divergens, ingen endelig sum}$$\nKonsekvensen når kravet brytes. Sumformelen gir da et meningsløst tall.\n\n$$\\sum_{t=0}^{\\infty}z\\beta^{t}=\\frac{z}{1-\\beta},\\qquad 0<\\beta<1$$\nNåverdien av en evig strøm. Følsom for $\\beta$ fordi $1-\\beta$ står i nevneren."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

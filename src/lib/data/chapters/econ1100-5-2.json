@@ -1,0 +1,329 @@
+{
+  "id": "econ1100-5-2",
+  "courseId": "econ1100",
+  "chapterNumber": "5.2",
+  "title": "Krumning på nivåkurven",
+  "description": "Andrederiverten $y''$ langs en nivåkurve — og den kritiske vanen sensor krever: å huske at $y$ selv er en funksjon av $x$ når helningen deriveres videre.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "derivere nivåkurvens helning én gang til, med riktig bruk av at $y$ er en funksjon av $x$",
+    "sette inn uttrykket for $y'$ underveis og forenkle svaret med kurvens egen likning",
+    "avgjøre om en nivåkurve er konveks eller konkav, med et argument som gjelder hele området",
+    "koble krumningen til avtakende bytteforhold og til hvordan kurven skal skisseres"
+  ],
+  "content": [
+    {
+      "id": "econ1100-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her ligger den ene feilen sensor har skrevet en egen fotnote om.**\n\nKrumning på nivåkurven er fast del av NK-oppgaven — **sjanger NK, nivåkurve og implisitt derivasjon**, som står i **12 av 16 sett** i arkivet (75 prosent) og i **alle 9 ordinære**. Når temaet kommer som storoppgave blant Oppgave 3–5, følger konveksitetsspørsmålet nesten alltid rett etter helningen.\n\n**Feilen sensor advarer eksplisitt mot:** når du deriverer $y'$ én gang til, må du huske at **$y$ selv er en funksjon av $x$**. Glemmer du det, får du ofte *riktig fortegn* på svaret — og likevel lite uttelling, fordi fremgangsmåten er feil. Det er fagets feil #3, og den er lumsk nettopp fordi den ikke alltid røper seg i sluttsvaret.\n\n**Det oppgaven ber om:** finn $y''(x)$ langs kurven, avgjør fortegnet i det aktuelle området, og konkluder om kurven er konveks eller konkav — gjerne med en skisse og en økonomisk tolkning.\n\n**Merk kravet om område, ikke punkt.** En påstand om at kurven er konveks, skal begrunnes for hele det området du påstår det i — ikke bare i ett innsatt punkt. Å regne ut $y''$ i ett tall og konkludere generelt er samme type feil som å «bevise» et globalt ekstrempunkt ved innsetting.\n\nKapitlet har **høyeste prioritet**."
+    },
+    {
+      "id": "econ1100-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet forutsetter [kap. 5.1](/bok/econ1100/econ1100-5-1) (helningen $y'=-F'_x/F'_y$) og [kap. 1.1](/bok/econ1100/econ1100-1-1) (produkt- og kvotientregelen). Den siste oppgaven bruker i tillegg [kap. 1.2](/bok/econ1100/econ1100-1-2) (andreordens partiellderiverte $F''_{xx}$, $F''_{xy}$) og [kap. 1.3](/bok/econ1100/econ1100-1-3) (kjerneregelen for flere variabler) — resten av kapitlet klarer seg uten dem. Krumningsbegrepet i seg selv utdypes i [kap. 4.1](/bok/econ1100/econ1100-4-1), men alt du trenger her, står i løkke 2.\n\n**Sist du var her — de to formlene alt bygger på:**\n\n$$y'(x)=-\\frac{F'_x}{F'_y},\\qquad F'_y\\ne 0$$\n\n$$\\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}}$$\n\nOg den ene påminnelsen hele kapitlet dreier seg om: langs kurven er $y=y(x)$, så $\\dfrac{d}{dx}y=y'$."
+    },
+    {
+      "id": "econ1100-5-2-motivasjon",
+      "type": "text",
+      "content": "I forrige kapittel fant du at bytteforholdet mellom strøm og annet forbruk var 4 i ett punkt på indifferenskurven og 0,44 i et annet. Bytteforholdet var altså ikke konstant — det falt når husholdningen fikk mer strøm.\n\nDet er en helt allmenn observasjon: har du mye av noe, gir du det lettere fra deg. Og den observasjonen har en presis matematisk form: helningen $y'$ blir mindre bratt etter hvert som du beveger deg mot høyre, altså **vokser** $y'$ (fra $-4$ mot $-0{,}44$). At en derivert vokser, betyr at den andrederiverte er positiv.\n\nSå: $y''>0$ langs kurven er nøyaktig det samme som avtakende bytteforhold. Det er hele koblingen mellom matematikken og økonomien i dette kapitlet.\n\nKapitlet er bygget som tre løkker: å derivere $y'$ én gang til, å lese fortegnet, og oppskriften med eksamensdrill."
+    },
+    {
+      "id": "econ1100-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Å derivere $y'$ én gang til (~15 min)"
+    },
+    {
+      "id": "econ1100-5-2-def-andrederivert",
+      "type": "definition",
+      "title": "Andrederiverten $y''$ på nivåkurven",
+      "content": "Andrederiverten er den deriverte av helningen: hvor fort helningen selv endrer seg når du går langs kurven.\n\n$$y''(x)=\\frac{d}{dx}\\left(-\\frac{F'_x}{F'_y}\\right)$$\n\nUttrykket til høyre er en brøk der **både** teller og nevner inneholder $x$ og $y$. Derfor kreves kvotientregelen — og siden $y$ er en funksjon av $x$, kreves kjerneregelen inne i den."
+    },
+    {
+      "id": "econ1100-5-2-def-y-er-funksjon",
+      "type": "definition",
+      "title": "Den kritiske påminnelsen: $y=y(x)$",
+      "content": "Langs nivåkurven er $y$ ikke en fri variabel, men en funksjon av $x$. Det får konsekvenser i hvert eneste derivasjonssteg.\n\n$$\\frac{d}{dx}\\,y=y',\\qquad \\frac{d}{dx}\\,y^{2}=2y\\,y',\\qquad \\frac{d}{dx}\\,F'_y\\big(x,y\\big)=F''_{yx}+F''_{yy}\\,y'$$\n\nBehandler du $y$ som en konstant, blir hvert ledd med $y$ i for lite. Dette er fagets feil #3 — glemme at $y=y(x)$ når nivåkurvens andrederiverte regnes ut — og sensor har viet den en egen merknad."
+    },
+    {
+      "id": "econ1100-5-2-warning-feil3",
+      "type": "warning",
+      "title": "Feil #3: å glemme at $y=y(x)$ — riktig fortegn, feil metode",
+      "content": "Dette er den ene feilen i temaet som sensor har kommentert eksplisitt, og den er farlig fordi den ofte gir **riktig konklusjon**.\n\n**Slik ser feilen ut.** Anta $y'=-\\dfrac{y}{x}$ og at studenten skal finne $y''$. Behandler han $y$ som en konstant, får han\n\n$$y''\\stackrel{\\text{feil}}{=}-y\\cdot\\frac{d}{dx}\\left(\\frac1x\\right)=\\frac{y}{x^{2}}$$\n\n**Det korrekte er noe annet.** Kvotientregelen, med $y$ som funksjon av $x$:\n\n$$y''=-\\frac{y'\\cdot x-y\\cdot 1}{x^{2}}=-\\frac{\\left(-\\dfrac{y}{x}\\right)x-y}{x^{2}}=-\\frac{-y-y}{x^{2}}=\\frac{2y}{x^{2}}$$\n\n**Legg merke til hva som skjedde.** Det gale svaret $y/x^{2}$ og det riktige $2y/x^{2}$ har **samme fortegn**. Konklusjonen «kurven er konveks» blir altså riktig i begge tilfeller — men bare den ene besvarelsen får uttelling, fordi metoden bærer poengene, ikke svaret.\n\n**Vaksinen:** før du deriverer, skriv én linje: «Langs kurven er $y=y(x)$, så hvert $y$-ledd gir en faktor $y'$.» Deretter setter du inn uttrykket for $y'$ underveis. To ekstra linjer, og feilen er umulig å gjøre."
+    },
+    {
+      "id": "econ1100-5-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Full utledning av $y''$, steg for steg",
+      "problem": "For nivåkurven $xy=12$ med $x,y>0$:\n\n**a)** Finn $y'(x)$.\n\n**b)** Finn $y''(x)$, og vis hvert sted du bruker at $y=y(x)$.\n\n**c)** Avgjør om kurven er konveks eller konkav i første kvadrant. Begrunn.\n\n**d)** Kontroller svaret ved å løse likningen eksplisitt.",
+      "solution": "**a)** Med $F(x,y)=xy$ er $F'_x=y$ og $F'_y=x$, så\n\n$$y'=-\\frac{y}{x}$$\n\n**b) Deriver én gang til.** Vi bruker kvotientregelen på $-\\dfrac{y}{x}$, med teller $y$ og nevner $x$.\n\n*Her er stedet der $y=y(x)$ gjør seg gjeldende:* den deriverte av telleren er ikke null, men $y'$.\n\n$$y''=-\\frac{y'\\cdot x-y\\cdot 1}{x^{2}}$$\n\n**Sett inn uttrykket for $y'$ fra a)** — dette er steg to som mange hopper over:\n\n$$y'\\cdot x=\\left(-\\frac{y}{x}\\right)x=-y$$\n\n$$y''=-\\frac{-y-y}{x^{2}}=-\\frac{-2y}{x^{2}}=\\frac{2y}{x^{2}}$$\n\n**c) Fortegn og konklusjon.** I første kvadrant er $y>0$ og $x^{2}>0$, så\n\n$$y''=\\frac{2y}{x^{2}}>0\\quad\\text{for alle }x,y>0$$\n\n**Konklusjon: nivåkurven er konveks i hele første kvadrant**, fordi $y''>0$ overalt der.\n\nMerk at konklusjonen gjelder et **område**, ikke et punkt — vi har vist fortegnet for alle $x>0$, ikke bare for én verdi.\n\n**d) Kontroll.** Fra $xy=12$ får vi $y=12x^{-1}$, som deriveres to ganger:\n\n$$y'=-12x^{-2},\\qquad y''=24x^{-3}=\\frac{24}{x^{3}}$$\n\nStemmer dette med $2y/x^{2}$? Sett inn $y=12/x$:\n\n$$\\frac{2y}{x^{2}}=\\frac{2\\cdot 12/x}{x^{2}}=\\frac{24}{x^{3}}$$\n\nIdentisk ✓.\n\n**Økonomisk lesning.** Er dette en indifferenskurve, betyr $y''>0$ at bytteforholdet avtar: jo mer $x$ konsumenten har, jo mindre $y$ er hun villig til å gi fra seg for én enhet til. Det er standardantakelsen i konsumentteori, og den er grunnen til at indifferenskurver alltid tegnes med bunnen inn mot origo."
+    },
+    {
+      "id": "econ1100-5-2-fig-krumning",
+      "type": "image",
+      "src": "/images/textbook/econ1100/nivakurve-krumning.svg",
+      "alt": "To koordinatsystemer side ved side. Til venstre en fallende kurve som er bratt til venstre og flater ut mot høyre, med to tangenter tegnet inn; under står at andrederiverten er positiv. Til høyre en fallende kurve som er slak til venstre og blir brattere mot høyre, også med to tangenter; under står at andrederiverten er negativ.",
+      "caption": "Konveks mot konkav nivåkurve. Til venstre kurven fra eksempel 1 ($xy=12$): tangenten er bratt i det venstre punktet og slak i det høyre, altså vokser $y'$ fra sterkt negativ mot svakt negativ — det er $y''>0$. Til høyre motsatt: helningen blir stadig brattere mot høyre, altså $y''<0$, slik som på ellipsen i eksempel 2."
+    },
+    {
+      "id": "econ1100-5-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger NK — nivåkurve og implisitt derivasjon. Innstegsoppgave.) La $y'=-\\dfrac{y}{2x}$ langs en nivåkurve, med $x,y>0$.\n\n**a)** Skriv opp den deriverte av telleren $-y$ med hensyn på $x$, og forklar hvorfor den ikke er null.\n\n**b)** Bruk kvotientregelen til å finne $y''$, og sett inn uttrykket for $y'$ underveis.\n\n**c)** Hva er fortegnet til $y''$ i første kvadrant?",
+        "solution": "**a)** Telleren er $-y$, og langs kurven er $y$ en funksjon av $x$. Derfor er\n\n$$\\frac{d}{dx}(-y)=-y'$$\n\nDen er **ikke** null, fordi $y$ ikke er en konstant her — den endrer seg når vi beveger oss langs kurven. Dette er kjernen i feil #3.\n\n**b)** Skriv $y'=-\\dfrac{y}{2x}$ og bruk kvotientregelen med teller $y$ og nevner $2x$:\n\n$$y''=-\\frac{y'\\cdot 2x-y\\cdot 2}{(2x)^{2}}=-\\frac{2xy'-2y}{4x^{2}}=-\\frac{xy'-y}{2x^{2}}$$\n\n**Sett inn** $y'=-\\dfrac{y}{2x}$, som gir $xy'=-\\dfrac{y}{2}$:\n\n$$y''=-\\frac{-\\dfrac{y}{2}-y}{2x^{2}}=-\\frac{-\\dfrac{3y}{2}}{2x^{2}}=\\frac{3y}{4x^{2}}$$\n\n**c)** I første kvadrant er $y>0$ og $x^{2}>0$, så $y''=\\dfrac{3y}{4x^{2}}>0$. Kurven er **konveks** der.",
+        "hints": [
+          "Langs kurven er $y$ en funksjon av $x$ — hva blir da den deriverte av $y$?",
+          "Regn ut $x\\,y'$ som et eget mellomsteg før du setter det inn i brøken."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger NK.) La nivåkurven være $x^{2}y^{3}=72$ med $x,y>0$.\n\n**a)** Finn $y'(x)$ med formelen $-F'_x/F'_y$, og forenkl.\n\n**b)** Finn $y''(x)$, og vis hvor du bruker at $y=y(x)$.\n\n**c)** Er kurven konveks eller konkav i første kvadrant? Begrunn.",
+        "solution": "**a)** Med $F(x,y)=x^{2}y^{3}$ er $F'_x=2xy^{3}$ og $F'_y=3x^{2}y^{2}$:\n\n$$y'=-\\frac{2xy^{3}}{3x^{2}y^{2}}=-\\frac{2y}{3x}$$\n\n*Forenklingen er obligatorisk:* $y^{3}/y^{2}=y$ og $x/x^{2}=1/x$.\n\n**b)** Skriv $y'=-\\dfrac{2}{3}\\cdot\\dfrac{y}{x}$ og deriver med kvotientregelen. **Telleren $y$ deriveres til $y'$, ikke til null** — det er her $y=y(x)$ brukes:\n\n$$y''=-\\frac{2}{3}\\cdot\\frac{y'\\,x-y}{x^{2}}$$\n\n**Sett inn** $y'=-\\dfrac{2y}{3x}$, som gir $y'x=-\\dfrac{2y}{3}$:\n\n$$y'x-y=-\\frac{2y}{3}-y=-\\frac{5y}{3}$$\n\n$$y''=-\\frac{2}{3}\\cdot\\frac{-\\dfrac{5y}{3}}{x^{2}}=\\frac{10y}{9x^{2}}$$\n\n**c)** For alle $x>0$ og $y>0$ er $\\dfrac{10y}{9x^{2}}>0$, altså $y''>0$ i **hele** første kvadrant.\n\n**Konklusjon: kurven er konveks der.**\n\n*Kontroll:* eksplisitt er $y=\\left(\\dfrac{72}{x^{2}}\\right)^{1/3}=72^{1/3}x^{-2/3}$, som gir $y'=-\\tfrac23\\cdot 72^{1/3}x^{-5/3}$ og $y''=\\tfrac{10}{9}\\cdot 72^{1/3}x^{-8/3}$. Og $\\dfrac{10y}{9x^{2}}=\\dfrac{10}{9}\\cdot 72^{1/3}x^{-2/3-2}=\\dfrac{10}{9}\\cdot 72^{1/3}x^{-8/3}$ ✓.",
+        "hints": [
+          "Sett konstanten $-2/3$ utenfor før du bruker kvotientregelen på $y/x$.",
+          "Regn ut $y'x$ som eget mellomsteg — det er der uttrykket for $y'$ skal inn."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Konveks eller konkav (~13 min)"
+    },
+    {
+      "id": "econ1100-5-2-def-konveks",
+      "type": "definition",
+      "title": "Konveks nivåkurve",
+      "content": "En nivåkurve er konveks der andrederiverten er positiv: kurven bøyer oppover, med bunnen vendt inn mot origo.\n\n$$y''>0\\ \\text{i hele området}\\ \\Longrightarrow\\ \\text{konveks der}$$\n\nFor en fallende kurve betyr det at den er bratt til venstre og flater ut mot høyre. Helningen $y'$ vokser — den beveger seg fra sterkt negativ mot svakt negativ. Det er standardformen på indifferenskurver og isokvanter."
+    },
+    {
+      "id": "econ1100-5-2-def-konkav",
+      "type": "definition",
+      "title": "Konkav nivåkurve",
+      "content": "En nivåkurve er konkav der andrederiverten er negativ: kurven bøyer nedover, med den hvelvede siden mot origo.\n\n$$y''<0\\ \\text{i hele området}\\ \\Longrightarrow\\ \\text{konkav der}$$\n\nEn fallende konkav kurve starter slakt og blir stadig brattere mot høyre. Den øvre halvdelen av en ellipse er et typisk eksempel. I konsumentteori er denne formen uvanlig, fordi den ville betydd *økende* bytteforhold."
+    },
+    {
+      "id": "econ1100-5-2-def-avtakende-mrs",
+      "type": "definition",
+      "title": "Avtakende marginal substitusjonsrate",
+      "content": "Den økonomiske lesningen av konveksitet: bytteforholdet blir mindre gunstig jo mer du allerede har.\n\n$$y''>0\\ \\Longleftrightarrow\\ \\mathrm{MRS}=\\lvert y'\\rvert\\ \\text{avtar når }x\\text{ øker}$$\n\nMarginal substitusjonsrate — hvor mye $y$ konsumenten gir fra seg for én enhet $x$ — ble innført i [kap. 5.1](/bok/econ1100/econ1100-5-1). At den avtar, er standardantakelsen i konsumentteori og grunnen til at indifferenskurver alltid tegnes buet inn mot origo."
+    },
+    {
+      "id": "econ1100-5-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger NK. Innstegsoppgave.) For fire nivåkurver er helning og krumning allerede regnet ut. Avgjør i hvert tilfelle om kurven stiger eller faller, og om den er konveks eller konkav i første kvadrant ($x,y>0$).\n\n**a)** $y'=-\\dfrac{y}{x}$ og $y''=\\dfrac{2y}{x^{2}}$\n\n**b)** $y'=-\\dfrac{x}{y}$ og $y''=-\\dfrac{25}{y^{3}}$\n\n**c)** $y'=-2y$ og $y''=4y$\n\n**d)** $y'=3x^{2}$ og $y''=6x$",
+        "solution": "Framgangsmåten er den samme i alle fire: sett inn fortegnene til $x$ og $y$ (begge positive) og les av.\n\n**a)** $y'=-\\dfrac{y}{x}$: positiv teller, positiv nevner, minus foran, altså $y'<0$ — kurven **faller**. Og $y''=\\dfrac{2y}{x^{2}}>0$ — kurven er **konveks**.\n\n**b)** $y'=-\\dfrac{x}{y}<0$ — kurven **faller**. Og $y''=-\\dfrac{25}{y^{3}}<0$ for $y>0$ — kurven er **konkav**.\n\n**c)** $y'=-2y<0$ — kurven **faller**. Og $y''=4y>0$ — kurven er **konveks**.\n\n**d)** $y'=3x^{2}>0$ — kurven **stiger**. Og $y''=6x>0$ — kurven er **konveks**.\n\n**Merk at de to spørsmålene er uavhengige.** Alle fire kombinasjoner er mulige, som d) viser: en kurve kan godt stige og samtidig være konveks. Fortegnet på $y'$ sier om kurven går opp eller ned; fortegnet på $y''$ sier hvordan den bøyer.",
+        "hints": [
+          "Sett inn at $x>0$ og $y>0$, og les av fortegnet på hele uttrykket.",
+          "Behandle de to fortegnene hver for seg — de svarer på to ulike spørsmål."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: En konkav nivåkurve",
+      "problem": "Betrakt den øvre halvdelen av kurven\n\n$$x^{2}+4y^{2}=25,\\qquad y>0.$$\n\n**a)** Finn $y'(x)$.\n\n**b)** Finn $y''(x)$, og forenkl ved hjelp av kurvens egen likning.\n\n**c)** Avgjør krumningen for $y>0$. Begrunn.",
+      "solution": "**a)** Med $F(x,y)=x^{2}+4y^{2}$ er $F'_x=2x$ og $F'_y=8y$:\n\n$$y'=-\\frac{2x}{8y}=-\\frac{x}{4y}$$\n\n**b)** Kvotientregelen på $-\\dfrac{x}{4y}$, med teller $x$ og nevner $4y$. **Nevnerens deriverte er $4y'$, ikke null** — her brukes $y=y(x)$:\n\n$$y''=-\\frac{1\\cdot 4y-x\\cdot 4y'}{(4y)^{2}}=-\\frac{4y-4xy'}{16y^{2}}=-\\frac{y-xy'}{4y^{2}}$$\n\n**Sett inn** $y'=-\\dfrac{x}{4y}$, som gir $xy'=-\\dfrac{x^{2}}{4y}$:\n\n$$y-xy'=y+\\frac{x^{2}}{4y}=\\frac{4y^{2}+x^{2}}{4y}$$\n\n$$y''=-\\frac{1}{4y^{2}}\\cdot\\frac{4y^{2}+x^{2}}{4y}=-\\frac{x^{2}+4y^{2}}{16y^{3}}$$\n\n**Forenkling med kurvens egen likning:** på kurven er $x^{2}+4y^{2}=25$, så\n\n$$y''=-\\frac{25}{16y^{3}}$$\n\n*Dette siste grepet er verdt et poeng i seg selv.* Å bruke betingelsen til å rydde svaret er nettopp den «åpenbare forenklingen» sensor krever.\n\n**c) Fortegn og konklusjon.** For $y>0$ er $y^{3}>0$, og telleren 25 er positiv, så\n\n$$y''=-\\frac{25}{16y^{3}}<0\\quad\\text{for alle }y>0$$\n\n**Konklusjon: den øvre halvdelen av kurven er konkav.**\n\n**Sjekk mot bildet:** kurven er den øvre halvdelen av en ellipse. Den starter nesten vannrett i toppunktet $(0\\,;\\,2{,}5)$ og blir brattere og brattere ned mot $(5,0)$. En fallende kurve som blir brattere, er nettopp en konkav kurve ✓.\n\n*Tallkontroll:* i $x=1$ er $y=\\sqrt{24}/2=2{,}449$, og formelen gir $y''=-25/(16\\cdot 14{,}70)=-0{,}106$. I $x=4$ er $y=1{,}5$ og $y''=-25/(16\\cdot 3{,}375)=-0{,}463$. Krumningen er negativ begge steder og blir sterkere mot høyre — som forventet."
+    },
+    {
+      "id": "econ1100-5-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger NK.) La nivåkurven være $x+\\ln y=3$ med $y>0$.\n\n**a)** Finn $y'(x)$.\n\n**b)** Finn $y''(x)$.\n\n**c)** Avgjør krumningen, og kontroller svaret ved å løse eksplisitt for $y$.",
+        "solution": "**a)** Med $F(x,y)=x+\\ln y$ er $F'_x=1$ og $F'_y=\\dfrac{1}{y}$:\n\n$$y'=-\\frac{1}{1/y}=-y$$\n\n**b)** Nå deriverer vi $y'=-y$ mht. $x$. **Siden $y=y(x)$**, er den deriverte av $y$ lik $y'$:\n\n$$y''=-y'$$\n\nSett inn $y'=-y$:\n\n$$y''=-(-y)=y$$\n\n**c)** For $y>0$ er $y''=y>0$, altså er **kurven konveks i hele definisjonsområdet**.\n\n**Kontroll ved eksplisitt løsning.** Fra $\\ln y=3-x$ får vi $y=e^{3-x}$. Da er\n\n$$y'=-e^{3-x},\\qquad y''=e^{3-x}$$\n\nOg siden $y=e^{3-x}$, er $y'=-y$ ✓ og $y''=y$ ✓. Begge stemmer.\n\n**Merk hvor kompakt feil #3 slår til her.** Hadde vi behandlet $y$ som en konstant i b), ville vi fått $y''=0$ — altså en rett linje. Konklusjonen ville blitt at kurven ikke krummer i det hele tatt, som er direkte galt. Her røper feilen seg altså i sluttsvaret; det gjør den dessverre ikke alltid.",
+        "hints": [
+          "Regn ut $F'_y$ for $\\ln y$-leddet før du setter inn i formelen.",
+          "I b): $y'$ er $-y$, og $y$ er en funksjon av $x$ — hva blir da den deriverte?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2.) Avgjør om hver påstand er sann eller usann, og begrunn med utregning.\n\n**a)** «Langs en nivåkurve er $\\dfrac{d}{dx}\\,y^{2}=2y$.»\n\n**b)** «En fallende nivåkurve med $y''>0$ har avtakende marginal substitusjonsrate.»\n\n**c)** «Hvis $y''$ er positiv i punktet $(2,3)$, er kurven konveks overalt.»",
+        "solution": "**a) Usann.** Langs kurven er $y$ en funksjon av $x$, så kjerneregelen gir en ekstra faktor:\n\n$$\\frac{d}{dx}\\,y^{2}=2y\\,y'$$\n\nPåstanden mangler faktoren $y'$. Dette er feil #3 — å glemme at $y=y(x)$.\n\n*Konkret motsvar:* på kurven $xy=12$ er $y'=-y/x$. I punktet $(3,4)$ gir riktig formel $2\\cdot 4\\cdot\\left(-\\tfrac43\\right)=-\\tfrac{32}{3}$, mens påstanden gir $8$. Ikke bare ulike tall — ulikt fortegn.\n\n**b) Sann.** Marginal substitusjonsrate er $\\mathrm{MRS}=\\lvert y'\\rvert$, og for en fallende kurve er $y'<0$, altså $\\mathrm{MRS}=-y'$.\n\nAt $y''>0$ betyr at $y'$ **vokser** når $x$ øker — den beveger seg fra sterkt negativ mot svakt negativ. Da må $-y'$ **avta**:\n\n$$y''>0\\ \\Longrightarrow\\ y'\\ \\text{vokser}\\ \\Longrightarrow\\ \\mathrm{MRS}=-y'\\ \\text{avtar}$$\n\n*Illustrasjon:* på $xy=36$ er $\\mathrm{MRS}=y/x$, som er 4 i $(3,12)$ og $0{,}44$ i $(9,4)$ — ganske riktig avtakende.\n\n**c) Usann.** Fortegnet i ett punkt sier ingenting om resten av kurven. Konveksitet er en egenskap ved et **område**, og må vises for hele det området påstanden gjelder.\n\n*Konkret motsvar:* nivåkurven $x^{3}+y=c$ har $y'=-3x^{2}$ og $y''=-6x$. I punktet $x=-2$ er $y''=12>0$ (konveks), men i $x=2$ er $y''=-12<0$ (konkav). Samme kurve, motsatt krumning.\n\n**Merk parallellen til feil #1:** å konkludere globalt fra én innsatt tallverdi er samme metodefeil som å «bevise» et globalt ekstrempunkt ved å prøve tall. Argumentet må gjelde området.",
+        "hints": [
+          "I a): hva krever kjerneregelen når $y$ selv avhenger av $x$?",
+          "I c): finnes det én kurve der fortegnet på $y''$ skifter, er påstanden usann."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-pausepunkt",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå både regnemåten og tolkningen. Resten av kapitlet samler det til en oppskrift du kan kjøre på tid."
+    },
+    {
+      "id": "econ1100-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Oppskriften og eksamensdrill (~16 min)"
+    },
+    {
+      "id": "econ1100-5-2-def-oppskrift",
+      "type": "definition",
+      "title": "Firestegsoppskriften for $y''$",
+      "content": "Hele oppgavetypen kan kjøres som en fast rutine, og den er verdt å automatisere.\n\n$$\\text{(1) }y'=-\\frac{F'_x}{F'_y}\\ \\to\\ \\text{(2) deriver med }y=y(x)\\ \\to\\ \\text{(3) sett inn }y'\\ \\to\\ \\text{(4) fortegn i området}$$\n\nSteg 2 er der feil #3 lurer, og steg 3 er det steget flest hopper over. Steg 4 er poengbæreren: konklusjonen skal gjelde et område, og fortegnet skal begrunnes, ikke oppgis."
+    },
+    {
+      "id": "econ1100-5-2-def-innsetting",
+      "type": "definition",
+      "title": "Innsetting av $y'$ underveis",
+      "content": "Etter derivasjonen står $y'$ igjen inne i uttrykket, og det skal erstattes med formelen sin.\n\n$$y''=-\\frac{y'x-y}{x^{2}}\\quad\\xrightarrow{\\ y'=-y/x\\ }\\quad y''=\\frac{2y}{x^{2}}$$\n\nEt svar som fremdeles inneholder $y'$, er ikke ferdig — det er et mellomresultat. Å sette inn og rydde er dessuten det som gjør fortegnsdrøftingen mulig, siden $y'$ i seg selv ikke har opplagt fortegn."
+    },
+    {
+      "id": "econ1100-5-2-def-omraade",
+      "type": "definition",
+      "title": "Krumning i et område, ikke i et punkt",
+      "content": "En konveksitetspåstand skal begrunnes for hele det området den gjelder.\n\n$$y''>0\\ \\text{for alle }x,y>0\\quad\\text{(område)},\\qquad y''(3)>0\\quad\\text{(bare ett punkt)}$$\n\nUttrykket $2y/x^{2}$ er positivt for alle $x,y>0$ fordi teller og nevner er positive der — det er et områdeargument. Å regne ut tallet i ett punkt og konkludere generelt er derimot ikke et bevis, og gir bare delvis uttelling."
+    },
+    {
+      "id": "econ1100-5-2-def-bruk-likningen",
+      "type": "definition",
+      "title": "Bruk kurvens likning til å rydde",
+      "content": "Sluttsvaret kan ofte forenkles kraftig ved å sette inn selve nivåkurven.\n\n$$y''=-\\frac{x^{2}+4y^{2}}{16y^{3}}\\quad\\xrightarrow{\\ x^{2}+4y^{2}=25\\ }\\quad y''=-\\frac{25}{16y^{3}}$$\n\nGrepet gjør fortegnet umiddelbart lesbart, og det er nettopp den «åpenbare forenklingen» sensor krever for full uttelling. Se alltid etter om telleren eller nevneren inneholder kurvens venstreside."
+    },
+    {
+      "id": "econ1100-5-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — full nivåkurveoppgave",
+      "problem": "En bedrift har en teknologi som gir kurven\n\n$$xy+y^{2}=20,\\qquad x,y>0,$$\n\nder $x$ er en innsatsfaktor og $y$ en annen.\n\n**a)** Finn $y'(x)$.\n\n**b)** Vis at kurven faller i hele første kvadrant.\n\n**c)** Finn $y''(x)$, og forenkl ved hjelp av kurvens likning.\n\n**d)** Avgjør krumningen, og beskriv hvordan kurven ser ut.",
+      "solution": "**a)** Med $F(x,y)=xy+y^{2}$ er\n\n$$F'_x=y,\\qquad F'_y=x+2y$$\n\n$$y'=-\\frac{y}{x+2y}$$\n\nBetingelsen $F'_y=x+2y\\ne 0$ er oppfylt i første kvadrant, siden begge ledd er positive.\n\n**b)** I første kvadrant er telleren $y>0$ og nevneren $x+2y>0$. Da er\n\n$$y'=-\\frac{(+)}{(+)}<0$$\n\n**Konklusjon: kurven faller i hele første kvadrant.** Merk at dette er et områdeargument — vi har vist fortegnet for alle $x,y>0$, ikke bare i ett punkt.\n\n**c)** Vi deriverer $y'=-\\dfrac{y}{x+2y}$ med kvotientregelen. **Her brukes $y=y(x)$ to steder:** telleren $y$ gir $y'$, og nevneren $x+2y$ gir $1+2y'$.\n\n$$y''=-\\frac{y'(x+2y)-y\\,(1+2y')}{(x+2y)^{2}}$$\n\n**Sett inn** $y'=-\\dfrac{y}{x+2y}$ i de to delene hver for seg.\n\n*Første del:*\n\n$$y'(x+2y)=-\\frac{y}{x+2y}\\cdot(x+2y)=-y$$\n\n*Andre del:*\n\n$$y(1+2y')=y-\\frac{2y^{2}}{x+2y}=\\frac{y(x+2y)-2y^{2}}{x+2y}=\\frac{xy}{x+2y}$$\n\n*Sett sammen:*\n\n$$y'(x+2y)-y(1+2y')=-y-\\frac{xy}{x+2y}=-\\frac{y(x+2y)+xy}{x+2y}=-\\frac{2xy+2y^{2}}{x+2y}$$\n\n$$y''=\\frac{2xy+2y^{2}}{(x+2y)^{3}}=\\frac{2y(x+y)}{(x+2y)^{3}}$$\n\n**Forenkling med kurvens likning.** Telleren inneholder $xy+y^{2}=y(x+y)$, som på kurven er lik 20:\n\n$$y''=\\frac{2\\cdot 20}{(x+2y)^{3}}=\\frac{40}{(x+2y)^{3}}$$\n\n**d) Fortegn og konklusjon.** I første kvadrant er $x+2y>0$, så $(x+2y)^{3}>0$ og\n\n$$y''=\\frac{40}{(x+2y)^{3}}>0\\quad\\text{for alle }x,y>0$$\n\n**Konklusjon: kurven er konveks i hele første kvadrant.**\n\n**Slik ser den ut** (figur i ord): i et koordinatsystem med $x$ vannrett og $y$ loddrett starter kurven høyt oppe til venstre, ved $x\\to 0^{+}$ nærmer $y$ seg $\\sqrt{20}\\approx 4{,}47$. Den faller deretter mot høyre, bratt til å begynne med og stadig slakere, og nærmer seg $x$-aksen uten å nå den. Bunnen vender inn mot origo — den karakteristiske isokvantformen.\n\n*Tallkontroll:* i $(1,4)$ er $y'=-\\tfrac49\\approx -0{,}44$ og $y''=40/9^{3}=0{,}055$. I $(5\\,;\\,2{,}62)$ er $y'\\approx -0{,}25$ og $y''\\approx 0{,}037$. Kurven faller begge steder, og helningen er svakere lenger til høyre ✓ — akkurat som $y''>0$ krever."
+    },
+    {
+      "id": "econ1100-5-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger NK.) La indifferenskurven være $U(x,y)=x^{1/2}y^{1/2}=6$ med $x,y>0$.\n\n**a)** Finn $y'(x)$.\n\n**b)** Finn $y''(x)$.\n\n**c)** Avgjør krumningen, og gi den økonomiske tolkningen.",
+        "solution": "**a)** De partiellderiverte er\n\n$$U'_x=\\tfrac12 x^{-1/2}y^{1/2},\\qquad U'_y=\\tfrac12 x^{1/2}y^{-1/2}$$\n\n$$y'=-\\frac{U'_x}{U'_y}=-\\frac{x^{-1/2}y^{1/2}}{x^{1/2}y^{-1/2}}=-\\frac{y}{x}$$\n\n**b)** Kvotientregelen på $-\\dfrac{y}{x}$, med **telleren derivert til $y'$** (siden $y=y(x)$):\n\n$$y''=-\\frac{y'x-y}{x^{2}}$$\n\nSett inn $y'=-\\dfrac{y}{x}$, som gir $y'x=-y$:\n\n$$y''=-\\frac{-y-y}{x^{2}}=\\frac{2y}{x^{2}}$$\n\n**c)** For alle $x,y>0$ er $y''=\\dfrac{2y}{x^{2}}>0$, altså er kurven **konveks i hele første kvadrant**.\n\n**Økonomisk tolkning:** marginal substitusjonsrate er $\\mathrm{MRS}=\\lvert y'\\rvert=\\dfrac{y}{x}$, og den avtar når $x$ øker langs kurven. Konsumenten er villig til å gi fra seg stadig mindre av gode $y$ for én enhet mer av gode $x$, jo mer $x$ hun allerede har. Det er standardantakelsen om avtakende bytteforhold, og den er hele grunnen til at indifferenskurver tegnes buet inn mot origo.\n\n*Kontroll:* eksplisitt er $\\sqrt{xy}=6$, altså $xy=36$ og $y=36/x$. Da er $y''=72/x^{3}$, og $\\dfrac{2y}{x^{2}}=\\dfrac{72/x}{x^{2}}=\\dfrac{72}{x^{3}}$ ✓.",
+        "hints": [
+          "Bruk potensform når du deler de to deriverte — eksponentene kan legges sammen.",
+          "I c): MRS er tallverdien av helningen; hva skjer med $y/x$ når $x$ øker langs kurven?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger NK — eksamensnivå.) La nivåkurven være $x^{2}+y^{2}=25$, og se på delen i første kvadrant ($x,y>0$).\n\n**a)** Finn $y'(x)$ og $y''(x)$.\n\n**b)** Forenkl $y''$ ved hjelp av kurvens likning, og avgjør krumningen.\n\n**c)** Regn ut $y'$ og $y''$ i punktet $(3,4)$, og forklar hva tallene sier om kurvens form der.",
+        "solution": "**a)** Med $F(x,y)=x^{2}+y^{2}$ er $F'_x=2x$ og $F'_y=2y$:\n\n$$y'=-\\frac{2x}{2y}=-\\frac{x}{y}$$\n\nDeriver én gang til med kvotientregelen. **Nevneren $y$ deriveres til $y'$**, ikke til null:\n\n$$y''=-\\frac{1\\cdot y-x\\cdot y'}{y^{2}}=-\\frac{y-xy'}{y^{2}}$$\n\nSett inn $y'=-\\dfrac{x}{y}$, som gir $xy'=-\\dfrac{x^{2}}{y}$:\n\n$$y-xy'=y+\\frac{x^{2}}{y}=\\frac{y^{2}+x^{2}}{y}$$\n\n$$y''=-\\frac{1}{y^{2}}\\cdot\\frac{x^{2}+y^{2}}{y}=-\\frac{x^{2}+y^{2}}{y^{3}}$$\n\n**b)** På kurven er $x^{2}+y^{2}=25$, så\n\n$$y''=-\\frac{25}{y^{3}}$$\n\nFor $y>0$ er $y^{3}>0$, altså $y''<0$ i hele første kvadrant.\n\n**Konklusjon: kurven er konkav der.** Det stemmer med bildet — dette er en kvartsirkel, som buer utover fra origo, ikke innover.\n\n**Merk kontrasten til de andre eksemplene.** Sirkelen er en nivåkurve som er *konkav*, i motsetning til indifferenskurvene og isokvantene i resten av kapitlet. Formen på nivåkurven bestemmes av funksjonen, ikke av at det er en nivåkurve.\n\n**c)** Kontroller først at punktet ligger på kurven: $9+16=25$ ✓.\n\n$$y'(3)=-\\frac{3}{4}=-0{,}75,\\qquad y''(3)=-\\frac{25}{64}\\approx -0{,}39$$\n\n**Hva tallene sier:** kurven **faller** i punktet ($y'<0$), og ganske slakt — går vi én enhet mot høyre, faller $y$ med omtrent $0{,}75$. Samtidig er $y''<0$, så helningen blir **stadig brattere** når vi går videre mot høyre. Ved $x=4$ er helningen $-4/3\\approx -1{,}33$.\n\nKurven blir altså brattere og brattere mot høyre, helt til den treffer $x$-aksen i $(5,0)$ med loddrett tangent — nettopp der $F'_y=2y=0$ og formelen bryter sammen.",
+        "hints": [
+          "Nevneren er $y$, som er en funksjon av $x$ — den deriveres til $y'$.",
+          "I b): ser du kurvens venstreside igjen i telleren din?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-5-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger NK — eksamensnivå med generell funksjon.) La $U$ være en to ganger deriverbar nyttefunksjon med $U'_x>0$ og $U'_y>0$ i hele første kvadrant, og betrakt indifferenskurven $U(x,y)=\\bar u$.\n\n**a)** Skriv opp $y'$ og forklar hvorfor kurven faller.\n\n**b)** En student skriver: «Siden $y'=-U'_x/U'_y$, og både $U'_x$ og $U'_y$ er funksjoner av $x$ og $y$, er $y''=0$ når $U$ er homogen.» Vurder resonnementet.\n\n**c)** Vis at $y''$ generelt inneholder faktoren $y'$, ved å derivere $y'=-\\dfrac{U'_x}{U'_y}$ og skrive ut hvor $y=y(x)$ brukes.",
+        "solution": "**a)** Formelen gir\n\n$$y'=-\\frac{U'_x}{U'_y}$$\n\nI første kvadrant er begge partiellderiverte positive etter antakelsen, så brøken er positiv og hele uttrykket negativt:\n\n$$y'<0\\quad\\text{i hele første kvadrant}$$\n\n**Kurven faller altså overalt der.** Økonomisk: er begge goder ønsket, må mindre av det ene kompenseres med mer av det andre for at nytten skal holde seg konstant.\n\n**b) Resonnementet holder ikke.** At $U'_x$ og $U'_y$ avhenger av $x$ og $y$, er nettopp grunnen til at $y''$ **ikke** er null — brøken varierer langs kurven.\n\nHomogenitet endrer ikke dette. *Konkret motsvar:* $U=x^{1/2}y^{1/2}$ er homogen av grad 1, og likevel er $y'=-y/x$ og $y''=2y/x^{2}>0$, altså klart forskjellig fra null.\n\nAt $y''=0$ ville betydd at nivåkurven er en **rett linje**. Det skjer bare for lineære nyttefunksjoner som $U=ax+by$, der $y'=-a/b$ er konstant. Homogenitet er verken nødvendig eller tilstrekkelig for det.\n\n**c)** Vi deriverer $y'=-\\dfrac{U'_x}{U'_y}$ mht. $x$ med kvotientregelen:\n\n$$y''=-\\frac{\\left(\\dfrac{d}{dx}U'_x\\right)U'_y-U'_x\\left(\\dfrac{d}{dx}U'_y\\right)}{\\big(U'_y\\big)^{2}}$$\n\n**Her kommer $y=y(x)$ inn.** Både $U'_x$ og $U'_y$ er funksjoner av $x$ **og** $y$, og $y$ avhenger selv av $x$. Kjerneregelen for flere variabler ([kap. 1.3](/bok/econ1100/econ1100-1-3)) gir derfor\n\n$$\\frac{d}{dx}U'_x=U''_{xx}+U''_{xy}\\,y',\\qquad \\frac{d}{dx}U'_y=U''_{yx}+U''_{yy}\\,y'$$\n\n**Faktoren $y'$ står altså i begge de indre deriverte.** Setter vi inn, blir\n\n$$y''=-\\frac{\\big(U''_{xx}+U''_{xy}y'\\big)U'_y-U'_x\\big(U''_{yx}+U''_{yy}y'\\big)}{\\big(U'_y\\big)^{2}}$$\n\n**Konklusjon:** $y''$ inneholder $y'$ i to ledd, og de forsvinner bare hvis kryssderiverte og andrederiverte er null — altså for lineære funksjoner. Det er dette som er innholdet i feil #3: hopper man over $y'$-leddene, faller nettopp de to leddene bort, og man har regnet på en helt annen funksjon.\n\n*Kontroll på et konkret tilfelle:* for $U=xy$ er $U'_x=y$, $U'_y=x$, $U''_{xx}=U''_{yy}=0$ og $U''_{xy}=1$. Formelen gir\n\n$$y''=-\\frac{(0+y')x-y(1+0)}{x^{2}}=-\\frac{xy'-y}{x^{2}}$$\n\nsom med $y'=-y/x$ blir $\\dfrac{2y}{x^{2}}$ ✓ — samme svar som i eksempel 1.",
+        "hints": [
+          "I b): let etter én konkret homogen nyttefunksjon der $y''$ ikke er null.",
+          "I c): $U'_x$ er en funksjon av to variabler som begge avhenger av $x$ — hvilken regel gjelder da?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-5-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-5-2-bb-standardresultat",
+      "type": "definition",
+      "title": "Standardresultatet $xy=c$",
+      "content": "Den nivåkurven som går igjen oftest i faget, har en form du kan skrive ned uten å regne.\n\n$$xy=c\\ \\Longrightarrow\\ y'=-\\frac{y}{x},\\qquad y''=\\frac{2y}{x^{2}}>0$$\n\nKurven faller og er konveks i hele første kvadrant. Det samme gjelder enhver Cobb-Douglas-nyttefunksjon $x^{\\alpha}y^{\\beta}$, siden $x^{\\alpha}y^{\\beta}=c$ har nøyaktig samme kurver som $xy=$ konstant når $\\alpha=\\beta$."
+    },
+    {
+      "id": "econ1100-5-2-bb-skisse",
+      "type": "definition",
+      "title": "Skisse som stemmer med fortegnene",
+      "content": "Tegner du kurven, skal den være konsistent med de to fortegnene du nettopp har regnet ut.\n\n$$y'<0\\ \\text{og}\\ y''>0\\ \\Longrightarrow\\ \\text{faller, bratt til venstre, flater ut mot høyre}$$\n\nKombinasjonene er fire: fallende og konveks (indifferenskurven), fallende og konkav (kvartsirkelen), stigende og konveks, stigende og konkav. En skisse som viser noe annet enn regningen din, er et minuspoeng — kontroller at de to henger sammen før du leverer."
+    },
+    {
+      "id": "econ1100-5-2-bb-kontroll-eksplisitt",
+      "type": "definition",
+      "title": "Kontroll ved eksplisitt løsning",
+      "content": "Lar likningen seg løse for $y$, har du en gratis og uavhengig fasit.\n\n$$xy=12\\ \\Longrightarrow\\ y=\\frac{12}{x}\\ \\Longrightarrow\\ y''=\\frac{24}{x^{3}}=\\frac{2y}{x^{2}}$$\n\nRegn begge veier og se om de stemmer. Kontrollen fanger både feil #3 og fortegnsfeil i kvotientregelen, og den koster under et minutt. På eksamen er den vel anvendt tid når svaret skal bæres videre til et senere delpunkt."
+    },
+    {
+      "id": "econ1100-5-2-bb-riktig-fortegn-feil-metode",
+      "type": "definition",
+      "title": "Riktig fortegn, feil metode",
+      "content": "Den mest lumske egenskapen ved feil #3 er at den ofte gir riktig konklusjon.\n\n$$\\text{feil: }y''=\\frac{y}{x^{2}}\\qquad\\text{riktig: }y''=\\frac{2y}{x^{2}}$$\n\nBegge er positive, så begge gir konklusjonen «konveks». Men metoden bærer poengene, ikke svaret, og en besvarelse der $y'$ aldri ble satt inn, får lite uttelling. Skriv derfor eksplisitt hvor du bruker at $y=y(x)$ — det er den setningen sensor leter etter."
+    },
+    {
+      "id": "econ1100-5-2-figurord",
+      "type": "text",
+      "content": "## Slik ser de to krumningene ut\n\n*Figur i ord.* Tegn to koordinatsystemer ved siden av hverandre, begge med $x$ vannrett og $y$ loddrett og bare første kvadrant med.\n\n**Til venstre, den konvekse kurven.** Den kommer inn høyt oppe nær $y$-aksen, faller bratt de første stykkene, og flater deretter gradvis ut mot høyre uten å treffe $x$-aksen. Legg en tangent inn i et punkt langt til venstre: den heller kraftig nedover. Legg en til i et punkt langt til høyre: den er nesten vannrett. Helningen har altså gått fra sterkt negativ til svakt negativ — den har **vokst** — og det er nettopp $y''>0$.\n\n**Til høyre, den konkave kurven.** Den starter nesten vannrett oppe til venstre og blir stadig brattere mot høyre, til den stuper ned mot $x$-aksen. Tangenten i det venstre punktet er nesten flat; tangenten i det høyre er bratt. Helningen har gått fra svakt negativ til sterkt negativ — den har **avtatt** — og det er $y''<0$.\n\nBegge kurvene faller. Forskjellen ligger ikke i om de faller, men i om de faller stadig saktere eller stadig raskere."
+    },
+    {
+      "id": "econ1100-5-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-5-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1), [kap. 4.1](/bok/econ1100/econ1100-4-1) og [kap. 5.1](/bok/econ1100/econ1100-5-1).\n\n**1.** Bruk kvotientregelen på $\\dfrac{u}{v}$. Hva er telleren i svaret?\n\n*Svar:* $u'v-uv'$ — i den rekkefølgen. Bytter du om, snur fortegnet.\n\n**2.** Finn $y'$ for nivåkurven $x^{3}+y=8$.\n\n*Svar:* $F'_x=3x^{2}$, $F'_y=1$, så $y'=-3x^{2}$.\n\n**3.** Hva er $\\dfrac{d}{dx}\\big(3y\\big)$ når $y=y(x)$?\n\n*Svar:* $3y'$ — konstanten står utenfor, men $y$ deriveres til $y'$.\n\n**4.** Hva betyr $f''>0$ for en vanlig funksjon $f(x)$?\n\n*Svar:* Funksjonen er konveks der; grafen bøyer oppover.\n\n**5.** Deriver $y=e^{3-x}$ to ganger.\n\n*Svar:* $y'=-e^{3-x}$ og $y''=e^{3-x}$.\n\n**6.** Hva er marginal substitusjonsrate uttrykt ved helningen?\n\n*Svar:* $\\mathrm{MRS}=\\lvert y'\\rvert=\\dfrac{U'_x}{U'_y}$ — tallverdien av indifferenskurvens helning."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-5-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F(x,y)=c$ | Nivåkurven kapitlet regner på |\n| $y=y(x)$ | Den implisitt gitte funksjonen — kilden til feil #3 |\n| $y'(x)$ | Nivåkurvens helning |\n| $y''(x)$ | Nivåkurvens krumning: den deriverte av helningen |\n| $F'_x$, $F'_y$ | Partiellderiverte av $F$ |\n| $F''_{xx}$, $F''_{yy}$, $F''_{xy}$ | Andreordens partiellderiverte; dukker opp i den generelle formelen |\n| $U(x,y)=\\bar u$ | Indifferenskurve |\n| $\\mathrm{MRS}$ | Marginal substitusjonsrate, lik $\\lvert y'\\rvert$ |\n| $u$, $v$ | Teller og nevner i kvotientregelen |\n\n**Formler i dette delkapitlet:**\n\n$$y'(x)=-\\frac{F'_x}{F'_y},\\qquad F'_y\\ne 0$$\nHelningen fra [kap. 5.1](/bok/econ1100/econ1100-5-1); startpunktet for all regning her.\n\n$$\\frac{d}{dx}\\,y=y',\\qquad \\frac{d}{dx}\\,y^{2}=2y\\,y'$$\nLangs kurven er $y$ en funksjon av $x$. Hvert $y$-ledd gir faktoren $y'$ (feil #3).\n\n$$y''=\\frac{d}{dx}\\left(-\\frac{F'_x}{F'_y}\\right)$$\nKvotientregelen, med kjerneregelen inne i den fordi $y=y(x)$.\n\n$$xy=c\\ \\Longrightarrow\\ y'=-\\frac{y}{x},\\qquad y''=\\frac{2y}{x^{2}}$$\nStandardresultatet: fallende og konveks i hele første kvadrant.\n\n$$x^{2}+y^{2}=r^{2}\\ \\Longrightarrow\\ y'=-\\frac{x}{y},\\qquad y''=-\\frac{r^{2}}{y^{3}}$$\nSirkelen: fallende og konkav i første kvadrant — kontrasten til indifferenskurven.\n\n$$y''>0\\ \\Longleftrightarrow\\ \\text{konveks}\\ \\Longleftrightarrow\\ \\text{avtakende }\\mathrm{MRS}$$\nDen økonomiske lesningen av krumningen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

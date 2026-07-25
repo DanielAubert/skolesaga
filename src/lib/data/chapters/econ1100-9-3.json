@@ -1,0 +1,338 @@
+{
+  "id": "econ1100-9-3",
+  "courseId": "econ1100",
+  "chapterNumber": "9.3",
+  "title": "Komparativ statikk via implisitt derivasjon — og drill",
+  "description": "Hvordan bedriftens optimale valg endrer seg når en pris beveger seg: implisitt derivasjon av førsteordensbetingelsen, fortegnsargumenter som gjelder uten at teknologien er oppgitt, og elleve drilloppgaver som roterer hele produsentpakken.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "gjennomføre komparativ statikk ved å derivere førsteordensbetingelsen implisitt med hensyn på en parameter",
+    "avgjøre fortegnet på virkningen av en pris- eller lønnsendring og tolke det økonomisk",
+    "veksle sikkert mellom profittmaksimering og kostnadsminimering under tidspress",
+    "kontrollere egne svar mot bibetingelsen, andreordensbetingelsen og kostnadsandelene"
+  ],
+  "content": [
+    {
+      "id": "econ1100-9-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for hele produsentpakken — og for det ene grepet som skiller en god produsentoppgave fra en middels: komparativ statikk.**\n\n**Sjanger PR — produsentteori** står i **8 av 16 sett** (3 av 9 ordinære, 5 av 7 utsatte). Varianten som gjentar seg på **utsatt-settene** er den som spør hva som skjer med den optimale løsningen når en pris endrer seg, og som ber om **fortegnet** på en derivert du ikke kan regne ut eksplisitt.\n\n**Tre varianter roterer:**\n\n1. **Profittmaksimering** — sett opp, finn $N^*$, kontroller andreordensbetingelsen ([kap. 9.1](/bok/econ1100/econ1100-9-1)).\n2. **Kostnadsminimering** — tangeringsbetingelse, betinget faktoretterspørsel, Cobb-Douglas eller CES ([kap. 9.2](/bok/econ1100/econ1100-9-2)).\n3. **Komparativ statikk** — implisitt derivasjon av førsteordensbetingelsen, med økonomisk tolkning av fortegnet.\n\n**Hvorfor komparativ statikk er verdt tiden sin:** teknikken er implisitt derivasjon fra [kap. 5.1](/bok/econ1100/econ1100-5-1), brukt på en likevektsbetingelse i stedet for på en nivåkurve. Har du én gang skjønt at $N^*$ er en **funksjon av** $w$ — og derfor krever kjerneregelen — er resten mekanisk.\n\nKapitlet er en drill: elleve oppgaver på eksamensnivå etter én gjennomregnet case. Tidsanslaget er **50 minutter**, og oppgavene er delt i tre bolker med naturlige pausepunkter mellom.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-9-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet driller [kap. 9.1](/bok/econ1100/econ1100-9-1) og [kap. 9.2](/bok/econ1100/econ1100-9-2), og bruker implisitt derivasjon fra [kap. 5.1](/bok/econ1100/econ1100-5-1).\n\n**Sist du var her — de fire linjene alt bygger på:**\n\n$$p\\,F'(N)=w\\qquad\\text{— førsteordensbetingelsen i profittmaksimering}$$\n\n$$\\pi''(N)=p\\,F''(N)\\le 0\\qquad\\text{— andreordensbetingelsen; avtakende grenseprodukt}$$\n\n$$\\frac{F'_K}{F'_L}=\\frac{r}{w}\\qquad\\text{— tangeringsbetingelsen i kostnadsminimering}$$\n\n$$\\sigma=\\frac{1}{\\gamma-1}\\qquad\\text{— substitusjonselastisiteten for CES-teknologi}$$"
+    },
+    {
+      "id": "econ1100-9-3-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften for produsentoppgaven\n\n**Steg 1 — Les hvilket problem det er.** Er mengden gitt og kostnaden fri? Da er det kostnadsminimering. Er mengden fri og prisene gitt? Da er det profittmaksimering. Ordene «skal levere», «produksjonskravet er» og «minimer kostnaden» peker på den første; «maksimer profitten» og «hvor mange skal bedriften ansette» på den andre.\n\n**Steg 2 — Skriv opp betingelsen.**\n\n$$\\text{Profittmaks: } p\\,F'(N)=w\\qquad\\text{Kostnadsmin: } \\frac{F'_K}{F'_L}=\\frac{r}{w}\\ \\text{ og }\\ F(K,L)=\\bar Y$$\n\n**Steg 3 — Løs for faktoretterspørselen.** La prisene stå som bokstaver hvis oppgaven ber om en funksjon. Kontroller ved å sette svaret tilbake i betingelsen.\n\n**Steg 4 — Komparativ statikk.** Deriver betingelsen implisitt med hensyn på den parameteren oppgaven spør om. Husk at $N^*$ selv avhenger av parameteren — det er der kjerneregelen kommer inn.\n\n**Steg 5 — Tolk fortegnet økonomisk.** Ett fortegn uten setning er et halvt svar. Skriv ut hva det betyr: «høyere lønn gir lavere sysselsetting, fordi …»\n\n*Tidsbudsjett på eksamen:* en full PR-oppgave er verdt 18–22 poeng, altså rundt 35 minutter. Steg 1–3 tar mesteparten; steg 4–5 er ofte bare noen linjer, men de er de linjene som skiller besvarelsene."
+    },
+    {
+      "id": "econ1100-9-3-metoden",
+      "type": "text",
+      "content": "## Metoden: implisitt derivasjon av førsteordensbetingelsen\n\n**Utledning med intuisjon.** Førsteordensbetingelsen i profittmaksimering er\n\n$$p\\,F'\\!\\left(N^*\\right)=w$$\n\nDette er ikke bare en likning i $N$ — det er en **identitet i $w$**. Uansett hvilken lønn markedet setter, tilpasser bedriften seg slik at likningen holder. Derfor kan vi derivere begge sider med hensyn på $w$.\n\n*Intuisjon:* venstresiden er ikke konstant. Endrer $w$ seg, flytter $N^*$ seg, og da flytter $F'(N^*)$ seg også. Det er en sammensatt funksjon, og kjerneregelen må brukes.\n\n$$\\frac{d}{dw}\\Big[p\\,F'\\!\\left(N^*\\right)\\Big]=\\frac{d}{dw}\\big[w\\big]\\ \\Longrightarrow\\ p\\,F''\\!\\left(N^*\\right)\\cdot\\frac{dN^*}{dw}=1$$\n\n$$\\boxed{\\frac{dN^*}{dw}=\\frac{1}{p\\,F''\\!\\left(N^*\\right)}}$$\n\n*Intuisjon:* nevneren er nettopp andreordensbetingelsen. Er den oppfylt ($F''<0$), er brøken negativ — sysselsettingen faller når lønna stiger. **Fortegnet følger av andreordensbetingelsen, ikke av teknologiens formel.** Derfor gjelder svaret for enhver produktfunksjon med avtakende grenseprodukt, også en som ikke er oppgitt.\n\n**Samme grep for produktprisen.** Deriver identiteten med hensyn på $p$. Nå er venstresiden et produkt, så produktregelen først:\n\n$$F'\\!\\left(N^*\\right)+p\\,F''\\!\\left(N^*\\right)\\cdot\\frac{dN^*}{dp}=0\\ \\Longrightarrow\\ \\frac{dN^*}{dp}=-\\frac{F'\\!\\left(N^*\\right)}{p\\,F''\\!\\left(N^*\\right)}$$\n\nMed $F'>0$ og $F''<0$ er telleren negativ og nevneren negativ, så brøken er **positiv**: høyere produktpris gir høyere sysselsetting. Det stemmer med intuisjonen — blir varen mer verdt, lønner det seg å produsere mer av den."
+    },
+    {
+      "id": "econ1100-9-3-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase — med kommentarer om hvor poengene ligger",
+      "problem": "En møbelfabrikk har produktfunksjonen $F(N)=8\\sqrt N$, der $N$ er sysselsetting. Produktprisen er $p=5$ og lønna $w=4$.\n\n**a)** Finn den profittmaksimerende sysselsettingen $N^*$, og kontroller andreordensbetingelsen.\n\n**b)** Finn $\\dfrac{dN^*}{dw}$ ved implisitt derivasjon av førsteordensbetingelsen, og regn ut tallverdien.\n\n**c)** Kontroller svaret i b) ved å finne $N^*(w)$ eksplisitt og derivere.\n\n**d)** Finn fortegnet på $\\dfrac{dN^*}{dp}$ uten å regne ut tallverdien, og tolk resultatet.",
+      "solution": "**a) Førsteordensbetingelsen.**\n\n$$F'(N)=8\\cdot\\frac{1}{2\\sqrt N}=\\frac{4}{\\sqrt N},\\qquad p\\,F'(N)=w\\ \\Longrightarrow\\ \\frac{20}{\\sqrt N}=4$$\n\n$$\\sqrt N=5\\ \\Longrightarrow\\ \\boxed{N^*=25}$$\n\n**Andreordensbetingelsen:**\n\n$$F''(N)=4\\cdot\\left(-\\tfrac12\\right)N^{-3/2}=-2N^{-3/2}<0\\quad\\text{for alle }N>0$$\n\nSiden $\\pi''(N)=pF''(N)<0$ i hele definisjonsområdet, er profittfunksjonen konkav overalt, og $N^*=25$ er et **globalt** maksimum.\n\n*Her ligger poengene:* å skrive «$F''<0$ for alle $N>0$» i stedet for bare «$F''(25)<0$». Den første setningen gir globalt maksimum, den andre bare lokalt.\n\n**b) Implisitt derivasjon.** Betingelsen $pF'(N^*)=w$ holder for enhver $w$. Deriver begge sider med hensyn på $w$, og husk at $N^*=N^*(w)$:\n\n$$p\\,F''\\!\\left(N^*\\right)\\cdot\\frac{dN^*}{dw}=1\\ \\Longrightarrow\\ \\frac{dN^*}{dw}=\\frac{1}{p\\,F''\\!\\left(N^*\\right)}$$\n\nRegn ut nevneren i punktet $N^*=25$:\n\n$$F''(25)=-2\\cdot 25^{-3/2}=-\\frac{2}{125},\\qquad p\\,F''(25)=5\\cdot\\left(-\\frac{2}{125}\\right)=-\\frac{2}{25}$$\n\n$$\\frac{dN^*}{dw}=\\frac{1}{-2/25}=\\boxed{-12{,}5}$$\n\n*Her ligger poengene:* kjerneregelen. Glemmer du at $N^*$ avhenger av $w$, blir venstresiden null og du får $0=1$ — en umulighet som burde vært et varselsignal.\n\n**c) Kontroll ved eksplisitt derivasjon.** Løs førsteordensbetingelsen for $N$ med $w$ som bokstav:\n\n$$\\frac{20}{\\sqrt N}=w\\ \\Longrightarrow\\ \\sqrt N=\\frac{20}{w}\\ \\Longrightarrow\\ N^*(w)=\\frac{400}{w^{2}}$$\n\n$$\\frac{dN^*}{dw}=-\\frac{800}{w^{3}}$$\n\nSett inn $w=4$:\n\n$$-\\frac{800}{64}=-12{,}5\\ ✓$$\n\nSamme svar ✓\n\n*Her ligger poengene:* de to veiene er likeverdige når teknologien er oppgitt på formel. Er den **ikke** oppgitt, finnes bare den implisitte veien — og det er nettopp den situasjonen eksamensoppgaven pleier å konstruere.\n\n**d) Fortegnet på $dN^*/dp$.** Deriver identiteten $pF'(N^*)=w$ med hensyn på $p$. Venstresiden er et produkt av $p$ og $F'(N^*)$, der begge avhenger av $p$:\n\n$$F'\\!\\left(N^*\\right)+p\\,F''\\!\\left(N^*\\right)\\frac{dN^*}{dp}=0\\ \\Longrightarrow\\ \\frac{dN^*}{dp}=-\\frac{F'\\!\\left(N^*\\right)}{p\\,F''\\!\\left(N^*\\right)}$$\n\n**Fortegnsanalyse ledd for ledd:**\n\n- $F'(N^*)>0$ — grenseproduktet er positivt (flere arbeidere gir mer produksjon).\n- $p>0$ og $F''(N^*)<0$, så nevneren $pF''<0$.\n- Minustegnet foran og en negativ nevner gir til sammen et **positivt** uttrykk.\n\n$$\\frac{dN^*}{dp}>0$$\n\n**Tolkning:** høyere produktpris gir høyere sysselsetting. Blir møblene mer verdt, er den neste arbeiderens produksjon verdt mer i kroner, og da lønner det seg å ansette flere.\n\n*Kontroll for egen del:* her er $N^*(p)=\\left(\\tfrac{p\\cdot 4}{4}\\right)^{2}=p^{2}$, så $dN^*/dp=2p=10>0$ ✓\n\n*Her ligger poengene:* fortegnsargumentet er selve svaret. En besvarelse som bare skriver «$dN^*/dp>0$» uten fortegnsanalysen får delvis uttelling, og en som bare skriver «10» har ikke besvart spørsmålet — det ble spurt om fortegnet **uten** tallverdi."
+    },
+    {
+      "id": "econ1100-9-3-fire-feil",
+      "type": "warning",
+      "title": "De fire feilene drillen skal utrydde",
+      "content": "- **Å behandle $N^*$ som en konstant.** Dette er slektningen av feil #3 (glemme at $y=y(x)$ når nivåkurvens andrederiverte regnes ut). Når du deriverer $pF'(N^*)=w$, er $N^*$ en **funksjon** av parameteren, og kjerneregelen gir faktoren $dN^*/dw$. Uten den får du $0=1$.\n- **Å blande $r/w$ og $w/r$ i tangeringsbetingelsen.** Kontrollen tar to sekunder: er lønna høy, skal $L^*$ være **liten**. Gir svaret ditt det motsatte, har du snudd brøken.\n- **Å oppgi et fortegn uten begrunnelse.** «$dN^*/dw<0$» alene er ubegrunnet ja/nei (#9 — ubegrunnet konklusjon gir null uttelling). Skriv ut hvorfor: fordi $F''<0$ etter andreordensbetingelsen, er nevneren negativ.\n- **Å glemme prisen $p$ i førsteordensbetingelsen.** Betingelsen er $pF'(N)=w$. Skriver du $F'(N)=w$, sammenligner du en varemengde med et kronebeløp, og hele den komparative statikken arver feilen."
+    },
+    {
+      "id": "econ1100-9-3-del-a",
+      "type": "text",
+      "content": "### Bolk A — profittmaksimering og faktoretterspørsel\n\nFire oppgaver på grunnvarianten. Her skal oppsettet og andreordensbetingelsen sitte i fingrene."
+    },
+    {
+      "id": "econ1100-9-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger PR — produsentteori, i 8 av 16 sett.) En bedrift har produktfunksjonen $F(N)=6N^{2/3}$, produktpris $p=2$ og lønn $w=4$.\n\n**a)** Finn $N^*$ og kontroller andreordensbetingelsen.\n\n**b)** Finn $\\dfrac{dN^*}{dw}$ ved implisitt derivasjon, og regn ut tallverdien.\n\n**c)** Kontroller ved å finne $N^*(w)$ eksplisitt.",
+        "solution": "**a)**\n\n$$F'(N)=6\\cdot\\tfrac23 N^{-1/3}=4N^{-1/3}$$\n\n$$p\\,F'(N)=w\\ \\Longrightarrow\\ 2\\cdot 4N^{-1/3}=4\\ \\Longrightarrow\\ N^{-1/3}=\\tfrac12\\ \\Longrightarrow\\ N^{1/3}=2$$\n\n$$\\boxed{N^*=8}$$\n\n*Kontroll:* $F'(8)=4\\cdot 8^{-1/3}=4/2=2$, og $pF'=2\\cdot 2=4=w$ ✓\n\n**Andreordensbetingelsen:**\n\n$$F''(N)=4\\cdot\\left(-\\tfrac13\\right)N^{-4/3}=-\\tfrac43 N^{-4/3}<0\\quad\\text{for alle }N>0$$\n\nOppfylt i hele definisjonsområdet, så $N^*=8$ er et globalt maksimum.\n\n**b)** Deriver $pF'(N^*)=w$ implisitt mht. $w$, med $N^*=N^*(w)$:\n\n$$p\\,F''\\!\\left(N^*\\right)\\frac{dN^*}{dw}=1\\ \\Longrightarrow\\ \\frac{dN^*}{dw}=\\frac{1}{p\\,F''\\!\\left(N^*\\right)}$$\n\nI punktet $N^*=8$ er $8^{-4/3}=\\dfrac{1}{16}$, så\n\n$$F''(8)=-\\tfrac43\\cdot\\tfrac{1}{16}=-\\tfrac{1}{12},\\qquad p\\,F''(8)=2\\cdot\\left(-\\tfrac{1}{12}\\right)=-\\tfrac16$$\n\n$$\\frac{dN^*}{dw}=\\frac{1}{-1/6}=\\boxed{-6}$$\n\n**c) Eksplisitt.** Med $w$ som bokstav:\n\n$$8N^{-1/3}=w\\ \\Longrightarrow\\ N^{1/3}=\\frac{8}{w}\\ \\Longrightarrow\\ N^*(w)=\\frac{512}{w^{3}}$$\n\n$$\\frac{dN^*}{dw}=-\\frac{1536}{w^{4}},\\qquad w=4:\\ -\\frac{1536}{256}=-6\\ ✓$$\n\n**Konklusjon:** ved lønn 4 ansetter bedriften 8 enheter arbeidskraft, og en marginal lønnsøkning på én krone reduserer sysselsettingen med om lag 6 enheter.",
+        "hints": [
+          "Deriver $6N^{2/3}$ først, og sett inn i $pF'(N)=w$. Løs for $N^{1/3}$ før du opphøyer.",
+          "I b) er $N^*$ en funksjon av $w$ — derfor kommer $dN^*/dw$ ut av kjerneregelen på venstresiden.",
+          "I c) lar du $w$ stå som bokstav i førsteordensbetingelsen og løser for $N$ som vanlig."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — med arbeidsgiveravgift.) En bedrift har $F(N)=10\\sqrt N$ og produktpris $p=8$. Lønna er $w=5$, men bedriften betaler i tillegg en arbeidsgiveravgift på $t$ ganger lønna, slik at samlet arbeidskraftkostnad per enhet er $w(1+t)$.\n\n**a)** Skriv førsteordensbetingelsen, og finn $N^*(t)$.\n\n**b)** Finn $\\dfrac{dN^*}{dt}$ og tallverdien ved $t=0$.\n\n**c)** Hvor mange prosent faller sysselsettingen hvis avgiften settes til 10 prosent? Sammenlign med det elastisitetsregningen antyder.",
+        "solution": "**a)** Grenseproduktet er $F'(N)=\\dfrac{5}{\\sqrt N}$, og lønnskostnaden per enhet er nå $w(1+t)$:\n\n$$p\\,F'(N)=w(1+t)\\ \\Longrightarrow\\ \\frac{40}{\\sqrt N}=5(1+t)\\ \\Longrightarrow\\ \\sqrt N=\\frac{8}{1+t}$$\n\n$$\\boxed{N^*(t)=\\frac{64}{(1+t)^{2}}}$$\n\n*Kontroll ved $t=0$:* $N^*=64$, og $pF'(64)=8\\cdot\\tfrac{5}{8}=5=w$ ✓\n\n**b)** Deriver med kjerneregelen:\n\n$$\\frac{dN^*}{dt}=64\\cdot(-2)(1+t)^{-3}=-\\frac{128}{(1+t)^{3}}$$\n\nVed $t=0$:\n\n$$\\frac{dN^*}{dt}\\bigg|_{t=0}=-128$$\n\n**Fortegnet er negativt**, som det må være: avgiften virker nøyaktig som en lønnsøkning, og høyere arbeidskraftkostnad gir lavere sysselsetting.\n\n**c) Ti prosent avgift** betyr $t=0{,}1$:\n\n$$N^*(0{,}1)=\\frac{64}{1{,}1^{2}}=\\frac{64}{1{,}21}\\approx 52{,}9$$\n\nFallet er\n\n$$\\frac{52{,}9-64}{64}\\approx -0{,}174$$\n\naltså **omtrent 17,4 prosent**.\n\n**Sammenligning med elastisiteten.** Uttrykket $N^*=64(1+t)^{-2}$ har elastisitet $-2$ med hensyn på $(1+t)$. Faktoren $(1+t)$ steg med 10 prosent, så en ren elastisitetsregning ville antydet et fall på 20 prosent.\n\n*Hvorfor avviket:* elastisiteten måler reaksjonen på en **marginal** endring. Ti prosent er ikke marginalt, og den eksakte utregningen gir 17,4 prosent i stedet for 20. For små endringer stemmer de godt overens; for store gjør de det ikke.\n\n**Konklusjon:** en arbeidsgiveravgift på ti prosent reduserer sysselsettingen med om lag 17 prosent i denne bedriften.",
+        "hints": [
+          "Avgiften endrer bare høyresiden i førsteordensbetingelsen — kostnaden per enhet arbeid er nå $w(1+t)$.",
+          "I b) er $N^*(t)$ allerede et eksplisitt uttrykk. Bruk kjerneregelen på $(1+t)^{-2}$.",
+          "I c) skal du regne det eksakte fallet først, og deretter sammenligne med det elastisiteten $-2$ ville antydet."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — generell teknologi.) En bedrift maksimerer $\\pi(N)=pF(N)-wN$, der $F$ ikke er oppgitt på formel, men oppfyller $F'(N)>0$ og $F''(N)<0$ for alle $N>0$.\n\n**a)** Vis ved implisitt derivasjon at $\\dfrac{dN^*}{dp}=-\\dfrac{F'(N^*)}{p\\,F''(N^*)}$.\n\n**b)** Bestem fortegnet, og tolk det økonomisk.\n\n**c)** Hva ville skjedd med argumentet hvis andreordensbetingelsen ikke var oppfylt?",
+        "solution": "**a)** Førsteordensbetingelsen $p\\,F'\\!\\left(N^*\\right)=w$ holder for enhver $p$. Deriver begge sider mht. $p$. Venstresiden er et produkt der **begge** faktorer avhenger av $p$ — $p$ direkte og $F'(N^*)$ gjennom $N^*$:\n\n$$\\underbrace{1\\cdot F'\\!\\left(N^*\\right)}_{\\text{deriverer }p}+\\underbrace{p\\cdot F''\\!\\left(N^*\\right)\\frac{dN^*}{dp}}_{\\text{deriverer }F'(N^*)\\text{, kjerneregelen}}=0$$\n\nHøyresiden er $w$, som er konstant når $p$ varierer, så den deriverte er null. Løs for den ukjente:\n\n$$p\\,F''\\!\\left(N^*\\right)\\frac{dN^*}{dp}=-F'\\!\\left(N^*\\right)\\ \\Longrightarrow\\ \\frac{dN^*}{dp}=-\\frac{F'\\!\\left(N^*\\right)}{p\\,F''\\!\\left(N^*\\right)}\\ ✓$$\n\n**b) Fortegnsanalyse ledd for ledd:**\n\n- $F'(N^*)>0$ er gitt, så telleren $-F'(N^*)$ er **negativ**.\n- $p>0$ er gitt og $F''(N^*)<0$ er gitt, så nevneren er **negativ**.\n- Negativ delt på negativ er positiv.\n\n$$\\frac{dN^*}{dp}>0$$\n\n**Tolkning:** stiger produktprisen, ansetter bedriften flere. Grunnen er at grenseinntektsproduktet $pF'(N)$ er verdien i kroner av den neste arbeiderens produksjon — blir varen mer verdt, er den neste arbeideren verdt mer enn lønna, og bedriften utvider til grenseproduktet har falt nok til at likheten er gjenopprettet.\n\n**c) Uten andreordensbetingelsen faller argumentet sammen.** To ting går galt:\n\n- **Fortegnet blir ubestemt.** Er $F''>0$, snur brøken fortegn og $dN^*/dp<0$ — høyere pris skulle gi lavere sysselsetting, som er økonomisk meningsløst.\n- **Verre: det finnes ikke noe $N^*$ å derivere.** Er $F''>0$ overalt, er profittfunksjonen konveks, og det stasjonære punktet er et **minimum**. Da er hele den komparative statikken tuftet på et punkt bedriften aldri ville valgt. Og er $F''=0$ (konstant grenseprodukt), er nevneren null og uttrykket udefinert — det tilfellet så vi i [kap. 9.1](/bok/econ1100/econ1100-9-1): da finnes ingen indre løsning i det hele tatt.\n\n**Konklusjon:** andreordensbetingelsen er ikke en formalitet man haker av. Den er forutsetningen som gjør både løsningen og fortegnsanalysen gyldig.",
+        "hints": [
+          "Betingelsen er en identitet i $p$ — begge sider kan deriveres mht. $p$.",
+          "Venstresiden $p\\cdot F'(N^*)$ er et produkt der begge faktorene avhenger av $p$. Produktregelen først, kjerneregelen på den andre faktoren.",
+          "For fortegnet: gå gjennom teller og nevner hver for seg og bruk de oppgitte forutsetningene om $F'$ og $F''$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Alle svar skal begrunnes; en ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «Fortegnet på $dN^*/dw$ avhenger av hvilken produktfunksjon bedriften har.»\n\n**b)** «For $F(N)=AN^{a}$ med $0<a<1$ er $\\mathrm{El}_w N^*=-\\dfrac{1}{1-a}$.»\n\n**c)** «I komparativ statikk kan man behandle $N^*$ som en konstant fordi den er bestemt av førsteordensbetingelsen.»",
+        "solution": "**a) Usann.**\n\n*Begrunnelse ved utledning:* implisitt derivasjon av $pF'(N^*)=w$ gir\n\n$$\\frac{dN^*}{dw}=\\frac{1}{p\\,F''\\!\\left(N^*\\right)}$$\n\nFortegnet bestemmes av $F''(N^*)$ alene. Men **andreordensbetingelsen krever nettopp $F''\\le 0$** for at $N^*$ i det hele tatt skal være et maksimum. For enhver produktfunksjon der problemet er velbestemt, er brøken derfor negativ.\n\n*Presist sagt:* fortegnet avhenger ikke av **hvilken** produktfunksjon, men av at den overhodet oppfyller andreordensbetingelsen. Tallverdien avhenger av teknologien; fortegnet gjør det ikke.\n\n**b) Sann.**\n\n*Begrunnelse ved utregning:* faktoretterspørselen er $N^*=\\left(\\dfrac{paA}{w}\\right)^{\\frac{1}{1-a}}$, som skrevet som ren potens av $w$ blir\n\n$$N^*=\\left(paA\\right)^{\\frac{1}{1-a}}\\cdot w^{-\\frac{1}{1-a}}$$\n\nPotensregelen for elastisitet ([kap. 2.1](/bok/econ1100/econ1100-2-1)) leser elastisiteten av som eksponenten:\n\n$$\\mathrm{El}_w N^*=-\\frac{1}{1-a}\\ ✓$$\n\n*Kontroll med tall:* $a=\\tfrac12$ gir $-2$, og med $F=10\\sqrt N$, $p=20$ er $N^*=10\\,000/w^{2}$, som åpenbart har elastisitet $-2$ ✓\n\n**c) Usann.**\n\n*Begrunnelse:* $N^*$ er bestemt av førsteordensbetingelsen **for gitt $w$**. Endrer $w$ seg, endres løsningen — det er nettopp derfor vi kaller den en faktoretterspørselsfunksjon $N^*(w)$.\n\n*Hva som går galt konkret:* behandler du $N^*$ som konstant, blir venstresiden i $pF'(N^*)=w$ konstant, og derivasjon gir\n\n$$0=1$$\n\nsom er en umulighet. Det er selve varselsignalet: får du en identitet som ikke kan stemme, har du glemt kjerneregelen.\n\n**Merk sammenhengen** med feil #3 fra [kap. 5.2](/bok/econ1100/econ1100-5-2) — å glemme at $y=y(x)$ når nivåkurvens andrederiverte regnes ut. Det er samme forglemmelse i ny drakt.",
+        "hints": [
+          "For a): hva sier andreordensbetingelsen om $F''$, og hvor står $F''$ i uttrykket for $dN^*/dw$?",
+          "For b): skriv $N^*$ som en ren potens av $w$ og bruk potensregelen for elastisitet.",
+          "For c): prøv å derivere begge sider av førsteordensbetingelsen som om $N^*$ var konstant, og se hva du sitter igjen med."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-del-b",
+      "type": "text",
+      "content": "### Bolk B — kostnadsminimering\n\n*— naturlig pausepunkt —*\n\nTre oppgaver på tangeringsbetingelsen, Cobb-Douglas og CES. Her er det algebraen som skal sitte."
+    },
+    {
+      "id": "econ1100-9-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — kostnadsminimering med Cobb-Douglas.) En bedrift har $F(K,L)=K^{2/5}L^{3/5}$, kapitalpris $r=2$, lønn $w=3$ og skal produsere $\\bar Y=50$.\n\n**a)** Finn tangeringsbetingelsen og faktorforholdet $K/L$.\n\n**b)** Finn $K^*$, $L^*$ og kostnaden.\n\n**c)** Kontroller svaret med andelsregelen.",
+        "solution": "**a)** Med $a=\\tfrac25$, $b=\\tfrac35$:\n\n$$\\frac{F'_K}{F'_L}=\\frac{a}{b}\\cdot\\frac{L}{K}=\\frac{r}{w}\\ \\Longrightarrow\\ \\frac{K}{L}=\\frac{a}{b}\\cdot\\frac{w}{r}=\\frac{2/5}{3/5}\\cdot\\frac{3}{2}=\\frac23\\cdot\\frac32=1$$\n\n$$\\boxed{K=L}$$\n\n*Merk hvor pent det gikk:* eksponentforholdet $\\tfrac23$ og prisforholdet $\\tfrac32$ er hverandres omvendte, så bedriften bruker like mye av hver faktor.\n\n**b)** Sett $L=K$ inn i produksjonskravet:\n\n$$K^{2/5}K^{3/5}=K^{1}=50\\ \\Longrightarrow\\ \\boxed{K^*=50,\\qquad L^*=50}$$\n\n$$C=2\\cdot 50+3\\cdot 50=100+150=250$$\n\n*Kontroll av bibetingelsen:* $50^{2/5}\\cdot 50^{3/5}=50$ ✓\n\n**c) Andelskontrollen.** Eksponentene er $a=\\tfrac25=0{,}4$ og $b=\\tfrac35=0{,}6$, og $a+b=1$, så andelene skal være nøyaktig eksponentene:\n\n$$\\frac{rK^*}{C}=\\frac{100}{250}=\\frac25\\ ✓\\qquad \\frac{wL^*}{C}=\\frac{150}{250}=\\frac35\\ ✓$$\n\n**Konklusjon:** bedriften bruker 50 enheter av hver faktor, kravet på 50 koster 250, og arbeidskraft tar tre femdeler av regningen — akkurat som eksponenten tilsier.",
+        "hints": [
+          "Faktorforholdet for $K^{a}L^{b}$ er $\\dfrac{a}{b}\\cdot\\dfrac{w}{r}$ — eksponent og pris kryssvis.",
+          "Når $K=L$, forenkles produksjonskravet kraftig: $K^{a}K^{b}=K^{a+b}$.",
+          "Andelskontrollen: del hver kostnadspost på totalen og sammenlign med eksponentene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — CES-teknologi.) En bedrift har $F(K,L)=\\left(K^{1/3}+L^{1/3}\\right)^{3}$, kapitalpris $r=1$, lønn $w=4$ og produksjonskrav $\\bar Y=27$.\n\n**a)** Finn substitusjonselastisiteten.\n\n**b)** Finn $K^*$ og $L^*$.\n\n**c)** Finn kostnaden.",
+        "solution": "**a)** Funksjonen er på CES-form med $\\gamma=\\tfrac13$ (og $\\alpha/\\gamma=3$, altså $\\alpha=1$):\n\n$$\\sigma=\\frac{1}{\\gamma-1}=\\frac{1}{\\tfrac13-1}=\\frac{1}{-\\tfrac23}=-\\frac32$$\n\n*Tolkning:* én prosent høyere $r/w$ gir omtrent halvannen prosent lavere $K/L$.\n\n**b) Tangeringsbetingelsen:**\n\n$$\\left(\\frac{K}{L}\\right)^{\\gamma-1}=\\frac{r}{w}\\ \\Longrightarrow\\ \\left(\\frac{K}{L}\\right)^{-2/3}=\\frac14$$\n\nSnu og opphøy i $\\tfrac32$:\n\n$$\\left(\\frac{K}{L}\\right)^{2/3}=4\\ \\Longrightarrow\\ \\frac{K}{L}=4^{3/2}=8\\ \\Longrightarrow\\ K=8L$$\n\n*Kontroll mot formelen:* $\\left(r/w\\right)^{1/(\\gamma-1)}=\\left(\\tfrac14\\right)^{-3/2}=4^{3/2}=8$ ✓\n\n**Produksjonskravet.** Ta tredjerota av begge sider:\n\n$$\\left(K^{1/3}+L^{1/3}\\right)^{3}=27\\ \\Longrightarrow\\ K^{1/3}+L^{1/3}=3$$\n\nMed $K=8L$ er $K^{1/3}=2L^{1/3}$, så\n\n$$2L^{1/3}+L^{1/3}=3L^{1/3}=3\\ \\Longrightarrow\\ L^{1/3}=1\\ \\Longrightarrow\\ \\boxed{L^*=1,\\qquad K^*=8}$$\n\n*Kontroll:* $\\left(8^{1/3}+1^{1/3}\\right)^{3}=(2+1)^{3}=27$ ✓\n\n**c)**\n\n$$C=1\\cdot 8+4\\cdot 1=12$$\n\n**Konklusjon:** bedriften bruker 8 enheter kapital og 1 enhet arbeid, og kravet på 27 koster 12. Den høye prisen på arbeid ($w=4$ mot $r=1$) forklarer den skjeve blandingen, og tallverdien $\\tfrac32$ på $\\sigma$ sier at bedriften svarer nokså kraftig på nettopp slike prisforskjeller.",
+        "hints": [
+          "Les av $\\gamma$ ved å skrive funksjonen på formen $\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma}$.",
+          "Tangeringsbetingelsen gir en negativ eksponent på $K/L$ — snu brøken før du opphøyer.",
+          "Ta tredjerota av produksjonskravet før du setter inn. Da får du en enkel likning i $L^{1/3}$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — komparativ statikk på den betingede faktoretterspørselen.) En bedrift har $F(K,L)=K^{a}L^{b}$ og betinget faktoretterspørsel\n\n$$K^*=\\left[\\bar Y\\left(\\frac{aw}{br}\\right)^{b}\\right]^{\\frac{1}{a+b}}.$$\n\n**a)** Finn $\\mathrm{El}_w K^*$.\n\n**b)** Bestem fortegnet, og forklar økonomisk hvorfor det er slik.\n\n**c)** Finn $\\mathrm{El}_r K^*$, og forklar hvorfor de to elastisitetene er like store med motsatt fortegn.",
+        "solution": "**a)** Skriv uttrykket som en ren potens av $w$. Alt annet er konstant når bare $w$ varierer:\n\n$$K^*=\\underbrace{\\left[\\bar Y\\left(\\frac{a}{br}\\right)^{b}\\right]^{\\frac{1}{a+b}}}_{\\text{konstant}}\\cdot\\ w^{\\frac{b}{a+b}}$$\n\n*Mellomregning på eksponenten:* $w$ står i potens $b$ inne i klammen, og hele klammen opphøyes i $\\tfrac{1}{a+b}$, så samlet eksponent er $\\dfrac{b}{a+b}$.\n\nPotensregelen for elastisitet gir\n\n$$\\boxed{\\mathrm{El}_w K^*=\\frac{b}{a+b}}$$\n\n**b) Fortegnet er positivt**, siden $a,b>0$.\n\n**Økonomisk forklaring:** høyere lønn gjør arbeidskraft relativt dyrere, og bedriften bytter over til kapital for å nå det samme produksjonskravet. Kapitalbruken **stiger** altså når lønna stiger — dette er ren substitusjon langs isokvanten.\n\n*Merk kontrasten til [kap. 9.1](/bok/econ1100/econ1100-9-1):* der falt sysselsettingen når lønna steg, fordi bedriften også kunne krympe hele produksjonen. Her er produksjonen låst av $\\bar Y$, og den eneste tilpasningen som finnes, er å bytte faktor. Det er nettopp derfor etterspørselen kalles **betinget**.\n\n*Rimelighetssjekk med tall:* $a=b=\\tfrac12$ gir $\\mathrm{El}_w K^*=\\tfrac12$. Doble lønna, og kapitalbruken stiger med faktoren $2^{1/2}\\approx 1{,}41$ ✓\n\n**c)** Samme framgangsmåte for $r$. Prisen står i nevneren inne i klammen, altså i potens $-b$, og samlet eksponent blir $-\\dfrac{b}{a+b}$:\n\n$$\\mathrm{El}_r K^*=-\\frac{b}{a+b}$$\n\n**Hvorfor de er like store med motsatt fortegn:** $r$ og $w$ opptrer i uttrykket **bare gjennom brøken $w/r$**. En prosent opp på $w$ og en prosent opp på $r$ virker derfor nøyaktig like sterkt i hver sin retning.\n\n*Konsekvensen er homogenitet av grad 0:* dobles begge prisene, står $K^*$ stille — de to virkningene kansellerer hverandre. Det er samme resultat som i [kap. 9.2](/bok/econ1100/econ1100-9-2), nå lest ut av elastisitetene i stedet for ved innsetting.",
+        "hints": [
+          "Samle alt som ikke inneholder $w$ i én konstant, slik at uttrykket blir konstant ganger en potens av $w$.",
+          "Pass på at eksponenten $b$ inne i klammen også skal ganges med den ytre eksponenten $1/(a+b)$.",
+          "For c): tenk på hvilken potens $r$ står i inne i klammen — den står i nevneren."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-del-c",
+      "type": "text",
+      "content": "### Bolk C — eksamensnivå\n\n*— naturlig pausepunkt —*\n\nFire oppgaver på utsatt-nivå: generelle funksjoner, sammensatte krav og full oppgavelengde."
+    },
+    {
+      "id": "econ1100-9-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger PR — generell elastisitetsformel.) En bedrift maksimerer $pF(N)-wN$ med $F'>0$ og $F''<0$.\n\n**a)** Vis at $\\mathrm{El}_w N^*=\\dfrac{F'(N^*)}{N^*\\,F''(N^*)}$.\n\n**b)** Kontroller formelen for $F(N)=AN^{a}$ med $0<a<1$.\n\n**c)** Bruk formelen til å avgjøre om faktoretterspørselen er elastisk eller uelastisk når $a=\\tfrac13$, og tolk.",
+        "solution": "**a)** Start med definisjonen av elastisitet ([kap. 2.1](/bok/econ1100/econ1100-2-1)):\n\n$$\\mathrm{El}_w N^*=\\frac{w}{N^*}\\cdot\\frac{dN^*}{dw}$$\n\nFra den implisitte derivasjonen er $\\dfrac{dN^*}{dw}=\\dfrac{1}{p\\,F''(N^*)}$, så\n\n$$\\mathrm{El}_w N^*=\\frac{w}{N^*\\,p\\,F''\\!\\left(N^*\\right)}$$\n\n**Nå brukes førsteordensbetingelsen til å bli kvitt både $w$ og $p$.** Den sier $w=pF'(N^*)$:\n\n$$\\mathrm{El}_w N^*=\\frac{p\\,F'\\!\\left(N^*\\right)}{N^*\\,p\\,F''\\!\\left(N^*\\right)}=\\frac{F'\\!\\left(N^*\\right)}{N^*\\,F''\\!\\left(N^*\\right)}\\ ✓$$\n\n*Legg merke til hva som skjedde:* $p$ forkortes bort. Elastisiteten avhenger **bare av teknologien**, ikke av prisene. Det er et sterkt resultat, og et sensor liker.\n\n**b) Kontroll for potensteknologi.** Med $F=AN^{a}$ er\n\n$$F'=aAN^{a-1},\\qquad F''=a(a-1)AN^{a-2}$$\n\n$$\\frac{F'}{N F''}=\\frac{aAN^{a-1}}{N\\cdot a(a-1)AN^{a-2}}=\\frac{aAN^{a-1}}{a(a-1)AN^{a-1}}=\\frac{1}{a-1}=-\\frac{1}{1-a}$$\n\n*Mellomregning:* $N\\cdot N^{a-2}=N^{a-1}$, og da forkortes hele potensen sammen med $a$ og $A$.\n\nDette er nøyaktig elastisiteten vi leste av direkte i [kap. 9.1](/bok/econ1100/econ1100-9-1) ✓\n\n**c)** Med $a=\\tfrac13$:\n\n$$\\mathrm{El}_w N^*=-\\frac{1}{1-\\tfrac13}=-\\frac{1}{\\tfrac23}=-\\frac32$$\n\nTallverdien er $\\tfrac32>1$, så faktoretterspørselen er **elastisk**.\n\n**Tolkning:** én prosent høyere lønn gir omtrent halvannen prosent lavere sysselsetting — sysselsettingen reagerer mer enn proporsjonalt. Samlet lønnsutbetaling $wN^*$ **faller** derfor når lønna stiger, siden mengden faller mer i prosent enn prisen stiger.\n\n*Sammenheng verdt å merke seg:* jo mindre $a$, desto raskere avtar grenseproduktet, og desto kraftigere reagerer bedriften på lønnsendringer. En teknologi med sterkt avtakende grenseprodukt gir en elastisk faktoretterspørsel.",
+        "hints": [
+          "Start med definisjonen $\\mathrm{El}_w N^*=\\dfrac{w}{N^*}\\cdot\\dfrac{dN^*}{dw}$ og sett inn resultatet fra den implisitte derivasjonen.",
+          "Bruk førsteordensbetingelsen til å erstatte $w$ med $pF'(N^*)$ — da forkortes $p$.",
+          "I b): $N\\cdot N^{a-2}=N^{a-1}$, og da står samme potens i teller og nevner."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger PR og HG — full produsentoppgave på utsatt-nivå.) En bedrift har CES-teknologien $F(K,L)=\\left(K^{1/2}+L^{1/2}\\right)^{2\\alpha}$ med $\\alpha>0$, kapitalpris $r$, lønn $w$ og produksjonskrav $\\bar Y$. Kostnadsfunksjonen er\n\n$$C(r,w,\\bar Y)=\\frac{rw}{r+w}\\,\\bar Y^{\\frac{1}{\\alpha}}.$$\n\n**a)** Bestem homogenitetsgraden til $F$, og si hva slags skalautbytte teknologien har for $\\alpha=2$.\n\n**b)** Vis at $C$ er homogen av grad 1 i prisene.\n\n**c)** Finn $\\dfrac{\\partial C}{\\partial \\bar Y}$ for $\\alpha=2$, og forklar hva størrelsen betyr og hvordan den utvikler seg med $\\bar Y$.",
+        "solution": "**a) Homogenitetsgraden.** Sett inn $tK$ og $tL$:\n\n$$F(tK,tL)=\\left(t^{1/2}K^{1/2}+t^{1/2}L^{1/2}\\right)^{2\\alpha}=\\left(t^{1/2}\\left(K^{1/2}+L^{1/2}\\right)\\right)^{2\\alpha}=t^{\\alpha}F(K,L)$$\n\n*Mellomregning:* $\\left(t^{1/2}\\right)^{2\\alpha}=t^{\\alpha}$.\n\nFunksjonen er homogen av grad $k=\\alpha$. Med $\\alpha=2$ er $k=2>1$: **økende skalautbytte**. Dobles begge faktorer, firedobles produksjonen, siden $2^{2}=4$.\n\n*Vanlig felle:* å svare at produksjonen ganges med $2\\alpha=4$ ved en tilfeldighet her — men riktig regel er $2^{k}$, ikke $2k$. For $\\alpha=3$ ville de to gitt henholdsvis 8 og 6.\n\n**b) Homogenitet i prisene.** Erstatt $r$ med $tr$ og $w$ med $tw$:\n\n$$C(tr,tw,\\bar Y)=\\frac{tr\\cdot tw}{tr+tw}\\,\\bar Y^{1/\\alpha}=\\frac{t^{2}rw}{t(r+w)}\\,\\bar Y^{1/\\alpha}=t\\cdot\\frac{rw}{r+w}\\,\\bar Y^{1/\\alpha}=t\\,C(r,w,\\bar Y)\\ ✓$$\n\n*Intuisjon:* de kostnadsminimerende mengdene rører seg ikke når begge priser skaleres likt — bare prisforholdet styrer blandingen. Da må kostnaden skalere med nøyaktig samme faktor som prisene.\n\n**c) Grensekostnaden.** Med $\\alpha=2$ er $C=\\dfrac{rw}{r+w}\\,\\bar Y^{1/2}$, og\n\n$$\\frac{\\partial C}{\\partial\\bar Y}=\\frac{rw}{r+w}\\cdot\\frac12\\,\\bar Y^{-1/2}=\\frac{rw}{2(r+w)\\sqrt{\\bar Y}}$$\n\n**Hva størrelsen betyr:** dette er **grensekostnaden** — hva det koster å produsere én enhet mer. Den er positiv, som den må være: mer produksjon koster mer.\n\n**Hvordan den utvikler seg:** $\\bar Y$ står i nevneren, så grensekostnaden **faller** når produksjonen øker. Deriver en gang til for å vise det:\n\n$$\\frac{\\partial^{2}C}{\\partial\\bar Y^{2}}=\\frac{rw}{r+w}\\cdot\\left(-\\tfrac14\\right)\\bar Y^{-3/2}<0\\quad\\text{for alle }\\bar Y>0$$\n\n**Verbal konklusjon:** teknologien har økende skalautbytte, og det viser seg som fallende grensekostnad — jo mer bedriften produserer, desto billigere blir den neste enheten. Dette er stordriftsfordeler, og det er samme størrelse som opptrer som $\\lambda$ i Lagrange-oppsettet i [kap. 9.2](/bok/econ1100/econ1100-9-2).",
+        "hints": [
+          "For a): sett inn $tK$ og $tL$ og trekk $t^{1/2}$ utenfor parentesen før du opphøyer.",
+          "For b): erstatt begge priser med $t$ ganger seg selv, og forkort. Teller og nevner får ulik potens av $t$.",
+          "For c): $\\bar Y^{1/2}$ deriveres med potensregelen. Se hvor $\\bar Y$ havner i det deriverte uttrykket."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger PR — to faktorer i profittmaksimering.) En bedrift maksimerer $\\pi(K,N)=pF(K,N)-rK-wN$ med produktfunksjonen $F(K,N)=K^{1/3}N^{1/3}$. Produktprisen er $p=27$, kapitalprisen $r=3$ og lønna $w=3$.\n\n**a)** Sett opp de to førsteordensbetingelsene.\n\n**b)** Finn $K^*$ og $N^*$.\n\n**c)** Kontroller med Hesse-determinanten at punktet er et maksimum, og finn profitten.",
+        "solution": "**a)** Profittfunksjonen er\n\n$$\\pi(K,N)=27K^{1/3}N^{1/3}-3K-3N$$\n\nPartiellderiver. Ved $\\pi'_K$ er $N^{1/3}$ en konstant faktor:\n\n$$\\text{FOB (1)}:\\ \\pi'_K=27\\cdot\\tfrac13 K^{-2/3}N^{1/3}-3=9K^{-2/3}N^{1/3}-3=0$$\n\n$$\\text{FOB (2)}:\\ \\pi'_N=9K^{1/3}N^{-2/3}-3=0$$\n\nSkrevet som «grenseinntektsprodukt = faktorpris»:\n\n$$9K^{-2/3}N^{1/3}=3,\\qquad 9K^{1/3}N^{-2/3}=3$$\n\n**b) Del den ene på den andre.** Høyresidene er like, så\n\n$$\\frac{9K^{-2/3}N^{1/3}}{9K^{1/3}N^{-2/3}}=1\\ \\Longrightarrow\\ K^{-1}N^{1}=1\\ \\Longrightarrow\\ N=K$$\n\n*Mellomregning på eksponentene:* $K^{-2/3-1/3}=K^{-1}$ og $N^{1/3+2/3}=N^{1}$.\n\nSett $N=K$ inn i FOB (1):\n\n$$9K^{-2/3}K^{1/3}=9K^{-1/3}=3\\ \\Longrightarrow\\ K^{-1/3}=\\tfrac13\\ \\Longrightarrow\\ K^{1/3}=3$$\n\n$$\\boxed{K^*=27,\\qquad N^*=27}$$\n\n*Kontroll av FOB (2):* $9\\cdot 27^{1/3}\\cdot 27^{-2/3}=9\\cdot 27^{-1/3}=\\dfrac93=3=w$ ✓\n\n**c) Hesse-kontroll.** Deriver de to førsteordens partiellderiverte videre:\n\n$$\\pi''_{KK}=9\\cdot\\left(-\\tfrac23\\right)K^{-5/3}N^{1/3}=-6K^{-5/3}N^{1/3}$$\n\n$$\\pi''_{NN}=-6K^{1/3}N^{-5/3}$$\n\n$$\\pi''_{KN}=9\\cdot\\tfrac13 K^{-2/3}N^{-2/3}=3K^{-2/3}N^{-2/3}$$\n\nI punktet $(27,27)$ er $27^{-5/3}\\cdot 27^{1/3}=27^{-4/3}=\\dfrac{1}{81}$ og $27^{-2/3}\\cdot 27^{-2/3}=27^{-4/3}=\\dfrac{1}{81}$:\n\n$$\\pi''_{KK}=-\\frac{6}{81}=-\\frac{2}{27},\\qquad \\pi''_{NN}=-\\frac{2}{27},\\qquad \\pi''_{KN}=\\frac{3}{81}=\\frac{1}{27}$$\n\nHesse-determinanten:\n\n$$D=\\pi''_{KK}\\pi''_{NN}-\\left(\\pi''_{KN}\\right)^{2}=\\frac{4}{729}-\\frac{1}{729}=\\frac{3}{729}=\\frac{1}{243}>0$$\n\nMed $D>0$ og $\\pi''_{KK}<0$ er punktet et **lokalt maksimum** ([kap. 6.1](/bok/econ1100/econ1100-6-1)).\n\n**Profitten:**\n\n$$\\pi(27,27)=27\\cdot 27^{1/3}\\cdot 27^{1/3}-3\\cdot 27-3\\cdot 27=27\\cdot 9-162=243-162=81$$\n\n**Konklusjon:** bedriften bruker 27 enheter av hver faktor og oppnår en profitt på 81.\n\n*Merk hvorfor problemet er velbestemt:* summen av eksponentene er $\\tfrac13+\\tfrac13=\\tfrac23<1$, altså **avtakende** skalautbytte. Hadde summen vært 1 eller mer, ville profitten vokst uten grense og det ikke funnes noe maksimum — samme mekanisme som med konstant grenseprodukt i [kap. 9.1](/bok/econ1100/econ1100-9-1).",
+        "hints": [
+          "Partiellderiver profittfunksjonen mht. hver faktor for seg — den andre faktoren er da en konstant.",
+          "Del den ene betingelsen på den andre. Da forsvinner tallfaktorene og du står igjen med en enkel relasjon mellom $K$ og $N$.",
+          "For Hesse: regn ut $\\pi''_{KK}$, $\\pi''_{NN}$ og $\\pi''_{KN}$ i punktet, og sett dem inn i $D=\\pi''_{KK}\\pi''_{NN}-(\\pi''_{KN})^{2}$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-3-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger SU — hele produsentpakken.) Avgjør om påstandene er sanne eller usanne, og begrunn hver av dem.\n\n**a)** «For CES-teknologi avhenger substitusjonselastisiteten av skalaparameteren $\\alpha$.»\n\n**b)** «Når produksjonskravet $\\bar Y$ dobles, dobles den betingede faktoretterspørselen — uansett teknologi.»\n\n**c)** «Hvis $F''(N)=0$ i det stasjonære punktet, er implisitt derivasjon av førsteordensbetingelsen fortsatt mulig.»\n\n**d)** «Kostnadsfunksjonen $C(r,w,\\bar Y)$ er homogen av grad 1 i prisene, mens den betingede faktoretterspørselen er homogen av grad 0.»",
+        "solution": "**a) Usann.**\n\n*Begrunnelse ved utregning:* grenseproduktene for $F=\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma}$ er\n\n$$F'_K=\\alpha\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma-1}K^{\\gamma-1},\\qquad F'_L=\\alpha\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma-1}L^{\\gamma-1}$$\n\nDeler du dem, forkortes **både $\\alpha$ og hele parentesen** bort:\n\n$$\\frac{F'_K}{F'_L}=\\left(\\frac{K}{L}\\right)^{\\gamma-1}\\ \\Longrightarrow\\ \\sigma=\\frac{1}{\\gamma-1}$$\n\nUttrykket inneholder ikke $\\alpha$. *Konkret motbevis:* $\\gamma=\\tfrac12$ gir $\\sigma=-2$ enten $\\alpha=1$ eller $\\alpha=5$.\n\n**b) Usann.**\n\n*Begrunnelse:* proporsjonaliteten gjelder bare ved **konstant skalautbytte**. For $F=K^{a}L^{b}$ er\n\n$$K^*=\\left[\\bar Y\\left(\\frac{aw}{br}\\right)^{b}\\right]^{\\frac{1}{a+b}}\\ \\propto\\ \\bar Y^{\\frac{1}{a+b}}$$\n\nBare når $a+b=1$ er eksponenten 1.\n\n*Konkret motbevis:* med $a=b=\\tfrac12$ er $a+b=1$ og dobling gir dobling. Med $a=b=\\tfrac13$ er $a+b=\\tfrac23$, og eksponenten blir $\\tfrac32$: dobbelt produksjon krever $2^{3/2}\\approx 2{,}83$ ganger så mye av hver faktor — nesten tre ganger, ikke to.\n\n**c) Usann.**\n\n*Begrunnelse:* den implisitte derivasjonen gir\n\n$$\\frac{dN^*}{dw}=\\frac{1}{p\\,F''\\!\\left(N^*\\right)}$$\n\nMed $F''(N^*)=0$ er nevneren null, og uttrykket er **udefinert**. Det er ikke en teknisk uflaks, men et symptom: er grenseproduktet konstant ($F''\\equiv 0$), er profitten lineær i $N$ og det finnes ingen indre løsning å drive komparativ statikk på ([kap. 9.1](/bok/econ1100/econ1100-9-1)).\n\n*Merk nyansen:* er $F''=0$ bare i **det ene punktet** mens $F''<0$ ellers, kan et maksimum godt finnes — men da er den implisitte derivasjonen fortsatt blokkert i nettopp det punktet, fordi divisjon med null ikke er tillatt.\n\n**d) Sann.**\n\n*Begrunnelse ved utregning:* de kostnadsminimerende mengdene bestemmes av tangeringsbetingelsen $F'_K/F'_L=r/w$ sammen med produksjonskravet. Erstatter du $r$ med $tr$ og $w$ med $tw$, blir høyresiden\n\n$$\\frac{tr}{tw}=\\frac{r}{w}$$\n\n— uendret. Produksjonskravet inneholder ingen priser, så $K^*$ og $L^*$ står stille: homogen av grad 0 ✓\n\nFor kostnaden følger da\n\n$$C(tr,tw,\\bar Y)=tr\\,K^*+tw\\,L^*=t\\left(rK^*+wL^*\\right)=t\\,C(r,w,\\bar Y)$$\n\naltså homogen av grad 1 ✓\n\n*Økonomisk lesning:* et rent prisnivåskift endrer ikke hva som er den billigste **måten** å produsere på, bare hva regningen lyder på.",
+        "hints": [
+          "For a): hvilke faktorer forkortes bort når du deler de to grenseproduktene i CES?",
+          "For b): hvilken eksponent har $\\bar Y$ i uttrykket for $K^*$, og når er den lik 1?",
+          "For c): se på nevneren i uttrykket for $dN^*/dw$ — hva skjer når $F''=0$?",
+          "For d): erstatt begge priser med $t$ ganger seg selv i tangeringsbetingelsen og se hva som overlever."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-9-3-bb-femsteg",
+      "type": "definition",
+      "title": "Femstegsoppskriften for produsentoppgaven",
+      "content": "Hele sjangeren, slik den skal føres på arket.\n\n$$1)\\ \\text{hvilket problem};\\ 2)\\ \\text{betingelsen};\\ 3)\\ \\text{løs};\\ 4)\\ \\text{implisitt derivasjon};\\ 5)\\ \\text{tolk fortegnet}$$\n\nSteg 5 glemmes oftest, og det er steget som er billigst å ta: én setning som sier hva fortegnet betyr økonomisk."
+    },
+    {
+      "id": "econ1100-9-3-bb-implisitt",
+      "type": "definition",
+      "title": "Komparativ statikk ved implisitt derivasjon",
+      "content": "Grepet: deriver likevektsbetingelsen, ikke løsningen.\n\n$$p\\,F'\\!\\left(N^*\\right)=w\\ \\Longrightarrow\\ p\\,F''\\!\\left(N^*\\right)\\frac{dN^*}{dw}=1$$\n\nBetingelsen er en **identitet i parameteren** — den holder for enhver $w$. Derfor kan begge sider deriveres."
+    },
+    {
+      "id": "econ1100-9-3-bb-dNdw",
+      "type": "definition",
+      "title": "Lønnsvirkningen på sysselsettingen",
+      "content": "Standardresultatet, og fortegnet som følger av andreordensbetingelsen.\n\n$$\\frac{dN^*}{dw}=\\frac{1}{p\\,F''\\!\\left(N^*\\right)}<0\\quad\\text{når }F''<0$$\n\nFortegnet avhenger ikke av hvilken teknologi bedriften har, bare av at andreordensbetingelsen er oppfylt."
+    },
+    {
+      "id": "econ1100-9-3-bb-dNdp",
+      "type": "definition",
+      "title": "Prisvirkningen på sysselsettingen",
+      "content": "Samme grep, men med produktregelen først fordi $p$ står som faktor.\n\n$$\\frac{dN^*}{dp}=-\\frac{F'\\!\\left(N^*\\right)}{p\\,F''\\!\\left(N^*\\right)}>0$$\n\nNegativ teller og negativ nevner gir positivt uttrykk: høyere produktpris gir høyere sysselsetting."
+    },
+    {
+      "id": "econ1100-9-3-bb-elastisitet-generell",
+      "type": "definition",
+      "title": "Den generelle lønnselastisiteten",
+      "content": "Elastisiteten uttrykt i teknologien alene — prisene forkortes bort.\n\n$$\\mathrm{El}_w N^*=\\frac{F'\\!\\left(N^*\\right)}{N^*\\,F''\\!\\left(N^*\\right)}$$\n\nFås ved å sette $w=pF'(N^*)$ inn i $\\dfrac{w}{N^*}\\cdot\\dfrac{dN^*}{dw}$. For $F=AN^{a}$ gir den $-\\dfrac{1}{1-a}$."
+    },
+    {
+      "id": "econ1100-9-3-bb-kjerneregel-felle",
+      "type": "definition",
+      "title": "Varselsignalet: 0 = 1",
+      "content": "Kontrollen som avslører den vanligste feilen i komparativ statikk.\n\n$$\\text{Glemt kjerneregel}\\ \\Longrightarrow\\ 0=1$$\n\nBehandler du $N^*$ som konstant, blir venstresiden konstant og derivasjonen gir en umulighet. Får du det, mangler faktoren $dN^*/dw$."
+    },
+    {
+      "id": "econ1100-9-3-bb-betinget-elast",
+      "type": "definition",
+      "title": "Elastisitetene i betinget faktoretterspørsel",
+      "content": "Hvordan kapitalbruken svarer på faktorprisene når produksjonen er låst.\n\n$$\\mathrm{El}_w K^*=\\frac{b}{a+b}>0,\\qquad \\mathrm{El}_r K^*=-\\frac{b}{a+b}$$\n\nPositiv for den **andre** faktorens pris: blir arbeid dyrere, brukes mer kapital. Ren substitusjon langs isokvanten."
+    },
+    {
+      "id": "econ1100-9-3-bb-homogenitet-priser",
+      "type": "definition",
+      "title": "De to homogenitetsgradene",
+      "content": "Resultatet sant/usant-oppgaven stadig tester.\n\n$$K^*(tr,tw,\\bar Y)=K^*(r,w,\\bar Y);\\qquad C(tr,tw,\\bar Y)=t\\,C(r,w,\\bar Y)$$\n\nMengdene er homogene av grad 0, kostnaden av grad 1. Bare prisforholdet flytter blandingen."
+    },
+    {
+      "id": "econ1100-9-3-bb-skalautbytte-krav",
+      "type": "definition",
+      "title": "Skalautbytte og hvor mye mer som trengs",
+      "content": "Hvor mye faktorbruken må opp for at produksjonen skal doble seg.\n\n$$F\\ \\text{homogen av grad }k\\ \\Longrightarrow\\ K^*\\propto\\bar Y^{1/k}$$\n\nBare ved $k=1$ gir dobbelt produksjon dobbelt faktorbruk. Med $k<1$ trengs mer enn dobbelt, med $k>1$ mindre."
+    },
+    {
+      "id": "econ1100-9-3-bb-varselsignaler",
+      "type": "definition",
+      "title": "Varselsignaler i oppgaveteksten",
+      "content": "Hvilken variant av sjangeren du står overfor, lest av ordvalget.\n\n$$\\bar Y\\ \\text{oppgitt}\\ \\to\\ \\text{kostnadsmin};\\qquad p,w\\ \\text{oppgitt}\\ \\to\\ \\text{profittmaks}$$\n\n«Skal levere» og «produksjonskravet er» peker på kostnadsminimering; «maksimer profitten» og «hvor mange skal ansettes» på profittmaksimering; «hva skjer når» på komparativ statikk. Ordet «fortegnet på» betyr nesten alltid at du **ikke** skal regne ut tallverdien — argumentet er svaret."
+    },
+    {
+      "id": "econ1100-9-3-bb-kontroll",
+      "type": "definition",
+      "title": "Kontrollene som alltid virker",
+      "content": "Tre raske kontroller å kjøre før du leverer.\n\n$$1)\\ p\\,F'\\!\\left(N^*\\right)\\overset{?}{=}w;\\qquad 2)\\ F\\!\\left(K^*,L^*\\right)\\overset{?}{=}\\bar Y;\\qquad 3)\\ \\frac{rK^*}{C}\\overset{?}{=}\\frac{a}{a+b}$$\n\nFørste kontroll gjelder profittmaks, andre og tredje kostnadsmin. Alle tre tar under et minutt."
+    },
+    {
+      "id": "econ1100-9-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-9-3-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $N$ | Sysselsetting — mengden arbeidskraft bedriften bruker |\n| $K$ | Kapital |\n| $L$ | Arbeidskraft, i kostnadsminimeringsoppgavene |\n| $p$ | Produktprisen |\n| $w$ | Lønn per enhet arbeid |\n| $r$ | Kapitalprisen |\n| $t$ | To betydninger i dette kapitlet, og oppgaveteksten sier alltid hvilken: arbeidsgiveravgift som andel av lønna (oppgave 2), og skaleringsfaktoren i homogenitetstesten $F(tK,tL)=t^{k}F(K,L)$ (oppgave 9 og 11) |\n| $F(N)$, $F(K,L)$ | Produktfunksjonen |\n| $F'$, $F''$ | Grenseproduktet og dets derivert |\n| $\\bar Y$ | Produksjonskravet i kostnadsminimering |\n| $N^*$, $K^*$, $L^*$ | De optimale mengdene |\n| $\\pi$ | Profittfunksjonen |\n| $C(r,w,\\bar Y)$ | Kostnadsfunksjonen |\n| $D$ | Hesse-determinanten $\\pi''_{KK}\\pi''_{NN}-(\\pi''_{KN})^{2}$ |\n| $\\sigma$ | Substitusjonselastisiteten |\n| $\\gamma$, $\\alpha$ | Substitusjons- og skalaparameter i CES |\n| $a$, $b$ | Eksponentene i Cobb-Douglas |\n| $k$ | Homogenitetsgraden — skalautbyttet |\n\n**Formler i dette delkapitlet:**\n\n$$p\\,F'(N)=w$$\nFørsteordensbetingelsen i profittmaksimering. Grenseinntektsprodukt lik lønn.\n\n$$\\frac{dN^*}{dw}=\\frac{1}{p\\,F''\\!\\left(N^*\\right)}$$\nLønnsvirkningen, funnet ved implisitt derivasjon. Negativ når andreordensbetingelsen holder.\n\n$$\\frac{dN^*}{dp}=-\\frac{F'\\!\\left(N^*\\right)}{p\\,F''\\!\\left(N^*\\right)}$$\nPrisvirkningen. Positiv med $F'>0$ og $F''<0$.\n\n$$\\mathrm{El}_w N^*=\\frac{F'\\!\\left(N^*\\right)}{N^*\\,F''\\!\\left(N^*\\right)}$$\nDen generelle lønnselastisiteten. Prisene forkortes bort — bare teknologien betyr noe.\n\n$$\\frac{F'_K}{F'_L}=\\frac{r}{w}$$\nTangeringsbetingelsen i kostnadsminimering.\n\n$$\\mathrm{El}_w K^*=\\frac{b}{a+b}$$\nLønnselastisiteten i betinget kapitaletterspørsel for $F=K^{a}L^{b}$. Positiv — substitusjon.\n\n$$C(tr,tw,\\bar Y)=t\\,C(r,w,\\bar Y)$$\nKostnadsfunksjonen er homogen av grad 1 i prisene; mengdene av grad 0.\n\n$$D=\\pi''_{KK}\\pi''_{NN}-\\left(\\pi''_{KN}\\right)^{2}$$\nHesse-determinanten, brukt når profittmaksimeringen har to frie faktorer."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

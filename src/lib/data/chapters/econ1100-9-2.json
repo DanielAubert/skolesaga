@@ -1,0 +1,418 @@
+{
+  "id": "econ1100-9-2",
+  "courseId": "econ1100",
+  "chapterNumber": "9.2",
+  "title": "Kostnadsminimering: Cobb-Douglas, CES og substitusjonselastisitet",
+  "description": "Bedriften som skal levere en gitt mengde til lavest mulig kostnad: tangeringsbetingelsen MP_K/MP_L = r/w, betinget faktoretterspørsel, og substitusjonselastisiteten som måler hvor lett kapital og arbeid bytter plass.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp kostnadsminimeringsproblemet og utlede tangeringsbetingelsen mellom grenseprodukter og faktorpriser",
+    "finne betinget faktoretterspørsel og kostnadsfunksjon for Cobb-Douglas- og CES-teknologi",
+    "regne ut og tolke substitusjonselastisiteten, og skille den fra skalautbyttet",
+    "kjenne igjen de vanligste fortegns- og eksponentfellene i CES-algebraen"
+  ],
+  "content": [
+    {
+      "id": "econ1100-9-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet utsatt-eksamenene er glade i.**\n\n**Sjanger PR — produsentteori** står i **8 av 16 sett** i arkivet. Fordelingen er skjev: **3 av 9 ordinære** sett, men **5 av 7 utsatte**. Regner du bare på ordinære sett, undervurderer du sjangeren kraftig — og du vet ikke på forhånd hvilket sett du får.\n\n**Innenfor sjangeren er kostnadsminimering utsatt-settenes favoritt**, og den kommer i to former: Cobb-Douglas-teknologi (den greie) og CES-teknologi (den algebratunge). CES er der flest mister poeng, fordi eksponentene er stygge og fortegnene lette å snu.\n\n**Godt nytt:** metoden er den du allerede kan. Dette er Lagrange fra [kap. 8.2](/bok/econ1100/econ1100-8-2), med nye navn på symbolene. Nytten er byttet ut med et produksjonskrav, budsjettlinjen med en kostnadslinje — regnestykket er det samme.\n\nKapitlet har prioritet **kunne**, vektet opp mot utsatt-profilen. Tidsanslaget er **55 minutter**, delt i fire løkker.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett med offisielle sensorveiledninger fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025).*"
+    },
+    {
+      "id": "econ1100-9-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger direkte på [kap. 8.2](/bok/econ1100/econ1100-8-2) (eliminering av $\\lambda$ og tangeringsbetingelsen) og [kap. 7.1](/bok/econ1100/econ1100-7-1) (homogenitet og skalautbytte). [Kap. 5.1](/bok/econ1100/econ1100-5-1) (nivåkurver) og [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderivasjon) ligger under.\n\n**Sist du var her — de tre linjene alt bygger på:**\n\n$$\\frac{F'_x}{F'_y}=\\frac{g'_x}{g'_y}\\qquad\\text{— multiplikatoren faller ut når du deler den ene betingelsen på den andre}$$\n\n$$\\frac{U'_x}{U'_y}=\\frac{p_1}{p_2}\\qquad\\text{— tangeringsbetingelsen i konsumentproblemet}$$\n\n$$F(tK,tL)=t^{k}F(K,L)\\qquad\\text{— homogen av grad }k\\text{; }k\\text{ er skalautbyttet}$$\n\nSitter de tre, er dette kapitlet i hovedsak nye navn på kjent algebra."
+    },
+    {
+      "id": "econ1100-9-2-motivasjon",
+      "type": "text",
+      "content": "Et gartneri skal levere 60 tonn tomater til en kjede. Kontrakten sier hvor mye som skal leveres — den sier ingenting om hvordan. Gartneriet kan bygge flere veksthus med automatisk vanning, eller ansette flere gartnere som gjør jobben for hånd.\n\nBegge veier når 60 tonn. De koster ulikt. Og hva som er billigst, avhenger av prisen på veksthus mot prisen på arbeidskraft.\n\nDet er hele kapitlet: **mengden er gitt, kostnaden skal ned**. Det er speilbildet av konsumentproblemet i [kap. 8.2](/bok/econ1100/econ1100-8-2), der pengesekken var gitt og nytten skulle opp. Samme apparat, motsatt vei."
+    },
+    {
+      "id": "econ1100-9-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Problemet, isokvanten og tangeringsbetingelsen (~15 min)"
+    },
+    {
+      "id": "econ1100-9-2-def-isokvant",
+      "type": "definition",
+      "title": "Isokvanten",
+      "content": "Isokvanten samler alle faktorkombinasjoner som gir nøyaktig samme produksjonsmengde.\n\n$$F(K,L)=\\bar Y$$\n\nHer er $K$ kapital (maskiner, veksthus), $L$ arbeidskraft og $\\bar Y$ produksjonskravet — streken over $Y$ betyr at tallet er fastlåst av oppgaven. **Isokvanten er ganske enkelt en nivåkurve** for produktfunksjonen ([kap. 5.1](/bok/econ1100/econ1100-5-1)), og helningen er den samme du regnet ut der: $dK/dL=-F'_L/F'_K$."
+    },
+    {
+      "id": "econ1100-9-2-def-isokost",
+      "type": "definition",
+      "title": "Isokostlinjen",
+      "content": "Isokostlinjen samler alle faktorkombinasjoner som koster like mye.\n\n$$rK+wL=c$$\n\n$r$ er kapitalprisen (leieprisen på en maskin) og $w$ er lønna. Linja er rett, og helningen er $-w/r$: gir du fra deg én enhet arbeid, sparer du $w$ kroner, og for dem får du $w/r$ enheter kapital. Lavere $c$ gir en parallell linje nærmere origo."
+    },
+    {
+      "id": "econ1100-9-2-def-problemet",
+      "type": "definition",
+      "title": "Kostnadsminimeringsproblemet",
+      "content": "Bedriften velger den billigste faktorkombinasjonen som klarer produksjonskravet.\n\n$$\\min_{K,L}\\ rK+wL\\quad\\text{under}\\quad F(K,L)=\\bar Y$$\n\nMålfunksjonen er kostnaden, bibetingelsen er produksjonskravet. Det er nøyaktig samme form som nyttemaksimering under budsjett — bare med rollene byttet: **det som var mål er nå betingelse, og det som var betingelse er nå mål.**"
+    },
+    {
+      "id": "econ1100-9-2-notasjonsvarsel",
+      "type": "text",
+      "content": "**En liten, men nødvendig, merknad om notasjon.** I resten av boka har $L$ vært Lagrange-funksjonen. I produsentteori er $L$ arbeidskraft, og det er den betydningen eksamenssettene bruker. For å unngå kollisjon skriver vi Lagrange-funksjonen $\\mathcal{L}$ (krøllete L) i dette kapitlet. Det er samme funksjon som før, bare med en annen bokstavform."
+    },
+    {
+      "id": "econ1100-9-2-utledning-tangering",
+      "type": "text",
+      "content": "**Utledning med intuisjon.** Sett opp Lagrange-funksjonen slik du gjorde i [kap. 8.1](/bok/econ1100/econ1100-8-1) — mål minus multiplikator ganger avviket i bibetingelsen:\n\n$$\\mathcal{L}=rK+wL-\\lambda\\big(F(K,L)-\\bar Y\\big)$$\n\nFørsteordensbetingelsene er:\n\n$$\\text{FOB (1)}:\\ \\mathcal{L}'_K=r-\\lambda F'_K=0\\ \\Longrightarrow\\ r=\\lambda F'_K$$\n\n$$\\text{FOB (2)}:\\ \\mathcal{L}'_L=w-\\lambda F'_L=0\\ \\Longrightarrow\\ w=\\lambda F'_L$$\n\n$$\\text{FOB (3)}:\\ F(K,L)=\\bar Y$$\n\n*Intuisjon:* $\\lambda$ er prisen på én ekstra produsert enhet — grensekostnaden. FOB (1) sier at maskinens pris er lik den verdien maskinen bidrar med, målt i grensekostnad.\n\n**Del FOB (1) på FOB (2).** Multiplikatoren står som faktor på begge sider og forsvinner:\n\n$$\\frac{r}{w}=\\frac{\\lambda F'_K}{\\lambda F'_L}=\\frac{F'_K}{F'_L}$$\n\n*Intuisjon:* dette er samme grep som i konsumentproblemet. Du er ikke interessert i $\\lambda$ — du vil vite hvor mye kapital og arbeid bedriften kjøper."
+    },
+    {
+      "id": "econ1100-9-2-def-tangering",
+      "type": "definition",
+      "title": "Tangeringsbetingelsen i produksjon",
+      "content": "I den billigste kombinasjonen er forholdet mellom grenseproduktene lik forholdet mellom faktorprisene.\n\n$$\\frac{MP_K}{MP_L}=\\frac{F'_K}{F'_L}=\\frac{r}{w}$$\n\n$MP_K=F'_K$ er **grenseproduktet av kapital** — den ekstra produksjonen én ekstra maskin gir. Tilsvarende for $MP_L$.\n\n**Økonomisk lesning:** venstresiden er hva bedriften teknisk får igjen for å bytte arbeid mot kapital. Høyresiden er hva markedet krever for byttet. Er de ulike, finnes et bytte som holder produksjonen og senker kostnaden — da er du ikke i optimum. Geometrisk betyr likheten at **isokostlinjen tangerer isokvanten**."
+    },
+    {
+      "id": "econ1100-9-2-eks1",
+      "type": "example",
+      "title": "Eksempel 1: Gartneriets billigste vei til 60 tonn",
+      "problem": "Gartneriet har produktfunksjonen $F(K,L)=K^{1/2}L^{1/2}$ og skal levere $\\bar Y=60$. Kapitalprisen er $r=4$ og lønna $w=9$.\n\n**a)** Sett opp tangeringsbetingelsen.\n\n**b)** Finn $K^*$ og $L^*$.\n\n**c)** Hva blir den minimale kostnaden?",
+      "solution": "**a) Grenseproduktene.** Ved $F'_K$ er $L^{1/2}$ en konstant faktor:\n\n$$F'_K=\\tfrac12 K^{-1/2}L^{1/2},\\qquad F'_L=\\tfrac12 K^{1/2}L^{-1/2}$$\n\nForholdet forenkles ved å legge sammen eksponentene:\n\n$$\\frac{F'_K}{F'_L}=\\frac{\\tfrac12 K^{-1/2}L^{1/2}}{\\tfrac12 K^{1/2}L^{-1/2}}=K^{-1}L^{1}=\\frac{L}{K}$$\n\n*Mellomregning:* $K^{-1/2-1/2}=K^{-1}$ og $L^{1/2+1/2}=L^{1}$.\n\n**Tangeringsbetingelsen** blir dermed\n\n$$\\frac{L}{K}=\\frac{r}{w}=\\frac{4}{9}\\ \\Longrightarrow\\ L=\\frac{4}{9}K$$\n\n**b) Sett inn i produksjonskravet.**\n\n$$K^{1/2}\\left(\\tfrac49 K\\right)^{1/2}=60\\ \\Longrightarrow\\ K\\cdot\\left(\\tfrac49\\right)^{1/2}=60\\ \\Longrightarrow\\ \\tfrac23 K=60$$\n\n$$\\boxed{K^*=90,\\qquad L^*=\\tfrac49\\cdot 90=40}$$\n\n*Kontroll av bibetingelsen:* $\\sqrt{90}\\cdot\\sqrt{40}=\\sqrt{3600}=60$ ✓\n\n**c) Kostnaden:**\n\n$$rK^*+wL^*=4\\cdot 90+9\\cdot 40=360+360=720$$\n\n*Rimelighetssjekk:* prøv en nabokombinasjon som også klarer kravet, for eksempel $K=100$, som krever $L=3600/100=36$. Da blir kostnaden $4\\cdot 100+9\\cdot 36=400+324=724>720$ ✓ Og $K=80$ krever $L=45$: $320+405=725>720$ ✓\n\n**Verbal konklusjon:** gartneriet bruker 90 enheter kapital og 40 enheter arbeid, og 60 tonn koster da 720. Legg merke til at de to kostnadspostene ble like store — det er ingen tilfeldighet når eksponentene er like, og vi kommer tilbake til det i Løkke 4."
+    },
+    {
+      "id": "econ1100-9-2-fig-isokvant",
+      "type": "image",
+      "src": "/images/textbook/econ1100/isokvant-isokost.svg",
+      "alt": "Koordinatsystem med arbeidskraft L langs den vannrette aksen og kapital K langs den loddrette. En fallende, konveks isokvant og en rett isokostlinje berorer hverandre i ett punkt, markert med stiplede hjelpelinjer ned til aksene. En andre, parallell isokostlinje ligger naermere origo uten a treffe isokvanten.",
+      "caption": "Gartneriets problem tegnet opp. Den lilla kurven er isokvanten $F(K,L)=\\bar Y$ — alle kombinasjoner som gir 60 tonn. Den blå linja er den billigste isokostlinjen som i det hele tatt rekker opp til kravet, og den berører isokvanten i $(L^*,K^*)=(40,90)$. Den stiplede linja under er billigere, men når ikke kravet. I berøringspunktet er helningene like, og det er nettopp $MP_K/MP_L=r/w$."
+    },
+    {
+      "id": "econ1100-9-2-figur-i-ord",
+      "type": "text",
+      "content": "**Figuren i ord** — slik skal skissen din se ut på eksamen, der du ikke har figuren foran deg:\n\n- **Aksene:** arbeidskraft $L$ vannrett, kapital $K$ loddrett. (Motsatt av mange lærebøker — sjekk alltid oppgavens egen konvensjon.)\n- **Isokvanten** er fallende og krummer mot origo (konveks). Den nærmer seg begge akser uten å treffe dem: du kan ikke produsere noe med null arbeid.\n- **Isokostlinjen** er rett med helning $-w/r$, og den optimale linja **berører** isokvanten i ett punkt.\n- **Fra berøringspunktet** går stiplede hjelpelinjer ned til $L^*$ og bort til $K^*$.\n- **Parallelle isokostlinjer** nærmere origo er billigere, men treffer ikke isokvanten. Linjer lenger ut er dyrere enn nødvendig."
+    },
+    {
+      "id": "econ1100-9-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger PR — produsentteori, i 8 av 16 sett. Innstegsoppgave.) En bedrift har produktfunksjonen $F(K,L)=K^{1/2}L^{1/2}$ og skal produsere $\\bar Y=20$. Kapitalprisen er $r=1$ og lønna $w=4$.\n\n**a)** Finn tangeringsbetingelsen.\n\n**b)** Finn $K^*$ og $L^*$.\n\n**c)** Finn den minimale kostnaden.",
+        "solution": "**a)** Som i Eksempel 1 er $F'_K/F'_L=L/K$, så tangeringsbetingelsen er\n\n$$\\frac{L}{K}=\\frac{r}{w}=\\frac{1}{4}\\ \\Longrightarrow\\ L=\\tfrac14 K$$\n\n**b)** Sett inn i $K^{1/2}L^{1/2}=20$:\n\n$$K^{1/2}\\left(\\tfrac14 K\\right)^{1/2}=K\\cdot\\tfrac12=20\\ \\Longrightarrow\\ K^*=40,\\qquad L^*=10$$\n\n*Kontroll:* $\\sqrt{40\\cdot 10}=\\sqrt{400}=20$ ✓\n\n**c)**\n\n$$1\\cdot 40+4\\cdot 10=40+40=80$$\n\n*Kontroll av at det er et minimum:* $K=50$ krever $L=400/50=8$, som koster $50+32=82>80$ ✓\n\n**Konklusjon:** bedriften bruker 40 enheter kapital og 10 enheter arbeid, og kostnaden er 80. Igjen deles kostnaden i to like store poster, som med like eksponenter.",
+        "hints": [
+          "Grenseproduktene for $K^{1/2}L^{1/2}$ gir et enkelt forhold — legg sammen eksponentene når du deler.",
+          "Tangeringsbetingelsen uttrykker $L$ ved $K$. Sett det uttrykket rett inn i produksjonskravet.",
+          "Etter innsettingen står du igjen med $K$ ganget med en tallfaktor. Løs for $K$ og gå tilbake for $L$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Betinget faktoretterspørsel (~14 min)"
+    },
+    {
+      "id": "econ1100-9-2-lokke2-inn",
+      "type": "text",
+      "content": "I Eksempel 1 fikk du to tall. På eksamen blir du oftere bedt om to **funksjoner**: hvor mye kapital og arbeid bedriften vil ha ved en hvilken som helst kombinasjon av priser og produksjonskrav.\n\nRegningen er den samme. Du lar bare $r$, $w$ og $\\bar Y$ stå som bokstaver hele veien."
+    },
+    {
+      "id": "econ1100-9-2-def-betinget",
+      "type": "definition",
+      "title": "Betinget faktoretterspørsel",
+      "content": "Den betingede faktoretterspørselen er den kostnadsminimerende faktorbruken sett som funksjon av prisene og produksjonskravet.\n\n$$K^*=K^*(r,w,\\bar Y),\\qquad L^*=L^*(r,w,\\bar Y)$$\n\nOrdet **betinget** betyr «gitt at produksjonen skal være $\\bar Y$». Det skiller den fra faktoretterspørselen i [kap. 9.1](/bok/econ1100/econ1100-9-1), der produksjonsmengden ikke var låst, men noe bedriften selv valgte."
+    },
+    {
+      "id": "econ1100-9-2-thm-cd",
+      "type": "theorem",
+      "title": "Oppskriften for Cobb-Douglas-teknologi",
+      "content": "For $F(K,L)=K^{a}L^{b}$ med $a,b>0$ gir tangeringsbetingelsen\n\n$$\\frac{F'_K}{F'_L}=\\frac{aK^{a-1}L^{b}}{bK^{a}L^{b-1}}=\\frac{a}{b}\\cdot\\frac{L}{K}=\\frac{r}{w}$$\n\n$$\\Longrightarrow\\quad L=\\frac{b}{a}\\cdot\\frac{r}{w}\\,K$$\n\nSett dette inn i $K^{a}L^{b}=\\bar Y$ og løs for $K$. Legg merke til to ting med én gang:\n\n- **Faktorforholdet $K/L$ avhenger bare av $r/w$**, aldri av $\\bar Y$. Endrer kravet seg, skaleres begge faktorer i takt.\n- **Bare prisforholdet betyr noe.** Dobles både $r$ og $w$, står $K^*$ og $L^*$ stille — bare kostnaden dobles."
+    },
+    {
+      "id": "econ1100-9-2-eks2",
+      "type": "example",
+      "title": "Eksempel 2: Ulike eksponenter",
+      "problem": "En produsent har $F(K,L)=K^{1/3}L^{2/3}$, kapitalpris $r=1$, lønn $w=16$ og produksjonskrav $\\bar Y=10$.\n\n**a)** Finn $K^*$ og $L^*$.\n\n**b)** Finn kostnaden, og regn ut hvor stor andel hver faktor tar av den.\n\n**c)** Sett opp den betingede faktoretterspørselen generelt, med $r$, $w$ og $\\bar Y$ som bokstaver.",
+      "solution": "**a) Tangeringsbetingelsen** med $a=\\tfrac13$ og $b=\\tfrac23$:\n\n$$\\frac{a}{b}\\cdot\\frac{L}{K}=\\frac{1/3}{2/3}\\cdot\\frac{L}{K}=\\frac12\\cdot\\frac{L}{K}=\\frac{r}{w}=\\frac{1}{16}$$\n\n$$\\Longrightarrow\\ \\frac{L}{K}=\\frac{2}{16}=\\frac18\\ \\Longrightarrow\\ L=\\tfrac18 K$$\n\nSett inn i produksjonskravet:\n\n$$K^{1/3}\\left(\\tfrac18 K\\right)^{2/3}=K\\cdot\\left(\\tfrac18\\right)^{2/3}=K\\cdot\\tfrac14=10$$\n\n*Mellomregning:* $\\left(\\tfrac18\\right)^{2/3}=\\left(\\tfrac12\\right)^{2}=\\tfrac14$, siden $8^{1/3}=2$.\n\n$$\\boxed{K^*=40,\\qquad L^*=5}$$\n\n*Kontroll:* $40^{1/3}\\cdot 5^{2/3}=\\left(40\\cdot 25\\right)^{1/3}=1000^{1/3}=10$ ✓\n\n**b) Kostnaden:**\n\n$$1\\cdot 40+16\\cdot 5=40+80=120$$\n\nAndelene er\n\n$$\\frac{rK^*}{C}=\\frac{40}{120}=\\frac13,\\qquad \\frac{wL^*}{C}=\\frac{80}{120}=\\frac23$$\n\n**Andelene er nøyaktig eksponentene.** Det er ikke tilfeldig, og gjelder generelt for Cobb-Douglas med $a+b=1$ — vi viser det i Løkke 4.\n\n**c) Generelt.** Med $a=\\tfrac13$, $b=\\tfrac23$ gir tangeringsbetingelsen $L=\\dfrac{2r}{w}K$. Innsatt:\n\n$$K^{1/3}\\left(\\frac{2r}{w}K\\right)^{2/3}=K\\left(\\frac{2r}{w}\\right)^{2/3}=\\bar Y$$\n\n$$\\boxed{K^*=\\bar Y\\left(\\frac{w}{2r}\\right)^{2/3},\\qquad L^*=\\bar Y\\left(\\frac{2r}{w}\\right)^{1/3}}$$\n\n*Kontroll med tallene fra a):* $K^*=10\\left(\\tfrac{16}{2}\\right)^{2/3}=10\\cdot 8^{2/3}=10\\cdot 4=40$ ✓ og $L^*=10\\left(\\tfrac{2}{16}\\right)^{1/3}=10\\cdot\\tfrac12=5$ ✓\n\n**Legg merke til:** begge uttrykkene er proporsjonale med $\\bar Y$, og de avhenger av $r$ og $w$ bare gjennom forholdet. Dobler du begge prisene, endres ingen av mengdene."
+    },
+    {
+      "id": "econ1100-9-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger PR.) Bruk uttrykkene fra Eksempel 2 c): $K^*=\\bar Y\\left(\\dfrac{w}{2r}\\right)^{2/3}$ og $L^*=\\bar Y\\left(\\dfrac{2r}{w}\\right)^{1/3}$.\n\n**a)** Hva skjer med $K^*$ og $L^*$ hvis både $r$ og $w$ dobles?\n\n**b)** Hva skjer med kostnaden i samme situasjon?\n\n**c)** Hva skjer med $K^*$ hvis $\\bar Y$ dobles og prisene står stille?",
+        "solution": "**a) Ingenting.** Begge uttrykk avhenger av prisene bare gjennom brøken $w/r$, og den er uendret når begge dobles:\n\n$$\\frac{2w}{2\\cdot 2r}=\\frac{w}{2r}$$\n\n*Økonomisk:* et rent prisnivåskift endrer ikke hva som er den billigste **måten** å produsere på. Bare det relative prisforholdet kan flytte bedriften langs isokvanten.\n\n**b) Den dobles.** Mengdene står stille, så\n\n$$C=2r\\,K^*+2w\\,L^*=2\\left(rK^*+wL^*\\right)$$\n\nKostnadsfunksjonen er altså homogen av grad 1 i prisene ([kap. 7.1](/bok/econ1100/econ1100-7-1)).\n\n**c) Den dobles.** Uttrykket er proporsjonalt med $\\bar Y$: $K^*(r,w,2\\bar Y)=2\\bar Y\\left(\\tfrac{w}{2r}\\right)^{2/3}=2K^*(r,w,\\bar Y)$.\n\n*Hvorfor:* teknologien har konstant skalautbytte her ($a+b=1$), så dobbelt produksjon krever nøyaktig dobbelt av alt.",
+        "hints": [
+          "Se på hvilken form prisene faktisk står i uttrykkene — er det $r$ og $w$ hver for seg, eller bare en brøk?",
+          "For kostnaden: mengdene endrer seg ikke, så bare prisfaktoren foran hver mengde endres.",
+          "For c): $\\bar Y$ står som ren faktor foran, uten eksponent. Hva gjør det med proporsjonaliteten?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — annen eksponentfordeling.) En bedrift har $F(K,L)=K^{1/4}L^{3/4}$, kapitalpris $r=1$, lønn $w=48$ og produksjonskrav $\\bar Y=4$.\n\n**a)** Finn tangeringsbetingelsen og uttrykk $L$ ved $K$.\n\n**b)** Finn $K^*$, $L^*$ og kostnaden.\n\n**c)** Regn ut kostnadsandelene, og sammenlign med eksponentene.",
+        "solution": "**a)** Med $a=\\tfrac14$, $b=\\tfrac34$:\n\n$$\\frac{F'_K}{F'_L}=\\frac{a}{b}\\cdot\\frac{L}{K}=\\frac{1/4}{3/4}\\cdot\\frac{L}{K}=\\frac13\\cdot\\frac{L}{K}=\\frac{r}{w}=\\frac{1}{48}$$\n\n$$\\Longrightarrow\\ \\frac{L}{K}=\\frac{3}{48}=\\frac{1}{16}\\ \\Longrightarrow\\ L=\\tfrac{1}{16}K$$\n\n**b) Sett inn i $K^{1/4}L^{3/4}=4$:**\n\n$$K^{1/4}\\left(\\tfrac{1}{16}K\\right)^{3/4}=K\\cdot\\left(\\tfrac{1}{16}\\right)^{3/4}=K\\cdot\\tfrac18=4$$\n\n*Mellomregning:* $16^{3/4}=\\left(16^{1/4}\\right)^{3}=2^{3}=8$.\n\n$$K^*=32,\\qquad L^*=\\tfrac{32}{16}=2$$\n\n*Kontroll:* $32^{1/4}\\cdot 2^{3/4}=\\left(32\\cdot 2^{3}\\right)^{1/4}=256^{1/4}=4$ ✓\n\n$$C=1\\cdot 32+48\\cdot 2=32+96=128$$\n\n**c) Andelene:**\n\n$$\\frac{rK^*}{C}=\\frac{32}{128}=\\frac14,\\qquad \\frac{wL^*}{C}=\\frac{96}{128}=\\frac34$$\n\nDe er nøyaktig eksponentene $a=\\tfrac14$ og $b=\\tfrac34$.\n\n**Konklusjon:** bedriften bruker 32 enheter kapital og 2 enheter arbeid til en kostnad på 128, og arbeid tar tre firedeler av regningen — akkurat som eksponenten sier. Dette er en rask og god kontroll på egen utregning: stemmer ikke andelene med eksponentene, har du regnet feil et sted.",
+        "hints": [
+          "Forholdet mellom grenseproduktene for $K^{a}L^{b}$ blir alltid $\\dfrac{a}{b}\\cdot\\dfrac{L}{K}$ — vis den forenklingen først.",
+          "Etter innsetting samler du $K$-ene: $K^{1/4}\\cdot K^{3/4}=K$. Tallfaktoren er $\\left(1/16\\right)^{3/4}$.",
+          "For c): del hver kostnadspost på totalkostnaden, og sammenlign brøkene med eksponentene i produktfunksjonen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i kostnadsminimeringen",
+      "content": "- **Å snu prisforholdet.** Betingelsen er $F'_K/F'_L=r/w$: **kapitalens** grenseprodukt over **kapitalens** pris — samme faktor i teller begge steder. Skriver du $w/r$, får du en løsning som bruker mye av den dyre faktoren. Kontroll: er $w$ stor, skal $L^*$ være **liten**.\n- **Å glemme produksjonskravet.** Tangeringsbetingelsen alene gir bare forholdet $K/L$, ikke nivået. Stopper du der, er oppgaven ubesvart — akkurat som når du glemte budsjettbetingelsen i [kap. 8.2](/bok/econ1100/econ1100-8-2).\n- **Fortegns- og eksponentfeil i CES-uttrykk (#12 — fortegnsfeil i partiellderiverte av kvotienter og CES-uttrykk).** Den ytre eksponenten $\\alpha/\\gamma$ gir en faktor det er lett å slurve med. Kontrollen står i Løkke 3: den ytre faktoren skal falle bort når du deler.\n- **Feil substitusjonselastisitet.** $\\sigma=1/(\\gamma-1)$, ikke $1/(1+\\gamma)$ og ikke $\\gamma-1$. Kontroller alltid mot et kjent tilfelle: $\\gamma\\to 0$ skal gi tallverdi 1, altså Cobb-Douglas.\n- **Å hoppe over forenklingen.** Et sluttuttrykk som $\\left(\\left(w/(2r)\\right)^{2/3}\\right)$ med uoppgjorte potenser koster poeng. Åpenbar forenkling kreves for full uttelling."
+    },
+    {
+      "id": "econ1100-9-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — CES-teknologi og substitusjonselastisiteten (~16 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "econ1100-9-2-lokke3-inn",
+      "type": "text",
+      "content": "Cobb-Douglas er grei, men den har en innebygd antakelse: kostnadsandelene ligger fast uansett hvor prisene går. Virkeligheten er mer variert. Noen faktorer kan erstatte hverandre nesten fritt (to typer drivstoff), andre nesten ikke (sjåfør og lastebil).\n\n**CES-teknologien** er familien som lar deg skru på nettopp dette. Bokstavene står for *constant elasticity of substitution* — konstant substitusjonselastisitet — og den ene parameteren $\\gamma$ styrer hvor lett faktorene bytter plass."
+    },
+    {
+      "id": "econ1100-9-2-def-ces",
+      "type": "definition",
+      "title": "CES-teknologien",
+      "content": "CES-teknologien er produktfunksjonsfamilien med én parameter for hvor lett faktorene erstatter hverandre.\n\n$$F(K,L)=\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma}$$\n\nHer styrer $\\gamma<1$ (og $\\gamma\\ne 0$) substitusjonsmulighetene, mens $\\alpha>0$ styrer skalautbyttet: funksjonen er homogen av grad $\\alpha$ ([kap. 7.1](/bok/econ1100/econ1100-7-1)). Grensetilfellet $\\gamma\\to 0$ gir Cobb-Douglas, og $\\gamma=1$ gir perfekte substitutter — da er isokvanten en rett linje og tangeringen forsvinner."
+    },
+    {
+      "id": "econ1100-9-2-utledning-ces",
+      "type": "text",
+      "content": "**Utledning med intuisjon.** Deriver med kjerneregelen. Den ytre funksjonen er en potens, den indre er summen:\n\n$$F'_K=\\frac{\\alpha}{\\gamma}\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma-1}\\cdot\\gamma K^{\\gamma-1}=\\alpha\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma-1}K^{\\gamma-1}$$\n\n$$F'_L=\\alpha\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma-1}L^{\\gamma-1}$$\n\n*Intuisjon:* $\\gamma$ i nevneren fra den ytre eksponenten og $\\gamma$ fra derivasjonen av $K^{\\gamma}$ kanselleres. Det er derfor $\\alpha$ blir stående alene foran.\n\n**Del den ene på den andre.** Hele den stygge parentesen er en felles faktor og forsvinner:\n\n$$\\frac{F'_K}{F'_L}=\\frac{K^{\\gamma-1}}{L^{\\gamma-1}}=\\left(\\frac{K}{L}\\right)^{\\gamma-1}$$\n\n*Intuisjon:* dette er hvorfor CES er håndterbar til tross for uttrykket. All algebraen kollapser til én potens av faktorforholdet — og **$\\alpha$ faller helt bort**, så skalautbyttet påvirker ikke hvilken *blanding* bedriften velger.\n\nTangeringsbetingelsen blir\n\n$$\\left(\\frac{K}{L}\\right)^{\\gamma-1}=\\frac{r}{w}\\ \\Longrightarrow\\ \\frac{K}{L}=\\left(\\frac{r}{w}\\right)^{\\frac{1}{\\gamma-1}}$$"
+    },
+    {
+      "id": "econ1100-9-2-def-sigma",
+      "type": "definition",
+      "title": "Substitusjonselastisiteten",
+      "content": "Substitusjonselastisiteten måler hvor mye faktorforholdet svarer på en endring i faktorprisforholdet — målt i prosent per prosent.\n\n$$\\sigma=\\mathrm{El}_{r/w}\\!\\left(\\frac{K}{L}\\right)=\\frac{1}{\\gamma-1}$$\n\nDen leses rett av eksponenten i $K/L=\\left(r/w\\right)^{1/(\\gamma-1)}$, etter potensregelen for elastisitet fra [kap. 2.1](/bok/econ1100/econ1100-2-1). At den er **konstant** — uavhengig av hvor på isokvanten du står — er nettopp det navnet CES lover.\n\n**Tolkning av tallverdien.** Med $\\gamma<1$ er $\\sigma$ negativ: blir kapital relativt dyrere, går bedriften over til arbeid. Jo større tallverdi, desto lettere byttes faktorene. $\\gamma=\\tfrac12$ gir $\\sigma=-2$ (lett å bytte), $\\gamma=-1$ gir $\\sigma=-\\tfrac12$ (tungt), og $\\gamma\\to 0$ gir $\\sigma\\to -1$ — Cobb-Douglas."
+    },
+    {
+      "id": "econ1100-9-2-sigma-konvensjon",
+      "type": "warning",
+      "title": "Fortegnskonvensjonen for substitusjonselastisiteten",
+      "content": "Denne boka definerer $\\sigma$ som elastisiteten til $K/L$ med hensyn på $r/w$, og da blir\n\n$$\\sigma=\\frac{1}{\\gamma-1}<0\\quad\\text{for }\\gamma<1.$$\n\n**Andre bøker snur fortegnet** og oppgir substitusjonselastisiteten som et positivt tall, $\\tfrac{1}{1-\\gamma}$, ved å måle mot prisforholdet den andre veien. **Tallverdien er den samme** — det er bare hvilken vei man leser brøken som skiller.\n\n**Hva du gjør på eksamen:** bruk oppgavens egen definisjon hvis den er oppgitt, og skriv ellers ut hva du regner ut («$\\sigma$ er her elastisiteten til $K/L$ mht. $r/w$»). Sensor trekker for et uklart fortegn, ikke for en oppgitt konvensjon. Fortegnet er uansett ikke poenget — poenget er at tallverdien er konstant og sier hvor lett faktorene bytter plass."
+    },
+    {
+      "id": "econ1100-9-2-eks3",
+      "type": "example",
+      "title": "Eksempel 3: CES med lett substitusjon",
+      "problem": "En kraftprodusent har CES-teknologien $F(K,L)=\\left(K^{1/2}+L^{1/2}\\right)^{2}$, altså $\\gamma=\\tfrac12$ og $\\alpha=1$. Kapitalprisen er $r=2$, lønna $w=6$ og produksjonskravet $\\bar Y=64$.\n\n**a)** Finn substitusjonselastisiteten, og tolk den.\n\n**b)** Finn $K^*$ og $L^*$.\n\n**c)** Finn kostnaden, og sett opp kostnadsfunksjonen generelt.",
+      "solution": "**a)**\n\n$$\\sigma=\\frac{1}{\\gamma-1}=\\frac{1}{\\tfrac12-1}=\\frac{1}{-\\tfrac12}=-2$$\n\n*Tolkning:* stiger $r/w$ med én prosent, faller $K/L$ med omtrent to prosent. Faktorene er altså **lette å bytte** — kraftprodusenten svarer kraftig på prisendringer.\n\n**b) Tangeringsbetingelsen:**\n\n$$\\left(\\frac{K}{L}\\right)^{\\gamma-1}=\\left(\\frac{K}{L}\\right)^{-1/2}=\\frac{r}{w}=\\frac{2}{6}=\\frac13$$\n\nSnu begge sider (negativ eksponent):\n\n$$\\left(\\frac{K}{L}\\right)^{1/2}=3\\ \\Longrightarrow\\ \\frac{K}{L}=9\\ \\Longrightarrow\\ K=9L$$\n\n*Kontroll mot formelen:* $\\left(r/w\\right)^{1/(\\gamma-1)}=\\left(\\tfrac13\\right)^{-2}=9$ ✓\n\n**Sett inn i produksjonskravet.** Ta kvadratrota av begge sider først — det er enklere enn å kvadrere ut:\n\n$$\\left(K^{1/2}+L^{1/2}\\right)^{2}=64\\ \\Longrightarrow\\ K^{1/2}+L^{1/2}=8$$\n\nMed $K=9L$ er $K^{1/2}=3L^{1/2}$, så\n\n$$3L^{1/2}+L^{1/2}=4L^{1/2}=8\\ \\Longrightarrow\\ L^{1/2}=2\\ \\Longrightarrow\\ \\boxed{L^*=4,\\qquad K^*=36}$$\n\n*Kontroll:* $\\left(\\sqrt{36}+\\sqrt{4}\\right)^{2}=(6+2)^{2}=64$ ✓\n\n**c) Kostnaden:**\n\n$$C=2\\cdot 36+6\\cdot 4=72+24=96$$\n\n**Generelt** for denne teknologien. Tangeringsbetingelsen $K/L=\\left(w/r\\right)^{2}$ er det samme som $K^{1/2}=\\dfrac{w}{r}L^{1/2}$, og satt inn i produksjonskravet $K^{1/2}+L^{1/2}=\\bar Y^{1/2}$ gir det\n\n$$L^{1/2}\\left(\\frac{w}{r}+1\\right)=\\bar Y^{1/2}\\ \\Longrightarrow\\ L^{1/2}=\\frac{r\\,\\bar Y^{1/2}}{r+w}$$\n\n$$L^*=\\frac{r^{2}\\bar Y}{(r+w)^{2}},\\qquad K^*=\\frac{w^{2}\\bar Y}{(r+w)^{2}}$$\n\n$$C=rK^*+wL^*=\\frac{\\bar Y\\left(rw^{2}+wr^{2}\\right)}{(r+w)^{2}}=\\frac{\\bar Y\\,rw(r+w)}{(r+w)^{2}}=\\boxed{\\frac{rw}{r+w}\\,\\bar Y}$$\n\n*Kontroll med tallene:* $\\dfrac{2\\cdot 6}{8}\\cdot 64=\\dfrac{12}{8}\\cdot 64=96$ ✓\n\n**Verbal konklusjon:** produsenten bruker 36 enheter kapital og 4 enheter arbeid, og kravet på 64 koster 96. Kostnadsfunksjonen er lineær i $\\bar Y$, som den skal være når $\\alpha=1$ og teknologien har konstant skalautbytte."
+    },
+    {
+      "id": "econ1100-9-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger PR — CES med tung substitusjon.) En bedrift har $F(K,L)=\\left(K^{-1}+L^{-1}\\right)^{-1}$, altså $\\gamma=-1$ og $\\alpha=1$. Kapitalprisen er $r=1$, lønna $w=4$ og produksjonskravet $\\bar Y=6$.\n\n**a)** Finn substitusjonselastisiteten, og sammenlign tolkningen med Eksempel 3.\n\n**b)** Finn $K^*$ og $L^*$.\n\n**c)** Finn kostnaden.",
+        "solution": "**a)**\n\n$$\\sigma=\\frac{1}{\\gamma-1}=\\frac{1}{-1-1}=-\\frac12$$\n\n*Sammenligning:* i Eksempel 3 var $\\sigma=-2$ — én prosent endring i prisforholdet flyttet faktorforholdet to prosent. Her er tallverdien $\\tfrac12$, altså **fire ganger mindre**. Faktorene er tungt substituerbare: bedriften kan i liten grad erstatte den ene med den andre, og en prisendring flytter blandingen lite.\n\n**b) Tangeringsbetingelsen:**\n\n$$\\left(\\frac{K}{L}\\right)^{\\gamma-1}=\\left(\\frac{K}{L}\\right)^{-2}=\\frac{r}{w}=\\frac14$$\n\nSnu og ta kvadratrota:\n\n$$\\left(\\frac{K}{L}\\right)^{2}=4\\ \\Longrightarrow\\ \\frac{K}{L}=2\\ \\Longrightarrow\\ K=2L$$\n\n*Kontroll mot formelen:* $\\left(\\tfrac14\\right)^{1/(-2)}=\\left(\\tfrac14\\right)^{-1/2}=2$ ✓\n\n**Produksjonskravet.** Snu begge sider av $\\left(K^{-1}+L^{-1}\\right)^{-1}=6$:\n\n$$\\frac1K+\\frac1L=\\frac16$$\n\nMed $K=2L$:\n\n$$\\frac{1}{2L}+\\frac1L=\\frac{1}{2L}+\\frac{2}{2L}=\\frac{3}{2L}=\\frac16\\ \\Longrightarrow\\ 2L=18\\ \\Longrightarrow\\ \\boxed{L^*=9,\\qquad K^*=18}$$\n\n*Kontroll:* $\\dfrac{1}{18}+\\dfrac19=\\dfrac{1}{18}+\\dfrac{2}{18}=\\dfrac{3}{18}=\\dfrac16$ ✓\n\n**c)**\n\n$$C=1\\cdot 18+4\\cdot 9=18+36=54$$\n\n*Rimelighetssjekk:* prøv $K=20$. Da krever kravet $\\tfrac1L=\\tfrac16-\\tfrac1{20}=\\tfrac{10-3}{60}=\\tfrac{7}{60}$, altså $L=60/7\\approx 8{,}57$, og kostnaden blir $20+4\\cdot 8{,}57\\approx 54{,}3>54$ ✓\n\n**Konklusjon:** bedriften bruker 18 enheter kapital og 9 enheter arbeid, kostnaden er 54, og den lave tallverdien på $\\sigma$ betyr at den blandingen ligger nokså fast selv om prisene skulle endre seg.",
+        "hints": [
+          "Substitusjonselastisiteten leses rett av formelen $1/(\\gamma-1)$ — du trenger ikke derivere noe.",
+          "Tangeringsbetingelsen er $\\left(K/L\\right)^{\\gamma-1}=r/w$. Med $\\gamma=-1$ blir eksponenten $-2$: snu brøken før du tar rota.",
+          "Snu hele produksjonskravet: $\\left(K^{-1}+L^{-1}\\right)^{-1}=6$ betyr at $1/K+1/L=1/6$. Da blir innsettingen enkel."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Kostnadsfunksjonen, skalautbytte og eksamensnivå (~12 min)"
+    },
+    {
+      "id": "econ1100-9-2-def-kostnadsfunksjon",
+      "type": "definition",
+      "title": "Kostnadsfunksjonen",
+      "content": "Kostnadsfunksjonen er den minimale kostnaden ved gitte priser og gitt produksjonskrav.\n\n$$C(r,w,\\bar Y)=r\\,K^*(r,w,\\bar Y)+w\\,L^*(r,w,\\bar Y)$$\n\nDen er **homogen av grad 1 i prisene**: dobles $r$ og $w$, dobles kostnaden, siden mengdene ikke rører seg. Og den er den direkte broen videre til ECON1210, der grensekostnaden $dC/d\\bar Y$ møter prisen i bedriftens tilbudsbeslutning."
+    },
+    {
+      "id": "econ1100-9-2-def-andeler",
+      "type": "definition",
+      "title": "Kostnadsandelene i Cobb-Douglas",
+      "content": "For $F(K,L)=K^{a}L^{b}$ tar hver faktor en fast andel av kostnaden, bestemt av eksponentene alene.\n\n$$\\frac{rK^*}{C}=\\frac{a}{a+b},\\qquad \\frac{wL^*}{C}=\\frac{b}{a+b}$$\n\nMed konstant skalautbytte ($a+b=1$) er andelene rett og slett $a$ og $b$. **Prisene påvirker ikke andelene** — de påvirker bare mengdene. Dette er den raskeste kontrollen du har på en Cobb-Douglas-utregning: stemmer ikke andelene, er noe galt."
+    },
+    {
+      "id": "econ1100-9-2-def-skala-kostnad",
+      "type": "definition",
+      "title": "Skalautbytte og hvordan kostnaden vokser",
+      "content": "Er produktfunksjonen homogen av grad $k$, vokser den minimale kostnaden med $\\bar Y^{1/k}$.\n\n$$C(r,w,\\bar Y)=\\bar Y^{1/k}\\cdot c(r,w)$$\n\nMed **konstant** skalautbytte ($k=1$) er kostnaden proporsjonal med produksjonen. Med **økende** skalautbytte ($k>1$) er $1/k<1$, og kostnaden vokser **saktere** enn produksjonen — stordriftsfordeler. Med **avtakende** skalautbytte ($k<1$) vokser den raskere."
+    },
+    {
+      "id": "econ1100-9-2-eks4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — generell CES og skalautbytte",
+      "problem": "En bedrift har CES-teknologien $F(K,L)=\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma}$ med $\\gamma<1$, $\\gamma\\ne 0$ og $\\alpha>0$, og minimerer $rK+wL$ under $F(K,L)=\\bar Y$.\n\n**a)** Vis at faktorforholdet i optimum er uavhengig av både $\\alpha$ og $\\bar Y$.\n\n**b)** Bestem homogenitetsgraden til $F$, og si hva den betyr for hvordan kostnaden vokser med $\\bar Y$.\n\n**c)** En kollega påstår: «Med økende skalautbytte blir substitusjonselastisiteten større.» Avgjør om påstanden er sann, og begrunn.",
+      "solution": "**a)** Fra utledningen i Løkke 3:\n\n$$\\frac{F'_K}{F'_L}=\\frac{\\alpha\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma-1}K^{\\gamma-1}}{\\alpha\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma-1}L^{\\gamma-1}}=\\left(\\frac{K}{L}\\right)^{\\gamma-1}$$\n\nBåde $\\alpha$ og hele parentesen er **felles faktorer** i teller og nevner og forkortes bort. Tangeringsbetingelsen blir\n\n$$\\left(\\frac{K}{L}\\right)^{\\gamma-1}=\\frac{r}{w}\\ \\Longrightarrow\\ \\frac{K}{L}=\\left(\\frac{r}{w}\\right)^{\\frac{1}{\\gamma-1}}$$\n\nHøyresiden inneholder verken $\\alpha$ eller $\\bar Y$ ✓\n\n*Økonomisk lesning:* hvor mye bedriften produserer, og hvor gunstig skalaen er, påvirker ikke **blandingen** av kapital og arbeid. Bare det relative prisforholdet gjør det. Bedriften skalerer opp langs en rett stråle fra origo.\n\n**b) Homogenitetsgraden.** Sett inn $tK$ og $tL$:\n\n$$F(tK,tL)=\\left(t^{\\gamma}K^{\\gamma}+t^{\\gamma}L^{\\gamma}\\right)^{\\alpha/\\gamma}=\\left(t^{\\gamma}\\left(K^{\\gamma}+L^{\\gamma}\\right)\\right)^{\\alpha/\\gamma}=t^{\\alpha}F(K,L)$$\n\n*Mellomregning:* $\\left(t^{\\gamma}\\right)^{\\alpha/\\gamma}=t^{\\gamma\\cdot\\alpha/\\gamma}=t^{\\alpha}$.\n\nFunksjonen er altså homogen av grad $k=\\alpha$, og skalautbyttet er $\\alpha$.\n\n**Hva det betyr for kostnaden:** doble alle faktorer, og produksjonen ganges med $2^{\\alpha}$ (ikke $2\\alpha$). Skal produksjonen dobles, må faktorene ganges med $2^{1/\\alpha}$, og siden mengdene skaleres i takt, ganges kostnaden med det samme:\n\n$$C(r,w,\\bar Y)=\\bar Y^{1/\\alpha}\\,c(r,w)$$\n\nMed $\\alpha>1$ vokser kostnaden saktere enn produksjonen — stordriftsfordeler. Med $\\alpha<1$ raskere.\n\n**c) Påstanden er usann.**\n\n*Begrunnelse:* de to størrelsene styres av hver sin parameter, og de er uavhengige.\n\n$$\\text{Skalautbyttet}=\\alpha,\\qquad \\sigma=\\frac{1}{\\gamma-1}$$\n\n$\\sigma$ inneholder ikke $\\alpha$ i det hele tatt. Du kan holde $\\gamma$ fast og øke $\\alpha$ så mye du vil — $\\sigma$ står stille. Det følger direkte av a): $\\alpha$ forkortes bort allerede i forholdet mellom grenseproduktene, som er nettopp der $\\sigma$ kommer fra.\n\n*Konkret motbevis:* $\\gamma=\\tfrac12$ gir $\\sigma=-2$ enten $\\alpha=1$ (konstant skalautbytte) eller $\\alpha=3$ (kraftig økende). Skalautbyttet er tredoblet, $\\sigma$ er uendret ✓\n\n**Konklusjon:** CES-familien skiller de to egenskapene i hver sin parameter — $\\gamma$ styrer substitusjon, $\\alpha$ styrer skala. Det er nettopp derfor familien er nyttig."
+    },
+    {
+      "id": "econ1100-9-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Alle svar skal begrunnes; en ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «Tangeringsbetingelsen i kostnadsminimering er $MP_K/MP_L=w/r$.»\n\n**b)** «For Cobb-Douglas-teknologi avhenger den betingede faktoretterspørselen av produksjonskravet $\\bar Y$, men faktorforholdet $K/L$ gjør det ikke.»\n\n**c)** «Dobles både $r$ og $w$, endres den betingede faktoretterspørselen.»",
+        "solution": "**a) Usann.**\n\n*Begrunnelse ved utledning:* førsteordensbetingelsene er $r=\\lambda F'_K$ og $w=\\lambda F'_L$. Deler vi den første på den andre, får vi\n\n$$\\frac{r}{w}=\\frac{F'_K}{F'_L}=\\frac{MP_K}{MP_L}$$\n\nKapitalen står i teller på **begge** sider. Påstanden snur den ene brøken.\n\n*Kontroll på hvorfor det må være slik:* blir arbeid dyrere ($w$ opp), skal bedriften bruke mindre arbeid, altså øke $K/L$. Med den riktige betingelsen faller $r/w$, og siden $MP_K/MP_L$ synker i $K/L$ for en konveks isokvant, gir det høyere $K/L$ ✓ Med påstandens versjon ville bedriften brukt **mer** av den faktoren som nettopp ble dyrere.\n\n**b) Sann.**\n\n*Begrunnelse:* for $F=K^{a}L^{b}$ er\n\n$$\\frac{MP_K}{MP_L}=\\frac{aK^{a-1}L^{b}}{bK^{a}L^{b-1}}=\\frac{a}{b}\\cdot\\frac{L}{K}=\\frac{r}{w}\\ \\Longrightarrow\\ \\frac{K}{L}=\\frac{a}{b}\\cdot\\frac{w}{r}$$\n\nHøyresiden inneholder bare eksponentene og prisene — ingen $\\bar Y$. Mengdene hver for seg avhenger derimot av $\\bar Y$: i Eksempel 2 var $K^*=\\bar Y\\left(w/(2r)\\right)^{2/3}$, som åpenbart vokser med kravet.\n\n*Geometrisk:* alle optimale punkter for ulike $\\bar Y$ ligger på én rett stråle ut fra origo. Kravet flytter deg langs stråla, prisforholdet vrir stråla.\n\n**c) Usann.**\n\n*Begrunnelse ved utregning:* alt som bestemmer mengdene, kommer inn gjennom forholdet $r/w$. Erstatt $r$ med $2r$ og $w$ med $2w$:\n\n$$\\frac{2r}{2w}=\\frac{r}{w}$$\n\nForholdet er uendret, så tangeringsbetingelsen er uendret, og produksjonskravet inneholder ingen priser. Både $K^*$ og $L^*$ står derfor helt stille. **Kostnaden** dobles derimot:\n\n$$2r\\,K^*+2w\\,L^*=2\\left(rK^*+wL^*\\right)$$\n\n*Presist sagt:* den betingede faktoretterspørselen er homogen av grad 0 i prisene, mens kostnadsfunksjonen er homogen av grad 1 ([kap. 7.1](/bok/econ1100/econ1100-7-1)).",
+        "hints": [
+          "For a): skriv opp begge førsteordensbetingelsene og del dem — se hvilken faktor som havner i teller på hver side.",
+          "For b): regn ut $MP_K/MP_L$ for $K^{a}L^{b}$ og se hvilke størrelser som faktisk står igjen i uttrykket for $K/L$.",
+          "For c): erstatt $r$ og $w$ med $2r$ og $2w$ overalt der de forekommer, og se hva som overlever."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger PR — generell CES med skalaparameter.) En bedrift har $F(K,L)=\\left(K^{1/2}+L^{1/2}\\right)^{2\\alpha}$ med $\\alpha>0$, kapitalpris $r$ og lønn $w$, og skal produsere $\\bar Y$.\n\n**a)** Finn substitusjonselastisiteten.\n\n**b)** Finn den betingede faktoretterspørselen $K^*(r,w,\\bar Y)$ og $L^*(r,w,\\bar Y)$.\n\n**c)** Finn kostnadsfunksjonen, og vis eksplisitt hvordan den avhenger av $\\bar Y$.",
+        "solution": "**a)** Skriv funksjonen på standardform: $\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha_0/\\gamma}$ med $\\gamma=\\tfrac12$. Da må $\\alpha_0/\\gamma=2\\alpha$, altså $\\alpha_0=\\alpha$. Substitusjonselastisiteten avhenger bare av $\\gamma$:\n\n$$\\sigma=\\frac{1}{\\gamma-1}=\\frac{1}{\\tfrac12-1}=-2$$\n\n**b) Tangeringsbetingelsen** (skalaparameteren forkortes bort, jf. Eksempel 4 a):\n\n$$\\left(\\frac{K}{L}\\right)^{-1/2}=\\frac{r}{w}\\ \\Longrightarrow\\ \\left(\\frac{K}{L}\\right)^{1/2}=\\frac{w}{r}\\ \\Longrightarrow\\ K^{1/2}=\\frac{w}{r}L^{1/2}$$\n\n**Produksjonskravet.** Ta $2\\alpha$-rota av begge sider:\n\n$$\\left(K^{1/2}+L^{1/2}\\right)^{2\\alpha}=\\bar Y\\ \\Longrightarrow\\ K^{1/2}+L^{1/2}=\\bar Y^{\\frac{1}{2\\alpha}}$$\n\nSett inn $K^{1/2}=\\dfrac{w}{r}L^{1/2}$:\n\n$$L^{1/2}\\left(\\frac{w}{r}+1\\right)=\\bar Y^{\\frac{1}{2\\alpha}}\\ \\Longrightarrow\\ L^{1/2}=\\frac{r}{r+w}\\,\\bar Y^{\\frac{1}{2\\alpha}}$$\n\nKvadrer:\n\n$$\\boxed{L^*=\\frac{r^{2}}{(r+w)^{2}}\\,\\bar Y^{\\frac{1}{\\alpha}},\\qquad K^*=\\frac{w^{2}}{(r+w)^{2}}\\,\\bar Y^{\\frac{1}{\\alpha}}}$$\n\n*Kontroll av bibetingelsen:* $K^{1/2}+L^{1/2}=\\dfrac{(w+r)}{r+w}\\bar Y^{1/(2\\alpha)}=\\bar Y^{1/(2\\alpha)}$, og opphøyd i $2\\alpha$ gir $\\bar Y$ ✓\n\n**c) Kostnadsfunksjonen:**\n\n$$C=rK^*+wL^*=\\frac{\\bar Y^{1/\\alpha}}{(r+w)^{2}}\\left(rw^{2}+wr^{2}\\right)=\\frac{\\bar Y^{1/\\alpha}\\,rw(r+w)}{(r+w)^{2}}$$\n\n$$\\boxed{C(r,w,\\bar Y)=\\frac{rw}{r+w}\\,\\bar Y^{\\frac{1}{\\alpha}}}$$\n\n*Kontroll mot Eksempel 3:* med $\\alpha=1$, $r=2$, $w=6$, $\\bar Y=64$ gir formelen $\\tfrac{12}{8}\\cdot 64=96$ ✓\n\n**Avhengigheten av $\\bar Y$.** Eksponenten er $1/\\alpha$, som stemmer med regelen om at kostnaden vokser med $\\bar Y^{1/k}$ når teknologien er homogen av grad $k$ — her er $k=\\alpha$.\n\n- $\\alpha=1$: kostnaden er proporsjonal med produksjonen.\n- $\\alpha>1$: eksponenten er under 1, og kostnaden vokser saktere enn produksjonen — stordriftsfordeler.\n- $\\alpha<1$: eksponenten er over 1, og kostnaden vokser raskere.\n\n**Verbal konklusjon:** blandingen av faktorer bestemmes utelukkende av prisforholdet, mens skalaparameteren $\\alpha$ bare avgjør hvor bratt kostnaden stiger med produksjonskravet.",
+        "hints": [
+          "Skriv først funksjonen på CES-standardform for å lese av $\\gamma$ — hvilken potens står de enkelte faktorene i inne i parentesen?",
+          "Ta $2\\alpha$-rota av produksjonskravet med én gang. Da står du igjen med $K^{1/2}+L^{1/2}$, som tangeringsbetingelsen passer rett inn i.",
+          "Regn ut $rK^*+wL^*$ og trekk ut $\\bar Y^{1/\\alpha}$ som felles faktor. Telleren $rw^{2}+wr^{2}$ har $rw$ som felles faktor."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-9-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger PR og HG — kostnadsminimering møter homogenitet.) En bedrift har $F(K,L)=K^{a}L^{b}$ med $a,b>0$, kapitalpris $r$, lønn $w$ og produksjonskrav $\\bar Y$.\n\n**a)** Vis at $K^*=\\left[\\bar Y\\left(\\dfrac{aw}{br}\\right)^{b}\\right]^{\\frac{1}{a+b}}$.\n\n**b)** Vis at kostnadsandelen til kapital er $\\dfrac{a}{a+b}$.\n\n**c)** Bedriften har $a=\\tfrac35$ og $b=\\tfrac45$. Hvor mye må kostnaden ganges med for at produksjonen skal dobles? Tolk svaret.",
+        "solution": "**a)** Tangeringsbetingelsen er\n\n$$\\frac{aK^{a-1}L^{b}}{bK^{a}L^{b-1}}=\\frac{a}{b}\\cdot\\frac{L}{K}=\\frac{r}{w}\\ \\Longrightarrow\\ L=\\frac{b}{a}\\cdot\\frac{r}{w}\\,K$$\n\nSett inn i produksjonskravet:\n\n$$K^{a}\\left(\\frac{br}{aw}K\\right)^{b}=K^{a+b}\\left(\\frac{br}{aw}\\right)^{b}=\\bar Y$$\n\n$$K^{a+b}=\\bar Y\\left(\\frac{aw}{br}\\right)^{b}\\ \\Longrightarrow\\ K^*=\\left[\\bar Y\\left(\\frac{aw}{br}\\right)^{b}\\right]^{\\frac{1}{a+b}}\\ ✓$$\n\n*Kontroll mot Eksempel 2* ($a=\\tfrac13$, $b=\\tfrac23$, $r=1$, $w=16$, $\\bar Y=10$):\n\n$$K^*=\\left[10\\left(\\frac{\\tfrac13\\cdot 16}{\\tfrac23\\cdot 1}\\right)^{2/3}\\right]^{1}=10\\cdot 8^{2/3}=10\\cdot 4=40\\ ✓$$\n\n**b)** Bruk tangeringsbetingelsen direkte, uten å sette inn uttrykkene. Fra $L^*=\\dfrac{b}{a}\\cdot\\dfrac{r}{w}K^*$ følger\n\n$$wL^*=w\\cdot\\frac{b}{a}\\cdot\\frac{r}{w}K^*=\\frac{b}{a}\\,rK^*$$\n\nAltså er lønnskostnaden $\\tfrac{b}{a}$ ganger kapitalkostnaden. Total kostnad:\n\n$$C=rK^*+wL^*=rK^*\\left(1+\\frac{b}{a}\\right)=rK^*\\cdot\\frac{a+b}{a}$$\n\n$$\\frac{rK^*}{C}=\\frac{a}{a+b}\\ ✓$$\n\n*Merk hvor elegant dette gikk:* vi trengte aldri de eksplisitte uttrykkene fra a). Tangeringsbetingelsen alene fastlåser forholdet mellom de to kostnadspostene — og dermed andelene.\n\n**c)** Funksjonen er homogen av grad\n\n$$k=a+b=\\tfrac35+\\tfrac45=\\tfrac75$$\n\nFra a) ser vi at $K^*$ er proporsjonal med $\\bar Y^{1/(a+b)}=\\bar Y^{5/7}$, og av symmetri gjelder det samme for $L^*$. Begge mengder — og dermed kostnaden — ganges derfor med\n\n$$2^{5/7}\\approx 1{,}64$$\n\n*Kontroll av eksponenten:* $\\left(\\bar Y^{5/7}\\right)$ innsatt i $K^{a}L^{b}$ gir $\\bar Y^{(5/7)(a+b)}=\\bar Y^{(5/7)(7/5)}=\\bar Y$ ✓\n\n**Tolkning:** teknologien har **økende skalautbytte** ($k=\\tfrac75>1$). Doblet produksjon krever bare omtrent 64 prosent høyere kostnad, ikke 100 prosent. Bedriften har stordriftsfordeler, og gjennomsnittskostnaden per enhet faller når den vokser.\n\n*Vanlig felle:* å svare $2\\cdot\\tfrac57$ eller $2^{7/5}\\approx 2{,}64$. Homogenitetsgraden er $k=\\tfrac75$, men kostnadseksponenten er $1/k=\\tfrac57$ — det er den omvendte.",
+        "hints": [
+          "For a): uttrykk $L$ ved $K$ fra tangeringsbetingelsen, sett inn, og samle $K$-ene med potensregelen $K^{a}\\cdot K^{b}=K^{a+b}$.",
+          "For b): du trenger ikke uttrykkene fra a). Sett $L^*$ uttrykt ved $K^*$ rett inn i $wL^*$ og se hva som forkortes.",
+          "For c): hvilken eksponent har $\\bar Y$ i uttrykket for $K^*$? Kostnaden skalerer likt med mengdene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-9-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-9-2-bb-oppskrift",
+      "type": "definition",
+      "title": "Oppskriften i fire linjer",
+      "content": "Hele kostnadsminimeringen, slik den skal stå på arket.\n\n$$1)\\ \\min rK+wL\\ \\text{u.b.}\\ F=\\bar Y;\\quad 2)\\ \\frac{F'_K}{F'_L}=\\frac{r}{w};\\quad 3)\\ \\text{inn i }F=\\bar Y;\\quad 4)\\ C=rK^*+wL^*$$\n\nSteg 2 gir forholdet, steg 3 gir nivået. Hopper du over steg 3, er oppgaven ubesvart."
+    },
+    {
+      "id": "econ1100-9-2-bb-mrts",
+      "type": "definition",
+      "title": "Grenseproduktforholdet",
+      "content": "Forholdet mellom grenseproduktene er isokvantens helning, med fortegn.\n\n$$\\frac{MP_K}{MP_L}=\\frac{F'_K}{F'_L}=-\\frac{dL}{dK}\\bigg|_{F=\\bar Y}$$\n\nDet er den tekniske bytteraten: hvor mye arbeid som må inn når én maskin tas ut, uten at produksjonen faller."
+    },
+    {
+      "id": "econ1100-9-2-bb-cd-forhold",
+      "type": "definition",
+      "title": "Faktorforholdet i Cobb-Douglas",
+      "content": "Standardresultatet det lønner seg å kjenne igjen.\n\n$$F=K^{a}L^{b}\\ \\Longrightarrow\\ \\frac{K}{L}=\\frac{a}{b}\\cdot\\frac{w}{r}$$\n\nUavhengig av $\\bar Y$. Merk at $a$ følger $w$ og $b$ følger $r$ — kryssvis, ikke rett fram."
+    },
+    {
+      "id": "econ1100-9-2-bb-cd-K",
+      "type": "definition",
+      "title": "Betinget faktoretterspørsel for Cobb-Douglas",
+      "content": "Den generelle formelen for $F=K^{a}L^{b}$.\n\n$$K^*=\\left[\\bar Y\\left(\\frac{aw}{br}\\right)^{b}\\right]^{\\frac{1}{a+b}}$$\n\nUttrykket for $L^*$ fås ved å bytte om rollene: $a\\leftrightarrow b$, $r\\leftrightarrow w$, $K\\leftrightarrow L$."
+    },
+    {
+      "id": "econ1100-9-2-bb-ces-forhold",
+      "type": "definition",
+      "title": "Faktorforholdet i CES",
+      "content": "All CES-algebraen kollapser til denne ene linja.\n\n$$F=\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma}\\ \\Longrightarrow\\ \\frac{K}{L}=\\left(\\frac{r}{w}\\right)^{\\frac{1}{\\gamma-1}}$$\n\nSkalaparameteren $\\alpha$ og hele den ytre parentesen forkortes bort når du deler grenseproduktene."
+    },
+    {
+      "id": "econ1100-9-2-bb-sigma",
+      "type": "definition",
+      "title": "Substitusjonselastisiteten",
+      "content": "Prosentvis endring i faktorforholdet per prosent endring i prisforholdet.\n\n$$\\sigma=\\mathrm{El}_{r/w}\\!\\left(\\frac{K}{L}\\right)=\\frac{1}{\\gamma-1}$$\n\nKonstant langs hele isokvanten — det er navnet CES lover. Stor tallverdi betyr at faktorene lett erstatter hverandre."
+    },
+    {
+      "id": "econ1100-9-2-bb-grensetilfeller",
+      "type": "definition",
+      "title": "CES-familiens grensetilfeller",
+      "content": "De tre tilfellene som er verdt å kjenne igjen.\n\n$$\\gamma\\to 0:\\ \\text{Cobb-Douglas},\\ \\lvert\\sigma\\rvert=1;\\qquad \\gamma=1:\\ \\text{perfekte substitutter};\\qquad \\gamma\\to-\\infty:\\ \\text{ingen substitusjon}$$\n\nKontrollen som alltid virker: sjekk at formelen din gir tallverdi 1 i Cobb-Douglas-tilfellet."
+    },
+    {
+      "id": "econ1100-9-2-bb-homogen-0",
+      "type": "definition",
+      "title": "Homogenitet i prisene",
+      "content": "De to homogenitetsegenskapene som stadig testes i sant/usant.\n\n$$K^*(tr,tw,\\bar Y)=K^*(r,w,\\bar Y);\\qquad C(tr,tw,\\bar Y)=t\\,C(r,w,\\bar Y)$$\n\nMengdene er homogene av grad 0 i prisene, kostnaden av grad 1. Bare prisforholdet flytter blandingen."
+    },
+    {
+      "id": "econ1100-9-2-bb-skala",
+      "type": "definition",
+      "title": "Skalautbytte og kostnadsvekst",
+      "content": "Homogenitetsgraden avgjør hvor bratt kostnaden stiger.\n\n$$F\\ \\text{homogen av grad }k\\ \\Longrightarrow\\ C=\\bar Y^{1/k}c(r,w)$$\n\n$k>1$ gir stordriftsfordeler ($1/k<1$). Pass på retningen: eksponenten er $1/k$, ikke $k$."
+    },
+    {
+      "id": "econ1100-9-2-bb-andeler-kort",
+      "type": "definition",
+      "title": "Andelskontrollen",
+      "content": "Den raskeste kontrollen på en Cobb-Douglas-utregning.\n\n$$\\frac{rK^*}{C}=\\frac{a}{a+b}$$\n\nRegn ut de to kostnadspostene og sammenlign med eksponentene. Stemmer de ikke, ligger feilen i utregningen din — ikke i formelen."
+    },
+    {
+      "id": "econ1100-9-2-bb-lagrange-navn",
+      "type": "definition",
+      "title": "Lagrange-funksjonen i produsentteori",
+      "content": "Notasjonen som unngår sammenblanding med arbeidskraft.\n\n$$\\mathcal{L}=rK+wL-\\lambda\\big(F(K,L)-\\bar Y\\big)$$\n\n$L$ er arbeidskraft, $\\mathcal{L}$ er Lagrange-funksjonen. Deklarer valget ditt på eksamen, så slipper sensor å gjette."
+    },
+    {
+      "id": "econ1100-9-2-bb-lambda-tolkning",
+      "type": "definition",
+      "title": "Multiplikatoren som grensekostnad",
+      "content": "Hva $\\lambda$ betyr i dette problemet.\n\n$$\\lambda=\\frac{dC}{d\\bar Y}$$\n\nSkyggeprisen på produksjonskravet: hva det koster å måtte levere én enhet mer. Samme tolkning som i [kap. 8.3](/bok/econ1100/econ1100-8-3), men i kroner per produsert enhet."
+    },
+    {
+      "id": "econ1100-9-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-9-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.2](/bok/econ1100/econ1100-1-2), [kap. 7.1](/bok/econ1100/econ1100-7-1) og [kap. 8.2](/bok/econ1100/econ1100-8-2).\n\n**1.** Finn $F'_K$ når $F(K,L)=K^{1/3}L^{2/3}$.\n\n*Svar:* $F'_K=\\tfrac13 K^{-2/3}L^{2/3}$ — $L^{2/3}$ er en konstant faktor når du deriverer mht. $K$.\n\n**2.** Forenkle $\\dfrac{K^{-2/3}}{K^{1/3}}$.\n\n*Svar:* $K^{-2/3-1/3}=K^{-1}$ — eksponentene trekkes fra hverandre.\n\n**3.** Løs $K^{2/3}=9$ for $K$.\n\n*Svar:* Opphøy begge sider i $\\tfrac32$: $K=9^{3/2}=27$.\n\n**4.** Er $F(K,L)=K^{1/3}L^{2/3}$ homogen? Av hvilken grad?\n\n*Svar:* Ja, av grad 1: $F(tK,tL)=t^{1/3}t^{2/3}K^{1/3}L^{2/3}=tF(K,L)$. Konstant skalautbytte.\n\n**5.** Hva blir tangeringsbetingelsen i konsumentproblemet $\\max U$ under $p_1x+p_2y=m$?\n\n*Svar:* $\\dfrac{U'_x}{U'_y}=\\dfrac{p_1}{p_2}$ — marginal substitusjonsrate lik prisforhold.\n\n**6.** Regn ut $16^{3/4}$.\n\n*Svar:* $\\left(16^{1/4}\\right)^{3}=2^{3}=8$.\n\n**7.** Hva er $\\mathrm{El}_x$ av $f(x)=Cx^{-3}$?\n\n*Svar:* $-3$ — potensregelen for elastisitet leser av eksponenten, og konstanten forsvinner."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-9-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-9-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $K$ | Kapital — maskiner, bygninger, utstyr |\n| $L$ | Arbeidskraft |\n| $r$ | Kapitalprisen (leieprisen på én enhet kapital) |\n| $w$ | Lønn per enhet arbeid |\n| $F(K,L)$ | Produktfunksjonen |\n| $\\bar Y$ | Produksjonskravet — streken betyr at tallet er låst av oppgaven |\n| $MP_K$, $MP_L$ | Grenseproduktene $F'_K$ og $F'_L$ |\n| $K^*$, $L^*$ | Den kostnadsminimerende faktorbruken |\n| $C(r,w,\\bar Y)$ | Kostnadsfunksjonen — minimal kostnad ved gitte priser og krav |\n| $\\mathcal{L}$ | Lagrange-funksjonen (skrevet krøllete fordi $L$ er arbeidskraft) |\n| $\\lambda$ | Lagrange-multiplikatoren — grensekostnaden $dC/d\\bar Y$ |\n| $\\gamma$ | Substitusjonsparameteren i CES-teknologien, $\\gamma<1$ |\n| $\\alpha$ | Skalaparameteren i CES — homogenitetsgraden |\n| $\\sigma$ | Substitusjonselastisiteten |\n| $a$, $b$ | Eksponentene i Cobb-Douglas-teknologien $K^{a}L^{b}$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\min_{K,L}\\ rK+wL\\quad\\text{under}\\quad F(K,L)=\\bar Y$$\nKostnadsminimeringsproblemet: mengden er gitt, kostnaden skal ned.\n\n$$\\mathcal{L}=rK+wL-\\lambda\\big(F(K,L)-\\bar Y\\big)$$\nLagrange-funksjonen. Mål minus multiplikator ganger avviket i bibetingelsen.\n\n$$\\frac{MP_K}{MP_L}=\\frac{F'_K}{F'_L}=\\frac{r}{w}$$\nTangeringsbetingelsen. Kapital i teller på begge sider — snus den, blir svaret galt.\n\n$$\\frac{K}{L}=\\frac{a}{b}\\cdot\\frac{w}{r}\\qquad\\text{for }F=K^{a}L^{b}$$\nFaktorforholdet i Cobb-Douglas. Uavhengig av produksjonskravet.\n\n$$K^*=\\left[\\bar Y\\left(\\frac{aw}{br}\\right)^{b}\\right]^{\\frac{1}{a+b}}$$\nBetinget faktoretterspørsel for Cobb-Douglas.\n\n$$\\frac{rK^*}{C}=\\frac{a}{a+b}$$\nKostnadsandelen til kapital. Den raskeste kontrollen på egen utregning.\n\n$$F=\\left(K^{\\gamma}+L^{\\gamma}\\right)^{\\alpha/\\gamma}\\ \\Longrightarrow\\ \\frac{K}{L}=\\left(\\frac{r}{w}\\right)^{\\frac{1}{\\gamma-1}}$$\nCES-teknologien og faktorforholdet den gir.\n\n$$\\sigma=\\frac{1}{\\gamma-1}$$\nSubstitusjonselastisiteten, lest av som eksponenten. Konstant langs hele isokvanten.\n\n$$C(r,w,\\bar Y)=\\bar Y^{1/k}\\,c(r,w)\\qquad\\text{når }F\\text{ er homogen av grad }k$$\nHvordan kostnaden vokser med produksjonskravet. Eksponenten er $1/k$, ikke $k$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
