@@ -1,0 +1,440 @@
+{
+  "id": "econ1100-1-1",
+  "courseId": "econ1100",
+  "chapterNumber": "1.1",
+  "title": "Derivasjonsverktøyet på nytt: potens, produkt, kvotient, kjerne",
+  "description": "Hele det endimensjonale derivasjonsapparatet eksamen forutsetter, samlet og drillet på fart og fortegnssikkerhet.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "derivere potenser, røtter og brøker raskt ved å skrive uttrykkene om til potensform",
+    "bruke produkt-, kvotient- og kjerneregelen på sammensatte uttrykk uten fortegnsfeil",
+    "derivere uttrykk med naturlig logaritme og eksponentialfunksjon, også når det står en kjerne inni",
+    "forenkle et derivert uttrykk til den formen sensor forventer, og lese av fortegnet fra den"
+  ],
+  "content": [
+    {
+      "id": "econ1100-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Oppgave 1 på ECON1100-eksamen er alltid den samme:** «deriver disse funksjonene». Den står som åpningsoppgave i **16 av 16 eksamenssett** i arkivet vårt (9 ordinære og 7 utsatte, 2018–2025) og er verdt 15–25 av de 100 poengene. I denne boka kaller vi den oppgavetypen **sjanger P1 — partiellderivasjon**, altså «finn de deriverte».\n\nDette kapitlet bygger fundamentet under den. Oppgave 1 er skrevet med to variabler ($x$ og $y$), men *selve håndverket* er de vanlige derivasjonsreglene fra videregående: potens, produkt, kvotient og kjerne, pluss $\\ln$ og $e^x$. Kan du dem raskt og fortegnssikkert, kommer resten av Del 1 nesten gratis.\n\n**Hvorfor det haster å ha dette på plass:** sensor gir lite trekk for små regnefeil, men de algebratunge uttrykkene — særlig brøker — er der flest poeng faktisk går tapt. Det er så vanlig at det har fått eget nummer i bokas feilregister: **feil #12 — fortegnsfeil i deriverte av brøker og sammensatte uttrykk**.\n\nDette er de billigste poengene i hele eksamen. Målet med kapitlet er ikke å forstå bevisene, men å regne raskt og riktig."
+    },
+    {
+      "id": "econ1100-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet kan leses uten forkunnskaper fra resten av boka — det er startpunktet. Har du R1 eller S2 fra videregående, er dette en rask oppfriskning; har du det ikke, får du alt du trenger her.\n\nVil du ha en grundigere gjennomgang av grunnlaget, ligger disse kapitlene i R1-boka vår:\n\n- [Derivasjonsregler](/bok/r1/r1-4-1) — potensregelen, konstantregelen og sumregelen.\n- [Produktregelen og kvotientregelen](/bok/r1/r1-4-4).\n- [Kjerneregelen](/bok/r1/r1-4-3).\n- [Derivasjon av eksponential- og logaritmefunksjoner](/bok/r1/r1-4-2).\n\nDet eneste algebraiske du bør ha klart på forhånd, er potensregning: $\\sqrt{x}=x^{1/2}$, $\\dfrac{1}{x^{2}}=x^{-2}$ og $x^{a}\\cdot x^{b}=x^{a+b}$. Vi bruker det hele veien."
+    },
+    {
+      "id": "econ1100-1-1-motivasjon",
+      "type": "text",
+      "content": "Alt økonomer regner på handler om *små endringer*. Hva skjer med strømforbruket ditt hvis prisen stiger med én øre? Hvor mye ekstra produserer en fabrikk hvis den ansetter én arbeider til? Hvor mye vokser en kostnad når produksjonen øker litt? Alle disse spørsmålene er derivasjon.\n\nDen deriverte er verktøyet som svarer på dem. På ECON1100-eksamen kommer den i sin reneste form allerede i Oppgave 1: en liste med funksjoner du skal derivere. Ingen tolkning, ingen økonomisk innramming — bare håndverk.\n\nKapitlet er bygget som fire læringsløkker: potensregelen (løkke 1), produkt- og kvotientregelen (løkke 2), kjerneregelen (løkke 3) og logaritme- og eksponentialfunksjoner (løkke 4). Hver løkke går teori → gjennomregnet eksempel → oppgaver du løser selv, før vi går videre. Til slutt kommer en samlet eksamensdrill."
+    },
+    {
+      "id": "econ1100-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Potensregelen og vennene dens (~10 min)"
+    },
+    {
+      "id": "econ1100-1-1-def-derivert",
+      "type": "definition",
+      "title": "Den deriverte",
+      "content": "Den deriverte av en funksjon forteller hvor bratt funksjonen stiger eller synker i et punkt — altså hvor mye $f$ endrer seg når $x$ øker med en liten smule. Positiv derivert betyr at funksjonen vokser, negativ at den avtar.\n\nVi skriver den $f'(x)$ (les: «$f$ derivert av $x$»). Formelt er den grenseverdien av gjennomsnittlig endring over et stadig kortere intervall:\n\n$$f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}$$\n\nPå ECON1100 blir denne definisjonen aldri bedt om direkte. Det du trenger, er reglene som følger av den — og de kommer nå."
+    },
+    {
+      "id": "econ1100-1-1-def-potensregel",
+      "type": "definition",
+      "title": "Potensregelen",
+      "content": "Å derivere en potens gjør du ved å flytte eksponenten ned som faktor og deretter senke eksponenten med én. Dette er den mest brukte regelen i hele faget.\n\n$$\\frac{d}{dx}\\,x^{a}=a\\,x^{a-1}$$\n\nRegelen gjelder for **alle reelle eksponenter** $a$, ikke bare hele tall — også $a=\\tfrac12$ (kvadratrot), $a=-2$ og $a=0{,}3$."
+    },
+    {
+      "id": "econ1100-1-1-def-konstant-sum",
+      "type": "definition",
+      "title": "Konstantregelen og sumregelen",
+      "content": "En konstant faktor blir stående urørt utenfor, og en sum deriveres ledd for ledd. Det betyr at du aldri trenger å derivere et langt uttrykk under ett — du tar ett ledd om gangen.\n\n$$\\frac{d}{dx}\\big(c\\cdot f(x)\\big)=c\\cdot f'(x),\\qquad \\frac{d}{dx}\\big(f(x)+g(x)\\big)=f'(x)+g'(x)$$\n\nEn ren konstant har derivert null: $\\frac{d}{dx}\\,c=0$. Konstantleddet forsvinner altså alltid."
+    },
+    {
+      "id": "econ1100-1-1-def-rot",
+      "type": "definition",
+      "title": "Derivasjon av kvadratrot",
+      "content": "Kvadratroten er en potens i forkledning, og derfor er den ikke noe unntak: skriv $\\sqrt{x}$ som $x^{1/2}$ og bruk potensregelen.\n\n$$\\frac{d}{dx}\\sqrt{x}=\\frac{d}{dx}\\,x^{1/2}=\\tfrac12 x^{-1/2}=\\frac{1}{2\\sqrt{x}}$$\n\nLegg merke til at den deriverte vokser mot uendelig når $x\\to 0^{+}$: rotfunksjonen er brattest helt i starten. Definisjonsområdet er $x\\ge 0$ for $\\sqrt{x}$ selv, men $x>0$ for den deriverte."
+    },
+    {
+      "id": "econ1100-1-1-def-negativ-eksponent",
+      "type": "definition",
+      "title": "Negative eksponenter",
+      "content": "En brøk med $x$ i nevneren skrives om til en negativ eksponent før du deriverer — da slipper du kvotientregelen helt. Dette er den raskeste veien gjennom halvparten av leddene i Oppgave 1.\n\n$$\\frac{1}{x^{n}}=x^{-n}\\quad\\Longrightarrow\\quad \\frac{d}{dx}\\,x^{-n}=-n\\,x^{-n-1}=-\\frac{n}{x^{n+1}}$$\n\nFor eksempel er $\\frac{d}{dx}\\,x^{-2}=-2x^{-3}=-\\dfrac{2}{x^{3}}$. Det er her fortegnsfeilene sitter: eksponenten $-2$ blir stående som faktor foran, og den *nye* eksponenten er $-3$, ikke $-1$."
+    },
+    {
+      "id": "econ1100-1-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Potensregelen på tre ledd",
+      "problem": "Deriver $f(x)=3x^{4}-\\dfrac{5}{x^{2}}+2\\sqrt{x}$.",
+      "solution": "**Steg 1 — skriv alt som potenser.** Det er dette steget som gjør resten mekanisk:\n\n$$f(x)=3x^{4}-5x^{-2}+2x^{1/2}$$\n\n**Steg 2 — deriver ledd for ledd** (sumregelen), med konstantene stående utenfor:\n\n- $\\frac{d}{dx}\\,3x^{4}=3\\cdot 4x^{3}=12x^{3}$\n- $\\frac{d}{dx}\\big({-5}x^{-2}\\big)=-5\\cdot(-2)x^{-3}=10x^{-3}$\n- $\\frac{d}{dx}\\,2x^{1/2}=2\\cdot\\tfrac12 x^{-1/2}=x^{-1/2}$\n\n**Steg 3 — forenkle åpenbart** (sensor krever det for full uttelling):\n\n$$f'(x)=12x^{3}+\\frac{10}{x^{3}}+\\frac{1}{\\sqrt{x}}$$\n\n**Merk fortegnet i midtleddet.** Minusen foran $5$ og minusen fra eksponenten $-2$ opphever hverandre, så leddet blir **positivt**. Det er nøyaktig her feil #12 slår til — mange skriver $-10x^{-3}$."
+    },
+    {
+      "id": "econ1100-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger P1 — «deriver funksjonene», altså eksamens Oppgave 1. Innstegsoppgave.) Deriver:\n\n**a)** $f(x)=4x^{3}-7x+9$\n\n**b)** $g(x)=x^{5}+2x^{2}-x$",
+        "solution": "**a)** Ledd for ledd med potensregelen: $\\frac{d}{dx}4x^{3}=12x^{2}$, $\\frac{d}{dx}(-7x)=-7$, og konstantleddet $9$ har derivert $0$.\n\n$$f'(x)=12x^{2}-7$$\n\n**b)** $\\frac{d}{dx}x^{5}=5x^{4}$, $\\frac{d}{dx}2x^{2}=4x$, $\\frac{d}{dx}(-x)=-1$.\n\n$$g'(x)=5x^{4}+4x-1$$",
+        "hints": [
+          "Potensregelen: flytt eksponenten ned som faktor, og senk eksponenten med én.",
+          "Husk at et rent konstantledd (som $9$) har derivert null, og at $-7x$ deriveres til $-7$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P1.) En bedrift har kostnadsfunksjonen\n\n$$K(x)=\\tfrac12 x^{2}+\\frac{200}{x},$$\n\nder $x$ er produsert mengde (i tusen enheter) og $K$ er kostnad (i tusen kroner). Finn grensekostnaden $K'(x)$, og regn ut $K'(10)$.",
+        "solution": "**Steg 1 — skriv om brøken til en potens:** $\\dfrac{200}{x}=200x^{-1}$, altså $K(x)=\\tfrac12 x^{2}+200x^{-1}$.\n\n**Steg 2 — deriver ledd for ledd:**\n\n- $\\frac{d}{dx}\\big(\\tfrac12 x^{2}\\big)=\\tfrac12\\cdot 2x=x$\n- $\\frac{d}{dx}\\big(200x^{-1}\\big)=200\\cdot(-1)x^{-2}=-200x^{-2}$\n\n$$K'(x)=x-\\frac{200}{x^{2}}$$\n\n**Steg 3 — sett inn $x=10$:** $K'(10)=10-\\dfrac{200}{100}=10-2=8$.\n\n**Tolkning:** når produksjonen er 10 000 enheter, koster den neste vekstenheten om lag 8 000 kroner. Merk at fortegnet i andre ledd er negativt her — eksponenten $-1$ ga faktoren $-1$, og det var ingen minus fra før som kunne oppheve den.",
+        "hints": [
+          "Skriv $\\dfrac{200}{x}$ som $200x^{-1}$ før du deriverer — da slipper du kvotientregelen.",
+          "Etter derivasjon: $200\\cdot(-1)x^{-2}$. Hvilket fortegn får leddet?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Produkt og kvotient (~12 min)"
+    },
+    {
+      "id": "econ1100-1-1-lokke2-intro",
+      "type": "text",
+      "content": "Potensregelen holder så lenge funksjonen er en sum av potenser. Men eksamen er full av uttrykk der to funksjoner er **ganget sammen** eller **delt på hverandre** — som $\\dfrac{x^{2}}{x+y}$, en brøk som går igjen i Oppgave 1 år etter år. Da trenger du to nye regler.\n\nEn viktig strategisk merknad først: kvotientregelen er den regelen flest gjør fortegnsfeil i. Derfor lønner det seg alltid å spørre om brøken kan skrives om til en potens i stedet (som i oppgave 2 over). Kan den ikke det, bruker du kvotientregelen — men da med orden i telleren."
+    },
+    {
+      "id": "econ1100-1-1-def-produktregel",
+      "type": "definition",
+      "title": "Produktregelen",
+      "content": "Når to funksjoner er ganget sammen, deriverer du dem én om gangen og legger sammen de to bidragene: først den ene derivert ganger den andre urørt, så omvendt.\n\n$$\\frac{d}{dx}\\big(u(x)\\cdot v(x)\\big)=u'(x)\\,v(x)+u(x)\\,v'(x)$$\n\nHuskeregel i ord: «derivert ganger urørt, pluss urørt ganger derivert». Rekkefølgen mellom de to leddene spiller ingen rolle her — det gjør den derimot i kvotientregelen."
+    },
+    {
+      "id": "econ1100-1-1-def-kvotientregel",
+      "type": "definition",
+      "title": "Kvotientregelen",
+      "content": "Når en funksjon er en brøk, deriverer du telleren og nevneren hver for seg og setter dem sammen etter en fast mal — med **minus mellom leddene** og nevneren kvadrert nederst.\n\n$$\\frac{d}{dx}\\left(\\frac{u(x)}{v(x)}\\right)=\\frac{u'(x)\\,v(x)-u(x)\\,v'(x)}{\\big(v(x)\\big)^{2}}$$\n\nRekkefølgen i telleren er avgjørende: **derivert teller ganger nevner først**, deretter minus **teller ganger derivert nevner**. Bytter du om, får du feil fortegn på hele svaret — det er nøyaktig feil #12."
+    },
+    {
+      "id": "econ1100-1-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Produktregelen med en rot",
+      "problem": "Deriver $f(x)=(2x-1)\\sqrt{x}$.",
+      "solution": "**Steg 1 — navngi de to faktorene:** $u=2x-1$ og $v=\\sqrt{x}=x^{1/2}$.\n\n**Steg 2 — deriver hver for seg:** $u'=2$ og $v'=\\dfrac{1}{2\\sqrt{x}}$.\n\n**Steg 3 — sett inn i produktregelen:**\n\n$$f'(x)=2\\cdot\\sqrt{x}+(2x-1)\\cdot\\frac{1}{2\\sqrt{x}}$$\n\n**Steg 4 — forenkle** ved å sette på felles nevner $2\\sqrt{x}$. Det første leddet blir $\\dfrac{2\\sqrt{x}\\cdot 2\\sqrt{x}}{2\\sqrt{x}}=\\dfrac{4x}{2\\sqrt{x}}$:\n\n$$f'(x)=\\frac{4x+(2x-1)}{2\\sqrt{x}}=\\frac{6x-1}{2\\sqrt{x}}$$\n\nSluttsvaret er forenklet, og det er det sensor ser etter. Kontroll: ved $x=1$ gir uttrykket $f'(1)=\\frac{5}{2}=2{,}5$, og direkte regning med produktregelen gir $2\\cdot 1+1\\cdot\\tfrac12=2{,}5$. ✓"
+    },
+    {
+      "id": "econ1100-1-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Kvotientregelen — der fortegnene avgjør",
+      "problem": "Deriver $h(x)=\\dfrac{x^{2}+4}{x+1}$.",
+      "solution": "**Steg 1 — navngi teller og nevner:** $u=x^{2}+4$, $v=x+1$, altså $u'=2x$ og $v'=1$.\n\n**Steg 2 — sett inn i malen** «derivert teller ganger nevner, minus teller ganger derivert nevner, delt på nevner i annen»:\n\n$$h'(x)=\\frac{2x(x+1)-(x^{2}+4)\\cdot 1}{(x+1)^{2}}$$\n\n**Steg 3 — rydd telleren.** Her ligger fellen: minusen gjelder **hele** parentesen $(x^{2}+4)$, ikke bare $x^{2}$.\n\n$$2x^{2}+2x-x^{2}-4=x^{2}+2x-4$$\n\n**Steg 4 — sluttsvar:**\n\n$$h'(x)=\\frac{x^{2}+2x-4}{(x+1)^{2}}$$\n\n**Kontroll:** sett $x=1$. Formelen gir $\\frac{1+2-4}{4}=-\\frac14$. Regner vi direkte: $u=5$, $v=2$, $u'=2$, $v'=1$, altså $\\frac{2\\cdot2-5\\cdot1}{4}=-\\frac14$. ✓ Den deriverte er negativ i $x=1$, så funksjonen avtar der."
+    },
+    {
+      "id": "econ1100-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P1.) Deriver med produktregelen:\n\n**a)** $f(x)=(x^{2}+1)(3x-2)$\n\n**b)** $g(x)=x^{3}\\sqrt{x}$ — her lønner det seg å skrive om til én potens først. Gjør begge deler, og sjekk at svarene stemmer overens.",
+        "solution": "**a)** Med $u=x^{2}+1$, $v=3x-2$ er $u'=2x$ og $v'=3$:\n\n$$f'(x)=2x(3x-2)+(x^{2}+1)\\cdot 3=6x^{2}-4x+3x^{2}+3=9x^{2}-4x+3$$\n\n**b)** *Omskriving (raskest):* $g(x)=x^{3}\\cdot x^{1/2}=x^{7/2}$, altså\n\n$$g'(x)=\\tfrac{7}{2}x^{5/2}$$\n\n*Med produktregelen:* $u=x^{3}$, $v=x^{1/2}$ gir\n\n$$g'(x)=3x^{2}\\cdot x^{1/2}+x^{3}\\cdot\\tfrac12 x^{-1/2}=3x^{5/2}+\\tfrac12 x^{5/2}=\\tfrac72 x^{5/2}$$\n\nSamme svar. **Lærdommen:** når begge faktorene er potenser av $x$, er omskriving alltid raskere og tryggere enn produktregelen.",
+        "hints": [
+          "Produktregelen: «derivert ganger urørt, pluss urørt ganger derivert».",
+          "I b): $x^{3}\\cdot x^{1/2}$ — hva blir eksponenten når du ganger potenser med samme grunntall?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Deriver og forenkle:\n\n**a)** $f(x)=\\dfrac{3x-1}{x^{2}}$ — løs den på to måter: med kvotientregelen, og ved å dele opp brøken i to ledd med negative eksponenter.\n\n**b)** $h(x)=\\dfrac{x}{x^{2}+1}$",
+        "solution": "**a)** *Med kvotientregelen:* $u=3x-1$, $v=x^{2}$, $u'=3$, $v'=2x$:\n\n$$f'(x)=\\frac{3x^{2}-(3x-1)\\cdot 2x}{x^{4}}=\\frac{3x^{2}-6x^{2}+2x}{x^{4}}=\\frac{-3x^{2}+2x}{x^{4}}=\\frac{-3x+2}{x^{3}}$$\n\n*Ved oppdeling:* $f(x)=\\dfrac{3x}{x^{2}}-\\dfrac{1}{x^{2}}=3x^{-1}-x^{-2}$, som gir\n\n$$f'(x)=-3x^{-2}+2x^{-3}=-\\frac{3}{x^{2}}+\\frac{2}{x^{3}}=\\frac{-3x+2}{x^{3}}$$\n\nSamme svar — og den andre veien er både raskere og mindre fortegnsutsatt.\n\n**b)** $u=x$, $v=x^{2}+1$, $u'=1$, $v'=2x$:\n\n$$h'(x)=\\frac{1\\cdot(x^{2}+1)-x\\cdot 2x}{(x^{2}+1)^{2}}=\\frac{x^{2}+1-2x^{2}}{(x^{2}+1)^{2}}=\\frac{1-x^{2}}{(x^{2}+1)^{2}}$$\n\nHer kan brøken ikke deles opp, så kvotientregelen er eneste vei. Kontroll ved $x=1$: $\\frac{1-1}{4}=0$ — og funksjonen har faktisk et toppunkt i $x=1$.",
+        "hints": [
+          "Kvotientregelen: $\\dfrac{u'v-uv'}{v^{2}}$ — pass på at minusen gjelder hele produktet $uv'$.",
+          "I a): kan du dele brøken i to ledd og bruke negative eksponenter i stedet?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Kjerneregelen (~11 min)"
+    },
+    {
+      "id": "econ1100-1-1-lokke3-intro",
+      "type": "text",
+      "content": "Nå kommer regelen som brukes oftest av alle på ECON1100, fordi den er skjult inne i nesten hvert eneste eksamensuttrykk: $\\sqrt{4x^{2}+1}$, $(x^{2}+3x)^{5}$, $e^{2x}$, $\\ln(x^{2}+1)$. Felles for dem er at det står *noe mer enn bare $x$* inni funksjonen.\n\nSlike funksjoner kaller vi **sammensatte**: det er en ytre funksjon (roten, potensen, $\\ln$, $e$) og en indre funksjon — «kjernen» — inni. Kjerneregelen sier at du deriverer utenfra og inn, og ganger bidragene sammen."
+    },
+    {
+      "id": "econ1100-1-1-def-ytre-indre",
+      "type": "definition",
+      "title": "Ytre funksjon og kjerne",
+      "content": "Når en funksjon står inni en annen, kaller vi den innerste **kjernen** (den indre funksjonen) og den ytterste **den ytre funksjonen**. Å identifisere de to riktig er halve jobben med kjerneregelen.\n\nI $f(x)=(x^{2}+3x)^{5}$ er kjernen $u=x^{2}+3x$ og den ytre funksjonen «opphøy i femte», altså $f=u^{5}$. I $f(x)=\\sqrt{4x^{2}+1}$ er kjernen $u=4x^{2}+1$ og den ytre funksjonen roten.\n\nTest: hvis du må regne ut noe *før* du kan bruke den ytre operasjonen, er det du regner ut, kjernen."
+    },
+    {
+      "id": "econ1100-1-1-def-kjerneregel",
+      "type": "definition",
+      "title": "Kjerneregelen",
+      "content": "Deriver en sammensatt funksjon utenfra og inn: ta den deriverte av den ytre funksjonen med kjernen stående urørt inni, og gang med den deriverte av kjernen.\n\n$$\\frac{d}{dx}\\,f\\big(u(x)\\big)=f'\\big(u(x)\\big)\\cdot u'(x)$$\n\nFaktoren $u'(x)$ til slutt er den som glemmes oftest. Uten den har du bare derivert «halve» funksjonen — og det gir feil svar hver gang kjernen er noe annet enn $x$ alene."
+    },
+    {
+      "id": "econ1100-1-1-def-potens-av-funksjon",
+      "type": "definition",
+      "title": "Potens av en funksjon",
+      "content": "Skal du derivere noe opphøyd i en potens, senker du eksponenten som vanlig — men må gange med den deriverte av det som står inni parentesen.\n\n$$\\frac{d}{dx}\\big(g(x)\\big)^{n}=n\\big(g(x)\\big)^{n-1}\\cdot g'(x)$$\n\nMerk at parentesinnholdet forblir *urørt* i det første leddet: du deriverer aldri innmaten og senker eksponenten samtidig. Spesialtilfellet $\\sqrt{g(x)}=\\big(g(x)\\big)^{1/2}$ gir $\\dfrac{g'(x)}{2\\sqrt{g(x)}}$."
+    },
+    {
+      "id": "econ1100-1-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: To sammensatte funksjoner",
+      "problem": "Deriver **a)** $f(x)=(x^{2}+3x)^{5}$ og **b)** $g(x)=\\sqrt{4x^{2}+1}$.",
+      "solution": "**a)** Kjernen er $u=x^{2}+3x$ med $u'=2x+3$; den ytre funksjonen er $u^{5}$ med derivert $5u^{4}$.\n\n$$f'(x)=5(x^{2}+3x)^{4}\\cdot(2x+3)$$\n\nHer er det *riktig* å la parentesen stå. Å gange ut en fjerdegradsparentes ville vært bortkastet tid — sensor krever «åpenbar forenkling», ikke maksimal utregning.\n\n**b)** Skriv roten som en potens: $g(x)=(4x^{2}+1)^{1/2}$. Kjernen er $u=4x^{2}+1$ med $u'=8x$:\n\n$$g'(x)=\\tfrac12(4x^{2}+1)^{-1/2}\\cdot 8x=\\frac{8x}{2\\sqrt{4x^{2}+1}}=\\frac{4x}{\\sqrt{4x^{2}+1}}$$\n\n**Kontroll ved $x=0$:** $g'(0)=0$, som stemmer med at $g$ har et bunnpunkt der ($4x^{2}+1$ er minst i $x=0$). ✓\n\n**Merk forenklingen i b):** $\\frac{8x}{2}=4x$. Å levere svaret med $\\frac{8x}{2}$ stående er akkurat den typen manglende forenkling som koster de siste poengene."
+    },
+    {
+      "id": "econ1100-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P1.) Deriver med kjerneregelen:\n\n**a)** $f(x)=(5x-2)^{4}$\n\n**b)** $g(x)=\\sqrt{x^{2}+9}$",
+        "solution": "**a)** Kjernen er $u=5x-2$ med $u'=5$:\n\n$$f'(x)=4(5x-2)^{3}\\cdot 5=20(5x-2)^{3}$$\n\n**b)** Kjernen er $u=x^{2}+9$ med $u'=2x$. Med $g=(x^{2}+9)^{1/2}$:\n\n$$g'(x)=\\tfrac12(x^{2}+9)^{-1/2}\\cdot 2x=\\frac{x}{\\sqrt{x^{2}+9}}$$\n\nLegg merke til at faktoren $2$ fra kjernen og $\\tfrac12$ fra roten forkorter hverandre — et mønster som går igjen.",
+        "hints": [
+          "Kjerneregelen: deriver den ytre funksjonen med kjernen urørt, og gang med kjernens deriverte.",
+          "I b): skriv roten som $(x^{2}+9)^{1/2}$ først, så er det bare potensregelen pluss kjernefaktoren."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Deriver og forenkle så langt det er åpenbart:\n\n**a)** $f(x)=\\dfrac{1}{(2x+3)^{3}}$\n\n**b)** $g(x)=\\big(x^{2}-4x\\big)^{3}\\,(x+1)$ — her trenger du både kjerneregelen og produktregelen.",
+        "solution": "**a)** Skriv om til negativ eksponent: $f(x)=(2x+3)^{-3}$. Kjernen er $u=2x+3$ med $u'=2$:\n\n$$f'(x)=-3(2x+3)^{-4}\\cdot 2=-\\frac{6}{(2x+3)^{4}}$$\n\n**b)** Sett $u=(x^{2}-4x)^{3}$ og $v=x+1$. Kjerneregelen gir $u'=3(x^{2}-4x)^{2}(2x-4)$, og $v'=1$. Produktregelen:\n\n$$g'(x)=3(x^{2}-4x)^{2}(2x-4)(x+1)+(x^{2}-4x)^{3}$$\n\n**Åpenbar forenkling:** begge ledd har faktoren $(x^{2}-4x)^{2}$, så vi setter den utenfor:\n\n$$g'(x)=(x^{2}-4x)^{2}\\Big[3(2x-4)(x+1)+(x^{2}-4x)\\Big]$$\n\nKlammen ryddes: $3(2x^{2}-2x-4)+x^{2}-4x=6x^{2}-6x-12+x^{2}-4x=7x^{2}-10x-12$. Altså\n\n$$g'(x)=(x^{2}-4x)^{2}\\big(7x^{2}-10x-12\\big)$$\n\nÅ faktorisere ut fellesfaktoren er nettopp den «åpenbare forenklingen» sensor ser etter — den viser at du ser strukturen, ikke bare regner mekanisk.",
+        "hints": [
+          "I a): $\\dfrac{1}{(2x+3)^{3}}=(2x+3)^{-3}$ — så er det potensregelen med kjernefaktor.",
+          "I b): deriver $(x^{2}-4x)^{3}$ for seg selv først, og se etter en felles faktor til slutt."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Logaritme- og eksponentialfunksjoner (~12 min)"
+    },
+    {
+      "id": "econ1100-1-1-lokke4-intro",
+      "type": "text",
+      "content": "De siste to funksjonstypene du trenger, er den naturlige logaritmen $\\ln x$ og eksponentialfunksjonen $e^{x}$. De dukker opp overalt i økonomifag: $\\ln$ fordi nyttefunksjoner og vekstrater ofte skrives logaritmisk, og $e^{x}$ fordi kontinuerlig vekst og forrentning gjør det.\n\nDeres deriverte er så enkle at de er verdt å pugge — og kombinert med kjerneregelen dekker de nesten alt eksamen kaster på deg."
+    },
+    {
+      "id": "econ1100-1-1-def-ln",
+      "type": "definition",
+      "title": "Derivasjon av den naturlige logaritmen",
+      "content": "Den naturlige logaritmen har den enkleste deriverte i hele faget: én delt på $x$. Det gjør $\\ln$ til en favoritt i økonomiske modeller — den gir pene marginaluttrykk.\n\n$$\\frac{d}{dx}\\ln x=\\frac{1}{x},\\qquad x>0$$\n\nMerk definisjonsområdet: $\\ln x$ finnes bare for $x>0$. Det er en detalj som blir avgjørende senere i boka, når vi leter etter ekstrempunkter og må kaste løsninger som faller utenfor definisjonsområdet."
+    },
+    {
+      "id": "econ1100-1-1-def-ex",
+      "type": "definition",
+      "title": "Derivasjon av eksponentialfunksjonen",
+      "content": "Eksponentialfunksjonen $e^{x}$ er sin egen deriverte — den eneste funksjonen (opp til en konstant faktor) som har den egenskapen.\n\n$$\\frac{d}{dx}\\,e^{x}=e^{x}$$\n\nDet betyr at vekstfarten til $e^{x}$ til enhver tid er lik funksjonsverdien selv: jo større den er blitt, jo raskere vokser den. Det er nettopp derfor den modellerer rentesrente og kontinuerlig vekst."
+    },
+    {
+      "id": "econ1100-1-1-def-ax",
+      "type": "definition",
+      "title": "Derivasjon av $a^{x}$",
+      "content": "Har eksponentialfunksjonen et annet grunntall enn $e$, kommer det en logaritmefaktor på kjøpet: den deriverte er funksjonen selv ganget med den naturlige logaritmen til grunntallet.\n\n$$\\frac{d}{dx}\\,a^{x}=a^{x}\\ln a,\\qquad a>0$$\n\nFormelen inneholder $e^{x}$-regelen som spesialtilfelle, siden $\\ln e=1$. **Viktig avgrensning:** dette gjelder når *grunntallet* er en konstant og eksponenten inneholder $x$. Er begge deler variable — som i $x^{x}$ — trengs en annen metode, og den kommer i [kap. 1.4](/bok/econ1100/econ1100-1-4)."
+    },
+    {
+      "id": "econ1100-1-1-def-e-kjerne",
+      "type": "definition",
+      "title": "Kjerneregelen på $e^{g(x)}$",
+      "content": "Står det noe annet enn bare $x$ i eksponenten, blir eksponentialfunksjonen stående uendret — og du ganger med den deriverte av eksponenten.\n\n$$\\frac{d}{dx}\\,e^{g(x)}=e^{g(x)}\\cdot g'(x)$$\n\nFor eksempel er $\\frac{d}{dx}e^{3x^{2}}=e^{3x^{2}}\\cdot 6x$. Den glemte faktoren $g'(x)$ er en av de vanligste enkeltfeilene i Oppgave 1."
+    },
+    {
+      "id": "econ1100-1-1-def-ln-kjerne",
+      "type": "definition",
+      "title": "Kjerneregelen på $\\ln(g(x))$",
+      "content": "Når det står et helt uttrykk inni logaritmen, får du en brøk: den deriverte av innmaten delt på innmaten selv.\n\n$$\\frac{d}{dx}\\ln\\big(g(x)\\big)=\\frac{g'(x)}{g(x)}$$\n\nFor eksempel er $\\frac{d}{dx}\\ln(x^{2}+1)=\\dfrac{2x}{x^{2}+1}$. Dette er en av de mest brukte formlene på hele eksamen, og verdt å kunne uten å tenke."
+    },
+    {
+      "id": "econ1100-1-1-def-reell-eksponent",
+      "type": "definition",
+      "title": "Reelle eksponenter",
+      "content": "Potensregelen gjelder også når eksponenten er et desimaltall eller en bokstav som står for et fast tall — som $\\alpha$ i en produktfunksjon. Du behandler den akkurat som et helt tall.\n\n$$\\frac{d}{dx}\\,x^{\\alpha}=\\alpha\\,x^{\\alpha-1}$$\n\nDette brukes hele veien i økonomi: produktfunksjonen $Q=K^{\\alpha}L^{\\beta}$ og nyttefunksjonen $U=x^{a}y^{b}$ deriveres nettopp slik. Kravet er bare at $\\alpha$ er en konstant, ikke en funksjon av $x$."
+    },
+    {
+      "id": "econ1100-1-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Eksamensnivå — produkt, kjerne og forenkling i ett",
+      "problem": "En modell for hvor mye et nystartet foretak selger etter $x$ måneder er\n\n$$S(x)=x^{2}e^{-2x},\\qquad x\\ge 0.$$\n\nFinn $S'(x)$, og forenkl svaret så langt det er åpenbart.",
+      "solution": "**Steg 1 — se strukturen.** Dette er et *produkt* av $u=x^{2}$ og $v=e^{-2x}$, og den andre faktoren er *sammensatt* (kjernen er $-2x$). Vi trenger altså produktregelen med kjerneregelen inni.\n\n**Steg 2 — deriver hver faktor:**\n\n- $u'=2x$\n- $v'=e^{-2x}\\cdot(-2)=-2e^{-2x}$ (kjerneregelen: eksponentialfunksjonen står, ganget med den deriverte av eksponenten)\n\n**Steg 3 — produktregelen:**\n\n$$S'(x)=2x\\,e^{-2x}+x^{2}\\cdot\\big(-2e^{-2x}\\big)=2xe^{-2x}-2x^{2}e^{-2x}$$\n\n**Steg 4 — forenkle ved å sette fellesfaktoren utenfor.** Begge ledd inneholder $2xe^{-2x}$:\n\n$$S'(x)=2x\\,e^{-2x}\\,(1-x)$$\n\n**Steg 5 — les av hva svaret forteller.** Siden $e^{-2x}>0$ alltid, og $2x\\ge 0$ for $x\\ge 0$, bestemmes fortegnet til $S'$ helt av parentesen $(1-x)$: salget vokser for $x<1$ og avtar for $x>1$. Toppen er etter én måned.\n\nDen forenklede formen er ikke bare penere — den er den som lar deg *lese av* svaret. Det er derfor sensor krever åpenbar forenkling for full uttelling."
+    },
+    {
+      "id": "econ1100-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P1.) Deriver:\n\n**a)** $f(x)=e^{5x}$\n\n**b)** $g(x)=\\ln(3x+7)$\n\n**c)** $h(x)=4e^{x}+\\ln x$",
+        "solution": "**a)** Kjernen er $5x$ med derivert $5$:\n\n$$f'(x)=5e^{5x}$$\n\n**b)** Kjernen er $3x+7$ med derivert $3$, og regelen $\\frac{g'}{g}$ gir\n\n$$g'(x)=\\frac{3}{3x+7}$$\n\n**c)** Ledd for ledd: $\\frac{d}{dx}4e^{x}=4e^{x}$ og $\\frac{d}{dx}\\ln x=\\dfrac{1}{x}$.\n\n$$h'(x)=4e^{x}+\\frac{1}{x}$$",
+        "hints": [
+          "$\\frac{d}{dx}e^{g(x)}=e^{g(x)}\\cdot g'(x)$ og $\\frac{d}{dx}\\ln(g(x))=\\dfrac{g'(x)}{g(x)}$.",
+          "I b) er kjernen $3x+7$. Hva er den deriverte av kjernen, og hvor havner den?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Deriver og forenkle:\n\n**a)** $f(x)=e^{3x^{2}}$\n\n**b)** $g(x)=x\\ln x$\n\n**c)** $h(x)=5\\cdot 2^{x}$",
+        "solution": "**a)** Kjernen er $3x^{2}$ med derivert $6x$:\n\n$$f'(x)=6x\\,e^{3x^{2}}$$\n\n**b)** Produktregelen med $u=x$, $v=\\ln x$:\n\n$$g'(x)=1\\cdot\\ln x+x\\cdot\\frac{1}{x}=\\ln x+1$$\n\nEt bemerkelsesverdig pent svar — og et uttrykk du møter igjen i [kap. 1.4](/bok/econ1100/econ1100-1-4), der det er selve fasiten for den deriverte av $x^{x}$.\n\n**c)** Konstanten står utenfor, og $a^{x}$-regelen gir logaritmefaktoren:\n\n$$h'(x)=5\\cdot 2^{x}\\ln 2$$",
+        "hints": [
+          "I b): bruk produktregelen, og husk at $x\\cdot\\frac{1}{x}=1$.",
+          "I c): grunntallet er $2$, ikke $e$ — hvilken faktor kommer da i tillegg?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i Oppgave 1",
+      "content": "Feilene under står for det aller meste av poengtapet på åpningsoppgaven. Den første har eget nummer i bokas feilregister:\n\n- **Feil #12 — fortegnsfeil i deriverte av brøker og sammensatte uttrykk.** To varianter: (i) å bytte om leddene i kvotientregelens teller ($uv'-u'v$ i stedet for $u'v-uv'$), og (ii) å glemme at minusen foran en parentes gjelder hele parentesen. Motgift: skriv alltid opp $u$, $v$, $u'$ og $v'$ på egen linje før du setter inn, og rydd telleren i et eget steg.\n- **Glemme kjernefaktoren.** $\\frac{d}{dx}e^{2x}$ er $2e^{2x}$, ikke $e^{2x}$; $\\frac{d}{dx}\\ln(3x)$ er $\\frac{3}{3x}=\\frac1x$, ikke $\\frac{1}{3x}$. Spør alltid: står det noe annet enn bare $x$ inni? Da må kjernens deriverte med.\n- **Feil derivert av kvadratroten.** $\\frac{d}{dx}\\sqrt{x}=\\frac{1}{2\\sqrt{x}}$ — ikke $\\frac{1}{\\sqrt{x}}$ og ikke $2\\sqrt{x}$. Skriv om til $x^{1/2}$, så løser problemet seg selv.\n- **Slurv med negative og reelle eksponenter.** Den nye eksponenten etter derivasjon av $x^{-2}$ er $-3$, ikke $-1$. Og $\\frac{d}{dx}x^{0{,}4}=0{,}4x^{-0{,}6}$, ikke $0{,}4x^{0{,}6}$.\n- **Uforenklet svar.** Sensor krever åpenbar forenkling for full uttelling. Er det en felles faktor i alle ledd, skal den settes utenfor; kan en brøk forkortes, skal den forkortes."
+    },
+    {
+      "id": "econ1100-1-1-drill-intro",
+      "type": "text",
+      "content": "## Eksamensdrill (~10 min)\n\n*— naturlig pausepunkt —*\n\nNå kommer de tyngre uttrykkene, av samme type som de algebratunge delpunktene i Oppgave 1. Alle krever at du kombinerer to eller flere regler. Regn dem for hånd og forenkl til slutt."
+    },
+    {
+      "id": "econ1100-1-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Deriver og forenkle:\n\n$$f(x)=\\sqrt{x}\\,\\ln x,\\qquad x>0.$$",
+        "solution": "Produktregelen med $u=\\sqrt{x}=x^{1/2}$ og $v=\\ln x$, altså $u'=\\dfrac{1}{2\\sqrt{x}}$ og $v'=\\dfrac1x$:\n\n$$f'(x)=\\frac{\\ln x}{2\\sqrt{x}}+\\sqrt{x}\\cdot\\frac{1}{x}$$\n\n**Forenkling:** siden $\\dfrac{\\sqrt{x}}{x}=\\dfrac{1}{\\sqrt{x}}=\\dfrac{2}{2\\sqrt{x}}$, har begge ledd nevneren $2\\sqrt{x}$:\n\n$$f'(x)=\\frac{\\ln x+2}{2\\sqrt{x}}$$\n\n**Kontroll ved $x=1$:** formelen gir $\\frac{0+2}{2}=1$; direkte innsetting gir $\\frac{\\ln 1}{2}+1\\cdot 1=1$. ✓",
+        "hints": [
+          "Produktregelen med $u=x^{1/2}$; husk $u'=\\frac{1}{2\\sqrt{x}}$.",
+          "For å slå sammen: skriv $\\frac{\\sqrt{x}}{x}$ som $\\frac{1}{\\sqrt{x}}$ og deretter med nevner $2\\sqrt{x}$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) Deriver og forenkl så langt det er åpenbart:\n\n$$f(x)=\\frac{e^{2x}}{x^{2}+1}.$$",
+        "solution": "**Steg 1 — sett opp kvotientregelen.** $u=e^{2x}$, $v=x^{2}+1$, altså $u'=2e^{2x}$ (kjerneregelen) og $v'=2x$:\n\n$$f'(x)=\\frac{2e^{2x}(x^{2}+1)-e^{2x}\\cdot 2x}{(x^{2}+1)^{2}}$$\n\n**Steg 2 — sett $2e^{2x}$ utenfor i telleren.** Begge ledd har faktoren $e^{2x}$, og begge har faktoren $2$:\n\n$$2e^{2x}(x^{2}+1)-2xe^{2x}=2e^{2x}\\big(x^{2}+1-x\\big)$$\n\n**Steg 3 — sluttsvar:**\n\n$$f'(x)=\\frac{2e^{2x}\\big(x^{2}-x+1\\big)}{(x^{2}+1)^{2}}$$\n\n**Bonusobservasjon:** annengradsuttrykket $x^{2}-x+1$ har diskriminant $(-1)^{2}-4\\cdot1\\cdot1=-3<0$, så det er positivt for alle $x$. Siden også $e^{2x}>0$ og nevneren er positiv, er $f'(x)>0$ overalt — funksjonen vokser i hele definisjonsområdet. Slike fortegnsavlesninger blir helt sentrale i Del 4.",
+        "hints": [
+          "Kvotientregelen $\\dfrac{u'v-uv'}{v^{2}}$, der $u'=2e^{2x}$ krever kjerneregelen.",
+          "Se etter felles faktor $2e^{2x}$ i telleren når du skal forenkle."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) Deriver og forenkle:\n\n**a)** $f(x)=\\ln\\!\\left(\\dfrac{x}{x+1}\\right)$, $x>0$\n\n**b)** $g(x)=\\big(2x+e^{x}\\big)^{4}$",
+        "solution": "**a)** *Rask vei — bruk logaritmereglene først.* Siden $\\ln\\frac{a}{b}=\\ln a-\\ln b$:\n\n$$f(x)=\\ln x-\\ln(x+1)\\quad\\Longrightarrow\\quad f'(x)=\\frac{1}{x}-\\frac{1}{x+1}$$\n\nFelles nevner gir\n\n$$f'(x)=\\frac{(x+1)-x}{x(x+1)}=\\frac{1}{x(x+1)}$$\n\n*Kontroll med kjerneregelen direkte:* $f'=\\dfrac{g'}{g}$ med $g=\\dfrac{x}{x+1}$. Kvotientregelen gir $g'=\\dfrac{(x+1)-x}{(x+1)^{2}}=\\dfrac{1}{(x+1)^{2}}$, og dermed $f'=\\dfrac{1}{(x+1)^{2}}\\cdot\\dfrac{x+1}{x}=\\dfrac{1}{x(x+1)}$. ✓ Samme svar, men merkbart mer arbeid — **det lønner seg å rydde med logaritmereglene før du deriverer.**\n\n**b)** Kjernen er $u=2x+e^{x}$ med $u'=2+e^{x}$:\n\n$$g'(x)=4\\big(2x+e^{x}\\big)^{3}\\big(2+e^{x}\\big)$$\n\nHer skal parentesene stå — å gange ut en tredjegradsparentes er ikke «åpenbar forenkling», bare tidsbruk.",
+        "hints": [
+          "I a): kan du bruke $\\ln\\frac{a}{b}=\\ln a-\\ln b$ FØR du deriverer?",
+          "I b): identifiser kjernen $u=2x+e^{x}$ og deriver den for seg."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-1-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La\n\n$$f(x)=\\frac{3x^{2}-1}{\\sqrt{x}},\\qquad x>0.$$\n\n**a)** Deriver $f$ ved å skrive uttrykket om til en sum av potenser.\n\n**b)** Deriver $f$ på nytt med kvotientregelen, og vis at svarene er like.",
+        "solution": "**a)** *Omskriving.* Del hvert ledd på $\\sqrt{x}=x^{1/2}$:\n\n$$f(x)=3x^{2}\\cdot x^{-1/2}-x^{-1/2}=3x^{3/2}-x^{-1/2}$$\n\nPotensregelen ledd for ledd:\n\n$$f'(x)=3\\cdot\\tfrac32 x^{1/2}+\\tfrac12 x^{-3/2}=\\frac{9}{2}\\sqrt{x}+\\frac{1}{2x\\sqrt{x}}$$\n\nMerk fortegnet i andre ledd: $-1\\cdot\\left(-\\tfrac12\\right)=+\\tfrac12$.\n\n**b)** *Kvotientregelen.* $u=3x^{2}-1$, $v=x^{1/2}$, $u'=6x$, $v'=\\dfrac{1}{2\\sqrt{x}}$:\n\n$$f'(x)=\\frac{6x\\sqrt{x}-(3x^{2}-1)\\cdot\\frac{1}{2\\sqrt{x}}}{x}$$\n\nGang teller og nevner med $2\\sqrt{x}$:\n\n$$f'(x)=\\frac{12x\\cdot x-(3x^{2}-1)}{2x\\sqrt{x}}=\\frac{12x^{2}-3x^{2}+1}{2x\\sqrt{x}}=\\frac{9x^{2}+1}{2x\\sqrt{x}}$$\n\n**Sammenligning.** Skriv svaret fra a) på felles nevner $2x\\sqrt{x}$: $\\dfrac{9}{2}\\sqrt{x}=\\dfrac{9\\sqrt{x}\\cdot x\\sqrt{x}}{2x\\sqrt{x}}=\\dfrac{9x^{2}}{2x\\sqrt{x}}$, siden $\\sqrt{x}\\cdot x\\sqrt{x}=x^{2}$. Dermed\n\n$$f'(x)=\\frac{9x^{2}+1}{2x\\sqrt{x}}$$\n\n— identisk med b). ✓ **Lærdom:** begge veier er riktige og gir full uttelling, men omskrivingen i a) har færre fortegnsfeller. Velg den når nevneren er en ren potens av $x$.",
+        "hints": [
+          "I a): del hvert ledd i telleren på $x^{1/2}$ og bruk at $x^{2}\\cdot x^{-1/2}=x^{3/2}$.",
+          "I b): gang teller og nevner med $2\\sqrt{x}$ for å bli kvitt brøken inni brøken."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-1-def-andrederivert",
+      "type": "definition",
+      "title": "Den andrederiverte",
+      "content": "Deriverer du én gang til, får du den andrederiverte — den måler hvordan *vekstfarten selv* endrer seg, altså krumningen til grafen.\n\n$$f''(x)=\\frac{d}{dx}\\,f'(x)$$\n\nEr $f''>0$, vokser den deriverte, og grafen krummer oppover (konveks); er $f''<0$, krummer den nedover (konkav). Vi bruker den for alvor i Del 4, men trenger regneteknikken allerede nå: den andrederiverte av $f(x)=x^{4}$ er $f''(x)=12x^{2}$."
+    },
+    {
+      "id": "econ1100-1-1-def-forenkling",
+      "type": "definition",
+      "title": "Åpenbar forenkling",
+      "content": "Med «åpenbar forenkling» menes at du samler fellesfaktorer, forkorter brøker og skriver svaret på den enkleste formen som er innen rekkevidde uten nytt arbeid. Sensor krever det for full uttelling, men forventer ikke at du ganger ut store parenteser.\n\nTommelfingerregel: **faktoriser når det avslører struktur, gang ut når det avslører ledd.** $2xe^{-2x}-2x^{2}e^{-2x}$ skal skrives $2xe^{-2x}(1-x)$, fordi den formen lar deg lese av fortegnet. Derimot skal $5(x^{2}+3x)^{4}(2x+3)$ stå som det er."
+    },
+    {
+      "id": "econ1100-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-1-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver på potensregning og algebra — det grunnlaget hele kapitlet hviler på. Trenger du en fyldigere gjennomgang, se [Derivasjonsregler](/bok/r1/r1-4-1) og [Kjerneregelen](/bok/r1/r1-4-3) i R1-boka.\n\n**1.** Skriv som én potens av $x$: **a)** $\\dfrac{1}{x^{3}}$ **b)** $\\sqrt[3]{x}$ **c)** $x^{2}\\sqrt{x}$ **d)** $\\dfrac{x^{5}}{x^{2}}$\n\n*Svar:* a) $x^{-3}$ b) $x^{1/3}$ c) $x^{5/2}$ d) $x^{3}$\n\n**2.** Deriver: **a)** $f(x)=x^{7}$ **b)** $g(x)=\\dfrac{1}{x}$ **c)** $h(x)=\\sqrt{x}$\n\n*Svar:* a) $7x^{6}$ b) $-x^{-2}=-\\dfrac{1}{x^{2}}$ c) $\\dfrac{1}{2\\sqrt{x}}$\n\n**3.** Rydd uttrykket: $2x(x+3)-(x^{2}-1)$.\n\n*Svar:* $2x^{2}+6x-x^{2}+1=x^{2}+6x+1$. Merk at minusen gjelder begge leddene i parentesen.\n\n**4.** Bruk logaritmereglene: skriv $\\ln\\!\\left(\\dfrac{x^{3}}{y}\\right)$ som en differanse av logaritmer.\n\n*Svar:* $3\\ln x-\\ln y$.\n\n**5.** Hva er $e^{0}$, $\\ln 1$ og $\\ln e$?\n\n*Svar:* $e^{0}=1$, $\\ln 1=0$, $\\ln e=1$.\n\n**6.** Sett $u=x^{2}+1$. Skriv $\\sqrt{x^{2}+1}$ og $e^{x^{2}+1}$ ved hjelp av $u$, og finn $u'$.\n\n*Svar:* $\\sqrt{u}$ og $e^{u}$, med $u'=2x$. Dette er kjerneregelens forarbeid."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-1-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 1.1, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)$, $g(x)$, $h(x)$ | Funksjoner av én variabel |\n| $f'(x)$ | Den deriverte av $f$ — endringsraten, «hvor bratt» grafen er |\n| $f''(x)$ | Den andrederiverte — endringen i endringsraten, altså krumningen |\n| $\\frac{d}{dx}$ | «Deriver med hensyn på $x$» — operatoren som utfører derivasjonen |\n| $u$, $v$ | Navn på delfunksjonene i produkt- og kvotientregelen |\n| $u(x)$ som kjerne | Den indre funksjonen i en sammensatt funksjon |\n| $c$ | En konstant (deriveres til null) |\n| $a$, $\\alpha$, $n$ | Konstante eksponenter eller grunntall |\n| $e$ | Eulers tall, $\\approx 2{,}718$ — grunntallet i den naturlige eksponentialfunksjonen |\n| $\\ln x$ | Den naturlige logaritmen, definert for $x>0$ |\n| $K(x)$, $S(x)$ | Kostnads- og salgsfunksjon i kapitlets økonomiske eksempler |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{d}{dx}\\,x^{a}=a\\,x^{a-1}$$\nPotensregelen — gjelder for alle reelle $a$, også $\\tfrac12$ (rot) og negative tall (brøk).\n\n$$\\frac{d}{dx}\\sqrt{x}=\\frac{1}{2\\sqrt{x}},\\qquad \\frac{d}{dx}\\,x^{-n}=-n\\,x^{-n-1}$$\nDe to spesialtilfellene som brukes mest, og som gir flest fortegnsfeil.\n\n$$\\frac{d}{dx}\\big(c f\\big)=c f',\\qquad \\frac{d}{dx}(f+g)=f'+g'$$\nKonstant- og sumregelen: konstanter står utenfor, summer deriveres ledd for ledd.\n\n$$\\frac{d}{dx}(uv)=u'v+uv'$$\nProduktregelen: «derivert ganger urørt, pluss urørt ganger derivert».\n\n$$\\frac{d}{dx}\\left(\\frac{u}{v}\\right)=\\frac{u'v-uv'}{v^{2}}$$\nKvotientregelen — rekkefølgen i telleren er avgjørende for fortegnet (feil #12).\n\n$$\\frac{d}{dx}f\\big(u(x)\\big)=f'\\big(u(x)\\big)\\cdot u'(x)$$\nKjerneregelen: deriver utenfra og inn, og gang med kjernens deriverte.\n\n$$\\frac{d}{dx}\\big(g(x)\\big)^{n}=n\\big(g(x)\\big)^{n-1}g'(x)$$\nPotens av en funksjon — spesialtilfellet $\\sqrt{g}$ gir $\\dfrac{g'}{2\\sqrt{g}}$.\n\n$$\\frac{d}{dx}\\ln x=\\frac1x,\\qquad \\frac{d}{dx}\\ln\\big(g(x)\\big)=\\frac{g'(x)}{g(x)}$$\nLogaritmen og dens kjerneversjon — den mest brukte formelen i Oppgave 1.\n\n$$\\frac{d}{dx}e^{x}=e^{x},\\qquad \\frac{d}{dx}e^{g(x)}=e^{g(x)}g'(x),\\qquad \\frac{d}{dx}a^{x}=a^{x}\\ln a$$\nEksponentialfunksjonene. Merk logaritmefaktoren når grunntallet ikke er $e$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
