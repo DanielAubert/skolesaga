@@ -442,7 +442,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er Fisher-informasjonen $I(\\lambda)$ for eksponential med rate $\\lambda$?",
-      options: ["$I(\\lambda)=1/\\lambda^2$, fra konstant andrederivert $-1/\\lambda^", "$I(\\lambda)=1/\\lambda$, som egentlig er svaret for Poisson-modellen", "$I(\\lambda)=\\lambda^2$, altså kvadratet av raten i stedet", "$I(\\lambda)=\\lambda$, altså forvekslet med selve raten"],
+      options: ["$I(\\lambda)=1/\\lambda^2$, fra konstant andrederivert $-1/\\lambda^2$", "$I(\\lambda)=1/\\lambda$, som egentlig er svaret for Poisson-modellen", "$I(\\lambda)=\\lambda^2$, altså kvadratet av raten i stedet", "$I(\\lambda)=\\lambda$, altså forvekslet med selve raten"],
       explanation: "$\\log f=\\log\\lambda-\\lambda x$ gir andrederivert $-1/\\lambda^2$ (konstant), så $I(\\lambda)=1/\\lambda^2$.",
     },
     {
@@ -557,7 +557,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er $z_{\\alpha/2}$ i notasjonen med øvre haleareal for et 95 %-intervall?",
-      options: ["$z_{0{,}025}=1{,}96$, et 95 %-intervall med $\\alpha/2=0{,}02", "$z_{0{,}05}=1{,}645$, som hører til et 90 %-intervall i stedet", "$z_{0{,}025}=2{,}576$, definert feil via $P(Z<z)=0{,}025$", "$z_{0{,}95}=1{,}96$, med feil kvantilnavn og $P(Z>z)=0{,}95$"],
+      options: ["$z_{0{,}025}=1{,}96$, et 95 %-intervall med $\\alpha/2=0{,}025$", "$z_{0{,}05}=1{,}645$, som hører til et 90 %-intervall i stedet", "$z_{0{,}025}=2{,}576$, definert feil via $P(Z<z)=0{,}025$", "$z_{0{,}95}=1{,}96$, med feil kvantilnavn og $P(Z>z)=0{,}95$"],
       explanation: "For 95 % er $\\alpha=0{,}05$, så $\\alpha/2=0{,}025$ i hver hale, og øvre kvantilen er $z_{0{,}025}=1{,}96$ med $P(Z>1{,}96)=0{,}025$.",
     },
   ],
@@ -1773,7 +1773,7 @@ const quizData_stk1110: Record<string, QuizQuestion[]> = {
       explanation: "F-statistikken tester om modellen som helhet forklarer noe — alle helninger null mot minst én ulik null.",
     },
     {
-      question: "For `Estimate` $=22{,}305$ og `Std. Error` $=0{,}863`: hva er `t value`?",
+      question: "For `Estimate` $=22{,}305$ og `Std. Error` $=0{,}863$: hva er `t value`?",
       options: ["$22{,}305/0{,}863\\approx 25{,}8$", "$0{,}863/22{,}305\\approx 0{,}039$", "$22{,}305\\cdot 0{,}863\\approx 19{,}2$", "$22{,}305-0{,}863\\approx 21{,}4$"],
       explanation: "`t value` = `Estimate`/`Std. Error` $=22{,}305/0{,}863\\approx 25{,}8$.",
     },

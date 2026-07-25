@@ -2179,7 +2179,7 @@ const quizData_mat1110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er egenvektordekomponering nyttig for $\\lim_{n\\to\\infty} A^n v$?",
-      options: ["Hvert ledd utvikler seg som \\lambda_i^n v_i$", "Den gjør matrisen symmetrisk før grensen tas ut", "Den fjerner behovet for å finne noen egenverdier", "Den gir alltid en grense uansett hvilke egenverdier"],
+      options: ["Hvert ledd utvikler seg som $\\lambda_i^n v_i$", "Den gjør matrisen symmetrisk før grensen tas ut", "Den fjerner behovet for å finne noen egenverdier", "Den gir alltid en grense uansett hvilke egenverdier"],
       explanation: "Med $v=\\sum c_iv_i$ blir $A^nv=\\sum c_i\\lambda_i^n v_i$; grensen leses ledd for ledd fra egenverdiene.",
     },
     {

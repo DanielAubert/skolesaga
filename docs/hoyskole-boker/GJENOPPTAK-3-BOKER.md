@@ -4,9 +4,14 @@
 
 | Bok | Steg 1 kapitler | Steg 2 wiring | Figurer | Steg 3 verifikasjon | Steg 4 sluttport |
 |---|---|---|---|---|---|
-| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ BOKPORT OK (42 filer / 550 fc / 558 quiz) | ✅ 109 SVG i Storage, verifisert 200 | ✅ komplett (~1 880 sjekker, 48 fiks) | ✅ **LANDET PÅ MAIN 26ae6270** |
-| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | ✅ Del 1, 4–7 (G2+G3) · 🔄 Del 2–3 (G1) | 🔄 Del 4–6 (X1) | ⬜ |
-| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ BOKPORT OK (41 filer / 554 fc / 570 quiz) | ✅ Del 4–5, 8 (F2) · 🔄 Del 0–3 (F1) | ✅ Del 6–7 (W1) · 🔄 Del 4–5+8 (W2) | ⬜ |
+| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ BOKPORT OK (42 filer / 550 fc / 558 quiz) | ✅ 109 SVG i Storage, verifisert 200 | ✅ komplett (~1 880 sjekker, 48 fiks) | ✅ ferdig, ligger på `land/econ2220` |
+| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | ✅ Del 1, 4–7 (G2+G3) · 🔄 Del 2–3 (G1) | ✅ Del 0–1, 4–7 (X1+X2, ~3 460 sjekker) · ⬜ Del 2–3 | ⬜ |
+| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ BOKPORT OK (41 filer / 554 fc / 570 quiz) | ✅ alle 53 SVG i Storage, verifisert 200 | ✅ komplett (~2 400 sjekker i W1+W2+W3) | ✅ **SLUTTPORT OK** — tsc rent, build exit 0, prod-curl 11/11 |
+
+**NB om landing:** `main` står fortsatt på `0cc69421` (tma4110). Både fys1001 og
+econ2220 ligger ferdige på landingsbranchen **`land/econ2220`**, som er 80+
+commits foran main. Den skal merges til main og pushes når econ2310 også er
+ferdig — da landes alle tre i én kjede.
 
 **Ferdig i natt utover dette:** quiz i begge econ-bøker ryddet sentralt (LENGDE-TELL
 under terskel i alle kapitler, 0 duplikatspørsmål), ny port `sjekk-latex.py` lagt til
@@ -107,6 +112,15 @@ nøyaktig hva som er landet.
   produksjon — bildene serveres fra Storage, ikke fra `public/`. Gjelder alle
   nye figurer agentene lager. Verifiser med curl mot
   `<SUPABASE_URL>/storage/v1/object/public/media/images/textbook/<emne>/<fil>.svg`.
+- **Kjede-landing av to bøker:** når bok B merges inn i en branch som alt har
+  bok A, interleaver git hunkene i `textbook-courses-hoyskole.ts` (begge
+  kursobjekter ender med identiske linjer, som git leser som felles kontekst).
+  «Behold begge hunks» gir da en HYBRID av de to bøkene. Riktig oppskrift: ta
+  HEAD-versjonen av fila og føy hele `export const COURSE_<B>`-blokka på
+  verbatim fra bokbranchen. `_registry.json` løses som union av BEGGE nøkler.
+- **Flashcards ligger på KURSNIVÅ**, ikke kapittelnivå: prod-curl skal treffe
+  `/bok/<emne>/flashcards`, ikke `/bok/<emne>/<kap>/flashcards` (404). Rutene
+  `<kap>/trening` og `<kap>/oppgave` gir 404 også i live bøker — ikke et avvik.
 - **Figurbestillinger:** agentene skriver ikke SVG selv i econ-bøkene; de fører
   `docs/hoyskole-boker/<emne>/FIGUR-BESTILLINGER.md`. Den lista er arbeidsordren
   for figurgenereringen før sluttporten.

@@ -36,8 +36,14 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       identiske med gjennomregnede eksempler tidligere i boka.
 - [ ] `econ2310` — ECON2310 Makroøkonomi 2 (UiO). Bygger videre på
       econ1310-boka (kryssbok-lenker dit er spesifisert i skjelettet).
-- [ ] `econ2220` — ECON2220 Mikroøkonomi 2 (UiO). Bygger på econ1210-boka;
-      brokapittel CORE→c′(y) er pålagt.
+- [x] `econ2220` — **BYGGET 25. juli 2026** (34 kap + 7 prøver = 41 filer, 554 fc,
+      570 quiz, 53 SVG i Storage, BOKPORT + LATEX-PORT OK). Bygger på econ1210-boka;
+      brokapittel CORE→c′(y) på plass. Steg 3 komplett: ~2 400 sjekker i tre
+      verifikatorbølger, ~60 avvik rettet — bl.a. MTSB forvekslet med den inverse
+      isokvanthelningen i fem tekststeder + figuretikett, et nedleggingsregnestykke
+      som brukte GK-minimumsmengden i stedet for p = MK, et quizspørsmål der
+      distraktoren også var faglig riktig, og 6 duplikat-datasett i Del 8 som var
+      gjenbruk fra Del 1/4/5/6 (alle erstattet med nye tall og nye kontekster).
 - [ ] `svmet1010` — SVMET1010 Kvalitative metoder (UiO). Drøfting; skjelettet
       var pilot og følger eldre headingformat — konverter number til
       del-basert i fase 5 (wiring-skriptet håndterer det, jf. jus1111).

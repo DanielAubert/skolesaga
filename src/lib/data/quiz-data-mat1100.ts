@@ -524,7 +524,7 @@ const quizData_mat1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr betingelsen $0<|x-a|$ i definisjonen?",
-      options: ["At =a$ selv holdes utenfor grensebetraktningen i punktet", "At variabelen $x$ må være strengt positiv i hele det aktuelle intervallet", "At funksjonsverdien $f(x)$ må være forskjellig fra grenseverdien $L$ overalt", "At nærhetsradien $\\delta$ må velges som et strengt positivt reelt tall her"],
+      options: ["At $x=a$ selv holdes utenfor grensebetraktningen i punktet", "At variabelen $x$ må være strengt positiv i hele det aktuelle intervallet", "At funksjonsverdien $f(x)$ må være forskjellig fra grenseverdien $L$ overalt", "At nærhetsradien $\\delta$ må velges som et strengt positivt reelt tall her"],
       explanation: "$0<|x-a|$ punkterer omegnen: $x$ nærmer seg $a$, men er aldri lik $a$. Derfor påvirker $f(a)$ ikke grensen.",
     },
     {
