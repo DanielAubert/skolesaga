@@ -1,0 +1,329 @@
+{
+ "id": "in1900-4-3",
+ "courseId": "in1900",
+ "chapterNumber": "4.3",
+ "title": "Plotting med matplotlib",
+ "description": "Plotte én eller flere kurver med etiketter og legende, og beskrive figuren i ord — den faste del-b-en på ODE- og differenslikning-oppgaver.",
+ "estimatedMinutes": 40,
+ "competenceGoals": [
+  "kunne skrive plottemalen fra hukommelsen: én kurve per plottekall, navngitte akser, legende og visning til slutt",
+  "kunne plotte flere kurver i samme figur, også når de kommer som kolonner i en løsningstabell",
+  "kunne skille et tidsplott fra en fasekurve, og velge riktige aksenavn i begge",
+  "kunne beskrive en figur i ord som selvkontroll når koden ikke kan kjøres"
+ ],
+ "content": [
+  {
+   "id": "in1900-4-3-tip-vinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Fem linjer kode, og de kommer igjen i 7 av 8 sett.**\n\nPlotting er i **7 av de 8 nyere settene (88 %)**, nesten alltid som en del-b: «plott løsningen», «plott begge bestandene i samme figur», «lag et plott med tid langs førsteaksen». Det er aldri hele oppgaven, men det er nesten alltid noen poeng — og de er blant de billigste på hele eksamen, fordi koden er nesten identisk hver gang.\n\nPrioritet: **kunne** (nivå 2 av tre: må sitte, kunne, kjenne til). Plottedelen henger sammen med to andre sjangre: **differenslikninger** (sjanger H, 75 %) og **ODE-systemer** (sjanger J, 100 %) har begge plottet som siste deloppgave.\n\nDet er tre ting sensor ser etter, og alle tre er lette å glemme under tidspress:\n\n1. at hver kurve har en `label`, og at `plt.legend()` faktisk kalles\n2. at begge aksene er navngitt\n3. at `plt.show()` står til slutt\n\nEksamen er hjelpemiddelfri, og du kan altså ikke kjøre koden for å se om figuren ble riktig. Derfor øver dette kapitlet også på det motsatte: å **beskrive** figuren i ord, slik at du selv kan kontrollere at koden gir det du mener den gir."
+  },
+  {
+   "id": "in1900-4-3-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- **NumPy-tabeller**, særlig `np.linspace` og elementvise operasjoner: [kap. 4.1](/bok/in1900/in1900-4-1). Et plott er alltid to tabeller plottet mot hverandre.\n- **Kolonner i en tabell med to indekser** (`u[:, 0]`), også fra [kap. 4.1](/bok/in1900/in1900-4-1) — det er slik en ODE-løsning kommer til deg i Del 7.\n- **Verditabeller** fra [kap. 4.2](/bok/in1900/in1900-4-2).\n- **Løkker** fra [kap. 1.3](/bok/in1900/in1900-1-3), til den ene oppgaven der en kurve bygges opp punkt for punkt.\n\nKapitlet er delt i tre løkker."
+  },
+  {
+   "id": "in1900-4-3-txt-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — malen med én kurve (~13 min)\n\nEn ball kastet rett opp har høyden $h(t) = 4t - 0{,}5t^2$ meter. Vil du se banen, trenger du to tabeller: en tett rekke tidspunkter, og de tilsvarende høydene. Deretter ber du matplotlib tegne den ene mot den andre.\n\n**matplotlib** er Pythons standardbibliotek for figurer, og delen vi bruker heter `pyplot`. Importlinjen er alltid den samme, og som med NumPy gir vi biblioteket et kort kallenavn.\n\nMerk at figurene i denne boka er beskrevet i ord under koden, ikke vist som bilder. Det er med vilje: på eksamen skal du selv kunne si hva koden din tegner, uten å kjøre den."
+  },
+  {
+   "id": "in1900-4-3-def-import",
+   "type": "definition",
+   "title": "`import matplotlib.pyplot as plt`",
+   "content": "Importlinjen som gjør plottefunksjonene tilgjengelige under kallenavnet `plt`. Den skal alltid stå med når oppgaven ber om kjørbar plottekode — glemt import er trekk selv om resten er riktig. Legg merke til at det er `matplotlib.pyplot` som importeres, ikke bare `matplotlib`: uten `.pyplot` finnes ikke `plt.plot`."
+  },
+  {
+   "id": "in1900-4-3-def-plot",
+   "type": "definition",
+   "title": "`plt.plot(x, y)`",
+   "content": "Tegner punktene $(x_0, y_0), (x_1, y_1), \\ldots$ og trekker rette linjer mellom dem. De to tabellene må ha **like mange elementer** — det er derfor `np.linspace(a, b, N+1)` og en verditabell laget fra samme `x` alltid passer sammen. Med mange punkter ser den brukne linja ut som en glatt kurve.\n\nKallet tegner ingenting på skjermen ennå; det legger kurven inn i figuren. Figuren vises først når `plt.show()` kalles."
+  },
+  {
+   "id": "in1900-4-3-def-labels",
+   "type": "definition",
+   "title": "`plt.xlabel` og `plt.ylabel`",
+   "content": "Setter tekst på de to aksene: `plt.xlabel('tid (s)')` på førsteaksen (den vannrette) og `plt.ylabel('høyde (m)')` på andreaksen (den loddrette). Argumentet er en streng, og enheten hører med. Dette er ett av de tre punktene sensor ser etter, og det koster to linjer."
+  },
+  {
+   "id": "in1900-4-3-def-show",
+   "type": "definition",
+   "title": "`plt.show()`",
+   "content": "Åpner figurvinduet og viser alt som er lagt inn med `plt.plot` og aksekallene. Uten `plt.show()` regner programmet ut alt riktig, men du ser ingenting — og på eksamen er det trekk, fordi oppgaven ba om et plott. Kallet står alltid **sist**, etter alle `plot`- og `label`-kall, og har ingen argumenter."
+  },
+  {
+   "id": "in1900-4-3-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: én kurve, fem linjer",
+   "problem": "Plott høyden $h(t) = 4t - 0{,}5t^2$ til ballen for $t$ mellom 0 og 8 sekunder, med navngitte akser.",
+   "solution": "\nFørst en tett tidstabell, så høydene, så plottet. 101 punkter gir en kurve som ser glatt ut.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 8, 101)\nh = 4*t - 0.5*t**2\n\nplt.plot(t, h)\nplt.xlabel('tid (s)')\nplt.ylabel('høyde (m)')\nplt.show()\n```**Figur i ord:** Førsteaksen viser tid fra 0 til 8 sekunder, andreaksen høyde i meter fra 0 til 8. Kurven er en nedadvendt parabel som starter i origo, stiger til toppunktet $(4, 8)$ etter fire sekunder, og faller symmetrisk tilbake til 0 ved $t = 8$. Ingen legende, fordi det bare er én kurve.\n\nDette er hele malen. Alt annet i kapitlet er varianter av de fem linjene: flere kurver, navn på kurvene, tittel, eller andre akser.\n\n**Sensormerknad:** de fire tingene som gir uttelling her er de to importene, at `t` og `h` har samme lengde, `plt.plot(t, h)` med tiden som **første** argument, og `plt.show()` til slutt. Bytter du om argumentene, får du en figur — bare speilvendt om diagonalen."
+  },
+  {
+   "id": "in1900-4-3-warn-tre",
+   "type": "warning",
+   "title": "Typiske feil: de tre glemte linjene",
+   "content": "Nesten alle trekk på plotteoppgaver skyldes en av disse tre, og de har ingenting med matematikk å gjøre:\n\n1. **Glemt `label=` eller glemt `plt.legend()`.** Har figuren to eller flere kurver uten legende, kan ingen se hvilken som er hvilken. Begge delene må med: `label=` inne i hvert `plot`-kall, og `plt.legend()` én gang etterpå.\n2. **Glemt `plt.show()`.** Programmet kjører feilfritt og viser ingenting.\n3. **Glemt aksenavn.** `plt.xlabel` og `plt.ylabel` er to linjer, og de er nevnt i oppgaveteksten omtrent hvert år.\n\nEn fjerde felle er å plotte **feil kolonne** av en løsningstabell — den kommer i neste løkke."
+  },
+  {
+   "id": "in1900-4-3-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-3-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave.) Programmet under skal plotte $y = x^2$ for 51 punkter mellom $-3$ og 3, med navngitte akser. Tre linjer mangler. Skriv den ferdige koden.\n\n```text\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(-3, 3, 51)\ny = x**2\n```",
+    "solution": "\nDe tre linjene som mangler er selve plottekallet, aksenavnene og visningen:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(-3, 3, 51)\ny = x**2\n\nplt.plot(x, y)\nplt.xlabel('x')\nplt.ylabel('y')\nplt.show()\n```**Figur i ord:** en oppadvendt parabel med bunnpunkt i origo, symmetrisk om andreaksen, som stiger til 9 i begge ender. Førsteaksen går fra $-3$ til 3, andreaksen fra 0 til 9.\n\nLegenden er ikke nødvendig her, siden det bare er én kurve. Aksenavnene er det, fordi oppgaven ba om dem.",
+    "hints": [
+     "Malen har alltid `plt.plot`, aksenavnene og til slutt visningen.",
+     "Hvor mange kurver er det i figuren? Det avgjør om du trenger legende."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-3-txt-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — flere kurver i samme figur (~14 min)\n\nDen vanlige eksamensvarianten er ikke én kurve, men to eller tre i samme figur: mottakelige, smittede og immune i en epidemimodell, eller byttedyr og rovdyr i en bestandsmodell. Da kaller du `plt.plot` én gang per kurve **før** du kaller `plt.show()`, og gir hver kurve et navn med `label=`.\n\nI Del 7 kommer løsningen av et ODE-system til deg som en tabell med to indekser: én rad per tidspunkt og **én kolonne per komponent**. Da er `u[:, 0]` første komponent, `u[:, 1]` den andre og `u[:, 2]` den tredje. Det er derfor kolonneutsnittet fra [kap. 4.1](/bok/in1900/in1900-4-1) er en forkunnskap her."
+  },
+  {
+   "id": "in1900-4-3-def-label",
+   "type": "definition",
+   "title": "`label=` og `plt.legend()`",
+   "content": "`plt.plot(t, S, label='S')` gir kurven navnet `S`, og `plt.legend()` tegner en liten boks i figuren som viser hvilken farge som hører til hvilket navn. De to hører sammen: `label=` uten `legend()` gir ingen boks, og `legend()` uten `label=` gir en tom eller nummerert boks. Kall `plt.legend()` **én** gang, etter alle `plot`-kallene."
+  },
+  {
+   "id": "in1900-4-3-def-kolonne",
+   "type": "definition",
+   "title": "`plt.plot(t, u[:, 0])`",
+   "content": "Plotter første komponent av en løsningstabell med to indekser mot tiden. `u[:, 0]` betyr «alle rader, kolonne 0», altså hele tidsforløpet til den første størrelsen i systemet. Antall rader i `u` er det samme som antall elementer i `t`, så de passer alltid sammen. Bommer du på kolonnenummeret, får du en helt annen kurve — figuren blir tegnet, men den viser feil størrelse."
+  },
+  {
+   "id": "in1900-4-3-def-title",
+   "type": "definition",
+   "title": "`plt.title`",
+   "content": "Setter en overskrift over figuren: `plt.title('Epidemiforløp')`. Ikke påkrevd med mindre oppgaven ber om det, men det koster én linje og gjør figuren lettere å lese. Tittelen erstatter ikke aksenavnene og ikke legenden."
+  },
+  {
+   "id": "in1900-4-3-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: tre kurver fra en løsningstabell",
+   "problem": "En epidemimodell gir en løsningstabell `u` med 61 rader (ett døgn per rad) og tre kolonner: mottakelige, smittede og immune. Plott alle tre kurvene i samme figur, med legende og navngitte akser.",
+   "solution": "\nTabellen kommer normalt fra en ODE-løser (Del 7). Her lager vi den med tre kjente uttrykk, bare for å ha noe å plotte — plottekoden er identisk uansett hvor tallene kommer fra.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 61)\nu = np.zeros((61, 3))\nu[:, 0] = 900*np.exp(-0.08*t) + 100\nu[:, 1] = 300*(np.exp(-0.05*t) - np.exp(-0.15*t))\nu[:, 2] = 1000 - u[:, 0] - u[:, 1]\n\nplt.plot(t, u[:, 0], label='mottakelige')\nplt.plot(t, u[:, 1], label='smittede')\nplt.plot(t, u[:, 2], label='immune')\nplt.xlabel('tid (døgn)')\nplt.ylabel('antall personer')\nplt.legend()\nplt.show()\n```\n\nTallene bak kurvene er verdt å se på, siden de bestemmer hva figuren viser:\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 60, 61)\nS = 900*np.exp(-0.08*t) + 100\nI = 300*(np.exp(-0.05*t) - np.exp(-0.15*t))\nR = 1000 - S - I\n\nfor j in [0, 10, 20, 40, 60]:\n    print(f'{t[j]:5.1f} {S[j]:8.1f} {I[j]:8.1f} {R[j]:8.1f}')\n```\n\n**Utskrift:**\n```\n  0.0   1000.0      0.0      0.0\n 10.0    504.4    115.0    380.6\n 20.0    281.7     95.4    622.9\n 40.0    136.7     39.9    823.5\n 60.0    107.4     14.9    877.7\n```**Figur i ord:** Førsteaksen viser tid fra 0 til 60 døgn, andreaksen antall personer fra 0 til 1000. Kurven «mottakelige» starter i 1000 og faller bratt de første to ukene, deretter flatt ut mot rundt 107. Kurven «smittede» starter i 0, stiger til en topp på om lag 115 personer rundt dag 11, og avtar sakte mot 15. Kurven «immune» starter i 0 og vokser hele veien, brattest de første tjue døgnene, mot om lag 878. Summen av de tre er 1000 i hele tidsrommet. Legenden nede til høyre navngir de tre kurvene.\n\n**Sensormerknad:** tre `plot`-kall med hver sin `label`, én `legend()`, to aksenavn og én `show()`. Plotter du bare to av tre kurver, mister du bare det ene delpoenget — strukturen er fortsatt riktig, og det belønnes."
+  },
+  {
+   "id": "in1900-4-3-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-3-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, del-b på sjanger J — ODE-system.) Du har tidsarrayet `t` og løsningstabellen `u` med tre kolonner, som beskriver antall byttedyr, antall rovdyr og tilgjengelig plantebiomasse.\n\n**a)** Skriv koden som plotter byttedyr og rovdyr i samme figur med legende og navngitte akser, uten å plotte plantebiomassen.\n\n**b)** Hva blir galt hvis du skriver `plt.plot(u[:, 0], t)` i stedet?",
+    "solution": "**a)** Blokken viser bare linjene som skal legges til; `t` og `u` finnes alt fra simuleringen, så snutten er ikke kjørbar alene.\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(t, u[:, 0], label='byttedyr')\nplt.plot(t, u[:, 1], label='rovdyr')\nplt.xlabel('tid')\nplt.ylabel('antall individer')\nplt.legend()\nplt.show()\n```\n\n**b)** Aksene byttes om: tiden havner på andreaksen og antallet på førsteaksen. Figuren tegnes uten feilmelding, men den er speilvendt om diagonalen og aksenavnene blir feil. Rekkefølgen er alltid `plt.plot(førsteakse, andreakse)`, altså tiden først i et tidsplott.\n\n**Hva gir uttelling:** to `plot`-kall med `label`, `legend()`, to aksenavn og `show()`. At du utelater kolonne 2 er nettopp det oppgaven ba om — det er ingen feil å plotte færre kurver enn tabellen har kolonner.",
+    "hints": [
+     "Én `plot`-linje per kurve, alle før `plt.show()`.",
+     "Tenk på hvilken størrelse som skal stå langs den vannrette aksen."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-3-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-3-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger E — «hvilken linje mangler?».) Programmet skal vise en figur med to navngitte kurver.\n\n```text\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 4, 41)\nplt.plot(x, np.sin(x), label='sinus')\nplt.plot(x, np.cos(x), label='cosinus')\nplt.xlabel('x')\nplt.ylabel('funksjonsverdi')\nplt.show()\n```\n\nFiguren dukker opp, men navnene på kurvene vises ikke noe sted. Hvilken linje mangler, og hvor må den stå?",
+    "solution": "`plt.legend()` mangler. Den må stå etter begge `plot`-kallene og før `plt.show()`:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 4, 41)\nplt.plot(x, np.sin(x), label='sinus')\nplt.plot(x, np.cos(x), label='cosinus')\nplt.xlabel('x')\nplt.ylabel('funksjonsverdi')\nplt.legend()\nplt.show()\n```**Figur i ord:** to bølgekurver over $x$ fra 0 til 4 radianer. Sinuskurven starter i 0, stiger til 1 ved $x \\approx 1{,}57$ og faller mot om lag $-0{,}76$ ved $x = 4$. Cosinuskurven starter i 1, krysser null i samme punkt der sinus har toppen, og fortsetter ned til om lag $-0{,}65$. De to krysser hverandre litt før $x = 1$. Legenden navngir kurvene.\n\n`label=`-argumentene var altså på plass hele tiden — de blir bare aldri vist uten `plt.legend()`. Det er den vanligste plottefeilen i faget, og den koster ett delpoeng hver gang.",
+    "hints": [
+     "Alle `label=`-argumentene er der; noe må be om at de vises.",
+     "Kallet står én gang, etter alle kurvene."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-3-txt-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — fasekurve og figuren i ord (~13 min)\n\nNoen ganger er ikke tiden det interessante. I en rovdyr–byttedyr-modell vil du kanskje se hvordan de to bestandene henger sammen: hvordan antall rovdyr utvikler seg som funksjon av antall byttedyr. Da plotter du de to størrelsene **mot hverandre** i stedet for mot tiden.\n\nDet kalles en **fasekurve**, og koden er den samme malen — bare med andre argumenter: `plt.plot(B, R)`. Tiden er ikke lenger en akse; den er «langs kurven». En syklisk modell gir da en lukket løkke, mens en modell som går mot likevekt gir en spiral inn mot ett punkt.\n\nTil slutt i denne løkka: å beskrive figuren i ord. På hjelpemiddelfri eksamen er dette selvkontrollen din, og noen oppgaver ber deg eksplisitt forklare hva plottet viser."
+  },
+  {
+   "id": "in1900-4-3-def-fase",
+   "type": "definition",
+   "title": "Fasekurve",
+   "content": "Et plott der to størrelser fra samme simulering plottes mot hverandre i stedet for mot tiden: `plt.plot(B, R)` med byttedyr på førsteaksen og rovdyr på andreaksen. Tiden er ikke en akse, men rekkefølgen punktene tegnes i. En periodisk løsning gir en lukket kurve, en løsning som går mot likevekt gir en spiral inn mot ett punkt, og en løsning som vokser gir en kurve som beveger seg utover.\n\nAksenavnene må da være de to størrelsene, ikke tid — det er den vanligste feilen når man bytter fra tidsplott til fasekurve."
+  },
+  {
+   "id": "in1900-4-3-def-figur-i-ord",
+   "type": "definition",
+   "title": "Å beskrive en figur i ord",
+   "content": "Standardsvaret på «forklar hva plottet viser» har fire deler, i denne rekkefølgen: **hvilke akser** (hva som står langs hver, med enhet og område), **hvor kurvene starter**, **hvordan de beveger seg** (stiger, faller, har topp, svinger med hvilken periode), og **hva de nærmer seg til slutt**. Har figuren flere kurver, sier du hvilken som er hvilken.\n\nFire til seks setninger er nok. Dette er samtidig kontrollen din på hjelpemiddelfri eksamen: klarer du å si hva koden tegner, har du oftest også skrevet den riktig."
+  },
+  {
+   "id": "in1900-4-3-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: fasekurve for to bestander",
+   "problem": "To bestander svinger periodisk: byttedyr rundt 40 individer og rovdyr rundt 9, med samme periode men forskjøvet i tid. Plott først begge mot tiden, deretter rovdyr mot byttedyr som fasekurve.",
+   "solution": "\nTallene her er valgt for å gi to jevne svingninger; i [kap. 6.3](/bok/in1900/in1900-6-3) kommer de fra en simulering du skriver selv.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(t, B, label='byttedyr')\nplt.plot(t, R, label='rovdyr')\nplt.xlabel('tid (måneder)')\nplt.ylabel('antall individer')\nplt.legend()\nplt.show()\n```\n\n**Figur i ord (tidsplottet):** Førsteaksen viser tid fra 0 til 60 måneder, andreaksen antall individer fra om lag 5 til 60. Byttedyrkurven svinger mellom 20 og 60 med periode $2\\pi/0{,}3 \\approx 21$ måneder, og starter i 40 på vei oppover. Rovdyrkurven svinger mellom 5 og 13 rundt middelverdien 9, og starter på sitt maksimum. De to toppene ligger en kvart periode fra hverandre.\n\nSå fasekurven. Legg merke til at aksenavnene nå er de to bestandene:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.title('Fasekurve')\nplt.show()\n```**Figur i ord (fasekurven):** Førsteaksen viser antall byttedyr fra 20 til 60, andreaksen antall rovdyr fra 5 til 13. Kurven er en lukket, oval løkke som tegnes om og om igjen, med sentrum i punktet $(40, 9)$. At kurven er lukket betyr at bestandene gjentar samme forløp periodisk — hadde de gått mot likevekt, ville kurven spiralert innover mot ett punkt."
+  },
+  {
+   "id": "in1900-4-3-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-3-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå.) Etter en simulering har du tidsarrayet `t` og de to bestandsarrayene `B` og `R`, alle med 401 elementer.\n\n**a)** Skriv koden som plotter fasekurven med byttedyr langs førsteaksen.\n\n**b)** Fasekurven blir en lukket løkke. Hva forteller det om løsningen?\n\n**c)** Hva ville en spiral innover mot ett punkt fortalt i stedet?",
+    "solution": "**a)** Bare de nye linjene; `B` og `R` kommer fra simuleringen, så snutten er ikke kjørbar alene.\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.show()\n```\n\n**b)** At løsningen er periodisk: bestandene gjentar samme forløp i det uendelige, og systemet kommer tilbake til samme tilstand etter én periode.\n\n**c)** At svingningene dempes og systemet nærmer seg en likevekt, altså et punkt der begge bestandene holder seg konstante.\n\n**Hva gir uttelling:** `plt.plot(B, R)` i riktig rekkefølge, aksenavn som viser at ingen av aksene er tid, og `show()`. Legende er ikke nødvendig, siden figuren har én kurve. Setter du `t` som en av aksene, har du laget et tidsplott og svarer ikke på oppgaven.",
+    "hints": [
+     "Fasekurven har ingen tidsakse.",
+     "En lukket kurve betyr at tilstanden gjentar seg."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-3-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-3-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger M kombinert med plott.) En oppgave ber om et plott av $f(x) = e^{-x}\\sin(4x)$ for 201 punkter i $[0, 5]$, sammen med den øvre innhyllingskurven $g(x) = e^{-x}$, i samme figur med legende.\n\n**a)** Skriv hele programmet.\n\n**b)** Beskriv figuren i ord, med de fire delene: akser, start, forløp, sluttoppførsel.\n\n**c)** Hvorfor kan du ikke bruke `exp` fra `math` her?",
+    "solution": "\n**a)**\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 5, 201)\nf = np.exp(-x)*np.sin(4*x)\ng = np.exp(-x)\n\nplt.plot(x, f, label='dempet svingning')\nplt.plot(x, g, label='innhylling')\nplt.xlabel('x')\nplt.ylabel('funksjonsverdi')\nplt.legend()\nplt.show()\n```**b)** Førsteaksen viser $x$ fra 0 til 5, andreaksen funksjonsverdier fra om lag $-0{,}32$ til 1. Den dempede svingningen starter i 0, stiger til en første topp ved $x \\approx 0{,}33$ med verdi rundt 0,70, faller til et bunnpunkt rundt $-0{,}32$ ved $x \\approx 1{,}1$, og svinger deretter videre over og under null med avtakende utslag. Innhyllingskurven starter i 1 og faller jevnt mot 0 uten å svinge. Svingningen berører innhyllingen i toppene sine, og begge kurvene nærmer seg 0 for store $x$.\n\n**c)** Fordi `x` er et array med 201 elementer, og `math.exp` tar bare ett tall. Den ville gitt `TypeError: only length-1 arrays can be converted to Python scalars`. Vektorisert kode må bruke `np.exp` og `np.sin`.\n\n**Hva gir uttelling:** to importer, riktig punktantall (201), to `plot`-kall med `label`, `legend()`, aksenavn og `show()`. Beskrivelsen i b) trenger ikke presise tall for å gi full uttelling — retningen og formen er det som teller.",
+    "hints": [
+     "Begge kurvene bruker samme `x`-tabell.",
+     "Til del c): hvor mange tall har argumentet du sender inn?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-3-warn-typiske",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet — samlet",
+   "content": "1. **Glemt `plt.legend()`** når kurvene har `label=`. Navnene vises da ikke i det hele tatt. Vanligste plottefeil i faget.\n2. **Glemt `plt.show()`.** Ingen figur, selv om alt annet er riktig.\n3. **Glemt aksenavn.** To linjer, nevnt i oppgaveteksten nesten hvert år.\n4. **Feil kolonne av løsningstabellen.** `u[:, 1]` der `u[:, 0]` var ment gir en pen figur av feil størrelse. Sjekk mot rekkefølgen i høyresiden din.\n5. **Byttet argumentrekkefølge.** `plt.plot(y, x)` gir en speilvendt figur uten feilmelding.\n6. **Tidsakse i en fasekurve.** En fasekurve plotter de to størrelsene mot hverandre; tiden er ikke en akse, og aksenavnene må endres tilsvarende.\n7. **`math`-funksjoner i plottekode.** Tabellene er arrays, så bruk `np.exp`, `np.sin`, `np.sqrt`."
+  },
+  {
+   "id": "in1900-4-3-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1900-4-3-api-txt",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `import matplotlib.pyplot as plt` | Gjør plottefunksjonene tilgjengelige som `plt.`. Skal alltid med. |\n| `plt.plot(x, y)` | Legger inn en kurve gjennom punktene $(x_i, y_i)$. Tabellene må ha like mange elementer. Tegner ingenting før `show`. |\n| `plt.plot(x, y, label='S')` | Samme, men kurven får navnet `S`, klart til legenden. |\n| `plt.plot(t, u[:, 0])` | Plotter kolonne 0 av en løsningstabell mot tiden. |\n| `plt.plot(B, R)` | Fasekurve: to størrelser mot hverandre, ingen tidsakse. |\n| `plt.xlabel('tid (s)')` | Tekst på førsteaksen (den vannrette). |\n| `plt.ylabel('høyde (m)')` | Tekst på andreaksen (den loddrette). |\n| `plt.legend()` | Tegner navneboksen. Kalles **én** gang, etter alle `plot`-kall. Krever `label=`. |\n| `plt.title('...')` | Overskrift over figuren. Valgfri med mindre oppgaven ber om den. |\n| `plt.show()` | Viser figuren. Står **sist**, uten argumenter. |\n\n**Formler i dette delkapitlet:**\n\nEt plott av en funksjon er alltid to tabeller av samme lengde, laget fra samme punktgitter:\n\n$$x_i = a + i\\,\\Delta x, \\qquad y_i = f(x_i), \\qquad i = 0, 1, \\ldots, N$$\n\nFor et ODE-system i Del 7 er `u` en tabell med $N+1$ rader og én kolonne per komponent, slik at kolonne $k$ er tidsforløpet $u_k(t_0), u_k(t_1), \\ldots, u_k(t_N)$."
+    }
+   ]
+  },
+  {
+   "id": "in1900-4-3-txt-bank",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "in1900-4-3-bank-1",
+   "type": "definition",
+   "title": "Plottemalen",
+   "content": "De fem linjene som løser nesten hver plotteoppgave: `plt.plot(x, y, label='...')` for hver kurve, `plt.xlabel(...)`, `plt.ylabel(...)`, `plt.legend()` når det er mer enn én kurve, og `plt.show()` til slutt. Rekkefølgen er fast, og `show` står alltid sist."
+  },
+  {
+   "id": "in1900-4-3-bank-2",
+   "type": "definition",
+   "title": "Hvor mange punkter trenger et plott?",
+   "content": "Nok til at kurven ser glatt ut. 101 til 201 punkter er rikelig for en funksjonskurve, og for en simulering bruker du de punktene du alt har. Med bare 5–10 punkter ser kurven kantet ut, men den er ikke feil — matplotlib trekker alltid rette linjer mellom punktene."
+  },
+  {
+   "id": "in1900-4-3-bank-3",
+   "type": "definition",
+   "title": "Tidsplott mot fasekurve",
+   "content": "Et tidsplott har tid langs førsteaksen og størrelsen langs andreaksen: `plt.plot(t, B)`. En fasekurve plotter to størrelser mot hverandre: `plt.plot(B, R)`, uten tidsakse. Samme data kan altså vises på to måter, og oppgaveteksten sier hvilken som er ment."
+  },
+  {
+   "id": "in1900-4-3-bank-4",
+   "type": "definition",
+   "title": "Lukket fasekurve",
+   "content": "En fasekurve som lukker seg til en løkke betyr at løsningen er periodisk: systemet kommer tilbake til samme tilstand etter én periode. En spiral inn mot ett punkt betyr dempede svingninger mot en likevekt, og en kurve som beveger seg utover betyr voksende svingninger."
+  },
+  {
+   "id": "in1900-4-3-bank-5",
+   "type": "definition",
+   "title": "Kolonne mot rad i en løsningstabell",
+   "content": "I en løsningstabell fra en ODE-løser er hver **rad** ett tidspunkt og hver **kolonne** én komponent. Derfor er `u[:, 0]` tidsforløpet til første komponent (det du plotter), mens `u[0, :]` er alle komponentene ved starttidspunktet (ett punkt per komponent). Å plotte det siste mot `t` gir feil lengder og en feilmelding."
+  },
+  {
+   "id": "in1900-4-3-bank-6",
+   "type": "definition",
+   "title": "Beskrive en figur i ord",
+   "content": "Fire deler: hvilke akser med enhet og område, hvor kurvene starter, hvordan de beveger seg, og hva de nærmer seg. Med flere kurver sier du også hvilken som er hvilken. Fire til seks setninger er nok, og det er selvkontrollen din på en hjelpemiddelfri eksamen."
+  },
+  {
+   "id": "in1900-4-3-bank-7",
+   "type": "definition",
+   "title": "Flere kurver i samme figur",
+   "content": "Kall `plt.plot` én gang per kurve, alle **før** `plt.show()`. Hver kurve får sin egen `label=`, og `plt.legend()` kalles én gang etterpå. Matplotlib velger fargene selv, så du trenger ikke oppgi dem — og på eksamen kreves det ikke."
+  },
+  {
+   "id": "in1900-4-3-bank-8",
+   "type": "definition",
+   "title": "Argumentrekkefølgen i `plt.plot`",
+   "content": "Første argument er størrelsen langs den vannrette aksen, andre argument langs den loddrette. `plt.plot(t, h)` gir høyde som funksjon av tid; `plt.plot(h, t)` gir det speilvendte, uten noen feilmelding. Feilen er stille, og den fanges bare ved å lese aksenavnene du selv har skrevet."
+  },
+  {
+   "id": "in1900-4-3-rep",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "in1900-4-3-rep-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-3-r1",
+      "number": "R1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Fra [kap. 4.1](/bok/in1900/in1900-4-1).) Hva er forskjellen på `u[:, 0]` og `u[0, :]` i en tabell med 61 rader og 3 kolonner?",
+      "solution": "`u[:, 0]` er kolonne 0: 61 tall, hele tidsforløpet til den første komponenten. `u[0, :]` er rad 0: 3 tall, alle komponentene ved første tidspunkt. Skal du plotte mot `t`, som har 61 elementer, er det bare den første som passer i lengde.",
+      "hints": [
+       "Kolon på første plass betyr «alle rader»."
+      ]
+     }
+    },
+    {
+     "id": "in1900-4-3-rep-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-3-r2",
+      "number": "R2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Fra [kap. 4.2](/bok/in1900/in1900-4-2).) Du skal plotte $y=\\ln x$ for 101 punkter i $[1, 10]$. Skriv de to linjene som lager tabellene.",
+      "solution": "```python\nimport numpy as np\n\nx = np.linspace(1, 10, 101)\ny = np.log(x)\n```\n\n101 punkter gir 100 intervaller og steglengde 0,09. Merk `np.log` og ikke `log` fra `math`, siden argumentet er en hel tabell.",
+      "hints": [
+       "Tredje argument er antall punkter."
+      ]
+     }
+    },
+    {
+     "id": "in1900-4-3-rep-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-3-r3",
+      "number": "R3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "En figur har to kurver med `label=` satt, men navnene vises ikke. Hva mangler, og hva ville skjedd med bare én kurve?",
+      "solution": "`plt.legend()` mangler; den må kalles én gang etter `plot`-kallene. Med bare én kurve er legenden valgfri — sensor krever den ikke da, men aksenavnene kreves uansett.",
+      "hints": [
+       "`label=` lagrer navnet; noe annet må vise det."
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
