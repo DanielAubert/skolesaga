@@ -1,0 +1,165 @@
+{
+  "id": "econ1100-3-prove",
+  "courseId": "econ1100",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Differensial og lineær approksimasjon",
+  "description": "Fire prøver à ~20–30 min: differensialet med «mangler ledd»-fellene, lineær approksimasjon satt inn og sammenlignet, approksimasjonsfeilens fortegn, og et blandet sant/usant-sett på eksamensnivå. Fasit med full utregning og avkryssbar selvdiagnose. Kan trygt deles over flere kvelder — én prøve per økt.",
+  "estimatedMinutes": 95,
+  "competenceGoals": [
+    "sette opp differensialet og den lineære approksimasjonen under tidspress, med alle ledd på plass",
+    "avgjøre om et oppgitt uttrykk er riktig ved å sammenligne ledd for ledd, og skrive begrunnelsen ut",
+    "begrunne fortegnet på approksimasjonsfeilen ut fra krumningen i hele det aktuelle området",
+    "føre et sant/usant-svar slik sensor krever: konklusjon pluss fullstendig utregning"
+  ],
+  "content": [
+    {
+      "id": "econ1100-3-prove-tip",
+      "type": "tip",
+      "title": "Slik bruker du prøvene",
+      "content": "Disse fire prøvene dekker hele **Del 3 — differensial og lineær approksimasjon**. Temaet står i **11 av 16 sett** i arkivet (69 prosent) og i **8 av de 9 ordinære** settene (89 prosent), nesten alltid som ett punkt i eksamens Oppgave 2 — den oppgaven som i denne boka kalles **sjanger SU: «sant eller usant? begrunn»**. Selve regnestykket kalles **sjanger DA — differensial og lineær approksimasjon**.\n\n- **Prøve 1 (3.A)** — differensialet, med «mangler ledd»-fellene. 20 poeng, ~20 min.\n- **Prøve 2 (3.B)** — lineær approksimasjon satt inn og sammenlignet. 25 poeng, ~25 min.\n- **Prøve 3 (3.C)** — approksimasjonsfeilens fortegn, koblet til krumningen. 20 poeng, ~20 min.\n- **Prøve 4 (3.D)** — blandet sant/usant på eksamensnivå, med begrunnelseskrav hele veien. 30 poeng, ~30 min.\n\n**4 prøver à ~20–30 minutter. Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Målet er å fullføre settet, ikke å ta alt på én gang.\n\n**Merk formatet:** hver prøve står i sin egen boks, og **flervalgsspørsmålene står inne i selve prøveteksten**, med fasit i en egen boks rett under. Skriv eller regn svaret ditt FØR du åpner fasiten.\n\n**Den viktigste vanen prøvene trener:** aldri en bar konklusjon. Sensor gir null poeng for «usant» uten utregning, også når konklusjonen er riktig. Alle fasitene her er skrevet slik en A-besvarelse ville sett ut: metoden navngis, mellomregningen står, og konklusjonssetningen kommer til slutt. Etter hver fasit finner du en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "econ1100-3-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Prøvene forutsetter [kap. 3.1](/bok/econ1100/econ1100-3-1) (differensialet) og [kap. 3.2](/bok/econ1100/econ1100-3-2) (lineær approksimasjon og approksimasjonsfeil), som igjen hviler på [kap. 1.1](/bok/econ1100/econ1100-1-1) og [kap. 1.2](/bok/econ1100/econ1100-1-2) (derivasjonsregler og partiellderiverte).\n\n**Nøkkelformlene, oppfrisket:**\n\n$$df=f'_x\\,dx+f'_y\\,dy$$\n\n$$f(x,y)\\approx f(x_0,y_0)+f'_x(x_0,y_0)\\,(x-x_0)+f'_y(x_0,y_0)\\,(y-y_0)$$\n\n$$\\text{feil}=\\Delta f-df,\\qquad f''\\ge 0\\Rightarrow\\text{underestimat},\\qquad f''\\le 0\\Rightarrow\\text{overestimat}$$"
+    },
+    {
+      "id": "econ1100-3-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 (3.A) — Differensialet og «mangler ledd»-fellene",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "econ1100-3-prove-p1-oppg",
+          "type": "text",
+          "content": "**Sjanger DA.** **Anbefalt tid:** ca. 20 minutter. **20 poeng.** Vis all mellomregning.\n\n**Flervalg (2 poeng hver, 8 poeng totalt).** Kryss av, og sjekk mot fasiten.\n\n**1.** Differensialet til $f(x,y)$ har\n(a) ett ledd (b) to ledd (c) tre ledd (d) like mange ledd som funksjonen har konstanter\n\n**2.** For $f(x,y)=xy^{2}$ er $df$ lik\n(a) $y^{2}\\,dx+2xy\\,dy$ (b) $y^{2}\\,dx$ (c) $2xy\\,dx+y^{2}\\,dy$ (d) $y^{2}\\,dy+2xy\\,dx$\n\n**3.** $d(\\ln u)$ er lik\n(a) $\\dfrac{1}{u}$ (b) $u\\,du$ (c) $\\dfrac{du}{u}$ (d) $\\dfrac{du}{u^{2}}$\n\n**4.** Oppgaven sier at en størrelse faller med $0{,}3$. Da er\n(a) $dy=0{,}3$ (b) $dy=-0{,}3$ (c) $dy=1/0{,}3$ (d) $dy=0$\n\n---\n\n**Regneoppgaver (4 poeng hver, 12 poeng totalt).**\n\n**a)** Sett opp $df$ for $f(x,y)=4x^{3}y^{2}-7y$.\n\n**b)** Sett opp $dg$ for $g(x,y)=\\dfrac{x^{2}}{y}$ med $y\\ne 0$, og forenkl.\n\n**c)** La $f(x,y)=x^{2}y$. Avgjør om påstanden «$df=x^{2}\\,dy$» er sann eller usann. **Begrunn.**"
+        },
+        {
+          "id": "econ1100-3-prove-p1-fasit",
+          "type": "collapsible",
+          "title": "Fasit og momentliste",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "econ1100-3-prove-p1-fasit-txt",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2a · 3c · 4b.\n\n*Om de nære fellene: 1c ville vært riktig for tre variabler — antall ledd følger antall variabler, ikke noe annet. 2b utelater $y$-leddet og er nettopp den fellen eksamen bruker (feil #4 — utelate ett ledd i differensialet). 2c og 2d har byttet om hvilken derivert som hører til hvilken differensial. 3a glemmer differensialet til innmaten, altså kjernefaktoren.*\n\n---\n\n**a)** *Metode: finn begge partiellderiverte, og sett inn i $df=f'_x\\,dx+f'_y\\,dy$.*\n\nMht. $x$ (hold $y$ fast): $4x^{3}y^{2}\\to 12x^{2}y^{2}$, og $-7y\\to 0$.\n\nMht. $y$ (hold $x$ fast): $4x^{3}y^{2}\\to 8x^{3}y$, og $-7y\\to -7$.\n\n$$df=12x^{2}y^{2}\\,dx+\\big(8x^{3}y-7\\big)\\,dy$$\n\n*Merk parentesen om det andre leddet: hele $f'_y$ skal ganges med $dy$, ikke bare første del av den.*\n\n---\n\n**b)** *Metode: skriv brøken som en potens, da slipper du kvotientregelen.*\n\nMed $g=x^{2}y^{-1}$ er\n\n$$g'_x=2xy^{-1}=\\frac{2x}{y},\\qquad g'_y=-x^{2}y^{-2}=-\\frac{x^{2}}{y^{2}}$$\n\n$$dg=\\frac{2x}{y}\\,dx-\\frac{x^{2}}{y^{2}}\\,dy$$\n\n*Fortegnskontroll:* øker $y$, faller brøken, så $g'_y$ **skal** være negativ. Den minusen er innhold, ikke slurv.\n\n---\n\n**c)** *Metode: regn ut differensialet, og sammenlign ledd for ledd.*\n\n$$f'_x=2xy,\\qquad f'_y=x^{2}\\ \\Longrightarrow\\ df=2xy\\,dx+x^{2}\\,dy$$\n\nPåstanden inneholder bare $x^{2}\\,dy$. Leddet $2xy\\,dx$ er utelatt.\n\n**Konklusjon: påstanden er usann.** Uttrykket stemmer bare i spesialtilfellet $dx=0$, altså når $x$ holdes helt fast, og det står ingenting om det i påstanden. Dette er feil #4 — utelate ett ledd i differensialet.\n\n*Om føringen:* de tre linjene over ER besvarelsen. Skriver du bare «usant», får du null poeng, også når konklusjonen er riktig.\n\n---\n\n**Poengfordeling:** flervalg $4\\times 2=8$ p; a) 4 p; b) 4 p; c) 4 p. Sum 20 p."
+            },
+            {
+              "id": "econ1100-3-prove-p1-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av (☐):**\n\n- ☐ Jeg fikk to ledd i alle differensialene, ett per variabel.\n- ☐ Jeg satte parentes rundt hele $f'_y$ i a), slik at $-7$ ble ganget med $dy$.\n- ☐ I b) fikk jeg **minus** på $dy$-leddet.\n- ☐ I c) skrev jeg ut hele differensialet før jeg konkluderte.\n- ☐ I c) pekte jeg eksplisitt på hvilket ledd som manglet.\n- ☐ Jeg skrev en konklusjonssetning, ikke bare ordet «usant».\n- ☐ Jeg ble ferdig innenfor 20 minutter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "econ1100-3-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 (3.B) — Lineær approksimasjon: sett inn og sammenlign",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "econ1100-3-prove-p2-oppg",
+          "type": "text",
+          "content": "**Sjanger DA.** **Anbefalt tid:** ca. 25 minutter. **25 poeng.** Oppgi basispunktet du regner ut fra.\n\n**Flervalg (2 poeng hver, 8 poeng totalt).**\n\n**1.** Den lineære approksimasjonen i to variabler har\n(a) to ledd (b) tre ledd (c) fire ledd (d) ett ledd per konstant i funksjonen\n\n**2.** Setter du basispunktet inn i approksimasjonen, får du\n(a) $0$ (b) $df$ (c) $f(x_0,y_0)$ (d) $f'_x(x_0,y_0)$\n\n**3.** Uttrykket $f'_x(x_0,y_0)$ i approksimasjonen er\n(a) et tall (b) et uttrykk i $x$ og $y$ (c) den deriverte av startverdien (d) alltid lik $f'_y(x_0,y_0)$\n\n**4.** Rundt $u=0$ gjelder\n(a) $e^{u}\\approx u$ (b) $e^{u}\\approx 1+u$ (c) $e^{u}\\approx 1-u$ (d) $e^{u}\\approx u-1$\n\n---\n\n**Regneoppgaver (17 poeng totalt).**\n\n**a)** (4 p) La $f(x)=x^{4}$. Finn den lineære approksimasjonen rundt $x_0=2$, og anslå $f(2{,}05)$.\n\n**b)** (5 p) La $f(x,y)=x^{3}\\sqrt{y}$ og basispunkt $(2,9)$. Finn $f(2,9)$, $f'_x(2,9)$ og $f'_y(2,9)$, og skriv opp approksimasjonen.\n\n**c)** (4 p) Bruk approksimasjonen fra b) til å anslå $f(2{,}1\\,;\\,8{,}8)$.\n\n**d)** (4 p) En bedrift har $Q(K,L)=30K^{1/3}L^{2/3}$ og er i punktet $(K,L)=(27,8)$. Finn $Q$, $Q'_K$ og $Q'_L$ i punktet, og anslå $Q(28,8)$."
+        },
+        {
+          "id": "econ1100-3-prove-p2-fasit",
+          "type": "collapsible",
+          "title": "Fasit og momentliste",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "econ1100-3-prove-p2-fasit-txt",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2c · 3a · 4b.\n\n*Om de nære fellene: 1a er antall ledd i differensialet — approksimasjonen har i tillegg startverdien. 2a og 2b beskriver begge et uttrykk der startverdien er glemt, som er den vanligste feilen i sjangeren. 3b ville gjort uttrykket ikke-lineært og dermed ødelagt hele poenget: koeffisientene er faste tall regnet ut i punktet.*\n\n---\n\n**a)** *Metode: regn $f(x_0)$ og $f'(x_0)$, og sett inn.*\n\n$$f(2)=16,\\qquad f'(x)=4x^{3}\\ \\Longrightarrow\\ f'(2)=32$$\n\n$$f(x)\\approx 16+32\\,(x-2)$$\n\nMed $x-2=0{,}05$:\n\n$$f(2{,}05)\\approx 16+32\\cdot 0{,}05=17{,}6$$\n\n*Kontroll:* eksakt er $2{,}05^{4}=17{,}66$. Anslaget er litt for lavt, som ventet for en konveks funksjon ($f''(2)=24>0$).\n\n---\n\n**b)** *Metode: verdien og de to partiellderiverte, alle evaluert i punktet.*\n\n$$f(2,9)=8\\cdot 3=24$$\n\n$$f'_x=3x^{2}\\sqrt{y}\\ \\Longrightarrow\\ f'_x(2,9)=3\\cdot 4\\cdot 3=36$$\n\n$$f'_y=\\frac{x^{3}}{2\\sqrt{y}}\\ \\Longrightarrow\\ f'_y(2,9)=\\frac{8}{6}=\\frac{4}{3}$$\n\n$$f(x,y)\\approx 24+36\\,(x-2)+\\tfrac43\\,(y-9)$$\n\n*Kontroll:* sett inn $(2,9)$ — begge parentesene blir null, og uttrykket gir 24 ✓.\n\n---\n\n**c)** Med $x-2=0{,}1$ og $y-9=-0{,}2$:\n\n$$f(2{,}1\\,;\\,8{,}8)\\approx 24+36\\cdot 0{,}1+\\tfrac43\\cdot(-0{,}2)=24+3{,}6-0{,}2667=27{,}33$$\n\n*Merk fortegnet:* $y$ falt, så parentesen er negativ og bidraget trekker ned.\n\n*Til orientering:* eksakt er $2{,}1^{3}\\sqrt{8{,}8}=9{,}261\\cdot 2{,}9665=27{,}47$.\n\n---\n\n**d)** *Metode: Cobb-Douglas — eksponenten ned, resten står som konstant faktor.*\n\n$$Q(27,8)=30\\cdot 3\\cdot 4=360$$\n\n$$Q'_K=10\\,K^{-2/3}L^{2/3}=10\\left(\\frac{L}{K}\\right)^{2/3}\\ \\Longrightarrow\\ Q'_K(27,8)=10\\cdot\\left(\\frac{8}{27}\\right)^{2/3}=10\\cdot\\frac49=\\frac{40}{9}$$\n\n$$Q'_L=20\\,K^{1/3}L^{-1/3}=20\\left(\\frac{K}{L}\\right)^{1/3}\\ \\Longrightarrow\\ Q'_L(27,8)=20\\cdot\\frac32=30$$\n\nMed $dK=1$ og $dL=0$:\n\n$$Q(28,8)\\approx 360+\\frac{40}{9}\\cdot 1=364{,}44$$\n\n*Kontroll:* eksakt er $30\\cdot 28^{1/3}\\cdot 4=120\\cdot 3{,}0366=364{,}39$. Anslaget bommer med $0{,}05$, altså omtrent én hundredels prosent.\n\n*Tolkning verdt et poeng:* $Q'_K=40/9\\approx 4{,}4$ er grenseproduktet av kapital. Én ekstra kapitalenhet gir omtrent 4,4 enheter mer produksjon i dette punktet.\n\n---\n\n**Poengfordeling:** flervalg $4\\times 2=8$ p; a) 4 p; b) 5 p; c) 4 p; d) 4 p. Sum 25 p."
+            },
+            {
+              "id": "econ1100-3-prove-p2-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av (☐):**\n\n- ☐ Jeg hadde med startverdien i alle approksimasjonene.\n- ☐ Jeg kontrollerte b) ved å sette basispunktet inn og få tilbake 24.\n- ☐ I c) satte jeg inn $y-9=-0{,}2$ med minus.\n- ☐ I d) regnet jeg $(8/27)^{2/3}$ til $4/9$ uten kalkulator.\n- ☐ Jeg lot koeffisientene være tall, ikke uttrykk i $x$ og $y$.\n- ☐ Jeg ble ferdig innenfor 25 minutter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "econ1100-3-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 (3.C) — Approksimasjonsfeilens fortegn",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "econ1100-3-prove-p3-oppg",
+          "type": "text",
+          "content": "**Sjanger DA.** **Anbefalt tid:** ca. 20 minutter. **20 poeng.** I denne prøven er *argumentet* svaret. Du får ikke lov til å regne ut den eksakte verdien og sammenligne — begrunnelsen skal gå gjennom krumningen.\n\n**Flervalg (2 poeng hver, 6 poeng totalt).**\n\n**1.** Er $f''\\ge 0$ i hele området, er den lineære approksimasjonen\n(a) et overestimat (b) et underestimat (c) eksakt (d) uavgjort uten tall\n\n**2.** Approksimasjonsfeilen defineres som\n(a) $\\Delta f-df$ (b) $df-\\Delta f$ (c) $\\Delta f\\cdot df$ (d) $\\Delta f/df$\n\n**3.** Halveres skrittlengden, blir feilen omtrent\n(a) halvert (b) uendret (c) en fjerdedel (d) doblet\n\n---\n\n**Regneoppgaver (14 poeng totalt).**\n\n**a)** (4 p) La $f(x)=\\ln x$ og $x_0=1$. Skriv opp approksimasjonen, anslå $\\ln(1{,}2)$, og avgjør ut fra $f''$ om anslaget er for stort eller for lite.\n\n**b)** (4 p) La $g(x)=x^{2}$ og $x_0=1$. Vis at approksimasjonsfeilen er **nøyaktig** $(x-1)^{2}$, og bruk det til å teste påstanden i flervalg 3 med skrittene $0{,}2$ og $0{,}1$.\n\n**c)** (6 p) En husholdnings nytte er $U(x)=60\\sqrt{x}$.\n\n  **i)** Finn den lineære approksimasjonen rundt $x_0=4$ og anslå $U(4{,}5)$.\n\n  **ii)** Avgjør uten å regne eksakt om anslaget er for stort eller for lite, og begrunn med $U''$.\n\n  **iii)** Gi den økonomiske lesningen av fortegnet på $U''$."
+        },
+        {
+          "id": "econ1100-3-prove-p3-fasit",
+          "type": "collapsible",
+          "title": "Fasit og momentliste",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "econ1100-3-prove-p3-fasit-txt",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2a · 3c.\n\n*Om de nære fellene: 1a er svaret for en konkav funksjon — det er lett å bytte om, og huskeregelen er at en konveks kurve bøyer oppover og dermed «rømmer» fra tangenten oppover. 2b er feilen med motsatt fortegn og gir feil konklusjon hver gang. 3a er den intuitive gjetningen, men feilen er kvadratisk, ikke lineær.*\n\n---\n\n**a)** *Metode: verdi og stigning i basispunktet, deretter krumningen.*\n\n$$f(1)=\\ln 1=0,\\qquad f'(x)=\\frac1x\\ \\Longrightarrow\\ f'(1)=1$$\n\n$$\\ln x\\approx 0+1\\cdot(x-1)=x-1$$\n\nMed $x=1{,}2$:\n\n$$\\ln(1{,}2)\\approx 0{,}2$$\n\n**Fortegnet på bommen:** $f''(x)=-\\dfrac{1}{x^{2}}<0$ for alle $x>0$, så $\\ln x$ er **konkav i hele definisjonsområdet**. Tangenten ligger over kurven, og anslaget er derfor **for stort**.\n\n*(Til orientering, ikke som argument: eksakt er $\\ln(1{,}2)=0{,}1823$.)*\n\n---\n\n**b)** *Metode: regn ut både approksimasjonen og den eksakte verdien symbolsk, og trekk fra.*\n\n$$g(1)=1,\\qquad g'(1)=2\\ \\Longrightarrow\\ g(x)\\approx 1+2(x-1)$$\n\nDen eksakte verdien er $x^{2}$. Feilen blir\n\n$$\\Delta g-dg=x^{2}-\\big[1+2(x-1)\\big]=x^{2}-2x+1=(x-1)^{2}$$\n\n**Test av påstanden:**\n\n- Skritt $0{,}2$: feil $=0{,}2^{2}=0{,}04$.\n- Skritt $0{,}1$: feil $=0{,}1^{2}=0{,}01$.\n\nHalvert skritt ga en **fjerdedel** av feilen ✓ — akkurat som flervalg 3 sier. Her er sammenhengen dessuten eksakt, ikke bare tilnærmet, fordi funksjonen er et andregradspolynom.\n\n*Merk også at feilen er positiv:* $(x-1)^{2}\\ge 0$, altså underestimat, i tråd med at $g''=2>0$ (konveks).\n\n---\n\n**c) i)** Vi regner ut verdien og stigningen i $x_0=4$.\n\n$$U(4)=60\\cdot 2=120,\\qquad U'(x)=\\frac{60}{2\\sqrt{x}}=\\frac{30}{\\sqrt{x}}\\ \\Longrightarrow\\ U'(4)=15$$\n\n$$U(x)\\approx 120+15\\,(x-4)$$\n\nMed $x-4=0{,}5$:\n\n$$U(4{,}5)\\approx 120+15\\cdot 0{,}5=127{,}5$$\n\n**ii)** Vi deriverer én gang til:\n\n$$U'(x)=30\\,x^{-1/2}\\ \\Longrightarrow\\ U''(x)=-15\\,x^{-3/2}$$\n\nFor alle $x>0$ er $x^{-3/2}>0$, altså $U''(x)<0$. Funksjonen er **konkav i hele definisjonsområdet**, tangenten ligger over kurven, og anslaget $127{,}5$ er **for stort**.\n\n*Merk at konkaviteten begrunnes for hele intervallet mellom 4 og 4,5, ikke bare i ett punkt. Det er kravet når konklusjonen skal gjelde et helt skritt.*\n\n**iii)** **Økonomisk lesning:** $U''<0$ betyr **avtakende grensenytte** — hver ekstra enhet er mindre verdt enn den forrige. Den lineære approksimasjonen antar at grensenytten holder seg konstant lik $U'(4)=15$, og overvurderer derfor gevinsten ved å øke forbruket. Matematikken og økonomien sier det samme: tangenten er en «optimist».\n\n---\n\n**Poengfordeling:** flervalg $3\\times 2=6$ p; a) 4 p; b) 4 p; c) i) 2 p, ii) 2 p, iii) 2 p. Sum 20 p."
+            },
+            {
+              "id": "econ1100-3-prove-p3-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av (☐):**\n\n- ☐ Jeg begrunnet fortegnet på bommen med $f''$, ikke ved å sammenligne med fasit.\n- ☐ Jeg sa at krumningen gjelder i **hele** området, ikke bare i basispunktet.\n- ☐ I b) fikk jeg feilen på lukket form $(x-1)^{2}$ og testet begge skrittlengdene.\n- ☐ I c) i) fikk jeg $U'(4)=15$, ikke $30$.\n- ☐ I c) iii) koblet jeg $U''<0$ til avtakende grensenytte i ord.\n- ☐ Jeg ble ferdig innenfor 20 minutter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "econ1100-3-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 (3.D) — Sant eller usant, på eksamensnivå",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "econ1100-3-prove-p4-oppg",
+          "type": "text",
+          "content": "**Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2.** **Anbefalt tid:** ca. 30 minutter. **30 poeng.** Dette settet har samme form som et helt Oppgave 2-punkt om differensial og approksimasjon.\n\n**Regelen som gjelder hele prøven: ubegrunnet ja eller nei gir null poeng, også når konklusjonen er riktig.** Skriv konklusjon **og** utregning i hvert delpunkt.\n\n**Flervalg (2 poeng hver, 6 poeng totalt).**\n\n**1.** Når er $df$ og $\\Delta f$ nøyaktig like?\n(a) alltid, for små skritt (b) når $f''>0$ (c) aldri (d) når funksjonen er lineær\n\n**2.** Feil #4 i bokas feilregister er\n(a) å glemme definisjonsområdet (b) å utelate ett ledd i differensialet eller approksimasjonen (c) å bruke feil basispunkt (d) å ikke forenkle sluttsvaret\n\n**3.** Et svar som bare sier «usant», gir\n(a) full uttelling hvis konklusjonen stemmer (b) halv uttelling (c) null poeng (d) trekk bare hvis konklusjonen er gal\n\n---\n\n**Sant eller usant? Begrunn hver konklusjon (4 poeng hver, 24 poeng totalt).**\n\n**a)** La $f(x,y)=x^{3}y^{2}$. Påstand: «$df=3x^{2}y^{2}\\,dx+2x^{3}y\\,dy$.»\n\n**b)** La $f(x,y)=e^{x+2y}$. Påstand: «$df=e^{x+2y}\\,(dx+dy)$.»\n\n**c)** La $f(x,y)=\\sqrt{x}+y^{2}$ med basispunkt $(4,1)$. Påstand: «$f(x,y)\\approx 3+\\tfrac14(x-4)+2(y-1)$.»\n\n**d)** Påstand: «For $f(x)=e^{x}$ gir lineær approksimasjon rundt $x_0=0$ alltid et for lavt anslag.»\n\n**e)** Påstand: «Differensialet og den lineære approksimasjonen er to navn på det samme uttrykket.»\n\n**f)** La $f(x,y)=x^{2}y$ i punktet $(2,3)$ med $dx=0{,}1$ og $dy=0{,}1$. Påstand: «$df=1{,}6$.»"
+        },
+        {
+          "id": "econ1100-3-prove-p4-fasit",
+          "type": "collapsible",
+          "title": "Fasit og momentliste",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "econ1100-3-prove-p4-fasit-txt",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1d · 2b · 3c.\n\n*Om de nære fellene: 1a er nesten sant — for små skritt er de nesten like, men «nøyaktig» krever at kurven ikke krummer i det hele tatt, altså en lineær funksjon. 3a er den antakelsen som koster flest poeng i hele faget: sensor gir null for ubegrunnet ja eller nei, uansett konklusjon.*\n\n---\n\n**a) Sann.** Vi regner ut differensialet.\n\n$$f'_x=3x^{2}y^{2},\\qquad f'_y=2x^{3}y\\ \\Longrightarrow\\ df=3x^{2}y^{2}\\,dx+2x^{3}y\\,dy$$\n\nSammenligning ledd for ledd: første ledd ✓, andre ledd ✓. Ingenting mangler, og ingen koeffisient avviker.\n\n---\n\n**b) Usann.** Regelen $e^{u}\\,du$ med $u=x+2y$ gir $u'_x=1$ og $u'_y=2$, altså\n\n$$df=e^{x+2y}\\big(dx+2\\,dy\\big)$$\n\nPåstanden har $dy$ uten faktoren 2. Faktoren kommer fra den indre deriverte av $x+2y$ mht. $y$, og å miste den er samme felle som å glemme kjerneregelen.\n\n*Konkret motsvar:* i $(0,0)$ med $dx=0$ og $dy=0{,}1$ gir vår formel $df=0{,}2$, mens påstanden gir $0{,}1$. Tallene er ikke like, og påstanden faller.\n\n---\n\n**c) Sann.** Vi regner ut de tre størrelsene i basispunktet.\n\n$$f(4,1)=\\sqrt{4}+1=3$$\n\n$$f'_x=\\frac{1}{2\\sqrt{x}}\\ \\Longrightarrow\\ f'_x(4,1)=\\frac14,\\qquad f'_y=2y\\ \\Longrightarrow\\ f'_y(4,1)=2$$\n\n$$f(x,y)\\approx 3+\\tfrac14\\,(x-4)+2\\,(y-1)$$\n\nDette er ledd for ledd identisk med påstanden ✓. Startverdi 3 ✓, koeffisient $1/4$ ✓, koeffisient 2 ✓.\n\n*Merk: påstandene i denne sjangeren er ikke alltid usanne. En kandidat som svarer «usant» på alt, kommer dårlig ut.*\n\n---\n\n**d) Sann.** Approksimasjonen rundt $x_0=0$ er\n\n$$e^{x}\\approx e^{0}+e^{0}\\cdot x=1+x$$\n\nKrumningen: $f''(x)=e^{x}>0$ for **alle** $x$, så funksjonen er konveks overalt. Tangenten ligger da under kurven i hele definisjonsområdet, og anslaget er for lavt.\n\n*Merk at «alltid» faktisk holder her,* nettopp fordi konveksiteten gjelder overalt — både til høyre og til venstre for null. For $x=0{,}2$ gir formelen $1{,}2$ mot eksakt $1{,}2214$; for $x=-0{,}2$ gir den $0{,}8$ mot eksakt $0{,}8187$. Begge er for lave ✓.\n\n---\n\n**e) Usann.** De to skiller seg med nøyaktig ett ledd:\n\n$$df=f'_x\\,dx+f'_y\\,dy\\qquad\\text{mot}\\qquad f(x,y)\\approx f(x_0,y_0)+df$$\n\n$df$ anslår **endringen**; approksimasjonen anslår den nye **verdien**. Startverdien $f(x_0,y_0)$ står bare i den ene.\n\n*Konkret motsvar:* for $f(x,y)=x^{2}y$ i $(1,2)$ med $dx=dy=0$ er $df=0$, mens approksimasjonen gir 2. To ulike tall, altså to ulike uttrykk.\n\n---\n\n**f) Sann.** Vi regner ut.\n\n$$f'_x=2xy\\ \\Longrightarrow\\ f'_x(2,3)=12,\\qquad f'_y=x^{2}\\ \\Longrightarrow\\ f'_y(2,3)=4$$\n\n$$df=12\\cdot 0{,}1+4\\cdot 0{,}1=1{,}2+0{,}4=1{,}6$$\n\nPåstanden stemmer ✓.\n\n*Presisering som viser oversikt:* dette er den **anslåtte** endringen. Den faktiske er $f(2{,}1\\,;\\,3{,}1)-f(2,3)=13{,}671-12=1{,}671$, altså litt større. Påstanden gjaldt $df$, som spurt om, og er derfor sann.\n\n---\n\n**Poengfordeling:** flervalg $3\\times 2=6$ p; a)–f) $6\\times 4=24$ p. Sum 30 p.\n\n**Tidsbudsjett-merknad:** de 30 minuttene er regnetid. På ekte eksamen kommer lesing av settet, kladd og kontrollregning i tillegg — regn med at et helt Oppgave 2-punkt tar litt mer enn summen av delene."
+            },
+            {
+              "id": "econ1100-3-prove-p4-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av (☐):**\n\n- ☐ Jeg skrev både konklusjon og utregning i alle seks delpunktene.\n- ☐ Jeg svarte ikke «usant» på alt — tre av påstandene var sanne.\n- ☐ I b) fant jeg faktoren 2 fra den indre deriverte.\n- ☐ I d) begrunnet jeg at konveksiteten gjelder **overalt**, ikke bare i null.\n- ☐ I e) pekte jeg på startverdien som det som skiller de to uttrykkene.\n- ☐ I f) skilte jeg mellom $df$ og den faktiske endringen.\n- ☐ Jeg ble ferdig innenfor 30 minutter.\n\n**Er du over tiden?** Se hvilket delpunkt som tok lengst, og gå tilbake til [kap. 3.1](/bok/econ1100/econ1100-3-1) eller [kap. 3.2](/bok/econ1100/econ1100-3-2). Dette er sjangeren der mest poeng vinnes per minutt i hele eksamen — den bør sitte automatisk."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "econ1100-3-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-3-prove-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i Del 3.*\n\n| Symbol | Betydning |\n|---|---|\n| $df$ | Differensialet: den anslåtte endringen, målt langs tangenten |\n| $\\Delta f$ | Tilveksten: den faktiske endringen i funksjonsverdien |\n| $dx$, $dy$ | De valgte små endringene i variablene; bærer fortegn |\n| $f'_x$, $f'_y$ | Partiellderiverte — effekten per enhet av hver variabel |\n| $x_0$, $y_0$ | Basispunktet approksimasjonen bygges rundt |\n| $f(x_0,y_0)$ | Startverdien, det første leddet i approksimasjonen |\n| $f''$, $U''$ | Andrederiverte; fortegnet gir krumningen |\n| $\\Delta f-df$ | Approksimasjonsfeilen |\n| $K$, $L$, $Q(K,L)$ | Kapital, arbeidskraft og produsert mengde |\n| $Q'_K$, $Q'_L$ | Grenseprodukt av kapital og arbeidskraft |\n\n**Formler brukt i prøvene:**\n\n$$df=f'_x\\,dx+f'_y\\,dy$$\nDifferensialet — ett ledd per variabel, alle med (feil #4).\n\n$$f(x,y)\\approx f(x_0,y_0)+f'_x(x_0,y_0)\\,(x-x_0)+f'_y(x_0,y_0)\\,(y-y_0)$$\nLineær approksimasjon — tre ledd, med startverdien først.\n\n$$d\\big(\\ln u\\big)=\\frac{du}{u},\\qquad d\\big(e^{u}\\big)=e^{u}\\,du$$\nDe to funksjonsformene som dominerer økonomimodeller; husk den indre deriverte.\n\n$$\\text{feil}=\\Delta f-df$$\nApproksimasjonsfeilen: sannheten minus anslaget.\n\n$$f''\\ge 0\\ \\Rightarrow\\ \\text{underestimat},\\qquad f''\\le 0\\ \\Rightarrow\\ \\text{overestimat}$$\nKrumningen bestemmer retningen på bommen — og må gjelde i hele intervallet.\n\n$$Q=AK^{\\alpha}L^{\\beta}\\ \\Longrightarrow\\ Q'_K=\\alpha A K^{\\alpha-1}L^{\\beta}$$\nCobb-Douglas: eksponenten ned, den andre potensen står som konstant faktor."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
