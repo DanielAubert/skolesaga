@@ -1,0 +1,410 @@
+{
+  "id": "in1020-3-3",
+  "courseId": "in1020",
+  "chapterNumber": "3.3",
+  "title": "Symmetrisk og asymmetrisk kryptering",
+  "description": "Én delt nøkkel mot et privat og offentlig nøkkelpar — og den ene retningsregelen som avgjør hvilken nøkkel som brukes når du skal sende noe hemmelig.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne forklare forskjellen på symmetrisk og asymmetrisk kryptering",
+    "kunne oppgi hvilken nøkkel som brukes til å kryptere og hvilken til å dekryptere en hemmelig melding",
+    "kunne begrunne hvorfor nøkkelutveksling er hovedproblemet ved symmetrisk kryptering",
+    "kunne forklare hvorfor de to formene brukes sammen i praksis"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** kryptering hører til **sjanger H — kryptering og digital signatur**, som har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Kapitlet hører til **seksjon 3, datasikkerhet**, en av de fire seksjonene som hver må bestås for seg. Sammen med neste kapittel er dette den delen av seksjonen der sensor oftest presiserer nøyaktig hva som er riktig.\n\n**Slik kommer den:** oftest som **svarform F4** (nedtrekksmeny: velg ett alternativ per delspørsmål — «Alice krypterer med …»), og som **F1** («velg ett *eller flere* alternativer» — flere kan være riktige samtidig).\n\n**Den ene tingen som skiller bestått fra bom her:** **nøkkelretningen**. Skal du sende noe hemmelig, krypterer du med **mottakerens offentlige** nøkkel, og mottakeren dekrypterer med **sin egen private**. Snur du dette, er svaret galt — det er **felle #5 i registeret**, og den er den hyppigste enkeltbommen i sjangeren.\n\n**En felle til:** å tro at symmetrisk kryptering gir uavviselighet. Det gjør den ikke: når to parter deler samme nøkkel, kan ingen av dem bevise hvem av dem som lagde meldingen.\n\n**Tidsbruk:** 50 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-3-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/in1020/in1020-3-1). Her er det du trenger, ferdig oppfrisket:\n\n**1. Kryptering er et tiltak, ikke et mål.** Målet den tjener, er **konfidensialitet** — at uvedkommende ikke kan lese innholdet.\n\n**2. De målene som er relevante her:**\n\n| Mål | Spørsmålet |\n|---|---|\n| Konfidensialitet | Kan uvedkommende **lese** det? |\n| Integritet | Er innholdet **uendret**? |\n| Autentisitet | Er det **virkelig** den vi tror? |\n| Uavviselighet | Kan avsenderen **nekte** for det? |\n\n**3. Mellommannsangrep** fra [kap. 3.2](/bok/in1020/in1020-3-2): en angriper plasserer seg mellom to parter og kan både lese og endre trafikken. Kryptering er hovedmottiltaket.\n\n**Et par ord du møter med én gang, ferdig forklart:**\n\n- **Klartekst** er innholdet slik det er lesbart.\n- **Kryptotekst** er det samme innholdet etter kryptering — uleselig uten nøkkelen.\n- **Nøkkel** er den hemmelige verdien som styrer krypteringen og dekrypteringen.\n\nEn roligere gjennomgang på videregående nivå, med flere hverdagseksempler, ligger i [Kryptering og autentisering](/bok/it-1/it-1-7-5)."
+    },
+    {
+      "id": "in1020-3-3-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-3-3-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Klartekst | Innholdet slik det er lesbart |\n| Kryptotekst | Innholdet etter kryptering — uleselig uten nøkkel |\n| Nøkkel | Den hemmelige verdien som styrer krypteringen |\n| Delt nøkkel | Én nøkkel som begge parter har — symmetrisk |\n| Nøkkelpar | To nøkler som hører sammen — asymmetrisk |\n| Offentlig nøkkel | Den halvdelen som kan deles med hvem som helst |\n| Privat nøkkel | Den halvdelen som **aldri** forlater eieren |\n| Nøkkelutveksling | Problemet med å få en delt nøkkel trygt fram |\n| Alice og Bob | De faste navnene på avsender og mottaker i eksempler |\n\n**Retningsreglene — det viktigste i kapitlet:**\n\n```text\nHEMMELIG MELDING til Bob:\n  Alice krypterer med   ->  Bobs OFFENTLIGE nøkkel\n  Bob dekrypterer med   ->  Bobs PRIVATE nøkkel\n```\n\nHuskeregelen: **du låser med mottakerens hengelås, og bare mottakeren har nøkkelen til den.**\n\nDen motsatte retningen — å bruke sin egen private nøkkel — gir **digital signatur**, og den behandles i neste kapittel.\n\n**Egenskapene i tabell:**\n\n| | Symmetrisk | Asymmetrisk |\n|---|---|---|\n| Antall nøkler | Én, delt | To, et par per person |\n| Fart | Rask | Treg |\n| Egnet for | Store datamengder | Små mengder og nøkkelutveksling |\n| Hovedproblem | Å få nøkkelen trygt fram | Regnetunge operasjoner |\n| Gir uavviselighet | **Nei** | Ja, via signatur |"
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Én delt nøkkel (~12 min)\n\nTo venner avtaler at de skal forskyve hver bokstav tre plasser i alfabetet når de skriver til hverandre. «HEI» blir «KHL». Den som ikke kjenner avtalen, ser bare tull.\n\nAvtalen — tallet 3 — er **nøkkelen**. Begge bruker den samme nøkkelen, den ene til å skrive og den andre til å lese. Det er **symmetrisk kryptering**.\n\nMetoden er urgammel og virker fortsatt, bare med langt mer avanserte operasjoner enn å forskyve bokstaver. Moderne symmetriske algoritmer er svært raske: en maskin krypterer gigabyte i sekundet.\n\nMen det er ett problem, og det er stort."
+    },
+    {
+      "id": "in1020-3-3-def-symmetrisk",
+      "type": "definition",
+      "title": "Symmetrisk kryptering",
+      "content": "Kryptering der **samme nøkkel** brukes både til å kryptere og til å dekryptere. Begge parter må ha den, og den må holdes hemmelig for alle andre.\n\n**Styrken:** den er **rask**. Symmetriske algoritmer er derfor det som faktisk brukes til å beskytte store datamengder — filer, disker, videostrømmer, all trafikken i en nettverksforbindelse.\n\n**Svakheten:** **nøkkelutveksling**. Før dere kan snakke hemmelig, må dere begge ha nøkkelen — og hvordan får du sendt den, hvis dere ikke alt har en trygg kanal?\n\n**Målet den tjener:** konfidensialitet.\n\nDen faste feilslutningen: å tro at symmetrisk kryptering gir **uavviselighet**. Det gjør den ikke. Når to parter har nøyaktig samme nøkkel, kan hver av dem lage en melding som ser ut som den andres — og ingen kan bevise hvem som gjorde det."
+    },
+    {
+      "id": "in1020-3-3-def-nokkelutveksling",
+      "type": "definition",
+      "title": "Nøkkelutvekslingsproblemet",
+      "content": "Utfordringen med å få en delt hemmelig nøkkel trygt fram til den andre parten **før** man har en trygg kanal.\n\nSender du nøkkelen i en e-post, kan den avlyttes. Sier du den over telefon, kan noen lytte. Og med hundre samtalepartnere trenger du hundre ulike nøkler, hver med sitt eget utvekslingsproblem.\n\nRegnestykket blir raskt umulig: med `n` parter som alle skal kunne snakke sammen parvis, trengs `n·(n−1)/2` nøkler. For 10 personer er det 45 nøkler; for 100 personer er det 4950.\n\nDette problemet er hele grunnen til at asymmetrisk kryptering ble funnet opp. Uten det ville symmetrisk kryptering vært nok."
+    },
+    {
+      "id": "in1020-3-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — symmetrisk kryptering.) Nevn den viktigste styrken og den viktigste svakheten ved symmetrisk kryptering, og si hvilket sikkerhetsmål den tjener.",
+        "solution": "**Styrken: farten.** Symmetriske algoritmer er raske nok til å beskytte store datamengder — hele disker, videostrømmer og all trafikken i en nettverksforbindelse.\n\n**Svakheten: nøkkelutveksling.** Begge parter må ha samme hemmelige nøkkel før de kan begynne, og å få den trygt fram krever en kanal som allerede er trygg.\n\n**Målet: konfidensialitet** — at uvedkommende ikke kan lese innholdet.\n\n**Svar: rask, men vanskelig å komme i gang med, og den gir konfidensialitet.**\n\nMerk hva den **ikke** gir: uavviselighet. Når begge har samme nøkkel, kan ingen bevise hvem av dem som lagde en gitt melding.",
+        "hints": [
+          "Tenk på hva som er lett når begge parter allerede har nøkkelen, og hva som er vanskelig før de har den.",
+          "Kryptering er et tiltak — hvilket av de sju målene tjener det?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger H — nøkkelutveksling.) En bedrift med 12 ansatte vil at alle skal kunne sende hemmelige meldinger til hverandre parvis, med symmetrisk kryptering. Hvor mange ulike nøkler trengs?",
+        "solution": "Hvert par av ansatte trenger sin egen nøkkel. Antall par blant `n` personer er\n\n$$\\frac{n \\cdot (n-1)}{2}$$\n\nMed `n = 12`:\n\n`12 · 11 = 132`\n\n`132 ÷ 2 = 66`\n\n**Svar: 66 nøkler.**\n\n**Kontroll av resonnementet:** hver av de 12 må ha en nøkkel til hver av de 11 andre, altså 132 nøkkelforhold — men hvert forhold telles to ganger, én gang fra hver side, så vi deler på 2.\n\n**Poenget:** tallet vokser fort. Med 100 ansatte blir det `100 · 99 ÷ 2 = 4950` nøkler, som alle må utveksles trygt og oppbevares hemmelig. Det er dette som gjør ren symmetrisk kryptering upraktisk i stor skala.",
+        "hints": [
+          "Hvor mange andre må hver enkelt ha en nøkkel til?",
+          "Pass på at du ikke teller hvert nøkkelforhold to ganger."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — To nøkler som hører sammen (~14 min)\n\nLøsningen på nøkkelutvekslingsproblemet er like elegant som den er uintuitiv: **lag to nøkler i stedet for én.**\n\nDe to hører sammen som et par. Det som er låst med den ene, kan bare låses opp med den andre. Og — dette er poenget — det er umulig i praksis å regne seg fra den ene til den andre.\n\nDa kan du gi bort den ene halvdelen til hvem som helst. Legg den ut på nettsiden din, trykk den på visittkortet. Den andre halvdelen beholder du, og den forlater aldri maskinen din.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-3-3-def-asymmetrisk",
+      "type": "definition",
+      "title": "Asymmetrisk kryptering",
+      "content": "Kryptering der hver part har et **nøkkelpar**: én **offentlig** nøkkel som kan deles med alle, og én **privat** nøkkel som aldri deles.\n\nDe to henger matematisk sammen: det som krypteres med den ene, kan bare dekrypteres med den andre. Men å regne seg fra den offentlige til den private er praktisk umulig.\n\n**Styrken:** den løser nøkkelutvekslingsproblemet. Den offentlige nøkkelen kan sendes over en helt åpen kanal — det gjør ingenting om den avlyttes.\n\n**Svakheten:** den er **treg**. Operasjonene er regnetunge, og asymmetrisk kryptering brukes derfor sjelden på store datamengder.\n\nDen faste feilslutningen: å tro at asymmetrisk kryptering er egnet til å kryptere store filer. Den brukes til små ting — nøkler og signaturer — og lar symmetrisk kryptering ta resten."
+    },
+    {
+      "id": "in1020-3-3-def-offentlig",
+      "type": "definition",
+      "title": "Offentlig nøkkel",
+      "content": "Den halvdelen av nøkkelparet som er ment å **deles med alle**.\n\nDen kan legges ut på en nettside, sendes i en usikret e-post eller trykkes på et visittkort. At en angriper får tak i den, er helt uten betydning — den er laget for å være kjent.\n\n**To bruksområder, og de er motsatte:**\n\n1. **Å kryptere til eieren:** krypterer du med Bobs offentlige nøkkel, kan bare Bob lese det.\n2. **Å kontrollere en signatur fra eieren:** validerer du med Alices offentlige nøkkel, vet du at Alice signerte.\n\nDen faste feilslutningen: å tro at den offentlige nøkkelen må holdes hemmelig. Da har du ikke forstått hva som skiller asymmetrisk fra symmetrisk kryptering."
+    },
+    {
+      "id": "in1020-3-3-def-privat",
+      "type": "definition",
+      "title": "Privat nøkkel",
+      "content": "Den halvdelen av nøkkelparet som **aldri** forlater eieren.\n\nDen sendes ikke, deles ikke og legges ikke ut. Kommer den på avveie, er hele sikkerheten borte: den som har din private nøkkel, kan både lese alt som er sendt til deg og signere i ditt navn.\n\n**To bruksområder, og de er motsatte:**\n\n1. **Å dekryptere det som er sendt til deg**, kryptert med din offentlige nøkkel.\n2. **Å signere**, slik at andre kan kontrollere med din offentlige nøkkel at det var deg.\n\nDen faste feilslutningen: å tro at man krypterer en hemmelig melding med **sin egen** private nøkkel. Da kan alle med din offentlige nøkkel lese den — altså hele verden. Det er felle #5."
+    },
+    {
+      "id": "in1020-3-3-teo-retning",
+      "type": "theorem",
+      "title": "Retningsregelen for en hemmelig melding",
+      "content": "Alice skal sende en hemmelig melding til Bob.\n\n```text\nAlice krypterer med   ->  Bobs OFFENTLIGE nøkkel\nBob dekrypterer med   ->  Bobs PRIVATE nøkkel\n```\n\n**Begge nøklene i operasjonen tilhører Bob — altså mottakeren.** Alice bruker ingen av sine egne nøkler i det hele tatt.\n\n**Huskeregelen:** tenk på den offentlige nøkkelen som en **åpen hengelås** Bob har delt ut i tusen eksemplarer. Hvem som helst kan låse en boks med en av dem. Bare Bob har nøkkelen som åpner låsen.\n\n**Hvorfor dette er sikkert:** en angriper som fanger opp meldingen, har også Bobs offentlige nøkkel — den er jo offentlig. Men den kan bare **låse**, ikke låse opp. Uten Bobs private nøkkel er kryptoteksten ubrukelig.\n\n**De tre gale variantene, og hva de faktisk ville gjort:**\n\n| Feil valg | Hva som skjer |\n|---|---|\n| Alice krypterer med **sin egen private** | Alle med Alices offentlige nøkkel kan lese — altså hele verden. Dette er signering, ikke hemmelighold |\n| Alice krypterer med **sin egen offentlige** | Bare Alice selv kan lese det. Bob får aldri åpnet meldingen |\n| Alice krypterer med **Bobs private** | Umulig — Alice har den ikke, og skal aldri ha den |\n\n**Den motsatte retningen** — å kryptere med **sin egen private** nøkkel — er ikke en feil i seg selv. Det er nettopp det en **digital signatur** gjør, og den behandles i neste kapittel. Men den gir autentisitet og uavviselighet, ikke konfidensialitet."
+    },
+    {
+      "id": "in1020-3-3-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Eksamensform — hvilken nøkkel?",
+      "problem": "Svarform F4, altså nedtrekksmeny med ett valg per delspørsmål. Alice skal sende en hemmelig melding til Bob.\n\n**a)** Alice krypterer meldingen med …\n\n1. Bobs offentlige nøkkel · 2. Bobs private nøkkel · 3. Alices offentlige nøkkel · 4. Alices private nøkkel\n\n**b)** Bob dekrypterer meldingen med …\n\n1. Alices offentlige nøkkel · 2. Bobs private nøkkel · 3. Bobs offentlige nøkkel · 4. Alices private nøkkel",
+      "solution": "**a) Alternativ 1 — Bobs offentlige nøkkel.**\n\nAlice låser med den hengelåsen Bob har delt ut. Det gjør ingenting at også angriperen har en slik hengelås; den kan bare låse.\n\nAlternativ 2 er umulig: Alice har ikke Bobs private nøkkel, og skal aldri ha den. Alternativ 3 ville låst meldingen slik at bare Alice selv kunne åpne den. Alternativ 4 ville gjort meldingen lesbar for **alle** som har Alices offentlige nøkkel — det er signering, ikke hemmelighold.\n\n**b) Alternativ 2 — Bobs private nøkkel.**\n\nDen er den eneste som åpner det som er låst med Bobs offentlige nøkkel.\n\nAlternativ 1 og 4 bruker Alices nøkler, som ikke er involvert i denne operasjonen i det hele tatt. Alternativ 3 er den nøkkelen som **låste** meldingen; den kan ikke låse opp igjen.\n\n**Fasit: a) 1, b) 2.**\n\n**Kontrollen som avgjør begge:** i en hemmelig melding er **begge** nøklene mottakerens. Ser du et svar der avsenderens nøkkel er involvert, er det galt — med mindre oppgaven handler om signering."
+    },
+    {
+      "id": "in1020-3-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — nøkkelretning, svarform F4.) Kari skal sende en hemmelig melding til Ola. Velg ett alternativ per delspørsmål, og begrunn hvorfor de tre andre er gale.\n\n**a)** Kari krypterer med …\n\n1. Karis private nøkkel · 2. Olas offentlige nøkkel · 3. Karis offentlige nøkkel · 4. Olas private nøkkel\n\n**b)** Hvem kan lese meldingen etterpå?\n\n1. Alle som har Olas offentlige nøkkel · 2. Bare Ola · 3. Kari og Ola · 4. Alle som har Karis offentlige nøkkel",
+        "solution": "**a) Alternativ 2 — Olas offentlige nøkkel.**\n\nDette er retningsregelen: man krypterer med **mottakerens offentlige** nøkkel.\n\nAlternativ 1 ville gjort meldingen lesbar for alle med Karis offentlige nøkkel, altså hele verden — det er signering, ikke hemmelighold. Alternativ 3 ville låst meldingen slik at bare Kari selv kunne åpne den. Alternativ 4 er umulig: Kari har ikke Olas private nøkkel.\n\n**b) Alternativ 2 — bare Ola.**\n\nBare den private nøkkelen som hører til Olas offentlige, kan låse opp, og den finnes bare hos Ola.\n\nAlternativ 1 er nettopp misforståelsen om hva en offentlig nøkkel gjør: den låser, den låser ikke opp. Alternativ 3 er feil på et interessant punkt — **Kari kan ikke lese sin egen melding** etterpå, med mindre hun har tatt vare på klarteksten. Alternativ 4 blander inn Karis nøkler, som ikke er brukt.\n\n**Fasit: a) 2, b) 2.**\n\nMerk svaret i b): asymmetrisk kryptering er enveis. Har du kryptert til noen andre og slettet originalen, får du den ikke tilbake.",
+        "hints": [
+          "Spør hvem meldingen skal være hemmelig for — og hvem som skal kunne åpne den.",
+          "I en hemmelig melding er begge nøklene mottakerens."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — nøkler, svarform F1.) Kryss av **alle** påstandene som stemmer om en offentlig nøkkel, og begrunn hvert av de fire.\n\n**a)** Den kan sendes over en usikret kanal uten at sikkerheten svekkes.\n\n**b)** Den brukes til å kryptere meldinger som skal sendes til eieren.\n\n**c)** Den kan brukes til å regne seg fram til den private nøkkelen.\n\n**d)** Den må holdes hemmelig, som alle andre nøkler.",
+        "solution": "**a) Riktig.** Den offentlige nøkkelen er laget for å være kjent. Den kan legges ut på en nettside eller sendes i en usikret e-post; at en angriper får tak i den, er uten betydning.\n\n**b) Riktig.** Dette er retningsregelen: krypterer du med Bobs offentlige nøkkel, kan bare Bob lese det.\n\n**c) Galt.** Hele konstruksjonen hviler på at dette er **praktisk umulig**. Kunne man regnet seg fra den offentlige til den private nøkkelen, hadde asymmetrisk kryptering vært verdiløs.\n\n**d) Galt.** Dette er selve motsatsen til poenget. Det er den **private** nøkkelen som aldri skal deles. Distraktoren utnytter at «nøkkel» i dagligtale alltid betyr noe hemmelig.\n\n**Fasit: a og b.**\n\n**Merk sammenhengen mellom a og c:** grunnen til at a) er trygt, er nettopp at c) er umulig. De to påstandene henger sammen, og forstår du den ene, forstår du den andre.",
+        "hints": [
+          "Hva er poenget med at en nøkkel kalles «offentlig»?",
+          "Hvilken av de to nøklene i paret er det som aldri skal forlate eieren?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hvorfor begge former brukes sammen (~12 min)\n\nDu har nå to metoder med motsatte styrker: symmetrisk er rask men vanskelig å starte, asymmetrisk er lett å starte men treg.\n\nLøsningen i praksis er å bruke begge. Og når du forstår hvordan, forstår du også hvordan HTTPS faktisk fungerer."
+    },
+    {
+      "id": "in1020-3-3-teo-hybrid",
+      "type": "theorem",
+      "title": "Hybrid løsning: asymmetrisk for nøkkelen, symmetrisk for innholdet",
+      "content": "**Framgangsmåten, fire steg:**\n\n1. Alice lager en **ny, tilfeldig symmetrisk nøkkel** — en engangsnøkkel som bare skal brukes i denne samtalen.\n2. Alice krypterer **engangsnøkkelen** med **Bobs offentlige** nøkkel og sender den. Dette er en liten mengde data, så tregheten spiller ingen rolle.\n3. Bob dekrypterer engangsnøkkelen med **sin private** nøkkel. Nå har begge samme symmetriske nøkkel.\n4. All videre kommunikasjon krypteres **symmetrisk** med engangsnøkkelen — raskt, uansett hvor mye data det er.\n\n**Hva du oppnår:** nøkkelutvekslingsproblemet er løst av asymmetrisk kryptering, og farten er sikret av symmetrisk kryptering. Begge svakhetene er borte.\n\n**Dette er i praksis slik HTTPS virker.** Når nettleseren din kobler seg til en nettbank, brukes asymmetrisk kryptering i starten — til å bli enige om en engangsnøkkel — og symmetrisk kryptering på all trafikken etterpå.\n\n**Konsekvensen for oppgaver:** spør en oppgave hva som er «best egnet til å kryptere en stor fil», er svaret **symmetrisk**. Spør den hva som løser problemet med å bli enige om en nøkkel, er svaret **asymmetrisk**. Begge er riktige svar — på hvert sitt spørsmål."
+    },
+    {
+      "id": "in1020-3-3-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Hva brukes hvor?",
+      "problem": "Svarform F3, altså en koblingsoppgave: koble hver oppgave (1–4) til den formen som passer best (A eller B).\n\n**1.** Kryptere en 40 GB videofil på en disk\n\n**2.** Sende en engangsnøkkel trygt til en ny samtalepartner\n\n**3.** Kryptere all trafikken i en pågående nettbankøkt\n\n**4.** Gjøre det mulig å motta hemmelige meldinger fra folk du aldri har møtt\n\n**A.** Symmetrisk kryptering · **B.** Asymmetrisk kryptering",
+      "solution": "**1 → A (symmetrisk).** 40 GB er en stor datamengde, og bare symmetrisk kryptering er rask nok. Asymmetrisk ville tatt urimelig lang tid.\n\n**2 → B (asymmetrisk).** Dette er nøkkelutvekslingsproblemet, og det er nettopp det asymmetrisk kryptering løser. Engangsnøkkelen er dessuten liten, så tregheten betyr ingenting.\n\n**3 → A (symmetrisk).** Selve trafikken krypteres symmetrisk med engangsnøkkelen. Asymmetrisk kryptering ble brukt i starten av økta, til å bli enige om nøkkelen — men ikke på trafikken.\n\n**4 → B (asymmetrisk).** Du legger ut din offentlige nøkkel, og hvem som helst kan bruke den til å sende deg noe hemmelig. Med symmetrisk kryptering måtte dere først ha møttes for å avtale en nøkkel.\n\n**Fasit: 1→A, 2→B, 3→A, 4→B.**\n\n**Mønsteret å ta med seg:** handler oppgaven om **mengde data**, er svaret symmetrisk. Handler den om **å komme i gang med noen du ikke har en delt hemmelighet med**, er svaret asymmetrisk.\n\nMerk at fordelingen er to og to, men det er tilfeldig — en koblingsoppgave kan godt ha tre av den ene og én av den andre."
+    },
+    {
+      "id": "in1020-3-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — de to formene, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Symmetrisk kryptering er raskere enn asymmetrisk | |\n| b | Den offentlige nøkkelen må sendes over en sikret kanal | |\n| c | Symmetrisk kryptering gir uavviselighet | |\n| d | HTTPS bruker begge formene i samme økt | |",
+        "solution": "**a) Sann.** Symmetriske algoritmer er raske nok til å kryptere gigabyte i sekundet. Asymmetriske operasjoner er regnetunge og brukes derfor bare på små mengder.\n\n**b) Usann.** Den offentlige nøkkelen er laget for å være kjent — det er hele poenget. Den kan legges ut åpent. Det er den **private** nøkkelen som aldri skal forlate eieren.\n\n**c) Usann.** Når to parter har nøyaktig samme nøkkel, kan hver av dem lage en melding som ser ut som den andres. Ingen kan bevise hvem som gjorde det. Uavviselighet krever **digital signatur**, som bygger på asymmetrisk kryptering.\n\n**d) Sann.** Asymmetrisk kryptering brukes i starten til å bli enige om en engangsnøkkel, og symmetrisk kryptering på all trafikken etterpå. Det er den hybride løsningen i praksis.\n\n**Fasit: a sann, b usann, c usann, d sann.**\n\nMerk at de to usanne begge handler om å tillegge én form egenskaper den ikke har: b) gjør den offentlige nøkkelen hemmelig, c) gir symmetrisk kryptering en garanti den ikke kan gi.",
+        "hints": [
+          "For b): hva betyr ordet «offentlig» i «offentlig nøkkel»?",
+          "For c): hvis begge parter har samme nøkkel, kan noen av dem bevise hvem som lagde en melding?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensformen (~12 min)\n\nSjangeren kommer i tre innpakninger: hvilken nøkkel brukes (F4), hvilke påstander stemmer om de to formene (F1 og F2), og hva egner seg til hva (F3).\n\nFelles for alle tre: retningsregelen avgjør. Skriv den opp i margen med én gang.\n\n```text\nHEMMELIG MELDING til Bob:\n  krypter med   ->  Bobs OFFENTLIGE\n  dekrypter med ->  Bobs PRIVATE\n```\n\nBegge nøklene tilhører **mottakeren**. Ser du et alternativ der avsenderens nøkkel er involvert i en hemmelig melding, er det galt."
+    },
+    {
+      "id": "in1020-3-3-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — hva skjer ved feil nøkkelvalg?",
+      "problem": "Svarform F1. Alice krypterer en melding til Bob med **sin egen private** nøkkel og sender den. Kryss av **alle** påstandene som stemmer.\n\n**a)** Alle som har Alices offentlige nøkkel, kan lese meldingen.\n\n**b)** Bare Bob kan lese meldingen.\n\n**c)** Mottakeren kan kontrollere at meldingen kom fra Alice.\n\n**d)** Meldingen har konfidensialitet.",
+      "solution": "**Først: hva har Alice faktisk gjort?** Hun har brukt sin private nøkkel, og den motsvarende offentlige nøkkelen er kjent av alle. Det er ikke hemmelighold — det er **signering**.\n\n**a) Riktig.** Alices offentlige nøkkel er offentlig, og den låser opp det den private låste. Alle kan derfor lese innholdet.\n\n**b) Galt.** Bob har ingen særstilling her i det hele tatt. Alices nøkkelpar er brukt, og Bobs nøkler er ikke involvert. Enhver kan lese meldingen.\n\n**c) Riktig.** Dette er den ene tingen operasjonen faktisk oppnår: siden bare Alice har sin private nøkkel, og meldingen lar seg åpne med hennes offentlige, må Alice ha laget den. Det gir **autentisitet** og **uavviselighet** — og det er nettopp prinsippet bak digital signatur, som behandles i neste kapittel.\n\n**d) Galt.** Konfidensialitet betyr at uvedkommende ikke kan lese innholdet. Her kan alle lese det. Målet er ikke oppnådd.\n\n**Fasit: a og c.**\n\n**Poenget med oppgaven:** feil nøkkelvalg gir ikke «ingen sikkerhet» — det gir **feil slags sikkerhet**. Alice ville ha hemmelighold og fikk i stedet et bevis for avsender. Begge deler er nyttige, men bare den ene var det hun ba om.\n\nDette er felle #5 i registeret, og den koster dobbelt under negativ poenggiving: du krysser av et alternativ som gjelder signering, i en oppgave som handlet om hemmelighold."
+    },
+    {
+      "id": "in1020-3-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — nøkkelvalg, svarform F1.) Alice krypterer en melding til Bob med **sin egen offentlige** nøkkel. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fire.\n\n**a)** Bare Alice selv kan lese meldingen.\n\n**b)** Bob kan lese meldingen med sin private nøkkel.\n\n**c)** Operasjonen er ubrukelig for formålet.\n\n**d)** Alle som har Alices offentlige nøkkel, kan lese meldingen.",
+        "solution": "**Først: hva har Alice gjort?** Hun har låst med sin egen offentlige nøkkel. Da er det bare hennes egen private nøkkel som kan låse opp.\n\n**a) Riktig.** Bare den private motparten kan åpne, og den finnes bare hos Alice.\n\n**b) Galt.** Bobs private nøkkel hører til Bobs offentlige nøkkel, som ikke er brukt her. Bob får aldri åpnet meldingen.\n\n**c) Riktig.** Formålet var å sende noe hemmelig til Bob, og Bob kan ikke lese den. Meldingen er ubrukelig for det den skulle gjøre.\n\n**d) Galt.** Alices offentlige nøkkel er den som **låste** meldingen. Den kan ikke låse opp igjen — nøkkelparet virker bare den ene veien om gangen.\n\n**Fasit: a og c.**\n\n**Merk forskjellen fra forrige feilvariant:** krypterer Alice med sin **private** nøkkel, kan alle lese det (signering). Krypterer hun med sin **offentlige**, kan ingen andre enn hun selv lese det. To ulike feil, to helt ulike utfall — og bare det ene alternativet er å forveksle med noe nyttig.",
+        "hints": [
+          "Hvilken nøkkel er den eneste som kan låse opp det som er låst med Alices offentlige?",
+          "Er Bobs nøkkelpar involvert i denne operasjonen i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — de to formene, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Asymmetrisk kryptering egner seg godt til å kryptere store filer | |\n| b | Med `n` parter trenger symmetrisk parvis kryptering `n·(n−1)/2` nøkler | |\n| c | Den private nøkkelen kan regnes ut fra den offentlige | |\n| d | I en hemmelig melding tilhører begge nøklene mottakeren | |",
+        "solution": "**a) Usann.** Asymmetriske operasjoner er regnetunge og altfor trege for store datamengder. I praksis brukes de bare på små mengder — engangsnøkler og signaturer — mens symmetrisk kryptering tar selve innholdet.\n\n**b) Sann.** Hvert par trenger sin egen nøkkel, og antall par blant `n` personer er `n·(n−1)/2`. Med 12 personer: `12 · 11 ÷ 2 = 66` nøkler. Med 100: `100 · 99 ÷ 2 = 4950`.\n\n**c) Usann.** Hele konstruksjonen hviler på at dette er praktisk umulig. Var det mulig, ville den offentlige nøkkelen avslørt den private, og asymmetrisk kryptering ville vært verdiløs.\n\n**d) Sann.** Alice krypterer med **Bobs offentlige** og Bob dekrypterer med **Bobs private**. Alices egne nøkler er ikke involvert i det hele tatt. Dette er kontrollen som avslører felle #5: er avsenderens nøkkel med i en hemmelig melding, er svaret galt.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\nMerk at rad d er selve retningsregelen skrevet som en påstand. Kan du den, kan du hele sjangeren — og den avgjør også halvparten av oppgavene i drillkapitlet senere i denne delen.",
+        "hints": [
+          "For a): hva brukes asymmetrisk kryptering til i en HTTPS-økt, og hva brukes symmetrisk til?",
+          "For b): regn ut tallet for et lite antall parter og se om formelen stemmer.",
+          "For d): tell hvilke nøkler som faktisk er i bruk når Alice sender noe hemmelig til Bob."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — hybrid løsning, svarform F1.) En nettleser kobler seg til en nettbank over HTTPS. Kryss av **alle** påstandene som stemmer om hva som skjer, og begrunn hvert av de fem.\n\n**a)** Asymmetrisk kryptering brukes til å bli enige om en engangsnøkkel.\n\n**b)** All trafikken i økta krypteres asymmetrisk.\n\n**c)** Den symmetriske engangsnøkkelen krypteres med bankens offentlige nøkkel.\n\n**d)** Løsningen er raskere enn ren asymmetrisk kryptering ville vært.\n\n**e)** Bankens private nøkkel sendes til nettleseren i starten av økta.",
+        "solution": "**a) Riktig.** Dette er hele poenget med den hybride løsningen: asymmetrisk kryptering løser nøkkelutvekslingsproblemet, som symmetrisk kryptering ikke kan løse alene.\n\n**b) Galt.** Trafikken krypteres **symmetrisk** med engangsnøkkelen. Asymmetrisk kryptering brukes bare i starten, på den lille datamengden som selve nøkkelen utgjør. Ville man kryptert all trafikken asymmetrisk, ville en videostrøm vært umulig.\n\n**c) Riktig.** Engangsnøkkelen sendes trygt ved at den krypteres med bankens **offentlige** nøkkel, og bare banken — som har den private — kan hente den ut. Legg merke til at dette er nøyaktig retningsregelen: man krypterer med mottakerens offentlige nøkkel.\n\n**d) Riktig.** Asymmetrisk kryptering brukes bare på noen få hundre byte, mens all den store datamengden går gjennom rask symmetrisk kryptering. Det er nettopp derfor kombinasjonen brukes.\n\n**e) Galt.** Den private nøkkelen forlater **aldri** eieren. Sendes den, er hele sikkerheten borte: den som har bankens private nøkkel, kan lese all trafikk til banken og opptre som banken. Det nettleseren mottar, er bankens **offentlige** nøkkel, i et sertifikat.\n\n**Fasit: a, c og d.**\n\n**Merk alternativ e:** det er den mest alvorlige misforståelsen i hele kapitlet, og den er tatt med fordi ordet «nøkkelutveksling» frister til å tro at nøkler sendes begge veier. Det som utveksles, er den offentlige nøkkelen og den krypterte engangsnøkkelen — aldri en privat nøkkel.",
+        "hints": [
+          "Hvilken form brukes på den lille datamengden, og hvilken på den store?",
+          "For c): hvem er mottakeren av engangsnøkkelen, og hvilken av deres nøkler brukes da?",
+          "For e): finnes det noen situasjon der en privat nøkkel skal sendes over nettet?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å snu nøkkelretningen (felle #5).** En hemmelig melding krypteres med **mottakerens offentlige** nøkkel og dekrypteres med **mottakerens private**. Begge nøklene tilhører mottakeren. Er avsenderens nøkkel involvert, er svaret galt — med mindre oppgaven handler om signering.\n\n2. **Å tro at symmetrisk kryptering gir uavviselighet.** Når begge har samme nøkkel, kan ingen bevise hvem som lagde meldingen. Uavviselighet krever digital signatur.\n\n3. **Å tro at den offentlige nøkkelen må holdes hemmelig.** Den er laget for å deles. Det er den **private** som aldri skal forlate eieren.\n\n4. **Å tro at en privat nøkkel sendes ved nøkkelutveksling.** Det som sendes, er den offentlige nøkkelen og en engangsnøkkel kryptert med den. En privat nøkkel forlater aldri eieren.\n\n5. **Å tro at asymmetrisk kryptering egner seg til store filer.** Den er treg. Store mengder krypteres symmetrisk, alltid.\n\n6. **Å tro at man kan regne seg fra offentlig til privat nøkkel.** Det er praktisk umulig, og det er hele grunnlaget for at den offentlige nøkkelen trygt kan deles.\n\n7. **Å glemme at kryptering bare gir konfidensialitet.** Den sier ingenting om hvem som sendte meldingen, og den hindrer ikke at den blir borte. Autentisitet og uavviselighet krever signatur; tilgjengelighet krever helt andre tiltak."
+    },
+    {
+      "id": "in1020-3-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-3-3-bank-1",
+      "type": "definition",
+      "title": "Retningsregelen for hemmelig melding",
+      "content": "```text\nAlice krypterer med   ->  Bobs OFFENTLIGE nøkkel\nBob dekrypterer med   ->  Bobs PRIVATE nøkkel\n```\n\n**Begge nøklene tilhører mottakeren.** Avsenderens nøkler er ikke involvert i det hele tatt.\n\nHuskeregelen: den offentlige nøkkelen er en **åpen hengelås** som mottakeren har delt ut. Hvem som helst kan låse med den; bare mottakeren kan låse opp.\n\nKontrollen på eksamen: ser du avsenderens nøkkel i et alternativ om hemmelighold, er alternativet galt."
+    },
+    {
+      "id": "in1020-3-3-bank-2",
+      "type": "definition",
+      "title": "Klartekst og kryptotekst",
+      "content": "**Klartekst** er innholdet slik det er lesbart. **Kryptotekst** er det samme innholdet etter kryptering.\n\nKryptering går fra klartekst til kryptotekst; dekryptering går motsatt vei.\n\nMerk at kryptoteksten som regel er omtrent like stor som klarteksten, og at den ikke skjuler **at** noe er sendt — bare **hva**. At to parter kommuniserer, kan fortsatt observeres."
+    },
+    {
+      "id": "in1020-3-3-bank-3",
+      "type": "definition",
+      "title": "Delt nøkkel",
+      "content": "Den ene hemmelige nøkkelen som begge parter har i symmetrisk kryptering.\n\nDen brukes både til å kryptere og til å dekryptere, og den må holdes hemmelig for alle andre.\n\nKonsekvensen for uavviselighet: siden begge har nøyaktig samme nøkkel, kan hver av dem lage en melding som ser ut som den andres. Derfor gir symmetrisk kryptering **ikke** uavviselighet."
+    },
+    {
+      "id": "in1020-3-3-bank-4",
+      "type": "definition",
+      "title": "Nøkkelpar",
+      "content": "De to nøklene i asymmetrisk kryptering, som hører matematisk sammen: én **offentlig** og én **privat**.\n\nDet som er kryptert med den ene, kan bare dekrypteres med den andre. Og å regne seg fra den offentlige til den private er praktisk umulig.\n\nHver part har sitt eget par. I en samtale mellom Alice og Bob finnes det altså fire nøkler til sammen — og hvilke to som brukes, avhenger av om formålet er hemmelighold eller signering."
+    },
+    {
+      "id": "in1020-3-3-bank-5",
+      "type": "definition",
+      "title": "Hvorfor den offentlige nøkkelen kan deles",
+      "content": "Fordi den bare kan **låse**, ikke låse opp — og fordi den private nøkkelen ikke kan regnes ut fra den.\n\nDette er den innsikten som gjør hele asymmetrisk kryptering mulig, og den er uintuitiv: i dagligtale er en nøkkel alltid noe hemmelig.\n\nKonsekvensen: den offentlige nøkkelen kan legges ut på en nettside, sendes i en usikret e-post eller trykkes på et visittkort, uten at sikkerheten svekkes."
+    },
+    {
+      "id": "in1020-3-3-bank-6",
+      "type": "definition",
+      "title": "Hvorfor den private nøkkelen aldri sendes",
+      "content": "Fordi den som har den, kan gjøre alt eieren kan: lese alt som er sendt til eieren, og signere i eierens navn.\n\nDen sendes ikke, deles ikke, og kopieres ikke til andre maskiner uten svært god grunn.\n\nDen faste feilslutningen: å tro at «nøkkelutveksling» betyr at private nøkler sendes. Det som utveksles, er offentlige nøkler og engangsnøkler kryptert med dem."
+    },
+    {
+      "id": "in1020-3-3-bank-7",
+      "type": "definition",
+      "title": "Nøkkelutvekslingsproblemet",
+      "content": "Å få en delt hemmelig nøkkel trygt fram **før** man har en trygg kanal.\n\nMed `n` parter som skal snakke parvis, trengs `n·(n−1)/2` nøkler: 45 for 10 personer, 4950 for 100.\n\nAsymmetrisk kryptering løser problemet fullstendig: hver part trenger bare **ett** nøkkelpar, og den offentlige halvdelen kan deles med alle. 100 personer trenger da 100 nøkkelpar i stedet for 4950 delte nøkler."
+    },
+    {
+      "id": "in1020-3-3-bank-8",
+      "type": "definition",
+      "title": "Hybrid kryptering",
+      "content": "Å bruke **asymmetrisk** kryptering til å utveksle en symmetrisk engangsnøkkel, og deretter **symmetrisk** kryptering på selve innholdet.\n\nSlik får man begge fordelene: nøkkelutvekslingen løses, og farten er høy.\n\nDette er hvordan HTTPS faktisk virker. Asymmetrisk kryptering brukes bare på noen få hundre byte i starten av økta; all resten går symmetrisk."
+    },
+    {
+      "id": "in1020-3-3-bank-9",
+      "type": "definition",
+      "title": "Engangsnøkkel",
+      "content": "En symmetrisk nøkkel som lages tilfeldig for **én** samtale eller økt, og kastes etterpå.\n\nGevinsten: blir nøkkelen på et senere tidspunkt kompromittert, gjelder skaden bare den ene økta. Gammel trafikk er fortsatt beskyttet av andre nøkler.\n\nEngangsnøkkelen er nettopp det som sendes kryptert med mottakerens offentlige nøkkel i starten av en HTTPS-økt."
+    },
+    {
+      "id": "in1020-3-3-bank-10",
+      "type": "definition",
+      "title": "Symmetrisk er rask, asymmetrisk er treg",
+      "content": "Symmetriske algoritmer krypterer gigabyte i sekundet på en vanlig maskin. Asymmetriske operasjoner er størrelsesordener tregere, fordi de bygger på tunge matematiske beregninger.\n\nDerfor er arbeidsdelingen fast: **asymmetrisk på det lille** (nøkler og signaturer), **symmetrisk på det store** (filer og trafikk).\n\nSpør en oppgave hva som egner seg til å kryptere en stor fil, er svaret alltid symmetrisk."
+    },
+    {
+      "id": "in1020-3-3-bank-11",
+      "type": "definition",
+      "title": "Symmetrisk gir ikke uavviselighet",
+      "content": "Fordi begge parter har **samme** nøkkel, kan hver av dem lage en melding som ser ut som den andres.\n\nKommer det en tvist om hvem som sendte hva, kan ingen av dem bevise noe. Begge kunne ha gjort det.\n\nUavviselighet krever **digital signatur**, som bygger på asymmetrisk kryptering: bare eieren har den private nøkkelen, og derfor kan bare eieren ha laget signaturen."
+    },
+    {
+      "id": "in1020-3-3-bank-12",
+      "type": "definition",
+      "title": "Feilvariant: kryptert med egen privat nøkkel",
+      "content": "Krypterer Alice med **sin egen private** nøkkel, kan **alle** med hennes offentlige nøkkel lese innholdet.\n\nDette gir ikke konfidensialitet. Det gir derimot **autentisitet og uavviselighet**, siden bare Alice kan ha laget det — og det er nettopp prinsippet bak digital signatur.\n\nFeilen er altså ikke meningsløs; den gir **feil slags sikkerhet**. Under negativ poenggiving koster den dobbelt: du krysser av et alternativ om signering i en oppgave om hemmelighold."
+    },
+    {
+      "id": "in1020-3-3-bank-13",
+      "type": "definition",
+      "title": "Feilvariant: kryptert med egen offentlig nøkkel",
+      "content": "Krypterer Alice med **sin egen offentlige** nøkkel, kan bare hun selv lese meldingen igjen.\n\nMottakeren får aldri åpnet den, og operasjonen er ubrukelig for formålet.\n\nMerk kontrasten til den andre feilvarianten: bruker du din private, kan alle lese; bruker du din offentlige, kan ingen andre lese. To ulike feil med motsatte utfall."
+    },
+    {
+      "id": "in1020-3-3-bank-14",
+      "type": "definition",
+      "title": "Alice og Bob",
+      "content": "De faste navnene på avsender og mottaker i kryptografiske eksempler. Alice sender, Bob mottar.\n\nNavnene er en konvensjon, men de er nyttige: de gjør det mulig å snakke presist om «Alices private nøkkel» og «Bobs offentlige nøkkel» uten å blande rollene.\n\nArbeidsmåten på eksamen: skriv ned hvem som er avsender og hvem som er mottaker **før** du velger nøkkel. Halvparten av bommene i sjangeren kommer av at rollene blandes."
+    },
+    {
+      "id": "in1020-3-3-bank-15",
+      "type": "definition",
+      "title": "Nøkkellengde",
+      "content": "Antall bit i nøkkelen. Jo lengre nøkkel, jo flere mulige verdier må en angriper prøve seg gjennom.\n\nEn nøkkel på `n` bit har $2^n$ mulige verdier — samme telling som du kjenner fra [kap. 1.1](/bok/in1020/in1020-1-1). Hvert ekstra bit dobler arbeidet for angriperen.\n\nMerk at nøkkellengder ikke kan sammenlignes på tvers av symmetrisk og asymmetrisk kryptering: de bygger på helt ulike matematiske problemer, og en asymmetrisk nøkkel må være mye lengre for samme sikkerhet."
+    },
+    {
+      "id": "in1020-3-3-bank-16",
+      "type": "definition",
+      "title": "Uttømmende søk",
+      "content": "Angrepet der man prøver alle mulige nøkler til én virker.\n\nMed en nøkkel på `n` bit er det $2^n$ muligheter, og arbeidsmengden dobles for hvert bit man legger til. Det er derfor moderne nøkler er så lange at søket er praktisk umulig, selv med all verdens regnekraft.\n\nMerk at uttømmende søk sjelden er den svakeste veien inn. Passord som kan gjettes, nøkler på avveie og fysisk tilgang er nesten alltid lettere for en angriper enn matematikken."
+    },
+    {
+      "id": "in1020-3-3-bank-17",
+      "type": "definition",
+      "title": "Kryptering i hvile og i transitt",
+      "content": "**I hvile:** data som ligger lagret — diskkryptering, kryptert sikkerhetskopi. Beskytter mot at en stjålet maskin kan leses.\n\n**I transitt:** data som er underveis — HTTPS, kryptert e-post. Beskytter mot avlytting og mellommannsangrep.\n\nDe to er uavhengige: en tjeneste kan ha det ene uten det andre. Et system som krypterer trafikken, men lagrer alt i klartekst på en server, er beskyttet mot avlytting og helt ubeskyttet mot en stjålet server."
+    },
+    {
+      "id": "in1020-3-3-bank-18",
+      "type": "definition",
+      "title": "Ende-til-ende-kryptering",
+      "content": "At innholdet krypteres hos avsenderen og først dekrypteres hos mottakeren, slik at **heller ikke tjenesten i midten** kan lese det.\n\nKontrasten er kryptering bare på strekningen: da kan tjenesten lese alt som passerer, selv om ingen andre kan.\n\nForskjellen er reell og viktig: den avgjør om du må stole på tjenesteleverandøren eller ikke."
+    },
+    {
+      "id": "in1020-3-3-bank-19",
+      "type": "definition",
+      "title": "Hva kryptering IKKE gir",
+      "content": "Kryptering gir **konfidensialitet** — og ingenting annet av seg selv.\n\nDen sier ingenting om **hvem** som sendte meldingen (autentisitet), den hindrer ikke at innholdet blir borte (tilgjengelighet), og den beviser ikke i ettertid hvem som gjorde hva (uavviselighet).\n\nEn kryptert fil kan slettes like lett som en ukryptert. Et løsepengevirus bruker kryptering **mot** deg, og bryter tilgjengelighet.\n\nDette er grunnen til at sikkerhet bygges i lag: hvert tiltak dekker ett eller noen få mål."
+    },
+    {
+      "id": "in1020-3-3-bank-20",
+      "type": "definition",
+      "title": "Kryptering som mottiltak mot mellommannsangrep",
+      "content": "Et mellommannsangrep gir angriperen mulighet til både å lese og endre trafikken. Kryptering fjerner lesemuligheten.\n\nMen kryptering alene er ikke nok: angriperen kan sette opp sin **egen** krypterte forbindelse til deg og utgi seg for å være tjeneren.\n\nDerfor kreves også **autentisering av motparten**, i praksis med et sertifikat. Det er nettopp den delen som behandles i neste kapittel — og som er grunnen til at en sertifikatadvarsel aldri skal klikkes bort."
+    },
+    {
+      "id": "in1020-3-3-bank-21",
+      "type": "definition",
+      "title": "Hvilken form til hvilken oppgave",
+      "content": "| Oppgaven | Formen |\n|---|---|\n| Kryptere en stor fil eller en hel disk | **Symmetrisk** |\n| Kryptere all trafikk i en pågående økt | **Symmetrisk** |\n| Bli enige om en nøkkel med noen du aldri har møtt | **Asymmetrisk** |\n| Ta imot hemmelige meldinger fra hvem som helst | **Asymmetrisk** |\n| Signere noe slik at avsenderen ikke kan nekte | **Asymmetrisk** |\n\nMønsteret: handler det om **mengde data**, er svaret symmetrisk. Handler det om **å komme i gang uten en delt hemmelighet**, er svaret asymmetrisk."
+    },
+    {
+      "id": "in1020-3-3-bank-22",
+      "type": "definition",
+      "title": "Kontrollspørsmålet i nøkkeloppgaver",
+      "content": "Før du velger alternativ, still ett spørsmål: **hvem skal kunne åpne dette?**\n\n- Skal **bare mottakeren** kunne åpne det → krypter med **mottakerens offentlige** nøkkel.\n- Skal **alle** kunne åpne det, men vite hvem det kom fra → krypter med **avsenderens private** nøkkel. Det er signering.\n\nDisse to er hele sjangeren. Alle andre kombinasjoner er enten ubrukelige eller umulige, og de står som distraktorer nettopp derfor."
+    },
+    {
+      "id": "in1020-3-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter nøkkelretningen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-3-3-rep-tekst",
+          "type": "text",
+          "content": "Ni korte. Svar før du ser på fasiten.\n\n1. Alice sender en hemmelig melding til Bob. Hvilken nøkkel krypterer hun med?\n2. Hvilken nøkkel dekrypterer Bob med?\n3. Kan den offentlige nøkkelen sendes over en usikret kanal?\n4. Hvilken form er raskest?\n5. Gir symmetrisk kryptering uavviselighet?\n6. Hvor mange nøkler trengs for at 12 parter skal snakke parvis symmetrisk?\n7. Hva skjer hvis Alice krypterer med sin egen private nøkkel?\n8. Hva bruker HTTPS asymmetrisk kryptering til?\n9. Hvilket mål gir kryptering?\n\n**Fasit.**\n\n1. **Bobs offentlige** nøkkel. Begge nøklene i operasjonen tilhører mottakeren.\n2. **Bobs private** nøkkel. Den er den eneste som åpner det den offentlige låste.\n3. Ja. Den er laget for å være kjent, og den kan bare låse, ikke låse opp.\n4. Symmetrisk, med god margin. Derfor brukes den på alt som er stort.\n5. Nei. Begge har samme nøkkel, så ingen kan bevise hvem som lagde meldingen.\n6. `12 · 11 ÷ 2 = 66` nøkler.\n7. Alle med hennes offentlige nøkkel kan lese det. Det gir autentisitet og uavviselighet, ikke konfidensialitet — altså signering.\n8. Til å bli enige om en symmetrisk engangsnøkkel i starten av økta. Trafikken etterpå går symmetrisk.\n9. Konfidensialitet — og ingenting annet av seg selv.\n\nSjekk deg selv: ☐ brukte du MOTTAKERENS offentlige nøkkel til å kryptere? ☐ husket du at begge nøklene i en hemmelig melding tilhører mottakeren? ☐ svarte du symmetrisk på spørsmål om store datamengder? ☐ husket du at symmetrisk IKKE gir uavviselighet?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
