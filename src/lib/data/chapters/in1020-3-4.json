@@ -1,0 +1,429 @@
+{
+  "id": "in1020-3-4",
+  "courseId": "in1020",
+  "chapterNumber": "3.4",
+  "title": "Digital signatur, hash og PKI",
+  "description": "Signering med egen privat nøkkel, validering med avsenderens offentlige, hash-verdien som sikrer integritet, og sertifikatene som binder en nøkkel til en identitet.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne oppgi hvilken nøkkel som signerer og hvilken som validerer",
+    "kunne begrunne hvorfor en digital signatur ikke gir konfidensialitet",
+    "kunne forklare hva en hash-verdi sikrer, og hva den ikke sikrer",
+    "kunne forklare hvilket problem digitale sertifikater løser"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** digital signatur hører til **sjanger H — kryptering og digital signatur**, som har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Kapitlet hører til **seksjon 3, datasikkerhet**, en av de fire seksjonene som hver må bestås for seg. Dette er dessuten det enkeltpunktet i faget der rettingen oftest presiserer nøyaktig hva som gjelder.\n\n**Slik kommer den:** oftest som **svarform F2** (sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver), og som **F1** («velg ett *eller flere* alternativer»).\n\n**De to tingene som skiller bestått fra bom her:**\n\n1. **En digital signatur gir IKKE konfidensialitet.** Alle med avsenderens offentlige nøkkel kan lese innholdet — det er nettopp derfor signaturen kan kontrolleres. Dette er **felle #4 i registeret**.\n2. **Nøkkelretningen er motsatt av hemmelig melding.** Du signerer med **din egen private** nøkkel, og mottakeren validerer med **din offentlige**. Snur du dette, er svaret galt — **felle #5**.\n\n**En tredje felle, som hører til her:** å krysse av hash eller sjekksum for konfidensialitet. En hash gir **integritet** og skjuler ingenting. Det er **felle #9**.\n\n**Tidsbruk:** 50 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-3-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.3](/bok/in1020/in1020-3-3). Her er det du trenger, ferdig oppfrisket:\n\n**1. Nøkkelparet.** Hver part har en **offentlig** nøkkel som kan deles med alle, og en **privat** nøkkel som aldri forlater eieren. Det som krypteres med den ene, kan bare dekrypteres med den andre.\n\n**2. Retningen for en hemmelig melding:**\n\n```text\nAlice krypterer med   ->  Bobs OFFENTLIGE nøkkel\nBob dekrypterer med   ->  Bobs PRIVATE nøkkel\n```\n\nBegge nøklene tilhører **mottakeren**. I dette kapitlet snus dette: signering bruker **avsenderens** nøkler.\n\n**3. Målene som er i spill**, fra [kap. 3.1](/bok/in1020/in1020-3-1):\n\n| Mål | Spørsmålet |\n|---|---|\n| Konfidensialitet | Kan uvedkommende **lese** det? |\n| Integritet | Er innholdet **uendret**? |\n| Autentisitet | Er det **virkelig** den vi tror? |\n| Uavviselighet | Kan avsenderen **nekte** for det? |\n\n**4. Mellommannsangrep** fra [kap. 3.2](/bok/in1020/in1020-3-2): kryptering alene er ikke nok, fordi angriperen kan sette opp sin egen krypterte forbindelse og utgi seg for motparten. Sertifikatene i dette kapitlet er svaret på nettopp det."
+    },
+    {
+      "id": "in1020-3-4-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-3-4-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Hash-verdi | Kort verdi regnet ut fra innholdet — endres innholdet, endres verdien |\n| Digital signatur | Hash-verdien kryptert med avsenderens private nøkkel |\n| Validering | Å kontrollere en signatur med avsenderens offentlige nøkkel |\n| Sertifikat | Dokument som binder en offentlig nøkkel til en identitet |\n| Sertifikatutsteder | Den betrodde parten som signerer sertifikater |\n| PKI | Systemet av utstedere, sertifikater og regler som binder det sammen |\n| Nulldagssårbarhet | Svakhet som er ukjent for leverandøren, uten rettelse |\n| Trojaner | Skadelig funksjon skjult i et program som ser nyttig ut |\n\n**De to retningene side om side — det viktigste i hele seksjonen:**\n\n```text\nHEMMELIG MELDING til Bob:\n  krypter med    ->  Bobs OFFENTLIGE nøkkel     (mottakerens)\n  dekrypter med  ->  Bobs PRIVATE nøkkel        (mottakerens)\n\nDIGITAL SIGNATUR fra Alice:\n  signer med     ->  Alices PRIVATE nøkkel      (avsenderens)\n  valider med    ->  Alices OFFENTLIGE nøkkel   (avsenderens)\n```\n\n**Huskeregelen:** hemmelighold bruker **mottakerens** nøkler; signering bruker **avsenderens**. Bare den som eier en privat nøkkel, kan gjøre noe med den — og alle andre kan kontrollere resultatet.\n\n**Hva hvert tiltak gir:**\n\n| Tiltak | Konfidensialitet | Integritet | Autentisitet | Uavviselighet |\n|---|---|---|---|---|\n| Kryptering (hemmelig melding) | **Ja** | Nei | Nei | Nei |\n| Hash-verdi alene | Nei | **Ja** | Nei | Nei |\n| Digital signatur | **Nei** | Ja | **Ja** | **Ja** |\n\nRaden for digital signatur er den mest testede i hele faget: tre ja og ett tydelig **nei**."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hash: et fingeravtrykk av innholdet (~12 min)\n\nDu laster ned en programfil på 900 MB. Hvordan vet du at den ikke er endret underveis — at ingen har puttet noe inn i den?\n\nDu kunne sammenlignet den med originalen byte for byte, men da måtte du jo lastet ned originalen igjen.\n\nLøsningen er å regne ut et lite **fingeravtrykk** av fila, og bare sammenligne fingeravtrykkene. Det er en **hash-verdi**, og den er byggesteinen under både signaturer og passordlagring."
+    },
+    {
+      "id": "in1020-3-4-def-hash",
+      "type": "definition",
+      "title": "Hash-verdi",
+      "content": "En kort verdi med **fast lengde**, regnet ut fra innholdet i en fil eller melding.\n\nTre egenskaper gjør den nyttig:\n\n1. **Samme innhold gir alltid samme verdi.** Verdien kan derfor sammenlignes.\n2. **Endres innholdet med så mye som ett bit, endres verdien fullstendig.** Det er dette som avslører endringer.\n3. **Verdien kan ikke regnes tilbake til innholdet.** Funksjonen går bare én vei.\n\nLengden er fast uansett hvor stort innholdet er: en tekst på tre bokstaver og en fil på 900 MB gir hash-verdier av nøyaktig samme størrelse.\n\n**Målet den tjener: integritet.**\n\nDen faste feilslutningen: å tro at en hash **skjuler** innholdet. Den gjør ikke det. Fila er nøyaktig like lesbar med hash-verdi som uten — hash-verdien er noe som kommer **i tillegg**. Dette er felle #9."
+    },
+    {
+      "id": "in1020-3-4-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Hva en hash faktisk avslører",
+      "problem": "En nedlastingsside oppgir en hash-verdi ved siden av programfila. Du laster ned fila, regner ut hash-verdien selv og sammenligner. Hva har du bevist hvis verdiene stemmer — og hva har du ikke bevist?",
+      "solution": "**Dette har du bevist:** at fila du lastet ned, er **bit for bit identisk** med den fila hash-verdien ble regnet ut fra. Ingen har endret noe underveis, og nedlastingen har ikke blitt korrupt.\n\nDet er **integritet**.\n\n**Dette har du IKKE bevist, i tre punkter:**\n\n1. **At fila er hemmelig.** Selvsagt ikke — alle kan laste den ned og lese den. Hash gir ikke konfidensialitet.\n2. **At fila er trygg.** Hash-verdien sier bare at innholdet er uendret. Var det skadevare i utgangspunktet, er det fortsatt skadevare, og hash-verdien stemmer perfekt.\n3. **At hash-verdien selv er ekte.** Dette er det viktigste. En angriper som kontrollerer nettsiden, kan endre **både** fila og den oppgitte hash-verdien. Da stemmer de fortsatt overens.\n\n**Konklusjonen:** en hash alene beskytter mot **feil og forvanskning underveis**, ikke mot en angriper som kontrollerer kilden.\n\n**Hva som løser det siste problemet:** at hash-verdien **signeres** med utgiverens private nøkkel. Da kan du kontrollere at hash-verdien kommer fra rett avsender, og angriperen kan ikke lage en ny signatur uten den private nøkkelen. Det er nettopp digital signatur, som kommer i neste løkke."
+    },
+    {
+      "id": "in1020-3-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — hash.) Hvilket sikkerhetsmål tjener en hash-verdi, og hvilket tjener den ikke? Begrunn begge deler.",
+        "solution": "**Målet den tjener: integritet.** Endres innholdet med så mye som ett bit, endres hash-verdien fullstendig, og avviket er synlig med én gang.\n\n**Målet den ikke tjener: konfidensialitet.** Hash-verdien kommer i **tillegg** til innholdet og skjuler ingenting. Fila er like lesbar med hash-verdi som uten.\n\n**Svar: integritet, ikke konfidensialitet.**\n\nDette er felle #9 i registeret, og den kommer igjen i nesten hvert sett — som regel formulert som «hash gir konfidensialitet» i en sant/usant-matrise. Svaret er alltid usant.",
+        "hints": [
+          "Spør: hva oppdager du med en hash-verdi som du ikke ville oppdaget uten?",
+          "Spør deretter: blir noe vanskeligere å lese fordi det finnes en hash-verdi?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Signaturen: den motsatte retningen (~14 min)\n\nNå kommer den ene operasjonen som ser ut som en feil, og som likevel er hele poenget.\n\nI [kap. 3.3](/bok/in1020/in1020-3-3) lærte du at det å kryptere med **sin egen private** nøkkel gir en melding alle kan lese. Det virket ubrukelig.\n\nDet er det ikke. Det er nettopp fordi alle kan lese den — med din offentlige nøkkel — at de også kan **kontrollere at det var deg**. Ingen andre kunne ha laget noe som lar seg åpne med din offentlige nøkkel.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-3-4-teo-signatur",
+      "type": "theorem",
+      "title": "Digital signatur — retning og virkemåte",
+      "content": "**Retningen, som er motsatt av hemmelig melding:**\n\n```text\nAlice signerer med   ->  Alices PRIVATE nøkkel\nBob validerer med    ->  Alices OFFENTLIGE nøkkel\n```\n\n**Begge nøklene tilhører avsenderen.** Mottakerens nøkler er ikke involvert i det hele tatt.\n\n**Slik gjøres det i praksis, fire steg:**\n\n1. Alice regner ut **hash-verdien** av meldingen.\n2. Alice krypterer **hash-verdien** — ikke hele meldingen — med sin private nøkkel. Resultatet er signaturen.\n3. Alice sender meldingen **og** signaturen.\n4. Bob regner ut hash-verdien av meldingen selv, dekrypterer signaturen med Alices offentlige nøkkel, og sammenligner de to verdiene.\n\n**Hvorfor bare hash-verdien signeres:** asymmetrisk kryptering er treg, og hash-verdien er liten uansett hvor stor meldingen er. En signatur på en fil på 900 MB tar like kort tid som på en tekstmelding.\n\n**Hva du oppnår, og hva du ikke oppnår:**\n\n| Mål | Oppnådd? | Hvorfor |\n|---|---|---|\n| **Integritet** | Ja | Endres meldingen, stemmer ikke hash-verdiene lenger |\n| **Autentisitet** | Ja | Bare Alice har den private nøkkelen |\n| **Uavviselighet** | Ja | Alice kan ikke nekte — ingen andre kunne laget signaturen |\n| **Konfidensialitet** | **Nei** | Meldingen sendes i klartekst, og alle kan lese den |\n\n**Den siste raden er felle #4, og den er fagets mest testede enkeltinnsikt.** En digital signatur skjuler ingenting. Vil du ha både hemmelighold og signatur, må du gjøre begge deler: signere med din private nøkkel **og** kryptere med mottakerens offentlige."
+    },
+    {
+      "id": "in1020-3-4-def-validering",
+      "type": "definition",
+      "title": "Validering av en signatur",
+      "content": "Å kontrollere at en signatur er ekte, ved å bruke **avsenderens offentlige** nøkkel.\n\nMottakeren gjør to ting og sammenligner:\n\n1. Regner ut hash-verdien av meldingen slik den ble mottatt.\n2. Dekrypterer signaturen med avsenderens offentlige nøkkel, og får ut hash-verdien slik den var da den ble signert.\n\n**Stemmer de to?** Da er meldingen uendret, og den kom fra den som eier den private nøkkelen.\n\n**Stemmer de ikke?** Da er enten meldingen endret underveis, eller signaturen laget av noen andre. Hvilken av delene, kan man ikke se — og det trenger man heller ikke: begge deler betyr at meldingen ikke skal stoles på."
+    },
+    {
+      "id": "in1020-3-4-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensform — hva gir en signatur?",
+      "problem": "Svarform F2, altså sant/usant-matrise: Alice sender en signert melding til Bob. Vurder hver påstand.\n\n**a)** Bob kan kontrollere at meldingen kom fra Alice.\n\n**b)** Ingen andre enn Bob kan lese meldingen.\n\n**c)** Bob kan oppdage om meldingen er endret underveis.\n\n**d)** Alice kan senere nekte for å ha sendt meldingen.",
+      "solution": "**a) Sann.** Signaturen lar seg validere med Alices offentlige nøkkel, og bare den som har hennes private nøkkel, kunne laget den. Det er **autentisitet**.\n\n**b) Usann.** Dette er **felle #4**, fagets mest testede enkeltinnsikt. Meldingen sendes i klartekst; signaturen kommer i tillegg. Alle som fanger opp meldingen, kan lese den — og det må de kunne, for ellers kunne de heller ikke regne ut hash-verdien og kontrollere signaturen.\n\n**c) Sann.** Bob regner ut hash-verdien selv og sammenligner med den signerte. Er meldingen endret med ett bit, stemmer ikke verdiene. Det er **integritet**.\n\n**d) Usann.** Det er nettopp det signaturen hindrer. Bare Alice har sin private nøkkel, så bare hun kan ha laget signaturen. Det er **uavviselighet**.\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\n**Mønsteret å ta med seg:** en signert melding gir **tre av fire** mål — integritet, autentisitet og uavviselighet. Det ene den ikke gir, er konfidensialitet.\n\n**Om formen:** rad b og d er begge formulert slik at riktig svar er «usant», men av motsatt grunn: b) påstår en egenskap signaturen ikke har, mens d) benekter en egenskap den har. Les hver rad for seg."
+    },
+    {
+      "id": "in1020-3-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger H — nøkkelretning, svarform F4.) Kari signerer et dokument digitalt og sender det til Ola. Velg ett alternativ per delspørsmål.\n\n**a)** Kari signerer med …\n\n1. Olas offentlige nøkkel · 2. Karis private nøkkel · 3. Karis offentlige nøkkel · 4. Olas private nøkkel\n\n**b)** Ola validerer signaturen med …\n\n1. Karis offentlige nøkkel · 2. Karis private nøkkel · 3. Olas private nøkkel · 4. Olas offentlige nøkkel",
+        "solution": "**a) Alternativ 2 — Karis private nøkkel.**\n\nSignering bruker **avsenderens** private nøkkel. Det er nettopp fordi bare Kari har den, at signaturen beviser noe.\n\nAlternativ 1 og 4 bruker Olas nøkler, som ikke er involvert i signering. Alternativ 3 ville vært meningsløst: den offentlige nøkkelen har alle, så en «signatur» laget med den kunne vært laget av hvem som helst.\n\n**b) Alternativ 1 — Karis offentlige nøkkel.**\n\nValidering bruker **avsenderens** offentlige nøkkel, altså motparten til den som signerte.\n\nAlternativ 2 er umulig: Ola har ikke Karis private nøkkel, og skal aldri ha den. Alternativ 3 og 4 bruker Olas eget nøkkelpar, som ikke har noe med Karis signatur å gjøre.\n\n**Fasit: a) 2, b) 1.**\n\n**Kontrollen som avgjør begge:** i en signatur er **begge** nøklene avsenderens. I en hemmelig melding er begge mottakerens. Ser du et alternativ som blander de to partenes nøkler, er det galt.",
+        "hints": [
+          "Hvem er det signaturen skal bevise noe om — avsenderen eller mottakeren?",
+          "Hvilken av de to nøklene er det bare én person som har?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — signatur, svarform F1.) Kryss av **alle** målene en digital signatur gir, og begrunn hvert av de fire.\n\n**a)** Integritet\n\n**b)** Autentisitet\n\n**c)** Uavviselighet\n\n**d)** Konfidensialitet",
+        "solution": "**a) Riktig.** Signaturen inneholder hash-verdien av meldingen. Endres meldingen med ett bit, stemmer ikke hash-verdiene lenger, og valideringen mislykkes.\n\n**b) Riktig.** Bare den som eier den private nøkkelen, kan lage en signatur som lar seg validere med den motsvarende offentlige. Mottakeren vet derfor hvem meldingen kom fra.\n\n**c) Riktig.** Av samme grunn kan avsenderen ikke i ettertid nekte for å ha sendt den. Ingen andre kunne laget signaturen.\n\n**d) Galt.** **Felle #4.** Meldingen sendes i klartekst, og signaturen kommer i tillegg. Alle som fanger opp meldingen, kan lese den — og det må de kunne, for ellers kunne de ikke regne ut hash-verdien og kontrollere signaturen i det hele tatt.\n\n**Fasit: a, b og c.**\n\n**Tre av fire riktige**, og det ene gale er fagets mest testede enkeltinnsikt. Vil du ha både hemmelighold og signatur, må du gjøre begge operasjonene: signere med din private nøkkel og kryptere med mottakerens offentlige.",
+        "hints": [
+          "Gå gjennom målene ett for ett: hva kan mottakeren faktisk slutte fra en gyldig signatur?",
+          "Spør for det siste alternativet: må noen kunne lese meldingen for å kontrollere signaturen?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — kombinasjon.) Alice vil sende Bob en melding som både er hemmelig og bevislig kommer fra henne. Hvilke to operasjoner må hun gjøre, og med hvilke nøkler?",
+        "solution": "Hun må gjøre **begge** operasjonene, med to ulike nøkkelpar.\n\n**1. Signere, for autentisitet og uavviselighet:**\n\n`signer hash-verdien med Alices PRIVATE nøkkel`\n\n**2. Kryptere, for konfidensialitet:**\n\n`krypter meldingen og signaturen med Bobs OFFENTLIGE nøkkel`\n\n**Bob gjør så det motsatte, i motsatt rekkefølge:**\n\n`dekrypter med Bobs PRIVATE nøkkel`, og deretter `valider signaturen med Alices OFFENTLIGE nøkkel`.\n\n**Svar: signer med sin egen private nøkkel, og krypter deretter med mottakerens offentlige.**\n\n**Kontrollen:** fire nøkler er i bruk til sammen, to fra hvert nøkkelpar. Alices private og offentlige tar seg av signaturen; Bobs offentlige og private tar seg av hemmeligholdet.\n\nMerk at rekkefølgen har betydning i praksis: signerer man først og krypterer etterpå, er også signaturen skjult for utenforstående. Det er den vanlige rekkefølgen.",
+        "hints": [
+          "Hvilket mål mangler når du bare signerer, og hvilket mangler når du bare krypterer?",
+          "Skriv ned de to retningsreglene ved siden av hverandre før du svarer."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Sertifikater: hvem eier egentlig nøkkelen? (~12 min)\n\nDet er ett hull igjen, og det er stort.\n\nDu validerer en signatur med «Alices offentlige nøkkel». Men hvordan vet du at nøkkelen du har, faktisk er Alices? En angriper kan ha sendt deg **sin egen** offentlige nøkkel og påstått at den er Alices. Da vil alt validere pent — mot feil person.\n\nDet samme gjelder nettbanken: nettleseren din får en offentlig nøkkel fra tjeneren. Hvem sier at den tilhører banken?\n\nSvaret er **digitale sertifikater**."
+    },
+    {
+      "id": "in1020-3-4-def-sertifikat",
+      "type": "definition",
+      "title": "Digitalt sertifikat",
+      "content": "Et dokument som **binder en offentlig nøkkel til en identitet** — et navn, et domene, en virksomhet.\n\nSertifikatet er selv **signert** av en betrodd tredjepart, en **sertifikatutsteder**. Signaturen gjør at sertifikatet ikke kan forfalskes uten utstederens private nøkkel.\n\nNår nettleseren din kobler seg til en nettbank, får den bankens sertifikat. Den kontrollerer utstederens signatur, og hvis den stemmer, vet den at den offentlige nøkkelen faktisk tilhører banken.\n\n**Problemet sertifikatet løser:** at en offentlig nøkkel i seg selv ikke sier noe om hvem den tilhører. Uten sertifikater ville en angriper kunne levere sin egen nøkkel og utgi seg for hvem som helst — nettopp mellommannsangrepet fra [kap. 3.2](/bok/in1020/in1020-3-2).\n\nDen faste feilslutningen: å tro at et sertifikat krypterer noe. Det gjør det ikke. Det **bekrefter en tilhørighet**, og krypteringen skjer med nøkkelen sertifikatet bekrefter."
+    },
+    {
+      "id": "in1020-3-4-def-pki",
+      "type": "definition",
+      "title": "PKI — offentlig nøkkelinfrastruktur",
+      "content": "Systemet av **sertifikatutstedere, sertifikater og regler** som gjør det mulig å stole på offentlige nøkler i praksis.\n\nForkortelsen står for *public key infrastructure*, og den glosses her fordi den brukes i oppgavetekster.\n\nDe tre delene du bør kunne:\n\n1. **Utstederne** kontrollerer identiteten til den som ber om et sertifikat, og signerer det.\n2. **Tillitskjeden** går fra en rot-utsteder som nettleseren stoler på i utgangspunktet, ned til det enkelte sertifikatet.\n3. **Tilbaketrekking** gjør at et sertifikat kan erklæres ugyldig før det utløper — for eksempel hvis den private nøkkelen kommer på avveie.\n\nSvakheten i systemet er at det hviler på tillit til utstederne. Blir en utsteder kompromittert, kan angriperen få utstedt sertifikater i andres navn.\n\nDen praktiske konsekvensen: en **sertifikatadvarsel** i nettleseren betyr at denne kjeden ikke går opp. Da skal du ikke klikke deg forbi."
+    },
+    {
+      "id": "in1020-3-4-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Hva sertifikatet faktisk beviser",
+      "problem": "Du besøker en nettbutikk du aldri har brukt før. Nettleseren viser hengelås og et gyldig sertifikat. Hva har du fått bekreftet, og hva har du ikke fått bekreftet?",
+      "solution": "**Dette har du fått bekreftet, i tre punkter:**\n\n1. **At du snakker med den som eier domenet** som står i sertifikatet — ikke med en mellommann.\n2. **At trafikken er kryptert**, slik at ingen på veien kan lese den.\n3. **At en betrodd utsteder har kontrollert** at nøkkelen hører til dette domenet.\n\nDet er **autentisitet**, **konfidensialitet** og **integritet** på selve forbindelsen.\n\n**Dette har du IKKE fått bekreftet:**\n\n- **At butikken er hederlig.** Et sertifikat sier ingenting om hvem som står bak, om varene finnes, eller om pengene dine kommer tilbake. En svindler kan skaffe seg et fullt gyldig sertifikat til sitt eget domene.\n- **At domenet ikke ligner på et annet.** Et domene som ligner på et kjent navn, kan ha sitt eget gyldige sertifikat. Sertifikatet bekrefter at du er på det domenet som står der — ikke at det er det domenet du **trodde** du skulle til.\n\n**Konklusjonen:** sertifikatet svarer på spørsmålet «snakker jeg med den jeg tror?», ikke på «kan jeg stole på dem?».\n\n**Eksamensrelevansen:** en fast distraktor er å hevde at HTTPS eller et sertifikat gjør en nettside «trygg». Den riktige formuleringen er at forbindelsen er sikret og motparten identifisert."
+    },
+    {
+      "id": "in1020-3-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — PKI, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Et sertifikat binder en offentlig nøkkel til en identitet | |\n| b | Et sertifikat krypterer trafikken mellom nettleser og tjener | |\n| c | Et gyldig sertifikat garanterer at nettstedet er hederlig | |\n| d | Sertifikatet er signert av en betrodd utsteder | |",
+        "solution": "**a) Sann.** Det er nettopp dette sertifikatet gjør: det knytter en offentlig nøkkel til et navn eller et domene, slik at nøkkelen kan stoles på.\n\n**b) Usann.** Sertifikatet **bekrefter en tilhørighet**; det krypterer ingenting. Krypteringen skjer med den nøkkelen sertifikatet bekrefter. Distraktoren er farlig fordi de to alltid opptrer sammen i praksis.\n\n**c) Usann.** Sertifikatet svarer på «snakker jeg med den jeg tror?», ikke på «kan jeg stole på dem?». En svindler kan skaffe seg et fullt gyldig sertifikat til sitt eget domene.\n\n**d) Sann.** Utstederens signatur er det som gjør sertifikatet vanskelig å forfalske. Nettleseren kontrollerer denne signaturen mot en rot-utsteder den stoler på i utgangspunktet.\n\n**Fasit: a sann, b usann, c usann, d sann.**\n\nMerk at de to usanne begge tillegger sertifikatet noe det ikke gjør: den ene gir det en teknisk funksjon (kryptering), den andre en vurdering (hederlighet).",
+        "hints": [
+          "For b): hva er det sertifikatet inneholder, og hva er det som faktisk krypterer?",
+          "For c): kan en useriøs aktør skaffe seg et gyldig sertifikat til sitt eget domene?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — To begreper til, og eksamensformen (~12 min)\n\nTo begreper hører hjemme i denne delen av seksjonen, og begge dukker opp i faktaoppgaver: **nulldagssårbarhet** og **trojaner**.\n\nDeretter en siste gjennomgang av selve eksamensformen, der de tre fellene #4, #5 og #9 møtes i samme sett."
+    },
+    {
+      "id": "in1020-3-4-def-nulldag",
+      "type": "definition",
+      "title": "Nulldagssårbarhet",
+      "content": "En svakhet i programvare som er **ukjent for leverandøren**, og som det derfor ikke finnes noen rettelse for.\n\nNavnet kommer av at leverandøren har hatt null dager på seg til å lukke hullet når det først blir utnyttet.\n\nHvorfor den er farlig: alle de vanlige tiltakene forutsetter at svakheten er kjent. Sikkerhetsoppdateringer hjelper ikke mot noe som ikke er oppdaget, og antivirus kjenner ikke igjen et angrep ingen har sett før.\n\nDet som fortsatt virker, er tiltak som ikke avhenger av å kjenne trusselen: **minste privilegium**, overvåking av unormal oppførsel, og segmentering som begrenser skaden.\n\nDen faste feilslutningen: å tro at et oppdatert system er trygt mot alt. Oppdatering lukker de **kjente** hullene, og det er svært mye — men ikke alt."
+    },
+    {
+      "id": "in1020-3-4-def-trojaner",
+      "type": "definition",
+      "title": "Trojaner",
+      "content": "Et program med en **skjult skadelig funksjon**, pakket inn i noe som ser nyttig ut.\n\nBrukeren installerer det frivillig, i den tro at det er et spill, et verktøy eller en oppdatering. Den skadelige delen kjører i bakgrunnen.\n\n**Kjennetegnet er innpakningen**, ikke hva skaden består i. En trojaner kan inneholde en tastelogger, en bakdør eller et løsepengevirus.\n\nSkillet mot **virus** og **orm**: viruset fester seg til en vertsfil, ormen sprer seg selv over nett. Trojaneren gjør ingen av delene — den blir båret inn av brukeren selv. Hele skadevaretypologien behandles sist i denne delen."
+    },
+    {
+      "id": "in1020-3-4-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — de tre fellene i ett sett",
+      "problem": "Svarform F1. Kryss av **alle** påstandene som stemmer.\n\n**a)** En digital signatur gir uavviselighet.\n\n**b)** En hash-verdi gjør innholdet uleselig for uvedkommende.\n\n**c)** En hemmelig melding krypteres med mottakerens offentlige nøkkel.\n\n**d)** En signatur valideres med avsenderens private nøkkel.\n\n**e)** En signert melding kan leses av alle som fanger den opp.",
+      "solution": "**a) Riktig.** Bare avsenderen har sin private nøkkel, så bare hun kan ha laget signaturen. Hun kan derfor ikke nekte for det i ettertid.\n\n**b) Galt — felle #9.** En hash-verdi kommer **i tillegg** til innholdet og skjuler ingenting. Den avslører endringer, altså **integritet**. Innholdet er nøyaktig like lesbart som før.\n\n**c) Riktig.** Dette er retningsregelen for hemmelighold: begge nøklene tilhører mottakeren.\n\n**d) Galt — felle #5.** Validering bruker avsenderens **offentlige** nøkkel. Den private har bare avsenderen selv, og hadde mottakeren hatt den, ville hele poenget falt bort. Påstanden snur retningen.\n\n**e) Riktig — dette er felle #4 formulert som en sann påstand.** Signaturen gir ikke konfidensialitet. Meldingen sendes i klartekst, og alle kan lese den. Merk hvordan samme innsikt kan stå både som en sann og som en usann rad, avhengig av formuleringen.\n\n**Fasit: a, c og e.**\n\n**Om formen:** de tre gale og sanne alternativene fordeler seg over de tre fellene #4, #5 og #9 — akkurat som et virkelig sett gjerne gjør. Har du de tre reglene klare, avgjør du hele oppgaven på et minutt:\n\n1. Signatur gir alt **unntatt** konfidensialitet.\n2. Hemmelighold bruker **mottakerens** nøkler; signering bruker **avsenderens**.\n3. Hash gir **integritet**, aldri konfidensialitet."
+    },
+    {
+      "id": "in1020-3-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — signatur og hash, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | En digital signatur skjuler innholdet i meldingen | |\n| b | Det er hash-verdien, ikke hele meldingen, som signeres | |\n| c | En hash-verdi kan regnes tilbake til innholdet | |\n| d | Endres meldingen med ett bit, feiler valideringen | |",
+        "solution": "**a) Usann.** **Felle #4.** Meldingen sendes i klartekst, og signaturen kommer i tillegg. Alle kan lese den — og de må kunne det, for ellers kunne de ikke regne ut hash-verdien og kontrollere signaturen.\n\n**b) Sann.** Asymmetrisk kryptering er treg, og hash-verdien er liten uansett hvor stor meldingen er. Derfor signeres bare hash-verdien, og en signatur på en fil på 900 MB tar like kort tid som på en tekstmelding.\n\n**c) Usann.** Hash-funksjonen går bare **én vei**. Det er nettopp derfor den kan brukes til passordlagring, som du møter igjen i neste kapittel.\n\n**d) Sann.** En endring på ett bit gir en helt annen hash-verdi. Mottakerens utregnede verdi stemmer da ikke med den signerte, og valideringen mislykkes.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\nMerk at rad b og d til sammen forklarer hvorfor konstruksjonen virker: signaturen er liten fordi den bygger på hash-verdien, og den er følsom fordi hash-verdien er det.",
+        "hints": [
+          "For a): må mottakeren kunne lese meldingen for å kontrollere signaturen?",
+          "For b): hvorfor tar det ikke lengre tid å signere en stor fil enn en kort melding?",
+          "For c): hva ville skjedd med passordlagring hvis hash-funksjonen kunne reverseres?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — nøkkelretninger, svarform F1.) Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** I en hemmelig melding tilhører begge nøklene mottakeren.\n\n**b)** I en digital signatur tilhører begge nøklene avsenderen.\n\n**c)** Mottakeren validerer en signatur med sin egen private nøkkel.\n\n**d)** Vil du ha både hemmelighold og signatur, må to operasjoner gjøres.\n\n**e)** En signatur laget med avsenderens offentlige nøkkel kan valideres av alle.",
+        "solution": "**a) Riktig.** Alice krypterer med Bobs offentlige, og Bob dekrypterer med Bobs private. Alices nøkler er ikke involvert.\n\n**b) Riktig.** Alice signerer med sin private, og Bob validerer med Alices offentlige. Bobs nøkler er ikke involvert.\n\n**c) Galt.** Validering bruker **avsenderens offentlige** nøkkel. Mottakerens eget nøkkelpar har ingenting med saken å gjøre. Dette er felle #5 i en litt uvant innpakning.\n\n**d) Riktig.** Signering gir integritet, autentisitet og uavviselighet; kryptering gir konfidensialitet. Vil du ha alle fire, må du signere med din private nøkkel **og** kryptere med mottakerens offentlige.\n\n**e) Galt.** En «signatur» laget med den **offentlige** nøkkelen ville vært verdiløs: alle har den nøkkelen, så hvem som helst kunne laget signaturen. Poenget med en signatur er nettopp at bare én person kan lage den.\n\n**Fasit: a, b og d.**\n\n**Kontrollen som avgjør hele oppgaven:** i hver operasjon brukes **bare ett** nøkkelpar. Hemmelighold bruker mottakerens; signering bruker avsenderens. Ser du et alternativ som blander de to partenes nøkler i én operasjon, er det galt.",
+        "hints": [
+          "Skriv opp de to retningsreglene ved siden av hverandre før du vurderer alternativene.",
+          "For e): hva ville et bevis vært verdt hvis alle kunne produsere det?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — hash og sertifikat, svarform F1.) En nedlastingsside oppgir en hash-verdi ved siden av en programfil. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Stemmer hash-verdien, er fila uendret siden verdien ble regnet ut.\n\n**b)** Stemmer hash-verdien, er fila garantert fri for skadevare.\n\n**c)** En angriper som kontrollerer nettsiden, kan endre både fila og hash-verdien.\n\n**d)** Hash-verdien gjør fila utilgjengelig for uvedkommende.\n\n**e)** Signeres hash-verdien av utgiveren, blir kontrollen sterkere.",
+        "solution": "**a) Riktig.** Det er nettopp dette en hash-verdi beviser: at innholdet er bit for bit identisk med det verdien ble regnet ut fra. Det er **integritet**.\n\n**b) Galt.** Hash-verdien sier bare at innholdet er **uendret**. Var det skadevare i fila fra starten, er den der fortsatt, og hash-verdien stemmer perfekt. En uendret fil er ikke det samme som en trygg fil.\n\n**c) Riktig.** Dette er den vesentlige begrensningen. En angriper som kontrollerer kilden, kan legge ut både en endret fil og en tilhørende ny hash-verdi. Da stemmer de fortsatt overens, og kontrollen avslører ingenting.\n\n**d) Galt — felle #9.** Hash-verdien kommer i tillegg og skjuler ingenting. Fila er like lesbar og like tilgjengelig som før.\n\n**e) Riktig.** Da kan du kontrollere at hash-verdien kommer fra rett utgiver, og angriperen kan ikke lage en ny signatur uten utgiverens private nøkkel. Det lukker akkurat det hullet alternativ c) peker på.\n\n**Fasit: a, c og e.**\n\n**Poenget med oppgaven:** en hash alene beskytter mot **feil og forvanskning underveis**, ikke mot en angriper som kontrollerer kilden. Det er derfor signatur og sertifikater finnes — de flytter tilliten fra nettsiden til en nøkkel bare utgiveren har.",
+        "hints": [
+          "Skille mellom «uendret» og «trygg» — er det samme sak?",
+          "For c): hva kan den som eier nettsiden, endre på?",
+          "For e): hva kan angriperen ikke lage uten utgiverens private nøkkel?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å tro at en digital signatur gir konfidensialitet (felle #4).** Fagets mest testede enkeltinnsikt. Signaturen skjuler ingenting; meldingen sendes i klartekst. Signaturen gir integritet, autentisitet og uavviselighet — og det er alt.\n\n2. **Å snu signeringsretningen (felle #5).** Du signerer med **din egen private** nøkkel og validerer med **avsenderens offentlige**. Begge nøklene i en signatur tilhører avsenderen.\n\n3. **Å krysse av hash for konfidensialitet (felle #9).** Hash gir **integritet**. Verdien kommer i tillegg til innholdet og skjuler ingenting.\n\n4. **Å blande de to retningene.** Hemmelighold bruker **mottakerens** nøkler; signering bruker **avsenderens**. Ser du begge parters nøkler i én operasjon, er alternativet galt.\n\n5. **Å tro at en uendret fil er en trygg fil.** En hash-verdi som stemmer, sier bare at ingenting er endret. Skadevare som lå der fra starten, gir perfekt samsvar.\n\n6. **Å tro at et sertifikat krypterer.** Det **bekrefter en tilhørighet**. Krypteringen skjer med nøkkelen sertifikatet bekrefter.\n\n7. **Å tro at et gyldig sertifikat betyr at nettstedet er hederlig.** Det svarer på «snakker jeg med den jeg tror?», ikke på «kan jeg stole på dem?».\n\n8. **Å tro at et oppdatert system er trygt mot alt.** Oppdatering lukker de **kjente** hullene. En nulldagssårbarhet er per definisjon ukjent for leverandøren."
+    },
+    {
+      "id": "in1020-3-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-3-4-bank-1",
+      "type": "definition",
+      "title": "De to retningene side om side",
+      "content": "```text\nHEMMELIG MELDING til Bob:\n  krypter med    ->  Bobs OFFENTLIGE\n  dekrypter med  ->  Bobs PRIVATE\n\nDIGITAL SIGNATUR fra Alice:\n  signer med     ->  Alices PRIVATE\n  valider med    ->  Alices OFFENTLIGE\n```\n\nHemmelighold bruker **mottakerens** nøkler. Signering bruker **avsenderens**.\n\nKontrollen på eksamen: i hver operasjon brukes bare **ett** nøkkelpar. Blander et alternativ begge parters nøkler, er det galt."
+    },
+    {
+      "id": "in1020-3-4-bank-2",
+      "type": "definition",
+      "title": "Signatur gir ikke konfidensialitet",
+      "content": "En digital signatur gir **integritet, autentisitet og uavviselighet** — men **ikke** konfidensialitet.\n\nMeldingen sendes i klartekst, og signaturen kommer i tillegg. Alle kan lese meldingen, og de må kunne det: uten tilgang til innholdet kan de ikke regne ut hash-verdien og kontrollere signaturen.\n\nDette er **felle #4**, og den er fagets mest testede enkeltinnsikt. Vil du ha begge deler, må du signere **og** kryptere."
+    },
+    {
+      "id": "in1020-3-4-bank-3",
+      "type": "definition",
+      "title": "Hash-verdiens tre egenskaper",
+      "content": "1. **Samme innhold gir alltid samme verdi** — derfor kan verdier sammenlignes.\n2. **Ett endret bit gir en helt annen verdi** — derfor avsløres endringer.\n3. **Verdien kan ikke regnes tilbake** — funksjonen går bare én vei.\n\nLengden er fast uansett innholdets størrelse: tre bokstaver og 900 MB gir like store hash-verdier.\n\nMålet den tjener: **integritet**. Aldri konfidensialitet."
+    },
+    {
+      "id": "in1020-3-4-bank-4",
+      "type": "definition",
+      "title": "Hvorfor bare hash-verdien signeres",
+      "content": "Asymmetrisk kryptering er treg, og hash-verdien er liten uansett hvor stor meldingen er.\n\nDerfor signeres hash-verdien i stedet for innholdet: en signatur på en fil på 900 MB tar like kort tid som på en tekstmelding.\n\nKonstruksjonen virker fordi hash-verdien er **følsom**: endres meldingen med ett bit, stemmer ikke lenger den signerte verdien med den mottakeren regner ut."
+    },
+    {
+      "id": "in1020-3-4-bank-5",
+      "type": "definition",
+      "title": "Validering steg for steg",
+      "content": "Mottakeren gjør to ting og sammenligner:\n\n1. Regner ut hash-verdien av meldingen slik den ble mottatt.\n2. Dekrypterer signaturen med **avsenderens offentlige** nøkkel, og får hash-verdien slik den var ved signering.\n\nStemmer de to, er meldingen uendret **og** fra rett avsender.\n\nStemmer de ikke, kan man ikke se hvilken av delene som sviktet — og det trengs heller ikke: begge betyr at meldingen ikke skal stoles på."
+    },
+    {
+      "id": "in1020-3-4-bank-6",
+      "type": "definition",
+      "title": "Hva en gyldig signatur beviser",
+      "content": "| Slutning | Gyldig? |\n|---|---|\n| Meldingen er uendret siden signeringen | **Ja** |\n| Meldingen kommer fra eieren av den private nøkkelen | **Ja** |\n| Avsenderen kan ikke nekte for å ha sendt den | **Ja** |\n| Ingen andre kan lese meldingen | **Nei** |\n| Innholdet er sant eller ufarlig | **Nei** |\n\nDe to siste radene er de viktigste å ha klare. En signatur sier noe om **opphav og uendrethet** — ingenting om hemmelighold, og ingenting om innholdets kvalitet."
+    },
+    {
+      "id": "in1020-3-4-bank-7",
+      "type": "definition",
+      "title": "Signatur pluss kryptering",
+      "content": "Vil du ha både hemmelighold og bevis for avsender, må **to** operasjoner gjøres:\n\n```text\n1. signer med    ->  din egen PRIVATE nøkkel\n2. krypter med   ->  mottakerens OFFENTLIGE nøkkel\n```\n\nMottakeren gjør det motsatte i motsatt rekkefølge: dekrypterer med sin private, og validerer med din offentlige.\n\nTil sammen er fire nøkler i bruk, to fra hvert nøkkelpar. Rekkefølgen «signer først, krypter etterpå» gjør at også signaturen er skjult for utenforstående."
+    },
+    {
+      "id": "in1020-3-4-bank-8",
+      "type": "definition",
+      "title": "Digitalt sertifikat",
+      "content": "Et dokument som binder en **offentlig nøkkel** til en **identitet**, og som selv er signert av en betrodd utsteder.\n\nProblemet det løser: en offentlig nøkkel sier ingenting om hvem den tilhører. Uten sertifikater kunne en angriper levert sin egen nøkkel og utgitt seg for hvem som helst.\n\nDen faste feilslutningen: å tro at sertifikatet krypterer. Det bekrefter en tilhørighet; krypteringen skjer med nøkkelen det bekrefter."
+    },
+    {
+      "id": "in1020-3-4-bank-9",
+      "type": "definition",
+      "title": "Sertifikatutsteder",
+      "content": "Den betrodde tredjeparten som kontrollerer identiteten til den som ber om et sertifikat, og signerer det med sin egen private nøkkel.\n\nNettleseren din har en liste over rot-utstedere den stoler på i utgangspunktet, og kontrollerer hvert sertifikat mot en kjede opp til en av dem.\n\nSvakheten: hele systemet hviler på tillit til utstederne. Blir en utsteder kompromittert, kan angripere få sertifikater i andres navn."
+    },
+    {
+      "id": "in1020-3-4-bank-10",
+      "type": "definition",
+      "title": "PKI",
+      "content": "Systemet av sertifikatutstedere, sertifikater og regler som gjør det praktisk mulig å stole på offentlige nøkler. Forkortelsen står for *public key infrastructure*.\n\nTre deler å kunne: **utstederne** som kontrollerer og signerer, **tillitskjeden** fra rot-utsteder ned til det enkelte sertifikatet, og **tilbaketrekking** som gjør at et sertifikat kan erklæres ugyldig før det utløper.\n\nTilbaketrekking er nødvendig nettopp fordi private nøkler kan komme på avveie."
+    },
+    {
+      "id": "in1020-3-4-bank-11",
+      "type": "definition",
+      "title": "Hva et sertifikat IKKE beviser",
+      "content": "Sertifikatet svarer på «**snakker jeg med den jeg tror?**», ikke på «**kan jeg stole på dem?**».\n\nEn svindler kan skaffe seg et fullt gyldig sertifikat til sitt eget domene. Et domene som ligner på et kjent navn, kan ha sitt eget gyldige sertifikat.\n\nDen faste distraktoren: at HTTPS eller hengelåsen gjør en nettside «trygg». Riktig formulering: forbindelsen er sikret og motparten identifisert."
+    },
+    {
+      "id": "in1020-3-4-bank-12",
+      "type": "definition",
+      "title": "Sertifikatadvarsel",
+      "content": "Nettleserens melding om at tillitskjeden ikke går opp — sertifikatet er utløpt, selvsignert, utstedt til et annet navn, eller signert av en ukjent utsteder.\n\nDet betyr at du **ikke** kan vite hvem du snakker med. Nettopp den situasjonen et mellommannsangrep skaper.\n\nDerfor skal en slik advarsel ikke klikkes bort, særlig ikke på et åpent nett. Det er det ene stedet der kryptering alene ikke hjelper deg."
+    },
+    {
+      "id": "in1020-3-4-bank-13",
+      "type": "definition",
+      "title": "Hash som integritetskontroll ved nedlasting",
+      "content": "En hash-verdi oppgitt ved siden av en fil lar deg kontrollere at nedlastingen er bit for bit identisk med originalen.\n\n**Det beskytter mot:** forvanskning underveis, avbrutte nedlastinger, endring hos en mellommann.\n\n**Det beskytter ikke mot:** en angriper som kontrollerer selve nettsiden og kan endre både fila og den oppgitte verdien.\n\nLøsningen på det siste er å **signere** hash-verdien: da kan ingen lage en gyldig verdi uten utgiverens private nøkkel."
+    },
+    {
+      "id": "in1020-3-4-bank-14",
+      "type": "definition",
+      "title": "Uendret er ikke det samme som trygg",
+      "content": "En hash-verdi som stemmer, beviser at innholdet ikke er endret. Den sier ingenting om hva innholdet **er**.\n\nVar det skadevare i fila fra starten, er den der fortsatt, og hash-verdien stemmer perfekt.\n\nDette er et fast alternativ i oppgaver om hash, og det er alltid galt: integritet handler om uendrethet, ikke om godhet."
+    },
+    {
+      "id": "in1020-3-4-bank-15",
+      "type": "definition",
+      "title": "Enveisegenskapen",
+      "content": "At en hash-verdi ikke kan regnes tilbake til innholdet den ble laget av.\n\nDette er grunnen til at hash kan brukes til **passordlagring**: systemet lagrer hash-verdien i stedet for passordet, og kan kontrollere et innlogget passord uten noen gang å ha lagret det.\n\nMekanikken, og hvorfor hash alene ikke er nok uten salt, behandles i neste kapittel."
+    },
+    {
+      "id": "in1020-3-4-bank-16",
+      "type": "definition",
+      "title": "Nulldagssårbarhet",
+      "content": "En svakhet som er **ukjent for leverandøren**, og som det derfor ikke finnes noen rettelse for.\n\nNavnet kommer av at leverandøren har hatt null dager på seg til å lukke hullet.\n\nHvorfor den er farlig: sikkerhetsoppdateringer og antivirus forutsetter at svakheten er kjent. Det som fortsatt virker, er tiltak som ikke avhenger av å kjenne trusselen — minste privilegium, overvåking av unormal oppførsel, og segmentering."
+    },
+    {
+      "id": "in1020-3-4-bank-17",
+      "type": "definition",
+      "title": "Trojaner",
+      "content": "Et program med en **skjult skadelig funksjon**, pakket inn i noe som ser nyttig ut.\n\nKjennetegnet er **innpakningen**, ikke hva skaden består i: en trojaner kan inneholde en tastelogger, en bakdør eller et løsepengevirus.\n\nSkillet mot de andre typene: viruset fester seg til en vertsfil, ormen sprer seg selv over nett, og trojaneren blir båret inn av brukeren selv."
+    },
+    {
+      "id": "in1020-3-4-bank-18",
+      "type": "definition",
+      "title": "Hvorfor «alle kan lese» er nødvendig for signaturen",
+      "content": "Mottakeren må regne ut hash-verdien av meldingen for å kunne sammenligne den med den signerte verdien.\n\nDet forutsetter at mottakeren har **hele meldingen i klartekst**.\n\nDerfor er det ikke en svakhet at en signert melding kan leses — det er en forutsetning for at kontrollen skal være mulig i det hele tatt. Vil du skjule innholdet, krypterer du i tillegg."
+    },
+    {
+      "id": "in1020-3-4-bank-19",
+      "type": "definition",
+      "title": "Feilvariant: validering med feil nøkkel",
+      "content": "Validerer du med **mottakerens** nøkler i stedet for avsenderens, kontrollerer du ingenting — mottakerens nøkkelpar har ingen tilknytning til signaturen.\n\nOg en «signatur» laget med avsenderens **offentlige** nøkkel ville vært verdiløs: alle har den nøkkelen, så hvem som helst kunne laget den.\n\nPoenget med en signatur er at bare **én** person kan produsere den, og at **alle** kan kontrollere den."
+    },
+    {
+      "id": "in1020-3-4-bank-20",
+      "type": "definition",
+      "title": "Signatur mot håndskrevet underskrift",
+      "content": "En håndskrevet underskrift er den samme uansett hva dokumentet inneholder, og kan i prinsippet klippes og limes.\n\nEn digital signatur er regnet ut **fra innholdet**. Endres én bokstav i dokumentet, blir signaturen ugyldig.\n\nDerfor gir den digitale signaturen både **autentisitet** og **integritet**, mens den håndskrevne bare peker på hvem som skrev under."
+    },
+    {
+      "id": "in1020-3-4-bank-21",
+      "type": "definition",
+      "title": "De tre reglene som avgjør sjanger H",
+      "content": "1. **Signatur gir alt unntatt konfidensialitet** — integritet, autentisitet og uavviselighet (felle #4).\n2. **Hemmelighold bruker mottakerens nøkler; signering bruker avsenderens** (felle #5).\n3. **Hash gir integritet, aldri konfidensialitet** (felle #9).\n\nTre setninger, og de avgjør praktisk talt hver eneste oppgave i sjangeren. Skriv dem i margen før du begynner."
+    },
+    {
+      "id": "in1020-3-4-bank-22",
+      "type": "definition",
+      "title": "Hvorfor et sertifikat løser mellommannsproblemet",
+      "content": "Et mellommannsangrep går ut på at angriperen leverer **sin egen** offentlige nøkkel og utgir seg for motparten. Kryptering alene stopper det ikke — du får en pent kryptert forbindelse til feil part.\n\nSertifikatet binder nøkkelen til en identitet, og bindingen er signert av en utsteder nettleseren stoler på.\n\nAngriperen kan ikke lage et gyldig sertifikat for bankens domene uten utstederens private nøkkel — og det er derfor angrepet stopper der."
+    },
+    {
+      "id": "in1020-3-4-bank-23",
+      "type": "definition",
+      "title": "Tilbaketrekking av sertifikat",
+      "content": "At et sertifikat erklæres ugyldig **før** det utløper.\n\nDen viktigste grunnen er at den private nøkkelen har kommet på avveie. Da må sertifikatet trekkes tilbake, ellers kan den som har nøkkelen, fortsette å opptre som eieren.\n\nDette er den praktiske grunnen til at en privat nøkkel på avveie er så alvorlig: den kan ikke «tas tilbake», bare erklæres ugyldig — og alt som ble signert i mellomtiden, er i tvil."
+    },
+    {
+      "id": "in1020-3-4-bank-24",
+      "type": "definition",
+      "title": "Hva HTTPS gir, presist formulert",
+      "content": "| Egenskap | Gir HTTPS det? |\n|---|---|\n| Trafikken kan ikke leses av utenforstående | **Ja** |\n| Trafikken kan ikke endres underveis | **Ja** |\n| Du snakker med den som eier domenet | **Ja** |\n| Nettstedet er hederlig | **Nei** |\n| Innholdet på siden er sant | **Nei** |\n\nDe tre første er konfidensialitet, integritet og autentisitet. De to siste er vurderinger ingen teknologi kan gi deg."
+    },
+    {
+      "id": "in1020-3-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter signaturen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-3-4-rep-tekst",
+          "type": "text",
+          "content": "Ni korte. Svar før du ser på fasiten.\n\n1. Hvilken nøkkel signerer Alice med?\n2. Hvilken nøkkel validerer Bob med?\n3. Hvilke mål gir en digital signatur?\n4. Hvilket mål gir den ikke?\n5. Hva signeres — hele meldingen eller hash-verdien?\n6. Hvilket mål gir en hash-verdi?\n7. Hva binder et sertifikat sammen?\n8. Beviser et gyldig sertifikat at nettstedet er hederlig?\n9. Hva er en nulldagssårbarhet?\n\n**Fasit.**\n\n1. **Sin egen private** nøkkel. Begge nøklene i en signatur tilhører avsenderen.\n2. **Alices offentlige** nøkkel — motparten til den som signerte.\n3. Integritet, autentisitet og uavviselighet.\n4. **Konfidensialitet.** Meldingen sendes i klartekst og kan leses av alle (felle #4).\n5. Hash-verdien. Den er liten, og asymmetrisk kryptering er treg.\n6. Integritet. Aldri konfidensialitet (felle #9).\n7. En offentlig nøkkel og en identitet, signert av en betrodd utsteder.\n8. Nei. Det beviser at du snakker med den som eier domenet — ikke at de er til å stole på.\n9. En svakhet som er ukjent for leverandøren, og som det derfor ikke finnes rettelse for.\n\nSjekk deg selv: ☐ signerte du med DIN EGEN private nøkkel? ☐ husket du at signatur IKKE gir konfidensialitet? ☐ svarte du integritet på hash? ☐ skilte du «uendret» fra «trygg»? ☐ husket du at sertifikatet bekrefter identitet, ikke hederlighet?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
