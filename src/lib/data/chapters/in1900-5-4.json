@@ -1,0 +1,292 @@
+{
+  "id": "in1900-5-4",
+  "courseId": "in1900",
+  "chapterNumber": "5.4",
+  "title": "Stykkvise og diskontinuerlige funksjoner",
+  "description": "Representere stykkvise funksjoner (Heaviside, Piecewise) — ofte som en klasse med betinget logikk i `__call__`.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne oversette en stykkvis definert funksjon fra klammeparentes til betinget logikk, med grensene på riktig side",
+    "kunne skrive den generelle stykkvise klassen der funksjonsverdier og grenser gis som lister",
+    "kunne kontrollere en stykkvis funksjon ved å regne ut verdien i nøyaktig grensepunktene",
+    "kunne forklare hvorfor en betinget funksjon må kalles ett punkt av gangen, og hva det vektoriserte alternativet gjør"
+  ],
+  "content": [
+    {
+      "id": "in1900-5-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**En liten, konkret oppgavetype som kommer igjen i to av tre sett.**\n\n- **Stykkvise og diskontinuerlige funksjoner** — funksjoner som er definert med forskjellige uttrykk i forskjellige intervaller — er med i **63 %** av eksamenssettene, som regel som en klasse med betinget logikk. Det siste kjente tilfellet er en generell `Piecewise`-klasse.\n- Formen er **sjanger G**: du skriver en klasse med konstruktør og kallmetode, som i [kap. 5.1](/bok/in1900/in1900-5-1). Det nye er bare at kallmetoden må velge mellom flere uttrykk.\n- **Prioritet: nivå 2 — dette bør sitte.** Boka bruker tre prioritetsklasser: nivå 1 «må sitte», nivå 2 «bør sitte», nivå 3 «bør du kjenne til». Stykkvise funksjoner er nivå 2: de er ikke det tyngste på settet, men de er billige poeng, fordi klassen er kort.\n- Dette kapitlet gir deg også et verktøy du bruker senere: en pådragsfunksjon som slås av og på, er nettopp det du trenger som kildeledd i en differensiallikning i Del 7."
+    },
+    {
+      "id": "in1900-5-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — sist du var her.** Du trenger tre ting: funksjonsklasse-malen fra [kap. 5.1](/bok/in1900/in1900-5-1), `if/elif/else` og `enumerate` fra [kap. 1.3](/bok/in1900/in1900-1-3), og — helt til slutt i kapitlet, som «bør kjenne til»-stoff — vektorisering fra [kap. 4.2](/bok/in1900/in1900-4-2).\n\nHer er den betingede logikken oppfrisket, i en helt vanlig funksjon:\n\n```python\ndef tariff(kwh):\n    if kwh < 1000:\n        return 0.4\n    elif kwh < 5000:\n        return 0.6\n    else:\n        return 0.9\n\nfor k in [500, 1000, 4999, 5000]:\n    print(k, tariff(k))\n```\n\n**Utskrift:**\n```\n500 0.4\n1000 0.6\n4999 0.6\n5000 0.9\n```\n\nStuder utskriften nøye, for den viser fellen du skal møte igjen om et øyeblikk: verdien 1000 gir 0.6, ikke 0.4. Grensen `kwh < 1000` er **eksklusiv** — 1000 er ikke mindre enn 1000, så første gren hoppes over.\n\nDet andre du trenger, er at `enumerate(liste)` gir deg indeks og verdi samtidig, i den rekkefølgen: `for i, verdi in enumerate(...)`."
+    },
+    {
+      "id": "in1900-5-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Funksjoner som hopper (~15 min)"
+    },
+    {
+      "id": "in1900-5-4-anker",
+      "type": "text",
+      "content": "### Problemet: pumpa som slås på\n\nEn pumpe i et vannmagasin står stille fram til tidspunktet $t = 0$, og går deretter med full kapasitet. Pådraget som funksjon av tiden er ikke en formel — det er to formler, med et hopp mellom dem:\n\n$$H(t) = \\begin{cases} 0 & t < 0 \\\\ 1 & t \\ge 0 \\end{cases}$$\n\nSlike funksjoner er overalt i naturvitenskapen: en dose gis på ett tidspunkt, en bryter slås på, en strømtariff endrer seg ved et forbrukstrinn, en kraft virker bare i et intervall.\n\nPython har ingen egen syntaks for dem. Det du har, er `if`, og det er nok — enten i en vanlig funksjon eller, når parametrene skal kunne varieres, i en `__call__`."
+    },
+    {
+      "id": "in1900-5-4-def-stykkvis",
+      "type": "definition",
+      "title": "Stykkvis definert funksjon",
+      "content": "En funksjon som er gitt ved forskjellige uttrykk på forskjellige deler av definisjonsområdet. Skrivemåten i matematikk er en klammeparentes med én linje per intervall:\n\n$$f(x) = \\begin{cases} 0 & x < 1 \\\\ 5 & 1 \\le x < 3 \\\\ 2 & x \\ge 3 \\end{cases}$$\n\nTre ting må være på plass for at definisjonen skal være entydig, og de er nøyaktig de tre du må kontrollere i koden din:\n\n1. **Hele definisjonsområdet er dekket** — det finnes ingen $x$ som faller mellom to intervaller.\n2. **Ingen $x$ hører til to intervaller** — grensene overlapper ikke.\n3. **Hver grense hører til én av sidene** — det er derfor det står $x < 3$ i den ene linjen og $x \\ge 3$ i den neste.\n\nI Python blir hver linje i klammeparentesen én gren i en `if/elif/else`, i samme rekkefølge."
+    },
+    {
+      "id": "in1900-5-4-def-heaviside",
+      "type": "definition",
+      "title": "Heaviside-funksjonen",
+      "content": "Den enkleste stykkvise funksjonen: 0 for negative argumenter og 1 fra og med null.\n\n$$H(x) = \\begin{cases} 0 & x < 0 \\\\ 1 & x \\ge 0 \\end{cases}$$\n\nDen er oppkalt etter Oliver Heaviside og brukes til å slå noe på: ganger du en formel med $H(t - t_0)$, virker formelen først fra tidspunktet $t_0$.\n\nMerk konvensjonen: verdien i null er 1, ikke 0 og ikke $1/2$. Andre fag setter $H(0) = 1/2$; i denne boka følger vi oppgavetekstens definisjon, og den sier $H(0) = 1$. Sier oppgaven noe annet, følger du oppgaven."
+    },
+    {
+      "id": "in1900-5-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Heaviside som funksjon og som klasse",
+      "problem": "Skriv Heaviside-funksjonen både som en vanlig funksjon `H(x)` og som en klasse `Heaviside` der påslagstidspunktet `t0` gis i konstruktøren og har standardverdi 0. Skriv ut verdiene rundt hoppet.",
+      "solution": "```python\ndef H(x):\n    if x < 0:\n        return 0\n    else:\n        return 1\n\nclass Heaviside:\n    def __init__(self, t0=0):\n        self.t0 = t0\n\n    def __call__(self, t):\n        if t < self.t0:\n            return 0\n        else:\n            return 1\n\npaa = Heaviside(2)\n\nfor x in [-1, -0.001, 0, 1]:\n    print(x, H(x))\nfor t in [0, 1.999, 2, 5]:\n    print(t, paa(t))\n```\n\n**Utskrift:**\n```\n-1 0\n-0.001 0\n0 1\n1 1\n0 0\n1.999 0\n2 1\n5 1\n```\n\nSammenlign de to. Den vanlige funksjonen er kortere, og du skal velge den når hoppet alltid ligger i null. Klassen er den du velger når **hoppets plassering er en parameter** — nettopp den situasjonen funksjonsklassen er laget for.\n\nSe på tallene rundt hoppet: $-0{,}001$ gir 0, mens $0$ gir 1. Det er `<`-grensen som avgjør, og det er verdt å sjekke nøyaktig dette punktet hver gang du har skrevet en stykkvis funksjon.\n\nLegg også merke til at `paa(1.999)` er 0 og `paa(2)` er 1: klassen flytter hele hoppet til `t0` uten at en eneste linje i logikken endres.\n\n**Uttelling:** oppgaven ber ofte bare om funksjonen. Ber den om klassen, er de to poengbærende linjene `self.t0 = t0` i konstruktøren og `if t < self.t0` i kallmetoden — det siste med `self.` foran, som alltid."
+    },
+    {
+      "id": "in1900-5-4-def-if-elif",
+      "type": "definition",
+      "title": "`if/elif/else` for verdivalg",
+      "content": "Mønsteret som oversetter en klammeparentes til kode. Grenene prøves **ovenfra og ned**, og den første som er sann, brukes — de andre hoppes over.\n\n```python\ndef f(x):\n    if x < 1:\n        return 0\n    elif x < 3:\n        return 5\n    else:\n        return 2\n```\n\nFordi grenene prøves i rekkefølge, trenger du ikke skrive den nedre grensen på nytt: kommer du til `elif x < 3`, vet du allerede at $x \\ge 1$. Det er derfor koden er kortere enn matematikken.\n\nRekkefølgen er dermed avgjørende. Snur du de to første grenene, får alle $x$ under 3 verdien 5, og den første grenen blir aldri brukt."
+    },
+    {
+      "id": "in1900-5-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Skriv utskriften nøyaktig, med linjeskift slik terminalen viser den.\n\n```python\ndef sats(x):\n    if x < 0:\n        return -1\n    elif x < 10:\n        return 0\n    else:\n        return 1\n\nfor x in [-0.5, 0, 9.99, 10, 100]:\n    print(x, sats(x))\n```",
+        "solution": "**Sporingstavle.**\n\n| `x` | Første sanne gren | Verdi |\n|---|---|---|\n| $-0{,}5$ | `x < 0` | $-1$ |\n| $0$ | `x < 0` er falsk, `x < 10` er sann | 0 |\n| $9{,}99$ | `x < 10` | 0 |\n| $10$ | begge falske, `else` | 1 |\n| $100$ | begge falske, `else` | 1 |\n\n**Utskrift:**\n```\n-0.5 -1\n0 0\n9.99 0\n10 1\n100 1\n```\n\nFellenoten: begge grensene er eksklusive. Verdien 0 hører til den **midterste** grenen, og 10 hører til `else`. Det er den samme av-én-tenkningen som i `range` — grensen selv er ikke med.",
+        "hints": [
+          "Gå gjennom grenene ovenfra og ned for hver x-verdi, og stopp ved den første som er sann.",
+          "Sjekk grensetilfellene 0 og 10 nøye: er `<` med eller uten likhet?",
+          "`print` med to argumenter setter ett mellomrom mellom dem."
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-4-warn-grense",
+      "type": "warning",
+      "title": "Typiske feil: `<` mot `<=` i grensen",
+      "content": "Dette er den ene feilen som virkelig koster i stykkvise funksjoner, og den viser seg bare i **ett** punkt — grensen selv. En rask test med tre tilfeldige verdier avslører den ikke.\n\nAnta at funksjonen skal være 5 på intervallet $1 \\le x < 3$. To skrivemåter ser like ut og er det ikke:\n\n```text\nif x <= 1:      # feil: x = 1 havner i FORRIGE gren\n    return 0\nelif x < 3:\n    return 5\n```\n\nMed `<=` i første gren får $x = 1$ verdien 0, mens definisjonen sier 5.\n\n**Metoden som fjerner feilen:** skriv opp de eksakte grensepunktene før du koder — her 1 og 3 — og regn ut hva funksjonen skal være i nøyaktig de punktene. Test deretter koden i de samme punktene. To linjer ekstra i hodet, og du er trygg.\n\nRegelen som holder i nesten alle oppgavetekster: **skriv grensen som `<` og la likheten høre til grenen etter.** Da samsvarer koden med den vanlige matematiske skrivemåten $a \\le x < b$."
+    },
+    {
+      "id": "in1900-5-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — `Piecewise`: én klasse for alle trapper (~20 min)"
+    },
+    {
+      "id": "in1900-5-4-tekst-piecewise",
+      "type": "text",
+      "content": "### Når antall intervaller er en parameter\n\n`if/elif/else` fungerer så lenge du kjenner intervallene når du skriver koden. Men en strømtariff kan ha fem trinn i år og syv til neste år, og da vil du ikke skrive klassen om.\n\nLøsningen er å gi funksjonsverdiene og grensene som **lister** til konstruktøren:\n\n$$f(x) = \\begin{cases} a_0 & x < b_0 \\\\ a_1 & b_0 \\le x < b_1 \\\\ \\vdots & \\\\ a_n & x \\ge b_{n-1} \\end{cases}$$\n\nMed `a = [0, 5, 2]` og `b = [1, 3]` er dette nøyaktig trappa fra i stad. Legg merke til antallene: tre verdier krever to grenser.\n\nKallmetoden løper gjennom grensene ovenfra og ned og returnerer den første verdien som passer. Faller $x$ forbi alle grensene, er svaret den siste verdien."
+    },
+    {
+      "id": "in1900-5-4-def-piecewise-init",
+      "type": "definition",
+      "title": "`Piecewise`-klassen: `__init__(self, a, b)`",
+      "content": "Konstruktøren tar to lister: `a` er funksjonsverdiene, `b` er grensene. Begge lagres som attributter, og ingenting mer skjer.\n\n```python\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n```\n\nRekkefølgen i listene er bindende: `a[i]` er verdien på intervallet som slutter ved `b[i]`, og listene skal være sortert stigende i $x$.\n\nDette er funksjonsklasse-malen helt uendret — det faste (trappa) i konstruktøren, det variable ($x$) i kallmetoden. Det nye er bare at «det faste» er to lister i stedet for to tall."
+    },
+    {
+      "id": "in1900-5-4-thm-piecewise",
+      "type": "theorem",
+      "title": "`Piecewise`-idiomet: løkka i `__call__`",
+      "content": "Dette er det kanoniske mønsteret for stykkvise funksjoner i IN1900, og det er verdt å kunne utenat — det er fire linjer:\n\n```python\ndef __call__(self, x):\n    for i, b_ in enumerate(self.b):\n        if x < b_:\n            return self.a[i]\n    return self.a[-1]\n```\n\nSlik virker det, linje for linje:\n\n1. **`enumerate(self.b)`** gir deg indeksen `i` og grensen `b_` samtidig, ovenfra og ned.\n2. **`if x < b_`** spør om $x$ ligger under denne grensen. Er svaret ja, er vi i intervall nummer `i`.\n3. **`return self.a[i]`** returnerer verdien for det intervallet — og `return` avbryter hele løkka, så ingen senere grense blir prøvd.\n4. **`return self.a[-1]`** utenfor løkka er siste intervall: kom vi hit, var $x$ større enn eller lik alle grensene.\n\nUnderstreken i `b_` er bare et navnevalg for å unngå å bruke navnet `b`, som ofte er tatt. Den har ingen egen betydning i Python.\n\nDen siste linjen er den som glemmes. Uten den returnerer metoden `None` for store $x$-verdier, og programmet krasjer først senere — når noen prøver å regne med `None`."
+    },
+    {
+      "id": "in1900-5-4-def-call-lokka",
+      "type": "definition",
+      "title": "`__call__`-løkka med `enumerate`",
+      "content": "Hjertet i `Piecewise`. Løkka går gjennom grensene i rekkefølge, og `return` inne i løkka gjør at den stopper ved den første grensen som er større enn $x$.\n\nAt `return` avbryter løkka, er det som gjør at koden svarer på samme spørsmål som `if/elif/else`: bare den første treffen gjelder.\n\nIndeksen fra `enumerate` er bindeleddet mellom de to listene: grense nummer `i` hører til verdi nummer `i`. Bytter du om og skriver `self.a[i+1]`, forskyver du hele trappa ett trinn."
+    },
+    {
+      "id": "in1900-5-4-def-siste",
+      "type": "definition",
+      "title": "`return self.a[-1]` — det siste intervallet",
+      "content": "Linjen som står **utenfor** løkka og fanger opp alle $x$ som er større enn eller lik den siste grensen.\n\nNegativ indeksering `[-1]` betyr «siste element», og det er nettopp poenget: du vet ikke hvor mange trinn trappa har, men du vet at siste verdi er den øverste.\n\nGlemmer du linjen, returnerer metoden `None` for store $x$. Symptomet er typisk `TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'` et helt annet sted i programmet, og det er en ubehagelig feil å finne. Skriv linjen med én gang, sammen med løkka."
+    },
+    {
+      "id": "in1900-5-4-def-antall",
+      "type": "definition",
+      "title": "Antallsregelen: `len(a) == len(b) + 1`",
+      "content": "Sammenhengen mellom listene: $n$ grenser deler tallinja i $n+1$ intervaller, så det skal alltid være **én funksjonsverdi mer enn antall grenser**.\n\n`a = [0, 5, 2]` og `b = [1, 3]`: tre verdier, to grenser. Det stemmer.\n\nDette er samme av-én-tenkning som i `range` og `np.linspace` (feil #1 i bokas feilkatalog — av-én i antall punkter). Har du like mange verdier som grenser, mangler du enten et intervall eller en grense, og feilen viser seg som `IndexError` eller som en verdi som aldri blir brukt.\n\nEn rask kontroll før du kjører: tell elementene i de to listene, og se at differansen er 1."
+    },
+    {
+      "id": "in1900-5-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: `Piecewise` brukt på en strømtariff",
+      "problem": "Skriv den generelle klassen `Piecewise` med funksjonsverdier og grenser som lister, og bruk den på en tariff der prisen er 0,40 kr/kWh under 1000 kWh, 0,60 kr/kWh fra 1000 til under 5000, og 0,90 kr/kWh fra 5000 og opp.",
+      "solution": "```python\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\ntariff = Piecewise([0.4, 0.6, 0.9], [1000, 5000])\n\nfor k in [0, 999, 1000, 4999, 5000, 20000]:\n    print(k, tariff(k))\n```\n\n**Utskrift:**\n```\n0 0.4\n999 0.4\n1000 0.6\n4999 0.6\n5000 0.9\n20000 0.9\n```\n\nUtskriften er hele kvitteringen på at koden er riktig, og den er verdt å lese grense for grense:\n\n- `999` gir 0.4, `1000` gir 0.6 — grensen hører til intervallet **over**, som i definisjonen.\n- `4999` gir 0.6, `5000` gir 0.9 — samme mønster ved neste grense.\n- `20000` gir 0.9, og den verdien kommer fra `return self.a[-1]` utenfor løkka.\n\nKlassen inneholder ikke ett tall om strøm. Den er ren struktur, og det er derfor samme fire linjer kan brukes på en tariff, en trappefunksjon eller et pådrag som slås av og på.\n\n**Uttelling:** løkka med `enumerate` og `return self.a[i]` er hovedpoenget; `return self.a[-1]` utenfor løkka er det som skiller en komplett besvarelse fra en som virker «nesten alltid». Skriver du i stedet en `if/elif/else` med faste grenser, får du delvis uttelling — men oppgaven ba om den generelle klassen."
+    },
+    {
+      "id": "in1900-5-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Klassen `Piecewise` er som i eksempel 2. Hva skriver programmet ut?\n\n```python\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\nf = Piecewise([10, 20, 30, 40], [0, 5, 10])\nprint(f(-3))\nprint(f(0))\nprint(f(5))\nprint(f(9.5))\nprint(f(10))\n```",
+        "solution": "**Sporingstavle.** Grensene er `b = [0, 5, 10]` og verdiene `a = [10, 20, 30, 40]`.\n\n| `x` | Første grense med `x < b_` | `i` | Verdi |\n|---|---|---|---|\n| $-3$ | $-3 < 0$ | 0 | 10 |\n| $0$ | ingen av $0 < 0$, $0 < 5$? Jo: $0 < 5$ | 1 | 20 |\n| $5$ | $5 < 10$ | 2 | 30 |\n| $9{,}5$ | $9{,}5 < 10$ | 2 | 30 |\n| $10$ | ingen grense passer | — | `a[-1]` = 40 |\n\n**Utskrift:**\n```\n10\n20\n30\n30\n40\n```\n\nFellenoten: to steder er verdt å stoppe ved. `f(0)` hopper over den første grensen, fordi $0 < 0$ er falsk — grensen selv hører alltid til intervallet over. Og `f(10)` treffer ingen grense i det hele tatt, og fanges av `return self.a[-1]` utenfor løkka. Uten den linjen ville svaret vært `None`.",
+        "hints": [
+          "Skriv opp de to listene ved siden av hverandre, og pass på at det er én verdi mer enn grenser.",
+          "For hver x-verdi: gå gjennom grensene ovenfra og stopp ved den første som er større enn x.",
+          "Hva skjer når ingen av grensene er større enn x?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G.) En trappefunksjon er 0 for $x < 1$, 5 for $1 \\le x < 3$ og 2 for $x \\ge 3$.\n\n**a)** Skriv en klasse `Trapp` der funksjonsverdiene og grensene gis som to lister i konstruktøren, og der kallet returnerer riktig verdi.\n\n**b)** Lag instansen som svarer til trappa over, og skriv ut verdien i $x = 0$, $x = 1$, $x = 2{,}9$, $x = 3$ og $x = 7$.\n\n**c)** Hvor mange grenser trenger en trapp med fem verdier? Begrunn med én setning.",
+        "solution": "**a) og b):**\n\n```python\nclass Trapp:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\nf = Trapp([0, 5, 2], [1, 3])\n\nfor x in [0, 1, 2.9, 3, 7]:\n    print(x, f(x))\n```\n\n**Utskrift:**\n```\n0 0\n1 5\n2.9 5\n3 2\n7 2\n```\n\n**c)** Fire grenser. $n$ grenser deler tallinja i $n+1$ intervaller, så fem verdier krever fire grenser — samme av-én-sammenheng som mellom antall intervaller og antall punkter i [kap. 1.3](/bok/in1900/in1900-1-3).\n\n**Uttelling:** (i) de to listene lagret som attributter, (ii) løkka med `enumerate` og `return` inne i løkka, (iii) `return self.a[-1]` utenfor. Testverdiene i b) er valgt rundt grensene med vilje — det er der en feil viser seg, og det er en god vane å teste nettopp der også når oppgaven ikke ber om det.",
+        "hints": [
+          "Konstruktøren skal bare lagre de to listene — ingen regning der.",
+          "Løkka går over grensene, og `return` inne i løkka avbryter den.",
+          "Husk linjen som fanger opp alle x større enn siste grense."
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Diskontinuitet, og et vektorisert alternativ (~10 min)"
+    },
+    {
+      "id": "in1900-5-4-def-diskontinuitet",
+      "type": "definition",
+      "title": "Diskontinuitet",
+      "content": "Et punkt der funksjonen hopper: verdien rett før grensen og verdien i grensen er forskjellige, uansett hvor nær du kommer.\n\nTrappa vår hopper i $x = 1$ og i $x = 3$. Mellom hoppene er den konstant, og der er den helt ufarlig.\n\nDiskontinuiteter har to praktiske konsekvenser du bør kjenne:\n\n- **Numerisk derivasjon virker ikke i hoppet.** Formelen $(f(x+h)-f(x-h))/(2h)$ gir en enorm verdi som vokser når $h$ krymper, fordi teller er konstant og nevner går mot null.\n- **Plott ser rare ut.** Plotter du en stykkvis funksjon med for få punkter, tegner `plot` en skrå strek gjennom hoppet, som om funksjonen var kontinuerlig. Det er en tegneartefakt, ikke funksjonen."
+    },
+    {
+      "id": "in1900-5-4-def-npwhere",
+      "type": "definition",
+      "title": "`np.where(betingelse, x, y)` (bør kjenne til)",
+      "content": "Det vektoriserte alternativet: velger elementvis mellom to verdier ut fra en betingelse, og returnerer et helt array.\n\n```python\nimport numpy as np\nt = np.linspace(-1, 1, 5)\nprint(np.where(t < 0, 0, 1))\n```\n\n**Utskrift:**\n```\n[0 0 1 1 1]\n```\n\nDette er samme jobb som Heaviside gjør, men på alle punktene på én gang — nyttig når du skal plotte.\n\n**Dette er «bør kjenne til»-stoff (nivå 3).** Klassevarianten med `if` er den som spørres om på eksamen, og den er også den du skal skrive. Grunnen til at `np.where` nevnes, er at en `if`-basert funksjon **ikke** virker på et array: du får `ValueError: The truth value of an array with more than one element is ambiguous`. Kjenner du den feilmeldingen igjen, vet du hva som skjedde."
+    },
+    {
+      "id": "in1900-5-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Stykkvis pådrag inne i en annen klasse (eksamensnivå)",
+      "problem": "I en dyrkningsforsøk tilføres et næringsstoff med rate 0 før $t = 2$, rate 10 fra $t = 2$ til $t = 8$, og rate 4 etter det. Stoffet brytes samtidig ned med en avtakende faktor $e^{-t/T}$. Skriv en klasse som kombinerer det stykkvise pådraget med nedbrytningen, og bruk `Piecewise` som en del av den.",
+      "solution": "```python\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\nfrom math import exp\n\nclass Dosert:\n    def __init__(self, doser, tider, halveringstid):\n        self.paadrag = Piecewise(doser, tider)\n        self.halveringstid = halveringstid\n\n    def __call__(self, t):\n        return self.paadrag(t)*exp(-t/self.halveringstid)\n\nd = Dosert([0, 10, 4], [2, 8], 6)\n\nfor t in [0, 2, 5, 8, 12]:\n    print(f'{t:3d} {d(t):8.3f}')\n```\n\n**Utskrift:**\n```\n  0    0.000\n  2    7.165\n  5    4.346\n  8    1.054\n 12    0.541\n```\n\nSe hva som skjer i konstruktøren: `self.paadrag` er en **instans av `Piecewise`**. Et attributt kan være et objekt, og det objektet er kallbart — så `self.paadrag(t)` inne i `__call__` er et helt vanlig funksjonskall.\n\nDette er mønsteret du får bruk for i Del 7: en stykkvis kildefunksjon som del av høyresiden i en differensiallikning. Da er det nettopp `self.paadrag(t)` som står i formelen.\n\nUtskriften viser hoppet: ved $t = 2$ slås pådraget på, og verdien går fra 0 til noe positivt. Innenfor hvert intervall avtar verdien jevnt, fordi nedbrytningsfaktoren er kontinuerlig.\n\n**Uttelling:** at pådraget gjenbrukes som en `Piecewise`-instans i stedet for å kopieres inn som `if`-er, er det sensor legger merke til. Skriver du i stedet `if/elif` direkte inne i `__call__`, er svaret riktig og uttellingen litt lavere — det viser mindre struktur."
+    },
+    {
+      "id": "in1900-5-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G.) En kraft virker på en gjenstand bare i et tidsvindu: den er 0 før $t = t_1$, konstant $F_0$ mellom $t_1$ og $t_2$, og 0 etter $t_2$.\n\n**a)** Skriv en klasse `Pulskraft` der $F_0$, $t_1$ og $t_2$ gis i konstruktøren, og der kallet gir kraften ved tiden `t`. Bruk `if/elif/else`.\n\n**b)** Skriv den samme funksjonen på nytt, men nå ved å bruke den generelle `Piecewise`-klassen inne i din egen klasse. Hvilke to lister trenger du?\n\n**c)** Skriv ut kraften ved $t = 0, 1, 2, 5, 6, 9$ for $F_0 = 3$, $t_1 = 1$ og $t_2 = 6$, med begge variantene, og kontroller at de gir samme svar.",
+        "solution": "```python\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\nclass Pulskraft:\n    def __init__(self, F0, t1, t2):\n        self.F0 = F0\n        self.t1 = t1\n        self.t2 = t2\n\n    def __call__(self, t):\n        if t < self.t1:\n            return 0\n        elif t < self.t2:\n            return self.F0\n        else:\n            return 0\n\nclass PulskraftB:\n    def __init__(self, F0, t1, t2):\n        self.f = Piecewise([0, F0, 0], [t1, t2])\n\n    def __call__(self, t):\n        return self.f(t)\n\na = Pulskraft(3, 1, 6)\nb = PulskraftB(3, 1, 6)\n\nfor t in [0, 1, 2, 5, 6, 9]:\n    print(t, a(t), b(t))\n```\n\n**Utskrift:**\n```\n0 0 0\n1 3 3\n2 3 3\n5 3 3\n6 0 0\n9 0 0\n```\n\n**b) Hvilke lister?** Verdiene er `[0, F0, 0]` og grensene `[t1, t2]` — tre verdier og to grenser, som antallsregelen krever.\n\nLegg merke til at de to variantene gir helt identiske tall. Det er den beste kontrollen du kan gjøre på en stykkvis funksjon: implementer den to ganger og sammenlign i grensepunktene.\n\n**Uttelling steg for steg:** (i) tre attributter i konstruktøren, (ii) riktige grenser i `if/elif/else` — med `<` slik at grensen hører til intervallet over, (iii) riktige lister til `Piecewise` i b). Punkt (ii) er der de fleste feilene sitter: sjekk hva koden gir i nøyaktig $t = 1$ og $t = 6$ før du går videre.\n\nMerk hva som skjer i $t = 6$: kraften er 0, fordi vinduet er $t_1 \\le t < t_2$. Ville oppgaven hatt kraften på også i $t = 6$, måtte grensen vært `t <= t2` — og da er det verdt en kommentar i besvarelsen om at du har tolket teksten slik.",
+        "hints": [
+          "Tre parametre gir tre linjer i konstruktøren.",
+          "I `if/elif/else`: hvilke to grenser trenger du, og hvilken side skal likheten høre til?",
+          "I b) skal `Piecewise`-instansen lagres som et attributt, og kalles inne i din egen kallmetode."
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger O — «finn feilen i programmet».) Klassen under skal være den generelle stykkvise funksjonen, men den har tre feil. Finn dem, si hva hver av dem gjør, og skriv klassen riktig.\n\n```text\nclass Piecewise:\n    def __init__(self, a, b):\n        a = a\n        b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x <= b_:\n                return self.a[i+1]\n```\n\nBruk gjerne testen `f = Piecewise([0, 5, 2], [1, 3])` og verdiene $x = 0, 1, 3, 7$ når du forklarer.",
+        "solution": "De tre feilene:\n\n1. **`a = a` og `b = b` lagrer ingenting.** Uten `self.` blir det lokale variabler som forsvinner når konstruktøren er ferdig. Første kall gir `AttributeError: 'Piecewise' object has no attribute 'b'`. Riktig er `self.a = a` og `self.b = b`.\n2. **`if x <= b_` har likheten på feil side.** Med `<=` havner grensen selv i intervallet **under**, så $x = 1$ gir verdien for det første intervallet i stedet for det andre. Riktig er `if x < b_`.\n3. **`return self.a[i+1]` forskyver trappa, og siste retur mangler.** Indeksen skal være `i`, ikke `i+1` — grense nummer `i` hører til verdi nummer `i`. Og linjen `return self.a[-1]` utenfor løkka mangler helt, så $x = 7$ gir `None`.\n\nRiktig versjon, med testen kjørt:\n\n```python\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\nf = Piecewise([0, 5, 2], [1, 3])\n\nfor x in [0, 1, 3, 7]:\n    print(x, f(x))\n```\n\n**Utskrift:**\n```\n0 0\n1 5\n3 2\n7 2\n```\n\n**Uttelling:** oppgavetypen gir vanligvis ett poeng per identifisert feil pluss uttelling for en riktig omskrevet versjon. Legg merke til at feil 2 og 3 ikke gir noen feilmelding i det hele tatt — de gir bare gale tall, og de finner du bare ved å teste i grensepunktene. Det er derfor `x = 1` og `x = 3` står i oppgaveteksten.",
+        "hints": [
+          "Se først på konstruktøren: blir noe faktisk lagret i instansen?",
+          "Test sammenligningen i nøyaktig grensepunktet — hvilken side skal likheten høre til?",
+          "Hva skjer med en x-verdi som er større enn alle grensene?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-5-4-api",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-5-4-api-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `if x < b:` / `elif` / `else` | Grenene prøves OVENFRA og ned; første sanne gren brukes, resten hoppes over. Rekkefølgen er derfor bindende. |\n| `x < b` mot `x <= b` | `<` lar grensen høre til intervallet OVER (som i $a \\le x < b$); `<=` lar den høre til intervallet UNDER. |\n| `return` inne i en løkke | Avbryter både løkka og metoden med én gang. Det er dette som gir «første treff gjelder». |\n| `enumerate(self.b)` | Gir `(indeks, grense)` i den rekkefølgen. Indeksen kobler grense `i` til verdi `i`. |\n| `self.a[i]` | Verdien for intervallet som slutter ved grense nummer `i`. IKKE `i+1`. |\n| `return self.a[-1]` | Utenfor løkka: siste intervall. Mangler den, returneres `None` for store `x`. |\n| `len(a) == len(b) + 1` | Antallsregelen: $n$ grenser gir $n+1$ intervaller. |\n| `Piecewise(a, b)` | Funksjonsverdier `a` og grenser `b` som lister, sortert stigende. Instansen er kallbar. |\n| Heaviside `H(x)` | 0 for `x < 0`, 1 for `x >= 0`. Ganget med en formel slår den formelen på. |\n| `self.paadrag = Piecewise(...)` | Et attributt kan være et kallbart objekt, og kalles med `self.paadrag(t)`. |\n| `np.where(t < 0, 0, 1)` | Vektorisert valg, elementvis, returnerer et array. «Bør kjenne til»-stoff. |\n| `ValueError: The truth value of an array ... is ambiguous` | Kommer av `if` på et helt array. Bruk `np.where` (eller kall funksjonen ett punkt av gangen). |\n\n**Formler i dette delkapitlet:**\n\nHeaviside-funksjonen:\n\n$$H(x) = \\begin{cases} 0 & x < 0 \\\\ 1 & x \\ge 0 \\end{cases}$$\n\nDen generelle stykkvise funksjonen med $n$ grenser:\n\n$$f(x) = \\begin{cases} a_0 & x < b_0 \\\\ a_1 & b_0 \\le x < b_1 \\\\ \\vdots & \\\\ a_n & x \\ge b_{n-1} \\end{cases}$$\n\nStykkvist pådrag ganget med nedbrytning, som i eksempel 3:\n\n$$c(t) = p(t)\\,e^{-t/T}$$"
+        }
+      ]
+    },
+    {
+      "id": "in1900-5-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-5-4-def-trappefunksjon",
+      "type": "definition",
+      "title": "Trappefunksjon",
+      "content": "En stykkvis funksjon som er **konstant** på hvert intervall. Grafen ser ut som en trapp: vannrette trinn med loddrette hopp mellom.\n\nStrømtariffen, pulskraften og Heaviside er alle trappefunksjoner. Det er den typen `Piecewise` er laget for: klassen lagrer én verdi per intervall, ikke ett uttrykk per intervall.\n\nSkal hvert intervall ha sin egen **formel** og ikke bare sin egen verdi, må du bruke `if/elif/else` med uttrykk i hver gren — eller lagre funksjoner i lista `a` og kalle `self.a[i](x)`. Det siste er elegant, men oppgavene ber sjelden om det."
+    },
+    {
+      "id": "in1900-5-4-def-enumerate",
+      "type": "definition",
+      "title": "`enumerate(liste)`",
+      "content": "Gir deg indeks og verdi samtidig, i den rekkefølgen: `for i, verdi in enumerate(liste)`.\n\nRekkefølgen er verdt å dobbeltsjekke, for den er en fast eksamensfelle (#17 i bokas feilkatalog): det er `(indeks, verdi)`, ikke `(verdi, indeks)`.\n\nI `Piecewise` er `enumerate` det som binder de to listene sammen. Uten indeksen måtte du telle selv med en teller før løkka, og det er nettopp den typen ekstra kode sensor ikke vil se."
+    },
+    {
+      "id": "in1900-5-4-def-none",
+      "type": "definition",
+      "title": "Metoden som glemmer å returnere",
+      "content": "En Python-funksjon som når slutten uten å møte en `return`, returnerer `None`. Det er ingen feil der og da — feilen kommer senere, når `None` brukes i et regnestykke.\n\nI stykkvise funksjoner er dette den vanligste stille feilen: `return self.a[-1]` utenfor løkka mangler, og alt virker helt til noen kaller funksjonen med en stor $x$-verdi.\n\nSymptomet er en `TypeError` som nevner `'NoneType'`. Ser du den, er spørsmålet alltid: hvilken gren i funksjonen min mangler en `return`?"
+    },
+    {
+      "id": "in1900-5-4-def-grensetest",
+      "type": "definition",
+      "title": "Grensetesting",
+      "content": "Vanen som fjerner nesten alle feil i stykkvise funksjoner: test i **nøyaktig grensepunktet**, og i punktet rett under.\n\nFor trappa med grense 3 betyr det å regne ut $f(2{,}999)$ og $f(3)$. Er begge som definisjonen sier, er den grensen riktig.\n\nTre tilfeldige testverdier avslører ikke en `<`-mot-`<=`-feil, fordi den bare gir gale svar i ett enkelt punkt. Grensetesting koster to sekunder og er den beste egensjekken i dette kapitlet — også på eksamen, der du regner den i hodet."
+    },
+    {
+      "id": "in1900-5-4-def-if-paa-array",
+      "type": "definition",
+      "title": "Hvorfor `if` ikke virker på et array",
+      "content": "En `if`-setning krever ett sant/falskt svar. Gir du den et array med flere elementer, vet Python ikke om «arrayet er sant», og sier fra:\n\n```\nValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()\n```\n\nDet betyr at en stykkvis funksjon skrevet med `if` må kalles **ett punkt av gangen**, typisk i en løkke over punktene.\n\nVil du ha svaret for alle punktene på én gang — for eksempel til et plott — er `np.where` verktøyet. Det er «bør kjenne til»-stoff; eksamen spør etter `if`-varianten."
+    },
+    {
+      "id": "in1900-5-4-def-attributt-objekt",
+      "type": "definition",
+      "title": "Et attributt kan være et kallbart objekt",
+      "content": "`self.paadrag = Piecewise(a, b)` lagrer en hel instans i et attributt. Siden `Piecewise` har en `__call__`, kan du senere skrive `self.paadrag(t)` som et vanlig funksjonskall.\n\nDette er samme idé som `Diff` i [kap. 5.1](/bok/in1900/in1900-5-1), der attributtet var en funksjon. Forskjellen er bare at objektet her er en instans av en av dine egne klasser.\n\nMønsteret er verdt å kjenne, for det er slik en stykkvis kildefunksjon settes inn i høyresiden av en differensiallikning i Del 7 — uten at ODE-koden trenger å vite noe om intervaller."
+    },
+    {
+      "id": "in1900-5-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjon — fem spørsmål før du går videre",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-5-4-rep-tekst",
+          "type": "text",
+          "content": "1. Hvilken verdi har trappa $\\{0 \\text{ for } x<1,\\ 5 \\text{ for } 1\\le x<3,\\ 2 \\text{ for } x\\ge 3\\}$ i punktet $x = 1$, og hvilken sammenligning i koden sikrer det?\n2. Hvor mange grenser trenger du til fem funksjonsverdier?\n3. Hva gjør `return` inne i løkka i `__call__`?\n4. Hva returnerer `Piecewise` for en $x$ større enn alle grensene — og hva skjer hvis linjen mangler?\n5. Hvorfor krasjer en `if`-basert stykkvis funksjon når du sender inn et helt array?\n\n**Sjekkliste før du går videre:**\n\n☐ Er det én funksjonsverdi mer enn antall grenser?\n\n☐ Står sammenligningen som `x < b_`, slik at grensen hører til intervallet over?\n\n☐ Er indeksen `self.a[i]` og ikke `self.a[i+1]`?\n\n☐ Står `return self.a[-1]` utenfor løkka?\n\n☐ Har du regnet ut funksjonsverdien i nøyaktig grensepunktene?\n\nNeste kapittel er [kap. 5.5](/bok/in1900/in1900-5-5) — den store drillen på hele klassesjangeren."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
