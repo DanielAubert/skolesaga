@@ -2288,8 +2288,9 @@ def f1_del3(out):
     b += txt(S.px(36.0), S.py(516.0), 'ny linje: helning −2', RED, 11.5, False)
     b += txt(S.px(150.0), S.py(414.0), 'gammel linje: helning −1,5', GREY, 11, False)
     b += txt(S.px(222.0), S.py(122.0), 'rotasjon om W', ORG, 11, False)
-    b += f1_legend(S, 14.0, 250.0, ['den nye linja ligger over den gamle',
-                                    'til venstre for W, og under den til høyre'], 10.5, GREY)
+    b += f1_legend(S, 12.0, 250.0, ['ny linje over den gamle',
+                                    'til venstre for W —',
+                                    'under den til høyre'], 10.5, GREY)
     save('econ2220-3-1-rotasjon', b, out)
     n += 1
 
@@ -2665,8 +2666,9 @@ def f1_del3(out):
     b += f1_pt(S, A, 'A', -22, -11, True, None, '400')
     b += f1_pt(S, C, 'C', -24, 18, True, None, '300')
     b += f1_rotarrow(S, Wf, 26, 155, 250)
-    b += txt(S.px(96.0), S.py(622.0), 'selgerens side —', ORG, 10.5, False)
-    b += txt(S.px(96.0), S.py(586.0), 'ny linje ligger under', ORG, 10.5, False)
+    b += f1_legend(S, 26.0, 122.0,
+                   ['selgerens side (skyggelagt):',
+                    'her ligger den nye linja under den gamle'], 10.5, ORG)
     b += txt(S.px(330.0), S.py(824.0), 'gammel linje: helning −1,2', GREY, 11, False)
     b += txt(S.px(534.0), S.py(58.0), 'ny linje: helning −0,8', RED, 11, False)
     b += txt(S.px(330.0), S.py(776.0), 'C på lavere kurve enn A: hun taper', GREY, 10, False)
