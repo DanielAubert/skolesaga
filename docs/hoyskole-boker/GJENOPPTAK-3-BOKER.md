@@ -20,10 +20,11 @@ Alle tre branchene er **pushet til GitHub** (`bok/fys1001`, `bok/econ2310`,
 samme del (ellers redigerer to agenter samme fil), og verifikasjon må være
 ferdig før sluttporten.
 
-**Sluttporten per bok (ikke startet for noen):**
-1. `npx tsx scripts/upload-media-storage.ts` fra HOVEDTREET (worktreene mangler
-   `.env.local`, og Turbopack avviser deres `node_modules`-symlink). NB: bare 19
-   av fys1001s 95 SVG-er er i Storage — resten gir 404 til dette er kjørt.
+**Sluttporten per bok (gjennomført for fys1001 — bruk den som mal):**
+1. Last opp figurene: `python3 scripts/hoyskolebok/last-opp-figurer.py <arbeidstre> <emne>`
+   (målrettet variant som bare tar `public/images/textbook/<emne>/` i stedet for å
+   skanne hele `public/` på 2,4 GB — og som verifiserer HTTP 200 + `image/svg+xml`
+   på hver fil etterpå). Kjøres fra hovedtreet, som har `.env.local`.
 2. `npx tsc --noEmit` + `npm run build` fra hovedtreet (merge bokbranchen inn i
    et landingsbranch der først).
 3. Prod-curl `PORT=3063 npm run start` → 200 + innholdssjekk på bokforside,
