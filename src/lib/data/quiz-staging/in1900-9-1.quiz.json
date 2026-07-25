@@ -30,14 +30,14 @@
     "explanation": "`tall[-2]` er nest siste element (25), og `tall[1:4]` er utsnittet fra indeks 1 til og med 3, altså `[9, 16, 25]` — slutten er eksklusiv. Svaret `36 …` leser `-2` som siste element, `… [9, 16, 25, 36]` tar med indeks 4, og `16 [4, 9, 16]` teller indeksene fra 1 i stedet for fra 0."
   },
   {
-    "question": "Hva skriver programmet ut?\n\n```python\nstasjon = ['nord', 'sor', 'ost', 'vest']\nnedbor = [4, 9, 2]\ns = 0\nfor navn, mm in zip(stasjon, nedbor):\n    s += mm\nprint(len(stasjon), s)\n```",
+    "question": "Hva skriver programmet ut?\n\n```python\nrute = ['R1', 'R2', 'R3', 'R4']\nfunn = [4, 9, 2]\ns = 0\nfor navn, antall in zip(rute, funn):\n    s += antall\nprint(len(rute), s)\n```",
     "options": [
       "4 15",
       "3 15",
       "4 20",
       "3 20"
     ],
-    "explanation": "`zip` stopper ved den korteste sekvensen, så løkka går tre runder og summen blir 4 + 9 + 2 = 15 — men `len(stasjon)` spør om lista og er fortsatt 4. Svaret `3 15` forveksler listelengden med antall iterasjoner, og de to med 20 later som `zip` fyller ut en fjerde måling."
+    "explanation": "`zip` stopper ved den korteste sekvensen, så løkka går tre runder og summen blir 4 + 9 + 2 = 15 — men `len(rute)` spør om lista og er fortsatt 4. Svaret `3 15` forveksler listelengden med antall iterasjoner, og de to med 20 later som `zip` fyller ut en fjerde rute."
   },
   {
     "question": "Hva skriver programmet ut?\n\n```python\nmasse = 80.0\nhalveringer = 0\nwhile masse > 5:\n    masse = masse / 2\n    halveringer += 1\nprint(masse, halveringer)\n```",
@@ -60,14 +60,14 @@
     "explanation": "`x[0]` er 2, så vi er i raden `[89, 144, 233]`, og `x[-1]` er 3, så utsnittet `[3:]` starter etter siste element og blir tomt. Et utsnitt utenfor kanten gir tom liste, ikke feil — derfor er `IndexError` galt, mens `y[2][3]` (indeksering) faktisk ville gitt `IndexError`. `[233]` og `89` er svarene hvis du leser uttrykket som indeksering av ett element."
   },
   {
-    "question": "Hva skriver programmet ut?\n\n```python\nprint(-7 // 2, 2 ** 3 ** 2, 9 / 3)\n```",
+    "question": "Hva skriver programmet ut?\n\n```python\nprint(-11 // 4, 2 ** 2 ** 3, 8 / 4)\n```",
     "options": [
-      "-4 512 3.0",
-      "-3 512 3.0",
-      "-4 64 3",
-      "-3 64 3.0"
+      "-3 256 2.0",
+      "-2 256 2.0",
+      "-3 64 2",
+      "-2 64 2.0"
     ],
-    "explanation": "`//` runder nedover, så $-3.5$ blir −4; `**` er høyre-assosiativ, så uttrykket er $2^{9} = 512$; og `/` gir alltid flyttall, altså `3.0`. Svarene med −3 runder mot null i stedet for nedover, 64 regner $8^2$, og `3` glemmer at heltallsdivisjon krever `//`."
+    "explanation": "`//` runder nedover, så $-2.75$ blir −3; `**` er høyre-assosiativ, så uttrykket er $2^{8} = 256$; og `/` gir alltid flyttall, altså `2.0`. Svarene med −2 runder mot null slik `int` gjør, 64 regner $(2^2)^3$ fra venstre, og `2` glemmer at `/` aldri gir heltall."
   },
   {
     "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nmaling = [2, 3]\nvektor = np.array([2, 3])\nprint(maling + maling, vektor + vektor)\n```",
@@ -100,27 +100,27 @@
     "explanation": "`sys.argv[0]` er filnavnet, så `i` blir 2 og `faktor` 1.5. Siste linje regner `maling[2] / (1.5 * maling[1])`, og `maling[1]` er 0.0 — nevneren blir null. `IndexError` ville kommet av et manglende argument eller en indeks utenfor lista, og `ValueError` av `int('to')`; ingen av dem inntreffer her."
   },
   {
-    "question": "Programmet skriver to linjer. Hvilket alternativ har begge riktig?\n\n```python\nmaling = {'nord': {'temp': 4, 'vind': 7}, 'sor': {'temp': 9}}\nmaling['sor']['vind'] = 3\nprint(len(maling), maling['nord']['vind'] + maling['sor']['vind'])\nprint('vind' in maling, 'nord' in maling)\n```",
+    "question": "Programmet skriver to linjer. Hvilket alternativ har begge riktig?\n\n```python\ncelle = {'A1': {'spenning': 4, 'strom': 7}, 'B2': {'spenning': 9}}\ncelle['B2']['strom'] = 3\nprint(len(celle), celle['A1']['strom'] + celle['B2']['strom'])\nprint('strom' in celle, 'A1' in celle)\n```",
     "options": [
       "2 10 og False True",
       "2 10 og True True",
       "2 12 og False True",
       "3 10 og False True"
     ],
-    "explanation": "Innsettingen legger `vind` til i den indre dictionaryen, så den ytre har fortsatt to nøkler og summen er 7 + 3 = 10. `in` på en dictionary spør bare om de ytre nøklene, derfor er `'vind' in maling` usann. `3 10` teller den indre nøkkelen som en ytre, `2 12` summerer feil nøkler, og `True True` tror `in` søker gjennom hele strukturen."
+    "explanation": "Innsettingen legger `strom` til i den indre dictionaryen, så den ytre har fortsatt to nøkler og summen er 7 + 3 = 10. `in` på en dictionary spør bare om de ytre nøklene, derfor er `'strom' in celle` usann. `3 10` teller den indre nøkkelen som en ytre, `2 12` summerer feil nøkler, og `True True` tror `in` søker gjennom hele strukturen."
   },
   {
-    "question": "Filen `nedbor.txt` inneholder linjene `stasjon;mm`, `nord;4.5`, `sor;10.0` og `ost;2.5`. Hva skriver programmet ut?\n\n```python\nsum_mm = 0\nwith open('nedbor.txt') as infile:\n    infile.readline()\n    for linje in infile:\n        felt = linje.split(';')\n        sum_mm += float(felt[1])\nprint(sum_mm)\n```",
+    "question": "Filen `rystelser.txt` inneholder linjene `dato;styrke`, `2026-03-02;2.4`, `2026-03-05;3.1` og `2026-03-11;1.7`. Hva skriver programmet ut?\n\n```python\nsum_styrke = 0\nwith open('rystelser.txt') as infile:\n    infile.readline()\n    for linje in infile:\n        felt = linje.split(';')\n        sum_styrke += float(felt[1])\nprint(sum_styrke)\n```",
     "options": [
-      "17.0",
-      "12.5",
-      "17",
+      "7.2",
+      "4.8",
+      "7",
       "programmet stopper med ValueError"
     ],
-    "explanation": "`infile.readline()` kaster overskriftslinja, og løkka summerer 4.5 + 10.0 + 2.5 = 17.0 — flyttall, fordi `float` brukes. `ValueError` er det som ville skjedd UTEN `readline()`-linja, `12.5` er svaret hvis du tror to linjer hoppes over, og `17` skriver summen som heltall."
+    "explanation": "`infile.readline()` kaster overskriftslinja, og løkka summerer 2.4 + 3.1 + 1.7 = 7.2 — flyttall, fordi `float` brukes. `ValueError` er det som ville skjedd UTEN `readline()`-linja, `4.8` er svaret hvis du tror to linjer hoppes over, og `7` skriver summen som heltall."
   },
   {
-    "question": "Hva skriver programmet ut?\n\n```python\nlinje = 'Tryvann; 12.5 ;3\\n'\nfelt = linje.split(';')\nprint(len(felt), repr(felt[-1]))\n```",
+    "question": "Hva skriver programmet ut?\n\n```python\nlinje = 'prove-7; 12.5 ;3\\n'\nfelt = linje.split(';')\nprint(len(felt), repr(felt[-1]))\n```",
     "options": [
       "`3` og `'3\\n'`",
       "`3` og `'3'`",
