@@ -14,8 +14,15 @@ og gjennom hele sluttporten der: `npx tsc --noEmit` rent, `npm run build` exit 0
 BOKPORT + LATEX-PORT + FIGURPORT OK for hver bok, og prod-curl 200 med reelt
 innhold på bokforside, kapitler, quiz, flashcards, eksamen og kildegrunnlag.
 
-**Landing:** kjeden ligger på `land/econ2220` (pushet til GitHub). Merges til `main`
-til slutt — se «Landingsoppskrift» under.
+**Landing:** ✅ **LANDET PÅ MAIN OG LIVE I PRODUKSJON 25. juli 2026** (main `452297a6`,
+rein fast-forward fra `b8a537f2`). Verifisert på www.skolesaga.no etter Vercel-deploy:
+alle tre bokforsider 200 med riktig tittel, fire kapittelruter + quiz + flashcards
+200 uten LaTeX-feil, og figurene svarer 200 `image/svg+xml` fra Storage.
+
+**Felle ved prod-verifisering:** `/bok/<emne>` svarer **200 også når boka ikke finnes**
+— siden rendrer «Kurs ikke funnet» med statuskode 200. En polling på HTTP-status
+sier derfor «klar» med én gang. Sjekk alltid på INNHOLD (`grep` etter boktittelen),
+ikke på statuskoden. Deployen tok ~5 minutter fra push.
 
 ## Landingsoppskrift (bruk `los-wiring-konflikt.py`)
 
