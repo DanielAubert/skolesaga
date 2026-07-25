@@ -1,6 +1,6 @@
 # Eksamensanalyse: JUS1111 Privatrett I (UiO)
 
-> Grunnlag: 30 eksamensgjennomføringer 2011–2025 (inkl. utsatt prøve V2020) og 32 sensorveiledninger fra UiOs eksamensarkiv. **Alt innhold er omskrevet med egne ord** — ingen ordrette gjengivelser av oppgavetekster eller sensorveiledninger. Formålet er å kalibrere en eksamensrettet lærebok (typetilfelle-trening + metodelære) mot nøyaktig denne eksamenen.
+> Grunnlag: 30 eksamensgjennomføringer 2011–2025 (inkl. utsatt prøve V2020) og 21 sensorveiledninger fra UiOs eksamensarkiv (kontrollert mot arkivet 25. juli 2026; det tidligere tallet 32 var for høyt). **Alt innhold er omskrevet med egne ord** — ingen ordrette gjengivelser av oppgavetekster eller sensorveiledninger. Formålet er å kalibrere en eksamensrettet lærebok (typetilfelle-trening + metodelære) mot nøyaktig denne eksamenen.
 >
 > JUS1111 dekker fire søyler: **avtalerett** (inngåelse, tolkning, ugyldighet berøres lite), **kjøpsrett** (kjøpsloven, næringskjøp), **forbrukerkjøpsrett** og **erstatningsrett utenfor kontrakt**, med rettskildelære/juridisk metode som gjennomgående ferdighet. Familierett, arverett og ekteskapsrett er IKKE pensum i dette emnet (de ligger i JUS1211 Privatrett II) og har aldri vært testet i materialet.
 

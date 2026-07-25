@@ -1,6 +1,6 @@
 # Eksamensanalyse: FYS1001 Innføring i fysikk (UiO)
 
-> Grunnlagsdokument for eksamensrettet lærebok. Bygger på 49 eksamenssett med tilhørende løsningsforslag/sensorveiledninger (2003–2024): 36 slutteksamener og 13 midtveiseksamener. Alle løsningsforslag er gjennomgått; settene fra 2017–2024 er lest grundig (oppgave + løsning), eldre sett er skumlest for temaregistrering. **Alt innhold er omskrevet med egne ord** — ingen ordrette gjengivelser av oppgavetekster eller løsningsforslag. Analysen er kvantitativ der kildene tillater det.
+> Grunnlagsdokument for eksamensrettet lærebok. Bygger på 49 eksamenssett med tilhørende løsningsforslag (2003–2024). Arkivet har ingen sensorveiledninger for FYS1001 — løsningsforslagene er faglærerskrevne og brukes som fasitkilde, ikke som kilde til hva sensor belønner: 36 slutteksamener og 13 midtveiseksamener. Alle løsningsforslag er gjennomgått; settene fra 2017–2024 er lest grundig (oppgave + løsning), eldre sett er skumlest for temaregistrering. **Alt innhold er omskrevet med egne ord** — ingen ordrette gjengivelser av oppgavetekster eller løsningsforslag. Analysen er kvantitativ der kildene tillater det.
 >
 > Merknad: Emnet het **FYS1000** («Fysikk — basalfag for naturvitenskap og medisin») frem til ca. 2017, da det ble videreført som **FYS1001 Innføring i fysikk**. Arkivfilene er navngitt FYS1001 for hele serien; innholdsmessig er det én sammenhengende eksamens­tradisjon med samme pensumkjerne, og analysen behandler den slik. Nyeste sett (2017–2024) er vektet tyngst i alle konklusjoner.
 
