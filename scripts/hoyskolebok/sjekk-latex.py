@@ -13,6 +13,14 @@ Fanger de fire feilene som faktisk har nådd produksjon i tidligere bøker:
    trimmer strengen før den sendes til KaTeX.
 4. **Gåseøyne inne i matte.** « og » har ingen glyffer i KaTeX-fontene og gir
    «No character metrics»-advarsel + skjev rendring.
+5. **Ubalansert `$` i ÉN streng.** Et oddetall `$` i samme tekstfelt betyr at en
+   formel er avkuttet: resten av strengen vises som rå LaTeX-kilde. Fant fem
+   slike i fasitene til live bøker (mat1100, mat1110, stk1110 x3). KaTeX ser
+   dem ikke, fordi den delen aldri blir sendt til KaTeX i det hele tatt.
+   `\\$` (escapet dollar) og `${...}` (JS-templatesyntaks omtalt i prosa) er
+   lovlige unntak.
+6. **Bart `%` inne i matte.** `%` starter en LaTeX-kommentar og spiser resten av
+   formelen — «\\text{95 %-KI}» forsvant helt i stk1110. Skal være `\\%`.
 
 Kjør:  python3 scripts/hoyskolebok/sjekk-latex.py fys1001
 Krever `katex` i node_modules for punkt 2 (hopper over med melding om det mangler).
@@ -40,6 +48,39 @@ for (const [fil, tex, disp] of inn) {
 }
 console.log(JSON.stringify(feil));
 """
+
+
+def avescape_js(rå):
+    """Gjør en JS-streng-literal om til verdien den faktisk har.
+
+    Viktig: `\\'` og `\\"` er strengescapes for apostrof/hermetegn — IKKE LaTeX.
+    En naiv `\\\\` -> `\\`-erstatning gjorde `f\\'\\'(x)` (gyldig: f''(x)) om til
+    `f\\'\\'(x)` og ga 278 falske KaTeX-feil i quizfilene til s1/s2/r1/r2/1t.
+    """
+    ut, i = [], 0
+    while i < len(rå):
+        if rå[i] == "\\" and i + 1 < len(rå):
+            n = rå[i + 1]
+            ut.append({"n": "\\n", "t": "\\t", "'": "'", '"': '"', "\\": "\\"}.get(n, "\\" + n))
+            i += 2
+        else:
+            ut.append(rå[i])
+            i += 1
+    return "".join(ut)
+
+
+def enkeltfelt(navn, s):
+    """Tekstfeltene som rendres HVER FOR SEG (ett LatexRenderer-kall per felt).
+
+    For kapittel-JSON er hver strengverdi alt ett felt. Quiz-.ts-fila leses som
+    én rå tekst, så der må de enkelte streng-literalene plukkes ut — ellers går
+    et oddetall $ i ett alternativ opp mot et oddetall i et annet.
+    """
+    if not navn.endswith(".ts"):
+        yield s
+        return
+    for m in re.finditer(r"\"((?:[^\"\\]|\\.)*)\"|'((?:[^'\\]|\\.)*)'", s):
+        yield avescape_js(m.group(1) if m.group(1) is not None else m.group(2))
 
 
 def kodespenn(s):
@@ -101,21 +142,31 @@ def main():
     # Kapittel-JSON leses med json.load, så strengene er alt avescapet. Quiz-.ts-fila
     # leses som rå tekst, der LaTeX står escapet for JS-strengen (`\\alpha`) — den må
     # avescapes, ellers rapporterer KaTeX falske feil på hver kommando.
-    def avescape(tex, navn):
-        return tex.replace("\\\\", "\\") if navn.endswith(".ts") else tex
-
     uttrykk = []
     for navn, _, s in alle:
-        for m in re.finditer(r"\$\$([\s\S]+?)\$\$", s):
-            uttrykk.append((navn, avescape(m.group(1), navn), True))
-        for m in re.finditer(r"\$([^$\n]+?)\$", re.sub(r"\$\$[\s\S]+?\$\$", "", s)):
-            uttrykk.append((navn, avescape(m.group(1), navn), False))
+        for felt in enkeltfelt(navn, s):
+            for m in re.finditer(r"\$\$([\s\S]+?)\$\$", felt):
+                uttrykk.append((navn, m.group(1), True))
+            for m in re.finditer(r"\$([^$\n]+?)\$", re.sub(r"\$\$[\s\S]+?\$\$", "", felt)):
+                uttrykk.append((navn, m.group(1), False))
 
     for navn, tex, _ in uttrykk:
         if tex.rstrip().endswith("\\") and not tex.rstrip().endswith("\\\\"):
             avvik.append(f"LØS BACKSLASH i {navn}: {tex.strip()[:70]!r} (rendereren trimmer → knekker)")
         if "«" in tex or "»" in tex:
             avvik.append(f"GÅSEØYNE I MATTE i {navn}: {tex.strip()[:70]!r}")
+        if re.search(r"(?<!\\)%", tex):
+            avvik.append(f"BART % I MATTE i {navn}: {tex.strip()[:70]!r} (starter LaTeX-kommentar → spiser resten)")
+
+    # 5. ubalansert $ per FELT. Hvert tekstfelt rendres for seg, så et oddetall $
+    #    i samme felt betyr at en formel er avkuttet og resten vises som kilde.
+    for navn, sti, s in alle:
+        for felt in enkeltfelt(navn, s):
+            if "$" not in felt or "${" in felt:      # ${...} = JS-template omtalt i prosa
+                continue
+            t = re.sub(r"\$\$", "", re.sub(r"\\\$", "", felt))
+            if t.count("$") % 2:
+                avvik.append(f"UBALANSERT $ i {navn}{sti}: {felt.strip()[:80]!r} (avkuttet formel)")
 
     katex_feil = None
     if os.path.isdir(os.path.join(ROOT, "node_modules", "katex")):
