@@ -1,0 +1,162 @@
+[
+ {
+  "question": "En oppgave ber om en tabell med 41 punkter i intervallet $[0, 8]$. Hva er steglengden mellom nabopunkter?",
+  "options": [
+   "0.2, fordi 41 punkter gir 40 intervaller",
+   "0.195, fordi $8/41$ er avstanden mellom punktene",
+   "0.4, fordi $8/20$ er avstanden mellom punktene",
+   "8.0, fordi hele intervallet er ett steg"
+  ],
+  "explanation": "Steglengden er intervallets lengde delt på antall **intervaller**, og 41 punkter gir 40 intervaller: $8/40 = 0.2$. Å dele på antall punkter er den vanligste varianten av av-én-feilen #1, og de to siste alternativene svarer til andre punktantall enn det oppgaven ba om."
+ },
+ {
+  "question": "Hvilken linje lager tabellen i den vektoriserte malen når oppgaven ber om N intervaller?",
+  "options": [
+   "`x = np.linspace(start, stop, N+1)`",
+   "`x = np.linspace(start, stop, N)`",
+   "`x = np.arange(start, stop, N+1)`",
+   "`x = np.zeros(N+1)`"
+  ],
+  "explanation": "Tredje argument til `np.linspace` er antall punkter, og N intervaller gir N+1 punkter. Med `N` som tredje argument mangler du ett punkt (feil #1), `np.arange` tolker tredje argument som steglengde, og `np.zeros` lager bare nuller uten noe punktgitter."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nN = 4\nstart, stop = 0.0, 1.0\nx = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    x.append(start + i*dx)\nprint(len(x), x[-1])\n```",
+  "options": [
+   "5 1.0",
+   "4 1.0",
+   "5 0.8",
+   "4 0.75"
+  ],
+  "explanation": "Løkka går over `range(5)`, altså fem runder, og siste punkt er `start + 4*dx` med `dx = 0.25`, som blir 1.0. Fire elementer ville vært svaret med `range(N)`, og 0.8 kommer av å dele steglengden på `N+1` i stedet for `N`."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nN = 4\nstart, stop = 0.0, 1.0\nx = []\ndx = (stop - start)/(N+1)\nfor i in range(N+1):\n    x.append(start + i*dx)\nprint(len(x), x[-1])\n```",
+  "options": [
+   "5 0.8",
+   "5 1.0",
+   "4 0.8",
+   "6 1.0"
+  ],
+  "explanation": "Antallet er riktig — fem punkter — men steglengden ble $1/5 = 0.2$ i stedet for $1/4 = 0.25$, så tabellen slutter på 0.8 og dekker ikke hele intervallet. Dette er den varianten av feil #1 som er vanskeligst å oppdage, fordi punktantallet stemmer."
+ },
+ {
+  "question": "Oppgaveteksten sier «lag tabellen uten bruk av løkke». Hva innebærer det?",
+  "options": [
+   "Ingen `for`, ingen `while` og ingen `.append` — bare `np.linspace` og funksjonen brukt på arrayet",
+   "At du skal lage plassen med `np.zeros` og deretter fylle tabellen punkt for punkt med en `for`-løkke",
+   "At du skal bruke `while` i stedet for `for`, siden det bare er `for` som regnes som en løkke i Python",
+   "At tabellen skal skrives ut uten løkke, men gjerne regnes ut med løkke først, slik at utskriften blir én linje"
+  ],
+  "explanation": "«Uten bruk av løkke» betyr vektorisert: hele tabellen lages og regnes på i én operasjon per kolonne. Å fylle et `np.zeros`-array i en løkke er en løkke, `while` er også en løkke, og kravet gjelder utregningen — ikke bare utskriften."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.linspace(1, 4, 4)\ny = x**2\nprint(y)\n```",
+  "options": [
+   "[ 1.  4.  9. 16.]",
+   "[1. 4. 9. 16.]",
+   "[ 1  4  9 16]",
+   "[2. 4. 6. 8.]"
+  ],
+  "explanation": "Punktene er 1, 2, 3 og 4, og kvadrering er elementvis. NumPy setter av like bred plass til hvert tall, så det kommer et ekstra mellomrom foran de ensifrede — derfor `[ 1.  4.  9. 16.]`. Heltallsformatet krever heltall inn, og siste alternativ er dobling i stedet for kvadrering."
+ },
+ {
+  "question": "Hvorfor kan `y = np.sqrt(x)` erstatte en hel løkke, mens `y = sqrt(x)` fra `math` ikke kan?",
+  "options": [
+   "Fordi `np.sqrt` regner elementvis på hele arrayet, mens `math.sqrt` bare tar ett tall om gangen",
+   "Fordi `np.sqrt` er langt raskere enn `math.sqrt`, men de gir nøyaktig samme resultat når argumentet er et array",
+   "Fordi `math.sqrt` bare virker på heltall, mens `np.sqrt` også takler flyttall og derfor kan brukes på et punktgitter",
+   "Fordi `np.sqrt` returnerer en vanlig liste, og en liste kan skrives ut i én linje mens et array må skrives ut i løkke"
+  ],
+  "explanation": "`np.sqrt` er en ufunksjon og virker på hele tabellen; `math.sqrt` tar ett tall og stopper programmet hvis argumentet er et array med flere elementer. Det er altså ikke en fartsforskjell, `math.sqrt` takler flyttall helt fint, og `np.sqrt` returnerer et array og ikke en liste."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.linspace(0, 1, 3)\ny = np.zeros(x.size)\nfor i in range(x.size):\n    y[i] = 10*x[i]\nprint(y)\n```",
+  "options": [
+   "[ 0.  5. 10.]",
+   "[0. 5. 10.]",
+   "[ 0.  5. 10. ]",
+   "[0 5 10]"
+  ],
+  "explanation": "Løkka fyller et ferdig array punkt for punkt, og punktene er 0, 0.5 og 1. NumPy retter kolonnene inn etter det bredeste tallet, så det står et ekstra mellomrom foran `0.` og `5.`. Denne mellomformen — `np.zeros` pluss løkke — er ikke vektorisering, men den er den vanligste formen i resten av boka."
+ },
+ {
+  "question": "Hva skjer hvis du skriver `if x < 3:` der `x` er et array med fem elementer?",
+  "options": [
+   "Programmet stopper med `ValueError`, fordi sammenligningen gir fem svar og ikke ett",
+   "Testen blir sann hvis alle fem elementene er mindre enn 3",
+   "Testen blir sann hvis minst ett av elementene er mindre enn 3",
+   "Testen bruker bare det første elementet, og resten ignoreres"
+  ],
+  "explanation": "`x < 3` gir et boolsk array med fem verdier, og en `if` krever én sann/falsk-verdi — derfor `ValueError: The truth value of an array with more than one element is ambiguous`. Python velger ikke stilltiende «alle», «minst én» eller «den første»; trenger regelen en test per element, må du løkke over elementene."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nx = []\nfor i in range(3):\n    x.append(2*i)\nx.append(100)\nprint(x, len(x))\n```",
+  "options": [
+   "[0, 2, 4, 100] 4",
+   "[0, 2, 4] 3",
+   "[0, 2, 4, 100] 3",
+   "[2, 4, 6, 100] 4"
+  ],
+  "explanation": "Løkka legger til tre elementer, og `.append` etter løkka legger til ett mer, så lista har fire. Tre elementer ville vært svaret om den siste linja manglet, og `[2, 4, 6, 100]` starter tellingen på `i = 1` i stedet for 0."
+ },
+ {
+  "question": "En oppgave ber om «en tabell med 26 punkter i $[0, 5]$». Hva er N i malene, og hva er steglengden?",
+  "options": [
+   "N er 25, og steglengden er 0.2",
+   "N er 26, og steglengden er 0.2",
+   "N er 25, og steglengden er 0.192",
+   "N er 26, og steglengden er 0.192"
+  ],
+  "explanation": "N står for antall intervaller, og 26 punkter gir 25 intervaller, altså $5/25 = 0.2$. Å sette N lik antall punkter gir både feil løkkegrense og feil steglengde, og 0.192 er $5/26$ — divisjon på antall punkter i stedet for intervaller."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nt = np.linspace(0, 2, 5)\nprint(t[1] - t[0], t.size, t[-1])\n```",
+  "options": [
+   "0.5 5 2.0",
+   "0.4 5 2.0",
+   "0.5 4 2.0",
+   "0.5 5 1.5"
+  ],
+  "explanation": "Fem punkter fra 0 til 2 gir fire intervaller, så steglengden er $2/4 = 0.5$, antallet er 5, og siste punkt er sluttverdien 2.0. Verdien 0.4 kommer av å dele på antall punkter, 4 av å telle intervaller i stedet for punkter, og 1.5 av å tro at sluttverdien ikke er med."
+ },
+ {
+  "question": "I hvilket av disse tilfellene er en løkke *nødvendig*, slik at ingen vektorisert linje kan erstatte den?",
+  "options": [
+   "Når verdien i punkt `i` regnes ut fra verdien i punkt `i-1`",
+   "Når funksjonen inneholder både kvadratrot og eksponentialfunksjon",
+   "Når tabellen har flere enn 1000 punkter",
+   "Når intervallet starter i et negativt tall"
+  ],
+  "explanation": "Er neste verdi avhengig av forrige, må punktene regnes ut i rekkefølge, og det er nettopp en løkke — dette er differenslikningene i [kap. 6.2](/bok/in1900/in1900-6-2). Sammensatte funksjoner, store tabeller og negative intervaller er alle uproblematiske for den vektoriserte malen."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nT = np.array([12.0, 8.0, 3.0])\nut = np.zeros(T.size)\nfor i in range(T.size):\n    if T[i] < 10.0:\n        ut[i] = 1.0\nprint(ut, sum(ut))\n```",
+  "options": [
+   "[0. 1. 1.] 2.0",
+   "[0. 1. 1.] 2",
+   "[1. 0. 0.] 1.0",
+   "[0. 1. 1.] 3.0"
+  ],
+  "explanation": "Bare de to siste temperaturene er under 10, så arrayet blir 0, 1, 1 og summen 2.0 — flyttall, fordi elementene er flyttall. Summen skrevet som `2` ville krevd heltallselementer, `[1. 0. 0.]` snur testen, og 3.0 er antall elementer i alt."
+ },
+ {
+  "question": "Hvorfor skriver boka `dx = (stop - start)/N` i stedet for å skrive tallet direkte?",
+  "options": [
+   "Fordi uttrykket er riktig også når `start`, `stop` eller `N` endres senere i oppgaven",
+   "Fordi Python ikke godtar et desimaltall som steglengde i en løkke",
+   "Fordi sensor trekker for tall som ikke er regnet ut i koden",
+   "Fordi `dx` må være et array for at `.append` skal virke"
+  ],
+  "explanation": "Uttrykket dokumenterer hvor steglengden kommer fra og blir automatisk riktig om oppgaven senere ber deg endre N — det er derfor det er den trygge formen. Et desimaltall er helt lovlig som steglengde, sensor godtar `dx = 0.2` når det stemmer, og `dx` er ett tall og ikke et array."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.linspace(0, 3, 4)\ny = np.zeros(4)\nfor i in range(4):\n    y[i] = x[i]**2\nprint(y[1:] - y[:-1])\n```",
+  "options": [
+   "[1. 3. 5.]",
+   "[1. 3. 5. 7.]",
+   "[0. 1. 4. 9.]",
+   "[1. 4. 9.]"
+  ],
+  "explanation": "Tabellen `y` blir 0, 1, 4, 9, og differansen mellom nabopunkter har ett element mindre: 1, 3 og 5. Fire elementer er av-én-feilen, `[0. 1. 4. 9.]` er `y` selv, og `[1. 4. 9.]` er `y` uten det første elementet."
+ }
+]

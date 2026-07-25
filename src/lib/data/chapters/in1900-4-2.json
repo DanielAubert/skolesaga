@@ -1,0 +1,339 @@
+{
+ "id": "in1900-4-2",
+ "courseId": "in1900",
+ "chapterNumber": "4.2",
+ "title": "Lister vs. NumPy — «med løkke / uten løkke»",
+ "description": "Den faste sjangeren der samme tabell skal fylles først med løkke og lister, deretter vektorisert med NumPy — og de tre av-én-fellene som avgjør poengene.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne skrive begge malene for en verditabell fra hukommelsen: med løkke og lister, og vektorisert uten løkke",
+  "kunne regne ut steglengden riktig og forklare hvorfor nevneren er antall intervaller",
+  "kunne avgjøre når oppgaveteksten krever vektorisering, og når en løkke er nødvendig",
+  "kunne kontrollere en ferdig punkttabell på antall punkter og siste verdi"
+ ],
+ "content": [
+  {
+   "id": "in1900-4-2-tip-vinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette kapitlet dekker én enkelt oppgavetype — og den kommer igjen og igjen.**\n\nSjanger M er oppgaven «lag denne tabellen to ganger: først med en løkke og vanlige lister, så uten løkke ved hjelp av NumPy». Den er i **6 av de 8 nyere settene (75 %)** og er verdt rundt **5 poeng**. Oppgaveteksten er nesten alltid delt i to: del a) ber om løkkeversjonen, del b) ber om den samme tabellen «uten bruk av løkke» eller «vektorisert».\n\nPrioritet: **kunne** (nivå 2 av tre: må sitte, kunne, kjenne til). Poengene er lette å hente, fordi du kan øve inn begge malene på under en halvtime — men de er også lette å miste, av én grunn: **de to versjonene må gi like mange punkter**. Det er feil #1 i feilkatalogen, av-én-feilen, og den er hovedgrunnen til trekk på denne sjangeren.\n\nKapitlet er kort med vilje. Målet er at du kan skrive begge malene fra hukommelsen, i sensors korte stil, uten å tenke."
+  },
+  {
+   "id": "in1900-4-2-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\n- **NumPy-tabeller**, særlig `np.linspace` og at N intervaller gir N+1 punkter: [kap. 4.1](/bok/in1900/in1900-4-1).\n- **Lister og `.append`** fra [kap. 1.2](/bok/in1900/in1900-1-2).\n- **Løkker med `range`** fra [kap. 1.3](/bok/in1900/in1900-1-3).\n- **Formatert utskrift med f-strenger** fra [kap. 1.4](/bok/in1900/in1900-1-4), til den siste løkka der vi skriver ut tabellen.\n\nKapitlet er delt i tre løkker med tidsanslag."
+  },
+  {
+   "id": "in1900-4-2-txt-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — de to malene (~15 min)\n\nTenk på en enkel oppgave fra havforskning: du skal lage en tabell over lydhastighetens avhengighet av dybden, eller — enklere — en tabell over $y = \\sqrt{x}$ for 51 punkter mellom 0 og 4. Tabellen betyr her to kolonner: en kolonne med $x$-verdier og en kolonne med de tilhørende $y$-verdiene.\n\nDet finnes to helt likeverdige måter å lage den. Den første går gjennom punktene ett for ett med en løkke og bygger to lister. Den andre lager hele $x$-kolonnen på én linje og hele $y$-kolonnen på én linje til.\n\nSensor er ikke ute etter at den ene er «bedre». Sensor er ute etter at du **kan begge**, og at du vet hva som er forskjellen."
+  },
+  {
+   "id": "in1900-4-2-thm-mal",
+   "type": "theorem",
+   "title": "Kodemønsteret «med løkke / uten løkke»",
+   "content": "De to malene, side om side. Lær dem utenat — de er nesten uendret fra sett til sett.\n\n**Med løkke og lister** (del a): du regner ut steglengden selv, og fyller to tomme lister.\n\n```python\nx = []\ny = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    xi = start + i*dx\n    x.append(xi)\n    y.append(f(xi))\n```\n\n**Uten løkke, vektorisert** (del b): `np.linspace` lager hele $x$-kolonnen, og funksjonen brukes på hele tabellen på én gang.\n\n```python\nx = np.linspace(start, stop, N+1)\ny = f(x)\n```\n\nTre presisjoner som avgjør poengene:\n\n1. **Nevneren i `dx` er `N`, ikke `N+1`.** Steglengden er avstanden mellom to nabopunkter, og med N+1 punkter er det N avstander.\n2. **Løkken går over `range(N+1)`.** Den skal produsere N+1 punkter, ett per delepunkt, med både første og siste med.\n3. **Tredje argument i `np.linspace` er N+1.** Begge versjonene har da nøyaktig like mange punkter — det er dette sensor sjekker først."
+  },
+  {
+   "id": "in1900-4-2-def-dx",
+   "type": "definition",
+   "title": "Steglengden `dx = (stop - start)/N`",
+   "content": "Avstanden mellom to nabopunkter når intervallet fra `start` til `stop` deles i `N` like biter. Nevneren er antall **intervaller**, altså `N`, aldri `N+1` og aldri antall punkter. Punkt nummer `i` er da `start + i*dx`, og for `i = N` gir det nøyaktig `stop`.\n\n```python\nstart, stop, N = 0.0, 4.0, 50\ndx = (stop - start)/N\nprint(dx, start + N*dx)\n```\n\n**Utskrift:**\n```\n0.08 4.0\n```"
+  },
+  {
+   "id": "in1900-4-2-def-append-mal",
+   "type": "definition",
+   "title": "Å bygge en tabell med `[]` og `.append`",
+   "content": "Løkkeversjonen starter med to **tomme** lister, `x = []` og `y = []`, og legger til én verdi i hver per runde med `.append(verdi)`. Etter løkka har begge listene `N+1` elementer, og element nummer `i` i den ene hører sammen med element nummer `i` i den andre. Lengden sjekkes med `len(x)`, ikke med `.size` — det siste er bare for arrays.\n\n```python\ny = []\nfor i in range(3):\n    y.append(i*i)\nprint(y, len(y))\n```\n\n**Utskrift:**\n```\n[0, 1, 4] 3\n```"
+  },
+  {
+   "id": "in1900-4-2-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: samme tabell to ganger, og en kontroll på at de er like",
+   "problem": "Lag en tabell over $y=\\sqrt{x}$ med 51 punkter i intervallet $[0, 4]$ — først med løkke og lister, så vektorisert. Kontroller at de to versjonene gir samme antall punkter og samme verdier.",
+   "solution": "\n51 punkter betyr $N = 50$ intervaller. Legg merke til at løkkeversjonen bruker `sqrt` fra `math` (ett tall om gangen), mens den vektoriserte bruker `np.sqrt` (hele tabellen).\n\n```python\nfrom math import sqrt\nimport numpy as np\n\nstart = 0.0\nstop = 4.0\nN = 50\n\n# a) med løkke og lister\nx1 = []\ny1 = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    xi = start + i*dx\n    x1.append(xi)\n    y1.append(sqrt(xi))\n\n# b) uten løkke\nx2 = np.linspace(start, stop, N+1)\ny2 = np.sqrt(x2)\n\nprint('Antall punkter:', len(x1), x2.size)\nprint('Endepunkter:', x1[0], x1[-1], x2[0], x2[-1])\nprint('Midt i tabellen:', y1[25], y2[25])\nprint('Største avvik:', max(abs(np.array(y1) - y2)))\n```\n\n**Utskrift:**\n```\nAntall punkter: 51 51\nEndepunkter: 0.0 4.0 0.0 4.0\nMidt i tabellen: 1.4142135623730951 1.4142135623730951\nStørste avvik: 0.0\n```Tabellene er identiske — største avvik er null. Det er ikke garantert for alle intervaller (flyttall regnes ut i litt ulik rekkefølge i de to versjonene), men avviket vil aldri være større enn de siste sifrene.\n\n**Sensormerknad:** det som gir uttelling i del a) er de fire tingene `dx` med nevner `N`, `range(N+1)`, to `.append`-kall, og at `f` kalles på `xi` og ikke på hele lista. I del b) er det `np.linspace(start, stop, N+1)` og at funksjonen brukes direkte på arrayet. Bommer du på ett tall i `dx`, men har resten riktig, får du fortsatt mesteparten av poengene."
+  },
+  {
+   "id": "in1900-4-2-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave.) Et intervall fra 2 til 8 skal deles i 12 like intervaller.\n\n**a)** Hvor mange punkter blir det?\n\n**b)** Hva blir steglengden `dx`?\n\n**c)** Skriv linjen som lager punktene vektorisert.",
+    "solution": "**a)** 13 punkter. N intervaller gir N+1 punkter.\n\n**b)** `dx = (8 - 2)/12`, altså 0,5. Nevneren er antall intervaller (12), ikke antall punkter (13).\n\n**c)**\n\n```python\nimport numpy as np\nx = np.linspace(2, 8, 13)\n```\n\nSkriver du `np.linspace(2, 8, 12)`, får du 12 punkter og steglengde $6/11 \\approx 0.545$ — en tabell som ser riktig ut, men som ikke treffer de punktene oppgaven ba om.",
+    "hints": [
+     "Tell delepunktene på en linje delt i 2 biter først, som kontroll.",
+     "Steglengden er avstanden mellom to nabopunkter."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-2-txt-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — der poengene forsvinner (~15 min)\n\nNå kommer den delen som avgjør karakteren på denne sjangeren. De tre feilene under står for nesten alle trekk, og de er alle av samme slag: en av-én.\n\nOppgaveteksten oppgir ofte **antall punkter** direkte («lag en tabell med 101 punkter i intervallet $[1, 10]$»), ikke antall intervaller. Da er $N+1 = 101$, altså $N = 100$, og steglengden er $9/100 = 0.09$. Den regnestykket er verdt å gjøre eksplisitt på kladdepapiret før du skriver kode."
+  },
+  {
+   "id": "in1900-4-2-warn-avn",
+   "type": "warning",
+   "title": "Typiske feil: de tre av-én-fellene i sjanger M",
+   "content": "Alle tre er varianter av **feil #1 i feilkatalogen** (av-én i `range` og i antall punkter):\n\n1. **Ulikt antall punkter i a) og b).** Løkka går over `range(N+1)` mens `linspace` fikk `N` som tredje argument, eller omvendt. Sensor sammenligner de to delene direkte, så dette ses umiddelbart.\n2. **Feil nevner i `dx`.** `dx = (stop - start)/(N+1)` gir en for kort steglengde, og siste punkt havner innenfor `stop`. Riktig nevner er `N`.\n3. **`range(N)` i løkka.** Da mangler siste punkt: du får N punkter der du skulle hatt N+1, og tabellen slutter ett steg for tidlig.\n\nKontrollen som fjerner alle tre på fem sekunder: **skriv ut `len(x)` og `x[-1]`**. Er antallet det oppgaven ba om, og er siste verdi lik `stop`, er tabellen riktig. På en hjelpemiddelfri eksamen der du ikke kan kjøre koden, gjør du samme kontroll i hodet med $N = 2$: punktene skal bli `start`, midtpunktet og `stop`."
+  },
+  {
+   "id": "in1900-4-2-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: eksamensnivå — 101 punkter og en logaritme",
+   "problem": "En oppgave ber om en tabell over $y = \\ln x$ med 101 punkter i intervallet $[1, 10]$, først med løkke, deretter uten. Skriv begge, og skriv ut de tre første og de tre siste radene i tabellen med to desimaler på $x$ og fire på $y$.",
+   "solution": "\n101 punkter betyr $N = 100$ og $dx = 9/100 = 0.09$.\n\n```python\nfrom math import log\nimport numpy as np\n\nstart = 1.0\nstop = 10.0\nN = 100\n\n# a) med løkke\nx1 = []\ny1 = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    xi = start + i*dx\n    x1.append(xi)\n    y1.append(log(xi))\n\n# b) uten løkke\nx2 = np.linspace(start, stop, N+1)\ny2 = np.log(x2)\n\nprint('Punkter:', len(x1), x2.size, 'dx =', dx)\nfor i in [0, 1, 2, 98, 99, 100]:\n    print(f'{x1[i]:6.2f} {y1[i]:8.4f} {x2[i]:6.2f} {y2[i]:8.4f}')\n```\n\n**Utskrift:**\n```\nPunkter: 101 101 dx = 0.09\n  1.00   0.0000   1.00   0.0000\n  1.09   0.0862   1.09   0.0862\n  1.18   0.1655   1.18   0.1655\n  9.82   2.2844   9.82   2.2844\n  9.91   2.2935   9.91   2.2935\n 10.00   2.3026  10.00   2.3026\n```De to første kolonnene kommer fra løkkeversjonen, de to siste fra den vektoriserte. De er like rad for rad — det er nettopp kontrollen sensor gjør.\n\nLegg merke til at `log` fra `math` og `np.log` er samme funksjon matematisk sett (naturlig logaritme), men den første tar ett tall og den andre en hel tabell. Bytter du dem om, får du en feilmelding i løkkeversjonen og en tabell full av feil i den vektoriserte.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1900-4-2-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger M — «med løkke / uten løkke».) En bølgeprofil er gitt ved $h(x) = 2\\sin(x)$, der $x$ måles i radianer. Lag en tabell over $x$ og $h(x)$ med 21 punkter i intervallet $[0, 6]$.\n\n**a)** Skriv koden med en løkke og to lister.\n\n**b)** Skriv koden uten løkke.\n\n**c)** Hvor mange intervaller er det mellom punktene, og hva er steglengden?",
+    "solution": "**a)** 21 punkter betyr $N = 20$:\n\n```python\nfrom math import sin\n\nstart = 0.0\nstop = 6.0\nN = 20\n\nx = []\nh = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    xi = start + i*dx\n    x.append(xi)\n    h.append(2*sin(xi))\n```\n\n**b)**\n\n```python\nimport numpy as np\n\nx = np.linspace(0, 6, 21)\nh = 2*np.sin(x)\n```\n\n**c)** 20 intervaller, og steglengden er $6/20 = 0.3$.\n\n**Hva gir uttelling:** i a) tomme lister, riktig `dx`, `range(N+1)` og to `.append`-kall. I b) `np.linspace` med 21 som tredje argument og `np.sin` i stedet for `sin` fra `math`. Skriver du `2*sin(x)` med `math`-varianten i b), er strukturen riktig og du mister bare poenget for vektoriseringen — men det er nettopp det poenget del b) tester.",
+    "hints": [
+     "Start med å avgjøre hva N er: antall punkter minus én.",
+     "I den vektoriserte versjonen skal funksjonen brukes på hele arrayet, så den må komme fra NumPy."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-2-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger A — kodesporing.) De to programdelene skal lage samme tabell, men gjør det ikke. Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nN = 4\nstart, stop = 0.0, 2.0\n\nx1 = []\ndx = (stop - start)/(N+1)\nfor i in range(N+1):\n    x1.append(start + i*dx)\n\nx2 = np.linspace(start, stop, N+1)\nprint(len(x1), x2.size)\nprint(x1[-1])\nprint(x2[-1])\n```",
+    "solution": "**Sporingstavle**\n\n| Steg | Verdi |\n|---|---|\n| `dx = 2.0/5` | 0.4 (feil nevner: skulle vært `/N`, altså 0.5) |\n| `i` i `range(5)` | 0, 1, 2, 3, 4 |\n| `x1` | 0.0, 0.4, 0.8, 1.2000000000000002, 1.6 |\n| `len(x1)` | 5 |\n| `x2` | 0.0, 0.5, 1.0, 1.5, 2.0 |\n| `x2.size` | 5 |\n\nBegge tabellene har fem punkter, men løkkeversjonen stopper på 1.6 i stedet for 2.0, fordi steglengden ble delt på `N+1`.\n\n**Utskrift:**\n```\n5 5\n1.6\n2.0\n```\n\nFellen er #1 i sin nest vanligste form: antallet er riktig, men steglengden er feil, så tabellen dekker ikke hele intervallet. Kontrollen «er siste verdi lik `stop`?» avslører den umiddelbart.",
+    "hints": [
+     "Regn ut `dx` først, og sjekk hva `start + N*dx` blir.",
+     "Antall punkter og siste punkt er to uavhengige kontroller."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-2-txt-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — når løkka er det riktige valget (~15 min)\n\nDet er lett å tro at vektorisering alltid er «riktigere». Det er ikke slik i dette faget. **Vektorisering kreves bare når oppgaven eksplisitt ber om det** — står det «uten bruk av løkke» eller «vektorisert», skal du vektorisere. Ellers er en løkke helt greit og gir full uttelling.\n\nDet finnes dessuten tabeller du **må** bygge med løkke:\n\n- når verdien i punkt `i` avhenger av verdien i punkt `i-1` (differenslikninger, [kap. 6.2](/bok/in1900/in1900-6-2))\n- når regelen inneholder en `if`-test som skiller mellom punkter\n- når du underveis skal stoppe, telle eller samle opp noe\n\nEn NumPy-tabell kan du gjerne lage plass til på forhånd med `np.zeros(N+1)` og fylle i en løkke. Det er ikke vektorisering, men det er den mest brukte formen i resten av boka."
+  },
+  {
+   "id": "in1900-4-2-def-nar-vektor",
+   "type": "definition",
+   "title": "Når må du vektorisere?",
+   "content": "Bare når oppgaveteksten sier det: «uten bruk av løkke», «vektorisert», «bruk NumPy». Da skal du hverken bruke `for`, `while` eller `.append` — hele tabellen skal lages med `np.linspace` eller `np.zeros`, og funksjonen brukes på hele arrayet.\n\nSier oppgaven ingenting, velger du fritt, og en løkke er like mye verdt. Krever regelen at forrige verdi er kjent, eller inneholder den en `if`-test, **må** du bruke løkke."
+  },
+  {
+   "id": "in1900-4-2-def-zeros-fyll",
+   "type": "definition",
+   "title": "Løkke som fyller et ferdig array",
+   "content": "Mellomformen mellom de to malene, og den vanligste i resten av boka: lag plassen med `y = np.zeros(N+1)`, og fyll den i en løkke med `y[i] = ...`. Du får et array (og kan derfor regne elementvis med det etterpå), men du har full kontroll punkt for punkt. Merk at du her **ikke** bruker `.append` — plassen finnes allerede, du skriver bare inn i den.\n\n```python\nimport numpy as np\ny = np.zeros(4)\nfor i in range(4):\n    y[i] = 2*i\nprint(y)\n```\n\n**Utskrift:**\n```\n[0. 2. 4. 6.]\n```"
+  },
+  {
+   "id": "in1900-4-2-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: en tabell som må bygges med løkke",
+   "problem": "Et strømmålepunkt registrerer én verdi per time. Under 10 grader regnes forbruket som $3{,}0 + 0{,}5(10-T)$ kilowattimer, ellers som en fast verdi på $3{,}0$. Lag tabellen for fem målte temperaturer, og forklar hvorfor den vektoriserte malen ikke kan brukes direkte.",
+   "solution": "\nRegelen inneholder en `if`-test, og en `if`-test kan ikke stå rett på et array: `if T < 10` med et array inn spør om «hele tabellen», og Python nekter å svare. Da bygger vi tabellen med løkke, i et ferdig `np.zeros`-array.\n\n```python\nimport numpy as np\n\nT = np.array([12.0, 8.0, 10.0, 3.0, 15.0])\nforbruk = np.zeros(T.size)\n\nfor i in range(T.size):\n    if T[i] < 10.0:\n        forbruk[i] = 3.0 + 0.5*(10.0 - T[i])\n    else:\n        forbruk[i] = 3.0\n\nprint(forbruk)\nprint('Sum:', sum(forbruk))\n```\n\n**Utskrift:**\n```\n[3.  4.  3.  6.5 3. ]\nSum: 19.5\n```Legg merke til `np.zeros(T.size)`: plassen lages ut fra hvor mange målinger som finnes, så lengdene kan ikke sprike. Løkka går over `range(T.size)` og fyller ett element per runde.\n\nForsøker du `if T < 10.0:` med hele arrayet, stopper programmet med `ValueError: The truth value of an array with more than one element is ambiguous`. Det er en av de mest lærerike feilmeldingene i NumPy: den sier at «er tabellen mindre enn 10» ikke er ett spørsmål, men fem."
+  },
+  {
+   "id": "in1900-4-2-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger M — «med løkke / uten løkke».) En biolog skal lage en tabell over veksthastigheten $v(t) = 0{,}8\\,e^{-0{,}2t}$ for 26 punkter i tidsrommet $[0, 5]$.\n\n**a)** Skriv koden vektorisert, uten løkke.\n\n**b)** Skriv den samme tabellen med løkke og lister.\n\n**c)** Hvilken av de to versjonene ville du valgt hvis oppgaven i tillegg ba deg stoppe så snart $v$ ble mindre enn $0{,}4$? Begrunn kort.",
+    "solution": "**a)** 26 punkter betyr $N = 25$:\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 5, 26)\nv = 0.8*np.exp(-0.2*t)\n```\n\n**b)**\n\n```python\nfrom math import exp\n\nstart = 0.0\nstop = 5.0\nN = 25\n\nt = []\nv = []\ndt = (stop - start)/N\nfor i in range(N+1):\n    ti = start + i*dt\n    t.append(ti)\n    v.append(0.8*exp(-0.2*ti))\n```\n\n**c)** Løkkeversjonen. Å stoppe underveis krever at du kan avbryte med `break` når betingelsen slår inn, og det finnes ikke i en vektorisert linje: `np.exp` regner ut alle 26 verdiene før noen test kan gjøres.\n\n**Hva gir uttelling:** riktig steglengde $dt = 5/25 = 0.2$, `range(N+1)`, og `np.exp` i a) mot `exp` fra `math` i b). Sensor godtar `dt` skrevet direkte som 0.2, men uttrykket `(stop - start)/N` er tryggere hvis tallene endres.",
+    "hints": [
+     "Antall punkter er oppgitt, så N er ett mindre.",
+     "Tenk på hva `break` krever av programstrukturen i del c)."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-2-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger M med utskrift.) En oppgave ber om en tabell over $f(x) = x^2 - 3x$ for 11 punkter i $[0, 3]$, skrevet ut med to desimaler i to kolonner.\n\n**a)** Skriv en vektorisert løsning som lager tabellen og skriver den ut linje for linje.\n\n**b)** Hvor mange linjer skriver programmet ut, og hva står på den første og den siste?\n\n**c)** En medstudents kode bruker `np.linspace(0, 3, 10)`. Hvilke to ting blir da galt?",
+    "solution": "\n**a)** Tabellen lages vektorisert, men utskriften trenger en løkke — å skrive ut er ikke regning:\n\n```python\nimport numpy as np\n\nx = np.linspace(0, 3, 11)\ny = x**2 - 3*x\nfor i in range(x.size):\n    print(f'{x[i]:5.2f} {y[i]:7.2f}')\n```\n\n**Utskrift:**\n```\n 0.00    0.00\n 0.30   -0.81\n 0.60   -1.44\n 0.90   -1.89\n 1.20   -2.16\n 1.50   -2.25\n 1.80   -2.16\n 2.10   -1.89\n 2.40   -1.44\n 2.70   -0.81\n 3.00    0.00\n```**b)** 11 linjer, én per punkt. Første og siste linje har begge 0.00 i høyre kolonne, siden $x^2-3x = x(x-3)$ er null både i $x=0$ og $x=3$.\n\n**c)** To ting: tabellen får 10 punkter i stedet for 11, og steglengden blir $3/9 = 0.333\\ldots$ i stedet for 0,3 — så samtlige mellomverdier er andre punkter enn oppgaven ba om. Antall linjer i utskriften blir dermed også 10.\n\n**Hva gir uttelling:** `np.linspace(0, 3, 11)` og at `x**2 - 3*x` brukes på hele arrayet. Bruker du en løkke også for regningen, får du fortsatt uttelling med mindre oppgaven eksplisitt ba om vektorisering — men her er den vektoriserte linja kortere og lettere å få riktig.",
+    "hints": [
+     "Tabellen kan lages uten løkke, men utskrift av én linje per punkt trenger en løkke.",
+     "Faktoriser uttrykket for å se hvilke $x$-verdier som gir null."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-2-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut de konkrete feilene i et program.) Programmet skal lage en tabell over $y=\\sqrt{x}$ med 21 punkter i $[0, 5]$, vektorisert. Finn og rett feilene, og forklar hva hver av dem gjør.\n\n```text\nfrom math import sqrt\nimport numpy as np\n\nx = np.linspace(0, 5, 20)\ny = sqrt(x)\nprint(len(y))\n```",
+    "solution": "To feil, og de er uavhengige av hverandre:\n\n**Feil 1 — antall punkter.** `np.linspace(0, 5, 20)` gir 20 punkter, ikke 21. Riktig: `np.linspace(0, 5, 21)`. Dette er feil #1 (av-én på antall punkter). Steglengden blir også feil: $5/19$ i stedet for $5/20 = 0.25$.\n\n**Feil 2 — `sqrt` fra `math` på et array.** `math.sqrt` tar bare ett tall, så programmet stopper med `TypeError: only length-1 arrays can be converted to Python scalars`. Riktig: `np.sqrt(x)`.\n\nRettet versjon:\n\n```python\nimport numpy as np\n\nx = np.linspace(0, 5, 21)\ny = np.sqrt(x)\nprint(len(y))\n```\n\n**Utskrift:**\n```\n21\n```En tredje ting er verdt å nevne, men er **ikke** en feil: `len(y)` virker helt fint på et array og gir 21, akkurat som `y.size`. Sensor trekker ikke for det. Importlinjen `from math import sqrt` kan fjernes når `math.sqrt` ikke brukes lenger, men en ubrukt import er heller ingen feil.\n\n**Hva gir uttelling:** å navngi begge feilene med hva de fører til. Å rette dem uten forklaring gir mindre, fordi oppgaven ber om hva som er galt.",
+    "hints": [
+     "Tell antall punkter først, og se deretter på hvor hver funksjon kommer fra.",
+     "Én av linjene stopper programmet helt; den andre gir feil tall uten å stoppe noe."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-2-warn-typiske",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet — samlet",
+   "content": "1. **Ulikt antall punkter i de to versjonene** (#1). Løkka skal ha `range(N+1)`, og `linspace` skal ha `N+1`.\n2. **Feil nevner i steglengden** (#1). `dx = (stop - start)/N`. Kontroll: `start + N*dx` skal bli `stop`.\n3. **Løkke der oppgaven ba om vektorisering.** Står det «uten bruk av løkke», gir en løkke ikke poeng for den deloppgaven — les oppgaveteksten to ganger.\n4. **`math`-funksjon på et array.** `sqrt`, `exp` og `log` fra `math` tar ett tall. Vektorisert kode skal bruke `np.sqrt`, `np.exp`, `np.log`.\n5. **`if`-test på et helt array.** Gir `ValueError` fordi spørsmålet ikke har ett svar. Trenger regelen en `if`, må du bruke løkke.\n\nMerk en presisering som ofte misforstås: `np.log([1.0, 2.0])` med en **liste** som argument virker faktisk fint — NumPy gjør lista om til et array først, og du får et array tilbake. Det er `math`-funksjonene, og aritmetikk som `liste ** 2`, som ikke godtar en liste."
+  },
+  {
+   "id": "in1900-4-2-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1900-4-2-api-txt",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `x = []` | Tom liste, klar til å fylles med `.append`. |\n| `x.append(verdi)` | Legger `verdi` til slutten av lista. Lengden vokser med én per kall. |\n| `len(x)` | Antall elementer. Virker på både liste og array. |\n| `dx = (stop - start)/N` | Steglengde med N **intervaller**. Nevneren er aldri `N+1`. |\n| `for i in range(N+1)` | N+1 runder, `i` fra 0 til N. Gir ett punkt per delepunkt. |\n| `start + i*dx` | Punkt nummer `i`. For `i = N` blir det nøyaktig `stop`. |\n| `np.linspace(start, stop, N+1)` | N+1 punkter, begge endepunkt med. Den vektoriserte malen. |\n| `np.zeros(N+1)` | Ferdig array å fylle med `y[i] = ...` i en løkke. |\n| `np.sqrt`, `np.exp`, `np.log`, `np.sin` | Virker på hele arrayet. `math`-versjonene tar ett tall. |\n| `f'{x[i]:6.2f}'` | Formatert utskrift: bredde 6, to desimaler. Se [kap. 1.4](/bok/in1900/in1900-1-4). |\n| `sum(forbruk)` | Summen av elementene, også for et array. |\n| `if T[i] < 10.0` | Test på **ett** element. Test på hele arrayet gir `ValueError`. |\n\n**Formler i dette delkapitlet:**\n\nPunktene i en tabell med $N+1$ punkter over $[a, b]$ er\n\n$$x_i = a + i\\,\\Delta x, \\qquad \\Delta x = \\frac{b-a}{N}, \\qquad i = 0, 1, \\ldots, N$$\n\nog verditabellen er $y_i = f(x_i)$. Både løkkemalen og den vektoriserte malen skal produsere nøyaktig disse $N+1$ parene."
+    }
+   ]
+  },
+  {
+   "id": "in1900-4-2-txt-bank",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "in1900-4-2-bank-1",
+   "type": "definition",
+   "title": "Sjanger M",
+   "content": "Eksamensoppgaven «lag denne tabellen først med løkke og lister, så uten løkke med NumPy». Den er i 6 av de 8 nyere settene (75 %) og er verdt rundt 5 poeng. Del a) er løkkemalen, del b) er den vektoriserte malen, og sensor sjekker først at de to gir like mange punkter."
+  },
+  {
+   "id": "in1900-4-2-bank-2",
+   "type": "definition",
+   "title": "Løkkemalen for en tabell",
+   "content": "`x = []`, `y = []`, `dx = (stop - start)/N`, deretter `for i in range(N+1)` med `xi = start + i*dx`, `x.append(xi)` og `y.append(f(xi))`. Funksjonen kalles på **ett** punkt om gangen, så den kan komme fra `math`."
+  },
+  {
+   "id": "in1900-4-2-bank-3",
+   "type": "definition",
+   "title": "Den vektoriserte malen",
+   "content": "`x = np.linspace(start, stop, N+1)` og `y = f(x)`, der `f` bare bruker aritmetikk og NumPy-funksjoner. To linjer erstatter hele løkka, og resultatet er to arrays i stedet for to lister."
+  },
+  {
+   "id": "in1900-4-2-bank-4",
+   "type": "definition",
+   "title": "Antall punkter oppgitt mot antall intervaller oppgitt",
+   "content": "Sier oppgaven «101 punkter», er $N+1 = 101$ og $N = 100$. Sier den «100 intervaller» eller «100 steg», er $N = 100$ og du får 101 punkter. Steglengden er i begge tilfeller $(b-a)/100$. Å avklare dette før du skriver kode fjerner den vanligste feilen i sjangeren."
+  },
+  {
+   "id": "in1900-4-2-bank-5",
+   "type": "definition",
+   "title": "`.append` mot `y[i] = ...`",
+   "content": "`.append` legger til på slutten av en **liste** som vokser underveis. `y[i] = ...` skriver inn i et **array** der plassen alt er laget med `np.zeros`. Et array har ingen `.append`, og en liste kan ikke tilordnes en indeks som ikke finnes ennå."
+  },
+  {
+   "id": "in1900-4-2-bank-6",
+   "type": "definition",
+   "title": "`if`-test på et array",
+   "content": "`if x < 3:` med et array som `x` gir `ValueError: The truth value of an array with more than one element is ambiguous`, fordi spørsmålet har ett svar per element og ikke ett svar i alt. Løsningen i dette faget er å løkke over elementene og teste `x[i] < 3`."
+  },
+  {
+   "id": "in1900-4-2-bank-7",
+   "type": "definition",
+   "title": "Kontroll av en punkttabell",
+   "content": "To utskrifter avslører nesten alle feil: `len(x)` (eller `x.size`) skal være antallet oppgaven ba om, og `x[-1]` skal være `stop`. Er begge riktige, er tabellen riktig. På hjelpemiddelfri eksamen gjør du samme kontroll i hodet med $N = 2$."
+  },
+  {
+   "id": "in1900-4-2-bank-8",
+   "type": "definition",
+   "title": "Når en løkke er nødvendig",
+   "content": "Tre tilfeller: når verdien i punkt `i` avhenger av forrige verdi (differenslikninger), når regelen har en `if`-test, og når du skal avbryte eller telle underveis. I alle tre kan ingen vektorisert linje erstatte løkka."
+  },
+  {
+   "id": "in1900-4-2-bank-9",
+   "type": "definition",
+   "title": "`len(x)` mot `.size`",
+   "content": "`len(x)` gir antall elementer og virker på både liste og array. `.size` finnes bare på arrays. Begge er trygge kontroller på at en tabell har det antallet punkter oppgaven ba om, og i sjanger M skal de to versjonene gi samme tall."
+  },
+  {
+   "id": "in1900-4-2-bank-10",
+   "type": "definition",
+   "title": "`np.log` på en liste",
+   "content": "NumPy-funksjonene godtar faktisk en vanlig liste som argument: `np.log([1.0, 2.0])` gjør lista om til et array først og returnerer et array. Det er `math`-funksjonene som stopper med `TypeError` på en liste, og aritmetikk som `liste ** 2` som ikke finnes for lister. Presisjonen er verdt å ha med seg, slik at du ikke leter etter en feil som ikke er der."
+  },
+  {
+   "id": "in1900-4-2-bank-11",
+   "type": "definition",
+   "title": "Utskrift av en tabell",
+   "content": "Å skrive tabellen ut linje for linje krever alltid en løkke, også når tabellen selv er laget vektorisert — `print` skriver én linje per kall. Mønsteret er `for i in range(x.size): print(f'{x[i]:6.2f} {y[i]:8.4f}')`, med feltbredder slik at kolonnene står rett."
+  },
+  {
+   "id": "in1900-4-2-rep",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "in1900-4-2-rep-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-2-r1",
+      "number": "R1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Fra [kap. 4.1](/bok/in1900/in1900-4-1).) Hvor mange punkter gir `np.linspace(0, 1, 6)`, og hva er steglengden?",
+      "solution": "Seks punkter: $0, 0.2, 0.4, 0.6, 0.8, 1.0$. Seks punkter gir fem intervaller, så steglengden er $1/5 = 0.2$. Dette er samme regnestykke som `dx = (stop - start)/N` i løkkemalen.",
+      "hints": [
+       "Tredje argument er antall punkter."
+      ]
+     }
+    },
+    {
+     "id": "in1900-4-2-rep-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-2-r2",
+      "number": "R2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Fra [kap. 1.4](/bok/in1900/in1900-1-4).) Hva betyr `5.2f` i `f'{x:5.2f}'`?",
+      "solution": "Tallet skrives med to desimaler i et felt som er minst fem tegn bredt, med mellomrom foran hvis tallet er kortere. Bredden gjør at kolonnene i en tabell står rett under hverandre — derfor brukes den i utskriften av punkttabeller.",
+      "hints": [
+       "Tallet før punktumet er bredde, tallet etter er antall desimaler."
+      ]
+     }
+    },
+    {
+     "id": "in1900-4-2-rep-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-2-r3",
+      "number": "R3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Fra [kap. 1.3](/bok/in1900/in1900-1-3).) Hvorfor gir `for i in range(N+1)` nøyaktig N+1 runder, og hvilken verdi har `i` i siste runde?",
+      "solution": "Fordi stoppverdien i `range` er eksklusiv: `i` går fra 0 til og med N, som er N+1 verdier. I siste runde er `i = N`, og punktet `start + N*dx` er nettopp `stop`. Det er denne sammenhengen som gjør at løkkemalen og `np.linspace` treffer samme punkter.",
+      "hints": [
+       "Tell verdiene `i` tar, ikke stoppverdien."
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
