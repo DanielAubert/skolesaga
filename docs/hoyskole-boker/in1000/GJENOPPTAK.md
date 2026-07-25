@@ -2,9 +2,25 @@
 
 - **Branch:** `bok/in1000`
 - **Arbeidsmappe:** `.claude/worktrees/bok-in1000` (eget git-arbeidstre — bruk KUN denne)
-- **Status nå:** steg 0 ferdig (BYGGEKONTRAKT.md, BOKCONFIG.json, GJENOPPTAK.md,
-  FIGUR-BESTILLINGER.md). Steg 1 (kapittelbygging) pågår — mål disk med
-  `status-bok.py` for eksakt fremdrift, aldri gjett.
+- **Status nå (25. juli 2026):** steg 0 ferdig. Steg 1 pågår — **7 av 37 filer
+  på disk**, alle med grønne porter og hver sin commit:
+
+  | Fil | Quiz | FC | Oppg. | Status |
+  |---|---|---|---|---|
+  | `in1000-0-1` Eksamenskartet | 12 | 16 | 4 | ferdig |
+  | `in1000-1-1` Variabler, datatyper og uttrykk | 22 | 27 | 8 | ferdig |
+  | `in1000-1-2` Betingelser og boolske uttrykk | 20 | 21 | 8 | ferdig |
+  | `in1000-1-3` Løkker: for, while og range | 24 | 20 | 8 | ferdig |
+  | `in1000-1-prove` Prøver til del 1 | — | — | 36 kortsvar | ferdig |
+  | `in1000-2-1` Funksjoner: def, parametere og return | 20 | 22 | 8 | ferdig |
+  | `in1000-2-2` Funksjonssamarbeid og scope | 18 | 18 | 6 | ferdig |
+  | **Sum så langt** | **116** | **124** | **42 + 36** | av 516 · 508 |
+
+  **Agent B1 (Del 0 + Del 1) er dermed FULLFØRT**, og B2 er halvferdig (Del 2
+  ferdig, Del 3 gjenstår). Mål alltid disk med `status-bok.py` — aldri gjett.
+
+- **Neste fil:** `in1000-2-prove` (4 prøver, 100 min) eller rett på
+  `in1000-3-1` (Lister). Del 3 er nest tyngste del og bærer hele Oppgave 3.
 - **Arketype:** DNA-regnefag, undertype **kodefag** — plattformens ANDRE.
   Presedens: `docs/hoyskole-boker/in1900/` (bygget og verifisert 25. juli 2026).
 - **Ingen blokkeringer:** renderer-støtten for ```-kodeblokker og inline-kode er
@@ -14,14 +30,49 @@
 ## Sjekk status (kjør etter HVERT ferdig kapittel — gå aldri forbi en rød port)
 
 ```bash
-python3 scripts/hoyskolebok/status-bok.py in1000     # hva finnes på disk
-python3 scripts/hoyskolebok/sjekk-kode.py in1000     # kodeporten
-python3 scripts/hoyskolebok/sjekk-latex.py in1000    # LaTeX/kontrolltegn
+python3 scripts/hoyskolebok/status-bok.py in1000                    # hva finnes på disk
+python3 scripts/hoyskolebok/sjekk-utskrift.py src/lib/data/chapters/in1000-X-Y.json
+python3 scripts/hoyskolebok/sjekk-kode.py in1000                    # kodeporten
+python3 scripts/hoyskolebok/sjekk-latex.py in1000                   # LaTeX/kontrolltegn
+python3 scripts/hoyskolebok/sjekk-prosaregel.py in1000 "rekursj" \
+  "utenfor pensum|ikke pensum|uønsket"
+python3 scripts/hoyskolebok/sjekk-prosaregel.py in1000 \
+  "polymorfi|super\(\)|\barv(en|es|ing)?\b" \
+  "utenfor pensum|ikke pensum|testes ikke|IN1010"
 python3 -c "import json; json.load(open('src/lib/data/chapters/in1000-X-Y.json'))"
 ```
 
 Prod-curl av rendringen (når nok kapitler finnes): HTML-en skal inneholde
 `<pre` og IKKE `<em>init</em>`.
+
+### Tre porter er BYGGET i dette løpet — bruk dem, ikke finn dem opp igjen
+
+- **`sjekk-utskrift.py`** (ny): kjører hver ```python-blokk og sammenligner med
+  «**Utskrift:**»-blokken. Gjør IN1900-lærdom 1 deterministisk. Obligatorisk per
+  kapittel.
+- **`sjekk-prosaregel.py`** (ny): kontekst-grep over JSON-strukturen. **Erstatter
+  `grep -o` med `.{0,N}`-kontekst, som brukte 17 GB RAM på byggemaskinen.** Bruk
+  ALDRI det gamle mønsteret mot kapittelfilene.
+- **`sjekk-kode.py`** (utvidet): kjenner nå forskjell på en «Prøve …»-boks
+  (oppgavesett, skal ikke ha fasit ved siden av koden) og en «Fasit …»-boks. Uten
+  det ville utskrift-plikten tvunget fasiten inn i selve prøven.
+
+### Fallgruver som allerede har kostet tid
+
+- **Kodeportens rekursjonssjekk flagger samme-navn-delegering.** `def skriv` som
+  kaller `b.skriv()` meldes som rekursjon. Se BYGGEKONTRAKT §K5b — container-
+  metoden skal hete noe annet (`skriv_alle`). Dette treffer Del 5, 6 og 7 hardt.
+- **«**Utskrift:**» må stå RETT etter kodeblokken**, ikke med et avsnitt prosa
+  imellom.
+- **En uendelig løkke i en `warning` må ha fence-taggen ```text**, ellers henger
+  utskriftsporten i 15 sekunder og melder avvik.
+- **Del 2 kommer før Del 3 i lesestrekket.** Lister og ordbøker er derfor IKKE
+  innført i kap. 2.1/2.2 — alle løkker der går over tekst. Skjelettets
+  mønstereksempel for 2.1 bruker en liste; det er bevisst byttet til tekst, med
+  en setning om at mønsteret er identisk for lister.
+- **Kap. 0.1 lenker til alle bokas kapitler.** `sjekk-bok.py` avviser døde
+  lenker, så den porten blir først grønn når hele boka står på disk. Det er
+  forventet, ikke et avvik.
 
 ## Kapittelinndeling og kvoter (kapittel-id-er fra SKJELETT.md §4, kvoter fra §5)
 

@@ -525,9 +525,17 @@ teorien i stedet for kjørt.** Derfor:
    python3 <scratchpad>/in1000-<kapittel-id>-<n>.py
    kopiér stdout ORDRETT inn i «**Utskrift:**»-blokken
    ```
-   Bruk gjerne harnisket `<scratchpad>/sjekk-utskrift.py <kapittelfil>`, som
-   trekker ut hver ```python-blokk, kjører den og sammenligner med
-   «**Utskrift:**»-blokken rett etter. Kjør det på hvert ferdig kapittel.
+   **Kjør utskriftsporten på hvert ferdig kapittel — den er obligatorisk:**
+   ```bash
+   python3 scripts/hoyskolebok/sjekk-utskrift.py src/lib/data/chapters/in1000-X-Y.json
+   ```
+   Den trekker ut hver ```python-blokk, kjører den og sammenligner med
+   «**Utskrift:**»-blokken rett etter. `task`/`problem`-felt og «Prøve …»-bokser
+   fritas (fasiten eier svaret der), og kode som med vilje krasjer i en
+   «finn feilen»-oppgave rapporteres som tilsiktet. En blokk som ikke
+   terminerer, skal ha fence-taggen ```text.
+   NB: «**Utskrift:**» må stå RETT etter kodeblokken — ikke med et avsnitt
+   prosa imellom, ellers finner verken porten eller leseren den.
 2. **Byggemiljøet:** `python3` er **3.9.6**. Boka importerer INGENTING (§K7),
    så det finnes ingen bibliotekavhengighet å bomme på.
 3. **Utskriften limes inn ORDRETT** — samme mellomrom, samme rekkefølge, samme
@@ -1055,62 +1063,65 @@ selv, bør regne ca. ×1,5. Deltidsrute: 10–12 uker à ~5 timer.
 
 1. `python3 -c "import json; json.load(open('…'))"` på hver fil du har skrevet;
    ingen trailing commas, ingen uescapede `"`/`\`.
-2. **Kodeporten grønn:** `python3 scripts/hoyskolebok/sjekk-kode.py in1000` —
+2. **Utskriftsporten grønn:**
+   `python3 scripts/hoyskolebok/sjekk-utskrift.py <din kapittelfil>` for HVER
+   fil du har skrevet — «UTSKRIFTSPORT OK».
+3. **Kodeporten grønn:** `python3 scripts/hoyskolebok/sjekk-kode.py in1000` —
    alle ```python-blokker kompilerer, ingen rekursjon (og ingen
    samme-navn-delegering, §K5b), ingen TAB som innrykk, ingen forbudte
    konstruksjoner, «**Utskrift:**» på alle fasit-/teoriblokker med `print(`,
    quiz-lengder jevne begge veier.
-3. **All kode faktisk kjørt** (§K3) — rapportér antall blokker. Utskrift limt
+4. **All kode faktisk kjørt** (§K3) — rapportér antall blokker. Utskrift limt
    inn ordrett. Presisjonspåstander etterregnet.
-4. **LaTeX-porten grønn:** `python3 scripts/hoyskolebok/sjekk-latex.py in1000` —
+5. **LaTeX-porten grønn:** `python3 scripts/hoyskolebok/sjekk-latex.py in1000` —
    ingen kontrolltegn utenfor kodeblokker, ingen løs backslash, balanserte `$`
    og ingen prosa satt som matte (uescapede `\$`).
-5. **Statusporten:** `python3 scripts/hoyskolebok/status-bok.py in1000` viser
+6. **Statusporten:** `python3 scripts/hoyskolebok/status-bok.py in1000` viser
    filene dine som gyldige, med definisjonstellingen på eller over kvoten.
-6. **Kvotetelling** mot kvotetabellen over (autoritativ, total 516/508):
+7. **Kvotetelling** mot kvotetabellen over (autoritativ, total 516/508):
    toppnivå `definition`-blokker med `title` + antall quizspørsmål per fil.
-7. **Forbudt-termer-grep = 0** (regexen over) + rekursjons- og arv-prosagrepene
+8. **Forbudt-termer-grep = 0** (regexen over) + rekursjons- og arv-prosagrepene
    fra §K5 = 0.
-8. **Kryssbok-lenker** peker på eksisterende filer (tabellen over); interne
+9. **Kryssbok-lenker** peker på eksisterende filer (tabellen over); interne
    kap-referanser er markdown-lenker.
-9. **Læringsløkke:** `content[]` veksler teori → eksempel → oppgave i løkker med
+10. **Læringsløkke:** `content[]` veksler teori → eksempel → oppgave i løkker med
    `exercise`-blokker INLINE. Unntak: prøve-/øvingseksamenkapitler.
-10. **Forkunnskapsdekning:** hver `exercise` bruker bare konstruksjoner
+11. **Forkunnskapsdekning:** hver `exercise` bruker bare konstruksjoner
     introdusert tidligere i kapitlet eller i en referert forkunnskap — gå
     gjennom oppgavene dine med skjelettets kapittelrekkefølge i hånden. Dette
     ga flest funn i IN1900-verifiseringen.
-11. **Nybegynner-inngang:** alle sjangerkoder (A–I), feilkoder (#1–#16),
+12. **Nybegynner-inngang:** alle sjangerkoder (A–I), feilkoder (#1–#16),
     karakterbokstaver, eksamens-metaspråk og API-/programmeringstermer forklart
     ved første bruk (feilkoder: per kapittel); ingen kald kode i
     `competenceGoals` eller første tekstboks; kap. 0.1 har «Slik leser du denne
     boka»-boksen (type `text`/`tip`, ALDRI `definition`) + kodemønster-minimum.
-12. **`self`- og innkapslingskonsistens:** alle instansvariabler settes med
+13. **`self`- og innkapslingskonsistens:** alle instansvariabler settes med
     `self._x`; utenfra brukes aksessor/mutator, aldri `obj._x`; `self`-fella
     har egen `warning` i 5.1 og 5.4 og plantes i objekt-flervalg-drillen (5.5).
-13. **Delvis-riktig-poenggiving:** alle løsningsforslag i drill- og
+14. **Delvis-riktig-poenggiving:** alle løsningsforslag i drill- og
     eksamenstreningskapitler markerer hva som gir uttelling steg for steg, og
     sier at riktig struktur belønnes selv med indeksfeil, og at deloppgaver
     løses uavhengig.
-14. **API- og konstruksjonsliste** sist i hvert teori-/drillkapittel, med det
+15. **API- og konstruksjonsliste** sist i hvert teori-/drillkapittel, med det
     ordrette notis-avsnittet (så `sjekk-bok.py` finner «Symbol- og
     formelliste»), og med ALLE konstruksjoner brukt i delkapitlet.
-15. **Sporingsfasiter** (sjanger A) har sporingstavle + eksakt utskrift +
+16. **Sporingsfasiter** (sjanger A) har sporingstavle + eksakt utskrift +
     fellenote — aldri bare svaret.
-16. **Prøve-flervalg:** fasitmønster stokket (aldri «alle a»); selvdiagnose-
+17. **Prøve-flervalg:** fasitmønster stokket (aldri «alle a»); selvdiagnose-
     sjekkliste etter hver prøvefasit; ingen tom `collapsible` (feltnavn
     `content`, med blokker).
-17. **hints** utfylt på alle `exercise` (unntatt den merkede kalde banken i
+18. **hints** utfylt på alle `exercise` (unntatt den merkede kalde banken i
     9.1); første hint røper aldri utskriften eller den ferdige koden.
-18. **Frekvenstall** = skjelettets tall for NETTOPP dette kapitlet, med nevner
+19. **Frekvenstall** = skjelettets tall for NETTOPP dette kapitlet, med nevner
     («6 av 6 moderne sett»); kildenoten nevner kun kildetypene i
     EKSAMENSANALYSE §8, og «offisielle løsningsforslag» — ALDRI
     «sensorveiledning».
-19. **Deloppgaveformat:** a), b), c) på egen linje med `**a)**`; ingen
+20. **Deloppgaveformat:** a), b), c) på egen linje med `**a)**`; ingen
     `subTasks`; sjanger-/nivåparentes som ledende tag, ikke i brødteksten.
-20. **Øktmerking:** kapitler > 45 min har løkke-tidsanslag eller pausepunkter;
+21. **Øktmerking:** kapitler > 45 min har løkke-tidsanslag eller pausepunkter;
     prøvekapitler deklarerer «4 prøver à ~X min» + deling over flere kvelder.
-21. **Juridisk:** innholdet fremstiller seg ALDRI som offisielt eller
+22. **Juridisk:** innholdet fremstiller seg ALDRI som offisielt eller
     UiO-tilknyttet og lover aldri eksamensutfall.
-22. Rapportér kort: filer skrevet, kvotestatus per kapittel, portstatus (kode +
+23. Rapportér kort: filer skrevet, kvotestatus per kapittel, portstatus (kode +
     LaTeX + json), antall kodeblokker kjørt, og alt du har måttet merke
     `(verifiser)`.
