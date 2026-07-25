@@ -473,7 +473,7 @@ const quizData_mat1100: Record<string, QuizQuestion[]> = {
     {
       question: "Regn ut $\\left(\\cos\\tfrac{\\pi}{9} + i\\sin\\tfrac{\\pi}{9}\\right)^3$.",
       options: ["$\\tfrac12 + \\tfrac{\\sqrt3}{2}i$", "$\\tfrac{\\sqrt3}{2} + \\tfrac12 i$", "$\\cos\\tfrac{\\pi}{3}$", "$1$"],
-      explanation: "de Moivre: vinkelen tredobles til $\\pi/3$, modulus $1$, så $\\cos\\frac\\pi3 + i\\sin\\frac\\pi3 = \\frac12 + \\frac{\\sqrt3}{2}i$. Å bytte $\\cos/\\sin$ gir alternativ to.",
+      explanation: "de Moivre: vinkelen tredobles til $\\pi/3$, modulus $1$, så $\\cos\\frac\\pi3 + i\\sin\\frac\\pi3 = \\frac12 + \\frac{\\sqrt3}{2}i$. Å bytte $\\cos$ og $\\sin$ gir $\\tfrac{\\sqrt3}{2} + \\tfrac12 i$.",
     },
     {
       question: "Hvilken mengde beskriver $|z - 2i| = 3$?",
