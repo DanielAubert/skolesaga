@@ -127,10 +127,10 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "(Eksamensnivå, sjanger A — tallkonvertering, svarform F1.) Kryss av alle alternativene som er lik `11010110₂`, og begrunn hvert av de fire.\n\n**a)** `326₈`\n\n**b)** `0xD6`\n\n**c)** `214₁₀`\n\n**d)** `0x6D`",
-        "solution": "Titallsverdien først: ettallene står på 128, 64, 16, 4 og 2, som gir 214.\n\n**a) Riktig.** Grupper i treere: `011 010 110` gir 3, 2, 6, altså `326₈`. Kontroll: 3·64 + 2·8 + 6 = 214.\n\n**b) Riktig.** Grupper i firere: `1101 0110` gir D og 6, altså `0xD6`. Kontroll: 13·16 + 6 = 214.\n\n**c) Riktig.** Titallsverdien er 214.\n\n**d) Galt.** `0x6D` er 6·16 + 13 = 109, altså nøyaktig halvparten. Binært er det `0110 1101`, som er de samme bitene forskjøvet ett hakk til høyre. Dette er en forskyvningsdistraktor: den er nesten alltid halvparten eller det dobbelte av riktig svar.\n\n**Fasit: a, b og c.**",
+        "solution": "Titallsverdien først: ettallene står på 128, 64, 16, 4 og 2, som gir 214.\n\n**a) Riktig.** Grupper i treere: `011 010 110` gir 3, 2, 6, altså `326₈`. Kontroll: 3·64 + 2·8 + 6 = 214.\n\n**b) Riktig.** Grupper i firere: `1101 0110` gir D og 6, altså `0xD6`. Kontroll: 13·16 + 6 = 214.\n\n**c) Riktig.** Titallsverdien er 214.\n\n**d) Galt.** `0x6D` er 6·16 + 13 = 109, mens riktig svar er 214. De to heksadesimale sifrene er byttet om — `D6` mot `6D` — og binært er alternativet `0110 1101`, altså et helt annet mønster enn `1101 0110`. Dette er en ombyttingsdistraktor, og den er farlig nettopp fordi sifrene er de samme som i ditt eget svar.\n\n**Fasit: a, b og c.**",
         "hints": [
           "Regn titallsverdien én gang, og bruk gruppering på de to første alternativene.",
-          "Ser et galt alternativ ut som riktig svar halvert eller doblet? Da er nibblene forskjøvet."
+          "Har et galt alternativ nøyaktig de samme sifrene som svaret ditt? Sjekk om de er byttet om eller forskjøvet — og regn alternativet ut."
         ]
       }
     },
@@ -142,8 +142,8 @@
         "number": "6",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Eksamensnivå, sjanger A — tallkonvertering, svarform F1.) Kryss av alle alternativene som er lik `63₁₀`.\n\n**a)** `0x3F`\n\n**b)** `77₈`\n\n**c)** `111111₂`\n\n**d)** `0x101`",
-        "solution": "**a) Riktig.** 3·16 + 15 = 48 + 15 = 63.\n\n**b) Riktig.** 7·8 + 7 = 56 + 7 = 63.\n\n**c) Riktig.** Seks ettall gir 32 + 16 + 8 + 4 + 2 + 1 = 63. Alternativt: seks bit dekker verdiene 0 til 63, og alle bit satt er den største.\n\n**d) Galt.** `0x101` er 1·256 + 0·16 + 1 = 257. Dette er en basedistraktor: sifferrekka `101` ser ut som det binære tallet 5, men i base 16 er den 257. Det er nettopp derfor subskriptet aldri kan overses.\n\n**Fasit: a, b og c.** Tre av fire alternativer var riktige — et godt eksempel på at F1-oppgaver ofte har flere riktige svar enn du forventer.",
+        "task": "(Eksamensnivå, sjanger A — tallkonvertering, svarform F1.) Kryss av alle alternativene som er lik `63₁₀`.\n\n**a)** `0x101`\n\n**b)** `77₈`\n\n**c)** `111111₂`\n\n**d)** `0x3F`",
+        "solution": "**a) Galt.** `0x101` er 1·256 + 0·16 + 1 = 257. Dette er en basedistraktor: sifferrekka `101` ser ut som det binære tallet 5, men i base 16 er den 257. Det er nettopp derfor subskriptet aldri kan overses.\n\n**b) Riktig.** 7·8 + 7 = 56 + 7 = 63.\n\n**c) Riktig.** Seks ettall gir 32 + 16 + 8 + 4 + 2 + 1 = 63. Alternativt: seks bit dekker verdiene 0 til 63, og alle bit satt er den største.\n\n**d) Riktig.** 3·16 + 15 = 48 + 15 = 63.\n\n**Fasit: b, c og d.** Tre av fire alternativer var riktige — et godt eksempel på at F1-oppgaver ofte har flere riktige svar enn du forventer.",
         "hints": [
           "63 er den største verdien seks bit kan skrive — det gjør ett av alternativene lett å se.",
           "Sjekk basesubskriptet på det siste alternativet før du regner."
@@ -319,7 +319,7 @@
       "id": "in1020-1-2-bank-5",
       "type": "definition",
       "title": "Forskyvningsdistraktor",
-      "content": "Et galt svaralternativ som består av de riktige bitene forskjøvet ett eller flere hakk, slik at verdien blir halvert eller doblet.\n\nEksempel: riktig svar `0xD6` (214) med distraktoren `0x6D` (109).\n\nKjennetegnet er at distraktoren har akkurat de samme sifrene. Ser du det, sjekk grupperingen din på nytt før du krysser av."
+      "content": "Et galt svaralternativ som består av de riktige bitene forskjøvet ett eller flere hakk, slik at verdien blir halvert eller doblet.\n\nEksempel: riktig svar `0x9C` (156) med distraktoren `0x4E` (78) — de samme bitene skjøvet ett hakk til høyre, altså nøyaktig halvparten.\n\nKjennetegnet er at distraktoren står i et fast forhold til riktig svar: halvparten eller det dobbelte. Ser du det, sjekk grupperingen din på nytt før du krysser av."
     },
     {
       "id": "in1020-1-2-bank-6",

@@ -90,7 +90,7 @@
         "number": "2",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Sjanger F2 — sant/usant om tegnkoding.) Vurder hver påstand som sann eller usann, og begrunn.\n\n**a)** ASCII bruker 7 bit per tegn.\n\n**b)** En ren ASCII-fil er også en gyldig UTF-8-fil.\n\n**c)** UTF-8 bruker alltid flere byte per tegn enn ASCII.\n\n**d)** Teksten `2024` tar fire byte som ren tekst.",
+        "task": "(Tegnkoding, svarform F2 — sant/usant-matrise.) Vurder hver påstand som sann eller usann, og begrunn.\n\n**a)** ASCII bruker 7 bit per tegn.\n\n**b)** En ren ASCII-fil er også en gyldig UTF-8-fil.\n\n**c)** UTF-8 bruker alltid flere byte per tegn enn ASCII.\n\n**d)** Teksten `2024` tar fire byte som ren tekst.",
         "solution": "**a) Sann.** ASCII har 128 koder, og 128 er to opphøyd i sju. Den åttende biten i en byte var opprinnelig ubrukt.\n\n**b) Sann.** UTF-8 er bakoverkompatibel: de 128 ASCII-tegnene har samme koder og tar én byte. Dette er en av hovedgrunnene til at UTF-8 vant fram framfor andre unicode-kodinger.\n\n**c) Usann.** For tegn som finnes i ASCII, bruker UTF-8 nøyaktig én byte — det samme. Det er bare for tegn utenfor ASCII at UTF-8 bruker to, tre eller fire byte.\n\n**d) Sann.** Fire siffertegn, hvert med sin ASCII-kode (`2` er 50, `0` er 48, `4` er 52), altså fire byte. Merk kontrasten: som **tall** ville 2024 fått plass i to byte, siden verdiområdet for to byte går til 65535.\n\n**Fasit: a sann, b sann, c usann, d sann.**",
         "hints": [
           "For a: hvor mange koder gir 7 bit, og hvor mange tegn har ASCII?",
@@ -125,7 +125,7 @@
         "number": "3",
         "type": "classic",
         "difficulty": "lett",
-        "task": "(Sjanger A-slekt — fargekoder.) Finn RGB-komponentene i `0x1E90FF`.",
+        "task": "(Fargekoder — samme heksadesimale teknikk som sjanger A.) Finn RGB-komponentene i `0x1E90FF`.",
         "solution": "Del i par: `1E`, `90`, `FF`.\n\n- Rød: `0x1E = 1·16 + 14 = 30`\n- Grønn: `0x90 = 9·16 + 0 = 144`\n- Blå: `0xFF = 15·16 + 15 = 255`\n\n**R = 30, G = 144, B = 255.**\n\nBlå er på full styrke og rød er nesten av, så fargen er klart blå med et innslag av grønt — en lys, klar blåfarge.",
         "hints": [
           "Del de seks sifrene i tre par før du regner noe.",
@@ -141,8 +141,8 @@
         "number": "4",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Eksamensnivå, fargekoder, svarform F1.) Kryss av alle påstandene som stemmer om fargekoden `0xC0392B`.\n\n**a)** Rødkomponenten er 192.\n\n**b)** Blåkomponenten er 43.\n\n**c)** Grønnkomponenten er 39.\n\n**d)** Fargen har mer rødt enn grønt og blått til sammen.",
-        "solution": "Del i par: `C0`, `39`, `2B`.\n\n- Rød: `0xC0 = 12·16 + 0 = 192`\n- Grønn: `0x39 = 3·16 + 9 = 57`\n- Blå: `0x2B = 2·16 + 11 = 43`\n\n**a) Riktig.** 192.\n\n**b) Riktig.** 43.\n\n**c) Galt.** Grønnkomponenten er 57, ikke 39. Distraktoren leser `39` som om det var et desimaltall — den klassiske feilen når et heksadesimalt par tilfeldigvis består av sifre 0–9.\n\n**d) Riktig.** `57 + 43 = 100`, og 192 er større enn 100. Fargen er tydelig rød — dette er en mørk, dempet rødfarge.\n\n**Fasit: a, b og d.**\n\n**Merk fella i c.** Par som `39`, `12` og `50` ser ut som desimaltall og blir lest som det. Konverter alltid, også når sifrene er 0–9.",
+        "task": "(Eksamensnivå, fargekoder, svarform F1.) Kryss av alle påstandene som stemmer om fargekoden `0xC0392B`.\n\n**a)** Grønnkomponenten er 39.\n\n**b)** Blåkomponenten er 43.\n\n**c)** Rødkomponenten er 192.\n\n**d)** Fargen har mer rødt enn grønt og blått til sammen.",
+        "solution": "Del i par: `C0`, `39`, `2B`.\n\n- Rød: `0xC0 = 12·16 + 0 = 192`\n- Grønn: `0x39 = 3·16 + 9 = 57`\n- Blå: `0x2B = 2·16 + 11 = 43`\n\n**a) Galt.** Grønnkomponenten er 57, ikke 39. Distraktoren leser `39` som om det var et desimaltall — den klassiske feilen når et heksadesimalt par tilfeldigvis består av sifre 0–9.\n\n**b) Riktig.** 43.\n\n**c) Riktig.** 192.\n\n**d) Riktig.** `57 + 43 = 100`, og 192 er større enn 100. Fargen er tydelig rød — dette er en mørk, dempet rødfarge.\n\n**Fasit: b, c og d.**\n\n**Merk fella i a.** Par som `39`, `12` og `50` ser ut som desimaltall og blir lest som det. Konverter alltid, også når sifrene er 0–9.",
         "hints": [
           "Del i tre par og konverter hvert par, også de som ser ut som vanlige tall.",
           "For alternativ d: legg sammen de to andre komponentene og sammenlign."

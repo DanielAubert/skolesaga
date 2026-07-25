@@ -226,8 +226,8 @@
         "number": "6",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Sjanger D — identiteter, svarform F1.) Kryss av **alle** alternativene som er lik `A′ + B′`, og begrunn hvert av de fire.\n\n**a)** `(A·B)′`\n\n**b)** `(A+B)′`\n\n**c)** Utgangen fra en NAND-port med inngangene A og B\n\n**d)** `A′ · B′`",
-        "solution": "Sett opp tabellen for uttrykket vi skal matche:\n\n| A | B | `A′` | `B′` | `A′ + B′` |\n|---|---|---|---|---|\n| 0 | 0 | 1 | 1 | 1 |\n| 0 | 1 | 1 | 0 | 1 |\n| 1 | 0 | 0 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 0 |\n\nKolonnen er `1, 1, 1, 0`.\n\n**a) Riktig.** `(A·B)′` er NAND: `1, 1, 1, 0`. Identisk. Dette er De Morgans lov `(A·B)′ = A′ + B′`.\n\n**b) Galt.** `(A+B)′` er NOR: `1, 0, 0, 0`. Den er lik i første rad og ulik i de tre andre. Distraktoren bygger på å bruke De Morgan uten å bytte operator — det er nettopp byttet fra AND til OR som er innholdet i loven.\n\n**c) Riktig.** En NAND-port gir per definisjon `(A·B)′`, som er det samme som a).\n\n**d) Galt.** `A′ · B′` er `1, 0, 0, 0`, altså NOR. Distraktoren beholder invertering av hver variabel, men bruker AND i stedet for OR i midten.\n\n**Fasit: a og c.**\n\n**Merk formen:** to av fire er riktige. Det er den vanlige F1-formen, og krysser du bare av det første riktige du finner, mister du halve poenget uten å ha gjort noe galt.",
+        "task": "(Sjanger D — identiteter, svarform F1.) Kryss av **alle** alternativene som er lik `A′ + B′`, og begrunn hvert av de fire.\n\n**a)** `(A+B)′`\n\n**b)** `(A·B)′`\n\n**c)** Utgangen fra en NAND-port med inngangene A og B\n\n**d)** `A′ · B′`",
+        "solution": "Sett opp tabellen for uttrykket vi skal matche:\n\n| A | B | `A′` | `B′` | `A′ + B′` |\n|---|---|---|---|---|\n| 0 | 0 | 1 | 1 | 1 |\n| 0 | 1 | 1 | 0 | 1 |\n| 1 | 0 | 0 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 0 |\n\nKolonnen er `1, 1, 1, 0`.\n\n**a) Galt.** `(A+B)′` er NOR: `1, 0, 0, 0`. Den er lik i første rad og ulik i de tre andre. Distraktoren bygger på å bruke De Morgan uten å bytte operator — det er nettopp byttet fra AND til OR som er innholdet i loven.\n\n**b) Riktig.** `(A·B)′` er NAND: `1, 1, 1, 0`. Identisk. Dette er De Morgans lov `(A·B)′ = A′ + B′`.\n\n**c) Riktig.** En NAND-port gir per definisjon `(A·B)′`, som er det samme som b).\n\n**d) Galt.** `A′ · B′` er `1, 0, 0, 0`, altså NOR. Distraktoren beholder invertering av hver variabel, men bruker AND i stedet for OR i midten.\n\n**Fasit: b og c.**\n\n**Merk formen:** to av fire er riktige. Det er den vanlige F1-formen, og krysser du bare av det første riktige du finner, mister du halve poenget uten å ha gjort noe galt.",
         "hints": [
           "Skriv ut hele sannhetstabellen for uttrykket i oppgaveteksten først — én kolonne per invertering.",
           "Sammenlign kolonne mot kolonne, rad for rad. Ett sammenfall i én rad er ikke nok."
@@ -307,7 +307,7 @@
       "id": "in1020-2-1-bank-3",
       "type": "definition",
       "title": "Prioritetsregelen: AND før OR",
-      "content": "I et boolsk uttrykk binder `·` (AND) sterkere enn `+` (OR), på samme måte som gange binder sterkere enn pluss i vanlig regning.\n\n`A·B + C` betyr `(A·B) + C`. Vil du ha `A·(B + C)`, må du sette parentesen.\n\nDen faste feilen er å lese uttrykket fra venstre mot høyre uten å ta hensyn til prioriteten. `A + B·C` er ikke `(A + B)·C` — de to gir ulik utgang i tre av de åtte radene."
+      "content": "I et boolsk uttrykk binder `·` (AND) sterkere enn `+` (OR), på samme måte som gange binder sterkere enn pluss i vanlig regning.\n\n`A·B + C` betyr `(A·B) + C`. Vil du ha `A·(B + C)`, må du sette parentesen.\n\nDen faste feilen er å lese uttrykket fra venstre mot høyre uten å ta hensyn til prioriteten. `A + B·C` er ikke `(A + B)·C` — de to gir ulik utgang i to av de åtte radene."
     },
     {
       "id": "in1020-2-1-bank-4",
