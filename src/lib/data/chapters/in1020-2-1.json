@@ -1,0 +1,453 @@
+{
+  "id": "in1020-2-1",
+  "courseId": "in1020",
+  "chapterNumber": "2.1",
+  "title": "Logiske porter — identifikasjon og identiteter",
+  "description": "De sju portene AND, OR, NOT, NAND, NOR, XOR og XNOR: sannhetstabellen til hver, hvordan du kjenner dem igjen på symbolet, og de faste identitetene eksamen spør om.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne sette opp sannhetstabellen til hver av de sju portene uten oppslag",
+    "kunne kjenne igjen en port ut fra beskrivelsen av symbolet eller ut fra sannhetstabellen",
+    "kunne skrive utgangen til en port som et boolsk uttrykk i emnets notasjon",
+    "kunne begrunne hvorfor NAND og NOR hver for seg er nok til å bygge enhver logisk funksjon"
+  ],
+  "content": [
+    {
+      "id": "in1020-2-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** logiske porter hører til **sjanger D — logiske porter og kretsanalyse**, altså oppgavene der du skal kjenne igjen en port eller regne ut hva en krets gjør. Porter har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**, og kretsanalyse i fem av seks (83 %).\n\n**Høyeste prioritet — dette må sitte.** Dette er første kapittel i **seksjon 2, maskinvare og arkitektur**, som er én av de fire seksjonene som hver må bestås for seg. Porter er den billigste poengkilden i seksjonen: svarene er entydige, og de kan pugges.\n\n**Slik kommer den:** oftest som **svarform F3** (dra-og-slipp: koble hvert element til riktig kategori — i boka skrevet som en koblingsoppgave), som **F2** (sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver), og som **F1** (velg ett *eller flere* alternativer — flere kan være riktige samtidig).\n\n**Den ene tingen som skiller bestått fra bom her:** de fire portene med boble på utgangen. NAND, NOR, XNOR og NOT er nøyaktig de vanlige portene med svaret snudd, og forveksling av NAND og NOR er den vanligste enkeltbommen i sjangeren. Under negativ poenggiving, der gale avkrysninger trekker poeng, koster en slik forveksling dobbelt.\n\n**Tidsbruk:** 45 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-2-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet kan leses uten forkunnskaper fra resten av boka. Det eneste du trenger, er begrepet **bit**, og det er ferdig oppfrisket her:\n\n**1. Et bit har nøyaktig to lovlige verdier: 0 og 1.** Du møtte dem som sifre i [kap. 1.1](/bok/in1020/in1020-1-1). I dette kapitlet leser vi de samme to verdiene som *logiske* verdier: 0 betyr «usant», 1 betyr «sant».\n\n**2. Fysisk er verdiene spenninger.** Lav spenning i ledningen er 0, høy spenning er 1. Du trenger ikke tallene på voltnivået — bare at det er to nivåer, og at alt i maskinen bygger på skillet mellom dem.\n\n**3. Notasjonen fra [kap. 1.3](/bok/in1020/in1020-1-3) om invertering.** Å invertere er å bytte hvert 0 med 1 og hvert 1 med 0. Det er nøyaktig det NOT-porten gjør, bare på ett bit av gangen.\n\nTrenger du en roligere inngang med flere tegninger før du går løs på dette, ligger den i [Digitalteknikk - logiske porter og sannhetstabeller](/bok/elektro-data-vg1/elektro-data-vg1-15)."
+    },
+    {
+      "id": "in1020-2-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-2-1-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| `A`, `B`, `C` | Innganger til en port eller en krets, hver med verdi 0 eller 1 |\n| `F` | Den samlede utgangen, det du skal skrive et uttrykk for |\n| `A′` (eller `Ā`) | NOT A — invertering: 0 blir 1, 1 blir 0 |\n| `A·B` (eller `AB`) | A AND B — 1 bare når begge er 1 |\n| `A+B` | A OR B — 1 når minst én er 1 |\n| `A⊕B` | A XOR B — 1 når inngangene er **ulike** |\n| `(A·B)′` | NAND — AND med svaret snudd |\n| `(A+B)′` | NOR — OR med svaret snudd |\n| `(A⊕B)′` | XNOR — XOR med svaret snudd, altså 1 når inngangene er **like** |\n| Boble | Den vesle sirkelen på utgangen av et portsymbol; den betyr «inverter svaret» |\n| Sannhetstabell | Tabell med én rad per inngangskombinasjon og utgangen i siste kolonne |\n| Portliste | Nummerert liste over portene i en krets, med navngitte mellomsignaler |\n\n**Formler i dette delkapitlet:**\n\n$$F = A \\cdot B \\qquad F = A + B \\qquad F = A'$$\n\nDe tre grunnportene: AND gir 1 bare når begge inngangene er 1, OR gir 1 når minst én er 1, NOT snur verdien.\n\n$$F = (A \\cdot B)' \\qquad F = (A + B)'$$\n\nNAND og NOR: nøyaktig AND og OR med en boble på utgangen.\n\n$$F = A \\oplus B = A' \\cdot B + A \\cdot B'$$\n\nXOR gir 1 når nøyaktig én inngang er 1 — altså når inngangene er ulike.\n\n$$F = (A \\oplus B)' = A \\cdot B + A' \\cdot B'$$\n\nXNOR gir 1 når inngangene er like, både når begge er 1 og når begge er 0.\n\n**Prioritetsregel:** AND binder sterkere enn OR, akkurat som gange binder sterkere enn pluss. `A·B + C` betyr `(A·B) + C`, ikke `A·(B + C)`."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Tre porter er nok til å begynne (~12 min)\n\nTa en bil. Varsellyden for «bilbelte ikke festet» skal ulme når to ting er sanne samtidig: motoren går, **og** beltet er ulåst. Er bare den ene sann, skal det være stille.\n\nDen regelen er en logisk port. Den har to innganger som hver er 0 eller 1, og én utgang som er 0 eller 1 — og den er avgjort på forhånd hva utgangen blir for hver av de fire mulige kombinasjonene.\n\nHele datamaskinen er bygd av slike. Addisjonen du gjorde for hånd i [kap. 1.3](/bok/in1020/in1020-1-3) skjer i maskinen som noen titalls porter koblet etter hverandre. Derfor begynner seksjon 2 her: kan du portene, kan du lese maskinvaren."
+    },
+    {
+      "id": "in1020-2-1-def-port",
+      "type": "definition",
+      "title": "Logisk port",
+      "content": "En krets som tar inn ett eller flere bit og gir ut **nøyaktig ett** bit, etter en fast regel.\n\nRegelen er uttømmende: for hver mulige kombinasjon av inngangsverdier er utgangen bestemt på forhånd. Det er ingen tilfeldighet og ingen tilstand fra forrige gang — samme innganger gir alltid samme utgang.\n\nDen faste feilslutningen: å tro at en port kan ha flere utganger. Den har alltid **én**. Derimot kan den ene utgangen kobles videre til flere andre porter samtidig, og det er noe helt annet — se «Forgrening» i begrepsbanken."
+    },
+    {
+      "id": "in1020-2-1-def-sannhetstabell",
+      "type": "definition",
+      "title": "Sannhetstabell",
+      "content": "En tabell som lister **alle** inngangskombinasjoner, én per rad, med utgangen i siste kolonne.\n\nMed $n$ innganger har tabellen $2^n$ rader: to innganger gir fire rader, tre innganger gir åtte.\n\nRadene settes opp i binær tellerekkefølge — `00`, `01`, `10`, `11` — slik at ingen kombinasjon glemmes. Det er selve poenget med tabellen: den er en **fullstendig** beskrivelse av porten, og to porter med samme sannhetstabell gjør nøyaktig det samme, uansett hvordan de er bygd.\n\nDen faste feilslutningen: å sjekke en påstand om porter i ett tilfelle og tro at det holder. Det gjør det ikke — en påstand om logikk skal sjekkes i **alle** radene."
+    },
+    {
+      "id": "in1020-2-1-def-and",
+      "type": "definition",
+      "title": "AND-porten",
+      "content": "Gir 1 **bare** når alle inngangene er 1. Skrives `A·B`, `AB` eller `A AND B`.\n\n| A | B | `A·B` |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 0 |\n| 1 | 0 | 0 |\n| 1 | 1 | 1 |\n\n**Symbolet:** en boks med flat bakside og **halvsirkelformet framside**, som en stor D. Ingen boble.\n\n**Hverdagsregelen:** «begge deler». Varsellyden i bilen er en AND: motor på **og** belte ulåst.\n\nDen faste feilslutningen: å blande symbolet med OR-symbolet. AND er flat bak og rund foran; OR er **buet** bak og spiss foran. Det er formen på baksiden som skiller dem."
+    },
+    {
+      "id": "in1020-2-1-def-or",
+      "type": "definition",
+      "title": "OR-porten",
+      "content": "Gir 1 når **minst én** inngang er 1. Skrives `A+B` eller `A OR B`.\n\n| A | B | `A+B` |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 1 |\n| 1 | 0 | 1 |\n| 1 | 1 | 1 |\n\n**Symbolet:** buet bakside og **spiss framside**, som et skjold. Ingen boble.\n\n**Hverdagsregelen:** «minst én av delene». Innbruddsalarmen går når vinduet **eller** døra åpnes — eller begge.\n\nDen faste feilslutningen: å lese OR som «enten eller, men ikke begge». Den utelukkende varianten er XOR. OR gir 1 også når begge er 1, og pluss-tegnet i `A+B` er derfor ikke helt som pluss i vanlig regning: `1+1` er 1 her, ikke 2."
+    },
+    {
+      "id": "in1020-2-1-def-not",
+      "type": "definition",
+      "title": "NOT-porten (inverteren)",
+      "content": "Snur verdien. Har **én** inngang og én utgang. Skrives `A′` eller `Ā`.\n\n| A | `A′` |\n|---|---|\n| 0 | 1 |\n| 1 | 0 |\n\n**Symbolet:** en trekant med spissen mot høyre, med en **boble** i spissen. Det er boblen som gjør jobben — trekanten alene er bare en forsterker.\n\nBruker du NOT to ganger på rad, er du tilbake der du startet: `(A′)′ = A`. Det kalles involusjon, og det er den letteste forenklingen som finnes.\n\nDen faste feilslutningen: å tro at NOT trenger to innganger som de andre. Den tar ett bit inn og gir ett bit ut."
+    },
+    {
+      "id": "in1020-2-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra hverdagsregel til port og tabell",
+      "problem": "En kaffemaskin skal varsle når **vanntanken er tom eller bønnebeholderen er tom**. La `A` være 1 når vanntanken er tom, og `B` være 1 når bønnebeholderen er tom. Hvilken port skal brukes, og hvordan ser sannhetstabellen ut?",
+      "solution": "**Steg 1 — les ordlyden.** Ordet er «eller», og varselet skal komme også når begge er tomme samtidig. Det er den ikke-utelukkende betydningen, altså **OR**.\n\n**Steg 2 — skriv uttrykket.** `F = A + B`.\n\n**Steg 3 — sett opp tabellen med alle fire radene:**\n\n| A (vann tomt) | B (bønner tomt) | F (varsel) |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 1 |\n| 1 | 0 | 1 |\n| 1 | 1 | 1 |\n\n**Kontroll mot virkeligheten:** en maskin som *sluttet* å varsle når begge beholderne var tomme, ville vært ubrukelig. Det bekrefter at OR er riktig og at XOR — som gir 0 i den nederste raden — ville vært feil.\n\n**Svar: OR-porten, `F = A + B`.**\n\nHadde ordlyden vært «varsle når vanntanken er tom **og** maskinen står på», ville svaret vært AND, og bare den nederste raden ville gitt 1."
+    },
+    {
+      "id": "in1020-2-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — sannhetstabeller.) Skriv sannhetstabellen til AND og til OR ved siden av hverandre, og svar: i hvor mange av de fire radene gir de to portene **ulik** utgang?",
+        "solution": "| A | B | `A·B` | `A+B` |\n|---|---|---|---|\n| 0 | 0 | 0 | 0 |\n| 0 | 1 | 0 | 1 |\n| 1 | 0 | 0 | 1 |\n| 1 | 1 | 1 | 1 |\n\nRad 1: like (begge 0). Rad 2: ulike. Rad 3: ulike. Rad 4: like (begge 1).\n\n**Svar: i to av fire rader.**\n\nDe to portene er altså enige i halvparten av tilfellene — nemlig når inngangene er like. Det er verdt å merke seg: forveksler du AND og OR, tar du feil i halvparten av radene, ikke i alle.",
+        "hints": [
+          "Sett opp radene i tellerekkefølge: 00, 01, 10, 11.",
+          "Sammenlign rad for rad, ikke port for port."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — port-identifikasjon.) En port har denne sannhetstabellen. Hvilken port er det?\n\n| A | B | F |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 0 |\n| 1 | 0 | 0 |\n| 1 | 1 | 1 |",
+        "solution": "Utgangen er 1 i **nøyaktig én** rad, og det er raden der begge inngangene er 1.\n\n**Svar: AND-porten, `F = A·B`.**\n\nSlik utelukker du de andre: OR ville gitt 1 i tre rader. XOR ville gitt 1 når inngangene er ulike, altså i rad 2 og 3, og 0 i den nederste. NAND ville gitt det motsatte av det vi ser — 1 i tre rader og 0 nederst.\n\n**Kjenn igjen mønsteret på antall ettall i utgangskolonnen:** ett ettall nederst er AND, tre ettall er OR, ett ettall øverst er NOR.",
+        "hints": [
+          "Tell hvor mange rader som gir 1.",
+          "Se særlig på den nederste raden, der begge inngangene er 1 — den skiller AND fra XOR."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De fire portene med boble (~13 min)\n\nNå kommer de fire som gir flest bom. De er ikke nye regler — de er de tre du allerede kan, med svaret snudd, pluss én til.\n\n**Boblen på utgangen betyr «inverter».** Ser du en boble der ledningen forlater porten, skal du regne ut den vanlige porten først og deretter snu svaret. Det er hele hemmeligheten bak NAND, NOR og XNOR."
+    },
+    {
+      "id": "in1020-2-1-def-nand",
+      "type": "definition",
+      "title": "NAND-porten",
+      "content": "AND med svaret snudd: gir 0 **bare** når alle inngangene er 1, og 1 ellers. Skrives `(A·B)′`.\n\n| A | B | `(A·B)′` |\n|---|---|---|\n| 0 | 0 | 1 |\n| 0 | 1 | 1 |\n| 1 | 0 | 1 |\n| 1 | 1 | 0 |\n\n**Symbolet:** AND-symbolet — flat bak, rundt foran — med en **boble** på utgangen.\n\nNavnet er kortformen av «NOT AND», og det er akkurat det den er: `A·B` regnet ut, deretter invertert.\n\nDen faste feilslutningen: å blande NAND og NOR. Tell ettallene i utgangskolonnen — NAND har **tre** ettall og ett null nederst; NOR har **ett** ettall øverst og tre null. De er ikke nære hverandre i det hele tatt når du ser på tabellen; det er bare symbolene som ligner."
+    },
+    {
+      "id": "in1020-2-1-def-nor",
+      "type": "definition",
+      "title": "NOR-porten",
+      "content": "OR med svaret snudd: gir 1 **bare** når alle inngangene er 0. Skrives `(A+B)′`.\n\n| A | B | `(A+B)′` |\n|---|---|---|\n| 0 | 0 | 1 |\n| 0 | 1 | 0 |\n| 1 | 0 | 0 |\n| 1 | 1 | 0 |\n\n**Symbolet:** OR-symbolet — buet bak, spisst foran — med en **boble** på utgangen.\n\n**Hverdagsregelen:** «ingen av delene». Lampen «alt i orden» lyser bare når ingen av de to feilsignalene er aktive.\n\nDen faste feilslutningen: å tro at NOR er «NOT etterfulgt av OR». Rekkefølgen er motsatt — OR først, invertering til slutt. Inverterer du inngangene først og OR-er etterpå, får du `A′ + B′`, som er NAND. Se De Morgans lover i begrepsbanken."
+    },
+    {
+      "id": "in1020-2-1-def-xor",
+      "type": "definition",
+      "title": "XOR-porten",
+      "content": "Gir 1 når inngangene er **ulike**, altså når nøyaktig én av dem er 1. Skrives `A⊕B`.\n\n| A | B | `A⊕B` |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 1 |\n| 1 | 0 | 1 |\n| 1 | 1 | 0 |\n\n**Symbolet:** OR-symbolet med **en ekstra bue** langs baksiden. Ingen boble.\n\n**Navnet:** «exclusive or», det utelukkende eller — «enten den ene eller den andre, men ikke begge».\n\nSkrevet med de tre grunnportene: `A⊕B = A′·B + A·B′`. Det leses direkte av tabellen: de to radene som gir 1, er «A er 0 og B er 1» og «A er 1 og B er 0».\n\nDen faste feilslutningen: å bruke XOR der oppgaven sier «eller» i dagligtale. Dagligtalens «eller» er som regel OR — XOR krever at det ene utelukker det andre."
+    },
+    {
+      "id": "in1020-2-1-def-xnor",
+      "type": "definition",
+      "title": "XNOR-porten",
+      "content": "XOR med svaret snudd: gir 1 når inngangene er **like**. Skrives `(A⊕B)′`.\n\n| A | B | `(A⊕B)′` |\n|---|---|---|\n| 0 | 0 | 1 |\n| 0 | 1 | 0 |\n| 1 | 0 | 0 |\n| 1 | 1 | 1 |\n\n**Symbolet:** XOR-symbolet med en **boble** på utgangen.\n\nXNOR er **likhetstesten** i maskinvare: den svarer 1 nøyaktig når de to bitene er like. Skal en maskin sammenligne to byte, brukes åtte XNOR-porter, én per bitpar.\n\nSkrevet med grunnportene: `(A⊕B)′ = A·B + A′·B′` — begge er 1, eller begge er 0.\n\nDen faste feilslutningen: å forveksle XNOR og XOR. De er hverandres motsatte i **hver eneste rad**, så en forveksling gir null riktige, ikke halvparten."
+    },
+    {
+      "id": "in1020-2-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensform — koble beskrivelse til port",
+      "problem": "Svarform F3, altså en koblingsoppgave: koble hver beskrivelse (1–4) til riktig port (A–F). Hver port kan brukes én gang eller ikke i det hele tatt.\n\n**1.** Utgangen er 1 bare når begge inngangene er 0.\n\n**2.** Utgangen er 1 når inngangene er like.\n\n**3.** Symbolet er flat bak og rundt foran, med boble på utgangen.\n\n**4.** Utgangen er 1 når minst én inngang er 1.\n\n**A.** AND · **B.** OR · **C.** XOR · **D.** NAND · **E.** NOR · **F.** XNOR",
+      "solution": "**1 → E (NOR).** «1 bare når begge er 0» er øverste rad alene. Det er NOR. Det er ikke NAND, som gir 1 i tre av fire rader, og ikke XNOR, som gir 1 både øverst og nederst.\n\n**2 → F (XNOR).** «Like innganger» dekker både `00` og `11`. XOR ville vært det motsatte (ulike), AND ville bare dekket `11`.\n\n**3 → D (NAND).** Flat bakside og rund framside er AND-formen; boblen på utgangen snur svaret. Uten boble ville det vært A, og med OR-formen ville det vært E.\n\n**4 → B (OR).** Standard OR. Ikke XOR, som mister den nederste raden der begge er 1.\n\n**Fasit: 1→E, 2→F, 3→D, 4→B.**\n\nLegg merke til at koblingen ikke er 1→A, 2→B, 3→C: rekkefølgen i en slik oppgave er alltid stokket, og en «pen» diagonal er et varsel om at du har gjettet.\n\n**Under negativ poenggiving:** to av portene (AND og XOR) er ikke i bruk. En dra-og-slipp-oppgave krever ikke at alle kategorier brukes, og det å tvinge inn de ubrukte er en klassisk måte å miste poeng på."
+    },
+    {
+      "id": "in1020-2-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — port-identifikasjon.) For hver av de fire beskrivelsene: hvilken port er det?\n\n**a)** Utgangen er 0 bare når begge inngangene er 1.\n\n**b)** Utgangen er 1 når nøyaktig én inngang er 1.\n\n**c)** Porten har én inngang.\n\n**d)** Utgangen er 1 i tre av fire rader, og den ene nullen står øverst.",
+        "solution": "**a) NAND.** «0 bare i nederste rad» er AND invertert.\n\n**b) XOR.** «Nøyaktig én» utelukker raden der begge er 1, og det er nettopp forskjellen fra OR.\n\n**c) NOT (inverteren).** Den er den eneste av de sju med bare én inngang.\n\n**d) OR.** Tre ettall og nullen i raden `00` — det er OR. NAND har også tre ettall, men da står nullen **nederst**, i raden `11`.\n\n**Fasit: a) NAND, b) XOR, c) NOT, d) OR.**\n\nMerk hvordan d) skiller seg fra a): antall ettall er ikke nok, du må vite *hvor* det avvikende svaret står.",
+        "hints": [
+          "Skriv opp utgangskolonnen som fire tegn ovenfra og ned før du bestemmer deg.",
+          "Tell både hvor mange ettall det er og i hvilken rad avviket står."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — porter, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | XNOR gir 1 når inngangene er like | |\n| b | NOR gir 1 i tre av fire rader | |\n| c | XOR og OR er enige i tre av fire rader | |\n| d | NOT-porten har én inngang og én utgang | |",
+        "solution": "**a) Sant.** XNOR er likhetstesten: 1 i radene `00` og `11`.\n\n**b) Usant.** NOR gir 1 i **én** rad — den øverste, der begge inngangene er 0. Det er NAND som gir 1 i tre rader. Dette er selve NAND/NOR-forvekslingen, og den er verdt å stoppe ved.\n\n**c) Sant.** Sammenlign radvis: `00` gir 0 og 0 (enige), `01` gir 1 og 1 (enige), `10` gir 1 og 1 (enige), `11` gir 0 og 1 (uenige). Tre av fire.\n\n**d) Sant.** NOT er den eneste porten i kapitlet med bare én inngang, og som alle porter har den nøyaktig én utgang.\n\n**Fasit: a sann, b usann, c sann, d sann.**\n\nMerk fordelingen: tre sanne og én usann. Sant/usant-matriser er sjelden jevnt fordelt, så du kan ikke bruke antallet som ledetråd for de radene du er usikker på.",
+        "hints": [
+          "Skriv opp sannhetstabellen til hver port som er nevnt, før du vurderer raden.",
+          "For rad c: sammenlign de to utgangskolonnene rad for rad og tell hvor mange som er like."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Identitetene eksamen spør om (~12 min)\n\nSjanger D har en fast andre halvdel: påstander om hva som *går an* å bygge med porter. De kommer som sant/usant-rader, og de er de samme påstandene år etter år.\n\nDe tre du må kunne begrunne, er: at XNOR er invertert XOR, at **én** porttype kan være nok til å bygge alt, og at en port har én utgang mens den utgangen kan mate mange."
+    },
+    {
+      "id": "in1020-2-1-teo-portliste",
+      "type": "theorem",
+      "title": "Portliste — slik beskrives en krets i tekst",
+      "content": "Når flere porter kobles sammen, beskriver vi kretsen som en **nummerert liste** der hver port får sine innganger oppgitt og gir et navngitt mellomsignal ut:\n\n```text\nPort 1: NAND med inngangene A og B   -> mellomsignal P\nPort 2: NAND med inngangene P og P   -> utgangen F\n```\n\nLesemåten er alltid ovenfra og ned: du regner ut `P` først, fordi port 2 trenger den.\n\nDet gir en **entydig** beskrivelse — det finnes bare én krets som passer listen — og du kan regne ut utgangen ved å fylle inn én kolonne per mellomsignal i sannhetstabellen.\n\nDenne formen brukes gjennom hele boka. Du får full trening i å regne ut `F` fra en portliste i neste kapittel; her trenger du den bare for å lese de to små konstruksjonene under."
+    },
+    {
+      "id": "in1020-2-1-teo-identiteter",
+      "type": "theorem",
+      "title": "De faste identitetene om porter",
+      "content": "**1. XNOR er invertert XOR.** `(A⊕B)′` gir 1 nøyaktig der `A⊕B` gir 0. Kontrollen er hele tabellen, ikke ett tilfelle:\n\n| A | B | `A⊕B` | `(A⊕B)′` |\n|---|---|---|---|\n| 0 | 0 | 0 | 1 |\n| 0 | 1 | 1 | 0 |\n| 1 | 0 | 1 | 0 |\n| 1 | 1 | 0 | 1 |\n\n**2. Funksjonell kompletthet.** Enhver logisk funksjon, uansett hvor mange innganger og hvor komplisert, kan bygges med **kun NAND-porter**. Det samme gjelder **kun NOR-porter**, og det gjelder settet {NOT, OR}.\n\nBeviset er kort, og du bør kunne skissere det: klarer du å lage NOT, AND og OR av bare NAND, kan du lage alt, fordi alle uttrykk kan skrives med de tre.\n\n```text\nNOT:  Port 1: NAND med inngangene A og A   -> F = A′\nAND:  Port 1: NAND med inngangene A og B   -> P\n      Port 2: NAND med inngangene P og P   -> F = A·B\nOR:   Port 1: NAND med inngangene A og A   -> P = A′\n      Port 2: NAND med inngangene B og B   -> Q = B′\n      Port 3: NAND med inngangene P og Q   -> F = A+B\n```\n\nKontroller den siste: `(A′·B′)′` er ifølge De Morgan lik `A + B`. Stemmer.\n\n**3. Én utgang, mange mottakere.** En port har **nøyaktig én** utgang. Men den ene ledningen kan grene seg og gå inn som inngang på flere porter samtidig — alle mottakerne ser da den samme verdien.\n\nDette er den påstanden som oftest kommer som en felle: «en port kan ha to utganger» er **usant**, mens «en portutgang kan være inngang på flere porter» er **sant**. Les rada nøye."
+    },
+    {
+      "id": "in1020-2-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Bygg en NOT av en NAND, og kontroller hele tabellen",
+      "problem": "Vis at porten under gjør nøyaktig det samme som en NOT-port.\n\n```text\nPort 1: NAND med begge inngangene koblet til A   -> utgangen F\n```",
+      "solution": "**Steg 1 — sett opp tabellen med begge NAND-inngangene lik A.** Siden begge inngangene er `A`, finnes det bare to rader å sjekke, ikke fire.\n\n| A | NAND-inngang 1 | NAND-inngang 2 | `F = (A·A)′` |\n|---|---|---|---|\n| 0 | 0 | 0 | 1 |\n| 1 | 1 | 1 | 0 |\n\n**Steg 2 — regn ut hver rad.**\n\nRad 1: `0 AND 0 = 0`, invertert gir **1**.\n\nRad 2: `1 AND 1 = 1`, invertert gir **0**.\n\n**Steg 3 — sammenlign med NOT.** NOT gir 1 for inngang 0 og 0 for inngang 1. Kolonnene er identiske i begge radene.\n\n**Svar: ja, en NAND med sammenkoblede innganger er en inverter.**\n\n**Algebraisk kontroll:** `A·A = A` (idempotens), så `(A·A)′ = A′`. Samme svar.\n\n**Hvorfor dette er verdt plass:** det er første halvdel av begrunnelsen for at NAND alene er nok. Har du NOT, får du AND ved å invertere NAND-en, og OR ved De Morgan — og da har du alt."
+    },
+    {
+      "id": "in1020-2-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — kretsanalyse i det små.) Regn ut utgangen `F` for denne kretsen i alle fire radene, og si hvilken av de sju portene den tilsvarer.\n\n```text\nPort 1: NOR med inngangene A og A   -> mellomsignal P\nPort 2: NOR med inngangene B og B   -> mellomsignal Q\nPort 3: NOR med inngangene P og Q   -> utgangen F\n```",
+        "solution": "Port 1 og port 2 er begge NOR med sammenkoblede innganger, altså invertere: `P = A′` og `Q = B′`.\n\n| A | B | `P = A′` | `Q = B′` | `F = (P+Q)′` |\n|---|---|---|---|---|\n| 0 | 0 | 1 | 1 | 0 |\n| 0 | 1 | 1 | 0 | 0 |\n| 1 | 0 | 0 | 1 | 0 |\n| 1 | 1 | 0 | 0 | 1 |\n\nRegn rad for rad: i rad 1 er `P+Q = 1`, invertert 0. I rad 2 er `P+Q = 1`, invertert 0. I rad 3 likeså. I rad 4 er `P+Q = 0`, invertert 1.\n\nUtgangskolonnen er `0, 0, 0, 1` — ett ettall, nederst.\n\n**Svar: kretsen er en AND-port, `F = A·B`.**\n\n**Algebraisk kontroll:** `F = (A′ + B′)′`, som ved De Morgan er `A·B`. Stemmer.\n\nDette er andre halvdel av begrunnelsen for at NOR alene er funksjonelt komplett: du har nettopp bygd en AND av tre NOR-porter.",
+        "hints": [
+          "En NOR med begge inngangene koblet til samme signal er en inverter — vis det for begge verdiene av inngangen først.",
+          "Fyll ut én kolonne for hvert mellomsignal før du regner ut F."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — identiteter, svarform F1.) Kryss av **alle** alternativene som er lik `A′ + B′`, og begrunn hvert av de fire.\n\n**a)** `(A·B)′`\n\n**b)** `(A+B)′`\n\n**c)** Utgangen fra en NAND-port med inngangene A og B\n\n**d)** `A′ · B′`",
+        "solution": "Sett opp tabellen for uttrykket vi skal matche:\n\n| A | B | `A′` | `B′` | `A′ + B′` |\n|---|---|---|---|---|\n| 0 | 0 | 1 | 1 | 1 |\n| 0 | 1 | 1 | 0 | 1 |\n| 1 | 0 | 0 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 0 |\n\nKolonnen er `1, 1, 1, 0`.\n\n**a) Riktig.** `(A·B)′` er NAND: `1, 1, 1, 0`. Identisk. Dette er De Morgans lov `(A·B)′ = A′ + B′`.\n\n**b) Galt.** `(A+B)′` er NOR: `1, 0, 0, 0`. Den er lik i første rad og ulik i de tre andre. Distraktoren bygger på å bruke De Morgan uten å bytte operator — det er nettopp byttet fra AND til OR som er innholdet i loven.\n\n**c) Riktig.** En NAND-port gir per definisjon `(A·B)′`, som er det samme som a).\n\n**d) Galt.** `A′ · B′` er `1, 0, 0, 0`, altså NOR. Distraktoren beholder invertering av hver variabel, men bruker AND i stedet for OR i midten.\n\n**Fasit: a og c.**\n\n**Merk formen:** to av fire er riktige. Det er den vanlige F1-formen, og krysser du bare av det første riktige du finner, mister du halve poenget uten å ha gjort noe galt.",
+        "hints": [
+          "Skriv ut hele sannhetstabellen for uttrykket i oppgaveteksten først — én kolonne per invertering.",
+          "Sammenlign kolonne mot kolonne, rad for rad. Ett sammenfall i én rad er ikke nok."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensformen (~8 min)\n\nSjanger D kommer i tre innpakninger, og alle tre er trent nå: koble symbol eller beskrivelse til portnavn (F3), vurdere påstander om porter og identiteter (F2), og krysse av alle uttrykk som er ekvivalente (F1).\n\nDet som gjør sjangeren billig, er at svarene er entydige og kan kontrolleres på stedet: en sannhetstabell med fire rader tar under et minutt å skrive ut, og den avgjør saken. Det som gjør den farlig, er at feil svar trekker poeng — så bruk minuttet."
+    },
+    {
+      "id": "in1020-2-1-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — sant/usant om porter og identiteter",
+      "problem": "Svarform F2. Vurder hver påstand som sann eller usann.\n\n**a)** Enhver logisk funksjon kan realiseres med kun NAND-porter.\n\n**b)** En AND-port kan ha to utganger hvis den mater to andre porter.\n\n**c)** NAND og NOR gir samme utgang i raden der begge inngangene er 0.\n\n**d)** XOR gir 1 i nøyaktig like mange rader som XNOR gir 1.",
+      "solution": "**a) Sann.** NAND er funksjonelt komplett. Begrunnelsen står i identitetsblokka: NAND med sammenkoblede innganger gir NOT; NAND etterfulgt av den NOT-en gir AND; og NAND på to inverterte innganger gir OR ved De Morgan. Har du NOT, AND og OR, kan du bygge hva som helst.\n\n**b) Usann.** En port har **nøyaktig én** utgang. Det som er sant, er at den ene utgangen kan grene seg og gå inn på flere porter. Påstanden bytter om på de to, og det er den faste fella i denne raden.\n\n**c) Sann.** I raden `00` gir NAND `(0·0)′ = 1` og NOR `(0+0)′ = 1`. Begge gir 1. De skiller lag i de tre andre radene, men spørsmålet gjelder bare denne ene — les hva rada faktisk spør om.\n\n**d) Sann.** XOR gir 1 i to rader (`01` og `10`), XNOR gir 1 i to rader (`00` og `11`). To mot to. Merk at de aldri gir 1 i **samme** rad — men antallet er likt, og det var det påstanden gjaldt.\n\n**Fasit: a sann, b usann, c sann, d sann.**\n\n**Om formen:** rad c og d er skrevet for å teste om du leser presist. Begge er sanne, men begge har en «nesten»-lesning som er usann («NAND og NOR gir samme utgang» uten radbegrensning ville vært usant; «XOR og XNOR gir 1 i samme rader» ville vært usant). Under negativ poenggiving er det å lese rada bokstavelig en egen ferdighet."
+    },
+    {
+      "id": "in1020-2-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — identiteter, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad med en sannhetstabell eller en identitet.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Enhver logisk funksjon kan realiseres med kun NOR-porter | |\n| b | `(A′)′ · B` er lik `A · B` | |\n| c | En NOR-port med begge inngangene koblet til A gir `A` | |\n| d | XNOR er lik `A·B + A′·B′` | |",
+        "solution": "**a) Sann.** NOR er funksjonelt komplett, på samme måte som NAND. Du bygde selve nøkkelen i oppgave 5: NOR med sammenkoblede innganger gir NOT, og tre NOR-porter gir AND. Med NOT og AND kan alt bygges.\n\n**b) Sann.** Dobbel invertering opphever seg selv: `(A′)′ = A`, så uttrykket er `A·B`. Kontroll i den ene raden det kunne skjære seg: `A = 1` gir `A′ = 0` og `(A′)′ = 1`. Stemmer.\n\n**c) Usann.** NOR med sammenkoblede innganger gir `(A+A)′ = A′`, altså det **inverterte** signalet, ikke `A`. Tabellen: `A = 0` gir 1, `A = 1` gir 0. Påstanden mangler nettopp inverteringen som boblen står for.\n\n**d) Sann.** Sett opp begge kolonnene:\n\n| A | B | `A·B` | `A′·B′` | `A·B + A′·B′` | XNOR |\n|---|---|---|---|---|---|\n| 0 | 0 | 0 | 1 | 1 | 1 |\n| 0 | 1 | 0 | 0 | 0 | 0 |\n| 1 | 0 | 0 | 0 | 0 | 0 |\n| 1 | 1 | 1 | 0 | 1 | 1 |\n\nKolonnene er identiske i alle fire radene. Uttrykket sier «begge er 1, eller begge er 0», som er nøyaktig likhetstesten.\n\n**Fasit: a sann, b sann, c usann, d sann.**\n\nMerk at det er den *lettest oversette* rada — c — som er den usanne. Distraktoren er bygd på at man leser «NOR» og tenker «OR», og OR med sammenkoblede innganger gir faktisk `A`.",
+        "hints": [
+          "For rad a: hva bygde du i oppgave 5, og hva mangler du da for å ha alle tre grunnportene?",
+          "For rad c: skriv ut de to radene for én inngang før du svarer — ikke stol på navnet på porten.",
+          "For rad d: sett opp én kolonne per ledd og legg dem sammen med OR til slutt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — port-identifikasjon, svarform F1.) En krets er gitt som portliste:\n\n```text\nPort 1: NOT med inngangen A          -> mellomsignal P\nPort 2: NOT med inngangen B          -> mellomsignal Q\nPort 3: AND med inngangene P og B    -> mellomsignal R\nPort 4: AND med inngangene A og Q    -> mellomsignal S\nPort 5: OR  med inngangene R og S    -> utgangen F\n```\n\nKryss av **alle** alternativene som stemmer.\n\n**a)** Kretsen tilsvarer en XOR-port.\n\n**b)** `F = 1` når `A = 1` og `B = 1`.\n\n**c)** `F` kan skrives som `A′·B + A·B′`.\n\n**d)** Kretsen bruker fem porter, men bare to ulike porttyper.",
+        "solution": "**Regn ut kolonne for kolonne:**\n\n| A | B | `P = A′` | `Q = B′` | `R = P·B` | `S = A·Q` | `F = R + S` |\n|---|---|---|---|---|---|---|\n| 0 | 0 | 1 | 1 | 0 | 0 | 0 |\n| 0 | 1 | 1 | 0 | 1 | 0 | 1 |\n| 1 | 0 | 0 | 1 | 0 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 0 | 0 | 0 |\n\nUtgangskolonnen er `0, 1, 1, 0`.\n\n**a) Riktig.** `0, 1, 1, 0` er nøyaktig XOR-tabellen: 1 når inngangene er ulike.\n\n**b) Galt.** I nederste rad er `R = 0` (fordi `P = 0`) og `S = 0` (fordi `Q = 0`), så `F = 0`. Distraktoren bygger på å lese OR-porten til slutt som «minst én er 1» uten å regne ut hva `R` og `S` faktisk er i den raden.\n\n**c) Riktig.** Les uttrykket rett av portlisten: `R = A′·B`, `S = A·B′`, og `F = R + S = A′·B + A·B′`. Det er standardformen for XOR.\n\n**d) Galt.** Kretsen bruker fem porter, men **tre** ulike typer: NOT, AND og OR. Distraktoren er en telle-felle, og den er verdt å legge merke til: den handler ikke om logikk i det hele tatt, men om å lese listen nøyaktig.\n\n**Fasit: a og c.**",
+        "hints": [
+          "Fyll ut én kolonne per mellomsignal, i den rekkefølgen portlisten gir dem.",
+          "Regn ut hver rad helt fram til F før du vurderer noen av alternativene.",
+          "For d): tell porttypene, ikke portene."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å forveksle NAND og NOR.** Den vanligste enkeltbommen i sjangeren. Symbolene ligner fordi begge har boble, men tabellene er ikke i nærheten av hverandre: NAND har **tre** ettall og nullen nederst, NOR har **ett** ettall øverst. Test deg selv med raden `01` — der gir NAND 1 og NOR 0.\n\n2. **Å forveksle XOR og XNOR.** De er hverandres motsatte i hver eneste rad. En forveksling gir null riktige svar, ikke halvparten. Huskeregelen: XOR spør «er de ulike?», XNOR spør «er de like?».\n\n3. **Å tro at en port kan ha flere utganger.** Én port, én utgang — alltid. Det som er lov, er at den ene utgangen grener seg til flere mottakere. Påstandsraden er skrevet nøyaktig for å teste om du kjenner forskjellen.\n\n4. **Å bruke De Morgan uten å bytte operator.** `(A·B)′` er `A′ + B′`, ikke `A′·B′`. Selve innholdet i loven er at AND blir OR og OR blir AND når du drar inverteringen inn.\n\n5. **Å sjekke en identitet i ett tilfelle.** «Det stemmer når A er 1» er ikke et argument. Alle rader skal sjekkes — det er hele poenget med sannhetstabellen, og under negativ poenggiving er en halvsjekket identitet en dyr vane.\n\n6. **Å svare på hva rada *nesten* spør om.** Påstandene i sjangeren er skrevet presist: «gir samme utgang i raden der begge er 0» er noe helt annet enn «gir samme utgang». Les hver rad bokstavelig, og avgrens deg til akkurat det som står — det er halve ferdigheten i en sant/usant-matrise."
+    },
+    {
+      "id": "in1020-2-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-2-1-bank-1",
+      "type": "definition",
+      "title": "Boblen på et portsymbol",
+      "content": "Den vesle sirkelen der ledningen forlater porten. Den betyr **inverter utgangen**.\n\nFire av de sju portene har boble: NOT, NAND, NOR og XNOR. Fjerner du boblen fra NAND, står du igjen med AND; fjerner du den fra NOR, står du igjen med OR.\n\nDen faste feilen er å overse boblen når man leser et symbol raskt. Da forveksler man en port med dens motsetning — og får null riktige i alle rader, ikke halvparten."
+    },
+    {
+      "id": "in1020-2-1-bank-2",
+      "type": "definition",
+      "title": "Boolsk uttrykk",
+      "content": "En formel som beskriver utgangen av en krets ved hjelp av inngangsvariablene og operatorene `′` (NOT), `·` (AND) og `+` (OR).\n\n`F = A·B + C′` leses: «F er 1 når både A og B er 1, eller når C er 0».\n\nTo uttrykk som gir samme kolonne i sannhetstabellen, er **ekvivalente**, uansett hvor ulike de ser ut. Det er derfor en eksamensoppgave kan ha flere riktige alternativer samtidig."
+    },
+    {
+      "id": "in1020-2-1-bank-3",
+      "type": "definition",
+      "title": "Prioritetsregelen: AND før OR",
+      "content": "I et boolsk uttrykk binder `·` (AND) sterkere enn `+` (OR), på samme måte som gange binder sterkere enn pluss i vanlig regning.\n\n`A·B + C` betyr `(A·B) + C`. Vil du ha `A·(B + C)`, må du sette parentesen.\n\nDen faste feilen er å lese uttrykket fra venstre mot høyre uten å ta hensyn til prioriteten. `A + B·C` er ikke `(A + B)·C` — de to gir ulik utgang i tre av de åtte radene."
+    },
+    {
+      "id": "in1020-2-1-bank-4",
+      "type": "definition",
+      "title": "Funksjonell kompletthet",
+      "content": "At et sett porttyper er nok til å bygge **enhver** logisk funksjon.\n\nSettene du skal kunne: **{NAND} alene**, **{NOR} alene** og **{NOT, OR}**. Også {NOT, AND} er komplett.\n\nBegrunnelsen går alltid samme vei: klarer du å lage NOT, AND og OR av byggeklossen din, kan du lage alt, fordi ethvert boolsk uttrykk er bygd av de tre.\n\nDen faste feilslutningen: å tro at {AND, OR} alene er nok. Det er det ikke — uten en form for invertering kan du aldri lage en utgang som er 0 når alle inngangene er 1."
+    },
+    {
+      "id": "in1020-2-1-bank-5",
+      "type": "definition",
+      "title": "NAND som universell port",
+      "content": "NAND alene er funksjonelt komplett. De tre konstruksjonene:\n\n```text\nNOT A  = NAND(A, A)\nA·B    = NAND( NAND(A,B), NAND(A,B) )\nA+B    = NAND( NAND(A,A), NAND(B,B) )\n```\n\nDen siste er De Morgan i praksis: `(A′·B′)′ = A + B`.\n\nAt én porttype holder, er også grunnen til at NAND er så vanlig i faktiske brikker — én type å produsere, én type å teste."
+    },
+    {
+      "id": "in1020-2-1-bank-6",
+      "type": "definition",
+      "title": "NOR som universell port",
+      "content": "NOR alene er funksjonelt komplett, på samme måte som NAND.\n\n```text\nNOT A  = NOR(A, A)\nA+B    = NOR( NOR(A,B), NOR(A,B) )\nA·B    = NOR( NOR(A,A), NOR(B,B) )\n```\n\nDen siste er De Morgan speilvendt: `(A′ + B′)′ = A·B`.\n\nMerk symmetrien mot NAND-konstruksjonene: der NAND lager AND direkte og OR via inverterte innganger, gjør NOR det motsatte."
+    },
+    {
+      "id": "in1020-2-1-bank-7",
+      "type": "definition",
+      "title": "Forgrening av en utgang",
+      "content": "At den ene utgangen fra en port kobles videre som inngang til **flere** porter samtidig.\n\nAlle mottakerne ser da nøyaktig samme verdi — ledningen er én, den er bare delt i flere retninger.\n\nDette er den sanne halvdelen av en fast eksamensfelle. Den usanne halvdelen er «en port kan ha flere utganger». Porten har én utgang; det er ledningen som greiner seg."
+    },
+    {
+      "id": "in1020-2-1-bank-8",
+      "type": "definition",
+      "title": "De Morgans lover",
+      "content": "De to reglene for å dra en invertering inn i en parentes — **og bytte operator underveis**:\n\n$$(A \\cdot B)' = A' + B' \\qquad (A + B)' = A' \\cdot B'$$\n\nI ord: «ikke begge» er det samme som «ikke den ene eller ikke den andre», og «ingen av dem» er det samme som «ikke den ene og ikke den andre».\n\nDen faste feilen er å invertere hver variabel og la operatoren stå. Da får du NOR der du skulle hatt NAND, og de to er ulike i tre av fire rader."
+    },
+    {
+      "id": "in1020-2-1-bank-9",
+      "type": "definition",
+      "title": "Idempotens",
+      "content": "At en variabel kombinert med seg selv gir seg selv:\n\n$$A + A = A \\qquad A \\cdot A = A$$\n\nDet er derfor en NAND med sammenkoblede innganger blir en inverter: `(A·A)′ = A′`.\n\nRegelen har ingen motstykke i vanlig regning — der er `A + A` lik `2A`. I boolsk algebra finnes ikke tallet 2; det finnes bare 0 og 1."
+    },
+    {
+      "id": "in1020-2-1-bank-10",
+      "type": "definition",
+      "title": "Komplementlovene",
+      "content": "At en variabel kombinert med sin egen invertering gir en konstant:\n\n$$A + A' = 1 \\qquad A \\cdot A' = 0$$\n\nBegrunnelsen er at nøyaktig én av `A` og `A′` er 1, uansett hva `A` er. Da er OR-en alltid 1, og AND-en alltid 0.\n\nDisse to er de mest brukte forenklingene i kretsanalyse: finner du dem i et uttrykk, faller et helt ledd bort."
+    },
+    {
+      "id": "in1020-2-1-bank-11",
+      "type": "definition",
+      "title": "Identitets- og nullelement",
+      "content": "De fire reglene for hva som skjer når en konstant møter en variabel:\n\n$$A + 0 = A \\qquad A \\cdot 1 = A \\qquad A + 1 = 1 \\qquad A \\cdot 0 = 0$$\n\nDe to første lar konstanten forsvinne; de to siste lar konstanten **overta** hele uttrykket.\n\nHuskeregelen: en OR-port med en fast 1 på den ene inngangen gir alltid 1 uansett hva den andre er, og en AND-port med en fast 0 gir alltid 0. Slike innganger kalles «lukket» eller «låst» i praksis."
+    },
+    {
+      "id": "in1020-2-1-bank-12",
+      "type": "definition",
+      "title": "Involusjon (dobbel invertering)",
+      "content": "At to inverteringer etter hverandre opphever hverandre:\n\n$$(A')' = A$$\n\nTo NOT-porter i serie er altså elektrisk nyttige (de forsterker signalet) men logisk usynlige.\n\nRegelen brukes hele tiden i forenkling: ser du en dobbel strek eller to bobler etter hverandre, kan du stryke begge."
+    },
+    {
+      "id": "in1020-2-1-bank-13",
+      "type": "definition",
+      "title": "Kommutativitet i boolsk algebra",
+      "content": "At rekkefølgen på inngangene ikke betyr noe:\n\n$$A + B = B + A \\qquad A \\cdot B = B \\cdot A$$\n\nDette er grunnen til at `A + C` og `C + A` er **samme** uttrykk, og at begge kan stå som alternativer i en «kryss av alle ekvivalente»-oppgave samtidig.\n\nDen faste feilen er å tro at bare den ene skrivemåten er «riktig». Begge er riktige, og under svarform F1 skal begge krysses av."
+    },
+    {
+      "id": "in1020-2-1-bank-14",
+      "type": "definition",
+      "title": "Porter med mer enn to innganger",
+      "content": "AND, OR, NAND, NOR og XOR finnes også med tre eller flere innganger. Regelen utvides på den naturlige måten: en AND med tre innganger gir 1 bare når **alle tre** er 1, og en OR med tre innganger gir 1 når **minst én** er 1.\n\nSannhetstabellen vokser raskt: tre innganger gir $2^3 = 8$ rader, fire gir 16.\n\nNOT er unntaket — den har alltid nøyaktig én inngang."
+    },
+    {
+      "id": "in1020-2-1-bank-15",
+      "type": "definition",
+      "title": "XOR som ulikhetstest",
+      "content": "XOR svarer 1 nøyaktig når de to bitene er **ulike**. Den er derfor maskinvarens «er disse forskjellige?»-spørsmål.\n\nTo praktiske følger: `A ⊕ 0 = A` (XOR med null lar bitet stå), og `A ⊕ 1 = A′` (XOR med ett inverterer bitet). Det er slik en maskin kan velge å invertere et bit uten å bruke en egen inverter.\n\nXOR er også kjernen i den binære addisjonen du gjorde for hånd i [kap. 1.3](/bok/in1020/in1020-1-3): summbitet av to bit uten mente er nettopp `A ⊕ B`."
+    },
+    {
+      "id": "in1020-2-1-bank-16",
+      "type": "definition",
+      "title": "XNOR som likhetstest",
+      "content": "XNOR svarer 1 nøyaktig når de to bitene er **like**, altså både ved `00` og ved `11`.\n\nSkal en maskin sammenligne to byte, brukes åtte XNOR-porter — én per bitpar — og resultatene AND-es sammen. Er alle åtte parene like, er svaret 1.\n\nSkrivemåtene du skal kjenne igjen: `(A⊕B)′` og `A·B + A′·B′`. Begge er XNOR, og i en «kryss av alle ekvivalente»-oppgave er begge riktige."
+    },
+    {
+      "id": "in1020-2-1-bank-17",
+      "type": "definition",
+      "title": "Portliste",
+      "content": "En nummerert, entydig tekstbeskrivelse av en krets: én linje per port, med portens type, dens innganger og navnet på signalet den gir ut.\n\n```text\nPort 1: AND med inngangene A og B   -> mellomsignal P\nPort 2: NOT med inngangen C         -> mellomsignal Q\nPort 3: OR  med inngangene P og Q   -> utgangen F\n```\n\nDenne listen svarer til `F = A·B + C′`. Rekkefølgen er alltid slik at et mellomsignal er beregnet før det brukes.\n\nPortlisten er formen kretsoppgavene har i denne boka, og den kan leses like presist som en tegning."
+    },
+    {
+      "id": "in1020-2-1-bank-18",
+      "type": "definition",
+      "title": "Mellomsignal",
+      "content": "Utgangen fra en port som ikke er kretsens sluttutgang, men går videre som inngang til en annen port.\n\nMellomsignaler navngis med egne bokstaver (`P`, `Q`, `R`) og får hver sin kolonne i sannhetstabellen når du analyserer kretsen.\n\nÅ hoppe over mellomsignalkolonnene og prøve å regne rett fram til `F` i hodet er den vanligste kilden til regnefeil i kretsanalyse."
+    },
+    {
+      "id": "in1020-2-1-bank-19",
+      "type": "definition",
+      "title": "Logisk verdi kontra spenning",
+      "content": "De to nivåene i en krets er fysisk spenninger — lav og høy — og logisk verdiene 0 og 1.\n\nDen logiske verdien er en **tolkning** av spenningen, på samme måte som en byte er en tolkning av åtte bit ([kap. 1.3](/bok/in1020/in1020-1-3)).\n\nSkillet blir eksplisitt igjen senere i del 2, der «logiske verdier» og «volt» er to ulike trinn på abstraksjonsstigen — og der rekkefølgen mellom dem er eksamensstoff."
+    },
+    {
+      "id": "in1020-2-1-bank-20",
+      "type": "definition",
+      "title": "Kombinatorisk krets",
+      "content": "En krets der utgangen bare avhenger av **inngangene akkurat nå** — ikke av hva som skjedde tidligere.\n\nAlle kretsene i dette kapitlet og i neste er kombinatoriske. Det er derfor sannhetstabellen er en fullstendig beskrivelse: det finnes ingen skjult tilstand som kan gi ulikt svar på samme innganger.\n\nKretser som *husker* noe, hører til lagringskretsene, og de detaljene er nedtonet i emnet — du trenger ikke kunne dem her."
+    },
+    {
+      "id": "in1020-2-1-bank-21",
+      "type": "definition",
+      "title": "Antall rader i en sannhetstabell",
+      "content": "Med $n$ innganger har tabellen $2^n$ rader — én per kombinasjon.\n\n| Innganger | Rader |\n|---|---|\n| 1 | 2 |\n| 2 | 4 |\n| 3 | 8 |\n| 4 | 16 |\n\nRadene settes opp i binær tellerekkefølge, slik at ingen kombinasjon kan glemmes. Det er samme telling som i [kap. 1.1](/bok/in1020/in1020-1-1), bare med `n` bit.\n\nEn oppgave som ber deg sjekke en påstand «for alle inngangskombinasjoner», ber deg altså om nøyaktig $2^n$ kontroller."
+    },
+    {
+      "id": "in1020-2-1-bank-22",
+      "type": "definition",
+      "title": "Ekvivalente uttrykk",
+      "content": "To boolske uttrykk er ekvivalente når de gir **samme utgang i hver eneste rad** i sannhetstabellen.\n\n`(A·B)′` og `A′ + B′` ser ulike ut, men er ekvivalente — det er De Morgan.\n\nDette er grunnen til at eksamen bruker svarform F1, «velg ett *eller flere*», i kretsoppgaver: flere av alternativene kan være riktige samtidig, og krysser du bare av det første, mister du poeng du hadde krav på."
+    },
+    {
+      "id": "in1020-2-1-bank-23",
+      "type": "definition",
+      "title": "Å utelukke porter systematisk",
+      "content": "Metoden for port-identifikasjon under tidspress: les utgangskolonnen ovenfra og ned som fire tegn, og bruk to spørsmål.\n\n1. **Hvor mange ettall?** Ett ettall er AND eller NOR; tre er OR eller NAND; to er XOR eller XNOR.\n2. **Hvor står avviket?** Er det ene ettallet nederst, er det AND; øverst, er det NOR. Er den ene nullen nederst, er det NAND; øverst, er det OR.\n\nMetoden tar under et halvt minutt og er sikrere enn å kjenne igjen symbolet på formen."
+    },
+    {
+      "id": "in1020-2-1-bank-24",
+      "type": "definition",
+      "title": "Portenes utgangskolonner utenat",
+      "content": "De seks totakts-portene, med utgangen lest ovenfra og ned for radene `00`, `01`, `10`, `11`:\n\n| Port | Utgang | Kjennetegn |\n|---|---|---|\n| AND | `0 0 0 1` | ett ettall, nederst |\n| OR | `0 1 1 1` | én null, øverst |\n| XOR | `0 1 1 0` | 1 når ulike |\n| NAND | `1 1 1 0` | én null, nederst |\n| NOR | `1 0 0 0` | ett ettall, øverst |\n| XNOR | `1 0 0 1` | 1 når like |\n\nLegger du merke til at hver port i venstre halvdel er den motsatte av porten i høyre — AND mot NAND, OR mot NOR, XOR mot XNOR — er hele tabellen egentlig tre linjer å huske."
+    },
+    {
+      "id": "in1020-2-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter de sju portene?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-2-1-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte. Svar før du ser på fasiten.\n\n1. Hvilken port gir 1 bare når begge inngangene er 0?\n2. Skriv utgangskolonnen til NAND ovenfra og ned.\n3. Hva er `(A⊕B)′` et annet navn på?\n4. Hvor mange rader har en sannhetstabell med tre innganger?\n5. Er `(A·B)′` lik `A′·B′`?\n6. Hva gir en NAND med begge inngangene koblet til A?\n7. Kan en port ha to utganger?\n8. Hvilke to porttyper er hver for seg nok til å bygge alt?\n\n**Fasit.**\n\n1. NOR. Utgangen er 1 bare i raden `00`.\n2. `1 1 1 0` — tre ettall, med nullen nederst der begge inngangene er 1.\n3. XNOR, likhetstesten: 1 når inngangene er like.\n4. Åtte, siden $2^3 = 8$.\n5. Nei. `(A·B)′` er `A′ + B′` (De Morgan, med operatorbytte). `A′·B′` er `(A+B)′`, altså NOR — ulik i tre av fire rader.\n6. En inverter: `(A·A)′ = A′`, siden `A·A = A`.\n7. Nei. Én port har nøyaktig én utgang, men den utgangen kan grene seg til flere mottakere.\n8. NAND og NOR. Hver av dem er funksjonelt komplett alene.\n\nSjekk deg selv: ☐ husket du at boblen betyr «inverter utgangen»? ☐ skilte du NAND fra NOR på hvor avviket i kolonnen står? ☐ byttet du operator da du brukte De Morgan? ☐ sjekket du identitetene i ALLE radene, ikke bare i én?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
