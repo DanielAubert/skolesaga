@@ -1,0 +1,416 @@
+{
+  "id": "in1900-1-6",
+  "courseId": "in1900",
+  "chapterNumber": "1.6",
+  "title": "Funksjoner, scope og lambda",
+  "description": "Definere funksjoner, flere returverdier, default-argumenter, variabel-scope og lambda — inkludert «funksjoner som tar funksjoner».",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne skrive en funksjon med riktig signatur og riktig returverdi, og forklare forskjellen på å returnere og å skrive ut",
+    "kunne bruke standardverdier og navngitte argumenter, og avgjøre hvilken verdi hver parameter får i et gitt kall",
+    "kunne avgjøre om en variabel inne i en funksjon er den samme som den utenfor, og angi nøyaktig hva programmet skriver ut",
+    "kunne sende en funksjon inn som argument til en annen funksjon, og skrive den som en enlinjes funksjon der det passer"
+  ],
+  "content": [
+    {
+      "id": "in1900-1-6-tip-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Alle kodeoppgavene på eksamen begynner med ordet `def`.**\n\n- **Sjanger A — kodesporing**, altså «hva skriver dette programmet ut?». Her møter du den i sin lureste variant: **scope-oppgaven**, der en variabel har én verdi inne i en funksjon og en annen utenfor. Den er fast materiale på **midtveiseksamen** (UiOs digitale flervalgseksamen i oktober, som teller 25 % av karakteren).\n- **Sjanger E — «hvilken linje mangler?» / «hvilket funksjonskall er riktig?»**, der du får et program med ett hull og fire alternativer. Den kommer jevnlig og gir 1–2 poeng, og fasiten er nesten alltid en `lambda`.\n- Og indirekte alt annet: hver eneste kodeskrivingsoppgave på den avsluttende eksamenen — rekker, klasser, ODE-løsere, fillesing — ber deg skrive en funksjon med riktig signatur og riktig returverdi.\n\n**Prioritet: dette må sitte** (høyeste prioritet av bokas tre nivåer — «må sitte», «må kunne», «bør kjenne til»). Kapitlet er verktøykassa; resten av boka bruker den på hver eneste side."
+    },
+    {
+      "id": "in1900-1-6-t-2",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1) — uttrykk, tilordning og presedens.\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2) — lister, som ofte er det funksjonene tar imot.\n- [Kap. 1.3 — Løkker — for, while, range og nøstede løkker](/bok/in1900/in1900-1-3) — `for`-løkka og akkumulatormønsteret, som brukes inne i nesten hver funksjon.\n- [Kap. 1.4 — Strenger, f-strenger og formatert utskrift](/bok/in1900/in1900-1-4) — f-strenger, til de formaterte tabellene i eksemplene.\n- [Kap. 1.5 — Dictionaries og nøstede dictionaries](/bok/in1900/in1900-1-5) — begrepet **tuppel**, som er det du får når en funksjon returnerer flere verdier.\n\nHar du aldri programmert før, er [Programmering med Python](/bok/1p/1p-9-2) en mykere inngang du kan bla gjennom først."
+    },
+    {
+      "id": "in1900-1-6-t-3",
+      "type": "text",
+      "content": "## Løkke 1 — Å definere og kalle en funksjon (~10 min)\n\nEn værstasjon rapporterer i celsius, men skal levere tall til en amerikansk database i fahrenheit. Omregningen er den samme hver gang, og du trenger den på tjue steder i programmet. Da skriver du den én gang og gir den et navn.\n\nDet er alt en funksjon er: en oppskrift med et navn, som tar imot noen verdier og leverer en verdi tilbake. På eksamen er det aldri spørsmål om **om** du skal skrive en funksjon — oppgaven sier «skriv en funksjon som …». Spørsmålet er om signaturen og returverdien blir riktige."
+    },
+    {
+      "id": "in1900-1-6-def-4",
+      "type": "definition",
+      "title": "`def navn(argumenter):`",
+      "content": "Definerer en funksjon. Linja slutter med **kolon**, og alt som hører til funksjonen står med innrykk under — nøyaktig samme regel som for løkkekroppen i [kap. 1.3](/bok/in1900/in1900-1-3).\n\nNavnene i parentesen kalles **parametre**. De er navn funksjonen bruker internt, og de får verdier først når funksjonen kalles.\n\n```python\ndef celsius_til_fahrenheit(grader):\n    return grader * 9 / 5 + 32\n\nprint(celsius_til_fahrenheit(20))\nprint(celsius_til_fahrenheit(-40))\n```\n\n**Utskrift:**\n```\n68.0\n-40.0\n```\n\nLegg merke til at `def`-linja i seg selv ikke gjør noe: den lagrer oppskriften. Først kallet `celsius_til_fahrenheit(20)` kjører kroppen. Og at svaret er `68.0` og ikke `68` skyldes `/`, som alltid gir flyttall."
+    },
+    {
+      "id": "in1900-1-6-def-5",
+      "type": "definition",
+      "title": "`return`",
+      "content": "Leverer en verdi ut av funksjonen — og **avslutter** den umiddelbart. Alt som står etter `return` i samme funksjon, kjøres aldri.\n\nEn funksjon uten `return` gir verdien `None`, Pythons ord for «ingenting». Det er en av de vanligste sporingsfellene, fordi funksjonen kan se ut som den virker: den skriver noe ut, men leverer ikke noe tilbake.\n\n```python\ndef energi(masse, fart):\n    e = 0.5 * masse * fart**2\n    return e\n    print('denne linja kjores aldri')\n\nprint(energi(2.0, 3.0))\n```\n\n**Utskrift:**\n```\n9.0\n```\n\nSensor skiller nøye mellom «funksjonen skriver ut svaret» og «funksjonen returnerer svaret». Ber oppgaven om at funksjonen skal **beregne** noe, skal den returnere — ikke skrive ut."
+    },
+    {
+      "id": "in1900-1-6-def-6",
+      "type": "definition",
+      "title": "Funksjon uten `return` gir `None`",
+      "content": "En funksjon som bare skriver ut, leverer likevel en verdi tilbake: `None`. Skriver du den ut, står det `None`.\n\n```python\ndef skriv_rapport(navn, grader):\n    print(navn, 'malte', grader, 'grader')\n\nsvar = skriv_rapport('Blindern', 4.2)\nprint(svar)\n```\n\n**Utskrift:**\n```\nBlindern malte 4.2 grader\nNone\n```\n\nTo linjer utskrift fra to ulike `print`. Den første kommer fra inne i funksjonen, den andre fra det funksjonen ga tilbake. Prøver du å regne videre med `svar`, stopper programmet med en `TypeError` — `None` kan ikke legges sammen med et tall."
+    },
+    {
+      "id": "in1900-1-6-def-7",
+      "type": "definition",
+      "title": "Parameter og argument",
+      "content": "**Parameteren** er navnet i `def`-linja; **argumentet** er verdien du sender inn i kallet.\n\nI `def energi(masse, fart)` er `masse` og `fart` parametre. I kallet `energi(2.0, 3.0)` er `2.0` og `3.0` argumenter.\n\nSkillet er verdt å holde på fordi oppgavetekster bruker begge ordene, og fordi et parameternavn bare finnes **inne i** funksjonen. Det er det scope handler om, senere i kapitlet."
+    },
+    {
+      "id": "in1900-1-6-ex-8",
+      "type": "example",
+      "title": "Eksempel 1: Fra formel til funksjon",
+      "problem": "Den kinetiske energien til et legeme med masse $m$ og fart $v$ er $E = \\frac{1}{2}mv^2$. Skriv en funksjon som regner den ut, og bruk den til å lage en liten tabell for masse 2,0 kg ved fartene 1, 2 og 3 meter per sekund.",
+      "solution": "Funksjonen tar de to størrelsene formelen trenger, og returnerer resultatet. Tabellen lages med en løkke utenfor funksjonen — funksjonen skal beregne, ikke skrive ut:\n\n```python\ndef energi(masse, fart):\n    return 0.5 * masse * fart**2\n\nfor v in range(1, 4):\n    print(f'{v:3d}{energi(2.0, v):8.2f}')\n```\n\n**Utskrift:**\n```\n  1    1.00\n  2    4.00\n  3    9.00\n```\n\nTre ting sensor ser etter. Funksjonen har **én oppgave** og returnerer ett tall. Formelen står bare ett sted, så en rettelse virker overalt. Og løkkevariabelen `v` er et heltall fra `range`, mens `energi` gir flyttall — derfor `3d` for det første og `8.2f` for det andre i f-strengen, jf. [kap. 1.4](/bok/in1900/in1900-1-4)."
+    },
+    {
+      "id": "in1900-1-6-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse og minimal sporing.) Se på funksjonen:\n\n```python\ndef omkrets(side):\n    return 4 * side\n```\n\nSvar på hvert punkt for seg.\n\n**a)** Hva heter parameteren?\n\n**b)** Hva skriver `print(omkrets(3))` ut?\n\n**c)** Hva skriver `print(omkrets(2.5))` ut?\n\n**d)** Hva ville `print(omkrets(3))` skrevet ut hvis linja `return 4 * side` ble byttet ut med `print(4 * side)`?",
+        "solution": "**a)** `side` — navnet i `def`-linja. Tallene 3 og 2,5 i kallene er argumenter.\n\n**b)** `12` — heltall inn, heltall ut, siden `*` på to heltall gir heltall.\n\n**c)** `10.0` — et flyttall inn gjør hele uttrykket til flyttall.\n\n**d)** To linjer: først `12` fra `print` inne i funksjonen, deretter `None` fra `print` utenfor — funksjonen returnerer da ingenting.\n\nPunkt d) er den viktige: å skrive ut og å returnere er to forskjellige ting, og bare det ene lar deg regne videre med svaret.",
+        "hints": [
+          "Parameteren er navnet som står i `def`-linja, ikke verdien i kallet.",
+          "Tenk over hvilken datatype hvert uttrykk gir, ikke bare hvilket tall.",
+          "En funksjon uten `return` leverer alltid `None` tilbake."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-t-9",
+      "type": "text",
+      "content": "## Løkke 2 — Argumenter: posisjon, navn og standardverdier (~10 min)\n\nEn vindkjølingsformel trenger temperatur, vindstyrke og en faktor som nesten alltid er den samme. Da vil du kunne kalle funksjonen med to argumenter i det normale tilfellet, og med tre når faktoren skal endres.\n\nPython gir deg tre måter å sende argumenter på, og de kan kombineres. Å vite nøyaktig hvilken verdi som havner hvor, er en fast kodesporingsøvelse."
+    },
+    {
+      "id": "in1900-1-6-def-10",
+      "type": "definition",
+      "title": "Posisjonsargumenter",
+      "content": "Uten navn i kallet pares argumentene med parametrene **i rekkefølge**: første argument til første parameter, og så videre.\n\nDet betyr at `vindkjoling(4.0, 5.0)` og `vindkjoling(5.0, 4.0)` er to helt forskjellige kall. Rekkefølgen i `def`-linja er kontrakten, og den må du lese før du kaller."
+    },
+    {
+      "id": "in1900-1-6-def-11",
+      "type": "definition",
+      "title": "Nøkkelargumenter",
+      "content": "Skriver du `parameternavn=verdi` i kallet, spiller rekkefølgen ingen rolle: `vindkjoling(vind=5.0, temp=4.0)` er samme kall som `vindkjoling(4.0, 5.0)`.\n\nRegelen er at alle posisjonsargumenter må komme **først** i kallet; navngitte argumenter kan så stå i hvilken som helst rekkefølge etterpå.\n\nNavngitte argumenter er sensorvennlige i lange kall: `solve(t_span, N)` sier lite, mens `plt.plot(x, y, label='S')` sier alt. Du møter formen igjen i [kap. 4.3](/bok/in1900/in1900-4-3)."
+    },
+    {
+      "id": "in1900-1-6-def-12",
+      "type": "definition",
+      "title": "Default-argumenter",
+      "content": "En parameter kan få en **standardverdi** i `def`-linja: `def vindkjoling(temp, vind, faktor=0.7)`. Da kan argumentet utelates i kallet, og standardverdien brukes.\n\nParametre med standardverdi må stå **sist** i `def`-linja.\n\n```python\ndef vindkjoling(temp, vind, faktor=0.7):\n    return temp - faktor * vind\n\nprint(vindkjoling(4.0, 5.0))\nprint(vindkjoling(4.0, 5.0, 1.2))\nprint(vindkjoling(vind=5.0, temp=4.0))\nprint(vindkjoling(4.0, faktor=0.5, vind=5.0))\n```\n\n**Utskrift:**\n```\n0.5\n-2.0\n0.5\n1.5\n```\n\nLinje 1 og 3 gir samme svar fordi de sender de samme verdiene — bare på hver sin måte. Standardverdier er hverdagskost i faget: steglengden `h=1e-5` i numerisk derivasjon ([kap. 6.1](/bok/in1900/in1900-6-1)) og toleransen `tol=1e-10` i testfunksjoner ([kap. 3.1](/bok/in1900/in1900-3-1)) er begge default-argumenter."
+    },
+    {
+      "id": "in1900-1-6-adv-13",
+      "type": "warning",
+      "title": "Typisk feil #21 — mutabelt default-argument",
+      "content": "Feil #21 i bokas feilkatalog: en **liste** som standardverdi lages **én gang**, ved `def`-linja — ikke på nytt for hvert kall. Dermed deles den mellom kallene:\n\n```python\ndef logg(verdi, historikk=[]):\n    historikk.append(verdi)\n    return historikk\n\nprint(logg(1))\nprint(logg(2))\nprint(logg(3))\n```\n\n**Utskrift:**\n```\n[1]\n[1, 2]\n[1, 2, 3]\n```\n\nNesten alle forventer `[1]`, `[2]`, `[3]`. Den trygge formen bruker `None` som standardverdi og lager lista inne i funksjonen:\n\n```python\ndef logg(verdi, historikk=None):\n    if historikk is None:\n        historikk = []\n    historikk.append(verdi)\n    return historikk\n\nprint(logg(1))\nprint(logg(2))\n```\n\n**Utskrift:**\n```\n[1]\n[2]\n```\n\nTall og strenger som standardverdi er alltid trygge — de kan ikke endres. Regelen gjelder bare lister og ordbøker."
+    },
+    {
+      "id": "in1900-1-6-ex-14",
+      "type": "example",
+      "title": "Eksempel 2: Én funksjon, fire kall",
+      "problem": "En funksjon skal regne ut et vektet gjennomsnitt av noen målinger, der vekten normalt er 1,0. Skriv den, og vis hva som skjer når vekten dobles.",
+      "solution": "Vekten får en standardverdi, slik at det vanlige kallet blir kort:\n\n```python\ndef snitt(verdier, vekt=1.0):\n    total = 0\n    for v in verdier:\n        total += v * vekt\n    return total / len(verdier)\n\nprint(snitt([2, 4, 6]))\nprint(snitt([2, 4, 6], 2.0))\n```\n\n**Utskrift:**\n```\n4.0\n8.0\n```\n\nMerk at `total` starter på 0 **før** løkka og at `return` står **etter** løkka, med mindre innrykk. Står `return` inne i løkka, avsluttes funksjonen etter første runde — det er en av de vanligste innrykksfeilene, og den er nummer #24 i feilkatalogen.\n\nVariabelen heter `total` og ikke `sum`, fordi `sum` er navnet på en innebygd funksjon. Overskriver du det navnet, virker ikke `sum(...)` resten av programmet."
+    },
+    {
+      "id": "in1900-1-6-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef f(a, b=2):\n    return a * b\n\nprint(f(3), f(3, 4), f(b=5, a=1))\n```",
+        "solution": "**Sporingstavle**\n\n| Kall | `a` | `b` | Verdi |\n|---|---|---|---|\n| `f(3)` | 3 | 2 (standardverdien) | 6 |\n| `f(3, 4)` | 3 | 4 | 12 |\n| `f(b=5, a=1)` | 1 | 5 | 5 |\n\nAlle tre kallene skjer inne i **ett** `print`, så de tre tallene kommer på samme linje med ett mellomrom mellom.\n\n**Utskrift:**\n```\n6 12 5\n```\n\nSiste kall er fellen: navngitte argumenter kan stå i hvilken som helst rekkefølge, så det er `a` som er 1 og `b` som er 5 — ikke omvendt.",
+        "hints": [
+          "Skriv opp hvilken verdi hver parameter får, for hvert kall for seg.",
+          "Et navngitt argument går til parameteren med det navnet, uansett hvor i kallet det står.",
+          "Alle tre verdiene skrives av samme `print`."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F-forkunnskap — skriv en funksjon med standardverdi.) Temperaturen i en avkjølende kopp kaffe kan modelleres som at hver måling er $T$ grader over romtemperaturen, som normalt er 21,0 grader.\n\n**a)** Skriv funksjonen `over_rom(maalinger, rom=21.0)` som tar en liste med temperaturer og returnerer en ny liste med hvor mange grader hver måling ligger over romtemperaturen.\n\n**b)** Vis to kall: ett med standardverdien og ett der romtemperaturen er 18,0 grader.",
+        "solution": "**a)** Bygg opp en ny liste med `append` — argumentet skal ikke endres:\n\n```python\ndef over_rom(maalinger, rom=21.0):\n    ut = []\n    for temp in maalinger:\n        ut.append(temp - rom)\n    return ut\n```\n\n**b)** To kall, det ene uten og det andre med det tredje argumentet:\n\n```python\nprint(over_rom([80.0, 50.0, 25.0]))\nprint(over_rom([80.0, 50.0, 25.0], 18.0))\n```\n\n**Utskrift:**\n```\n[59.0, 29.0, 4.0]\n[62.0, 32.0, 7.0]\n```\n\n*Uttelling:* kjernen er at parameteren med standardverdi står **sist** i `def`-linja, at funksjonen **returnerer** lista i stedet for å skrive den ut, og at den bygger en ny liste framfor å endre den som ble sendt inn. Får du de tre tingene til, teller det tungt selv om du skulle bomme på et fortegn.",
+        "hints": [
+          "Lag en tom liste før løkka, og legg til ett tall per runde.",
+          "Parameteren med standardverdi må stå til slutt i `def`-linja.",
+          "Funksjonen skal returnere lista, ikke skrive den ut."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-t-15",
+      "type": "text",
+      "content": "## Løkke 3 — Å returnere flere verdier (~8 min)\n\nNoen ganger har en beregning to svar som hører sammen: minste og største måling, summen og gjennomsnittet, tidspunktene og løsningen. Da vil du levere begge fra samme funksjon.\n\nPython gjør dette enklere enn de fleste språk, og formen møter du igjen i hver eneste ODE-oppgave i Del 7, der løseren returnerer både tidspunktene og løsningen."
+    },
+    {
+      "id": "in1900-1-6-def-16",
+      "type": "definition",
+      "title": "`return a, b` gir en tuppel",
+      "content": "Komma etter `return` pakker verdiene i en **tuppel** — den faste sammenstillingen du møtte i [kap. 1.5](/bok/in1900/in1900-1-5). Funksjonen returnerer altså fortsatt bare én verdi; den verdien inneholder bare flere ting.\n\nTar du imot resultatet i ett navn, får du hele tuppelen, og kan indeksere i den som i en liste."
+    },
+    {
+      "id": "in1900-1-6-def-17",
+      "type": "definition",
+      "title": "Utpakking `x, y = f(...)`",
+      "content": "Med to navn på venstresiden pakkes tuppelen ut, ett navn per verdi. Antall navn må stemme eksakt med antall returverdier.\n\n```python\ndef min_og_maks(verdier):\n    minste = verdier[0]\n    storste = verdier[0]\n    for v in verdier:\n        if v < minste:\n            minste = v\n        if v > storste:\n            storste = v\n    return minste, storste\n\nlav, hoy = min_og_maks([4.2, -1.5, 5.0, 0.3])\nprint(lav, hoy)\npar = min_og_maks([4.2, -1.5, 5.0, 0.3])\nprint(par)\nprint(par[1])\n```\n\n**Utskrift:**\n```\n-1.5 5.0\n(-1.5, 5.0)\n5.0\n```\n\nLegg merke til forskjellen i utskriften: to navn gir to tall skilt med mellomrom, ett navn gir tuppelen med parenteser og komma. Det er en tegn-for-tegn-detalj i sjanger A.\n\nBegge startverdiene settes til `verdier[0]`, ikke til 0 — ellers ville en liste med bare negative tall gitt feil svar på `storste`."
+    },
+    {
+      "id": "in1900-1-6-ex-18",
+      "type": "example",
+      "title": "Eksempel 3: Tre svar fra én funksjon",
+      "problem": "Skriv en funksjon som tar en liste med målinger og returnerer summen, gjennomsnittet og antallet — i den rekkefølgen. Bruk den, og skriv gjennomsnittet med to desimaler.",
+      "solution": "```python\ndef statistikk(verdier):\n    total = 0\n    for v in verdier:\n        total += v\n    return total, total / len(verdier), len(verdier)\n\ns, snitt, n = statistikk([3, 4, 8])\nprint(s, n)\nprint(f'{snitt:.2f}')\n```\n\n**Utskrift:**\n```\n15 3\n5.00\n```\n\nTre navn på venstresiden, tre verdier på høyresiden — rekkefølgen er det som binder dem sammen, ikke navnene. Skriver du `snitt, s, n = statistikk(...)`, får `snitt` summen, uten at Python protesterer. Det er derfor oppgaveteksten alltid sier **hvilken rekkefølge** returverdiene skal ha, og hvorfor du skal lese den setningen to ganger.\n\nMerk også at `5.00` har to desimaler fordi f-strengen ber om det, mens det bakenforliggende tallet er `5.0`."
+    },
+    {
+      "id": "in1900-1-6-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing med flere returverdier.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ndef deler(tall):\n    return tall // 3, tall % 3\n\na, b = deler(11)\nprint(a, b)\nsvar = deler(11)\nprint(svar)\nprint(svar[0] + svar[1])\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdi |\n|---|---|\n| `11 // 3` | `3` (heltallsdivisjon, runder nedover) |\n| `11 % 3` | `2` (resten) |\n| `a, b` | `3` og `2` |\n| `svar` | tuppelen `(3, 2)` |\n| `svar[0] + svar[1]` | `3 + 2` som er `5` |\n\n**Utskrift:**\n```\n3 2\n(3, 2)\n5\n```\n\nFellen er linje 2 i utskriften: når hele tuppelen skrives ut, kommer den med parenteser og komma-mellomrom, mens to utpakkede verdier i samme `print` bare skilles med ett mellomrom. Et svar med `3 2` på begge linjene er feil, selv om tallene er riktige.",
+        "hints": [
+          "Regn ut de to uttrykkene i `return`-linja hver for seg først.",
+          "Skill mellom å pakke ut i to navn og å ta imot hele tuppelen i ett navn.",
+          "Tenk over hvordan Python skriver ut en tuppel, tegn for tegn."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-t-19",
+      "type": "text",
+      "content": "## Løkke 4 — Scope: hvor en variabel finnes (~12 min)\n\n— naturlig pausepunkt —\n\nNå kommer kapitlets mest lønnsomme kvarter. **Scope** betyr «gyldighetsområde»: hvilken del av programmet et navn finnes i.\n\nRegelen er kort, men konsekvensene er ikke intuitive, og nettopp derfor er scope en fast gjenganger på midtveiseksamen. Du får et program på fem linjer og skal si hva som skrives ut — og svaret avhenger av om en tilordning traff den globale variabelen eller lagde en ny, lokal en."
+    },
+    {
+      "id": "in1900-1-6-def-20",
+      "type": "definition",
+      "title": "Lokal variabel",
+      "content": "Et navn som får verdi **inne i** en funksjon, finnes bare der. Det forsvinner når funksjonen er ferdig, og kan ikke brukes utenfra.\n\nParametrene er også lokale: `masse` i `def energi(masse, fart)` finnes bare inne i `energi`.\n\nPraktisk konsekvens: to funksjoner kan trygt bruke samme navn `i`, `total` eller `x` uten å ødelegge for hverandre."
+    },
+    {
+      "id": "in1900-1-6-def-21",
+      "type": "definition",
+      "title": "Globale variabler kan LESES inne i en funksjon",
+      "content": "Finnes ikke navnet lokalt, leter Python utenfor funksjonen. Derfor virker dette:\n\n```python\ngrense = 3\n\ndef over_grensen(verdi):\n    return verdi > grense\n\nprint(over_grensen(5), over_grensen(1))\n```\n\n**Utskrift:**\n```\nTrue False\n```\n\nFunksjonen leser `grense` utenfra, uten at den er sendt inn. Det virker, men det er dårlig vane: funksjonen blir avhengig av noe som står et helt annet sted. Sensor foretrekker at alt funksjonen trenger, kommer inn som argument — gjerne med standardverdi."
+    },
+    {
+      "id": "in1900-1-6-def-22",
+      "type": "definition",
+      "title": "Tilordning inne i en funksjon lager en LOKAL variabel",
+      "content": "Dette er kjernen i feil #13. Et likhetstegn inne i en funksjon lager **alltid** en ny, lokal variabel — det endrer aldri den globale med samme navn.\n\n```python\nx = 5\n\ndef f():\n    x = 10\n    return x\n\nprint(f(), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nFunksjonen returnerer sin egen `x`, som er 10. Den globale `x` er fortsatt 5. To forskjellige variabler, samme navn.\n\nMerk rekkefølgen: `print(f(), x)` kaller funksjonen først, men det spiller ingen rolle — kallet kan ikke endre den globale `x` uansett når det skjer."
+    },
+    {
+      "id": "in1900-1-6-def-23",
+      "type": "definition",
+      "title": "Innholdet i en liste eller ordbok KAN endres av en funksjon",
+      "content": "Regelen over gjelder **tilordning**. Endrer du innholdet i noe som ble sendt inn — med `append`, med indeksering eller med innsetting i en ordbok — ser du endringen utenfor også:\n\n```python\ndef legg_til_null(liste):\n    liste.append(0)\n\nmaalinger = [1, 2]\nlegg_til_null(maalinger)\nprint(maalinger)\n```\n\n**Utskrift:**\n```\n[1, 2, 0]\n```\n\nMen en tilordning inne i funksjonen kobler bare det lokale navnet til noe nytt, og lar originalen i fred:\n\n```python\ndef nullstill(liste):\n    liste = []\n    return liste\n\nmaalinger = [1, 2]\nnullstill(maalinger)\nprint(maalinger)\n```\n\n**Utskrift:**\n```\n[1, 2]\n```\n\nSkillet er alt: `liste.append(0)` **endrer** objektet, `liste = []` **bytter ut navnet**. Det er samme skille som ligger bak feil #20 i [kap. 1.5](/bok/in1900/in1900-1-5) — å endre argumentet i stedet for å bygge og returnere noe nytt."
+    },
+    {
+      "id": "in1900-1-6-adv-24",
+      "type": "warning",
+      "title": "Typisk feil #13 — variabel-scope",
+      "content": "Feil #13 i bokas feilkatalog er å tro at en tilordning inne i en funksjon endrer den globale variabelen. Den har en ubehagelig variant: prøver du å **lese og skrive** samme globale navn i én setning, stopper programmet.\n\n```python\nteller = 0\n\ndef registrer():\n    teller = teller + 1\n    return teller\n\nprint(registrer())\n```\n\n**Utskrift:**\n```\nUnboundLocalError: local variable 'teller' referenced before assignment\n```\n\nDet er **siste linje** i feilmeldingen. Python ser likhetstegnet og bestemmer at `teller` er lokal i hele funksjonen — også på høyresiden, der den ennå ikke har fått noen verdi.\n\nDen riktige formen i denne boka er alltid å sende inn og returnere: `def registrer(teller): return teller + 1`. Nøkkelordet `global` finnes, men er utenfor bokas stil og gir ingen ekstra uttelling."
+    },
+    {
+      "id": "in1900-1-6-ex-25",
+      "type": "example",
+      "title": "Eksempel 4: Samme navn på tre steder",
+      "problem": "Programmet under bruker navnet `navn` både utenfor og inne i en funksjon. Hva skriver det ut, og hvorfor?",
+      "solution": "```python\nnavn = 'global'\n\ndef ytre():\n    navn = 'lokal'\n    print(navn)\n\nytre()\nprint(navn)\n```\n\n**Utskrift:**\n```\nlokal\nglobal\n```\n\nSporingen, linje for linje. Først settes den globale `navn` til `'global'`. `def`-linja kjører ikke kroppen, bare lagrer den. Kallet `ytre()` lager en **ny, lokal** `navn` med verdien `'lokal'`, og skriver den ut. Når funksjonen er ferdig, forsvinner den lokale variabelen, og siste `print` finner den globale igjen, uforandret.\n\nMønsteret er hele scope-oppgaven på midtveis: to variabler med samme navn, og spørsmålet er hvilken av dem hvert `print` ser. Tegn to bokser — en for det globale nivået og en for funksjonen — og før hver tilordning inn i riktig boks. Da svarer du riktig hver gang."
+    },
+    {
+      "id": "in1900-1-6-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — scope.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\nfaktor = 2\n\ndef skaler(verdi):\n    faktor = 10\n    return verdi * faktor\n\nprint(skaler(3))\nprint(faktor)\nprint(skaler(faktor))\n```",
+        "solution": "**Sporingstavle**\n\n| Linje | Globalt nivå | Inne i `skaler` | Skriver |\n|---|---|---|---|\n| `faktor = 2` | `faktor` er 2 | — | — |\n| `skaler(3)` | uendret | `verdi` er 3, lokal `faktor` blir 10 | `30` |\n| `print(faktor)` | fortsatt 2 | — | `2` |\n| `skaler(faktor)` | sender inn 2 | `verdi` er 2, lokal `faktor` blir 10 | `20` |\n\n**Utskrift:**\n```\n30\n2\n20\n```\n\nFellen er #13 — variabel-scope. Tilordningen `faktor = 10` inne i funksjonen lager en ny, lokal variabel og rører ikke den globale, uansett hvor mange ganger funksjonen kalles. Siste kall sender inn den globale verdien 2 som argument, men ganger den likevel med den lokale 10.",
+        "hints": [
+          "Tegn to bokser: en for det globale nivået og en for funksjonen.",
+          "Et likhetstegn inne i en funksjon lager alltid en lokal variabel.",
+          "I siste linje er det argumentet som kommer utenfra — men faktoren gjør det ikke."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — scope og muterbare argumenter.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ndata = {'a': 1}\nantall = 0\n\ndef oppdater(d, nokkel):\n    antall = 99\n    d[nokkel] = d.get(nokkel, 0) + 1\n    return antall\n\nprint(oppdater(data, 'a'), oppdater(data, 'b'))\nprint(data)\nprint(antall)\n```",
+        "solution": "**Sporingstavle**\n\n| Steg | `data` etterpå | `antall` globalt | Returnerer |\n|---|---|---|---|\n| start | `{'a': 1}` | 0 | — |\n| `oppdater(data, 'a')` | `{'a': 2}` | 0 | 99 |\n| `oppdater(data, 'b')` | `{'a': 2, 'b': 1}` | 0 | 99 |\n\n**Utskrift:**\n```\n99 99\n{'a': 2, 'b': 1}\n0\n```\n\nHer er begge scope-reglene i sving samtidig, og de trekker hver sin vei:\n\n- `antall = 99` er en **tilordning**, så den lager en lokal variabel. Den globale `antall` er fortsatt 0 på siste linje. Det er felle #13.\n- `d[nokkel] = ...` **endrer innholdet** i ordboka som ble sendt inn, og den endringen ser du utenfor. Ordboka er den samme, bare med nytt innhold.\n\nMerk også at `'b'` ikke fantes, så `.get(nokkel, 0)` ga 0 og verdien ble 1 — mønsteret fra [kap. 1.5](/bok/in1900/in1900-1-5).",
+        "hints": [
+          "Skill mellom de to linjene inne i funksjonen: den ene tilordner et navn, den andre endrer innholdet i noe.",
+          "Begge kallene skjer i samme `print`, og begge returnerer det samme.",
+          "Hva står den globale `antall` på når programmet er ferdig?"
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-t-26",
+      "type": "text",
+      "content": "## Løkke 5 — Funksjoner som verdier, og `lambda` (~10 min)\n\nNumerisk derivasjon, integrasjon og nullpunktsøking har én ting til felles: metoden er den samme uansett hvilken funksjon du behandler. Da vil du skrive metoden én gang og sende **funksjonen** inn som argument.\n\nDet er dette som gjør at `deriver(sin, 0.0)` og `deriver(kvadrat, 2.0)` kan bruke samme kode. Og det er her `lambda` kommer inn: en måte å lage en liten funksjon på uten å gi den et eget navn med `def`."
+    },
+    {
+      "id": "in1900-1-6-def-27",
+      "type": "definition",
+      "title": "Funksjonsnavnet uten parenteser er en verdi",
+      "content": "`dobbel` er navnet på funksjonen; `dobbel(7)` er kallet. Uten parenteser får du selve funksjonen, og den kan lagres i en variabel og sendes videre som et hvilket som helst tall.\n\n```python\ndef dobbel(x):\n    return 2 * x\n\ng = dobbel\nprint(g(7))\nprint(type(dobbel))\n```\n\n**Utskrift:**\n```\n14\n<class 'function'>\n```\n\nParentesene er altså ikke pynt: de betyr «kjør nå». Å skrive `plt.legend` uten parenteser er en klassisk grunn til at ingenting skjer."
+    },
+    {
+      "id": "in1900-1-6-def-28",
+      "type": "definition",
+      "title": "Funksjon som argument",
+      "content": "En parameter kan ta imot en funksjon, og kalles med parenteser inne i kroppen. Da er metoden skrevet én gang og virker for alle funksjoner:\n\n```python\nfrom math import sin\n\ndef verditabell(f, a, b, n):\n    for i in range(n + 1):\n        x = a + i * (b - a) / n\n        print(f'{x:5.2f}{f(x):8.3f}')\n\nverditabell(sin, 0.0, 1.0, 2)\n```\n\n**Utskrift:**\n```\n 0.00   0.000\n 0.50   0.479\n 1.00   0.841\n```\n\nMerk `range(n + 1)`: `n` er antall **intervaller**, og da trengs `n + 1` **punkter** for å få med begge endene. Det er feil #1 i feilkatalogen — den hyppigste i hele faget — og du møter den igjen i hvert eneste kapittel om numeriske metoder.\n\nLegg også merke til at `sin` sendes inn uten parenteser."
+    },
+    {
+      "id": "in1900-1-6-def-29",
+      "type": "definition",
+      "title": "`lambda x: uttrykk`",
+      "content": "Lager en funksjon på én linje, uten `def` og uten `return`. `lambda x: x**2 - 2` betyr nøyaktig det samme som:\n\n```python\ndef kvadrat(x):\n    return x**2 - 2\n```\n\nFormen er `lambda parametre: uttrykk`. Etter kolon står **ett uttrykk**, som blir returverdien — ingen løkker, ingen flere linjer.\n\n```python\nkvadrat = lambda x: x**2 - 2\nprint(kvadrat(3))\nprint(kvadrat(0))\n```\n\n**Utskrift:**\n```\n7\n-2\n```\n\nBruk `lambda` når funksjonen er kort og bare trengs på ett sted — typisk som argument til en annen funksjon. Skal den brukes flere steder, skriv `def`: det leses lettere."
+    },
+    {
+      "id": "in1900-1-6-def-30",
+      "type": "definition",
+      "title": "`eval(uttrykkstreng)`",
+      "content": "Tar en **tekst** som inneholder Python-kode, regner den ut og gir verdien. Da kan et uttrykk komme utenfra — fra brukeren eller fra kommandolinjen — i stedet for å stå fast i koden.\n\n```python\nx = 4\nuttrykk = '3*x + 1'\nprint(eval(uttrykk))\nprint(eval('2**3**2'))\n```\n\n**Utskrift:**\n```\n13\n512\n```\n\nUttrykket regnes ut med de variablene som finnes akkurat da, og med vanlige presedensregler — derfor `512` og ikke `64`, siden `**` regnes fra høyre.\n\nKombinert med `lambda` gir dette et program som kan behandle en funksjon brukeren skriver inn: `f = eval('lambda x: x**2 - 2')`. Mer om brukerinput i [kap. 2.1](/bok/in1900/in1900-2-1)."
+    },
+    {
+      "id": "in1900-1-6-adv-31",
+      "type": "warning",
+      "title": "Typisk feil #19 — et uttrykk der en funksjon kreves",
+      "content": "Feil #19 i bokas feilkatalog, og den er nesten alltid fasiten i sjanger E — «hvilken linje mangler?».\n\nSkal noe sendes inn som en funksjon, må det **være** en funksjon. Dette virker ikke:\n\n```text\ng = x**2 - 2        # feil: dette er et uttrykk, ikke en funksjon\nverditabell(g, 0.0, 2.0, 4)\n```\n\nLinja er ikke kjørbar slik den står — enten finnes ikke `x` ennå, og programmet stopper med `NameError`, eller så finnes `x` og `g` blir **ett tall**. Da stopper programmet i stedet inne i `verditabell` med en `TypeError`, fordi et tall ikke kan kalles med parenteser.\n\nDe to riktige formene er:\n\n```python\ndef g(x):\n    return x**2 - 2\n```\n\neller, på én linje:\n\n```python\ng = lambda x: x**2 - 2\n```\n\nKjenner du igjen mønsteret «her skal det stå `lambda`», har du et lite poeng nesten gratis hvert år."
+    },
+    {
+      "id": "in1900-1-6-ex-32",
+      "type": "example",
+      "title": "Eksempel 5: Samme tabellfunksjon, ny funksjon inn (eksamensnivå)",
+      "problem": "Bruk tabellfunksjonen fra definisjonen over til å lage en verditabell for $f(x) = x^2 - 2$ på intervallet fra 0 til 2, med fire intervaller. Hvor skifter funksjonen fortegn?",
+      "solution": "Funksjonen trengs bare på dette ene stedet, så den skrives som en `lambda` rett inn i kallet:\n\n```python\ndef verditabell(f, a, b, n):\n    for i in range(n + 1):\n        x = a + i * (b - a) / n\n        print(f'{x:5.2f}{f(x):8.3f}')\n\nverditabell(lambda x: x**2 - 2, 0.0, 2.0, 4)\n```\n\n**Utskrift:**\n```\n 0.00  -2.000\n 0.50  -1.750\n 1.00  -1.000\n 1.50   0.250\n 2.00   2.000\n```\n\nFortegnet skifter mellom $x = 1{,}00$ og $x = 1{,}50$, altså mellom rad 3 og rad 4. Det er nøyaktig det signalet en nullpunktsmetode leter etter, og du møter det igjen i [kap. 6.1](/bok/in1900/in1900-6-1).\n\nFire intervaller ga fem rader — feil #1 i praksis. Og `verditabell` ble ikke rørt: den samme koden virker for `sin` og for annengradsfunksjonen, fordi funksjonen kommer inn som argument. Det er hele poenget med å behandle funksjoner som verdier."
+    },
+    {
+      "id": "in1900-1-6-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger E — «hvilket funksjonskall er riktig?».) Funksjonen `verditabell(f, a, b, n)` fra eksempel 5 er definert. Programmet skal skrive en tabell for funksjonen $g(x) = 3x + 1$ fra 0 til 1 med to intervaller. Hvilken av linjene gjør det riktig?\n\n| Alternativ | Linje |\n|---|---|\n| a | `verditabell(3*x + 1, 0.0, 1.0, 2)` |\n| b | `verditabell(lambda x: 3*x + 1, 0.0, 1.0, 2)` |\n| c | `verditabell(lambda x: 3*x + 1(0.0), 1.0, 2)` |\n| d | `verditabell(def g(x): return 3*x + 1, 0.0, 1.0, 2)` |\n\nVelg ett alternativ og begrunn hvorfor de tre andre er feil.",
+        "solution": "**Riktig: b.** `lambda x: 3*x + 1` er en funksjon, og det er en funksjon `verditabell` skal kalle med parenteser inne i løkka. Kallet gir:\n\n**Utskrift:**\n```\n 0.00   1.000\n 0.50   2.500\n 1.00   4.000\n```\n\nDe tre andre:\n\n**a)** `3*x + 1` er et **uttrykk**, ikke en funksjon — felle #19. Finnes ikke `x` fra før, stopper programmet straks med `NameError`; finnes den, blir argumentet ett tall, og programmet stopper inne i `verditabell` med `TypeError` når det forsøkes kalt.\n\n**c)** Her er parentesene flyttet slik at `1` blir forsøkt kalt som en funksjon, og argumentlista har dessuten bare tre elementer.\n\n**d)** En `def`-setning kan ikke stå inne i et argument. Funksjonen må defineres på egen linje først, og deretter sendes inn som `g` — uten parenteser.\n\nKjenner du igjen at oppgaven ber om «en funksjon som argument», er `lambda` nesten alltid svaret.",
+        "hints": [
+          "Spør deg selv om hvert alternativ gir noe som kan kalles med parenteser.",
+          "Se hvor mange argumenter hvert alternativ faktisk sender inn.",
+          "Et uttrykk med `x` i har ingen verdi før `x` finnes."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — funksjon som argument.) Hva skriver programmet ut?\n\n```python\ndef bruk(func, verdi):\n    return func(verdi) + 1\n\nprint(bruk(lambda t: t * 10, 3))\nprint(bruk(abs, -5))\n```",
+        "solution": "**Sporingstavle**\n\n| Kall | `func` | `verdi` | `func(verdi)` | Returnerer |\n|---|---|---|---|---|\n| `bruk(lambda t: t * 10, 3)` | ganger med 10 | 3 | 30 | 31 |\n| `bruk(abs, -5)` | tallverdien | −5 | 5 | 6 |\n\n**Utskrift:**\n```\n31\n6\n```\n\nTo detaljer. Parameteren i lambdaen heter `t`, men det spiller ingen rolle — navnet finnes bare inne i den, og det er posisjonen som avgjør at 3 havner der. Og `abs` sendes inn uten parenteser: det er selve funksjonen som skal videre, ikke et kall.\n\nLegg merke til at `+ 1` skjer **etter** at funksjonen er kalt, slik parentesene sier.",
+        "hints": [
+          "Regn ut hva `func(verdi)` blir for hvert kall før du legger til 1.",
+          "Navnet på parameteren i en `lambda` betyr ingenting utenfor den.",
+          "`abs` uten parenteser er funksjonen selv."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-6-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F-forkunnskap — funksjon som tar en funksjon.) En måling er «gyldig» dersom den oppfyller et krav som varierer fra oppgave til oppgave.\n\n**a)** Skriv funksjonen `tell_gyldige(verdier, krav)` som tar en liste og en funksjon, og returnerer hvor mange av verdiene som oppfyller kravet. Funksjonen `krav` tar ett tall og returnerer `True` eller `False`.\n\n**b)** Bruk den til å telle hvor mange av `[4.2, -1.5, 5.0, 0.3, -0.8]` som er over null, og hvor mange som er større enn 1.\n\n**c)** Forklar hva som går galt hvis du kaller `tell_gyldige(verdier, v > 0)`.",
+        "solution": "**a)** Akkumulatormønsteret, med et kall til `krav` som test:\n\n```python\ndef tell_gyldige(verdier, krav):\n    antall = 0\n    for v in verdier:\n        if krav(v):\n            antall += 1\n    return antall\n```\n\n**b)** Kravene skrives som lambdaer i kallet:\n\n```python\nmaalinger = [4.2, -1.5, 5.0, 0.3, -0.8]\nprint(tell_gyldige(maalinger, lambda v: v > 0))\nprint(tell_gyldige(maalinger, lambda v: v > 1))\n```\n\n**Utskrift:**\n```\n3\n2\n```\n\nTre verdier er over null (4,2, 5,0 og 0,3), og to er større enn 1 (4,2 og 5,0).\n\n**c)** `v > 0` er et **uttrykk**, ikke en funksjon — felle #19. Utenfor lambdaen finnes ingen `v`, så programmet stopper med `NameError` allerede før `tell_gyldige` kalles. Selv om en `v` skulle finnes fra før, ville argumentet blitt `True` eller `False`, og `krav(v)` inne i løkka ville gitt `TypeError` fordi en sannhetsverdi ikke kan kalles.\n\n*Uttelling:* kjernen i a) er at `krav` **kalles** med parenteser inne i løkka, og at telleren starter på 0 før løkka og returneres etter den. Får du den strukturen, teller det tungt selv om du skulle skrive `antall = antall + 1` i stedet for `+=`, eller bomme på et ulikhetstegn.",
+        "hints": [
+          "Start med `antall = 0` før løkka, og la `return` stå etter den.",
+          "Kravet er en funksjon, så det må kalles: `krav(v)` inne i `if`-testen.",
+          "I b) skal selve kravet skrives som en `lambda` med ett argument."
+        ]
+      }
+    },
+    {
+      "id": "in1900-1-6-adv-33",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "- **#13 — variabel-scope.** Et likhetstegn inne i en funksjon lager en lokal variabel og endrer aldri den globale. Å lese og skrive samme globale navn i én setning gir `UnboundLocalError`.\n- **#19 — uttrykk der en funksjon kreves.** `g = x**2 - 2` er ikke en funksjon. Skriv `def` eller `lambda`.\n- **#21 — mutabelt default-argument.** `def f(x, liste=[])` deler lista mellom alle kall. Bruk `None` som standardverdi og lag lista inne i funksjonen.\n- **Glemt `return`.** Funksjonen gir `None`, og programmet stopper først senere, når du prøver å regne med svaret.\n- **Feil utpakking.** Antall navn på venstresiden må stemme med antall returverdier, og rekkefølgen avgjør hva som havner hvor.\n- **`return` inne i løkka.** Da avsluttes funksjonen etter første runde. `return` skal vanligvis stå med samme innrykk som løkka, ikke inne i den.\n- **Parenteser der de ikke skal være.** `deriver(sin, 0.0)` sender funksjonen; `deriver(sin(0.0), 0.0)` sender et tall."
+    },
+    {
+      "id": "in1900-1-6-coll-34",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1900-1-6-c34-1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def navn(a, b):` | Definerer funksjonen. Kolon på slutten, kroppen med innrykk. Kjører ikke noe før den kalles. |\n| `return verdi` | Leverer verdien og **avslutter** funksjonen straks. Kode etter `return` kjøres aldri. |\n| Ingen `return` | Funksjonen gir `None`. |\n| `navn(3, 4)` | Kall med posisjonsargumenter: pares med parametrene i rekkefølge. |\n| `navn(b=4, a=3)` | Nøkkelargumenter: rekkefølgen er fri. Posisjonsargumenter må stå først i kallet. |\n| `def navn(a, b=2):` | Standardverdi. Parametre med standardverdi må stå sist i `def`-linja. |\n| `def f(x, liste=[])` | **Felle #21:** lista lages én gang og deles mellom kallene. Bruk `liste=None` i stedet. |\n| `return a, b` | Returnerer en **tuppel**. Skrives ut som `(a, b)`. |\n| `x, y = f(...)` | Utpakking. Antall navn må stemme med antall returverdier. |\n| Lokal variabel | Navn som får verdi inne i funksjonen. Forsvinner når den er ferdig. |\n| Global lesing | En funksjon kan **lese** et navn utenfra hvis det ikke finnes lokalt. |\n| Tilordning i funksjon | Lager **alltid** en lokal variabel (felle #13). Endrer aldri den globale. |\n| `liste.append(x)` i funksjon | **Endrer** objektet som ble sendt inn — synlig utenfor. |\n| `liste = []` i funksjon | Kobler bare det lokale navnet til noe nytt. Originalen er urørt. |\n| `navn` uten parenteser | Selve funksjonen, som en verdi. Kan sendes videre. |\n| `navn(x)` | Kallet. Parentesene betyr «kjør nå». |\n| `lambda x: uttrykk` | Funksjon på én linje. Ett uttrykk etter kolon, som blir returverdien. |\n| `eval('3*x + 1')` | Regner ut et uttrykk som står i en tekst, med de variablene som finnes akkurat da. |\n| `range(n + 1)` | `n` intervaller krever `n + 1` punkter (felle #1). |\n\n**Formler i dette delkapitlet:**\n\nVerditabellen bruker punktene $x_i = a + i \\cdot \\frac{b-a}{n}$ for $i = 0, 1, \\ldots, n$ — altså $n$ like intervaller og $n+1$ punkter, med begge endene med. Eksempelfunksjonene er $E = \\frac{1}{2}mv^2$ og $f(x) = x^2 - 2$."
+        }
+      ]
+    },
+    {
+      "id": "in1900-1-6-t-35",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1900-1-6-def-36",
+      "type": "definition",
+      "title": "Signatur",
+      "content": "Funksjonens `def`-linje: navnet, parametrene, rekkefølgen deres og eventuelle standardverdier.\n\nOppgavetekster oppgir signaturen presist — «skriv funksjonen `forward_euler(f, T, N, u0)`» — og sensor sjekker den først. Bytter du om to parametre, virker koden fortsatt for deg, men ikke for den som kaller den. Les signaturen ordrett fra oppgaveteksten, og skriv den av."
+    },
+    {
+      "id": "in1900-1-6-def-37",
+      "type": "definition",
+      "title": "Kallbar",
+      "content": "En verdi er **kallbar** hvis den kan skrives med parenteser etter seg: funksjoner er kallbare, tall og lister er det ikke.\n\nOrdet dukker opp i feilmeldingen `TypeError: 'int' object is not callable`, som nesten alltid betyr at du har sendt inn et tall der en funksjon var ventet — felle #19. I [kap. 5.1](/bok/in1900/in1900-5-1) lager du dine egne kallbare objekter."
+    },
+    {
+      "id": "in1900-1-6-def-38",
+      "type": "definition",
+      "title": "Hjelpefunksjon",
+      "content": "En liten funksjon som gjør én ting, brukt av en større. Sensor liker dem: de gjør koden kort, og de kan rettes hver for seg.\n\nEt typisk eksempel er å skille beregningen fra utskriften — én funksjon som regner og returnerer, og løkka som skriver ut, utenfor. Da kan den samme beregningen brukes i en testfunksjon senere, slik du gjør i [kap. 3.1](/bok/in1900/in1900-3-1)."
+    },
+    {
+      "id": "in1900-1-6-coll-39",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1900-1-6-c39-1",
+          "type": "text",
+          "content": "1. `return` leverer **og avslutter**. Ingen `return` gir `None`.\n2. Standardverdier står sist i `def`-linja — og aldri som liste.\n3. `return a, b` gir en tuppel; `x, y = f(...)` pakker den ut.\n4. Tilordning inne i en funksjon lager en **lokal** variabel (felle #13).\n5. `append` og innsetting i en ordbok endrer det som ble sendt inn — det ser du utenfor.\n6. Skal en funksjon sendes inn, sender du navnet **uten parenteser**, eller en `lambda` (felle #19).\n\nSitter disse seks, er du klar for kodesporingsdrillen i [kap. 1.7](/bok/in1900/in1900-1-7) — og du har verktøyet hver eneste kodeskrivingsoppgave i boka bygger på."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
