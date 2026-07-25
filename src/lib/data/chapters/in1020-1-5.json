@@ -1,0 +1,375 @@
+{
+  "id": "in1020-1-5",
+  "courseId": "in1020",
+  "chapterNumber": "1.5",
+  "title": "LMC-maskinkode og selvmodifiserende kode",
+  "description": "Maskinkode med tresifrede opkoder, dekoding til assemblerkode, selvmodifiserende kode og baklengs sporing der flere inndata kan gi samme utskrift.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne dekode et tresifret tall til instruksjon og kode en instruksjon tilbake til tall",
+    "kunne kjenne igjen selvmodifiserende kode og spore et program der en kodecelle endres underveis",
+    "kunne finne alle inndataverdier som gir en gitt utskrift, også når programmet har flere grener",
+    "kunne forklare hvorfor en instruksjon og et datatall er det samme i minnet"
+  ],
+  "content": [
+    {
+      "id": "in1020-1-5-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** LMC-assembly og maskinkode — **sjanger C** — har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**.\n\n**Nivå 1 — dette må sitte.** Dette kapitlet tar de to vriene sjangeren er kjent for, og som skiller den som har forstått maskinen fra den som har pugget instruksjonstabellen:\n\n1. **Selvmodifiserende kode** — et program som endrer sine egne instruksjoner mens det kjører. Overser du det, blir hele sporet feil fra det punktet av (felle #7).\n2. **Baklengs sporing** — «hvilken inndata gir utskriften X?». Her er svaret ofte **flere** verdier, ikke én.\n\n**Slik kommer den:** som svarform **F1** («velg ett *eller flere*» — «hvilke av disse maskinkodene tilsvarer …?») eller **F4** (nedtrekk — «hvilken inndata gir denne utskriften?»).\n\n**Forutsetningen for begge vriene** er innsikten fra maskinkoden: en instruksjon **er** et tresifret tall i en minnecelle. Ingenting skiller den fra et datatall. Derfor kan et program regne på sine egne instruksjoner, akkurat som på hvilken som helst annen verdi.\n\n**Tidsbruk:** 50 minutter i fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-1-5-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 1.4](/bok/in1020/in1020-1-4). Tre ting du trenger, ferdig oppfrisket:\n\n**1. Sporetabellen.** Kolonner for programteller, instruksjon, akkumulator, hver navngitt minnecelle og ut-kurven — **én rad per utført instruksjon**.\n\n**2. Instruksjonskontrakten.** Bare `STA` skriver til minnet. Bare `INP`, `LDA`, `ADD` og `SUB` endrer akkumulatoren. Programtelleren økes med 1 med mindre et hopp utføres.\n\n**3. De tre hoppene.** `BRA xx` hopper alltid. `BRZ xx` hopper når akkumulatoren er **nøyaktig 0**. `BRP xx` hopper når den er **0 eller større**.\n\nOg én ting fra [kap. 1.3](/bok/in1020/in1020-1-3) som får ny betydning her: **et bitmønster bærer ikke sin egen tolkning.** Der var det byten som kunne leses på to måter. Her er det minnecellen: det samme tresifrede tallet er en instruksjon eller et datatall, avhengig av hva maskinen gjør med det."
+    },
+    {
+      "id": "in1020-1-5-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-1-5-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n**Opkodetabellen** — det tresifrede tallet i en minnecelle, lest som instruksjon:\n\n| Maskinkode | Mnemonic | Virkning |\n|---|---|---|\n| `1xx` | `ADD xx` | Legg innholdet i celle `xx` til akkumulatoren |\n| `2xx` | `SUB xx` | Trekk innholdet i celle `xx` fra akkumulatoren |\n| `3xx` | `STA xx` | Lagre akkumulatoren i celle `xx` |\n| `5xx` | `LDA xx` | Last celle `xx` inn i akkumulatoren |\n| `6xx` | `BRA xx` | Hopp til celle `xx` |\n| `7xx` | `BRZ xx` | Hopp til `xx` hvis akkumulatoren er 0 |\n| `8xx` | `BRP xx` | Hopp til `xx` hvis akkumulatoren er 0 eller større |\n| `901` | `INP` | Les inn til akkumulatoren |\n| `902` | `OUT` | Skriv akkumulatoren som tall |\n| `922` | `OTC` | Skriv akkumulatoren som ASCII-tegn |\n| `000` | `HLT` | Stopp |\n\n**Oppdelingen:** første siffer er **opkoden** (hva som skal gjøres), de to siste er **operanden** (hvilken celle det skal gjøres med).\n\n```text\n   5  0  8\n   |  \\__/\n   |    adresse 08\n   opkode 5 = LDA\n```\n\n`4xx` er ubrukt i LMC. `9xx` brukes bare av de tre faste kodene `901`, `902` og `922`.\n\n**Formler i dette delkapitlet:**\n\n$$\\text{maskinkode} = \\text{opkode} \\cdot 100 + \\text{adresse}$$\n\nDette er den ene «formelen» i kapitlet, og den er også nøkkelen til selvmodifiserende kode: legger du 1 til en instruksjon, flytter du adressen dens ett hakk. Legger du 100 til, bytter du selve opkoden."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-5-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Instruksjonen er et tall (~12 min)\n\nI forrige kapittel skrev vi programmer som `LDA 08`. Men den lille mannen kan ikke lese bokstaver — postkassene inneholder bare tresifrede tall.\n\n`LDA 08` er derfor egentlig tallet `508`. Første siffer sier *hva* som skal gjøres, de to siste sier *hvor*.\n\nDet høres ut som en teknisk detalj. Det er det ikke: det er hele grunnen til at en datamaskin kan være en generell maskin i det hele tatt. Programmet ligger i det samme minnet som dataene, i det samme formatet, og kan derfor behandles som data. Denne innsikten har et navn — von Neumann-arkitekturen — og du møter den igjen i [kap. 2.4](/bok/in1020/in1020-2-4)."
+    },
+    {
+      "id": "in1020-1-5-def-maskinkode",
+      "type": "definition",
+      "title": "Maskinkode",
+      "content": "Programmet slik det faktisk ligger i minnet: rene tall, uten mnemonics. I LMC er hver instruksjon et tresifret tall.\n\n`LDA 08` er maskinkoden `508`; `STA 05` er `305`; `HLT` er `000`.\n\nMaskinkode er det maskinen utfører. Assemblerkoden med mnemonics finnes bare i kildekoden din og i lærebøker — den oversettes bort før programmet kjøres."
+    },
+    {
+      "id": "in1020-1-5-def-opkode",
+      "type": "definition",
+      "title": "Opkode",
+      "content": "Den delen av instruksjonen som sier **hva** som skal gjøres. I LMC er det det første av de tre sifrene.\n\nOpkoden 5 betyr «last inn», 3 betyr «lagre», 6 betyr «hopp». Opkoden 9 er spesiell: den brukes bare til de tre faste kodene `901`, `902` og `922`, der de to siste sifrene ikke er en adresse.\n\nDen faste feilen er å forveksle `5xx` (`LDA`) og `3xx` (`STA`). De gjør motsatt ting av hverandre, og forvekslingen snur hele dataflyten i programmet."
+    },
+    {
+      "id": "in1020-1-5-def-operand",
+      "type": "definition",
+      "title": "Operand (adressefelt)",
+      "content": "De to siste sifrene i en instruksjon: **hvilken celle** operasjonen gjelder.\n\nI `508` er operanden 08, altså celle 08. I `730` er den 30.\n\nMerk at operanden alltid er en **adresse**, aldri en verdi. `108` legger til *innholdet i celle 08*, ikke tallet 8. Det er dette skillet som gjør at et program kan endre hva en instruksjon virker på, uten å endre hva den gjør.\n\nFor `901`, `902` og `922` er de to siste sifrene ikke en adresse, men en del av selve koden."
+    },
+    {
+      "id": "in1020-1-5-teo-dekoding",
+      "type": "theorem",
+      "title": "Dekoding av maskinkode",
+      "content": "**Fra tall til instruksjon:**\n\n1. Del det tresifrede tallet i første siffer og de to siste.\n2. Slå opp første siffer i opkodetabellen.\n3. De to siste sifrene er celleadressen.\n\n`604` → opkode 6 (`BRA`) og adresse 04 → **`BRA 04`**.\n\n**Fra instruksjon til tall:** gang opkoden med 100 og legg til adressen.\n\n`STA 12` → `3 · 100 + 12` = **`312`**.\n\n**Tre unntak å kjenne:** `901` (`INP`), `902` (`OUT`) og `922` (`OTC`) har ingen adresse — hele det tresifrede tallet er koden. Og `000` er `HLT`.\n\n**Kontrollen som fanger de fleste bommene:** gjør dekodingen begge veier. Har du dekodet `508` til `LDA 08`, kod tilbake: `5 · 100 + 8 = 508`. Stemmer det, er du trygg."
+    },
+    {
+      "id": "in1020-1-5-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Dekod et helt program",
+      "problem": "Minnet fra celle 00 inneholder tallene under. Hva gjør programmet?\n\n```text\ncelle:   00   01   02   03   04   05   90   91\ntall:   901  390  901  190  902  000  000  000\n```",
+      "solution": "**Dekod celle for celle.**\n\n| Celle | Tall | Opkode | Adresse | Instruksjon |\n|---|---|---|---|---|\n| 00 | `901` | — | — | `INP` |\n| 01 | `390` | 3 | 90 | `STA 90` |\n| 02 | `901` | — | — | `INP` |\n| 03 | `190` | 1 | 90 | `ADD 90` |\n| 04 | `902` | — | — | `OUT` |\n| 05 | `000` | — | — | `HLT` |\n| 90 | `000` | — | — | datacelle, startverdi 0 |\n\n**Programmet er:**\n\n```text\n00  INP\n01  STA 90\n02  INP\n03  ADD 90\n04  OUT\n05  HLT\n90  DAT\n```\n\nDet leser to tall og skriver ut summen — det samme programmet du sporet i [kap. 1.4](/bok/in1020/in1020-1-4).\n\n**Legg merke til celle 90.** Den inneholder `000`, som *dekodet som instruksjon* ville vært `HLT`. Men programtelleren kommer aldri dit, fordi `HLT` i celle 05 stopper alt. Om `000` er data eller instruksjon, avgjøres altså ikke av tallet, men av om programtelleren peker på det."
+    },
+    {
+      "id": "in1020-1-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — dekoding.) Oversett hver maskinkode til assemblerkode.\n\n**a)** `508`\n\n**b)** `305`\n\n**c)** `801`\n\n**d)** `922`",
+        "solution": "**a)** Opkode 5 er `LDA`, adresse 08. Altså **`LDA 08`**.\n\n**b)** Opkode 3 er `STA`, adresse 05. Altså **`STA 05`**.\n\n**c)** Opkode 8 er `BRP`, adresse 01. Altså **`BRP 01`**.\n\n**d)** `922` er en av de tre faste kodene: **`OTC`** — skriv ut akkumulatoren som ASCII-tegn.\n\nKontroll den andre veien: `LDA 08` er `5·100 + 8 = 508`, `STA 05` er `3·100 + 5 = 305`, `BRP 01` er `8·100 + 1 = 801`. Alle stemmer.",
+        "hints": [
+          "Del tallet i første siffer og de to siste, og slå opp første siffer i tabellen.",
+          "Tre koder har ingen adresse: 901, 902 og 922."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — maskinkode, svarform F1.) Maskinkodesekvensen `508 305 000` ligger i cellene 00, 01 og 02. Kryss av alle påstandene som stemmer.\n\n**a)** Celle 00 inneholder `LDA 08`.\n\n**b)** Celle 01 inneholder `STA 05`.\n\n**c)** Celle 02 stopper programmet.\n\n**d)** Celle 00 inneholder `ADD 08`.",
+        "solution": "**a) Riktig.** `508` er opkode 5 (`LDA`) og adresse 08.\n\n**b) Riktig.** `305` er opkode 3 (`STA`) og adresse 05.\n\n**c) Riktig.** `000` er `HLT`.\n\n**d) Galt.** `ADD 08` ville vært `108`, ikke `508`. Distraktoren bygger på forvekslingen mellom opkodene 1 og 5 — begge er «regn med celleinnholdet», men `ADD` legger til mens `LDA` overskriver.\n\n**Fasit: a, b og c.**\n\nHva programmet gjør: det henter innholdet i celle 08, lagrer det i celle 05, og stopper. Med andre ord kopierer det en verdi fra én celle til en annen — noe LMC ikke har en egen instruksjon for.",
+        "hints": [
+          "Dekod hver av de tre kodene for seg før du ser på alternativene.",
+          "Sjekk hva `ADD 08` ville vært som tresifret tall."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Selvmodifiserende kode (~15 min)\n\nNå kommer konsekvensen. Hvis en instruksjon er et tall, kan et program regne på den.\n\n`LDA 30` er `530`. Legger du til 1, får du `531`, som er `LDA 31`. Legger du til 2, får du `LDA 32`. Med andre ord: **å legge til et tall i en instruksjon flytter adressen dens.**\n\nDet gir LMC noe den ellers ikke har — muligheten til å velge celle *mens programmet kjører*. I moderne språk heter det å slå opp i en liste med en indeks. I LMC må du bygge instruksjonen selv."
+    },
+    {
+      "id": "in1020-1-5-def-selvmod",
+      "type": "definition",
+      "title": "Selvmodifiserende kode",
+      "content": "Et program som endrer sine egne instruksjoner mens det kjører, ved å regne ut en ny instruksjonsverdi og skrive den til en kodecelle med `STA`.\n\nMønsteret er alltid det samme: last en instruksjonsmal, legg til noe, `STA` resultatet inn i den cellen som snart skal utføres.\n\nDette er mulig fordi kode og data ligger i samme minne i samme format — og fordi `STA` kan skrive til hvilken som helst celle, også en som inneholder kode.\n\nDen faste feilen (felle #7): å spore programmet som om kodecellene var uforanderlige. Fra det øyeblikket en `STA` treffer en kodecelle, må sporetabellen din ha en **egen kolonne** for den cellen."
+    },
+    {
+      "id": "in1020-1-5-teo-selvmod",
+      "type": "theorem",
+      "title": "Å lese selvmodifiserende kode",
+      "content": "**Kjennetegnet:** en `STA` med en adresse som ligger i **kodeområdet**, altså blant de lave cellenumrene der instruksjonene står.\n\nSer du `STA 04` i et program der celle 04 er en av instruksjonene, er det ikke en skrivefeil. Det er en modifikasjon.\n\n**Framgangsmåten:**\n\n1. Finn ut hvilken celle som blir skrevet til, og gi den en **egen kolonne** i sporetabellen.\n2. Regn ut hvilken verdi som skrives inn.\n3. **Dekod den nye verdien** som instruksjon — det er den som blir utført når programtelleren kommer dit.\n4. Fortsett sporingen med den nye instruksjonen på plass.\n\n**De to vanlige variantene:**\n\n- **Endret adresse:** malen legges til en liten verdi, slik at samme opkode peker på en annen celle. `130` pluss 2 gir `132`, altså `ADD 32` i stedet for `ADD 30`.\n- **Endret hoppmål:** en `DAT`-celle med verdien `600` er `BRA 00`. Legger programmet til brukerens inndata, blir hoppet til celle 00 pluss inndataen — altså en beregnet forgrening.\n\n**Nøkkelspørsmålet du alltid skal stille:** *rekker cellen å bli endret før programtelleren kommer dit?* Skrives celle 04 av en `STA` i celle 02, er svaret ja. Skrives den av en `STA` i celle 07, er svaret nei — da utføres den gamle verdien først."
+    },
+    {
+      "id": "in1020-1-5-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Et program som velger datacelle selv",
+      "problem": "Programmet under leser et tall og skriver ut en verdi fra en tabell. Hva skriver det ut med inndata 1?\n\n```text\n00  INP\n01  ADD 20\n02  STA 04\n03  LDA 21\n04  DAT 0\n05  OUT\n06  HLT\n20  DAT 130\n21  DAT 0\n30  DAT 7\n31  DAT 19\n32  DAT 45\n```",
+      "solution": "**Se etter kjennetegnet først.** Linje 02 er `STA 04` — og celle 04 ligger midt i koden. Dette er selvmodifiserende kode.\n\n**Sporetabell.** Celle 04 får sin egen kolonne, med instruksjonen den tilsvarer i parentes.\n\n| PC | Instruksjon | Akkumulator | Celle 04 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 1 | `000` (`HLT`) | |\n| 01 | `ADD 20` | 131 | `000` | |\n| 02 | `STA 04` | 131 | **`131` (`ADD 31`)** | |\n| 03 | `LDA 21` | 0 | `131` | |\n| 04 | `ADD 31` | **19** | `131` | |\n| 05 | `OUT` | 19 | `131` | **19** |\n| 06 | `HLT` | 19 | `131` | 19 |\n\n**Utskrift: `19`.**\n\n**Hva som skjedde.** Celle 20 inneholder `130`, som er malen `ADD 30`. Inndata 1 legges til, og resultatet `131` er `ADD 31`. Den skrives inn i celle 04, som deretter utføres — og henter celle 31, altså 19.\n\n**Kontroll med de andre inndataene:**\n\n| Inndata | Instruksjonen i celle 04 blir | Utskrift |\n|---|---|---|\n| 0 | `130` = `ADD 30` | 7 |\n| 1 | `131` = `ADD 31` | 19 |\n| 2 | `132` = `ADD 32` | 45 |\n\n**Legg merke til linje 03.** `LDA 21` setter akkumulatoren til 0 før tabelloppslaget. Uten den ville `ADD` lagt tabellverdien til 131, og utskriften blitt 150 i stedet for 19. Nullstillingen er ikke pynt — den er en nødvendig del av mønsteret."
+    },
+    {
+      "id": "in1020-1-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — selvmodifiserende kode.) I programmet fra eksempel 2: hva skriver programmet ut med inndata 2, og hvilken instruksjon står i celle 04 når `HLT` nås?",
+        "solution": "Celle 20 inneholder `130`. Med inndata 2 blir akkumulatoren `130 + 2 = 132`, som skrives til celle 04.\n\n`132` dekodes som opkode 1 (`ADD`) og adresse 32, altså **`ADD 32`**.\n\nDeretter setter `LDA 21` akkumulatoren til 0, og `ADD 32` henter innholdet i celle 32, som er 45.\n\n**Utskrift: `45`.** Celle 04 inneholder `132`, altså `ADD 32`, når programmet stopper.\n\nMerk at celle 04 **blir stående** endret. Kjørte du programmet på nytt uten å laste det inn igjen, ville den gamle modifikasjonen fortsatt ligget der — men den blir overskrevet av den nye `STA 04` med en gang.",
+        "hints": [
+          "Regn ut hva akkumulatoren er etter `ADD 20`, og dekod det tallet som instruksjon.",
+          "Husk at `LDA 21` nullstiller akkumulatoren rett før den modifiserte instruksjonen utføres."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — selvmodifiserende kode, svarform F1.) Kryss av alle påstandene som stemmer om programmet fra eksempel 2.\n\n**a)** Celle 20 inneholder malen for en `ADD`-instruksjon.\n\n**b)** Med inndata 3 ville programmet skrevet ut innholdet i celle 33.\n\n**c)** Linje 03 kan fjernes uten at utskriften endres.\n\n**d)** Programmet ville virket like godt om linje 02 var `STA 05`.",
+        "solution": "**a) Riktig.** `130` er opkode 1 (`ADD`) og adresse 30 — altså malen `ADD 30`, som modifiseres ved å legge inndataen til adressen.\n\n**b) Riktig.** `130 + 3 = 133`, som er `ADD 33`. Programmet ville hentet innholdet i celle 33. (I dette programmet er celle 33 tom, altså 0, så utskriften ville blitt 0 — men påstanden om hvilken celle som hentes, stemmer.)\n\n**c) Galt.** `LDA 21` setter akkumulatoren til 0. Uten den ville akkumulatoren fortsatt vært 131 når `ADD 31` utføres, og utskriften ville blitt `131 + 19 = 150` i stedet for 19. Nullstillingen er nødvendig.\n\n**d) Galt.** `STA 05` ville skrevet den beregnede instruksjonen inn i celle 05, som inneholder `OUT`. Da ville `OUT` blitt erstattet av `ADD 31`, og programmet ville aldri skrevet ut noe — det ville falt rett gjennom til `HLT`. Modifikasjonen må treffe **nøyaktig den cellen** som skal utføres.\n\n**Fasit: a og b.**",
+        "hints": [
+          "For c: skriv opp hva akkumulatoren inneholder rett før den modifiserte instruksjonen utføres.",
+          "For d: hva står i celle 05, og hva skjer hvis den overskrives?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Baklengs sporing (~13 min)\n\nDen andre vrien snur oppgaven: du får utskriften og skal finne inndataen.\n\nHer er hovedpoenget ikke å regne baklengs steg for steg — det går sjelden. Poenget er å **forstå hva programmet gjør**, og deretter spørre hvilke inndata som gir det resultatet.\n\nOg det avgjørende: svaret er ofte **mer enn én verdi**. Et program som regner ut en absoluttverdi, gir samme utskrift for `−7` og `7`. Krysser du bare av den ene, mister du halve poenget."
+    },
+    {
+      "id": "in1020-1-5-def-baklengs",
+      "type": "definition",
+      "title": "Baklengs sporing",
+      "content": "Oppgavetypen der utskriften er gitt og du skal finne hvilken inndata som produserer den.\n\nFramgangsmåten er ikke å reversere hver instruksjon, men å beskrive hva programmet gjør som en helhet, og deretter løse det spørsmålet.\n\nDen faste feilen: å oppgi **én** inndata når flere gir samme utskrift. Programmer med `BRP` eller `SUB` som «snur fortegnet» har typisk to løsninger, og oppgaven er som regel en «velg ett eller flere»-oppgave nettopp derfor."
+    },
+    {
+      "id": "in1020-1-5-def-flertydig",
+      "type": "definition",
+      "title": "Flertydig inndata",
+      "content": "Situasjonen der to eller flere ulike inndataverdier gir nøyaktig samme utskrift.\n\nDet oppstår når programmet mister informasjon underveis: en absoluttverdi glemmer fortegnet, en heltallsdivisjon glemmer resten, en test på «større enn» glemmer hvor mye større.\n\nPå eksamen er dette nesten alltid tilsiktet. Ser du et program med en `BRP` som velger mellom to grener som ender i samme utskrift, skal du lete etter to svar."
+    },
+    {
+      "id": "in1020-1-5-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Hvilke inndata gir utskriften 2?",
+      "problem": "Hva gjør programmet under, og hvilke inndata gir utskriften `2`?\n\n```text\n00  INP\n01  STA 50\n02  BRP 06\n03  LDA 51\n04  SUB 50\n05  BRA 07\n06  LDA 50\n07  OUT\n08  HLT\n50  DAT\n51  DAT 0\n```",
+      "solution": "**Steg 1 — hva gjør programmet?** Les det som to grener.\n\nLinje 00–01 leser inndataen og parkerer den i celle 50. Akkumulatoren inneholder fortsatt inndataen når `BRP 06` vurderes.\n\n- **Er inndataen 0 eller større,** hopper `BRP` til linje 06, som henter celle 50 tilbake. Utskriften er inndataen selv.\n- **Er inndataen negativ,** hopper den ikke. Linje 03 setter akkumulatoren til 0 (celle 51 er 0), og linje 04 trekker inndataen fra: `0 − (−7) = 7`. Utskriften er inndataen med motsatt fortegn.\n\nProgrammet regner altså ut **absoluttverdien**.\n\n**Steg 2 — hvilke inndata gir 2?**\n\n- Inndata `2`: `BRP` hopper (2 er større enn 0), celle 50 hentes, utskrift **2**. ✓\n- Inndata `−2`: `BRP` hopper ikke, akkumulatoren blir `0 − (−2) = 2`, utskrift **2**. ✓\n\n**Svar: både `2` og `−2` gir utskriften 2.**\n\n**Sporetabell for den negative grenen, som er den man lettest bommer på:**\n\n| PC | Instruksjon | Akkumulator | Celle 50 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | −2 | 0 | |\n| 01 | `STA 50` | −2 | −2 | |\n| 02 | `BRP 06` | −2 | −2 | negativ, hopper ikke |\n| 03 | `LDA 51` | 0 | −2 | |\n| 04 | `SUB 50` | 2 | −2 | |\n| 05 | `BRA 07` | 2 | −2 | |\n| 07 | `OUT` | 2 | −2 | **2** |\n| 08 | `HLT` | 2 | −2 | 2 |\n\n**Merk `BRA 07` på linje 05.** Uten den ville den negative grenen falt rett ned i linje 06, som ville hentet celle 50 (altså −2) tilbake i akkumulatoren, og utskriften blitt −2. Hoppet som «hopper over den andre grenen» er standardmønsteret for et valg."
+    },
+    {
+      "id": "in1020-1-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — baklengs sporing.) Bruk programmet fra eksempel 3. Hvilke inndata gir utskriften `0`? Begrunn.",
+        "solution": "Programmet regner ut absoluttverdien. Den eneste verdien med absoluttverdi 0 er 0 selv.\n\n**Svar: bare inndataen `0`.**\n\nSpor for å være sikker: `INP` gir akkumulatoren 0, `STA 50` lagrer 0, og `BRP 06` hopper — fordi `BRP` hopper også på **nøyaktig null**. Linje 06 henter celle 50, som er 0, og `OUT` skriver 0.\n\nDette er den ene inndataen der de to grenene ville gitt samme svar uansett: også den negative grenen ville gitt `0 − 0 = 0`. Men det er `BRP` som avgjør, og den sender null til den positive grenen.\n\nMerk kontrasten til eksempel 3: der hadde utskriften 2 **to** løsninger, her har utskriften 0 bare **én**. Antall løsninger avhenger av utskriften, ikke bare av programmet.",
+        "hints": [
+          "Beskriv hva programmet gjør som en helhet før du leter etter inndata.",
+          "Sjekk hvilken gren null havner i — husk hva `BRP` gjør med nøyaktig null."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — baklengs sporing, svarform F1.) Programmet under skriver ut ett tall. Kryss av alle inndataene som gir utskriften `12`.\n\n```text\n00  INP\n01  STA 60\n02  SUB 61\n03  BRP 07\n04  LDA 60\n05  ADD 60\n06  BRA 08\n07  LDA 60\n08  OUT\n09  HLT\n60  DAT\n61  DAT 10\n```\n\n**a)** 6\n\n**b)** 12\n\n**c)** 3\n\n**d)** 10",
+        "solution": "**Steg 1 — hva gjør programmet?** Etter `INP` og `STA 60` trekker linje 02 fra 10. `BRP 07` hopper hvis differansen er 0 eller større, altså hvis **inndataen er minst 10**.\n\n- Er inndataen minst 10: hopp til 07, hent celle 60, skriv ut **inndataen selv**.\n- Er inndataen under 10: linje 04–05 henter celle 60 og legger den til seg selv, altså **dobler** inndataen, og linje 06 hopper over den andre grenen.\n\nProgrammet skriver altså ut inndataen doblet hvis den er under 10, og ellers inndataen selv.\n\n**Steg 2 — hvilke inndata gir 12?**\n\n**a) 6 — riktig.** 6 er under 10, så den dobles: `6 + 6 = 12`. ✓\n\n**b) 12 — riktig.** 12 er minst 10, så programmet skriver ut inndataen selv: 12. ✓\n\n**c) 3 — galt.** 3 er under 10 og dobles til 6, ikke 12. Distraktoren er inndataen som ville gitt 12 hvis programmet hadde firedoblet.\n\n**d) 10 — galt.** 10 er akkurat på grensen. `10 − 10 = 0`, og `BRP` hopper også på null, så programmet skriver ut 10, ikke 20. Distraktoren tester nettopp om du husker at `BRP` inkluderer null.\n\n**Fasit: a og b.**\n\nMerk at oppgaven har to riktige svar fra hver sin gren. Det er den typiske konstruksjonen i baklengs sporing.",
+        "hints": [
+          "Beskriv de to grenene i ord først: hva skjer over grensen, og hva skjer under?",
+          "Test hvert alternativ mot grensen på 10, og husk at `BRP` hopper også når differansen er nøyaktig null.",
+          "Se etter om utskriften kan nås fra begge grenene — det er ofte poenget."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Beregnet hopp (~10 min)\n\nDen siste varianten kombinerer de to foregående: et program som regner ut **hvor det skal hoppe**.\n\nTrikset er det samme som før. `600` er `BRA 00`. Legger du til et tall, flytter du hoppmålet."
+    },
+    {
+      "id": "in1020-1-5-def-beregnet-hopp",
+      "type": "definition",
+      "title": "Beregnet hopp",
+      "content": "En hoppinstruksjon der adressen regnes ut mens programmet kjører, ved å legge en verdi til en hoppmal og skrive resultatet inn i den cellen som snart skal utføres.\n\nMalen er en `DAT`-celle med en verdi som `600`, altså `BRA 00`. Legges brukerens inndata til, blir hoppmålet celle 00 pluss inndataen.\n\nDette er LMCs versjon av en meny eller en valgtabell: én inndataverdi velger mellom flere rutiner.\n\nDen faste feilen er å spore programmet som om hoppet gikk til malens adresse. Hoppmålet finnes bare i den **beregnede** verdien, og den må dekodes før du vet hvor programtelleren havner."
+    },
+    {
+      "id": "in1020-1-5-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Et beregnet hopp",
+      "problem": "Hva skriver programmet ut med inndata 2?\n\n```text\n00  INP\n01  ADD 20\n02  STA 03\n03  DAT 0\n04  HLT\n05  LDA 21\n06  BRA 12\n07  LDA 22\n08  BRA 12\n09  LDA 23\n10  BRA 12\n11  HLT\n12  OUT\n13  HLT\n20  DAT 603\n21  DAT 11\n22  DAT 22\n23  DAT 33\n```",
+      "solution": "**Kjennetegnet:** `STA 03`, der celle 03 ligger midt i koden og inneholder `DAT 0`. Beregnet hopp.\n\n**Sporetabell:**\n\n| PC | Instruksjon | Akkumulator | Celle 03 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 2 | `000` | |\n| 01 | `ADD 20` | 605 | `000` | |\n| 02 | `STA 03` | 605 | **`605` (`BRA 05`)** | |\n| 03 | `BRA 05` | 605 | `605` | |\n| 05 | `LDA 21` | 11 | `605` | |\n| 06 | `BRA 12` | 11 | `605` | |\n| 12 | `OUT` | 11 | `605` | **11** |\n| 13 | `HLT` | 11 | `605` | 11 |\n\n**Utskrift: `11`.**\n\n**Regnestykket:** malen i celle 20 er `603`, altså `BRA 03`. Inndata 2 gir `603 + 2 = 605`, altså `BRA 05`. Programmet hopper til rutinen som starter i celle 05.\n\n**De tre rutinene:**\n\n| Inndata | Beregnet instruksjon | Rutine | Utskrift |\n|---|---|---|---|\n| 2 | `605` = `BRA 05` | celle 05 | 11 |\n| 4 | `607` = `BRA 07` | celle 07 | 22 |\n| 6 | `609` = `BRA 09` | celle 09 | 33 |\n\nBare partallene 2, 4 og 6 treffer en rutine — rutinene er to celler lange, så hoppmålene ligger to fra hverandre. Inndata 3 ville gitt `BRA 06`, som er `BRA 12` — programmet ville hoppet rett til `OUT` og skrevet ut akkumulatorverdien 606, altså tullverdi.\n\n**Det er poenget med denne konstruksjonen:** den er skjør. Et beregnet hopp gir ingen feilmelding hvis adressen bommer — det bare hopper et vilkårlig sted og fortsetter."
+    },
+    {
+      "id": "in1020-1-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — selvmodifiserende kode, svarform F4.) Bruk programmet fra eksempel 4.\n\n**a)** Hva skriver programmet ut med inndata 6?\n\n**b)** Hvilken verdi må stå i celle 20 for at inndata 1, 2 og 3 skulle valgt de tre rutinene i stedet?",
+        "solution": "**a)** Malen er `603`. Med inndata 6 blir akkumulatoren `603 + 6 = 609`, altså `BRA 09`.\n\nCelle 09 er `LDA 23`, som henter 33. `BRA 12` sender programmet til `OUT`.\n\n**Utskrift: `33`.**\n\n**b)** Rutinene ligger to celler fra hverandre (05, 07, 09), mens inndataen bare øker med én av gangen. En enkelt `ADD 20` flytter hoppmålet like mange hakk som inndataen er stor, så ingen enkeltverdi i celle 20 kan få 1, 2 og 3 til å treffe cellene 05, 07 og 09. Med malen `604` ville inndata 1 riktignok gitt `605`, men inndata 2 ville gitt `606` — midt inne i den første rutinen.\n\n**Svar: det krever at inndataen dobles først.** Programmet må ha en ekstra `STA` og en `ADD` av verdien til seg selv, og rutinene må flyttes så de ligger etter den modifiserte cellen:\n\n```text\n00  INP\n01  STA 24\n02  ADD 24      ; akkumulatoren er nå 2 ganger inndata\n03  ADD 20      ; legg til hoppmalen\n04  STA 05      ; skriv den beregnede instruksjonen inn i celle 05\n05  DAT 0       ; blir BRA 07, BRA 09 eller BRA 11\n06  HLT\n07  LDA 21\n08  BRA 14\n09  LDA 22\n10  BRA 14\n11  LDA 23\n12  BRA 14\n13  HLT\n14  OUT\n15  HLT\n20  DAT 605\n21  DAT 11\n22  DAT 22\n23  DAT 33\n24  DAT 0\n```\n\n**Kontroll:** inndata 1 gir `2 + 605 = 607`, altså `BRA 07`, som henter 11. Inndata 2 gir `609` og henter 22. Inndata 3 gir `611` og henter 33. Alle tre treffer.\n\n**Poenget:** en enkelt addisjon flytter hoppmålet ett hakk per enhet inndata. Ligger rutinene lenger fra hverandre, må inndataen skaleres først — og malen må justeres til den nye plasseringen av den første rutinen.",
+        "hints": [
+          "For a: regn ut `603` pluss inndataen, og dekod resultatet som instruksjon.",
+          "For b: hvor mange hakk flytter én enhet inndata hoppmålet, og hvor mange celler ligger det mellom rutinene?",
+          "Trenger du to hakk per enhet, må inndataen dobles før den legges til malen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — maskinkode.) Et program inneholder cellene under. Hvilke av dem vil bli utført som instruksjoner hvis programtelleren starter på 00 og ingen hopp forekommer?\n\n```text\ncelle:   00   01   02   03   04   05\ntall:   901  302  902  000  005  007\n```",
+        "solution": "Programtelleren starter på 00 og øker med 1 for hver instruksjon, helt til `HLT`.\n\n| Celle | Tall | Instruksjon | Utføres? |\n|---|---|---|---|\n| 00 | `901` | `INP` | Ja |\n| 01 | `302` | `STA 02` | Ja |\n| 02 | `902` | `OUT` | Ja — men se under |\n| 03 | `000` | `HLT` | Ja |\n| 04 | `005` | — | Nei |\n| 05 | `007` | — | Nei |\n\n**Svar: cellene 00, 01, 02 og 03.** Cellene 04 og 05 nås aldri, fordi `HLT` i celle 03 stopper programmet. De er altså data, uansett hva tallene i dem tilfeldigvis ville betydd som instruksjoner.\n\n**Men merk fella i celle 01.** `302` er `STA 02` — programmet skriver akkumulatoren inn i celle 02, som inneholder `OUT`. Etter `INP` med for eksempel inndata 5 blir celle 02 til `005`, som dekodes som opkode 0 og adresse 05 — altså ikke `OUT` lenger.\n\nI LMC er `000` `HLT`, og `005` er ikke en definert instruksjon i instruksjonssettet. Et program som skriver vilkårlige tall inn i kodeområdet, er derfor ikke bare vanskelig å spore — det kan ende opp med å utføre noe som ikke er en gyldig instruksjon i det hele tatt.\n\n**Lærdommen:** se etter `STA` med lav adresse. Den forteller deg at kodeområdet endres.",
+        "hints": [
+          "Følg programtelleren fra 00 og oppover, og stopp der `HLT` nås.",
+          "Se etter om noen av instruksjonene skriver til en celle som ligger i kodeområdet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å overse selvmodifiserende kode (felle #7).** Kjennetegnet er en `STA` med en adresse i kodeområdet. Ser du den, gi cellen en egen kolonne i sporetabellen og dekod den nye verdien før du sporer videre. Overser du modifikasjonen, blir alt etter det punktet feil — og du merker det ikke, for sporet ser fornuftig ut.\n\n2. **Å dekode opkoden feil.** `5xx` er `LDA`, `3xx` er `STA` — de gjør motsatt ting av hverandre. `1xx` er `ADD`, ikke `LDA`. Kontroller alltid begge veier: har du dekodet `508` til `LDA 08`, kod tilbake og sjekk at `5 · 100 + 8 = 508`.\n\n3. **Å oppgi bare én inndata i baklengs sporing.** Programmer med to grener som ender i samme utskrift, har typisk to løsninger. Spør alltid: kan denne utskriften nås fra begge grenene?\n\n4. **Å glemme at `BRP` inkluderer null.** I oppgave 6 var inndataen 10 nettopp på grensen, og `BRP` sendte den til den «store» grenen. Dette er den vanligste enkeltbommen i grenseoppgaver.\n\n5. **Å tro at operanden er en verdi.** `132` er `ADD 32` — legg til *innholdet i celle 32*, ikke tallet 32.\n\n6. **Å anta at et beregnet hopp lander riktig.** LMC har ingen kontroll av hoppadresser. Bommer regnestykket med én, hopper programmet midt inn i en annen rutine og fortsetter som om ingenting har skjedd."
+    },
+    {
+      "id": "in1020-1-5-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-1-5-bank-1",
+      "type": "definition",
+      "title": "Assemblering",
+      "content": "Oversettelsen fra assemblerkode med mnemonics til maskinkode med tall: `LDA 08` blir `508`.\n\nRegelen er mekanisk: opkode ganget med 100, pluss adressen.\n\nAssembleren gjør også en annen jobb — den oversetter eventuelle etiketter til celletall. Etter assemblering finnes verken mnemonics eller navn; bare tresifrede tall."
+    },
+    {
+      "id": "in1020-1-5-bank-2",
+      "type": "definition",
+      "title": "Disassemblering",
+      "content": "Den motsatte veien: fra maskinkode til lesbar assemblerkode. `604` blir `BRA 04`.\n\nDette er det du gjør når en eksamensoppgave gir deg minneinnholdet som rene tall og spør hva programmet gjør.\n\nKontrollen som fanger bommene: kod tilbake igjen. Har du disassemblert `604` til `BRA 04`, sjekk at `6 · 100 + 4 = 604`."
+    },
+    {
+      "id": "in1020-1-5-bank-3",
+      "type": "definition",
+      "title": "Opkodene 1xx, 2xx, 3xx og 5xx",
+      "content": "De fire instruksjonene som arbeider med en minnecelle:\n\n| Kode | Mnemonic | Virkning |\n|---|---|---|\n| `1xx` | `ADD` | Legg celleinnholdet til akkumulatoren |\n| `2xx` | `SUB` | Trekk celleinnholdet fra akkumulatoren |\n| `3xx` | `STA` | Lagre akkumulatoren i cellen |\n| `5xx` | `LDA` | Last cellen inn i akkumulatoren |\n\nMerk at `4xx` er ubrukt i LMC. Den vanligste forvekslingen er `3xx` mot `5xx`, altså lagre mot laste."
+    },
+    {
+      "id": "in1020-1-5-bank-4",
+      "type": "definition",
+      "title": "Opkodene 6xx, 7xx og 8xx",
+      "content": "De tre hoppene:\n\n| Kode | Mnemonic | Hopper når |\n|---|---|---|\n| `6xx` | `BRA` | alltid |\n| `7xx` | `BRZ` | akkumulatoren er nøyaktig 0 |\n| `8xx` | `BRP` | akkumulatoren er 0 eller større |\n\nI selvmodifiserende kode er `6xx` den viktigste: en `DAT`-celle med verdien `600` er en hoppmal som kan flyttes ved å legge til et tall."
+    },
+    {
+      "id": "in1020-1-5-bank-5",
+      "type": "definition",
+      "title": "De faste kodene 901, 902, 922 og 000",
+      "content": "De fire instruksjonene uten adressefelt:\n\n| Kode | Mnemonic | Virkning |\n|---|---|---|\n| `901` | `INP` | Les inn til akkumulatoren |\n| `902` | `OUT` | Skriv ut som tall |\n| `922` | `OTC` | Skriv ut som ASCII-tegn |\n| `000` | `HLT` | Stopp |\n\nHer er hele det tresifrede tallet koden. `901` er ikke «opkode 9, adresse 01» — de to siste sifrene skiller bare de tre 9-kodene fra hverandre."
+    },
+    {
+      "id": "in1020-1-5-bank-6",
+      "type": "definition",
+      "title": "Kodeområde og dataområde",
+      "content": "Skillet i praksis: de lave cellenumrene inneholder instruksjonene, de høye inneholder `DAT`-cellene.\n\nSkillet finnes bare i programmererens hode. Maskinen har ingen markering, og programtelleren kan i prinsippet peke på hvilken som helst celle.\n\nDet er derfor du skal reagere når du ser en `STA` med lav adresse: den skriver inn i kodeområdet, og da er programmet selvmodifiserende."
+    },
+    {
+      "id": "in1020-1-5-bank-7",
+      "type": "definition",
+      "title": "Instruksjonsmal",
+      "content": "En `DAT`-celle som inneholder en ferdig instruksjonsverdi, ment å bli modifisert: `DAT 130` er malen `ADD 30`, `DAT 600` er malen `BRA 00`.\n\nMalen ligger i dataområdet og blir aldri utført der. Den lastes, endres og skrives inn i en kodecelle med `STA`.\n\nÅ kjenne igjen en mal er den raskeste måten å oppdage selvmodifiserende kode på: en `DAT`-verdi som ser ut som en gyldig instruksjon, er sjelden tilfeldig."
+    },
+    {
+      "id": "in1020-1-5-bank-8",
+      "type": "definition",
+      "title": "Å flytte en adresse",
+      "content": "Å legge en liten verdi til en instruksjon, slik at opkoden er uendret mens adressen flyttes: `130` pluss 2 gir `132`, altså `ADD 30` blir `ADD 32`.\n\nDette er LMCs eneste måte å slå opp i en tabell med en beregnet indeks på.\n\nGrensen: legger du til 100 eller mer, ruller du over i opkoden og endrer hva instruksjonen gjør. `130` pluss 100 er `230`, altså `SUB 30` — sjelden det du ville."
+    },
+    {
+      "id": "in1020-1-5-bank-9",
+      "type": "definition",
+      "title": "Grenmønsteret med to utganger",
+      "content": "Standardformen for et valg i LMC: en test, et betinget hopp til den ene grenen, den andre grenen rett etter, og et `BRA` som hopper over den første.\n\n```text\n02  BRP 06      ; hopp til gren A\n03  ...         ; gren B\n05  BRA 07      ; hopp over gren A\n06  ...         ; gren A\n07  OUT         ; felles fortsettelse\n```\n\nUten `BRA` på linje 05 ville gren B falt rett ned i gren A. Det er den vanligste feilen når man skriver et slikt mønster selv — og et fast sted å lete når et program oppfører seg rart."
+    },
+    {
+      "id": "in1020-1-5-bank-10",
+      "type": "definition",
+      "title": "Grenseverdien i en test",
+      "content": "Verdien der et betinget hopp akkurat skifter oppførsel. For `BRP` er det **null**: null hopper, −1 hopper ikke.\n\nEr testen `SUB 61` med celle 61 lik 10, ligger grensen på inndata 10: den gir differansen 0, og `BRP` hopper.\n\nEksamensoppgavene plasserer nesten alltid ett alternativ nøyaktig på grensen. Regn den ut eksplisitt før du krysser av."
+    },
+    {
+      "id": "in1020-1-5-bank-11",
+      "type": "definition",
+      "title": "Informasjonstap",
+      "content": "At et program forkaster informasjon underveis, slik at flere ulike inndata gir samme utskrift.\n\nEn absoluttverdi glemmer fortegnet; en test på «minst 10» glemmer hvor mye over 10 verdien var.\n\nDette er grunnen til at baklengs sporing ofte har flere svar. Ser du at programmet mister informasjon, skal du lete etter mer enn én løsning."
+    },
+    {
+      "id": "in1020-1-5-bank-12",
+      "type": "definition",
+      "title": "Von Neumann-prinsippet i LMC",
+      "content": "At kode og data ligger i det samme minnet, i det samme formatet, uten noe skille.\n\nI LMC ser du prinsippet direkte: `508` er et tall som kan legges sammen med andre tall, og samtidig en instruksjon som kan utføres.\n\nDette er ikke en svakhet ved modellen, men den arkitekturen nesten alle datamaskiner er bygd etter. Du møter den formelt i [kap. 2.4](/bok/in1020/in1020-2-4)."
+    },
+    {
+      "id": "in1020-1-5-bank-13",
+      "type": "definition",
+      "title": "Rekkefølgekravet ved modifikasjon",
+      "content": "Regelen om at en kodecelle må skrives **før** programtelleren når den, ellers utføres den gamle verdien.\n\nSkrives celle 04 av en `STA` i celle 02, rekker modifikasjonen fram. Skrives den av en `STA` i celle 07, er celle 04 for lengst utført med sin opprinnelige verdi.\n\nDette er det første spørsmålet du skal stille når du ser selvmodifiserende kode: *rekker cellen å bli endret i tide?* Svaret avgjør om modifikasjonen påvirker denne runden eller først den neste."
+    },
+    {
+      "id": "in1020-1-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter maskinkoden?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-1-5-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte.\n\n1. Dekod `730`.\n2. Hva er maskinkoden for `SUB 12`?\n3. Hva er kjennetegnet på selvmodifiserende kode?\n4. Hva blir `130` pluss 2, som instruksjon?\n5. Hvorfor gir en absoluttverdi-oppgave ofte to riktige inndata?\n6. Hva er `600` som instruksjon, og hva brukes den til som mal?\n7. Hvilken opkode er ubrukt i LMC?\n8. Hva skjer hvis et beregnet hopp lander midt i en annen rutine?\n\n**Fasit.**\n\n1. Opkode 7 er `BRZ`, adresse 30: `BRZ 30`. Kontroll: `7 · 100 + 30 = 730`.\n2. Opkode 2 ganget med 100 pluss 12: `212`.\n3. En `STA` med en adresse i kodeområdet, altså blant de lave cellenumrene.\n4. `132`, som er `ADD 32` — samme opkode, adressen flyttet to hakk.\n5. Fordi programmet mister fortegnet: både 7 og −7 gir utskriften 7.\n6. `BRA 00`. Som mal brukes den til beregnet hopp: legg til en verdi, og hoppmålet flyttes tilsvarende.\n7. `4xx`. De øvrige er `1xx`, `2xx`, `3xx`, `5xx`, `6xx`, `7xx`, `8xx` og de faste 9-kodene.\n8. Ingenting spesielt — LMC kontrollerer ikke hoppadresser. Programmet fortsetter derfra som om det var meningen.\n\nSjekk deg selv: ☐ ga du de modifiserte cellene egen kolonne i sporetabellen? ☐ dekodet du den nye verdien før du sporet videre? ☐ lette du etter mer enn én inndata i baklengs sporing? ☐ husket du at `BRP` hopper også på null?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
