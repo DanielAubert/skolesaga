@@ -1,0 +1,432 @@
+{
+ "id": "in1000-5-1",
+ "courseId": "in1000",
+ "chapterNumber": "5.1",
+ "title": "Klasser og objekter: `class`, `__init__` og `self`",
+ "description": "Definere en klasse, lage objekter, og sette instansvariabler i konstruktøren med self og understrek — kjernehåndverket i objektorientering, og der self-fella lever.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne skrive en klasse med konstruktør slik at alle verdier objektet skal huske, overlever kallet",
+  "kunne forklare hva den første parameteren i en metode peker på, og hvorfor den aldri skrives i kallet",
+  "kunne se om to objekter av samme klasse deler verdier eller ikke",
+  "kunne kjenne igjen den vanligste konstruktørfeilen i en gitt kodesnutt, og rette den"
+ ],
+ "content": [
+  {
+   "id": "in1000-5-1-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Klasser står i 6 av 6 moderne eksamenssett (100 %)** — og de står to steder\nsamtidig. De bærer **Oppgave 2**, flervalget om objekter (~9 poeng), og de bærer\nhele **Oppgave 4**, den store modelleringen som alene er nesten halve settet.\nTil sammen er dette kapitlets stoff grunnlaget for godt over halvparten av\npoengene.\n\nTo ord om formen: **sjanger B — flervalg om objekter**, altså «hvilken påstand\nom denne koden er sann?», og **sjanger F — stor klassemodellering**, altså å\nbygge flere samarbeidende klasser fra en beskrevet oppgave. Begge hviler på det\ndu gjør i dette kapitlet: å definere en klasse og sette verdiene riktig når et\nobjekt lages.\n\n**Dette må sitte** — bokas høyeste av tre prioritetsnivåer. Nivåene heter\n«må sitte», «kunne» og «kjenne til», og dette kapitlet er det første av flere på\nøverste nivå.\n\nÉn bestemt felle er plantet med vilje i det nyeste settet vi har talt i: en\nkonstruktør som skriver `alder = 0` uten `self` foran. Da blir verdien borte i\ndet øyeblikket konstruktøren er ferdig. Fellen har et nummer i bokas feilregister\n— **#1, `self`-fella** — og den er hovedpersonen i dette kapitlet."
+  },
+  {
+   "id": "in1000-5-1-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på\n[kap. 2.2 — Funksjonssamarbeid og scope](/bok/in1000/in1000-2-2), og indirekte\npå [kap. 2.1 — Funksjoner](/bok/in1000/in1000-2-1) og\n[kap. 3.1 — Lister](/bok/in1000/in1000-3-1).\n\nHar du aldri programmert før, finnes en mykere inngang til de aller første\nbegrepene i [Programmering med Python (1P)](/bok/1p/1p-9-2).\n\n**De to tingene fra kap. 2.2 som avgjør alt her**, friskes opp med kjørt kode.\n\n**1. En variabel inne i en funksjon forsvinner når funksjonen er ferdig.** Det\nkalles at den er *lokal*, og det er nettopp det `self`-fella handler om:\n\n```python\ndef lag_teller():\n    antall = 0\n    antall = antall + 5\n    print(\"inne i funksjonen:\", antall)\n\nlag_teller()\nprint(\"etter kallet finnes ikke antall lenger\")\n```\n\n**Utskrift:**\n```\ninne i funksjonen: 5\netter kallet finnes ikke antall lenger\n```\n\n**2. En parameter er et navn funksjonen bruker på verdien den fikk inn.**\nVerdien kommer utenfra, navnet lever bare inne i funksjonen:\n\n```python\ndef hils(navn):\n    print(\"Hei,\", navn)\n\nhils(\"Ada\")\nhils(\"Nora\")\n```\n\n**Utskrift:**\n```\nHei, Ada\nHei, Nora\n```\n\nBegge deler kommer igjen om få minutter, med ett nytt tillegg: en måte å la\nverdiene **overleve** kallet på."
+  },
+  {
+   "id": "in1000-5-1-3",
+   "type": "text",
+   "content": "## Løkke 1 — Fra løse variabler til ett objekt (~12 min)\n\nEn sykkelutleie har rundt tusen sykler ute i byen. Hver sykkel har en kode, et\nstativ den hører til, og en opplysning om den er utleid akkurat nå.\n\nMed det du kan så langt, ville du holdt styr på det med tre lister som må holdes\ni takt: én med koder, én med stativer, én med utleid-eller-ikke. Det virker helt\ntil noen setter inn en sykkel i den ene lista og glemmer de to andre. Da er\nsykkel nummer 400 plutselig en annen sykkel i hver liste.\n\n**Objektorientering er svaret på akkurat det problemet.** I stedet for tre lister\nsom må holdes i takt, lager du **én ting** — ett sykkel-objekt — som bærer alle\ntre opplysningene sine selv, og som kan gjøre noe med dem."
+  },
+  {
+   "id": "in1000-5-1-4",
+   "type": "definition",
+   "title": "Klasse",
+   "content": "En **klasse** er en beskrivelse av hvordan en bestemt slags ting ser ut og hva\nden kan gjøre. Den er ikke tingen selv.\n\nTenk på skjemaet en sykkelutleie fyller ut for hver ny sykkel: feltene «kode»,\n«stativ» og «utleid» står trykt på arket, likt for alle sykler. Klassen er\n**arket**; hver utfylte kopi er en sykkel.\n\nKlassen skrives én gang, og du kan lage så mange objekter du vil fra den. Det er\nhele poenget: én beskrivelse, mange konkrete ting."
+  },
+  {
+   "id": "in1000-5-1-5",
+   "type": "definition",
+   "title": "Objekt (instans)",
+   "content": "Et **objekt** er én konkret ting laget fra en klasse — én utfylt kopi av\nskjemaet. Ordet **instans** betyr nøyaktig det samme, og brukes om hverandre både\ni faget og i eksamensoppgavene.\n\nHvert objekt har **sine egne verdier**. Sykkelen med kode `R31` og sykkelen med\nkode `R48` er to objekter av samme klasse, men de deler ingenting: å leie ut den\nene rører ikke den andre.\n\nNår du leser en oppgavetekst, er det ofte lett å se hva som er hva: klassen er\ndet generelle ordet («en sykkel»), objektet er den bestemte tingen («sykkelen\nmed kode R31»)."
+  },
+  {
+   "id": "in1000-5-1-6",
+   "type": "definition",
+   "title": "`class Navn:`",
+   "content": "Linjen som starter en klassedefinisjon. Alt som skal høre til klassen, skrives\n**innrykket** under den:\n\n```python\nclass Sykkel:\n    def __init__(self, kode):\n        self._kode = kode\n```\n\nKlassenavnet skrives med **stor forbokstav** — `Sykkel`, `Konto`, `Medlem`. Det\ner en konvensjon, ikke en regel Python håndhever, men fasiten følger den, og den\ngjør koden lettere å lese: stor forbokstav betyr klasse, liten betyr variabel.\n\nSelve linjen `class Sykkel:` gjør ingenting synlig. Den bare gjør navnet\n`Sykkel` tilgjengelig, klart til å lage objekter av."
+  },
+  {
+   "id": "in1000-5-1-7",
+   "type": "definition",
+   "title": "`def __init__(self, ...)` — konstruktøren",
+   "content": "**Konstruktøren** er metoden som kjører automatisk hver gang du lager et nytt\nobjekt. Den heter alltid `__init__`, med to understreker på hver side.\n\nNavn av den formen kalles **spesialmetoder**: du kaller dem aldri selv, Python\nkaller dem for deg på bestemte tidspunkter. `__init__` kalles i det øyeblikket\nobjektet oppstår.\n\nJobben dens er én ting: **gi objektet startverdiene sine**. Alt objektet skal\nhuske, settes her.\n\n```python\nclass Sykkel:\n    def __init__(self, kode, stativ):\n        self._kode = kode\n        self._stativ = stativ\n        self._utleid = False\n```\n\nParameterlista er `(self, kode, stativ)`, men når du lager objektet, sender du\nbare to verdier: `Sykkel(\"R31\", \"Blindern\")`. `self` fylles ut av Python."
+  },
+  {
+   "id": "in1000-5-1-8",
+   "type": "theorem",
+   "title": "Konstruktør-malen",
+   "content": "Bokas niende kodemønster, og det første av klassemønstrene. Malen er kort nok\ntil å huskes ordrett:\n\n```python\nclass Klassenavn:\n    def __init__(self, verdi1, verdi2):\n        self._felt1 = verdi1\n        self._felt2 = verdi2\n        self._felt3 = 0\n```\n\nTre regler følger med, og de er hele mønsteret:\n\n1. **Alt objektet skal huske, settes i `__init__`** — også felt som ikke kommer\n   utenfra. `self._utleid = False` og `self._antall_turer = 0` hører hjemme her,\n   selv om ingen sender dem inn.\n2. **Hver eneste tilordning starter med `self._`.** Uten `self` blir det en\n   lokal variabel som forsvinner (feilkode **#1**, `self`-fella).\n3. **Én understrek foran navnet.** `self._kode`, ikke `self.kode`. Hvorfor,\n   handler [kap. 5.2](/bok/in1000/in1000-5-2) om; her holder det å gjøre det\n   likt hver gang, fordi det er formen fasiten bruker.\n\nSkriver du de tre linjene mekanisk hver gang du starter en klasse, har du sikret\ndeg mot den vanligste feilen i hele Oppgave 4."
+  },
+  {
+   "id": "in1000-5-1-9",
+   "type": "example",
+   "title": "Eksempel 1: Klassen `Sykkel`, fra beskrivelse til to objekter",
+   "problem": "En sykkelutleie vil holde styr på hver sykkel med en kode, et stativ og en\nopplysning om den er utleid. Skriv klassen, lag to sykler, og få hver av dem til\nå skrive seg selv ut.",
+   "solution": "Beskrivelsen nevner tre opplysninger, så konstruktøren setter tre\ninstansvariabler. Bare de to første kommer utenfra; den tredje har en naturlig\nstartverdi:\n\n```python\nclass Sykkel:\n    def __init__(self, kode, stativ):\n        self._kode = kode\n        self._stativ = stativ\n        self._utleid = False\n\n    def skriv(self):\n        print(\"Sykkel\", self._kode, \"i stativ\", self._stativ)\n\nsykkel1 = Sykkel(\"R31\", \"Blindern\")\nsykkel2 = Sykkel(\"R48\", \"Majorstuen\")\nsykkel1.skriv()\nsykkel2.skriv()\n```\n\n**Utskrift:**\n```\nSykkel R31 i stativ Blindern\nSykkel R48 i stativ Majorstuen\n```\n\n**Les linjen `sykkel1 = Sykkel(\"R31\", \"Blindern\")` sakte.** Den gjør tre ting i\nrekkefølge: Python lager et nytt, tomt objekt; kaller `__init__` på det med\n`kode = \"R31\"` og `stativ = \"Blindern\"`; og lar variabelen `sykkel1` peke på det\nferdige objektet.\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg her.\n`class`-linjen med stor forbokstav, `__init__` med `self` som første parameter,\nde tre `self._`-tilordningene, og metoden med `self` i signaturen. Hadde du\nglemt `self._utleid = False`, ville de tre andre fortsatt telt.\n\nLegg merke til at `skriv` ikke tar imot noe utenfra. Den trenger det ikke —\nobjektet bærer verdiene sine selv, og `self` gir metoden tilgang til dem."
+  },
+  {
+   "id": "in1000-5-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — gjengivelse.) Under står klassen `Boks` fra en\nresirkuleringsstasjon.\n\n```python\nclass Boks:\n    def __init__(self, materiale, vekt):\n        self._materiale = materiale\n        self._vekt = vekt\n        self._tomt = True\n```\n\n**a)** Hvor mange instansvariabler har et `Boks`-objekt?\n\n**b)** Hvor mange verdier sender du inn når du lager en boks?\n\n**c)** Skriv linjen som lager en boks av glass med vekt 340.",
+    "solution": "**a)** Tre: `self._materiale`, `self._vekt` og `self._tomt`. Alle tre settes i\nkonstruktøren, som er den eneste plassen de skal settes fra.\n\n**b)** To. Parameterlista er `(self, materiale, vekt)`, men `self` fylles ut av\nPython selv — du sender bare de to verdiene som står etter den. `self._tomt` får\nstartverdien sin inne i konstruktøren og kommer ikke utenfra.\n\n**c)** `min_boks = Boks(\"glass\", 340)`\n\nKlassenavnet med stor forbokstav, parentes, og de to verdiene i samme rekkefølge\nsom i parameterlista. Bytter du om på dem, får boksen materialet 340 og vekten\n«glass» — og Python sier ikke fra.",
+    "hints": [
+     "Tell linjene i konstruktøren som starter med `self.`",
+     "Husk at `self` aldri sendes inn av deg."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-10",
+   "type": "text",
+   "content": "## Løkke 2 — `self`: navnet objektet bruker på seg selv (~13 min)\n\nKlassen `Sykkel` skrives **én** gang, men brukes av tusen sykler. Når metoden\n`skriv` kjører, må den vite hvilken av de tusen den snakker om.\n\nDet er hele jobben til `self`. Ordet er ikke magi, og det er ikke et nøkkelord i\nPython: det er bare navnet på den **første parameteren** i enhver metode — og\nPython fyller den ut med objektet metoden ble kalt på."
+  },
+  {
+   "id": "in1000-5-1-11",
+   "type": "definition",
+   "title": "`self`",
+   "content": "Den første parameteren i enhver metode. Den peker på **det objektet metoden ble\nkalt på**.\n\nKaller du `sykkel1.skriv()`, er `self` inne i metoden det samme objektet som\n`sykkel1` peker på. Kaller du `sykkel2.skriv()`, er `self` sykkel nummer to.\nSamme kode, ulikt objekt.\n\nTo ting følger av dette, og begge er eksamensstoff:\n\n- `self` skrives **alltid** i metodens definisjon: `def skriv(self):`.\n- `self` skrives **aldri** når du kaller: `sykkel1.skriv()`, ikke\n  `sykkel1.skriv(self)`.\n\nPython fyller inn `self` selv, ut fra hva som står foran punktumet."
+  },
+  {
+   "id": "in1000-5-1-12",
+   "type": "definition",
+   "title": "Instansvariabel",
+   "content": "En variabel som hører til **objektet**, ikke til metoden. Den skrives med `self.`\nforan, og i denne boka alltid med en understrek etter punktumet: `self._kode`.\n\nForskjellen fra en vanlig lokal variabel er at instansvariabelen **overlever\nmetodekallet**. Den ligger i objektet og er der neste gang en metode kalles på\ndet samme objektet.\n\nTo objekter av samme klasse har **hver sine** instansvariabler. `sykkel1._kode`\nog `sykkel2._kode` er to helt uavhengige verdier, selv om koden som satte dem er\nden samme.\n\nOrdet **attributt** brukes om det samme i mange lærebøker. Kommer det i en\noppgavetekst, betyr det instansvariabel."
+  },
+  {
+   "id": "in1000-5-1-13",
+   "type": "warning",
+   "title": "Typisk feil #1 — `self`-fella",
+   "content": "Dette er den vanligste og dyreste feilen i hele Oppgave 4, og den er plantet med\nvilje i settene. Feilkode **#1** er at en instansvariabel settes **uten** `self.`\nforan i konstruktøren:\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder):\n        self._navn = navn\n        alder = alder\n```\n\nAndre linje ser fornuftig ut, men lager bare en lokal variabel som blir borte i\ndet øyeblikket `__init__` er ferdig. Objektet får aldri noen alder. Kaller du\nsenere en metode som leser `self._alder`, stopper programmet, og siste linje i\nfeilmeldingen er `AttributeError: 'Medlem' object has no attribute '_alder'`.\n\n**Den lumske varianten** er verre, fordi programmet ikke stopper:\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder):\n        self._navn = navn\n        self._alder = 0\n        alder = alder\n\n    def hent_alder(self):\n        return self._alder\n```\n\nHer **finnes** `self._alder` — men den ble aldri satt til verdien som kom inn.\n`hent_alder()` svarer 0 for alle medlemmer, uansett hva du sendte inn, og\nprogrammet oppfører seg helt rolig mens det svarer feil. Det er nøyaktig den\nformen fellen har i eksamenssettene.\n\n**Motgiften er mekanisk:** når konstruktøren er ferdig, tell parameterne og tell\n`self._`-linjene. Skal alle parameterne huskes, skal tallene stemme."
+  },
+  {
+   "id": "in1000-5-1-14",
+   "type": "example",
+   "title": "Eksempel 2: `self`-fella kjørt, side om side med den riktige koden",
+   "problem": "Vis hva som faktisk skjer når én av to instansvariabler settes uten `self.`, og\nforklar hvorfor programmet ikke stopper.",
+   "solution": "Klassen under har fellen i seg: `plass` settes uten `self.` i konstruktøren,\nmens `self._plass` fikk startverdien 0 en linje før.\n\n```python\nclass Stativ:\n    def __init__(self, navn, plasser):\n        self._navn = navn\n        self._plasser = 0\n        plasser = plasser\n\n    def skriv(self):\n        print(self._navn, \"har\", self._plasser, \"plasser\")\n\ns = Stativ(\"Blindern\", 24)\ns.skriv()\n```\n\n**Utskrift:**\n```\nBlindern har 0 plasser\n```\n\n**Programmet svarer feil uten å klage.** Tallet 24 kom inn i konstruktøren, ble\nlagt i den lokale variabelen `plasser`, og forsvant da konstruktøren var ferdig.\nIgjen står startverdien 0.\n\nRetter du den ene linjen, oppfører alt seg som ventet:\n\n```python\nclass Stativ:\n    def __init__(self, navn, plasser):\n        self._navn = navn\n        self._plasser = plasser\n\n    def skriv(self):\n        print(self._navn, \"har\", self._plasser, \"plasser\")\n\ns = Stativ(\"Blindern\", 24)\ns.skriv()\n```\n\n**Utskrift:**\n```\nBlindern har 24 plasser\n```\n\n**Merk hvor liten forskjellen er i tegn**, og hvor stor den er i konsekvens. Det\ner derfor sensorene planter nettopp denne: den skiller den som har forstått hva\n`self` gjør, fra den som har lært seg formen utenat."
+  },
+  {
+   "id": "in1000-5-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter, altså «hva skjer med denne\nkoden?».) En brettspillklubb registrerer spill slik:\n\n```python\nclass Spill:\n    def __init__(self, tittel, spillere):\n        self._tittel = tittel\n        self._spillere = 0\n        spillere = spillere\n\n    def skriv(self):\n        print(self._tittel, \"for\", self._spillere, \"spillere\")\n\nsp = Spill(\"Kolonier\", 4)\nsp.skriv()\n```\n\n**a)** Hva skriver programmet ut?\n\n**b)** Hvilken feilkode er dette, og hva er den presise grunnen?\n\n**c)** Endre nøyaktig én linje slik at programmet skriver det som var ment.",
+    "solution": "**a)**\n\n```\nKolonier for 0 spillere\n```\n\n**b)** Feilkode **#1**, `self`-fella. Linjen `spillere = spillere` tilordner en\n**lokal** variabel — den som er parameteren — til seg selv. Objektet blir aldri\nrørt. Instansvariabelen `self._spillere` fikk verdien 0 linjen før, og den\nverdien blir stående.\n\nGrunnen til at programmet ikke stopper, er nettopp den startverdien: fordi\n`self._spillere` finnes, finner `skriv` noe å hente. Hadde linjen\n`self._spillere = 0` ikke stått der, ville programmet stoppet med\n`AttributeError`.\n\n**c)** Én linje endres: `spillere = spillere` skal være\n`self._spillere = spillere`. Da kan også linjen `self._spillere = 0` fjernes, for\nverdien kommer nå utenfra. Hele den rettede klassen blir:\n\n```python\nclass Spill:\n    def __init__(self, tittel, spillere):\n        self._tittel = tittel\n        self._spillere = spillere\n\n    def skriv(self):\n        print(self._tittel, \"for\", self._spillere, \"spillere\")\n\nsp = Spill(\"Kolonier\", 4)\nsp.skriv()\n```\n\n**Utskrift:**\n```\nKolonier for 4 spillere\n```\n\n**Delvis riktig teller:** ser du at tallet blir 0 uten å kunne begrunne det, har\ndu fortsatt svart riktig på a). Deloppgavene rettes hver for seg.",
+    "hints": [
+     "Se på hva som står til venstre for likhetstegnet i hver linje i konstruktøren.",
+     "Hvilken av de to `spillere`-ene lever videre etter at konstruktøren er ferdig?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F-del — skriv en konstruktør.) En frivilligsentral vil\nregistrere hver frivillig med navn, telefonnummer og antall timer utført. Antall\ntimer skal starte på 0 og ikke oppgis når den frivillige registreres.\n\n**a)** Skriv klassen `Frivillig` med bare konstruktøren.\n\n**b)** Skriv linjen som registrerer «Ada» med telefonnummer `\"90012345\"`.\n\n**c)** Hvorfor er telefonnummeret lagret som tekst og ikke som tall?",
+    "solution": "**a)** To verdier kommer inn, tre instansvariabler settes:\n\n```python\nclass Frivillig:\n    def __init__(self, navn, telefon):\n        self._navn = navn\n        self._telefon = telefon\n        self._timer = 0\n```\n\n**b)** `ada = Frivillig(\"Ada\", \"90012345\")`\n\n**c)** Fordi et telefonnummer aldri skal regnes med. Det kan begynne med null —\n`\"04321\"` blir tallet 4321 og mister det første sifferet — og det kan inneholde\nlandkode og mellomrom. Regelen er enkel: **er verdien noe du skal regne med, er\nden et tall; er den en merkelapp, er den tekst.**\n\nAlderen til et medlem er et tall, postnummeret er tekst, antall timer er et tall.\n\n**Slik ville sensor sett på det:** at `self._timer = 0` står i konstruktøren\nselv om ingen sender den inn, er nettopp det som skiller en fullstendig\nkonstruktør fra en halv. Alt objektet skal huske, settes her.",
+    "hints": [
+     "Tell hvor mange opplysninger objektet skal huske, og hvor mange som kommer utenfra.",
+     "Startverdier som 0 og `False` skrives rett inn i konstruktøren."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-15",
+   "type": "text",
+   "content": "## Løkke 3 — Metoder: det objektet kan gjøre (~13 min)\n\nSå langt kan objektene våre huske. Nå skal de kunne **gjøre** noe.\n\nEn metode er en funksjon som hører til klassen. Den skrives innrykket inne i\nklassen, har `self` som første parameter, og kalles med punktum bak objektet:\n`sykkel1.skriv()`. Alt du kan om funksjoner fra\n[kap. 2.1](/bok/in1000/in1000-2-1), gjelder uendret — parametere, `return` og\ndet hele.\n\nNår du leser en oppgavetekst, er metodene lette å finne: **hver «kan gjøre»-\nsetning blir en metode.** «En sykkel kan leies ut», «en sykkel kan leveres\ntilbake», «en sykkel kan si hvor mange turer den har hatt» — tre setninger, tre\nmetoder."
+  },
+  {
+   "id": "in1000-5-1-16",
+   "type": "definition",
+   "title": "`def metode(self, ...)`",
+   "content": "En funksjon som hører til klassen, skrevet innrykket inne i den, med `self` som\n**første** parameter:\n\n```python\nclass Sykkel:\n    def __init__(self, kode):\n        self._kode = kode\n        self._turer = 0\n\n    def registrer_tur(self):\n        self._turer = self._turer + 1\n```\n\nEtter `self` kommer eventuelle vanlige parametere: `def sett_stativ(self, nytt)`.\nDe fungerer nøyaktig som i en vanlig funksjon.\n\nInne i metoden når du objektets verdier med `self._navn`. Uten `self.` foran\nlager du bare en lokal variabel som forsvinner — samme felle som i\nkonstruktøren, og samme feilkode #1."
+  },
+  {
+   "id": "in1000-5-1-17",
+   "type": "definition",
+   "title": "Metodekall `obj.metode(...)`",
+   "content": "Slik du får et objekt til å gjøre noe: navnet på objektet, punktum, navnet på\nmetoden, parentes — for eksempel `sykkel1.registrer_tur()`.\n\n**`self` skrives ikke her.** Python ser hva som står foran punktumet og sender\ndet inn som `self` automatisk. Skriver du `sykkel1.registrer_tur(sykkel1)`,\nstopper programmet fordi metoden fikk ett argument for mye.\n\nRegnestykket er alltid det samme: **definisjonen har én parameter mer enn\nkallet har argumenter.** Den ekstra er `self`.\n\nSkal metoden gi deg en verdi tilbake, bruker den `return`, og du tar imot\nresultatet som fra en vanlig funksjon: `n = sykkel1.hent_turer()`."
+  },
+  {
+   "id": "in1000-5-1-18",
+   "type": "warning",
+   "title": "De to `self`-feilene i metoder",
+   "content": "Feilkode #1 dukker opp i to former til når du skriver metoder, og begge er\nlette å gjøre under tidspress.\n\n**Glemt `self` i signaturen.** Metoden defineres uten første parameter:\n\n```text\nclass Sykkel:\n    def registrer_tur():\n        print(\"tur registrert\")\n```\n\nKallet `sykkel1.registrer_tur()` stopper da programmet, og siste linje i\nfeilmeldingen er `TypeError: registrer_tur() takes 0 positional arguments but 1\nwas given`. Meldingen er forvirrende første gang: du sendte jo ingenting inn.\nDet gjorde Python — objektet selv.\n\n**`self` med i kallet.** Motsatt feil, like vanlig:\n\n```text\nsykkel1.registrer_tur(self)\n```\n\nUtenfor en klasse finnes ikke navnet `self` i det hele tatt, så programmet\nstopper med `NameError: name 'self' is not defined`.\n\nBegge blokkene over er merket som ikke-kjørbare, fordi feilen er plantet med\nvilje. **Huskeregelen:** `self` skrives i definisjonen, aldri i kallet."
+  },
+  {
+   "id": "in1000-5-1-19",
+   "type": "example",
+   "title": "Eksempel 3: `Sykkel` med metoder som endrer og metoder som svarer",
+   "problem": "Utvid `Sykkel` med en metode for å leie ut, en for å levere tilbake, og en som\nsvarer på hvor mange turer sykkelen har hatt. Vis at metodene virker på hvert\nsitt objekt.",
+   "solution": "Tre «kan gjøre»-setninger blir tre metoder. To av dem endrer objektet, den\ntredje svarer med `return`. Under klassen står bruken av den, slik at du ser\nbegge deler i sammenheng — og slik at `sykkel2` kan stå der urørt til\nsammenligning:\n\n```python\nclass Sykkel:\n    def __init__(self, kode, stativ):\n        self._kode = kode\n        self._stativ = stativ\n        self._utleid = False\n        self._turer = 0\n\n    def leie_ut(self):\n        self._utleid = True\n        self._turer = self._turer + 1\n\n    def lever_tilbake(self, nytt_stativ):\n        self._utleid = False\n        self._stativ = nytt_stativ\n\n    def hent_turer(self):\n        return self._turer\n\n    def skriv(self):\n        print(self._kode, \"i\", self._stativ, \"- utleid:\", self._utleid)\n\nsykkel1 = Sykkel(\"R31\", \"Blindern\")\nsykkel2 = Sykkel(\"R48\", \"Majorstuen\")\n\nsykkel1.leie_ut()\nsykkel1.lever_tilbake(\"Toyen\")\nsykkel1.leie_ut()\n\nsykkel1.skriv()\nsykkel2.skriv()\nprint(\"Turer:\", sykkel1.hent_turer(), sykkel2.hent_turer())\n```\n\n**Utskrift:**\n```\nR31 i Toyen - utleid: True\nR48 i Majorstuen - utleid: False\nTurer: 2 0\n```\n\n**Tre ting å legge merke til.**\n\nFor det første skriver `print` verdien `True` med stor forbokstav — det er slik\nPython skriver sannhetsverdier, og det er verdt å huske til sporingsoppgavene.\n\nFor det andre er `sykkel2` fullstendig uberørt av alt som skjedde med `sykkel1`.\nDe to objektene har hver sine instansvariabler. Det er kjernen i neste løkke.\n\nFor det tredje: `hent_turer` **returnerer** et tall, mens `skriv` **skriver ut**.\nForskjellen er den samme som mellom `return` og `print` i\n[kap. 2.1](/bok/in1000/in1000-2-1), og den er verdt å være nøye med. En metode\nsom skriver ut i stedet for å returnere, kan ikke brukes videre i et regnestykke.\n\n**Merk stavemåten `Toyen`.** Koden i denne boka bruker aldri æ, ø eller å, fordi\nenkelte eksamensmiljøer har hatt problemer med dem. Norske navn på variabler og\nmetoder er derimot fasitens egen stil."
+  },
+  {
+   "id": "in1000-5-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F-del — skriv metoder.) En kantine registrerer hver rett\nmed navn, pris og antall solgte porsjoner (som starter på 0).\n\n**a)** Skriv klassen `Rett` med konstruktør.\n\n**b)** Legg til metoden `selg(self, antall)` som øker antall solgte.\n\n**c)** Legg til metoden `hent_omsetning(self)` som returnerer pris ganger antall\nsolgte.\n\n**d)** Skriv kode som lager retten «Fiskesuppe» til 89 kroner, selger 3 og så 2\nporsjoner, og skriver ut omsetningen.",
+    "solution": "**a)–d)** Klassen og bruken av den samlet. To verdier inn, tre\ninstansvariabler, to metoder — og til slutt de fire linjene deloppgave d) ber om:\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = 0\n\n    def selg(self, antall):\n        self._solgte = self._solgte + antall\n\n    def hent_omsetning(self):\n        return self._pris * self._solgte\n\nsuppe = Rett(\"Fiskesuppe\", 89)\nsuppe.selg(3)\nsuppe.selg(2)\nprint(suppe.hent_omsetning())\n```\n\n**Utskrift:**\n```\n445\n```\n\nFem porsjoner til 89 kroner gir 445. Legg merke til at `selg` kalles to ganger og\nat tallene **legger seg oppå hverandre**, fordi `self._solgte` overlever mellom\nkallene. Hadde du skrevet `self._solgte = antall` i stedet for `+ antall`, ville\nsvaret blitt 178 — det andre kallet ville overskrevet det første.\n\n**Slik ville sensor sett på det:** `hent_omsetning` som **returnerer** i stedet\nfor å skrive ut, er et selvstendig poeng. Skriver metoden ut, kan verdien ikke\nbrukes videre, og oppgaver som bygger på den, faller.",
+    "hints": [
+     "Antall solgte starter på 0 og settes i konstruktøren.",
+     "«Øker» betyr `self._x = self._x + antall`, ikke `self._x = antall`."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nclass Teller:\n    def __init__(self, start):\n        self._verdi = start\n\n    def opp(self):\n        self._verdi = self._verdi + 1\n\n    def hent(self):\n        return self._verdi\n\na = Teller(5)\nb = Teller(5)\na.opp()\na.opp()\nb.opp()\nprint(a.hent(), b.hent())\nprint(a.hent() + b.hent())\n```",
+    "solution": "**Sporingstavle.** To objekter, hver med sin `_verdi`:\n\n| Linje | `a._verdi` | `b._verdi` | Utskrift så langt |\n|---|---|---|---|\n| `a = Teller(5)` | 5 | — | |\n| `b = Teller(5)` | 5 | 5 | |\n| `a.opp()` | 6 | 5 | |\n| `a.opp()` | 7 | 5 | |\n| `b.opp()` | 7 | 6 | |\n| `print(a.hent(), b.hent())` | 7 | 6 | `7 6` |\n| `print(a.hent() + b.hent())` | 7 | 6 | `7 6` og `13` |\n\n**Utskrift:**\n```\n7 6\n13\n```\n\n**Fellen her er #2 i utvidet form** — å tro at to objekter av samme klasse deler\nverdier. Det gjør de aldri. `a` og `b` ble laget med samme startverdi, men de er\nto helt uavhengige objekter, og `a.opp()` rører ikke `b`.\n\nLegg også merke til forskjellen mellom de to `print`-linjene: komma gir **ett\nmellomrom** mellom to tall, mens plusstegn regner dem sammen til ett tall.\n\n**På eksamen** skrives svaret uten pynt: `7 6`, ikke `7, 6` og ikke `(7, 6)`.",
+    "hints": [
+     "Før en tavle med én kolonne per objekt.",
+     "Tell hvor mange ganger `opp` kalles på hvert av de to objektene."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-20",
+   "type": "text",
+   "content": "## Løkke 4 — Mange objekter av samme klasse (~10 min)\n\nSykkelutleien har tusen sykler, ikke to. Poenget med en klasse er nettopp at den\nskaleres: du skriver beskrivelsen én gang og lager så mange objekter du trenger\n— i en løkke, om du vil.\n\nObjektene kan legges i en liste, akkurat som tall og tekster i\n[kap. 3.1](/bok/in1000/in1000-3-1). Da kan du løpe gjennom dem og kalle den\nsamme metoden på hver enkelt. **Det er hele grunnstammen i Oppgave 4**, som du\nmøter for alvor i [kap. 6.2](/bok/in1000/in1000-6-2)."
+  },
+  {
+   "id": "in1000-5-1-21",
+   "type": "definition",
+   "title": "Hvert objekt har sine egne instansvariabler",
+   "content": "Å lage to objekter av samme klasse gir to helt uavhengige sett med verdier.\nKlassen er delt; verdiene er ikke.\n\n```python\nclass Konto:\n    def __init__(self, eier):\n        self._eier = eier\n        self._saldo = 0\n\n    def sett_inn(self, belop):\n        self._saldo = self._saldo + belop\n\n    def hent_saldo(self):\n        return self._saldo\n\nk1 = Konto(\"Ada\")\nk2 = Konto(\"Nora\")\nk1.sett_inn(100)\nprint(k1.hent_saldo(), k2.hent_saldo())\n```\n\n**Utskrift:**\n```\n100 0\n```\n\nDette er et fast spørsmål i flervalget om objekter, og svaret er alltid det\nsamme: **metoder virker bare på det objektet de ble kalt på.**"
+  },
+  {
+   "id": "in1000-5-1-22",
+   "type": "example",
+   "title": "Eksempel 4: Mange objekter i en liste — mønsteret Oppgave 4 bygger på",
+   "problem": "En brettspillklubb har flere spill. Lag tre `Spill`-objekter, legg dem i en\nliste, skriv ut alle, og finn hvor mange av dem som passer for minst fire\nspillere.",
+   "solution": "Klassen er kort med vilje — tyngden ligger i hva vi gjør med objektene\netterpå. Under klassen lager vi tre objekter, legger dem i en liste, og bruker to\nav mønstrene fra del 3 — gjennomløping og teller — med objekter i stedet for\ntall:\n\n```python\nclass Spill:\n    def __init__(self, tittel, maks):\n        self._tittel = tittel\n        self._maks = maks\n\n    def hent_maks(self):\n        return self._maks\n\n    def skriv(self):\n        print(self._tittel, \"- inntil\", self._maks, \"spillere\")\n\nspillene = []\nspillene.append(Spill(\"Kolonier\", 4))\nspillene.append(Spill(\"Ordjakt\", 6))\nspillene.append(Spill(\"Sjakk\", 2))\n\nfor s in spillene:\n    s.skriv()\n\nantall = 0\nfor s in spillene:\n    if s.hent_maks() >= 4:\n        antall = antall + 1\nprint(\"Passer for minst fire:\", antall)\n```\n\n**Utskrift:**\n```\nKolonier - inntil 4 spillere\nOrdjakt - inntil 6 spillere\nSjakk - inntil 2 spillere\nPasser for minst fire: 2\n```\n\n**Legg merke til at løkkene er nøyaktig de samme som i del 3.** Den eneste\nforskjellen er at elementene er objekter, så du henter verdien med et metodekall\n(`s.hent_maks()`) i stedet for direkte. Teller-mønsteret — `antall = 0` før\nløkka, `+ 1` inne i den, bruk etter — er uendret.\n\n**Slik ville sensor sett på det:** at du kaller en metode på hvert element i\nstedet for å grave i verdiene selv, er nettopp det som gir uttelling i den store\noppgaven. Hvorfor det er så viktig, forklarer\n[kap. 5.2](/bok/in1000/in1000-5-2).\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-5-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Rute:\n    def __init__(self, nummer):\n        self._nummer = nummer\n        self._passasjerer = 0\n\n    def paa(self, antall):\n        self._passasjerer = self._passasjerer + antall\n\n    def av(self, antall):\n        self._passasjerer = self._passasjerer - antall\n\n    def hent(self):\n        return self._passasjerer\n\nrutene = []\nrutene.append(Rute(20))\nrutene.append(Rute(31))\n\nrutene[0].paa(14)\nrutene[1].paa(9)\nrutene[0].av(5)\n\ntotal = 0\nfor r in rutene:\n    total = total + r.hent()\nprint(rutene[0].hent(), rutene[1].hent())\nprint(total)\n```",
+    "solution": "**Sporingstavle.** To objekter i en liste, nådd med indeks:\n\n| Linje | rute 20 | rute 31 | `total` |\n|---|---|---|---|\n| begge opprettet | 0 | 0 | — |\n| `rutene[0].paa(14)` | 14 | 0 | — |\n| `rutene[1].paa(9)` | 14 | 9 | — |\n| `rutene[0].av(5)` | 9 | 9 | — |\n| løkka, runde 1 | 9 | 9 | 9 |\n| løkka, runde 2 | 9 | 9 | 18 |\n\n**Utskrift:**\n```\n9 9\n18\n```\n\n**Fellen her er #5-slektningen «hvilket objekt er indeks 0?».** `rutene[0]` er\nden som ble lagt inn først, altså rute 20. Blander du de to, får du `9 9` likevel\npå første linje — de to endte tilfeldigvis likt — men ville bommet om tallene\nvar ulike. Skriv alltid opp hvilket objekt hver indeks peker på før du sporer.\n\n**På eksamen** teller de to linjene hver for seg, så en bom på den ene koster\nikke den andre.",
+    "hints": [
+     "Skriv opp indeksene med objektnavn ved siden av før du starter.",
+     "Akkumulatoren `total` starter på 0 og legger til én metodeverdi per runde."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — stor klassemodellering, altså å bygge en klasse fra\nen beskrivelse.) Et treningssenter vil registrere hver sal med navn, kapasitet og\nantall påmeldte (som starter på 0).\n\n**a)** Skriv klassen `Sal` med konstruktør og metodene `meld_paa(self, antall)`\nog `hent_ledige(self)`, der den siste returnerer hvor mange plasser som er igjen.\n\n**b)** `meld_paa` skal ikke slippe inn flere enn det er plass til: er det ikke\nplass til alle, skal ingen meldes på, og metoden skal skrive «Ikke plass».\n\n**c)** Lag salen «Speilsal» med kapasitet 20, meld på 15, prøv å melde på 8, og\nskriv ut antall ledige.",
+    "solution": "**a)–c)** Sjekken hører hjemme inne i metoden, ikke hos den som kaller.\nKlassen og de fire linjene fra deloppgave c) står i samme blokk:\n\n```python\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn\n        self._kapasitet = kapasitet\n        self._paameldte = 0\n\n    def hent_ledige(self):\n        return self._kapasitet - self._paameldte\n\n    def meld_paa(self, antall):\n        if antall > self.hent_ledige():\n            print(\"Ikke plass\")\n        else:\n            self._paameldte = self._paameldte + antall\n\nspeilsal = Sal(\"Speilsal\", 20)\nspeilsal.meld_paa(15)\nspeilsal.meld_paa(8)\nprint(speilsal.hent_ledige())\n```\n\n**Utskrift:**\n```\nIkke plass\n5\n```\n\n**Legg merke til `self.hent_ledige()` inne i `meld_paa`.** En metode kan kalle en\nannen metode på **samme** objekt — du skriver `self.` foran, akkurat som på en\ninstansvariabel. Det er ryddigere enn å gjenta regnestykket\n`self._kapasitet - self._paameldte` to steder: endrer du regnestykket senere,\nendrer du det ett sted.\n\n**Slik ville sensor sett på det:** fire ting gir uttelling. Konstruktøren med tre\n`self._`-linjer, `hent_ledige` som returnerer, `if`-sjekken i `meld_paa`, og at\ningen meldes på når det ikke er plass. Hadde du sjekket med `>=` i stedet for\n`>`, ville strukturen fortsatt vært riktig og trekket lite — men kantverdien\nville vært feil: nøyaktig 5 ledige og 5 påmeldte skal gå bra.",
+    "hints": [
+     "Regn ut ledige plasser som kapasitet minus påmeldte, i en egen metode.",
+     "En metode kan kalle en annen metode på samme objekt med `self.` foran."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter.) Se på koden:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n        self._utlaant = False\n\n    def laan_ut(self):\n        self._utlaant = True\n\n    def er_utlaant(self):\n        return self._utlaant\n\nboker = []\nboker.append(Bok(\"Sult\"))\nboker.append(Bok(\"Markens grode\"))\nboker[0].laan_ut()\n```\n\n**a)** Hva gir `boker[1].er_utlaant()`?\n\n**b)** En medstudent påstår: «`laan_ut` endrer `_utlaant` for alle\n`Bok`-objekter, siden det bare finnes én klasse.» Hva er galt med påstanden?\n\n**c)** Hva ville skjedd om `laan_ut` var skrevet `def laan_ut(self):` med kroppen\n`utlaant = True`?",
+    "solution": "**a)** `False`. Bare `boker[0]` ble lånt ut, og de to bøkene har hver sine\ninstansvariabler.\n\n**b)** Påstanden blander **klassen** med **objektene**. Det finnes én klasse, ja\n— men klassen er bare beskrivelsen. Hvert objekt laget fra den har sitt eget sett\nmed instansvariabler, og en metode virker bare på det objektet den ble kalt på,\naltså på det `self` peker på.\n\nKort demonstrasjon, med klassen gjentatt så snutten kan kjøres for seg:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n        self._utlaant = False\n\n    def laan_ut(self):\n        self._utlaant = True\n\n    def er_utlaant(self):\n        return self._utlaant\n\nboker = []\nboker.append(Bok(\"Sult\"))\nboker.append(Bok(\"Markens grode\"))\nboker[0].laan_ut()\nprint(boker[0].er_utlaant(), boker[1].er_utlaant())\n```\n\n**Utskrift:**\n```\nTrue False\n```\n\n**c)** Ingenting synlig ville skjedd — og det er nettopp problemet. `utlaant = True`\nuten `self.` foran lager en lokal variabel som forsvinner når metoden er ferdig.\nInstansvariabelen `self._utlaant` ville beholdt startverdien `False`, og\n`er_utlaant()` ville svart `False` for alle bøker, alltid. Det er feilkode **#1**,\n`self`-fella, i sin lumske form: koden kjører fint og svarer feil.\n\n**På eksamen** er nettopp denne konstruksjonen plantet i flervalget. Blankt svar\ngir null poeng, så kryss alltid av — også når du er usikker.",
+    "hints": [
+     "Tenk på hva `self` peker på under hvert av de to kallene.",
+     "For c): hvor blir det av en variabel som ikke har `self.` foran?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-1-23",
+   "type": "text",
+   "content": "## Bør du kjenne til: klasser som bygger på andre klasser\n\nDette avsnittet er på bokas laveste prioritetsnivå, **kjenne til**. Du trenger\ndet ikke for å svare på noe i settene vi har talt — men begrepet dukker opp i\npensumboka, og da er det greit å vite hva det er.\n\nEn klasse kan defineres som en utvidelse av en annen: en `Elsykkel` kan bygge\nvidere på `Sykkel` og få alt den har, pluss batterinivå. Mekanismen heter\n**arv**, den skrives `class Elsykkel(Sykkel):`, og hjelpemetoden `super()` gir\ntilgang til den opprinnelige konstruktøren. **Både arv, `super()` og polymorfi\ner utenfor pensum i IN1000** og drilles ikke i denne boka; de hører hjemme i\noppfølgeremnet IN1010, og de testes ikke på denne eksamenen.\n\nGrunnen til at det er verdt å vite: ser du `class X(Y):` i en kodesnutt i et\ngammelt sett eller i pensumboka, skal du ikke bli redd. Det betyr bare at `X`\nogså har alt `Y` har."
+  },
+  {
+   "id": "in1000-5-1-24",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil tar nesten alle poengene som mistes på klasser:\n\n- **#1 — `self`-fella i konstruktøren.** `alder = alder` i stedet for\n  `self._alder = alder`. Verdien blir lokal og forsvinner. Er det satt en\n  startverdi fra før, svarer objektet rolig feil resten av programmet.\n- **#1 — glemt `self` i metodesignaturen.** `def skriv():` gir\n  `TypeError: skriv() takes 0 positional arguments but 1 was given` ved kall.\n- **`self` med i kallet.** `obj.metode(self)` utenfor en klasse gir\n  `NameError: name 'self' is not defined`. `self` skrives i definisjonen, aldri i\n  kallet.\n- **Tro at to objekter deler verdier.** De gjør aldri det. En metode virker bare\n  på objektet den ble kalt på.\n- **Ikke sette alle instansvariablene i `__init__`.** Felt som `self._turer = 0`\n  må stå der selv om ingen sender dem inn — ellers finnes de ikke når en metode\n  leter etter dem.\n\nOg én formfeil som koster mer enn den ser ut til: **en metode som skriver ut i\nstedet for å returnere.** Verdien kan da ikke brukes videre, og alt som bygger på\nmetoden, faller."
+  },
+  {
+   "id": "in1000-5-1-coll-25",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-5-1-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `class Navn:` | Starter en klassedefinisjon. Alt som hører til, skrives innrykket under. Stor forbokstav. |\n| `def __init__(self, a, b):` | Konstruktøren. Kalles automatisk når et objekt lages, aldri av deg. |\n| `self._x = a` | Setter en instansvariabel. Verdien **overlever** kallet og ligger i objektet. |\n| `x = a` i en metode | Lokal variabel. Forsvinner når metoden er ferdig — feilkode #1. |\n| `obj = Navn(v1, v2)` | Lager objektet og kaller `__init__` med `v1` og `v2`. `self` sendes ikke inn. |\n| `def metode(self):` | Vanlig metode. `self` er **alltid** første parameter i definisjonen. |\n| `def metode(self, a):` | Metode med én parameter i tillegg. Kalles som `obj.metode(verdi)`. |\n| `obj.metode()` | Kaller metoden. Python fyller `self` med objektet foran punktumet. |\n| `obj.metode(self)` | **Går ikke** utenfor en klasse: `NameError: name 'self' is not defined`. |\n| `self.annen_metode()` | En metode kaller en annen metode på **samme** objekt. |\n| `return self._x` | Metoden svarer med en verdi som kan brukes videre. |\n| `print(self._x)` | Metoden skriver ut. Verdien kan **ikke** brukes videre. |\n| `self._x = self._x + 1` | Øker en instansvariabel. Verdien ligger igjen til neste kall. |\n| `liste.append(Navn(v))` | Lager et objekt og legger det rett i en liste. |\n| `for e in liste:` `e.metode()` | Kaller samme metode på hvert objekt i lista. |\n\n**Det som avgjør poeng i Oppgave 4:** at hver eneste tilordning i konstruktøren\nstarter med `self._`, og at antall `self._`-linjer stemmer med antall\nopplysninger objektet skal huske."
+    }
+   ]
+  },
+  {
+   "id": "in1000-5-1-26",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-5-1-27",
+   "type": "definition",
+   "title": "Objektorientering",
+   "content": "Måten å bygge et program på der data og det som gjøres med dataene, holdes\nsamlet i objekter.\n\nAlternativet — det du har gjort til nå — er å ha verdiene i løse variabler og\nlister, og funksjoner ved siden av som tar dem inn. Det virker helt til et\nprogram blir stort nok til at flere lister må holdes i takt.\n\nIN1000 heter «Introduksjon til objektorientert programmering» fordi dette er\nfagets hovedidé. Fra og med dette kapitlet er det den formen alt bygges i."
+  },
+  {
+   "id": "in1000-5-1-28",
+   "type": "definition",
+   "title": "Instansiering",
+   "content": "Å lage et objekt fra en klasse: `sykkel1 = Sykkel(\"R31\", \"Blindern\")`.\n\nTre ting skjer i den ene linjen: Python lager et nytt tomt objekt, kaller\n`__init__` på det med verdiene du oppga, og lar variabelen peke på resultatet.\n\nOrdet dukker opp i oppgavetekster i formen «instansiér tre objekter av klassen\n…». Det betyr bare: lag tre."
+  },
+  {
+   "id": "in1000-5-1-29",
+   "type": "definition",
+   "title": "Konstruktør",
+   "content": "Metoden `__init__`, som kjører automatisk når et objekt lages.\n\nDen har alltid `self` som første parameter, og jobben er å gi objektet\nstartverdiene sine. Alt objektet skal huske, settes her — også felt som ikke\nkommer utenfra.\n\nKonstruktøren returnerer ingenting. Skriver du `return` med en verdi i den,\nstopper programmet."
+  },
+  {
+   "id": "in1000-5-1-30",
+   "type": "definition",
+   "title": "Attributt",
+   "content": "Et annet ord for instansvariabel: en verdi som hører til objektet, satt med\n`self._navn`.\n\nOrdet er verdt å kjenne fordi Pythons egen feilmelding bruker det:\n`AttributeError: 'Medlem' object has no attribute '_alder'` betyr «dette objektet\nhar ingen instansvariabel som heter `_alder`».\n\nSer du den meldingen, er svaret nesten alltid feilkode #1: linjen i konstruktøren\nmanglet `self.` foran."
+  },
+  {
+   "id": "in1000-5-1-31",
+   "type": "definition",
+   "title": "Spesialmetode",
+   "content": "En metode med to understreker på hver side av navnet, som Python kaller\nautomatisk på bestemte tidspunkter — du kaller den aldri selv.\n\nI denne boka finnes bare to: `__init__`, som kjører når objektet lages, og\n`__str__`, som kjører når objektet skal skrives ut. Den siste møter du i\n[kap. 5.3](/bok/in1000/in1000-5-3).\n\nPython har mange flere, men de er ikke pensum her."
+  },
+  {
+   "id": "in1000-5-1-32",
+   "type": "definition",
+   "title": "Klassekropp og innrykk",
+   "content": "Alt som hører til klassen, står innrykket under `class Navn:` — fire mellomrom,\nsom ellers i boka.\n\nMetodene rykkes inn ett hakk fra `class`-linjen, og innholdet i hver metode ett\nhakk til. En linje som ved et uhell mister innrykket, faller ut av klassen og\nblir en vanlig funksjon.\n\nFeilkode **#16** dekker nettopp dette: innrykksfeil og blandet tabulator og\nmellomrom. I en klasse er den ekstra lett å gjøre, fordi det er to nivåer å\nholde styr på."
+  },
+  {
+   "id": "in1000-5-1-33",
+   "type": "definition",
+   "title": "Klassenavn med stor forbokstav",
+   "content": "Konvensjonen som skiller klasser fra alt annet: `Sykkel`, `Konto`, `Medlem` —\nmens variabler og metoder skrives med liten.\n\nPython krever det ikke, men fasiten følger det, og det gjør koden lettere å\nlese: står det stor forbokstav foran en parentes, lages et objekt.\n\nBestår navnet av flere ord, settes de sammen uten mellomrom og med stor\nforbokstav på hvert: `TreningsSal` eller `Treningssal`. Begge former finnes;\nvær konsekvent innenfor din egen besvarelse."
+  },
+  {
+   "id": "in1000-5-1-34",
+   "type": "definition",
+   "title": "Tilstand",
+   "content": "De verdiene et objekt har akkurat nå — til sammen alle instansvariablene.\n\nEn sykkel med koden `R31`, stativet `Toyen` og `_utleid` lik `True` er i én\ntilstand. Kaller du `lever_tilbake(\"Blindern\")`, endres tilstanden, men det er\nfortsatt samme objekt.\n\nDet er dette som skiller et objekt fra en ren verdi: **objektet husker mellom\nkallene.** Et tall gjør ikke det."
+  },
+  {
+   "id": "in1000-5-1-35",
+   "type": "definition",
+   "title": "Metode mot funksjon",
+   "content": "En **funksjon** står for seg selv og kalles med navnet sitt: `len(tekst)`. En\n**metode** hører til noe og kalles med punktum: `sykkel1.skriv()`.\n\nForskjellen i koden er `self`. Metoden har objektet som første parameter og kan\nderfor bruke objektets verdier uten å få dem inn utenfra.\n\nDu har allerede brukt metoder lenge uten å tenke over det:\n`liste.append(e)` og `tekst.rstrip()` er metoder på lister og tekster. Nå skriver\ndu dine egne."
+  },
+  {
+   "id": "in1000-5-1-36",
+   "type": "definition",
+   "title": "Parameterlista i `__init__`",
+   "content": "Alt som står etter `self` i `def __init__(self, ...)`, er verdier som må sendes\ninn når objektet lages.\n\nRegnestykket er alltid: **antall parametere minus én er antall verdier du\noppgir.** Sender du feil antall, stopper programmet med en `TypeError` som sier\nhvor mange den ventet.\n\nRekkefølgen betyr alt. `Boks(\"glass\", 340)` og `Boks(340, \"glass\")` er begge\nlovlige for Python — den andre gir bare et objekt med materiale 340 og vekt\n«glass», uten en eneste feilmelding."
+  },
+  {
+   "id": "in1000-5-1-37",
+   "type": "definition",
+   "title": "Startverdi i konstruktøren",
+   "content": "En instansvariabel som ikke kommer utenfra, men som settes til en fast verdi:\n`self._utleid = False`, `self._turer = 0`, `self._medlemmer = []`.\n\nKjenn dem igjen i oppgaveteksten på formuleringer som «starter på null», «er ikke\nutlånt når den registreres» eller «har ingen medlemmer til å begynne med».\n\nAt de faktisk settes, er et selvstendig poeng i Oppgave 4. Uten dem finnes ikke\nvariabelen, og første metode som leter etter den, stopper programmet."
+  },
+  {
+   "id": "in1000-5-1-38",
+   "type": "definition",
+   "title": "`None` som «ingen verdi ennå»",
+   "content": "Den innebygde verdien som betyr «ingenting». Den brukes som startverdi når et\nfelt skal peke på noe senere, men ikke har noe å peke på ennå:\n`self._beste = None`.\n\nDen er ikke det samme som 0 eller den tomme teksten. `None` betyr at det ikke\nfinnes noen verdi; 0 er en helt vanlig verdi.\n\nDu møter den igjen i finn-beste-mønsteret i\n[kap. 6.3](/bok/in1000/in1000-6-3), der `None` er det ærlige svaret på «hvem er\nbest?» i en tom samling."
+  },
+  {
+   "id": "in1000-5-1-39",
+   "type": "definition",
+   "title": "Å modellere",
+   "content": "Å lese en beskrivelse og bestemme hvilke klasser den trenger, hva hver av dem\nskal huske, og hva de skal kunne gjøre.\n\nFramgangsmåten er nesten mekanisk: **substantivene blir klasser og\ninstansvariabler, «kan gjøre»-setningene blir metoder.** «Et treningssenter har\nsaler. En sal har navn og kapasitet, og man kan melde seg på» gir to klasser,\ntre instansvariabler og én metode.\n\nHele [kap. 6.1](/bok/in1000/in1000-6-1) handler om dette steget, som avgjør\nresten av Oppgave 4."
+  },
+  {
+   "id": "in1000-5-1-40",
+   "type": "definition",
+   "title": "Objektreferanse",
+   "content": "Det en variabel egentlig holder når den «inneholder» et objekt: en peker til\nobjektet, ikke objektet selv.\n\nKonsekvensen ser du først for alvor i\n[kap. 5.4](/bok/in1000/in1000-5-4): skriver du `b = a`, får du to navn på\n**samme** objekt, ikke to objekter.\n\nForeløpig holder det å vite at et objekt kan ha flere navn samtidig, og at\ntallene og tekstene du er vant til, oppfører seg annerledes fordi de ikke kan\nendres."
+  },
+  {
+   "id": "in1000-5-1-41",
+   "type": "definition",
+   "title": "Mange objekter av samme klasse",
+   "content": "Klassen skrives én gang og brukes så mange ganger du vil — også i en løkke.\n\n```python\nclass Plass:\n    def __init__(self, nummer):\n        self._nummer = nummer\n\nplassene = []\nfor i in range(3):\n    plassene.append(Plass(i))\nprint(len(plassene))\n```\n\n**Utskrift:**\n```\n3\n```\n\nHver runde lager et **nytt** objekt med sine egne instansvariabler. Det er\nnettopp denne skalerbarheten som gjør klasser verdt bryet: tusen sykler krever\nikke tusen linjer kode."
+  },
+  {
+   "id": "in1000-5-1-42",
+   "type": "definition",
+   "title": "Metoder som endrer mot metoder som svarer",
+   "content": "To slags metoder, og forskjellen koster poeng.\n\nEn **endrende** metode skriver til en instansvariabel og returnerer ingenting:\n`def leie_ut(self): self._utleid = True`. En **svarende** metode returnerer en\nverdi og lar objektet være i fred: `def hent_turer(self): return self._turer`.\n\nBlander du dem — lar en svarende metode skrive ut i stedet for å returnere —\nkan verdien ikke brukes videre, og alt som bygger på metoden, faller sammen.\nFormen er den samme som skillet mellom `return` og `print` i\n[kap. 2.1](/bok/in1000/in1000-2-1)."
+  },
+  {
+   "id": "in1000-5-1-43",
+   "type": "definition",
+   "title": "Å lese en klasse fra en oppgavetekst",
+   "content": "Ferdigheten som avgjør Oppgave 2 og Oppgave 4: å se på ti linjer kode og med én\ngang vite hva objektene kan.\n\nFramgangsmåten er fast. Finn `class`-linjen. Les `__init__` og skriv opp hvilke\ninstansvariabler som faktisk settes med `self._` — og hvilke som mangler `self`\nog altså aldri kommer inn i objektet. Skriv så opp hver metode med hva den\nendrer og hva den returnerer.\n\nGjør du det på papir før du svarer, faller de fleste flervalgene av seg selv."
+  },
+  {
+   "id": "in1000-5-1-44",
+   "type": "definition",
+   "title": "Konstruktør-malen",
+   "content": "Klassemønsteret i kortform, verdt å kunne skrive fra bunnen:\n\n```text\nclass Klassenavn:\n    def __init__(self, verdi1, verdi2):\n        self._felt1 = verdi1\n        self._felt2 = verdi2\n        self._felt3 = 0\n```\n\nBlokken er merket som ikke-kjørbar fordi den er en mal med plassholdernavn, ikke\net program.\n\nTre kontroller når du er ferdig: starter **hver** tilordning med `self._`? Er\n**alle** opplysningene objektet skal huske, med? Har feltene som ikke kommer\nutenfra, fått en startverdi?"
+  },
+  {
+   "id": "in1000-5-1-45",
+   "type": "definition",
+   "title": "Blankt svar i flervalg",
+   "content": "Et flervalgsspørsmål som står ubesvart, gir null poeng — akkurat som et galt\nsvar. Det er ingen straff for å gjette.\n\nPå denne eksamenen betyr det én ting: **kryss alltid av.** Oppgave 2 er rundt ni\npoeng fordelt på fire spørsmål, og et blankt felt er to poeng gitt bort gratis.\n\nKlarer du å utelukke to av fire alternativer, er gjetningen mellom de to\nresterende verdt halvparten av poengene i snitt."
+  },
+  {
+   "id": "in1000-5-1-coll-46",
+   "type": "collapsible",
+   "title": "Repetisjon — de åtte setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-5-1-c2",
+     "type": "text",
+     "content": "1. En **klasse** er beskrivelsen, et **objekt** er én konkret ting laget fra den.\n   Ordet **instans** betyr det samme som objekt.\n2. `__init__` er **konstruktøren** — den kjører automatisk når objektet lages, og\n   der settes alt objektet skal huske.\n3. **Hver eneste tilordning i konstruktøren starter med `self._`.** Uten `self`\n   blir variabelen lokal og forsvinner: feilkode **#1**, `self`-fella.\n4. Er det satt en startverdi fra før, **stopper ikke programmet** — det svarer\n   rolig feil. Det er den lumske formen fellen har på eksamen.\n5. `self` skrives **i definisjonen** av hver metode, og **aldri i kallet**.\n   Definisjonen har alltid én parameter mer enn kallet har argumenter.\n6. **To objekter av samme klasse deler ingenting.** En metode virker bare på\n   objektet den ble kalt på.\n7. En metode som skal gi deg en verdi, bruker `return`. En som bare skal vise\n   noe, bruker `print`. Bland dem aldri.\n8. Objekter kan legges i lister og løpes gjennom med de samme løkkene som i\n   del 3 — du henter bare verdien med et metodekall."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
