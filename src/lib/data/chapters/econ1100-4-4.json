@@ -1,0 +1,322 @@
+{
+  "id": "econ1100-4-4",
+  "courseId": "econ1100",
+  "chapterNumber": "4.4",
+  "title": "Skisse, nullpunkter og tangentlinje",
+  "description": "Å sette funnene sammen til en skisse som er konsistent med egen fortegnsanalyse, finne nullpunktene, legge tangentlinjen — og lese den omvendte oppgaven der grafen til den deriverte er gitt.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "finne nullpunktene til et polynom ved faktorisering og ABC, og skille dem fra stasjonærpunktene",
+    "lage en skisse som er konsistent med vekst, krumning, ekstrempunkter og nullpunkter",
+    "sette opp tangentlinjen i et punkt med riktig stigningstall, og kontrollere svaret",
+    "lese av vekst, ekstrempunkter og krumning når grafen til den deriverte er oppgitt"
+  ],
+  "content": [
+    {
+      "id": "econ1100-4-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her får du poeng for å samle det du allerede har regnet ut.**\n\nFD-oppgaven — **sjanger FD, endimensjonal funksjonsdrøfting**, egen storoppgave i **alle seks ordinære settene 2020–2025** — avsluttes nesten alltid med to delpunkter: en skisse og en tangentlinje.\n\n**Om skissen:** sensor vektlegger **konsistens med dine egne funn**, ikke tegneferdighet. En skisse som viser et bunnpunkt der du selv har regnet ut et toppunkt, er feil uansett hvor pen den er. Motsatt: en grov, men konsistent skisse med riktige punkter markert, gir full uttelling. Hvert element du har fått med — vekstretning, ekstrempunkter, vendepunkt, nullpunkter — teller.\n\n**Om den omvendte varianten:** noen sett gir deg *grafen* og ber deg lese av. Da er det ofte grafen til $f'$ som vises, og spørsmålet gjelder $f$. Å lese grafen til $f'$ som om den var $f$ er en klassisk og dyr forveksling.\n\n**Om tangentlinjen:** den er et fast delpunkt og ren mekanikk — men stigningstallet er $f'(x_1)$, ikke $f(x_1)$. Den forvekslingen er den vanligste enkeltfeilen i delpunktet.\n\nKapitlet har **høyeste prioritet**, og det er det siste teorikapitlet før drillen i [kap. 4.5](/bok/econ1100/econ1100-4-5)."
+    },
+    {
+      "id": "econ1100-4-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 4.1](/bok/econ1100/econ1100-4-1) (fortegnsanalyse), [kap. 4.2](/bok/econ1100/econ1100-4-2) (klassifisering) og [kap. 4.3](/bok/econ1100/econ1100-4-3) (definisjonsområde og rand). Alt du skal sette sammen her, er regnet ut der.\n\n**Sist du var her — de tre resultatene skissen bygger på:**\n\n$$f'>0\\ \\Longrightarrow\\ \\text{vokser};\\qquad f''>0\\ \\Longrightarrow\\ \\text{konveks};\\qquad f'(a)=0\\ \\text{og}\\ f''(a)<0\\ \\Longrightarrow\\ \\text{topp}$$\n\nDu trenger i tillegg ABC-formelen, denne gangen brukt på $f$ selv for å finne nullpunktene."
+    },
+    {
+      "id": "econ1100-4-4-motivasjon",
+      "type": "text",
+      "content": "Du har regnet ut hvor funksjonen vokser, hvor den krummer, hvor toppen og bunnen ligger. Alt står spredt utover arket i tre-fire fortegnsskjemaer.\n\nSkissen er stedet der det blir én ting. Og det er nettopp derfor sensor gir poeng for den: en skisse som stemmer med skjemaene, viser at du forstår hva tallene betyr. En som ikke stemmer, avslører at regningen var mekanisk.\n\nDet andre delpunktet — tangentlinjen — er kortere, men det har sin egen felle: du skal bruke den **deriverte** som stigningstall, ikke funksjonsverdien.\n\nKapitlet er bygget som tre løkker: nullpunkter, skissen som syntese, og tangentlinjen pluss den omvendte avlesningsoppgaven."
+    },
+    {
+      "id": "econ1100-4-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Nullpunkter (~10 min)"
+    },
+    {
+      "id": "econ1100-4-4-def-nullpunkt",
+      "type": "definition",
+      "title": "Nullpunkt",
+      "content": "Et nullpunkt er en $x$-verdi der funksjonen selv er null — der grafen krysser eller berører $x$-aksen.\n\n$$f(x)=0$$\n\nMerk skillet mot stasjonærpunktene: der er det $f'$ som er null, ikke $f$. De to har ingenting med hverandre å gjøre, og å regne ABC på feil av dem er en klassisk tidstyv."
+    },
+    {
+      "id": "econ1100-4-4-def-faktorisering-null",
+      "type": "definition",
+      "title": "Faktorisering av polynomer",
+      "content": "Nullpunktene til et polynom finnes ved å faktorisere det så langt det går.\n\n$$x^{3}-3x^{2}=x^{2}(x-3)\\ \\Longrightarrow\\ x=0\\ \\text{eller}\\ x=3$$\n\nSe alltid etter en felles faktor først; deretter kan ABC brukes på det som blir igjen. En faktor i annen potens gir et **dobbelt** nullpunkt — der berører grafen aksen uten å krysse den."
+    },
+    {
+      "id": "econ1100-4-4-def-dobbelt-nullpunkt",
+      "type": "definition",
+      "title": "Dobbelt nullpunkt",
+      "content": "Står en faktor i annen potens, berører grafen $x$-aksen i stedet for å krysse den.\n\n$$f(x)=x^{2}(x-3):\\ \\text{berører i}\\ x=0,\\ \\text{krysser i}\\ x=3$$\n\nGrunnen er at $x^{2}$ ikke skifter fortegn i null — funksjonen kommer ned til aksen og snur, eller flater ut mot den. I skissen er dette et synlig og poenggivende detalj."
+    },
+    {
+      "id": "econ1100-4-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Nullpunkter med og uten ABC",
+      "problem": "Finn nullpunktene:\n\n**a)** $f(x)=x^{3}-3x^{2}$\n\n**b)** $g(x)=x^{2}-5x+6$\n\n**c)** $h(x)=x^{3}-3x^{2}-4x$",
+      "solution": "**a)** Felles faktor $x^{2}$:\n\n$$x^{3}-3x^{2}=x^{2}(x-3)=0$$\n\nNullpunkter: $x=0$ (dobbelt) og $x=3$ (enkelt).\n\n**Tolkning for skissen:** i $x=0$ **berører** grafen aksen uten å krysse; i $x=3$ **krysser** den.\n\n**b)** Her hjelper ingen felles faktor, men uttrykket faktoriserer pent — to tall med produkt 6 og sum $-5$ er $-2$ og $-3$:\n\n$$g(x)=(x-2)(x-3)=0\\ \\Longrightarrow\\ x=2\\ \\text{eller}\\ x=3$$\n\n*Med ABC:* $x=\\dfrac{5\\pm\\sqrt{25-24}}{2}=\\dfrac{5\\pm 1}{2}$, altså 3 og 2 ✓. Samme svar, men faktoriseringen er raskere når den er åpenbar.\n\n**c)** Sett $x$ utenfor, og bruk deretter ABC på resten:\n\n$$h(x)=x\\big(x^{2}-3x-4\\big)$$\n\n$$x^{2}-3x-4=0\\ \\Longrightarrow\\ x=\\frac{3\\pm\\sqrt{9+16}}{2}=\\frac{3\\pm 5}{2}$$\n\nNullpunkter: $x=0$, $x=4$ og $x=-1$ — tre enkle nullpunkter, altså tre kryssinger.\n\n**Fremgangsmåten i alle tre:** felles faktor først, ABC etterpå. Å gå rett på ABC uten å faktorisere ut er tregere og gir flere regnefeil."
+    },
+    {
+      "id": "econ1100-4-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger FD — endimensjonal funksjonsdrøfting, egen storoppgave i alle seks ordinære settene 2020–2025. Innstegsoppgave.) Finn nullpunktene:\n\n**a)** $f(x)=x^{2}-9$\n\n**b)** $g(x)=x^{3}-4x$\n\n**c)** $h(x)=x^{2}-6x+9$",
+        "solution": "**a)** Konjugatsetningen: $x^{2}-9=(x-3)(x+3)=0$, altså $x=3$ og $x=-3$.\n\n**b)** Felles faktor $x$, deretter konjugatsetningen:\n\n$$x^{3}-4x=x\\big(x^{2}-4\\big)=x(x-2)(x+2)=0$$\n\nNullpunkter: $x=0$, $x=2$ og $x=-2$.\n\n**c)** Dette er et fullstendig kvadrat:\n\n$$x^{2}-6x+9=(x-3)^{2}=0\\ \\Longrightarrow\\ x=3$$\n\nEtt **dobbelt** nullpunkt. Grafen berører $x$-aksen i $x=3$ uten å krysse den.\n\n*Kontroll med ABC:* diskriminanten er $36-36=0$, altså nøyaktig én rot ✓ — som er det diskriminanten null betyr.",
+        "hints": [
+          "Se etter felles faktor og konjugatsetningen før du bruker ABC.",
+          "I c): hva betyr det når diskriminanten blir null?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Skissen som syntese (~17 min)"
+    },
+    {
+      "id": "econ1100-4-4-def-skisse",
+      "type": "definition",
+      "title": "Skisse",
+      "content": "En skisse er en grov graf som er **konsistent** med det du har regnet ut — ikke et nøyaktig plott.\n\n$$\\text{vekstintervaller}+\\text{krumning}+\\text{ekstrempunkter}+\\text{nullpunkter}\\ \\to\\ \\text{én kurve}$$\n\nSensor sammenligner skissen med dine egne resultater. Stemmer de, gir hvert element uttelling; strider de mot hverandre, faller poengene bort selv om regningen var riktig."
+    },
+    {
+      "id": "econ1100-4-4-def-skisse-sjekkliste",
+      "type": "definition",
+      "title": "Sjekklisten for en skisse",
+      "content": "Fem elementer skal være med, og de er hentet rett fra utregningene dine.\n\n$$\\text{(1) akser med enheter}\\quad\\text{(2) nullpunkter}\\quad\\text{(3) topp og bunn}\\quad\\text{(4) vendepunkt}\\quad\\text{(5) form utover}$$\n\nMarker punktene med koordinater, og la kurven bøye slik $f''$ krever. Punkt fem er oppførselen i endene: for et polynom av odde grad går kurven i motsatte retninger, for like grad i samme."
+    },
+    {
+      "id": "econ1100-4-4-def-konsistenskrav",
+      "type": "definition",
+      "title": "Konsistenskravet",
+      "content": "Skissen må ikke motsi noen av konklusjonene dine.\n\n$$f'<0\\ \\text{på}\\ (0,2)\\ \\Longrightarrow\\ \\text{kurven MÅ falle der i skissen}$$\n\nDet er dette som skiller en poenggivende skisse fra en dekorasjon. Får du en kurve som ikke lar seg tegne konsistent, er det som regel en fortegnsfeil et sted i skjemaet — og da har skissen gjort deg en tjeneste."
+    },
+    {
+      "id": "econ1100-4-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Full syntese",
+      "problem": "La $f(x)=x^{3}-3x^{2}$.\n\n**a)** Finn nullpunkter, stasjonærpunkter og vendepunkt.\n\n**b)** Bestem vekst og krumning.\n\n**c)** Lag en skisse som er konsistent med a) og b).",
+      "solution": "**a) Nullpunkter:** $x^{2}(x-3)=0$ gir $x=0$ (dobbelt) og $x=3$.\n\n**Stasjonærpunkter:**\n\n$$f'(x)=3x^{2}-6x=3x(x-2)=0\\ \\Longrightarrow\\ x=0\\ \\text{og}\\ x=2$$\n\nVerdier: $f(0)=0$ og $f(2)=8-12=-4$.\n\n**Klassifisering** med $f''(x)=6x-6$:\n\n$$f''(0)=-6<0\\ \\Longrightarrow\\ \\text{toppunkt}\\ (0,0)$$\n\n$$f''(2)=6>0\\ \\Longrightarrow\\ \\text{bunnpunkt}\\ (2,-4)$$\n\n**Vendepunkt:** $f''(x)=6(x-1)=0$ gir $x=1$, og $f''$ skifter fortegn der (negativ til venstre, positiv til høyre) ✓. Verdien er $f(1)=1-3=-2$, altså vendepunkt i $(1,-2)$.\n\n**b) Vekst og krumning:**\n\n| Intervall | $f'$ | $f''$ | Oppførsel |\n|---|---|---|---|\n| $x<0$ | $+$ | $-$ | vokser, konkav |\n| $0<x<1$ | $-$ | $-$ | avtar, konkav |\n| $1<x<2$ | $-$ | $+$ | avtar, konveks |\n| $x>2$ | $+$ | $+$ | vokser, konveks |\n\n**c) Skissen — figur i ord.** Tegn akser med $x$ vannrett og $y$ loddrett, og la $x$ gå fra omtrent $-1$ til $3{,}5$ og $y$ fra $-5$ til $5$.\n\nKurven kommer opp fra nede til venstre (for $x=-1$ er $f=-4$), stiger til **toppunktet $(0,0)$** der den akkurat berører $x$-aksen og snur. Deretter faller den, først bratt og konkavt, gjennom **vendepunktet $(1,-2)$** der krumningen snur, og videre ned til **bunnpunktet $(2,-4)$**. Så stiger den igjen, nå konvekst, og **krysser $x$-aksen i $x=3$** før den fortsetter oppover.\n\nMarker de fire punktene med koordinater, og trekk stiplede hjelpelinjer ned til $x$-aksen fra bunnpunktet og vendepunktet.\n\n**Konsistenssjekk:** kurven faller på $(0,2)$ ✓, bøyer nedover før $x=1$ og oppover etter ✓, berører aksen i $x=0$ (dobbelt nullpunkt) og krysser i $x=3$ ✓. Alt stemmer med tabellen.\n\n**Merk toppunktet $(0,0)$.** Det er samtidig et nullpunkt og et toppunkt — derfor berører kurven aksen der uten å krysse. Det er nettopp det doble nullpunktet sett fra en annen kant."
+    },
+    {
+      "id": "econ1100-4-4-fig-syntese",
+      "type": "image",
+      "src": "/images/textbook/econ1100/drofting-syntese.svg",
+      "alt": "En tredjegradskurve i et koordinatsystem. Kurven stiger fra nede til venstre til et toppunkt på x-aksen, faller gjennom et markert vendepunkt til et bunnpunkt, og stiger deretter og krysser x-aksen. Fire punkter er markert med prikker og navn, med stiplede hjelpelinjer til x-aksen, og en rett tangentlinje er tegnet inn ved den siste kryssingen.",
+      "caption": "Fasitskissen til eksempel 2: $f(x)=x^{3}-3x^{2}$ med toppunkt $(0,0)$, vendepunkt $(1,-2)$, bunnpunkt $(2,-4)$ og nullpunkt i $x=3$. Legg merke til at kurven **berører** $x$-aksen i $x=0$ — det er det doble nullpunktet fra faktoriseringen $x^{2}(x-3)$ — og **krysser** den i $x=3$. Tangenten i $x=3$ er tegnet inn med stigningstall $f'(3)=9$, slik den regnes ut i eksempel 3. Skissen er grov, men konsistent med hele fortegnsskjemaet, og det er kravet."
+    },
+    {
+      "id": "econ1100-4-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger FD.) La $f(x)=x^{2}-4x+3$.\n\n**a)** Finn nullpunktene.\n\n**b)** Finn og klassifiser stasjonærpunktet.\n\n**c)** Beskriv skissen i ord, med alle punktene markert.",
+        "solution": "**a)** Faktorisering: to tall med produkt 3 og sum $-4$ er $-1$ og $-3$:\n\n$$f(x)=(x-1)(x-3)=0\\ \\Longrightarrow\\ x=1\\ \\text{og}\\ x=3$$\n\n**b)** $f'(x)=2x-4=0$ gir $x=2$, med $f(2)=4-8+3=-1$.\n\n$$f''(x)=2>0\\ \\Longrightarrow\\ \\text{bunnpunkt}\\ (2,-1)$$\n\nSiden $f''>0$ **overalt**, er funksjonen konveks i hele definisjonsområdet, og bunnpunktet er globalt.\n\n**c) Skissen.** En parabel som åpner oppover. Den kommer ned fra oppe til venstre, krysser $x$-aksen i $x=1$, når **bunnpunktet $(2,-1)$**, og stiger igjen og krysser aksen i $x=3$. Kurven er konveks hele veien — den bøyer oppover overalt — og har **ingen vendepunkter**, siden $f''$ er konstant lik 2 og aldri skifter fortegn.\n\nMarker de tre punktene $(1,0)$, $(2,-1)$ og $(3,0)$, og legg merke til at bunnpunktet ligger nøyaktig midt mellom nullpunktene. Det er ingen tilfeldighet: en parabel er symmetrisk om den loddrette linja gjennom toppen eller bunnen.",
+        "hints": [
+          "Faktoriser før du bruker ABC — tallene er små her.",
+          "En parabel er symmetrisk; bunnpunktet ligger midt mellom nullpunktene."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-4-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i skisse- og tangentdelpunktet",
+      "content": "- **Skisse som strider mot egen fortegnsanalyse.** Har du regnet ut at $f$ avtar på $(0,2)$, må kurven falle der. En skisse som viser noe annet, koster poengene for hele delpunktet — også de du hadde tjent inn på regningen.\n- **Å bruke $f(x_1)$ som stigningstall i tangentlinjen.** Stigningstallet er $f'(x_1)$. Dette er den vanligste enkeltfeilen i delpunktet, og den er lett å oppdage: sett $x=x_1$ inn i tangentlikningen din og se om du får $f(x_1)$ tilbake.\n- **Å lese grafen til $f'$ som om den var $f$.** Får du oppgitt grafen til den deriverte, ligger informasjonen i om kurven er **over eller under $x$-aksen**, ikke i om den stiger eller faller. Et toppunkt på $f'$-grafen er ikke et toppunkt for $f$.\n- **Regnefeil i ABC for nullpunktene.** Sjekk alltid: setter du en rot inn i $f$, skal du få null.\n- **Å forveksle nullpunkt og stasjonærpunkt.** $f(x)=0$ og $f'(x)=0$ er to ulike likninger. Les oppgaveteksten en gang til før du regner.\n- **Å hoppe over det doble nullpunktet.** Berører kurven aksen i stedet for å krysse, er det et poenggivende detalj i skissen."
+    },
+    {
+      "id": "econ1100-4-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Tangentlinje og avlesning (~15 min)"
+    },
+    {
+      "id": "econ1100-4-4-def-tangentlinje",
+      "type": "definition",
+      "title": "Tangentlinjen",
+      "content": "Tangentlinjen i et punkt har samme verdi og samme stigning som funksjonen der.\n\n$$y-f(x_1)=f'(x_1)\\,(x-x_1)$$\n\nStigningstallet er **den deriverte** i punktet, ikke funksjonsverdien. Det er samme formel som den lineære approksimasjonen i [kap. 3.2](/bok/econ1100/econ1100-3-2) — tangenten er nettopp den lineære tilnærmingen, skrevet som en likning."
+    },
+    {
+      "id": "econ1100-4-4-def-tangent-kontroll",
+      "type": "definition",
+      "title": "Kontroll av tangentlikningen",
+      "content": "Sett berøringspunktet inn i din egen tangentlikning; da skal funksjonsverdien komme tilbake.\n\n$$x=x_1\\ \\Longrightarrow\\ y=f(x_1)+f'(x_1)\\cdot 0=f(x_1)$$\n\nKontrollen tar fem sekunder og fanger både fortegnsfeil og forvekslingen av $f$ og $f'$. Den bør være standard før du går videre til neste delpunkt."
+    },
+    {
+      "id": "econ1100-4-4-def-avlesning",
+      "type": "definition",
+      "title": "Avlesning fra grafen til $f'$",
+      "content": "Får du grafen til den deriverte, ligger svaret i hvor kurven befinner seg i forhold til $x$-aksen.\n\n$$f'\\ \\text{over aksen}\\ \\Rightarrow\\ f\\ \\text{vokser};\\qquad f'\\ \\text{under}\\ \\Rightarrow\\ f\\ \\text{avtar};\\qquad f'\\ \\text{krysser}\\ \\Rightarrow\\ \\text{stasjonærpunkt}$$\n\nMerk at det er **posisjonen**, ikke stigningen, til $f'$-kurven som teller. Stiger $f'$-kurven, betyr det at $f$ er konveks — det er en annen opplysning, og den kommer fra fortegnet på $f''$."
+    },
+    {
+      "id": "econ1100-4-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Tangentlinje",
+      "problem": "La igjen $f(x)=x^{3}-3x^{2}$.\n\n**a)** Finn likningen for tangentlinjen i $x=3$.\n\n**b)** Finn likningen for tangentlinjen i $x=2$, og forklar hvorfor den ser slik ut.",
+      "solution": "**a) Steg 1 — funksjonsverdien:** $f(3)=27-27=0$.\n\n**Steg 2 — stigningstallet:** $f'(x)=3x^{2}-6x$, altså\n\n$$f'(3)=27-18=9$$\n\n**Steg 3 — sett inn i formelen:**\n\n$$y-0=9\\,(x-3)\\ \\Longrightarrow\\ y=9x-27$$\n\n**Kontroll:** sett $x=3$ inn i tangentlikningen: $y=27-27=0=f(3)$ ✓.\n\n**b)** Punktet $x=2$ er bunnpunktet. Der er\n\n$$f(2)=-4,\\qquad f'(2)=12-12=0$$\n\n$$y-(-4)=0\\cdot(x-2)\\ \\Longrightarrow\\ y=-4$$\n\n**Hvorfor ser den slik ut:** tangenten er en **vannrett linje**, siden stigningstallet er null. Det er nettopp det som kjennetegner et stasjonærpunkt — og en fin illustrasjon av at ordet «stasjonær» betyr at funksjonen står stille akkurat der.\n\n**Merk kontrasten mellom a) og b).** Samme funksjon, to ulike punkter, to helt ulike tangenter. Stigningstallet kommer alltid fra $f'$, aldri fra $f$: hadde vi brukt funksjonsverdien i a), ville vi fått stigningstall 0 i stedet for 9, og en helt gal linje."
+    },
+    {
+      "id": "econ1100-4-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD.) La $f(x)=x^{3}-6x^{2}+9x$.\n\n**a)** Finn nullpunktene.\n\n**b)** Finn og klassifiser stasjonærpunktene.\n\n**c)** Finn tangentlinjen i $x=4$.",
+        "solution": "**a)** Felles faktor $x$:\n\n$$f(x)=x\\big(x^{2}-6x+9\\big)=x(x-3)^{2}$$\n\nNullpunkter: $x=0$ (enkelt, krysser) og $x=3$ (dobbelt, berører).\n\n**b)** $f'(x)=3x^{2}-12x+9=3\\big(x^{2}-4x+3\\big)=3(x-1)(x-3)$, med nullpunkter $x=1$ og $x=3$.\n\nVerdier: $f(1)=1-6+9=4$ og $f(3)=27-54+27=0$.\n\n**Klassifisering** med $f''(x)=6x-12$:\n\n$$f''(1)=-6<0\\ \\Longrightarrow\\ \\text{toppunkt}\\ (1,4)$$\n\n$$f''(3)=6>0\\ \\Longrightarrow\\ \\text{bunnpunkt}\\ (3,0)$$\n\n*Legg merke til:* bunnpunktet ligger nøyaktig i det doble nullpunktet. Det er ingen tilfeldighet — grafen kommer ned til aksen, berører den og snur.\n\n**c) Tangentlinjen i $x=4$:**\n\n$$f(4)=64-96+36=4,\\qquad f'(4)=48-48+9=9$$\n\n$$y-4=9\\,(x-4)\\ \\Longrightarrow\\ y=9x-32$$\n\n**Kontroll:** $x=4$ gir $y=36-32=4=f(4)$ ✓.",
+        "hints": [
+          "I a): sett $x$ utenfor og kjenn igjen kvadratet som blir igjen.",
+          "I c): regn $f(4)$ og $f'(4)$ hver for seg før du setter inn i formelen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger FD — den omvendte oppgaven.) Du får oppgitt grafen til **den deriverte** $f'$. Kurven er en parabel som åpner oppover, med nullpunkter i $x=0$ og $x=2$, og med bunnpunkt i $x=1$.\n\n**a)** Hvor vokser og avtar $f$?\n\n**b)** Hvilke stasjonærpunkter har $f$, og hva slags punkter er de?\n\n**c)** Hva kan du si om krumningen til $f$?",
+        "solution": "**a)** Vi leser av **hvor $f'$-kurven ligger i forhold til $x$-aksen** — ikke om den stiger eller faller.\n\nEn parabel som åpner oppover med nullpunkter i 0 og 2, er negativ mellom røttene og positiv utenfor:\n\n$$f'>0\\ \\text{for}\\ x<0\\ \\text{og}\\ x>2;\\qquad f'<0\\ \\text{for}\\ 0<x<2$$\n\n$$f\\ \\text{vokser for}\\ x<0\\ \\text{og}\\ x>2;\\ \\text{avtar for}\\ 0<x<2$$\n\n**b)** Stasjonærpunktene ligger der $f'$-kurven **krysser** $x$-aksen, altså i $x=0$ og $x=2$.\n\nI $x=0$ går $f'$ fra positiv til negativ → **toppunkt**.\n\nI $x=2$ går $f'$ fra negativ til positiv → **bunnpunkt**.\n\n**c)** Krumningen til $f$ bestemmes av $f''$, altså av **stigningen** til $f'$-kurven.\n\nParabelen faller på $(-\\infty,1)$ og stiger på $(1,\\infty)$. Dermed er\n\n$$f''<0\\ \\text{for}\\ x<1\\ \\Longrightarrow\\ f\\ \\text{konkav};\\qquad f''>0\\ \\text{for}\\ x>1\\ \\Longrightarrow\\ f\\ \\text{konveks}$$\n\nBunnpunktet på $f'$-kurven, i $x=1$, svarer altså til **vendepunktet** til $f$.\n\n**Merk de to ulike avlesningene.** *Posisjonen* til $f'$-kurven (over eller under aksen) gir veksten til $f$; *stigningen* til $f'$-kurven gir krumningen til $f$. Å blande de to er den klassiske feilen i denne oppgavetypen.\n\n*Merk også:* vi kan ikke si noe om funksjonsverdiene til $f$ — grafen til $f'$ inneholder ingen informasjon om hvor høyt eller lavt $f$ ligger.",
+        "hints": [
+          "Se på om $f'$-kurven ligger over eller under $x$-aksen, ikke på om den stiger.",
+          "I c): stigningen til $f'$-kurven er nettopp $f''$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-4-fig-avlesning",
+      "type": "image",
+      "src": "/images/textbook/econ1100/avlesning-fmerket.svg",
+      "alt": "Grafen til den deriverte tegnet alene i et koordinatsystem. Kurven er en parabel som åpner oppover og krysser x-aksen i to markerte punkter. Over aksen til venstre og til høyre står merket at den deriverte er positiv, og under aksen mellom nullpunktene at den er negativ. Nederst står en tolkningslinje.",
+      "caption": "Avlesningsoppgaven fra oppgave 4: her er det **grafen til $f'$** som er tegnet, ikke grafen til $f$. Der kurven ligger over $x$-aksen, vokser $f$; der den ligger under, avtar $f$; og der den krysser, har $f$ et stasjonærpunkt. Merk at parabelens eget bunnpunkt i $x=1$ ikke er noe ekstrempunkt for $f$ — det er vendepunktet, fordi det er der $f''$ skifter fortegn."
+    },
+    {
+      "id": "econ1100-4-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2.) Avgjør om hver påstand er sann eller usann, og begrunn.\n\n**a)** «Tangentlinjen til $f$ i $x_1$ har stigningstall $f(x_1)$.»\n\n**b)** «Der grafen til $f'$ har et bunnpunkt, har $f$ et bunnpunkt.»\n\n**c)** «Et dobbelt nullpunkt betyr at grafen berører $x$-aksen uten å krysse den.»",
+        "solution": "**a) Usann.** Stigningstallet er den **deriverte** i punktet:\n\n$$y-f(x_1)=f'(x_1)\\,(x-x_1)$$\n\n*Konkret motsvar:* for $f(x)=x^{3}-3x^{2}$ i $x=3$ er $f(3)=0$ og $f'(3)=9$. Påstanden ville gitt tangenten $y=0$, altså $x$-aksen selv. Men grafen krysser aksen i $x=3$ med bratt stigning — den ligger ikke inntil aksen der. Riktig tangent er $y=9x-27$.\n\n**b) Usann.** Et bunnpunkt på $f'$-kurven betyr at **den deriverte** er på sitt laveste, ikke at funksjonen er det.\n\n*Konkret motsvar:* la $f(x)=x^{3}-3x^{2}$, med $f'(x)=3x^{2}-6x$. Denne parabelen har bunnpunkt i $x=1$. Men $f'(1)=3-6=-3\\ne 0$, så $x=1$ er ikke engang et stasjonærpunkt for $f$ — det er vendepunktet.\n\n**Riktig regel:** bunnpunkt på $f'$-kurven svarer til at $f''=0$ og skifter fortegn, altså et **vendepunkt** for $f$.\n\n**c) Sann.** En faktor i annen potens skifter ikke fortegn.\n\n*Begrunnelse:* skriv $f(x)=(x-a)^{2}g(x)$ der $g(a)\\ne 0$. Faktoren $(x-a)^{2}$ er positiv på begge sider av $a$, så fortegnet til $f$ nær $a$ bestemmes helt av $g$, som ikke skifter fortegn der. Funksjonen har altså samme fortegn på begge sider — den kommer ned til aksen og snur.\n\n*Illustrasjon:* $f(x)=x^{2}(x-3)$ er negativ både like til venstre og like til høyre for null (fordi $x-3<0$ der), så grafen berører aksen ovenfra og går tilbake ned ✓.",
+        "hints": [
+          "I a) og b): let etter én konkret funksjon der påstanden bryter sammen.",
+          "I c): hva er fortegnet til $(x-a)^{2}$ på hver side av $a$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — eksamensnivå, full syntese.) La\n\n$$f(x)=x^{3}-3x^{2}-9x+5.$$\n\n**a)** Finn og klassifiser stasjonærpunktene, og finn vendepunktet.\n\n**b)** Finn tangentlinjen i vendepunktet.\n\n**c)** Beskriv skissen i ord, med alle punktene markert. Kommenter hvorfor nullpunktene ikke er tatt med.",
+        "solution": "**a)** Fra [kap. 4.1](/bok/econ1100/econ1100-4-1) kjenner vi denne funksjonen:\n\n$$f'(x)=3x^{2}-6x-9=3(x+1)(x-3)$$\n\nStasjonærpunkter: $x=-1$ og $x=3$, med\n\n$$f(-1)=-1-3+9+5=10,\\qquad f(3)=27-27-27+5=-22$$\n\n**Klassifisering** med $f''(x)=6x-6$:\n\n$$f''(-1)=-12<0\\ \\Longrightarrow\\ \\text{toppunkt}\\ (-1,10)$$\n\n$$f''(3)=12>0\\ \\Longrightarrow\\ \\text{bunnpunkt}\\ (3,-22)$$\n\n**Vendepunkt:** $f''(x)=6(x-1)=0$ gir $x=1$, og fortegnet skifter der (negativ til venstre, positiv til høyre) ✓.\n\n$$f(1)=1-3-9+5=-6\\ \\Longrightarrow\\ \\text{vendepunkt}\\ (1,-6)$$\n\n**b) Tangentlinjen i $x=1$:**\n\n$$f(1)=-6,\\qquad f'(1)=3-6-9=-12$$\n\n$$y-(-6)=-12\\,(x-1)\\ \\Longrightarrow\\ y=-12x+12-6=-12x+6$$\n\n**Kontroll:** $x=1$ gir $y=-12+6=-6=f(1)$ ✓.\n\n*Merk at tangenten i vendepunktet er den bratteste av alle tangentene i det avtakende partiet.* Det følger av at $f'$ har sitt minimum nettopp i $x=1$ — parabelen $3x^{2}-6x-9$ har bunnpunkt der.\n\n**c) Skissen — figur i ord.** Akser med $x$ fra omtrent $-3$ til $5$ og $y$ fra $-25$ til $15$.\n\nKurven kommer opp nedenfra til venstre, stiger konkavt til **toppunktet $(-1,10)$**, snur og faller. Den passerer **vendepunktet $(1,-6)$**, der den er på sitt bratteste og krumningen snur fra konkav til konveks, og fortsetter ned til **bunnpunktet $(3,-22)$**. Derfra stiger den konvekst og bratt oppover mot høyre.\n\nMarker de tre punktene med koordinater, og trekk stiplede hjelpelinjer til aksene. Legg merke til at vendepunktet ligger nøyaktig midt mellom topp- og bunnpunkt ($x=1$ er midt mellom $-1$ og $3$) — en fin kontroll på at regningen stemmer.\n\n**Om nullpunktene:** likningen $x^{3}-3x^{2}-9x+5=0$ har tre reelle røtter, men ingen av dem er pene tall — de kan ikke finnes med ABC, siden dette er en tredjegradslikning uten åpenbar faktorisering. På eksamen ville oppgaven derfor ikke bedt om dem.\n\nSkissen er likevel fullstendig uten: vi vet at kurven krysser $x$-aksen tre steder, ett i hvert av de tre partiene (før toppunktet, mellom topp og bunn, og etter bunnpunktet). Det følger av at $f$ går fra $-\\infty$ opp til $10$, ned til $-22$ og opp til $+\\infty$ — og det er nok informasjon til å tegne kurven riktig.\n\n*Til orientering ligger røttene omtrent i $x\\approx -2{,}18$, $x\\approx 0{,}49$ og $x\\approx 4{,}69$ — én i hvert av de tre partiene, som ventet.*",
+        "hints": [
+          "I b): stigningstallet er $f'(1)$, ikke $f(1)$.",
+          "I c): du trenger ikke nullpunktene for å tegne kurven — vekst, krumning og de tre punktene er nok."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-4-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger FD — eksamensnivå, omvendt avlesning.) En kandidat får oppgitt grafen til $f'$ og skriver følgende konklusjoner. Vurder hver av dem.\n\nGrafen til $f'$ er en rett linje gjennom punktene $(0,-4)$ og $(2,0)$, altså $f'(x)=2x-4$.\n\n**a)** «$f$ har et bunnpunkt i $x=2$.»\n\n**b)** «$f$ er konveks overalt.»\n\n**c)** «$f$ har et nullpunkt i $x=2$.»\n\n**d)** Skriv opp en mulig funksjon $f$ som passer med grafen.",
+        "solution": "**a) Riktig.** Linja $f'(x)=2x-4$ krysser $x$-aksen i $x=2$, og den går fra negativ til positiv der:\n\n$$f'<0\\ \\text{for}\\ x<2;\\qquad f'>0\\ \\text{for}\\ x>2$$\n\nFortegnsskiftet fra minus til pluss gir **bunnpunkt** ✓. Konklusjonen er velbegrunnet.\n\n**b) Riktig.** Krumningen til $f$ er $f''$, altså **stigningen** til $f'$-linja:\n\n$$f''(x)=2>0\\quad\\text{for alle }x$$\n\nFunksjonen er konveks i hele definisjonsområdet ✓. Det bekrefter også at bunnpunktet i a) er globalt.\n\n**c) Galt.** Grafen til $f'$ sier ingenting om funksjonsverdiene til $f$ — bare om hvordan de endrer seg.\n\nAt $f'(2)=0$ betyr at $f$ har vannrett tangent i $x=2$, ikke at $f(2)=0$. Kandidaten har lest «nullpunkt for $f'$» som «nullpunkt for $f$».\n\n*Konkret motsvar:* både $f(x)=x^{2}-4x$ og $f(x)=x^{2}-4x+100$ har $f'(x)=2x-4$. Den første har $f(2)=-4$, den andre $f(2)=96$. Samme deriverte, helt ulike funksjonsverdier.\n\n**d)** Enhver antiderivert til $2x-4$ passer:\n\n$$f(x)=x^{2}-4x+C$$\n\nfor en vilkårlig konstant $C$. Velger vi $C=0$, får vi $f(x)=x^{2}-4x$, med bunnpunkt i $(2,-4)$ ✓ og $f''=2>0$ ✓.\n\n**Poenget med d):** grafen til $f'$ bestemmer $f$ bare **opp til en konstant**. Formen er entydig — vekst, krumning og ekstrempunkter ligger fast — men den loddrette plasseringen gjør det ikke. Det er nettopp derfor c) er galt.",
+        "hints": [
+          "Skill mellom hva $f'$-grafens posisjon, stigning og nullpunkter forteller.",
+          "I d): hvilken funksjon deriveres til $2x-4$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-4-4-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-4-4-bb-tangent-formel",
+      "type": "definition",
+      "title": "Tangentlinjen i kortform",
+      "content": "Formelen du skal kunne uten å tenke, med den ene fellen innebygd.\n\n$$y=f(x_1)+f'(x_1)\\,(x-x_1)$$\n\nFunksjonsverdien gir høyden, den deriverte gir hellingen. Å bytte om de to er den vanligste enkeltfeilen i delpunktet, og kontrollen er å sette $x=x_1$ inn igjen og se om du får $f(x_1)$."
+    },
+    {
+      "id": "econ1100-4-4-bb-avlesning-to-ting",
+      "type": "definition",
+      "title": "To avlesninger fra samme $f'$-graf",
+      "content": "Grafen til den deriverte gir to ulike opplysninger, og de leses på hver sin måte.\n\n$$\\text{posisjon (over/under aksen)}\\ \\to\\ \\text{vekst i }f;\\qquad \\text{stigning}\\ \\to\\ \\text{krumning i }f$$\n\nEt bunnpunkt på $f'$-kurven er derfor et **vendepunkt** for $f$, ikke et bunnpunkt. Å blande de to avlesningene er den klassiske feilen i den omvendte oppgaven."
+    },
+    {
+      "id": "econ1100-4-4-bb-konsistens",
+      "type": "definition",
+      "title": "Konsistens slår nøyaktighet",
+      "content": "Sensor sammenligner skissen med dine egne utregninger, ikke med et fasitplott.\n\n$$\\text{grov skisse som stemmer}\\ >\\ \\text{pen skisse som ikke stemmer}$$\n\nFår du en kurve som ikke lar seg tegne uten å bryte med skjemaet, har du sannsynligvis en fortegnsfeil. Skissen er dermed også en kontroll på regningen, ikke bare et sluttprodukt."
+    },
+    {
+      "id": "econ1100-4-4-bb-dobbelt-nullpunkt",
+      "type": "definition",
+      "title": "Dobbelt nullpunkt i skissen",
+      "content": "En faktor i annen potens gir en berøring, ikke en kryssing.\n\n$$f(x)=(x-a)^{2}g(x)\\ \\Longrightarrow\\ \\text{grafen berører aksen i}\\ x=a$$\n\nFordi $(x-a)^{2}$ er positiv på begge sider, skifter ikke $f$ fortegn der. I skissen skal kurven komme ned til aksen og snu — et lite, men poenggivende detalj."
+    },
+    {
+      "id": "econ1100-4-4-bb-vendepunkt-midt",
+      "type": "definition",
+      "title": "Vendepunktet ligger midt mellom",
+      "content": "En kontroll som virker for alle tredjegradsfunksjoner.\n\n$$x_{\\text{vende}}=\\frac{x_{\\text{topp}}+x_{\\text{bunn}}}{2}$$\n\nGrunnen er at $f''$ er lineær, så nullpunktet dens ligger midt mellom røttene til $f'$. Stemmer det ikke i din utregning, er det en regnefeil et sted — og kontrollen tar fem sekunder."
+    },
+    {
+      "id": "econ1100-4-4-bb-grafen-bestemmer-opp-til-konstant",
+      "type": "definition",
+      "title": "$f'$ bestemmer $f$ opp til en konstant",
+      "content": "To funksjoner med samme deriverte skiller seg bare med et konstantledd.\n\n$$f'(x)=2x-4\\ \\Longrightarrow\\ f(x)=x^{2}-4x+C$$\n\nFormen ligger fast — vekst, krumning, ekstrempunkter og vendepunkter er de samme — men den loddrette plasseringen er ukjent. Derfor kan man aldri lese funksjonsverdier ut av en $f'$-graf."
+    },
+    {
+      "id": "econ1100-4-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-4-4-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 4.1](/bok/econ1100/econ1100-4-1), [kap. 4.2](/bok/econ1100/econ1100-4-2) og [kap. 3.2](/bok/econ1100/econ1100-3-2).\n\n**1.** Faktoriser $x^{3}-4x^{2}$.\n\n*Svar:* $x^{2}(x-4)$ — dobbelt nullpunkt i 0, enkelt i 4.\n\n**2.** Løs $x^{2}-7x+12=0$.\n\n*Svar:* $(x-3)(x-4)=0$, altså $x=3$ og $x=4$.\n\n**3.** Finn $f'(2)$ når $f(x)=x^{3}-6x$.\n\n*Svar:* $f'(x)=3x^{2}-6$, så $f'(2)=12-6=6$.\n\n**4.** Hva er tangentlinjen til $f(x)=x^{2}$ i $x=1$?\n\n*Svar:* $f(1)=1$ og $f'(1)=2$, altså $y=1+2(x-1)=2x-1$.\n\n**5.** Hvor er $f''(x)=6x-12$ negativ?\n\n*Svar:* For $x<2$ — der er $f$ konkav.\n\n**6.** Hva sier det at grafen til $f'$ ligger under $x$-aksen?\n\n*Svar:* At $f$ avtar der."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-4-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-4-4-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)=0$ | Nullpunkt: der grafen møter $x$-aksen |\n| $f'(x)=0$ | Stasjonærpunkt: der tangenten er vannrett |\n| $x_1$ | Berøringspunktet for tangentlinjen |\n| $f'(x_1)$ | Tangentens stigningstall |\n| $(x-a)^{2}$ | Faktor som gir dobbelt nullpunkt — grafen berører aksen |\n| $C$ | Konstantleddet som ikke kan leses ut av en $f'$-graf |\n\n**Formler i dette delkapitlet:**\n\n$$y=f(x_1)+f'(x_1)\\,(x-x_1)$$\nTangentlinjen. Funksjonsverdien gir høyden, den deriverte gir hellingen.\n\n$$x^{3}-3x^{2}=x^{2}(x-3)$$\nFaktorisering for nullpunkter — felles faktor først, ABC etterpå.\n\n$$x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$$\nABC-formelen, her brukt på $f$ selv og ikke på $f'$.\n\n$$f'\\ \\text{over aksen}\\Rightarrow f\\ \\text{vokser};\\quad f'\\ \\text{stiger}\\Rightarrow f\\ \\text{konveks}$$\nDe to avlesningene fra en $f'$-graf. Posisjon og stigning gir ulike opplysninger.\n\n$$x_{\\text{vende}}=\\frac{x_{\\text{topp}}+x_{\\text{bunn}}}{2}$$\nKontroll for tredjegradsfunksjoner: vendepunktet ligger midt mellom."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
