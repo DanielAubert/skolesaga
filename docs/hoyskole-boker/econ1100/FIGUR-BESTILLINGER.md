@@ -60,8 +60,8 @@ med ny `id` og ny, skreddersydd `caption`.
 | F5 | 4.3 | `randminimum.svg` | En funksjon definert på et halvåpent/lukket område (typisk $\sqrt{x}$ på $[0,\infty)$ eller $x-\ln x$ på $(0,\infty)$): definisjonsmengdens endepunkt markert med utfylt punkt, pil som viser at $f$ vokser inn i området fordi $f'>0$, og randminimum merket. Den grafiske motsatsen til «å sette inn tallverdier». |
 | F6 | 4.4 | `drofting-syntese.svg` | Full skisse av kapitlets tredjegradsfunksjon: nullpunkter, topp- og bunnpunkt, vendepunkt, og tangentlinjen i det oppgitte punktet tegnet inn med sitt stigningstall. Dette er «slik ser en konsistent skisse ut»-figuren, og gjenbrukes i 4.5, i Del 4-prøvene og i øvingseksamen 1 (Oppgave 4). |
 | F7 | 4.4 | `avlesning-fmerket.svg` | Grafen til **$f'$** tegnet alene, med områdene over og under $x$-aksen markert og tolkningslinjen under: «$f'>0$ → $f$ vokser», «$f'<0$ → $f$ avtar», «$f'=0$ → stasjonærpunkt». Trener den omvendte oppgaven (gitt grafen til $f'$, si noe om $f$). |
-| F8 | 5.1 | `nivakurve-helning.svg` | En nivåkurve $F(x,y)=c$ i $xy$-planet med tangenten i et markert punkt. Helningen merket som $y'=-F'_x/F'_y$, med stiplede hjelpelinjer til aksene. Økonomitolkningen (indifferenskurve / MRS) står i `caption`, ikke i figuren. |
-| F9 | 5.2 | `nivakurve-krumning.svg` | To nivåkurver ved siden av hverandre: én konveks ($y''>0$, avtakende marginal substitusjonsrate) og én konkav ($y''<0$), begge fallende, med tangenter i to punkter som viser hvordan helningen endrer seg. Bærer krumningsargumentet i kap. 5.2. |
+| F8 ✅ | 5.1 | `nivakurve-helning.svg` (LEVERT av B2 25. juli 2026 — bygget, wiret inn i kap. 5.1 og lastet opp til Storage, verifisert 200) | En nivåkurve $F(x,y)=c$ i $xy$-planet med tangenten i et markert punkt. Helningen merket som $y'=-F'_x/F'_y$, med stiplede hjelpelinjer til aksene. Økonomitolkningen (indifferenskurve / MRS) står i `caption`, ikke i figuren. |
+| F9 ✅ | 5.2 | `nivakurve-krumning.svg` (LEVERT av B2 25. juli 2026 — bygget, wiret inn i kap. 5.2 OG gjenbrukt som fasitfigur i `econ1100-5-prove` prøve 5.D, lastet opp til Storage, verifisert 200) | To nivåkurver ved siden av hverandre: én konveks ($y''>0$, avtakende marginal substitusjonsrate) og én konkav ($y''<0$), begge fallende, med tangenter i to punkter som viser hvordan helningen endrer seg. Bærer krumningsargumentet i kap. 5.2. |
 | F10 | 6.1 | `hesse-tre-utfall.svg` | Tre små paneler side ved side, hvert med nivåkurvebildet rundt et stasjonærpunkt: lukkede kurver rundt et **lokalt minimum** ($D>0$, $f''_{xx}>0$), lukkede kurver rundt et **lokalt maksimum** ($D>0$, $f''_{xx}<0$), og hyperbelformede kurver rundt et **sadelpunkt** ($D<0$). Ingen 3D-flate — nivåkurvespråket er allerede lært i Del 5. |
 | F11 | 8.2 | `tangering-budsjett.svg` | Budsjettlinjen $p_1x+p_2y=m$ og en indifferenskurve som tangerer den i $(x^*,y^*)$, med stiplede hjelpelinjer til aksene og tangeringsbetingelsen merket som «MRS = prisforhold». Bokas viktigste økonomifigur; gjenbrukes i 8.5, Del 8-prøvene og øvingseksamen 1 (Oppgave 3). |
 | F12 | 8.3 | `skyggepris-budsjettskift.svg` | Samme diagram som F11, men med budsjettlinjen skiftet utover ved økt $m$ og en ny tangering på en høyere indifferenskurve. Merket: «$dU^*/dm=\lambda$ — verdien av én krone til». Gjør skyggeprisen synlig. |
@@ -83,3 +83,15 @@ grep -nE "skisser|tegn grafen|vis i (en )?figur|marker i diagrammet|ved hjelp av
 Steder som med sikkerhet vil treffe: kap. 4.4, 4.5, `econ1100-4-prove` (prøve
 4.D), `econ1100-5-prove` (prøve 5.D) og øvingseksamen 1 (kap. 11.2, Oppgave 4
 og 5). Disse SKAL ha SVG i løsningen, ikke bare figur-i-ord.
+
+**Status 25. juli 2026 (B2 — Del 3 og Del 5):** F8 og F9 er bygget, wiret inn og
+lastet opp; `sjekk-figurer.py econ1100` er grønn. Prøve 5.D er innfridd — dens
+skisse-delpunkt har både figur-i-ord og `image`-blokken `econ1100-5-prove-p4-fig`
+(gjenbruk av F9 med skreddersydd caption). F1 (kap. 3.2, `tangent-under-konveks.svg`)
+er IKKE bygget: kap. 3.2 har figur-i-ord under overskriften «Slik ser bommen ut»,
+og ingen oppgave der lover en figur, så porten er grønn — men bestillingen står
+fortsatt og bør bygges i figurfasen. **NB for figurfasen:** worktreet
+`bok-econ1100` har en minimal `.env.local` med kun `NEXT_PUBLIC_SUPABASE_URL`, slik
+at `sjekk-figurer.py` kan kjøres derfra. Opplasting gjøres med
+`python3 scripts/hoyskolebok/last-opp-figurer.py <arbeidstre> econ1100` (leser
+nøkler fra hovedtreets `.env.local`).
