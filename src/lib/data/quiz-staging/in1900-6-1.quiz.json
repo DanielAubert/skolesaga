@@ -1,0 +1,172 @@
+[
+ {
+  "question": "Hvilket uttrykk er den **sentrerte** differansen for $f'(x)$?",
+  "options": [
+   "`(f(x+h) - f(x-h))/(2*h)`",
+   "`(f(x+h) - f(x-h))/(h*h)`",
+   "`(f(x+h) - f(x))/(2*h)`",
+   "`(f(x+h) - f(x-h))/(2*x)`"
+  ],
+  "explanation": "Sentrert differanse bruker punkter på hver side av `x` og deler på `2*h`. Nevneren `h*h` er en forveksling med at feilen går som $h^2$, ikke nevneren. Det tredje uttrykket blander forlengs teller med sentrert nevner og gir halvparten av riktig svar. Det fjerde deler på `2*x`, som ikke har noe med steglengden å gjøre."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef diff(f, x, h=1e-5):\n    return (f(x+h) - f(x-h))/(2*h)\n\nprint(diff(lambda x: x**2, 3.0))\n```",
+  "options": [
+   "6.000000000039306",
+   "6.000009999951316",
+   "5.999999999960694",
+   "12.00000000021184"
+  ],
+  "explanation": "Den deriverte av $x^2$ i $x = 3$ er 6, og sentrert differanse treffer på rundt $10^{-11}$. Verdien 6.000009999951316 er det forlengs differanse gir med samme `h`. Den tredje er samme feil med motsatt fortegn i telleren. Den fjerde er den deriverte av `x**3` i 2.0, altså riktig metode på feil funksjon."
+ },
+ {
+  "question": "Feilen i forlengs differanse er omtrent $4{,}3 \\cdot 10^{-4}$ når $h = 10^{-3}$. Hva blir den omtrent når $h = 10^{-4}$?",
+  "options": [
+   "Omtrent $4{,}3 \\cdot 10^{-5}$, siden feilen skrumper i takt med $h$",
+   "Omtrent $4{,}3 \\cdot 10^{-6}$, siden feilen skrumper som $h^2$",
+   "Omtrent $4{,}3 \\cdot 10^{-3}$, siden mindre $h$ gir mer avrunding",
+   "Omtrent $4{,}3 \\cdot 10^{-4}$, siden metoden alt har stabilisert seg"
+  ],
+  "explanation": "Forlengs differanse er en førsteordens metode: tideler du steget, tideles feilen. Hundredelen hører til en andreordens metode som den sentrerte differansen. Avrundingen tar først over rundt $h = 10^{-8}$ for forlengs differanse, og feilen står ikke stille i dette området."
+ },
+ {
+  "question": "Hva er signaturen til en **andreordens** metode i en konvergenstabell?",
+  "options": [
+   "Feilen blir hundre ganger mindre når steget tideles",
+   "Feilen blir hundre ganger mindre når steget halveres",
+   "Feilen blir ti ganger mindre når steget tideles",
+   "Feilen blir dobbelt så liten når antall steg dobles"
+  ],
+  "explanation": "Andreordens betyr at feilen er proporsjonal med steget i annen, så en tideling av steget gir faktor 100. Halvering av steget gir faktor 4, ikke 100. Faktor 10 per tideling er førsteordens, og faktor 2 per dobling av antall steg er også førsteordens."
+ },
+ {
+  "question": "Hvorfor blir den sentrerte differansen **dårligere** når du setter $h = 10^{-12}$?",
+  "options": [
+   "Fordi `f(x+h)` og `f(x-h)` blir nesten like, så differansen mister siffer",
+   "Fordi formelen bare er gyldig for $h$ større enn $10^{-6}$ rent matematisk",
+   "Fordi Python runder alle tall under $10^{-10}$ av til null før divisjonen",
+   "Fordi nevneren `2*h` blir så liten at resultatet alltid blir uendelig"
+  ],
+  "explanation": "Med svært liten `h` er de to funksjonsverdiene like på de fleste sifrene, og subtraksjonen sletter nettopp de sifrene som bar informasjonen. Formelen er matematisk bedre jo mindre `h` er — det er flyttallene som setter grensen. Python runder ikke små tall til null, og en liten nevner gir store, ikke uendelige, verdier."
+ },
+ {
+  "question": "Hvilke summegrenser hører til trapesmetoden med $N$ intervaller?",
+  "options": [
+   "`range(1, N)`, altså bare de indre punktene mellom $a$ og $b$",
+   "`range(0, N)`, altså med det venstre endepunktet $a$ regnet med",
+   "`range(1, N+1)`, altså med det høyre endepunktet",
+   "`range(0, N+1)`, altså med begge endepunktene"
+  ],
+  "explanation": "Endepunktene er allerede telt med halv vekt i `0.5*f(a) + 0.5*f(b)`, så summen skal bare gå over de indre punktene fra 1 til $N-1$. De tre andre grensene teller et endepunkt en gang for mye, som er den vanligste feilen i formelen og en variant av feil #1."
+ },
+ {
+  "question": "Hva skriver programmet ut?\n\n```python\ndef trapes(f, a, b, N):\n    dx = (b - a)/N\n    s = 0.5*f(a) + 0.5*f(b)\n    for k in range(1, N):\n        s += f(a + k*dx)\n    return s*dx\n\nprint(trapes(lambda x: x, 0.0, 2.0, 4))\n```",
+  "options": [
+   "2.0",
+   "1.5",
+   "2.5",
+   "4.0"
+  ],
+  "explanation": "Integralet av $x$ fra 0 til 2 er 2, og trapesmetoden er eksakt for rette linjer uansett $N$. Verdien 1.5 får du om du utelater det høyre endepunktet, 2.5 om du teller det dobbelt, og 4.0 om du glemmer å gange med `dx` til slutt."
+ },
+ {
+  "question": "Trapesmetoden gir feilen $1{,}6 \\cdot 10^{-2}$ med $N = 10$. Hva blir feilen omtrent med $N = 20$?",
+  "options": [
+   "Omtrent $4 \\cdot 10^{-3}$, altså en firedel av feilen over",
+   "Omtrent $8 \\cdot 10^{-3}$, altså en halvpart av feilen over",
+   "Omtrent $1{,}6 \\cdot 10^{-4}$, altså en hundredel",
+   "Omtrent $3{,}2 \\cdot 10^{-2}$, altså det dobbelte"
+  ],
+  "explanation": "Trapesmetoden er andreordens i steglengden $\\Delta x = (b-a)/N$, så en dobling av $N$ firedeler feilen. Halvparten hører til en førsteordens metode, hundredelen til en tideling av steget, og en dobling av feilen ville betydd at flere intervaller gjorde svaret verre."
+ },
+ {
+  "question": "Hvilken linje er Newton-oppdateringen?",
+  "options": [
+   "`x = x - f(x)/df(x)`",
+   "`x = x + f(x)/df(x)`",
+   "`x = x - df(x)/f(x)`",
+   "`x = x - f(x)*df(x)`"
+  ],
+  "explanation": "Newton følger tangenten ned til nullnivået, og det gir minus foran brøken med funksjonsverdien over den deriverte. Med pluss beveger du deg bort fra nullpunktet. De to siste snur brøken eller ganger i stedet for å dele, og ingen av dem har riktig enhet."
+ },
+ {
+  "question": "Hvorfor er `while abs(f(x)) > 1e-16:` et risikabelt stoppkriterium?",
+  "options": [
+   "Fordi avrunding kan gjøre at `abs(f(x))` aldri kommer under grensen i det hele tatt",
+   "Fordi Python ikke kan sammenligne to flyttall som er mindre enn $10^{-15}$ i verdi",
+   "Fordi `abs` gir feil svar når argumentet er mindre enn maskinpresisjonen",
+   "Fordi løkka da stopper etter første runde uansett hvor langt unna du er"
+  ],
+  "explanation": "Med en så stram toleranse kan funksjonsverdien svinge rundt null på siste siffer uten noen gang å komme under grensen, og løkka går evig. Python sammenligner små flyttall helt fint, `abs` virker som normalt, og en stram toleranse gjør at løkka kjører lenger, ikke kortere. Bruk $10^{-10}$ til $10^{-12}$ og en grense på antall runder."
+ },
+ {
+  "question": "Hva skiller sekantmetoden fra Newtons metode?",
+  "options": [
+   "Sekanten trenger to startverdier, men ingen derivert som egen funksjon",
+   "Sekanten trenger én startverdi og den deriverte som funksjon",
+   "Sekanten trenger to startverdier og den deriverte i begge",
+   "Sekanten trenger én startverdi og et intervall der funksjonen skifter fortegn"
+  ],
+  "explanation": "Sekantmetoden erstatter tangenten med linjen gjennom de to siste punktene, så den klarer seg uten den deriverte, men må ha to punkter å starte med. Alternativ b) beskriver Newton. Å kreve både to punkter og den deriverte er ingen av metodene, og fortegnsskifte i et intervall er halveringsmetoden."
+ },
+ {
+  "question": "Hva gjør linja `x0, x1 = x1, x_ny` i sekantmetoden?",
+  "options": [
+   "Skyver de to siste verdiene videre i én samtidig tilordning",
+   "Bytter om verdiene i `x0` og `x1` uten å bruke `x_ny`",
+   "Setter begge variablene til `x_ny`, som er den nyeste verdien",
+   "Lager en tuppel av de tre verdiene som løkka kan lese neste runde"
+  ],
+  "explanation": "Høyresiden regnes ferdig før noen tilordning skjer, så den gamle `x1` havner trygt i `x0` samtidig som `x_ny` havner i `x1`. Uten den samtidige formen ville `x0 = x1` ødelagt verdien før den ble brukt. Linja bytter ikke om verdiene, setter dem ikke like, og lager ingen tuppel som blir liggende."
+ },
+ {
+  "question": "Hva må funksjonen `fun` ta og returnere når den sendes til `root`?",
+  "options": [
+   "Ett array inn og ett array ut, med én komponent per likning",
+   "Ett tall inn og ett tall ut, siden `root` løser én likning",
+   "Ett array inn og ett tall ut, nemlig summen av alle likningene",
+   "To argumenter inn, gjetningen og toleransen, og ett array ut"
+  ],
+  "explanation": "`root` arbeider med systemer, så både argumentet og returverdien er array — også når det bare er én ukjent. Med ett tall ut kan ikke løseren behandle flere likninger, en sum ville blandet likningene sammen, og toleransen sendes ikke inn i `fun`, men styres av løseren selv."
+ },
+ {
+  "question": "Etter `sol = root(fun, np.array([1.0]))` — hva er `sol.x`?",
+  "options": [
+   "Et array med løsningen, så et enkelt tall hentes med `sol.x[0]`",
+   "Et tall med løsningen, klart til bruk i den videre regningen din",
+   "Startgjetningen som ble sendt inn, uendret av løseren",
+   "En tuppel med løsningen og antall runder løseren brukte"
+  ],
+  "explanation": "`sol.x` er alltid et array, én komponent per ukjent, så et enkelt tall må hentes med indeks. Det er ikke startgjetningen — den ligger igjen i variabelen du sendte inn — og det er ingen tuppel. Statusen om løseren lyktes ligger i `sol.success`."
+ },
+ {
+  "question": "Et program skal sende funksjonen $g(x) = x^2 - 2$ til en nullpunktsløser, men skriver `g = x**2 - 2` på øverste linje. Hva skjer?",
+  "options": [
+   "Programmet stopper straks med `NameError: name 'x' is not defined`",
+   "Programmet stopper med `TypeError: 'float' object is not callable`",
+   "Programmet kjører, men `g` blir null uansett hvilken `x` løseren prøver",
+   "Programmet kjører, og `g` regnes på nytt hver gang løseren kaller den"
+  ],
+  "explanation": "Linja er et uttrykk som skal regnes ut med en gang, og siden `x` ikke finnes ennå, stopper det der. Hadde `x` vært definert fra før, ville `g` blitt ett tall, og da hadde løseren gitt `TypeError` når den prøvde å kalle det. Å sende et uttrykk der en funksjon kreves, er feil #19; riktig er `g = lambda x: x**2 - 2` eller en `def`."
+ },
+ {
+  "question": "Hva er galt med linja `import sqrt from math`?",
+  "options": [
+   "Rekkefølgen: modulen skal stå først, `from math import sqrt`",
+   "Navnet: funksjonen heter `squareroot` i `math`-modulen",
+   "Ingenting, men den henter hele modulen i stedet for én funksjon",
+   "Punktumet mangler, det skal stå `import math.sqrt from math`"
+  ],
+  "explanation": "Python vil ha `from <modul> import <navn>`, så modulen kommer først. Linja slik den står gir `SyntaxError` allerede før noe kjøres. Funksjonen heter `sqrt`, linja er ikke gyldig i noen form, og `import math.sqrt` er heller ikke lovlig. Dette er feil #10 og en fast felle i «finn feilen»-oppgaver."
+ },
+ {
+  "question": "En testfunksjon kontrollerer `diff` mot et kjent svar. Hvilken toleranse passer?",
+  "options": [
+   "`1e-6` for sentrert differanse, som treffer på rundt $10^{-11}$",
+   "`1e-14` for sentrert differanse, siden metoden er andreordens",
+   "`1e-6` for forlengs differanse, som treffer på omtrent $10^{-5}$",
+   "Ingen toleranse, siden `expected == computed` er presist nok"
+  ],
+  "explanation": "Toleransen må være romsligere enn feilen metoden faktisk gjør. Sentrert differanse med `h = 1e-5` bommer med rundt $10^{-11}$, så `1e-6` er trygt. `1e-14` er strammere enn metoden klarer. Forlengs differanse bommer med rundt $10^{-5}$ og ville feilet mot `1e-6`. Å bruke `==` på flyttall er feil #11."
+ }
+]
