@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hvor skal samlingen i en container-klasse opprettes?",
+  "options": [
+   "I konstruktøren, tom — alt objektet skal huske, settes der.",
+   "I `legg_til`, slik at den bare opprettes når det faktisk kommer et element.",
+   "Inne i løkka som går gjennom samlingen, slik at den alltid er oppdatert.",
+   "Utenfor klassen, som en variabel begge klassene kan bruke sammen."
+  ],
+  "explanation": "Opprettes den i `legg_til`, nullstilles den for hver innlegging, og containeren har alltid nøyaktig ett element. Ingen feilmelding — bare et rolig galt svar."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = {}\n\n    def legg_til(self, bok):\n        self._boker[bok.hent_tittel()] = bok\n\n    def finn(self, tittel):\n        if tittel in self._boker:\n            return self._boker[tittel]\n        return None\n\n    def skriv_alle(self):\n        for tittel in self._boker:\n            print(self._boker[tittel])\n\n    def antall(self):\n        return len(self._boker)\n\nb = Bibliotek()\nb.legg_til(Bok(\"Sult\", \"Hamsun\"))\nb.legg_til(Bok(\"Vaar\", \"Undset\"))\nb.skriv_alle()\nprint(b.antall())\n```",
+  "options": [
+   "Sult av Hamsun\nVaar av Undset\n2",
+   "Sult\nVaar\n2",
+   "Sult av Hamsun\nVaar av Undset\n1",
+   "sult\nvaar\n2"
+  ],
+  "explanation": "Løkka gir nøklene, oppslaget gir objektet, og `print` kaller bokas egen `__str__`. Skriver du `for b in self._boker: print(b)`, får du titlene som tekst i stedet."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = {}\n\n    def legg_til(self, bok):\n        self._boker[bok.hent_tittel()] = bok\n\n    def finn(self, tittel):\n        if tittel in self._boker:\n            return self._boker[tittel]\n        return None\n\n    def skriv_alle(self):\n        for tittel in self._boker:\n            print(self._boker[tittel])\n\n    def antall(self):\n        return len(self._boker)\n\nb = Bibliotek()\nb.legg_til(Bok(\"Sult\", \"Hamsun\"))\nprint(b.finn(\"Sult\"))\nprint(b.finn(\"Vaar\"))\n```",
+  "options": [
+   "Sult av Hamsun\nNone",
+   "Sult av Hamsun",
+   "None\nNone",
+   "Sult av Hamsun\nSult av Hamsun"
+  ],
+  "explanation": "Oppslaget sjekker med `if tittel in ...` og gir `None` når nøkkelen mangler. Uten sjekken ville programmet stoppet med `KeyError: 'Vaar'` — feilkode #14."
+ },
+ {
+  "question": "Hva er den riktige nøkkelen når en container legger et objekt i en ordbok?",
+  "options": [
+   "`self._d[obj.hent_navn()] = obj` — nøkkelen hentes med objektets egen aksessor.",
+   "`self._d[obj._navn] = obj` — det er raskere å lese variabelen direkte.",
+   "`self._d[obj] = obj.hent_navn()` — objektet er nøkkel og navnet er verdi.",
+   "`self._d[len(self._d)] = obj` — nøkkelen bør være et løpenummer."
+  ],
+  "explanation": "`obj._navn` er feilkode #11, og det er den vanligste formen den tar når to klasser samarbeider. Formen med aksessor er også tryggere: endrer klassen lagringen, merker containeren ingenting."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_antall(self):\n        return self._antall\n\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def legg_til(self, v):\n        self._varer[v.hent_navn()] = v\n\n    def antall(self):\n        return len(self._varer)\n\n    def totalt(self):\n        s = 0\n        for n in self._varer:\n            s = s + self._varer[n].hent_antall()\n        return s\n\nl = Lager()\nl.legg_til(Vare(\"skrue\", 120))\nl.legg_til(Vare(\"bolt\", 45))\nl.legg_til(Vare(\"skrue\", 200))\nprint(l.antall(), l.totalt())\n```",
+  "options": [
+   "2 245",
+   "3 365",
+   "2 320",
+   "3 245"
+  ],
+  "explanation": "Den tredje innsettingen bruker nøkkelen `skrue` på nytt og **overskriver** den første. Ordboka har to nøkler, og summen er 200 pluss 45."
+ },
+ {
+  "question": "Hva kjennetegner en metode som delegerer?",
+  "options": [
+   "Kroppen er ett kall på underobjektet, og ingen felt hentes ut med understrek.",
+   "Kroppen regner ut svaret av underobjektets felter, slik at ytterklassen har kontroll.",
+   "Metoden kaller seg selv én gang for hvert element i samlingen.",
+   "Metoden returnerer hele samlingen, slik at den som kaller, kan gå gjennom den."
+  ],
+  "explanation": "Gevinsten er den samme som ved innkapsling: endrer underklassen hvordan den regner eller vises, merker ytterklassen ingenting."
+ },
+ {
+  "question": "Hvorfor heter containerens utskriftsmetode `skriv_alle` og ikke `skriv`?",
+  "options": [
+   "Fordi den viser alle og ikke én, og fordi en metode som ser ut til å kalle seg selv, er vanskelig å lese.",
+   "Fordi Python ikke tillater at to klasser i samme program har en metode med samme navn.",
+   "Fordi lengre metodenavn gir bedre uttelling når sensor leser besvarelsen.",
+   "Fordi `skriv` er reservert av `print` og ikke kan brukes som metodenavn."
+  ],
+  "explanation": "En metode som kaller seg selv, er rekursjon, som er utenfor pensum i dette emnet. Navnene beskriver dessuten to ulike jobber."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Rett:\n    def __init__(self, navn, pris, solgte):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = solgte\n\n    def hent_navn(self):\n        return self._navn\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\nclass Kantine:\n    def __init__(self):\n        self._retter = []\n\n    def legg_til(self, r):\n        self._retter.append(r)\n\n    def samlet_omsetning(self):\n        total = 0\n        for r in self._retter:\n            total = total + r.omsetning()\n        return total\n\nk = Kantine()\nk.legg_til(Rett(\"Suppe\", 80, 10))\nk.legg_til(Rett(\"Vafler\", 30, 20))\nprint(k.samlet_omsetning())\n```",
+  "options": [
+   "1400",
+   "800",
+   "600",
+   "140"
+  ],
+  "explanation": "Kantina spør hver rett hva den har omsatt for: 800 pluss 600. Akkumulatoren står før løkka og returneres etter den."
+ },
+ {
+  "question": "Hva returnerer en `finn`-metode når nøkkelen ikke finnes?",
+  "options": [
+   "`None` — det ærlige svaret, som den som kaller, tester med `if svar != None:`.",
+   "Den tomme teksten, som er lettere å skrive ut enn `None`.",
+   "Tallet `-1`, som er den vanlige måten å signalisere «ikke funnet» på.",
+   "Hele ordboka, slik at den som kaller, kan lete videre selv."
+  ],
+  "explanation": "En tom tekst eller `-1` kan forveksles med ekte data — det er feilkode #10, sentinel-kollisjon. `None` kan ikke forveksles med noe."
+ },
+ {
+  "question": "Du kaller `sal.hent_kapasitet()` på svaret fra et søk, og får `AttributeError: 'NoneType' object has no attribute 'hent_kapasitet'`. Hva er årsaken?",
+  "options": [
+   "Søket fant ingenting og returnerte `None`, og du glemte å sjekke svaret før du brukte det.",
+   "Metoden `hent_kapasitet` er stavet feil i klassen, så Python finner den ikke.",
+   "Klassen mangler en `__str__`, så objektet kan ikke brukes i et metodekall.",
+   "Ordboka er tom, og en tom ordbok kan ikke slås opp i det hele tatt."
+  ],
+  "explanation": "«NoneType has no attribute» betyr nesten alltid at et `finn`-kall ga `None`. Motgiften er `if svar != None:` hos den som kaller."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._kvelder = 0\n\n    def hent_kvelder(self):\n        return self._kvelder\n\n    def registrer(self):\n        self._kvelder = self._kvelder + 1\n\nclass Spill:\n    def __init__(self, tittel, eier):\n        self._tittel = tittel\n        self._eier = eier\n\n    def hent_eier(self):\n        return self._eier\n\nada = Medlem(\"Ada\")\na = Spill(\"Kolonier\", ada)\nb = Spill(\"Ordjakt\", ada)\nada.registrer()\nprint(a.hent_eier().hent_kvelder(), b.hent_eier().hent_kvelder())\n```",
+  "options": [
+   "1 1",
+   "1 0",
+   "0 0",
+   "2 2"
+  ],
+  "explanation": "Begge spillene holder en referanse til det **samme** medlemmet, så begge ser kvelden. Det finnes bare ett `Medlem`-objekt, selv om det er eier av to spill."
+ },
+ {
+  "question": "En klasse `Spill` lagrer `self._eiernavn = eier.hent_navn()` i stedet for hele objektet. Hva går tapt?",
+  "options": [
+   "Navnet blir foreldet hvis eieren endrer det, og spillet kan ikke lenger spørre eieren om noe annet.",
+   "Ingenting — navnet er den eneste opplysningen et spill trenger om eieren sin.",
+   "Bare litt minne, siden en tekst tar mer plass enn en referanse til et objekt.",
+   "Muligheten til å ha to spill med samme eier, siden navnet må være unikt."
+  ],
+  "explanation": "Å lagre rådata i stedet for en objektreferanse er en av de faste vurderingene i Oppgave 4. Trenger du navnet, spør om det når du trenger det."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nd = {\"a\": 1}\nif \"b\" in d:\n    print(d[\"b\"])\nelse:\n    print(\"mangler\")\nif \"b\" not in d:\n    d[\"b\"] = []\nd[\"b\"].append(5)\nprint(d)\n```",
+  "options": [
+   "mangler\n{'a': 1, 'b': [5]}",
+   "mangler\n{'a': 1, 'b': 5}",
+   "1\n{'a': 1, 'b': [5]}",
+   "mangler\n{'b': [5], 'a': 1}"
+  ],
+  "explanation": "Den indre lista må opprettes med `if ... not in` før du kan legge til i den — uten det stopper programmet med `KeyError`. Ordboka husker opprettelsesrekkefølgen."
+ },
+ {
+  "question": "En utleie har mange stativer, og hvert stativ har mange sykler. Hvordan modelleres det?",
+  "options": [
+   "Utleien har en samling stativer, og hvert stativ har sin egen samling sykler — to nivåer, samme mønster.",
+   "Utleien har én samling som holder både stativene og alle syklene om hverandre.",
+   "Hvert stativ har en referanse til utleien, og utleien holder bare syklene.",
+   "Syklene legges i en liste utenfor begge klassene, slik at begge kan nå dem."
+  ],
+  "explanation": "To nivåer av en-til-mange er helt vanlig i Oppgave 4. Blander du nivåene, mister du muligheten til å spørre «hvor mange står på Blindern?»."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Sal:\n    def __init__(self, navn, kap):\n        self._navn = navn\n        self._kap = kap\n        self._paa = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def ledige(self):\n        return self._kap - len(self._paa)\n\n    def meld_paa(self, m):\n        if self.ledige() < 1:\n            print(\"Fullt\")\n        else:\n            self._paa.append(m)\n\n    def antall(self):\n        return len(self._paa)\n\nclass Senter:\n    def __init__(self):\n        self._saler = {}\n\n    def legg_til(self, s):\n        self._saler[s.hent_navn()] = s\n\n    def finn(self, n):\n        if n in self._saler:\n            return self._saler[n]\n        return None\n\n    def totalt_antall(self):\n        t = 0\n        for n in self._saler:\n            t = t + self._saler[n].antall()\n        return t\n\ns = Senter()\ns.legg_til(Sal(\"A\", 2))\ns.legg_til(Sal(\"B\", 5))\ns.finn(\"A\").meld_paa(\"x\")\ns.finn(\"A\").meld_paa(\"y\")\ns.finn(\"A\").meld_paa(\"z\")\ns.finn(\"B\").meld_paa(\"q\")\nprint(s.totalt_antall())\n```",
+  "options": [
+   "Fullt\n3",
+   "Fullt\n4",
+   "4",
+   "Fullt\n2"
+  ],
+  "explanation": "Det tredje forsøket i sal A avvises, så A har 2 og B har 1. Delegeringsløkka summerer det salene svarer."
+ },
+ {
+  "question": "Hvorfor er `for e in self._elementer: print(e._navn)` en dårlig delegeringsløkke?",
+  "options": [
+   "Den rører et annet objekts innside — feilkode #11 — og dupliserer visningen to steder.",
+   "Den er tregere enn `print(e)`, fordi Python må slå opp variabelen i objektet.",
+   "Den virker ikke: Python nekter å lese en variabel med understrek utenfra.",
+   "Den gir feil rekkefølge, siden understrek-variabler leses i motsatt orden."
+  ],
+  "explanation": "Alternativet `print(e)` er én linje kortere og lar elementets `__str__` gjøre jobben. Endres formatet, endres det ett sted."
+ },
+ {
+  "question": "Hva betyr det at `legg_til` tar objektet som parameter og ikke verdiene?",
+  "options": [
+   "Den som kaller, lager objektet — da kan det samme objektet legges i to samlinger.",
+   "Containeren slipper å kjenne klassenavnet til underobjektet i det hele tatt.",
+   "Objektet blir kopiert inn i samlingen, slik at originalen kan endres fritt.",
+   "Metoden kan bare kalles én gang per objekt, siden objektet allerede finnes."
+  ],
+  "explanation": "Objektvarianten er den fasiten bruker, og den er mer fleksibel. Ingen kopiering skjer: samlingen holder en referanse til det samme objektet."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Bok:\n    def __init__(self, t):\n        self._t = t\n\n    def __str__(self):\n        return self._t\n\nd = {}\nd[\"sult\"] = Bok(\"Sult\")\nd[\"vaar\"] = Bok(\"Vaar\")\nfor b in d:\n    print(b)\n```",
+  "options": [
+   "sult\nvaar",
+   "Sult\nVaar",
+   "sult Sult\nvaar Vaar",
+   "Sult av sult\nVaar av vaar"
+  ],
+  "explanation": "Løkka over en ordbok gir **nøklene**, ikke objektene. For å få bøkene må du skrive `print(d[b])` — en klassisk sporingsfelle."
+ }
+]
