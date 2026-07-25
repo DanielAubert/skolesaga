@@ -1,0 +1,355 @@
+{
+ "id": "in1000-4-2",
+ "courseId": "in1000",
+ "chapterNumber": "4.2",
+ "title": "«Finn feilen» og konkret moteksempel",
+ "description": "Å peke ut feilen i et program og — når det kreves — gi et konkret moteksempel framfor bare en verbal forklaring.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne skille en feil som stopper programmet fra en som bare gir galt svar",
+  "kunne prøve en funksjon systematisk på de inndataene den ikke tåler",
+  "kunne levere et moteksempel som faktisk avslører feilen",
+  "kunne foreslå den minste rettelsen som fjerner feilen"
+ ],
+ "content": [
+  {
+   "id": "in1000-4-2-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Sjanger I — «finn feilen»** står i 3 av 6 moderne eksamenssett (50 %), og er\nverdt 2–6 poeng. Den dukker opp i to former: som **flervalg** i Oppgave 1 («hvilke\nav påstandene under er riktige om dette programmet?») og som **kort fritekst** i\nOppgave 2 eller 3 («gi et eksempel på inndata der funksjonen svarer feil, og\nforklar hvorfor»).\n\nDette er bokas eneste tema på nivå **kjenne** — det laveste av tre. Sjangeren er\nikke sikker på settet, og den er sjelden verdt mange poeng. Men den koster deg\nlite: metoden er den samme sporingen du allerede kan fra\n[kap. 4.1](/bok/in1000/in1000-4-1), snudd andre veien.\n\nTil gjengjeld har den én ufravikelig formregel, og den er lett å bomme på:\n**sensor ber om et konkret moteksempel, ikke en forklaring.** Skriver du «funksjonen\nhåndterer ikke like verdier», har du levert en halv besvarelse. Skriver du\n«`storst(4, 4, 4)` gir `None`, men skulle gitt `4`», har du levert en hel.\n\nNytten er dessuten større enn poengene: den samme sjekklista bruker du på **din\negen** kode i Oppgave 3 og 4, der den er verdt langt mer."
+  },
+  {
+   "id": "in1000-4-2-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 4.1 — DRILL: kodesporing](/bok/in1000/in1000-4-1) er det direkte\ngrunnlaget: å finne en feil er å spore koden på data den ikke tåler. Under det\nligger [kap. 3.4](/bok/in1000/in1000-3-4) med de seks kodemønstrene, og\n[kap. 2.1](/bok/in1000/in1000-2-1) med flagg og tidlig retur.\n\nDe tre tingene du bruker mest her:\n\n- **sporingstavla**: én kolonne per variabel, én rad per runde,\n- **kanttilfellene**: tom samling, ett element, like verdier, ingen treff,\n- **de faste feilene**: for tidlig `return`, glemt initialisering, av-med-én, og\n  en test som ikke slår til ved likhet.\n\nKort oppfrisket — hvordan en korrekt «er alle»-funksjon ser ut:\n\n```python\ndef alle_positive(tallene):\n    for t in tallene:\n        if t <= 0:\n            return False\n    return True\n\nprint(alle_positive([3, 5]), alle_positive([3, -1]), alle_positive([]))\n```\n\n**Utskrift:**\n```\nTrue False True\n```\n\nKjenner du den riktige formen godt nok, ser du den gale med én gang."
+  },
+  {
+   "id": "in1000-4-2-3",
+   "type": "text",
+   "content": "## Løkke 1 — Tre slags feil, og bare én av dem er vanskelig (~10 min)\n\nNår et program ikke gjør det det skal, er det alltid én av tre ting. De to\nførste forteller deg selv hva som er galt. Den tredje gjør ikke det, og det er\nden eksamen spør om."
+  },
+  {
+   "id": "in1000-4-2-4",
+   "type": "definition",
+   "title": "Syntaksfeil",
+   "content": "En feil i selve skrivemåten: glemt kolon etter `if`, ulike antall parenteser,\nfeil innrykk.\n\nPython nekter å kjøre programmet i det hele tatt, og sier hvilken linje den\nstoppet på. Meldingen heter `SyntaxError` eller `IndentationError`.\n\nDette er den greieste feilen som finnes: du får vite hvor den er før noe har\nskjedd. På eksamen skriver du på papir eller i et enkelt tekstfelt uten hjelp, så\nher hjelper bare øvelse — kolon etter `if`, `for`, `while` og `def`, og fire\nmellomrom som innrykk."
+  },
+  {
+   "id": "in1000-4-2-5",
+   "type": "definition",
+   "title": "Kjøretidsfeil",
+   "content": "Programmet starter, men stopper underveis. `KeyError` på en nøkkel som ikke\nfinnes, `IndexError` på en plass utenfor lista, `ZeroDivisionError` på en tom\nsamling, `TypeError` når du prøver å skjøte en tekst og et tall.\n\nFeilmeldingens **siste linje** sier hva som gikk galt, og linjene over sier hvor.\nDet er derfor du alltid leser nedenfra og opp.\n\nKjøretidsfeil er lette å oppdage så snart programmet kjøres — men på en\nhjelpemiddelfri eksamen kjører ingenting. Derfor er kanttilfellene noe du må\nprøve i hodet, ikke i maskinen."
+  },
+  {
+   "id": "in1000-4-2-6",
+   "type": "definition",
+   "title": "Logisk feil",
+   "content": "Programmet kjører uten en eneste feilmelding, og gir **feil svar**.\n\nDette er sjanger I. Det er den vanskeligste feiltypen, fordi ingenting varsler\ndeg: koden ser rimelig ut, den gir et resultat, og resultatet er galt.\n\nDe logiske feilene i faget er påfallende få og faste: en test som ikke slår til\nved likhet, en `return` som står inne i løkka i stedet for etter, en teller som\naldri ble initialisert, en løkkegrense som er én for stor eller liten, og en\n«ikke funnet»-verdi som kolliderer med ekte data.\n\nFem mønstre — og du finner dem alle ved å spore koden på **kritiske inndata**."
+  },
+  {
+   "id": "in1000-4-2-7",
+   "type": "example",
+   "title": "Eksempel 1: Samme funksjon, tre slags feil",
+   "problem": "Tre studenter har skrevet hver sin versjon av en funksjon som skal telle hvor\nmange tall i en liste som er større enn null. Hvilken feiltype har hver av dem,\nog hvilken er farligst?\n\n**Versjon A**\n\n```text\ndef tell_positive(tallene)\n    antall = 0\n    for t in tallene:\n        if t > 0:\n            antall = antall + 1\n    return antall\n```\n\n**Versjon B**\n\n```text\ndef tell_positive(tallene):\n    for t in tallene:\n        if t > 0:\n            antall = antall + 1\n    return antall\n```\n\n**Versjon C**\n\n```text\ndef tell_positive(tallene):\n    antall = 0\n    for t in tallene:\n        if t > 0:\n            antall = antall + 1\n        return antall\n```",
+   "solution": "**Versjon A — syntaksfeil.** Kolonet mangler etter `def`-linja. Python nekter å\nkjøre programmet, og sier `SyntaxError: invalid syntax` med linjenummeret. Den\ner ufarlig fordi den stopper alt før noe rekker å bli galt.\n\n**Versjon B — kjøretidsfeil.** Telleren er aldri initialisert. Programmet\nstopper med `UnboundLocalError: local variable 'antall' referenced before\nassignment`.\n\nHer er det verdt å stoppe opp ett øyeblikk. Fordi `antall` **tilordnes** inne i\nfunksjonen, regner Python navnet som lokalt i hele kroppen — også på siste linje.\nDerfor krasjer funksjonen på **alle** lister, også den tomme: `return antall`\nleser det samme lokale navnet, som aldri fikk noen verdi. Mekanikken er den samme\nsom i feilkode #12, scope-forvirring.\n\n**Versjon C — logisk feil.** Se innrykket på siste linje: `return` står **inne i\nløkka**. Funksjonen kjører, gir ingen feilmelding, og svarer alltid på grunnlag\nav bare det første tallet.\n\n```python\ndef tell_positive(tallene):\n    antall = 0\n    for t in tallene:\n        if t > 0:\n            antall = antall + 1\n        return antall\n\nprint(tell_positive([5, 3, 8]))\nprint(tell_positive([-2, 4, 9]))\nprint(tell_positive([]))\n```\n\n**Utskrift:**\n```\n1\n0\nNone\n```\n\nTre svar, og alle tre er gale bortsett fra kanskje det siste. Lista `[5, 3, 8]`\nhar tre positive tall, ikke ett. Lista `[-2, 4, 9]` har to, ikke null. Og den\ntomme lista gir `None`, fordi løkka aldri kjørte og `return` derfor aldri ble\nnådd — funksjonen har ingen retur etter løkka.\n\n**Versjon C er den farligste**, og det er nettopp derfor eksamen spør om den. De\nto andre finner maskinen for deg. Denne må du finne selv."
+  },
+  {
+   "id": "in1000-4-2-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — ren gjengivelse.) For hver av de fire beskrivelsene under:\ner det en **syntaksfeil**, en **kjøretidsfeil** eller en **logisk feil**?\n\n**a)** Programmet skriver ut `12` der det skulle stått `3`, uten noen\nfeilmelding.\n\n**b)** Programmet stopper med `KeyError: 'plast'`.\n\n**c)** Python nekter å kjøre programmet og peker på en `if`-linje uten kolon.\n\n**d)** Funksjonen svarer riktig på alle lister med minst to elementer, men galt\npå lister med ett.",
+    "solution": "**a)** **Logisk feil.** Programmet kjører fint og gir feil svar — her sannsynligvis\nfordi to tekster ble skjøtet i stedet for at to tall ble lagt sammen.\n\n**b)** **Kjøretidsfeil.** Programmet startet, men stoppet underveis fordi en\nnøkkel ikke fantes.\n\n**c)** **Syntaksfeil.** Skrivemåten er ugyldig, og ingenting kjøres.\n\n**d)** **Logisk feil.** Ingen feilmelding, men galt svar — og det på et\nkanttilfelle. Nettopp den formen er kjernen i sjanger I.\n\nMerk mønsteret: de to første feiltypene forteller deg selv hva som er galt. De\nlogiske gjør ikke det, og de er derfor de eneste som er verdt å drille.",
+    "hints": [
+     "Fikk du en feilmelding, eller bare et galt svar?",
+     "Stoppet programmet før det startet, eller underveis?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-8",
+   "type": "text",
+   "content": "## Løkke 2 — Moteksempelet (~12 min)\n\nNå kommer selve formkravet. Når oppgaven sier «gi et eksempel som viser at\nfunksjonen er feil», ber den om noe helt bestemt — og de fleste svarer på et\nannet spørsmål enn det som ble stilt."
+  },
+  {
+   "id": "in1000-4-2-9",
+   "type": "definition",
+   "title": "Moteksempel",
+   "content": "**Ett konkret kall, med konkrete verdier, og det gale utfallet skrevet ut.**\n\nFormen er alltid den samme:\n\n«`storst(4, 4, 4)` gir `None`, men skulle gitt `4`.»\n\nTre deler: kallet, svaret funksjonen faktisk gir, og svaret den skulle gitt. Alle\ntre må være med.\n\nEn forklaring i ord — «funksjonen håndterer ikke like verdier» — er ikke et\nmoteksempel. Den kan gjerne stå **i tillegg**, som en setning etterpå. Men\nkallet er det sensor krysser av for."
+  },
+  {
+   "id": "in1000-4-2-10",
+   "type": "theorem",
+   "title": "Slik finner du et moteksempel — fire steg",
+   "content": "**Steg 1 — Les hva funksjonen skal gjøre.** Skriv den ene setningen ned. Uten\nden vet du ikke hva som er galt.\n\n**Steg 2 — Prøv kanttilfellene, i denne rekkefølgen.** Tom samling. Ett element.\nTo like verdier. Ingen treff. En verdi som ligger nøyaktig på en grense. Det er\nher feilene bor, og det er sjelden nødvendig å lete lenger.\n\n**Steg 3 — Spor koden på det ene tilfellet.** Bruk tavla fra\n[kap. 4.1](/bok/in1000/in1000-4-1). Ikke gjett hva som skjer — regn det ut.\n\n**Steg 4 — Skriv de tre delene.** Kallet, det gale svaret, det riktige svaret.\n\nOg et viktig valg i steg 2: **moteksempelet må treffe feilen.** Har en\nfinn-beste-funksjon glemt å oppdatere `beste_antall`, svarer den likevel riktig\npå data der den største verdien står sist. Velger du de dataene, har du bevist\ningenting."
+  },
+  {
+   "id": "in1000-4-2-11",
+   "type": "definition",
+   "title": "Kritisk inndata",
+   "content": "De fem tilfellene du alltid prøver først, fordi det er der koden ryker:\n\n1. **Tom samling** — `[]`, `{}`, `\"\"`. Løkker tåler den; indeksering og divisjon\n   gjør det ikke.\n2. **Ett element** — avslører løkker som forutsetter minst to, for eksempel når\n   man sammenligner naboer.\n3. **Like verdier** — avslører tester som bruker `>` der `>=` trengs.\n4. **Ingen treff** — avslører manglende «ikke funnet»-håndtering.\n5. **En verdi på grensen** — avslører av-med-én og kantfeil.\n\nLista er kort nok til å huskes, og den dekker praktisk talt alle sjanger\nI-oppgavene i arkivet. Bruk den også på din egen kode i Oppgave 3 og 4."
+  },
+  {
+   "id": "in1000-4-2-12",
+   "type": "example",
+   "title": "Eksempel 2: Fra mistanke til moteksempel",
+   "problem": "En student skal skrive `storst(a, b, c)` som returnerer den største av tre tall.\nHun leverer:\n\n```text\ndef storst(a, b, c):\n    if a > b and a > c:\n        return a\n    if b > a and b > c:\n        return b\n    if c > a and c > b:\n        return c\n```\n\nFinn feilen, gi et moteksempel, og rett funksjonen.",
+   "solution": "**Steg 1 — Hva skal den gjøre?** Returnere den største av tre tall. For tre like\ntall skal den returnere det tallet.\n\n**Steg 2 — Kanttilfellene.** Tre like verdier er punkt 3 på lista, og her ser\ndet umiddelbart mistenkelig ut: alle tre testene bruker `>`, som er usann ved\nlikhet.\n\n**Steg 3 — Spor på `storst(4, 4, 4)`.**\n\n| Test | Utregning | Utfall |\n|---|---|---|\n| `a > b and a > c` | `4 > 4 and 4 > 4` | usann |\n| `b > a and b > c` | `4 > 4 and 4 > 4` | usann |\n| `c > a and c > b` | `4 > 4 and 4 > 4` | usann |\n\nIngen `return` kjøres, funksjonen faller ut nederst — og en funksjon uten `return`\ngir `None`.\n\n**Steg 4 — Moteksempelet:**\n\n> `storst(4, 4, 4)` gir `None`, men skulle gitt `4`. Årsaken er at alle tre\n> testene bruker `>`, som er usann når verdiene er like.\n\nMerk at `storst(4, 4, 1)` også ville avslørt feilen, mens `storst(9, 4, 1)` ikke\nville det — der er svaret riktig. **Velg data der feilen faktisk slår ut.**\n\n**Rettelsen.** Å bytte alle `>` til `>=` virker, men er klønete. Den rene\nløsningen er finn-beste-mønsteret, som ikke har problemet i det hele tatt:\n\n```python\ndef storst(a, b, c):\n    beste = a\n    if b > beste:\n        beste = b\n    if c > beste:\n        beste = c\n    return beste\n\nprint(storst(4, 4, 4), storst(2, 9, 5), storst(7, 7, 1))\n```\n\n**Utskrift:**\n```\n4 9 7\n```\n\n**Slik ville sensor sett på det:** moteksempelet er hovedpoenget og gir mest.\nForklaringen i én setning gir litt til. Rettelsen gir resten — og en rettelse som\nbytter mønster i stedet for å lappe, viser at du har forstått hvorfor feilen\noppsto."
+  },
+  {
+   "id": "in1000-4-2-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En sykkelutleie vil vite om alle\nstativene er tomme. En student leverer:\n\n```text\ndef alle_tomme(stativene):\n    for antall in stativene:\n        if antall == 0:\n            return True\n        else:\n            return False\n```\n\n**a)** Hva returnerer `alle_tomme([0, 4, 0])`?\n\n**b)** Gi et konkret moteksempel og forklar i én setning hvorfor det går galt.\n\n**c)** Rett feilen.",
+    "solution": "**a)** `True`. Det første stativet er tomt, så `return True` kjøres med én gang —\nog de to andre blir aldri undersøkt.\n\n**b)** Moteksempelet er kallet `alle_tomme([0, 4, 0])`, som gir `True` selv om\ndet står fire sykler i det andre stativet. Årsaken er at **begge** `return`-ene\nstår inne i løkka, slik at det aller første stativet avgjør hele svaret.\n\nLegg merke til valget av data: `alle_tomme([4, 0, 0])` ville gitt `False`, som\ntilfeldigvis er riktig svar. Moteksempelet må ha et **tomt** stativ først, ellers\navslører det ingenting.\n\n**c)** Behold bare `return False` inne i løkka, snu betingelsen, og flytt\n`return True` ut:\n\n```python\ndef alle_tomme(stativene):\n    for antall in stativene:\n        if antall != 0:\n            return False\n    return True\n\nprint(alle_tomme([0, 4, 0]), alle_tomme([0, 0]), alle_tomme([]))\n```\n\n**Utskrift:**\n```\nFalse True True\n```\n\nDette er feilkode #7 — for tidlig `return`. Kjennetegnet er at **begge**\n`return`-ene står inne i samme løkke. Det svaret som krever at du har sett alt,\nhører etter løkka.",
+    "hints": [
+     "Hvor mange runder rekker løkka å kjøre før en `return` treffer?",
+     "Velg et moteksempel der det første elementet er tomt."
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En værstasjon lagrer temperaturer i en\nordbok fra dag til grader. En student skriver en oppslagsfunksjon som skal si\nfra når dagen ikke finnes:\n\n```text\ndef hent_temperatur(maalinger, dag):\n    if dag in maalinger:\n        return maalinger[dag]\n    return -1\n```\n\n**a)** Hva returnerer `hent_temperatur({\"mandag\": -1}, \"mandag\")`?\n\n**b)** Hva returnerer `hent_temperatur({\"mandag\": -1}, \"fredag\")`?\n\n**c)** Forklar hvorfor de to svarene er et problem, og foreslå en rettelse.",
+    "solution": "**a)** `-1` — den ekte temperaturen på mandag, som var én minusgrad.\n\n**b)** `-1` — verdien funksjonen bruker for «dagen finnes ikke».\n\n**c)** De to kallene betyr helt forskjellige ting, men gir **samme svar**. Den som\nkaller funksjonen, kan umulig skille «det var én minusgrad» fra «vi har ingen\nmåling». Dette er feilkode #10, **sentinel-kollisjon**: verdien som skal bety\n«ikke funnet», er også gyldige data.\n\nMerk at fellen er usynlig så lenge du tester på sommertemperaturer. Den dukker\nopp først i november, og da har koden vært i bruk lenge.\n\n**Rettelsen** er å velge en verdi som **aldri** kan være ekte data. `None` er det\nnaturlige valget:\n\n```python\ndef hent_temperatur(maalinger, dag):\n    if dag in maalinger:\n        return maalinger[dag]\n    return None\n\nprint(hent_temperatur({\"mandag\": -1}, \"mandag\"))\nprint(hent_temperatur({\"mandag\": -1}, \"fredag\"))\n```\n\n**Utskrift:**\n```\n-1\nNone\n```\n\nNå er de to tilfellene skilt fra hverandre.\n\n**Når er `-1` likevel greit?** Når svaret er en **plass** i en liste, siden en\nplass aldri kan være negativ. Det er derfor `plassen_til(...)` trygt kan\nreturnere `-1`, mens en temperatur, en saldo eller en høydeforskjell ikke kan\ndet.",
+    "hints": [
+     "Hva er den ekte verdien til nøkkelen `mandag`?",
+     "Kan den som kaller funksjonen se forskjell på de to svarene?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-13",
+   "type": "text",
+   "content": "## Løkke 3 — De fem faste feilene (~13 min)\n\nSjanger I henter feilene sine fra en kort liste. Kjenner du de fem mønstrene på\nsynet, finner du feilen på under et minutt — og du unngår å lage den selv i\nOppgave 3 og 4."
+  },
+  {
+   "id": "in1000-4-2-14",
+   "type": "definition",
+   "title": "Likhetsfella",
+   "content": "En test som bruker `>` eller `<` der oppgaven mener «minst» eller «høyst».\n\nKjennetegnet er at funksjonen svarer riktig på alt unntatt verdier som ligger\n**nøyaktig** på grensen. En aldersgrense på 18 som bruker `alder > 18`, utelukker\nalle 18-åringer.\n\nMoteksempelet skriver seg selv: bruk grenseverdien. Og les oppgaveteksten\nnøye — «over», «minst», «fra og med» og «under» betyr fire ulike ting."
+  },
+  {
+   "id": "in1000-4-2-15",
+   "type": "definition",
+   "title": "For tidlig `return`",
+   "content": "Begge svarene står inne i løkka, så det første elementet avgjør alt.\n\nKjennetegnet er lett å se: `return True` og `return False` i samme løkkekropp,\nofte med `if`/`else`. Det svaret som krever at du har sett **alle** elementene,\nhører etter løkka.\n\nMoteksempelet må ha et første element som gir «feil» svar — ellers svarer den\ngale funksjonen tilfeldigvis riktig.\n\nDette er feilkode #7, og den er den mest dokumenterte enkeltfeilen i fagets\nløsningsforslag."
+  },
+  {
+   "id": "in1000-4-2-16",
+   "type": "definition",
+   "title": "Manglende initialisering",
+   "content": "En teller eller en samling som brukes før den er opprettet.\n\nTo varianter. `antall = antall + 1` uten `antall = 0` før løkka gir `NameError`.\nOg `d[k] = d[k] + 1` uten `if k not in d: d[k] = 0` gir `KeyError` — det er\nfeilkode #14.\n\nKjennetegnet er at feilen slår til på **første** runde med data, men ikke på tom\ninndata. En funksjon som virker perfekt på den tomme lista og krasjer på alt\nannet, har nesten alltid denne feilen."
+  },
+  {
+   "id": "in1000-4-2-17",
+   "type": "definition",
+   "title": "Av-med-én",
+   "content": "En løkkegrense som er én for stor eller én for liten.\n\nDe tre variantene du møter: `range(len(liste))` når koden inni bruker\n`liste[i + 1]` — da ryker siste runde. `range(1, len(liste))` når du egentlig\nville hatt med det første elementet. Og `liste[len(liste)]`, som aldri finnes.\n\nKjennetegnet er at funksjonen enten krasjer med `IndexError` på siste element,\neller stille hopper over ett element i hver ende.\n\nMoteksempelet er en kort liste — to eller tre elementer. Da er én for mye eller\nfor lite lett å se. Dette er feilkode #5 og #6."
+  },
+  {
+   "id": "in1000-4-2-18",
+   "type": "definition",
+   "title": "Sentinel-kollisjon",
+   "content": "En «ikke funnet»-verdi som også kan være ekte data.\n\n`-1` for «ikke funnet» er trygt når svaret er en **plass** i en liste, siden en\nplass aldri er negativ. Det er ikke trygt når svaret er en temperatur, en saldo,\nen høydeforskjell eller et hvilket som helst tall som kan være negativt.\n\n`0` er enda farligere: null er gyldig i nesten alle sammenhenger.\n\n**`None` er det trygge valget**, fordi det aldri kan forveksles med et tall. Det\ner derfor finn-beste-mønsteret i boka starter med `beste = None`. Dette er\nfeilkode #10."
+  },
+  {
+   "id": "in1000-4-2-19",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fire ting koster poeng i sjanger I, og bare den første handler om koden:\n\n- **Å svare med en forklaring i stedet for et moteksempel.** «Funksjonen\n  håndterer ikke like verdier» er en halv besvarelse. Kallet, det gale svaret og\n  det riktige svaret er en hel.\n- **Å velge data der feilen ikke slår ut.** En ødelagt finn-beste svarer riktig\n  når den største verdien står sist. Prøv moteksempelet ditt i hodet før du\n  skriver det ned.\n- **Å påstå at koden krasjer når den ikke gjør det.** De fleste sjanger\n  I-oppgavene har **logiske** feil: programmet kjører fint og svarer galt. Skriv\n  hva den faktisk returnerer.\n- **Å rette mer enn det som er galt.** Rettelsen skal være minst mulig, eller —\n  når feilen kommer av feil mønster — hele mønsteret byttet ut. Ikke skriv om\n  variabelnavn og struktur samtidig; det gjør det vanskelig for sensor å se hva\n  du mente.\n\nOg én ting til: **det er lov å si at koden er riktig.** Flervalgsvarianten har\nofte med en påstand som stemmer."
+  },
+  {
+   "id": "in1000-4-2-20",
+   "type": "example",
+   "title": "Eksempel 3: Full eksamensoppgave i sjanger I",
+   "problem": "**Oppgave 2c (5 poeng).** Et bibliotek vil finne den boka som er lånt ut flest\nganger. En student leverer:\n\n```text\ndef mest_utlant(utlan):\n    beste = None\n    beste_antall = 0\n    for tittel in utlan:\n        if utlan[tittel] > beste_antall:\n            beste = tittel\n    return beste\n```\n\n**a)** Gi et konkret moteksempel som viser at funksjonen er feil.\n\n**b)** Forklar i én setning hva som er galt.\n\n**c)** Rett feilen.",
+   "solution": "**a) Moteksempelet.** Først må vi velge data der feilen slår ut. Siden\n`beste_antall` aldri oppdateres, står den på 0 gjennom hele løkka, og enhver\npositiv verdi er større enn 0. Betingelsen slår derfor til på **hver** runde, og\nsvaret blir den **siste** nøkkelen.\n\nDet betyr at data der den største verdien står sist, ville gitt riktig svar ved\net uhell. Moteksempelet må ha den største verdien et annet sted:\n\n> `mest_utlant({\"atlas\": 9, \"kart\": 1})` gir `\"kart\"`, men skulle gitt\n> `\"atlas\"`.\n\n**b) Forklaringen.** Funksjonen oppdaterer `beste`, men glemmer å oppdatere\n`beste_antall`, slik at alle verdiene sammenlignes mot 0 i stedet for mot den\nbeste hittil.\n\n**c) Rettelsen.** Én linje, satt inn rett etter den som allerede står der:\n\n```python\ndef mest_utlant(utlan):\n    beste = None\n    beste_antall = 0\n    for tittel in utlan:\n        if utlan[tittel] > beste_antall:\n            beste = tittel\n            beste_antall = utlan[tittel]\n    return beste\n\nprint(mest_utlant({\"atlas\": 9, \"kart\": 1}))\nprint(mest_utlant({\"kart\": 1, \"atlas\": 9}))\nprint(mest_utlant({}))\n```\n\n**Utskrift:**\n```\natlas\natlas\nNone\n```\n\nDe to første kallene har samme data i motsatt rekkefølge, og gir nå samme svar.\nDet er nettopp den kontrollen som avslører feilen.\n\n**Slik ville sensor sett på det (5 p):** moteksempelet med både galt og riktig\nsvar (2 p), forklaringen i én setning (1 p), rettelsen (2 p). Et moteksempel som\nikke avslører feilen, gir ingenting — så bruk ti sekunder på å sjekke at det\nfaktisk gjør det.\n\n**Og legg merke til kontrollen som ville forhindret hele feilen:** teller\n`if`-blokken like mange variabler som du satte før løkka? To før, én inni. Det\ner alt som skal til."
+  },
+  {
+   "id": "in1000-4-2-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En kantine gir studentrabatt til alle\nsom er 25 år eller yngre. En student leverer:\n\n```text\ndef har_rabatt(alder):\n    if alder < 25:\n        return True\n    return False\n```\n\n**a)** Gi et konkret moteksempel.\n\n**b)** Rett feilen med minst mulig endring.\n\n**c)** Hvilke fire ord i en oppgavetekst må du lese ekstra nøye for å unngå denne\nfeilen?",
+    "solution": "**a)** Moteksempelet er kallet `har_rabatt(25)`, som gir `False` selv om en\n25-åring skal ha rabatt. Årsaken er at testen bruker `<` der oppgaven sier «eller\nyngre», altså «25 eller mindre».\n\n**b)** Bytt `<` til `<=`. Det er én tegns endring:\n\n```python\ndef har_rabatt(alder):\n    if alder <= 25:\n        return True\n    return False\n\nprint(har_rabatt(24), har_rabatt(25), har_rabatt(26))\n```\n\n**Utskrift:**\n```\nTrue True False\n```\n\nKontrollen er de tre kallene: én under grensen, én **på** grensen og én over.\nPrøv alltid alle tre.\n\n**c)** «Over», «under», «minst» og «høyst». De fire betyr fire ulike ting, og de\navgjør om testen skal ha likhetstegn eller ikke.\n\nEn huskeregel: ordene «minst», «høyst», «eller mer», «eller mindre» og «til og\nmed» tar **med** grenseverdien og krever `>=` eller `<=`. Ordene «over», «under»,\n«større enn» og «mindre enn» gjør det ikke.",
+    "hints": [
+     "Prøv nøyaktig grenseverdien fra oppgaveteksten.",
+     "Tar ordet «eller yngre» med 25-åringene?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En værstasjon vil regne ut hvor mye\ntemperaturen endret seg fra én måling til den neste. En student leverer:\n\n```text\ndef endringer(maalinger):\n    ny = []\n    for i in range(len(maalinger)):\n        ny.append(maalinger[i + 1] - maalinger[i])\n    return ny\n```\n\n**a)** Hva skjer når funksjonen kalles med `[4, 9, 7]`?\n\n**b)** Gi et konkret moteksempel og forklar i én setning hvorfor det går galt.\n\n**c)** Rett feilen, og forklar hvor mange elementer resultatet skal ha.",
+    "solution": "**a)** Programmet stopper med `IndexError: list index out of range`. De to\nførste rundene går fint, men i siste runde er `i` lik 2, og `maalinger[3]` finnes\nikke i en liste med tre elementer.\n\n**b)** Moteksempelet er kallet `endringer([4, 9, 7])`, som stopper med\n`IndexError` i stedet for å gi `[5, -2]`. Årsaken er at løkka går én runde for\nlangt: den bruker `maalinger[i + 1]`, men stopper først på `len(maalinger)`.\n\nMerk at feilen slår ut på **alle** ikke-tomme lister. Den tomme lista går fint,\nfordi løkka aldri kjører — nok et eksempel på at en helt gal funksjon kan virke\npå ett kanttilfelle.\n\n**c)** Grensen må være én mindre:\n\n```python\ndef endringer(maalinger):\n    ny = []\n    for i in range(len(maalinger) - 1):\n        ny.append(maalinger[i + 1] - maalinger[i])\n    return ny\n\nprint(endringer([4, 9, 7]))\nprint(endringer([5]))\nprint(endringer([]))\n```\n\n**Utskrift:**\n```\n[5, -2]\n[]\n[]\n```\n\n**Resultatet skal ha én færre enn inndataene.** Tre målinger gir to endringer,\nfem gir fire, og én måling gir ingen. Det er en kontroll du kan gjøre uten å\nkjøre koden: **teller du like mange endringer som målinger, har du bommet på\ngrensen.**\n\nDette er feilkode #5 og #6 i kombinasjon.",
+    "hints": [
+     "Hvilken verdi har `i` i siste runde, og hva er da `i + 1`?",
+     "Hvor mange avstander får du mellom tre tall?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En brettspillklubb vil telle hvor\nmange ganger hvert spill er lånt ut. En student leverer:\n\n```text\ndef tell(spillene):\n    antall = {}\n    for spill in spillene:\n        antall[spill] = antall[spill] + 1\n    return antall\n```\n\n**a)** Hva returnerer `tell([])`?\n\n**b)** Hva skjer med `tell([\"sjakk\"])`?\n\n**c)** Gi et moteksempel, forklar feilen, og rett den.",
+    "solution": "**a)** Den tomme ordboka `{}`. Løkka kjører null runder, så funksjonen returnerer\nordboka slik den ble laget. **Dette er helt riktig svar** — den gale funksjonen\nvirker på den tomme lista.\n\n**b)** Programmet stopper med `KeyError: 'sjakk'`. Første gang spillet dukker\nopp, slår `antall[spill] + 1` opp en nøkkel som ikke finnes ennå.\n\n**c)** Moteksempelet er kallet `tell([\"sjakk\"])`, som stopper med\n`KeyError: 'sjakk'` i stedet for å gi `{'sjakk': 1}`. Årsaken er at koden leser\nden gamle verdien før den har sørget for at nøkkelen finnes.\n\nRettelsen er de to linjene som mangler foran økningen:\n\n```python\ndef tell(spillene):\n    antall = {}\n    for spill in spillene:\n        if spill not in antall:\n            antall[spill] = 0\n        antall[spill] = antall[spill] + 1\n    return antall\n\nprint(tell([\"sjakk\", \"yatzy\", \"sjakk\"]))\nprint(tell([\"sjakk\"]))\nprint(tell([]))\n```\n\n**Utskrift:**\n```\n{'sjakk': 2, 'yatzy': 1}\n{'sjakk': 1}\n{}\n```\n\nDette er feilkode #14. Legg merke til hva deloppgave a og b sammen viser:\nfunksjonen er **helt** gal, men virker likevel på den tomme lista. Det er derfor\net moteksempel aldri skal velges blant kanttilfellene alene — prøv også et helt\nvanlig kall.",
+    "hints": [
+     "Hva er verdien til `antall[spill]` aller første gang spillet dukker opp?",
+     "Hvorfor går den tomme lista fint, når alt annet krasjer?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-21",
+   "type": "text",
+   "content": "## Løkke 4 — Flervalgsvarianten (~8 min)\n\nDen andre formen sjanger I opptrer i, er et flervalg i Oppgave 1: du får en\nkodesnutt og fire påstander, og skal krysse av for dem som stemmer. Metoden er\nden samme, men to ting skiller."
+  },
+  {
+   "id": "in1000-4-2-22",
+   "type": "definition",
+   "title": "Flervalg om feil i et program",
+   "content": "Formen er: én kodesnutt, fire påstander, og beskjed om å krysse av for **alle**\nsom er riktige.\n\nTo ting skiller den fra fritekstvarianten. Det ene er at **noen av påstandene er\nsanne** — det er ikke gitt at koden er feil i det hele tatt, og en påstand av\ntypen «funksjonen virker som beskrevet» kan godt være riktig.\n\nDet andre er at **blankt er feil**. Er du usikker, krysser du av likevel — det\nkoster ingenting å gjette, og et blankt felt gir garantert null.\n\nMetoden er å prøve hver påstand mot ett konkret kall, akkurat som når du leter\netter et moteksempel."
+  },
+  {
+   "id": "in1000-4-2-23",
+   "type": "example",
+   "title": "Eksempel 4: Flervalget, påstand for påstand",
+   "problem": "**Oppgave 1g (3 poeng).** Se på funksjonen:\n\n```text\ndef snitt(tallene):\n    total = 0\n    for t in tallene:\n        total = total + t\n    return total / len(tallene)\n```\n\nKryss av for påstandene som er riktige.\n\n**a)** Funksjonen gir riktig gjennomsnitt for `[2, 4]`.\n\n**b)** Funksjonen stopper med en feilmelding for den tomme lista.\n\n**c)** Funksjonen returnerer et heltall når summen går opp i antallet.\n\n**d)** Funksjonen endrer lista den får inn.",
+   "solution": "Prøv hver påstand mot ett konkret kall. Det tar under et minutt til sammen.\n\n**a) Riktig.** Summen er 6, lengden er 2, og `6 / 2` er `3.0` — riktig\ngjennomsnitt.\n\n**b) Riktig.** Den tomme lista gir `len(tallene)` lik 0, og divisjon på null\nstopper programmet med `ZeroDivisionError`. Det er feilkode #6, og det er den\nekte feilen i funksjonen.\n\n**c) Galt.** `/` gir **alltid** desimaltall. `6 / 2` er `3.0`, ikke `3`.\n\n**d) Galt.** Funksjonen leser bare fra lista; ingen `append` og ingen tilordning\ntil `tallene[i]`.\n\nDe riktige svarene er altså **a** og **b** — og legg merke til at a er riktig\nselv om funksjonen har en feil. Påstanden gjaldt bare det ene kallet.\n\n```python\ndef snitt(tallene):\n    total = 0\n    for t in tallene:\n        total = total + t\n    return total / len(tallene)\n\nprint(snitt([2, 4]))\nprint(snitt([1, 2, 3]))\n```\n\n**Utskrift:**\n```\n3.0\n2.0\n```\n\n**Slik ville sensor sett på det (3 p):** poeng per riktig avkryssing, ofte med\ntrekk for gale. Men **blankt gir garantert null**, så kryss av på det du tror.\n\nOg merk hvordan påstand c tester noe helt annet enn de andre: den handler om\n**typen** på svaret, ikke om logikken. Slike påstander er nesten alltid med, og\nde fanger dem som ikke har lest [kap. 4.1](/bok/in1000/in1000-4-1) nøye nok."
+  },
+  {
+   "id": "in1000-4-2-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — flervalg om feil.) Se på funksjonen:\n\n```text\ndef forste_over(tallene, grense):\n    for i in range(len(tallene)):\n        if tallene[i] > grense:\n            return i\n    return 0\n```\n\nFunksjonen skal returnere plassen til det første tallet som er større enn\ngrensen, eller si fra hvis det ikke finnes noe slikt tall.\n\nHvilke av påstandene er riktige?\n\n**a)** `forste_over([3, 9, 5], 4)` gir `1`.\n\n**b)** Funksjonen kan ikke skille «ingen tall over grensen» fra «det første\ntallet er over grensen».\n\n**c)** Funksjonen stopper med `IndexError` for den tomme lista.\n\n**d)** `return 0` burde vært `return -1` eller `return None`.",
+    "solution": "**a) Riktig.** Tallet 9 står på plass 1 og er det første over 4, så funksjonen\nreturnerer `1`.\n\n**b) Riktig.** Dette er den ekte feilen. `forste_over([9, 1], 4)` gir `0` fordi\ndet første tallet er over grensen — og `forste_over([1, 2], 4)` gir også `0`,\nfordi ingen tall er over. Samme svar, to helt ulike situasjoner. Det er feilkode\n#10, **sentinel-kollisjon**.\n\n**c) Galt.** Løkka kjører null runder over en tom liste, så funksjonen går rett\ntil `return 0` og krasjer ikke. Igjen: den gale funksjonen virker teknisk sett på\nkanttilfellet.\n\n**d) Riktig.** `-1` er trygt her fordi svaret er en **plass**, og en plass kan\naldri være negativ. `None` er enda tydeligere. Begge fjerner kollisjonen.\n\nRiktige svar: **a, b og d**.\n\nRettet versjon:\n\n```python\ndef forste_over(tallene, grense):\n    for i in range(len(tallene)):\n        if tallene[i] > grense:\n            return i\n    return -1\n\nprint(forste_over([3, 9, 5], 4))\nprint(forste_over([9, 1], 4))\nprint(forste_over([1, 2], 4))\nprint(forste_over([], 4))\n```\n\n**Utskrift:**\n```\n1\n0\n-1\n-1\n```\n\nNå betyr `0` entydig «plass null», og `-1` betyr «ingen». Legg merke til at tre\nav de fire påstandene var riktige — det er helt vanlig, og det er derfor du må\nvurdere hver påstand for seg i stedet for å lete etter «den ene rette».",
+    "hints": [
+     "Prøv hver påstand mot ett konkret kall.",
+     "Hva returnerer funksjonen når det første tallet er over grensen?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-4-2-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En frivilligsentral vil holde styr på\nhvor mange timer som er registrert til sammen. En student leverer:\n\n```text\ntotal = 0\n\ndef registrer(timer):\n    total = total + timer\n    return total\n\nregistrer(3)\nregistrer(5)\nprint(total)\n```\n\n**a)** Hva skjer når programmet kjøres?\n\n**b)** Forklar årsaken i én setning, og gi feilkoden.\n\n**c)** Rett programmet uten å bruke globale variabler.",
+    "solution": "**a)** Programmet stopper allerede ved det første kallet, med\n`UnboundLocalError: local variable 'total' referenced before assignment`.\n\n**b)** Fordi det står en tilordning til `total` inne i funksjonen, regnes `total`\nsom **lokal** i hele funksjonskroppen — også på høyre side av likhetstegnet, der\nden ennå ikke har fått noen verdi. Dette er feilkode #12, scope-forvirring.\n\nMerk at feilen ville vært like alvorlig om programmet hadde kjørt. Hadde\nstudenten skrevet `total = timer` i stedet, ville programmet gått fint og skrevet\nut `0` — fordi den lokale variabelen forsvinner når funksjonen returnerer, og\nden ytre aldri røres. Da hadde det vært en **logisk** feil i stedet for en\nkjøretidsfeil, og langt vanskeligere å oppdage.\n\n**c)** Send inn totalen som parameter, og ta imot returverdien:\n\n```python\ndef registrer(total, timer):\n    return total + timer\n\ntotal = 0\ntotal = registrer(total, 3)\ntotal = registrer(total, 5)\nprint(total)\n```\n\n**Utskrift:**\n```\n8\n```\n\nDette er regelen fra [kap. 2.2](/bok/in1000/in1000-2-2): **parameter inn,\nreturverdi ut.** En funksjon kommuniserer resultatet sitt med `return`, ikke ved\nå endre noe utenfor seg selv.\n\nOg legg merke til at `total = registrer(total, 3)` **tar imot** svaret. Uten\ntilordningen ville verdien blitt regnet ut og kastet — samme feil som du så i\n[kap. 3.3](/bok/in1000/in1000-3-3).",
+    "hints": [
+     "Hva gjør en tilordning inne i en funksjon med navnet den tilordner?",
+     "Hvordan kan en funksjon gi et resultat tilbake uten å endre noe utenfor?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-4-2-coll-24",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-4-2-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon eller begrep | Presis betydning |\n|---|---|\n| `SyntaxError` | Ugyldig skrivemåte. Programmet kjøres ikke i det hele tatt. |\n| `IndentationError` | Feil eller manglende innrykk etter et kolon. |\n| `NameError` | Navnet finnes ikke — ofte en teller som aldri ble satt til 0. |\n| `KeyError` | Oppslag på en ordboknøkkel som ikke finnes. Feilkode #14. |\n| `IndexError` | Plass utenfor lista. Feilkode #5 og #6. |\n| `ZeroDivisionError` | Divisjon på null — typisk `len(...)` på en tom samling. |\n| `TypeError` | Operasjon mellom verdier av uforenlig type, eller endring av en tekst. |\n| `UnboundLocalError` | Et navn som leses og tilordnes i samme funksjon. Feilkode #12. |\n| logisk feil | Programmet kjører og svarer **galt**. Ingen melding. Dette er sjanger I. |\n| moteksempel | Ett konkret kall + det gale svaret + det riktige svaret. |\n| kritisk inndata | Tom samling, ett element, like verdier, ingen treff, verdi på grensen. |\n| `>` mot `>=` | «Over» tar ikke med grensen; «minst» og «til og med» gjør det. |\n| `return` inne i løkka | For tidlig retur. Feilkode #7. Det totale svaret hører etter løkka. |\n| sentinel-verdi | «Ikke funnet»-verdi. `-1` er trygt for plasser, `None` er trygt alltid. Feilkode #10. |\n\n**Det som avgjør poeng i sjanger I:** at du leverer et konkret kall, og at kallet\nfaktisk avslører feilen."
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-2-25",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-4-2-26",
+   "type": "definition",
+   "title": "Feilmeldingens siste linje",
+   "content": "Den eneste linja du trenger fra en feilmelding. Den har formen\n`FeilType: forklaring`, for eksempel `KeyError: 'plast'`.\n\nLinjene over sier **hvor** feilen skjedde, nedenfra og opp: den nederste av dem\ner linja i din egen kode.\n\nSkal du gjengi en feilmelding i en besvarelse, skriver du siste linje ordrett —\nikke oversatt til norsk, og ikke omskrevet. Det er den formen sensor kjenner\nigjen."
+  },
+  {
+   "id": "in1000-4-2-27",
+   "type": "definition",
+   "title": "Stum feil",
+   "content": "En feil som verken stopper programmet eller gir en melding — den gir bare feil\nsvar.\n\nAlle de fem faste feilene i dette kapitlet er stumme i minst ett tilfelle: for\ntidlig `return` svarer alltid noe, likhetsfella svarer riktig på alt unntatt\ngrenseverdien, og sentinel-kollisjonen ser helt normal ut til dataene blir\nnegative.\n\nDet er derfor sporing på kritiske inndata er den eneste metoden som virker. Du\nkan ikke vente på at noe skal si fra."
+  },
+  {
+   "id": "in1000-4-2-28",
+   "type": "definition",
+   "title": "Å velge riktig moteksempel",
+   "content": "Et moteksempel som ikke avslører feilen, er verdiløst — og det er lettere å\nlage enn man skulle tro.\n\nEn finn-beste-funksjon som glemmer å oppdatere `beste_antall`, svarer riktig når\nden største verdien står **sist**. En «alle»-funksjon med begge `return` inne i\nløkka, svarer riktig når det første elementet gir riktig svar.\n\nKontrollen tar ti sekunder: spor din egen kandidat i hodet, og se at svaret\nfaktisk blir galt. Blir det riktig, velg andre data."
+  },
+  {
+   "id": "in1000-4-2-29",
+   "type": "definition",
+   "title": "Å foreslå rettelsen",
+   "content": "Rettelsen skal være **minst mulig** — én linje flyttet, ett tegn byttet, to\nlinjer satt inn.\n\nUnntaket er når feilen kommer av at studenten har valgt feil mønster. Da er den\nbeste rettelsen å bytte hele mønsteret, slik `storst` ble skrevet om til\nfinn-beste. Skriv i så fall én setning om hvorfor.\n\nIkke gjør begge deler samtidig. Å rette feilen og samtidig bytte variabelnavn og\nstruktur gjør det vanskelig for sensor å se hva du mente — og uttellingen følger\ndet sensor kan se."
+  },
+  {
+   "id": "in1000-4-2-30",
+   "type": "definition",
+   "title": "«Er alle»-sjekkens rette form",
+   "content": "Malen du sammenligner den innleverte koden med:\n\n```python\ndef alle_positive(tallene):\n    for t in tallene:\n        if t <= 0:\n            return False\n    return True\n\nprint(alle_positive([3, 5]), alle_positive([3, -1]))\n```\n\n**Utskrift:**\n```\nTrue False\n```\n\nEtt `return` inne i løkka, ett etter. Ser du to inne i samme løkke, er det\nfeilkode #7 — hver gang.\n\nSpeilbildet gjelder for «finnes det noen»: `return True` inne, `return False`\netter."
+  },
+  {
+   "id": "in1000-4-2-31",
+   "type": "definition",
+   "title": "Kontrollen «to før, to inni»",
+   "content": "Den enkleste kontrollen som finnes for finn-beste-mønsteret: teller `if`-blokken\nlike mange variabler som du satte før løkka?\n\nTo startverdier før løkka — `beste` og `beste_antall` — krever to oppdateringer\ninne i `if`-en. Én av hver er den vanligste feilen i hele sjangeren.\n\nKontrollen tar fem sekunder, og den virker på din egen kode like godt som på\nandres. Bruk den hver gang du har skrevet en finn-beste-løkke i Oppgave 3\neller 4."
+  },
+  {
+   "id": "in1000-4-2-32",
+   "type": "definition",
+   "title": "Når `-1` er trygt",
+   "content": "Sentinel-verdien `-1` for «ikke funnet» er trygg **når svaret er en plass** i en\nliste, fordi en plass aldri kan være negativ.\n\nDen er utrygg for alt annet: temperaturer, saldoer, endringer og differanser kan\nalle være negative, og da kolliderer de to betydningene.\n\n`0` er aldri trygt, fordi null er gyldig i nesten enhver sammenheng.\n\nEr du i tvil, bruk `None`. Det kan aldri forveksles med et tall, og det er\ngrunnen til at boka bruker det i finn-beste-mønsteret."
+  },
+  {
+   "id": "in1000-4-2-coll-33",
+   "type": "collapsible",
+   "title": "Repetisjon — de seks setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-4-2-c2",
+     "type": "text",
+     "content": "1. **Tre feiltyper:** syntaksfeil (kjøres ikke), kjøretidsfeil (stopper\n   underveis) og **logisk feil** (kjører og svarer galt). Sjanger I handler om\n   den siste.\n2. **Et moteksempel er ett konkret kall** + det gale svaret + det riktige. En\n   forklaring i ord er en halv besvarelse.\n3. **Prøv kritisk inndata:** tom samling, ett element, like verdier, ingen\n   treff, verdi på grensen.\n4. **Velg data der feilen slår ut.** En ødelagt funksjon svarer ofte riktig på\n   akkurat de dataene du først kommer på.\n5. **De fem faste feilene:** likhetsfella (`>` mot `>=`), for tidlig `return`,\n   manglende initialisering, av-med-én, og sentinel-kollisjon.\n6. **I flervalgsvarianten er noen påstander sanne**, og blankt er alltid feil —\n   kryss av på det du tror."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
