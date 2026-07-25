@@ -1,0 +1,258 @@
+{
+ "id": "in1900-5-prove",
+ "courseId": "in1900",
+ "chapterNumber": "5.P",
+ "title": "Prøver til del 5: Klasser med spesialmetoder",
+ "description": "Fire prøver med full fasit: funksjonsklassen, utskrift og aritmetikk med spesialmetoder, arv og stykkvise funksjoner, og en full flerdelt klasseoppgave på eksamensnivå.",
+ "estimatedMinutes": 155,
+ "competenceGoals": [
+  "kunne skrive en funksjonsklasse der konstruktøren tar det som er fast og kallmetoden det som varierer",
+  "kunne gi et objekt tekst og aritmetikk med spesialmetoder, og alltid returnere en ny instans fra en aritmetisk metode",
+  "kunne bygge en subklasse som regner om parametrene sine og sender dem videre til basisklassen",
+  "kunne løse en flerdelt klasseoppgave under tidspress, med testfunksjon og plott"
+ ],
+ "content": [
+  {
+   "id": "in1900-5-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 5",
+   "content": "**Fire prøver à 35–45 minutter.** Prøvene dekker hele Del 5: funksjonsklassen, spesialmetodene som gir objektet tekst og aritmetikk, arv, og den stykkvise klassen. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 5.A (35 min):** Funksjonsklasse — konstruktør og kallmetode (sjanger G, altså «skriv en klasse med spesialmetoder»).\n- **Prøve 5.B (40 min):** `__str__`, `__add__` og `__mul__` — og regelen om at aritmetikk gir en ny instans (sjanger G).\n- **Prøve 5.C (35 min):** Arv med `super().__init__` og den stykkvise klassen (sjanger G).\n- **Prøve 5.D (45 min):** Full flerdelt oppgave på eksamensnivå — skriv klassen, arv, test og plott (sjanger G).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den. Klasseoppgaven er den tyngste enkeltoppgaven på settet, så det er nettopp denne du bør ha skrevet for hånd noen ganger før du møter den.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 5.B står inline med bokstavsvar; den interaktive quizen til kapitlene 5.1–5.5 er den store flervalgsbanken og tas separat.\n\n**Om poengene:** deloppgavene kan løses uavhengig. Får du ikke til klassen i a), kan du fortsatt få full uttelling på b) og c) ved å bruke den slik oppgaveteksten beskriver. Og riktig klasseoppsett gir god uttelling selv med en detaljfeil inne i en metode."
+  },
+  {
+   "id": "in1900-5-prove-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 5: [kap. 5.1](/bok/in1900/in1900-5-1) om klassen, konstruktøren og den kallbare instansen, [kap. 5.2](/bok/in1900/in1900-5-2) om `__str__`, `__add__` og `__mul__`, [kap. 5.3](/bok/in1900/in1900-5-3) om arv og `super()`, [kap. 5.4](/bok/in1900/in1900-5-4) om stykkvise funksjoner, og [kap. 5.5](/bok/in1900/in1900-5-5) som driller sjangeren.\n\nFra tidligere deler trengs funksjoner og default-argumenter ([kap. 1.6](/bok/in1900/in1900-1-6)), f-strenger og formatert utskrift ([kap. 1.4](/bok/in1900/in1900-1-4)), NumPy-tabeller ([kap. 4.1](/bok/in1900/in1900-4-1)), plotting ([kap. 4.3](/bok/in1900/in1900-4-3)) og testfunksjoner ([kap. 3.1](/bok/in1900/in1900-3-1))."
+  },
+  {
+   "id": "in1900-5-prove-A",
+   "type": "collapsible",
+   "title": "Prøve 5.A — Funksjonsklassen (35 min)",
+   "buttonText": "Vis prøve 1",
+   "content": [
+    {
+     "id": "in1900-5-prove-A-intro",
+     "type": "text",
+     "content": "**Prøve 5.A — funksjonsklassen (35 minutter, sjanger G).** Tre oppgaver: skriv en klasse, spor et program med klasser, og finn feilene i et som ikke virker. Ikke kjør koden."
+    },
+    {
+     "id": "in1900-5-prove-A-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-A-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger G — skriv en klasse med spesialmetoder.) Lys svekkes eksponentielt når det går gjennom et medium. Beer–Lamberts lov sier at intensiteten på dybden $x$ er\n\n$$I(x) = I_0 e^{-\\mu x}$$\n\nder $I_0$ er intensiteten ved overflaten og $\\mu$ er dempingskoeffisienten til mediet, målt per meter.\n\n**a)** Skriv en klasse `Lysdemping` der konstruktøren tar imot $I_0$ og $\\mu$, og der instansen kan kalles som en funksjon av dybden $x$.\n\n**b)** Lag to instanser: ferskvann med $\\mu = 0{,}35$ per meter og optisk glass med $\\mu = 0{,}08$ per meter, begge med $I_0 = 900$. Skriv ut en tabell over intensiteten på dybdene 0, 2, 5 og 10 meter.\n\n**c)** Begrunn hvorfor $I_0$ og $\\mu$ hører hjemme i konstruktøren, mens $x$ hører hjemme i kallmetoden.",
+      "solution": "**a)** og **b)**. Konstruktøren lagrer de to parametrene, kallmetoden regner ut formelen:\n\n```python\nfrom math import exp\n\nclass Lysdemping:\n    def __init__(self, I0, mu):\n        self.I0 = I0\n        self.mu = mu\n\n    def __call__(self, x):\n        return self.I0*exp(-self.mu*x)\n\n\nvann = Lysdemping(900.0, 0.35)\nglass = Lysdemping(900.0, 0.08)\nfor x in [0.0, 2.0, 5.0, 10.0]:\n    print(f'{x:5.1f} {vann(x):8.2f} {glass(x):8.2f}')\n```\n\n**Utskrift:**\n```\n  0.0   900.00   900.00\n  2.0   446.93   766.93\n  5.0   156.40   603.29\n 10.0    27.18   404.40\n```\n\nTi meter ned i ferskvann er det tre prosent igjen av lyset; i glasset er det nesten halvparten.\n\n**c)** $I_0$ og $\\mu$ beskriver **oppsettet**: hvilken lyskilde og hvilket medium du studerer. De er faste så lenge du ser på samme forsøk, og hører derfor i konstruktøren. $x$ er det som **varierer** når du bruker funksjonen — du spør om dybde etter dybde på samme oppsett — og hører derfor i kallmetoden.\n\nArbeidsdelingen er hele poenget med en funksjonsklasse: du setter opp forsøket én gang, og etterpå oppfører instansen seg som en helt vanlig funksjon av én variabel. Den kan sendes videre til alt som forventer en funksjon.\n\nEn kontroll du kan gjøre uten fasit: halveringsdybden er $x = \\ln 2/\\mu$, altså om lag $1{,}98$ meter for vannet.\n\n```python\nfrom math import exp, log\n\nclass Lysdemping:\n    def __init__(self, I0, mu):\n        self.I0 = I0\n        self.mu = mu\n\n    def __call__(self, x):\n        return self.I0*exp(-self.mu*x)\n\n\nvann = Lysdemping(900.0, 0.35)\nprint(f'{log(2)/0.35:.3f}')\nprint(f'{vann(log(2)/0.35):.2f}')\n```\n\n**Utskrift:**\n```\n1.980\n450.00\n```\n\nNøyaktig halvparten av 900. Klassen regner riktig.\n\n**Hva gir uttelling (8 poeng):** `class Lysdemping:` (1 p), `def __init__(self, I0, mu):` med `self` først (1 p), de to attributtene lagret med `self.` (1 p), `def __call__(self, x):` med riktig navn (2 p), formelen med `self.I0` og `self.mu` (1 p), de to instansene og tabellen i b) (1 p), begrunnelsen i c) (1 p).",
+      "hints": [
+       "Konstruktøren tar det som er fast for mediet; kallmetoden tar dybden.",
+       "Alle parametre hentes med `self.` inne i metoden.",
+       "`from math import exp` — nødvendige importer skal alltid med.",
+       "Til c): hva endrer seg når du går fra én dybde til den neste?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-5-prove-A-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-A-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nclass Doser:\n    def __init__(self, dose):\n        self.dose = dose\n        self.gitt = 0\n\n    def __call__(self, antall):\n        self.gitt = self.gitt + antall*self.dose\n        return self.gitt\n\n\nd = Doser(2.5)\nprint(d(2), d(1))\nprint(d.gitt, d.dose)\ne = Doser(2.5)\nprint(e.gitt, d.gitt)\n```",
+      "solution": "**Sporingstavle.** Instansen husker mellom kallene, fordi `self.gitt` er et attributt og ikke en lokal variabel. Argumentene i et `print`-kall regnes ut fra venstre mot høyre.\n\n| Steg | Uttrykk | `d.dose` | `d.gitt` etterpå | Verdien uttrykket gir |\n|---|---|---|---|---|\n| 1 | `d = Doser(2.5)` | 2.5 | 0 | — |\n| 2 | `d(2)` | 2.5 | 5.0 | 5.0 |\n| 3 | `d(1)` | 2.5 | 7.5 | 7.5 |\n| 4 | `e = Doser(2.5)` | — | `e.gitt` er 0 | — |\n\n**Utskrift:**\n```\n5.0 7.5\n7.5 2.5\n0 7.5\n```\n\nTre ting å merke seg. For det første er `d(2)` regnet ut **før** `d(1)`, så den første verdien er 5.0 og ikke 7.5. For det andre er `d.gitt` etterpå 7.5 — akkurat den verdien det siste kallet ga, fordi attributtet er oppdatert underveis. For det tredje er `e.gitt` fortsatt 0: `e` er en **egen** instans med sine egne attributter, selv om den er laget med samme dose.\n\nLegg også merke til at `0` skrives uten desimalpunktum mens `5.0` har det. Startverdien er heltallet `0`, og først når det legges til noe med desimaler, blir resultatet et flyttall.\n\nFellenote: fellen her er at et attributt lever videre mellom kall, mens en lokal variabel i en metode forsvinner når metoden er ferdig. Delvis riktig sporing gir delvis uttelling.\n\n**Poeng:** 3.",
+      "hints": [
+       "Regner Python ut `d(2)` eller `d(1)` først?",
+       "Hva skjer med `self.gitt` for hvert kall?",
+       "Er `e` og `d` det samme objektet?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-5-prove-A-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-A-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Et kast rett opp fra bakken med startfart $v_0$ gir høyden\n\n$$y(t) = v_0 t - \\tfrac{1}{2}gt^2, \\qquad g = 9{,}81$$\n\nProgrammet under skal regne ut høyden, men har **fire** feil.\n\n```text\nclass Kastebane:\n    def __init__(v0):\n        self.v0 = v0\n        return self\n\n    def kall(self, t):\n        return v0*t - 4.905*t**2\n\nkast = Kastebane(12.0)\nprint(kast(1.2))\n```\n\n**a)** Nevn de fire feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden, og lag en tabell over høyden ved $t = 0$, $0{,}5$, $1{,}2$ og $2{,}0$ sekunder.",
+      "solution": "**a)** De fire feilene:\n\n1. **`def __init__(v0):` mangler `self`.** Den første parameteren i en metode er alltid instansen. Her heter den `v0`, så instansen havner i `v0` — og navnet `self` finnes ikke i det hele tatt. Dette er felle **#3** i feilkatalogen, den glemte `self`-en. Programmet stopper allerede på linja `kast = Kastebane(12.0)` med `TypeError: __init__() takes 1 positional argument but 2 were given`, fordi Python sender to argumenter (instansen og 12.0) til en metode som bare tar imot ett.\n2. **`return self` i konstruktøren.** `__init__` skal ikke returnere noe — den fyller den ferdiglagde instansen med attributter, og Python lager og leverer objektet selv. En `return`-verdi her gir `TypeError` når instansen skal lages.\n3. **Metoden heter `kall`, ikke `__call__`.** Bare det doble understreknavnet gjør instansen kallbar. Med `kall` må du skrive `kast.kall(1.2)`; skriver du `kast(1.2)`, får du `TypeError: 'Kastebane' object is not callable`.\n4. **`v0` uten `self.` i metodekroppen.** Attributtet heter `self.v0`. Et bart `v0` er et globalt navn som ikke finnes, så du får `NameError` — samme felle som nummer 1, bare på den andre siden.\n\n**b)** Rettet:\n\n```python\nclass Kastebane:\n    def __init__(self, v0):\n        self.v0 = v0\n\n    def __call__(self, t):\n        return self.v0*t - 4.905*t**2\n\n\nkast = Kastebane(12.0)\nfor t in [0.0, 0.5, 1.2, 2.0]:\n    print(f'{t:4.1f} {kast(t):7.3f}')\n```\n\n**Utskrift:**\n```\n 0.0   0.000\n 0.5   4.774\n 1.2   7.337\n 2.0   4.380\n```\n\nKula er på vei ned igjen etter to sekunder, som den skal: toppunktet ligger ved $t = v_0/g \\approx 1{,}22$ sekunder.\n\n**Hva gir uttelling (8 poeng):** 1 poeng per navngitt feil med riktig virkning (4 p), 3 poeng for rettet klasse som kjører, 1 poeng for tabellen. Sjanger O er poengmessig snill: finner du tre av fire feil, har du fortsatt flertallet av poengene, og du får uttelling for en riktig beskrivelse selv om du ikke rekker å skrive den rettede koden.\n\n**Selvdiagnose etter prøve 5.A**\n\n☐ Sto `self` først i **alle** metodesignaturene?\n\n☐ Hentet du hvert attributt med `self.` inne i metodene?\n\n☐ Het kallmetoden `__call__`, med to understreker på hver side?\n\n☐ Lot du konstruktøren være uten `return`?\n\n☐ La du det som er fast i konstruktøren, og det som varierer i kallmetoden?\n\n☐ Skrev du med nødvendige importer, slik at koden ville kjørt som den står?",
+      "hints": [
+       "Se på den første parameteren i hver metodesignatur.",
+       "Hva må metoden hete for at `kast(1.2)` skal virke?",
+       "Hvor henter en metode verdiene som ble lagret i konstruktøren?",
+       "Skal `__init__` returnere noe?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-5-prove-B",
+   "type": "collapsible",
+   "title": "Prøve 5.B — Spesialmetoder (40 min)",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1900-5-prove-B-intro",
+     "type": "text",
+     "content": "**Prøve 5.B — spesialmetoder (40 minutter, sjanger G).** Fem flervalgsspørsmål og to skriveoppgaver. Alt handler om metodene Python kaller av seg selv når du skriver `print(obj)`, `a + b` eller `a * b`."
+    },
+    {
+     "id": "in1900-5-prove-B-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-B-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A og E — flervalg. Sjanger E er flervalgstypen der du skal peke ut hvilken linje eller hvilket kall som mangler.) Velg ett svar per spørsmål.\n\n**1)** Hvilken metode kaller `print(obj)`?\n\na) `__repr__`\nb) `__print__`\nc) `__str__`\nd) `__call__`\n\n**2)** Hva må `__add__` returnere for at `a + b + c` skal virke?\n\na) et tuppel med de nye tallene\nb) en ny instans av klassen\nc) ingenting, den endrer `a`\nd) en liste med de nye tallene\n\n**3)** Hva oversettes `a + b` til?\n\na) `b.__add__(a)` b) `add(a, b)` c) `a.__plus__(b)` d) `a.__add__(b)`\n\n**4)** Klassen `Kraft` har `__mul__`, men ingen andre aritmetiske metoder. Hva skjer med `2*f` når `f` er en `Kraft`?\n\na) `TypeError` b) `f.__mul__(2)` kjøres c) det gir tre kopier av `f` d) `2` gjøres om til en `Kraft` først\n\n**5)** Når skal `__mul__` returnere et tall i stedet for en ny instans?\n\na) aldri, den skal alltid gi en instans\nb) når klassen mangler `__str__`\nc) når produktet er et indreprodukt\nd) når den andre operanden er et tall",
+      "solution": "**1) c)** `__str__`. Det er metoden `print` og `str(obj)` går veien om. `__repr__` er den tekniske utskriften du får i et interaktivt skall og når objektet ligger inne i en liste.\n\n**2) b)** En ny instans. Hadde `__add__` gitt et tuppel, ville `a + b` fungert, men `(a + b) + c` brutt sammen: et tuppel har ingen `__add__` som kjenner klassen din. Dette er felle **#4** i feilkatalogen — en aritmetisk spesialmetode som returnerer feil type.\n\n**3) d)** `a.__add__(b)`. **Venstre** operand bestemmer hvilken metode som kjøres — det er derfor spørsmål 4 svarer som det gjør.\n\n**4) a)** `TypeError`. Venstre operand er et heltall, og heltall vet ingenting om `Kraft`. Feilmeldingen er `TypeError: unsupported operand type(s) for *: 'int' and 'Kraft'`. Skriver du `f*2`, går det derimot fint. Eksamensoppgaver ber alltid om formen med instansen til venstre.\n\n**5) c)** Når produktet er et indreprodukt. To vektorer ganget med hverandre gir et **tall**, ikke en vektor. Ganger du derimot med et tall, skal du få en ny instans. Det er nettopp derfor `__mul__` ofte begynner med en `isinstance`-test som skiller de to tilfellene.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Fasitbokstavene er c, b, d, a, c — uten mønster. Blankt og feil gir likt, altså 0 poeng, så kryss alltid av på noe.",
+      "hints": [
+       "Hvilken metode er det `print` leter etter?",
+       "Hva må til for at tre objekter skal kunne legges sammen etter hverandre?",
+       "Hvilken operand er det som bestemmer hvilken metode som kjøres?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-5-prove-B-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-B-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger G.) En kraft i planet har en komponent i $x$-retning og en i $y$-retning, begge i newton.\n\n**a)** Skriv en klasse `Kraft` med konstruktør, en utskriftsmetode som gir teksten `(3, 4) N`, en addisjonsmetode som gir den resulterende kraften, og en multiplikasjonsmetode som håndterer **begge** disse tilfellene: ganger du med et tall, skal du få en skalert kraft; ganger du med en annen `Kraft`, skal du få indreproduktet, altså tallet $x_1x_2 + y_1y_2$.\n\n**b)** Legg til en vanlig metode `belop` som gir kraftens størrelse $\\sqrt{x^2 + y^2}$.\n\n**c)** Vis klassen i bruk på $\\vec{F}_1 = (3, 4)$ N og $\\vec{F}_2 = (-1, 2)$ N: summen, $\\vec{F}_1$ doblet, indreproduktet og størrelsen på $\\vec{F}_1$. Skriv til slutt ut begge kreftene igjen.\n\n**d)** Hvorfor er det siste utskriftskravet i c) verdt å ta med?",
+      "solution": "**a)**, **b)** og **c)**:\n\n```python\nfrom math import sqrt\n\nclass Kraft:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f'({self.x:g}, {self.y:g}) N'\n\n    def __add__(self, other):\n        return Kraft(self.x + other.x, self.y + other.y)\n\n    def __mul__(self, other):\n        if isinstance(other, Kraft):\n            return self.x*other.x + self.y*other.y\n        return Kraft(other*self.x, other*self.y)\n\n    def belop(self):\n        return sqrt(self.x**2 + self.y**2)\n\n\nf1 = Kraft(3.0, 4.0)\nf2 = Kraft(-1.0, 2.0)\nprint(f1 + f2)\nprint(f1*2)\nprint(f1*f2)\nprint(f'{f1.belop():.2f}')\nprint(f1, f2)\n```\n\n**Utskrift:**\n```\n(2, 6) N\n(6, 8) N\n5.0\n5.00\n(3, 4) N (-1, 2) N\n```\n\nFormatet `:g` i f-strengen skriver 3.0 som `3` og dropper haleløse desimaler — derfor står det `(3, 4) N` og ikke `(3.0, 4.0) N`.\n\n**d)** Den siste linja viser at **operandene er uendret**. Aritmetikk skal aldri endre det du regner med: `f1 + f2` lager en ny kraft og lar de to gamle stå. Hadde `__add__` skrevet inn i `self.x` i stedet for å returnere en ny instans, ville `f1` blitt ødelagt av den første addisjonen, og alle senere utregninger vært feil.\n\nDette er også grunnen til at en enkel testfunksjon lønner seg. Den kontrollerer de tre reglene på én gang:\n\n```python\ndef test_kraft():\n    f1 = Kraft(3.0, 4.0)\n    f2 = Kraft(-1.0, 2.0)\n    tol = 1e-10\n    assert abs(5.0 - f1.belop()) < tol, f'belop ble {f1.belop()}'\n    assert abs(5.0 - f1*f2) < tol, f'indreprodukt ble {f1*f2}'\n    sum_ = f1 + f2\n    assert abs(2.0 - sum_.x) < tol and abs(6.0 - sum_.y) < tol, f'sum ble {sum_}'\n\ntest_kraft()\nprint('Testen gikk gjennom')\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n```\n\nMerk `abs(...) < tol` og ikke `==`: sammenligning av flyttall med likhetstegn er felle **#11** i feilkatalogen, selv når tallene ser like ut.\n\n**Hva gir uttelling (8 poeng):** konstruktøren med de to komponentene (1 p), `__str__` som returnerer en **streng** med riktig format (1 p), `__add__` som returnerer en **ny** `Kraft` (2 p), `__mul__` med `isinstance`-skillet (2 p), `belop` (1 p), bruken i c) med begrunnelsen i d) (1 p).\n\nSkriver du `__mul__` bare for tallet og glemmer indreproduktet, mister du ett poeng — ikke oppgaven. Sensor belønner riktig klasseoppsett.",
+      "hints": [
+       "Skriv metodene i rekkefølgen konstruktør, utskrift, addisjon, multiplikasjon.",
+       "`isinstance(other, Kraft)` skiller de to multiplikasjonstilfellene.",
+       "Addisjon skal gi en ny instans, ikke endre `self`.",
+       "Til d): hva ville skjedd med `f1` hvis `__add__` skrev inn i `self.x`?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-5-prove-B-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-B-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger G.) En vandig løsning beskrives av stoffmengden $n$ i mol og volumet $V$ i liter. Konsentrasjonen er $c = n/V$.\n\n**a)** Skriv en klasse `Losning` med konstruktør, en metode `konsentrasjon`, og en utskriftsmetode som gir alle tre tallene på formen `0.200 mol i 1.00 L, 0.2000 mol/L`.\n\n**b)** La `+` bety **å blande** to løsninger: både stoffmengdene og volumene legges sammen. La `*` med et tall bety å skalere hele porsjonen — både stoffmengde og volum ganges opp.\n\n**c)** Bland 1,00 L med konsentrasjon $0{,}200$ mol/L og 3,00 L med konsentrasjon $0{,}600$ mol/L. Skriv ut begge løsningene, blandingen og den første løsningen firedoblet. Skriv til slutt ut den første løsningen på nytt.\n\n**d)** Skriv to testfunksjoner: én som sjekker at blandingen får konsentrasjon $0{,}500$ mol/L, og én som sjekker at skalering **ikke** endrer konsentrasjonen. Forklar hvorfor de to operasjonene oppfører seg så ulikt.",
+      "solution": "**a)**, **b)** og **c)**. Legg merke til at utskriftsmetoden kaller `konsentrasjon` — en metode kan bruke en annen metode på samme instans:\n\n```python\nclass Losning:\n    def __init__(self, n, V):\n        self.n = n\n        self.V = V\n\n    def konsentrasjon(self):\n        return self.n/self.V\n\n    def __str__(self):\n        return f'{self.n:.3f} mol i {self.V:.2f} L, {self.konsentrasjon():.4f} mol/L'\n\n    def __add__(self, other):\n        return Losning(self.n + other.n, self.V + other.V)\n\n    def __mul__(self, k):\n        return Losning(k*self.n, k*self.V)\n\n\na = Losning(0.2, 1.0)\nb = Losning(1.8, 3.0)\nblanding = a + b\nprint(a)\nprint(b)\nprint(blanding)\nprint(a*4)\nprint(a)\n```\n\n**Utskrift:**\n```\n0.200 mol i 1.00 L, 0.2000 mol/L\n1.800 mol i 3.00 L, 0.6000 mol/L\n2.000 mol i 4.00 L, 0.5000 mol/L\n0.800 mol i 4.00 L, 0.2000 mol/L\n0.200 mol i 1.00 L, 0.2000 mol/L\n```\n\nStoffmengden i den andre løsningen er $0{,}600 \\cdot 3{,}00 = 1{,}80$ mol, så konstruktøren kalles med 1.8 og 3.0.\n\n**d)** De to testene:\n\n```python\ndef test_blanding():\n    expected = 0.5\n    computed = (Losning(0.2, 1.0) + Losning(1.8, 3.0)).konsentrasjon()\n    tol = 1e-10\n    assert abs(expected - computed) < tol, f'fikk {computed}'\n\ndef test_skalering():\n    a = Losning(0.2, 1.0)\n    expected = a.konsentrasjon()\n    computed = (a*4).konsentrasjon()\n    tol = 1e-10\n    assert abs(expected - computed) < tol, f'fikk {computed}'\n\ntest_blanding()\ntest_skalering()\nprint('Begge testene gikk gjennom')\n```\n\n**Utskrift:**\n```\nBegge testene gikk gjennom\n```\n\nForskjellen på de to operasjonene er kjemi, ikke programmering. Å **blande** er å slå sammen to porsjoner med ulik konsentrasjon; resultatet blir et vektet gjennomsnitt, her $2{,}0$ mol fordelt på $4{,}0$ L. Å **skalere** er å ta fire ganger så mye av det samme; da vokser teller og nevner like mye, og konsentrasjonen står stille.\n\nDet er nettopp derfor `__add__` ikke bare kan legge sammen konsentrasjonene: $0{,}200 + 0{,}600$ er $0{,}800$, og det er ikke konsentrasjonen i noen av glassene. Klassen tvinger deg til å tenke på hva som faktisk er bevart — stoffmengden og volumet — og regne konsentrasjonen ut av dem.\n\n**Hva gir uttelling (8 poeng):** konstruktøren (1 p), `konsentrasjon` (1 p), `__str__` med f-streng og riktig format (1 p), `__add__` som blander og gir ny instans (2 p), `__mul__` som skalerer begge tallene (1 p), de to testfunksjonene med `abs(...) < tol` (1 p), forklaringen i d) (1 p).\n\n**Selvdiagnose etter prøve 5.B**\n\n☐ Returnerte `__str__` en **streng**, og ikke noe den bare skrev ut?\n\n☐ Ga `__add__` og `__mul__` en **ny instans**, og lot operandene stå urørt?\n\n☐ Sto instansen til venstre i alle produktene du skrev?\n\n☐ Skilte du de to multiplikasjonstilfellene med `isinstance`?\n\n☐ Brukte du `abs(expected - computed) < tol` i testene, aldri `==`?\n\n☐ Kalte du `__str__`-metoden implisitt med `print(obj)` og ikke ved navn?",
+      "hints": [
+       "Konsentrasjonen skal regnes ut, ikke lagres — da kan den aldri komme i utakt med de to tallene.",
+       "Blanding legger sammen stoffmengder og volumer hver for seg.",
+       "`__str__` kan kalle en annen metode på samme instans.",
+       "Til d): hva skjer med teller og nevner i hver av de to operasjonene?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-5-prove-C",
+   "type": "collapsible",
+   "title": "Prøve 5.C — Arv og stykkvise funksjoner (35 min)",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1900-5-prove-C-intro",
+     "type": "text",
+     "content": "**Prøve 5.C — arv og stykkvise funksjoner (35 minutter, sjanger G).** Tre oppgaver. Arv er mønsteret som går igjen i Del 7, der ODE-løserne er subklasser av samme basisklasse — får du det til her, har du fått en gratis start på den delen."
+    },
+    {
+     "id": "in1900-5-prove-C-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-C-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger G — arv-varianten.) En mengde som avtar eksponentielt kan beskrives på to måter: med en ratekonstant $k$, eller med en halveringstid $T$. Sammenhengen er $k = \\ln 2 / T$.\n\n$$A(t) = A_0 e^{-kt}$$\n\n**a)** Skriv en klasse `Eksponentiell` med konstruktør for $A_0$ og $k$, en kallmetode for $A(t)$, og en utskriftsmetode.\n\n**b)** Skriv en subklasse `Halveringstid` som tar imot $A_0$ og halveringstiden $T$ i stedet, regner om til $k$ og sender videre til basisklassen. Subklassen skal lagre $T$ i tillegg og ha sin egen utskriftsmetode.\n\n**c)** Lag en instans med $A_0 = 120$ og $T = 8$, og skriv ut verdiene ved $t = 0$, 8 og 16. Kontroller at instansen hører til begge klassene.\n\n**d)** Hva ville du tapt på å skrive `Halveringstid` som en helt egen klasse uten arv?",
+      "solution": "**a)**, **b)** og **c)**. Subklassen kaller basisklassens konstruktør **først**, og legger til sitt eget etterpå:\n\n```python\nfrom math import exp, log\n\nclass Eksponentiell:\n    def __init__(self, A, k):\n        self.A = A\n        self.k = k\n\n    def __call__(self, t):\n        return self.A*exp(-self.k*t)\n\n    def __str__(self):\n        return f'{self.A:g}*exp(-{self.k:.4f}*t)'\n\n\nclass Halveringstid(Eksponentiell):\n    def __init__(self, A, T):\n        super().__init__(A, log(2)/T)\n        self.T = T\n\n    def __str__(self):\n        return f'{self.A:g} enheter, halveringstid {self.T:g}'\n\n\nc = Halveringstid(120.0, 8.0)\nprint(c)\nprint(f'{c(0):.2f} {c(8):.2f} {c(16):.2f}')\nprint(f'{c.k:.5f}')\nprint(isinstance(c, Eksponentiell), isinstance(c, Halveringstid))\n```\n\n**Utskrift:**\n```\n120 enheter, halveringstid 8\n120.00 60.00 30.00\n0.08664\nTrue True\n```\n\nKontrollen er innebygd i tallene: etter én halveringstid er det halvparten igjen, etter to er det en fjerdedel. 120, 60, 30.\n\nLegg merke til at `c(8)` virker uten at `Halveringstid` har noen kallmetode i det hele tatt. Den er **arvet** fra basisklassen, og den bruker `self.k` — som `super().__init__` sørget for å sette.\n\n**d)** Uten arv måtte du skrevet kallmetoden på nytt. Da har du to kopier av den samme formelen, og retter du en feil i den ene, står feilen igjen i den andre. Du ville også mistet at en `Halveringstid` **er** en `Eksponentiell`: alt som er skrevet for basisklassen — en funksjon som tar imot en avtakende mengde, en liste med blandede modeller — ville sluttet å virke.\n\nRegelen er enkel: sier oppgaveteksten at den ene klassen er «et spesialtilfelle av» eller «som den forrige, men med», da er svaret arv.\n\n**Hva gir uttelling (7 poeng):** `class Eksponentiell:` med konstruktør og kallmetode (2 p), utskriftsmetoden (1 p), `class Halveringstid(Eksponentiell):` med basisklassen i parentesen (1 p), `super().__init__(A, log(2)/T)` som **første** linje (2 p), overstyrt utskriftsmetode og kontrollen i c) (1 p).\n\nDen vanligste feilen er å glemme `super().__init__(...)` helt. Da settes aldri `self.A` og `self.k`, og første kall gir `AttributeError`.",
+      "hints": [
+       "Basisklassen kjenner bare $A_0$ og $k$ — subklassen må regne om før den sender videre.",
+       "`super().__init__(...)` står som første linje i subklassens konstruktør.",
+       "Subklassen trenger ingen egen kallmetode.",
+       "Til d): hva skjer når du senere retter en feil i formelen?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-5-prove-C-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-C-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Maaling:\n    def __init__(self, verdi):\n        self.verdi = verdi\n\n    def __str__(self):\n        return f'Maaling({self.verdi})'\n\n    def dobbelt(self):\n        return 2*self.verdi\n\n\nclass Vektet(Maaling):\n    def __init__(self, verdi, vekt):\n        super().__init__(verdi)\n        self.vekt = vekt\n\n    def __str__(self):\n        return f'Vektet({self.verdi}, {self.vekt})'\n\n\na = Maaling(5)\nb = Vektet(5, 3)\nprint(a, b)\nprint(a.dobbelt(), b.dobbelt())\nprint(isinstance(b, Maaling), isinstance(a, Vektet))\n```",
+      "solution": "**Sporingstavle.** Nøkkelspørsmålet for hver linje er: hvilken klasse leter Python i først?\n\n| Uttrykk | Hvor finnes metoden | Resultat |\n|---|---|---|\n| `print(a, ...)` | `Maaling.__str__` | `Maaling(5)` |\n| `print(..., b)` | `Vektet.__str__` overstyrer | `Vektet(5, 3)` |\n| `a.dobbelt()` | `Maaling.dobbelt` | 10 |\n| `b.dobbelt()` | arvet fra `Maaling` | 10 |\n| `isinstance(b, Maaling)` | `Vektet` arver fra `Maaling` | `True` |\n| `isinstance(a, Vektet)` | `Maaling` arver ikke nedover | `False` |\n\n**Utskrift:**\n```\nMaaling(5) Vektet(5, 3)\n10 10\nTrue False\n```\n\nTo ting bærer denne sporingen. Python leter alltid i objektets **egen** klasse først og går oppover i arven bare hvis den ikke finner noe der — derfor vinner `Vektet.__str__` for `b`. Og `b.dobbelt()` virker helt uten at `Vektet` nevner den metoden, fordi `super().__init__(verdi)` satte `self.verdi`.\n\nDen siste linja er den som skiller: arven går **én vei**. En vektet måling er en måling, men en måling er ikke en vektet måling.\n\nFellenote: fellen her er å tro at `isinstance` svarer `True` begge veier. Delvis riktig sporing gir delvis uttelling.\n\n**Poeng:** 3.",
+      "hints": [
+       "Hvilken klasse leter Python i først når du skriver `print(b)`?",
+       "Har `Vektet` sin egen `dobbelt`?",
+       "Går arven begge veier?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-5-prove-C-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-C-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger G — stykkvis klasse med arv.) I et akvarieforsøk tilføres næring i et tidsvindu: ingenting før $t = 2$ døgn, 5 mg per liter mellom $t = 2$ og $t = 7$, og ingenting etter det.\n\n$$p(t) = \\begin{cases} 0 & t < 2 \\\\ 5 & 2 \\le t < 7 \\\\ 0 & t \\ge 7\\end{cases}$$\n\n**a)** Skriv den generelle klassen `Stykkvis`, der konstruktøren tar imot en liste med funksjonsverdier og en liste med grenser, og kallmetoden finner riktig verdi.\n\n**b)** Skriv en subklasse `Puls` som tar imot starttidspunkt, sluttidspunkt og høyde, og setter opp den generelle klassen selv.\n\n**c)** Lag pulsen over og skriv ut verdien ved $t = 0$, $1{,}9$, $2$, $6{,}9$, $7$ og 12. Forklar hvorfor nettopp disse tidspunktene er verdt å teste.\n\n**d)** Hvor mange funksjonsverdier hører det til $m$ grenser, og hvorfor?",
+      "solution": "**a)**, **b)** og **c)**. Kallmetoden løper gjennom grensene fra venstre og returnerer så snart $x$ er mindre enn en grense; kommer den gjennom hele løkka, ligger $x$ i det siste intervallet:\n\n```python\nclass Stykkvis:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\n\nclass Puls(Stykkvis):\n    def __init__(self, start, slutt, hoyde):\n        super().__init__([0.0, hoyde, 0.0], [start, slutt])\n\n\ntilforsel = Puls(2.0, 7.0, 5.0)\nfor t in [0.0, 1.9, 2.0, 6.9, 7.0, 12.0]:\n    print(f'{t:5.1f} {tilforsel(t):5.1f}')\nprint(tilforsel.a, tilforsel.b)\n```\n\n**Utskrift:**\n```\n  0.0   0.0\n  1.9   0.0\n  2.0   5.0\n  6.9   5.0\n  7.0   0.0\n 12.0   0.0\n```\n```\n[0.0, 5.0, 0.0] [2.0, 7.0]\n```\n\nSubklassen inneholder **én linje**. Hele jobben er å oversette fra et menneskelig oppsett — start, slutt, høyde — til det generelle oppsettet med to lister, og sende det videre med `super().__init__`.\n\n**c)** Tidspunktene er valgt i par rundt hver grense: $1{,}9$ og $2{,}0$, og $6{,}9$ og $7{,}0$. Det er nøyaktig der en stykkvis funksjon kan gå galt, fordi det er der `<` mot `<=` avgjør. Utskriften viser at grensepunktet hører til intervallet **etter** grensen: ved $t = 2$ er verdien allerede 5, og ved $t = 7$ er den falt tilbake til 0. Det stemmer med definisjonen i oppgaveteksten.\n\nTester du bare midt i intervallene, oppdager du aldri en feil på grensen. Det er der delpoengene forsvinner.\n\n**d)** Til $m$ grenser hører det $m + 1$ funksjonsverdier. Grensene deler tallinja i $m + 1$ stykker: ett til venstre for den første, ett mellom hvert par, og ett til høyre for den siste. Løkka håndterer de $m$ første, og `return self.a[-1]` tar det siste. Passer ikke lengdene, får du enten `IndexError` eller en verdi som aldri brukes.\n\n**Hva gir uttelling (8 poeng):** konstruktøren som lagrer de to listene (1 p), løkka med `enumerate` (2 p), `return self.a[-1]` etter løkka (1 p), subklassen med basisklassen i parentesen (1 p), `super().__init__` med riktig oppsatte lister (2 p), grensesvaret i d) (1 p).\n\nSensor gir uttelling for riktig løkkestruktur selv om du bommer på `<` mot `<=` i første forsøk — men grensetesten i c) er nettopp den som avslører bommen mens du fortsatt kan rette den.\n\n**Selvdiagnose etter prøve 5.C**\n\n☐ Sto basisklassen i parentesen på klasselinja?\n\n☐ Kom `super().__init__(...)` **først** i subklassens konstruktør?\n\n☐ Lot du subklassen arve alt den ikke trenger å endre?\n\n☐ Hadde du én funksjonsverdi mer enn du hadde grenser?\n\n☐ Sto `return self.a[-1]` etter løkka, ikke inne i den?\n\n☐ Testet du verdien i nøyaktig grensepunktene, og ikke bare midt i intervallene?",
+      "hints": [
+       "Løkka over grensene skal returnere med én gang den finner et intervall som passer.",
+       "Det siste intervallet har ingen øvre grense — det håndteres etter løkka.",
+       "Subklassen trenger bare å bygge de to listene og sende dem videre.",
+       "Til c): hvor kan `<` mot `<=` gjøre forskjell?"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-5-prove-D",
+   "type": "collapsible",
+   "title": "Prøve 5.D — Full oppgave på eksamensnivå (45 min)",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1900-5-prove-D-intro",
+     "type": "text",
+     "content": "**Prøve 5.D — full oppgave på eksamensnivå (45 minutter, sjanger G).** Én stor flerdelt oppgave, av samme type og vekt som klasseoppgaven på det avsluttende settet. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på resten ved å bruke klassen slik oppgaveteksten beskriver den."
+    },
+    {
+     "id": "in1900-5-prove-D-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-5-prove-D-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger G — full flerdelt oppgave.) En fjærbelastet masse i en væske svinger med avtakende utslag. Utslaget fra likevekt er\n\n$$u(t) = Ae^{-ct}\\cos(\\omega t + \\varphi)$$\n\nder $A$ er startutslaget i cm, $c$ dempingen per sekund, $\\omega$ vinkelfrekvensen i radianer per sekund og $\\varphi$ en faseforskyvning som oftest er null.\n\n**a)** (4 p) Skriv en klasse `Svingning` der konstruktøren tar imot $A$, $c$, $\\omega$ og $\\varphi$ — den siste med default-verdi 0 — og der instansen kan kalles som en funksjon av tiden. Bruk NumPy-funksjoner i kallmetoden, slik at instansen også kan kalles med en hel tidstabell. Legg til en utskriftsmetode som viser de fire parametrene.\n\n**b)** (2 p) Skriv en subklasse `Udempet` for det spesialtilfellet at dempingen er null. Den skal ta imot $A$, $\\omega$ og $\\varphi$.\n\n**c)** (2 p) Skriv en testfunksjon som kontrollerer at utslaget ved $t = 0$ er $A$ når faseforskyvningen er null.\n\n**d)** (2 p) Lag en dempet svingning med $A = 4$, $c = 0{,}30$ og $\\omega = 2$, og en udempet med samme $A$ og $\\omega$. Skriv ut utslaget ved $t = 0$, 1, 3 og 6 sekunder for begge. Bruk deretter en tidstabell med 2001 punkter over $[0, 20]$ og finn det største utslaget i tallverdi over hele intervallet, og det største etter $t = 10$.\n\n**e)** (2 p) Skriv plottekoden som viser begge svingningene og innhyllingskurven $Ae^{-ct}$ i samme figur, og beskriv figuren i ord.",
+      "solution": "**a)**, **b)** og **d)**. Klassen er fire linjer konstruktør og én linje formel. At kallmetoden bruker `np.exp` og `np.cos` i stedet for `math`-utgavene, er det som gjør at den også virker på en hel tabell:\n\n```python\nimport numpy as np\n\nclass Svingning:\n    def __init__(self, A, c, w, fi=0.0):\n        self.A = A\n        self.c = c\n        self.w = w\n        self.fi = fi\n\n    def __call__(self, t):\n        return self.A*np.exp(-self.c*t)*np.cos(self.w*t + self.fi)\n\n    def __str__(self):\n        return f'A={self.A:g}, c={self.c:g}, w={self.w:g}, fi={self.fi:g}'\n\n\nclass Udempet(Svingning):\n    def __init__(self, A, w, fi=0.0):\n        super().__init__(A, 0.0, w, fi)\n\n\ndemp = Svingning(4.0, 0.30, 2.0)\nfri = Udempet(4.0, 2.0)\nprint(demp)\nprint(fri)\nfor t in [0.0, 1.0, 3.0, 6.0]:\n    print(f'{t:4.1f} {demp(t):8.4f} {fri(t):8.4f}')\n```\n\n**Utskrift:**\n```\nA=4, c=0.3, w=2, fi=0\nA=4, c=0, w=2, fi=0\n 0.0   4.0000   4.0000\n 1.0  -1.2332  -1.6646\n 3.0   1.5615   3.8407\n 6.0   0.5580   3.3754\n```\n\nSubklassen er **én linje**: den setter dempingen til null og lar basisklassen gjøre resten. Merk rekkefølgen på argumentene i `super().__init__(A, 0.0, w, fi)` — basisklassen forventer dempingen som andre parameter, og det er kallerens ansvar å plassere den riktig.\n\n— naturlig pausepunkt —\n\n**c)** og resten av **d)**. Testfunksjonen tar ingen argumenter og skriver ikke ut noe; den er stille når alt er i orden:\n\n```python\nimport numpy as np\n\nclass Svingning:\n    def __init__(self, A, c, w, fi=0.0):\n        self.A = A\n        self.c = c\n        self.w = w\n        self.fi = fi\n\n    def __call__(self, t):\n        return self.A*np.exp(-self.c*t)*np.cos(self.w*t + self.fi)\n\n\ndef test_svingning():\n    u = Svingning(4.0, 0.30, 2.0)\n    expected = 4.0\n    computed = u(0.0)\n    tol = 1e-10\n    assert abs(expected - computed) < tol, f'u(0) ble {computed}'\n\ntest_svingning()\n\nu = Svingning(4.0, 0.30, 2.0)\nt = np.linspace(0, 20, 2001)\nverdier = u(t)\nprint(f'{len(t)} punkter, maks utslag {np.max(np.abs(verdier)):.4f}')\nprint(f'etter t = 10: {np.max(np.abs(verdier[1000:])):.4f}')\nprint(f'{u(0.0):.4f} {verdier[0]:.4f}')\n```\n\n**Utskrift:**\n```\n2001 punkter, maks utslag 4.0000\netter t = 10: 0.1494\n4.0000 4.0000\n```\n\nVed $t = 0$ er eksponentialleddet 1 og cosinus 1, så utslaget er nøyaktig $A$ — det er testen. Det største utslaget over hele intervallet er derfor selve startutslaget, 4 cm. Etter ti sekunder er det bare 0,1494 cm igjen, altså under fire prosent. Dempingen har spist opp svingningen.\n\nTidstabellen har 2001 punkter over $[0, 20]$, så avstanden mellom punktene er $0{,}01$ sekund og punkt nummer 1000 ligger nøyaktig på $t = 10$. Derfor er `verdier[1000:]` akkurat halen etter ti sekunder.\n\nSiste linje viser at instansen gir samme svar enten du kaller den med ett tall eller med en tabell. Det er hele gevinsten ved å bruke NumPy-funksjoner i kallmetoden.\n\n**e)** Plottekoden:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nclass Svingning:\n    def __init__(self, A, c, w, fi=0.0):\n        self.A = A\n        self.c = c\n        self.w = w\n        self.fi = fi\n\n    def __call__(self, t):\n        return self.A*np.exp(-self.c*t)*np.cos(self.w*t + self.fi)\n\n\nclass Udempet(Svingning):\n    def __init__(self, A, w, fi=0.0):\n        super().__init__(A, 0.0, w, fi)\n\n\nt = np.linspace(0, 20, 2001)\ndemp = Svingning(4.0, 0.30, 2.0)\nfri = Udempet(4.0, 2.0)\n\nplt.plot(t, demp(t), label='dempet')\nplt.plot(t, fri(t), label='udempet')\nplt.plot(t, 4.0*np.exp(-0.30*t), label='innhylling')\nplt.xlabel('tid (s)')\nplt.ylabel('utslag (cm)')\nplt.legend()\nplt.show()\nprint(f'{len(t)} punkter')\n```\n\n**Utskrift:**\n```\n2001 punkter\n```\n\n**Figuren i ord.** Førsteaksen viser tid fra 0 til 20 sekunder, andreaksen utslag fra om lag $-4$ til 4 cm. Den udempede kurven svinger med konstant amplitude 4 gjennom hele figuren, med en periode på $2\\pi/2 \\approx 3{,}14$ sekunder — altså rundt seks hele svingninger. Den dempede kurven svinger i takt med den, men amplituden krymper for hver svingning og er nesten borte til høyre i figuren. Den tredje kurven er ingen svingning i det hele tatt: den faller glatt fra 4 mot null og tangerer toppene på den dempede kurven. Legenden navngir de tre.\n\n**Hva gir uttelling (12 poeng):**\n\n- a) 4 p: klasselinja og konstruktøren med alle fire parametrene (1 p), default-verdien på faseforskyvningen (1 p), kallmetoden med riktig navn og formel (1 p), NumPy-funksjoner slik at den virker på tabeller, pluss utskriftsmetoden (1 p).\n- b) 2 p: `class Udempet(Svingning):` (1 p), `super().__init__` med dempingen satt til null og argumentene i riktig rekkefølge (1 p).\n- c) 2 p: testfunksjon uten argumenter (1 p), `assert abs(expected - computed) < tol` (1 p).\n- d) 2 p: de to instansene og tabellen (1 p), tidstabellen med 2001 punkter og de to maksverdiene (1 p).\n- e) 2 p: tre `plot`-kall med `label=` og `legend()` (1 p), aksenavn, `show()` og figurbeskrivelse (1 p).\n\nSensor belønner riktig klasseoppsett selv med en detaljfeil i formelen: har du konstruktør, kallmetode og subklasse på plass, har du mesteparten av poengene. Å få alle indekser og alle fortegn 100 % riktig uten å kunne kjøre koden er nesten umulig på eksamen — og det er heller ikke det som kreves.\n\n**Selvdiagnose etter prøve 5.D**\n\n☐ Hadde default-parameteren en verdi i konstruktørsignaturen, og sto den sist?\n\n☐ Brukte du `np.exp` og `np.cos`, slik at instansen også virker på en tidstabell?\n\n☐ Sto argumentene til `super().__init__` i den rekkefølgen basisklassen forventer?\n\n☐ Var testfunksjonen uten argumenter, uten utskrift og med `abs(...) < tol`?\n\n☐ Ga `np.linspace(0, 20, 2001)` deg punktavstanden du trodde?\n\n☐ Hadde hver kurve `label=`, og kalte du `legend()` etterpå?\n\n☐ Beskrev du figuren i ord — kurver, akser og retning — i stedet for bare å vise til koden?",
+      "hints": [
+       "Fire parametre i konstruktøren, den siste med default-verdi.",
+       "Bruk `np.exp` og `np.cos` — da virker instansen både på ett tall og på en hel tabell.",
+       "Subklassen skal bare fylle inn null for dempingen og sende resten videre.",
+       "2001 punkter over $[0, 20]$ gir punktavstand 0,01 — hvilken indeks svarer til $t = 10$?",
+       "Til e): tre kurver, tre `label=`, én `legend()`."
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
