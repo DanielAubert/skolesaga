@@ -1,0 +1,363 @@
+{
+  "id": "in1020-1-prove",
+  "courseId": "in1020",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Digital representasjon og assemblerkode",
+  "description": "Fire prøver à 25–35 minutter som dekker tallkonvertering, to-er komplement med byte-addisjon, LMC-sporing med fyll-inn og maskinkode, og blandet seksjon 1 med baklengs sporing og filformater.",
+  "estimatedMinutes": 115,
+  "competenceGoals": [
+    "kunne løse konverterings- og sorteringsoppgaver på eksamensnivå under tidspress",
+    "kunne oppgi begge tolkningene av en byte og avgjøre overflyt i begge tolkninger",
+    "kunne spore et LMC-program og velge riktig instruksjon i en fyll-inn-oppgave",
+    "kunne begrunne hvorfor hvert gale alternativ er galt, ikke bare hvorfor fasiten er riktig"
+  ],
+  "content": [
+    {
+      "id": "in1020-1-prove-om-provene",
+      "type": "tip",
+      "title": "Fire prøver til del 1 — slik bruker du dem",
+      "content": "Dette kapitlet er **4 prøver à ~25–35 minutter**, til sammen omtrent 115 minutter. Det kan trygt deles over flere kvelder — **én prøve per økt** er en helt vanlig og god måte å gjøre det på.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| **Prøve 1** | Tallkonvertering og sortering på ulik base | ~25 min |\n| **Prøve 2** | To-er komplement, begge tolkninger og byte-addisjon | ~25 min |\n| **Prøve 3** | LMC — sporing, fyll inn og maskinkode | ~35 min |\n| **Prøve 4** | Blandet seksjon 1 — baklengs sporing, selvmodifisering og filformater | ~30 min |\n\n**Hvor flervalget bor.** Oppgavene her er skrevet med alternativene **inne i prøveteksten**, slik at du krysser av på papir eller i hodet. Vil du ha tidsstyrt avkrysning med automatisk retting, ligger den i den interaktive quizen til hvert kapittel i del 1.\n\n**Slik tar du en prøve.** Ta tida. Ikke slå opp underveis. Fasiten begrunner **hvert** alternativ, også de gale — det er den ferdigheten eksamen faktisk måler, siden gale avkrysninger trekker poeng.\n\n**Etter hver fasit står en avkryssbar selvdiagnose.** Bruk den. Den peker på hvilket kapittel du bør tilbake til hvis noe glapp."
+    },
+    {
+      "id": "in1020-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nPrøvene dekker hele del 1, altså [kap. 1.1](/bok/in1020/in1020-1-1) til [kap. 1.7](/bok/in1020/in1020-1-7). Her er kjernen, ferdig oppfrisket:\n\n**Konvertering.** Tre bit per oktalsiffer, fire per heksadesimalt siffer, gruppert **fra høyre**. A til F er 10 til 15. Fra titallssystemet: gjentatt divisjon, restene lest nedenfra og opp.\n\n**To-er komplement.** Det øverste bitet har vekten **−128**. Er det satt, er den signerte verdien den usignerte **minus 256**. Negasjon: inverter alle bit og legg til 1. Signert overflyt: menten inn i og ut av bit 7 er **forskjellige**.\n\n**LMC.** `1xx` ADD · `2xx` SUB · `3xx` STA · `5xx` LDA · `6xx` BRA · `7xx` BRZ · `8xx` BRP · `901` INP · `902` OUT · `922` OTC · `000` HLT. `BRZ` treffer bare nøyaktig 0; `BRP` treffer 0 og alt over.\n\n**Tegn og farger.** ASCII er 7 bit og 128 tegn. UTF-8 har variabel lengde og er bakoverkompatibel. En fargekode deles i **tre par**, ett per kanal, hver 0 til 255."
+    },
+    {
+      "id": "in1020-1-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Tallkonvertering og sortering (~25 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in1020-1-prove-p1-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 25 minutter.** Ingen hjelpemidler. Skriv mellomregningen på papir.\n\nAlle oppgavene er i svarform **F1** («velg ett *eller flere* alternativer») eller **F3** (kobling), der flere alternativer kan være riktige samtidig."
+        },
+        {
+          "id": "in1020-1-prove-p1-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p1-1",
+            "number": "1.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Svarform F1.) Kryss av alle alternativene som er lik `1100101₂`.\n\n**a)** `145₈`\n\n**b)** `0x65`\n\n**c)** `101₁₀`\n\n**d)** `0x56`",
+            "solution": "Titallsverdien først: vektene 64, 32, 4 og 1 er satt, altså `64 + 32 + 4 + 1 = 101`.\n\n**a) Riktig.** Treergruppering fra høyre: `001 100 101` gir 1, 4, 5. Kontroll: `1·64 + 4·8 + 5 = 101`.\n\n**b) Riktig.** Firergruppering: `0110 0101` gir 6 og 5. Kontroll: `6·16 + 5 = 101`.\n\n**c) Riktig.** Titallsverdien er 101.\n\n**d) Galt.** `0x56` er `5·16 + 6 = 86`. Sifrene er de samme som i riktig svar, men byttet om — en ombyttingsdistraktor.\n\n**Fasit: a, b og c.**",
+            "hints": [
+              "Regn titallsverdien én gang, og bruk gruppering på de to første alternativene.",
+              "Sjekk om et galt alternativ har de samme sifrene i motsatt rekkefølge."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p1-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p1-2",
+            "number": "1.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F1.) Hvilket av disse tallene er størst?\n\n**a)** `253₈`\n\n**b)** `0xB7`\n\n**c)** `10101010₂`\n\n**d)** `180₁₀`",
+            "solution": "Bring alle til titallssystemet:\n\n| Alternativ | Utregning | Verdi |\n|---|---|---|\n| a `253₈` | `2·64 + 5·8 + 3` | **171** |\n| b `0xB7` | `11·16 + 7` | **183** |\n| c `10101010₂` | `128 + 32 + 8 + 2` | **170** |\n| d `180₁₀` | oppgitt | **180** |\n\n**Fasit: b — `0xB7` er størst med 183.**\n\nMerk hvor tett verdiene ligger: 170, 171, 180 og 183. Det er ikke tilfeldig. En kandidat som rangerer etter hvor «langt» tallet ser ut, ville valgt c, som er det minste.\n\nDe tre gale: a er 171, c er 170, d er 180. Alle er plausible, og ingen kan utelukkes uten å regne.",
+            "hints": [
+              "Velg titallssystemet som felles base — du skal rangere verdier, ikke mønstre.",
+              "Skriv alle fire verdiene ned før du sammenligner."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p1-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p1-3",
+            "number": "1.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F3 — kobling.) Koble hvert tall til riktig verdi i titallssystemet. Oppgi svaret på formen «1→X».\n\n1. `0x2A`\n\n2. `61₈`\n\n3. `111111₂`\n\n4. `0x3F`\n\n**A** 49 · **B** 63 · **C** 42 · **D** 63",
+            "solution": "**Fasit: 1→C, 2→A, 3→B, 4→D.**\n\n**1. `0x2A` → C (42).** `2·16 + 10 = 42`.\n\n**2. `61₈` → A (49).** `6·8 + 1 = 49`.\n\n**3. `111111₂` → B (63).** Seks ettall: `32+16+8+4+2+1 = 63`. Alternativt: seks bit dekker 0 til 63, og alle bit satt er den største.\n\n**4. `0x3F` → D (63).** `3·16 + 15 = 63`.\n\n**Merk at B og D er samme verdi.** Både `111111₂` og `0x3F` er 63 — det er samme tall skrevet i to baser. Slike par er en fast konstruksjon i koblingsoppgaver, og de gjør at rekkefølgen mellom B og D er likegyldig for de to.\n\nLegg også merke til at koblingen ikke er 1→A, 2→B, 3→C, 4→D. Et regelmessig mønster ville vært en gave, og oppgavesettere gir ikke slike.",
+            "hints": [
+              "Konverter hvert av de fire tallene til titallssystemet før du kobler.",
+              "Se etter om to av kategoriene har samme verdi."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p1-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p1-4",
+            "number": "1.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Svarform F1.) Et tallsystem har base 4 og bruker symbolene 0, 1, P, Q, der P = 2 og Q = 3. Kryss av alle påstandene som stemmer.\n\n**a)** `QP₄` er 14 i titallssystemet.\n\n**b)** `100₄` er 16 i titallssystemet.\n\n**c)** Systemet kan skrive tallet 4 med ett symbol.\n\n**d)** `1PQ₄` er 27 i titallssystemet.",
+            "solution": "Vektene i base 4 er 1, 4, 16, 64. Symbolverdiene er 0, 1, P = 2, Q = 3.\n\n**a) Riktig.** `Q·4 + P·1 = 3·4 + 2 = 14`.\n\n**b) Riktig.** `1·16 + 0 + 0 = 16`. Sifferrekka `100` betyr alltid «basen i annen».\n\n**c) Galt.** Det største lovlige sifferet i base $b$ er $b - 1$, altså 3 (symbolet Q) her. Tallet 4 krever to symboler: `10₄`.\n\n**d) Riktig.** `1·16 + 2·4 + 3·1 = 16 + 8 + 3 = 27`.\n\n**Fasit: a, b og d.**\n\nMerk at c er den eneste gale — og at den tester en regel som gjelder i alle baser, ikke bare denne.",
+            "hints": [
+              "Skriv opp symbolverdiene og vektene før du regner: 1, 4, 16, 64.",
+              "For alternativ c: hva er det største lovlige sifferet i en base?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p1-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 1\n\n☐ Grupperte du **fra høyre** i alle konverteringene?\n\n☐ Brukte du **tre** bit for oktal og **fire** for heksadesimal?\n\n☐ Brakte du alle kandidatene til **samme base** før du sammenlignet?\n\n☐ Konverterte du også de parene som så ut som desimaltall?\n\n☐ Oppdaget du at to av kategoriene i oppgave 1.3 hadde samme verdi?\n\n**Glapp noe?** Konvertering og gruppering: [kap. 1.1](/bok/in1020/in1020-1-1). Sortering og «hvilke er like»: [kap. 1.2](/bok/in1020/in1020-1-2)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 — To-er komplement og byte-addisjon (~25 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in1020-1-prove-p2-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 25 minutter.** Svarform **F1** og **F2** (sant/usant-matrise).\n\nHusk hovedregelen i denne sjangeren: spør alltid om oppgaven vil ha **én** tolkning eller **begge**."
+        },
+        {
+          "id": "in1020-1-prove-p2-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p2-1",
+            "number": "2.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Svarform F1.) Kryss av alle påstandene som stemmer om byten `11001110₂`.\n\n**a)** Verdien er 206 uten fortegn.\n\n**b)** Verdien er −50 med fortegn.\n\n**c)** Verdien er −78 med fortegn.\n\n**d)** Byten er `0xCE`.",
+            "solution": "**a) Riktig.** Vektene 128, 64, 8, 4 og 2 er satt: `128 + 64 + 8 + 4 + 2 = 206`.\n\n**b) Riktig.** Fortegnsbitet er satt, så `206 − 256 = −50`. Kontroll: `−128 + 64 + 8 + 4 + 2 = −50`.\n\n**c) Galt.** −78 er den verdien du får hvis du leser fortegnsbitet som et rent minustegn og de sju nederste bitene som tallverdien: `1001110₂ = 78`. Men fortegnsbitet bærer vekten −128 — det er ikke et merke.\n\n**d) Riktig.** Nibblene er `1100` og `1110`, altså C og E. Kontroll: `12·16 + 14 = 206`.\n\n**Fasit: a, b og d.**",
+            "hints": [
+              "Regn den usignerte verdien først, og bruk snarveien med 256 for den signerte.",
+              "Ett av alternativene bygger på at fortegnsbitet leses som et minustegn — sjekk hvilket."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p2-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p2-2",
+            "number": "2.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F2 — sant/usant.) Vurder hver påstand om regnestykket `01000110₂ + 01011010₂` i åtte bit.\n\n**a)** Svaret er `10100000₂`.\n\n**b)** Uten fortegn er svaret 160, og det er riktig sum.\n\n**c)** Det er signert overflyt.\n\n**d)** Med fortegn er svaret −96, og det er riktig sum.",
+            "solution": "**Addisjonen:**\n\n```text\n        0 1 0 0 0 1 1 0     (70)\n      + 0 1 0 1 1 0 1 0     (90)\n      -----------------\n        1 0 1 0 0 0 0 0\n```\n\n**a) Sann.** Svaret er `10100000₂`.\n\n**b) Sann.** Uten fortegn er `10100000₂` lik `128 + 32 = 160`, og `70 + 90 = 160`. Det får plass under 255, så usignert er resultatet riktig.\n\n**c) Sann.** Begge operandene er positive (70 og 90), men svaret er negativt. Kriteriet bekrefter: menten inn i bit 7 er 1, menten ut er 0 — forskjellige, altså overflyt.\n\n**d) Usann.** Med fortegn leses `10100000₂` som `160 − 256 = −96`. Men riktig sum er 160, som ligger utenfor det signerte området (som stopper på 127). Verdien −96 er altså det byten *inneholder*, ikke riktig sum.\n\n**Fasit: a sann, b sann, c sann, d usann.**\n\nLegg merke til at b og d begge handler om samme bitmønster, men er sanne og usanne av **samme** grunn: 160 får plass usignert, men ikke signert.",
+            "hints": [
+              "Regn addisjonen bit for bit og hold nøyaktig åtte bit.",
+              "Sammenlign fortegnet på operandene med fortegnet på svaret.",
+              "Skill mellom hva byten inneholder og hva den riktige summen er."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p2-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p2-3",
+            "number": "2.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F1.) Kryss av alle alternativene som er riktige for `−60` skrevet som byte.\n\n**a)** `11000100₂`\n\n**b)** `10111100₂`\n\n**c)** `0xC4`\n\n**d)** Den usignerte verdien av samme bitmønster er 196.",
+            "solution": "**Framgangsmåte:** 60 er `00111100₂` (32+16+8+4). Inverter: `11000011`. Legg til 1: `11000100`.\n\n**a) Riktig.** `11000100₂`.\n\n**b) Galt.** `10111100₂` er fortegnsmerke-metoden: fortegnsbitet satt, og de sju nederste bitene lest som 60. Verdien er `188 − 256 = −68`, ikke −60.\n\n**c) Riktig.** Nibblene `1100` og `0100` er C og 4, altså `0xC4`. Kontroll: `12·16 + 4 = 196`, og `196 − 256 = −60`.\n\n**d) Riktig.** Samme bitmønster er 196 uten fortegn, og `196 − 256 = −60` bekrefter den signerte lesningen.\n\n**Fasit: a, c og d.**",
+            "hints": [
+              "Skriv den positive verdien binært, inverter alle åtte bit, og legg til 1.",
+              "Kontroller ved å regne den usignerte verdien og trekke fra 256."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p2-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p2-4",
+            "number": "2.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Svarform F2 — sant/usant.) Vurder hver påstand om regnestykket `10110000₂ + 11010000₂` i åtte bit.\n\n**a)** Svaret er `10000000₂`.\n\n**b)** Det er signert overflyt.\n\n**c)** Med fortegn er summen av operandene −128, og svaret er riktig.\n\n**d)** Uten fortegn er det overflyt.",
+            "solution": "**Addisjonen:**\n\n```text\n        1 0 1 1 0 0 0 0     (176 usignert, −80 signert)\n      + 1 1 0 1 0 0 0 0     (208 usignert, −48 signert)\n      -----------------\n      1 1 0 0 0 0 0 0 0\n```\n\nDet niende bitet faller ut, så svaret er `10000000₂`.\n\n**a) Sann.** Svaret er `10000000₂`, som er 128 usignert og −128 signert.\n\n**b) Usann.** Menten inn i bit 7 er 1, og menten ut er 1 — de er **like**, altså ingen signert overflyt. Dette er den store fella i oppgaven: to negative tall og et niende bit som faller ut, ser ut som overflyt, men er det ikke.\n\n**c) Sann.** `−80 + (−48) = −128`, og `10000000₂` er nettopp −128 signert. Resultatet er riktig, og det ligger akkurat på grensen av det signerte området.\n\n**d) Sann.** Usignert er `176 + 208 = 384`, som er langt over 255. Det er mente ut av bit 7, altså usignert overflyt. Verdien 128 er `384 − 256`, ikke riktig sum.\n\n**Fasit: a sann, b usann, c sann, d sann.**\n\n**Poenget med oppgaven:** samme regnestykke er gyldig i den ene tolkningen og ugyldig i den andre. Kriteriene er uavhengige, og du må bruke det som hører til tolkningen spørsmålet gjelder.",
+            "hints": [
+              "Regn addisjonen og kast det niende bitet.",
+              "Finn den signerte verdien av begge operandene og legg dem sammen i vanlig aritmetikk.",
+              "Bruk det signerte kriteriet på det signerte spørsmålet, og det usignerte på det usignerte."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p2-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 2\n\n☐ Oppga du **begge** tolkningene der oppgaven listet dem?\n\n☐ Ga du fortegnsbitet vekten **−128**, ikke bare et minustegn?\n\n☐ Holdt du deg til **åtte bit** og kastet det niende?\n\n☐ Brukte du **riktig overflytskriterium** for riktig tolkning?\n\n☐ Husket du at to negative tall normalt gir mente ut **uten** overflyt?\n\n**Glapp noe?** Tolkninger og negasjon: [kap. 1.3](/bok/in1020/in1020-1-3). Særlig løkke 3 om mente og overflyt."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 — LMC: sporing, fyll inn og maskinkode (~35 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in1020-1-prove-p3-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 35 minutter.** Svarform **F1** og **F4** (nedtrekk).\n\nDette er den lengste prøven i del 1, og den er verdt tida: sjangeren har egen oppgave i alle seks årgangene, ofte med tre eller fire deloppgaver.\n\n**Før sporetabell på alle fire.**"
+        },
+        {
+          "id": "in1020-1-prove-p3-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p3-1",
+            "number": "3.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Svarform F4.) Hva skriver programmet ut med inndataene 30 og 25?\n\n```text\n00  INP\n01  STA 70\n02  INP\n03  ADD 70\n04  STA 70\n05  LDA 71\n06  SUB 70\n07  OUT\n08  HLT\n70  DAT\n71  DAT 100\n```\n\n**a)** 55 · **b)** 45 · **c)** 145 · **d)** 5",
+            "solution": "| PC | Instruksjon | Akk | Celle 70 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 30 | 0 | |\n| 01 | `STA 70` | 30 | 30 | |\n| 02 | `INP` | 25 | 30 | |\n| 03 | `ADD 70` | 55 | 30 | |\n| 04 | `STA 70` | 55 | 55 | |\n| 05 | `LDA 71` | 100 | 55 | |\n| 06 | `SUB 70` | 45 | 55 | |\n| 07 | `OUT` | 45 | 55 | **45** |\n| 08 | `HLT` | 45 | 55 | 45 |\n\n**Fasit: b — 45.**\n\nProgrammet regner ut 100 minus summen av de to inndataene: `100 − (30 + 25) = 45`.\n\n**a (55)** er summen av inndataene, altså svaret hvis du stopper etter linje 04. **c (145)** er `100 + 45`, altså hva du får hvis du bytter om `SUB` til `ADD`. **d (5)** er `30 − 25`, altså differansen mellom inndataene.",
+            "hints": [
+              "Skriv én rad per instruksjon, med egen kolonne for celle 70.",
+              "Legg merke til at `LDA 71` overskriver akkumulatoren rett før subtraksjonen."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p3-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p3-2",
+            "number": "3.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F4.) Hva skriver programmet ut med inndata 1?\n\n```text\n00  INP\n01  STA 30\n02  LDA 30\n03  OUT\n04  ADD 31\n05  STA 30\n06  SUB 32\n07  BRP 09\n08  BRA 02\n09  HLT\n30  DAT\n31  DAT 3\n32  DAT 12\n```\n\n**a)** 1 4 7 · **b)** 4 7 10 13 · **c)** 1 4 7 10 13 · **d)** 1 4 7 10",
+            "solution": "Programmet skriver ut verdien, øker den med 3, og stopper når verdien minus 12 er null eller større.\n\n| Runde | Skrevet ut | Ny verdi (celle 30) | Test: verdi − 12 | `BRP`? |\n|---|---|---|---|---|\n| 1 | 1 | 4 | −8 | nei |\n| 2 | 4 | 7 | −5 | nei |\n| 3 | 7 | 10 | −2 | nei |\n| 4 | 10 | 13 | **1** | **ja — stopp** |\n\n**Fasit: d — `1 4 7 10`.**\n\n**a** mangler den siste utskriften: løkka kjører fire runder, ikke tre. **b** starter på 4, altså etter den første økningen — men `OUT` kommer **før** `ADD 31`, så inndataen skrives ut først. **c** tar med 13, som aldri skrives ut: testen på linje 06 skjer etter at 13 er lagret, og da hopper `BRP` rett til `HLT`.\n\n**Merk rekkefølgen i løkka:** hent, skriv ut, øk, lagre, test. Bytter du om på utskrift og økning, endres hele svaret.",
+            "hints": [
+              "Skriv opp verdien i celle 30 og testresultatet for hver runde før du fører hele tabellen.",
+              "Sjekk om `OUT` kommer før eller etter `ADD 31`.",
+              "Husk at `BRP` hopper også når testen gir nøyaktig 0."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p3-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p3-3",
+            "number": "3.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F1.) Cellene 00 til 05 inneholder maskinkodene under. Kryss av alle påstandene som stemmer.\n\n```text\ncelle:   00   01   02   03   04   05\ntall:   901  340  580  240  902  000\n```\n\n**a)** Celle 01 er `STA 40`.\n\n**b)** Celle 03 er `SUB 40`.\n\n**c)** Programmet skriver alltid ut 0.\n\n**d)** Celle 02 er `ADD 80`.",
+            "solution": "**Dekoding:**\n\n| Celle | Tall | Instruksjon |\n|---|---|---|\n| 00 | `901` | `INP` |\n| 01 | `340` | `STA 40` |\n| 02 | `580` | `LDA 80` |\n| 03 | `240` | `SUB 40` |\n| 04 | `902` | `OUT` |\n| 05 | `000` | `HLT` |\n\n**a) Riktig.** Opkode 3 er `STA`, adresse 40.\n\n**b) Riktig.** Opkode 2 er `SUB`, adresse 40.\n\n**c) Galt.** Programmet henter celle 80, som ikke er satt av programmet og derfor er 0, og trekker fra inndataen. Utskriften blir `0 − inndata`, altså det negative av inndataen. Med inndata 7 skriver programmet ut −7. Bare med inndata 0 blir utskriften 0.\n\n**d) Galt.** `580` er opkode 5, altså `LDA 80`. `ADD 80` ville vært `180`. Forvekslingen mellom 1 og 5 er den vanligste i dekoding — den ene overskriver akkumulatoren, den andre legger til.\n\n**Fasit: a og b.**",
+            "hints": [
+              "Dekod alle seks cellene før du ser på alternativene.",
+              "For alternativ c: hva inneholder celle 80, og hva gjør programmet med den?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p3-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p3-4",
+            "number": "3.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Svarform F4 — fyll inn.) Programmet skal skrive ut inndataen og deretter hver verdi tre lavere, ned til og med 0. Med inndata 9 skal utskriften være `9 6 3 0`. Hvilken instruksjon må stå i celle 06?\n\n```text\n00  INP\n01  STA 20\n02  LDA 20\n03  OUT\n04  SUB 21\n05  STA 20\n06  ?\n07  HLT\n20  DAT\n21  DAT 3\n```\n\n**a)** `BRZ 02` · **b)** `BRA 02` · **c)** `BRP 02` · **d)** `BRZ 07`",
+            "solution": "Når celle 06 nås, inneholder akkumulatoren den nye telleren, nettopp redusert med 3.\n\n**Test alle fire med inndata 9:**\n\n| Alternativ | Hva som skjer | Utskrift |\n|---|---|---|\n| a `BRZ 02` | Etter første runde er telleren 6, ikke 0 — hopper ikke | `9` |\n| b `BRA 02` | Hopper alltid — løkka stopper aldri | `9 6 3 0 −3 −6 …` |\n| **c `BRP 02`** | Hopper mens telleren er 0 eller større: 6, 3, 0, stopper på −3 | **`9 6 3 0`** |\n| d `BRZ 07` | Sender til `HLT` ved 0, men har ingen vei tilbake til 02 | `9` |\n\n**Fasit: c — `BRP 02`.**\n\n**Hvorfor 0 skal med:** `BRP` hopper også når akkumulatoren er nøyaktig 0, så løkka kjører én gang til med telleren på 0 og skriver den ut. Først når verdien er −3, faller programmet gjennom til `HLT`.\n\n**Kontroll med inndata 8:** telleren går 8, 5, 2, −1. Utskriften blir `8 5 2`, og nullpunktet treffes aldri. Programmet stopper likevel — i motsetning til med `BRZ`, som ville løpt evig.",
+            "hints": [
+              "Skriv ned hva akkumulatoren inneholder når celle 06 nås.",
+              "Spor med hvert av de fire alternativene og sammenlign med kravet.",
+              "Test svaret ditt med en inndata som ikke går opp i tre."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p3-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 3\n\n☐ Førte du **sporetabell** på alle fire, også der programmet så enkelt ut?\n\n☐ Noterte du hva betingelsen var ved **hvert** betinget hopp?\n\n☐ Sjekket du om `OUT` kom **før eller etter** oppdateringen i løkka?\n\n☐ Testet du fyll-inn-svaret med **flere** inndata?\n\n☐ Husket du at `BRP` hopper også på nøyaktig 0?\n\n**Glapp noe?** Instruksjonssettet og sporing: [kap. 1.4](/bok/in1020/in1020-1-4). Maskinkode: [kap. 1.5](/bok/in1020/in1020-1-5). Mer drill: [kap. 1.6](/bok/in1020/in1020-1-6)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Blandet seksjon 1 (~30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in1020-1-prove-p4-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Alle fire svarformene er representert.\n\nDette er den prøven som ligner mest på en ekte seksjon 1: blandet innhold, ingen forvarsel om hvilken teknikk som trengs."
+        },
+        {
+          "id": "in1020-1-prove-p4-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p4-1",
+            "number": "4.1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F1 — baklengs sporing.) Programmet under skriver ut ett tall. Kryss av alle inndataene som gir utskriften `10`.\n\n```text\n00  INP\n01  STA 60\n02  SUB 61\n03  BRP 07\n04  LDA 61\n05  SUB 60\n06  BRA 08\n07  LDA 60\n08  OUT\n09  HLT\n60  DAT\n61  DAT 10\n```\n\n**a)** 0 · **b)** 10 · **c)** 20 · **d)** 4",
+            "solution": "**Hva programmet gjør, gren for gren:**\n\n- Er inndataen **minst 10**, hopper `BRP` til celle 07, som henter inndataen tilbake. Utskriften er inndataen selv.\n- Er den **under 10**, henter celle 04 verdien 10 og trekker inndataen fra. Utskriften er `10 − inndata`.\n\n**a) 0 — riktig.** 0 er under 10, så utskriften er `10 − 0 = 10`. ✓\n\n**b) 10 — riktig.** 10 er ikke under 10 (differansen er 0, og `BRP` hopper på null), så utskriften er inndataen selv: 10. ✓\n\n**c) 20 — galt.** 20 er minst 10, så utskriften er 20.\n\n**d) 4 — galt.** 4 er under 10, så utskriften er `10 − 4 = 6`.\n\n**Fasit: a og b.**\n\nUtskriften 10 nås fra **begge** grenene — det er den typiske konstruksjonen, og grunnen til at oppgaven er en «velg ett eller flere»-oppgave.",
+            "hints": [
+              "Beskriv de to grenene i ord før du tester alternativene.",
+              "Husk at `BRP` hopper også når differansen er nøyaktig null.",
+              "Sjekk om utskriften kan nås fra begge grenene."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p4-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p4-2",
+            "number": "4.2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Svarform F4 — selvmodifiserende kode.) Hva skriver programmet ut med inndata 2?\n\n```text\n00  INP\n01  ADD 50\n02  STA 04\n03  LDA 51\n04  DAT 0\n05  OUT\n06  HLT\n40  DAT 6\n41  DAT 13\n42  DAT 21\n50  DAT 140\n51  DAT 0\n```\n\n**a)** 21 · **b)** 6 · **c)** 13 · **d)** 142",
+            "solution": "**Kjennetegnet:** `STA 04`, og celle 04 er en kodecelle. Selvmodifiserende kode.\n\n**Sporetabell:**\n\n| PC | Instruksjon | Akk | Celle 04 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 2 | `000` | |\n| 01 | `ADD 50` | 142 | `000` | |\n| 02 | `STA 04` | 142 | **`142` (`ADD 42`)** | |\n| 03 | `LDA 51` | 0 | `142` | |\n| 04 | `ADD 42` | **21** | `142` | |\n| 05 | `OUT` | 21 | `142` | **21** |\n| 06 | `HLT` | 21 | `142` | 21 |\n\n**Fasit: a — 21.**\n\nMalen i celle 50 er `140`, altså `ADD 40`. Inndata 2 gir `142`, som er `ADD 42`, og celle 42 inneholder 21.\n\n**b (6)** er hva inndata 0 ville gitt (`ADD 40`). **c (13)** er hva inndata 1 ville gitt (`ADD 41`). **d (142)** er selve instruksjonsverdien — svaret hvis du glemmer at `LDA 51` nullstiller akkumulatoren og at `ADD` deretter henter *innholdet* i celle 42.\n\n**Merk `LDA 51`.** Uten den ville akkumulatoren fortsatt vært 142, og utskriften blitt `142 + 21 = 163`.",
+            "hints": [
+              "Finn `STA`-instruksjonen som skriver til kodeområdet.",
+              "Regn ut hva som skrives inn, og dekod verdien som instruksjon.",
+              "Husk hva `LDA 51` gjør med akkumulatoren rett før den modifiserte instruksjonen."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p4-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p4-3",
+            "number": "4.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F3 — kobling.) Koble hvert format til riktig kategori. Oppgi svaret på formen «1→X».\n\n1. MP3\n\n2. PNG\n\n3. SVG\n\n4. ZIP\n\n**A** Tapsfri rastergrafikk · **B** Tapskomprimert lyd · **C** Tapsfri generell filkomprimering · **D** Vektorgrafikk",
+            "solution": "**Fasit: 1→B, 2→A, 3→D, 4→C.**\n\n**1. MP3 → B.** Lydformat som forkaster lyd som maskeres av annen lyd. Tapet er permanent.\n\n**2. PNG → A.** Bildeformat som gjenskaper hver piksel eksakt, lagret som et rutenett — altså raster. Brukes til skjermbilder, logoer og grafikk med skarpe kanter.\n\n**3. SVG → D.** Bildet lagres som en beskrivelse av former og kan skaleres fritt uten å bli uskarpt.\n\n**4. ZIP → C.** Generell filkomprimering som må være tapsfri: et program eller dokument må komme ut bit for bit identisk.\n\n**Merk at både PNG og SVG er bildeformater**, men de står i hver sin kategori. Skillet går ikke på medietype, men på **hvordan** bildet er beskrevet: som piksler eller som former.\n\nLegg også merke til at koblingen ikke følger et regelmessig mønster.",
+            "hints": [
+              "Spør for hvert format: må originalen kunne gjenskapes, og er bildet piksler eller former?",
+              "To av de fire er bildeformater — hva skiller dem?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p4-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-1-prove-p4-4",
+            "number": "4.4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Svarform F2 — sant/usant.) Vurder hver påstand som sann eller usann.\n\n**a)** Fargekoden `0x4D8B2A` har rødkomponenten 77.\n\n**b)** En tekst med 50 tegn der 5 er norske spesialtegn, tar 55 byte i UTF-8.\n\n**c)** `0xFF` er 256.\n\n**d)** ASCII kan representere bokstaven `Å`.",
+            "solution": "**a) Sann.** Første par er `4D`, altså `4·16 + 13 = 77`.\n\n**b) Sann.** 45 tegn tar én byte, og 5 tegn tar to: `45 + 10 = 55`.\n\n**c) Usann.** `0xFF` er `15·16 + 15 = 255`. Det er den **største** verdien én byte kan ha; antallet verdier er 256, fra 0 til 255. Forvekslingen mellom største verdi og antall verdier er en klassiker.\n\n**d) Usann.** ASCII har 128 koder og dekker det engelske alfabetet, sifre og skilletegn. Norske bokstaver finnes ikke der — det var nettopp derfor unicode-kodingene ble laget.\n\n**Fasit: a sann, b sann, c usann, d usann.**\n\nMerk at fasitrekka er to sanne og to usanne. Sant/usant-matriser har ingen fast fordeling, og du kan ikke bruke antallet som ledetråd.",
+            "hints": [
+              "For a: del fargekoden i tre par og konverter det første.",
+              "For b: hvor mange byte tar et norsk spesialtegn i UTF-8?",
+              "For c: skill mellom den største verdien og antall verdier."
+            ]
+          }
+        },
+        {
+          "id": "in1020-1-prove-p4-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose — prøve 4\n\n☐ Beskrev du hva programmet gjorde **som helhet** før du testet inndata?\n\n☐ Lette du etter **mer enn ett** riktig svar i den baklengs sporingen?\n\n☐ Oppdaget du `STA` mot kodeområdet i oppgave 4.2?\n\n☐ Skilte du mellom **hva formatet gjør** og **hva slags medium** det er for?\n\n☐ Konverterte du fargeparet i stedet for å lese det som desimaltall?\n\n**Glapp noe?** Baklengs sporing og selvmodifisering: [kap. 1.5](/bok/in1020/in1020-1-5) og [kap. 1.6](/bok/in1020/in1020-1-6). Formater og farger: [kap. 1.7](/bok/in1020/in1020-1-7).\n\n---\n\n### Ferdig med alle fire?\n\nDa har du dekket hele seksjon 1: tallkonvertering, to-er komplement, LMC og filformater. Det er de tre garanterte poengsjangrene pluss den voksende fjerde.\n\nNeste steg er [del 2 om maskinvare og arkitektur](/bok/in1020/in1020-2-1) — og husk at hver seksjon må bestås for seg."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
