@@ -154,7 +154,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "En konsument har MSB $= 4$ i punktet hun er i. Hva betyr det?",
       options: ["Hun vil gi fra seg fire enheter av vare 2 for én enhet mer av vare 1", "Hun vil gi fra seg fire enheter av vare 1 for én enhet mer av vare 2", "Hun bruker fire ganger så mye penger på vare 1 som på vare 2", "Nytten hennes øker med fire enheter dersom hun får én enhet mer av vare 1"],
-      explanation: "MSB $= u'_1/u'_2$ måles i enheter av vare 2 per enhet vare 1, sett fra konsumentens side. Alternativ b) snur retningen, c) forveksler MSB med budsjettandeler, og d) er en kardinal tolkning av nyttetall som modellen ikke tillater.",
+      explanation: "MSB $= u'_1/u'_2$ måles i enheter av vare 2 per enhet vare 1, sett fra konsumentens side. Svaret «Hun vil gi fra seg fire enheter av vare 1 for én …» snur retningen, «Hun bruker fire ganger så mye penger på vare 1 som …» forveksler MSB med budsjettandeler, og «Nytten hennes øker med fire enheter dersom hun får …» er en kardinal tolkning av nyttetall som modellen ikke tillater.",
     },
     {
       question: "Hvorfor kan ikke to indifferenskurver på ulike nyttenivåer krysse hverandre?",
@@ -164,7 +164,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er likningen for indifferenskurven gjennom $(4,9)$ når $u = c_1^{1/2}c_2^{1/2}$?",
       options: ["$c_2 = 36/c_1$", "$c_2 = 6/c_1$", "$c_2 = 13 - c_1$", "$c_2 = 36/c_1^2$"],
-      explanation: "Nyttenivået er $\\bar u = 2 \\cdot 3 = 6$, så $(c_1c_2)^{1/2} = 6$ gir $c_1c_2 = 36$ og $c_2 = 36/c_1$. Alternativ b) glemmer å kvadrere begge sider, og d) svarer til eksponentene $2/3$ og $1/3$.",
+      explanation: "Nyttenivået er $\\bar u = 2 \\cdot 3 = 6$, så $(c_1c_2)^{1/2} = 6$ gir $c_1c_2 = 36$ og $c_2 = 36/c_1$. Svaret «$c_2 = 6/c_1$» glemmer å kvadrere begge sider, og «$c_2 = 36/c_1^2$» svarer til eksponentene $2/3$ og $1/3$.",
     },
     {
       question: "Hva betyr det at preferansene er strengt konvekse?",
@@ -211,7 +211,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan settes Lagrange-funksjonen opp for konsumentens problem?",
       options: ["$\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2 - m)$", "$\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2)$", "$\\mathcal{L} = u(c_1,c_2) \\cdot \\lambda(p_1c_1 + p_2c_2 - m)$", "$\\mathcal{L} = p_1c_1 + p_2c_2 - \\lambda(u(c_1,c_2) - m)$"],
-      explanation: "Målfunksjonen minus multiplikatoren ganget med bibetingelsen skrevet som null. Alternativ b) mangler $m$, så bibetingelsen er ikke null når den er oppfylt; c) ganger i stedet for å trekke fra; d) bytter om på hva som er mål og hva som er bibetingelse.",
+      explanation: "Målfunksjonen minus multiplikatoren ganget med bibetingelsen skrevet som null. Svaret «$\mathcal{L} = u(c_1,c_2) - \lambda(p_1c_1 + p_2c_2)$» mangler $m$, så bibetingelsen er ikke null når den er oppfylt; «$\mathcal{L} = u(c_1,c_2) \cdot \lambda(p_1c_1 + p_2c_2 - m)$» ganger i stedet for å trekke fra; «$\mathcal{L} = p_1c_1 + p_2c_2 - \lambda(u(c_1,c_2) - m)$» bytter om på hva som er mål og hva som er bibetingelse.",
     },
     {
       question: "Hva er det avgjørende steget etter at førsteordensbetingelsene er skrevet ned?",
@@ -256,7 +256,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "En konsument har $u = c_1^{1/4}c_2^{3/4}$, $p_1 = 3$, $p_2 = 5$ og $m = 60$. Hva er optimum?",
       options: ["$(5, 9)$", "$(9, 5)$", "$(15, 3)$", "$(10, 6)$"],
-      explanation: "Utgiftsandelene følger eksponentene: 15 kroner (en firedel) på vare 1 gir $c_1 = 5$, og 45 kroner (tre firedeler) på vare 2 gir $c_2 = 9$. Alternativ b) bytter om godene, og c) legger hele budsjettet i vare 1 og resten i vare 2.",
+      explanation: "Utgiftsandelene følger eksponentene: 15 kroner (en firedel) på vare 1 gir $c_1 = 5$, og 45 kroner (tre firedeler) på vare 2 gir $c_2 = 9$. Svaret «$(9, 5)$» bytter om godene, og «$(15, 3)$» legger hele budsjettet i vare 1 og resten i vare 2.",
     },
     {
       question: "Hvorfor kan du bruke logaritmeformen når nyttefunksjonen er oppgitt som $c_1^ac_2^{1-a}$?",
@@ -300,7 +300,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["To tredjedeler av en enhet", "Halvannen enhet", "Én og en tredjedels enhet", "Tjue enheter"],
       explanation: "Bytteforholdet er $p_1/p_2 = 20/30 = 2/3$ enheter vare 2 per enhet vare 1. Svaret 1,5 er den omvendte brøken $p_2/p_1$, og 20 er prisen, ikke bytteforholdet.",
     },
-        {
+    {
       question: "Oppgaven ber om «tolk resultatet». Hva må svaret inneholde for å få full uttelling?",
       options: ["En økonomisk lesning av hva løsningen betyr — hva forbrukeren gjør og hvorfor, ikke bare tallene", "En gjentakelse av utregningen med ordene skrevet ut i stedet for symboler", "En vurdering av om resultatet virker realistisk ut fra egne erfaringer", "En kontroll av at budsjettbetingelsen holder med likhet i optimum"],
       explanation: "Tolkningen skal oversette matematikken til økonomi: hva velger konsumenten, hvordan avhenger valget av priser og inntekt, og hva betyr multiplikatoren. Budsjettkontrollen er nyttig, men er verifisering — ikke tolkning.",
@@ -647,7 +647,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken kontroll fanger fortegnsfeil i kompensasjonen mest sikkert?",
       options: ["Å sjekke at $A$ ligger på den kompenserte linjen", "Å sjekke at nyttenivået er høyere i $B$ enn i $A$", "Å sjekke at $c_2$ stiger fra $A$ til $B$", "Å sjekke at substitusjonseffekten er større enn inntektseffekten"],
-      explanation: "Definisjonen av kompensasjonen er at den gamle kurven koster nøyaktig $m^s$ til de nye prisene, altså at $A$ ligger på den kompenserte linjen. At $c_2$ stiger, holder bare når det er $p_1$ som steg, og nyttenivået i $B$ er ikke høyere enn i $A$ ved en prisøkning.",
+      explanation: "Definisjonen av kompensasjonen er at den gamle kurven koster nøyaktig $m^s$ til de nye prisene, altså at $A$ ligger på den kompenserte linjen. At $c_2$ stiger, holder bare når det er $p_1$ som steg. Merk at nyttenivået i $B$ faktisk er HØYERE enn i $A$ — Slutsky-kompensasjonen gir råd til den gamle kurven og litt til.",
     },
     {
       question: "Hvilken kompensasjonskonvensjon bruker dette kurset, og hva sier sensor om alternativet?",
@@ -813,12 +813,11 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["Budsjettandel, substituerbarhet og normalitet", "Lagrange-multiplikatoren, tangering og monotoni", "Konveksitet, avslørte preferanser og homogenitet", "Statens utlegg, øremerking og vridningstap"],
       explanation: "De tre knytter drøftingen til oppgaven du nettopp løste: andelen styrer kjøpekraftsvirkningen, substituerbarheten styrer hvor billig tilpasningen er, og normaliteten styrer hvordan forbruket henger sammen med inntekt.",
     },
-        {
+    {
       question: "Du har regnet ut substitusjons- og inntektseffekten. Hva er siste steg før du leverer?",
       options: ["Å sjekke at de to effektene summerer seg til totalendringen du regnet ut først", "Å tegne figuren på nytt med større akser slik at punktene blir tydeligere", "Å regne om alle mellomsvar til desimaltall med tre gjeldende siffer", "Å kontrollere at nyttenivået er høyere i det nye optimum enn i det gamle"],
-      explanation: "Summekontrollen fanger både fortegnsfeil og regnefeil i én operasjon, og koster to sekunder. Nytten kan godt falle ved en prisøkning, så den siste kontrollen ville vært direkte misvisende.",
+      explanation: "Summekontrollen fanger regnefeil i $A$, $C$ og differansene, og koster to sekunder. Den fanger derimot IKKE fortegnsfeil i kompensasjonen — summen går opp uansett hvor $B$ ligger; til det trenger du kontrollen at $A$ ligger på den kompenserte linja. Nytten kan godt falle ved en prisøkning, så det siste alternativet ville vært direkte misvisende.",
     },
-
   ],
   'econ2220-3-1': [
     {
@@ -834,7 +833,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skjer med beholdningsbudsjettlinjen når $p_1$ stiger?",
       options: ["Den roterer om beholdningspunktet og blir brattere", "Den skifter parallelt innover", "Den roterer om skjæringspunktet på $c_2$-aksen, slik den gjør ved fast pengeinntekt", "Den blir liggende uendret fordi inntekten stiger like mye"],
-      explanation: "$W$ er fortsatt råd, så den nye linjen går gjennom $W$; helningen $-p_1/p_2$ blir brattere. Parallellskift (alternativ 2) er den dokumenterte fellen; rotasjon om aksepunktet (alternativ 3) gjelder ved fast pengeinntekt.",
+      explanation: "$W$ er fortsatt råd, så den nye linjen går gjennom $W$; helningen $-p_1/p_2$ blir brattere. Parallellskift («Den skifter parallelt innover») er den dokumenterte fellen; rotasjon om aksepunktet («Den roterer om skjæringspunktet på $c_2$-aksen, slik den gjør ved fast pengeinntekt») gjelder ved fast pengeinntekt.",
     },
     {
       question: "En konsument har $c_1 = 30$ og $\\omega_1 = 45$. Hva er nettoposisjonen i vare 1?",
@@ -844,12 +843,12 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er helningen på budsjettlinjen når $p_1 = 8$ og $p_2 = 2$?",
       options: ["$-4$", "$-0{,}25$", "$-6$", "$-16$, siden helningen er produktet av prisene"],
-      explanation: "Helningen er $-p_1/p_2 = -8/2 = -4$: én enhet av vare 1 koster fire enheter av vare 2. Alternativ 2 er det omvendte forholdet, en klassisk snuble.",
+      explanation: "Helningen er $-p_1/p_2 = -8/2 = -4$: én enhet av vare 1 koster fire enheter av vare 2. Svaret «$-0{,}25$» er det omvendte forholdet, en klassisk snuble.",
     },
     {
       question: "En konsument eier $\\omega = (50, 20)$ og møter $p_1 = 12$, $p_2 = 5$. Hva er verdien av beholdningen?",
       options: ["700", "600", "100", "870, altså summen av alle prisene og alle mengdene"],
-      explanation: "$12\\cdot 50 + 5\\cdot 20 = 600 + 100 = 700$. Alternativ 2 tar bare med vare 1; alternativ 3 tar bare med vare 2.",
+      explanation: "$12\\cdot 50 + 5\\cdot 20 = 600 + 100 = 700$. Svaret «600» tar bare med vare 1; svaret «100» tar bare med vare 2.",
     },
     {
       question: "Hvorfor skrives beholdningsbudsjettet med likhetstegn og ikke $\\le$?",
@@ -884,12 +883,12 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Kari eier $\\omega = (200, 150)$ og møter $p_1 = 6$, $p_2 = 4$. Hvor krysser $c_1$-aksen budsjettlinjen?",
       options: ["Ved $c_1 = 300$", "Ved $c_1 = 200$", "Ved $c_1 = 450$", "Ved $c_1 = 350$, altså beholdningen pluss halve potetavlingen"],
-      explanation: "Verdien av beholdningen er $6\\cdot200 + 4\\cdot150 = 1800$, og $1800/6 = 300$. Alternativ 2 er beholdningen selv, alternativ 3 er skjæringen på den andre aksen.",
+      explanation: "Verdien av beholdningen er $6\\cdot200 + 4\\cdot150 = 1800$, og $1800/6 = 300$. Svaret «Ved $c_1 = 200$» er beholdningen selv, svaret «Ved $c_1 = 450$» er skjæringen på den andre aksen.",
     },
     {
       question: "Hvilken av disse endringene gir et rent parallellskift av budsjettlinjen?",
       options: ["En kontantoverføring som ikke endrer prisene", "En økning i $p_1$ alene", "En reduksjon i $p_2$ alene", "En dobling av begge priser samtidig, uten kompensasjon"],
-      explanation: "Parallellskift krever uendret prisforhold og endret nivå. En dobling av begge priser (alternativ 4) endrer verken helningen eller de reelle mulighetene i en beholdningsøkonomi: både konsumets kostnad og beholdningens verdi dobles, så linjen står helt stille.",
+      explanation: "Parallellskift krever uendret prisforhold og endret nivå. En dobling av begge priser («En dobling av begge priser samtidig») endrer verken helningen eller de reelle mulighetene i en beholdningsøkonomi: både konsumets kostnad og beholdningens verdi dobles, så linjen står helt stille.",
     },
     {
       question: "Hva står symbolet $\\omega$ for i denne boka?",
@@ -914,7 +913,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den økonomiske tolkningen av at $u'_1/u'_2 = p_1/p_2$ i optimum?",
       options: ["Konsumentens eget bytteforhold er lik markedets bytteforhold", "Marginalnyttene er like store", "Konsumenten bruker like mye penger på hver vare", "Prisene er like marginalkostnadene i produksjonen av de to varene"],
-      explanation: "Venstresiden er hvor mange enheter av vare 2 hun vil gi for én av vare 1; høyresiden er hva markedet krever. Er de ulike, finnes et lønnsomt bytte. Alternativ 3 gjelder bare i det spesialtilfellet at Cobb-Douglas-vektene er like.",
+      explanation: "Venstresiden er hvor mange enheter av vare 2 hun vil gi for én av vare 1; høyresiden er hva markedet krever. Er de ulike, finnes et lønnsomt bytte. Svaret «Konsumenten bruker like mye penger på hver vare» gjelder bare i det spesialtilfellet at Cobb-Douglas-vektene er like.",
     },
     {
       question: "Hvorfor er nettoposisjonen en egenskap ved tilpasningen og ikke ved personen?",
@@ -926,7 +925,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan ser Slutsky-likningen med beholdningsledd ut?",
       options: ["$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + (\\omega_1 - c_1)\\,\\partial c_1/\\partial m$", "$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 - c_1\\,\\partial c_1/\\partial m$ også med beholdning", "$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + \\omega_1\\,\\partial c_1/\\partial m$", "$\\partial c_1/\\partial p_1 = \\partial c_1^s/\\partial p_1 + (c_1 - \\omega_1)\\,\\partial c_1/\\partial m$"],
-      explanation: "Inntektsleddet skaleres med nettoposisjonen $\\omega_1 - c_1$. Alternativ 2 er likningen uten beholdning, alternativ 3 glemmer den ordinære inntektseffekten, og alternativ 4 har snudd fortegnet i parentesen.",
+      explanation: "Inntektsleddet skaleres med nettoposisjonen $\\omega_1 - c_1$. Svaret «$\partial c_1/\partial p_1 = \partial c_1^s/\partial p_1 - c_1\,\partial c_1/\partial m$ også med beholdning» er likningen uten beholdning, svaret «$\partial c_1/\partial p_1 = \partial c_1^s/\partial p_1 + \omega_1\,\partial c_1/\partial m$» glemmer den ordinære inntektseffekten, og svaret «$\partial c_1/\partial p_1 = \partial c_1^s/\partial p_1 + (c_1 - \omega_1)\,\partial c_1/\partial m$» har snudd fortegnet i parentesen.",
     },
     {
       question: "Hvorfor får Slutsky-likningen et ekstra ledd når inntekten er en beholdning?",
@@ -946,17 +945,17 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er den ordinære inntektseffekten av en prisøkning på vare 1?",
       options: ["Virkningen av at konsumentens egen godekurv er blitt dyrere", "Virkningen av at beholdningen har steget i verdi etter prisøkningen", "Virkningen av at konsumenten vrir seg bort fra det dyrere godet", "Virkningen av at nyttefunksjonen selv endrer form når prisene blir høyere"],
-      explanation: "Den ordinære inntektseffekten er $-c_1\\,\\partial c_1/\\partial m$ per krone: du blir fattigere med $c_1$ kroner per krone prisøkning. Alternativ 2 er beholdnings-effekten og alternativ 3 er substitusjonseffekten.",
+      explanation: "Den ordinære inntektseffekten er $-c_1\\,\\partial c_1/\\partial m$ per krone: du blir fattigere med $c_1$ kroner per krone prisøkning. Svaret «Virkningen av at beholdningen har steget i verdi …» er beholdnings-effekten og svaret «Virkningen av at konsumenten vrir seg bort fra det …» er substitusjonseffekten.",
     },
     {
       question: "Hva er beholdnings-inntektseffekten av en prisøkning på vare 1?",
       options: ["$+\\omega_1\\,\\partial c_1/\\partial m$ per krone — beholdningen ble mer verdt", "$-\\omega_1\\,\\partial c_1/\\partial m$ per krone, siden varen er blitt dyrere", "$-c_1\\,\\partial c_1/\\partial m$ per krone, som i den vanlige Slutsky-likningen", "Null, fordi beholdningen er gitt utenfra og ikke kan endres"],
-      explanation: "Inntekten stiger med $\\omega_1$ kroner per krone prisøkning, og for et normalt gode går en del av dette til mer av vare 1. Alternativ 4 blander sammen at *mengden* er gitt med at *verdien* endres.",
+      explanation: "Inntekten stiger med $\\omega_1$ kroner per krone prisøkning, og for et normalt gode går en del av dette til mer av vare 1. Svaret «Null, fordi beholdningen er gitt utenfra og ikke …» blander sammen at *mengden* er gitt med at *verdien* endres.",
     },
     {
       question: "En konsument er netto kjøper av vare 1 (normalt gode), og $p_1$ stiger. Hva skjer med $c_1$?",
       options: ["Det faller entydig — begge ledd trekker samme vei", "Det stiger entydig på grunn av beholdnings-effekten", "Det er ubestemt, fordi de to leddene trekker hver sin vei", "Det er uendret, siden de to effektene alltid utlikner hverandre nøyaktig"],
-      explanation: "For en netto kjøper er $\\omega_1 - c_1 < 0$, så inntektsleddet er negativt, og substitusjonsleddet er også negativt. Ubestemthet (alternativ 3) gjelder for netto selgeren, ikke for kjøperen.",
+      explanation: "For en netto kjøper er $\\omega_1 - c_1 < 0$, så inntektsleddet er negativt, og substitusjonsleddet er også negativt. Ubestemthet («Det er ubestemt») gjelder for netto selgeren, ikke for kjøperen.",
     },
     {
       question: "En konsument er netto selger av vare 1 (normalt gode), og $p_1$ stiger. Hva skjer med $c_1$?",
@@ -971,7 +970,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva vil Slutsky-kompensasjon si?",
       options: ["Å gi akkurat nok inntekt til å ha råd til den gamle kurven", "Å gi konsumenten akkurat nok inntekt til å nå det gamle nyttenivået", "Å gi konsumenten tilbake hele beløpet prisøkningen kostet henne", "Å holde konsumentens pengeinntekt helt uendret gjennom hele analysen"],
-      explanation: "Slutsky-kompensasjon er råd til samme godekurv, altså $\\Delta m = \\Delta p_1 c_1$. Alternativ 2 beskriver den alternative konvensjonen med samme nyttenivå, som godtas på eksamen men ikke er kursets hovedspor.",
+      explanation: "Slutsky-kompensasjon er råd til samme godekurv, altså $\\Delta m = \\Delta p_1 c_1$. Svaret «Å gi konsumenten akkurat nok inntekt til å nå det …» beskriver den alternative konvensjonen med samme nyttenivå, som godtas på eksamen men ikke er kursets hovedspor.",
     },
     {
       question: "Hva blir Slutsky-likningen med beholdningsledd hvis $\\omega_1 = 0$?",
@@ -986,7 +985,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva måler størrelsen $m^s = p_1'c_1 + p_2c_2$?",
       options: ["Hva den gamle godekurven koster ved de nye prisene", "Verdien av beholdningen ved de nye prisene", "Konsumentens nye inntekt etter prisendringen", "Utgiften til vare 1 etter at konsumenten har tilpasset seg de nye prisene"],
-      explanation: "$m^s$ er den Slutsky-kompenserte inntekten. Alternativ 2 og 3 er begge $p_1'\\omega_1 + p_2\\omega_2$, som er noe annet — differansen mellom de to er nettopp $\\Delta p_1(\\omega_1-c_1)$.",
+      explanation: "$m^s$ er den Slutsky-kompenserte inntekten. Svaret «Verdien av beholdningen ved de nye prisene» og 3 er begge $p_1'\\omega_1 + p_2\\omega_2$, som er noe annet — differansen mellom de to er nettopp $\\Delta p_1(\\omega_1-c_1)$.",
     },
     {
       question: "Hvorfor bør du regne de to inntektseffektene hver for seg, når formelen slår dem sammen?",
@@ -996,7 +995,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "En bonde eier $\\omega = (80,40)$, har $u = 0{,}5\\ln c_1 + 0{,}5\\ln c_2$ og møter $p_1 = 10$, $p_2 = 5$. Hva er $c_1$?",
       options: ["50", "40", "80", "100, altså hele inntekten delt på prisen på vare 1"],
-      explanation: "$m = 10\\cdot 80 + 5\\cdot 40 = 1000$, og med like vekter går halve inntekten til vare 1: $c_1 = 0{,}5\\cdot 1000/10 = 50$. Alternativ 4 glemmer budsjettandelen.",
+      explanation: "$m = 10\\cdot 80 + 5\\cdot 40 = 1000$, og med like vekter går halve inntekten til vare 1: $c_1 = 0{,}5\\cdot 1000/10 = 50$. Svaret «100, altså hele inntekten delt på prisen på vare 1» glemmer budsjettandelen.",
     },
     {
       question: "Hvorfor er nyttevirkningen entydig når etterspørselsvirkningen ikke er det?",
@@ -1046,29 +1045,29 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken av disse formuleringene er en fullgod konklusjon for en netto selger ved prisøkning?",
       options: ["Etterspørselen er ubestemt fordi to ledd trekker hver sin vei, men nytten stiger", "Etterspørselen faller og nytten faller, som for alle andre konsumenter", "Etterspørselen stiger fordi beholdnings-effekten alltid dominerer de to andre", "Både etterspørsel og nytte er ubestemt uten mer informasjon om preferansene"],
-      explanation: "Begge spørsmål skal besvares, med riktig status på hvert: etterspørsel ubestemt (med begrunnelse), nytte entydig opp. Alternativ 4 er den nære, men gale varianten — nyttespørsmålet er avgjort av avslørte preferanser.",
+      explanation: "Begge spørsmål skal besvares, med riktig status på hvert: etterspørsel ubestemt (med begrunnelse), nytte entydig opp. Svaret «Både etterspørsel og nytte er ubestemt uten mer …» er den nære, men gale varianten — nyttespørsmålet er avgjort av avslørte preferanser.",
     },
   ],
   'econ2220-3-3': [
     {
       question: "Hva er budsjettbetingelsen på nåverdiform i to-periode-modellen?",
       options: ["$c_1 + c_2/(1+r) = m_1 + m_2/(1+r)$", "$c_1 + c_2/r = m_1 + m_2/r$, altså diskontert med renten", "$c_1 + c_2 = m_1 + m_2$, siden begge perioder teller likt", "$c_1(1+r) + c_2 = m_1 + m_2(1+r)$"],
-      explanation: "Nåverdien av konsumet er lik nåverdien av inntekten. Alternativ 2 diskonterer med $r$ i stedet for $(1+r)$; alternativ 4 blander nåverdi- og sluttverdiform.",
+      explanation: "Nåverdien av konsumet er lik nåverdien av inntekten. Svaret «$c_1 + c_2/r = m_1 + m_2/r$, altså diskontert med renten» diskonterer med $r$ i stedet for $(1+r)$; svaret «$c_1(1+r) + c_2 = m_1 + m_2(1+r)$» blander nåverdi- og sluttverdiform.",
     },
     {
       question: "Hva er helningen på det intertemporale budsjettet?",
       options: ["$-(1+r)$", "$-r$", "$-1/(1+r)$", "$-1$, siden en krone alltid er en krone"],
-      explanation: "Prisen på én krone konsum i dag er $(1+r)$ kroner konsum i morgen: du gir fra deg både kronen og renten den ville tjent. Alternativ 2 er den vanligste feilen i sjangeren.",
+      explanation: "Prisen på én krone konsum i dag er $(1+r)$ kroner konsum i morgen: du gir fra deg både kronen og renten den ville tjent. Svaret «$-r$» er den vanligste feilen i sjangeren.",
     },
     {
       question: "Renten er 5 % og $m_2 = 210$. Hva er nåverdien av periode 2-inntekten?",
       options: ["200", "199,50", "220,50", "210, siden nåverdien er lik beløpet selv"],
-      explanation: "$210/1{,}05 = 200$; kontroller ved å gange tilbake: $200\\cdot 1{,}05 = 210$ ✓. Alternativ 2 er $210\\cdot 0{,}95$ og alternativ 3 er $210\\cdot 1{,}05$ — begge er vanlige snublesteiner.",
+      explanation: "$210/1{,}05 = 200$; kontroller ved å gange tilbake: $200\\cdot 1{,}05 = 210$ ✓. Svaret «199,50» er $210\\cdot 0{,}95$ og svaret «220,50» er $210\\cdot 1{,}05$ — begge er vanlige snublesteiner.",
     },
     {
       question: "Hva er sparingen i to-periode-modellen?",
       options: ["$s = m_1 - c_1$", "$s = c_1 - m_1$", "$s = m_2 - c_2$", "$s = m_1 + m_2 - c_1 - c_2$, altså samlet ubrukt inntekt"],
-      explanation: "Sparingen er den delen av periode 1-inntekten som ikke konsumeres. Negativ verdi betyr lån. Alternativ 2 har snudd fortegnet.",
+      explanation: "Sparingen er den delen av periode 1-inntekten som ikke konsumeres. Negativ verdi betyr lån. Svaret «$s = c_1 - m_1$» har snudd fortegnet.",
     },
     {
       question: "Hva vil det si at inntektspunktet $(m_1, m_2)$ alltid ligger på budsjettlinjen?",
@@ -1083,7 +1082,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er tilpasningsbetingelsen i to-periode-modellen?",
       options: ["$u'_1/u'_2 = 1 + r$", "$u'_1/u'_2 = r$", "$u'_1/u'_2 = 1/(1+r)$", "$u'_1 = u'_2$, altså lik marginalnytte i begge perioder"],
-      explanation: "Betingelsen er $u'_1/u'_2 = p_1/p_2$ med $p_1 = 1$ og $p_2 = 1/(1+r)$. Alternativ 4 gjelder bare i det spesialtilfellet at renten er null.",
+      explanation: "Betingelsen er $u'_1/u'_2 = p_1/p_2$ med $p_1 = 1$ og $p_2 = 1/(1+r)$. Svaret «$u'_1 = u'_2$, altså lik marginalnytte i begge perioder» gjelder bare i det spesialtilfellet at renten er null.",
     },
     {
       question: "Hva er den økonomiske tolkningen av $u'_1/u'_2 = 1 + r$?",
@@ -1113,7 +1112,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "En konsument har $m_1 = 300$, $m_2 = 440$ og $r = 10\\,\\%$. Hva er formuen?",
       options: ["700", "740", "400", "760, altså inntekten pluss renter på begge beløp"],
-      explanation: "$440/1{,}10 = 400$, så $W = 300 + 400 = 700$. Alternativ 2 legger sammen udiskonterte beløp, og alternativ 3 glemmer periode 1-inntekten.",
+      explanation: "$440/1{,}10 = 400$, så $W = 300 + 400 = 700$. Svaret «740» legger sammen udiskonterte beløp, og svaret «400» glemmer periode 1-inntekten.",
     },
     {
       question: "Hvorfor er sparingen ikke en egen valgvariabel i modellen?",
@@ -1140,7 +1139,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er mellomstasjonen $m^s$ i den numeriske dekomponeringen?",
       options: ["Kostnaden for den gamle kurven ved de nye prisene", "Verdien av beholdningen ved de nye prisene", "Konsumentens inntekt før prisendringen fant sted", "Utgiften til vare 1 etter at tilpasningen er endret"],
-      explanation: "$m^s = p_1'c_1 + p_2c_2 = m + \\Delta p_1 c_1$. Alternativ 2 er den nye beholdningsverdien; differansen mellom de to er $\\Delta p_1(\\omega_1 - c_1)$.",
+      explanation: "$m^s = p_1'c_1 + p_2c_2 = m + \\Delta p_1 c_1$. Svaret «Verdien av beholdningen ved de nye prisene» er den nye beholdningsverdien; differansen mellom de to er $\\Delta p_1(\\omega_1 - c_1)$.",
     },
     {
       question: "En kornbonde eier 160 enheter og konsumerer 65. Prisen stiger 5 kroner. Hvor mye har hun til overs etter å ha kjøpt den gamle kurven?",
@@ -1200,7 +1199,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor kan nyttevirkningen avgjøres uten å kjenne nyttefunksjonen?",
       options: ["Fordi testen bare sammenlikner hva den gamle kurven koster med hva inntekten er", "Fordi nytten alltid stiger når inntekten målt i kroner stiger", "Fordi alle nyttefunksjoner i emnet er av Cobb-Douglas-typen", "Fordi substitusjonseffekten alltid er lik null i modeller med beholdning"],
-      explanation: "Avslørte preferanser: er den gamle kurven fortsatt innenfor rekkevidde med penger til overs, kan konsumenten ikke komme dårligere ut. Merk at alternativ 2 er galt i tidsvarianten — formuen kan stige samtidig som spareren taper.",
+      explanation: "Avslørte preferanser: er den gamle kurven fortsatt innenfor rekkevidde med penger til overs, kan konsumenten ikke komme dårligere ut. Merk at svaret «Fordi nytten alltid stiger når inntekten målt i …» er galt i tidsvarianten — formuen kan stige samtidig som spareren taper.",
     },
   ],
   'econ2220-4-1': [
@@ -1249,7 +1248,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["Begge konsumenter får høyere nytte enn i utgangspunktet", "Nøyaktig én av konsumentene får høyere nytte", "Samlet nytte er nøyaktig den samme som i utgangspunktet for begge", "Fordelingen er alltid effektiv der"],
       explanation: "Linsen består av Pareto-forbedringer. Et punkt i linsen kan godt ha en ny linse igjen, så det er ikke nødvendigvis effektivt.",
     },
-        {
+    {
       question: "Hva kjennetegner geometrisk et punkt på kontraktkurven?",
       options: ["De to konsumentenes indifferenskurver tangerer hverandre i punktet", "De to indifferenskurvene krysser hverandre i punktet", "Punktet ligger på den rette linjen mellom de to origoene", "Punktet ligger midt i bytteboksen, like langt fra begge origo"],
       explanation: "Tangering betyr at de marginale substitusjonsbrøkene er like, så ingen omfordeling kan gjøre én bedre uten å gjøre den andre verre. Krysning betyr derimot at det finnes en linse igjen — altså at punktet ikke er effektivt.",
@@ -1306,7 +1305,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor krummer Bs indifferenskurver mot hjørnet oppe til høyre?",
-      options: ["Fordi Bs nytte øker mot Bs eget origo-motsatte retning, og diagrammet er rotert 180 grader", "Fordi B alltid har mer av vare 2 enn A", "Fordi Bs preferanser er speilvendte av As, slik at nytten avtar bort fra As origo", "Fordi Bs budsjettlinje har positiv helning"],
+      options: ["Fordi Bs nytte øker bort fra Bs eget origo, og diagrammet er rotert 180 grader", "Fordi B alltid har mer av vare 2 enn A", "Fordi Bs preferanser er speilvendte av As, slik at nytten avtar bort fra As origo", "Fordi Bs budsjettlinje har positiv helning"],
       explanation: "Krumningen følger av rotasjonen, ikke av at B har spesielle preferanser eller mer av noen vare.",
     },
     {
@@ -1455,13 +1454,13 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "$\\Omega = (12,18)$ og begge har $u = c_1^{1/2}c_2^{1/2}$. Er $c^A = (8,12)$ Pareto-effektiv?",
-      options: ["Ja, fordi $12/8 = 6/4$", "Nei, fordi A har mer enn B av begge varer", "Ja, fordi A får nøyaktig to tredjedeler av begge varene", "Nei, fordi allokeringen ikke ligger på budsjettlinja gjennom $W$"],
-      explanation: "B får $(4,6)$, og $\\text{MSB}_A = 12/8 = 3/2 = 6/4 = \\text{MSB}_B$. At A har mest, er irrelevant for effektivitet.",
+      options: ["Ja, fordi $\\text{MSB}_A = 12/8 = 6/4 = \\text{MSB}_B$", "Nei, fordi A har mer enn B av begge varer", "Ja, fordi A får nøyaktig tre fjerdedeler av vare 1", "Nei, fordi allokeringen ikke ligger på budsjettlinja gjennom $W$"],
+      explanation: "B får $(4,6)$, og $\\text{MSB}_A = 12/8 = 3/2 = 6/4 = \\text{MSB}_B$ — altså tangering. At A har mest, er irrelevant for effektivitet, og A får $8/12 = 2/3$ av vare 1, ikke tre fjerdedeler.",
     },
     {
       question: "$\\Omega = (12,18)$ og begge har $u = c_1^{1/2}c_2^{1/2}$. Er $c^A = (9,6)$ Pareto-effektiv?",
-      options: ["Nei, siden $\\text{MSB}_A = 2/3$ mens $\\text{MSB}_B = 4$", "Ja, siden begge forbruker positive mengder av begge varer", "Ja, siden A og B til sammen bruker opp nøyaktig totalmengdene", "Nei, siden A forbruker mer av vare 1 enn B gjør"],
-      explanation: "B får $(3,12)$, så brøkene er $6/9 = 2/3$ og $12/3 = 4$ — ulike, altså finnes en linse. At allokeringen er mulig, er et minstekrav, ikke effektivitet.",
+      options: ["Nei, siden $\\text{MSB}_A = 2/3$ mens $\\text{MSB}_B = 4$", "Ja, siden begge forbruker positive mengder av begge varer", "Ja, siden A og B til sammen bruker opp nøyaktig totalmengdene", "Nei, siden A forbruker mer av begge varer enn B gjør"],
+      explanation: "B får $(3,12)$, så brøkene er $6/9 = 2/3$ og $12/3 = 4$ — ulike, altså finnes en linse. At allokeringen er mulig, er et minstekrav, ikke effektivitet — og A forbruker faktisk mindre av vare 2 enn B (6 mot 12).",
     },
     {
       question: "Verdimaksimerings-argumentet bygger på at",
@@ -1486,7 +1485,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er kjernetrioen av forutsetninger for første velferdsteorem?",
       options: ["Pristakere, ingen eksterne virkninger, rivaliserende goder", "Konvekse preferanser, kostnadsfri omfordeling, pristakere", "Kjente priser, ingen transaksjonskostnader, ingen stordriftsfordeler", "Like beholdninger, like preferanser og fri konkurranse i alle markeder"],
-      explanation: "De to første i alternativ 2 er tilleggskravene i andre teorem; alternativ 3 er bonuslisten.",
+      explanation: "De to første i svaret «Konvekse preferanser» er tilleggskravene i andre teorem; svaret «Kjente priser, ingen transaksjonskostnader, ingen …» er bonuslisten.",
     },
     {
       question: "Hvilke to tilleggskrav stiller andre velferdsteorem?",
@@ -2747,7 +2746,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       explanation: "Realinntektsfallet ved en prisøkning er omtrent prisøkningen ganget med det du kjøpte fra før, altså proporsjonalt med budsjettandelen.",
     },
     {
-      question: "Hva styrer substituerbarheten mellom to goder i en drøfting?",
+      question: "Hva er det substituerbarheten mellom to goder først og fremst styrer i en drøfting?",
       options: ["Styrken på substitusjonseffekten når relativprisen endres", "Fortegnet på inntektseffekten når realinntekten faller for konsumenten", "Om konsumenten er netto kjøper eller netto selger av godet som ble dyrere", "Om budsjettbetingelsen holder med likhet eller med ulikhet"],
       explanation: "Jo nærmere substitutter godene er, desto mer forbruk flyttes av en gitt endring i relativprisen.",
     },
@@ -2766,7 +2765,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["Ingenting i seg selv, for alternativkostnaden på kapitalen ligger i $c(y)$", "At nullprofitt-resultatet er motbevist, siden profitten åpenbart er større enn null", "At teknologien må ha avtakende skalautbytte, ellers ville overskuddet forsvunnet", "At prisen må ligge under marginalkostnaden i den tilpasningen bedriften har valgt"],
       explanation: "Null renprofitt betyr normal avkastning på kapitalen, ikke null inntekt; regnskapsoverskudd er derfor forenlig med resultatet.",
     },
-        {
+    {
       question: "Diskusjonsoppgaven spør om et marked for oppdrettskonsesjoner. Hvordan bruker du grunnrentebegrepet?",
       options: ["Ved å knytte meravkastningen til den knappe lokaliteten, og forklare at fri etablering ikke kan skape flere av dem", "Ved å slå fast at all profitt i næringen er grunnrente så lenge det kreves konsesjon", "Ved å regne ut differansen mellom marginalkostnad og gjennomsnittskostnad i likevekt", "Ved å vise at renprofitten forsvinner på lang sikt, slik at grunnrenten også må gjøre det"],
       explanation: "Poenget er koblingen knapp ressurs → varig meravkastning: etableringsfriheten konkurrerer bort renprofitt, men ikke avkastningen som fester seg til selve lokaliteten. Siste alternativ blander de to begrepene.",
@@ -2819,9 +2818,9 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       explanation: "Omfordelingen endrer utgangspunktet, ikke mekanismen: 1. velferdsteorem gjelder fortsatt, men B er blitt dårligere stilt.",
     },
     {
-      question: "Hva er poenget med et motesempel i en påstandsbesvarelse?",
+      question: "Hva er poenget med et moteksempel i en påstandsbesvarelse?",
       options: ["Ett tilfelle er nok til å felle en påstand med «alltid»", "Det viser at påstanden gjelder i minst ett tilfelle, og derfor er sann", "Det erstatter kravet om å oppgi mekanismen bak konklusjonen", "Det brukes bare når oppgaven eksplisitt ber om et talleksempel"],
-      explanation: "Et motesempel avviser generelle påstander; ett eksempel som stemmer, beviser derimot ingenting.",
+      explanation: "Et moteksempel avviser generelle påstander; ett eksempel som stemmer, beviser derimot ingenting.",
     },
     {
       question: "«En prisøkning gjør alltid konsumenten fattigere.» Hvorfor er dette usant?",
@@ -2861,31 +2860,31 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       explanation: "Klarering gir $p_1 = a\\Omega_2/((1-a)\\Omega_1) = 24/12 = 2$; med identiske andeler avhenger prisen bare av totalmengdene.",
     },
     {
-      question: "Teknologien er $F(K,L) = K^{1/3}L^{1/3}$ med $r = 4$ og $w = 9$. Hva er kostnadsfunksjonen?",
-      options: ["$c(y) = 12y^{3/2}$", "$c(y) = 12y$, siden faktorprisene er konstante og bedriften er pristaker", "$c(y) = 6y^{2}$, fordi eksponentene i produktfunksjonen summerer seg til $2/3$", "$c(y) = 13y^{3/2}$, altså summen av faktorprisene ganget med kvantumet"],
-      explanation: "Kostnadsminimering gir $c(y) = 2y^{3/2}\\sqrt{rw}$, og $\\sqrt{4\\cdot 9} = 6$, altså $c(y) = 12y^{3/2}$ — konveks, som avtakende skalautbytte krever.",
+      question: "Teknologien er $F(K,L) = K^{1/3}L^{1/3}$ med $r = 5$ og $w = 20$. Hva er kostnadsfunksjonen?",
+      options: ["$c(y) = 20y^{3/2}$", "$c(y) = 20y$, siden faktorprisene er konstante og bedriften er pristaker", "$c(y) = 10y^{2}$, fordi eksponentene i produktfunksjonen summerer seg til $2/3$", "$c(y) = 25y^{3/2}$, altså summen av faktorprisene ganget med kvantumet"],
+      explanation: "Kostnadsminimering gir $c(y) = 2y^{3/2}\\sqrt{rw}$, og $\\sqrt{5\\cdot 20} = 10$, altså $c(y) = 20y^{3/2}$ — konveks, som avtakende skalautbytte krever.",
     },
   ],
   'econ2220-8-4': [
     {
-      question: "Med nytten $u = 6\\sqrt{c_1} + c_2$ og $p_2 = 1$: hva er etterspørselen etter vare 1?",
-      options: ["$c_1 = 9/p_1^2$", "$c_1 = m/(2p_1)$, altså halve inntekten brukt på vare 1 slik som ved Cobb-Douglas", "$c_1 = 3/p_1$, siden marginalnytten er $3/\\sqrt{c_1}$ i optimum", "$c_1 = 6\\sqrt{m}/p_1$, fordi nyttefunksjonen inneholder en kvadratrot"],
-      explanation: "Førsteordensbetingelsen $3/\\sqrt{c_1} = p_1$ gir $\\sqrt{c_1} = 3/p_1$, altså $c_1 = 9/p_1^2$ — uavhengig av inntekten.",
+      question: "Med nytten $u = 4\\sqrt{c_1} + c_2$ og $p_2 = 1$: hva er etterspørselen etter vare 1?",
+      options: ["$c_1 = 4/p_1^2$", "$c_1 = m/(2p_1)$, altså halve inntekten brukt på vare 1 slik som ved Cobb-Douglas", "$c_1 = 2/p_1$, siden marginalnytten er $2/\\sqrt{c_1}$ i optimum", "$c_1 = 4\\sqrt{m}/p_1$, fordi nyttefunksjonen inneholder en kvadratrot"],
+      explanation: "Førsteordensbetingelsen $2/\\sqrt{c_1} = p_1$ gir $\\sqrt{c_1} = 2/p_1$, altså $c_1 = 4/p_1^2$ — uavhengig av inntekten.",
     },
     {
-      question: "Etterspørselen $c_1 = 9/p_1^2$ er uavhengig av $m$. Hva følger av det for godet?",
+      question: "Etterspørselen $c_1 = 4/p_1^2$ er uavhengig av $m$. Hva følger av det for godet?",
       options: ["Det er verken normalt eller mindreverdig", "Det er mindreverdig, siden etterspørselen ikke øker når inntekten øker", "Det er normalt, fordi konsumenten aldri reduserer forbruket når hun blir rikere", "Spørsmålet kan ikke avgjøres uten å kjenne prisen på vare 2"],
       explanation: "Normalt krever $\\partial c_1/\\partial m > 0$ og mindreverdig $< 0$; her er den deriverte null — grensetilfellet mellom dem.",
     },
     {
-      question: "Prisen stiger fra 1 til 3, og forbruket faller fra 9 til 1. Hvordan fordeler dette seg på effekter?",
-      options: ["Substitusjonseffekt $-8$, inntektseffekt $0$", "Substitusjonseffekt $-4$ og inntektseffekt $-4$, altså like store bidrag fra hver kanal", "Substitusjonseffekt $0$, inntektseffekt $-8$, siden realinntekten faller kraftig", "Effektene kan ikke skilles uten å kjenne nyttenivået før prisøkningen"],
-      explanation: "Med Slutsky-kompensasjon $m^s = 38$ er etterspørselen fortsatt 1, siden inntekten ikke påvirker $c_1$: hele virkningen er substitusjon.",
+      question: "Prisen stiger fra 1 til 2, og forbruket faller fra 4 til 1. Hvordan fordeler dette seg på effekter?",
+      options: ["Substitusjonseffekt $-3$, inntektseffekt $0$", "Substitusjonseffekt $-1{,}5$ og inntektseffekt $-1{,}5$, altså like store bidrag fra hver kanal", "Substitusjonseffekt $0$, inntektseffekt $-3$, siden realinntekten faller kraftig", "Effektene kan ikke skilles uten å kjenne nyttenivået før prisøkningen"],
+      explanation: "Etterspørselen avhenger ikke av inntekten, så Slutsky-kompensasjonen endrer ingenting: kompensert etterspørsel er også 1, og hele virkningen er substitusjon.",
     },
     {
-      question: "I bytteøkonomien er $\\Omega_1 = 5$, $u_A = 6\\sqrt{c_1}+c_2$ og $u_B = 12\\sqrt{c_1}+c_2$. Hva er likevektsprisen når $p_2 = 1$?",
-      options: ["$p_1 = 3$", "$p_1 = 9$, siden summen av de to koeffisientene er 18 og totalmengden er 5", "$p_1 = 5$, fordi prisen må være lik den totale beholdningen av vare 1", "$p_1 = 1{,}5$, altså gjennomsnittet av de to husholdningenes betalingsvilje"],
-      explanation: "Klarering: $9/p_1^2 + 36/p_1^2 = 5$ gir $p_1^2 = 9$, altså $p_1 = 3$; da er $c_1^A = 1$ og $c_1^B = 4$.",
+      question: "I bytteøkonomien er $\\Omega_1 = 5$, $u_A = 10\\sqrt{c_1}+c_2$ og $u_B = 20\\sqrt{c_1}+c_2$. Hva er likevektsprisen når $p_2 = 1$?",
+      options: ["$p_1 = 5$", "$p_1 = 15$, siden summen av de to koeffisientene er 30 og totalmengden er 5", "$p_1 = 2{,}5$, siden $B$ verdsetter vare 1 dobbelt så høyt som $A$ og prisen legges midt imellom", "$p_1 = 25$, altså kvadratet av totalmengden av vare 1"],
+      explanation: "Klarering: $25/p_1^2 + 100/p_1^2 = 5$ gir $p_1^2 = 25$, altså $p_1 = 5$; da er $c_1^A = 1$ og $c_1^B = 4$.",
     },
     {
       question: "MTB er 1 og MSB er 3 i en økonomi med produksjon. Hva viser det?",
@@ -2910,14 +2909,14 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       explanation: "$252/1{,}05 = 240$ (kontroll: $1{,}05\\cdot 240 = 252$), så nåverdien er $400 + 240 = 640$.",
     },
     {
-      question: "Et brenneri har $c_v = 3y^2$, gjenvinnbar husleie 27 og ugjenkallelig ombygging 30. Når bør det legge ned på kort sikt?",
-      options: ["Når $p < 18$", "Når profitten er negativ, altså når prisen ikke dekker alle faste kostnader", "Når $p < 24$, altså under prisen som gir maksimal profitt i regnestykket", "Når prisen er lavere enn den gjennomsnittlige variable kostnaden ved full drift"],
-      explanation: "Minimum av $3y + 27/y$ er 18 ved $y = 3$; bare unngåelige kostnader teller, så de 30 er irrelevante.",
+      question: "Et glassverk har $c_v = 4y^2$, gjenvinnbar tomteleie 64 og ugjenkallelig ovnsombygging 50. Når bør det legge ned på kort sikt?",
+      options: ["Når $p < 32$", "Når profitten er negativ, altså når prisen ikke dekker alle faste kostnader", "Når $p < 40$, altså under prisen som gir maksimal profitt i regnestykket", "Når prisen er lavere enn den gjennomsnittlige variable kostnaden ved full drift"],
+      explanation: "Minimum av $4y + 64/y$ er 32 ved $y = 4$; bare unngåelige kostnader teller, så de 50 er irrelevante.",
     },
     {
-      question: "Med $x_1 = \\sqrt{n_1}$, $x_2 = \\sqrt{n_2}$ og $n_1 + n_2 = 100$: hva blir produksjonen når $p_1 = 3$ og $p_2 = 4$?",
-      options: ["$x_1 = 6$ og $x_2 = 8$", "$x_1 = 8$ og $x_2 = 6$, siden den dyreste varen skal produseres mest av", "$x_1 = 5$ og $x_2 = 5$, fordi arbeidstimene deles likt mellom de to næringene", "$x_1 = 3$ og $x_2 = 4$, altså i samme forhold som de to prisene"],
-      explanation: "Verdimaksimering gir MTB $= x_1/x_2 = p_1/p_2 = 3/4$; sammen med $x_1^2 + x_2^2 = 100$ gir det $(6,8)$ og 36/64 timer.",
+      question: "Med $x_1 = \\sqrt{n_1}$, $x_2 = \\sqrt{n_2}$ og $n_1 + n_2 = 400$: hva blir produksjonen når $p_1 = 4$ og $p_2 = 3$?",
+      options: ["$x_1 = 16$ og $x_2 = 12$", "$x_1 = 12$ og $x_2 = 16$, siden brøken skal settes lik $p_2/p_1$", "$x_1 = x_2 = 10\\sqrt{2}$, fordi arbeidstimene deles likt mellom de to næringene", "$x_1 = 4$ og $x_2 = 3$, altså i samme forhold som de to prisene"],
+      explanation: "Verdimaksimering gir MTB $= x_1/x_2 = p_1/p_2 = 4/3$; sammen med $x_1^2 + x_2^2 = 400$ gir det $(16,12)$ og 256/144 timer.",
     },
   ],
 };
