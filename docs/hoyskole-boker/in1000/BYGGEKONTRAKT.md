@@ -628,20 +628,29 @@ To ting kan derfor ikke grep-sjekkes til null, og har egne kontroller:
    Prosa: hvert treff på `rekursj` skal stå i samme setning som «utenfor
    pensum», «ikke pensum» eller «uønsket»:
    ```bash
-   grep -o -i ".\{0,120\}rekursj.\{0,120\}" src/lib/data/chapters/in1000-*.json \
-     | grep -v -i "utenfor pensum\|ikke pensum\|uønsket"
+   python3 scripts/hoyskolebok/sjekk-prosaregel.py in1000 \
+     "rekursj" "utenfor pensum|ikke pensum|uønsket"
    ```
-   → skal gi 0 linjer. Ikke lenk til `r2-1-7` «Rekursive sammenhenger og
+   → «PROSAREGEL OK». Ikke lenk til `r2-1-7` «Rekursive sammenhenger og
    programmering» — den underviser nettopp det som er utenfor pensum her.
 2. **Arv.** Kode: ingen `class X(Y):` og ingen `super(` i noen ```python-blokk.
    Prosa: hvert treff på `arv`/`super()`/`polymorfi` skal stå i samme setning
    som «utenfor pensum», «ikke pensum», «testes ikke» eller «IN1010»:
    ```bash
-   grep -o -iE ".{0,120}(polymorfi|super\(\)|\barv(en|es|ing)?\b).{0,120}" \
-     src/lib/data/chapters/in1000-*.json \
-     | grep -v -iE "utenfor pensum|ikke pensum|testes ikke|IN1010"
+   python3 scripts/hoyskolebok/sjekk-prosaregel.py in1000 \
+     "polymorfi|super\(\)|\barv(en|es|ing)?\b" \
+     "utenfor pensum|ikke pensum|testes ikke|IN1010"
    ```
-   → skal gi 0 linjer.
+   → «PROSAREGEL OK».
+
+> **ALDRI `grep -o` med `.{0,N}`-kontekst mot kapittelfilene.** De er kompakt
+> JSON på ÉN linje, og et slikt mønster foran en alternasjon blir kvadratisk:
+> kommandoen brukte **17 GB RAM** på byggemaskinen (8 GB fysisk) 25. juli 2026
+> og måtte drepes. Filstørrelsen er irrelevant — det er kombinasjonen `-o` +
+> `.{0,N}` + alternasjon som eksploderer. `grep -c`, `grep -l` og `grep` uten
+> `-o`/kontekst er trygt. Trenger du kontekst: bruk
+> `scripts/hoyskolebok/sjekk-prosaregel.py`, som leser JSON-strukturen og i
+> tillegg viser hvilket felt treffet står i.
 
 ### §K5b [IN1000] Delegering og kodeportens rekursjonssjekk — NAVNEREGEL
 
