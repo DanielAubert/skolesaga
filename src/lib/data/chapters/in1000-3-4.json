@@ -1,0 +1,440 @@
+{
+ "id": "in1000-3-4",
+ "courseId": "in1000",
+ "chapterNumber": "3.4",
+ "title": "DRILL — Skriv en funksjon over liste, ordbok eller streng",
+ "description": "Full drill på Oppgave 3: fra oppgavetekst til kort, eksplisitt funksjon i sensors grunnkonstruksjon-stil, med roterende datainnhold og fjorten oppgaver på eksamensnivå.",
+ "estimatedMinutes": 80,
+ "competenceGoals": [
+  "kunne lese en oppgavetekst og peke ut hvilket kodemønster den ber om",
+  "kunne skrive skjelettet med startverdi, løkke og retur før detaljene",
+  "kunne håndtere tom samling og manglende treff bevisst i hver funksjon",
+  "kunne gi et konkret moteksempel når en funksjon svarer galt"
+ ],
+ "content": [
+  {
+   "id": "in1000-3-4-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette kapitlet driller **Oppgave 3**, som er verdt rundt 28 av de 100 poengene\nog finnes i 6 av 6 moderne eksamenssett (100 %). Oppgaven består av tre til fem\ndeloppgaver, og hver av dem sier «skriv en funksjon som …».\n\nTre sjangre deler oppgaven mellom seg:\n\n| Sjanger | Hva du får inn | Frekvens | Typisk poeng |\n|---|---|---|---|\n| **C** — skriv en funksjon over en **liste** | en liste med tall eller tekster | 6 av 6 (100 %) | 4–8 |\n| **D** — skriv en funksjon over en **ordbok** | en ordbok, eller data du skal telle opp i én | 6 av 6 (100 %) | 5–8 |\n| **E** — skriv en funksjon over en **streng** | én tekst | 5 av 6 (83 %) | 4–7 |\n\nDe samme tre sjangrene bærer også halve Oppgave 5.\n\n**Dette må sitte** — bokas høyeste av tre nivåer. Den gode nyheten er at\ninnpakningen roterer, mens øvelsen er identisk: seks kodemønstre dekker\npraktisk talt alle deloppgavene som har vært gitt. Dette kapitlet handler om å\nkjenne igjen hvilket mønster oppgaveteksten ber om, og skrive det uten å nøle.\n\n**Tidsbudsjett:** kapitlet er på 80 minutter og er ment å deles. Løsningsoppskrift\nog gjennomgått case tar rundt 25 minutter; de fjorten oppgavene er fire økter à\nca. 15 minutter. Ta pause der markørene står."
+  },
+  {
+   "id": "in1000-3-4-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nHele del 3: [kap. 3.1 — Lister](/bok/in1000/in1000-3-1),\n[kap. 3.2 — Ordbøker](/bok/in1000/in1000-3-2) og\n[kap. 3.3 — Strenger](/bok/in1000/in1000-3-3). Under dem ligger\n[kap. 2.1 — Funksjoner](/bok/in1000/in1000-2-1) og\n[kap. 1.3 — Løkker](/bok/in1000/in1000-1-3).\n\nDe fire tingene du bruker i hver eneste oppgave her:\n\n- **startverdi før løkka, oppdatering inne i den, `return` etter**,\n- **`if k not in d:`** før du regner på en ordboknøkkel,\n- at **`.split()` gir en liste**, og at felt fra den alltid er tekster,\n- at funksjonen skal **returnere**, ikke skrive ut.\n\nKort oppfrisket — de tre datastrukturene, hver med sin startverdi:\n\n```python\nny_liste = []\nny_ordbok = {}\nny_tekst = \"\"\nprint(ny_liste, ny_ordbok, len(ny_tekst))\n```\n\n**Utskrift:**\n```\n[] {} 0\n```\n\nLegg dem på minnet. Hvilken av de tre du starter med, avgjøres av hva oppgaven\nber deg **returnere** — og det er første steg i oppskriften under."
+  },
+  {
+   "id": "in1000-3-4-3",
+   "type": "text",
+   "content": "## Løsningsoppskriften — fra oppgavetekst til ferdig funksjon (~10 min)\n\nAlle deloppgavene i Oppgave 3 løses med den samme framgangsmåten. Den har fem\nsteg, og de tre første tar under ett minutt når de sitter."
+  },
+  {
+   "id": "in1000-3-4-4",
+   "type": "theorem",
+   "title": "Fem steg fra oppgavetekst til funksjon",
+   "content": "**Steg 1 — Hva skal returneres?** Les siste setning i oppgaveteksten. Er svaret\nett tall eller en sannhetsverdi, trenger du ingen samling. Er svaret en liste,\nstarter du med `[]`. En ordbok gir `{}`. En tekst gir `\"\"`.\n\n**Steg 2 — Hva løper du gjennom?** Det som kommer inn som parameter. En liste\nløpes med `for e in liste:`, en ordbok med `for k in ordbok:` (og verdien hentes\nmed `ordbok[k]`), en tekst med `for tegn in tekst:` — eller `for ord in\ntekst.split():` hvis oppgaven snakker om ord.\n\n**Steg 3 — Hvilket mønster?** Velg ett av de seks i tabellen under. Signalordene\ni oppgaveteksten avgjør, og de er påfallende faste.\n\n**Steg 4 — Skriv de tre linjene.** Startverdi før løkka, oppdatering inne i den,\n`return` etter. Ikke skriv noe mer før dette skjelettet står.\n\n**Steg 5 — Prøv kanttilfellene i hodet.** Hva gjør funksjonen med en **tom**\nsamling? Og hva gjør den når det **ikke finnes** noe treff? De to spørsmålene\ntar ti sekunder og redder feilkode #6 hver gang."
+  },
+  {
+   "id": "in1000-3-4-5",
+   "type": "text",
+   "content": "### Mønstertabellen\n\nSeks mønstre dekker praktisk talt alle deloppgavene som har vært gitt. Lær\nsignalordene i venstre kolonne — det er dem du leter etter i oppgaveteksten.\n\n| Signalord i oppgaven | Mønster | Skjelett |\n|---|---|---|\n| «hvor mange», «summen av», «gjennomsnittet» | **teller / akkumulator** | `total = 0` … `total = total + x` … `return total` |\n| «er alle …», «finnes det noen …», «inneholder» | **flagg + tidlig retur** | `for e in …: if moteksempel: return False` … `return True` |\n| «en ny liste med …», «bare de som …» | **bygg ny liste** | `ny = []` … `ny.append(e)` … `return ny` |\n| «tell hvor mange ganger hver …» | **ordbok som teller** | `if k not in d: d[k] = 0` … `d[k] = d[k] + 1` |\n| «gruppér etter …», «samle alle … per …» | **gruppering** | `if k not in d: d[k] = []` … `d[k].append(v)` |\n| «hvilken … flest», «den største», «den travleste» | **finn beste** | `beste = None`, `beste_antall = 0`; oppdater **begge** |\n| «en ny tekst der …», «fjern alle …» | **tegn for tegn** | `ny = \"\"` … `ny = ny + tegn` … `return ny` |\n\nDe to siste radene brukes ofte sammen: du teller først opp i en ordbok, og\nfinner deretter den beste nøkkelen. Skriv dem som **to funksjoner** — da rettes\nde hver for seg, og du får uttelling for den ene selv om den andre skulle bli\nfeil."
+  },
+  {
+   "id": "in1000-3-4-6",
+   "type": "warning",
+   "title": "Snarveiene finnes — men grunnformen er den som belønnes",
+   "content": "Halvparten av oppgavene i dette kapitlet kan løses med én ferdig funksjon:\n`sum(...)`, `max(..., key=...)`, `sorted(...)`, `Counter`, `set(...)`,\n`tekst.replace(...)`, `liste.count(...)` eller en list comprehension.\n\n**Denne boka bruker dem ikke, og det er et bevisst valg.** Fagets egne\nløsningsforslag skriver den eksplisitte løkka, fordi løkka er ferdigheten\nkurset måler. Og på den store Oppgave 4 — halve eksamen — finnes det ingen ferdig\nfunksjon å ty til: der må du bygge tellingen inn i en metode selv, med nøyaktig\nde samme fem linjene.\n\nLær grunnformen først, og lever den. Snarveiene er verdt å kjenne til når du\nleser kode andre har skrevet."
+  },
+  {
+   "id": "in1000-3-4-7",
+   "type": "example",
+   "title": "Gjennomgått eksamenscase — en full Oppgave 3, med sensors blikk",
+   "problem": "**Oppgave 3 (14 poeng).** Et bibliotek registrerer hver utlånt tittel i en liste,\nslik at den samme tittelen kan stå der flere ganger.\n\n**a) (5 poeng)** Skriv `tell_utlan(titlene)` som returnerer en ordbok fra tittel\ntil antall utlån.\n\n**b) (5 poeng)** Skriv `mest_utlant(tellingen)` som tar imot en slik ordbok og\nreturnerer tittelen med flest utlån. Er ordboka tom, skal funksjonen returnere\n`None`.\n\n**c) (4 poeng)** Skriv `populaere(tellingen, grense)` som returnerer en ny ordbok\nmed bare de titlene som er lånt ut flere ganger enn grensen.",
+   "solution": "**Steg 1–3 for deloppgave a.** Svaret skal være en ordbok, så startverdien er\n`{}`. Du løper gjennom en liste. Signalordene «hvor mange ganger hver» peker\nrett på ordbok-som-teller.\n\n```python\ndef tell_utlan(titlene):\n    antall = {}\n    for tittel in titlene:\n        if tittel not in antall:\n            antall[tittel] = 0\n        antall[tittel] = antall[tittel] + 1\n    return antall\n\nprint(tell_utlan([\"atlas\", \"kart\", \"atlas\", \"atlas\"]))\nprint(tell_utlan([]))\n```\n\n**Utskrift:**\n```\n{'atlas': 3, 'kart': 1}\n{}\n```\n\n**Margnotat, deloppgave a (5 p):** tom ordbok før løkka (1 p), løkke over lista\n(1 p), opprettelse av nøkkelen med 0 (1 p), økningen (1 p), `return` etter løkka\n(1 p). Glemmer du opprettelsen, stopper programmet med `KeyError` — men de fire\nandre poengene står. **Det er dette som menes med at riktig struktur belønnes\nselv med en feil i.**\n\n— naturlig pausepunkt —\n\n**Deloppgave b.** Svaret er én tittel, altså ingen ny samling. Signalordet\n«flest» peker på finn beste.\n\n```python\ndef mest_utlant(tellingen):\n    beste = None\n    beste_antall = 0\n    for tittel in tellingen:\n        if tellingen[tittel] > beste_antall:\n            beste = tittel\n            beste_antall = tellingen[tittel]\n    return beste\n\nprint(mest_utlant({\"atlas\": 3, \"kart\": 1}))\nprint(mest_utlant({}))\n```\n\n**Utskrift:**\n```\natlas\nNone\n```\n\n**Margnotat, deloppgave b (5 p):** to startverdier (1 p), løkke over nøklene\n(1 p), sammenligningen (1 p), oppdatering av **begge** variablene (1 p), `return`\netter løkka (1 p). Den vanligste feilen er å glemme\n`beste_antall = tellingen[tittel]`. Da sammenlignes alt mot 0, og svaret blir den\nsiste nøkkelen i stedet for den største — én linje, fire poeng igjen.\n\n**Legg merke til at b bygger på a, men ikke er avhengig av at du løste a.**\nDeloppgaven tar imot ordboka som parameter. Fikk du ikke a til, skriver du b\nlikevel — det er nettopp det som menes med at deloppgaver rettes uavhengig.\n\n**Deloppgave c.** Svaret er en ny ordbok, så startverdien er `{}` igjen, men nå\nuten teller: du kopierer over de parene som oppfyller kravet.\n\n```python\ndef populaere(tellingen, grense):\n    ny = {}\n    for tittel in tellingen:\n        if tellingen[tittel] > grense:\n            ny[tittel] = tellingen[tittel]\n    return ny\n\ntelling = {\"atlas\": 3, \"kart\": 1, \"ordliste\": 5}\nprint(populaere(telling, 2))\nprint(populaere(telling, 100))\nprint(telling)\n```\n\n**Utskrift:**\n```\n{'atlas': 3, 'ordliste': 5}\n{}\n{'atlas': 3, 'kart': 1, 'ordliste': 5}\n```\n\n**Margnotat, deloppgave c (4 p):** tom ordbok (1 p), løkke og betingelse (2 p),\n`return` etter løkka (1 p). Den tomme ordboka som svar på en umulig grense er\n**riktig**, ikke en feil — og den siste linja viser at originalen er urørt, som\nden skal være.\n\n**Til slutt, om tidsbruk.** Hele denne oppgaven er 14 poeng av 100. Bruker du mer\nenn tjue minutter på den, tar du dem fra Oppgave 4, som er verdt over tre ganger\nså mye. Får du ikke en deloppgave til, skriv skjelettet med startverdi, løkke og\n`return` — og gå videre."
+  },
+  {
+   "id": "in1000-3-4-8",
+   "type": "text",
+   "content": "## Drilløkt 1 — Liste inn, tall eller sannhetsverdi ut (~15 min)\n\nDe enkleste deloppgavene, og de som alltid er med. Legg merke til at alle fire\nløsningene har det samme skjelettet: startverdi, løkke, `return` etter."
+  },
+  {
+   "id": "in1000-3-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave, sjanger C — skriv en funksjon over en liste.) Et\ntreningssenter registrerer lengden på hver økt i minutter. Skriv\n`sum_minutter(oktene)` som returnerer summen av alle øktene.\n\n**a)** Skriv funksjonen med akkumulatormønsteret.\n\n**b)** Hva returnerer den for den tomme lista?",
+    "solution": "**a)** Startverdi før løkka, oppdatering inne i den, `return` etter:\n\n```python\ndef sum_minutter(oktene):\n    total = 0\n    for m in oktene:\n        total = total + m\n    return total\n\nprint(sum_minutter([45, 30, 60]))\nprint(sum_minutter([]))\n```\n\n**Utskrift:**\n```\n135\n0\n```\n\n**b)** `0`. Løkka kjører null ganger over en tom liste, så startverdien\nreturneres uendret. Det er et rimelig svar: summen av ingen økter er null.\n\n**Slik gir det poeng:** `total = 0` før løkka (1 p), løkka (1 p), oppdateringen\n(1 p) og `return` **etter** løkka (1 p). Står `return` inne i løkka, returnerer\nfunksjonen etter første økt — riktig idé, alvorlig plassering, delvis\nuttelling.",
+    "hints": [
+     "Startverdi før løkka, oppdatering inne i den, `return` etter.",
+     "For b): hvor mange runder kjører en løkke over en tom liste?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C — skriv en funksjon over en liste.) En sykkelutleie\nhar en liste over hvor mange sykler som står igjen i hvert stativ. Skriv\n`alle_tomme(stativene)` som returnerer `True` hvis alle stativene er tomme, og\n`False` ellers.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `alle_tomme([])`, og er det rimelig?",
+    "solution": "**a)** Signalordet «alle» peker på flagg med tidlig retur. Let etter et\nmoteksempel:\n\n```python\ndef alle_tomme(stativene):\n    for antall in stativene:\n        if antall != 0:\n            return False\n    return True\n\nprint(alle_tomme([0, 0, 0]))\nprint(alle_tomme([0, 2]))\nprint(alle_tomme([]))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\n```\n\n**b)** `True`. Løkka kjører null ganger, så programmet går rett til `return True`.\n\nDet er logisk forsvarlig — det finnes ingen stativ som ikke er tomt — men det er\nikke sikkert oppgaven mener det. Sier teksten «minst ett stativ», må du legge\ntil en sjekk øverst. **Er teksten uklar, skriv en kommentar om hva du har\nforutsatt.** Det er den ene legitime bruken av kommentarer i en besvarelse.\n\n**Slik gir det poeng:** løkka (1 p), `return False` ved moteksempel (2 p),\n`return True` **etter** løkka (2 p). Står begge inne i løkka, avgjør det første\nstativet hele svaret — feilkode #7, og da er selve ideen borte.",
+    "hints": [
+     "Hvilket av de to svarene krever at du har sett hele lista?",
+     "Let etter et moteksempel, ikke etter et eksempel."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C — skriv en funksjon over en liste.) En værstasjon\nlagrer døgnets målinger. Skriv `over_grensen(tallene, grense)` som returnerer en\n**ny** liste med bare de målingene som er strengt større enn grensen.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer den når ingen måling er over grensen?\n\n**c)** Hva ville skjedd hvis du hadde skrevet `return tallene` til slutt?",
+    "solution": "**a)** Signalordet «en ny liste med bare de som» peker på bygg-mønsteret:\n\n```python\ndef over_grensen(tallene, grense):\n    ny = []\n    for t in tallene:\n        if t > grense:\n            ny.append(t)\n    return ny\n\nprint(over_grensen([12, 3, 20, 7], 10))\nprint(over_grensen([1, 2], 10))\n```\n\n**Utskrift:**\n```\n[12, 20]\n[]\n```\n\n**b)** Den tomme lista `[]`. Det er et riktig svar, ikke en feil — den som mottar\nresultatet, må bare tåle at det kan være tomt. En løkke gjør det av seg selv;\net oppslag som `resultat[0]` gjør det ikke.\n\n**c)** Da ville funksjonen gitt tilbake **hele** den opprinnelige lista, uten\nfiltrering, og den nye lista du nettopp bygde, ville blitt kastet. Feilen er lett\nå gjøre når navnene ligner. Kontrollspørsmålet er alltid: **returnerer du den\nlista du faktisk bygde?**",
+    "hints": [
+     "Tom liste før løkka, `append` inne i den, `return` etter.",
+     "For c): hvilken av de to listene inneholder resultatet?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger C — skriv en funksjon over en liste.) Skriv\n`snitt(tallene)` som returnerer gjennomsnittet av tallene i lista. Er lista tom,\nskal funksjonen returnere `None`.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva slags type er svaret for `[4, 5, 6]` — heltall eller desimaltall?\n\n**c)** Hvorfor er `None` et bedre svar enn `0` for den tomme lista?",
+    "solution": "**a)** Tomsjekken først, deretter akkumulator og en divisjon:\n\n```python\ndef snitt(tallene):\n    if len(tallene) == 0:\n        return None\n    total = 0\n    for t in tallene:\n        total = total + t\n    return total / len(tallene)\n\nprint(snitt([4, 5, 6]))\nprint(snitt([1, 2]))\nprint(snitt([]))\n```\n\n**Utskrift:**\n```\n5.0\n1.5\nNone\n```\n\n**b)** Desimaltall. Vanlig divisjon med `/` gir **alltid** en `float`, også når\nregnestykket går opp — derfor står det `5.0` og ikke `5`. I et auto-rettet\nsvarfelt er den ene desimalen forskjellen på rett og galt.\n\n**c)** Fordi `0` er en verdi som kan forveksles med et ekte gjennomsnitt. En liste\nmed bare nuller har faktisk snitt 0, og da kan den som mottar svaret, ikke skille\nde to tilfellene. `None` betyr utvetydig «det fantes ingenting å regne på».\n\nUten tomsjekken ville siste linje delt på null, og programmet ville stoppet med\n`ZeroDivisionError`. Det er feilkode #6 i sin mest direkte form.\n\n**Slik gir det poeng:** tomsjekken (2 p), akkumulatoren (2 p), divisjonen (1 p),\n`return` etter løkka (1 p).",
+    "hints": [
+     "Hva må sjekkes før du i det hele tatt kan dele på lengden?",
+     "For b): hva gir `/` alltid, uansett om regnestykket går opp?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-9",
+   "type": "tip",
+   "title": "Signal: hva de fire første oppgavene testet",
+   "content": "Fire oppgaver, fire mønstre — og alle har samme skjelett.\n\n| Oppgave | Signalord | Mønster | Startverdi |\n|---|---|---|---|\n| 1 | «summen av» | akkumulator | `total = 0` |\n| 2 | «alle» | flagg + tidlig retur | ingen |\n| 3 | «en ny liste med bare de som» | bygg ny liste | `ny = []` |\n| 4 | «gjennomsnittet» | akkumulator + tomsjekk | `total = 0` |\n\nDet som skiller dem, er tre ting: startverdien, hva som skjer inne i løkka, og\nhvor `return` står. Klarer du å lese oppgaveteksten rett inn i de tre, er\nsjanger C løst.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-3-4-10",
+   "type": "text",
+   "content": "## Drilløkt 2 — Ordbok inn eller ut (~16 min)\n\nSjanger D er den deloppgaven som oftest skiller besvarelsene. Alle fire\noppgavene under bruker ett av tre idiomer: teller, gruppering eller finn beste."
+  },
+  {
+   "id": "in1000-3-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) En\nresirkuleringsstasjon logger hver leveranse som en avfallstype. Skriv\n`tell_typer(leveranser)` som returnerer en ordbok fra avfallstype til antall\nleveranser.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `tell_typer([])`?",
+    "solution": "**a)** Signalordet «hvor mange leveranser av hver type» peker på ordbok-som-teller:\n\n```python\ndef tell_typer(leveranser):\n    antall = {}\n    for vare in leveranser:\n        if vare not in antall:\n            antall[vare] = 0\n        antall[vare] = antall[vare] + 1\n    return antall\n\nprint(tell_typer([\"glass\", \"plast\", \"glass\"]))\nprint(tell_typer([]))\n```\n\n**Utskrift:**\n```\n{'glass': 2, 'plast': 1}\n{}\n```\n\n**b)** Den tomme ordboka `{}`. Løkka kjører null ganger, og ordboka returneres\nslik den ble laget.\n\n**Slik gir det poeng:** tom ordbok (1 p), løkka (1 p), opprettelsen av nøkkelen\n(2 p), økningen (1 p), `return` etter løkka (1 p). Opprettelsen er den linja som\noftest glemmes, og som gir `KeyError` — feilkode #14.\n\nMerk rekkefølgen i utskriften: `glass` står først fordi den nøkkelen ble\n**opprettet** først. Ordboka sorterer ikke.",
+    "hints": [
+     "Hvilken startverdi hører til et svar som skal være en ordbok?",
+     "Hva må skje med nøkkelen før du kan legge til én?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) En\nfrivilligsentral har en liste med fornavn. Skriv\n`grupper_etter_forbokstav(navnene)` som returnerer en ordbok fra forbokstav til\nlista over navn som begynner på den.\n\n**a)** Skriv funksjonen.\n\n**b)** Hvorfor er startverdien `[]` og ikke `0` her?",
+    "solution": "**a)** Signalordet «samle alle … per …» peker på grupperings-idiomet:\n\n```python\ndef grupper_etter_forbokstav(navnene):\n    grupper = {}\n    for navn in navnene:\n        b = navn[0]\n        if b not in grupper:\n            grupper[b] = []\n        grupper[b].append(navn)\n    return grupper\n\nprint(grupper_etter_forbokstav([\"Ada\", \"Bo\", \"Ask\"]))\nprint(grupper_etter_forbokstav([]))\n```\n\n**Utskrift:**\n```\n{'A': ['Ada', 'Ask'], 'B': ['Bo']}\n{}\n```\n\n**b)** Fordi svaret skal inneholde **navnene**, ikke bare antallet. Med `0` og\n`+ 1` ville du fått `{'A': 2, 'B': 1}` — riktig telling, men feil spørsmål\nbesvart.\n\nLes siste setning i oppgaveteksten en gang til før du velger startverdi. «Hvor\nmange» gir teller; «hvilke» gir gruppering. Det er det eneste som skiller de to\nidiomene.\n\n**Slik gir det poeng:** tom ordbok (1 p), forbokstaven `navn[0]` (1 p),\nopprettelsen av den **indre lista** (2 p), `append` på riktig nøkkel (1 p),\n`return` etter løkka (1 p).",
+    "hints": [
+     "Hvordan henter du første tegn i en tekst?",
+     "For b): hva ber oppgaven om — antallet eller navnene?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) Et bibliotek har\nen ordbok fra tittel til antall utlån. Skriv `mest_utlant(utlan)` som returnerer\ntittelen med flest utlån, eller `None` hvis ordboka er tom.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer funksjonen hvis to titler har like mange utlån?",
+    "solution": "**a)** Signalordet «flest» peker på finn beste:\n\n```python\ndef mest_utlant(utlan):\n    beste = None\n    beste_antall = 0\n    for tittel in utlan:\n        if utlan[tittel] > beste_antall:\n            beste = tittel\n            beste_antall = utlan[tittel]\n    return beste\n\nprint(mest_utlant({\"kart\": 4, \"atlas\": 9, \"ordliste\": 2}))\nprint(mest_utlant({}))\n```\n\n**Utskrift:**\n```\natlas\nNone\n```\n\n**b)** Den **første** av dem, i den rekkefølgen nøklene ble opprettet. Grunnen er\nat testen er streng: `>` er usann ved likhet, så den som allerede står som beste,\nbeholder plassen.\n\nHadde du skrevet `>=`, ville den siste vunnet. Begge er forsvarlige når oppgaven\ntier om uavgjort — **men skriv en kommentar om hvilken regel du valgte.** Sensor\nskal se at det var et valg, ikke en tilfeldighet.",
+    "hints": [
+     "Hvor mange variabler må du holde styr på inne i løkka?",
+     "For b): er `4 > 4` sann eller usann?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) Skriv\n`tell_lengder(ordene)` som tar imot en liste med tekster og returnerer en ordbok\nfra **ordlengde** til hvor mange ord som har den lengden.\n\n**a)** Skriv funksjonen.\n\n**b)** Hvordan skrives nøklene ut, og hvorfor ser de annerledes ut enn i oppgave\n5?",
+    "solution": "**a)** Teller-idiomet igjen — men nøkkelen regnes ut i stedet for å komme rett\nfra dataene:\n\n```python\ndef tell_lengder(ordene):\n    antall = {}\n    for tekst in ordene:\n        n = len(tekst)\n        if n not in antall:\n            antall[n] = 0\n        antall[n] = antall[n] + 1\n    return antall\n\nprint(tell_lengder([\"tog\", \"buss\", \"fly\", \"bane\"]))\nprint(tell_lengder([]))\n```\n\n**Utskrift:**\n```\n{3: 2, 4: 2}\n{}\n```\n\n**b)** **Uten anførselstegn**, fordi nøklene her er heltall. I oppgave 5 var\nnøklene tekster, og da viser Python dem med enkle anførselstegn.\n\nDet er en detalj som avgjør poeng i et auto-rettet svarfelt, og den er verdt å\nkontrollere hver gang du skriver opp en ordbok som svar: **er nøkkelen en tekst\neller et tall?**\n\n**Slik gir det poeng:** utregningen av nøkkelen `n = len(tekst)` (2 p), det\nkomplette teller-idiomet (3 p), `return` etter løkka (1 p). Skriver du\n`antall[tekst]` i stedet for `antall[n]`, teller du ordene og ikke lengdene —\nriktig mønster, feil nøkkel, halv uttelling.",
+    "hints": [
+     "Hva er nøkkelen her — ordet selv eller noe du må regne ut av det?",
+     "For b): hvordan viser Python en heltallsnøkkel?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-11",
+   "type": "tip",
+   "title": "Signal: hva de fire ordbok-oppgavene testet",
+   "content": "Alle fire hadde det samme skjelettet, og skilte seg på to steder.\n\n| Oppgave | Signalord | Startverdi per nøkkel | Oppdatering |\n|---|---|---|---|\n| 5 | «hvor mange av hver» | `0` | `d[k] = d[k] + 1` |\n| 6 | «samle alle per» | `[]` | `d[k].append(v)` |\n| 7 | «flest» | ingen ordbok — `beste`/`beste_antall` | oppdater **begge** |\n| 8 | «hvor mange av hver», med utregnet nøkkel | `0` | `d[k] = d[k] + 1` |\n\nKjenner du forskjellen mellom rad 1 og rad 2 — antall mot innhold — har du det\nsom oftest skiller besvarelsene i sjanger D.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-3-4-12",
+   "type": "text",
+   "content": "## Drilløkt 3 — Tekst inn, tekst eller tall ut (~16 min)\n\nSjanger E er den minst hyppige av de tre (5 av 6 sett), men den er også den\nmest mekaniske: nesten alle oppgavene er tegn-for-tegn-mønsteret med én\nbetingelse byttet ut."
+  },
+  {
+   "id": "in1000-3-4-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — skriv en funksjon over en streng.) Skriv\n`fjern_vokaler(tekst)` som returnerer en ny tekst uten vokalene `a`, `e`, `i`,\n`o` og `u`. Du kan anta at teksten bare inneholder små bokstaver.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `fjern_vokaler(\"aeiou\")`, og hvordan ser det ut i en\nutskrift?",
+    "solution": "**a)** Tegn-for-tegn-mønsteret, med en betingelse som slipper gjennom alt som\nikke er vokal:\n\n```python\ndef fjern_vokaler(tekst):\n    ny = \"\"\n    for tegn in tekst:\n        if tegn != \"a\" and tegn != \"e\" and tegn != \"i\" and tegn != \"o\" and tegn != \"u\":\n            ny = ny + tegn\n    return ny\n\nprint(fjern_vokaler(\"bibliotek\"))\nprint(fjern_vokaler(\"aeiou\"))\nprint(len(fjern_vokaler(\"aeiou\")))\n```\n\n**Utskrift:**\n```\nbbltk\n\n0\n```\n\n**b)** Den tomme teksten `\"\"`. I en utskrift ser den ut som **ingenting** — den\nblanke linja i midten. Tredje linje beviser at det likevel er en tekst med lengde\n0, og ikke `None`.\n\n**En kortere betingelse med samme mening** er `if tegn not in \"aeiou\":`, som\nbruker `in` på en delstreng. Begge er greie; den lange er lettere å lese for den\nsom retter, og den viser tydelig at du vet hva du sammenligner.\n\n**Slik gir det poeng:** tom tekst før løkka (1 p), løkka (1 p), betingelsen\n(2 p), oppbyggingen (1 p), `return` etter løkka (1 p). Får du med fire av fem\nvokaler, er det én tegns feil med riktig struktur — lite trekk.",
+    "hints": [
+     "Hvilken startverdi hører til et svar som skal være en tekst?",
+     "Skal betingelsen slippe gjennom vokalene eller alt annet?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger E — skriv en funksjon over en streng.) En kantine har\ndagens meny som én tekst med mellomrom mellom rettene. Skriv\n`antall_ord_over(setning, n)` som returnerer hvor mange ord i setningen som er\nlengre enn `n` tegn.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `antall_ord_over(\"\", 3)`, og hvorfor slipper du å skrive en\negen sjekk for det?",
+    "solution": "**a)** Del i ord først, tell så — to mønstre satt sammen:\n\n```python\ndef antall_ord_over(setning, n):\n    antall = 0\n    for tekst in setning.split():\n        if len(tekst) > n:\n            antall = antall + 1\n    return antall\n\nprint(antall_ord_over(\"buss tog trikk bane\", 3))\nprint(antall_ord_over(\"\", 3))\n```\n\n**Utskrift:**\n```\n3\n0\n```\n\nOrdene `buss` (4), `trikk` (5) og `bane` (4) er lengre enn tre tegn; `tog` er\nnøyaktig tre og telles ikke, fordi testen er streng.\n\n**b)** `0`. Grunnen er at `\"\".split()` gir den **tomme lista**, så løkka kjører\nnull runder og telleren returneres uendret.\n\nDet er verdt å legge merke til: hadde du i stedet gått tegn for tegn og lett etter\nmellomrom, måtte du håndtert den tomme teksten selv. `.split()` løser\nkanttilfellet gratis, og det er en av grunnene til at fasiten bruker den.",
+    "hints": [
+     "Hva slags verdi gir `.split()`, og hvordan måler du hvert element?",
+     "For b): hvor mange elementer har `\"\".split()`?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger E — skriv en funksjon over en streng.) Skriv\n`store_forbokstaver(setning)` som returnerer setningen med stor forbokstav i\nhvert ord, og resten uendret. Ordene skal skilles av ett mellomrom.\n\nFor `\"ada marie berg\"` skal funksjonen gi `\"Ada Marie Berg\"`.\n\n**a)** Skriv funksjonen. Du har ikke lov til å bruke ferdige metoder utover\n`.split()` og `.upper()`.\n\n**b)** Hvorfor må mellomrommet legges til **før** ordet og ikke etter?",
+    "solution": "**a)** Tegn-for-tegn-mønsteret, men med et helt ord om gangen — og en indeksløkke\nfor resten av ordet:\n\n```python\ndef store_forbokstaver(setning):\n    ny = \"\"\n    for tekst in setning.split():\n        if len(ny) > 0:\n            ny = ny + \" \"\n        ny = ny + tekst[0].upper()\n        for i in range(1, len(tekst)):\n            ny = ny + tekst[i]\n    return ny\n\nprint(store_forbokstaver(\"ada marie berg\"))\nprint(store_forbokstaver(\"bo\"))\nprint(len(store_forbokstaver(\"\")))\n```\n\n**Utskrift:**\n```\nAda Marie Berg\nBo\n0\n```\n\nDen indre løkka starter på indeks 1, fordi tegn 0 allerede er lagt til i stor\nutgave.\n\n**b)** Fordi et mellomrom **etter** hvert ord ville gitt en ekstra blank på\nslutten: `\"Ada Marie Berg \"`. Med testen `if len(ny) > 0:` legges mellomrommet\nbare til foran ord nummer to og utover, og resultatet blir nøyaktig riktig.\n\nDette lille grepet — «skilletegn foran alle unntatt det første» — er verdt å\nhuske. Det dukker opp hver gang du bygger en tekst av flere biter, og en\netterhengende blank er en av de detaljene et auto-rettet felt ikke tilgir.\n\n**Slik gir det poeng:** ytre løkke over ordene (2 p), stor forbokstav (2 p),\nresten av ordet (2 p), riktig håndtering av mellomrommet (1 p). Får du alt riktig\nbortsett fra den etterhengende blanken, er det en liten formfeil med riktig\nstruktur.",
+    "hints": [
+     "Bygg svaret ord for ord, og ta hvert ord i to biter: forbokstaven og resten.",
+     "For b): hva skjer med det siste mellomrommet hvis du legger det til etter hvert ord?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger D + E — skriv en funksjon.) En brettspillklubb lagrer\noppmøtet som én tekst per kveld, på formen `\"ada;bo;ada\"`, der hvert navn er\nskilt med semikolon. Skriv `tell_oppmote(linje)` som returnerer en ordbok fra\nnavn til antall oppmøter i den linja.\n\n**a)** Skriv funksjonen. Husk at linja kan ha et linjeskift på slutten.\n\n**b)** Hva ville gått galt uten `.rstrip()`?",
+    "solution": "**a)** Rens, del, tell — de tre stegene i rekkefølge:\n\n```python\ndef tell_oppmote(linje):\n    antall = {}\n    for navn in linje.rstrip().split(\";\"):\n        if navn not in antall:\n            antall[navn] = 0\n        antall[navn] = antall[navn] + 1\n    return antall\n\nprint(tell_oppmote(\"ada;bo;ada\\n\"))\nprint(tell_oppmote(\"bo\"))\n```\n\n**Utskrift:**\n```\n{'ada': 2, 'bo': 1}\n{'bo': 1}\n```\n\nAndre kall viser at en linje uten skilletegn gir ett felt — og dermed ett navn\nmed ett oppmøte.\n\n**b)** Da ville det siste navnet fått linjeskiftet med seg, og telt som et eget\nnavn. Resultatet ville blitt `{'ada': 1, 'bo': 1, 'ada\\n': 1}` — to oppføringer\nfor Ada, der den ene ser riktig ut i utskriften og den andre nesten gjør det.\n\nDet er feilkode #8, og den er stum: ingen feilmelding, bare et svar som er litt\ngalt. **Regelen som holder er `.rstrip()` før `.split()`, alltid.**\n\n**Slik gir det poeng:** `.rstrip()` (1 p), `.split(\";\")` (2 p), det komplette\nteller-idiomet (3 p), `return` etter løkka (1 p). Glemmer du `.rstrip()`, er\nstrukturen riktig og feilen én metode — men den ville kostet deg alle\netterfølgende deloppgaver som bygger på tellingen.",
+    "hints": [
+     "I hvilken rekkefølge skal linja renses og deles?",
+     "For b): hvilket felt havner linjeskiftet i?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-13",
+   "type": "tip",
+   "title": "Signal: hva de fire tekst-oppgavene testet",
+   "content": "Alle fire startet med å bestemme **hva du løper gjennom**, og der ligger halve\npoenget i sjanger E.\n\n| Oppgave | Løper gjennom | Mønster |\n|---|---|---|\n| 9 | tegn — `for tegn in tekst:` | tegn for tegn |\n| 10 | ord — `for ord in setning.split():` | teller |\n| 11 | ord, og deretter tegn i hvert ord | tegn for tegn, nøstet |\n| 12 | felt — `linje.rstrip().split(\";\")` | ordbok som teller |\n\nSpør deg selv: snakker oppgaveteksten om **tegn**, om **ord** eller om **felt**?\nSvaret bestemmer løkka, og løkka bestemmer resten.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-3-4-14",
+   "type": "text",
+   "content": "## Drilløkt 4 — De to som skiller (~14 min)\n\nTil slutt to oppgaver på det nivået som avgjør om deloppgaven blir hel eller\nhalv: en som kombinerer to strukturer, og en «finn feilen» der du skal levere et\nkonkret moteksempel."
+  },
+  {
+   "id": "in1000-3-4-oppg-13",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o13",
+    "number": "13",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger D — skriv en funksjon over en ordbok.) En kollektivrute\nhar to lister som hører sammen: `stoppene` med navn, og `passasjerene` med\nantall påstigende på hvert stopp. Det første navnet hører til det første tallet,\nog så videre.\n\n**a)** Skriv `lag_ordbok(stoppene, passasjerene)` som returnerer en ordbok fra\nstoppnavn til antall påstigende.\n\n**b)** Hvorfor må du bruke en indeksløkke her, i stedet for `for e in liste:`?\n\n**c)** Hva forutsetter funksjonen om de to listene?",
+    "solution": "**a)** Indeksen er det eneste som knytter de to listene sammen:\n\n```python\ndef lag_ordbok(stoppene, passasjerene):\n    d = {}\n    for i in range(len(stoppene)):\n        d[stoppene[i]] = passasjerene[i]\n    return d\n\nprint(lag_ordbok([\"Majorstuen\", \"Blindern\"], [24, 11]))\nprint(lag_ordbok([], []))\n```\n\n**Utskrift:**\n```\n{'Majorstuen': 24, 'Blindern': 11}\n{}\n```\n\n**b)** Fordi du trenger **plassen** for å hente ut det tilhørende elementet i den\nandre lista. `for navn in stoppene:` gir deg navnet, men ingen måte å finne det\nriktige tallet på.\n\nDette er hovedgrunnen til at indeksløkka finnes i pensum: to samlinger som skal\nleses i takt.\n\n**c)** At de to listene er **like lange**, og at elementene står i samme\nrekkefølge. Er `passasjerene` kortere, stopper programmet med `IndexError` —\nfeilkode #6.\n\n**Skriv den forutsetningen som en kommentar i besvarelsen.** Oppgaveteksten sier\nsjelden noe om det, og en dokumentert forutsetning er nettopp det sensor ser\netter når teksten er underspesifisert.\n\n**Slik gir det poeng:** tom ordbok (1 p), indeksløkka med riktig grense (3 p),\ninnsettingen (2 p), `return` etter løkka (1 p). En dokumentert forutsetning\ntrekker aldri.",
+    "hints": [
+     "Hva er det eneste som knytter element nummer to i den ene lista til element nummer to i den andre?",
+     "For c): hva skjer hvis den ene lista er kortere enn den andre?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-oppg-14",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-3-4-o14",
+    "number": "14",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En student skal finne måneden med\nflest regndager. Hun leverer:\n\n```text\ndef travleste(dager):\n    beste = None\n    beste_antall = 0\n    for m in dager:\n        if dager[m] > beste_antall:\n            beste = m\n    return beste\n```\n\n**a)** Hva returnerer funksjonen for `{\"mai\": 8, \"juni\": 14, \"juli\": 3}`?\n\n**b)** Gi et konkret moteksempel og forklar i én setning hvorfor det går galt.\n\n**c)** Rett feilen, og vis at den rettede funksjonen virker.",
+    "solution": "**a)** `juli`. Fordi `beste_antall` aldri oppdateres, står den på 0 hele veien —\nog enhver positiv verdi er større enn 0. Dermed slår betingelsen til på **hver**\nrunde, og `beste` ender som den siste nøkkelen løkka besøkte.\n\n**b)** Moteksempelet er kallet `travleste({\"mai\": 8, \"juni\": 14, \"juli\": 3})`,\nsom gir `\"juli\"` selv om juni har flest regndager. Årsaken er at funksjonen\noppdaterer `beste`, men glemmer å oppdatere `beste_antall`, slik at alt\nsammenlignes mot 0.\n\nLegg merke til formen på svaret: **ett konkret kall med et konkret galt utfall**.\nEn forklaring i ord alene er en halv besvarelse.\n\nOg legg merke til hvordan moteksempelet er valgt. Den største verdien må stå\n**et annet sted enn sist** — med `{\"mai\": 3, \"juni\": 14}` ville den feilaktige\nfunksjonen tilfeldigvis svart riktig. Et moteksempel skal treffe feilen, ikke\nskjule den.\n\n**c)** Oppdater begge variablene, som ett grep:\n\n```python\ndef travleste(dager):\n    beste = None\n    beste_antall = 0\n    for m in dager:\n        if dager[m] > beste_antall:\n            beste = m\n            beste_antall = dager[m]\n    return beste\n\nprint(travleste({\"mai\": 8, \"juni\": 14, \"juli\": 3}))\nprint(travleste({\"mai\": 3, \"juni\": 14}))\nprint(travleste({}))\n```\n\n**Utskrift:**\n```\njuni\njuni\nNone\n```\n\nAndre kall er kontrollen: her står den største verdien sist, og den feilaktige\nfunksjonen ville tilfeldigvis svart riktig. Tredje kall viser at en tom ordbok\ngir `None` — det ærlige svaret på «hvilken måned» når det ikke finnes noen.\n\nDenne feilen er den vanligste enkeltfeilen i finn-beste-mønsteret, og den koster\nhele deloppgaven hvis du ikke oppdager den. **Kontrollen tar fem sekunder:\noppdaterer `if`-blokken like mange variabler som du satte før løkka?**",
+    "hints": [
+     "Hva står `beste_antall` på gjennom hele løkka i den innleverte koden?",
+     "Velg et moteksempel der den største verdien ikke står sist."
+    ]
+   }
+  },
+  {
+   "id": "in1000-3-4-15",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Seks feil koster nesten alle poengene som mistes i Oppgave 3:\n\n- **#7 — for tidlig `return`.** Det svaret som krever at du har sett hele\n  samlingen, hører **etter** løkka.\n- **#14 — glemt å opprette nøkkelen.** `d[k] = d[k] + 1` uten\n  `if k not in d: d[k] = 0` foran gir `KeyError` på første runde. Det samme\n  gjelder `d[k].append(...)` uten `d[k] = []` foran.\n- **Bare den ene variabelen oppdatert i finn beste.** Både `beste` og\n  `beste_antall` må settes inne i `if`-en.\n- **#6 — kanttilfellene.** Tom samling, ingen treff, alle like. Enhver\n  `liste[0]` og enhver divisjon på `len(...)` krever en sjekk først.\n- **#8 — glemt `.rstrip()`.** Linjeskiftet blir med i det siste feltet, og\n  feilen er stum.\n- **`print` der oppgaven ba om `return`.** Funksjonen viser riktig svar på\n  skjermen, men gir `None` tilbake — og alle deloppgaver som bygger videre,\n  faller sammen.\n\nOg én lesefeil som ikke er en kodefeil: **å telle når oppgaven ba om innholdet.**\n«Hvor mange» gir teller-idiomet; «hvilke» gir gruppering."
+  },
+  {
+   "id": "in1000-3-4-coll-16",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-3-4-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `total = 0` … `total = total + x` | Akkumulator. Startverdi før løkka, `return total` etter. |\n| `antall = 0` … `antall = antall + 1` | Teller. Samme skjelett, men øker med én per treff. |\n| `return False` i løkka, `return True` etter | Flagg + tidlig retur. Motsatt for «finnes det noen». |\n| `ny = []` … `ny.append(e)` … `return ny` | Bygg ny liste. Filtrering, omforming og kombinering. |\n| `ny = {}` … `ny[k] = v` … `return ny` | Bygg ny ordbok. Originalen forblir urørt. |\n| `ny = \"\"` … `ny = ny + tegn` | Bygg ny tekst, forfra. `ny = tegn + ny` bygger bakfra. |\n| `if k not in d: d[k] = 0` | Teller-idiomets første steg. Uten det: `KeyError`. |\n| `if k not in d: d[k] = []` | Grupperings-idiomets første steg, deretter `d[k].append(v)`. |\n| `beste = None`, `beste_antall = 0` | Finn beste. Begge oppdateres inne i `if`-en. |\n| `if len(samlingen) == 0: return None` | Tomsjekken. Kreves før `liste[0]` og før divisjon på lengden. |\n| `for i in range(len(a)):` | Indeksløkke. Nødvendig når to lister skal leses i takt. |\n| `linje.rstrip().split(\";\")` | Malen for innlest data: rens først, del så. |\n| `int(felt)` | Felt fra `.split()` er alltid tekster. Konverter det du skal regne med. |\n| `/` mot `//` | `/` gir alltid desimaltall, også når det går opp. `//` gir heltall. |\n\n**Det som avgjør poeng i Oppgave 3:** at skjelettet — startverdi, løkke, `return`\netter — står riktig, og at kanttilfellene er tenkt gjennom."
+    }
+   ]
+  },
+  {
+   "id": "in1000-3-4-17",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-3-4-18",
+   "type": "definition",
+   "title": "Mønstervalg",
+   "content": "Å lese oppgaveteksten som en bestilling av ett bestemt kodemønster.\n\nFramgangsmåten er tre spørsmål i rekkefølge: **hva skal returneres** (det gir\nstartverdien), **hva løper jeg gjennom** (det gir løkka), og **hvilket signalord\nstår det** (det gir oppdateringen).\n\nKlarer du de tre på under ett minutt, er halve deloppgaven løst før du har\nskrevet en linje. Det er nettopp derfor drillen er verdt tiden: mønstrene skal\nkjennes igjen, ikke gjenoppfinnes."
+  },
+  {
+   "id": "in1000-3-4-19",
+   "type": "definition",
+   "title": "Signalord",
+   "content": "De faste formuleringene som peker på hvert mønster.\n\n«Hvor mange», «summen av» og «gjennomsnittet» gir **teller eller akkumulator**.\n«Er alle» og «finnes det noen» gir **flagg med tidlig retur**. «En ny liste med»\nog «bare de som» gir **bygg ny liste**. «Tell hvor mange ganger hver» gir\n**ordbok som teller**, mens «samle alle per» og «gruppér etter» gir\n**gruppering**. «Flest», «størst» og «travleste» gir **finn beste**. «En ny tekst\nder» og «fjern alle» gir **tegn for tegn**.\n\nDet ene skillet som oftest bommes: «hvor mange» ber om et **antall**, «hvilke»\nber om **innholdet**."
+  },
+  {
+   "id": "in1000-3-4-20",
+   "type": "definition",
+   "title": "Skjelettet",
+   "content": "De tre linjene som er felles for alle mønstrene: startverdi før løkka,\noppdatering inne i den, `return` etter.\n\nSkriv dem først, før betingelser og detaljer. Da har du en funksjon som kjører,\nog du kan fylle inn resten.\n\nPå eksamen er skjelettet også det som gir mest uttelling per sekund. En funksjon\nmed riktig skjelett og feil betingelse får det meste; en funksjon med riktig\nbetingelse og `return` inne i løkka får lite."
+  },
+  {
+   "id": "in1000-3-4-21",
+   "type": "definition",
+   "title": "Kanttilfellet «tom samling»",
+   "content": "Spørsmålet du stiller hver gang: hva gjør funksjonen min med `[]`, `{}` eller\n`\"\"`?\n\n**Løkkemønstrene tåler det av seg selv.** Løkka kjører null runder, og\nstartverdien returneres — 0, en tom liste, en tom ordbok. Det er nesten alltid\nriktig svar.\n\n**Indeksering og divisjon gjør det ikke.** `liste[0]` gir `IndexError`, og\n`total / len(tallene)` gir `ZeroDivisionError`. Begge krever en sjekk øverst i\nfunksjonen. Det er feilkode #6."
+  },
+  {
+   "id": "in1000-3-4-22",
+   "type": "definition",
+   "title": "Kanttilfellet «ikke funnet»",
+   "content": "Hva funksjonen skal svare når det ikke finnes noe treff.\n\nTre svar er i bruk, og valget er ditt. `None` er det ærligste og brukes når\nsvaret skulle vært et objekt eller en nøkkel. `-1` brukes når svaret er en\n**plass**, siden en plass aldri kan være negativ. `False` brukes når spørsmålet\nvar et ja eller nei.\n\nVær forsiktig med `-1` når tallet også kan være gyldige data — da kolliderer de\nto betydningene, og det er feilkode #10."
+  },
+  {
+   "id": "in1000-3-4-23",
+   "type": "definition",
+   "title": "Delvis riktig gir uttelling",
+   "content": "Sensor gir poeng per steg, ikke per fungerende program.\n\nEn funksjon med riktig struktur og én indeksfeil får det meste av poengene. En\ndeloppgave rettes uavhengig av de andre, så du kan løse c selv om du ikke fikk\ntil b — og du har lov til å **kalle en funksjon oppgaveteksten beskriver**, selv\nom du ikke selv rakk å skrive den.\n\nDet praktiske rådet følger av dette: stå aldri fast. Skriv skjelettet, skriv en\nkommentar om det du ikke rakk, og gå videre til neste deloppgave."
+  },
+  {
+   "id": "in1000-3-4-24",
+   "type": "definition",
+   "title": "Å dokumentere en forutsetning",
+   "content": "Når oppgaveteksten ikke sier hva som skal skje i et grensetilfelle, velger du\nselv — og skriver én linje kommentar om valget.\n\nTypiske tilfeller: hva som skjer ved uavgjort i finn beste, om en tom samling gir\n`True` eller en feil, om to parallelle lister forutsettes like lange.\n\nDette er **den ene legitime bruken av kommentarer** i en besvarelse. Ellers skal\nkoden stå for seg selv: ingen forklarende kommentar på hver linje, og ikke noe\nhovedprogram som ikke er bedt om."
+  },
+  {
+   "id": "in1000-3-4-25",
+   "type": "definition",
+   "title": "Hjelpefunksjon",
+   "content": "En liten funksjon som gjør én ting, brukt av en større.\n\nDu har uttrykkelig lov til å legge til dine egne på eksamen, så lenge du\nkommenterer kort hva de gjør. To grunner til at det lønner seg: hjelpefunksjonen\nrettes for seg og gir uttelling selv om den store ikke ble ferdig, og koden blir\nlettere å lese.\n\nDen vanligste delingen i sjanger D er **tell først, finn beste etterpå** — to\nkorte funksjoner i stedet for én lang."
+  },
+  {
+   "id": "in1000-3-4-26",
+   "type": "definition",
+   "title": "Teller mot akkumulator",
+   "content": "To varianter av samme mønster, og forskjellen er hva du legger til.\n\n**Telleren** øker med én per treff: `antall = antall + 1`. Den svarer på «hvor\nmange».\n\n**Akkumulatoren** legger til en verdi fra dataene: `total = total + x`. Den\nsvarer på «summen av».\n\nGjennomsnittet er begge deler: akkumuler summen, del på `len(...)` til slutt — og\nhusk tomsjekken, ellers deler du på null."
+  },
+  {
+   "id": "in1000-3-4-27",
+   "type": "definition",
+   "title": "Bygg ny mot endre gammel",
+   "content": "Nesten alle oppgaver ber om en **ny** samling, ikke om at den gamle skal endres.\n\nDet gjelder uansett type: `ny = []`, `ny = {}` eller `ny = \"\"` før løkka, og\n`return ny` etter. Den samlingen du fikk inn som parameter, leser du bare fra.\n\nGrunnen er at en liste eller ordbok som sendes inn, er den **samme** som utenfor.\nEndrer du den, endrer du kallerens data — og det gir overraskelser som er\nvanskelige å finne."
+  },
+  {
+   "id": "in1000-3-4-28",
+   "type": "definition",
+   "title": "Å velge løkkeform",
+   "content": "Spørsmålet er alltid: **trenger du plassen?**\n\nTrenger du bare verdiene, skriver du `for e in liste:` eller `for k in ordbok:`.\nDet er kortere og kan ikke bomme på grensene.\n\nTrenger du plassen, skriver du `for i in range(len(liste)):`. De tre tilfellene\nder du faktisk trenger den, er: å skrive tilbake til lista, å sammenligne\nnaboelementer, og å lese to lister i takt."
+  },
+  {
+   "id": "in1000-3-4-29",
+   "type": "definition",
+   "title": "Tekst, ord eller felt",
+   "content": "Første spørsmål i enhver oppgave i sjanger E: hva er den minste enheten\noppgaven snakker om?\n\nSnakker den om **tegn**, løper du med `for tegn in tekst:`. Snakker den om\n**ord**, løper du med `for ord in setning.split():`. Snakker den om **felt** i en\ninnlest linje, løper du med `for felt in linje.rstrip().split(\";\"):`.\n\nValget bestemmer resten av funksjonen. Å lese tegn når oppgaven mente ord, er\nden vanligste bomturen i sjangeren."
+  },
+  {
+   "id": "in1000-3-4-30",
+   "type": "definition",
+   "title": "Å kontrollere svaret uten maskin",
+   "content": "Eksamen er hjelpemiddelfri, så du kan ikke kjøre koden. Tre kontroller tar under\net minutt til sammen, og fanger de fleste feilene.\n\n**Én:** kjør funksjonen i hodet på et eksempel med to eller tre elementer, og\nskriv verdiene i margen. **To:** prøv den tomme samlingen. **Tre:** tell at\n`if`-blokken oppdaterer like mange variabler som du satte før løkka.\n\nDen siste fanger den vanligste finn-beste-feilen, og den tar fem sekunder."
+  },
+  {
+   "id": "in1000-3-4-31",
+   "type": "definition",
+   "title": "Tidsbudsjett i Oppgave 3",
+   "content": "Oppgave 3 er rundt 28 av 100 poeng, fordelt på tre til fem deloppgaver. Det gir\nomtrent 45 minutter av de fire timene.\n\nBruker du mer, tar du tiden fra Oppgave 4, som alene er nesten halve eksamen.\nBlir du sittende fast på en deloppgave, skriv skjelettet, skriv en kommentar om\nhva som mangler, og gå videre.\n\nPoengene er jevnt fordelt, og et halvt svar på hver av fire deloppgaver gir mer\nenn et perfekt svar på én."
+  },
+  {
+   "id": "in1000-3-4-coll-32",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-3-4-c2",
+     "type": "text",
+     "content": "1. **Hva skal returneres?** Svaret gir startverdien: ingen samling, `[]`, `{}`\n   eller `\"\"`.\n2. **Hva løper du gjennom?** Liste, ordboknøkler, tegn, ord eller felt.\n3. **Hvilket signalord står i teksten?** «Hvor mange» gir teller, «hvilke» gir\n   gruppering, «flest» gir finn beste, «en ny tekst der» gir tegn for tegn.\n4. **Skriv skjelettet først:** startverdi før løkka, oppdatering inne i den,\n   `return` etter.\n5. **Opprett nøkkelen før du bruker den** — `if k not in d:` — ellers `KeyError`.\n6. **Finn beste oppdaterer to variabler**, ikke én. Kontroller det hver gang.\n7. **Prøv den tomme samlingen i hodet.** Løkker tåler den; indeksering og\n   divisjon gjør det ikke."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
