@@ -1,0 +1,532 @@
+{
+  "id": "fys1100-9-1",
+  "courseId": "fys1100",
+  "chapterNumber": "9.1",
+  "title": "Gravitasjon, sirkelbaner og unnslipningsfart",
+  "description": "Gravitasjonsloven som sentripetalkraft, unnslipningsfart fra energibevaring, dimensjonsanalyse for banefart, og komet- og satellitt-ODE på komponentform.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne bruke gravitasjonsloven og den negative potensielle energien riktig, med avstanden målt fra sentrum",
+    "kunne utlede banefarten i en sirkelbane og unnslipningsfarten, og forklare hvorfor de skiller seg med en faktor kvadratrot av to",
+    "kunne bruke dimensjonsanalyse til å finne hvordan banefarten skalerer, og si hva metoden ikke gir",
+    "kunne begrunne og bruke bevaring av energi og spinn i en kometbane, og sette opp bevegelseslikningen på komponentform for numerisk løsning"
+  ],
+  "content": [
+    {
+      "id": "fys1100-9-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger K — gravitasjon og sentralkraftbevegelse**, altså satellitter, planeter og kometer som beveger seg i tyngdefeltet fra ett tungt legeme, står i **2–3 av de 7 settene (~35 %)** — og andelen er **klart økende**. De to sikre beleggene er en kometbane (H2024) og en satellittbane der dimensjonsanalyse ble brukt til å finne banefarten (H2025). I tillegg står en unnslipningsfart-oppgave i prøveeksamenen fra 2022; den er lest for form og tema, men **teller ikke** i frekvensen, som har nevner 7.\n\n**Prioritet: kjenne til.** Dette er bokas mest kompakte temadel, og det er et bevisst valg — men «kjenne til» betyr ikke «hopp over». Kapitlet er kort fordi stoffet i stor grad er gjenbruk: du kombinerer sirkelbevegelse fra [kap. 4.1](/bok/fys1100/fys1100-4-1), energibevaring fra [kap. 5.1](/bok/fys1100/fys1100-5-1), spinnbevaring fra [kap. 6.3](/bok/fys1100/fys1100-6-3) og dimensjonsanalyse fra [kap. 1.1](/bok/fys1100/fys1100-1-1) med **én ny kraftmodell**.\n\nSlik ligger poengene i gravitasjonsoppgavene:\n\n| Steg | Hva sensor ser etter |\n|---|---|\n| Riktig kraftmodell | $F = GMm/r^2$ med **avstand fra sentrum**, ikke fra overflaten |\n| Koblingen til sentripetalbevegelsen | at gravitasjonen ER resultanten inn mot sentrum — ingen egen kraft tegnes |\n| **Begrunnelsen** for hver bevaringslov | spinn «fordi kraften er radiell», energi «fordi bare tyngden gjør arbeid» |\n| Fortegnet på $U = -GMm/r$ | den potensielle energien er **negativ**, og null i det uendelige |\n| Skillet banefart / unnslipningsfart | de skiller seg med en faktor $\\sqrt2$ |\n\n**Å bruke en bevaringslov uten å begrunne den er felle #7 — bevaringslov brukt uten begrunnelse — og koster typisk 1 poeng.** Feilene har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\nGravitasjon er ett av temaene som **også dekkes av midtveiseksamen** (ren flervalg, 3 timer, teller 20 % av karakteren; den avsluttende skoleeksamenen teller 80 %). Prøve 4 i [kap. 9.P](/bok/fys1100/fys1100-9-prove) er skrevet i midtveisformat.\n\n**Tidsbruk: ~60 minutter lesing**, fordelt på seks korte løkker som er merket med tidsanslag underveis. Regner du hver oppgave for hånd, legg på omtrent halvparten til."
+    },
+    {
+      "id": "fys1100-9-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet er en sammenkobling, så det lønner seg å ha fire ting friskt i minne. De står her ferdig oppfrisket — du trenger ikke bla tilbake.\n\n**Fra [kap. 4.1](/bok/fys1100/fys1100-4-1) — sirkelbevegelse.** Et legeme som går i en sirkel med konstant fart $v$ og radius $r$ har akselerasjonen rettet **inn mot sentrum**:\n\n$$a_r = \\frac{v^2}{r}, \\qquad \\sum F_{\\text{inn mot sentrum}} = \\frac{mv^2}{r}$$\n\nSentripetalkraften er **ikke en egen kraft** — den er navnet på resultanten av de virkelige kreftene, regnet innover. I dette kapitlet er den virkelige kraften gravitasjonen, og ingen annen.\n\n**Fra [kap. 5.1](/bok/fys1100/fys1100-5-1) — energi.** Mekanisk energi er summen av kinetisk og potensiell energi, og den er bevart når bare konservative krefter gjør arbeid:\n\n$$K = \\tfrac12 mv^2, \\qquad K_A + U_A = K_B + U_B \\quad \\text{når bare konservative krefter gjør arbeid}$$\n\nBetingelsen er det som gir poeng. Den skal skrives ut hver eneste gang loven brukes.\n\n**Fra [kap. 6.3](/bok/fys1100/fys1100-6-3) — spinn.** Spinnet (dreieimpulsen) til en partikkel om et punkt er\n\n$$\\mathbf{L} = \\mathbf{r}\\times\\mathbf{p}, \\qquad L = p\\cdot(\\text{momentarm}) = mvr\\sin\\varphi$$\n\nog spinnsatsen sier $\\boldsymbol{\\tau}_{\\text{ytre}} = d\\mathbf{L}/dt$. Er det ytre kraftmomentet null, er spinnet konstant. Husk at **en kraft som peker rett mot punktet har momentarm null** og derfor gir null moment — det er hele nøkkelen til dette kapitlet.\n\n**Fra [kap. 1.1](/bok/fys1100/fys1100-1-1) — dimensjonsanalyse.** Metoden der du setter opp en ansats $v = C\\,X^a Y^b$, krever at dimensjonene stemmer på begge sider, og løser for eksponentene. Den gir alt unntatt den dimensjonsløse forfaktoren $C$.\n\n**Fra videregående.** Har du hatt Fysikk 1 eller Fysikk 2, har du sett gravitasjonsloven før: [Newtons gravitasjonslov](/bok/fysikk2/fysikk2-2-1), [Satellittbevegelse og romfart](/bok/fysikk2/fysikk2-2-3) og [Gravitasjon og energi](/bok/fysikk2/fysikk2-2-5) dekker den samme grunnmuren. Har du ikke hatt det, går vi opp alt fra bunnen her.\n\n**Notasjonsavtale for kapitlet — les denne.** Symbolet $G$ betyr i denne boka **alltid gravitasjonskonstanten**, aldri tyngdekraften. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$. Videre: $M$ er massen til det tunge legemet (planeten, stjerna), $m$ er massen til det lette (satellitten, kometen), $r$ er avstanden **fra sentrum av det tunge legemet**, og $R$ er dets radius. Omløpstiden skrives $T_p$, siden $T$ i denne boka er reservert for snordrag. Spinnet skrives $L$. Vi bruker $G = 6{,}674\\cdot10^{-11}\\,\\text{N}\\cdot\\text{m}^2/\\text{kg}^2$ gjennomgående."
+    },
+    {
+      "id": "fys1100-9-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — kraftmodellen og potensialet (~12 min)\n\nMånen faller mot jorda. Den har gjort det uavbrutt i fire milliarder år uten å komme nærmere, fordi den samtidig beveger seg sidelengs fort nok til at den bommer på oss hver gang. Det var Newtons store innsikt: eplet og månen adlyder samme lov.\n\nAlt i denne delen bygger på **én** ny formel. Resten er verktøy du allerede har."
+    },
+    {
+      "id": "fys1100-9-1-def-grav",
+      "type": "definition",
+      "title": "Newtons gravitasjonslov",
+      "content": "To legemer med masse trekker på hverandre. Kraften peker langs linja mellom dem, den er proporsjonal med begge massene, og den avtar med kvadratet av avstanden mellom sentrene:\n\n$$\\mathbf{F} = -\\frac{GMm}{r^2}\\,\\hat{\\mathbf{r}}$$\n\nHer er $\\hat{\\mathbf{r}}$ enhetsvektoren som peker **fra** det tunge legemet og **ut mot** det lette, og minustegnet sier at kraften peker motsatt vei — altså innover, mot sentrum. Tallverdien er $F = GMm/r^2$.\n\n**Gyldighetsbetingelsen er at $r$ måles fra sentrum til sentrum**, og at legemene enten er punktformige eller kulesymmetriske. Den siste presiseringen er ikke pirk: den er grunnen til at du kan behandle en hel planet som om all massen satt i ett punkt i sentrum. Skriver du inn høyden over bakken i stedet for avstanden fra sentrum, blir alt galt.\n\nFormelen står på formelarket som deles ut på eksamen."
+    },
+    {
+      "id": "fys1100-9-1-def-G",
+      "type": "definition",
+      "title": "Gravitasjonskonstanten $G$",
+      "content": "Proporsjonalitetskonstanten i gravitasjonsloven er en **naturkonstant** som er den samme overalt i universet:\n\n$$G = 6{,}674\\cdot10^{-11}\\ \\text{N}\\cdot\\text{m}^2/\\text{kg}^2$$\n\nDen er en skalar og skrives kursivt uten vektormarkering. Legg merke til hvor **liten** den er: to personer på ett meters avstand trekker på hverandre med en kraft i størrelsesorden $10^{-7}\\,\\text{N}$. Gravitasjon merkes bare når minst én av massene er astronomisk stor.\n\n**Symbolkollisjonen du må passe på:** $G$ er gravitasjonskonstanten. Tyngdekraften på et legeme skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$ — **aldri** $\\mathbf{G}$. Blander du dem i en gravitasjonsoppgave, blir besvarelsen uleselig for sensor."
+    },
+    {
+      "id": "fys1100-9-1-utl-g",
+      "type": "text",
+      "content": "**Hvorfor $g \\approx 9{,}81\\,\\text{m/s}^2$ i det hele tatt.** Tyngdeakselerasjonen du har brukt i hele boka er ikke en egen naturkonstant — den er gravitasjonsloven regnet ut ved jordoverflaten. Sett $r = R$ (jordradien) og bruk Newtons 2. lov på et legeme med masse $m$:\n\n$$m g = \\frac{GMm}{R^2} \\quad \\Longrightarrow \\quad g = \\frac{GM}{R^2}$$\n\n*Intuisjon:* massen $m$ faller ut på begge sider. Det er derfor alle legemer faller like fort — den samme massen som gjør legemet tungt, gjør det også tregt, og de to virkningene opphever hverandre nøyaktig.\n\nMed $M = 5{,}97\\cdot10^{24}\\,\\text{kg}$ og $R = 6{,}37\\cdot10^{6}\\,\\text{m}$ blir\n\n$$g = \\frac{6{,}674\\cdot10^{-11}\\cdot 5{,}97\\cdot10^{24}}{(6{,}37\\cdot10^{6})^2} = 9{,}82\\,\\text{m/s}^2$$\n\n*Intuisjon:* at vi treffer den kjente verdien med tre gjeldende siffer, er en god kontroll på at både formelen og tallene er riktige.\n\n**Benevningskontroll:** $\\text{N}\\cdot\\text{m}^2\\text{kg}^{-2}\\cdot\\text{kg}\\cdot\\text{m}^{-2} = \\text{N/kg} = \\text{m/s}^2$ ✓."
+    },
+    {
+      "id": "fys1100-9-1-def-U",
+      "type": "definition",
+      "title": "Gravitasjonell potensiell energi",
+      "content": "Den potensielle energien til et legeme med masse $m$ i tyngdefeltet fra et legeme med masse $M$, når avstanden mellom sentrene er $r$:\n\n$$U = -\\frac{GMm}{r}$$\n\nI ord: energien er **negativ**, og den vokser mot null når legemene fjerner seg fra hverandre. Referansenivået er valgt i det uendelig fjerne: $U \\to 0$ når $r \\to \\infty$.\n\n**Fortegnet er ikke en skrivefeil — det er poenget.** Et bundet legeme har negativ potensiell energi, og «å komme løs» betyr å skaffe seg nok kinetisk energi til å betale hele gjelda. Nettopp derfor er $U = -GMm/r$ den formelen unnslipningsfarten kommer ut av.\n\nLegg merke til at $r$ står i **første** potens her, mens kraften har $r^2$. Det er ingen tilfeldighet: $F = -dU/dr$, som du så i [kap. 5.1](/bok/fys1100/fys1100-5-1). Uttrykket står på formelarket."
+    },
+    {
+      "id": "fys1100-9-1-utl-U",
+      "type": "text",
+      "content": "**Sammenhengen med $U = mgy$ du kjenner fra før.** De to uttrykkene ser helt ulike ut, men det ene er grensetilfellet av det andre. Løft et legeme fra jordoverflaten $R$ til høyden $h$ over den:\n\n$$\\Delta U = -\\frac{GMm}{R+h} + \\frac{GMm}{R} = GMm\\left(\\frac{1}{R} - \\frac{1}{R+h}\\right) = \\frac{GMm\\,h}{R(R+h)}$$\n\n*Intuisjon:* forskjellen mellom to negative tall der det ene er «mindre negativt», er positiv — å løfte noe koster energi, som det skal.\n\nEr $h \\ll R$, kan vi sette $R + h \\approx R$ i nevneren:\n\n$$\\Delta U \\approx \\frac{GM}{R^2}\\,mh = mgh$$\n\n*Intuisjon:* nær bakken er feltet så godt som konstant, og da er den kjente skoleformelen riktig. For en satellitt i bane er $h$ ikke lenger liten mot $R$, og da må du bruke $-GMm/r$. Det er den vanligste grunnen til at et energiregnskap i en romfartsoppgave gir feil svar.\n\n**Kontroll med tall:** for $h = 100\\,\\text{m}$ gir det eksakte uttrykket $\\Delta U/m = 981{,}92\\,\\text{J/kg}$, og tilnærmingen $gh$ med $g = 9{,}819\\,\\text{m/s}^2$ gir $981{,}93\\,\\text{J/kg}$ — avvik $0{,}002\\ \\%$. For $h = 400\\,\\text{km}$ gir det eksakte $3{,}696\\cdot10^{6}\\,\\text{J/kg}$ og tilnærmingen $3{,}928\\cdot10^{6}\\,\\text{J/kg}$ — avvik $6{,}3\\ \\%$. Grensa går altså raskere enn man skulle tro."
+    },
+    {
+      "id": "fys1100-9-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.) Svar med egne ord, to–tre setninger på hver.\n\n**a)** Hvorfor er den potensielle energien i gravitasjonsfeltet negativ?\n\n**b)** En student skriver at avstanden $r$ i $F = GMm/r^2$ er høyden over planetoverflaten. Hva er galt, og hva blir konsekvensen?\n\n**c)** Hvorfor faller en fjær og en hammer like fort på månen?",
+        "solution": "**a)** Fordi referansenivået er valgt uendelig langt unna, der $U = 0$. Alt som er nærmere enn uendelig langt unna, er «nedi hullet» og har dermed mindre energi enn null. Fortegnet er altså en konsekvens av valget av nullnivå, ikke av noe mystisk — men valget er praktisk, fordi det gjør spørsmålet «har legemet nok energi til å komme seg helt vekk?» til det enkle spørsmålet «er den totale mekaniske energien positiv?».\n\n**b)** Gravitasjonsloven gjelder mellom **sentrene** til to kulesymmetriske legemer, så $r$ er avstanden fra planetens sentrum: $r = R + h$. Bruker du $h$ alene, blir kraften enormt for stor for en satellitt i lav bane — med $h = 400\\,\\text{km}$ og $R = 6370\\,\\text{km}$ bommer du med en faktor $(6770/400)^2 \\approx 286$.\n\n**c)** Fordi massen faller ut. Newtons 2. lov gir $ma = GMm/r^2$, og massen $m$ står på begge sider, slik at $a = GM/r^2$ uansett hva legemet veier. På jorda skjuler luftmotstanden dette; på månen finnes det ingen atmosfære, og forsøket viser resultatet rått.",
+        "hints": [
+          "I a): hvor har vi lagt nullnivået for energien?",
+          "I b): tenk på hva formelen faktisk måler avstand mellom.",
+          "I c): sett opp Newtons 2. lov med gravitasjonsloven på høyre side, og se hva som står igjen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — sirkelbanen (~14 min)\n\nDen absolutt vanligste gravitasjonsoppgaven er en satellitt eller en planet i tilnærmet sirkelbane. Oppskriften er kort, og den er verdt å kunne utenat som **framgangsmåte** (formlene får du utdelt):\n\n1. Tegn legemet i banen, med gravitasjonen inn mot sentrum og farten tangentielt.\n2. Skriv Newtons 2. lov i **radiell** retning — gravitasjonen er hele resultanten.\n3. Løs for det oppgaven spør om.\n\nDet tredje steget er nesten alltid trivielt. Det er steg 2 som gir poengene."
+    },
+    {
+      "id": "fys1100-9-1-th-banefart",
+      "type": "theorem",
+      "title": "Banefarten i en sirkelbane",
+      "content": "For et legeme i sirkelbane med radius $r$ rundt en masse $M$:\n\n$$v = \\sqrt{\\frac{GM}{r}}$$\n\n**Utledningen kreves aktivt på eksamen, og den er to linjer.** Gravitasjonen er den eneste kraften på legemet, og den peker inn mot sentrum. Da ER den resultanten inn mot sentrum, og Newtons 2. lov i radiell retning gir\n\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r}$$\n\n*Intuisjon:* venstre side er den virkelige kraften, høyre side er «hvor mye kraft en sirkelbane krever». Sirkelbanen finnes nettopp der de to er like store.\n\nMassen $m$ til satellitten faller ut, og én potens av $r$ forkortes:\n\n$$v^2 = \\frac{GM}{r} \\quad \\Longrightarrow \\quad v = \\sqrt{\\frac{GM}{r}}$$\n\n*Intuisjon:* satellittens egen masse spiller ingen rolle. En skrue og en romstasjon i samme bane går like fort — det er derfor romsøppel er så vanskelig å bli kvitt.\n\n*Intuisjon nummer to:* farten **avtar** når banen blir større. Det virker først bakvendt, men lengre ute er tyngdefeltet svakere, og da holder det med mindre fart for å holde kurven.\n\nOmløpstiden følger av at legemet går én omkrets $2\\pi r$ med denne farten:\n\n$$T_p = \\frac{2\\pi r}{v} = 2\\pi\\sqrt{\\frac{r^3}{GM}}$$\n\nDette er **Keplers 3. lov** for sirkelbaner: $T_p^2 \\propto r^3$. Uttrykket for $v$ må kunne utledes; gravitasjonsloven det bygger på, står på formelarket."
+    },
+    {
+      "id": "fys1100-9-1-fig-sirkel",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-9-1-sirkelbane.svg",
+      "alt": "En stiplet sirkelbane rundt en planet med masse M i sentrum. En satellitt med masse m sitter paa banen oppe til hoeyre. En roed pil fra satellitten peker inn mot sentrum og er merket F g. En groenn pil fra satellitten peker tangentielt langs banen og er merket v. En stiplet graa linje fra sentrum til satellitten er merket r. Under figuren staar likningen GMm delt paa r i andre er lik m v i andre delt paa r, som gir v lik kvadratroten av GM delt paa r.",
+      "caption": "Sirkelbanen bak $v=\\sqrt{GM/r}$: gravitasjonen $\\mathbf{F}_g$ peker inn mot sentrum og **er** resultanten som holder satellitten i kurven, mens farten $\\mathbf{v}$ står vinkelrett på den. Legg merke til at det ikke er tegnet inn noen egen pil for «sentripetalkraften» — den ville vært den samme pila en gang til."
+    },
+    {
+      "id": "fys1100-9-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Satellitt i lav bane om jorda",
+      "problem": "En satellitt går i tilnærmet sirkelbane $400\\,\\text{km}$ over jordoverflaten. Jorda har masse $M = 5{,}97\\cdot10^{24}\\,\\text{kg}$ og radius $R = 6{,}37\\cdot10^{6}\\,\\text{m}$.\n\n**a)** Finn baneradien.\n\n**b)** Finn banefarten.\n\n**c)** Finn omløpstiden, og kommenter svaret.\n\n**d)** Hvor stor er tyngdeakselerasjonen i denne høyden? Er satellitten «vektløs»?",
+      "solution": "**Metodevalg først:** gravitasjonen er den eneste kraften på satellitten, så den er hele resultanten inn mot sentrum. Da gjelder $GMm/r^2 = mv^2/r$.\n\n**a)** Avstanden måles fra jordas **sentrum**, ikke fra overflaten:\n\n$$r = R + h = 6{,}37\\cdot10^{6} + 4{,}00\\cdot10^{5} = 6{,}77\\cdot10^{6}\\,\\text{m}$$\n\n**b)**\n\n$$v = \\sqrt{\\frac{GM}{r}} = \\sqrt{\\frac{6{,}674\\cdot10^{-11}\\cdot5{,}97\\cdot10^{24}}{6{,}77\\cdot10^{6}}} = \\sqrt{5{,}885\\cdot10^{7}} = 7{,}67\\cdot10^{3}\\,\\text{m/s}$$\n\naltså $7{,}67\\,\\text{km/s}$, rettet **tangentielt langs banen**.\n\n**Benevningskontroll:** $\\text{N}\\,\\text{m}^2\\text{kg}^{-2}\\cdot\\text{kg}\\cdot\\text{m}^{-1} = \\text{N}\\cdot\\text{m}/\\text{kg} = \\text{m}^2/\\text{s}^2$, og kvadratrota av det er $\\text{m/s}$ ✓.\n\n**c)**\n\n$$T_p = \\frac{2\\pi r}{v} = \\frac{2\\pi\\cdot6{,}77\\cdot10^{6}}{7{,}672\\cdot10^{3}} = 5{,}54\\cdot10^{3}\\,\\text{s} = 92{,}4\\ \\text{minutter}$$\n\nDet stemmer med det man vet om lave baner: Den internasjonale romstasjonen runder jorda omtrent halvannen gang i timen. En slik gjenkjennbar størrelsesorden er den billigste kontrollen du kan gjøre.\n\n**d)** Tyngdeakselerasjonen i banehøyden er\n\n$$g(r) = \\frac{GM}{r^2} = \\frac{6{,}674\\cdot10^{-11}\\cdot5{,}97\\cdot10^{24}}{(6{,}77\\cdot10^{6})^2} = 8{,}69\\,\\text{m/s}^2$$\n\n— altså **89 % av verdien ved bakken**. Satellitten er ikke i noe «tyngdefritt» område i det hele tatt. Det som skjer, er at både satellitten og alt inne i den faller med samme akselerasjon, slik at ingenting presser mot noe annet. Vektløsheten er en konsekvens av felles fritt fall, ikke av fravær av tyngde. Det er nøyaktig samme resonnement som for et menneske i en heis der kabelen ryker, fra [kap. 3.1](/bok/fys1100/fys1100-3-1)."
+    },
+    {
+      "id": "fys1100-9-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger K — gravitasjonsoppgaven.) En **geostasjonær** satellitt står stille over samme punkt på ekvator. Det krever at omløpstiden er nøyaktig lik jordas rotasjonstid, $T_p = 8{,}616\\cdot10^{4}\\,\\text{s}$. Bruk $M = 5{,}97\\cdot10^{24}\\,\\text{kg}$ og $R = 6{,}37\\cdot10^{6}\\,\\text{m}$.\n\n**a)** Utled et uttrykk for baneradien uttrykt ved $G$, $M$ og $T_p$.\n\n**b)** Regn ut baneradien og høyden over bakken.\n\n**c)** Finn banefarten, og sammenlign med farten til satellitten i eksempel 1.",
+        "solution": "**Metodevalg først:** gravitasjonen er hele resultanten inn mot sentrum, og sirkelbanen gir da sammenhengen mellom radius og omløpstid.\n\n**a)** Med $v = 2\\pi r/T_p$ i $GM/r^2 = v^2/r$:\n\n$$\\frac{GM}{r^2} = \\frac{1}{r}\\left(\\frac{2\\pi r}{T_p}\\right)^2 = \\frac{4\\pi^2 r}{T_p^2} \\quad \\Longrightarrow \\quad r^3 = \\frac{GM T_p^2}{4\\pi^2} \\quad \\Longrightarrow \\quad r = \\left(\\frac{GMT_p^2}{4\\pi^2}\\right)^{1/3}$$\n\n**b)**\n\n$$r = \\left(\\frac{6{,}674\\cdot10^{-11}\\cdot5{,}97\\cdot10^{24}\\cdot(8{,}616\\cdot10^{4})^2}{4\\pi^2}\\right)^{1/3} = 4{,}22\\cdot10^{7}\\,\\text{m}$$\n\n$$h = r - R = 4{,}22\\cdot10^{7} - 6{,}37\\cdot10^{6} = 3{,}58\\cdot10^{7}\\,\\text{m} \\approx 35\\,800\\,\\text{km}$$\n\n**c)**\n\n$$v = \\frac{2\\pi r}{T_p} = \\frac{2\\pi\\cdot4{,}216\\cdot10^{7}}{8{,}616\\cdot10^{4}} = 3{,}07\\cdot10^{3}\\,\\text{m/s}$$\n\ntangentielt langs banen. Det er under halvparten av farten i lav bane ($7{,}67\\,\\text{km/s}$), selv om banen er over seks ganger så stor. Det stemmer med $v \\propto r^{-1/2}$: forholdet skal være $\\sqrt{6{,}77/42{,}16} = 0{,}401$, og $3{,}074/7{,}672 = 0{,}401$ ✓.",
+        "hints": [
+          "Erstatt $v$ med $2\\pi r/T_p$ i likningen for sirkelbanen, og løs for $r$.",
+          "Pass på at $r$ er avstanden fra sentrum — høyden får du først til slutt.",
+          "I c): kontrollér med skaleringen $v\\propto r^{-1/2}$ i stedet for å regne på nytt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En planet har en måne i sirkelbane med baneradius $r = 4{,}20\\cdot10^{8}\\,\\text{m}$ og omløpstid $T_p = 6{,}12\\cdot10^{5}\\,\\text{s}$.\n\n**a)** Finn planetens masse.\n\n**b)** En annen måne rundt samme planet har baneradius $1{,}68\\cdot10^{9}\\,\\text{m}$, altså fire ganger så stor. Finn omløpstiden dens **uten** å regne ut noe nytt fra grunnen av.",
+        "solution": "**Metodevalg først:** månen holdes i sirkelbanen av planetens gravitasjon alene, så $GM/r^2 = 4\\pi^2 r/T_p^2$ gjelder — det er den samme sammenhengen som i oppgave 2, bare løst for en annen ukjent.\n\n**a)**\n\n$$M = \\frac{4\\pi^2 r^3}{G T_p^2} = \\frac{4\\pi^2\\cdot(4{,}20\\cdot10^{8})^3}{6{,}674\\cdot10^{-11}\\cdot(6{,}12\\cdot10^{5})^2} = 1{,}17\\cdot10^{26}\\,\\text{kg}$$\n\n**Benevningskontroll:** $\\text{m}^3/(\\text{N}\\,\\text{m}^2\\text{kg}^{-2}\\cdot\\text{s}^2) = \\text{kg}$ ✓ (siden $\\text{N} = \\text{kg}\\,\\text{m}/\\text{s}^2$).\n\nDette er den eneste praktiske måten å veie en planet på: du måler en av månene dens.\n\n**b)** Keplers 3. lov gir $T_p \\propto r^{3/2}$, så en fire ganger så stor bane gir en $4^{3/2} = 8$ ganger så lang omløpstid:\n\n$$T_{p,2} = 8\\cdot6{,}12\\cdot10^{5} = 4{,}90\\cdot10^{6}\\,\\text{s} \\approx 56{,}7\\ \\text{døgn}$$\n\n**Kontroll:** regner du direkte med $T_p = 2\\pi\\sqrt{r^3/(GM)}$ og $M = 1{,}17\\cdot10^{26}\\,\\text{kg}$, får du $4{,}90\\cdot10^{6}\\,\\text{s}$ ✓ — skaleringsargumentet er raskere og like riktig.",
+        "hints": [
+          "Bruk sammenhengen mellom omløpstid og baneradius for en sirkelbane, og løs for $M$.",
+          "I b): hvordan skalerer $T_p$ med $r$? Da slipper du å sette inn tall på nytt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — dimensjonsanalyse for banefarten (~8 min)\n\nI H2025 ble studentene bedt om å finne hvordan banefarten avhenger av $GM$ og baneradien — **uten** å bruke sirkelbanelikningen. Det er sjangeren fra [kap. 1.1](/bok/fys1100/fys1100-1-1) satt inn i en gravitasjonsramme, og den er billig hvis du har trent på den.\n\nPoenget er ikke å slippe unna fysikken. Poenget er at dimensjonsanalyse gir deg **strukturen** i svaret på et halvminutt, slik at du kan kontrollere en lengre utregning — eller redde noen poeng når du ikke kommer i mål."
+    },
+    {
+      "id": "fys1100-9-1-th-dim",
+      "type": "theorem",
+      "title": "Dimensjonsanalyse for banefarten",
+      "content": "Anta at banefarten bare kan avhenge av produktet $GM$ og av baneradien $r_0$. At det er nettopp **produktet** $GM$ som er den relevante størrelsen — og ikke $G$ og $M$ hver for seg — er en fysisk observasjon: satellittens egen masse faller ut, så $G$ og $M$ kan bare opptre sammen. Ansatsen blir\n\n$$v = C\\,(GM)^a\\,r_0^{\\,b}$$\n\nder $C$ er dimensjonsløs. Dimensjonene, med $[L]$ for lengde og $[T]$ for tid:\n\n$$[v] = \\frac{[L]}{[T]}, \\qquad [GM] = \\frac{[L]^3}{[T]^2}, \\qquad [r_0] = [L]$$\n\n*Intuisjon:* dimensjonen til $GM$ leser du rett ut av $g = GM/r^2$: akselerasjon ganger lengde i annen er $[L]/[T]^2 \\cdot [L]^2 = [L]^3/[T]^2$. Du trenger ikke huske den.\n\nKrav om dimensjonshomogenitet gir\n\n$$\\frac{[L]}{[T]} = \\left(\\frac{[L]^3}{[T]^2}\\right)^a [L]^b = [L]^{3a+b}\\,[T]^{-2a}$$\n\n*Intuisjon:* to uttrykk kan bare være like hvis hver grunndimensjon opptrer i samme potens på begge sider. Det gir én likning per dimensjon.\n\n$$[T]: \\ -1 = -2a \\ \\Rightarrow \\ a = \\tfrac12, \\qquad [L]: \\ 1 = 3a + b = \\tfrac32 + b \\ \\Rightarrow \\ b = -\\tfrac12$$\n\n$$\\boxed{\\;v = C\\sqrt{\\frac{GM}{r_0}}\\;}$$\n\n*Intuisjon:* metoden treffer hele strukturen i svaret, og den treffer den uten å vite noe som helst om sirkler. Det den **ikke** kan gi, er den dimensjonsløse forfaktoren $C$. Her viser den fullstendige utregningen at $C = 1$ — men det måtte fysikken til for å si.\n\n**Skriv alltid ut hva metoden ikke gir.** En besvarelse som later som om dimensjonsanalyse beviser $v = \\sqrt{GM/r_0}$ eksakt, overselger metoden, og det ser sensor."
+    },
+    {
+      "id": "fys1100-9-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvordan skalerer omløpstiden?",
+      "problem": "Bruk dimensjonsanalyse til å finne hvordan omløpstiden $T_p$ for en sirkelbane avhenger av $GM$ og baneradien $r_0$. Sammenlign med det eksakte uttrykket.",
+      "solution": "**Metodevalg først:** samme framgangsmåte som for farten — ansats, dimensjonshomogenitet, løs for eksponentene.\n\nAnsats:\n\n$$T_p = C\\,(GM)^a r_0^{\\,b}, \\qquad [T_p] = [T]$$\n\n$$[T] = [L]^{3a+b}[T]^{-2a}$$\n\n$$[T]: \\ 1 = -2a \\ \\Rightarrow \\ a = -\\tfrac12, \\qquad [L]: \\ 0 = 3a+b = -\\tfrac32 + b \\ \\Rightarrow \\ b = \\tfrac32$$\n\n$$T_p = C\\,\\frac{r_0^{3/2}}{\\sqrt{GM}} = C\\sqrt{\\frac{r_0^3}{GM}}$$\n\nDette **er** Keplers 3. lov: $T_p^2 \\propto r_0^3$. Analysen gir loven i løpet av fire linjer, uten å nevne verken ellipser eller sirkler.\n\nDet eksakte uttrykket fra løkke 2 er $T_p = 2\\pi\\sqrt{r_0^3/(GM)}$, altså $C = 2\\pi \\approx 6{,}28$. Denne gangen er forfaktoren **ikke** 1, og det er en nyttig påminnelse: dimensjonsanalyse gir aldri $C$, og $C$ kan godt være langt fra 1.\n\n**Kontroll med tall:** for den lave satellittbanen i eksempel 1 gir $\\sqrt{r^3/(GM)} = \\sqrt{(6{,}77\\cdot10^{6})^3/(3{,}984\\cdot10^{14})} = 8{,}82\\cdot10^{2}\\,\\text{s}$, og ganget med $2\\pi$ blir det $5{,}54\\cdot10^{3}\\,\\text{s}$ — samme svar som før ✓."
+    },
+    {
+      "id": "fys1100-9-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger K kombinert med dimensjonsanalyse.) En planet med masse $M$ og radius $R$ har ingen atmosfære. Vi ser på farten $v_u$ som skal til for at et legeme skutt opp fra overflaten aldri kommer tilbake.\n\n**a)** Argumentér for at $v_u$ bare kan avhenge av $GM$ og $R$, og finn med dimensjonsanalyse hvordan.\n\n**b)** Hvor mye endrer denne farten seg hvis planetens masse dobles mens radien holdes fast? Og hvis radien dobles mens massen holdes fast?\n\n**c)** Hva er det dimensjonsanalysen ikke kan fortelle deg her?",
+        "solution": "**Metodevalg først:** ren dimensjonsanalyse etter oppskriften i [kap. 1.1](/bok/fys1100/fys1100-1-1) — ansats, dimensjonshomogenitet, eksponenter.\n\n**a)** Legemets egen masse $m$ kan ikke inngå, for i $ma = GMm/r^2$ faller den ut: banen til et legeme i et gravitasjonsfelt er uavhengig av dets masse. Da står vi igjen med $GM$ og $R$ — startavstanden fra sentrum. Ansats:\n\n$$v_u = C\\,(GM)^a R^b$$\n\nDette er nøyaktig samme dimensjonsregnskap som for banefarten, med $R$ i stedet for $r_0$, så $a = \\tfrac12$ og $b = -\\tfrac12$:\n\n$$v_u = C\\sqrt{\\frac{GM}{R}}$$\n\n**b)** Doblet masse: farten øker med faktoren $\\sqrt2 = 1{,}41$, altså $41\\ \\%$. Doblet radius: farten synker med faktoren $1/\\sqrt2 = 0{,}707$, altså en nedgang på $29\\ \\%$. Legg merke til at radien teller motsatt vei av massen — en stor, lett planet er lettere å komme seg vekk fra enn en liten, tung.\n\n**c)** Forfaktoren $C$. I løkke 4 viser energibevaring at $C = \\sqrt2$ nøyaktig, men dimensjonsanalysen alene kan ikke skille $\\sqrt2$ fra 1 eller fra $\\pi$. Den gir skaleringen, ikke tallet.",
+        "hints": [
+          "I a): tenk først på hvilke størrelser som i det hele tatt kan inngå — hva sier Newtons 2. lov om legemets egen masse?",
+          "Dimensjonen til $GM$ leser du av $g = GM/r^2$.",
+          "I b): når $v \\propto \\sqrt{M}$, hva gjør en dobling av $M$?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — unnslipningsfarten (~12 min)\n\nSkyt en stein rett opp. Den kommer ned. Skyt den fortere, og den kommer lenger opp før den kommer ned. Spørsmålet er om det finnes en fart der den aldri kommer ned — og svaret er ja, fordi tyngdefeltet svekkes med avstanden. Summen av all den energien som skal til for å komme uendelig langt vekk, er **endelig**."
+    },
+    {
+      "id": "fys1100-9-1-th-unnslip",
+      "type": "theorem",
+      "title": "Unnslipningsfarten",
+      "content": "Farten som akkurat rekker å føre et legeme uendelig langt vekk fra et legeme med masse $M$, sendt av gårde fra avstanden $R$:\n\n$$v_u = \\sqrt{\\frac{2GM}{R}}$$\n\n**Utledningen kreves aktivt.** Metodevalget må begrunnes først: vi bruker **energibevaring, fordi den eneste kraften som gjør arbeid på legemet er gravitasjonen, og den er konservativ**. Ingen luftmotstand, ingen rakettmotor etter avfyringen.\n\nGrensetilfellet «akkurat kommer seg vekk» betyr at legemet har igjen nøyaktig null fart når det er uendelig langt unna. Der er både $K$ og $U$ lik null. Energibevaring fra overflaten til uendelig gir da\n\n$$\\underbrace{\\tfrac12 mv_u^2 - \\frac{GMm}{R}}_{\\text{ved start}} = \\underbrace{0 + 0}_{\\text{uendelig langt unna}}$$\n\n*Intuisjon:* den negative potensielle energien er ei gjeld. Unnslipningsfarten er den farten der den kinetiske energien akkurat betaler hele gjelda, og du står igjen med null.\n\n$$\\tfrac12 mv_u^2 = \\frac{GMm}{R} \\quad \\Longrightarrow \\quad v_u^2 = \\frac{2GM}{R} \\quad \\Longrightarrow \\quad v_u = \\sqrt{\\frac{2GM}{R}}$$\n\n*Intuisjon:* massen $m$ faller ut igjen. En sonde og et støvkorn trenger samme fart.\n\n**Sammenligningen sensor liker å teste:** banefarten i en sirkelbane med radius $R$ er $v = \\sqrt{GM/R}$, så\n\n$$\\frac{v_u}{v} = \\sqrt2 \\approx 1{,}41$$\n\nDu trenger altså bare $41\\ \\%$ mer fart for å forlate systemet helt enn for å gå i bane like over overflaten. Det er mindre enn de fleste gjetter.\n\n**En viktig presisering:** $v_u$ avhenger ikke av **retningen** legemet skytes i (så lenge det ikke treffer bakken), for energi er en skalar og bryr seg ikke om retning. Det er derfor «unnslipningsfart» er et bedre navn enn «unnslipningshastighet»."
+    },
+    {
+      "id": "fys1100-9-1-adv-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil koster nesten alle poengene som går tapt i denne delen.\n\n**1. Avstand målt fra overflaten i stedet for fra sentrum.** I $F = GMm/r^2$ og $U = -GMm/r$ er $r$ **alltid** avstanden fra sentrum. En satellitt i $400\\,\\text{km}$ høyde har $r = 6{,}77\\cdot10^{6}\\,\\text{m}$, ikke $4{,}00\\cdot10^{5}\\,\\text{m}$.\n\n**2. Glemt fortegn på $U$.** Potensiell energi i gravitasjonsfeltet er **negativ**: $U = -GMm/r$. Skriver du $+GMm/r$, får unnslipningsfarten feil fortegn under rota, og hele skillet mellom bundne og ubundne baner forsvinner.\n\n**3. Bevaringslov uten begrunnelse (felle #7).** «Energien er bevart» alene gir trekk. Skriv **hvorfor**: at bare gravitasjonen gjør arbeid, og at den er konservativ. Det samme gjelder spinnet i løkke 5, der begrunnelsen er at kraften er radiell.\n\n**4. Banefart forvekslet med unnslipningsfart.** De skiller seg med en faktor $\\sqrt2$. Får du et svar som er $41\\ \\%$ for stort eller $29\\ \\%$ for lite, er dette den første feilen du skal lete etter.\n\n**5. Feil potens i komponent-ODE-en.** I løkke 6 møter du $\\ddot x = -GMx/(x^2+y^2)^{3/2}$. Eksponenten er $3/2$, ikke 1 og ikke $1/2$ — den kommer av at du deler kraften $GM/r^2$ på $r$ for å plukke ut komponenten, slik at det blir $r^3$ i nevneren."
+    },
+    {
+      "id": "fys1100-9-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): En sonde forlater en fremmed planet",
+      "problem": "En planet uten atmosfære har masse $M = 4{,}80\\cdot10^{24}\\,\\text{kg}$ og radius $R = 5{,}40\\cdot10^{6}\\,\\text{m}$. En sonde med masse $320\\,\\text{kg}$ skal sendes bort fra planeten.\n\n**a)** Finn tyngdeakselerasjonen ved overflaten.\n\n**b)** Finn unnslipningsfarten, og begrunn metodevalget.\n\n**c)** Hvor stor fart har sonden igjen uendelig langt unna hvis den skytes opp med $12{,}0\\,\\text{km/s}$?\n\n**d)** Sonden skytes i stedet opp med $9{,}00\\,\\text{km/s}$. Hvor langt fra planetens sentrum snur den?",
+      "solution": "**a)**\n\n$$g = \\frac{GM}{R^2} = \\frac{6{,}674\\cdot10^{-11}\\cdot4{,}80\\cdot10^{24}}{(5{,}40\\cdot10^{6})^2} = 10{,}99\\,\\text{m/s}^2 \\approx 11{,}0\\,\\text{m/s}^2$$\n\nrettet inn mot planetens sentrum.\n\n**b) Metodevalget må begrunnes:** etter avfyringen er gravitasjonen den eneste kraften som gjør arbeid på sonden, og gravitasjonen er konservativ. Planeten har ingen atmosfære, så det finnes ingen luftmotstand som kan lekke energi. **Derfor er den mekaniske energien bevart**, og vi kan sette tilstanden ved overflaten lik tilstanden uendelig langt unna.\n\n$$\\tfrac12 mv_u^2 - \\frac{GMm}{R} = 0 \\quad \\Longrightarrow \\quad v_u = \\sqrt{\\frac{2GM}{R}} = \\sqrt{\\frac{2\\cdot6{,}674\\cdot10^{-11}\\cdot4{,}80\\cdot10^{24}}{5{,}40\\cdot10^{6}}}$$\n\n$$v_u = \\sqrt{1{,}1865\\cdot10^{8}} = 1{,}089\\cdot10^{4}\\,\\text{m/s} = 10{,}9\\,\\text{km/s}$$\n\nSondens masse på $320\\,\\text{kg}$ er en distraktor — den faller ut av regnskapet.\n\n**Grensetilfelle-kontroll:** banefarten like over overflaten skal være $v_u/\\sqrt2 = 7{,}70\\,\\text{km/s}$, og direkte utregning gir $\\sqrt{GM/R} = 7{,}702\\cdot10^{3}\\,\\text{m/s}$ ✓.\n\n— naturlig pausepunkt —\n\n**c)** Nå er starthastigheten større enn $v_u$, så sonden har fart igjen i det uendelige. Samme energiregnskap, men med $K \\neq 0$ til slutt:\n\n$$\\tfrac12 mv_0^2 - \\frac{GMm}{R} = \\tfrac12 mv_\\infty^2 \\quad \\Longrightarrow \\quad v_\\infty = \\sqrt{v_0^2 - v_u^2}$$\n\n$$v_\\infty = \\sqrt{(1{,}200\\cdot10^{4})^2 - (1{,}089\\cdot10^{4})^2} = \\sqrt{1{,}4400\\cdot10^{8} - 1{,}1865\\cdot10^{8}} = 5{,}03\\cdot10^{3}\\,\\text{m/s}$$\n\naltså $5{,}03\\,\\text{km/s}$, rettet bort fra planeten.\n\nMerk hvor mye fart som forsvinner: sonden startet med $12{,}0\\,\\text{km/s}$ og sitter igjen med $5{,}0$. Fartene legger seg **ikke** sammen lineært, fordi det er energiene — altså fartene i annen — som er additive.\n\n**d)** Nå er $v_0 = 9{,}00\\,\\text{km/s} < v_u$, så sonden er bundet og snur. I vendepunktet er farten null:\n\n$$\\tfrac12 mv_0^2 - \\frac{GMm}{R} = 0 - \\frac{GMm}{r_{\\max}}$$\n\n$$\\frac{GM}{r_{\\max}} = \\frac{GM}{R} - \\tfrac12 v_0^2 = \\frac{3{,}2035\\cdot10^{14}}{5{,}40\\cdot10^{6}} - \\tfrac12(9{,}00\\cdot10^{3})^2$$\n\n$$= 5{,}9324\\cdot10^{7} - 4{,}0500\\cdot10^{7} = 1{,}8824\\cdot10^{7}\\,\\text{J/kg}$$\n\n$$r_{\\max} = \\frac{3{,}2035\\cdot10^{14}}{1{,}8824\\cdot10^{7}} = 1{,}70\\cdot10^{7}\\,\\text{m}$$\n\naltså omtrent $3{,}2$ planetradier fra sentrum, eller $1{,}16\\cdot10^{7}\\,\\text{m}$ over overflaten.\n\n**Grensetilfelle-kontroll:** setter vi inn $v_0 = v_u$ i det samme uttrykket, blir nevneren $5{,}9324\\cdot10^{7} - 5{,}9324\\cdot10^{7} = 0$ og $r_{\\max} \\to \\infty$ ✓ — akkurat som definisjonen av unnslipningsfart krever."
+    },
+    {
+      "id": "fys1100-9-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En asteroide er tilnærmet kulesymmetrisk med masse $M = 9{,}0\\cdot10^{15}\\,\\text{kg}$ og radius $R = 8{,}0\\cdot10^{3}\\,\\text{m}$.\n\n**a)** Finn unnslipningsfarten fra overflaten.\n\n**b)** En astronaut på overflaten hopper rett opp med den farten et menneske kan oppnå på jorda, omtrent $3{,}0\\,\\text{m/s}$. Kommer hun tilbake?\n\n**c)** Finn tyngdeakselerasjonen ved overflaten, og kommentér hvor lenge hoppet hennes ville vart om hun ikke slapp unna.",
+        "solution": "**Metodevalg først:** energibevaring, fordi gravitasjonen er den eneste kraften som gjør arbeid, og den er konservativ. Asteroiden har ingen atmosfære.\n\n**a)**\n\n$$v_u = \\sqrt{\\frac{2GM}{R}} = \\sqrt{\\frac{2\\cdot6{,}674\\cdot10^{-11}\\cdot9{,}0\\cdot10^{15}}{8{,}0\\cdot10^{3}}} = \\sqrt{1{,}502\\cdot10^{2}} = 12{,}3\\,\\text{m/s}$$\n\n**b)** Ja, hun kommer tilbake — så vidt. Hoppfarten $3{,}0\\,\\text{m/s}$ er godt under $12{,}3\\,\\text{m/s}$, så hun er bundet. Men marginen er ikke stor: en kraftig avspark, eller et lite skyv fra en vegg, ville vært nok til å sende henne ut i verdensrommet for godt. På små legemer er unnslipningsfart et praktisk problem, ikke en akademisk øvelse.\n\n**c)**\n\n$$g = \\frac{GM}{R^2} = \\frac{6{,}674\\cdot10^{-11}\\cdot9{,}0\\cdot10^{15}}{(8{,}0\\cdot10^{3})^2} = 9{,}4\\cdot10^{-3}\\,\\text{m/s}^2$$\n\nDet er omtrent en tusendel av tyngdeakselerasjonen på jorda. Brukes den konstante verdien som en tilnærming, ville et hopp med $3{,}0\\,\\text{m/s}$ vart $t = 2v_0/g \\approx 6{,}4\\cdot10^{2}\\,\\text{s}$, altså over ti minutter, og nådd $v_0^2/(2g) \\approx 4{,}8\\cdot10^{2}\\,\\text{m}$ opp.\n\n**Merk forbeholdet:** stigehøyden er sammenlignbar med asteroidens egen radius, så feltet er merkbart svakere øverst, og den konstante-$g$-modellen underestimerer både tida og høyden. Den gir riktig størrelsesorden, ikke riktig tall — og det bør stå i besvarelsen.",
+        "hints": [
+          "Bruk unnslipningsfarten, og husk at $R$ er avstanden fra sentrum.",
+          "I b): sammenlign hoppfarten med den du fant i a).",
+          "I c): vurder om tilnærmingen med konstant $g$ i det hele tatt er gyldig så høyt opp."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ, sjanger J — «forklar/begrunn/kritiser»-oppgaven, som har minst én deloppgave i hvert eneste sett.) Svar i to–fire setninger på hver.\n\n**a)** En rakett skytes opp fra ekvator i retning østover, samme vei som jorda roterer. Hvorfor er det gunstig?\n\n**b)** En student hevder at unnslipningsfarten må være større hvis raketten skytes skrått enn hvis den skytes rett opp, «fordi den skrå veien er lengre». Hva er galt i resonnementet?\n\n**c)** Hvorfor har jorda en atmosfære, mens månen ikke har det?",
+        "solution": "**a)** Ved ekvator har raketten allerede en fart østover på omtrent $4{,}6\\cdot10^{2}\\,\\text{m/s}$ fordi den følger med jordas rotasjon. Skytes den østover, kommer den farten i tillegg til den motoren må levere, og energibehovet synker tilsvarende. Det er derfor oppskytingsbaser gjerne ligger nær ekvator, og derfor de aller fleste oppskytinger går østover.\n\n**b)** Resonnementet blander sammen **vei** og **energi**. Gravitasjonen er en konservativ kraft, så arbeidet den gjør avhenger bare av start- og sluttavstanden fra sentrum, ikke av hvilken vei legemet tok dit. Energiregnskapet $\\tfrac12 mv_u^2 = GMm/R$ inneholder ingen retning i det hele tatt — farten er en skalar her. Derfor er unnslipningsfarten den samme uansett vinkel, så lenge banen ikke går i bakken.\n\n**c)** Fordi unnslipningsfarten avgjør hvilke gassmolekyler et himmellegeme klarer å holde på. Molekylene i en gass har en fordeling av farter, og de raskeste i halen av fordelingen slipper unna hvis de overstiger $v_u$. Jorda har $v_u \\approx 11{,}2\\,\\text{km/s}$ og holder derfor på både nitrogen og oksygen. Månen har $v_u \\approx 2{,}4\\,\\text{km/s}$, og der har alle vanlige gasser lekket ut for lenge siden.",
+        "hints": [
+          "I a): hvilken fart har et punkt på ekvator allerede før raketten tennes?",
+          "I b): tenk på hva som kjennetegner en konservativ kraft.",
+          "I c): sammenlign unnslipningsfarten med typiske molekylfarter i en gass."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — kometbaner: energi og spinn samtidig (~12 min)\n\nEn komet kommer fykende inn fra utkanten av solsystemet, snurrer rundt sola i løpet av noen måneder og forsvinner ut igjen. Farten er dramatisk forskjellig i de to endene av banen — men to størrelser holder seg konstante hele veien, og de to lar deg regne ut alt det andre.\n\nDette er sjangerens vanskeligste variant, og den som gir flest poeng."
+    },
+    {
+      "id": "fys1100-9-1-def-sentralkraft",
+      "type": "definition",
+      "title": "Sentralkraft",
+      "content": "En **sentralkraft** er en kraft som alltid peker rett mot (eller rett fra) ett fast punkt, og hvis tallverdi bare avhenger av avstanden til det punktet:\n\n$$\\mathbf{F} = F(r)\\,\\hat{\\mathbf{r}}$$\n\nGravitasjonen fra en kulesymmetrisk masse er det viktigste eksemplet i fysikken, med $F(r) = -GMm/r^2$.\n\nSentralkrefter har to egenskaper som gjør dem mye lettere å regne på enn andre krefter: de er **konservative** (så mekanisk energi er bevart), og de gir **null kraftmoment om sentret** (så spinnet om sentret er bevart). Begge betingelsene må skrives ut når du bruker dem — det er selve begrunnelsen sensor leter etter."
+    },
+    {
+      "id": "fys1100-9-1-th-spinn",
+      "type": "theorem",
+      "title": "Spinnbevaring i en sentralkraft",
+      "content": "For et legeme som bare påvirkes av en sentralkraft med sentrum i $O$, er spinnet om $O$ konstant:\n\n$$L = mvr\\sin\\varphi = \\text{konstant}$$\n\n**Begrunnelsen er hele poenget, og den er én setning:** kraften peker rett mot $O$, så virkelinja går gjennom $O$, og momentarmen om $O$ er null. Da er $\\boldsymbol{\\tau} = \\mathbf{r}\\times\\mathbf{F} = \\mathbf{0}$, og spinnsatsen $\\boldsymbol{\\tau} = d\\mathbf{L}/dt$ gir $d\\mathbf{L}/dt = \\mathbf{0}$.\n\n*Intuisjon:* det er nøyaktig samme argument som med hengselkraften i [kap. 6.3](/bok/fys1100/fys1100-6-3) — en kraft som angriper langs en linje gjennom aksen, kan være aldri så stor uten å endre spinnet.\n\n**I de to punktene der banen er nærmest og fjernest** — **perihel** og **aphel** for en bane om sola — står farten vinkelrett på radien, altså $\\sin\\varphi = 1$. Der forenkler loven seg til den formen eksamen bruker:\n\n$$m v_p r_p = m v_a r_a \\quad \\Longrightarrow \\quad v_p r_p = v_a r_a$$\n\n*Intuisjon:* når avstanden krymper, må farten vokse i samme forhold. Det er kunstløperen som trekker inn armene, i astronomisk målestokk — og det er Keplers 2. lov.\n\n**Advarsel:** likningen $v_p r_p = v_a r_a$ gjelder **bare** i disse to punktene. I et vilkårlig punkt på banen står ikke farten vinkelrett på radien, og da må du ha $\\sin\\varphi$ med."
+    },
+    {
+      "id": "fys1100-9-1-th-energi-bane",
+      "type": "theorem",
+      "title": "Total mekanisk energi og typen bane",
+      "content": "Den totale mekaniske energien til et legeme i et gravitasjonsfelt er\n\n$$E = \\tfrac12 mv^2 - \\frac{GMm}{r}$$\n\nog den er bevart **fordi bare gravitasjonen gjør arbeid, og gravitasjonen er konservativ**. Fortegnet til $E$ avgjør hva slags bane legemet får:\n\n| Fortegn | Bane | Fysisk |\n|---|---|---|\n| $E < 0$ | **bundet** — sirkel eller ellipse | legemet kommer aldri lenger enn til en endelig maksimalavstand |\n| $E = 0$ | grensetilfellet — parabel | legemet så vidt slipper unna, med fart null i det uendelige |\n| $E > 0$ | **ubundet** — hyperbel | legemet forsvinner med fart til overs |\n\n*Intuisjon:* $E = 0$ er nettopp betingelsen som ga unnslipningsfarten. De tre radene er samme regnestykke sett fra tre sider.\n\nFor et legeme av gitt masse er det praktisk å regne per kilogram — den **spesifikke** energien $E/m = \\tfrac12 v^2 - GM/r$ og det **spesifikke** spinnet $L/m = vr\\sin\\varphi$. Begge er uavhengige av legemets masse, som uansett faller ut."
+    },
+    {
+      "id": "fys1100-9-1-fig-ellipse",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-9-1-ellipsebane.svg",
+      "alt": "En elliptisk bane rundt en stjerne med masse M som staar i det ene brennpunktet, ikke i sentrum av ellipsen. Til venstre er perihel markert med en groenn prikk og en lang groenn pil oppover for den store farten v p. Til hoeyre er aphel markert med en groenn prikk og en kort groenn pil nedover for den lille farten v a. Lilla stiplede linjer fra stjerna ut til de to punktene er merket r p og r a. Under figuren staar spinnbevaringen og energibevaringen skrevet ut.",
+      "caption": "Kometbanen slik den brukes i eksempel 4: farten er størst i perihel og minst i aphel, og **bare i disse to punktene** står fartsvektoren vinkelrett på radien — det er derfor $v_p r_p = v_a r_a$ gjelder nettopp der."
+    },
+    {
+      "id": "fys1100-9-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4 (eksamensnivå): En komet i perihel og aphel",
+      "problem": "En komet passerer nærmeste punkt til en stjerne med masse $M = 1{,}99\\cdot10^{30}\\,\\text{kg}$. I dette punktet er avstanden $r_p = 8{,}00\\cdot10^{10}\\,\\text{m}$ og farten $v_p = 5{,}40\\cdot10^{4}\\,\\text{m/s}$.\n\n**a)** Begrunn hvorfor både energi og spinn er bevart under hele omløpet.\n\n**b)** Vis at kometen er bundet til stjerna.\n\n**c)** Finn avstanden $r_a$ og farten $v_a$ i det fjerneste punktet.\n\n**d)** Finn omløpstiden.",
+      "solution": "**a) Begrunnelsene først — dette er der poengene ligger.**\n\n**Spinnet om stjerna er bevart fordi kraften er radiell:** gravitasjonen peker hele tiden rett mot stjernas sentrum, så virkelinja går gjennom sentret, momentarmen er null og kraftmomentet om sentret er null. Med $\\boldsymbol{\\tau} = d\\mathbf{L}/dt = \\mathbf{0}$ er $\\mathbf{L}$ konstant.\n\n**Den mekaniske energien er bevart fordi bare tyngden gjør arbeid**, og gravitasjonen er konservativ. Det er ingen atmosfære, ingen friksjon og ingen motor som tilfører eller tapper energi.\n\n**b)** Vi regner spesifikk energi, altså per kilogram kometmasse:\n\n$$\\frac{E}{m} = \\tfrac12 v_p^2 - \\frac{GM}{r_p} = \\tfrac12(5{,}40\\cdot10^{4})^2 - \\frac{6{,}674\\cdot10^{-11}\\cdot1{,}99\\cdot10^{30}}{8{,}00\\cdot10^{10}}$$\n\n$$= 1{,}458\\cdot10^{9} - 1{,}660\\cdot10^{9} = -2{,}02\\cdot10^{8}\\,\\text{J/kg}$$\n\nEnergien er **negativ**, altså er kometen bundet og går i en lukket ellipsebane. Den kommer tilbake.\n\n*Kontroll:* unnslipningsfarten i perihel er $\\sqrt{2GM/r_p} = 5{,}76\\cdot10^{4}\\,\\text{m/s}$, som er større enn $5{,}40\\cdot10^{4}\\,\\text{m/s}$ ✓ — samme konklusjon, andre vei.\n\n— naturlig pausepunkt —\n\n**c)** Vi har to bevaringslover og to ukjente. Spinnbevaring mellom perihel og aphel, der farten står vinkelrett på radien i begge punkter:\n\n$$v_a = \\frac{v_p r_p}{r_a}$$\n\nEnergibevaring mellom de samme to punktene:\n\n$$\\tfrac12 v_p^2 - \\frac{GM}{r_p} = \\tfrac12 v_a^2 - \\frac{GM}{r_a}$$\n\nSett inn uttrykket for $v_a$, og skriv $x = 1/r_a$ for å få en ren andregradslikning:\n\n$$\\tfrac12 v_p^2 r_p^2\\,x^2 - GM\\,x - \\frac{E}{m} = 0$$\n\nMed tall: $\\tfrac12 v_p^2 r_p^2 = \\tfrac12(5{,}40\\cdot10^{4})^2(8{,}00\\cdot10^{10})^2 = 9{,}331\\cdot10^{30}$, $GM = 1{,}328\\cdot10^{20}$ og $-E/m = 2{,}0216\\cdot10^{8}$. Løsningene er\n\n$$x_1 = 1{,}2500\\cdot10^{-11}\\ \\text{m}^{-1}, \\qquad x_2 = 1{,}7332\\cdot10^{-12}\\ \\text{m}^{-1}$$\n\nDen første gir $1/x_1 = 8{,}00\\cdot10^{10}\\,\\text{m}$ — det er perihel, altså startpunktet vårt. Andregradslikningen finner begge vendepunktene, og det er en god kontroll på at regningen stemmer. Den vi er ute etter, er den andre:\n\n$$r_a = \\frac{1}{x_2} = 5{,}77\\cdot10^{11}\\,\\text{m}$$\n\n$$v_a = \\frac{v_p r_p}{r_a} = \\frac{5{,}40\\cdot10^{4}\\cdot8{,}00\\cdot10^{10}}{5{,}770\\cdot10^{11}} = 7{,}49\\cdot10^{3}\\,\\text{m/s}$$\n\nrettet vinkelrett på radien, altså tangentielt langs banen. Kometen går altså $7{,}2$ ganger så langt ut som i perihel og har da bare $14\\ \\%$ av farten.\n\n**Kontroll:** spesifikk energi i aphel er $\\tfrac12(7{,}487\\cdot10^{3})^2 - 1{,}328\\cdot10^{20}/5{,}770\\cdot10^{11} = 2{,}803\\cdot10^{7} - 2{,}302\\cdot10^{8} = -2{,}02\\cdot10^{8}\\,\\text{J/kg}$ ✓ — samme verdi som i perihel.\n\n**d)** Den store halvaksen er halve summen av de to ytterpunktene:\n\n$$a = \\frac{r_p + r_a}{2} = \\frac{8{,}00\\cdot10^{10} + 5{,}770\\cdot10^{11}}{2} = 3{,}285\\cdot10^{11}\\,\\text{m}$$\n\nKeplers 3. lov gjelder for ellipser med $a$ i rollen til baneradien:\n\n$$T_p = 2\\pi\\sqrt{\\frac{a^3}{GM}} = 2\\pi\\sqrt{\\frac{(3{,}285\\cdot10^{11})^3}{1{,}328\\cdot10^{20}}} = 1{,}03\\cdot10^{8}\\,\\text{s} \\approx 3{,}3\\ \\text{år}$$\n\n**Alternativ kontroll uten Keplers lov:** halvaksen kan også regnes rett ut av energien, siden $a = -GM/(2E/m)$. Det gir $1{,}328\\cdot10^{20}/(2\\cdot2{,}0216\\cdot10^{8}) = 3{,}285\\cdot10^{11}\\,\\text{m}$ — samme tall ✓. Under tidspress er energiveien raskest, fordi du allerede har $E/m$ fra deloppgave b); halvsum-veien er tryggest hvis du er usikker på formelen."
+    },
+    {
+      "id": "fys1100-9-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger K.) En sonde er i sirkelbane med radius $r_1 = 1{,}20\\cdot10^{7}\\,\\text{m}$ om en planet med masse $M = 6{,}40\\cdot10^{23}\\,\\text{kg}$. I ett punkt fyres motoren kort opp slik at farten øker med $18{,}0\\ \\%$, uten at retningen endres.\n\n**a)** Finn farten i sirkelbanen og farten rett etter motorpådraget.\n\n**b)** Vis at sonden fortsatt er bundet, og begrunn hvilke bevaringslover som gjelder etter at motoren er slått av.\n\n**c)** Finn den største avstanden sonden nå når fra planetens sentrum.\n\n**d)** Hvor mange prosent måtte farten vært økt for at sonden skulle sluppet unna helt?",
+        "solution": "**a)** Farten i sirkelbanen:\n\n$$v_1 = \\sqrt{\\frac{GM}{r_1}} = \\sqrt{\\frac{6{,}674\\cdot10^{-11}\\cdot6{,}40\\cdot10^{23}}{1{,}20\\cdot10^{7}}} = \\sqrt{3{,}560\\cdot10^{6}} = 1{,}887\\cdot10^{3}\\,\\text{m/s}$$\n\nEtter pådraget:\n\n$$v_p = 1{,}180\\cdot1{,}887\\cdot10^{3} = 2{,}226\\cdot10^{3}\\,\\text{m/s}$$\n\ntangentielt, i samme retning som før. Siden farten øker mens retningen beholdes, er dette punktet nå banens **perihel** — det nærmeste punktet — og farten står fortsatt vinkelrett på radien der.\n\n**b)** Etter at motoren er slått av, virker bare gravitasjonen. Da er **energien bevart fordi bare tyngden gjør arbeid og den er konservativ**, og **spinnet om planetens sentrum er bevart fordi kraften er radiell og derfor har null momentarm om sentret**.\n\nSpesifikk energi rett etter pådraget:\n\n$$\\frac{E}{m} = \\tfrac12(2{,}226\\cdot10^{3})^2 - \\frac{4{,}2714\\cdot10^{13}}{1{,}20\\cdot10^{7}} = 2{,}478\\cdot10^{6} - 3{,}559\\cdot10^{6} = -1{,}081\\cdot10^{6}\\,\\text{J/kg}$$\n\nNegativ energi, altså bundet bane ✓.\n\n**c)** Samme oppsett som i eksempel 4. Med $v_a = v_p r_p/r_a$ og $x = 1/r_a$:\n\n$$\\tfrac12 v_p^2 r_p^2\\,x^2 - GM\\,x - \\frac{E}{m} = 0$$\n\n$$\\tfrac12 v_p^2 r_p^2 = \\tfrac12(2{,}226\\cdot10^{3})^2(1{,}20\\cdot10^{7})^2 = 3{,}568\\cdot10^{20}$$\n\n$$3{,}568\\cdot10^{20}x^2 - 4{,}2714\\cdot10^{13}x + 1{,}081\\cdot10^{6} = 0$$\n\n$$x = \\frac{4{,}2714\\cdot10^{13} \\pm \\sqrt{(4{,}2714\\cdot10^{13})^2 - 4\\cdot3{,}568\\cdot10^{20}\\cdot1{,}081\\cdot10^{6}}}{2\\cdot3{,}568\\cdot10^{20}}$$\n\nRøttene blir $x_1 = 8{,}333\\cdot10^{-8}\\,\\text{m}^{-1}$ (som er $1/r_1$, altså perihel — kontrollen vår) og $x_2 = 3{,}636\\cdot10^{-8}\\,\\text{m}^{-1}$, altså\n\n$$r_a = 2{,}75\\cdot10^{7}\\,\\text{m}$$\n\nFarten der er $v_a = v_p r_p/r_a = 2{,}226\\cdot10^{3}\\cdot1{,}20\\cdot10^{7}/2{,}750\\cdot10^{7} = 9{,}72\\cdot10^{2}\\,\\text{m/s}$, tangentielt.\n\nEt pådrag på $18\\ \\%$ i farten mer enn dobler altså den største avstanden. Bevegelse i gravitasjonsfelt er svært følsom for små fartsendringer, og det er grunnen til at romferder planlegges med korte, presise motorpådrag.\n\n**d)** Unnslipningsfarten fra $r_1$ er $\\sqrt{2}\\,v_1$, så farten måtte vært økt med faktoren $\\sqrt2 = 1{,}414$, altså **$41{,}4\\ \\%$**.\n\n**Grensetilfelle-kontroll:** setter du $v_p = \\sqrt2\\,v_1$ inn i uttrykket for $E/m$, får du $\\tfrac12\\cdot2GM/r_1 - GM/r_1 = 0$ ✓ — nøyaktig grensa mellom bundet og ubundet.",
+        "hints": [
+          "Start med farten i sirkelbanen — den følger av at gravitasjonen er hele resultanten inn mot sentrum.",
+          "Etter pådraget er punktet banens nærmeste punkt, så farten står vinkelrett på radien der. Da gjelder $v_p r_p = v_a r_a$.",
+          "Sett $x = 1/r_a$ og løs andregradslikningen; den ene rota skal gi startavstanden tilbake."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — kometbanen som kode (~10 min)\n\nBare de aller enkleste banene lar seg regne ut med penn og papir. Skal du følge en komet eller en satellitt gjennom et helt omløp, må du løse bevegelseslikningen numerisk — og det er nøyaktig den deloppgaven H2024 stilte.\n\nDet gode her er at du ikke trenger noe nytt verktøy. Du trenger Euler–Cromer-løkka fra [kap. 8.1](/bok/fys1100/fys1100-8-1) og komponentoppsettet fra [kap. 8.2](/bok/fys1100/fys1100-8-2), med én ny akselerasjonslinje."
+    },
+    {
+      "id": "fys1100-9-1-th-ode",
+      "type": "theorem",
+      "title": "Bevegelseslikningen på komponentform",
+      "content": "Legg origo i det tunge legemet. Sonden eller kometen har posisjon $(x, y)$, og avstanden til sentret er $r = \\sqrt{x^2+y^2}$. Gravitasjonen har tallverdi $GMm/r^2$ og peker inn mot origo, altså langs $-\\hat{\\mathbf{r}} = -(x,y)/r$. Newtons 2. lov gir\n\n$$m\\ddot{x} = -\\frac{GMm}{r^2}\\cdot\\frac{x}{r}, \\qquad m\\ddot{y} = -\\frac{GMm}{r^2}\\cdot\\frac{y}{r}$$\n\n*Intuisjon:* brøken $x/r$ er ikke annet enn $\\cos$ til vinkelen — den plukker ut $x$-komponenten av en vektor som peker inn mot origo. Uten den ville du gitt hele kraften til én akse.\n\nMassen $m$ faller ut, og de to $r$-ene slås sammen:\n\n$$\\ddot{x} = -\\frac{GM\\,x}{(x^2+y^2)^{3/2}}, \\qquad \\ddot{y} = -\\frac{GM\\,y}{(x^2+y^2)^{3/2}}$$\n\n*Intuisjon:* eksponenten $3/2$ er summen av kraftens $r^2$ og komponentens $r$. Det er den vanligste skrivefeilen i sjangeren, og den ødelegger banen fullstendig — med eksponent 1 får du en helt annen kraftlov.\n\nDette er **to koblede andreordens differensiallikninger**: $x$ og $y$ opptrer i hverandres nevnere, så de kan ikke løses hver for seg. Oppsettet skal kunne skrives på eksamen; selve integrasjonen gjøres numerisk."
+    },
+    {
+      "id": "fys1100-9-1-kode-1",
+      "type": "text",
+      "content": "**Referanseversjonen.** Slik ser løsningen ut som kjørbart program. Legg merke til at strukturen er nøyaktig den samme malen som i resten av boka — bare akselerasjonslinjene er nye:\n\n```python\nimport numpy as np\n\nG = 6.674e-11\nM = 1.99e30          # stjernens masse\nN = 200000\ndt = 1000.0\n\nt  = np.zeros(N)\nx  = np.zeros(N)\ny  = np.zeros(N)\nvx = np.zeros(N)\nvy = np.zeros(N)\n\nx[0]  = 8.00e10      # perihel\ny[0]  = 0.0\nvx[0] = 0.0\nvy[0] = 5.40e4       # farten i perihel, vinkelrett paa r\n\nfor i in range(N - 1):\n    r  = np.sqrt(x[i]**2 + y[i]**2)\n    ax = -G * M * x[i] / r**3\n    ay = -G * M * y[i] / r**3\n    vx[i+1] = vx[i] + ax * dt        # fart FOERST\n    vy[i+1] = vy[i] + ay * dt\n    x[i+1]  = x[i] + vx[i+1] * dt    # OPPDATERT fart\n    y[i+1]  = y[i] + vy[i+1] * dt\n    t[i+1]  = t[i] + dt\n```\n\nKjører du dette og leser av den største og minste avstanden, får du\n\n**Utskrift:**\n\n```text\nstorste avstand (aphel):  5.770e+11 m\nminste avstand (perihel): 8.000e+10 m\nfarten i aphel:  7.487e+03 m/s\nspesifikk energi start/slutt: -2.021575e+08 / -2.022030e+08\nspesifikt spinn start/slutt:  4.320000e+15 / 4.320000e+15\n```\n\nDette er de samme tallene som den analytiske regningen i eksempel 4 ga: aphel $5{,}77\\cdot10^{11}\\,\\text{m}$ og $v_a = 7{,}49\\cdot10^{3}\\,\\text{m/s}$. At de to helt uavhengige metodene lander på samme svar, er den beste kontrollen som finnes.\n\n**Legg merke til de to siste linjene i utskriften.** Det spesifikke spinnet $L/m = x v_y - y v_x$ holder seg konstant til sju siffer, og energien driver bare $0{,}002\\ \\%$ på et helt omløp. **Metodevalget er begrunnet nettopp av dette:** Euler–Cromer bruker den **oppdaterte** farten i posisjonssteget og er derfor tilnærmet energibevarende — den tar av og til litt for mye og av og til litt for lite, slik at feilen svinger rundt null i stedet for å hope seg opp. Forward Euler, som bruker den gamle farten, lekker energi systematisk, og en planetbane regnet med den spiralerer sakte utover og blir aldri lukket."
+    },
+    {
+      "id": "fys1100-9-1-kode-hand",
+      "type": "collapsible",
+      "title": "Slik ser den håndskrevne eksamensversjonen ut",
+      "buttonText": "Vis eksamensversjonen",
+      "content": [
+        {
+          "id": "fys1100-9-1-kode-hand-tekst",
+          "type": "text",
+          "content": "På den avsluttende skoleeksamenen skriver du Python **for hånd**, på papir. Da forventes ikke et helt program — bare **initialbetingelsene og integrasjonsløkka**. Alle programmeringsspråk godtas, og syntaksfeil trekker ikke. Poengene ligger i riktige initialbetingelser, riktig akselerasjonsuttrykk og riktig løkke.\n\n```text\nx[0], y[0]   = 8.00e10, 0.0\nvx[0], vy[0] = 0.0, 5.40e4\n\nfor i in range(N-1):\n    r = np.sqrt(x[i]**2 + y[i]**2)\n    vx[i+1] = vx[i] - G*M*x[i]/r**3 * dt\n    vy[i+1] = vy[i] - G*M*y[i]/r**3 * dt\n    x[i+1] = x[i] + vx[i+1]*dt\n    y[i+1] = y[i] + vy[i+1]*dt\n```\n\nTolv linjer, og alle poengene er i hus. Skriv i tillegg **én setning** om at du bruker Euler–Cromer fordi den er tilnærmet energibevarende — det er den setningen som skiller en full besvarelse fra en nesten full."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-9-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger K kombinert med sjanger H — den numeriske Python-oppgaven, som står i alle 7 settene.) En sonde nær sola påvirkes både av gravitasjonen og av **solvinden**, en radiell kraft som peker **utover** og avtar som $F_s = s/r^2$, der $s$ er en konstant.\n\n**a)** Sett opp de to komponentlikningene for sonden med begge kreftene med.\n\n**b)** Skriv om løkka fra referansekoden slik at den nye kraften er med. Marker tydelig hvilke linjer som er endret.\n\n**c)** For hvilken sondemasse blir de to kreftene like store, og hva slags bane får sonden da? Begrunn.",
+        "solution": "**a)** Gravitasjonen gir $-GMm/r^2$ radielt, solvinden $+s/r^2$ radielt. Summen deles på massen for å få akselerasjonen, og komponenten langs $x$ plukkes ut med faktoren $x/r$:\n\n$$\\ddot{x} = \\left(-GM + \\frac{s}{m}\\right)\\frac{x}{(x^2+y^2)^{3/2}}, \\qquad \\ddot{y} = \\left(-GM + \\frac{s}{m}\\right)\\frac{y}{(x^2+y^2)^{3/2}}$$\n\n**Legg merke til at massen $m$ IKKE faller ut denne gangen.** Gravitasjonen er proporsjonal med sondens masse, men solvindkraften er det ikke, så bare den ene av de to blir masseuavhengig. Det er den vanligste feilen i kodemodifikasjons-oppgaver: å glemme å dele den nye kraften på massen.\n\n**b)** Bare akselerasjonslinjene endres — resten av malen står:\n\n```text\ns = 1.0e17            # ny konstant i solvindmodellen\nm = 640.0             # sondens masse, NY: kreves fordi F_s ikke skalerer med m\n\nfor i in range(N - 1):\n    r  = np.sqrt(x[i]**2 + y[i]**2)\n    k  = -G*M + s/m                  # ENDRET: samlet radiell faktor\n    ax = k * x[i] / r**3             # ENDRET\n    ay = k * y[i] / r**3             # ENDRET\n    vx[i+1] = vx[i] + ax * dt\n    vy[i+1] = vy[i] + ay * dt\n    x[i+1]  = x[i] + vx[i+1] * dt\n    y[i+1]  = y[i] + vy[i+1] * dt\n    t[i+1]  = t[i] + dt\n```\n\nEuler–Cromer-strukturen er uendret: fart først, deretter posisjon med den oppdaterte farten.\n\n**c)** De to kreftene er like store når\n\n$$\\frac{GMm}{r^2} = \\frac{s}{r^2} \\quad \\Longrightarrow \\quad m = \\frac{s}{GM}$$\n\nLegg merke til at $r$ faller ut på begge sider — begge kreftene avtar som $1/r^2$, så forholdet mellom dem er det samme overalt. Med $s = 1{,}0\\cdot10^{17}$ i SI-enheter og $GM = 1{,}328\\cdot10^{20}$ blir $m = 7{,}5\\cdot10^{-4}\\,\\text{kg}$.\n\nVed akkurat denne massen er den samlede radielle kraften **null**, og sonden går i **rett linje med konstant fart** — Newtons 1. lov. Er massen mindre, dominerer solvinden, kraften peker utover, og sonden blåses vekk; er den større, dominerer gravitasjonen, og sonden går i en vanlig kjeglesnittbane.\n\nDette er hele grunnen til at kometer har hale: støvkornene er små nok til at strålingstrykket vinner.",
+        "hints": [
+          "Skriv opp begge kreftene radielt først, med fortegn, før du deler på massen.",
+          "Bare akselerasjonslinja i løkka skal endres — resten av malen er den samme.",
+          "I c): sett de to tallverdiene like store og se hvilke størrelser som faller ut."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-9-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ, sjanger J.) Svar i to–fire setninger på hver.\n\n**a)** En student bruker Forward Euler i stedet for Euler–Cromer til å regne ut en sirkulær planetbane, og oppdager at banen sakte spiralerer utover. Forklar hvorfor, og hva han bør gjøre.\n\n**b)** Hvorfor er det en god idé å skrive ut det spesifikke spinnet $x v_y - y v_x$ underveis i en slik simulering?\n\n**c)** En annen student skriver akselerasjonen som `ax = -G*M/r**2` i koden. Hva er galt?",
+        "solution": "**a)** Forward Euler bruker den **gamle** farten når posisjonen oppdateres, mens Euler–Cromer bruker den nyoppdaterte. Med den gamle farten flyttes legemet systematisk litt for langt ut i hvert steg, og feilen har samme fortegn hver gang, slik at den hoper seg opp. Resultatet er at den mekaniske energien vokser jevnt, og banen spiralerer utover. Han bør bytte til Euler–Cromer — det koster å flytte én linje — og ikke bare gjøre $\\Delta t$ mindre, for feilen er systematisk og vil komme tilbake så snart simuleringen går lenge nok.\n\n**b)** Fordi spinnet er en størrelse du **vet** skal være konstant: kraften er radiell, så kraftmomentet om sentret er null. Da fungerer det som en gratis feilsøkingstest. Driver det, er det noe galt med koden — typisk et fortegn, en manglende komponent eller feil eksponent i nevneren. Den samme testen kan gjøres med energien, men energien er litt mindre streng, siden Euler–Cromer bevarer den bare tilnærmet.\n\n**c)** To ting mangler. For det første er det ingen komponentoppdeling: han har brukt hele kraftens tallverdi som om den pekte langs $x$-aksen. Han mangler faktoren $x[i]/r$. For det andre — som følge av dette — blir eksponenten feil: riktig linje er `ax = -G*M*x[i]/r**3`. Med hans versjon får sonden alltid akselerasjon i $-x$-retning uansett hvor den er, og banen blir meningsløs.",
+        "hints": [
+          "I a): hvilken fart bruker de to metodene i posisjonssteget, og har feilen samme fortegn hver gang?",
+          "I b): hvilken størrelse vet du på forhånd skal være konstant, og hvorfor?",
+          "I c): sammenlign med komponentformen av bevegelseslikningen — hva plukker ut $x$-komponenten?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-9-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-9-1-bb-1",
+      "type": "definition",
+      "title": "Tyngdeakselerasjon fra gravitasjonsloven",
+      "content": "Tyngdeakselerasjonen ved overflaten av et kulesymmetrisk legeme er ikke en naturkonstant, men en utregnet størrelse:\n\n$$g = \\frac{GM}{R^2}$$\n\nFor jorda gir dette $9{,}82\\,\\text{m/s}^2$. Verdien avtar med høyden som $GM/r^2$ — i $400\\,\\text{km}$ høyde er den fortsatt $8{,}69\\,\\text{m/s}^2$, altså $89\\ \\%$ av verdien ved bakken."
+    },
+    {
+      "id": "fys1100-9-1-bb-2",
+      "type": "definition",
+      "title": "Banefart",
+      "content": "Farten et legeme må ha for å holde en sirkelbane med radius $r$ rundt en masse $M$:\n\n$$v = \\sqrt{\\frac{GM}{r}}$$\n\nDen er uavhengig av legemets egen masse, og den **avtar** når banen blir større. Betingelsen bak uttrykket er at gravitasjonen er den eneste kraften, slik at den er hele resultanten inn mot sentrum."
+    },
+    {
+      "id": "fys1100-9-1-bb-3",
+      "type": "definition",
+      "title": "Omløpstid og Keplers 3. lov",
+      "content": "Tida ett omløp tar i en sirkelbane:\n\n$$T_p = \\frac{2\\pi r}{v} = 2\\pi\\sqrt{\\frac{r^3}{GM}}$$\n\nKvadrert gir dette $T_p^2 \\propto r^3$, som er **Keplers 3. lov**. For ellipsebaner gjelder den samme loven med den store halvaksen $a$ i rollen til $r$. Perioden skrives $T_p$ i denne boka, siden $T$ er reservert for snordrag."
+    },
+    {
+      "id": "fys1100-9-1-bb-4",
+      "type": "definition",
+      "title": "Unnslipningsfart",
+      "content": "Den minste farten som fører et legeme uendelig langt vekk fra en masse $M$, sendt fra avstanden $R$:\n\n$$v_u = \\sqrt{\\frac{2GM}{R}}$$\n\nDen følger av energibevaring med betingelsen «null fart uendelig langt unna», og den er **uavhengig av retningen** legemet skytes i, fordi energi er en skalar. Forholdet til banefarten på samme avstand er alltid $\\sqrt2$."
+    },
+    {
+      "id": "fys1100-9-1-bb-5",
+      "type": "definition",
+      "title": "Bundet og ubundet bane",
+      "content": "Fortegnet til den totale mekaniske energien $E = \\tfrac12 mv^2 - GMm/r$ avgjør banetypen. Er $E < 0$, er legemet **bundet**: banen er en lukket ellipse (eller sirkel), og legemet kommer tilbake. Er $E > 0$, er det **ubundet**: banen er en hyperbel, og legemet forsvinner med fart til overs. Grensetilfellet $E = 0$ gir en parabel — nøyaktig unnslipningsfart.\n\nDette er den raskeste måten å avgjøre om en komet noen gang kommer igjen."
+    },
+    {
+      "id": "fys1100-9-1-bb-6",
+      "type": "definition",
+      "title": "Referansenivået i det uendelige",
+      "content": "For $U = -GMm/r$ er nullnivået lagt uendelig langt unna: $U \\to 0$ når $r \\to \\infty$. Valget er en konvensjon, men et svært praktisk et, fordi det gjør «slipper legemet unna?» til det enkle spørsmålet «er $E$ positiv?».\n\nNær bakken bruker vi i stedet $U = mgy$ med nullnivå der det passer. De to er ikke i konflikt — den ene er grensetilfellet av den andre for $h \\ll R$."
+    },
+    {
+      "id": "fys1100-9-1-bb-7",
+      "type": "definition",
+      "title": "Sentralkraft og de to bevaringslovene",
+      "content": "En sentralkraft peker alltid rett mot eller fra ett fast punkt, og tallverdien avhenger bare av avstanden. To bevaringslover følger:\n\n- **spinnet om sentret** er bevart, fordi kraftens virkelinje går gjennom sentret og momentarmen derfor er null;\n- **den mekaniske energien** er bevart, fordi en sentralkraft av denne typen er konservativ.\n\nBegge begrunnelsene skal skrives ut hver gang loven brukes. Å bruke en bevaringslov uten begrunnelse koster typisk 1 poeng."
+    },
+    {
+      "id": "fys1100-9-1-bb-8",
+      "type": "definition",
+      "title": "Perihel og aphel",
+      "content": "**Perihel** er punktet på banen der legemet er nærmest sentrallegemet, **aphel** der det er fjernest. (Ordene kommer fra sola; for baner om jorda heter de perigeum og apogeum, men fysikken er den samme.)\n\nDet som gjør disse to punktene spesielle i regning, er at fartsvektoren står **vinkelrett på radien** der. Bare derfor forenkler spinnbevaringen seg til $v_p r_p = v_a r_a$. I et vilkårlig punkt på banen må du ha med $\\sin\\varphi$."
+    },
+    {
+      "id": "fys1100-9-1-bb-9",
+      "type": "definition",
+      "title": "Spesifikk energi og spesifikt spinn",
+      "content": "Siden legemets egen masse alltid faller ut, er det praktisk å regne per kilogram:\n\n$$\\frac{E}{m} = \\tfrac12 v^2 - \\frac{GM}{r}, \\qquad \\frac{L}{m} = vr\\sin\\varphi$$\n\nEnhetene blir $\\text{J/kg} = \\text{m}^2/\\text{s}^2$ og $\\text{m}^2/\\text{s}$. Å regne spesifikt sparer et symbol i hver linje og gjør det umulig å rote bort massen — det er standard i banemekanikk."
+    },
+    {
+      "id": "fys1100-9-1-bb-10",
+      "type": "definition",
+      "title": "Store halvakse",
+      "content": "Den store halvaksen $a$ i en ellipsebane er halve summen av nærmeste og fjerneste avstand:\n\n$$a = \\frac{r_p + r_a}{2}$$\n\nDen kan også regnes rett ut av energien: $a = -\\dfrac{GM}{2(E/m)}$. Halvaksen er den størrelsen som styrer omløpstida gjennom $T_p = 2\\pi\\sqrt{a^3/(GM)}$ — to baner med samme $a$ har samme omløpstid, uansett hvor langstrakte de er."
+    },
+    {
+      "id": "fys1100-9-1-bb-11",
+      "type": "definition",
+      "title": "Vektløshet",
+      "content": "En astronaut i bane er **ikke** utenfor jordas tyngdefelt. I $400\\,\\text{km}$ høyde er tyngdeakselerasjonen fortsatt $89\\ \\%$ av verdien ved bakken.\n\nFølelsen av vektløshet kommer av at astronauten, romfartøyet og alt løst inne i det faller med **samme** akselerasjon, slik at ingen kontaktkraft trengs mellom dem. Normalkraften er null. Det er nøyaktig samme situasjon som i en heis i fritt fall — forskjellen er bare at romfartøyet har sidelengs fart nok til å bomme på jorda."
+    },
+    {
+      "id": "fys1100-9-1-bb-12",
+      "type": "definition",
+      "title": "Geostasjonær bane",
+      "content": "En bane over ekvator med omløpstid nøyaktig lik jordas rotasjonstid ($8{,}616\\cdot10^{4}\\,\\text{s}$). Satellitten står da tilsynelatende stille over samme punkt på bakken.\n\nKravet bestemmer baneradien entydig: $r = (GMT_p^2/4\\pi^2)^{1/3} = 4{,}22\\cdot10^{7}\\,\\text{m}$, altså omtrent $35\\,800\\,\\text{km}$ over overflaten. Det finnes bare **én** slik bane, og den er derfor et knapt gode."
+    },
+    {
+      "id": "fys1100-9-1-bb-13",
+      "type": "definition",
+      "title": "Superposisjonsprinsippet for gravitasjon",
+      "content": "Virker flere legemer på ett, er den samlede gravitasjonskraften **vektorsummen** av de enkelte bidragene:\n\n$$\\mathbf{F}_{\\text{tot}} = \\sum_i \\mathbf{F}_i$$\n\nHvert bidrag regnes ut som om de andre ikke fantes. Det er dette prinsippet som gjør trelegemeproblemer mulige å simulere — og som gjør dem umulige å løse eksakt med formler."
+    },
+    {
+      "id": "fys1100-9-1-bb-14",
+      "type": "definition",
+      "title": "Kulesymmetri og punktmasse-tilnærmingen",
+      "content": "En kulesymmetrisk masseskall trekker på et legeme utenfor seg nøyaktig som om hele massen satt i sentrum. Det er derfor du kan behandle jorda, sola og en planet som punktmasser i alle formlene i dette kapitlet, uten at det er en tilnærming.\n\nBetingelsen er at legemet befinner seg **utenfor** massefordelingen. Inne i en homogen kule gjelder noe annet, men det er utenfor det denne boka trenger."
+    },
+    {
+      "id": "fys1100-9-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-9-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $G$ | gravitasjonskonstanten, $6{,}674\\cdot10^{-11}$ (**skalar**) | $\\text{N}\\cdot\\text{m}^2/\\text{kg}^2$ |\n| $M$ | massen til det tunge legemet (planet, stjerne) | $\\text{kg}$ |\n| $m$ | massen til det lette legemet (satellitt, komet) | $\\text{kg}$ |\n| $r$ | avstand **fra sentrum** av det tunge legemet | $\\text{m}$ |\n| $R$ | radien til det tunge legemet | $\\text{m}$ |\n| $h$ | høyde over overflaten, slik at $r = R + h$ | $\\text{m}$ |\n| $\\hat{\\mathbf{r}}$ | enhetsvektor fra sentrum og utover | — |\n| $\\mathbf{F}_g$ | tyngdekraften (**vektor**) | $\\text{N}$ |\n| $g$ | tyngdeakselerasjonen på en gitt avstand | $\\text{m/s}^2$ |\n| $v$ | banefart | $\\text{m/s}$ |\n| $v_u$ | unnslipningsfart | $\\text{m/s}$ |\n| $v_p$, $v_a$ | fart i perihel og aphel | $\\text{m/s}$ |\n| $r_p$, $r_a$ | avstand i perihel og aphel | $\\text{m}$ |\n| $T_p$ | omløpstid | $\\text{s}$ |\n| $U$ | potensiell energi i tyngdefeltet (**skalar**) | $\\text{J}$ |\n| $K$ | kinetisk energi (**skalar**) | $\\text{J}$ |\n| $E$ | total mekanisk energi (**skalar**) | $\\text{J}$ |\n| $L$ | spinn om sentrallegemet | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ |\n| $a$ | store halvakse i en ellipsebane | $\\text{m}$ |\n| $\\varphi$ | vinkelen mellom $\\mathbf{r}$ og $\\mathbf{v}$ | grader eller rad |\n\n**Symbolkollisjoner som er avklart i denne boka.** $G$ er **gravitasjonskonstanten**; tyngdekraften skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$ — det er nettopp i dette kapitlet forvekslingen ville vært mest ødeleggende. Omløpstida skrives $T_p$, fordi $T$ betyr snordrag ellers i boka. Spinnet er $L$; det opptrer ingen lengde med samme bokstav her. Symbolet $a$ brukes i dette kapitlet både om akselerasjon (i $\\ddot x$-sammenheng) og om store halvakse — sammenhengen skiller dem, men det sies eksplisitt hvert sted. Massene $M$ og $m$, energiene og treghetsstørrelsene er **skalarer** og skal aldri ha vektormarkering.\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{F} = -\\frac{GMm}{r^2}\\hat{\\mathbf{r}}$$\n\nNewtons gravitasjonslov. **[formelarket]** — $r$ er alltid avstanden fra sentrum.\n\n$$U = -\\frac{GMm}{r}$$\n\nPotensiell energi i tyngdefeltet, med nullnivå i det uendelige. **[formelarket]** — fortegnet er negativt, og det er poenget.\n\n$$g = \\frac{GM}{R^2}$$\n\nTyngdeakselerasjonen ved overflaten. **[må kunne utledes]** — følger av Newtons 2. lov med gravitasjonsloven på høyre side.\n\n$$v = \\sqrt{\\frac{GM}{r}}$$\n\nBanefarten i en sirkelbane. **[må kunne utledes]** — fra $GMm/r^2 = mv^2/r$, og utledningen kreves aktivt.\n\n$$T_p = 2\\pi\\sqrt{\\frac{r^3}{GM}}$$\n\nOmløpstid i sirkelbane, altså Keplers 3. lov. **[må kunne utledes]** — fra $T_p = 2\\pi r/v$.\n\n$$v_u = \\sqrt{\\frac{2GM}{R}}$$\n\nUnnslipningsfart. **[må kunne utledes]** — fra energibevaring med $K = U = 0$ i det uendelige. Utledningen kreves aktivt.\n\n$$v_p r_p = v_a r_a$$\n\nSpinnbevaring mellom perihel og aphel. **[må kunne utledes]** — gjelder bare der farten står vinkelrett på radien, og **begrunnelsen** («kraften er radiell») er det som gir poeng.\n\n$$\\tfrac12 v_p^2 - \\frac{GM}{r_p} = \\tfrac12 v_a^2 - \\frac{GM}{r_a}$$\n\nEnergibevaring langs banen, skrevet spesifikt. **[må kunne utledes]** — begrunnelsen er at bare tyngden gjør arbeid.\n\n$$\\ddot{x} = -\\frac{GM\\,x}{(x^2+y^2)^{3/2}}, \\qquad \\ddot{y} = -\\frac{GM\\,y}{(x^2+y^2)^{3/2}}$$\n\nBevegelseslikningen på komponentform. **[må kunne utledes]** — eksponenten er $3/2$, og oppsettet skal kunne skrives for hånd før koden.\n\n**Fra Rottmann** — den matematiske formelsamlingen som er tillatt hjelpemiddel — henter du bare det rent matematiske her: løsningsformelen for andregradslikninger (som du trenger i aphel-regningen) og potensregler."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-9-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-9-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-9-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/fys1100/fys1100-4-1).) En kloss på $0{,}80\\,\\text{kg}$ svinges i en sirkel med radius $0{,}60\\,\\text{m}$ med farten $4{,}0\\,\\text{m/s}$. Hvor stor er resultanten inn mot sentrum?",
+            "solution": "$$\\sum F_r = \\frac{mv^2}{r} = \\frac{0{,}80\\cdot(4{,}0)^2}{0{,}60} = 21{,}3\\,\\text{N} \\approx 21\\,\\text{N}$$\n\nrettet inn mot sentrum. Merk at dette ikke er en egen kraft, men summen av de virkelige kreftene regnet innover — akkurat som gravitasjonen er hele denne summen for en satellitt.",
+            "hints": [
+              "Bruk Newtons 2. lov i radiell retning."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-9-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-9-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) En ball kastes rett opp med $12{,}0\\,\\text{m/s}$ fra bakken. Se bort fra luftmotstand. Hvor høyt kommer den, og hvilken betingelse gjør at du kan bruke energibevaring?",
+            "solution": "**Betingelsen først:** uten luftmotstand er tyngden den eneste kraften som gjør arbeid, og tyngden er konservativ. Derfor er den mekaniske energien bevart.\n\n$$\\tfrac12 mv_0^2 = mgh \\quad \\Longrightarrow \\quad h = \\frac{v_0^2}{2g} = \\frac{144}{2\\cdot9{,}81} = 7{,}34\\,\\text{m}$$\n\nLegg merke til at dette er nøyaktig samme regnestykke som unnslipningsfarten — bare med konstant $g$ i stedet for $-GMm/r$.",
+            "hints": [
+              "Hvilke krefter gjør arbeid på ballen underveis?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-9-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-9-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.3](/bok/fys1100/fys1100-6-3).) En kloss glir i rett linje med farten $3{,}0\\,\\text{m/s}$ og masse $0{,}50\\,\\text{kg}$. Den vinkelrette avstanden fra et punkt $O$ ned på bevegelseslinja er $0{,}40\\,\\text{m}$. Finn spinnet om $O$, og forklar hvorfor det er konstant.",
+            "solution": "$$L = mvb = 0{,}50\\cdot3{,}0\\cdot0{,}40 = 0{,}60\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$$\n\nmed retning gitt av høyrehåndsregelen, altså ut av eller inn i papirplanet avhengig av hvilken side klossen passerer.\n\nDet er konstant fordi ingen resultantkraft virker (konstant fart), og dermed er heller ikke kraftmomentet om $O$ noe annet enn null. Dette er samme argument som gir spinnbevaring i en sentralkraft — der er det kraftens **retning** som gjør momentet null.",
+            "hints": [
+              "Bruk $L = p\\cdot(\\text{momentarm})$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-9-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-9-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/fys1100/fys1100-1-1).) Bruk dimensjonsanalyse til å finne hvordan svingetida $T_p$ til en pendel avhenger av lengden $\\ell$ og tyngdeakselerasjonen $g$. Hva kan metoden ikke gi deg?",
+            "solution": "Ansats $T_p = C\\,\\ell^a g^b$ med $[\\ell] = [L]$ og $[g] = [L][T]^{-2}$:\n\n$$[T] = [L]^{a+b}[T]^{-2b}$$\n\n$$[T]: \\ 1 = -2b \\ \\Rightarrow \\ b = -\\tfrac12, \\qquad [L]: \\ 0 = a + b \\ \\Rightarrow \\ a = \\tfrac12$$\n\n$$T_p = C\\sqrt{\\frac{\\ell}{g}}$$\n\nMetoden gir ikke forfaktoren $C$; den fullstendige behandlingen viser at $C = 2\\pi$ for små utslag. Merk også at massen ikke kan inngå — det er den eneste størrelsen som har $[M]$ i seg, så den kunne uansett ikke balansert.",
+            "hints": [
+              "Sett opp ansatsen og krev at dimensjonene stemmer på begge sider."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-9-1-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-9-1-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1) og dette kapitlet.) En romkapsel med masse $1{,}80\\cdot10^{3}\\,\\text{kg}$ er i ro $2{,}00\\cdot10^{7}\\,\\text{m}$ fra sentrum av en planet med masse $4{,}00\\cdot10^{24}\\,\\text{kg}$, og faller rett mot den. Hvilken fart har den når avstanden er halvert? Begrunn metodevalget.",
+            "solution": "**Metodevalget må begrunnes:** bare gravitasjonen gjør arbeid på kapselen, og den er konservativ, så den mekaniske energien er bevart. Merk at $g$ **ikke** er konstant over en så stor avstand, så bevegelseslikningene for konstant akselerasjon kan ikke brukes.\n\n$$0 - \\frac{GM}{r_1} = \\tfrac12 v^2 - \\frac{GM}{r_2} \\quad \\Longrightarrow \\quad v = \\sqrt{2GM\\left(\\frac{1}{r_2} - \\frac{1}{r_1}\\right)}$$\n\n$$v = \\sqrt{2\\cdot6{,}674\\cdot10^{-11}\\cdot4{,}00\\cdot10^{24}\\left(\\frac{1}{1{,}00\\cdot10^{7}} - \\frac{1}{2{,}00\\cdot10^{7}}\\right)}$$\n\n$$= \\sqrt{5{,}339\\cdot10^{14}\\cdot5{,}00\\cdot10^{-8}} = \\sqrt{2{,}670\\cdot10^{7}} = 5{,}17\\cdot10^{3}\\,\\text{m/s}$$\n\nrettet inn mot planeten. Kapselens masse faller ut, som alltid.",
+            "hints": [
+              "Hvilken kraft gjør arbeid, og er den konservativ?",
+              "Pass på at du bruker $U = -GMm/r$, ikke $mgh$ — feltet endrer seg mye over denne avstanden."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

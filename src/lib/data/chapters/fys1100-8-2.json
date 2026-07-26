@@ -1,0 +1,394 @@
+{
+  "id": "fys1100-8-2",
+  "courseId": "fys1100",
+  "chapterNumber": "8.2",
+  "title": "Drag og 2D-baner numerisk",
+  "description": "Luftmotstand med `abs(v)*v`, og komponentvis integrasjon i `x` og `y` for kast med drag, komet og satellitt.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "kunne skrive dragleddet i kode med riktig fortegnsbehandling i begge bevegelsesretninger",
+    "kunne sette opp bevegelseslikningene for et todimensjonalt kast med luftmotstand på komponentform",
+    "kunne skrive en komponentvis Euler–Cromer-løkke med fire tabeller og riktig indre rekkefølge",
+    "kunne kontrollere en todimensjonal kode mot analytiske grensetilfeller og tolke hva luftmotstanden gjør med banen"
+  ],
+  "content": [
+    {
+      "id": "fys1100-8-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den vanligste anvendelsen av kodeoppgaven.** Numerisk Python — **sjanger H, altså den numeriske deloppgaven med kode** — er med i **7 av 7 sett (100 %)**, og **luftmotstand er med i 6 av 7 sett (86 %)**. De to henger nesten alltid sammen: det er nettopp fordi drag ødelegger den analytiske løsningen at oppgaven ender numerisk.\n\nDe to innpakningene som går igjen, er **et kast med luftmotstand** og **et legeme i bane rundt et tyngdepunkt** — en komet eller en satellitt. Begge er todimensjonale, og begge krever fire tabeller i stedet for to.\n\n**Sensor er usedvanlig detaljert her**, ut fra sensorveiledningene i H2023, V2024 og V2025 (tre av løsningsforslagene i arkivet har en innebygd sensorveiledning med poenggiving per deloppgave):\n\n| Feil | Trekk |\n|---|---|\n| Drag skrevet `v[i]**2` i stedet for `abs(v[i])*v[i]` | −1 poeng |\n| `v` uten indeks i løkka | −2 poeng |\n| Bare én romlig komponent i en todimensjonal kode | **maks 2 av 5 poeng** |\n| Feil akselerasjonskomponent | inntil −3 poeng |\n\nDen tredje er den dyreste: en kode som bare regner på $y$-retningen i et kast, kan ikke gi mer enn to poeng uansett hvor pen den ellers er.\n\n**Høyeste prioritet — dette må sitte.**\n\n**Øktforslag:** kapitlet er på 70 minutter. Løkke 1–2 (drag i én dimensjon og de fire tabellene) er en naturlig første økt, løkke 3–4 (kastet og de andre 2D-kreftene) den neste."
+    },
+    {
+      "id": "fys1100-8-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 8.1](/bok/fys1100/fys1100-8-1), [kap. 7.3](/bok/fys1100/fys1100-7-3) og [kap. 2.2](/bok/fys1100/fys1100-2-2). Det du trenger derfra, ferdig oppfrisket:\n\n**Euler–Cromer-løkka** fra forrige kapittel, som er malen alt her bygger på:\n\n$$v_{i+1} = v_i + a_i\\,dt, \\qquad x_{i+1} = x_i + v_{i+1}\\,dt$$\n\nFarten oppdateres først, og den **oppdaterte** farten brukes i posisjonslinja.\n\n**De to dragmodellene** fra [kap. 7.3](/bok/fys1100/fys1100-7-3):\n\n$$F_D = -k_v v \\quad (\\text{lineær}), \\qquad F_D = -D\\lvert v\\rvert v \\quad (\\text{kvadratisk})$$\n\nKoeffisientene har ulike enheter — $k_v$ i $\\text{kg/s}$ og $D$ i $\\text{kg/m}$ — og kan aldri byttes om. **Absoluttverdien i den kvadratiske modellen er ikke pynt:** den sørger for at kraften snur når farten snur.\n\n**Terminalfarten** for kvadratisk drag, som er referansefarten i alle fallproblemer:\n\n$$v_T = \\sqrt{\\frac{mg}{D}}$$\n\n**Kastet uten luftmotstand** fra [kap. 2.2](/bok/fys1100/fys1100-2-2): de to retningene er da helt uavhengige, $v_x$ er konstant, og rekkevidden er $x_1 = (v_0^2/g)\\sin 2\\theta$ med maksimum ved $45^\\circ$. Alt dette **slutter å gjelde** når drag kommer inn — og hvorfor det slutter å gjelde, er halve poenget i dette kapitlet. Se også [Bevegelse i to dimensjoner](/bok/fysikk2/fysikk2-1-2) og [Kastering - horisontal og skrå](/bok/fysikk2/fysikk2-1-3).\n\n**Notasjonsavtale for kapitlet.** Posisjonen har komponentene $x$ og $y$, farten $v_x$ og $v_y$, og tallverdien av farten skrives $v = \\sqrt{v_x^2+v_y^2}$ uten fet markering, siden det er en skalar. Vi regner $y$ positivt oppover i alle kast, slik at tyngdeleddet blir $-g$. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-8-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — drag i koden, én dimensjon (~14 min)\n\nKast en tennisball rett opp. Den bruker lengre tid ned enn opp, og den kommer ned med lavere fart enn den ble kastet opp med. Årsaken er at luftmotstanden **alltid** peker mot bevegelsen: den bremser på vei opp, og den bremser på vei ned.\n\nDenne ene setningen er alt som skal til for å forstå hvorfor drag-leddet skrives som det gjør i koden."
+    },
+    {
+      "id": "fys1100-8-2-def-dragledd",
+      "type": "definition",
+      "title": "Drag-leddet i koden",
+      "content": "Bidraget fra luftmotstanden til akselerasjonslinja, for den kvadratiske modellen:\n\n```text\na = ... - (D/m)*abs(v[i])*v[i]\n```\n\nUttrykket kommer rett fra kraftmodellen $F_D = -D\\lvert v\\rvert v$ delt på massen. **Dragkoeffisienten $D$ er ikke masseuavhengig**, så den må deles på $m$ — i motsetning til tyngdeleddet, der massen forkortes.\n\nFor den lineære modellen blir leddet `- (kv/m)*v[i]`. Der trengs ingen absoluttverdi: farten står allerede i første potens, og fortegnet følger av seg selv."
+    },
+    {
+      "id": "fys1100-8-2-def-absoluttverdi",
+      "type": "definition",
+      "title": "Hvorfor `abs(v[i])*v[i]` og ikke `v[i]**2`",
+      "content": "Fordi $v^2$ er positiv uansett fortegn på farten, mens luftmotstanden må skifte fortegn samtidig med bevegelsen.\n\nSett inn en negativ fart, altså et legeme på vei nedover med $y$ positivt oppover:\n\n| Skrivemåte | $v = +10$ | $v = -10$ |\n|---|---|---|\n| $-D\\lvert v\\rvert v$ | $-100D$ (bremser) | $+100D$ (bremser) |\n| $-Dv^2$ | $-100D$ (bremser) | $-100D$ (**driver**) |\n\nMed kvadratet ville lufta dyttet ballen fortere nedover på vei ned. **Absoluttverdien gir størrelsen, den siste faktoren gir retningen**, og produktet har derfor riktig størrelse og riktig fortegn i ett og samme uttrykk.\n\nDette er **felle #4** i bokas feilregister, og den koster typisk 1 poeng i koden — pluss ett til i utledningen, hvis samme feil står begge steder."
+    },
+    {
+      "id": "fys1100-8-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fall med kvadratisk drag — kontrollert mot fasiten",
+      "problem": "Et legeme med masse $m = 80{,}0\\ \\text{g}$ slippes fra ro og faller gjennom lufta med kvadratisk luftmotstand, $D = 0{,}00250\\ \\text{kg/m}$.\n\n**a)** Skriv en Euler–Cromer-kode som finner farten og fallstrekningen i 20 sekunder.\n\n**b)** Kjør koden, og kontroller resultatet mot den analytiske løsningen fra [kap. 7.3](/bok/fys1100/fys1100-7-3).",
+      "solution": "**Metodevalg:** legemet faller nedover hele veien, så farten skifter ikke fortegn, og likningen har en analytisk løsning — den er derfor et perfekt **kontrollcase** for koden. Vi regner positiv retning nedover, slik at tyngden blir positiv.\n\n**a)** Bevegelseslikningen er\n\n$$m\\frac{dv}{dt} = mg - D\\lvert v\\rvert v \\qquad \\Longrightarrow \\qquad \\frac{dv}{dt} = g - \\frac{D}{m}\\lvert v\\rvert v$$\n\n```python\nimport numpy as np\n\ng = 9.81\nm = 0.0800          # kg\nD = 0.00250         # kg/m\nN = 20001\ndt = 0.0010\n\nt = np.zeros(N)\ny = np.zeros(N)\nv = np.zeros(N)\n\ny[0] = 0.0\nv[0] = 0.0\n\nfor i in range(N - 1):\n    a = g - (D / m) * abs(v[i]) * v[i]\n    v[i + 1] = v[i] + a * dt\n    y[i + 1] = y[i] + v[i + 1] * dt\n    t[i + 1] = t[i] + dt\n\nvT = np.sqrt(m * g / D)\nprint(\"terminalfart      \", round(vT, 4))\nprint(\"v etter 2,0 s     \", round(v[2000], 4))\nprint(\"tanh-losning 2,0 s\", round(vT * np.tanh(g * 2.0 / vT), 4))\nprint(\"v etter 20 s      \", round(v[-1], 4))\nprint(\"falt etter 20 s   \", round(y[-1], 2))\n```\n\n**Utskrift:**\n\n```text\nterminalfart       17.7178\nv etter 2,0 s      14.2315\ntanh-losning 2,0 s 14.2296\nv etter 20 s       17.7178\nfalt etter 20 s    332.19\n```\n\n**b)** Tre kontroller, alle uavhengige av koden:\n\n*Terminalfarten.* $v_T = \\sqrt{mg/D} = \\sqrt{0{,}7848/0{,}00250} = 17{,}72\\ \\text{m/s}$ nedover. Koden gir $17{,}7178\\ \\text{m/s}$ etter 20 sekunder — den har flatet helt ut ✓.\n\n*Forløpet.* Den analytiske løsningen for ensrettet fart er $v(t) = v_T\\tanh(gt/v_T)$. Ved $t = 2{,}0\\ \\text{s}$ gir den $14{,}2296\\ \\text{m/s}$; koden gir $14{,}2315\\ \\text{m/s}$. Avviket er $1{,}9\\cdot 10^{-3}\\ \\text{m/s}$, altså $0{,}013\\ \\%$ ✓.\n\n*Størrelsesorden.* Etter 20 sekunder har legemet falt $332\\ \\text{m}$. Hadde det gått med terminalfart hele veien, ville det falt $17{,}72\\cdot 20 = 354\\ \\text{m}$; forskjellen på $22\\ \\text{m}$ er «etterslepet» fra oppstartsfasen, der farten ennå var lavere. Rimelig ✓.\n\n**Legg merke til hvorfor kontrollen er verdt noe.** Både `abs(v[i])*v[i]` og `v[i]**2` gir nøyaktig samme tall i dette caset, siden farten aldri er negativ. Kontrollen tester altså **strukturen** i koden — arrays, indekser, rekkefølge, fortegn på tyngden — men den ville ikke avslørt en manglende absoluttverdi. Det gjør bare et case der legemet snur.\n\n**Sensorblikk:** at forenklingen $\\lvert v\\rvert v = v^2$ er gyldig her, er noe du skal **skrive ut**, ikke noe du skal la sensor gjette. En besvarelse som bruker kvadratet uten et ord om hvorfor, ser ut som felle #4 selv om regningen er riktig."
+    },
+    {
+      "id": "fys1100-8-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med egne ord, i to–tre setninger hver:\n\n**a)** hvorfor kvadratisk luftmotstand skrives `abs(v[i])*v[i]` og ikke `v[i]**2` i koden,\n\n**b)** hvorfor tyngdeleddet i akselerasjonslinja blir $g$ uten masse, mens dragleddet må deles på massen,\n\n**c)** hvorfor koden i eksempel 1 ville gitt nøyaktig samme svar med `v[i]**2`.",
+        "solution": "**a)** Fordi luftmotstanden alltid skal peke mot bevegelsen, og det krever at kraften skifter fortegn samtidig med farten. Kvadratet er positivt uansett, så med `v[i]**2` ville motstanden pekt samme vei hele tiden, og et legeme på vei oppover ville blitt drevet i stedet for bremset. Absoluttverdien gir størrelsen og den siste faktoren gir retningen.\n\n**b)** Fordi tyngden selv er proporsjonal med massen: $mg/m = g$, og massen forkortes. Luftmotstanden er derimot bestemt av tverrsnittet, formen og luftas tetthet, ikke av massen, så $D\\lvert v\\rvert v$ må deles på $m$ og bidraget blir $(D/m)\\lvert v\\rvert v$. Det er derfor et tungt og et lett legeme med samme form faller ulikt i luft, men likt i vakuum.\n\n**c)** Fordi legemet slippes fra ro og faller nedover hele veien, med positiv retning nedover. Farten er da aldri negativ, og $\\lvert v\\rvert v = v^2$ for alle tidspunkt i simuleringen. Forenklingen er altså **gyldig her** — men den er gyldig på grunn av en betingelse som må skrives ut, og den ville brutt sammen i det øyeblikket legemet snudde.",
+        "hints": [
+          "Sett inn en negativ fart i de to uttrykkene og se hvilken vei kraften peker.",
+          "I b): del hele bevegelseslikningen på $m$ og se hvilke ledd som beholder en massefaktor.",
+          "I c): får farten noen gang negativt fortegn i dette caset?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — fire tabeller i stedet for to (~16 min)\n\nUten luftmotstand er et kast to uavhengige bevegelser: konstant fart vannrett, konstant akselerasjon loddrett. Du kan regne på dem hver for seg og skjøte dem sammen til slutt. Det er hele grunnlaget for kastformlene i [kap. 2.2](/bok/fys1100/fys1100-2-2).\n\n**Med luftmotstand er de ikke lenger uavhengige.** Motstanden avhenger av **farten**, og farten er satt sammen av begge komponentene:\n\n$$v = \\sqrt{v_x^2 + v_y^2}$$\n\nEn ball som stiger raskt, får derfor også kraftigere bremsing vannrett. De to retningene snakker sammen, og det er nettopp den koblingen som gjør at ingen lukket løsning finnes.\n\n**Intuisjon:** uten drag er de to retningene to separate problemer. Med drag er de ett problem med to tall — og det er akkurat like enkelt for en maskin, men umulig for en formel."
+    },
+    {
+      "id": "fys1100-8-2-def-komponentvis",
+      "type": "definition",
+      "title": "Komponentvis integrasjon",
+      "content": "Å føre Euler–Cromer-løkka én gang for hver romlig retning, med egne tabeller for hver komponent:\n\n```text\nx, y, vx, vy\n```\n\nAlle fire oppdateres i **samme** gjennomløp av løkka, med samme $dt$ og samme indeks $i$. Rekkefølgen internt er den samme som i én dimensjon: begge fartskomponentene først, deretter begge posisjonskomponentene med de oppdaterte fartene.\n\n**Dette er poengfellen sensor er hardest på.** En kode som bare tar med én romlig komponent i et todimensjonalt problem, gir **maks 2 av 5 poeng**, uansett hvor korrekt den ellers er."
+    },
+    {
+      "id": "fys1100-8-2-def-fartens-tallverdi",
+      "type": "definition",
+      "title": "Fartens tallverdi i to dimensjoner",
+      "content": "Lengden av hastighetsvektoren, regnet ut på nytt i hvert gjennomløp av løkka:\n\n$$v = \\sqrt{v_x^2 + v_y^2} \\qquad \\longrightarrow \\qquad \\texttt{v = np.sqrt(vx[i]**2 + vy[i]**2)}$$\n\nDenne størrelsen er en **skalar** — den har ingen retning og skrives derfor uten fet markering. Den lagres ikke i noen tabell, siden den regnes på nytt hver gang og ikke trengs etterpå.\n\nDet er nettopp her de to retningene kobles: $v$ inneholder begge komponentene, og $v$ inngår i begge akselerasjonslinjene."
+    },
+    {
+      "id": "fys1100-8-2-def-dragkomponenter",
+      "type": "definition",
+      "title": "Dragkomponentene",
+      "content": "Fordelingen av luftmotstanden på de to aksene. Kraften peker langs $-\\mathbf{v}$, altså rett mot bevegelsesretningen, og fordeler seg som\n\n$$F_{D,x} = -D\\,v\\,v_x, \\qquad F_{D,y} = -D\\,v\\,v_y$$\n\nder $v = \\sqrt{v_x^2+v_y^2}$ er tallverdien av farten.\n\n**Merk hvor absoluttverdien er blitt av.** I én dimensjon skrev vi $-D\\lvert v\\rvert v$. I to dimensjoner er $v$ per definisjon positiv (det er en lengde), og retningen kommer fra fortegnet på komponenten $v_x$ eller $v_y$. Produktet $v\\,v_x$ gjør altså nøyaktig samme jobb som $\\lvert v\\rvert v$ gjorde i én dimensjon — **automatisk riktig fortegn i begge retninger, hele veien.**\n\nI kode:\n\n```text\nax = -(D/m)*v*vx[i]\nay = -g - (D/m)*v*vy[i]\n```"
+    },
+    {
+      "id": "fys1100-8-2-fig-skjema",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-8-2-kodeskjema.svg",
+      "alt": "Et skjema med fire bokser oppe merket x, y, vx og vy. Under folger fire nummererte steg: farten regnes ut fra begge fartskomponentene, deretter de to akselerasjonskomponentene, deretter oppdateres begge fartskomponentene, og til slutt begge posisjonskomponentene med de nye fartene. Nederst en ramme med paaminnelsen om at begge komponenter maa vaere med.",
+      "caption": "Skjemaet for kastet i eksempel 2. Legg merke til at farten $v$ regnes ut FØR akselerasjonskomponentene — den inngår i begge, og det er den som kobler de to retningene sammen."
+    },
+    {
+      "id": "fys1100-8-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En ball har i et gitt tidspunkt fartskomponentene $v_x = 18{,}0\\ \\text{m/s}$ og $v_y = -12{,}0\\ \\text{m/s}$. Massen er $0{,}200\\ \\text{kg}$, dragkoeffisienten $D = 0{,}00150\\ \\text{kg/m}$, og $y$ er positiv oppover.\n\n**a)** Finn tallverdien av farten.\n\n**b)** Finn begge dragkomponentene, med fortegn.\n\n**c)** Finn begge akselerasjonskomponentene.\n\n**d)** Peker dragkraften motsatt vei av hastigheten? Kontroller ved å sammenlikne forholdstallene.",
+        "solution": "**Metodevalg:** vi regner ut fartens tallverdi først, siden den inngår i begge dragkomponentene, og setter deretter inn i uttrykkene $F_{D,x} = -Dvv_x$ og $F_{D,y} = -Dvv_y$.\n\n**a)** $$v = \\sqrt{18{,}0^2 + (-12{,}0)^2} = \\sqrt{324 + 144} = \\sqrt{468} = 21{,}6\\ \\text{m/s}$$\n\n**b)** $$F_{D,x} = -Dv\\,v_x = -0{,}00150 \\cdot 21{,}633 \\cdot 18{,}0 = -0{,}584\\ \\text{N}$$\n\n$$F_{D,y} = -Dv\\,v_y = -0{,}00150 \\cdot 21{,}633 \\cdot (-12{,}0) = +0{,}389\\ \\text{N}$$\n\nBallen beveger seg mot høyre og nedover, så motstanden peker mot venstre og oppover — nettopp de fortegnene vi fikk ✓.\n\n**c)** $$a_x = \\frac{F_{D,x}}{m} = \\frac{-0{,}5841}{0{,}200} = -2{,}92\\ \\text{m/s}^2$$\n\n$$a_y = -g + \\frac{F_{D,y}}{m} = -9{,}81 + \\frac{0{,}3894}{0{,}200} = -9{,}81 + 1{,}95 = -7{,}86\\ \\text{m/s}^2$$\n\nAkselerasjonen er altså $2{,}92\\ \\text{m/s}^2$ rettet mot venstre og $7{,}86\\ \\text{m/s}^2$ rettet nedover.\n\n**d)** Ja. Forholdet mellom komponentene er det samme i begge vektorene, bare med motsatt fortegn:\n\n$$\\frac{F_{D,y}}{F_{D,x}} = \\frac{0{,}3894}{-0{,}5841} = -0{,}667, \\qquad \\frac{v_y}{v_x} = \\frac{-12{,}0}{18{,}0} = -0{,}667$$\n\nLike forholdstall betyr parallelle vektorer, og motsatte fortegn på hver komponent betyr motsatt retning. **Dragkraften er altså antiparallell med hastigheten — nøyaktig som modellen krever.** Dette er en kontroll du kan gjøre på tretti sekunder når du er usikker på om komponentuttrykkene er riktige.",
+        "hints": [
+          "Regn ut $v = \\sqrt{v_x^2+v_y^2}$ først — den inngår i begge komponentene.",
+          "Hver dragkomponent er $-Dv$ ganget med den tilhørende fartskomponenten.",
+          "I d): to vektorer er parallelle når forholdet mellom komponentene er det samme."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — kastet med luftmotstand (~20 min)\n\nNå setter vi alt sammen. Dette er den innpakningen som oftest står i eksamenssettene, og den er verdt å kunne skrive uten å tenke."
+    },
+    {
+      "id": "fys1100-8-2-def-startfart",
+      "type": "definition",
+      "title": "Startfarten dekomponert",
+      "content": "Oversettelsen fra «kastet med farten $v_0$ i vinkelen $\\theta$ over vannrett» til de to tallene koden trenger:\n\n$$v_{x,0} = v_0\\cos\\theta, \\qquad v_{y,0} = v_0\\sin\\theta$$\n\n```text\nvx[0] = v0*np.cos(theta)\nvy[0] = v0*np.sin(theta)\n```\n\n**Vinkelen må være i radianer.** `np.cos` og `np.sin` regner ikke i grader, og `np.radians(38.0)` er den trygge omskrivingen. En vinkel oppgitt i grader og satt rett inn er en av de feilene som gir helt plausible, men helt gale tall.\n\nKontrollen er billig: $v_{x,0}^2 + v_{y,0}^2$ skal gi $v_0^2$ tilbake."
+    },
+    {
+      "id": "fys1100-8-2-def-nedslag",
+      "type": "definition",
+      "title": "Nedslagskriteriet",
+      "content": "Testen som avslutter løkka når legemet treffer bakken:\n\n```text\nif y[i+1] < 0:\n    break\n```\n\nLøkka oppdager først at $y$ er blitt negativ, altså i steget **etter** nedslaget. Med $dt = 0{,}0010\\ \\text{s}$ og en vannrett fart på $20\\ \\text{m/s}$ er overskytingen under to centimeter — normalt godt innenfor det du oppgir med tre gjeldende siffer.\n\nTrenger du nedslagspunktet mer nøyaktig, interpolerer du lineært mellom de to siste punktene: brøkdelen $f = y_{n-1}/(y_{n-1}-y_n)$ av det siste steget, og nedslaget ved $x_{n-1} + f\\,(x_n - x_{n-1})$."
+    },
+    {
+      "id": "fys1100-8-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2 (eksamensnivå): Ballkast med luftmotstand",
+      "problem": "En ball med masse $m = 0{,}145\\ \\text{kg}$ kastes fra bakkenivå med startfarten $v_0 = 32{,}0\\ \\text{m/s}$ i vinkelen $38{,}0^\\circ$ over vannrett. Luftmotstanden er kvadratisk med $D = 0{,}00110\\ \\text{kg/m}$.\n\n**a)** Sett opp bevegelseslikningene på komponentform.\n\n**b)** Skisser en kode som finner banen, og begrunn metodevalget.\n\n**c)** Kjør koden, og oppgi rekkevidde, flytid, høyeste punkt og nedslagsfart.\n\n**d)** Sammenlikn med kastet uten luftmotstand, og forklar forskjellene fysisk.",
+      "solution": "**Metodevalg:** kastet er todimensjonalt, og luftmotstanden kobler komponentene gjennom farten $v = \\sqrt{v_x^2+v_y^2}$. Det finnes derfor ingen lukket løsning, og numerisk integrasjon er ikke en snarvei, men den eneste veien. Vi bruker Euler–Cromer med begge komponenter.\n\n**a)** To krefter virker på ballen: tyngden $-mg$ i $y$-retningen, og luftmotstanden langs $-\\mathbf{v}$. Newtons 2. lov komponentvis, med $y$ positiv oppover:\n\n$$m\\frac{d^2x}{dt^2} = -D\\,v\\,v_x, \\qquad m\\frac{d^2y}{dt^2} = -mg - D\\,v\\,v_y$$\n\nPå eksplisitt form:\n\n$$\\frac{dv_x}{dt} = -\\frac{D}{m}v\\,v_x, \\qquad \\frac{dv_y}{dt} = -g - \\frac{D}{m}v\\,v_y$$\n\n**b)**\n\n```python\nimport numpy as np\n\ng = 9.81\nm = 0.145           # kg\nD = 0.00110         # kg/m\nN = 5000\ndt = 0.0010\n\nx = np.zeros(N)\ny = np.zeros(N)\nvx = np.zeros(N)\nvy = np.zeros(N)\n\nv0 = 32.0\ntheta = np.radians(38.0)\nvx[0] = v0 * np.cos(theta)\nvy[0] = v0 * np.sin(theta)\n\nn = N - 1\nfor i in range(N - 1):\n    v = np.sqrt(vx[i]**2 + vy[i]**2)\n    ax = -(D / m) * v * vx[i]\n    ay = -g - (D / m) * v * vy[i]\n    vx[i + 1] = vx[i] + ax * dt\n    vy[i + 1] = vy[i] + ay * dt\n    x[i + 1] = x[i] + vx[i + 1] * dt\n    y[i + 1] = y[i] + vy[i + 1] * dt\n    if y[i + 1] < 0:\n        n = i + 1\n        break\n\nprint(\"antall steg brukt\", n)\nprint(\"nedslag ved x =  \", round(x[n], 2))\nprint(\"flytid           \", round(n * dt, 3))\nprint(\"hoyeste punkt    \", round(np.max(y[:n + 1]), 2))\nprint(\"sluttfart        \", round(np.sqrt(vx[n]**2 + vy[n]**2), 2))\n```\n\n**Utskrift:**\n\n```text\nantall steg brukt 3554\nnedslag ved x =   66.72\nflytid            3.554\nhoyeste punkt     15.58\nsluttfart         21.37\n```\n\n**Begrunnelse for metodevalget:** «Jeg bruker Euler–Cromer, der begge fartskomponentene oppdateres først og de oppdaterte fartene brukes i posisjonslinjene. Metoden er tilnærmet energibevarende, slik at feilen ikke akkumulerer over banen, mens Forward Euler bruker de gamle fartene og tilfører energi systematisk. Dragleddet er skrevet med farten $v$ som felles faktor, slik at kraften automatisk peker mot bevegelsen i alle deler av banen, også etter toppunktet.»\n\n**c)** Rekkevidde $66{,}7\\ \\text{m}$, flytid $3{,}55\\ \\text{s}$, høyeste punkt $15{,}6\\ \\text{m}$, nedslagsfart $21{,}4\\ \\text{m/s}$.\n\n**d)** Uten luftmotstand gir kastformlene fra [kap. 2.2](/bok/fys1100/fys1100-2-2):\n\n$$x_1 = \\frac{v_0^2}{g}\\sin 2\\theta = \\frac{32{,}0^2}{9{,}81}\\sin 76{,}0^\\circ = 101{,}3\\ \\text{m}$$\n\n$$t_1 = \\frac{2v_0}{g}\\sin\\theta = \\frac{64{,}0}{9{,}81}\\sin 38{,}0^\\circ = 4{,}02\\ \\text{s}, \\qquad h = \\frac{(v_0\\sin\\theta)^2}{2g} = 19{,}8\\ \\text{m}$$\n\n| Størrelse | Uten drag | Med drag | Endring |\n|---|---|---|---|\n| Rekkevidde | $101{,}3\\ \\text{m}$ | $66{,}7\\ \\text{m}$ | $-34\\ \\%$ |\n| Flytid | $4{,}02\\ \\text{s}$ | $3{,}55\\ \\text{s}$ | $-12\\ \\%$ |\n| Høyeste punkt | $19{,}8\\ \\text{m}$ | $15{,}6\\ \\text{m}$ | $-21\\ \\%$ |\n| Nedslagsfart | $32{,}0\\ \\text{m/s}$ | $21{,}4\\ \\text{m/s}$ | $-33\\ \\%$ |\n\n**Fysisk forklaring på hver av dem:**\n\n*Rekkevidden faller mest.* Den vannrette farten er ikke lenger konstant — motstanden spiser av $v_x$ hele veien, og ballen kommer stadig kortere per sekund.\n\n*Nedslagsfarten er lavere enn startfarten.* Uten motstand ville de vært like, siden ballen kommer tilbake til samme høyde og mekanisk energi er bevart. Luftmotstanden gjør negativt arbeid i **begge** faser, både opp og ned, så energien ved nedslag er mindre enn ved utkast.\n\n*Banen er usymmetrisk.* Toppunktet ligger ikke lenger midt mellom utkast og nedslag: ballen bruker $1{,}69\\ \\text{s}$ opp og $1{,}86\\ \\text{s}$ ned, og nedturen er brattere. Årsaken er at farten — og dermed bremsingen — er størst i første del av banen.\n\n**Kontroll av koden:** setter vi $D = 0$ i den samme koden, gir den rekkevidde $101{,}26\\ \\text{m}$ mot formelens $101{,}28\\ \\text{m}$. **At koden gjenskaper den analytiske fasiten på fire gjeldende siffer, er beviset på at strukturen er riktig** — og det er en kontroll som tar tjue sekunder.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "fys1100-8-2-handskrevet",
+      "type": "collapsible",
+      "title": "Slik ser den håndskrevne eksamensversjonen ut",
+      "buttonText": "Vis den håndskrevne versjonen",
+      "content": [
+        {
+          "id": "fys1100-8-2-handskrevet-tekst",
+          "type": "text",
+          "content": "Sensor forventer initialbetingelser og løkke — ikke et program. Dette er alt som trengs på papiret:\n\n```text\nvx[0] = v0*cos(theta)      # initialbetingelser\nvy[0] = v0*sin(theta)\nx[0] = 0\ny[0] = 0\n\nfor i in range(N-1):\n    v = sqrt(vx[i]**2 + vy[i]**2)\n    ax = -(D/m)*v*vx[i]\n    ay = -g - (D/m)*v*vy[i]\n    vx[i+1] = vx[i] + ax*dt        # begge farter FORST\n    vy[i+1] = vy[i] + ay*dt\n    x[i+1] = x[i] + vx[i+1]*dt     # OPPDATERTE farter\n    y[i+1] = y[i] + vy[i+1]*dt\n```\n\nTolv linjer. Det tar tre–fire minutter å skrive for hånd.\n\n**Rekkefølgen inne i løkka er ikke tilfeldig.** Farten $v$ må regnes ut først, fordi den inngår i begge akselerasjonskomponentene. Regner du $a_x$ og oppdaterer $v_x$ før du regner $a_y$, bruker $a_y$ en $v$ som er blandet mellom to tidspunkt — en feil som er nesten umulig å se og som gir små, systematiske avvik.\n\n**Hva som kan droppes:** import-linjer, opprettelsen av tabellene, nedslagskriteriet, all utskrift.\n\n**Hva som ikke kan droppes:** begge komponentene (maks 2 poeng ellers), indeksene (−2 poeng), og farten $v$ som felles faktor i begge dragleddene."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-8-2-fig-bane",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-8-2-bane-drag.svg",
+      "alt": "En graf med hoyde mot vannrett avstand. En stiplet bla kurve er en symmetrisk parabel som naar hoyeste punkt om lag femti meter ute og lander litt over hundre meter ute. En heltrukken rod kurve stiger like bratt i starten, naar et lavere toppunkt lenger til venstre, og faller deretter brattere ned til bakken ved snaut sytti meter.",
+      "caption": "Banen til ballen i eksempel 2, kjørt med og uten dragleddet. Den røde kurven følger den blå de første meterne — der er farten den samme — men bøyer så av, og nedturen er brattere enn oppturen. Rekkevidden faller fra $101\\ \\text{m}$ til $66{,}7\\ \\text{m}$."
+    },
+    {
+      "id": "fys1100-8-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #6 i bokas feilregister — bare én romlig komponent i en todimensjonal kode.** Gir **maks 2 av 5 poeng**, uansett hvor korrekt resten er. Symptomet er en kode med bare `y` og `vy`: den beskriver et loddrett kast, ikke et skrått. Fire tabeller, fire oppdateringslinjer.\n\n**Felle #4 — `v[i]**2` i stedet for `abs(v[i])*v[i]` i én dimensjon.** −1 poeng. I to dimensjoner er den tilsvarende feilen å skrive `-(D/m)*vx[i]**2` i stedet for `-(D/m)*v*vx[i]`: da forsvinner både koblingen mellom komponentene og fortegnsbyttet.\n\n**Felle #5 — `v` uten indeks i løkka.** −2 poeng. Merk at i 2D er `v` uten indeks derimot **riktig** for fartens tallverdi, som regnes på nytt hvert steg og ikke lagres. Det er `vx` og `vy` som alltid skal ha indeks.\n\n**Å regne akselerasjonene i feil rekkefølge.** Farten $v$ må stå ferdig utregnet **før** begge akselerasjonskomponentene. Oppdaterer du `vx[i+1]` før du regner `ay`, blander du to tidspunkt i samme uttrykk.\n\n**Vinkel i grader satt rett inn i `np.cos`.** Gir helt plausible tall som er helt gale. Bruk `np.radians(38.0)`, og kontroller at $v_{x,0}^2 + v_{y,0}^2 = v_0^2$.\n\n**Å bruke kastformlene som kontroll uten å slå av dragleddet.** Rekkevidden $(v_0^2/g)\\sin 2\\theta$ gjelder bare uten motstand. Å sammenlikne den med den numeriske rekkevidden **med** drag og konkludere at koden er feil, er en klassisk feilslutning — forskjellen er fysikk, ikke feil.\n\n**Å oppgi nedslagsfarten uten retning.** Farten ved nedslag er en vektorstørrelse: «$21{,}4\\ \\text{m/s}$, rettet skrått nedover med $48^\\circ$ under vannrett». Manglende retning på en vektorstørrelse koster typisk 2 poeng."
+    },
+    {
+      "id": "fys1100-8-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En medstudent har skrevet denne løkka for kastet i eksempel 2:\n\n```python\nfor i in range(N - 1):\n    ay = -g - (D / m) * vy[i]**2\n    vy[i + 1] = vy[i] + ay * dt\n    y[i + 1] = y[i] + vy[i + 1] * dt\n```\n\n**a)** Finn de to alvorlige feilene, og angi hva hver av dem koster ifølge sensorveiledningene i H2023, V2024 og V2025.\n\n**b)** Hva skjer fysisk med resultatet på grunn av den første feilen, når ballen har passert toppunktet?\n\n**c)** Skriv den rettede løkka.\n\n**d)** Hvorfor ville koden gitt et helt korrekt svar hvis oppgaven i stedet hadde handlet om en ball som slippes rett ned?",
+        "solution": "**Metodevalg:** vi sammenlikner koden med bevegelseslikningene på komponentform og med kodekontrakten: begge komponenter, absoluttverdi i drag, indeks på alt som lagres.\n\n**a)** To feil:\n\n**Feil 1 — bare én romlig komponent.** Koden har ingen `x`, ingen `vx` og ingen $x$-akselerasjon. Den beskriver et loddrett kast, ikke et skrått. Dette er **felle #6**, og den gir **maks 2 av 5 poeng** uansett hvor korrekt resten er.\n\n**Feil 2 — manglende absoluttverdi i dragleddet.** Det står `vy[i]**2`, som er positiv uansett fortegn på farten. Riktig form i én dimensjon er `abs(vy[i])*vy[i]`; i to dimensjoner er den riktige formen `v*vy[i]` med $v = \\sqrt{v_x^2+v_y^2}$. Dette er **felle #4** og koster typisk 1 poeng.\n\n**b)** På vei opp er $v_y > 0$, og leddet $-(D/m)v_y^2$ er negativt — motstanden bremser, som den skal. Etter toppunktet er $v_y < 0$, men kvadratet er fortsatt positivt, så leddet er **fortsatt negativt** og peker fortsatt nedover. Lufta *driver* altså ballen fortere nedover i stedet for å bremse den.\n\nKonsekvensen er dramatisk: nedslagsfarten blir **større** enn startfarten, og for store nok fartsverdier vokser farten uten grense. **En simulering der en fallende ball akselererer forbi terminalfarten, er alltid et manglende absoluttverditegn.**\n\n**c)**\n\n```text\nfor i in range(N-1):\n    v = np.sqrt(vx[i]**2 + vy[i]**2)\n    ax = -(D/m)*v*vx[i]\n    ay = -g - (D/m)*v*vy[i]\n    vx[i+1] = vx[i] + ax*dt\n    vy[i+1] = vy[i] + ay*dt\n    x[i+1] = x[i] + vx[i+1]*dt\n    y[i+1] = y[i] + vy[i+1]*dt\n```\n\n**d)** Fordi begge feilene ville forsvunnet. En ball som slippes rett ned, har ingen vannrett bevegelse, så én komponent er nok — feil 1 er ikke en feil i det problemet. Og farten er negativ hele veien (med $y$ positiv oppover), så den skifter aldri fortegn, og $\\lvert v_y\\rvert v_y$ ville hatt konstant fortegn — bare motsatt av det kvadratet gir.\n\nHer må vi være presise: med $y$ positiv oppover og et rent fall er $v_y < 0$, så $\\lvert v_y\\rvert v_y = -v_y^2$, mens koden skriver $+v_y^2$ inne i parentesen. **Fortegnet ville altså fortsatt vært galt.** Feilen ville først forsvunnet helt hvis man samtidig snudde den positive retningen nedover, slik som i eksempel 1 — der farten er positiv hele veien og $\\lvert v\\rvert v = v^2$.\n\nDette illustrerer et generelt poeng: **det er kombinasjonen av retningsvalg og ensrettet fart som avgjør om forenklingen er gyldig**, ikke bevegelsestypen alene. Skriv derfor alltid absoluttverdien, med mindre du eksplisitt begrunner at den kan sløyfes.",
+        "hints": [
+          "Tell tabellene: hvor mange romlige retninger beskriver koden?",
+          "Sett inn en negativ $v_y$ i dragleddet og se hvilken vei kraften da peker.",
+          "I d): hvilken vei er den positive retningen valgt, og hvilket fortegn har farten da?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — når drag endrer svaret på et fysikkspørsmål (~12 min)\n\nNumerikk er ikke bare et regneverktøy. Den lar deg svare på spørsmål som ikke har noe analytisk svar i det hele tatt — og av og til er svaret et annet enn det læreboka uten drag ville gitt.\n\n**Det klassiske eksempelet er utkastvinkelen.** Uten luftmotstand er $45^\\circ$ optimalt, og det følger direkte av $x_1 = (v_0^2/g)\\sin 2\\theta$, som er størst når $2\\theta = 90^\\circ$. Med luftmotstand finnes ingen slik formel. Men koden kan bare kjøres på nytt for hver vinkel.\n\nFor ballen i eksempel 2, med $v_0 = 32{,}0\\ \\text{m/s}$ og $D = 0{,}00110\\ \\text{kg/m}$:\n\n| Vinkel | Rekkevidde med drag | Rekkevidde uten drag |\n|---|---|---|\n| $35^\\circ$ | $65{,}7\\ \\text{m}$ | $98{,}1\\ \\text{m}$ |\n| $38^\\circ$ | $66{,}7\\ \\text{m}$ | $101{,}3\\ \\text{m}$ |\n| $41^\\circ$ | $67{,}2\\ \\text{m}$ | $103{,}4\\ \\text{m}$ |\n| $42^\\circ$ | $67{,}2\\ \\text{m}$ | $103{,}8\\ \\text{m}$ |\n| $45^\\circ$ | $66{,}8\\ \\text{m}$ | $104{,}4\\ \\text{m}$ |\n| $48^\\circ$ | $65{,}8\\ \\text{m}$ | $103{,}8\\ \\text{m}$ |\n\n**Med luftmotstand ligger optimum ved om lag $41$–$42^\\circ$, altså lavere enn $45^\\circ$.**\n\n**Intuisjon:** en høy bane bruker lang tid i lufta, og lang tid i lufta betyr lang tid med bremsing. Motstanden straffer altså de høye banene hardere enn de flate, og optimum forskyves nedover. Jo større $D$ og jo større $v_0$, desto lavere blir den optimale vinkelen — for en golfball eller en kanonkule kan den ligge langt under $40^\\circ$.\n\nLegg samtidig merke til hvor **flatt** maksimumet er: mellom $38^\\circ$ og $45^\\circ$ varierer rekkevidden med under én prosent. Det er et generelt trekk ved optimeringsproblemer, og det er verdt en setning i en besvarelse: **et flatt maksimum betyr at nøyaktig treff på vinkelen betyr lite.**"
+    },
+    {
+      "id": "fys1100-8-2-def-gravitasjon-komponent",
+      "type": "definition",
+      "title": "Gravitasjon på komponentform",
+      "content": "Den andre store 2D-innpakningen: et legeme i bane rundt et tyngdepunkt. Kraften peker inn mot sentrum og avtar med kvadratet av avstanden, og komponentformen blir\n\n$$a_x = -\\frac{GM\\,x}{\\left(x^2+y^2\\right)^{3/2}}, \\qquad a_y = -\\frac{GM\\,y}{\\left(x^2+y^2\\right)^{3/2}}$$\n\nI kode:\n\n```text\nr = np.sqrt(x[i]**2 + y[i]**2)\nax = -GM*x[i]/r**3\nay = -GM*y[i]/r**3\n```\n\n**Legg merke til tredje potens i nevneren.** Kraften går som $1/r^2$, og faktoren $x/r$ er komponenten av enhetsvektoren — til sammen $x/r^3$. Å skrive $r^2$ i nevneren og glemme normeringen er en av de vanligste feilene i denne innpakningen.\n\nStrukturen er ellers identisk med kastet: fire tabeller, farten oppdatert først, posisjonen med den oppdaterte farten. Gravitasjon og sentralkraftbevegelse behandles i Del 9, som ikke er skrevet ennå — men koden trenger du ikke vente på, for den er den samme malen."
+    },
+    {
+      "id": "fys1100-8-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En satellitt går i bane rundt en planet. Bevegelseslikningene på komponentform er\n\n$$\\frac{d^2x}{dt^2} = -\\frac{GM\\,x}{\\left(x^2+y^2\\right)^{3/2}}, \\qquad \\frac{d^2y}{dt^2} = -\\frac{GM\\,y}{\\left(x^2+y^2\\right)^{3/2}}$$\n\n**a)** Skriv de tre linjene i løkka som regner ut avstanden og de to akselerasjonskomponentene.\n\n**b)** Skriv de fire oppdateringslinjene i riktig Euler–Cromer-rekkefølge.\n\n**c)** Satellitten starter i $(r_0, 0)$ med farten rettet rett oppover i figuren. Skriv initialbetingelsene.\n\n**d)** Hvilken startfart gir en sirkelbane? Vis hvordan du ville brukt den som kontrollcase for koden.",
+        "solution": "**Metodevalg:** malen er identisk med kastet — bare akselerasjonslinjene er nye. I d) bruker vi at gravitasjonen er sentripetalkraften i en sirkelbane.\n\n**a)**\n\n```text\nr = np.sqrt(x[i]**2 + y[i]**2)\nax = -GM*x[i]/r**3\nay = -GM*y[i]/r**3\n```\n\n**b)**\n\n```text\nvx[i+1] = vx[i] + ax*dt\nvy[i+1] = vy[i] + ay*dt\nx[i+1] = x[i] + vx[i+1]*dt\ny[i+1] = y[i] + vy[i+1]*dt\n```\n\nBegge fartskomponentene oppdateres før begge posisjonskomponentene, og posisjonene bruker de **oppdaterte** fartene.\n\n**c)**\n\n```text\nx[0] = r0\ny[0] = 0.0\nvx[0] = 0.0\nvy[0] = v0\n```\n\nFarten peker rett oppover, altså rent i $y$-retningen, og $x$-komponenten er null.\n\n**d)** I en sirkelbane er gravitasjonen nøyaktig sentripetalkraften:\n\n$$\\frac{GMm}{r_0^2} = \\frac{mv^2}{r_0} \\quad \\Longrightarrow \\quad v = \\sqrt{\\frac{GM}{r_0}}$$\n\n**Som kontrollcase:** sett `v0` til denne verdien og kjør. Avstanden $r = \\sqrt{x^2+y^2}$ skal da holde seg konstant lik $r_0$ gjennom hele simuleringen, og omløpstiden skal bli $T_p = 2\\pi r_0/v$.\n\nDette er et uvanlig godt kontrollcase, av tre grunner. Det tester **begge** komponentene samtidig, siden en sirkelbane bruker dem like mye. Det tester **fortegnene**, siden feil fortegn gir en bane som flyr av gårde i stedet for å lukke seg. Og det tester **metoden**: med Forward Euler vil radien vokse jevnt selv i det som skulle vært en perfekt sirkel, og det er en av de tydeligste demonstrasjonene av energidrift som finnes.\n\n**Benevningskontroll:** $[\\sqrt{GM/r_0}] = \\sqrt{(\\text{m}^3/\\text{s}^2)/\\text{m}} = \\text{m/s}$ ✓.",
+        "hints": [
+          "Avstanden må regnes ut før akselerasjonskomponentene — den inngår i begge.",
+          "Husk tredje potens i nevneren: kraften går som $1/r^2$, og komponenten legger til en faktor $x/r$.",
+          "I d): hvilken kraft spiller rollen som sentripetalkraft i en sirkelbane?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En sykkelrytter med samlet masse $m = 78{,}0\\ \\text{kg}$ triller nedover en rett bakke med helningsvinkel $\\theta = 4{,}0^\\circ$. Luftmotstanden er kvadratisk med $D = 0{,}230\\ \\text{kg/m}$, og rullemotstanden kan settes til en konstant kraft $F_r = 12{,}0\\ \\text{N}$ mot bevegelsen. Rytteren starter fra ro.\n\n**a)** Sett opp bevegelseslikningen langs bakken, med positiv retning nedover bakken.\n\n**b)** Skriv akselerasjonslinja i kode.\n\n**c)** Finn den største farten rytteren kan oppnå, uten å kjøre koden.\n\n**d)** Hvorfor er dette et endimensjonalt problem selv om bevegelsen skjer i et skrått plan?",
+        "solution": "**Metodevalg:** bevegelsen skjer langs én rett linje, så vi legger aksen langs bakken og dekomponerer tyngden. Den største farten er likevektsløsningen, altså der akselerasjonen er null — den krever ikke at likningen løses.\n\n**a)** Tre krefter virker langs bakken: tyngdekomponenten $mg\\sin\\theta$ nedover, luftmotstanden $-D\\lvert v\\rvert v$ og rullemotstanden $-F_r$, begge mot bevegelsen:\n\n$$m\\frac{dv}{dt} = mg\\sin\\theta - D\\lvert v\\rvert v - F_r$$\n\nNormalkraften og tyngdekomponenten vinkelrett på bakken opphever hverandre og bidrar ikke langs bevegelsen.\n\n**b)**\n\n```text\na = g*np.sin(theta) - (D/m)*abs(v[i])*v[i] - Fr/m\n```\n\nMerk at både dragleddet og rullemotstanden må deles på massen, mens tyngdeleddet ikke skal det.\n\n**c)** Den største farten er der resultantkraften er null:\n\n$$mg\\sin\\theta = D v_{\\max}^2 + F_r$$\n\n$$78{,}0 \\cdot 9{,}81 \\cdot \\sin 4{,}0^\\circ = 765{,}2 \\cdot 0{,}069756 = 53{,}38\\ \\text{N}$$\n\n$$v_{\\max} = \\sqrt{\\frac{53{,}38 - 12{,}0}{0{,}230}} = \\sqrt{\\frac{41{,}38}{0{,}230}} = \\sqrt{179{,}9} = 13{,}4\\ \\text{m/s}$$\n\nnedover bakken, altså $48{,}3\\ \\text{km/h}$ — et helt rimelig tall for en bratt-nok bakke uten pedaltråkk.\n\n**Kontroll av rimeligheten:** uten rullemotstand ville farten vært $\\sqrt{53{,}38/0{,}230} = 15{,}2\\ \\text{m/s}$. De $12\\ \\text{N}$ fra rullemotstanden koster altså om lag $1{,}8\\ \\text{m/s}$ — merkbart, men ikke dominerende, som forventet ved disse fartene.\n\n**Benevningskontroll:** $[\\sqrt{\\text{N}/(\\text{kg/m})}] = \\sqrt{(\\text{kg}\\cdot\\text{m/s}^2)\\cdot\\text{m}/\\text{kg}} = \\text{m/s}$ ✓.\n\n**d)** Fordi bevegelsen er bundet til én rett linje. Rytteren kan ikke forlate bakken, så posisjonen langs bakken er den eneste frihetsgraden, og alle kreftene kan dekomponeres langs og på tvers av den. Tverrkomponentene opphever hverandre.\n\n**Det er antallet frie retninger som avgjør om et problem er endimensjonalt, ikke om bevegelsen skjer i et plan.** En kloss på et skråplan er endimensjonal; en ball i lufta er todimensjonal, fordi ingenting binder den til en linje.",
+        "hints": [
+          "Legg aksen langs bakken og dekomponer tyngden i en komponent langs og en på tvers.",
+          "I c): den største farten er den der akselerasjonen er null.",
+          "I d): hvor mange uavhengige retninger kan rytteren faktisk bevege seg i?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Eksamensnivå, sjanger H — den numeriske deloppgaven.)** En kule med masse $m$ skytes ut fra bakkenivå med startfarten $v_0$ i vinkelen $\\theta$ over vannrett. I tillegg til tyngden virker kvadratisk luftmotstand $-D\\lvert\\mathbf{v}\\rvert\\mathbf{v}$, og det blåser en jevn vannrett vind med farten $w$ i positiv $x$-retning. Luftmotstanden virker mot kulas fart **relativt til lufta**.\n\n**a)** Sett opp bevegelseslikningene på komponentform.\n\n**b)** Skisser koden, og begrunn metodevalget.\n\n**c)** Hvordan endres akselerasjonslinjene fra kastet uten vind, og hva må du passe på?\n\n**d)** Hva blir resultatet i grensen $w \\to 0$, og hvordan bruker du det som kontroll?\n\n**e)** En medstudent påstår at vinden bare forskyver hele banen sidelengs med $w\\,t$. Vurder påstanden.",
+        "solution": "**Metodevalg:** luftmotstanden avhenger av **relativfarten** mellom kula og lufta, ikke av kulas fart over bakken. Vi innfører derfor relativfartskomponentene og bygger hele dragleddet på dem, mens tyngden er uendret.\n\n**a)** Relativfarten er kulas fart minus vindens fart:\n\n$$u_x = v_x - w, \\qquad u_y = v_y, \\qquad u = \\sqrt{u_x^2+u_y^2}$$\n\nLuftmotstanden peker mot relativbevegelsen, så\n\n$$m\\frac{dv_x}{dt} = -D\\,u\\,u_x, \\qquad m\\frac{dv_y}{dt} = -mg - D\\,u\\,u_y$$\n\n**b)**\n\n```text\nvx[0] = v0*np.cos(theta)\nvy[0] = v0*np.sin(theta)\n\nfor i in range(N-1):\n    ux = vx[i] - w\n    uy = vy[i]\n    u = np.sqrt(ux**2 + uy**2)\n    ax = -(D/m)*u*ux\n    ay = -g - (D/m)*u*uy\n    vx[i+1] = vx[i] + ax*dt\n    vy[i+1] = vy[i] + ay*dt\n    x[i+1] = x[i] + vx[i+1]*dt\n    y[i+1] = y[i] + vy[i+1]*dt\n```\n\n**Begrunnelse for metodevalget:** «Jeg bruker Euler–Cromer, der begge fartskomponentene oppdateres først og de oppdaterte fartene brukes i posisjonslinjene, slik at feilen ikke akkumulerer over banen. Dragleddet er bygget på relativfarten mot lufta, med $u$ som felles faktor, slik at kraften automatisk peker mot relativbevegelsen i alle deler av banen.»\n\n**c)** Tre ting endres, og alle tre er lette å gjøre feil:\n\n*Relativfarten erstatter farten* i **hele** dragleddet — både i den felles faktoren $u$ og i den komponentvise faktoren $u_x$. Å bytte bare den ene er den vanligste halvveisfeilen.\n\n*Posisjonsoppdateringen er uendret.* Kula flytter seg med sin egen fart over bakken, $v_x$, ikke med relativfarten. Å skrive `x[i+1] = x[i] + ux*dt` er feil.\n\n*Tyngdeleddet er uendret.* Vinden er en luftstrøm, ikke en kraft i seg selv — den virker bare gjennom luftmotstanden.\n\n**d)** Med $w = 0$ er $u_x = v_x$ og $u = v$, og alle uttrykkene faller tilbake til det vanlige kastet med drag. Som kontroll: **kjør koden med `w = 0` og sammenlikn med den kjente kast-med-drag-løsningen**, og kjør deretter med både `w = 0` og `D = 0` og sammenlikn med den analytiske rekkevidden $(v_0^2/g)\\sin 2\\theta$. To grenser, to fasiter — og til sammen tester de hele strukturen.\n\n**e)** Påstanden er **feil**, og den er feil på en lærerik måte.\n\nHadde det ikke vært luftmotstand, ville vinden ikke hatt noen virkning i det hele tatt: en kule i vakuum merker ikke luft som ikke finnes. Med luftmotstand virker vinden bare gjennom dragleddet, og virkningen er **ikke** en enkel sideforskyvning.\n\nGrunnen er at $u$ inngår i **begge** komponentene. Medvind reduserer $u_x$ og dermed hele relativfarten $u$, som igjen svekker bremsingen også i $y$-retningen — kula holder seg litt lenger i lufta. Motvind gjør det motsatte. Vinden endrer altså både flytiden og høyden, ikke bare den vannrette avstanden.\n\nEn ren forskyvning $x \\to x + wt$ ville dessuten gitt samme banehøyde og samme flytid uansett vindstyrke, og det stemmer ikke med at kraftig medvind åpenbart gir en annen bane enn kraftig motvind. **Påstanden ville vært riktig for et legeme som følger luftstrømmen fullstendig — for eksempel en ballong — men ikke for noe som har egen fart gjennom lufta.**",
+        "hints": [
+          "Spør deg hva luftmotstanden faktisk avhenger av: kulas fart over bakken, eller dens fart gjennom lufta?",
+          "Innfør relativfartskomponentene som egne variabler før du skriver akselerasjonslinjene.",
+          "I e): inngår vindfarten i bare én av komponentene, eller i begge gjennom fellesfaktoren?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En golfball kastes ut med $v_0 = 45{,}0\\ \\text{m/s}$. Uten luftmotstand ville optimal utkastvinkel vært $45^\\circ$.\n\n**a)** Forklar hvorfor optimal vinkel med luftmotstand blir **lavere** enn $45^\\circ$.\n\n**b)** For ballen i eksempel 2 ga en kjøring rekkevidden $66{,}7\\ \\text{m}$ ved $38^\\circ$, $67{,}2\\ \\text{m}$ ved $41^\\circ$ og $66{,}8\\ \\text{m}$ ved $45^\\circ$. Hvor mye taper du på å bomme med $7^\\circ$? Hva forteller det om formen på maksimumet?\n\n**c)** Hvordan ville du funnet den optimale vinkelen numerisk, uten å prøve deg fram i hånden?\n\n**d)** En medstudent sier: «Da må optimal vinkel gå mot null når dragkoeffisienten blir stor nok.» Vurder påstanden.",
+        "solution": "**Metodevalg:** dette er et optimeringsspørsmål uten analytisk svar, og resonnementet må derfor være fysisk: hva koster en høy bane, og hva vinner den?\n\n**a)** En høy bane vinner **flytid**, som er det som gir rekkevidde uten motstand. Men flytid er også nøyaktig det luftmotstanden straffer: jo lengre ballen er i lufta, desto lengre bremses den. En høy bane bruker dessuten mye av startfarten på loddrett bevegelse, som ikke bidrar til rekkevidden i det hele tatt, samtidig som den store totalfarten i den loddrette fasen gir kraftig bremsing — dragkraften går som kvadratet av farten.\n\nNetto blir de høye banene straffet hardere enn de flate, og optimum forskyves nedover. **Jo større $D$ og jo større $v_0$, desto lavere blir den optimale vinkelen.**\n\n**b)** Ved $38^\\circ$ er rekkevidden $66{,}7\\ \\text{m}$ mot $67{,}2\\ \\text{m}$ ved optimum, altså $0{,}5\\ \\text{m}$ eller $0{,}7\\ \\%$ kortere. Ved $45^\\circ$ er den $66{,}8\\ \\text{m}$, altså $0{,}6\\ \\%$ kortere.\n\n**Maksimumet er svært flatt.** Det er den generelle oppførselen til et glatt maksimum: den deriverte er null der, så nær toppen endrer funksjonen seg bare i andre orden i avviket. Praktisk betyr det at nøyaktig treff på vinkelen betyr lite — og at et numerisk søk ikke trenger stor oppløsning for å gi et brukbart svar.\n\n**c)** Legg hele simuleringen inn i en løkke over vinkler, og lagre rekkevidden for hver:\n\n```text\nfor grader in range(20, 61):\n    R = rekkevidde(grader)    # hele kastsimuleringen\n    # lagre eller sammenlikn med beste hittil\n```\n\nMed ett grads oppløsning holder det godt, gitt hvor flatt maksimumet er. En ryddigere variant er å kjøre grovt først og deretter finere rundt toppen. **Poenget er at koden fra eksempel 2 gjenbrukes uendret — det er bare startbetingelsene som varieres.**\n\n**d)** Påstanden peker riktig vei, men er for kategorisk. Det stemmer at optimal vinkel synker når $D$ vokser: for en badeball er den langt lavere enn for en golfball. Men den kan ikke gå helt til null, for da har utkastet ingen loddrett fart, ballen treffer bakken umiddelbart, og rekkevidden er null. Det må alltid finnes en positiv vinkel som gir mer enn null.\n\nGrensen er heller ikke det interessante spørsmålet. **Det interessante er at ingen formel gir svaret, og at et par linjers kodeendring gir det på sekunder.** Det er nettopp den typen spørsmål numerisk modellering finnes for.",
+        "hints": [
+          "I a): hva vinner en høy bane, og hva koster den når det er luftmotstand?",
+          "I b): regn ut den prosentvise forskjellen mellom rekkeviddene.",
+          "I d): hva blir rekkevidden hvis utkastvinkelen faktisk er null?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Kvalitativ.)** Svar i to–fire setninger per punkt.\n\n**a)** Hvorfor kommer en ball ned med lavere fart enn den ble kastet opp med, når det er luftmotstand? Begrunn både med energi og med krefter.\n\n**b)** En student har skrevet en 2D-kode og kontrollerer den ved å sette $D = 0$ og sammenlikne med kastformlene. Koden treffer på fire gjeldende siffer. Kan studenten nå stole på dragleddet? Begrunn.\n\n**c)** Hvorfor skrives fartens tallverdi `v` uten indeks i en 2D-kode, mens `vx` og `vy` alltid har indeks?",
+        "solution": "**a)** *Energiargument:* luftmotstanden peker alltid mot bevegelsen, så skalarproduktet $\\mathbf{F}_D\\cdot d\\mathbf{r}$ er negativt i hvert eneste tidssteg. Motstanden gjør altså negativt arbeid både på vei opp og på vei ned. Når ballen er tilbake i utgangshøyden, er den potensielle energien den samme som ved start, mens den mekaniske energien er mindre — og differansen må komme fra den kinetiske energien.\n\n*Kraftargument:* på vei opp virker tyngden og motstanden **sammen** om å bremse, og ballen mister fart raskere enn i vakuum. På vei ned **motvirker** motstanden tyngden, og ballen får fart saktere enn i vakuum. Nedturen starter dessuten fra en lavere høyde enn oppturen begynte. Alle tre effektene peker samme vei.\n\n**b)** Nei. Kontrollen med $D = 0$ tester alt **unntatt** dragleddet: tabellene, indeksene, rekkefølgen, tyngdeleddet, dekomponeringen av startfarten og nedslagskriteriet. Men dragleddet er slått av, så det kan inneholde hvilken som helst feil uten at kontrollen merker det.\n\nDragleddet må testes for seg. Den beste testen er et **endimensjonalt** fall med kvadratisk drag, sammenliknet med den analytiske løsningen $v(t) = v_T\\tanh(gt/v_T)$ — som i eksempel 1. Og for å teste fortegnsbehandlingen trengs et case der farten faktisk **snur**, siden både `abs(v)*v` og `v**2` gir samme svar så lenge farten er ensrettet.\n\n**c)** Fordi de tre størrelsene har helt ulike roller. `vx` og `vy` er **tilstandsvariabler**: de beskriver systemet i hvert tidspunkt, de skal kunne leses av i etterkant, og de må derfor lagres med indeks. `v` er en **mellomregning**: den lages av de to andre, brukes i akselerasjonslinjene i samme gjennomløp, og kastes.\n\nMerk at dette ikke er et unntak fra indeksdisiplinen, men en anvendelse av den: regelen er at det som beskriver en tilstand i tid, skal ha indeks. Vil du likevel lagre `v[i]`, er det helt riktig — bare unødvendig arbeid for hånd.",
+        "hints": [
+          "I a): hvilken vei peker luftmotstanden i hver av de to fasene?",
+          "I b): hvilke deler av koden er faktisk i bruk når dragkoeffisienten er null?",
+          "I c): hvilke av de tre størrelsene trenger du å kunne lese av etter at løkka er ferdig?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-8-2-bb-1",
+      "type": "definition",
+      "title": "Koblingen mellom komponentene",
+      "content": "Det som gjør et 2D-kast med luftmotstand analytisk uløselig: begge komponentlikningene inneholder **begge** fartskomponentene, gjennom fellesfaktoren\n\n$$v = \\sqrt{v_x^2+v_y^2}$$\n\nUten drag er $dv_x/dt = 0$ og $dv_y/dt = -g$ to helt separate likninger som kan løses hver for seg. Med drag kan ingen av dem løses uten den andre.\n\nKoblingen er også grunnen til at numerikk fungerer så godt her: en maskin bryr seg ikke om at to likninger er koblet, så lenge begge kan skrives ned."
+    },
+    {
+      "id": "fys1100-8-2-bb-2",
+      "type": "definition",
+      "title": "Kastets usymmetri med drag",
+      "content": "At oppturen og nedturen ikke er speilbilder av hverandre når luftmotstanden er med.\n\nFor ballen i eksempel 2 tar oppturen $1{,}69\\ \\text{s}$ og nedturen $1{,}86\\ \\text{s}$, og toppunktet ligger nærmere utkastet enn nedslaget. Nedturen er brattere.\n\n**Årsaken er at farten er størst i første del av banen**, og dragkraften går som kvadratet av farten. Bremsingen er derfor kraftigst tidlig, og ballen har mistet mye av den vannrette farten før den begynner å falle."
+    },
+    {
+      "id": "fys1100-8-2-bb-3",
+      "type": "definition",
+      "title": "Optimal utkastvinkel med drag",
+      "content": "Vinkelen som gir størst rekkevidde, som **ikke** lenger er $45^\\circ$ når luftmotstanden er med.\n\nFor ballen i eksempel 2 ligger optimum ved om lag $41$–$42^\\circ$. Jo større dragkoeffisient og jo større startfart, desto lavere blir vinkelen.\n\nMaksimumet er dessuten **flatt**: mellom $38^\\circ$ og $45^\\circ$ varierer rekkevidden med under én prosent. Det gjør spørsmålet praktisk uinteressant for en kaster, men prinsipielt interessant — det finnes ingen formel, bare en kjøring."
+    },
+    {
+      "id": "fys1100-8-2-bb-4",
+      "type": "definition",
+      "title": "Nedslagsfart kontra startfart",
+      "content": "At en ball som kastes og lander i samme høyde, kommer ned med **lavere** fart enn den ble kastet med, så snart luftmotstand er med.\n\nUten motstand er de to like, fordi mekanisk energi er bevart og høyden er den samme. Med motstand gjør dragkraften negativt arbeid i begge faser, og differansen tas fra den kinetiske energien.\n\nFor ballen i eksempel 2 er startfarten $32{,}0\\ \\text{m/s}$ og nedslagsfarten $21{,}4\\ \\text{m/s}$ — et tap på en tredel. **Oppgi alltid nedslagsfarten med retning:** her skrått nedover, om lag $48^\\circ$ under vannrett."
+    },
+    {
+      "id": "fys1100-8-2-bb-5",
+      "type": "definition",
+      "title": "Kontrollcase for en 2D-kode",
+      "content": "Kjøringen med `D = 0`, der koden må gjenskape kastformlene fra [kap. 2.2](/bok/fys1100/fys1100-2-2):\n\n$$x_1 = \\frac{v_0^2}{g}\\sin 2\\theta, \\qquad t_1 = \\frac{2v_0}{g}\\sin\\theta, \\qquad h = \\frac{(v_0\\sin\\theta)^2}{2g}$$\n\nFor eksempel 2 gir koden $101{,}26\\ \\text{m}$ mot formelens $101{,}28\\ \\text{m}$ — samsvar på fire gjeldende siffer.\n\n**Vær klar over hva kontrollen ikke tester.** Med $D = 0$ er hele dragleddet slått av, og en hvilken som helst feil der ville passert uoppdaget. Dragleddet må testes separat, med et endimensjonalt fall der $\\tanh$-løsningen er fasit."
+    },
+    {
+      "id": "fys1100-8-2-bb-6",
+      "type": "definition",
+      "title": "Vind i koden",
+      "content": "Utvidelsen der luftmotstanden bygges på farten **relativt til lufta**, ikke farten over bakken:\n\n$$u_x = v_x - w, \\qquad u_y = v_y, \\qquad u = \\sqrt{u_x^2+u_y^2}$$\n\nDragleddene blir $-Du\\,u_x$ og $-Du\\,u_y$, mens tyngden og posisjonsoppdateringen er **uendret**: legemet flytter seg fortsatt med sin egen fart over bakken.\n\nVinden virker altså bare gjennom luftmotstanden. I vakuum har den ingen virkning i det hele tatt — og en medvind endrer både flytiden og høyden, ikke bare den vannrette avstanden."
+    },
+    {
+      "id": "fys1100-8-2-bb-7",
+      "type": "definition",
+      "title": "Lineær drag i to dimensjoner",
+      "content": "Den enklere modellen, der motstanden er proporsjonal med farten:\n\n$$F_{D,x} = -k_v v_x, \\qquad F_{D,y} = -k_v v_y$$\n\nHer er komponentene **ikke koblet**: hver likning inneholder bare sin egen fartskomponent, og hver kan løses analytisk for seg. Det er nettopp derfor den lineære modellen er den som brukes når en oppgave vil ha et lukket svar.\n\nMerk kontrasten: i den lineære modellen trengs verken absoluttverdi eller fellesfaktor $v$, fordi farten står i første potens og fortegnet følger av seg selv."
+    },
+    {
+      "id": "fys1100-8-2-bb-8",
+      "type": "definition",
+      "title": "Fellesfaktoren $v$ som fortegnsvakt",
+      "content": "Grunnen til at 2D-formen $-Dv\\,v_x$ ikke trenger noen absoluttverdi: $v$ er en lengde og dermed alltid positiv, mens fortegnet kommer fra komponenten $v_x$.\n\n$$-D\\,v\\,v_x \\quad \\text{har alltid motsatt fortegn av } v_x$$\n\nUttrykket gjør derfor nøyaktig samme jobb som $-D\\lvert v\\rvert v$ gjorde i én dimensjon, og det er den samme mekanismen: **størrelsen fra en positiv faktor, retningen fra komponenten**.\n\nSkriver du i stedet $-Dv_x^2$, mister du både fortegnsbyttet og koblingen til den andre komponenten — to feil i ett uttrykk."
+    },
+    {
+      "id": "fys1100-8-2-bb-9",
+      "type": "definition",
+      "title": "Enhetskontroll av dragkoeffisienten i kode",
+      "content": "Regelen om at $D$ og $k_v$ ikke kan byttes om, siden de har helt ulike enheter:\n\n$$[D] = \\text{kg/m}, \\qquad [k_v] = \\text{kg/s}$$\n\nKoden regner uten å vite noe om enheter, så et bytte gir ingen feilmelding — bare et pent tall som er galt.\n\nDen raskeste kontrollen er terminalfarten: $v_T = \\sqrt{mg/D}$ for den kvadratiske modellen og $v_T = mg/k_v$ for den lineære. Får du en terminalfart som er absurd stor eller liten, har du sannsynligvis brukt feil modell."
+    },
+    {
+      "id": "fys1100-8-2-bb-10",
+      "type": "definition",
+      "title": "Fire tabeller, åtte linjer",
+      "content": "Strukturen som skiller en 2D-kode fra en 1D-kode:\n\n| 1D | 2D |\n|---|---|\n| `x`, `v` | `x`, `y`, `vx`, `vy` |\n| 1 akselerasjonslinje | 2 akselerasjonslinjer + fellesfarten |\n| 2 oppdateringslinjer | 4 oppdateringslinjer |\n\nRekkefølgen inne i løkka er: fellesfarten først, så begge akselerasjonene, så begge fartene, så begge posisjonene.\n\n**Å blande rekkefølgen slik at $a_y$ bruker en allerede oppdatert $v_x$, er en feil som er nesten umulig å se** og som gir små, systematiske avvik. Skriv alltid alle fire oppdateringene etter alle akselerasjonene."
+    },
+    {
+      "id": "fys1100-8-2-bb-11",
+      "type": "definition",
+      "title": "Sentralkraft på komponentform",
+      "content": "Formen alle $1/r^2$-krefter får når de skal inn i en 2D-kode:\n\n$$a_x = -\\frac{GM\\,x}{r^3}, \\qquad a_y = -\\frac{GM\\,y}{r^3}, \\qquad r = \\sqrt{x^2+y^2}$$\n\nTredje potens i nevneren, ikke andre. Kraften går som $1/r^2$, og faktoren $x/r$ er $x$-komponenten av enhetsvektoren inn mot sentrum — til sammen $x/r^3$.\n\nDen vanligste feilen er å skrive $r^2$ i nevneren. Symptomet er en bane som er kvalitativt gal på en måte som er lett å se: kraften avtar da altfor sakte med avstanden, og et legeme som skulle unnsluppet, blir fanget."
+    },
+    {
+      "id": "fys1100-8-2-bb-12",
+      "type": "definition",
+      "title": "Sirkelbanen som kontrollcase",
+      "content": "Den beste testen av en 2D-kode med sentralkraft: sett startfarten til\n\n$$v = \\sqrt{\\frac{GM}{r_0}}$$\n\nvinkelrett på radien. Avstanden $r$ skal da holde seg konstant gjennom hele simuleringen.\n\nTesten er sterk fordi den treffer tre ting samtidig: **begge komponentene** (en sirkelbane bruker dem like mye), **fortegnene** (feil fortegn gir en bane som flyr av gårde), og **metoden** (med Forward Euler vokser radien jevnt selv i det som skulle vært en perfekt sirkel).\n\nOmløpstiden skal bli $T_p = 2\\pi r_0/v$, som gir en fjerde, uavhengig kontroll."
+    },
+    {
+      "id": "fys1100-8-2-bb-13",
+      "type": "definition",
+      "title": "Én frihetsgrad eller to",
+      "content": "Skillet som avgjør om et problem trenger to tabeller eller fire.\n\nEn kloss på et skråplan, en perle på en tråd eller en sykkel i en bakke er **endimensjonale**: bevegelsen er bundet til én linje, og alle krefter dekomponeres langs og på tvers av den, der tverrkomponentene opphever hverandre.\n\nEn ball i lufta, en komet eller en satellitt er **todimensjonale**: ingenting binder dem til en linje.\n\n**Det er antallet frie retninger som avgjør, ikke om bevegelsen skjer i et plan.** En kloss på et skråplan beveger seg i et plan, men har bare én frihetsgrad."
+    },
+    {
+      "id": "fys1100-8-2-bb-14",
+      "type": "definition",
+      "title": "Poengfellen «bare én komponent»",
+      "content": "Den dyreste enkeltfeilen i en 2D-kodedeloppgave: **maks 2 av 5 poeng**, uansett hvor korrekt resten av koden er.\n\nSymptomet er lett å kjenne igjen: koden har bare `y` og `vy`, og beskriver dermed et loddrett kast i stedet for et skrått.\n\nFellen er nummer **#6** i bokas feilregister. Motgiften er en mekanisk vane: **tell tabellene før du skriver løkka.** To romlige retninger krever fire tabeller, to akselerasjonslinjer og fire oppdateringslinjer."
+    },
+    {
+      "id": "fys1100-8-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-8-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $x$, $y$ | posisjonskomponenter, $y$ positiv oppover | $\\text{m}$ |\n| $v_x$, $v_y$ | fartskomponenter, med fortegn | $\\text{m/s}$ |\n| $v = \\sqrt{v_x^2+v_y^2}$ | tallverdien av farten (skalar) | $\\text{m/s}$ |\n| $a_x$, $a_y$ | akselerasjonskomponenter | $\\text{m/s}^2$ |\n| $v_0$ | startfartens tallverdi | $\\text{m/s}$ |\n| $\\theta$ | utkastvinkel over vannrett | $\\text{rad}$ (grader i oppgaveteksten) |\n| $D$ | koeffisient i kvadratisk drag | $\\text{kg/m}$ |\n| $k_v$ | koeffisient i lineær drag | $\\text{kg/s}$ |\n| $v_T$ | terminalfart | $\\text{m/s}$ |\n| $m$ | masse | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $dt$ | steglengde i tid | $\\text{s}$ |\n| $N$ | antall lagrede tidspunkt | — |\n| $w$ | vindfart, vannrett | $\\text{m/s}$ |\n| $u_x$, $u_y$, $u$ | fart relativt til lufta | $\\text{m/s}$ |\n| $r = \\sqrt{x^2+y^2}$ | avstand fra kraftsentrum | $\\text{m}$ |\n| $GM$ | gravitasjonsparameter for sentrallegemet | $\\text{m}^3/\\text{s}^2$ |\n| $F_r$ | konstant rullemotstand | $\\text{N}$ |\n\n**Symbolkollisjoner i dette delkapitlet:** $D$ er dragkoeffisienten og har ingenting med snordrag å gjøre — snordrag skrives $T$ og opptrer ikke her. $v$ uten indeks betyr tallverdien av farten (en skalar, uten fet markering), mens $\\mathbf{v}$ er hastighetsvektoren; forskjellen er viktig nettopp i dragleddet. $u$ brukes om relativfart mot lufta, ikke om noen annen størrelse i boka. Tyngden er $m\\mathbf{g}$, aldri $\\mathbf{G}$, siden $G$ er gravitasjonskonstanten.\n\n**Formler i dette delkapitlet:**\n\n$$F_D = -D\\lvert v\\rvert v \\quad (\\text{1D}), \\qquad F_{D,x} = -D\\,v\\,v_x,\\quad F_{D,y} = -D\\,v\\,v_y \\quad (\\text{2D})$$\n\nDe to skrivemåtene av kvadratisk drag. Kraftmodellen står på **[formelarket]**; komponentformen er **[må kunne utledes]**.\n\n$$v = \\sqrt{v_x^2+v_y^2}$$\n\nFartens tallverdi, fellesfaktoren som kobler komponentene. **[må kunne utledes]**\n\n$$v_{x,0} = v_0\\cos\\theta, \\qquad v_{y,0} = v_0\\sin\\theta$$\n\nDekomponering av startfarten. **[må kunne utledes]** — se [kap. 2.2](/bok/fys1100/fys1100-2-2).\n\n$$\\frac{dv_x}{dt} = -\\frac{D}{m}v\\,v_x, \\qquad \\frac{dv_y}{dt} = -g - \\frac{D}{m}v\\,v_y$$\n\nBevegelseslikningene for et kast med drag, på komponentform. **[må kunne utledes]** — dette er kjerneutledningen i kapitlet.\n\n$$x_1 = \\frac{v_0^2}{g}\\sin 2\\theta, \\qquad t_1 = \\frac{2v_0}{g}\\sin\\theta, \\qquad h = \\frac{(v_0\\sin\\theta)^2}{2g}$$\n\nKastet uten motstand, brukt som kontrollcase. **[må kunne utledes]**\n\n$$v_T = \\sqrt{\\frac{mg}{D}}, \\qquad v(t) = v_T\\tanh\\left(\\frac{gt}{v_T}\\right)$$\n\nTerminalfart og analytisk fallkurve for ensrettet kvadratisk drag, brukt som kontroll i eksempel 1. **[må kunne utledes]** — se [kap. 7.3](/bok/fys1100/fys1100-7-3).\n\n$$a_x = -\\frac{GM\\,x}{\\left(x^2+y^2\\right)^{3/2}}, \\qquad a_y = -\\frac{GM\\,y}{\\left(x^2+y^2\\right)^{3/2}}$$\n\nSentralkraft på komponentform. Gravitasjonsloven står på **[formelarket]**; komponentformen er **[må kunne utledes]**.\n\n$$v = \\sqrt{\\frac{GM}{r_0}}$$\n\nBanefarten i en sirkelbane, brukt som kontrollcase. **[må kunne utledes]**"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-8-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-8-2-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på.\n\n**R1.** ([kap. 8.1](/bok/fys1100/fys1100-8-1)) Hva er forskjellen på Euler–Cromer og Forward Euler, uttrykt i én linje kode?\n\n*Løsning:* Euler–Cromer skriver `x[i+1] = x[i] + v[i+1]*dt` med den **oppdaterte** farten; Forward Euler skriver `x[i+1] = x[i] + v[i]*dt` med den gamle. Én indeks, og forskjellen mellom en amplitude som holder seg og en som vokser.\n\n**R2.** ([kap. 7.3](/bok/fys1100/fys1100-7-3)) Finn terminalfarten for et legeme med $m = 0{,}500\\ \\text{kg}$ og $D = 0{,}0200\\ \\text{kg/m}$.\n\n*Løsning:* $v_T = \\sqrt{mg/D} = \\sqrt{4{,}905/0{,}0200} = \\sqrt{245{,}3} = 15{,}7\\ \\text{m/s}$ nedover. Enhetskontroll: $\\text{N}/(\\text{kg/m}) = \\text{m}^2/\\text{s}^2$, og kvadratrota gir $\\text{m/s}$ ✓.\n\n**R3.** ([kap. 2.2](/bok/fys1100/fys1100-2-2)) En ball kastes med $25{,}0\\ \\text{m/s}$ i $30{,}0^\\circ$ over vannrett, uten luftmotstand. Finn rekkevidden og flytiden.\n\n*Løsning:* $x_1 = (25{,}0^2/9{,}81)\\sin 60{,}0^\\circ = 63{,}71 \\cdot 0{,}8660 = 55{,}2\\ \\text{m}$ og $t_1 = (50{,}0/9{,}81)\\sin 30{,}0^\\circ = 2{,}55\\ \\text{s}$. Disse to tallene er nettopp det en 2D-kode med $D = 0$ må gjenskape.\n\n**R4.** ([kap. 7.3](/bok/fys1100/fys1100-7-3)) Hvorfor har et 2D-kast med drag ingen løsning i elementære funksjoner?\n\n*Løsning:* Fordi komponentlikningene er koblet gjennom farten $v = \\sqrt{v_x^2+v_y^2}$: hver av dem inneholder begge de ukjente funksjonene, og de kan ikke løses hver for seg. Med **lineær** drag er koblingen borte, og hver komponent kan løses separat.\n\n**R5.** ([kap. 5.1](/bok/fys1100/fys1100-5-1)) Hvorfor er mekanisk energi ikke bevart i et kast med luftmotstand?\n\n*Løsning:* Fordi dragkraften alltid peker mot bevegelsen, slik at $\\mathbf{F}_D\\cdot d\\mathbf{r} < 0$ i hvert tidssteg. Kraften er ikke konservativ — arbeidet avhenger av veien, ikke bare av endepunktene — og den mekaniske energien avtar monotont gjennom hele banen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

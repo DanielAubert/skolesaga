@@ -1,0 +1,447 @@
+{
+  "id": "fys1100-6-4",
+  "courseId": "fys1100",
+  "chapterNumber": "6.4",
+  "title": "Drill: rotasjonsoppgaven (sjanger F)",
+  "description": "Sjangerdrill på stiv-legeme-oppgaven: frilegemediagram → moment → τ = Iα eller energi- og spinnbevaring, for stav, sylinder, jojo og kule.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kunne kjøre løsningsoppskriften for rotasjonsoppgaven fra aksevalg til kontrollert svar",
+    "kunne gjenkjenne og løse de faste variantene: hengslet stav, jojo, rulling med og uten gliding, trinse med masse og kule i stav",
+    "kunne velge mellom dynamikk, energibevaring og spinnbevaring ut fra hva oppgaven spør etter",
+    "kunne verifisere svarene med grensetilfeller og kritisere en løsning som bruker feil prinsipp"
+  ],
+  "content": [
+    {
+      "id": "fys1100-6-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er treningsbanken for hele Del 6.** Ingen ny teori — bare **sjanger F, rotasjonsoppgaven**, kjørt gjennom alle variantene sine på eksamensnivå.\n\nSjangeren står i **7 av 7 sett (100 %)**, og i grunnmalen for et moderne sett er den **oppgave 2** — den nest første av fem flertrinnsoppgaver. Variantene som går igjen i arkivet:\n\n- **fallende stav i hengsel** — moment, $\\tau = I\\alpha$, energibevaring til loddrett;\n- **jojo** — snordraget som eneste moment om massesenteret;\n- **sylinder på skråplan** — både ren rulling og tilfellet der den ruller *og* glir;\n- **rullende kule opp en bakke** — energiregnskap med rotasjon;\n- **kule skutt inn i en stav** — spinnbevaring, energitap, oppsving;\n- **treghetsmoment-rangering** — konseptvarianten, som passer midtveiseksamens flervalgsformat;\n- **trinse med masse** — der snordraget ikke lenger er likt på begge sider.\n\nSlik ligger poengene, ut fra sensorveiledningene i H2023, V2024 og V2025:\n\n| Steg | Typisk uttelling |\n|---|---|\n| Frilegemediagram med navngitte krefter og riktige angrepspunkter | selvstendig poenggivende |\n| Riktig valg av **akse** | bærende — feil akse gjør resten ugyldig |\n| Riktig $I$ om **den** aksen (parallellakse ved behov) | kjernen i oppgaven |\n| Rullebetingelsen eller bevaringsbegrunnelsen skrevet ut | eget poeng |\n| Retning og enhet på svaret | trekkes når det mangler |\n\n**Sensor er relativt mild på fortegnsfeil i rotasjonsoppgaver, men krever riktig oppsett.** Et fortegn som glipper når konvensjonen er oppgitt, koster lite; en momentlikning satt opp om feil akse koster alt. Prioriter derfor oppsettet: akse, frilegemediagram, riktig $I$.\n\n**Bruk kapitlet slik:** løs oppgavene med formelarket og Rottmann ved siden av, slik eksamen faktisk er, og skriv for hånd. Tegn hvert frilegeme- og momentdiagram, også når du ser svaret."
+    },
+    {
+      "id": "fys1100-6-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet forutsetter [kap. 6.1](/bok/fys1100/fys1100-6-1), [kap. 6.2](/bok/fys1100/fys1100-6-2) og [kap. 6.3](/bok/fys1100/fys1100-6-3). Alt du trenger, samlet på én side:\n\n**Kraftmoment og rotasjonens Newtons 2. lov:**\n\n$$\\tau = rF\\sin\\varphi = F\\cdot(\\text{momentarm}), \\qquad \\tau_{\\text{net}} = I\\alpha$$\n\n**En kraft gjennom aksen gir null moment.** Det er dette som lar deg fjerne hengsel- og lagerkrefter fra regnskapet.\n\n**Treghetsmoment** — formelarket gir tabellen, du velger linje og flytter aksen:\n\n$$I_{\\text{stav, ende}} = \\tfrac13 M\\ell^2, \\quad I_{\\text{sylinder}} = \\tfrac12 MR^2, \\quad I_{\\text{kule}} = \\tfrac25 MR^2, \\quad I_{\\text{ring}} = MR^2$$\n\n$$I = I_{cm} + Md^2 \\quad \\text{(parallellakseteoremet)}$$\n\n**Energi og rulling:**\n\n$$K_{\\text{rot}} = \\tfrac12 I\\omega^2, \\qquad v = \\omega R, \\qquad a = \\alpha R, \\qquad c = \\frac{I}{MR^2}$$\n\n$$a = \\frac{g\\sin\\theta}{1+c}, \\qquad v = \\sqrt{\\frac{2gh}{1+c}}, \\qquad \\mu_s \\ge \\frac{c}{1+c}\\tan\\theta$$\n\n**Spinn og spinnbevaring:**\n\n$$L = I\\omega, \\qquad L = p\\cdot(\\text{momentarm}), \\qquad \\mathbf{L}_{\\text{før}} = \\mathbf{L}_{\\text{etter}} \\ \\text{når} \\ \\tau_{\\text{ytre}} = 0$$\n\n**Notasjon:** vi bruker $g = 9{,}81\\,\\text{m/s}^2$; stavens lengde er $\\ell$ (spinn er $\\mathbf{L}$); tyngden er $M\\mathbf{g}$, aldri $\\mathbf{G}$; $\\alpha$ er vinkelakselerasjon og $\\theta$ er vinkel; friksjonstall skrives $\\mu_s$ og $\\mu_d$."
+    },
+    {
+      "id": "fys1100-6-4-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger F",
+      "content": "Seks steg. Følg dem i rekkefølge, hver gang, også når oppgaven ser enkel ut.\n\n1. **Tegn frilegemediagram og velg rotasjonsakse.** Legg aksen der de ukjente kreftene angriper — da får de null momentarm og forsvinner. Skriv ned hvilken akse du bruker, og hvilken omdreiningsretning som er positiv.\n2. **Avgjør metode.** Skal du finne en akselerasjon eller en kraft, bruk **dynamikk** ($\\tau = I\\alpha$, eventuelt sammen med $\\sum\\mathbf{F} = M\\mathbf{a}$ og rullebetingelsen). Skal du finne en sluttfart eller en høyde, bruk **energibevaring**. Går det et støt gjennom oppgaven, bruk **spinnbevaring** om aksen gjennom støtet.\n3. **Finn riktig $I$ om den valgte aksen.** Hent linja fra formelarket, og flytt aksen med parallellakseteoremet hvis den ikke går gjennom massesenteret. Er legemet sammensatt, legg sammen bidragene — men bare om samme akse.\n4. **Koble translasjon og rotasjon** der begge finnes: rullebetingelsen $a = \\alpha R$, eller snorens $a = \\alpha R$ på en trinse.\n5. **Løs symbolsk så lenge som mulig**, og sett inn tall til slutt.\n6. **Oppgi enhet og retning**, og verifiser med et grensetilfelle der uttrykket inviterer til det.\n\n**Steg 1 og 3 er de dyreste.** Feil akse eller feil $I$ gjør hele resten ugyldig, uansett hvor pen regningen er. **Steg 6 er det som skiller:** en grensetilfelle-kontroll tar femten sekunder og er ofte en egen deloppgave med egne poeng.\n\n**Bevaringslovene, valgt på betingelse — ikke på vane:**\n\n| Lov | Bevart når | Typisk situasjon i sjanger F |\n|---|---|---|\n| Mekanisk energi | bare konservative krefter gjør arbeid | rulling uten gliding, oppsving etter støt |\n| Spinn om en akse | ytre kraftmoment om aksen er null | støt mot hengslet legeme, fri rotasjon |\n| Bevegelsesmengde | ytre kraft i retningen er null | **ikke** når det finnes et hengsel |"
+    },
+    {
+      "id": "fys1100-6-4-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: jojoen, med sensorblikk",
+      "problem": "En jojo modelleres som en homogen sylinder med masse $m = 0{,}120\\,\\text{kg}$ og radius $R = 0{,}030\\,\\text{m}$. Snora er viklet rundt kanten og festet i taket. Jojoen slippes fra hvile.\n\n**a)** Tegn frilegemediagram og sett opp likningene.\n\n**b)** Finn massesenterets akselerasjon med $\\tau = I\\alpha$ og rullebetingelsen.\n\n**c)** Finn snordraget.\n\n**d)** Finn farten og vinkelfarten etter et fall på $0{,}80\\,\\text{m}$, og kontroller med energi.\n\n**e)** Sammenlign med fritt fall, og forklar forskjellen.",
+      "solution": "**Metodevalg først:** vi bruker Newtons 2. lov for massesenterets fall, rotasjonens Newtons 2. lov om massesenteret, og rullebetingelsen $a = \\alpha R$ langs snora. Snora er masseløs og uttøyelig.\n\n**a)** To krefter virker på jojoen: **tyngden $m\\mathbf{g}$** nedover i massesenteret, og **snordraget $T$** oppover langs snora, med angrepspunkt der snora forlater kanten. Positiv retning settes nedover.\n\n$$mg - T = ma, \\qquad TR = I\\alpha = \\tfrac12 mR^2\\alpha, \\qquad a = \\alpha R$$\n\n*Sensorblikk:* her ligger de første poengene, og de er billige. Begge pilene skal ha navn, angrepspunktene skal være riktige, og du skal skrive ut at **tyngden har null momentarm om massesenteret** — det er nettopp derfor momentlikningen bare har ett ledd. Å la tyngden bidra her er felle #15 og koster typisk 2 poeng. Feilene har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\n**b)** Fra momentlikningen med $\\alpha = a/R$:\n\n$$TR = \\tfrac12 mR^2\\frac{a}{R} \\quad \\Longrightarrow \\quad T = \\tfrac12 ma$$\n\nSatt inn i kraftlikningen:\n\n$$mg - \\tfrac12 ma = ma \\quad \\Longrightarrow \\quad a = \\frac{g}{1+c} = \\frac{2g}{3} = 6{,}54\\,\\text{m/s}^2$$\n\nnedover.\n\n*Sensorblikk:* rullebetingelsen $a = \\alpha R$ er et eget poeng. Uten den har du to likninger og tre ukjente ($a$, $\\alpha$, $T$), og oppgaven er ikke løsbar. Skriv den ned eksplisitt, ikke bare bruk den.\n\n**c)** $$T = \\tfrac12 ma = \\tfrac12 \\cdot 0{,}120 \\cdot 6{,}54 = 0{,}392\\,\\text{N}$$\n\noppover langs snora. Til sammenligning er tyngden $mg = 1{,}18\\,\\text{N}$ — snordraget er nøyaktig en tredjedel av den.\n\n*Sensorblikk:* en linje om at $T < mg$, og at det må være slik fordi jojoen faktisk faller, viser at du har lest svaret ditt. Det tar ti sekunder og er akkurat den typen kontroll toppbesvarelsene gjør uoppfordret.\n\n— naturlig pausepunkt —\n\n**d)** Akselerasjonen er konstant, så bevegelseslikningene gjelder:\n\n$$v = \\sqrt{2ah} = \\sqrt{2 \\cdot 6{,}54 \\cdot 0{,}800} = \\sqrt{10{,}46} = 3{,}23\\,\\text{m/s}$$\n\nnedover, og\n\n$$\\omega = \\frac{v}{R} = \\frac{3{,}235}{0{,}030} = 108\\,\\text{rad/s}$$\n\n**Energikontroll:**\n\n$$mgh = 0{,}120 \\cdot 9{,}81 \\cdot 0{,}800 = 0{,}942\\,\\text{J}$$\n\n$$\\tfrac12(1+c)mv^2 = \\tfrac12 \\cdot 1{,}500 \\cdot 0{,}120 \\cdot 10{,}46 = 0{,}942\\,\\text{J} \\ ✓$$\n\n*Sensorblikk:* når to metoder gir samme svar, si det. Fasitene viser ofte begge veier, og en kandidat som kontrollerer seg selv med den andre metoden signaliserer nettopp den sikkerheten toppsjiktet har. Merk også at $33\\,\\%$ av energien sitter i rotasjonen: $c/(1+c) = 1/3$.\n\n**e)** Fritt fall ville gitt $a = g = 9{,}81\\,\\text{m/s}^2$ og $v = \\sqrt{2gh} = 3{,}96\\,\\text{m/s}$ etter samme fall.\n\nJojoen faller altså **saktere** — to tredjedeler av tyngdens akselerasjon — fordi en del av arbeidet tyngden gjør, går til å sette den i spinn i stedet for å øke farten nedover. Snora er koblingen som tvinger fram den fordelingen: uten snor ville jojoen falt fritt uten å rotere i det hele tatt.\n\n**Grensetilfelle:** setter vi $c = 0$ (all massen i sentrum, ingen rotasjonstreghet), gir formelen $a = g$ og $T = 0$. Det stemmer — da har snora ingenting å ta tak i.\n\n*Sensorblikk:* en kvalitativ deloppgave som denne gir full uttelling for et presist resonnement uten regning. «Energien deles mellom translasjon og rotasjon» er kjernen; nevner du i tillegg at forholdet er $c/(1+c)$, er svaret på toppnivå."
+    },
+    {
+      "id": "fys1100-6-4-fig-jojo",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-2-jojo.svg",
+      "alt": "En jojo modellert som en sylinder som henger i en snor festet i taket. Snora gaar loddrett ned til hoyre kant av sylinderen. Snordraget T er en blaa pil oppover langs snora, tyngden mg en roed pil nedover fra massesenteret, og momentarmen R er markert som en lilla pil fra massesenteret ut til snora. En groenn buet pil viser vinkelfarten omega, og en stiplet graa pil til venstre viser akselerasjonen nedover.",
+      "caption": "Fasitfiguren til det gjennomregnede caset: samme oppsett som i [kap. 6.2](/bok/fys1100/fys1100-6-2), nå med $m = 0{,}120\\,\\text{kg}$ og $R = 0{,}030\\,\\text{m}$. Slik skal diagrammet ditt se ut — merk at begge pilene har navn, at snordraget angriper der snora forlater kanten, og at momentarmen $R$ er tegnet inn."
+    },
+    {
+      "id": "fys1100-6-4-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilkatalogen for hele sjanger F, samlet. Bruk den som en sjekkliste når du retter deg selv etter hver drilloppgave. Kodene har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\n**Moment og treghetsmoment regnet om ulike akser.** Den dyreste feilen i delen. Skriv ned hvilken akse du bruker **før** du summerer momenter, og bruk $I$ om nøyaktig den aksen. For en stav gir forveksling av $I_{cm}$ og $I_{\\text{ende}}$ en faktor 3 i feil.\n\n**Tyngden gitt moment om massesenteret (felle #15, typisk −2 p).** Tyngden angriper *i* massesenteret. I momentlikningen for et rullende legeme bidrar **bare** friksjonen; for en jojo **bare** snordraget.\n\n**Glemt rullebetingelsen.** Uten $a = \\alpha R$ har du to likninger og tre ukjente. Skriv den ut som en egen linje — det er et eget poeng, og det er den likningen som oftest mangler.\n\n**Glemt rotasjonsenergien.** $Mgh = \\tfrac12 Mv^2$ for et rullende legeme gir alltid for stor fart. Rullende legemer har to kinetiske energiledd.\n\n**Hvilefriksjonen satt lik $\\mu_s N$.** Ved ren rulling er friksjonen akkurat så stor som rullebetingelsen krever, og som regel mindre enn taket. Ulikheten brukes til å **sjekke** om rullingen holder, ikke til å regne ut kraften.\n\n**Bevegelsesmengde brukt der spinn skal brukes.** Finnes det et hengsel, er bevegelsesmengden **ikke** bevart. Spinnet om hengselaksen er det — fordi hengselkraften ikke har momentarm.\n\n**Masse forvekslet med treghetsmoment.** $(m+M)$ i en spinnlikning er den mest siterte feilen i sjangeren. Et roterende stivt legeme har ikke én felles fart.\n\n**Bevaringslov brukt uten begrunnelse (felle #7, typisk −1 p).** Skriv ut hvorfor loven gjelder, hver gang. Dette er den hyppigste enkeltfeilen i Del 6.\n\n**Energibevaring gjennom et uelastisk støt (felle #2, 0 p).** Regn energien ut i begge tilstander og sammenlign — anta aldri at den er den samme.\n\n**Manglende retning på moment, vinkelfart eller spinn (felle #9, typisk −2 p).** Alle tre er vektorstørrelser. «Mot klokka, altså ut av papirplanet» hører med i svaret.\n\n**Grader i stedet for radianer.** Alle rotasjonsformlene forutsetter radianer, også $v = \\omega R$ og $K_{\\text{rot}}$."
+    },
+    {
+      "id": "fys1100-6-4-drill",
+      "type": "text",
+      "content": "## Drilloppgavene (~65 min)\n\nTretten oppgaver på eksamensnivå, stigende. De dekker alle variantene fra Eksamensvinkel-boksen: stav, skive, rulling, jojo, spinnbevaring, trinse med masse, rangering og en «kritiser løsningen».\n\nTa dem gjerne over to økter — **naturlig pausepunkt** etter oppgave 7."
+    },
+    {
+      "id": "fys1100-6-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Rangering, midtveisformat.) Fire legemer har alle massen $M = 1{,}50\\,\\text{kg}$ og ytre radius $R = 0{,}200\\,\\text{m}$: en massiv kule, en massiv sylinder, et kuleskall og en tynn ring. Alle roterer om en akse gjennom massesenteret.\n\n**a)** Regn ut treghetsmomentet for hvert av dem, og ranger dem.\n\n**b)** Den massive sylinderen skal i stedet rotere om en akse langs kanten, parallell med symmetriaksen. Finn treghetsmomentet om den aksen.\n\n**c)** Alle fire får det samme kraftmomentet. Ranger dem etter vinkelakselerasjon, og forklar sammenhengen med a).",
+        "solution": "**Metodevalg:** formelarkets tabell for hvert legeme, parallellakseteoremet i b), og $\\alpha = \\tau/I$ i c).\n\n**a)** Med $MR^2 = 1{,}50 \\cdot 0{,}0400 = 0{,}0600\\,\\text{kg}\\cdot\\text{m}^2$:\n\n| Legeme | Formel | $I$ |\n|---|---|---|\n| massiv kule | $\\tfrac25 MR^2$ | $0{,}0240\\,\\text{kg}\\cdot\\text{m}^2$ |\n| massiv sylinder | $\\tfrac12 MR^2$ | $0{,}0300\\,\\text{kg}\\cdot\\text{m}^2$ |\n| kuleskall | $\\tfrac23 MR^2$ | $0{,}0400\\,\\text{kg}\\cdot\\text{m}^2$ |\n| tynn ring | $MR^2$ | $0{,}0600\\,\\text{kg}\\cdot\\text{m}^2$ |\n\nRangeringen er kule $<$ sylinder $<$ kuleskall $<$ ring, og den følger av hvor mye av massen som sitter langt fra aksen — bidraget går som avstanden i annen.\n\n**b)** Aksen langs kanten ligger i avstand $d = R$ fra massesenteraksen:\n\n$$I = I_{cm} + MR^2 = \\tfrac12 MR^2 + MR^2 = \\tfrac32 MR^2 = 0{,}0900\\,\\text{kg}\\cdot\\text{m}^2$$\n\naltså tre ganger så stort som om symmetriaksen.\n\n**c)** Fra $\\alpha = \\tau/I$ med felles $\\tau$ er rangeringen **omvendt** av a): kula får størst vinkelakselerasjon, ringa minst. Forholdet mellom ytterpunktene er $\\alpha_{\\text{kule}}/\\alpha_{\\text{ring}} = I_{\\text{ring}}/I_{\\text{kule}} = 0{,}0600/0{,}0240 = 2{,}50$.\n\nSammenhengen er direkte: treghetsmomentet er rotasjonens motstykke til massen, og stor treghet gir liten akselerasjon — nøyaktig som i $a = F/m$.",
+        "hints": [
+          "Slå opp én linje per legeme i formelarkets tabell, og regn ut $MR^2$ én gang for alle.",
+          "I b): hvor langt er aksen langs kanten fra massesenteraksen?",
+          "I c): bruk $\\alpha = \\tau/I$ og se hvilken vei ulikheten snur."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Skive med snordrag.) Et svinghjul med treghetsmoment $2{,}40\\,\\text{kg}\\cdot\\text{m}^2$ er lagret slik at det kan snurre fritt. En snor er viklet om en trommel med radius $0{,}150\\,\\text{m}$ på samme aksel, og trekkes med den konstante kraften $40{,}0\\,\\text{N}$. Hjulet starter i ro.\n\n**a)** Finn kraftmomentet og vinkelakselerasjonen.\n\n**b)** Finn vinkelfarten etter $3{,}00\\,\\text{s}$.\n\n**c)** Finn rotasjonsenergien på det tidspunktet, og kontroller den mot arbeidet kraften har gjort.",
+        "solution": "**Metodevalg:** rotasjonens Newtons 2. lov om lageraksen. Tyngden og lagerkraften går begge gjennom aksen og har null momentarm, så snordraget er eneste bidrag.\n\n**a)** Snora ligger tangentielt på trommelen, så momentarmen er hele radien:\n\n$$\\tau = FR = 40{,}0 \\cdot 0{,}150 = 6{,}00\\,\\text{N}\\cdot\\text{m}$$\n\ni den retningen snora drar, og\n\n$$\\alpha = \\frac{\\tau}{I} = \\frac{6{,}00}{2{,}40} = 2{,}50\\,\\text{rad/s}^2$$\n\n**b)** Kraften er konstant, altså er $\\alpha$ konstant, og bevegelseslikningene for rotasjon gjelder:\n\n$$\\omega = \\alpha t = 2{,}50 \\cdot 3{,}00 = 7{,}50\\,\\text{rad/s}$$\n\n**c)** $$K_{\\text{rot}} = \\tfrac12 I\\omega^2 = \\tfrac12 \\cdot 2{,}40 \\cdot 56{,}25 = 67{,}5\\,\\text{J}$$\n\n**Kontroll mot arbeidet:** hjulet har dreid\n\n$$\\theta = \\tfrac12\\alpha t^2 = \\tfrac12 \\cdot 2{,}50 \\cdot 9{,}00 = 11{,}25\\,\\text{rad}$$\n\nog momentet har gjort arbeidet\n\n$$W = \\tau\\theta = 6{,}00 \\cdot 11{,}25 = 67{,}5\\,\\text{J} \\ ✓$$\n\nDe to stemmer nøyaktig, slik arbeids–energi-teoremet krever. Merk at snora da har rullet av $s = R\\theta = 1{,}69\\,\\text{m}$, og at $W = Fs = 40{,}0 \\cdot 1{,}6875 = 67{,}5\\,\\text{J}$ — samme svar en tredje vei.",
+        "hints": [
+          "Hvilke krefter har momentarm forskjellig fra null om lageraksen?",
+          "Konstant moment gir konstant $\\alpha$, og da gjelder bevegelseslikningene med rotasjonssymboler.",
+          "I c): arbeidet et konstant moment gjør er $W = \\tau\\theta$ med $\\theta$ i radianer."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Fallende stav.) En homogen stav med masse $1{,}80\\,\\text{kg}$ og lengde $0{,}90\\,\\text{m}$ er hengslet i den ene enden og holdes vannrett. Så slippes den.\n\n**a)** Finn treghetsmomentet om hengselaksen og vinkelakselerasjonen i det staven slippes.\n\n**b)** Finn akselerasjonen til den frie enden, og sammenlign med $g$.\n\n**c)** Finn vinkelfarten når staven passerer loddrett stilling, og farten til den frie enden der.",
+        "solution": "**Metodevalg:** $\\tau = I\\alpha$ om hengselaksen i a)–b), fordi hengselkraften da har null momentarm. Energibevaring i c), fordi momentet avtar mens staven faller og $\\alpha$ derfor ikke er konstant.\n\n**a)** $$I = \\tfrac13 M\\ell^2 = \\tfrac13 \\cdot 1{,}80 \\cdot 0{,}810 = 0{,}486\\,\\text{kg}\\cdot\\text{m}^2$$\n\nTyngden angriper i massesenteret, med momentarm $\\ell/2$ når staven er vannrett:\n\n$$\\tau = Mg\\frac{\\ell}{2} = 1{,}80 \\cdot 9{,}81 \\cdot 0{,}450 = 7{,}95\\,\\text{N}\\cdot\\text{m}$$\n\n$$\\alpha = \\frac{7{,}946}{0{,}486} = 16{,}3\\,\\text{rad/s}^2$$\n\ni fallretningen. Symbolsk: $\\alpha = 3g/(2\\ell) = 3 \\cdot 9{,}81/1{,}80 = 16{,}35\\,\\text{rad/s}^2$ — massen faller ut.\n\n**b)** $$a_{\\text{ende}} = \\alpha\\ell = 16{,}35 \\cdot 0{,}90 = 14{,}7\\,\\text{m/s}^2 = 1{,}5g$$\n\nEnden akselererer altså **halvannen gang så fort som fritt fall**. Det er riktig og skyldes at staven er stiv: den indre delen faller saktere enn $g$, og de indre kreftene dytter ytterdelen tilsvarende raskere ned.\n\n**c)** Bare tyngden gjør arbeid — hengselkraftens angrepspunkt flytter seg ikke — så mekanisk energi er bevart. Massesenteret faller $\\ell/2$:\n\n$$Mg\\frac{\\ell}{2} = \\tfrac12 I\\omega^2 \\quad \\Rightarrow \\quad \\omega = \\sqrt{\\frac{3g}{\\ell}} = \\sqrt{\\frac{29{,}43}{0{,}90}} = 5{,}72\\,\\text{rad/s}$$\n\nFarten til den frie enden er da\n\n$$v = \\omega\\ell = 5{,}718 \\cdot 0{,}90 = 5{,}15\\,\\text{m/s}$$\n\n**Kontroll:** $Mg\\ell/2 = 7{,}946\\,\\text{J}$ og $\\tfrac12 I\\omega^2 = \\tfrac12 \\cdot 0{,}486 \\cdot 32{,}70 = 7{,}946\\,\\text{J}$ ✓.",
+        "hints": [
+          "Velg hengselaksen — da faller den ukjente hengselkraften ut av momentregnskapet.",
+          "Bruk parallellakseteoremet, eller slå opp ende-verdien direkte i formelarkets tabell.",
+          "I c): kan du bruke $\\omega = \\alpha t$ her? Sjekk om $\\alpha$ er konstant mens staven faller."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Rullende kule.) En massiv kule med masse $2{,}20\\,\\text{kg}$ og radius $0{,}110\\,\\text{m}$ ruller uten å gli fra hvile ned et skråplan med helning $18{,}0^\\circ$, en strekning $2{,}50\\,\\text{m}$ langs planet.\n\n**a)** Finn massesenterets akselerasjon.\n\n**b)** Finn farten og vinkelfarten ved slutten av strekningen, og kontroller farten med energibevaring.\n\n**c)** Finn friksjonskraften og det minste friksjonstallet som gjør ren rulling mulig.",
+        "solution": "**Metodevalg:** standardresultatene for rulling, $a = g\\sin\\theta/(1+c)$ og $f_s = \\dfrac{c}{1+c}Mg\\sin\\theta$, med $c = \\tfrac25 = 0{,}400$ for en massiv kule. Kontrollen i b) gjøres med energibevaring, som er lovlig fordi statisk friksjon ved ren rulling ikke gjør arbeid.\n\n**a)** $$a = \\frac{g\\sin\\theta}{1+c} = \\frac{9{,}81 \\cdot 0{,}3090}{1{,}400} = \\frac{3{,}031}{1{,}400} = 2{,}17\\,\\text{m/s}^2$$\n\nnedover langs planet.\n\n**b)** $$v = \\sqrt{2as} = \\sqrt{2 \\cdot 2{,}165 \\cdot 2{,}50} = 3{,}29\\,\\text{m/s}$$\n\n$$\\omega = \\frac{v}{R} = \\frac{3{,}290}{0{,}110} = 29{,}9\\,\\text{rad/s}$$\n\n**Energikontroll:** massesenteret har falt $h = 2{,}50\\sin 18{,}0^\\circ = 0{,}773\\,\\text{m}$, og\n\n$$v = \\sqrt{\\frac{2gh}{1+c}} = \\sqrt{\\frac{15{,}16}{1{,}400}} = 3{,}29\\,\\text{m/s} \\ ✓$$\n\n**c)** $$f_s = \\frac{c}{1+c}Mg\\sin\\theta = \\frac{0{,}400}{1{,}400} \\cdot 2{,}20 \\cdot 9{,}81 \\cdot 0{,}3090 = 0{,}2857 \\cdot 6{,}669 = 1{,}91\\,\\text{N}$$\n\nrettet **oppover langs planet**. Normalkraften er $N = Mg\\cos\\theta = 2{,}20 \\cdot 9{,}81 \\cdot 0{,}9511 = 20{,}5\\,\\text{N}$, så\n\n$$\\mu_s \\ge \\frac{1{,}906}{20{,}53} = 0{,}0928$$\n\nSymbolsk: $\\mu_s \\ge \\dfrac{c}{1+c}\\tan\\theta = 0{,}2857 \\cdot 0{,}3249 = 0{,}0928$ ✓. Et slakt plan og et kompakt legeme krever lite friksjon.",
+        "hints": [
+          "Finn $c$ først; da blir alle tre standarduttrykkene korte.",
+          "I b): akselerasjonen er konstant, så bevegelseslikningene gjelder.",
+          "I c): friksjonskraften finnes bare med kraft- og momentmetoden, ikke med energi."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Jojo.) En jojo modellert som en homogen sylinder har masse $0{,}250\\,\\text{kg}$ og radius $0{,}040\\,\\text{m}$. Den slippes fra hvile.\n\n**a)** Finn akselerasjonen, vinkelakselerasjonen og snordraget.\n\n**b)** Finn farten og vinkelfarten etter et fall på $0{,}500\\,\\text{m}$.\n\n**c)** Hvor stor andel av den kinetiske energien sitter i rotasjonen?",
+        "solution": "**Metodevalg:** standardresultatene for jojoen, $a = g/(1+c)$ og $T = \\dfrac{c}{1+c}mg$, med $c = 0{,}500$. Rullebetingelsen $a = \\alpha R$ gjelder langs snora.\n\n**a)** $$a = \\frac{g}{1{,}500} = 6{,}54\\,\\text{m/s}^2 \\ \\text{nedover}$$\n\n$$\\alpha = \\frac{a}{R} = \\frac{6{,}54}{0{,}040} = 164\\,\\text{rad/s}^2$$\n\n$$T = \\tfrac13 mg = \\tfrac13 \\cdot 0{,}250 \\cdot 9{,}81 = 0{,}818\\,\\text{N} \\ \\text{oppover}$$\n\nKontroll: $mg - T = 2{,}453 - 0{,}818 = 1{,}635\\,\\text{N}$, og $ma = 0{,}250 \\cdot 6{,}54 = 1{,}635\\,\\text{N}$ ✓.\n\n**b)** $$v = \\sqrt{2ah} = \\sqrt{2 \\cdot 6{,}54 \\cdot 0{,}500} = 2{,}56\\,\\text{m/s} \\ \\text{nedover}$$\n\n$$\\omega = \\frac{2{,}557}{0{,}040} = 63{,}9\\,\\text{rad/s}$$\n\n**c)** $$\\frac{K_{\\text{rot}}}{K_{\\text{tot}}} = \\frac{c}{1+c} = \\frac{0{,}500}{1{,}500} = 0{,}333$$\n\naltså $33{,}3\\,\\%$ — uavhengig av masse, radius og fallhøyde. Det er denne tredjedelen som gjør at jojoen kan klatre opp igjen når snora strammes i bunnen.",
+        "hints": [
+          "Jojoen er samme oppsett som et skråplan med $\\theta = 90^\\circ$, med snordraget i friksjonens rolle.",
+          "Kontroller $T$ mot kraftlikningen $mg - T = ma$ når du er ferdig.",
+          "I c): rotasjonsandelen er $c/(1+c)$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Ruller og glir.) En homogen sylinder med radius $0{,}150\\,\\text{m}$ ligger på et skråplan med helning $30{,}0^\\circ$. Friksjonstallene er $\\mu_s = \\mu_d = 0{,}120$.\n\n**a)** Vis at sylinderen ikke kan rulle rent.\n\n**b)** Finn massesenterets akselerasjon.\n\n**c)** Finn vinkelakselerasjonen, og vis at $a > \\alpha R$.\n\n**d)** Forklar hva ulikheten i c) betyr fysisk, og hva som ville måttet endres for at ren rulling skulle blitt mulig.",
+        "solution": "**Metodevalg:** vi sjekker først om rullebetingelsen kan opprettholdes. Svikter den, er friksjonen **dynamisk** og kjent, men rullebetingelsen gjelder ikke — translasjon og rotasjon må da regnes hver for seg.\n\n**a)** Ren rulling ville krevd\n\n$$\\mu_s \\ge \\frac{c}{1+c}\\tan\\theta = \\frac{0{,}500}{1{,}500}\\tan 30{,}0^\\circ = 0{,}3333 \\cdot 0{,}5774 = 0{,}192$$\n\nVi har $\\mu_s = 0{,}120 < 0{,}192$. Hvilefriksjonen kan altså ikke levere den kraften rullebetingelsen krever, og sylinderen skrenser.\n\n**b)** Med dynamisk friksjon $f_d = \\mu_d Mg\\cos\\theta$, positiv retning nedover langs planet:\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}5000 - 0{,}120 \\cdot 0{,}8660) = 9{,}81 \\cdot 0{,}3961 = 3{,}89\\,\\text{m/s}^2$$\n\nMassen faller ut. Merk at dette er større enn de $g\\sin\\theta/1{,}5 = 3{,}27\\,\\text{m/s}^2$ ren rulling ville gitt.\n\n**c)** Momentlikningen om massesenteret, med friksjonen som eneste bidrag:\n\n$$f_d R = \\tfrac12 MR^2\\alpha \\quad \\Longrightarrow \\quad \\alpha = \\frac{2\\mu_d g\\cos\\theta}{R} = \\frac{2 \\cdot 0{,}120 \\cdot 9{,}81 \\cdot 0{,}8660}{0{,}150} = 13{,}6\\,\\text{rad/s}^2$$\n\n$$\\alpha R = 13{,}59 \\cdot 0{,}150 = 2{,}04\\,\\text{m/s}^2 \\quad < \\quad a = 3{,}89\\,\\text{m/s}^2$$\n\n**d)** Ulikheten betyr at massesenteret beveger seg **raskere** enn rotasjonen tilsvarer: kontaktpunktet glir bakover i forhold til underlaget, og sylinderen sklir framover under seg selv. Det er nettopp derfor glidefriksjonen peker oppover langs planet — den motsetter seg denne relative glidningen.\n\nFor at ren rulling skulle blitt mulig, måtte enten **friksjonstallet vært større** enn $0{,}192$, eller **planet slakere**. Kravet $\\mu_s \\ge \\tfrac13\\tan\\theta$ gir med $\\mu_s = 0{,}120$ at $\\tan\\theta \\le 0{,}360$, altså $\\theta \\le 19{,}8^\\circ$. Under den helningen ville den samme sylinderen på det samme underlaget rullet rent.",
+        "hints": [
+          "Sjekk kravet til $\\mu_s$ for ren rulling før du regner noe annet.",
+          "Når legemet glir, er friksjonen dynamisk og har kjent størrelse $\\mu_d N$.",
+          "Uten rullebetingelsen må kraftlikningen og momentlikningen løses hver for seg.",
+          "I d): løs ulikheten $\\mu_s \\ge \\tfrac13\\tan\\theta$ for $\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Trinse med masse.) To lodd med masse $4{,}00\\,\\text{kg}$ og $2{,}50\\,\\text{kg}$ henger i hver sin ende av en snor som går over en trinse. Trinsa er en homogen skive med masse $1{,}20\\,\\text{kg}$ og radius $0{,}080\\,\\text{m}$, og snora glir ikke på den.\n\n**a)** Forklar hvorfor snordraget ikke lenger er likt på begge sider.\n\n**b)** Finn akselerasjonen.\n\n**c)** Finn de to snordragene, og kontroller mot trinsas momentlikning.\n\n**d)** Sammenlign med resultatet for en masseløs trinse.",
+        "solution": "**Metodevalg:** Newtons 2. lov for hvert lodd, rotasjonens Newtons 2. lov for trinsa, og betingelsen $a = \\alpha R$ fordi snora ikke glir. Positiv retning følger bevegelsen: det tunge loddet ned, det lette opp.\n\n**a)** Fordi trinsa har treghetsmoment. Skal den akselerere i rotasjon, må det virke et netto kraftmoment på den, og det eneste som kan levere det, er **forskjellen** mellom snordragene på de to sidene. Var draget likt, ville nettomomentet vært null, og trinsa ville ikke kunne endre vinkelfart — noe som er umulig når loddene akselererer og snora ikke glir.\n\nFor en **masseløs** trinse er treghetsmomentet null, og da trengs heller ikke noe moment: derfor er draget likt der.\n\n**b)** Likningene:\n\n$$m_1g - T_1 = m_1a, \\qquad T_2 - m_2g = m_2a, \\qquad (T_1-T_2)R = I\\alpha = \\tfrac12 M_tR^2\\alpha, \\qquad a = \\alpha R$$\n\nMomentlikningen gir $T_1 - T_2 = \\tfrac12 M_t a$, og lagt sammen med de to kraftlikningene:\n\n$$(m_1-m_2)g = \\left(m_1+m_2+\\tfrac12 M_t\\right)a$$\n\n$$a = \\frac{(m_1-m_2)g}{m_1+m_2+I/R^2} = \\frac{1{,}50 \\cdot 9{,}81}{4{,}00+2{,}50+0{,}600} = \\frac{14{,}72}{7{,}10} = 2{,}07\\,\\text{m/s}^2$$\n\nder $I/R^2 = \\tfrac12 M_t = 0{,}600\\,\\text{kg}$ er trinsas effektive masse.\n\n**c)** $$T_1 = m_1(g-a) = 4{,}00\\,(9{,}81 - 2{,}073) = 30{,}9\\,\\text{N}$$\n\n$$T_2 = m_2(g+a) = 2{,}50\\,(9{,}81 + 2{,}073) = 29{,}7\\,\\text{N}$$\n\n**Kontroll mot trinsas momentlikning:** $\\alpha = a/R = 2{,}073/0{,}080 = 25{,}9\\,\\text{rad/s}^2$, og\n\n$$(T_1-T_2)R = 1{,}244 \\cdot 0{,}080 = 0{,}0995\\,\\text{N}\\cdot\\text{m}, \\qquad I\\alpha = 0{,}00384 \\cdot 25{,}91 = 0{,}0995\\,\\text{N}\\cdot\\text{m} \\ ✓$$\n\n**d)** Med masseløs trinse ville\n\n$$a = \\frac{(m_1-m_2)g}{m_1+m_2} = \\frac{14{,}72}{6{,}50} = 2{,}26\\,\\text{m/s}^2$$\n\naltså $9{,}2\\,\\%$ større. Trinsas masse bremser systemet, fordi en del av det tilgjengelige arbeidet må gå til å sette trinsa i spinn. Merk at bare **halve** trinsemassen teller ($I/R^2 = M_t/2$ for en skive) — det er formfaktoren som avgjør, ikke massen alene.",
+        "hints": [
+          "Sett opp én likning per legeme: to lodd og trinsa. Snora kobler dem med $a = \\alpha R$.",
+          "Momentet på trinsa kommer fra forskjellen mellom de to snordragene.",
+          "I c): kontroller alltid at momentlikningen stemmer med de to snordragene du har funnet.",
+          "I d): hvilken størrelse i nevneren forsvinner når trinsa er masseløs?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kule i stav — spinnbevaring.) En homogen stav med masse $2{,}50\\,\\text{kg}$ og lengde $1{,}40\\,\\text{m}$ henger i ro fra et hengsel i den øvre enden. En kule med masse $0{,}060\\,\\text{kg}$ kommer vannrett med farten $30{,}0\\,\\text{m/s}$, treffer staven $1{,}20\\,\\text{m}$ under hengselet og setter seg fast.\n\n**a)** Begrunn hvilken bevaringslov som gjelder gjennom støtet, og finn vinkelfarten rett etter.\n\n**b)** Finn hvor stor andel av den kinetiske energien som går tapt.\n\n**c)** Finn den største vinkelen staven svinger ut til.",
+        "solution": "**Metodevalg:** to faser med hver sin lov. **Gjennom støtet:** spinnbevaring om hengselaksen. **Etter støtet:** energibevaring mens staven svinger opp.\n\n**a)** **Begrunnelse:** hengselkraften angriper i aksen og har derfor null momentarm om den. Stavens tyngde har null momentarm i støtøyeblikket, siden staven henger loddrett, og støtet er så kort at tyngdens impulsmoment uansett er neglisjerbart. Det ytre kraftmomentet om hengselaksen er altså null, og **spinnet om den er bevart**.\n\nBevegelsesmengden er derimot **ikke** bevart: hengselen leverer en betydelig ytre kraft under støtet.\n\n$$L_{\\text{før}} = mv_0d = 0{,}060 \\cdot 30{,}0 \\cdot 1{,}20 = 2{,}16\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$$\n\n$$I = \\tfrac13 M\\ell^2 + md^2 = \\tfrac13 \\cdot 2{,}50 \\cdot 1{,}96 + 0{,}060 \\cdot 1{,}44 = 1{,}633 + 0{,}0864 = 1{,}72\\,\\text{kg}\\cdot\\text{m}^2$$\n\n$$\\omega = \\frac{2{,}16}{1{,}720} = 1{,}26\\,\\text{rad/s}$$\n\nmed retning inn i papirplanet dersom kula kom fra venstre.\n\n**b)** $$K_{\\text{før}} = \\tfrac12 \\cdot 0{,}060 \\cdot 900 = 27{,}0\\,\\text{J}$$\n\n$$K_{\\text{etter}} = \\tfrac12 \\cdot 1{,}720 \\cdot 1{,}256^2 = 1{,}36\\,\\text{J}$$\n\n$$\\text{tapt andel} = 1 - \\frac{1{,}357}{27{,}0} = 0{,}950$$\n\naltså $95{,}0\\,\\%$. Det er typisk for et uelastisk støt der et lite, raskt legeme treffer et mye tyngre.\n\n**c)** Etter støtet gjør bare tyngden arbeid — hengselkraftens angrepspunkt flytter seg ikke — så mekanisk energi er bevart:\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mgd\\right](1-\\cos\\theta)$$\n\nKlammefaktoren: $2{,}50 \\cdot 9{,}81 \\cdot 0{,}700 + 0{,}060 \\cdot 9{,}81 \\cdot 1{,}20 = 17{,}17 + 0{,}706 = 17{,}87\\,\\text{J}$.\n\n$$1-\\cos\\theta = \\frac{1{,}357}{17{,}87} = 0{,}0759 \\quad \\Rightarrow \\quad \\cos\\theta = 0{,}9241 \\quad \\Rightarrow \\quad \\theta = 22{,}5^\\circ$$\n\n**Grensetilfelle:** hadde kula truffet helt inntil hengselet, ville $d \\to 0$ gitt $\\omega \\to 0$ og $\\theta \\to 0$ — staven ville blitt stående. Det er en kontroll som avslører med én gang om man har brukt bevegelsesmengde i stedet for spinn, siden en bevegelsesmengdeløsning gir samme svar uansett treffpunkt.",
+        "hints": [
+          "Skriv begrunnelsen først: hvorfor er ikke bevegelsesmengden bevart, og hvorfor er spinnet det?",
+          "Treghetsmomentet er stavens om enden pluss kulas som punktmasse i avstand $d$.",
+          "I c): stavens massesenter løftes $\\tfrac{\\ell}{2}(1-\\cos\\theta)$ og kula $d(1-\\cos\\theta)$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Spinnbevaring.) En dreieskive med treghetsmoment $0{,}60\\,\\text{kg}\\cdot\\text{m}^2$ snurrer fritt med $4{,}50\\,\\text{rad/s}$. To klumper à $0{,}30\\,\\text{kg}$ senkes forsiktig rett ned og festes samtidig i avstanden $0{,}50\\,\\text{m}$ fra aksen, på hver sin side.\n\n**a)** Begrunn at spinnet om den loddrette aksen er bevart, og finn den nye vinkelfarten.\n\n**b)** Finn rotasjonsenergien før og etter.\n\n**c)** Hvorfor er det viktig at klumpene festes på hver sin side?",
+        "solution": "**Metodevalg:** spinnbevaring om den loddrette aksen. Klumpene behandles som punktmasser, $I = mr^2$ hver.\n\n**a)** **Begrunnelse:** klumpene senkes **rett ned**, altså langs aksen, og bringer derfor ingen spinnkomponent om den loddrette aksen med seg. De ytre kreftene — tyngdene og lagerkraften — virker langs eller gjennom aksen og har null momentarm om den. Altså er $\\tau_{\\text{ytre}} = 0$ om aksen, og spinnet om den er bevart.\n\n$$I_{\\text{ny}} = 0{,}60 + 2 \\cdot 0{,}30 \\cdot 0{,}250 = 0{,}60 + 0{,}150 = 0{,}75\\,\\text{kg}\\cdot\\text{m}^2$$\n\n$$\\omega_2 = \\frac{I_1\\omega_1}{I_{\\text{ny}}} = \\frac{0{,}60 \\cdot 4{,}50}{0{,}75} = 3{,}60\\,\\text{rad/s}$$\n\nsamme retning som før.\n\n**b)** $$K_1 = \\tfrac12 \\cdot 0{,}60 \\cdot 20{,}25 = 6{,}08\\,\\text{J}, \\qquad K_2 = \\tfrac12 \\cdot 0{,}75 \\cdot 12{,}96 = 4{,}86\\,\\text{J}$$\n\nDet er tapt $1{,}22\\,\\text{J}$ til varme og deformasjon i festingen — et uelastisk støt, selv om det skjer «forsiktig». Kontroll: $K_2/K_1 = I_1/I_{\\text{ny}} = 0{,}60/0{,}75 = 0{,}80$, og $6{,}075 \\cdot 0{,}80 = 4{,}86\\,\\text{J}$ ✓.\n\n**c)** For at systemet skal forbli **balansert** om aksen. Med bare én klump ville massesenteret ligget utenfor aksen, og lageret måtte levert en roterende sidekraft for å holde skiva på plass — skiva ville ristet. Det endrer ikke spinnregnskapet om aksen, men det endrer belastningen på lageret, og i praksis ville friksjonen der ikke lenger vært neglisjerbar.\n\nSymmetrien er også grunnen til at et hjul balanseres med små blylodd: ubalanse gir krefter som vokser med $\\omega^2$.",
+        "hints": [
+          "Hvilken vei senkes klumpene, og hvor mye spinn om den loddrette aksen har de da?",
+          "To klumper i samme avstand bidrar med $2mr^2$ til treghetsmomentet.",
+          "I c): tenk på hvor systemets massesenter havner med én mot to klumper."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Rulling oppover, med sammenligning.) En massiv kule ruller uten å gli langs et vannrett underlag med farten $5{,}00\\,\\text{m/s}$ og fortsetter opp en bakke med helning $22{,}0^\\circ$.\n\n**a)** Hvor høyt kommer kula, målt loddrett, og hvor langt langs bakken?\n\n**b)** Hvor høyt ville en kloss med samme fart kommet, om den gled helt friksjonsfritt?\n\n**c)** Begrunn forskjellen **både** med et energiargument og med Newtons 2. lov.\n\n**d)** Hvilken vei peker friksjonen på kula mens den ruller oppover?",
+        "solution": "**Metodevalg:** energibevaring for høydene (gyldig for kula fordi statisk friksjon ved ren rulling ikke gjør arbeid, og for klossen fordi det ikke finnes friksjon), og standardresultatet $a = g\\sin\\theta/(1+c)$ for Newton-argumentet.\n\n**a)** Med $c = 0{,}400$:\n\n$$h = \\frac{(1+c)v^2}{2g} = \\frac{1{,}400 \\cdot 25{,}0}{19{,}62} = 1{,}78\\,\\text{m}$$\n\n$$s = \\frac{h}{\\sin 22{,}0^\\circ} = \\frac{1{,}784}{0{,}3746} = 4{,}76\\,\\text{m}$$\n\nlangs bakken.\n\n**b)** $$h = \\frac{v^2}{2g} = \\frac{25{,}0}{19{,}62} = 1{,}27\\,\\text{m}$$\n\nKula kommer altså $40\\,\\%$ høyere.\n\n**c)** *Energiargumentet:* med samme massesenterfart har kula mer kinetisk energi enn klossen, fordi rotasjonsenergien $\\tfrac12 I\\omega^2$ kommer i tillegg — nøyaktig faktoren $(1+c) = 1{,}40$. Statisk friksjon ved ren rulling gjør ikke arbeid, så all denne energien er tilgjengelig for å bli potensiell energi.\n\n*Newton-argumentet:* på vei oppover peker friksjonen på kula nedover langs planet, siden den må gi et moment som bremser spinnet. Retardasjonen blir\n\n$$a = \\frac{g\\sin\\theta}{1+c} = \\frac{3{,}675}{1{,}400} = 2{,}62\\,\\text{m/s}^2$$\n\nmot klossens $g\\sin\\theta = 3{,}67\\,\\text{m/s}^2$. Kula bremses altså saktere, og med samme startfart kommer den lenger: $s = v^2/(2a) = 25{,}0/5{,}25 = 4{,}76\\,\\text{m}$ ✓ — samme svar som i a).\n\nAt de to argumentene lander på nøyaktig samme tall, er selve poenget med dobbeltbegrunnelsen.\n\n**d)** **Nedover langs planet.** Kula skal bremses opp, og friksjonen må derfor gi et moment som reduserer spinnet — det krever at den peker nedover.\n\nMerk at dette er motsatt av retningen på vei **ned** et skråplan. Regelen som gjelder begge veier: friksjonen peker slik at rotasjonen endres i takt med massesenterets bevegelse, slik at $v = \\omega R$ opprettholdes.",
+        "hints": [
+          "Med samme fart har det rullende legemet mer energi — hvor mye mer?",
+          "I c): regn ut både høyden fra energi og strekningen fra $v^2 = 2as$, og sjekk at de stemmer.",
+          "I d): hvilken vei må momentet peke for å bremse spinnet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ — «forklar/begrunn»-typen som det er minst én av i hvert eksamenssett.)\n\n**a)** Hvorfor er det lurt å velge hengselaksen som rotasjonsakse i en oppgave om en fallende stav, i stedet for massesenteret?\n\n**b)** En sylinder og en ring med samme masse og radius slippes samtidig ned et skråplan. Hvem kommer først, og hvorfor er svaret uavhengig av hvor bratt planet er?\n\n**c)** En medstudent sier: «Siden spinnet er bevart i støtet, må energien også være bevart — begge er jo bevaringslover.» Hva er galt?",
+        "solution": "**a)** Fordi hengselkraften da har **null momentarm** og faller ut av momentregnskapet. Kraften fra et hengsel er ukjent i både størrelse og retning, og å måtte finne den først ville gjort oppgaven vesentlig tyngre.\n\nVelger du massesenteret i stedet, er det tyngden som faller ut — men da må hengselkraften med, og du må i tillegg koble $a_{cm}$ til $\\alpha$. Begge veier er riktige; hengselaksen er raskere.\n\n**b)** **Sylinderen kommer først.** Akselerasjonen er $a = g\\sin\\theta/(1+c)$, og sylinderen har $c = 0{,}500$ mot ringas $c = 1{,}00$. Tidsforholdet blir\n\n$$\\frac{t_{\\text{sylinder}}}{t_{\\text{ring}}} = \\sqrt{\\frac{a_{\\text{ring}}}{a_{\\text{sylinder}}}} = \\sqrt{\\frac{1{,}500}{2{,}00}} = 0{,}866$$\n\nHelningen $\\theta$ står i **begge** akselerasjonene og forkortes bort i forholdet. Det samme gjør masse og radius. Bare formfaktoren skiller — og den er ren geometri.\n\n**c)** Bevaringslover er ikke en pakke man får samlet. Hver av dem har sin **egen** gyldighetsbetingelse:\n\n- spinnet er bevart når det ytre **kraftmomentet** om aksen er null;\n- energien er bevart når bare **konservative krefter gjør arbeid**.\n\nI et uelastisk støt setter legemene seg fast i hverandre, og deformasjonen gjør negativt arbeid som ender som varme. Da er den andre betingelsen brutt, selv om den første holder.\n\nRegnestykket viser det direkte: med $L$ konstant er $K = L^2/(2I)$, så en endring i $I$ endrer energien. Å bruke energibevaring gjennom et uelastisk støt er felle #2 og gir null poeng.",
+        "hints": [
+          "I a): hvilken kraft er ukjent, og hvor angriper den?",
+          "I b): sett opp tidsforholdet symbolsk og se hva som forkortes bort.",
+          "I c): skriv opp gyldighetsbetingelsen for hver av de to lovene og sammenlign dem."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kvalitativ, «kritiser løsningen».) En besvarelse på oppgaven *«en homogen sylinder ruller uten å gli ned et skråplan med helning $\\theta$ — finn massesenterets akselerasjon»* lyder:\n\n> «Kreftene langs planet er $Mg\\sin\\theta$ nedover og friksjonen $f = \\mu_s N = \\mu_s Mg\\cos\\theta$ oppover. Newtons 2. lov gir\n> $$a = g(\\sin\\theta - \\mu_s\\cos\\theta)$$\n> Rotasjonen påvirker ikke massesenterets bevegelse, siden tyngden angriper i massesenteret og derfor gir null moment.»\n\n**a)** Pek ut feilene med fagbegrep.\n\n**b)** Sett opp riktig framgangsmåte.\n\n**c)** Er den siste setningen i besvarelsen riktig eller gal? Svar presist.",
+        "solution": "**a)** Besvarelsen har **to feil**, og den ene skjuler den andre.\n\n**Feil 1: hvilefriksjonen satt lik $\\mu_s N$.** Ved ren rulling er friksjonen **statisk**, og statisk friksjon er ikke $\\mu_s N$ — den er *høyst* $\\mu_s N$. Den faktiske verdien bestemmes av kravet om at rullebetingelsen $a = \\alpha R$ skal holde, og den finnes ved å løse likningssystemet. Ulikheten $\\lvert f_s\\rvert \\le \\mu_s N$ brukes bare til å **sjekke** om rullingen kan opprettholdes.\n\nKonsekvensen er dramatisk: besvarelsens svar avhenger av $\\mu_s$, mens det riktige svaret ikke gjør det i det hele tatt.\n\n**Feil 2: momentlikningen mangler helt.** Besvarelsen setter opp bare én likning for et system med to ukjente ($a$ og $f_s$) og bruker rullebetingelsen ingen steder. Uten momentlikningen og rullebetingelsen er systemet underbestemt.\n\n**b)** Riktig framgangsmåte er tre likninger:\n\n$$Mg\\sin\\theta - f_s = Ma, \\qquad f_s R = \\tfrac12 MR^2\\alpha, \\qquad a = \\alpha R$$\n\nMomentlikningen gir $f_s = \\tfrac12 Ma$, som satt inn i kraftlikningen gir\n\n$$a = \\frac{g\\sin\\theta}{1+c} = \\frac{2}{3}g\\sin\\theta$$\n\nog deretter $f_s = \\tfrac13 Mg\\sin\\theta$. Til slutt sjekkes betingelsen $\\mu_s \\ge \\dfrac{f_s}{N} = \\dfrac13\\tan\\theta$.\n\n**c)** **Delvis riktig, men konklusjonen er gal.** Det stemmer at tyngden angriper i massesenteret og derfor gir null moment om det — den delen av setningen er korrekt, og den er nettopp grunnen til at bare friksjonen står i momentlikningen.\n\nMen **rotasjonen påvirker likevel massesenterets bevegelse**, gjennom friksjonskraften. Friksjonen er den kraften som setter sylinderen i spinn, og etter Newtons 2. lov virker den samme kraften bremsende på massesenteret. Koblingen går via rullebetingelsen: krever du at $a = \\alpha R$, tvinges friksjonen til en bestemt verdi, og den verdien går rett inn i kraftlikningen.\n\nSagt kort: tyngden gir ikke moment om massesenteret, men det gjør friksjonen — og det er nok til at rotasjon og translasjon henger sammen.",
+        "hints": [
+          "Gå gjennom besvarelsen linje for linje og spør: hvilken type friksjon er dette, og hva vet vi om størrelsen?",
+          "Tell likninger og ukjente. Hvor mange trengs?",
+          "I c): skill mellom påstanden om tyngdens moment og konklusjonen som trekkes av den."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-4-d13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensklone, flertrinns.) En homogen skive med masse $M = 2{,}0\\,\\text{kg}$ og radius $R = 0{,}15\\,\\text{m}$ er lagret slik at den kan snurre fritt om symmetriaksen. En snor er viklet om kanten, og i enden av snora henger en kloss med masse $m = 3{,}0\\,\\text{kg}$. Systemet slippes fra hvile.\n\n**a)** Tegn frilegemediagram for klossen og for skiva, og sett opp likningene.\n\n**b)** Finn klossens akselerasjon og snordraget.\n\n**c)** Finn klossens fart etter et fall på $1{,}5\\,\\text{m}$, med både dynamikk og energi.\n\n**d)** Hvor stor andel av den frigjorte potensielle energien sitter i skivas rotasjon?",
+        "solution": "**Metodevalg:** Newtons 2. lov for klossen, rotasjonens Newtons 2. lov for skiva, og betingelsen $a = \\alpha R$ fordi snora ikke glir på kanten. I c) kontrollerer vi med energibevaring, som er lovlig fordi lagerfriksjonen neglisjeres og snordraget er en indre kraft i systemet.\n\n**a)** **Klossen:** to krefter — tyngden $m\\mathbf{g}$ nedover i massesenteret, og snordraget $T$ oppover langs snora. Positiv retning nedover:\n\n$$mg - T = ma$$\n\n**Skiva:** tre krefter — tyngden, lagerkraften og snordraget. Tyngden og lagerkraften går begge gjennom lageraksen og har null momentarm; bare snordraget bidrar, med momentarm $R$:\n\n$$TR = I\\alpha = \\tfrac12 MR^2\\alpha$$\n\n**Kobling:** $a = \\alpha R$.\n\n**b)** Momentlikningen gir $T = \\tfrac12 Ma$. Satt inn i kraftlikningen:\n\n$$mg - \\tfrac12 Ma = ma \\quad \\Longrightarrow \\quad a = \\frac{mg}{m + \\tfrac12 M} = \\frac{3{,}0 \\cdot 9{,}81}{3{,}0 + 1{,}0} = \\frac{29{,}43}{4{,}0} = 7{,}36\\,\\text{m/s}^2$$\n\nnedover, og\n\n$$T = \\tfrac12 Ma = \\tfrac12 \\cdot 2{,}0 \\cdot 7{,}3575 = 7{,}36\\,\\text{N}$$\n\noppover. (At de to tallene er like her, er et sammentreff av tallene $M = 2{,}0\\,\\text{kg}$ og faktoren $\\tfrac12$ — ikke en generell regel.)\n\n**Kontroll:** $mg - T = 29{,}43 - 7{,}36 = 22{,}07\\,\\text{N}$, og $ma = 3{,}0 \\cdot 7{,}3575 = 22{,}07\\,\\text{N}$ ✓. Legg også merke til at $T < mg$, som det må være når klossen faller.\n\n**c)** *Dynamisk:* akselerasjonen er konstant, så\n\n$$v = \\sqrt{2ah} = \\sqrt{2 \\cdot 7{,}3575 \\cdot 1{,}5} = \\sqrt{22{,}07} = 4{,}70\\,\\text{m/s}$$\n\n*Med energi:* den potensielle energien klossen mister, fordeles på klossens og skivas kinetiske energi:\n\n$$mgh = \\tfrac12 mv^2 + \\tfrac12 I\\omega^2, \\qquad \\omega = \\frac{v}{R}$$\n\n$$3{,}0 \\cdot 9{,}81 \\cdot 1{,}5 = \\tfrac12 \\cdot 3{,}0\\,v^2 + \\tfrac12 \\cdot 0{,}0225 \\cdot \\frac{v^2}{0{,}0225} = \\left(1{,}5 + 0{,}5\\right)v^2$$\n\n$$44{,}1 = 2{,}0\\,v^2 \\quad \\Rightarrow \\quad v = 4{,}70\\,\\text{m/s} \\ ✓$$\n\nMerk hvor pent energimetoden går: skivas bidrag blir $\\tfrac12(I/R^2)v^2 = \\tfrac12 \\cdot 1{,}0 \\cdot v^2$, altså som om skiva var en ekstra masse på $1{,}0\\,\\text{kg}$ i klossens bevegelse. Det er den effektive massen $I/R^2$.\n\n**d)** Frigjort potensiell energi: $mgh = 44{,}1\\,\\text{J}$.\n\n$$K_{\\text{rot}} = \\tfrac12 I\\omega^2 = \\tfrac12 \\cdot 0{,}0225 \\cdot \\left(\\frac{4{,}698}{0{,}15}\\right)^2 = \\tfrac12 \\cdot 0{,}0225 \\cdot 980{,}9 = 11{,}0\\,\\text{J}$$\n\n$$\\frac{K_{\\text{rot}}}{mgh} = \\frac{11{,}0}{44{,}1} = 0{,}250$$\n\naltså $25{,}0\\,\\%$. Symbolsk er andelen $\\dfrac{I/R^2}{m + I/R^2} = \\dfrac{1{,}0}{4{,}0} = 0{,}250$ — nøyaktig den effektive massens andel av systemets samlede treghet.",
+        "hints": [
+          "Tegn to diagrammer: ett for klossen og ett for skiva. Hvilke krefter har momentarm om lageraksen?",
+          "Rullebetingelsen på snora er $a = \\alpha R$ — skriv den ned eksplisitt.",
+          "I c): i energiregnskapet blir skivas bidrag $\\tfrac12(I/R^2)v^2$ når du setter inn $\\omega = v/R$.",
+          "I d): sammenlign rotasjonsenergien med den totale frigjorte potensielle energien."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-4-begrepsbank",
+      "type": "text",
+      "content": "## Sjangerkortet\n\nDette er et **drillkapittel**, ikke en begrepsbank — de åtte kortene under er repetisjonsstoff som samler grepene fra Del 6 i den formen du trenger dem under tidspress. Hopp trygt over ved førstegangslesing."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-1",
+      "type": "definition",
+      "title": "Aksevalget i en rotasjonsoppgave",
+      "content": "Det første og dyreste valget du gjør. Regelen: **legg aksen der de ukjente kreftene angriper.**\n\n- **Hengslet legeme:** velg hengselaksen. Hengselkraften får null momentarm og forsvinner.\n- **Fritt legeme (rullende, fallende, roterende i lufta):** velg massesenteret. Tyngden får null momentarm og forsvinner.\n- **Rullende legeme, alternativ:** velg kontaktpunktet. Da forsvinner både friksjon og normalkraft, men $I$ må regnes om **den** aksen med parallellakseteoremet.\n\nAksen skrives ned før du summerer momenter, og **$I$ må gjelde om nøyaktig samme akse**. Det er den vanligste kilden til et helt galt svar med helt riktig regning."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-2",
+      "type": "definition",
+      "title": "Metodevalget: dynamikk eller bevaring",
+      "content": "Spørsmålet oppgaven stiller, avgjør metoden.\n\n- **Akselerasjon, kraft, snordrag, friksjonskraft** ⇒ dynamikk: $\\tau = I\\alpha$, eventuelt sammen med $\\sum\\mathbf{F} = M\\mathbf{a}$ og rullebetingelsen.\n- **Sluttfart, høyde, utsvingvinkel** ⇒ energibevaring, med begrunnelsen skrevet ut.\n- **Et støt underveis** ⇒ spinnbevaring om aksen gjennom støtet, deretter energi etter.\n\nEnergi kan aldri gi deg en friksjonskraft (den gjør ikke arbeid ved ren rulling), og dynamikk kan sjelden gi deg en sluttfart uten en integrasjon. Velger du feil metode, kommer du ikke fram — velger du riktig, er oppgaven ofte tre linjer."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-3",
+      "type": "definition",
+      "title": "Rullebetingelsen som tredje likning",
+      "content": "I enhver oppgave med kombinert translasjon og rotasjon har du to likninger ($\\sum F = Ma$ og $\\tau = I\\alpha$) og tre ukjente ($a$, $\\alpha$ og en koblingskraft). Rullebetingelsen\n\n$$a = \\alpha R$$\n\ner den tredje likningen, og uten den er systemet uløselig.\n\nSkriv den ned **eksplisitt** i besvarelsen, ikke bare bruk den. Det er et eget poeng, og det viser at du har sett hva som binder de to bevegelsene sammen.\n\nBetingelsen gjelder også der det ikke ruller noe synlig: en snor som ikke glir på en trinse eller på en jojo, oppfyller den samme relasjonen på kanten."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-4",
+      "type": "definition",
+      "title": "Standarduttrykkene for rulling",
+      "content": "De fire som dekker nesten alle rullevarianter, med $c = I/(MR^2)$:\n\n$$a = \\frac{g\\sin\\theta}{1+c}, \\qquad v = \\sqrt{\\frac{2gh}{1+c}}, \\qquad f_s = \\frac{c}{1+c}Mg\\sin\\theta, \\qquad \\mu_s \\ge \\frac{c}{1+c}\\tan\\theta$$\n\nJojoen er samme sett med $\\theta = 90^\\circ$: $a = g/(1+c)$ og $T = \\dfrac{c}{1+c}mg$.\n\nIngen av dem står på formelarket. De **må kunne utledes**, og utledningen tar under fem minutter når oppsettet sitter. Verdien av å kunne dem utenat er ikke å slippe utledningen, men å kunne kontrollere svaret sitt raskt."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-5",
+      "type": "definition",
+      "title": "Faseinndeling i støtoppgaver",
+      "content": "Grepet som gjør de sammensatte oppgavene overkommelige: del prosessen i faser, og avgjør for hver fase hvilken lov som gjelder og **hvorfor**.\n\n1. **Gjennom støtet** (millisekunder, store krefter): spinnbevaring om aksen. Energi går tapt.\n2. **Etter støtet** (sekunder, tyngden dominerer): energibevaring under oppsvinget.\n\nSkriv fasene som overskrifter i besvarelsen. Det gjør både tenkningen din og sensors retting enklere — og det hindrer den vanligste feilen, som er å bruke én lov gjennom hele forløpet."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-6",
+      "type": "definition",
+      "title": "Grensetilfeller som sluttkontroll",
+      "content": "Fire grenser som avslører nesten alle oppsettsfeil i sjanger F, og som ofte er en egen poenggivende deloppgave:\n\n- **$c \\to 0$** i et rulleuttrykk skal gi fritt-fall- eller friksjonsfri-resultatet.\n- **$\\theta \\to 0$** skal gi null akselerasjon og null friksjonskrav.\n- **$d \\to 0$** i en støtoppgave skal gi $\\omega \\to 0$ — staven blir stående.\n- **$M \\to 0$** for en stav truffet av en kule skal gi at kula fortsetter uforstyrret.\n\nKontrollen tar femten sekunder per grense. Går den galt, ligger feilen i oppsettet, ikke i regningen — og da er det oppsettet du skal se på igjen."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-7",
+      "type": "definition",
+      "title": "Effektiv masse $I/R^2$",
+      "content": "Kombinasjonen som dukker opp hver gang en rotasjon er koblet til en rettlinjet bevegelse gjennom rullebetingelsen. Den har enheten kilogram og oppfører seg som en ekstra masse i systemet:\n\n- **trinse:** $a = \\dfrac{(m_1-m_2)g}{m_1+m_2+I/R^2}$;\n- **skive med hengende kloss:** $a = \\dfrac{mg}{m + I/R^2}$;\n- **rullende legeme:** $K = \\tfrac12\\left(M + I/R^2\\right)v^2 = \\tfrac12(1+c)Mv^2$.\n\nFor en homogen skive er $I/R^2 = M/2$: bare halve trinsemassen «teller». Tolkningen er nyttig som rimelighetssjekk — får du et uttrykk der trinsemassen teller fullt, har du sannsynligvis glemt formfaktoren."
+    },
+    {
+      "id": "fys1100-6-4-def-bank-8",
+      "type": "definition",
+      "title": "Tidsbudsjett for en rotasjonsoppgave",
+      "content": "En flertrinns rotasjonsoppgave med fire–fem deloppgaver er dimensjonert for omtrent **48 minutter** på en fire timers eksamen med fem oppgaver. En realistisk fordeling:\n\n- **5 min:** les hele oppgaven, tegn situasjonsskisse og frilegemediagram, velg akse.\n- **10 min:** sett opp likningene symbolsk, inkludert rullebetingelse eller bevaringsbegrunnelse.\n- **20 min:** løs deloppgavene i rekkefølge, med tall og enheter.\n- **8 min:** de kvalitative deloppgavene, som ofte er de billigste poengene i hele oppgaven.\n- **5 min:** grensetilfeller, retninger, enheter, gjennomlesing.\n\n**Ta a-deloppgavene i alle oppgavene før du graver deg ned i én.** Inntil 5 poeng per deloppgave, alle teller likt — bredde lønner seg."
+    },
+    {
+      "id": "fys1100-6-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-6-4-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\tau$ | kraftmoment om en oppgitt akse | $\\text{N}\\cdot\\text{m}$ |\n| $I$, $I_{cm}$ | treghetsmoment, om massesenteret (**skalar**) | $\\text{kg}\\cdot\\text{m}^2$ |\n| $\\alpha$, $\\omega$ | vinkelakselerasjon og vinkelfart | $\\text{rad/s}^2$, $\\text{rad/s}$ |\n| $a$, $v$ | massesenterets akselerasjon og fart | $\\text{m/s}^2$, $\\text{m/s}$ |\n| $c = I/(MR^2)$ | formfaktoren | dimensjonsløs |\n| $I/R^2$ | effektiv masse i en koblet rotasjon | $\\text{kg}$ |\n| $L$ | spinn om en oppgitt akse | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ |\n| $M$, $m$, $M_t$ | masse til legeme, kule/kloss og trinse | $\\text{kg}$ |\n| $R$ | radius (rulleradius, trommelradius) | $\\text{m}$ |\n| $\\ell$ | stavens lengde | $\\text{m}$ |\n| $d$ | avstand fra aksen til treffpunkt eller til ny akse | $\\text{m}$ |\n| $\\theta$ | helningsvinkel eller utsvingvinkel | grader eller rad |\n| $\\mu_s$, $\\mu_d$ | statisk og dynamisk friksjonstall | dimensjonsløs |\n| $T$ | snordrag | $\\text{N}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner som er avklart i denne boka:** **stavens lengde er $\\ell$, spinn er $L$** — begge opptrer i oppgave 8 og 12. Tyngden skrives $M\\mathbf{g}$ eller $\\mathbf{F}_g$, **aldri** $\\mathbf{G}$. $T$ er snordrag; en periode skrives $T_p$. Symbolet $\\alpha$ er vinkelakselerasjon, mens vinkler er $\\theta$ og $\\varphi$. Treghetsmomentet, massene og energiene er **skalarer**.\n\n**Formler i dette delkapitlet:**\n\n$$\\tau_{\\text{net}} = I\\alpha$$\n\nRotasjonens Newtons 2. lov. **[formelarket]** — moment og treghetsmoment om **samme** akse.\n\n$$I = I_{cm} + Md^2$$\n\nParallellakseteoremet. **[formelarket]**\n\n$$a = \\alpha R$$\n\nRullebetingelsen, også for en snor som ikke glir på en trinse. **[formelarket]** — den tredje likningen som gjør systemet løsbart.\n\n$$a = \\frac{g\\sin\\theta}{1+c}, \\qquad v = \\sqrt{\\frac{2gh}{1+c}}, \\qquad f_s = \\frac{c}{1+c}Mg\\sin\\theta, \\qquad \\mu_s \\ge \\frac{c}{1+c}\\tan\\theta$$\n\nStandardsettet for rulling ned et skråplan. **[må kunne utledes]**\n\n$$a = \\frac{g}{1+c}, \\qquad T = \\frac{c}{1+c}mg$$\n\nJojoen. **[må kunne utledes]** — samme sett med $\\theta = 90^\\circ$.\n\n$$a = \\frac{(m_1-m_2)g}{m_1+m_2+I/R^2}, \\qquad a = \\frac{mg}{m+I/R^2}$$\n\nTrinse med masse, og skive med hengende kloss. **[må kunne utledes]** — leddet $I/R^2$ er den effektive massen.\n\n$$\\omega = \\frac{mv_0d}{\\tfrac13 M\\ell^2 + md^2}$$\n\nVinkelfarten etter at en kule setter seg fast i en hengslet stav. **[må kunne utledes]** — via spinnbevaring, med begrunnelsen skrevet ut.\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mgd\\right](1-\\cos\\theta)$$\n\nOppsvinget etter støtet. **[må kunne utledes]**\n\n$$W = \\tau\\theta, \\qquad K_{\\text{rot}} = \\tfrac12 I\\omega^2$$\n\nArbeid og energi i rotasjon. **[formelarket]** for energien, **[må kunne utledes]** for arbeidet."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-6-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-6-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-4-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/fys1100/fys1100-6-1).) En kraft på $25\\,\\text{N}$ virker $60^\\circ$ på en arm som er $0{,}40\\,\\text{m}$ lang. Finn kraftmomentet om aksen i armens andre ende.",
+            "solution": "$$\\tau = rF\\sin\\varphi = 0{,}40 \\cdot 25 \\cdot 0{,}866 = 8{,}7\\,\\text{N}\\cdot\\text{m}$$\n\nmed retning gitt av hvilken vei kraften ville dreid armen — mot eller med klokka. Momentarmen er $0{,}40 \\cdot 0{,}866 = 0{,}35\\,\\text{m}$, og $25 \\cdot 0{,}35 = 8{,}7\\,\\text{N}\\cdot\\text{m}$ ✓, samme svar den andre veien.",
+            "hints": [
+              "Bruk enten $rF\\sin\\varphi$ eller kraften ganger momentarmen — de gir samme svar."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-4-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.2](/bok/fys1100/fys1100-6-2).) Et hjul med radius $0{,}25\\,\\text{m}$ ruller uten å gli med farten $4{,}0\\,\\text{m/s}$. Finn vinkelfarten og farten til toppunktet.",
+            "solution": "$$\\omega = \\frac{v}{R} = \\frac{4{,}0}{0{,}25} = 16\\,\\text{rad/s}$$\n\n$$v_{\\text{topp}} = 2v = 8{,}0\\,\\text{m/s}$$\n\ni kjøreretningen. Kontaktpunktet står momentant stille.",
+            "hints": [
+              "Rullebetingelsen kobler $v$ og $\\omega$; toppunktet har massesenterets fart pluss rotasjonens bidrag."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-4-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.3](/bok/fys1100/fys1100-6-3).) Når er spinnet om en akse bevart, og hva må skrives i besvarelsen for å få full uttelling?",
+            "solution": "Spinnet er bevart når **summen av de ytre kraftmomentene om aksen er null**.\n\nI besvarelsen må **begrunnelsen** stå: hvilke ytre krefter som finnes, og hvorfor de ikke gir moment om nettopp den aksen — typisk «hengselkraften angriper i aksen og har derfor null momentarm».\n\nÅ bruke en bevaringslov uten begrunnelse er felle #7 og koster typisk 1 poeng. Merk at betingelsen gjelder **kraftmomentet**, ikke kreftene: store ytre krefter uten momentarm er helt greit.",
+            "hints": [
+              "Er det kreftene eller kraftmomentene betingelsen handler om?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-4-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-4-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 6.1](/bok/fys1100/fys1100-6-1).) En homogen stav med masse $2{,}0\\,\\text{kg}$ og lengde $1{,}5\\,\\text{m}$ skal rotere om en akse vinkelrett på staven, $0{,}50\\,\\text{m}$ fra den ene enden. Finn treghetsmomentet.",
+            "solution": "Massesenteret ligger $0{,}75\\,\\text{m}$ fra enden, så avstanden til den nye aksen er $d = 0{,}25\\,\\text{m}$:\n\n$$I = \\tfrac{1}{12}M\\ell^2 + Md^2 = \\tfrac{1}{12} \\cdot 2{,}0 \\cdot 2{,}25 + 2{,}0 \\cdot 0{,}0625 = 0{,}375 + 0{,}125 = 0{,}50\\,\\text{kg}\\cdot\\text{m}^2$$\n\nTil sammenligning er $I_{cm} = 0{,}375$ og $I_{\\text{ende}} = \\tfrac13 \\cdot 2{,}0 \\cdot 2{,}25 = 1{,}5\\,\\text{kg}\\cdot\\text{m}^2$ — verdien ligger som forventet mellom dem.",
+            "hints": [
+              "Regn $d$ som avstanden fra **massesenteret** til den nye aksen, ikke fra enden."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-4-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-4-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) Hva er betingelsen for at mekanisk energi er bevart, og hvorfor gjelder den for et legeme som ruller uten å gli?",
+            "solution": "Betingelsen er at **bare konservative krefter gjør arbeid**.\n\nFor et rullende legeme virker tre krefter: tyngden (konservativ), normalkraften (vinkelrett på bevegelsen, gjør ikke arbeid) og den statiske friksjonen. Den siste gjør **ikke arbeid** ved ren rulling, fordi angrepspunktet — kontaktpunktet — står momentant stille, så $d\\mathbf{r} = 0$.\n\nBetingelsen er dermed oppfylt, og energibevaring er lovlig. Ved gliding er den ikke det: da flytter angrepspunktet seg, og energi går til varme.",
+            "hints": [
+              "Gå gjennom kreftene én for én og spør om hver av dem gjør arbeid."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-4-rep-6",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-4-r6",
+            "number": "R6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) Hvorfor er angrepspunktet til en kraft viktigere i rotasjonsoppgaver enn i rene translasjonsoppgaver?",
+            "solution": "Fordi angrepspunktet bestemmer **momentarmen**, og dermed kraftmomentet.\n\nI en ren translasjonsoppgave er det bare vektorsummen av kreftene som betyr noe: $\\sum\\mathbf{F} = M\\mathbf{a}_{cm}$ gjelder uansett hvor kreftene angriper. Så snart legemet kan rotere, avgjør angrepspunktet i tillegg hvor stort moment kraften gir om den valgte aksen — og to like store krefter i samme retning, men med ulikt angrepspunkt, gir helt ulik rotasjon.\n\nDerfor trekkes et klart feil angrepspunkt typisk 1 poeng i et frilegemediagram for et roterende legeme.",
+            "hints": [
+              "Hva er det angrepspunktet inngår i, som ikke finnes i $\\sum F = ma$?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,383 @@
+{
+  "id": "fys1100-8-3",
+  "courseId": "fys1100",
+  "chapterNumber": "8.3",
+  "title": "Feilvurdering, kodemodifikasjon og trapesmetode",
+  "description": "Kjenne igjen at Forward Euler «lekker energi», rette det, utvide koden med et nytt kraftledd, og integrere måledata med trapesmetoden.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne gjenkjenne energidrift som en metodefeil og skille den fra en modellfeil med en halveringstest",
+    "kunne begrunne hvorfor Forward Euler lekker energi og angi tre måter å rette det på",
+    "kunne utvide en eksisterende kode med et nytt kraftledd, med riktig fortegn og riktig massebehandling",
+    "kunne integrere ujevne måledata med trapesmetoden og kvalitetssjekke det numeriske svaret"
+  ],
+  "content": [
+    {
+      "id": "fys1100-8-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er de nyere variantene av kodeoppgaven.** Numerisk Python — **sjanger H, den numeriske deloppgaven med kode** — er med i **7 av 7 sett (100 %)**, men de siste årene har den ikke bare bedt om en løkke. Tre undertyper går igjen:\n\n| Undertype | Hva du blir bedt om |\n|---|---|\n| **Feilvurdering** | «En student får en bane som spiraler utover. Forklar hva som er galt, og hvordan det rettes.» |\n| **Kodemodifikasjon** | «Et nytt kraftledd kommer til. Vis hvordan du endrer akselerasjonslinja.» |\n| **Trapesmetode på datafil** | «Finn arbeidet fra en tabell med målte krefter og posisjoner.» |\n\nAlle tre er også **sjanger J — kvalitative «forklar, begrunn eller kritiser»-oppgaver**, som har minst én deloppgave i hvert eneste sett. Det du leverer, er en forklaring, ikke bare et tall.\n\n**Den dyreste enkeltfeilen i kodemodifikasjon er å endre for lite.** En besvarelse som kunne vært skrevet uten å ha lest den nye opplysningen, gir null poeng — uansett hvor riktig den opprinnelige koden var.\n\n**Høyeste prioritet — dette må sitte.**\n\n**Øktforslag:** kapitlet er på 65 minutter. Løkke 1–2 (feildiagnose og kodemodifikasjon) er en naturlig første økt, løkke 3–4 (trapesmetoden og kvalitetssjekken) den neste."
+    },
+    {
+      "id": "fys1100-8-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 8.2](/bok/fys1100/fys1100-8-2) og [kap. 5.1](/bok/fys1100/fys1100-5-1). Det du trenger derfra, ferdig oppfrisket:\n\n**Euler–Cromer-løkka i to dimensjoner** fra forrige kapittel — fire tabeller, fellesfarten først, begge fartene før begge posisjonene:\n\n$$v_{x,i+1} = v_{x,i} + a_{x,i}\\,dt, \\qquad x_{i+1} = x_i + v_{x,i+1}\\,dt$$\n\nog tilsvarende for $y$.\n\n**Sentralkraft på komponentform**, som er innpakningen i de fleste feilvurderingsoppgavene:\n\n$$a_x = -\\frac{GM\\,x}{\\left(x^2+y^2\\right)^{3/2}}, \\qquad a_y = -\\frac{GM\\,y}{\\left(x^2+y^2\\right)^{3/2}}$$\n\n**Arbeidsintegralet** fra [kap. 5.1](/bok/fys1100/fys1100-5-1), som er hele grunnlaget for trapesdelen:\n\n$$W = \\int_{x_1}^{x_2} F(x)\\,dx$$\n\nArbeidet er **arealet under kraftkurven**. Er kraften konstant, er arealet et rektangel; varierer den, må arealet regnes ut — og har du bare måledata, må det regnes ut numerisk.\n\n**Fra matematikken:** [Numerisk integrasjon](/bok/r2/r2-3-4) gir trapesmetoden med jevne intervaller. Her generaliserer vi den til **ujevne** intervaller, som er det måledata faktisk gir.\n\n**Notasjonsavtale for kapitlet.** I baneeksemplene regner vi i astronomiske enheter: avstand i AU (astronomiske enheter, altså jordbanens radius) og tid i år. Da er gravitasjonsparameteren for sola $GM = 4\\pi^2\\ \\text{AU}^3/\\text{år}^2$, et tall som er verdt å kjenne. I trapesdelen er alt i SI. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-8-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — å lese en feil ut av en graf (~16 min)\n\nEn student simulerer en komet rundt sola og får en bane som sakte spiraler utover. Kometen kommer aldri tilbake til utgangspunktet — hvert omløp er litt større enn det forrige.\n\n**Er dette fysikk eller en feil?**\n\nSpørsmålet er ikke retorisk. Det finnes fysiske grunner til at en bane kan utvide seg: en rakettmotor, en drivende kraft, energi tilført utenfra. Men i en simulering av ren gravitasjon finnes ingen slik mekanisme — gravitasjonen er konservativ, og den mekaniske energien skal være **bevart**. En voksende bane er derfor et varsel om at koden gjør noe likningen ikke gjør."
+    },
+    {
+      "id": "fys1100-8-3-def-energilekkasje",
+      "type": "definition",
+      "title": "Energilekkasje som metodefeil",
+      "content": "At den numeriske metoden selv tilfører eller fjerner mekanisk energi, i et system der energien fysisk skal være konstant.\n\nForward Euler bruker den **gamle** farten i posisjonsoppdateringen. For en bane eller en svingning betyr det at legemet konsekvent flyttes litt for langt utover før kraften rekker å trekke det inn igjen, og feilen peker samme vei i hvert eneste steg.\n\n**Konsekvensen er ikke støy, men en trend.** Energien vokser jevnt, og siden banens størrelse er bestemt av energien, vokser banen med den. Det er dette som gir spiralen.\n\nEuler–Cromer bruker den oppdaterte farten, og feilen skifter fortegn gjennom omløpet. Energien svinger da rundt riktig verdi uten å vandre av gårde."
+    },
+    {
+      "id": "fys1100-8-3-def-diagnose",
+      "type": "definition",
+      "title": "Diagnosen: metodefeil eller modellfeil",
+      "content": "Testen som avgjør hvilken av de to feiltypene du har med å gjøre: **kjør på nytt med halvert steglengde.**\n\n| Observasjon | Diagnose |\n|---|---|\n| Avviket blir om lag halvert | **Metodefeil** — for grov diskretisering |\n| Avviket krymper mot null når du bytter til Euler–Cromer | **Metodefeil** — energilekkasje |\n| Avviket står helt urørt | **Modellfeil** — manglende kraftledd, galt fortegn, feil initialbetingelse |\n\nTesten tar ett minutt, og den er den eneste som skiller entydig. **Å gjette på fysikk før halveringstesten er tatt, er den vanligste feilslutningen i numerisk modellering** — man ender med å lete etter en fysisk forklaring på noe som bare er en for stor $dt$."
+    },
+    {
+      "id": "fys1100-8-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Kometbanen som ikke lukker seg",
+      "problem": "En komet passerer sola i avstanden $1{,}00\\ \\text{AU}$ med farten $7{,}50\\ \\text{AU/år}$ vinkelrett på radien. Vi regner i astronomiske enheter, der $GM = 4\\pi^2\\ \\text{AU}^3/\\text{år}^2$.\n\n**a)** Simulér fem omløp med både Forward Euler og Euler–Cromer, med samme steglengde, og sammenlikn den største avstanden fra sola.\n\n**b)** Hva er den analytiske fasiten for den største avstanden?\n\n**c)** Hvilken av metodene er riktig, og hva ville du svart en student som lurte på om spiralen var fysikk?",
+      "solution": "**Metodevalg:** vi bruker den største avstanden fra sola — **aphelavstanden** — som måltall, fordi den er direkte bestemt av den mekaniske energien. Er energien bevart, er aphelavstanden den samme i alle omløp.\n\n**a)**\n\n```python\nimport numpy as np\n\nGM = 4 * np.pi**2       # AU^3/aar^2\nN = 11501\ndt = 0.0010             # aar\n\nfor metode in [\"Euler-Cromer\", \"Forward Euler\"]:\n    x = np.zeros(N)\n    y = np.zeros(N)\n    vx = np.zeros(N)\n    vy = np.zeros(N)\n    x[0] = 1.00         # AU, perihel\n    vy[0] = 7.50        # AU/aar\n    for i in range(N - 1):\n        r = np.sqrt(x[i]**2 + y[i]**2)\n        ax = -GM * x[i] / r**3\n        ay = -GM * y[i] / r**3\n        if metode == \"Euler-Cromer\":\n            vx[i + 1] = vx[i] + ax * dt\n            vy[i + 1] = vy[i] + ay * dt\n            x[i + 1] = x[i] + vx[i + 1] * dt\n            y[i + 1] = y[i] + vy[i + 1] * dt\n        else:\n            x[i + 1] = x[i] + vx[i] * dt\n            y[i + 1] = y[i] + vy[i] * dt\n            vx[i + 1] = vx[i] + ax * dt\n            vy[i + 1] = vy[i] + ay * dt\n    r = np.sqrt(x**2 + y**2)\n    print(metode, \" aphel forste omlop:\", round(np.max(r[:2400]), 4),\n          \" aphel femte omlop:\", round(np.max(r[9200:]), 4))\n```\n\n**Utskrift:**\n\n```text\nEuler-Cromer  aphel forste omlop: 2.4773  aphel femte omlop: 2.4773\nForward Euler  aphel forste omlop: 2.5688  aphel femte omlop: 3.1334\n```\n\n**b)** Den mekaniske energien per masseenhet er\n\n$$\\frac{E}{m} = \\frac12 v^2 - \\frac{GM}{r} = \\frac12 \\cdot 7{,}50^2 - \\frac{4\\pi^2}{1{,}00} = 28{,}125 - 39{,}478 = -11{,}353$$\n\nNegativ energi betyr en **lukket** bane. Den store halvaksen følger av $E/m = -GM/(2a)$:\n\n$$a = \\frac{GM}{2\\lvert E/m\\rvert} = \\frac{39{,}478}{22{,}706} = 1{,}7386\\ \\text{AU}$$\n\nSiden startpunktet er perihel med $r = 1{,}00\\ \\text{AU}$, er aphelavstanden\n\n$$r_{\\text{aphel}} = 2a - r_{\\text{perihel}} = 2\\cdot 1{,}7386 - 1{,}00 = 2{,}4772\\ \\text{AU}$$\n\n**c)** Euler–Cromer treffer fasiten $2{,}4772\\ \\text{AU}$ på fire gjeldende siffer — og gjør det like godt i femte omløp som i første. Forward Euler bommer allerede med $3{,}7\\ \\%$ i første omløp og med $26\\ \\%$ i det femte.\n\n**Svaret til studenten:** spiralen er **ikke** fysikk. Gravitasjonen er konservativ, så den mekaniske energien skal være nøyaktig bevart, og en lukket bane skal lukke seg i all evighet. En bane som utvider seg jevnt, betyr at energien vokser — og det finnes ingenting i likningen som kan tilføre energi. Feilen ligger i metoden: Forward Euler bruker den gamle farten i posisjonsoppdateringen og legger til litt energi i hvert eneste steg.\n\n**Kontrollen som avgjør:** kjør på nytt med halvert $dt$. Spiralen blir da omtrent halvert i styrke, og det beviser at den er en diskretiseringseffekt. Var den fysikk, ville den stått helt urørt.\n\n**Sensorblikk:** deloppgaven ber om en **forklaring**, og en fullgod besvarelse har tre ledd: at energien fysisk skal være bevart, at Forward Euler bryter dette fordi den bruker gammel fart, og hvordan det rettes. Å svare «koden er feil» uten mekanismen gir liten uttelling."
+    },
+    {
+      "id": "fys1100-8-3-fig-spiral",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-8-3-spiral-vs-ellipse.svg",
+      "alt": "To ellipsebaner side ved side, hver med en oransje prikk som markerer sola. Den venstre, gronne banen bestaar av fem omlop som ligger noyaktig oppa hverandre og danner en enkelt lukket kurve. Den hoyre, rode banen bestaar av fem omlop som ligger utenpaa hverandre og gradvis blir storre, slik at kurven spiraler utover.",
+      "caption": "Kometen i eksempel 1, kjørt fem omløp med hver metode og samme $dt = 0{,}0010\\ \\text{år}$. Til venstre lukker banen seg med aphel $2{,}4773\\ \\text{AU}$ i alle fem omløp; til høyre vokser aphelavstanden fra $2{,}5688$ til $3{,}1334\\ \\text{AU}$."
+    },
+    {
+      "id": "fys1100-8-3-def-rettemetoder",
+      "type": "definition",
+      "title": "De tre rettemetodene",
+      "content": "Når en simulering viser energidrift, finnes tre grep, i denne rekkefølgen:\n\n**1. Bytt til Euler–Cromer.** Oppdater farten først og bruk den oppdaterte farten på posisjonen. Dette er nesten alltid det riktige svaret i dette emnet, det koster to linjers omskriving, og det fjerner driften helt.\n\n**2. Reduser steglengden.** Halverer du $dt$, halveres driften — men den forsvinner ikke. Med Forward Euler kjøper du bare tid, og for lange simuleringer blir det raskt uoverkommelig dyrt.\n\n**3. Bruk en høyere ordens metode.** Det finnes metoder der feilen går som $dt^4$ i stedet for $dt$. De er kraftigere, men mer å skrive.\n\n**Rangeringen er ikke tilfeldig.** Grep 1 fjerner årsaken; grep 2 og 3 demper symptomet. En besvarelse som bare foreslår mindre $dt$, har ikke sett hva som faktisk er galt."
+    },
+    {
+      "id": "fys1100-8-3-def-rk",
+      "type": "definition",
+      "title": "Runge–Kutta — beredskap, ikke satsingsområde",
+      "content": "En familie av høyere ordens metoder, der akselerasjonen evalueres flere ganger inne i hvert tidssteg og resultatene veies sammen. Den vanligste varianten har en feil som går som $dt^4$.\n\n**Dette er stoff du bare skal kjenne til.** Metoden er nevnt i emnebeskrivelsen, men Euler–Cromer er metoden sensor forventer og premierer, og det er den som skal kunne skrives for hånd. Det finnes ingen drill og ingen oppgaver på Runge–Kutta i denne boka, og du skal ikke bruke tid på å pugge koeffisientene.\n\n**Det du kan si i en besvarelse**, er at høyere ordens metoder finnes og gir raskere konvergens — som ett av tre mulige grep mot numerisk feil. Mer enn den ene setningen trengs ikke."
+    },
+    {
+      "id": "fys1100-8-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med egne ord, i to–tre setninger hver:\n\n**a)** hvorfor en planetbane som spiraler utover i en simulering, er et varsel om en feil og ikke om fysikk,\n\n**b)** hva halveringstesten er, og hva den skiller mellom,\n\n**c)** hvorfor «reduser $dt$» er et dårligere svar enn «bytt til Euler–Cromer» når banen spiraler.",
+        "solution": "**a)** Fordi gravitasjonen er en konservativ kraft: den mekaniske energien er bevart, og banens størrelse er bestemt av energien. En bane som utvider seg jevnt, betyr at energien vokser — og i en simulering av ren gravitasjon finnes ingen mekanisme som kan tilføre energi. Veksten må derfor komme fra metoden.\n\n**b)** Halveringstesten er å kjøre nøyaktig samme kode på nytt med halvert steglengde. Blir avviket om lag halvert, er det en **diskretiseringsfeil** som skyldes for grove tidssteg. Står avviket helt urørt, er det en **modellfeil** — et manglende kraftledd, et galt fortegn eller en feil initialbetingelse — og da hjelper det ikke å regne finere.\n\n**c)** Fordi mindre $dt$ bare demper symptomet, mens metodebyttet fjerner årsaken. Med Forward Euler er driften systematisk: den halveres når $dt$ halveres, men den forsvinner aldri, og for en lang simulering blir prisen i regnetid uoverkommelig. Euler–Cromer har ingen drift i det hele tatt, og omskrivingen koster to linjer.",
+        "hints": [
+          "I a): hvilken størrelse bestemmer hvor stor en bane blir, og skal den endre seg?",
+          "I b): hvilken av de to feiltypene ville brydd seg om hvor fint du regner?",
+          "I c): sammenlikn hva de to grepene gjør med driften på lang sikt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — kodemodifikasjon (~16 min)\n\nDen andre nyere undertypen er denne: du har en fungerende kode, og så kommer det en ny opplysning. En ny kraft, en ny betingelse, en ny effekt. **Vis hvordan du endrer koden.**\n\nOppgaven er lettere enn den ser ut, fordi svaret nesten alltid ligger i **én linje** — akselerasjonslinja. Løkkestrukturen, tabellene og initialbetingelsene er uendret.\n\nMen det er én ting som må sitte, og det er nettopp den sensor sjekker."
+    },
+    {
+      "id": "fys1100-8-3-def-kodemodifikasjon",
+      "type": "definition",
+      "title": "Kodemodifikasjon",
+      "content": "Å utvide en eksisterende simulering med et nytt kraftledd, ved å legge det til i akselerasjonslinja.\n\nFramgangsmåten er alltid den samme:\n\n1. skriv den nye kraften som en vektor, med retning;\n2. dekomponer den langs aksene;\n3. **del på massen**, med mindre kraften selv er proporsjonal med massen;\n4. legg leddet til i akselerasjonslinja med riktig fortegn.\n\n**Alt annet i koden er uendret.** Det er også noe du skal si eksplisitt i besvarelsen — at initialbetingelsene, løkkestrukturen og oppdateringsrekkefølgen er de samme. Da viser du at du vet hvor endringen hører hjemme, ikke bare at du klarte å skrive et nytt uttrykk.\n\n**Advarsel:** en besvarelse som kunne vært skrevet uten å ha lest den nye opplysningen, gir **null poeng**. Å endre for lite er dyrere enn å endre litt feil."
+    },
+    {
+      "id": "fys1100-8-3-def-masse",
+      "type": "definition",
+      "title": "Masseavhengig kontra masseuavhengig kraftledd",
+      "content": "Den ene detaljen som skiller de som får poeng fra de som ikke gjør det i en kodemodifikasjon.\n\n**Tyngden** er proporsjonal med massen, $F = mg$, så bidraget til akselerasjonen er $mg/m = g$ — massen forkortes, og den skal **ikke** stå i akselerasjonslinja.\n\n**Gravitasjonen fra et sentrallegeme** er også proporsjonal med legemets masse, $F = GMm/r^2$, så bidraget er $GM/r^2$ — masseuavhengig.\n\n**Alle andre krefter må deles på massen.** Luftmotstand $D\\lvert v\\rvert v$, fjærkraft $kx$, rullemotstand $F_r$, en solvind $s/r^2$ — ingen av dem inneholder legemets masse, så bidraget til akselerasjonen er kraften delt på $m$.\n\n$$a = \\frac{F}{m} \\quad \\text{alltid} \\qquad \\text{— men } \\frac{mg}{m} = g \\text{ og } \\frac{GMm/r^2}{m} = \\frac{GM}{r^2}$$\n\n**Testen er enkel:** står det en $m$ i kraftuttrykket? Da forkortes den. Gjør det ikke det? Da må du dele."
+    },
+    {
+      "id": "fys1100-8-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2 (eksamensnivå): Kometen møter en solvind",
+      "problem": "Kometen fra eksempel 1 har massen $m$. Sola begynner å sende ut en solvind som skyver kometen **radielt utover** med kraften\n\n$$F_s = \\frac{s}{r^2}$$\n\nder $s$ er en konstant og $r$ er avstanden til sola.\n\n**a)** Vis hvordan akselerasjonslinjene endres, og forklar hvorfor massen nå må stå i uttrykket.\n\n**b)** Vis at solvinden virker som en reduksjon av sentrallegemets gravitasjonsparameter, og finn den effektive verdien.\n\n**c)** Kjør simuleringen for $s/m = 0$, $4{,}00$ og $8{,}00\\ \\text{AU}^3/\\text{år}^2$, og tolk resultatet.\n\n**d)** Hva skjer når $s/m$ nærmer seg $GM$?",
+      "solution": "**Metodevalg:** vi skriver den nye kraften som en vektor, dekomponerer, deler på massen, og legger leddet til i akselerasjonslinjene. Resten av koden er uendret — samme tabeller, samme initialbetingelser, samme Euler–Cromer-løkke.\n\n**a)** Solvinden peker **utover**, altså langs $+\\hat{\\mathbf{r}}$, mens gravitasjonen peker innover. Enhetsvektoren utover har komponentene $x/r$ og $y/r$, så\n\n$$F_{s,x} = \\frac{s}{r^2}\\cdot\\frac{x}{r} = \\frac{s\\,x}{r^3}, \\qquad F_{s,y} = \\frac{s\\,y}{r^3}$$\n\nKraften $s/r^2$ inneholder **ingen** faktor $m$ — den er bestemt av kometens tverrsnitt og av solstrålingen, ikke av hvor tung kometen er. Akselerasjonsbidraget er derfor $F_s/m$, og massen blir stående:\n\n$$a_x = -\\frac{GM\\,x}{r^3} + \\frac{s}{m}\\cdot\\frac{x}{r^3}, \\qquad a_y = -\\frac{GM\\,y}{r^3} + \\frac{s}{m}\\cdot\\frac{y}{r^3}$$\n\nI kode blir de to linjene:\n\n```text\nax = -GM*x[i]/r**3 + (s/m)*x[i]/r**3\nay = -GM*y[i]/r**3 + (s/m)*y[i]/r**3\n```\n\n**Kontrasten er hele poenget.** Gravitasjonsleddet står uten masse, fordi gravitasjonskraften $GMm/r^2$ selv inneholder $m$ som forkortes. Solvindleddet står med masse, fordi $s/r^2$ ikke gjør det. **To ledd i samme linje, og bare det ene har en $m$ i nevneren — det er akkurat den forskjellen sensor ser etter.**\n\n**b)** Begge leddene har samme form, bare med motsatt fortegn:\n\n$$a_x = -\\frac{\\left(GM - s/m\\right)x}{r^3}$$\n\nSolvinden virker altså nøyaktig som om sola var lettere:\n\n$$GM_{\\text{eff}} = GM - \\frac{s}{m}$$\n\nDet er et pent resultat, og det er verdt å skrive ut: **en radiell $1/r^2$-kraft utover kan ikke skilles fra en svakere tyngdekraft**, så lenge den har samme avstandsavhengighet.\n\n**c)**\n\n```python\nimport numpy as np\n\nGM = 4 * np.pi**2\nN = 2501\ndt = 0.0010\n\nfor s_over_m in [0.0, 4.00, 8.00]:\n    x = np.zeros(N); y = np.zeros(N)\n    vx = np.zeros(N); vy = np.zeros(N)\n    x[0] = 1.00\n    vy[0] = 7.50\n    for i in range(N - 1):\n        r = np.sqrt(x[i]**2 + y[i]**2)\n        ax = -GM * x[i] / r**3 + s_over_m * x[i] / r**3\n        ay = -GM * y[i] / r**3 + s_over_m * y[i] / r**3\n        vx[i + 1] = vx[i] + ax * dt\n        vy[i + 1] = vy[i] + ay * dt\n        x[i + 1] = x[i] + vx[i + 1] * dt\n        y[i + 1] = y[i] + vy[i + 1] * dt\n    r = np.sqrt(x**2 + y**2)\n    print(\"s/m =\", s_over_m, \" storste avstand:\", round(np.max(r), 4), \"AU\")\n```\n\n**Utskrift:**\n\n```text\ns/m = 0.0  storste avstand: 2.4773 AU\ns/m = 4.0  storste avstand: 3.8249 AU\ns/m = 8.0  storste avstand: 6.4618 AU\n```\n\n**Tolkning:** solvinden svekker den innadrettede kraften, kometen holdes dårligere fast, og banen blir større. Med $s/m = 4{,}00$ er $GM_{\\text{eff}} = 39{,}478 - 4{,}00 = 35{,}478$, altså $10\\ \\%$ svakere, og aphelavstanden vokser fra $2{,}48$ til $3{,}82\\ \\text{AU}$ — en økning på $54\\ \\%$. **En liten endring i kraften gir en stor endring i banen**, fordi kometen allerede er nær grensen der banen ikke lenger lukker seg.\n\n**d)** Når $s/m \\to GM$, går $GM_{\\text{eff}} \\to 0$: den samlede radielle kraften forsvinner, og kometen fortsetter rett fram med konstant fart. For $s/m > GM$ blir den samlede kraften rettet **utover**, og kometen skyves bort fra sola og kommer aldri tilbake.\n\nOvergangen skjer i praksis før den grensen. Banen slutter å være lukket allerede når den mekaniske energien blir positiv, altså når\n\n$$\\frac12 v_0^2 - \\frac{GM_{\\text{eff}}}{r_0} > 0 \\quad \\Longrightarrow \\quad GM_{\\text{eff}} < \\frac12 \\cdot 7{,}50^2 \\cdot 1{,}00 = 28{,}125$$\n\naltså når $s/m > 39{,}478 - 28{,}125 = 11{,}35\\ \\text{AU}^3/\\text{år}^2$. Kjøringen med $s/m = 8{,}00$ ligger fortsatt under, og banen er lukket — men nå er omløpstiden vokst til over elleve år, og de $2{,}5$ årene koden simulerer, rekker ikke engang ut til aphel. De $6{,}46\\ \\text{AU}$ er der kometen står når løkka stopper, fortsatt på vei utover; den virkelige aphelavstanden er $8{,}39\\ \\text{AU}$. **Lærdommen er å sjekke at kjøringen faktisk dekker et helt omløp før du leser av en aphelavstand.**\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "fys1100-8-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kode simulerer en ladet støvpartikkel med masse $m$ i bane rundt en planet. Akselerasjonslinjene er\n\n```text\nax = -GM*x[i]/r**3\nay = -GM*y[i]/r**3\n```\n\nNå opplyses det at partikkelen i tillegg påvirkes av en konstant kraft $\\mathbf{F}_0$ med tallverdi $F_0$, rettet i positiv $x$-retning, og av en luftmotstand $-D\\lvert\\mathbf{v}\\rvert\\mathbf{v}$ fra en tynn gassky.\n\n**a)** Skriv de nye akselerasjonslinjene.\n\n**b)** For hvert av de tre kraftleddene: skal massen stå i uttrykket eller ikke? Begrunn hver av dem.\n\n**c)** Hvilke andre deler av koden må endres?\n\n**d)** En medstudent leverer koden uendret og skriver «kraften er så liten at den ikke betyr noe». Vurder svaret.",
+        "solution": "**Metodevalg:** hvert nytt kraftledd dekomponeres langs aksene og deles på massen, med mindre kraften selv inneholder massen som faktor.\n\n**a)**\n\n```text\nv = np.sqrt(vx[i]**2 + vy[i]**2)\nax = -GM*x[i]/r**3 + F0/m - (D/m)*v*vx[i]\nay = -GM*y[i]/r**3 - (D/m)*v*vy[i]\n```\n\nDen konstante kraften bidrar bare i $x$-retningen, siden den peker rent langs $x$-aksen.\n\n**b)** Tre ulike svar:\n\n*Gravitasjonsleddet:* **ingen masse.** Kraften er $GMm/r^2$, og massen forkortes mot $m$ i nevneren.\n\n*Den konstante kraften:* **massen skal stå.** $F_0$ er en oppgitt kraft i newton og inneholder ingen faktor $m$, så bidraget til akselerasjonen er $F_0/m$.\n\n*Luftmotstanden:* **massen skal stå.** Dragkraften $D\\lvert v\\rvert v$ er bestemt av tverrsnitt, form og gassens tetthet, ikke av partikkelens masse, så bidraget er $(D/m)v\\,v_x$.\n\n**Regelen i én setning:** står det en $m$ i kraftuttrykket, forkortes den; gjør det ikke det, må du dele.\n\n**c)** Bare én linje til: **fartens tallverdi $v$ må regnes ut** inne i løkka, siden den nå inngår i dragleddet. Den fantes ikke i den opprinnelige koden, fordi gravitasjonen ikke avhenger av farten.\n\nAlt annet er uendret: tabellene, initialbetingelsene, oppdateringsrekkefølgen og steglengden. **Det er verdt å si eksplisitt** — det viser at du vet hvor en modifikasjon hører hjemme.\n\n**d)** Svaret gir null poeng, og begrunnelsen gjør det verre, ikke bedre.\n\nFor det første er påstanden ubegrunnet: ingenting i oppgaven sier at kreftene er små, og «liten» er meningsløst uten en sammenlikning. En kraft er liten i forhold til noe.\n\nFor det andre er det ikke poenget. Deloppgaven tester om kandidaten kan oversette en ny kraft til en akselerasjonslinje med riktig fortegn, riktig dekomponering og riktig massebehandling. **En besvarelse som kunne vært skrevet uten å ha lest den nye opplysningen, kan per definisjon ikke vise den ferdigheten.**\n\nFor det tredje er påstanden sannsynligvis feil. En liten, konstant kraft som virker i samme retning over mange omløp, akkumulerer — det er nettopp slik ionemotorer flytter romsonder. Og luftmotstand er den ene kraften i systemet som **fjerner** energi systematisk, slik at banen krymper over tid uansett hvor svak den er.",
+        "hints": [
+          "Skriv hver ny kraft som en vektor og dekomponer den langs aksene.",
+          "For hvert ledd: let etter en faktor $m$ i selve kraftuttrykket.",
+          "I c): er det noe i de nye leddene som avhenger av en størrelse koden ikke regnet ut før?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — trapesmetoden på måledata (~18 min)\n\nDen tredje undertypen er annerledes. Her skal du ikke løse en differensiallikning i det hele tatt — du skal **integrere en tabell**.\n\nSituasjonen er denne: et forsøk har målt kraften på et legeme i en rekke posisjoner, og du skal finne arbeidet. Fra [kap. 5.1](/bok/fys1100/fys1100-5-1) vet du at\n\n$$W = \\int_{x_1}^{x_2} F(x)\\,dx$$\n\naltså arealet under kraftkurven. Men du har ingen funksjon $F(x)$ — du har åtte punkter.\n\n**Og punktene ligger ikke jevnt.** Det er nettopp det som gjør oppgaven verdt fem poeng."
+    },
+    {
+      "id": "fys1100-8-3-def-trapes",
+      "type": "definition",
+      "title": "Trapesmetoden på ujevne data",
+      "content": "Å tilnærme arealet under en målekurve med en rekke trapeser, ett mellom hvert par nabopunkt, der **hvert trapes får sin egen bredde**:\n\n$$W = \\sum_{i} \\frac{F_{i+1}+F_i}{2}\\left(x_{i+1}-x_i\\right)$$\n\nI kode:\n\n```text\nW = 0\nfor i in range(n-1):\n    W += (F[i+1] + F[i]) * (x[i+1] - x[i]) / 2\n```\n\nFaktoren $(F_{i+1}+F_i)/2$ er gjennomsnittshøyden i trapeset, og $(x_{i+1}-x_i)$ er bredden. Produktet er arealet.\n\n**Bredden må hentes fra dataene, ikke antas.** Skriver du en fast $\\Delta x$, regner du på et rutenett som ikke finnes — og feilen kan bli hvilken som helst størrelse, avhengig av hvordan punktene faktisk ligger."
+    },
+    {
+      "id": "fys1100-8-3-def-faststeg",
+      "type": "definition",
+      "title": "Fast-steglengde-fellen",
+      "content": "Å bruke den vanlige trapesformelen med konstant $\\Delta x$ på data som er ujevnt fordelt:\n\n$$W \\approx \\Delta x\\left(\\frac{F_0}{2} + F_1 + F_2 + \\dots + \\frac{F_{n-1}}{2}\\right), \\qquad \\Delta x = \\frac{x_{n-1}-x_0}{n-1}$$\n\nFormelen er riktig — for jevne data. På ujevne data gir den systematisk feil, fordi den vekter alle punktene likt uansett hvor tett de ligger.\n\nFor datasettet i eksempel 3 gir den riktige metoden $32{,}2\\ \\text{J}$ og fast-steg-formelen $22{,}9\\ \\text{J}$: **$29\\ \\%$ for lavt.** Retningen på feilen avhenger av hvor de tette punktene ligger — her ligger de der kraften er liten, og de får dermed altfor stor vekt.\n\n**Kontrollen er å se på dataene før du regner:** er avstandene like? Er de ikke det, må hver bredde regnes for seg."
+    },
+    {
+      "id": "fys1100-8-3-fig-trapes",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-8-3-trapes.svg",
+      "alt": "En graf med kraft mot strekning. Aatte roede maalepunkter ligger paa en stigende kurve, tettest til venstre der kraften er liten og glissent til hoyre der den er stor. Mellom hvert par av punkter er det tegnet et lyseblaatt trapes ned til x-aksen, og trapesene har tydelig ulik bredde.",
+      "caption": "Måledataene i eksempel 3. Legg merke til at trapesene har ulik bredde: $0{,}020\\ \\text{m}$ i starten og $0{,}090\\ \\text{m}$ til slutt. Det er nettopp den ulikheten som gjør at en fast $\\Delta x$ bommer med $29\\ \\%$."
+    },
+    {
+      "id": "fys1100-8-3-def-arbeidsintegral",
+      "type": "definition",
+      "title": "Arbeidsintegralet numerisk",
+      "content": "Å finne arbeidet fra måledata ved å summere arealet under kraftkurven, i stedet for å integrere en formel.\n\n$$W = \\int_{x_1}^{x_2} F(x)\\,dx \\qquad \\longrightarrow \\qquad W = \\sum_i \\frac{F_{i+1}+F_i}{2}\\Delta x_i$$\n\nMetoden gjelder for **kraftkomponenten langs bevegelsen**. Er kraften ikke parallell med forflytningen, er det $F\\cos\\theta$ som skal integreres — akkurat som i det analytiske arbeidsintegralet.\n\n**Trapesmetoden overvurderer arealet under en konveks kurve** (en som krummer oppover) og undervurderer det under en konkav. For en kraft som vokser stadig raskere med strekningen — en typisk fjær eller strikk — vil svaret derfor ligge litt for høyt, og avviket krymper når du måler tettere."
+    },
+    {
+      "id": "fys1100-8-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Arbeid fra en måleserie",
+      "problem": "En strikk strekkes langsomt, og kraften måles ved åtte posisjoner:\n\n| $x\\ (\\text{m})$ | $0{,}000$ | $0{,}020$ | $0{,}050$ | $0{,}090$ | $0{,}140$ | $0{,}220$ | $0{,}310$ | $0{,}400$ |\n|---|---|---|---|---|---|---|---|---|\n| $F\\ (\\text{N})$ | $0{,}0$ | $5{,}0$ | $13{,}5$ | $26{,}5$ | $45{,}4$ | $81{,}8$ | $132{,}1$ | $192{,}0$ |\n\n**a)** Skriv koden som finner arbeidet, og forklar hvorfor den ikke kan bruke en fast steglengde.\n\n**b)** Kjør koden, og oppgi arbeidet.\n\n**c)** En tilpasning til dataene gir $F(x) \\approx 240x + 600x^2$ i SI-enheter. Bruk den til å kontrollere svaret.\n\n**d)** Gjør en kvalitetssjekk av resultatet: benevning, størrelsesorden og retning på avviket.",
+      "solution": "**Metodevalg:** arbeidet er arealet under kraftkurven, og med bare åtte målepunkter er trapesmetoden den naturlige tilnærmingen. Kraften virker langs strekkretningen, så hele kraften bidrar til arbeidet — ingen $\\cos\\theta$ trengs.\n\n**a)** Avstandene mellom punktene er $0{,}020$, $0{,}030$, $0{,}040$, $0{,}050$, $0{,}080$, $0{,}090$ og $0{,}090\\ \\text{m}$ — de vokser med over en faktor fire gjennom serien. En fast steglengde ville derfor vektet de tette punktene i starten altfor tungt og de spredte til slutt altfor lett.\n\n```python\nimport numpy as np\n\nx = np.array([0.000, 0.020, 0.050, 0.090, 0.140, 0.220, 0.310, 0.400])\nF = np.array([0.0, 5.0, 13.5, 26.5, 45.4, 81.8, 132.1, 192.0])\n\nW = 0.0\nfor i in range(len(x) - 1):\n    W += (F[i + 1] + F[i]) * (x[i + 1] - x[i]) / 2\nprint(\"arbeid, trapes med ujevne steg:\", round(W, 3), \"J\")\n\ndx = (x[-1] - x[0]) / (len(x) - 1)\nWfeil = dx * (F[0] / 2 + np.sum(F[1:-1]) + F[-1] / 2)\nprint(\"arbeid, feilaktig fast steg:   \", round(Wfeil, 3), \"J\")\n```\n\n**Utskrift:**\n\n```text\narbeid, trapes med ujevne steg: 32.223 J\narbeid, feilaktig fast steg:    22.874 J\n```\n\n**b)** Arbeidet er $W = 32{,}2\\ \\text{J}$.\n\nFast-steg-formelen gir $22{,}9\\ \\text{J}$, altså $29\\ \\%$ for lavt. Det er en feil som er stor nok til å endre konklusjonen i en hvilken som helst oppgave — og den kommer utelukkende av å ha antatt et rutenett dataene ikke har.\n\n**c)** Med $F(x) = 240x + 600x^2$ er\n\n$$W = \\int_0^{0{,}400}\\left(240x + 600x^2\\right)dx = \\left[120x^2 + 200x^3\\right]_0^{0{,}400}$$\n\n$$W = 120\\cdot 0{,}1600 + 200\\cdot 0{,}0640 = 19{,}20 + 12{,}80 = 32{,}00\\ \\text{J}$$\n\nTrapessummen $32{,}22\\ \\text{J}$ ligger $0{,}7\\ \\%$ over. **Det er nøyaktig det fortegnet man skal vente:** kraftkurven krummer oppover, og et trapes mellom to punkt på en oppoverkrummet kurve ligger over kurven. Trapesmetoden **overvurderer** derfor arealet under en konveks kurve.\n\nLegger vi inn ett ekstra målepunkt midt i det siste, brede intervallet, faller summen til $32{,}17\\ \\text{J}$ — avviket krymper når dataene blir tettere, som det skal.\n\n**d)** Fire kontroller:\n\n*Benevning.* $[\\text{N}\\cdot\\text{m}] = \\text{J}$ ✓ — kraft ganger strekning er arbeid.\n\n*Størrelsesorden.* Kraften vokser fra null til $192\\ \\text{N}$ over $0{,}400\\ \\text{m}$. En grov middelkraft på om lag $80\\ \\text{N}$ over den strekningen gir $32\\ \\text{J}$ — samme størrelsesorden ✓. Et anslag på $77\\ \\text{J}$ (middelkraften satt lik maksimalkraften) ville vært for høyt, fordi kurven ligger under den rette linja mesteparten av veien.\n\n*Retning på avviket.* Trapes over en konveks kurve overvurderer, og svaret ligger over den analytiske verdien ✓. **At avviket har det fortegnet teorien forutsier, er en sterkere kontroll enn at det er lite.**\n\n*Rimelighet.* $32\\ \\text{J}$ er energien i en gjenstand på ett kilogram løftet drøyt tre meter. For en kraftig strukket strikk er det helt rimelig.\n\n**Sensorblikk:** deloppgaven har fem poeng, og de fordeler seg typisk som riktig formel med varierende bredde (2 p), riktig gjennomført summering (2 p) og enhet med kvalitetssjekk (1 p). **Å levere tallet uten et ord om enhet eller rimelighet er å la det siste poenget ligge**, og det er det billigste i hele oppgaven."
+    },
+    {
+      "id": "fys1100-8-3-handskrevet",
+      "type": "collapsible",
+      "title": "Slik ser den håndskrevne eksamensversjonen ut",
+      "buttonText": "Vis den håndskrevne versjonen",
+      "content": [
+        {
+          "id": "fys1100-8-3-handskrevet-tekst",
+          "type": "text",
+          "content": "Eksemplene over er kjørbare referanseversjoner, med import, tabeller og utskrift. På eksamen skriver du langt mindre. Dette er de tre kodeleddene i dette kapitlet, slik de faktisk forventes på papiret:\n\n**Kodemodifikasjon — bare de endrede linjene:**\n\n```text\nr = sqrt(x[i]**2 + y[i]**2)\nax = -GM*x[i]/r**3 + (s/m)*x[i]/r**3   # solvinden lagt til\nay = -GM*y[i]/r**3 + (s/m)*y[i]/r**3\n# resten av lokka uendret\n```\n\nTre linjer, pluss kommentaren om at resten er uendret. **Den kommentaren er verdt å skrive** — den viser at du vet hvor endringen hører hjemme.\n\n**Rettet integrasjonsløkke etter en feilvurdering:**\n\n```text\nfor i in range(N-1):\n    ...akselerasjonslinjene...\n    vx[i+1] = vx[i] + ax*dt      # begge farter FORST\n    vy[i+1] = vy[i] + ay*dt\n    x[i+1] = x[i] + vx[i+1]*dt   # OPPDATERTE farter\n    y[i+1] = y[i] + vy[i+1]*dt\n```\n\n**Trapessummen:**\n\n```text\nW = 0\nfor i in range(n-1):\n    W = W + (F[i+1] + F[i])*(x[i+1] - x[i])/2\n```\n\nFire linjer. Legg merke til at bredden hentes fra dataene i hvert eneste ledd — det er den ene detaljen som skiller full uttelling fra halv.\n\n**Hva som kan droppes:** import-linjer, opprettelsen av tabellene, innlesing av datafila, og all utskrift.\n\n**Hva som ikke kan droppes:** indeksene, massefaktoren på nye kraftledd, og den varierende bredden i trapessummen."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-8-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kraft måles langs en bevegelse i fem posisjoner:\n\n| $x\\ (\\text{m})$ | $0{,}00$ | $0{,}10$ | $0{,}30$ | $0{,}60$ | $1{,}00$ |\n|---|---|---|---|---|---|\n| $F\\ (\\text{N})$ | $20{,}0$ | $18{,}0$ | $14{,}0$ | $8{,}0$ | $0{,}0$ |\n\n**a)** Finn arbeidet med trapesmetoden, ledd for ledd.\n\n**b)** Hva ville en fast steglengde $\\Delta x = 0{,}25\\ \\text{m}$ gitt?\n\n**c)** Kraften følger tilsynelatende $F(x) = 20{,}0(1-x)$. Kontroller svaret analytisk.\n\n**d)** Hvorfor treffer trapesmetoden eksakt i dette tilfellet, mens den bommet med $0{,}7\\ \\%$ i eksempel 3?",
+        "solution": "**Metodevalg:** vi summerer arealene av de fire trapesene, hvert med sin egen bredde.\n\n**a)** De fire leddene:\n\n$$\\frac{20{,}0+18{,}0}{2}\\cdot 0{,}10 = 1{,}90\\ \\text{J}$$\n\n$$\\frac{18{,}0+14{,}0}{2}\\cdot 0{,}20 = 3{,}20\\ \\text{J}$$\n\n$$\\frac{14{,}0+8{,}0}{2}\\cdot 0{,}30 = 3{,}30\\ \\text{J}$$\n\n$$\\frac{8{,}0+0{,}0}{2}\\cdot 0{,}40 = 1{,}60\\ \\text{J}$$\n\n$$W = 1{,}90 + 3{,}20 + 3{,}30 + 1{,}60 = 10{,}0\\ \\text{J}$$\n\n**b)** Med $\\Delta x = 0{,}25\\ \\text{m}$ og fem punkt:\n\n$$W = 0{,}25\\left(\\frac{20{,}0}{2} + 18{,}0 + 14{,}0 + 8{,}0 + \\frac{0{,}0}{2}\\right) = 0{,}25 \\cdot 50{,}0 = 12{,}5\\ \\text{J}$$\n\naltså $25\\ \\%$ for høyt. Her ligger de tette punktene der kraften er **stor**, så de får for stor vekt og svaret blir for høyt — motsatt retning av eksempel 3, der de tette punktene lå der kraften var liten.\n\n**Legg merke til at fortegnet på feilen ikke er en egenskap ved metoden, men ved hvordan punktene er fordelt.** Det er derfor det ikke finnes noen «korreksjonsfaktor» — den eneste kuren er å bruke de faktiske bredene.\n\n**c)** $$W = \\int_0^{1{,}00} 20{,}0(1-x)\\,dx = 20{,}0\\left[x - \\frac{x^2}{2}\\right]_0^{1{,}00} = 20{,}0 \\cdot 0{,}500 = 10{,}0\\ \\text{J}$$\n\nTrapessummen treffer eksakt ✓.\n\n**d)** Fordi kraften her er en **rett linje**, og et trapes mellom to punkt på en rett linje følger linja nøyaktig — det er ingen krumning å bomme på. Trapesmetoden er eksakt for alle lineære funksjoner, uansett hvor grovt du deler opp.\n\nI eksempel 3 var kraften kvadratisk, altså krummet, og trapesene lå over kurven. **Generelt er trapesfeilen bestemt av den andrederiverte:** ingen krumning gir ingen feil, oppoverkrumning gir for høyt svar, nedoverkrumning gir for lavt.",
+        "hints": [
+          "Regn ut hvert trapes for seg: gjennomsnittshøyde ganger sin egen bredde.",
+          "I b): fem punkt gir fire like intervaller når du antar fast steglengde.",
+          "I d): hvordan ser et trapes ut mellom to punkt på en rett linje?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — kvalitetssjekk av et numerisk svar (~12 min)\n\nEt numerisk svar er et tall uten historie. Det kommer ikke med en utledning du kan lese fortegnene ut av, og det protesterer ikke om det er feil med en faktor tusen.\n\nDerfor har alle numeriske svar i denne boka en kvalitetssjekk knyttet til seg, og derfor skal din også ha det."
+    },
+    {
+      "id": "fys1100-8-3-def-kvalitetssjekk",
+      "type": "definition",
+      "title": "Kvalitetssjekk av et numerisk svar",
+      "content": "De fire kontrollene som skal følge ethvert tall som kommer ut av en kode:\n\n**1. Benevning.** Har svaret riktig enhet? En terminalfart i $\\text{m}^2/\\text{s}^2$ er en glemt kvadratrot; et arbeid i $\\text{N}$ er en glemt strekning.\n\n**2. Størrelsesorden.** Er tallet fysisk rimelig? En sykkel i $200\\ \\text{km/h}$, en pendel med sekstisekundersperiode eller et kast på ti kilometer er varsler som en enkel overslagsregning fanger.\n\n**3. Grensetilfelle.** Slå av det vanskelige leddet og sjekk mot en kjent formel. Dette er den sterkeste av de fire, fordi den tester hele koden mot en uavhengig fasit.\n\n**4. Konvergens.** Halvér steglengden — eller mål tettere — og se om svaret er stabilt.\n\n**Alle fire kan skrives i en håndskrevet besvarelse uten maskin**, og til sammen tar de under et minutt. De er blant de billigste poengene i hele settet."
+    },
+    {
+      "id": "fys1100-8-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student har skrevet en kode for en satellitt i bane og får disse resultatene. Vurder hvert av dem med en kvalitetssjekk, og si hva som mest sannsynlig er galt der noe er galt.\n\n**a)** Banefarten i en sirkelbane om jorda i $400\\ \\text{km}$ høyde blir $7{,}67\\ \\text{m/s}$.\n\n**b)** Omløpstiden for den samme banen blir $5540\\ \\text{s}$.\n\n**c)** Radien i det som skulle vært en sirkelbane, vokser jevnt fra $6{,}78\\cdot 10^6\\ \\text{m}$ til $7{,}12\\cdot 10^6\\ \\text{m}$ i løpet av ti omløp.\n\n**d)** Arbeidet fra en måleserie blir $-45\\ \\text{J}$, mens kraften er positiv i alle målepunktene og bevegelsen går i positiv retning.",
+        "solution": "**Metodevalg:** vi bruker de fire kontrollene — benevning, størrelsesorden, grensetilfelle og konvergens — på hvert resultat.\n\n**a)** **Størrelsesorden er feil.** En satellitt i lav bane går i om lag $7{,}7\\ \\text{km/s}$, ikke $7{,}7\\ \\text{m/s}$ — sistnevnte er gangfart, og ingenting i bane går så sakte. Tallverdien $7{,}67$ stemmer derimot påfallende godt med $7{,}67\\ \\text{km/s}$.\n\nMest sannsynlig feil: **enhetsblanding**. Radien er sannsynligvis oppgitt i kilometer mens $GM$ er i SI, eller motsatt. Dette er den klassiske feilen ingen kode oppdager, og den fanges bare av en størrelsesordenskontroll.\n\n**b)** **Dette er riktig.** $5540\\ \\text{s}$ er $92\\ \\text{minutter}$, som er nøyaktig omløpstiden for en lav jordbane — den er velkjent fra bemannede romferder. Kontroll: $T_p = 2\\pi r/v = 2\\pi \\cdot 6{,}78\\cdot 10^6/7670 = 5554\\ \\text{s}$ ✓.\n\nLegg merke til at b) er **konsistent med den riktige farten** $7{,}67\\ \\text{km/s}$, ikke med den feilaktige $7{,}67\\ \\text{m/s}$. Det bekrefter diagnosen i a): selve fysikken i koden er riktig, det er utskriften eller enhetstolkningen som er gal.\n\n**c)** **Dette er energidrift.** En sirkelbane skal ha konstant radius, og en vekst på $5\\ \\%$ over ti omløp er nøyaktig signaturen til Forward Euler.\n\nDiagnosen bekreftes med halveringstesten: halvér $dt$ og se om veksten halveres. Rettemetoden er å bytte til Euler–Cromer, altså oppdatere begge fartskomponentene før begge posisjonskomponentene og bruke de oppdaterte fartene.\n\n**d)** **Fortegnet er umulig.** Er kraften positiv i alle målepunktene og forflytningen positiv, er hvert eneste trapesledd positivt, og summen kan ikke bli negativ.\n\nMest sannsynlig feil: **posisjonene er lest inn i motsatt rekkefølge**, slik at hver bredde $x_{i+1}-x_i$ blir negativ. Da får summen riktig tallverdi og galt fortegn — og $+45\\ \\text{J}$ er sannsynligvis det riktige svaret.\n\n**Dette er et godt eksempel på hvorfor fortegnskontroll er verdt noe:** feilen er usynlig i tallverdien og åpenbar i fortegnet.",
+        "hints": [
+          "I a) og b): hva vet du om størrelsesorden for satellittfarter og omløpstider i lav bane?",
+          "I c): hva skal radien gjøre i en sirkelbane, og hvilken metode gir jevn vekst?",
+          "I d): kan en sum av positive ledd bli negativ?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å ikke gjenkjenne energilekkasjen som en metodefeil.** Den dyreste feilen i feilvurderingsoppgavene: å lete etter en fysisk forklaring på en spiral som bare er Forward Euler. Gravitasjonen er konservativ, så en voksende bane kan ikke være fysikk i denne modellen.\n\n**Å glemme massen i et nytt kraftledd.** Gravitasjonsleddet står uten $m$ fordi kraften $GMm/r^2$ selv inneholder massen. Et nytt ledd som $s/r^2$ eller $F_0$ gjør det ikke, og må deles. **To ledd i samme akselerasjonslinje der bare det ene har $m$ i nevneren — det er akkurat der poengene ligger.**\n\n**Å endre for lite i en kodemodifikasjon.** En besvarelse som kunne vært skrevet uten den nye opplysningen, gir **null poeng**. «Kraften er så liten at den ikke betyr noe» er ikke et svar på en deloppgave som ber deg vise endringen.\n\n**Fast $\\Delta x$ på ujevne måledata.** Ga $29\\ \\%$ for lavt svar i eksempel 3 og $25\\ \\%$ for høyt i oppgave 3 — retningen avhenger av hvor de tette punktene ligger. Hver bredde må hentes fra dataene.\n\n**Å glemme å regne ut fellesfarten når et fartsavhengig ledd legges til.** Legger du drag til en gravitasjonskode, må $v = \\sqrt{v_x^2+v_y^2}$ regnes ut inne i løkka. Den fantes ikke der før, fordi gravitasjonen ikke avhenger av farten.\n\n**Å levere et numerisk svar uten kvalitetssjekk.** Benevning, størrelsesorden, grensetilfelle og fortegn tar under et minutt til sammen, og de er poenggivende. Et bart tall er dessuten den dyreste enkeltfeilen i hele emnet — **felle #1** i feilregisteret, tallsvar uten resonnement.\n\n**Å blande enheter i baneproblemer.** I astronomiske enheter er $GM = 4\\pi^2\\ \\text{AU}^3/\\text{år}^2$; i SI er $GM$ for sola om lag $1{,}33\\cdot 10^{20}\\ \\text{m}^3/\\text{s}^2$. Blander du de to systemene, får du et pent tall som er galt med mange tierpotenser, og ingen feilmelding."
+    },
+    {
+      "id": "fys1100-8-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Eksamensnivå, sjanger H med kvalitativ del.)** En student modellerer en romsonde i bane rundt en planet med denne løkka:\n\n```python\nfor i in range(N - 1):\n    r = np.sqrt(x[i]**2 + y[i]**2)\n    ax = -GM * x[i] / r**2\n    ay = -GM * y[i] / r**2\n    x[i + 1] = x[i] + vx[i] * dt\n    y[i + 1] = y[i] + vy[i] * dt\n    vx[i + 1] = vx[i] + ax * dt\n    vy[i + 1] = vy[i] + ay * dt\n```\n\nSonden skulle gå i en lukket ellipsebane, men banen blir helt gal.\n\n**a)** Finn de to feilene, og si for hver av dem om den er en modellfeil eller en metodefeil.\n\n**b)** Hva ville halveringstesten vist for hver av dem?\n\n**c)** Skriv den rettede løkka.\n\n**d)** Sonden får nå en ionemotor som gir en konstant kraft $F_m$ i fartsretningen. Vis hvordan akselerasjonslinjene endres.\n\n**e)** Forklar hvorfor en slik motor over tid gjør banen større, uten å regne.",
+        "solution": "**Metodevalg:** vi sammenlikner koden med bevegelseslikningene på komponentform og med Euler–Cromer-malen, og klassifiserer hver feil etter om den ligger i likningen eller i løsningsmetoden.\n\n**a)** To feil:\n\n**Feil 1 — feil potens i nevneren. Modellfeil.** Det står `r**2`, men riktig er `r**3`. Gravitasjonskraften går som $1/r^2$, og komponenten legger til en faktor $x/r$ fra enhetsvektoren — til sammen $x/r^3$. Med $r^2$ i nevneren blir kraften proporsjonal med $x/r^2$, altså en kraft som avtar som $1/r$ i stedet for $1/r^2$. **Dette er en annen fysikk**, og den gir ingen lukkede ellipsebaner i det hele tatt.\n\n**Feil 2 — Forward Euler. Metodefeil.** Posisjonene oppdateres før fartene og bruker de gamle fartene. Riktig er Euler–Cromer: begge fartene først, deretter begge posisjonene med de oppdaterte fartene. Konsekvensen er energidrift, altså en bane som spiraler utover.\n\n**b)** Halveringstesten skiller dem skarpt:\n\n*Feil 1 (modellfeil):* banen ville sett **nøyaktig like gal ut** med halvert $dt$. Koden løser en annen likning, og den løses bare mer og mer nøyaktig.\n\n*Feil 2 (metodefeil):* spiralingen ville vært om lag **halvert**. Driften er en diskretiseringseffekt og krymper med $dt$.\n\nTesten er altså ikke bare diagnostisk — den forteller deg hvilken av de to feilene som dominerer, og dermed hva du skal lete etter først.\n\n**c)**\n\n```text\nfor i in range(N-1):\n    r = np.sqrt(x[i]**2 + y[i]**2)\n    ax = -GM*x[i]/r**3\n    ay = -GM*y[i]/r**3\n    vx[i+1] = vx[i] + ax*dt      # begge farter FORST\n    vy[i+1] = vy[i] + ay*dt\n    x[i+1] = x[i] + vx[i+1]*dt   # OPPDATERTE farter\n    y[i+1] = y[i] + vy[i+1]*dt\n```\n\n**d)** Kraften peker langs farten, altså langs enhetsvektoren $\\mathbf{v}/v$ med $v = \\sqrt{v_x^2+v_y^2}$. Komponentene blir $F_m v_x/v$ og $F_m v_y/v$, og siden $F_m$ er en oppgitt kraft uten faktor $m$, må den deles på sondens masse:\n\n```text\nv = np.sqrt(vx[i]**2 + vy[i]**2)\nax = -GM*x[i]/r**3 + (Fm/m)*vx[i]/v\nay = -GM*y[i]/r**3 + (Fm/m)*vy[i]/v\n```\n\nMerk de to nye tingene: **fellesfarten $v$ må regnes ut** (den fantes ikke i den opprinnelige koden, fordi gravitasjonen ikke avhenger av farten), og **massen står i nevneren** på det nye leddet, men ikke på gravitasjonsleddet.\n\n**e)** Fordi kraften peker **langs** bevegelsen i hvert eneste øyeblikk. Arbeidet en kraft gjør, er $\\mathbf{F}\\cdot d\\mathbf{r}$, og når kraften og forflytningen er parallelle, er arbeidet positivt hele veien. Sonden får altså tilført mekanisk energi kontinuerlig.\n\nBanens størrelse er bestemt av den mekaniske energien: den store halvaksen er $a = GM/(2\\lvert E/m\\rvert)$, så voksende energi gir voksende bane. Motoren skyver derfor sonden gradvis utover i stadig større baner.\n\n**Det er verdt å merke seg kontrasten til feil 2:** Forward Euler ga *også* en bane som spiralerte utover. Forskjellen er at ionemotoren er **fysikk** — det er en ekte kraft som gjør ekte arbeid — mens Forward Euler er en **metodefeil** uten fysisk innhold. **Halveringstesten skiller dem:** motoreffekten står urørt når du regner finere, energidriften halveres.",
+        "hints": [
+          "Sammenlikn nevneren med komponentformen for en sentralkraft — hvilken potens skal det være?",
+          "Se på rekkefølgen av de fire oppdateringslinjene og hvilke indekser fartene har.",
+          "I e): hvilken vinkel er det mellom kraften og forflytningen, og hva gjør det med arbeidet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et forsøk måler dragkraften på en modellbil i en vindtunnel ved sju vindhastigheter:\n\n| $v\\ (\\text{m/s})$ | $0{,}0$ | $5{,}0$ | $8{,}0$ | $12{,}0$ | $18{,}0$ | $25{,}0$ | $30{,}0$ |\n|---|---|---|---|---|---|---|---|\n| $F_D\\ (\\text{N})$ | $0{,}0$ | $1{,}1$ | $2{,}9$ | $6{,}5$ | $14{,}5$ | $28{,}0$ | $40{,}3$ |\n\n**a)** Passer dataene best med en lineær eller en kvadratisk dragmodell? Begrunn med tall.\n\n**b)** Anslå dragkoeffisienten, og oppgi enheten.\n\n**c)** Bilen har masse $2{,}40\\ \\text{kg}$ og settes til å rulle fritt fra $30{,}0\\ \\text{m/s}$ på et vannrett underlag uten rullemotstand. Skriv koden som finner hvor langt den ruller før farten er halvert.\n\n**d)** Uten å kjøre koden: er strekningen større eller mindre enn den ville vært med lineær drag med samme kraft ved $30\\ \\text{m/s}$? Begrunn.",
+        "solution": "**Metodevalg:** vi tester de to modellene mot dataene ved å se om $F_D/v$ eller $F_D/v^2$ er tilnærmet konstant. En konstant kvotient betyr at modellen passer.\n\n**a)** Vi regner ut begge kvotientene:\n\n| $v$ | $F_D/v$ | $F_D/v^2$ |\n|---|---|---|\n| $5{,}0$ | $0{,}220$ | $0{,}0440$ |\n| $8{,}0$ | $0{,}363$ | $0{,}0453$ |\n| $12{,}0$ | $0{,}542$ | $0{,}0451$ |\n| $18{,}0$ | $0{,}806$ | $0{,}0448$ |\n| $25{,}0$ | $1{,}120$ | $0{,}0448$ |\n| $30{,}0$ | $1{,}343$ | $0{,}0448$ |\n\n$F_D/v$ vokser med en faktor seks gjennom serien, mens $F_D/v^2$ holder seg konstant innenfor om lag $3\\ \\%$. **Dataene passer klart best med den kvadratiske modellen** $F_D = Dv^2$.\n\n**b)** $$D \\approx 0{,}0448\\ \\text{kg/m}$$\n\nEnhetskontroll: $[F_D/v^2] = \\text{N}/(\\text{m/s})^2 = (\\text{kg}\\cdot\\text{m/s}^2)\\cdot\\text{s}^2/\\text{m}^2 = \\text{kg/m}$ ✓ — nettopp enheten en kvadratisk dragkoeffisient skal ha.\n\n**c)** Bevegelseslikningen med bare drag, positiv retning framover:\n\n$$m\\frac{dv}{dt} = -D\\lvert v\\rvert v \\qquad \\Longrightarrow \\qquad \\frac{dv}{dt} = -\\frac{D}{m}\\lvert v\\rvert v$$\n\n```text\nm = 2.40\nD = 0.0448\nN = 200000\ndt = 0.0010\n\nx[0] = 0.0\nv[0] = 30.0\n\nfor i in range(N-1):\n    a = -(D/m)*abs(v[i])*v[i]\n    v[i+1] = v[i] + a*dt\n    x[i+1] = x[i] + v[i+1]*dt\n    if v[i+1] < 15.0:\n        break\n```\n\nAbsoluttverdien er strengt tatt ikke nødvendig her, siden bilen aldri snur — **men betingelsen må da skrives ut**, og det er billigere å ta den med enn å begrunne at den kan sløyfes.\n\n**d)** **Strekningen blir større med kvadratisk drag.** Argumentet er dette: de to modellene gir per forutsetning **samme** kraft ved $30\\ \\text{m/s}$. Ved lavere fart gir den kvadratiske modellen mindre kraft, siden $v^2$ faller raskere enn $v$ når farten synker. Ved $15\\ \\text{m/s}$ er den kvadratiske kraften en firedel av startverdien, mens den lineære er en halvdel.\n\nBilen bremses altså svakere gjennom hele forløpet med den kvadratiske modellen, og ruller lenger før farten er halvert.\n\n**Kontroll med tall:** ved $15\\ \\text{m/s}$ er den kvadratiske kraften $0{,}0448 \\cdot 225 = 10{,}1\\ \\text{N}$ mot den lineære $1{,}343 \\cdot 15 = 20{,}1\\ \\text{N}$ — dobbelt så stor bremsing i den lineære modellen ved halv fart. Forskjellen vokser jo lavere farten blir, så konklusjonen holder ubetinget så lenge farten avtar.",
+        "hints": [
+          "I a): en modell passer når kraften delt på den antatte fartsavhengigheten er konstant.",
+          "I b): les av middelverdien av den kvotienten som var konstant.",
+          "I d): sammenlikn de to kreftene ved en fart LAVERE enn $30\\ \\text{m/s}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Kvalitativ.)** Svar i to–fire setninger per punkt.\n\n**a)** En student skriver: «Jeg fikk en spiral, så jeg reduserte $dt$ med en faktor ti, og da ble den nesten borte. Problemet er løst.» Vurder svaret.\n\n**b)** Hvorfor er det verre å endre for lite enn å endre litt feil i en kodemodifikasjonsoppgave?\n\n**c)** En tabell med måledata har jevne intervaller. Er det da likegyldig hvilken trapesformel du bruker? Begrunn.",
+        "solution": "**a)** Diagnosen er halvveis riktig og løsningen halvveis god. Det er riktig at spiralen krymper når $dt$ krymper — det bekrefter at den er en diskretiseringseffekt og ikke fysikk, og det er nettopp halveringstesten. Men konklusjonen er for rask.\n\nMed Forward Euler er driften **systematisk**: den er bare skjøvet under målenøyaktigheten for akkurat denne simuleringslengden, og den kommer tilbake så snart forløpet blir lengre. Studenten har dessuten betalt med ti ganger så mange steg, altså ti ganger regnetiden.\n\nRiktig grep er å bytte til Euler–Cromer. Det fjerner årsaken, koster to linjers omskriving, og gjør det mulig å bruke den opprinnelige steglengden. **Å dempe et symptom man kunne fjernet, er sjelden et godt bytte.**\n\n**b)** Fordi de to feilene rammer ulikt. En liten feil i et nytt kraftledd — feil fortegn, glemt masse — er fortsatt et forsøk på å gjøre det oppgaven ber om, og det gis uttelling for en god løsningsidé selv når den ikke er fullført.\n\nEn besvarelse som lar koden stå uendret, viser derimot **ingenting** av den ferdigheten deloppgaven tester. Den kunne vært levert av en kandidat som ikke hadde lest den nye opplysningen i det hele tatt, og den gir derfor null poeng. Regelen om at det gis poeng for en god idé, forutsetter at det finnes en idé.\n\n**c)** Nei, ikke likegyldig — men de to formlene gir da **samme svar**, og det er noe annet.\n\nMed jevne intervaller er $x_{i+1}-x_i$ den samme for alle ledd, og summen $\\sum (F_{i+1}+F_i)\\Delta x/2$ kan omskrives til den kjente formen $\\Delta x\\left(F_0/2 + F_1 + \\dots + F_{n-1}/2\\right)$. De er algebraisk identiske.\n\n**Den generelle formen er likevel å foretrekke**, fordi den er riktig i begge tilfeller. Skriver du alltid $(x_{i+1}-x_i)$, kan du aldri gå i fast-steg-fella — og du slipper å avgjøre om dataene er jevne nok, som ikke alltid er opplagt.",
+        "hints": [
+          "I a): hva skjer med driften hvis simuleringen kjøres dobbelt så lenge?",
+          "I b): hva tester deloppgaven, og hva viser en uendret kode om den ferdigheten?",
+          "I c): skriv ut summen for et jevnt datasett og se om de to formene er like."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En komet har mekanisk energi per masseenhet $E/m = \\tfrac12 v^2 - GM/r$. I astronomiske enheter er $GM = 4\\pi^2\\ \\text{AU}^3/\\text{år}^2$.\n\n**a)** Kometen er i $r = 1{,}00\\ \\text{AU}$ med farten $7{,}50\\ \\text{AU/år}$. Finn energien og avgjør om banen er lukket.\n\n**b)** Finn den store halvaksen og aphelavstanden, gitt $E/m = -GM/(2a)$.\n\n**c)** Hvorfor er nettopp energien et godt måltall for å avsløre en metodefeil i en banesimulering?\n\n**d)** Hvilken fart ville gitt en åpen bane fra samme startpunkt?",
+        "solution": "**Metodevalg:** vi bruker energien per masseenhet direkte, siden alle baneegenskapene følger av den. Fortegnet på energien avgjør om banen er lukket.\n\n**a)** $$\\frac{E}{m} = \\frac12 \\cdot 7{,}50^2 - \\frac{4\\pi^2}{1{,}00} = 28{,}125 - 39{,}478 = -11{,}353\\ \\text{AU}^2/\\text{år}^2$$\n\nEnergien er **negativ**, altså er banen lukket: kometen er bundet til sola og kommer tilbake. En positiv energi ville betydd at kometen har nok fart til å komme uendelig langt bort.\n\n**b)** $$a = \\frac{GM}{2\\lvert E/m\\rvert} = \\frac{39{,}478}{2 \\cdot 11{,}353} = \\frac{39{,}478}{22{,}706} = 1{,}739\\ \\text{AU}$$\n\nStartpunktet er perihel, siden farten står vinkelrett på radien og er større enn sirkelbanefarten $\\sqrt{GM/r_0} = 6{,}28\\ \\text{AU/år}$. Aphelavstanden følger av at de to ytterpunktene til sammen er den store aksen:\n\n$$r_{\\text{aphel}} = 2a - r_{\\text{perihel}} = 2 \\cdot 1{,}7386 - 1{,}00 = 2{,}477\\ \\text{AU}$$\n\n**c)** Fordi energien er **bevart** i en ren gravitasjonsmodell, og fordi den bestemmer banens størrelse gjennom $a = GM/(2\\lvert E/m\\rvert)$.\n\nDet gir tre fordeler. Energien er ett tall som kan sammenliknes direkte gjennom hele simuleringen, i motsetning til posisjonen, som forandrer seg hele tiden. Den er regnet ut på en helt annen vei enn koden går, så samsvar er ekte informasjon. Og et avvik er **entydig** en feil, siden ingen fysisk mekanisme i modellen kan endre energien.\n\n**Regelen er generell:** finn en bevart størrelse, og bruk den som feildetektor. For en svingning er det den mekaniske energien; for en bane er det i tillegg spinnet.\n\n**d)** En åpen bane krever $E/m \\ge 0$:\n\n$$\\frac12 v^2 \\ge \\frac{GM}{r_0} \\quad \\Longrightarrow \\quad v \\ge \\sqrt{\\frac{2GM}{r_0}} = \\sqrt{\\frac{2 \\cdot 39{,}478}{1{,}00}} = 8{,}89\\ \\text{AU/år}$$\n\nDette er **unnslipningsfarten** fra avstanden $1{,}00\\ \\text{AU}$. Kometen med $7{,}50\\ \\text{AU/år}$ ligger under, og er derfor bundet — som energiregnestykket i a) alt viste.\n\n**Kontroll:** unnslipningsfarten er $\\sqrt{2}$ ganger sirkelbanefarten, altså $\\sqrt{2}\\cdot 6{,}283 = 8{,}886\\ \\text{AU/år}$ ✓ — samme tall, funnet på to måter.",
+        "hints": [
+          "Sett inn tallene i uttrykket for energien og se på fortegnet.",
+          "I b): perihel og aphel ligger til sammen to halvakser fra hverandre.",
+          "I d): hvilken betingelse på energien skiller en lukket bane fra en åpen?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-8-3-bb-1",
+      "type": "definition",
+      "title": "Bevart størrelse som feildetektor",
+      "content": "Den mest treffsikre kontrollen på en simulering: finn en størrelse som fysisk skal være konstant, og se om den er det.\n\nFor en svingning eller en bane er det den **mekaniske energien**. For et system uten ytre kraftmoment er det i tillegg **spinnet**.\n\nKontrollen er sterk av tre grunner: størrelsen er ett tall som kan følges gjennom hele forløpet, den er regnet ut på en annen vei enn koden går, og et avvik er entydig en feil — ingen fysisk mekanisme i modellen kan endre den."
+    },
+    {
+      "id": "fys1100-8-3-bb-2",
+      "type": "definition",
+      "title": "Effektiv gravitasjonsparameter",
+      "content": "Resultatet av at en radiell $1/r^2$-kraft utover legges til gravitasjonen: de to leddene slås sammen til ett.\n\n$$a_r = -\\frac{GM}{r^2} + \\frac{s/m}{r^2} = -\\frac{GM - s/m}{r^2} \\quad \\Longrightarrow \\quad GM_{\\text{eff}} = GM - \\frac{s}{m}$$\n\n**En radiell $1/r^2$-kraft utover kan ikke skilles fra en svakere tyngdekraft**, så lenge den har samme avstandsavhengighet. Kometen oppfører seg nøyaktig som om sola var lettere.\n\nSammenslåingen er også et godt eksempel på hvorfor det lønner seg å skrive uttrykk symbolsk før man setter inn tall: strukturen blir synlig."
+    },
+    {
+      "id": "fys1100-8-3-bb-3",
+      "type": "definition",
+      "title": "Interpolasjon mellom to datapunkt",
+      "content": "Å finne en verdi mellom to lagrede punkt ved å anta rett linje imellom.\n\nTrengs typisk ved nedslag, der løkka først oppdager at $y$ er blitt negativ. Brøkdelen av det siste steget er\n\n$$f = \\frac{y_{n-1}}{y_{n-1}-y_n}$$\n\nog nedslagspunktet blir $x_{n-1} + f\\left(x_n - x_{n-1}\\right)$.\n\nSamme idé ligger under trapesmetoden: begge antar rett linje mellom nabopunkt, og begge er derfor eksakte for lineære forløp og tilnærmet ellers."
+    },
+    {
+      "id": "fys1100-8-3-bb-4",
+      "type": "definition",
+      "title": "Størrelsesordenskontroll",
+      "content": "Å sammenlikne et numerisk svar med et grovt overslag før man stoler på det.\n\nNoen faste holdepunkter i mekanikk: en satellitt i lav jordbane går i om lag $7{,}7\\ \\text{km/s}$ med omløpstid $90\\ \\text{minutter}$; en fallskjermhopper i fritt fall når $50$–$60\\ \\text{m/s}$; en sekundpendel er en halv meter lang; et menneske yter i størrelsesorden $100\\ \\text{W}$ over tid.\n\n**Kontrollen fanger den ene feiltypen ingen annen tar:** enhetsblanding. En kode som får kilometer og meter i samme regnestykke, gir et pent tall som er galt med en faktor tusen — og som ikke utløser noen feilmelding."
+    },
+    {
+      "id": "fys1100-8-3-bb-5",
+      "type": "definition",
+      "title": "Konvergens i trapesmetoden",
+      "content": "At trapessummen nærmer seg det riktige integralet når målepunktene ligger tettere.\n\nFeilen i ett trapes går som $h^3 f''$, der $h$ er bredden. Summert over hele intervallet går den samlede feilen som $h^2$: **halverer du avstanden mellom punktene, blir feilen en firedel.**\n\nDet gjør trapesmetoden til en andreordens metode, altså bedre enn Euler–Cromer på sitt felt. For datasettet i eksempel 3 falt avviket fra $0{,}7\\ \\%$ til $0{,}5\\ \\%$ ved å legge inn ett eneste ekstra punkt i det bredeste intervallet."
+    },
+    {
+      "id": "fys1100-8-3-bb-6",
+      "type": "definition",
+      "title": "Fortegnet på trapesfeilen",
+      "content": "Trapesmetoden **overvurderer** arealet under en konveks kurve (en som krummer oppover) og **undervurderer** det under en konkav.\n\nGrunnen er geometrisk: en rett linje mellom to punkt på en oppoverkrummet kurve ligger over kurven, så trapeset dekker mer enn arealet.\n\nFor en fjær eller strikk, der kraften vokser stadig raskere med strekningen, ligger trapessummen derfor litt for høyt. **At avviket har det fortegnet teorien forutsier, er en sterkere kontroll enn at det er lite** — et lite avvik med feil fortegn er et varsel."
+    },
+    {
+      "id": "fys1100-8-3-bb-7",
+      "type": "definition",
+      "title": "Å endre for lite i en kodemodifikasjon",
+      "content": "Den dyreste feilen i modifikasjonsoppgavene: **null poeng**, ikke delvis uttelling.\n\nRegelen om at det gis poeng for en god løsningsidé selv om den ikke fullføres, forutsetter at det finnes en idé. En besvarelse som kunne vært levert uten å ha lest den nye opplysningen, viser ingenting av den ferdigheten deloppgaven tester.\n\n**En liten feil i det nye leddet er derfor mye bedre enn ingen endring.** Feil fortegn eller glemt masse er et forsøk; uendret kode er det ikke."
+    },
+    {
+      "id": "fys1100-8-3-bb-8",
+      "type": "definition",
+      "title": "Numerisk integrasjon kontra numerisk løsning av en ODE",
+      "content": "To beslektede, men ulike oppgaver, som begge går under «numerisk integrasjon» i dagligtale.\n\n**Numerisk integrasjon av en tabell** (trapesmetoden): du kjenner funksjonsverdiene og skal finne arealet under dem. Ingen differensiallikning er involvert, og svaret er ett tall.\n\n**Numerisk løsning av en differensiallikning** (Euler–Cromer): du kjenner ikke funksjonen, bare loven for hvordan den endrer seg, og svaret er en hel tallrekke.\n\nBegge finnes i eksamenssettene, og de skilles på spørsmålet: **er den ukjente et areal, eller er den en funksjon av tiden?**"
+    },
+    {
+      "id": "fys1100-8-3-bb-9",
+      "type": "definition",
+      "title": "Kjør-på-nytt-testen som standardgrep",
+      "content": "Vanen med å alltid kjøre en simulering to ganger — én gang med den valgte steglengden og én gang med halvparten — før man rapporterer et tall.\n\nTesten gir tre opplysninger i én kjøring: om $dt$ er liten nok, om et avvik er en metodefeil eller en modellfeil, og hvor mange gjeldende siffer svaret faktisk fortjener.\n\n**Er de to kjøringene like til tre siffer, kan du oppgi tre siffer.** Skiller de seg i andre siffer, kan du ikke oppgi mer enn ett — og det er en ærligere rapportering enn å skrive av alle desimalene maskinen tilbyr."
+    },
+    {
+      "id": "fys1100-8-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-8-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $x$, $y$ | posisjonskomponenter | $\\text{AU}$ eller $\\text{m}$ |\n| $v_x$, $v_y$ | fartskomponenter | $\\text{AU/år}$ eller $\\text{m/s}$ |\n| $r = \\sqrt{x^2+y^2}$ | avstand fra kraftsentrum | $\\text{AU}$ eller $\\text{m}$ |\n| $GM$ | gravitasjonsparameter for sentrallegemet | $\\text{AU}^3/\\text{år}^2$ eller $\\text{m}^3/\\text{s}^2$ |\n| $GM_{\\text{eff}}$ | effektiv gravitasjonsparameter med solvind | samme |\n| $s$ | konstant i solvindkraften $F_s = s/r^2$ | $\\text{N}\\cdot\\text{m}^2$ |\n| $a$ | stor halvakse i en ellipsebane | $\\text{AU}$ |\n| $E/m$ | mekanisk energi per masseenhet | $\\text{AU}^2/\\text{år}^2$ eller $\\text{J/kg}$ |\n| $m$ | massen til det legemet som beveger seg | $\\text{kg}$ |\n| $F$, $F_i$ | målt kraft, punkt nummer $i$ | $\\text{N}$ |\n| $W$ | arbeid | $\\text{J}$ |\n| $\\Delta x_i = x_{i+1}-x_i$ | bredden i trapes nummer $i$ | $\\text{m}$ |\n| $D$ | koeffisient i kvadratisk drag | $\\text{kg/m}$ |\n| $F_0$, $F_m$ | konstant ytre kraft | $\\text{N}$ |\n| $dt$ | steglengde i tid | $\\text{år}$ eller $\\text{s}$ |\n| $N$ | antall lagrede tidspunkt | — |\n\n**Symbolkollisjoner i dette delkapitlet:** $a$ brukes her om den store halvaksen i en ellipsebane, ikke om akselerasjon — akselerasjonen skrives $a_x$ og $a_y$ med aksesubskript. $s$ er solvindkonstanten og har ingenting med strekning å gjøre; strekning skrives $x$. $G$ alene er gravitasjonskonstanten og opptrer aldri uten $M$ i dette kapitlet. Tyngden er $m\\mathbf{g}$, aldri $\\mathbf{G}$.\n\n**Enhetsavtale:** i baneeksemplene brukes astronomiske enheter, der $GM = 4\\pi^2\\ \\text{AU}^3/\\text{år}^2$ for sola. I trapesdelen er alt i SI. **Blanding av de to systemene gir et pent tall som er galt med mange tierpotenser, uten noen feilmelding.**\n\n**Formler i dette delkapitlet:**\n\n$$a_x = -\\frac{GM\\,x}{r^3}, \\qquad a_y = -\\frac{GM\\,y}{r^3}$$\n\nSentralkraft på komponentform. Gravitasjonsloven står på **[formelarket]**; komponentformen med tredje potens er **[må kunne utledes]**.\n\n$$GM_{\\text{eff}} = GM - \\frac{s}{m}$$\n\nSolvinden som redusert gravitasjonsparameter. **[må kunne utledes]** — dette er kjerneresultatet i kodemodifikasjonen.\n\n$$a = \\frac{F}{m} \\quad \\text{— men } \\frac{mg}{m} = g \\text{ og } \\frac{GMm/r^2}{m} = \\frac{GM}{r^2}$$\n\nRegelen for når massen skal stå i akselerasjonslinja. **[må kunne utledes]**\n\n$$W = \\sum_i \\frac{F_{i+1}+F_i}{2}\\left(x_{i+1}-x_i\\right)$$\n\nTrapesmetoden med ujevne intervaller. Den jevne varianten står i **[Rottmann]**; den ujevne formen er **[må kunne utledes]**.\n\n$$W = \\int_{x_1}^{x_2} F(x)\\,dx$$\n\nArbeidsintegralet, som trapessummen tilnærmer. **[formelarket]** — se [kap. 5.1](/bok/fys1100/fys1100-5-1).\n\n$$\\frac{E}{m} = \\frac12 v^2 - \\frac{GM}{r}, \\qquad \\frac{E}{m} = -\\frac{GM}{2a}$$\n\nMekanisk energi per masseenhet, og koblingen til banens størrelse. Uttrykkene for $K$ og $U$ står på **[formelarket]**; koblingen til halvaksen er **[må kunne utledes]**.\n\n$$r_{\\text{aphel}} = 2a - r_{\\text{perihel}}$$\n\nYtterpunktene i en ellipsebane. **[må kunne utledes]**\n\n$$v_u = \\sqrt{\\frac{2GM}{r_0}}$$\n\nUnnslipningsfarten, grensen mellom lukket og åpen bane. **[formelarket]**"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-8-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-8-3-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på.\n\n**R1.** ([kap. 8.1](/bok/fys1100/fys1100-8-1)) Hvorfor lekker Forward Euler energi i en svingning?\n\n*Løsning:* Fordi posisjonen oppdateres med den **gamle** farten. Feilen peker samme vei i hvert steg og akkumulerer, i motsetning til Euler–Cromer, der den oppdaterte farten gjør at feilen skifter fortegn gjennom perioden og kansellerer.\n\n**R2.** ([kap. 8.2](/bok/fys1100/fys1100-8-2)) Skriv akselerasjonslinjene for et 2D-kast med kvadratisk drag.\n\n*Løsning:* `v = np.sqrt(vx[i]**2 + vy[i]**2)`, deretter `ax = -(D/m)*v*vx[i]` og `ay = -g - (D/m)*v*vy[i]`. Fellesfarten må stå ferdig før begge akselerasjonene.\n\n**R3.** ([kap. 5.1](/bok/fys1100/fys1100-5-1)) En konstant kraft på $25{,}0\\ \\text{N}$ virker over $1{,}60\\ \\text{m}$ i kraftens retning. Finn arbeidet.\n\n*Løsning:* $W = Fx = 25{,}0 \\cdot 1{,}60 = 40{,}0\\ \\text{J}$. Med konstant kraft er arealet under kurven et rektangel, og trapesmetoden ville gitt nøyaktig samme svar — den er eksakt for konstante og lineære kraftforløp.\n\n**R4.** ([kap. 5.1](/bok/fys1100/fys1100-5-1)) Hvorfor er arbeidet lik arealet under kraftkurven?\n\n*Løsning:* Fordi $W = \\int F\\,dx$, og et bestemt integral er per definisjon arealet mellom kurven og aksen. En kraft som varierer, deles opp i små strekninger der den er tilnærmet konstant; hvert bidrag er $F\\,\\Delta x$, og summen går mot integralet.\n\n**R5.** ([kap. 8.1](/bok/fys1100/fys1100-8-1)) Hva er halveringstesten, og hva skiller den?\n\n*Løsning:* Å kjøre samme kode med halvert $dt$. Halveres avviket, er det en diskretiseringsfeil; står det urørt, er det en modellfeil — et manglende kraftledd, et galt fortegn eller en feil initialbetingelse."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

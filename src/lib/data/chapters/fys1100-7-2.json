@@ -1,0 +1,484 @@
+{
+  "id": "fys1100-7-2",
+  "courseId": "fys1100",
+  "chapterNumber": "7.2",
+  "title": "Harmonisk oscillator: andreordens homogen ODE",
+  "description": "Fjær og pendel som harmonisk svingning: substitusjonen til likevekt, den karakteristiske likningen, initialbetingelsene — og lineariseringen som gjør ikke-lineære krefter og pendelen håndterbare.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne utlede bevegelseslikningen for en fjær og gjøre den homogen ved å måle utslaget fra likevekt",
+    "kunne sette opp den karakteristiske likningen, finne den generelle løsningen og bestemme konstantene fra fysisk begrunnede initialbetingelser",
+    "kunne skille mellom underkritisk, kritisk og overkritisk demping ut fra røttene",
+    "kunne linearisere en ikke-lineær kraft om en likevekt og finne frekvensen for små svingninger"
+  ],
+  "content": [
+    {
+      "id": "fys1100-7-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Svingninger er testet i 5 av 7 sett (71 %), og differensiallikninger i 6 av 7 (86 %).** Dette kapitlet er der de to møtes: den harmoniske oscillatoren er den differensiallikningen som oftest dukker opp, og den er alltid den samme — fjær, pendel eller en ikke-lineær kraft nær likevekt.\n\nKapitlet hører til **sjanger G — svingninger og differensiallikninger**, altså oppgavene der du skal utlede en bevegelseslikning, løse den analytisk og tolke svaret.\n\n**Slik fordeler sensor poengene i denne oppgavetypen, ut fra sensorveiledningene i H2023, V2024 og V2025:**\n\n| Steg | Uttelling |\n|---|---|\n| Riktig **karakteristisk likning** | 2 poeng |\n| Riktig **generell løsning** | 1 poeng |\n| Riktig bruk av **initialbetingelsene** | 2 poeng |\n\nLegg merke til fordelingen: over halvparten av poengene ligger i oppsettet og i initialbetingelsene, ikke i selve løsningsformelen. Det henger sammen med at **svaret ofte er oppgitt i oppgaveteksten** — «vis at $y(t) = A\\cos\\omega_0 t + B\\sin\\omega_0 t$ er en løsning, og bestem $A$ og $B$». Da er det utledningen som gir poeng, og den må være sporbar.\n\n**Formelarket hjelper deg her, og det skal du utnytte.** Oppskriften for andreordens lineære likninger med konstante koeffisienter — den karakteristiske likningen og de tre tilfellene av røtter — står i **Rottmann**, den matematiske formelsamlingen du har lov til å bruke. Det du må kunne selv, er å komme fram til likningen fra Newtons 2. lov, å velge riktig substitusjon, og å tolke svaret fysisk. Ingenting i dette kapitlet er puggestoff.\n\n**Høyeste prioritet — dette må sitte.**\n\n**Øktforslag:** kapitlet er på 75 minutter og deler seg naturlig i to. Løkke 1–3 (fjæra, karakteristisk likning, demping) er én økt; løkke 4–5 (ikke-lineær kraft og pendel) er den neste."
+    },
+    {
+      "id": "fys1100-7-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 7.1](/bok/fys1100/fys1100-7-1) og [kap. 1.2](/bok/fys1100/fys1100-1-2). Det du trenger derfra, ferdig oppfrisket:\n\n**Bevegelseslikningen** er Newtons 2. lov med akselerasjonen skrevet som andrederivert:\n\n$$m\\frac{d^2y}{dt^2} = \\sum F$$\n\n**Klassifiseringen** avgjør metoden. Er likningen av andre orden, lineær, homogen og med konstante koeffisienter, gjelder oppskriften i dette kapitlet. Er den ikke-lineær, må den først lineariseres — og det er nettopp det løkke 4 og 5 handler om.\n\n**Taylor-utvikling om et punkt** fra [kap. 1.2](/bok/fys1100/fys1100-1-2):\n\n$$f(x) \\approx f(a) + f'(a)(x-a) + \\tfrac12 f''(a)(x-a)^2 + \\dots$$\n\nog standardutviklingen som brukes i hver eneste pendeloppgave:\n\n$$\\sin\\theta \\approx \\theta - \\frac{\\theta^3}{6} \\quad \\text{for små } \\theta \\text{ målt i \\textbf{radianer}}$$\n\n**Fjærkraften** fra [kap. 3.2](/bok/fys1100/fys1100-3-2): $\\ \\mathbf{F} = -k(x - x_0)$, der $k$ er fjærkonstanten og $x_0$ er posisjonen der fjæra er avspent. Minustegnet betyr at kraften alltid peker tilbake mot $x_0$.\n\nFra matematikken trenger du å derivere sinus og cosinus: [Derivasjon av trigonometriske funksjoner](/bok/r1/r1-7-5) og [Derivasjonens definisjon](/bok/r1/r1-3-3).\n\n**Notasjonsavtale for kapitlet.** Utslaget fra likevekt skriver vi $u$, og posisjonen målt fra fjærens avspente lengde skriver vi $y$ (positiv oppover) eller $x$ (positiv mot høyre på et vannrett bord). Egenfrekvensen er $\\omega_0$; en vanlig vinkelfart ville vært $\\omega$ uten indeks, men den opptrer ikke her. **Svingeperioden skriver vi $T_p$**, fordi $T$ er reservert snordrag i denne boka. Pendellengden er $\\ell$, fordi $L$ er spinn i Del 6. Tyngden er $m\\mathbf{g}$ eller $\\mathbf{F}_g$ — aldri $\\mathbf{G}$. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-7-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — hengende fjær: flytt origo til likevekten (~16 min)\n\nHeng en mobiltelefon i en strikk og slipp den. Den svinger opp og ned rundt et bestemt punkt — ikke rundt der strikken var avspent, men rundt der strikken akkurat bærer telefonen. Tyngden har flyttet svingesenteret nedover, men den har ikke gjort svingningen tregere eller raskere.\n\nDet er en påstand vi skal bevise, og beviset er det viktigste enkeltgrepet i kapitlet: **mål utslaget fra likevekten, ikke fra fjærens avspente lengde.** Da forsvinner tyngden ut av likningen.\n\n**Intuisjon:** tyngden er en konstant kraft. En konstant kraft flytter likevektspunktet, men endrer ikke hvor «stivt» systemet reagerer på et lite utslag — og det er stivheten som bestemmer svingetiden."
+    },
+    {
+      "id": "fys1100-7-2-th-hengende-fjar",
+      "type": "theorem",
+      "title": "Bevegelseslikningen for en hengende fjær",
+      "content": "La $y$ være posisjonen målt fra der fjæra er avspent, positiv oppover. To krefter virker på loddet: fjærkraften $-ky$ og tyngden $-mg$. Newtons 2. lov gir\n\n$$m\\frac{d^2y}{dt^2} = -ky - mg$$\n\nDette er en andreordens, lineær, **inhomogen** likning — tyngdeleddet inneholder ikke den ukjente.\n\n**Likevekten** finner vi ved å sette akselerasjonen lik null:\n\n$$0 = -ky_L - mg \\quad \\Longrightarrow \\quad y_L = -\\frac{mg}{k}$$\n\naltså en strekk $mg/k$ under avspent lengde. **Substituér** nå $u = y - y_L$, som er utslaget målt fra likevekten. Siden $y_L$ er en konstant, er $d^2u/dt^2 = d^2y/dt^2$, og\n\n$$m\\frac{d^2u}{dt^2} = -k(u + y_L) - mg = -ku \\underbrace{- ky_L - mg}_{=\\,0} = -ku$$\n\n$$\\boxed{\\ \\frac{d^2u}{dt^2} = -\\frac{k}{m}u\\ }$$\n\nLikningen er nå **homogen**. Tyngden er ikke borte fra fysikken — den sitter i $y_L$ — men den er borte fra svingelikningen. **Det er derfor en hengende fjær svinger med nøyaktig samme periode som den samme fjæra ville gjort liggende på et vannrett, friksjonsfritt bord.**"
+    },
+    {
+      "id": "fys1100-7-2-def-likevekt",
+      "type": "definition",
+      "title": "Likevektsposisjon",
+      "content": "Likevektsposisjonen er det punktet der summen av kreftene på legemet er null, slik at et legeme som plasseres der i ro, blir stående.\n\n$$\\sum F(y_L) = 0$$\n\nFor en hengende fjær er $y_L = -mg/k$, altså der fjærkraften akkurat bærer tyngden. Likevektsposisjonen er en **egenskap ved systemet**, ikke ved bevegelsen: den er den samme uansett hvor mye eller lite loddet svinger.\n\nAlle svingninger i dette kapitlet skjer **omkring** likevekten, og alle utslag måles fra den."
+    },
+    {
+      "id": "fys1100-7-2-def-substitusjon",
+      "type": "definition",
+      "title": "Substitusjon til likevekt",
+      "content": "Grepet der du innfører en ny variabel $u = y - y_L$ — avstanden fra likevekten — og dermed gjør en inhomogen svingelikning homogen.\n\nDet virker fordi $y_L$ er en **konstant**: de deriverte er upåvirket ($du/dt = dy/dt$ og $d^2u/dt^2 = d^2y/dt^2$), mens den konstante kraften nøyaktig oppheves av fjærkraften i likevektspunktet.\n\n**Å hoppe over substitusjonen er en av de dyreste feilene i sjanger G.** Da blir likningen inhomogen, oppskriften for karakteristisk likning gjelder ikke direkte, og svingesenteret havner i feil punkt. Skriv alltid ut hva $u$ er, og hvor $u = 0$ ligger."
+    },
+    {
+      "id": "fys1100-7-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Lodd i en hengende fjær",
+      "problem": "Et lodd med masse $m = 0{,}500\\ \\text{kg}$ henger i en fjær med fjærkonstant $k = 32{,}0\\ \\text{N/m}$. Luftmotstanden neglisjeres.\n\n**a)** Hvor mye strekkes fjæra av loddet i ro?\n\n**b)** Sett opp bevegelseslikningen og gjør den homogen.\n\n**c)** Hva er egenfrekvensen og svingeperioden?",
+      "solution": "**Metodevalg:** vi bruker Newtons 2. lov på loddet med $y$ målt fra fjærens avspente lengde, positiv oppover, og flytter deretter origo til likevekten. Det er standardoppsettet for enhver fjæroppgave.\n\n**a)** I ro er akselerasjonen null, og fjærkraften bærer tyngden:\n\n$$k\\lvert y_L\\rvert = mg \\quad \\Longrightarrow \\quad \\lvert y_L\\rvert = \\frac{mg}{k} = \\frac{0{,}500 \\cdot 9{,}81}{32{,}0} = \\frac{4{,}905}{32{,}0} = 0{,}153\\ \\text{m}$$\n\nLoddet henger altså $15{,}3\\ \\text{cm}$ under fjærens avspente lengde, det vil si $y_L = -0{,}153\\ \\text{m}$.\n\n**b)** Med begge kreftene inne:\n\n$$0{,}500\\frac{d^2y}{dt^2} = -32{,}0\\,y - 4{,}905$$\n\nSubstituér $u = y + 0{,}153$ (altså $u = y - y_L$):\n\n$$0{,}500\\frac{d^2u}{dt^2} = -32{,}0\\,u \\quad \\Longrightarrow \\quad \\frac{d^2u}{dt^2} = -64{,}0\\,u$$\n\n**c)** Likningen har formen $d^2u/dt^2 = -\\omega_0^2 u$, så\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{32{,}0}{0{,}500}} = \\sqrt{64{,}0} = 8{,}00\\ \\text{rad/s}$$\n\n$$T_p = \\frac{2\\pi}{\\omega_0} = \\frac{6{,}2832}{8{,}00} = 0{,}785\\ \\text{s}$$\n\nLoddet bruker $0{,}785\\ \\text{s}$ på en full svingning fram og tilbake.\n\n**Benevningskontroll:** $[\\sqrt{k/m}] = \\sqrt{(\\text{N/m})/\\text{kg}} = \\sqrt{(\\text{kg/s}^2)/\\text{kg}} = 1/\\text{s}$ ✓ — riktig for en vinkelfrekvens.\n\n**Kontroll av rimeligheten:** en strekk på $15\\ \\text{cm}$ og en svingetid på under ett sekund er akkurat det du ser når du henger en halvkilos gjenstand i en myk fjær. Legg dessuten merke til sammenhengen $T_p = 2\\pi\\sqrt{\\lvert y_L\\rvert/g} = 2\\pi\\sqrt{0{,}153/9{,}81} = 0{,}785\\ \\text{s}$ ✓ — svingetiden kan leses av strekket alene."
+    },
+    {
+      "id": "fys1100-7-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En kloss med masse $0{,}200\\ \\text{kg}$ ligger på et vannrett, friksjonsfritt bord og er festet til en fjær med fjærkonstant $18{,}0\\ \\text{N/m}$.\n\n**a)** Skriv opp bevegelseslikningen for utslaget $x$ fra fjærens avspente lengde.\n\n**b)** Finn egenfrekvensen $\\omega_0$, svingeperioden $T_p$ og frekvensen i hertz.\n\n**c)** Forklar med egne ord hvorfor amplituden ikke inngår i noen av svarene i b).",
+        "solution": "**Metodevalg:** Newtons 2. lov vannrett. Tyngden og normalkraften er loddrette og opphever hverandre, så bare fjærkraften inngår.\n\n**a)** $$0{,}200\\frac{d^2x}{dt^2} = -18{,}0\\,x \\quad \\Longrightarrow \\quad \\frac{d^2x}{dt^2} = -90{,}0\\,x$$\n\nLikningen er allerede homogen — på et vannrett bord er avspent lengde også likevektsposisjonen, så ingen substitusjon trengs.\n\n**b)** $$\\omega_0 = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{18{,}0}{0{,}200}} = \\sqrt{90{,}0} = 9{,}49\\ \\text{rad/s}$$\n\n$$T_p = \\frac{2\\pi}{\\omega_0} = \\frac{6{,}2832}{9{,}4868} = 0{,}662\\ \\text{s}, \\qquad f = \\frac{1}{T_p} = 1{,}51\\ \\text{Hz}$$\n\n**c)** Fordi likningen bare inneholder forholdet $k/m$, og amplituden er noe som kommer fra initialbetingelsene — altså fra hvordan svingningen ble satt i gang, ikke fra systemet selv. Trekker du klossen dobbelt så langt ut, blir både utslaget og den tilbakedrivende kraften dobbelt så store, og de to effektene opphever hverandre nøyaktig. Derfor bruker klossen like lang tid på en stor svingning som på en liten.",
+        "hints": [
+          "På et vannrett bord er den eneste vannrette kraften fjærkraften.",
+          "Likningen $d^2x/dt^2 = -\\omega_0^2 x$ gir $\\omega_0$ direkte som kvadratroten av koeffisienten.",
+          "I c): tenk på hva som skjer med *både* utslaget og kraften når du dobler amplituden."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — den karakteristiske likningen (~20 min)\n\nNå står vi med\n\n$$\\frac{d^2u}{dt^2} + \\omega_0^2 u = 0, \\qquad \\omega_0 = \\sqrt{\\frac{k}{m}}$$\n\nDette er en andreordens, lineær, homogen likning med konstante koeffisienter — den ene familien som har en fullstendig løsningsoppskrift. Oppskriften bygger på et enkelt spørsmål: **finnes det en funksjon som blir til seg selv, ganget med et tall, hver gang du deriverer den?**\n\nJa: $e^{\\lambda t}$. Setter vi inn $u = e^{\\lambda t}$, blir hver derivasjon en multiplikasjon med $\\lambda$:\n\n$$\\lambda^2 e^{\\lambda t} + \\omega_0^2 e^{\\lambda t} = 0 \\quad \\Longrightarrow \\quad (\\lambda^2 + \\omega_0^2)\\,e^{\\lambda t} = 0$$\n\nSiden $e^{\\lambda t}$ aldri er null, må parentesen være det. Dermed er hele differensiallikningen redusert til en **vanlig andregradslikning**.\n\n**Intuisjon:** vi har byttet et problem om funksjoner mot et problem om tall. Det er hele trikset, og det er derfor metoden er så mekanisk."
+    },
+    {
+      "id": "fys1100-7-2-def-karakteristisk",
+      "type": "definition",
+      "title": "Karakteristisk likning",
+      "content": "Den vanlige andregradslikningen du får ved å sette inn prøveløsningen $e^{\\lambda t}$ i en andreordens lineær homogen differensiallikning med konstante koeffisienter.\n\n$$a\\frac{d^2u}{dt^2} + b\\frac{du}{dt} + cu = 0 \\quad \\longrightarrow \\quad a\\lambda^2 + b\\lambda + c = 0$$\n\nRøttene $\\lambda_1, \\lambda_2$ bestemmer hva slags oppførsel systemet har, og løsningen bygges av $e^{\\lambda_1 t}$ og $e^{\\lambda_2 t}$.\n\n**Oppskriften med de tre rot-tilfellene står i Rottmann** og skal slås opp, ikke pugges. Det som gir poeng, er å komme fram til riktig karakteristisk likning fra fysikken — det er verdt 2 poeng i en typisk deloppgave."
+    },
+    {
+      "id": "fys1100-7-2-th-tre-tilfeller",
+      "type": "theorem",
+      "title": "Oppskriften: tre tilfeller av røtter",
+      "content": "For $a\\lambda^2 + b\\lambda + c = 0$ med reelle, positive $a$ og $c$:\n\n**1. To komplekse røtter** ($b^2 < 4ac$, altså liten eller ingen demping). Skriv røttene som $\\lambda = -\\gamma \\pm i\\omega_d$. Da er\n\n$$u(t) = e^{-\\gamma t}\\big(A\\cos\\omega_d t + B\\sin\\omega_d t\\big)$$\n\nUten demping er $\\gamma = 0$, og vi står igjen med den rene svingningen $u(t) = A\\cos\\omega_0 t + B\\sin\\omega_0 t$.\n\n**2. To ulike reelle røtter** ($b^2 > 4ac$, kraftig demping). Da er\n\n$$u(t) = Ae^{\\lambda_1 t} + Be^{\\lambda_2 t}$$\n\nBegge røttene er negative, så utslaget dør ut uten å svinge.\n\n**3. Dobbeltrot** ($b^2 = 4ac$, akkurat kritisk demping). Da er\n\n$$u(t) = (A + Bt)\\,e^{\\lambda t}$$\n\n**Intuisjon:** kvadratrota i andregradsformelen avgjør alt. Blir den imaginær, får du svingninger; blir den reell, får du ren utdøing. Dette er ikke matematisk tilfeldighet — det er selve skillet mellom et system som *dirrer* og et som *siger* tilbake.\n\nI alle tre tilfellene inneholder løsningen **to** ubestemte konstanter, som den skal for en andreordens likning."
+    },
+    {
+      "id": "fys1100-7-2-def-egenfrekvens",
+      "type": "definition",
+      "title": "Egenfrekvens",
+      "content": "Egenfrekvensen $\\omega_0$ er den vinkelfrekvensen et system svinger med når det får svinge fritt, uten demping og uten ytre påvirkning.\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}} \\quad \\text{(fjær)}, \\qquad \\omega_0 = \\sqrt{\\frac{g}{\\ell}} \\quad \\text{(pendel, små utslag)}$$\n\nEnheten er radianer per sekund. Sammenhengen med svingeperioden og frekvensen i hertz er\n\n$$T_p = \\frac{2\\pi}{\\omega_0}, \\qquad f = \\frac{1}{T_p} = \\frac{\\omega_0}{2\\pi}$$\n\nEgenfrekvensen er bestemt **bare av systemet** — masse og stivhet — og aldri av hvor kraftig du setter det i gang. Legg merke til at $\\omega_0$ leses rett av likningen: står det $d^2u/dt^2 = -64{,}0\\,u$, er $\\omega_0^2 = 64{,}0$ og $\\omega_0 = 8{,}00\\ \\text{rad/s}$. Å svare $64{,}0$ er å forveksle frekvensen med kvadratet av den."
+    },
+    {
+      "id": "fys1100-7-2-def-amplitude-fase",
+      "type": "definition",
+      "title": "Amplitude og fase",
+      "content": "Den generelle løsningen kan skrives på to likeverdige måter:\n\n$$u(t) = A\\cos\\omega_0 t + B\\sin\\omega_0 t \\quad = \\quad C\\cos(\\omega_0 t + \\varphi)$$\n\nder\n\n$$C = \\sqrt{A^2 + B^2}, \\qquad \\tan\\varphi = -\\frac{B}{A}$$\n\n$C$ er **amplituden**, altså det største utslaget fra likevekt, og $\\varphi$ er **fasekonstanten**, som sier hvor i svingningen bevegelsen startet.\n\nDen første formen er lettest å bruke når du skal sette inn initialbetingelser, fordi $A$ og $B$ da faller rett ut. Den andre er lettest å tolke og å tegne. **Bruk den første til å regne og den andre til å svare** — og oppgi alltid amplituden når oppgaven spør om «hvor langt» noe svinger."
+    },
+    {
+      "id": "fys1100-7-2-utledning-ic",
+      "type": "text",
+      "content": "**Slik faller konstantene ut av initialbetingelsene.** Med $u(t) = A\\cos\\omega_0 t + B\\sin\\omega_0 t$ er\n\n$$\\frac{du}{dt} = -A\\omega_0\\sin\\omega_0 t + B\\omega_0\\cos\\omega_0 t$$\n\nSetter vi $t = 0$, blir $\\sin 0 = 0$ og $\\cos 0 = 1$, så\n\n$$u(0) = A, \\qquad \\frac{du}{dt}\\bigg|_{t=0} = B\\omega_0 \\quad \\Longrightarrow \\quad A = u_0, \\quad B = \\frac{v_0}{\\omega_0}$$\n\n**Intuisjon:** cosinusleddet bærer startposisjonen, sinusleddet bærer startfarten. Slippes legemet fra ro, er $B = 0$ og bevegelsen er en ren cosinus. Settes det i gang fra likevektspunktet med en dytt, er $A = 0$ og bevegelsen er en ren sinus.\n\nLegg merke til at $B$ har en $\\omega_0$ i nevneren. **Det er en av de vanligste regnefeilene i sjanger G** å skrive $B = v_0$ — sjekk enheten: $B$ skal ha enhet meter, og $v_0/\\omega_0$ har $(\\text{m/s})/(1/\\text{s}) = \\text{m}$ ✓."
+    },
+    {
+      "id": "fys1100-7-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Full kjede fra likning til svar",
+      "problem": "Loddet fra eksempel 1 ($m = 0{,}500\\ \\text{kg}$, $k = 32{,}0\\ \\text{N/m}$) settes i bevegelse slik at det ved $t = 0$ er $3{,}0\\ \\text{cm}$ **over** likevekt og har farten $0{,}20\\ \\text{m/s}$ **oppover**.\n\n**a)** Sett opp den karakteristiske likningen og finn den generelle løsningen.\n\n**b)** Bestem konstantene fra initialbetingelsene.\n\n**c)** Finn amplituden og den største farten under svingningen.\n\n**d)** Verifiser løsningen ved innsetting.",
+      "solution": "**Metodevalg:** likningen er andreordens, lineær, homogen med konstante koeffisienter, så vi bruker karakteristisk likning. Utslaget måles fra likevekt, og positiv retning er oppover.\n\n**a)** Fra eksempel 1: $\\ d^2u/dt^2 + 64{,}0\\,u = 0$. Prøveløsningen $u = e^{\\lambda t}$ gir\n\n$$\\lambda^2 + 64{,}0 = 0 \\quad \\Longrightarrow \\quad \\lambda = \\pm\\,8{,}00\\,i$$\n\nRøttene er rent imaginære, altså tilfelle 1 med $\\gamma = 0$ og $\\omega_d = \\omega_0 = 8{,}00\\ \\text{rad/s}$:\n\n$$u(t) = A\\cos(8{,}00\\,t) + B\\sin(8{,}00\\,t)$$\n\n**b)** Initialbetingelsene begrunnes fysisk: «$3{,}0\\ \\text{cm}$ over likevekt» gir $u(0) = +0{,}030\\ \\text{m}$, og «farten $0{,}20\\ \\text{m/s}$ oppover» gir $v(0) = +0{,}20\\ \\text{m/s}$, siden positiv retning er oppover.\n\n$$A = u_0 = 0{,}030\\ \\text{m}, \\qquad B = \\frac{v_0}{\\omega_0} = \\frac{0{,}20}{8{,}00} = 0{,}025\\ \\text{m}$$\n\n$$u(t) = 0{,}030\\cos(8{,}00\\,t) + 0{,}025\\sin(8{,}00\\,t) \\quad \\text{(meter)}$$\n\n**c)** $$C = \\sqrt{A^2 + B^2} = \\sqrt{0{,}030^2 + 0{,}025^2} = \\sqrt{0{,}001525} = 0{,}0391\\ \\text{m} = 3{,}9\\ \\text{cm}$$\n\n$$v_{\\max} = C\\omega_0 = 0{,}0391 \\cdot 8{,}00 = 0{,}313\\ \\text{m/s}$$\n\nDen største farten oppnås når loddet passerer likevektspunktet, og den er rettet vekselvis oppover og nedover.\n\n**d)** Vi deriverer to ganger:\n\n$$\\frac{du}{dt} = -0{,}240\\sin(8{,}00\\,t) + 0{,}200\\cos(8{,}00\\,t)$$\n\n$$\\frac{d^2u}{dt^2} = -1{,}920\\cos(8{,}00\\,t) - 1{,}600\\sin(8{,}00\\,t) = -64{,}0\\,u$$\n\nLikningen er oppfylt ✓. Og kontrollen av initialbetingelsene: $u(0) = 0{,}030\\ \\text{m}$ ✓ og $du/dt\\big|_{t=0} = 0{,}200\\ \\text{m/s}$ ✓.\n\n**Sensorblikk:** her ligger 5 av 5 poeng i en typisk deloppgave — 2 for den karakteristiske likningen, 1 for den generelle løsningen, 2 for initialbetingelsene. Merk også at amplituden $3{,}9\\ \\text{cm}$ er større enn startutslaget $3{,}0\\ \\text{cm}$: loddet var på vei oppover da klokka startet, så det kom enda høyere før det snudde. Den setningen er en gratis rimelighetskontroll."
+    },
+    {
+      "id": "fys1100-7-2-fig-shm",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-7-2-shm-yt.svg",
+      "alt": "En cosinuskurve for utslaget til en fjaerpendel som funksjon av tiden. Kurven svinger symmetrisk om en vannrett stiplet likevektslinje. En loddrett pil merket A gar fra likevektslinja opp til det forste toppunktet. En vannrett dobbeltpil mellom to nabotopper er merket med perioden. Et rodt punkt paa kurven ved tiden null markerer startutslaget.",
+      "caption": "Løsningen fra eksempel 2. Likningen bestemmer bare hvor tett bølgene ligger — altså $\\omega_0$ og dermed $T_p = 0{,}785\\ \\text{s}$. Hvor høy kurven er, og hvor på bølgen den starter, kommer utelukkende fra initialbetingelsene."
+    },
+    {
+      "id": "fys1100-7-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss på et vannrett friksjonsfritt bord svinger etter likningen\n\n$$\\frac{d^2x}{dt^2} = -49\\,x$$\n\nmed $x$ i meter og $t$ i sekunder.\n\n**a)** Sett opp den karakteristiske likningen og skriv den generelle løsningen.\n\n**b)** Klossen sendes av gårde fra likevektspunktet med farten $0{,}35\\ \\text{m/s}$ i positiv retning. Bestem konstantene, og begrunn begge initialbetingelsene.\n\n**c)** Finn amplituden og tidspunktet for første gang klossen er lengst ute.",
+        "solution": "**Metodevalg:** andreordens, lineær, homogen med konstante koeffisienter — altså karakteristisk likning.\n\n**a)** Innsatt $x = e^{\\lambda t}$:\n\n$$\\lambda^2 + 49 = 0 \\quad \\Longrightarrow \\quad \\lambda = \\pm 7i \\quad \\Longrightarrow \\quad \\omega_0 = 7{,}0\\ \\text{rad/s}$$\n\n$$x(t) = A\\cos(7{,}0\\,t) + B\\sin(7{,}0\\,t)$$\n\n**b)** «Fra likevektspunktet» betyr at utslaget er null ved start: $x(0) = 0$. «Med farten $0{,}35\\ \\text{m/s}$ i positiv retning» gir $v(0) = +0{,}35\\ \\text{m/s}$. Innsatt:\n\n$$A = x(0) = 0, \\qquad B = \\frac{v_0}{\\omega_0} = \\frac{0{,}35}{7{,}0} = 0{,}050\\ \\text{m}$$\n\n$$x(t) = 0{,}050\\sin(7{,}0\\,t)\\ \\text{m}$$\n\n**c)** Amplituden er $C = \\sqrt{0^2 + 0{,}050^2} = 0{,}050\\ \\text{m} = 5{,}0\\ \\text{cm}$. Klossen er lengst ute første gang når sinusen er 1:\n\n$$7{,}0\\,t = \\frac{\\pi}{2} \\quad \\Longrightarrow \\quad t = \\frac{\\pi}{14{,}0} = 0{,}224\\ \\text{s}$$\n\nDet er en kvart periode, og perioden er $T_p = 2\\pi/7{,}0 = 0{,}898\\ \\text{s}$ — en kvart periode er $0{,}224\\ \\text{s}$ ✓.\n\n**Kontroll:** $x(0) = 0$ ✓ og $dx/dt = 0{,}35\\cos(7{,}0t)$, som gir $0{,}35\\ \\text{m/s}$ ved $t = 0$ ✓.",
+        "hints": [
+          "Sett inn prøveløsningen $e^{\\lambda t}$ og få en andregradslikning i $\\lambda$.",
+          "«Fra likevektspunktet» er en opplysning om posisjonen, «med farten …» om farten.",
+          "Husk at $B = v_0/\\omega_0$, ikke $v_0$ — sjekk enheten."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et lodd med masse $0{,}150\\ \\text{kg}$ henger i en fjær med fjærkonstant $24{,}0\\ \\text{N/m}$.\n\n**a)** Hvor mye strekkes fjæra av loddet i ro?\n\n**b)** Sett opp bevegelseslikningen for utslaget fra likevekt, og finn svingeperioden.\n\n**c)** Loddet trekkes $4{,}0\\ \\text{cm}$ ned fra likevekt og slippes fra ro. Skriv utslaget som funksjon av tiden, med $u$ positiv oppover.\n\n**d)** Hvor stor er den største akselerasjonen under svingningen, og hvor i svingningen inntreffer den?",
+        "solution": "**Metodevalg:** Newtons 2. lov med $y$ målt fra avspent lengde, deretter substitusjon til likevekt.\n\n**a)** $$\\lvert y_L\\rvert = \\frac{mg}{k} = \\frac{0{,}150 \\cdot 9{,}81}{24{,}0} = \\frac{1{,}4715}{24{,}0} = 0{,}0613\\ \\text{m} = 6{,}13\\ \\text{cm}$$\n\n**b)** Med $u = y - y_L$ blir tyngden borte fra likningen:\n\n$$\\frac{d^2u}{dt^2} = -\\frac{k}{m}u = -160\\,u$$\n\n$$\\omega_0 = \\sqrt{160} = 12{,}6\\ \\text{rad/s}, \\qquad T_p = \\frac{2\\pi}{12{,}649} = 0{,}497\\ \\text{s}$$\n\n**c)** «$4{,}0\\ \\text{cm}$ ned fra likevekt» med $u$ positiv oppover gir $u(0) = -0{,}040\\ \\text{m}$, og «slippes fra ro» gir $v(0) = 0$. Dermed er $A = -0{,}040\\ \\text{m}$ og $B = 0$:\n\n$$u(t) = -0{,}040\\cos(12{,}6\\,t)\\ \\text{m}$$\n\nMinustegnet forteller at loddet starter under likevekt. Amplituden er $4{,}0\\ \\text{cm}$.\n\n**d)** Akselerasjonen er $d^2u/dt^2 = -\\omega_0^2 u$, som er størst i tallverdi der utslaget er størst:\n\n$$\\lvert a\\rvert_{\\max} = \\omega_0^2 C = 160 \\cdot 0{,}040 = 6{,}4\\ \\text{m/s}^2$$\n\nDen inntreffer i vendepunktene, altså $4{,}0\\ \\text{cm}$ over og under likevekt. I det nederste vendepunktet peker akselerasjonen oppover, i det øverste nedover — alltid inn mot likevekt. Merk at $6{,}4\\ \\text{m/s}^2$ er mindre enn $g$, så fjæra holder seg strukket hele veien og loddet aldri mister kontakten med den.",
+        "hints": [
+          "Strekken i ro følger av at fjærkraften bærer tyngden.",
+          "Etter substitusjonen $u = y - y_L$ forsvinner tyngden fra likningen.",
+          "Akselerasjonen i en harmonisk svingning er $-\\omega_0^2$ ganger utslaget."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — når svingningen dør ut (~13 min)\n\nEn ekte fjær svinger ikke i evighet. Legg til en demper — en oljesylinder, eller bare luftmotstand ved lav fart — som gir en kraft $-b\\,du/dt$, altså proporsjonal med farten og motsatt rettet. Da blir likningen\n\n$$m\\frac{d^2u}{dt^2} = -ku - b\\frac{du}{dt} \\quad \\Longleftrightarrow \\quad \\frac{d^2u}{dt^2} + \\frac{b}{m}\\frac{du}{dt} + \\frac{k}{m}u = 0$$\n\nKlassifiseringen er uendret: andre orden, lineær, homogen, konstante koeffisienter. **Oppskriften er den samme** — bare den karakteristiske likningen får ett ledd til:\n\n$$\\lambda^2 + \\frac{b}{m}\\lambda + \\omega_0^2 = 0 \\quad \\Longrightarrow \\quad \\lambda = -\\frac{b}{2m} \\pm \\sqrt{\\left(\\frac{b}{2m}\\right)^2 - \\omega_0^2}$$\n\nMed $\\gamma = b/(2m)$ er det uttrykket under rottegnet, $\\gamma^2 - \\omega_0^2$, som avgjør alt."
+    },
+    {
+      "id": "fys1100-7-2-def-underkritisk",
+      "type": "definition",
+      "title": "Underkritisk demping (svak demping)",
+      "content": "Tilfellet $\\gamma < \\omega_0$, altså liten demping. Røttene er komplekse, $\\lambda = -\\gamma \\pm i\\omega_d$, med\n\n$$\\omega_d = \\sqrt{\\omega_0^2 - \\gamma^2}, \\qquad u(t) = Ce^{-\\gamma t}\\cos(\\omega_d t + \\varphi)$$\n\nSystemet svinger, men amplituden krymper eksponentielt. Dette er det vanlige tilfellet i praksis: en gitarstreng, en fjæret bil på god vei, et lodd i luft.\n\nLegg merke til at $\\omega_d < \\omega_0$ — demping gjør svingningen litt **langsommere**. For svak demping er forskjellen ørliten: med $\\gamma = 0{,}60\\ \\text{s}^{-1}$ og $\\omega_0 = 8{,}00\\ \\text{rad/s}$ er $\\omega_d = 7{,}98\\ \\text{rad/s}$, altså $0{,}3\\ \\%$ lavere — mens amplituden i samme tid er halvert."
+    },
+    {
+      "id": "fys1100-7-2-def-kritisk",
+      "type": "definition",
+      "title": "Kritisk demping",
+      "content": "Grensetilfellet $\\gamma = \\omega_0$, der den karakteristiske likningen har dobbeltrot og\n\n$$u(t) = (A + Bt)e^{-\\gamma t}$$\n\nSystemet svinger ikke i det hele tatt, men går tilbake til likevekt så **raskt som mulig** uten å passere den. Betingelsen skrevet ved de opprinnelige størrelsene er\n\n$$b_{\\text{kr}} = 2\\sqrt{km}$$\n\nDette er den innstillingen støtdempere i biler, dørlukkere og måleinstrumenter siktes inn mot: en dør som er kritisk dempet, lukker seg raskt og smeller ikke."
+    },
+    {
+      "id": "fys1100-7-2-def-overkritisk",
+      "type": "definition",
+      "title": "Overkritisk demping",
+      "content": "Tilfellet $\\gamma > \\omega_0$, altså kraftig demping. Røttene er to ulike **negative reelle** tall, og\n\n$$u(t) = Ae^{\\lambda_1 t} + Be^{\\lambda_2 t}$$\n\nSystemet kryper tilbake mot likevekt uten å svinge, og langsommere enn ved kritisk demping. En dør med for stram dørpumpe, eller et lodd som svinger i sirup, oppfører seg slik.\n\n**Fysisk lesning av de tre tilfellene:** dempingen konkurrerer med fjærkraften. Vinner fjæra, får du svingninger; vinner dempingen, får du kryping; er de like sterke, får du grensetilfellet."
+    },
+    {
+      "id": "fys1100-7-2-def-innhylling",
+      "type": "definition",
+      "title": "Innhyllingskurve",
+      "content": "Kurvene $\\pm Ce^{-\\gamma t}$ som svingningen akkurat berører i hvert vendepunkt. De viser hvordan amplituden avtar, uavhengig av hvor i svingningen systemet er.\n\nTiden det tar før amplituden er halvert, følger direkte:\n\n$$e^{-\\gamma t_{1/2}} = \\tfrac12 \\quad \\Longrightarrow \\quad t_{1/2} = \\frac{\\ln 2}{\\gamma}$$\n\nHalveringstiden er et praktisk mål på hvor «dødt» et system er, og den er uavhengig av hvor stort utslaget var i utgangspunktet — akkurat som halveringstiden ved radioaktiv nedbrytning."
+    },
+    {
+      "id": "fys1100-7-2-fig-dempet",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-7-2-dempet-udempet.svg",
+      "alt": "To svingekurver i samme diagram. En gra kurve svinger med konstant amplitude gjennom hele tidsrommet. En bla kurve med nesten samme frekvens har amplitude som krymper jevnt, og den beroerer to rode stiplede kurver som faller eksponentielt mot null ovenfra og stiger mot null nedenfra.",
+      "caption": "Udempet mot svakt dempet svingning for det samme loddet. Frekvensen er nesten uendret — bare $0{,}3\\ \\%$ lavere — mens amplituden er halvert etter $1{,}16\\ \\text{s}$. Det er amplituden dempingen angriper, ikke takten."
+    },
+    {
+      "id": "fys1100-7-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Loddet får en demper",
+      "problem": "Loddet fra eksempel 2 ($m = 0{,}500\\ \\text{kg}$, $k = 32{,}0\\ \\text{N/m}$) settes ned i en oljedemper som gir kraften $-b\\,du/dt$ med $b = 0{,}600\\ \\text{kg/s}$.\n\n**a)** Sett opp den karakteristiske likningen og finn røttene.\n\n**b)** Hvilket dempingstilfelle er dette, og hva blir løsningen?\n\n**c)** Hvor lang tid tar det før amplituden er halvert?\n\n**d)** Hvor stor måtte $b$ vært for kritisk demping?",
+      "solution": "**Metodevalg:** likningen er fortsatt andreordens, lineær og homogen, så vi bruker samme oppskrift som før — bare med et førstederivert ledd i den karakteristiske likningen.\n\n**a)** $$0{,}500\\frac{d^2u}{dt^2} + 0{,}600\\frac{du}{dt} + 32{,}0\\,u = 0 \\quad \\Longrightarrow \\quad \\frac{d^2u}{dt^2} + 1{,}20\\frac{du}{dt} + 64{,}0\\,u = 0$$\n\n$$\\lambda^2 + 1{,}20\\lambda + 64{,}0 = 0 \\quad \\Longrightarrow \\quad \\lambda = \\frac{-1{,}20 \\pm \\sqrt{1{,}44 - 256}}{2} = -0{,}600 \\pm 7{,}98\\,i$$\n\n**b)** Uttrykket under rottegnet er negativt, så røttene er komplekse: **underkritisk demping**. Med $\\gamma = 0{,}600\\ \\text{s}^{-1}$ og $\\omega_d = 7{,}98\\ \\text{rad/s}$:\n\n$$u(t) = e^{-0{,}600\\,t}\\big(A\\cos(7{,}98\\,t) + B\\sin(7{,}98\\,t)\\big)$$\n\nSammenlikn med det udempede tilfellet, der $\\omega_0 = 8{,}00\\ \\text{rad/s}$: frekvensen har sunket med bare $0{,}28\\ \\%$.\n\n**c)** $$t_{1/2} = \\frac{\\ln 2}{\\gamma} = \\frac{0{,}6931}{0{,}600} = 1{,}16\\ \\text{s}$$\n\nPå den tiden rekker loddet omtrent $1{,}16/0{,}787 = 1{,}5$ svingninger — dempingen er altså godt merkbar for øyet, selv om den knapt påvirker takten.\n\n**d)** $$b_{\\text{kr}} = 2\\sqrt{km} = 2\\sqrt{32{,}0 \\cdot 0{,}500} = 2\\sqrt{16{,}0} = 8{,}00\\ \\text{kg/s}$$\n\nDen faktiske dempingen er altså bare $7{,}5\\ \\%$ av den kritiske — godt inne i det underkritiske området, som stemmer med at vi fant komplekse røtter.\n\n**Benevningskontroll:** $[\\sqrt{km}] = \\sqrt{(\\text{N/m})\\cdot\\text{kg}} = \\sqrt{\\text{kg}^2/\\text{s}^2} = \\text{kg/s}$ ✓, samme enhet som $b$."
+    },
+    {
+      "id": "fys1100-7-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et lodd med masse $0{,}800\\ \\text{kg}$ henger i en fjær med $k = 50{,}0\\ \\text{N/m}$ og er koblet til en demper med $b = 1{,}20\\ \\text{kg/s}$.\n\n**a)** Finn egenfrekvensen $\\omega_0$ uten demping.\n\n**b)** Sett opp den karakteristiske likningen og avgjør hvilket dempingstilfelle systemet er i.\n\n**c)** Finn den dempede vinkelfrekvensen $\\omega_d$ og halveringstiden for amplituden.\n\n**d)** Hvor stor demping ville gitt kritisk demping, og hva ville skjedd med bevegelsen da?",
+        "solution": "**Metodevalg:** samme oppskrift som i det udempede tilfellet, men med dempeleddet med i den karakteristiske likningen. Substitusjonen til likevekt er allerede gjort — vi regner på utslaget $u$ fra likevekt, og da faller tyngden bort.\n\n**a)** $$\\omega_0 = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{50{,}0}{0{,}800}} = \\sqrt{62{,}5} = 7{,}91\\ \\text{rad/s}$$\n\n**b)** $$\\frac{d^2u}{dt^2} + \\frac{1{,}20}{0{,}800}\\frac{du}{dt} + 62{,}5\\,u = 0 \\quad \\Longrightarrow \\quad \\lambda^2 + 1{,}50\\lambda + 62{,}5 = 0$$\n\nUttrykket under rottegnet er $1{,}50^2 - 4 \\cdot 62{,}5 = 2{,}25 - 250 = -248 < 0$, altså komplekse røtter: **underkritisk demping**. Systemet svinger med avtakende amplitude.\n\n**c)** Med $\\gamma = b/(2m) = 1{,}20/1{,}60 = 0{,}750\\ \\text{s}^{-1}$:\n\n$$\\omega_d = \\sqrt{\\omega_0^2 - \\gamma^2} = \\sqrt{62{,}5 - 0{,}5625} = \\sqrt{61{,}94} = 7{,}87\\ \\text{rad/s}$$\n\naltså $0{,}45\\ \\%$ lavere enn $\\omega_0$.\n\n$$t_{1/2} = \\frac{\\ln 2}{\\gamma} = \\frac{0{,}6931}{0{,}750} = 0{,}924\\ \\text{s}$$\n\n**d)** $$b_{\\text{kr}} = 2\\sqrt{km} = 2\\sqrt{50{,}0 \\cdot 0{,}800} = 2\\sqrt{40{,}0} = 12{,}6\\ \\text{kg/s}$$\n\nMed den dempingen ville loddet ikke svingt i det hele tatt: det ville gått rett tilbake til likevekt uten å passere den, og gjort det så raskt som mulig for en dempet bevegelse. Den faktiske dempingen er under en tidel av dette.",
+        "hints": [
+          "Egenfrekvensen er kvadratroten av $k/m$, uten hensyn til dempingen.",
+          "Del likningen på $m$ før du leser av koeffisientene i den karakteristiske likningen.",
+          "$\\gamma = b/(2m)$, og halveringstiden følger av $e^{-\\gamma t} = \\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — når kraften ikke er lineær (~14 min)\n\nEkte fjærer er ikke perfekt lineære. Strekker du en fjær langt, blir den enten stivere eller slappere enn Hookes lov sier. Og en atomær binding, en gravitasjonsbrønn eller en kule i en skål er slett ikke lineær i det hele tatt.\n\nLikevel svinger alle disse systemene tilnærmet harmonisk **så lenge utslaget er lite**. Grunnen er en av de vakreste i fysikken, og den bygger på Taylor-utvikling fra [kap. 1.2](/bok/fys1100/fys1100-1-2): enhver glatt kraft ser lineær ut når du ser tett nok på en likevekt.\n\n**Intuisjon:** zoomer du langt nok inn på bunnen av en hvilken som helst glatt dal, ser den ut som en parabel. Og en parabelformet potensialbrønn *er* en harmonisk oscillator."
+    },
+    {
+      "id": "fys1100-7-2-th-linearisering",
+      "type": "theorem",
+      "title": "Linearisering om en likevekt",
+      "content": "La $F(x)$ være den samlede kraften på et legeme, og la $x_0$ være et punkt der $F(x_0) = 0$ — altså en likevekt. Sett $x = x_0 + \\xi$, der $\\xi$ er et lite utslag, og Taylor-utvikle:\n\n$$F(x_0 + \\xi) \\approx \\underbrace{F(x_0)}_{=\\,0} + F'(x_0)\\,\\xi = F'(x_0)\\,\\xi$$\n\nNewtons 2. lov gir da\n\n$$m\\frac{d^2\\xi}{dt^2} = F'(x_0)\\,\\xi \\quad \\Longrightarrow \\quad \\frac{d^2\\xi}{dt^2} = -\\frac{k_{\\text{ef}}}{m}\\xi, \\qquad k_{\\text{ef}} = -F'(x_0)$$\n\n$$\\boxed{\\ \\omega = \\sqrt{\\frac{k_{\\text{ef}}}{m}} = \\sqrt{\\frac{-F'(x_0)}{m}}\\ }$$\n\nStørrelsen $k_{\\text{ef}}$ kalles den **effektive fjærkonstanten**. Er den positiv, er likevekten stabil og systemet svinger; er den negativ, løper systemet vekk fra punktet.\n\nUttrykt ved potensialet, der $F = -dU/dx$, blir det enda ryddigere:\n\n$$k_{\\text{ef}} = U''(x_0), \\qquad \\omega = \\sqrt{\\frac{U''(x_0)}{m}}$$\n\n**Intuisjon:** $U''$ måler krumningen i bunnen av potensialbrønnen. Trang og bratt brønn gir rask svingning; slak og bred brønn gir langsom.\n\n**Advarsel som er verdt poeng:** lineariseringen må gjøres om **den faktiske likevekten**, ikke om origo. Er origo ikke en likevekt, gir framgangsmåten feil svar — og det er en av de mest utbredte feilene i denne oppgavetypen."
+    },
+    {
+      "id": "fys1100-7-2-def-potensial",
+      "type": "definition",
+      "title": "Potensial til en kraft i én dimensjon",
+      "content": "Potensialet $U(x)$ er den funksjonen som gir kraften ved derivasjon med negativt fortegn:\n\n$$F(x) = -\\frac{dU}{dx} \\quad \\Longleftrightarrow \\quad U(x) = -\\int F(x)\\,dx$$\n\nIntegrasjonskonstanten er fri: bare **forskjeller** i potensial har fysisk betydning. Potensialet er den potensielle energien fra [kap. 5.1](/bok/fys1100/fys1100-5-1), sett som funksjon av posisjonen.\n\nGrafen til $U(x)$ er et av de mest lesbare bildene i mekanikken: **bunnene er stabile likevekter, toppene er ustabile, og krumningen i en bunn gir svingefrekvensen.**"
+    },
+    {
+      "id": "fys1100-7-2-def-stabil",
+      "type": "definition",
+      "title": "Stabil og ustabil likevekt",
+      "content": "En likevekt ($F = 0$) er **stabil** dersom kraften peker tilbake mot punktet ved et lite utslag, og **ustabil** dersom den peker vekk.\n\n$$U''(x_0) > 0 \\ \\text{(bunn)}: \\ \\text{stabil} \\qquad U''(x_0) < 0 \\ \\text{(topp)}: \\ \\text{ustabil}$$\n\nBare stabile likevekter gir svingninger. Prøver du lineariseringsformelen i en ustabil likevekt, får du $\\omega^2 < 0$ — et signal om at løsningen ikke er en svingning, men en eksponentiell vekst vekk fra punktet.\n\n**Praktisk sjekk:** en kule i bunnen av en bolle er stabil, en kule på toppen av en kuppel er ustabil. Regnestykket sier nøyaktig det samme."
+    },
+    {
+      "id": "fys1100-7-2-def-kef",
+      "type": "definition",
+      "title": "Effektiv fjærkonstant",
+      "content": "Tallet $k_{\\text{ef}} = -F'(x_0) = U''(x_0)$, altså hvor raskt den tilbakedrivende kraften vokser per meter utslag nær likevekten. Enheten er newton per meter, akkurat som en fjærkonstant.\n\nFor en ekte fjær er $k_{\\text{ef}} = k$. For alt annet — en pendel, en ikke-lineær fjær, et molekyl — er $k_{\\text{ef}}$ det tallet du må regne ut før du kan bruke formelen $\\omega = \\sqrt{k_{\\text{ef}}/m}$.\n\nÅ bruke den opprinnelige $k$-en i stedet for $k_{\\text{ef}}$ er en klassisk feil i oppgaver med ikke-lineære krefter, og den gir systematisk feil frekvens."
+    },
+    {
+      "id": "fys1100-7-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: En fjær som blir slappere jo mer den strekkes",
+      "problem": "Et lodd med masse $m = 0{,}500\\ \\text{kg}$ henger i en fjær som ikke følger Hookes lov nøyaktig. Fjærkraften er\n\n$$F_{\\text{fjær}}(y) = -ky - cy^2, \\qquad k = 40{,}0\\ \\text{N/m}, \\quad c = 60{,}0\\ \\text{N/m}^2$$\n\nder $y$ er målt fra fjærens avspente lengde, positiv oppover.\n\n**a)** Sett opp den samlede kraften og finn likevektsposisjonen.\n\n**b)** Finn potensialet $U(y)$ og bruk det til å avgjøre om likevekten er stabil.\n\n**c)** Finn frekvensen for små svingninger om likevekten.\n\n**d)** Sammenlikn med hva du ville fått hvis du hadde oversett det ikke-lineære leddet.",
+      "solution": "**Metodevalg:** vi finner først likevekten, deretter lineariserer vi kraften om nettopp den — ikke om origo. Rekkefølgen er avgjørende, og den er det som gir poeng.\n\n**a)** Samlet kraft på loddet, med tyngden $-mg = -4{,}905\\ \\text{N}$:\n\n$$F(y) = -ky - cy^2 - mg = -40{,}0\\,y - 60{,}0\\,y^2 - 4{,}905$$\n\nLikevekt betyr $F(y_0) = 0$, altså\n\n$$60{,}0\\,y_0^2 + 40{,}0\\,y_0 + 4{,}905 = 0$$\n\n$$y_0 = \\frac{-40{,}0 \\pm \\sqrt{1600 - 4\\cdot 60{,}0\\cdot 4{,}905}}{120{,}0} = \\frac{-40{,}0 \\pm \\sqrt{422{,}8}}{120{,}0} = \\frac{-40{,}0 \\pm 20{,}56}{120{,}0}$$\n\nDet gir $y_0 = -0{,}162\\ \\text{m}$ eller $y_1 = -0{,}505\\ \\text{m}$. Loddet henger i det øverste av de to, $y_0 = -0{,}162\\ \\text{m}$ — den likevekten som ligger nærmest der en vanlig fjær ville hatt sin, nemlig $-mg/k = -0{,}123\\ \\text{m}$. Den nedre roten skal vi se på i b).\n\n**b)** $$U(y) = -\\int F(y)\\,dy = \\tfrac12ky^2 + \\tfrac13cy^3 + mgy = 20{,}0\\,y^2 + 20{,}0\\,y^3 + 4{,}905\\,y$$\n\n$$U''(y) = 40{,}0 + 120{,}0\\,y$$\n\nI $y_0 = -0{,}162\\ \\text{m}$: $U'' = 40{,}0 - 19{,}44 = +20{,}6\\ \\text{N/m} > 0$, altså en **bunn** — stabil likevekt.\nI $y_1 = -0{,}505\\ \\text{m}$: $U'' = 40{,}0 - 60{,}6 = -20{,}6\\ \\text{N/m} < 0$, altså en **topp** — ustabil. Strekkes fjæra forbi det punktet, klarer den ikke lenger å bære loddet, og det faller. Modellen forteller altså om et bruddpunkt, og det er verdt en setning i en besvarelse.\n\n**c)** $$k_{\\text{ef}} = U''(y_0) = k + 2c\\,y_0 = 40{,}0 + 120{,}0\\cdot(-0{,}162) = 20{,}6\\ \\text{N/m}$$\n\n$$\\omega = \\sqrt{\\frac{k_{\\text{ef}}}{m}} = \\sqrt{\\frac{20{,}56}{0{,}500}} = \\sqrt{41{,}12} = 6{,}41\\ \\text{rad/s}, \\qquad T_p = \\frac{2\\pi}{6{,}413} = 0{,}980\\ \\text{s}$$\n\n**d)** Med bare det lineære leddet ville vi fått $\\omega = \\sqrt{k/m} = \\sqrt{80{,}0} = 8{,}94\\ \\text{rad/s}$ og $T_p = 0{,}702\\ \\text{s}$. Det er $39\\ \\%$ for høy frekvens (og en periode som er $28\\ \\%$ for kort). Grunnen er at det kvadratiske leddet gjør fjæra **slappere** i det strukket den faktisk henger i, og en slappere fjær svinger langsommere.\n\n**Kontroll:** en numerisk løsning av den fulle, ikke-lineære likningen med en amplitude på $3{,}0\\ \\text{cm}$ gir perioden $0{,}983\\ \\text{s}$, mot $0{,}980\\ \\text{s}$ fra lineariseringen — et avvik på $0{,}3\\ \\%$. Tilnærmingen holder altså godt for små utslag, akkurat som lovet.\n\n**Sensorblikk:** den bærende innsikten er at $k$ i formelen $\\omega = \\sqrt{k/m}$ må erstattes av $k_{\\text{ef}} = -F'(y_0)$, og at $y_0$ er den *faktiske* likevekten. Skriver du én setning om hvorfor, sitter poenget."
+    },
+    {
+      "id": "fys1100-7-2-fig-potensial",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-7-2-potensial.svg",
+      "alt": "En potensialkurve tegnet mot posisjonen. Kurven har et lokalt maksimum til venstre merket ustabil likevekt, faller ned til et tydelig minimum merket stabil likevekt, og stiger deretter bratt mot hoyre. En stiplet parabel er tilpasset i bunnen og folger kurven tett naer minimum, men skiller lag lenger ute.",
+      "caption": "Potensialet for den ikke-lineære fjæra i eksempel 4. Den stiplede parabelen er lineariseringen: den følger $U(y)$ nesten perfekt nær bunnen, og det er nettopp derfor små svingninger er harmoniske. Krumningen i bunnen, $U''(y_0) = 20{,}6\\ \\text{N/m}$, er den effektive fjærkonstanten."
+    },
+    {
+      "id": "fys1100-7-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En partikkel med masse $m = 0{,}0500\\ \\text{kg}$ beveger seg i én dimensjon i potensialet\n\n$$U(x) = 5{,}00\\,x^4 - 0{,}800\\,x^2$$\n\nmed $U$ i joule og $x$ i meter.\n\n**a)** Finn alle likevektsposisjoner.\n\n**b)** Avgjør for hver av dem om den er stabil eller ustabil.\n\n**c)** Finn frekvensen og perioden for små svingninger om en stabil likevekt.\n\n**d)** Skisser med ord hvordan $U(x)$ ser ut, og forklar hvorfor $x = 0$ ikke gir svingninger.",
+        "solution": "**Metodevalg:** likevekter finner vi der kraften er null, altså der $U'(x) = 0$. Stabiliteten avgjøres av fortegnet til $U''$, og frekvensen av $\\sqrt{U''(x_0)/m}$.\n\n**a)** $$U'(x) = 20{,}0\\,x^3 - 1{,}60\\,x = x\\,(20{,}0\\,x^2 - 1{,}60) = 0$$\n\n$$x = 0 \\quad \\text{eller} \\quad x^2 = \\frac{1{,}60}{20{,}0} = 0{,}0800 \\quad \\Longrightarrow \\quad x = \\pm 0{,}283\\ \\text{m}$$\n\nTre likevekter i alt.\n\n**b)** $$U''(x) = 60{,}0\\,x^2 - 1{,}60$$\n\nI $x = 0$: $U'' = -1{,}60\\ \\text{N/m} < 0$ — **ustabil** (en topp).\nI $x = \\pm0{,}283\\ \\text{m}$: $U'' = 60{,}0 \\cdot 0{,}0800 - 1{,}60 = 4{,}80 - 1{,}60 = +3{,}20\\ \\text{N/m} > 0$ — **stabile** (to bunner).\n\n**c)** $$\\omega = \\sqrt{\\frac{U''(x_0)}{m}} = \\sqrt{\\frac{3{,}20}{0{,}0500}} = \\sqrt{64{,}0} = 8{,}00\\ \\text{rad/s}$$\n\n$$T_p = \\frac{2\\pi}{8{,}00} = 0{,}785\\ \\text{s}$$\n\nSamme svar i begge bunnene, siden potensialet er symmetrisk om $x = 0$.\n\n**d)** Kurven er en «dobbeltbrønn»: den stiger bratt både til høyre og til venstre (på grunn av $x^4$-leddet), har en liten kul på midten ved $x = 0$, og to bunner på hver side av den ved $x = \\pm 0{,}283\\ \\text{m}$. Bunnverdien er $U(\\pm0{,}283) = -0{,}0320\\ \\text{J}$.\n\nI $x = 0$ er kraften riktignok null, men et lite utslag gir en kraft som peker **vekk** fra punktet. Da blir $k_{\\text{ef}}$ negativ, $\\omega^2 < 0$, og løsningen er ikke en svingning, men en eksponentiell bevegelse bort fra punktet. Fysisk: en kule balansert på en kul triller av.",
+        "hints": [
+          "Kraften er $F = -dU/dx$; likevekt betyr at den deriverte av potensialet er null.",
+          "Fortegnet til $U''$ skiller bunn fra topp.",
+          "Den effektive fjærkonstanten er $U''(x_0)$ — ikke koeffisienten foran $x^2$ i potensialet."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Eksamensnivå, sjanger G — svingningsoppgaven.)** En kloss med masse $m$ ligger på et vannrett friksjonsfritt bord og påvirkes av kraften\n\n$$F(x) = -kx + \\beta x^2$$\n\nder $k > 0$ og $\\beta > 0$, og $x$ måles fra origo.\n\n**a)** Vis at $x = 0$ er en likevekt, og finn den andre likevekten.\n\n**b)** Avgjør hvilken av de to som er stabil.\n\n**c)** Finn frekvensen for små svingninger om den stabile likevekten, uttrykt ved $k$, $\\beta$ og $m$.\n\n**d)** Med $m = 0{,}250\\ \\text{kg}$, $k = 18{,}0\\ \\text{N/m}$ og $\\beta = 30{,}0\\ \\text{N/m}^2$: hvor stort utslag tåler systemet før klossen ikke lenger vender tilbake?",
+        "solution": "**Metodevalg:** likevekter fra $F = 0$, stabilitet fra fortegnet til $F'$, og frekvens fra $\\omega = \\sqrt{-F'(x_0)/m}$. Her lønner det seg å regne symbolsk hele veien og sette inn tall til slutt.\n\n**a)** $$F(x) = x(-k + \\beta x) = 0 \\quad \\Longrightarrow \\quad x = 0 \\quad \\text{eller} \\quad x = \\frac{k}{\\beta}$$\n\nDet første leddet er null i origo uansett verdier av $k$ og $\\beta$, så $x = 0$ er alltid en likevekt.\n\n**b)** $$F'(x) = -k + 2\\beta x$$\n\nI $x = 0$: $F'(0) = -k < 0$, altså peker kraften tilbake — **stabil**.\nI $x = k/\\beta$: $F'= -k + 2k = +k > 0$, altså peker kraften vekk — **ustabil**.\n\n**c)** $$k_{\\text{ef}} = -F'(0) = k \\quad \\Longrightarrow \\quad \\omega = \\sqrt{\\frac{k}{m}}$$\n\nDet kvadratiske leddet påvirker altså **ikke** frekvensen for små svingninger om origo, fordi det bidrar med null til den deriverte i nettopp det punktet. Det er verdt en kommentar: et ikke-lineært ledd endrer bare frekvensen dersom likevekten flyttes, eller dersom utslaget blir stort nok til at lineariseringen svikter.\n\n**d)** Den ustabile likevekten ligger i\n\n$$x = \\frac{k}{\\beta} = \\frac{18{,}0}{30{,}0} = 0{,}600\\ \\text{m}$$\n\nKommer klossen forbi det punktet i positiv retning, peker kraften utover, og den vender aldri tilbake. Grensen for trygge svingninger er altså et utslag under $0{,}600\\ \\text{m}$ på den siden. På den negative siden finnes ingen slik grense i denne modellen: der vokser den tilbakedrivende kraften monotont.\n\n**Kontroll av rimeligheten:** ved et utslag på $0{,}060\\ \\text{m}$, altså en tidel av grensen, er det ikke-lineære leddet $\\beta x^2 = 30{,}0 \\cdot 0{,}0036 = 0{,}108\\ \\text{N}$ mot det lineære $kx = 1{,}08\\ \\text{N}$ — en korreksjon på $10\\ \\%$. Ved $0{,}0060\\ \\text{m}$ er den $1\\ \\%$. Lineariseringen blir altså bedre jo mindre utslaget er, akkurat som Taylor-utviklingen lover.",
+        "hints": [
+          "Faktoriser uttrykket for kraften for å finne begge nullpunktene.",
+          "Stabilitet avgjøres av fortegnet til $F'(x_0)$: negativ betyr tilbakedrivende.",
+          "I d): hva skjer med kraftens fortegn på den andre siden av den ustabile likevekten?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — pendelen og småvinkeltilnærmingen (~12 min)\n\nEn pendel er den mest testede enkeltapplikasjonen av alt dette, og den er også det reneste eksempelet på linearisering. En kule med masse $m$ henger i en masseløs snor med lengde $\\ell$ og svinger i en vinkel $\\theta$ ut fra loddlinja.\n\nKula beveger seg langs en sirkelbue, og buelengden er $s = \\ell\\theta$ når $\\theta$ måles i radianer. Kraftkomponenten langs bevegelsen er tyngdekomponenten $-mg\\sin\\theta$ — snordraget står vinkelrett på bevegelsen og bidrar ikke. Newtons 2. lov langs banen gir\n\n$$m\\ell\\frac{d^2\\theta}{dt^2} = -mg\\sin\\theta \\quad \\Longrightarrow \\quad \\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\sin\\theta$$\n\n**Denne likningen er ikke lineær** — den ukjente står inne i en sinus — og den har ingen løsning i elementære funksjoner. Men Taylor redder oss."
+    },
+    {
+      "id": "fys1100-7-2-th-pendel",
+      "type": "theorem",
+      "title": "Pendelen for små utslag",
+      "content": "Taylor-utviklingen fra [kap. 1.2](/bok/fys1100/fys1100-1-2) gir\n\n$$\\sin\\theta = \\theta - \\frac{\\theta^3}{6} + \\dots \\approx \\theta \\qquad (\\theta \\text{ i \\textbf{radianer}})$$\n\nBeholder vi bare det lineære leddet, blir likningen\n\n$$\\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\theta$$\n\nsom er nøyaktig fjærlikningen med $\\omega_0^2 = g/\\ell$:\n\n$$\\omega_0 = \\sqrt{\\frac{g}{\\ell}}, \\qquad T_p = 2\\pi\\sqrt{\\frac{\\ell}{g}}$$\n\n**Tre ting som er verdt poeng å kommentere:**\n\n1. **Massen inngår ikke.** En tung og en lett kule i samme snor svinger med samme takt — samme grunn som at alle legemer faller like fort.\n2. **Amplituden inngår ikke** (så lenge tilnærmingen holder). Dette kalles isokroni og er grunnen til at pendelur virker.\n3. **Tilnærmingen krever radianer.** Regner du $\\sin 20 \\approx 20$ med kalkulatoren i gradmodus, får du et svar som er hundrevis av ganger for stort.\n\n**Hvor godt holder den?** Den eksakte perioden er om lag $T_p\\left(1 + \\theta_0^2/16\\right)$ for utslagsvinkelen $\\theta_0$ i radianer. Ved $5^\\circ$ er avviket $0{,}05\\ \\%$, ved $20^\\circ$ er det $0{,}76\\ \\%$, og ved $45^\\circ$ er det $3{,}9\\ \\%$. **Tilnærmingen er altså langt bedre enn de fleste tror** — men den er en tilnærming, og det skal sies."
+    },
+    {
+      "id": "fys1100-7-2-def-matematisk-pendel",
+      "type": "definition",
+      "title": "Matematisk pendel",
+      "content": "Modellen der hele massen er samlet i ett punkt i enden av en masseløs, ustrekkbar snor med lengde $\\ell$, uten luftmotstand.\n\n$$\\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\sin\\theta \\quad \\xrightarrow{\\ \\text{små } \\theta\\ } \\quad T_p = 2\\pi\\sqrt{\\frac{\\ell}{g}}$$\n\nModellen er en idealisering. En ekte pendel har masse i snora og utstrekning i loddet, og da må treghetsmomentet med i regnestykket — det er en av de faste variantene i rotasjonsdelen av faget.\n\nMerk at $\\ell$ er valgt som symbol for lengden i denne boka. Bokstaven $L$ er reservert spinn i Del 6, og i en oppgave som blander svingninger og rotasjon ville sammenblandingen vært dyr."
+    },
+    {
+      "id": "fys1100-7-2-def-smaavinkel",
+      "type": "definition",
+      "title": "Småvinkeltilnærmingen",
+      "content": "Å erstatte $\\sin\\theta$ med $\\theta$, gyldig når $\\theta$ er liten og **målt i radianer**. Det er førsteordens Taylor-utvikling om $\\theta = 0$, og feilen er av tredje orden: $\\theta^3/6$.\n\nVed $\\theta = 0{,}20$ rad ($11{,}5^\\circ$) er $\\sin\\theta = 0{,}1987$, altså en feil på $0{,}7\\ \\%$ i selve kraften. Fordi feilen vokser som $\\theta^3$, blir den fort merkbar ved store utslag — men den er ubetydelig i det området pendelklokker og laboratorieoppgaver arbeider i.\n\nSamme tilnærming brukes hver gang en ikke-lineær kraft skal lineariseres om en likevekt, og den er verktøyet som knytter [kap. 1.2](/bok/fys1100/fys1100-1-2) direkte til eksamensoppgavene i sjanger G."
+    },
+    {
+      "id": "fys1100-7-2-ex-5",
+      "type": "example",
+      "title": "Eksempel 5 (eksamensnivå): pendel med kontrollert tilnærming",
+      "problem": "En kule henger i en snor med lengde $\\ell = 0{,}800\\ \\text{m}$ og slippes fra ro i en utslagsvinkel på $20{,}0^\\circ$.\n\n**a)** Utled bevegelseslikningen og lineariser den.\n\n**b)** Finn svingeperioden.\n\n**c)** Skriv $\\theta(t)$ med de gitte initialbetingelsene.\n\n**d)** Hvor stor feil gjør småvinkeltilnærmingen ved $20{,}0^\\circ$, og hva ville skjedd hvis utslaget var $45^\\circ$?",
+      "solution": "**Metodevalg:** Newtons 2. lov langs sirkelbanen, deretter Taylor-utvikling om $\\theta = 0$. Snordraget står vinkelrett på bevegelsen og gjør derfor ikke noe bidrag langs banen — det er verdt å skrive ut, for det er grunnen til at bare tyngdekomponenten inngår.\n\n**a)** Buelengden er $s = \\ell\\theta$, så banefarten er $\\ell\\,d\\theta/dt$ og baneakselerasjonen $\\ell\\,d^2\\theta/dt^2$. Tyngdekomponenten langs banen er $-mg\\sin\\theta$:\n\n$$m\\ell\\frac{d^2\\theta}{dt^2} = -mg\\sin\\theta \\quad \\Longrightarrow \\quad \\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\sin\\theta$$\n\nMassen faller ut. Med $\\sin\\theta \\approx \\theta$ for små $\\theta$ i radianer:\n\n$$\\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\theta = -\\frac{9{,}81}{0{,}800}\\theta = -12{,}26\\,\\theta$$\n\n**b)** $$\\omega_0 = \\sqrt{\\frac{g}{\\ell}} = \\sqrt{12{,}26} = 3{,}50\\ \\text{rad/s}, \\qquad T_p = \\frac{2\\pi}{3{,}5018} = 1{,}79\\ \\text{s}$$\n\n**c)** «Slippes fra ro» gir $d\\theta/dt\\big|_{t=0} = 0$, altså $B = 0$. Startvinkelen må gjøres om til radianer:\n\n$$\\theta_0 = 20{,}0^\\circ = 20{,}0 \\cdot \\frac{\\pi}{180} = 0{,}349\\ \\text{rad}$$\n\n$$\\theta(t) = 0{,}349\\cos(3{,}50\\,t) \\quad \\text{(radianer)}$$\n\n**d)** Den eksakte perioden er om lag $T_p(1 + \\theta_0^2/16)$:\n\n$$\\frac{\\theta_0^2}{16} = \\frac{0{,}349^2}{16} = \\frac{0{,}1219}{16} = 0{,}00762 \\quad \\Longrightarrow \\quad 0{,}76\\ \\%$$\n\nDen eksakte perioden blir altså $1{,}79 \\cdot 1{,}0076 = 1{,}81\\ \\text{s}$ — en forskjell på $14\\ \\text{ms}$, som er umulig å se på ett svingeslag, men som utgjør et helt svingeslag etter ett hundre og tretti svingninger.\n\nVed $45^\\circ$ ($0{,}785\\ \\text{rad}$) blir korreksjonen $0{,}785^2/16 = 3{,}9\\ \\%$, altså $T \\approx 1{,}87\\ \\text{s}$. Da er tilnærmingen fortsatt brukbar for et grovt anslag, men den holder ikke til presisjonsarbeid — og skal den behandles nøyaktig, må den fulle, ikke-lineære likningen løses numerisk.\n\n**Sensorblikk:** to setninger gir uttelling her uten regning i det hele tatt: at snordraget ikke bidrar langs banen, og at massen faller ut. Den tredje — at tilnærmingen krever radianer — er den som redder tallsvaret."
+    },
+    {
+      "id": "fys1100-7-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å glemme substitusjonen $u = y - y_L$ i en hengende fjær.** Da blir likningen inhomogen, oppskriften passer ikke, og svingesenteret havner i avspent lengde i stedet for i likevekt. Skriv alltid ut hvor $u = 0$ ligger.\n\n**Felle #3 — å «integrere» likningen i stedet for å bruke karakteristisk likning.** Gir null poeng. Er den ukjente på begge sider, må du bruke en gyldig metode; se [kap. 7.1](/bok/fys1100/fys1100-7-1).\n\n**Å forveksle $\\omega_0$ med $\\omega_0^2$.** Står det $d^2u/dt^2 = -64\\,u$, er $\\omega_0 = 8{,}0\\ \\text{rad/s}$, ikke $64$. Enhetskontrollen avslører feilen: $\\omega_0$ skal ha enhet $\\text{rad/s}$.\n\n**Å skrive $B = v_0$ i stedet for $B = v_0/\\omega_0$.** Sjekk enheten — $B$ er et utslag og skal måles i meter.\n\n**Å bruke initialbetingelsene på feil form av løsningen.** Har du skrevet svaret som $C\\cos(\\omega_0t + \\varphi)$, må du derivere *den* formen når du setter inn $v(0)$. Det er som regel enklere å bruke $A\\cos + B\\sin$ til innsettingen og konvertere til slutt.\n\n**Å linearisere om origo når likevekten ligger et annet sted.** Da blir den effektive fjærkonstanten feil, og frekvensen med den. Finn likevekten først, alltid.\n\n**Å blande grader og radianer i $\\sin\\theta \\approx \\theta$.** Tilnærmingen er meningsløs i grader. Regn om startvinkelen før du setter inn.\n\n**Å svare uten retning eller enhet.** Et utslag oppgis med fortegn og enhet, en fart med retning. Manglende retning på en vektorstørrelse koster typisk 2 poeng."
+    },
+    {
+      "id": "fys1100-7-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En pendel har lengden $\\ell = 1{,}20\\ \\text{m}$.\n\n**a)** Finn svingeperioden for små utslag.\n\n**b)** Hvor lang måtte pendelen vært for at perioden skulle blitt nøyaktig $2{,}00\\ \\text{s}$?\n\n**c)** Pendelen tas med til Månen, der tyngdeakselerasjonen er $1{,}62\\ \\text{m/s}^2$. Hva blir perioden da?\n\n**d)** Forklar hvorfor svaret i a) ikke endrer seg om du bytter kula ut med en dobbelt så tung.",
+        "solution": "**Metodevalg:** vi bruker $T_p = 2\\pi\\sqrt{\\ell/g}$, som gjelder for små utslag etter lineariseringen av pendellikningen.\n\n**a)** $$T_p = 2\\pi\\sqrt{\\frac{1{,}20}{9{,}81}} = 2\\pi\\sqrt{0{,}12232} = 2\\pi \\cdot 0{,}34974 = 2{,}20\\ \\text{s}$$\n\n**b)** Løs for lengden:\n\n$$\\ell = \\frac{gT_p^2}{4\\pi^2} = \\frac{9{,}81 \\cdot 4{,}00}{39{,}478} = \\frac{39{,}24}{39{,}478} = 0{,}994\\ \\text{m}$$\n\nEn pendel som slår sekunder i hver vei — altså med periode $2{,}00\\ \\text{s}$ — er nesten nøyaktig én meter lang. Det er ingen tilfeldighet: den sammenhengen var et av de tidlige forslagene til å definere meteren.\n\n**c)** $$T_p = 2\\pi\\sqrt{\\frac{1{,}20}{1{,}62}} = 2\\pi\\sqrt{0{,}7407} = 2\\pi \\cdot 0{,}86065 = 5{,}41\\ \\text{s}$$\n\nNesten to og en halv ganger så lenge, siden $T_p \\propto 1/\\sqrt{g}$ og $\\sqrt{9{,}81/1{,}62} = 2{,}46$.\n\n**d)** Fordi massen faller ut av bevegelseslikningen: den står både i tyngdekomponenten $mg\\sin\\theta$ og i treghetsleddet $m\\ell\\,d^2\\theta/dt^2$, og forkortes bort. Fysisk er det samme grunn som at alle legemer faller like fort — dobbelt så stor tyngde virker på dobbelt så stor treghet.",
+        "hints": [
+          "$T_p = 2\\pi\\sqrt{\\ell/g}$ gjelder for små utslag.",
+          "I b): løs formelen for $\\ell$ før du setter inn tall.",
+          "I d): se hvor massen står i bevegelseslikningen før du forkorter."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Eksamensnivå, sjanger G.)** Et lodd med masse $m = 0{,}400\\ \\text{kg}$ henger i en fjær med $k = 25{,}0\\ \\text{N/m}$. Loddet holdes i ro i fjærens **avspente** lengde og slippes ved $t = 0$.\n\n**a)** Finn likevektsposisjonen, målt fra avspent lengde.\n\n**b)** Sett opp bevegelseslikningen for utslaget $u$ fra likevekt, og finn $\\omega_0$ og $T_p$.\n\n**c)** Bestem $u(t)$ med de gitte initialbetingelsene, og begrunn dem fysisk.\n\n**d)** Hvor langt under avspent lengde kommer loddet på det laveste?\n\n**e)** Verifiser svaret i d) med en energibetraktning.",
+        "solution": "**Metodevalg:** Newtons 2. lov med $y$ målt fra avspent lengde, positiv oppover, deretter substitusjon til likevekt. Initialbetingelsene må oversettes fra «avspent lengde» til utslag fra likevekt — det er nøkkelsteget i denne oppgaven.\n\n**a)** $$y_L = -\\frac{mg}{k} = -\\frac{0{,}400 \\cdot 9{,}81}{25{,}0} = -\\frac{3{,}924}{25{,}0} = -0{,}157\\ \\text{m}$$\n\nLoddet henger $15{,}7\\ \\text{cm}$ under avspent lengde når det er i ro.\n\n**b)** Med $u = y - y_L$:\n\n$$\\frac{d^2u}{dt^2} = -\\frac{k}{m}u = -62{,}5\\,u$$\n\n$$\\omega_0 = \\sqrt{62{,}5} = 7{,}91\\ \\text{rad/s}, \\qquad T_p = \\frac{2\\pi}{7{,}9057} = 0{,}795\\ \\text{s}$$\n\n**c)** Loddet slippes i avspent lengde, altså i $y = 0$. Målt fra likevekt er det\n\n$$u(0) = 0 - y_L = +0{,}157\\ \\text{m}$$\n\naltså $15{,}7\\ \\text{cm}$ **over** likevekt. Og «holdes i ro og slippes» gir $v(0) = 0$. Dermed er $A = 0{,}157\\ \\text{m}$ og $B = 0$:\n\n$$u(t) = 0{,}157\\cos(7{,}91\\,t)\\ \\text{m}$$\n\n**d)** Amplituden er $0{,}157\\ \\text{m}$, så det laveste punktet ligger $0{,}157\\ \\text{m}$ **under** likevekt, altså\n\n$$0{,}157 + 0{,}157 = 0{,}314\\ \\text{m} = 31{,}4\\ \\text{cm}$$\n\nunder avspent lengde. Loddet svinger altså ned til nøyaktig **dobbelt** så stor strekk som den statiske — et resultat som gjelder generelt når et lodd slippes fra avspent lengde.\n\n**e)** Mekanisk energi er bevart, fordi bare tyngden og den konservative fjærkraften gjør arbeid (ingen friksjon eller luftmotstand er med i modellen). I det laveste punktet er farten null, akkurat som i starten, så all høydeenergi er gått over i fjærenergi. Med $d$ som strekket i det laveste punktet, og fjærenergien $\\tfrac12kd^2$ fra [kap. 5.1](/bok/fys1100/fys1100-5-1):\n\n$$mgd = \\tfrac12kd^2 \\quad \\Longrightarrow \\quad d = \\frac{2mg}{k} = \\frac{2 \\cdot 3{,}924}{25{,}0} = 0{,}314\\ \\text{m}$$\n\nSamme svar ✓ — og legg merke til at $d = 2\\lvert y_L\\rvert$ faller rett ut av regningen, som bekrefter dobbelt-strekk-resultatet generelt.\n\n**Merk:** de to metodene er begge gyldige, og sensor godtar begge. Energimetoden er raskest når spørsmålet bare gjelder ytterpunktene; svingelikningen trengs når spørsmålet gjelder tidsforløpet.",
+        "hints": [
+          "Finn likevekten først — den er referansepunktet for hele resten av oppgaven.",
+          "«Slippes i avspent lengde» må oversettes til et utslag målt fra likevekt.",
+          "I e): sett opp energibevaring mellom startpunktet og det laveste punktet, der farten er null i begge."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Kvalitativ.)** Svar i to–fire setninger per punkt.\n\n**a)** En medstudent påstår at en tung kule i en pendel svinger langsommere enn en lett, fordi den er tyngre å få i gang. Hva er galt i resonnementet?\n\n**b)** For en harmonisk oscillator er perioden uavhengig av amplituden. Forklar hvorfor dette **ikke** gjelder for en pendel med store utslag, og hvilken vei avviket går.\n\n**c)** En bilprodusent vil at støtdemperne skal være kritisk dempet framfor svakt dempet. Begrunn valget fysisk.",
+        "solution": "**a)** Massen står på begge sider av bevegelseslikningen: den forsterker den drivende tyngdekomponenten $mg\\sin\\theta$ og treghetsleddet $m\\ell\\,d^2\\theta/dt^2$ i nøyaktig samme grad, og forkortes bort. Resonnementet ser bare på tregheten og glemmer at den drivende kraften vokser like mye. Samme mekanisme gjør at alle legemer faller like fort i vakuum.\n\n**b)** Isokronien følger av at den tilbakedrivende kraften er nøyaktig proporsjonal med utslaget. For en pendel gjelder det bare tilnærmet: den virkelige kraften er $-mg\\sin\\theta$, og siden $\\sin\\theta < \\theta$, er kraften **svakere** enn den lineære modellen sier ved store utslag. Svakere tilbakedriving gir lengre periode, så en pendel med stort utslag svinger langsommere — omtrent $0{,}8\\ \\%$ langsommere ved $20^\\circ$ og $4\\ \\%$ ved $45^\\circ$.\n\n**c)** Med svak demping ville bilen fortsette å gynge flere ganger etter hvert hull i veien, og hjulet ville miste kontakten med underlaget i deler av bevegelsen. Kritisk demping bringer karosseriet tilbake til likevekt raskest mulig uten å svinge forbi, og gir dermed både best veigrep og best komfort. Enda kraftigere demping ville vært verre igjen: da blir bevegelsen tilbake til likevekt langsommere, og bilen føles hard og treg.",
+        "hints": [
+          "I a): finn ut hvor massen står i bevegelseslikningen før du konkluderer.",
+          "I b): sammenlikn $\\sin\\theta$ med $\\theta$ for et stort utslag — hvilken er størst?",
+          "I c): tenk på hva som skjer med hjulets veigrep hvis karosseriet fortsetter å gynge."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-7-2-bb-harmonisk",
+      "type": "definition",
+      "title": "Harmonisk svingning",
+      "content": "En bevegelse der utslaget fra likevekt varierer som en ren sinus eller cosinus med tiden:\n\n$$u(t) = C\\cos(\\omega_0 t + \\varphi)$$\n\nDen oppstår alltid når den tilbakedrivende kraften er proporsjonal med utslaget og motsatt rettet, altså $F = -k_{\\text{ef}}u$. Det er derfor den samme bevegelsen dukker opp i fjærer, pendler, molekylsvingninger og elektriske svingekretser — det er formen på kraftloven, ikke systemet, som avgjør."
+    },
+    {
+      "id": "fys1100-7-2-bb-periode",
+      "type": "definition",
+      "title": "Periode og frekvens",
+      "content": "Perioden $T_p$ er tiden for én full svingning fram og tilbake; frekvensen $f$ er antall svingninger per sekund.\n\n$$T_p = \\frac{2\\pi}{\\omega_0}, \\qquad f = \\frac{1}{T_p} = \\frac{\\omega_0}{2\\pi}$$\n\nEnhetene er sekund og hertz ($1\\ \\text{Hz} = 1\\ \\text{s}^{-1}$). **Vinkelfrekvensen $\\omega_0$ måles i radianer per sekund og er $2\\pi$ ganger frekvensen i hertz** — å blande de to er en av de vanligste tallfeilene i svingningsoppgaver.\n\nVi skriver perioden $T_p$ og ikke $T$, fordi $T$ betegner snordrag i denne boka."
+    },
+    {
+      "id": "fys1100-7-2-bb-hooke",
+      "type": "definition",
+      "title": "Hookes lov",
+      "content": "Modellen der fjærkraften er proporsjonal med utstrekningen og motsatt rettet:\n\n$$F = -k(x - x_0)$$\n\nFjærkonstanten $k$ har enhet newton per meter og måler hvor stiv fjæra er. Loven er en **tilnærming** som gjelder for moderate utstrekninger; strekkes fjæra langt, blir den enten stivere eller slappere, og da må det ikke-lineære leddet med (se eksempel 4).\n\nHookes lov er selve grunnen til at harmoniske svingninger er så vanlige: den er førsteordens Taylor-utvikling av en hvilken som helst glatt kraft nær en likevekt."
+    },
+    {
+      "id": "fys1100-7-2-bb-isokroni",
+      "type": "definition",
+      "title": "Isokroni",
+      "content": "Egenskapen at svingetiden er uavhengig av amplituden. Den gjelder for enhver ren harmonisk oscillator, fordi både utslaget og den tilbakedrivende kraften skaleres med samme faktor når amplituden endres.\n\nIsokronien er grunnlaget for pendelur og for balansehjulet i mekaniske klokker. Den er også grunnen til at et musikkinstrument holder tonehøyden når du spiller svakere.\n\nFor en pendel gjelder isokronien bare tilnærmet, og den svikter merkbart over $30$–$40$ graders utslag."
+    },
+    {
+      "id": "fys1100-7-2-bb-fasekonstant",
+      "type": "definition",
+      "title": "Fasekonstant",
+      "content": "Vinkelen $\\varphi$ i $u(t) = C\\cos(\\omega_0 t + \\varphi)$, som forteller hvor i svingningen bevegelsen befant seg ved $t = 0$.\n\n$$\\tan\\varphi = -\\frac{B}{A}$$\n\nFasekonstanten endrer ikke frekvensen eller amplituden — den flytter bare hele kurven sidelengs. Å velge $t = 0$ i et vendepunkt gir $\\varphi = 0$ og en ren cosinus, og det er ofte det ryddigste valget når du selv kan bestemme når klokka startes."
+    },
+    {
+      "id": "fys1100-7-2-bb-grunnlosninger",
+      "type": "definition",
+      "title": "Grunnløsninger",
+      "content": "De to uavhengige løsningene som den generelle løsningen bygges av. For den udempede oscillatoren er de $\\cos\\omega_0 t$ og $\\sin\\omega_0 t$; for den overkritisk dempede er de $e^{\\lambda_1 t}$ og $e^{\\lambda_2 t}$.\n\nEnhver løsning er en sum $A \\cdot (\\text{første}) + B \\cdot (\\text{andre})$, og det følger av superposisjonsprinsippet for lineære homogene likninger. Antallet grunnløsninger er alltid lik ordenen — derfor to for en bevegelseslikning."
+    },
+    {
+      "id": "fys1100-7-2-bb-komplekse-rotter",
+      "type": "definition",
+      "title": "Komplekse røtter og svingninger",
+      "content": "Når den karakteristiske likningen har komplekse røtter $\\lambda = -\\gamma \\pm i\\omega_d$, svinger systemet. Sammenhengen mellom den komplekse eksponentialfunksjonen og trigonometrien er\n\n$$e^{i\\omega t} = \\cos\\omega t + i\\sin\\omega t$$\n\nsom er grunnen til at en likning uten en eneste trigonometrisk funksjon i seg likevel får en svingende løsning. **Realdelen av roten** styrer hvor fort amplituden dør ut, og **imaginærdelen** styrer hvor fort systemet svinger.\n\nDu trenger ikke regne med komplekse tall for å bruke resultatet: oppskriften i Rottmann gir deg den reelle formen direkte."
+    },
+    {
+      "id": "fys1100-7-2-bb-energi-shm",
+      "type": "definition",
+      "title": "Energien i en harmonisk svingning",
+      "content": "Den mekaniske energien veksler mellom kinetisk og potensiell, men summen er konstant:\n\n$$E = \\tfrac12 k_{\\text{ef}}C^2 = \\tfrac12 m v_{\\max}^2$$\n\nI vendepunktene er all energi potensiell og farten null; i likevektspunktet er all energi kinetisk og farten størst. Det gir en nyttig snarvei: $v_{\\max} = C\\omega_0$.\n\nEnergiregnskapet er ofte den raskeste veien til ytterpunktene i en svingning, mens differensiallikningen trengs når spørsmålet gjelder tidsforløpet. Se [kap. 5.1](/bok/fys1100/fys1100-5-1) for bakgrunnen."
+    },
+    {
+      "id": "fys1100-7-2-bb-dempingsforhold",
+      "type": "definition",
+      "title": "Dempingsforhold",
+      "content": "Det dimensjonsløse forholdet mellom den faktiske og den kritiske dempingen:\n\n$$\\zeta = \\frac{b}{b_{\\text{kr}}} = \\frac{b}{2\\sqrt{km}} = \\frac{\\gamma}{\\omega_0}$$\n\n$\\zeta < 1$ gir svingninger, $\\zeta = 1$ er kritisk demping, og $\\zeta > 1$ gir ren kryping tilbake. Fordi tallet er dimensjonsløst, kan det sammenliknes på tvers av helt ulike systemer — en bilfjæring og en måleinstrumentnål med samme $\\zeta$ oppfører seg kvalitativt likt."
+    },
+    {
+      "id": "fys1100-7-2-bb-avspent",
+      "type": "definition",
+      "title": "Avspent lengde",
+      "content": "Den lengden en fjær har når ingen kraft virker på den. Posisjonen der loddet ville hengt hvis tyngden var borte.\n\nFor en fjær på et **vannrett** bord sammenfaller avspent lengde med likevektsposisjonen. For en **hengende** fjær gjør den det ikke: likevekten ligger $mg/k$ lenger nede.\n\nÅ blande de to er en klassisk feilkilde i oppgaver der loddet slippes «fra avspent lengde» — da er startutslaget fra likevekt nettopp $mg/k$, ikke null."
+    },
+    {
+      "id": "fys1100-7-2-bb-svingesenter",
+      "type": "definition",
+      "title": "Svingesenter",
+      "content": "Punktet svingningen foregår omkring — alltid likevektsposisjonen, aldri fjærens avspente lengde og aldri startpunktet.\n\nEn konstant kraft som tyngden flytter svingesenteret, men lar frekvensen være uendret. Det er innholdet i substitusjonen $u = y - y_L$, og det er grunnen til at en fjær svinger like fort hengende som liggende."
+    },
+    {
+      "id": "fys1100-7-2-bb-vendepunkt",
+      "type": "definition",
+      "title": "Vendepunkt",
+      "content": "Punktene der farten er null og bevegelsen snur, altså der utslaget er $\\pm C$. I vendepunktene er akselerasjonen størst i tallverdi:\n\n$$\\lvert a\\rvert_{\\max} = \\omega_0^2 C$$\n\nog den peker alltid inn mot likevekten. Kombinasjonen «største utslag, null fart, største akselerasjon» er et av de mest testede konseptspørsmålene på midtveiseksamen, som er ren flervalg."
+    },
+    {
+      "id": "fys1100-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-7-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $y$, $x$ | posisjon målt fra fjærens avspente lengde | $\\text{m}$ |\n| $y_L$, $x_0$ | likevektsposisjon | $\\text{m}$ |\n| $u = y - y_L$ | utslag fra likevekt | $\\text{m}$ |\n| $\\xi$ | lite utslag fra en likevekt ved linearisering | $\\text{m}$ |\n| $C$ | amplitude, altså største utslag fra likevekt | $\\text{m}$ |\n| $A$, $B$ | konstantene foran cosinus og sinus | $\\text{m}$ |\n| $\\varphi$ | fasekonstant | radianer |\n| $m$ | masse | $\\text{kg}$ |\n| $k$ | fjærkonstant | $\\text{N/m}$ |\n| $k_{\\text{ef}}$ | effektiv fjærkonstant, $-F'(x_0) = U''(x_0)$ | $\\text{N/m}$ |\n| $c$, $\\beta$ | koeffisienter i ikke-lineære kraftledd | $\\text{N/m}^2$ |\n| $b$ | dempekoeffisient i kraften $-b\\,du/dt$ | $\\text{kg/s}$ |\n| $b_{\\text{kr}}$ | kritisk demping, $2\\sqrt{km}$ | $\\text{kg/s}$ |\n| $\\gamma = b/(2m)$ | dempingsrate | $\\text{s}^{-1}$ |\n| $\\zeta = \\gamma/\\omega_0$ | dempingsforhold | dimensjonsløst |\n| $\\omega_0$ | egenfrekvens (udempet) | $\\text{rad/s}$ |\n| $\\omega_d$ | dempet vinkelfrekvens, $\\sqrt{\\omega_0^2 - \\gamma^2}$ | $\\text{rad/s}$ |\n| $T_p$ | svingeperiode | $\\text{s}$ |\n| $f$ | frekvens | $\\text{Hz}$ |\n| $\\lambda$ | rot i den karakteristiske likningen | $\\text{s}^{-1}$ |\n| $\\theta$ | vinkelutslag for pendelen | radianer |\n| $\\ell$ | pendellengde | $\\text{m}$ |\n| $U(x)$ | potensial | $\\text{J}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner i dette delkapitlet:** perioden skrives $T_p$, siden $T$ er snordrag i boka. Pendellengden skrives $\\ell$, siden $L$ er spinn i Del 6. $B$ brukes som konstant foran sinusleddet; forveksles ikke med oppdrift, som ikke opptrer her. $b$ (dempekoeffisient) og $\\beta$ (ikke-lineær kraftkoeffisient) er ulike størrelser med ulik enhet — les alltid definisjonen i oppgaveteksten. Tyngden er $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{F} = -k(x - x_0)$$\n\nFjærkraften (Hookes lov). **[formelarket]**\n\n$$m\\frac{d^2y}{dt^2} = -ky - mg \\quad \\xrightarrow{\\ u = y - y_L\\ } \\quad \\frac{d^2u}{dt^2} = -\\frac{k}{m}u$$\n\nSubstitusjonen som gjør likningen homogen. **[må kunne utledes]** — dette er kjernegrepet i sjanger G.\n\n$$a\\lambda^2 + b\\lambda + c = 0$$\n\nDen karakteristiske likningen. Oppskriften med de tre rot-tilfellene står i **[Rottmann]**; å komme fram til likningen fra fysikken er **[må kunne utledes]**.\n\n$$u(t) = A\\cos\\omega_0 t + B\\sin\\omega_0 t = C\\cos(\\omega_0 t + \\varphi)$$\n\nGenerell løsning for den udempede oscillatoren, i to likeverdige former. **[må kunne utledes]**\n\n$$A = u_0, \\qquad B = \\frac{v_0}{\\omega_0}, \\qquad C = \\sqrt{A^2+B^2}$$\n\nKonstantene fra initialbetingelsene. **[må kunne utledes]**\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad T_p = \\frac{2\\pi}{\\omega_0}$$\n\nEgenfrekvens og periode for fjæra. **[må kunne utledes]**\n\n$$u(t) = e^{-\\gamma t}\\big(A\\cos\\omega_d t + B\\sin\\omega_d t\\big), \\qquad \\omega_d = \\sqrt{\\omega_0^2 - \\gamma^2}, \\qquad b_{\\text{kr}} = 2\\sqrt{km}$$\n\nUnderkritisk dempet svingning og betingelsen for kritisk demping. **[må kunne utledes]** fra den karakteristiske likningen.\n\n$$k_{\\text{ef}} = -F'(x_0) = U''(x_0), \\qquad \\omega = \\sqrt{\\frac{k_{\\text{ef}}}{m}}$$\n\nLinearisering om en likevekt. **[må kunne utledes]** — dette er den ene formelen som gjør hele familien av ikke-lineære krefter håndterbar.\n\n$$\\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\sin\\theta \\quad \\xrightarrow{\\ \\sin\\theta \\approx \\theta\\ } \\quad T_p = 2\\pi\\sqrt{\\frac{\\ell}{g}}$$\n\nPendelen og småvinkeltilnærmingen. Taylor-rekka med restledd står i **[Rottmann]**; utledningen av pendellikningen er **[må kunne utledes]**."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-7-2-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på.\n\n**R1.** ([kap. 1.2](/bok/fys1100/fys1100-1-2)) Taylor-utvikle $\\cos\\theta$ til og med andreordens ledd om $\\theta = 0$.\n\n*Løsning:* $\\cos\\theta \\approx 1 - \\theta^2/2$. Merk at det ikke finnes noe førsteordens ledd — cosinus er flat i toppen. Det er nettopp derfor $\\cos\\theta \\approx 1$ er en så god tilnærming for små vinkler.\n\n**R2.** ([kap. 1.2](/bok/fys1100/fys1100-1-2)) Hvor stor relativ feil gjør du ved å sette $\\sin\\theta = \\theta$ når $\\theta = 0{,}30\\ \\text{rad}$?\n\n*Løsning:* $\\sin 0{,}30 = 0{,}29552$, så feilen er $(0{,}30 - 0{,}29552)/0{,}29552 = 1{,}5\\ \\%$. Sammenlikn med tredjeordensleddet: $\\theta^3/6 = 0{,}0045$, som er nettopp differansen.\n\n**R3.** ([kap. 7.1](/bok/fys1100/fys1100-7-1)) Klassifiser $m\\,d^2x/dt^2 = -kx - b\\,dx/dt + F_0$.\n\n*Løsning:* Andre orden, lineær, inhomogen (leddet $F_0$ inneholder ikke den ukjente), konstante koeffisienter. Den kan gjøres homogen ved å flytte origo til den nye likevekten $x_L = F_0/k$ — nøyaktig samme grep som med tyngden.\n\n**R4.** ([kap. 3.2](/bok/fys1100/fys1100-3-2)) En fjær forlenges $8{,}0\\ \\text{cm}$ når et lodd på $0{,}250\\ \\text{kg}$ henges i den. Finn fjærkonstanten.\n\n*Løsning:* $k = mg/\\Delta x = (0{,}250 \\cdot 9{,}81)/0{,}080 = 2{,}4525/0{,}080 = 30{,}7\\ \\text{N/m}$. Denne målemetoden er nettopp det en fjærvekt bygger på.\n\n**R5.** ([kap. 5.1](/bok/fys1100/fys1100-5-1)) En kloss med masse $0{,}300\\ \\text{kg}$ presses $6{,}0\\ \\text{cm}$ inn mot en fjær med $k = 200\\ \\text{N/m}$ og slippes på et friksjonsfritt bord. Hvor fort går den når fjæra er avspent?\n\n*Løsning:* Mekanisk energi er bevart, fordi fjærkraften er konservativ og ingen friksjon virker. $\\tfrac12kx^2 = \\tfrac12mv^2$ gir $v = x\\sqrt{k/m} = 0{,}060\\sqrt{200/0{,}300} = 0{,}060 \\cdot 25{,}82 = 1{,}55\\ \\text{m/s}$. Legg merke til at $\\sqrt{k/m}$ er nettopp $\\omega_0$, og at svaret dermed er $C\\omega_0$ — den samme sammenhengen som i dette kapitlet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

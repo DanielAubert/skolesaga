@@ -1,0 +1,610 @@
+{
+  "id": "fys1100-10-1",
+  "courseId": "fys1100",
+  "chapterNumber": "10.1",
+  "title": "Tidsdilatasjon, lengdekontraksjon og hastighetsaddisjon",
+  "description": "Regneoppgaven i spesiell relativitet: Lorentz-faktoren, tidsdilatasjon, lengdekontraksjon og hastighetsaddisjon — med disiplin på egentid og egenlengde, og romtidsdiagrammet som verktøy.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "kunne avgjøre hvilket system som måler egentid og egenlengde i et konkret oppsett, og begrunne avgjørelsen",
+    "kunne regne med tidsdilatasjon, lengdekontraksjon og hastighetsaddisjon, og kontrollere at svaret går riktig vei",
+    "kunne bruke Lorentz-transformasjonen på en hendelse og tegne situasjonen i et romtidsdiagram med verdenslinjer og samtidighetslinjer",
+    "kunne løse for farten når strekning og egentid er gitt, og vise med Taylor-utvikling at den relativistiske energien går mot den klassiske ved lave farter"
+  ],
+  "content": [
+    {
+      "id": "fys1100-10-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger I — spesiell relativitet**, altså oppgaver om hvordan tid, lengde og fart ser ut for observatører som beveger seg i forhold til hverandre, står i **6 av 7 sett (86 %)**. Bare H2024 mangler den. Det gjør dette til bokas nest hyppigste tema etter de fire 100 %-søylene.\n\n**Og nå det viktigste, som få får sagt tydelig nok: relativitetsoppgaven er nesten alltid den SISTE oppgaven på settet.** I grunnmalen som moderne sett følger, er den oppgave 4 av 5 — «O4», altså oppgave fire i grunnmalen. Konsekvensen er praktisk og brutal: mange kandidater rekker aldri fram til den, ikke fordi de ikke kan stoffet, men fordi de har brukt opp tida på oppgave 1 og 2.\n\nDette er det billigste rådet i hele boka: **når du åpner settet, bla bakover og les relativitetsoppgaven først.** Deloppgave a) der er nesten alltid en ren $\\gamma$-utregning eller en «hvem måler egentida»-vurdering, og den tar tre minutter. Alle deloppgaver teller likt, med inntil 5 poeng hver, så tre minutter på siste oppgave er verdt like mye som tjue minutter på den første.\n\nSlik ligger poengene i regnevarianten:\n\n| Steg | Hva sensor ser etter |\n|---|---|\n| **Å identifisere egentida** — tida målt av en klokke som er til stede ved BEGGE hendelsene | hvilken klokke måler hva, i hvilket system — dette er den hyppigste feilen i hele delen |\n| Riktig $\\gamma$ med riktig fart | tallet skal ha 3–4 siffer, fordi svaret er følsomt |\n| Riktig retning på faktoren | tida blir **lengre**, lengden blir **kortere** |\n| Bevegelsesligninger med $\\gamma$ | uten Lorentz-faktoren gir regnedelen 0 poeng |\n\n**Å bytte om egentid og observert tid, eller $l$ og $l_0$, er felle #10 og koster typisk 2 poeng.** Feilene har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\n**Formelarket redder deg på formlene, ikke på forståelsen.** Hele relativitetsblokka — Lorentz-transformasjonen, hastighetstransformasjonen, $\\Delta t = \\gamma\\Delta t_0$, $l = l_0/\\gamma$ og $\\gamma$ selv — **står på det utdelte formelarket**. Du skal derfor aldri pugge dem. Det du må trene, er å velge riktig formel, sette riktig størrelse inn i riktig plass, og begrunne valget.\n\n**Relativitet er IKKE med på midtveiseksamen.** Midtveis (ren flervalg, 3 timer, teller 20 %) dekker Del 1–7 og Del 9. Dette stoffet møter du bare på den avsluttende skoleeksamenen, som teller 80 %.\n\n**Prioritet: bør sitte.** Med 86 % belegg er dette temaet som oftest avgjør forskjellen mellom C og B.\n\n**Tidsbruk: ~70 minutter lesing**, delt i sju korte løkker med tidsanslag underveis. [Kap. 10.2](/bok/fys1100/fys1100-10-2) tar den konseptuelle varianten — paradoksene — og bygger rett på dette kapitlet."
+    },
+    {
+      "id": "fys1100-10-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet trenger overraskende lite fra resten av boka. Til gjengjeld trenger det det som er der, presist.\n\n**Fra [kap. 2.1](/bok/fys1100/fys1100-2-1) — kinematikk.** Bare den enkleste sammenhengen, men den brukes hele veien:\n\n$$s = vt \\qquad \\text{for konstant fart}$$\n\nPoenget i relativitet er at $s$ og $t$ er **forskjellige tall for forskjellige observatører**, mens $v$ ofte er den samme. Å holde styr på hvilket system hvert tall hører hjemme i, er hele kunsten.\n\n**Fra [kap. 1.2](/bok/fys1100/fys1100-1-2) — Taylor.** To ting derfra brukes direkte her. Først de to størrelsene som allerede er innført:\n\n$$\\beta = \\frac{v}{c}, \\qquad \\gamma = \\frac{1}{\\sqrt{1-\\beta^2}} = \\left(1 - \\frac{v^2}{c^2}\\right)^{-1/2}$$\n\nog dernest binomialtilnærmingen, som er verktøyet for å vise at relativitetsteorien inneholder den klassiske mekanikken som grensetilfelle:\n\n$$(1+x)^n \\approx 1 + nx \\quad \\text{for } |x| \\ll 1$$\n\nDet er denne som gir $\\gamma \\approx 1 + \\tfrac12\\beta^2$ for små farter, og dermed $K = (\\gamma-1)mc^2 \\approx \\tfrac12 mv^2$. Vi tar den opp igjen i løkke 7.\n\n**Fra videregående.** Har du hatt Fysikk 2, har du sett postulatene, tidsdilatasjonen og lengdekontraksjonen før: [Spesiell relativitetsteori – postulater](/bok/fysikk2/fysikk2-6-1), [Tidsdilatasjon](/bok/fysikk2/fysikk2-6-2), [Lengdekontraksjon](/bok/fysikk2/fysikk2-6-3) og [Relativistisk energi og masse](/bok/fysikk2/fysikk2-6-4). Har du ikke hatt det, bygger vi opp alt fra bunnen her — du trenger ingen forkunnskaper utover algebra.\n\n**Notasjonsavtale for kapitlet — les denne, den er der poengene ryker.**\n\n- **Egentida** skrives $\\Delta t_0$, og der det er praktisk med ett symbol, $\\tau$ (den greske bokstaven tau). De to betyr nøyaktig det samme i denne boka.\n- **Egenlengda** skrives $l_0$. Den observerte lengden skrives $l$, og den observerte tida $\\Delta t$.\n- Symbolet $T$ er i denne boka **snordrag** og brukes ikke om tid her. Trenger vi en periode, skriver vi $T_p$.\n- Vi bruker $c = 3{,}00\\cdot10^{8}\\,\\text{m/s}$ gjennomgående. Der en oppgave krever flere siffer, står det i oppgaveteksten.\n- Farten til et system i forhold til et annet skrives $u$; farten til et legeme innenfor et system skrives $v$. Skillet blir viktig i løkke 5."
+    },
+    {
+      "id": "fys1100-10-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — postulatene og Lorentz-faktoren (~10 min)\n\nGPS-mottakeren i telefonen din bestemmer posisjonen ved å måle hvor lang tid signalene fra satellittene har brukt. En feil på ett mikrosekund gir en posisjonsfeil på $300\\,\\text{m}$. Satellittene farer rundt jorda med nesten $4\\,\\text{km/s}$, og klokkene deres går derfor **langsommere** enn klokkene på bakken — med omtrent $7\\,\\text{mikrosekunder i døgnet}$ fra fartseffekten alene.\n\nUten korreksjon ville systemet drevet ut av kurs på timer. Relativitetsteori er ikke eksotisk; den er innebygd i infrastruktur du bruker daglig.\n\n*(GPS har i tillegg en effekt fra at tyngdefeltet er svakere i banehøyden. Den hører til den generelle relativitetsteorien og er utenfor det FYS1100 tester — vi holder oss til fartseffekten her.)*"
+    },
+    {
+      "id": "fys1100-10-1-def-inertial",
+      "type": "definition",
+      "title": "Inertialsystem",
+      "content": "Et **inertialsystem** er et referansesystem der Newtons 1. lov gjelder: et legeme uten resultantkraft beveger seg med konstant fart i rett linje.\n\nI praksis: et laboratorium som står stille eller beveger seg med konstant hastighet, ikke et som akselererer eller roterer. Et romskip med motoren av er et inertialsystem; et romskip som bremser, er det ikke.\n\n**Hele den spesielle relativitetsteorien handler om inertialsystemer.** Det er derfor den heter «spesiell» — den er begrenset til det spesialtilfellet at systemene ikke akselererer. Denne begrensningen er ikke pirk: den er nøkkelen til tvillingparadokset i [kap. 10.2](/bok/fys1100/fys1100-10-2), der den ene tvillingen nettopp må akselerere."
+    },
+    {
+      "id": "fys1100-10-1-def-postulater",
+      "type": "definition",
+      "title": "Einsteins to postulater",
+      "content": "Hele teorien hviler på to setninger, og begge er enkle å si:\n\n**1. Relativitetsprinsippet.** Fysikkens lover er de samme i alle inertialsystemer. Det finnes ingen måte å avgjøre, ved et forsøk inne i et lukket rom, om rommet står stille eller beveger seg med konstant fart.\n\n**2. Lysfartens konstans.** Lyset i vakuum har den samme farten $c$ målt i alle inertialsystemer, uavhengig av hvordan kilden eller observatøren beveger seg.\n\nDet første postulatet er gammelt og ukontroversielt — Galilei formulerte det for skip. Det andre er sprengstoffet. Det bryter med all hverdagserfaring: løper du etter en bil, ser den ut til å kjøre saktere. Løper du etter en lysstråle, ser den fortsatt ut til å fjerne seg med $c$.\n\n**Alt i dette kapitlet er konsekvenser av disse to setningene.** Ingen av formlene er postulater i seg selv."
+    },
+    {
+      "id": "fys1100-10-1-def-beta",
+      "type": "definition",
+      "title": "Hastighetsforholdet $\\beta$",
+      "content": "Farten målt som andel av lysfarten:\n\n$$\\beta = \\frac{v}{c}, \\qquad c = 3{,}00\\cdot10^{8}\\,\\text{m/s}$$\n\nStørrelsen er **dimensjonsløs** — fart delt på fart — og for et legeme med masse ligger den alltid strengt mellom $-1$ og $1$.\n\nAt oppgaver oppgir farten som «$0{,}80c$» i stedet for i meter per sekund, er ikke kokettering: det er $\\beta$ som går inn i alle formlene, så du sparer et regnesteg og en avrundingsfeil hver gang."
+    },
+    {
+      "id": "fys1100-10-1-def-gamma",
+      "type": "definition",
+      "title": "Lorentz-faktoren $\\gamma$",
+      "content": "Den dimensjonsløse faktoren som all relativistisk regning går gjennom:\n\n$$\\gamma = \\frac{1}{\\sqrt{1-\\beta^2}} = \\frac{1}{\\sqrt{1 - v^2/c^2}}$$\n\nI ord: $\\gamma$ måler hvor «relativistisk» en situasjon er. Den er alltid **større enn eller lik 1**, den er nesten nøyaktig 1 for alle hverdagsfarter, og den vokser uten grense når $v$ nærmer seg $c$.\n\n| $\\beta$ | 0,10 | 0,50 | 0,80 | 0,90 | 0,99 | 0,995 |\n|---|---|---|---|---|---|---|\n| $\\gamma$ | 1,0050 | 1,1547 | 1,6667 | 2,2942 | 7,0888 | 10,013 |\n\nLegg merke til at $\\gamma$ knapt rører seg før $\\beta$ er godt over $0{,}5$, og så eksploderer. Det er derfor relativistiske effekter er usynlige i dagliglivet og altoverskyggende i en partikkelakselerator.\n\nUttrykket **står på formelarket**. Det du må kunne, er å regne med det — og å regne **baklengs**, altså finne $\\beta$ når $\\gamma$ er gitt: $\\beta = \\sqrt{1 - 1/\\gamma^2}$."
+    },
+    {
+      "id": "fys1100-10-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Å bli kjent med $\\gamma$",
+      "problem": "**a)** Regn ut $\\gamma$ for $v = 0{,}600c$ og for $v = 0{,}900c$.\n\n**b)** En GPS-satellitt går med $3{,}87\\,\\text{km/s}$. Regn ut $\\gamma - 1$, og finn hvor mye klokka om bord sakker per døgn.\n\n**c)** Hvilken fart svarer til $\\gamma = 4{,}00$?",
+      "solution": "**a)**\n\n$$\\gamma(0{,}600) = \\frac{1}{\\sqrt{1-0{,}600^2}} = \\frac{1}{\\sqrt{0{,}640}} = \\frac{1}{0{,}8000} = 1{,}250$$\n\n$$\\gamma(0{,}900) = \\frac{1}{\\sqrt{1-0{,}810}} = \\frac{1}{\\sqrt{0{,}190}} = \\frac{1}{0{,}4359} = 2{,}294$$\n\n**b)** Her er $\\beta$ bitteliten, og kalkulatoren mister sifrene hvis du regner $\\gamma$ direkte og trekker fra 1. Bruk i stedet binomialtilnærmingen fra [kap. 1.2](/bok/fys1100/fys1100-1-2):\n\n$$\\gamma = (1-\\beta^2)^{-1/2} \\approx 1 + \\tfrac12\\beta^2 \\quad \\Longrightarrow \\quad \\gamma - 1 \\approx \\tfrac12\\beta^2$$\n\n$$\\beta = \\frac{3{,}87\\cdot10^{3}}{3{,}00\\cdot10^{8}} = 1{,}29\\cdot10^{-5}, \\qquad \\gamma - 1 \\approx \\tfrac12(1{,}29\\cdot10^{-5})^2 = 8{,}32\\cdot10^{-11}$$\n\nPer døgn på $8{,}64\\cdot10^{4}\\,\\text{s}$ blir etterslepet\n\n$$\\Delta = (\\gamma-1)\\cdot8{,}64\\cdot10^{4} = 8{,}32\\cdot10^{-11}\\cdot8{,}64\\cdot10^{4} = 7{,}19\\cdot10^{-6}\\,\\text{s} \\approx 7{,}2\\ \\mu\\text{s}$$\n\nDet tilsvarer en posisjonsfeil på over to kilometer i døgnet hvis den ikke korrigeres.\n\n**Merk hvorfor tilnærmingen var nødvendig, ikke bare bekvem:** $\\gamma$ er her $1{,}0000000000833$, og en vanlig kalkulator som viser ti siffer, ville rundet det av til nøyaktig 1. Taylor-utviklingen er den eneste veien til svaret.\n\n**c)** Vi løser baklengs:\n\n$$\\gamma = \\frac{1}{\\sqrt{1-\\beta^2}} \\quad \\Longrightarrow \\quad \\beta = \\sqrt{1 - \\frac{1}{\\gamma^2}} = \\sqrt{1 - \\frac{1}{16{,}0}} = \\sqrt{0{,}9375} = 0{,}9682$$\n\naltså $v = 0{,}968c = 2{,}90\\cdot10^{8}\\,\\text{m/s}$. Legg merke til at det skal svært mye til for å få $\\gamma$ opp: å firedoble den fra 1 krever $97\\ \\%$ av lysfarten."
+    },
+    {
+      "id": "fys1100-10-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.)\n\n**a)** Regn ut $\\gamma$ for $v = 0{,}500c$ og $v = 0{,}800c$.\n\n**b)** Forklar med egne ord, i to–tre setninger, hva Lorentz-faktoren måler.\n\n**c)** Et fly flyr med $250\\,\\text{m/s}$. Hvor mye er $\\gamma - 1$? Kommentér svaret.",
+        "solution": "**a)**\n\n$$\\gamma(0{,}500) = \\frac{1}{\\sqrt{1-0{,}250}} = \\frac{1}{0{,}8660} = 1{,}155$$\n\n$$\\gamma(0{,}800) = \\frac{1}{\\sqrt{1-0{,}640}} = \\frac{1}{0{,}6000} = 1{,}667$$\n\n**b)** $\\gamma$ er faktoren som forteller hvor mye tid, lengde og energi avviker fra det klassiske svaret ved en gitt fart. Er $\\gamma = 1$, er alt som i Newtons mekanikk; er $\\gamma = 2$, går klokka om bord halvparten så fort sett utenfra, og legemet ser halvparten så langt ut. Den er dimensjonsløs og alltid minst 1.\n\n**c)**\n\n$$\\beta = \\frac{250}{3{,}00\\cdot10^{8}} = 8{,}33\\cdot10^{-7}, \\qquad \\gamma - 1 \\approx \\tfrac12\\beta^2 = 3{,}47\\cdot10^{-13}$$\n\nEffekten er en tredels billiondel. På en ti timers flytur sakker klokka omtrent $1{,}25\\cdot10^{-8}\\,\\text{s}$, altså tolv nanosekunder — målbart med atomur, helt usynlig for alt annet. Det er derfor Newtons mekanikk holdt i tre hundre år.",
+        "hints": [
+          "Sett inn i $\\gamma = 1/\\sqrt{1-\\beta^2}$ og regn ut $\\beta^2$ først.",
+          "I c): direkte utregning mister sifrene — bruk $\\gamma - 1 \\approx \\tfrac12\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — hendelser, egentid og tidsdilatasjon (~15 min)\n\nDette er kapitlets kjerne, og det er her poengene ryker. Det tekniske er lett: én formel med én faktor. Det vanskelige er å avgjøre **hvilken av de to tidene i oppgaven som er egentida**.\n\nBruk tre minutter ekstra på denne løkka. Den betaler seg på hvert eneste sett."
+    },
+    {
+      "id": "fys1100-10-1-def-hendelse",
+      "type": "definition",
+      "title": "Hendelse",
+      "content": "En **hendelse** er noe som skjer på ett bestemt sted til ett bestemt tidspunkt: en lampe blinker, en partikkel henfaller, en dør lukkes, to romskip møtes.\n\nEn hendelse er altså et punkt i rom **og** tid, og den beskrives med fire tall — $(x, y, z, t)$ i ett system, $(x', y', z', t')$ i et annet. Selve hendelsen er den samme; bare tallene er forskjellige.\n\n**Å begynne enhver relativitetsoppgave med å skrive ned hvilke to hendelser den handler om, er det enkeltgrepet som forebygger flest feil.** Nesten alle oppgaver i sjangeren handler om nøyaktig to hendelser: en start og en slutt."
+    },
+    {
+      "id": "fys1100-10-1-def-egentid",
+      "type": "definition",
+      "title": "Egentid",
+      "content": "**Egentida** mellom to hendelser er tida målt av en klokke som er til stede ved **begge** hendelsene — altså en klokke som ser dem skje **på samme sted**.\n\nDen skrives $\\Delta t_0$, eller kort $\\tau$.\n\nEksempler som gjør begrepet konkret:\n\n- En partikkel oppstår og henfaller. Klokka som følger partikkelen ser begge hendelsene på samme sted (partikkelen er alltid der partikkelen er). Levetida målt i partikkelens eget hvilesystem er derfor egentida.\n- En astronaut spiser frokost om bord i et romskip. Start og slutt på måltidet skjer på samme sted i skipet. Klokka på veggen i skipet måler egentida.\n- Et romskip passerer to romstasjoner. **Stasjonene** kan ikke måle egentid mellom passeringene, for de to hendelsene skjer på to ulike steder i stasjonssystemet. Klokka om bord kan.\n\n**Egentida er alltid den KORTESTE av alle tider som måles mellom de to hendelsene.** Alle andre observatører måler en lengre tid, med faktoren $\\gamma$.\n\n**Testspørsmålet du skal stille i hver eneste oppgave:** *skjer de to hendelsene på samme sted i dette systemet?* Er svaret ja, måler systemet egentid. Er svaret nei, måler det ikke egentid."
+    },
+    {
+      "id": "fys1100-10-1-th-tidsdil",
+      "type": "theorem",
+      "title": "Tidsdilatasjon",
+      "content": "Er egentida mellom to hendelser $\\Delta t_0$, måler en observatør som ser klokka bevege seg med farten $v$ tida\n\n$$\\Delta t = \\gamma\\,\\Delta t_0 \\ \\ (\\ge \\Delta t_0)$$\n\nI ord: **en klokke i bevegelse går langsomt.** Uttrykket står på formelarket.\n\n**Utledningen med lysklokka** er verdt de fem minuttene, fordi den viser at resultatet følger av postulat 2 alene. Tenk deg en klokke som består av to speil i avstanden $L$, med en lyspuls som spretter mellom dem. Ett «tikk» er én tur opp og ned.\n\n**I klokkas eget hvilesystem** går lyset rett opp og rett ned, en strekning $2L$:\n\n$$\\Delta t_0 = \\frac{2L}{c}$$\n\n*Intuisjon:* dette er en helt vanlig $s = vt$-regning. Ingen relativitet ennå.\n\n**I laboratoriets system** beveger klokka seg sidelengs med farten $v$ mens lyset er underveis. Lyset må derfor gå en skrå vei, og de to skrå strekningene er lengre enn $2L$. Men — og dette er postulat 2 — lyset går fortsatt med nøyaktig $c$. Halve turen danner en rettvinklet trekant med katetene $L$ og $v\\Delta t/2$ og hypotenusen $c\\Delta t/2$:\n\n$$\\left(\\frac{c\\,\\Delta t}{2}\\right)^2 = L^2 + \\left(\\frac{v\\,\\Delta t}{2}\\right)^2$$\n\n*Intuisjon:* hadde lyset fått legge til klokkas fart, ville hypotenusen vært lengre uten at det kostet tid. Det er nettopp det postulatet forbyr, og derfor må tida strekke seg i stedet.\n\nLøs for $\\Delta t$:\n\n$$\\frac{c^2\\Delta t^2 - v^2\\Delta t^2}{4} = L^2 \\quad \\Longrightarrow \\quad \\Delta t^2\\,(c^2 - v^2) = 4L^2 \\quad \\Longrightarrow \\quad \\Delta t = \\frac{2L}{c\\sqrt{1-v^2/c^2}}$$\n\n*Intuisjon:* faktoren $\\sqrt{1-v^2/c^2}$ dukker opp helt av seg selv fra Pytagoras. Den er ikke postulert; den er regnet fram.\n\n$$\\Delta t = \\gamma\\cdot\\frac{2L}{c} = \\gamma\\,\\Delta t_0$$\n\n*Intuisjon:* argumentet brukte bare at lyset går like fort i begge systemer. Det er grunnen til at resultatet gjelder alle klokker — hadde en mekanisk klokke gått annerledes enn lysklokka ved siden av, kunne du brukt forskjellen til å måle din egen absolutte fart, og det forbyr postulat 1."
+    },
+    {
+      "id": "fys1100-10-1-fig-lysklokke",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-10-1-lysklokke.svg",
+      "alt": "Til venstre en lysklokke i ro: to vannrette speil med avstand L, og en lyspuls som gaar rett opp og rett ned mellom dem. Under staar at egentida er to L delt paa c. Til hoeyre den samme klokka sett fra laboratoriet, der den beveger seg mot hoeyre: lyspulsen gaar en skraa vei opp til det oeverste speilet og skraatt ned igjen, og det dannes en rettvinklet trekant med katetene L og v ganger delta t delt paa to og hypotenusen c ganger delta t delt paa to.",
+      "caption": "Utledningen av $\\Delta t = \\gamma\\Delta t_0$ tegnet ut. Venstre panel viser klokka som måler **egentida** — de to hendelsene «lyset forlater bunnspeilet» og «lyset er tilbake» skjer på samme sted der. Høyre panel viser at lyset må gå lengre i laboratoriet, mens farten er den samme, og da må tida bli lengre."
+    },
+    {
+      "id": "fys1100-10-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: En prosess om bord i et romskip",
+      "problem": "Et romskip passerer en romstasjon med farten $v = 0{,}800c$. Om bord i skipet tar en kjemisk prosess $\\tau = 12{,}0$ minutter, målt av klokka på veggen ved siden av reaktoren.\n\n**a)** Hvilket system måler egentida? Begrunn.\n\n**b)** Hvor lenge varer prosessen målt fra romstasjonen?\n\n**c)** Mannskapet påstår at det er stasjonens klokker som går langsomt. Har de rett?",
+      "solution": "**a) Egentida måles om bord i skipet.** Begrunnelsen: de to hendelsene er «prosessen starter» og «prosessen slutter», og begge skjer ved reaktoren — altså **på samme sted i skipets system**. Klokka på veggen er til stede ved begge, og det er definisjonen på egentid. I stasjonens system har skipet flyttet seg mellom de to hendelsene, så de skjer på to ulike steder der, og stasjonen kan derfor ikke måle egentid.\n\n**b)**\n\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}800^2}} = \\frac{1}{\\sqrt{0{,}360}} = \\frac{1}{0{,}6000} = 1{,}667$$\n\n$$\\Delta t = \\gamma\\,\\tau = 1{,}667\\cdot12{,}0 = 20{,}0\\ \\text{minutter}$$\n\n**Retningskontroll:** svaret er **lengre** enn egentida, som det skal være — en klokke i bevegelse går langsomt, så det tar lengre tid målt utenfra. Hadde du fått $7{,}2$ minutter, hadde du delt i stedet for å gange, og det er felle #10 (byttet egentid og observert tid), som typisk koster 2 poeng.\n\n**c) Ja, de har rett — og det er ingen selvmotsigelse.** Situasjonen er fullstendig symmetrisk så lenge begge systemene er inertialsystemer: sett fra skipet er det stasjonen som farer forbi med $0{,}800c$, og en prosess som varer 12,0 minutter målt på stasjonen (der den skjer på samme sted) varer 20,0 minutter målt om bord.\n\nGrunnen til at dette ikke er en motsigelse, er at de to påstandene handler om **forskjellige par av hendelser**, og at «samtidig» ikke betyr det samme i de to systemene. Den fulle oppløsningen krever samtidighetens relativitet, og den tar vi i [kap. 10.2](/bok/fys1100/fys1100-10-2)."
+    },
+    {
+      "id": "fys1100-10-1-adv-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #10 — byttet egentid og observert tid, eller $l$ og $l_0$ — koster typisk 2 poeng** og er den hyppigste feilen i hele delen. Slik unngår du den:\n\n**1. Skriv ned de to hendelsene før du regner.** Bokstavelig talt, med ord: «hendelse A: partikkelen dannes. Hendelse B: partikkelen henfaller.» Da ser du med én gang hvilke systemer som ser dem på samme sted.\n\n**2. Bruk retningskontrollen hver gang.** Tida blir **lengre** enn egentida ($\\Delta t = \\gamma\\Delta t_0$, og $\\gamma \\ge 1$). Lengden blir **kortere** enn egenlengda ($l = l_0/\\gamma$). Får du et svar som går motsatt vei, har du snudd brøken. Denne kontrollen tar tre sekunder og redder hele deloppgaven.\n\n**3. Ikke bruk klassiske bevegelsesligninger uten $\\gamma$.** Å regne en relativistisk strekning som $d = v\\tau$ i stedet for $d = v\\gamma\\tau$ gir **0 poeng** på regnedelen — ikke delvis uttelling, men null. Det er den nest dyreste feilen her.\n\n**4. Ikke bruk $\\gamma$ på feil størrelse.** $\\gamma$ hører til den relative farten mellom de to systemene, ikke til noen annen fart som måtte være nevnt i oppgaven.\n\n**5. Regn med nok siffer.** For $\\beta$ nær 1 er $\\gamma$ ekstremt følsom: $\\gamma(0{,}990) = 7{,}089$, mens $\\gamma(0{,}995) = 10{,}01$. Runder du farten fra 0,995 til 0,99, bommer du med nesten 30 %."
+    },
+    {
+      "id": "fys1100-10-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I — relativitetsoppgaven.) En ustabil partikkel har **middellevetid** $\\tau = 18{,}0\\,\\text{ns}$ målt i sitt eget hvilesystem. I et laboratorium lages den med farten $0{,}980c$.\n\n**a)** Hvor lenge lever den, målt i laboratoriet?\n\n**b)** Hvor langt rekker den i laboratoriet før den henfaller?\n\n**c)** Hvor langt ville den rukket hvis relativitetsteorien ikke gjaldt? Kommentér forskjellen.",
+        "solution": "**Hendelsene først:** A er «partikkelen dannes», B er «partikkelen henfaller». Begge skjer der partikkelen er, altså **på samme sted i partikkelens hvilesystem**. Derfor er $18{,}0\\,\\text{ns}$ egentida.\n\n**a)**\n\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}980^2}} = \\frac{1}{\\sqrt{0{,}039600}} = \\frac{1}{0{,}19900} = 5{,}025$$\n\n$$\\Delta t = \\gamma\\tau = 5{,}025\\cdot18{,}0 = 90{,}5\\,\\text{ns}$$\n\n**Retningskontroll:** lengre enn egentida ✓.\n\n**b)** I laboratoriet beveger partikkelen seg med $0{,}980c$ i den tida:\n\n$$d = v\\,\\Delta t = v\\gamma\\tau = 0{,}980\\cdot3{,}00\\cdot10^{8}\\cdot9{,}045\\cdot10^{-8} = 26{,}6\\,\\text{m}$$\n\ni partikkelens bevegelsesretning.\n\n**c)** Uten tidsdilatasjon ville den rukket\n\n$$d_{\\text{klassisk}} = v\\tau = 0{,}980\\cdot3{,}00\\cdot10^{8}\\cdot1{,}80\\cdot10^{-8} = 5{,}29\\,\\text{m}$$\n\naltså bare en femtedel. Forskjellen er nøyaktig faktoren $\\gamma = 5{,}03$, og den er ikke en teoretisk finesse: at ustabile partikler rekker mye lenger enn den klassiske regningen tillater, er en av de mest rutinemessige målingene som gjøres i partikkelfysikk. Å droppe $\\gamma$ her ville gitt **0 poeng**, ikke delvis uttelling.",
+        "hints": [
+          "Skriv først ned de to hendelsene og avgjør hvilket system som ser dem på samme sted.",
+          "I b): partikkelen beveger seg med $0{,}980c$ i hele den tida laboratoriet måler.",
+          "Sjekk til slutt at svaret i b) er $\\gamma$ ganger svaret i c)."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ, sjanger J — «forklar/begrunn/kritiser»-oppgaven, som har minst én deloppgave i hvert sett.) I hvert av tilfellene under: avgjør hvilken klokke som måler egentid mellom de to hendelsene, og begrunn med testspørsmålet «skjer begge hendelsene på samme sted i dette systemet?».\n\n**a)** Et tog kjører forbi en perrong. Hendelsene er «togets front passerer perrongens venstre ende» og «togets front passerer perrongens høyre ende».\n\n**b)** En astronaut i et romskip sovner og våkner. Hendelsene er «sovner» og «våkner».\n\n**c)** To lyn slår ned i hver sin ende av en åker, målt av en bonde som står midt imellom.",
+        "solution": "**a) Klokka på toget** (nærmere bestemt en klokke ved togets front). I togets system er fronten alltid samme sted, og det er perrongen som farer forbi — så begge hendelsene skjer der fronten er. I perrongens system skjer de derimot ved to forskjellige punkter, nemlig de to endene av perrongen, så perrongklokkene måler ikke egentid.\n\n**b) Klokka i romskipet.** Astronauten sovner og våkner i samme køye, altså på samme sted i skipets system. Enhver observatør som ser skipet fare forbi, vil måle en lengre søvn — med faktoren $\\gamma$.\n\n**c) Ingen.** Her er det ingen klokke som kan være til stede ved begge hendelsene, fordi de skjer på to ulike steder i **alle** systemer: ingen observatør kan være to steder samtidig. Egentid er bare definert for hendelsepar som en enkelt klokke kan rekke å være til stede ved, og det krever at hendelsene ligger nær nok i rom i forhold til avstanden i tid.\n\nDette tredje tilfellet er akkurat oppsettet der **samtidighetens relativitet** blir det avgjørende — og det er temaet i [kap. 10.2](/bok/fys1100/fys1100-10-2).",
+        "hints": [
+          "Still testspørsmålet for hvert system i tur og orden: skjer begge hendelsene på samme sted der?",
+          "I c): finnes det i det hele tatt en klokke som kan være til stede ved begge?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — egenlengde og lengdekontraksjon (~12 min)\n\nHvis tida strekker seg, må noe annet krympe. Ellers ville de to observatørene vært uenige om noe man ikke kan være uenig om: hvorvidt partikkelen faktisk nådde detektoren."
+    },
+    {
+      "id": "fys1100-10-1-def-egenlengde",
+      "type": "definition",
+      "title": "Egenlengde",
+      "content": "**Egenlengda** $l_0$ til et legeme er lengden målt i det systemet der legemet er i **ro**.\n\nDet er den lengden du får ved å legge en målestokk langs gjenstanden i fred og ro — altså «den vanlige lengden». Et romskip som er $150\\,\\text{m}$ langt i verftet, har egenlengde $150\\,\\text{m}$ uansett hvor fort det senere flyr.\n\n**Egenlengda er alltid den STØRSTE av alle lengder som måles.** Alle observatører som ser legemet bevege seg, måler noe kortere.\n\nMerk parallellen — og forskjellen — til egentida: egentida er den **korteste** tida, egenlengda den **lengste** lengden. Det er nettopp derfor de to formlene har $\\gamma$ på hver sin side av brøkstreken, og nettopp derfor de forveksles."
+    },
+    {
+      "id": "fys1100-10-1-th-lengdekontraksjon",
+      "type": "theorem",
+      "title": "Lengdekontraksjon",
+      "content": "Et legeme med egenlengde $l_0$ som beveger seg med farten $v$ langs sin egen lengderetning, måles til\n\n$$l = \\frac{l_0}{\\gamma} \\ \\ (\\le l_0)$$\n\nI ord: **et legeme i bevegelse er kortere.** Uttrykket står på formelarket.\n\n**To presiseringer som gir poeng:**\n\n1. Kontraksjonen skjer **bare langs bevegelsesretningen**. Tverrmålene er upåvirket — et romskip som farer forbi, er kortere, men like tykt. (Det er nettopp derfor lysklokka i løkke 2 kunne ha samme $L$ i begge systemer: $L$ står vinkelrett på farten.)\n2. Effekten er **gjensidig**. Hver av to observatører i relativ bevegelse måler den andres målestokk som kortere enn sin egen. Det er ikke en illusjon og ikke en selvmotsigelse — det er en konsekvens av at de bruker ulike samtidighetsbegreper når de leser av begge ender «samtidig».\n\n**Utledningen** går enklest via tidsdilatasjonen, og den er verdt å kunne. Se på en partikkel som farer fra punkt A til punkt B i laboratoriet, der avstanden er $l_0$ (den er egenlengde fordi A og B er i ro i laboratoriet).\n\n$$\\text{i laboratoriet:} \\quad \\Delta t = \\frac{l_0}{v}$$\n\n*Intuisjon:* helt vanlig $s = vt$ i det systemet der avstanden er kjent.\n\n$$\\text{i partikkelens system:} \\quad \\tau = \\frac{\\Delta t}{\\gamma} = \\frac{l_0}{\\gamma v}$$\n\n*Intuisjon:* partikkelen ser A og B passere seg på samme sted (der partikkelen er), så den måler egentid — den korteste tida.\n\nI partikkelens eget system står partikkelen stille mens laboratoriet farer forbi med farten $v$. Avstanden fra A til B, slik partikkelen måler den, er derfor\n\n$$l = v\\,\\tau = v\\cdot\\frac{l_0}{\\gamma v} = \\frac{l_0}{\\gamma}$$\n\n*Intuisjon:* de to systemene er enige om **farten** og uenige om **både tid og avstand** — nøyaktig så mye at $s = vt$ går opp i begge. Det er slik teorien holder sammen."
+    },
+    {
+      "id": "fys1100-10-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Myoner fra atmosfæren",
+      "problem": "Myoner er ustabile partikler som dannes når kosmisk stråling treffer den øvre atmosfæren. Middellevetida deres er $\\tau = 2{,}20\\,\\mu\\text{s}$ målt i myonets hvilesystem. Et myon dannes i $6{,}5\\,\\text{km}$ høyde og beveger seg rett nedover med $0{,}995c$.\n\n**a)** Vis at myonet ikke ville nådd bakken hvis klassisk fysikk gjaldt.\n\n**b)** Regn ut hvor langt myonet rekker, sett fra bakken.\n\n**c)** Gjør den samme vurderingen i **myonets eget system**, og vis at de to beskrivelsene er enige.",
+      "solution": "**Hendelsene:** A er «myonet dannes», B er «myonet henfaller». De skjer begge der myonet er, så $2{,}20\\,\\mu\\text{s}$ er **egentida**.\n\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}995^2}} = \\frac{1}{\\sqrt{9{,}9750\\cdot10^{-3}}} = \\frac{1}{0{,}099875} = 10{,}01$$\n\n**a)** Klassisk ville myonet levd $2{,}20\\,\\mu\\text{s}$ også sett fra bakken, og rukket\n\n$$d = v\\tau = 0{,}995\\cdot3{,}00\\cdot10^{8}\\cdot2{,}20\\cdot10^{-6} = 657\\,\\text{m}$$\n\naltså bare en tiendedel av veien ned. De aller fleste myonene skulle ha rukket å henfalle høyt oppe. Men vi **måler** dem i store mengder ved havnivå, og det var en av de første direkte bekreftelsene på tidsdilatasjon.\n\n**b) Sett fra bakken** lever myonet lenger:\n\n$$\\Delta t = \\gamma\\tau = 10{,}01\\cdot2{,}20\\cdot10^{-6} = 2{,}20\\cdot10^{-5}\\,\\text{s} = 22{,}0\\,\\mu\\text{s}$$\n\n$$d = v\\,\\Delta t = v\\gamma\\tau = 0{,}995\\cdot3{,}00\\cdot10^{8}\\cdot2{,}203\\cdot10^{-5} = 6{,}58\\cdot10^{3}\\,\\text{m} = 6{,}58\\,\\text{km}$$\n\nDet er nok til å nå bakken fra $6{,}5\\,\\text{km}$ ✓.\n\n— naturlig pausepunkt —\n\n**c) I myonets eget system** går klokka helt normalt: myonet lever $2{,}20\\,\\mu\\text{s}$, verken mer eller mindre. Det er ingen tidsdilatasjon å hente, for myonet er i ro i sitt eget system.\n\nTil gjengjeld er det **atmosfæren** som farer forbi med $0{,}995c$, og avstanden ned til bakken er derfor lengdekontrahert. Avstanden $6{,}5\\,\\text{km}$ er egenlengde i bakkens system (den måles mellom to punkter som er i ro der), så myonet måler\n\n$$l = \\frac{l_0}{\\gamma} = \\frac{6{,}5\\cdot10^{3}}{10{,}01} = 649\\,\\text{m}$$\n\nMed farten $0{,}995c$ tar den strekningen\n\n$$t = \\frac{l}{v} = \\frac{649}{2{,}985\\cdot10^{8}} = 2{,}17\\cdot10^{-6}\\,\\text{s} = 2{,}17\\,\\mu\\text{s}$$\n\nsom er **mindre enn myonets levetid på $2{,}20\\,\\mu\\text{s}$** ✓.\n\n**Begge beskrivelsene gir samme svar på det eneste spørsmålet som betyr noe: rekker myonet ned?** Ja. Men de forklarer det med hver sin effekt — bakken sier «klokka gikk sakte», myonet sier «avstanden var kort». Dette er det klareste eksemplet i hele kapitlet på at du må si **hvilket system du regner i**, og at du aldri skal bruke begge effektene samtidig på samme regnestykke. Det siste er en klassisk dobbelttelling som halverer svaret."
+    },
+    {
+      "id": "fys1100-10-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et romskip har egenlengde $150\\,\\text{m}$ og passerer jorda med $0{,}900c$.\n\n**a)** Hvor langt er skipet målt fra jorda?\n\n**b)** Hvor lang tid bruker skipet på å passere en fast markør på jorda, målt fra jorda?\n\n**c)** Hvor lang tid tar den samme passeringen målt om bord i skipet? Regn den ut på to måter, og kontrollér at de stemmer overens.",
+        "solution": "$$\\gamma = \\frac{1}{\\sqrt{1-0{,}900^2}} = \\frac{1}{\\sqrt{0{,}190}} = 2{,}294$$\n\n**a)** Egenlengda er $150\\,\\text{m}$, fordi den er målt der skipet er i ro:\n\n$$l = \\frac{l_0}{\\gamma} = \\frac{150}{2{,}294} = 65{,}4\\,\\text{m}$$\n\n**Retningskontroll:** kortere enn egenlengda ✓.\n\n**b)** Fra jorda skal hele skipets lengde — den kontraherte, $65{,}4\\,\\text{m}$ — passere markøren:\n\n$$\\Delta t = \\frac{l}{v} = \\frac{65{,}4}{0{,}900\\cdot3{,}00\\cdot10^{8}} = 2{,}42\\cdot10^{-7}\\,\\text{s} = 242\\,\\text{ns}$$\n\n**c) Første måte — tidsdilatasjon.** Hendelsene er «fronten passerer markøren» og «hekken passerer markøren». Begge skjer **ved markøren**, altså på samme sted i jordas system, så $242\\,\\text{ns}$ er egentida her. Skipet måler da den lengre tida:\n\n$$\\Delta t' = \\gamma\\cdot242{,}2 = 2{,}294\\cdot242{,}2 = 556\\,\\text{ns}$$\n\n**Andre måte — lengdekontraksjon.** Om bord står skipet stille med sin fulle lengde $150\\,\\text{m}$, og det er **markøren** som farer forbi med $0{,}900c$ fra front til hekk:\n\n$$\\Delta t' = \\frac{150}{2{,}70\\cdot10^{8}} = 5{,}56\\cdot10^{-7}\\,\\text{s} = 556\\,\\text{ns}$$\n\nDe to metodene gir samme svar ✓.\n\n**Legg merke til hvem som målte egentid her:** det var **jorda**, ikke skipet. Det er motsatt av eksempel 2, og grunnen er at hendelsene denne gangen var knyttet til markøren, ikke til noe om bord. Egentid er en egenskap ved **hendelseparet**, ikke ved et bestemt kjøretøy.",
+        "hints": [
+          "Hvilken lengde er egenlengda her — den målt i verftet eller den målt fra jorda?",
+          "I b): hva er det som skal passere markøren, og hvor langt er det i jordas system?",
+          "I c): still testspørsmålet på nytt — skjer de to hendelsene på samme sted i jordas system?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ, sjanger J.) Svar i to–fire setninger på hver.\n\n**a)** En student sier: «Lengdekontraksjon er bare en optisk illusjon — stanga er jo egentlig like lang.» Hva er galt med formuleringen?\n\n**b)** To romskip flyr forbi hverandre. Hver av mannskapene måler det andre skipet som kortere. Hvordan kan begge ha rett?\n\n**c)** Hvorfor krymper ikke et romskip på tvers av bevegelsesretningen?",
+        "solution": "**a)** Ordet «egentlig» smugler inn en antakelse om at det finnes ett riktig, absolutt svar. Det gjør det ikke. Lengden er en **relasjon mellom en gjenstand og et referansesystem**, ikke en egenskap gjenstanden bærer med seg. Målingen i det bevegelige systemet er like ekte som målingen i hvilesystemet — den bruker samme målestokker og gir gjentakbare resultater. Det som er riktig i studentens formulering, er at gjenstanden har én bestemt **egenlengde**; det som er galt, er å kalle de andre målingene illusjoner.\n\n**b)** Fordi «å måle en lengde» betyr «å notere hvor de to endene er **samtidig**», og de to mannskapene har forskjellige samtidighetsbegreper. Når det ene mannskapet leser av begge endene av det andre skipet i det de kaller samme øyeblikk, er det etter det andre mannskapets regning to avlesninger på ulike tidspunkter. De to måler altså ikke det samme, selv om de beskriver det med samme ord. Dette er kjernen i alle relativitetsparadoksene, og det tas i sin helhet i [kap. 10.2](/bok/fys1100/fys1100-10-2).\n\n**c)** Fordi kontraksjonen skyldes uenighet om samtidighet **langs bevegelsesretningen**, og en avstand på tvers påvirkes ikke av det. Et enkelt argument: tenk deg to identiske ringer som farer gjennom hverandre. Hvis tverrmålene endret seg med farten, ville den ene ringen gått utenpå den andre — og hvilken av dem det ble, ville avhengt av hvem du spurte. Det ville vært en ekte selvmotsigelse, siden «gikk ringen utenpå eller innenfor» er noe alle må være enige om.",
+        "hints": [
+          "I a): hva ligger i ordet «egentlig», og har det noen plass her?",
+          "I b): hva må du gjøre samtidig for å måle lengden av noe som beveger seg?",
+          "I c): tenk på en situasjon der en tverrkontraksjon ville gitt to observatører uforenlige svar på et ja/nei-spørsmål."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Lorentz-transformasjonen og romtidsdiagrammet (~10 min)\n\nTidsdilatasjon og lengdekontraksjon er to spesialtilfeller. Bak dem ligger én regnemaskin som oversetter **hvilken som helst** hendelse fra ett inertialsystem til et annet. Den står på formelarket, og fra og med H2025 er det også bedt om at situasjonen **tegnes** i et romtidsdiagram."
+    },
+    {
+      "id": "fys1100-10-1-th-lorentz",
+      "type": "theorem",
+      "title": "Lorentz-transformasjonen",
+      "content": "La $S'$ bevege seg med den konstante farten $u$ langs $x$-aksen i forhold til $S$, og la origo i de to systemene falle sammen ved $t = t' = 0$. En hendelse som har koordinatene $(x, t)$ i $S$, har i $S'$ koordinatene\n\n$$x' = \\gamma(x - ut), \\qquad t' = \\gamma\\!\\left(t - \\frac{ux}{c^2}\\right)$$\n\nog veien tilbake fås ved å bytte fortegn på $u$:\n\n$$x = \\gamma(x' + ut'), \\qquad t = \\gamma\\!\\left(t' + \\frac{ux'}{c^2}\\right)$$\n\n**Uttrykkene står på formelarket.** Du skal aldri pugge dem — du skal kunne velge riktig retning på $u$, sette inn riktige koordinater og lese svaret.\n\n**Tre observasjoner det gis poeng for å gjøre:**\n\n1. **Setter du $c \\to \\infty$, får du Galilei-transformasjonen** $x' = x - ut$, $t' = t$ fra [kap. 2.1](/bok/fys1100/fys1100-2-1). Relativitetsteorien inneholder den klassiske mekanikken, den erstatter den ikke.\n2. **Leddet $-ux/c^2$ i tidstransformasjonen er hele hemmeligheten.** Det sier at hvor en hendelse skjer, påvirker når den skjer i et annet system. To hendelser med $\\Delta t = 0$ men $\\Delta x \\neq 0$ får $\\Delta t' \\neq 0$ — de er ikke lenger samtidige. Dette er samtidighetens relativitet, og den bærer hele [kap. 10.2](/bok/fys1100/fys1100-10-2).\n3. **Tidsdilatasjon og lengdekontraksjon følger direkte.** To hendelser på samme sted i $S'$ ($\\Delta x' = 0$) gir $\\Delta t = \\gamma\\Delta t'$; en stang i ro i $S'$ målt samtidig i $S$ ($\\Delta t = 0$) gir $\\Delta x = \\Delta x'/\\gamma$. De to formlene i løkke 2 og 3 er altså ikke selvstendige lover, men to avlesninger av den samme."
+    },
+    {
+      "id": "fys1100-10-1-def-verdenslinje",
+      "type": "definition",
+      "title": "Verdenslinje",
+      "content": "I et **romtidsdiagram** tegner vi stedet $x$ vannrett og tida — som regel ganget med lysfarten, altså $ct$ — loddrett. Grunnen til å bruke $ct$ er at begge akser da måler **lengde**, slik at en lysstråle får nøyaktig 45 graders helning.\n\nEn **verdenslinje** er kurven et legeme følger gjennom diagrammet — historien dets, tegnet ut. Et legeme i ro har en **loddrett** verdenslinje (det flytter seg ikke, men tida går). Et legeme i konstant fart har en rett, skrå linje, og jo raskere det går, jo mer heller linja mot $x$-aksen.\n\n**Ingen verdenslinje for et legeme med masse kan helle mer enn 45 grader**, for det ville betydd fart større enn $c$. Lysets 45-graderslinjer er derfor en absolutt grense i diagrammet — de danner **lyskjegla** fra hver hendelse."
+    },
+    {
+      "id": "fys1100-10-1-def-samtidighetslinje",
+      "type": "definition",
+      "title": "Samtidighetslinje",
+      "content": "En **samtidighetslinje** for en observatør er mengden av alle hendelser som skjer samtidig for nettopp den observatøren.\n\nFor en observatør i ro i diagrammet er dette de **vannrette** linjene $t = $ konstant. For en observatør som beveger seg med $\\beta = u/c$, er det linjene\n\n$$ct = \\beta x + \\text{konstant}$$\n\naltså linjer som heller **oppover mot høyre med stigningstall $\\beta$** — like mye som verdenslinja heller, men speilvendt om lyslinja. De to akseparene lukker seg om 45-graderslinja som en saks.\n\n**Dette er hele grunnen til å tegne diagrammet.** Så snart du har tegnet begge observatørers samtidighetslinjer, ser du med øyet hvilke hendelser som er samtidige for hvem — og de fleste paradokser løser seg av seg selv."
+    },
+    {
+      "id": "fys1100-10-1-fig-romtid",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-10-1-romtidsdiagram.svg",
+      "alt": "Et romtidsdiagram med x vannrett og ct loddrett. Anna er i ro og har en loddrett blaa verdenslinje. Bjoern beveger seg med beta lik null komma fem og har en skraa groenn verdenslinje. To roede hendelser E1 og E2 ligger paa samme hoeyde over x-aksen. En blaa stiplet vannrett linje gjennom dem er merket samtidig for Anna. En groenn stiplet linje gjennom E1 heller oppover mot hoeyre og er merket samtidig for Bjoern, og E2 ligger under den linja.",
+      "caption": "Romtidsdiagrammet som kreves tegnet fra og med H2025. Legg merke til hvordan Bjørns samtidighetslinje heller like mye som verdenslinja hans, bare den andre veien — og at $E_2$ derfor havner **under** den, altså tidligere, i Bjørns system. De to hendelsene er samtidige for Anna og ikke for Bjørn."
+    },
+    {
+      "id": "fys1100-10-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I. Bruk figuren over som mal.) To hendelser er samtidige i jordas system, og skjer i posisjonene $x_1 = 0$ og $x_2 = 900\\,\\text{m}$, begge ved $t = 0$. Et romskip passerer med $u = 0{,}600c$ i positiv $x$-retning.\n\n**a)** Bruk Lorentz-transformasjonen til å finne $t_1'$ og $t_2'$ i skipets system.\n\n**b)** Hvilken hendelse skjer først i skipets system, og hvor lang tid er det mellom dem?\n\n**c)** Skisser situasjonen i et romtidsdiagram med jordas akser: tegn inn de to hendelsene, jordas samtidighetslinje og skipets samtidighetslinje gjennom $E_1$.\n\n**d)** Kan den ene hendelsen ha forårsaket den andre? Begrunn.",
+        "solution": "**a)** Med $u = 0{,}600c$ er $\\gamma = 1{,}250$. Transformasjonen for tida er $t' = \\gamma(t - ux/c^2)$:\n\n$$t_1' = 1{,}250\\left(0 - \\frac{0{,}600c\\cdot0}{c^2}\\right) = 0$$\n\n$$t_2' = 1{,}250\\left(0 - \\frac{0{,}600\\cdot900}{3{,}00\\cdot10^{8}}\\right) = 1{,}250\\cdot(-1{,}80\\cdot10^{-6}) = -2{,}25\\cdot10^{-6}\\,\\text{s}$$\n\n**b)** $E_2$ har **negativ** tid i skipets system, altså skjer den **først** — $2{,}25\\,\\mu\\text{s}$ før $E_1$.\n\nFortegnet er verdt å dvele ved: skipet beveger seg i **positiv** $x$-retning, og da kommer hendelsen som ligger lengst i positiv retning, tidligst. Bytter du fortegn på $u$, snur rekkefølgen.\n\n**c)** Skissen skal ha $x$ vannrett og $ct$ loddrett, med de to hendelsene som punkter på **samme høyde** — det er nettopp det som uttrykker at de er samtidige for jorda, og den vannrette linja gjennom dem er jordas samtidighetslinje. Skipets samtidighetslinje gjennom $E_1$ har stigningstall $\\beta = 0{,}600$ i $(x, ct)$-planet, altså heller den oppover mot høyre. $E_2$ ligger da **under** den linja, som er den grafiske måten å si at $E_2$ er tidligere i skipets system. Figuren over dette avsnittet viser nøyaktig dette oppsettet med $\\beta = 0{,}5$; din skisse skal se lik ut, bare med litt brattere samtidighetslinje.\n\n**d)** Nei. Avstanden mellom dem er $900\\,\\text{m}$, og lyset ville brukt $900/(3{,}00\\cdot10^{8}) = 3{,}00\\cdot10^{-6}\\,\\text{s}$ på å komme fra den ene til den andre. I jordas system er tidsforskjellen null, altså mindre enn dette, så ingen signal kan ha rukket fram. Da er hendelsene **romlik atskilt**, og ingen av dem kan ha påvirket den andre.\n\n**Det er nettopp derfor det er ufarlig at rekkefølgen er systemavhengig.** Hadde den ene kunnet forårsake den andre, ville et system som så virkningen før årsaken vært en katastrofe for fysikken. Teorien tillater bare ombytting av rekkefølge for hendelser som uansett ikke kan snakke sammen.",
+        "hints": [
+          "Bruk $t' = \\gamma(t - ux/c^2)$ og sett inn hver hendelse for seg.",
+          "I c): samtidighetslinja til et system med fart $\\beta$ har stigningstall $\\beta$ i $(x, ct)$-planet.",
+          "I d): sammenlign avstanden mellom hendelsene med hvor langt lyset rekker i tidsforskjellen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — hastighetsaddisjon (~8 min)\n\nEt romskip går med $0{,}80c$ forbi en stasjon og skyter en sonde framover med $0{,}70c$ i forhold til seg selv. Går sonden med $1{,}50c$ sett fra stasjonen?\n\nNei. Og formelen som forteller hva den faktisk går med, står på formelarket."
+    },
+    {
+      "id": "fys1100-10-1-th-hastighet",
+      "type": "theorem",
+      "title": "Hastighetstransformasjonen",
+      "content": "La $S'$ bevege seg med farten $u$ langs $x$-aksen i forhold til $S$. Et legeme som har farten $v$ målt i $S$, har i $S'$ farten\n\n$$v' = \\frac{v - u}{1 - \\dfrac{uv}{c^2}}$$\n\nog motsatt vei, fra $S'$ til $S$, med fortegnet på $u$ snudd:\n\n$$v = \\frac{v' + u}{1 + \\dfrac{uv'}{c^2}}$$\n\n**Uttrykket står på formelarket.** Legg merke til at telleren er akkurat den klassiske hastighetsaddisjonen; hele relativiteten sitter i nevneren.\n\n*Intuisjon:* nevneren er nesten nøyaktig 1 så lenge $uv \\ll c^2$, og da faller formelen sammen med den vanlige $v' = v - u$ du bruker når du regner om mellom en bil og et tog. Nevneren blir først merkbar når **begge** fartene er en betydelig del av lysfarten.\n\n**To egenskaper som er verdt poeng å nevne:**\n\n1. **Resultatet overstiger aldri $c$.** Setter du $v = c$, får du $v' = (c-u)/(1-u/c) = c$ uansett hva $u$ er. Lyset går like fort i alle systemer — formelen er bygget slik at postulat 2 er automatisk oppfylt.\n2. **Fortegnene er det som velter besvarelser.** Bestem deg for en positiv retning, skriv ned fortegnet på $u$ og på $v$ i den retningen, og sett inn. Beveger de to seg mot hverandre, har $u$ og $v$ motsatt fortegn, og nevneren blir større enn 1."
+    },
+    {
+      "id": "fys1100-10-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: To romskip og en lysstråle",
+      "problem": "Sett fra en romstasjon beveger romskip A seg med $0{,}600c$ i positiv $x$-retning, og romskip B med $0{,}800c$ i samme retning.\n\n**a)** Hvor fort går B, målt fra A?\n\n**b)** Et tredje skip C går med $0{,}800c$ i **negativ** $x$-retning sett fra stasjonen. Hvor fort går C, målt fra A?\n\n**c)** A sender ut en lyspuls framover. Hvor fort går den, målt fra stasjonen?",
+      "solution": "**Positiv retning defineres langs $x$-aksen**, og A er systemet vi regner om til, så $u = +0{,}600c$.\n\n**a)** Med $v = +0{,}800c$:\n\n$$v' = \\frac{0{,}800c - 0{,}600c}{1 - \\dfrac{0{,}600\\cdot0{,}800c^2}{c^2}} = \\frac{0{,}200c}{1 - 0{,}480} = \\frac{0{,}200c}{0{,}520} = 0{,}385c$$\n\nKlassisk ville svaret vært $0{,}200c$. Nevneren gjør altså den relative farten nesten dobbelt så stor som den klassiske regningen tilsier — en påminnelse om at korreksjonen ikke alltid går i retning «mindre».\n\n**b)** Nå er $v = -0{,}800c$:\n\n$$v' = \\frac{-0{,}800c - 0{,}600c}{1 - \\dfrac{0{,}600\\cdot(-0{,}800)c^2}{c^2}} = \\frac{-1{,}400c}{1 + 0{,}480} = \\frac{-1{,}400c}{1{,}480} = -0{,}946c$$\n\naltså $0{,}946c$ i negativ retning. **Klassisk ville svaret vært $1{,}400c$**, som er umulig. Her ser du nevneren gjøre nøyaktig jobben sin: den holder resultatet under $c$ uansett hvor store fartene er.\n\n**c)** $c$. Ikke $0{,}600c + c = 1{,}600c$, og ikke noe annet enn $c$. Formelen bekrefter det:\n\n$$v = \\frac{c + 0{,}600c}{1 + \\dfrac{0{,}600c\\cdot c}{c^2}} = \\frac{1{,}600c}{1{,}600} = c$$\n\nDette er ikke en tilfeldighet i regnestykket — det er postulat 2, innebygd i formelen. **Å gjøre denne kontrollen i en besvarelse er billig og viser at du forstår hva formelen gjør.**"
+    },
+    {
+      "id": "fys1100-10-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I.) Et romskip går forbi jorda med $0{,}750c$. Fra skipet skytes en sonde framover med $0{,}500c$ **i forhold til skipet**.\n\n**a)** Hvor fort går sonden, målt fra jorda?\n\n**b)** Hva ville klassisk hastighetsaddisjon gitt, og hvor stort er avviket?\n\n**c)** Skipet skyter i stedet en sonde **bakover** med $0{,}500c$ i forhold til seg selv. Hvor fort går den, målt fra jorda, og i hvilken retning?",
+        "solution": "Vi regner fra skipets system til jordas, så vi bruker formen $v = (v' + u)/(1 + uv'/c^2)$ med $u = 0{,}750c$ (skipets fart i forhold til jorda) og positiv retning framover.\n\n**a)** Med $v' = +0{,}500c$:\n\n$$v = \\frac{0{,}500c + 0{,}750c}{1 + 0{,}750\\cdot0{,}500} = \\frac{1{,}250c}{1{,}375} = 0{,}909c$$\n\n**b)** Klassisk: $0{,}500c + 0{,}750c = 1{,}250c$, som er større enn lysfarten og dermed umulig. Avviket er $(1{,}250 - 0{,}909)/1{,}250 = 27{,}3\\ \\%$ — men det viktigste er ikke prosenten, det er at det klassiske svaret er kvalitativt galt.\n\n**c)** Nå er $v' = -0{,}500c$:\n\n$$v = \\frac{-0{,}500c + 0{,}750c}{1 + 0{,}750\\cdot(-0{,}500)} = \\frac{0{,}250c}{0{,}625} = 0{,}400c$$\n\nSonden går altså fortsatt **framover** sett fra jorda, med $0{,}400c$ — den har bare mistet fart i forhold til skipet, ikke snudd. Klassisk ville svaret vært $0{,}250c$, også framover, så her ligger de to svarene på samme side, men relativistisk fart er større.\n\n**Kontroll:** begge svarene ligger under $c$, som de må ✓.",
+        "hints": [
+          "Bestem først hvilken vei du regner: fra skipets system til jordas, eller motsatt? Det avgjør fortegnet på $u$.",
+          "I c): sonden har negativ fart i skipets system — sett inn fortegnet og la formelen gjøre resten."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — kombinasjonen $d = v\\gamma\\tau$ (~8 min)\n\nDe nyere settene nøyer seg ikke med å be om $\\gamma$. De gir deg en **strekning** og en **egentid** og ber deg finne **farten**. Da er både $v$ og $\\gamma$ ukjente — og $\\gamma$ inneholder $v$. Det ser verre ut enn det er.\n\nDenne løkka gir deg en oppskrift som løser hele familien på fem linjer."
+    },
+    {
+      "id": "fys1100-10-1-th-dvgt",
+      "type": "theorem",
+      "title": "Å løse for farten når strekning og egentid er gitt",
+      "content": "Et legeme beveger seg strekningen $d$ **målt i laboratoriet**, mens klokka som følger legemet viser **egentida** $\\tau$. Sammenhengen er\n\n$$d = v\\,\\Delta t = v\\,\\gamma\\,\\tau$$\n\n**Framgangsmåten når $v$ er ukjent:**\n\n**Steg 1.** Del på $c\\tau$ og innfør $\\beta = v/c$. Da står alt uttrykt i den ene ukjente:\n\n$$\\frac{d}{c\\tau} = \\beta\\gamma = \\frac{\\beta}{\\sqrt{1-\\beta^2}}$$\n\n*Intuisjon:* venstre side er et rent tall du kan regne ut med én gang. Kall det $k$.\n\n**Steg 2.** Kvadrer og løs for $\\beta^2$:\n\n$$k^2 = \\frac{\\beta^2}{1-\\beta^2} \\quad \\Longrightarrow \\quad k^2 - k^2\\beta^2 = \\beta^2 \\quad \\Longrightarrow \\quad \\beta^2 = \\frac{k^2}{1+k^2}$$\n\n*Intuisjon:* nevneren $1+k^2$ er alltid større enn $k^2$, så $\\beta$ blir alltid mindre enn 1 uansett hvor stor $k$ er. Formelen kan ikke gi et ulovlig svar.\n\n**Steg 3.** Ta kvadratrota:\n\n$$\\boxed{\\;\\beta = \\frac{k}{\\sqrt{1+k^2}}, \\qquad k = \\frac{d}{c\\tau}\\;}$$\n\n**Steg 4.** Kontrollér ved å regne $\\gamma$ og sette tilbake i $d = v\\gamma\\tau$.\n\n*Intuisjon på hele oppskriften:* størrelsen $\\beta\\gamma$ er «farten målt i egentid» — hvor mange lysstrekninger legemet kommer per egentidsekund. Den kan bli så stor du vil, mens $\\beta$ selv ikke kan overstige 1. Det er nettopp derfor det lønner seg å løse for $\\beta\\gamma$ først.\n\n**Merk enhetene:** oppgir oppgaven $d$ i lysår og $\\tau$ i år, er $c = 1$ lysår per år, og $k = d/\\tau$ direkte. Det er ofte den raskeste veien."
+    },
+    {
+      "id": "fys1100-10-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5 (eksamensnivå): Hvor fort må skipet gå?",
+      "problem": "En stjerne ligger $9{,}00$ lysår fra jorda, målt i jordas system. Et romskip skal fram, og mannskapet skal ikke bli mer enn $6{,}00$ år eldre på turen.\n\n**a)** Hvilken fart må skipet ha?\n\n**b)** Hvor lang tid tar reisen målt fra jorda?\n\n**c)** Hvor langt er det til stjerna, målt om bord i skipet?\n\n**d)** Kontrollér at de tre svarene henger sammen.",
+      "solution": "**Hendelsene og systemene først:** hendelse A er «skipet forlater jorda», B er «skipet ankommer stjerna». Begge skjer der skipet er, så de $6{,}00$ årene om bord er **egentida** $\\tau$. Avstanden $9{,}00$ lysår er målt mellom to punkter som er i ro i jordas system, så den er **egenlengda** $l_0$.\n\n**a)** Vi bruker enheter der $c = 1$ lysår per år, slik at\n\n$$k = \\frac{d}{c\\tau} = \\frac{9{,}00}{6{,}00} = 1{,}500$$\n\n$$\\beta = \\frac{k}{\\sqrt{1+k^2}} = \\frac{1{,}500}{\\sqrt{1+2{,}250}} = \\frac{1{,}500}{\\sqrt{3{,}250}} = \\frac{1{,}500}{1{,}8028} = 0{,}8321$$\n\naltså $v = 0{,}832c = 2{,}50\\cdot10^{8}\\,\\text{m/s}$.\n\n**b)** Først $\\gamma$:\n\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}8321^2}} = \\frac{1}{\\sqrt{0{,}30769}} = 1{,}803$$\n\n$$\\Delta t = \\gamma\\tau = 1{,}803\\cdot6{,}00 = 10{,}8\\ \\text{år}$$\n\n**Merk at $\\gamma = \\sqrt{1+k^2}$ direkte** — det er en snarvei verdt å huske, og her gir den $\\sqrt{3{,}250} = 1{,}803$ ✓ uten omveien om $\\beta$.\n\n**c)** Om bord er avstanden lengdekontrahert:\n\n$$l = \\frac{l_0}{\\gamma} = \\frac{9{,}00}{1{,}803} = 4{,}99\\ \\text{lysår}$$\n\n**d) Kontrollen — tre uavhengige veier til samme sted:**\n\n- Fra jorda: $d = v\\,\\Delta t = 0{,}8321\\cdot10{,}82 = 9{,}00$ lysår ✓\n- Om bord: $l = v\\tau = 0{,}8321\\cdot6{,}00 = 4{,}99$ lysår ✓ — samme som i c)\n- Forholdet: $\\Delta t/\\tau = 10{,}82/6{,}00 = 1{,}803 = \\gamma$ ✓\n\nLegg merke til at både jorda og mannskapet er enige om at reisen ble gjennomført med farten $0{,}832c$. **Farten er de enige om; strekningen og tida er de uenige om.** Det er den mest kompakte måten å si hva relativitetsteorien går ut på."
+    },
+    {
+      "id": "fys1100-10-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — typisk siste oppgave på settet.) Et sonderomskip sendes til en stjerne $20{,}0$ lysår unna, målt fra jorda. Instrumentene om bord er bygget for å tåle $5{,}00$ år i drift, og skipet skal akkurat rekke fram innen instrumentenes levetid.\n\n**a)** Hvilken fart må skipet ha? Angi eksplisitt hvilken av de oppgitte størrelsene som er egentid og hvilken som er egenlengde.\n\n**b)** Hvor mange år har gått på jorda når skipet ankommer?\n\n**c)** Hvor langt er det til stjerna, målt om bord?\n\n**d)** En ingeniør foreslår i stedet å regne farten som $v = 20{,}0/5{,}00 = 4{,}00c$. Forklar presist hva som er galt.",
+        "solution": "**a) Identifisering først:** de $5{,}00$ årene måles av klokker om bord, der start og ankomst skjer på samme sted (nemlig i skipet), så det er **egentida** $\\tau = 5{,}00$ år. De $20{,}0$ lysårene er avstanden mellom jorda og stjerna, som begge er i ro i jordas system, så det er **egenlengda** $l_0 = 20{,}0$ lysår.\n\nMed $c = 1$ lysår per år:\n\n$$k = \\frac{d}{c\\tau} = \\frac{20{,}0}{5{,}00} = 4{,}00$$\n\n$$\\beta = \\frac{k}{\\sqrt{1+k^2}} = \\frac{4{,}00}{\\sqrt{17{,}0}} = \\frac{4{,}00}{4{,}1231} = 0{,}9701$$\n\naltså $v = 0{,}970c = 2{,}91\\cdot10^{8}\\,\\text{m/s}$.\n\n**b)** $\\gamma = \\sqrt{1+k^2} = \\sqrt{17{,}0} = 4{,}123$, så\n\n$$\\Delta t = \\gamma\\tau = 4{,}123\\cdot5{,}00 = 20{,}6\\ \\text{år}$$\n\nDet er såvidt mer enn 20 år, som det må være: ingenting kan gjøre turen på mindre enn $20{,}0$ år målt fra jorda, siden ikke engang lys klarer det.\n\n**c)**\n\n$$l = \\frac{l_0}{\\gamma} = \\frac{20{,}0}{4{,}123} = 4{,}85\\ \\text{lysår}$$\n\n**Kontroll:** om bord tar turen $l/v = 4{,}85/0{,}9701 = 5{,}00$ år ✓ — nøyaktig instrumentenes levetid.\n\n**d)** Ingeniøren blander tall fra to forskjellige systemer i én og samme $s = vt$-regning. Strekningen $20{,}0$ lysår er målt i **jordas** system, mens de $5{,}00$ årene er målt i **skipets**. En fart er alltid strekning delt på tid **målt i samme system**, og de to størrelsene her er det ikke.\n\nResultatet blir da også umulig: $4{,}00c$ er fire ganger lysfarten. Det ingeniøren i praksis har regnet ut, er $\\beta\\gamma$ — «lysår tilbakelagt per egentidsår» — som godt kan være større enn 1 uten at noe går fortere enn lyset.\n\n**Å bruke klassiske bevegelsesligninger uten Lorentz-faktoren gir 0 poeng på regnedelen** (felle #10 — byttet egentid og observert tid). Den enkleste sperren mot det er å alltid skrive ned hvilket system hvert eneste tall hører hjemme i, før du regner.",
+        "hints": [
+          "Skriv først opp hvilket system hver av de to oppgitte størrelsene er målt i.",
+          "Sett $k = d/(c\\tau)$ og bruk $\\beta = k/\\sqrt{1+k^2}$.",
+          "Snarveien $\\gamma = \\sqrt{1+k^2}$ sparer deg for et regnesteg i b) og c)."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-lokke7",
+      "type": "text",
+      "content": "## Løkke 7 — relativistisk energi og Taylor-grensa (~7 min)\n\nÉn gang i blant kommer relativitetsoppgaven ikke som en tids- eller lengdeoppgave, men som en energioppgave — gjerne kombinert med en Taylor-utvikling fra [kap. 1.2](/bok/fys1100/fys1100-1-2). H2022 gjorde nettopp det.\n\nDet er en gavepakke hvis du har trent på Taylor, for utviklingen er den samme du allerede har gjort."
+    },
+    {
+      "id": "fys1100-10-1-def-hvileenergi",
+      "type": "definition",
+      "title": "Hvileenergi",
+      "content": "Et legeme med masse $m$ har energi selv når det står helt stille:\n\n$$E_0 = mc^2$$\n\nDette er den mest kjente likningen i fysikken, og innholdet er at **masse er en form for energi**. Tallene er svimlende: ett gram materie tilsvarer $9\\cdot10^{13}\\,\\text{J}$, omtrent like mye som forbrenning av 2000 tonn olje.\n\nI partikkelfysikk oppgis massen som regel rett fram som en energi: protonets hvileenergi er $mc^2 = 938\\,\\text{MeV}$, elektronets $0{,}511\\,\\text{MeV}$. Da slipper du å gange med $c^2$ i hver eneste utregning."
+    },
+    {
+      "id": "fys1100-10-1-th-energi",
+      "type": "theorem",
+      "title": "Relativistisk energi",
+      "content": "Den totale energien til et fritt legeme med masse $m$ og fart $v$ er\n\n$$E = \\gamma mc^2$$\n\nog den kinetiske energien er totalen minus hvileenergien:\n\n$$K = E - mc^2 = (\\gamma - 1)mc^2$$\n\nBegge uttrykkene står på formelarket.\n\n**Det som må kunne utledes, er grensa for lave farter**, og den er en ren Taylor-utvikling. Binomialtilnærmingen fra [kap. 1.2](/bok/fys1100/fys1100-1-2) med $n = -\\tfrac12$ og $x = -\\beta^2$ gir\n\n$$\\gamma = (1-\\beta^2)^{-1/2} \\approx 1 + \\tfrac12\\beta^2 + \\tfrac38\\beta^4 + \\cdots$$\n\n*Intuisjon:* $\\beta^2$ er bitteliten for alle hverdagsfarter, og $\\beta^4$ er kvadratet av noe bittelite — altså helt forsvinnende. Derfor holder det nesten alltid med det første leddet.\n\nSett inn i uttrykket for $K$:\n\n$$K = (\\gamma-1)mc^2 \\approx \\left(\\tfrac12\\beta^2 + \\tfrac38\\beta^4\\right)mc^2 = \\tfrac12 mv^2 + \\tfrac38\\frac{mv^4}{c^2} + \\cdots$$\n\n*Intuisjon:* **det første leddet er nøyaktig den klassiske kinetiske energien.** Relativitetsteorien motsier ikke Newton — den inneholder ham som grensetilfelle, og det andre leddet forteller nøyaktig hvor stor korreksjonen er.\n\nDet relative avviket mellom klassisk og relativistisk $K$ er omtrent $\\tfrac34\\beta^2$. Ved $\\beta = 0{,}010$ er det $0{,}0075\\ \\%$, ved $\\beta = 0{,}10$ er det $0{,}75\\ \\%$, og ved $\\beta = 0{,}30$ er det $6{,}8\\ \\%$ — der begynner den klassiske formelen å bli ubrukelig.\n\n**Å skrive ut denne sammenhengen i ord er et poeng sensor gjerne vil se.**"
+    },
+    {
+      "id": "fys1100-10-1-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Et proton i en akselerator",
+      "problem": "Et proton har hvilemasse $m = 1{,}673\\cdot10^{-27}\\,\\text{kg}$ og akselereres til $0{,}900c$.\n\n**a)** Finn hvileenergien i joule og i megaelektronvolt ($1\\,\\text{MeV} = 1{,}602\\cdot10^{-13}\\,\\text{J}$).\n\n**b)** Finn den totale energien og den kinetiske energien.\n\n**c)** Hva ville den klassiske formelen $\\tfrac12 mv^2$ gitt? Kommentér.",
+      "solution": "**a)**\n\n$$E_0 = mc^2 = 1{,}673\\cdot10^{-27}\\cdot(3{,}00\\cdot10^{8})^2 = 1{,}506\\cdot10^{-10}\\,\\text{J}$$\n\n$$E_0 = \\frac{1{,}506\\cdot10^{-10}}{1{,}602\\cdot10^{-13}} = 940\\,\\text{MeV}$$\n\n(Tabellverdien er $938\\,\\text{MeV}$. Differansen kommer av at vi regner med $c = 3{,}00\\cdot10^{8}\\,\\text{m/s}$ — den avrundingen slår inn i andre potens.)\n\n**b)** Med $\\gamma(0{,}900) = 2{,}294$:\n\n$$E = \\gamma mc^2 = 2{,}294\\cdot1{,}506\\cdot10^{-10} = 3{,}454\\cdot10^{-10}\\,\\text{J} = 2{,}16\\cdot10^{3}\\,\\text{MeV}$$\n\n$$K = (\\gamma-1)mc^2 = 1{,}294\\cdot1{,}506\\cdot10^{-10} = 1{,}949\\cdot10^{-10}\\,\\text{J} = 1{,}22\\cdot10^{3}\\,\\text{MeV}$$\n\n**c)**\n\n$$K_{\\text{klassisk}} = \\tfrac12 mv^2 = \\tfrac12\\cdot1{,}673\\cdot10^{-27}\\cdot(2{,}70\\cdot10^{8})^2 = 6{,}10\\cdot10^{-11}\\,\\text{J} = 381\\,\\text{MeV}$$\n\nDen klassiske verdien er bare $31\\ \\%$ av den riktige. Ved $\\beta = 0{,}900$ er det ingen tilnærming lenger, det er en grov feil — og det er nettopp derfor akseleratorer må regnes relativistisk hele veien.\n\n**Grensekontroll av teorien vår:** setter vi i stedet inn $\\beta = 0{,}0100$, gir den relativistiske formelen $K = 7{,}5291\\cdot10^{-15}\\,\\text{J}$ og den klassiske $7{,}5285\\cdot10^{-15}\\,\\text{J}$ — et avvik på $0{,}0075\\ \\%$, som stemmer nøyaktig med anslaget $\\tfrac34\\beta^2 = 0{,}0075\\ \\%$ ✓. Taylor-leddet forutsier altså ikke bare at avviket er lite, men nøyaktig hvor lite."
+    },
+    {
+      "id": "fys1100-10-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I kombinert med Taylor.) Et elektron har hvilemasse $m = 9{,}109\\cdot10^{-31}\\,\\text{kg}$.\n\n**a)** Finn hvileenergien i MeV.\n\n**b)** Finn den kinetiske energien når elektronet går med $0{,}800c$.\n\n**c)** Vis ved Taylor-utvikling at $K \\to \\tfrac12 mv^2$ når $v \\ll c$, og finn hvor stor $\\beta$ kan være før den klassiske formelen bommer med mer enn 1 %.",
+        "solution": "**a)**\n\n$$E_0 = mc^2 = 9{,}109\\cdot10^{-31}\\cdot9{,}00\\cdot10^{16} = 8{,}198\\cdot10^{-14}\\,\\text{J} = \\frac{8{,}198\\cdot10^{-14}}{1{,}602\\cdot10^{-13}} = 0{,}512\\,\\text{MeV}$$\n\n**b)** $\\gamma(0{,}800) = 1{,}667$:\n\n$$K = (\\gamma-1)mc^2 = 0{,}667\\cdot0{,}512 = 0{,}341\\,\\text{MeV}$$\n\n**c)** Binomialtilnærmingen med $n = -\\tfrac12$, $x = -\\beta^2$:\n\n$$\\gamma = (1-\\beta^2)^{-1/2} = 1 + \\tfrac12\\beta^2 + \\tfrac38\\beta^4 + \\cdots$$\n\n$$K = (\\gamma-1)mc^2 = \\tfrac12\\beta^2 mc^2 + \\tfrac38\\beta^4 mc^2 + \\cdots = \\tfrac12 mv^2 + \\tfrac38\\frac{mv^4}{c^2} + \\cdots$$\n\nFor $\\beta \\ll 1$ dominerer det første leddet, som er nøyaktig den klassiske kinetiske energien.\n\nDet relative avviket er forholdet mellom andre og første ledd:\n\n$$\\frac{\\tfrac38\\beta^4}{\\tfrac12\\beta^2} = \\tfrac34\\beta^2$$\n\nKrav om under 1 %:\n\n$$\\tfrac34\\beta^2 < 0{,}0100 \\quad \\Longrightarrow \\quad \\beta < \\sqrt{0{,}0133} = 0{,}115$$\n\nDen klassiske formelen holder altså til omtrent $11\\ \\%$ av lysfarten, som er $3{,}45\\cdot10^{7}\\,\\text{m/s}$ — langt over alt vi møter utenfor partikkelfysikken.\n\n**Numerisk kontroll:** ved $\\beta = 0{,}115$ gir eksakt regning $K_{\\text{klassisk}}/K_{\\text{rel}} = 0{,}9901$, altså et avvik på $0{,}99\\ \\%$ ✓.",
+        "hints": [
+          "I a): gang massen med $c^2$ og del på joule-per-MeV.",
+          "I c): bruk binomialtilnærmingen på $(1-\\beta^2)^{-1/2}$ og behold to ledd.",
+          "Det relative avviket er forholdet mellom det andre og det første leddet i rekka."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ, sjanger J.) Svar i to–fire setninger på hver.\n\n**a)** Hvorfor kan ikke et legeme med masse nå lysfarten, uansett hvor lenge man skyver på det?\n\n**b)** En student skriver at «massen øker med farten». Hvorfor er den formuleringen misvisende i dagens fremstilling?\n\n**c)** Hva slags kontroll bør du alltid gjøre på slutten av en relativistisk utregning, og hvorfor?",
+        "solution": "**a)** Fordi den kinetiske energien $K = (\\gamma-1)mc^2$ vokser uten grense når $\\beta \\to 1$: $\\gamma$ går mot uendelig. Å nå lysfarten ville krevd uendelig mye arbeid, og det er ikke tilgjengelig. Legg merke til at argumentet er energibasert — det er ikke slik at det finnes en mystisk vegg ved $c$, men at prisen stiger raskere enn noen kan betale.\n\n**b)** Fordi det er $\\gamma$, ikke massen, som endrer seg. I moderne fremstilling er $m$ en **invariant** — samme tall i alle systemer — og all fartsavhengigheten sitter i faktoren $\\gamma$ foran. Uttrykket «relativistisk masse» $\\gamma m$ var vanlig i eldre lærebøker, men det leder galt av sted: det inviterer til å tro at et raskt legeme har mer materie i seg, eller at det ville kollapset til et svart hull, og ingen av delene er riktig. Skriv $E = \\gamma mc^2$ og la massen være i fred.\n\n**c)** Retningskontrollen. Tida målt utenfra skal være **lengre** enn egentida, lengden målt utenfra **kortere** enn egenlengda, og enhver fart som kommer ut skal være **mindre enn $c$**. Kontrollen tar noen sekunder og fanger den vanligste feilen i hele delen — at $\\gamma$ er brukt feil vei, som typisk koster 2 poeng.",
+        "hints": [
+          "I a): hva skjer med $K = (\\gamma-1)mc^2$ når $\\beta$ nærmer seg 1?",
+          "I b): hvilken størrelse i $E = \\gamma mc^2$ er det egentlig som avhenger av farten?",
+          "I c): hvilken vei skal $\\gamma$ virke på tid, og hvilken vei på lengde?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-10-1-bb-1",
+      "type": "definition",
+      "title": "Referansesystem",
+      "content": "Et **referansesystem** er et koordinatsystem med tilhørende klokker, som en observatør bruker til å gi hver hendelse et sted og et tidspunkt.\n\nI relativitet tenker vi oss at hvert system har et helt nett av synkroniserte klokker, én i hvert punkt, slik at ingen observasjon forsinkes av at lyset må reise. Det er en viktig presisering: relativistiske effekter handler **ikke** om at signaler bruker tid, de handler om hva målingene viser etter at signaltiden er trukket fra."
+    },
+    {
+      "id": "fys1100-10-1-bb-2",
+      "type": "definition",
+      "title": "Lysfarten som universell grense",
+      "content": "Lysfarten i vakuum, $c = 3{,}00\\cdot10^{8}\\,\\text{m/s}$, er den samme i alle inertialsystemer og er den øvre grensen for hvor fort informasjon og energi kan forflyttes.\n\nGrensen er innebygd i formlene: hastighetstransformasjonen gir aldri et resultat over $c$, og den kinetiske energien $(\\gamma-1)mc^2$ vokser uten grense når $\\beta \\to 1$. Legemer med masse kan komme vilkårlig nær $c$, men aldri nå den."
+    },
+    {
+      "id": "fys1100-10-1-bb-3",
+      "type": "definition",
+      "title": "Egentida er den korteste",
+      "content": "Blant alle observatører som måler tida mellom to hendelser, måler den som ser dem skje **på samme sted** den korteste tida. Det er egentida $\\Delta t_0 = \\tau$, og alle andre måler $\\gamma$ ganger så mye.\n\nDette ene setningsparet — «egentid = samme sted = korteste tid» — er den mest poenggivende huskeregelen i hele Del 10. Kombinert med «egenlengde = hvilesystem = lengste lengde» dekker den nesten alle feilene i sjangeren."
+    },
+    {
+      "id": "fys1100-10-1-bb-4",
+      "type": "definition",
+      "title": "Egenlengda er den lengste",
+      "content": "Blant alle observatører som måler lengden av en gjenstand, måler den som er i ro i forhold til gjenstanden den største lengden. Det er egenlengda $l_0$, og alle andre måler $l = l_0/\\gamma$.\n\nMerk speilvendingen mot egentida: tida blir **lengre** for den som ser klokka bevege seg, lengden blir **kortere** for den som ser målestokken bevege seg. Det er derfor $\\gamma$ står i telleren i den ene formelen og i nevneren i den andre — og derfor de to forveksles."
+    },
+    {
+      "id": "fys1100-10-1-bb-5",
+      "type": "definition",
+      "title": "Tidsdilatasjon",
+      "content": "En klokke i bevegelse går langsomt, med faktoren $\\gamma$:\n\n$$\\Delta t = \\gamma\\,\\Delta t_0$$\n\nEffekten er **gjensidig**: hver av to observatører i relativ bevegelse ser den andres klokke gå sakte. Det er ingen selvmotsigelse, fordi de to utsagnene gjelder ulike par av hendelser og forutsetter hver sin definisjon av «samtidig».\n\nUttrykket står på formelarket."
+    },
+    {
+      "id": "fys1100-10-1-bb-6",
+      "type": "definition",
+      "title": "Lengdekontraksjon",
+      "content": "En gjenstand i bevegelse er kortere langs bevegelsesretningen, med faktoren $\\gamma$:\n\n$$l = \\frac{l_0}{\\gamma}$$\n\nTverrmålene er upåvirket. Effekten er gjensidig, akkurat som tidsdilatasjonen, og den er en reell måling — ikke en synsbedrag. Uttrykket står på formelarket."
+    },
+    {
+      "id": "fys1100-10-1-bb-7",
+      "type": "definition",
+      "title": "Lorentz-transformasjonen",
+      "content": "Regnemaskinen som oversetter en hendelses koordinater fra ett inertialsystem til et annet, når $S'$ går med farten $u$ langs $x$-aksen:\n\n$$x' = \\gamma(x-ut), \\qquad t' = \\gamma\\!\\left(t - \\frac{ux}{c^2}\\right)$$\n\n**Uttrykkene står på formelarket**, og både tidsdilatasjonen og lengdekontraksjonen følger av dem som spesialtilfeller. Leddet $-ux/c^2$ er kilden til samtidighetens relativitet."
+    },
+    {
+      "id": "fys1100-10-1-bb-8",
+      "type": "definition",
+      "title": "Galilei-transformasjonen som grensetilfelle",
+      "content": "Lar du $c \\to \\infty$ i Lorentz-transformasjonen, forsvinner leddet $ux/c^2$ og $\\gamma \\to 1$, og du sitter igjen med\n\n$$x' = x - ut, \\qquad t' = t$$\n\nDette er den klassiske omregningen fra [kap. 2.1](/bok/fys1100/fys1100-2-1), der tida er den samme for alle. Den er ikke feil — den er tilnærmingen som gjelder når alle farter er små mot lysfarten, altså i praktisk talt hele resten av denne boka."
+    },
+    {
+      "id": "fys1100-10-1-bb-9",
+      "type": "definition",
+      "title": "Hastighetstransformasjonen",
+      "content": "Fart måles ulikt i ulike systemer, og omregningen er ikke en enkel subtraksjon:\n\n$$v' = \\frac{v-u}{1 - uv/c^2}$$\n\nTelleren er den klassiske regelen; nevneren er relativiteten. Formelen kan aldri gi et resultat over $c$, og setter du $v = c$, får du $v' = c$ uansett $u$ — postulat 2 er innebygd. Uttrykket står på formelarket."
+    },
+    {
+      "id": "fys1100-10-1-bb-10",
+      "type": "definition",
+      "title": "Verdenslinje og lyskjegle",
+      "content": "En **verdenslinje** er banen et legeme følger gjennom romtidsdiagrammet. Loddrett linje betyr «i ro»; jo mer linja heller, jo raskere går legemet.\n\n**Lyskjegla** fra en hendelse består av 45-graderslinjene gjennom den, altså banene til lyssignaler ut fra hendelsen. Alt som kan påvirkes av hendelsen, ligger inne i den fremtidige lyskjegla; alt som kan ha påvirket den, ligger inne i den fortidige. Ingen verdenslinje for et legeme med masse kan krysse kjegleflaten."
+    },
+    {
+      "id": "fys1100-10-1-bb-11",
+      "type": "definition",
+      "title": "Romlik og tidlik atskillelse",
+      "content": "To hendelser er **tidlik atskilt** hvis et signal med fart under $c$ rekker fra den ene til den andre. Da er rekkefølgen den samme i alle systemer, og den ene kan ha forårsaket den andre.\n\nDe er **romlik atskilt** hvis ikke engang lys rekker fram — altså hvis $|\\Delta x| > c\\,|\\Delta t|$. Da er rekkefølgen **systemavhengig**: noen systemer ser A først, andre ser B først. Det er ufarlig nettopp fordi slike hendelser uansett ikke kan påvirke hverandre.\n\nDenne skillelinja er svaret på «men da kan man jo se virkningen før årsaken?». Nei — det kan man ikke."
+    },
+    {
+      "id": "fys1100-10-1-bb-12",
+      "type": "definition",
+      "title": "Kombinasjonen $d = v\\gamma\\tau$",
+      "content": "Strekningen målt i laboratoriet, uttrykt ved egentida om bord:\n\n$$d = v\\,\\Delta t = v\\,\\gamma\\,\\tau$$\n\nSkal du finne farten når $d$ og $\\tau$ er gitt, regner du først $k = d/(c\\tau) = \\beta\\gamma$, og deretter\n\n$$\\beta = \\frac{k}{\\sqrt{1+k^2}}, \\qquad \\gamma = \\sqrt{1+k^2}$$\n\nDenne kombinasjonsoppgaven er den moderne varianten av sjangeren, og oppskriften over er verdt å ha automatisert."
+    },
+    {
+      "id": "fys1100-10-1-bb-13",
+      "type": "definition",
+      "title": "Hvileenergi og total energi",
+      "content": "Et legeme har energi i kraft av massen sin alene, $E_0 = mc^2$, og den totale energien i bevegelse er $E = \\gamma mc^2$. Differansen er den kinetiske energien:\n\n$$K = (\\gamma-1)mc^2$$\n\nAlle tre står på formelarket. I partikkelfysikk oppgis massen gjerne direkte som hvileenergi i MeV — protonet $938\\,\\text{MeV}$, elektronet $0{,}511\\,\\text{MeV}$ — fordi det sparer et regnesteg."
+    },
+    {
+      "id": "fys1100-10-1-bb-14",
+      "type": "definition",
+      "title": "Lavfartsgrensa for den kinetiske energien",
+      "content": "Taylor-utvikling av $\\gamma$ gir\n\n$$K = (\\gamma-1)mc^2 = \\tfrac12 mv^2 + \\tfrac38\\frac{mv^4}{c^2} + \\cdots$$\n\nDet første leddet er nøyaktig den klassiske kinetiske energien, og det andre er den første relativistiske korreksjonen. Det relative avviket mellom klassisk og riktig verdi er omtrent $\\tfrac34\\beta^2$, altså under 1 % så lenge $\\beta < 0{,}115$.\n\nUtviklingen er en gjenganger på eksamen, og den er en av de klareste illustrasjonene av at en ny teori må inneholde den gamle der den gamle virket."
+    },
+    {
+      "id": "fys1100-10-1-bb-15",
+      "type": "definition",
+      "title": "Massen som invariant",
+      "content": "Massen $m$ i $E = \\gamma mc^2$ er **hvilemassen**, og den er den samme i alle referansesystemer. Det er $\\gamma$ som avhenger av farten, ikke massen.\n\nEldre fremstillinger snakket om «relativistisk masse» $\\gamma m$ som vokser med farten. Begrepet er ute av bruk fordi det inviterer til gale bilder — et raskt legeme har ikke mer materie i seg, og det blir ikke tyngre å bære når det stopper."
+    },
+    {
+      "id": "fys1100-10-1-bb-16",
+      "type": "definition",
+      "title": "Myonet som naturlig laboratorium",
+      "content": "Myoner dannes av kosmisk stråling høyt i atmosfæren og har en middellevetid på $2{,}20\\,\\mu\\text{s}$ i sitt eget hvilesystem. Klassisk ville de rukket noen hundre meter; i praksis måles de i store mengder ved havnivå.\n\nSett fra bakken skyldes det tidsdilatasjon: levetida blir $\\gamma\\tau$. Sett fra myonet skyldes det lengdekontraksjon: atmosfæren er tynnere. **Begge forklaringene er riktige, og de skal aldri brukes samtidig** — det ville vært dobbelttelling."
+    },
+    {
+      "id": "fys1100-10-1-bb-17",
+      "type": "definition",
+      "title": "Testspørsmålet for egentid",
+      "content": "Én setning som løser de fleste oppgavene i denne delen: *skjer de to hendelsene på samme sted i dette systemet?*\n\nEr svaret ja, måler systemet **egentid**, og alle andre måler $\\gamma$ ganger så mye. Er svaret nei, måler det ikke egentid, og du må finne det systemet som gjør det.\n\nMerk at egentid er en egenskap ved **hendelseparet**, ikke ved et bestemt kjøretøy. Det samme romskipet kan måle egentid i én oppgave og ikke i den neste."
+    },
+    {
+      "id": "fys1100-10-1-bb-18",
+      "type": "definition",
+      "title": "Retningskontrollen",
+      "content": "Sluttsjekken som fanger den dyreste feilen i Del 10, og som tar tre sekunder:\n\n- Tida målt av den som ser klokka bevege seg, er **lengre** enn egentida.\n- Lengden målt av den som ser målestokken bevege seg, er **kortere** enn egenlengda.\n- Enhver fart som kommer ut av en utregning, er **mindre enn $c$**.\n\nGår et svar motsatt vei, har du brukt $\\gamma$ feil vei. Det er felle #10, og den koster typisk 2 poeng."
+    },
+    {
+      "id": "fys1100-10-1-bb-19",
+      "type": "definition",
+      "title": "Samtidighetens relativitet",
+      "content": "To hendelser som skjer samtidig i ett inertialsystem, skjer i sin alminnelighet **ikke** samtidig i et annet. Dette følger direkte av leddet $-ux/c^2$ i Lorentz-transformasjonen: er $\\Delta t = 0$ og $\\Delta x \\neq 0$, blir $\\Delta t' = -\\gamma u\\Delta x/c^2 \\neq 0$.\n\nStørrelsen på forskyvningen er altså proporsjonal med **avstanden** mellom hendelsene og med den relative farten. Dette er nøkkelen til alle paradoksene, og det er hovedtemaet i [kap. 10.2](/bok/fys1100/fys1100-10-2)."
+    },
+    {
+      "id": "fys1100-10-1-bb-20",
+      "type": "definition",
+      "title": "Enheter der $c = 1$",
+      "content": "Måler du avstander i lysår og tider i år — eller avstander i lyssekunder og tider i sekunder — blir $c = 1$, og formlene forenkler seg kraftig: $\\beta = v$, og $d = \\beta\\gamma\\tau$ direkte.\n\nDet er ikke juks, det er et enhetsvalg, på linje med å måle vinkler i radianer. Bruk det når oppgaven allerede gir deg lysår og år, og si i besvarelsen at du gjør det. Skal du til slutt oppgi farten i meter per sekund, ganger du bare med $3{,}00\\cdot10^{8}\\,\\text{m/s}$."
+    },
+    {
+      "id": "fys1100-10-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-10-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $c$ | lysfarten i vakuum, $3{,}00\\cdot10^{8}$ | $\\text{m/s}$ |\n| $v$ | farten til et legeme, målt i et gitt system | $\\text{m/s}$ |\n| $u$ | farten til ett system i forhold til et annet | $\\text{m/s}$ |\n| $\\beta$ | hastighetsforholdet $v/c$ (**dimensjonsløs**) | — |\n| $\\gamma$ | Lorentz-faktoren, alltid $\\ge 1$ (**dimensjonsløs**) | — |\n| $\\Delta t_0$, $\\tau$ | **egentid** — målt der hendelsene skjer på samme sted | $\\text{s}$ |\n| $\\Delta t$ | tida målt av en observatør som ser klokka bevege seg | $\\text{s}$ |\n| $l_0$ | **egenlengde** — målt i gjenstandens hvilesystem | $\\text{m}$ |\n| $l$ | lengden målt av en observatør som ser gjenstanden bevege seg | $\\text{m}$ |\n| $x$, $t$ | hendelsens sted og tid i system $S$ | $\\text{m}$, $\\text{s}$ |\n| $x'$, $t'$ | de samme i system $S'$ | $\\text{m}$, $\\text{s}$ |\n| $d$ | strekning målt i laboratoriesystemet | $\\text{m}$ |\n| $k$ | hjelpestørrelsen $d/(c\\tau) = \\beta\\gamma$ | — |\n| $m$ | hvilemassen — **invariant**, samme i alle systemer | $\\text{kg}$ |\n| $E$, $E_0$ | total energi og hvileenergi (**skalarer**) | $\\text{J}$ |\n| $K$ | kinetisk energi (**skalar**) | $\\text{J}$ |\n\n**Symbolkollisjoner som er avklart i denne boka.** Symbolet $T$ betyr **snordrag** ellers i boka og brukes ikke om tid her; en periode skrives $T_p$. Egentida skrives derfor $\\Delta t_0$ eller $\\tau$, aldri $T$. Bokstaven $l$ brukes om lengde her, mens $L$ i Del 6 og 9 betyr spinn — de to opptrer aldri i samme likning. Symbolet $u$ er systemenes innbyrdes fart og $v$ legemets fart; å blande dem er den vanligste feilen i hastighetstransformasjonen. Massen $m$, energiene og $\\gamma$ er **skalarer** og skal aldri ha vektormarkering.\n\n**Formler i dette delkapitlet:**\n\n$$\\gamma = \\frac{1}{\\sqrt{1-v^2/c^2}}$$\n\nLorentz-faktoren. **[formelarket]** — du bør også kunne den baklengs: $\\beta = \\sqrt{1-1/\\gamma^2}$.\n\n$$\\Delta t = \\gamma\\,\\Delta t_0$$\n\nTidsdilatasjon. **[formelarket]** — tida blir **lengre**; egentida er den korteste.\n\n$$l = \\frac{l_0}{\\gamma}$$\n\nLengdekontraksjon. **[formelarket]** — lengden blir **kortere**; egenlengda er den lengste. Gjelder bare langs bevegelsesretningen.\n\n$$x' = \\gamma(x-ut), \\qquad t' = \\gamma\\!\\left(t-\\frac{ux}{c^2}\\right)$$\n\nLorentz-transformasjonen. **[formelarket]** — leddet $-ux/c^2$ er kilden til samtidighetens relativitet.\n\n$$v' = \\frac{v-u}{1-uv/c^2}$$\n\nHastighetstransformasjonen. **[formelarket]** — gir aldri et resultat over $c$.\n\n$$d = v\\gamma\\tau, \\qquad \\beta = \\frac{k}{\\sqrt{1+k^2}}, \\qquad k = \\frac{d}{c\\tau}$$\n\nKombinasjonsoppgaven. **[må kunne utledes]** — sammensetningen og løsningsoppskriften er din, formlene den bygger på er arkets.\n\n$$E = \\gamma mc^2, \\qquad E_0 = mc^2, \\qquad K = (\\gamma-1)mc^2$$\n\nRelativistisk energi. **[formelarket]**.\n\n$$K = \\tfrac12 mv^2 + \\tfrac38\\frac{mv^4}{c^2} + \\cdots$$\n\nLavfartsgrensa. **[må kunne utledes]** — binomialtilnærmingen fra [kap. 1.2](/bok/fys1100/fys1100-1-2) anvendt på $\\gamma$; utviklingen kreves aktivt.\n\n**Fra Rottmann** — den matematiske formelsamlingen som er tillatt hjelpemiddel — henter du binomialrekka og Taylor-rekka med restledd, hvis du vil kontrollere koeffisienten $\\tfrac38$ i stedet for å regne den ut."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-10-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-10-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.2](/bok/fys1100/fys1100-1-2).) Bruk binomialtilnærmingen $(1+x)^n \\approx 1 + nx$ til å finne en enkel tilnærming for $1/\\sqrt{1-x}$ når $|x| \\ll 1$. Kontrollér med $x = 0{,}0400$.",
+            "solution": "$$\\frac{1}{\\sqrt{1-x}} = (1-x)^{-1/2} \\approx 1 + \\left(-\\tfrac12\\right)(-x) = 1 + \\tfrac12 x$$\n\nKontroll: $1/\\sqrt{0{,}9600} = 1{,}02062$, mens $1 + 0{,}0200 = 1{,}02000$ — avvik $0{,}06\\ \\%$.\n\nDette er nøyaktig $\\gamma \\approx 1 + \\tfrac12\\beta^2$ med $x = \\beta^2$.",
+            "hints": [
+              "Skriv om til potensform først: $1/\\sqrt{1-x} = (1-x)^{-1/2}$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Et tog går med konstant fart $32{,}0\\,\\text{m/s}$. Hvor lang tid bruker det på $1{,}60\\,\\text{km}$?",
+            "solution": "$$t = \\frac{s}{v} = \\frac{1{,}60\\cdot10^{3}}{32{,}0} = 50{,}0\\,\\text{s}$$\n\nDenne regningen er akkurat den du gjør i hvert eneste relativitetsproblem også — forskjellen er bare at du må si **hvilket system** $s$ og $t$ er målt i.",
+            "hints": [
+              "Bruk $s = vt$ og løs for tida."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.2](/bok/fys1100/fys1100-1-2).) Hvor stor må $\\beta$ være for at $\\gamma$ skal avvike fra 1 med mer enn $1{,}00\\ \\%$?",
+            "solution": "Med $\\gamma \\approx 1 + \\tfrac12\\beta^2$ blir kravet\n\n$$\\tfrac12\\beta^2 > 0{,}0100 \\quad \\Longrightarrow \\quad \\beta > \\sqrt{0{,}0200} = 0{,}141$$\n\nKontroll med eksakt formel: $\\gamma(0{,}1414) = 1{,}0102$, altså et avvik på $1{,}02\\ \\%$ ✓. Tilnærmingen er god nok her fordi $\\beta$ fortsatt er liten.\n\nDet svarer til $4{,}2\\cdot10^{7}\\,\\text{m/s}$ — over hundre ganger fartere enn romstasjonen.",
+            "hints": [
+              "Bruk tilnærmingen $\\gamma \\approx 1 + \\tfrac12\\beta^2$ og løs ulikheten."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) En kloss på $2{,}00\\,\\text{kg}$ går med $15{,}0\\,\\text{m/s}$. Finn den kinetiske energien klassisk, og vurder om en relativistisk korreksjon er nødvendig.",
+            "solution": "$$K = \\tfrac12 mv^2 = \\tfrac12\\cdot2{,}00\\cdot(15{,}0)^2 = 225\\,\\text{J}$$\n\nHer er $\\beta = 15{,}0/(3{,}00\\cdot10^{8}) = 5{,}00\\cdot10^{-8}$, så det relative avviket er $\\tfrac34\\beta^2 = 1{,}9\\cdot10^{-15}$ — fjorten nuller etter kommaet. Relativistisk korreksjon er ikke bare unødvendig, den er umulig å måle.",
+            "hints": [
+              "Regn $\\beta$ først, og bruk anslaget $\\tfrac34\\beta^2$ for det relative avviket."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-1-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-1-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1) og dette kapitlet.) To biler kjører mot hverandre, hver med $30{,}0\\,\\text{m/s}$ i forhold til veien. Finn den relative farten både klassisk og med hastighetstransformasjonen, og kommentér.",
+            "solution": "**Klassisk:** $30{,}0 + 30{,}0 = 60{,}0\\,\\text{m/s}$.\n\n**Relativistisk**, med $u = +30{,}0$ og $v = -30{,}0\\,\\text{m/s}$:\n\n$$v' = \\frac{v-u}{1-uv/c^2} = \\frac{-60{,}0}{1 + \\dfrac{900}{9{,}00\\cdot10^{16}}} = \\frac{-60{,}0}{1 + 1{,}00\\cdot10^{-14}}$$\n\nNevneren avviker fra 1 med en hundretusendels milliarddel, så svaret er $60{,}0\\,\\text{m/s}$ til alle siffer noe instrument kan skille.\n\nPoenget er ikke at relativitetsteorien er unødvendig, men at den **inneholder** den klassiske regelen: nevneren blir 1 når fartene er små mot $c$.",
+            "hints": [
+              "Bestem positiv retning, og gi den ene bilen negativ fart.",
+              "Regn ut hvor mye nevneren faktisk avviker fra 1."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

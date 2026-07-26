@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hva kjennetegner Euler–Cromer sammenliknet med Forward Euler?",
+  "options": [
+   "Farten oppdateres først, og den nye farten brukes på posisjonen",
+   "Posisjonen oppdateres først, og den nye posisjonen brukes på farten",
+   "Begge oppdateres samtidig fra tilstanden i forrige tidspunkt",
+   "Akselerasjonen regnes ut midt i steget i stedet for i starten"
+  ],
+  "explanation": "Euler–Cromer bytter rekkefølge og bruker den oppdaterte farten $v_{i+1}$ i posisjonslinja. Svaret om at begge oppdateres fra forrige tilstand, beskriver nettopp Forward Euler — og det er den kansellerende feilen fra den nye farten som gjør Euler–Cromer tilnærmet energibevarende."
+ },
+ {
+  "question": "Hvorfor går løkka over `range(N - 1)` og ikke `range(N)`?",
+  "options": [
+   "Fordi løkka skriver til indeks $i+1$, og siste plass er $N-1$",
+   "Fordi det første tidspunktet allerede er regnet ut på forhånd",
+   "Fordi Python teller indekser fra én og ikke fra null",
+   "Fordi den siste verdien alltid kastes bort som unøyaktig"
+  ],
+  "explanation": "Med $N$ punkt finnes indeksene $0$ til $N-1$, og løkka skriver til $i+1$ — derfor må $i$ stoppe på $N-2$. Python teller riktignok fra null, men det er ikke grunnen; grunnen er at antall steg alltid er én mindre enn antall punkt."
+ },
+ {
+  "question": "En kode for en fjærpendel gir amplitude som vokser jevnt gjennom simuleringen. Hva er mest sannsynlig galt?",
+  "options": [
+   "Posisjonen oppdateres med den gamle farten, altså Forward Euler",
+   "Steglengden $dt$ er valgt for liten i forhold til perioden",
+   "Initialbetingelsene er satt til null i begge tabellene",
+   "Massen er glemt i nevneren i akselerasjonslinja"
+  ],
+  "explanation": "Voksende amplitude i et konservativt system er energidrift, og det er signaturen til Forward Euler. Nullstilte initialbetingelser ville gitt en kode som står bom stille, ikke en som vokser, og for liten $dt$ gjør aldri en løsning dårligere."
+ },
+ {
+  "question": "Hvor mange av de fem poengene i en typisk kodedeloppgave ligger i akselerasjonsuttrykket?",
+  "options": [
+   "Tre",
+   "Ett",
+   "Fem",
+   "To"
+  ],
+  "explanation": "Sensorveiledningene i H2023, V2024 og V2025 fordeler poengene som 1 for initialbetingelsene, 3 for akselerasjonsuttrykket og 1 for løkka. Akselerasjonslinja er det eneste stedet fysikken i akkurat den oppgaven står, og derfor tyngst vektet."
+ },
+ {
+  "question": "Bevegelseslikningen er $m\\,d^2x/dt^2 = -kx - mg$. Hvilken akselerasjonslinje er riktig?",
+  "options": [
+   "`a = -(k/m)*x[i] - g`",
+   "`a = -(k/m)*x[i] - m*g`",
+   "`a = -k*x[i] - g`",
+   "`a = (k/m)*x[i] - g`"
+  ],
+  "explanation": "Del hele likningen på $m$: leddet $-kx$ blir $-(k/m)x$, og leddet $-mg$ blir $-g$ fordi massen forkortes. Varianten med `- m*g` har glemt å dele tyngdeleddet, og varianten uten minus foran $k$ beskriver en frastøtende fjær."
+ },
+ {
+  "question": "Hva er sammenhengen mellom antall punkt $N$, steglengden $dt$ og sluttiden?",
+  "options": [
+   "$t_{\\text{slutt}} = (N-1)\\,dt$",
+   "$t_{\\text{slutt}} = N\\,dt$",
+   "$t_{\\text{slutt}} = N/dt$",
+   "$t_{\\text{slutt}} = (N+1)\\,dt$"
+  ],
+  "explanation": "Med $N$ punkt er det $N-1$ mellomrom, og hvert mellomrom har lengde $dt$. Formen $N\\,dt$ er den vanligste avrundingen, og den er ubetydelig for store $N$ — men den er likevel feil, og den avslører at telleforholdet ikke er gjennomtenkt."
+ },
+ {
+  "question": "Hva skriver du i indeks 0 for en kloss som passerer likevekt med farten $0{,}400\\ \\text{m/s}$?",
+  "options": [
+   "`x[0] = 0.0` og `v[0] = 0.400`",
+   "`x[0] = 0.400` og `v[0] = 0.0`",
+   "`x[0] = 0.0` og `v[0] = 0.0`",
+   "`x[0] = 0.400` og `v[0] = 0.400`"
+  ],
+  "explanation": "«Passerer likevekt» gir posisjon null, og «med farten $0{,}400\\ \\text{m/s}$» gir den farten. Å sette begge til null er den vanligste vanefeilen, og den gir en kode som står bom stille fordi ingenting setter bevegelsen i gang."
+ },
+ {
+  "question": "Hva menes med at Euler–Cromer er en førsteordens metode?",
+  "options": [
+   "Feilen i sluttsvaret er tilnærmet proporsjonal med $dt$",
+   "Metoden løser bare differensiallikninger av første orden",
+   "Bare den første deriverte inngår i oppdateringslinjene",
+   "Feilen i sluttsvaret er tilnærmet proporsjonal med $dt^2$"
+  ],
+  "explanation": "Ordenen sier hvordan den samlede feilen skalerer: halvert steglengde gir omtrent halvert feil. At metoden håndterer andreordens likninger via tilstandsformen, er en annen sak, og feilen per enkeltsteg går som $dt^2$ — det er summen over $t/dt$ steg som gir $dt$."
+ },
+ {
+  "question": "Hvorfor skrives akselerasjonen `a` uten indeks mens farten alltid har indeks?",
+  "options": [
+   "Fordi `a` regnes på nytt hvert steg og ikke skal lagres",
+   "Fordi akselerasjonen er konstant gjennom hele simuleringen",
+   "Fordi `a` er en skalar mens `v` alltid er en vektor",
+   "Fordi indeks på `a` ville gitt feil resultat i posisjonslinja"
+  ],
+  "explanation": "Akselerasjonen brukes umiddelbart og trengs ikke etterpå, mens farten må lagres for hvert tidspunkt. Å skrive `a[i]` er også helt riktig — bare mer arbeid for hånd — så det er ikke slik at indeks der ville ødelagt noe."
+ },
+ {
+  "question": "En simulering gir feil svar. Du halverer $dt$ og svaret endrer seg ikke. Hva forteller det?",
+  "options": [
+   "Feilen ligger i modellen, ikke i diskretiseringen",
+   "Steglengden var fortsatt for stor til å gi utslag",
+   "Metoden er energibevarende og trenger ingen finere steg",
+   "Koden er riktig, og avviket skyldes avrundingsfeil"
+  ],
+  "explanation": "En diskretiseringsfeil krymper når $dt$ krymper; en modellfeil står helt urørt. At svaret ikke rører seg, peker derfor på et manglende kraftledd, et galt fortegn eller en feil initialbetingelse."
+ },
+ {
+  "question": "Hva er den mekaniske energien til en fjærpendel med masse $m$, fjærkonstant $k$, utslag $x$ og fart $v$?",
+  "options": [
+   "$\\tfrac12 mv^2 + \\tfrac12 kx^2$",
+   "$\\tfrac12 mv^2 - \\tfrac12 kx^2$",
+   "$mv^2 + kx^2$",
+   "$\\tfrac12 mv^2 + \\tfrac12 kx$"
+  ],
+  "explanation": "Kinetisk energi er $\\tfrac12 mv^2$ og fjærens potensielle energi $\\tfrac12 kx^2$; begge er positive og legges sammen. Varianten med minus ville tillatt negativ total energi for en fjær, og varianten uten kvadrat på $x$ har feil enhet."
+ },
+ {
+  "question": "Hvilken linje er skrevet med brudd på indeksdisiplinen?",
+  "options": [
+   "`v = v[i] + a*dt`",
+   "`v[i+1] = v[i] + a*dt`",
+   "`x[i+1] = x[i] + v[i+1]*dt`",
+   "`a = -(k/m)*x[i]`"
+  ],
+  "explanation": "Venstre side mangler indeks, så hele fartsarrayet erstattes av ett tall og forløpet går tapt. Dette er felle #5 i feilregisteret og koster typisk to poeng, selv når meningen er åpenbar for en leser."
+ },
+ {
+  "question": "En pendel med $\\ell = 0{,}800\\ \\text{m}$ svinges med startutslag $0{,}600\\ \\text{rad}$. Hva sier den numeriske løsningen om perioden?",
+  "options": [
+   "Den er om lag $2\\ \\%$ lengre enn småvinkelformelen gir",
+   "Den er om lag $2\\ \\%$ kortere enn småvinkelformelen gir",
+   "Den er nøyaktig den samme som småvinkelformelen gir",
+   "Den er om lag $16\\ \\%$ lengre enn småvinkelformelen gir"
+  ],
+  "explanation": "Kjøringen gir $1{,}8355\\ \\text{s}$ mot $1{,}7943\\ \\text{s}$ fra $2\\pi\\sqrt{\\ell/g}$, altså $2{,}3\\ \\%$ lengre — perioden vokser med utslaget fordi $\\sin\\theta < \\theta$. Avviket $16\\ \\%$ hører til et langt større utslag, om lag $1{,}5\\ \\text{rad}$."
+ },
+ {
+  "question": "Hva er hovedgrunnen til at initialbetingelser gir egne poeng på eksamen?",
+  "options": [
+   "De er det eneste stedet oppgavens starttilstand kommer inn",
+   "De bestemmer hvilken numerisk metode koden faktisk bruker",
+   "De avgjør hvor liten steglengden $dt$ må velges",
+   "De sikrer at tabellene får riktig lengde før løkka"
+  ],
+  "explanation": "Differensiallikningen er loven, og initialbetingelsene plukker ut den ene bevegelsen loven beskriver i denne oppgaven. Metodevalget ligger i rekkefølgen på oppdateringene, og tabellengden i valget av $N$ — begge deler er uavhengig av startverdiene."
+ },
+ {
+  "question": "Hvordan lager du et analytisk kontrollcase for en kode med luftmotstand?",
+  "options": [
+   "Sett dragkoeffisienten til null og sammenlikn med den kjente løsningen",
+   "Sett massen til null og se om koden fortsatt gir endelige tall",
+   "Øk dragkoeffisienten kraftig og sjekk at farten går mot null",
+   "Kjør koden to ganger med samme $dt$ og sammenlikn resultatene"
+  ],
+  "explanation": "Å slå av det leddet som gjør problemet vanskelig, gir et tilfelle du kan regne ut for hånd, og det tester hele infrastrukturen. Å kjøre samme kode to ganger med samme steglengde gir per definisjon samme svar og tester ingenting."
+ },
+ {
+  "question": "Hvilken tommelfingerregel gjelder for valg av steglengde i dette emnet?",
+  "options": [
+   "Et par tusen ganger mindre enn systemets karakteristiske tid",
+   "Om lag tjue ganger mindre enn systemets karakteristiske tid",
+   "Så liten at antallet steg blir minst en million",
+   "Nøyaktig lik systemets periode delt på antall punkt"
+  ],
+  "explanation": "Med et par tusen steg per svingeperiode eller falltid er både amplituden og perioden godt gjengitt. Tjue steg per periode gir en kurve der selve formen er borte, og en million steg er sjelden nødvendig og bare kostbart."
+ },
+ {
+  "question": "Hvorfor er metodevalget verdt å begrunne i tekst, og ikke bare i koden?",
+  "options": [
+   "Sensorveiledningene skiller på om mekanismen er skrevet ut",
+   "Koden alene regnes ikke som en gyldig besvarelse på eksamen",
+   "Begrunnelsen erstatter kravet om riktige initialbetingelser",
+   "Uten begrunnelse godtas ikke andre programmeringsspråk"
+  ],
+  "explanation": "Sensorveiledningene i H2023, V2024 og V2025 trekker fram forskjellen på en kandidat som skriver riktig løkke og en som også sier hvorfor. Alle språk godtas uansett, og begrunnelsen kommer i tillegg til — ikke i stedet for — initialbetingelsene."
+ },
+ {
+  "question": "En kode for en fjær gir bare nuller i alle tidspunkt, uten feilmelding. Hva er mest sannsynlig?",
+  "options": [
+   "Initialbetingelsene mangler, så systemet starter i likevekt uten fart",
+   "Steglengden er så liten at ingenting rekker å skje",
+   "Akselerasjonslinja har fått feil fortegn på fjærkraften",
+   "Tabellene ble opprettet etter at løkka hadde kjørt ferdig"
+  ],
+  "explanation": "`np.zeros(N)` fyller alt med null, og uten `x[0]` og `v[0]` blir akselerasjonen null i første steg og alt står stille for alltid. Feil fortegn på fjærkraften ville gitt det motsatte symptomet: tall som vokser uten grense i løpet av få steg."
+ }
+]

@@ -1,0 +1,396 @@
+{
+  "id": "fys1100-7-3",
+  "courseId": "fys1100",
+  "chapterNumber": "7.3",
+  "title": "Luftmotstand og førsteordens separabel ODE",
+  "description": "De to dragmodellene, terminalfarten fra kraftbalanse, den separable løsningen som gir farten mot tid — og grensene som kontrollerer at svaret er riktig.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne sette opp bevegelseslikningen for et legeme med lineær eller kvadratisk luftmotstand, med riktig fortegn i begge retninger",
+    "kunne finne terminalfarten fra kraftbalanse for begge dragmodellene",
+    "kunne separere variablene og integrere en førsteordens likning med initialbetingelse",
+    "kunne kontrollere et fartsuttrykk i grensene mot fritt fall og mot terminalfart, og forklare når analytisk løsning ikke lenger finnes"
+  ],
+  "content": [
+    {
+      "id": "fys1100-7-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Luftmotstand er med i 6 av 7 sett (86 %), og nesten alltid koblet til den numeriske deloppgaven.** Mønsteret er så fast at det er verdt å kjenne igjen: et legeme faller eller kastes med motstand, du skal utlede bevegelseslikningen, finne terminalfarten, løse likningen analytisk der det går — og til slutt skissere Python-koden som ville løst den generelle versjonen.\n\nKapitlet hører til **sjanger G — svingninger og differensiallikninger**, i den førsteordens varianten. Den numeriske halen hører til **sjanger H — Python-kode og numerisk integrasjon**, som er med i **7 av 7 sett (100 %)**.\n\n**Slik ligger poengene, ut fra sensorveiledningene i H2023, V2024 og V2025:**\n\n| Steg | Uttelling |\n|---|---|\n| Frilegemediagram og oppsett av likningen | bærende |\n| Klassifisering: første orden, separabel | selvstendig poenggivende |\n| **Terminalfarten fra $\\sum F = 0$** | egne poeng — og krever ikke at du løser likningen |\n| Gjennomført separasjon og integrasjon med initialbetingelse | kjernen i oppgaven |\n| Tolkning av grensetilfellene $t \\to 0$ og $t \\to \\infty$ | ofte en egen deloppgave |\n\n**Felle #4 i bokas feilregister bor her:** å skrive kvadratisk luftmotstand som $-Dv^2$ når farten kan skifte fortegn. Det koster typisk ett poeng i utledningen og ett til i koden. Vi bruker en hel løkke på hvorfor absoluttverdien må være der.\n\n**Høyeste prioritet — dette må sitte.**\n\n**Øktforslag:** kapitlet er på 65 minutter. Løkke 1–2 (modellene og terminalfarten) er en naturlig første økt, løkke 3–4 (den separable løsningen og grensene) den neste."
+    },
+    {
+      "id": "fys1100-7-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 7.1](/bok/fys1100/fys1100-7-1) og [kap. 3.2](/bok/fys1100/fys1100-3-2). Det du trenger derfra, ferdig oppfrisket:\n\n**Bevegelseslikningen** er Newtons 2. lov med akselerasjonen skrevet som derivert. Når ingen kraft avhenger av posisjonen, kan vi arbeide direkte med farten, og ordenen faller til én:\n\n$$m\\frac{dv}{dt} = \\sum F(v)$$\n\n**Likevektsløsningen** finner du ved å sette den deriverte lik null. For et fallende legeme kalles den **terminalfarten**, og den er en gratis poenghøster: den krever ikke at likningen løses.\n\n**Separabel** betyr at alt med den ukjente kan samles på den ene siden og alt med tiden på den andre. Alle likningene i dette kapitlet er separable.\n\nFra matematikken trenger du to ting: [Variabelskifte (substitusjon)](/bok/r2/r2-3-1) og [Integrasjon av 1/x og eksponentialfunksjoner](/bok/r2/r2-2-3). Det ene integralet som gjør hele jobben, er\n\n$$\\int \\frac{du}{u} = \\ln\\lvert u\\rvert + C$$\n\nFra [kap. 1.2](/bok/fys1100/fys1100-1-2) trenger du dessuten $e^{-x} \\approx 1 - x + \\tfrac12x^2$ for små $x$ — den brukes til å vise at løsningen går over i fritt fall like etter slipp.\n\n**Notasjonsavtale for kapitlet.** Vi regner **positiv retning nedover** i fallproblemene, slik at tyngden blir positiv og farten positiv når legemet synker. Farten skrives $v$ som kursiv skalar med fortegn. Luftmotstandens koeffisienter er $k_v$ (lineær modell, enhet $\\text{kg/s}$) og $D$ (kvadratisk modell, enhet $\\text{kg/m}$) — de er ulike størrelser med ulike enheter og kan aldri byttes om. Terminalfarten er $v_T$; en periode ville vært $T_p$, og snordrag $T$, men ingen av dem opptrer her. Tyngden er $m\\mathbf{g}$, aldri $\\mathbf{G}$. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-7-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — de to dragmodellene (~14 min)\n\nSlipp et kaffefilter fra skulderhøyde. Det når full fart nesten med det samme og daler så jevnt ned. Slipp en stein fra samme høyde, og den akselererer hele veien.\n\nForskjellen er luftmotstanden, og den har to ansikter i dette faget. Hvilket du får, avhenger av hvor raskt og hvor stort legemet er — men i en eksamensoppgave står det alltid i teksten hvilken modell som gjelder. **Din jobb er å kjenne dem igjen, sette dem opp med riktig fortegn, og vite hva de gjør med likningen.**"
+    },
+    {
+      "id": "fys1100-7-3-def-luftmotstand",
+      "type": "definition",
+      "title": "Luftmotstand (drag)",
+      "content": "En kraft fra lufta eller væsken på et legeme som beveger seg gjennom den, alltid rettet **mot bevegelsen**.\n\nKraften har ingen egen kilde i form av et fast legeme — den kommer av at mediet må skyves til side og av friksjon mot overflaten. Størrelsen vokser med farten, og det er nettopp den fartsavhengigheten som gjør bevegelseslikningen til en ekte differensiallikning.\n\n**Merk retningsregelen:** «mot bevegelsen» er en betingelse som gjelder til enhver tid, også når legemet snur. Det er derfor modellen må skrives slik at kraften bytter fortegn samtidig med farten."
+    },
+    {
+      "id": "fys1100-7-3-def-lineaer-drag",
+      "type": "definition",
+      "title": "Lineær dragmodell",
+      "content": "Modellen der motstanden er proporsjonal med farten:\n\n$$F_D = -k_v v$$\n\nKoeffisienten $k_v$ har enhet $\\text{kg/s}$. Minustegnet gjør at kraften peker mot bevegelsen: er $v$ positiv, er $F_D$ negativ, og omvendt. **Modellen håndterer retningsskifte helt av seg selv**, siden $v$ inngår i første potens.\n\nLineær motstand gjelder for **små, langsomme** legemer i et seigt medium: en liten kule i olje, et støvkorn i luft, et lodd i glyserol. Den er dessuten den ene av de to modellene som gir en enkel lukket løsning, og derfor den som brukes når oppgaven vil ha et analytisk svar."
+    },
+    {
+      "id": "fys1100-7-3-def-kvadratisk-drag",
+      "type": "definition",
+      "title": "Kvadratisk dragmodell",
+      "content": "Modellen der motstanden vokser med kvadratet av farten:\n\n$$F_D = -D\\lvert v\\rvert v$$\n\nKoeffisienten $D$ har enhet $\\text{kg/m}$ og avhenger av tverrsnittet, formen og luftas tetthet. **Absoluttverdien er ikke pynt.** Uten den ville leddet $-Dv^2$ pekt samme vei uansett fartsretning, og et legeme på vei oppover ville blitt drevet videre oppover i stedet for bremset.\n\nKvadratisk motstand gjelder for **større og raskere** legemer i luft: en fallskjermhopper, en ball, en sykkel, en bil. Det er den realistiske modellen for det meste av dagliglivets bevegelser, og derfor den som dominerer i de numeriske oppgavene."
+    },
+    {
+      "id": "fys1100-7-3-hvorfor-abs",
+      "type": "text",
+      "content": "**Hvorfor absoluttverdien er avgjørende.** Tenk på en ball som kastes rett opp og faller ned igjen.\n\n- **På vei opp** er $v > 0$ (med positiv retning oppover). Motstanden skal peke nedover. Med $-D\\lvert v\\rvert v = -Dv^2$ blir den negativ ✓.\n- **På vei ned** er $v < 0$. Motstanden skal nå peke **oppover**. Med $-D\\lvert v\\rvert v$ blir leddet $-D\\lvert v\\rvert v = +Dv^2 > 0$ ✓, altså oppover.\n- Med $-Dv^2$ ville leddet vært negativt i begge tilfeller, og på vei ned ville lufta ha *dyttet* ballen fortere nedover. Modellen ville brutt sammen fysisk.\n\n**Intuisjon:** $\\lvert v\\rvert$ gir størrelsen, og den siste $v$-en gir retningen. Produktet har derfor riktig størrelse og riktig fortegn i ett og samme uttrykk.\n\nDette er **felle #4** i bokas feilregister, og den følger deg videre inn i Del 8: i koden skrives leddet `-D*abs(v[i])*v[i]`, aldri `-D*v[i]**2`. Skriver du kvadratet, taper du poeng både i utledningen og i koden — to steder for samme feil.\n\n**Når kan du forenkle?** Bare når du kan garantere at farten ikke skifter fortegn i det tidsrommet du regner på. En fallskjermhopper som faller nedover hele veien, kan trygt beskrives med $-Dv^2$ — men **du må skrive ut betingelsen**. Å forenkle uten å si hvorfor er å håpe at sensor antar det beste."
+    },
+    {
+      "id": "fys1100-7-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med egne ord, i to–tre setninger hver:\n\n**a)** hvorfor luftmotstand gjør bevegelseslikningen til en differensiallikning som ikke kan løses med konstant-$a$-formlene,\n\n**b)** hvorfor kvadratisk luftmotstand må skrives $-D\\lvert v\\rvert v$ og ikke $-Dv^2$,\n\n**c)** hvorfor koeffisientene $k_v$ og $D$ ikke kan ha samme enhet.",
+        "solution": "**a)** Fordi kraften avhenger av farten, og farten er det vi prøver å finne. Akselerasjonen er derfor ikke konstant: den er stor i starten, når motstanden er liten, og synker mot null etter hvert som farten vokser. Konstant-$a$-formlene forutsetter at akselerasjonen er den samme hele veien, og den forutsetningen er brutt i det øyeblikket motstanden kommer inn.\n\n**b)** Fordi $v^2$ er positiv uansett fortegn på farten. Skriver du $-Dv^2$, peker motstandsleddet samme vei hele tiden, og et legeme på vei oppover ville blitt drevet i stedet for bremset. Med $-D\\lvert v\\rvert v$ gir absoluttverdien størrelsen og den siste faktoren retningen, slik at kraften alltid peker mot bevegelsen.\n\n**c)** Fordi de multipliseres med ulike potenser av farten, og begge produktene skal bli en kraft. $k_v v$ er en kraft, så $[k_v] = \\text{N}/(\\text{m/s}) = \\text{kg/s}$. $D v^2$ er en kraft, så $[D] = \\text{N}/(\\text{m/s})^2 = \\text{kg/m}$. Å bruke samme tallverdi i de to modellene er derfor meningsløst, og en benevningskontroll avslører byttet umiddelbart.",
+        "hints": [
+          "Se på hva høyresiden i bevegelseslikningen avhenger av.",
+          "I b): sett inn en negativ fart og se hvilken vei kraften da peker.",
+          "I c): krev at $k_v v$ og $Dv^2$ begge har enheten newton."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — terminalfarten (~12 min)\n\nDet første spørsmålet i en dragoppgave er nesten alltid det samme: **hvor fort går det til slutt?** Og det gode ved spørsmålet er at du kan svare uten å løse differensiallikningen i det hele tatt.\n\n**Intuisjon:** når farten er så stor at motstanden akkurat balanserer tyngden, er resultantkraften null. Da er akselerasjonen null, og farten endrer seg ikke mer. Dette er nøyaktig likevektsløsningen fra [kap. 7.1](/bok/fys1100/fys1100-7-1), bare med et fysikknavn på."
+    },
+    {
+      "id": "fys1100-7-3-def-terminalfart",
+      "type": "definition",
+      "title": "Terminalfart",
+      "content": "Den konstante farten et fallende legeme nærmer seg når tyngden og luftmotstanden balanserer hverandre:\n\n$$\\sum F = 0 \\quad \\Longrightarrow \\quad mg = \\lvert F_D(v_T)\\rvert$$\n\nTerminalfarten er en **likevektsløsning** av bevegelseslikningen: den konstante funksjonen $v(t) = v_T$ oppfyller likningen for alle $t$.\n\nLegemet når aldri $v_T$ i endelig tid — det nærmer seg verdien eksponentielt. I praksis er farten innenfor $5\\ \\%$ av $v_T$ etter et par tidskonstanter, og da er forskjellen uten betydning.\n\n**Terminalfarten er en gratis poenghøster.** Den krever bare at du setter akselerasjonen lik null, og den er ofte en egen deloppgave som kan besvares selv om du står fast på resten."
+    },
+    {
+      "id": "fys1100-7-3-th-terminalfart",
+      "type": "theorem",
+      "title": "Terminalfart for de to modellene",
+      "content": "**Lineær motstand.** $mg = k_v v_T$ gir\n\n$$v_T = \\frac{mg}{k_v}$$\n\n**Kvadratisk motstand.** $mg = D v_T^2$ gir\n\n$$v_T = \\sqrt{\\frac{mg}{D}}$$\n\n**Legg merke til skaleringen — den er verdt en kommentar i en besvarelse.** Med lineær motstand er terminalfarten proporsjonal med massen; med kvadratisk motstand vokser den bare som kvadratrota av massen. En fallskjermhopper som veier dobbelt så mye, faller derfor bare $\\sqrt{2} = 1{,}41$ ganger så fort — ikke dobbelt så fort.\n\n**Benevningskontroll for den kvadratiske:** $[mg/D] = \\text{N}/(\\text{kg/m}) = (\\text{kg}\\cdot\\text{m/s}^2)\\cdot\\text{m}/\\text{kg} = \\text{m}^2/\\text{s}^2$, og kvadratrota gir $\\text{m/s}$ ✓.\n\nEn tredje sammenheng er verdt å merke seg, fordi den forenkler alle regnestykkene i løkke 3: for lineær motstand er\n\n$$\\tau \\equiv \\frac{m}{k_v} = \\frac{v_T}{g}$$\n\naltså kan tidskonstanten leses rett av terminalfarten."
+    },
+    {
+      "id": "fys1100-7-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: To fallskjermfaser",
+      "problem": "En fallskjermhopper med utstyr har samlet masse $m = 80{,}0\\ \\text{kg}$. I fritt fall før utløsning er den kvadratiske dragkoeffisienten $D_1 = 0{,}250\\ \\text{kg/m}$; med åpen skjerm er den $D_2 = 30{,}0\\ \\text{kg/m}$.\n\n**a)** Finn terminalfarten i begge fasene.\n\n**b)** Hvor stor er akselerasjonen i det øyeblikket skjermen åpner seg, hvis hopperen da har nådd terminalfart i første fase?\n\n**c)** Kommenter tallet i b).",
+      "solution": "**Metodevalg:** terminalfarten er likevektsløsningen, så vi setter $\\sum F = 0$. I b) bruker vi Newtons 2. lov direkte, med den farten hopperen faktisk har i det øyeblikket — ingen differensiallikning trengs.\n\n**a)** Fritt fall før utløsning:\n\n$$v_{T,1} = \\sqrt{\\frac{mg}{D_1}} = \\sqrt{\\frac{80{,}0 \\cdot 9{,}81}{0{,}250}} = \\sqrt{3139{,}2} = 56{,}0\\ \\text{m/s}$$\n\nnedover, altså $202\\ \\text{km/h}$.\n\nMed åpen skjerm:\n\n$$v_{T,2} = \\sqrt{\\frac{mg}{D_2}} = \\sqrt{\\frac{784{,}8}{30{,}0}} = \\sqrt{26{,}16} = 5{,}11\\ \\text{m/s}$$\n\nnedover, altså $18{,}4\\ \\text{km/h}$ — omtrent farten du får ved å hoppe ned fra halvannen meters høyde, som er nettopp poenget med en fallskjerm.\n\n**b)** I åpningsøyeblikket er farten fortsatt $56{,}0\\ \\text{m/s}$, men dragkoeffisienten er blitt $D_2$. Med positiv retning nedover:\n\n$$ma = mg - D_2v^2 = 784{,}8 - 30{,}0 \\cdot 3139{,}2 = 784{,}8 - 94\\,176 = -93\\,391\\ \\text{N}$$\n\n$$a = \\frac{-93\\,391}{80{,}0} = -1{,}17 \\cdot 10^3\\ \\text{m/s}^2$$\n\naltså om lag $1{,}17\\ \\text{km/s}^2$ rettet **oppover** (bremsing).\n\n**c)** Det er $119$ ganger tyngdeakselerasjonen — helt urealistisk for et menneske, som tåler i størrelsesorden $10g$ i kort tid. Konklusjonen er at modellen med en brå overgang mellom to konstante $D$-verdier er for grov: i virkeligheten folder skjermen seg ut over et par sekunder, og $D$ vokser gradvis. En bedre modell lar $D$ variere med tiden, og den kan bare løses numerisk.\n\n**Sensorblikk:** en deloppgave som ber om en kommentar til et tall, gir full uttelling for et presist resonnement uten regning. Å regne ut $119g$ og la det stå ukommentert er å la poeng ligge — det er nettopp urimeligheten som er svaret."
+    },
+    {
+      "id": "fys1100-7-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et kaffefilter med masse $2{,}50\\ \\text{g}$ faller gjennom lufta. Ved de lave fartene det er snakk om, er motstanden godt beskrevet av den lineære modellen med $k_v = 0{,}0150\\ \\text{kg/s}$.\n\n**a)** Finn terminalfarten.\n\n**b)** Hva er akselerasjonen i slippøyeblikket?\n\n**c)** Hva er akselerasjonen når farten er $1{,}00\\ \\text{m/s}$?\n\n**d)** To like filtre stables oppi hverandre, slik at massen dobles mens formen og dermed $k_v$ er uendret. Hva blir terminalfarten da?",
+        "solution": "**Metodevalg:** terminalfarten er likevektsløsningen; akselerasjonene finner vi ved å sette fartsverdien rett inn i bevegelseslikningen. Positiv retning er nedover.\n\n**a)** $$v_T = \\frac{mg}{k_v} = \\frac{0{,}00250 \\cdot 9{,}81}{0{,}0150} = \\frac{0{,}024525}{0{,}0150} = 1{,}64\\ \\text{m/s}$$\n\nnedover.\n\n**b)** Ved $v = 0$ er det ingen motstand:\n\n$$a = g = 9{,}81\\ \\text{m/s}^2 \\quad \\text{nedover}$$\n\n**c)** $$a = g - \\frac{k_v}{m}v = 9{,}81 - \\frac{0{,}0150}{0{,}00250}\\cdot 1{,}00 = 9{,}81 - 6{,}00 = 3{,}81\\ \\text{m/s}^2$$\n\nnedover. Filteret akselererer altså fortsatt, men bare med $39\\ \\%$ av tyngdeakselerasjonen — det stemmer med at farten er kommet $61\\ \\%$ av veien til $v_T$.\n\n**d)** Med lineær motstand er $v_T = mg/k_v$ proporsjonal med massen, så dobbel masse gir dobbel terminalfart:\n\n$$v_T = 3{,}27\\ \\text{m/s}$$\n\nDette er et klassisk skoleforsøk, og det er nettopp den lineære doblingen som viser at modellen passer. Hadde motstanden vært kvadratisk, ville farten bare økt med en faktor $\\sqrt{2} = 1{,}41$.",
+        "hints": [
+          "Terminalfarten følger av at tyngden og motstanden balanserer.",
+          "Akselerasjonen for en gitt fart får du ved å sette farten inn i høyresiden av likningen.",
+          "I d): se hvordan $v_T$ avhenger av massen i den lineære modellen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En hagleskål og en tennisball har samme form og samme dragkoeffisient $D = 0{,}00120\\ \\text{kg/m}$, men ulik masse. Motstanden er kvadratisk.\n\n**a)** Finn terminalfarten for en ball med masse $0{,}145\\ \\text{kg}$.\n\n**b)** Hvor mange ganger så tung må en ball være for å få dobbelt så stor terminalfart?\n\n**c)** En medstudent sier: «Da faller en dobbelt så tung ball dobbelt så fort.» Hva er galt?\n\n**d)** Ved hvilken fart er luftmotstanden akkurat halvparten av tyngden for ballen i a)?",
+        "solution": "**Metodevalg:** vi bruker $v_T = \\sqrt{mg/D}$ og leser skaleringen ut av formelen. I d) setter vi opp en likning for kraften direkte.\n\n**a)** $$v_T = \\sqrt{\\frac{mg}{D}} = \\sqrt{\\frac{0{,}145 \\cdot 9{,}81}{0{,}00120}} = \\sqrt{1185{,}4} = 34{,}4\\ \\text{m/s}$$\n\nnedover, altså $124\\ \\text{km/h}$.\n\n**b)** Siden $v_T \\propto \\sqrt{m}$, må massen firedobles for at farten skal dobles:\n\n$$\\frac{v_{T,2}}{v_{T,1}} = \\sqrt{\\frac{m_2}{m_1}} = 2 \\quad \\Longrightarrow \\quad m_2 = 4m_1$$\n\n**c)** Påstanden bruker den lineære skaleringen på en kvadratisk modell. Med kvadratisk motstand gir dobbel masse bare $\\sqrt{2} = 1{,}41$ ganger så stor terminalfart, altså $48{,}7\\ \\text{m/s}$ i dette tilfellet. Den lineære doblingen gjelder for den **lineære** dragmodellen, og forveksling av de to modellene er en av de vanligste feilene i denne oppgavetypen.\n\n**d)** Vi krever $Dv^2 = \\tfrac12 mg$:\n\n$$v = \\sqrt{\\frac{mg}{2D}} = \\frac{v_T}{\\sqrt{2}} = \\frac{34{,}43}{1{,}4142} = 24{,}3\\ \\text{m/s}$$\n\nVed denne farten er akselerasjonen nøyaktig $g/2 = 4{,}91\\ \\text{m/s}^2$ nedover. Legg merke til den generelle sammenhengen: motstanden er en brøkdel $\\alpha$ av tyngden når farten er $v_T\\sqrt{\\alpha}$.",
+        "hints": [
+          "$v_T = \\sqrt{mg/D}$ for kvadratisk motstand.",
+          "Skaleringen leser du rett av: hvilken potens av $m$ står under rottegnet?",
+          "I d): sett motstandskraften lik halve tyngden og løs for farten."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — den separable løsningen (~20 min)\n\nNå skal vi finne hele forløpet, ikke bare sluttfarten. Vi tar den lineære modellen, som er den ene som gir et pent svar, og vi gjør det steg for steg — for det er utregningen sensor følger.\n\nBevegelseslikningen for et legeme som slippes fra ro, med positiv retning nedover:\n\n$$m\\frac{dv}{dt} = mg - k_v v, \\qquad v(0) = 0$$\n\nKlassifiseringen først, som alltid: **første orden, lineær, inhomogen — og separabel.** Det er separabiliteten som gir metoden."
+    },
+    {
+      "id": "fys1100-7-3-th-separabel",
+      "type": "theorem",
+      "title": "Slik løses den separable likningen",
+      "content": "**Steg 1 — del på massen og faktoriser.** Med $\\tau = m/k_v$:\n\n$$\\frac{dv}{dt} = g - \\frac{v}{\\tau}= \\frac{1}{\\tau}\\left(g\\tau - v\\right)$$\n\nog siden $g\\tau = mg/k_v = v_T$:\n\n$$\\frac{dv}{dt} = \\frac{v_T - v}{\\tau}$$\n\n**Steg 2 — separer.** Alt med $v$ til venstre, alt med $t$ til høyre:\n\n$$\\frac{dv}{v_T - v} = \\frac{dt}{\\tau}$$\n\n**Steg 3 — integrer begge sider** fra start til tidspunktet $t$, med $v(0) = 0$:\n\n$$\\int_0^{v}\\frac{dv'}{v_T - v'} = \\int_0^t \\frac{dt'}{\\tau} \\quad \\Longrightarrow \\quad -\\ln\\left(\\frac{v_T - v}{v_T}\\right) = \\frac{t}{\\tau}$$\n\n**Steg 4 — løs for $v$.** Ta eksponentialfunksjonen på begge sider:\n\n$$\\frac{v_T - v}{v_T} = e^{-t/\\tau} \\quad \\Longrightarrow \\quad \\boxed{\\ v(t) = v_T\\left(1 - e^{-t/\\tau}\\right)\\ }$$\n\nog siden $\\tau = v_T/g$, kan det også skrives\n\n$$v(t) = v_T\\left(1 - e^{-gt/v_T}\\right)$$\n\n**Intuisjon steg for steg:** minustegnet i steg 3 kommer av at $v$ står med negativt fortegn i nevneren — det er stedet flest mister et fortegn. Og legg merke til at integrasjonsgrensene bærer initialbetingelsen: skriver du dem inn med det samme, slipper du en ubestemt konstant helt.\n\n**Kontroll ved innsetting.** Deriver løsningen:\n\n$$\\frac{dv}{dt} = \\frac{v_T}{\\tau}e^{-t/\\tau} = \\frac{v_T - v}{\\tau} \\quad ✓$$\n\nsiden $v_T - v = v_Te^{-t/\\tau}$. Likningen er oppfylt for alle $t$, og $v(0) = v_T(1-1) = 0$ ✓."
+    },
+    {
+      "id": "fys1100-7-3-def-tidskonstant",
+      "type": "definition",
+      "title": "Tidskonstant",
+      "content": "Størrelsen $\\tau = m/k_v$, med enhet sekund, som setter tidsskalaen for hvor raskt farten nærmer seg terminalfarten.\n\n$$v(\\tau) = v_T(1 - e^{-1}) = 0{,}632\\,v_T$$\n\nEtter én tidskonstant er altså $63\\ \\%$ av terminalfarten nådd, etter to $86\\ \\%$, etter tre $95\\ \\%$ og etter fem over $99\\ \\%$. **Tommelfingerregelen «tre tidskonstanter, så er du praktisk talt framme» er verdt å ha.**\n\nFor den lineære modellen gjelder dessuten $\\tau = v_T/g$: kjenner du terminalfarten, kjenner du tidsskalaen. En tung, langsom gjenstand har lang $\\tau$; et lite, lett legeme når terminalfarten nesten umiddelbart."
+    },
+    {
+      "id": "fys1100-7-3-fig-vt",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-7-3-vt-terminal.svg",
+      "alt": "En kurve for farten mot tiden. Kurven starter i origo og stiger bratt, boyer deretter av og naermer seg en vannrett rod stiplet linje merket terminalfarten. En gronn stiplet rett linje gjennom origo viser starttangenten. Et punkt paa kurven markerer tidspunktet der 63 prosent av terminalfarten er naadd.",
+      "caption": "Løsningen $v(t) = v_T(1-e^{-t/\\tau})$ for eksempel 2. Tangenten i origo har stigningstall $g$ — i det første øyeblikket er det fritt fall, fordi motstanden er null når farten er null. Punktet markerer $t = \\tau$, der $63\\ \\%$ av terminalfarten er nådd."
+    },
+    {
+      "id": "fys1100-7-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: En isoporkule i luft",
+      "problem": "En liten isoporkule med masse $m = 12{,}0\\ \\text{g}$ slippes fra ro. Luftmotstanden er lineær med $k_v = 0{,}0450\\ \\text{kg/s}$.\n\n**a)** Finn terminalfarten og tidskonstanten.\n\n**b)** Skriv $v(t)$.\n\n**c)** Hvor lang tid tar det før kula har nådd $95\\ \\%$ av terminalfarten?\n\n**d)** Hvor langt har kula falt etter $1{,}00\\ \\text{s}$, og hvor langt ville den falt i fritt fall?",
+      "solution": "**Metodevalg:** vi bruker den separable løsningen som ble utledet over. Terminalfarten og tidskonstanten regnes ut først, siden begge inngår i uttrykket for $v(t)$. Positiv retning er nedover.\n\n**a)** $$v_T = \\frac{mg}{k_v} = \\frac{0{,}0120 \\cdot 9{,}81}{0{,}0450} = \\frac{0{,}11772}{0{,}0450} = 2{,}62\\ \\text{m/s} \\quad \\text{nedover}$$\n\n$$\\tau = \\frac{m}{k_v} = \\frac{0{,}0120}{0{,}0450} = 0{,}267\\ \\text{s}$$\n\n**Kontroll:** $\\tau = v_T/g = 2{,}616/9{,}81 = 0{,}267\\ \\text{s}$ ✓ — de to uttrykkene må gi samme tall.\n\n**b)** $$v(t) = 2{,}62\\left(1 - e^{-t/0{,}267}\\right)\\ \\text{m/s} \\quad \\text{nedover}$$\n\n**c)** Vi krever $v = 0{,}95\\,v_T$, altså $e^{-t/\\tau} = 0{,}05$:\n\n$$t = -\\tau\\ln(0{,}05) = 0{,}2667 \\cdot 2{,}996 = 0{,}799\\ \\text{s}$$\n\naltså om lag tre tidskonstanter, som tommelfingerregelen sier.\n\n**d)** Strekningen er integralet av farten:\n\n$$y(t) = \\int_0^t v(t')\\,dt' = v_T\\left[t - \\tau\\left(1 - e^{-t/\\tau}\\right)\\right]$$\n\n$$y(1{,}00) = 2{,}616\\left[1{,}00 - 0{,}2667\\left(1 - e^{-3{,}75}\\right)\\right] = 2{,}616\\left[1{,}00 - 0{,}2605\\right] = 1{,}93\\ \\text{m}$$\n\nI fritt fall ville kula falt $\\tfrac12gt^2 = 4{,}91\\ \\text{m}$ på samme tid. Luftmotstanden har altså mer enn halvert fallstrekningen på ett sekund.\n\n**Benevningskontroll:** $v_T\\tau$ har enhet $(\\text{m/s})\\cdot\\text{s} = \\text{m}$ ✓, som seg hør og bør for en strekning.\n\n**Rimelighetskontroll:** en isoporkule som daler ned med under $3\\ \\text{m/s}$ etter et kvart sekund, stemmer godt med det du ser når du slipper en. En stein av samme størrelse ville hatt hundre ganger større masse og dermed hundre ganger større terminalfart — og fortsatt akselerert."
+    },
+    {
+      "id": "fys1100-7-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et lodd med masse $35{,}0\\ \\text{g}$ slippes fra ro ned i en beholder med olje. Motstanden er lineær med $k_v = 0{,}0700\\ \\text{kg/s}$.\n\n**a)** Finn terminalfarten og tidskonstanten.\n\n**b)** Skriv $v(t)$ og finn farten etter $0{,}500\\ \\text{s}$.\n\n**c)** Når er farten halvparten av terminalfarten?\n\n**d)** Vis at løsningen din oppfyller differensiallikningen.",
+        "solution": "**Metodevalg:** likningen er første orden, lineær og separabel, og vi bruker den ferdige formen fra løkke 3. Positiv retning er nedover.\n\n**a)** $$v_T = \\frac{mg}{k_v} = \\frac{0{,}0350 \\cdot 9{,}81}{0{,}0700} = \\frac{0{,}34335}{0{,}0700} = 4{,}91\\ \\text{m/s} \\quad \\text{nedover}$$\n\n$$\\tau = \\frac{m}{k_v} = \\frac{0{,}0350}{0{,}0700} = 0{,}500\\ \\text{s}$$\n\n**b)** $$v(t) = 4{,}91\\left(1 - e^{-t/0{,}500}\\right)\\ \\text{m/s}$$\n\n$$v(0{,}500) = 4{,}905\\left(1 - e^{-1}\\right) = 4{,}905 \\cdot 0{,}6321 = 3{,}10\\ \\text{m/s} \\quad \\text{nedover}$$\n\nDette er nettopp $63\\ \\%$ av $v_T$, siden $t = \\tau$ ✓.\n\n**c)** $$1 - e^{-t/\\tau} = 0{,}500 \\quad \\Longrightarrow \\quad t = \\tau\\ln 2 = 0{,}500 \\cdot 0{,}6931 = 0{,}347\\ \\text{s}$$\n\n**d)** Med $v(t) = v_T(1 - e^{-t/\\tau})$:\n\n$$\\frac{dv}{dt} = \\frac{v_T}{\\tau}e^{-t/\\tau}$$\n\nHøyresiden i likningen er\n\n$$g - \\frac{k_v}{m}v = g - \\frac{1}{\\tau}\\cdot v_T\\left(1-e^{-t/\\tau}\\right) = g - \\frac{v_T}{\\tau} + \\frac{v_T}{\\tau}e^{-t/\\tau}$$\n\nSiden $v_T/\\tau = g$, faller de to første leddene bort, og det står igjen $\\dfrac{v_T}{\\tau}e^{-t/\\tau}$, som er nøyaktig den deriverte ✓. Dessuten er $v(0) = 0$ ✓, som stemmer med at loddet slippes fra ro.",
+        "hints": [
+          "$v_T = mg/k_v$ og $\\tau = m/k_v$; sjekk gjerne at $\\tau = v_T/g$.",
+          "Ved $t = \\tau$ er farten alltid $63\\ \\%$ av terminalfarten.",
+          "I d): deriver løsningen og regn ut høyresiden hver for seg, og sammenlikn."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En liten kule slippes fra ro i en væske. Farten måles til $2{,}00\\ \\text{m/s}$ etter $0{,}300\\ \\text{s}$ og til $3{,}00\\ \\text{m/s}$ etter $0{,}800\\ \\text{s}$. Motstanden antas lineær, og kula slippes fra ro.\n\n**a)** Sett opp de to likningene målingene gir.\n\n**b)** Bestem terminalfarten og tidskonstanten.\n\n**c)** Hva er kulas masse hvis $k_v = 0{,}0250\\ \\text{kg/s}$?\n\n**d)** Hvorfor er det ikke nok med **én** måling for å bestemme både $v_T$ og $\\tau$?",
+        "solution": "**Metodevalg:** vi bruker den kjente løsningsformen $v(t) = v_T(1-e^{-t/\\tau})$ og bestemmer de to ukjente parametrene fra de to målingene. Dette er en typisk «tilpass modellen til data»-deloppgave.\n\n**a)** $$2{,}00 = v_T\\left(1 - e^{-0{,}300/\\tau}\\right), \\qquad 3{,}00 = v_T\\left(1 - e^{-0{,}800/\\tau}\\right)$$\n\n**b)** Del den andre likningen på den første for å eliminere $v_T$:\n\n$$\\frac{3{,}00}{2{,}00} = \\frac{1 - e^{-0{,}800/\\tau}}{1 - e^{-0{,}300/\\tau}} = 1{,}500$$\n\nDenne løses ved prøving eller med kalkulatorens likningsløser. Setter vi $\\tau = 0{,}500\\ \\text{s}$, blir høyresiden $(1 - e^{-1{,}60})/(1 - e^{-0{,}600}) = 0{,}7981/0{,}4512 = 1{,}769$ — for stort. Setter vi $\\tau = 0{,}900\\ \\text{s}$: $(1-e^{-0{,}889})/(1-e^{-0{,}333}) = 0{,}5889/0{,}2835 = 2{,}077$ — enda større. Vi må altså **ned** i $\\tau$: med $\\tau = 0{,}250\\ \\text{s}$ blir det $(1-e^{-3{,}20})/(1-e^{-1{,}20}) = 0{,}9592/0{,}6988 = 1{,}373$. Videre prøving gir\n\n$$\\tau \\approx 0{,}315\\ \\text{s}$$\n\nog innsatt i den første likningen:\n\n$$v_T = \\frac{2{,}00}{1 - e^{-0{,}300/0{,}315}} = \\frac{2{,}00}{1 - 0{,}3858} = 3{,}26\\ \\text{m/s}$$\n\n**Kontroll:** den andre målingen gir da $3{,}26(1 - e^{-2{,}54}) = 3{,}26 \\cdot 0{,}921 = 3{,}00\\ \\text{m/s}$ ✓ — begge målepunktene treffer.\n\n**c)** $$m = k_v\\tau = 0{,}0250 \\cdot 0{,}315 = 7{,}9 \\cdot 10^{-3}\\ \\text{kg} = 7{,}9\\ \\text{g}$$\n\n**Kontroll — og en presisering det er verdt å gjøre:** den rene fallmodellen binder de to parametrene sammen gjennom $v_T = g\\tau$, som her gir $9{,}81 \\cdot 0{,}315 = 3{,}09\\ \\text{m/s}$, mot de $3{,}26\\ \\text{m/s}$ tilpasningen ga — et sprik på $5\\ \\%$. To målepunkter med noen få prosents usikkerhet er nok til å gi et slikt avvik, og en full besvarelse kommenterer det i stedet for å late som om tallene stemmer eksakt.\n\n**d)** Fordi løsningen har **to** parametre, og én måling gir bare én likning. Geometrisk: uendelig mange kurver av formen $v_T(1-e^{-t/\\tau})$ går gjennom ett gitt punkt — en høy kurve som bøyer sent av, og en lav som bøyer tidlig, kan krysse i samme punkt. Det trengs to uavhengige opplysninger for å låse begge.",
+        "hints": [
+          "Bruk løsningsformen $v(t) = v_T(1-e^{-t/\\tau})$ på begge målepunktene.",
+          "Del likningene på hverandre for å bli kvitt $v_T$.",
+          "I c): husk sammenhengen $\\tau = m/k_v$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — grensene, og der den lukkede løsningen ryker (~15 min)\n\nEn løsning er ikke ferdig kontrollert før du har sett på grensene. For $v(t) = v_T(1-e^{-t/\\tau})$ er det to av dem, og begge er faste deloppgaver på eksamen.\n\n**Grensen $t \\to \\infty$.** Da går $e^{-t/\\tau} \\to 0$, og\n\n$$v \\to v_T$$\n\nLøsningen nærmer seg terminalfarten, som den skal — og det bekrefter at likevektsløsningen vi fant i løkke 2, faktisk er det bevegelsen ender i.\n\n**Grensen $t \\to 0$.** Her bruker vi Taylor-utviklingen fra [kap. 1.2](/bok/fys1100/fys1100-1-2), $e^{-x} \\approx 1 - x + \\tfrac12x^2$:\n\n$$v(t) = v_T\\left(1 - e^{-t/\\tau}\\right) \\approx v_T\\left(\\frac{t}{\\tau} - \\frac{t^2}{2\\tau^2}\\right) = gt - \\frac{g^2t^2}{2v_T}$$\n\nDet første leddet er **nøyaktig fritt fall**: like etter slipp er farten null, motstanden derfor null, og legemet faller som om lufta ikke fantes. Det andre leddet er den første korreksjonen, og den er negativ — motstanden begynner å bite.\n\n**Intuisjon:** modellen må gi fritt fall i starten og terminalfart til slutt. Gjør den ikke det, er noe galt. **Dette er den billigste kvalitetskontrollen som finnes på et slikt uttrykk, og på eksamen er den ofte en egen deloppgave med egne poeng.**"
+    },
+    {
+      "id": "fys1100-7-3-kvadratisk-losning",
+      "type": "text",
+      "content": "**Hva med den kvadratiske modellen?** Her må vi være presise, for her sitter en utbredt misforståelse.\n\nFor et legeme som slippes fra ro og faller **nedover hele veien**, er $\\lvert v\\rvert v = v^2$, og likningen\n\n$$m\\frac{dv}{dt} = mg - Dv^2$$\n\ner fortsatt **separabel**. Den kan faktisk løses i lukket form:\n\n$$v(t) = v_T\\tanh\\left(\\frac{gt}{v_T}\\right), \\qquad v_T = \\sqrt{\\frac{mg}{D}}$$\n\nDu kan verifisere den ved innsetting akkurat som før. Så påstanden «kvadratisk motstand kan aldri løses analytisk» er **feil**, og den skal du ikke skrive.\n\n**Det som derimot er sant, er hvor smalt gyldighetsområdet er.** Løsningen over holder bare så lenge\n\n1. **farten ikke skifter fortegn** — så snart legemet snur, må $\\lvert v\\rvert v$ skrives ut, og likningen skifter form ved vendepunktet;\n2. **bevegelsen er i én dimensjon** — i to dimensjoner kobles $x$- og $y$-likningene gjennom farten $v = \\sqrt{v_x^2+v_y^2}$, og systemet har ingen løsning i elementære funksjoner;\n3. **koeffisientene er konstante** — varierer $D$ med høyden, som i tynnere luft, ryker den også.\n\n**Et skrått kast med luftmotstand bryter både punkt 1 og punkt 2**, og det er nettopp det som gjør Del 8 nødvendig. Kastet er den vanligste innpakningen av den numeriske deloppgaven i eksamenssettene, og formelarket hjelper deg ikke der: den ferdigheten må sitte i fingrene."
+    },
+    {
+      "id": "fys1100-7-3-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #4 — å skrive kvadratisk motstand som $-Dv^2$ når farten kan skifte fortegn.** Koster typisk ett poeng i utledningen og ett til i koden. Riktig form er $-D\\lvert v\\rvert v$, og forenklingen til $-Dv^2$ er bare lov når du **skriver ut** at farten er ensrettet.\n\n**Å bytte om $k_v$ og $D$.** De har ulike enheter ($\\text{kg/s}$ mot $\\text{kg/m}$) og gir helt ulike terminalfarter. En benevningskontroll fanger byttet på fem sekunder.\n\n**Å miste fortegnet i separasjonen.** Integralet $\\int dv/(v_T - v)$ gir $-\\ln(v_T-v)$, ikke $+\\ln(v_T-v)$. Mistet minustegn her gir en løsning som vokser uten grense i stedet for å flate ut — og en løsning som vokser mot uendelig er alltid et varsel om at et fortegn er borte.\n\n**Å glemme initialbetingelsen.** Uten den står du igjen med en ubestemt konstant, og svaret er ikke ferdig. Legg initialbetingelsen inn som integrasjonsgrenser med det samme, så slipper du hele problemet.\n\n**Felle #3 — å «integrere» likningen som om $v$ var konstant.** Gir null poeng; se [kap. 7.1](/bok/fys1100/fys1100-7-1).\n\n**Å påstå at kvadratisk motstand i én dimensjon ikke kan løses analytisk.** Den kan det, med en $\\tanh$. Det som ikke går, er 2D-tilfellet og tilfeller der farten skifter fortegn — vær presis på hvilket av dem du snakker om.\n\n**Å oppgi farten uten retning.** Terminalfarten er en vektorstørrelse: skriv «$2{,}62\\ \\text{m/s}$ nedover», ikke bare tallet. Manglende retning på en vektorstørrelse koster typisk 2 poeng."
+    },
+    {
+      "id": "fys1100-7-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ta utgangspunkt i $v(t) = v_T\\left(1 - e^{-gt/v_T}\\right)$ for et legeme som slippes fra ro med lineær luftmotstand.\n\n**a)** Vis at uttrykket gir fritt fall for små $t$, ved å Taylor-utvikle til og med andreordens ledd.\n\n**b)** Vis at $v \\to v_T$ når $t \\to \\infty$, og forklar fysisk hva det betyr.\n\n**c)** For hvilken fart er akselerasjonen halvparten av $g$?\n\n**d)** En medstudent har regnet ut $v(t) = v_T\\left(1 + e^{-gt/v_T}\\right)$. Hvordan ser du at det er feil uten å regne på nytt?",
+        "solution": "**Metodevalg:** dette er grensetilfelle-kontroll, som er en egen ferdighet og en egen poenggiver. Vi bruker Taylor-utviklingen fra [kap. 1.2](/bok/fys1100/fys1100-1-2).\n\n**a)** Med $x = gt/v_T$ og $e^{-x} \\approx 1 - x + \\tfrac12x^2$:\n\n$$v(t) \\approx v_T\\left(\\frac{gt}{v_T} - \\frac{g^2t^2}{2v_T^2}\\right) = gt - \\frac{g^2t^2}{2v_T}$$\n\nFørsteordensleddet er $gt$, altså nøyaktig fritt fall. Det stemmer fysisk: ved $t = 0$ er farten null, og en motstand som er proporsjonal med farten er da også null — bare tyngden virker. Andreordensleddet er negativt og viser hvordan motstanden gradvis spiser av akselerasjonen.\n\n**b)** Når $t \\to \\infty$, går $e^{-gt/v_T} \\to 0$, og $v \\to v_T$. Fysisk: motstanden har vokst til den akkurat balanserer tyngden, resultantkraften er null, og farten endrer seg ikke mer. Legemet når aldri $v_T$ eksakt, men kommer vilkårlig nær.\n\n**c)** Akselerasjonen er\n\n$$a = g - \\frac{g}{v_T}v = g\\left(1 - \\frac{v}{v_T}\\right)$$\n\nKravet $a = g/2$ gir $v = v_T/2$. Ved halv terminalfart er altså akselerasjonen halvert — en direkte følge av at motstanden er *lineær* i farten. For kvadratisk motstand ville halv terminalfart gitt $a = \\tfrac34 g$, siden motstanden da bare er en firedel av tyngden.\n\n**d)** Sett inn $t = 0$: uttrykket gir $v(0) = 2v_T$, altså dobbelt terminalfart i slippøyeblikket. Det bryter både med initialbetingelsen (legemet slippes fra ro) og med all fysisk fornuft. Grensekontrollen $t \\to \\infty$ ville derimot ikke avslørt feilen, siden begge uttrykk gir $v_T$ der — **det er nettopp derfor du må sjekke begge endene.**",
+        "hints": [
+          "Bruk $e^{-x} \\approx 1 - x + \\tfrac12 x^2$ med $x = gt/v_T$.",
+          "Akselerasjonen får du ved å sette farten inn i høyresiden av bevegelseslikningen.",
+          "I d): den billigste kontrollen av et uttrykk er alltid å sette inn $t = 0$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Eksamensnivå, sjanger G med numerisk hale.)** En kule med masse $m$ skytes rett opp med startfarten $v_0$ og påvirkes av tyngden og kvadratisk luftmotstand. Regn positiv retning **oppover**.\n\n**a)** Sett opp bevegelseslikningen for hele bevegelsen, både opp og ned, og forklar hvorfor absoluttverdien er nødvendig.\n\n**b)** Skriv likningen slik den gjelder på vei opp, og slik den gjelder på vei ned.\n\n**c)** Kommer kula opp med samme fart som den kom ned igjen med, eller ikke? Begrunn fysisk uten å løse likningen.\n\n**d)** Kan bevegelsen beskrives med ett enkelt lukket uttrykk for $v(t)$ hele veien? Begrunn, og si hva neste steg ville vært.",
+        "solution": "**Metodevalg:** Newtons 2. lov med to krefter, og full oppmerksomhet på fortegnene. Positiv retning er oppover, så tyngden er negativ hele veien mens motstandsleddet skifter fortegn ved toppunktet.\n\n**a)** $$m\\frac{dv}{dt} = -mg - D\\lvert v\\rvert v$$\n\nAbsoluttverdien er nødvendig fordi motstanden skal peke **mot** bevegelsen i begge faser. På vei opp er $v > 0$, og leddet blir negativt (nedover) ✓. På vei ned er $v < 0$, og leddet blir positivt (oppover) ✓. Med $-Dv^2$ ville motstanden pekt nedover i begge faser, og på vei ned ville lufta ha akselerert kula — fysisk meningsløst. Dette er **felle #4** i feilregisteret.\n\n**b)** På vei opp ($v > 0$):\n\n$$m\\frac{dv}{dt} = -mg - Dv^2$$\n\nPå vei ned ($v < 0$):\n\n$$m\\frac{dv}{dt} = -mg + Dv^2$$\n\nLegg merke til at det er **to ulike likninger**, skilt av toppunktet der $v = 0$.\n\n**c)** Nei — kula kommer ned med **lavere** fart enn den ble skutt opp med. Luftmotstanden gjør negativt arbeid i begge faser, både på vei opp og på vei ned, siden den alltid peker mot bevegelsen. Den mekaniske energien er derfor mindre når kula er tilbake i utgangspunktet enn den var ved start, og med samme høyde betyr det lavere fart.\n\nEt parallelt argument fra kreftene: på vei opp virker tyngden og motstanden **sammen** om å bremse, mens på vei ned motvirker motstanden tyngden. Kula bremses altså kraftigere på vei opp enn den akselereres på vei ned, og bruker dessuten lengre tid på nedturen.\n\n**d)** Nei, ikke som ett uttrykk. Hver fase for seg er separabel og har en lukket løsning, men de to er ulike funksjoner, og de må skjøtes sammen ved toppunktet med farten null som ny initialbetingelse. Skulle du i tillegg ha luftmotstand i to dimensjoner — et skrått kast — ville komponentlikningene vært koblet gjennom farten $v = \\sqrt{v_x^2+v_y^2}$, og da finnes ingen lukket løsning i det hele tatt.\n\nNeste steg er da **numerisk løsning**: del tiden i små steg og oppdater fart og posisjon steg for steg, med motstandsleddet skrevet med absoluttverdi slik at det håndterer vendepunktet av seg selv. Det er nettopp den strukturen Del 8 bygger, og den er testet i alle sju settene.",
+        "hints": [
+          "Tegn frilegemediagram for begge faser og velg én positiv retning for hele oppgaven.",
+          "Sett inn en negativ fart i motstandsleddet og se hvilken vei kraften da peker.",
+          "I c): tenk på hvilken vei luftmotstanden gjør arbeid i hver av de to fasene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Kvalitativ.)** Svar i to–fire setninger per punkt.\n\n**a)** To fallskjermhoppere med samme utstyr og samme kroppsstilling, men ulik masse, hopper samtidig. Hvem når bakken først, og hvorfor?\n\n**b)** En medstudent skriver: «Luftmotstand gir alltid en analytisk uløselig likning, så alt må gjøres numerisk.» Rett opp utsagnet så presist du kan.\n\n**c)** Hvorfor er terminalfarten en gratis poenghøster i en eksamensoppgave, og hva må du likevel huske å skrive?",
+        "solution": "**a)** Den tyngste. Med kvadratisk motstand er $v_T = \\sqrt{mg/D}$, så større masse gir høyere terminalfart ved uendret $D$ — men bare som kvadratrota av masseforholdet. En hopper som veier $25\\ \\%$ mer, faller $\\sqrt{1{,}25} = 12\\ \\%$ fortere. Forskjellen er godt kjent blant fallskjermhoppere: den tyngste synker raskest, og lettere hoppere må trekke armer og bein inn for å holde følge, altså senke sin egen $D$.\n\n**b)** Utsagnet er for kategorisk. Både den lineære modellen og den kvadratiske modellen i én dimensjon med ensrettet fart har lukkede løsninger — henholdsvis $v_T(1-e^{-t/\\tau})$ og $v_T\\tanh(gt/v_T)$. Det som mangler lukket løsning, er tilfeller der farten skifter fortegn i den kvadratiske modellen, og alle todimensjonale bevegelser med drag, fordi komponentlikningene da er koblet gjennom farten. Det er de tilfellene som krever numerikk — og de er riktignok de vanligste i praksis.\n\n**c)** Fordi den finnes ved å sette akselerasjonen lik null, altså med ren kraftbalanse, uten at differensiallikningen løses i det hele tatt. Du kan derfor svare på den deloppgaven selv om du står helt fast på resten av oppgaven. Det du likevel må huske, er å **begrunne** hvorfor akselerasjonen er null der (tyngden og motstanden balanserer), å oppgi **retning** på svaret, og å ta med **enhet** — et bart tall uten resonnement er den dyreste enkeltfeilen som finnes.",
+        "hints": [
+          "I a): hvordan avhenger $v_T$ av massen i den kvadratiske modellen?",
+          "I b): tenk gjennom hvilke tilfeller vi faktisk har løst i dette kapitlet.",
+          "I c): hva slags likning må du sette opp for å finne terminalfarten?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-7-3-bb-separasjon",
+      "type": "definition",
+      "title": "Separasjon av variable",
+      "content": "Metoden der en førsteordens likning $dv/dt = f(v)h(t)$ skrives om til\n\n$$\\frac{dv}{f(v)} = h(t)\\,dt$$\n\nog hver side integreres for seg. Metoden virker fordi $dv$ og $dt$ kan behandles som differensialer — det er samme regnegrep som ved substitusjon i et integral.\n\nAlle dragmodellene i dette kapitlet er separable. Legger du integrasjonsgrensene inn med det samme (fra $0$ til $v$ på venstre side, fra $0$ til $t$ på høyre), slipper du både integrasjonskonstanten og et vanlig fortegnsrot."
+    },
+    {
+      "id": "fys1100-7-3-bb-fritt-fall-grense",
+      "type": "definition",
+      "title": "Grensen mot fritt fall",
+      "content": "Egenskapen at $v(t) \\to gt$ når $t \\to 0$: i det første øyeblikket etter slipp er farten null, motstanden derfor null, og legemet faller som i vakuum.\n\nGrensen er en obligatorisk kontroll av ethvert dragresultat. Gir uttrykket ditt noe annet enn $gt$ for små $t$, er det galt — og kontrollen tar ti sekunder med Taylor-utviklingen $e^{-x} \\approx 1 - x$."
+    },
+    {
+      "id": "fys1100-7-3-bb-eksponentiell",
+      "type": "definition",
+      "title": "Eksponentiell tilnærming",
+      "content": "Måten farten nærmer seg terminalfarten på: avstanden $v_T - v$ krymper med en fast faktor for hvert like langt tidsintervall.\n\n$$v_T - v(t) = v_T e^{-t/\\tau}$$\n\nSamme matematiske form dukker opp i radioaktiv nedbrytning, i avkjøling av en kopp kaffe og i utladning av en kondensator. Det er ikke tilfeldig: alle tre er systemer der endringsraten er proporsjonal med avstanden til likevekten."
+    },
+    {
+      "id": "fys1100-7-3-bb-reynolds",
+      "type": "definition",
+      "title": "Når gjelder hvilken modell",
+      "content": "Grovregelen er at **lineær** motstand gjelder for små, langsomme legemer i et seigt medium, og **kvadratisk** motstand for større, raskere legemer i luft eller vann.\n\nSkillet skyldes at strømningen rundt legemet skifter karakter: ved lave farter siger mediet jevnt forbi, ved høyere farter dannes virvler bak legemet. Overgangen beskrives av et dimensjonsløst forholdstall som ikke er pensum i dette emnet.\n\n**På eksamen står det alltid i oppgaveteksten hvilken modell som gjelder.** Din jobb er å bruke den riktig — ikke å avgjøre hvilken som er fysisk mest treffende."
+    },
+    {
+      "id": "fys1100-7-3-bb-dragkoeffisient",
+      "type": "definition",
+      "title": "Dragkoeffisientene $k_v$ og $D$",
+      "content": "To ulike koeffisienter med ulike enheter, som aldri må forveksles:\n\n$$[k_v] = \\frac{\\text{N}}{\\text{m/s}} = \\text{kg/s}, \\qquad [D] = \\frac{\\text{N}}{(\\text{m/s})^2} = \\text{kg/m}$$\n\n$D$ vokser med tverrsnittet og med luftas tetthet, og synker med en strømlinjeformet form. En fallskjerm har en $D$ som er over hundre ganger større enn kroppens egen.\n\nEnhetsforskjellen er den raskeste kontrollen på at du har brukt riktig modell: kommer du ut med en terminalfart som har feil enhet, har du blandet dem."
+    },
+    {
+      "id": "fys1100-7-3-bb-tanh",
+      "type": "definition",
+      "title": "Tanh-løsningen for kvadratisk motstand",
+      "content": "For et legeme som slippes fra ro og faller nedover hele veien, gir den kvadratiske modellen\n\n$$v(t) = v_T\\tanh\\left(\\frac{gt}{v_T}\\right), \\qquad v_T = \\sqrt{\\frac{mg}{D}}$$\n\nFunksjonen $\\tanh$ starter med stigningstall 1 i origo og flater ut mot 1, akkurat som eksponentialløsningen — kurvene ligner, men er ikke like.\n\n**Gyldigheten er smal:** løsningen krever at farten ikke skifter fortegn og at bevegelsen er endimensjonal. Bryter du en av forutsetningene, må likningen løses numerisk."
+    },
+    {
+      "id": "fys1100-7-3-bb-koblede-komponenter",
+      "type": "definition",
+      "title": "Hvorfor 2D-drag må løses numerisk",
+      "content": "I to dimensjoner er farten $v = \\sqrt{v_x^2 + v_y^2}$, og motstanden fordeler seg på komponentene som\n\n$$F_{D,x} = -Dv\\,v_x, \\qquad F_{D,y} = -Dv\\,v_y$$\n\nHver komponentlikning inneholder altså **begge** fartskomponentene, og de kan ikke løses hver for seg. Det er denne koblingen som gjør at et skrått kast med luftmotstand ikke har noen løsning i elementære funksjoner — og som gjør Del 8 til en nødvendig del av faget, ikke et vedheng."
+    },
+    {
+      "id": "fys1100-7-3-bb-arbeid-drag",
+      "type": "definition",
+      "title": "Luftmotstand gjør alltid negativt arbeid",
+      "content": "Fordi kraften alltid peker mot bevegelsen, er skalarproduktet $\\mathbf{F}_D \\cdot d\\mathbf{r}$ negativt i hvert eneste tidssteg.\n\nKonsekvensen er at mekanisk energi **ikke** er bevart når luftmotstand er med, og at en kule som kastes opp alltid kommer ned med lavere fart enn den ble kastet opp med. Se [kap. 5.1](/bok/fys1100/fys1100-5-1) for arbeidsbegrepet.\n\nDette er også grunnen til at luftmotstand aldri kan «hjelpe» et legeme framover: den er en ren tapskraft i mekanisk forstand."
+    },
+    {
+      "id": "fys1100-7-3-bb-strekning-drag",
+      "type": "definition",
+      "title": "Strekningen med luftmotstand",
+      "content": "Posisjonen finner du ved å integrere farten en gang til. For lineær motstand og start fra ro:\n\n$$y(t) = v_T\\left[t - \\tau\\left(1 - e^{-t/\\tau}\\right)\\right]$$\n\nFor store $t$ nærmer dette seg $v_T(t - \\tau)$: en rett linje med stigningstall $v_T$, forskjøvet $v_T\\tau$ nedover i forhold til den rene terminalfart-linja. Forskyvningen er «etterslepet» fra oppstartsfasen, altså den strekningen legemet tapte mens det ennå ikke hadde full fart."
+    },
+    {
+      "id": "fys1100-7-3-bb-numerisk-hale",
+      "type": "definition",
+      "title": "Den numeriske halen",
+      "content": "Den faste siste deloppgaven i en dragoppgave: «skriv et program, eller pseudokode, som løser likningen numerisk». Den er med i **7 av 7 sett (100 %)**.\n\nPoengene gis for riktige initialbetingelser, et riktig akselerasjonsuttrykk og en riktig oppdateringsløkke — ikke for syntaks. Metoden emnet bygger på heter **Euler–Cromer**, og den utvikles fra grunnen i Del 8.\n\nDet du kan gjøre allerede nå, er å skrive bevegelseslikningen på den formen koden trenger: akselerasjonen isolert på venstre side, motstandsleddet skrevet med absoluttverdi."
+    },
+    {
+      "id": "fys1100-7-3-bb-halveringstid-drag",
+      "type": "definition",
+      "title": "Halvveistiden mot terminalfart",
+      "content": "Tiden det tar før farten har nådd halve terminalfarten, for lineær motstand og start fra ro:\n\n$$t_{1/2} = \\tau\\ln 2 \\approx 0{,}693\\,\\tau$$\n\nDen er uavhengig av $v_T$ selv og bestemmes bare av tidskonstanten. Det gjør den til et praktisk mål i laboratorieforsøk: mål tiden til halv sluttfart, så har du $\\tau$ og dermed forholdet $m/k_v$ uten å måtte kjenne noen av dem hver for seg."
+    },
+    {
+      "id": "fys1100-7-3-bb-ensrettet",
+      "type": "definition",
+      "title": "Ensrettet bevegelse",
+      "content": "Betingelsen som må være oppfylt for at $-D\\lvert v\\rvert v$ kan forenkles til $-Dv^2$: farten skifter ikke fortegn i det tidsrommet du regner på.\n\nEn fallskjermhopper som synker hele veien, oppfyller den. En ball som kastes opp og faller ned igjen, gjør det ikke — der er toppunktet et skille mellom to ulike likninger.\n\n**Forenklingen er lov, men betingelsen skal skrives ut.** En besvarelse som bruker $-Dv^2$ uten et ord om hvorfor, ser ut som **felle #4** selv om regningen er riktig."
+    },
+    {
+      "id": "fys1100-7-3-bb-startakselerasjon",
+      "type": "definition",
+      "title": "Startakselerasjonen i et fall med motstand",
+      "content": "Ved $v = 0$ er motstanden null uansett modell, så\n\n$$a(0) = g$$\n\nLegemet starter altså alltid som i fritt fall, og kurven $v(t)$ har stigningstall $g$ i origo. Dette gjelder både for lineær og kvadratisk motstand.\n\nDet er en av de raskeste kontrollene på et fartsuttrykk: deriver det og sett $t = 0$. Får du noe annet enn $g$, er svaret galt."
+    },
+    {
+      "id": "fys1100-7-3-bb-sluttfart",
+      "type": "definition",
+      "title": "Sluttfart kontra terminalfart",
+      "content": "**Terminalfarten** $v_T$ er en egenskap ved systemet: den farten der kreftene balanserer. **Sluttfarten** er den farten legemet faktisk har når fallet er over — når det treffer bakken.\n\nDe to er bare like hvis fallhøyden er stor nok til at terminalfarten rekker å bli nådd, altså minst noen tidskonstanter. Faller et lodd i ett tiendedels sekund, er sluttfarten langt under $v_T$.\n\nÅ svare med $v_T$ på et spørsmål om farten ved bakken er en klassisk feil, og den er lett å unngå: sjekk om falltiden er stor sammenliknet med $\\tau$."
+    },
+    {
+      "id": "fys1100-7-3-bb-skraatt-kast-drag",
+      "type": "definition",
+      "title": "Skrått kast med luftmotstand",
+      "content": "Den vanligste innpakningen av den numeriske deloppgaven: et legeme kastes skrått opp, og motstanden er kvadratisk.\n\nUten motstand er $x$- og $y$-bevegelsen uavhengige, og oppgaven løses med kastformlene fra [kap. 2.2](/bok/fys1100/fys1100-2-2). **Med** motstand kobles de gjennom farten $v = \\sqrt{v_x^2+v_y^2}$, banen blir usymmetrisk, og rekkevidden blir kortere enn den klassiske formelen sier.\n\nDet finnes ingen lukket løsning, og oppgaven ender derfor alltid i en numerisk deloppgave."
+    },
+    {
+      "id": "fys1100-7-3-bb-parametertilpasning",
+      "type": "definition",
+      "title": "Parametertilpasning fra måledata",
+      "content": "Å bestemme modellens ukjente størrelser — typisk $v_T$ og $\\tau$ — ved å sette måledata inn i den kjente løsningsformen.\n\nRegelen er at du trenger **like mange uavhengige målinger som du har ukjente parametre**. Én måling låser ikke to parametre, uansett hvor nøyaktig den er.\n\nEt nyttig grep er å dele to måleuttrykk på hverandre: da faller den ene parameteren bort, og du står igjen med én likning i én ukjent."
+    },
+    {
+      "id": "fys1100-7-3-bb-fortegn-separasjon",
+      "type": "definition",
+      "title": "Fortegnsregelen i separasjonen",
+      "content": "Integralet der den ukjente står med negativt fortegn i nevneren:\n\n$$\\int \\frac{dv}{v_T - v} = -\\ln\\lvert v_T - v\\rvert + C$$\n\nMinustegnet kommer av kjerneregelen: den indre funksjonen $v_T - v$ har derivert $-1$. **Dette er stedet flest mister et fortegn i hele Del 7.**\n\nKontrollen er enkel: en løsning som vokser uten grense i stedet for å flate ut mot $v_T$, har mistet nettopp dette minustegnet."
+    },
+    {
+      "id": "fys1100-7-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-7-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $v$ | fart langs bevegelsesretningen, med fortegn | $\\text{m/s}$ |\n| $v_0$ | startfart | $\\text{m/s}$ |\n| $v_T$ | terminalfart | $\\text{m/s}$ |\n| $y$ | strekning falt (positiv nedover) | $\\text{m}$ |\n| $t$ | tid | $\\text{s}$ |\n| $\\tau = m/k_v$ | tidskonstant for lineær motstand | $\\text{s}$ |\n| $m$ | masse | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $F_D$ | luftmotstandskraft | $\\text{N}$ |\n| $k_v$ | koeffisient i lineær modell $F_D = -k_v v$ | $\\text{kg/s}$ |\n| $D$ | koeffisient i kvadratisk modell $F_D = -D\\lvert v\\rvert v$ | $\\text{kg/m}$ |\n| $v_x$, $v_y$ | fartskomponenter i to dimensjoner | $\\text{m/s}$ |\n\n**Symbolkollisjoner i dette delkapitlet:** $D$ er dragkoeffisienten i den kvadratiske modellen og har ingenting med snordrag å gjøre — snordrag skrives $T$, og en svingeperiode $T_p$; ingen av dem opptrer i dette kapitlet, men indeksen på $v_T$ må ikke leses som en periode. $k_v$ har indeks nettopp for å skilles fra fjærkonstanten $k$ i [kap. 7.2](/bok/fys1100/fys1100-7-2), som har en helt annen enhet. Tyngden er $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$F_D = -k_v v, \\qquad F_D = -D\\lvert v\\rvert v$$\n\nDe to dragmodellene. **[formelarket]** — men begrunnelsen for absoluttverdien må du kunne selv.\n\n$$v_T = \\frac{mg}{k_v}, \\qquad v_T = \\sqrt{\\frac{mg}{D}}$$\n\nTerminalfart for lineær og kvadratisk modell, funnet av $\\sum F = 0$. **[må kunne utledes]**\n\n$$\\frac{dv}{v_T - v} = \\frac{dt}{\\tau}$$\n\nSeparasjonen av variable. Integralet $\\int du/u = \\ln\\lvert u\\rvert$ står i **[Rottmann]**; gjennomføringen er **[må kunne utledes]**.\n\n$$v(t) = v_T\\left(1 - e^{-t/\\tau}\\right) = v_T\\left(1 - e^{-gt/v_T}\\right), \\qquad \\tau = \\frac{m}{k_v} = \\frac{v_T}{g}$$\n\nLøsningen for lineær motstand med start fra ro. **[må kunne utledes]** — dette er kjerneutledningen i kapitlet.\n\n$$y(t) = v_T\\left[t - \\tau\\left(1 - e^{-t/\\tau}\\right)\\right]$$\n\nStrekningen, funnet ved å integrere farten en gang til. **[må kunne utledes]**\n\n$$v(t) = v_T\\tanh\\left(\\frac{gt}{v_T}\\right)$$\n\nLøsningen for kvadratisk motstand i én dimensjon med ensrettet fart. **[må kunne utledes]** — men gyldighetsbetingelsene må skrives ut.\n\n$$v(t) \\approx gt - \\frac{g^2t^2}{2v_T} \\quad (t \\ll \\tau)$$\n\nGrensen mot fritt fall, fra Taylor-utvikling. Rekka står i **[Rottmann]**; anvendelsen er **[må kunne utledes]**."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-7-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-7-3-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på.\n\n**R1.** ([kap. 7.1](/bok/fys1100/fys1100-7-1)) Klassifiser $m\\,dv/dt = mg - D\\lvert v\\rvert v$.\n\n*Løsning:* Første orden, ikke lineær (den ukjente er kvadrert), inhomogen (leddet $mg$ inneholder ikke $v$), og separabel. Klassifiseringen peker på separasjon av variable — men bare så lenge farten ikke skifter fortegn.\n\n**R2.** ([kap. 7.1](/bok/fys1100/fys1100-7-1)) Finn likevektsløsningen av $dv/dt = 4{,}0 - 0{,}50\\,v$ (SI-enheter).\n\n*Løsning:* Sett $dv/dt = 0$: $v = 4{,}0/0{,}50 = 8{,}0\\ \\text{m/s}$. Tidskonstanten kan leses av koeffisienten: $\\tau = 1/0{,}50 = 2{,}0\\ \\text{s}$.\n\n**R3.** ([kap. 1.2](/bok/fys1100/fys1100-1-2)) Taylor-utvikle $1 - e^{-x}$ til og med andreordens ledd.\n\n*Løsning:* $1 - e^{-x} \\approx x - \\tfrac12x^2$. Dette er nøyaktig utviklingen som gir fritt fall som førsteordensledd i fartsuttrykket.\n\n**R4.** ([kap. 3.2](/bok/fys1100/fys1100-3-2)) En kloss på $4{,}0\\ \\text{kg}$ trekkes over et vannrett gulv med konstant fart av en vannrett kraft på $12\\ \\text{N}$. Finn det dynamiske friksjonstallet.\n\n*Løsning:* Konstant fart betyr null resultantkraft, så $\\mu_d N = 12\\ \\text{N}$ med $N = mg = 39{,}2\\ \\text{N}$, altså $\\mu_d = 12/39{,}24 = 0{,}31$. Merk at friksjon og luftmotstand er ulike modeller: friksjonen er uavhengig av farten, luftmotstanden ikke.\n\n**R5.** ([kap. 1.1](/bok/fys1100/fys1100-1-1)) Vis ved benevningskontroll at $\\sqrt{mg/D}$ har enhet $\\text{m/s}$ når $[D] = \\text{kg/m}$.\n\n*Løsning:* $[mg/D] = (\\text{kg}\\cdot\\text{m/s}^2)/(\\text{kg/m}) = \\text{m}^2/\\text{s}^2$, og kvadratrota gir $\\text{m/s}$ ✓. Samme kontroll avslører umiddelbart om du har brukt $k_v$ der $D$ skulle stått."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

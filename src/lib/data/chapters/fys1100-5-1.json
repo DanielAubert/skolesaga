@@ -1,0 +1,536 @@
+{
+  "id": "fys1100-5-1",
+  "courseId": "fys1100",
+  "chapterNumber": "5.1",
+  "title": "Arbeid, energi og energibevaring",
+  "description": "Arbeid som integral av kraft, kinetisk og potensiell energi, energibevaring med begrunnelse, og friksjonsarbeid som lekkasje.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne regne ut arbeidet en kraft gjør, både for konstant kraft og som integral, og avgjøre når en kraft ikke gjør arbeid",
+    "kunne utlede arbeids–energi-teoremet fra Newtons 2. lov og se sammenhengen med den tidløse bevegelseslikningen",
+    "kunne begrunne når mekanisk energi er bevart, og sette opp energiregnskapet med friksjonstap når den ikke er det",
+    "kunne begrunne det samme resultatet både med energi og med Newtons 2. lov, slik sensor ofte etterspør"
+  ],
+  "content": [
+    {
+      "id": "fys1100-5-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Energi er bærebjelken i hele faget.** Arbeid og energi har minst én deloppgave i **7 av 7 sett (100 %)** i eksamensarkivet — ingen andre temaer utenom Newtons lover, rotasjon og Python-koden er like sikre. Energi opptrer sjelden alene: den kombineres med sirkelbevegelse, med støt, med rotasjon og med differensiallikninger.\n\nKapitlet hører til **sjanger D — bevaringslover**, altså oppgavetypen der du velger en bevart størrelse, begrunner hvorfor den er bevart, og setter opp et regnskap for før og etter. Sjangerbokstavene A–K er listet opp i [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\nTre ting gir poeng nesten hver gang:\n\n- **begrunnelsen** for at mekanisk energi er bevart — «bare konservative krefter gjør arbeid» skrevet ut i klartekst, hver eneste gang;\n- **friksjonsleddet** i regnskapet når banen er ru. Å glemme det er den nest vanligste feilen;\n- **dobbeltbegrunnelsen**: sensor ber ofte om at «kommer lengst med eller uten friksjon» skal begrunnes både med energi **og** med Newtons 2. lov. Kapitlet trener begge veier side om side.\n\n**Prioritet: høyeste — dette må sitte.** Energiregnskapet er både en egen oppgave og et verktøy du trenger i halvparten av de andre."
+    },
+    {
+      "id": "fys1100-5-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 3.2](/bok/fys1100/fys1100-3-2) og på energiverktøyet som ble innført i [kap. 4.1](/bok/fys1100/fys1100-4-1). Det du trenger, oppfrisket:\n\n**Newtons 2. lov, komponentvis:**\n\n$$\\sum F_x = ma_x, \\qquad \\sum F_y = ma_y$$\n\n**Dekomponeringen på skråplan** og friksjonsmodellene:\n\n$$F_{g,\\parallel} = mg\\sin\\theta, \\qquad N = mg\\cos\\theta, \\qquad \\lvert\\mathbf{f}_d\\rvert = \\mu_d N$$\n\n**Den tidløse bevegelseslikningen** fra [kap. 2.1](/bok/fys1100/fys1100-2-1), som gjelder ved konstant akselerasjon:\n\n$$v^2 - v_0^2 = 2a(x - x_0)$$\n\nDen er ikke tilfeldig lik energiregnskapet — vi skal se hvorfor.\n\nFra matematikken trenger du integralet som grenseverdi for en sum, [Bestemt integral som grenseverdi](/bok/r2/r2-2-4) og [Analysens fundamentalsetning](/bok/r2/r2-2-5), samt [Skalarproduktet](/bok/r2/r2-5-3) for uttrykket $\\mathbf{F}\\cdot d\\mathbf{r}$.\n\n**Notasjon i dette kapitlet:** arbeid $W$, kinetisk energi $K$, potensiell energi $U$, effekt $P$ — alle **skalarer**, uten vektormarkering. Fjærkonstanten er $k$, friksjonstallene $\\mu_s$ og $\\mu_d$. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$. Vi regner med $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — arbeid (~15 min)\n\nDu drar en tung koffert bortover en flat perrong. Håndtaket peker skrått oppover, så du trekker delvis framover og delvis oppover. Bare den delen av kraften som peker **framover**, gjør noe med farten din; den oppoverrettede delen letter bare på trykket mot bakken.\n\nDet er hele ideen bak arbeid: en kraft «teller» bare i den grad den peker langs bevegelsen."
+    },
+    {
+      "id": "fys1100-5-1-def-arbeid",
+      "type": "definition",
+      "title": "Arbeid",
+      "content": "Arbeidet en kraft gjør på et legeme, er et mål på hvor mye energi kraften overfører. For en **konstant** kraft $\\mathbf{F}$ over en rettlinjet forflytning $\\mathbf{d}$ er\n\n$$W = \\mathbf{F}\\cdot\\mathbf{d} = Fd\\cos\\phi$$\n\nder $\\phi$ er vinkelen mellom kraften og forflytningen. Enheten er **joule**, $\\text{J} = \\text{N}\\cdot\\text{m}$.\n\nArbeid er en **skalar** — det har ingen retning, og skal aldri skrives med vektormarkering, selv om det er regnet ut fra to vektorer. Fortegnet bærer likevel informasjon: positivt arbeid tilfører energi, negativt arbeid tar energi bort."
+    },
+    {
+      "id": "fys1100-5-1-def-arbeidsintegralet",
+      "type": "definition",
+      "title": "Arbeidsintegralet",
+      "content": "Varierer kraften underveis, eller er banen krum, deler vi bevegelsen i små biter $d\\mathbf{r}$ der kraften er tilnærmet konstant, og summerer:\n\n$$W = \\int_A^B \\mathbf{F}\\cdot d\\mathbf{r} = \\int_{t_A}^{t_B} \\mathbf{F}\\cdot\\mathbf{v}\\,dt$$\n\nDette er nøyaktig den samme grenseovergangen som definerer det bestemte integralet, se [Bestemt integral som grenseverdi](/bok/r2/r2-2-4).\n\nI én dimensjon forenkler det seg til $W = \\int_{x_A}^{x_B} F(x)\\,dx$, altså **arealet under kraft–posisjon-grafen**. Den tolkningen er nyttig i eksamensoppgaver med måledata: der finner du arbeidet numerisk ved å regne arealet."
+    },
+    {
+      "id": "fys1100-5-1-def-vinkelregelen",
+      "type": "definition",
+      "title": "Fortegnsregelen for arbeid",
+      "content": "Vinkelen $\\phi$ mellom kraften og bevegelsen avgjør fortegnet:\n\n- $\\phi < 90^\\circ$: **positivt** arbeid — kraften drar med og øker farten.\n- $\\phi = 90^\\circ$: arbeidet er **null**. En kraft vinkelrett på bevegelsen gjør aldri arbeid.\n- $\\phi > 90^\\circ$: **negativt** arbeid — kraften bremser og tar energi ut.\n\nMidtpunktet er det viktigste i praksis. Normalkraften står alltid vinkelrett på bevegelsen langs en flate, og snordraget i en pendel står vinkelrett på banen. Derfor faller de begge ut av energiregnskapet — og derfor er akkurat de to setningene begrunnelsen sensor vil se."
+    },
+    {
+      "id": "fys1100-5-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Kofferten på perrongen",
+      "problem": "En koffert dras $12{,}0\\ \\text{m}$ bortover en vannrett perrong med en konstant kraft på $85\\ \\text{N}$ som peker $25^\\circ$ over vannrett.\n\n**a)** Hvor stort arbeid gjør trekkraften?\n\n**b)** Hvor stort arbeid gjør tyngden og normalkraften?\n\n**c)** Kofferten holder konstant fart. Hvor stort arbeid gjør friksjonen?",
+      "solution": "**Metodevalg først:** kraften er konstant og banen rettlinjet, så $W = Fd\\cos\\phi$ er nok — vi trenger ikke integralet.\n\n**a)**\n\n$$W = Fd\\cos\\phi = 85 \\cdot 12{,}0 \\cdot \\cos 25^\\circ = 1\\,020 \\cdot 0{,}9063 = 924\\ \\text{J}$$\n\nBare den vannrette komponenten $F\\cos 25^\\circ = 77{,}0\\ \\text{N}$ bidrar; den loddrette komponenten $F\\sin 25^\\circ = 35{,}9\\ \\text{N}$ letter på normalkraften, men gjør ikke arbeid, siden kofferten ikke løftes.\n\n**b)** Begge gjør **null** arbeid. Bevegelsen er vannrett, mens både tyngden og normalkraften er loddrette, altså vinkelrett på forflytningen. Med $\\phi = 90^\\circ$ er $\\cos\\phi = 0$.\n\n**c)** Farten er konstant, så den kinetiske energien er uendret. Da må summen av alt arbeid være null:\n\n$$W_{\\text{trekk}} + W_{\\text{friksjon}} = 0 \\quad \\Rightarrow \\quad W_{\\text{friksjon}} = -924\\ \\text{J}$$\n\nFriksjonen gjør altså like mye **negativt** arbeid som trekkraften gjør positivt. Energien forsvinner ikke: den er blitt varme i kontaktflaten mellom hjul og perrong.\n\n**Benevningskontroll:** $\\text{N}\\cdot\\text{m} = \\text{kg}\\cdot\\text{m}/\\text{s}^2 \\cdot \\text{m} = \\text{kg}\\cdot\\text{m}^2/\\text{s}^2 = \\text{J}$ ✓."
+    },
+    {
+      "id": "fys1100-5-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Forklar med egne ord hvorfor normalkraften aldri gjør arbeid på en kloss som glir langs en flate.\n\n**b)** En kelner bærer et brett med konstant fart bortover et vannrett gulv. Hvor stort arbeid gjør hun på brettet? Begrunn.",
+        "solution": "**a)** Normalkraften står per definisjon vinkelrett på kontaktflaten, og bevegelsen langs flaten er per definisjon parallell med den. Vinkelen mellom kraft og forflytning er derfor $90^\\circ$, og $\\cos 90^\\circ = 0$. En kraft vinkelrett på bevegelsen overfører ingen energi — den endrer bare retning, ikke fart.\n\n**b)** Null arbeid på brettet. Hun løfter det ikke (ingen loddrett forflytning), og kraften hun holder det opp med, er loddrett, mens bevegelsen er vannrett. Vinkelen er $90^\\circ$.\n\nAt hun likevel blir sliten, skyldes at musklene bruker energi på å holde spenningen — men det er kroppens indre energiforbruk, ikke arbeid på brettet i fysikkens forstand.",
+        "hints": [
+          "Skriv opp $W = Fd\\cos\\phi$ og spør hva $\\phi$ er.",
+          "Skill mellom kraft og forflytning: hvilken vei peker hver av dem?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — kinetisk energi og arbeids–energi-teoremet (~15 min)\n\nNå kobler vi arbeid til bevegelse. Resultatet er en av de mest brukte likningene i hele faget, og den er ikke ny fysikk — den er Newtons 2. lov integrert én gang."
+    },
+    {
+      "id": "fys1100-5-1-def-kinetisk",
+      "type": "definition",
+      "title": "Kinetisk energi",
+      "content": "Bevegelsesenergien til et legeme med masse $m$ og fart $v$:\n\n$$K = \\tfrac12 mv^2$$\n\nEnhet: joule. Størrelsen er en **skalar** og alltid **positiv** eller null — den avhenger av farten i andre potens, ikke av retningen. To kuler som går like fort i motsatt retning, har nøyaktig samme kinetiske energi.\n\nLegg merke til $v^2$: dobler du farten, firedobles den kinetiske energien. Det er grunnen til at bremselengden firedobles når farten dobles."
+    },
+    {
+      "id": "fys1100-5-1-th-arbeid-energi",
+      "type": "theorem",
+      "title": "Arbeids–energi-teoremet",
+      "content": "Det **totale** arbeidet fra **alle** krefter på et legeme er lik endringen i legemets kinetiske energi:\n\n$$W_{\\text{tot}} = K_B - K_A = \\tfrac12 mv_B^2 - \\tfrac12 mv_A^2$$\n\nTeoremet gjelder **alltid** — også med friksjon, også med krefter som varierer, også langs krumme baner. Det er den mest generelle av likningene i dette kapitlet, og det er verdt å merke seg forskjellen fra energibevaring: **energibevaring krever en betingelse, arbeids–energi-teoremet gjør ikke det.**\n\nOrdet «totalt» er kritisk. Utelater du én kraft — typisk friksjonen — er likningen gal."
+    },
+    {
+      "id": "fys1100-5-1-utledning-we",
+      "type": "text",
+      "content": "### Arbeids–energi-teoremet — utledningen du skal kunne\n\n**Steg 1.** Start med Newtons 2. lov i én dimensjon og gang med en liten forflytning $dx$:\n\n$$F_{\\text{tot}}\\,dx = ma\\,dx$$\n\n*Intuisjon:* venstresiden er akkurat det lille arbeidsbidraget $dW$.\n\n**Steg 2.** Skriv om høyresiden med kjerneregelen. Siden $a = dv/dt$ og $dx = v\\,dt$:\n\n$$ma\\,dx = m\\frac{dv}{dt}\\,v\\,dt = mv\\,dv$$\n\n*Intuisjon:* vi har byttet integrasjonsvariabel fra posisjon til fart. Tiden faller helt ut — og det er nettopp derfor energimetoden er så kraftig: **den bryr seg ikke om hvor lang tid noe tar.**\n\n**Steg 3.** Integrer fra tilstand $A$ til tilstand $B$:\n\n$$W_{\\text{tot}} = \\int_{v_A}^{v_B} mv\\,dv = \\tfrac12 mv_B^2 - \\tfrac12 mv_A^2$$\n\n*Intuisjon:* uttrykket $\\tfrac12 mv^2$ dukker opp av seg selv som antiderivert av $mv$. Den kinetiske energien er ikke definert vilkårlig — den er det integralet tvinger fram.\n\n**Steg 4 — se sammenhengen med kinematikken.** Er kraften konstant, blir $W_{\\text{tot}} = F_{\\text{tot}}\\,\\Delta x = ma\\,\\Delta x$, og teoremet blir\n\n$$ma\\,\\Delta x = \\tfrac12 mv_B^2 - \\tfrac12 mv_A^2 \\quad \\Rightarrow \\quad v_B^2 - v_A^2 = 2a\\,\\Delta x$$\n\nsom er den tidløse bevegelseslikningen fra [kap. 2.1](/bok/fys1100/fys1100-2-1). De to er **samme likning**. Det forklarer også hvorfor en oppgave ofte kan løses begge veier — noe sensor uttrykkelig godtar."
+    },
+    {
+      "id": "fys1100-5-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Bremselengde med energiregnskap",
+      "problem": "En bil med masse $1\\,400\\ \\text{kg}$ kjører $22\\ \\text{m/s}$ og bremser til stillstand på vannrett veg. Friksjonstallet mellom dekk og asfalt er $\\mu_d = 0{,}75$.\n\n**a)** Finn bremselengden med arbeids–energi-teoremet.\n\n**b)** Løs den samme oppgaven med Newtons 2. lov og kinematikk, og sammenlign.\n\n**c)** Hvor lang blir bremselengden om farten dobles?",
+      "solution": "**a) Metodevalg:** friksjonen er den eneste kraften med komponent langs bevegelsen, og det totale arbeidet fra alle krefter er lik endringen i kinetisk energi. Vi trenger ikke tiden, og da er energimetoden den raskeste.\n\nFriksjonskraften er $f_d = \\mu_d N = \\mu_d mg$, rettet mot bevegelsen, så arbeidet er negativt: $W = -\\mu_d mg\\,s$. Bilen ender i ro, altså $K_B = 0$:\n\n$$-\\mu_d mg\\,s = 0 - \\tfrac12 mv^2 \\quad \\Rightarrow \\quad s = \\frac{v^2}{2\\mu_d g}$$\n\n$$s = \\frac{22^2}{2 \\cdot 0{,}75 \\cdot 9{,}81} = \\frac{484}{14{,}72} = 32{,}9\\ \\text{m}$$\n\nMassen forkortes bort: bremselengden er den samme for en personbil og en lastebil med samme dekkegenskaper.\n\n**b) Samme oppgave med Newton:** Newtons 2. lov langs vegen gir\n\n$$-\\mu_d mg = ma \\quad \\Rightarrow \\quad a = -\\mu_d g = -7{,}36\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nAkselerasjonen er konstant, så den tidløse likningen gjelder:\n\n$$0 - v^2 = 2a\\,s \\quad \\Rightarrow \\quad s = \\frac{v^2}{2\\mu_d g} = 32{,}9\\ \\text{m}$$\n\n**Samme svar, samme uttrykk.** Under tidspress er energimetoden raskest her, fordi den hopper rett fra fart til strekning uten å gå veien om akselerasjonen. Newton-veien er å foretrekke når du også trenger tiden eller kreftene underveis. Begge er fullt gyldige, og det lønner seg å nevne at du har kontrollert med den andre.\n\n**c)** Bremselengden går som $v^2$, så en dobling av farten firedobler den:\n\n$$s = \\frac{44^2}{14{,}72} = 132\\ \\text{m}$$\n\nDet er 100 meter lenger — og hele grunnen til at fartsgrenser slår så hardt ut på ulykkesstatistikken."
+    },
+    {
+      "id": "fys1100-5-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En kloss med masse $2{,}0\\ \\text{kg}$ har farten $3{,}0\\ \\text{m/s}$.\n\n**a)** Finn den kinetiske energien.\n\n**b)** En konstant kraft på $6{,}0\\ \\text{N}$ virker framover over $4{,}0\\ \\text{m}$. Finn arbeidet og den nye farten.\n\n**c)** Hva ville farten blitt om kraften i stedet pekte bakover?",
+        "solution": "**Metodevalg:** arbeids–energi-teoremet, $W_{\\text{tot}} = K_B - K_A$. Det gjelder uansett fortegn på kraften.\n\n**a)** $K_A = \\tfrac12 \\cdot 2{,}0 \\cdot 3{,}0^2 = 9{,}0\\ \\text{J}$.\n\n**b)** $W = Fd\\cos 0^\\circ = 6{,}0 \\cdot 4{,}0 = 24\\ \\text{J}$.\n\n$$K_B = K_A + W = 9{,}0 + 24 = 33\\ \\text{J} \\quad \\Rightarrow \\quad v_B = \\sqrt{\\frac{2K_B}{m}} = \\sqrt{33} = 5{,}7\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\ni samme retning som før.\n\n**c)** Da er $W = -24\\ \\text{J}$, og $K_B = 9{,}0 - 24 = -15\\ \\text{J}$. Negativ kinetisk energi er umulig, og svaret er at klossen **stopper før** den har gått $4{,}0\\ \\text{m}$. Den stopper når hele $9{,}0\\ \\text{J}$ er brukt opp, altså etter $s = 9{,}0/6{,}0 = 1{,}5\\ \\text{m}$, og deretter akselererer den bakover.\n\nDette er et godt eksempel på at et umulig svar er informasjon, ikke en feil: det forteller deg at forutsetningen i regnestykket brast underveis.",
+        "hints": [
+          "$K = \\tfrac12 mv^2$, og arbeidet av en konstant kraft langs bevegelsen er $Fd$.",
+          "Legg arbeidet til den kinetiske energien og løs for farten.",
+          "I c): hva betyr det om du får negativ kinetisk energi?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kasse med masse $15{,}0\\ \\text{kg}$ sendes med startfart $6{,}0\\ \\text{m/s}$ opp et skråplan med helning $20{,}0^\\circ$. Friksjonstallet er $\\mu_d = 0{,}18$.\n\n**a)** Hvor stort arbeid gjør tyngden og friksjonen mens kassa glir $2{,}0\\ \\text{m}$ oppover?\n\n**b)** Finn farten etter $2{,}0\\ \\text{m}$ med arbeids–energi-teoremet.\n\n**c)** Hvor langt opp kommer kassa før den stopper?",
+        "solution": "**Metodevalg:** arbeids–energi-teoremet med **alle** krefter. Normalkraften gjør ikke arbeid (vinkelrett på bevegelsen), men både tyngden og friksjonen gjør negativt arbeid når kassa går oppover.\n\nMed $\\sin 20{,}0^\\circ = 0{,}3420$ og $\\cos 20{,}0^\\circ = 0{,}9397$:\n\n**a)** Tyngdens komponent langs planet er $mg\\sin\\theta = 15{,}0 \\cdot 9{,}81 \\cdot 0{,}3420 = 50{,}3\\ \\text{N}$, rettet nedover langs planet:\n\n$$W_g = -50{,}3 \\cdot 2{,}0 = -101\\ \\text{J}$$\n\nFriksjonen er $f_d = \\mu_d mg\\cos\\theta = 0{,}18 \\cdot 15{,}0 \\cdot 9{,}81 \\cdot 0{,}9397 = 24{,}9\\ \\text{N}$, også rettet nedover langs planet siden kassa går opp:\n\n$$W_f = -24{,}9 \\cdot 2{,}0 = -49{,}8\\ \\text{J}$$\n\n**b)** $K_A = \\tfrac12 \\cdot 15{,}0 \\cdot 36 = 270\\ \\text{J}$:\n\n$$K_B = 270 - 101 - 49{,}8 = 119\\ \\text{J} \\quad \\Rightarrow \\quad v_B = \\sqrt{\\frac{2 \\cdot 119}{15{,}0}} = 3{,}99\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\noppover langs planet.\n\n**c)** Kassa stopper når all kinetisk energi er brukt opp. Med strekningen $s$:\n\n$$\\tfrac12 mv_A^2 = mgs\\sin\\theta + \\mu_d mg s\\cos\\theta = mgs(\\sin\\theta + \\mu_d\\cos\\theta)$$\n\n$$s = \\frac{v_A^2}{2g(\\sin\\theta + \\mu_d\\cos\\theta)} = \\frac{36}{2 \\cdot 9{,}81 \\cdot (0{,}3420 + 0{,}1691)} = \\frac{36}{10{,}03} = 3{,}59\\ \\text{m}$$\n\n**Kontroll:** etter $2{,}0\\ \\text{m}$ var det $119\\ \\text{J}$ igjen, og de siste $1{,}59\\ \\text{m}$ krever $75{,}2 \\cdot 1{,}59 = 120\\ \\text{J}$ ✓ (avrunding).\n\n**Merk:** massen forkortes i c), men ikke i a) og b), der vi ba om energier i joule.",
+        "hints": [
+          "Normalkraften gjør ikke arbeid — bare tyngden og friksjonen.",
+          "Går kassa oppover, peker både tyngdekomponenten og friksjonen nedover langs planet.",
+          "I c) setter du $K_B = 0$ og løser for strekningen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — potensiell energi og konservative krefter (~15 min)\n\n— naturlig pausepunkt —\n\nLøfter du en bok opp i en hylle, gjør du arbeid mot tyngden. Faller boka ned igjen, får du arbeidet tilbake som fart. Tyngden «husker» altså hvor mye du har investert, og leverer det tilbake.\n\nFriksjonen gjør ikke det. Skyver du en kasse fram og tilbake, får du ingenting igjen — energien er blitt varme. Dette skillet er hele grunnlaget for begrepet potensiell energi."
+    },
+    {
+      "id": "fys1100-5-1-def-konservativ",
+      "type": "definition",
+      "title": "Konservativ kraft",
+      "content": "En kraft er **konservativ** når arbeidet den gjør, bare avhenger av start- og sluttpunktet — ikke av hvilken vei legemet tok dit. En likeverdig formulering: arbeidet rundt en lukket sløyfe er null.\n\nTyngden og fjærkraften er konservative. Friksjon og luftmotstand er det **ikke**: de peker alltid mot bevegelsen, så de tar energi ut uansett hvilken vei du går, og arbeidet rundt en sløyfe er negativt.\n\nBare konservative krefter kan tilordnes en potensiell energi. Det er derfor du aldri vil se en «friksjonell potensiell energi» — den finnes ikke."
+    },
+    {
+      "id": "fys1100-5-1-def-potensiell",
+      "type": "definition",
+      "title": "Potensiell energi i tyngdefeltet",
+      "content": "Den lagrede energien et legeme har i kraft av høyden:\n\n$$U = mgy$$\n\nder $y$ måles fra et **referansenivå** du velger fritt. Valget er fritt fordi bare *differanser* i $U$ har fysisk betydning: det er endringen som inngår i regnskapet.\n\nUttrykket forutsetter at $g$ er konstant, altså at høydeforskjellene er små i forhold til jordas radius. For satellitter og romsonder må en annen form brukes; det kommer i delen om gravitasjon.\n\n**Skriv alltid ned hvor nullnivået ditt ligger.** Halvparten av fortegnsforvirringen i energiregnskaper skyldes et referansenivå som aldri ble sagt høyt."
+    },
+    {
+      "id": "fys1100-5-1-def-fjaerenergi",
+      "type": "definition",
+      "title": "Potensiell energi i en fjær",
+      "content": "En fjær med fjærkonstant $k$, strukket eller trykt sammen en strekning $x - x_0$ fra likevektslengden, lagrer\n\n$$U = \\tfrac12 k(x - x_0)^2$$\n\nUttrykket er **alltid positivt**, uansett om fjæren er strukket eller sammentrykt — kvadratet sørger for det. Nullpunktet ligger i likevektslengden, og det valget er ikke fritt her: det følger av fjærkraftmodellen.\n\nUttrykket er arealet under kraft–forlengelse-grafen: kraften vokser lineært fra $0$ til $k\\Delta x$, og arealet under en rett linje er $\\tfrac12$ grunnlinje ganger høyde."
+    },
+    {
+      "id": "fys1100-5-1-def-referansenivaa",
+      "type": "definition",
+      "title": "Referansenivå",
+      "content": "Nullpunktet du velger for den potensielle energien. Alle valg er like riktige, fordi et bytte av referansenivå bare legger til den samme konstanten på begge sider av energilikningen.\n\nPraktiske valg: laveste punkt i bevegelsen, bakken, eller startposisjonen. I loop-oppgaver er bunnen av loopen naturlig; i pendeloppgaver det laveste punktet på svingen.\n\nDet ene du **ikke** kan gjøre, er å bytte referansenivå midt i en utregning. Skriv det ned én gang, og hold deg til det."
+    },
+    {
+      "id": "fys1100-5-1-th-f-fra-u",
+      "type": "theorem",
+      "title": "Kraft som den negative deriverte av potensialet",
+      "content": "For en konservativ kraft i én dimensjon henger kraft og potensiell energi sammen ved\n\n$$F = -\\frac{dU}{dx}$$\n\nMinustegnet betyr at kraften alltid peker mot **lavere** potensiell energi — «nedover i potensiallandskapet».\n\nKontroller på de to tilfellene vi kjenner: med $U = mgy$ blir $F = -mg$, altså tyngden rettet nedover ✓. Med $U = \\tfrac12 k(x-x_0)^2$ blir $F = -k(x-x_0)$, altså Hookes lov ✓.\n\nSammenhengen brukes to veier på eksamen: til å finne kraften når potensialet er gitt, og til å finne **likevektspunkter** — de ligger der $dU/dx = 0$. Er $U$ et minimum der, er likevekten stabil."
+    },
+    {
+      "id": "fys1100-5-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En fjær med fjærkonstant $k = 320\\ \\text{N/m}$ trykkes sammen $0{,}15\\ \\text{m}$ fra likevektslengden.\n\n**a)** Hvor mye energi er lagret i fjæren?\n\n**b)** Fjæren slippes og skyver en kloss med masse $0{,}60\\ \\text{kg}$ vannrett. Hvor fort går klossen når fjæren er tilbake i likevektslengden? Se bort fra friksjon.\n\n**c)** Vis at uttrykket $F = -dU/dx$ gir Hookes lov tilbake.",
+        "solution": "**Metodevalg:** all den lagrede fjærenergien overføres til kinetisk energi, siden underlaget er friksjonsfritt og bevegelsen er vannrett (så den potensielle energien i tyngdefeltet er uendret).\n\n**a)**\n\n$$U = \\tfrac12 k(\\Delta x)^2 = \\tfrac12 \\cdot 320 \\cdot (0{,}15)^2 = \\tfrac12 \\cdot 320 \\cdot 0{,}0225 = 3{,}60\\ \\text{J}$$\n\n**b) Begrunnelse:** mekanisk energi er bevart fordi bare fjærkraften gjør arbeid — den er konservativ, underlaget er friksjonsfritt, og normalkraften og tyngden står vinkelrett på den vannrette bevegelsen.\n\n$$\\tfrac12 k(\\Delta x)^2 = \\tfrac12 mv^2 \\quad \\Rightarrow \\quad v = \\sqrt{\\frac{2 \\cdot 3{,}60}{0{,}60}} = \\sqrt{12{,}0} = 3{,}46\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\ni fjærens skyveretning.\n\n**c)** Med $U(x) = \\tfrac12 k(x - x_0)^2$:\n\n$$F = -\\frac{dU}{dx} = -\\frac{d}{dx}\\left[\\tfrac12 k(x-x_0)^2\\right] = -k(x - x_0)$$\n\nsom er nøyaktig Hookes lov fra [kap. 3.2](/bok/fys1100/fys1100-3-2). Minustegnet sier at kraften peker mot likevektsstillingen, altså mot minimumet i potensialet.",
+        "hints": [
+          "Fjærenergien er $\\tfrac12 k(\\Delta x)^2$ — pass på at forlengelsen er i meter.",
+          "Sett den lagrede energien lik den kinetiske energien, og begrunn hvorfor det er lov.",
+          "I c) deriverer du et kvadrat med kjerneregelen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — energibevaring og friksjonstapet (~20 min)\n\nNå har vi delene. Sett dem sammen, og du får den likningen som brukes i **7 av 7** eksamenssett — og som mister poeng hver gang begrunnelsen mangler."
+    },
+    {
+      "id": "fys1100-5-1-th-energibevaring",
+      "type": "theorem",
+      "title": "Bevaring av mekanisk energi",
+      "content": "Den mekaniske energien er summen $E = K + U$. Den er **bevart**, altså den samme i to vilkårlige tilstander,\n\n$$\\tfrac12 mv_A^2 + U_A = \\tfrac12 mv_B^2 + U_B$$\n\n**når og bare når** de eneste kreftene som gjør arbeid, er konservative.\n\nBetingelsen er ikke pynt — den er hele forskjellen mellom en gyldig og en ugyldig likning. Krefter som ikke gjør arbeid (normalkraft, snordrag vinkelrett på banen) er uproblematiske og skal nevnes med akkurat den begrunnelsen. Krefter som gjør arbeid og **ikke** er konservative (friksjon, luftmotstand), ødelegger bevaringen, og da må du bruke det utvidede regnskapet i stedet."
+    },
+    {
+      "id": "fys1100-5-1-th-energiregnskap-friksjon",
+      "type": "theorem",
+      "title": "Energiregnskapet med friksjon",
+      "content": "Gjør friksjonen arbeid, er den mekaniske energien ikke bevart. Da gjelder i stedet regnskapet\n\n$$K_A + U_A = K_B + U_B + \\lvert W_f\\rvert$$\n\nder\n\n$$\\lvert W_f\\rvert = f_d \\, s = \\mu_d N s$$\n\ner den mekaniske energien som er omdannet til varme langs strekningen $s$.\n\n**Merk to ting.** For det første er $s$ den **tilbakelagte veistrekningen**, ikke forflytningen: går legemet fram og tilbake, legges bidragene sammen. For det andre avhenger $\\lvert W_f\\rvert$ av veien man tok — det er nettopp derfor friksjonen ikke er konservativ og ikke kan skrives som en potensiell energi."
+    },
+    {
+      "id": "fys1100-5-1-fig-energibalanse",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-5-1-energibalanse.svg",
+      "alt": "Soylediagram med to soyler. Venstre soyle merket START viser potensiell energi 35,3 joule og kinetisk energi null. Hoyre soyle merket SLUTT viser kinetisk energi 20,0 joule nederst og 15,3 joule tapt til varme overst. De to soylene er like hoye.",
+      "caption": "Energiregnskapet i eksempel 3 tegnet ut. De to søylene er **like høye**: energien forsvinner ikke, den bytter form. Friksjonsleddet på $15{,}3\\ \\text{J}$ er den delen som er blitt varme og ikke kan hentes tilbake som fart."
+    },
+    {
+      "id": "fys1100-5-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — energiregnskapet",
+      "content": "**1. Bevaring uten begrunnelse (felle #7 — bevaringslov brukt uten at betingelsen er skrevet ut).** Feilkodene #1–#15 er bokas register over de feilene som koster mest på eksamen; hele lista står i [kap. 0.1](/bok/fys1100/fys1100-0-1). Å skrive «energien er bevart, så $mgh = \\tfrac12 mv^2$» uten å si **hvorfor**, koster $-1$ poeng. Setningen sensor vil se, er av typen: «Bare tyngden gjør arbeid, siden banen er friksjonsfri og normalkraften står vinkelrett på bevegelsen.»\n\n**2. Glemt friksjonsledd.** Er banen ru, er mekanisk energi **ikke** bevart, og likningen $K_A + U_A = K_B + U_B$ er rett og slett gal. Sjekk alltid oppgaveteksten for ordene «ru», «friksjonstall» eller «$\\mu$» før du velger likning.\n\n**3. Blande arbeid og kraft.** Arbeid er en **skalar** i joule; kraft er en vektor i newton. Å skrive $\\mathbf{W}$ med vektormarkering, eller å sette et arbeid inn i en kraftlikning, er en faglig feil som fanges umiddelbart av en benevningskontroll.\n\n**4. Skiftende referansenivå.** Velg nullpunkt for $U$ én gang, skriv det ned, og hold deg til det gjennom hele oppgaven.\n\n**5. Bruke forflytningen i stedet for veistrekningen i friksjonsleddet.** Går en kloss opp et skråplan og ned igjen, er forflytningen null, men friksjonen har gjort arbeid hele veien — begge veier."
+    },
+    {
+      "id": "fys1100-5-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Klossen på det ru skråplanet (eksamensnivå)",
+      "problem": "En kloss med masse $2{,}40\\ \\text{kg}$ slippes fra hvile på et skråplan med helning $30{,}0^\\circ$ og glir $3{,}00\\ \\text{m}$ langs planet. Friksjonstallet er $\\mu_d = 0{,}25$.\n\n**a)** Sett opp energiregnskapet og finn farten nederst.\n\n**b)** Hvor mye mekanisk energi er omdannet til varme?\n\n**c)** Løs a) på nytt med Newtons 2. lov og kinematikk.\n\n**d)** Begrunn **både med energi og med Newtons 2. lov** hvorfor klossen kommer saktere ned med friksjon enn uten.",
+      "solution": "**a) Metodevalg og begrunnelse:** mekanisk energi er **ikke** bevart her, fordi friksjonen gjør negativt arbeid og ikke er en konservativ kraft. Vi bruker derfor det utvidede regnskapet med et friksjonsledd. Normalkraften gjør ikke arbeid, siden den står vinkelrett på bevegelsen.\n\nVi legger $y = 0$ nederst. Fallhøyden er $h = s\\sin\\theta = 3{,}00 \\cdot 0{,}500 = 1{,}50\\ \\text{m}$, og normalkraften er $N = mg\\cos\\theta$:\n\n$$mgs\\sin\\theta = \\tfrac12 mv^2 + \\mu_d mg\\cos\\theta \\cdot s$$\n\nMassen forkortes:\n\n$$v^2 = 2gs(\\sin\\theta - \\mu_d\\cos\\theta) = 2 \\cdot 9{,}81 \\cdot 3{,}00 \\cdot (0{,}500 - 0{,}25 \\cdot 0{,}866)$$\n\n$$v^2 = 58{,}86 \\cdot 0{,}2835 = 16{,}69 \\quad \\Rightarrow \\quad v = 4{,}09\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nrettet **nedover langs planet**.\n\n**b)** Startenergien er ren potensiell energi:\n\n$$U_A = mgh = 2{,}40 \\cdot 9{,}81 \\cdot 1{,}50 = 35{,}3\\ \\text{J}$$\n\nSluttenergien er ren kinetisk:\n\n$$K_B = \\tfrac12 \\cdot 2{,}40 \\cdot 16{,}69 = 20{,}0\\ \\text{J}$$\n\n$$\\lvert W_f\\rvert = 35{,}3 - 20{,}0 = 15{,}3\\ \\text{J}$$\n\n**Kontroll direkte:** $\\mu_d mg\\cos\\theta \\cdot s = 0{,}25 \\cdot 2{,}40 \\cdot 9{,}81 \\cdot 0{,}866 \\cdot 3{,}00 = 15{,}3\\ \\text{J}$ ✓. Figuren over viser regnskapet som to like høye søyler.\n\n— naturlig pausepunkt —\n\n**c) Med Newton:** langs planet virker $mg\\sin\\theta$ nedover og $\\mu_d mg\\cos\\theta$ oppover:\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81 \\cdot 0{,}2835 = 2{,}78\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n$$v = \\sqrt{2as} = \\sqrt{2 \\cdot 2{,}781 \\cdot 3{,}00} = \\sqrt{16{,}69} = 4{,}09\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nSamme svar. Energimetoden er raskest når du bare skal ha farten; Newton-metoden gir deg akselerasjonen på kjøpet, og den trenger du hvis oppgaven også spør om tiden.\n\n**d) Dobbeltbegrunnelsen.**\n\n**Med energi:** uten friksjon går hele den potensielle energien $mgh$ over i kinetisk energi. Med friksjon tapper friksjonsarbeidet $\\mu_d mg\\cos\\theta \\cdot s$ ut en del av den som varme, og bare resten blir fart. Tallene: uten friksjon $v = \\sqrt{2gs\\sin\\theta} = 5{,}42\\ \\text{m/s}$, med friksjon $4{,}09\\ \\text{m/s}$.\n\n**Med Newtons 2. lov:** friksjonen peker oppover langs planet og trekker fra i resultanten. Akselerasjonen blir $g(\\sin\\theta - \\mu_d\\cos\\theta)$ i stedet for $g\\sin\\theta$, altså $2{,}78$ mot $4{,}91\\ \\text{m/s}^2$. Mindre akselerasjon over samme strekning gir mindre sluttfart.\n\nDe to argumentene er to sider av samme sak — friksjonsarbeidet **er** integralet av den friksjonskraften som reduserer akselerasjonen — men sensor ber uttrykkelig om begge, og de teller som hver sin begrunnelse."
+    },
+    {
+      "id": "fys1100-5-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En pendel består av en kule i en snor med lengde $1{,}80\\ \\text{m}$. Kula trekkes ut til en vinkel $35^\\circ$ fra loddlinja og slippes fra ro.\n\n**a)** Begrunn hvorfor mekanisk energi er bevart under svingen.\n\n**b)** Finn fallhøyden fra utgangspunktet til det laveste punktet.\n\n**c)** Finn farten i det laveste punktet.\n\n**d)** Hva ville svaret blitt om kula var dobbelt så tung?",
+        "solution": "**a)** To krefter virker på kula: tyngden og snordraget. Snordraget står i hvert punkt **vinkelrett** på bevegelsen (bevegelsen går langs sirkelbuen, draget langs radien), så det gjør ikke arbeid. Tyngden er konservativ. Ser vi bort fra luftmotstand, er dermed mekanisk energi bevart.\n\n**b)** I utgangsstillingen er kula $\\ell\\cos 35^\\circ$ under festepunktet; i det laveste punktet er den $\\ell$ under. Fallhøyden er differansen:\n\n$$h = \\ell(1 - \\cos 35^\\circ) = 1{,}80 \\cdot (1 - 0{,}8192) = 1{,}80 \\cdot 0{,}1808 = 0{,}326\\ \\text{m}$$\n\n**c)**\n\n$$mgh = \\tfrac12 mv^2 \\quad \\Rightarrow \\quad v = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 0{,}3255} = 2{,}53\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nrettet vannrett i det laveste punktet.\n\n**d)** Nøyaktig det samme. Massen forkortes bort i likningen $mgh = \\tfrac12 mv^2$: både energien som er tilgjengelig og tregheten som skal settes i bevegelse, vokser proporsjonalt med massen. Det er samme mekanisme som gjør fritt fall masseuavhengig.",
+        "hints": [
+          "Hvilke krefter virker på kula, og hvilken av dem står vinkelrett på bevegelsen?",
+          "Tegn trekanten: hvor langt under festepunktet er kula i hver av de to stillingene?",
+          "Sett den tapte potensielle energien lik den vunne kinetiske."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En fjær med $k = 450\\ \\text{N/m}$ trykkes sammen $0{,}12\\ \\text{m}$ og skyter en kloss med masse $0{,}60\\ \\text{kg}$ vannrett bortover et bord. Friksjonstallet mellom kloss og bord er $\\mu_d = 0{,}30$.\n\n**a)** Hvor mye energi er lagret i fjæren?\n\n**b)** Hvor langt glir klossen før den stopper? Se bort fra friksjon mens fjæren virker.\n\n**c)** Hvorfor kan du ikke bruke bevaring av mekanisk energi over hele forløpet?",
+        "solution": "**Metodevalg:** all fjærenergien blir kinetisk energi, og den kinetiske energien tappes deretter av friksjonen. Bevegelsen er vannrett, så den potensielle energien i tyngdefeltet er uendret hele veien.\n\n**a)**\n\n$$U_0 = \\tfrac12 k(\\Delta x)^2 = \\tfrac12 \\cdot 450 \\cdot (0{,}12)^2 = \\tfrac12 \\cdot 450 \\cdot 0{,}0144 = 3{,}24\\ \\text{J}$$\n\n**b)** Hele denne energien går til friksjonsarbeid før klossen stopper:\n\n$$U_0 = \\mu_d mg\\,s \\quad \\Rightarrow \\quad s = \\frac{U_0}{\\mu_d mg} = \\frac{3{,}24}{0{,}30 \\cdot 0{,}60 \\cdot 9{,}81} = \\frac{3{,}24}{1{,}766} = 1{,}83\\ \\text{m}$$\n\n**Kontroll via farten:** $v = \\sqrt{2U_0/m} = \\sqrt{10{,}8} = 3{,}29\\ \\text{m/s}$, og $s = v^2/(2\\mu_d g) = 10{,}8/(5{,}886) = 1{,}83\\ \\text{m}$ ✓.\n\n**c)** Fordi friksjonen gjør arbeid og **ikke** er konservativ. Mekanisk energi er bevart bare i den første fasen, mens fjæren skyver (der er det oppgitt at friksjonen kan neglisjeres), men ikke i den andre. Over hele forløpet forsvinner all den mekaniske energien som varme.\n\nDet riktige grepet er å **dele prosessen i faser** og velge regnskap for hver fase — nøyaktig den arbeidsmåten som drilles i [kap. 5.3](/bok/fys1100/fys1100-5-3).",
+        "hints": [
+          "Fjærenergien er $\\tfrac12 k(\\Delta x)^2$.",
+          "Klossen stopper når all energi er brukt til friksjonsarbeid $\\mu_d mg s$.",
+          "Del prosessen i to faser og spør hvilken bevaringslov som gjelder i hver."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — bevaringslover, med dobbel begrunnelse.)\n\nTo identiske klosser sendes opp hver sitt skråplan med samme startfart $v_0 = 5{,}0\\ \\text{m/s}$. Begge planene har helning $25^\\circ$, men det ene er friksjonsfritt og det andre har $\\mu_d = 0{,}20$.\n\n**a)** Finn hvor langt opp hver kloss kommer.\n\n**b)** Begrunn **både med energi og med Newtons 2. lov** hvorfor klossen på det ru planet kommer kortere.\n\n**c)** Klossen på det ru planet glir tilbake ned. Finn farten når den er tilbake i utgangspunktet, og sammenlign med startfarten.\n\n**d)** Vis at forholdet mellom sluttfart og startfart i c) er uavhengig av både massen og startfarten, og finn et uttrykk for det.",
+        "solution": "**a) Metodevalg:** energiregnskap med friksjonsledd. Normalkraften gjør ikke arbeid.\n\nFriksjonsfritt plan, mekanisk energi bevart (bare tyngden gjør arbeid):\n\n$$\\tfrac12 mv_0^2 = mgs\\sin\\theta \\quad \\Rightarrow \\quad s_1 = \\frac{v_0^2}{2g\\sin\\theta} = \\frac{25}{2 \\cdot 9{,}81 \\cdot 0{,}4226} = 3{,}02\\ \\text{m}$$\n\nRu plan, friksjonsledd inn:\n\n$$\\tfrac12 mv_0^2 = mgs\\sin\\theta + \\mu_d mg s\\cos\\theta \\quad \\Rightarrow \\quad s_2 = \\frac{v_0^2}{2g(\\sin\\theta + \\mu_d\\cos\\theta)}$$\n\n$$s_2 = \\frac{25}{2 \\cdot 9{,}81 \\cdot (0{,}4226 + 0{,}1813)} = \\frac{25}{11{,}85} = 2{,}11\\ \\text{m}$$\n\n**b) Med energi:** startenergien er den samme, men på det ru planet må den dekke **både** høydeenergien og friksjonsarbeidet. Det er altså mindre energi igjen til å løfte klossen, og den stopper lavere.\n\n**Med Newtons 2. lov:** på vei opp peker både tyngdekomponenten og friksjonen nedover langs planet, så retardasjonen er $g(\\sin\\theta + \\mu_d\\cos\\theta) = 5{,}92\\ \\text{m/s}^2$ mot $g\\sin\\theta = 4{,}15\\ \\text{m/s}^2$ på det glatte. Større retardasjon fra samme startfart gir kortere strekning, siden $s = v_0^2/(2\\lvert a\\rvert)$.\n\n— naturlig pausepunkt —\n\n**c)** På vei ned snur friksjonen: nå peker den **oppover** langs planet, mot bevegelsen. Energiregnskapet fra toppunktet ned til utgangspunktet:\n\n$$mgs_2\\sin\\theta = \\tfrac12 mv^2 + \\mu_d mgs_2\\cos\\theta$$\n\n$$v^2 = 2gs_2(\\sin\\theta - \\mu_d\\cos\\theta) = 2 \\cdot 9{,}81 \\cdot 2{,}11 \\cdot (0{,}4226 - 0{,}1813) = 9{,}99$$\n\n$$v = 3{,}16\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nnedover langs planet, altså tydelig mindre enn startfarten $5{,}0\\ \\text{m/s}$. Differansen er den mekaniske energien som er blitt varme på **begge** turene.\n\n**d)** Sett inn uttrykket for $s_2$:\n\n$$v^2 = 2g \\cdot \\frac{v_0^2}{2g(\\sin\\theta + \\mu_d\\cos\\theta)} \\cdot (\\sin\\theta - \\mu_d\\cos\\theta) = v_0^2\\,\\frac{\\sin\\theta - \\mu_d\\cos\\theta}{\\sin\\theta + \\mu_d\\cos\\theta}$$\n\n$$\\frac{v}{v_0} = \\sqrt{\\frac{\\tan\\theta - \\mu_d}{\\tan\\theta + \\mu_d}}$$\n\nder siste form fås ved å dele teller og nevner på $\\cos\\theta$. Både $m$ og $v_0$ faller ut: forholdet avhenger **bare** av helningen og friksjonstallet.\n\n**Kontroll med tall:** $\\tan 25^\\circ = 0{,}4663$, så forholdet er $\\sqrt{0{,}2663/0{,}6663} = \\sqrt{0{,}3997} = 0{,}632$, og $0{,}632 \\cdot 5{,}0 = 3{,}16\\ \\text{m/s}$ ✓.\n\n**Gyldighetsbetingelse:** uttrykket krever $\\tan\\theta > \\mu_d$. Er $\\mu_d \\ge \\tan\\theta$, blir klossen liggende på toppen — det er nøyaktig hvilebetingelsen fra [kap. 3.2](/bok/fys1100/fys1100-3-2), og da finnes ingen retur.",
+        "hints": [
+          "Sett opp energiregnskapet med friksjonsleddet og løs for strekningen.",
+          "På vei opp peker friksjonen nedover langs planet; på vei ned peker den oppover.",
+          "I d) setter du uttrykket for $s_2$ inn i uttrykket for $v^2$ og forkorter.",
+          "Husk å sjekke når uttrykket under rottegnet er positivt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — effekt (~5 min)\n\nÅ løfte en sekk sement opp en trapp krever like mye arbeid uansett hvor fort du går. Men å gjøre det på ti sekunder i stedet for femti er noe helt annet for kroppen. Forskjellen er **effekt**: arbeid per tid."
+    },
+    {
+      "id": "fys1100-5-1-def-effekt",
+      "type": "definition",
+      "title": "Effekt",
+      "content": "Hvor raskt en kraft overfører energi:\n\n$$P = \\frac{dW}{dt} = \\mathbf{F}\\cdot\\mathbf{v}$$\n\nEnheten er **watt**, $\\text{W} = \\text{J/s}$. Effekt er en skalar.\n\nFormen $\\mathbf{F}\\cdot\\mathbf{v}$ er den mest brukte på eksamen: den gir øyeblikkseffekten direkte fra kraften og farten, uten at du må derivere noe. Peker kraften langs farten, blir det ganske enkelt $P = Fv$.\n\nVær våken for **kilowattimen**: $1\\ \\text{kWh} = 3{,}6 \\cdot 10^6\\ \\text{J}$. Det er en enhet for **energi**, ikke effekt, selv om navnet inneholder «watt»."
+    },
+    {
+      "id": "fys1100-5-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Effekten i en heis",
+      "problem": "En heis med last har samlet masse $800\\ \\text{kg}$ og løftes med konstant fart $1{,}5\\ \\text{m/s}$.\n\n**a)** Hvor stor effekt må motoren levere?\n\n**b)** Hvor mye energi bruker heisen på å gå $24\\ \\text{m}$ opp?\n\n**c)** Hva blir effekten om farten dobles?",
+      "solution": "**Metodevalg først:** farten er konstant, så resultantkraften er null og motorens trekkraft er nøyaktig lik tyngden. Da gir $P = Fv$ effekten direkte.\n\n**a)** Snordraget er $F = mg = 800 \\cdot 9{,}81 = 7\\,848\\ \\text{N}$, rettet oppover og altså langs bevegelsen:\n\n$$P = Fv = 7\\,848 \\cdot 1{,}5 = 1{,}18 \\cdot 10^{4}\\ \\text{W} = 11{,}8\\ \\text{kW}$$\n\n**b)** To veier fram, og begge er greie. Direkte som arbeid:\n\n$$W = mgh = 800 \\cdot 9{,}81 \\cdot 24 = 1{,}88 \\cdot 10^{5}\\ \\text{J}$$\n\nEller via effekt og tid: turen tar $t = 24/1{,}5 = 16\\ \\text{s}$, og $W = Pt = 1{,}177\\cdot 10^4 \\cdot 16 = 1{,}88\\cdot 10^5\\ \\text{J}$ ✓. Samme svar, som det skal være.\n\n**c)** Effekten dobles, til $23{,}5\\ \\text{kW}$. Kraften er uendret (tyngden er den samme), men arbeidet gjøres på halve tiden. **Energien** som brukes på turen, er derimot den samme — bare levert raskere.\n\n**Benevningskontroll:** $\\text{N}\\cdot\\text{m/s} = \\text{J/s} = \\text{W}$ ✓."
+    },
+    {
+      "id": "fys1100-5-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En syklist med samlet masse (sykkel og rytter) $78\\ \\text{kg}$ sykler opp en bakke med helning $6{,}0^\\circ$ i konstant fart $5{,}0\\ \\text{m/s}$ langs vegen. Se bort fra friksjon og luftmotstand.\n\n**a)** Hvor stor kraft må syklisten levere langs vegen?\n\n**b)** Hvor stor effekt tilsvarer det?\n\n**c)** Hvor mye høyere kommer syklisten per minutt?",
+        "solution": "**Metodevalg:** konstant fart betyr null resultantkraft langs vegen, så drivkraften balanserer tyngdekomponenten. Effekten er $P = Fv$ siden kraften peker langs farten.\n\n**a)**\n\n$$F = mg\\sin\\theta = 78 \\cdot 9{,}81 \\cdot \\sin 6{,}0^\\circ = 765{,}2 \\cdot 0{,}1045 = 80{,}0\\ \\text{N}$$\n\nrettet framover langs vegen.\n\n**b)**\n\n$$P = Fv = 80{,}0 \\cdot 5{,}0 = 4{,}0 \\cdot 10^{2}\\ \\text{W}$$\n\naltså $400\\ \\text{W}$ — et realistisk, men krevende nivå for en trent syklist over lengre tid.\n\n**c)** Den loddrette fartskomponenten er $v\\sin\\theta = 5{,}0 \\cdot 0{,}1045 = 0{,}523\\ \\text{m/s}$, altså\n\n$$\\Delta h = 0{,}523 \\cdot 60 = 31\\ \\text{m per minutt}$$\n\n**Kontroll:** $mg\\Delta h/t = 765{,}2 \\cdot 31{,}4/60 = 400\\ \\text{W}$ ✓ — samme effekt som i b), slik det må være.",
+        "hints": [
+          "Konstant fart betyr at drivkraften balanserer tyngdekomponenten langs vegen.",
+          "$P = Fv$ når kraften peker langs bevegelsen.",
+          "Den loddrette fartskomponenten er $v\\sin\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** En medstudent skriver: «Mekanisk energi er alltid bevart — det er en naturlov.» Hva er galt med påstanden, og hva er den riktige formuleringen?\n\n**b)** En annen skriver: «Friksjon ødelegger energi.» Hva er galt her?\n\n**c)** Hvorfor kan vi ikke definere en potensiell energi for friksjonskraften?",
+        "solution": "**a)** Det som alltid gjelder, er bevaring av **den totale energien** — men den inkluderer varme, indre energi, lyd og alt annet. Den **mekaniske** energien $K + U$ er bare bevart under en betingelse: at de eneste kreftene som gjør arbeid, er konservative. Riktig formulering: «Mekanisk energi er bevart når bare konservative krefter gjør arbeid.» Nettopp den setningen er det sensor ser etter.\n\n**b)** Energi kan ikke ødelegges. Friksjonen **omdanner** mekanisk energi til termisk energi i de to flatene og i omgivelsene. Forskjellen er ikke pedanteri: den termiske energien er fortsatt der og kan i prinsippet måles som en temperaturstigning — den er bare ikke lenger tilgjengelig som fart eller høyde.\n\n**c)** Fordi arbeidet friksjonen gjør, avhenger av **veien**, ikke bare av start- og sluttpunktet. En potensiell energi er per definisjon en funksjon av posisjonen alene, $U(x)$, og da må arbeidet være $U(A) - U(B)$ uansett rute. Går du fram og tilbake til samme punkt, er friksjonsarbeidet negativt og ikke null — så noen slik funksjon kan ikke finnes.",
+        "hints": [
+          "Hvilken energi er det egentlig som alltid er bevart?",
+          "Hva er den første hovedsetningen om energi — kan energi forsvinne?",
+          "Hva kreves av en kraft for at den skal ha en potensiell energi?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-5-1-def-joule",
+      "type": "definition",
+      "title": "Joule (enheten)",
+      "content": "SI-enheten for energi og arbeid:\n\n$$1\\ \\text{J} = 1\\ \\text{N}\\cdot\\text{m} = 1\\ \\text{kg}\\cdot\\text{m}^2/\\text{s}^2$$\n\nDet er arbeidet en kraft på én newton gjør over én meter. Til orientering: å løfte et eple én meter krever omtrent ett joule, mens en kilowattime er $3{,}6\\cdot 10^6\\ \\text{J}$.\n\nEn rask benevningskontroll av et energiuttrykk er å sjekke at det ender i $\\text{kg}\\cdot\\text{m}^2/\\text{s}^2$. Både $\\tfrac12 mv^2$, $mgh$ og $\\tfrac12 kx^2$ gjør det."
+    },
+    {
+      "id": "fys1100-5-1-def-watt",
+      "type": "definition",
+      "title": "Watt (enheten)",
+      "content": "SI-enheten for effekt:\n\n$$1\\ \\text{W} = 1\\ \\text{J/s} = 1\\ \\text{N}\\cdot\\text{m/s}$$\n\nEn trent syklist kan holde omkring $300\\text{–}400\\ \\text{W}$ over lengre tid; en vanlig personbil har en motoreffekt på $80\\text{–}150\\ \\text{kW}$.\n\nPass på skillet mellom watt (effekt) og wattime (energi). Kilowattimen på strømregningen er en energienhet: $1\\ \\text{kWh} = 1\\,000\\ \\text{W} \\cdot 3\\,600\\ \\text{s} = 3{,}6\\cdot 10^6\\ \\text{J}$."
+    },
+    {
+      "id": "fys1100-5-1-def-totalt-arbeid",
+      "type": "definition",
+      "title": "Totalt arbeid kontra arbeid fra én kraft",
+      "content": "Arbeids–energi-teoremet gjelder for det **totale** arbeidet, altså summen av bidragene fra alle krefter:\n\n$$W_{\\text{tot}} = W_1 + W_2 + \\ldots = \\Delta K$$\n\nRegner du bare med tyngdens arbeid og glemmer friksjonen, får du et galt svar. En praktisk vane: skriv opp en liste over alle kreftene fra frilegemediagrammet ditt, og kryss av hver av dem med «gjør arbeid» eller «gjør ikke arbeid, fordi …».\n\nDe to vanligste «gjør ikke arbeid»-tilfellene er normalkraft langs en flate og snordrag i en pendel, begge fordi kraften står vinkelrett på bevegelsen."
+    },
+    {
+      "id": "fys1100-5-1-def-varme",
+      "type": "definition",
+      "title": "Friksjonsarbeid og termisk energi",
+      "content": "Den mekaniske energien friksjonen tar ut, forsvinner ikke — den blir **termisk energi** (varme) i de to flatene som gnisser mot hverandre:\n\n$$\\Delta E_{\\text{termisk}} = \\lvert W_f\\rvert = \\mu_d N s$$\n\nBruk derfor ordet «omdannet», ikke «tapt» eller «ødelagt», i besvarelsen. Den totale energien er bevart; det er bare den **mekaniske** delen som er redusert.\n\nMerk at $s$ er den tilbakelagte veistrekningen. Går en kloss opp og ned igjen, gjør friksjonen negativt arbeid begge veier, og bidragene legges sammen."
+    },
+    {
+      "id": "fys1100-5-1-def-potensialkurve",
+      "type": "definition",
+      "title": "Potensialkurve og likevekt",
+      "content": "Tegner du $U(x)$ som en kurve, kan du lese av fysikken direkte:\n\n- kraften er $-dU/dx$, altså **minus stigningstallet** — legemet trekkes mot lavere potensial, «nedover i landskapet»;\n- **likevektspunkter** ligger der kurven er flat, $dU/dx = 0$;\n- et **minimum** gir stabil likevekt: dyttes legemet litt, trekkes det tilbake;\n- et **maksimum** gir ustabil likevekt: dyttes det litt, forsterkes utslaget.\n\nLegger du inn en vannrett strek for den totale mekaniske energien $E$, kan legemet bare befinne seg der $U(x) \\le E$ — resten er kinetisk energi. Punktene der $U(x) = E$ kalles **vendepunkter**: der er farten null og legemet snur."
+    },
+    {
+      "id": "fys1100-5-1-def-energimetode-vs-newton",
+      "type": "definition",
+      "title": "Når velger du energimetoden?",
+      "content": "Begge metodene er gyldige, og sensor godtar begge. Tommelfingerreglene:\n\n- **Energi er raskest** når oppgaven kobler *fart og posisjon* uten å nevne tid, når kraften varierer med posisjonen (fjær), eller når banen er krum og kreftene endrer retning underveis.\n- **Newtons 2. lov er nødvendig** når du trenger *tiden*, når du skal finne en **kraft** (snordrag, normalkraft), eller når akselerasjonen selv er spørsmålet.\n\nHar du tid, gjør begge og bruk den ene som kontroll på den andre. Får du samme tall to veier, er sannsynligheten for regnefeil liten — og du har samtidig gitt sensor den dobbeltbegrunnelsen som ofte etterspørres."
+    },
+    {
+      "id": "fys1100-5-1-def-fasedeling",
+      "type": "definition",
+      "title": "Fasedeling i energioppgaver",
+      "content": "Mange oppgaver har flere faser med **ulike** gyldige bevaringslover: en fjær som skyter (energi bevart), et støt (energi ikke bevart), en glidefase med friksjon (energi ikke bevart), en fri svingfase (energi bevart).\n\nArbeidsmåten er alltid den samme:\n\n1. del prosessen i faser med tydelige start- og sluttilstander;\n2. avgjør for **hver** fase hvilken bevaringslov som gjelder, og skriv begrunnelsen;\n3. la sluttilstanden i én fase bli starttilstanden i den neste.\n\nFeil fasedeling er den vanligste grunnen til at en ellers riktig regnet oppgave ryker. Metoden drilles i [kap. 5.3](/bok/fys1100/fys1100-5-3)."
+    },
+    {
+      "id": "fys1100-5-1-def-hoyde-vs-strekning",
+      "type": "definition",
+      "title": "Høyde kontra strekning langs planet",
+      "content": "I skråplanoppgaver må du holde to lengder fra hverandre:\n\n- **$s$** er strekningen langs planet — den som friksjonsarbeidet $\\mu_d N s$ regnes over;\n- **$h = s\\sin\\theta$** er høydeforskjellen — den som den potensielle energien $mgh$ regnes over.\n\nÅ bruke $s$ der $h$ skulle stått (eller omvendt) er en av de hyppigste regnefeilene i energiregnskaper, og den er lett å oppdage: sjekk at høyden alltid er mindre enn strekningen, siden $\\sin\\theta < 1$."
+    },
+    {
+      "id": "fys1100-5-1-def-energi-skalar",
+      "type": "definition",
+      "title": "Energi som skalar",
+      "content": "Arbeid, kinetisk energi, potensiell energi og effekt er alle **skalarer**. De har ingen retning, og de skal aldri skrives med fet skrift eller vektorpil.\n\nDet er nettopp derfor energimetoden er så behagelig i oppgaver med krumme baner og krefter som skifter retning: du legger sammen tall, ikke vektorer. Prisen er at du **mister retningsinformasjonen** — energiregnskapet gir deg farten, men ikke hvilken vei legemet går.\n\nTrenger du retningen, må du enten resonnere fysisk («klossen glir nedover») eller supplere med Newtons 2. lov."
+    },
+    {
+      "id": "fys1100-5-1-def-arealtolkning",
+      "type": "definition",
+      "title": "Arbeid som areal under en kraftgraf",
+      "content": "I én dimensjon er $W = \\int F(x)\\,dx$ **arealet** mellom kraft–posisjon-grafen og $x$-aksen, med fortegn: areal under aksen teller negativt.\n\nTolkningen er nyttig når kraften er gitt som en graf eller som måledata i stedet for som en formel. Da finner du arbeidet ved å regne arealet — for eksempel med trapesmetoden, som brukes i den numeriske delen av faget.\n\nKontroll på fjæren: grafen til $F = kx$ er en rett linje fra $0$ til $k\\Delta x$, og arealet under den er $\\tfrac12 \\cdot \\Delta x \\cdot k\\Delta x = \\tfrac12 k(\\Delta x)^2$ — nøyaktig fjærenergien."
+    },
+    {
+      "id": "fys1100-5-1-def-luftmotstand-energi",
+      "type": "definition",
+      "title": "Luftmotstand i energiregnskapet",
+      "content": "Luftmotstand er, som friksjon, en **ikke-konservativ** kraft: den peker alltid mot bevegelsen og tar energi ut uansett rute.\n\nForskjellen er at luftmotstanden avhenger av **farten**, ikke av normalkraften. Det gjør at arbeidet ikke kan skrives som et enkelt produkt $f\\cdot s$; du må integrere, eller regne det numerisk.\n\nI oppgaver på dette nivået er standardgrepet enten å neglisjere luftmotstanden (og si at du gjør det) eller å oppgi det tapte energibeløpet direkte. Selve kraftmodellene for drag hører hjemme i delen om differensiallikninger."
+    },
+    {
+      "id": "fys1100-5-1-def-energi-sensorkrav",
+      "type": "definition",
+      "title": "Sensorkravet til en energibesvarelse",
+      "content": "En full besvarelse på en energioppgave inneholder fire ting, og de kan skrives på fire linjer:\n\n1. **Hvilket prinsipp** du bruker (energibevaring, arbeids–energi-teoremet, regnskapet med friksjon).\n2. **Hvorfor** det gjelder — hvilke krefter gjør arbeid, og hvilke gjør det ikke.\n3. **Hvor referansenivået** for $U$ ligger.\n4. **Svar med enhet**, og med retning der størrelsen er en vektor.\n\nPunkt 2 er det som oftest mangler, og det er også det som er dyrest: en riktig regnet oppgave uten begrunnelse gir liten uttelling, mens en påbegynt oppgave med riktig begrunnet prinsipp gir uttelling selv om regningen stopper."
+    },
+    {
+      "id": "fys1100-5-1-def-bremselengde",
+      "type": "definition",
+      "title": "Bremselengde som energiregnskap",
+      "content": "Et kjøretøy som bremser til stillstand på vannrett veg, har hele sin kinetiske energi omdannet til varme av friksjonen:\n\n$$\\tfrac12 mv^2 = \\mu_d mg\\,s \\quad \\Rightarrow \\quad s = \\frac{v^2}{2\\mu_d g}$$\n\nTo trekk er verdt å merke seg. Massen forkortes, så bremselengden er den samme for en liten og en stor bil med samme dekk. Og farten inngår **kvadratisk**: dobler du farten, firedobles bremselengden.\n\nUttrykket forutsetter at hjulene er låst eller på grensen til å skli, slik at $f = \\mu_d N$. Med blokkeringsfrie bremser ligger friksjonen litt under, men størrelsesordenen er den samme."
+    },
+    {
+      "id": "fys1100-5-1-def-tilstander",
+      "type": "definition",
+      "title": "Å velge tilstand A og tilstand B",
+      "content": "Et energiregnskap kobler alltid **to tilstander**, ikke et forløp. Første grep i enhver energioppgave er derfor å skrive ned hvilke to øyeblikk du sammenligner:\n\n> «Tilstand A: kula i ro i høyden $h$. Tilstand B: kula i toppen av loopen.»\n\nVelg tilstandene slik at du kjenner mest mulig i den ene, og spør etter det ukjente i den andre. Alt som skjer mellom dem — hvordan banen krummer, hvor lang tid det tar, hvilken vei kula snur — er likegyldig så lenge du vet hvilke krefter som har gjort arbeid underveis.\n\nDet er nettopp denne likegyldigheten som gjør energimetoden så kraftig, og den er også grunnen til at metoden ikke kan gi deg tiden."
+    },
+    {
+      "id": "fys1100-5-1-def-virkningsgrad",
+      "type": "definition",
+      "title": "Nyttig arbeid og virkningsgrad (kjenne til)",
+      "content": "I tekniske sammenhenger skiller man mellom energien som **tilføres** en maskin og den delen som kommer ut som nyttig arbeid. Forholdet kalles virkningsgraden:\n\n$$\\eta = \\frac{W_{\\text{nyttig}}}{W_{\\text{tilført}}}$$\n\nDen er alltid mindre enn 1, fordi noe alltid går til varme i friksjon, luftmotstand og indre tap.\n\nDette er **kjenne-stoff** i FYS1100: begrepet dukker opp i innpakningen av enkelte oppgaver («motoren har virkningsgrad $0{,}85$»), men det er ingen egen sjanger. Klarer du å lese det som «bare $85\\ \\%$ av den tilførte energien blir til mekanisk arbeid», har du det du trenger."
+    },
+    {
+      "id": "fys1100-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-5-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $W$ | arbeid (skalar) | $\\text{J}$ |\n| $W_{\\text{tot}}$ | samlet arbeid fra alle krefter | $\\text{J}$ |\n| $W_f$ | friksjonens arbeid (negativt) | $\\text{J}$ |\n| $K$ | kinetisk energi | $\\text{J}$ |\n| $U$ | potensiell energi | $\\text{J}$ |\n| $E = K + U$ | mekanisk energi | $\\text{J}$ |\n| $P$ | effekt | $\\text{W}$ |\n| $\\mathbf{F}$, $F$ | kraft og dens tallverdi | $\\text{N}$ |\n| $\\mathbf{d}$, $d\\mathbf{r}$ | forflytning og forflytningselement | $\\text{m}$ |\n| $\\phi$ | vinkelen mellom kraft og forflytning | grader |\n| $s$ | tilbakelagt veistrekning | $\\text{m}$ |\n| $h$, $y$ | høyde over referansenivået | $\\text{m}$ |\n| $\\theta$ | helningsvinkel på skråplan | grader |\n| $k$ | fjærkonstant | $\\text{N/m}$ |\n| $x_0$ | fjærens likevektslengde | $\\text{m}$ |\n| $\\mu_d$, $\\mu_s$ | dynamisk og statisk friksjonstall | dimensjonsløse |\n| $\\mathbf{N}$, $N$ | normalkraft og dens tallverdi | $\\text{N}$ |\n| $m$ | masse | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjon, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $\\eta$ | virkningsgrad | dimensjonsløs |\n\n**Symbolkollisjoner du må håndtere:** $W$ er **arbeid**, en skalar i joule — aldri en vektor, og ikke å forveksle med enheten watt ($\\text{W}$) som brukes om effekt. $U$ er potensiell energi, ikke en fart. $s$ er veistrekningen langs banen, mens $h = s\\sin\\theta$ er høyden — de to er **ikke** det samme i skråplanoppgaver. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$W = \\int \\mathbf{F}\\cdot d\\mathbf{r} = \\int \\mathbf{F}\\cdot\\mathbf{v}\\,dt$$\n\nArbeidsintegralet. **[formelarket]** — for konstant kraft langs rett bane forenkler det seg til $W = Fd\\cos\\phi$.\n\n$$K = \\tfrac12 mv^2$$\n\nKinetisk energi. **[formelarket]**.\n\n$$W_{\\text{tot}} = K_B - K_A$$\n\nArbeids–energi-teoremet. **[må kunne utledes]** — fra Newtons 2. lov ved å gange med $dx$ og integrere. Gjelder alltid, også med friksjon.\n\n$$U = mgy, \\qquad U = \\tfrac12 k(x - x_0)^2$$\n\nPotensiell energi i tyngdefeltet og i en fjær. **[formelarket]** — men referansenivået må du oppgi selv.\n\n$$F = -\\frac{dU}{dx}$$\n\nKonservativ kraft som negativ derivert av potensialet. **[formelarket]** — brukes både til å finne kraften og til å finne likevektspunkter.\n\n$$K_A + U_A = K_B + U_B$$\n\nBevaring av mekanisk energi, **gyldig bare når** de eneste kreftene som gjør arbeid, er konservative. **[må kunne utledes]** — og betingelsen skal skrives ut hver eneste gang.\n\n$$K_A + U_A = K_B + U_B + \\mu_d N s$$\n\nEnergiregnskapet med friksjonstap. **[må kunne utledes]** — friksjonsleddet er friksjonskraften ganger den **tilbakelagte veistrekningen**.\n\n$$P = \\frac{dW}{dt} = \\mathbf{F}\\cdot\\mathbf{v}$$\n\nEffekt. **[formelarket]** — for en kraft langs bevegelsen: $P = Fv$."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-5-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) Skriv opp tyngdens to komponenter på et skråplan med helning $\\theta$, og si hvilken av dem som inngår i normalkraften.",
+            "solution": "$$F_{g,\\parallel} = mg\\sin\\theta \\ (\\text{langs planet}), \\qquad F_{g,\\perp} = mg\\cos\\theta \\ (\\text{inn mot planet})$$\n\nNormalkraften balanserer den siste når ingen andre krefter har komponent normalt på planet: $N = mg\\cos\\theta$. Det er også den som inngår i friksjonskraften $\\mu_d N$.",
+            "hints": [
+              "Kontroller med $\\theta = 0$: hvilken komponent skal forsvinne?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Skriv opp den tidløse bevegelseslikningen, og si når den gjelder.",
+            "solution": "$$v^2 - v_0^2 = 2a(x - x_0)$$\n\nDen gjelder **bare når akselerasjonen er konstant**. Vi har nå sett at den er identisk med arbeids–energi-teoremet for en konstant kraft: gang begge sider med $\\tfrac12 m$, så står det $\\tfrac12 mv^2 - \\tfrac12 mv_0^2 = F\\Delta x$.",
+            "hints": [
+              "Likningen inneholder ikke tiden — hva er forutsetningen?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-1-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/fys1100/fys1100-4-1).) Hvorfor gjør normalkraften ikke arbeid på en vogn i en loop?",
+            "solution": "Fordi den i hvert punkt står **vinkelrett** på bevegelsen: banen går langs sirkelen, normalkraften langs radien. Med $\\phi = 90^\\circ$ er $\\cos\\phi = 0$, altså $W = 0$.\n\nDet er nettopp denne setningen som begrunner at mekanisk energi er bevart i en friksjonsfri loop, og den skal skrives ut hver gang loven brukes.",
+            "hints": [
+              "Hvilken vinkel danner normalkraften med bevegelsesretningen?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-1-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 4.1](/bok/fys1100/fys1100-4-1).) En kule slippes fra hvile i høyden $h = 7{,}0\\ \\text{m}$ på en friksjonsfri bane. Hvor fort går den i bunnen?",
+            "solution": "Mekanisk energi er bevart fordi bare tyngden gjør arbeid — banen er friksjonsfri, og normalkraften står vinkelrett på bevegelsen. Med $y = 0$ i bunnen:\n\n$$mgh = \\tfrac12 mv^2 \\quad \\Rightarrow \\quad v = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 7{,}0} = 11{,}7\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nMassen forkortes, og svaret er det samme som for et fritt fall fra samme høyde — banens form spiller ingen rolle så lenge den er friksjonsfri.",
+            "hints": [
+              "Begrunn først hvorfor energibevaring gjelder, og velg deretter referansenivå."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-1-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-1-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) Hva er forskjellen på $\\mu_s$ og $\\mu_d$, og hvilken av dem hører hjemme i et energiregnskap for en kloss som glir?",
+            "solution": "$\\mu_s$ er det **statiske** friksjonstallet og hører til ulikheten $f_s \\le \\mu_s N$, altså grensen for når noe begynner å gli. $\\mu_d$ er det **dynamiske**, og gjelder mens flatene faktisk glir: $f_d = \\mu_d N$.\n\nI et energiregnskap for en kloss som glir, er det $\\mu_d$ som brukes — friksjonsarbeidet er $\\mu_d N s$. Statisk friksjon gjør per definisjon ikke arbeid, siden det ikke er noen relativ bevegelse mellom flatene.",
+            "hints": [
+              "Den ene er en ulikhet, den andre en likhet."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-1-oppg-R6",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-1-r6",
+            "number": "R6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/fys1100/fys1100-1-1).) Bruk benevningskontroll til å avgjøre hvilket av uttrykkene $\\tfrac12 mv^2$, $mgh$, $\\tfrac12 kx^2$ og $\\mu_d N s$ som IKKE er en energi.",
+            "solution": "Alle fire er energier. Vi sjekker hver av dem:\n\n- $\\tfrac12 mv^2$: $\\text{kg}\\cdot(\\text{m/s})^2 = \\text{kg}\\,\\text{m}^2/\\text{s}^2 = \\text{J}$ ✓\n- $mgh$: $\\text{kg}\\cdot\\text{m/s}^2\\cdot\\text{m} = \\text{J}$ ✓\n- $\\tfrac12 kx^2$: $\\text{N/m}\\cdot\\text{m}^2 = \\text{N}\\cdot\\text{m} = \\text{J}$ ✓\n- $\\mu_d N s$: $1 \\cdot \\text{N} \\cdot \\text{m} = \\text{J}$ ✓\n\nOppgaven er en felle, og poenget er metodisk: benevningskontroll kan **utelukke** gale uttrykk, men den kan ikke bekrefte at et uttrykk er riktig. Alle fire har riktig enhet, og likevel hører de hjemme på hver sin plass i regnskapet.",
+            "hints": [
+              "Skriv hver størrelse ut i grunnenhetene kg, m og s."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

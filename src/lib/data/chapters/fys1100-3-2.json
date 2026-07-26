@@ -1,0 +1,471 @@
+{
+  "id": "fys1100-3-2",
+  "courseId": "fys1100",
+  "chapterNumber": "3.2",
+  "title": "Kraftmodeller og dekomponering på skråplan",
+  "description": "Tyngde, normalkraft, friksjon, snordrag og fjærkraft som konkrete modeller — og dekomponeringen av tyngden på et skråplan.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne utlede dekomponeringen av tyngden på et skråplan og kontrollere den med grensetilfeller",
+    "kunne skille statisk og dynamisk friksjon og bestemme friksjonens retning i hver situasjon",
+    "kunne utlede hvilebetingelsen på skråplan og forklare hvorfor massen faller ut",
+    "kunne bruke kraftmodellene for normalkraft, friksjon, snordrag og fjær i et fullstendig kraftregnskap"
+  ],
+  "content": [
+    {
+      "id": "fys1100-3-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Skråplanet er eksamens mest gjenbrukte kulisse.** Newtons 2. lov brukes i **7 av 7 sett (100 %)** og frilegemediagram er eksplisitt etterspurt i **6 av 7**, og svært ofte er scenen nettopp et skråplan: en kloss på en kile, en kule som triller ned, en bil i en dosert sving. Dekomponeringen $mg\\sin\\theta$ langs planet og $mg\\cos\\theta$ normalt på det er dermed et av de mest brukte grepene i hele faget.\n\nKapitlet hører til **sjanger C — Newton på skråplan og koblede klosser med frilegemediagram**, og leverer verktøyene som resten av del 3 og delen om sirkelbevegelse bygger på:\n\n- **kraftmodellene:** tyngde, normalkraft, friksjon, snordrag og fjærkraft — hver med sin egen formel og sitt eget gyldighetsområde;\n- **dekomponeringen på skråplan**, som du skal kunne **utlede**, ikke pugge. Sensor kan be om nettopp det;\n- **hvilebetingelsen** $\\mu_s \\ge \\tan\\theta$, som er en klassisk «vis at»-deloppgave — og et av de fineste eksemplene på et svar som er uavhengig av massen.\n\n**Prioritet: høyeste — dette må sitte.** Feil dekomponering ødelegger hele oppgaven, mens riktig dekomponering ofte gir poeng selv når resten stopper opp."
+    },
+    {
+      "id": "fys1100-3-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/fys1100/fys1100-3-1). Det du trenger derfra, oppfrisket:\n\n**Newtons 2. lov, komponentvis:**\n\n$$\\sum F_x = ma_x, \\qquad \\sum F_y = ma_y$$\n\n**Frilegemediagrammets seks punkter:** isolér ett legeme, tegn alle krefter PÅ det med navngitte symboler, riktig retning og angrepspunkt, rimelige pillengder, inntegnet koordinatsystem, og ingen krefter som ikke finnes.\n\n**Normalkraften** $\\mathbf{N}$ står alltid vinkelrett ut fra kontaktflaten, og den er **ikke** automatisk lik $mg$ — den er så stor som likevekten i den retningen krever.\n\nFra matematikken trenger du trigonometri i rettvinklede trekanter: [Trigonometriske funksjoner og enhetssirkelen](/bok/r1/r1-7-1).\n\n**Notasjon i dette kapitlet:** helningsvinkelen skrives $\\theta$ og måles fra vannrett til planet. Friksjonstallene skrives alltid med subskript — $\\mu_s$ for statisk (hvilefriksjon) og $\\mu_d$ for dynamisk (glidefriksjon) — aldri bart $\\mu$. Friksjonskraften er $\\mathbf{f}_s$ eller $\\mathbf{f}_d$. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$."
+    },
+    {
+      "id": "fys1100-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — dekomponering på skråplan (~20 min)\n\nDu triller på sykkel nedover en bakke uten å tråkke, og farten øker. Tyngden peker rett ned, men du beveger deg skrått nedover langs veien. Hvor mye av tyngden er det som «driver» deg framover?\n\nSvaret er den komponenten som peker langs veien. Resten presses inn i asfalten og møtes av normalkraften. Å dele tyngden i disse to bitene er hele skråplanteknikken — og det avgjørende spørsmålet er hvilken av dem som får sinus og hvilken som får cosinus."
+    },
+    {
+      "id": "fys1100-3-2-th-dekomponering",
+      "type": "theorem",
+      "title": "Dekomponering av tyngden på et skråplan",
+      "content": "På et plan med helningsvinkel $\\theta$ mot vannrett deles tyngden i to komponenter:\n\n$$F_{g,\\parallel} = mg\\sin\\theta \\quad (\\text{langs planet, nedover}), \\qquad F_{g,\\perp} = mg\\cos\\theta \\quad (\\text{inn mot planet})$$\n\nEr det ingen andre krefter normalt på planet, følger normalkraften direkte av likevekt i den retningen:\n\n$$N = mg\\cos\\theta$$\n\n**Merk gyldigheten:** $N = mg\\cos\\theta$ gjelder bare når ingen annen kraft har en komponent normalt på planet. Trekker en snor skrått ut fra planet, eller ligger det en kloss oppå, må $N$ regnes ut på nytt fra likningen $\\sum F_\\perp = 0$."
+    },
+    {
+      "id": "fys1100-3-2-utledning-vinkel",
+      "type": "text",
+      "content": "### Hvilken vinkel havner hvor — utledningen du skal kunne\n\nDette er den ene detaljen som må sitte, og den er lettere å utlede enn å huske.\n\n**Steg 1.** Legg $x$-aksen **langs planet** (positiv retning nedover) og $y$-aksen **normalt på planet**. Tyngden peker rett ned, altså skrått i forhold til begge aksene.\n\n*Intuisjon:* akseparet er dreid nøyaktig vinkelen $\\theta$ i forhold til vannrett og loddrett — så tyngden danner også vinkelen $\\theta$ med den **normale** aksen.\n\n**Steg 2.** Se på den rettvinklede trekanten som tyngdevektoren danner med aksene. Vinkelen mellom tyngden og $y$-aksen (normalen) er $\\theta$. Da er\n\n$$F_{g,\\perp} = mg\\cos\\theta \\quad (\\text{hosliggende katet}), \\qquad F_{g,\\parallel} = mg\\sin\\theta \\quad (\\text{motstående katet})$$\n\n*Intuisjon:* cosinus hører til den vinkelen ligger **inntil**, og tyngden ligger inntil normalretningen.\n\n**Steg 3 — kontroller med to grensetilfeller.** Dette er raskere enn å pugge, og det er det du gjør på eksamen når du er i tvil:\n\n- $\\theta = 0$ (vannrett plan): $mg\\sin 0 = 0$ — ingen kraft langs planet, klossen blir liggende. $mg\\cos 0 = mg$ — hele tyngden bæres av underlaget. ✓\n- $\\theta = 90^\\circ$ (loddrett vegg): $mg\\sin 90^\\circ = mg$ — hele tyngden virker «langs planet», altså fritt fall. $mg\\cos 90^\\circ = 0$ — ingen normalkraft, veggen bærer ingenting. ✓\n\n*Intuisjon:* har du byttet om sinus og cosinus, gir $\\theta = 0$ deg en kloss som akselererer nedover et flatt gulv. Feilen avslører seg selv på fem sekunder."
+    },
+    {
+      "id": "fys1100-3-2-fig-skraaplan",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-3-2-fbd-skraaplan.svg",
+      "alt": "Frilegemediagram for en kloss pa et skraplan med 25 graders helning. Normalkraften N star vinkelrett ut fra planet, tyngden mg peker rett ned og er dekomponert med stiplede piler i mg sinus theta nedover langs planet og mg cosinus theta inn mot planet. Den dynamiske friksjonskraften peker oppover langs planet fordi klossen glir nedover. Et rotert koordinatsystem med x-akse langs planet og y-akse normalt pa planet er tegnet inn.",
+      "caption": "Standardfiguren for hele delen. Legg merke til tre ting: aksene er **dreid** slik at $x$ følger planet, tyngden er erstattet av sine to stiplede komponenter, og friksjonen peker **oppover** planet fordi klossen her glir nedover."
+    },
+    {
+      "id": "fys1100-3-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Kloss på friksjonsfritt skråplan",
+      "problem": "En kloss med masse $2{,}00\\ \\text{kg}$ slippes fra ro på et friksjonsfritt skråplan med helningsvinkel $25{,}0^\\circ$.\n\n**a)** Finn akselerasjonen.\n\n**b)** Finn normalkraften.\n\n**c)** Hvor fort går klossen etter at den har glidd $1{,}50\\ \\text{m}$ langs planet?\n\n**d)** Hva ville skjedd om massen var dobbelt så stor?",
+      "solution": "**Metodevalg først:** Newtons 2. lov komponentvis på klossen alene, med $x$ langs planet (positiv nedover) og $y$ normalt på det. To krefter virker: tyngden og normalkraften — planet er friksjonsfritt, så det er ingen kraft langs flaten.\n\n**a)** Langs planet:\n\n$$\\sum F_x = mg\\sin\\theta = ma \\quad \\Rightarrow \\quad a = g\\sin\\theta = 9{,}81 \\cdot \\sin 25{,}0^\\circ = 4{,}15\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nrettet **nedover langs planet**. Legg merke til at massen faller ut: akselerasjonen på et friksjonsfritt skråplan er uavhengig av massen, akkurat som i fritt fall.\n\n**b)** Normalt på planet er akselerasjonen null (klossen løfter seg ikke fra flaten):\n\n$$\\sum F_y = N - mg\\cos\\theta = 0 \\quad \\Rightarrow \\quad N = mg\\cos\\theta = 2{,}00 \\cdot 9{,}81 \\cdot \\cos 25{,}0^\\circ = 17{,}8\\ \\text{N}$$\n\nTil sammenligning er tyngden $mg = 19{,}6\\ \\text{N}$. Normalkraften er altså mindre, slik den skal være på et skråplan.\n\n**c)** Akselerasjonen er konstant, så den tidløse bevegelseslikningen gjelder:\n\n$$v = \\sqrt{2as} = \\sqrt{2 \\cdot 4{,}15 \\cdot 1{,}50} = 3{,}53\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nnedover langs planet.\n\n**d)** Ingenting ville endret seg for akselerasjonen eller farten: $a = g\\sin\\theta$ inneholder ikke massen. Dobler du massen, dobler du både drivkraften $mg\\sin\\theta$ og tregheten $m$, og de opphever hverandre presist. Normalkraften ville derimot doblet seg, til $35{,}6\\ \\text{N}$.\n\n**Grensetilfelle-kontroll:** med $\\theta \\to 90^\\circ$ gir uttrykket $a \\to g$ (fritt fall) og $N \\to 0$ (ingen kontakt) — begge fysisk riktige."
+    },
+    {
+      "id": "fys1100-3-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Forklar med egne ord hvorfor det er $mg\\sin\\theta$ og ikke $mg\\cos\\theta$ som virker langs skråplanet.\n\n**b)** Bruk grensetilfellene $\\theta = 0$ og $\\theta = 90^\\circ$ til å kontrollere begge komponentene.",
+        "solution": "**a)** Legger vi aksene langs og normalt på planet, danner tyngden vinkelen $\\theta$ med **normalretningen** — ikke med planet. Cosinus hører til den vinkelen ligger inntil, og siden tyngden ligger inntil normalen, får den normale komponenten cosinus. Komponenten langs planet er da den motstående kateten i den samme rettvinklede trekanten, og får sinus.\n\n**b)** \n\n$\\theta = 0$ (vannrett): $mg\\sin 0 = 0$ og $mg\\cos 0 = mg$. Ingen kraft langs planet — klossen blir liggende — og hele tyngden bæres av underlaget. Riktig.\n\n$\\theta = 90^\\circ$ (loddrett): $mg\\sin 90^\\circ = mg$ og $mg\\cos 90^\\circ = 0$. Hele tyngden virker langs «planet», altså fritt fall, og normalkraften forsvinner fordi det ikke lenger er noe å hvile på. Riktig.\n\nHadde vi byttet om sinus og cosinus, ville $\\theta = 0$ gitt en kloss som akselererer bortover et flatt gulv av seg selv. Denne testen tar fem sekunder og er verdt å gjøre hver gang.",
+        "hints": [
+          "Tegn tyngden og aksene, og se hvilken av aksene tyngden danner vinkelen $\\theta$ med.",
+          "Sett inn $\\theta = 0$ i begge uttrykkene og spør om resultatet er fysisk fornuftig."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss med masse $3{,}00\\ \\text{kg}$ slippes fra ro på et friksjonsfritt skråplan med helning $30{,}0^\\circ$.\n\n**a)** Finn akselerasjonen og normalkraften.\n\n**b)** Hvor fort går klossen etter $2{,}00\\ \\text{s}$, og hvor langt har den glidd?\n\n**c)** Sammenlign normalkraften med tyngden, og forklar forholdet mellom dem.",
+        "solution": "**Metodevalg:** Newtons 2. lov komponentvis, akser langs og normalt på planet. To krefter: tyngden og normalkraften.\n\n**a)** $$a = g\\sin 30{,}0^\\circ = 9{,}81 \\cdot 0{,}500 = 4{,}91\\ \\tfrac{\\text{m}}{\\text{s}^2} \\ \\text{nedover langs planet}$$\n\n$$N = mg\\cos 30{,}0^\\circ = 3{,}00 \\cdot 9{,}81 \\cdot 0{,}866 = 25{,}5\\ \\text{N}$$\n\n**b)** Akselerasjonen er konstant:\n\n$$v = at = 4{,}91 \\cdot 2{,}00 = 9{,}81\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad s = \\tfrac12at^2 = \\tfrac12 \\cdot 4{,}91 \\cdot 4{,}00 = 9{,}81\\ \\text{m}$$\n\n(At de to tallene blir like her, er en tilfeldighet som skyldes at $t = 2{,}00\\ \\text{s}$ — enhetene er forskjellige.)\n\n**c)** Tyngden er $mg = 29{,}4\\ \\text{N}$, mens $N = 25{,}5\\ \\text{N}$, altså $\\cos 30^\\circ = 86{,}6\\ \\%$ av tyngden. Underlaget bærer bare den delen av tyngden som presses inn i flaten; resten «lekker ut» som drivkraften langs planet. Jo brattere planet, desto mindre normalkraft — og i grensen $\\theta \\to 90^\\circ$ forsvinner den helt.",
+        "hints": [
+          "På friksjonsfritt skråplan er $a = g\\sin\\theta$ — massen faller ut.",
+          "Normalkraften finner du fra likevekt normalt på planet.",
+          "Konstant akselerasjon gir bevegelseslikningene fra kinematikken."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — friksjon (~20 min)\n\nEt friksjonsfritt skråplan finnes ikke. Legger du en bok på et bord som helles langsomt, blir den liggende — helt til en viss vinkel, og da glir den plutselig. Friksjonen er altså to forskjellige ting: én som holder igjen så lenge den greier, og én som virker mens noe glir."
+    },
+    {
+      "id": "fys1100-3-2-def-statisk-friksjon",
+      "type": "definition",
+      "title": "Statisk friksjon (hvilefriksjon)",
+      "content": "Kraften som hindrer to flater i å begynne å gli i forhold til hverandre. Den er en **ulikhet**, ikke en fast verdi:\n\n$$\\lvert \\mathbf{f}_s \\rvert \\le \\mu_s N$$\n\nDen statiske friksjonen er akkurat så stor som den trenger å være for å holde legemet i ro — verken mer eller mindre — helt til den treffer taket $\\mu_s N$. Skyver du lett på en tung kasse som ikke rikker seg, er friksjonen like stor som skyvet ditt, ikke $\\mu_s N$.\n\n**Dette er den vanligste friksjonsfeilen:** å sette $f_s = \\mu_s N$ i en situasjon der ingenting glir. Bruk $\\mu_s N$ bare når du spør etter **grensen** — «hvor bratt kan planet være?», «hvor hardt kan jeg skyve?»."
+    },
+    {
+      "id": "fys1100-3-2-def-dynamisk-friksjon",
+      "type": "definition",
+      "title": "Dynamisk friksjon (glidefriksjon)",
+      "content": "Kraften mens flatene faktisk glir mot hverandre. Her er det en **likhet**:\n\n$$\\lvert \\mathbf{f}_d \\rvert = \\mu_d N$$\n\nRetningen er alltid **mot den relative bevegelsen** mellom flatene. Glir klossen nedover planet, peker friksjonen oppover; sendes den oppover, peker friksjonen nedover. Retningen må derfor drøftes i hver enkelt situasjon — den er ikke en egenskap ved planet, men ved bevegelsen.\n\nI de fleste materialpar er $\\mu_d$ litt mindre enn $\\mu_s$. Det er derfor en tung kasse gjerne «løsner med et rykk» og deretter blir lettere å skyve."
+    },
+    {
+      "id": "fys1100-3-2-def-friksjonstall",
+      "type": "definition",
+      "title": "Friksjonstall",
+      "content": "De dimensjonsløse tallene $\\mu_s$ (statisk) og $\\mu_d$ (dynamisk) som knytter friksjonskraften til normalkraften. De avhenger av **materialparet** og av flatenes tilstand, ikke av kontaktflatens areal eller av farten — det er dette som gjør modellen så enkel.\n\nTypiske verdier: gummi mot tørr asfalt $\\mu_s \\approx 0{,}8$, tre mot tre $\\approx 0{,}4$, stål mot smurt stål $\\approx 0{,}05$, ski mot snø $\\approx 0{,}05$. Verdier over $1$ finnes (silikongummi mot glass), men er sjeldne — får du $\\mu = 4$ i en oppgave, er det verdt en ekstra kontroll.\n\n**Notasjon:** skriv alltid subskriptet. Et bart $\\mu$ gjør det umulig for sensor å se om du mener grensen eller glidningen."
+    },
+    {
+      "id": "fys1100-3-2-def-friksjonsretning",
+      "type": "definition",
+      "title": "Friksjonens retning",
+      "content": "Friksjonen motvirker den **relative bevegelsen** (eller tendensen til relativ bevegelse) mellom flatene — ikke nødvendigvis legemets bevegelse i forhold til bakken.\n\nPraktisk oppskrift i tre trinn:\n\n1. spør: hvilken vei ville flatene glidd i forhold til hverandre uten friksjon?\n2. tegn friksjonskraften motsatt vei;\n3. sjekk fortegnet ditt mot figuren før du regner.\n\nPoenget er at friksjonen ikke alltid bremser. Det er friksjonen fra veien som **driver** en bil framover: hjulet skyver bakover på asfalten, og asfalten skyver framover på hjulet."
+    },
+    {
+      "id": "fys1100-3-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Kloss som glir ned et skråplan med friksjon",
+      "problem": "Samme kloss som i eksempel 1 ($m = 2{,}00\\ \\text{kg}$, $\\theta = 25{,}0^\\circ$), men nå med dynamisk friksjonstall $\\mu_d = 0{,}300$ mellom kloss og plan. Klossen settes i gang og glir nedover.\n\n**a)** Finn akselerasjonen.\n\n**b)** Hvor mye mindre er den enn på det friksjonsfrie planet?\n\n**c)** Vis at uttrykket ditt gir det riktige svaret i grensen $\\mu_d = 0$.",
+      "solution": "**Metodevalg først:** Newtons 2. lov komponentvis, akser langs og normalt på planet. Klossen glir **nedover**, så den dynamiske friksjonen peker **oppover** langs planet — den motvirker den relative bevegelsen. Tre krefter virker nå: tyngde, normalkraft og friksjon.\n\n**a)** Normalt på planet er akselerasjonen null, og ingen andre krefter har komponent der:\n\n$$N = mg\\cos\\theta$$\n\nLangs planet, med positiv retning nedover:\n\n$$\\sum F_x = mg\\sin\\theta - f_d = mg\\sin\\theta - \\mu_d N = mg\\sin\\theta - \\mu_d mg\\cos\\theta = ma$$\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}4226 - 0{,}300 \\cdot 0{,}9063) = 9{,}81 \\cdot 0{,}1507 = 1{,}48\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs planet. Massen faller ut igjen — også med friksjon, fordi både drivkraften og friksjonen er proporsjonale med $m$.\n\n**b)** Uten friksjon var $a = 4{,}15\\ \\text{m/s}^2$. Friksjonen tar altså bort $2{,}67\\ \\text{m/s}^2$, nesten to tredjedeler av akselerasjonen. Det er verdt å merke seg hvor mye et beskjedent friksjonstall betyr.\n\n**c)** Setter vi $\\mu_d = 0$ i uttrykket:\n\n$$a = g(\\sin\\theta - 0 \\cdot \\cos\\theta) = g\\sin\\theta$$\n\nsom er nøyaktig svaret fra eksempel 1. Grensetilfellet stemmer, og det bekrefter at friksjonsleddet er kommet inn med riktig fortegn. **Slike kontroller er ofte en egen deloppgave på eksamen**, og de er alltid verdt å ta med selv når de ikke er etterspurt.\n\n**Betingelse verdt å merke seg:** uttrykket forutsetter at klossen faktisk glir. Er $\\mu_d$ stor nok til at $\\sin\\theta < \\mu_d\\cos\\theta$, gir formelen negativ akselerasjon nedover — som ville bety at klossen akselererte oppover av seg selv. Det er umulig; da glir den ikke i det hele tatt, og vi må i stedet regne med statisk friksjon."
+    },
+    {
+      "id": "fys1100-3-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Sinus og cosinus byttes om i dekomponeringen.** Den dyreste feilen i kapitlet, fordi den ødelegger alt som følger. Kontroller alltid med $\\theta = 0$: da skal komponenten langs planet være null.\n\n**$N = mg$ settes inn på et skråplan.** Normalkraften er $mg\\cos\\theta$ her, og den blir noe helt annet igjen dersom en snor eller en ekstra kloss har en komponent normalt på planet. Regn den ut fra $\\sum F_\\perp = 0$ hver gang.\n\n**Statisk friksjon behandles som en fast verdi $\\mu_s N$.** Den er en øvre grense. Så lenge legemet ligger i ro, er friksjonen akkurat så stor som den må være — ofte mye mindre enn taket.\n\n**Feil friksjonsretning.** Friksjonen motvirker den relative bevegelsen, så den snur når bevegelsen snur. En kloss som sendes oppover et plan, har friksjonen **nedover** på vei opp og **oppover** på vei ned — og derfor to forskjellige akselerasjoner i de to fasene.\n\n**Urimelig forhold mellom $N$ og tyngdekomponenten.** Tegner du $N$ mye større enn $mg\\cos\\theta$ i figuren, trekkes det typisk 1 poeng. Pillengdene skal speile størrelsesforholdene.\n\n**Tallsvar uten begrunnelse (felle #1 — den dyreste enkeltfeilen; feilene har et samlet register i bokas Del 0).** Én setning om hvilket prinsipp du bruker, før første likning."
+    },
+    {
+      "id": "fys1100-3-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss glir nedover et skråplan med helning $35{,}0^\\circ$. Det dynamiske friksjonstallet er $\\mu_d = 0{,}250$.\n\n**a)** Finn akselerasjonen.\n\n**b)** Klossen starter fra ro og glir $4{,}00\\ \\text{m}$ langs planet. Hvor fort går den da?\n\n**c)** Hvor stor måtte $\\mu_d$ vært for at klossen skulle glidd med konstant fart?",
+        "solution": "**Metodevalg:** Newtons 2. lov komponentvis. Klossen glir nedover, så friksjonen peker oppover langs planet.\n\n**a)** $$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}5736 - 0{,}250 \\cdot 0{,}8192) = 9{,}81 \\cdot 0{,}3688 = 3{,}62\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs planet.\n\n**b)** $$v = \\sqrt{2as} = \\sqrt{2 \\cdot 3{,}62 \\cdot 4{,}00} = 5{,}38\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**c)** Konstant fart betyr $a = 0$, altså\n\n$$\\sin\\theta = \\mu_d\\cos\\theta \\quad \\Rightarrow \\quad \\mu_d = \\tan\\theta = \\tan 35{,}0^\\circ = 0{,}700$$\n\nMed $\\mu_d = 0{,}700$ ville klossen glidd videre med den farten den hadde. Merk at betingelsen er den samme som hvilebetingelsen $\\mu_s = \\tan\\theta$, bare med det dynamiske friksjonstallet — og at den er uavhengig av massen.",
+        "hints": [
+          "Klossen glir nedover, så friksjonen peker oppover langs planet.",
+          "$a = g(\\sin\\theta - \\mu_d\\cos\\theta)$ — utled den i stedet for å huske den.",
+          "Konstant fart betyr at akselerasjonen er null."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — når blir klossen liggende? (~12 min)\n\nHell et brett langsomt. Boka blir liggende, blir liggende — og så, ved en bestemt vinkel, glir den. Den vinkelen er en ren materialegenskap, og utledningen er en klassisk «vis at»-deloppgave."
+    },
+    {
+      "id": "fys1100-3-2-th-hvilebetingelse",
+      "type": "theorem",
+      "title": "Hvilebetingelsen på et skråplan",
+      "content": "En kloss ligger i ro på et skråplan med helning $\\theta$ hvis og bare hvis\n\n$$\\mu_s \\ge \\tan\\theta$$\n\n**Utledning.** Klossen ligger i ro, altså $\\sum\\mathbf{F} = 0$ i begge retninger:\n\n$$\\text{normalt:} \\quad N = mg\\cos\\theta, \\qquad \\text{langs:} \\quad f_s = mg\\sin\\theta$$\n\n*Intuisjon:* hvilefriksjonen må akkurat balansere tyngdekomponenten som vil dra klossen ned — hverken mer eller mindre.\n\nBetingelsen for at hvilefriksjonen greier det, er at den holder seg under taket sitt:\n\n$$f_s \\le \\mu_s N \\quad \\Rightarrow \\quad mg\\sin\\theta \\le \\mu_s\\, mg\\cos\\theta$$\n\n*Intuisjon:* nå kan vi dele på $mg\\cos\\theta$, som er positiv for alle $0 \\le \\theta < 90^\\circ$ — og massen forsvinner.\n\n$$\\tan\\theta \\le \\mu_s$$\n\n**Massen faller ut.** En tung og en lett kloss av samme materiale glir ved nøyaktig samme vinkel. Grunnen er at både drivkraften og friksjonstaket vokser proporsjonalt med $m$: en tyngre kloss presses hardere mot flaten og får tilsvarende mer friksjon.\n\nDen kritiske vinkelen $\\theta_c = \\arctan\\mu_s$ kalles **friksjonsvinkelen**, og den gir en enkel måleoppskrift: hell planet til noe glir, les av vinkelen, og du har $\\mu_s$."
+    },
+    {
+      "id": "fys1100-3-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Hvor bratt kan lasteplanet være?",
+      "problem": "En kasse står på et lasteplan som kan tippes. Det statiske friksjonstallet mellom kasse og plan er $\\mu_s = 0{,}550$.\n\n**a)** Ved hvilken helningsvinkel begynner kassa å gli?\n\n**b)** Ved $\\theta = 25{,}0^\\circ$: hvor stor er friksjonskraften på en kasse med masse $40{,}0\\ \\text{kg}$?\n\n**c)** En kollega mener at en tyngre kasse ville tålt en brattere vinkel. Har han rett?",
+      "solution": "**Metodevalg først:** kassa står i ro, så vi bruker likevekt ($\\sum\\mathbf{F} = 0$) med den statiske friksjonen som en **ulikhet**, ikke en fast verdi.\n\n**a)** Glidning begynner der hvilefriksjonen når taket sitt, altså der $\\tan\\theta = \\mu_s$:\n\n$$\\theta_c = \\arctan 0{,}550 = 28{,}8^\\circ$$\n\n**b)** Ved $\\theta = 25{,}0^\\circ$ ligger kassa i ro, og da er friksjonen **akkurat så stor som den må være** for å balansere tyngdekomponenten:\n\n$$f_s = mg\\sin\\theta = 40{,}0 \\cdot 9{,}81 \\cdot \\sin 25{,}0^\\circ = 166\\ \\text{N}$$\n\nTil sammenligning er taket\n\n$$\\mu_s N = 0{,}550 \\cdot 40{,}0 \\cdot 9{,}81 \\cdot \\cos 25{,}0^\\circ = 196\\ \\text{N}$$\n\nFriksjonen bruker altså bare $85\\ \\%$ av kapasiteten sin. **Å sette $f_s = \\mu_s N = 196\\ \\text{N}$ her ville vært galt** — da ville regnskapet gitt kassa en netto kraft oppover langs planet, og den ville krøpet oppover av seg selv.\n\n**c)** Nei. Den kritiske vinkelen er $\\theta_c = \\arctan\\mu_s$, og massen inngår ikke. En tyngre kasse presses hardere mot planet og får proporsjonalt mer friksjon, men den dras også hardere nedover — de to virkningene opphever hverandre nøyaktig. En 40-kilos og en 400-kilos kasse av samme materiale glir ved samme vinkel.\n\n**Rimelighetskontroll:** $\\mu_s = 0{,}550$ svarer omtrent til gummi mot betong, og $29^\\circ$ er en bratt, men troverdig helning for et lasteplan."
+    },
+    {
+      "id": "fys1100-3-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave.) En kloss ligger i ro på et skråplan.\n\n**a)** Forklar hvorfor betingelsen for at den skal bli liggende ikke inneholder massen.\n\n**b)** Hva ville skjedd med den kritiske vinkelen på månen, der $g$ er om lag en sjettedel av jordas?\n\n**c)** En student skriver «friksjonskraften er $\\mu_s N$» i en oppgave der klossen ligger i ro på et plan som er langt slakkere enn den kritiske vinkelen. Hva er galt?",
+        "solution": "**a)** Både drivkraften og friksjonstaket er proporsjonale med massen: drivkraften er $mg\\sin\\theta$, og taket er $\\mu_s N = \\mu_s mg\\cos\\theta$. Når vi krever at den ene skal være mindre enn den andre, kan vi dele på $mg\\cos\\theta$ på begge sider, og både $m$ og $g$ forsvinner. Fysisk: en tyngre kloss dras hardere ned, men presses også hardere mot flaten og får tilsvarende mer friksjon.\n\n**b)** Ingenting. Av samme grunn som i a) faller også $g$ ut av betingelsen $\\tan\\theta \\le \\mu_s$. Den kritiske vinkelen er $\\arctan\\mu_s$ på jorda, på månen og på Mars — den avhenger bare av materialparet. Kreftene ville vært mindre på månen, men forholdet mellom dem er det samme.\n\n**c)** Statisk friksjon er en **ulikhet**, $f_s \\le \\mu_s N$. Så lenge klossen ligger i ro, er friksjonen akkurat så stor som den må være for å balansere tyngdekomponenten, altså $f_s = mg\\sin\\theta$ — og det er mindre enn $\\mu_s N$ når planet er slakkere enn den kritiske vinkelen. Setter studenten inn $\\mu_s N$, får han en netto kraft oppover langs planet, og en kloss som spontant krabber oppover. Uttrykket $\\mu_s N$ skal bare brukes når du spør etter **grensen**.",
+        "hints": [
+          "Skriv opp både drivkraften og friksjonstaket, og se hvilke faktorer de har felles.",
+          "I b): står $g$ igjen noe sted i den endelige betingelsen?",
+          "I c): er statisk friksjon en likhet eller en ulikhet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — fjærkraft, snordrag og fullt oppsett (~13 min)\n\nTo kraftmodeller til, og så har du hele verktøykassa for del 3."
+    },
+    {
+      "id": "fys1100-3-2-def-fjaerkraft",
+      "type": "definition",
+      "title": "Fjærkraft (Hookes lov)",
+      "content": "En fjær som strekkes eller trykkes sammen, svarer med en kraft som er proporsjonal med utslaget og rettet **mot** likevektsstillingen:\n\n$$\\mathbf{F} = -k(x - x_0)$$\n\nHer er $x_0$ fjærens naturlige lengde (likevektsstillingen) og $k$ fjærkonstanten. Minustegnet er selve poenget: kraften peker alltid tilbake mot $x_0$, og det er derfor en fjær gir svingninger. Formelen står på formelarket du får utdelt.\n\n**Modellens gyldighet:** Hookes lov er en tilnærming som holder for små utslag. Strekker du fjæren for langt, blir sammenhengen ikke-lineær, og til slutt deformeres fjæren varig."
+    },
+    {
+      "id": "fys1100-3-2-def-fjaerkonstant",
+      "type": "definition",
+      "title": "Fjærkonstanten",
+      "content": "Tallet $k$ i Hookes lov, med enhet $\\text{N/m}$ — kraften som trengs per meter utslag. En stiv fjær har stor $k$, en slapp fjær liten.\n\nPraktisk størrelsesorden: en kulepennfjær har $k$ på noen få $\\text{N/m}$, en bilfjær rundt $20\\,000\\ \\text{N/m}$. Kombinerer du fjærer, gjelder at parallelle fjærer legger sammen $k$-ene sine, mens fjærer i serie blir slappere enn hver av dem. Fjærkonstanten dukker opp igjen som den avgjørende parameteren i svingninger, der egenfrekvensen blir $\\omega_0 = \\sqrt{k/m}$."
+    },
+    {
+      "id": "fys1100-3-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Kloss trekkes oppover et skråplan (eksamensnivå)",
+      "problem": "En kasse med masse $5{,}00\\ \\text{kg}$ trekkes oppover et skråplan med helning $20{,}0^\\circ$ av en snor som ligger **parallelt med planet**. Det dynamiske friksjonstallet er $\\mu_d = 0{,}250$, og kassa akselererer oppover langs planet med $1{,}20\\ \\text{m/s}^2$.\n\n**a)** Tegn frilegemediagram, og finn snordraget.\n\n**b)** Hvor stort må snordraget være for at kassa skal gå med konstant fart?\n\n**c)** Hva skjer med snordraget dersom snora i stedet gjør en vinkel $\\varphi$ med planet? Drøft kvalitativt.",
+      "solution": "**Metodevalg først:** Newtons 2. lov komponentvis på kassa alene, med $x$ langs planet (positiv **oppover**, siden det er bevegelsesretningen) og $y$ normalt på det. Fire krefter virker: tyngden, normalkraften, snordraget og friksjonen. Kassa beveger seg **oppover**, så den dynamiske friksjonen peker **nedover** langs planet.\n\n**a)** Frilegemediagrammet ser ut som standardfiguren tidligere i kapitlet, med to endringer: snordraget $T$ er tegnet oppover langs planet, og friksjonen $f_d$ peker nedover langs planet (fordi bevegelsen er oppover).\n\nNormalt på planet:\n\n$$N = mg\\cos\\theta = 5{,}00 \\cdot 9{,}81 \\cdot \\cos 20{,}0^\\circ = 46{,}1\\ \\text{N}$$\n\nLangs planet, positiv retning oppover:\n\n$$T - mg\\sin\\theta - \\mu_d N = ma$$\n\n$$T = m a + mg\\sin\\theta + \\mu_d mg\\cos\\theta = m\\left(a + g\\sin\\theta + \\mu_d g\\cos\\theta\\right)$$\n\n$$T = 5{,}00\\,(1{,}20 + 3{,}355 + 2{,}305) = 5{,}00 \\cdot 6{,}860 = 34{,}3\\ \\text{N}$$\n\nDe tre leddene har hver sin tolkning: $6{,}00\\ \\text{N}$ går til å akselerere kassa, $16{,}8\\ \\text{N}$ til å motvirke tyngdekomponenten, og $11{,}5\\ \\text{N}$ til å overvinne friksjonen.\n\n**b)** Konstant fart betyr $a = 0$, altså faller det første leddet bort:\n\n$$T = mg(\\sin\\theta + \\mu_d\\cos\\theta) = 5{,}00 \\cdot 9{,}81\\,(0{,}342 + 0{,}235) = 28{,}3\\ \\text{N}$$\n\n**c)** Med snora i vinkelen $\\varphi$ over planet skjer to ting samtidig. Bare komponenten $T\\cos\\varphi$ trekker langs planet, så en gitt $T$ blir **mindre effektiv** i trekkretningen. Men samtidig løfter komponenten $T\\sin\\varphi$ litt av kassa, slik at normalkraften synker til $N = mg\\cos\\theta - T\\sin\\varphi$ — og dermed synker også friksjonen.\n\nDe to virkningene trekker i hver sin retning, og det finnes derfor en **optimal vinkel** som gir minst mulig nødvendig snordrag. For små $\\mu_d$ er den optimale vinkelen nær null (da lønner det seg å trekke rett langs planet), mens den vokser når friksjonen blir stor. Det er nettopp derfor man løfter litt i håndtaket når man drar en tung slede.\n\n**Grensetilfelle-kontroll av a):** setter vi $\\mu_d = 0$ og $a = 0$, får vi $T = mg\\sin\\theta$ — akkurat det som skal til for å holde kassa i ro på et friksjonsfritt plan. Og med $\\theta = 0$ og $a = 0$ blir $T = \\mu_d mg$, som er kraften som trengs for å dra kassa med konstant fart over et vannrett gulv. Begge stemmer."
+    },
+    {
+      "id": "fys1100-3-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kasse med masse $8{,}00\\ \\text{kg}$ trekkes med **konstant fart** oppover et skråplan med helning $15{,}0^\\circ$. Snora ligger parallelt med planet, og $\\mu_d = 0{,}200$.\n\n**a)** Finn snordraget.\n\n**b)** Hvor stor er friksjonskraften?\n\n**c)** Hvor stort ville snordraget vært på et friksjonsfritt plan? Kommenter forskjellen.",
+        "solution": "**Metodevalg:** konstant fart betyr $a = 0$, altså likevekt langs planet. Kassa går oppover, så friksjonen peker nedover langs planet.\n\n**a)** $$T = mg(\\sin\\theta + \\mu_d\\cos\\theta) = 8{,}00 \\cdot 9{,}81\\,(0{,}2588 + 0{,}200 \\cdot 0{,}9659)$$\n\n$$T = 78{,}5 \\cdot 0{,}4520 = 35{,}5\\ \\text{N}$$\n\n**b)** $$f_d = \\mu_d N = \\mu_d mg\\cos\\theta = 0{,}200 \\cdot 78{,}5 \\cdot 0{,}9659 = 15{,}2\\ \\text{N}$$\n\nrettet nedover langs planet.\n\n**c)** Uten friksjon: $T = mg\\sin\\theta = 78{,}5 \\cdot 0{,}2588 = 20{,}3\\ \\text{N}$. Friksjonen står altså for $15{,}2\\ \\text{N}$ av de $35{,}5\\ \\text{N}$ — nesten $43\\ \\%$ av innsatsen går med til å overvinne friksjonen alene, selv med et beskjedent friksjonstall på $0{,}200$ og en slak helning. Det er verdt å merke seg hvor kostbar friksjon er i slake bakker: jo slakkere planet, desto større andel av trekkraften går til friksjon.",
+        "hints": [
+          "Konstant fart betyr at resultantkraften er null.",
+          "Sett opp likevekt langs planet med friksjonen rettet nedover.",
+          "Regn ut normalkraften først — den trengs for friksjonskraften."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss med masse $1{,}50\\ \\text{kg}$ ligger på et **friksjonsfritt** skråplan med helning $20{,}0^\\circ$ og holdes på plass av en fjær som ligger parallelt med planet. Fjærkonstanten er $k = 180\\ \\text{N/m}$.\n\n**a)** Hvor mye er fjæren strukket?\n\n**b)** Hvor stor er normalkraften?\n\n**c)** Hva ville skjedd med utslaget om fjæren i stedet hadde $k = 90\\ \\text{N/m}$?",
+        "solution": "**Metodevalg:** klossen ligger i ro, altså likevekt. Langs planet balanserer fjærkraften tyngdekomponenten; normalt på planet balanserer normalkraften den andre komponenten.\n\n**a)** Likevekt langs planet:\n\n$$k\\,\\Delta x = mg\\sin\\theta \\quad \\Rightarrow \\quad \\Delta x = \\frac{mg\\sin\\theta}{k} = \\frac{1{,}50 \\cdot 9{,}81 \\cdot 0{,}342}{180} = \\frac{5{,}03}{180} = 0{,}0280\\ \\text{m}$$\n\naltså $2{,}80\\ \\text{cm}$.\n\n**b)** $$N = mg\\cos\\theta = 1{,}50 \\cdot 9{,}81 \\cdot 0{,}9397 = 13{,}8\\ \\text{N}$$\n\nFjæren ligger parallelt med planet og har derfor ingen komponent normalt på det — normalkraften er upåvirket av fjæren.\n\n**c)** Utslaget ville doblet seg, til $5{,}59\\ \\text{cm}$. Fjærkraften som trengs er den samme ($5{,}03\\ \\text{N}$, bestemt av tyngdekomponenten), og med halvparten så stiv fjær kreves dobbelt så stort utslag for å få den samme kraften. **Benevningskontroll:** $\\text{N}/(\\text{N/m}) = \\text{m}$ ✓.",
+        "hints": [
+          "Fjærkraften må balansere tyngdekomponenten langs planet.",
+          "Hookes lov: $F = k\\,\\Delta x$ i tallverdi.",
+          "Sjekk om fjæren har noen komponent normalt på planet."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.) En kloss sendes oppover et skråplan med helning $28{,}0^\\circ$ med startfarten $6{,}00\\ \\text{m/s}$. Friksjonstallene er $\\mu_s = \\mu_d = 0{,}300$.\n\n**a)** Finn akselerasjonen mens klossen er på vei oppover, og hvor langt opp den kommer.\n\n**b)** Avgjør om klossen blir liggende i det øverste punktet, eller om den glir tilbake.\n\n**c)** Finn farten når klossen er tilbake i utgangspunktet.\n\n**d)** Kontroller regnestykket i grensen $\\mu_d = 0$, og forklar hva grenseresultatet betyr fysisk.",
+        "solution": "**Metodevalg først:** to faser med **hver sin** friksjonsretning, så vi må regne dem hver for seg. På vei opp peker friksjonen nedover langs planet (den motvirker den relative bevegelsen); på vei ned peker den oppover. Newtons 2. lov komponentvis i begge faser, med $x$ langs planet.\n\n**a)** På vei opp virker både tyngdekomponenten og friksjonen bremsende:\n\n$$a_{\\text{opp}} = g(\\sin\\theta + \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}4695 + 0{,}300 \\cdot 0{,}8829) = 9{,}81 \\cdot 0{,}7344 = 7{,}20\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nrettet nedover langs planet (altså bremsende). Strekningen til $v = 0$:\n\n$$s = \\frac{v_0^2}{2a_{\\text{opp}}} = \\frac{36{,}0}{2 \\cdot 7{,}20} = 2{,}50\\ \\text{m}$$\n\n**b)** Klossen glir tilbake hvis $\\tan\\theta > \\mu_s$. Her er $\\tan 28{,}0^\\circ = 0{,}532$ og $\\mu_s = 0{,}300$, så\n\n$$0{,}532 > 0{,}300$$\n\nHvilefriksjonen greier ikke å holde klossen, og den glir tilbake. (Hadde $\\mu_s$ vært større enn $0{,}532$, ville klossen blitt liggende i det øverste punktet — og da ville spørsmål c) ikke gitt mening.)\n\n**c)** På vei ned motvirker friksjonen den nedadrettede bevegelsen:\n\n$$a_{\\text{ned}} = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}4695 - 0{,}2649) = 2{,}01\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs planet. Farten etter $2{,}50\\ \\text{m}$:\n\n$$v = \\sqrt{2 a_{\\text{ned}}\\,s} = \\sqrt{2 \\cdot 2{,}01 \\cdot 2{,}50} = 3{,}17\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nKlossen kommer altså tilbake med bare halvparten av startfarten. Differansen er ikke «forsvunnet» — den er gått med til friksjonsarbeid og er blitt varme i kontaktflaten.\n\n**d)** Med $\\mu_d = 0$ blir begge akselerasjonene like:\n\n$$a_{\\text{opp}} = a_{\\text{ned}} = g\\sin\\theta = 4{,}61\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nStrekningen blir $s = 36{,}0/(2 \\cdot 4{,}61) = 3{,}91\\ \\text{m}$, og returfarten\n\n$$v = \\sqrt{2 \\cdot 4{,}61 \\cdot 3{,}91} = 6{,}00\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n— nøyaktig startfarten. Det er akkurat som det skal være: uten friksjon er det ingenting som tapper bevegelsen, og klossen kommer tilbake med samme fart som den ble sendt opp med. At grensetilfellet gir dette svaret, er en sterk indikasjon på at oppsettet med to friksjonsretninger er riktig.",
+        "hints": [
+          "To faser med hver sin friksjonsretning — regn dem hver for seg.",
+          "På vei opp bremser både tyngdekomponenten og friksjonen; på vei ned motvirker de hverandre.",
+          "Hvilebetingelsen $\\mu_s \\ge \\tan\\theta$ avgjør om klossen blir liggende i toppen.",
+          "I d): sett $\\mu_d = 0$ i begge akselerasjonene og se hva returfarten blir."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-3-2-def-friksjon-varme",
+      "type": "definition",
+      "title": "Friksjon omdanner mekanisk energi til varme",
+      "content": "Til forskjell fra tyngden og fjærkraften er friksjonen ikke **konservativ**: den mekaniske energien den tar, kommer ikke tilbake. En kloss som sendes opp et skråplan og glir tilbake, returnerer alltid med lavere fart enn den ble sendt opp med, og differansen er blitt varme i kontaktflaten.\n\nPraktisk konsekvens allerede nå: har du regnet ut en returfart som er **større** enn startfarten i en oppgave med friksjon, er noe galt. Selve energiregnskapet — arbeidet $W_f = -\\mu_d N s$ — bygges ut i delen om arbeid og energi."
+    },
+    {
+      "id": "fys1100-3-2-def-velting",
+      "type": "definition",
+      "title": "Glidning kontra velting",
+      "content": "Punktmassemodellen forutsetter at legemet glir, ikke velter. Et høyt, smalt legeme kan **tippe** før hvilefriksjonen svikter — det skjer når tyngdens virkelinje faller utenfor understøttelsesflaten.\n\nFor en boks med bredde $b$ og høyde $h$ på et skråplan er velting kritisk før glidning dersom $\\tan\\theta$ når $b/h$ før den når $\\mu_s$. Det er derfor høye laster surres og lave laster ikke gjør det. I dette kapitlet antar vi alltid glidning; nevnes velting i en oppgave, må angrepspunktene med, og da trengs kraftmoment — som kommer i delen om rotasjon."
+    },
+    {
+      "id": "fys1100-3-2-def-kraftregnskap",
+      "type": "definition",
+      "title": "Kraftregnskapet i en skråplanoppgave",
+      "content": "Den faste oppskriften, som er verdt å automatisere:\n\n1. tegn frilegemediagram med navngitte krefter og roterte akser;\n2. skriv $\\sum F_\\perp = 0$ og finn $N$;\n3. bestem **friksjonens retning** ut fra hvilken vei legemet glir (eller ville glidd);\n4. skriv $\\sum F_\\parallel = ma$ med riktige fortegn;\n5. løs, og oppgi retning og enhet;\n6. kontroller med et grensetilfelle ($\\mu \\to 0$ eller $\\theta \\to 0$).\n\nSteg 2 før steg 4 er ingen tilfeldighet: friksjonen kan ikke regnes ut før normalkraften er kjent."
+    },
+    {
+      "id": "fys1100-3-2-def-helningsvinkel",
+      "type": "definition",
+      "title": "Helningsvinkelen på et skråplan",
+      "content": "Vinkelen $\\theta$ mellom planet og vannrett. Det er den samme vinkelen som opptrer mellom tyngden og normalen til planet — og det er nettopp derfor $\\cos\\theta$ havner i den normale komponenten.\n\nEn helning oppgitt i **prosent** (som på veiskilt) er ikke en vinkel, men stigningstallet: $10\\ \\%$ betyr $\\tan\\theta = 0{,}10$, altså $\\theta = 5{,}7^\\circ$. Sjekk alltid hvilken av dem oppgaven bruker før du regner."
+    },
+    {
+      "id": "fys1100-3-2-def-mg-sin",
+      "type": "definition",
+      "title": "Tyngdekomponenten langs planet",
+      "content": "$F_{g,\\parallel} = mg\\sin\\theta$, rettet **nedover langs planet**. Dette er drivkraften i alle skråplanoppgaver: den er det som får ting til å gli nedover, og den som må overvinnes for å dra noe oppover.\n\nLegg merke til at den vokser med vinkelen: null på flatt underlag, hele $mg$ på en loddrett vegg. Sammen med at $N$ synker samtidig, forklarer det hvorfor bratte bakker er dobbelt vanskelige — mer drivkraft og mindre friksjonskapasitet."
+    },
+    {
+      "id": "fys1100-3-2-def-mg-cos",
+      "type": "definition",
+      "title": "Tyngdekomponenten normalt på planet",
+      "content": "$F_{g,\\perp} = mg\\cos\\theta$, rettet **inn mot planet**. Det er denne komponenten underlaget må bære, og derfor er $N = mg\\cos\\theta$ når ingen andre krefter har komponent i den retningen.\n\nFordi friksjonstaket er $\\mu N$, betyr en bratt helning ikke bare mer drivkraft, men også mindre friksjon å ta av. Det er den kombinasjonen som gjør at overgangen fra «ligger trygt» til «glir» kan komme brått."
+    },
+    {
+      "id": "fys1100-3-2-def-normalkraft-skraaplan",
+      "type": "definition",
+      "title": "Normalkraft på skråplan",
+      "content": "$N = mg\\cos\\theta$ — men **bare** når tyngden er den eneste kraften med komponent normalt på planet.\n\nSå snart en snor trekker skrått ut fra planet, en hånd presser ned, eller en ekstra kloss ligger oppå, må normalkraften regnes ut på nytt fra $\\sum F_\\perp = 0$. Regel for besvarelsen: skriv alltid opp den normale komponentlikningen, selv når svaret ser opplagt ut. Det er raskere enn å oppdage feilen tre deloppgaver senere."
+    },
+    {
+      "id": "fys1100-3-2-def-glidningsgrense",
+      "type": "definition",
+      "title": "Glidningsgrensen",
+      "content": "Punktet der hvilefriksjonen når taket sitt, $f_s = \\mu_s N$, og legemet er akkurat i ferd med å begynne å gli. Alle «hvor bratt kan …», «hvor hardt kan jeg skyve …» og «hva er minste friksjonstall …»-oppgaver handler om denne grensen.\n\nPraktisk regel: bruk likhetstegnet $f_s = \\mu_s N$ **bare** i grensetilfellet. I alle andre stillinger er hvilefriksjonen mindre, og bestemmes av likevekten — ikke av friksjonstallet."
+    },
+    {
+      "id": "fys1100-3-2-def-friksjonsvinkel",
+      "type": "definition",
+      "title": "Friksjonsvinkelen",
+      "content": "Vinkelen $\\theta_c = \\arctan\\mu_s$ der et legeme akkurat begynner å gli på et skråplan. Den gir en enkel måleoppskrift: hell et brett langsomt til gjenstanden glir, mål vinkelen, og du har lest av $\\mu_s$ direkte.\n\nFordi både massen og $g$ faller ut av utledningen, er friksjonsvinkelen en ren materialegenskap — den samme på jorda, på månen og for en tung som for en lett kloss."
+    },
+    {
+      "id": "fys1100-3-2-def-a-friksjonsfritt",
+      "type": "definition",
+      "title": "Akselerasjon på friksjonsfritt skråplan",
+      "content": "$$a = g\\sin\\theta$$\n\nMassen faller ut, akkurat som i fritt fall, fordi både drivkraften og tregheten er proporsjonale med $m$. Resultatet er verdt å kjenne som et **grensetilfelle**: enhver formel du utleder med friksjon, skal gå over i dette når $\\mu \\to 0$.\n\nUttrykket er også Galileis klassiske innsikt: skråplanet er et «uttynnet fritt fall», der akselerasjonen kan gjøres liten nok til å måles med datidens klokker."
+    },
+    {
+      "id": "fys1100-3-2-def-a-med-friksjon",
+      "type": "definition",
+      "title": "Akselerasjon med friksjon på skråplan",
+      "content": "For en kloss som **glir nedover**:\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta)$$\n\nFor en kloss som er **på vei oppover** (friksjonen snur):\n\n$$a = -g(\\sin\\theta + \\mu_d\\cos\\theta)$$\n\naltså en større bremsing på vei opp enn på vei ned. Det er derfor et legeme alltid bruker kortere tid opp enn ned på et skråplan med friksjon — og kommer tilbake med lavere fart enn det ble sendt opp med."
+    },
+    {
+      "id": "fys1100-3-2-def-kontaktkraft-resultant",
+      "type": "definition",
+      "title": "Kontaktkraften som resultant",
+      "content": "Normalkraften og friksjonen er egentlig to komponenter av **én** kontaktkraft fra underlaget. Vi deler den i en normal og en tangentiell del fordi de to delene følger hver sin enkle modell.\n\nDette forklarer også hvorfor friksjonen har et tak proporsjonalt med $N$: presses flatene hardere sammen, kan kontakten overføre mer tangentiell kraft før den «glipper». Vinkelen mellom den samlede kontaktkraften og normalen er nettopp friksjonsvinkelen når glidning er i ferd med å starte."
+    },
+    {
+      "id": "fys1100-3-2-def-coulomb-modell",
+      "type": "definition",
+      "title": "Coulombs friksjonsmodell og dens grenser",
+      "content": "Modellen $f \\le \\mu N$ (statisk) og $f = \\mu N$ (glidende) heter Coulomb-friksjon. Den er en **empirisk tilnærming**, ikke en naturlov, og den har tydelige grenser:\n\n- den antar at friksjonen er uavhengig av kontaktflatens **areal** og av **farten**;\n- den bryter sammen for svært glatte flater, for smurte kontakter og ved høye hastigheter.\n\nLikevel er den god nok for nesten alt i dette faget. Poenget er å vite at det er en modell: oppgavene sier alltid «friksjonstallet er …», og det er den opplysningen som gjør modellen anvendelig."
+    },
+    {
+      "id": "fys1100-3-2-def-rullefriksjon",
+      "type": "definition",
+      "title": "Rullefriksjon (kjenne til)",
+      "content": "Motstanden mot at et hjul eller en kule ruller — den skyldes at underlaget og hjulet deformeres litt i kontaktpunktet, ikke at flatene glir mot hverandre.\n\nRullefriksjon er typisk **10 til 100 ganger mindre** enn glidefriksjon for samme materialer, og det er hele grunnen til at hjulet er en god idé. I dette faget nevnes den bare for fullstendighetens skyld: oppgavene bruker glide- eller hvilefriksjon, og et rullende legeme uten glidning behandles med rullebetingelsen i delen om rotasjon."
+    },
+    {
+      "id": "fys1100-3-2-def-snordrag-skraaplan",
+      "type": "definition",
+      "title": "Trekkraft langs eller skrått på et skråplan",
+      "content": "Ligger snora **parallelt med planet**, går hele snordraget inn i komponentlikningen langs planet, og normalkraften er uberørt: $N = mg\\cos\\theta$.\n\nGjør snora vinkelen $\\varphi$ **med planet**, splittes snordraget: $T\\cos\\varphi$ langs planet og $T\\sin\\varphi$ ut fra det. Da synker normalkraften til $N = mg\\cos\\theta - T\\sin\\varphi$, og friksjonen synker tilsvarende. To virkninger som trekker hver sin vei gir en optimal trekkvinkel — større jo større friksjonstallet er."
+    },
+    {
+      "id": "fys1100-3-2-def-likevektslengde",
+      "type": "definition",
+      "title": "Fjærens likevektslengde",
+      "content": "Lengden $x_0$ fjæren har når ingen kraft virker på den. Utslaget i Hookes lov måles alltid fra denne lengden, ikke fra fjærens ende eller fra origo i figuren din.\n\nDen vanligste feilen er å sette inn fjærens **totale** lengde i stedet for utslaget $x - x_0$. Skriv derfor alltid ned hva $x_0$ er før du regner, og sjekk fortegnet: en trykt fjær skyver, en strukket fjær drar, og begge deler følger av minustegnet i modellen."
+    },
+    {
+      "id": "fys1100-3-2-def-grensetilfelle-metode",
+      "type": "definition",
+      "title": "Grensetilfelle-kontroll som metode",
+      "content": "Å sette inn en ekstremverdi i et ferdig uttrykk og sjekke at svaret er fysisk fornuftig. På skråplan er de tre nyttigste:\n\n- $\\mu \\to 0$: uttrykket skal gå over i det friksjonsfrie svaret, $a = g\\sin\\theta$;\n- $\\theta \\to 0$: alt langs planet skal forsvinne, og $N \\to mg$;\n- $\\theta \\to 90^\\circ$: $a \\to g$ og $N \\to 0$ — fritt fall.\n\nKontrollen koster ti sekunder og fanger fortegns- og faktorfeil. På eksamen er den ofte en **egen poenggivende deloppgave**, og den drilles systematisk i [kap. 3.3](/bok/fys1100/fys1100-3-3)."
+    },
+    {
+      "id": "fys1100-3-2-def-modellantakelser",
+      "type": "definition",
+      "title": "Modellantakelsene i skråplanoppgaver",
+      "content": "Fire forutsetninger ligger under nesten hver oppgave i dette kapitlet, og de bør nevnes når du bruker dem:\n\n- legemet behandles som en **punktmasse** (ingen rotasjon, ingen velting);\n- friksjonen følger **Coulomb-modellen** med konstante friksjonstall;\n- snorer er **masseløse og uttøyelige**, trinser masseløse og friksjonsfrie;\n- luftmotstand neglisjeres.\n\nÅ skrive «vi antar …» i én linje er ikke pedanteri: det er nettopp det sensor kaller å begrunne, og det viser at du vet når svaret ditt slutter å gjelde."
+    },
+    {
+      "id": "fys1100-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-3-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\theta$ | helningsvinkelen, målt fra vannrett til planet | grader eller radianer |\n| $m$ | masse (skalar) | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $\\mathbf{F}_g = m\\mathbf{g}$ | tyngde | $\\text{N}$ |\n| $mg\\sin\\theta$ | tyngdekomponenten langs planet | $\\text{N}$ |\n| $mg\\cos\\theta$ | tyngdekomponenten normalt på planet | $\\text{N}$ |\n| $\\mathbf{N}$, $N$ | normalkraft og dens tallverdi | $\\text{N}$ |\n| $\\mathbf{f}_s$, $f_s$ | statisk friksjonskraft (hvilefriksjon) | $\\text{N}$ |\n| $\\mathbf{f}_d$, $f_d$ | dynamisk friksjonskraft (glidefriksjon) | $\\text{N}$ |\n| $\\mu_s$, $\\mu_d$ | statisk og dynamisk friksjonstall | dimensjonsløse |\n| $\\theta_c$ | friksjonsvinkelen, $\\arctan\\mu_s$ | grader |\n| $T$ | snordrag | $\\text{N}$ |\n| $\\varphi$ | vinkelen mellom snora og planet | grader |\n| $k$ | fjærkonstant | $\\text{N/m}$ |\n| $x_0$ | fjærens likevektslengde | $\\text{m}$ |\n\n**Symbolkollisjoner:** friksjonstallet skrives **alltid** med subskript ($\\mu_s$, $\\mu_d$) — et bart $\\mu$ skjuler om du mener grensen eller glidningen. Helningsvinkelen $\\theta$ må ikke forveksles med snorvinkelen $\\varphi$; i oppgaver med dosert sving brukes $\\alpha$ om banens helning. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$F_{g,\\parallel} = mg\\sin\\theta, \\qquad F_{g,\\perp} = mg\\cos\\theta$$\n\nDekomponering av tyngden. **[må kunne utledes]** — utled den fra geometrien hver gang, og kontroller med $\\theta = 0$.\n\n$$N = mg\\cos\\theta$$\n\nNormalkraft på skråplan, **når** ingen andre krefter har komponent normalt på planet. **[må kunne utledes]** — den følger av $\\sum F_\\perp = 0$.\n\n$$\\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N, \\qquad \\lvert\\mathbf{f}_d\\rvert = \\mu_d N$$\n\nFriksjonsmodellene. **[formelarket]** — merk at den første er en ulikhet og den andre en likhet.\n\n$$\\mu_s \\ge \\tan\\theta$$\n\nHvilebetingelsen på skråplan. **[må kunne utledes]** — dette er en klassisk «vis at»-deloppgave, og massen faller ut.\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta)$$\n\nAkselerasjon for en kloss som glir nedover. **[må kunne utledes]** — snu fortegnet på friksjonsleddet når klossen går oppover.\n\n$$\\mathbf{F} = -k(x - x_0)$$\n\nHookes lov for fjærkraft. **[formelarket]** — minustegnet betyr at kraften alltid peker mot likevektsstillingen."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-3-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-3-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) List opp de seks punktene et fullstendig frilegemediagram skal ha.",
+            "solution": "1) Isolér ett legeme. 2) Tegn alle krefter som virker **på** det, med navngitte symboler. 3) Riktig retning og riktig angrepspunkt. 4) Rimelig lengde på pilene i forhold til hverandre. 5) Tegn inn koordinatsystemet. 6) Ingen krefter som ikke finnes.\n\nPunkt 2 er det som oftest koster poeng: en pil uten navn kan ikke vurderes av sensor.",
+            "hints": [
+              "Tenk gjennom hva sensor faktisk kan trekke for."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) En kloss på $4{,}0\\ \\text{kg}$ ligger på et vannrett bord. Hvor stor er normalkraften, og hvorfor?",
+            "solution": "$N = mg = 4{,}0 \\cdot 9{,}81 = 39{,}2\\ \\text{N}$. Grunnen er at akselerasjonen loddrett er null, så Newtons 2. lov gir $N - mg = 0$. Merk at dette er et **resultat** av likevekten, ikke en generell regel: på et skråplan blir $N = mg\\cos\\theta$, og i en heis som akselererer blir den noe helt annet.",
+            "hints": [
+              "Sett opp $\\sum F_y = ma_y$ og bruk at $a_y = 0$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Trigonometri.) Regn ut $\\sin 30^\\circ$, $\\cos 30^\\circ$ og $\\tan 30^\\circ$, og forklar hvorfor $\\tan\\theta = \\sin\\theta/\\cos\\theta$ er nyttig i skråplanoppgaver.",
+            "solution": "$\\sin 30^\\circ = 0{,}500$, $\\cos 30^\\circ = 0{,}866$, $\\tan 30^\\circ = 0{,}577$.\n\nSammenhengen er nyttig fordi hvilebetingelsen kommer ut som $mg\\sin\\theta \\le \\mu_s\\, mg\\cos\\theta$. Deler du på $mg\\cos\\theta$, blir venstresiden nettopp $\\tan\\theta$ — og både massen og $g$ forsvinner i samme operasjon.",
+            "hints": [
+              "Skriv opp betingelsen $mg\\sin\\theta \\le \\mu_s mg\\cos\\theta$ og del på $mg\\cos\\theta$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-2-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-2-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) En kloss starter fra ro med konstant akselerasjon $3{,}0\\ \\text{m/s}^2$ langs et plan. Hvor fort går den etter $2{,}5\\ \\text{m}$?",
+            "solution": "Den tidløse bevegelseslikningen gir\n\n$$v = \\sqrt{2as} = \\sqrt{2 \\cdot 3{,}0 \\cdot 2{,}5} = \\sqrt{15} = 3{,}9\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nlangs planet. Denne kombinasjonen — Newtons 2. lov gir $a$, kinematikken gir $v$ — er selve grunnmønsteret i sjanger C.",
+            "hints": [
+              "Bruk likningen som knytter fart og strekning uten tid."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-2-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-2-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Begrepskontroll.) Forklar forskjellen på $\\mu_s$ og $\\mu_d$, og gi et hverdagseksempel der forskjellen merkes.",
+            "solution": "$\\mu_s$ hører til **hvilefriksjonen**, som er en øvre grense: $f_s \\le \\mu_s N$. $\\mu_d$ hører til **glidefriksjonen** mens flatene faktisk glir: $f_d = \\mu_d N$. I de fleste materialpar er $\\mu_d$ litt mindre enn $\\mu_s$.\n\nHverdagseksempel: en tung kommode som skal flyttes. Du må skyve hardt for å få den til å løsne (du kjemper mot $\\mu_s N$), men i det den begynner å gli, blir den plutselig lettere å skyve (nå er motstanden $\\mu_d N$, som er mindre) — og da er det lett å skyve for hardt.",
+            "hints": [
+              "Den ene er en ulikhet, den andre en likhet.",
+              "Tenk på hva som skjer i det øyeblikket noe «løsner»."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

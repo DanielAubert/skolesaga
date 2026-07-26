@@ -1,0 +1,122 @@
+[
+ {
+  "question": "Hva er andre steg i løsningsoppskriften for en ODE-oppgave?",
+  "options": [
+   "Klassifisere likningen",
+   "Sette opp den karakteristiske likningen",
+   "Bruke initialbetingelsene på løsningen",
+   "Kontrollere svaret i grensetilfellene"
+  ],
+  "explanation": "Klassifiseringen kommer rett etter oppsettet og er selvstendig poenggivende — den avgjør dessuten hvilken metode som i det hele tatt gjelder. Karakteristisk likning hører til steg tre, og bare for andreordens lineære homogene likninger."
+ },
+ {
+  "question": "Hvorfor må en hengende fjærs bevegelseslikning substitueres før oppskriften brukes?",
+  "options": [
+   "Tyngdeleddet gjør likningen inhomogen",
+   "Fordi tyngden endrer fjærkonstanten",
+   "Fordi ordenen ellers blir feil",
+   "Fordi løsningen ellers får feil frekvens"
+  ],
+  "explanation": "Oppskriften med karakteristisk likning gjelder for homogene likninger, og tyngden er et ledd uten den ukjente i seg. Frekvensen er derimot **uendret** av tyngden — det er nettopp det substitusjonen viser."
+ },
+ {
+  "question": "Et lodd med $m = 0{,}300\\ \\text{kg}$ henger i en fjær med $k = 30{,}0\\ \\text{N/m}$. Hva er $T_p$?",
+  "options": [
+   "$0{,}628\\ \\text{s}$",
+   "$10{,}0\\ \\text{s}$",
+   "$0{,}100\\ \\text{s}$",
+   "$1{,}59\\ \\text{s}$"
+  ],
+  "explanation": "$\\omega_0 = \\sqrt{k/m} = 10{,}0\\ \\text{rad/s}$ og $T_p = 2\\pi/10{,}0 = 0{,}628\\ \\text{s}$. Verdien $10{,}0$ er egenfrekvensen selv, som har enhet $\\text{rad/s}$ og ikke sekund."
+ },
+ {
+  "question": "En kule slippes fra ro med lineær motstand, $m = 25{,}0\\ \\text{g}$, $k_v = 0{,}100\\ \\text{kg/s}$. Hva er tidskonstanten?",
+  "options": [
+   "$0{,}250\\ \\text{s}$",
+   "$2{,}45\\ \\text{s}$",
+   "$4{,}00\\ \\text{s}$",
+   "$0{,}0250\\ \\text{s}$"
+  ],
+  "explanation": "$\\tau = m/k_v = 0{,}0250/0{,}100 = 0{,}250\\ \\text{s}$. Verdien $2{,}45$ er terminalfarten $mg/k_v$ i meter per sekund, altså riktig tall for et helt annet spørsmål."
+ },
+ {
+  "question": "Hvilken metode peker klassifiseringen «andre orden, lineær, homogen» på?",
+  "options": [
+   "Karakteristisk likning",
+   "Separasjon av variable",
+   "Numerisk integrasjon",
+   "Direkte integrasjon to ganger"
+  ],
+  "explanation": "Prøveløsningen $e^{\\lambda t}$ gjør likningen om til en andregradslikning i $\\lambda$, og oppskriften for de tre rot-tilfellene står i Rottmann. Separasjon fungerer bare på førsteordens likninger."
+ },
+ {
+  "question": "En pendel har $\\ell = 0{,}450\\ \\text{m}$. Hva er svingeperioden for små utslag?",
+  "options": [
+   "$1{,}35\\ \\text{s}$",
+   "$4{,}67\\ \\text{s}$",
+   "$0{,}214\\ \\text{s}$",
+   "$2{,}69\\ \\text{s}$"
+  ],
+  "explanation": "$T_p = 2\\pi\\sqrt{\\ell/g} = 2\\pi\\sqrt{0{,}04587} = 1{,}35\\ \\text{s}$. Verdien $4{,}67$ er $\\omega_0$ i radianer per sekund, altså frekvensen forvekslet med perioden."
+ },
+ {
+  "question": "Hva er kritisk demping for $m = 1{,}20\\ \\text{kg}$ og $k = 75{,}0\\ \\text{N/m}$?",
+  "options": [
+   "$19{,}0\\ \\text{kg/s}$",
+   "$90{,}0\\ \\text{kg/s}$",
+   "$9{,}49\\ \\text{kg/s}$",
+   "$2{,}50\\ \\text{kg/s}$"
+  ],
+  "explanation": "$b_{\\text{kr}} = 2\\sqrt{km} = 2\\sqrt{90{,}0} = 19{,}0\\ \\text{kg/s}$. Verdien $9{,}49$ er $\\sqrt{km}$ uten totallet, altså halvparten av den kritiske dempingen."
+ },
+ {
+  "question": "Hvordan finner du frekvensen for små svingninger om en likevekt i et potensial $U(x)$?",
+  "options": [
+   "$\\omega = \\sqrt{U''(x_0)/m}$",
+   "$\\omega = \\sqrt{U(x_0)/m}$",
+   "$\\omega = \\sqrt{-U'(x_0)/m}$",
+   "$\\omega = U''(x_0)/m$"
+  ],
+  "explanation": "Den effektive fjærkonstanten er krumningen i bunnen, altså $U''(x_0)$. Den førstederiverte er null i en likevekt per definisjon, så den kan umulig gi frekvensen."
+ },
+ {
+  "question": "Hva er det avgjørende ved rekkefølgen i Euler–Cromer-oppdateringen?",
+  "options": [
+   "Farten oppdateres først, og den nye farten brukes på posisjonen",
+   "Posisjonen oppdateres først, og den nye posisjonen brukes på farten",
+   "Begge oppdateres samtidig med gamle verdier",
+   "Akselerasjonen oppdateres til slutt"
+  ],
+  "explanation": "Å bruke den **oppdaterte** farten i posisjonssteget er nettopp det som gjør metoden tilnærmet energibevarende, slik at en svingning ikke får kunstig voksende amplitude. Bruker du gammel fart, har du Forward Euler, som lekker energi."
+ },
+ {
+  "question": "Et lodd svinger med $u(t) = 0{,}060\\cos(14t) - 0{,}020\\sin(14t)$ i meter. Hva var startfarten?",
+  "options": [
+   "$-0{,}280\\ \\text{m/s}$",
+   "$-0{,}020\\ \\text{m/s}$",
+   "$+0{,}840\\ \\text{m/s}$",
+   "$0$"
+  ],
+  "explanation": "Den deriverte i null er $B\\omega_0 = -0{,}020 \\cdot 14 = -0{,}280\\ \\text{m/s}$, altså nedover. Å svare $-0{,}020$ er å lese av konstanten $B$ i stedet for farten — og enhetene er da meter, ikke meter per sekund."
+ },
+ {
+  "question": "En student skriver $T_p = 2\\pi\\sqrt{k/m}$ for en fjær. Hvordan avslører du feilen raskest?",
+  "options": [
+   "Enhetssjekk: uttrykket får enhet $1/\\text{s}$",
+   "Ved å sette inn tall og se om svaret er stort",
+   "Ved å derivere uttrykket",
+   "Ved å sammenlikne med pendelformelen"
+  ],
+  "explanation": "$\\sqrt{k/m}$ har enhet $1/\\text{s}$ og er nettopp $\\omega_0$; perioden er $2\\pi$ delt på den, altså $2\\pi\\sqrt{m/k}$. En enhetssjekk tar fem sekunder og virker uansett hvilke tall oppgaven har."
+ },
+ {
+  "question": "Hvilken av likningene kan IKKE løses ved separasjon av variable?",
+  "options": [
+   "$m\\,d^2x/dt^2 = -kx$",
+   "$m\\,dv/dt = mg - k_v v$",
+   "$m\\,dv/dt = mg - Dv^2$ med $v > 0$",
+   "$dv/dt = -\\lambda v$"
+  ],
+  "explanation": "Separasjon forutsetter en førsteordens likning, og fjærlikningen er av andre orden — den krever karakteristisk likning. De tre andre er alle førsteordens og lar seg separere, også den ikke-lineære."
+ }
+]

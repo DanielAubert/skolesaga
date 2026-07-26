@@ -1,0 +1,531 @@
+{
+  "id": "fys1100-6-1",
+  "courseId": "fys1100",
+  "chapterNumber": "6.1",
+  "title": "Dreiemoment, treghetsmoment og rotasjons-N2L",
+  "description": "Kraftmoment τ = r × F, treghetsmoment I, rotasjonens Newtons 2. lov τ = Iα, og parallellakseteoremet.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "kunne regne ut kraftmomentet om en valgt akse med både momentarm og kryssprodukt, og oppgi retningen",
+    "kunne velge rotasjonsakse slik at ukjente hengsel- og lagerkrefter faller ut av momentregnskapet",
+    "kunne bruke formelarkets treghetsmomenttabell og parallellakseteoremet til å finne I om en vilkårlig akse",
+    "kunne sette opp og løse rotasjonens Newtons 2. lov for en hengslet stav, og finne sluttfarten med energibevaring"
+  ],
+  "content": [
+    {
+      "id": "fys1100-6-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rotasjon er testet i 7 av 7 sett (100 %)** — like sikkert som Newtons 2. lov selv. Og rotasjon står tyngre i FYS1100 enn i et vanlig fysikkløp fra videregående: der er stive legemer ofte en fotnote, her er det en hel oppgave i hvert eneste sett.\n\nOppgavetypen kalles **sjanger F — rotasjonsoppgaven**, altså et stivt legeme som roterer om en akse, ruller, eller får et støt. I grunnmalen for et moderne sett er den **oppgave 2**, den nest første av de fem flertrinnsoppgavene. Dette kapitlet bygger de tre verktøyene hele sjangeren hviler på:\n\n- **kraftmomentet** $\\boldsymbol{\\tau} = \\mathbf{r}\\times\\mathbf{F}$ — hvor hardt en kraft vrir om en akse;\n- **treghetsmomentet** $I$ — rotasjonens svar på masse;\n- **rotasjonens Newtons 2. lov** $\\tau = I\\alpha$, pluss **parallellakseteoremet** når aksen ikke går gjennom massesenteret.\n\nTo feller koster mest her, og begge har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1):\n\n- **felle #15 — kraftmoment om massesenteret med tyngden som bidrag.** Tyngden angriper *i* massesenteret, så momentarmen er null og bidraget er null. Å ta det med koster typisk 2 poeng.\n- **felle #9 — manglende retning på en vektorstørrelse.** Et kraftmoment uten retning («mot klokka», «ut av papirplanet») koster typisk 2 poeng, akkurat som en fart uten retning.\n\n**Treghetsmoment-rangering** — «samme masse, ulik fordeling: hvilket legeme har størst $I$?» — er en egen konseptoppgave som ligger i arkivet, og som passer perfekt til midtveiseksamens flervalgsformat. Arkivet gir ikke grunnlag for å telle en frekvens på nettopp den varianten, men den er verdt å kunne kaldt.\n\n**Prioritet: høyeste — dette må sitte.** [Kap. 6.2](/bok/fys1100/fys1100-6-2), [6.3](/bok/fys1100/fys1100-6-3) og [6.4](/bok/fys1100/fys1100-6-4) hviler alle på dette kapitlet."
+    },
+    {
+      "id": "fys1100-6-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/fys1100/fys1100-3-1), der Newtons lover og frilegemediagrammet ble innført. Det du trenger derfra, ferdig oppfrisket:\n\n**Newtons 2. lov, komponentvis, én gang per legeme:**\n\n$$\\sum F_x = ma_x, \\qquad \\sum F_y = ma_y$$\n\n**Frilegemediagrammets standard:** isolér ett legeme, tegn alle krefter som virker *på* det med navngitte symboler, riktig retning og **riktig angrepspunkt**, og tegn inn koordinatsystemet. Angrepspunktet var likegyldig for akselerasjonen så lenge legemet ikke roterte. Fra nå av er det avgjørende — det er nettopp angrepspunktet som bestemmer kraftmomentet.\n\n**Tyngden** er $\\mathbf{F}_g = m\\mathbf{g}$ og angriper i **massesenteret**.\n\nFra matematikken trenger du **kryssproduktet** av to vektorer: [Kryssproduktet](/bok/r2/r2-5-4), med grunnlaget i [Vektorer i tre dimensjoner](/bok/r2/r2-5-1) og [Vektorkoordinater og regning](/bok/r2/r2-5-2). Vi bruker det bare i to dimensjoner her, der resultatet alltid peker inn i eller ut av papirplanet — men definisjonen er den samme.\n\nHar du hatt **Fysikk 1** på videregående, har du kanskje møtt begrepet «dreiemoment» i forbindelse med vektstenger. Behandle det som nytt her: vi trenger både retningen og treghetsmomentet, og ingen av delene hører hjemme i en ren vektstangregning.\n\n**Notasjonsavtale for kapitlet.** Kraftmomentet er en vektor og skrives $\\boldsymbol{\\tau}$; tallverdien med fortegn om én akse skrives $\\tau_z$ eller bare $\\tau$ når aksen er opplagt. Vinkelfart $\\boldsymbol{\\omega}$ og vinkelakselerasjon $\\boldsymbol{\\alpha}$ er også vektorer. **Treghetsmomentet $I$, massen $m$ og arbeidet $W$ er skalarer** og skal aldri ha vektormarkering. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$ — **aldri** $\\mathbf{G}$, siden $G$ er reservert gravitasjonskonstanten senere i boka. En **lengde** skrives $\\ell$ (ikke $L$), fordi $\\mathbf{L}$ er spinn fra [kap. 6.3](/bok/fys1100/fys1100-6-3). Symbolet $\\alpha$ betyr vinkelakselerasjon i hele denne delen; vinkler skrives $\\theta$ og $\\varphi$. Vi bruker $g = 9{,}81\\,\\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-6-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — kraftmomentet (~15 min)\n\nDu skal løsne en fastrustet hjulmutter. Med en kort fastnøkkel går det ikke. Du henter en meterlang jekkstang, trer den over nøkkelen, og mutteren gir etter. Kraften i armene dine er den samme — det er **avstanden til skruen** som har endret seg.\n\nDet er hele ideen bak kraftmomentet: når det gjelder å vri noe rundt en akse, er ikke kraften alene svaret. Kraften og avstanden til aksen teller sammen, og i tillegg spiller det en rolle **hvilken vei** du drar. Skyver du jekkstanga rett inn mot skruen, skjer det ingenting uansett hvor hardt du tar i."
+    },
+    {
+      "id": "fys1100-6-1-def-kraftmoment",
+      "type": "definition",
+      "title": "Kraftmoment (dreiemoment)",
+      "content": "Kraftmomentet forteller hvor effektivt en kraft vrir et legeme rundt en valgt akse. Det avhenger av tre ting: hvor stor kraften er, hvor langt fra aksen den angriper, og hvilken retning den peker i forhold til armen ut til angrepspunktet.\n\nFormelt er det kryssproduktet av posisjonsvektoren fra aksen til angrepspunktet og kraften:\n\n$$\\boldsymbol{\\tau} = \\mathbf{r} \\times \\mathbf{F}, \\qquad \\tau = rF\\sin\\varphi$$\n\nder $\\varphi$ er vinkelen mellom $\\mathbf{r}$ og $\\mathbf{F}$. Enheten er **newtonmeter**, $\\text{N}\\cdot\\text{m}$.\n\n**Gyldighetsbetingelsen er at aksen må oppgis.** Et kraftmoment er alltid *om et bestemt punkt eller en bestemt akse* — den samme kraften har ulikt moment om ulike akser, og kan godt være null om den ene og stor om den andre. Skriver du et moment uten å si hvilken akse det gjelder om, har du ikke sagt noe."
+    },
+    {
+      "id": "fys1100-6-1-def-momentarm",
+      "type": "definition",
+      "title": "Momentarm",
+      "content": "Momentarmen er den korteste avstanden fra aksen til **kraftens virkelinje** — altså den rette linja kraften ligger langs, forlenget så langt du vil i begge retninger.\n\n$$\\text{momentarm} = r\\sin\\varphi \\qquad \\Longrightarrow \\qquad \\tau = F \\cdot (\\text{momentarm})$$\n\nDette er den regnemåten som går raskest under tidspress: finn den vinkelrette avstanden fra aksen ned på virkelinja, og gang med kraften. Peker kraften rett mot (eller rett bort fra) aksen, ligger aksen *på* virkelinja, momentarmen er null, og momentet er null — uansett hvor stor kraften er.\n\nDet er dette som gjør at du ikke får løsnet en mutter ved å skyve rett inn mot den, og at **en kraft som virker gjennom aksen aldri bidrar til momentet**. Den siste setningen er blant de mest lønnsomme i hele delen: den lar deg fjerne hengselkrefter og opplagerkrefter fra regnskapet uten å kjenne dem."
+    },
+    {
+      "id": "fys1100-6-1-utledning-moment",
+      "type": "text",
+      "content": "### Fra kraft til moment, steg for steg\n\n**Steg 1. Del kraften i to.** Legg en akse langs $\\mathbf{r}$ (ut fra rotasjonsaksen) og en vinkelrett på den. Kraften blir da $F\\cos\\varphi$ langs armen og $F\\sin\\varphi$ på tvers.\n\n*Intuisjon:* bare den delen som står **på tvers** av armen kan få noe til å svinge rundt. Den delen som peker langs armen, drar bare i aksen, og aksen holder igjen.\n\n**Steg 2. Gang tverrkomponenten med avstanden.**\n\n$$\\tau = r\\,(F\\sin\\varphi) = rF\\sin\\varphi$$\n\n*Intuisjon:* dobbelt så lang arm gir dobbelt så stort moment med samme kraft. Det er derfor dørhåndtaket sitter så langt fra hengslene som mulig.\n\n**Steg 3. Grupper motsatt, og du får momentarmen.**\n\n$$\\tau = F\\,(r\\sin\\varphi)$$\n\n*Intuisjon:* de to lesningene er samme regnestykke. Den første sier «bruk bare den nyttige delen av kraften»; den andre sier «bruk hele kraften, men bare den nyttige delen av armen». Velg den som er lettest å lese av i figuren din.\n\n**Steg 4. Sett på retningen.** I planet har momentet bare to muligheter, og vi følger den vanlige konvensjonen:\n\n- **mot klokka er positivt** — momentvektoren peker **ut av papirplanet**;\n- **med klokka er negativt** — momentvektoren peker **inn i papirplanet**.\n\n*Intuisjon:* retningen kommer fra kryssproduktet og finnes med høyrehåndsregelen: la fingrene peke langs $\\mathbf{r}$ og krøll dem mot $\\mathbf{F}$; tommelen viser momentet. I praksis holder det å spørre «hvilken vei ville dette dreid legemet?» — og skrive svaret ned. **Et moment uten retning er felle #9, og koster typisk 2 poeng.**\n\n**Steg 5. Legg sammen.** Virker flere krefter, legger du sammen momentene *med fortegn*:\n\n$$\\tau_{\\text{net}} = \\sum_i \\tau_i$$\n\n*Intuisjon:* momenter mot klokka og med klokka opphever hverandre, akkurat som krefter i motsatt retning gjør det. En vippehuske i balanse er nettopp $\\tau_{\\text{net}} = 0$."
+    },
+    {
+      "id": "fys1100-6-1-fig-momentarm",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-1-momentarm.svg",
+      "alt": "En stav gaar fra rotasjonsaksen O til venstre ut til angrepspunktet til hoyre, der kraften F virker i vinkelen fi med staven. Kraftens virkelinje er forlenget bakover som en stiplet linje, og fra O er det tegnet en lilla stiplet normal ned paa virkelinja med et rettvinkelmerke. Denne normalen er momentarmen r sin fi. En groenn buet pil ved O viser at momentet dreier mot klokka.",
+      "caption": "De to lesningene av $\\tau = rF\\sin\\varphi$ i én figur: den blå $\\mathbf{r}$ er avstanden ut til angrepspunktet, og den lilla stiplede strekningen er **momentarmen** — den vinkelrette avstanden fra aksen ned på kraftens virkelinje. Legg merke til at momentarmen som regel er kortere enn $r$."
+    },
+    {
+      "id": "fys1100-6-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Svar med egne ord, to–tre setninger hver.\n\n**a)** Hvorfor gir en kraft som peker rett mot rotasjonsaksen null kraftmoment, uansett hvor stor den er?\n\n**b)** Hvorfor sitter dørhåndtaket i motsatt kant av hengslene, og ikke midt på døra?\n\n**c)** Hva mangler i påstanden «kraftmomentet er $12\\,\\text{N}\\cdot\\text{m}$»?",
+        "solution": "**a)** Fordi aksen da ligger på kraftens virkelinje. Momentarmen — den vinkelrette avstanden fra aksen ned på virkelinja — er null, og $\\tau = F \\cdot 0 = 0$. Sagt med den andre lesningen: hele kraften ligger langs $\\mathbf{r}$, så tverrkomponenten $F\\sin\\varphi$ er null fordi $\\varphi = 0$. Kraften drar bare i aksen, og aksen holder igjen.\n\n**b)** Fordi momentet vokser med avstanden til aksen. Håndtaket i ytterkanten gir maksimal momentarm, og du trenger dermed minst mulig kraft for å få døra i bevegelse. Et håndtak midt på døra ville krevd dobbelt så stor kraft for samme virkning.\n\n**c)** To ting: **hvilken akse** momentet er regnet om, og **hvilken retning** det har (mot eller med klokka, tilsvarende ut av eller inn i papirplanet). Den samme kraften kan ha helt ulikt moment om to forskjellige akser, og manglende retning på en vektorstørrelse er felle #9 — den koster typisk 2 poeng på eksamen.",
+        "hints": [
+          "Se på figuren: hvor havner momentarmen når kraften peker rett mot aksen?",
+          "I b): hvilken av de to størrelsene i $\\tau = F \\cdot (\\text{momentarm})$ er det du kan påvirke ved å flytte håndtaket?",
+          "I c): tenk på hva et kraftmoment alltid må oppgis i forhold til."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fastnøkkel på en hjulmutter",
+      "problem": "En fastnøkkel er $25{,}0\\,\\text{cm}$ lang, målt fra midten av mutteren til der du tar i. Du trekker med kraften $180\\,\\text{N}$.\n\n**a)** Finn kraftmomentet om mutterens akse når kraften står vinkelrett på nøkkelen.\n\n**b)** Finn kraftmomentet når kraften danner $60{,}0^\\circ$ med nøkkelen.\n\n**c)** Hvor stor er momentarmen i tilfelle b)?\n\n**d)** Hvor lang måtte nøkkelen vært for at du skulle fått samme moment som i a), med kraften i $60{,}0^\\circ$?",
+      "solution": "**Metodevalg først:** vi bruker $\\tau = rF\\sin\\varphi$ om aksen gjennom mutteren, der $\\varphi$ er vinkelen mellom nøkkelen og kraften. Alle svar oppgis med enhet og retning.\n\n**a)** Med $\\varphi = 90{,}0^\\circ$ er $\\sin\\varphi = 1$:\n\n$$\\tau = rF = 0{,}250 \\cdot 180 = 45{,}0\\,\\text{N}\\cdot\\text{m}$$\n\nrettet mot klokka, altså ut av papirplanet, dersom du trekker slik at nøkkelen svinger den veien. Dette er det største momentet du kan få ut av denne kraften og denne lengden.\n\n**b)** Med $\\varphi = 60{,}0^\\circ$ er $\\sin 60{,}0^\\circ = 0{,}866$:\n\n$$\\tau = 0{,}250 \\cdot 180 \\cdot 0{,}866 = 39{,}0\\,\\text{N}\\cdot\\text{m}$$\n\nsamme retning. Du taper altså $13\\,\\%$ av virkningen bare ved å dra litt på skrå.\n\n**c)** $$\\text{momentarm} = r\\sin\\varphi = 0{,}250 \\cdot 0{,}866 = 0{,}217\\,\\text{m}$$\n\nKontroll: $180 \\cdot 0{,}217 = 39{,}0\\,\\text{N}\\cdot\\text{m}$ ✓ — samme svar som i b), slik det skal være.\n\n**d)** Vi krever $rF\\sin 60{,}0^\\circ = 45{,}0\\,\\text{N}\\cdot\\text{m}$:\n\n$$r = \\frac{45{,}0}{180 \\cdot 0{,}866} = 0{,}289\\,\\text{m} = 28{,}9\\,\\text{cm}$$\n\n**Benevningskontroll:** $\\text{m}\\cdot\\text{N} = \\text{N}\\cdot\\text{m}$ ✓. Og en rimelighetssjekk: den skrå kraften trenger en lengre nøkkel for samme virkning — $28{,}9\\,\\text{cm} > 25{,}0\\,\\text{cm}$, som forventet.\n\n**Grensetilfelle:** lar vi $\\varphi \\to 0$, går $\\sin\\varphi \\to 0$ og den nødvendige lengden mot uendelig. Det stemmer med at en kraft langs nøkkelen aldri kan løsne mutteren, uansett hvor lang nøkkelen er."
+    },
+    {
+      "id": "fys1100-6-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En vippehuske er en stiv, homogen planke som er lagret på en akse midt på. Planken er $3{,}60\\,\\text{m}$ lang. Et barn med tyngde $290\\,\\text{N}$ sitter helt ute på den ene enden.\n\n**a)** Finn kraftmomentet fra dette barnet om aksen, med retning.\n\n**b)** Et annet barn med tyngde $360\\,\\text{N}$ skal sitte på den andre siden slik at huska balanserer. Hvor langt fra aksen må det sitte?\n\n**c)** Hvor stort er det samlede kraftmomentet om aksen når huska balanserer? Hvorfor bidrar ikke plankens egen tyngde?",
+        "solution": "**Metodevalg:** vi regner momenter om lageraksen midt på planken og krever momentlikevekt, $\\tau_{\\text{net}} = 0$. Positiv retning settes mot klokka.\n\n**a)** Barnet sitter $1{,}80\\,\\text{m}$ fra aksen, og tyngden står vinkelrett på planken:\n\n$$\\tau_1 = 290 \\cdot 1{,}80 = 522\\,\\text{N}\\cdot\\text{m}$$\n\nSitter barnet på venstre side, dreier tyngden planken **mot klokka**, og momentet er positivt: $+522\\,\\text{N}\\cdot\\text{m}$.\n\n**b)** Det andre barnet gir et moment den andre veien, altså negativt. Likevekt krever\n\n$$360\\,d = 522 \\quad \\Rightarrow \\quad d = \\frac{522}{360} = 1{,}45\\,\\text{m}$$\n\nDet tyngste barnet må altså sitte nærmere aksen — $1{,}45\\,\\text{m}$ i stedet for $1{,}80\\,\\text{m}$.\n\n**c)** Null: $+522 - 522 = 0\\,\\text{N}\\cdot\\text{m}$. Det er nettopp det balanse betyr.\n\nPlankens egen tyngde bidrar ikke fordi den angriper i plankens **massesenter**, og massesenteret ligger rett over aksen for en homogen planke lagret på midten. Momentarmen er null, og bidraget blir null. Dette er akkurat samme mekanisme som gjør at tyngden aldri gir moment om en akse gjennom massesenteret — og å glemme det er felle #15, som koster typisk 2 poeng.",
+        "hints": [
+          "Momentet fra en tyngde er tyngden ganger den vannrette avstanden ut til aksen.",
+          "Balanse betyr at summen av momentene om aksen er null — momenter mot klokka og med klokka opphever hverandre.",
+          "I c): hvor ligger massesenteret til en homogen planke, og hvor stor er momentarmen dit?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — treghetsmomentet (~20 min)\n\nSett to sykkelhjul ved siden av hverandre: ett vanlig hjul, og ett der du har flyttet all massen inn i navet. Samme masse, samme kraft på ratteggen — men det tomme hjulet med masse ute i felgen er merkbart tyngre å få i spinn.\n\nMassen alene forteller altså ikke hvor vanskelig det er å endre en rotasjon. Det gjør derimot **hvor massen sitter**. Størrelsen som fanger dette, heter treghetsmomentet, og den spiller nøyaktig samme rolle for rotasjon som massen spiller for rettlinjet bevegelse."
+    },
+    {
+      "id": "fys1100-6-1-def-treghetsmoment",
+      "type": "definition",
+      "title": "Treghetsmoment",
+      "content": "Treghetsmomentet er et mål på hvor vanskelig det er å endre et legemes rotasjon om en gitt akse. Det avhenger både av hvor mye masse legemet har og av hvor langt fra aksen massen sitter — masse langt ute teller mye mer enn masse nær aksen.\n\nFor et legeme satt sammen av småbiter med masse $m_i$ i avstand $\\rho_i$ fra aksen:\n\n$$I = \\sum_i m_i\\rho_i^2 \\qquad \\text{og i grensen} \\qquad I = \\int \\rho^2\\,dm$$\n\nEnheten er $\\text{kg}\\cdot\\text{m}^2$. **Treghetsmomentet er en skalar** og skal aldri skrives med vektormarkering.\n\n**Gyldighetsbetingelsen er at aksen må oppgis.** Det finnes ikke noe «treghetsmomentet til en stav» — bare treghetsmomentet til en stav *om en bestemt akse*. Skriv derfor alltid aksen i subskriptet: $I_{cm}$ om massesenteret, $I_{\\text{hengsel}}$ om en hengselakse. Formelarket du får utdelt har en tabell for de vanlige legemene, så dette er ikke puggestoff — men du må vite hvilken linje i tabellen som gjelder for din akse."
+    },
+    {
+      "id": "fys1100-6-1-utledning-I",
+      "type": "text",
+      "content": "### Hvorfor kvadratet, og hva rangeringen kommer av\n\n**Steg 1. Start med kinetisk energi.** En liten bit med masse $m_i$ i avstand $\\rho_i$ fra aksen går i sirkel med farten $v_i = \\omega\\rho_i$, der $\\omega$ er den felles vinkelfarten. Den kinetiske energien til biten er\n\n$$\\tfrac12 m_i v_i^2 = \\tfrac12 m_i \\omega^2\\rho_i^2$$\n\n*Intuisjon:* alle bitene i et stivt legeme har **samme** vinkelfart, men **ulik** banefart. En bit dobbelt så langt ute går dobbelt så fort.\n\n**Steg 2. Summér over hele legemet.** Siden $\\omega$ er felles, kan den settes utenfor:\n\n$$K_{\\text{rot}} = \\sum_i \\tfrac12 m_i\\omega^2\\rho_i^2 = \\tfrac12\\Big(\\sum_i m_i\\rho_i^2\\Big)\\omega^2 = \\tfrac12 I\\omega^2$$\n\n*Intuisjon:* summen i parentesen er den eneste egenskapen ved massefordelingen som energien bryr seg om. Det er derfor den fortjener et eget navn og symbol.\n\n**Steg 3. Les av hvor kvadratet kommer fra.** Farten er proporsjonal med avstanden, og energien går som farten i annen — derfor går bidraget som **avstanden i annen**.\n\n*Intuisjon:* dette er hele forklaringen på at rangeringene ser ut som de gjør. Flytter du en massebit dobbelt så langt ut, firedobles bidraget. Et legeme med massen ute i randa har derfor mye større $I$ enn et legeme med samme masse fordelt innover.\n\n**Steg 4. Rangeringsregelen som følger.** For legemer med **samme masse og samme ytre radius** gjelder alltid:\n\n$$I_{\\text{massiv kule}} < I_{\\text{massiv sylinder}} < I_{\\text{kuleskall}} < I_{\\text{tynn ring}}$$\n\nEn **hul sylinder** havner et sted mellom den massive sylinderen og ringa, avhengig av hvor tykk godset er: $I = \\tfrac12 M(R_i^2+R^2)$ gir en faktor mellom $\\tfrac12$ og $1$ foran $MR^2$. Er godset tynt nok, ligger den under kuleskallet; er det tykt, over. Regn den ut i stedet for å plassere den etter hukommelsen.\n\n*Intuisjon:* rekkefølgen er rett og slett «hvor mye av massen sitter langt ute». Kula har mest masse samlet nær sentrum, ringa har alt sammen ytterst. Du trenger ikke huske rekkefølgen — du kan lese den av formelarkets tabell ved å sammenligne tallfaktorene foran $MR^2$. Regn dem ut i stedet for å pugge dem."
+    },
+    {
+      "id": "fys1100-6-1-fig-treghetsmoment",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-1-treghetsmoment.svg",
+      "alt": "Fire legemer med samme masse og samme ytre radius tegnet ved siden av hverandre: massiv kule, massiv sylinder, hul sylinder og tynn ring. Hver av dem har en stiplet loddrett rotasjonsakse gjennom massesenteret, og under hver figur staar formelen for treghetsmomentet og tallverdien for massen 2,00 kilogram og ytre radius 0,150 meter.",
+      "caption": "Fire legemer med **samme masse** $M = 2{,}00\\,\\text{kg}$ og **samme ytre radius** $R = 0{,}150\\,\\text{m}$, om hver sin akse gjennom massesenteret. Tallverdiene er regnet ut i eksempel 2, og de viser rangeringen direkte: jo mer av massen som sitter ute ved randa, jo større er $I$."
+    },
+    {
+      "id": "fys1100-6-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Treghetsmoment-rangering med tall",
+      "problem": "Fire legemer har alle massen $M = 2{,}00\\,\\text{kg}$ og ytre radius $R = 0{,}150\\,\\text{m}$: en massiv kule, en massiv sylinder, en hul sylinder med indre radius $R_i = 0{,}100\\,\\text{m}$, og en tynn ring. Alle roterer om en akse gjennom massesenteret (for kula en diameter, for de tre andre symmetriaksen).\n\nFormelarket gir $I_{\\text{kule}} = \\tfrac25 MR^2$, $I_{\\text{sylinder}} = \\tfrac12 MR^2$, $I_{\\text{hul sylinder}} = \\tfrac12 M(R_i^2 + R^2)$ og $I_{\\text{ring}} = MR^2$.\n\n**a)** Regn ut de fire treghetsmomentene og ranger dem.\n\n**b)** Hvor mange ganger større er ringens treghetsmoment enn kulas?\n\n**c)** Alle fire settes i spinn med $\\omega = 8{,}00\\,\\text{rad/s}$. Hvor stor rotasjonsenergi har kula, og hvor stor har ringa?",
+      "solution": "**Metodevalg først:** vi slår opp riktig linje i formelarkets tabell for hvert legeme og setter inn tall. Poenget er ikke å huske faktorene, men å velge riktig linje og lese rangeringen ut av tallene.\n\n**a)** Med $MR^2 = 2{,}00 \\cdot 0{,}150^2 = 2{,}00 \\cdot 0{,}0225 = 0{,}0450\\,\\text{kg}\\cdot\\text{m}^2$:\n\n| Legeme | Formel | $I$ |\n|---|---|---|\n| massiv kule | $\\tfrac25 MR^2$ | $0{,}0180\\,\\text{kg}\\cdot\\text{m}^2$ |\n| massiv sylinder | $\\tfrac12 MR^2$ | $0{,}0225\\,\\text{kg}\\cdot\\text{m}^2$ |\n| hul sylinder | $\\tfrac12 M(R_i^2+R^2)$ | $0{,}0325\\,\\text{kg}\\cdot\\text{m}^2$ |\n| tynn ring | $MR^2$ | $0{,}0450\\,\\text{kg}\\cdot\\text{m}^2$ |\n\nUtregningen for den hule sylinderen: $\\tfrac12 \\cdot 2{,}00\\,(0{,}0100 + 0{,}0225) = 1{,}00 \\cdot 0{,}0325 = 0{,}0325\\,\\text{kg}\\cdot\\text{m}^2$.\n\nRangeringen blir altså kule $<$ massiv sylinder $<$ hul sylinder $<$ ring, og den følger direkte av hvor mye av massen som sitter langt fra aksen.\n\n**b)** $$\\frac{I_{\\text{ring}}}{I_{\\text{kule}}} = \\frac{0{,}0450}{0{,}0180} = 2{,}50$$\n\nRinga er altså to og en halv gang så tung å sette i spinn som kula — med nøyaktig samme masse. Forholdet er $1/(2/5) = 5/2$, uavhengig av både $M$ og $R$.\n\n**c)** $$K_{\\text{kule}} = \\tfrac12 I\\omega^2 = \\tfrac12 \\cdot 0{,}0180 \\cdot 64{,}0 = 0{,}576\\,\\text{J}$$\n\n$$K_{\\text{ring}} = \\tfrac12 \\cdot 0{,}0450 \\cdot 64{,}0 = 1{,}44\\,\\text{J}$$\n\n**Benevningskontroll:** $\\text{kg}\\cdot\\text{m}^2 \\cdot \\text{s}^{-2} = \\text{kg}\\cdot\\text{m}^2/\\text{s}^2 = \\text{J}$ ✓.\n\nLegg merke til at forholdet mellom energiene er $2{,}50$ — det samme som forholdet mellom treghetsmomentene, siden $\\omega$ er felles. Ringa krever altså to og en halv gang så mye arbeid for å komme opp i samme vinkelfart."
+    },
+    {
+      "id": "fys1100-6-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Konseptoppgave i midtveisformat — treghetsmoment-rangering.) To hjul har nøyaktig samme masse $M$ og samme ytre radius $R$. Hjul A er en massiv skive. Hjul B har all massen samlet i en tynn felg ytterst.\n\n**a)** Hvilket hjul har størst treghetsmoment om symmetriaksen, og hvor mange ganger større?\n\n**b)** Begge hjulene får det samme kraftmomentet $\\tau$ om aksen. Hvilket får størst vinkelakselerasjon, og hvor mange ganger større?\n\n**c)** En massiv kule med samme masse og radius settes ved siden av. Hvor plasserer den seg i rangeringen, og hvorfor?",
+        "solution": "**Metodevalg:** vi bruker formelarkets tabell og sammenligner tallfaktorene foran $MR^2$. Siden $M$ og $R$ er felles, er det bare faktorene som skiller.\n\n**a)** Den massive skiva har $I_A = \\tfrac12 MR^2$, felgen har $I_B = MR^2$. Hjul B har altså størst treghetsmoment, nøyaktig\n\n$$\\frac{I_B}{I_A} = \\frac{1}{1/2} = 2{,}00$$\n\nganger så stort. Årsaken er at bidraget går som avstanden i annen: i felgen sitter **all** massen i avstand $R$, mens den massive skiva har store deler av massen nær aksen, der bidraget er lite.\n\n**b)** Fra $\\alpha = \\tau/I$ får det hjulet med **minst** $I$ størst vinkelakselerasjon. Det er hjul A, og\n\n$$\\frac{\\alpha_A}{\\alpha_B} = \\frac{I_B}{I_A} = 2{,}00$$\n\nSkiva får altså dobbelt så stor vinkelakselerasjon som felgen med samme kraftmoment.\n\n**c)** Kula har $I = \\tfrac25 MR^2 = 0{,}400\\,MR^2$, altså **minst** av de tre ($0{,}400 < 0{,}500 < 1{,}00$). Rangeringen blir kule $<$ skive $<$ felg. Grunnen er den samme hele veien: i en massiv kule sitter en enda større del av massen nær aksen enn i en massiv skive, fordi kula smalner av mot polene.",
+        "hints": [
+          "Slå opp de tre linjene i formelarkets tabell og sammenlign bare tallfaktorene foran $MR^2$ — $M$ og $R$ er de samme.",
+          "I b): bruk $\\alpha = \\tau/I$ og se hvilken vei ulikheten går.",
+          "I c): tenk på hvor stor andel av massen som sitter langt fra aksen i hvert av legemene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-def-parallellakse",
+      "type": "definition",
+      "title": "Parallellakseteoremet",
+      "content": "Parallellakseteoremet lar deg regne ut treghetsmomentet om **hvilken som helst** akse, så snart du kjenner det om den parallelle aksen gjennom massesenteret. Du legger rett og slett til et ledd som om hele massen satt samlet i massesenteret:\n\n$$I = I_{cm} + Md^2$$\n\nder $d$ er avstanden mellom de to aksene og $M$ er legemets samlede masse.\n\n**Gyldighetsbetingelsen er at de to aksene må være parallelle, og at den ene må gå gjennom massesenteret.** Teoremet kobler ikke to vilkårlige akser.\n\nTo ting følger med én gang. For det første er $Md^2 \\ge 0$, så **treghetsmomentet er alltid minst om en akse gjennom massesenteret** — enhver forskyvning gjør legemet tregere å rotere. For det andre trenger du bare én linje fra formelarkets tabell per legeme: den om massesenteret. Resten regner du ut."
+    },
+    {
+      "id": "fys1100-6-1-fig-parallellakse",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-1-parallellakse.svg",
+      "alt": "En homogen stav med lengde l tegnet vannrett. To parallelle stiplede loddrette akser med aksesymbol er markert: en gjennom massesenteret midt paa staven og en gjennom venstre ende, kalt hengselet. Avstanden mellom aksene er merket d lik l halve med en lilla dobbeltpil under staven. Under figuren staar parallellakseteoremet.",
+      "caption": "Parallellakseteoremet brukt på det tilfellet du vil møte oftest i sjanger F: en homogen stav hengslet i den ene enden. Flytting av aksen fra massesenteret ut til enden ($d = \\ell/2$) tredobler treghetsmomentet, fra $\\tfrac{1}{12}M\\ell^2$ til $\\tfrac13 M\\ell^2$."
+    },
+    {
+      "id": "fys1100-6-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Treghetsmomentet til en stav om ulike akser",
+      "problem": "En homogen stav har masse $M = 1{,}20\\,\\text{kg}$ og lengde $\\ell = 0{,}80\\,\\text{m}$. Formelarket gir $I_{cm} = \\tfrac{1}{12}M\\ell^2$ for en akse vinkelrett på staven gjennom massesenteret.\n\n**a)** Finn $I_{cm}$.\n\n**b)** Finn treghetsmomentet om en parallell akse gjennom den ene enden, og vis at det stemmer med formelarkets $\\tfrac13 M\\ell^2$.\n\n**c)** En liten kule med masse $m = 0{,}40\\,\\text{kg}$ festes helt ute i den frie enden. Finn det samlede treghetsmomentet om hengselaksen.",
+      "solution": "**Metodevalg først:** vi henter $I_{cm}$ fra formelarket og bruker parallellakseteoremet $I = I_{cm} + Md^2$ for å flytte aksen. Kula behandles som en punktmasse, siden den er liten i forhold til staven — det er en modellantakelse som skal skrives ut.\n\n**a)** $$I_{cm} = \\tfrac{1}{12}M\\ell^2 = \\tfrac{1}{12} \\cdot 1{,}20 \\cdot 0{,}640 = 0{,}0640\\,\\text{kg}\\cdot\\text{m}^2$$\n\n**b)** Avstanden fra massesenteret til enden er $d = \\ell/2 = 0{,}400\\,\\text{m}$:\n\n$$I_{\\text{ende}} = I_{cm} + Md^2 = 0{,}0640 + 1{,}20 \\cdot 0{,}160 = 0{,}0640 + 0{,}192 = 0{,}256\\,\\text{kg}\\cdot\\text{m}^2$$\n\nKontroll mot formelarket: $\\tfrac13 M\\ell^2 = \\tfrac13 \\cdot 1{,}20 \\cdot 0{,}640 = 0{,}256\\,\\text{kg}\\cdot\\text{m}^2$ ✓.\n\nSymbolsk ser du hvorfor: $\\tfrac{1}{12}M\\ell^2 + M(\\ell/2)^2 = \\tfrac{1}{12}M\\ell^2 + \\tfrac14 M\\ell^2 = \\tfrac{4}{12}M\\ell^2 = \\tfrac13 M\\ell^2$. Aksen ute i enden gir altså **tre ganger** så stort treghetsmoment som aksen gjennom massesenteret.\n\n**c)** Treghetsmomenter om **samme akse** legges sammen, akkurat som masser gjør. En punktmasse i avstand $\\ell$ fra aksen bidrar med $m\\ell^2$:\n\n$$I_{\\text{tot}} = 0{,}256 + 0{,}40 \\cdot 0{,}640 = 0{,}256 + 0{,}256 = 0{,}512\\,\\text{kg}\\cdot\\text{m}^2$$\n\nLegg merke til hvor kraftig den lille kula slår inn: den veier bare en tredjedel av staven, men **dobler** treghetsmomentet — nettopp fordi den sitter helt ytterst, der avstanden i annen er størst.\n\n**Benevningskontroll:** $\\text{kg} \\cdot \\text{m}^2 = \\text{kg}\\cdot\\text{m}^2$ ✓."
+    },
+    {
+      "id": "fys1100-6-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En homogen stav har masse $M = 2{,}40\\,\\text{kg}$ og lengde $\\ell = 1{,}00\\,\\text{m}$. Formelarket gir $I_{cm} = \\tfrac{1}{12}M\\ell^2$.\n\n**a)** Finn treghetsmomentet om en akse vinkelrett på staven i avstand $\\ell/4$ fra den ene enden.\n\n**b)** Uttrykk svaret symbolsk som en brøk ganger $M\\ell^2$.\n\n**c)** Sammenlign med aksen gjennom massesenteret og med aksen gjennom enden, og forklar rekkefølgen fysisk.",
+        "solution": "**Metodevalg:** parallellakseteoremet $I = I_{cm} + Md^2$, der $d$ er avstanden fra massesenteret til den nye aksen.\n\n**a)** Massesenteret ligger $\\ell/2 = 0{,}500\\,\\text{m}$ fra enden, så avstanden til den nye aksen er\n\n$$d = \\frac{\\ell}{2} - \\frac{\\ell}{4} = \\frac{\\ell}{4} = 0{,}250\\,\\text{m}$$\n\n$$I = \\tfrac{1}{12} \\cdot 2{,}40 \\cdot 1{,}00 + 2{,}40 \\cdot 0{,}0625 = 0{,}200 + 0{,}150 = 0{,}350\\,\\text{kg}\\cdot\\text{m}^2$$\n\n**b)** $$I = \\tfrac{1}{12}M\\ell^2 + \\tfrac{1}{16}M\\ell^2 = \\left(\\tfrac{4}{48} + \\tfrac{3}{48}\\right)M\\ell^2 = \\tfrac{7}{48}M\\ell^2$$\n\nKontroll: $\\tfrac{7}{48} \\cdot 2{,}40 \\cdot 1{,}00 = 0{,}350\\,\\text{kg}\\cdot\\text{m}^2$ ✓.\n\n**c)** De tre verdiene er\n\n$$I_{cm} = \\tfrac{1}{12}M\\ell^2 = 0{,}200, \\qquad I_{\\ell/4} = \\tfrac{7}{48}M\\ell^2 = 0{,}350, \\qquad I_{\\text{ende}} = \\tfrac13 M\\ell^2 = 0{,}800$$\n\nalle i $\\text{kg}\\cdot\\text{m}^2$. Rekkefølgen er $I_{cm} < I_{\\ell/4} < I_{\\text{ende}}$, og den er ingen tilfeldighet: leddet $Md^2$ er aldri negativt, så treghetsmomentet er **minst** om massesenteret og vokser med kvadratet av forskyvningen. Fysisk: jo lenger unna aksen tyngdepunktet av massen ligger, jo større svinger må massen gjøre for samme vinkelendring — og jo tregere blir legemet å sette i rotasjon.",
+        "hints": [
+          "Tegn staven og marker massesenteret først — $d$ er avstanden fra massesenteret til den nye aksen, ikke til enden.",
+          "Regn $d$ som en brøk av $\\ell$ før du setter inn tall.",
+          "I c): hvilket fortegn har leddet $Md^2$ alltid?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — rotasjonens Newtons 2. lov (~25 min)\n\nNå har vi begge halvdelene: kraftmomentet, som er rotasjonens svar på kraft, og treghetsmomentet, som er rotasjonens svar på masse. Det som mangler, er loven som binder dem sammen — og den ser ut nøyaktig som du håper."
+    },
+    {
+      "id": "fys1100-6-1-th-n2-rot",
+      "type": "theorem",
+      "title": "Rotasjonens Newtons 2. lov",
+      "content": "For et stivt legeme som roterer om en fast akse gjelder\n\n$$\\tau_{\\text{net}} = I\\alpha \\qquad \\Longleftrightarrow \\qquad \\alpha = \\frac{\\tau_{\\text{net}}}{I}$$\n\nder $\\tau_{\\text{net}}$ er summen av alle kraftmomentene om aksen, $I$ er treghetsmomentet **om den samme aksen**, og $\\alpha$ er vinkelakselerasjonen. Loven står på formelarket du får utdelt.\n\nTre ting er verdt å merke seg, og de speiler punktene for $\\sum\\mathbf{F} = m\\mathbf{a}$:\n\n1. **Alt skal regnes om samme akse.** Blander du momenter om hengselen med et treghetsmoment om massesenteret, er svaret galt selv om hvert enkelt tall er riktig.\n2. **Det er summen som teller.** Alle krefter med momentarm skal med, og de skal legges sammen med fortegn.\n3. **Vinkelakselerasjonen peker samme vei som nettomomentet** — ikke samme vei som vinkelfarten. Et hjul som bremses, har $\\boldsymbol{\\alpha}$ motsatt $\\boldsymbol{\\omega}$.\n\nAnalogien mellom de to formene av andre lov er fullstendig, og den er verdt å lære som en oversettelsestabell:\n\n| Rettlinjet | Rotasjon |\n|---|---|\n| masse $m$ | treghetsmoment $I$ |\n| kraft $\\mathbf{F}$ | kraftmoment $\\boldsymbol{\\tau}$ |\n| fart $\\mathbf{v}$ | vinkelfart $\\boldsymbol{\\omega}$ |\n| akselerasjon $\\mathbf{a}$ | vinkelakselerasjon $\\boldsymbol{\\alpha}$ |\n| $\\sum\\mathbf{F} = m\\mathbf{a}$ | $\\tau_{\\text{net}} = I\\alpha$ |\n| $K = \\tfrac12 mv^2$ | $K_{\\text{rot}} = \\tfrac12 I\\omega^2$ |\n| $W = Fs$ | $W = \\tau\\theta$ |\n\nEr akselerasjonen konstant, gjelder dessuten de samme bevegelseslikningene som i [kap. 2.1](/bok/fys1100/fys1100-2-1), bare med rotasjonssymbolene: $\\omega = \\omega_0 + \\alpha t$ og $\\theta = \\theta_0 + \\omega_0 t + \\tfrac12\\alpha t^2$."
+    },
+    {
+      "id": "fys1100-6-1-def-rotasjonsenergi",
+      "type": "definition",
+      "title": "Rotasjonsenergi",
+      "content": "Rotasjonsenergien er den kinetiske energien et legeme har i kraft av å snurre, selv om massesenteret står stille:\n\n$$K_{\\text{rot}} = \\tfrac12 I\\omega^2$$\n\nDen måles i joule, akkurat som all annen energi, og den er en **skalar** uten retning.\n\nLegg merke til hvor nøyaktig uttrykket speiler $K = \\tfrac12 mv^2$: massen er byttet med treghetsmomentet og farten med vinkelfarten. Det er ikke tilfeldig — vi utledet nettopp $\\tfrac12 I\\omega^2$ ved å summere $\\tfrac12 m_i v_i^2$ over alle bitene i legemet.\n\n**Gyldighetsbetingelsen er at $\\omega$ måles i radianer per sekund**, og at $I$ gjelder om den aksen legemet faktisk roterer om. Et legeme som både beveger seg og snurrer, har begge energiformene samtidig — den kombinasjonen tar vi i [kap. 6.2](/bok/fys1100/fys1100-6-2)."
+    },
+    {
+      "id": "fys1100-6-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En homogen skive med masse $4{,}00\\,\\text{kg}$ og radius $0{,}200\\,\\text{m}$ er lagret slik at den kan snurre fritt om symmetriaksen. Skiva starter i ro. En snor er viklet rundt kanten, og du drar i den med den konstante kraften $15{,}0\\,\\text{N}$. Formelarket gir $I = \\tfrac12 MR^2$ for en massiv skive om symmetriaksen.\n\n**a)** Finn treghetsmomentet.\n\n**b)** Finn kraftmomentet om aksen, med retning.\n\n**c)** Finn vinkelakselerasjonen.\n\n**d)** Hvor stor er vinkelfarten etter $2{,}00\\,\\text{s}$, og hvor mange omdreininger har skiva gjort?",
+        "solution": "**Metodevalg:** rotasjonens Newtons 2. lov, $\\tau_{\\text{net}} = I\\alpha$, om lageraksen. Snordraget er den eneste kraften med moment om denne aksen: tyngden og lagerkraften går begge gjennom aksen og har derfor null momentarm.\n\n**a)** $$I = \\tfrac12 MR^2 = \\tfrac12 \\cdot 4{,}00 \\cdot 0{,}0400 = 0{,}0800\\,\\text{kg}\\cdot\\text{m}^2$$\n\n**b)** Snora ligger langs kanten, altså vinkelrett på radien, så momentarmen er hele $R$:\n\n$$\\tau = FR = 15{,}0 \\cdot 0{,}200 = 3{,}00\\,\\text{N}\\cdot\\text{m}$$\n\nrettet i den retningen du drar snora, altså den veien skiva begynner å snurre.\n\n**c)** $$\\alpha = \\frac{\\tau}{I} = \\frac{3{,}00}{0{,}0800} = 37{,}5\\,\\text{rad/s}^2$$\n\nsamme retning som momentet.\n\n**d)** Momentet er konstant, altså er $\\alpha$ konstant, og bevegelseslikningene for rotasjon gjelder:\n\n$$\\omega = \\omega_0 + \\alpha t = 0 + 37{,}5 \\cdot 2{,}00 = 75{,}0\\,\\text{rad/s}$$\n\n$$\\theta = \\tfrac12\\alpha t^2 = \\tfrac12 \\cdot 37{,}5 \\cdot 4{,}00 = 75{,}0\\,\\text{rad}$$\n\n$$\\text{omdreininger} = \\frac{75{,}0}{2\\pi} = 11{,}9$$\n\n**Benevningskontroll:** $\\dfrac{\\text{N}\\cdot\\text{m}}{\\text{kg}\\cdot\\text{m}^2} = \\dfrac{\\text{kg}\\cdot\\text{m}^2/\\text{s}^2}{\\text{kg}\\cdot\\text{m}^2} = \\text{s}^{-2}$, som er riktig enhet for vinkelakselerasjon (radianen er dimensjonsløs) ✓.",
+        "hints": [
+          "Hvilke krefter virker på skiva, og hvilke av dem har momentarm forskjellig fra null om lageraksen?",
+          "Snora ligger langs kanten, så momentarmen er hele radien.",
+          "I d): konstant moment gir konstant $\\alpha$, og da gjelder de samme bevegelseslikningene som for konstant $a$ — bare med rotasjonssymbolene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-fig-hengslet-stav",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-1-hengslet-stav.svg",
+      "alt": "En vannrett stav festet i et hengsel i en vegg til venstre. Tyngden Mg er tegnet som en roed pil rett nedover fra massesenteret midt paa staven, hengselkraften som en blaa pil oppover i hengselet, og momentarmen l halve er markert med en lilla dobbeltpil fra hengselet til massesenteret. En groenn buet pil ved den frie enden viser at staven faller med vinkelakselerasjonen alfa, og to bleke streker antyder senere stillinger under fallet.",
+      "caption": "Frilegeme- og momentdiagrammet til eksempel 4. To krefter virker på staven, men bare den ene har momentarm om hengselaksen: **hengselkraften $\\mathbf{R}_h$ går gjennom aksen og gir null moment**, uansett hvor stor den er. Det er derfor du kan finne $\\alpha$ uten å kjenne den."
+    },
+    {
+      "id": "fys1100-6-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4 (eksamensnivå): Stav som slippes fra vannrett stilling",
+      "problem": "En homogen stav med masse $M = 1{,}50\\,\\text{kg}$ og lengde $\\ell = 1{,}20\\,\\text{m}$ er hengslet i den ene enden og holdes vannrett. Så slippes den. Formelarket gir $I_{cm} = \\tfrac{1}{12}M\\ell^2$ for en stav.\n\n**a)** Tegn frilegemediagram og forklar hvilke krefter som bidrar til momentet om hengselaksen.\n\n**b)** Finn vinkelakselerasjonen i det staven slippes.\n\n**c)** Finn akselerasjonen til den frie enden i samme øyeblikk, og sammenlign med fritt fall.\n\n**d)** Hvor på staven er akselerasjonen nøyaktig $g$?\n\n**e)** Finn vinkelfarten når staven passerer loddrett stilling.",
+      "solution": "**Metodevalg først:** i a)–d) bruker vi rotasjonens Newtons 2. lov om **hengselaksen**, fordi den aksen ligger fast og fordi hengselkraften da faller ut av momentregnskapet. I e) bytter vi til energibevaring, som er raskere enn å integrere en vinkelakselerasjon som varierer med vinkelen.\n\n**a)** To krefter virker på staven, og de er tegnet inn i figuren over:\n\n- **tyngden $M\\mathbf{g}$**, rett nedover, med angrepspunkt i **massesenteret** midt på staven;\n- **hengselkraften $\\mathbf{R}_h$** fra opplageret, med angrepspunkt i hengselet.\n\nOm hengselaksen er det bare tyngden som bidrar. Hengselkraften angriper *i* aksen, så momentarmen er null og bidraget er null — og det er nettopp derfor vi velger hengselen som akse: vi slipper å kjenne $\\mathbf{R}_h$ i det hele tatt.\n\n**b)** Treghetsmomentet om hengselen finner vi med parallellakseteoremet:\n\n$$I = \\tfrac{1}{12}M\\ell^2 + M\\left(\\frac{\\ell}{2}\\right)^2 = \\tfrac13 M\\ell^2 = \\tfrac13 \\cdot 1{,}50 \\cdot 1{,}44 = 0{,}720\\,\\text{kg}\\cdot\\text{m}^2$$\n\nMomentet fra tyngden har momentarm $\\ell/2$, siden staven er vannrett:\n\n$$\\tau = Mg\\frac{\\ell}{2} = 1{,}50 \\cdot 9{,}81 \\cdot 0{,}600 = 8{,}83\\,\\text{N}\\cdot\\text{m}$$\n\n$$\\alpha = \\frac{\\tau}{I} = \\frac{8{,}83}{0{,}720} = 12{,}3\\,\\text{rad/s}^2$$\n\nrettet slik at staven faller, altså med klokka i figuren.\n\nSymbolsk blir det pent, og det er verdt å skrive:\n\n$$\\alpha = \\frac{Mg\\ell/2}{\\tfrac13 M\\ell^2} = \\frac{3g}{2\\ell} = \\frac{3 \\cdot 9{,}81}{2 \\cdot 1{,}20} = 12{,}3\\,\\text{rad/s}^2$$\n\n**Massen faller ut** — vinkelakselerasjonen er uavhengig av hvor tung staven er, akkurat som i fritt fall.\n\n**c)** Den frie enden ligger i avstand $\\ell$ fra aksen, så tangentialakselerasjonen der er\n\n$$a_{\\text{ende}} = \\alpha\\ell = \\frac{3g}{2\\ell}\\cdot\\ell = \\frac{3g}{2} = 14{,}7\\,\\text{m/s}^2$$\n\nDette er **større enn $g$** — enden akselererer altså raskere enn et fritt fallende legeme. Det høres galt ut, men er riktig, og du kan se det selv: legg en mynt ytterst på en linjal som er hengslet i den ene enden, hold linjalen vannrett og slipp. Linjalen forsvinner ned under mynten, som blir hengende igjen i lufta et øyeblikk.\n\nForklaringen er at staven er stiv. Den indre delen av staven, som akselererer *saktere* enn $g$, blir «dratt ned» av den ytre delen gjennom de indre kreftene — og til gjengjeld dyttes den ytre delen ned raskere enn tyngden alene ville klart.\n\n**d)** Vi krever $a = \\alpha r = g$:\n\n$$r = \\frac{g}{\\alpha} = \\frac{g}{3g/(2\\ell)} = \\frac{2\\ell}{3} = \\frac{2 \\cdot 1{,}20}{3} = 0{,}800\\,\\text{m}$$\n\nNøyaktig to tredjedeler ut på staven faller altså med tyngdens akselerasjon; innenfor dette punktet saktere, utenfor raskere.\n\n— naturlig pausepunkt —\n\n**e)** Her varierer momentet med vinkelen (momentarmen krymper som $\\cos\\theta$ etter hvert som staven faller), så $\\alpha$ er ikke konstant og bevegelseslikningene gjelder ikke. **Energibevaring** er derimot gyldig: de eneste kreftene er tyngden, som er konservativ, og hengselkraften, som ikke gjør arbeid fordi angrepspunktet ikke flytter seg. Da er mekanisk energi bevart.\n\nMassesenteret faller høyden $\\ell/2$ fra vannrett til loddrett stilling:\n\n$$Mg\\frac{\\ell}{2} = \\tfrac12 I\\omega^2$$\n\n$$\\omega = \\sqrt{\\frac{Mg\\ell}{I}} = \\sqrt{\\frac{Mg\\ell}{\\tfrac13 M\\ell^2}} = \\sqrt{\\frac{3g}{\\ell}} = \\sqrt{\\frac{3 \\cdot 9{,}81}{1{,}20}} = 4{,}95\\,\\text{rad/s}$$\n\nIgjen faller massen ut. Farten til den frie enden er da $v = \\omega\\ell = 4{,}95 \\cdot 1{,}20 = 5{,}94\\,\\text{m/s}$.\n\n**Kontroll av tallene:** $Mg\\ell/2 = 1{,}50 \\cdot 9{,}81 \\cdot 0{,}600 = 8{,}83\\,\\text{J}$, og $\\tfrac12 I\\omega^2 = \\tfrac12 \\cdot 0{,}720 \\cdot 4{,}95^2 = 8{,}83\\,\\text{J}$ ✓.\n\n**Grensetilfelle:** en lengre stav gir mindre $\\omega$ ($\\omega \\propto \\ell^{-1/2}$), men større endefart ($v = \\omega\\ell \\propto \\ell^{1/2}$). Det stemmer med at massesenteret da faller lenger og henter mer potensiell energi."
+    },
+    {
+      "id": "fys1100-6-1-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Tyngden gitt moment om massesenteret (felle #15, typisk −2 p).** Tyngden angriper *i* massesenteret. Regner du momenter om en akse gjennom massesenteret, er momentarmen null og bidraget null. Dette er den enkeltfeilen som koster mest i denne delen, og den er lett å unngå: skriv ned hvilken akse du regner om **før** du begynner å summere momenter.\n\n**Treghetsmoment om feil akse.** $I$ må gjelde om nøyaktig den aksen momentene regnes om. Bruker du $I_{cm}$ når legemet svinger om en hengsel i enden, bommer du med en faktor 3 for en stav. Parallellakseteoremet finnes nettopp for å fikse dette — bruk det.\n\n**Kraftmoment uten retning (felle #9, typisk −2 p).** «$8{,}8\\,\\text{N}\\cdot\\text{m}$» er ikke et fullstendig svar. Skriv «$8{,}8\\,\\text{N}\\cdot\\text{m}$ med klokka, altså inn i papirplanet».\n\n**Forveksling av $\\alpha$ og $a$.** Vinkelakselerasjonen $\\alpha$ måles i $\\text{rad/s}^2$, banens akselerasjon $a$ i $\\text{m/s}^2$, og de henger sammen med $a = \\alpha r$. Å sette dem lik hverandre gir feil enhet, og en enhetssjekk fanger det på ti sekunder.\n\n**Glemt at krefter gjennom aksen gir null moment.** Hengselkrefter, lagerkrefter og aksekrefter er ofte ukjente. Velger du aksen slik at de går gjennom den, forsvinner de fra likningen — og oppgaven blir løsbar. Å forsøke å regne dem ut først er en av de vanligste måtene å gå tom for tid på.\n\n**Grader i stedet for radianer.** Alle rotasjonsformlene forutsetter radianer. $\\omega$ i grader per sekund gir feil svar i både $K_{\\text{rot}}$ og $v = \\omega r$.\n\n**Tallsvar uten begrunnelse (felle #1).** Hvert sett har «Husk at alle svar må begrunnes!» i hodet. Én setning om hvilken akse du regner om og hvilket prinsipp du bruker, før første likning."
+    },
+    {
+      "id": "fys1100-6-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — rotasjonsoppgaven.) En homogen stav med masse $M = 2{,}00\\,\\text{kg}$ og lengde $\\ell = 1{,}00\\,\\text{m}$ er hengslet i den ene enden. En liten kule med masse $m = 0{,}50\\,\\text{kg}$ er festet helt ute i den frie enden. Systemet holdes vannrett og slippes.\n\n**a)** Finn systemets treghetsmoment om hengselaksen.\n\n**b)** Finn vinkelakselerasjonen i det systemet slippes.\n\n**c)** Finn vinkelfarten når staven passerer loddrett stilling.\n\n**d)** Er vinkelakselerasjonen i b) større eller mindre enn for staven alene? Begrunn uten å regne på nytt.",
+        "solution": "**Metodevalg:** rotasjonens Newtons 2. lov om hengselaksen i a)–b), energibevaring i c). Hengselkraften har null momentarm om aksen og faller ut av begge regnskapene. Kula behandles som en punktmasse.\n\n**a)** Staven bidrar med $\\tfrac13 M\\ell^2$ om enden, kula med $m\\ell^2$:\n\n$$I = \\tfrac13 \\cdot 2{,}00 \\cdot 1{,}00 + 0{,}50 \\cdot 1{,}00 = 0{,}667 + 0{,}500 = 1{,}17\\,\\text{kg}\\cdot\\text{m}^2$$\n\n**b)** Begge tyngdene gir moment om hengselen. Stavens tyngde har momentarm $\\ell/2$, kulas har momentarm $\\ell$:\n\n$$\\tau = Mg\\frac{\\ell}{2} + mg\\ell = 2{,}00 \\cdot 9{,}81 \\cdot 0{,}500 + 0{,}50 \\cdot 9{,}81 \\cdot 1{,}00 = 9{,}81 + 4{,}91 = 14{,}7\\,\\text{N}\\cdot\\text{m}$$\n\n$$\\alpha = \\frac{14{,}7}{1{,}17} = 12{,}6\\,\\text{rad/s}^2$$\n\nrettet med klokka, altså den veien systemet faller.\n\n**c)** Energibevaring gjelder fordi bare tyngden gjør arbeid — hengselkraftens angrepspunkt flytter seg ikke. Massesenteret til staven faller $\\ell/2$ og kula faller $\\ell$:\n\n$$Mg\\frac{\\ell}{2} + mg\\ell = \\tfrac12 I\\omega^2 \\quad \\Rightarrow \\quad 14{,}7 = \\tfrac12 \\cdot 1{,}17\\,\\omega^2$$\n\n$$\\omega = \\sqrt{\\frac{2 \\cdot 14{,}7}{1{,}17}} = 5{,}02\\,\\text{rad/s}$$\n\nKulas fart i loddrett stilling er da $v = \\omega\\ell = 5{,}02\\,\\text{m/s}$.\n\n**d)** **Mindre.** For staven alene er $\\alpha = 3g/(2\\ell) = 3 \\cdot 9{,}81/2 = 14{,}7\\,\\text{rad/s}^2$, mens systemet med kula i enden fikk $12{,}6\\,\\text{rad/s}^2$. Kula gjør altså systemet tregere.\n\nBegrunnelsen uten regning: kula sitter helt ytterst, i avstand $\\ell$. Den øker momentet med faktoren $mg\\ell$, men treghetsmomentet med $m\\ell^2$. Forholdet mellom det den legger til i teller og nevner er $g/\\ell$, mens stavens eget forhold er $\\left(Mg\\ell/2\\right)/\\left(M\\ell^2/3\\right) = 3g/(2\\ell)$ — halvannen gang større. Kula trekker altså gjennomsnittet ned, og vinkelakselerasjonen synker.\n\nSagt enklere: en punktmasse ute i enden er «mest mulig treghet per newtonmeter». Vil du ha rask rotasjon, skal massen sitte nær aksen.",
+        "hints": [
+          "Treghetsmomenter om samme akse legges sammen. Staven bidrar med $\\tfrac13 M\\ell^2$, kula som en punktmasse.",
+          "Begge tyngdene gir moment, men med hver sin momentarm — hvor angriper hver av dem?",
+          "I c): hvilke krefter gjør arbeid mens staven faller, og hvor langt faller hvert massesenter?",
+          "I d): sammenlign hvor mye kula legger til i telleren ($\\tau$) og i nevneren ($I$)."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kvalitativ, av typen «kritiser løsningen».) En medstudent skal finne vinkelakselerasjonen til en homogen stav som er hengslet i den ene enden og slippes fra vannrett stilling. Hun skriver:\n\n*«Tyngden $Mg$ angriper i massesenteret, som ligger $\\ell/2$ fra hengselen. Jeg regner momenter om massesenteret, siden det er der tyngden virker. Da er $\\tau = Mg \\cdot \\ell/2$, og med $I_{cm} = \\tfrac{1}{12}M\\ell^2$ blir $\\alpha = 6g/\\ell$.»*\n\n**a)** Pek ut den konkrete feilen med fagbegrep, og si hvilket prinsipp som faktisk gjelder.\n\n**b)** Er det galt å velge massesenteret som akse? Forklar.\n\n**c)** Regn ut hvor stor prosentvis feil svaret hennes gir, sammenlignet med det riktige.",
+        "solution": "**a)** Feilen er at hun **regner momentet om massesenteret og lar tyngden bidra**. Det er umulig: tyngden angriper *i* massesenteret, momentarmen er derfor null, og bidraget til momentet om den aksen er null. Hun bruker momentarmen $\\ell/2$, som er avstanden til **hengselen**, sammen med et treghetsmoment om **massesenteret** — altså to forskjellige akser i samme likning. Dette er felle #15, som typisk koster 2 poeng.\n\nPrinsippet som gjelder, er at $\\tau_{\\text{net}} = I\\alpha$ krever at moment og treghetsmoment regnes om **én og samme akse**. Riktig oppsett er hengselaksen: $\\tau = Mg\\,\\ell/2$ med $I = \\tfrac13 M\\ell^2$, som gir $\\alpha = 3g/(2\\ell)$.\n\n**b)** Nei, ikke i seg selv — massesenteret er en fullt lovlig akse, og for et legeme som både beveger seg og roterer er det ofte den beste. Men da må **alle** momentene regnes om massesenteret, og da er det ikke tyngden som bidrar, men **hengselkraften**, som angriper i avstand $\\ell/2$ fra massesenteret. Den er ukjent, så regnestykket blir vanskeligere: du må først finne hengselkraften fra $\\sum\\mathbf{F} = M\\mathbf{a}_{cm}$ og koble $a_{cm}$ til $\\alpha$. Hengselaksen er raskere nettopp fordi den ukjente kraften da har null momentarm.\n\n**c)** Hennes svar er $\\alpha_{\\text{feil}} = 6g/\\ell$; det riktige er $\\alpha = 3g/(2\\ell) = 1{,}5g/\\ell$. Forholdet er\n\n$$\\frac{\\alpha_{\\text{feil}}}{\\alpha} = \\frac{6g/\\ell}{1{,}5g/\\ell} = 4{,}00$$\n\nHun får altså et svar som er **fire ganger for stort** — en feil på $300\\,\\%$. Faktoren 4 kommer av at hun bruker et treghetsmoment som er 4 ganger for lite ($\\tfrac{1}{12}$ mot $\\tfrac13$). En rimelighetssjekk hadde avslørt det: med $\\ell = 1{,}00\\,\\text{m}$ gir hennes formel $58{,}9\\,\\text{rad/s}^2$, som ville gitt endeakselerasjonen $58{,}9\\,\\text{m/s}^2 = 6g$. Ingen stav faller seks ganger så fort som fritt fall.",
+        "hints": [
+          "Skriv opp hvilken akse hvert av de to tallene i regnestykket hennes hører til.",
+          "Hvor stor er momentarmen til en kraft som angriper nøyaktig i den aksen du regner om?",
+          "I c): sammenlign de to uttrykkene symbolsk før du setter inn tall."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ — «forklar/begrunn»-typen som det er minst én av i hvert eksamenssett.)\n\n**a)** To dører er like store og like tunge, men den ene har all massen jevnt fordelt, mens den andre har en tung metallplate langs ytterkanten. Hvilken er lettest å svinge opp, og hvorfor?\n\n**b)** En turner strekker armene ut fra kroppen mens hun snurrer på tå. Hva skjer med treghetsmomentet hennes, og hvorfor?\n\n**c)** Hvorfor kan du finne vinkelakselerasjonen til en hengslet stav uten å vite hvor stor kraften i hengselen er?",
+        "solution": "**a)** Døra med jevnt fordelt masse. Treghetsmomentet går som $\\sum m_i\\rho_i^2$, altså med **kvadratet** av avstanden fra hengslene. Metallplaten sitter helt ytterst, der $\\rho$ er størst, og bidrar derfor uforholdsmessig mye til $I$ selv om totalmassen er den samme. Med samme kraft på håndtaket — altså samme kraftmoment — gir $\\alpha = \\tau/I$ mindre vinkelakselerasjon for den døra som har størst $I$.\n\n**b)** Det **øker**. Armene flyttes fra en liten avstand fra rotasjonsaksen til en større, og bidraget deres til $I = \\sum m_i\\rho_i^2$ vokser med kvadratet av avstanden. Massen er den samme; det er bare fordelingen som endres. (Hva som skjer med selve rotasjonen når $I$ endres, tar vi i [kap. 6.3](/bok/fys1100/fys1100-6-3).)\n\n**c)** Fordi hengselkraften angriper **i** hengselaksen. Momentarmen er null, og bidraget til $\\tau_{\\text{net}}$ om den aksen er null — uansett hvor stor kraften er og hvilken vei den peker. Velger vi hengselen som akse, forsvinner den altså helt ut av likningen $\\tau_{\\text{net}} = I\\alpha$, og vi står igjen med tyngden som eneste bidrag.\n\nDette aksevalget er et av de mest lønnsomme grepene i hele sjangeren: legg aksen der de ukjente kreftene angriper, så slipper du å regne dem ut.",
+        "hints": [
+          "I a): hvilken av de to størrelsene i $\\alpha = \\tau/I$ er forskjellig for de to dørene?",
+          "I b): hva skjer med $\\rho$ for massen i armene, og hvordan går bidraget med $\\rho$?",
+          "I c): hva er momentarmen til en kraft som angriper i selve aksen?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-1",
+      "type": "definition",
+      "title": "Stivt legeme",
+      "content": "Et legeme der avstanden mellom alle punktene er den samme uansett hvordan legemet beveger seg — det bøyer seg ikke, strekker seg ikke og deformeres ikke.\n\nIdealiseringen er hele grunnlaget for rotasjonsmekanikken: nettopp fordi avstandene er faste, har **alle punktene samme vinkelfart og samme vinkelakselerasjon**, selv om banefartene er forskjellige. En stav, en sylinder og et hjul behandles som stive; en fjær, et tau og en vannstråle gjør det ikke.\n\nAntakelsen skal skrives ut når du bruker den, og den er også grunnen til at den frie enden av en fallende stav kan akselerere raskere enn $g$: de indre kreftene som holder staven stiv, dytter ytterdelen ned."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-2",
+      "type": "definition",
+      "title": "Rotasjonsakse",
+      "content": "Den linja legemet dreier om. Alle punkter på selve aksen står stille; alle andre punkter går i sirkel rundt den.\n\nAksen er ikke noe du observerer, den er noe du **velger** — og valget avgjør både momentene og treghetsmomentet. Er legemet lagret i et hengsel, er valget opplagt. Er legemet fritt (som en rullende sylinder eller et legeme i lufta), er massesenteraksen som regel det beste valget.\n\nPraktisk regel: **legg aksen der de ukjente kreftene angriper**. Da får de null momentarm og forsvinner fra likningen. Skriv alltid ned hvilken akse du bruker, før du summerer momenter."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-3",
+      "type": "definition",
+      "title": "Vinkelforflytning og radian",
+      "content": "Vinkelforflytningen $\\theta$ er hvor mye legemet har dreid seg, målt i **radianer**. Én radian er den vinkelen der buelengden er lik radien:\n\n$$s = r\\theta \\qquad (\\theta \\text{ i radianer})$$\n\nEn hel omdreining er $2\\pi$ radianer, altså omtrent $6{,}28$.\n\nRadianen er dimensjonsløs — den er et forhold mellom to lengder — og det er derfor $\\text{rad/s}$ i praksis er $\\text{s}^{-1}$ i en benevningskontroll. **Alle rotasjonsformlene i faget forutsetter radianer.** Regner du med grader, blir både $v = \\omega r$, $K_{\\text{rot}}$ og bevegelseslikningene gale."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-4",
+      "type": "definition",
+      "title": "Vinkelfart",
+      "content": "Vinkelfarten forteller hvor raskt et legeme dreier seg: hvor mange radianer det svinger per sekund.\n\n$$\\boldsymbol{\\omega} = \\frac{d\\theta}{dt}, \\qquad [\\omega] = \\text{rad/s}$$\n\nDen er en **vektor** som peker langs rotasjonsaksen, med retning gitt av høyrehåndsregelen: krøll høyre hånds fingre den veien legemet snurrer, og tommelen viser $\\boldsymbol{\\omega}$. I planet betyr det ut av papirplanet for rotasjon mot klokka.\n\nAlle punkter i et stivt legeme har samme $\\omega$, men banefarten varierer med avstanden fra aksen: $v = \\omega\\rho$. Det er derfor ytterst på et hjul går fortest."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-5",
+      "type": "definition",
+      "title": "Vinkelakselerasjon",
+      "content": "Vinkelakselerasjonen forteller hvor raskt vinkelfarten endrer seg:\n\n$$\\boldsymbol{\\alpha} = \\frac{d\\boldsymbol{\\omega}}{dt}, \\qquad [\\alpha] = \\text{rad/s}^2$$\n\nDen er rotasjonens motstykke til akselerasjonen, og den peker samme vei som **nettomomentet** — ikke nødvendigvis samme vei som $\\boldsymbol{\\omega}$. Et hjul som bremses ned, har $\\boldsymbol{\\alpha}$ motsatt rettet av $\\boldsymbol{\\omega}$, akkurat som en bil som bremser har $\\mathbf{a}$ motsatt $\\mathbf{v}$.\n\n**Merk symbolkollisjonen:** $\\alpha$ betyr vinkelakselerasjon i hele denne delen av boka. Der en vinkel trenger et symbol, bruker vi $\\theta$ eller $\\varphi$."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-6",
+      "type": "definition",
+      "title": "Fortegnskonvensjon for rotasjon",
+      "content": "Avtalen om hva som skal telle som positiv omdreiningsretning i planet. Standarden i faget:\n\n- **mot klokka er positivt** — vektoren peker ut av papirplanet;\n- **med klokka er negativt** — vektoren peker inn i papirplanet.\n\nKonvensjonen er et valg, ikke en naturlov, men den må være **konsekvent gjennom hele regnestykket**: samme fortegn for momenter, vinkelfart og vinkelakselerasjon.\n\nSkriv den ned i figuren din. Sensor er relativt mild på fortegnsfeil i rotasjonsoppgaver så lenge oppsettet er riktig og konvensjonen er oppgitt — men uten en oppgitt konvensjon er et fortegn umulig å vurdere."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-7",
+      "type": "definition",
+      "title": "Kryssproduktet som momentverktøy",
+      "content": "Kryssproduktet $\\mathbf{a}\\times\\mathbf{b}$ er en vektor som står **vinkelrett på begge** faktorene, med tallverdi $ab\\sin\\varphi$ — altså arealet av parallellogrammet de spenner ut.\n\nFor kraftmomentet betyr det to ting på én gang: tallverdien $rF\\sin\\varphi$ måler hvor effektivt kraften vrir, og retningen langs aksen forteller hvilken vei.\n\nTo egenskaper brukes hele tiden: kryssproduktet er **null når vektorene er parallelle** (kraft langs armen gir null moment), og det **bytter fortegn** når du bytter om faktorene ($\\mathbf{r}\\times\\mathbf{F} = -\\mathbf{F}\\times\\mathbf{r}$) — så rekkefølgen betyr noe. Repetisjon: [Kryssproduktet](/bok/r2/r2-5-4)."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-8",
+      "type": "definition",
+      "title": "Høyrehåndsregelen",
+      "content": "Regelen som gir retningen til et kryssprodukt, og dermed til kraftmoment, vinkelfart og spinn.\n\nFramgangsmåte: legg høyre hånds fingre langs den første vektoren ($\\mathbf{r}$), krøll dem mot den andre ($\\mathbf{F}$) — tommelen peker da langs $\\mathbf{r}\\times\\mathbf{F}$.\n\nI to dimensjoner koker det ned til to muligheter: ut av papirplanet (mot klokka) eller inn i det (med klokka). Da er det raskere å spørre «hvilken vei ville dette dreid legemet?» og skrive svaret. Regelen trenger du først når rotasjonsaksene ikke lenger ligger i samme retning."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-9",
+      "type": "definition",
+      "title": "Massesenter",
+      "content": "Det punktet i et legeme som beveger seg som om hele massen var samlet der og alle ytre krefter angrep der:\n\n$$\\mathbf{R}_{cm} = \\frac{1}{M}\\sum_i m_i\\mathbf{r}_i$$\n\nFor et **homogent** legeme med symmetri ligger massesenteret i det geometriske sentrum: midt på en stav, i sentrum av en kule eller en sylinder.\n\nTo konsekvenser brukes hele tiden i rotasjon: tyngden kan behandles som om den angriper i massesenteret når du regner moment om en annen akse, og tyngden gir **null** moment om en akse gjennom massesenteret. Uttrykket står på formelarket."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-10",
+      "type": "definition",
+      "title": "Tyngdens moment om en akse",
+      "content": "Momentet en tyngde $Mg$ gir om en valgt akse. Siden tyngden angriper i massesenteret og peker rett ned, er momentarmen den **vannrette** avstanden $x$ fra aksen til massesenteret:\n\n$$\\tau_{\\text{tyngde}} = Mg\\,x$$\n\nFor en vannrett stav hengslet i enden er $x = \\ell/2$. For den samme staven i en stilling der den har falt vinkelen $\\theta$ under vannrett, er $x = (\\ell/2)\\cos\\theta$ — momentet krymper altså mens staven faller, og er null når staven henger loddrett.\n\nDet er nettopp derfor $\\alpha$ ikke er konstant under fallet, og derfor energibevaring er raskere enn $\\tau = I\\alpha$ når du skal finne sluttfarten."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-11",
+      "type": "definition",
+      "title": "Kraft gjennom aksen",
+      "content": "En kraft hvis virkelinje går gjennom rotasjonsaksen. Slike krefter har **null momentarm og gir derfor null kraftmoment**, uansett hvor store de er.\n\nDette er ikke en kuriositet, men et av de mest brukte grepene i sjanger F. Hengselkrefter, lagerkrefter og aksekrefter er nesten alltid ukjente. Velger du aksen slik at de går gjennom den, forsvinner de fra momentregnskapet, og oppgaven blir løsbar uten dem.\n\nMotstykket: velger du en annen akse, må disse kreftene med — og da må du først finne dem fra $\\sum\\mathbf{F} = M\\mathbf{a}_{cm}$. Begge veier er riktige; den ene er mye raskere."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-12",
+      "type": "definition",
+      "title": "Analogien mellom translasjon og rotasjon",
+      "content": "En oversettelsestabell mellom rettlinjet bevegelse og rotasjon, der hver størrelse har et motstykke: masse $\\leftrightarrow$ treghetsmoment, kraft $\\leftrightarrow$ kraftmoment, fart $\\leftrightarrow$ vinkelfart, akselerasjon $\\leftrightarrow$ vinkelakselerasjon.\n\nAnalogien er ikke en huskeregel, men en konsekvens av at rotasjonslikningene utledes fra Newtons lover ved å gange med momentarmen og summere over legemet.\n\nPraktisk verdi: alt du kan om rettlinjet bevegelse kan oversettes. Konstant $\\alpha$ gir de samme bevegelseslikningene som konstant $a$; arbeid blir $W = \\tau\\theta$ i stedet for $W = Fs$; effekt blir $P = \\tau\\omega$ i stedet for $P = Fv$."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-13",
+      "type": "definition",
+      "title": "Tangentiell akselerasjon i rotasjon",
+      "content": "Den delen av akselerasjonen til et punkt på et roterende legeme som ligger **langs banen** og endrer farten:\n\n$$a_t = \\alpha\\rho$$\n\nder $\\rho$ er avstanden fra aksen. Enheten er $\\text{m/s}^2$ — merk forskjellen fra $\\alpha$, som måles i $\\text{rad/s}^2$.\n\nDette er koblingen mellom rotasjonsstørrelser og vanlige bevegelsesstørrelser, og den er ofte det siste steget i en oppgave: «finn akselerasjonen til enden av staven» betyr $a_t = \\alpha\\ell$. Å sette $a = \\alpha$ er en enhetsfeil som en rask benevningskontroll fanger."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-14",
+      "type": "definition",
+      "title": "Radiell akselerasjon i rotasjon",
+      "content": "Den delen av akselerasjonen til et punkt på et roterende legeme som peker **inn mot aksen** og endrer fartsretningen:\n\n$$a_r = \\omega^2\\rho = \\frac{v^2}{\\rho}$$\n\nDen er der så snart legemet roterer, også når vinkelfarten er konstant. Den tangentielle akselerasjonen er null ved konstant $\\omega$; den radielle er det ikke.\n\nSamlet akselerasjon til et punkt er vektorsummen av de to, og de står vinkelrett på hverandre: $a = \\sqrt{a_t^2 + a_r^2}$. Dette er den samme oppdelingen som baneakselerasjonen i [kap. 2.1](/bok/fys1100/fys1100-2-1) og sentripetalakselerasjonen i [kap. 4.1](/bok/fys1100/fys1100-4-1)."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-15",
+      "type": "definition",
+      "title": "Treghetsradius",
+      "content": "Den avstanden $k$ fra aksen der hele massen kunne vært samlet uten at treghetsmomentet endret seg:\n\n$$I = Mk^2 \\qquad \\Longrightarrow \\qquad k = \\sqrt{I/M}$$\n\nFor en tynn ring er $k = R$ (all massen sitter jo allerede der), for en massiv skive $k = R/\\sqrt2 \\approx 0{,}71R$, og for en massiv kule $k = R\\sqrt{2/5} \\approx 0{,}63R$.\n\nStørrelsen er nyttig som rimelighetssjekk: $k$ skal alltid ligge mellom null og legemets største utstrekning fra aksen. Får du $k > R$ for et legeme med ytre radius $R$, har du regnet feil."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-16",
+      "type": "definition",
+      "title": "Additivitet av treghetsmoment",
+      "content": "Treghetsmomenter om **samme akse** kan legges sammen og trekkes fra, akkurat som masser:\n\n$$I_{\\text{tot}} = I_1 + I_2 + \\dots$$\n\nDette gjør sammensatte legemer overkommelige. En stav med en kule i enden: legg sammen $\\tfrac13 M\\ell^2$ og $m\\ell^2$. En skive med et hull i: regn skiva som om den var hel, og **trekk fra** treghetsmomentet til det materialet som er borte (med parallellakseteoremet, hvis hullet ikke er sentrert).\n\nBetingelsen er absolutt: samme akse for alle leddene. Å legge sammen et treghetsmoment om massesenteret og ett om en hengsel gir et tall uten mening."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-17",
+      "type": "definition",
+      "title": "Homogent legeme",
+      "content": "Et legeme der massen er jevnt fordelt — tettheten er den samme overalt.\n\nAntakelsen er det som gjør at massesenteret ligger i det geometriske sentrum, og at formelarkets tabellverdier ($\\tfrac{1}{12}M\\ell^2$, $\\tfrac12 MR^2$, $\\tfrac25 MR^2$) i det hele tatt gjelder. Står ordet «homogen» i oppgaveteksten, er det ikke pynt: det er lisensen til å bruke tabellen.\n\nEr legemet ikke homogent — for eksempel en stav som er tykkere i den ene enden — må massesenteret oppgis eller regnes ut, og treghetsmomentet må enten oppgis eller finnes ved integrasjon."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-18",
+      "type": "definition",
+      "title": "Statisk momentlikevekt",
+      "content": "Betingelsen for at et stivt legeme skal stå helt i ro. Den har **to** deler, og begge må være oppfylt:\n\n$$\\sum\\mathbf{F} = 0 \\qquad \\text{og} \\qquad \\sum\\tau = 0 \\ \\text{om en vilkårlig akse}$$\n\nKraftlikevekt alene er ikke nok: to like store, motsatt rettede krefter som angriper ulike steder gir null resultantkraft, men setter legemet i rotasjon.\n\nEt nyttig triks: når kraftlikevekten er oppfylt, gir **alle** aksevalg det samme momentregnskapet. Du kan derfor legge aksen der det passer deg best — typisk i et ukjent opplager, slik at den kraften faller ut."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-19",
+      "type": "definition",
+      "title": "Hengsel og opplagerkraft",
+      "content": "Et hengsel (eller lager) er et feste som holder ett punkt av legemet i ro, men lar det dreie fritt om det punktet.\n\nKraften fra hengselet, opplagerkraften, er som regel **ukjent i både størrelse og retning**, og den er sjelden loddrett — den justerer seg til akkurat det som trengs for å holde punktet på plass. For en stav som slippes fra vannrett stilling er den for eksempel mindre enn tyngden, fordi massesenteret akselererer nedover.\n\nNettopp fordi den er ukjent, velger vi hengselaksen når vi skal finne $\\alpha$: da har opplagerkraften null momentarm og faller ut. Trenger du selve opplagerkraften, finner du den etterpå fra $\\sum\\mathbf{F} = M\\mathbf{a}_{cm}$."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-20",
+      "type": "definition",
+      "title": "Kraftpar",
+      "content": "To like store, motsatt rettede krefter som angriper i to forskjellige punkter. Resultantkraften er null, men momentet er det ikke:\n\n$$\\tau = Fd$$\n\nder $d$ er avstanden mellom virkelinjene.\n\nDet spesielle med et kraftpar er at momentet er **det samme om enhver akse** — du trenger ikke oppgi noe punkt. Det er derfor et kraftpar kalles et «rent moment»: det gir rotasjon uten å flytte massesenteret.\n\nPraktiske eksempler: hendene på et ratt, de to fingrene på en kork, eller de to kreftene fra en skrutrekker. Merk skillet fra Newtons 3. lovs kraftpar, som virker på **ulike legemer**; her virker begge kreftene på samme legeme."
+    },
+    {
+      "id": "fys1100-6-1-def-bank-21",
+      "type": "definition",
+      "title": "Arbeid og effekt i rotasjon",
+      "content": "Et kraftmoment som virker mens legemet dreier seg, gjør arbeid:\n\n$$W = \\tau\\theta \\qquad (\\theta \\text{ i radianer, konstant } \\tau)$$\n\nog den momentane effekten er\n\n$$P = \\tau\\omega$$\n\nBegge er nøyaktig de rettlinjede uttrykkene $W = Fs$ og $P = Fv$ oversatt gjennom analogien.\n\nArbeids–energi-teoremet gjelder i samme form: nettoarbeidet fra momentene er lik endringen i rotasjonsenergi, $W_{\\text{net}} = \\Delta\\left(\\tfrac12 I\\omega^2\\right)$. Det er denne sammenhengen som gjør energibevaring til et lovlig alternativ til $\\tau = I\\alpha$ når momentet varierer med vinkelen."
+    },
+    {
+      "id": "fys1100-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-6-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\boldsymbol{\\tau}$, $\\tau$ | kraftmoment (vektor) og tallverdien med fortegn om en akse | $\\text{N}\\cdot\\text{m}$ |\n| $\\mathbf{r}$, $r$ | vektor fra aksen til angrepspunktet, og lengden av den | $\\text{m}$ |\n| $\\varphi$ | vinkelen mellom $\\mathbf{r}$ og $\\mathbf{F}$ | rad eller grader |\n| $r\\sin\\varphi$ | momentarmen — vinkelrett avstand fra aksen til virkelinja | $\\text{m}$ |\n| $I$ | treghetsmoment om en oppgitt akse (**skalar**) | $\\text{kg}\\cdot\\text{m}^2$ |\n| $I_{cm}$ | treghetsmoment om akse gjennom massesenteret | $\\text{kg}\\cdot\\text{m}^2$ |\n| $d$ | avstand mellom to parallelle akser | $\\text{m}$ |\n| $\\rho$ | avstand fra aksen til en massebit | $\\text{m}$ |\n| $k$ | treghetsradius, $I = Mk^2$ | $\\text{m}$ |\n| $\\theta$ | vinkelforflytning | rad |\n| $\\boldsymbol{\\omega}$, $\\omega$ | vinkelfart | $\\text{rad/s}$ |\n| $\\boldsymbol{\\alpha}$, $\\alpha$ | vinkelakselerasjon | $\\text{rad/s}^2$ |\n| $a_t$, $a_r$ | tangentiell og radiell akselerasjon til et punkt | $\\text{m/s}^2$ |\n| $M$, $m$ | masse (**skalar**) | $\\text{kg}$ |\n| $\\ell$ | lengde av stav | $\\text{m}$ |\n| $R$, $R_i$ | ytre og indre radius | $\\text{m}$ |\n| $K_{\\text{rot}}$ | rotasjonsenergi | $\\text{J}$ |\n| $\\mathbf{R}_h$ | hengselkraft (opplagerkraft) | $\\text{N}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner som er avklart i denne boka:** tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, **aldri** $\\mathbf{G}$ — symbolet $G$ er reservert gravitasjonskonstanten. Lengden av en stav skrives $\\ell$, ikke $L$, fordi $\\mathbf{L}$ er spinn i [kap. 6.3](/bok/fys1100/fys1100-6-3). Symbolet $\\alpha$ betyr vinkelakselerasjon i hele Del 6; vinkler får $\\theta$ og $\\varphi$. Snordrag skrives $T$; en periode skrives $T_p$ der begge opptrer. Treghetsmomentet $I$, massen $M$ og energien $K$ er **skalarer** og skal aldri ha vektormarkering.\n\n**Formler i dette delkapitlet:**\n\n$$\\boldsymbol{\\tau} = \\mathbf{r}\\times\\mathbf{F}, \\qquad \\tau = rF\\sin\\varphi$$\n\nKraftmomentet om en akse. **[formelarket]** — poengene ligger i å velge akse og lese av momentarmen, ikke i å huske formelen.\n\n$$\\tau = F\\cdot(\\text{momentarm})$$\n\nSamme formel gruppert motsatt. **[må kunne utledes]** — dette er den formen som går raskest under tidspress.\n\n$$I = \\sum_i m_i\\rho_i^2 = \\int\\rho^2\\,dm$$\n\nTreghetsmomentets definisjon. **[formelarket]** — tabellen med $\\tfrac{1}{12}M\\ell^2$, $\\tfrac12 MR^2$, $\\tfrac25 MR^2$ og de øvrige står også der, og på formelsamlingen **[Rottmann]**. Slå opp, ikke pugg.\n\n$$I = I_{cm} + Md^2$$\n\nParallellakseteoremet. **[formelarket]** — du må vite *når* det gjelder (parallelle akser, den ene gjennom massesenteret) og at $Md^2$ aldri er negativt.\n\n$$\\tau_{\\text{net}} = I\\alpha$$\n\nRotasjonens Newtons 2. lov. **[formelarket]** — begge størrelsene må gjelde om **samme** akse.\n\n$$K_{\\text{rot}} = \\tfrac12 I\\omega^2$$\n\nRotasjonsenergi. **[formelarket]**\n\n$$\\alpha = \\frac{3g}{2\\ell}$$\n\nVinkelakselerasjonen til en homogen stav hengslet i den ene enden, sluppet fra vannrett. **[må kunne utledes]** — dette er kapitlets viktigste utledning, og den kombinerer parallellakse, momentarm og $\\tau = I\\alpha$.\n\n$$\\omega = \\sqrt{\\frac{3g}{\\ell}}$$\n\nVinkelfarten til den samme staven i loddrett stilling. **[må kunne utledes]** — via energibevaring, ikke via $\\tau = I\\alpha$.\n\n$$a_t = \\alpha\\rho, \\qquad a_r = \\omega^2\\rho, \\qquad v = \\omega\\rho$$\n\nKoblingen mellom rotasjonsstørrelser og banestørrelser. **[må kunne utledes]** — de følger av $s = \\rho\\theta$ ved derivasjon.\n\n$$W = \\tau\\theta, \\qquad P = \\tau\\omega$$\n\nArbeid og effekt i rotasjon. **[må kunne utledes]** — analogien til $W = Fs$ og $P = Fv$.\n\n$$\\omega = \\omega_0 + \\alpha t, \\qquad \\theta = \\theta_0 + \\omega_0 t + \\tfrac12\\alpha t^2$$\n\nBevegelseslikningene ved **konstant** $\\alpha$. **[formelarket]** — det er konstant-$a$-formlene med rotasjonssymboler, og de gjelder like lite når $\\alpha$ varierer."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-6-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) En kloss ligger i ro på et vannrett bord. Hvor mange krefter virker på den, hvilke er de, og hvor angriper hver av dem?",
+            "solution": "To krefter: **tyngden** $m\\mathbf{g}$ rett nedover, med angrepspunkt i **massesenteret**, og **normalkraften** $\\mathbf{N}$ rett oppover, med angrepspunkt i **kontaktflaten** mot bordet.\n\nAngrepspunktene var likegyldige for akselerasjonen så lenge klossen ikke roterte. Fra og med dette kapitlet er de avgjørende: det er angrepspunktet som gir kraften en momentarm.",
+            "hints": [
+              "Gå rundt legemet og se hvor noe berører det — hvert berøringspunkt gir en kontaktkraft. Legg deretter til tyngden."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) En kloss med masse $5{,}00\\,\\text{kg}$ ligger på et skråplan med helning $30{,}0^\\circ$. Finn tyngdens komponenter langs og normalt på planet.",
+            "solution": "$$F_{g,\\parallel} = mg\\sin\\theta = 5{,}00 \\cdot 9{,}81 \\cdot 0{,}500 = 24{,}5\\,\\text{N}$$\n\nnedover langs planet, og\n\n$$F_{g,\\perp} = mg\\cos\\theta = 5{,}00 \\cdot 9{,}81 \\cdot 0{,}866 = 42{,}5\\,\\text{N}$$\n\ninn mot planet. Kontroll: $\\sqrt{24{,}5^2 + 42{,}5^2} = 49{,}1\\,\\text{N} = mg$ ✓.",
+            "hints": [
+              "Legg aksene langs og normalt på planet, og husk at sinus hører til komponenten langs planet."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Vektorregning, fra [Kryssproduktet](/bok/r2/r2-5-4).) To vektorer har lengdene $3{,}0$ og $4{,}0$ og danner vinkelen $30^\\circ$. Hvor lang er kryssproduktvektoren, og hvor lang ville den vært om vinkelen var $90^\\circ$? Hva om den var $0^\\circ$?",
+            "solution": "$$|\\mathbf{a}\\times\\mathbf{b}| = ab\\sin\\varphi = 3{,}0 \\cdot 4{,}0 \\cdot 0{,}500 = 6{,}0$$\n\nVed $90^\\circ$: $3{,}0 \\cdot 4{,}0 \\cdot 1 = 12$, som er det største mulige. Ved $0^\\circ$: null, fordi $\\sin 0 = 0$ — parallelle vektorer spenner ikke ut noe areal.\n\nDet siste tilfellet er nøyaktig grunnen til at en kraft langs armen gir null kraftmoment.",
+            "hints": [
+              "Bruk $|\\mathbf{a}\\times\\mathbf{b}| = ab\\sin\\varphi$ og tenk på hva sinus gjør ved $0^\\circ$ og $90^\\circ$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) En kloss med masse $2{,}0\\,\\text{kg}$ slippes fra hvile og faller $1{,}5\\,\\text{m}$ uten luftmotstand. Finn farten nederst med energibevaring, og begrunn hvorfor bevaringsloven gjelder her.",
+            "solution": "**Begrunnelse først:** bare tyngden gjør arbeid på klossen, og tyngden er en konservativ kraft. Da er mekanisk energi bevart.\n\n$$mgh = \\tfrac12 mv^2 \\quad \\Rightarrow \\quad v = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 1{,}5} = 5{,}4\\,\\text{m/s}$$\n\nrettet nedover. Massen faller ut, akkurat som i rotasjonsutledningene i dette kapitlet.\n\nÅ bruke en bevaringslov uten å skrive ut hvorfor den gjelder, er felle #7 og koster typisk 1 poeng.",
+            "hints": [
+              "Hvilke krefter gjør arbeid på klossen mens den faller, og er de konservative?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-1-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-1-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Et legeme starter fra ro med konstant akselerasjon $3{,}0\\,\\text{m/s}^2$. Hvor fort går det etter $4{,}0\\,\\text{s}$, og hvor langt har det kommet? Skriv deretter opp de to tilsvarende likningene for rotasjon.",
+            "solution": "$$v = at = 3{,}0 \\cdot 4{,}0 = 12\\,\\text{m/s}, \\qquad s = \\tfrac12 at^2 = \\tfrac12 \\cdot 3{,}0 \\cdot 16 = 24\\,\\text{m}$$\n\nFor rotasjon er likningene identiske, bare med andre symboler:\n\n$$\\omega = \\omega_0 + \\alpha t, \\qquad \\theta = \\theta_0 + \\omega_0 t + \\tfrac12\\alpha t^2$$\n\nBegge sett gjelder **bare** når akselerasjonen er konstant — for en fallende stav er $\\alpha$ ikke konstant, og da må du bruke energibevaring i stedet.",
+            "hints": [
+              "Start fra ro betyr $v_0 = 0$.",
+              "Oversett symbol for symbol via analogien mellom translasjon og rotasjon."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-1-rep-6",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-1-r6",
+            "number": "R6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) Hvorfor må hver kraft i et frilegemediagram ha et navngitt symbol, og hva koster det å la være?",
+            "solution": "Fordi sensor retter figuren for seg selv: den er en selvstendig, poenggivende ferdighet. En pil uten navn kan ikke vurderes — det går ikke an å se om kraften finnes, om retningen er riktig eller om angrepspunktet stemmer. **Udefinerte symboler eller uforklarte krefter er felle #8 og koster typisk 2 poeng**, selv om regnestykket etterpå er riktig.\n\nI rotasjonsoppgaver kommer et krav til: angrepspunktet må være riktig plassert, fordi det er angrepspunktet som gir kraften en momentarm.",
+            "hints": [
+              "Tenk på hva sensor faktisk kan vurdere ut fra en umerket pil."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

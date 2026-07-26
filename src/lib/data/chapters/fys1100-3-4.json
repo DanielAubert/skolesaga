@@ -1,0 +1,418 @@
+{
+  "id": "fys1100-3-4",
+  "courseId": "fys1100",
+  "chapterNumber": "3.4",
+  "title": "Drill: Newton og frilegemediagram (sjanger C)",
+  "description": "Sjangerdrill på Newton-oppgaven: fra fullstendig frilegemediagram til a og T med grensetilfelle-verifisering, på eksamensnivå.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kunne kjøre løsningsoppskriften for Newton-oppgaven fra frilegemediagram til kontrollert svar",
+    "kunne gjenkjenne og løse de faste variantene: skråplan, koblede klosser, kile, stablede klosser og kloss mot vegg",
+    "kunne verifisere symbolske uttrykk med grensetilfeller og tolke negative svar",
+    "kunne prioritere tiden i en flertrinnsoppgave slik at figuren og de billige deloppgavene sikres først"
+  ],
+  "content": [
+    {
+      "id": "fys1100-3-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er treningsbanken for hele del 3.** Her er det ingen ny teori — bare sjangeren kjørt gjennom variantene sine, på eksamensnivå.\n\n**Sjanger C** — Newton på skråplan og koblede klosser med frilegemediagram — bygger på at Newtons 2. lov brukes i **7 av 7 sett (100 %)**, og at frilegemediagram er eksplisitt etterspurt i **6 av 7**. Variantene som går igjen i arkivet er:\n\n- kloss på et **skråplan** med og uten friksjon;\n- **to koblede klosser**, med snor over en trinse eller på samme plan;\n- **kloss på en kile** som selv står på et gulv;\n- et frilegemediagram som **forspill** til en større oppgave om sirkelbevegelse eller energi.\n\nSlik ligger poengene, ut fra sensorveiledningene i H2023, V2024 og V2025:\n\n| Steg | Typisk uttelling |\n|---|---|\n| Fullstendig, navngitt frilegemediagram | selvstendig poenggivende; udefinerte symboler koster ~2 p |\n| Riktig dekomponering av tyngden | bærende — feil her forplanter seg til alt |\n| Riktige komponentlikninger per legeme | kjernen i oppgaven |\n| Grensetilfelle-verifisering | ofte en **egen deloppgave** med egne poeng |\n| Retning og enhet på svaret | trekkes når det mangler |\n\n**Bruk kapitlet slik:** løs oppgavene med formelarket og Rottmann ved siden av, slik eksamen faktisk er, og skriv for hånd. Tegn hvert frilegemediagram, også når du «ser» svaret — det er figuren som gir poengene."
+    },
+    {
+      "id": "fys1100-3-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet forutsetter [kap. 3.1](/bok/fys1100/fys1100-3-1), [kap. 3.2](/bok/fys1100/fys1100-3-2) og [kap. 3.3](/bok/fys1100/fys1100-3-3). Alt du trenger, samlet:\n\n**Newtons 2. lov, komponentvis, én gang per legeme:**\n\n$$\\sum F_x = ma_x, \\qquad \\sum F_y = ma_y$$\n\n**Dekomponering på skråplan** med helning $\\theta$:\n\n$$F_{g,\\parallel} = mg\\sin\\theta, \\qquad F_{g,\\perp} = mg\\cos\\theta, \\qquad N = mg\\cos\\theta$$\n\nder den siste gjelder **bare** når ingen andre krefter har komponent normalt på planet.\n\n**Friksjon:**\n\n$$\\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N \\ (\\text{ulikhet}), \\qquad \\lvert\\mathbf{f}_d\\rvert = \\mu_d N \\ (\\text{likhet})$$\n\nmed retning mot den relative bevegelsen.\n\n**Kobling:** uttøyelig snor gir felles $\\lvert a\\rvert$; masseløs snor over masseløs trinse gir likt $T$ i begge ender.\n\n**Hvilebetingelsen på skråplan:** $\\mu_s \\ge \\tan\\theta$.\n\nVi bruker $g = 9{,}81\\ \\text{m/s}^2$, snordrag $T$, friksjonstall med subskript, og tyngde $m\\mathbf{g}$ — aldri $\\mathbf{G}$."
+    },
+    {
+      "id": "fys1100-3-4-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger C",
+      "content": "Åtte steg. Følg dem i rekkefølge, hver gang, også når oppgaven ser enkel ut.\n\n1. **Isolér hvert legeme** og tegn et fullstendig, navngitt frilegemediagram for hvert av dem.\n2. **Velg koordinatsystem** — ofte langs og normalt på planet, og gjerne ulikt for hvert legeme.\n3. **Dekomponér tyngden** i de valgte retningene.\n4. **Skriv Newtons 2. lov komponentvis** for hvert legeme.\n5. **Koble legemene:** felles tallverdi på akselerasjonen, likt snordrag.\n6. **Løs for $a$ og $T$** — symbolsk så lenge som mulig.\n7. **Verifiser med minst ett grensetilfelle.**\n8. **Oppgi enhet og retning** på hvert svar.\n\n**Steg 7 er det som skiller.** Toppbesvarelsene verifiserer uoppfordret, og på eksamen er verifiseringen ofte en egen deloppgave. **Steg 1 er det som gir flest poeng per minutt.** Et fullstendig diagram tar under to minutter og er selvstendig poenggivende — også når resten av oppgaven stopper opp."
+    },
+    {
+      "id": "fys1100-3-4-ex-1",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: kloss på kile",
+      "problem": "En kile med masse $M = 6{,}00\\ \\text{kg}$ står på et friksjonsfritt gulv. På kilens skråside, som danner vinkelen $\\theta = 30{,}0^\\circ$ med vannrett, ligger en kloss med masse $m = 2{,}00\\ \\text{kg}$. Friksjonstallet mellom kloss og kile er $\\mu_d = 0{,}200$.\n\n**a)** Tegn frilegemediagram for klossen.\n\n**b)** Kilen holdes fast. Finn klossens akselerasjon.\n\n**c)** Finn normalkraften mellom kloss og kile.\n\n**d)** Forklar kvalitativt hva som endrer seg dersom kilen får gli fritt på gulvet.",
+      "solution": "**Metodevalg først:** klossen er ett legeme, og vi bruker Newtons 2. lov komponentvis på den, med aksene langs og normalt på skråsiden. Så lenge kilen holdes fast, er dette en helt vanlig skråplanoppgave.\n\n**a)** Tre krefter virker på klossen: tyngden $m\\mathbf{g}$ rett ned, normalkraften $\\mathbf{N}$ vinkelrett ut fra skråsiden, og den dynamiske friksjonen $\\mathbf{f}_d$ oppover langs planet (klossen glir nedover).\n\n*Sensorblikk:* her ligger de første poengene. Alle tre pilene skal ha navn, koordinatsystemet skal være tegnet inn, og pillengdene skal være rimelige — $N$ er merkbart kortere enn $mg$ på et $30^\\circ$-plan. Tegn **ikke** kraften klossen utøver på kilen; den hører hjemme i kilens diagram.\n\n**b)** Normalt på planet er akselerasjonen null:\n\n$$N = mg\\cos\\theta = 2{,}00 \\cdot 9{,}81 \\cdot 0{,}866 = 17{,}0\\ \\text{N}$$\n\n*Sensorblikk:* dette ene steget er verdt egne poeng. Skriver du $N = mg = 19{,}6\\ \\text{N}$, mister du dem — og friksjonen blir gal etterpå.\n\nLangs planet, positiv retning nedover:\n\n$$mg\\sin\\theta - \\mu_d N = ma$$\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}500 - 0{,}200 \\cdot 0{,}866) = 9{,}81 \\cdot 0{,}3268 = 3{,}21\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs skråsiden.\n\n*Sensorblikk:* massen faller ut. Skriver du én setning om at akselerasjonen derfor er uavhengig av klossens masse, viser du at du har forstått resultatet og ikke bare regnet det ut.\n\n**c)** Normalkraften er allerede funnet: $N = 17{,}0\\ \\text{N}$. Merk rekkefølgen — den normale likningen må løses **først**, fordi friksjonen avhenger av $N$.\n\n**d)** Får kilen gli fritt, endres tre ting:\n\n- Klossen skyver på kilen (Newtons 3. lov), og siden gulvet er friksjonsfritt, **akselererer kilen sidelengs** — bort fra klossen.\n- Klossens akselerasjon i forhold til **bakken** er da ikke lenger rettet langs skråsiden: den er summen av bevegelsen langs kilen og kilens egen bevegelse.\n- Normalkraften blir **mindre** enn $mg\\cos\\theta$, fordi kilen «viker unna» under klossen. I grensen der kilen ville akselerert bort uendelig raskt, ville $N$ gått mot null — akkurat som i en heis i fritt fall.\n\nSystemet som helhet har ingen ytre vannrett kraft (gulvet er friksjonsfritt), så systemets massesenter beholder sin vannrette bevegelse. Det er den observasjonen som gjør oppgaven løsbar, og den bygger på bevegelsesmengde — som kommer senere i boka.\n\n*Sensorblikk:* en kvalitativ deloppgave som denne gir full uttelling for et presist resonnement, uten regning. «Kilen akselererer motsatt vei, og normalkraften synker» er kjernen; nevner du i tillegg at systemet ikke har ytre vannrett kraft, er svaret på toppnivå."
+    },
+    {
+      "id": "fys1100-3-4-fig-kile",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-3-4-kile-kloss.svg",
+      "alt": "Til venstre en skisse av en kile pa et friksjonsfritt gulv, med en kloss liggende pa skrasiden som danner 30 grader med vannrett. Til hoyre frilegemediagrammet for klossen med normalkraften vinkelrett ut fra skrasiden, tyngden rett nedover og den dynamiske friksjonen oppover langs planet, samt et rotert koordinatsystem.",
+      "caption": "Figuren til det gjennomregnede eksamenscaset. Så lenge kilen holdes fast, er dette en helt vanlig skråplanoppgave — det er først når kilen får gli at oppsettet blir noe nytt."
+    },
+    {
+      "id": "fys1100-3-4-drill",
+      "type": "text",
+      "content": "## Drilloppgavene (~60 min)\n\nTolv oppgaver på eksamensnivå, stigende. Fire av dem har flere legemer, og tre ber eksplisitt om grensetilfelle-verifisering. Ta dem gjerne over to økter — **naturlig pausepunkt** etter oppgave 6."
+    },
+    {
+      "id": "fys1100-3-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss med masse $3{,}50\\ \\text{kg}$ sendes nedover et skråplan med helning $18{,}0^\\circ$. Det dynamiske friksjonstallet er $\\mu_d = 0{,}250$.\n\n**a)** Finn akselerasjonen.\n\n**b)** Hvor lang tid bruker klossen på å gli $2{,}00\\ \\text{m}$ fra ro?\n\n**c)** Hvor bratt måtte planet vært for at klossen skulle glidd med konstant fart?",
+        "solution": "**Metodevalg:** Newtons 2. lov komponentvis, akser langs og normalt på planet. Klossen glir nedover, så friksjonen peker oppover langs planet.\n\n**a)** $$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}3090 - 0{,}250 \\cdot 0{,}9511) = 9{,}81 \\cdot 0{,}0712 = 0{,}699\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs planet. Massen inngår ikke.\n\n**b)** $$s = \\tfrac12at^2 \\quad \\Rightarrow \\quad t = \\sqrt{\\frac{2s}{a}} = \\sqrt{\\frac{4{,}00}{0{,}699}} = 2{,}39\\ \\text{s}$$\n\n**c)** Konstant fart betyr $a = 0$:\n\n$$\\sin\\theta = \\mu_d\\cos\\theta \\quad \\Rightarrow \\quad \\theta = \\arctan 0{,}250 = 14{,}0^\\circ$$\n\nVed $14{,}0^\\circ$ glir klossen videre med uendret fart; er planet slakkere, bremser den opp og stopper.",
+        "hints": [
+          "Friksjonen peker oppover langs planet når klossen glir nedover.",
+          "Akselerasjonen er konstant, så bevegelseslikningene gjelder.",
+          "Konstant fart betyr at resultantkraften er null."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kasse med masse $12{,}0\\ \\text{kg}$ ligger på et skråplan med helning $32{,}0^\\circ$. Det statiske friksjonstallet er $\\mu_s = 0{,}350$.\n\n**a)** Vis at kassa ikke blir liggende av seg selv.\n\n**b)** Finn den minste kraften, rettet oppover langs planet, som holder kassa i ro.\n\n**c)** Hvor stor er friksjonskraften når denne minstekraften virker? Oppgi retning.",
+        "solution": "**Metodevalg:** kassa er i ro (eller på grensen), så vi bruker likevekt med hvilefriksjonen på taket sitt.\n\n**a)** Hvilebetingelsen er $\\mu_s \\ge \\tan\\theta$. Her er $\\tan 32{,}0^\\circ = 0{,}625$ og $\\mu_s = 0{,}350$, altså\n\n$$0{,}350 < 0{,}625$$\n\nBetingelsen er ikke oppfylt, og kassa glir.\n\n**b)** I grensen der kassa akkurat holdes, er den på nippet til å gli **nedover**, så hvilefriksjonen virker med full styrke **oppover** langs planet. Likevekt langs planet:\n\n$$F + \\mu_s mg\\cos\\theta = mg\\sin\\theta$$\n\n$$F = mg(\\sin\\theta - \\mu_s\\cos\\theta) = 117{,}7\\,(0{,}5299 - 0{,}350 \\cdot 0{,}8480) = 117{,}7 \\cdot 0{,}2331 = 27{,}4\\ \\text{N}$$\n\n**c)** $$f_s = \\mu_s N = \\mu_s mg\\cos\\theta = 0{,}350 \\cdot 117{,}7 \\cdot 0{,}8480 = 34{,}9\\ \\text{N}$$\n\nrettet **oppover langs planet**. Merk kontrollen: $F + f_s = 27{,}4 + 34{,}9 = 62{,}3\\ \\text{N}$, som er nøyaktig $mg\\sin\\theta = 62{,}4\\ \\text{N}$ ✓ (avvik bare fra avrunding).\n\nMerk også at dette er ett av de få tilfellene der $f_s = \\mu_s N$ faktisk gjelder — nettopp fordi vi spør etter **minste** kraft, altså grensen.",
+        "hints": [
+          "Sammenlign $\\tan\\theta$ med $\\mu_s$.",
+          "Ved minste kraft er kassa på nippet til å gli nedover — hvilken vei peker friksjonen da?",
+          "I grensen står hvilefriksjonen på taket sitt, $\\mu_s N$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kasse med masse $10{,}0\\ \\text{kg}$ trekkes over et vannrett gulv av en snor som danner $25{,}0^\\circ$ med gulvet. Snordraget er $60{,}0\\ \\text{N}$, og $\\mu_d = 0{,}300$.\n\n**a)** Tegn frilegemediagram og finn normalkraften.\n\n**b)** Finn akselerasjonen.\n\n**c)** Hvor stor ville akselerasjonen vært om snora lå vannrett med samme snordrag? Kommenter forskjellen.",
+        "solution": "**Metodevalg:** Newtons 2. lov komponentvis på kassa. Fire krefter: tyngde, normalkraft, snordrag og friksjon. Snordraget må dekomponeres, og normalkraften må regnes ut **før** friksjonen.\n\n**a)** Diagrammet har samme form som figuren i [kap. 3.1](/bok/fys1100/fys1100-3-1) for en kloss trukket i en skrå snor, med en friksjonskraft i tillegg, rettet mot bevegelsen.\n\n$$N = mg - T\\sin\\varphi = 98{,}1 - 60{,}0 \\cdot 0{,}4226 = 98{,}1 - 25{,}4 = 72{,}7\\ \\text{N}$$\n\nLegg merke til at $N < mg$: snora bærer en del av kassa.\n\n**b)** $$a = \\frac{T\\cos\\varphi - \\mu_d N}{m} = \\frac{54{,}4 - 21{,}8}{10{,}0} = 3{,}26\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\ni trekkretningen.\n\n**c)** Med vannrett snor er $N = mg = 98{,}1\\ \\text{N}$ og\n\n$$a = \\frac{60{,}0 - 0{,}300 \\cdot 98{,}1}{10{,}0} = \\frac{60{,}0 - 29{,}4}{10{,}0} = 3{,}06\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nDen skrå snora gir altså **større** akselerasjon, til tross for at bare $54{,}4\\ \\text{N}$ av snordraget virker framover. Grunnen er at den loddrette komponenten letter kassa og reduserer friksjonen med $7{,}6\\ \\text{N}$ — mer enn de $5{,}6\\ \\text{N}$ som går tapt i framoverretningen. Det er derfor man løfter litt i håndtaket når man drar noe tungt.",
+        "hints": [
+          "Regn ut normalkraften først — friksjonen avhenger av den.",
+          "Snordragets loddrette komponent letter kassa.",
+          "Sammenlign de to tilfellene ledd for ledd, ikke bare sluttsvarene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Flerlegeme.) To klosser står inntil hverandre på et friksjonsfritt gulv: $m_1 = 4{,}00\\ \\text{kg}$ bakerst og $m_2 = 6{,}00\\ \\text{kg}$ foran. En vannrett kraft $F = 30{,}0\\ \\text{N}$ skyver på den bakerste.\n\n**a)** Finn akselerasjonen.\n\n**b)** Finn kontaktkraften mellom klossene.\n\n**c)** Kraften flyttes slik at den i stedet skyver på den fremste klossen, med samme størrelse. Hva blir kontaktkraften nå?\n\n**d)** Forklar hvorfor de to svarene er forskjellige.",
+        "solution": "**Metodevalg:** systemmetoden for akselerasjonen, splittemetoden for kontaktkraften. Kontaktkraften er indre for systemet av begge klosser.\n\n**a)** $$a = \\frac{F}{m_1+m_2} = \\frac{30{,}0}{10{,}0} = 3{,}00\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nDen er den samme i begge oppsett, siden systemets samlede masse og den ytre kraften er uendret.\n\n**b)** Den fremste klossen ($m_2$) har bare kontaktkraften som ytre vannrett kraft:\n\n$$K = m_2 a = 6{,}00 \\cdot 3{,}00 = 18{,}0\\ \\text{N}$$\n\n**c)** Nå er det $m_1$ som bare har kontaktkraften:\n\n$$K = m_1 a = 4{,}00 \\cdot 3{,}00 = 12{,}0\\ \\text{N}$$\n\n**d)** Kontaktkraften er den kraften som må til for å akselerere **den klossen som ikke skyves direkte**. Skyves den bakerste, må kontaktflaten dra hele $m_2 = 6{,}00\\ \\text{kg}$ med seg; skyves den fremste, trenger den bare å dra $m_1 = 4{,}00\\ \\text{kg}$.\n\nGenerelt er $K = \\dfrac{m_{\\text{den andre}}}{m_1+m_2}F$. Legg merke til at kontaktkraften alltid er **mindre** enn $F$ — resten av kraften går med til å akselerere den klossen som skyves direkte.",
+        "hints": [
+          "Systemmetoden gir akselerasjonen; kontaktkraften er indre.",
+          "Sett opp Newtons 2. lov for den klossen som ikke skyves direkte.",
+          "I d): hvilken masse må kontaktkraften alene akselerere?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Flerlegeme.) En kloss med masse $8{,}00\\ \\text{kg}$ ligger på et vannrett bord med $\\mu_d = 0{,}250$. En masseløs snor går fra klossen over en masseløs trinse på bordkanten til et lodd med masse $5{,}00\\ \\text{kg}$.\n\n**a)** Tegn frilegemediagram for begge legemene.\n\n**b)** Finn akselerasjonen og snordraget.\n\n**c)** Kontroller svaret mot den likningen du ikke brukte.\n\n**d)** Hvor stort måtte det statiske friksjonstallet vært for at systemet skulle stått stille?",
+        "solution": "**Metodevalg først:** Newtons 2. lov per legeme, koblingsbetingelse og likt snordrag. Positiv retning: loddet ned, klossen mot bordkanten. Klossen glir, så friksjonen peker bort fra bordkanten.\n\n**a)** *Klossen:* tyngden $m_1\\mathbf{g}$ ned, normalkraften $\\mathbf{N}$ opp, snordraget $T$ mot trinsa, friksjonen $f_d$ motsatt vei. *Loddet:* snordraget $T$ opp og tyngden $m_2\\mathbf{g}$ ned — ingen normalkraft, det berører ingenting.\n\n**b)** Bordet er vannrett og snora vannrett, så $N = m_1 g = 78{,}5\\ \\text{N}$.\n\nKlossen: $\\;T - \\mu_d m_1 g = m_1 a\\;$ (1)\n\nLoddet: $\\;m_2 g - T = m_2 a\\;$ (2)\n\nAddisjon:\n\n$$a = \\frac{g(m_2 - \\mu_d m_1)}{m_1+m_2} = \\frac{9{,}81\\,(5{,}00 - 2{,}00)}{13{,}0} = \\frac{29{,}43}{13{,}0} = 2{,}26\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n$$T = m_2(g-a) = 5{,}00\\,(9{,}81 - 2{,}264) = 37{,}7\\ \\text{N}$$\n\n**c)** Sett inn i (1): $T - \\mu_d m_1 g = 37{,}73 - 19{,}62 = 18{,}11\\ \\text{N}$, og $m_1 a = 8{,}00 \\cdot 2{,}264 = 18{,}11\\ \\text{N}$ ✓.\n\n**d)** Systemet står stille dersom hvilefriksjonen greier å holde igjen loddets tyngde:\n\n$$m_2 g \\le \\mu_s m_1 g \\quad \\Rightarrow \\quad \\mu_s \\ge \\frac{m_2}{m_1} = \\frac{5{,}00}{8{,}00} = 0{,}625$$\n\nMerk at $g$ faller ut. Med $\\mu_s = 0{,}625$ eller mer ville ingenting skjedd — og da ville snordraget rett og slett vært $T = m_2g = 49{,}1\\ \\text{N}$.",
+        "hints": [
+          "To diagrammer, to komponentlikninger, én koblingsbetingelse.",
+          "Bordet er vannrett, så $N = m_1g$ — men bare fordi snora også er vannrett.",
+          "Adder de to likningene for å eliminere snordraget.",
+          "I d): fra ro er det $\\mu_s$ som gjelder, og friksjonen står på taket sitt i grensen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Flerlegeme med grensetilfelle-verifisering.) En kloss $m_1$ ligger på et skråplan med helning $\\theta$ og dynamisk friksjonstall $\\mu_d$. En snor går over en masseløs trinse på toppen til et fritt hengende lodd $m_2$.\n\n**a)** Utled akselerasjonen symbolsk, med loddet på vei nedover.\n\n**b)** Verifiser uttrykket i grensen $\\theta = 0$, og forklar hvilket kjent problem du da gjenfinner.\n\n**c)** Verifiser i grensen $\\mu_d = 0$ og i grensen $m_1 \\to 0$.\n\n**d)** Finn betingelsen for at systemet skal stå stille, uttrykt ved $\\mu_s$.",
+        "solution": "**Metodevalg først:** Newtons 2. lov per legeme, positiv retning i den antatte bevegelsesretningen for hvert av dem. Klossen går oppover planet, så friksjonen peker nedover langs planet.\n\n**a)** Med $N = m_1g\\cos\\theta$:\n\n$$T - m_1g\\sin\\theta - \\mu_d m_1 g\\cos\\theta = m_1 a, \\qquad m_2 g - T = m_2 a$$\n\nAddisjon eliminerer $T$:\n\n$$a = \\frac{g\\left(m_2 - m_1\\sin\\theta - \\mu_d m_1\\cos\\theta\\right)}{m_1+m_2}$$\n\n**b)** Med $\\theta = 0$:\n\n$$a = \\frac{g\\left(m_2 - \\mu_d m_1\\right)}{m_1+m_2}$$\n\nDette er nøyaktig uttrykket for en kloss på et **vannrett bord** koblet til et hengende lodd — problemet i oppgave 5. Skråplanet er blitt et bord, tyngdekomponenten langs planet har forsvunnet, og normalkraften er blitt $m_1g$. ✓\n\n**c)** *$\\mu_d = 0$:* $a = g(m_2 - m_1\\sin\\theta)/(m_1+m_2)$. Friksjonsleddet forsvinner helt, og systemet står stille når $m_2 = m_1\\sin\\theta$ — det friksjonsfrie balansepunktet. ✓\n\n*$m_1 \\to 0$:* $a \\to g$ og $T \\to 0$. Uten kloss faller loddet fritt og snora blir slakk. ✓\n\n**d)** Fra ro gjelder hvilefriksjonen, og systemet står stille så lenge loddets tyngde ikke overstiger summen av tyngdekomponenten og maksimal hvilefriksjon:\n\n$$m_2 g \\le m_1 g\\sin\\theta + \\mu_s m_1 g\\cos\\theta \\quad \\Rightarrow \\quad m_2 \\le m_1(\\sin\\theta + \\mu_s\\cos\\theta)$$\n\nMerk at $g$ faller ut — betingelsen gjelder like godt på månen. Snur vi den, må $\\mu_s \\ge \\dfrac{m_2/m_1 - \\sin\\theta}{\\cos\\theta}$ for at systemet skal bli stående.\n\n**Kontroll av betingelsen:** med $\\theta = 0$ gir den $m_2 \\le \\mu_s m_1$, altså nøyaktig bordbetingelsen fra oppgave 5 ✓.",
+        "hints": [
+          "Sett opp én komponentlikning per legeme og adder dem.",
+          "I b): hva blir $\\sin 0$ og $\\cos 0$, og hvilket oppsett kjenner du igjen?",
+          "I d): i grensen står hvilefriksjonen på taket sitt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-pause",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDe seks første oppgavene dekker enkeltlegeme og de to standard flerlegemeoppsettene. De seks siste tar de vanskeligere variantene: kloss mot vegg, stablede klosser, optimal trekkvinkel og kvalitativ kritikk."
+    },
+    {
+      "id": "fys1100-3-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss med masse $2{,}00\\ \\text{kg}$ presses mot en loddrett vegg av en vannrett kraft $F$. Det statiske friksjonstallet mellom kloss og vegg er $\\mu_s = 0{,}400$.\n\n**a)** Tegn frilegemediagram og forklar hvilken kraft som holder klossen oppe.\n\n**b)** Finn den minste kraften $F$ som hindrer klossen i å skli ned.\n\n**c)** Hva skjer med svaret om massen dobles? Og om $\\mu_s$ dobles?",
+        "solution": "**Metodevalg:** klossen er i ro, altså likevekt i begge retninger. Hvilefriksjonen står på taket sitt i grensetilfellet.\n\n**a)** Fire krefter: den vannrette kraften $F$ inn mot veggen, normalkraften $\\mathbf{N}$ fra veggen utover (like stor som $F$, siden akselerasjonen vannrett er null), tyngden $m\\mathbf{g}$ ned, og hvilefriksjonen $\\mathbf{f}_s$ **oppover** langs veggen.\n\nDet er friksjonen som holder klossen oppe — og siden friksjonstaket er $\\mu_s N$, og $N = F$, er det indirekte trykkraften $F$ som gjør jobben. Uten trykk er det ingen normalkraft, og dermed ingen friksjon.\n\n**b)** Vannrett: $N = F$. Loddrett, i grensen:\n\n$$\\mu_s N = mg \\quad \\Rightarrow \\quad F = \\frac{mg}{\\mu_s} = \\frac{2{,}00 \\cdot 9{,}81}{0{,}400} = 49{,}1\\ \\text{N}$$\n\n**c)** Dobles massen, dobles nødvendig kraft til $98{,}1\\ \\text{N}$ — $F$ er proporsjonal med $m$. Dobles $\\mu_s$ i stedet, halveres nødvendig kraft til $24{,}5\\ \\text{N}$. Merk at massen **ikke** faller ut her, i motsetning til på skråplanet: det er fordi normalkraften her leveres av en ytre kraft, ikke av tyngden selv.",
+        "hints": [
+          "Hvilken kraft peker oppover i dette oppsettet?",
+          "Normalkraften er like stor som trykkraften, siden akselerasjonen vannrett er null.",
+          "I grensen står hvilefriksjonen på taket sitt, $\\mu_s N$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Flerlegeme.) En kloss med masse $2{,}00\\ \\text{kg}$ ligger oppå en kloss med masse $5{,}00\\ \\text{kg}$, som igjen ligger på et **friksjonsfritt** gulv. Det statiske friksjonstallet mellom de to klossene er $\\mu_s = 0{,}300$. En vannrett kraft $F$ trekker i den **nederste** klossen.\n\n**a)** Hvilken kraft er det som akselererer den øverste klossen?\n\n**b)** Finn den største akselerasjonen systemet kan ha uten at den øverste klossen sklir.\n\n**c)** Finn den største kraften $F$.\n\n**d)** Hva ville skjedd om $F$ var større enn dette?",
+        "solution": "**Metodevalg:** systemmetoden for sammenhengen mellom $F$ og $a$, og Newtons 2. lov på den øverste klossen alene for glidningsbetingelsen.\n\n**a)** **Hvilefriksjonen fra den nederste klossen.** Det er den eneste vannrette kraften på den øverste — $F$ berører den ikke. Dette er et av de fine tilfellene der friksjon virker som **drivkraft**, ikke som bremsekraft, på samme måte som friksjonen fra veien driver en bil framover.\n\n**b)** For den øverste klossen alene er $N = m_{\\text{topp}}g$, og friksjonen kan maksimalt være $\\mu_s N$:\n\n$$\\mu_s m_{\\text{topp}} g = m_{\\text{topp}} a_{\\text{maks}} \\quad \\Rightarrow \\quad a_{\\text{maks}} = \\mu_s g = 0{,}300 \\cdot 9{,}81 = 2{,}94\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nMassen faller ut — den største akselerasjonen avhenger bare av friksjonstallet.\n\n**c)** Systemet som helhet, med friksjonsfritt gulv:\n\n$$F_{\\text{maks}} = (m_{\\text{topp}} + m_{\\text{bunn}})a_{\\text{maks}} = 7{,}00 \\cdot 2{,}94 = 20{,}6\\ \\text{N}$$\n\n**d)** Da ville den nederste klossen akselerert mer enn $2{,}94\\ \\text{m/s}^2$, mens hvilefriksjonen ikke lenger greide å følge med. Klossene ville begynt å gli i forhold til hverandre: den øverste ville sakket akterut (sett fra den nederste), og friksjonen mellom dem ville gått over fra hvilefriksjon til **glidefriksjon** $\\mu_d m_{\\text{topp}}g$. Da får de to klossene hver sin akselerasjon, og koblingsbetingelsen faller bort.",
+        "hints": [
+          "Hvilke krefter berører den øverste klossen i det hele tatt?",
+          "Sett opp Newtons 2. lov for den øverste klossen alene, med friksjonen på taket sitt.",
+          "Systemmetoden knytter deretter $a$ til $F$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kasse med masse $6{,}00\\ \\text{kg}$ dras med **konstant fart** oppover et skråplan med helning $20{,}0^\\circ$. Snora danner vinkelen $\\varphi$ med planet, og $\\mu_d = 0{,}200$.\n\n**a)** Vis at snordraget kan skrives\n\n$$T = \\frac{mg(\\sin\\theta + \\mu_d\\cos\\theta)}{\\cos\\varphi + \\mu_d\\sin\\varphi}$$\n\n**b)** Regn ut $T$ for $\\varphi = 0$ og for $\\varphi = 15{,}0^\\circ$.\n\n**c)** Finn den vinkelen som gir minst snordrag, og forklar hvorfor det finnes en slik vinkel.",
+        "solution": "**Metodevalg først:** konstant fart betyr likevekt i begge retninger. Snordraget må dekomponeres langs og normalt på planet, og normalkraften påvirkes av den normale komponenten — det er nettopp den koblingen oppgaven handler om.\n\n**a)** Normalt på planet:\n\n$$N + T\\sin\\varphi - mg\\cos\\theta = 0 \\quad \\Rightarrow \\quad N = mg\\cos\\theta - T\\sin\\varphi$$\n\nLangs planet (kassa går oppover, så friksjonen peker nedover):\n\n$$T\\cos\\varphi - mg\\sin\\theta - \\mu_d N = 0$$\n\nSetter vi inn $N$:\n\n$$T\\cos\\varphi - mg\\sin\\theta - \\mu_d\\left(mg\\cos\\theta - T\\sin\\varphi\\right) = 0$$\n\n$$T\\left(\\cos\\varphi + \\mu_d\\sin\\varphi\\right) = mg\\left(\\sin\\theta + \\mu_d\\cos\\theta\\right)$$\n\n$$T = \\frac{mg(\\sin\\theta + \\mu_d\\cos\\theta)}{\\cos\\varphi + \\mu_d\\sin\\varphi} \\qquad \\blacksquare$$\n\n**b)** Telleren er $6{,}00 \\cdot 9{,}81\\,(0{,}3420 + 0{,}200 \\cdot 0{,}9397) = 58{,}86 \\cdot 0{,}5299 = 31{,}19\\ \\text{N}$.\n\n$\\varphi = 0$: nevneren er $1$, altså $T = 31{,}2\\ \\text{N}$.\n\n$\\varphi = 15{,}0^\\circ$: nevneren er $0{,}9659 + 0{,}200 \\cdot 0{,}2588 = 1{,}0177$, altså\n\n$$T = \\frac{31{,}19}{1{,}0177} = 30{,}7\\ \\text{N}$$\n\nLitt mindre — å løfte i snora hjelper.\n\n**c)** $T$ er minst når nevneren $\\cos\\varphi + \\mu_d\\sin\\varphi$ er størst. Deriverer vi med hensyn på $\\varphi$ og setter lik null:\n\n$$-\\sin\\varphi + \\mu_d\\cos\\varphi = 0 \\quad \\Rightarrow \\quad \\tan\\varphi = \\mu_d \\quad \\Rightarrow \\quad \\varphi = \\arctan 0{,}200 = 11{,}3^\\circ$$\n\nDa blir nevneren $\\sqrt{1+\\mu_d^2} = 1{,}0198$, og\n\n$$T_{\\text{min}} = \\frac{31{,}19}{1{,}0198} = 30{,}6\\ \\text{N}$$\n\n**Hvorfor finnes det et minimum?** To virkninger trekker hver sin vei. Løfter du snora, blir mindre av snordraget rettet **langs** planet (dårlig), men normalkraften og dermed friksjonen synker (bra). For små $\\varphi$ vinner friksjonsgevinsten; for store $\\varphi$ vinner tapet i trekkretning. Optimum ligger der de balanserer, og det er nettopp ved $\\tan\\varphi = \\mu_d$ — den samme vinkelen som friksjonsvinkelen. Merk at gevinsten her er beskjeden ($0{,}6\\ \\text{N}$ av $31\\ \\text{N}$), fordi friksjonstallet er lite; med $\\mu_d = 0{,}8$ ville den vært langt større.",
+        "hints": [
+          "Skriv opp begge komponentlikningene før du eliminerer.",
+          "Normalkraften avhenger av snordraget når snora ikke ligger langs planet.",
+          "I c): $T$ er minst når nevneren er størst — deriver nevneren."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ, av typen «kritiser løsningen».) En medstudent løser en oppgave om en kloss som glir nedover et skråplan med friksjon, og skriver:\n\n«Normalkraften er $N = mg$. Friksjonen er $f = \\mu_s N$ siden klossen er i kontakt med planet. Akselerasjonen blir $a = g\\sin\\theta - \\mu_s g$.»\n\n**a)** Finn de tre feilene.\n\n**b)** Skriv riktig uttrykk for akselerasjonen.\n\n**c)** Kontroller det riktige uttrykket i grensen $\\mu_d = 0$.",
+        "solution": "**a)** Tre feil:\n\n**1. $N = mg$ på et skråplan.** Normalkraften balanserer bare tyngdekomponenten **normalt** på planet, så $N = mg\\cos\\theta$. Feilen gjør friksjonen for stor.\n\n**2. Statisk friksjonstall brukt på en kloss som glir.** Når klossen er i bevegelse, gjelder den dynamiske modellen $f_d = \\mu_d N$ — den statiske gjelder bare så lenge ingenting glir, og er dessuten en ulikhet.\n\n**3. Friksjonsleddet mangler $\\cos\\theta$.** Med riktig normalkraft blir friksjonsbidraget til akselerasjonen $\\mu_d g\\cos\\theta$, ikke $\\mu_d g$.\n\n**b)** $$a = g\\left(\\sin\\theta - \\mu_d\\cos\\theta\\right)$$\n\nnedover langs planet.\n\n**c)** Med $\\mu_d = 0$ blir $a = g\\sin\\theta$, som er akselerasjonen på et friksjonsfritt skråplan. ✓ Studentens uttrykk gir forresten det samme i denne grensen — det er nettopp derfor grensetilfellet $\\mu = 0$ alene ikke er nok til å avsløre feilen. En bedre kontroll her er $\\theta \\to 0$: da skal akselerasjonen bli null for en kloss i ro, mens studentens uttrykk gir $a = -\\mu_s g$, altså en kloss som spontant akselererer bakover på et flatt gulv.",
+        "hints": [
+          "Hva er normalkraften på et skråplan, og hvorfor?",
+          "Glir klossen, eller ligger den i ro?",
+          "I c): prøv også grensen $\\theta \\to 0$ og se hva studentens uttrykk gir."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Flerlegeme med grensetilfelle.) To klosser glir nedover samme skråplan med helning $\\theta$, koblet med en masseløs snor. Den nederste har masse $m_1$ og friksjonstall $\\mu_1$; den øverste har $m_2$ og $\\mu_2$.\n\n**a)** Finn den felles akselerasjonen.\n\n**b)** Vis at snordraget er\n\n$$T = \\frac{m_1m_2}{m_1+m_2}\\,g\\cos\\theta\\,(\\mu_2-\\mu_1)$$\n\n**c)** For hvilke friksjonstall er uttrykket gyldig? Hva skjer ellers?\n\n**d)** Regn ut $a$ og $T$ for $\\theta = 28{,}0^\\circ$, $m_1 = 3{,}00\\ \\text{kg}$, $\\mu_1 = 0{,}150$, $m_2 = 5{,}00\\ \\text{kg}$, $\\mu_2 = 0{,}350$.",
+        "solution": "**Metodevalg først:** begge klosser glir nedover, så friksjonen peker oppover langs planet på begge. Snora kan bare dra: den holder igjen den nederste (snordraget oppover planet på $m_1$) og drar den øverste (nedover planet på $m_2$). Systemmetoden for $a$, splittemetoden for $T$.\n\n**a)** Ytre krefter langs planet er de to tyngdekomponentene og de to friksjonskreftene:\n\n$$a = g\\sin\\theta - g\\cos\\theta\\,\\frac{\\mu_1m_1+\\mu_2m_2}{m_1+m_2}$$\n\n**b)** For den nederste klossen, positiv retning nedover langs planet:\n\n$$m_1g\\sin\\theta - \\mu_1m_1g\\cos\\theta - T = m_1a$$\n\n$$T = m_1\\left(g\\sin\\theta - \\mu_1g\\cos\\theta - a\\right) = m_1 g\\cos\\theta\\left(\\frac{\\mu_1m_1+\\mu_2m_2}{m_1+m_2} - \\mu_1\\right)$$\n\nFelles brøkstrek i parentesen:\n\n$$\\frac{\\mu_1m_1+\\mu_2m_2 - \\mu_1m_1 - \\mu_1m_2}{m_1+m_2} = \\frac{m_2(\\mu_2-\\mu_1)}{m_1+m_2}$$\n\n$$T = \\frac{m_1m_2}{m_1+m_2}\\,g\\cos\\theta\\,(\\mu_2-\\mu_1) \\qquad \\blacksquare$$\n\n**c)** Uttrykket krever $\\mu_2 \\ge \\mu_1$, altså at den **øverste** klossen har mest friksjon. Da sakker den akterut, snora strammes, og den nederste holder igjen.\n\nEr $\\mu_2 < \\mu_1$, gir uttrykket $T < 0$ — fysisk umulig, siden en snor ikke kan skyve. Tolkningen er at snora blir **slakk**: den øverste klossen akselererer raskere enn den nederste og tar innpå, til klossene støter sammen. Da må hver kloss regnes for seg med sin egen akselerasjon $a_i = g(\\sin\\theta - \\mu_i\\cos\\theta)$.\n\nEr $\\mu_1 = \\mu_2$, blir $T = 0$: klossene ville hatt samme akselerasjon hver for seg, og snora har ingen jobb.\n\n**d)** \n\n$$a = 9{,}81 \\cdot 0{,}4695 - 9{,}81 \\cdot 0{,}8829 \\cdot \\frac{0{,}450 + 1{,}750}{8{,}00} = 4{,}606 - 8{,}662 \\cdot 0{,}275 = 2{,}22\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n$$T = \\frac{15{,}0}{8{,}00} \\cdot 8{,}662 \\cdot 0{,}200 = 1{,}875 \\cdot 1{,}732 = 3{,}25\\ \\text{N}$$\n\n**Kontroll mot den øverste klossen:** $m_2g\\sin\\theta - \\mu_2m_2g\\cos\\theta + T = 23{,}03 - 15{,}16 + 3{,}25 = 11{,}12\\ \\text{N}$, og $m_2a = 5{,}00 \\cdot 2{,}22 = 11{,}12\\ \\text{N}$ ✓.",
+        "hints": [
+          "Systemmetoden gir akselerasjonen: fire ytre krefter langs planet.",
+          "Sett $a$ inn i likningen for den nederste klossen og forenkle.",
+          "I c): hva kan en snor gjøre, og hva kan den ikke gjøre?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-4-d12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kvalitativ, eksamensnivå.) I en oppgave om en kloss på et skråplan blir kandidaten bedt om å «kontrollere svaret med et grensetilfelle». Kandidaten skriver: «Jeg setter $m = 0$, og da blir $a = g\\sin\\theta$, som er riktig.»\n\n**a)** Er kontrollen gyldig? Begrunn.\n\n**b)** Foreslå to bedre grensetilfeller for et uttrykk av formen $a = g(\\sin\\theta - \\mu_d\\cos\\theta)$, og forklar hva hvert av dem tester.\n\n**c)** Forklar hvorfor grensetilfelle-verifisering er en selvstendig ferdighet som sensor gir egne poeng for, og ikke bare en «ekstrasjekk».",
+        "solution": "**a)** Kontrollen er **svak, ikke gal**. Massen inngår ikke i uttrykket i det hele tatt, så å sette $m = 0$ tester ingenting — svaret ville blitt $g\\sin\\theta$ uansett hvilken feil uttrykket måtte inneholde i friksjonsleddet. En nyttig grensekontroll må ramme en parameter som faktisk **står i uttrykket**, og der du kjenner fasiten fra før.\n\n(At massen faller ut, er derimot en interessant observasjon i seg selv — men den hører hjemme som en kommentar til resultatet, ikke som en verifisering.)\n\n**b)** To gode kontroller:\n\n**$\\mu_d = 0$:** uttrykket skal gå over i $a = g\\sin\\theta$, det friksjonsfrie svaret fra et enklere kapittel. Dette tester at friksjonsleddet er kommet inn med riktig fortegn og ikke ved en feiltakelse er lagt til i stedet for trukket fra.\n\n**$\\theta = 0$:** uttrykket skal gi $a = -\\mu_d g$, altså at en kloss i bevegelse på et flatt gulv bremses av friksjonen — og at en kloss i ro blir liggende. Dette tester at friksjonsleddet har $\\cos\\theta$ og ikke noe annet. En vanlig feil er å skrive $a = g(\\sin\\theta - \\mu_d)$, og nettopp denne kontrollen avslører den.\n\nEn tredje mulighet er $\\theta \\to 90^\\circ$: da skal $a \\to g$, fordi normalkraften og dermed friksjonen forsvinner.\n\n**c)** Fordi den tester noe annet enn regneferdighet: den tester om du **forstår** uttrykket ditt. En kandidat som kan sette inn en ekstremverdi og forutsi hva som må komme ut, har koblet formelen til fysikken — og det er nettopp den koblingen som skiller en A fra en C. I tillegg er metoden overførbar: den samme teknikken brukes på uttrykk for rotasjon, svingninger og relativitet senere i faget, der uttrykkene er lengre og feilene vanskeligere å se.\n\nPraktisk konsekvens for deg: skriv verifiseringen ut, også når oppgaven ikke ber om den. Det tar tre linjer og er noe av det billigste du kan gjøre for karakteren.",
+        "hints": [
+          "Står massen i uttrykket i det hele tatt?",
+          "Velg grenser der du kjenner svaret fra et enklere problem.",
+          "Prøv $\\theta = 0$ på et uttrykk der friksjonsleddet mangler $\\cos\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-4-warning",
+      "type": "warning",
+      "title": "Typiske feil i sjanger C — samlet",
+      "content": "Dette er hele repertoaret for sjangeren, samlet på ett sted. Gå gjennom lista etter hver drilloppgave.\n\n**I figuren:** udefinerte symboler eller uforklarte krefter (typisk −2 p, **felle #8**; feilene har et samlet register i bokas Del 0); krefter som virker på et annet legeme enn det du har isolert; en «bevegelseskraft» framover; feil angrepspunkt (−1 p); urimelige pillengder — $N$ tegnet like lang som $mg$ på et bratt plan.\n\n**I dekomponeringen:** sinus og cosinus byttet om; $N = mg$ satt inn på et skråplan; normalkraften ikke regnet på nytt når en snor eller en ekstra kloss har komponent normalt på planet.\n\n**I friksjonen:** $\\mu_s N$ brukt der ingenting glir; $\\mu_d$ brukt der spørsmålet gjelder om noe **begynner** å gli; feil friksjonsretning når bevegelsen snur; friksjon glemt på ett av legemene i et koblet system.\n\n**I koblingen:** ett felles diagram med snordraget tegnet inn; ulikt snordrag i de to endene av en masseløs snor; feil fortegn fordi legemene beveger seg i ulike retninger i rommet.\n\n**I avslutningen:** manglende grensetilfelle-verifisering — de «gratis» toppoengene; manglende retning eller enhet; negativt snordrag eller negativ normalkraft rapportert uten tolkning; tallsvar uten begrunnelse (**felle #1**, den dyreste enkeltfeilen).\n\n**Sjekklista før du leverer:** ett diagram per legeme ✓ alle piler navngitt ✓ koordinatsystem tegnet ✓ normalkraften regnet ut, ikke gjettet ✓ friksjonens retning drøftet ✓ minst ett grensetilfelle sjekket ✓ enhet og retning på hvert svar ✓"
+    },
+    {
+      "id": "fys1100-3-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er et drillkapittel, så begrepsbanken er kort — begrepene er innført tidligere i delen. De åtte kortene under er de som hører til selve **sjangeren**: oppskriften, poengfordelingen og de faste variantene."
+    },
+    {
+      "id": "fys1100-3-4-def-sjanger-c",
+      "type": "definition",
+      "title": "Sjanger C — Newton-oppgaven",
+      "content": "Eksamenssjangeren der du får et oppsett med ett eller flere legemer, krefter og som regel friksjon, og skal finne akselerasjon, snordrag eller en betingelse.\n\nKjennetegn: oppgaveteksten ber nesten alltid om et **frilegemediagram** i første deloppgave, og en **grensetilfelle-verifisering** eller en kvalitativ drøfting i den siste. Mellom dem ligger to–tre regnetrinn. Poengene er jevnt fordelt, så det lønner seg å ta a-deloppgaven i alle oppgavene i settet før du graver deg ned i én."
+    },
+    {
+      "id": "fys1100-3-4-def-kile-som-system",
+      "type": "definition",
+      "title": "Kilen som system",
+      "content": "Varianten der skråplanet selv er et legeme som kan bevege seg. Så lenge kilen **holdes fast**, er oppgaven en helt vanlig skråplanoppgave.\n\nFår kilen gli, endres to ting: klossen skyver på kilen (Newtons 3. lov), så kilen akselererer sidelengs, og normalkraften blir **mindre** enn $mg\\cos\\theta$ fordi kilen viker unna. Klossens akselerasjon i forhold til bakken er da ikke lenger rettet langs skråsiden. Eksamensoppgaver spør vanligvis kvalitativt om dette — den fulle regningen krever bevegelsesmengde."
+    },
+    {
+      "id": "fys1100-3-4-def-stablede-klosser",
+      "type": "definition",
+      "title": "Stablede klosser: friksjon som drivkraft",
+      "content": "Ligger en kloss oppå en annen som akselereres, er det **hvilefriksjonen** fra underlagsklossen som akselererer den øverste — den eneste vannrette kraften som berører den.\n\nGrensen for at de følges ad er $a_{\\text{maks}} = \\mu_s g$, uavhengig av den øverste klossens masse. Overskrides den, går kontakten over fra hvile- til glidefriksjon, koblingsbetingelsen faller bort, og de to klossene får hver sin akselerasjon. Samme mekanisme driver en bil framover: friksjonen fra veien er drivkraften, ikke bremsekraften."
+    },
+    {
+      "id": "fys1100-3-4-def-kloss-mot-vegg",
+      "type": "definition",
+      "title": "Kloss mot vegg",
+      "content": "Varianten der en vannrett kraft $F$ presser en kloss mot en loddrett vegg, og friksjonen mot veggen skal holde klossen oppe.\n\nNøkkelen er at normalkraften her leveres av den **ytre** kraften: $N = F$. Betingelsen for at klossen holder seg blir $\\mu_s F \\ge mg$, altså $F \\ge mg/\\mu_s$. Legg merke til at massen **ikke** faller ut, i motsetning til på skråplanet — fordi normalkraften her ikke kommer fra tyngden selv."
+    },
+    {
+      "id": "fys1100-3-4-def-poengfordeling-c",
+      "type": "definition",
+      "title": "Hvor poengene ligger i en Newton-oppgave",
+      "content": "Ut fra sensorveiledningene i H2023, V2024 og V2025 fordeler poengene seg omtrent slik:\n\n- **frilegemediagrammet** er selvstendig poenggivende, og udefinerte symboler koster typisk 2 poeng;\n- **dekomponeringen** er bærende — feil der forplanter seg til alt som følger;\n- **grensetilfelle-verifiseringen** er ofte en egen deloppgave med egne poeng;\n- **retning og enhet** trekkes når de mangler.\n\nInntil 5 poeng per deloppgave, og alle deloppgaver teller likt. Derfor: ta figuren og a-deloppgavene i alle oppgavene før du fordyper deg i én."
+    },
+    {
+      "id": "fys1100-3-4-def-tidsbudsjett-c",
+      "type": "definition",
+      "title": "Tidsbudsjett for en Newton-oppgave",
+      "content": "En flertrinnsoppgave på fire–fem deloppgaver bør ta rundt 45 minutter på en fire timers eksamen. Fordelingen som fungerer:\n\n- **2 minutter** på frilegemediagrammet — det er den best betalte tiden i hele settet;\n- **5 minutter** på komponentlikningene;\n- **10–15 minutter** på selve regningen, symbolsk så lenge som mulig;\n- **3 minutter** på verifisering, retning og enhet.\n\nResten er lesing av oppgaveteksten og gjennomlesing til slutt. Går du tom for tid, er det regningen som skal kuttes — ikke figuren."
+    },
+    {
+      "id": "fys1100-3-4-def-varianter-c",
+      "type": "definition",
+      "title": "De faste variantene av sjangeren",
+      "content": "Fem oppsett dekker praktisk talt alt som har vært prøvd:\n\n1. **ett legeme på et skråplan**, med eller uten friksjon;\n2. **to legemer koblet over en trinse** — det ene på et plan, det andre hengende;\n3. **to legemer på samme plan**, koblet, med ulike friksjonstall;\n4. **kloss på en kile**, der kilen holdes fast eller får gli;\n5. **stablede klosser** eller **kloss mot vegg**, der friksjonen har en uvant rolle.\n\nInnpakningene varierer fra sett til sett, men oppsettene gjentar seg. Kjenner du igjen hvilket av de fem du står overfor, vet du også hvilke likninger du skal skrive."
+    },
+    {
+      "id": "fys1100-3-4-def-kontrollspoersmaal",
+      "type": "definition",
+      "title": "Kontrollspørsmålene før du leverer",
+      "content": "Sju spørsmål som tar ett minutt til sammen, og som fanger de fleste poengtapene i sjangeren:\n\n1. Har hvert legeme sitt eget diagram, med alle piler navngitt?\n2. Er koordinatsystemet tegnet inn?\n3. Er normalkraften **regnet ut**, ikke gjettet?\n4. Er friksjonens retning drøftet ut fra bevegelsen?\n5. Er minst ett grensetilfelle sjekket?\n6. Har hvert tallsvar enhet og retning?\n7. Er negative svar tolket, ikke bare rapportert?\n\nGå gjennom dem i den rekkefølgen. De to første tar ti sekunder og er de best betalte."
+    },
+    {
+      "id": "fys1100-3-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-3-4-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $m$, $M$ | massene til klossen og kilen (eller de to legemene) | $\\text{kg}$ |\n| $\\theta$ | skråplanets helningsvinkel, målt fra vannrett | grader |\n| $\\varphi$ | vinkelen mellom snora og planet (eller gulvet) | grader |\n| $\\mathbf{N}$, $N$ | normalkraft og dens tallverdi | $\\text{N}$ |\n| $\\mathbf{f}_s$, $\\mathbf{f}_d$ | statisk og dynamisk friksjonskraft | $\\text{N}$ |\n| $\\mu_s$, $\\mu_d$ | statisk og dynamisk friksjonstall | dimensjonsløse |\n| $T$ | snordrag | $\\text{N}$ |\n| $K$ | kontaktkraft mellom to klosser | $\\text{N}$ |\n| $F$ | ytre trekk- eller skyvekraft | $\\text{N}$ |\n| $a$ | akselerasjon (felles tallverdi i koblede systemer) | $\\text{m/s}^2$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner:** $T$ er snordrag; en periode skrives $T_p$. $\\theta$ er planets helning, $\\varphi$ er snorens vinkel med planet — hold dem fra hverandre i figuren. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$N = mg\\cos\\theta, \\qquad F_{g,\\parallel} = mg\\sin\\theta$$\n\nDekomponeringen på skråplan. **[må kunne utledes]**\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta)$$\n\nKloss som glir nedover et plan. **[må kunne utledes]** — snu fortegnet på friksjonsleddet når klossen går oppover.\n\n$$\\mu_s \\ge \\tan\\theta$$\n\nHvilebetingelsen. **[må kunne utledes]**\n\n$$a = \\frac{g\\left(m_2 - m_1\\sin\\theta - \\mu_d m_1\\cos\\theta\\right)}{m_1+m_2}$$\n\nKloss på skråplan koblet til hengende lodd. **[må kunne utledes]**\n\n$$T = \\frac{m_1m_2}{m_1+m_2}\\,g\\cos\\theta\\,(\\mu_2-\\mu_1)$$\n\nSnordrag mellom to klosser på samme plan, gyldig for $\\mu_2 \\ge \\mu_1$. **[må kunne utledes]**\n\n$$T = \\frac{mg(\\sin\\theta + \\mu_d\\cos\\theta)}{\\cos\\varphi + \\mu_d\\sin\\varphi}$$\n\nSnordrag ved trekk i vinkelen $\\varphi$ med planet, konstant fart. **[må kunne utledes]** — minst når $\\tan\\varphi = \\mu_d$.\n\n$$a_{\\text{maks}} = \\mu_s g$$\n\nStørste akselerasjon en stablet kloss kan følge med på. **[må kunne utledes]**"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-3-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-3-4-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-4-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) Hvorfor er ikke normalkraften fra et bord motkraften til tyngden på en kloss som ligger på bordet?",
+            "solution": "Fordi kraft og motkraft alltid virker på **ulike** legemer. Motkraften til klossens tyngde er den kraften klossen trekker jorda opp med. Normalkraften er en kontaktkraft fra bordet, og dens motkraft er klossens trykk ned på bordet. At $N = mg$ i dette tilfellet, følger av Newtons 2. lov med $a = 0$ — ikke av den tredje.",
+            "hints": [
+              "Test kraftparet ved å bytte om rollene i «A virker på B»."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-4-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-4-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) Ved hvilken helningsvinkel begynner en kloss med $\\mu_s = 0{,}25$ å gli?",
+            "solution": "$\\theta_c = \\arctan\\mu_s = \\arctan 0{,}25 = 14{,}0^\\circ$. Betingelsen er masseuavhengig, og den er den samme på månen — både $m$ og $g$ faller ut av utledningen.",
+            "hints": [
+              "Hvilebetingelsen bruker tangens, ikke sinus."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-4-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-4-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.3](/bok/fys1100/fys1100-3-3).) Hva betyr et negativt snordrag, og hva skal du skrive som svar?",
+            "solution": "At snora skulle ha skjøvet, noe en snor ikke kan. Forutsetningen om stram snor holder altså ikke: snora er slakk, og legemene beveger seg uavhengig av hverandre. Riktig svar er «$T = 0$, snora er slakk», med en setning om hvorfor — og deretter må hvert legeme regnes med sin egen akselerasjon.",
+            "hints": [
+              "Hva kan en snor gjøre, og hva kan den ikke gjøre?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-4-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-4-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.3](/bok/fys1100/fys1100-3-3).) To lodd på $4{,}0\\ \\text{kg}$ og $6{,}0\\ \\text{kg}$ henger over en masseløs trinse. Finn akselerasjonen og snordraget, og kontroller at snordraget ligger mellom de to tyngdene.",
+            "solution": "$$a = \\frac{(6{,}0-4{,}0) \\cdot 9{,}81}{10{,}0} = 1{,}96\\ \\tfrac{\\text{m}}{\\text{s}^2}, \\qquad T = m_1(g+a) = 4{,}0 \\cdot 11{,}77 = 47{,}1\\ \\text{N}$$\n\nKontroll mot det andre loddet: $T = 6{,}0\\,(9{,}81 - 1{,}96) = 47{,}1\\ \\text{N}$ ✓. Tyngdene er $39{,}2\\ \\text{N}$ og $58{,}9\\ \\text{N}$, og $47{,}1\\ \\text{N}$ ligger mellom dem — som det må, siden det letteste loddet akselererer oppover og det tyngste nedover.",
+            "hints": [
+              "Atwood-maskinen: bare de to tyngdene er ytre krefter langs bevegelsen."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-4-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-4-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) En kloss starter fra ro med konstant akselerasjon $3{,}2\\ \\text{m/s}^2$. Hvor langt har den kommet etter $1{,}8\\ \\text{s}$, og hvor fort går den da?",
+            "solution": "$$s = \\tfrac12at^2 = \\tfrac12 \\cdot 3{,}2 \\cdot 3{,}24 = 5{,}2\\ \\text{m}, \\qquad v = at = 3{,}2 \\cdot 1{,}8 = 5{,}8\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\ni akselerasjonens retning. Dette er siste ledd i sjanger C: Newtons 2. lov gir $a$, og kinematikken tar deg derfra til strekning, fart og tid.",
+            "hints": [
+              "Start fra ro betyr $v_0 = 0$ i begge likningene."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,347 @@
+{
+ "id": "fys1100-7-4",
+ "courseId": "fys1100",
+ "chapterNumber": "7.4",
+ "title": "Drill: utled og løs en differensialligning (sjanger G)",
+ "description": "Sjangerdrill på ODE-oppgaven: fra Newtons 2. lov til analytisk løsning med fysisk begrunnede initialbetingelser — kjeden som alltid ender i en numerisk deloppgave.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "kunne kjøre løsningsoppskriften for differensiallikningsoppgaven fra oppsett til kontrollert svar",
+  "kunne gjenkjenne og løse de faste variantene: lineær fjær, pendel, ikke-lineær kraft, dempet svingning og førsteordens luftmotstand",
+  "kunne verifisere en løsning ved innsetting og kontrollere den i grensetilfellene",
+  "kunne peke ut metodefeil i en gal løsning og forklare hvorfor de gir null uttelling"
+ ],
+ "content": [
+  {
+   "id": "fys1100-7-4-eksamensvinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Dette er treningsbanken for hele del 7.** Ingen ny teori — bare sjangeren kjørt gjennom variantene sine, på eksamensnivå.\n\n**Sjanger G** — svingninger og differensiallikninger — bygger på at differensiallikninger er testet i **6 av 7 sett (86 %)** og svingninger i **5 av 7 (71 %)**. Luftmotstand er med i **6 av 7 (86 %)**. Variantene som går igjen i arkivet, er:\n\n- **lineær fjær**, hengende eller på vannrett underlag;\n- **pendel** som lineariseres med Taylor;\n- **ikke-lineær kraft** som lineariseres om en likevekt;\n- **førsteordens luftmotstand** som separeres og integreres;\n- **ren differensiallikning** uten fysisk innpakning, der bare klassifisering og metode testes.\n\n**Slik ligger poengene, ut fra sensorveiledningene i H2023, V2024 og V2025:**\n\n| Steg | Typisk uttelling |\n|---|---|\n| Oppsett av likningen fra Newtons 2. lov | bærende — resten hviler på det |\n| **Klassifisering** (orden, lineær/ikke-lineær, homogen/inhomogen, separabel) | selvstendig poenggivende |\n| Karakteristisk likning | 2 poeng |\n| Generell løsning | 1 poeng |\n| Initialbetingelser, fysisk begrunnet | 2 poeng |\n| Grensetilfelle-tolkning | ofte en egen deloppgave |\n\n**Bruk kapitlet slik:** løs oppgavene med formelarket og Rottmann ved siden av, slik eksamen faktisk er. **Skriv klassifiseringen hver eneste gang**, også når du ser metoden med det samme — det er tjue sekunder som gir egne poeng. Og skriv for hånd: oppgavene er kalibrert mot en fire timers skoleeksamen med penn og papir.\n\n**Kapitlet er på 90 minutter.** Det deler seg naturlig i to økter, med et pausepunkt etter oppgave 6."
+  },
+  {
+   "id": "fys1100-7-4-forkunnskaper",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet forutsetter [kap. 7.1](/bok/fys1100/fys1100-7-1), [kap. 7.2](/bok/fys1100/fys1100-7-2) og [kap. 7.3](/bok/fys1100/fys1100-7-3). Alt du trenger, samlet:\n\n**Bevegelseslikningen fra Newtons 2. lov:**\n\n$$m\\frac{d^2y}{dt^2} = \\sum F\\left(y, \\frac{dy}{dt}, t\\right)$$\n\n**Substitusjonen til likevekt** som gjør en inhomogen svingelikning homogen, med $u = y - y_L$ og $y_L = -mg/k$ for en hengende fjær:\n\n$$\\frac{d^2u}{dt^2} = -\\frac{k}{m}u = -\\omega_0^2 u, \\qquad \\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad T_p = \\frac{2\\pi}{\\omega_0}$$\n\n**Generell løsning og initialbetingelser:**\n\n$$u(t) = A\\cos\\omega_0 t + B\\sin\\omega_0 t, \\qquad A = u_0, \\quad B = \\frac{v_0}{\\omega_0}, \\quad C = \\sqrt{A^2+B^2}$$\n\n**Dempet svingning:** $\\ \\lambda^2 + (b/m)\\lambda + \\omega_0^2 = 0$ med $\\gamma = b/(2m)$, $\\omega_d = \\sqrt{\\omega_0^2-\\gamma^2}$ og kritisk demping ved $b_{\\text{kr}} = 2\\sqrt{km}$.\n\n**Linearisering om en likevekt:** $\\ k_{\\text{ef}} = -F'(x_0) = U''(x_0)$ og $\\omega = \\sqrt{k_{\\text{ef}}/m}$.\n\n**Pendelen:** $\\ d^2\\theta/dt^2 = -(g/\\ell)\\sin\\theta \\approx -(g/\\ell)\\theta$ for små $\\theta$ i **radianer**, som gir $T_p = 2\\pi\\sqrt{\\ell/g}$.\n\n**Luftmotstand:** $\\ F_D = -k_v v$ (lineær) og $F_D = -D\\lvert v\\rvert v$ (kvadratisk), med terminalfart $v_T = mg/k_v$ og $v_T = \\sqrt{mg/D}$, og løsningen $v(t) = v_T(1-e^{-t/\\tau})$ med $\\tau = m/k_v = v_T/g$.\n\nVi bruker $g = 9{,}81\\ \\text{m/s}^2$, perioden skrives $T_p$ og pendellengden $\\ell$, og tyngden er $m\\mathbf{g}$ — aldri $\\mathbf{G}$."
+  },
+  {
+   "id": "fys1100-7-4-oppskrift",
+   "type": "theorem",
+   "title": "Løsningsoppskriften for sjanger G",
+   "content": "Seks steg. Følg dem i rekkefølge, hver gang, også når oppgaven ser enkel ut.\n\n1. **Frilegemediagram og Newtons 2. lov.** Isolér legemet, navngi hver kraft, velg positiv retning — og hold den. Skriv $\\sum F = ma$ og bytt ut $a$ med den deriverte.\n2. **Klassifisér.** Orden, lineær eller ikke, homogen eller inhomogen, separabel eller ikke. Skriv det ut i klartekst. **Dette steget er selvstendig poenggivende.**\n3. **Velg metode ut fra klassifiseringen.**\n   - Andreordens, lineær, homogen: substituer til likevekt om nødvendig, sett opp den **karakteristiske likningen**, finn den generelle løsningen.\n   - Førsteordens, separabel: **separer variablene** og integrer.\n   - Ikke-lineær: finn likevekten og **lineariser** med Taylor om nettopp den.\n4. **Bruk initialbetingelsene** til å bestemme konstantene, og **begrunn dem fysisk**. Antallet skal være lik ordenen.\n5. **Tolk grensetilfellene.** Hva skjer når $t \\to 0$, når $t \\to \\infty$, når en parameter går mot null eller uendelig? Stemmer det med intuisjonen?\n6. **Pek på det numeriske neste steget.** Er likningen ikke-lineær, todimensjonal eller med varierende koeffisienter, finnes ingen lukket løsning. Da skal du si i klartekst at den må løses numerisk, og hvordan: del tiden i små steg, regn ut akselerasjonen fra likningen i hvert steg, oppdater først farten og deretter posisjonen med den **oppdaterte** farten. Denne metoden heter Euler–Cromer og bygges fra grunnen i Del 8.\n\n**Steg 2 er det som gir flest poeng per minutt.** Det tar tjue sekunder og gir egne poeng — og det er dessuten det som hindrer deg i å velge feil metode.\n\n**Steg 5 er det som skiller.** Toppbesvarelsene kontrollerer uoppfordret, og på eksamen er kontrollen ofte en egen deloppgave."
+  },
+  {
+   "id": "fys1100-7-4-case",
+   "type": "example",
+   "title": "Gjennomregnet eksamenscase: lodd i fjær, med sensor-margnotater",
+   "problem": "Et lodd med masse $m = 0{,}300\\ \\text{kg}$ henger i en fjær med fjærkonstant $k = 30{,}0\\ \\text{N/m}$. Luftmotstanden neglisjeres. Ved $t = 0$ holdes loddet $5{,}0\\ \\text{cm}$ under likevekt og gis samtidig farten $0{,}30\\ \\text{m/s}$ oppover.\n\n**a)** Tegn frilegemediagram og sett opp bevegelseslikningen. Gjør den homogen.\n\n**b)** Klassifiser likningen.\n\n**c)** Finn den generelle løsningen.\n\n**d)** Bestem konstantene fra initialbetingelsene, og finn amplituden og den største farten.\n\n**e)** Hvordan ville du løst likningen numerisk hvis fjæra i tillegg hadde en kvadratisk luftmotstand? Svar med ord.",
+   "solution": "**Metodevalg først:** loddet er ett legeme, og vi bruker Newtons 2. lov loddrett. Positiv retning er oppover, og utslaget måles fra likevekt — det er substitusjonen som gjør likningen homogen, og den skal gjøres før noe annet.\n\n**a)** To krefter virker på loddet: fjærkraften $-ky$ og tyngden $-mg$, med $y$ målt fra fjærens avspente lengde og positiv oppover. Frilegemediagrammet har altså to piler ut fra loddet: fjærkraften oppover (så lenge fjæra er strukket) og tyngden rett nedover, med koordinataksen tegnet inn.\n\n$$m\\frac{d^2y}{dt^2} = -ky - mg$$\n\nLikevekten er $y_L = -mg/k = -2{,}943/30{,}0 = -0{,}0981\\ \\text{m}$, altså $9{,}81\\ \\text{cm}$ under avspent lengde. Med $u = y - y_L$:\n\n$$\\frac{d^2u}{dt^2} = -\\frac{k}{m}u = -100\\,u$$\n\n*Sensorblikk:* her ligger de første poengene, og de ligger i **substitusjonen**. En besvarelse som lar tyngdeleddet stå og deretter bruker oppskriften for homogene likninger, har brukt en metode som ikke gjelder. Skriv én setning om at $y_L$ er konstant, slik at de deriverte er uendret.\n\n**b)** Andre orden (høyeste deriverte er $d^2u/dt^2$), lineær ($u$ i første potens), homogen (høyresiden blir null når alt samles), og med konstante koeffisienter.\n\n*Sensorblikk:* fire ord, egne poeng. Ta dem.\n\n**c)** Prøveløsningen $u = e^{\\lambda t}$ gir den karakteristiske likningen\n\n$$\\lambda^2 + 100 = 0 \\quad \\Longrightarrow \\quad \\lambda = \\pm 10{,}0\\,i$$\n\naltså komplekse røtter uten realdel, og\n\n$$u(t) = A\\cos(10{,}0\\,t) + B\\sin(10{,}0\\,t), \\qquad \\omega_0 = 10{,}0\\ \\text{rad/s}, \\quad T_p = \\frac{2\\pi}{10{,}0} = 0{,}628\\ \\text{s}$$\n\n*Sensorblikk:* den karakteristiske likningen er verdt 2 poeng, den generelle løsningen 1. Skriv begge, også når du «ser» svaret — det er selve utledningen som betales.\n\n**d)** Initialbetingelsene begrunnes: «$5{,}0\\ \\text{cm}$ under likevekt» med positiv retning oppover gir $u(0) = -0{,}050\\ \\text{m}$, og «farten $0{,}30\\ \\text{m/s}$ oppover» gir $v(0) = +0{,}30\\ \\text{m/s}$.\n\n$$A = u_0 = -0{,}050\\ \\text{m}, \\qquad B = \\frac{v_0}{\\omega_0} = \\frac{0{,}30}{10{,}0} = 0{,}030\\ \\text{m}$$\n\n$$u(t) = -0{,}050\\cos(10{,}0\\,t) + 0{,}030\\sin(10{,}0\\,t)\\ \\text{m}$$\n\n$$C = \\sqrt{0{,}050^2 + 0{,}030^2} = \\sqrt{0{,}0034} = 0{,}0583\\ \\text{m} = 5{,}8\\ \\text{cm}$$\n\n$$v_{\\max} = C\\omega_0 = 0{,}0583 \\cdot 10{,}0 = 0{,}583\\ \\text{m/s}$$\n\n*Sensorblikk:* 2 poeng ligger her, og halvparten av dem i fortegnene. Amplituden er større enn startutslaget fordi loddet fortsatt var på vei oppover da klokka startet — én setning om det viser at du har lest svaret ditt.\n\n**e)** Med et ledd $-D\\lvert v\\rvert v$ blir likningen ikke-lineær, og da finnes ingen lukket løsning. Framgangsmåten er å dele tiden i små steg $\\Delta t$ og gå fram slik: i hvert steg regner du ut akselerasjonen fra bevegelseslikningen med den posisjonen og farten du har akkurat da, oppdaterer **først** farten med denne akselerasjonen, og oppdaterer deretter posisjonen med den **nye** farten. Startverdiene er nettopp de initialbetingelsene vi brukte i d).\n\nTo ting er avgjørende: motstandsleddet må skrives med **absoluttverdi**, slik at det snur fortegn av seg selv når loddet snur, og hver kraft må deles på massen før den legges inn i akselerasjonen. Metoden heter Euler–Cromer, og at farten oppdateres først, er nettopp det som gjør at svingningen ikke får kunstig voksende amplitude. Den bygges fra grunnen i Del 8.\n\n*Sensorblikk:* en slik deloppgave gir full uttelling for en presis beskrivelse med riktige initialbetingelser og riktig akselerasjonsuttrykk. Det er strukturen som betales, ikke syntaksen."
+  },
+  {
+   "id": "fys1100-7-4-fig-ic",
+   "type": "image",
+   "src": "/images/textbook/fys1100/fys1100-7-4-initialbetingelser.svg",
+   "alt": "Tre svingekurver med samme frekvens i samme diagram, tegnet i hver sin farge. De starter i ulike punkter paa den loddrette aksen og med ulik helning, og faar dermed ulik amplitude og ulikt startpunkt i svingningen, men noyaktig samme avstand mellom toppene.",
+   "caption": "Tre løsninger av én og samme svingelikning. Likningen fastsetter $\\omega_0$ og dermed avstanden mellom toppene; det er initialbetingelsene som velger hvilken av kurvene som er svaret. Steg 4 i oppskriften er derfor ikke et pyntesteg — uten det er oppgaven ubesvart."
+  },
+  {
+   "id": "fys1100-7-4-drill",
+   "type": "text",
+   "content": "## Drilloppgavene (~60 min)\n\nTolv oppgaver på eksamensnivå, stigende. Fire er andreordens svingelikninger, tre er førsteordens med luftmotstand, to krever linearisering, og de siste tre trener klassifisering, verifisering og kritisk lesning av en gal løsning.\n\nTa dem gjerne over to økter — **naturlig pausepunkt** etter oppgave 6."
+  },
+  {
+   "id": "fys1100-7-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "En kloss med masse $0{,}500\\ \\text{kg}$ ligger på et vannrett friksjonsfritt bord festet til en fjær med $k = 45{,}0\\ \\text{N/m}$.\n\n**a)** Sett opp bevegelseslikningen og klassifiser den.\n\n**b)** Finn den karakteristiske likningen, $\\omega_0$ og $T_p$.\n\n**c)** Klossen trekkes $8{,}0\\ \\text{cm}$ ut og slippes fra ro. Skriv $x(t)$.\n\n**d)** Hvor stor er farten når klossen passerer likevektspunktet?",
+    "solution": "**Metodevalg:** Newtons 2. lov vannrett. På et vannrett bord er avspent lengde også likevektsposisjon, så ingen substitusjon trengs.\n\n**a)** $$0{,}500\\frac{d^2x}{dt^2} = -45{,}0\\,x \\quad \\Longrightarrow \\quad \\frac{d^2x}{dt^2} = -90{,}0\\,x$$\n\nAndre orden, lineær, homogen, konstante koeffisienter.\n\n**b)** $$\\lambda^2 + 90{,}0 = 0 \\quad \\Longrightarrow \\quad \\lambda = \\pm 9{,}49\\,i$$\n\n$$\\omega_0 = \\sqrt{90{,}0} = 9{,}49\\ \\text{rad/s}, \\qquad T_p = \\frac{2\\pi}{9{,}4868} = 0{,}662\\ \\text{s}$$\n\n**c)** $x(0) = 0{,}080\\ \\text{m}$ og $v(0) = 0$ («fra ro»), altså $A = 0{,}080\\ \\text{m}$ og $B = 0$:\n\n$$x(t) = 0{,}080\\cos(9{,}49\\,t)\\ \\text{m}$$\n\n**d)** Farten er størst i likevektspunktet:\n\n$$v_{\\max} = C\\omega_0 = 0{,}080 \\cdot 9{,}4868 = 0{,}759\\ \\text{m/s}$$\n\nrettet vekselvis mot og fra utgangspunktet, avhengig av hvilken vei klossen passerer.\n\n**Kontroll med energi:** $\\tfrac12kx^2 = \\tfrac12mv^2$ gir $v = x\\sqrt{k/m} = 0{,}080 \\cdot 9{,}4868 = 0{,}759\\ \\text{m/s}$ ✓ — samme svar, og en påminnelse om at $\\sqrt{k/m}$ er nettopp $\\omega_0$.",
+    "hints": [
+     "På et vannrett bord er fjærkraften den eneste vannrette kraften.",
+     "«Fra ro» er en opplysning om farten, ikke om posisjonen.",
+     "Den største farten i en harmonisk svingning er $C\\omega_0$."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "En kule med masse $25{,}0\\ \\text{g}$ slippes fra ro i en væske. Motstanden er lineær med $k_v = 0{,}100\\ \\text{kg/s}$.\n\n**a)** Sett opp bevegelseslikningen og klassifiser den.\n\n**b)** Finn terminalfarten og tidskonstanten.\n\n**c)** Løs likningen med separasjon av variable, og skriv $v(t)$.\n\n**d)** Hvor lang tid tar det før farten er $95\\ \\%$ av terminalfarten?",
+    "solution": "**Metodevalg:** Newtons 2. lov med positiv retning nedover. Ingen kraft avhenger av posisjonen, så vi arbeider direkte med farten og får en førsteordens likning.\n\n**a)** $$0{,}0250\\frac{dv}{dt} = 0{,}0250 \\cdot 9{,}81 - 0{,}100\\,v$$\n\nFørste orden, lineær, inhomogen (leddet $mg$ inneholder ikke $v$), og separabel.\n\n**b)** $$v_T = \\frac{mg}{k_v} = \\frac{0{,}24525}{0{,}100} = 2{,}45\\ \\text{m/s} \\quad \\text{nedover}$$\n\n$$\\tau = \\frac{m}{k_v} = \\frac{0{,}0250}{0{,}100} = 0{,}250\\ \\text{s}$$\n\n**Kontroll:** $\\tau = v_T/g = 2{,}4525/9{,}81 = 0{,}250\\ \\text{s}$ ✓.\n\n**c)** Skriv likningen som $dv/dt = (v_T - v)/\\tau$ og separer:\n\n$$\\int_0^v\\frac{dv'}{v_T - v'} = \\int_0^t\\frac{dt'}{\\tau} \\quad \\Longrightarrow \\quad -\\ln\\left(\\frac{v_T-v}{v_T}\\right) = \\frac{t}{\\tau}$$\n\n$$v(t) = v_T\\left(1 - e^{-t/\\tau}\\right) = 2{,}45\\left(1 - e^{-t/0{,}250}\\right)\\ \\text{m/s} \\quad \\text{nedover}$$\n\n**d)** $$e^{-t/\\tau} = 0{,}050 \\quad \\Longrightarrow \\quad t = -0{,}250\\ln(0{,}050) = 0{,}250 \\cdot 2{,}996 = 0{,}749\\ \\text{s}$$\n\naltså tre tidskonstanter, som tommelfingerregelen sier.",
+    "hints": [
+     "Ingen kraft avhenger av posisjonen, så farten kan være den ukjente.",
+     "Terminalfarten finner du av kraftbalansen, uten å løse likningen.",
+     "Husk minustegnet fra kjerneregelen når du integrerer $\\int dv/(v_T-v)$."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Et lodd med masse $0{,}220\\ \\text{kg}$ henger i en fjær med $k = 55{,}0\\ \\text{N/m}$.\n\n**a)** Finn likevektsstrekken og sett opp den homogene bevegelseslikningen for utslaget fra likevekt.\n\n**b)** Finn $\\omega_0$ og $T_p$.\n\n**c)** Loddet slippes fra ro i fjærens avspente lengde. Skriv $u(t)$ med $u$ positiv oppover.\n\n**d)** Hvor stor er den største farten, og hvor i svingningen opptrer den?",
+    "solution": "**Metodevalg:** Newtons 2. lov loddrett med $y$ målt fra avspent lengde, deretter substitusjon $u = y - y_L$.\n\n**a)** $$\\lvert y_L\\rvert = \\frac{mg}{k} = \\frac{0{,}220 \\cdot 9{,}81}{55{,}0} = \\frac{2{,}1582}{55{,}0} = 0{,}0392\\ \\text{m} = 3{,}92\\ \\text{cm}$$\n\n$$\\frac{d^2u}{dt^2} = -\\frac{k}{m}u = -250\\,u$$\n\n**b)** $$\\omega_0 = \\sqrt{250} = 15{,}8\\ \\text{rad/s}, \\qquad T_p = \\frac{2\\pi}{15{,}811} = 0{,}397\\ \\text{s}$$\n\n**c)** Avspent lengde ligger $0{,}0392\\ \\text{m}$ **over** likevekt, så $u(0) = +0{,}0392\\ \\text{m}$, og «fra ro» gir $v(0) = 0$:\n\n$$u(t) = 0{,}0392\\cos(15{,}8\\,t)\\ \\text{m}$$\n\n*Merk oversettelsen:* oppgaveteksten oppgir startposisjonen i forhold til avspent lengde, men likningen er skrevet for utslaget fra **likevekt**. Å hoppe over den oversettelsen er en av de vanligste feilene i denne varianten.\n\n**d)** $$v_{\\max} = C\\omega_0 = 0{,}0392 \\cdot 15{,}811 = 0{,}620\\ \\text{m/s}$$\n\nDen opptrer når loddet passerer likevektspunktet, altså $3{,}92\\ \\text{cm}$ under avspent lengde, og er rettet nedover på vei ned og oppover på vei opp.\n\n**Kontroll:** loddet svinger mellom avspent lengde og $2 \\cdot 3{,}92 = 7{,}84\\ \\text{cm}$ under den — det generelle «dobbelt strekk»-resultatet for et lodd som slippes fra avspent lengde.",
+    "hints": [
+     "Finn likevekten først; den er nullpunktet for $u$.",
+     "«Slippes i avspent lengde» må oversettes til et utslag målt fra likevekt.",
+     "Den største farten er amplituden ganget med $\\omega_0$."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "En pendel har lengden $\\ell = 0{,}450\\ \\text{m}$ og slippes fra ro med utslagsvinkelen $12{,}0^\\circ$.\n\n**a)** Utled bevegelseslikningen for vinkelen $\\theta$, og klassifiser den.\n\n**b)** Lineariser den, og finn $\\omega_0$ og $T_p$.\n\n**c)** Skriv $\\theta(t)$.\n\n**d)** Hvor stor relativ feil gjør småvinkeltilnærmingen på perioden her?",
+    "solution": "**Metodevalg:** Newtons 2. lov langs sirkelbanen. Snordraget står vinkelrett på bevegelsen og bidrar derfor ikke — det skal skrives ut, for det er grunnen til at bare tyngdekomponenten inngår.\n\n**a)** Buelengden er $s = \\ell\\theta$, så baneakselerasjonen er $\\ell\\,d^2\\theta/dt^2$, og tyngdekomponenten langs banen er $-mg\\sin\\theta$:\n\n$$m\\ell\\frac{d^2\\theta}{dt^2} = -mg\\sin\\theta \\quad \\Longrightarrow \\quad \\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\sin\\theta$$\n\nAndre orden, **ikke lineær** (den ukjente står inne i en sinus). Massen faller ut.\n\n**b)** Med $\\sin\\theta \\approx \\theta$ for små $\\theta$ i radianer:\n\n$$\\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\theta = -21{,}80\\,\\theta$$\n\n$$\\omega_0 = \\sqrt{\\frac{9{,}81}{0{,}450}} = \\sqrt{21{,}80} = 4{,}67\\ \\text{rad/s}, \\qquad T_p = \\frac{2\\pi}{4{,}6690} = 1{,}35\\ \\text{s}$$\n\n**c)** $$\\theta_0 = 12{,}0^\\circ = 12{,}0 \\cdot \\frac{\\pi}{180} = 0{,}209\\ \\text{rad}$$\n\nog «fra ro» gir $B = 0$:\n\n$$\\theta(t) = 0{,}209\\cos(4{,}67\\,t) \\quad \\text{(radianer)}$$\n\n**d)** Korreksjonsleddet er $\\theta_0^2/16$:\n\n$$\\frac{0{,}20944^2}{16} = \\frac{0{,}043865}{16} = 0{,}00274 \\quad \\Longrightarrow \\quad 0{,}27\\ \\%$$\n\nDen eksakte perioden er altså om lag $1{,}35 \\cdot 1{,}0027 = 1{,}35\\ \\text{s}$ — forskjellen forsvinner i avrundingen til tre gjeldende siffer. Ved dette utslaget er tilnærmingen altså mer enn god nok.",
+    "hints": [
+     "Snordraget står vinkelrett på bevegelsen og gjør ikke noe bidrag langs banen.",
+     "Tilnærmingen $\\sin\\theta \\approx \\theta$ krever vinkelen i radianer — regn om startvinkelen.",
+     "Korreksjonen på perioden er om lag $\\theta_0^2/16$ med $\\theta_0$ i radianer."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "Et lodd med masse $1{,}20\\ \\text{kg}$ henger i en fjær med $k = 75{,}0\\ \\text{N/m}$ og er koblet til en demper som gir kraften $-b\\,du/dt$ med $b = 3{,}00\\ \\text{kg/s}$.\n\n**a)** Sett opp bevegelseslikningen for utslaget fra likevekt, og klassifiser den.\n\n**b)** Sett opp den karakteristiske likningen og finn røttene.\n\n**c)** Hvilket dempingstilfelle er dette? Skriv løsningen.\n\n**d)** Hvor lang tid tar det før amplituden er halvert, og hvor mange svingninger rekker loddet på den tiden?\n\n**e)** Hvor stor måtte $b$ vært for kritisk demping, og hva ville skjedd da?",
+    "solution": "**Metodevalg:** likningen er andreordens, lineær og homogen med konstante koeffisienter, så oppskriften med karakteristisk likning gjelder — dempeleddet gir bare ett ledd til.\n\n**a)** $$1{,}20\\frac{d^2u}{dt^2} + 3{,}00\\frac{du}{dt} + 75{,}0\\,u = 0 \\quad \\Longrightarrow \\quad \\frac{d^2u}{dt^2} + 2{,}50\\frac{du}{dt} + 62{,}5\\,u = 0$$\n\nAndre orden, lineær, homogen, konstante koeffisienter. Tyngden er allerede borte fordi $u$ måles fra likevekt.\n\n**b)** $$\\lambda^2 + 2{,}50\\lambda + 62{,}5 = 0 \\quad \\Longrightarrow \\quad \\lambda = \\frac{-2{,}50 \\pm \\sqrt{6{,}25 - 250}}{2} = -1{,}25 \\pm 7{,}81\\,i$$\n\n**c)** Uttrykket under rottegnet er negativt, så røttene er komplekse: **underkritisk demping**. Med $\\gamma = 1{,}25\\ \\text{s}^{-1}$ og $\\omega_d = 7{,}81\\ \\text{rad/s}$:\n\n$$u(t) = e^{-1{,}25\\,t}\\big(A\\cos(7{,}81\\,t) + B\\sin(7{,}81\\,t)\\big)$$\n\nTil sammenlikning er $\\omega_0 = \\sqrt{62{,}5} = 7{,}91\\ \\text{rad/s}$, altså bare $1{,}3\\ \\%$ høyere.\n\n**d)** $$t_{1/2} = \\frac{\\ln 2}{\\gamma} = \\frac{0{,}6931}{1{,}25} = 0{,}554\\ \\text{s}$$\n\nSvingetiden er $T_p = 2\\pi/7{,}806 = 0{,}805\\ \\text{s}$, så loddet rekker $0{,}554/0{,}805 = 0{,}69$ svingninger før amplituden er halvert — altså ikke engang én hel svingning. Dette er en godt merkbar demping.\n\n**e)** $$b_{\\text{kr}} = 2\\sqrt{km} = 2\\sqrt{75{,}0 \\cdot 1{,}20} = 2\\sqrt{90{,}0} = 19{,}0\\ \\text{kg/s}$$\n\nMed den dempingen ville loddet ikke svingt i det hele tatt: den karakteristiske likningen ville fått en dobbeltrot, og løsningen $(A+Bt)e^{-\\gamma t}$ går tilbake til likevekt uten å passere den — og gjør det raskest mulig. Den faktiske dempingen er $16\\ \\%$ av den kritiske.",
+    "hints": [
+     "Del hele likningen på massen før du leser av koeffisientene.",
+     "Fortegnet på uttrykket under rottegnet avgjør dempingstilfellet.",
+     "$\\gamma = b/(2m)$, og halveringstiden følger av $e^{-\\gamma t} = \\tfrac12$."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "En partikkel med masse $m = 0{,}150\\ \\text{kg}$ beveger seg langs $x$-aksen i potensialet\n\n$$U(x) = U_0\\left[\\left(\\frac{d}{x}\\right)^2 - \\frac{2d}{x}\\right], \\qquad U_0 = 0{,}800\\ \\text{J}, \\quad d = 0{,}250\\ \\text{m}$$\n\nfor $x > 0$.\n\n**a)** Finn kraften $F(x)$ og vis at $x = d$ er en likevekt.\n\n**b)** Avgjør om likevekten er stabil.\n\n**c)** Finn frekvensen og perioden for små svingninger om likevekten.\n\n**d)** Hva er den minste energien partikkelen må ha for å unnslippe mot $x \\to \\infty$, og hva skjer med den hvis den ikke har nok?",
+    "solution": "**Metodevalg:** kraften er $-dU/dx$, likevekter finnes der den er null, og stabiliteten og frekvensen følger av $U''$. Vi regner symbolsk først.\n\n**a)** $$F(x) = -\\frac{dU}{dx} = -U_0\\left[-\\frac{2d^2}{x^3} + \\frac{2d}{x^2}\\right] = \\frac{2U_0 d\\,(d - x)}{x^3}$$\n\nSetter vi $x = d$, blir telleren null, altså $F(d) = 0$ ✓. Uttrykket viser også retningen: for $x < d$ er $F > 0$ (utover), og for $x > d$ er $F < 0$ (innover) — kraften peker altså alltid mot $x = d$.\n\n**b)** $$U''(x) = U_0\\left[\\frac{6d^2}{x^4} - \\frac{4d}{x^3}\\right] \\quad \\Longrightarrow \\quad U''(d) = U_0\\left[\\frac{6}{d^2} - \\frac{4}{d^2}\\right] = \\frac{2U_0}{d^2}$$\n\nDette er positivt, altså en bunn i potensialkurven: **stabil likevekt**. Det stemmer med fortegnsanalysen i a).\n\n**c)** $$k_{\\text{ef}} = U''(d) = \\frac{2 \\cdot 0{,}800}{0{,}250^2} = \\frac{1{,}600}{0{,}0625} = 25{,}6\\ \\text{N/m}$$\n\n$$\\omega = \\sqrt{\\frac{k_{\\text{ef}}}{m}} = \\sqrt{\\frac{25{,}6}{0{,}150}} = \\sqrt{170{,}67} = 13{,}1\\ \\text{rad/s}$$\n\n$$T_p = \\frac{2\\pi}{13{,}064} = 0{,}481\\ \\text{s}$$\n\n**Benevningskontroll:** $[U_0/d^2] = \\text{J}/\\text{m}^2 = \\text{N/m}$ ✓ — riktig enhet for en fjærkonstant.\n\n**d)** I bunnen er $U(d) = U_0[1 - 2] = -U_0 = -0{,}800\\ \\text{J}$, og når $x \\to \\infty$ går $U \\to 0$. Partikkelen må derfor ha minst\n\n$$\\Delta E = 0 - (-0{,}800) = 0{,}800\\ \\text{J}$$\n\ni kinetisk energi når den er i bunnen, for å komme fri. Har den mindre, snur den i det punktet der all energien er potensiell, og svinger tilbake — den er bundet til brønnen. Bare for små energier er svingningen tilnærmet harmonisk; med større energi merkes potensialets usymmetri, og perioden vokser med amplituden.\n\n**Merk:** dette er formen på et enkelt modellpotensial for en binding mellom to atomer, og det er nettopp derfor små molekylsvingninger er harmoniske — enda et eksempel på at lineariseringen om en likevekt er den samme uansett hva fysikken er.",
+    "hints": [
+     "Kraften er $-dU/dx$; deriver ledd for ledd med $x$ i nevneren.",
+     "Fortegnet til $U''$ skiller bunn fra topp.",
+     "I d): sammenlikn potensialverdien i bunnen med grenseverdien når $x$ går mot uendelig."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-pause",
+   "type": "text",
+   "content": "— **naturlig pausepunkt** —\n\nSå langt har du kjørt de fire vanligste variantene. De seks siste blander dem, og tre av dem trener det som skiller en god besvarelse fra en fullstendig: klassifisering under tidspress, verifisering av eget svar, og evnen til å se hvor en annens løsning svikter."
+  },
+  {
+   "id": "fys1100-7-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "En hagleskyter slipper en blykule med masse $45{,}0\\ \\text{g}$ fra en høy bygning. Luftmotstanden er kvadratisk med $D = 8{,}00 \\cdot 10^{-3}\\ \\text{kg/m}$.\n\n**a)** Sett opp bevegelseslikningen for hele fallet, med absoluttverdi, og forklar hvorfor den er nødvendig i den generelle formen.\n\n**b)** Forenkle likningen for dette fallet, og skriv ut betingelsen som gjør forenklingen gyldig.\n\n**c)** Finn terminalfarten.\n\n**d)** Klassifiser den forenklede likningen, og si om den kan løses analytisk.",
+    "solution": "**Metodevalg:** Newtons 2. lov med positiv retning nedover. Vi setter opp den generelle formen først, og forenkler deretter — med betingelsen skrevet ut.\n\n**a)** $$m\\frac{dv}{dt} = mg - D\\lvert v\\rvert v$$\n\nAbsoluttverdien trengs fordi motstanden alltid skal peke mot bevegelsen. Skulle kula bevege seg oppover ($v < 0$ med denne retningskonvensjonen), blir $-D\\lvert v\\rvert v$ positivt, altså nedover — riktig. Med $-Dv^2$ ville leddet vært negativt uansett, og modellen ville ha drevet kula videre oppover. Dette er **felle #4** i feilregisteret.\n\n**b)** Kula slippes fra ro og faller nedover hele veien, så $v \\ge 0$ i hele bevegelsen, og $\\lvert v\\rvert v = v^2$:\n\n$$0{,}0450\\frac{dv}{dt} = 0{,}0450 \\cdot 9{,}81 - 8{,}00\\cdot10^{-3}v^2$$\n\n**Betingelsen er at farten ikke skifter fortegn.** Den er oppfylt her, og den skal skrives ut — forenklingen uten begrunnelse ser ut som en feil.\n\n**c)** $$v_T = \\sqrt{\\frac{mg}{D}} = \\sqrt{\\frac{0{,}44145}{8{,}00\\cdot10^{-3}}} = \\sqrt{55{,}18} = 7{,}43\\ \\text{m/s} \\quad \\text{nedover}$$\n\n**Benevningskontroll:** $[mg/D] = \\text{N}\\cdot\\text{m}/\\text{kg} = \\text{m}^2/\\text{s}^2$, og rota gir $\\text{m/s}$ ✓.\n\n**d)** Første orden, **ikke lineær** (den ukjente er kvadrert), inhomogen, og **separabel**. Den kan derfor løses analytisk så lenge farten er ensrettet, og løsningen er\n\n$$v(t) = v_T\\tanh\\left(\\frac{gt}{v_T}\\right) = 7{,}43\\tanh\\left(\\frac{9{,}81\\,t}{7{,}43}\\right)\\ \\text{m/s}$$\n\nDet er verdt å være presis her: kvadratisk motstand er **ikke** i seg selv umulig å løse analytisk. Det som krever numerikk, er tilfeller der farten skifter fortegn, og alle todimensjonale bevegelser.",
+    "hints": [
+     "Sett opp den generelle formen med absoluttverdi før du forenkler.",
+     "Forenklingen krever en betingelse — hvilken?",
+     "Terminalfarten for kvadratisk motstand er $\\sqrt{mg/D}$."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "Klassifiser hver av likningene under (orden, lineær/ikke-lineær, homogen/inhomogen, separabel eller ikke), og si i én linje hvilken metode klassifiseringen peker på. Alle konstanter er positive. Bruk høyst to minutter per likning.\n\n**a)** $\\ \\dfrac{d^2u}{dt^2} + 9u = 0$\n\n**b)** $\\ m\\dfrac{dv}{dt} = mg - k_v v$\n\n**c)** $\\ \\dfrac{d^2\\theta}{dt^2} = -\\dfrac{g}{\\ell}\\sin\\theta$\n\n**d)** $\\ m\\dfrac{d^2x}{dt^2} = -kx - b\\dfrac{dx}{dt} + F_0$\n\n**e)** $\\ m\\dfrac{d^2y}{dt^2} = -mg - D\\left\\lvert\\dfrac{dy}{dt}\\right\\rvert\\dfrac{dy}{dt}$",
+    "solution": "**a)** Andre orden, lineær, homogen, konstante koeffisienter. Ikke separabel (andre orden).\n*Metode:* karakteristisk likning $\\lambda^2 + 9 = 0$, som gir $\\omega_0 = 3{,}0\\ \\text{rad/s}$.\n\n**b)** Første orden, lineær, inhomogen, separabel.\n*Metode:* separer og integrer; terminalfarten $mg/k_v$ får du gratis av kraftbalansen.\n\n**c)** Andre orden, ikke lineær (den ukjente inne i en sinus), homogen.\n*Metode:* Taylor-utvikle $\\sin\\theta \\approx \\theta$ for små utslag og løs den lineariserte likningen; for store utslag numerisk.\n\n**d)** Andre orden, lineær, **inhomogen** (leddet $F_0$), konstante koeffisienter.\n*Metode:* flytt origo til den nye likevekten $x_L = F_0/k$, som gjør likningen homogen, og bruk deretter karakteristisk likning. Samme grep som med tyngden i en hengende fjær.\n\n**e)** Andre orden, **ikke lineær** (absoluttverdileddet), inhomogen. Men siden $y$ selv ikke opptrer, kan den skrives om til en **førsteordens** likning for $v = dy/dt$, og da er den separabel så lenge farten ikke skifter fortegn.\n*Metode:* skriv om til førsteordens i $v$, separer og integrer i hver fase; ved fortegnsskifte må fasene skjøtes, og da er numerisk løsning det praktiske valget.\n\n**Fellesnevner:** to av de fem (c og e) er ikke-lineære, og bare den ene av dem kan reddes med et rent triks. Klassifiseringen tar under to minutter og bestemmer alt som følger.",
+    "hints": [
+     "Start alltid med ordenen: hva er den høyeste deriverte?",
+     "Se etter potenser, absoluttverdier og funksjoner som omslutter den ukjente.",
+     "Mangler den ukjente funksjonen selv i likningen, kan ordenen ofte senkes med én."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "**(Eksamensnivå, sjanger G.)** En kule med masse $m = 0{,}120\\ \\text{kg}$ senkes i vann. Kreftene er tyngden, en konstant oppdrift $B = 0{,}400\\ \\text{N}$ oppover, og en lineær vannmotstand med $k_v = 0{,}250\\ \\text{kg/s}$. Kula slippes fra ro, og positiv retning er nedover.\n\n**a)** Sett opp bevegelseslikningen og klassifiser den.\n\n**b)** Finn synkefarten i likevekt.\n\n**c)** Løs likningen og skriv $v(t)$.\n\n**d)** Hvor lang tid tar det før kula har nådd $90\\ \\%$ av likevektsfarten?\n\n**e)** Hvordan ville uttrykket endret seg dersom oppdriften var større enn tyngden? Tolk fortegnet.",
+    "solution": "**Metodevalg:** Newtons 2. lov med tre krefter langs loddlinja. Ingen kraft avhenger av posisjonen, så farten kan være den ukjente og ordenen faller til én.\n\n**a)** $$m\\frac{dv}{dt} = mg - B - k_v v \\quad \\Longrightarrow \\quad 0{,}120\\frac{dv}{dt} = 1{,}1772 - 0{,}400 - 0{,}250\\,v$$\n\nFørste orden, lineær, inhomogen, separabel.\n\n**b)** $$v_{\\text{lik}} = \\frac{mg - B}{k_v} = \\frac{1{,}1772 - 0{,}400}{0{,}250} = \\frac{0{,}7772}{0{,}250} = 3{,}11\\ \\text{m/s} \\quad \\text{nedover}$$\n\nBetingelsen for at kula i det hele tatt synker, er $mg > B$, og den er oppfylt her.\n\n**c)** Likningen har nøyaktig samme form som i det rene fallet, bare med $mg$ erstattet av $mg - B$. Med $\\tau = m/k_v = 0{,}120/0{,}250 = 0{,}480\\ \\text{s}$:\n\n$$\\frac{dv}{dt} = \\frac{v_{\\text{lik}} - v}{\\tau} \\quad \\Longrightarrow \\quad v(t) = v_{\\text{lik}}\\left(1 - e^{-t/\\tau}\\right) = 3{,}11\\left(1 - e^{-t/0{,}480}\\right)\\ \\text{m/s}$$\n\nnedover. **Kontroll ved innsetting:** $dv/dt = (v_{\\text{lik}}/\\tau)e^{-t/\\tau}$, og høyresiden er $(v_{\\text{lik}} - v)/\\tau = (v_{\\text{lik}}/\\tau)e^{-t/\\tau}$ ✓. Dessuten er $v(0) = 0$ ✓.\n\n**Merk:** her er $\\tau = v_{\\text{lik}}/g$ **ikke** oppfylt, siden oppdriften reduserer den drivende kraften. Sammenhengen $\\tau = m/k_v$ gjelder derimot alltid.\n\n**d)** $$e^{-t/\\tau} = 0{,}10 \\quad \\Longrightarrow \\quad t = -0{,}480\\ln(0{,}10) = 0{,}480 \\cdot 2{,}303 = 1{,}11\\ \\text{s}$$\n\n**e)** Da blir $mg - B < 0$, og $v_{\\text{lik}}$ blir **negativ**. Med positiv retning nedover betyr det at likevektsfarten er rettet oppover: kula flyter opp med konstant fart. Uttrykket $v(t) = v_{\\text{lik}}(1-e^{-t/\\tau})$ gjelder fortsatt, og beskriver da en kule som akselererer oppover fra ro og flater ut mot en konstant stigefart. **Modellen gir altså riktig svar også utenfor det opprinnelige tilfellet, og det er en god kontroll på at oppsettet er riktig.**",
+    "hints": [
+     "Tre krefter langs loddlinja; velg positiv retning og hold den gjennom hele oppgaven.",
+     "Likevektsfarten finner du av kraftbalansen, uten å løse likningen.",
+     "Likningen har samme form som i det rene fallet — bare den drivende kraften er en annen."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Et lodd med masse $0{,}250\\ \\text{kg}$ henger i en fjær med $k = 49{,}0\\ \\text{N/m}$. Utslaget fra likevekt er oppgitt til\n\n$$u(t) = 0{,}060\\cos(14{,}0\\,t) - 0{,}020\\sin(14{,}0\\,t)\\ \\text{m}$$\n\n**a)** Vis ved innsetting at uttrykket løser bevegelseslikningen.\n\n**b)** Les av initialbetingelsene, og beskriv med ord hvordan svingningen ble satt i gang.\n\n**c)** Finn amplituden og den største farten.\n\n**d)** Når passerer loddet likevektspunktet første gang?",
+    "solution": "**Metodevalg:** oppgaven ber om innsetting, så vi deriverer det oppgitte uttrykket to ganger og sammenlikner med likningen. Det er hele metoden — vi trenger ikke utlede noe.\n\n**a)** Bevegelseslikningen for utslaget fra likevekt er\n\n$$\\frac{d^2u}{dt^2} = -\\frac{k}{m}u = -\\frac{49{,}0}{0{,}250}u = -196\\,u$$\n\nVi deriverer:\n\n$$\\frac{du}{dt} = -0{,}840\\sin(14{,}0\\,t) - 0{,}280\\cos(14{,}0\\,t)$$\n\n$$\\frac{d^2u}{dt^2} = -11{,}76\\cos(14{,}0\\,t) + 3{,}92\\sin(14{,}0\\,t) = -196\\big(0{,}060\\cos(14{,}0\\,t) - 0{,}020\\sin(14{,}0\\,t)\\big) = -196\\,u \\ ✓$$\n\n**b)** $$u(0) = 0{,}060\\ \\text{m}, \\qquad v(0) = \\frac{du}{dt}\\bigg|_{t=0} = -0{,}280\\ \\text{m/s}$$\n\nLoddet ble altså holdt $6{,}0\\ \\text{cm}$ over likevekt og gitt en dytt på $0{,}28\\ \\text{m/s}$ **nedover** i det samme øyeblikket — ikke bare sluppet. Hadde det vært sluppet fra ro, ville sinusleddet vært borte.\n\n**c)** $$C = \\sqrt{0{,}060^2 + 0{,}020^2} = \\sqrt{0{,}0040} = 0{,}0632\\ \\text{m} = 6{,}3\\ \\text{cm}$$\n\n$$v_{\\max} = C\\omega_0 = 0{,}0632 \\cdot 14{,}0 = 0{,}885\\ \\text{m/s}$$\n\n**d)** Loddet passerer likevekt når $u = 0$:\n\n$$0{,}060\\cos(14{,}0\\,t) = 0{,}020\\sin(14{,}0\\,t) \\quad \\Longrightarrow \\quad \\tan(14{,}0\\,t) = 3{,}00$$\n\n$$14{,}0\\,t = 1{,}249 \\quad \\Longrightarrow \\quad t = 0{,}0892\\ \\text{s}$$\n\n**Rimelighetskontroll:** perioden er $T_p = 2\\pi/14{,}0 = 0{,}449\\ \\text{s}$, så $0{,}089\\ \\text{s}$ er om lag en femtedel av en periode. Det stemmer med at loddet startet i overkant av likevekt og ble dyttet nedover — det har litt kortere vei enn en kvart periode.",
+    "hints": [
+     "Deriver det oppgitte uttrykket to ganger og sammenlikn med $-\\omega_0^2 u$.",
+     "Initialbetingelsene leser du av ved å sette $t = 0$ i uttrykket og i den deriverte.",
+     "I d): sett uttrykket lik null og løs for tiden."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "En kloss med masse $m$ er festet til en fjær med fjærkonstant $k$ på et vannrett bord, og påvirkes i tillegg av en kvadratisk luftmotstand.\n\n**a)** Sett opp bevegelseslikningen og klassifiser den.\n\n**b)** Skriv likningen på tilstandsform, altså som to koblede førsteordens likninger.\n\n**c)** Forklar med ord hvordan du ville løst systemet numerisk, og hvilke to startverdier du trenger.\n\n**d)** Hvorfor må luftmotstandsleddet deles på massen i akselerasjonslinja, og hva ville skjedd om du glemte det?\n\n**e)** Hva ville du forventet å se i en graf av utslaget mot tiden, sammenliknet med den udempede svingningen?",
+    "solution": "**Metodevalg:** Newtons 2. lov vannrett, med motstanden skrevet på den generelle formen med absoluttverdi. Deretter omskriving til den formen en numerisk metode arbeider i.\n\n**a)** $$m\\frac{d^2x}{dt^2} = -kx - D\\left\\lvert\\frac{dx}{dt}\\right\\rvert\\frac{dx}{dt}$$\n\nAndre orden, **ikke lineær** (absoluttverdileddet), homogen. Ingen lukket løsning finnes.\n\n**b)** Med $v = dx/dt$:\n\n$$\\begin{cases} \\dfrac{dx}{dt} = v \\\\[6pt] \\dfrac{dv}{dt} = -\\dfrac{k}{m}x - \\dfrac{D}{m}\\lvert v\\rvert v \\end{cases}$$\n\n**c)** Del tiden i små steg $\\Delta t$. I hvert steg regner du først ut akselerasjonen fra den andre linja, med den posisjonen og farten du har akkurat da. Så oppdaterer du **farten** med denne akselerasjonen, og deretter **posisjonen** med den **nye** farten. Gjenta til du har dekket det tidsrommet du er interessert i.\n\nDe to startverdiene du trenger, er $x(0)$ og $v(0)$ — nøyaktig de to initialbetingelsene en andreordens likning krever. At farten oppdateres før posisjonen, er det som kjennetegner Euler–Cromer-metoden, og det er nettopp den rekkefølgen som gjør at en svingning ikke får kunstig voksende amplitude. Metoden bygges fra grunnen i Del 8.\n\n**d)** Fordi venstresiden i den andre linja er en **akselerasjon**, ikke en kraft. Newtons 2. lov sier $a = F/m$, så hvert kraftledd må gjennom en divisjon med massen før det kan legges inn. Glemte du det, ville leddet hatt enheten newton der det skulle stått $\\text{m/s}^2$, og for en masse på for eksempel $0{,}20\\ \\text{kg}$ ville motstanden blitt fem ganger for liten. En dimensjonskontroll av hvert ledd avslører feilen umiddelbart.\n\n**e)** Jeg ville forventet en svingning med samme rytme som den udempede, men med amplitude som krymper. Krympingen ville derimot **ikke** vært eksponentiell: kvadratisk motstand bremser kraftig ved stor fart og nesten ikke ved liten, så toppene ville falt raskt i starten og deretter avtatt langsommere enn en eksponentialkurve. Det skiller den fra den lineære dempingen i [kap. 7.2](/bok/fys1100/fys1100-7-2), der innhyllingskurven er en ren eksponentialfunksjon.",
+    "hints": [
+     "Skriv motstanden med absoluttverdi før du gjør noe annet.",
+     "På tilstandsform er den ukjente et par: posisjon og fart.",
+     "I d): hvilken enhet har venstresiden i akselerasjonslinja?"
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-oppg-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "fys1100-7-4-d12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "**(Kvalitativ — kritiser løsningen.)** En student skal finne bevegelsen til et lodd som henger i en fjær og skriver:\n\n> «Newtons 2. lov gir $m\\,d^2y/dt^2 = -ky - mg$. Jeg integrerer to ganger og får $y = -\\tfrac{k}{2m}yt^2 - \\tfrac12gt^2 + C_1t + C_2$. Med $y(0) = y_0$ og $v(0) = 0$ blir $C_1 = 0$ og $C_2 = y_0$. Svingeperioden er $T_p = 2\\pi\\sqrt{k/m}$.»\n\nPek ut **tre** ulike feil, forklar hva som er galt i hver av dem, og skriv hvordan oppgaven skulle vært løst. Svar i fem–åtte setninger til sammen.",
+    "solution": "**Feil 1 — integrasjonen (felle #3).** Studenten integrerer $-ky$ med hensyn på tiden som om $y$ var konstant, og får $-\\tfrac{k}{2m}yt^2$. Det er ugyldig: $\\int y\\,dt$ er ikke $yt^2/2$ når $y$ varierer, og hele poenget med likningen er at $y$ varierer. Denne feilen gir null poeng for deloppgaven, uansett hva som følger etterpå.\n\n**Feil 2 — manglende substitusjon til likevekt.** Likningen er inhomogen på grunn av tyngdeleddet. Før noen løsningsoppskrift kan brukes, må utslaget måles fra likevekten $y_L = -mg/k$, slik at likningen blir $d^2u/dt^2 = -(k/m)u$ med $u = y - y_L$.\n\n**Feil 3 — formelen for perioden.** Studenten skriver $T_p = 2\\pi\\sqrt{k/m}$, men det riktige er $T_p = 2\\pi\\sqrt{m/k}$. Feilen avsløres av en enhetssjekk: $\\sqrt{k/m}$ har enhet $1/\\text{s}$, ikke sekund. Det er nettopp $\\omega_0$ som er $\\sqrt{k/m}$, og perioden er $2\\pi$ delt på den.\n\n**Slik skulle det vært gjort:** finn likevekten $y_L = -mg/k$, substituer $u = y - y_L$ og få den homogene likningen $d^2u/dt^2 = -(k/m)u$. Klassifiser den som andreordens, lineær og homogen med konstante koeffisienter, sett opp den karakteristiske likningen $\\lambda^2 + k/m = 0$, som gir $\\lambda = \\pm i\\omega_0$ med $\\omega_0 = \\sqrt{k/m}$, og skriv den generelle løsningen $u(t) = A\\cos\\omega_0t + B\\sin\\omega_0t$. Til slutt settes initialbetingelsene inn: med utslaget målt fra likevekt blir $A = u(0) = y_0 - y_L$ og $B = v(0)/\\omega_0 = 0$.\n\n**Merk at bare den ene av de tre feilene er en regnefeil.** De to andre er metodefeil, og det er dem sensor straffer hardest — riktig metode teller mer enn riktig tall.",
+    "hints": [
+     "Se nøye på hva som skjer med leddet $-ky$ når det «integreres».",
+     "Sjekk om likningen er homogen før noen løsningsoppskrift brukes.",
+     "Kontroller enheten på uttrykket for perioden."
+    ]
+   }
+  },
+  {
+   "id": "fys1100-7-4-warning",
+   "type": "warning",
+   "title": "Typiske feil i sjanger G — samlet",
+   "content": "**Felle #3 — å «integrere» likningen som om den ukjente var konstant.** Null poeng. Kjennetegn: $\\int y\\,dt$ blir skrevet som $yt$ eller $yt^2/2$.\n\n**Å hoppe over klassifiseringen.** Den er selvstendig poenggivende og tar tjue sekunder. Den hindrer deg dessuten i å velge en metode som ikke gjelder.\n\n**Å glemme substitusjonen til likevekt.** Tyngden eller en annen konstant kraft gjør likningen inhomogen, og oppskriften for homogene likninger gjelder ikke direkte.\n\n**Å bytte om $\\omega_0$ og $T_p$, eller $\\sqrt{k/m}$ og $\\sqrt{m/k}$.** En enhetssjekk avslører begge på fem sekunder: $\\omega_0$ måles i $\\text{rad/s}$, $T_p$ i sekunder.\n\n**Å skrive $B = v_0$ i stedet for $B = v_0/\\omega_0$.** $B$ er et utslag og skal måles i meter.\n\n**Å linearisere om origo når likevekten ligger et annet sted.** Finn likevekten først, hver gang.\n\n**Å blande grader og radianer i $\\sin\\theta \\approx \\theta$.** Regn om startvinkelen før du setter inn.\n\n**Felle #4 — å skrive kvadratisk motstand som $-Dv^2$ uten å begrunne at farten er ensrettet.** Koster poeng både i utledningen og i koden.\n\n**Å miste minustegnet i separasjonen.** $\\int dv/(v_T - v)$ gir $-\\ln\\lvert v_T-v\\rvert$. En løsning som vokser uten grense i stedet for å flate ut, har mistet nettopp dette tegnet.\n\n**Å glemme å dele kreftene på massen i akselerasjonsuttrykket.** En dimensjonskontroll av hvert ledd avslører det umiddelbart.\n\n**Å svare uten enhet og retning.** Manglende retning på en vektorstørrelse koster typisk 2 poeng."
+  },
+  {
+   "id": "fys1100-7-4-begrepsbank",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "fys1100-7-4-bb-sjanger-g",
+   "type": "definition",
+   "title": "Sjanger G — differensiallikningsoppgaven",
+   "content": "Eksamensoppgaven der en fysisk situasjon skal oversettes til en differensiallikning, likningen klassifiseres og løses, og svaret tolkes — med en numerisk deloppgave til slutt.\n\nDifferensiallikninger er med i **6 av 7 sett (86 %)**, svingninger i **5 av 7 (71 %)** og luftmotstand i **6 av 7 (86 %)**. Oppgaven er typisk verdt fem–seks deloppgaver, og den numeriske halen er med i alle sju settene.\n\nSjangeren er den mest forutsigbare i hele faget: strukturen er den samme hver gang, bare innpakningen varierer."
+  },
+  {
+   "id": "fys1100-7-4-bb-varianter-g",
+   "type": "definition",
+   "title": "De faste variantene av sjangeren",
+   "content": "Fem innpakninger dekker det aller meste:\n\n1. **Lineær fjær**, hengende eller på vannrett underlag — krever substitusjon til likevekt i det første tilfellet.\n2. **Pendel** — krever Taylor-linearisering og radianer.\n3. **Ikke-lineær kraft** — krever at likevekten finnes først, og at $k_{\\text{ef}}$ regnes ut der.\n4. **Førsteordens luftmotstand** — krever separasjon, og gir terminalfarten gratis.\n5. **Ren differensiallikning uten fysikk** — krever bare klassifisering og metodevalg.\n\nGjenkjenner du hvilken du har foran deg, vet du også hvilke fem steg som kommer."
+  },
+  {
+   "id": "fys1100-7-4-bb-poengfordeling-g",
+   "type": "definition",
+   "title": "Hvor poengene ligger i en ODE-oppgave",
+   "content": "Etter sensorveiledningene i H2023, V2024 og V2025: **karakteristisk likning 2 poeng, generell løsning 1 poeng, initialbetingelser 2 poeng**, med egne poeng for klassifiseringen og for grensetilfelle-tolkningen.\n\nMønsteret betyr at over halvparten av uttellingen ligger utenfor selve løsningsformelen. Svaret er dessuten ofte oppgitt i oppgaveteksten — da er det utledningen som betales, og den må være sporbar.\n\n**Praktisk konsekvens:** skriv hvert steg, også de du synes er selvfølgelige. Et hopp fra likning til svar koster poeng selv når svaret er riktig."
+  },
+  {
+   "id": "fys1100-7-4-bb-tidsbudsjett-g",
+   "type": "definition",
+   "title": "Tidsbudsjett for en ODE-oppgave",
+   "content": "På en fire timers eksamen med fem flertrinnsoppgaver er det om lag **48 minutter per oppgave**. For en ODE-oppgave med fem deloppgaver er en grov fordeling:\n\n- oppsett og frilegemediagram: 5 minutter;\n- klassifisering: under 1 minutt;\n- løsningsmetoden: 15 minutter;\n- initialbetingelser og tallsvar: 10 minutter;\n- grensetilfeller og den numeriske deloppgaven: 12 minutter.\n\nDet gir rom for gjennomlesing. Merk at klassifiseringen er det billigste steget i hele budsjettet målt i poeng per minutt — og at den numeriske deloppgaven ofte er den letteste, fordi den betales for struktur og ikke for syntaks."
+  },
+  {
+   "id": "fys1100-7-4-bb-kontrollsporsmaal-g",
+   "type": "definition",
+   "title": "Kontrollspørsmålene før du leverer",
+   "content": "Fem spørsmål som fanger nesten alle feilene i denne sjangeren:\n\n1. Har hvert ledd i likningen samme enhet, og er hver kraft delt på massen i akselerasjonsuttrykket?\n2. Er antallet initialbetingelser lik ordenen, og er hver av dem begrunnet fysisk?\n3. Går løsningen mot det riktige i grensene $t \\to 0$ og $t \\to \\infty$?\n4. Har $\\omega_0$ enheten $\\text{rad/s}$ og $T_p$ enheten sekund?\n5. Har hvert tallsvar enhet og retning?\n\nGjennomgangen tar to minutter og redder rutinemessig flere poeng enn det siste regnestykket du ikke rakk."
+  },
+  {
+   "id": "fys1100-7-4-bb-numerisk-bro",
+   "type": "definition",
+   "title": "Broen til den numeriske deloppgaven",
+   "content": "Det siste steget i oppskriften: å si i klartekst at likningen må løses numerisk, og hvordan.\n\nFormen koden trenger, er **tilstandsformen**: akselerasjonen uttrykt ved posisjon og fart, og de to startverdiene $x(0)$ og $v(0)$. Metoden emnet bygger på, oppdaterer først farten med akselerasjonen, og deretter posisjonen med den **oppdaterte** farten. Den heter Euler–Cromer og utvikles i Del 8.\n\n**Poengene i denne deloppgaven gis for riktige initialbetingelser, riktig akselerasjonsuttrykk og riktig oppdateringsrekkefølge — ikke for syntaks.**"
+  },
+  {
+   "id": "fys1100-7-4-bb-skrive-symbolsk",
+   "type": "definition",
+   "title": "Å regne symbolsk så lenge som mulig",
+   "content": "Vanen med å holde bokstavene til siste steg og først da sette inn tall.\n\nDen lønner seg av tre grunner: uttrykket kan kontrolleres med benevningskontroll og grensetilfeller, en tidlig regnefeil forplanter seg ikke usynlig, og mellomregningen blir sporbar — noe som er nettopp betingelsen for at følgefeil ikke straffes.\n\nI en ODE-oppgave er dette særlig verdifullt, fordi svaret ofte er et uttrykk og ikke et tall."
+  },
+  {
+   "id": "fys1100-7-4-bb-fra-ro",
+   "type": "definition",
+   "title": "«Fra ro» og andre skjulte initialbetingelser",
+   "content": "Formuleringer i oppgaveteksten som skjuler en initialbetingelse:\n\n- «slippes fra ro» → $v(0) = 0$;\n- «passerer likevektspunktet» → $u = 0$ i det aktuelle tidspunktet;\n- «holdes i avspent lengde og slippes» → $u(0) = mg/k$ **målt fra likevekt**, og $v(0) = 0$;\n- «gis en dytt fra likevekt» → $u(0) = 0$ og $v(0) \\ne 0$;\n- «henger i ro når snora kuttes» → begge initialbetingelsene er null i det nye systemet.\n\nÅ oversette slike formuleringer til tall er et eget steg, og det er der de fleste initialbetingelsesfeilene oppstår."
+  },
+  {
+   "id": "fys1100-7-4-symbolliste",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "fys1100-7-4-symbolliste-tekst",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $y$, $x$ | posisjon langs den valgte aksen | $\\text{m}$ |\n| $y_L$ | likevektsposisjon | $\\text{m}$ |\n| $u = y - y_L$ | utslag fra likevekt | $\\text{m}$ |\n| $v$ | fart, med fortegn | $\\text{m/s}$ |\n| $A$, $B$ | konstanter foran cosinus og sinus | $\\text{m}$ |\n| $C$ | amplitude | $\\text{m}$ |\n| $m$ | masse | $\\text{kg}$ |\n| $k$ | fjærkonstant | $\\text{N/m}$ |\n| $k_{\\text{ef}}$ | effektiv fjærkonstant, $-F'(x_0) = U''(x_0)$ | $\\text{N/m}$ |\n| $b$ | dempekoeffisient | $\\text{kg/s}$ |\n| $b_{\\text{kr}} = 2\\sqrt{km}$ | kritisk demping | $\\text{kg/s}$ |\n| $\\gamma = b/(2m)$ | dempingsrate | $\\text{s}^{-1}$ |\n| $\\omega_0$, $\\omega_d$ | egenfrekvens og dempet vinkelfrekvens | $\\text{rad/s}$ |\n| $T_p$ | svingeperiode | $\\text{s}$ |\n| $\\lambda$ | rot i den karakteristiske likningen | $\\text{s}^{-1}$ |\n| $\\theta$ | vinkelutslag | radianer |\n| $\\ell$ | pendellengde | $\\text{m}$ |\n| $k_v$ | koeffisient i lineær luftmotstand | $\\text{kg/s}$ |\n| $D$ | koeffisient i kvadratisk luftmotstand | $\\text{kg/m}$ |\n| $v_T$ | terminalfart | $\\text{m/s}$ |\n| $\\tau = m/k_v$ | tidskonstant | $\\text{s}$ |\n| $B$ (i oppgave 9) | oppdrift | $\\text{N}$ |\n| $U(x)$, $U_0$ | potensial og potensialdybde | $\\text{J}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner i dette delkapitlet:** $B$ brukes både som konstanten foran sinusleddet og — i oppgave 9 — om oppdriften; de har ulike enheter, og oppgaveteksten sier hvilken som gjelder. $b$ er dempekoeffisient og har ingenting med $B$ å gjøre. $k$ er fjærkonstant, $k_v$ er dragkoeffisient, og de har ulike enheter. Perioden skrives $T_p$ fordi $T$ er snordrag; pendellengden $\\ell$ fordi $L$ er spinn i Del 6; tyngden er $m\\mathbf{g}$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$m\\frac{d^2y}{dt^2} = \\sum F$$\n\nBevegelseslikningen. **[må kunne utledes]**\n\n$$y_L = -\\frac{mg}{k}, \\qquad u = y - y_L \\quad \\Longrightarrow \\quad \\frac{d^2u}{dt^2} = -\\omega_0^2 u$$\n\nSubstitusjonen til likevekt. **[må kunne utledes]**\n\n$$a\\lambda^2 + b\\lambda + c = 0$$\n\nKarakteristisk likning; oppskriften med de tre rot-tilfellene står i **[Rottmann]**.\n\n$$u(t) = A\\cos\\omega_0t + B\\sin\\omega_0t, \\qquad A = u_0, \\quad B = \\frac{v_0}{\\omega_0}, \\quad C = \\sqrt{A^2+B^2}, \\quad v_{\\max} = C\\omega_0$$\n\nGenerell løsning og initialbetingelser. **[må kunne utledes]**\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad T_p = \\frac{2\\pi}{\\omega_0}, \\qquad T_p = 2\\pi\\sqrt{\\frac{\\ell}{g}}$$\n\nEgenfrekvens for fjær og periode for pendel. **[må kunne utledes]**\n\n$$\\gamma = \\frac{b}{2m}, \\qquad \\omega_d = \\sqrt{\\omega_0^2 - \\gamma^2}, \\qquad b_{\\text{kr}} = 2\\sqrt{km}, \\qquad t_{1/2} = \\frac{\\ln 2}{\\gamma}$$\n\nDempet svingning. **[må kunne utledes]** fra den karakteristiske likningen.\n\n$$k_{\\text{ef}} = -F'(x_0) = U''(x_0), \\qquad \\omega = \\sqrt{\\frac{k_{\\text{ef}}}{m}}$$\n\nLinearisering om en likevekt. **[må kunne utledes]**\n\n$$v_T = \\frac{mg}{k_v}, \\qquad v_T = \\sqrt{\\frac{mg}{D}}, \\qquad v(t) = v_T\\left(1-e^{-t/\\tau}\\right), \\qquad \\tau = \\frac{m}{k_v}$$\n\nTerminalfart og den separable løsningen. **[må kunne utledes]** — dragmodellene selv står på **[formelarket]**.\n\n$$v(t) = v_T\\tanh\\left(\\frac{gt}{v_T}\\right)$$\n\nKvadratisk motstand i én dimensjon med ensrettet fart. **[må kunne utledes]**, med gyldighetsbetingelsen skrevet ut."
+    }
+   ]
+  },
+  {
+   "id": "fys1100-7-4-rep",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "fys1100-7-4-rep-tekst",
+     "type": "text",
+     "content": "Seks korte oppgaver fra kapitlene dette bygger på. Bruk dem som oppvarming før du tar prøvene til del 7.\n\n**R1.** ([kap. 7.1](/bok/fys1100/fys1100-7-1)) Hvor mange initialbetingelser trengs for $m\\,d^2x/dt^2 = -kx - b\\,dx/dt$?\n\n*Løsning:* To, siden likningen er av andre orden. Typisk $x(0)$ og $v(0)$.\n\n**R2.** ([kap. 7.2](/bok/fys1100/fys1100-7-2)) Finn $\\omega_0$ og $T_p$ for $d^2u/dt^2 = -144\\,u$.\n\n*Løsning:* $\\omega_0 = \\sqrt{144} = 12{,}0\\ \\text{rad/s}$ og $T_p = 2\\pi/12{,}0 = 0{,}524\\ \\text{s}$. Legg merke til at $144$ er kvadratet, ikke frekvensen.\n\n**R3.** ([kap. 7.2](/bok/fys1100/fys1100-7-2)) En fjær med $k = 20{,}0\\ \\text{N/m}$ og en masse på $0{,}800\\ \\text{kg}$ dempes. Hva er kritisk demping?\n\n*Løsning:* $b_{\\text{kr}} = 2\\sqrt{km} = 2\\sqrt{16{,}0} = 8{,}00\\ \\text{kg/s}$.\n\n**R4.** ([kap. 7.3](/bok/fys1100/fys1100-7-3)) Et legeme med $v_T = 6{,}00\\ \\text{m/s}$ faller med lineær motstand. Hva er tidskonstanten?\n\n*Løsning:* $\\tau = v_T/g = 6{,}00/9{,}81 = 0{,}612\\ \\text{s}$. Farten er innenfor $5\\ \\%$ av $v_T$ etter om lag $1{,}8\\ \\text{s}$.\n\n**R5.** ([kap. 1.2](/bok/fys1100/fys1100-1-2)) Hva er $\\sin\\theta$ for $\\theta = 8{,}0^\\circ$, og hvor stor feil gir tilnærmingen $\\sin\\theta \\approx \\theta$?\n\n*Løsning:* $\\theta = 0{,}1396\\ \\text{rad}$ og $\\sin\\theta = 0{,}1392$, altså en feil på $0{,}33\\ \\%$. Feilen vokser som $\\theta^3$, så den dobles ikke når vinkelen dobles — den åttedobles.\n\n**R6.** ([kap. 3.1](/bok/fys1100/fys1100-3-1)) Hvilke krefter skal tegnes inn i frilegemediagrammet for et lodd som henger i en fjær og svinger i lufta?\n\n*Løsning:* Tre: fjærkraften langs fjæra, tyngden rett nedover, og luftmotstanden mot bevegelsen. Ingen «svingekraft» og ingen kraft loddet utøver på fjæra — den hører hjemme i fjærens eget diagram."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

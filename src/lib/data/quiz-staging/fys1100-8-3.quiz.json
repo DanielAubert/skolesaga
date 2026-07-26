@@ -1,0 +1,162 @@
+[
+ {
+  "question": "En simulert planetbane spiraler jevnt utover. Hva er den mest sannsynlige årsaken?",
+  "options": [
+   "Forward Euler tilfører energi i hvert tidssteg",
+   "Gravitasjonskraften er en ikke-konservativ kraft",
+   "Steglengden er valgt altfor liten for problemet",
+   "Initialbetingelsene mangler i begge fartstabellene"
+  ],
+  "explanation": "Gravitasjonen er konservativ, så energien skal være bevart og banen lukke seg; en jevn vekst kan derfor ikke være fysikk. Manglende initialbetingelser ville gitt en sonde som står stille, ikke en som spiraler."
+ },
+ {
+  "question": "Du halverer $dt$ og avviket står helt urørt. Hva slags feil er det?",
+  "options": [
+   "En modellfeil, for eksempel et manglende kraftledd",
+   "En diskretiseringsfeil som krever enda finere steg",
+   "Energidrift fra valget av numerisk metode",
+   "En avrundingsfeil i maskinens flyttallsregning"
+  ],
+  "explanation": "Diskretiseringsfeil og energidrift krymper begge når steglengden krymper. En feil som ikke rører seg, betyr at koden løser en annen likning — og den løses bare stadig mer nøyaktig."
+ },
+ {
+  "question": "Hvilket grep fjerner ÅRSAKEN til energidrift, ikke bare symptomet?",
+  "options": [
+   "Bytte til Euler–Cromer",
+   "Halvere steglengden $dt$",
+   "Kjøre simuleringen kortere",
+   "Lagre færre punkt i tabellene"
+  ],
+  "explanation": "Euler–Cromer har ingen systematisk drift i det hele tatt, mens mindre $dt$ bare demper en drift som fortsatt er der. Kortere simulering skjuler problemet uten å røre det."
+ },
+ {
+  "question": "Kometen påvirkes av en solvind $F_s = s/r^2$ utover. Hvordan endres akselerasjonslinja?",
+  "options": [
+   "Et ledd $+(s/m)\\,x/r^3$ legges til",
+   "Et ledd $+s\\,x/r^3$ legges til uten massen",
+   "Et ledd $+(s/m)\\,x/r^2$ legges til",
+   "Gravitasjonsleddet erstattes helt av solvindleddet"
+  ],
+  "explanation": "Kraften $s/r^2$ inneholder ingen faktor $m$, så bidraget til akselerasjonen er $F_s/m$ — massen må stå i nevneren. Nevneren blir $r^3$ fordi enhetsvektoren utover legger til en faktor $x/r$."
+ },
+ {
+  "question": "Hvorfor står ikke massen i gravitasjonsleddet i akselerasjonslinja?",
+  "options": [
+   "Kraften $GMm/r^2$ inneholder selv massen, som forkortes",
+   "Fordi gravitasjon per definisjon er en akselerasjon og ikke en kraft",
+   "Fordi $GM$ allerede har enheten $\\text{m}^3/\\text{s}^2$",
+   "Fordi massen er så liten at den kan neglisjeres i praksis"
+  ],
+  "explanation": "Akselerasjonen er alltid $F/m$, men gravitasjonskraften er proporsjonal med legemets masse, så $m$ forkortes bort. Enheten på $GM$ er en konsekvens av dette, ikke årsaken."
+ },
+ {
+  "question": "Hva er trapesformelen for arbeid fra ujevne måledata?",
+  "options": [
+   "$W = \\sum (F_{i+1}+F_i)(x_{i+1}-x_i)/2$",
+   "$W = \\Delta x\\sum F_i$ med fast $\\Delta x$",
+   "$W = \\sum F_i (x_{i+1}-x_i)$",
+   "$W = \\sum (F_{i+1}-F_i)(x_{i+1}+x_i)/2$"
+  ],
+  "explanation": "Hvert trapes har gjennomsnittshøyden $(F_{i+1}+F_i)/2$ og sin egen bredde $x_{i+1}-x_i$. Formen med fast $\\Delta x$ vekter alle punktene likt uansett hvor tett de ligger, og gir systematisk feil på ujevne data."
+ },
+ {
+  "question": "Hvor stort ble avviket ved å bruke fast steglengde på det ujevne datasettet i kapitlet?",
+  "options": [
+   "$29\\ \\%$ for lavt",
+   "$0{,}7\\ \\%$ for høyt",
+   "$29\\ \\%$ for høyt",
+   "$3\\ \\%$ for lavt"
+  ],
+  "explanation": "Riktig metode ga $32{,}2\\ \\text{J}$ og fast-steg-formelen $22{,}9\\ \\text{J}$. Avviket på $0{,}7\\ \\%$ hører til noe annet: det er trapesmetodens egen krumningsfeil mot den analytiske fasiten."
+ },
+ {
+  "question": "Trapesmetoden brukes på en kraftkurve som krummer oppover. Hva blir resultatet?",
+  "options": [
+   "Litt for høyt, siden trapesene ligger over kurven",
+   "Litt for lavt, siden trapesene ligger under kurven",
+   "Nøyaktig riktig, uansett hvordan kurven krummer",
+   "Umulig å si uten å kjenne antallet målepunkter"
+  ],
+  "explanation": "En rett linje mellom to punkt på en oppoverkrummet kurve ligger over kurven, så trapeset dekker mer enn det virkelige arealet. For en nedoverkrummet kurve blir svaret tilsvarende for lavt."
+ },
+ {
+  "question": "Når er trapesmetoden eksakt?",
+  "options": [
+   "Når kraften varierer lineært med posisjonen",
+   "Når målepunktene ligger jevnt fordelt",
+   "Når kraften er positiv i alle målepunktene",
+   "Når antall målepunkter er et partall"
+  ],
+  "explanation": "Et trapes mellom to punkt på en rett linje følger linja nøyaktig, så det finnes ingen krumning å bomme på. Jevn fordeling gjør bare de to trapesformlene like, den gjør dem ikke eksakte."
+ },
+ {
+  "question": "Hva er gravitasjonsparameteren for sola i astronomiske enheter?",
+  "options": [
+   "$4\\pi^2\\ \\text{AU}^3/\\text{år}^2$",
+   "$2\\pi\\ \\text{AU}^3/\\text{år}^2$",
+   "$1\\ \\text{AU}^3/\\text{år}^2$",
+   "$9{,}81\\ \\text{AU}^3/\\text{år}^2$"
+  ],
+  "explanation": "Jordas sirkelbane med $r = 1$ AU og omløpstid 1 år gir banefarten $2\\pi$ AU/år, og $GM = v^2r = 4\\pi^2$. Verdien $2\\pi$ er selve banefarten, ikke gravitasjonsparameteren."
+ },
+ {
+  "question": "En komet har $E/m = -11{,}4\\ \\text{AU}^2/\\text{år}^2$. Hva sier det om banen?",
+  "options": [
+   "Den er lukket, og kometen kommer tilbake",
+   "Den er åpen, og kometen forsvinner for godt",
+   "Den er en eksakt sirkel rundt sentrallegemet",
+   "Den er ubestemt uten å kjenne kometens masse"
+  ],
+  "explanation": "Negativ mekanisk energi betyr at kometen er bundet: den mangler energi til å komme uendelig langt bort. Massen trengs ikke, siden energien allerede er oppgitt per masseenhet."
+ },
+ {
+  "question": "Hvorfor er mekanisk energi et godt måltall for å avsløre feil i en banesimulering?",
+  "options": [
+   "Den skal være konstant og bestemmer banens størrelse",
+   "Den er den eneste størrelsen koden regner ut direkte",
+   "Den endrer seg forutsigbart gjennom hvert omløp",
+   "Den er uavhengig av hvilken numerisk metode som brukes"
+  ],
+  "explanation": "Energien er bevart i en ren gravitasjonsmodell, og den store halvaksen følger av den, så et avvik er entydig en feil. Den er nettopp ikke uavhengig av metoden — det er derfor den avslører Forward Euler."
+ },
+ {
+  "question": "En kodemodifikasjonsoppgave besvares med uendret kode og kommentaren «kraften er liten». Hva gir det?",
+  "options": [
+   "Null poeng, siden ferdigheten ikke er vist i det hele tatt",
+   "Full uttelling, hvis kraften faktisk er liten",
+   "Halv uttelling, som ved en glemt massefaktor",
+   "Trekk på ett poeng, som ved manglende absoluttverdi"
+  ],
+  "explanation": "Deloppgaven tester om kandidaten kan oversette en ny kraft til en akselerasjonslinje, og en uendret kode viser ingenting av det. Regelen om uttelling for en god løsningsidé forutsetter at det finnes en idé."
+ },
+ {
+  "question": "Du legger et fartsavhengig kraftledd til en gravitasjonskode. Hva må i tillegg regnes ut i løkka?",
+  "options": [
+   "Fartens tallverdi $v = \\sqrt{v_x^2+v_y^2}$",
+   "En ny og mindre steglengde $dt$",
+   "Den mekaniske energien i hvert tidssteg",
+   "Avstanden $r$, som ikke trengtes tidligere"
+  ],
+  "explanation": "Gravitasjonen avhenger bare av posisjonen, så fellesfarten fantes ikke i den opprinnelige koden, men et dragledd trenger den. Avstanden $r$ var derimot allerede der, siden gravitasjonsleddet krever den."
+ },
+ {
+  "question": "En satellitt i lav jordbane får banefarten $7{,}67\\ \\text{m/s}$ i en simulering. Hva er galt?",
+  "options": [
+   "Enhetsblanding — riktig svar er om lag $7{,}67\\ \\text{km/s}$",
+   "Steglengden er for stor, så farten er underestimert",
+   "Metoden er Forward Euler, som gir for lav banefart",
+   "Ingenting — dette er riktig fart for en lav bane"
+  ],
+  "explanation": "En satellitt i lav bane går i om lag $7{,}7\\ \\text{km/s}$, og tallverdien stemmer påfallende godt med en faktor tusen imellom. Verken steglengde eller metodevalg gir feil av den størrelsesordenen."
+ },
+ {
+  "question": "Hvordan skalerer den samlede feilen i trapesmetoden med avstanden mellom målepunktene?",
+  "options": [
+   "Som kvadratet: halvert avstand gir en firedel av feilen",
+   "Lineært: halvert avstand gir halvparten av feilen",
+   "Som fjerde potens, siden metoden er fjerdeordens",
+   "Den er uavhengig av hvor tett punktene ligger"
+  ],
+  "explanation": "Feilen i ett trapes går som $h^3$, og summert over intervallet gir det $h^2$ — altså en andreordens metode. Euler–Cromer er derimot førsteordens, med feil proporsjonal med steglengden."
+ }
+]

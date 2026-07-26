@@ -1,0 +1,423 @@
+{
+  "id": "fys1100-8-1",
+  "courseId": "fys1100",
+  "chapterNumber": "8.1",
+  "title": "Fra ODE til kode: Euler–Cromer-løkka",
+  "description": "Diskretiser tiden, skriv akselerasjonen fra ODE-en, oppdater fart så posisjon — og begrunn hvorfor Euler–Cromer er sensorens foretrukne metode.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "kunne diskretisere tiden, velge steglengde og sette initialbetingelsene inn i indeks 0",
+    "kunne oversette en bevegelseslikning til en akselerasjonslinje med riktige fortegn og riktig masse-deling",
+    "kunne skrive en korrekt Euler–Cromer-løkke med full indeksdisiplin",
+    "kunne begrunne valget av Euler–Cromer framfor Forward Euler ut fra energidrift, og kontrollere et numerisk svar mot et analytisk kontrollcase"
+  ],
+  "content": [
+    {
+      "id": "fys1100-8-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Numerisk Python er testet i 7 av 7 sett (100 %).** Ingen annen enkeltferdighet i dette emnet har så fast belegg. Oppgavetypen kalles **sjanger H — numerisk integrasjon og Python-kode**, og den kommer nesten alltid som den **siste deloppgaven i en differensiallikningsoppgave**: du har utledet bevegelseslikningen, kanskje løst den analytisk — og så skal du «skissere en kode» eller «sette opp en integrasjonsløkke» som løser den numerisk.\n\n**Dette er den ene ferdigheten formelarket ikke redder deg på.** «Formelarket» er det fagspesifikke arket du får utdelt på eksamen, ved siden av den matematiske formelsamlingen Rottmann og en godkjent kalkulator. Der står bevegelseslikninger, kraftmodeller og standardformler — men ingen kodemal. Løkka må sitte i fingrene.\n\n**Slik ligger poengene, ut fra sensorveiledningene i H2023, V2024 og V2025** (tre av løsningsforslagene i arkivet har en innebygd sensorveiledning med poenggiving per deloppgave):\n\n| Del av svaret | Uttelling |\n|---|---|\n| Riktige **initialbetingelser** i indeks 0 | 1 poeng |\n| Riktig **akselerasjonsuttrykk** fra differensiallikningen | 3 poeng |\n| Riktig oppbygd **oppdateringsløkke** | 1 poeng |\n| **Begrunnelsen** for metodevalget | trekkes fram som skille mot toppkarakter |\n\n**Syntaksfeil straffes ikke.** Alle programmeringsspråk godtas, og kandidaten skriver ikke et helt program — bare initialbetingelser og løkke, for hånd, med penn på papir. Du trenger aldri huske `import`-linjer utenat.\n\n**Høyeste prioritet — dette må sitte.**\n\n**Øktforslag:** kapitlet er på 70 minutter. Løkke 1–2 (diskretisering og akselerasjonslinja) er en naturlig første økt, løkke 3–4 (selve løkka og metodebegrunnelsen) den neste, og løkke 5 (kontroll av koden) en kort tredje."
+    },
+    {
+      "id": "fys1100-8-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 7.1](/bok/fys1100/fys1100-7-1). Det du trenger derfra, ferdig oppfrisket:\n\n**Bevegelseslikningen** er Newtons 2. lov med akselerasjonen skrevet som andrederivert av posisjonen:\n\n$$m\\frac{d^2x}{dt^2} = \\sum F\\left(x, \\frac{dx}{dt}, t\\right)$$\n\nHøyresiden er summen av kreftene, og den kan avhenge av hvor legemet er, hvor fort det går, og hva klokka er.\n\n**Tilstandsform** — én andreordens likning skrives om til to førsteordens:\n\n$$\\frac{dx}{dt} = v, \\qquad \\frac{dv}{dt} = \\frac{1}{m}\\sum F$$\n\nDenne omskrivingen er hele broa til koden: de to likningene blir de to oppdateringslinjene i løkka.\n\n**Initialbetingelser.** En likning av orden $n$ trenger $n$ opplysninger om starttilstanden. For en andreordens bevegelseslikning betyr det posisjonen $x(0)$ og farten $v(0)$ — akkurat de to tallene som blir `x[0]` og `v[0]` i koden.\n\n**Fra matematikken:** [Numerisk integrasjon](/bok/r2/r2-3-4) og [Programmering av integrasjon](/bok/r2/r2-3-5) gir ideen om å erstatte en kontinuerlig størrelse med en sum over små steg. [Numerisk modellering av bevegelse](/bok/fysikk2/fysikk2-1-5) viser den samme løkka i en enklere innpakning — du kan ha møtt den i Fysikk 1 eller Fysikk 2 på videregående.\n\n**Python-grunnlaget** — lister, `for`-løkker og `numpy`-tabeller — hører hjemme i programmeringsemnet IN1900, som ikke er bygget i dette systemet. Alt du faktisk trenger her, blir forklart underveis: fire linjer kode og én løkke.\n\n**Notasjonsavtale for kapitlet.** Vi bruker $x$ om posisjonen langs én akse, $v$ om farten med fortegn, $a$ om akselerasjonen, $t$ om tiden, $dt$ om steglengden i tid og $N$ om antallet lagrede tidspunkt. Variabelnavnene i koden er de samme bokstavene, slik at fysikken og koden ser like ut. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-8-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — tiden i skiver (~14 min)\n\nEt videokamera som filmer en fallende ball, ser ikke en kontinuerlig bevegelse. Det tar 50 bilder i sekundet, og mellom to bilder vet kameraet ingenting. Likevel klarer du å lese av hele bevegelsen fra bildeserien, fordi bildene ligger tett nok.\n\nEn numerisk løsning gjør nøyaktig det samme. I stedet for en formel $x(t)$ som gjelder for alle tidspunkt, regner vi ut posisjonen i en **serie tidspunkt** som ligger tett nok. Svaret er ikke en funksjon, men en tabell av tall.\n\n**Intuisjon:** analytisk løsning gir deg fasiten i én formel. Numerisk løsning gir deg fasiten som en filmstrimmel. Er strimmelen tett nok, ser du det samme.\n\nDet er tre ting som må på plass før løkka kan starte: et **tidsrutenett**, en **steglengde**, og **plass til å lagre svaret**."
+    },
+    {
+      "id": "fys1100-8-1-def-rutenett",
+      "type": "definition",
+      "title": "Tidsrutenettet",
+      "content": "Rekka av tidspunkt der vi faktisk regner ut svaret, i stedet for å regne på alle tidspunkt.\n\n$$t_0 = 0, \\quad t_1 = dt, \\quad t_2 = 2\\,dt, \\quad \\dots, \\quad t_i = i \\cdot dt$$\n\nTallet $i$ kalles **indeksen**, og det er den som teller hvilket tidspunkt vi står i. I koden svarer $t_i$ til `t[i]`.\n\nÅ erstatte kontinuerlig tid med et slikt rutenett kalles å **diskretisere**. Ordet er ikke mer mystisk enn «å dele opp i skiver» — og det er hele grunnideen bak numerisk løsning av en differensiallikning."
+    },
+    {
+      "id": "fys1100-8-1-def-steglengde",
+      "type": "definition",
+      "title": "Steglengden $dt$",
+      "content": "Tidsavstanden mellom to nabotidspunkt i rutenettet, målt i sekunder.\n\nSteglengden er den ene knappen du kan skru på i en numerisk beregning. Liten $dt$ gir et tettere rutenett og et mer nøyaktig svar, men flere steg og lengre regnetid. Stor $dt$ går fort, men svaret kan bli ubrukelig.\n\nEn brukbar tommelfingerregel for svingninger og kast er at $dt$ skal være **et par tusen ganger mindre enn den karakteristiske tiden i problemet** — svingeperioden, falltiden eller tidskonstanten. Har systemet en periode på ett sekund, er $dt = 0{,}001\\ \\text{s}$ et trygt valg.\n\nSammenhengen mellom antall punkt og sluttiden er $t_{\\text{slutt}} = (N-1)\\,dt$: velger du to av de tre størrelsene, er den tredje låst."
+    },
+    {
+      "id": "fys1100-8-1-def-arrays",
+      "type": "definition",
+      "title": "Forhåndsallokerte arrays",
+      "content": "Tabeller som opprettes med full lengde **før** løkka starter, slik at hvert tidspunkt har sin ferdige plass å skrive svaret sitt inn i.\n\n```text\nt = np.zeros(N)\nx = np.zeros(N)\nv = np.zeros(N)\n```\n\n`np.zeros(N)` lager en tabell med $N$ nuller. Etter løkka inneholder `x` posisjonen ved hvert av de $N$ tidspunktene, og du kan lese ut, plotte eller lete i hele forløpet.\n\n**Hvorfor gjøre det på forhånd?** Fordi løkka da bare skal *fylle inn*, ikke *utvide*. Det er raskere, og — viktigere for eksamen — det tvinger fram indeksskrivemåten `x[i]`, som er nettopp det sensor ser etter."
+    },
+    {
+      "id": "fys1100-8-1-initial",
+      "type": "text",
+      "content": "**Initialbetingelsene bor i indeks 0.** De to opplysningene om starttilstanden — hvor legemet er, og hvor fort det går — skrives rett inn i første plass i tabellene:\n\n```text\nx[0] = 0.100        # m\nv[0] = 0.0          # m/s\n```\n\nHer ligger ett av de fem poengene i en typisk kodedeloppgave. Det er også det billigste poenget i hele oppgaven: to linjer, og de kan skrives selv om du står helt fast på resten.\n\n**Intuisjon:** differensiallikningen er loven som styrer bevegelsen. Initialbetingelsene er den ene bevegelsen loven faktisk beskriver. Uten dem har koden ingenting å begynne med."
+    },
+    {
+      "id": "fys1100-8-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med egne ord, i to–tre setninger hver:\n\n**a)** hva som er forskjellen på en analytisk og en numerisk løsning av en bevegelseslikning,\n\n**b)** hva `np.zeros(N)` gjør, og hvorfor tabellene lages før løkka starter,\n\n**c)** hvorfor en andreordens bevegelseslikning trenger nøyaktig to initialbetingelser i koden.",
+        "solution": "**a)** En analytisk løsning er en **formel** — en funksjon $x(t)$ som gir posisjonen ved et hvilket som helst tidspunkt, og som kan deriveres, grensebetraktes og settes inn i. En numerisk løsning er en **tabell** av tallverdier i et endelig antall tidspunkt. Den gir ikke innsikt i formens struktur, men den finnes også når ingen formel gjør det.\n\n**b)** `np.zeros(N)` lager en tabell med $N$ nuller, altså $N$ ferdige plasser å skrive tall inn i. Tabellene lages på forhånd fordi løkka da bare skal fylle inn en plass om gangen, og fordi det tvinger fram skrivemåten `x[i]` med indeks — som er den formen sensor krever.\n\n**c)** Fordi løsningen av en andreordens likning inneholder to ubestemte konstanter, og det trengs to opplysninger for å låse dem. Fysisk: å vite hvor legemet er, holder ikke — en kloss som holdes i ro i et punkt og en som farer forbi det samme punktet, får helt ulike framtider. I koden blir de to opplysningene `x[0]` og `v[0]`.",
+        "hints": [
+          "Tenk på hva slags objekt svaret er i hvert av de to tilfellene: en funksjon eller en tallrekke.",
+          "I b): hva må være på plass for at linja `x[i + 1] = ...` skal ha et sted å skrive?",
+          "I c): hvor mange konstanter dukker opp når du integrerer to ganger?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — akselerasjonslinja (~14 min)\n\nNå kommer den delen som gir flest poeng. Av de fem poengene i en typisk kodedeloppgave ligger **tre** i én eneste linje: uttrykket for akselerasjonen.\n\nGrunnen er enkel. Akselerasjonslinja er det eneste stedet i koden der **fysikken** i akkurat ditt problem står. Resten av løkka er den samme uansett om du modellerer en fjær, en pendel, et kast eller en komet."
+    },
+    {
+      "id": "fys1100-8-1-def-akselerasjonslinja",
+      "type": "definition",
+      "title": "Akselerasjonslinja",
+      "content": "Den ene kodelinja som oversetter bevegelseslikningen til noe maskinen kan regne på: akselerasjonen isolert alene på venstre side, uttrykt ved tilstanden i det tidspunktet du står i.\n\n$$\\frac{d^2x}{dt^2} = \\frac{1}{m}\\sum F \\qquad \\longrightarrow \\qquad \\texttt{a = ...}$$\n\nAlt på høyresiden må være noe koden allerede kjenner: konstantene ($m$, $k$, $g$, $D$) og tilstanden i indeks $i$ (`x[i]` og `v[i]`).\n\n**Dette er de tre poengene.** En akselerasjonslinje med riktig fortegn, riktige krefter og riktig masse-deling er selve fysikken i deloppgaven — resten av løkka er mal."
+    },
+    {
+      "id": "fys1100-8-1-th-oppskrift",
+      "type": "theorem",
+      "title": "Fra differensiallikning til kode — fire steg",
+      "content": "**Steg 1 — skriv bevegelseslikningen fra frilegemediagrammet.** Newtons 2. lov med alle kreftene, i den positive retningen du har valgt.\n\n*Intuisjon:* dette er det samme steget som i [kap. 7.1](/bok/fys1100/fys1100-7-1). Koden gjør ikke fysikken for deg.\n\n**Steg 2 — isolér den høyeste deriverte.** Del på massen, slik at $d^2x/dt^2$ står alene.\n\n*Intuisjon:* maskinen kan bare oppdatere det den får servert direkte. En likning der akselerasjonen er blandet inn i et større uttrykk, kan ikke oversettes linje for linje.\n\n**Steg 3 — bytt symbol med indeks.** Alt som er $x$, blir `x[i]`. Alt som er $v$, blir `v[i]`. Konstantene beholder navnene sine.\n\n*Intuisjon:* indeksen sier «slik ser høyresiden ut akkurat nå», og det er det eneste maskinen kan vite i det øyeblikket.\n\n**Steg 4 — sett akselerasjonen inn i løkka**, oppdater farten, og deretter posisjonen.\n\n*Intuisjon:* likningen forteller hvordan tilstanden **endrer seg**. Løkka gjør endringen om til en ny tilstand.\n\n**Tre eksempler på steg 1–3:**\n\n| Bevegelseslikning | Akselerasjonslinje |\n|---|---|\n| $m\\,d^2x/dt^2 = -kx$ | `a = -(k / m) * x[i]` |\n| $m\\,dv/dt = mg - k_v v$ | `a = g - (kv / m) * v[i]` |\n| $m\\ell\\,d^2\\theta/dt^2 = -mg\\sin\\theta$ | `a = -(g / L) * np.sin(theta[i])` |\n\nLegg merke til at massen faller ut i den siste — men det er noe du **ser** etter å ha delt, ikke noe du antar på forhånd."
+    },
+    {
+      "id": "fys1100-8-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fjærpendelen, fra likning til kode",
+      "problem": "En vogn med masse $m = 1{,}00\\ \\text{kg}$ ruller uten friksjon på en luftputebane og er festet til en fjær med fjærkonstant $k = 25{,}0\\ \\text{N/m}$. Ved $t = 0$ trekkes vogna $0{,}100\\ \\text{m}$ ut fra likevekt og slippes fra ro.\n\n**a)** Sett opp bevegelseslikningen og akselerasjonslinja.\n\n**b)** Skriv en fullstendig kode som løser likningen numerisk over 20 sekunder, og kjør den.\n\n**c)** Kontroller resultatet mot den analytiske løsningen fra [kap. 7.2](/bok/fys1100/fys1100-7-2).",
+      "solution": "**Metodevalg:** likningen er andreordens, lineær og homogen, og har derfor en kjent analytisk løsning — det er nettopp derfor den egner seg som **kontrollcase** for koden. Vi bruker Euler–Cromer, som er den metoden emnet bygger på; begrunnelsen kommer i løkke 3–4.\n\n**a)** Vogna er ett legeme. Tyngden og normalkraften er loddrette og opphever hverandre, så fjærkraften $-kx$ er den eneste vannrette kraften:\n\n$$m\\frac{d^2x}{dt^2} = -kx \\qquad \\Longrightarrow \\qquad \\frac{d^2x}{dt^2} = -\\frac{k}{m}x = -25{,}0\\,x$$\n\nAkselerasjonslinja blir dermed `a = -(k / m) * x[i]`.\n\n**b)** Vi velger $dt = 0{,}0010\\ \\text{s}$. Svingeperioden er $T_p = 2\\pi\\sqrt{m/k} = 1{,}26\\ \\text{s}$, så steglengden er om lag 1 300 ganger mindre enn perioden — godt innenfor tommelfingerregelen. Med $N = 20\\,001$ punkt blir sluttiden $(N-1)\\,dt = 20{,}0\\ \\text{s}$, altså snaut 16 svingninger.\n\n```python\nimport numpy as np\n\nm = 1.00            # kg\nk = 25.0            # N/m\nN = 20001           # antall tidspunkt\ndt = 0.0010         # s\n\nt = np.zeros(N)\nx = np.zeros(N)\nv = np.zeros(N)\n\nx[0] = 0.100        # m, utslag ved t = 0\nv[0] = 0.0          # m/s, sluppet fra ro\n\nfor i in range(N - 1):\n    a = -(k / m) * x[i]\n    v[i + 1] = v[i] + a * dt\n    x[i + 1] = x[i] + v[i + 1] * dt\n    t[i + 1] = t[i] + dt\n\nprint(\"sluttid        \", round(t[-1], 3))\nprint(\"x ved slutt    \", round(x[-1], 5))\nprint(\"v ved slutt    \", round(v[-1], 5))\nprint(\"storste utslag \", round(np.max(np.abs(x)), 7))\n```\n\n**Utskrift:**\n\n```text\nsluttid         20.0\nx ved slutt     0.08636\nv ved slutt     0.25314\nstorste utslag  0.1000003\n```\n\n**c)** Den analytiske løsningen er $x(t) = 0{,}100\\cos(\\omega_0 t)$ med $\\omega_0 = \\sqrt{k/m} = 5{,}00\\ \\text{rad/s}$, altså\n\n$$x(20{,}0) = 0{,}100\\cos(100) = 0{,}08623\\ \\text{m}$$\n\nKoden gir $0{,}08636\\ \\text{m}$. Avviket er $1{,}3\\cdot 10^{-4}\\ \\text{m}$, altså $0{,}13\\ \\%$ av amplituden — etter nesten seksten svingninger.\n\n**Legg merke til hva slags feil det er.** Det største utslaget er $0{,}1000003\\ \\text{m}$ mot eksakt $0{,}100000\\ \\text{m}$: amplituden er praktisk talt uendret. Hele avviket er en liten **faseforskyvning** — den numeriske svingningen går et ubetydelig lite hakk i utakt med den eksakte. Det er nøyaktig den oppførselen som gjør Euler–Cromer brukbar over lange tider, og vi kommer tilbake til den i løkke 4.\n\n**Sensorblikk:** oppgaveteksten på eksamen ber om «en kode» eller «pseudokode», ikke om et kjørbart program. De fem poengene sitter i `x[0]` og `v[0]`, i akselerasjonslinja, og i de to oppdateringslinjene i riktig rekkefølge. Import-linja og `print` gir ingen poeng — men de koster heller ingenting."
+    },
+    {
+      "id": "fys1100-8-1-handskrevet",
+      "type": "collapsible",
+      "title": "Slik ser den håndskrevne eksamensversjonen ut",
+      "buttonText": "Vis den håndskrevne versjonen",
+      "content": [
+        {
+          "id": "fys1100-8-1-handskrevet-tekst",
+          "type": "text",
+          "content": "Den avsluttende skoleeksamenen er fire timer med penn og papir. Koden skrives for hånd, og du rekker ikke — og skal ikke — skrive et helt program. Dette er alt som forventes:\n\n```text\nx[0] = 0.100          # initialbetingelser\nv[0] = 0.0\n\nfor i in range(N-1):\n    a = -(k/m)*x[i]           # fra ODE-en\n    v[i+1] = v[i] + a*dt      # fart FORST\n    x[i+1] = x[i] + v[i+1]*dt # OPPDATERT fart\n```\n\nSju linjer. Det tar under to minutter å skrive, og det dekker alle fem poengene.\n\n**Hva som kan droppes:** `import numpy as np`, opprettelsen av tabellene, tidsarrayet `t`, og all utskrift. Sensor forventer initialbetingelser og løkke — ikke infrastruktur.\n\n**Hva som ikke kan droppes:** indeksene. `v = v + a*dt` uten indeks koster typisk to poeng, selv om meningen er klar. Grunnen er at uttrykket da ikke lenger sier *hvilket* tidspunkt farten hører til, og hele poenget med metoden er nettopp rekkefølgen i tid.\n\n**Ett råd om håndskrift:** skriv `v[i+1]` med god plass rundt klammene. Den vanligste lesefeilen i en håndskrevet besvarelse er at `v[i+1]` og `v[i]` ikke lar seg skille fra hverandre — og da mister du poenget du faktisk har fortjent."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-8-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv akselerasjonslinja i kode for hver av bevegelseslikningene. Bruk variabelnavnene som står i parentes, og anta at tilstanden i tidspunkt $i$ heter `x[i]` og `v[i]`.\n\n**a)** $m\\dfrac{d^2x}{dt^2} = -kx - mg$ (variabler `m`, `k`, `g`)\n\n**b)** $m\\dfrac{dv}{dt} = mg - k_v v$ (variabler `m`, `g`, `kv`)\n\n**c)** $m\\dfrac{d^2y}{dt^2} = -mg + F_0\\cos(\\omega t)$, med tiden tilgjengelig som `t[i]` (variabler `m`, `g`, `F0`, `w`)\n\n**d)** Hvilken av de tre linjene er den eneste der massen ikke faller ut? Hva betyr det praktisk?",
+        "solution": "**Metodevalg:** i alle tre tilfellene isolerer vi den høyeste deriverte ved å dele på massen, og bytter så hvert symbol med sin indekserte kodeform.\n\n**a)** $\\dfrac{d^2x}{dt^2} = -\\dfrac{k}{m}x - g$, altså\n\n```text\na = -(k/m)*x[i] - g\n```\n\n**b)** $\\dfrac{dv}{dt} = g - \\dfrac{k_v}{m}v$, altså\n\n```text\na = g - (kv/m)*v[i]\n```\n\n**c)** $\\dfrac{d^2y}{dt^2} = -g + \\dfrac{F_0}{m}\\cos(\\omega t)$, altså\n\n```text\na = -g + (F0/m)*np.cos(w*t[i])\n```\n\n**d)** Massen faller ikke ut i noen av dem — men den opptrer på **ulik måte**. I a) og b) står den i forholdet mellom kraftkonstanten og massen ($k/m$, $k_v/m$), og i c) i forholdet $F_0/m$. Det generelle prinsippet er dette: en kraft som selv er proporsjonal med massen, som tyngden $mg$, gir et masseuavhengig bidrag $g$ til akselerasjonen. Alle andre krefter må deles på massen. Det er nettopp den regelen som gjør at et nytt kraftledd i en kodemodifikasjon må deles på $m$ — vi kommer tilbake til det i [kap. 8.3](/bok/fys1100/fys1100-8-3).",
+        "hints": [
+          "Del hele likningen på massen først, og se hva som blir stående igjen.",
+          "Et ledd $mg$ blir til $g$ etter delingen; et ledd $-kx$ blir til $-(k/m)x$.",
+          "I d): se etter hvilke ledd som har $m$ som faktor allerede før delingen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — selve løkka, og den ene indeksen som avgjør alt (~16 min)\n\nNå står akselerasjonen der. Spørsmålet er hvordan vi kommer fra tilstanden i tidspunkt $i$ til tilstanden i tidspunkt $i+1$.\n\nIdeen er den enkleste tenkelige. Over et lite tidssteg $dt$ er akselerasjonen omtrent konstant, så farten endrer seg med $a\\,dt$. Og over det samme steget er farten omtrent konstant, så posisjonen endrer seg med $v\\,dt$:\n\n$$v_{i+1} = v_i + a_i\\,dt, \\qquad x_{i+1} = x_i + v\\,dt$$\n\nOg så kommer spørsmålet som hele dette kapitlet handler om: **hvilken $v$ skal stå i den andre linja — den gamle $v_i$, eller den nye $v_{i+1}$?**\n\nSvaret virker som en detalj. Det er det ikke."
+    },
+    {
+      "id": "fys1100-8-1-def-euler-cromer",
+      "type": "definition",
+      "title": "Euler–Cromer-metoden",
+      "content": "Den numeriske metoden der farten oppdateres **først**, og den **nye** farten deretter brukes til å oppdatere posisjonen:\n\n$$v_{i+1} = v_i + a_i\\,dt, \\qquad x_{i+1} = x_i + v_{i+1}\\,dt$$\n\nI kode:\n\n```text\nv[i+1] = v[i] + a*dt\nx[i+1] = x[i] + v[i+1]*dt\n```\n\nMetoden er oppkalt etter Alar Cromer, som beskrev den i 1981 som en «forbløffende enkel» rettelse av standardmetoden for mekanikk-simuleringer.\n\n**Dette er metoden dette emnet bygger på, og den sensor forventer.** Grunnen er at den holder energien i sjakk over lange tider — se løkke 4."
+    },
+    {
+      "id": "fys1100-8-1-def-forward-euler",
+      "type": "definition",
+      "title": "Forward Euler-metoden",
+      "content": "Den numeriske metoden der begge oppdateringene bruker tilstanden i det **gamle** tidspunktet:\n\n$$x_{i+1} = x_i + v_i\\,dt, \\qquad v_{i+1} = v_i + a_i\\,dt$$\n\nI kode:\n\n```text\nx[i+1] = x[i] + v[i]*dt\nv[i+1] = v[i] + a*dt\n```\n\nMetoden er den mest opplagte oversettelsen av differensiallikningen, og den brukes mye i andre sammenhenger. **For svingninger og baner er den systematisk dårlig:** den tilfører energi til systemet steg for steg, slik at amplituden vokser og banene spiraler utover.\n\nLegg merke til at forskjellen fra Euler–Cromer er **én indeks**. Bytter du rekkefølgen på de to linjene uten å endre indeksene, har du byttet metode."
+    },
+    {
+      "id": "fys1100-8-1-fig-rekkefolge",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-8-1-oppdateringsrekkefolge.svg",
+      "alt": "To skjemaer under hverandre. Det ovre, merket Euler-Cromer, viser tre bokser i rekkefolge: akselerasjonen regnes ut fra ODE-en, deretter oppdateres farten, og til slutt posisjonen med den nye farten. Det nedre, merket Forward Euler, viser de samme tre boksene, men posisjonen oppdateres for farten og bruker den gamle farten.",
+      "caption": "Oppdateringsrekkefølgen i ett tidssteg for fjærpendelen i eksempel 1. I Euler–Cromer bærer steg 3 indeksen $i+1$ på farten; i Forward Euler bærer det indeksen $i$. Det er hele forskjellen mellom de to metodene."
+    },
+    {
+      "id": "fys1100-8-1-def-indeksdisiplin",
+      "type": "definition",
+      "title": "Indeksdisiplin",
+      "content": "Kravet om at hver størrelse i løkka skal skrives med den indeksen som sier hvilket tidspunkt den hører til: `v[i]`, `v[i+1]`, `x[i]`, `x[i+1]`.\n\nSkriver du `v = v + a*dt` uten indeks, forsvinner nettopp den opplysningen løkka handler om. På eksamen koster det typisk **2 poeng**, selv når meningen er åpenbar for en leser — og i en kode som faktisk skal kjøre, ødelegger det lagringen av forløpet, siden bare den siste verdien overlever.\n\n**Unntaket er akselerasjonen.** `a` regnes ut på nytt i hvert eneste gjennomløp og brukes umiddelbart, så den trenger ikke lagres. Vil du likevel ha den som array, skriver du `a[i]` — det er også riktig, bare mer arbeid for hånd."
+    },
+    {
+      "id": "fys1100-8-1-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #5 i bokas feilregister — `v` uten indeks i integrasjonsløkka.** Koster typisk **2 poeng**. Riktig form er `v[i+1] = v[i] + a*dt`. Dette er den enkeltfeilen sensorveiledningene i H2023, V2024 og V2025 påpeker oftest i kodedeloppgavene.\n\n**Gammel fart i posisjonsoppdateringen.** Skriver du `x[i+1] = x[i] + v[i]*dt`, har du byttet til Forward Euler uten å mene det. Koden kjører, tallene ser plausible ut i noen få steg, og amplituden vokser sakte. Feilen er usynlig i én periode og ødeleggende i femti.\n\n**Glemte initialbetingelser.** Uten `x[0]` og `v[0]` starter alt i null, og en fjær som starter i likevekt uten fart, blir stående i ro for alltid. Koden kjører feilfritt og gir bare nuller — den mest lumske av alle utfall, fordi ingenting krasjer.\n\n**`range(N)` i stedet for `range(N - 1)`.** Siste gjennomløp prøver da å skrive til `x[N]`, som ikke finnes, og programmet stopper med en indeksfeil. På papiret straffes det ikke, men det er et unødvendig signal om at løkka ikke er tenkt igjennom.\n\n**Feil fortegn i akselerasjonslinja.** Fjærkraften er $-kx$, ikke $+kx$. Med feil fortegn får du en likning som beskriver en kloss som skyves lenger og lenger vekk fra likevekt, og posisjonen eksploderer i løpet av få steg. **En løsning som vokser uten grense der du ventet en svingning, er nesten alltid et tapt minustegn.**\n\n**Å ikke begrunne metodevalget.** De tre sensorveiledningene skiller eksplisitt mellom en kandidat som skriver riktig løkke og en som skriver riktig løkke **og** sier hvorfor Euler–Cromer er valgt. Det er to setninger, og de er blant de billigste poengene i settet."
+    },
+    {
+      "id": "fys1100-8-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En medstudent har skrevet denne løkka for fjærpendelen i eksempel 1. Den kjører uten feilmelding, men gir gale svar.\n\n```python\nN = 20001\ndt = 0.0010\nx = np.zeros(N)\nv = np.zeros(N)\n\nfor i in range(N - 1):\n    a = (k / m) * x[i]\n    x[i + 1] = x[i] + v[i] * dt\n    v = v[i] + a * dt\n```\n\n**a)** Finn de tre feilene, og si for hver av dem hva den gjør med resultatet.\n\n**b)** Hvorfor gir koden bare nuller uansett, slik den står?\n\n**c)** Skriv den rettede løkka.",
+        "solution": "**Metodevalg:** vi går gjennom koden linje for linje og sammenlikner med bevegelseslikningen $d^2x/dt^2 = -(k/m)x$ og med Euler–Cromer-malen.\n\n**a)** Tre feil:\n\n**Feil 1 — fortegnet i akselerasjonslinja.** Det står `a = (k / m) * x[i]`, men fjærkraften peker **mot** likevekt, så akselerasjonen skal være $-(k/m)x$. Med pluss beskriver likningen en kloss som skyves bort fra likevekt, og løsningen vokser eksponentielt i stedet for å svinge.\n\n**Feil 2 — rekkefølgen.** Posisjonen oppdateres **før** farten, og med den gamle farten `v[i]`. Det er Forward Euler, ikke Euler–Cromer. Konsekvensen er at energien lekker inn og amplituden vokser sakte gjennom hele simuleringen.\n\n**Feil 3 — manglende indeks.** Det står `v = v[i] + a * dt`. Venstre side har ingen indeks, så hele fartsarrayet erstattes av ett enkelt tall. Neste gjennomløp krasjer, eller — verre — regner videre på et objekt som ikke lenger er en tabell. Dette er **felle #5** i feilregisteret og koster typisk 2 poeng.\n\n**b)** Fordi initialbetingelsene mangler helt. `np.zeros(N)` fyller begge tabellene med nuller, og uten `x[0] = 0.100` starter vogna i likevekt uten fart. Da er akselerasjonen null i første steg, farten forblir null, posisjonen forblir null — og systemet står i ro for alltid. **Koden gir et fullstendig korrekt svar på et helt annet problem enn det som ble stilt.**\n\n**c)**\n\n```text\nx[0] = 0.100\nv[0] = 0.0\n\nfor i in range(N - 1):\n    a = -(k/m)*x[i]\n    v[i+1] = v[i] + a*dt\n    x[i+1] = x[i] + v[i+1]*dt\n```",
+        "hints": [
+          "Sammenlikn akselerasjonslinja med bevegelseslikningen — stemmer fortegnet?",
+          "Se på hvilken indeks farten har i posisjonslinja, og i hvilken rekkefølge de to linjene står.",
+          "I b): hva står i tabellene før løkka starter, hvis ingen har skrevet noe der?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — hvorfor Euler–Cromer, og hvorfor det er verdt poeng (~14 min)\n\nBegge metodene gjør en feil i hvert steg, og feilen er like stor i begge. Forskjellen ligger i **hvordan feilene legger seg sammen over tid**.\n\nTenk på en svingende fjær. Halve tiden går klossen utover, halve tiden innover.\n\n- **Euler–Cromer** bruker den nye farten i posisjonsoppdateringen. Den overvurderer forflytningen i noen deler av svingningen og undervurderer den i andre — **den tar av og til for mye og av og til for lite**. Over en hel periode kansellerer bidragene hverandre nesten fullstendig, og energien vandrer bare litt fram og tilbake rundt riktig verdi.\n- **Forward Euler** bruker den gamle farten. På vei utover er den gamle farten større enn gjennomsnittsfarten i steget, så klossen flyttes for langt. På vei innover er den gamle farten også større i tallverdi, så klossen flyttes for langt inn — men fjæren rekker å presse hardere. Nettoeffekten er systematisk: **energien vokser i hvert eneste steg.**\n\n**Intuisjon:** Euler–Cromer gjør en feil som svinger; Forward Euler gjør en feil som drar. Det er drivingen som ødelegger, ikke størrelsen på enkeltfeilen."
+    },
+    {
+      "id": "fys1100-8-1-def-energidrift",
+      "type": "definition",
+      "title": "Energidrift",
+      "content": "At den beregnede mekaniske energien i et system endrer seg systematisk gjennom simuleringen, selv om den fysisk skal være bevart.\n\nEnergidrift er en **metodefeil**, ikke fysikk. Symptomene er lette å kjenne igjen:\n\n- en oscillator der amplituden vokser jevnt periode for periode;\n- en planet- eller kometbane som spiraler utover i stedet for å lukke seg;\n- en pendel som svinger høyere og høyere uten at noe tilfører den energi.\n\nForward Euler har energidrift oppover for svingninger og baner. Euler–Cromer har det ikke: energien svinger rundt riktig verdi uten å vandre av gårde. Det er derfor metoden er standard i mekanikk-simuleringer, og det er nettopp dette du skal kunne si i de to setningene som begrunner metodevalget."
+    },
+    {
+      "id": "fys1100-8-1-fig-ec-fe",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-8-1-ec-vs-fe.svg",
+      "alt": "En graf med utslaget mot tiden over tjue sekunder. En gronn kurve svinger med konstant amplitude mellom to stiplede linjer. En rod kurve svinger med samme takt, men amplituden vokser jevnt gjennom hele grafen og gaar til slutt langt utenfor de stiplede linjene.",
+      "caption": "Fjærpendelen fra eksempel 1, kjørt med begge metodene og nøyaktig samme $dt = 0{,}0010\\ \\text{s}$. Den grønne kurven (Euler–Cromer) holder amplituden $0{,}100\\ \\text{m}$ hele veien; den røde (Forward Euler) er vokst til $0{,}137\\ \\text{m}$ etter 20 perioder."
+    },
+    {
+      "id": "fys1100-8-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hva én indeks koster over 20 perioder",
+      "problem": "Kjør fjærpendelen fra eksempel 1 med begge metodene i 20 svingeperioder, med samme steglengde $dt = 0{,}0010\\ \\text{s}$. Sammenlikn amplituden og den mekaniske energien til slutt.\n\nDen mekaniske energien er $E = \\tfrac12 mv^2 + \\tfrac12 kx^2$, og amplituden kan leses ut av den: $A = \\sqrt{2E/k}$.",
+      "solution": "**Metodevalg:** vi bruker energien som måltall, fordi den er den skarpeste indikatoren på metodefeil. Fysisk skal $E$ være **konstant**, siden ingen friksjon virker og fjærkraften er konservativ. Alt avvik fra konstant $E$ er metodefeil, ikke fysikk.\n\nPerioden er $T_p = 2\\pi\\sqrt{m/k} = 1{,}2566\\ \\text{s}$, så 20 perioder er $25{,}13\\ \\text{s}$, altså $N = 25\\,133$ punkt med $dt = 0{,}0010\\ \\text{s}$.\n\n```python\nimport numpy as np\n\nm = 1.00\nk = 25.0\ndt = 0.0010\nN = 25133           # 20 perioder\n\nfor metode in [\"Euler-Cromer\", \"Forward Euler\"]:\n    x = np.zeros(N)\n    v = np.zeros(N)\n    x[0] = 0.100\n    for i in range(N - 1):\n        a = -(k / m) * x[i]\n        if metode == \"Euler-Cromer\":\n            v[i + 1] = v[i] + a * dt\n            x[i + 1] = x[i] + v[i + 1] * dt\n        else:\n            x[i + 1] = x[i] + v[i] * dt\n            v[i + 1] = v[i] + a * dt\n    E = 0.5 * m * v**2 + 0.5 * k * x**2\n    print(metode, \" amplitude:\", round(np.sqrt(2 * E[-1] / k), 6),\n          \" E/E0:\", round(E[-1] / E[0], 6))\n```\n\n**Utskrift:**\n\n```text\nEuler-Cromer  amplitude: 0.100001  E/E0: 1.000018\nForward Euler  amplitude: 0.136909  E/E0: 1.874407\n```\n\n**Tolkning.** Euler–Cromer har en amplitude på $0{,}100001\\ \\text{m}$ mot eksakt $0{,}100000\\ \\text{m}$, og energien er $0{,}002\\ \\%$ for høy — altså praktisk talt bevart. Forward Euler har en amplitude på $0{,}1369\\ \\text{m}$, som er $37\\ \\%$ for stor, og en energi som er $87\\ \\%$ for høy. **Systemet har fått nesten dobbelt så mye energi som det startet med, av ingenting.**\n\n**Poenget er ikke at Forward Euler er unøyaktig — begge metodene har feil av samme størrelsesorden i ett enkelt steg.** Poenget er at Euler–Cromers feil svinger rundt null mens Forward Eulers feil peker samme vei hver gang. Etter 25 000 steg er forskjellen mellom en feil som kansellerer og en som akkumulerer, forskjellen mellom et brukbart og et ubrukelig svar.\n\n**Kontroll av rimeligheten:** amplitudeveksten hos Forward Euler kan anslås. Energien vokser med om lag en faktor $(1 + \\omega_0^2 dt^2)$ per steg, altså $1 + 25\\cdot 10^{-6}$. Over $25\\,133$ steg gir det $(1{,}000025)^{25133} = 1{,}87$ — nøyaktig det utskriften viser. **At et anslag treffer på to desimaler, er den beste kontrollen du kan få på at koden gjør det du tror.**"
+    },
+    {
+      "id": "fys1100-8-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Kvalitativ.)** Svar i to–fire setninger per punkt.\n\n**a)** En medstudent sier: «Forward Euler og Euler–Cromer er like nøyaktige, siden begge er førsteordens metoder. Forskjellen betyr ingenting i praksis.» Er påstanden riktig? Begrunn.\n\n**b)** Du simulerer en pendel og ser at utslaget vokser sakte gjennom hele simuleringen. Nevn to mulige forklaringer, og si hvordan du skiller dem fra hverandre.\n\n**c)** Formuler de to setningene du ville skrevet på eksamen for å begrunne metodevalget.",
+        "solution": "**a)** Halvveis riktig, og derfor gal der det teller. Det stemmer at begge metodene er **førsteordens**: halverer du $dt$, halveres feilen i ett enkelt steg omtrent, for begge. Men nøyaktighet i ett steg er ikke det samme som nøyaktighet etter mange steg. Euler–Cromers feil skifter fortegn gjennom svingningen og kansellerer, mens Forward Eulers feil peker samme vei hver gang og legger seg opp. I eksempel 2 ga det $0{,}002\\ \\%$ mot $87\\ \\%$ energiavvik med identisk steglengde. Påstanden om at «forskjellen betyr ingenting», er altså feil for nøyaktig den klassen problemer dette emnet handler om.\n\n**b)** To forklaringer:\n\n*Metodefeil:* koden bruker Forward Euler, enten med vilje eller fordi posisjonslinja står før fartslinja og bruker `v[i]`. Da lekker energi inn, og amplituden vokser.\n\n*Fysikk:* systemet har faktisk et ledd som tilfører energi — et negativt dempeledd, en drivende kraft, eller et fortegnsfeil i akselerasjonslinja som gjør fjærkraften frastøtende.\n\nDu skiller dem ved å **kjøre samme kode med halvert $dt$**. Er veksten en metodefeil, blir den omtrent halvert. Er den fysikk, står den urokkelig — modellen oppfører seg likt uansett hvor fint du regner. Det er en to minutters test som gir et entydig svar.\n\n**c)** «Jeg bruker Euler–Cromer, der farten oppdateres først og den oppdaterte farten brukes i posisjonsoppdateringen. Metoden er tilnærmet energibevarende: feilen i hvert steg skifter fortegn gjennom svingningen og kansellerer, mens Forward Euler bruker den gamle farten og tilfører energi systematisk, slik at amplituden vokser og banen spiraler utover.»",
+        "hints": [
+          "I a): tenk på forskjellen mellom feilen i ett steg og feilen etter mange tusen steg.",
+          "I b): hvilken av de to forklaringene ville endre seg hvis du regnet finere?",
+          "I c): si både HVA metoden gjør og HVA alternativet gjør galt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — kontroll av et numerisk svar (~14 min)\n\nEn kode som kjører, er ikke en kode som er riktig. Den kan gi et helt korrekt svar på et annet problem enn det du stilte — som i oppgave 3, der de manglende initialbetingelsene ga en perfekt beregnet nulløsning.\n\nDet finnes to kontroller som til sammen fanger nesten alt, og begge tar under et minutt."
+    },
+    {
+      "id": "fys1100-8-1-def-kontrollcase",
+      "type": "definition",
+      "title": "Analytisk kontrollcase",
+      "content": "Et spesialtilfelle av det samme problemet der du **kjenner** svaret fra en formel, og som du kjører koden på før du stoler på den.\n\nFor en kode som skal håndtere en fjær med luftmotstand, er kontrollcaset å sette motstanden til null: da må koden gi $x(t) = A\\cos(\\omega_0 t)$ med $\\omega_0 = \\sqrt{k/m}$. For en kode som skal håndtere et kast med drag, er kontrollcaset $D = 0$: da må rekkevidden bli $(v_0^2/g)\\sin 2\\theta$.\n\n**Regelen er enkel:** slå av det leddet som gjør problemet vanskelig, og sjekk at koden gjenskaper det du kan regne ut for hånd. Gjør den ikke det, er feilen i infrastrukturen — og da hjelper det ikke å finpusse på det vanskelige leddet."
+    },
+    {
+      "id": "fys1100-8-1-def-konvergenstest",
+      "type": "definition",
+      "title": "Konvergenstest",
+      "content": "Å kjøre den samme koden på nytt med halvert steglengde og se om svaret endrer seg vesentlig.\n\nEndrer svaret seg lite, er $dt$ liten nok. Endrer det seg mye, er den ikke det — og da forteller ingen enkeltkjøring deg hva som er riktig.\n\nTesten skiller også **metodefeil fra modellfeil**: en feil som skyldes for grov diskretisering, krymper når $dt$ krymper. En feil som ligger i fysikken — et tapt kraftledd, et galt fortegn, en feil initialbetingelse — står helt uendret.\n\n**Dette er den mest undervurderte kontrollen som finnes**, og den er verdt en setning i en besvarelse selv når du ikke har en maskin å kjøre på: «steglengden bør kontrolleres ved å halvere $dt$ og se at svaret er stabilt»."
+    },
+    {
+      "id": "fys1100-8-1-def-forsteordens",
+      "type": "definition",
+      "title": "Førsteordens metode",
+      "content": "En metode der feilen i sluttsvaret er tilnærmet **proporsjonal med steglengden**: halverer du $dt$, halveres feilen.\n\nBåde Euler–Cromer og Forward Euler er førsteordens i denne forstand. For fjærpendelen i eksempel 1, målt mot den analytiske løsningen ved $t = 10{,}0\\ \\text{s}$:\n\n| $dt$ | avvik i $x$ |\n|---|---|\n| $0{,}05\\ \\text{s}$ | $4{,}3\\cdot 10^{-3}\\ \\text{m}$ |\n| $0{,}01\\ \\text{s}$ | $7{,}8\\cdot 10^{-4}\\ \\text{m}$ |\n| $0{,}001\\ \\text{s}$ | $6{,}7\\cdot 10^{-5}\\ \\text{m}$ |\n| $0{,}0001\\ \\text{s}$ | $6{,}6\\cdot 10^{-6}\\ \\text{m}$ |\n\nTi ganger mindre steg gir om lag ti ganger mindre feil — akkurat som en førsteordens metode skal. Dette er også den enkleste måten å **bevise** at et avvik er en diskretiseringsfeil og ikke en modellfeil."
+    },
+    {
+      "id": "fys1100-8-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Pendelen uten småvinkeltilnærming",
+      "problem": "En kule henger i en masseløs snor med lengde $\\ell = 0{,}800\\ \\text{m}$ og svinger i et loddrett plan. Luftmotstand kan neglisjeres. Bevegelseslikningen for utslagsvinkelen er\n\n$$\\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\sin\\theta$$\n\n**a)** Forklar hvorfor denne likningen ikke kan løses analytisk, og hva småvinkeltilnærmingen fra [kap. 7.2](/bok/fys1100/fys1100-7-2) gjør med den.\n\n**b)** Skisser en Euler–Cromer-kode som løser den fulle likningen med startutslaget $\\theta_0 = 0{,}600\\ \\text{rad}$ og null starthastighet. Begrunn metodevalget.\n\n**c)** Kjør koden, og kontroller resultatet mot energibevaring.\n\n**d)** Kjøringen gir en svingeperiode på $1{,}8355\\ \\text{s}$. Sammenlikn med småvinkelformelen og kommenter.",
+      "solution": "**Metodevalg:** likningen er andreordens og **ikke lineær**, siden den ukjente står inne i en sinusfunksjon. Ingen lukket løsning i elementære funksjoner finnes, og numerisk integrasjon er derfor ikke en snarvei — det er den eneste veien. Vi bruker Euler–Cromer fordi systemet er konservativt og skal simuleres over flere perioder.\n\n**a)** Ulineariteten kommer av $\\sin\\theta$. Småvinkeltilnærmingen er førsteordensleddet i Taylor-rekka, $\\sin\\theta \\approx \\theta$ for små $\\theta$ i **radianer**, og den gjør likningen om til\n\n$$\\frac{d^2\\theta}{dt^2} = -\\frac{g}{\\ell}\\theta$$\n\nsom er den harmoniske oscillatoren med $\\omega_0 = \\sqrt{g/\\ell}$ og perioden $T_p = 2\\pi\\sqrt{\\ell/g}$. Dette er en **tilnærming**, ikke en omskriving: den er god for små utslag og blir gradvis dårligere når utslaget vokser.\n\n**b)** Vinkelen svarer til posisjonen og vinkelfarten til farten, så malen er den samme — bare med nye navn:\n\n```python\nimport numpy as np\n\ng = 9.81\nL = 0.800\nN = 5001\ndt = 0.0010\n\nt = np.zeros(N)\ntheta = np.zeros(N)\nomega = np.zeros(N)\n\ntheta[0] = 0.600    # rad, om lag 34 grader\nomega[0] = 0.0\n\nfor i in range(N - 1):\n    a = -(g / L) * np.sin(theta[i])\n    omega[i + 1] = omega[i] + a * dt\n    theta[i + 1] = theta[i] + omega[i + 1] * dt\n    t[i + 1] = t[i] + dt\n\nprint(\"storste utslag  \", round(np.max(np.abs(theta)), 4))\nprint(\"storste omega   \", round(np.max(np.abs(omega)), 4))\nprint(\"omega fra energi\", round(np.sqrt(2 * g / L * (1 - np.cos(0.600))), 4))\n```\n\n**Utskrift:**\n\n```text\nstorste utslag   0.6\nstorste omega    2.0697\nomega fra energi 2.0697\n```\n\n**Begrunnelse for metodevalget:** pendelen er konservativ — bare tyngden gjør arbeid, og snordraget står vinkelrett på bevegelsen. Euler–Cromer oppdaterer farten først og bruker den oppdaterte farten i posisjonsoppdateringen, og feilen kansellerer derfor over hver periode. Forward Euler ville lagt til energi i hvert steg, og utslaget ville vokst gjennom simuleringen — som ville sett ut som fysikk, men vært en metodefeil.\n\n**c)** To kontroller:\n\n*Amplitude.* Det største utslaget er $0{,}600\\ \\text{rad}$, altså nøyaktig startutslaget. En konservativ pendel som slippes fra ro, skal komme like høyt opp hver gang, og gjør det.\n\n*Energi.* Energibevaring fra ytterstilling til bunnpunkt gir\n\n$$\\tfrac12 m\\ell^2\\omega_{\\max}^2 = mg\\ell(1-\\cos\\theta_0) \\quad \\Longrightarrow \\quad \\omega_{\\max} = \\sqrt{\\frac{2g}{\\ell}\\left(1-\\cos\\theta_0\\right)}$$\n\n$$\\omega_{\\max} = \\sqrt{\\frac{2\\cdot 9{,}81}{0{,}800}\\left(1-\\cos 0{,}600\\right)} = 2{,}0697\\ \\text{rad/s}$$\n\nKoden gir $2{,}0697\\ \\text{rad/s}$ — samsvar på fire desimaler. **Dette er en ekte kontroll, ikke en sirkelslutning:** energibevaringen er et fysisk argument som ikke inngår i koden noe sted. At de to veiene lander på samme tall, betyr at både akselerasjonslinja og løkka er riktige.\n\n**d)** Småvinkelformelen gir\n\n$$T_p = 2\\pi\\sqrt{\\frac{\\ell}{g}} = 2\\pi\\sqrt{\\frac{0{,}800}{9{,}81}} = 1{,}7943\\ \\text{s}$$\n\nDen fulle likningen gir $1{,}8355\\ \\text{s}$, altså $2{,}3\\ \\%$ lengre. Perioden er **ikke** uavhengig av amplituden for en ekte pendel — den vokser med utslaget, fordi $\\sin\\theta$ er mindre enn $\\theta$, slik at den gjenopprettende kraften er svakere enn den lineære modellen sier. Ved $\\theta_0 = 1{,}500\\ \\text{rad}$ (om lag $86^\\circ$) er avviket $16\\ \\%$.\n\n**Sensorblikk:** en deloppgave som ber om en kode, gir uttelling for løkka. En deloppgave som ber om en **sammenlikning** med den analytiske modellen, gir uttelling for tolkningen — og her er tolkningen at småvinkeltilnærmingen er god til noen få grader og systematisk for kort periode utover det. Å oppgi tallet $1{,}8355\\ \\text{s}$ uten den setningen er å la poeng ligge.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "fys1100-8-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss med masse $m = 0{,}500\\ \\text{kg}$ ligger på et vannrett, friksjonsfritt bord festet til en fjær med $k = 12{,}5\\ \\text{N/m}$. Ved $t = 0$ står klossen i likevekt og får et slag som gir den farten $0{,}400\\ \\text{m/s}$ mot høyre.\n\n**a)** Sett opp bevegelseslikningen og akselerasjonslinja.\n\n**b)** Skriv initialbetingelsene i kode, og forklar hver av dem fysisk.\n\n**c)** Hvilken $dt$ ville du valgt, og hvorfor? Hvor mange punkt trengs for å dekke fem svingeperioder?\n\n**d)** Uten å kjøre koden: hva blir det største utslaget? Bruk energibevaring, og forklar hvorfor dette er et godt kontrolltall for en kode.",
+        "solution": "**Metodevalg:** oppsettet er den samme harmoniske oscillatoren som i eksempel 1, men med andre initialbetingelser. I d) bruker vi energibevaring, som gjelder fordi bordet er friksjonsfritt og fjærkraften er konservativ.\n\n**a)** Fjærkraften er den eneste vannrette kraften:\n\n$$0{,}500\\frac{d^2x}{dt^2} = -12{,}5\\,x \\quad \\Longrightarrow \\quad \\frac{d^2x}{dt^2} = -25{,}0\\,x$$\n\nAkselerasjonslinja: `a = -(k / m) * x[i]`.\n\n**b)**\n\n```text\nx[0] = 0.0        # m — klossen starter i likevekt\nv[0] = 0.400      # m/s — slaget gir fart mot hoyre, som er positiv retning\n```\n\nDen første sier hvor klossen er ved $t = 0$: i likevektspunktet, altså med avspent fjær. Den andre sier hvor fort den går der: $0{,}400\\ \\text{m/s}$, positiv fordi høyre er valgt som positiv retning. **Å skrive `v[0] = 0` her fordi «den starter i ro i likevekt» er den vanligste feilen** — klossen står ikke i ro, den passerer likevekt.\n\n**c)** Egenfrekvensen er $\\omega_0 = \\sqrt{25{,}0} = 5{,}00\\ \\text{rad/s}$, så $T_p = 2\\pi/5{,}00 = 1{,}257\\ \\text{s}$. Med $dt = 0{,}0010\\ \\text{s}$ er steglengden om lag 1 300 ganger mindre enn perioden — godt innenfor tommelfingerregelen.\n\nFem perioder er $5\\cdot 1{,}2566 = 6{,}283\\ \\text{s}$, og siden $t_{\\text{slutt}} = (N-1)dt$ trengs\n\n$$N = \\frac{6{,}283}{0{,}0010} + 1 = 6284\\ \\text{punkt}$$\n\n**d)** All energien er kinetisk i starten og all potensiell i ytterstilling:\n\n$$\\tfrac12 mv_0^2 = \\tfrac12 kA^2 \\quad \\Longrightarrow \\quad A = v_0\\sqrt{\\frac{m}{k}} = 0{,}400\\sqrt{\\frac{0{,}500}{12{,}5}} = 0{,}400 \\cdot 0{,}200 = 0{,}0800\\ \\text{m}$$\n\naltså $8{,}00\\ \\text{cm}$ til hver side.\n\nDette er et godt kontrolltall av to grunner. For det første er det regnet ut på en **helt annen vei** enn koden går — energibevaring inngår ikke i løkka noe sted, så samsvar er ekte informasjon. For det andre er det følsomt for nettopp de feilene som er lette å gjøre: et galt fortegn, en byttet initialbetingelse eller Forward Euler i stedet for Euler–Cromer vil alle gi et annet største utslag enn $0{,}0800\\ \\text{m}$.\n\n**Benevningskontroll:** $[v_0\\sqrt{m/k}] = (\\text{m/s})\\sqrt{\\text{kg}/(\\text{N/m})} = (\\text{m/s})\\cdot\\text{s} = \\text{m}$ ✓.",
+        "hints": [
+          "Skriv bevegelseslikningen fra fjærkraften alene, og del på massen.",
+          "I b): les oppgaveteksten to ganger — hvor er klossen, og hvor fort går den, i det samme øyeblikket?",
+          "I d): hvilken energiform har systemet i startøyeblikket, og hvilken har det i ytterstilling?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Eksamensnivå, sjanger H — den numeriske deloppgaven.)** En kule med masse $m$ er festet til en fjær med fjærkonstant $k$ og henger loddrett i lufta. I tillegg til tyngden og fjærkraften virker en lineær luftmotstand $-k_v\\,dy/dt$. Vi regner $y$ positivt oppover, med $y = 0$ i fjærens avspente lengde.\n\n**a)** Sett opp bevegelseslikningen, og skriv den på eksplisitt form med akselerasjonen isolert.\n\n**b)** Skisser en Python-kode som løser likningen numerisk. Angi initialbetingelsene for en kule som slippes fra ro i $y = 0$, og skriv Euler–Cromer-løkka.\n\n**c)** Begrunn i to setninger hvorfor du velger Euler–Cromer framfor Forward Euler her.\n\n**d)** Hvordan ville du kontrollert at koden er riktig, uten å kjenne den analytiske løsningen av den fulle likningen?\n\n**e)** Hva blir likevektsposisjonen, og hva skjer med den hvis luftmotstanden dobles?",
+        "solution": "**Metodevalg:** vi setter opp Newtons 2. lov med tre krefter, isolerer akselerasjonen, og oversetter til kode etter de fire stegene. I d) bruker vi to uavhengige kontroller: et analytisk kontrollcase og en konvergenstest.\n\n**a)** Tre krefter virker på kula: tyngden $-mg$ (nedover), fjærkraften $-ky$ (mot avspent lengde), og luftmotstanden $-k_v\\,dy/dt$ (mot bevegelsen):\n\n$$m\\frac{d^2y}{dt^2} = -mg - ky - k_v\\frac{dy}{dt}$$\n\nPå eksplisitt form:\n\n$$\\frac{d^2y}{dt^2} = -g - \\frac{k}{m}y - \\frac{k_v}{m}\\frac{dy}{dt}$$\n\nLikningen er andreordens, lineær, inhomogen (leddet $-g$ inneholder ikke den ukjente), med konstante koeffisienter.\n\n**b)**\n\n```text\ny[0] = 0.0            # m, sluppet i avspent lengde\nv[0] = 0.0            # m/s, sluppet fra ro\n\nfor i in range(N-1):\n    a = -g - (k/m)*y[i] - (kv/m)*v[i]\n    v[i+1] = v[i] + a*dt          # fart FORST\n    y[i+1] = y[i] + v[i+1]*dt     # OPPDATERT fart\n```\n\nAkselerasjonslinja er de tre poengene: tyngdeleddet uten masse (fordi $mg/m = g$), fjærleddet delt på massen, og dempeleddet delt på massen — alle tre med negativt fortegn i den valgte positive retningen.\n\n**c)** «Euler–Cromer oppdaterer farten først og bruker den oppdaterte farten i posisjonsoppdateringen. For et svingende system gjør det at feilen skifter fortegn gjennom perioden og kansellerer, mens Forward Euler bruker den gamle farten og tilfører energi systematisk, slik at amplituden vokser og en fysisk dempet svingning kan se udempet ut.»\n\nMerk at akkurat her er argumentet ekstra viktig: **systemet er dempet, så amplituden skal avta.** Med Forward Euler kan energitilførselen fra metoden delvis oppheve den fysiske dempingen, og du kan ende opp med en simulering som ser riktig ut, men som gir feil dempingsrate. Det er en metodefeil som er svært vanskelig å oppdage i etterkant.\n\n**d)** To uavhengige kontroller:\n\n*Analytisk kontrollcase.* Sett $k_v = 0$. Da er systemet en udempet fjær med tyngde, og løsningen er kjent fra [kap. 7.2](/bok/fys1100/fys1100-7-2): en harmonisk svingning om likevekten $y_L = -mg/k$ med vinkelfrekvensen $\\omega_0 = \\sqrt{k/m}$, og amplituden $\\lvert y_L\\rvert$ siden kula slippes fra ro i $y = 0$. Gir koden noe annet, ligger feilen i strukturen og ikke i dempeleddet.\n\n*Konvergenstest.* Kjør på nytt med halvert $dt$. Endrer svaret seg vesentlig, er steglengden for stor. Endrer det seg ikke, er diskretiseringen god nok — og et eventuelt gjenstående avvik må skyldes modellen.\n\nEn tredje, gratis kontroll: sluttilstanden. Etter lang tid skal kula stå i ro i likevektsposisjonen, uansett hvor dempingen ligger.\n\n**e)** Likevekten finner du ved å sette både akselerasjonen og farten lik null:\n\n$$0 = -g - \\frac{k}{m}y_L \\quad \\Longrightarrow \\quad y_L = -\\frac{mg}{k}$$\n\naltså $mg/k$ **nedenfor** avspent lengde. Dobles luftmotstanden, skjer det **ingenting** med likevektsposisjonen: $k_v$ inngår ikke i uttrykket, fordi dempekraften er null når farten er null. Det som endrer seg, er hvor fort og hvordan kula kommer dit — raskere utdøing av svingningene, og ved tilstrekkelig stor $k_v$ ingen svingninger i det hele tatt.\n\n**Grensetilfelle-kontroll:** blir fjæra uendelig stiv ($k \\to \\infty$), går $y_L \\to 0$ ✓ — en stiv fjær strekkes ikke. Blir kula uendelig lett ($m \\to 0$), går $y_L \\to 0$ ✓.",
+        "hints": [
+          "Tegn frilegemediagram først: hvilke tre krefter virker, og hvilken vei peker hver av dem?",
+          "Del hele likningen på $m$ og se hvilke ledd som beholder en massefaktor.",
+          "I d): hva kan du slå AV i modellen for å få et tilfelle du kan regne ut for hånd?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En student simulerer den udempede fjærpendelen fra eksempel 1 og lurer på hvor liten $dt$ må være.\n\n**a)** Kjøringene med Euler–Cromer gir disse avvikene fra den analytiske løsningen ved $t = 10{,}0\\ \\text{s}$: $dt = 0{,}05\\ \\text{s}$ gir $4{,}3\\cdot 10^{-3}\\ \\text{m}$, $dt = 0{,}01\\ \\text{s}$ gir $7{,}8\\cdot 10^{-4}\\ \\text{m}$, og $dt = 0{,}001\\ \\text{s}$ gir $6{,}7\\cdot 10^{-5}\\ \\text{m}$. Hva slags sammenheng er dette, og hva forteller den?\n\n**b)** Anslå hvilken $dt$ som trengs for å komme under $10^{-6}\\ \\text{m}$ ved $t = 10{,}0\\ \\text{s}$, og hvor mange steg det blir.\n\n**c)** Studenten foreslår i stedet å kjøre med $dt = 0{,}2\\ \\text{s}$ «siden det er tjue ganger mindre enn perioden». Vurder forslaget.\n\n**d)** Hvorfor hjelper det ikke å redusere $dt$ hvis akselerasjonslinja mangler et kraftledd?",
+        "solution": "**Metodevalg:** vi ser på hvordan feilen skalerer med steglengden, altså på metodens orden, og bruker skaleringen til å ekstrapolere.\n\n**a)** Feilen er tilnærmet **proporsjonal med $dt$**. Fra $0{,}05$ til $0{,}01$ er steget fem ganger mindre og feilen $4{,}3/0{,}78 = 5{,}5$ ganger mindre; fra $0{,}01$ til $0{,}001$ er steget ti ganger mindre og feilen $7{,}8/0{,}67 = 11{,}6$ ganger mindre. Det er en **førsteordens** metode: feilen går som $dt^1$.\n\nPraktisk betyr det at du må regne ti ganger så lenge for å få én desimal til. Det er dyrt, og det er hovedgrunnen til at høyere ordens metoder finnes.\n\n**b)** Fra $dt = 0{,}001\\ \\text{s}$ med feil $6{,}7\\cdot 10^{-5}\\ \\text{m}$ må feilen ned med en faktor $67$, altså må $dt$ ned med samme faktor:\n\n$$dt \\approx \\frac{0{,}001}{67} = 1{,}5\\cdot 10^{-5}\\ \\text{s}$$\n\nAntall steg for å nå $t = 10{,}0\\ \\text{s}$ blir da\n\n$$\\frac{10{,}0}{1{,}5\\cdot 10^{-5}} = 6{,}7\\cdot 10^{5} \\approx 670\\,000\\ \\text{steg}$$\n\n**c)** Forslaget er dårlig, og begrunnelsen er en misforståelse. Perioden er $1{,}26\\ \\text{s}$, så $dt = 0{,}2\\ \\text{s}$ er ikke tjue ganger mindre enn perioden — det er drøyt seks ganger mindre, altså om lag seks punkt per svingning. Med så få punkt er selve kurveformen borte: du kan ikke gjenskape en sinus fra seks punkt per periode med noen som helst nøyaktighet.\n\nTommelfingerregelen i dette kapitlet er et par tusen steg per karakteristisk tid, ikke tjue. Og selv om Euler–Cromer holder amplituden godt, blir **perioden** merkbart feil ved så grov diskretisering.\n\n**d)** Fordi de to feiltypene er helt uavhengige. Diskretiseringsfeilen er avstanden mellom den eksakte løsningen av **din likning** og den numeriske løsningen av samme likning; den krymper med $dt$. Mangler akselerasjonslinja et kraftledd, løser du en **annen likning** — og du løser den bare mer og mer nøyaktig etter hvert som $dt$ krymper.\n\n**Dette er den viktigste diagnostiske skillelinja i numerisk modellering:** «feil svar som blir bedre med mindre $dt$» er en metodefeil, «feil svar som ikke rører seg» er en modellfeil. Konvergenstesten er nettopp det verktøyet som skiller dem.",
+        "hints": [
+          "Regn ut forholdet mellom feilene og forholdet mellom steglengdene, og sammenlikn.",
+          "I b): hvis feilen går som $dt$, hvor mye må $dt$ ned for at feilen skal ned med en gitt faktor?",
+          "I c): regn ut hvor mange punkt per svingeperiode forslaget faktisk gir."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-8-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Kvalitativ.)** En student skriver i en besvarelse: «Jeg valgte Euler–Cromer fordi den er mest nøyaktig.»\n\n**a)** Er begrunnelsen god nok? Hva mangler?\n\n**b)** Ville argumentet vært annerledes hvis oppgaven gjaldt et legeme i fritt fall uten luftmotstand, over ett sekund? Begrunn.\n\n**c)** Nevn én situasjon der Forward Euler og Euler–Cromer gir praktisk talt samme svar, og forklar hvorfor.",
+        "solution": "**a)** Nei, begrunnelsen er for tynn, og den er dessuten upresis. Begge metodene er **førsteordens** og gjør en feil av samme størrelsesorden i ett enkelt steg — «mest nøyaktig» er derfor ikke riktig som generell påstand. Det som mangler, er **hvorfor**: at Euler–Cromer bruker den oppdaterte farten i posisjonsoppdateringen, at feilen dermed skifter fortegn gjennom en svingning og kansellerer i stedet for å akkumulere, og at Forward Euler til sammenlikning tilfører energi systematisk. Sensorveiledningene i H2023, V2024 og V2025 skiller eksplisitt på nettopp dette: mekanismen skal skrives ut, ikke bare konklusjonen.\n\n**b)** Ja, vesentlig annerledes. I fritt fall uten luftmotstand er akselerasjonen **konstant**, $a = -g$, og avhenger verken av posisjonen eller av farten. Da er det ingen tilbakekobling fra posisjonen til akselerasjonen, og «energilekkasje» i den forstand vi har beskrevet, oppstår ikke. Begge metodene gir samme fart i hvert tidspunkt; de skiller seg bare i posisjonen, og den forskjellen er $a\\,t\\,dt$ — liten, men langsomt voksende med tiden, og den forsvinner når steglengden gjør det.\n\nArgumentet for Euler–Cromer er altså et argument om **systemer der kraften avhenger av posisjonen** — fjærer, pendler, baner. For konstant kraft er metodevalget uinteressant.\n\n**c)** Over **svært få steg**. Simulerer du en kastebane i ett sekund med $dt = 0{,}001\\ \\text{s}$, altså tusen steg, har Forward Eulers energidrift knapt rukket å bli målbar, og de to metodene gir samme svar til flere gjeldende siffer. Forskjellen krever tid til å bygge seg opp: i eksempel 2 ble den først dramatisk etter 25 000 steg.\n\n**Det er nettopp derfor feilen er farlig.** En kode som testes på et kort forløp, ser riktig ut — og svikter først når den brukes på det lange forløpet den ble skrevet for.",
+        "hints": [
+          "I a): hva sier begrunnelsen om MEKANISMEN, og hva sier den bare om resultatet?",
+          "I b): avhenger akselerasjonen av posisjonen i fritt fall?",
+          "I c): tenk på hvor lang tid energidriften i eksempel 2 trengte for å bli synlig."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-8-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-8-1-bb-1",
+      "type": "definition",
+      "title": "Initialbetingelser i koden",
+      "content": "De to tallene som beskriver starttilstanden, skrevet inn i indeks 0 av tabellene:\n\n```text\nx[0] = ...      # hvor legemet er ved t = 0\nv[0] = ...      # hvor fort det gaar ved t = 0\n```\n\nDe er verdt **1 poeng** i en typisk kodedeloppgave, og de er det eneste stedet i koden der opplysningene fra oppgaveteksten om starttilstanden dukker opp.\n\nDen vanligste feilen er å sette begge til null av vane. «Slippes fra ro i utslaget $A$» gir `x[0] = A`, `v[0] = 0`; «passerer likevekt med farten $v_0$» gir `x[0] = 0`, `v[0] = v0`. Les setningen to ganger."
+    },
+    {
+      "id": "fys1100-8-1-bb-2",
+      "type": "definition",
+      "title": "`range(N - 1)` og ikke `range(N)`",
+      "content": "Løkka går til og med indeks $N-2$, fordi den skriver til indeks $i+1$ — og den siste plassen som finnes, er $N-1$.\n\n$$i = 0, 1, \\dots, N-2 \\quad \\Longrightarrow \\quad i+1 = 1, 2, \\dots, N-1$$\n\nMed `range(N)` ville siste gjennomløp prøvd å skrive til `x[N]`, som ikke finnes, og programmet stopper. På papiret straffes det ikke, men det er et unødvendig signal om at løkka ikke er tenkt igjennom.\n\nHuskeregelen: **antall steg er alltid én mindre enn antall punkt.** Med $N$ punkt går det $N-1$ mellomrom."
+    },
+    {
+      "id": "fys1100-8-1-bb-3",
+      "type": "definition",
+      "title": "Eksplisitt metode",
+      "content": "En metode der den nye tilstanden regnes ut **direkte** fra den gamle, uten at man må løse en likning underveis.\n\nBåde Euler–Cromer og Forward Euler er eksplisitte: høyresiden inneholder bare størrelser du allerede kjenner, og oppdateringen er ren innsetting.\n\nAlternativet er **implisitte** metoder, der den nye tilstanden står på begge sider og må løses ut. De er mer stabile for enkelte problemer, men langt tyngre å skrive for hånd, og de er ikke pensum i dette emnet."
+    },
+    {
+      "id": "fys1100-8-1-bb-4",
+      "type": "definition",
+      "title": "Tilstandsform i koden",
+      "content": "Skrivemåten der én andreordens likning erstattes av to førsteordens, som er nøyaktig det de to oppdateringslinjene i løkka gjør:\n\n$$\\frac{dv}{dt} = \\frac{1}{m}\\sum F \\quad \\longrightarrow \\quad \\texttt{v[i+1] = v[i] + a*dt}$$\n\n$$\\frac{dx}{dt} = v \\quad \\longrightarrow \\quad \\texttt{x[i+1] = x[i] + v[i+1]*dt}$$\n\nÅ se koblingen mellom de to formene er selve broa fra [kap. 7.1](/bok/fys1100/fys1100-7-1) til dette kapitlet: **hver førsteordens likning i tilstandsformen blir én oppdateringslinje.**"
+    },
+    {
+      "id": "fys1100-8-1-bb-5",
+      "type": "definition",
+      "title": "Pseudokode",
+      "content": "Kode skrevet for å bli lest av et menneske, ikke kjørt av en maskin: riktig struktur og riktige uttrykk, men uten krav om at hvert komma sitter.\n\nPå eksamen er dette formen som forventes. **Syntaksfeil straffes ikke**, alle programmeringsspråk godtas, og du skriver ikke et helt program — bare initialbetingelser og løkke.\n\nDet som likevel må være presist, er **indeksene** og **rekkefølgen**: `v[i+1]` før `x[i+1]`, og den oppdaterte farten i posisjonslinja. Der er pseudokode like streng som ekte kode."
+    },
+    {
+      "id": "fys1100-8-1-bb-6",
+      "type": "definition",
+      "title": "Trunkeringsfeil per steg",
+      "content": "Feilen som oppstår i **ett enkelt** tidssteg, fordi vi behandler akselerasjonen som konstant gjennom steget mens den i virkeligheten endrer seg.\n\nFeilen kommer av at vi kutter Taylor-rekka for posisjonen etter førsteordensleddet: det neste leddet er $\\tfrac12 a\\,dt^2$, og det er størrelsesordenen på feilen per steg.\n\nFeilen per steg går altså som $dt^2$, mens den samlede feilen etter $t/dt$ steg går som $dt$. Det er nettopp derfor metodene kalles **førsteordens**, selv om enkeltsteget er andreordens nøyaktig."
+    },
+    {
+      "id": "fys1100-8-1-bb-7",
+      "type": "definition",
+      "title": "Sammenhengen mellom $N$, $dt$ og sluttiden",
+      "content": "De tre størrelsene er låst til hverandre:\n\n$$t_{\\text{slutt}} = (N-1)\\,dt$$\n\nVelger du hvor lenge simuleringen skal vare og hvor fint du vil regne, er antall punkt bestemt. Vil du dekke fem svingeperioder à $1{,}26\\ \\text{s}$ med $dt = 0{,}0010\\ \\text{s}$, trenger du $N = 6284$.\n\nDen praktiske konsekvensen er at **finere oppløsning koster proporsjonalt med regnetid**: halverer du $dt$, dobles antall steg for samme sluttid."
+    },
+    {
+      "id": "fys1100-8-1-bb-8",
+      "type": "definition",
+      "title": "Stoppkriterium i løkka",
+      "content": "Et krav om at løkka skal avsluttes når noe fysisk inntreffer, i stedet for etter et fast antall steg.\n\nFor et kast er det naturlige kriteriet at legemet treffer bakken:\n\n```text\nif y[i+1] < 0:\n    break\n```\n\nAlternativet er å velge $N$ stort nok og lete opp nedslaget i etterkant. Begge deler godtas.\n\n**Vær oppmerksom på at et stoppkriterium alltid treffer litt for sent:** løkka oppdager først at $y$ er blitt negativ, altså i steget *etter* nedslaget. Trenger du nedslagspunktet nøyaktig, interpolerer du mellom de to siste punktene."
+    },
+    {
+      "id": "fys1100-8-1-bb-9",
+      "type": "definition",
+      "title": "Enhetsdisiplin i koden",
+      "content": "Regelen om at alle tall som mates inn i koden, skal være i SI-enheter — meter, kilogram, sekund — og at svaret dermed også kommer i SI.\n\nKoden regner uten å vite noe om enheter. Blander du $\\text{g}$ og $\\text{kg}$, eller $\\text{cm}$ og $\\text{m}$, kommer det ingen feilmelding: du får et pent tall som er galt med en faktor tusen.\n\nDet praktiske grepet er å **skrive enheten som kommentar bak hver konstant** når du setter opp koden. Det tar to sekunder og fanger den ene feilen ingen kontroll ellers oppdager."
+    },
+    {
+      "id": "fys1100-8-1-bb-10",
+      "type": "definition",
+      "title": "Lagring kontra oppdatering",
+      "content": "Skillet mellom størrelser som må lagres for hvert tidspunkt, og størrelser som bare brukes og kastes.\n\n**Lagres** (egen array): posisjon, fart, tid — alt du vil kunne plotte, lete i eller lese av til slutt.\n\n**Kastes** (vanlig variabel): akselerasjonen, farten regnet ut av komponentene, avstanden til sentrum. De regnes på nytt i hvert gjennomløp og trengs ikke etterpå.\n\nDenne inndelingen forklarer hvorfor `a` skrives uten indeks mens `v` alltid har indeks — og det er verdt å si i en besvarelse, slik at den manglende indeksen på `a` ikke leses som slurv."
+    },
+    {
+      "id": "fys1100-8-1-bb-11",
+      "type": "definition",
+      "title": "Metodebegrunnelsen som poenggiver",
+      "content": "Kravet om at du skriver **hvorfor** du valgte Euler–Cromer, ikke bare **at** du gjorde det.\n\nSensorveiledningene i H2023, V2024 og V2025 trekker dette fram som et skille mot toppkarakter. En fullgod begrunnelse har to ledd: hva Euler–Cromer gjør (oppdaterer farten først og bruker den oppdaterte farten videre, slik at feilen kansellerer over en periode), og hva alternativet gjør galt (Forward Euler bruker den gamle farten og tilfører energi systematisk).\n\nTo setninger. De koster et halvt minutt og er blant de billigste poengene i hele settet."
+    },
+    {
+      "id": "fys1100-8-1-bb-12",
+      "type": "definition",
+      "title": "Analytisk kontroll av et numerisk svar",
+      "content": "Å regne ut én egenskap ved bevegelsen på en helt annen måte enn koden gjør, og sammenlikne.\n\nDe tre beste kontrollene i mekanikk er:\n\n**Energi.** Er systemet konservativt, skal $E = \\tfrac12 mv^2 + U$ være konstant. Amplituder og maksfarter kan regnes ut av energibevaring uten å løse likningen.\n\n**Grensetilfelle.** Slå av det vanskelige leddet og sammenlikn med den kjente løsningen.\n\n**Størrelsesorden.** Er tallet fysisk rimelig? En pendel med sekundperiode, en ball som når tjue meter, en terminalfart på noen titalls meter per sekund.\n\nIngen av dem krever en maskin, og alle tre kan skrives inn i en håndskrevet besvarelse som en kontrollsetning."
+    },
+    {
+      "id": "fys1100-8-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-8-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $x$ | posisjon langs én akse | $\\text{m}$ |\n| $v$ | fart langs samme akse, med fortegn | $\\text{m/s}$ |\n| $a$ | akselerasjon langs samme akse | $\\text{m/s}^2$ |\n| $t$ | tid | $\\text{s}$ |\n| $dt$ | steglengde i tid | $\\text{s}$ |\n| $N$ | antall lagrede tidspunkt | — |\n| $i$ | indeks som teller tidspunkt | — |\n| $t_i = i\\,dt$ | tidspunkt nummer $i$ | $\\text{s}$ |\n| $m$ | masse | $\\text{kg}$ |\n| $k$ | fjærkonstant | $\\text{N/m}$ |\n| $k_v$ | koeffisient i lineær luftmotstand | $\\text{kg/s}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $\\omega_0$ | egenfrekvens, $\\sqrt{k/m}$ | $\\text{rad/s}$ |\n| $T_p$ | svingeperiode | $\\text{s}$ |\n| $\\theta$ | utslagsvinkel for pendel | $\\text{rad}$ |\n| $\\omega$ | vinkelfart, $d\\theta/dt$ | $\\text{rad/s}$ |\n| $\\ell$ | pendellengde | $\\text{m}$ |\n| $E$ | mekanisk energi | $\\text{J}$ |\n| $A$ | amplitude | $\\text{m}$ |\n\n**Symbolkollisjoner i dette delkapitlet:** perioden skrives $T_p$, ikke $T$, siden $T$ er reservert for snordrag i resten av boka. Pendellengden skrives $\\ell$ og ikke $L$, fordi $L$ er spinnet i [kap. 6.1](/bok/fys1100/fys1100-6-1) — i koden heter den likevel `L`, siden Python ikke har den bokstaven. Vinkelfarten $\\omega$ og egenfrekvensen $\\omega_0$ er to ulike ting: den første er en tilstandsvariabel som endrer seg, den andre en systemkonstant. Tyngden skrives $m\\mathbf{g}$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$t_i = i\\,dt, \\qquad t_{\\text{slutt}} = (N-1)\\,dt$$\n\nTidsrutenettet. **[må kunne utledes]** — det er ren telling, men forholdet mellom $N$, $dt$ og sluttiden må sitte.\n\n$$v_{i+1} = v_i + a_i\\,dt, \\qquad x_{i+1} = x_i + v_{i+1}\\,dt$$\n\nEuler–Cromer-oppdateringen. **[må kunne utledes]** — dette er hele kapitlet, og den står ikke på formelarket.\n\n$$x_{i+1} = x_i + v_i\\,dt, \\qquad v_{i+1} = v_i + a_i\\,dt$$\n\nForward Euler-oppdateringen, tatt med som kontrast. **[må kunne utledes]**\n\n$$\\frac{d^2x}{dt^2} = \\frac{1}{m}\\sum F \\quad \\longrightarrow \\quad \\texttt{a = ...}$$\n\nAkselerasjonslinja. Selve bevegelseslikningen $\\sum\\mathbf{F} = m\\mathbf{a}$ står på **[formelarket]**; oversettelsen til kode er **[må kunne utledes]**.\n\n$$E = \\tfrac12 mv^2 + \\tfrac12 kx^2$$\n\nMekanisk energi for en fjær, brukt som kontrollstørrelse. **[formelarket]**\n\n$$\\omega_0 = \\sqrt{\\frac{k}{m}}, \\qquad T_p = \\frac{2\\pi}{\\omega_0}, \\qquad T_p = 2\\pi\\sqrt{\\frac{\\ell}{g}}$$\n\nEgenfrekvens og periode for fjær og pendel, brukt til å velge $dt$ og til å kontrollere svaret. **[må kunne utledes]** — se [kap. 7.2](/bok/fys1100/fys1100-7-2).\n\n$$\\omega_{\\max} = \\sqrt{\\frac{2g}{\\ell}\\left(1-\\cos\\theta_0\\right)}$$\n\nStørste vinkelfart for en pendel, fra energibevaring — kontrolltallet i eksempel 3. **[må kunne utledes]**"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-8-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-8-1-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på.\n\n**R1.** ([kap. 7.1](/bok/fys1100/fys1100-7-1)) Skriv $m\\,d^2x/dt^2 = -kx - b\\,dx/dt$ på tilstandsform.\n\n*Løsning:* $\\dfrac{dx}{dt} = v$ og $\\dfrac{dv}{dt} = -\\dfrac{k}{m}x - \\dfrac{b}{m}v$. De to likningene er nøyaktig de to oppdateringslinjene i løkka, med akselerasjonslinja `a = -(k/m)*x[i] - (b/m)*v[i]`.\n\n**R2.** ([kap. 7.1](/bok/fys1100/fys1100-7-1)) Hvor mange initialbetingelser trengs for $dv/dt = g - (k_v/m)v$, og hvorfor?\n\n*Løsning:* Én, fordi likningen er av første orden. Fysisk: høyresiden avhenger bare av farten, ikke av posisjonen, så det trengs ingen opplysning om hvor legemet er for å forutsi fartsutviklingen.\n\n**R3.** ([kap. 7.2](/bok/fys1100/fys1100-7-2)) En kloss på $0{,}250\\ \\text{kg}$ henger i en fjær med $k = 40{,}0\\ \\text{N/m}$. Finn egenfrekvensen og perioden.\n\n*Løsning:* $\\omega_0 = \\sqrt{40{,}0/0{,}250} = \\sqrt{160} = 12{,}6\\ \\text{rad/s}$ og $T_p = 2\\pi/12{,}65 = 0{,}497\\ \\text{s}$. Med den perioden er $dt = 0{,}0010\\ \\text{s}$ om lag 500 steg per svingning — brukbart, men $dt = 0{,}0002\\ \\text{s}$ er tryggere.\n\n**R4.** ([kap. 5.1](/bok/fys1100/fys1100-5-1)) En kloss med masse $m$ passerer likevekt med farten $v_0$ på en friksjonsfri fjær med konstant $k$. Hvor stort blir utslaget?\n\n*Løsning:* Mekanisk energi er bevart, siden bare fjærkraften gjør arbeid og den er konservativ. $\\tfrac12 mv_0^2 = \\tfrac12 kA^2$ gir $A = v_0\\sqrt{m/k}$. Dette er standard-kontrolltallet for en fjærsimulering.\n\n**R5.** ([kap. 1.2](/bok/fys1100/fys1100-1-2)) Taylor-utvikle $\\sin\\theta$ til og med tredjeordens ledd, og si når $\\sin\\theta \\approx \\theta$ er en god tilnærming.\n\n*Løsning:* $\\sin\\theta \\approx \\theta - \\theta^3/6$. Tilnærmingen $\\sin\\theta \\approx \\theta$ har relativ feil om lag $\\theta^2/6$, altså under $1\\ \\%$ for $\\theta < 0{,}24\\ \\text{rad}$ (om lag $14^\\circ$). Ved $\\theta = 0{,}600\\ \\text{rad}$ er feilen $6\\ \\%$ — og det er nettopp derfor pendelen i eksempel 3 måtte løses numerisk."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

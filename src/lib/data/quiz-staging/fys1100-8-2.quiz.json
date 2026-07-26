@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hvorfor skrives kvadratisk drag `abs(v[i])*v[i]` og ikke `v[i]**2` i en éndimensjonal kode?",
+  "options": [
+   "Fordi kraften må snu når farten snur",
+   "Fordi kvadratet blir numerisk for stort ved høy fart",
+   "Fordi absoluttverdien gir riktig enhet på kraften",
+   "Fordi `v[i]**2` ikke lar seg skrive for hånd"
+  ],
+  "explanation": "Kvadratet er positivt uansett fortegn, så med `v[i]**2` peker motstanden samme vei i begge faser og driver et fallende legeme fortere ned. Enheten er derimot identisk i begge skrivemåtene, så det er ikke der problemet ligger."
+ },
+ {
+  "question": "Hvor mange tabeller trengs i en kode for et todimensjonalt kast?",
+  "options": [
+   "Fire: `x`, `y`, `vx` og `vy`",
+   "To: `x` og `v`",
+   "Tre: `x`, `y` og `v`",
+   "Seks: også `ax` og `ay`"
+  ],
+  "explanation": "Hver romlig retning trenger både en posisjon og en fart, altså fire tabeller. Akselerasjonene regnes på nytt hvert steg og trenger ingen tabell, og en samlet fart holder ikke — retningen ville gått tapt."
+ },
+ {
+  "question": "Hva koster det å ta med bare én romlig komponent i en 2D-kode?",
+  "options": [
+   "Maks 2 av 5 poeng på deloppgaven",
+   "Ett poeng, som ved manglende absoluttverdi",
+   "To poeng, som ved manglende indeks",
+   "Ingenting, hvis resten av koden er riktig"
+  ],
+  "explanation": "Sensorveiledningene i H2023, V2024 og V2025 setter et tak på to poeng når en romlig retning mangler helt. Det er strengere enn både absoluttverdi-trekket og indeks-trekket, fordi koden da beskriver et annet problem."
+ },
+ {
+  "question": "Hva er riktig uttrykk for $x$-komponenten av dragkraften i to dimensjoner?",
+  "options": [
+   "$-D\\,v\\,v_x$ med $v = \\sqrt{v_x^2+v_y^2}$",
+   "$-D\\,v_x^2$ uansett fortegn på $v_x$",
+   "$-D\\lvert v_x\\rvert v_y$ med kryssede komponenter",
+   "$-D\\,v\\,v_y$ med $v = \\sqrt{v_x^2+v_y^2}$"
+  ],
+  "explanation": "Kraften peker langs $-\\mathbf{v}$, så komponenten er $-D$ ganget med fartens tallverdi og den tilhørende fartskomponenten. Uttrykket $-Dv_x^2$ mister både fortegnsbyttet og koblingen til den andre komponenten."
+ },
+ {
+  "question": "Hva må regnes ut FØRST inne i løkka i en 2D-kode med drag?",
+  "options": [
+   "Fartens tallverdi $v$, siden den inngår i begge akselerasjonene",
+   "Posisjonene, siden akselerasjonen avhenger av hvor legemet er",
+   "Begge fartskomponentene, siden de skal oppdateres først",
+   "Steglengden, som må justeres etter hvor fort legemet går"
+  ],
+  "explanation": "Tallverdien av farten er fellesfaktoren i begge akselerasjonskomponentene og må stå ferdig før noen av dem regnes. Oppdaterer du en fartskomponent først, blander du to tidspunkt i samme uttrykk."
+ },
+ {
+  "question": "En ball har $v_x = 18{,}0\\ \\text{m/s}$ og $v_y = -12{,}0\\ \\text{m/s}$. Hva er fartens tallverdi?",
+  "options": [
+   "$21{,}6\\ \\text{m/s}$",
+   "$6{,}00\\ \\text{m/s}$",
+   "$30{,}0\\ \\text{m/s}$",
+   "$468\\ \\text{m/s}$"
+  ],
+  "explanation": "$v = \\sqrt{18{,}0^2+12{,}0^2} = \\sqrt{468} = 21{,}6\\ \\text{m/s}$. Verdien $468$ er tallet under rottegnet og har enheten $\\text{m}^2/\\text{s}^2$, mens $30{,}0$ er summen av tallverdiene — som bare ville stemt hvis komponentene var parallelle."
+ },
+ {
+  "question": "Hva skjer med rekkevidden til et kast når kvadratisk luftmotstand tas med?",
+  "options": [
+   "Den blir vesentlig kortere, og banen blir usymmetrisk",
+   "Den blir kortere, men banen forblir en symmetrisk parabel",
+   "Den blir lengre, fordi lufta bærer legemet en stund",
+   "Den er uendret, siden motstanden virker likt begge veier"
+  ],
+  "explanation": "Motstanden spiser av den vannrette farten hele veien, og fordi bremsingen er størst tidlig i banen, blir nedturen brattere enn oppturen. Symmetrien gjelder bare uten motstand, der $v_x$ er konstant."
+ },
+ {
+  "question": "Hvor ligger den optimale utkastvinkelen når kvadratisk luftmotstand er med?",
+  "options": [
+   "Lavere enn $45^\\circ$",
+   "Nøyaktig på $45^\\circ$ som uten motstand",
+   "Høyere enn $45^\\circ$",
+   "Ved $60^\\circ$ uansett dragkoeffisient"
+  ],
+  "explanation": "En høy bane bruker lang tid i lufta, og lang tid i lufta betyr lang tid med bremsing, så de høye banene straffes hardest. For ballen i kapitlet ligger optimum ved om lag $41$–$42^\\circ$, og den synker videre når dragkoeffisienten vokser."
+ },
+ {
+  "question": "Hvorfor har et 2D-kast med kvadratisk drag ingen løsning i elementære funksjoner?",
+  "options": [
+   "Komponentlikningene kobles gjennom farten $\\sqrt{v_x^2+v_y^2}$",
+   "Fordi luftmotstanden endrer seg med høyden over bakken",
+   "Fordi akselerasjonen ikke er konstant gjennom bevegelsen",
+   "Fordi tyngden og motstanden har ulike angrepspunkt"
+  ],
+  "explanation": "Hver komponentlikning inneholder begge de ukjente fartskomponentene gjennom fellesfaktoren, og de kan derfor ikke løses hver for seg. At akselerasjonen ikke er konstant, gjelder også for den lineære modellen, som likevel har en lukket løsning."
+ },
+ {
+  "question": "Hvilken kontroll tester dragleddet i en 2D-kode?",
+  "options": [
+   "Et 1D-fall sammenliknet med $v_T\\tanh(gt/v_T)$",
+   "En kjøring med $D = 0$ mot kastformlene",
+   "En kjøring med halvert steglengde $dt$",
+   "En kjøring der startvinkelen settes til null"
+  ],
+  "explanation": "Med $D = 0$ er dragleddet slått helt av, så den kontrollen tester alt annet enn nettopp det. Bare et case der dragleddet faktisk er i bruk og fasiten er kjent, kan avsløre en feil der."
+ },
+ {
+  "question": "Hvordan dekomponeres en startfart $v_0$ i vinkelen $\\theta$ over vannrett?",
+  "options": [
+   "$v_{x,0} = v_0\\cos\\theta$ og $v_{y,0} = v_0\\sin\\theta$",
+   "$v_{x,0} = v_0\\sin\\theta$ og $v_{y,0} = v_0\\cos\\theta$",
+   "$v_{x,0} = v_0\\tan\\theta$ og $v_{y,0} = v_0$",
+   "$v_{x,0} = v_0/\\cos\\theta$ og $v_{y,0} = v_0/\\sin\\theta$"
+  ],
+  "explanation": "Vinkelen måles fra vannrett, så nabokateten hører til $x$-retningen og motstående katet til $y$-retningen. Byttet mellom sinus og cosinus gir riktig totalfart, men feil bane — og er en av de vanligste kastefeilene."
+ },
+ {
+  "question": "Hva er $y$-komponenten av akselerasjonen i et kast med kvadratisk drag?",
+  "options": [
+   "$-g - (D/m)\\,v\\,v_y$",
+   "$-g + (D/m)\\,v\\,v_y$",
+   "$-g - (D/m)\\,v_y^2$",
+   "$-(D/m)\\,v\\,v_y$"
+  ],
+  "explanation": "Tyngden gir $-g$ etter deling på massen, og dragleddet har samme form som i $x$-retningen, bare med $v_y$. Formen med $v_y^2$ mister fortegnsbyttet etter toppunktet, og formen uten $-g$ har glemt tyngden helt."
+ },
+ {
+  "question": "Hvorfor skrives fartens tallverdi `v` uten indeks i en 2D-kode?",
+  "options": [
+   "Den er en mellomregning som lages på nytt hvert steg",
+   "Den er en skalar, og skalarer får aldri indeks i kode",
+   "Den er konstant gjennom hele simuleringen",
+   "Den skal ikke brukes i akselerasjonslinjene i det hele tatt"
+  ],
+  "explanation": "Regelen er at det som beskriver en tilstand og skal kunne leses av etterpå, får indeks; en mellomregning som brukes og kastes, trenger det ikke. At `v` er en skalar er sant, men irrelevant — også skalarer lagres med indeks når de er tilstandsvariabler."
+ },
+ {
+  "question": "En ball kastes opp og lander i samme høyde med luftmotstand. Hvordan er nedslagsfarten?",
+  "options": [
+   "Lavere enn startfarten, fordi drag gjør negativt arbeid begge veier",
+   "Lik startfarten, fordi høyden er den samme ved start og slutt",
+   "Høyere enn startfarten, fordi lufta hjelper til på vei ned",
+   "Lik startfarten, men med motsatt retning på begge komponenter"
+  ],
+  "explanation": "Dragkraften peker alltid mot bevegelsen, så arbeidet er negativt både på vei opp og på vei ned. Likheten mellom start- og sluttfart gjelder bare uten motstand, der mekanisk energi er bevart."
+ },
+ {
+  "question": "Hva er riktig komponentform for gravitasjonsakselerasjonen mot et sentrum i origo?",
+  "options": [
+   "$a_x = -GM\\,x/(x^2+y^2)^{3/2}$",
+   "$a_x = -GM\\,x/(x^2+y^2)$",
+   "$a_x = -GM/(x^2+y^2)$",
+   "$a_x = -GM\\,x/(x^2+y^2)^{1/2}$"
+  ],
+  "explanation": "Kraften går som $1/r^2$, og komponenten legger til en faktor $x/r$ fra enhetsvektoren, til sammen $x/r^3$. Å skrive $r^2$ i nevneren gir en kraft som avtar altfor sakte med avstanden."
+ },
+ {
+  "question": "Hvordan virker en jevn vannrett vind inn i en kodemodell for et kast?",
+  "options": [
+   "Gjennom relativfarten mot lufta i hele dragleddet",
+   "Som et eget konstant kraftledd i $x$-akselerasjonen",
+   "Ved å forskyve hele banen sidelengs med $w\\,t$",
+   "Ved å endre tyngdeakselerasjonen i $y$-retningen"
+  ],
+  "explanation": "Vinden merkes bare gjennom luftmotstanden, som avhenger av farten relativt til lufta — både i fellesfaktoren og i komponentfaktoren. En ren sideforskyvning ville gitt samme flytid og høyde uansett vindstyrke, og det stemmer ikke."
+ },
+ {
+  "question": "Er en sykkel som triller nedover en rett bakke, et endimensjonalt eller todimensjonalt problem?",
+  "options": [
+   "Endimensjonalt, siden bevegelsen er bundet til én linje",
+   "Todimensjonalt, siden bevegelsen skjer i et loddrett plan",
+   "Todimensjonalt, siden både tyngde og normalkraft virker",
+   "Endimensjonalt bare hvis luftmotstanden neglisjeres"
+  ],
+  "explanation": "Det er antallet frie retninger som avgjør, og sykkelen kan bare bevege seg langs bakken. Kreftene på tvers opphever hverandre, uansett hvor mange de er og uansett om drag er med."
+ },
+ {
+  "question": "Hvilken startfart gir en sirkelbane i avstanden $r_0$ fra et sentrum med parameter $GM$?",
+  "options": [
+   "$\\sqrt{GM/r_0}$",
+   "$\\sqrt{2GM/r_0}$",
+   "$GM/r_0$",
+   "$\\sqrt{GM\\,r_0}$"
+  ],
+  "explanation": "Gravitasjonen er sentripetalkraften, så $GMm/r_0^2 = mv^2/r_0$, som gir $v = \\sqrt{GM/r_0}$. Uttrykket $\\sqrt{2GM/r_0}$ er unnslipningsfarten, altså den som gir en åpen bane i stedet for en lukket."
+ }
+]

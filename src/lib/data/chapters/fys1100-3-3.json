@@ -1,0 +1,445 @@
+{
+  "id": "fys1100-3-3",
+  "courseId": "fys1100",
+  "chapterNumber": "3.3",
+  "title": "Koblede klosser og grensetilfelle-verifisering",
+  "description": "To eller flere klosser koblet med snor og friksjon — N2L komponentvis for hver, løs for a og snordrag T, og verifiser uttrykket med grensetilfeller.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne sette opp ett frilegemediagram og én komponentlikning per legeme i et koblet system",
+    "kunne velge mellom systemmetoden og splittemetoden ut fra hva oppgaven spør om",
+    "kunne løse for akselerasjon og snordrag symbolsk og verifisere uttrykkene med grensetilfeller",
+    "kunne tolke negative svar for snordrag og normalkraft som brudd på modellens forutsetninger"
+  ],
+  "content": [
+    {
+      "id": "fys1100-3-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Flerlegemeoppgaven er sjanger C i sin fullverdige form** — altså Newton-oppgaven med skråplan eller koblede klosser og frilegemediagram, slik sjangerkatalogen i bokas Del 0 navngir den. Newtons 2. lov brukes i **7 av 7 sett (100 %)** og frilegemediagram er eksplisitt etterspurt i **6 av 7** — og i den tyngste varianten er det to legemer koblet med en snor, gjerne med friksjon på det ene.\n\nTo ting skiller denne oppgavetypen fra kapitlene foran:\n\n- **Du trenger ett frilegemediagram per legeme.** Ett felles diagram for hele systemet der snordraget likevel er tegnet inn, er en av de sikreste måtene å tape poeng på.\n- **Grensetilfelle-verifisering er ofte en egen, poenggivende deloppgave.** «Kontroller uttrykket når $\\mu = 0$», «hva skjer når $m_2 \\to 0$?», «hvorfor bryter formelen sammen når planet blir loddrett?» — dette er spørsmål sensor stiller direkte, og det er også det som skiller toppbesvarelsene: de verifiserer **uoppfordret**.\n\nMetoden er den samme uansett innpakning: to diagrammer, to komponentlikninger, én koblingsbetingelse, og så eliminasjon. Det er verdt å automatisere den.\n\n**Prioritet: høyeste — dette må sitte.**"
+    },
+    {
+      "id": "fys1100-3-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.2](/bok/fys1100/fys1100-3-2), som igjen bygger på [kap. 3.1](/bok/fys1100/fys1100-3-1). Det du trenger, oppfrisket:\n\n**Newtons 2. lov komponentvis:** $\\sum F_x = ma_x$ og $\\sum F_y = ma_y$ — én gang per legeme.\n\n**Dekomponering på skråplan:**\n\n$$F_{g,\\parallel} = mg\\sin\\theta \\ (\\text{langs planet}), \\qquad F_{g,\\perp} = mg\\cos\\theta \\ (\\text{normalt}), \\qquad N = mg\\cos\\theta$$\n\nder den siste gjelder når ingen andre krefter har komponent normalt på planet.\n\n**Friksjonsmodellene:**\n\n$$\\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N \\quad (\\text{ulikhet}), \\qquad \\lvert\\mathbf{f}_d\\rvert = \\mu_d N \\quad (\\text{likhet})$$\n\nmed retning **mot** den relative bevegelsen.\n\n**Frilegemediagrammets seks punkter**, og særlig dette: én figur per legeme, alle krefter navngitt, koordinatsystemet inntegnet.\n\n**Notasjon:** snordrag $T$, friksjonstall alltid med subskript ($\\mu_s$, $\\mu_d$), tyngden $m\\mathbf{g}$ eller $\\mathbf{F}_g$ — aldri $\\mathbf{G}$. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-3-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — hva koblingen gir deg (~15 min)\n\nTo kasser står i en heissjakt, koblet med en vaier over en trinse. Den ene er tyngre, og systemet setter seg i bevegelse. Hva er det egentlig snora gjør?\n\nDen gjør to ting, og begge er opplysninger du får gratis:\n\n- den tvinger de to legemene til å ha **samme fart og samme akselerasjon** (så lenge den er stram og ikke tøyer seg);\n- den overfører **samme snordrag** i begge ender (så lenge den er masseløs og trinsa er masseløs og friksjonsfri).\n\nUten disse to opplysningene ville to legemer gitt fire ukjente. Med dem har du to."
+    },
+    {
+      "id": "fys1100-3-3-def-koblingsbetingelse",
+      "type": "definition",
+      "title": "Koblingsbetingelsen",
+      "content": "Kravet som knytter bevegelsen til to legemer sammen. For to legemer forbundet med en stram, uttøyelig snor gjelder\n\n$$\\lvert a_1 \\rvert = \\lvert a_2 \\rvert = a$$\n\n— tallverdien av akselerasjonen er den samme, fordi snora har fast lengde: det den ene enden flytter seg, må den andre flytte seg like mye.\n\n**Fortegnene er derimot ikke automatisk like.** Går snora over en trinse, beveger legemene seg i motsatt retning i rommet. Praktisk oppskrift: velg **positiv retning for hvert legeme i den retningen du tror systemet beveger seg**, og skriv det ned. Da er begge akselerasjonene positive og lik samme $a$, og fortegnene ordner seg av seg selv."
+    },
+    {
+      "id": "fys1100-3-3-def-uttoyelig",
+      "type": "definition",
+      "title": "Uttøyelig og masseløs snor",
+      "content": "To idealiseringer som brukes i nesten hver flerlegemeoppgave:\n\n- **uttøyelig** betyr at snorens lengde ikke endres, og det er dette som gir koblingsbetingelsen;\n- **masseløs** betyr at snorens egen masse er null, og det er dette som gir likt snordrag i begge ender. Hadde snora hatt masse, ville det trengtes en netto kraft for å akselerere snora selv, og da ville snordraget vært større i den ledende enden.\n\nEn **masseløs, friksjonsfri trinse** endrer bare snordragets retning, ikke tallverdien. Nevn disse forutsetningene når du bruker dem — det er en del av begrunnelsen, og det er billige poeng."
+    },
+    {
+      "id": "fys1100-3-3-fig-system",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-3-3-system-to-klosser.svg",
+      "alt": "Overst en systemskisse: en kloss m1 ligger pa et skraplan, en snor gar fra klossen opp over en masselos trinse pa toppen av planet og ned til et lodd m2 som henger fritt. Nederst to frilegemediagram side om side: for m1 med normalkraft, tyngde, snordrag oppover langs planet og friksjon nedover langs planet, og for m2 med snordrag oppover og tyngde nedover. Snordraget T er merket med samme tallverdi i begge diagrammene.",
+      "caption": "Standardoppsettet for hele kapitlet. Legg merke til at snordraget $T$ er merket med **samme** bokstav og samme lengde i begge diagrammene — det er masseløs-snor-forutsetningen, tegnet ut. Friksjonen på $m_1$ peker nedover langs planet her, fordi $m_2$ trekker $m_1$ oppover."
+    },
+    {
+      "id": "fys1100-3-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Kloss på skråplan koblet til hengende lodd",
+      "problem": "En kloss med masse $m_1 = 4{,}00\\ \\text{kg}$ ligger på et skråplan med helning $\\theta = 30{,}0^\\circ$. En masseløs snor går fra klossen, over en masseløs trinse på toppen av planet, og ned til et lodd med masse $m_2 = 3{,}00\\ \\text{kg}$ som henger fritt. Det dynamiske friksjonstallet mellom kloss og plan er $\\mu_d = 0{,}150$.\n\n**a)** Tegn frilegemediagram for hvert legeme.\n\n**b)** Finn akselerasjonen og snordraget, forutsatt at $m_2$ går nedover.\n\n**c)** Kontroller svaret ved å sette det inn i den likningen du ikke brukte til å finne det.",
+      "solution": "**Metodevalg først:** Newtons 2. lov brukes én gang per legeme, komponentvis. Koblingsbetingelsen gir felles akselerasjon $a$, og masseløs snor over masseløs trinse gir samme snordrag $T$ i begge ender. Vi antar at $m_2$ går nedover og $m_1$ oppover langs planet, og velger positiv retning for hvert legeme i **den** retningen. Da peker friksjonen på $m_1$ nedover langs planet.\n\n**a)** Diagrammene er tegnet i figuren over. For $m_1$: tyngden $m_1\\mathbf{g}$, normalkraften $\\mathbf{N}$, snordraget $T$ oppover langs planet og friksjonen $f_d$ nedover langs planet. For $m_2$: snordraget $T$ oppover og tyngden $m_2\\mathbf{g}$ nedover. **Ingen** normalkraft på $m_2$ — den berører ingenting.\n\n**b)** Normalt på planet, for $m_1$:\n\n$$N = m_1 g\\cos\\theta = 4{,}00 \\cdot 9{,}81 \\cdot 0{,}866 = 33{,}98\\ \\text{N}$$\n\nLangs planet, positiv retning oppover:\n\n$$T - m_1 g\\sin\\theta - \\mu_d N = m_1 a \\tag{1}$$\n\nFor $m_2$, positiv retning nedover:\n\n$$m_2 g - T = m_2 a \\tag{2}$$\n\nLegger vi (1) og (2) sammen, faller $T$ ut:\n\n$$m_2 g - m_1 g\\sin\\theta - \\mu_d m_1 g\\cos\\theta = (m_1 + m_2)a$$\n\n$$a = \\frac{g\\left(m_2 - m_1\\sin\\theta - \\mu_d m_1\\cos\\theta\\right)}{m_1 + m_2}$$\n\n$$a = \\frac{9{,}81\\,(3{,}00 - 2{,}00 - 0{,}5196)}{7{,}00} = \\frac{4{,}713}{7{,}00} = 0{,}673\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nLoddet går nedover og klossen oppover langs planet, med $0{,}673\\ \\text{m/s}^2$. Snordraget fra (2):\n\n$$T = m_2(g - a) = 3{,}00\\,(9{,}81 - 0{,}673) = 27{,}4\\ \\text{N}$$\n\n**c)** Sett inn i (1), som vi ikke brukte til å finne $T$:\n\n$$T - m_1g\\sin\\theta - \\mu_d N = 27{,}41 - 19{,}62 - 5{,}10 = 2{,}69\\ \\text{N}$$\n\n$$m_1 a = 4{,}00 \\cdot 0{,}673 = 2{,}69\\ \\text{N} \\ ✓$$\n\nLikningene stemmer. En slik kryssjekk tar femten sekunder og fanger opp både fortegns- og regnefeil.\n\n**Rimelighetssjekk:** snordraget ($27{,}4\\ \\text{N}$) er mindre enn loddets tyngde ($29{,}4\\ \\text{N}$), som det må være når loddet akselererer nedover. Var $T$ større enn $m_2g$, ville loddet blitt trukket oppover."
+    },
+    {
+      "id": "fys1100-3-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med egne ord, i to–tre setninger hver:\n\n**a)** hvorfor de to legemene har samme tallverdi på akselerasjonen,\n\n**b)** hvorfor snordraget er det samme i begge ender av snora,\n\n**c)** hvorfor det trengs to frilegemediagram og ikke ett.",
+        "solution": "**a)** Snora er uttøyelig, altså har den fast lengde. Flytter den ene enden seg $10\\ \\text{cm}$, må den andre flytte seg nøyaktig $10\\ \\text{cm}$ — ellers ville snora måtte strekkes eller bli slakk. Samme forflytning på samme tid gir samme fart, og samme fartsendring gir samme akselerasjon. Retningene i rommet kan derimot være helt forskjellige, for eksempel over en trinse.\n\n**b)** Snora er masseløs. Newtons 2. lov brukt på selve snora gir $\\sum F = m_{\\text{snor}}a = 0$ når massen er null, uansett hvor stor akselerasjonen er. Kreftene i de to endene må derfor balansere hverandre, og snordraget er likt. Hadde snora hatt masse, ville det trengtes en netto kraft for å akselerere snora selv.\n\n**c)** Fordi kreftene på de to legemene er forskjellige, og fordi snordraget er en **indre** kraft i systemet. Slår du de to legemene sammen til ett system, faller snordraget ut av regnskapet — og da kan du ikke finne det. Ett felles diagram der snordraget likevel er tegnet inn, teller den samme kraften to ganger, én gang i hver ende.",
+        "hints": [
+          "Tenk på hva som skjer med snorlengden når det ene legemet flytter seg.",
+          "Bruk Newtons 2. lov på snora selv, med masse null.",
+          "Er snordraget en ytre eller en indre kraft for systemet av begge legemer?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — systemmetoden og splittemetoden (~15 min)\n\nDet finnes to fullt gyldige veier gjennom en flerlegemeoppgave, og valget mellom dem avgjør hvor mye arbeid du får."
+    },
+    {
+      "id": "fys1100-3-3-th-metoder",
+      "type": "theorem",
+      "title": "To metoder, ett svar",
+      "content": "**Systemmetoden.** Behandle alle koblede legemer som ett legeme med samlet masse $\\sum m_i$. Snordraget mellom dem er nå en **indre** kraft og faller ut, fordi de to kreftene i kraftparet ligger inne i systemet og opphever hverandre. Igjen står bare de ytre kreftene:\n\n$$\\sum F_{\\text{ytre}} = \\left(\\sum m_i\\right) a$$\n\nDette gir akselerasjonen i **én** linje.\n\n**Splittemetoden.** Sett opp ett frilegemediagram og én komponentlikning per legeme, og løs likningssettet. Dette er den eneste veien til de indre kreftene — som snordrag og kontaktkrefter.\n\n**Regel for metodevalg:**\n\n- er bare **akselerasjonen** etterspurt: bruk systemmetoden;\n- er **snordraget** etterspurt: bruk splittemetoden, eller finn $a$ med systemmetoden først og sett den inn i den enkleste av enkeltlikningene.\n\nDen siste varianten er ofte raskest under tidspress. Begge metodene skal gi samme svar, og å vise at de gjør det, er en god kontroll."
+    },
+    {
+      "id": "fys1100-3-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Samme system, to metoder",
+      "problem": "Vis at systemet i eksempel 1 gir samme akselerasjon når det behandles som ett legeme.",
+      "solution": "**Metodevalg først:** vi bruker systemmetoden, altså Newtons 2. lov på $m_1$ og $m_2$ sett under ett. Snordraget er da indre og faller ut.\n\nVi følger snora rundt og regner positiv retning i bevegelsesretningen (loddet ned, klossen opp langs planet). De **ytre** kreftene langs denne retningen er:\n\n- loddets tyngde, $+m_2 g$ (driver);\n- tyngdekomponenten på klossen langs planet, $-m_1 g\\sin\\theta$ (motvirker);\n- friksjonen på klossen, $-\\mu_d m_1 g\\cos\\theta$ (motvirker).\n\nNormalkraften og tyngdekomponenten normalt på planet står vinkelrett på bevegelsen og bidrar ikke.\n\n$$m_2 g - m_1 g\\sin\\theta - \\mu_d m_1 g\\cos\\theta = (m_1 + m_2)a$$\n\n$$a = \\frac{9{,}81\\,(3{,}00 - 2{,}00 - 0{,}5196)}{7{,}00} = 0{,}673\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nSamme svar som i eksempel 1, men på én linje i stedet for tre.\n\n**Hvilken bør du velge?** Systemmetoden er raskest når bare $a$ er etterspurt, og det er den du bør gripe til under tidspress. Men den kan **ikke** gi deg snordraget: for å finne $T$ må systemet splittes, og da er den enkleste veien å ta $a$ fra systemmetoden og sette den inn i likningen for det legemet som har færrest krefter — her loddet, $T = m_2(g-a)$.\n\n**Merk fellen:** i systemmetoden må du følge bevegelsesretningen rundt trinsa når du setter fortegn. Skriver du blindt «$m_2g - m_1g\\sin\\theta$» uten å tenke på at de to legemene beveger seg i ulike retninger i rommet, går det galt i mer sammensatte oppsett."
+    },
+    {
+      "id": "fys1100-3-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To lodd henger i hver sin ende av en masseløs snor over en masseløs trinse (en såkalt Atwood-maskin). Massene er $m_1 = 3{,}00\\ \\text{kg}$ og $m_2 = 5{,}00\\ \\text{kg}$.\n\n**a)** Finn akselerasjonen med systemmetoden.\n\n**b)** Finn snordraget.\n\n**c)** Kontroller snordraget mot det andre loddet.\n\n**d)** Hva blir akselerasjonen dersom de to massene er like?",
+        "solution": "**Metodevalg:** systemmetoden gir akselerasjonen raskest; snordraget krever at systemet splittes.\n\n**a)** Positiv retning: $m_2$ nedover og $m_1$ oppover. Ytre krefter langs bevegelsen er de to tyngdene:\n\n$$m_2 g - m_1 g = (m_1 + m_2)a \\quad \\Rightarrow \\quad a = \\frac{(m_2 - m_1)g}{m_1 + m_2} = \\frac{2{,}00 \\cdot 9{,}81}{8{,}00} = 2{,}45\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n$m_2$ går nedover og $m_1$ oppover med $2{,}45\\ \\text{m/s}^2$.\n\n**b)** For $m_1$ (positiv oppover): $T - m_1g = m_1a$, altså\n\n$$T = m_1(g + a) = 3{,}00 \\cdot 12{,}26 = 36{,}8\\ \\text{N}$$\n\n**c)** For $m_2$ (positiv nedover): $m_2g - T = m_2a$, altså\n\n$$T = m_2(g - a) = 5{,}00 \\cdot 7{,}36 = 36{,}8\\ \\text{N} \\ ✓$$\n\nSamme verdi. Merk også at $T$ ligger **mellom** de to tyngdene ($29{,}4\\ \\text{N}$ og $49{,}1\\ \\text{N}$) — det må den, siden det letteste loddet akselererer oppover og det tyngste nedover.\n\n**d)** Med $m_1 = m_2$ blir telleren null, altså $a = 0$: systemet står i ro eller går med konstant fart. Da er $T = mg$ for hvert lodd. Dette er et grensetilfelle det er verdt å ha i bakhodet — det gir en rask kontroll på at uttrykket ditt har riktig form.",
+        "hints": [
+          "Systemmetoden: bare de to tyngdene er ytre krefter langs bevegelsen.",
+          "Snordraget finner du ved å sette $a$ inn i likningen for ett av loddene.",
+          "Til kontrollen: bruk det andre loddet og se om du får samme $T$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — grensetilfelle-verifisering (~20 min)\n\nDu har utledet et uttrykk med fem symboler i. Er det riktig?\n\nSvaret finner du ikke ved å regne oppgaven på nytt — da gjør du gjerne samme feil igjen. Du finner det ved å **sette inn ekstremverdier** og spørre om resultatet er fysisk fornuftig. Metoden koster et halvt minutt, og på eksamen er den ofte en egen deloppgave med egne poeng."
+    },
+    {
+      "id": "fys1100-3-3-th-grensetilfelle",
+      "type": "theorem",
+      "title": "Grensetilfelle-verifisering",
+      "content": "Sett en av parametrene til en ekstremverdi der du **på forhånd vet** hva svaret må bli, og sjekk at uttrykket gir det.\n\nFor flerlegemesystemet i eksempel 1,\n\n$$a = \\frac{g\\left(m_2 - m_1\\sin\\theta - \\mu_d m_1\\cos\\theta\\right)}{m_1 + m_2}, \\qquad T = m_2(g - a)$$\n\ner de fire mest verdifulle kontrollene:\n\n| Grense | Uttrykket gir | Fysisk tolkning |\n|---|---|---|\n| $\\mu_d = 0$ | $a = g(m_2 - m_1\\sin\\theta)/(m_1+m_2)$ | friksjonsfritt system — friksjonsleddet skal forsvinne helt |\n| $m_2 = 0$ | $a = -g(\\sin\\theta + \\mu_d\\cos\\theta)$ og $T = 0$ | ingen snor å snakke om: klossen glir fritt nedover planet |\n| $\\theta = 90^\\circ$ | $a = (m_2 - m_1)g/(m_1+m_2)$ | planet står loddrett, og systemet er blitt en Atwood-maskin |\n| $m_2 \\to \\infty$ | $a \\to g$ og $T \\to m_1 g(1 + \\sin\\theta + \\mu_d\\cos\\theta)$ | et umåtelig tungt lodd faller praktisk talt fritt |\n\n**Praktisk oppskrift:** velg grenser der du kjenner svaret fra et enklere kapittel. Går uttrykket over i det du vet fra før, er sannsynligheten stor for at det er riktig. Gjør det ikke det, har du funnet feilen — og du har funnet den før sensor gjorde det.\n\n**Merk at $\\theta = 90^\\circ$ krever en presisering:** normalkraften blir null der, og en kloss uten normalkraft har ingen friksjon. Uttrykket håndterer dette selv, siden $\\cos 90^\\circ = 0$ — men det er verdt å si i klartekst, for det viser at du forstår hvorfor friksjonsleddet forsvinner."
+    },
+    {
+      "id": "fys1100-3-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Symbolsk løsning og full verifisering",
+      "problem": "En kloss $m_1$ ligger på et vannrett bord med dynamisk friksjonstall $\\mu_d$. En snor går fra klossen, over en masseløs trinse på bordkanten, og ned til et lodd $m_2$.\n\n**a)** Finn akselerasjonen og snordraget symbolsk.\n\n**b)** Verifiser uttrykkene i grensene $\\mu_d = 0$, $m_2 = 0$ og $m_1 \\to 0$.\n\n**c)** For hvilke verdier av det statiske friksjonstallet $\\mu_s$ blir systemet stående i ro?\n\n**d)** Regn ut tallverdiene for $m_1 = 5{,}00\\ \\text{kg}$, $m_2 = 2{,}00\\ \\text{kg}$ og $\\mu_d = 0{,}200$.",
+      "solution": "**Metodevalg først:** Newtons 2. lov per legeme, med koblingsbetingelsen $a_1 = a_2 = a$ og likt snordrag. Vi antar at loddet går nedover, og velger positiv retning for hvert legeme i den retningen. Klossen glir da mot bordkanten, og friksjonen peker motsatt vei.\n\n**a)** For klossen (positiv retning mot trinsa), med $N = m_1 g$ siden bordet er vannrett og snora vannrett:\n\n$$T - \\mu_d m_1 g = m_1 a \\tag{1}$$\n\nFor loddet (positiv retning nedover):\n\n$$m_2 g - T = m_2 a \\tag{2}$$\n\nAdderer vi:\n\n$$a = \\frac{g\\left(m_2 - \\mu_d m_1\\right)}{m_1 + m_2}$$\n\nog fra (2):\n\n$$T = m_2(g - a) = \\frac{m_1 m_2 g\\,(1 + \\mu_d)}{m_1 + m_2}$$\n\n**b) Verifisering:**\n\n*$\\mu_d = 0$:* $a = m_2 g/(m_1+m_2)$ og $T = m_1m_2g/(m_1+m_2)$. Dette er det klassiske friksjonsfrie resultatet — loddets tyngde akselererer den samlede massen. ✓\n\n*$m_2 = 0$:* $a = -\\mu_d g$ og $T = 0$. Uten lodd er det ingen som drar, og snordraget forsvinner. Den negative akselerasjonen betyr at en kloss som allerede er i bevegelse, bremses av friksjonen — akkurat som den skal. ✓\n\n*$m_1 \\to 0$:* $a \\to g$ og $T \\to 0$. Uten kloss faller loddet fritt, og snora blir slakk. ✓\n\nAlle tre grensene er fysisk fornuftige, og det er sterk indikasjon på at uttrykkene er riktige.\n\n**c)** Systemet blir stående dersom hvilefriksjonen greier å balansere loddets tyngde. Kravet er at den nødvendige friksjonskraften ikke overstiger taket:\n\n$$m_2 g \\le \\mu_s m_1 g \\quad \\Rightarrow \\quad \\mu_s \\ge \\frac{m_2}{m_1}$$\n\nMerk at $g$ faller ut — betingelsen er den samme på månen. Merk også at det er $\\mu_s$, ikke $\\mu_d$, som avgjør om noe **begynner** å bevege seg.\n\n**d)** \n\n$$a = \\frac{9{,}81\\,(2{,}00 - 0{,}200 \\cdot 5{,}00)}{7{,}00} = \\frac{9{,}81 \\cdot 1{,}00}{7{,}00} = 1{,}40\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n$$T = m_2(g - a) = 2{,}00\\,(9{,}81 - 1{,}40) = 16{,}8\\ \\text{N}$$\n\n**Kontroll mot (1):** $T - \\mu_d m_1 g = 16{,}82 - 9{,}81 = 7{,}01\\ \\text{N}$, og $m_1 a = 5{,}00 \\cdot 1{,}40 = 7{,}01\\ \\text{N}$ ✓.\n\n**Rimelighetssjekk:** med $m_2/m_1 = 0{,}400$ og $\\mu_d = 0{,}200$ er systemet akkurat i bevegelse — hadde friksjonstallet vært over $0{,}400$, ville det stått stille, i tråd med c)."
+    },
+    {
+      "id": "fys1100-3-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To klosser ligger på et **friksjonsfritt** vannrett bord, koblet med en masseløs snor. Klossen $m_1 = 2{,}00\\ \\text{kg}$ ligger foran og trekkes av en vannrett kraft $F = 20{,}0\\ \\text{N}$; bak henger $m_2 = 3{,}00\\ \\text{kg}$ i snora.\n\n**a)** Finn akselerasjonen.\n\n**b)** Finn snordraget.\n\n**c)** Bordet har nå friksjon med $\\mu_d = 0{,}250$ under begge klossene. Finn akselerasjonen og snordraget på nytt.\n\n**d)** Sammenlign snordraget i b) og c), og forklar resultatet.",
+        "solution": "**Metodevalg:** systemmetoden for akselerasjonen, splittemetoden (bakre kloss) for snordraget.\n\n**a)** Systemet: $F = (m_1+m_2)a$, altså\n\n$$a = \\frac{20{,}0}{5{,}00} = 4{,}00\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n**b)** Den bakre klossen har bare snordraget som ytre vannrett kraft:\n\n$$T = m_2 a = 3{,}00 \\cdot 4{,}00 = 12{,}0\\ \\text{N}$$\n\n**c)** Med friksjon under begge klossene er den samlede friksjonen $\\mu_d(m_1+m_2)g$:\n\n$$a = \\frac{F - \\mu_d(m_1+m_2)g}{m_1+m_2} = \\frac{20{,}0 - 0{,}250 \\cdot 5{,}00 \\cdot 9{,}81}{5{,}00} = \\frac{20{,}0 - 12{,}26}{5{,}00} = 1{,}55\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nFor den bakre klossen:\n\n$$T - \\mu_d m_2 g = m_2 a \\quad \\Rightarrow \\quad T = m_2(a + \\mu_d g) = 3{,}00\\,(1{,}55 + 2{,}45) = 12{,}0\\ \\text{N}$$\n\n**d)** Snordraget er **nøyaktig det samme**, $12{,}0\\ \\text{N}$, i begge tilfellene. Det ser overraskende ut, men følger av at friksjonstallet er det samme under begge klossene: da er $T = \\dfrac{m_2}{m_1+m_2}F$ uansett hvor stor friksjonen er. Snora må alltid levere den bakre klossens **andel** av den drivende kraften, og andelen bestemmes bare av masseforholdet.\n\nEr friksjonstallene derimot forskjellige under de to klossene, faller symmetrien bort — og det er nettopp den situasjonen vi ser på i neste løkke.",
+        "hints": [
+          "Systemmetoden gir akselerasjonen på én linje — snordraget er indre og faller ut.",
+          "Den bakre klossen trekkes bare av snora; sett opp Newtons 2. lov for den alene.",
+          "I c): friksjonen på hver kloss er $\\mu_d m_i g$ siden bordet er vannrett.",
+          "I d): prøv å skrive $T$ som en brøkdel av $F$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C.) En kloss $m_1$ ligger på et skråplan med helning $\\theta$ og dynamisk friksjonstall $\\mu_d$. En masseløs snor går over en masseløs trinse på toppen til et fritt hengende lodd $m_2$, som trekker klossen oppover planet.\n\n**a)** Utled uttrykk for akselerasjonen og snordraget.\n\n**b)** Verifiser uttrykket for $a$ i grensene $\\mu_d = 0$, $m_2 = 0$ og $\\theta = 90^\\circ$, og forklar hva hver grense betyr fysisk.\n\n**c)** Finn betingelsen på $m_2$ for at systemet i det hele tatt skal settes i bevegelse fra ro, uttrykt ved $\\mu_s$.\n\n**d)** Regn ut $a$ og $T$ for $m_1 = 6{,}00\\ \\text{kg}$, $m_2 = 4{,}00\\ \\text{kg}$, $\\theta = 25{,}0^\\circ$ og $\\mu_d = 0{,}200$.",
+        "solution": "**Metodevalg først:** Newtons 2. lov per legeme, koblingsbetingelse $a_1 = a_2 = a$, likt snordrag. Positiv retning: loddet ned, klossen opp langs planet. Klossen går oppover, så friksjonen peker nedover langs planet.\n\n**a)** Normalt på planet for klossen: $N = m_1 g\\cos\\theta$.\n\nLangs planet, klossen:\n\n$$T - m_1g\\sin\\theta - \\mu_d m_1 g\\cos\\theta = m_1 a \\tag{1}$$\n\nLoddet:\n\n$$m_2 g - T = m_2 a \\tag{2}$$\n\nAddisjon eliminerer $T$:\n\n$$\\boxed{\\,a = \\frac{g\\left(m_2 - m_1\\sin\\theta - \\mu_d m_1\\cos\\theta\\right)}{m_1 + m_2}\\,}$$\n\nog fra (2):\n\n$$T = m_2(g - a) = \\frac{m_1 m_2 g\\left(1 + \\sin\\theta + \\mu_d\\cos\\theta\\right)}{m_1+m_2}$$\n\n**b) Verifisering:**\n\n*$\\mu_d = 0$:* $a = g(m_2 - m_1\\sin\\theta)/(m_1+m_2)$. Friksjonsleddet forsvinner helt, og igjen står loddets tyngde mot tyngdekomponenten langs planet. Systemet står stille når $m_2 = m_1\\sin\\theta$ — nøyaktig balansepunktet på et friksjonsfritt plan. ✓\n\n*$m_2 = 0$:* $a = -g(\\sin\\theta + \\mu_d\\cos\\theta)$ og $T = 0$. Uten lodd er det ingen snor som drar, og en kloss i bevegelse oppover planet bremses av både tyngdekomponenten og friksjonen. Det negative fortegnet er riktig: akselerasjonen peker motsatt vei av den retningen vi valgte som positiv. ✓\n\n*$\\theta = 90^\\circ$:* $a = (m_2 - m_1)g/(m_1+m_2)$. Planet står loddrett, normalkraften blir null, og dermed forsvinner friksjonen — uttrykket håndterer det selv, siden $\\cos 90^\\circ = 0$. Systemet er blitt en ren Atwood-maskin. ✓\n\n**c)** Fra ro er det **hvile**friksjonen som avgjør. Loddet setter systemet i bevegelse dersom tyngden dens overstiger summen av tyngdekomponenten og maksimal hvilefriksjon:\n\n$$m_2 g > m_1 g\\sin\\theta + \\mu_s m_1 g\\cos\\theta \\quad \\Rightarrow \\quad m_2 > m_1(\\sin\\theta + \\mu_s\\cos\\theta)$$\n\nMerk at $g$ faller ut. Ligger $m_2$ under denne grensen, står systemet stille, og da er snordraget rett og slett $T = m_2 g$.\n\n**d)** \n\n$$a = \\frac{9{,}81\\,(4{,}00 - 6{,}00 \\cdot 0{,}4226 - 0{,}200 \\cdot 6{,}00 \\cdot 0{,}9063)}{10{,}0} = \\frac{9{,}81\\,(4{,}00 - 2{,}536 - 1{,}088)}{10{,}0}$$\n\n$$a = \\frac{9{,}81 \\cdot 0{,}376}{10{,}0} = 0{,}369\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n$$T = m_2(g - a) = 4{,}00\\,(9{,}81 - 0{,}369) = 37{,}8\\ \\text{N}$$\n\n**Kontroll mot (1):** $37{,}76 - 24{,}86 - 10{,}67 = 2{,}23\\ \\text{N}$, og $m_1 a = 6{,}00 \\cdot 0{,}369 = 2{,}21\\ \\text{N}$ ✓ (avviket skyldes bare avrunding).\n\n**Rimelighetssjekk:** akselerasjonen er liten, og systemet er nær balansepunktet. Betingelsen i c) gir $m_2 > 6{,}00(0{,}4226 + \\mu_s \\cdot 0{,}9063)$, altså $m_2 > 3{,}62\\ \\text{kg}$ dersom $\\mu_s = \\mu_d = 0{,}200$ — og $4{,}00\\ \\text{kg}$ ligger så vidt over. Det stemmer med at akselerasjonen blir liten.",
+        "hints": [
+          "Sett opp én komponentlikning per legeme, og velg positiv retning i den retningen du tror systemet går.",
+          "Adder de to likningene for å eliminere snordraget.",
+          "I b): sett inn hver grense i det ferdige uttrykket og spør hvilket enklere problem du kjenner igjen.",
+          "I c): fra ro er det $\\mu_s$ som gjelder, ikke $\\mu_d$ — og friksjonen står på taket sitt akkurat i grensen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — to klosser på samme plan, ulike friksjonstall (~15 min)\n\nDen siste varianten er lumsk, og den er en yndet eksamensoppgave nettopp derfor: to klosser koblet med en snor, begge på **samme** skråplan, men med **forskjellige** friksjonstall.\n\nSpørsmålet er ikke bare hva akselerasjonen blir, men om snora i det hele tatt er stram."
+    },
+    {
+      "id": "fys1100-3-3-fig-to-klosser",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-3-3-to-klosser-skraaplan.svg",
+      "alt": "Overst en skisse av et skraplan der to klosser m1 og m2 glir nedover, koblet med en snor. Klossen m1 ligger nederst med friksjonstall my 1, m2 ligger overst med friksjonstall my 2. Nederst to frilegemediagram side om side: pa m1 peker snordraget oppover langs planet, pa m2 peker snordraget nedover langs planet, og pa begge peker friksjonen oppover langs planet mens normalkraften star vinkelrett ut fra planet og tyngden rett ned.",
+      "caption": "Legg merke til snordragets retning: på den **nederste** klossen peker $T$ oppover langs planet (snora holder igjen), på den **øverste** nedover (snora drar). Friksjonen peker oppover på begge, siden begge glir nedover."
+    },
+    {
+      "id": "fys1100-3-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: To koblede klosser på samme skråplan",
+      "problem": "To klosser glir nedover et skråplan med helning $\\theta = 30{,}0^\\circ$, koblet med en masseløs snor. Den nederste har $m_1 = 2{,}00\\ \\text{kg}$ og friksjonstall $\\mu_1 = 0{,}200$; den øverste har $m_2 = 3{,}00\\ \\text{kg}$ og $\\mu_2 = 0{,}400$.\n\n**a)** Finn den felles akselerasjonen.\n\n**b)** Finn snordraget.\n\n**c)** Vis at snordraget blir null når $\\mu_1 = \\mu_2$, og forklar hvorfor.\n\n**d)** Hva skjer dersom $\\mu_1 > \\mu_2$?",
+      "solution": "**Metodevalg først:** begge klossene glir nedover, så friksjonen peker oppover langs planet på begge. Snora kan bare **dra**: den holder igjen den nederste klossen (snordraget peker oppover planet på $m_1$) og drar den øverste framover (nedover planet på $m_2$). Positiv retning nedover langs planet for begge.\n\n**a)** Systemmetoden er raskest. De ytre kreftene langs planet er de to tyngdekomponentene (drivende) og de to friksjonskreftene (bremsende):\n\n$$(m_1+m_2)g\\sin\\theta - \\mu_1 m_1 g\\cos\\theta - \\mu_2 m_2 g\\cos\\theta = (m_1+m_2)a$$\n\n$$a = g\\sin\\theta - g\\cos\\theta\\,\\frac{\\mu_1 m_1 + \\mu_2 m_2}{m_1+m_2}$$\n\n$$a = 9{,}81 \\cdot 0{,}500 - 9{,}81 \\cdot 0{,}866 \\cdot \\frac{0{,}400 + 1{,}200}{5{,}00} = 4{,}905 - 8{,}497 \\cdot 0{,}320 = 2{,}19\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs planet.\n\n**b)** Nå må vi splitte. For den nederste klossen (positiv nedover langs planet):\n\n$$m_1 g\\sin\\theta - \\mu_1 m_1 g\\cos\\theta - T = m_1 a$$\n\n$$T = m_1\\left(g\\sin\\theta - \\mu_1 g\\cos\\theta - a\\right)$$\n\nSetter vi inn uttrykket for $a$ og forenkler, får vi det symmetriske uttrykket\n\n$$T = \\frac{m_1 m_2}{m_1+m_2}\\,g\\cos\\theta\\,(\\mu_2 - \\mu_1)$$\n\n$$T = \\frac{2{,}00 \\cdot 3{,}00}{5{,}00} \\cdot 9{,}81 \\cdot 0{,}866 \\cdot 0{,}200 = 1{,}20 \\cdot 8{,}497 \\cdot 0{,}200 = 2{,}04\\ \\text{N}$$\n\n**Kontroll mot den øverste klossen:** $m_2 g\\sin\\theta - \\mu_2 m_2 g\\cos\\theta + T = 14{,}72 - 10{,}20 + 2{,}04 = 6{,}56\\ \\text{N}$, og $m_2 a = 3{,}00 \\cdot 2{,}19 = 6{,}56\\ \\text{N}$ ✓.\n\n**c)** Med $\\mu_1 = \\mu_2$ er faktoren $(\\mu_2 - \\mu_1) = 0$, altså $T = 0$.\n\nForklaringen er at hver kloss da har nøyaktig samme akselerasjon **på egen hånd**: uten snor ville begge fått $a = g(\\sin\\theta - \\mu\\cos\\theta)$, uavhengig av masse. Klossene faller da i takt uten å nærme seg eller fjerne seg fra hverandre, og snora har ingenting å gjøre. Snordraget oppstår bare når klossene *ville* fått ulik akselerasjon hver for seg.\n\n**d)** Da gir uttrykket $T < 0$, altså et negativt snordrag. Det er fysisk umulig — en snor kan ikke skyve. Tolkningen er at forutsetningen bryter sammen: den øverste klossen ville akselerert **raskere** enn den nederste, snora blir **slakk**, og de to klossene beveger seg uavhengig av hverandre inntil den øverste tar igjen den nederste og de kolliderer.\n\nUttrykket gjelder altså bare for $\\mu_2 \\ge \\mu_1$. Dette er et fint eksempel på at et matematisk uttrykk kan være riktig utledet og likevel ha et begrenset gyldighetsområde — og på hvorfor et negativt svar alltid skal tolkes, ikke bare rapporteres."
+    },
+    {
+      "id": "fys1100-3-3-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Ett felles frilegemediagram med snordraget tegnet inn.** Enten behandler du systemet som ett legeme (og da er snordraget indre og skal **ikke** med), eller så splitter du (og da trenger du to figurer). Blandingsformen teller snordraget dobbelt.\n\n**Ulikt snordrag i de to endene.** Er snora masseløs og trinsa masseløs og friksjonsfri, er $T$ det samme. Skriver du $T_1$ og $T_2$ som to ukjente uten å begrunne hvorfor, har du gjort oppgaven vanskeligere enn den er.\n\n**Friksjon glemt på ett av legemene.** Sjekk hvert legeme for seg: berører det noe? Da er det en normalkraft og potensielt en friksjonskraft.\n\n**Feil fortegn i koblingen.** Legemene beveger seg i ulike retninger i rommet, men har samme *tallverdi* på akselerasjonen. Velg positiv retning per legeme i den retningen du tror systemet går, skriv valget ned, og hold det.\n\n**Grensetilfellene hoppes over.** Toppbesvarelsene verifiserer uoppfordret — og på eksamen er verifiseringen ofte en egen deloppgave med egne poeng. Å hoppe over den er å la poeng ligge igjen.\n\n**Negativt svar rapporteres uten tolkning.** Et negativt snordrag betyr at snora skulle ha skjøvet, altså at den er slakk og forutsetningene ikke holder. En negativ normalkraft betyr at kontakten er brutt. Slike svar er ikke feil — de er opplysninger, og de skal tolkes.\n\n**Tallsvar uten begrunnelse (felle #1 — den dyreste enkeltfeilen; feilene har et samlet register i bokas Del 0).**"
+    },
+    {
+      "id": "fys1100-3-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave.) En medstudent leverer denne løsningen på et to-kloss-problem: «Jeg tegnet ett frilegemediagram for hele systemet med begge klossene, tok med tyngdene, normalkreftene, friksjonen og snordraget, og satte summen lik $(m_1+m_2)a$.»\n\n**a)** Hva er galt?\n\n**b)** Hvilke to riktige framgangsmåter finnes, og når velger du hvilken?\n\n**c)** Studenten får til slutt et negativt snordrag og skriver «$T = -3{,}2\\ \\text{N}$» som svar. Hva burde han gjort i stedet?",
+        "solution": "**a)** Snordraget er en **indre** kraft når begge klossene er med i systemet. De to snordragene — ett i hver ende — er et kraftpar etter Newtons 3. lov, og de opphever hverandre nøyaktig. Å ta med snordraget i systemlikningen er derfor å telle en kraft som ikke finnes utenfra, og resultatet blir galt. (Tar han med *begge* snordragene, faller de riktignok ut igjen, men da har figuren ingen hensikt.)\n\n**b)** \n\n**Systemmetoden:** behandle begge som ett legeme med masse $m_1+m_2$, og ta bare med **ytre** krefter. Dette gir akselerasjonen på én linje, men kan ikke gi snordraget.\n\n**Splittemetoden:** ett frilegemediagram og én komponentlikning per legeme, med snordraget som ytre kraft på hver av dem. Dette gir både akselerasjonen og snordraget, men koster mer arbeid.\n\nVelg systemmetoden når bare $a$ er etterspurt, splittemetoden når du trenger en indre kraft. Den raskeste ruten i praksis er ofte å finne $a$ med systemmetoden og deretter sette den inn i likningen for det enkleste legemet.\n\n**c)** Han burde **tolket** svaret. En snor kan bare dra, aldri skyve, så et negativt snordrag betyr at forutsetningen om at snora er stram, ikke holder: snora er slakk, og de to klossene beveger seg uavhengig av hverandre. Svaret skulle vært «$T = 0$, snora er slakk», med en setning om hvorfor. Å rapportere en negativ snorkraft uten kommentar viser at han ikke har vurdert om modellen gjelder.",
+        "hints": [
+          "Er snordraget en ytre eller indre kraft når begge klossene er med i systemet?",
+          "Hva kan en snor gjøre, og hva kan den ikke gjøre?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-3-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) To klosser er koblet med en masseløs snor og glir nedover et skråplan med helning $\\theta = 35{,}0^\\circ$. Den nederste har $m_1 = 4{,}00\\ \\text{kg}$ og $\\mu_1 = 0{,}150$; den øverste har $m_2 = 2{,}00\\ \\text{kg}$ og $\\mu_2 = 0{,}450$.\n\n**a)** Finn den felles akselerasjonen.\n\n**b)** Finn snordraget.\n\n**c)** Verifiser uttrykket for snordraget i grensen $\\mu_1 = \\mu_2$ og i grensen $m_2 \\to 0$.\n\n**d)** Hva ville skjedd om klossene byttet plass, slik at den med størst friksjonstall lå nederst?",
+        "solution": "**Metodevalg først:** begge klosser glir nedover, så friksjonen peker oppover langs planet på begge. Snora drar den øverste framover og holder igjen den nederste. Systemmetoden for $a$, splittemetoden for $T$.\n\n**a)** $$a = g\\sin\\theta - g\\cos\\theta\\,\\frac{\\mu_1m_1 + \\mu_2m_2}{m_1+m_2}$$\n\n$$a = 9{,}81 \\cdot 0{,}5736 - 9{,}81 \\cdot 0{,}8192 \\cdot \\frac{0{,}600 + 0{,}900}{6{,}00} = 5{,}627 - 8{,}036 \\cdot 0{,}250 = 3{,}62\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs planet.\n\n**b)** $$T = \\frac{m_1m_2}{m_1+m_2}\\,g\\cos\\theta\\,(\\mu_2-\\mu_1) = \\frac{8{,}00}{6{,}00} \\cdot 8{,}036 \\cdot 0{,}300 = 3{,}21\\ \\text{N}$$\n\n**Kontroll mot den nederste klossen:** $m_1g\\sin\\theta - \\mu_1m_1g\\cos\\theta - T = 22{,}51 - 4{,}82 - 3{,}21 = 14{,}48\\ \\text{N}$, og $m_1a = 4{,}00 \\cdot 3{,}62 = 14{,}48\\ \\text{N}$ ✓.\n\n**c)** \n\n*$\\mu_1 = \\mu_2$:* faktoren $(\\mu_2-\\mu_1)$ blir null, altså $T = 0$. Klossene ville fått nøyaktig samme akselerasjon hver for seg, siden $a = g(\\sin\\theta - \\mu\\cos\\theta)$ er masseuavhengig — de glir i takt, og snora har ingen jobb. ✓\n\n*$m_2 \\to 0$:* $T \\to 0$, siden faktoren $m_1m_2/(m_1+m_2) \\to 0$. En masseløs kloss trenger ingen kraft for å holde tritt. ✓\n\n**d)** Da ville $\\mu_1 = 0{,}450$ (nederst) og $\\mu_2 = 0{,}150$ (øverst), altså $\\mu_2 < \\mu_1$, og uttrykket ville gitt $T = -3{,}21\\ \\text{N}$ — et negativt snordrag. Det er fysisk umulig, og tolkningen er at **snora blir slakk**: den øverste klossen har mindre friksjon og akselererer raskere enn den nederste, så den tar innpå i stedet for å strekke snora.\n\nHver kloss ville da glidd med sin egen akselerasjon:\n\n$$a_{\\text{nederst}} = g(\\sin\\theta - 0{,}450\\cos\\theta) = 2{,}01\\ \\tfrac{\\text{m}}{\\text{s}^2}, \\qquad a_{\\text{øverst}} = g(\\sin\\theta - 0{,}150\\cos\\theta) = 4{,}42\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\ninntil den øverste tar igjen den nederste og de støter sammen. Rekkefølgen på klossene er altså ikke likegyldig — det er en av grunnene til at oppgaveteksten alltid presiserer hvilken som ligger hvor.",
+        "hints": [
+          "Systemmetoden gir akselerasjonen; friksjonen på hver kloss er $\\mu_i m_i g\\cos\\theta$.",
+          "Snordraget finner du fra én av klossene alene etter at $a$ er kjent.",
+          "I d): regn ut hva hver kloss ville fått av akselerasjon uten snor, og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-3-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-3-3-def-ytre-krefter",
+      "type": "definition",
+      "title": "Ytre krefter på et koblet system",
+      "content": "Kreftene som kommer fra noe **utenfor** systemet du har valgt: tyngdene, normalkreftene fra underlaget, friksjonen fra underlaget, og en eventuell ytre trekk- eller skyvekraft.\n\nBare disse teller i systemmetoden. En rask måte å finne dem på: tegn en tenkt strek rundt systemet, og ta med hver kraft som krysser streken. Snordraget mellom to legemer inne i systemet krysser ikke streken, og skal derfor ikke med."
+    },
+    {
+      "id": "fys1100-3-3-def-koordinat-per-legeme",
+      "type": "definition",
+      "title": "Koordinatsystem per legeme",
+      "content": "I et koblet system trenger ikke alle legemene samme akseretning — og som regel bør de ikke ha det. Klossen på skråplanet får aksene sine langs og normalt på planet; det hengende loddet får en loddrett akse.\n\nRegelen som holder orden på det: velg positiv retning for hvert legeme i den retningen du tror **det** legemet beveger seg. Da blir begge akselerasjonene lik samme positive $a$, og de to komponentlikningene kan adderes direkte. Skriv valget ned i besvarelsen — uten det er fortegnene uleselige for sensor."
+    },
+    {
+      "id": "fys1100-3-3-def-kryssjekk",
+      "type": "definition",
+      "title": "Kryssjekk mot den ubrukte likningen",
+      "content": "Etter at du har funnet $a$ og $T$, gjenstår det alltid én likning du ikke brukte til å finne dem. Sett svarene inn i den og kontroller at begge sider blir like.\n\nKontrollen tar under et halvt minutt og fanger opp fortegnsfeil, regnefeil og feil i dekomponeringen — de tre vanligste feiltypene i sjangeren. Den er dessuten selvstendig verdifull i besvarelsen: en synlig kryssjekk viser sensor at svaret er kontrollert, ikke bare produsert."
+    },
+    {
+      "id": "fys1100-3-3-def-trinsa",
+      "type": "definition",
+      "title": "Trinsas rolle",
+      "content": "En masseløs, friksjonsfri trinse gjør nøyaktig én ting: den **endrer retningen** på snordraget. Tallverdien er den samme før og etter.\n\nKonsekvensen er at et system med trinse kan «rettes ut» i tankene: du kan følge snora rundt og behandle bevegelsen som én endimensjonal bevegelse langs snorbanen. Det er nettopp denne uttrettingen systemmetoden bygger på. Har trinsa masse, holder ikke dette lenger — da må trinsas rotasjon med, og snordraget blir ulikt på de to sidene. Det ser vi på i delen om rotasjon."
+    },
+    {
+      "id": "fys1100-3-3-def-modellantakelser-koblet",
+      "type": "definition",
+      "title": "Modellantakelsene i flerlegemeoppgaver",
+      "content": "Fem forutsetninger ligger under nesten hver oppgave i dette kapitlet:\n\n- snora er **uttøyelig** (gir felles akselerasjon) og **masseløs** (gir likt snordrag);\n- trinsa er **masseløs og friksjonsfri** (endrer bare retning);\n- legemene behandles som **punktmasser** (ingen rotasjon eller velting);\n- friksjonen følger **Coulomb-modellen** med konstante friksjonstall;\n- snora er **stram** gjennom hele forløpet.\n\nDen siste er den som oftest svikter, og den røper seg som et negativt snordrag. Å skrive antakelsene ned i én linje er en billig måte å vise at du vet når svaret ditt slutter å gjelde."
+    },
+    {
+      "id": "fys1100-3-3-def-systemmetoden",
+      "type": "definition",
+      "title": "Systemmetoden",
+      "content": "Å behandle flere koblede legemer som **ett** legeme med samlet masse. De indre kreftene mellom dem — snordrag, kontaktkrefter — faller ut, fordi hvert indre kraftpar består av to like store, motsatt rettede krefter.\n\nMetoden gir akselerasjonen på én linje, og den er derfor den du bør gripe til under tidspress. Prisen er at den **ikke** kan gi deg de indre kreftene: skal du finne snordraget, må systemet splittes."
+    },
+    {
+      "id": "fys1100-3-3-def-splittemetoden",
+      "type": "definition",
+      "title": "Splittemetoden",
+      "content": "Å sette opp ett frilegemediagram og én komponentlikning per legeme, med de indre kreftene som ytre krefter på hvert enkelt legeme.\n\nDette er den eneste veien til snordrag og kontaktkrefter, og det er den formen sensor forventer når oppgaven ber om frilegemediagram. Praktisk kombinasjon: finn $a$ med systemmetoden, og sett den inn i likningen for det legemet som har færrest krefter. Da får du begge svarene med minst mulig algebra."
+    },
+    {
+      "id": "fys1100-3-3-def-indre-kraft-koblet",
+      "type": "definition",
+      "title": "Indre krefter i et koblet system",
+      "content": "Krefter som virker mellom deler **inne i** systemet du har valgt. Snordraget mellom to koblede klosser er indre for systemet av begge, men ytre for hver av dem.\n\nFordi indre krefter alltid opptrer i kraftpar etter Newtons 3. lov, summerer de seg til null. Det er dette som gjør systemmetoden mulig — og det er også grunnen til at et system aldri kan akselerere seg selv innenfra."
+    },
+    {
+      "id": "fys1100-3-3-def-atwood",
+      "type": "definition",
+      "title": "Atwood-maskin",
+      "content": "To lodd i hver sin ende av en masseløs snor over en masseløs trinse. Akselerasjonen blir\n\n$$a = \\frac{(m_2-m_1)g}{m_1+m_2}, \\qquad T = \\frac{2m_1m_2 g}{m_1+m_2}$$\n\nMaskinen er nyttig fordi den «tynner ut» tyngdeakselerasjonen: med nesten like masser blir $a$ vilkårlig liten, og bevegelsen kan måles med enkelt utstyr. Historisk var det nettopp slik $g$ ble bestemt før elektronisk tidtaking. Merk at snordraget alltid ligger **mellom** de to tyngdene."
+    },
+    {
+      "id": "fys1100-3-3-def-grensetilfelle",
+      "type": "definition",
+      "title": "Grensetilfelle-verifisering som ferdighet",
+      "content": "Å sette inn ekstremverdier i et ferdig uttrykk og kontrollere at svaret er fysisk fornuftig. De mest brukte grensene i denne delen:\n\n- $\\mu \\to 0$ — friksjonsleddet skal forsvinne helt;\n- $m \\to 0$ for ett av legemene — snordraget skal gå mot null;\n- $\\theta \\to 0$ eller $90^\\circ$ — systemet skal gå over i et enklere, kjent problem;\n- $m \\to \\infty$ — det tunge legemet skal falle praktisk talt fritt.\n\nPå eksamen er dette **ofte en egen deloppgave med egne poeng**, og toppbesvarelsene gjør det uoppfordret. Det er den billigste kvalitetssikringen som finnes."
+    },
+    {
+      "id": "fys1100-3-3-def-fortegnskonvensjon",
+      "type": "definition",
+      "title": "Fortegnskonvensjon i koblede systemer",
+      "content": "Regelen som gjør flerlegemeoppgaver håndterbare: **velg positiv retning for hvert legeme i den retningen du tror systemet beveger seg**, og skriv valget ned i besvarelsen.\n\nMed det valget er begge akselerasjonene positive og lik samme $a$, og du slipper å holde styr på minustegn gjennom en trinse. Skulle antakelsen om bevegelsesretning være feil, kommer $a$ ut negativ — og da har du fått svaret likevel, med et fortegn som forteller deg at systemet går andre veien."
+    },
+    {
+      "id": "fys1100-3-3-def-glidningsantakelse",
+      "type": "definition",
+      "title": "Glidningsantakelsen",
+      "content": "Forutsetningen om at legemene faktisk **glir**, slik at den dynamiske friksjonsmodellen $f_d = \\mu_d N$ gjelder.\n\nAntakelsen svikter i to tilfeller: når systemet står stille (da gjelder hvilefriksjonen $f_s \\le \\mu_s N$ i stedet), og når regnestykket gir en akselerasjon som peker motsatt vei av den antatte bevegelsen. Får du et absurd svar — en kloss som akselererer oppover et plan uten at noe drar — er det nesten alltid glidningsantakelsen som har brutt sammen."
+    },
+    {
+      "id": "fys1100-3-3-def-hvilebetingelse-koblet",
+      "type": "definition",
+      "title": "Betingelse for at et koblet system står stille",
+      "content": "Systemet blir stående dersom hvilefriksjonen greier å balansere den drivende kraften. For en kloss på et vannrett bord koblet til et hengende lodd:\n\n$$m_2 \\le \\mu_s m_1$$\n\nog for en kloss på et skråplan koblet til et lodd:\n\n$$m_2 \\le m_1(\\sin\\theta + \\mu_s\\cos\\theta)$$\n\nLegg merke til at $g$ faller ut av begge betingelsene — de gjelder like godt på månen. Merk også at det er $\\mu_s$ som avgjør om noe **begynner** å bevege seg, mens $\\mu_d$ styrer hva som skjer etterpå."
+    },
+    {
+      "id": "fys1100-3-3-def-slakk-snor",
+      "type": "definition",
+      "title": "Slakk snor",
+      "content": "En snor som ikke er stram. Da er $T = 0$, og koblingsbetingelsen gjelder **ikke** lenger — legemene beveger seg uavhengig av hverandre.\n\nSlakk snor er den fysiske tolkningen av et **negativt** snordrag i et regnestykke: uttrykket ber snora om å skyve, og det kan den ikke. Riktig svar er da «$T = 0$, snora er slakk», med en setning om hvorfor. Å rapportere en negativ snorkraft uten kommentar er et sikkert poengtap."
+    },
+    {
+      "id": "fys1100-3-3-def-kontaktkraft-klosser",
+      "type": "definition",
+      "title": "Kontaktkraft mellom klosser",
+      "content": "Skyves to klosser inntil hverandre framover av én kraft, er kontaktkraften mellom dem den indre kraften — helt analogt med snordraget, bare med motsatt fortegnsregel: en kontaktflate kan bare **skyve**, aldri dra.\n\nRegnestykket er det samme: systemmetoden gir akselerasjonen, splittemetoden gir kontaktkraften. Blir kontaktkraften negativ i regningen, betyr det at klossene skiller lag."
+    },
+    {
+      "id": "fys1100-3-3-def-eliminasjon",
+      "type": "definition",
+      "title": "Eliminasjonsmetoden",
+      "content": "Standardgrepet for å løse likningssettet fra to frilegemediagram: adder de to komponentlikningene slik at snordraget faller ut, og løs for $a$. Sett deretter $a$ inn i den enkleste av likningene for å finne $T$.\n\nGrepet virker fordi snordraget opptrer med motsatt fortegn i de to likningene — nettopp fordi det er et kraftpar. Det er også grunnen til at addisjonen gir systemlikningen: du utleder systemmetoden på nytt hver gang du eliminerer."
+    },
+    {
+      "id": "fys1100-3-3-def-symbolsk-forst",
+      "type": "definition",
+      "title": "Symbolsk løsning før innsetting",
+      "content": "Å løse hele oppgaven med bokstaver og først sette inn tall til slutt. Fire grunner til at det lønner seg på eksamen:\n\n- **grensetilfellene kan bare sjekkes symbolsk** — et tall røper ingenting;\n- **benevningskontroll** er mulig;\n- **følgefeil straffes ikke** når mellomregningen er symbolsk og sporbar;\n- neste deloppgave spør ofte om det samme systemet med andre tall.\n\nRegel: sett inn tall én gang, helt til slutt, og oppgi enhet og retning der."
+    },
+    {
+      "id": "fys1100-3-3-def-benevning-symbolsk",
+      "type": "definition",
+      "title": "Benevningskontroll av et symbolsk uttrykk",
+      "content": "Å sjekke at et bokstavuttrykk har riktig enhet før du setter inn tall. I\n\n$$a = \\frac{g\\left(m_2 - m_1\\sin\\theta - \\mu_d m_1\\cos\\theta\\right)}{m_1+m_2}$$\n\nhar telleren enheten $\\text{m/s}^2 \\cdot \\text{kg}$ (vinkelfunksjonene og $\\mu_d$ er dimensjonsløse) og nevneren $\\text{kg}$, slik at $a$ får $\\text{m/s}^2$ ✓.\n\nKontrollen fanger de vanligste algebrafeilene: en glemt $g$, en masse på feil side av brøkstreken, eller et friksjonstall som har fått med seg en enhet det ikke skal ha."
+    },
+    {
+      "id": "fys1100-3-3-def-parameterdroefting",
+      "type": "definition",
+      "title": "Parameterdrøfting",
+      "content": "Å undersøke hvordan svaret endrer seg når en parameter varierer gjennom hele sitt fysisk rimelige område — ikke bare for det ene tallsettet oppgaven gir.\n\nTypiske spørsmål: «for hvilke $(\\mu_1,\\mu_2)$ blir klossene liggende?», «hva skjer når $\\theta$ vokser mot $90^\\circ$?», «finnes det en verdi der snordraget skifter fortegn?». Slike deloppgaver er blant de mest poenggivende, fordi de viser at du forstår uttrykket og ikke bare har regnet det ut."
+    },
+    {
+      "id": "fys1100-3-3-def-rimelighet-a",
+      "type": "definition",
+      "title": "Rimelighetssjekk: hvor stor kan akselerasjonen være?",
+      "content": "Et koblet system under tyngdens virkning kan aldri få større akselerasjon enn $g$. Får du $a = 14\\ \\text{m/s}^2$ i en oppgave der bare tyngden driver, er noe galt — typisk en masse som er havnet i telleren i stedet for nevneren.\n\nTilsvarende grenser er verdt å ha i bakhodet: snordraget i en Atwood-maskin ligger alltid **mellom** de to tyngdene, og en normalkraft er aldri negativ. Slike raske sjekker koster ingenting og fanger grove feil før de forplanter seg."
+    },
+    {
+      "id": "fys1100-3-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-3-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $m_1$, $m_2$ | massene til de to koblede legemene | $\\text{kg}$ |\n| $a$ | felles tallverdi på akselerasjonen | $\\text{m/s}^2$ |\n| $T$ | snordrag (samme i begge ender av en masseløs snor) | $\\text{N}$ |\n| $\\mathbf{N}$, $N$ | normalkraft og dens tallverdi | $\\text{N}$ |\n| $\\mu_1$, $\\mu_2$ | friksjonstall under hvert av de to legemene | dimensjonsløse |\n| $\\mu_s$, $\\mu_d$ | statisk og dynamisk friksjonstall | dimensjonsløse |\n| $\\theta$ | skråplanets helningsvinkel | grader eller radianer |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $F$ | ytre trekk- eller skyvekraft | $\\text{N}$ |\n\n**Symbolkollisjoner:** $T$ er snordrag i hele boka — perioden i en svingning skrives $T_p$. Friksjonstallene skrives med subskript for hvilken kloss ($\\mu_1$, $\\mu_2$) **eller** for type ($\\mu_s$, $\\mu_d$); står begge deler i samme oppgave, skriv $\\mu_{d,1}$. Tyngden er $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$\\lvert a_1\\rvert = \\lvert a_2\\rvert = a$$\n\nKoblingsbetingelsen for en uttøyelig snor. **[må kunne utledes]** — den følger av at snorens lengde er fast.\n\n$$\\sum F_{\\text{ytre}} = \\left(\\sum m_i\\right)a$$\n\nSystemmetoden. **[må kunne utledes]** — Newtons 2. lov på hele systemet, der indre krefter faller ut.\n\n$$a = \\frac{(m_2-m_1)g}{m_1+m_2}, \\qquad T = \\frac{2m_1m_2g}{m_1+m_2}$$\n\nAtwood-maskinen. **[må kunne utledes]** — utled dem hver gang; de er tre linjer og lett å huske feil.\n\n$$a = \\frac{g\\left(m_2 - m_1\\sin\\theta - \\mu_d m_1\\cos\\theta\\right)}{m_1+m_2}$$\n\nKloss på skråplan koblet til hengende lodd. **[må kunne utledes]** — dette er kapitlets hovedresultat, og utledningen er selve eksamensferdigheten.\n\n$$T = \\frac{m_1m_2}{m_1+m_2}\\,g\\cos\\theta\\,(\\mu_2-\\mu_1)$$\n\nSnordrag mellom to klosser på samme skråplan. **[må kunne utledes]** — gyldig bare for $\\mu_2 \\ge \\mu_1$; ellers er snora slakk.\n\n$$m_2 \\le m_1(\\sin\\theta + \\mu_s\\cos\\theta)$$\n\nBetingelsen for at systemet blir stående i ro. **[må kunne utledes]** — merk at $g$ faller ut."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-3-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-3-3-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-3-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) Skriv opp tyngdens to komponenter på et skråplan med helning $\\theta$, og si hvilken av dem normalkraften balanserer.",
+            "solution": "Komponenten langs planet er $mg\\sin\\theta$, komponenten normalt på planet er $mg\\cos\\theta$. Normalkraften balanserer den siste, slik at $N = mg\\cos\\theta$ — forutsatt at ingen andre krefter har komponent normalt på planet.",
+            "hints": [
+              "Tyngden danner vinkelen $\\theta$ med normalen til planet."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-3-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-3-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) Hvorfor kan ikke kraft og motkraft oppheve hverandre i ett frilegemediagram?",
+            "solution": "Fordi de virker på **ulike** legemer. Kraft og motkraft havner derfor i hvert sitt diagram, og et diagram inneholder aldri mer enn den ene av dem. Krefter kan bare oppheve hverandre når de virker på samme legeme.\n\nDette er nøyaktig grunnen til at snordraget faller ut i systemmetoden: der er begge kreftene i paret med, og de summerer seg til null.",
+            "hints": [
+              "Hvilket legeme virker hver av de to kreftene på?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-3-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-3-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) En kloss glir nedover et plan med $\\theta = 20^\\circ$ og $\\mu_d = 0{,}30$. Finn akselerasjonen.",
+            "solution": "$$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}342 - 0{,}300 \\cdot 0{,}940) = 9{,}81 \\cdot 0{,}0602 = 0{,}59\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nnedover langs planet. Merk hvor liten akselerasjonen blir: friksjonstallet er nær $\\tan 20^\\circ = 0{,}364$, altså nær grensen der klossen ville blitt liggende.",
+            "hints": [
+              "Friksjonen peker oppover når klossen glir nedover."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-3-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-3-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Et koblet system starter fra ro med konstant akselerasjon $1{,}4\\ \\text{m/s}^2$. Hvor fort går det etter $1{,}5\\ \\text{m}$, og hvor lang tid tar det?",
+            "solution": "$$v = \\sqrt{2as} = \\sqrt{2 \\cdot 1{,}4 \\cdot 1{,}5} = 2{,}0\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad t = \\frac{v}{a} = \\frac{2{,}05}{1{,}4} = 1{,}5\\ \\text{s}$$\n\nDette er det faste mønsteret i sjanger C: Newtons 2. lov gir akselerasjonen, kinematikken gir fart, strekning og tid.",
+            "hints": [
+              "Bruk den tidløse likningen først, og deretter $v = at$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-3-3-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-3-3-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Begrepskontroll.) En oppgave gir svaret $N = -12\\ \\text{N}$ for normalkraften på en kloss. Hva betyr det?",
+            "solution": "At forutsetningen om kontakt ikke holder. Et underlag kan bare **skyve**, aldri dra, så normalkraften kan ikke være negativ. Tolkningen er at klossen har løftet seg fra underlaget — typisk fordi en snor trekker for hardt oppover, eller fordi farten i en loop er for liten til å holde kontakten.\n\nRiktig svar er derfor «$N = 0$, kontakten er brutt», med en setning om hvorfor. Nøyaktig samme resonnement gjelder for et negativt snordrag: da er snora slakk.",
+            "hints": [
+              "Kan et underlag dra i et legeme?",
+              "Sammenlign med hva et negativt snordrag betyr."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
