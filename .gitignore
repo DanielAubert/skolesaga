@@ -50,6 +50,21 @@ src/lib/data/meta/_all.json
 # Repoet hadde null sporede PDF-er før to ble sveipet inn ved et uhell 25. juli.
 *.pdf
 
+# Media holdes UTENFOR git. Filene serveres fra Supabase Storage (bucket «media»),
+# ikke fra public/ — src/lib/media.ts::mediaUrl() skriver om alle /audio/- og
+# /images/-stier til Storage-URL-er før rendring. Så lenge de lå her, sendte hver
+# eneste deploy 2 483 MB som aldri ble servert; HEAD var 3,0 GB i stedet for 0,5.
+#
+# Verifisert 26. juli 2026 før utrydding: alle 2 205 filene finnes i Storage med
+# byte-identisk størrelse, og ingen kode peker på dem utenom mediaUrl().
+#
+# Filene ligger fortsatt på disk hos den som genererer dem. Nye figurer og lydfiler
+# skal derfor legges i public/ som før og lastes opp med
+# `npx tsx scripts/upload-media-storage.ts` — men de blir aldri committet.
+# Porten scripts/hoyskolebok/sjekk-figurer.py tester mot Storage, ikke mot disk.
+public/audio/
+public/images/
+
 # vercel CLI
 .vercel
 

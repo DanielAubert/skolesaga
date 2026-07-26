@@ -1,0 +1,20 @@
+# Hva som IKKE skal lastes opp ved `vercel`-deploy fra terminalen.
+#
+# Uten denne fila pakker Vercel-CLI-en alt som ikke står i .gitignore.
+#
+# .claude/worktrees er ett arbeidstre per bok under bygging — flere gigabyte
+# hver, med full kopi av repoet. De er utviklingsverktøy og skal aldri deployes.
+.claude/
+
+# Media serveres fra Supabase Storage, ikke fra public/ — se src/lib/media.ts,
+# som skriver om alle /audio/- og /images/-stier til Storage-URL-er. Filene her
+# er derfor døde i produksjon. De er også fjernet fra git-sporingen, men står
+# her i tillegg fordi de fortsatt ligger på disk hos den som genererer dem.
+public/audio/
+public/images/
+
+# Testartefakter og lokale mellomprodukter.
+playwright-report/
+test-results/
+.playwright-mcp/
+src/lib/data/quiz-staging/
