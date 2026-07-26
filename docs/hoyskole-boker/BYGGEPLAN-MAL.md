@@ -223,8 +223,20 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       = 0; skann prøve-fasitlinjene for «alle a»-mønster; python-sjekk at
       ingen collapsible har tom/manglende `content`-array; stikkprøv at Del 0
       har «Lite tid?»-boks + kildenote + prosedyrekort, og at «kap. X.Y» i
-      fasiter er markdown-lenker. Regnefag med nye SVG-er: kjør
-      `npx tsx scripts/upload-media-storage.ts` FØR deploy.
+      fasiter er markdown-lenker.
+- [ ] **⚠ SVG-BERGING — NYTT 26. juli 2026, gjelder alle bøker med figurer.**
+      `public/images` er ikke lenger sporet i git (mediene serveres fra Supabase
+      Storage — se minnet «medieflytting-gjenopptak»). Figurene en byggeagent
+      lager i et arbeidstre blir derfor **ikke med i merge-en**, og forsvinner
+      for godt hvis treet fjernes med `git worktree remove --force`. Rekkefølgen
+      er ufravikelig:
+      1. `cp -n .claude/worktrees/bok-<emne>/public/images/textbook/<emne>/*.svg
+         public/images/textbook/<emne>/` (opprett målmappa først)
+      2. `npx tsx scripts/upload-media-storage.ts` — det er DENNE som gjør dem
+         synlige for lesere; disk alene holder ikke
+      3. `python3 scripts/hoyskolebok/sjekk-figurer.py <emne>` — porten tester mot
+         Storage, ikke mot disk, så den er den eneste gyldige kvitteringen
+      4. FØRST DA kan arbeidstreet fjernes
 - [ ] Bølge 4+5-port (jf. README «Leserkrav»): grep «en A-besvarelse ville» /
       «ville ha drøftet» = 0 (meta-fasit); skann riktig/galt-/felle-fasiter
       for ensartet mønster (aldri «alle felle»); python-sjekk at exercises

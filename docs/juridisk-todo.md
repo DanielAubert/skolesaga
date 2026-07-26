@@ -50,12 +50,33 @@ markedsforutsetning. Egensiden `/tilgjengelighet` er bra, men erstatter ikke det
 - Gjenstår: tjenesteregistrering/avtale i Sikt kundeportal så skoler kan aktivere
   Skolesaga for sine brukere.
 
-## 5. ⬜ Verifiser ElevenLabs-lisens (lydbøkene)
+## 5. ⬜ Verifiser ElevenLabs-lisens (lydbøkene) — SMALNET INN 26. juli 2026
 
-- Sjekk at abonnementsnivået dekker kommersiell bruk av generert lyd.
-- Bekreft at stemmen(e) (VOICE_ID i `scripts/generate-full-chapter.ts`) er
-  lisensiert/egen – ikke klonet stemme uten samtykke.
-- Vurder synlig attribusjon hvis vilkårene krever det.
+**Stemmespørsmålet er avklart i koden og krever ingen videre undersøkelse.**
+Kodegjennomgang 26. juli 2026:
+
+- Alle lydfiler er generert med **én stemme: «Liam», `TX3LPaxmHKxFdv7VOQHJ`** —
+  en av ElevenLabs' **ferdiglagde standardstemmer**. Identisk VOICE_ID i alle
+  generatorskriptene (`generate-full-chapter.ts`, `generate-chapter-*.ts`,
+  `regenerate-danish-segments.ts`).
+- **Ingen stemmekloning noe sted i kodebasen** (grep på `voice.clone`,
+  `/v1/voices/add`, instant/professional voice clone: 0 treff). Samtykkekravet
+  som gjelder klonede stemmer er dermed ikke utløst.
+- Stemmen er **ikke** hentet fra Voice Library, der opplasteren kan sette egne
+  vilkår som forbyr kommersiell bruk. Den er ElevenLabs' egen.
+- Ingen andre TTS-leverandører i bruk.
+- Omfang: **407 lydfiler** i `public/audio` (serveres fra Supabase Storage).
+
+**Det som fortsatt gjenstår, og bare kan gjøres av kontoeier:**
+
+1. Bekreft betalt abonnementsnivå — https://elevenlabs.io/app/subscription
+   (gratisnivået gir ikke kommersielle rettigheter og krever attribusjon;
+   ethvert betalt nivå gir kommersiell lisens).
+2. Les https://elevenlabs.io/terms-of-use og sjekk om nivået krever synlig
+   attribusjon. I så fall: én linje i footer eller på `/vilkar`.
+3. **Viktigst:** finn setningen om hva som skjer med ALLEREDE GENERERT lyd hvis
+   abonnementet sies opp eller nedgraderes. Med 407 publiserte filer er det den
+   ene betingelsen som kan bite i ettertid.
 
 ## 6. ⬜ Infrastruktur-verifisering (rest fra GDPR-sporet)
 

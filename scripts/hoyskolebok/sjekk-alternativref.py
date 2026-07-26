@@ -43,15 +43,52 @@ MONSTRE = [
 ]
 
 
+def kilder(emne=None):
+    """Alle filer som kan inneholde quiz-forklaringer, per emne.
+
+    To kilder, fordi quizene lever to steder i løpet av en bokproduksjon:
+      · `quiz-staging/<id>.quiz.json` — der byggeagentene skriver dem
+      · `quiz-data-<emne>.ts`         — der de havner etter wiring (fase 5)
+
+    Leste porten bare den andre, meldte den «OK» for enhver bok som ennå ikke
+    var wiret — altså gjennom HELE byggefasen, som er nettopp når feilen
+    innføres og er billigst å rette. Blindsonen ble oppdaget 26. juli 2026 av en
+    byggeagent som la merke til at porten ikke kunne ha lest noe.
+    """
+    ut = {}
+    for p in sorted(glob.glob(os.path.join(DATA, "quiz-data-*.ts"))):
+        ut.setdefault(os.path.basename(p)[len("quiz-data-"):-3], []).append(p)
+    for p in sorted(glob.glob(os.path.join(DATA, "quiz-staging", "*.quiz.json"))):
+        # <emne>-<del>-<kap>.quiz.json → emnet er alt før første tallsegment
+        navn = os.path.basename(p)[: -len(".quiz.json")]
+        m = re.match(r"^([a-z]+[a-z0-9-]*?)-\d", navn)
+        if m:
+            ut.setdefault(m.group(1), []).append(p)
+    return ut
+
+
 def main():
     valgte = set(sys.argv[1:])
-    filer = sorted(glob.glob(os.path.join(DATA, "quiz-data-*.ts")))
+    alle = kilder()
+
+    # En port som stille finner ingenting gir falsk trygghet. Nevner brukeren et
+    # emne vi ikke har én eneste fil for, er det en feil — ikke et grønt svar.
+    if valgte:
+        tomme = sorted(valgte - set(alle))
+        if tomme:
+            print(f"ALTERNATIVPORT KAN IKKE MÅLE: fant ingen quiz-filer for "
+                  f"{', '.join(tomme)}.")
+            print(f"Lette i {DATA}/quiz-data-<emne>.ts og "
+                  f"{DATA}/quiz-staging/<emne>-*.quiz.json.")
+            print("Er du i riktig arbeidstre? Er emnenavnet riktig skrevet?")
+            sys.exit(1)
+
     tot = 0
-    for p in filer:
-        emne = os.path.basename(p)[len("quiz-data-"):-3]
+    for emne in sorted(alle):
         if valgte and emne not in valgte:
             continue
-        s = open(p, encoding="utf-8", errors="replace").read()
+        s = "\n".join(open(p, encoding="utf-8", errors="replace").read()
+                      for p in alle[emne])
         funn = []
         for rx, navn in MONSTRE:
             for m in re.finditer(rx, s):
