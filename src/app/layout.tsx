@@ -36,6 +36,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.skolesaga.no'),
+  // Google Search Console. Rendres som
+  // <meta name="google-site-verification" content="…"> i <head>.
+  // Verifiserer en URL-prefiks-eiendom (https://www.skolesaga.no/).
+  // NB: en Domain-eiendom, som dekker apex og www under ett, kan IKKE
+  // verifiseres med metatagg — den krever en TXT-post i DNS.
+  verification: {
+    google: '1bQSg34uK30NLmznZVmLP6yhI_68u0uv7_hbabokw4k',
+  },
   title: {
     default: "Skolesaga - Interaktive lærebøker for norsk skole",
     template: "%s | Skolesaga"
