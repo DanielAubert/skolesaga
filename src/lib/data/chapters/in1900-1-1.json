@@ -32,13 +32,13 @@
       "id": "in1900-1-1-def-4",
       "type": "definition",
       "title": "Variabel og tilordning `=`",
-      "content": "En **variabel** er et navn som peker på en verdi. Du lager den med et likhetstegn: navnet til venstre, verdien til høyre.\n\nLikhetstegnet i Python betyr ikke «er lik» slik det gjør i matematikk. Det betyr **«regn ut høyresiden, og la navnet på venstresiden peke på resultatet»**. Derfor er `x = x + 1` en helt fornuftig setning: regn ut den gamle `x` pluss 1, og la `x` peke på det nye tallet.\n\n```python\ntemperatur = 21.5 temperatur = temperatur + 1 print(temperatur)\n```\n\n**Utskrift:**\n```\n22.5\n```"
+      "content": "En **variabel** er et navn som peker på en verdi. Du lager den med et likhetstegn: navnet til venstre, verdien til høyre.\n\nLikhetstegnet i Python betyr ikke «er lik» slik det gjør i matematikk. Det betyr **«regn ut høyresiden, og la navnet på venstresiden peke på resultatet»**. Derfor er `x = x + 1` en helt fornuftig setning: regn ut den gamle `x` pluss 1, og la `x` peke på det nye tallet.\n\n```python\ntemperatur = 21.5\ntemperatur = temperatur + 1\nprint(temperatur)\n```\n\n**Utskrift:**\n```\n22.5\n```"
     },
     {
       "id": "in1900-1-1-def-5",
       "type": "definition",
       "title": "`print(a, b, c)`",
-      "content": "Skriver verdiene ut i terminalen og avslutter med linjeskift. Flere argumenter skilles av **ett mellomrom** — det er Python som setter det inn, ikke deg.\n\nDette er detaljen som avgjør flest kodesporingsoppgaver: `print(3, 4)` gir `3 4` med ett mellomrom, mens `print('3' + '4')` gir `34` uten.\n\n```python\nprint(3, 4)\nprint('sum:', 3 + 4)\nprint('3' + '4')\n```\n\n**Utskrift:**\n```\n3 4 sum: 7\n34\n```"
+      "content": "Skriver verdiene ut i terminalen og avslutter med linjeskift. Flere argumenter skilles av **ett mellomrom** — det er Python som setter det inn, ikke deg.\n\nDette er detaljen som avgjør flest kodesporingsoppgaver: `print(3, 4)` gir `3 4` med ett mellomrom, mens `print('3' + '4')` gir `34` uten.\n\n```python\nprint(3, 4)\nprint('sum:', 3 + 4)\nprint('3' + '4')\n```\n\n**Utskrift:**\n```\n3 4\nsum: 7\n34\n```"
     },
     {
       "id": "in1900-1-1-def-6",
@@ -75,7 +75,7 @@
       "type": "example",
       "title": "Eksempel 1: Hvilken datatype fikk jeg?",
       "problem": "En værstasjon lagrer fire opplysninger. Hvilken datatype har hver av dem, og hva skriver programmet ut?",
-      "solution": "Vi lar Python svare selv. Legg merke til at `type` skriver typenavnet inne i `<class ...>`:\n\n```python\ntemperatur = 21.5 antall_stasjoner = 4 navn = 'Blindern' maalt_i_dag = True print(type(temperatur))\nprint(type(antall_stasjoner))\nprint(type(navn))\nprint(type(maalt_i_dag))\n```\n\n**Utskrift:**\n```\n<class 'float'>\n<class 'int'>\n<class 'str'>\n<class 'bool'>\n```\n\nFire linjer inn, fire linjer ut: `float`, `int`, `str`, `bool`. Merk at det er **verdien** som bestemmer typen, ikke navnet — Python spør aldri hva du hadde tenkt."
+      "solution": "Vi lar Python svare selv. Legg merke til at `type` skriver typenavnet inne i `<class ...>`:\n\n```python\ntemperatur = 21.5\nantall_stasjoner = 4\nnavn = 'Blindern'\nmaalt_i_dag = True\nprint(type(temperatur))\nprint(type(antall_stasjoner))\nprint(type(navn))\nprint(type(maalt_i_dag))\n```\n\n**Utskrift:**\n```\n<class 'float'>\n<class 'int'>\n<class 'str'>\n<class 'bool'>\n```\n\nFire linjer inn, fire linjer ut: `float`, `int`, `str`, `bool`. Merk at det er **verdien** som bestemmer typen, ikke navnet — Python spør aldri hva du hadde tenkt."
     },
     {
       "id": "in1900-1-1-oppg-1",
@@ -127,7 +127,7 @@
       "type": "example",
       "title": "Eksempel 2: Tre måter å dele 7 på 2",
       "problem": "Hva skriver dette programmet ut? Vær nøye med fortegnene.",
-      "solution": "Vi kjører det:\n\n```python\nantall = 7 gruppestorrelse = 2 print(antall / gruppestorrelse)\nprint(antall // gruppestorrelse)\nprint(antall % gruppestorrelse)\nprint(-antall // gruppestorrelse, -antall % gruppestorrelse)\n```\n\n**Utskrift:**\n```\n3.5\n3\n1\n-4 1\n```\n\nLinje for linje: `/` gir flyttallet `3.5`. `//` kaster desimalene og gir `3` — sju personer fordelt to og to blir tre hele par. `%` gir `1` — én person står igjen.\n\nDen siste linja er fellen. `-7 // 2` er **ikke** `-3`. Runder du nedover fra $-3{,}5$, kommer du til $-4$. Og siden `(-4) * 2 + 1` er `-7`, må resten være `1`."
+      "solution": "Vi kjører det:\n\n```python\nantall = 7\ngruppestorrelse = 2\nprint(antall / gruppestorrelse)\nprint(antall // gruppestorrelse)\nprint(antall % gruppestorrelse)\nprint(-antall // gruppestorrelse, -antall % gruppestorrelse)\n```\n\n**Utskrift:**\n```\n3.5\n3\n1\n-4 1\n```\n\nLinje for linje: `/` gir flyttallet `3.5`. `//` kaster desimalene og gir `3` — sju personer fordelt to og to blir tre hele par. `%` gir `1` — én person står igjen.\n\nDen siste linja er fellen. `-7 // 2` er **ikke** `-3`. Runder du nedover fra $-3{,}5$, kommer du til $-4$. Og siden `(-4) * 2 + 1` er `-7`, må resten være `1`."
     },
     {
       "id": "in1900-1-1-adv-18",
@@ -143,7 +143,7 @@
         "number": "2",
         "type": "classic",
         "difficulty": "lett",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med linjeskift slik terminalen viser den.\n\n```python\nmaalinger = 13 kolonner = 4 print(maalinger // kolonner)\nprint(maalinger % kolonner)\nprint(maalinger / kolonner)\n```",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med linjeskift slik terminalen viser den.\n\n```python\nmaalinger = 13\nkolonner = 4\nprint(maalinger // kolonner)\nprint(maalinger % kolonner)\nprint(maalinger / kolonner)\n```",
         "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Regnes ut til | Utskrift så langt |\n|---|---|---|---|\n| 1 | `maalinger = 13` | navnet peker på `13` | (ingenting) |\n| 2 | `kolonner = 4` | navnet peker på `4` | (ingenting) |\n| 3 | `13 // 4` | `3` (runder nedover fra 3,25) | `3` |\n| 4 | `13 % 4` | `1` (fordi `3 * 4 + 1 = 13`) | `3` og `1` |\n| 5 | `13 / 4` | `3.25` (flyttall) | `3`, `1` og `3.25` |\n\n**Utskrift:**\n```\n3\n1\n3.25\n```\n\n**Fellenote:** fellen her er #15 — å skrive `3.25` på den første linja fordi man tenker «deling». Legg også merke til at `/` er den eneste av de tre som gir et desimalpunkt i utskriften.",
         "hints": [
           "Regn ut hver linje for seg, og hold de tre divisjonene fra hverandre.",
@@ -172,7 +172,7 @@
         "number": "3",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\na = 3 print(2 ** a ** 2)\nprint(-a ** 2 + 1)\nprint(2 ** -2)\n```",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\na = 3\nprint(2 ** a ** 2)\nprint(-a ** 2 + 1)\nprint(2 ** -2)\n```",
         "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Rekkefølge | Verdi | Utskrift så langt |\n|---|---|---|---|---|\n| 2 | `2 ** 3 ** 2` | høyre først: `3 ** 2` er `9`, så `2 ** 9` | `512` | `512` |\n| 3 | `-3 ** 2 + 1` | `3 ** 2` er `9`, så `-9`, så `-9 + 1` | `-8` | `512`, `-8` |\n| 4 | `2 ** -2` | negativ eksponent gir flyttall | `0.25` | `512`, `-8`, `0.25` |\n\n**Utskrift:**\n```\n512\n-8\n0.25\n```\n\n**Fellenote:** fellen er #15 igjen, i to varianter — `64` på første linje (venstre-til-høyre) og `10` på andre linje (fortegnet tatt med inn i potensen). Riktig sporing av én av tre linjer gir uttelling i den fritekstversjonen av sjangeren; på flervalg må hele utskriften stemme.",
         "hints": [
           "`**` regnes fra høyre, og binder sterkere enn minustegnet foran et tall.",
@@ -196,7 +196,7 @@
       "type": "example",
       "title": "Eksempel 4: Fem uttrykk med samme tall",
       "problem": "Tallene 6 og 4 i fem forskjellige uttrykk. Hva skriver programmet ut?",
-      "solution": "```python\na = 6 b = 4 print(a + b * 2)\nprint((a + b) * 2)\nprint(a / b * 2)\nprint(a - b - 1)\nprint(a % b * 2)\n```\n\n**Utskrift:**\n```\n14\n20\n3.0\n1\n4\n```\n\n- `6 + 4 * 2`: gangetegnet først, altså `6 + 8`.\n- `(6 + 4) * 2`: parentesen først, altså `10 * 2`.\n- `6 / 4 * 2`: samme nivå, fra venstre: `1.5 * 2`. Flyttall, fordi `/` var inne.\n- `6 - 4 - 1`: fra venstre: `2 - 1`. Hadde det vært fra høyre, ville svaret vært `3`.\n- `6 % 4 * 2`: `%` og `*` er samme nivå, fra venstre: `2 * 2`.\n\nDen tredje og den femte linja er de som skiller. Begge lever av regelen «samme nivå tas fra venstre»."
+      "solution": "```python\na = 6\nb = 4\nprint(a + b * 2)\nprint((a + b) * 2)\nprint(a / b * 2)\nprint(a - b - 1)\nprint(a % b * 2)\n```\n\n**Utskrift:**\n```\n14\n20\n3.0\n1\n4\n```\n\n- `6 + 4 * 2`: gangetegnet først, altså `6 + 8`.\n- `(6 + 4) * 2`: parentesen først, altså `10 * 2`.\n- `6 / 4 * 2`: samme nivå, fra venstre: `1.5 * 2`. Flyttall, fordi `/` var inne.\n- `6 - 4 - 1`: fra venstre: `2 - 1`. Hadde det vært fra høyre, ville svaret vært `3`.\n- `6 % 4 * 2`: `%` og `*` er samme nivå, fra venstre: `2 * 2`.\n\nDen tredje og den femte linja er de som skiller. Begge lever av regelen «samme nivå tas fra venstre»."
     },
     {
       "id": "in1900-1-1-oppg-4",
@@ -206,7 +206,7 @@
         "number": "4",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nx = 10 y = 3 print(x - y * 2 + 1)\nprint(x // y ** 2)\nprint(x / y // 2)\n```",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nx = 10\ny = 3\nprint(x - y * 2 + 1)\nprint(x // y ** 2)\nprint(x / y // 2)\n```",
         "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Steg for steg | Verdi | Utskrift så langt |\n|---|---|---|---|---|\n| 3 | `10 - 3 * 2 + 1` | `3 * 2` er `6`; `10 - 6` er `4`; `4 + 1` | `5` | `5` |\n| 4 | `10 // 3 ** 2` | `3 ** 2` er `9`; `10 // 9` | `1` | `5`, `1` |\n| 5 | `10 / 3 // 2` | `10 / 3` er `3.3333333333333335`; `// 2` gir `1.0` | `1.0` | `5`, `1`, `1.0` |\n\n**Utskrift:**\n```\n5\n1\n1.0\n```\n\n**Fellenote:** fellen er #15. Siste linje er den harde: `/` og `//` er på samme nivå, så uttrykket tas fra venstre, og fordi `/` har gjort resultatet til et flyttall, blir også `//`-resultatet et flyttall og skrives `1.0`. Skriver du `1`, mister du poenget selv om tallverdien er riktig — sjanger A krever utskriften tegn for tegn.",
         "hints": [
           "Sett inn parenteser der du mener Python setter dem, og regn ut innenfra.",
@@ -242,7 +242,7 @@
       "type": "example",
       "title": "Eksempel 5: Sanne og falske uttrykk",
       "problem": "Temperaturen er målt til 5 grader. Hva skriver programmet ut?",
-      "solution": "```python\nt = 5 print(0 < t < 10)\nprint(t > 3 and t % 2 == 0)\nprint(not t > 3 or t == 5)\nprint(bool(0), bool(''), bool(-1))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\nFalse False True\n```\n\n- `0 < 5 < 10`: begge leddene i kjeden er sanne.\n- `5 > 3 and 5 % 2 == 0`: første ledd sant, andre ledd falskt (5 er ikke et partall), og `and` krever begge.\n- `not 5 > 3 or 5 == 5`: `not`-et tar bare `5 > 3`, som er sant, så første ledd blir `False`. Andre ledd er sant, og `or` krever bare ett.\n- `bool(0)`, `bool('')` er falske; `bool(-1)` er sann, for det er bare **null** som er falsk, ikke negative tall.\n\nLegg merke til den siste: mange gjetter `False` for `bool(-1)` fordi negativt «føles» som nei."
+      "solution": "```python\nt = 5\nprint(0 < t < 10)\nprint(t > 3 and t % 2 == 0)\nprint(not t > 3 or t == 5)\nprint(bool(0), bool(''), bool(-1))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nTrue\nFalse False True\n```\n\n- `0 < 5 < 10`: begge leddene i kjeden er sanne.\n- `5 > 3 and 5 % 2 == 0`: første ledd sant, andre ledd falskt (5 er ikke et partall), og `and` krever begge.\n- `not 5 > 3 or 5 == 5`: `not`-et tar bare `5 > 3`, som er sant, så første ledd blir `False`. Andre ledd er sant, og `or` krever bare ett.\n- `bool(0)`, `bool('')` er falske; `bool(-1)` er sann, for det er bare **null** som er falsk, ikke negative tall.\n\nLegg merke til den siste: mange gjetter `False` for `bool(-1)` fordi negativt «føles» som nei."
     },
     {
       "id": "in1900-1-1-oppg-5",
@@ -294,7 +294,7 @@
       "type": "example",
       "title": "Eksempel 6: Konvertering og avrunding i samme sporing",
       "problem": "Dette er en typisk midtveisoppgave: fem linjer, ingen løkker, men fire ulike feller. Hva skriver programmet ut?",
-      "solution": "```python\nx = 2.7 print(int(x), int(-x))\nprint(round(x), round(-x))\nprint(round(0.5), round(1.5), round(2.5))\nt = 10 t += 5 t //= 4 print(t)\n```\n\n**Utskrift:**\n```\n2 -2\n3 -3\n0 2 2\n3\n```\n\n**Sporingstavle**\n\n| Linje | Hva skjer | `t` | Utskrift |\n|---|---|---|---|\n| 2 | `int` kutter mot null i begge retninger | — | `2 -2` |\n| 3 | `round` runder normalt | — | `3 -3` |\n| 4 | midt imellom: rund til partall | — | `0 2 2` |\n| 5–7 | `t` blir `10`, så `15`, så `15 // 4` som er `3` | `3` | `3` |\n\nDe to linjene som skiller besvarelsene er linje 2 og linje 4. `int(-2.7)` er `-2` fordi `int` kutter, og `round(2.5)` er `2` fordi Python runder til nærmeste partall når det står midt imellom."
+      "solution": "```python\nx = 2.7\nprint(int(x), int(-x))\nprint(round(x), round(-x))\nprint(round(0.5), round(1.5), round(2.5))\nt = 10\nt += 5\nt //= 4\nprint(t)\n```\n\n**Utskrift:**\n```\n2 -2\n3 -3\n0 2 2\n3\n```\n\n**Sporingstavle**\n\n| Linje | Hva skjer | `t` | Utskrift |\n|---|---|---|---|\n| 2 | `int` kutter mot null i begge retninger | — | `2 -2` |\n| 3 | `round` runder normalt | — | `3 -3` |\n| 4 | midt imellom: rund til partall | — | `0 2 2` |\n| 5–7 | `t` blir `10`, så `15`, så `15 // 4` som er `3` | `3` | `3` |\n\nDe to linjene som skiller besvarelsene er linje 2 og linje 4. `int(-2.7)` er `-2` fordi `int` kutter, og `round(2.5)` er `2` fordi Python runder til nærmeste partall når det står midt imellom."
     },
     {
       "id": "in1900-1-1-oppg-6",
@@ -304,7 +304,7 @@
         "number": "6",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nverdi = -3.6 print(int(verdi))\nprint(round(verdi))\nprint(round(verdi, 1))\ns = 7 s *= 3 s %= 4 print(s)\n```",
+        "task": "(Midtveisnivå, sjanger A.) Hva skriver programmet ut?\n\n```python\nverdi = -3.6\nprint(int(verdi))\nprint(round(verdi))\nprint(round(verdi, 1))\ns = 7\ns *= 3\ns %= 4\nprint(s)\n```",
         "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi | Utskrift så langt |\n|---|---|---|---|\n| 2 | `int(-3.6)` — kutter mot null | `-3` | `-3` |\n| 3 | `round(-3.6)` — nærmeste heltall | `-4` | `-3`, `-4` |\n| 4 | `round(-3.6, 1)` — én desimal, uendret | `-3.6` | `-3`, `-4`, `-3.6` |\n| 5–7 | `s` er `7`, så `21`, så `21 % 4` | `1` | og `1` |\n\n**Utskrift:**\n```\n-3\n-4\n-3.6\n1\n```\n\n**Fellenote:** fellen er #15 i konverteringsvarianten — `int` og `round` gir **ulikt** svar på et negativt tall, `-3` mot `-4`. Legg også merke til at `round(x, 1)` gir et flyttall, mens `round(x)` gir et heltall.",
         "hints": [
           "`int` kutter desimalene bort; `round` går til nærmeste.",
@@ -320,7 +320,7 @@
         "number": "7",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — kodesporing med blandede datatyper.) Hva skriver programmet ut?\n\n```python\nantall = 4 sum_grader = 82.0 print(sum_grader / antall)\nprint(sum_grader // antall)\nprint(antall * 2 ** 2)\nprint(antall == 4.0)\n```",
+        "task": "(Midtveisnivå, sjanger A — kodesporing med blandede datatyper.) Hva skriver programmet ut?\n\n```python\nantall = 4\nsum_grader = 82.0\nprint(sum_grader / antall)\nprint(sum_grader // antall)\nprint(antall * 2 ** 2)\nprint(antall == 4.0)\n```",
         "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi | Merk |\n|---|---|---|---|\n| 3 | `82.0 / 4` | `20.5` | vanlig divisjon |\n| 4 | `82.0 // 4` | `20.0` | heltallsdivisjon på et flyttall gir **flyttall** |\n| 5 | `4 * 2 ** 2` | `16` | `**` før `*` |\n| 6 | `4 == 4.0` | `True` | ulik type, samme verdi |\n\n**Utskrift:**\n```\n20.5\n20.0\n16\nTrue\n```\n\n**Fellenote:** de to fellene er `20` i stedet for `20.0` på linje 4 (heltallsdivisjon beholder flyttallstypen når en av operandene er flyttall), og `False` på siste linje (`==` sammenligner **verdi**, ikke datatype, så et heltall og et flyttall kan godt være like).",
         "hints": [
           "Se på datatypene til begge operandene før du bestemmer hvordan svaret skrives.",
@@ -336,7 +336,7 @@
         "number": "8",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, sjanger A — de negative tallene samlet.) Hva skriver programmet ut?\n\n```python\nn = -13 d = 4 print(n // d, n % d)\nprint(-(n // d), int(n / d))\nprint(n // d * d + n % d)\n```",
+        "task": "(Eksamensnivå, sjanger A — de negative tallene samlet.) Hva skriver programmet ut?\n\n```python\nn = -13\nd = 4\nprint(n // d, n % d)\nprint(-(n // d), int(n / d))\nprint(n // d * d + n % d)\n```",
         "solution": "**Sporingstavle**\n\n| Uttrykk | Steg for steg | Verdi |\n|---|---|---|\n| `-13 // 4` | $-13/4 = -3{,}25$, rund **nedover** | `-4` |\n| `-13 % 4` | resten må gi `-4 * 4 + r = -13`, altså `r = 3` | `3` |\n| `-(n // d)` | `-(-4)` | `4` |\n| `int(n / d)` | `-13 / 4` er `-3.25`, og `int` kutter mot null | `-3` |\n| `n // d * d + n % d` | `-4 * 4 + 3` er `-16 + 3` | `-13` |\n\n**Utskrift:**\n```\n-4 3\n4 -3\n-13\n```\n\nSiste linje er ingen tilfeldighet: `(a // b) * b + a % b` gir **alltid** `a` tilbake. Den identiteten er den enkleste måten å kontrollere fortegnene sine på — får du `-13`, var både heltallsdivisjonen og resten riktig.\n\n**Fellenote:** fellen er #15 i sin verste form. Både `-3` for `-13 // 4` og `-1` for `-13 % 4` er alternativer på flervalgsversjonen. Husk: heltallsdivisjon runder nedover, og resten har samme fortegn som det du deler **på**.",
         "hints": [
           "Tegn tallinja: «rund nedover» er ikke det samme som «kutt desimalene».",

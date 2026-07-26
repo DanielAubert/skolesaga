@@ -69,7 +69,7 @@
       "id": "in1020-1-5-eks-1",
       "type": "example",
       "title": "Eksempel 1: Dekod et helt program",
-      "problem": "Minnet fra celle 00 inneholder tallene under. Hva gjør programmet?\n\n```text\ncelle:   00   01   02   03   04   05   90   91 tall:   901  390  901  190  902  000  000  000\n```",
+      "problem": "Minnet fra celle 00 inneholder tallene under. Hva gjør programmet?\n\n```text\ncelle:   00   01   02   03   04   05   90   91\ntall:   901  390  901  190  902  000  000  000\n```",
       "solution": "**Dekod celle for celle.**\n\n| Celle | Tall | Opkode | Adresse | Instruksjon |\n|---|---|---|---|---|\n| 00 | `901` | — | — | `INP` |\n| 01 | `390` | 3 | 90 | `STA 90` |\n| 02 | `901` | — | — | `INP` |\n| 03 | `190` | 1 | 90 | `ADD 90` |\n| 04 | `902` | — | — | `OUT` |\n| 05 | `000` | — | — | `HLT` |\n| 90 | `000` | — | — | datacelle, startverdi 0 |\n\n**Programmet er:**\n\n```text\n00  INP\n01  STA 90\n02  INP\n03  ADD 90\n04  OUT\n05  HLT\n90  DAT\n```\n\nDet leser to tall og skriver ut summen — det samme programmet du sporet i [kap. 1.4](/bok/in1020/in1020-1-4).\n\n**Legg merke til celle 90.** Den inneholder `000`, som *dekodet som instruksjon* ville vært `HLT`. Men programtelleren kommer aldri dit, fordi `HLT` i celle 05 stopper alt. Om `000` er data eller instruksjon, avgjøres altså ikke av tallet, men av om programtelleren peker på det."
     },
     {
@@ -260,7 +260,7 @@
         "number": "8",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Sjanger C — maskinkode.) Et program inneholder cellene under. Hvilke av dem vil bli utført som instruksjoner hvis programtelleren starter på 00 og ingen hopp forekommer?\n\n```text\ncelle:   00   01   02   03   04   05 tall:   901  302  902  000  005  007\n```",
+        "task": "(Sjanger C — maskinkode.) Et program inneholder cellene under. Hvilke av dem vil bli utført som instruksjoner hvis programtelleren starter på 00 og ingen hopp forekommer?\n\n```text\ncelle:   00   01   02   03   04   05\ntall:   901  302  902  000  005  007\n```",
         "solution": "Programtelleren starter på 00 og øker med 1 for hver instruksjon, helt til `HLT`.\n\n| Celle | Tall | Instruksjon | Utføres? |\n|---|---|---|---|\n| 00 | `901` | `INP` | Ja |\n| 01 | `302` | `STA 02` | Ja |\n| 02 | `902` | `OUT` | Ja — men se under |\n| 03 | `000` | `HLT` | Ja |\n| 04 | `005` | — | Nei |\n| 05 | `007` | — | Nei |\n\n**Svar: cellene 00, 01, 02 og 03.** Cellene 04 og 05 nås aldri, fordi `HLT` i celle 03 stopper programmet. De er altså data, uansett hva tallene i dem tilfeldigvis ville betydd som instruksjoner.\n\n**Men merk fella i celle 01.** `302` er `STA 02` — programmet skriver akkumulatoren inn i celle 02, som inneholder `OUT`. Etter `INP` med for eksempel inndata 5 blir celle 02 til `005`, som dekodes som opkode 0 og adresse 05 — altså ikke `OUT` lenger.\n\nI LMC er `000` `HLT`, og `005` er ikke en definert instruksjon i instruksjonssettet. Et program som skriver vilkårlige tall inn i kodeområdet, er derfor ikke bare vanskelig å spore — det kan ende opp med å utføre noe som ikke er en gyldig instruksjon i det hele tatt.\n\n**Lærdommen:** se etter `STA` med lav adresse. Den forteller deg at kodeområdet endres.",
         "hints": [
           "Følg programtelleren fra 00 og oppover, og stopp der `HLT` nås.",

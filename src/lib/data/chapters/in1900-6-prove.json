@@ -1,265 +1,265 @@
 {
-  "id": "in1900-6-prove",
-  "courseId": "in1900",
-  "chapterNumber": "6.P",
-  "title": "Prøver til del 6: Numeriske metoder som kodemønstre",
-  "description": "Fire prøver med full fasit: numerisk derivasjon som funksjon og klasse, koblede differenslikninger, nullpunkt med Newton, sekant og root, og en full oppgave på eksamensnivå.",
-  "estimatedMinutes": 135,
-  "competenceGoals": [
-    "kunne skrive forlengs og sentrert differanse, både som funksjon med default-steg og som kallbar klasse",
-    "kunne avgjøre om oppdateringsrekkefølgen i et koblet system er kritisk, og begrunne svaret ut fra likningene",
-    "kunne løse en likning numerisk med Newtons metode, sekantmetoden og et ferdig verktøy, og kontrollere svaret",
-    "kunne løse en flerdelt eksamensoppgave der simulering, likevektsregning og plott inngår"
-  ],
-  "content": [
+ "id": "in1900-6-prove",
+ "courseId": "in1900",
+ "chapterNumber": "6.P",
+ "title": "Prøver til del 6: Numeriske metoder som kodemønstre",
+ "description": "Fire prøver med full fasit: numerisk derivasjon som funksjon og klasse, koblede differenslikninger, nullpunkt med Newton, sekant og root, og en full oppgave på eksamensnivå.",
+ "estimatedMinutes": 135,
+ "competenceGoals": [
+  "kunne skrive forlengs og sentrert differanse, både som funksjon med default-steg og som kallbar klasse",
+  "kunne avgjøre om oppdateringsrekkefølgen i et koblet system er kritisk, og begrunne svaret ut fra likningene",
+  "kunne løse en likning numerisk med Newtons metode, sekantmetoden og et ferdig verktøy, og kontrollere svaret",
+  "kunne løse en flerdelt eksamensoppgave der simulering, likevektsregning og plott inngår"
+ ],
+ "content": [
+  {
+   "id": "in1900-6-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 6",
+   "content": "**Fire prøver à 30–40 minutter.** Prøvene dekker hele Del 6: numerisk derivasjon, differenslikninger og nullpunkt. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 6.A (30 min):** Numerisk derivasjon — forlengs og sentrert differanse, som funksjon og som klasse (sjanger N).\n- **Prøve 6.B (35 min):** Differenslikninger — koblet system med kritisk oppdateringsrekkefølge (sjanger H).\n- **Prøve 6.C (30 min):** Nullpunkt — Newtons metode, sekantmetoden og `root` fra `scipy.optimize` (sjanger N, nivå 3-stoff).\n- **Prøve 6.D (40 min):** Full oppgave på eksamensnivå — differenslikning, plott og likevektsregning (sjanger H).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 6.A står inline med bokstavsvar; den interaktive quizen til kapitlene 6.1–6.3 er den store flervalgsbanken og tas separat.\n\n**Om nivå 3-stoffet i prøve 6.C:** nullpunktsmetoder er merket «bør kjenne til» i boka. Frekvensen er 38 prosent, men den er voksende, og dokumentasjonen for `root` leveres alltid som vedlegg på eksamen — det du må kunne, er å pakke funksjonen riktig inn."
+  },
+  {
+   "id": "in1900-6-prove-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 6: [kap. 6.1](/bok/in1900/in1900-6-1) om numerisk derivasjon, integrasjon og nullpunkt, [kap. 6.2](/bok/in1900/in1900-6-2) om differenslikninger, og [kap. 6.3](/bok/in1900/in1900-6-3) som driller sjangeren.\n\nFra tidligere deler trengs NumPy-tabeller ([kap. 4.1](/bok/in1900/in1900-4-1)), plotting ([kap. 4.3](/bok/in1900/in1900-4-3)), funksjoner med default-argumenter og funksjoner som argument ([kap. 1.6](/bok/in1900/in1900-1-6)), klasser med `__init__` og `__call__` ([kap. 5.1](/bok/in1900/in1900-5-1)) og testfunksjoner ([kap. 3.1](/bok/in1900/in1900-3-1))."
+  },
+  {
+   "id": "in1900-6-prove-A",
+   "type": "collapsible",
+   "title": "Prøve 6.A — Numerisk derivasjon (30 min)",
+   "buttonText": "Vis prøve 1",
+   "content": [
     {
-      "id": "in1900-6-prove-tip",
-      "type": "tip",
-      "title": "Om prøvene til del 6",
-      "content": "**Fire prøver à 30–40 minutter.** Prøvene dekker hele Del 6: numerisk derivasjon, differenslikninger og nullpunkt. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 6.A (30 min):** Numerisk derivasjon — forlengs og sentrert differanse, som funksjon og som klasse (sjanger N).\n- **Prøve 6.B (35 min):** Differenslikninger — koblet system med kritisk oppdateringsrekkefølge (sjanger H).\n- **Prøve 6.C (30 min):** Nullpunkt — Newtons metode, sekantmetoden og `root` fra `scipy.optimize` (sjanger N, nivå 3-stoff).\n- **Prøve 6.D (40 min):** Full oppgave på eksamensnivå — differenslikning, plott og likevektsregning (sjanger H).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 6.A står inline med bokstavsvar; den interaktive quizen til kapitlene 6.1–6.3 er den store flervalgsbanken og tas separat.\n\n**Om nivå 3-stoffet i prøve 6.C:** nullpunktsmetoder er merket «bør kjenne til» i boka. Frekvensen er 38 prosent, men den er voksende, og dokumentasjonen for `root` leveres alltid som vedlegg på eksamen — det du må kunne, er å pakke funksjonen riktig inn."
+     "id": "in1900-6-prove-A-intro",
+     "type": "text",
+     "content": "**Prøve 6.A — numerisk derivasjon (30 minutter, sjanger N).** Fem flervalgsspørsmål og tre skriveoppgaver. Ingen hjelpemidler, og ikke kjør koden."
     },
     {
-      "id": "in1900-6-prove-forkunn",
-      "type": "text",
-      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 6: [kap. 6.1](/bok/in1900/in1900-6-1) om numerisk derivasjon, integrasjon og nullpunkt, [kap. 6.2](/bok/in1900/in1900-6-2) om differenslikninger, og [kap. 6.3](/bok/in1900/in1900-6-3) som driller sjangeren.\n\nFra tidligere deler trengs NumPy-tabeller ([kap. 4.1](/bok/in1900/in1900-4-1)), plotting ([kap. 4.3](/bok/in1900/in1900-4-3)), funksjoner med default-argumenter og funksjoner som argument ([kap. 1.6](/bok/in1900/in1900-1-6)), klasser med `__init__` og `__call__` ([kap. 5.1](/bok/in1900/in1900-5-1)) og testfunksjoner ([kap. 3.1](/bok/in1900/in1900-3-1))."
-    },
-    {
-      "id": "in1900-6-prove-A",
-      "type": "collapsible",
-      "title": "Prøve 6.A — Numerisk derivasjon (30 min)",
-      "buttonText": "Vis prøve 1",
-      "content": [
-        {
-          "id": "in1900-6-prove-A-intro",
-          "type": "text",
-          "content": "**Prøve 6.A — numerisk derivasjon (30 minutter, sjanger N).** Fem flervalgsspørsmål og tre skriveoppgaver. Ingen hjelpemidler, og ikke kjør koden."
-        },
-        {
-          "id": "in1900-6-prove-A-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-A-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Midtveisnivå, sjanger A og D — flervalg.) Velg ett svar per spørsmål.\n\n**1)** Hva er nevneren i den **sentrerte** differansen?\n\na) `h` b) `2*h` c) `h**2` d) `x+h`\n\n**2)** Hvilken `h` er et fornuftig standardvalg for sentrert differanse?\n\na) `1e-1` b) `1e-16` c) `1e-5` d) `0`\n\n**3)** Halverer du `h` i den **forlengs** differansen, blir feilen omtrent\n\na) halvert b) firedelt c) uendret d) doblet\n\n**4)** Hvordan sender du funksjonen `sin` inn som argument?\n\na) `diff(sin(x), x)` b) `diff('sin', x)` c) `diff(sin, x)` d) `diff(sin(), x)`\n\n**5)** Hva returnerer `diff(f, x)` når `f` er konstant?\n\na) 1.0 b) `None` c) en verdi svært nær 0 d) en feilmelding",
-            "solution": "**1) b)** `2*h`. Den sentrerte differansen ser et helt steg til hver side, altså en avstand på $2h$ mellom de to punktene.\n\n**2) c)** `1e-5`. Dette er bokas standardverdi. Alternativ a) er for grov, og b) drukner i avrundingsstøy fordi de to funksjonsverdiene blir like på maskinens nøyaktighet.\n\n**3) a)** Halvert. Forlengs differanse er en **førsteordens** metode: feilen er proporsjonal med $h$. Den sentrerte er andreordens, og der ville svaret vært firedelt.\n\n**4) c)** `diff(sin, x)`. Funksjonen sendes uten parenteser — parenteser ville **kalt** den og sendt inn et tall. Dette er felle **#19**, å sende et uttrykk der en funksjon kreves.\n\n**5) c)** En verdi svært nær 0. Telleren blir differansen mellom to like tall, altså 0, men i praksis kan avrundingsstøy gi noe i størrelsesorden $10^{-11}$.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Fasitbokstavene er b, c, a, c, c — uten mønster. Blankt og feil gir likt, altså 0, så kryss alltid av på noe.",
-            "hints": [
-              "Tell avstanden mellom de to punktene den sentrerte differansen bruker.",
-              "Funksjonsnavn uten parenteser er selve funksjonen.",
-              "Hva er den deriverte av en konstant?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-6-prove-A-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-A-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "lett",
-            "task": "(Innstegsoppgave, sjanger N.) Skriv `diff(f, x, h=1e-5)` som returnerer den sentrerte deriverte, og bruk den til å tilnærme den deriverte av $\\sin$ i $x = \\pi/3$. Kontroller mot `math.cos`.",
-            "solution": "Én linje kode, og et default-argument som gjør at den kan kalles med bare to argumenter:\n\n```python\nfrom math import cos, sin, pi\n\ndef diff(f, x, h=1e-5):\n    return (f(x+h) - f(x-h))/(2*h)\n\nprint(f'{diff(sin, pi/3):.10f}')\nprint(f'{cos(pi/3):.10f}')\n```\n\n**Utskrift:**\n```\n0.5000000000\n0.5000000000\n```\n\nMerk at `sin` sendes **uten parenteser**: det er selve funksjonen som skal inn, ikke en funksjonsverdi. Og at $\\cos(\\pi/3) = 0{,}5$ eksakt, så kontrollen er lett å gjøre i hodet.\n\n**Hva gir uttelling (3 poeng):** 1 for riktig formel med `2*h` i nevneren, 1 for default-argumentet `h=1e-5`, 1 for kallet med `sin` som funksjonsobjekt og en kontroll mot `cos`.",
-            "hints": [
-              "Formelen er differansen mellom verdiene ett steg til hver side, delt på hele avstanden.",
-              "Default-argumenter skrives i funksjonssignaturen."
-            ]
-          }
-        },
-        {
-          "id": "in1900-6-prove-A-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-A-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger N — konvergenstabell.) Lag en tabell som sammenligner feilen i forlengs og sentrert differanse for $f(x) = e^x$ i $x = 1$, med $h$ lik $10^{-1}$, $10^{-2}$, $10^{-3}$ og $10^{-4}$.\n\n**a)** Skriv koden.\n\n**b)** Hva ser du i tabellen, og hva forteller det om de to metodene?",
-            "solution": "**a)** To små funksjoner og en løkke over `h`-verdiene. Fasiten er `exp(1.0)`, siden $e^x$ er sin egen deriverte:\n\n```python\nfrom math import exp\n\ndef forlengs(f, x, h):\n    return (f(x+h) - f(x))/h\n\ndef sentrert(f, x, h):\n    return (f(x+h) - f(x-h))/(2*h)\n\nfor h in [1e-1, 1e-2, 1e-3, 1e-4]:\n    a = abs(forlengs(exp, 1.0, h) - exp(1.0))\n    b = abs(sentrert(exp, 1.0, h) - exp(1.0))\n    print(f'{h:7.0e} {a:12.3e} {b:12.3e}')\n```\n\n**Utskrift:**\n```\n  1e-01    1.406e-01    4.533e-03\n  1e-02    1.364e-02    4.530e-05\n  1e-03    1.360e-03    4.530e-07\n  1e-04    1.359e-04    4.531e-09\n```\n\n**b)** Deler du $h$ på ti, blir feilen i den forlengs differansen ti ganger mindre, mens feilen i den sentrerte blir **hundre** ganger mindre. Forlengs differanse er altså en førsteordens metode og sentrert en andreordens.\n\nPraktisk konsekvens: for å nå samme nøyaktighet som den sentrerte gir med $h = 10^{-2}$, må den forlengs ned i $h \\approx 10^{-5}$. Og siden altfor små $h$ gir avrundingsstøy, er den sentrerte metoden både mer nøyaktig og mer robust. Det er derfor boka bruker den som standard.\n\n**Hva gir uttelling (5 poeng):** 1 for hver av de to formlene, 1 for løkka over `h`-verdiene, 1 for at feilen måles som absoluttverdien av avviket fra fasiten, 1 for tolkningen i b) med ordene førsteordens og andreordens.",
-            "hints": [
-              "Fasiten for $e^x$ i $x = 1$ er `exp(1.0)` — funksjonen er sin egen deriverte.",
-              "Se på hvor mange nuller feilen får ekstra for hvert steg i tabellen."
-            ]
-          }
-        },
-        {
-          "id": "in1900-6-prove-A-4",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-A-4",
-            "number": "4",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger G og N — den deriverte som klasse.) Skriv en klasse `Deriverte` som tar en funksjon `f` og et steg `h` med default `1e-5` i konstruktøren, og der instansen er **kallbar**, slik at `dsin(x)` gir den sentrerte deriverte av `f` i `x`.\n\n**a)** Skriv klassen.\n\n**b)** Lag en instans for `sin` og evaluer den i $x = 0$ og $x = \\pi/3$. Kontroller mot `cos`.\n\n**c)** Hva er fordelen med klassevarianten framfor funksjonen `diff(f, x, h)`?",
-            "solution": "**a)** og **b)**. Konstruktøren lagrer argumentene som attributter; `__call__` er spesialmetoden som gjør at instansen kan kalles som en funksjon:\n\n```python\nfrom math import sin, cos, pi\n\nclass Deriverte:\n    def __init__(self, f, h=1e-5):\n        self.f = f self.h = h\n\n    def __call__(self, x):\n        f, h = self.f, self.h return (f(x+h) - f(x-h))/(2*h)\n\n\ndsin = Deriverte(sin)\nprint(f'{dsin(0.0):.8f} {dsin(pi/3):.8f}')\nprint(f'{cos(0.0):.8f} {cos(pi/3):.8f}')\n```\n\n**Utskrift:**\n```\n1.00000000 0.50000000\n1.00000000 0.50000000\n```\n\n**c)** At `f` og `h` bare oppgis **én gang**. Etterpå oppfører `dsin` seg som en helt vanlig funksjon av én variabel, og kan sendes videre til alt som forventer en funksjon — for eksempel til en nullpunktsmetode, en plotteløkke eller en annen `Deriverte` for å få den andrederiverte.\n\nMed funksjonsvarianten må du dra med deg `f` og `h` i hvert eneste kall, og du kan ikke sende `diff` direkte videre uten å pakke den inn først.\n\n**Hva gir uttelling (6 poeng):** 1 for `class`-linja og `__init__` med `self`, 1 for at begge argumentene lagres som `self.…`, 1 for default-verdien `h=1e-5`, 2 for `__call__(self, x)` med riktig formel, 1 for begrunnelsen i c). Glemmer du `self` i signaturen eller foran et attributt, er det felle **#3** og koster ett poeng — strukturen står.\n\n**Selvdiagnose etter prøve 6.A**\n\n☐ Sto `2*h` i nevneren i den sentrerte differansen?\n\n☐ Sendte du funksjonen uten parenteser?\n\n☐ Hadde `h` en fornuftig default-verdi i signaturen?\n\n☐ Sto `self` både i metodesignaturene og foran attributtene?\n\n☐ Kontrollerte du svaret mot en eksakt verdi du kjenner?",
-            "hints": [
-              "Konstruktøren lagrer, `__call__` regner.",
-              "Hentelinja `f, h = self.f, self.h` gjør formelen lesbar.",
-              "Til c): hva kan du gjøre med `dsin` som du ikke kan gjøre med `diff`?"
-            ]
-          }
-        }
+     "id": "in1900-6-prove-A-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-A-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A og D — flervalg.) Velg ett svar per spørsmål.\n\n**1)** Hva er nevneren i den **sentrerte** differansen?\n\na) `h` b) `2*h` c) `h**2` d) `x+h`\n\n**2)** Hvilken `h` er et fornuftig standardvalg for sentrert differanse?\n\na) `1e-1` b) `1e-16` c) `1e-5` d) `0`\n\n**3)** Halverer du `h` i den **forlengs** differansen, blir feilen omtrent\n\na) halvert b) firedelt c) uendret d) doblet\n\n**4)** Hvordan sender du funksjonen `sin` inn som argument?\n\na) `diff(sin(x), x)` b) `diff('sin', x)` c) `diff(sin, x)` d) `diff(sin(), x)`\n\n**5)** Hva returnerer `diff(f, x)` når `f` er konstant?\n\na) 1.0 b) `None` c) en verdi svært nær 0 d) en feilmelding",
+      "solution": "**1) b)** `2*h`. Den sentrerte differansen ser et helt steg til hver side, altså en avstand på $2h$ mellom de to punktene.\n\n**2) c)** `1e-5`. Dette er bokas standardverdi. Alternativ a) er for grov, og b) drukner i avrundingsstøy fordi de to funksjonsverdiene blir like på maskinens nøyaktighet.\n\n**3) a)** Halvert. Forlengs differanse er en **førsteordens** metode: feilen er proporsjonal med $h$. Den sentrerte er andreordens, og der ville svaret vært firedelt.\n\n**4) c)** `diff(sin, x)`. Funksjonen sendes uten parenteser — parenteser ville **kalt** den og sendt inn et tall. Dette er felle **#19**, å sende et uttrykk der en funksjon kreves.\n\n**5) c)** En verdi svært nær 0. Telleren blir differansen mellom to like tall, altså 0, men i praksis kan avrundingsstøy gi noe i størrelsesorden $10^{-11}$.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Fasitbokstavene er b, c, a, c, c — uten mønster. Blankt og feil gir likt, altså 0, så kryss alltid av på noe.",
+      "hints": [
+       "Tell avstanden mellom de to punktene den sentrerte differansen bruker.",
+       "Funksjonsnavn uten parenteser er selve funksjonen.",
+       "Hva er den deriverte av en konstant?"
       ]
+     }
     },
     {
-      "id": "in1900-6-prove-B",
-      "type": "collapsible",
-      "title": "Prøve 6.B — Differenslikninger (35 min)",
-      "buttonText": "Vis prøve 2",
-      "content": [
-        {
-          "id": "in1900-6-prove-B-intro",
-          "type": "text",
-          "content": "**Prøve 6.B — differenslikninger (35 minutter, sjanger H).** Tre oppgaver. Det første du gjør i hver av dem, er å avgjøre om oppdateringsrekkefølgen er kritisk."
-        },
-        {
-          "id": "in1900-6-prove-B-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-B-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut? NumPy skriver tabeller uten komma.\n\n```python\nimport numpy as np\n\ny = np.zeros(6)\ny[0] = 3.0 for n in range(4):\n    y[n+1] = y[n]/2 + 1 print(y)\nprint(y.size, y[4], y[5])\n```",
-            "solution": "**Sporingstavle.** Tabellen har seks plasser; løkka gjør fire oppdateringer.\n\n| `n` | Regner | Verdi |\n|---|---|---|\n| 0 | $3/2 + 1$ | 2.5 |\n| 1 | $2{,}5/2 + 1$ | 2.25 |\n| 2 | $2{,}25/2 + 1$ | 2.125 |\n| 3 | $2{,}125/2 + 1$ | 2.0625 |\n\nPlass 5 blir aldri skrevet til.\n\n**Utskrift:**\n```\n[3.     2.5    2.25   2.125  2.0625 0.    ]\n6 2.0625 0.0\n```\n\nMerk at NumPy justerer kolonnene, så det står ekstra mellomrom etter de korteste tallene, og at `0.` skrives uten siffer bak punktumet.\n\nLegg også merke til at verdiene nærmer seg 2: likningen $y_{n+1} = y_n/2 + 1$ står stille når $y = y/2 + 1$, altså $y = 2$. Det er et fikspunkt, og det er en fornuftssjekk du kan gjøre uten å regne.\n\nFellenote: **#1 — av-én-feilen**. Fire oppdateringer i en tabell med seks plasser etterlater en null på slutten, uten at programmet klager.\n\n**Poeng:** 3.",
-            "hints": [
-              "Tegn tabellen med seks plasser og fyll inn én per runde.",
-              "Hvor mange oppdateringer gir `range(4)`?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-6-prove-B-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-B-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger H — koblet system med kritisk rekkefølge.) En fjærpendel simuleres med posisjon $u_n$ og hastighet $v_n$:\n\n$$v_{n+1} = v_n - k\\,\\Delta t\\,u_n, \\qquad u_{n+1} = u_n + \\Delta t\\,v_{n+1}$$\n\n**a)** Skriv `stromning(u0, v0, k, dt, N)` som returnerer tabellene `u` og `v`.\n\n**b)** Kjør med $u_0 = 1$, $v_0 = 0$, $k = 4$, $\\Delta t = 0{,}05$ og $N = 6$, og skriv ut begge tabellene skritt for skritt.\n\n**c)** Hvilken av de to likningene må regnes først, og hvordan ser du det?",
-            "solution": "**a)** og **b)**. Uttrykket for $u_{n+1}$ bruker $v_{n+1}$, altså en indeks $n+1$ på høyre side. Da må `v[n+1]` regnes først:\n\n```python\nimport numpy as np\n\ndef stromning(u0, v0, k, dt, N):\n    u = np.zeros(N+1)\n    v = np.zeros(N+1)\n    u[0] = u0 v[0] = v0 for n in range(N):\n        v[n+1] = v[n] - k*dt*u[n]\n        u[n+1] = u[n] + dt*v[n+1]\n    return u, v\n\n\nu, v = stromning(1.0, 0.0, 4.0, 0.05, 6)\nfor n in range(7):\n    print(f'{n} {u[n]:9.5f} {v[n]:9.5f}')\n```\n\n**Utskrift:**\n```\n0   1.00000   0.00000\n1   0.99000  -0.20000\n2   0.97010  -0.39800\n3   0.94050  -0.59202\n4   0.90149  -0.78012\n5   0.85347  -0.96042\n6   0.79692  -1.13111\n```\n\nKontroller første skritt: $v_1 = 0 - 4\\cdot 0{,}05\\cdot 1 = -0{,}2$, og $u_1 = 1 + 0{,}05\\cdot(-0{,}2) = 0{,}99$.\n\n**c)** `v[n+1]` må regnes først, og signalet står rett i formelen: uttrykket for $u_{n+1}$ inneholder $v_{n+1}$, med indeks $n+1$. **En indeks $n+1$ på høyre side betyr at den likningen må stå sist.**\n\nBytter du om, leser `u[n+1] = u[n] + dt*v[n+1]` en plass som ennå er 0.0, og posisjonen står helt stille mens hastigheten løper av gårde. Programmet gir ingen feilmelding — det regner bare på en annen modell. Dette er felle **#2**.\n\n**Hva gir uttelling (8 poeng):** to tabeller med `np.zeros(N+1)` (1 p), begge startverdiene før løkka (1 p), `for n in range(N):` (1 p), **rekkefølgen** med `v[n+1]` først (2 p), de to uttrykkene (2 p), `return u, v` utenfor løkka (1 p). Rekkefølgepoengene er de eneste som ikke gis delvis.",
-            "hints": [
-              "Se etter en indeks `n+1` på høyre side av likhetstegnet.",
-              "Den likningen som blir **brukt** av den andre, må regnes først.",
-              "Regn første skritt for hånd som kontroll."
-            ]
-          }
-        },
-        {
-          "id": "in1900-6-prove-B-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-B-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal simulere en bestand som vokser mot en bæreevne, $x_{n+1} = x_n + r x_n(1 - x_n/K)$. Det har **tre** feil.\n\n```text\nimport numpy as np\n\ndef vekst(x0, r, K, N):\n    x = np.zeros(N)\n    for n in range(N):\n        x[0] = x0 x[n+1] = x[n] + r*x[n]*(1 - x[n]/K)\n    return x\n```\n\n**a)** Nevn de tre feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden og kjør den med $x_0 = 5$, $r = 0{,}4$, $K = 200$ og $N = 30$.",
-            "solution": "**a)** De tre feilene:\n\n1. **`np.zeros(N)` i stedet for `np.zeros(N+1)`.** Tabellen har én plass for lite, og siste runde skriver til `x[N]`. Programmet stopper med `IndexError`. Dette er felle **#1**.\n2. **`x[0] = x0` står inne i løkka.** Startverdien tilbakestilles i hver runde. Her gir det riktig svar av gal grunn i første runde, men det er en reell feil: settes en annen verdi enn 0 som startverdi og oppdateringen leser `x[n]` for `n > 0`, overskrives ingenting nyttig — linja hører hjemme før løkka, én gang.\n3. **`return x` står riktig, men funksjonen mangler kontroll på at bare `N` oppdateringer gjøres.** Nærmere bestemt: løkka går `range(N)` mot en tabell med `N` plasser, og de to må stemme overens. Rettelsen er å utvide tabellen, ikke å korte ned løkka — oppgaven ber om `N` skritt.\n\n**b)** Rettet:\n\n```python\nimport numpy as np\n\ndef vekst(x0, r, K, N):\n    x = np.zeros(N+1)\n    x[0] = x0 for n in range(N):\n        x[n+1] = x[n] + r*x[n]*(1 - x[n]/K)\n    return x\n\n\nx = vekst(5.0, 0.4, 200.0, 30)\nprint(f'{x[0]:.1f} {x[1]:.4f} {x[15]:.2f} {x[30]:.2f}')\nprint(len(x))\n```\n\n**Utskrift:**\n```\n5.0 6.9500 177.36 199.99\n31\n```\n\nKontroller første skritt: $5 + 0{,}4\\cdot 5\\,(1 - 5/200) = 5 + 2\\cdot 0{,}975 = 6{,}95$. Og legg merke til at tabellen har 31 verdier for 30 skritt: bestanden er nesten helt oppe i bæreevnen 200 etter 30 skritt.\n\n**Hva gir uttelling (6 poeng):** 1 poeng per navngitt feil (3 p), 3 for rettet kode som kjører. Sjanger O er poengmessig snill: finner du to av tre feil, har du fortsatt flertallet av poengene.\n\n**Selvdiagnose etter prøve 6.B**\n\n☐ Hadde hver tabell `N+1` plasser?\n\n☐ Sto alle startverdier **før** løkka?\n\n☐ Sjekket du om noen høyreside inneholder en indeks $n+1$?\n\n☐ Gikk løkka over `range(N)`?\n\n☐ Regnet du første skritt for hånd som kontroll?",
-            "hints": [
-              "Tell plassene i tabellen mot antall oppdateringer.",
-              "Hvor mange ganger skal startverdien settes?",
-              "Regn første skritt for hånd og sammenlign."
-            ]
-          }
-        }
+     "id": "in1900-6-prove-A-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-A-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Innstegsoppgave, sjanger N.) Skriv `diff(f, x, h=1e-5)` som returnerer den sentrerte deriverte, og bruk den til å tilnærme den deriverte av $\\sin$ i $x = \\pi/3$. Kontroller mot `math.cos`.",
+      "solution": "Én linje kode, og et default-argument som gjør at den kan kalles med bare to argumenter:\n\n```python\nfrom math import cos, sin, pi\n\ndef diff(f, x, h=1e-5):\n    return (f(x+h) - f(x-h))/(2*h)\n\nprint(f'{diff(sin, pi/3):.10f}')\nprint(f'{cos(pi/3):.10f}')\n```\n\n**Utskrift:**\n```\n0.5000000000\n0.5000000000\n```\n\nMerk at `sin` sendes **uten parenteser**: det er selve funksjonen som skal inn, ikke en funksjonsverdi. Og at $\\cos(\\pi/3) = 0{,}5$ eksakt, så kontrollen er lett å gjøre i hodet.\n\n**Hva gir uttelling (3 poeng):** 1 for riktig formel med `2*h` i nevneren, 1 for default-argumentet `h=1e-5`, 1 for kallet med `sin` som funksjonsobjekt og en kontroll mot `cos`.",
+      "hints": [
+       "Formelen er differansen mellom verdiene ett steg til hver side, delt på hele avstanden.",
+       "Default-argumenter skrives i funksjonssignaturen."
       ]
+     }
     },
     {
-      "id": "in1900-6-prove-C",
-      "type": "collapsible",
-      "title": "Prøve 6.C — Nullpunkt (30 min)",
-      "buttonText": "Vis prøve 3",
-      "content": [
-        {
-          "id": "in1900-6-prove-C-intro",
-          "type": "text",
-          "content": "**Prøve 6.C — nullpunkt (30 minutter, sjanger N, nivå 3).** Tre oppgaver. Dette er stoffet som er merket «bør kjenne til»: frekvensen er 38 prosent, men voksende. Dokumentasjonen for `root` leveres alltid som vedlegg på eksamen, så det du må kunne, er innpakningen — ikke signaturen utenat."
-        },
-        {
-          "id": "in1900-6-prove-C-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-C-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger N — Newtons metode.) Likningen $e^{-x} = x$ har én løsning.\n\n**a)** Skriv om den til formen $f(x) = 0$ og skriv `newton(f, df, x0, eps=1e-10)` som løser den. Funksjonen skal returnere både løsningen og antall iterasjoner, og ha en øvre grense på antall runder.\n\n**b)** Kjør den med startgjetning 0,5 og kontroller svaret.\n\n**c)** Hvorfor er den øvre grensen på antall runder viktig?",
-            "solution": "**a)** og **b)**. Likningen skrives $f(x) = e^{-x} - x = 0$, og den deriverte er $f'(x) = -e^{-x} - 1$:\n\n```python\nfrom math import exp\n\ndef newton(f, df, x0, eps=1e-10):\n    x = x0 n = 0 while abs(f(x)) > eps and n < 100:\n        x = x - f(x)/df(x)\n        n += 1 return x, n\n\ndef f(x):\n    return exp(-x) - x\n\ndef df(x):\n    return -exp(-x) - 1\n\n\nx, n = newton(f, df, 0.5)\nprint(f'{x:.10f} etter {n} iterasjoner')\nprint(f'kontroll: f(x) = {f(x):.2e}')\n```\n\n**Utskrift:**\n```\n0.5671432904 etter 3 iterasjoner\nkontroll: f(x) = 4.44e-15\n```\n\nTre iterasjoner er typisk for Newtons metode med en god startgjetning: antall riktige siffer omtrent dobles hver runde.\n\n**c)** Fordi `while abs(f(x)) > eps:` alene kan kjøre i det uendelige. Konvergerer ikke metoden — fordi startgjetningen er dårlig, fordi den deriverte er nær null, eller fordi likningen ikke har noen løsning — vil løkka aldri stoppe, og programmet henger.\n\nGrensen `n < 100` gjør at funksjonen alltid returnerer. At den returnerer **antall iterasjoner** gjør det i tillegg mulig for den som kaller å se om grensen ble nådd: kommer `n` ut som 100, konvergerte den ikke.\n\n**Hva gir uttelling (6 poeng):** 1 for omskrivingen til $f(x) = 0$, 1 for `while`-betingelsen med `abs(f(x))`, 1 for oppdateringslinja `x = x - f(x)/df(x)`, 1 for tellingen og den øvre grensen, 1 for `return x, n`, 1 for begrunnelsen i c). Kontrollregningen `f(x)` til slutt er alltid verdt å ta med — den viser at du vet hva et nullpunkt er.",
-            "hints": [
-              "Flytt alt over på én side av likhetstegnet først.",
-              "Stoppkriteriet er at funksjonsverdien er nær null, ikke at `x` slutter å endre seg.",
-              "Til c): hva skjer hvis metoden ikke konvergerer?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-6-prove-C-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-C-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger N — sekantmetoden.) Sekantmetoden løser $f(x) = 0$ **uten** at du trenger den deriverte:\n\n$$x_{n+1} = x_n - f(x_n)\\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$\n\n**a)** Skriv `sekant(f, x0, x1, eps=1e-10)` som returnerer løsningen og antall iterasjoner.\n\n**b)** Løs $e^{-x} = x$ med startpunktene 0 og 1, og sammenlign antall iterasjoner med Newton i oppgave 1.\n\n**c)** Når er sekantmetoden å foretrekke framfor Newton?",
-            "solution": "**a)** og **b)**. Metoden holder på **de to siste** punktene, og oppdateringen flytter dem ett hakk — samme mønster som i en rekurrent rekke:\n\n```python\nfrom math import exp\n\ndef sekant(f, x0, x1, eps=1e-10):\n    n = 0 while abs(f(x1)) > eps and n < 100:\n        ny = x1 - f(x1)*(x1 - x0)/(f(x1) - f(x0))\n        x0 = x1 x1 = ny n += 1 return x1, n\n\ndef f(x):\n    return exp(-x) - x\n\n\nx, n = sekant(f, 0.0, 1.0)\nprint(f'{x:.10f} etter {n} iterasjoner')\n```\n\n**Utskrift:**\n```\n0.5671432904 etter 5 iterasjoner\n```\n\nSamme svar som Newton, men fem iterasjoner i stedet for tre. Sekantmetoden konvergerer litt saktere fordi den bruker en tilnærming til den deriverte i stedet for den eksakte.\n\n**c)** Når den deriverte er **vanskelig eller umulig å skrive ned**. Det gjelder oftere enn man skulle tro: funksjonen kan være resultatet av en simulering, en tabell eller en annen numerisk metode, og da finnes det ingen formel å derivere.\n\nPrisen er noen flere iterasjoner. Gevinsten er at du slipper å regne ut og programmere `df` — som også er et sted det er lett å gjøre feil.\n\n**Hva gir uttelling (6 poeng):** 1 for `while`-betingelsen, 2 for oppdateringsformelen, 1 for at de to punktene flyttes i **riktig rekkefølge** med en hjelpevariabel, 1 for tellingen med øvre grense, 1 for begrunnelsen i c).\n\n**Merk rekkefølgen i flyttingen:** `ny` må regnes før `x0 = x1`, ellers er den gamle `x0` allerede overskrevet. Det er nøyaktig samme felle som i de rekurrente rekkene i [kap. 3.2](/bok/in1900/in1900-3-2).",
-            "hints": [
-              "Metoden trenger de to siste punktene — hvordan flytter du dem?",
-              "Regn den nye verdien før du flytter noe.",
-              "Til c): hva om du ikke kan skrive ned den deriverte?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-6-prove-C-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-C-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger N — `root` fra `scipy.optimize`, nivå 3.) Verktøyet `root` løser likninger numerisk. Funksjonen du gir den, må ta **ett array** og returnere **ett array**, og svaret ligger i `sol.x`.\n\n**a)** Løs $e^{-x} = x$ med `root` og startgjetning 0,5.\n\n**b)** Løs systemet $x^2 + y^2 = 25$ og $y = 2x - 1$ med `root` og startgjetning $(3, 4)$, og kontroller svaret.\n\n**c)** Hva er den vanligste innpakningsfeilen med `root`?",
-            "solution": "**a)** Én ukjent, men funksjonen må likevel ta og gi et array:\n\n```python\nimport numpy as np from scipy.optimize import root\n\ndef g(x):\n    return np.array([np.exp(-x[0]) - x[0]])\n\n\nsol = root(g, np.array([0.5]))\nprint(f'{sol.x[0]:.10f}', sol.success)\n```\n\n**Utskrift:**\n```\n0.5671432904 True\n```\n\nSamme svar som Newton og sekant ga. `sol.success` er `True` når metoden konvergerte — det er verdt å skrive ut.\n\n**b)** To ukjente. Da har arrayet to elementer, og funksjonen returnerer de to likningene skrevet på formen «venstre side minus høyre side»:\n\n```python\nimport numpy as np from scipy.optimize import root\n\ndef system(v):\n    x, y = v return np.array([x**2 + y**2 - 25.0, y - 2.0*x + 1.0])\n\n\nsol = root(system, np.array([3.0, 4.0]))\nprint(f'{sol.x[0]:.6f} {sol.x[1]:.6f}', sol.success)\nprint(f'kontroll: {sol.x[0]**2 + sol.x[1]**2:.6f}')\n```\n\n**Utskrift:**\n```\n2.627106 4.254211 True\nkontroll: 25.000000\n```\n\nKontrollen bekrefter at punktet ligger på sirkelen. Legg merke til utpakkingen `x, y = v` som første linje — det er det samme grepet som brukes i ODE-systemene i [kap. 7.3](/bok/in1900/in1900-7-3).\n\n**c)** Å returnere et **tall** i stedet for et array, eller å sende en startgjetning som ikke er et array. `root` er skrevet for systemer, og behandler alt som vektorer — også når det bare er én ukjent. Skriver du `return np.exp(-x) - x` uten hakeparenteser og uten `np.array`, kan det tilfeldigvis virke i noen versjoner og feile i andre.\n\nDen nest vanligste er å glemme at likningen må stå på formen $f(x) = 0$: `root` leter etter der funksjonen er null, så alt må flyttes over på én side.\n\n**Hva gir uttelling (7 poeng):** a) 3 p — importen, funksjonen som tar og gir array, `sol.x` som svar. b) 3 p — utpakkingen av de to ukjente, begge likningene skrevet som «lik null», kontrollregningen. c) 1 p.\n\n**Om vedlegget:** dokumentasjonen for `root` leveres på eksamen, så du trenger ikke huske signaturen. Det du må kunne uten hjelp, er at funksjonen tar array inn og gir array ut, og at svaret ligger i `sol.x`.\n\n**Selvdiagnose etter prøve 6.C**\n\n☐ Sto likningen på formen $f(x) = 0$ før du løste den?\n\n☐ Hadde `while`-løkkene en øvre grense på antall runder?\n\n☐ Regnet du den nye verdien før du flyttet punktene i sekantmetoden?\n\n☐ Tok og ga `root`-funksjonen et array, også med bare én ukjent?\n\n☐ Kontrollerte du svaret ved å sette det inn i den opprinnelige likningen?",
-            "hints": [
-              "`root` vil ha array inn og array ut, også med én ukjent.",
-              "Flytt alt over på én side før du løser.",
-              "Pakk ut de to ukjente som første linje i funksjonen."
-            ]
-          }
-        }
+     "id": "in1900-6-prove-A-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-A-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger N — konvergenstabell.) Lag en tabell som sammenligner feilen i forlengs og sentrert differanse for $f(x) = e^x$ i $x = 1$, med $h$ lik $10^{-1}$, $10^{-2}$, $10^{-3}$ og $10^{-4}$.\n\n**a)** Skriv koden.\n\n**b)** Hva ser du i tabellen, og hva forteller det om de to metodene?",
+      "solution": "**a)** To små funksjoner og en løkke over `h`-verdiene. Fasiten er `exp(1.0)`, siden $e^x$ er sin egen deriverte:\n\n```python\nfrom math import exp\n\ndef forlengs(f, x, h):\n    return (f(x+h) - f(x))/h\n\ndef sentrert(f, x, h):\n    return (f(x+h) - f(x-h))/(2*h)\n\nfor h in [1e-1, 1e-2, 1e-3, 1e-4]:\n    a = abs(forlengs(exp, 1.0, h) - exp(1.0))\n    b = abs(sentrert(exp, 1.0, h) - exp(1.0))\n    print(f'{h:7.0e} {a:12.3e} {b:12.3e}')\n```\n\n**Utskrift:**\n```\n  1e-01    1.406e-01    4.533e-03\n  1e-02    1.364e-02    4.530e-05\n  1e-03    1.360e-03    4.530e-07\n  1e-04    1.359e-04    4.531e-09\n```\n\n**b)** Deler du $h$ på ti, blir feilen i den forlengs differansen ti ganger mindre, mens feilen i den sentrerte blir **hundre** ganger mindre. Forlengs differanse er altså en førsteordens metode og sentrert en andreordens.\n\nPraktisk konsekvens: for å nå samme nøyaktighet som den sentrerte gir med $h = 10^{-2}$, må den forlengs ned i $h \\approx 10^{-5}$. Og siden altfor små $h$ gir avrundingsstøy, er den sentrerte metoden både mer nøyaktig og mer robust. Det er derfor boka bruker den som standard.\n\n**Hva gir uttelling (5 poeng):** 1 for hver av de to formlene, 1 for løkka over `h`-verdiene, 1 for at feilen måles som absoluttverdien av avviket fra fasiten, 1 for tolkningen i b) med ordene førsteordens og andreordens.",
+      "hints": [
+       "Fasiten for $e^x$ i $x = 1$ er `exp(1.0)` — funksjonen er sin egen deriverte.",
+       "Se på hvor mange nuller feilen får ekstra for hvert steg i tabellen."
       ]
+     }
     },
     {
-      "id": "in1900-6-prove-D",
-      "type": "collapsible",
-      "title": "Prøve 6.D — Full oppgave på eksamensnivå (40 min)",
-      "buttonText": "Vis prøve 4",
-      "content": [
-        {
-          "id": "in1900-6-prove-D-intro",
-          "type": "text",
-          "content": "**Prøve 6.D — full oppgave på eksamensnivå (40 minutter, sjanger H).** Én flerdelt oppgave av samme type og vekt som den reelle differenslikning-oppgaven på et avsluttende sett. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på b), c) og d)."
-        },
-        {
-          "id": "in1900-6-prove-D-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-6-prove-D-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger H — full oppgave.) I en reaktor går et stoff fram og tilbake mellom to former A og B. Andelen i hver form endrer seg per tidssteg som\n\n$$A_{n+1} = A_n + \\Delta t\\,(-k_1A_n + k_2B_n), \\qquad B_{n+1} = B_n + \\Delta t\\,(k_1A_n - k_2B_n)$$\n\nder $k_1$ er raten fra A til B og $k_2$ raten tilbake. Konsentrasjonene måles i mol per liter.\n\n**a)** (5 p) Skriv `reaktor(A0, B0, k1, k2, dt, N)` som returnerer tabellene `A` og `B`.\n\n**b)** (3 p) Kjør med $A_0 = 2$, $B_0 = 0$, $k_1 = 0{,}8$, $k_2 = 0{,}2$, $\\Delta t = 0{,}01$ og $N = 2000$. Skriv ut første skritt, sluttverdiene og summen.\n\n**c)** (2 p) Regn ut likevektsverdiene for hånd og sammenlign.\n\n**d)** (2 p) Skriv plottekoden for begge kurvene mot tid, og beskriv figuren.",
-            "solution": "**a)**, **b)** og **c)**. Begge høyresidene bruker bare $A_n$ og $B_n$, så rekkefølgen inne i løkka er likegyldig — men si det i én setning, det viser at du har sjekket:\n\n```python\nimport numpy as np\n\ndef reaktor(A0, B0, k1, k2, dt, N):\n    A = np.zeros(N+1)\n    B = np.zeros(N+1)\n    A[0] = A0\n    B[0] = B0 for n in range(N):\n        A[n+1] = A[n] + dt*(-k1*A[n] + k2*B[n])\n        B[n+1] = B[n] + dt*(k1*A[n] - k2*B[n])\n    return A, B\n\n\nA, B = reaktor(2.0, 0.0, 0.8, 0.2, 0.01, 2000)\nprint(f'{A[1]:.6f} {B[1]:.6f}')\nprint(f'{A[-1]:.6f} {B[-1]:.6f}')\nprint(f'sum = {A[-1]+B[-1]:.6f}')\nprint(f'likevekt A = {2.0*0.2/(0.8+0.2):.4f}  B = {2.0*0.8/(0.8+0.2):.4f}')\n```\n\n**Utskrift:**\n```\n1.984000 0.016000\n0.400000 1.600000\nsum = 2.000000 likevekt A = 0.4000  B = 1.6000\n```\n\nKontroller første skritt: $A_1 = 2 + 0{,}01\\,(-0{,}8\\cdot 2 + 0{,}2\\cdot 0) = 2 - 0{,}016 = 1{,}984$, og $B_1 = 0 + 0{,}01\\cdot 1{,}6 = 0{,}016$.\n\n**c)** Likevekt betyr at ingen av konsentrasjonene endrer seg, altså at $k_1A = k_2B$. Sammen med bevaringen $A + B = 2$ gir det\n\n$$A = \\frac{k_2}{k_1+k_2}\\cdot 2 = \\frac{0{,}2}{1{,}0}\\cdot 2 = 0{,}4, \\qquad B = \\frac{k_1}{k_1+k_2}\\cdot 2 = 1{,}6$$\n\nSimuleringen treffer nøyaktig disse verdiene etter 20 tidsenheter, så modellen og håndregningen stemmer.\n\n**d)** Simuleringen dekker $2000\\cdot 0{,}01 = 20$ tidsenheter, og tabellene har 2001 verdier:\n\n```python\nimport numpy as np import matplotlib.pyplot as plt\n\ndef reaktor(A0, B0, k1, k2, dt, N):\n    A = np.zeros(N+1)\n    B = np.zeros(N+1)\n    A[0] = A0\n    B[0] = B0 for n in range(N):\n        A[n+1] = A[n] + dt*(-k1*A[n] + k2*B[n])\n        B[n+1] = B[n] + dt*(k1*A[n] - k2*B[n])\n    return A, B\n\nA, B = reaktor(2.0, 0.0, 0.8, 0.2, 0.01, 2000)\nt = np.linspace(0, 20, 2001)\nplt.plot(t, A, label='form A')\nplt.plot(t, B, label='form B')\nplt.xlabel('tid')\nplt.ylabel('konsentrasjon (mol/L)')\nplt.legend()\nplt.show()\nprint(f'{len(t)} punkter, siste tid {t[-1]:.1f}')\n```\n\n**Utskrift:**\n```\n2001 punkter, siste tid 20.0\n```\n\n**Figuren i ord.** Førsteaksen viser tid fra 0 til 20, andreaksen konsentrasjon fra 0 til 2. A-kurven starter i 2 og faller — først bratt, så stadig flatere — mot 0,4. B-kurven starter i 0 og stiger speilvendt mot 1,6. De to kurvene krysser hverandre der begge er 1, og etter rundt fem tidsenheter er begge praktisk talt i ro. Summen av de to er 2 hele veien, så kurvene er hverandres speilbilder om linja $y = 1$. Forklaringen navngir de to kurvene.\n\n**Hva gir uttelling (12 poeng):**\n\n- a) 5 p: to tabeller med `np.zeros(N+1)` (1 p), begge startverdiene før løkka (1 p), `for n in range(N):` (1 p), de to uttrykkene med riktige fortegn (1,5 p), `return A, B` (0,5 p).\n- b) 3 p: kallet med riktige argumenter (1 p), de tre utskriftene (1 p), bevaringssjekken nevnt (1 p).\n- c) 2 p: likevektsbetingelsen $k_1A = k_2B$ (1 p), løsningen kombinert med bevaringen (1 p).\n- d) 2 p: tidsakse med riktig lengde og to kurver med `label=` og `legend()` (1 p), figurbeskrivelse med retning og grenseverdier (1 p).\n\nSensor belønner riktig overordnet struktur selv med en indeksfeil eller et fortegn på avveie — å få alle detaljer 100 prosent riktig på en hjelpemiddelfri eksamen er nesten umulig, og poengene er lagt opp etter det.\n\n**Selvdiagnose etter prøve 6.D**\n\n☐ Hadde begge tabellene $N+1$ plasser?\n\n☐ Sto begge startverdiene før løkka?\n\n☐ Er fortegnene slik at det som forlater A kommer til B?\n\n☐ Er summen konstant gjennom hele simuleringen?\n\n☐ Har tidsaksen like mange punkter som tabellene?\n\n☐ Stemmer likevekten fra håndregningen med sluttverdiene?",
-            "hints": [
-              "Bruk skjelettet: to tabeller, to startverdier, én løkke, to oppdateringer.",
-              "Sjekk fortegnene mot hverandre: det som forsvinner fra A skal komme til B.",
-              "Likevekt betyr at begge endringene er null — kombiner med at summen er bevart.",
-              "Tidsaksen må ha `N+1` punkter, og siste tid er `N*dt`."
-            ]
-          }
-        }
+     "id": "in1900-6-prove-A-4",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-A-4",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger G og N — den deriverte som klasse.) Skriv en klasse `Deriverte` som tar en funksjon `f` og et steg `h` med default `1e-5` i konstruktøren, og der instansen er **kallbar**, slik at `dsin(x)` gir den sentrerte deriverte av `f` i `x`.\n\n**a)** Skriv klassen.\n\n**b)** Lag en instans for `sin` og evaluer den i $x = 0$ og $x = \\pi/3$. Kontroller mot `cos`.\n\n**c)** Hva er fordelen med klassevarianten framfor funksjonen `diff(f, x, h)`?",
+      "solution": "**a)** og **b)**. Konstruktøren lagrer argumentene som attributter; `__call__` er spesialmetoden som gjør at instansen kan kalles som en funksjon:\n\n```python\nfrom math import sin, cos, pi\n\nclass Deriverte:\n    def __init__(self, f, h=1e-5):\n        self.f = f\n        self.h = h\n\n    def __call__(self, x):\n        f, h = self.f, self.h\n        return (f(x+h) - f(x-h))/(2*h)\n\n\ndsin = Deriverte(sin)\nprint(f'{dsin(0.0):.8f} {dsin(pi/3):.8f}')\nprint(f'{cos(0.0):.8f} {cos(pi/3):.8f}')\n```\n\n**Utskrift:**\n```\n1.00000000 0.50000000\n1.00000000 0.50000000\n```\n\n**c)** At `f` og `h` bare oppgis **én gang**. Etterpå oppfører `dsin` seg som en helt vanlig funksjon av én variabel, og kan sendes videre til alt som forventer en funksjon — for eksempel til en nullpunktsmetode, en plotteløkke eller en annen `Deriverte` for å få den andrederiverte.\n\nMed funksjonsvarianten må du dra med deg `f` og `h` i hvert eneste kall, og du kan ikke sende `diff` direkte videre uten å pakke den inn først.\n\n**Hva gir uttelling (6 poeng):** 1 for `class`-linja og `__init__` med `self`, 1 for at begge argumentene lagres som `self.…`, 1 for default-verdien `h=1e-5`, 2 for `__call__(self, x)` med riktig formel, 1 for begrunnelsen i c). Glemmer du `self` i signaturen eller foran et attributt, er det felle **#3** og koster ett poeng — strukturen står.\n\n**Selvdiagnose etter prøve 6.A**\n\n☐ Sto `2*h` i nevneren i den sentrerte differansen?\n\n☐ Sendte du funksjonen uten parenteser?\n\n☐ Hadde `h` en fornuftig default-verdi i signaturen?\n\n☐ Sto `self` både i metodesignaturene og foran attributtene?\n\n☐ Kontrollerte du svaret mot en eksakt verdi du kjenner?",
+      "hints": [
+       "Konstruktøren lagrer, `__call__` regner.",
+       "Hentelinja `f, h = self.f, self.h` gjør formelen lesbar.",
+       "Til c): hva kan du gjøre med `dsin` som du ikke kan gjøre med `diff`?"
       ]
+     }
     }
-  ],
-  "exercises": []
+   ]
+  },
+  {
+   "id": "in1900-6-prove-B",
+   "type": "collapsible",
+   "title": "Prøve 6.B — Differenslikninger (35 min)",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1900-6-prove-B-intro",
+     "type": "text",
+     "content": "**Prøve 6.B — differenslikninger (35 minutter, sjanger H).** Tre oppgaver. Det første du gjør i hver av dem, er å avgjøre om oppdateringsrekkefølgen er kritisk."
+    },
+    {
+     "id": "in1900-6-prove-B-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-B-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut? NumPy skriver tabeller uten komma.\n\n```python\nimport numpy as np\n\ny = np.zeros(6)\ny[0] = 3.0\nfor n in range(4):\n    y[n+1] = y[n]/2 + 1\nprint(y)\nprint(y.size, y[4], y[5])\n```",
+      "solution": "**Sporingstavle.** Tabellen har seks plasser; løkka gjør fire oppdateringer.\n\n| `n` | Regner | Verdi |\n|---|---|---|\n| 0 | $3/2 + 1$ | 2.5 |\n| 1 | $2{,}5/2 + 1$ | 2.25 |\n| 2 | $2{,}25/2 + 1$ | 2.125 |\n| 3 | $2{,}125/2 + 1$ | 2.0625 |\n\nPlass 5 blir aldri skrevet til.\n\n**Utskrift:**\n```\n[3.     2.5    2.25   2.125  2.0625 0.    ]\n6 2.0625 0.0\n```\n\nMerk at NumPy justerer kolonnene, så det står ekstra mellomrom etter de korteste tallene, og at `0.` skrives uten siffer bak punktumet.\n\nLegg også merke til at verdiene nærmer seg 2: likningen $y_{n+1} = y_n/2 + 1$ står stille når $y = y/2 + 1$, altså $y = 2$. Det er et fikspunkt, og det er en fornuftssjekk du kan gjøre uten å regne.\n\nFellenote: **#1 — av-én-feilen**. Fire oppdateringer i en tabell med seks plasser etterlater en null på slutten, uten at programmet klager.\n\n**Poeng:** 3.",
+      "hints": [
+       "Tegn tabellen med seks plasser og fyll inn én per runde.",
+       "Hvor mange oppdateringer gir `range(4)`?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-6-prove-B-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-B-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger H — koblet system med kritisk rekkefølge.) En fjærpendel simuleres med posisjon $u_n$ og hastighet $v_n$:\n\n$$v_{n+1} = v_n - k\\,\\Delta t\\,u_n, \\qquad u_{n+1} = u_n + \\Delta t\\,v_{n+1}$$\n\n**a)** Skriv `stromning(u0, v0, k, dt, N)` som returnerer tabellene `u` og `v`.\n\n**b)** Kjør med $u_0 = 1$, $v_0 = 0$, $k = 4$, $\\Delta t = 0{,}05$ og $N = 6$, og skriv ut begge tabellene skritt for skritt.\n\n**c)** Hvilken av de to likningene må regnes først, og hvordan ser du det?",
+      "solution": "**a)** og **b)**. Uttrykket for $u_{n+1}$ bruker $v_{n+1}$, altså en indeks $n+1$ på høyre side. Da må `v[n+1]` regnes først:\n\n```python\nimport numpy as np\n\ndef stromning(u0, v0, k, dt, N):\n    u = np.zeros(N+1)\n    v = np.zeros(N+1)\n    u[0] = u0\n    v[0] = v0\n    for n in range(N):\n        v[n+1] = v[n] - k*dt*u[n]\n        u[n+1] = u[n] + dt*v[n+1]\n    return u, v\n\n\nu, v = stromning(1.0, 0.0, 4.0, 0.05, 6)\nfor n in range(7):\n    print(f'{n} {u[n]:9.5f} {v[n]:9.5f}')\n```\n\n**Utskrift:**\n```\n0   1.00000   0.00000\n1   0.99000  -0.20000\n2   0.97010  -0.39800\n3   0.94050  -0.59202\n4   0.90149  -0.78012\n5   0.85347  -0.96042\n6   0.79692  -1.13111\n```\n\nKontroller første skritt: $v_1 = 0 - 4\\cdot 0{,}05\\cdot 1 = -0{,}2$, og $u_1 = 1 + 0{,}05\\cdot(-0{,}2) = 0{,}99$.\n\n**c)** `v[n+1]` må regnes først, og signalet står rett i formelen: uttrykket for $u_{n+1}$ inneholder $v_{n+1}$, med indeks $n+1$. **En indeks $n+1$ på høyre side betyr at den likningen må stå sist.**\n\nBytter du om, leser `u[n+1] = u[n] + dt*v[n+1]` en plass som ennå er 0.0, og posisjonen står helt stille mens hastigheten løper av gårde. Programmet gir ingen feilmelding — det regner bare på en annen modell. Dette er felle **#2**.\n\n**Hva gir uttelling (8 poeng):** to tabeller med `np.zeros(N+1)` (1 p), begge startverdiene før løkka (1 p), `for n in range(N):` (1 p), **rekkefølgen** med `v[n+1]` først (2 p), de to uttrykkene (2 p), `return u, v` utenfor løkka (1 p). Rekkefølgepoengene er de eneste som ikke gis delvis.",
+      "hints": [
+       "Se etter en indeks `n+1` på høyre side av likhetstegnet.",
+       "Den likningen som blir **brukt** av den andre, må regnes først.",
+       "Regn første skritt for hånd som kontroll."
+      ]
+     }
+    },
+    {
+     "id": "in1900-6-prove-B-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-B-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal simulere en bestand som vokser mot en bæreevne, $x_{n+1} = x_n + r x_n(1 - x_n/K)$. Det har **tre** feil.\n\n```text\nimport numpy as np\n\ndef vekst(x0, r, K, N):\n    x = np.zeros(N)\n    for n in range(N):\n        x[0] = x0\n        x[n+1] = x[n] + r*x[n]*(1 - x[n]/K)\n    return x\n```\n\n**a)** Nevn de tre feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden og kjør den med $x_0 = 5$, $r = 0{,}4$, $K = 200$ og $N = 30$.",
+      "solution": "**a)** De tre feilene:\n\n1. **`np.zeros(N)` i stedet for `np.zeros(N+1)`.** Tabellen har én plass for lite, og siste runde skriver til `x[N]`. Programmet stopper med `IndexError`. Dette er felle **#1**.\n2. **`x[0] = x0` står inne i løkka.** Startverdien tilbakestilles i hver runde. Her gir det riktig svar av gal grunn i første runde, men det er en reell feil: settes en annen verdi enn 0 som startverdi og oppdateringen leser `x[n]` for `n > 0`, overskrives ingenting nyttig — linja hører hjemme før løkka, én gang.\n3. **`return x` står riktig, men funksjonen mangler kontroll på at bare `N` oppdateringer gjøres.** Nærmere bestemt: løkka går `range(N)` mot en tabell med `N` plasser, og de to må stemme overens. Rettelsen er å utvide tabellen, ikke å korte ned løkka — oppgaven ber om `N` skritt.\n\n**b)** Rettet:\n\n```python\nimport numpy as np\n\ndef vekst(x0, r, K, N):\n    x = np.zeros(N+1)\n    x[0] = x0\n    for n in range(N):\n        x[n+1] = x[n] + r*x[n]*(1 - x[n]/K)\n    return x\n\n\nx = vekst(5.0, 0.4, 200.0, 30)\nprint(f'{x[0]:.1f} {x[1]:.4f} {x[15]:.2f} {x[30]:.2f}')\nprint(len(x))\n```\n\n**Utskrift:**\n```\n5.0 6.9500 177.36 199.99\n31\n```\n\nKontroller første skritt: $5 + 0{,}4\\cdot 5\\,(1 - 5/200) = 5 + 2\\cdot 0{,}975 = 6{,}95$. Og legg merke til at tabellen har 31 verdier for 30 skritt: bestanden er nesten helt oppe i bæreevnen 200 etter 30 skritt.\n\n**Hva gir uttelling (6 poeng):** 1 poeng per navngitt feil (3 p), 3 for rettet kode som kjører. Sjanger O er poengmessig snill: finner du to av tre feil, har du fortsatt flertallet av poengene.\n\n**Selvdiagnose etter prøve 6.B**\n\n☐ Hadde hver tabell `N+1` plasser?\n\n☐ Sto alle startverdier **før** løkka?\n\n☐ Sjekket du om noen høyreside inneholder en indeks $n+1$?\n\n☐ Gikk løkka over `range(N)`?\n\n☐ Regnet du første skritt for hånd som kontroll?",
+      "hints": [
+       "Tell plassene i tabellen mot antall oppdateringer.",
+       "Hvor mange ganger skal startverdien settes?",
+       "Regn første skritt for hånd og sammenlign."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-6-prove-C",
+   "type": "collapsible",
+   "title": "Prøve 6.C — Nullpunkt (30 min)",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1900-6-prove-C-intro",
+     "type": "text",
+     "content": "**Prøve 6.C — nullpunkt (30 minutter, sjanger N, nivå 3).** Tre oppgaver. Dette er stoffet som er merket «bør kjenne til»: frekvensen er 38 prosent, men voksende. Dokumentasjonen for `root` leveres alltid som vedlegg på eksamen, så det du må kunne, er innpakningen — ikke signaturen utenat."
+    },
+    {
+     "id": "in1900-6-prove-C-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-C-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger N — Newtons metode.) Likningen $e^{-x} = x$ har én løsning.\n\n**a)** Skriv om den til formen $f(x) = 0$ og skriv `newton(f, df, x0, eps=1e-10)` som løser den. Funksjonen skal returnere både løsningen og antall iterasjoner, og ha en øvre grense på antall runder.\n\n**b)** Kjør den med startgjetning 0,5 og kontroller svaret.\n\n**c)** Hvorfor er den øvre grensen på antall runder viktig?",
+      "solution": "**a)** og **b)**. Likningen skrives $f(x) = e^{-x} - x = 0$, og den deriverte er $f'(x) = -e^{-x} - 1$:\n\n```python\nfrom math import exp\n\ndef newton(f, df, x0, eps=1e-10):\n    x = x0\n    n = 0\n    while abs(f(x)) > eps and n < 100:\n        x = x - f(x)/df(x)\n        n += 1\n    return x, n\n\ndef f(x):\n    return exp(-x) - x\n\ndef df(x):\n    return -exp(-x) - 1\n\n\nx, n = newton(f, df, 0.5)\nprint(f'{x:.10f} etter {n} iterasjoner')\nprint(f'kontroll: f(x) = {f(x):.2e}')\n```\n\n**Utskrift:**\n```\n0.5671432904 etter 3 iterasjoner\nkontroll: f(x) = 4.44e-15\n```\n\nTre iterasjoner er typisk for Newtons metode med en god startgjetning: antall riktige siffer omtrent dobles hver runde.\n\n**c)** Fordi `while abs(f(x)) > eps:` alene kan kjøre i det uendelige. Konvergerer ikke metoden — fordi startgjetningen er dårlig, fordi den deriverte er nær null, eller fordi likningen ikke har noen løsning — vil løkka aldri stoppe, og programmet henger.\n\nGrensen `n < 100` gjør at funksjonen alltid returnerer. At den returnerer **antall iterasjoner** gjør det i tillegg mulig for den som kaller å se om grensen ble nådd: kommer `n` ut som 100, konvergerte den ikke.\n\n**Hva gir uttelling (6 poeng):** 1 for omskrivingen til $f(x) = 0$, 1 for `while`-betingelsen med `abs(f(x))`, 1 for oppdateringslinja `x = x - f(x)/df(x)`, 1 for tellingen og den øvre grensen, 1 for `return x, n`, 1 for begrunnelsen i c). Kontrollregningen `f(x)` til slutt er alltid verdt å ta med — den viser at du vet hva et nullpunkt er.",
+      "hints": [
+       "Flytt alt over på én side av likhetstegnet først.",
+       "Stoppkriteriet er at funksjonsverdien er nær null, ikke at `x` slutter å endre seg.",
+       "Til c): hva skjer hvis metoden ikke konvergerer?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-6-prove-C-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-C-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger N — sekantmetoden.) Sekantmetoden løser $f(x) = 0$ **uten** at du trenger den deriverte:\n\n$$x_{n+1} = x_n - f(x_n)\\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$\n\n**a)** Skriv `sekant(f, x0, x1, eps=1e-10)` som returnerer løsningen og antall iterasjoner.\n\n**b)** Løs $e^{-x} = x$ med startpunktene 0 og 1, og sammenlign antall iterasjoner med Newton i oppgave 1.\n\n**c)** Når er sekantmetoden å foretrekke framfor Newton?",
+      "solution": "**a)** og **b)**. Metoden holder på **de to siste** punktene, og oppdateringen flytter dem ett hakk — samme mønster som i en rekurrent rekke:\n\n```python\nfrom math import exp\n\ndef sekant(f, x0, x1, eps=1e-10):\n    n = 0\n    while abs(f(x1)) > eps and n < 100:\n        ny = x1 - f(x1)*(x1 - x0)/(f(x1) - f(x0))\n        x0 = x1\n        x1 = ny\n        n += 1\n    return x1, n\n\ndef f(x):\n    return exp(-x) - x\n\n\nx, n = sekant(f, 0.0, 1.0)\nprint(f'{x:.10f} etter {n} iterasjoner')\n```\n\n**Utskrift:**\n```\n0.5671432904 etter 5 iterasjoner\n```\n\nSamme svar som Newton, men fem iterasjoner i stedet for tre. Sekantmetoden konvergerer litt saktere fordi den bruker en tilnærming til den deriverte i stedet for den eksakte.\n\n**c)** Når den deriverte er **vanskelig eller umulig å skrive ned**. Det gjelder oftere enn man skulle tro: funksjonen kan være resultatet av en simulering, en tabell eller en annen numerisk metode, og da finnes det ingen formel å derivere.\n\nPrisen er noen flere iterasjoner. Gevinsten er at du slipper å regne ut og programmere `df` — som også er et sted det er lett å gjøre feil.\n\n**Hva gir uttelling (6 poeng):** 1 for `while`-betingelsen, 2 for oppdateringsformelen, 1 for at de to punktene flyttes i **riktig rekkefølge** med en hjelpevariabel, 1 for tellingen med øvre grense, 1 for begrunnelsen i c).\n\n**Merk rekkefølgen i flyttingen:** `ny` må regnes før `x0 = x1`, ellers er den gamle `x0` allerede overskrevet. Det er nøyaktig samme felle som i de rekurrente rekkene i [kap. 3.2](/bok/in1900/in1900-3-2).",
+      "hints": [
+       "Metoden trenger de to siste punktene — hvordan flytter du dem?",
+       "Regn den nye verdien før du flytter noe.",
+       "Til c): hva om du ikke kan skrive ned den deriverte?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-6-prove-C-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-C-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger N — `root` fra `scipy.optimize`, nivå 3.) Verktøyet `root` løser likninger numerisk. Funksjonen du gir den, må ta **ett array** og returnere **ett array**, og svaret ligger i `sol.x`.\n\n**a)** Løs $e^{-x} = x$ med `root` og startgjetning 0,5.\n\n**b)** Løs systemet $x^2 + y^2 = 25$ og $y = 2x - 1$ med `root` og startgjetning $(3, 4)$, og kontroller svaret.\n\n**c)** Hva er den vanligste innpakningsfeilen med `root`?",
+      "solution": "**a)** Én ukjent, men funksjonen må likevel ta og gi et array:\n\n```python\nimport numpy as np\nfrom scipy.optimize import root\n\ndef g(x):\n    return np.array([np.exp(-x[0]) - x[0]])\n\n\nsol = root(g, np.array([0.5]))\nprint(f'{sol.x[0]:.10f}', sol.success)\n```\n\n**Utskrift:**\n```\n0.5671432904 True\n```\n\nSamme svar som Newton og sekant ga. `sol.success` er `True` når metoden konvergerte — det er verdt å skrive ut.\n\n**b)** To ukjente. Da har arrayet to elementer, og funksjonen returnerer de to likningene skrevet på formen «venstre side minus høyre side»:\n\n```python\nimport numpy as np\nfrom scipy.optimize import root\n\ndef system(v):\n    x, y = v\n    return np.array([x**2 + y**2 - 25.0, y - 2.0*x + 1.0])\n\n\nsol = root(system, np.array([3.0, 4.0]))\nprint(f'{sol.x[0]:.6f} {sol.x[1]:.6f}', sol.success)\nprint(f'kontroll: {sol.x[0]**2 + sol.x[1]**2:.6f}')\n```\n\n**Utskrift:**\n```\n2.627106 4.254211 True\nkontroll: 25.000000\n```\n\nKontrollen bekrefter at punktet ligger på sirkelen. Legg merke til utpakkingen `x, y = v` som første linje — det er det samme grepet som brukes i ODE-systemene i [kap. 7.3](/bok/in1900/in1900-7-3).\n\n**c)** Å returnere et **tall** i stedet for et array, eller å sende en startgjetning som ikke er et array. `root` er skrevet for systemer, og behandler alt som vektorer — også når det bare er én ukjent. Skriver du `return np.exp(-x) - x` uten hakeparenteser og uten `np.array`, kan det tilfeldigvis virke i noen versjoner og feile i andre.\n\nDen nest vanligste er å glemme at likningen må stå på formen $f(x) = 0$: `root` leter etter der funksjonen er null, så alt må flyttes over på én side.\n\n**Hva gir uttelling (7 poeng):** a) 3 p — importen, funksjonen som tar og gir array, `sol.x` som svar. b) 3 p — utpakkingen av de to ukjente, begge likningene skrevet som «lik null», kontrollregningen. c) 1 p.\n\n**Om vedlegget:** dokumentasjonen for `root` leveres på eksamen, så du trenger ikke huske signaturen. Det du må kunne uten hjelp, er at funksjonen tar array inn og gir array ut, og at svaret ligger i `sol.x`.\n\n**Selvdiagnose etter prøve 6.C**\n\n☐ Sto likningen på formen $f(x) = 0$ før du løste den?\n\n☐ Hadde `while`-løkkene en øvre grense på antall runder?\n\n☐ Regnet du den nye verdien før du flyttet punktene i sekantmetoden?\n\n☐ Tok og ga `root`-funksjonen et array, også med bare én ukjent?\n\n☐ Kontrollerte du svaret ved å sette det inn i den opprinnelige likningen?",
+      "hints": [
+       "`root` vil ha array inn og array ut, også med én ukjent.",
+       "Flytt alt over på én side før du løser.",
+       "Pakk ut de to ukjente som første linje i funksjonen."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-6-prove-D",
+   "type": "collapsible",
+   "title": "Prøve 6.D — Full oppgave på eksamensnivå (40 min)",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1900-6-prove-D-intro",
+     "type": "text",
+     "content": "**Prøve 6.D — full oppgave på eksamensnivå (40 minutter, sjanger H).** Én flerdelt oppgave av samme type og vekt som den reelle differenslikning-oppgaven på et avsluttende sett. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på b), c) og d)."
+    },
+    {
+     "id": "in1900-6-prove-D-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-6-prove-D-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger H — full oppgave.) I en reaktor går et stoff fram og tilbake mellom to former A og B. Andelen i hver form endrer seg per tidssteg som\n\n$$A_{n+1} = A_n + \\Delta t\\,(-k_1A_n + k_2B_n), \\qquad B_{n+1} = B_n + \\Delta t\\,(k_1A_n - k_2B_n)$$\n\nder $k_1$ er raten fra A til B og $k_2$ raten tilbake. Konsentrasjonene måles i mol per liter.\n\n**a)** (5 p) Skriv `reaktor(A0, B0, k1, k2, dt, N)` som returnerer tabellene `A` og `B`.\n\n**b)** (3 p) Kjør med $A_0 = 2$, $B_0 = 0$, $k_1 = 0{,}8$, $k_2 = 0{,}2$, $\\Delta t = 0{,}01$ og $N = 2000$. Skriv ut første skritt, sluttverdiene og summen.\n\n**c)** (2 p) Regn ut likevektsverdiene for hånd og sammenlign.\n\n**d)** (2 p) Skriv plottekoden for begge kurvene mot tid, og beskriv figuren.",
+      "solution": "**a)**, **b)** og **c)**. Begge høyresidene bruker bare $A_n$ og $B_n$, så rekkefølgen inne i løkka er likegyldig — men si det i én setning, det viser at du har sjekket:\n\n```python\nimport numpy as np\n\ndef reaktor(A0, B0, k1, k2, dt, N):\n    A = np.zeros(N+1)\n    B = np.zeros(N+1)\n    A[0] = A0\n    B[0] = B0\n    for n in range(N):\n        A[n+1] = A[n] + dt*(-k1*A[n] + k2*B[n])\n        B[n+1] = B[n] + dt*(k1*A[n] - k2*B[n])\n    return A, B\n\n\nA, B = reaktor(2.0, 0.0, 0.8, 0.2, 0.01, 2000)\nprint(f'{A[1]:.6f} {B[1]:.6f}')\nprint(f'{A[-1]:.6f} {B[-1]:.6f}')\nprint(f'sum = {A[-1]+B[-1]:.6f}')\nprint(f'likevekt A = {2.0*0.2/(0.8+0.2):.4f}  B = {2.0*0.8/(0.8+0.2):.4f}')\n```\n\n**Utskrift:**\n```\n1.984000 0.016000\n0.400000 1.600000\nsum = 2.000000\nlikevekt A = 0.4000  B = 1.6000\n```\n\nKontroller første skritt: $A_1 = 2 + 0{,}01\\,(-0{,}8\\cdot 2 + 0{,}2\\cdot 0) = 2 - 0{,}016 = 1{,}984$, og $B_1 = 0 + 0{,}01\\cdot 1{,}6 = 0{,}016$.\n\n**c)** Likevekt betyr at ingen av konsentrasjonene endrer seg, altså at $k_1A = k_2B$. Sammen med bevaringen $A + B = 2$ gir det\n\n$$A = \\frac{k_2}{k_1+k_2}\\cdot 2 = \\frac{0{,}2}{1{,}0}\\cdot 2 = 0{,}4, \\qquad B = \\frac{k_1}{k_1+k_2}\\cdot 2 = 1{,}6$$\n\nSimuleringen treffer nøyaktig disse verdiene etter 20 tidsenheter, så modellen og håndregningen stemmer.\n\n**d)** Simuleringen dekker $2000\\cdot 0{,}01 = 20$ tidsenheter, og tabellene har 2001 verdier:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef reaktor(A0, B0, k1, k2, dt, N):\n    A = np.zeros(N+1)\n    B = np.zeros(N+1)\n    A[0] = A0\n    B[0] = B0\n    for n in range(N):\n        A[n+1] = A[n] + dt*(-k1*A[n] + k2*B[n])\n        B[n+1] = B[n] + dt*(k1*A[n] - k2*B[n])\n    return A, B\n\nA, B = reaktor(2.0, 0.0, 0.8, 0.2, 0.01, 2000)\nt = np.linspace(0, 20, 2001)\nplt.plot(t, A, label='form A')\nplt.plot(t, B, label='form B')\nplt.xlabel('tid')\nplt.ylabel('konsentrasjon (mol/L)')\nplt.legend()\nplt.show()\nprint(f'{len(t)} punkter, siste tid {t[-1]:.1f}')\n```\n\n**Utskrift:**\n```\n2001 punkter, siste tid 20.0\n```\n\n**Figuren i ord.** Førsteaksen viser tid fra 0 til 20, andreaksen konsentrasjon fra 0 til 2. A-kurven starter i 2 og faller — først bratt, så stadig flatere — mot 0,4. B-kurven starter i 0 og stiger speilvendt mot 1,6. De to kurvene krysser hverandre der begge er 1, og etter rundt fem tidsenheter er begge praktisk talt i ro. Summen av de to er 2 hele veien, så kurvene er hverandres speilbilder om linja $y = 1$. Forklaringen navngir de to kurvene.\n\n**Hva gir uttelling (12 poeng):**\n\n- a) 5 p: to tabeller med `np.zeros(N+1)` (1 p), begge startverdiene før løkka (1 p), `for n in range(N):` (1 p), de to uttrykkene med riktige fortegn (1,5 p), `return A, B` (0,5 p).\n- b) 3 p: kallet med riktige argumenter (1 p), de tre utskriftene (1 p), bevaringssjekken nevnt (1 p).\n- c) 2 p: likevektsbetingelsen $k_1A = k_2B$ (1 p), løsningen kombinert med bevaringen (1 p).\n- d) 2 p: tidsakse med riktig lengde og to kurver med `label=` og `legend()` (1 p), figurbeskrivelse med retning og grenseverdier (1 p).\n\nSensor belønner riktig overordnet struktur selv med en indeksfeil eller et fortegn på avveie — å få alle detaljer 100 prosent riktig på en hjelpemiddelfri eksamen er nesten umulig, og poengene er lagt opp etter det.\n\n**Selvdiagnose etter prøve 6.D**\n\n☐ Hadde begge tabellene $N+1$ plasser?\n\n☐ Sto begge startverdiene før løkka?\n\n☐ Er fortegnene slik at det som forlater A kommer til B?\n\n☐ Er summen konstant gjennom hele simuleringen?\n\n☐ Har tidsaksen like mange punkter som tabellene?\n\n☐ Stemmer likevekten fra håndregningen med sluttverdiene?",
+      "hints": [
+       "Bruk skjelettet: to tabeller, to startverdier, én løkke, to oppdateringer.",
+       "Sjekk fortegnene mot hverandre: det som forsvinner fra A skal komme til B.",
+       "Likevekt betyr at begge endringene er null — kombiner med at summen er bevart.",
+       "Tidsaksen må ha `N+1` punkter, og siste tid er `N*dt`."
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
 }

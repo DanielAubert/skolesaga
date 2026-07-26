@@ -1,445 +1,445 @@
 {
-  "id": "in1900-4-1",
-  "courseId": "in1900",
-  "chapterNumber": "4.1",
-  "title": "NumPy-arrays: oppretting, vektorisering og 2D",
-  "description": "Arrays, elementvise operasjoner, linspace og zeros, og et kort dykk i tabeller med to indekser — verktøyet ODE- og differenslikning-oppgavene hviler på.",
-  "estimatedMinutes": 50,
-  "competenceGoals": [
-    "kunne opprette en talltabell med nuller, ettere eller jevnt fordelte punkter, og forklare hvorfor N intervaller gir N+1 punkter",
-    "kunne regne elementvis på hele tabeller uten løkke, og skille dette fra hvordan lister skjøtes og gjentas",
-    "kunne bruke en funksjon du selv har skrevet på en hel tabell, og vite når du må bytte fra math-modulen til NumPy",
-    "kjenne til tabeller med to indekser: hente ut en rad, en kolonne og ett element"
-  ],
-  "content": [
+ "id": "in1900-4-1",
+ "courseId": "in1900",
+ "chapterNumber": "4.1",
+ "title": "NumPy-arrays: oppretting, vektorisering og 2D",
+ "description": "Arrays, elementvise operasjoner, linspace og zeros, og et kort dykk i tabeller med to indekser — verktøyet ODE- og differenslikning-oppgavene hviler på.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne opprette en talltabell med nuller, ettere eller jevnt fordelte punkter, og forklare hvorfor N intervaller gir N+1 punkter",
+  "kunne regne elementvis på hele tabeller uten løkke, og skille dette fra hvordan lister skjøtes og gjentas",
+  "kunne bruke en funksjon du selv har skrevet på en hel tabell, og vite når du må bytte fra math-modulen til NumPy",
+  "kjenne til tabeller med to indekser: hente ut en rad, en kolonne og ett element"
+ ],
+ "content": [
+  {
+   "id": "in1900-4-1-tip-vinkel",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**NumPy er verktøyet nesten all senere kode i faget hviler på.** NumPy er Pythons standardbibliotek for talltabeller — lange rader av tall som du regner på under ett, i stedet for ett tall om gangen.\n\nKapitlet har prioritet **kunne** (nivå 2 av tre: må sitte, kunne, kjenne til). Det er ikke fordi NumPy er uviktig, men fordi NumPy sjelden er *hele* oppgaven — det er byggeklossen inni de store oppgavene:\n\n- **Lister mot NumPy-tabeller** (sjanger M — «skriv samme tabell først med løkke, så uten løkke») er i 6 av de 8 nyere settene, altså 75 %, og er verdt rundt 5 poeng. Sjangeren drilles i [kap. 4.2](/bok/in1900/in1900-4-2).\n- **Plotting** er i 7 av 8 sett (88 %), nesten alltid som en del-b: «plott løsningen». Se [kap. 4.3](/bok/in1900/in1900-4-3).\n- **Differenslikninger** (75 %) og **ODE-systemer** (100 %) starter alltid med å lage en tabell med NumPy. Uten dette kapitlet stopper du på første linje i de tyngste oppgavene.\n- **Sporing av tabellkode** hører til sjanger A — «hva skriver programmet ut?» — som er i alle sett (100 %) og bærer hele midtveiseksamen, den digitale flervalgseksamenen i oktober som teller 25 %.\n- **Tabeller med to indekser** (2D) er bare i 2 av 8 sett (25 %) og har prioritet **kjenne til**. Det stoffet står sist i kapitlet og er merket.\n\nDet er én feil du må trene bort her, og den er fagets aller vanligste: å bomme med én på antall punkter i en tabell."
+  },
+  {
+   "id": "in1900-4-1-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nDu trenger tre ting fra Del 1:\n\n- **Lister, indeksering og slicing** fra [kap. 1.2](/bok/in1900/in1900-1-2) — hele dette kapitlet er en sammenligning mot lister. «Slicing» betyr å plukke ut et utsnitt, som `x[1:3]`.\n- **Løkker og `range`** fra [kap. 1.3](/bok/in1900/in1900-1-3), særlig at stoppverdien i `range` er eksklusiv.\n- **Funksjoner** fra [kap. 1.6](/bok/in1900/in1900-1-6), fordi vi skal sende en hel tabell inn i en funksjon du selv har skrevet.\n\nHar du aldri programmert før, er [Programmering med Python](/bok/1p/1p-9-2) en mykere inngang til løkker og lister enn dette kapitlet.\n\nKapitlet er delt i fire løkker med tidsanslag. Ta gjerne en pause mellom løkke 2 og 3."
+  },
+  {
+   "id": "in1900-4-1-txt-lokke1",
+   "type": "text",
+   "content": "## Løkke 1 — fra liste til tabell (~12 min)\n\nEn værstasjon på Blindern måler temperaturen hver time. Med Python-lister lagrer du målingene som `[2.1, 3.4, 3.0, 5.2, 4.8]`. Skal du så trekke fra en kalibreringsfeil på 0,3 grader i alle fem, må du gå gjennom lista med en løkke og bygge en ny liste.\n\nMed NumPy skriver du i stedet `maal - 0.3` og er ferdig. Det er hele poenget: **en NumPy-tabell er en rad av tall som regnes på under ett**. Å regne på en hel tabell i én operasjon, uten løkke, kalles **vektorisering**.\n\nTabellen heter `array` på engelsk. Vi bruker ordet «array» også på norsk, siden det er ordet du ser i koden og i oppgaveteksten."
+  },
+  {
+   "id": "in1900-4-1-def-import",
+   "type": "definition",
+   "title": "`import numpy as np`",
+   "content": "Standardlinjen som gjør NumPy tilgjengelig. `as np` gir biblioteket kallenavnet `np`, slik at du skriver `np.zeros(5)` og ikke `numpy.zeros(5)`. Alle NumPy-navn i faget skrives med `np.`-prefiks, og linjen skal alltid stå øverst i kode som bruker arrays — sensor forventer at nødvendige importer er med.\n\n```python\nimport numpy as np\nprint(np.zeros(3))\n```\n\n**Utskrift:**\n```\n[0. 0. 0.]\n```"
+  },
+  {
+   "id": "in1900-4-1-def-array",
+   "type": "definition",
+   "title": "`np.array(liste)`",
+   "content": "Lager et array av en ferdig liste med tall. Lista må inneholde tall (eller nøstede lister av tall), og resultatet er en ny tabell med samme verdier i samme rekkefølge. Legg merke til at Python skriver et array **uten** komma mellom elementene — `[2 4 6]`, ikke `[2, 4, 6]`. Det er den sikreste måten å kjenne igjen et array i en utskrift.\n\n```python\nimport numpy as np\ntabell = np.array([2, 4, 6])\nprint(tabell)\n```\n\n**Utskrift:**\n```\n[2 4 6]\n```"
+  },
+  {
+   "id": "in1900-4-1-ex-1",
+   "type": "example",
+   "title": "Eksempel 1: samme uttrykk, to helt ulike svar",
+   "problem": "Tre timesmålinger av temperatur er lagret både som liste og som array. Hva skriver `liste + liste`, `array + array`, `liste * 2` og `array * 2` ut?",
+   "solution": "\nNøkkelen er at `+` og `*` betyr noe helt annet for en liste enn for et array.\n\n```python\nimport numpy as np\n\nmaal_liste = [2.1, 3.4, 3.0]\nmaal_array = np.array([2.1, 3.4, 3.0])\n\nprint(maal_liste + maal_liste)\nprint(maal_array + maal_array)\nprint(maal_liste * 2)\nprint(maal_array * 2)\n```\n\n**Utskrift:**\n```\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n```\n\nFor lista betyr `+` **skjøting**: to lister etter hverandre, seks elementer. For arrayet betyr `+` **elementvis addisjon**: hvert element legges til seg selv, fortsatt tre elementer. Samme mønster for `*`: lista gjentas, arrayet skaleres.\n\nLegg også merke til hvordan Python skriver de to: lista med komma, arrayet uten."
+  },
+  {
+   "id": "in1900-4-1-def-elementvis",
+   "type": "definition",
+   "title": "Elementvise operasjoner på array",
+   "content": "For to arrays med like mange elementer regner `+`, `-`, `*`, `/` og `**` **element for element**. `x + y` gir et nytt array der element nummer `i` er `x[i] + y[i]`. Er den ene siden et vanlig tall, brukes tallet på hvert element: `x * 2` dobler alle, `x ** 2` kvadrerer alle. Ingen løkke trengs, og resultatet har samme lengde som det som gikk inn.\n\n```python\nimport numpy as np\nx = np.array([1.0, 2.0, 3.0])\nprint(x ** 2 + x)\n```\n\n**Utskrift:**\n```\n[ 2.  6. 12.]\n```"
+  },
+  {
+   "id": "in1900-4-1-warn-konkat",
+   "type": "warning",
+   "title": "Typiske feil: skjøting mot elementvis addisjon",
+   "content": "Dette er **feil #5 i feilkatalogen** — å forveksle liste-skjøting med array-addisjon. Den er plantet som svaralternativ i flervalgsspørsmål år etter år, fordi de to uttrykkene ser identiske ut i koden:\n\n- `[1, 2] + [3, 4]` gir `[1, 2, 3, 4]` — fire elementer, ingen addisjon.\n- `np.array([1, 2]) + np.array([3, 4])` gir `[4 6]` — to elementer, addisjon.\n\nRegelen er enkel: **se etter `np.array` eller `np.linspace` i linjene over**. Har variabelen blitt et array et sted, er `+` elementvis. Har den ikke det, er `+` skjøting. Og et array skrives ut uten komma — sjekk alltid hvilket av de to formatene svaralternativene har."
+  },
+  {
+   "id": "in1900-4-1-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Skriv utskriften nøyaktig, med de mellomrommene og hakeparentesene Python bruker.\n\n```python\nimport numpy as np\n\na = [5, 10]\nb = np.array([5, 10])\nprint(a + a)\nprint(b + b)\n```",
+    "solution": "**Sporingstavle**\n\n| Linje | `a` | `b` | Skriver |\n|---|---|---|---|\n| `a = [5, 10]` | liste med 5 og 10 | — | — |\n| `b = np.array([5, 10])` | uendret | array med 5 og 10 | — |\n| `print(a + a)` | uendret | uendret | lista skjøtet med seg selv, fire tall |\n| `print(b + b)` | uendret | uendret | elementvis sum, to tall |\n\n**Utskrift:**\n```\n[5, 10, 5, 10]\n[10 20]\n```\n\nLegg merke til to detaljer sensor ser etter: lista har komma og mellomrom mellom tallene, arrayet har bare mellomrom. Fellen er #5 — skjøting mot elementvis addisjon.",
+    "hints": [
+     "Se etter hvilken av de to variablene som har gått gjennom `np.array`.",
+     "Skriv opp hvor mange elementer hver utskrift har, før du skriver tallene."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-1-def-size-shape",
+   "type": "definition",
+   "title": "`.size` og `.shape`",
+   "content": "To opplysninger du kan hente ut av et array uten parenteser, fordi de er egenskaper og ikke funksjoner. `.size` er **antall tall i alt**, som et helt tall. `.shape` er **formen**, gitt som en tuppel: `(5,)` for en tabell med fem tall på én rad, `(3, 4)` for tre rader og fire kolonner. Kommaet i `(5,)` er Pythons måte å skrive en tuppel med bare ett element.\n\n```python\nimport numpy as np\nt = np.array([0.0, 0.5, 1.0, 1.5])\nprint(t.size, t.shape)\n```\n\n**Utskrift:**\n```\n4 (4,)\n```"
+  },
+  {
+   "id": "in1900-4-1-txt-lokke2",
+   "type": "text",
+   "content": "## Løkke 2 — lage tabellen før du fyller den (~14 min)\n\nI nesten alle senere oppgaver kjenner du **antall** verdier før du kjenner verdiene. Skal du simulere en bestand i 20 tidssteg, vet du at du trenger plass til startverdien pluss 20 nye verdier. Da lager du en tabell full av nuller først, og fyller den i en løkke.\n\nDet er derfor `np.zeros` og `np.linspace` er de to viktigste NumPy-funksjonene i faget. Den første lager plass, den andre lager et jevnt punktgitter.\n\nHer ligger også fagets vanligste feil, og den er verdt å si i klartekst før du ser koden: **et intervall delt i N biter har N+1 delepunkter**. Deler du strekningen fra 0 til 6 i 6 biter, er punktene 0, 1, 2, 3, 4, 5, 6 — det er sju tall, ikke seks."
+  },
+  {
+   "id": "in1900-4-1-def-zeros",
+   "type": "definition",
+   "title": "`np.zeros(n)`",
+   "content": "Lager et array med `n` nuller, klart til å fylles. Nullene er flyttall, så de skrives `0.` med punktum. Dette er standard første linje i alle simuleringer i boka: du lager plassen, setter startverdien, og skriver de øvrige verdiene inn i en løkke. Trenger du N+1 punkter, skriver du `np.zeros(N+1)`.\n\n```python\nimport numpy as np\nprint(np.zeros(4))\n```\n\n**Utskrift:**\n```\n[0. 0. 0. 0.]\n```"
+  },
+  {
+   "id": "in1900-4-1-def-zeros-like",
+   "type": "definition",
+   "title": "`np.zeros_like(t)`",
+   "content": "Lager et nullarray med **samme lengde som** `t`. Nyttig når du allerede har et tidsarray og vil ha et løsningsarray som passer til det — da kan du ikke bomme på lengden, fordi du aldri skriver et tall. Det er den sikreste måten å unngå feil #1 (av-én på antall punkter).\n\n```python\nimport numpy as np\nt = np.linspace(0, 1, 5)\nprint(np.zeros_like(t))\n```\n\n**Utskrift:**\n```\n[0. 0. 0. 0. 0.]\n```"
+  },
+  {
+   "id": "in1900-4-1-def-ones",
+   "type": "definition",
+   "title": "`np.ones(n)`",
+   "content": "Som `np.zeros`, men fylt med ettere. Brukes når startverdien i en modell er 1, eller når du trenger et array du skal multiplisere inn i noe annet. Ettallene er flyttall og skrives `1.`.\n\n```python\nimport numpy as np\nprint(np.ones(3) * 5)\n```\n\n**Utskrift:**\n```\n[5. 5. 5.]\n```"
+  },
+  {
+   "id": "in1900-4-1-def-linspace",
+   "type": "definition",
+   "title": "`np.linspace(a, b, N+1)`",
+   "content": "Lager **N+1 jevnt fordelte punkter** fra `a` til `b`, med **begge endepunktene inkludert**. Tredje argument er altså antall *punkter*, ikke antall intervaller. Avstanden mellom nabopunkter blir $(b-a)/N$, og du kan alltid hente den ut som `t[1] - t[0]`.\n\nDette er den mest presise setningen i hele kapitlet, og den du må kunne i søvne: **N intervaller gir N+1 punkter.** Vil du ha 101 punkter i intervallet fra 1 til 10, skriver du `np.linspace(1, 10, 101)`.\n\n```python\nimport numpy as np\nt = np.linspace(0, 6, 7)\nprint(t)\nprint(t.size, t[1] - t[0])\n```\n\n**Utskrift:**\n```\n[0. 1. 2. 3. 4. 5. 6.]\n7 1.0\n```"
+  },
+  {
+   "id": "in1900-4-1-warn-avn",
+   "type": "warning",
+   "title": "Typiske feil: av-én på antall punkter",
+   "content": "Dette er **feil #1 i feilkatalogen** — av-én i `range` og i antall punkter — og den hyppigste feilen i hele faget. Den slår inn tre steder:\n\n- `np.linspace(0, T, N)` når oppgaven ba om N steg. Riktig er `np.linspace(0, T, N+1)`.\n- `range(N+1)` når du skal gjøre N *oppdateringer*. Riktig er `range(N)`, fordi hver oppdatering fyller ett nytt punkt og punkt nummer 0 var startverdien.\n- To tabeller som skal sammenlignes får ulik lengde, fordi den ene ble laget med `N` og den andre med `N+1`.\n\nÉn god vane fjerner alle tre: skriv alltid ned hva N *er* før du skriver koden. «N = antall intervaller» gir `linspace(a, b, N+1)` og `range(N)`. Er du usikker på eksamen, sett $N = 2$ og tell punktene på papiret: start, midt, slutt — tre punkter."
+  },
+  {
+   "id": "in1900-4-1-ex-2",
+   "type": "example",
+   "title": "Eksempel 2: punkttelling og steglengde",
+   "problem": "En måleserie skal dekke tidsrommet fra $t=0$ til $t=6$ timer med 12 like intervaller. Lag tidsarrayet, og vis at antall punkter og steglengden stemmer.",
+   "solution": "\nTolv intervaller betyr tretten punkter, og steglengden blir $6/12 = 0.5$.\n\n```python\nimport numpy as np\n\nN = 12\nt = np.linspace(0, 6, N+1)\nprint(t)\nprint('Antall punkter:', t.size)\nprint('Antall intervaller:', t.size - 1)\nprint('Steglengde:', t[1] - t[0])\n```\n\n**Utskrift:**\n```\n[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6. ]\nAntall punkter: 13\nAntall intervaller: 12\nSteglengde: 0.5\n```\n\nSensorpoenget: hadde du skrevet `np.linspace(0, 6, N)`, ville steglengden blitt $6/11 \\approx 0.545$ og siste punkt fortsatt 6 — tabellen ser riktig ut, men alle mellomverdiene er feil. Feilen er umulig å se på øyemål, og det er nettopp derfor den er så vanlig."
+  },
+  {
+   "id": "in1900-4-1-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nx = np.linspace(2, 5, 4)\nprint(x)\nprint(x.size, x[-1])\n```",
+    "solution": "**Sporingstavle**\n\n| Steg | Hva skjer | Verdi |\n|---|---|---|\n| `np.linspace(2, 5, 4)` | 4 punkter fra 2 til 5, begge med | $2, 3, 4, 5$ |\n| antall intervaller | punkter minus 1 | 3 |\n| steglengde | $(5-2)/3$ | 1.0 |\n| `x.size` | antall tall | 4 |\n| `x[-1]` | siste element | 5.0 |\n\nPunktene blir flyttall, fordi `linspace` alltid gir flyttall.\n\n**Utskrift:**\n```\n[2. 3. 4. 5.]\n4 5.0\n```\n\nFellen er #1: tredje argument er antall punkter (4), ikke antall intervaller (3).",
+    "hints": [
+     "Tredje argument til `np.linspace` er antall punkter.",
+     "Regn steglengden som differansen mellom endepunktene delt på antall intervaller."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-1-def-arange",
+   "type": "definition",
+   "title": "`np.arange(start, stop, step)`",
+   "content": "Lager et array fra `start` og oppover i steg av `step`, og **stopper før** `stop` — akkurat som `range`, men med flyttall tillatt. `np.arange(0, 2, 0.5)` gir derfor `[0. 0.5 1. 1.5]`: 2 er ikke med.\n\nBruk `np.linspace` når du vet hvor mange punkter du vil ha, og `np.arange` når du vet steglengden. På eksamen er `linspace` nesten alltid det riktige valget, fordi oppgaven oppgir antall steg.\n\n```python\nimport numpy as np\nprint(np.arange(0, 2, 0.5))\n```\n\n**Utskrift:**\n```\n[0.  0.5 1.  1.5]\n```"
+  },
+  {
+   "id": "in1900-4-1-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger A — kodesporing.) De to første linjene ser like ut, men gir ulike tabeller. Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\na = np.linspace(0, 3, 4)\nb = np.arange(0, 3, 1)\nprint(a)\nprint(b)\nprint(a.size - b.size)\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Regel | Resultat | Antall |\n|---|---|---|---|\n| `np.linspace(0, 3, 4)` | 4 punkter, begge endepunkt med | $0, 1, 2, 3$ | 4 |\n| `np.arange(0, 3, 1)` | steg 1, stopper **før** 3 | $0, 1, 2$ | 3 |\n| `a.size - b.size` | $4 - 3$ | 1 | — |\n\n`linspace` gir alltid flyttall, mens `arange` med heltallsargumenter gir heltall — derfor skrives den ene med punktum og den andre uten.\n\n**Utskrift:**\n```\n[0. 1. 2. 3.]\n[0 1 2]\n1\n```\n\nFellen: `linspace` tar sluttpunktet med, `arange` gjør det ikke. Skal du ha punktgitteret over et intervall, er `linspace` alltid det trygge valget.",
+    "hints": [
+     "Den ene funksjonen tar antall punkter, den andre tar steglengde.",
+     "Én av de to har eksklusiv stoppverdi, som `range`."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-1-txt-lokke3",
+   "type": "text",
+   "content": "## Løkke 3 — funksjoner som spiser hele tabellen (~13 min)\n\n— naturlig pausepunkt —\n\nTil nå har vi regnet med `+`, `-`, `*` og `**`. Men de fleste vitenskapelige formler inneholder også kvadratrot, eksponentialfunksjon, sinus eller logaritme. NumPy har egne versjoner av disse som virker på et helt array om gangen.\n\nEn slik funksjon kalles en **ufunksjon** (kort for «universell funksjon»): den tar et array inn og gir et array av samme lengde ut, med funksjonen brukt på hvert element. `np.sqrt(x)` er ufunksjonen som svarer til `math.sqrt`, men `math.sqrt` klarer bare ett tall om gangen.\n\nDet beste med dette er at det også gjelder funksjoner **du** har skrevet, så lenge de bare bruker aritmetikk og ufunksjoner."
+  },
+  {
+   "id": "in1900-4-1-def-ufunk",
+   "type": "definition",
+   "title": "Ufunksjon (`np.sqrt`, `np.exp`, `np.log`, `np.sin`)",
+   "content": "En NumPy-funksjon som virker **elementvis på et helt array** og returnerer et nytt array av samme lengde. `np.exp`, `np.log` (naturlig logaritme), `np.sin`, `np.cos` og `np.sqrt` er de du trenger i faget. De tilsvarer funksjonene i `math`, men `math`-versjonene tar bare ett tall: `math.sqrt` med et array inn gir en feilmelding, mens `np.sqrt` gir hele tabellen med røtter.\n\n```python\nimport numpy as np\nx = np.array([0.0, 0.25, 1.0])\nprint(np.sqrt(x))\n```\n\n**Utskrift:**\n```\n[0.  0.5 1. ]\n```"
+  },
+  {
+   "id": "in1900-4-1-ex-3",
+   "type": "example",
+   "title": "Eksempel 3: din egen funksjon brukt på en hel tabell",
+   "problem": "Høyden til en ball kastet rett opp er $h(t) = 4t - 0{,}5t^2$ målt i meter, med $t$ i sekunder. Skriv funksjonen én gang, og bruk den både på ett tidspunkt og på et helt tidsarray.",
+   "solution": "\nFunksjonen skrives helt vanlig, uten et eneste NumPy-navn. Den virker likevel på hele tabellen, fordi `*`, `-` og `**` er elementvise for arrays.\n\n```python\nimport numpy as np\n\ndef hoyde(t):\n    return 4.0*t - 0.5*t**2\n\nt = np.linspace(0, 4, 5)\nprint(hoyde(2.0))\nprint(t)\nprint(hoyde(t))\n```\n\n**Utskrift:**\n```\n6.0\n[0. 1. 2. 3. 4.]\n[0.  3.5 6.  7.5 8. ]\n```\n\nFørste kall gir ett tall, fordi argumentet er ett tall. Andre kall gir fem tall, fordi argumentet er en tabell med fem tall. **Funksjonen er den samme** — det er argumentet som bestemmer om du får et tall eller en tabell tilbake.\n\nDette er hele grunnlaget for plotting i [kap. 4.3](/bok/in1900/in1900-4-3): du lager et tett tidsarray, sender det gjennom funksjonen din, og plotter de to tabellene mot hverandre."
+  },
+  {
+   "id": "in1900-4-1-warn-navn-x",
+   "type": "warning",
+   "title": "Navnekollisjon: `x` som ett tall og `x` som hel tabell",
+   "content": "Samme bokstav brukes om to ting i dette kapitlet, og forskjellen avgjør hva utskriften blir:\n\n- `x` som **skalar**, altså ett enkelt tall: `x = 2.0`. Da er `f(x)` ett tall.\n- `x` som **array**: hele tabellen, for eksempel `x = np.linspace(0, 1, 11)`. Da er `f(x)` en tabell med 11 tall.\n\nRegelen som holder deg trygg: se på linja der navnet sist ble tilordnet. Står det `np.` der, er det en tabell. I oppgaveteksten på eksamen står det ofte at «funksjonen skal kunne kalles med et array» — det betyr bare at du ikke får bruke `math`-funksjoner eller en `if`-test på `x` inni funksjonen.\n\nMerk også at `math.sqrt(x)` med et array som argument ikke gir et rart svar, men en feilmelding: `TypeError: only length-1 arrays can be converted to Python scalars`. Bruk `np.sqrt`."
+  },
+  {
+   "id": "in1900-4-1-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\ndef g(x):\n    return 2*x + 1\n\nv = np.linspace(0, 1, 3)\nu = g(v)\nprint(u)\nprint(u[1] + v[2])\n```",
+    "solution": "**Sporingstavle**\n\n| Steg | Verdi |\n|---|---|\n| `v = np.linspace(0, 1, 3)` | 0, 0.5, 1 |\n| `2*v` elementvis | 0, 1, 2 |\n| pluss 1 elementvis | 1, 2, 3 |\n| `u[1]` | 2.0 |\n| `v[2]` | 1.0 |\n| `u[1] + v[2]` | 3.0 |\n\n**Utskrift:**\n```\n[1. 2. 3.]\n3.0\n```\n\nFellen her er å tro at `g(v)` må skrives i en løkke, eller at `2*v + 1` bare virker på første element. Begge operasjonene er elementvise, så funksjonen din trenger ingen endring for å ta imot en tabell.",
+    "hints": [
+     "Regn `2*v` først, elementvis, og legg til 1 etterpå.",
+     "Tre punkter fra 0 til 1 betyr steglengde 0,5."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-1-txt-lokke4",
+   "type": "text",
+   "content": "## Løkke 4 — plukke ut deler av tabellen (~11 min)\n\nIndeksering og slicing virker som for lister: `a[0]` er første element, `a[-1]` er siste, og `a[1:]` er alt fra og med element 1. Forskjellen er at et utsnitt av et array er et **array** og ikke en liste, så du kan regne elementvis med det.\n\nDet gir et triks du får bruk for i [kap. 6.2](/bok/in1900/in1900-6-2): `a[1:] - a[:-1]` er tabellen over endringer fra ett punkt til det neste, regnet ut uten løkke."
+  },
+  {
+   "id": "in1900-4-1-def-indeks",
+   "type": "definition",
+   "title": "Indeksering og slicing av array",
+   "content": "`a[i]` gir **ett tall** (element nummer `i`, med 0 som første). `a[i:j]` gir et **array** med elementene fra og med `i` til men ikke med `j` — sluttindeksen er eksklusiv, som for lister. `a[1:]` er alt unntatt det første, `a[:-1]` er alt unntatt det siste, og de to har derfor like mange elementer.\n\nÉn viktig forskjell fra lister: et utsnitt av et array er et **utsyn** inn i det samme minnet, ikke en kopi. Endrer du utsnittet, endrer du originalen.\n\n```python\nimport numpy as np\na = np.array([2.0, 5.0, 9.0, 14.0])\nprint(a[1:] - a[:-1])\n```\n\n**Utskrift:**\n```\n[3. 4. 5.]\n```"
+  },
+  {
+   "id": "in1900-4-1-warn-alias",
+   "type": "warning",
+   "title": "Typiske feil: et utsnitt av et array er ikke en kopi",
+   "content": "\nDette er **feil #23 i feilkatalogen** (aliasing — to navn på samme data). For lister gir `b = a[1:]` en ny liste, men for arrays gir det et *utsyn* inn i `a`. Skriver du i `b`, endrer du `a`:\n\n```python\nimport numpy as np\n\na = np.array([1.0, 2.0, 3.0])\nb = a[1:]\nb[0] = 99.0\nprint(a)\n\nc = a.copy()\nc[0] = -1.0\nprint(a)\nprint(c)\n```\n\n**Utskrift:**\n```\n[ 1. 99.  3.]\n[ 1. 99.  3.]\n[-1. 99.  3.]\n```\n\nTrenger du en uavhengig kopi, bruk `a.copy()`. Dette er ikke en høyfrekvent eksamensfelle, men det er en klassisk grunn til at en simulering «endrer seg selv» mens den kjører."
+  },
+  {
+   "id": "in1900-4-1-ex-4",
+   "type": "example",
+   "title": "Eksempel 4: sammenligne to måleserier uten løkke",
+   "problem": "En sensor logger fem heltallsverdier, og fasitverdiene er kjent fra en kalibrering. Hvor mange av de fem stemmer, og hvilke?",
+   "solution": "\nEn sammenligning mellom to arrays gir et array av `True`/`False`, ett per element. Siden `True` teller som 1 i en sum, kan du telle treffene direkte med den innebygde `sum`.\n\n```python\nimport numpy as np\n\nmaalt = np.array([3, 5, 5, 2, 7])\nfasit = np.array([3, 4, 5, 2, 8])\n\nprint(maalt == fasit)\nprint(sum(maalt == fasit))\n```\n\n**Utskrift:**\n```\n[ True False  True  True False]\n3\n```\n\nLegg merke til at `maalt == fasit` **ikke** gir én sann/falsk-verdi for hele tabellen, men fem. Det er dette som gjør `sum(x == y)` til et kort og lesbart uttrykk for «antall like elementer» — nettopp den korte, idiomatiske stilen sensor belønner."
+  },
+  {
+   "id": "in1900-4-1-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nd = np.array([10, 12, 15, 21])\ne = d[1:] - d[:-1]\nprint(e)\nprint(e.size, sum(e == 3))\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Elementer |\n|---|---|\n| `d` | 10, 12, 15, 21 |\n| `d[1:]` | 12, 15, 21 |\n| `d[:-1]` | 10, 12, 15 |\n| `e = d[1:] - d[:-1]` | 2, 3, 6 |\n| `e == 3` | `False`, `True`, `False` |\n| `sum(e == 3)` | 1 |\n\n**Utskrift:**\n```\n[2 3 6]\n3 1\n```\n\nTo feller på én gang: at differansetabellen har **ett element mindre** enn originalen (fire målinger gir tre endringer — en variant av #1), og at en sammenligning gir et helt array av sann/falsk, ikke ett svar.",
+    "hints": [
+     "Skriv opp de to utsnittene under hverandre før du trekker fra.",
+     "Hvor mange endringer kan det være mellom nabopunkter, når originalen har fire tall?"
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-1-txt-2d",
+   "type": "text",
+   "content": "### Tabeller med to indekser — bør kjenne til\n\nResten av denne løkka er **nivå 3-stoff (kjenne til)**: 2D-arrays er bare i 2 av de 8 nyere settene, altså 25 %, og da som en mindre deloppgave. Har du kort tid, kan du komme hit tilbake etter at Del 5 og Del 7 sitter.\n\nDu trenger likevel formen `u[:, 0]` senere, når et ODE-system i [kap. 7.3](/bok/in1900/in1900-7-3) gir deg løsningen som en tabell med én kolonne per komponent. Det er den ene grunnen til å lese avsnittet nå."
+  },
+  {
+   "id": "in1900-4-1-def-2d",
+   "type": "definition",
+   "title": "`np.zeros((n, m))` og `a[i, j]`",
+   "content": "Med en tuppel som argument lager `np.zeros` en tabell med **flere rader**: `np.zeros((3, 4))` gir 3 rader og 4 kolonner, altså 12 nuller. Du henter ett element med to indekser, `a[i, j]` (rad `i`, kolonne `j`), en hel kolonne med `a[:, j]` og en hel rad med `a[i, :]`. Kolonnen og raden er selv vanlige arrays med én rad. `.shape` gir `(3, 4)`, og `.size` gir 12.\n\nLegg merke til de **doble** parentesene i `np.zeros((3, 4))`: de ytre hører til funksjonskallet, de indre lager tuppelen.\n\n```python\nimport numpy as np\nA = np.zeros((2, 3))\nA[1, 2] = 7.0\nprint(A[:, 2])\n```\n\n**Utskrift:**\n```\n[0. 7.]\n```"
+  },
+  {
+   "id": "in1900-4-1-ex-5",
+   "type": "example",
+   "title": "Eksempel 5: bygge en tabell rad for rad",
+   "problem": "Tre målestasjoner rapporterer nedbør fire ganger i døgnet. Bygg tabellen med `np.zeros`, fyll den med to nøstede løkker der verdien er stasjonsnummeret pluss en tidel per måletidspunkt, og hent ut kolonne 2 og rad 1.",
+   "solution": "\nDen ytre løkka går over rader (stasjoner), den indre over kolonner (måletidspunkt). Dette er den vanlige måten et 2D-array fylles.\n\n```python\nimport numpy as np\n\nA = np.zeros((3, 4))\nfor i in range(3):\n    for j in range(4):\n        A[i, j] = i + 0.1*j\n\nprint(A)\nprint(A[:, 2])\nprint(A[1, :])\nprint(A.shape, A.size)\n```\n\n**Utskrift:**\n```\n[[0.  0.1 0.2 0.3]\n [1.  1.1 1.2 1.3]\n [2.  2.1 2.2 2.3]]\n[0.2 1.2 2.2]\n[1.  1.1 1.2 1.3]\n(3, 4) 12\n```\n\nMerk hvordan et 2D-array skrives ut: én rad per linje, med ytterligere hakeparenteser rundt hele. `A[:, 2]` gir tre tall (én per stasjon), `A[1, :]` gir fire tall (én per tidspunkt). Blander du de to aksene, får du et svar med feil antall elementer — og det er lett å oppdage nettopp fordi antallet ikke stemmer."
+  },
+  {
+   "id": "in1900-4-1-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing med to indekser.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nB = np.zeros((2, 3))\nfor i in range(2):\n    for j in range(3):\n        B[i, j] = 2*i + j\nprint(B)\nprint(B[:, 0])\nprint(B[1, 1:])\n```",
+    "solution": "**Sporingstavle**\n\n| `i` | `j` | `2*i + j` | Tabellen så langt |\n|---|---|---|---|\n| 0 | 0 | 0 | rad 0: 0 |\n| 0 | 1 | 1 | rad 0: 0, 1 |\n| 0 | 2 | 2 | rad 0: 0, 1, 2 |\n| 1 | 0 | 2 | rad 1: 2 |\n| 1 | 1 | 3 | rad 1: 2, 3 |\n| 1 | 2 | 4 | rad 1: 2, 3, 4 |\n\nDeretter: `B[:, 0]` er kolonne 0, altså 0 og 2. `B[1, 1:]` er rad 1 fra kolonne 1 og ut, altså 3 og 4.\n\n**Utskrift:**\n```\n[[0. 1. 2.]\n [2. 3. 4.]]\n[0. 2.]\n[3. 4.]\n```\n\nTre ting gir uttelling hver for seg her, selv om du bommer på ett av dem: at tallene blir flyttall (`np.zeros` gir flyttall), at 2D-utskriften har én rad per linje med et ekstra mellomrom foran den andre raden, og at `[:, 0]` er en kolonne mens `[1, 1:]` er en del av en rad.",
+    "hints": [
+     "Fyll ut en rute med 2 rader og 3 kolonner på papiret først, med verdien `2*i + j` i hver celle.",
+     "Kolon på den første plassen betyr «alle rader»."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-1-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1900-4-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Programmet regner ut den relative endringen mellom nabomålinger. Hva skriver det ut?\n\n```python\nimport numpy as np\n\np = np.array([100.0, 110.0, 99.0])\nr = (p[1:] - p[:-1]) / p[:-1]\nprint(r)\nprint(r.size)\nprint(sum(r > 0))\n```",
+    "solution": "**Sporingstavle**\n\n| Uttrykk | Verdier |\n|---|---|\n| `p[1:]` | 110.0, 99.0 |\n| `p[:-1]` | 100.0, 110.0 |\n| teller `p[1:] - p[:-1]` | 10.0, $-11.0$ |\n| nevner `p[:-1]` | 100.0, 110.0 |\n| `r` | 0.1, $-0.1$ |\n| `r > 0` | `True`, `False` |\n\nDivisjonen er elementvis, akkurat som subtraksjonen: element for element, teller delt på nevner.\n\n**Utskrift:**\n```\n[ 0.1 -0.1]\n2\n1\n```\n\nMerk mellomrommet foran `0.1` i utskriften: NumPy setter av plass til minustegnet, slik at kolonnen står rett. Det er en detalj sensor ikke straffer, men den er verdt å kjenne igjen i svaralternativer.\n\nFellen er å tro at nevneren må være ett tall. Her deles et array med to elementer på et annet array med to elementer, og resultatet har to elementer.",
+    "hints": [
+     "Skriv de to utsnittene under hverandre, og regn kolonne for kolonne.",
+     "Divisjon mellom to arrays av samme lengde er elementvis, som subtraksjon."
+    ]
+   }
+  },
+  {
+   "id": "in1900-4-1-warn-typiske",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet — samlet",
+   "content": "Fem feller, i den rekkefølgen de oftest slår til:\n\n1. **#1 av-én på antall punkter.** N intervaller gir N+1 punkter: `np.linspace(0, T, N+1)`, og `range(N)` for oppdateringene.\n2. **#5 skjøting mot elementvis addisjon.** Sjekk om variabelen er et array (ingen komma i utskriften) eller en liste (komma i utskriften).\n3. **`math` mot `np` på et array.** `math.sqrt` og `math.exp` tar bare ett tall. Bruk `np.sqrt` og `np.exp`.\n4. **Feil akse i 2D.** `A[i, :]` er en rad, `A[:, j]` er en kolonne. Tell antall elementer i svaret som kontroll.\n5. **`np.arange` der `linspace` var ment.** `arange` utelater sluttverdien, `linspace` tar den med.\n\nOg en huskeregel som gir poeng på fritekstoppgaver: **`import numpy as np` skal alltid stå der.** Glemt import er en av de få tingene som trekker selv når resten av koden er riktig."
+  },
+  {
+   "id": "in1900-4-1-api",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
     {
-      "id": "in1900-4-1-tip-vinkel",
-      "type": "tip",
-      "title": "Eksamensvinkel",
-      "content": "**NumPy er verktøyet nesten all senere kode i faget hviler på.** NumPy er Pythons standardbibliotek for talltabeller — lange rader av tall som du regner på under ett, i stedet for ett tall om gangen.\n\nKapitlet har prioritet **kunne** (nivå 2 av tre: må sitte, kunne, kjenne til). Det er ikke fordi NumPy er uviktig, men fordi NumPy sjelden er *hele* oppgaven — det er byggeklossen inni de store oppgavene:\n\n- **Lister mot NumPy-tabeller** (sjanger M — «skriv samme tabell først med løkke, så uten løkke») er i 6 av de 8 nyere settene, altså 75 %, og er verdt rundt 5 poeng. Sjangeren drilles i [kap. 4.2](/bok/in1900/in1900-4-2).\n- **Plotting** er i 7 av 8 sett (88 %), nesten alltid som en del-b: «plott løsningen». Se [kap. 4.3](/bok/in1900/in1900-4-3).\n- **Differenslikninger** (75 %) og **ODE-systemer** (100 %) starter alltid med å lage en tabell med NumPy. Uten dette kapitlet stopper du på første linje i de tyngste oppgavene.\n- **Sporing av tabellkode** hører til sjanger A — «hva skriver programmet ut?» — som er i alle sett (100 %) og bærer hele midtveiseksamen, den digitale flervalgseksamenen i oktober som teller 25 %.\n- **Tabeller med to indekser** (2D) er bare i 2 av 8 sett (25 %) og har prioritet **kjenne til**. Det stoffet står sist i kapitlet og er merket.\n\nDet er én feil du må trene bort her, og den er fagets aller vanligste: å bomme med én på antall punkter i en tabell."
-    },
-    {
-      "id": "in1900-4-1-forkunn",
-      "type": "text",
-      "content": "## Forkunnskaper\n\nDu trenger tre ting fra Del 1:\n\n- **Lister, indeksering og slicing** fra [kap. 1.2](/bok/in1900/in1900-1-2) — hele dette kapitlet er en sammenligning mot lister. «Slicing» betyr å plukke ut et utsnitt, som `x[1:3]`.\n- **Løkker og `range`** fra [kap. 1.3](/bok/in1900/in1900-1-3), særlig at stoppverdien i `range` er eksklusiv.\n- **Funksjoner** fra [kap. 1.6](/bok/in1900/in1900-1-6), fordi vi skal sende en hel tabell inn i en funksjon du selv har skrevet.\n\nHar du aldri programmert før, er [Programmering med Python](/bok/1p/1p-9-2) en mykere inngang til løkker og lister enn dette kapitlet.\n\nKapitlet er delt i fire løkker med tidsanslag. Ta gjerne en pause mellom løkke 2 og 3."
-    },
-    {
-      "id": "in1900-4-1-txt-lokke1",
-      "type": "text",
-      "content": "## Løkke 1 — fra liste til tabell (~12 min)\n\nEn værstasjon på Blindern måler temperaturen hver time. Med Python-lister lagrer du målingene som `[2.1, 3.4, 3.0, 5.2, 4.8]`. Skal du så trekke fra en kalibreringsfeil på 0,3 grader i alle fem, må du gå gjennom lista med en løkke og bygge en ny liste.\n\nMed NumPy skriver du i stedet `maal - 0.3` og er ferdig. Det er hele poenget: **en NumPy-tabell er en rad av tall som regnes på under ett**. Å regne på en hel tabell i én operasjon, uten løkke, kalles **vektorisering**.\n\nTabellen heter `array` på engelsk. Vi bruker ordet «array» også på norsk, siden det er ordet du ser i koden og i oppgaveteksten."
-    },
-    {
-      "id": "in1900-4-1-def-import",
-      "type": "definition",
-      "title": "`import numpy as np`",
-      "content": "Standardlinjen som gjør NumPy tilgjengelig. `as np` gir biblioteket kallenavnet `np`, slik at du skriver `np.zeros(5)` og ikke `numpy.zeros(5)`. Alle NumPy-navn i faget skrives med `np.`-prefiks, og linjen skal alltid stå øverst i kode som bruker arrays — sensor forventer at nødvendige importer er med.\n\n```python\nimport numpy as np print(np.zeros(3))\n```\n\n**Utskrift:**\n```\n[0. 0. 0.]\n```"
-    },
-    {
-      "id": "in1900-4-1-def-array",
-      "type": "definition",
-      "title": "`np.array(liste)`",
-      "content": "Lager et array av en ferdig liste med tall. Lista må inneholde tall (eller nøstede lister av tall), og resultatet er en ny tabell med samme verdier i samme rekkefølge. Legg merke til at Python skriver et array **uten** komma mellom elementene — `[2 4 6]`, ikke `[2, 4, 6]`. Det er den sikreste måten å kjenne igjen et array i en utskrift.\n\n```python\nimport numpy as np tabell = np.array([2, 4, 6])\nprint(tabell)\n```\n\n**Utskrift:**\n```\n[2 4 6]\n```"
-    },
-    {
-      "id": "in1900-4-1-ex-1",
-      "type": "example",
-      "title": "Eksempel 1: samme uttrykk, to helt ulike svar",
-      "problem": "Tre timesmålinger av temperatur er lagret både som liste og som array. Hva skriver `liste + liste`, `array + array`, `liste * 2` og `array * 2` ut?",
-      "solution": "\nNøkkelen er at `+` og `*` betyr noe helt annet for en liste enn for et array.\n\n```python\nimport numpy as np\n\nmaal_liste = [2.1, 3.4, 3.0]\nmaal_array = np.array([2.1, 3.4, 3.0])\n\nprint(maal_liste + maal_liste)\nprint(maal_array + maal_array)\nprint(maal_liste * 2)\nprint(maal_array * 2)\n```\n\n**Utskrift:**\n```\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n[2.1, 3.4, 3.0, 2.1, 3.4, 3.0]\n[4.2 6.8 6. ]\n```\n\nFor lista betyr `+` **skjøting**: to lister etter hverandre, seks elementer. For arrayet betyr `+` **elementvis addisjon**: hvert element legges til seg selv, fortsatt tre elementer. Samme mønster for `*`: lista gjentas, arrayet skaleres.\n\nLegg også merke til hvordan Python skriver de to: lista med komma, arrayet uten."
-    },
-    {
-      "id": "in1900-4-1-def-elementvis",
-      "type": "definition",
-      "title": "Elementvise operasjoner på array",
-      "content": "For to arrays med like mange elementer regner `+`, `-`, `*`, `/` og `**` **element for element**. `x + y` gir et nytt array der element nummer `i` er `x[i] + y[i]`. Er den ene siden et vanlig tall, brukes tallet på hvert element: `x * 2` dobler alle, `x ** 2` kvadrerer alle. Ingen løkke trengs, og resultatet har samme lengde som det som gikk inn.\n\n```python\nimport numpy as np x = np.array([1.0, 2.0, 3.0])\nprint(x ** 2 + x)\n```\n\n**Utskrift:**\n```\n[ 2.  6. 12.]\n```"
-    },
-    {
-      "id": "in1900-4-1-warn-konkat",
-      "type": "warning",
-      "title": "Typiske feil: skjøting mot elementvis addisjon",
-      "content": "Dette er **feil #5 i feilkatalogen** — å forveksle liste-skjøting med array-addisjon. Den er plantet som svaralternativ i flervalgsspørsmål år etter år, fordi de to uttrykkene ser identiske ut i koden:\n\n- `[1, 2] + [3, 4]` gir `[1, 2, 3, 4]` — fire elementer, ingen addisjon.\n- `np.array([1, 2]) + np.array([3, 4])` gir `[4 6]` — to elementer, addisjon.\n\nRegelen er enkel: **se etter `np.array` eller `np.linspace` i linjene over**. Har variabelen blitt et array et sted, er `+` elementvis. Har den ikke det, er `+` skjøting. Og et array skrives ut uten komma — sjekk alltid hvilket av de to formatene svaralternativene har."
-    },
-    {
-      "id": "in1900-4-1-o1",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-4-1-o1",
-        "number": "1",
-        "type": "classic",
-        "difficulty": "lett",
-        "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Skriv utskriften nøyaktig, med de mellomrommene og hakeparentesene Python bruker.\n\n```python\nimport numpy as np\n\na = [5, 10]\nb = np.array([5, 10])\nprint(a + a)\nprint(b + b)\n```",
-        "solution": "**Sporingstavle**\n\n| Linje | `a` | `b` | Skriver |\n|---|---|---|---|\n| `a = [5, 10]` | liste med 5 og 10 | — | — |\n| `b = np.array([5, 10])` | uendret | array med 5 og 10 | — |\n| `print(a + a)` | uendret | uendret | lista skjøtet med seg selv, fire tall |\n| `print(b + b)` | uendret | uendret | elementvis sum, to tall |\n\n**Utskrift:**\n```\n[5, 10, 5, 10]\n[10 20]\n```\n\nLegg merke til to detaljer sensor ser etter: lista har komma og mellomrom mellom tallene, arrayet har bare mellomrom. Fellen er #5 — skjøting mot elementvis addisjon.",
-        "hints": [
-          "Se etter hvilken av de to variablene som har gått gjennom `np.array`.",
-          "Skriv opp hvor mange elementer hver utskrift har, før du skriver tallene."
-        ]
-      }
-    },
-    {
-      "id": "in1900-4-1-def-size-shape",
-      "type": "definition",
-      "title": "`.size` og `.shape`",
-      "content": "To opplysninger du kan hente ut av et array uten parenteser, fordi de er egenskaper og ikke funksjoner. `.size` er **antall tall i alt**, som et helt tall. `.shape` er **formen**, gitt som en tuppel: `(5,)` for en tabell med fem tall på én rad, `(3, 4)` for tre rader og fire kolonner. Kommaet i `(5,)` er Pythons måte å skrive en tuppel med bare ett element.\n\n```python\nimport numpy as np t = np.array([0.0, 0.5, 1.0, 1.5])\nprint(t.size, t.shape)\n```\n\n**Utskrift:**\n```\n4 (4,)\n```"
-    },
-    {
-      "id": "in1900-4-1-txt-lokke2",
-      "type": "text",
-      "content": "## Løkke 2 — lage tabellen før du fyller den (~14 min)\n\nI nesten alle senere oppgaver kjenner du **antall** verdier før du kjenner verdiene. Skal du simulere en bestand i 20 tidssteg, vet du at du trenger plass til startverdien pluss 20 nye verdier. Da lager du en tabell full av nuller først, og fyller den i en løkke.\n\nDet er derfor `np.zeros` og `np.linspace` er de to viktigste NumPy-funksjonene i faget. Den første lager plass, den andre lager et jevnt punktgitter.\n\nHer ligger også fagets vanligste feil, og den er verdt å si i klartekst før du ser koden: **et intervall delt i N biter har N+1 delepunkter**. Deler du strekningen fra 0 til 6 i 6 biter, er punktene 0, 1, 2, 3, 4, 5, 6 — det er sju tall, ikke seks."
-    },
-    {
-      "id": "in1900-4-1-def-zeros",
-      "type": "definition",
-      "title": "`np.zeros(n)`",
-      "content": "Lager et array med `n` nuller, klart til å fylles. Nullene er flyttall, så de skrives `0.` med punktum. Dette er standard første linje i alle simuleringer i boka: du lager plassen, setter startverdien, og skriver de øvrige verdiene inn i en løkke. Trenger du N+1 punkter, skriver du `np.zeros(N+1)`.\n\n```python\nimport numpy as np print(np.zeros(4))\n```\n\n**Utskrift:**\n```\n[0. 0. 0. 0.]\n```"
-    },
-    {
-      "id": "in1900-4-1-def-zeros-like",
-      "type": "definition",
-      "title": "`np.zeros_like(t)`",
-      "content": "Lager et nullarray med **samme lengde som** `t`. Nyttig når du allerede har et tidsarray og vil ha et løsningsarray som passer til det — da kan du ikke bomme på lengden, fordi du aldri skriver et tall. Det er den sikreste måten å unngå feil #1 (av-én på antall punkter).\n\n```python\nimport numpy as np t = np.linspace(0, 1, 5)\nprint(np.zeros_like(t))\n```\n\n**Utskrift:**\n```\n[0. 0. 0. 0. 0.]\n```"
-    },
-    {
-      "id": "in1900-4-1-def-ones",
-      "type": "definition",
-      "title": "`np.ones(n)`",
-      "content": "Som `np.zeros`, men fylt med ettere. Brukes når startverdien i en modell er 1, eller når du trenger et array du skal multiplisere inn i noe annet. Ettallene er flyttall og skrives `1.`.\n\n```python\nimport numpy as np print(np.ones(3) * 5)\n```\n\n**Utskrift:**\n```\n[5. 5. 5.]\n```"
-    },
-    {
-      "id": "in1900-4-1-def-linspace",
-      "type": "definition",
-      "title": "`np.linspace(a, b, N+1)`",
-      "content": "Lager **N+1 jevnt fordelte punkter** fra `a` til `b`, med **begge endepunktene inkludert**. Tredje argument er altså antall *punkter*, ikke antall intervaller. Avstanden mellom nabopunkter blir $(b-a)/N$, og du kan alltid hente den ut som `t[1] - t[0]`.\n\nDette er den mest presise setningen i hele kapitlet, og den du må kunne i søvne: **N intervaller gir N+1 punkter.** Vil du ha 101 punkter i intervallet fra 1 til 10, skriver du `np.linspace(1, 10, 101)`.\n\n```python\nimport numpy as np t = np.linspace(0, 6, 7)\nprint(t)\nprint(t.size, t[1] - t[0])\n```\n\n**Utskrift:**\n```\n[0. 1. 2. 3. 4. 5. 6.]\n7 1.0\n```"
-    },
-    {
-      "id": "in1900-4-1-warn-avn",
-      "type": "warning",
-      "title": "Typiske feil: av-én på antall punkter",
-      "content": "Dette er **feil #1 i feilkatalogen** — av-én i `range` og i antall punkter — og den hyppigste feilen i hele faget. Den slår inn tre steder:\n\n- `np.linspace(0, T, N)` når oppgaven ba om N steg. Riktig er `np.linspace(0, T, N+1)`.\n- `range(N+1)` når du skal gjøre N *oppdateringer*. Riktig er `range(N)`, fordi hver oppdatering fyller ett nytt punkt og punkt nummer 0 var startverdien.\n- To tabeller som skal sammenlignes får ulik lengde, fordi den ene ble laget med `N` og den andre med `N+1`.\n\nÉn god vane fjerner alle tre: skriv alltid ned hva N *er* før du skriver koden. «N = antall intervaller» gir `linspace(a, b, N+1)` og `range(N)`. Er du usikker på eksamen, sett $N = 2$ og tell punktene på papiret: start, midt, slutt — tre punkter."
-    },
-    {
-      "id": "in1900-4-1-ex-2",
-      "type": "example",
-      "title": "Eksempel 2: punkttelling og steglengde",
-      "problem": "En måleserie skal dekke tidsrommet fra $t=0$ til $t=6$ timer med 12 like intervaller. Lag tidsarrayet, og vis at antall punkter og steglengden stemmer.",
-      "solution": "\nTolv intervaller betyr tretten punkter, og steglengden blir $6/12 = 0.5$.\n\n```python\nimport numpy as np\n\nN = 12 t = np.linspace(0, 6, N+1)\nprint(t)\nprint('Antall punkter:', t.size)\nprint('Antall intervaller:', t.size - 1)\nprint('Steglengde:', t[1] - t[0])\n```\n\n**Utskrift:**\n```\n[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6. ]\nAntall punkter: 13\nAntall intervaller: 12\nSteglengde: 0.5\n```\n\nSensorpoenget: hadde du skrevet `np.linspace(0, 6, N)`, ville steglengden blitt $6/11 \\approx 0.545$ og siste punkt fortsatt 6 — tabellen ser riktig ut, men alle mellomverdiene er feil. Feilen er umulig å se på øyemål, og det er nettopp derfor den er så vanlig."
-    },
-    {
-      "id": "in1900-4-1-o2",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-4-1-o2",
-        "number": "2",
-        "type": "classic",
-        "difficulty": "lett",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nx = np.linspace(2, 5, 4)\nprint(x)\nprint(x.size, x[-1])\n```",
-        "solution": "**Sporingstavle**\n\n| Steg | Hva skjer | Verdi |\n|---|---|---|\n| `np.linspace(2, 5, 4)` | 4 punkter fra 2 til 5, begge med | $2, 3, 4, 5$ |\n| antall intervaller | punkter minus 1 | 3 |\n| steglengde | $(5-2)/3$ | 1.0 |\n| `x.size` | antall tall | 4 |\n| `x[-1]` | siste element | 5.0 |\n\nPunktene blir flyttall, fordi `linspace` alltid gir flyttall.\n\n**Utskrift:**\n```\n[2. 3. 4. 5.]\n4 5.0\n```\n\nFellen er #1: tredje argument er antall punkter (4), ikke antall intervaller (3).",
-        "hints": [
-          "Tredje argument til `np.linspace` er antall punkter.",
-          "Regn steglengden som differansen mellom endepunktene delt på antall intervaller."
-        ]
-      }
-    },
-    {
-      "id": "in1900-4-1-def-arange",
-      "type": "definition",
-      "title": "`np.arange(start, stop, step)`",
-      "content": "Lager et array fra `start` og oppover i steg av `step`, og **stopper før** `stop` — akkurat som `range`, men med flyttall tillatt. `np.arange(0, 2, 0.5)` gir derfor `[0. 0.5 1. 1.5]`: 2 er ikke med.\n\nBruk `np.linspace` når du vet hvor mange punkter du vil ha, og `np.arange` når du vet steglengden. På eksamen er `linspace` nesten alltid det riktige valget, fordi oppgaven oppgir antall steg.\n\n```python\nimport numpy as np print(np.arange(0, 2, 0.5))\n```\n\n**Utskrift:**\n```\n[0.  0.5 1.  1.5]\n```"
-    },
-    {
-      "id": "in1900-4-1-o3",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-4-1-o3",
-        "number": "3",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) De to første linjene ser like ut, men gir ulike tabeller. Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\na = np.linspace(0, 3, 4)\nb = np.arange(0, 3, 1)\nprint(a)\nprint(b)\nprint(a.size - b.size)\n```",
-        "solution": "**Sporingstavle**\n\n| Uttrykk | Regel | Resultat | Antall |\n|---|---|---|---|\n| `np.linspace(0, 3, 4)` | 4 punkter, begge endepunkt med | $0, 1, 2, 3$ | 4 |\n| `np.arange(0, 3, 1)` | steg 1, stopper **før** 3 | $0, 1, 2$ | 3 |\n| `a.size - b.size` | $4 - 3$ | 1 | — |\n\n`linspace` gir alltid flyttall, mens `arange` med heltallsargumenter gir heltall — derfor skrives den ene med punktum og den andre uten.\n\n**Utskrift:**\n```\n[0. 1. 2. 3.]\n[0 1 2]\n1\n```\n\nFellen: `linspace` tar sluttpunktet med, `arange` gjør det ikke. Skal du ha punktgitteret over et intervall, er `linspace` alltid det trygge valget.",
-        "hints": [
-          "Den ene funksjonen tar antall punkter, den andre tar steglengde.",
-          "Én av de to har eksklusiv stoppverdi, som `range`."
-        ]
-      }
-    },
-    {
-      "id": "in1900-4-1-txt-lokke3",
-      "type": "text",
-      "content": "## Løkke 3 — funksjoner som spiser hele tabellen (~13 min)\n\n— naturlig pausepunkt —\n\nTil nå har vi regnet med `+`, `-`, `*` og `**`. Men de fleste vitenskapelige formler inneholder også kvadratrot, eksponentialfunksjon, sinus eller logaritme. NumPy har egne versjoner av disse som virker på et helt array om gangen.\n\nEn slik funksjon kalles en **ufunksjon** (kort for «universell funksjon»): den tar et array inn og gir et array av samme lengde ut, med funksjonen brukt på hvert element. `np.sqrt(x)` er ufunksjonen som svarer til `math.sqrt`, men `math.sqrt` klarer bare ett tall om gangen.\n\nDet beste med dette er at det også gjelder funksjoner **du** har skrevet, så lenge de bare bruker aritmetikk og ufunksjoner."
-    },
-    {
-      "id": "in1900-4-1-def-ufunk",
-      "type": "definition",
-      "title": "Ufunksjon (`np.sqrt`, `np.exp`, `np.log`, `np.sin`)",
-      "content": "En NumPy-funksjon som virker **elementvis på et helt array** og returnerer et nytt array av samme lengde. `np.exp`, `np.log` (naturlig logaritme), `np.sin`, `np.cos` og `np.sqrt` er de du trenger i faget. De tilsvarer funksjonene i `math`, men `math`-versjonene tar bare ett tall: `math.sqrt` med et array inn gir en feilmelding, mens `np.sqrt` gir hele tabellen med røtter.\n\n```python\nimport numpy as np x = np.array([0.0, 0.25, 1.0])\nprint(np.sqrt(x))\n```\n\n**Utskrift:**\n```\n[0.  0.5 1. ]\n```"
-    },
-    {
-      "id": "in1900-4-1-ex-3",
-      "type": "example",
-      "title": "Eksempel 3: din egen funksjon brukt på en hel tabell",
-      "problem": "Høyden til en ball kastet rett opp er $h(t) = 4t - 0{,}5t^2$ målt i meter, med $t$ i sekunder. Skriv funksjonen én gang, og bruk den både på ett tidspunkt og på et helt tidsarray.",
-      "solution": "\nFunksjonen skrives helt vanlig, uten et eneste NumPy-navn. Den virker likevel på hele tabellen, fordi `*`, `-` og `**` er elementvise for arrays.\n\n```python\nimport numpy as np\n\ndef hoyde(t):\n    return 4.0*t - 0.5*t**2\n\nt = np.linspace(0, 4, 5)\nprint(hoyde(2.0))\nprint(t)\nprint(hoyde(t))\n```\n\n**Utskrift:**\n```\n6.0\n[0. 1. 2. 3. 4.]\n[0.  3.5 6.  7.5 8. ]\n```\n\nFørste kall gir ett tall, fordi argumentet er ett tall. Andre kall gir fem tall, fordi argumentet er en tabell med fem tall. **Funksjonen er den samme** — det er argumentet som bestemmer om du får et tall eller en tabell tilbake.\n\nDette er hele grunnlaget for plotting i [kap. 4.3](/bok/in1900/in1900-4-3): du lager et tett tidsarray, sender det gjennom funksjonen din, og plotter de to tabellene mot hverandre."
-    },
-    {
-      "id": "in1900-4-1-warn-navn-x",
-      "type": "warning",
-      "title": "Navnekollisjon: `x` som ett tall og `x` som hel tabell",
-      "content": "Samme bokstav brukes om to ting i dette kapitlet, og forskjellen avgjør hva utskriften blir:\n\n- `x` som **skalar**, altså ett enkelt tall: `x = 2.0`. Da er `f(x)` ett tall.\n- `x` som **array**: hele tabellen, for eksempel `x = np.linspace(0, 1, 11)`. Da er `f(x)` en tabell med 11 tall.\n\nRegelen som holder deg trygg: se på linja der navnet sist ble tilordnet. Står det `np.` der, er det en tabell. I oppgaveteksten på eksamen står det ofte at «funksjonen skal kunne kalles med et array» — det betyr bare at du ikke får bruke `math`-funksjoner eller en `if`-test på `x` inni funksjonen.\n\nMerk også at `math.sqrt(x)` med et array som argument ikke gir et rart svar, men en feilmelding: `TypeError: only length-1 arrays can be converted to Python scalars`. Bruk `np.sqrt`."
-    },
-    {
-      "id": "in1900-4-1-o4",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-4-1-o4",
-        "number": "4",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\ndef g(x):\n    return 2*x + 1\n\nv = np.linspace(0, 1, 3)\nu = g(v)\nprint(u)\nprint(u[1] + v[2])\n```",
-        "solution": "**Sporingstavle**\n\n| Steg | Verdi |\n|---|---|\n| `v = np.linspace(0, 1, 3)` | 0, 0.5, 1 |\n| `2*v` elementvis | 0, 1, 2 |\n| pluss 1 elementvis | 1, 2, 3 |\n| `u[1]` | 2.0 |\n| `v[2]` | 1.0 |\n| `u[1] + v[2]` | 3.0 |\n\n**Utskrift:**\n```\n[1. 2. 3.]\n3.0\n```\n\nFellen her er å tro at `g(v)` må skrives i en løkke, eller at `2*v + 1` bare virker på første element. Begge operasjonene er elementvise, så funksjonen din trenger ingen endring for å ta imot en tabell.",
-        "hints": [
-          "Regn `2*v` først, elementvis, og legg til 1 etterpå.",
-          "Tre punkter fra 0 til 1 betyr steglengde 0,5."
-        ]
-      }
-    },
-    {
-      "id": "in1900-4-1-txt-lokke4",
-      "type": "text",
-      "content": "## Løkke 4 — plukke ut deler av tabellen (~11 min)\n\nIndeksering og slicing virker som for lister: `a[0]` er første element, `a[-1]` er siste, og `a[1:]` er alt fra og med element 1. Forskjellen er at et utsnitt av et array er et **array** og ikke en liste, så du kan regne elementvis med det.\n\nDet gir et triks du får bruk for i [kap. 6.2](/bok/in1900/in1900-6-2): `a[1:] - a[:-1]` er tabellen over endringer fra ett punkt til det neste, regnet ut uten løkke."
-    },
-    {
-      "id": "in1900-4-1-def-indeks",
-      "type": "definition",
-      "title": "Indeksering og slicing av array",
-      "content": "`a[i]` gir **ett tall** (element nummer `i`, med 0 som første). `a[i:j]` gir et **array** med elementene fra og med `i` til men ikke med `j` — sluttindeksen er eksklusiv, som for lister. `a[1:]` er alt unntatt det første, `a[:-1]` er alt unntatt det siste, og de to har derfor like mange elementer.\n\nÉn viktig forskjell fra lister: et utsnitt av et array er et **utsyn** inn i det samme minnet, ikke en kopi. Endrer du utsnittet, endrer du originalen.\n\n```python\nimport numpy as np a = np.array([2.0, 5.0, 9.0, 14.0])\nprint(a[1:] - a[:-1])\n```\n\n**Utskrift:**\n```\n[3. 4. 5.]\n```"
-    },
-    {
-      "id": "in1900-4-1-warn-alias",
-      "type": "warning",
-      "title": "Typiske feil: et utsnitt av et array er ikke en kopi",
-      "content": "\nDette er **feil #23 i feilkatalogen** (aliasing — to navn på samme data). For lister gir `b = a[1:]` en ny liste, men for arrays gir det et *utsyn* inn i `a`. Skriver du i `b`, endrer du `a`:\n\n```python\nimport numpy as np\n\na = np.array([1.0, 2.0, 3.0])\nb = a[1:]\nb[0] = 99.0 print(a)\n\nc = a.copy()\nc[0] = -1.0 print(a)\nprint(c)\n```\n\n**Utskrift:**\n```\n[ 1. 99.  3.]\n[ 1. 99.  3.]\n[-1. 99.  3.]\n```\n\nTrenger du en uavhengig kopi, bruk `a.copy()`. Dette er ikke en høyfrekvent eksamensfelle, men det er en klassisk grunn til at en simulering «endrer seg selv» mens den kjører."
-    },
-    {
-      "id": "in1900-4-1-ex-4",
-      "type": "example",
-      "title": "Eksempel 4: sammenligne to måleserier uten løkke",
-      "problem": "En sensor logger fem heltallsverdier, og fasitverdiene er kjent fra en kalibrering. Hvor mange av de fem stemmer, og hvilke?",
-      "solution": "\nEn sammenligning mellom to arrays gir et array av `True`/`False`, ett per element. Siden `True` teller som 1 i en sum, kan du telle treffene direkte med den innebygde `sum`.\n\n```python\nimport numpy as np\n\nmaalt = np.array([3, 5, 5, 2, 7])\nfasit = np.array([3, 4, 5, 2, 8])\n\nprint(maalt == fasit)\nprint(sum(maalt == fasit))\n```\n\n**Utskrift:**\n```\n[ True False  True  True False]\n3\n```\n\nLegg merke til at `maalt == fasit` **ikke** gir én sann/falsk-verdi for hele tabellen, men fem. Det er dette som gjør `sum(x == y)` til et kort og lesbart uttrykk for «antall like elementer» — nettopp den korte, idiomatiske stilen sensor belønner."
-    },
-    {
-      "id": "in1900-4-1-o5",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-4-1-o5",
-        "number": "5",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nd = np.array([10, 12, 15, 21])\ne = d[1:] - d[:-1]\nprint(e)\nprint(e.size, sum(e == 3))\n```",
-        "solution": "**Sporingstavle**\n\n| Uttrykk | Elementer |\n|---|---|\n| `d` | 10, 12, 15, 21 |\n| `d[1:]` | 12, 15, 21 |\n| `d[:-1]` | 10, 12, 15 |\n| `e = d[1:] - d[:-1]` | 2, 3, 6 |\n| `e == 3` | `False`, `True`, `False` |\n| `sum(e == 3)` | 1 |\n\n**Utskrift:**\n```\n[2 3 6]\n3 1\n```\n\nTo feller på én gang: at differansetabellen har **ett element mindre** enn originalen (fire målinger gir tre endringer — en variant av #1), og at en sammenligning gir et helt array av sann/falsk, ikke ett svar.",
-        "hints": [
-          "Skriv opp de to utsnittene under hverandre før du trekker fra.",
-          "Hvor mange endringer kan det være mellom nabopunkter, når originalen har fire tall?"
-        ]
-      }
-    },
-    {
-      "id": "in1900-4-1-txt-2d",
-      "type": "text",
-      "content": "### Tabeller med to indekser — bør kjenne til\n\nResten av denne løkka er **nivå 3-stoff (kjenne til)**: 2D-arrays er bare i 2 av de 8 nyere settene, altså 25 %, og da som en mindre deloppgave. Har du kort tid, kan du komme hit tilbake etter at Del 5 og Del 7 sitter.\n\nDu trenger likevel formen `u[:, 0]` senere, når et ODE-system i [kap. 7.3](/bok/in1900/in1900-7-3) gir deg løsningen som en tabell med én kolonne per komponent. Det er den ene grunnen til å lese avsnittet nå."
-    },
-    {
-      "id": "in1900-4-1-def-2d",
-      "type": "definition",
-      "title": "`np.zeros((n, m))` og `a[i, j]`",
-      "content": "Med en tuppel som argument lager `np.zeros` en tabell med **flere rader**: `np.zeros((3, 4))` gir 3 rader og 4 kolonner, altså 12 nuller. Du henter ett element med to indekser, `a[i, j]` (rad `i`, kolonne `j`), en hel kolonne med `a[:, j]` og en hel rad med `a[i, :]`. Kolonnen og raden er selv vanlige arrays med én rad. `.shape` gir `(3, 4)`, og `.size` gir 12.\n\nLegg merke til de **doble** parentesene i `np.zeros((3, 4))`: de ytre hører til funksjonskallet, de indre lager tuppelen.\n\n```python\nimport numpy as np\nA = np.zeros((2, 3))\nA[1, 2] = 7.0 print(A[:, 2])\n```\n\n**Utskrift:**\n```\n[0. 7.]\n```"
-    },
-    {
-      "id": "in1900-4-1-ex-5",
-      "type": "example",
-      "title": "Eksempel 5: bygge en tabell rad for rad",
-      "problem": "Tre målestasjoner rapporterer nedbør fire ganger i døgnet. Bygg tabellen med `np.zeros`, fyll den med to nøstede løkker der verdien er stasjonsnummeret pluss en tidel per måletidspunkt, og hent ut kolonne 2 og rad 1.",
-      "solution": "\nDen ytre løkka går over rader (stasjoner), den indre over kolonner (måletidspunkt). Dette er den vanlige måten et 2D-array fylles.\n\n```python\nimport numpy as np\n\nA = np.zeros((3, 4))\nfor i in range(3):\n    for j in range(4):\n        A[i, j] = i + 0.1*j\n\nprint(A)\nprint(A[:, 2])\nprint(A[1, :])\nprint(A.shape, A.size)\n```\n\n**Utskrift:**\n```\n[[0.  0.1 0.2 0.3]\n [1.  1.1 1.2 1.3]\n [2.  2.1 2.2 2.3]]\n[0.2 1.2 2.2]\n[1.  1.1 1.2 1.3]\n(3, 4) 12\n```\n\nMerk hvordan et 2D-array skrives ut: én rad per linje, med ytterligere hakeparenteser rundt hele. `A[:, 2]` gir tre tall (én per stasjon), `A[1, :]` gir fire tall (én per tidspunkt). Blander du de to aksene, får du et svar med feil antall elementer — og det er lett å oppdage nettopp fordi antallet ikke stemmer."
-    },
-    {
-      "id": "in1900-4-1-o6",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-4-1-o6",
-        "number": "6",
-        "type": "classic",
-        "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, sjanger A — kodesporing med to indekser.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nB = np.zeros((2, 3))\nfor i in range(2):\n    for j in range(3):\n        B[i, j] = 2*i + j print(B)\nprint(B[:, 0])\nprint(B[1, 1:])\n```",
-        "solution": "**Sporingstavle**\n\n| `i` | `j` | `2*i + j` | Tabellen så langt |\n|---|---|---|---|\n| 0 | 0 | 0 | rad 0: 0 |\n| 0 | 1 | 1 | rad 0: 0, 1 |\n| 0 | 2 | 2 | rad 0: 0, 1, 2 |\n| 1 | 0 | 2 | rad 1: 2 |\n| 1 | 1 | 3 | rad 1: 2, 3 |\n| 1 | 2 | 4 | rad 1: 2, 3, 4 |\n\nDeretter: `B[:, 0]` er kolonne 0, altså 0 og 2. `B[1, 1:]` er rad 1 fra kolonne 1 og ut, altså 3 og 4.\n\n**Utskrift:**\n```\n[[0. 1. 2.]\n [2. 3. 4.]]\n[0. 2.]\n[3. 4.]\n```\n\nTre ting gir uttelling hver for seg her, selv om du bommer på ett av dem: at tallene blir flyttall (`np.zeros` gir flyttall), at 2D-utskriften har én rad per linje med et ekstra mellomrom foran den andre raden, og at `[:, 0]` er en kolonne mens `[1, 1:]` er en del av en rad.",
-        "hints": [
-          "Fyll ut en rute med 2 rader og 3 kolonner på papiret først, med verdien `2*i + j` i hver celle.",
-          "Kolon på den første plassen betyr «alle rader»."
-        ]
-      }
-    },
-    {
-      "id": "in1900-4-1-o7",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-4-1-o7",
-        "number": "7",
-        "type": "classic",
-        "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, sjanger A — kodesporing.) Programmet regner ut den relative endringen mellom nabomålinger. Hva skriver det ut?\n\n```python\nimport numpy as np\n\np = np.array([100.0, 110.0, 99.0])\nr = (p[1:] - p[:-1]) / p[:-1]\nprint(r)\nprint(r.size)\nprint(sum(r > 0))\n```",
-        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdier |\n|---|---|\n| `p[1:]` | 110.0, 99.0 |\n| `p[:-1]` | 100.0, 110.0 |\n| teller `p[1:] - p[:-1]` | 10.0, $-11.0$ |\n| nevner `p[:-1]` | 100.0, 110.0 |\n| `r` | 0.1, $-0.1$ |\n| `r > 0` | `True`, `False` |\n\nDivisjonen er elementvis, akkurat som subtraksjonen: element for element, teller delt på nevner.\n\n**Utskrift:**\n```\n[ 0.1 -0.1]\n2\n1\n```\n\nMerk mellomrommet foran `0.1` i utskriften: NumPy setter av plass til minustegnet, slik at kolonnen står rett. Det er en detalj sensor ikke straffer, men den er verdt å kjenne igjen i svaralternativer.\n\nFellen er å tro at nevneren må være ett tall. Her deles et array med to elementer på et annet array med to elementer, og resultatet har to elementer.",
-        "hints": [
-          "Skriv de to utsnittene under hverandre, og regn kolonne for kolonne.",
-          "Divisjon mellom to arrays av samme lengde er elementvis, som subtraksjon."
-        ]
-      }
-    },
-    {
-      "id": "in1900-4-1-warn-typiske",
-      "type": "warning",
-      "title": "Typiske feil i dette kapitlet — samlet",
-      "content": "Fem feller, i den rekkefølgen de oftest slår til:\n\n1. **#1 av-én på antall punkter.** N intervaller gir N+1 punkter: `np.linspace(0, T, N+1)`, og `range(N)` for oppdateringene.\n2. **#5 skjøting mot elementvis addisjon.** Sjekk om variabelen er et array (ingen komma i utskriften) eller en liste (komma i utskriften).\n3. **`math` mot `np` på et array.** `math.sqrt` og `math.exp` tar bare ett tall. Bruk `np.sqrt` og `np.exp`.\n4. **Feil akse i 2D.** `A[i, :]` er en rad, `A[:, j]` er en kolonne. Tell antall elementer i svaret som kontroll.\n5. **`np.arange` der `linspace` var ment.** `arange` utelater sluttverdien, `linspace` tar den med.\n\nOg en huskeregel som gir poeng på fritekstoppgaver: **`import numpy as np` skal alltid stå der.** Glemt import er en av de få tingene som trekker selv når resten av koden er riktig."
-    },
-    {
-      "id": "in1900-4-1-api",
-      "type": "collapsible",
-      "title": "API- og konstruksjonsliste",
-      "buttonText": "Vis API og konstruksjoner",
-      "content": [
-        {
-          "id": "in1900-4-1-api-txt",
-          "type": "text",
-          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `import numpy as np` | Gjør NumPy tilgjengelig under navnet `np`. Skal alltid med. |\n| `np.array(liste)` | Nytt array av en liste med tall. Skrives ut **uten** komma. |\n| `np.zeros(n)` | `n` nuller som flyttall. Standard første linje i en simulering. |\n| `np.zeros((n, m))` | `n` rader og `m` kolonner. Doble parenteser: en tuppel inn. |\n| `np.zeros_like(t)` | Nullarray med samme lengde som `t`. Kan ikke bomme på lengden. |\n| `np.ones(n)` | `n` ettere som flyttall. |\n| `np.linspace(a, b, N+1)` | **N+1 punkter** fra `a` til `b`, **begge endepunkt med**. Steg $(b-a)/N$, tilgjengelig som `t[1] - t[0]`. |\n| `np.arange(start, stop, step)` | Fra `start` i steg av `step`, **stopper før** `stop`. |\n| `np.asarray(x)` | Gjør `x` til array; er `x` allerede et array, returneres det uendret. |\n| `x + y`, `x - y`, `x * y`, `x / y`, `x ** 2` | **Elementvis** for arrays av samme lengde. Med et tall på én side brukes tallet på alle elementer. |\n| `np.sqrt`, `np.exp`, `np.log`, `np.sin`, `np.cos` | Ufunksjoner: virker elementvis på hele arrayet. `math`-versjonene tar bare ett tall. |\n| `a[i]` | Ett element ($0$ er første, $-1$ er siste). |\n| `a[i:j]` | Array med element `i` til men ikke med `j`. Er et **utsyn**, ikke en kopi. |\n| `a[1:] - a[:-1]` | Tabellen over endringer mellom nabopunkter. Har ett element mindre enn `a`. |\n| `a[i, j]`, `a[i, :]`, `a[:, j]` | Element, hel rad, hel kolonne i et 2D-array. |\n| `a.copy()` | Uavhengig kopi av arrayet. |\n| `.size` | Antall tall i alt (uten parenteser — egenskap, ikke funksjon). |\n| `.shape` | Formen som tuppel: `(5,)` eller `(3, 4)`. |\n| `x == y` | Elementvis sammenligning: array av `True`/`False`. |\n| `sum(x == y)` | Antall elementer som er like, fordi `True` teller som 1. |\n\n**Formler i dette delkapitlet:**\n\nPunktgitteret fra `np.linspace(a, b, N+1)` er\n\n$$t_i = a + i\\,\\Delta t, \\qquad \\Delta t = \\frac{b-a}{N}, \\qquad i = 0, 1, \\ldots, N$$\n\nAntall punkter er $N+1$ og antall intervaller er $N$. Endringstabellen `a[1:] - a[:-1]` er $d_i = a_{i+1} - a_i$ for $i = 0, \\ldots, N-1$, altså $N$ tall."
-        }
-      ]
-    },
-    {
-      "id": "in1900-4-1-txt-bank",
-      "type": "text",
-      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
-    },
-    {
-      "id": "in1900-4-1-bank-1",
-      "type": "definition",
-      "title": "Array",
-      "content": "En tabell av tall som Python regner på under ett. Til forskjell fra en liste har alle elementene samme talltype, lengden er fast, og `+`, `-`, `*`, `/` og `**` virker elementvis. Et array skrives ut uten komma mellom elementene, som `[2 4 6]`."
-    },
-    {
-      "id": "in1900-4-1-bank-2",
-      "type": "definition",
-      "title": "Vektorisering",
-      "content": "Å regne på en hel tabell i én operasjon, uten løkke. `y = np.log(x)` er den vektoriserte versjonen av å løpe gjennom `x` med en løkke og kalle `math.log` på hvert element. På eksamen er det en egen sjanger (M) å skrive samme tabell både med og uten løkke — se [kap. 4.2](/bok/in1900/in1900-4-2)."
-    },
-    {
-      "id": "in1900-4-1-bank-3",
-      "type": "definition",
-      "title": "Antall punkter mot antall intervaller",
-      "content": "Deler du et intervall i $N$ like biter, får du $N+1$ delepunkter: startpunktet, $N-1$ punkter inni, og sluttpunktet. Derfor er `np.linspace(a, b, N+1)` riktig når oppgaven oppgir $N$ steg, og derfor gir `range(N)` nøyaktig de $N$ oppdateringene som fyller punkt 1 til $N$. Dette er feil #1 i feilkatalogen og fagets hyppigste feil."
-    },
-    {
-      "id": "in1900-4-1-bank-4",
-      "type": "definition",
-      "title": "`np.asarray(x)`",
-      "content": "Gjør `x` om til et array hvis det ikke alt er et, og returnerer det uendret hvis det er. Brukes i starten av en funksjon som skal takle både liste og array som argument, slik at resten av koden trygt kan regne elementvis."
-    },
-    {
-      "id": "in1900-4-1-bank-5",
-      "type": "definition",
-      "title": "Boolsk array",
-      "content": "Resultatet av en elementvis sammenligning, for eksempel `x > 0` eller `x == y`: et array med `True` eller `False` for hvert element, like langt som `x`. Det er **ikke** ett sant/falsk-svar for hele tabellen. Siden `True` teller som 1 i en sum, gir `sum(x > 0)` antall positive elementer."
-    },
-    {
-      "id": "in1900-4-1-bank-6",
-      "type": "definition",
-      "title": "Nøstet liste til 2D-array",
-      "content": "`np.array([[1.0, 2.0], [3.0, 4.0]])` gir et array med 2 rader og 2 kolonner. Hver indre liste blir en rad, og alle de indre listene må være like lange. Elementet i rad 1, kolonne 0 hentes med `M[1, 0]` og er 3.0."
-    },
-    {
-      "id": "in1900-4-1-bank-7",
-      "type": "definition",
-      "title": "`a[i, j]` mot `a[i][j]`",
-      "content": "Begge henter samme element i et 2D-array, men `a[i, j]` er formen boka og sensor bruker: den slår opp direkte med to indekser. `a[i][j]` henter først hele rad `i` som et nytt array og indekserer deretter i den. For nøstede **lister** finnes bare den siste formen, siden en liste ikke godtar to indekser i én klamme."
-    },
-    {
-      "id": "in1900-4-1-bank-8",
-      "type": "definition",
-      "title": "Utsyn mot kopi",
-      "content": "`b = a[1:]` gir et utsyn inn i det samme minnet som `a`, så en endring i `b` vises også i `a`. `b = a.copy()` gir en uavhengig kopi. Dette er feil #23 (aliasing) og skiller arrays fra lister, der `a[1:]` alltid er en ny liste."
-    },
-    {
-      "id": "in1900-4-1-bank-9",
-      "type": "definition",
-      "title": "Array ganget med et tall",
-      "content": "`x * 3` multipliserer **hvert element** med 3 og gir et array av samme lengde. Med en liste betyr `liste * 3` at lista gjentas tre ganger etter hverandre, slik at lengden tredobles. Det er samme forskjell som mellom array-addisjon og liste-skjøting (feil #5)."
-    },
-    {
-      "id": "in1900-4-1-bank-10",
-      "type": "definition",
-      "title": "Radvis oppbygging av et 2D-array",
-      "content": "Mønsteret er: lag plassen med `A = np.zeros((n, m))`, og fyll med to nøstede løkker der den ytre går over rader (`for i in range(n)`) og den indre over kolonner (`for j in range(m)`). Tilordningen er `A[i, j] = ...`. Utskriften får én rad per linje."
-    },
-    {
-      "id": "in1900-4-1-bank-11",
-      "type": "definition",
-      "title": "`math` mot `np` på et array",
-      "content": "Funksjonene i `math` tar **ett** tall: `math.sqrt(4.0)` er greit, men `math.sqrt` med et array inn gir en `TypeError`. NumPy-versjonene tar hele tabellen, så `np.sqrt` gir et array med røtter. Regelen på eksamen: skal koden virke på et array, skal den bruke `np.`-funksjonene."
-    },
-    {
-      "id": "in1900-4-1-bank-12",
-      "type": "definition",
-      "title": "Steglengden i et punktgitter",
-      "content": "Med `t = np.linspace(a, b, N+1)` er steglengden $\\Delta t = (b-a)/N$, og du kan alltid hente den ut av tabellen selv med `t[1] - t[0]`. Den siste formen er den tryggeste i en simulering, fordi den er riktig selv om du senere endrer hvordan `t` lages."
-    },
-    {
-      "id": "in1900-4-1-rep",
-      "type": "collapsible",
-      "title": "Repetisjonsoppgaver",
-      "buttonText": "Vis repetisjonsoppgaver",
-      "content": [
-        {
-          "id": "in1900-4-1-rep-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-4-1-r1",
-            "number": "R1",
-            "type": "classic",
-            "difficulty": "lett",
-            "task": "(Fra [kap. 1.2](/bok/in1900/in1900-1-2).) Hva blir `[1, 2] + [3, 4]`, og hva blir `[1, 2] * 2`? Forklar hvorfor svarene er nyttige å ha i minnet når du sporer array-kode.",
-            "solution": "`[1, 2] + [3, 4]` gir `[1, 2, 3, 4]` (skjøting), og `[1, 2] * 2` gir `[1, 2, 1, 2]` (gjentakelse). Ingen av dem regner elementvis. Når samme uttrykk står i et flervalgsspørsmål, må du derfor først avgjøre om variablene er lister eller arrays — og det ser du på om `np.array` eller `np.linspace` har vært innom, og på om utskriften har komma.",
-            "hints": [
-              "Lister skjøtes og gjentas; de regner aldri elementvis."
-            ]
-          }
-        },
-        {
-          "id": "in1900-4-1-rep-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-4-1-r2",
-            "number": "R2",
-            "type": "classic",
-            "difficulty": "lett",
-            "task": "(Fra [kap. 1.3](/bok/in1900/in1900-1-3).) Hvor mange ganger går kroppen i `for i in range(4):`, og hvilke verdier tar `i`?",
-            "solution": "Fire ganger, med `i` lik 0, 1, 2 og 3. Stoppverdien 4 er eksklusiv. Dette er grunnen til at `for n in range(N)` gir nøyaktig $N$ oppdateringer i en simulering med $N+1$ punkter.",
-            "hints": [
-              "Stoppverdien i `range` er eksklusiv."
-            ]
-          }
-        },
-        {
-          "id": "in1900-4-1-rep-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-4-1-r3",
-            "number": "R3",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Fra [kap. 1.6](/bok/in1900/in1900-1-6).) Funksjonen `def f(x): return x**2 - 1` er skrevet for ett tall. Hva må endres for at den skal kunne kalles med et helt array?",
-            "solution": "Ingenting. `**` og `-` er elementvise for arrays, så `f(np.linspace(0, 1, 5))` gir et array med fem verdier. Det ville derimot måttet endres hvis funksjonen brukte `math.sqrt`, `math.exp` eller en `if`-test på `x` — da tar den bare ett tall om gangen, og `math`-kallene må byttes til `np.`-versjonene.",
-            "hints": [
-              "Sjekk hvilke operasjoner funksjonen faktisk bruker."
-            ]
-          }
-        }
-      ]
+     "id": "in1900-4-1-api-txt",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `import numpy as np` | Gjør NumPy tilgjengelig under navnet `np`. Skal alltid med. |\n| `np.array(liste)` | Nytt array av en liste med tall. Skrives ut **uten** komma. |\n| `np.zeros(n)` | `n` nuller som flyttall. Standard første linje i en simulering. |\n| `np.zeros((n, m))` | `n` rader og `m` kolonner. Doble parenteser: en tuppel inn. |\n| `np.zeros_like(t)` | Nullarray med samme lengde som `t`. Kan ikke bomme på lengden. |\n| `np.ones(n)` | `n` ettere som flyttall. |\n| `np.linspace(a, b, N+1)` | **N+1 punkter** fra `a` til `b`, **begge endepunkt med**. Steg $(b-a)/N$, tilgjengelig som `t[1] - t[0]`. |\n| `np.arange(start, stop, step)` | Fra `start` i steg av `step`, **stopper før** `stop`. |\n| `np.asarray(x)` | Gjør `x` til array; er `x` allerede et array, returneres det uendret. |\n| `x + y`, `x - y`, `x * y`, `x / y`, `x ** 2` | **Elementvis** for arrays av samme lengde. Med et tall på én side brukes tallet på alle elementer. |\n| `np.sqrt`, `np.exp`, `np.log`, `np.sin`, `np.cos` | Ufunksjoner: virker elementvis på hele arrayet. `math`-versjonene tar bare ett tall. |\n| `a[i]` | Ett element ($0$ er første, $-1$ er siste). |\n| `a[i:j]` | Array med element `i` til men ikke med `j`. Er et **utsyn**, ikke en kopi. |\n| `a[1:] - a[:-1]` | Tabellen over endringer mellom nabopunkter. Har ett element mindre enn `a`. |\n| `a[i, j]`, `a[i, :]`, `a[:, j]` | Element, hel rad, hel kolonne i et 2D-array. |\n| `a.copy()` | Uavhengig kopi av arrayet. |\n| `.size` | Antall tall i alt (uten parenteser — egenskap, ikke funksjon). |\n| `.shape` | Formen som tuppel: `(5,)` eller `(3, 4)`. |\n| `x == y` | Elementvis sammenligning: array av `True`/`False`. |\n| `sum(x == y)` | Antall elementer som er like, fordi `True` teller som 1. |\n\n**Formler i dette delkapitlet:**\n\nPunktgitteret fra `np.linspace(a, b, N+1)` er\n\n$$t_i = a + i\\,\\Delta t, \\qquad \\Delta t = \\frac{b-a}{N}, \\qquad i = 0, 1, \\ldots, N$$\n\nAntall punkter er $N+1$ og antall intervaller er $N$. Endringstabellen `a[1:] - a[:-1]` er $d_i = a_{i+1} - a_i$ for $i = 0, \\ldots, N-1$, altså $N$ tall."
     }
-  ],
-  "exercises": []
+   ]
+  },
+  {
+   "id": "in1900-4-1-txt-bank",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+  },
+  {
+   "id": "in1900-4-1-bank-1",
+   "type": "definition",
+   "title": "Array",
+   "content": "En tabell av tall som Python regner på under ett. Til forskjell fra en liste har alle elementene samme talltype, lengden er fast, og `+`, `-`, `*`, `/` og `**` virker elementvis. Et array skrives ut uten komma mellom elementene, som `[2 4 6]`."
+  },
+  {
+   "id": "in1900-4-1-bank-2",
+   "type": "definition",
+   "title": "Vektorisering",
+   "content": "Å regne på en hel tabell i én operasjon, uten løkke. `y = np.log(x)` er den vektoriserte versjonen av å løpe gjennom `x` med en løkke og kalle `math.log` på hvert element. På eksamen er det en egen sjanger (M) å skrive samme tabell både med og uten løkke — se [kap. 4.2](/bok/in1900/in1900-4-2)."
+  },
+  {
+   "id": "in1900-4-1-bank-3",
+   "type": "definition",
+   "title": "Antall punkter mot antall intervaller",
+   "content": "Deler du et intervall i $N$ like biter, får du $N+1$ delepunkter: startpunktet, $N-1$ punkter inni, og sluttpunktet. Derfor er `np.linspace(a, b, N+1)` riktig når oppgaven oppgir $N$ steg, og derfor gir `range(N)` nøyaktig de $N$ oppdateringene som fyller punkt 1 til $N$. Dette er feil #1 i feilkatalogen og fagets hyppigste feil."
+  },
+  {
+   "id": "in1900-4-1-bank-4",
+   "type": "definition",
+   "title": "`np.asarray(x)`",
+   "content": "Gjør `x` om til et array hvis det ikke alt er et, og returnerer det uendret hvis det er. Brukes i starten av en funksjon som skal takle både liste og array som argument, slik at resten av koden trygt kan regne elementvis."
+  },
+  {
+   "id": "in1900-4-1-bank-5",
+   "type": "definition",
+   "title": "Boolsk array",
+   "content": "Resultatet av en elementvis sammenligning, for eksempel `x > 0` eller `x == y`: et array med `True` eller `False` for hvert element, like langt som `x`. Det er **ikke** ett sant/falsk-svar for hele tabellen. Siden `True` teller som 1 i en sum, gir `sum(x > 0)` antall positive elementer."
+  },
+  {
+   "id": "in1900-4-1-bank-6",
+   "type": "definition",
+   "title": "Nøstet liste til 2D-array",
+   "content": "`np.array([[1.0, 2.0], [3.0, 4.0]])` gir et array med 2 rader og 2 kolonner. Hver indre liste blir en rad, og alle de indre listene må være like lange. Elementet i rad 1, kolonne 0 hentes med `M[1, 0]` og er 3.0."
+  },
+  {
+   "id": "in1900-4-1-bank-7",
+   "type": "definition",
+   "title": "`a[i, j]` mot `a[i][j]`",
+   "content": "Begge henter samme element i et 2D-array, men `a[i, j]` er formen boka og sensor bruker: den slår opp direkte med to indekser. `a[i][j]` henter først hele rad `i` som et nytt array og indekserer deretter i den. For nøstede **lister** finnes bare den siste formen, siden en liste ikke godtar to indekser i én klamme."
+  },
+  {
+   "id": "in1900-4-1-bank-8",
+   "type": "definition",
+   "title": "Utsyn mot kopi",
+   "content": "`b = a[1:]` gir et utsyn inn i det samme minnet som `a`, så en endring i `b` vises også i `a`. `b = a.copy()` gir en uavhengig kopi. Dette er feil #23 (aliasing) og skiller arrays fra lister, der `a[1:]` alltid er en ny liste."
+  },
+  {
+   "id": "in1900-4-1-bank-9",
+   "type": "definition",
+   "title": "Array ganget med et tall",
+   "content": "`x * 3` multipliserer **hvert element** med 3 og gir et array av samme lengde. Med en liste betyr `liste * 3` at lista gjentas tre ganger etter hverandre, slik at lengden tredobles. Det er samme forskjell som mellom array-addisjon og liste-skjøting (feil #5)."
+  },
+  {
+   "id": "in1900-4-1-bank-10",
+   "type": "definition",
+   "title": "Radvis oppbygging av et 2D-array",
+   "content": "Mønsteret er: lag plassen med `A = np.zeros((n, m))`, og fyll med to nøstede løkker der den ytre går over rader (`for i in range(n)`) og den indre over kolonner (`for j in range(m)`). Tilordningen er `A[i, j] = ...`. Utskriften får én rad per linje."
+  },
+  {
+   "id": "in1900-4-1-bank-11",
+   "type": "definition",
+   "title": "`math` mot `np` på et array",
+   "content": "Funksjonene i `math` tar **ett** tall: `math.sqrt(4.0)` er greit, men `math.sqrt` med et array inn gir en `TypeError`. NumPy-versjonene tar hele tabellen, så `np.sqrt` gir et array med røtter. Regelen på eksamen: skal koden virke på et array, skal den bruke `np.`-funksjonene."
+  },
+  {
+   "id": "in1900-4-1-bank-12",
+   "type": "definition",
+   "title": "Steglengden i et punktgitter",
+   "content": "Med `t = np.linspace(a, b, N+1)` er steglengden $\\Delta t = (b-a)/N$, og du kan alltid hente den ut av tabellen selv med `t[1] - t[0]`. Den siste formen er den tryggeste i en simulering, fordi den er riktig selv om du senere endrer hvordan `t` lages."
+  },
+  {
+   "id": "in1900-4-1-rep",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "in1900-4-1-rep-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-1-r1",
+      "number": "R1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Fra [kap. 1.2](/bok/in1900/in1900-1-2).) Hva blir `[1, 2] + [3, 4]`, og hva blir `[1, 2] * 2`? Forklar hvorfor svarene er nyttige å ha i minnet når du sporer array-kode.",
+      "solution": "`[1, 2] + [3, 4]` gir `[1, 2, 3, 4]` (skjøting), og `[1, 2] * 2` gir `[1, 2, 1, 2]` (gjentakelse). Ingen av dem regner elementvis. Når samme uttrykk står i et flervalgsspørsmål, må du derfor først avgjøre om variablene er lister eller arrays — og det ser du på om `np.array` eller `np.linspace` har vært innom, og på om utskriften har komma.",
+      "hints": [
+       "Lister skjøtes og gjentas; de regner aldri elementvis."
+      ]
+     }
+    },
+    {
+     "id": "in1900-4-1-rep-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-1-r2",
+      "number": "R2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Fra [kap. 1.3](/bok/in1900/in1900-1-3).) Hvor mange ganger går kroppen i `for i in range(4):`, og hvilke verdier tar `i`?",
+      "solution": "Fire ganger, med `i` lik 0, 1, 2 og 3. Stoppverdien 4 er eksklusiv. Dette er grunnen til at `for n in range(N)` gir nøyaktig $N$ oppdateringer i en simulering med $N+1$ punkter.",
+      "hints": [
+       "Stoppverdien i `range` er eksklusiv."
+      ]
+     }
+    },
+    {
+     "id": "in1900-4-1-rep-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-4-1-r3",
+      "number": "R3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Fra [kap. 1.6](/bok/in1900/in1900-1-6).) Funksjonen `def f(x): return x**2 - 1` er skrevet for ett tall. Hva må endres for at den skal kunne kalles med et helt array?",
+      "solution": "Ingenting. `**` og `-` er elementvise for arrays, så `f(np.linspace(0, 1, 5))` gir et array med fem verdier. Det ville derimot måttet endres hvis funksjonen brukte `math.sqrt`, `math.exp` eller en `if`-test på `x` — da tar den bare ett tall om gangen, og `math`-kallene må byttes til `np.`-versjonene.",
+      "hints": [
+       "Sjekk hvilke operasjoner funksjonen faktisk bruker."
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
 }

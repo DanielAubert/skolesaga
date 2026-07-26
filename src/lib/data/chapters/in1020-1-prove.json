@@ -241,7 +241,7 @@
             "number": "3.3",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Svarform F1.) Cellene 00 til 05 inneholder maskinkodene under. Kryss av alle påstandene som stemmer.\n\n```text\ncelle:   00   01   02   03   04   05 tall:   901  340  580  240  902  000\n```\n\n**a)** Celle 01 er `STA 40`.\n\n**b)** Celle 03 er `SUB 40`.\n\n**c)** Programmet skriver alltid ut 0.\n\n**d)** Celle 02 er `ADD 80`.",
+            "task": "(Svarform F1.) Cellene 00 til 05 inneholder maskinkodene under. Kryss av alle påstandene som stemmer.\n\n```text\ncelle:   00   01   02   03   04   05\ntall:   901  340  580  240  902  000\n```\n\n**a)** Celle 01 er `STA 40`.\n\n**b)** Celle 03 er `SUB 40`.\n\n**c)** Programmet skriver alltid ut 0.\n\n**d)** Celle 02 er `ADD 80`.",
             "solution": "**Dekoding:**\n\n| Celle | Tall | Instruksjon |\n|---|---|---|\n| 00 | `901` | `INP` |\n| 01 | `340` | `STA 40` |\n| 02 | `580` | `LDA 80` |\n| 03 | `240` | `SUB 40` |\n| 04 | `902` | `OUT` |\n| 05 | `000` | `HLT` |\n\n**a) Riktig.** Opkode 3 er `STA`, adresse 40.\n\n**b) Riktig.** Opkode 2 er `SUB`, adresse 40.\n\n**c) Galt.** Programmet henter celle 80, som ikke er satt av programmet og derfor er 0, og trekker fra inndataen. Utskriften blir `0 − inndata`, altså det negative av inndataen. Med inndata 7 skriver programmet ut −7. Bare med inndata 0 blir utskriften 0.\n\n**d) Galt.** `580` er opkode 5, altså `LDA 80`. `ADD 80` ville vært `180`. Forvekslingen mellom 1 og 5 er den vanligste i dekoding — den ene overskriver akkumulatoren, den andre legger til.\n\n**Fasit: a og b.**",
             "hints": [
               "Dekod alle seks cellene før du ser på alternativene.",

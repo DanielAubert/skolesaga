@@ -1,278 +1,278 @@
 {
-  "id": "in1900-8-prove",
-  "courseId": "in1900",
-  "chapterNumber": "8.P",
-  "title": "Prøver til del 8: Fillesing og datastrukturer",
-  "description": "Fire prøver med full fasit: innlesing til nøstet ordbok med og uten header, skriving og filtrering uten mutasjon, fast-bredde-felt med posisjonsskiving, og en full firedelt fillesingsoppgave på eksamensnivå.",
-  "estimatedMinutes": 135,
-  "competenceGoals": [
-    "kunne lese en tekstfil til en nøstet ordbok med riktig separator, rensing og typekonvertering",
-    "kunne hente feltnavnene fra en header-linje, og kjenne igjen feilmeldingen som kommer når linja ikke ble hoppet over",
-    "kunne skrive en datastruktur tilbake til fil og filtrere den uten å endre det som ble sendt inn",
-    "kunne løse en flerdelt fillesingsoppgave der gruppering, aggregering, filtrering og skriving inngår"
-  ],
-  "content": [
+ "id": "in1900-8-prove",
+ "courseId": "in1900",
+ "chapterNumber": "8.P",
+ "title": "Prøver til del 8: Fillesing og datastrukturer",
+ "description": "Fire prøver med full fasit: innlesing til nøstet ordbok med og uten header, skriving og filtrering uten mutasjon, fast-bredde-felt med posisjonsskiving, og en full firedelt fillesingsoppgave på eksamensnivå.",
+ "estimatedMinutes": 135,
+ "competenceGoals": [
+  "kunne lese en tekstfil til en nøstet ordbok med riktig separator, rensing og typekonvertering",
+  "kunne hente feltnavnene fra en header-linje, og kjenne igjen feilmeldingen som kommer når linja ikke ble hoppet over",
+  "kunne skrive en datastruktur tilbake til fil og filtrere den uten å endre det som ble sendt inn",
+  "kunne løse en flerdelt fillesingsoppgave der gruppering, aggregering, filtrering og skriving inngår"
+ ],
+ "content": [
+  {
+   "id": "in1900-8-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 8",
+   "content": "**Fire prøver à 30–40 minutter.** Prøvene dekker hele Del 8: lese en tekstfil til en nøstet ordbok, skrive en struktur tilbake til fil, filtrere uten å ødelegge det du fikk inn, og lese en fil der feltene står i faste kolonner. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 8.A (30 min):** Les til nøstet ordbok — separator, `.strip()` og typekonvertering (sjanger L, altså fillesing til nøstet ordbok).\n- **Prøve 8.B (35 min):** Skriving og filtrering — en ny ordbok ut, uten å endre argumentet (sjanger L).\n- **Prøve 8.C (30 min):** Fast-bredde-felt med posisjonsskiving (sjanger L, stoff du bør kjenne til).\n- **Prøve 8.D (40 min):** Full firedelt oppgave på eksamensnivå — les, aggreger, filtrer og skriv (sjanger L).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den mot noen fil. Fillesingsoppgaven er verdt 8–12 poeng og kommer hvert år, så dette er poeng du kan sikre på forhånd.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmål står ikke inline her; den interaktive quizen til kapitlene 8.1–8.3 er flervalgsbanken og tas separat.\n\n**Om filene:** hver oppgave viser innholdet i datafila først. På eksamen får du det samme — noen linjer av fila i oppgaveteksten. Les dem nøye: separatoren, om det finnes en header-linje, og hvilke felt som er tall, avgjør hele koden."
+  },
+  {
+   "id": "in1900-8-prove-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 8: [kap. 8.1](/bok/in1900/in1900-8-1) om å lese en fil til en nøstet ordbok, [kap. 8.2](/bok/in1900/in1900-8-2) om skriving, filtrering og fast-bredde-felt, og [kap. 8.3](/bok/in1900/in1900-8-3) som driller sjangeren.\n\nFra tidligere deler trengs ordbøker og nøstede ordbøker ([kap. 1.5](/bok/in1900/in1900-1-5)), strenger, `.split()` og f-strenger ([kap. 1.4](/bok/in1900/in1900-1-4)), lister og indeksering ([kap. 1.2](/bok/in1900/in1900-1-2)) og funksjoner ([kap. 1.6](/bok/in1900/in1900-1-6))."
+  },
+  {
+   "id": "in1900-8-prove-A",
+   "type": "collapsible",
+   "title": "Prøve 8.A — Les til nøstet ordbok (30 min)",
+   "buttonText": "Vis prøve 1",
+   "content": [
     {
-      "id": "in1900-8-prove-tip",
-      "type": "tip",
-      "title": "Om prøvene til del 8",
-      "content": "**Fire prøver à 30–40 minutter.** Prøvene dekker hele Del 8: lese en tekstfil til en nøstet ordbok, skrive en struktur tilbake til fil, filtrere uten å ødelegge det du fikk inn, og lese en fil der feltene står i faste kolonner. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 8.A (30 min):** Les til nøstet ordbok — separator, `.strip()` og typekonvertering (sjanger L, altså fillesing til nøstet ordbok).\n- **Prøve 8.B (35 min):** Skriving og filtrering — en ny ordbok ut, uten å endre argumentet (sjanger L).\n- **Prøve 8.C (30 min):** Fast-bredde-felt med posisjonsskiving (sjanger L, stoff du bør kjenne til).\n- **Prøve 8.D (40 min):** Full firedelt oppgave på eksamensnivå — les, aggreger, filtrer og skriv (sjanger L).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den mot noen fil. Fillesingsoppgaven er verdt 8–12 poeng og kommer hvert år, så dette er poeng du kan sikre på forhånd.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmål står ikke inline her; den interaktive quizen til kapitlene 8.1–8.3 er flervalgsbanken og tas separat.\n\n**Om filene:** hver oppgave viser innholdet i datafila først. På eksamen får du det samme — noen linjer av fila i oppgaveteksten. Les dem nøye: separatoren, om det finnes en header-linje, og hvilke felt som er tall, avgjør hele koden."
+     "id": "in1900-8-prove-A-intro",
+     "type": "text",
+     "content": "**Prøve 8.A — les til nøstet ordbok (30 minutter, sjanger L).** Tre oppgaver: bygg strukturen, spor de tre strengoperasjonene som gjør jobben, og les en fil med header-linje. Ikke kjør koden."
     },
     {
-      "id": "in1900-8-prove-forkunn",
-      "type": "text",
-      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 8: [kap. 8.1](/bok/in1900/in1900-8-1) om å lese en fil til en nøstet ordbok, [kap. 8.2](/bok/in1900/in1900-8-2) om skriving, filtrering og fast-bredde-felt, og [kap. 8.3](/bok/in1900/in1900-8-3) som driller sjangeren.\n\nFra tidligere deler trengs ordbøker og nøstede ordbøker ([kap. 1.5](/bok/in1900/in1900-1-5)), strenger, `.split()` og f-strenger ([kap. 1.4](/bok/in1900/in1900-1-4)), lister og indeksering ([kap. 1.2](/bok/in1900/in1900-1-2)) og funksjoner ([kap. 1.6](/bok/in1900/in1900-1-6))."
-    },
-    {
-      "id": "in1900-8-prove-A",
-      "type": "collapsible",
-      "title": "Prøve 8.A — Les til nøstet ordbok (30 min)",
-      "buttonText": "Vis prøve 1",
-      "content": [
-        {
-          "id": "in1900-8-prove-A-intro",
-          "type": "text",
-          "content": "**Prøve 8.A — les til nøstet ordbok (30 minutter, sjanger L).** Tre oppgaver: bygg strukturen, spor de tre strengoperasjonene som gjør jobben, og les en fil med header-linje. Ikke kjør koden."
-        },
-        {
-          "id": "in1900-8-prove-A-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-A-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger L — fillesing til nøstet ordbok.) Fila `jordprover.txt` inneholder resultater fra en jordprøveserie. Hver linje har prøvenummer, dybde i centimeter, surhetsgrad og karboninnhold i prosent, skilt med semikolon. Fila har **ingen** header-linje.\n\n**Innholdet i `jordprover.txt`:**\n```\nJ01;12;5.8;3.42\nJ02;25;6.1;2.10\nJ03;40;6.9;1.05\nJ04;55;7.2;0.64\nJ05;70;7.4;0.31\n```\n\n**a)** Skriv `les_prover(filnavn)` som returnerer en nøstet ordbok fra prøvenummer til en indre ordbok med nøklene `'dybde'`, `'ph'` og `'karbon'`. Dybden skal være et heltall, de to andre flyttall.\n\n**b)** Skriv ut antall prøver, hele den indre ordboken for `J03`, og surhetsgraden i `J03` alene.\n\n**c)** Finn prøven med høyest karboninnhold, uten å bruke noen ferdig sorteringsfunksjon.",
-            "solution": "**a)**, **b)** og **c)**. Fire linjer gjør hele innlesingen: åpne fila, gå gjennom linjene, del opp, sett inn.\n\n```python\ndef les_prover(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            felt = line.strip().split(';')\n            data[felt[0]] = {'dybde': int(felt[1]),\n                             'ph': float(felt[2]),\n                             'karbon': float(felt[3])}\n    return data\n\n\nprover = les_prover('jordprover.txt')\nprint(len(prover), prover['J03'])\nprint(prover['J03']['ph'])\n\nbeste = None for navn in prover:\n    if beste is None or prover[navn]['karbon'] > prover[beste]['karbon']:\n        beste = navn print(beste, prover[beste]['karbon'])\n```\n\n**Utskrift:**\n```\n5 {'dybde': 40, 'ph': 6.9, 'karbon': 1.05}\n6.9\nJ01 3.42\n```\n\nTre detaljer er verdt å stoppe ved.\n\n`.strip()` **før** `.split(';')` er ikke pynt. Uten den ville det siste feltet på hver linje vært `'3.42\\n'` med linjeskiftet på slutten. `float` hadde riktignok tålt det, men `int` og alle strengsammenligninger hadde ikke — og på eksamen er det nettopp den glemte `.strip()`-en som er felle **#7** i feilkatalogen.\n\nSeparatoren står i oppgaveteksten. Her er den semikolon, så `.split(';')` med argument. Et bart `.split()` deler på blanktegn og ville gitt **ett** felt per linje, siden det ikke finnes mellomrom i fila. Det er felle **#8**.\n\nOg den ytre nøkkelen er prøvenummeret, ikke et løpenummer. Det er derfor `prover['J03']` virker uten at du vet hvilken linje prøven sto på.\n\n**c)** «Beste så langt»-mønsteret starter med `beste = None` og bytter når det dukker opp noe større. Betingelsen `beste is None or ...` sørger for at den aller første prøven alltid blir stående — uten den måtte du gjettet en startverdi som var lav nok. Prøven nærmest overflaten har mest karbon, som forventet: organisk materiale samler seg øverst.\n\n**Hva gir uttelling (8 poeng):** `with open(filnavn) as infile:` (1 p), `for line in infile:` (1 p), `.strip()` (1 p), `.split(';')` med riktig separator (1 p), den nøstede ordboken med felt[0] som ytre nøkkel (2 p), typekonverteringen `int`/`float` (1 p), «beste så langt»-løkka i c) (1 p).\n\nSensor belønner riktig løkkestruktur selv med feil på ett felt. Får du strukturen og separatoren riktig, har du mesteparten av poengene.",
-            "hints": [
-              "Fire linjer: åpne, løkke over linjene, del opp, sett inn.",
-              "`.strip()` skal skje før `.split(...)`.",
-              "Den ytre nøkkelen er det første feltet på linja.",
-              "Til c): hold styr på beste kandidat så langt i en egen variabel."
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-A-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-A-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "lett",
-            "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? Skriv utskriften nøyaktig, slik terminalen viser den.\n\n```python\nlinje = ' J07;31;6.4;1.90\\n' felt = linje.strip().split(';')\nprint(len(felt), felt[0], felt[-1])\nprint(felt[1] + felt[2])\nprint(int(felt[1]) + float(felt[2]))\ndata = {}\ndata[felt[0]] = {'dybde': int(felt[1])}\nprint(data)\n```",
-            "solution": "**Sporingstavle.** `.strip()` fjerner både mellomrommet foran og linjeskiftet bak; `.split(';')` deler den rensede strengen i fire biter.\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `linje.strip()` | `'J07;31;6.4;1.90'` |\n| 2 | `.split(';')` | `['J07', '31', '6.4', '1.90']` |\n| 3 | `len(felt)`, `felt[0]`, `felt[-1]` | 4, `J07`, `1.90` |\n| 4 | `felt[1] + felt[2]` | to **strenger** limt sammen |\n| 5 | `int(felt[1]) + float(felt[2])` | to **tall** lagt sammen |\n\n**Utskrift:**\n```\n4 J07 1.90\n316.4\n37.4\n{'J07': {'dybde': 31}}\n```\n\nLinje 2 og 3 er hele poenget med oppgaven. `'31' + '6.4'` gir `316.4` — det er ikke et tall, det er de to tekstbitene etter hverandre. Først når du konverterer, blir det addisjon: $31 + 6{,}4 = 37{,}4$.\n\nLegg også merke til at `felt[-1]` er `'1.90'` med nullen på slutten. Det er teksten fra fila, ikke et flyttall — hadde du skrevet `float(felt[-1])`, ville utskriften blitt `1.9`.\n\nDen siste linja viser hvordan Python skriver en nøstet ordbok: enkle fnutter rundt nøklene, kolon og mellomrom, og den indre ordboken som verdi.\n\nFellenote: fellen her er å lese `+` som addisjon når operandene er strenger. Alt som kommer fra en fil, er tekst til du konverterer det. Delvis riktig sporing gir delvis uttelling.\n\n**Poeng:** 3.",
-            "hints": [
-              "Hva fjerner `.strip()` her — én ting eller to?",
-              "Hvilken type har elementene i `felt`?",
-              "Hva gjør `+` når begge operandene er strenger?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-A-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-A-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger L — fillesing med header-linje.) Fila `arter.txt` er **kommaseparert** og har en header-linje med kolonnenavnene.\n\n**Innholdet i `arter.txt`:**\n```\nart,antall,vekt_g graasisik,84,13.5 bokfink,142,21.0 dompap,37,25.5 gronnfink,68,28.0\n```\n\n**a)** Skriv `les_arter(filnavn)` som returnerer en nøstet ordbok fra artsnavn til en indre ordbok. Nøklene i den indre ordboken skal **hentes fra header-linja**, ikke skrives inn for hånd. Antallet skal være et heltall og vekten et flyttall.\n\n**b)** Skriv ut antall arter, hele den indre ordboken for bokfinken, og vekten til dompapen.\n\n**c)** Hva skjer om du glemmer å hoppe over header-linja? Svar med den feilmeldingen programmet gir, og forklar hvorfor den kommer akkurat der.",
-            "solution": "**a)** og **b)**. `readline()` leser **én** linje og flytter lesepunktet videre, så løkka etterpå starter på den første datalinja. Feltnavnene er alt i header-linja unntatt det første, som er den ytre nøkkelen:\n\n```python\ndef les_arter(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        feltnavn = infile.readline().strip().split(',')[1:]\n        for line in infile:\n            felt = line.strip().split(',')\n            data[felt[0]] = dict(zip(feltnavn, [int(felt[1]), float(felt[2])]))\n    return data\n\n\narter = les_arter('arter.txt')\nprint(len(arter))\nprint(arter['bokfink'])\nprint(arter['dompap']['vekt_g'])\n```\n\n**Utskrift:**\n```\n4\n{'antall': 142, 'vekt_g': 21.0}\n25.5\n```\n\n`dict(zip(feltnavn, verdier))` parer de to listene elementvis og lager ordboken i én linje: `'antall'` med 142, `'vekt_g'` med 21.0. Fordelen er at kolonnenavnene kommer fra fila selv — endrer fila navn på en kolonne, følger koden etter uten at du rører den.\n\nSkiven `[1:]` på slutten av header-linja er lett å overse. Uten den ville `feltnavn` også inneholdt `'art'`, og da ville `zip` paret `'art'` med 142 og `'antall'` med 21.0 — alt forskjøvet ett hakk. `zip` stopper ved den korteste lista og sier ikke fra.\n\n**c)** Uten `readline()` blir den første linja behandlet som data, og programmet stopper på typekonverteringen:\n\n```text\nValueError: invalid literal for int() with base 10: 'antall'\n```\n\nFeilmeldingen sier akkurat hva som skjedde: `int` fikk teksten `'antall'` og kan ikke gjøre den om til et tall. Dette er den vanligste varianten av felle **#7** — header-linja som ikke ble hoppet over. Merk at feilen ikke kommer på selve `open`-kallet eller på `split`; den kommer først når du prøver å tolke et kolonnenavn som et måltall.\n\nDenne feilen er verdt å kjenne igjen på syne. Ser du `ValueError: invalid literal for int()` med et **kolonnenavn** i sitatet, er svaret nesten alltid en glemt header-linje.\n\n**Hva gir uttelling (8 poeng):** `readline()` som første handling inne i `with`-blokken (2 p), feltnavnene hentet fra header-linja med `[1:]` (2 p), løkka med `.strip().split(',')` (1 p), `dict(zip(...))` eller en ordbok skrevet ut for hånd med riktige nøkler (1 p), typekonverteringen (1 p), feilmeldingen og forklaringen i c) (1 p).\n\nSkriver du nøklene inn for hånd i stedet for å hente dem fra header-linja, får du fortsatt uttelling for strukturen — men oppgaveteksten ba om det motsatte, så ett poeng ryker.",
-            "hints": [
-              "`readline()` leser én linje og flytter lesepunktet videre.",
-              "Det første feltet i header-linja er den ytre nøkkelen, ikke et feltnavn.",
-              "`dict(zip(nøkler, verdier))` lager en ordbok av to lister.",
-              "Til c): hvilken operasjon er den første som ikke tåler tekst?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-A-diag",
-          "type": "text",
-          "content": "**Selvdiagnose etter prøve 8.A**\n\n☐ Sto `.strip()` før `.split(...)`?\n\n☐ Ga du `.split(...)` riktig separator, den som faktisk står i fila?\n\n☐ Konverterte du tallfeltene med `int` eller `float`?\n\n☐ Hoppet du over header-linja — og bare når fila faktisk har en?\n\n☐ Var den ytre nøkkelen den du faktisk skal slå opp på senere?\n\n☐ Opprettet du den indre ordboken før du satte inn i den?"
-        }
+     "id": "in1900-8-prove-A-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-A-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger L — fillesing til nøstet ordbok.) Fila `jordprover.txt` inneholder resultater fra en jordprøveserie. Hver linje har prøvenummer, dybde i centimeter, surhetsgrad og karboninnhold i prosent, skilt med semikolon. Fila har **ingen** header-linje.\n\n**Innholdet i `jordprover.txt`:**\n```\nJ01;12;5.8;3.42\nJ02;25;6.1;2.10\nJ03;40;6.9;1.05\nJ04;55;7.2;0.64\nJ05;70;7.4;0.31\n```\n\n**a)** Skriv `les_prover(filnavn)` som returnerer en nøstet ordbok fra prøvenummer til en indre ordbok med nøklene `'dybde'`, `'ph'` og `'karbon'`. Dybden skal være et heltall, de to andre flyttall.\n\n**b)** Skriv ut antall prøver, hele den indre ordboken for `J03`, og surhetsgraden i `J03` alene.\n\n**c)** Finn prøven med høyest karboninnhold, uten å bruke noen ferdig sorteringsfunksjon.",
+      "solution": "**a)**, **b)** og **c)**. Fire linjer gjør hele innlesingen: åpne fila, gå gjennom linjene, del opp, sett inn.\n\n```python\ndef les_prover(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            felt = line.strip().split(';')\n            data[felt[0]] = {'dybde': int(felt[1]),\n                             'ph': float(felt[2]),\n                             'karbon': float(felt[3])}\n    return data\n\n\nprover = les_prover('jordprover.txt')\nprint(len(prover), prover['J03'])\nprint(prover['J03']['ph'])\n\nbeste = None\nfor navn in prover:\n    if beste is None or prover[navn]['karbon'] > prover[beste]['karbon']:\n        beste = navn\nprint(beste, prover[beste]['karbon'])\n```\n\n**Utskrift:**\n```\n5 {'dybde': 40, 'ph': 6.9, 'karbon': 1.05}\n6.9\nJ01 3.42\n```\n\nTre detaljer er verdt å stoppe ved.\n\n`.strip()` **før** `.split(';')` er ikke pynt. Uten den ville det siste feltet på hver linje vært `'3.42\\n'` med linjeskiftet på slutten. `float` hadde riktignok tålt det, men `int` og alle strengsammenligninger hadde ikke — og på eksamen er det nettopp den glemte `.strip()`-en som er felle **#7** i feilkatalogen.\n\nSeparatoren står i oppgaveteksten. Her er den semikolon, så `.split(';')` med argument. Et bart `.split()` deler på blanktegn og ville gitt **ett** felt per linje, siden det ikke finnes mellomrom i fila. Det er felle **#8**.\n\nOg den ytre nøkkelen er prøvenummeret, ikke et løpenummer. Det er derfor `prover['J03']` virker uten at du vet hvilken linje prøven sto på.\n\n**c)** «Beste så langt»-mønsteret starter med `beste = None` og bytter når det dukker opp noe større. Betingelsen `beste is None or ...` sørger for at den aller første prøven alltid blir stående — uten den måtte du gjettet en startverdi som var lav nok. Prøven nærmest overflaten har mest karbon, som forventet: organisk materiale samler seg øverst.\n\n**Hva gir uttelling (8 poeng):** `with open(filnavn) as infile:` (1 p), `for line in infile:` (1 p), `.strip()` (1 p), `.split(';')` med riktig separator (1 p), den nøstede ordboken med felt[0] som ytre nøkkel (2 p), typekonverteringen `int`/`float` (1 p), «beste så langt»-løkka i c) (1 p).\n\nSensor belønner riktig løkkestruktur selv med feil på ett felt. Får du strukturen og separatoren riktig, har du mesteparten av poengene.",
+      "hints": [
+       "Fire linjer: åpne, løkke over linjene, del opp, sett inn.",
+       "`.strip()` skal skje før `.split(...)`.",
+       "Den ytre nøkkelen er det første feltet på linja.",
+       "Til c): hold styr på beste kandidat så langt i en egen variabel."
       ]
+     }
     },
     {
-      "id": "in1900-8-prove-B",
-      "type": "collapsible",
-      "title": "Prøve 8.B — Skriving og filtrering (35 min)",
-      "buttonText": "Vis prøve 2",
-      "content": [
-        {
-          "id": "in1900-8-prove-B-intro",
-          "type": "text",
-          "content": "**Prøve 8.B — skriving og filtrering (35 minutter, sjanger L).** Tre oppgaver. Dette er del b) og c) av den store fillesingsoppgaven: strukturen ut igjen på fil, og et utvalg av den — uten at originalen tar skade."
-        },
-        {
-          "id": "in1900-8-prove-B-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-B-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger L — skriv en struktur til fil.) En fugletelling er lest inn til denne strukturen:\n\n```python\narter = {'graasisik': {'antall': 84, 'vekt_g': 13.5},\n         'bokfink': {'antall': 142, 'vekt_g': 21.0},\n         'dompap': {'antall': 37, 'vekt_g': 25.5},\n         'gronnfink': {'antall': 68, 'vekt_g': 28.0}}\n```\n\n**a)** Skriv `skriv_arter(data, filnavn)` som lagrer strukturen som en semikolonseparert fil med header-linja `art;antall;vekt_g`. Vekten skal skrives med én desimal.\n\n**b)** Kall funksjonen og skriv ut innholdet i fila etterpå, slik at du ser at den ble riktig.\n\n**c)** Hvorfor er det en fordel at fila du skriver, kan leses tilbake av den samme typen kode som leste den inn?",
-            "solution": "**a)** og **b)**. Skriving er innlesing baklengs: åpne med `'w'`, én `write` per linje, og linjeskift på slutten av hver:\n\n```python\ndef skriv_arter(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('art;antall;vekt_g\\n')\n        for art in data:\n            antall = data[art]['antall']\n            vekt = data[art]['vekt_g']\n            outfile.write(f'{art};{antall};{vekt:.1f}\\n')\n\n\narter = {'graasisik': {'antall': 84, 'vekt_g': 13.5},\n         'bokfink': {'antall': 142, 'vekt_g': 21.0},\n         'dompap': {'antall': 37, 'vekt_g': 25.5},\n         'gronnfink': {'antall': 68, 'vekt_g': 28.0}}\n\nskriv_arter(arter, 'arter_ut.txt')\nwith open('arter_ut.txt') as infile:\n    print(infile.read(), end='')\n```\n\n**Utskrift:**\n```\nart;antall;vekt_g graasisik;84;13.5 bokfink;142;21.0 dompap;37;25.5 gronnfink;68;28.0\n```\n\nTo ting skiller `write` fra `print`. `write` setter **ikke** linjeskift av seg selv — glemmer du `\\n`, havner hele fila på én linje, og det er felle **#7**-familiens skrivevariant. Og `write` tar én streng, ikke flere argumenter skilt med komma; derfor bygges linja med en f-streng.\n\nRekkefølgen i fila er den samme som i ordboken. Fra Python 3.7 husker ordbøker innsettingsrekkefølgen, så det du leste inn først, skrives ut først.\n\nMerk `end=''` i den siste `print`: teksten fra fila slutter allerede med et linjeskift, og uten `end=''` ville du fått en blank linje til.\n\n**c)** Fordi da er formatet ditt eget verktøy. Du kan lese fila tilbake med samme mønster — `.strip().split(';')`, hopp over header — og få nøyaktig den strukturen du startet med. Da kan et program lagre mellomresultater, en annen del av programmet plukke dem opp, og du kan kontrollere med egne øyne at det som ble lagret, er riktig.\n\nPå eksamen er dette dessuten praktisk: del b) av oppgaven ber om skriving, og bruker du samme separator som fila du leste, kan du gjenbruke tankegangen fra del a) i stedet for å finne på noe nytt.\n\n**Hva gir uttelling (7 poeng):** `open(filnavn, 'w')` med skrivemodus (1 p), header-linja (1 p), løkka over ordboken (1 p), f-strengen med riktig separator (1 p), `'\\n'` på hver linje (2 p), utskriften i b) og svaret i c) (1 p).",
-            "hints": [
-              "Skrivemodus er `'w'` — andre argument til `open`.",
-              "`write` tar én streng, og gir deg ikke linjeskift gratis.",
-              "Bygg linja med en f-streng, én per art.",
-              "Til b): åpne fila på nytt og skriv ut alt den inneholder."
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-B-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-B-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger L — filtrer uten å endre argumentet.) Bruk `arter`-strukturen fra oppgave 1.\n\n**a)** Skriv `vanlige(data, grense)` som returnerer en **ny** ordbok med bare de artene som er talt opp minst `grense` ganger. Den innleste ordboken skal være uendret etterpå.\n\n**b)** Kjør funksjonen med grensen 70. Skriv ut antall arter før og etter, hvilke arter som ble med, og antallet i den opprinnelige ordboken til slutt.\n\n**c)** Hva ville skjedd om du i stedet hadde slettet artene under grensen fra `data`?",
-            "solution": "**a)** og **b)**. Filtreringsmønsteret er tre linjer: tom ordbok, løkke med betingelse, `return`:\n\n```python\ndef vanlige(data, grense):\n    ny = {}\n    for art in data:\n        if data[art]['antall'] >= grense:\n            ny[art] = data[art]\n    return ny\n\n\narter = {'graasisik': {'antall': 84, 'vekt_g': 13.5},\n         'bokfink': {'antall': 142, 'vekt_g': 21.0},\n         'dompap': {'antall': 37, 'vekt_g': 25.5},\n         'gronnfink': {'antall': 68, 'vekt_g': 28.0}}\n\nmange = vanlige(arter, 70)\nprint(len(arter), len(mange))\nfor art in mange:\n    print(art, mange[art])\nprint(len(arter))\n```\n\n**Utskrift:**\n```\n4 2 graasisik {'antall': 84, 'vekt_g': 13.5}\nbokfink {'antall': 142, 'vekt_g': 21.0}\n4\n```\n\nDen siste linja er beviset på at kravet er oppfylt: originalen har fortsatt fire arter. Grønnfinken med 68 faller utenfor, gråsisiken med 84 er innenfor — legg merke til at grensen er tatt med, fordi betingelsen er `>=`. Står det «minst» i oppgaveteksten, er det `>=`; står det «mer enn», er det `>`.\n\n**c)** Da ville du **ødelagt datagrunnlaget**. Etter kallet ville `arter` bare hatt to arter igjen, og en senere deloppgave — regn ut gjennomsnittsvekten for alle arter, skriv hele tellingen til fil — ville gitt feil svar uten å gi noen feilmelding. Det er den farligste typen feil, fordi programmet fortsetter å kjøre.\n\nSensor ser spesielt etter dette. Oppgaveteksten sier «returner en ny ordbok» eller «uten å endre argumentet» nettopp fordi det er her kandidatene deler seg.\n\nÉn advarsel til: den nye ordboken deler de **indre** ordbøkene med den gamle. Endrer du `mange['bokfink']['antall']`, endrer du samtidig `arter['bokfink']['antall']` — det er samme objekt, sett fra to steder. Å legge til eller fjerne en **art** i `mange` rører derimot ikke `arter`. Oppgave 3 sporer nøyaktig denne forskjellen.\n\n**Hva gir uttelling (7 poeng):** `ny = {}` før løkka (1 p), løkka over argumentet (1 p), betingelsen med riktig ulikhetstegn (2 p), innsettingen i den nye ordboken (1 p), `return ny` (1 p), svaret i c) (1 p).",
-            "hints": [
-              "Bygg en ny ordbok — ikke rør den du fikk inn.",
-              "«Minst» betyr `>=`.",
-              "Skriv ut lengden på originalen til slutt, som kontroll.",
-              "Til c): hva ville en senere deloppgave regnet på?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-B-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-B-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef vanlige(data, grense):\n    ny = {}\n    for art in data:\n        if data[art]['antall'] >= grense:\n            ny[art] = data[art]\n    return ny\n\n\narter = {'graasisik': {'antall': 84}, 'bokfink': {'antall': 142}}\nmange = vanlige(arter, 70)\nmange['bokfink']['antall'] = 0 print(len(arter), len(mange))\nprint(arter['bokfink']['antall'])\nmange['ny'] = {'antall': 5}\nprint(len(arter), len(mange))\n```",
-            "solution": "**Sporingstavle.** Begge artene er over grensen, så `mange` får begge — og de indre ordbøkene er de **samme objektene** som i `arter`.\n\n| Steg | Handling | `arter` | `mange` |\n|---|---|---|---|\n| 1 | `vanlige(arter, 70)` | 2 arter | 2 arter, samme indre ordbøker |\n| 2 | `mange['bokfink']['antall'] = 0` | bokfinken er nå 0 | bokfinken er nå 0 |\n| 3 | `mange['ny'] = {...}` | fortsatt 2 arter | 3 arter |\n\n**Utskrift:**\n```\n2 2\n0\n2 3\n```\n\nDette er aliasing, og forskjellen på de to siste stegene er hele poenget.\n\nSteg 2 endrer **inni** en indre ordbok. Den ordboken ligger bare ett sted i minnet; `arter['bokfink']` og `mange['bokfink']` er to navn på den. Derfor slår endringen gjennom begge veier, og `arter['bokfink']['antall']` er 0.\n\nSteg 3 endrer den **ytre** ordboken `mange`. Den er en helt egen ordbok, laget med `ny = {}` inne i funksjonen. Å sette inn en ny nøkkel der rører ikke `arter` — den har fortsatt to arter.\n\nFellenote: fellen er å tro at «en ny ordbok» betyr «en helt uavhengig kopi av alt». Det gjør det ikke: den ytre ordboken er ny, mens verdiene inni er delt. Vil du ha uavhengige indre ordbøker, må du bygge dem opp på nytt, felt for felt, inne i løkka.\n\nI praksis er dette sjelden noe problem på eksamen, fordi filtreringsoppgaver bare **leser** de indre verdiene. Men vet du forskjellen, kan du svare presist når oppgaven spør om argumentet ble endret.\n\n**Poeng:** 4. Delvis riktig sporing gir delvis uttelling.",
-            "hints": [
-              "Er de indre ordbøkene kopier, eller de samme objektene?",
-              "Hvilken ordbok ble laget ny inne i funksjonen?",
-              "Skill mellom å endre inni en verdi og å sette inn en ny nøkkel."
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-B-diag",
-          "type": "text",
-          "content": "**Selvdiagnose etter prøve 8.B**\n\n☐ Åpnet du med `'w'` når du skulle skrive?\n\n☐ Hadde hver skrevne linje `'\\n'` på slutten?\n\n☐ Bygde du linja med en f-streng, siden `write` bare tar én streng?\n\n☐ Bygde filtreringen en **ny** ordbok, med `ny = {}` før løkka?\n\n☐ Sto `return ny` etter løkka, ikke inne i den?\n\n☐ Kontrollerte du at argumentet var uendret etterpå?\n\n☐ Vet du forskjellen på å endre den ytre og den indre ordboken?"
-        }
+     "id": "in1900-8-prove-A-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-A-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Midtveisnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut? Skriv utskriften nøyaktig, slik terminalen viser den.\n\n```python\nlinje = ' J07;31;6.4;1.90\\n'\nfelt = linje.strip().split(';')\nprint(len(felt), felt[0], felt[-1])\nprint(felt[1] + felt[2])\nprint(int(felt[1]) + float(felt[2]))\ndata = {}\ndata[felt[0]] = {'dybde': int(felt[1])}\nprint(data)\n```",
+      "solution": "**Sporingstavle.** `.strip()` fjerner både mellomrommet foran og linjeskiftet bak; `.split(';')` deler den rensede strengen i fire biter.\n\n| Steg | Uttrykk | Verdi |\n|---|---|---|\n| 1 | `linje.strip()` | `'J07;31;6.4;1.90'` |\n| 2 | `.split(';')` | `['J07', '31', '6.4', '1.90']` |\n| 3 | `len(felt)`, `felt[0]`, `felt[-1]` | 4, `J07`, `1.90` |\n| 4 | `felt[1] + felt[2]` | to **strenger** limt sammen |\n| 5 | `int(felt[1]) + float(felt[2])` | to **tall** lagt sammen |\n\n**Utskrift:**\n```\n4 J07 1.90\n316.4\n37.4\n{'J07': {'dybde': 31}}\n```\n\nLinje 2 og 3 er hele poenget med oppgaven. `'31' + '6.4'` gir `316.4` — det er ikke et tall, det er de to tekstbitene etter hverandre. Først når du konverterer, blir det addisjon: $31 + 6{,}4 = 37{,}4$.\n\nLegg også merke til at `felt[-1]` er `'1.90'` med nullen på slutten. Det er teksten fra fila, ikke et flyttall — hadde du skrevet `float(felt[-1])`, ville utskriften blitt `1.9`.\n\nDen siste linja viser hvordan Python skriver en nøstet ordbok: enkle fnutter rundt nøklene, kolon og mellomrom, og den indre ordboken som verdi.\n\nFellenote: fellen her er å lese `+` som addisjon når operandene er strenger. Alt som kommer fra en fil, er tekst til du konverterer det. Delvis riktig sporing gir delvis uttelling.\n\n**Poeng:** 3.",
+      "hints": [
+       "Hva fjerner `.strip()` her — én ting eller to?",
+       "Hvilken type har elementene i `felt`?",
+       "Hva gjør `+` når begge operandene er strenger?"
       ]
+     }
     },
     {
-      "id": "in1900-8-prove-C",
-      "type": "collapsible",
-      "title": "Prøve 8.C — Fast-bredde-felt (30 min)",
-      "buttonText": "Vis prøve 3",
-      "content": [
-        {
-          "id": "in1900-8-prove-C-intro",
-          "type": "text",
-          "content": "**Prøve 8.C — fast-bredde-felt (30 minutter, sjanger L).** Tre oppgaver. Dette er stoff du **bør kjenne til**, ikke stoff som må sitte perfekt: fast-bredde-lesing dukker opp sjelden, og sensor gir uttelling for riktig tenkning selv når kolonnegrensene er noen tegn på avveie. Ta prøven for å kjenne igjen sjangeren — ikke for å pugge kolonnetall."
-        },
-        {
-          "id": "in1900-8-prove-C-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-C-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Bør kjenne til, sjanger L — fast-bredde-felt.) Fila `borekjerne.txt` fra en geologisk kartlegging har **ingen separator**. Feltene står i faste kolonner: kjerne-id i posisjon 0–5, dyp i meter i 6–11, bergart i 14–25 og tetthet i gram per kubikkcentimeter i 26–30.\n\n**Innholdet i `borekjerne.txt`:**\n```\nBK01    12.5  sandstein    2.31\nBK02    48.0  skifer       2.66\nBK03     7.5  kalkstein    2.71\nBK04    33.5  sandstein    2.28\nBK05    21.0  granitt      2.75\n```\n\n**a)** Skriv `les_kjerner(filnavn)` som returnerer en nøstet ordbok fra kjerne-id til en indre ordbok med nøklene `'dyp'`, `'bergart'` og `'tetthet'`. Tall skal konverteres, tekst skal renses for mellomrom.\n\n**b)** Skriv ut antall kjerner, den indre ordboken for `BK03`, og bergarten og tettheten for `BK05`.\n\n**c)** Hvorfor trenger du `.strip()` på hvert utsnitt her, når du ikke trengte det per felt da fila var semikolonseparert?",
-            "solution": "**a)** og **b)**. Skiving med `line[a:b]` i stedet for `.split(...)` — resten av mønsteret er identisk med en vanlig fillesing:\n\n```python\ndef les_kjerner(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            navn = line[0:6].strip()\n            data[navn] = {'dyp': float(line[6:12]),\n                          'bergart': line[14:26].strip(),\n                          'tetthet': float(line[26:31])}\n    return data\n\n\nkjerner = les_kjerner('borekjerne.txt')\nprint(len(kjerner))\nprint(kjerner['BK03'])\nprint(kjerner['BK05']['bergart'], kjerner['BK05']['tetthet'])\n```\n\n**Utskrift:**\n```\n5\n{'dyp': 7.5, 'bergart': 'kalkstein', 'tetthet': 2.71}\ngranitt 2.75\n```\n\nGrensene leses av oppgaveteksten: «posisjon 0–5» blir `line[0:6]`, fordi sluttindeksen i en skive er **eksklusiv**. Det er samme regel som for `range`, og samme felle: fire tegn fra posisjon 0 er `[0:4]`, ikke `[0:5]`.\n\n**c)** Fordi et fast-bredde-felt er **fylt ut med mellomrom** til sin fulle bredde. `line[0:6]` gir `'BK01  '` med to mellomrom bak, og `line[14:26]` gir `'sandstein   '`. Uten `.strip()` ville ordboknøkkelen vært `'BK01  '`, og et oppslag på `'BK01'` ville gitt `KeyError`.\n\nTallfeltene slipper unna: `float(' 12.5')` tåler mellomrom rundt seg og gir 12.5 uansett. Men det er ingen grunn til å stole på det — `.strip()` på alle utsnitt er en billig vane.\n\nDa fila var semikolonseparert, hadde `.split(';')` allerede gjort jobben: den delte på tegnet og la ingen mellomrom igjen. Der trengte du bare én `.strip()` på hele linja, for linjeskiftet.\n\n**Hva gir uttelling (7 poeng):** `with open` og løkka over linjene (1 p), skiving med `line[a:b]` i stedet for `split` (2 p), riktig forståelse av at sluttindeksen er eksklusiv (1 p), `.strip()` på tekstfeltene (1 p), typekonverteringen (1 p), forklaringen i c) (1 p).\n\nBommer du med ett eller to tegn på en kolonnegrense, mister du ikke oppgaven. Sensor ser etter at du har forstått at fila skal skives i posisjoner — det er nesten umulig å telle kolonner helt riktig på en hjelpemiddelfri eksamen, og det vet sensor.",
-            "hints": [
-              "Bytt ut `.split(...)` med `line[a:b]` — resten av mønsteret står.",
-              "Sluttindeksen i en skive er eksklusiv, akkurat som i `range`.",
-              "Tekstfeltene er fylt ut med mellomrom.",
-              "Til c): hva blir ordboknøkkelen hvis du dropper `.strip()`?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-C-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-C-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "lett",
-            "task": "(Midtveisnivå, sjanger A — kodesporing.) Linja under er den første datalinja i `borekjerne.txt`. Hva skriver programmet ut?\n\n```python\nline = 'BK01    12.5  sandstein    2.31\\n' print(len(line.strip()))\nprint(repr(line[0:6]))\nprint(repr(line[14:25]))\nprint(repr(line[6:12].strip()))\nprint(float(line[6:12]) + float(line[26:31]))\n```",
-            "solution": "**Sporingstavle.** `repr` skriver strengen med fnutter rundt, slik at du ser mellomrommene. Den er nettopp derfor nyttig når du skal telle kolonner.\n\n| Uttrykk | Hva det plukker | Verdi |\n|---|---|---|\n| `line.strip()` | linja uten linjeskift | 31 tegn |\n| `line[0:6]` | posisjon 0 til og med 5 | `'BK01  '` |\n| `line[14:25]` | bergarten, men **ett tegn for kort** | `'sandstein  '` |\n| `line[6:12].strip()` | dypet, renset | `'12.5'` |\n| `float(line[6:12]) + float(line[26:31])` | $12{,}5 + 2{,}31$ | 14.81 |\n\n**Utskrift:**\n```\n31\n'BK01  '\n'sandstein  '\n'12.5'\n14.81\n```\n\nTre observasjoner.\n\nKjerne-id-en kommer ut som `'BK01  '` med to mellomrom bak. Feltet er seks tegn bredt, og navnet fyller bare fire. Bruker du dette som ordboknøkkel uten `.strip()`, vil et oppslag på `'BK01'` gi `KeyError`.\n\n`line[14:25]` slutter ett tegn før feltet er slutt. Her synes det ikke, fordi det siste tegnet uansett er et mellomrom — du mister bare et blanktegn, og `.strip()` ville fjernet det likevel. Men hadde bergartsnavnet vært langt nok til å fylle feltet, ville du mistet den **siste bokstaven**. Det er nøyaktig slik denne feilen pleier å slippe gjennom uoppdaget: den gjør ingen skade på de linjene du sjekker for hånd, og ødelegger de andre.\n\n`float` tåler mellomrom rundt tallet, så `float('  12.5')` er 12.5 uten at du trenger `.strip()` først. Tallfeltene er altså tilgivende; det er tekstfeltene som ikke er det.\n\nFellenote: fellen er kolonnegrenser du ikke kan telle deg fram til. Skriv ut med `repr` mens du utvikler, og godta at dette er stoff du bør kjenne til, ikke stoff du skal kunne feilfritt. Delvis riktig sporing gir delvis uttelling.\n\n**Poeng:** 3.",
-            "hints": [
-              "`repr` viser fnuttene og mellomrommene.",
-              "Er sluttindeksen med eller ikke?",
-              "Tåler `float` mellomrom rundt tallet?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-C-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-C-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Bør kjenne til, sjanger L — fra fast bredde til separator.) Kolonnefiler er tungvinte å arbeide med. Skriv om `borekjerne.txt` til et format alle kan lese.\n\n**a)** Bruk `les_kjerner` fra oppgave 1, og skriv `skriv_semikolon(data, filnavn)` som lagrer strukturen som en semikolonseparert fil med header-linja `kjerne;dyp;bergart;tetthet`. Dypet skal ha én desimal, tettheten to.\n\n**b)** Kjør konverteringen og skriv ut den nye fila.\n\n**c)** Hvilke to problemer med kolonnefila forsvinner med dette?",
-            "solution": "**a)** og **b)**. Lesefunksjonen er uendret fra oppgave 1; det nye er skrivefunksjonen:\n\n```python\ndef les_kjerner(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            navn = line[0:6].strip()\n            data[navn] = {'dyp': float(line[6:12]),\n                          'bergart': line[14:26].strip(),\n                          'tetthet': float(line[26:31])}\n    return data\n\n\ndef skriv_semikolon(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('kjerne;dyp;bergart;tetthet\\n')\n        for navn in data:\n            v = data[navn]\n            outfile.write(f\"{navn};{v['dyp']:.1f};{v['bergart']};{v['tetthet']:.2f}\\n\")\n\n\nkjerner = les_kjerner('borekjerne.txt')\nskriv_semikolon(kjerner, 'borekjerne_ut.txt')\nwith open('borekjerne_ut.txt') as infile:\n    print(infile.read(), end='')\n```\n\n**Utskrift:**\n```\nkjerne;dyp;bergart;tetthet\nBK01;12.5;sandstein;2.31\nBK02;48.0;skifer;2.66\nBK03;7.5;kalkstein;2.71\nBK04;33.5;sandstein;2.28\nBK05;21.0;granitt;2.75\n```\n\nLegg merke til fnuttene i f-strengen: den ytre strengen bruker doble fnutter, fordi ordboknøklene inni bruker enkle. Blander du dem, får du en syntaksfeil — og en syntaksfeil koster mer på en hjelpemiddelfri eksamen enn en tenkefeil, fordi den er umulig å oppdage uten å kjøre koden.\n\n**c)** To ting blir enklere. For det første slipper den som leser fila, å vite noe om kolonneposisjoner: `.split(';')` finner feltene selv, uansett hvor lange navnene er. For det andre tåler formatet at et felt vokser — kommer det inn en bergart som heter «kvartsdioritt», sprenger den ingen kolonne.\n\nPrisen er at separatoren ikke lenger kan forekomme inne i et felt. Det er derfor semikolon ofte velges framfor komma i norske data: komma brukes som desimaltegn, semikolon gjør det sjelden.\n\n**Hva gir uttelling (7 poeng):** gjenbruk av lesefunksjonen (1 p), `open(filnavn, 'w')` (1 p), header-linja (1 p), løkka med f-streng og riktig antall desimaler (2 p), `'\\n'` på hver linje (1 p), svaret i c) (1 p).",
-            "hints": [
-              "Lesefunksjonen fra oppgave 1 skal ikke røres.",
-              "Bruk doble fnutter ytterst i f-strengen når nøklene bruker enkle.",
-              "Header-linja skrives før løkka.",
-              "Til c): hva må leseren av en kolonnefil vite på forhånd?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-C-diag",
-          "type": "text",
-          "content": "**Selvdiagnose etter prøve 8.C**\n\n☐ Leste du posisjonene av oppgaveteksten — og husket at sluttindeksen er eksklusiv?\n\n☐ Brukte du `.strip()` på tekstfeltene?\n\n☐ Skrev du ut med `repr` da du var i tvil om et utsnitt?\n\n☐ Gjenbrukte du lesefunksjonen i stedet for å skrive den om?\n\n☐ Blandet du ikke enkle og doble fnutter i f-strengen?\n\n☐ Husker du at dette er stoff du bør kjenne til, ikke stoff som må sitte perfekt?"
-        }
+     "id": "in1900-8-prove-A-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-A-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger L — fillesing med header-linje.) Fila `arter.txt` er **kommaseparert** og har en header-linje med kolonnenavnene.\n\n**Innholdet i `arter.txt`:**\n```\nart,antall,vekt_g\ngraasisik,84,13.5\nbokfink,142,21.0\ndompap,37,25.5\ngronnfink,68,28.0\n```\n\n**a)** Skriv `les_arter(filnavn)` som returnerer en nøstet ordbok fra artsnavn til en indre ordbok. Nøklene i den indre ordboken skal **hentes fra header-linja**, ikke skrives inn for hånd. Antallet skal være et heltall og vekten et flyttall.\n\n**b)** Skriv ut antall arter, hele den indre ordboken for bokfinken, og vekten til dompapen.\n\n**c)** Hva skjer om du glemmer å hoppe over header-linja? Svar med den feilmeldingen programmet gir, og forklar hvorfor den kommer akkurat der.",
+      "solution": "**a)** og **b)**. `readline()` leser **én** linje og flytter lesepunktet videre, så løkka etterpå starter på den første datalinja. Feltnavnene er alt i header-linja unntatt det første, som er den ytre nøkkelen:\n\n```python\ndef les_arter(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        feltnavn = infile.readline().strip().split(',')[1:]\n        for line in infile:\n            felt = line.strip().split(',')\n            data[felt[0]] = dict(zip(feltnavn, [int(felt[1]), float(felt[2])]))\n    return data\n\n\narter = les_arter('arter.txt')\nprint(len(arter))\nprint(arter['bokfink'])\nprint(arter['dompap']['vekt_g'])\n```\n\n**Utskrift:**\n```\n4\n{'antall': 142, 'vekt_g': 21.0}\n25.5\n```\n\n`dict(zip(feltnavn, verdier))` parer de to listene elementvis og lager ordboken i én linje: `'antall'` med 142, `'vekt_g'` med 21.0. Fordelen er at kolonnenavnene kommer fra fila selv — endrer fila navn på en kolonne, følger koden etter uten at du rører den.\n\nSkiven `[1:]` på slutten av header-linja er lett å overse. Uten den ville `feltnavn` også inneholdt `'art'`, og da ville `zip` paret `'art'` med 142 og `'antall'` med 21.0 — alt forskjøvet ett hakk. `zip` stopper ved den korteste lista og sier ikke fra.\n\n**c)** Uten `readline()` blir den første linja behandlet som data, og programmet stopper på typekonverteringen:\n\n```text\nValueError: invalid literal for int() with base 10: 'antall'\n```\n\nFeilmeldingen sier akkurat hva som skjedde: `int` fikk teksten `'antall'` og kan ikke gjøre den om til et tall. Dette er den vanligste varianten av felle **#7** — header-linja som ikke ble hoppet over. Merk at feilen ikke kommer på selve `open`-kallet eller på `split`; den kommer først når du prøver å tolke et kolonnenavn som et måltall.\n\nDenne feilen er verdt å kjenne igjen på syne. Ser du `ValueError: invalid literal for int()` med et **kolonnenavn** i sitatet, er svaret nesten alltid en glemt header-linje.\n\n**Hva gir uttelling (8 poeng):** `readline()` som første handling inne i `with`-blokken (2 p), feltnavnene hentet fra header-linja med `[1:]` (2 p), løkka med `.strip().split(',')` (1 p), `dict(zip(...))` eller en ordbok skrevet ut for hånd med riktige nøkler (1 p), typekonverteringen (1 p), feilmeldingen og forklaringen i c) (1 p).\n\nSkriver du nøklene inn for hånd i stedet for å hente dem fra header-linja, får du fortsatt uttelling for strukturen — men oppgaveteksten ba om det motsatte, så ett poeng ryker.",
+      "hints": [
+       "`readline()` leser én linje og flytter lesepunktet videre.",
+       "Det første feltet i header-linja er den ytre nøkkelen, ikke et feltnavn.",
+       "`dict(zip(nøkler, verdier))` lager en ordbok av to lister.",
+       "Til c): hvilken operasjon er den første som ikke tåler tekst?"
       ]
+     }
     },
     {
-      "id": "in1900-8-prove-D",
-      "type": "collapsible",
-      "title": "Prøve 8.D — Full oppgave på eksamensnivå (40 min)",
-      "buttonText": "Vis prøve 4",
-      "content": [
-        {
-          "id": "in1900-8-prove-D-intro",
-          "type": "text",
-          "content": "**Prøve 8.D — full oppgave på eksamensnivå (40 minutter, sjanger L).** Én stor firedelt oppgave, av samme type og vekt som fillesingsoppgaven på det avsluttende settet. Deloppgavene kan løses uavhengig: får du ikke innlesingen til, kan du fortsatt få full uttelling på resten ved å bruke strukturen slik oppgaveteksten beskriver den."
-        },
-        {
-          "id": "in1900-8-prove-D-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-8-prove-D-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger L — full firedelt oppgave.) Fila `elv.txt` inneholder ukentlige feltmålinger fra tre elver. Fila har en header-linje og er **kommaseparert**, med stasjonsnavn, dato, vannføring i kubikkmeter per sekund og vanntemperatur i grader.\n\n**Innholdet i `elv.txt`:**\n```\nstasjon,dato,vannforing,temperatur\nBjornaa,2025-05-02,18.4,6.1\nBjornaa,2025-05-09,42.7,7.8\nBjornaa,2025-05-16,25.1,9.4\nKvitelva,2025-05-02,9.2,5.5\nKvitelva,2025-05-09,15.8,6.9\nKvitelva,2025-05-16,11.4,8.2\nStoraa,2025-05-02,61.0,4.8\nStoraa,2025-05-09,88.5,5.6\nStoraa,2025-05-16,54.3,7.0\n```\n\nMerk at hver stasjon har **flere** linjer.\n\n**a)** (4 p) Skriv `les_elv(filnavn)` som returnerer en nøstet ordbok fra stasjonsnavn til en indre ordbok med nøklene `'vannforing'` og `'temperatur'`, der hver verdi er en **liste** med målingene i den rekkefølgen de står i fila.\n\n**b)** (3 p) Skriv `middel(data)` som returnerer en ny ordbok fra stasjonsnavn til `{'q_middel': ..., 't_middel': ...}` med gjennomsnittene.\n\n**c)** (3 p) Skriv `flomelver(data, grense)` som returnerer en ny ordbok med bare de stasjonene der den **største** vannføringen er minst `grense`. Den innleste ordboken skal ikke endres.\n\n**d)** (2 p) Skriv `skriv_middel(snitt, filnavn)` som lagrer gjennomsnittene som en semikolonseparert fil med header-linje og to desimaler. Kjør alt sammen med grensen 40, og skriv ut resultatene.",
-            "solution": "**a)** Grupperingsmønsteret. Forskjellen fra en vanlig innlesing er at den indre ordboken må opprettes **bare første gang** stasjonen dukker opp — ellers ville hver ny linje nullstilt listene:\n\n```python\ndef les_elv(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        infile.readline()\n        for line in infile:\n            felt = line.strip().split(',')\n            navn = felt[0]\n            if navn not in data:\n                data[navn] = {'vannforing': [], 'temperatur': []}\n            data[navn]['vannforing'].append(float(felt[2]))\n            data[navn]['temperatur'].append(float(felt[3]))\n    return data\n\n\nmaalinger = les_elv('elv.txt')\nprint(len(maalinger))\nprint(maalinger['Kvitelva'])\nprint(len(maalinger['Storaa']['vannforing']))\n```\n\n**Utskrift:**\n```\n3\n{'vannforing': [9.2, 15.8, 11.4], 'temperatur': [5.5, 6.9, 8.2]}\n3\n```\n\nNi linjer i fila ble til tre stasjoner med tre målinger hver. Testen `if navn not in data:` er hele grepet: den skiller «har jeg sett denne stasjonen før?» fra «legg til denne målingen». Datoen er ikke etterspurt, så den leses ikke inn — les oppgaveteksten før du lagrer alt du ser.\n\n— naturlig pausepunkt —\n\n**b)**, **c)** og **d)**. Tre korte funksjoner, hver med samme skjelett: tom ordbok, løkke, `return`:\n\n```python\ndef middel(data):\n    ut = {}\n    for navn in data:\n        q = data[navn]['vannforing']\n        T = data[navn]['temperatur']\n        ut[navn] = {'q_middel': sum(q)/len(q), 't_middel': sum(T)/len(T)}\n    return ut\n\n\ndef flomelver(data, grense):\n    ny = {}\n    for navn in data:\n        if max(data[navn]['vannforing']) >= grense:\n            ny[navn] = data[navn]\n    return ny\n\n\ndef skriv_middel(snitt, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('stasjon;q_middel;t_middel\\n')\n        for navn in snitt:\n            outfile.write(f\"{navn};{snitt[navn]['q_middel']:.2f};{snitt[navn]['t_middel']:.2f}\\n\")\n```\n\nKjøringen, med `les_elv` fra a):\n\n```python\nmaalinger = les_elv('elv.txt')\nsnitt = middel(maalinger)\nfor navn in snitt:\n    print(f\"{navn:10s} {snitt[navn]['q_middel']:6.2f} {snitt[navn]['t_middel']:5.2f}\")\n\nflom = flomelver(maalinger, 40.0)\nprint(len(maalinger), len(flom))\nfor navn in flom:\n    print(navn, max(flom[navn]['vannforing']))\n\nskriv_middel(snitt, 'elv_middel.txt')\nwith open('elv_middel.txt') as infile:\n    print(infile.read(), end='')\n```\n\n**Utskrift:**\n```\nBjornaa     28.73  7.77\nKvitelva    12.13  6.87\nStoraa      67.93  5.80\n3 2\nBjornaa 42.7\nStoraa 88.5 stasjon;q_middel;t_middel\nBjornaa;28.73;7.77\nKvitelva;12.13;6.87\nStoraa;67.93;5.80\n```\n\nGjennomsnittene regnes med `sum(liste)/len(liste)` — det er hele aggregeringen, og du trenger ingen egen teller når verdiene alt ligger i en liste. Filteret bruker `max(...)` på lista, ikke gjennomsnittet: oppgaven spurte etter den **største** vannføringen, og Bjørnåa slipper gjennom på toppmålingen 42,7 selv om snittet er 28,7.\n\nTallene forteller også noe fysisk. Den store elva har høyest vannføring og lavest temperatur — den drenerer et høyereliggende felt med snøsmelting, og smeltevannet holder temperaturen nede. Alle tre stiger jevnt i temperatur gjennom mai.\n\nKontrollen på at argumentet er uendret, er linja `3 2`: `maalinger` har fortsatt tre stasjoner etter filtreringen.\n\n**Hva gir uttelling (12 poeng):**\n\n- a) 4 p: `readline()` for header-linja (1 p), `.strip().split(',')` med riktig separator (1 p), `if navn not in data:` med opprettelsen av de to tomme listene (1 p), `append` med typekonvertering (1 p).\n- b) 3 p: ny ordbok (1 p), `sum(...)/len(...)` for begge feltene (2 p).\n- c) 3 p: `max(...)` på lista og riktig ulikhetstegn (2 p), ny ordbok returnert uten å endre argumentet (1 p).\n- d) 2 p: skrivemodus, header og `'\\n'` (1 p), f-strengen med to desimaler (1 p).\n\nSensor belønner riktig struktur steg for steg, og deloppgavene vurderes hver for seg. Roter du i grupperingen i a), kan du fortsatt skrive en perfekt b), c) og d) ved å anta strukturen oppgaveteksten beskriver — si det i en kommentar, og gå videre. Det er nesten umulig å få alt riktig på første forsøk uten å kunne kjøre koden, og det er heller ikke det som kreves.",
-            "hints": [
-              "Hver stasjon har flere linjer — den indre ordboken må bare opprettes én gang.",
-              "`if navn not in data:` skiller «ny stasjon» fra «ny måling».",
-              "Til b): `sum(liste)/len(liste)`.",
-              "Til c): les nøye — er det gjennomsnittet eller den største verdien som skal sammenlignes med grensen?",
-              "Til d): header-linja skrives før løkka over ordboken."
-            ]
-          }
-        },
-        {
-          "id": "in1900-8-prove-D-diag",
-          "type": "text",
-          "content": "**Selvdiagnose etter prøve 8.D**\n\n☐ Hoppet du over header-linja med `readline()`?\n\n☐ Brukte du separatoren som faktisk står i fila?\n\n☐ Opprettet du de tomme listene **bare** første gang stasjonen dukket opp?\n\n☐ Brukte du `append` for hver måling, og konverterte til flyttall?\n\n☐ Regnet du gjennomsnittet med `sum(liste)/len(liste)` — og var det gjennomsnitt eller største verdi oppgaven ba om?\n\n☐ Returnerte filteret en ny ordbok, slik at argumentet var uendret?\n\n☐ Hadde hver skrevne linje `'\\n'`, og skrev du header-linja før løkka?"
-        }
-      ]
+     "id": "in1900-8-prove-A-diag",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 8.A**\n\n☐ Sto `.strip()` før `.split(...)`?\n\n☐ Ga du `.split(...)` riktig separator, den som faktisk står i fila?\n\n☐ Konverterte du tallfeltene med `int` eller `float`?\n\n☐ Hoppet du over header-linja — og bare når fila faktisk har en?\n\n☐ Var den ytre nøkkelen den du faktisk skal slå opp på senere?\n\n☐ Opprettet du den indre ordboken før du satte inn i den?"
     }
-  ],
-  "exercises": []
+   ]
+  },
+  {
+   "id": "in1900-8-prove-B",
+   "type": "collapsible",
+   "title": "Prøve 8.B — Skriving og filtrering (35 min)",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1900-8-prove-B-intro",
+     "type": "text",
+     "content": "**Prøve 8.B — skriving og filtrering (35 minutter, sjanger L).** Tre oppgaver. Dette er del b) og c) av den store fillesingsoppgaven: strukturen ut igjen på fil, og et utvalg av den — uten at originalen tar skade."
+    },
+    {
+     "id": "in1900-8-prove-B-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-B-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger L — skriv en struktur til fil.) En fugletelling er lest inn til denne strukturen:\n\n```python\narter = {'graasisik': {'antall': 84, 'vekt_g': 13.5},\n         'bokfink': {'antall': 142, 'vekt_g': 21.0},\n         'dompap': {'antall': 37, 'vekt_g': 25.5},\n         'gronnfink': {'antall': 68, 'vekt_g': 28.0}}\n```\n\n**a)** Skriv `skriv_arter(data, filnavn)` som lagrer strukturen som en semikolonseparert fil med header-linja `art;antall;vekt_g`. Vekten skal skrives med én desimal.\n\n**b)** Kall funksjonen og skriv ut innholdet i fila etterpå, slik at du ser at den ble riktig.\n\n**c)** Hvorfor er det en fordel at fila du skriver, kan leses tilbake av den samme typen kode som leste den inn?",
+      "solution": "**a)** og **b)**. Skriving er innlesing baklengs: åpne med `'w'`, én `write` per linje, og linjeskift på slutten av hver:\n\n```python\ndef skriv_arter(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('art;antall;vekt_g\\n')\n        for art in data:\n            antall = data[art]['antall']\n            vekt = data[art]['vekt_g']\n            outfile.write(f'{art};{antall};{vekt:.1f}\\n')\n\n\narter = {'graasisik': {'antall': 84, 'vekt_g': 13.5},\n         'bokfink': {'antall': 142, 'vekt_g': 21.0},\n         'dompap': {'antall': 37, 'vekt_g': 25.5},\n         'gronnfink': {'antall': 68, 'vekt_g': 28.0}}\n\nskriv_arter(arter, 'arter_ut.txt')\nwith open('arter_ut.txt') as infile:\n    print(infile.read(), end='')\n```\n\n**Utskrift:**\n```\nart;antall;vekt_g\ngraasisik;84;13.5\nbokfink;142;21.0\ndompap;37;25.5\ngronnfink;68;28.0\n```\n\nTo ting skiller `write` fra `print`. `write` setter **ikke** linjeskift av seg selv — glemmer du `\\n`, havner hele fila på én linje, og det er felle **#7**-familiens skrivevariant. Og `write` tar én streng, ikke flere argumenter skilt med komma; derfor bygges linja med en f-streng.\n\nRekkefølgen i fila er den samme som i ordboken. Fra Python 3.7 husker ordbøker innsettingsrekkefølgen, så det du leste inn først, skrives ut først.\n\nMerk `end=''` i den siste `print`: teksten fra fila slutter allerede med et linjeskift, og uten `end=''` ville du fått en blank linje til.\n\n**c)** Fordi da er formatet ditt eget verktøy. Du kan lese fila tilbake med samme mønster — `.strip().split(';')`, hopp over header — og få nøyaktig den strukturen du startet med. Da kan et program lagre mellomresultater, en annen del av programmet plukke dem opp, og du kan kontrollere med egne øyne at det som ble lagret, er riktig.\n\nPå eksamen er dette dessuten praktisk: del b) av oppgaven ber om skriving, og bruker du samme separator som fila du leste, kan du gjenbruke tankegangen fra del a) i stedet for å finne på noe nytt.\n\n**Hva gir uttelling (7 poeng):** `open(filnavn, 'w')` med skrivemodus (1 p), header-linja (1 p), løkka over ordboken (1 p), f-strengen med riktig separator (1 p), `'\\n'` på hver linje (2 p), utskriften i b) og svaret i c) (1 p).",
+      "hints": [
+       "Skrivemodus er `'w'` — andre argument til `open`.",
+       "`write` tar én streng, og gir deg ikke linjeskift gratis.",
+       "Bygg linja med en f-streng, én per art.",
+       "Til b): åpne fila på nytt og skriv ut alt den inneholder."
+      ]
+     }
+    },
+    {
+     "id": "in1900-8-prove-B-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-B-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger L — filtrer uten å endre argumentet.) Bruk `arter`-strukturen fra oppgave 1.\n\n**a)** Skriv `vanlige(data, grense)` som returnerer en **ny** ordbok med bare de artene som er talt opp minst `grense` ganger. Den innleste ordboken skal være uendret etterpå.\n\n**b)** Kjør funksjonen med grensen 70. Skriv ut antall arter før og etter, hvilke arter som ble med, og antallet i den opprinnelige ordboken til slutt.\n\n**c)** Hva ville skjedd om du i stedet hadde slettet artene under grensen fra `data`?",
+      "solution": "**a)** og **b)**. Filtreringsmønsteret er tre linjer: tom ordbok, løkke med betingelse, `return`:\n\n```python\ndef vanlige(data, grense):\n    ny = {}\n    for art in data:\n        if data[art]['antall'] >= grense:\n            ny[art] = data[art]\n    return ny\n\n\narter = {'graasisik': {'antall': 84, 'vekt_g': 13.5},\n         'bokfink': {'antall': 142, 'vekt_g': 21.0},\n         'dompap': {'antall': 37, 'vekt_g': 25.5},\n         'gronnfink': {'antall': 68, 'vekt_g': 28.0}}\n\nmange = vanlige(arter, 70)\nprint(len(arter), len(mange))\nfor art in mange:\n    print(art, mange[art])\nprint(len(arter))\n```\n\n**Utskrift:**\n```\n4 2\ngraasisik {'antall': 84, 'vekt_g': 13.5}\nbokfink {'antall': 142, 'vekt_g': 21.0}\n4\n```\n\nDen siste linja er beviset på at kravet er oppfylt: originalen har fortsatt fire arter. Grønnfinken med 68 faller utenfor, gråsisiken med 84 er innenfor — legg merke til at grensen er tatt med, fordi betingelsen er `>=`. Står det «minst» i oppgaveteksten, er det `>=`; står det «mer enn», er det `>`.\n\n**c)** Da ville du **ødelagt datagrunnlaget**. Etter kallet ville `arter` bare hatt to arter igjen, og en senere deloppgave — regn ut gjennomsnittsvekten for alle arter, skriv hele tellingen til fil — ville gitt feil svar uten å gi noen feilmelding. Det er den farligste typen feil, fordi programmet fortsetter å kjøre.\n\nSensor ser spesielt etter dette. Oppgaveteksten sier «returner en ny ordbok» eller «uten å endre argumentet» nettopp fordi det er her kandidatene deler seg.\n\nÉn advarsel til: den nye ordboken deler de **indre** ordbøkene med den gamle. Endrer du `mange['bokfink']['antall']`, endrer du samtidig `arter['bokfink']['antall']` — det er samme objekt, sett fra to steder. Å legge til eller fjerne en **art** i `mange` rører derimot ikke `arter`. Oppgave 3 sporer nøyaktig denne forskjellen.\n\n**Hva gir uttelling (7 poeng):** `ny = {}` før løkka (1 p), løkka over argumentet (1 p), betingelsen med riktig ulikhetstegn (2 p), innsettingen i den nye ordboken (1 p), `return ny` (1 p), svaret i c) (1 p).",
+      "hints": [
+       "Bygg en ny ordbok — ikke rør den du fikk inn.",
+       "«Minst» betyr `>=`.",
+       "Skriv ut lengden på originalen til slutt, som kontroll.",
+       "Til c): hva ville en senere deloppgave regnet på?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-8-prove-B-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-B-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef vanlige(data, grense):\n    ny = {}\n    for art in data:\n        if data[art]['antall'] >= grense:\n            ny[art] = data[art]\n    return ny\n\n\narter = {'graasisik': {'antall': 84}, 'bokfink': {'antall': 142}}\nmange = vanlige(arter, 70)\nmange['bokfink']['antall'] = 0\nprint(len(arter), len(mange))\nprint(arter['bokfink']['antall'])\nmange['ny'] = {'antall': 5}\nprint(len(arter), len(mange))\n```",
+      "solution": "**Sporingstavle.** Begge artene er over grensen, så `mange` får begge — og de indre ordbøkene er de **samme objektene** som i `arter`.\n\n| Steg | Handling | `arter` | `mange` |\n|---|---|---|---|\n| 1 | `vanlige(arter, 70)` | 2 arter | 2 arter, samme indre ordbøker |\n| 2 | `mange['bokfink']['antall'] = 0` | bokfinken er nå 0 | bokfinken er nå 0 |\n| 3 | `mange['ny'] = {...}` | fortsatt 2 arter | 3 arter |\n\n**Utskrift:**\n```\n2 2\n0\n2 3\n```\n\nDette er aliasing, og forskjellen på de to siste stegene er hele poenget.\n\nSteg 2 endrer **inni** en indre ordbok. Den ordboken ligger bare ett sted i minnet; `arter['bokfink']` og `mange['bokfink']` er to navn på den. Derfor slår endringen gjennom begge veier, og `arter['bokfink']['antall']` er 0.\n\nSteg 3 endrer den **ytre** ordboken `mange`. Den er en helt egen ordbok, laget med `ny = {}` inne i funksjonen. Å sette inn en ny nøkkel der rører ikke `arter` — den har fortsatt to arter.\n\nFellenote: fellen er å tro at «en ny ordbok» betyr «en helt uavhengig kopi av alt». Det gjør det ikke: den ytre ordboken er ny, mens verdiene inni er delt. Vil du ha uavhengige indre ordbøker, må du bygge dem opp på nytt, felt for felt, inne i løkka.\n\nI praksis er dette sjelden noe problem på eksamen, fordi filtreringsoppgaver bare **leser** de indre verdiene. Men vet du forskjellen, kan du svare presist når oppgaven spør om argumentet ble endret.\n\n**Poeng:** 4. Delvis riktig sporing gir delvis uttelling.",
+      "hints": [
+       "Er de indre ordbøkene kopier, eller de samme objektene?",
+       "Hvilken ordbok ble laget ny inne i funksjonen?",
+       "Skill mellom å endre inni en verdi og å sette inn en ny nøkkel."
+      ]
+     }
+    },
+    {
+     "id": "in1900-8-prove-B-diag",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 8.B**\n\n☐ Åpnet du med `'w'` når du skulle skrive?\n\n☐ Hadde hver skrevne linje `'\\n'` på slutten?\n\n☐ Bygde du linja med en f-streng, siden `write` bare tar én streng?\n\n☐ Bygde filtreringen en **ny** ordbok, med `ny = {}` før løkka?\n\n☐ Sto `return ny` etter løkka, ikke inne i den?\n\n☐ Kontrollerte du at argumentet var uendret etterpå?\n\n☐ Vet du forskjellen på å endre den ytre og den indre ordboken?"
+    }
+   ]
+  },
+  {
+   "id": "in1900-8-prove-C",
+   "type": "collapsible",
+   "title": "Prøve 8.C — Fast-bredde-felt (30 min)",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1900-8-prove-C-intro",
+     "type": "text",
+     "content": "**Prøve 8.C — fast-bredde-felt (30 minutter, sjanger L).** Tre oppgaver. Dette er stoff du **bør kjenne til**, ikke stoff som må sitte perfekt: fast-bredde-lesing dukker opp sjelden, og sensor gir uttelling for riktig tenkning selv når kolonnegrensene er noen tegn på avveie. Ta prøven for å kjenne igjen sjangeren — ikke for å pugge kolonnetall."
+    },
+    {
+     "id": "in1900-8-prove-C-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-C-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Bør kjenne til, sjanger L — fast-bredde-felt.) Fila `borekjerne.txt` fra en geologisk kartlegging har **ingen separator**. Feltene står i faste kolonner: kjerne-id i posisjon 0–5, dyp i meter i 6–11, bergart i 14–25 og tetthet i gram per kubikkcentimeter i 26–30.\n\n**Innholdet i `borekjerne.txt`:**\n```\nBK01    12.5  sandstein    2.31\nBK02    48.0  skifer       2.66\nBK03     7.5  kalkstein    2.71\nBK04    33.5  sandstein    2.28\nBK05    21.0  granitt      2.75\n```\n\n**a)** Skriv `les_kjerner(filnavn)` som returnerer en nøstet ordbok fra kjerne-id til en indre ordbok med nøklene `'dyp'`, `'bergart'` og `'tetthet'`. Tall skal konverteres, tekst skal renses for mellomrom.\n\n**b)** Skriv ut antall kjerner, den indre ordboken for `BK03`, og bergarten og tettheten for `BK05`.\n\n**c)** Hvorfor trenger du `.strip()` på hvert utsnitt her, når du ikke trengte det per felt da fila var semikolonseparert?",
+      "solution": "**a)** og **b)**. Skiving med `line[a:b]` i stedet for `.split(...)` — resten av mønsteret er identisk med en vanlig fillesing:\n\n```python\ndef les_kjerner(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            navn = line[0:6].strip()\n            data[navn] = {'dyp': float(line[6:12]),\n                          'bergart': line[14:26].strip(),\n                          'tetthet': float(line[26:31])}\n    return data\n\n\nkjerner = les_kjerner('borekjerne.txt')\nprint(len(kjerner))\nprint(kjerner['BK03'])\nprint(kjerner['BK05']['bergart'], kjerner['BK05']['tetthet'])\n```\n\n**Utskrift:**\n```\n5\n{'dyp': 7.5, 'bergart': 'kalkstein', 'tetthet': 2.71}\ngranitt 2.75\n```\n\nGrensene leses av oppgaveteksten: «posisjon 0–5» blir `line[0:6]`, fordi sluttindeksen i en skive er **eksklusiv**. Det er samme regel som for `range`, og samme felle: fire tegn fra posisjon 0 er `[0:4]`, ikke `[0:5]`.\n\n**c)** Fordi et fast-bredde-felt er **fylt ut med mellomrom** til sin fulle bredde. `line[0:6]` gir `'BK01  '` med to mellomrom bak, og `line[14:26]` gir `'sandstein   '`. Uten `.strip()` ville ordboknøkkelen vært `'BK01  '`, og et oppslag på `'BK01'` ville gitt `KeyError`.\n\nTallfeltene slipper unna: `float(' 12.5')` tåler mellomrom rundt seg og gir 12.5 uansett. Men det er ingen grunn til å stole på det — `.strip()` på alle utsnitt er en billig vane.\n\nDa fila var semikolonseparert, hadde `.split(';')` allerede gjort jobben: den delte på tegnet og la ingen mellomrom igjen. Der trengte du bare én `.strip()` på hele linja, for linjeskiftet.\n\n**Hva gir uttelling (7 poeng):** `with open` og løkka over linjene (1 p), skiving med `line[a:b]` i stedet for `split` (2 p), riktig forståelse av at sluttindeksen er eksklusiv (1 p), `.strip()` på tekstfeltene (1 p), typekonverteringen (1 p), forklaringen i c) (1 p).\n\nBommer du med ett eller to tegn på en kolonnegrense, mister du ikke oppgaven. Sensor ser etter at du har forstått at fila skal skives i posisjoner — det er nesten umulig å telle kolonner helt riktig på en hjelpemiddelfri eksamen, og det vet sensor.",
+      "hints": [
+       "Bytt ut `.split(...)` med `line[a:b]` — resten av mønsteret står.",
+       "Sluttindeksen i en skive er eksklusiv, akkurat som i `range`.",
+       "Tekstfeltene er fylt ut med mellomrom.",
+       "Til c): hva blir ordboknøkkelen hvis du dropper `.strip()`?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-8-prove-C-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-C-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Midtveisnivå, sjanger A — kodesporing.) Linja under er den første datalinja i `borekjerne.txt`. Hva skriver programmet ut?\n\n```python\nline = 'BK01    12.5  sandstein    2.31\\n'\nprint(len(line.strip()))\nprint(repr(line[0:6]))\nprint(repr(line[14:25]))\nprint(repr(line[6:12].strip()))\nprint(float(line[6:12]) + float(line[26:31]))\n```",
+      "solution": "**Sporingstavle.** `repr` skriver strengen med fnutter rundt, slik at du ser mellomrommene. Den er nettopp derfor nyttig når du skal telle kolonner.\n\n| Uttrykk | Hva det plukker | Verdi |\n|---|---|---|\n| `line.strip()` | linja uten linjeskift | 31 tegn |\n| `line[0:6]` | posisjon 0 til og med 5 | `'BK01  '` |\n| `line[14:25]` | bergarten, men **ett tegn for kort** | `'sandstein  '` |\n| `line[6:12].strip()` | dypet, renset | `'12.5'` |\n| `float(line[6:12]) + float(line[26:31])` | $12{,}5 + 2{,}31$ | 14.81 |\n\n**Utskrift:**\n```\n31\n'BK01  '\n'sandstein  '\n'12.5'\n14.81\n```\n\nTre observasjoner.\n\nKjerne-id-en kommer ut som `'BK01  '` med to mellomrom bak. Feltet er seks tegn bredt, og navnet fyller bare fire. Bruker du dette som ordboknøkkel uten `.strip()`, vil et oppslag på `'BK01'` gi `KeyError`.\n\n`line[14:25]` slutter ett tegn før feltet er slutt. Her synes det ikke, fordi det siste tegnet uansett er et mellomrom — du mister bare et blanktegn, og `.strip()` ville fjernet det likevel. Men hadde bergartsnavnet vært langt nok til å fylle feltet, ville du mistet den **siste bokstaven**. Det er nøyaktig slik denne feilen pleier å slippe gjennom uoppdaget: den gjør ingen skade på de linjene du sjekker for hånd, og ødelegger de andre.\n\n`float` tåler mellomrom rundt tallet, så `float('  12.5')` er 12.5 uten at du trenger `.strip()` først. Tallfeltene er altså tilgivende; det er tekstfeltene som ikke er det.\n\nFellenote: fellen er kolonnegrenser du ikke kan telle deg fram til. Skriv ut med `repr` mens du utvikler, og godta at dette er stoff du bør kjenne til, ikke stoff du skal kunne feilfritt. Delvis riktig sporing gir delvis uttelling.\n\n**Poeng:** 3.",
+      "hints": [
+       "`repr` viser fnuttene og mellomrommene.",
+       "Er sluttindeksen med eller ikke?",
+       "Tåler `float` mellomrom rundt tallet?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-8-prove-C-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-C-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Bør kjenne til, sjanger L — fra fast bredde til separator.) Kolonnefiler er tungvinte å arbeide med. Skriv om `borekjerne.txt` til et format alle kan lese.\n\n**a)** Bruk `les_kjerner` fra oppgave 1, og skriv `skriv_semikolon(data, filnavn)` som lagrer strukturen som en semikolonseparert fil med header-linja `kjerne;dyp;bergart;tetthet`. Dypet skal ha én desimal, tettheten to.\n\n**b)** Kjør konverteringen og skriv ut den nye fila.\n\n**c)** Hvilke to problemer med kolonnefila forsvinner med dette?",
+      "solution": "**a)** og **b)**. Lesefunksjonen er uendret fra oppgave 1; det nye er skrivefunksjonen:\n\n```python\ndef les_kjerner(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        for line in infile:\n            navn = line[0:6].strip()\n            data[navn] = {'dyp': float(line[6:12]),\n                          'bergart': line[14:26].strip(),\n                          'tetthet': float(line[26:31])}\n    return data\n\n\ndef skriv_semikolon(data, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('kjerne;dyp;bergart;tetthet\\n')\n        for navn in data:\n            v = data[navn]\n            outfile.write(f\"{navn};{v['dyp']:.1f};{v['bergart']};{v['tetthet']:.2f}\\n\")\n\n\nkjerner = les_kjerner('borekjerne.txt')\nskriv_semikolon(kjerner, 'borekjerne_ut.txt')\nwith open('borekjerne_ut.txt') as infile:\n    print(infile.read(), end='')\n```\n\n**Utskrift:**\n```\nkjerne;dyp;bergart;tetthet\nBK01;12.5;sandstein;2.31\nBK02;48.0;skifer;2.66\nBK03;7.5;kalkstein;2.71\nBK04;33.5;sandstein;2.28\nBK05;21.0;granitt;2.75\n```\n\nLegg merke til fnuttene i f-strengen: den ytre strengen bruker doble fnutter, fordi ordboknøklene inni bruker enkle. Blander du dem, får du en syntaksfeil — og en syntaksfeil koster mer på en hjelpemiddelfri eksamen enn en tenkefeil, fordi den er umulig å oppdage uten å kjøre koden.\n\n**c)** To ting blir enklere. For det første slipper den som leser fila, å vite noe om kolonneposisjoner: `.split(';')` finner feltene selv, uansett hvor lange navnene er. For det andre tåler formatet at et felt vokser — kommer det inn en bergart som heter «kvartsdioritt», sprenger den ingen kolonne.\n\nPrisen er at separatoren ikke lenger kan forekomme inne i et felt. Det er derfor semikolon ofte velges framfor komma i norske data: komma brukes som desimaltegn, semikolon gjør det sjelden.\n\n**Hva gir uttelling (7 poeng):** gjenbruk av lesefunksjonen (1 p), `open(filnavn, 'w')` (1 p), header-linja (1 p), løkka med f-streng og riktig antall desimaler (2 p), `'\\n'` på hver linje (1 p), svaret i c) (1 p).",
+      "hints": [
+       "Lesefunksjonen fra oppgave 1 skal ikke røres.",
+       "Bruk doble fnutter ytterst i f-strengen når nøklene bruker enkle.",
+       "Header-linja skrives før løkka.",
+       "Til c): hva må leseren av en kolonnefil vite på forhånd?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-8-prove-C-diag",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 8.C**\n\n☐ Leste du posisjonene av oppgaveteksten — og husket at sluttindeksen er eksklusiv?\n\n☐ Brukte du `.strip()` på tekstfeltene?\n\n☐ Skrev du ut med `repr` da du var i tvil om et utsnitt?\n\n☐ Gjenbrukte du lesefunksjonen i stedet for å skrive den om?\n\n☐ Blandet du ikke enkle og doble fnutter i f-strengen?\n\n☐ Husker du at dette er stoff du bør kjenne til, ikke stoff som må sitte perfekt?"
+    }
+   ]
+  },
+  {
+   "id": "in1900-8-prove-D",
+   "type": "collapsible",
+   "title": "Prøve 8.D — Full oppgave på eksamensnivå (40 min)",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1900-8-prove-D-intro",
+     "type": "text",
+     "content": "**Prøve 8.D — full oppgave på eksamensnivå (40 minutter, sjanger L).** Én stor firedelt oppgave, av samme type og vekt som fillesingsoppgaven på det avsluttende settet. Deloppgavene kan løses uavhengig: får du ikke innlesingen til, kan du fortsatt få full uttelling på resten ved å bruke strukturen slik oppgaveteksten beskriver den."
+    },
+    {
+     "id": "in1900-8-prove-D-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-8-prove-D-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger L — full firedelt oppgave.) Fila `elv.txt` inneholder ukentlige feltmålinger fra tre elver. Fila har en header-linje og er **kommaseparert**, med stasjonsnavn, dato, vannføring i kubikkmeter per sekund og vanntemperatur i grader.\n\n**Innholdet i `elv.txt`:**\n```\nstasjon,dato,vannforing,temperatur\nBjornaa,2025-05-02,18.4,6.1\nBjornaa,2025-05-09,42.7,7.8\nBjornaa,2025-05-16,25.1,9.4\nKvitelva,2025-05-02,9.2,5.5\nKvitelva,2025-05-09,15.8,6.9\nKvitelva,2025-05-16,11.4,8.2\nStoraa,2025-05-02,61.0,4.8\nStoraa,2025-05-09,88.5,5.6\nStoraa,2025-05-16,54.3,7.0\n```\n\nMerk at hver stasjon har **flere** linjer.\n\n**a)** (4 p) Skriv `les_elv(filnavn)` som returnerer en nøstet ordbok fra stasjonsnavn til en indre ordbok med nøklene `'vannforing'` og `'temperatur'`, der hver verdi er en **liste** med målingene i den rekkefølgen de står i fila.\n\n**b)** (3 p) Skriv `middel(data)` som returnerer en ny ordbok fra stasjonsnavn til `{'q_middel': ..., 't_middel': ...}` med gjennomsnittene.\n\n**c)** (3 p) Skriv `flomelver(data, grense)` som returnerer en ny ordbok med bare de stasjonene der den **største** vannføringen er minst `grense`. Den innleste ordboken skal ikke endres.\n\n**d)** (2 p) Skriv `skriv_middel(snitt, filnavn)` som lagrer gjennomsnittene som en semikolonseparert fil med header-linje og to desimaler. Kjør alt sammen med grensen 40, og skriv ut resultatene.",
+      "solution": "**a)** Grupperingsmønsteret. Forskjellen fra en vanlig innlesing er at den indre ordboken må opprettes **bare første gang** stasjonen dukker opp — ellers ville hver ny linje nullstilt listene:\n\n```python\ndef les_elv(filnavn):\n    data = {}\n    with open(filnavn) as infile:\n        infile.readline()\n        for line in infile:\n            felt = line.strip().split(',')\n            navn = felt[0]\n            if navn not in data:\n                data[navn] = {'vannforing': [], 'temperatur': []}\n            data[navn]['vannforing'].append(float(felt[2]))\n            data[navn]['temperatur'].append(float(felt[3]))\n    return data\n\n\nmaalinger = les_elv('elv.txt')\nprint(len(maalinger))\nprint(maalinger['Kvitelva'])\nprint(len(maalinger['Storaa']['vannforing']))\n```\n\n**Utskrift:**\n```\n3\n{'vannforing': [9.2, 15.8, 11.4], 'temperatur': [5.5, 6.9, 8.2]}\n3\n```\n\nNi linjer i fila ble til tre stasjoner med tre målinger hver. Testen `if navn not in data:` er hele grepet: den skiller «har jeg sett denne stasjonen før?» fra «legg til denne målingen». Datoen er ikke etterspurt, så den leses ikke inn — les oppgaveteksten før du lagrer alt du ser.\n\n— naturlig pausepunkt —\n\n**b)**, **c)** og **d)**. Tre korte funksjoner, hver med samme skjelett: tom ordbok, løkke, `return`:\n\n```python\ndef middel(data):\n    ut = {}\n    for navn in data:\n        q = data[navn]['vannforing']\n        T = data[navn]['temperatur']\n        ut[navn] = {'q_middel': sum(q)/len(q), 't_middel': sum(T)/len(T)}\n    return ut\n\n\ndef flomelver(data, grense):\n    ny = {}\n    for navn in data:\n        if max(data[navn]['vannforing']) >= grense:\n            ny[navn] = data[navn]\n    return ny\n\n\ndef skriv_middel(snitt, filnavn):\n    with open(filnavn, 'w') as outfile:\n        outfile.write('stasjon;q_middel;t_middel\\n')\n        for navn in snitt:\n            outfile.write(f\"{navn};{snitt[navn]['q_middel']:.2f};{snitt[navn]['t_middel']:.2f}\\n\")\n```\n\nKjøringen, med `les_elv` fra a):\n\n```python\nmaalinger = les_elv('elv.txt')\nsnitt = middel(maalinger)\nfor navn in snitt:\n    print(f\"{navn:10s} {snitt[navn]['q_middel']:6.2f} {snitt[navn]['t_middel']:5.2f}\")\n\nflom = flomelver(maalinger, 40.0)\nprint(len(maalinger), len(flom))\nfor navn in flom:\n    print(navn, max(flom[navn]['vannforing']))\n\nskriv_middel(snitt, 'elv_middel.txt')\nwith open('elv_middel.txt') as infile:\n    print(infile.read(), end='')\n```\n\n**Utskrift:**\n```\nBjornaa     28.73  7.77\nKvitelva    12.13  6.87\nStoraa      67.93  5.80\n3 2\nBjornaa 42.7\nStoraa 88.5\nstasjon;q_middel;t_middel\nBjornaa;28.73;7.77\nKvitelva;12.13;6.87\nStoraa;67.93;5.80\n```\n\nGjennomsnittene regnes med `sum(liste)/len(liste)` — det er hele aggregeringen, og du trenger ingen egen teller når verdiene alt ligger i en liste. Filteret bruker `max(...)` på lista, ikke gjennomsnittet: oppgaven spurte etter den **største** vannføringen, og Bjørnåa slipper gjennom på toppmålingen 42,7 selv om snittet er 28,7.\n\nTallene forteller også noe fysisk. Den store elva har høyest vannføring og lavest temperatur — den drenerer et høyereliggende felt med snøsmelting, og smeltevannet holder temperaturen nede. Alle tre stiger jevnt i temperatur gjennom mai.\n\nKontrollen på at argumentet er uendret, er linja `3 2`: `maalinger` har fortsatt tre stasjoner etter filtreringen.\n\n**Hva gir uttelling (12 poeng):**\n\n- a) 4 p: `readline()` for header-linja (1 p), `.strip().split(',')` med riktig separator (1 p), `if navn not in data:` med opprettelsen av de to tomme listene (1 p), `append` med typekonvertering (1 p).\n- b) 3 p: ny ordbok (1 p), `sum(...)/len(...)` for begge feltene (2 p).\n- c) 3 p: `max(...)` på lista og riktig ulikhetstegn (2 p), ny ordbok returnert uten å endre argumentet (1 p).\n- d) 2 p: skrivemodus, header og `'\\n'` (1 p), f-strengen med to desimaler (1 p).\n\nSensor belønner riktig struktur steg for steg, og deloppgavene vurderes hver for seg. Roter du i grupperingen i a), kan du fortsatt skrive en perfekt b), c) og d) ved å anta strukturen oppgaveteksten beskriver — si det i en kommentar, og gå videre. Det er nesten umulig å få alt riktig på første forsøk uten å kunne kjøre koden, og det er heller ikke det som kreves.",
+      "hints": [
+       "Hver stasjon har flere linjer — den indre ordboken må bare opprettes én gang.",
+       "`if navn not in data:` skiller «ny stasjon» fra «ny måling».",
+       "Til b): `sum(liste)/len(liste)`.",
+       "Til c): les nøye — er det gjennomsnittet eller den største verdien som skal sammenlignes med grensen?",
+       "Til d): header-linja skrives før løkka over ordboken."
+      ]
+     }
+    },
+    {
+     "id": "in1900-8-prove-D-diag",
+     "type": "text",
+     "content": "**Selvdiagnose etter prøve 8.D**\n\n☐ Hoppet du over header-linja med `readline()`?\n\n☐ Brukte du separatoren som faktisk står i fila?\n\n☐ Opprettet du de tomme listene **bare** første gang stasjonen dukket opp?\n\n☐ Brukte du `append` for hver måling, og konverterte til flyttall?\n\n☐ Regnet du gjennomsnittet med `sum(liste)/len(liste)` — og var det gjennomsnitt eller største verdi oppgaven ba om?\n\n☐ Returnerte filteret en ny ordbok, slik at argumentet var uendret?\n\n☐ Hadde hver skrevne linje `'\\n'`, og skrev du header-linja før løkka?"
+    }
+   ]
+  }
+ ],
+ "exercises": []
 }

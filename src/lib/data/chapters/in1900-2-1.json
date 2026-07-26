@@ -32,13 +32,13 @@
       "id": "in1900-2-1-def1",
       "type": "definition",
       "title": "`sys.argv` — argumentene fra kommandolinjen",
-      "content": "Når du starter et program fra terminalen, legger Python alle ordene på kommandolinjen i en liste av **strenger** og kaller den `sys.argv`. Du får tilgang til den etter `import sys`. Element nummer 0 er navnet på programfila; dine egne argumenter ligger fra indeks 1 og utover. Alle elementene er tekst — også de som ser ut som tall.\n\nKjørt som `python3 vis.py 12.5 grader`:\n\n```python\nimport sys print(sys.argv)\nprint(sys.argv[0])\n```\n\n**Utskrift:**\n```\n['vis.py', '12.5', 'grader']\nvis.py\n```"
+      "content": "Når du starter et program fra terminalen, legger Python alle ordene på kommandolinjen i en liste av **strenger** og kaller den `sys.argv`. Du får tilgang til den etter `import sys`. Element nummer 0 er navnet på programfila; dine egne argumenter ligger fra indeks 1 og utover. Alle elementene er tekst — også de som ser ut som tall.\n\nKjørt som `python3 vis.py 12.5 grader`:\n\n```python\nimport sys\nprint(sys.argv)\nprint(sys.argv[0])\n```\n\n**Utskrift:**\n```\n['vis.py', '12.5', 'grader']\nvis.py\n```"
     },
     {
       "id": "in1900-2-1-eks1",
       "title": "Eksempel 1: Se hva `sys.argv` faktisk inneholder",
       "problem": "Du lager fila `vis_argumenter.py` og kjører den som `python3 vis_argumenter.py 12.5 grader`. Hva inneholder `sys.argv`, hvor mange elementer har den, og hva står på indeks 0 og 1?",
-      "solution": "Skriv ut alt, så ser du det:\n\n```python\nimport sys print('Hele lista:', sys.argv)\nprint('Antall ord:', len(sys.argv))\nprint('Programnavn:', sys.argv[0])\nprint('Første argument:', sys.argv[1])\n```\n\n**Utskrift:**\n```\nHele lista: ['vis_argumenter.py', '12.5', 'grader']\nAntall ord: 3\nProgramnavn: vis_argumenter.py\nFørste argument: 12.5\n```\n\nLegg merke til tre ting. Lista har **tre** elementer selv om du bare ga to argumenter, fordi programnavnet ligger først. Begge argumentene står i anførselstegn i utskriften — de er strenger, ikke tall. Og `12.5` er ikke et flyttall før du selv konverterer det med `float`.",
+      "solution": "Skriv ut alt, så ser du det:\n\n```python\nimport sys\nprint('Hele lista:', sys.argv)\nprint('Antall ord:', len(sys.argv))\nprint('Programnavn:', sys.argv[0])\nprint('Første argument:', sys.argv[1])\n```\n\n**Utskrift:**\n```\nHele lista: ['vis_argumenter.py', '12.5', 'grader']\nAntall ord: 3\nProgramnavn: vis_argumenter.py\nFørste argument: 12.5\n```\n\nLegg merke til tre ting. Lista har **tre** elementer selv om du bare ga to argumenter, fordi programnavnet ligger først. Begge argumentene står i anførselstegn i utskriften — de er strenger, ikke tall. Og `12.5` er ikke et flyttall før du selv konverterer det med `float`.",
       "type": "example"
     },
     {
@@ -49,7 +49,7 @@
         "number": "1",
         "type": "classic",
         "difficulty": "lett",
-        "task": "(Innstegsoppgave, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Fila `lengde.py` inneholder koden under, og kjøres som `python3 lengde.py 3 4 5`. Hva skrives ut?\n\n```python\nimport sys print(len(sys.argv))\nprint(sys.argv[1])\n```",
+        "task": "(Innstegsoppgave, sjanger A — kodesporing, altså «hva skriver programmet ut?».) Fila `lengde.py` inneholder koden under, og kjøres som `python3 lengde.py 3 4 5`. Hva skrives ut?\n\n```python\nimport sys\nprint(len(sys.argv))\nprint(sys.argv[1])\n```",
         "solution": "**Sporingstavle**\n\n| Steg | `sys.argv` | Skriver |\n|---|---|---|\n| etter oppstart | `['lengde.py', '3', '4', '5']` | — |\n| `print(len(sys.argv))` | uendret | antall elementer: 4 |\n| `print(sys.argv[1])` | uendret | elementet på indeks 1: `3` |\n\n**Utskrift:**\n```\n4\n3\n```\n\nFellen er #6 — at `sys.argv[0]` er filnavnet. Tre argumenter på kommandolinjen gir `len(sys.argv)` lik 4, ikke 3. Og `sys.argv[1]` er ditt *første* argument.",
         "hints": [
           "Skriv opp lista `sys.argv` med alle elementene før du leser noen av `print`-linjene.",
@@ -61,7 +61,7 @@
       "id": "in1900-2-1-def2",
       "type": "definition",
       "title": "`len(sys.argv)` — hvor mange ord sto på kommandolinjen",
-      "content": "`len(sys.argv)` gir antall elementer i argumentlista, altså programnavnet pluss dine argumenter. Krever programmet to argumenter, skal `len(sys.argv)` være 3. Dette er den vanlige måten å sjekke om brukeren ga nok argumenter før du prøver å bruke dem.\n\nKjørt som `python3 sjekk.py 7`:\n\n```python\nimport sys if len(sys.argv) < 3:\n    print('For få argumenter')\nelse:\n    print('Nok argumenter')\n```\n\n**Utskrift:**\n```\nFor få argumenter\n```"
+      "content": "`len(sys.argv)` gir antall elementer i argumentlista, altså programnavnet pluss dine argumenter. Krever programmet to argumenter, skal `len(sys.argv)` være 3. Dette er den vanlige måten å sjekke om brukeren ga nok argumenter før du prøver å bruke dem.\n\nKjørt som `python3 sjekk.py 7`:\n\n```python\nimport sys\nif len(sys.argv) < 3:\n    print('For få argumenter')\nelse:\n    print('Nok argumenter')\n```\n\n**Utskrift:**\n```\nFor få argumenter\n```"
     },
     {
       "id": "in1900-2-1-adv1",
@@ -73,7 +73,7 @@
       "id": "in1900-2-1-eks2",
       "title": "Eksempel 2: Fra streng til tall",
       "problem": "Skriv et program `fahrenheit.py` som tar én temperatur i Fahrenheit på kommandolinjen og skriver den ut i celsius med én desimal. Omregningen er $C = (F - 32)\\cdot 5/9$.",
-      "solution": "Argumentet må gjennom `float` før du kan regne med det:\n\n```python\nimport sys grader_f = float(sys.argv[1])\ngrader_c = (grader_f - 32) * 5 / 9 print(f'{grader_f} F er {grader_c:.1f} C')\n```\n\n**Utskrift:**\n```\n98.6 F er 37.0 C\n```\n\nKjørt som `python3 fahrenheit.py 98.6`. Merk at `grader_f` skrives ut som `98.6` — den *er* et flyttall nå, ikke strengen `'98.6'`. Hadde du glemt `float`, ville `grader_f - 32` gitt en `TypeError`, fordi Python nekter å trekke et tall fra en tekst.",
+      "solution": "Argumentet må gjennom `float` før du kan regne med det:\n\n```python\nimport sys\ngrader_f = float(sys.argv[1])\ngrader_c = (grader_f - 32) * 5 / 9\nprint(f'{grader_f} F er {grader_c:.1f} C')\n```\n\n**Utskrift:**\n```\n98.6 F er 37.0 C\n```\n\nKjørt som `python3 fahrenheit.py 98.6`. Merk at `grader_f` skrives ut som `98.6` — den *er* et flyttall nå, ikke strengen `'98.6'`. Hadde du glemt `float`, ville `grader_f - 32` gitt en `TypeError`, fordi Python nekter å trekke et tall fra en tekst.",
       "type": "example"
     },
     {
@@ -84,7 +84,7 @@
         "number": "2",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) Fila `summer.py` kjøres som `python3 summer.py 12 30`. Hva skrives ut, linje for linje?\n\n```python\nimport sys a = sys.argv[1]\nb = sys.argv[2]\nprint(a + b)\nprint(int(a) + int(b))\n```",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Fila `summer.py` kjøres som `python3 summer.py 12 30`. Hva skrives ut, linje for linje?\n\n```python\nimport sys\na = sys.argv[1]\nb = sys.argv[2]\nprint(a + b)\nprint(int(a) + int(b))\n```",
         "solution": "**Sporingstavle**\n\n| Steg | `a` | `b` | Skriver |\n|---|---|---|---|\n| etter tilordningene | `'12'` (streng) | `'30'` (streng) | — |\n| `print(a + b)` | | | `+` på to strenger **limer dem sammen** |\n| `print(int(a) + int(b))` | `12` | `30` | nå er det tallsum |\n\n**Utskrift:**\n```\n1230\n42\n```\n\nFellen er at `+` betyr to helt forskjellige ting: sammenliming for strenger og addisjon for tall. Siden alt i `sys.argv` er tekst, får du `1230` med mindre du konverterer først.",
         "hints": [
           "Skriv ned typen til `a` og `b` før du leser videre — hva er `sys.argv[1]` for en type?",
@@ -147,13 +147,13 @@
       "id": "in1900-2-1-def5",
       "type": "definition",
       "title": "`eval(uttrykkstreng)` — regn ut et Python-uttrykk som står i en tekst",
-      "content": "`eval` tar en streng, tolker innholdet som et Python-uttrykk og returnerer verdien. Strengen `'2 + 3 * 4'` blir altså regnet ut med vanlige presedensregler og gir 14. Uttrykket kan bruke variabler og funksjoner som finnes i programmet i det øyeblikket `eval` kalles.\n\n```python\nuttrykk = '2 + 3 * 4' print(eval(uttrykk))\nprint(eval(uttrykk) + 1)\n```\n\n**Utskrift:**\n```\n14\n15\n```\n\n`eval` returnerer en *verdi* du kan regne videre med — derfor gir `eval(uttrykk) + 1` 15."
+      "content": "`eval` tar en streng, tolker innholdet som et Python-uttrykk og returnerer verdien. Strengen `'2 + 3 * 4'` blir altså regnet ut med vanlige presedensregler og gir 14. Uttrykket kan bruke variabler og funksjoner som finnes i programmet i det øyeblikket `eval` kalles.\n\n```python\nuttrykk = '2 + 3 * 4'\nprint(eval(uttrykk))\nprint(eval(uttrykk) + 1)\n```\n\n**Utskrift:**\n```\n14\n15\n```\n\n`eval` returnerer en *verdi* du kan regne videre med — derfor gir `eval(uttrykk) + 1` 15."
     },
     {
       "id": "in1900-2-1-eks4",
       "title": "Eksempel 4: La brukeren oppgi funksjonsuttrykket",
       "problem": "Skriv et program som spør brukeren om et uttrykk i `x`, setter `x = 2.0` og skriver ut verdien. Brukeren skriver `x**2 + sqrt(x)`. Hva blir utskriften?",
-      "solution": "```python\nfrom math import sqrt uttrykk = input('f(x) = ')\nx = 2.0 print(eval(uttrykk))\n```\n\n**Utskrift:**\n```\nf(x) = 5.414213562373095\n```\n\nMerk to detaljer. `sqrt` må være importert i programmet — `eval` bruker de navnene som finnes der den kalles, så uten `from math import sqrt` ville uttrykket gitt en `NameError`. Og `x` må være satt før `eval`, ellers samme feil.\n\nVerdien er $2^2 + \\sqrt{2}$, som Python skriver ut med full flyttallspresisjon. Ledeteksten `f(x) = ` står først på linja, som alltid med `input`.",
+      "solution": "```python\nfrom math import sqrt\nuttrykk = input('f(x) = ')\nx = 2.0\nprint(eval(uttrykk))\n```\n\n**Utskrift:**\n```\nf(x) = 5.414213562373095\n```\n\nMerk to detaljer. `sqrt` må være importert i programmet — `eval` bruker de navnene som finnes der den kalles, så uten `from math import sqrt` ville uttrykket gitt en `NameError`. Og `x` må være satt før `eval`, ellers samme feil.\n\nVerdien er $2^2 + \\sqrt{2}$, som Python skriver ut med full flyttallspresisjon. Ledeteksten `f(x) = ` står først på linja, som alltid med `input`.",
       "type": "example"
     },
     {
@@ -164,7 +164,7 @@
         "number": "4",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet under ut? Pass på presedensreglene i begge uttrykkene.\n\n```python\nuttrykk = '10 - 2 * 3' svar = eval(uttrykk)\nprint(uttrykk, '=', svar)\nprint(eval('2 ** 3 ** 2'))\n```",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet under ut? Pass på presedensreglene i begge uttrykkene.\n\n```python\nuttrykk = '10 - 2 * 3'\nsvar = eval(uttrykk)\nprint(uttrykk, '=', svar)\nprint(eval('2 ** 3 ** 2'))\n```",
         "solution": "**Sporingstavle**\n\n| Steg | Verdi | Skriver |\n|---|---|---|\n| `uttrykk` | strengen `'10 - 2 * 3'` | — |\n| `eval(uttrykk)` | `2 * 3` først, så `10 - 6` gir 4 | — |\n| `print(uttrykk, '=', svar)` | | selve strengen, mellomrom, `=`, mellomrom, `4` |\n| `eval('2 ** 3 ** 2')` | `**` er høyre-assosiativ: $3^2 = 9$, så $2^9$ | `512` |\n\n**Utskrift:**\n```\n10 - 2 * 3 = 4\n512\n```\n\nTo feller på rad. Den første er at `print` skiller argumentene med mellomrom, så det blir `10 - 2 * 3 = 4` og ikke `10 - 2 * 3=4`. Den andre er at `2 ** 3 ** 2` leses som $2^{(3^2)} = 512$, ikke som $(2^3)^2 = 64$.",
         "hints": [
           "Regn ut uttrykket i strengen med vanlige presedensregler før du tenker på utskriften.",
@@ -176,13 +176,13 @@
       "id": "in1900-2-1-def6",
       "type": "definition",
       "title": "`sys.exit(melding)` — avslutt programmet med en beskjed",
-      "content": "`sys.exit` stopper programmet umiddelbart. Gir du den en tekst, blir teksten skrevet til feilkanalen (det du ser i terminalen sammen med feilmeldinger), og programmet avslutter med en status som markerer at noe gikk galt. Dette er standardmåten å håndtere «brukeren ga for få argumenter» på.\n\n```python\nimport sys if len(sys.argv) < 2:\n    sys.exit('Bruk: python vekst.py <rate>')\nprint('Raten er', sys.argv[1])\n```\n\n**Utskrift:**\n```\nRaten er 0.04\n```\n\nUtskriften over er fra kallet `python3 vekst.py 0.04`, som hopper over `if`-blokken. Kjører du programmet uten argumenter, nås aldri `print`-linja; i stedet skriver `sys.exit` denne teksten til feilkanalen og avslutter:\n\n```\nBruk: python vekst.py <rate>\n```"
+      "content": "`sys.exit` stopper programmet umiddelbart. Gir du den en tekst, blir teksten skrevet til feilkanalen (det du ser i terminalen sammen med feilmeldinger), og programmet avslutter med en status som markerer at noe gikk galt. Dette er standardmåten å håndtere «brukeren ga for få argumenter» på.\n\n```python\nimport sys\nif len(sys.argv) < 2:\n    sys.exit('Bruk: python vekst.py <rate>')\nprint('Raten er', sys.argv[1])\n```\n\n**Utskrift:**\n```\nRaten er 0.04\n```\n\nUtskriften over er fra kallet `python3 vekst.py 0.04`, som hopper over `if`-blokken. Kjører du programmet uten argumenter, nås aldri `print`-linja; i stedet skriver `sys.exit` denne teksten til feilkanalen og avslutter:\n\n```\nBruk: python vekst.py <rate>\n```"
     },
     {
       "id": "in1900-2-1-eks5",
       "title": "Eksempel 5: Et robust kommandolinjeprogram",
       "problem": "Skriv `vekstrate.py`, som tar en startverdi og en årlig vekstrate på kommandolinjen og skriver verdien etter ett år med to desimaler. Programmet skal gi en forståelig beskjed hvis antall argumenter er feil.",
-      "solution": "Sjekk antallet *først*, konvertér deretter:\n\n```python\nimport sys if len(sys.argv) != 3:\n    sys.exit('Bruk: python vekstrate.py <startverdi> <rate>')\nstart = float(sys.argv[1])\nrate = float(sys.argv[2])\nprint(f'Etter ett år: {start * (1 + rate):.2f}')\n```\n\n**Utskrift:**\n```\nEtter ett år: 1242.00\n```\n\nKjørt som `python3 vekstrate.py 1200 0.035`. Rekkefølgen er det som gjør programmet robust: hadde `float(sys.argv[1])` stått først, ville et kall uten argumenter gitt `IndexError` i stedet for beskjeden din.\n\nLegg merke til at koden er kort. Sensor forventer ingen `main`-funksjon og ingen ekstra utskrift — bare det oppgaven ber om.",
+      "solution": "Sjekk antallet *først*, konvertér deretter:\n\n```python\nimport sys\nif len(sys.argv) != 3:\n    sys.exit('Bruk: python vekstrate.py <startverdi> <rate>')\nstart = float(sys.argv[1])\nrate = float(sys.argv[2])\nprint(f'Etter ett år: {start * (1 + rate):.2f}')\n```\n\n**Utskrift:**\n```\nEtter ett år: 1242.00\n```\n\nKjørt som `python3 vekstrate.py 1200 0.035`. Rekkefølgen er det som gjør programmet robust: hadde `float(sys.argv[1])` stått først, ville et kall uten argumenter gitt `IndexError` i stedet for beskjeden din.\n\nLegg merke til at koden er kort. Sensor forventer ingen `main`-funksjon og ingen ekstra utskrift — bare det oppgaven ber om.",
       "type": "example"
     },
     {
@@ -210,7 +210,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger E og O — skriv et robust program.) Skriv programmet `middel.py` som tar **tre** temperaturmålinger på kommandolinjen og skriver ut middeltemperaturen med to desimaler.\n\n**a)** Programmet skal avbryte med en forståelig beskjed hvis brukeren ikke gir nøyaktig tre tall.\n**b)** Vis utskriften når programmet kjøres som `python3 middel.py 4.2 7.8 6.1`.",
-        "solution": "**a)** Sjekk antallet før du konverterer noe:\n\n```python\nimport sys if len(sys.argv) != 4:\n    sys.exit('Bruk: python middel.py <t1> <t2> <t3>')\nt1 = float(sys.argv[1])\nt2 = float(sys.argv[2])\nt3 = float(sys.argv[3])\nprint(f'Middeltemperatur: {(t1 + t2 + t3) / 3:.2f} grader')\n```\n\nUttellingen ligger i tre ting: at `len(sys.argv)` sammenlignes med **4** (tre argumenter pluss filnavnet), at sjekken kommer *før* konverteringen, og at hvert argument går gjennom `float`. Skriver du `!= 3` er strukturen riktig og du får god uttelling likevel — men tellefeilen er nettopp feil #6.\n\n**b)** Kjørt som `python3 middel.py 4.2 7.8 6.1`:\n\n**Utskrift:**\n```\nMiddeltemperatur: 6.03 grader\n```\n\nMiddelverdien er $(4.2 + 7.8 + 6.1)/3 = 6.0333\\ldots$, avrundet til `6.03` av formatspesifikatoren `.2f`.",
+        "solution": "**a)** Sjekk antallet før du konverterer noe:\n\n```python\nimport sys\nif len(sys.argv) != 4:\n    sys.exit('Bruk: python middel.py <t1> <t2> <t3>')\nt1 = float(sys.argv[1])\nt2 = float(sys.argv[2])\nt3 = float(sys.argv[3])\nprint(f'Middeltemperatur: {(t1 + t2 + t3) / 3:.2f} grader')\n```\n\nUttellingen ligger i tre ting: at `len(sys.argv)` sammenlignes med **4** (tre argumenter pluss filnavnet), at sjekken kommer *før* konverteringen, og at hvert argument går gjennom `float`. Skriver du `!= 3` er strukturen riktig og du får god uttelling likevel — men tellefeilen er nettopp feil #6.\n\n**b)** Kjørt som `python3 middel.py 4.2 7.8 6.1`:\n\n**Utskrift:**\n```\nMiddeltemperatur: 6.03 grader\n```\n\nMiddelverdien er $(4.2 + 7.8 + 6.1)/3 = 6.0333\\ldots$, avrundet til `6.03` av formatspesifikatoren `.2f`.",
         "hints": [
           "Start med `if len(sys.argv) != 4:` og `sys.exit(...)` — husk at filnavnet teller med.",
           "Konvertér hvert argument med `float` før du regner.",
@@ -226,8 +226,8 @@
         "number": "7",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, sjanger O — «finn feilen».) Programmet `doser.py` skal ta en pasientvekt og en dose per kilo på kommandolinjen og skrive ut total dose. Det virker ikke. Finn og beskriv alle feilene, og skriv den rettede koden.\n\n```python\nimport sys if len(sys.argv) != 2:\n    sys.exit('Bruk: python doser.py <vekt> <dose>')\nvekt = int(sys.argv[0])\ndose = float(sys.argv[1])\nprint(f'Total dose: {vekt * dose:.1f} mg')\n```",
-        "solution": "Det er tre feil:\n\n**1)** `len(sys.argv) != 2`. To argumenter pluss filnavnet gir 3 elementer, så sjekken skal være `!= 3`. Slik den står, avbryter programmet nettopp når kallet er riktig.\n\n**2)** `sys.argv[0]` er filnavnet `doser.py`. `int('doser.py')` gir `ValueError`. Vekten ligger på indeks 1.\n\n**3)** `int` på vekten er for stramt: en vekt oppgitt som `72.5` ville gitt `ValueError`. Bruk `float` for begge, siden begge er fysiske målinger.\n\nRettet:\n\n```python\nimport sys if len(sys.argv) != 3:\n    sys.exit('Bruk: python doser.py <vekt> <dose>')\nvekt = float(sys.argv[1])\ndose = float(sys.argv[2])\nprint(f'Total dose: {vekt * dose:.1f} mg')\n```\n\nKjørt som `python3 doser.py 72 0.5`:\n\n**Utskrift:**\n```\nTotal dose: 36.0 mg\n```\n\nPå denne sjangeren gis poeng per feil du peker ut og forklarer. Finner du to av tre, får du to tredjedeler — så skriv ned alle du ser, også de du er litt usikker på.",
+        "task": "(Eksamensnivå, sjanger O — «finn feilen».) Programmet `doser.py` skal ta en pasientvekt og en dose per kilo på kommandolinjen og skrive ut total dose. Det virker ikke. Finn og beskriv alle feilene, og skriv den rettede koden.\n\n```python\nimport sys\nif len(sys.argv) != 2:\n    sys.exit('Bruk: python doser.py <vekt> <dose>')\nvekt = int(sys.argv[0])\ndose = float(sys.argv[1])\nprint(f'Total dose: {vekt * dose:.1f} mg')\n```",
+        "solution": "Det er tre feil:\n\n**1)** `len(sys.argv) != 2`. To argumenter pluss filnavnet gir 3 elementer, så sjekken skal være `!= 3`. Slik den står, avbryter programmet nettopp når kallet er riktig.\n\n**2)** `sys.argv[0]` er filnavnet `doser.py`. `int('doser.py')` gir `ValueError`. Vekten ligger på indeks 1.\n\n**3)** `int` på vekten er for stramt: en vekt oppgitt som `72.5` ville gitt `ValueError`. Bruk `float` for begge, siden begge er fysiske målinger.\n\nRettet:\n\n```python\nimport sys\nif len(sys.argv) != 3:\n    sys.exit('Bruk: python doser.py <vekt> <dose>')\nvekt = float(sys.argv[1])\ndose = float(sys.argv[2])\nprint(f'Total dose: {vekt * dose:.1f} mg')\n```\n\nKjørt som `python3 doser.py 72 0.5`:\n\n**Utskrift:**\n```\nTotal dose: 36.0 mg\n```\n\nPå denne sjangeren gis poeng per feil du peker ut og forklarer. Finner du to av tre, får du to tredjedeler — så skriv ned alle du ser, også de du er litt usikker på.",
         "hints": [
           "Skriv opp `sys.argv` for kallet `python3 doser.py 72 0.5` — hvor mange elementer har den?",
           "Sjekk hver indeks som brukes mot lista du skrev opp.",
@@ -275,13 +275,13 @@
       "id": "in1900-2-1-bank3",
       "type": "definition",
       "title": "`sys.argv[1:]` — alle argumentene uten filnavnet",
-      "content": "Utsnittet `sys.argv[1:]` gir en ny **liste** med alle dine argumenter. Det er praktisk når antallet varierer, for eksempel når programmet skal behandle vilkårlig mange målinger.\n\nKjørt som `python3 utsnitt.py 1.5 2.5`:\n\n```python\nimport sys print(sys.argv[1:])\nfor arg in sys.argv[1:]:\n    print(arg, float(arg) * 2)\n```\n\n**Utskrift:**\n```\n['1.5', '2.5']\n1.5 3.0\n2.5 5.0\n```\n\nMerk at utsnittet gir en liste, mens `sys.argv[1]` gir ett element — samme regel som for vanlige lister i [kap. 1.2](/bok/in1900/in1900-1-2)."
+      "content": "Utsnittet `sys.argv[1:]` gir en ny **liste** med alle dine argumenter. Det er praktisk når antallet varierer, for eksempel når programmet skal behandle vilkårlig mange målinger.\n\nKjørt som `python3 utsnitt.py 1.5 2.5`:\n\n```python\nimport sys\nprint(sys.argv[1:])\nfor arg in sys.argv[1:]:\n    print(arg, float(arg) * 2)\n```\n\n**Utskrift:**\n```\n['1.5', '2.5']\n1.5 3.0\n2.5 5.0\n```\n\nMerk at utsnittet gir en liste, mens `sys.argv[1]` gir ett element — samme regel som for vanlige lister i [kap. 1.2](/bok/in1900/in1900-1-2)."
     },
     {
       "id": "in1900-2-1-bank4",
       "type": "definition",
       "title": "`type(x)` og `str(tall)` — typen fram og tilbake",
-      "content": "`type(x)` forteller hvilken type en verdi har, og skrives ut i formen `<class 'str'>`. `str(tall)` går motsatt vei av `int`/`float`: den gjør et tall til tekst, slik at `+` kan lime det sammen med annen tekst.\n\n```python\nx = '7' print(type(x))\nprint(type(int(x)))\nprint(str(3.5) + ' meter')\n```\n\n**Utskrift:**\n```\n<class 'str'>\n<class 'int'>\n3.5 meter\n```"
+      "content": "`type(x)` forteller hvilken type en verdi har, og skrives ut i formen `<class 'str'>`. `str(tall)` går motsatt vei av `int`/`float`: den gjør et tall til tekst, slik at `+` kan lime det sammen med annen tekst.\n\n```python\nx = '7'\nprint(type(x))\nprint(type(int(x)))\nprint(str(3.5) + ' meter')\n```\n\n**Utskrift:**\n```\n<class 'str'>\n<class 'int'>\n3.5 meter\n```"
     },
     {
       "id": "in1900-2-1-bank5",

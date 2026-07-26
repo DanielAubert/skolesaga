@@ -49,16 +49,33 @@ SLUTT = re.compile(r'[.!?:;»)\]}]\s*$|\*\*$|\$$')
 
 
 def slaa_sammen(tekst):
-    """Returnerer (ny_tekst, antall_sammenslåinger)."""
+    """Returnerer (ny_tekst, antall_sammenslåinger).
+
+    Sporer om vi er INNE i et ```-gjerde. Uten den sporingen ble 6 610
+    kodelinjer i 313 filer limt sammen 26. juli 2026 — Python i it-1, it-2,
+    in1000, in1900 og r2. HOPP-regexen hopper bare over linjer som *starter*
+    med ```, og en kodelinje som `    v[i+1] = v[i] + a * dt` ser ut som
+    fortsettelsen av en setning: liten forbokstav, forrige linje uten punktum.
+    Kode skal ALDRI reflytes.
+    """
     if '\n' not in tekst:
         return tekst, 0
     linjer = tekst.split('\n')
     ut = [linjer[0]]
     n = 0
+    i_gjerde = linjer[0].strip().startswith('```')
     for linje in linjer[1:]:
+        if linje.strip().startswith('```'):
+            i_gjerde = not i_gjerde
+            ut.append(linje)
+            continue
+        if i_gjerde:
+            ut.append(linje)
+            continue
         forrige = ut[-1]
         a, b = forrige.rstrip(), linje.strip()
         if (a and b
+                and not a.strip().startswith('```')
                 and not HOPP.match(a) and not HOPP.match(b)
                 and not SLUTT.search(a)
                 and b[:1].islower()):

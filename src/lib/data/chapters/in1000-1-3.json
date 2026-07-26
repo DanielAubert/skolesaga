@@ -21,7 +21,7 @@
     {
       "id": "in1000-1-3-2",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.1 — Variabler, datatyper og uttrykk](/bok/in1000/in1000-1-1) og\n[kap. 1.2 — Betingelser og boolske uttrykk](/bok/in1000/in1000-1-2). Du trenger derfra:\n\n- at en **tilordning** regner ut høyre side først og deretter lar navnet peke på\n  resultatet — det avgjør alt som skjer inne i en løkke,\n- at **innrykk** bestemmer hvilke linjer som hører til en blokk,\n- at en **betingelse** gir `True` eller `False`,\n- de sju regneoperatorene, særlig `%` og `//`.\n\nKort oppfrisket, de to tingene du bruker mest her:\n\n```python\ntotal = 0 total = total + 6 if total % 2 == 0:\n    print(\"partall\", total)\n```\n\n**Utskrift:**\n```\npartall 6\n```\n\nLegg merke til de to stegene: tilordningen bygger opp en verdi, og betingelsen avgjør om noe skjer. Nettopp de to stegene er byggeklossene i hele dette kapitlet."
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.1 — Variabler, datatyper og uttrykk](/bok/in1000/in1000-1-1) og\n[kap. 1.2 — Betingelser og boolske uttrykk](/bok/in1000/in1000-1-2). Du trenger derfra:\n\n- at en **tilordning** regner ut høyre side først og deretter lar navnet peke på\n  resultatet — det avgjør alt som skjer inne i en løkke,\n- at **innrykk** bestemmer hvilke linjer som hører til en blokk,\n- at en **betingelse** gir `True` eller `False`,\n- de sju regneoperatorene, særlig `%` og `//`.\n\nKort oppfrisket, de to tingene du bruker mest her:\n\n```python\ntotal = 0\ntotal = total + 6\nif total % 2 == 0:\n    print(\"partall\", total)\n```\n\n**Utskrift:**\n```\npartall 6\n```\n\nLegg merke til de to stegene: tilordningen bygger opp en verdi, og betingelsen avgjør om noe skjer. Nettopp de to stegene er byggeklossene i hele dette kapitlet."
     },
     {
       "id": "in1000-1-3-3",
@@ -38,7 +38,7 @@
       "id": "in1000-1-3-5",
       "type": "definition",
       "title": "`for e in sekvens:`",
-      "content": "Kjører blokken én gang for hvert element i sekvensen. Variabelen mellom `for` og\n`in` — **løkkevariabelen** — får en ny verdi for hver runde:\n\n```python\nfor tegn in \"sol\":\n    print(tegn)\n```\n\n**Utskrift:**\n```\ns o l\n```\n\nFormkravene er de samme som for `if`: kolon på slutten av linja, og innrykk på linjene som hører til.\n\nLøkkevariabelen er et vanlig variabelnavn du velger selv. Kall den noe som sier hva den inneholder — `tegn` når det er tegn, `tall` når det er tall."
+      "content": "Kjører blokken én gang for hvert element i sekvensen. Variabelen mellom `for` og\n`in` — **løkkevariabelen** — får en ny verdi for hver runde:\n\n```python\nfor tegn in \"sol\":\n    print(tegn)\n```\n\n**Utskrift:**\n```\ns\no\nl\n```\n\nFormkravene er de samme som for `if`: kolon på slutten av linja, og innrykk på linjene som hører til.\n\nLøkkevariabelen er et vanlig variabelnavn du velger selv. Kall den noe som sier hva den inneholder — `tegn` når det er tegn, `tall` når det er tall."
     },
     {
       "id": "in1000-1-3-6",
@@ -96,20 +96,20 @@
       "id": "in1000-1-3-12",
       "type": "theorem",
       "title": "Akkumulatormønsteret",
-      "content": "Å bygge opp en verdi litt etter litt gjennom en løkke. Tre faste steg:\n\n1. **Før løkka:** lag variabelen og gi den en startverdi, som regel `0`.\n2. **Inne i løkka:** oppdater den med den nye verdien.\n3. **Etter løkka:** bruk resultatet.\n\n```python\ntotal = 0 for i in range(1, 5):\n    total = total + i print(total)\n```\n\n**Utskrift:**\n```\n10\n```\n\nSummen av 1, 2, 3 og 4.\n\n**Det avgjørende er hvor de tre stegene står.** Står `total = 0` inne i løkka,\nnullstilles den hver runde og svaret blir bare det siste tallet. Står `print` inne i løkka, får du fire utskrifter i stedet for én. Innrykket er hele forskjellen."
+      "content": "Å bygge opp en verdi litt etter litt gjennom en løkke. Tre faste steg:\n\n1. **Før løkka:** lag variabelen og gi den en startverdi, som regel `0`.\n2. **Inne i løkka:** oppdater den med den nye verdien.\n3. **Etter løkka:** bruk resultatet.\n\n```python\ntotal = 0\nfor i in range(1, 5):\n    total = total + i\nprint(total)\n```\n\n**Utskrift:**\n```\n10\n```\n\nSummen av 1, 2, 3 og 4.\n\n**Det avgjørende er hvor de tre stegene står.** Står `total = 0` inne i løkka,\nnullstilles den hver runde og svaret blir bare det siste tallet. Står `print` inne i løkka, får du fire utskrifter i stedet for én. Innrykket er hele forskjellen."
     },
     {
       "id": "in1000-1-3-13",
       "type": "theorem",
       "title": "Tellermønsteret",
-      "content": "Å telle hvor mange ganger noe skjer. Samme tre steg som akkumulatoren, men du legger alltid til `1`, og bare når betingelsen er sann:\n\n```python\nantall = 0 for i in range(1, 11):\n    if i % 3 == 0:\n        antall = antall + 1 print(antall)\n```\n\n**Utskrift:**\n```\n3\n```\n\nTallene 3, 6 og 9 er delelige med 3.\n\nLegg merke til de to nivåene av innrykk: `if` hører til løkka, og oppdateringen hører til `if`. Det er dette mønsteret alle «hvor mange\n…»-oppgavene på eksamen bruker, og du kan skrive `antall += 1` i stedet hvis du vil."
+      "content": "Å telle hvor mange ganger noe skjer. Samme tre steg som akkumulatoren, men du legger alltid til `1`, og bare når betingelsen er sann:\n\n```python\nantall = 0\nfor i in range(1, 11):\n    if i % 3 == 0:\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n3\n```\n\nTallene 3, 6 og 9 er delelige med 3.\n\nLegg merke til de to nivåene av innrykk: `if` hører til løkka, og oppdateringen hører til `if`. Det er dette mønsteret alle «hvor mange\n…»-oppgavene på eksamen bruker, og du kan skrive `antall += 1` i stedet hvis du vil."
     },
     {
       "id": "in1000-1-3-14",
       "type": "example",
       "title": "Eksempel 2: Summen og antallet i samme løkke",
       "problem": "Gå gjennom tallene fra 1 til 6, og finn både summen av alle og antallet partall. Hvorfor kan begge deler gjøres i samme løkke?",
-      "solution": "Du trenger to variabler før løkka, og de oppdateres uavhengig av hverandre inne i den:\n\n```python\ntotal = 0 antall_partall = 0 for i in range(1, 7):\n    total = total + i if i % 2 == 0:\n        antall_partall = antall_partall + 1 print(total, antall_partall)\n```\n\n**Utskrift:**\n```\n21 3\n```\n\nSummen 1 + 2 + 3 + 4 + 5 + 6 er 21, og partallene er 2, 4 og 6.\n\nTavla, runde for runde:\n\n| `i` | `total` etter | Partall? | `antall_partall` etter |\n|---|---|---|---|\n| 1 | 1 | nei | 0 |\n| 2 | 3 | ja | 1 |\n| 3 | 6 | nei | 1 |\n| 4 | 10 | ja | 2 |\n| 5 | 15 | nei | 2 |\n| 6 | 21 | ja | 3 |\n\n**Hvorfor det virker:** de to variablene lever hver sitt liv. `total` oppdateres\nhver runde fordi linja står rett under `for`; `antall_partall` oppdateres bare når `if`-en slår til, fordi linja står under `if`.\n\nÅ samle flere ting i én løkke er den vanlige formen på eksamen — det er sjelden verdt å gå gjennom de samme dataene to ganger."
+      "solution": "Du trenger to variabler før løkka, og de oppdateres uavhengig av hverandre inne i den:\n\n```python\ntotal = 0\nantall_partall = 0\nfor i in range(1, 7):\n    total = total + i\n    if i % 2 == 0:\n        antall_partall = antall_partall + 1\nprint(total, antall_partall)\n```\n\n**Utskrift:**\n```\n21 3\n```\n\nSummen 1 + 2 + 3 + 4 + 5 + 6 er 21, og partallene er 2, 4 og 6.\n\nTavla, runde for runde:\n\n| `i` | `total` etter | Partall? | `antall_partall` etter |\n|---|---|---|---|\n| 1 | 1 | nei | 0 |\n| 2 | 3 | ja | 1 |\n| 3 | 6 | nei | 1 |\n| 4 | 10 | ja | 2 |\n| 5 | 15 | nei | 2 |\n| 6 | 21 | ja | 3 |\n\n**Hvorfor det virker:** de to variablene lever hver sitt liv. `total` oppdateres\nhver runde fordi linja står rett under `for`; `antall_partall` oppdateres bare når `if`-en slår til, fordi linja står under `if`.\n\nÅ samle flere ting i én løkke er den vanlige formen på eksamen — det er sjelden verdt å gå gjennom de samme dataene to ganger."
     },
     {
       "id": "in1000-1-3-oppg-2",
@@ -119,7 +119,7 @@
         "number": "2",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntotal = 0 for i in range(4):\n    total = total + i * 2 print(total)\n```",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(4):\n    total = total + i * 2\nprint(total)\n```",
         "solution": "Løkka går fire runder, med `i` lik 0, 1, 2 og 3.\n\n| `i` | `i * 2` | `total` etter runden |\n|---|---|---|\n| 0 | 0 | 0 |\n| 1 | 2 | 2 |\n| 2 | 4 | 6 |\n| 3 | 6 | 12 |\n\n`print` står **utenfor** løkka, så den kjører én gang, etter at alle rundene er ferdige.\n\n**Utskrift:**\n```\n12\n```\n\nTo feller ligger her. Den ene er å tro at `range(4)` gir verdiene 1 til 4 — da blir svaret 20. Den andre er å lese `print` som om den sto inne i løkka — da ville det kommet fire linjer.",
         "hints": [
           "Skriv opp verdien til `i` for hver runde før du regner.",
@@ -136,7 +136,7 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "(Eksamensnivå, sjanger C-forberedelse — bruk mønsteret.) Skriv et program som teller hvor mange av tallene fra 1 til 20 som er delelige med 4, og skriver ut antallet.\n\n**a)** Skriv koden.\n\n**b)** Hva ville skjedd om du satte `antall = 0` inne i løkka?\n\n**c)** Hva ville skjedd om `print` sto inne i løkka?",
-        "solution": "**a)** Tellermønsteret: startverdi før løkka, oppdatering inne i `if`, utskrift\netter løkka.\n\n```python\nantall = 0 for i in range(1, 21):\n    if i % 4 == 0:\n        antall = antall + 1 print(antall)\n```\n\n**Utskrift:**\n```\n5\n```\n\nTallene er 4, 8, 12, 16 og 20.\n\n**b)** Da ville telleren blitt nullstilt hver eneste runde, og svaret blitt `1`\n— eller `0` hvis den siste verdien ikke var delelig med 4. Startverdien hører\n**alltid** utenfor løkka.\n\n**c)** Da ville programmet skrevet 20 linjer, én per runde, som viser tellerens\nverdi underveis. Det er ikke feil i seg selv, men det er ikke det oppgaven ba om.",
+        "solution": "**a)** Tellermønsteret: startverdi før løkka, oppdatering inne i `if`, utskrift\netter løkka.\n\n```python\nantall = 0\nfor i in range(1, 21):\n    if i % 4 == 0:\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n5\n```\n\nTallene er 4, 8, 12, 16 og 20.\n\n**b)** Da ville telleren blitt nullstilt hver eneste runde, og svaret blitt `1`\n— eller `0` hvis den siste verdien ikke var delelig med 4. Startverdien hører\n**alltid** utenfor løkka.\n\n**c)** Da ville programmet skrevet 20 linjer, én per runde, som viser tellerens\nverdi underveis. Det er ikke feil i seg selv, men det er ikke det oppgaven ba om.",
         "hints": [
           "Følg de tre stegene i tellermønsteret: startverdi, oppdatering, bruk.",
           "For b) og c): innrykket avgjør hvilke linjer som er inne i løkka."
@@ -152,7 +152,7 @@
       "id": "in1000-1-3-16",
       "type": "definition",
       "title": "`while betingelse:`",
-      "content": "Kjører blokken om og om igjen så lenge betingelsen er sann. Betingelsen sjekkes\n**før** hver runde:\n\n```python\nn = 8 while n > 1:\n    print(n)\n    n = n // 2 print(\"ferdig\")\n```\n\n**Utskrift:**\n```\n8\n4\n2 ferdig\n```\n\nLegg merke til at `1` aldri skrives ut: når `n` er blitt 1, er betingelsen\n`1 > 1` usann, og løkka avsluttes før neste runde.\n\nEr betingelsen usann allerede første gang, kjøres blokken **null** ganger. En\n`while`-løkke er altså ikke garantert å kjøre i det hele tatt."
+      "content": "Kjører blokken om og om igjen så lenge betingelsen er sann. Betingelsen sjekkes\n**før** hver runde:\n\n```python\nn = 8\nwhile n > 1:\n    print(n)\n    n = n // 2\nprint(\"ferdig\")\n```\n\n**Utskrift:**\n```\n8\n4\n2\nferdig\n```\n\nLegg merke til at `1` aldri skrives ut: når `n` er blitt 1, er betingelsen\n`1 > 1` usann, og løkka avsluttes før neste runde.\n\nEr betingelsen usann allerede første gang, kjøres blokken **null** ganger. En\n`while`-løkke er altså ikke garantert å kjøre i det hele tatt."
     },
     {
       "id": "in1000-1-3-17",
@@ -164,13 +164,13 @@
       "id": "in1000-1-3-18",
       "type": "warning",
       "title": "Uendelig løkke",
-      "content": "En `while`-løkke der betingelsen aldri blir usann, stopper aldri. Programmet henger, og på en maskin må du avbryte det manuelt.\n\n```text\nn = 8 while n > 1:\n    print(n)\n```\n\nDenne blokken har ingen linje som endrer `n`, så den skriver `8` i det uendelige.\nDen er merket som ikke-kjørbar nettopp fordi den aldri ville stoppet — all annen kode i boka er faktisk kjørt, og utskriften er den terminalen ga.\n\nPå eksamen er dette først og fremst en **sporingsfelle**: du blir bedt om å angi hva et program skriver ut, og riktig svar kan være at det aldri blir ferdig.\nSjekk alltid at noe inne i løkka påvirker betingelsen.\n\nDen motsatte fella er en `while` der betingelsen er usann fra start. Da skrives ingenting, og svaret er «ingen utskrift»."
+      "content": "En `while`-løkke der betingelsen aldri blir usann, stopper aldri. Programmet henger, og på en maskin må du avbryte det manuelt.\n\n```text\nn = 8\nwhile n > 1:\n    print(n)\n```\n\nDenne blokken har ingen linje som endrer `n`, så den skriver `8` i det uendelige.\nDen er merket som ikke-kjørbar nettopp fordi den aldri ville stoppet — all annen kode i boka er faktisk kjørt, og utskriften er den terminalen ga.\n\nPå eksamen er dette først og fremst en **sporingsfelle**: du blir bedt om å angi hva et program skriver ut, og riktig svar kan være at det aldri blir ferdig.\nSjekk alltid at noe inne i løkka påvirker betingelsen.\n\nDen motsatte fella er en `while` der betingelsen er usann fra start. Da skrives ingenting, og svaret er «ingen utskrift»."
     },
     {
       "id": "in1000-1-3-19",
       "type": "example",
       "title": "Eksempel 3: En `while` som endrer to variabler",
-      "problem": "Dette er en klassisk sporingsoppgave. Hva skriver programmet ut, og hvorfor er rekkefølgen på de to siste linjene i løkka avgjørende?\n\n```python\nn = 20 s = 0 while n > 1:\n    s = s + n n = n // 2 print(s, n)\n```",
+      "problem": "Dette er en klassisk sporingsoppgave. Hva skriver programmet ut, og hvorfor er rekkefølgen på de to siste linjene i løkka avgjørende?\n\n```python\nn = 20\ns = 0\nwhile n > 1:\n    s = s + n\n    n = n // 2\nprint(s, n)\n```",
       "solution": "Før en tavle. Sjekk betingelsen **før** hver runde, og oppdater i den rekkefølgen linjene står.\n\n| Runde | `n` ved start | `n > 1`? | `s` etter | `n` etter |\n|---|---|---|---|---|\n| 1 | 20 | ja | 20 | 10 |\n| 2 | 10 | ja | 30 | 5 |\n| 3 | 5 | ja | 35 | 2 |\n| 4 | 2 | ja | 37 | 1 |\n| — | 1 | **nei** | 37 | 1 |\n\n**Utskrift:**\n```\n37 1\n```\n\n**Hvorfor rekkefølgen avgjør:** i hver runde legges den **gamle** verdien av `n`\ntil summen, før `n` halveres. Byttet du om de to linjene, ville den halverte verdien blitt lagt til i stedet, og svaret blitt 10 + 5 + 2 + 1, altså 18.\n\nLegg også merke til at `n` er `1` etter løkka, ikke `0`. Løkkevariabelen i en\n`while` beholder verdien den hadde da betingelsen sviktet, og den verdien kan du bli spurt om."
     },
     {
@@ -181,7 +181,7 @@
         "number": "4",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntall = 1 runder = 0 while tall < 50:\n    tall = tall * 3 runder = runder + 1 print(tall, runder)\n```",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntall = 1\nrunder = 0\nwhile tall < 50:\n    tall = tall * 3\n    runder = runder + 1\nprint(tall, runder)\n```",
         "solution": "Sjekk betingelsen før hver runde.\n\n| Runde | `tall` ved start | `tall < 50`? | `tall` etter | `runder` etter |\n|---|---|---|---|---|\n| 1 | 1 | ja | 3 | 1 |\n| 2 | 3 | ja | 9 | 2 |\n| 3 | 9 | ja | 27 | 3 |\n| 4 | 27 | ja | 81 | 4 |\n| — | 81 | **nei** | 81 | 4 |\n\n**Utskrift:**\n```\n81 4\n```\n\nFellen er å stoppe ved 27 fordi neste verdi «blir for stor». Betingelsen sjekkes\n**før** runden, ikke etter: så lenge `tall` er under 50 ved inngangen, kjøres\nhele runden — og verdien kan godt ende langt over 50.",
         "hints": [
           "Sjekk betingelsen før hver runde, ikke etter.",
@@ -216,7 +216,7 @@
       "id": "in1000-1-3-24",
       "type": "example",
       "title": "Eksempel 4: Oppsamling i nøstet løkke med betingelse",
-      "problem": "Dette er den vanskeligste sporingsformen i Oppgave 1: nøstet løkke, betingelse og akkumulator i samme program. Hva skriver det ut?\n\n```python\ntotal = 0 for i in range(4):\n    for j in range(i):\n        if j % 2 == 0:\n            total = total + 1 print(total)\n```",
+      "problem": "Dette er den vanskeligste sporingsformen i Oppgave 1: nøstet løkke, betingelse og akkumulator i samme program. Hva skriver det ut?\n\n```python\ntotal = 0\nfor i in range(4):\n    for j in range(i):\n        if j % 2 == 0:\n            total = total + 1\nprint(total)\n```",
       "solution": "Bygg tavla én ytre runde om gangen, og noter hvilke `j`-verdier som finnes.\n\n| `i` | `range(i)` gir | `j`-verdier med `j % 2 == 0` | `total` etter |\n|---|---|---|---|\n| 0 | ingenting | — | 0 |\n| 1 | 0 | 0 | 1 |\n| 2 | 0, 1 | 0 | 2 |\n| 3 | 0, 1, 2 | 0, 2 | 4 |\n\n**Utskrift:**\n```\n4\n```\n\nTre observasjoner som er verdt poeng:\n\n- Den første ytre runden gir **ingen** indre runder, fordi `range(0)` er tom.\n- Betingelsen filtrerer bort omtrent halvparten av de indre rundene, så antall\n  oppdateringer er langt lavere enn antall indre runder (som er 0 + 1 + 2 + 3 =\n  6).\n- `total` overlever mellom de ytre rundene, fordi den er laget **før** begge\n  løkkene.\n\n**Slik ville sensor sett på det:** en kandidat som setter opp riktig tavle men\nregner feil på én rad, har vist hele metoden og får god uttelling. Den som svarer `6`, har glemt betingelsen; den som svarer `10`, har regnet med at\n`range(i)` gir `i + 1` runder."
     },
     {
@@ -243,7 +243,7 @@
         "number": "6",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntotal = 0 for i in range(5):\n    for j in range(i):\n        total = total + 1 print(total)\n```",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(5):\n    for j in range(i):\n        total = total + 1\nprint(total)\n```",
         "solution": "Den indre løkka kjører `i` ganger for hver ytre runde.\n\n| `i` | antall indre runder | `total` etter |\n|---|---|---|\n| 0 | 0 | 0 |\n| 1 | 1 | 1 |\n| 2 | 2 | 3 |\n| 3 | 3 | 6 |\n| 4 | 4 | 10 |\n\n**Utskrift:**\n```\n10\n```\n\nSummen er 0 + 1 + 2 + 3 + 4.\n\nTo feller: å tro at `range(0)` gir én runde — da blir svaret 15 — og å tro at den ytre `range(5)` gir verdiene 1 til 5, som gir samme galt svar. Begge kommer av at stoppverdien og startverdien blandes.",
         "hints": [
           "Skriv opp hvor mange indre runder hver ytre runde gir.",
@@ -260,13 +260,13 @@
       "id": "in1000-1-3-26",
       "type": "definition",
       "title": "Muteringsrekkefølge",
-      "content": "Inne i en løkke leses høyre side av en tilordning med de verdiene variablene har\n**akkurat nå** — altså etter alle tidligere linjer i samme runde.\n\n```python\na = 1 b = 2 for i in range(3):\n    a = 2 * a + b b = b + 1 print(a, b)\n```\n\n**Utskrift:**\n```\n26 5\n```\n\nMerk at `a` bruker den **gamle** `b` i sin egen linje, fordi `b` oppdateres etterpå. Byttet du om de to linjene, ville `a` brukt den nye `b`, og svaret blitt et helt annet.\n\nDette er ikke en spissfindighet: det er et fast innslag i Oppgave 1, og fasiten avhenger av at du sporer linjene i den rekkefølgen de står."
+      "content": "Inne i en løkke leses høyre side av en tilordning med de verdiene variablene har\n**akkurat nå** — altså etter alle tidligere linjer i samme runde.\n\n```python\na = 1\nb = 2\nfor i in range(3):\n    a = 2 * a + b\n    b = b + 1\nprint(a, b)\n```\n\n**Utskrift:**\n```\n26 5\n```\n\nMerk at `a` bruker den **gamle** `b` i sin egen linje, fordi `b` oppdateres etterpå. Byttet du om de to linjene, ville `a` brukt den nye `b`, og svaret blitt et helt annet.\n\nDette er ikke en spissfindighet: det er et fast innslag i Oppgave 1, og fasiten avhenger av at du sporer linjene i den rekkefølgen de står."
     },
     {
       "id": "in1000-1-3-27",
       "type": "example",
       "title": "Eksempel 5: Samme to linjer, motsatt rekkefølge",
-      "problem": "De to programmene har de samme fire linjene — bare rekkefølgen inne i løkka er byttet. Hva skriver hvert av dem ut?\n\n```python\na = 1 b = 2 for i in range(3):\n    a = 2 * a + b b = b + 1 print(\"A:\", a, b)\n```\n\n```python\na = 1 b = 2 for i in range(3):\n    b = b + 1 a = 2 * a + b print(\"B:\", a, b)\n```",
+      "problem": "De to programmene har de samme fire linjene — bare rekkefølgen inne i løkka er byttet. Hva skriver hvert av dem ut?\n\n```python\na = 1\nb = 2\nfor i in range(3):\n    a = 2 * a + b\n    b = b + 1\nprint(\"A:\", a, b)\n```\n\n```python\na = 1\nb = 2\nfor i in range(3):\n    b = b + 1\n    a = 2 * a + b\nprint(\"B:\", a, b)\n```",
       "solution": "**Første program**, der `a` regnes først og bruker den gamle `b`:\n\n| Runde | `a` før | `b` før | `a` etter | `b` etter |\n|---|---|---|---|---|\n| 1 | 1 | 2 | 4 | 3 |\n| 2 | 4 | 3 | 11 | 4 |\n| 3 | 11 | 4 | 26 | 5 |\n\n**Utskrift:**\n```\nA: 26 5\n```\n\n**Andre program**, der `b` økes først og `a` dermed bruker den nye verdien:\n\n| Runde | `a` før | `b` etter økning | `a` etter |\n|---|---|---|---|\n| 1 | 1 | 3 | 5 |\n| 2 | 5 | 4 | 14 |\n| 3 | 14 | 5 | 33 |\n\n**Utskrift:**\n```\nB: 33 5\n```\n\nSamme startverdier, samme antall runder, samme regnestykke — og likevel `26` mot\n`33`. Forskjellen er utelukkende hvilken linje som står først.\n\n**Slik sporer du det trygt:** skriv én kolonne per variabel, og fyll ut radene i\nden rekkefølgen linjene står. Aldri regn to oppdateringer «samtidig»."
     },
     {
@@ -277,7 +277,7 @@
         "number": "7",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\nx = 3 y = 1 for i in range(3):\n    x = x + y y = x - y print(x, y)\n```",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\nx = 3\ny = 1\nfor i in range(3):\n    x = x + y\n    y = x - y\nprint(x, y)\n```",
         "solution": "Begge linjene bruker verdier som ble oppdatert tidligere i samme runde. Spor dem én om gangen.\n\n| Runde | `x` før | `y` før | `x` etter (`x + y`) | `y` etter (`x - y`, ny `x`) |\n|---|---|---|---|---|\n| 1 | 3 | 1 | 4 | 3 |\n| 2 | 4 | 3 | 7 | 4 |\n| 3 | 7 | 4 | 11 | 7 |\n\n**Utskrift:**\n```\n11 7\n```\n\nDet avgjørende er andre linje i løkka: den bruker den **nye** `x`, fordi den allerede er oppdatert. Regner du med den gamle `x`, får du `y` lik 2, 1 og 3, og et helt annet svar.\n\nFellen er #5 i en litt annen drakt: ikke en av-med-én i grensene, men en av-en-linje i tid.",
         "hints": [
           "Fyll ut én rad per runde, og oppdater kolonnene i den rekkefølgen linjene står.",
@@ -293,7 +293,7 @@
         "number": "8",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med linjeskift.\n\n```python\nantall = 0 n = 30 while n > 1:\n    if n % 2 == 0:\n        n = n // 2 else:\n        n = n - 1 antall = antall + 1 print(n, antall)\n```",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med linjeskift.\n\n```python\nantall = 0\nn = 30\nwhile n > 1:\n    if n % 2 == 0:\n        n = n // 2\n    else:\n        n = n - 1\n    antall = antall + 1\nprint(n, antall)\n```",
         "solution": "Hver runde gjør én av to ting, avhengig av om `n` er et partall.\n\n| Runde | `n` før | Partall? | `n` etter | `antall` etter |\n|---|---|---|---|---|\n| 1 | 30 | ja | 15 | 1 |\n| 2 | 15 | nei | 14 | 2 |\n| 3 | 14 | ja | 7 | 3 |\n| 4 | 7 | nei | 6 | 4 |\n| 5 | 6 | ja | 3 | 5 |\n| 6 | 3 | nei | 2 | 6 |\n| 7 | 2 | ja | 1 | 7 |\n| — | 1 | — | — | betingelsen svikter |\n\n**Utskrift:**\n```\n1 7\n```\n\nTo ting gjør denne krevende. Betingelsen `n > 1` sjekkes **før** hver runde, så løkka stopper når `n` er blitt 1 — ikke 0. Og `antall = antall + 1` står utenfor\n`if`-`else`-kjeden, med mindre innrykk, så den kjøres i **hver** runde uansett hvilken gren som traff.\n\n**Slik ville sensor sett på det:** oppgaven gir to verdier, og en kandidat som\nfår `n` riktig men bommer på tellingen med én, har vist hele sporingsmetoden og får uttelling for det.",
         "hints": [
           "Sjekk om `n` er partall før hver runde, og velg gren deretter.",

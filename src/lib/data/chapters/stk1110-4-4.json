@@ -1,165 +1,165 @@
 {
-  "id": "stk1110-4-4",
-  "courseId": "stk1110",
-  "chapterNumber": "4.4",
-  "title": "Øvingseksamen 3 — rotasjonsmalen (eksakt pivot, parvis/andeler, prediksjon)",
-  "description": "Et komplett 4-timers sett tungt på de eksakte og robuste teknikkene: transformasjons-pivot med eksakt asymmetrisk KI og ensidig test, parvise data og andelstest med pooled andel, og enkel regresjon med diagnostikk, prediksjonsintervall og ekstrapoleringsforbehold.",
-  "estimatedMinutes": 90,
-  "competenceGoals": [
-    "utlede transformasjons-pivoten med riktige frihetsgrader og bruke den til eksakt KI og eksakt ensidig test",
-    "velge parvis t-test fremfor to-utvalgs og gjennomføre en andelstest med pooled andel og komplett rituale",
-    "skille konfidensintervall for forventet respons fra prediksjonsintervall og ta ekstrapoleringsforbehold",
-    "vurdere modellantakelser fra diagnoseplott beskrevet i ord"
-  ],
-  "content": [
+ "id": "stk1110-4-4",
+ "courseId": "stk1110",
+ "chapterNumber": "4.4",
+ "title": "Øvingseksamen 3 — rotasjonsmalen (eksakt pivot, parvis/andeler, prediksjon)",
+ "description": "Et komplett 4-timers sett tungt på de eksakte og robuste teknikkene: transformasjons-pivot med eksakt asymmetrisk KI og ensidig test, parvise data og andelstest med pooled andel, og enkel regresjon med diagnostikk, prediksjonsintervall og ekstrapoleringsforbehold.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "utlede transformasjons-pivoten med riktige frihetsgrader og bruke den til eksakt KI og eksakt ensidig test",
+  "velge parvis t-test fremfor to-utvalgs og gjennomføre en andelstest med pooled andel og komplett rituale",
+  "skille konfidensintervall for forventet respons fra prediksjonsintervall og ta ekstrapoleringsforbehold",
+  "vurdere modellantakelser fra diagnoseplott beskrevet i ord"
+ ],
+ "content": [
+  {
+   "id": "stk1110-4-4-tip",
+   "type": "tip",
+   "title": "Slik bruker du øvingseksamenen",
+   "content": "Dette er **Øvingseksamen 3** — settet som trener de **eksakte og robuste teknikkene**: transformasjons-pivoten med kjikvadratfordeling i estimeringen, parvise data og andeler i testdelen, og prediksjonsintervall med diagnostikk i regresjonen. Dette er punktene der presisjon på frihetsgrader og intervalltype avgjør karakteren.\n\n- **Rammen er som på ordentlig eksamen: 4 timer, tre kjededelte storoppgaver.** Sett av en sammenhengende økt, bruk formelsamling og kalkulator, og **gjennomfør hele settet på tid før du åpner et eneste løsningsforslag.**\n- Nødvendige kvantiler og sannsynligheter er oppgitt i oppgavetekstene, som på eksamen.\n- Står et deltrinn fast: bruk det oppgitte mellomresultatet og gå videre — strategien fra [kap. 4.1](/bok/stk1110/stk1110-4-1).\n- Løsningsforslagene er fullstendige A-besvarelser, med delpoeng-notat og de vanligste trekkene etter hver oppgave.\n\nTidsanslaget på 90 minutter gjelder gjennomgang av settet med fasit — selve gjennomføringen på tid kommer i tillegg."
+  },
+  {
+   "id": "stk1110-4-4-forkunnskaper",
+   "type": "text",
+   "content": "**Forkunnskaper** (hentes frem før du starter klokka):\n\n- **[kap. 1.2](/bok/stk1110/stk1110-1-2)** — ML-kjeden $L \\to \\ell \\to$ score $\\to$ løs $\\to$ bekreft maksimum, som bærer oppgave 1a–c.\n- **[kap. 2.5](/bok/stk1110/stk1110-2-5)** — transformasjons-pivoten $2\\sum X_i/\\theta\\sim\\chi^2_{2n}$, eksakt KI og eksakt ensidig test, som bærer oppgave 1d–f.\n- **[kap. 2.3](/bok/stk1110/stk1110-2-3)** — parvise data redusert til differanser og to-utvalgs andelstest med pooled $\\hat p$, som bærer oppgave 2.\n- **[kap. 2.6](/bok/stk1110/stk1110-2-6)** — de ikke-parametriske alternativene når normalitetsantakelsen svikter (oppgave 2e).\n- **[kap. 3.2](/bok/stk1110/stk1110-3-2)** — å lese lm-sammendraget, og **[kap. 3.4](/bok/stk1110/stk1110-3-4)** — de tre diagnoseplottene, for oppgave 3.\n- **[kap. 3.5](/bok/stk1110/stk1110-3-5)** — konfidensintervall for forventet respons kontra prediksjonsintervall, som bærer oppgave 3d–f.\n\nEksponensialfordelingens $E(X)=\\theta$, $V(X)=\\theta^2$ og gamma/kjikvadrat-koblingen er STK1100-stoff; [kap. 0.2](/bok/stk1110/stk1110-0-2) frisker dem opp."
+  },
+  {
+   "id": "stk1110-4-4-o1",
+   "type": "text",
+   "content": "## Oppgavesettet\n\n**Oppgave 1 — Estimering og eksakt pivot for en eksponensial-forventning (a–f)**\n\nTiden mellom stopp på en pakkerobot antas eksponensialfordelt: $X_1,\\dots,X_n$ uavhengige med tetthet\n$$f(x;\\theta)=\\frac{1}{\\theta}e^{-x/\\theta},\\qquad x>0,$$\nder $\\theta=E(X_i)$ er forventet tid mellom stopp (timer). For $n=12$ registrerte mellomtider er $\\sum_{i=1}^{12} x_i=96{,}0$ timer. Fra STK1100: $E(X_i)=\\theta$ og $V(X_i)=\\theta^2$ (repetert i [kap. 0.2](/bok/stk1110/stk1110-0-2)).\n\n**a)** Sett opp likelihoodfunksjonen $L(\\theta)$ og log-likelihooden $\\ell(\\theta)$.\n\n**b)** Utled scorefunksjonen, løs scoreligningen og vis at ML-estimatoren er $\\hat\\theta=\\bar X$. Bekreft at løsningen er et maksimumspunkt.\n\n**c)** Vis at $\\hat\\theta$ er forventningsrett, og finn $V(\\hat\\theta)$.\n\n**d)** Forklar hvorfor størrelsen\n$$W(\\theta)=\\frac{2\\sum_{i=1}^n X_i}{\\theta}$$\ner kjikvadratfordelt med $2n$ frihetsgrader, og hvorfor den dermed er en pivot. (Hint: summen av $n$ uavhengige eksponensialer er gamma-fordelt.)\n\n**e)** Bruk pivoten til å utlede et eksakt 95 %-konfidensintervall for $\\theta$, og regn det ut. Kommenter intervallets form rundt punktestimatet. Oppgitt: $\\chi^2_{24,\\,0{,}025}=39{,}36$ og $\\chi^2_{24,\\,0{,}975}=12{,}40$.\n\n**f)** Produsenten av roboten oppgir at gammel programvare ga $\\theta=5$ timer mellom stopp, og driftsavdelingen mener den nye programvaren har økt tiden. Gjennomfør en eksakt test av $H_0:\\theta=5$ mot $H_a:\\theta>5$ på 5 %-nivå, med komplett rituale og P-verdi. Oppgitt: $\\chi^2_{24,\\,0{,}05}=36{,}42$ og $P(\\chi^2_{24}>38{,}4)=0{,}032$."
+  },
+  {
+   "id": "stk1110-4-4-o2",
+   "type": "text",
+   "content": "**Oppgave 2 — Parvise data og andeler (a–e)**\n\nEt byggelaboratorium sammenligner et nytt håndholdt instrument med den etablerte laboratoriemetoden for trykkfasthet i betong. **De samme ni prøvestykkene** måles med begge metoder, og differansene $d_i=$ håndholdt $-$ laboratorium (MPa) er\n\n$$0{,}8\\quad -0{,}3\\quad 1{,}2\\quad 0{,}5\\quad 0{,}9\\quad 0{,}2\\quad 1{,}1\\quad -0{,}1\\quad 0{,}6$$\n\nOppgitt: $\\bar d=0{,}5444$, $s_D=0{,}5223$, $t_{8,\\,0{,}025}=2{,}306$ og $P(T_8>3{,}13)\\approx 0{,}007$.\n\n**a)** Forklar hvorfor dette skal analyseres som *parvise* data og ikke med en to-utvalgs t-test, og sett opp modellen for differansene.\n\n**b)** Test på 5 %-nivå om metodene har samme forventning, med komplett rituale: hypoteser, observator med fordeling, begrunnelse for nivået, tallfesting med P-verdi (definér den i ord) og konklusjon i kontekst.\n\n**c)** Angi et 95 %-konfidensintervall for forventet differanse $\\mu_D$, og bruk dualiteten som kryssjekk mot (b).\n\n**d)** Samme laboratorium innførte i fjor et nytt kontrollsystem for leveranser. Før omleggingen ble 30 av 120 leveranser reklamert; etter ble 24 av 150 reklamert. Test på 5 %-nivå om reklamasjonsandelen var *høyere* før enn etter ($H_a:p_1>p_2$), med pooled andel og komplett rituale. Oppgitt: $z_{0{,}05}=1{,}645$ og $P(Z>1{,}84)\\approx 0{,}033$.\n\n**e)** Et QQ-plott av de ni differansene i (a)–(c) viser at de to negative differansene ligger klart under referanselinja i nedre hale (beskrevet i ord — tegn ikke). Hvilken test er det naturlige alternativet hvis normalitetsantakelsen ikke kan forsvares, og hva tester den?"
+  },
+  {
+   "id": "stk1110-4-4-o3",
+   "type": "text",
+   "content": "**Oppgave 3 — Enkel regresjon: diagnostikk og prediksjon (a–f)**\n\nEt lakkeringsverksted undersøker hvordan relativ luftfuktighet påvirker tørketiden for billakk. For $n=15$ lakkeringer er tørketid $y$ (minutter) og luftfuktighet $x$ (%) registrert; fuktigheten i datasettet spenner fra 30 til 70 %. Tilpasningen gir:\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  18.5925      2.4983    7.442  4.89e-06\nfuktighet     0.8270      0.0475   17.414  2.16e-10\n---\nResidual standard error: 2.2246 on 13 degrees of freedom\nMultiple R-squared:  0.9589,   Adjusted R-squared:  0.9557\nF-statistic: 303.2 on 1 and 13 DF,  p-value: 2.16e-10\n```\n\nOppgitt: $\\bar x=51{,}2$, $S_{xx}=\\sum(x_i-\\bar x)^2=2194{,}4$ og $t_{13,\\,0{,}025}=2{,}160$.\n\n**a)** Skriv opp regresjonsmodellen med antakelser, tolk begge koeffisientestimatene i kontekst, og forklar hvordan frihetsgradstallet 13 fremkommer.\n\n**b)** Test på 5 %-nivå om fuktigheten påvirker forventet tørketid, og angi et 95 %-konfidensintervall for stigningstallet.\n\n**c)** Diagnostikken beskrives slik (i ord): residualene mot tilpassede verdier danner en strukturløs sky rundt null; QQ-plottet følger referanselinja tett i hele området; scale–location-kurven er tilnærmet flat. Vurder modellantakelsene ut fra dette — plott for plott.\n\n**d)** Verkstedet skal planlegge en dag med luftfuktighet $x_0=50$ %. Angi et 95 %-konfidensintervall for **forventet** tørketid ved $x_0=50$.\n\n**e)** Angi deretter et 95 %-**prediksjonsintervall** for tørketiden til **én enkelt** lakkering ved $x_0=50$. Forklar hvorfor dette intervallet er bredere enn intervallet i (d), og pek på leddet i formelen som gjør forskjellen.\n\n**f)** En kunde spør hva tørketiden blir i et fuktkammer med $x_0=90$ %. Hvilket forbehold må du ta, og hvorfor?"
+  },
+  {
+   "id": "stk1110-4-4-los1",
+   "type": "collapsible",
+   "title": "Løsningsforslag oppgave 1",
+   "buttonText": "Vis løsningsforslag",
+   "content": [
     {
-      "id": "stk1110-4-4-tip",
-      "type": "tip",
-      "title": "Slik bruker du øvingseksamenen",
-      "content": "Dette er **Øvingseksamen 3** — settet som trener de **eksakte og robuste teknikkene**: transformasjons-pivoten med kjikvadratfordeling i estimeringen, parvise data og andeler i testdelen, og prediksjonsintervall med diagnostikk i regresjonen. Dette er punktene der presisjon på frihetsgrader og intervalltype avgjør karakteren.\n\n- **Rammen er som på ordentlig eksamen: 4 timer, tre kjededelte storoppgaver.** Sett av en sammenhengende økt, bruk formelsamling og kalkulator, og **gjennomfør hele settet på tid før du åpner et eneste løsningsforslag.**\n- Nødvendige kvantiler og sannsynligheter er oppgitt i oppgavetekstene, som på eksamen.\n- Står et deltrinn fast: bruk det oppgitte mellomresultatet og gå videre — strategien fra [kap. 4.1](/bok/stk1110/stk1110-4-1).\n- Løsningsforslagene er fullstendige A-besvarelser, med delpoeng-notat og de vanligste trekkene etter hver oppgave.\n\nTidsanslaget på 90 minutter gjelder gjennomgang av settet med fasit — selve gjennomføringen på tid kommer i tillegg."
+     "id": "stk1110-4-4-los1-ab",
+     "type": "text",
+     "content": "**a) Likelihood og log-likelihood.** La $s=\\sum_{i=1}^n x_i$. Uavhengighet gir\n$$L(\\theta)=\\prod_{i=1}^{n}\\frac{1}{\\theta}e^{-x_i/\\theta}=\\theta^{-n}e^{-s/\\theta},$$\n$$\\ell(\\theta)=\\ln L(\\theta)=-n\\ln\\theta-\\frac{s}{\\theta}.$$\n\n**b) Score, løsning og maksimums-bekreftelse.** Scorefunksjonen:\n$$\\ell'(\\theta)=-\\frac{n}{\\theta}+\\frac{s}{\\theta^2}.$$\nScoreligningen $\\ell'(\\theta)=0$ gir $\\theta=s/n$, altså estimatoren $\\hat\\theta=\\bar X$. Andrederiverte:\n$$\\ell''(\\theta)=\\frac{n}{\\theta^2}-\\frac{2s}{\\theta^3},\\qquad \\ell''(\\hat\\theta)=\\frac{n\\hat\\theta-2s}{\\hat\\theta^3}=\\frac{-s}{\\hat\\theta^3}<0,$$\n(siden $n\\hat\\theta=s$), så løsningen er et maksimum. Med tallene: $\\hat\\theta=96{,}0/12=8{,}0$ timer (estimatet)."
     },
     {
-      "id": "stk1110-4-4-forkunnskaper",
-      "type": "text",
-      "content": "**Forkunnskaper** (hentes frem før du starter klokka):\n\n- **[kap. 1.2](/bok/stk1110/stk1110-1-2)** — ML-kjeden $L \\to \\ell \\to$ score $\\to$ løs $\\to$ bekreft maksimum, som bærer oppgave 1a–c.\n- **[kap. 2.5](/bok/stk1110/stk1110-2-5)** — transformasjons-pivoten $2\\sum X_i/\\theta\\sim\\chi^2_{2n}$, eksakt KI og eksakt ensidig test, som bærer oppgave 1d–f.\n- **[kap. 2.3](/bok/stk1110/stk1110-2-3)** — parvise data redusert til differanser og to-utvalgs andelstest med pooled $\\hat p$, som bærer oppgave 2.\n- **[kap. 2.6](/bok/stk1110/stk1110-2-6)** — de ikke-parametriske alternativene når normalitetsantakelsen svikter (oppgave 2e).\n- **[kap. 3.2](/bok/stk1110/stk1110-3-2)** — å lese lm-sammendraget, og **[kap. 3.4](/bok/stk1110/stk1110-3-4)** — de tre diagnoseplottene, for oppgave 3.\n- **[kap. 3.5](/bok/stk1110/stk1110-3-5)** — konfidensintervall for forventet respons kontra prediksjonsintervall, som bærer oppgave 3d–f.\n\nEksponensialfordelingens $E(X)=\\theta$, $V(X)=\\theta^2$ og gamma/kjikvadrat-koblingen er STK1100-stoff; [kap. 0.2](/bok/stk1110/stk1110-0-2) frisker dem opp."
+     "id": "stk1110-4-4-los1-c",
+     "type": "text",
+     "content": "**c) Forventningsretthet og varians.** Med $E(X_i)=\\theta$:\n$$E(\\hat\\theta)=E(\\bar X)=\\frac1n\\sum_{i=1}^n E(X_i)=\\theta,$$\nså $\\hat\\theta$ er forventningsrett. Uavhengighet og $V(X_i)=\\theta^2$ gir\n$$V(\\hat\\theta)=\\frac{1}{n^2}\\sum_{i=1}^n V(X_i)=\\frac{\\theta^2}{n}.$$\nMerk at standardavviket $\\theta/\\sqrt n$ avhenger av parameteren selv — nettopp derfor foretrekkes den eksakte pivoten fremfor et symmetrisk Wald-intervall i (e)."
     },
     {
-      "id": "stk1110-4-4-o1",
-      "type": "text",
-      "content": "## Oppgavesettet\n\n**Oppgave 1 — Estimering og eksakt pivot for en eksponensial-forventning (a–f)**\n\nTiden mellom stopp på en pakkerobot antas eksponensialfordelt: $X_1,\\dots,X_n$ uavhengige med tetthet\n$$f(x;\\theta)=\\frac{1}{\\theta}e^{-x/\\theta},\\qquad x>0,$$\nder $\\theta=E(X_i)$ er forventet tid mellom stopp (timer). For $n=12$ registrerte mellomtider er $\\sum_{i=1}^{12} x_i=96{,}0$ timer. Fra STK1100: $E(X_i)=\\theta$ og $V(X_i)=\\theta^2$ (repetert i [kap. 0.2](/bok/stk1110/stk1110-0-2)).\n\n**a)** Sett opp likelihoodfunksjonen $L(\\theta)$ og log-likelihooden $\\ell(\\theta)$.\n\n**b)** Utled scorefunksjonen, løs scoreligningen og vis at ML-estimatoren er $\\hat\\theta=\\bar X$. Bekreft at løsningen er et maksimumspunkt.\n\n**c)** Vis at $\\hat\\theta$ er forventningsrett, og finn $V(\\hat\\theta)$.\n\n**d)** Forklar hvorfor størrelsen\n$$W(\\theta)=\\frac{2\\sum_{i=1}^n X_i}{\\theta}$$\ner kjikvadratfordelt med $2n$ frihetsgrader, og hvorfor den dermed er en pivot. (Hint: summen av $n$ uavhengige eksponensialer er gamma-fordelt.)\n\n**e)** Bruk pivoten til å utlede et eksakt 95 %-konfidensintervall for $\\theta$, og regn det ut. Kommenter intervallets form rundt punktestimatet. Oppgitt: $\\chi^2_{24,\\,0{,}025}=39{,}36$ og $\\chi^2_{24,\\,0{,}975}=12{,}40$.\n\n**f)** Produsenten av roboten oppgir at gammel programvare ga $\\theta=5$ timer mellom stopp, og driftsavdelingen mener den nye programvaren har økt tiden. Gjennomfør en eksakt test av $H_0:\\theta=5$ mot $H_a:\\theta>5$ på 5 %-nivå, med komplett rituale og P-verdi. Oppgitt: $\\chi^2_{24,\\,0{,}05}=36{,}42$ og $P(\\chi^2_{24}>38{,}4)=0{,}032$."
+     "id": "stk1110-4-4-los1-d",
+     "type": "text",
+     "content": "**d) Pivoten og fordelingen.** Summen av $n$ uavhengige eksponensialer med forventning $\\theta$ er gamma-fordelt: $\\sum X_i\\sim\\text{gamma}(n,\\theta)$ (skala). Skalering av en gammavariabel skalerer skalaparameteren, så\n$$W(\\theta)=\\frac{2}{\\theta}\\sum_{i=1}^n X_i\\ \\sim\\ \\text{gamma}\\!\\left(n,\\,2\\right)=\\chi^2_{2n},$$\nsiden kjikvadratfordelingen med $\\nu$ frihetsgrader er gamma$(\\nu/2,\\ 2)$ — her $\\nu/2=n$, altså $\\nu=2n$ (ikke $n$!). $W(\\theta)$ inneholder både data og parameter, men fordelingen $\\chi^2_{2n}$ er fri for $\\theta$ — det er definisjonen av en pivot: kvantilene kan leses av uten å kjenne $\\theta$, og ulikheten kan løses for $\\theta$. Her: $2n=24$ frihetsgrader."
     },
     {
-      "id": "stk1110-4-4-o2",
-      "type": "text",
-      "content": "**Oppgave 2 — Parvise data og andeler (a–e)**\n\nEt byggelaboratorium sammenligner et nytt håndholdt instrument med den etablerte laboratoriemetoden for trykkfasthet i betong. **De samme ni prøvestykkene** måles med begge metoder, og differansene $d_i=$ håndholdt $-$ laboratorium (MPa) er\n\n$$0{,}8\\quad -0{,}3\\quad 1{,}2\\quad 0{,}5\\quad 0{,}9\\quad 0{,}2\\quad 1{,}1\\quad -0{,}1\\quad 0{,}6$$\n\nOppgitt: $\\bar d=0{,}5444$, $s_D=0{,}5223$, $t_{8,\\,0{,}025}=2{,}306$ og $P(T_8>3{,}13)\\approx 0{,}007$.\n\n**a)** Forklar hvorfor dette skal analyseres som *parvise* data og ikke med en to-utvalgs t-test, og sett opp modellen for differansene.\n\n**b)** Test på 5 %-nivå om metodene har samme forventning, med komplett rituale: hypoteser, observator med fordeling, begrunnelse for nivået, tallfesting med P-verdi (definér den i ord) og konklusjon i kontekst.\n\n**c)** Angi et 95 %-konfidensintervall for forventet differanse $\\mu_D$, og bruk dualiteten som kryssjekk mot (b).\n\n**d)** Samme laboratorium innførte i fjor et nytt kontrollsystem for leveranser. Før omleggingen ble 30 av 120 leveranser reklamert; etter ble 24 av 150 reklamert. Test på 5 %-nivå om reklamasjonsandelen var *høyere* før enn etter ($H_a:p_1>p_2$), med pooled andel og komplett rituale. Oppgitt: $z_{0{,}05}=1{,}645$ og $P(Z>1{,}84)\\approx 0{,}033$.\n\n**e)** Et QQ-plott av de ni differansene i (a)–(c) viser at de to negative differansene ligger klart under referanselinja i nedre hale (beskrevet i ord — tegn ikke). Hvilken test er det naturlige alternativet hvis normalitetsantakelsen ikke kan forsvares, og hva tester den?"
+     "id": "stk1110-4-4-los1-e",
+     "type": "text",
+     "content": "**e) Eksakt konfidensintervall.** Med øvre-hale-kvantiler er\n$$P\\!\\left(\\chi^2_{24,\\,0{,}975}<\\frac{2\\sum X_i}{\\theta}<\\chi^2_{24,\\,0{,}025}\\right)=0{,}95.$$\n$\\theta$ står i nevneren, så når ulikhetene løses for $\\theta$ bytter kvantilene plass — stor kvantil gir nedre grense:\n$$\\left[\\ \\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}025}},\\ \\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}975}}\\ \\right]=\\left[\\frac{192{,}0}{39{,}36},\\ \\frac{192{,}0}{12{,}40}\\right]=[4{,}88,\\ 15{,}48]\\ \\text{timer.}$$\nIntervallet er **asymmetrisk** om $\\hat\\theta=8{,}0$: det strekker seg 3,12 ned, men 7,48 opp. Det er riktig, ikke en regnefeil — kjikvadratfordelingen er skjev, og et eksakt intervall arver skjevheten."
     },
     {
-      "id": "stk1110-4-4-o3",
-      "type": "text",
-      "content": "**Oppgave 3 — Enkel regresjon: diagnostikk og prediksjon (a–f)**\n\nEt lakkeringsverksted undersøker hvordan relativ luftfuktighet påvirker tørketiden for billakk. For $n=15$ lakkeringer er tørketid $y$ (minutter) og luftfuktighet $x$ (%) registrert; fuktigheten i datasettet spenner fra 30 til 70 %. Tilpasningen gir:\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  18.5925      2.4983    7.442  4.89e-06 fuktighet     0.8270      0.0475   17.414  2.16e-10\n---\nResidual standard error: 2.2246 on 13 degrees of freedom\nMultiple R-squared:  0.9589,   Adjusted R-squared:  0.9557\nF-statistic: 303.2 on 1 and 13 DF,  p-value: 2.16e-10\n```\n\nOppgitt: $\\bar x=51{,}2$, $S_{xx}=\\sum(x_i-\\bar x)^2=2194{,}4$ og $t_{13,\\,0{,}025}=2{,}160$.\n\n**a)** Skriv opp regresjonsmodellen med antakelser, tolk begge koeffisientestimatene i kontekst, og forklar hvordan frihetsgradstallet 13 fremkommer.\n\n**b)** Test på 5 %-nivå om fuktigheten påvirker forventet tørketid, og angi et 95 %-konfidensintervall for stigningstallet.\n\n**c)** Diagnostikken beskrives slik (i ord): residualene mot tilpassede verdier danner en strukturløs sky rundt null; QQ-plottet følger referanselinja tett i hele området; scale–location-kurven er tilnærmet flat. Vurder modellantakelsene ut fra dette — plott for plott.\n\n**d)** Verkstedet skal planlegge en dag med luftfuktighet $x_0=50$ %. Angi et 95 %-konfidensintervall for **forventet** tørketid ved $x_0=50$.\n\n**e)** Angi deretter et 95 %-**prediksjonsintervall** for tørketiden til **én enkelt** lakkering ved $x_0=50$. Forklar hvorfor dette intervallet er bredere enn intervallet i (d), og pek på leddet i formelen som gjør forskjellen.\n\n**f)** En kunde spør hva tørketiden blir i et fuktkammer med $x_0=90$ %. Hvilket forbehold må du ta, og hvorfor?"
+     "id": "stk1110-4-4-los1-f",
+     "type": "text",
+     "content": "**f) Eksakt ensidig test — komplett rituale.**\n\n**1. Hypoteser:** $H_0:\\theta=5$ mot $H_a:\\theta>5$ (driftsavdelingen hevder *lengre* tid mellom stopp — retningen er begrunnet i påstanden som skal etterprøves).\n\n**2. Observator:** $W=2\\sum X_i/5$, som under $H_0$ er $\\chi^2_{24}$-fordelt (fra (d) med $\\theta=\\theta_0=5$).\n\n**3. Nivå:** stor $\\theta$ gir i snitt store $X_i$ og dermed stor $W$, så vi forkaster for **store** verdier: forkast når $W>\\chi^2_{24,\\,0{,}05}=36{,}42$. Da er $P(\\text{forkast}\\mid H_0)=P(\\chi^2_{24}>\\chi^2_{24,\\,0{,}05})=0{,}05$ per definisjon av kvantilen — nivået er *eksakt* 5 %, uten normaltilnærming.\n\n**4. Tallfesting:** $W=2\\cdot 96{,}0/5=38{,}4>36{,}42$: forkast $H_0$. P-verdien er sannsynligheten, beregnet under $H_0$, for en observatorverdi minst like ekstrem som den observerte: $P(\\chi^2_{24}>38{,}4)=0{,}032<0{,}05$.\n\n**5. Konklusjon i ord:** På 5 %-nivå er det belegg for at den nye programvaren har økt forventet tid mellom stopp utover 5 timer."
     },
     {
-      "id": "stk1110-4-4-los1",
-      "type": "collapsible",
-      "title": "Løsningsforslag oppgave 1",
-      "buttonText": "Vis løsningsforslag",
-      "content": [
-        {
-          "id": "stk1110-4-4-los1-ab",
-          "type": "text",
-          "content": "**a) Likelihood og log-likelihood.** La $s=\\sum_{i=1}^n x_i$. Uavhengighet gir\n$$L(\\theta)=\\prod_{i=1}^{n}\\frac{1}{\\theta}e^{-x_i/\\theta}=\\theta^{-n}e^{-s/\\theta},$$\n$$\\ell(\\theta)=\\ln L(\\theta)=-n\\ln\\theta-\\frac{s}{\\theta}.$$\n\n**b) Score, løsning og maksimums-bekreftelse.** Scorefunksjonen:\n$$\\ell'(\\theta)=-\\frac{n}{\\theta}+\\frac{s}{\\theta^2}.$$\nScoreligningen $\\ell'(\\theta)=0$ gir $\\theta=s/n$, altså estimatoren $\\hat\\theta=\\bar X$. Andrederiverte:\n$$\\ell''(\\theta)=\\frac{n}{\\theta^2}-\\frac{2s}{\\theta^3},\\qquad \\ell''(\\hat\\theta)=\\frac{n\\hat\\theta-2s}{\\hat\\theta^3}=\\frac{-s}{\\hat\\theta^3}<0,$$\n(siden $n\\hat\\theta=s$), så løsningen er et maksimum. Med tallene: $\\hat\\theta=96{,}0/12=8{,}0$ timer (estimatet)."
-        },
-        {
-          "id": "stk1110-4-4-los1-c",
-          "type": "text",
-          "content": "**c) Forventningsretthet og varians.** Med $E(X_i)=\\theta$:\n$$E(\\hat\\theta)=E(\\bar X)=\\frac1n\\sum_{i=1}^n E(X_i)=\\theta,$$\nså $\\hat\\theta$ er forventningsrett. Uavhengighet og $V(X_i)=\\theta^2$ gir\n$$V(\\hat\\theta)=\\frac{1}{n^2}\\sum_{i=1}^n V(X_i)=\\frac{\\theta^2}{n}.$$\nMerk at standardavviket $\\theta/\\sqrt n$ avhenger av parameteren selv — nettopp derfor foretrekkes den eksakte pivoten fremfor et symmetrisk Wald-intervall i (e)."
-        },
-        {
-          "id": "stk1110-4-4-los1-d",
-          "type": "text",
-          "content": "**d) Pivoten og fordelingen.** Summen av $n$ uavhengige eksponensialer med forventning $\\theta$ er gamma-fordelt: $\\sum X_i\\sim\\text{gamma}(n,\\theta)$ (skala). Skalering av en gammavariabel skalerer skalaparameteren, så\n$$W(\\theta)=\\frac{2}{\\theta}\\sum_{i=1}^n X_i\\ \\sim\\ \\text{gamma}\\!\\left(n,\\,2\\right)=\\chi^2_{2n},$$\nsiden kjikvadratfordelingen med $\\nu$ frihetsgrader er gamma$(\\nu/2,\\ 2)$ — her $\\nu/2=n$, altså $\\nu=2n$ (ikke $n$!). $W(\\theta)$ inneholder både data og parameter, men fordelingen $\\chi^2_{2n}$ er fri for $\\theta$ — det er definisjonen av en pivot: kvantilene kan leses av uten å kjenne $\\theta$, og ulikheten kan løses for $\\theta$. Her: $2n=24$ frihetsgrader."
-        },
-        {
-          "id": "stk1110-4-4-los1-e",
-          "type": "text",
-          "content": "**e) Eksakt konfidensintervall.** Med øvre-hale-kvantiler er\n$$P\\!\\left(\\chi^2_{24,\\,0{,}975}<\\frac{2\\sum X_i}{\\theta}<\\chi^2_{24,\\,0{,}025}\\right)=0{,}95.$$\n$\\theta$ står i nevneren, så når ulikhetene løses for $\\theta$ bytter kvantilene plass — stor kvantil gir nedre grense:\n$$\\left[\\ \\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}025}},\\ \\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}975}}\\ \\right]=\\left[\\frac{192{,}0}{39{,}36},\\ \\frac{192{,}0}{12{,}40}\\right]=[4{,}88,\\ 15{,}48]\\ \\text{timer.}$$\nIntervallet er **asymmetrisk** om $\\hat\\theta=8{,}0$: det strekker seg 3,12 ned, men 7,48 opp. Det er riktig, ikke en regnefeil — kjikvadratfordelingen er skjev, og et eksakt intervall arver skjevheten."
-        },
-        {
-          "id": "stk1110-4-4-los1-f",
-          "type": "text",
-          "content": "**f) Eksakt ensidig test — komplett rituale.**\n\n**1. Hypoteser:** $H_0:\\theta=5$ mot $H_a:\\theta>5$ (driftsavdelingen hevder *lengre* tid mellom stopp — retningen er begrunnet i påstanden som skal etterprøves).\n\n**2. Observator:** $W=2\\sum X_i/5$, som under $H_0$ er $\\chi^2_{24}$-fordelt (fra (d) med $\\theta=\\theta_0=5$).\n\n**3. Nivå:** stor $\\theta$ gir i snitt store $X_i$ og dermed stor $W$, så vi forkaster for **store** verdier: forkast når $W>\\chi^2_{24,\\,0{,}05}=36{,}42$. Da er $P(\\text{forkast}\\mid H_0)=P(\\chi^2_{24}>\\chi^2_{24,\\,0{,}05})=0{,}05$ per definisjon av kvantilen — nivået er *eksakt* 5 %, uten normaltilnærming.\n\n**4. Tallfesting:** $W=2\\cdot 96{,}0/5=38{,}4>36{,}42$: forkast $H_0$. P-verdien er sannsynligheten, beregnet under $H_0$, for en observatorverdi minst like ekstrem som den observerte: $P(\\chi^2_{24}>38{,}4)=0{,}032<0{,}05$.\n\n**5. Konklusjon i ord:** På 5 %-nivå er det belegg for at den nye programvaren har økt forventet tid mellom stopp utover 5 timer."
-        },
-        {
-          "id": "stk1110-4-4-los1-tip",
-          "type": "tip",
-          "title": "Delpoeng og vanligste trekk — oppgave 1",
-          "content": "**Vekting:** (a)–(c) er rutinepoeng fra ML-kjeden; (d)–(f) er settets eksakt-fordelingsdel og teller tyngst. Selve pivot-resultatet kan hentes fra formelsamlingen — poengene sitter i riktige frihetsgrader, riktig kvantilplassering og ritualet.\n\n**Vanligste trekk her:**\n- **Feil frihetsgrader i pivoten:** $n$ eller $n-1$ i stedet for $2n=24$. Gamma/kjikvadrat-koblingen i (d) er nettopp begrunnelsen for 24.\n- Plassere kvantilene feil i (e): $\\theta$ i nevneren snur ulikhetene, så den *store* kvantilen gir *nedre* grense.\n- «Rette» det asymmetriske intervallet til å bli symmetrisk om $\\hat\\theta$ — asymmetrien er en egenskap, ikke en feil.\n- Hoppe over nivå-begrunnelsen i (f) — det må stå hvorfor regelen gir nøyaktig 5 %."
-        }
-      ]
-    },
-    {
-      "id": "stk1110-4-4-los2",
-      "type": "collapsible",
-      "title": "Løsningsforslag oppgave 2",
-      "buttonText": "Vis løsningsforslag",
-      "content": [
-        {
-          "id": "stk1110-4-4-los2-a",
-          "type": "text",
-          "content": "**a) Hvorfor parvis.** De to målingene på samme prøvestykke deler alt som er spesielt med akkurat det stykket (sammensetning, herding, fukt) og er derfor *avhengige* — antakelsen bak to-utvalgs t-testen om to uavhengige utvalg er brutt. Paringen utnyttes ved å redusere til én serie differanser, der prøvestykke-variasjonen kansellerer:\n$$D_i=X_{i,\\text{hånd}}-X_{i,\\text{lab}},\\qquad D_1,\\dots,D_9\\ \\text{uavhengige},\\quad D_i\\sim N(\\mu_D,\\sigma_D^2).$$\nSpørsmålet «samme forventning?» blir da $\\mu_D=0$ — en ett-utvalgs t-situasjon med $n=9$."
-        },
-        {
-          "id": "stk1110-4-4-los2-b",
-          "type": "text",
-          "content": "**b) Testen — komplett rituale.**\n\n**1. Hypoteser:** $H_0:\\mu_D=0$ mot $H_a:\\mu_D\\ne 0$ (ingen forhåndsgrunn til å vente avvik i én bestemt retning).\n\n**2. Observator:** $T=\\dfrac{\\bar D-0}{S_D/\\sqrt n}$, som under $H_0$ er $t_{n-1}=t_8$-fordelt ($\\sigma_D$ er estimert med $S_D$, derfor t og ikke z, med $n-1=8$ frihetsgrader — ikke $9+9-2=16$).\n\n**3. Nivå:** forkast når $|T|>t_{8,\\,0{,}025}=2{,}306$; da er $P(|T|>t_{8,\\,0{,}025}\\mid H_0)=2\\cdot 0{,}025=0{,}05$.\n\n**4. Tallfesting:** $se=s_D/\\sqrt 9=0{,}5223/3=0{,}1741$ og\n$$t=\\frac{0{,}5444}{0{,}1741}=3{,}13>2{,}306:\\ \\text{forkast }H_0.$$\nP-verdien — sannsynligheten under $H_0$ for en t-verdi minst like ekstrem som den observerte, i begge retninger — er $2\\cdot P(T_8>3{,}13)\\approx 2\\cdot 0{,}007=0{,}014<0{,}05$.\n\n**5. Konklusjon i ord:** På 5 %-nivå er det belegg for en systematisk forskjell mellom metodene; det håndholdte instrumentet måler i snitt høyere enn laboratoriemetoden."
-        },
-        {
-          "id": "stk1110-4-4-los2-c",
-          "type": "text",
-          "content": "**c) Konfidensintervall og dualitet.** 95 %-KI for $\\mu_D$:\n$$\\bar d\\pm t_{8,\\,0{,}025}\\cdot\\frac{s_D}{\\sqrt n}=0{,}5444\\pm 2{,}306\\cdot 0{,}1741=0{,}5444\\pm 0{,}4015=[0{,}14,\\ 0{,}95]\\ \\text{MPa.}$$\nNull ligger utenfor intervallet — nøyaktig samme konklusjon som testen i (b), slik dualiteten mellom tosidig test og KI krever. Intervallet sier i tillegg *hvor stor* forskjellen plausibelt er: mellom ca. 0,14 og 0,95 MPa."
-        },
-        {
-          "id": "stk1110-4-4-los2-d",
-          "type": "text",
-          "content": "**d) Andelstesten — komplett rituale.**\n\n**1. Hypoteser:** $H_0:p_1=p_2$ mot $H_a:p_1>p_2$ (påstanden som etterprøves er at reklamasjonsandelen var høyere *før*).\n\n**2. Observator:** med $\\hat p_1=30/120=0{,}25$, $\\hat p_2=24/150=0{,}16$ og pooled andel under $H_0$\n$$\\hat p=\\frac{30+24}{120+150}=\\frac{54}{270}=0{,}20,$$\n$$Z=\\frac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)\\left(\\frac{1}{n_1}+\\frac{1}{n_2}\\right)}},$$\nsom under $H_0$ er tilnærmet $N(0,1)$ (sentralgrenseteoremet; alle celletall er godt over 5). Pooling brukes fordi $H_0$ sier at de to andelene er samme ukjente $p$ — da er fellesestimatet det riktige i standardfeilen.\n\n**3. Nivå:** forkast når $Z>z_{0{,}05}=1{,}645$; da er $P(Z>z_{0{,}05}\\mid H_0)\\approx 0{,}05$.\n\n**4. Tallfesting:** $se=\\sqrt{0{,}20\\cdot 0{,}80\\cdot(1/120+1/150)}=0{,}0490$ og\n$$z=\\frac{0{,}25-0{,}16}{0{,}0490}=1{,}84>1{,}645:\\ \\text{forkast }H_0.$$\nP-verdien (ensidig) $=P(Z>1{,}84)\\approx 0{,}033<0{,}05$ — sannsynligheten under $H_0$ for en minst like stor observert differanse.\n\n**5. Konklusjon i ord:** På 5 %-nivå er det belegg for at reklamasjonsandelen var høyere før omleggingen enn etter."
-        },
-        {
-          "id": "stk1110-4-4-los2-e",
-          "type": "text",
-          "content": "**e) Når QQ-plottet svikter.** Det naturlige alternativet er **Wilcoxons fortegnsrangtest** (signed-rank) på differansene. Den bygger på fortegn og rangeringer i stedet for normalfordelte avvik, og krever bare at differansene er uavhengige med symmetrisk fordeling om et senter. Den tester $H_0:$ senteret (medianen) i differansefordelingen er 0 — altså «ingen systematisk metodeforskjell» — uten normalitetsantakelse, mot et lite tap i styrke når normaliteten faktisk holder."
-        },
-        {
-          "id": "stk1110-4-4-los2-tip",
-          "type": "tip",
-          "title": "Delpoeng og vanligste trekk — oppgave 2",
-          "content": "**Vekting:** valget parvis kontra to-utvalg i (a) er ofte selve sorteringspunktet i oppgaven — feil valg her forplanter seg gjennom (b) og (c). Ritualtrinnene i (b) og (d) gir delpoeng hver for seg.\n\n**Vanligste trekk her:**\n- **Behandle de parvise dataene som to uavhengige utvalg** med pooled varians og $9+9-2=16$ frihetsgrader — klassikeren. Riktig er differanser og $n-1=8$.\n- Glemme pooled $\\hat p$ i andelstesten, eller bruke pooling uten å begrunne hvorfor ($H_0$ sier felles $p$).\n- P-verdien «definert» som sannsynligheten for at $H_0$ er sann — den er sannsynligheten for *datautfallet* (minst like ekstremt), beregnet under $H_0$.\n- Konklusjon uten kontekst («forkast $H_0$» og ferdig) — siste ritualtrinn skal tilbake til metodene/leveransene."
-        }
-      ]
-    },
-    {
-      "id": "stk1110-4-4-los3",
-      "type": "collapsible",
-      "title": "Løsningsforslag oppgave 3",
-      "buttonText": "Vis løsningsforslag",
-      "content": [
-        {
-          "id": "stk1110-4-4-los3-a",
-          "type": "text",
-          "content": "**a) Modell, tolkning, frihetsgrader.** Modellen er\n$$Y_i=\\beta_0+\\beta_1 x_i+\\varepsilon_i,\\qquad \\varepsilon_i\\sim N(0,\\sigma^2)\\ \\text{uavhengige},$$\nmed $Y_i$ tørketid (minutter) og $x_i$ luftfuktighet (%). Tolkning: $\\hat\\beta_1=0{,}827$ — hvert prosentpoeng høyere luftfuktighet gir estimert $0{,}83$ minutter lengre forventet tørketid. $\\hat\\beta_0=18{,}59$ minutter er estimert forventet tørketid ved 0 % fuktighet — en matematisk forankring langt utenfor dataområdet (30–70 %), som ikke skal tolkes fysisk. Frihetsgradene: $n-2=15-2=13$, siden to parametere ($\\beta_0,\\beta_1$) er estimert i residualene."
-        },
-        {
-          "id": "stk1110-4-4-los3-b",
-          "type": "text",
-          "content": "**b) Test og KI for stigningstallet.** $H_0:\\beta_1=0$ mot $H_a:\\beta_1\\ne 0$; observator $T=\\hat\\beta_1/se(\\hat\\beta_1)\\sim t_{13}$ under $H_0$. Fra utskriften: $t=0{,}8270/0{,}0475=17{,}41$ med P-verdi $2{,}16\\cdot 10^{-10}$ — sannsynligheten under $H_0$ for en minst like ekstrem t-verdi (tosidig). Siden $17{,}41>2{,}160$: forkast; fuktigheten påvirker forventet tørketid. 95 %-KI:\n$$0{,}8270\\pm 2{,}160\\cdot 0{,}0475=0{,}8270\\pm 0{,}1026=[0{,}72,\\ 0{,}93]\\ \\text{minutter per prosentpoeng.}$$"
-        },
-        {
-          "id": "stk1110-4-4-los3-c",
-          "type": "text",
-          "content": "**c) Diagnostikk, plott for plott.**\n\n- **Residualer mot tilpassede verdier — strukturløs sky rundt null:** ingen bue (lineariteten holder) og ingen vifte (variansen er stabil). Antakelsen $E(\\varepsilon_i)=0$ med konstant spredning støttes.\n- **QQ-plott tett på referanselinja:** residualfordelingen er forenlig med normalitet — t-kvantilene i (b), (d) og (e) kan brukes med god samvittighet ved $n=15$.\n- **Flat scale–location-kurve:** bekrefter homoskedastisiteten med skarpere lupe enn råresidualplottet.\n\nSamlet: ingen av de tre plottene varsler brudd, så modellen kan brukes videre til intervallene i (d)–(e). Merk formen på svaret: hvert plott vurderes mot *mønsteret* det er designet for å avsløre — ikke et samlet «ser greit ut»."
-        },
-        {
-          "id": "stk1110-4-4-los3-d",
-          "type": "text",
-          "content": "**d) KI for forventet tørketid ved $x_0=50$.** Punktanslag:\n$$\\hat y_0=18{,}5925+0{,}8270\\cdot 50=59{,}94\\ \\text{minutter.}$$\nStandardfeilen for *forventningen* $E(Y\\mid x_0)$:\n$$se(\\hat y_0)=\\hat\\sigma\\sqrt{\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}=2{,}2246\\sqrt{\\frac{1}{15}+\\frac{(50-51{,}2)^2}{2194{,}4}}=0{,}577.$$\n95 %-KI: $59{,}94\\pm 2{,}160\\cdot 0{,}577=59{,}94\\pm 1{,}25=[58{,}69,\\ 61{,}19]$ minutter. Dette intervallet fanger usikkerheten i *linja* — hvor gjennomsnittstørketiden ligger ved 50 % fuktighet."
-        },
-        {
-          "id": "stk1110-4-4-los3-e",
-          "type": "text",
-          "content": "**e) Prediksjonsintervall for én lakkering.** For en *enkelt ny* observasjon kommer det individuelle støyleddet $\\varepsilon_0$ på toppen av usikkerheten i linja — derfor et ekstra 1-tall under rottegnet:\n$$se_{\\text{pred}}=\\hat\\sigma\\sqrt{1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}=2{,}2246\\sqrt{1+0{,}0673}=2{,}298.$$\n95 %-PI: $59{,}94\\pm 2{,}160\\cdot 2{,}298=59{,}94\\pm 4{,}96=[54{,}98,\\ 64{,}91]$ minutter. Intervallet er markant bredere enn KI-et i (d) (±4,96 mot ±1,25 — omtrent fire ganger): KI-et skal bare treffe *gjennomsnittet*, PI-et skal treffe *én enkelt* lakkering, og enkeltobservasjoner spres med hele $\\sigma$ rundt linja. Det er «$1+$»-leddet som bærer forskjellen, og det forsvinner ikke når $n$ vokser — PI-bredden er nedad begrenset av $2t\\hat\\sigma$."
-        },
-        {
-          "id": "stk1110-4-4-los3-f",
-          "type": "text",
-          "content": "**f) Ekstrapoleringsforbeholdet.** Dataene dekker luftfuktighet fra 30 til 70 %; $x_0=90$ ligger langt utenfor. To problemer: (i) det finnes ingen data som kan bekrefte at sammenhengen fortsatt er lineær der ute — fysisk kan tørking i metningsnær luft oppføre seg helt annerledes; (ii) selv om linja skulle holde, vokser $(x_0-\\bar x)^2/S_{xx}$-leddet kraftig, så intervallene blir svært brede. Et eventuelt svar må merkes som ekstrapolering med ukjent modellgyldighet — det ryddige rådet til kunden er å samle målinger i fuktområdet rundt 90 % før man lover noe."
-        },
-        {
-          "id": "stk1110-4-4-los3-tip",
-          "type": "tip",
-          "title": "Delpoeng og vanligste trekk — oppgave 3",
-          "content": "**Vekting:** regresjonsoppgaven bærer gjerne mest poeng i settet. (a)–(b) er tallpoeng rett fra utskriften; skillet KI/PI i (d)–(e) er blant de mest brukte differensiatorene i hele pensumet.\n\n**Vanligste trekk her:**\n- **Forveksle konfidens- og prediksjonsintervall:** oppgir KI-et for forventningen når det spørres om én ny observasjon (eller omvendt). Sjekkpunkt: «forventet/gjennomsnittlig» → KI; «én ny/neste» → PI med $1+$-leddet.\n- Tolke konstantleddet fysisk ved $x=0$ % når dataene starter på 30 %.\n- Svare på 90 %-spørsmålet med et tall uten ekstrapoleringsforbehold.\n- Diagnostikk besvart med «ser greit ut» uten å knytte hvert plott til antakelsen det tester."
-        }
-      ]
+     "id": "stk1110-4-4-los1-tip",
+     "type": "tip",
+     "title": "Delpoeng og vanligste trekk — oppgave 1",
+     "content": "**Vekting:** (a)–(c) er rutinepoeng fra ML-kjeden; (d)–(f) er settets eksakt-fordelingsdel og teller tyngst. Selve pivot-resultatet kan hentes fra formelsamlingen — poengene sitter i riktige frihetsgrader, riktig kvantilplassering og ritualet.\n\n**Vanligste trekk her:**\n- **Feil frihetsgrader i pivoten:** $n$ eller $n-1$ i stedet for $2n=24$. Gamma/kjikvadrat-koblingen i (d) er nettopp begrunnelsen for 24.\n- Plassere kvantilene feil i (e): $\\theta$ i nevneren snur ulikhetene, så den *store* kvantilen gir *nedre* grense.\n- «Rette» det asymmetriske intervallet til å bli symmetrisk om $\\hat\\theta$ — asymmetrien er en egenskap, ikke en feil.\n- Hoppe over nivå-begrunnelsen i (f) — det må stå hvorfor regelen gir nøyaktig 5 %."
     }
-  ],
-  "exercises": []
+   ]
+  },
+  {
+   "id": "stk1110-4-4-los2",
+   "type": "collapsible",
+   "title": "Løsningsforslag oppgave 2",
+   "buttonText": "Vis løsningsforslag",
+   "content": [
+    {
+     "id": "stk1110-4-4-los2-a",
+     "type": "text",
+     "content": "**a) Hvorfor parvis.** De to målingene på samme prøvestykke deler alt som er spesielt med akkurat det stykket (sammensetning, herding, fukt) og er derfor *avhengige* — antakelsen bak to-utvalgs t-testen om to uavhengige utvalg er brutt. Paringen utnyttes ved å redusere til én serie differanser, der prøvestykke-variasjonen kansellerer:\n$$D_i=X_{i,\\text{hånd}}-X_{i,\\text{lab}},\\qquad D_1,\\dots,D_9\\ \\text{uavhengige},\\quad D_i\\sim N(\\mu_D,\\sigma_D^2).$$\nSpørsmålet «samme forventning?» blir da $\\mu_D=0$ — en ett-utvalgs t-situasjon med $n=9$."
+    },
+    {
+     "id": "stk1110-4-4-los2-b",
+     "type": "text",
+     "content": "**b) Testen — komplett rituale.**\n\n**1. Hypoteser:** $H_0:\\mu_D=0$ mot $H_a:\\mu_D\\ne 0$ (ingen forhåndsgrunn til å vente avvik i én bestemt retning).\n\n**2. Observator:** $T=\\dfrac{\\bar D-0}{S_D/\\sqrt n}$, som under $H_0$ er $t_{n-1}=t_8$-fordelt ($\\sigma_D$ er estimert med $S_D$, derfor t og ikke z, med $n-1=8$ frihetsgrader — ikke $9+9-2=16$).\n\n**3. Nivå:** forkast når $|T|>t_{8,\\,0{,}025}=2{,}306$; da er $P(|T|>t_{8,\\,0{,}025}\\mid H_0)=2\\cdot 0{,}025=0{,}05$.\n\n**4. Tallfesting:** $se=s_D/\\sqrt 9=0{,}5223/3=0{,}1741$ og\n$$t=\\frac{0{,}5444}{0{,}1741}=3{,}13>2{,}306:\\ \\text{forkast }H_0.$$\nP-verdien — sannsynligheten under $H_0$ for en t-verdi minst like ekstrem som den observerte, i begge retninger — er $2\\cdot P(T_8>3{,}13)\\approx 2\\cdot 0{,}007=0{,}014<0{,}05$.\n\n**5. Konklusjon i ord:** På 5 %-nivå er det belegg for en systematisk forskjell mellom metodene; det håndholdte instrumentet måler i snitt høyere enn laboratoriemetoden."
+    },
+    {
+     "id": "stk1110-4-4-los2-c",
+     "type": "text",
+     "content": "**c) Konfidensintervall og dualitet.** 95 %-KI for $\\mu_D$:\n$$\\bar d\\pm t_{8,\\,0{,}025}\\cdot\\frac{s_D}{\\sqrt n}=0{,}5444\\pm 2{,}306\\cdot 0{,}1741=0{,}5444\\pm 0{,}4015=[0{,}14,\\ 0{,}95]\\ \\text{MPa.}$$\nNull ligger utenfor intervallet — nøyaktig samme konklusjon som testen i (b), slik dualiteten mellom tosidig test og KI krever. Intervallet sier i tillegg *hvor stor* forskjellen plausibelt er: mellom ca. 0,14 og 0,95 MPa."
+    },
+    {
+     "id": "stk1110-4-4-los2-d",
+     "type": "text",
+     "content": "**d) Andelstesten — komplett rituale.**\n\n**1. Hypoteser:** $H_0:p_1=p_2$ mot $H_a:p_1>p_2$ (påstanden som etterprøves er at reklamasjonsandelen var høyere *før*).\n\n**2. Observator:** med $\\hat p_1=30/120=0{,}25$, $\\hat p_2=24/150=0{,}16$ og pooled andel under $H_0$\n$$\\hat p=\\frac{30+24}{120+150}=\\frac{54}{270}=0{,}20,$$\n$$Z=\\frac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)\\left(\\frac{1}{n_1}+\\frac{1}{n_2}\\right)}},$$\nsom under $H_0$ er tilnærmet $N(0,1)$ (sentralgrenseteoremet; alle celletall er godt over 5). Pooling brukes fordi $H_0$ sier at de to andelene er samme ukjente $p$ — da er fellesestimatet det riktige i standardfeilen.\n\n**3. Nivå:** forkast når $Z>z_{0{,}05}=1{,}645$; da er $P(Z>z_{0{,}05}\\mid H_0)\\approx 0{,}05$.\n\n**4. Tallfesting:** $se=\\sqrt{0{,}20\\cdot 0{,}80\\cdot(1/120+1/150)}=0{,}0490$ og\n$$z=\\frac{0{,}25-0{,}16}{0{,}0490}=1{,}84>1{,}645:\\ \\text{forkast }H_0.$$\nP-verdien (ensidig) $=P(Z>1{,}84)\\approx 0{,}033<0{,}05$ — sannsynligheten under $H_0$ for en minst like stor observert differanse.\n\n**5. Konklusjon i ord:** På 5 %-nivå er det belegg for at reklamasjonsandelen var høyere før omleggingen enn etter."
+    },
+    {
+     "id": "stk1110-4-4-los2-e",
+     "type": "text",
+     "content": "**e) Når QQ-plottet svikter.** Det naturlige alternativet er **Wilcoxons fortegnsrangtest** (signed-rank) på differansene. Den bygger på fortegn og rangeringer i stedet for normalfordelte avvik, og krever bare at differansene er uavhengige med symmetrisk fordeling om et senter. Den tester $H_0:$ senteret (medianen) i differansefordelingen er 0 — altså «ingen systematisk metodeforskjell» — uten normalitetsantakelse, mot et lite tap i styrke når normaliteten faktisk holder."
+    },
+    {
+     "id": "stk1110-4-4-los2-tip",
+     "type": "tip",
+     "title": "Delpoeng og vanligste trekk — oppgave 2",
+     "content": "**Vekting:** valget parvis kontra to-utvalg i (a) er ofte selve sorteringspunktet i oppgaven — feil valg her forplanter seg gjennom (b) og (c). Ritualtrinnene i (b) og (d) gir delpoeng hver for seg.\n\n**Vanligste trekk her:**\n- **Behandle de parvise dataene som to uavhengige utvalg** med pooled varians og $9+9-2=16$ frihetsgrader — klassikeren. Riktig er differanser og $n-1=8$.\n- Glemme pooled $\\hat p$ i andelstesten, eller bruke pooling uten å begrunne hvorfor ($H_0$ sier felles $p$).\n- P-verdien «definert» som sannsynligheten for at $H_0$ er sann — den er sannsynligheten for *datautfallet* (minst like ekstremt), beregnet under $H_0$.\n- Konklusjon uten kontekst («forkast $H_0$» og ferdig) — siste ritualtrinn skal tilbake til metodene/leveransene."
+    }
+   ]
+  },
+  {
+   "id": "stk1110-4-4-los3",
+   "type": "collapsible",
+   "title": "Løsningsforslag oppgave 3",
+   "buttonText": "Vis løsningsforslag",
+   "content": [
+    {
+     "id": "stk1110-4-4-los3-a",
+     "type": "text",
+     "content": "**a) Modell, tolkning, frihetsgrader.** Modellen er\n$$Y_i=\\beta_0+\\beta_1 x_i+\\varepsilon_i,\\qquad \\varepsilon_i\\sim N(0,\\sigma^2)\\ \\text{uavhengige},$$\nmed $Y_i$ tørketid (minutter) og $x_i$ luftfuktighet (%). Tolkning: $\\hat\\beta_1=0{,}827$ — hvert prosentpoeng høyere luftfuktighet gir estimert $0{,}83$ minutter lengre forventet tørketid. $\\hat\\beta_0=18{,}59$ minutter er estimert forventet tørketid ved 0 % fuktighet — en matematisk forankring langt utenfor dataområdet (30–70 %), som ikke skal tolkes fysisk. Frihetsgradene: $n-2=15-2=13$, siden to parametere ($\\beta_0,\\beta_1$) er estimert i residualene."
+    },
+    {
+     "id": "stk1110-4-4-los3-b",
+     "type": "text",
+     "content": "**b) Test og KI for stigningstallet.** $H_0:\\beta_1=0$ mot $H_a:\\beta_1\\ne 0$; observator $T=\\hat\\beta_1/se(\\hat\\beta_1)\\sim t_{13}$ under $H_0$. Fra utskriften: $t=0{,}8270/0{,}0475=17{,}41$ med P-verdi $2{,}16\\cdot 10^{-10}$ — sannsynligheten under $H_0$ for en minst like ekstrem t-verdi (tosidig). Siden $17{,}41>2{,}160$: forkast; fuktigheten påvirker forventet tørketid. 95 %-KI:\n$$0{,}8270\\pm 2{,}160\\cdot 0{,}0475=0{,}8270\\pm 0{,}1026=[0{,}72,\\ 0{,}93]\\ \\text{minutter per prosentpoeng.}$$"
+    },
+    {
+     "id": "stk1110-4-4-los3-c",
+     "type": "text",
+     "content": "**c) Diagnostikk, plott for plott.**\n\n- **Residualer mot tilpassede verdier — strukturløs sky rundt null:** ingen bue (lineariteten holder) og ingen vifte (variansen er stabil). Antakelsen $E(\\varepsilon_i)=0$ med konstant spredning støttes.\n- **QQ-plott tett på referanselinja:** residualfordelingen er forenlig med normalitet — t-kvantilene i (b), (d) og (e) kan brukes med god samvittighet ved $n=15$.\n- **Flat scale–location-kurve:** bekrefter homoskedastisiteten med skarpere lupe enn råresidualplottet.\n\nSamlet: ingen av de tre plottene varsler brudd, så modellen kan brukes videre til intervallene i (d)–(e). Merk formen på svaret: hvert plott vurderes mot *mønsteret* det er designet for å avsløre — ikke et samlet «ser greit ut»."
+    },
+    {
+     "id": "stk1110-4-4-los3-d",
+     "type": "text",
+     "content": "**d) KI for forventet tørketid ved $x_0=50$.** Punktanslag:\n$$\\hat y_0=18{,}5925+0{,}8270\\cdot 50=59{,}94\\ \\text{minutter.}$$\nStandardfeilen for *forventningen* $E(Y\\mid x_0)$:\n$$se(\\hat y_0)=\\hat\\sigma\\sqrt{\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}=2{,}2246\\sqrt{\\frac{1}{15}+\\frac{(50-51{,}2)^2}{2194{,}4}}=0{,}577.$$\n95 %-KI: $59{,}94\\pm 2{,}160\\cdot 0{,}577=59{,}94\\pm 1{,}25=[58{,}69,\\ 61{,}19]$ minutter. Dette intervallet fanger usikkerheten i *linja* — hvor gjennomsnittstørketiden ligger ved 50 % fuktighet."
+    },
+    {
+     "id": "stk1110-4-4-los3-e",
+     "type": "text",
+     "content": "**e) Prediksjonsintervall for én lakkering.** For en *enkelt ny* observasjon kommer det individuelle støyleddet $\\varepsilon_0$ på toppen av usikkerheten i linja — derfor et ekstra 1-tall under rottegnet:\n$$se_{\\text{pred}}=\\hat\\sigma\\sqrt{1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}=2{,}2246\\sqrt{1+0{,}0673}=2{,}298.$$\n95 %-PI: $59{,}94\\pm 2{,}160\\cdot 2{,}298=59{,}94\\pm 4{,}96=[54{,}98,\\ 64{,}91]$ minutter. Intervallet er markant bredere enn KI-et i (d) (±4,96 mot ±1,25 — omtrent fire ganger): KI-et skal bare treffe *gjennomsnittet*, PI-et skal treffe *én enkelt* lakkering, og enkeltobservasjoner spres med hele $\\sigma$ rundt linja. Det er «$1+$»-leddet som bærer forskjellen, og det forsvinner ikke når $n$ vokser — PI-bredden er nedad begrenset av $2t\\hat\\sigma$."
+    },
+    {
+     "id": "stk1110-4-4-los3-f",
+     "type": "text",
+     "content": "**f) Ekstrapoleringsforbeholdet.** Dataene dekker luftfuktighet fra 30 til 70 %; $x_0=90$ ligger langt utenfor. To problemer: (i) det finnes ingen data som kan bekrefte at sammenhengen fortsatt er lineær der ute — fysisk kan tørking i metningsnær luft oppføre seg helt annerledes; (ii) selv om linja skulle holde, vokser $(x_0-\\bar x)^2/S_{xx}$-leddet kraftig, så intervallene blir svært brede. Et eventuelt svar må merkes som ekstrapolering med ukjent modellgyldighet — det ryddige rådet til kunden er å samle målinger i fuktområdet rundt 90 % før man lover noe."
+    },
+    {
+     "id": "stk1110-4-4-los3-tip",
+     "type": "tip",
+     "title": "Delpoeng og vanligste trekk — oppgave 3",
+     "content": "**Vekting:** regresjonsoppgaven bærer gjerne mest poeng i settet. (a)–(b) er tallpoeng rett fra utskriften; skillet KI/PI i (d)–(e) er blant de mest brukte differensiatorene i hele pensumet.\n\n**Vanligste trekk her:**\n- **Forveksle konfidens- og prediksjonsintervall:** oppgir KI-et for forventningen når det spørres om én ny observasjon (eller omvendt). Sjekkpunkt: «forventet/gjennomsnittlig» → KI; «én ny/neste» → PI med $1+$-leddet.\n- Tolke konstantleddet fysisk ved $x=0$ % når dataene starter på 30 %.\n- Svare på 90 %-spørsmålet med et tall uten ekstrapoleringsforbehold.\n- Diagnostikk besvart med «ser greit ut» uten å knytte hvert plott til antakelsen det tester."
+    }
+   ]
+  }
+ ],
+ "exercises": []
 }

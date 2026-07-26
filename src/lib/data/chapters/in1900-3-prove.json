@@ -1,266 +1,266 @@
 {
-  "id": "in1900-3-prove",
-  "courseId": "in1900",
-  "chapterNumber": "3.P",
-  "title": "Prøver til del 3: Funksjoner, testing og rekker",
-  "description": "Fire prøver med full fasit: testfunksjoner og toleranser, rekke-implementering, rekurrente rekker løst med løkke, og en full oppgave på eksamensnivå.",
-  "estimatedMinutes": 135,
-  "competenceGoals": [
-    "kunne skrive en testfunksjon i sensors form under tidspress, med uavhengig fasit og begrunnet toleranse",
-    "kunne implementere en endelig rekke fra formel til kode uten å kjøre den",
-    "kunne kjenne igjen når en rekke er rekurrent, og løse den med løkke og to lagervariabler",
-    "kunne løse en flerdelt eksamensoppgave der sum, test, bruk og tabell inngår"
-  ],
-  "content": [
+ "id": "in1900-3-prove",
+ "courseId": "in1900",
+ "chapterNumber": "3.P",
+ "title": "Prøver til del 3: Funksjoner, testing og rekker",
+ "description": "Fire prøver med full fasit: testfunksjoner og toleranser, rekke-implementering, rekurrente rekker løst med løkke, og en full oppgave på eksamensnivå.",
+ "estimatedMinutes": 135,
+ "competenceGoals": [
+  "kunne skrive en testfunksjon i sensors form under tidspress, med uavhengig fasit og begrunnet toleranse",
+  "kunne implementere en endelig rekke fra formel til kode uten å kjøre den",
+  "kunne kjenne igjen når en rekke er rekurrent, og løse den med løkke og to lagervariabler",
+  "kunne løse en flerdelt eksamensoppgave der sum, test, bruk og tabell inngår"
+ ],
+ "content": [
+  {
+   "id": "in1900-3-prove-tip",
+   "type": "tip",
+   "title": "Om prøvene til del 3",
+   "content": "**Fire prøver à 25–40 minutter.** Prøvene dekker hele Del 3: testfunksjoner, rekkesummer og rekurrente rekker. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 3.A (25 min):** Testfunksjoner — skriv og vurder tester med `assert abs(...) < tol` (sjanger F — «skriv en rekke/sum og en testfunksjon til den»; her del-b-en).\n- **Prøve 3.B (35 min):** Rekke-implementering — eksponential og logaritme, begge med testfunksjon (sjanger F).\n- **Prøve 3.C (35 min):** Rekurrente rekker løst med løkke — Chebyshev og Hermite (sjanger F).\n- **Prøve 3.D (40 min):** Full oppgave på eksamensnivå — rekke, testfunksjon, bruk og tabell (sjanger F med tilhørende deloppgaver).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den. Å skrive kode du ikke får kjøre er en ferdighet i seg selv, og den øves bare på én måte.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 3.A står inline med bokstavsvar; den interaktive quizen til kapitlene 3.1–3.3 er den store flervalgsbanken og tas separat.\n\nÅpne løsningsforslaget først når du er ferdig, og bruk selvdiagnose-listen nederst i hver prøve."
+  },
+  {
+   "id": "in1900-3-prove-forkunn",
+   "type": "text",
+   "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 3: [kap. 3.1](/bok/in1900/in1900-3-1) om testfunksjoner og toleranser, [kap. 3.2](/bok/in1900/in1900-3-2) om rekkemønsteret, og [kap. 3.3](/bok/in1900/in1900-3-3) som driller sjangeren.\n\nFra Del 1 trengs løkker og `range` ([kap. 1.3](/bok/in1900/in1900-1-3)), f-strenger og formatert utskrift ([kap. 1.4](/bok/in1900/in1900-1-4)) og funksjoner med flere returverdier ([kap. 1.6](/bok/in1900/in1900-1-6))."
+  },
+  {
+   "id": "in1900-3-prove-A",
+   "type": "collapsible",
+   "title": "Prøve 3.A — Testfunksjoner (25 min)",
+   "buttonText": "Vis prøve 1",
+   "content": [
     {
-      "id": "in1900-3-prove-tip",
-      "type": "tip",
-      "title": "Om prøvene til del 3",
-      "content": "**Fire prøver à 25–40 minutter.** Prøvene dekker hele Del 3: testfunksjoner, rekkesummer og rekurrente rekker. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 3.A (25 min):** Testfunksjoner — skriv og vurder tester med `assert abs(...) < tol` (sjanger F — «skriv en rekke/sum og en testfunksjon til den»; her del-b-en).\n- **Prøve 3.B (35 min):** Rekke-implementering — eksponential og logaritme, begge med testfunksjon (sjanger F).\n- **Prøve 3.C (35 min):** Rekurrente rekker løst med løkke — Chebyshev og Hermite (sjanger F).\n- **Prøve 3.D (40 min):** Full oppgave på eksamensnivå — rekke, testfunksjon, bruk og tabell (sjanger F med tilhørende deloppgaver).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden**. Den avsluttende eksamenen er hjelpemiddelfri, og du skriver all kode i et tekstfelt i Inspera — UiOs digitale eksamenssystem — uten å kunne teste den. Å skrive kode du ikke får kjøre er en ferdighet i seg selv, og den øves bare på én måte.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 3.A står inline med bokstavsvar; den interaktive quizen til kapitlene 3.1–3.3 er den store flervalgsbanken og tas separat.\n\nÅpne løsningsforslaget først når du er ferdig, og bruk selvdiagnose-listen nederst i hver prøve."
+     "id": "in1900-3-prove-A-intro",
+     "type": "text",
+     "content": "**Prøve 3.A — testfunksjoner (25 minutter, sjanger F del-b).** Fem flervalgsspørsmål og tre skriveoppgaver. Ingen hjelpemidler, og ikke kjør koden."
     },
     {
-      "id": "in1900-3-prove-forkunn",
-      "type": "text",
-      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 3: [kap. 3.1](/bok/in1900/in1900-3-1) om testfunksjoner og toleranser, [kap. 3.2](/bok/in1900/in1900-3-2) om rekkemønsteret, og [kap. 3.3](/bok/in1900/in1900-3-3) som driller sjangeren.\n\nFra Del 1 trengs løkker og `range` ([kap. 1.3](/bok/in1900/in1900-1-3)), f-strenger og formatert utskrift ([kap. 1.4](/bok/in1900/in1900-1-4)) og funksjoner med flere returverdier ([kap. 1.6](/bok/in1900/in1900-1-6))."
-    },
-    {
-      "id": "in1900-3-prove-A",
-      "type": "collapsible",
-      "title": "Prøve 3.A — Testfunksjoner (25 min)",
-      "buttonText": "Vis prøve 1",
-      "content": [
-        {
-          "id": "in1900-3-prove-A-intro",
-          "type": "text",
-          "content": "**Prøve 3.A — testfunksjoner (25 minutter, sjanger F del-b).** Fem flervalgsspørsmål og tre skriveoppgaver. Ingen hjelpemidler, og ikke kjør koden."
-        },
-        {
-          "id": "in1900-3-prove-A-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-A-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Midtveisnivå, sjanger A og D — flervalg. «Sjanger D» er matche-typen der du avgjør hvilke påstander som holder.) Velg ett svar per spørsmål.\n\n**1)** Hva skjer når `assert 4 > 0` kjøres?\n\na) Programmet skriver `True` b) Ingenting skjer c) Programmet stopper d) Det gir `SyntaxError`\n\n**2)** Hvorfor skriver vi ikke `assert computed == expected` for flyttall?\n\na) `==` finnes ikke for flyttall b) Fordi `assert` krever en melding c) Fordi flyttall er tilnærminger d) Fordi `==` er treg\n\n**3)** Hva returnerer en testfunksjon som går gjennom?\n\na) `True` b) toleransen c) `None` d) den beregnede verdien\n\n**4)** Hvilken linje mangler `abs`?\n\na) `assert abs(e - c) < tol` b) `assert e - c < tol` c) `assert abs(c - e) < tol` d) `assert abs(e - c) <= tol`\n\n**5)** En metode har avvik rundt $2\\cdot 10^{-6}$. Hvilken toleranse passer?\n\na) `1e-10` b) `1e-2` c) `0` d) `1e-5`",
-            "solution": "**1) b)** Ingenting skjer. En `assert` med sann påstand er helt taus og går videre til neste linje.\n\n**2) c)** Fordi flyttall er tilnærminger. To matematisk like uttrykk regnet langs ulike veier skiller seg typisk i siste siffer, og `==` krever at hvert siffer stemmer. Dette er felle **#11**.\n\n**3) c)** `None`. En funksjon uten `return` gir `None`, og det er meningen: testfunksjonen kommuniserer ved å stoppe programmet, ikke ved å returnere noe.\n\n**4) b)** `assert e - c < tol` mangler `abs`, og slipper derfor gjennom ethvert negativt avvik uansett størrelse.\n\n**5) d)** `1e-5` — like over avviket metoden faktisk har. Alternativ a) og c) melder feil på riktig kode; b) er så løs at reelle feil slipper gjennom.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Merk at fasitbokstavene er b, c, c, b, d — uten mønster. Blankt og feil gir likt, altså 0, så kryss alltid av på noe.",
-            "hints": [
-              "En `assert` som holder skriver ingenting.",
-              "Tenk på hva `0.1 + 0.2` faktisk blir.",
-              "Toleransen velges etter metoden, ikke etter ønske."
-            ]
-          }
-        },
-        {
-          "id": "in1900-3-prove-A-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-A-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "lett",
-            "task": "(Innstegsoppgave, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef test_a():\n    expected = 3.0 computed = 1.0 + 2.0 tol = 1e-10 assert abs(expected - computed) < tol, 'a feilet' print('a ok')\n\ntest_a()\nprint('ferdig')\n```",
-            "solution": "**Sporingstavle**\n\n| Steg | Verdi | Kommentar |\n|---|---|---|\n| `expected` | 3.0 | fasiten |\n| `computed` | 3.0 | `1.0 + 2.0` |\n| `abs(3.0 - 3.0)` | 0.0 | avviket |\n| `0.0 < 1e-10` | sant | påstanden holder |\n| `assert` | — | gjør ingenting |\n| `print('a ok')` | — | kjøres |\n\n**Utskrift:**\n```\na ok ferdig\n```\n\nMerk at `print('a ok')` står **inne i** testfunksjonen. Det er ikke feil, men det er heller ikke det sensor ser etter: en testfunksjon skal være taus når alt er i orden.\n\n**Poeng:** 2 (ett per linje).",
-            "hints": [
-              "Hva gjør en `assert` som holder?",
-              "Legg merke til innrykket på `print('a ok')`."
-            ]
-          }
-        },
-        {
-          "id": "in1900-3-prove-A-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-A-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger F — del-b.) Funksjonen under regner ut volumet av en kule.\n\n```python\nfrom math import pi\n\ndef kule_volum(r):\n    return 4*pi*r**3/3\n```\n\n**a)** Skriv en testfunksjon som sjekker den for en radius der du kan skrive fasiten eksakt.\n\n**b)** Forklar i én setning hvorfor `assert kule_volum(2.0) == 33.51` er et dårlig valg.",
-            "solution": "**a)** Radien 1 gir volumet $4\\pi/3$, som kan skrives eksakt med `pi`:\n\n```python\nfrom math import pi\n\ndef kule_volum(r):\n    return 4*pi*r**3/3\n\ndef test_kule_volum():\n    expected = 4*pi/3 computed = kule_volum(1.0)\n    tol = 1e-10 msg = f'ventet {expected}, fikk {computed}' assert abs(expected - computed) < tol, msg\n\ntest_kule_volum()\nprint('Testen gikk gjennom')\nprint(kule_volum(2.0))\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n33.510321638291124\n```\n\n**b)** Fordi 33,51 er en avrundet verdi av 33,510321638291124, og et likhetstegn krever at hvert siffer stemmer — testen ville feilet på helt riktig kode. Det er samme problem to ganger: avrundet fasit og `==` på flyttall.\n\n**Hva gir uttelling (4 poeng):** 1 for testfunksjon uten argumenter med riktig navn, 1 for en eksakt fasit uttrykt med `pi`, 1 for `abs(...) < tol` med melding, 1 for begrunnelsen i b). Velger du $r = 3$ og `expected = 36*pi`, er det like riktig.",
-            "hints": [
-              "Hvilken radius gir et volum du kan skrive uten kalkulator?",
-              "Sammenlign 33.51 med den faktiske verdien."
-            ]
-          }
-        },
-        {
-          "id": "in1900-3-prove-A-4",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-A-4",
-            "number": "4",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger F — flere testpunkter.) Funksjonen `fart(s, t)` skal returnere gjennomsnittsfarten når strekningen `s` tilbakelegges på tiden `t`.\n\n**a)** Skriv funksjonen.\n\n**b)** Skriv **én** testfunksjon som sjekker tre punkter du kan regne i hodet, med en løkke.\n\n**c)** Ett av de tre punktene er svakere enn de to andre. Hvilket, og hvorfor?",
-            "solution": "**a)** og **b)**. De tre punktene legges i en liste av tupler og pakkes ut i løkkehodet:\n\n```python\ndef fart(s, t):\n    return s/t\n\ndef test_fart():\n    punkter = [(100.0, 4.0, 25.0), (0.0, 2.0, 0.0), (7.5, 2.5, 3.0)]\n    tol = 1e-10 for s, t, expected in punkter:\n        computed = fart(s, t)\n        msg = f's = {s}, t = {t}: ventet {expected}, fikk {computed}' assert abs(expected - computed) < tol, msg\n\ntest_fart()\nprint('Alle tre punktene stemmer')\n```\n\n**Utskrift:**\n```\nAlle tre punktene stemmer\n```\n\n**c)** Punktet $(0{,}0;\\ 2{,}0)$ er svakest. Der er strekningen null, så svaret blir 0 uansett hva som står i nevneren — også hvis funksjonen var skrevet `s/t**2` eller `s*t`. **Et testpunkt der et ledd blir null tester mindre enn det ser ut som.** De to andre punktene har både teller og nevner forskjellig fra 1 og 0, og avslører derfor en feil formel.\n\n**Hva gir uttelling (5 poeng):** 1 for funksjonen, 1 for testfunksjon uten argumenter, 1 for tre punkter, 1 for `abs(...) < tol` med melding som viser hvilket punkt som feilet, 1 for resonnementet i c). Skriver du tre `assert`-linjer etter hverandre i stedet for løkka, gir det full uttelling — løkka er bare kortere.\n\n**Selvdiagnose etter prøve 3.A**\n\n☐ Var testfunksjonene uten argumenter og uten `return`?\n\n☐ Brukte du `abs(expected - computed) < tol` overalt, aldri `==`?\n\n☐ Hadde hver `assert` en melding som viser tallene?\n\n☐ Kom fasitene fra en uavhengig kilde, ikke fra samme uttrykk som koden?\n\n☐ Valgte du minst ett testpunkt der ingen faktor blir null eller én?",
-            "hints": [
-              "Farten er strekning delt på tid — én linje.",
-              "Legg de tre punktene i en liste av tupler.",
-              "Til c): hvilket punkt gir riktig svar selv med en gal formel?"
-            ]
-          }
-        }
+     "id": "in1900-3-prove-A-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-A-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Midtveisnivå, sjanger A og D — flervalg. «Sjanger D» er matche-typen der du avgjør hvilke påstander som holder.) Velg ett svar per spørsmål.\n\n**1)** Hva skjer når `assert 4 > 0` kjøres?\n\na) Programmet skriver `True` b) Ingenting skjer c) Programmet stopper d) Det gir `SyntaxError`\n\n**2)** Hvorfor skriver vi ikke `assert computed == expected` for flyttall?\n\na) `==` finnes ikke for flyttall b) Fordi `assert` krever en melding c) Fordi flyttall er tilnærminger d) Fordi `==` er treg\n\n**3)** Hva returnerer en testfunksjon som går gjennom?\n\na) `True` b) toleransen c) `None` d) den beregnede verdien\n\n**4)** Hvilken linje mangler `abs`?\n\na) `assert abs(e - c) < tol` b) `assert e - c < tol` c) `assert abs(c - e) < tol` d) `assert abs(e - c) <= tol`\n\n**5)** En metode har avvik rundt $2\\cdot 10^{-6}$. Hvilken toleranse passer?\n\na) `1e-10` b) `1e-2` c) `0` d) `1e-5`",
+      "solution": "**1) b)** Ingenting skjer. En `assert` med sann påstand er helt taus og går videre til neste linje.\n\n**2) c)** Fordi flyttall er tilnærminger. To matematisk like uttrykk regnet langs ulike veier skiller seg typisk i siste siffer, og `==` krever at hvert siffer stemmer. Dette er felle **#11**.\n\n**3) c)** `None`. En funksjon uten `return` gir `None`, og det er meningen: testfunksjonen kommuniserer ved å stoppe programmet, ikke ved å returnere noe.\n\n**4) b)** `assert e - c < tol` mangler `abs`, og slipper derfor gjennom ethvert negativt avvik uansett størrelse.\n\n**5) d)** `1e-5` — like over avviket metoden faktisk har. Alternativ a) og c) melder feil på riktig kode; b) er så løs at reelle feil slipper gjennom.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Merk at fasitbokstavene er b, c, c, b, d — uten mønster. Blankt og feil gir likt, altså 0, så kryss alltid av på noe.",
+      "hints": [
+       "En `assert` som holder skriver ingenting.",
+       "Tenk på hva `0.1 + 0.2` faktisk blir.",
+       "Toleransen velges etter metoden, ikke etter ønske."
       ]
+     }
     },
     {
-      "id": "in1900-3-prove-B",
-      "type": "collapsible",
-      "title": "Prøve 3.B — Rekke-implementering (35 min)",
-      "buttonText": "Vis prøve 2",
-      "content": [
-        {
-          "id": "in1900-3-prove-B-intro",
-          "type": "text",
-          "content": "**Prøve 3.B — rekke-implementering (35 minutter, sjanger F).** Tre oppgaver. Skriv kort, idiomatisk kode: ingen unødvendige hjelpevariabler, ingen ekstra utskrift, og nødvendige importer med. Ikke kjør koden."
-        },
-        {
-          "id": "in1900-3-prove-B-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-B-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger F.) Eksponentialfunksjonen har rekka\n\n$$e^x = \\sum_{k=0}^{N} \\frac{x^k}{k!}$$\n\n**a)** Skriv `exp_rekke(x, N)`.\n\n**b)** Skriv en testfunksjon mot `math.exp` for $x = 2$ med toleranse `1e-10`, og velg $N$ selv.\n\n**c)** Regn ut summen for $N = 2, 5, 10$ og $20$ og forklar hva tabellen viser.",
-            "solution": "**a)**, **b)** og **c)**:\n\n```python\nfrom math import factorial, exp\n\ndef exp_rekke(x, N):\n    s = 0 for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\ndef test_exp_rekke():\n    x = 2.0 expected = exp(x)\n    computed = exp_rekke(x, 20)\n    tol = 1e-10 msg = f'ventet {expected}, fikk {computed}' assert abs(expected - computed) < tol, msg\n\ntest_exp_rekke()\nfor N in [2, 5, 10, 20]:\n    print(N, exp_rekke(2.0, N))\nprint(exp(2.0))\n```\n\n**Utskrift:**\n```\n2 5.0\n5 7.266666666666667\n10 7.388994708994708\n20 7.389056098930604\n7.38905609893065\n```\n\n**c)** Tre ledd gir ikke engang første desimal riktig. Elleve ledd gir tre riktige desimaler, og 21 ledd gir tolv. Konvergensen er rask fordi $k!$ i nevneren vokser mye fortere enn $2^k$ i telleren — men den er langsommere her enn for $x = 0{,}5$, fordi telleren er større. **Jo større $x$, jo flere ledd trengs.**\n\n**Hva gir uttelling (6 poeng):** 1 for `s = 0` før løkka, 1 for `range(N+1)`, 1 for ledd-uttrykket, 1 for `return s` etter løkka, 1 for testfunksjonen med toleranse og melding, 1 for tolkningen i c). Merk at $N = 10$ ikke ville holdt for `tol = 1e-10` — sammenhengen mellom antall ledd og toleranse er en del av svaret.",
-            "hints": [
-              "Bruk malen: nullstill, løkke, legg til, returnér.",
-              "Prøv noen verdier av N og se når avviket kommer under toleransen.",
-              "Sammenlign konvergensen med det du så for mindre x i kapitlet."
-            ]
-          }
-        },
-        {
-          "id": "in1900-3-prove-B-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-B-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger F — sum som starter på 1.) Logaritmen har rekka\n\n$$\\ln(1+x) = \\sum_{k=1}^{N} (-1)^{k+1}\\frac{x^k}{k}$$\n\n**a)** Skriv `ln_rekke(x, N)`.\n\n**b)** Regn ut for $x = 0{,}4$ med $N = 5$, $20$ og $100$, og sammenlign med `math.log(1.4)`.\n\n**c)** Hvilken toleranse ville du valgt i en testfunksjon med $N = 20$, og hvorfor?",
-            "solution": "**a)** og **b)**:\n\n```python\nfrom math import log\n\ndef ln_rekke(x, N):\n    s = 0 for k in range(1, N+1):\n        s += (-1)**(k+1) * x**k / k return s\n\nfor N in [5, 20, 100]:\n    print(N, ln_rekke(0.4, N))\nprint(log(1.4))\n```\n\n**Utskrift:**\n```\n5 0.3369813333333333\n20 0.3364722364696267\n100 0.33647223662121295\n0.3364722366212129\n```\n\n**c)** Med $N = 20$ er avviket rundt $1{,}5\\cdot 10^{-10}$, så `tol = 1e-9` er et fornuftig valg — like over. `1e-10` ville vært på grensen og kunne feilet, og `1e-4` ville sluppet gjennom kode med reelle feil.\n\nLegg merke til hvor mye langsommere denne rekka konvergerer enn eksponentialrekka i oppgave 1: hundre ledd her gir omtrent samme nøyaktighet som tjue ledd der. Forskjellen er nevneren, $k$ mot $k!$.\n\n**Hva gir uttelling (6 poeng):** 1 for `range(1, N+1)` med riktig startverdi, 1 for fortegnet `(-1)**(k+1)`, 1 for ledd-uttrykket, 1 for strukturen, 1 for tallene i b), 1 for begrunnet toleranse i c). `(-1)**(k-1)` er nøyaktig det samme og gir full uttelling.",
-            "hints": [
-              "Startverdien i summetegnet er 1 — hva blir første argument til `range`?",
-              "Fortegnet skal være positivt for `k = 1`.",
-              "Les avviket rett av tabellen før du velger toleranse."
-            ]
-          }
-        },
-        {
-          "id": "in1900-3-prove-B-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-B-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal summere $\\sum_{k=0}^{N} x^k/k!$ og teste resultatet. Det har **tre** feil.\n\n```text\nfrom math import factorial\n\ndef exp_rekke(x, N):\n    s = 0 for k in range(N):\n        s += x**k / factorial(x)\n    return s\n\ndef test_exp_rekke():\n    assert exp_rekke(1.0, 10) == 2.718281828459045\n```\n\n**a)** Nevn de tre feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden.",
-            "solution": "**a)** De tre feilene:\n\n1. **`range(N)` i stedet for `range(N+1)`.** Summen går til og med $N$, så det mangler alltid ett ledd. Dette er felle **#1**, den hyppigste i emnet.\n2. **`factorial(x)` i stedet for `factorial(k)`.** Argumentet er funksjonens $x$, ikke løkkevariabelen. Med `x = 1.0` stopper programmet dessuten med `ValueError`, fordi `factorial` ikke tar flyttall.\n3. **`==` på flyttall, og importen mangler for fasiten.** Testen bruker likhetstegn (felle **#11**) mot en avrundet konstant, og den ville feilet på riktig kode. Fasiten bør hentes fra `math.exp`, som må importeres.\n\n**b)** Rettet:\n\n```python\nfrom math import factorial, exp\n\ndef exp_rekke(x, N):\n    s = 0 for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\ndef test_exp_rekke():\n    x = 1.0 expected = exp(x)\n    computed = exp_rekke(x, 20)\n    tol = 1e-10 msg = f'ventet {expected}, fikk {computed}' assert abs(expected - computed) < tol, msg\n\ntest_exp_rekke()\nprint(exp_rekke(1.0, 20))\n```\n\n**Utskrift:**\n```\n2.7182818284590455\n```\n\n**Hva gir uttelling (6 poeng):** 1 poeng per navngitt feil (3 p), 3 for rettet kode som kjører. Sjanger O er poengmessig snill: finner du to av tre, har du fortsatt flertallet av poengene.\n\n**Selvdiagnose etter prøve 3.B**\n\n☐ Sto `s = 0` før løkka og `return s` etter?\n\n☐ Ga `range(N+1)` deg $N+1$ ledd?\n\n☐ Sto løkkevariabelen — ikke funksjonsargumentet — i fakultetet?\n\n☐ Startet løkka der summetegnet sa?\n\n☐ Hang antall ledd og toleranse sammen i testfunksjonen?",
-            "hints": [
-              "Se på argumentet til `factorial`.",
-              "Tell hvor mange ledd løkka faktisk tar med.",
-              "En testfunksjon skal ikke sammenligne flyttall med `==`."
-            ]
-          }
-        }
+     "id": "in1900-3-prove-A-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-A-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "(Innstegsoppgave, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef test_a():\n    expected = 3.0\n    computed = 1.0 + 2.0\n    tol = 1e-10\n    assert abs(expected - computed) < tol, 'a feilet'\n    print('a ok')\n\ntest_a()\nprint('ferdig')\n```",
+      "solution": "**Sporingstavle**\n\n| Steg | Verdi | Kommentar |\n|---|---|---|\n| `expected` | 3.0 | fasiten |\n| `computed` | 3.0 | `1.0 + 2.0` |\n| `abs(3.0 - 3.0)` | 0.0 | avviket |\n| `0.0 < 1e-10` | sant | påstanden holder |\n| `assert` | — | gjør ingenting |\n| `print('a ok')` | — | kjøres |\n\n**Utskrift:**\n```\na ok\nferdig\n```\n\nMerk at `print('a ok')` står **inne i** testfunksjonen. Det er ikke feil, men det er heller ikke det sensor ser etter: en testfunksjon skal være taus når alt er i orden.\n\n**Poeng:** 2 (ett per linje).",
+      "hints": [
+       "Hva gjør en `assert` som holder?",
+       "Legg merke til innrykket på `print('a ok')`."
       ]
+     }
     },
     {
-      "id": "in1900-3-prove-C",
-      "type": "collapsible",
-      "title": "Prøve 3.C — Rekurrente rekker (35 min)",
-      "buttonText": "Vis prøve 3",
-      "content": [
-        {
-          "id": "in1900-3-prove-C-intro",
-          "type": "text",
-          "content": "**Prøve 3.C — rekurrente rekker (35 minutter, sjanger F).** Tre oppgaver. Alle skal løses **med løkke**: å la en funksjon kalle seg selv er utenfor pensum i IN1900 og markeres uønsket i de offisielle løsningsforslagene."
-        },
-        {
-          "id": "in1900-3-prove-C-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-C-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger F — rekurrens.) Chebyshev-polynomene er definert ved $T_0(x) = 1$, $T_1(x) = x$ og $T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$.\n\n**a)** Skriv `chebyshev(n, x)` med en løkke.\n\n**b)** Skriv en testfunksjon som sjekker mot de eksplisitte formlene $T_2 = 2x^2-1$, $T_3 = 4x^3-3x$ og $T_4 = 8x^4-8x^2+1$ for $x = 0{,}25$.\n\n**c)** Skriv ut $T_0$ til $T_5$ for $x = 0{,}25$.",
-            "solution": "**a)**, **b)** og **c)**:\n\n```python\ndef chebyshev(n, x):\n    if n == 0:\n        return 1.0\n    T_forrige = 1.0\n    T_denne = x for k in range(1, n):\n        T_neste = 2*x*T_denne - T_forrige\n        T_forrige = T_denne\n        T_denne = T_neste return T_denne\n\ndef test_chebyshev():\n    x = 0.25 tol = 1e-10 fasit = [(2, 2*x**2 - 1), (3, 4*x**3 - 3*x), (4, 8*x**4 - 8*x**2 + 1)]\n    for n, expected in fasit:\n        computed = chebyshev(n, x)\n        msg = f'T{n} ga {computed}, ventet {expected}' assert abs(expected - computed) < tol, msg\n\ntest_chebyshev()\nfor n in range(6):\n    print(n, chebyshev(n, 0.25))\n```\n\n**Utskrift:**\n```\n0 1.0\n1 0.25\n2 -0.875\n3 -0.6875\n4 0.53125\n5 0.953125\n```\n\nKontroller gjerne den første i hodet: $T_2 = 2\\cdot 0{,}0625 - 1 = -0{,}875$.\n\n**Hva gir uttelling (7 poeng):** 1 for basistilfellet `if n == 0`, 1 for begge startverdiene, 2 for oppdateringen med hjelpevariabel i riktig rekkefølge, 1 for løkkegrensen `range(1, n)`, 2 for testfunksjonen med tre punkter og toleranse.\n\n**Merk:** løsningen skal bruke løkke. En variant der funksjonen kaller seg selv er utenfor pensum i dette emnet og markeres uønsket i fasit, selv når svaret blir riktig.",
-            "hints": [
-              "Sett `T_forrige = 1.0` og `T_denne = x` før løkka.",
-              "Regn den nye verdien i en egen variabel før du flytter lagrene.",
-              "Hvor mange steg trengs fra T₁ til Tₙ?"
-            ]
-          }
-        },
-        {
-          "id": "in1900-3-prove-C-2",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-C-2",
-            "number": "2",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger F — rekurrens med koeffisient som avhenger av leddnummeret.) Hermite-polynomene brukes i kvantemekaniske modeller og er definert ved\n\n$$H_0(x) = 1, \\qquad H_1(x) = 2x, \\qquad H_{n+1}(x) = 2xH_n(x) - 2nH_{n-1}(x)$$\n\n**a)** Skriv `hermite(n, x)` med en løkke.\n\n**b)** Skriv ut $H_0$ til $H_4$ for $x = 1{,}5$, og kontroller mot $H_3 = 8x^3-12x$ og $H_4 = 16x^4-48x^2+12$.\n\n**c)** Hva er den ene detaljen som skiller denne rekurrensen fra Chebyshev, og hvor i koden slår den ut?",
-            "solution": "**a)** og **b)**. Malen er den samme; det eneste nye er faktoren $2n$ i det andre leddet:\n\n```python\ndef hermite(n, x):\n    if n == 0:\n        return 1.0\n    H_forrige = 1.0\n    H_denne = 2*x for k in range(1, n):\n        H_neste = 2*x*H_denne - 2*k*H_forrige\n        H_forrige = H_denne\n        H_denne = H_neste return H_denne\n\nfor n in range(5):\n    print(n, hermite(n, 1.5))\nprint('fasit H3:', 8*1.5**3 - 12*1.5)\nprint('fasit H4:', 16*1.5**4 - 48*1.5**2 + 12)\n```\n\n**Utskrift:**\n```\n0 1.0\n1 3.0\n2 7.0\n3 9.0\n4 -15.0 fasit H3: 9.0 fasit H4: -15.0\n```\n\n**c)** To detaljer, egentlig. Startverdien for $H_1$ er $2x$, ikke $x$ — den leses rett av definisjonen. Og koeffisienten $2n$ **avhenger av leddnummeret**, så den må bruke løkkevariabelen `k`, ikke funksjonsargumentet `n`.\n\nDet siste er den dyre fellen: skriver du `2*n*H_forrige`, får du samme koeffisient i alle rundene og et helt annet polynom. Kontrollen er å spørre: hvilket leddnummer står løkka på akkurat nå?\n\n**Hva gir uttelling (7 poeng):** 1 for basistilfellet, 1 for startverdien $2x$, 2 for oppdateringsformelen med `k` i koeffisienten, 1 for rekkefølgen med hjelpevariabel, 1 for løkkegrensen, 1 for forklaringen i c). Skriver du `n` i koeffisienten, koster det de to formelpoengene — strukturen står, og resten gis.",
-            "hints": [
-              "Les startverdiene rett av definisjonen — H₁ er ikke x.",
-              "Hvilken variabel svarer til `n` i formelen når løkka er i gang?",
-              "Kontroller mot de to eksplisitte formlene."
-            ]
-          }
-        },
-        {
-          "id": "in1900-3-prove-C-3",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-C-3",
-            "number": "3",
-            "type": "classic",
-            "difficulty": "middels",
-            "task": "(Eksamensnivå, sjanger F — oddetallsrekke.) Sinus hyperbolicus har rekka\n\n$$\\sinh x = \\sum_{n=0}^{N} \\frac{x^{2n+1}}{(2n+1)!}$$\n\n**a)** Skriv `sinh_rekke(x, N)`.\n\n**b)** Regn ut for $x = 1{,}1$ med $N = 2$ og $N = 10$, og sammenlign med `math.sinh`.\n\n**c)** Denne rekka er ikke rekurrent, selv om den ser ut som en fortsettelse av oppgave 1 og 2. Hva er forskjellen i hvordan du løser den?",
-            "solution": "**a)** og **b)**:\n\n```python\nfrom math import factorial, sinh\n\ndef sinh_rekke(x, N):\n    s = 0 for n in range(N+1):\n        s += x**(2*n+1) / factorial(2*n+1)\n    return s\n\nprint(sinh_rekke(1.1, 2))\nprint(sinh_rekke(1.1, 10))\nprint(sinh(1.1))\n```\n\n**Utskrift:**\n```\n1.3352542500000002\n1.3356474701241767\n1.335647470124177\n```\n\nTre ledd gir tre riktige desimaler, elleve ledd treffer alle sifrene bortsett fra det siste.\n\n**c)** Forskjellen ligger i om leddet kan regnes ut **direkte fra leddnummeret** eller ikke. Her finnes en formel for ledd nummer $n$: $x^{2n+1}/(2n+1)!$. Da bruker du summeringsmønsteret — akkumulator, løkke, `+=`, `return`.\n\nI en rekurrens finnes ingen slik formel; hvert ledd defineres ut fra de foregående. Da bruker du den andre malen — basistilfelle, to lagervariabler, hjelpevariabel — og det er ingen akkumulator i det hele tatt, fordi du ikke summerer noe.\n\nÅ blande de to malene under tidspress er en reell risiko. Spør deg selv: **kan jeg skrive ledd nummer $n$ uten å kjenne ledd nummer $n-1$?**\n\n**Hva gir uttelling (5 poeng):** 1 for strukturen, 2 for at `2*n+1` står både i eksponenten og i fakultetet, 1 for tallene i b), 1 for skillet i c).\n\n**Selvdiagnose etter prøve 3.C**\n\n☐ Hadde begge rekurrensene et basistilfelle og to startverdier?\n\n☐ Regnet du den nye verdien i en egen variabel før du flyttet lagrene?\n\n☐ Sto løkkevariabelen — ikke funksjonsargumentet — i koeffisienter som avhenger av leddnummeret?\n\n☐ Var løkkegrensen `range(1, n)`, altså $n-1$ steg?\n\n☐ Valgte du riktig mal: summeringsmønster for eksplisitte ledd, rekurrensmal for ledd som bygger på hverandre?",
-            "hints": [
-              "Både eksponenten og fakultetet skal ha `2*n+1`.",
-              "Kan du regne ut ledd nummer 7 uten å kjenne ledd nummer 6?",
-              "Rekurrensmalen har ingen akkumulator."
-            ]
-          }
-        }
+     "id": "in1900-3-prove-A-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-A-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger F — del-b.) Funksjonen under regner ut volumet av en kule.\n\n```python\nfrom math import pi\n\ndef kule_volum(r):\n    return 4*pi*r**3/3\n```\n\n**a)** Skriv en testfunksjon som sjekker den for en radius der du kan skrive fasiten eksakt.\n\n**b)** Forklar i én setning hvorfor `assert kule_volum(2.0) == 33.51` er et dårlig valg.",
+      "solution": "**a)** Radien 1 gir volumet $4\\pi/3$, som kan skrives eksakt med `pi`:\n\n```python\nfrom math import pi\n\ndef kule_volum(r):\n    return 4*pi*r**3/3\n\ndef test_kule_volum():\n    expected = 4*pi/3\n    computed = kule_volum(1.0)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_kule_volum()\nprint('Testen gikk gjennom')\nprint(kule_volum(2.0))\n```\n\n**Utskrift:**\n```\nTesten gikk gjennom\n33.510321638291124\n```\n\n**b)** Fordi 33,51 er en avrundet verdi av 33,510321638291124, og et likhetstegn krever at hvert siffer stemmer — testen ville feilet på helt riktig kode. Det er samme problem to ganger: avrundet fasit og `==` på flyttall.\n\n**Hva gir uttelling (4 poeng):** 1 for testfunksjon uten argumenter med riktig navn, 1 for en eksakt fasit uttrykt med `pi`, 1 for `abs(...) < tol` med melding, 1 for begrunnelsen i b). Velger du $r = 3$ og `expected = 36*pi`, er det like riktig.",
+      "hints": [
+       "Hvilken radius gir et volum du kan skrive uten kalkulator?",
+       "Sammenlign 33.51 med den faktiske verdien."
       ]
+     }
     },
     {
-      "id": "in1900-3-prove-D",
-      "type": "collapsible",
-      "title": "Prøve 3.D — Full oppgave på eksamensnivå (40 min)",
-      "buttonText": "Vis prøve 4",
-      "content": [
-        {
-          "id": "in1900-3-prove-D-intro",
-          "type": "text",
-          "content": "**Prøve 3.D — full oppgave på eksamensnivå (40 minutter, sjanger F med deloppgaver).** Én flerdelt oppgave av samme type og vekt som den reelle sjanger-F-oppgaven på et avsluttende sett. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på b), c) og d)."
-        },
-        {
-          "id": "in1900-3-prove-D-1",
-          "type": "exercise",
-          "exercise": {
-            "id": "in1900-3-prove-D-1",
-            "number": "1",
-            "type": "classic",
-            "difficulty": "vanskelig",
-            "task": "(Eksamensnivå, sjanger F — full oppgave.) Aktiviteten i en radioaktiv prøve avtar som\n\n$$A(t) = A_0 e^{-t\\ln 2 / T_{1/2}}$$\n\nder $T_{1/2}$ er halveringstiden. Et innvevd måleinstrument har ingen eksponentialfunksjon og må bruke rekka $e^{y} = \\sum_{k=0}^{N} y^k/k!$.\n\n**a)** (4 p) Skriv `aktivitet(A0, t, halveringstid, N)` som regner ut $A(t)$ ved hjelp av rekka. Bruk `log` fra `math` til å finne $\\ln 2$.\n\n**b)** (3 p) Skriv en testfunksjon som utnytter at aktiviteten skal være nøyaktig halvert etter én halveringstid.\n\n**c)** (2 p) Skriv koden som lager en tabell over $t = 0$, $2{,}5$, $5$ og $10$ timer med $A_0 = 8000$ og halveringstid 5 timer, formatert med tre desimaler.\n\n**d)** (2 p) Hvorfor er testpunktet i b) et godt valg, og hvilket punkt ville vært et dårlig valg?",
-            "solution": "**a)**, **b)** og **c)** i ett program. Legg merke til at eksponenten `y` regnes ut først, og at rekka så brukes på den — funksjonen gjør to ting, og det er ryddigst å skille dem med en linje:\n\n```python\nfrom math import factorial, log\n\ndef aktivitet(A0, t, halveringstid, N):\n    y = -log(2)*t/halveringstid s = 0 for k in range(N+1):\n        s += y**k / factorial(k)\n    return A0*s\n\ndef test_aktivitet():\n    expected = 4000.0 computed = aktivitet(8000.0, 5.0, 5.0, 30)\n    tol = 1e-6 msg = f'ventet {expected}, fikk {computed}' assert abs(expected - computed) < tol, msg\n\ntest_aktivitet()\nfor t in [0.0, 2.5, 5.0, 10.0]:\n    print(f'{t:5.1f}{aktivitet(8000.0, t, 5.0, 30):11.3f}')\n```\n\n**Utskrift:**\n```\n  0.0   8000.000\n  2.5   5656.854\n  5.0   4000.000\n 10.0   2000.000\n```\n\nTabellen er en fornuftssjekk i seg selv: etter fem timer er aktiviteten halvert til 4000, og etter ti timer halvert igjen til 2000. Verdien ved 2,5 timer er $8000/\\sqrt{2} \\approx 5656{,}85$.\n\n**d)** Punktet er godt fordi fasiten er kjent **uten** å regne: definisjonen av halveringstid sier at aktiviteten er halvert etter én halveringstid, altså 4000 når $A_0$ er 8000. Fasiten kommer dermed fra en helt annen vei enn koden, og testen tester noe.\n\nEt dårlig valg er $t = 0$. Der er eksponenten null, rekka gir nøyaktig 1 uansett hva som står i eksponentuttrykket, og svaret blir $A_0$ selv om formelen for `y` var gal. **Et testpunkt der eksponenten kollapser, tester bare multiplikasjonen med $A_0$.**\n\n**Hva gir uttelling (11 poeng):**\n\n- a) 4 p: `y` regnet med `log(2)` og riktig fortegn (1 p), `s = 0` før løkka (1 p), `range(N+1)` med riktig ledd (1 p), `return A0*s` (1 p).\n- b) 3 p: testfunksjon uten argumenter (1 p), fasiten 4000 begrunnet i halveringstiden (1 p), `abs(...) < tol` med melding (1 p).\n- c) 2 p: løkke over de fire tidene (1 p), f-streng med tre desimaler (1 p).\n- d) 2 p: begrunnelsen for det gode punktet (1 p) og for det dårlige (1 p).\n\nSensor belønner riktig overordnet struktur selv med en indeksfeil eller feil fortegn ett sted — å få alle detaljer 100 prosent riktig på en hjelpemiddelfri eksamen er nesten umulig, og poengene er lagt opp etter det. Skriver du rekka som en egen funksjon `exp_rekke(y, N)` og kaller den fra `aktivitet`, er det like riktig og litt ryddigere.\n\n**Om toleransen:** `1e-6` er valgt fordi 31 ledd holder med god margin for eksponenter i dette området, men rekka er ikke eksakt. En kommentarlinje om valget er verdt å ta med.\n\n**Selvdiagnose etter prøve 3.D**\n\n☐ Regnet du eksponenten med riktig fortegn, altså negativ?\n\n☐ Ga `range(N+1)` deg $N+1$ ledd?\n\n☐ Ganget du summen med $A_0$ til slutt, og ikke inne i løkka?\n\n☐ Var testens fasit hentet fra definisjonen av halveringstid, ikke fra formelen?\n\n☐ Unngikk du $t = 0$ som eneste testpunkt?\n\n☐ Hadde tabellen riktig antall desimaler og en tid per linje?",
-            "hints": [
-              "Regn ut eksponenten `y` først, og bruk deretter rekkemønsteret på den.",
-              "Halveringstid betyr at aktiviteten er nøyaktig halvert — det er fasiten din.",
-              "I tabellen: `f'{t:5.1f}{A:11.3f}'` gir to kolonner uten mellomrom mellom feltene.",
-              "Til d): hva blir rekkas verdi når eksponenten er null?"
-            ]
-          }
-        }
+     "id": "in1900-3-prove-A-4",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-A-4",
+      "number": "4",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger F — flere testpunkter.) Funksjonen `fart(s, t)` skal returnere gjennomsnittsfarten når strekningen `s` tilbakelegges på tiden `t`.\n\n**a)** Skriv funksjonen.\n\n**b)** Skriv **én** testfunksjon som sjekker tre punkter du kan regne i hodet, med en løkke.\n\n**c)** Ett av de tre punktene er svakere enn de to andre. Hvilket, og hvorfor?",
+      "solution": "**a)** og **b)**. De tre punktene legges i en liste av tupler og pakkes ut i løkkehodet:\n\n```python\ndef fart(s, t):\n    return s/t\n\ndef test_fart():\n    punkter = [(100.0, 4.0, 25.0), (0.0, 2.0, 0.0), (7.5, 2.5, 3.0)]\n    tol = 1e-10\n    for s, t, expected in punkter:\n        computed = fart(s, t)\n        msg = f's = {s}, t = {t}: ventet {expected}, fikk {computed}'\n        assert abs(expected - computed) < tol, msg\n\ntest_fart()\nprint('Alle tre punktene stemmer')\n```\n\n**Utskrift:**\n```\nAlle tre punktene stemmer\n```\n\n**c)** Punktet $(0{,}0;\\ 2{,}0)$ er svakest. Der er strekningen null, så svaret blir 0 uansett hva som står i nevneren — også hvis funksjonen var skrevet `s/t**2` eller `s*t`. **Et testpunkt der et ledd blir null tester mindre enn det ser ut som.** De to andre punktene har både teller og nevner forskjellig fra 1 og 0, og avslører derfor en feil formel.\n\n**Hva gir uttelling (5 poeng):** 1 for funksjonen, 1 for testfunksjon uten argumenter, 1 for tre punkter, 1 for `abs(...) < tol` med melding som viser hvilket punkt som feilet, 1 for resonnementet i c). Skriver du tre `assert`-linjer etter hverandre i stedet for løkka, gir det full uttelling — løkka er bare kortere.\n\n**Selvdiagnose etter prøve 3.A**\n\n☐ Var testfunksjonene uten argumenter og uten `return`?\n\n☐ Brukte du `abs(expected - computed) < tol` overalt, aldri `==`?\n\n☐ Hadde hver `assert` en melding som viser tallene?\n\n☐ Kom fasitene fra en uavhengig kilde, ikke fra samme uttrykk som koden?\n\n☐ Valgte du minst ett testpunkt der ingen faktor blir null eller én?",
+      "hints": [
+       "Farten er strekning delt på tid — én linje.",
+       "Legg de tre punktene i en liste av tupler.",
+       "Til c): hvilket punkt gir riktig svar selv med en gal formel?"
       ]
+     }
     }
-  ],
-  "exercises": []
+   ]
+  },
+  {
+   "id": "in1900-3-prove-B",
+   "type": "collapsible",
+   "title": "Prøve 3.B — Rekke-implementering (35 min)",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1900-3-prove-B-intro",
+     "type": "text",
+     "content": "**Prøve 3.B — rekke-implementering (35 minutter, sjanger F).** Tre oppgaver. Skriv kort, idiomatisk kode: ingen unødvendige hjelpevariabler, ingen ekstra utskrift, og nødvendige importer med. Ikke kjør koden."
+    },
+    {
+     "id": "in1900-3-prove-B-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-B-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger F.) Eksponentialfunksjonen har rekka\n\n$$e^x = \\sum_{k=0}^{N} \\frac{x^k}{k!}$$\n\n**a)** Skriv `exp_rekke(x, N)`.\n\n**b)** Skriv en testfunksjon mot `math.exp` for $x = 2$ med toleranse `1e-10`, og velg $N$ selv.\n\n**c)** Regn ut summen for $N = 2, 5, 10$ og $20$ og forklar hva tabellen viser.",
+      "solution": "**a)**, **b)** og **c)**:\n\n```python\nfrom math import factorial, exp\n\ndef exp_rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\ndef test_exp_rekke():\n    x = 2.0\n    expected = exp(x)\n    computed = exp_rekke(x, 20)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_exp_rekke()\nfor N in [2, 5, 10, 20]:\n    print(N, exp_rekke(2.0, N))\nprint(exp(2.0))\n```\n\n**Utskrift:**\n```\n2 5.0\n5 7.266666666666667\n10 7.388994708994708\n20 7.389056098930604\n7.38905609893065\n```\n\n**c)** Tre ledd gir ikke engang første desimal riktig. Elleve ledd gir tre riktige desimaler, og 21 ledd gir tolv. Konvergensen er rask fordi $k!$ i nevneren vokser mye fortere enn $2^k$ i telleren — men den er langsommere her enn for $x = 0{,}5$, fordi telleren er større. **Jo større $x$, jo flere ledd trengs.**\n\n**Hva gir uttelling (6 poeng):** 1 for `s = 0` før løkka, 1 for `range(N+1)`, 1 for ledd-uttrykket, 1 for `return s` etter løkka, 1 for testfunksjonen med toleranse og melding, 1 for tolkningen i c). Merk at $N = 10$ ikke ville holdt for `tol = 1e-10` — sammenhengen mellom antall ledd og toleranse er en del av svaret.",
+      "hints": [
+       "Bruk malen: nullstill, løkke, legg til, returnér.",
+       "Prøv noen verdier av N og se når avviket kommer under toleransen.",
+       "Sammenlign konvergensen med det du så for mindre x i kapitlet."
+      ]
+     }
+    },
+    {
+     "id": "in1900-3-prove-B-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-B-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger F — sum som starter på 1.) Logaritmen har rekka\n\n$$\\ln(1+x) = \\sum_{k=1}^{N} (-1)^{k+1}\\frac{x^k}{k}$$\n\n**a)** Skriv `ln_rekke(x, N)`.\n\n**b)** Regn ut for $x = 0{,}4$ med $N = 5$, $20$ og $100$, og sammenlign med `math.log(1.4)`.\n\n**c)** Hvilken toleranse ville du valgt i en testfunksjon med $N = 20$, og hvorfor?",
+      "solution": "**a)** og **b)**:\n\n```python\nfrom math import log\n\ndef ln_rekke(x, N):\n    s = 0\n    for k in range(1, N+1):\n        s += (-1)**(k+1) * x**k / k\n    return s\n\nfor N in [5, 20, 100]:\n    print(N, ln_rekke(0.4, N))\nprint(log(1.4))\n```\n\n**Utskrift:**\n```\n5 0.3369813333333333\n20 0.3364722364696267\n100 0.33647223662121295\n0.3364722366212129\n```\n\n**c)** Med $N = 20$ er avviket rundt $1{,}5\\cdot 10^{-10}$, så `tol = 1e-9` er et fornuftig valg — like over. `1e-10` ville vært på grensen og kunne feilet, og `1e-4` ville sluppet gjennom kode med reelle feil.\n\nLegg merke til hvor mye langsommere denne rekka konvergerer enn eksponentialrekka i oppgave 1: hundre ledd her gir omtrent samme nøyaktighet som tjue ledd der. Forskjellen er nevneren, $k$ mot $k!$.\n\n**Hva gir uttelling (6 poeng):** 1 for `range(1, N+1)` med riktig startverdi, 1 for fortegnet `(-1)**(k+1)`, 1 for ledd-uttrykket, 1 for strukturen, 1 for tallene i b), 1 for begrunnet toleranse i c). `(-1)**(k-1)` er nøyaktig det samme og gir full uttelling.",
+      "hints": [
+       "Startverdien i summetegnet er 1 — hva blir første argument til `range`?",
+       "Fortegnet skal være positivt for `k = 1`.",
+       "Les avviket rett av tabellen før du velger toleranse."
+      ]
+     }
+    },
+    {
+     "id": "in1900-3-prove-B-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-B-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger O — «finn feilen», altså å peke ut hva som er galt i et program og rette det.) Programmet skal summere $\\sum_{k=0}^{N} x^k/k!$ og teste resultatet. Det har **tre** feil.\n\n```text\nfrom math import factorial\n\ndef exp_rekke(x, N):\n    s = 0\n    for k in range(N):\n        s += x**k / factorial(x)\n    return s\n\ndef test_exp_rekke():\n    assert exp_rekke(1.0, 10) == 2.718281828459045\n```\n\n**a)** Nevn de tre feilene og si hva hver av dem fører til.\n\n**b)** Skriv den rettede koden.",
+      "solution": "**a)** De tre feilene:\n\n1. **`range(N)` i stedet for `range(N+1)`.** Summen går til og med $N$, så det mangler alltid ett ledd. Dette er felle **#1**, den hyppigste i emnet.\n2. **`factorial(x)` i stedet for `factorial(k)`.** Argumentet er funksjonens $x$, ikke løkkevariabelen. Med `x = 1.0` stopper programmet dessuten med `ValueError`, fordi `factorial` ikke tar flyttall.\n3. **`==` på flyttall, og importen mangler for fasiten.** Testen bruker likhetstegn (felle **#11**) mot en avrundet konstant, og den ville feilet på riktig kode. Fasiten bør hentes fra `math.exp`, som må importeres.\n\n**b)** Rettet:\n\n```python\nfrom math import factorial, exp\n\ndef exp_rekke(x, N):\n    s = 0\n    for k in range(N+1):\n        s += x**k / factorial(k)\n    return s\n\ndef test_exp_rekke():\n    x = 1.0\n    expected = exp(x)\n    computed = exp_rekke(x, 20)\n    tol = 1e-10\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_exp_rekke()\nprint(exp_rekke(1.0, 20))\n```\n\n**Utskrift:**\n```\n2.7182818284590455\n```\n\n**Hva gir uttelling (6 poeng):** 1 poeng per navngitt feil (3 p), 3 for rettet kode som kjører. Sjanger O er poengmessig snill: finner du to av tre, har du fortsatt flertallet av poengene.\n\n**Selvdiagnose etter prøve 3.B**\n\n☐ Sto `s = 0` før løkka og `return s` etter?\n\n☐ Ga `range(N+1)` deg $N+1$ ledd?\n\n☐ Sto løkkevariabelen — ikke funksjonsargumentet — i fakultetet?\n\n☐ Startet løkka der summetegnet sa?\n\n☐ Hang antall ledd og toleranse sammen i testfunksjonen?",
+      "hints": [
+       "Se på argumentet til `factorial`.",
+       "Tell hvor mange ledd løkka faktisk tar med.",
+       "En testfunksjon skal ikke sammenligne flyttall med `==`."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-3-prove-C",
+   "type": "collapsible",
+   "title": "Prøve 3.C — Rekurrente rekker (35 min)",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1900-3-prove-C-intro",
+     "type": "text",
+     "content": "**Prøve 3.C — rekurrente rekker (35 minutter, sjanger F).** Tre oppgaver. Alle skal løses **med løkke**: å la en funksjon kalle seg selv er utenfor pensum i IN1900 og markeres uønsket i de offisielle løsningsforslagene."
+    },
+    {
+     "id": "in1900-3-prove-C-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-C-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger F — rekurrens.) Chebyshev-polynomene er definert ved $T_0(x) = 1$, $T_1(x) = x$ og $T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$.\n\n**a)** Skriv `chebyshev(n, x)` med en løkke.\n\n**b)** Skriv en testfunksjon som sjekker mot de eksplisitte formlene $T_2 = 2x^2-1$, $T_3 = 4x^3-3x$ og $T_4 = 8x^4-8x^2+1$ for $x = 0{,}25$.\n\n**c)** Skriv ut $T_0$ til $T_5$ for $x = 0{,}25$.",
+      "solution": "**a)**, **b)** og **c)**:\n\n```python\ndef chebyshev(n, x):\n    if n == 0:\n        return 1.0\n    T_forrige = 1.0\n    T_denne = x\n    for k in range(1, n):\n        T_neste = 2*x*T_denne - T_forrige\n        T_forrige = T_denne\n        T_denne = T_neste\n    return T_denne\n\ndef test_chebyshev():\n    x = 0.25\n    tol = 1e-10\n    fasit = [(2, 2*x**2 - 1), (3, 4*x**3 - 3*x), (4, 8*x**4 - 8*x**2 + 1)]\n    for n, expected in fasit:\n        computed = chebyshev(n, x)\n        msg = f'T{n} ga {computed}, ventet {expected}'\n        assert abs(expected - computed) < tol, msg\n\ntest_chebyshev()\nfor n in range(6):\n    print(n, chebyshev(n, 0.25))\n```\n\n**Utskrift:**\n```\n0 1.0\n1 0.25\n2 -0.875\n3 -0.6875\n4 0.53125\n5 0.953125\n```\n\nKontroller gjerne den første i hodet: $T_2 = 2\\cdot 0{,}0625 - 1 = -0{,}875$.\n\n**Hva gir uttelling (7 poeng):** 1 for basistilfellet `if n == 0`, 1 for begge startverdiene, 2 for oppdateringen med hjelpevariabel i riktig rekkefølge, 1 for løkkegrensen `range(1, n)`, 2 for testfunksjonen med tre punkter og toleranse.\n\n**Merk:** løsningen skal bruke løkke. En variant der funksjonen kaller seg selv er utenfor pensum i dette emnet og markeres uønsket i fasit, selv når svaret blir riktig.",
+      "hints": [
+       "Sett `T_forrige = 1.0` og `T_denne = x` før løkka.",
+       "Regn den nye verdien i en egen variabel før du flytter lagrene.",
+       "Hvor mange steg trengs fra T₁ til Tₙ?"
+      ]
+     }
+    },
+    {
+     "id": "in1900-3-prove-C-2",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-C-2",
+      "number": "2",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger F — rekurrens med koeffisient som avhenger av leddnummeret.) Hermite-polynomene brukes i kvantemekaniske modeller og er definert ved\n\n$$H_0(x) = 1, \\qquad H_1(x) = 2x, \\qquad H_{n+1}(x) = 2xH_n(x) - 2nH_{n-1}(x)$$\n\n**a)** Skriv `hermite(n, x)` med en løkke.\n\n**b)** Skriv ut $H_0$ til $H_4$ for $x = 1{,}5$, og kontroller mot $H_3 = 8x^3-12x$ og $H_4 = 16x^4-48x^2+12$.\n\n**c)** Hva er den ene detaljen som skiller denne rekurrensen fra Chebyshev, og hvor i koden slår den ut?",
+      "solution": "**a)** og **b)**. Malen er den samme; det eneste nye er faktoren $2n$ i det andre leddet:\n\n```python\ndef hermite(n, x):\n    if n == 0:\n        return 1.0\n    H_forrige = 1.0\n    H_denne = 2*x\n    for k in range(1, n):\n        H_neste = 2*x*H_denne - 2*k*H_forrige\n        H_forrige = H_denne\n        H_denne = H_neste\n    return H_denne\n\nfor n in range(5):\n    print(n, hermite(n, 1.5))\nprint('fasit H3:', 8*1.5**3 - 12*1.5)\nprint('fasit H4:', 16*1.5**4 - 48*1.5**2 + 12)\n```\n\n**Utskrift:**\n```\n0 1.0\n1 3.0\n2 7.0\n3 9.0\n4 -15.0\nfasit H3: 9.0\nfasit H4: -15.0\n```\n\n**c)** To detaljer, egentlig. Startverdien for $H_1$ er $2x$, ikke $x$ — den leses rett av definisjonen. Og koeffisienten $2n$ **avhenger av leddnummeret**, så den må bruke løkkevariabelen `k`, ikke funksjonsargumentet `n`.\n\nDet siste er den dyre fellen: skriver du `2*n*H_forrige`, får du samme koeffisient i alle rundene og et helt annet polynom. Kontrollen er å spørre: hvilket leddnummer står løkka på akkurat nå?\n\n**Hva gir uttelling (7 poeng):** 1 for basistilfellet, 1 for startverdien $2x$, 2 for oppdateringsformelen med `k` i koeffisienten, 1 for rekkefølgen med hjelpevariabel, 1 for løkkegrensen, 1 for forklaringen i c). Skriver du `n` i koeffisienten, koster det de to formelpoengene — strukturen står, og resten gis.",
+      "hints": [
+       "Les startverdiene rett av definisjonen — H₁ er ikke x.",
+       "Hvilken variabel svarer til `n` i formelen når løkka er i gang?",
+       "Kontroller mot de to eksplisitte formlene."
+      ]
+     }
+    },
+    {
+     "id": "in1900-3-prove-C-3",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-C-3",
+      "number": "3",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "(Eksamensnivå, sjanger F — oddetallsrekke.) Sinus hyperbolicus har rekka\n\n$$\\sinh x = \\sum_{n=0}^{N} \\frac{x^{2n+1}}{(2n+1)!}$$\n\n**a)** Skriv `sinh_rekke(x, N)`.\n\n**b)** Regn ut for $x = 1{,}1$ med $N = 2$ og $N = 10$, og sammenlign med `math.sinh`.\n\n**c)** Denne rekka er ikke rekurrent, selv om den ser ut som en fortsettelse av oppgave 1 og 2. Hva er forskjellen i hvordan du løser den?",
+      "solution": "**a)** og **b)**:\n\n```python\nfrom math import factorial, sinh\n\ndef sinh_rekke(x, N):\n    s = 0\n    for n in range(N+1):\n        s += x**(2*n+1) / factorial(2*n+1)\n    return s\n\nprint(sinh_rekke(1.1, 2))\nprint(sinh_rekke(1.1, 10))\nprint(sinh(1.1))\n```\n\n**Utskrift:**\n```\n1.3352542500000002\n1.3356474701241767\n1.335647470124177\n```\n\nTre ledd gir tre riktige desimaler, elleve ledd treffer alle sifrene bortsett fra det siste.\n\n**c)** Forskjellen ligger i om leddet kan regnes ut **direkte fra leddnummeret** eller ikke. Her finnes en formel for ledd nummer $n$: $x^{2n+1}/(2n+1)!$. Da bruker du summeringsmønsteret — akkumulator, løkke, `+=`, `return`.\n\nI en rekurrens finnes ingen slik formel; hvert ledd defineres ut fra de foregående. Da bruker du den andre malen — basistilfelle, to lagervariabler, hjelpevariabel — og det er ingen akkumulator i det hele tatt, fordi du ikke summerer noe.\n\nÅ blande de to malene under tidspress er en reell risiko. Spør deg selv: **kan jeg skrive ledd nummer $n$ uten å kjenne ledd nummer $n-1$?**\n\n**Hva gir uttelling (5 poeng):** 1 for strukturen, 2 for at `2*n+1` står både i eksponenten og i fakultetet, 1 for tallene i b), 1 for skillet i c).\n\n**Selvdiagnose etter prøve 3.C**\n\n☐ Hadde begge rekurrensene et basistilfelle og to startverdier?\n\n☐ Regnet du den nye verdien i en egen variabel før du flyttet lagrene?\n\n☐ Sto løkkevariabelen — ikke funksjonsargumentet — i koeffisienter som avhenger av leddnummeret?\n\n☐ Var løkkegrensen `range(1, n)`, altså $n-1$ steg?\n\n☐ Valgte du riktig mal: summeringsmønster for eksplisitte ledd, rekurrensmal for ledd som bygger på hverandre?",
+      "hints": [
+       "Både eksponenten og fakultetet skal ha `2*n+1`.",
+       "Kan du regne ut ledd nummer 7 uten å kjenne ledd nummer 6?",
+       "Rekurrensmalen har ingen akkumulator."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "in1900-3-prove-D",
+   "type": "collapsible",
+   "title": "Prøve 3.D — Full oppgave på eksamensnivå (40 min)",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1900-3-prove-D-intro",
+     "type": "text",
+     "content": "**Prøve 3.D — full oppgave på eksamensnivå (40 minutter, sjanger F med deloppgaver).** Én flerdelt oppgave av samme type og vekt som den reelle sjanger-F-oppgaven på et avsluttende sett. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på b), c) og d)."
+    },
+    {
+     "id": "in1900-3-prove-D-1",
+     "type": "exercise",
+     "exercise": {
+      "id": "in1900-3-prove-D-1",
+      "number": "1",
+      "type": "classic",
+      "difficulty": "vanskelig",
+      "task": "(Eksamensnivå, sjanger F — full oppgave.) Aktiviteten i en radioaktiv prøve avtar som\n\n$$A(t) = A_0 e^{-t\\ln 2 / T_{1/2}}$$\n\nder $T_{1/2}$ er halveringstiden. Et innvevd måleinstrument har ingen eksponentialfunksjon og må bruke rekka $e^{y} = \\sum_{k=0}^{N} y^k/k!$.\n\n**a)** (4 p) Skriv `aktivitet(A0, t, halveringstid, N)` som regner ut $A(t)$ ved hjelp av rekka. Bruk `log` fra `math` til å finne $\\ln 2$.\n\n**b)** (3 p) Skriv en testfunksjon som utnytter at aktiviteten skal være nøyaktig halvert etter én halveringstid.\n\n**c)** (2 p) Skriv koden som lager en tabell over $t = 0$, $2{,}5$, $5$ og $10$ timer med $A_0 = 8000$ og halveringstid 5 timer, formatert med tre desimaler.\n\n**d)** (2 p) Hvorfor er testpunktet i b) et godt valg, og hvilket punkt ville vært et dårlig valg?",
+      "solution": "**a)**, **b)** og **c)** i ett program. Legg merke til at eksponenten `y` regnes ut først, og at rekka så brukes på den — funksjonen gjør to ting, og det er ryddigst å skille dem med en linje:\n\n```python\nfrom math import factorial, log\n\ndef aktivitet(A0, t, halveringstid, N):\n    y = -log(2)*t/halveringstid\n    s = 0\n    for k in range(N+1):\n        s += y**k / factorial(k)\n    return A0*s\n\ndef test_aktivitet():\n    expected = 4000.0\n    computed = aktivitet(8000.0, 5.0, 5.0, 30)\n    tol = 1e-6\n    msg = f'ventet {expected}, fikk {computed}'\n    assert abs(expected - computed) < tol, msg\n\ntest_aktivitet()\nfor t in [0.0, 2.5, 5.0, 10.0]:\n    print(f'{t:5.1f}{aktivitet(8000.0, t, 5.0, 30):11.3f}')\n```\n\n**Utskrift:**\n```\n  0.0   8000.000\n  2.5   5656.854\n  5.0   4000.000\n 10.0   2000.000\n```\n\nTabellen er en fornuftssjekk i seg selv: etter fem timer er aktiviteten halvert til 4000, og etter ti timer halvert igjen til 2000. Verdien ved 2,5 timer er $8000/\\sqrt{2} \\approx 5656{,}85$.\n\n**d)** Punktet er godt fordi fasiten er kjent **uten** å regne: definisjonen av halveringstid sier at aktiviteten er halvert etter én halveringstid, altså 4000 når $A_0$ er 8000. Fasiten kommer dermed fra en helt annen vei enn koden, og testen tester noe.\n\nEt dårlig valg er $t = 0$. Der er eksponenten null, rekka gir nøyaktig 1 uansett hva som står i eksponentuttrykket, og svaret blir $A_0$ selv om formelen for `y` var gal. **Et testpunkt der eksponenten kollapser, tester bare multiplikasjonen med $A_0$.**\n\n**Hva gir uttelling (11 poeng):**\n\n- a) 4 p: `y` regnet med `log(2)` og riktig fortegn (1 p), `s = 0` før løkka (1 p), `range(N+1)` med riktig ledd (1 p), `return A0*s` (1 p).\n- b) 3 p: testfunksjon uten argumenter (1 p), fasiten 4000 begrunnet i halveringstiden (1 p), `abs(...) < tol` med melding (1 p).\n- c) 2 p: løkke over de fire tidene (1 p), f-streng med tre desimaler (1 p).\n- d) 2 p: begrunnelsen for det gode punktet (1 p) og for det dårlige (1 p).\n\nSensor belønner riktig overordnet struktur selv med en indeksfeil eller feil fortegn ett sted — å få alle detaljer 100 prosent riktig på en hjelpemiddelfri eksamen er nesten umulig, og poengene er lagt opp etter det. Skriver du rekka som en egen funksjon `exp_rekke(y, N)` og kaller den fra `aktivitet`, er det like riktig og litt ryddigere.\n\n**Om toleransen:** `1e-6` er valgt fordi 31 ledd holder med god margin for eksponenter i dette området, men rekka er ikke eksakt. En kommentarlinje om valget er verdt å ta med.\n\n**Selvdiagnose etter prøve 3.D**\n\n☐ Regnet du eksponenten med riktig fortegn, altså negativ?\n\n☐ Ga `range(N+1)` deg $N+1$ ledd?\n\n☐ Ganget du summen med $A_0$ til slutt, og ikke inne i løkka?\n\n☐ Var testens fasit hentet fra definisjonen av halveringstid, ikke fra formelen?\n\n☐ Unngikk du $t = 0$ som eneste testpunkt?\n\n☐ Hadde tabellen riktig antall desimaler og en tid per linje?",
+      "hints": [
+       "Regn ut eksponenten `y` først, og bruk deretter rekkemønsteret på den.",
+       "Halveringstid betyr at aktiviteten er nøyaktig halvert — det er fasiten din.",
+       "I tabellen: `f'{t:5.1f}{A:11.3f}'` gir to kolonner uten mellomrom mellom feltene.",
+       "Til d): hva blir rekkas verdi når eksponenten er null?"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "exercises": []
 }

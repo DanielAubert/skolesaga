@@ -1,165 +1,165 @@
 {
-  "id": "stk1110-4-3",
-  "courseId": "stk1110",
-  "chapterNumber": "4.3",
-  "title": "Øvingseksamen 2 — rotasjonsmalen (Bayes, ANOVA/dummy, konfundering)",
-  "description": "Et komplett 4-timers sett som trener rotasjons-differensiatorene: Bayes/konjugering i estimeringen, enveis ANOVA koblet til dummy-regresjon, og konfundering med justert R-kvadrat i den multiple regresjonen — med fullstendige løsningsforslag og delpoeng-notater.",
-  "estimatedMinutes": 90,
-  "competenceGoals": [
-    "gjennomføre ML-kjeden for en Poisson-rate og utlede Poisson-gamma-aposteriori ved å samle eksponentene",
-    "lese en ANOVA-tabell, koble den til dummy-regresjon og teste en gruppekontrast med riktige frihetsgrader",
-    "forklare konfundering i multippel regresjon og velge modell med justert R-kvadrat",
-    "disponere et komplett kjededelt eksamenssett på tid"
-  ],
-  "content": [
+ "id": "stk1110-4-3",
+ "courseId": "stk1110",
+ "chapterNumber": "4.3",
+ "title": "Øvingseksamen 2 — rotasjonsmalen (Bayes, ANOVA/dummy, konfundering)",
+ "description": "Et komplett 4-timers sett som trener rotasjons-differensiatorene: Bayes/konjugering i estimeringen, enveis ANOVA koblet til dummy-regresjon, og konfundering med justert R-kvadrat i den multiple regresjonen — med fullstendige løsningsforslag og delpoeng-notater.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "gjennomføre ML-kjeden for en Poisson-rate og utlede Poisson-gamma-aposteriori ved å samle eksponentene",
+  "lese en ANOVA-tabell, koble den til dummy-regresjon og teste en gruppekontrast med riktige frihetsgrader",
+  "forklare konfundering i multippel regresjon og velge modell med justert R-kvadrat",
+  "disponere et komplett kjededelt eksamenssett på tid"
+ ],
+ "content": [
+  {
+   "id": "stk1110-4-3-tip",
+   "type": "tip",
+   "title": "Slik bruker du øvingseksamenen",
+   "content": "Dette er **Øvingseksamen 2** — settet som trener **rotasjons-differensiatorene**: et Bayes-/konjugeringspunkt i estimeringen, enveis ANOVA koblet til dummy-regresjon, og en tydelig konfunderingsdrøfting i den multiple regresjonen. Det er disse punktene som oftest skiller en B fra en A når de dukker opp.\n\n- **Rammen er som på ordentlig eksamen: 4 timer, tre kjededelte storoppgaver.** Sett av en sammenhengende økt, bruk formelsamling og kalkulator, og **gjennomfør hele settet på tid før du åpner et eneste løsningsforslag.**\n- Nødvendige kvantiler er oppgitt i oppgavetekstene, som på eksamen.\n- Hvert deltrinn bygger på de forrige, men står ett trinn fast: bruk det oppgitte mellomresultatet og gå videre — akkurat som strategien i [kap. 4.1](/bok/stk1110/stk1110-4-1) anbefaler.\n- Løsningsforslagene er skrevet som fullstendige A-besvarelser, med et notat om delpoeng og de vanligste trekkene etter hver oppgave.\n\nTidsanslaget på 90 minutter gjelder gjennomgang av settet med fasit — selve gjennomføringen på tid kommer i tillegg."
+  },
+  {
+   "id": "stk1110-4-3-forkunnskaper",
+   "type": "text",
+   "content": "**Forkunnskaper** (hentes frem før du starter klokka):\n\n- **[kap. 1.2](/bok/stk1110/stk1110-1-2)** — ML-kjeden $L \\to \\ell \\to$ score $\\to$ løs $\\to$ bekreft maksimum, som bærer oppgave 1a–c.\n- **[kap. 1.4](/bok/stk1110/stk1110-1-4)** — konjugering med kjernetrikset (samle eksponentene), gamma-kjernen og Bayes-estimatoren som veid snitt, som bærer oppgave 1d–f.\n- **[kap. 2.6](/bok/stk1110/stk1110-2-6)** — enveis ANOVA-modellen, F-observatoren MSB/MSW og lesing av ANOVA-tabellen, som bærer oppgave 2.\n- **[kap. 3.3](/bok/stk1110/stk1110-3-3)** — dummy-koding, matriseform, justert $R^2$ og konfundering, som bærer oppgave 2c og hele oppgave 3.\n- **[kap. 4.1](/bok/stk1110/stk1110-4-1)** — tidsbudsjett og strategien for kjededelte oppgaver.\n\nPoisson-egenskapene $E(X)=V(X)=\\lambda$ og gamma-fordelingens form er STK1100-stoff; [kap. 0.2](/bok/stk1110/stk1110-0-2) frisker dem opp."
+  },
+  {
+   "id": "stk1110-4-3-o1",
+   "type": "text",
+   "content": "## Oppgavesettet\n\n**Oppgave 1 — Estimering og Bayes for en Poisson-rate (a–f)**\n\nVed en serverpark registreres antall driftsavvik per døgn. La $X_1,\\dots,X_n$ være antall avvik i $n=8$ uavhengige døgn, der $X_i \\sim \\text{Poisson}(\\lambda)$ med punktsannsynlighet\n$$p(x;\\lambda)=\\frac{\\lambda^x}{x!}e^{-\\lambda},\\qquad x=0,1,2,\\dots$$\nObservert sum er $\\sum_{i=1}^{8} x_i = 36$. For Poisson er $E(X_i)=V(X_i)=\\lambda$ (STK1100-stoff, repetert i [kap. 0.2](/bok/stk1110/stk1110-0-2)).\n\n**a)** Sett opp likelihoodfunksjonen $L(\\lambda)$ og log-likelihooden $\\ell(\\lambda)$.\n\n**b)** Utled scorefunksjonen, løs scoreligningen og vis at ML-estimatoren er $\\hat\\lambda = \\bar X$. Bekreft at løsningen er et maksimumspunkt.\n\n**c)** Vis at $\\hat\\lambda$ er forventningsrett, og finn $V(\\hat\\lambda)$.\n\n**d)** Driftsavdelingen har forhåndskunnskap fra tilsvarende anlegg, uttrykt som en gamma$(\\alpha,\\beta)$-apriori for $\\lambda$ med $\\alpha=2$ og $\\beta=1$ (skalaparametrisering: $\\pi(\\lambda)\\propto\\lambda^{\\alpha-1}e^{-\\lambda/\\beta}$). Utled aposteriorifordelingen for $\\lambda$ gitt dataene. Samle eksponentene eksplisitt.\n\n**e)** Finn Bayes-estimatoren for $\\lambda$, og regn ut estimatet. (For gamma$(\\alpha,\\beta)$ er $E=\\alpha\\beta$ — står i formelsamlingen.)\n\n**f)** Vis at Bayes-estimatet kan skrives som et veid gjennomsnitt av ML-estimatet $\\bar x$ og apriori-forventningen $\\alpha\\beta$. Angi vekten på dataene, regn den ut her, og forklar hva som skjer med Bayes-estimatoren når $n\\to\\infty$."
+  },
+  {
+   "id": "stk1110-4-3-o2",
+   "type": "text",
+   "content": "**Oppgave 2 — Enveis ANOVA og dummy-regresjon (a–e)**\n\nEt næringsmiddellaboratorium måler vitamin C-innhold (mg per 100 g) i jordbær etter fire ukers lagring med tre metoder: **romtemperatur**, **kjøleskap** og **frys**, med seks kartonger per metode ($N=18$). Gruppegjennomsnittene er $\\bar x_{\\text{rom}}=9{,}5$, $\\bar x_{\\text{kjøl}}=13{,}0$ og $\\bar x_{\\text{frys}}=15{,}5$. En enveis ANOVA gir tabellen under, der to celler er sladdet:\n\n```\n            Df   Sum Sq   Mean Sq   F value    Pr(>F)\nmetode       2   109.00      [?]       [?]    6.12e-07\nResiduals   15    19.00      [?]\n```\n\n**a)** Formuler ANOVA-modellen og hypotesene som F-testen prøver.\n\n**b)** Fyll ut Mean Sq-kolonnen og F-verdien, og gjennomfør testen på 5 %-nivå. Forklar hvorfor testen forkaster for *store* F-verdier, og hvorfor nivået blir nøyaktig 5 %. Oppgitt: $F_{2,\\,15,\\,0{,}05}=3{,}68$.\n\n**c)** De samme dataene analyseres som lineær regresjon med indikatorvariabler (dummyer), med romtemperatur som referanse:\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   9.5000      0.4595   20.676  1.95e-12\nkjoleskap     3.5000      0.6498    5.386  7.56e-05\nfrys          6.0000      0.6498    9.234  1.41e-07\n---\nResidual standard error: 1.1255 on 15 degrees of freedom\nMultiple R-squared:  0.8516,   Adjusted R-squared:  0.8318\nF-statistic: 43.03 on 2 and 15 DF,  p-value: 6.12e-07\n```\n\nForklar hva (Intercept), kjoleskap og frys estimerer, og pek på to steder der utskriften og ANOVA-tabellen må stemme overens.\n\n**d)** Bruk MSW fra (b) til å teste kontrasten $H_0:\\mu_{\\text{frys}}-\\mu_{\\text{rom}}=0$ mot $H_a:\\mu_{\\text{frys}}-\\mu_{\\text{rom}}\\ne 0$ på 5 %-nivå, og angi et 95 %-konfidensintervall for differansen. Sammenlign med frys-raden i utskriften. Oppgitt: $t_{15,\\,0{,}025}=2{,}131$.\n\n**e)** Hva sier den signifikante ANOVA-testen om lagringsmetodene — og hva sier den *ikke*?"
+  },
+  {
+   "id": "stk1110-4-3-o3",
+   "type": "text",
+   "content": "**Oppgave 3 — Multippel regresjon: konfundering, modellvalg og diagnostikk (a–f)**\n\nFor $n=20$ utleieleiligheter i samme by er registrert månedsleie $y$ (kr), areal $x_1$ (m²) og avstand fra sentrum $x_2$ (km). Korrelasjonen mellom areal og avstand i utvalget er $0{,}80$ — store leiligheter ligger gjennomgående lengre fra sentrum. To modeller er tilpasset:\n\n```\nModell A: leie ~ areal\n\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  5122.00     1046.55    4.894  1.17e-04\nareal         173.29       15.15   11.441  1.08e-09\n---\nResidual standard error: 1283.3 on 18 degrees of freedom\nMultiple R-squared:  0.8791,   Adjusted R-squared:  0.8724\nF-statistic: 130.9 on 1 and 18 DF,  p-value: 1.08e-09\n```\n\n```\nModell B: leie ~ areal + avstand\n\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  3693.68      450.45    8.200  2.60e-07\nareal         253.31       10.36   24.442  1.10e-14\navstand      -555.56       57.90   -9.595  2.83e-08\n---\nResidual standard error: 521.3 on 17 degrees of freedom\nMultiple R-squared:  0.9812,   Adjusted R-squared:  0.9789\nF-statistic: 442.7 on 2 and 17 DF,  p-value: 2.18e-15\n```\n\n**a)** Bruk modell A: tolk stigningstallet for areal i kontekst, og forklar hvordan frihetsgradstallet 18 fremkommer.\n\n**b)** I modell B er areal-koeffisienten $253{,}31$ — mot $173{,}29$ i modell A. Forklar mekanismen bak endringen. Hvilken av de to koeffisientene beskriver arealeffekten for leiligheter med *samme* avstand fra sentrum?\n\n**c)** Test på 5 %-nivå om avstand har effekt på leia når areal er med i modellen, og angi et 95 %-konfidensintervall for avstandskoeffisienten. Oppgitt: $t_{17,\\,0{,}025}=2{,}110$.\n\n**d)** Avgjør med justert $R^2$ hvilken modell som foretrekkes, og forklar hvorfor Multiple R-squared alene ikke kan brukes til dette valget.\n\n**e)** Skriv modell B på matriseform $Y=X\\beta+\\varepsilon$: angi dimensjonene til $X$ og $\\beta$, minste kvadraters estimator på matriseform, og betingelsen for at den er entydig.\n\n**f)** Hvilke tre standardplott vil du bruke til å vurdere modell B, og hva ser du etter i hvert av dem? Hva ville et vifteformet residualplott (spredning som øker med tilpasset verdi) bety for gyldigheten av testen i (c)?"
+  },
+  {
+   "id": "stk1110-4-3-los1",
+   "type": "collapsible",
+   "title": "Løsningsforslag oppgave 1",
+   "buttonText": "Vis løsningsforslag",
+   "content": [
     {
-      "id": "stk1110-4-3-tip",
-      "type": "tip",
-      "title": "Slik bruker du øvingseksamenen",
-      "content": "Dette er **Øvingseksamen 2** — settet som trener **rotasjons-differensiatorene**: et Bayes-/konjugeringspunkt i estimeringen, enveis ANOVA koblet til dummy-regresjon, og en tydelig konfunderingsdrøfting i den multiple regresjonen. Det er disse punktene som oftest skiller en B fra en A når de dukker opp.\n\n- **Rammen er som på ordentlig eksamen: 4 timer, tre kjededelte storoppgaver.** Sett av en sammenhengende økt, bruk formelsamling og kalkulator, og **gjennomfør hele settet på tid før du åpner et eneste løsningsforslag.**\n- Nødvendige kvantiler er oppgitt i oppgavetekstene, som på eksamen.\n- Hvert deltrinn bygger på de forrige, men står ett trinn fast: bruk det oppgitte mellomresultatet og gå videre — akkurat som strategien i [kap. 4.1](/bok/stk1110/stk1110-4-1) anbefaler.\n- Løsningsforslagene er skrevet som fullstendige A-besvarelser, med et notat om delpoeng og de vanligste trekkene etter hver oppgave.\n\nTidsanslaget på 90 minutter gjelder gjennomgang av settet med fasit — selve gjennomføringen på tid kommer i tillegg."
+     "id": "stk1110-4-3-los1-ab",
+     "type": "text",
+     "content": "**a) Likelihood og log-likelihood.** La $s=\\sum_{i=1}^n x_i$. Uavhengighet gir produktet\n$$L(\\lambda)=\\prod_{i=1}^{n}\\frac{\\lambda^{x_i}}{x_i!}e^{-\\lambda}=\\frac{\\lambda^{s}}{\\prod_i x_i!}\\,e^{-n\\lambda},$$\nog log-likelihooden (konstanten $-\\sum\\ln(x_i!)$ avhenger ikke av $\\lambda$ og kan droppes):\n$$\\ell(\\lambda)=s\\ln\\lambda-n\\lambda+\\text{konst.}$$\n\n**b) Score, løsning og maksimums-bekreftelse.** Scorefunksjonen er\n$$\\ell'(\\lambda)=\\frac{s}{\\lambda}-n.$$\nScoreligningen $\\ell'(\\lambda)=0$ gir $\\lambda=s/n$, altså estimatoren $\\hat\\lambda=\\bar X$ (stor bokstav: en stokastisk størrelse). Andrederiverte:\n$$\\ell''(\\lambda)=-\\frac{s}{\\lambda^2}<0\\ \\text{for alle }\\lambda>0,$$\nså $\\ell$ er konkav og det stasjonære punktet er et maksimum. Med tallene: $\\hat\\lambda=36/8=4{,}5$ avvik per døgn (estimatet — et tall)."
     },
     {
-      "id": "stk1110-4-3-forkunnskaper",
-      "type": "text",
-      "content": "**Forkunnskaper** (hentes frem før du starter klokka):\n\n- **[kap. 1.2](/bok/stk1110/stk1110-1-2)** — ML-kjeden $L \\to \\ell \\to$ score $\\to$ løs $\\to$ bekreft maksimum, som bærer oppgave 1a–c.\n- **[kap. 1.4](/bok/stk1110/stk1110-1-4)** — konjugering med kjernetrikset (samle eksponentene), gamma-kjernen og Bayes-estimatoren som veid snitt, som bærer oppgave 1d–f.\n- **[kap. 2.6](/bok/stk1110/stk1110-2-6)** — enveis ANOVA-modellen, F-observatoren MSB/MSW og lesing av ANOVA-tabellen, som bærer oppgave 2.\n- **[kap. 3.3](/bok/stk1110/stk1110-3-3)** — dummy-koding, matriseform, justert $R^2$ og konfundering, som bærer oppgave 2c og hele oppgave 3.\n- **[kap. 4.1](/bok/stk1110/stk1110-4-1)** — tidsbudsjett og strategien for kjededelte oppgaver.\n\nPoisson-egenskapene $E(X)=V(X)=\\lambda$ og gamma-fordelingens form er STK1100-stoff; [kap. 0.2](/bok/stk1110/stk1110-0-2) frisker dem opp."
+     "id": "stk1110-4-3-los1-c",
+     "type": "text",
+     "content": "**c) Forventningsretthet og varians.** Siden $E(X_i)=\\lambda$:\n$$E(\\hat\\lambda)=E(\\bar X)=\\frac1n\\sum_{i=1}^n E(X_i)=\\lambda,$$\nså $\\hat\\lambda$ er forventningsrett. Uavhengighet og $V(X_i)=\\lambda$ gir\n$$V(\\hat\\lambda)=V(\\bar X)=\\frac{1}{n^2}\\sum_{i=1}^n V(X_i)=\\frac{\\lambda}{n}.$$\nVariansen avtar som $1/n$ — estimatoren er også konsistent."
     },
     {
-      "id": "stk1110-4-3-o1",
-      "type": "text",
-      "content": "## Oppgavesettet\n\n**Oppgave 1 — Estimering og Bayes for en Poisson-rate (a–f)**\n\nVed en serverpark registreres antall driftsavvik per døgn. La $X_1,\\dots,X_n$ være antall avvik i $n=8$ uavhengige døgn, der $X_i \\sim \\text{Poisson}(\\lambda)$ med punktsannsynlighet\n$$p(x;\\lambda)=\\frac{\\lambda^x}{x!}e^{-\\lambda},\\qquad x=0,1,2,\\dots$$\nObservert sum er $\\sum_{i=1}^{8} x_i = 36$. For Poisson er $E(X_i)=V(X_i)=\\lambda$ (STK1100-stoff, repetert i [kap. 0.2](/bok/stk1110/stk1110-0-2)).\n\n**a)** Sett opp likelihoodfunksjonen $L(\\lambda)$ og log-likelihooden $\\ell(\\lambda)$.\n\n**b)** Utled scorefunksjonen, løs scoreligningen og vis at ML-estimatoren er $\\hat\\lambda = \\bar X$. Bekreft at løsningen er et maksimumspunkt.\n\n**c)** Vis at $\\hat\\lambda$ er forventningsrett, og finn $V(\\hat\\lambda)$.\n\n**d)** Driftsavdelingen har forhåndskunnskap fra tilsvarende anlegg, uttrykt som en gamma$(\\alpha,\\beta)$-apriori for $\\lambda$ med $\\alpha=2$ og $\\beta=1$ (skalaparametrisering: $\\pi(\\lambda)\\propto\\lambda^{\\alpha-1}e^{-\\lambda/\\beta}$). Utled aposteriorifordelingen for $\\lambda$ gitt dataene. Samle eksponentene eksplisitt.\n\n**e)** Finn Bayes-estimatoren for $\\lambda$, og regn ut estimatet. (For gamma$(\\alpha,\\beta)$ er $E=\\alpha\\beta$ — står i formelsamlingen.)\n\n**f)** Vis at Bayes-estimatet kan skrives som et veid gjennomsnitt av ML-estimatet $\\bar x$ og apriori-forventningen $\\alpha\\beta$. Angi vekten på dataene, regn den ut her, og forklar hva som skjer med Bayes-estimatoren når $n\\to\\infty$."
+     "id": "stk1110-4-3-los1-d",
+     "type": "text",
+     "content": "**d) Aposteriori — samle eksponentene.** Bayes' setning på proporsjonalitetsform:\n$$\\pi(\\lambda\\mid x)\\ \\propto\\ \\pi(\\lambda)\\,L(\\lambda)\\ \\propto\\ \\underbrace{\\lambda^{\\alpha-1}e^{-\\lambda/\\beta}}_{\\text{apriori}}\\cdot\\underbrace{\\lambda^{s}e^{-n\\lambda}}_{\\text{likelihood}}.$$\nNå samles eksponentene eksplisitt — potensene av $\\lambda$ for seg, leddene i $e$-eksponenten for seg:\n$$\\pi(\\lambda\\mid x)\\ \\propto\\ \\lambda^{(\\alpha+s)-1}\\,e^{-\\lambda\\left(\\frac1\\beta+n\\right)}.$$\nDette er gamma-kjernen med formparameter $\\alpha'=\\alpha+s$ og skalaparameter $\\beta'=1/(1/\\beta+n)=\\beta/(1+n\\beta)$. Med $\\alpha=2$, $\\beta=1$, $s=36$, $n=8$:\n$$\\lambda\\mid x\\ \\sim\\ \\text{gamma}\\!\\left(38,\\ \\tfrac19\\right).$$\nKonjugering: apriori og aposteriori er i samme familie — bare parametrene er oppdatert."
     },
     {
-      "id": "stk1110-4-3-o2",
-      "type": "text",
-      "content": "**Oppgave 2 — Enveis ANOVA og dummy-regresjon (a–e)**\n\nEt næringsmiddellaboratorium måler vitamin C-innhold (mg per 100 g) i jordbær etter fire ukers lagring med tre metoder: **romtemperatur**, **kjøleskap** og **frys**, med seks kartonger per metode ($N=18$). Gruppegjennomsnittene er $\\bar x_{\\text{rom}}=9{,}5$, $\\bar x_{\\text{kjøl}}=13{,}0$ og $\\bar x_{\\text{frys}}=15{,}5$. En enveis ANOVA gir tabellen under, der to celler er sladdet:\n\n```\n            Df   Sum Sq   Mean Sq   F value    Pr(>F)\nmetode       2   109.00      [?]       [?]    6.12e-07\nResiduals   15    19.00      [?]\n```\n\n**a)** Formuler ANOVA-modellen og hypotesene som F-testen prøver.\n\n**b)** Fyll ut Mean Sq-kolonnen og F-verdien, og gjennomfør testen på 5 %-nivå. Forklar hvorfor testen forkaster for *store* F-verdier, og hvorfor nivået blir nøyaktig 5 %. Oppgitt: $F_{2,\\,15,\\,0{,}05}=3{,}68$.\n\n**c)** De samme dataene analyseres som lineær regresjon med indikatorvariabler (dummyer), med romtemperatur som referanse:\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   9.5000      0.4595   20.676  1.95e-12 kjoleskap     3.5000      0.6498    5.386  7.56e-05 frys          6.0000      0.6498    9.234  1.41e-07\n---\nResidual standard error: 1.1255 on 15 degrees of freedom\nMultiple R-squared:  0.8516,   Adjusted R-squared:  0.8318\nF-statistic: 43.03 on 2 and 15 DF,  p-value: 6.12e-07\n```\n\nForklar hva (Intercept), kjoleskap og frys estimerer, og pek på to steder der utskriften og ANOVA-tabellen må stemme overens.\n\n**d)** Bruk MSW fra (b) til å teste kontrasten $H_0:\\mu_{\\text{frys}}-\\mu_{\\text{rom}}=0$ mot $H_a:\\mu_{\\text{frys}}-\\mu_{\\text{rom}}\\ne 0$ på 5 %-nivå, og angi et 95 %-konfidensintervall for differansen. Sammenlign med frys-raden i utskriften. Oppgitt: $t_{15,\\,0{,}025}=2{,}131$.\n\n**e)** Hva sier den signifikante ANOVA-testen om lagringsmetodene — og hva sier den *ikke*?"
+     "id": "stk1110-4-3-los1-e",
+     "type": "text",
+     "content": "**e) Bayes-estimatoren.** Bayes-estimatoren (under kvadratisk tap) er aposteriori forventning. For gamma$(\\alpha',\\beta')$ er $E=\\alpha'\\beta'$:\n$$\\hat\\lambda_{\\text{Bayes}}=E(\\lambda\\mid x)=\\alpha'\\beta'=38\\cdot\\frac19=\\frac{38}{9}\\approx 4{,}22.$$\nMerk at dette *ikke* er toppunktet i aposteriorifordelingen (modus) — Bayes-estimatoren i STK1110 er forventningen."
     },
     {
-      "id": "stk1110-4-3-o3",
-      "type": "text",
-      "content": "**Oppgave 3 — Multippel regresjon: konfundering, modellvalg og diagnostikk (a–f)**\n\nFor $n=20$ utleieleiligheter i samme by er registrert månedsleie $y$ (kr), areal $x_1$ (m²) og avstand fra sentrum $x_2$ (km). Korrelasjonen mellom areal og avstand i utvalget er $0{,}80$ — store leiligheter ligger gjennomgående lengre fra sentrum. To modeller er tilpasset:\n\n```\nModell A: leie ~ areal\n\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  5122.00     1046.55    4.894  1.17e-04 areal         173.29       15.15   11.441  1.08e-09\n---\nResidual standard error: 1283.3 on 18 degrees of freedom\nMultiple R-squared:  0.8791,   Adjusted R-squared:  0.8724\nF-statistic: 130.9 on 1 and 18 DF,  p-value: 1.08e-09\n```\n\n```\nModell B: leie ~ areal + avstand\n\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  3693.68      450.45    8.200  2.60e-07 areal         253.31       10.36   24.442  1.10e-14 avstand      -555.56       57.90   -9.595  2.83e-08\n---\nResidual standard error: 521.3 on 17 degrees of freedom\nMultiple R-squared:  0.9812,   Adjusted R-squared:  0.9789\nF-statistic: 442.7 on 2 and 17 DF,  p-value: 2.18e-15\n```\n\n**a)** Bruk modell A: tolk stigningstallet for areal i kontekst, og forklar hvordan frihetsgradstallet 18 fremkommer.\n\n**b)** I modell B er areal-koeffisienten $253{,}31$ — mot $173{,}29$ i modell A. Forklar mekanismen bak endringen. Hvilken av de to koeffisientene beskriver arealeffekten for leiligheter med *samme* avstand fra sentrum?\n\n**c)** Test på 5 %-nivå om avstand har effekt på leia når areal er med i modellen, og angi et 95 %-konfidensintervall for avstandskoeffisienten. Oppgitt: $t_{17,\\,0{,}025}=2{,}110$.\n\n**d)** Avgjør med justert $R^2$ hvilken modell som foretrekkes, og forklar hvorfor Multiple R-squared alene ikke kan brukes til dette valget.\n\n**e)** Skriv modell B på matriseform $Y=X\\beta+\\varepsilon$: angi dimensjonene til $X$ og $\\beta$, minste kvadraters estimator på matriseform, og betingelsen for at den er entydig.\n\n**f)** Hvilke tre standardplott vil du bruke til å vurdere modell B, og hva ser du etter i hvert av dem? Hva ville et vifteformet residualplott (spredning som øker med tilpasset verdi) bety for gyldigheten av testen i (c)?"
+     "id": "stk1110-4-3-los1-f",
+     "type": "text",
+     "content": "**f) Veid gjennomsnitt og grenseoppførsel.** Skriv om med $\\beta'=\\beta/(1+n\\beta)$:\n$$\\hat\\lambda_{\\text{Bayes}}=\\frac{\\alpha+s}{1/\\beta+n}=\\frac{n}{1/\\beta+n}\\cdot\\frac{s}{n}+\\frac{1/\\beta}{1/\\beta+n}\\cdot\\alpha\\beta=w\\,\\bar x+(1-w)\\,\\alpha\\beta,$$\nmed vekt\n$$w=\\frac{n\\beta}{1+n\\beta}=\\frac{8\\cdot 1}{1+8\\cdot 1}=\\frac89\\approx 0{,}889.$$\nKontroll: $\\frac89\\cdot 4{,}5+\\frac19\\cdot 2=4{,}0+0{,}22=4{,}22$ — samsvarer med (e). Apriorien teller som $1/\\beta=1$ «pseudo-observasjon» mot $n=8$ ekte. Når $n\\to\\infty$ går $w\\to 1$, og\n$$\\hat\\lambda_{\\text{Bayes}}\\to\\bar x=\\hat\\lambda_{ML}:$$\nmed mye data overdøver likelihooden apriorien, og Bayes- og ML-estimatoren smelter sammen."
     },
     {
-      "id": "stk1110-4-3-los1",
-      "type": "collapsible",
-      "title": "Løsningsforslag oppgave 1",
-      "buttonText": "Vis løsningsforslag",
-      "content": [
-        {
-          "id": "stk1110-4-3-los1-ab",
-          "type": "text",
-          "content": "**a) Likelihood og log-likelihood.** La $s=\\sum_{i=1}^n x_i$. Uavhengighet gir produktet\n$$L(\\lambda)=\\prod_{i=1}^{n}\\frac{\\lambda^{x_i}}{x_i!}e^{-\\lambda}=\\frac{\\lambda^{s}}{\\prod_i x_i!}\\,e^{-n\\lambda},$$\nog log-likelihooden (konstanten $-\\sum\\ln(x_i!)$ avhenger ikke av $\\lambda$ og kan droppes):\n$$\\ell(\\lambda)=s\\ln\\lambda-n\\lambda+\\text{konst.}$$\n\n**b) Score, løsning og maksimums-bekreftelse.** Scorefunksjonen er\n$$\\ell'(\\lambda)=\\frac{s}{\\lambda}-n.$$\nScoreligningen $\\ell'(\\lambda)=0$ gir $\\lambda=s/n$, altså estimatoren $\\hat\\lambda=\\bar X$ (stor bokstav: en stokastisk størrelse). Andrederiverte:\n$$\\ell''(\\lambda)=-\\frac{s}{\\lambda^2}<0\\ \\text{for alle }\\lambda>0,$$\nså $\\ell$ er konkav og det stasjonære punktet er et maksimum. Med tallene: $\\hat\\lambda=36/8=4{,}5$ avvik per døgn (estimatet — et tall)."
-        },
-        {
-          "id": "stk1110-4-3-los1-c",
-          "type": "text",
-          "content": "**c) Forventningsretthet og varians.** Siden $E(X_i)=\\lambda$:\n$$E(\\hat\\lambda)=E(\\bar X)=\\frac1n\\sum_{i=1}^n E(X_i)=\\lambda,$$\nså $\\hat\\lambda$ er forventningsrett. Uavhengighet og $V(X_i)=\\lambda$ gir\n$$V(\\hat\\lambda)=V(\\bar X)=\\frac{1}{n^2}\\sum_{i=1}^n V(X_i)=\\frac{\\lambda}{n}.$$\nVariansen avtar som $1/n$ — estimatoren er også konsistent."
-        },
-        {
-          "id": "stk1110-4-3-los1-d",
-          "type": "text",
-          "content": "**d) Aposteriori — samle eksponentene.** Bayes' setning på proporsjonalitetsform:\n$$\\pi(\\lambda\\mid x)\\ \\propto\\ \\pi(\\lambda)\\,L(\\lambda)\\ \\propto\\ \\underbrace{\\lambda^{\\alpha-1}e^{-\\lambda/\\beta}}_{\\text{apriori}}\\cdot\\underbrace{\\lambda^{s}e^{-n\\lambda}}_{\\text{likelihood}}.$$\nNå samles eksponentene eksplisitt — potensene av $\\lambda$ for seg, leddene i $e$-eksponenten for seg:\n$$\\pi(\\lambda\\mid x)\\ \\propto\\ \\lambda^{(\\alpha+s)-1}\\,e^{-\\lambda\\left(\\frac1\\beta+n\\right)}.$$\nDette er gamma-kjernen med formparameter $\\alpha'=\\alpha+s$ og skalaparameter $\\beta'=1/(1/\\beta+n)=\\beta/(1+n\\beta)$. Med $\\alpha=2$, $\\beta=1$, $s=36$, $n=8$:\n$$\\lambda\\mid x\\ \\sim\\ \\text{gamma}\\!\\left(38,\\ \\tfrac19\\right).$$\nKonjugering: apriori og aposteriori er i samme familie — bare parametrene er oppdatert."
-        },
-        {
-          "id": "stk1110-4-3-los1-e",
-          "type": "text",
-          "content": "**e) Bayes-estimatoren.** Bayes-estimatoren (under kvadratisk tap) er aposteriori forventning. For gamma$(\\alpha',\\beta')$ er $E=\\alpha'\\beta'$:\n$$\\hat\\lambda_{\\text{Bayes}}=E(\\lambda\\mid x)=\\alpha'\\beta'=38\\cdot\\frac19=\\frac{38}{9}\\approx 4{,}22.$$\nMerk at dette *ikke* er toppunktet i aposteriorifordelingen (modus) — Bayes-estimatoren i STK1110 er forventningen."
-        },
-        {
-          "id": "stk1110-4-3-los1-f",
-          "type": "text",
-          "content": "**f) Veid gjennomsnitt og grenseoppførsel.** Skriv om med $\\beta'=\\beta/(1+n\\beta)$:\n$$\\hat\\lambda_{\\text{Bayes}}=\\frac{\\alpha+s}{1/\\beta+n}=\\frac{n}{1/\\beta+n}\\cdot\\frac{s}{n}+\\frac{1/\\beta}{1/\\beta+n}\\cdot\\alpha\\beta=w\\,\\bar x+(1-w)\\,\\alpha\\beta,$$\nmed vekt\n$$w=\\frac{n\\beta}{1+n\\beta}=\\frac{8\\cdot 1}{1+8\\cdot 1}=\\frac89\\approx 0{,}889.$$\nKontroll: $\\frac89\\cdot 4{,}5+\\frac19\\cdot 2=4{,}0+0{,}22=4{,}22$ — samsvarer med (e). Apriorien teller som $1/\\beta=1$ «pseudo-observasjon» mot $n=8$ ekte. Når $n\\to\\infty$ går $w\\to 1$, og\n$$\\hat\\lambda_{\\text{Bayes}}\\to\\bar x=\\hat\\lambda_{ML}:$$\nmed mye data overdøver likelihooden apriorien, og Bayes- og ML-estimatoren smelter sammen."
-        },
-        {
-          "id": "stk1110-4-3-los1-tip",
-          "type": "tip",
-          "title": "Delpoeng og vanligste trekk — oppgave 1",
-          "content": "**Vekting:** oppgave 1 teller typisk rundt en tredjedel av settet, med (a)–(c) som sikre rutinepoeng og (d)–(f) som differensiatorene. Hent (a)–(c) raskt og feilfritt før du bruker tid på Bayes-delen.\n\n**Vanligste trekk her:**\n- Hoppe over maksimums-bekreftelsen $\\ell''<0$ i (b) — den koster én linje og trekkes konsekvent når den mangler.\n- I (d): påstå «gamma-apriori gir gamma-aposteriori» uten å samle eksponentene. Sensor vil *se* sammenslåingen $\\lambda^{(\\alpha+s)-1}e^{-\\lambda(1/\\beta+n)}$, ikke bare fasitparametrene.\n- Blande estimator og estimat: $\\hat\\lambda=\\bar X$ er stokastisk; $4{,}5$ er tallverdien i dette datasettet.\n- I (e): oppgi aposteriori-modus i stedet for forventningen."
-        }
-      ]
-    },
-    {
-      "id": "stk1110-4-3-los2",
-      "type": "collapsible",
-      "title": "Løsningsforslag oppgave 2",
-      "buttonText": "Vis løsningsforslag",
-      "content": [
-        {
-          "id": "stk1110-4-3-los2-a",
-          "type": "text",
-          "content": "**a) Modell og hypoteser.** La $X_{ij}$ være vitamin C-innholdet i kartong $j$ under metode $i$, for $i\\in\\{\\text{rom},\\text{kjøl},\\text{frys}\\}$ og $j=1,\\dots,6$:\n$$X_{ij}=\\mu_i+\\varepsilon_{ij},\\qquad \\varepsilon_{ij}\\sim N(0,\\sigma^2)\\ \\text{uavhengige, felles varians.}$$\nHypotesene:\n$$H_0:\\mu_{\\text{rom}}=\\mu_{\\text{kjøl}}=\\mu_{\\text{frys}}\\quad\\text{mot}\\quad H_a:\\ \\text{minst én }\\mu_i\\text{ skiller seg.}$$"
-        },
-        {
-          "id": "stk1110-4-3-los2-b",
-          "type": "text",
-          "content": "**b) Utfylling og F-test.** Mean Sq er Sum Sq delt på Df:\n$$\\text{MSB}=\\frac{109{,}00}{2}=54{,}50,\\qquad \\text{MSW}=\\frac{19{,}00}{15}=1{,}267,$$\n$$F=\\frac{\\text{MSB}}{\\text{MSW}}=\\frac{54{,}50}{1{,}267}=43{,}03.$$\nUnder $H_0$ er $F\\sim F_{k-1,\\,N-k}=F_{2,15}$. Er gruppeforventningene like, måler både teller og nevner bare støyvariansen $\\sigma^2$, og $F\\approx 1$; er de ulike, blåses MSB opp mens MSW er upåvirket — derfor forkastes $H_0$ for **store** $F$. Nivået: forkastningsregelen $F>F_{2,15,\\,0{,}05}$ gir per definisjon av kvantilen\n$$P(\\text{forkast}\\mid H_0)=P(F_{2,15}>F_{2,15,\\,0{,}05})=0{,}05.$$\nTallfesting: $43{,}03>3{,}68$, så $H_0$ forkastes klart (utskriftens P-verdi $6{,}12\\cdot 10^{-7}$ bekrefter det samme). På 5 %-nivå er det belegg for at lagringsmetoden påvirker forventet vitamin C-innhold."
-        },
-        {
-          "id": "stk1110-4-3-los2-c",
-          "type": "text",
-          "content": "**c) Dummy-regresjonen.** Med romtemperatur som referanse er modellen\n$$Y_i=\\beta_0+\\beta_1\\cdot\\text{kjoleskap}_i+\\beta_2\\cdot\\text{frys}_i+\\varepsilon_i,$$\nder dummyene er 1 for kartonger i den aktuelle gruppen og 0 ellers. Da estimerer\n\n- **(Intercept)** $=9{,}50$: forventningen i referansegruppen, $\\hat\\mu_{\\text{rom}}=\\bar x_{\\text{rom}}$;\n- **kjoleskap** $=3{,}50$: differansen $\\hat\\mu_{\\text{kjøl}}-\\hat\\mu_{\\text{rom}}=13{,}0-9{,}5$;\n- **frys** $=6{,}00$: differansen $\\hat\\mu_{\\text{frys}}-\\hat\\mu_{\\text{rom}}=15{,}5-9{,}5$.\n\nTo obligatoriske sammenfall med ANOVA-tabellen: (i) F-linja «43.03 on 2 and 15 DF, p-value 6.12e-07» er *identisk* med ANOVAs F-test — samme hypotese, samme observator; (ii) Residual standard error $1{,}1255$ på 15 frihetsgrader er $\\sqrt{\\text{MSW}}=\\sqrt{1{,}267}$. Enveis ANOVA *er* denne regresjonen."
-        },
-        {
-          "id": "stk1110-4-3-los2-d",
-          "type": "text",
-          "content": "**d) Kontrasten som t-test.** Estimatet er $\\hat\\mu_{\\text{frys}}-\\hat\\mu_{\\text{rom}}=15{,}5-9{,}5=6{,}0$, med standardfeil fra den pooled støyvariansen MSW:\n$$se=\\sqrt{\\text{MSW}\\left(\\frac16+\\frac16\\right)}=\\sqrt{1{,}267\\cdot\\frac13}=0{,}650.$$\nObservator under $H_0$: $T=\\dfrac{(\\bar X_{\\text{frys}}-\\bar X_{\\text{rom}})-0}{se}\\sim t_{N-k}=t_{15}$ (frihetsgradene følger MSW, ikke $6+6-2$).\n$$t=\\frac{6{,}0}{0{,}650}=9{,}23>2{,}131:\\ \\text{forkast }H_0.$$\n95 %-KI: $6{,}0\\pm 2{,}131\\cdot 0{,}650=6{,}0\\pm 1{,}385=[4{,}62,\\ 7{,}39]$ mg per 100 g. Frys-raden i utskriften viser nettopp Estimate $6{,}00$, Std. Error $0{,}6498$ og t value $9{,}234$ — kontrasten og dummy-koeffisienten er samme test."
-        },
-        {
-          "id": "stk1110-4-3-los2-e",
-          "type": "text",
-          "content": "**e) Hva testen sier — og ikke sier.** Den signifikante ANOVA-testen sier at *minst én* lagringsmetode har en annen forventning enn de andre — det finnes en reell metodeforskjell. Den sier **ikke** *hvilke* metoder som skiller seg, ikke at *alle tre* er innbyrdes forskjellige, og ikke *hvor store* forskjellene er. For det trengs oppfølgende kontraster som i (d) — og størrelsen leses av konfidensintervallet, ikke av P-verdien."
-        },
-        {
-          "id": "stk1110-4-3-los2-tip",
-          "type": "tip",
-          "title": "Delpoeng og vanligste trekk — oppgave 2",
-          "content": "**Vekting:** (a) og (b) er rutinepoeng som må sitte; (c) er settets kobling ANOVA ↔ regresjon og teller tungt; (d) og (e) skiller presise besvarelser fra vage.\n\n**Vanligste trekk her:**\n- Tolke den signifikante ANOVA-en som «alle grupper er forskjellige» i (e) — testen sier bare at minst én skiller seg.\n- Bruke $6+6-2=10$ frihetsgrader i kontrasten i (d). MSW pooler over *alle tre* gruppene, så df $=N-k=15$.\n- Ikke koble F-linja i regresjonsutskriften til ANOVAs F-test i (c) — sammenfallet er selve poenget med deloppgaven.\n- Glemme nivå-utledningen i (b): det må stå *hvorfor* regelen gir nivå 5 %."
-        }
-      ]
-    },
-    {
-      "id": "stk1110-4-3-los3",
-      "type": "collapsible",
-      "title": "Løsningsforslag oppgave 3",
-      "buttonText": "Vis løsningsforslag",
-      "content": [
-        {
-          "id": "stk1110-4-3-los3-a",
-          "type": "text",
-          "content": "**a) Tolkning i modell A og frihetsgrader.** Stigningstallet $173{,}29$ sier at når arealet øker med én kvadratmeter, øker *estimert forventet* månedsleie med om lag 173 kr — **uten** at det kontrolleres for noe annet (avstand følger med på lasset, se (b)). Frihetsgradene: $n$ observasjoner minus $k+1=2$ estimerte parametere ($\\beta_0$ og $\\beta_1$) gir $n-k-1=20-1-1=18$."
-        },
-        {
-          "id": "stk1110-4-3-los3-b",
-          "type": "text",
-          "content": "**b) Konfunderingen.** Avstand er korrelert med areal ($r=0{,}80$) og har egen, negativ effekt på leia. I modell A, der avstand er utelatt, «arver» areal-koeffisienten derfor en del av avstandseffekten: større areal betyr i dette utvalget også lengre fra sentrum, og det trekker leia *ned*. Estimatet $173{,}29$ blander de to effektene. I modell B holdes avstand konstant, og arealeffekten rendyrkes til $253{,}31$ kr per m² — endringen på nesten 50 % er konfunderingen synliggjort. Det er **modell B**-koeffisienten som beskriver arealeffekten for leiligheter med samme avstand fra sentrum. Merk: dette er fortsatt observasjonsdata — «kontrollert for avstand» er ikke det samme som et årsaksbevis."
-        },
-        {
-          "id": "stk1110-4-3-los3-c",
-          "type": "text",
-          "content": "**c) Test og KI for avstand.** Hypoteser: $H_0:\\beta_2=0$ mot $H_a:\\beta_2\\ne 0$ (ingen forhåndsretning). Observator $T=\\hat\\beta_2/se(\\hat\\beta_2)$, som under $H_0$ er $t_{n-k-1}=t_{17}$-fordelt. Fra utskriften:\n$$t=\\frac{-555{,}56}{57{,}90}=-9{,}595,\\qquad |t|=9{,}595>2{,}110:\\ \\text{forkast }H_0.$$\nP-verdien $2{,}83\\cdot 10^{-8}$ er sannsynligheten, beregnet under $H_0$, for en t-verdi minst like ekstrem som den observerte (tosidig) — langt under 5 %. 95 %-KI:\n$$-555{,}56\\pm 2{,}110\\cdot 57{,}90=-555{,}56\\pm 122{,}17=[-677{,}7,\\ -433{,}4].$$\nHver kilometer lengre fra sentrum koster estimert mellom ca. 433 og 678 kr i månedsleie, med areal holdt konstant. Null ligger utenfor — dualiteten bekrefter testen."
-        },
-        {
-          "id": "stk1110-4-3-los3-d",
-          "type": "text",
-          "content": "**d) Modellvalg med justert $R^2$.** Justert $R^2$ er $0{,}9789$ i modell B mot $0{,}8724$ i modell A — modell B foretrekkes klart. Multiple R-squared kan ikke brukes alene fordi den *aldri* synker når en variabel legges til, uansett om variabelen bidrar: en sammenligning på $R^2$ premierer automatisk den største modellen. Justert $R^2$ straffer den ekstra parameteren (nevneren $n-k-1$ faller fra 18 til 17) og kan synke når tilskuddet er støy; her øker den likevel kraftig, så avstand tilfører reell forklaringskraft."
-        },
-        {
-          "id": "stk1110-4-3-los3-e",
-          "type": "text",
-          "content": "**e) Matriseform.** Med $Y=(Y_1,\\dots,Y_{20})^T$ og $\\beta=(\\beta_0,\\beta_1,\\beta_2)^T$ ($3\\times 1$) er\n$$Y=X\\beta+\\varepsilon,\\qquad X=\\begin{pmatrix}1 & x_{11} & x_{12}\\\\ \\vdots & \\vdots & \\vdots\\\\ 1 & x_{20,1} & x_{20,2}\\end{pmatrix}\\ (20\\times 3),$$\nder første kolonne er enere for konstantleddet og $\\varepsilon\\sim N(0,\\sigma^2 I)$. Minste kvadraters estimator er\n$$\\hat\\beta=(X^TX)^{-1}X^TY,$$\nsom er entydig når $X^TX$ er inverterbar, dvs. når $X$ har **full kolonnerang** — ingen kolonne kan være en lineærkombinasjon av de andre. Korrelasjonen på 0,80 mellom areal og avstand er høy, men ikke 1, så rangkravet holder her."
-        },
-        {
-          "id": "stk1110-4-3-los3-f",
-          "type": "text",
-          "content": "**f) Diagnostikk.** De tre standardplottene:\n\n- **Residualer mot tilpassede verdier:** se etter *mønster*. En båndløs, strukturløs sky rundt null støtter linearitet og konstant varians; en bue tyder på glemt krumning, en vifte på økende varians.\n- **QQ-plott av residualene:** punktene skal følge referanselinja; systematiske avvik i halene tyder på tunge haler eller skjevhet — da er normalitetsantakelsen bak t- og F-testene svekket.\n- **Scale–location-plottet** ($\\sqrt{|\\text{standardiserte residualer}|}$ mot tilpassede verdier): kurven skal være flat; en stigende trend er variansheterogenitet sett med forstørrelsesglass.\n\nEt vifteformet residualplott ville bety at variansen øker med nivået på leia (heteroskedastisitet). Da er minste kvadraters estimat fortsatt forventningsrett, men standardfeilene i utskriften er gale — og dermed er t-verdien, P-verdien og KI-et i (c) upålitelige. Konklusjonen «avstand har effekt» måtte i så fall etterprøves med metoder som tåler ulik varians."
-        },
-        {
-          "id": "stk1110-4-3-los3-tip",
-          "type": "tip",
-          "title": "Delpoeng og vanligste trekk — oppgave 3",
-          "content": "**Vekting:** regresjonsoppgaven bærer gjerne mest poeng i settet — sett av tid til den. (a), (c) og (d) er tallpoeng rett fra utskriften; (b), (e) og (f) belønner presist språk.\n\n**Vanligste trekk her:**\n- Modellvalg med Multiple R-squared i stedet for justert $R^2$ i (d) — klassikeren.\n- I (b): kalle modell A «feilregnet». Begge modeller er riktige svar på *hver sin* spørsmålsstilling; konfundering handler om hva koeffisienten *betyr*, ikke om regnefeil.\n- Kausalitetsspråk («avstand *fører til* lavere leie er bevist») — observasjonsdata med kontrollvariabler gir justerte assosiasjoner, ikke årsaksbevis.\n- «Plottene ser greie ut» i (f) uten å navngi hva du så etter — sensor krever mønsterbeskrivelse."
-        }
-      ]
+     "id": "stk1110-4-3-los1-tip",
+     "type": "tip",
+     "title": "Delpoeng og vanligste trekk — oppgave 1",
+     "content": "**Vekting:** oppgave 1 teller typisk rundt en tredjedel av settet, med (a)–(c) som sikre rutinepoeng og (d)–(f) som differensiatorene. Hent (a)–(c) raskt og feilfritt før du bruker tid på Bayes-delen.\n\n**Vanligste trekk her:**\n- Hoppe over maksimums-bekreftelsen $\\ell''<0$ i (b) — den koster én linje og trekkes konsekvent når den mangler.\n- I (d): påstå «gamma-apriori gir gamma-aposteriori» uten å samle eksponentene. Sensor vil *se* sammenslåingen $\\lambda^{(\\alpha+s)-1}e^{-\\lambda(1/\\beta+n)}$, ikke bare fasitparametrene.\n- Blande estimator og estimat: $\\hat\\lambda=\\bar X$ er stokastisk; $4{,}5$ er tallverdien i dette datasettet.\n- I (e): oppgi aposteriori-modus i stedet for forventningen."
     }
-  ],
-  "exercises": []
+   ]
+  },
+  {
+   "id": "stk1110-4-3-los2",
+   "type": "collapsible",
+   "title": "Løsningsforslag oppgave 2",
+   "buttonText": "Vis løsningsforslag",
+   "content": [
+    {
+     "id": "stk1110-4-3-los2-a",
+     "type": "text",
+     "content": "**a) Modell og hypoteser.** La $X_{ij}$ være vitamin C-innholdet i kartong $j$ under metode $i$, for $i\\in\\{\\text{rom},\\text{kjøl},\\text{frys}\\}$ og $j=1,\\dots,6$:\n$$X_{ij}=\\mu_i+\\varepsilon_{ij},\\qquad \\varepsilon_{ij}\\sim N(0,\\sigma^2)\\ \\text{uavhengige, felles varians.}$$\nHypotesene:\n$$H_0:\\mu_{\\text{rom}}=\\mu_{\\text{kjøl}}=\\mu_{\\text{frys}}\\quad\\text{mot}\\quad H_a:\\ \\text{minst én }\\mu_i\\text{ skiller seg.}$$"
+    },
+    {
+     "id": "stk1110-4-3-los2-b",
+     "type": "text",
+     "content": "**b) Utfylling og F-test.** Mean Sq er Sum Sq delt på Df:\n$$\\text{MSB}=\\frac{109{,}00}{2}=54{,}50,\\qquad \\text{MSW}=\\frac{19{,}00}{15}=1{,}267,$$\n$$F=\\frac{\\text{MSB}}{\\text{MSW}}=\\frac{54{,}50}{1{,}267}=43{,}03.$$\nUnder $H_0$ er $F\\sim F_{k-1,\\,N-k}=F_{2,15}$. Er gruppeforventningene like, måler både teller og nevner bare støyvariansen $\\sigma^2$, og $F\\approx 1$; er de ulike, blåses MSB opp mens MSW er upåvirket — derfor forkastes $H_0$ for **store** $F$. Nivået: forkastningsregelen $F>F_{2,15,\\,0{,}05}$ gir per definisjon av kvantilen\n$$P(\\text{forkast}\\mid H_0)=P(F_{2,15}>F_{2,15,\\,0{,}05})=0{,}05.$$\nTallfesting: $43{,}03>3{,}68$, så $H_0$ forkastes klart (utskriftens P-verdi $6{,}12\\cdot 10^{-7}$ bekrefter det samme). På 5 %-nivå er det belegg for at lagringsmetoden påvirker forventet vitamin C-innhold."
+    },
+    {
+     "id": "stk1110-4-3-los2-c",
+     "type": "text",
+     "content": "**c) Dummy-regresjonen.** Med romtemperatur som referanse er modellen\n$$Y_i=\\beta_0+\\beta_1\\cdot\\text{kjoleskap}_i+\\beta_2\\cdot\\text{frys}_i+\\varepsilon_i,$$\nder dummyene er 1 for kartonger i den aktuelle gruppen og 0 ellers. Da estimerer\n\n- **(Intercept)** $=9{,}50$: forventningen i referansegruppen, $\\hat\\mu_{\\text{rom}}=\\bar x_{\\text{rom}}$;\n- **kjoleskap** $=3{,}50$: differansen $\\hat\\mu_{\\text{kjøl}}-\\hat\\mu_{\\text{rom}}=13{,}0-9{,}5$;\n- **frys** $=6{,}00$: differansen $\\hat\\mu_{\\text{frys}}-\\hat\\mu_{\\text{rom}}=15{,}5-9{,}5$.\n\nTo obligatoriske sammenfall med ANOVA-tabellen: (i) F-linja «43.03 on 2 and 15 DF, p-value 6.12e-07» er *identisk* med ANOVAs F-test — samme hypotese, samme observator; (ii) Residual standard error $1{,}1255$ på 15 frihetsgrader er $\\sqrt{\\text{MSW}}=\\sqrt{1{,}267}$. Enveis ANOVA *er* denne regresjonen."
+    },
+    {
+     "id": "stk1110-4-3-los2-d",
+     "type": "text",
+     "content": "**d) Kontrasten som t-test.** Estimatet er $\\hat\\mu_{\\text{frys}}-\\hat\\mu_{\\text{rom}}=15{,}5-9{,}5=6{,}0$, med standardfeil fra den pooled støyvariansen MSW:\n$$se=\\sqrt{\\text{MSW}\\left(\\frac16+\\frac16\\right)}=\\sqrt{1{,}267\\cdot\\frac13}=0{,}650.$$\nObservator under $H_0$: $T=\\dfrac{(\\bar X_{\\text{frys}}-\\bar X_{\\text{rom}})-0}{se}\\sim t_{N-k}=t_{15}$ (frihetsgradene følger MSW, ikke $6+6-2$).\n$$t=\\frac{6{,}0}{0{,}650}=9{,}23>2{,}131:\\ \\text{forkast }H_0.$$\n95 %-KI: $6{,}0\\pm 2{,}131\\cdot 0{,}650=6{,}0\\pm 1{,}385=[4{,}62,\\ 7{,}39]$ mg per 100 g. Frys-raden i utskriften viser nettopp Estimate $6{,}00$, Std. Error $0{,}6498$ og t value $9{,}234$ — kontrasten og dummy-koeffisienten er samme test."
+    },
+    {
+     "id": "stk1110-4-3-los2-e",
+     "type": "text",
+     "content": "**e) Hva testen sier — og ikke sier.** Den signifikante ANOVA-testen sier at *minst én* lagringsmetode har en annen forventning enn de andre — det finnes en reell metodeforskjell. Den sier **ikke** *hvilke* metoder som skiller seg, ikke at *alle tre* er innbyrdes forskjellige, og ikke *hvor store* forskjellene er. For det trengs oppfølgende kontraster som i (d) — og størrelsen leses av konfidensintervallet, ikke av P-verdien."
+    },
+    {
+     "id": "stk1110-4-3-los2-tip",
+     "type": "tip",
+     "title": "Delpoeng og vanligste trekk — oppgave 2",
+     "content": "**Vekting:** (a) og (b) er rutinepoeng som må sitte; (c) er settets kobling ANOVA ↔ regresjon og teller tungt; (d) og (e) skiller presise besvarelser fra vage.\n\n**Vanligste trekk her:**\n- Tolke den signifikante ANOVA-en som «alle grupper er forskjellige» i (e) — testen sier bare at minst én skiller seg.\n- Bruke $6+6-2=10$ frihetsgrader i kontrasten i (d). MSW pooler over *alle tre* gruppene, så df $=N-k=15$.\n- Ikke koble F-linja i regresjonsutskriften til ANOVAs F-test i (c) — sammenfallet er selve poenget med deloppgaven.\n- Glemme nivå-utledningen i (b): det må stå *hvorfor* regelen gir nivå 5 %."
+    }
+   ]
+  },
+  {
+   "id": "stk1110-4-3-los3",
+   "type": "collapsible",
+   "title": "Løsningsforslag oppgave 3",
+   "buttonText": "Vis løsningsforslag",
+   "content": [
+    {
+     "id": "stk1110-4-3-los3-a",
+     "type": "text",
+     "content": "**a) Tolkning i modell A og frihetsgrader.** Stigningstallet $173{,}29$ sier at når arealet øker med én kvadratmeter, øker *estimert forventet* månedsleie med om lag 173 kr — **uten** at det kontrolleres for noe annet (avstand følger med på lasset, se (b)). Frihetsgradene: $n$ observasjoner minus $k+1=2$ estimerte parametere ($\\beta_0$ og $\\beta_1$) gir $n-k-1=20-1-1=18$."
+    },
+    {
+     "id": "stk1110-4-3-los3-b",
+     "type": "text",
+     "content": "**b) Konfunderingen.** Avstand er korrelert med areal ($r=0{,}80$) og har egen, negativ effekt på leia. I modell A, der avstand er utelatt, «arver» areal-koeffisienten derfor en del av avstandseffekten: større areal betyr i dette utvalget også lengre fra sentrum, og det trekker leia *ned*. Estimatet $173{,}29$ blander de to effektene. I modell B holdes avstand konstant, og arealeffekten rendyrkes til $253{,}31$ kr per m² — endringen på nesten 50 % er konfunderingen synliggjort. Det er **modell B**-koeffisienten som beskriver arealeffekten for leiligheter med samme avstand fra sentrum. Merk: dette er fortsatt observasjonsdata — «kontrollert for avstand» er ikke det samme som et årsaksbevis."
+    },
+    {
+     "id": "stk1110-4-3-los3-c",
+     "type": "text",
+     "content": "**c) Test og KI for avstand.** Hypoteser: $H_0:\\beta_2=0$ mot $H_a:\\beta_2\\ne 0$ (ingen forhåndsretning). Observator $T=\\hat\\beta_2/se(\\hat\\beta_2)$, som under $H_0$ er $t_{n-k-1}=t_{17}$-fordelt. Fra utskriften:\n$$t=\\frac{-555{,}56}{57{,}90}=-9{,}595,\\qquad |t|=9{,}595>2{,}110:\\ \\text{forkast }H_0.$$\nP-verdien $2{,}83\\cdot 10^{-8}$ er sannsynligheten, beregnet under $H_0$, for en t-verdi minst like ekstrem som den observerte (tosidig) — langt under 5 %. 95 %-KI:\n$$-555{,}56\\pm 2{,}110\\cdot 57{,}90=-555{,}56\\pm 122{,}17=[-677{,}7,\\ -433{,}4].$$\nHver kilometer lengre fra sentrum koster estimert mellom ca. 433 og 678 kr i månedsleie, med areal holdt konstant. Null ligger utenfor — dualiteten bekrefter testen."
+    },
+    {
+     "id": "stk1110-4-3-los3-d",
+     "type": "text",
+     "content": "**d) Modellvalg med justert $R^2$.** Justert $R^2$ er $0{,}9789$ i modell B mot $0{,}8724$ i modell A — modell B foretrekkes klart. Multiple R-squared kan ikke brukes alene fordi den *aldri* synker når en variabel legges til, uansett om variabelen bidrar: en sammenligning på $R^2$ premierer automatisk den største modellen. Justert $R^2$ straffer den ekstra parameteren (nevneren $n-k-1$ faller fra 18 til 17) og kan synke når tilskuddet er støy; her øker den likevel kraftig, så avstand tilfører reell forklaringskraft."
+    },
+    {
+     "id": "stk1110-4-3-los3-e",
+     "type": "text",
+     "content": "**e) Matriseform.** Med $Y=(Y_1,\\dots,Y_{20})^T$ og $\\beta=(\\beta_0,\\beta_1,\\beta_2)^T$ ($3\\times 1$) er\n$$Y=X\\beta+\\varepsilon,\\qquad X=\\begin{pmatrix}1 & x_{11} & x_{12}\\\\ \\vdots & \\vdots & \\vdots\\\\ 1 & x_{20,1} & x_{20,2}\\end{pmatrix}\\ (20\\times 3),$$\nder første kolonne er enere for konstantleddet og $\\varepsilon\\sim N(0,\\sigma^2 I)$. Minste kvadraters estimator er\n$$\\hat\\beta=(X^TX)^{-1}X^TY,$$\nsom er entydig når $X^TX$ er inverterbar, dvs. når $X$ har **full kolonnerang** — ingen kolonne kan være en lineærkombinasjon av de andre. Korrelasjonen på 0,80 mellom areal og avstand er høy, men ikke 1, så rangkravet holder her."
+    },
+    {
+     "id": "stk1110-4-3-los3-f",
+     "type": "text",
+     "content": "**f) Diagnostikk.** De tre standardplottene:\n\n- **Residualer mot tilpassede verdier:** se etter *mønster*. En båndløs, strukturløs sky rundt null støtter linearitet og konstant varians; en bue tyder på glemt krumning, en vifte på økende varians.\n- **QQ-plott av residualene:** punktene skal følge referanselinja; systematiske avvik i halene tyder på tunge haler eller skjevhet — da er normalitetsantakelsen bak t- og F-testene svekket.\n- **Scale–location-plottet** ($\\sqrt{|\\text{standardiserte residualer}|}$ mot tilpassede verdier): kurven skal være flat; en stigende trend er variansheterogenitet sett med forstørrelsesglass.\n\nEt vifteformet residualplott ville bety at variansen øker med nivået på leia (heteroskedastisitet). Da er minste kvadraters estimat fortsatt forventningsrett, men standardfeilene i utskriften er gale — og dermed er t-verdien, P-verdien og KI-et i (c) upålitelige. Konklusjonen «avstand har effekt» måtte i så fall etterprøves med metoder som tåler ulik varians."
+    },
+    {
+     "id": "stk1110-4-3-los3-tip",
+     "type": "tip",
+     "title": "Delpoeng og vanligste trekk — oppgave 3",
+     "content": "**Vekting:** regresjonsoppgaven bærer gjerne mest poeng i settet — sett av tid til den. (a), (c) og (d) er tallpoeng rett fra utskriften; (b), (e) og (f) belønner presist språk.\n\n**Vanligste trekk her:**\n- Modellvalg med Multiple R-squared i stedet for justert $R^2$ i (d) — klassikeren.\n- I (b): kalle modell A «feilregnet». Begge modeller er riktige svar på *hver sin* spørsmålsstilling; konfundering handler om hva koeffisienten *betyr*, ikke om regnefeil.\n- Kausalitetsspråk («avstand *fører til* lavere leie er bevist») — observasjonsdata med kontrollvariabler gir justerte assosiasjoner, ikke årsaksbevis.\n- «Plottene ser greie ut» i (f) uten å navngi hva du så etter — sensor krever mønsterbeskrivelse."
+    }
+   ]
+  }
+ ],
+ "exercises": []
 }
