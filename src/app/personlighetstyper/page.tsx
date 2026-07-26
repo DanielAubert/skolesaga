@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "16 Personlighetstyper - Hvilken type er du?",
     description: "Finn din personlighetstype med 48 påstander og AI-analyse. ISTJ, ENFP, INFJ eller en av 13 andre typer?",
-    url: "https://skolesaga.no/personlighetstyper",
+    url: "https://www.skolesaga.no/personlighetstyper",
     type: "website",
   },
 };

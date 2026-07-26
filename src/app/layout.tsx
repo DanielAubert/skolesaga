@@ -35,7 +35,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://skolesaga.no'),
+  metadataBase: new URL('https://www.skolesaga.no'),
   title: {
     default: "Skolesaga - Interaktive lærebøker for norsk skole",
     template: "%s | Skolesaga"
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "nb_NO",
-    url: "https://skolesaga.no",
+    url: "https://www.skolesaga.no",
     siteName: "Skolesaga",
     title: "Interaktive lærebøker for norsk skole",
     description: "Gratis interaktive lærebøker med øvingsoppgaver, quiz og fremgangsregistrering for alle fag fra 5. klasse til VG3.",
@@ -98,7 +98,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Skolesaga",
-    "url": "https://skolesaga.no",
+    "url": "https://www.skolesaga.no",
     "description": "Gratis interaktive lærebøker med øvingsoppgaver og fremgangsregistrering for alle fag i norsk skole",
     "educationalLevel": ["Barneskole", "Ungdomsskole", "Videregående"],
     "inLanguage": "nb",

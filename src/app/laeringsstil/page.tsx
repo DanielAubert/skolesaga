@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Læringstiltest (VARK) - Finn din læringstil",
     description: "Finn hvordan du lærer best med denne vitenskapelige testen. Visuell, auditiv, lese/skrive eller kinestetisk?",
-    url: "https://skolesaga.no/laeringsstil",
+    url: "https://www.skolesaga.no/laeringsstil",
     type: "website",
   },
 };

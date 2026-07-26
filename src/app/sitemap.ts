@@ -4,7 +4,7 @@ import path from 'node:path';
 import type { MetadataRoute } from 'next';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 
-const BASE_URL = 'https://skolesaga.no';
+const BASE_URL = 'https://www.skolesaga.no';
 
 const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },

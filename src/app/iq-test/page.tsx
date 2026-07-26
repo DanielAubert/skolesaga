@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IQ-test - Test din kognitive evne",
     description: "Adaptiv IQ-test med AI-analyse. Finn dine kognitive styrker og svakheter.",
-    url: "https://skolesaga.no/iq-test",
+    url: "https://www.skolesaga.no/iq-test",
     type: "website",
   },
 };

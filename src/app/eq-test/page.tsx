@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "EQ-test - Mål din emosjonelle intelligens",
     description: "Finn ut hvor god du er på å forstå og håndtere følelser. 5 dimensjoner av emosjonell intelligens.",
-    url: "https://skolesaga.no/eq-test",
+    url: "https://www.skolesaga.no/eq-test",
     type: "website",
   },
 };

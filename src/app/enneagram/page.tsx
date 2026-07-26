@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Enneagramtest - Finn din personlighetstype",
     description: "Oppdag din enneagramtype og forstå dine dypeste motivasjoner. 9 unike personlighetstyper.",
-    url: "https://skolesaga.no/enneagram",
+    url: "https://www.skolesaga.no/enneagram",
     type: "website",
   },
 };

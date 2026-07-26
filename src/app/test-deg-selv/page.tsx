@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Test deg selv - Personlighetstester og mer",
     description: "IQ-test, personlighetstest, yrkesinteresser og læringstil. Finn dine styrker og interesser.",
-    url: "https://skolesaga.no/test-deg-selv",
+    url: "https://www.skolesaga.no/test-deg-selv",
     type: "website",
   },
 };

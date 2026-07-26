@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     locale: "nb_NO",
   },
   alternates: {
-    canonical: "https://skolesaga.no/ressurser"
+    canonical: "https://www.skolesaga.no/ressurser"
   }
 };
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Yrkesinteressetest (RIASEC) - Finn yrker som passer deg",
     description: "Finn dine sterkeste interesseområder og yrker som passer deg med denne vitenskapelige testen.",
-    url: "https://skolesaga.no/yrkesinteresser",
+    url: "https://www.skolesaga.no/yrkesinteresser",
     type: "website",
   },
 };

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Big Five personlighetstest - Finn dine personlighetstrekk",
     description: "Vitenskapelig personlighetstest med AI-analyse. Mål åpenhet, planmessighet, ekstroversjon, medmenneskelighet og nevrotisisme.",
-    url: "https://skolesaga.no/personlighetstest",
+    url: "https://www.skolesaga.no/personlighetstest",
     type: "website",
   },
 };

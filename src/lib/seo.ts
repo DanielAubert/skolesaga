@@ -10,7 +10,7 @@ import type { TextbookCourse, TextbookChapterMeta } from '@/lib/types/textbook';
 import { mediaUrl } from '@/lib/media';
 
 /** Primærvert. Samme base som sitemap/robots bruker. */
-export const SITE_URL = 'https://skolesaga.no';
+export const SITE_URL = 'https://www.skolesaga.no';
 
 /** Bygger en absolutt URL av en rot-relativ sti. */
 export function absoluteUrl(path: string): string {

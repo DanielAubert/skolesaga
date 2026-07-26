@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hoderegning - Tren mental matematikk",
     description: "Øv på hoderegning med interaktive oppgaver. Bli raskere i mental matematikk med våre treningsmoduler.",
-    url: "https://skolesaga.no/hoderegning",
+    url: "https://www.skolesaga.no/hoderegning",
     type: "website",
   },
   twitter: {
