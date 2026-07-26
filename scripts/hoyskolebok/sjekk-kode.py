@@ -184,7 +184,13 @@ def sjekk_kapitler(emne, avvik, merknader):
             for m in re.finditer(r"__\w+__", rå):
                 merknader.append(f"dunder uten backticks i {navn}{sti}: «{m.group(0)}»"
                                  f" — skriv `{m.group(0)}` (stil, ikke rendringsfeil)")
-            for m in re.finditer(r"\w\*\*\w", rå):
+            # `x**2` i prosa skal ha backticks. MEN `**f**` er markdown-fet skrift,
+            # og den gamle regexen `\w\*\*\w` traff hver eneste av dem: fem falske
+            # positive i fys1100 alene (`**f**`, `**t**`, `**h**`). En port som roper
+            # ulv blir ignorert, så vi krever nå at det som følger `**` er et TALL —
+            # slik en eksponent faktisk ser ut — og at det ikke er en avsluttende
+            # fet-markør (`**` etterfulgt av tall er aldri slutten på fet skrift).
+            for m in re.finditer(r"\w\*\*\d", rå):
                 merknader.append(f"potens uten backticks i {navn}{sti}: «{m.group(0)}»"
                                  f" — skriv `{m.group(0)}` (stil, ikke rendringsfeil)")
             if not del7:
