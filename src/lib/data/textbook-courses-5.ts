@@ -666,13 +666,21 @@ export const COURSE_MUSIKK_5: TextbookCourse = {
   description: 'Musikk for 5. trinn - sang, spill, lytting og musikkteori',
   curriculum: 'LK20',
   icon: '🎵',
+  sectionNames: {
+    '1': 'Musisere – synge og spille',
+    '2': 'Notelære og egen musikkskaping',
+    '3': 'Lytte, sjangre og musikkhistorie',
+  },
   chapters: [
-    { id: 'musikk-5-1', number: '1', title: 'Sangglede og stemmekontroll', description: 'Lær å bruke stemmen din på nye måter og opplev gleden ved å synge.', estimatedMinutes: 45, exerciseCount: 5, topics: [], competenceGoals: ['bruke stemmen variert i ulike uttrykk', 'synge unisont og flerstemt i gruppe'], linkedChapterId: 'musikk-5-1-narrativ' },
-    { id: 'musikk-5-2', number: '2', title: 'Rytmeinstrumenter og melodiinstrumenter', description: 'Lær om ulike instrumenter og hvordan du kan spille på dem.', estimatedMinutes: 50, exerciseCount: 5, topics: [], competenceGoals: ['spille på ulike instrumenter', 'samspille med andre'], linkedChapterId: 'musikk-5-2-narrativ' },
-    { id: 'musikk-5-3', number: '3', title: 'Notelære - Rytme og takt', description: 'Lær om noter, pauser og hvordan musikken er organisert i tid.', estimatedMinutes: 50, exerciseCount: 5, topics: [], competenceGoals: ['lese og skrive enkle rytmer med noter og pauser', 'forstå taktarter og taktslag'], linkedChapterId: 'musikk-5-3-narrativ' },
-    { id: 'musikk-5-4', number: '4', title: 'Musikksjangre og instrumenter i orkesteret', description: 'Utforsk ulike typer musikk og bli kjent med orkesterets instrumenter.', estimatedMinutes: 50, exerciseCount: 6, topics: [], competenceGoals: ['kjenne igjen ulike musikksjangre', 'gjenkjenne instrumenter i et orkester', 'lytte aktivt og beskrive musikk'], linkedChapterId: 'musikk-5-4-narrativ' },
-    { id: 'musikk-5-5', number: '5', title: 'Musikkhistorie og sjangre', description: 'Lær om ulike musikksjangre og musikk fra forskjellige tider.', estimatedMinutes: 50, exerciseCount: 2, topics: [], competenceGoals: ['gjenkjenne ulike musikksjangre', 'ha kunnskap om musikkhistorie'], linkedChapterId: 'musikk-5-5-narrativ' },
-    { id: 'musikk-5-6', number: '6', title: 'Lag din egen musikk', description: 'Lær å lage egne melodier og rytmer.', estimatedMinutes: 55, exerciseCount: 2, topics: [], competenceGoals: ['skape egne rytmer og melodier', 'bruke digitale verktøy til å lage musikk'], linkedChapterId: 'musikk-5-6-narrativ' },
+    // Seksjon 1: Musisere – synge og spille
+    { id: 'musikk-5-1', number: '1.1', title: 'Sangglede og stemmekontroll', description: 'Lær å bruke stemmen din på nye måter og opplev gleden ved å synge.', estimatedMinutes: 45, exerciseCount: 5, topics: [], competenceGoals: ['bruke stemmen variert i ulike uttrykk', 'synge unisont og flerstemt i gruppe'], linkedChapterId: 'musikk-5-1-narrativ' },
+    { id: 'musikk-5-2', number: '1.2', title: 'Rytmeinstrumenter og melodiinstrumenter', description: 'Lær om ulike instrumenter og hvordan du kan spille på dem.', estimatedMinutes: 50, exerciseCount: 5, topics: [], competenceGoals: ['spille på ulike instrumenter', 'samspille med andre'], linkedChapterId: 'musikk-5-2-narrativ' },
+    // Seksjon 2: Notelære og egen musikkskaping
+    { id: 'musikk-5-3', number: '2.1', title: 'Notelære - Rytme og takt', description: 'Lær om noter, pauser og hvordan musikken er organisert i tid.', estimatedMinutes: 50, exerciseCount: 5, topics: [], competenceGoals: ['lese og skrive enkle rytmer med noter og pauser', 'forstå taktarter og taktslag'], linkedChapterId: 'musikk-5-3-narrativ' },
+    { id: 'musikk-5-6', number: '2.2', title: 'Lag din egen musikk', description: 'Lær å lage egne melodier og rytmer.', estimatedMinutes: 55, exerciseCount: 2, topics: [], competenceGoals: ['skape egne rytmer og melodier', 'bruke digitale verktøy til å lage musikk'], linkedChapterId: 'musikk-5-6-narrativ' },
+    // Seksjon 3: Lytte, sjangre og musikkhistorie
+    { id: 'musikk-5-4', number: '3.1', title: 'Musikksjangre og instrumenter i orkesteret', description: 'Utforsk ulike typer musikk og bli kjent med orkesterets instrumenter.', estimatedMinutes: 50, exerciseCount: 6, topics: [], competenceGoals: ['kjenne igjen ulike musikksjangre', 'gjenkjenne instrumenter i et orkester', 'lytte aktivt og beskrive musikk'], linkedChapterId: 'musikk-5-4-narrativ' },
+    { id: 'musikk-5-5', number: '3.2', title: 'Musikkhistorie og sjangre', description: 'Lær om ulike musikksjangre og musikk fra forskjellige tider.', estimatedMinutes: 50, exerciseCount: 2, topics: [], competenceGoals: ['gjenkjenne ulike musikksjangre', 'ha kunnskap om musikkhistorie'], linkedChapterId: 'musikk-5-5-narrativ' },
   ],
 };
 
