@@ -1,0 +1,417 @@
+{
+  "id": "in1020-1-4",
+  "courseId": "in1020",
+  "chapterNumber": "1.4",
+  "title": "LMC-assembly — instruksjonssett og sporing",
+  "description": "Little Man Computer: instruksjonssettet med INP, OUT, OTC, LDA, STA, ADD, SUB, BRA, BRZ, BRP, HLT og DAT, og den mekaniske sporemetoden med akkumulator- og minnetabell.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne gjøre rede for hva akkumulatoren, programtelleren og minnecellene gjør i en LMC-maskin",
+    "kunne beskrive virkningen av hver instruksjon i instruksjonssettet på akkumulator, minne og programteller",
+    "kunne føre en sporetabell og lese ut hva et program skriver ut for gitte inndata",
+    "kunne skille mellom utskrift som tall og utskrift som ASCII-tegn, og mellom betinget og ubetinget hopp"
+  ],
+  "content": [
+    {
+      "id": "in1020-1-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** LMC-assembly og maskinkode — **sjanger C** — har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**, ofte som tre eller fire deloppgaver på rad.\n\n**Nivå 1 — dette må sitte.** Sjangeren er den mest omfangsrike i seksjon 1, og den er helt mekanisk: den som fører sporetabell, får riktig svar hver gang.\n\n**Slik kommer den:** som svarform **F4** (nedtrekksmeny — «hva skriver programmet ut?») eller **F1** («velg ett *eller flere* alternativer» — «hvilke påstander om programmet stemmer?»).\n\n**Den ene vanen som avgjør alt:** **før sporetabell.** Ikke les programmet og gjett hva det «sikkert gjør». Sett opp kolonner for programteller, akkumulator og hver minnecelle, og skriv én rad per utført instruksjon. Det tar to minutter og gir riktig svar; å gjette tar tjue sekunder og gir riktig svar omtrent halvparten av gangene — som under negativ poenggiving er verre enn å la oppgaven stå.\n\n**Dette kapitlet** lærer maskinen og instruksjonssettet. [Kap. 1.5](/bok/in1020/in1020-1-5) tar maskinkoden og de to vriene (selvmodifiserende kode og baklengs sporing), og [kap. 1.6](/bok/in1020/in1020-1-6) er drillen.\n\n**Tidsbruk:** 50 minutter, i fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-1-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 1.1](/bok/in1020/in1020-1-1), men bruker lite av tallapparatet. Det du trenger, er:\n\n**1. At et tall og en instruksjon kan være samme ting.** Alt i minnet er tresifrede tall. Om et tall leses som data eller som en instruksjon, avhenger av hva maskinen gjør med det — akkurat som en byte kunne leses på to måter i [kap. 1.3](/bok/in1020/in1020-1-3).\n\n**2. Grunnleggende addisjon og subtraksjon.** LMC regner i titallssystemet, ikke binært. Det er en pedagogisk forenkling: du skal lære *mekanismen*, ikke bitfikling.\n\n**3. ASCII-tanken:** at et tall kan representere et tegn. `72` er `H`. Du får tabellutdraget du trenger i notasjonslisten.\n\nVil du se maskinvaren bak, ligger den i [Datamaskinen og dens komponenter](/bok/im-vg1/im-vg1-1-1) — men du trenger den ikke her."
+    },
+    {
+      "id": "in1020-1-4-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-1-4-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n**Instruksjonssettet.** `xx` betyr et tosifret celleadresse-nummer (00–99).\n\n| Mnemonic | Virkning |\n|---|---|\n| `INP` | Les et tall fra inn-kurven inn i akkumulatoren |\n| `OUT` | Skriv akkumulatoren til ut-kurven **som tall** |\n| `OTC` | Skriv akkumulatoren til ut-kurven **som ASCII-tegn** |\n| `LDA xx` | Kopier innholdet i celle `xx` inn i akkumulatoren |\n| `STA xx` | Kopier akkumulatoren inn i celle `xx` |\n| `ADD xx` | Legg innholdet i celle `xx` til akkumulatoren |\n| `SUB xx` | Trekk innholdet i celle `xx` fra akkumulatoren |\n| `BRA xx` | Hopp til celle `xx` — alltid |\n| `BRZ xx` | Hopp til celle `xx` hvis akkumulatoren er **nøyaktig 0** |\n| `BRP xx` | Hopp til celle `xx` hvis akkumulatoren er **0 eller større** |\n| `HLT` | Stopp programmet |\n| `DAT n` | Reserver en celle med startverdien `n` (ikke en instruksjon) |\n\n**ASCII-utdrag** — det du trenger for `OTC`:\n\n| Tegn | Kode | Tegn | Kode | Tegn | Kode |\n|---|---|---|---|---|---|\n| `A` | 65 | `H` | 72 | `a` | 97 |\n| `B` | 66 | `I` | 73 | `b` | 98 |\n| `C` | 67 | `O` | 79 | mellomrom | 32 |\n| `D` | 68 | `!` | 33 | `0` (siffer) | 48 |\n\nRegelen bak tabellen: store bokstaver starter på 65, små på 97, og siffertegnene på 48.\n\n**Registrene:**\n\n| Navn | Rolle |\n|---|---|\n| Akkumulator | Det ene arbeidsregisteret. All regning skjer her |\n| Programteller | Adressen til neste instruksjon som skal utføres |\n\n**Formler i dette delkapitlet:** ingen. Kapitlet er mekanisk sporing, ikke regning. Den ene «formelen» er sporetabellens invariant:\n\n$$\\text{programteller}_{\\text{neste}} = \\text{programteller} + 1 \\quad \\text{med mindre et hopp utføres}$$"
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Maskinen med hundre postkasser (~10 min)\n\nSe for deg et lukket rom. Langs veggen står hundre nummererte postkasser, fra 00 til 99. Hver av dem inneholder en lapp med et tresifret tall.\n\nI rommet står en person — «den lille mannen» — med to hjelpemidler: en **kalkulator** som viser ett tall om gangen, og en **teller** som viser hvilken postkasse han skal til neste gang. Utenfor rommet er det en innkurv der noen legger tall til ham, og en utkurv der han legger fra seg svar.\n\nArbeidet hans er alltid det samme: gå til postkassen telleren peker på, les lappen, gjør det lappen sier, øk telleren med én, og begynn på nytt.\n\nDet er hele maskinen. Kalkulatoren heter **akkumulator**, telleren heter **programteller**, og postkassene heter **minneceller**. Alt en ekte prosessor gjør, er dette — i milliarder av runder per sekund."
+    },
+    {
+      "id": "in1020-1-4-def-lmc",
+      "type": "definition",
+      "title": "Little Man Computer (LMC)",
+      "content": "En forenklet modell av en datamaskin med 100 nummererte minneceller (00–99), ett arbeidsregister (akkumulatoren), en programteller, en inn-kurv og en ut-kurv.\n\nModellen brukes fordi den har akkurat nok deler til å vise hvordan en prosessor arbeider, og ikke flere. Den regner i titallssystemet, ikke binært, slik at du kan konsentrere deg om mekanismen.\n\nDen faste feilslutningen: at LMC er «bare et leketøy». Instruksjonssettet er en tro miniatyr av en ekte prosessors: last, lagre, regn, hopp, stopp. Alt du lærer om sporing her, gjelder for ekte maskinkode."
+    },
+    {
+      "id": "in1020-1-4-def-akkumulator",
+      "type": "definition",
+      "title": "Akkumulator",
+      "content": "Det ene arbeidsregisteret i LMC — kalkulatoren i hånden til den lille mannen. All regning skjer her, og den holder nøyaktig **ett** tall om gangen.\n\nVil du regne med to tall, må det ene ligge i en minnecelle: `LDA` henter det ene inn i akkumulatoren, og `ADD` legger det andre til fra minnet.\n\nDen faste feilen: å tro at akkumulatoren husker gamle verdier. En ny `LDA` eller `INP` overskriver den fullstendig. Skal du ta vare på en verdi, må du `STA` den til en celle først."
+    },
+    {
+      "id": "in1020-1-4-def-programteller",
+      "type": "definition",
+      "title": "Programteller",
+      "content": "Registeret som holder adressen til den **neste** instruksjonen som skal utføres.\n\nEtter hver instruksjon økes programtelleren med 1 — med mindre instruksjonen var et hopp, og hoppet ble utført. Da settes den til hoppadressen i stedet.\n\nDette er den viktigste kolonnen i sporetabellen din. Mister du oversikten over programtelleren, sporer du feil program.\n\nDen faste feilen: å anta at programmet kjører rett nedover. En `BRA` midt i programmet kan sende deg tilbake, og da utføres de samme instruksjonene om igjen med nye verdier."
+    },
+    {
+      "id": "in1020-1-4-def-minnecelle",
+      "type": "definition",
+      "title": "Minnecelle (postkasse)",
+      "content": "En av de 100 nummererte plassene i LMC-minnet, hver med plass til ett tresifret tall (000–999).\n\nCellene brukes til to ting samtidig: de øverste holder programmets instruksjoner, de nederste holder data. **Maskinen skiller ikke mellom dem** — det er programtelleren som avgjør hva som blir utført.\n\nDet er nettopp dette som gjør selvmodifiserende kode mulig, og det er tema i [kap. 1.5](/bok/in1020/in1020-1-5)."
+    },
+    {
+      "id": "in1020-1-4-def-mnemonic",
+      "type": "definition",
+      "title": "Mnemonic",
+      "content": "Det korte, uttalbare navnet på en instruksjon: `LDA`, `STA`, `BRZ`. Ordet betyr «huskeord».\n\nMnemonic-en er en menneskevennlig skrivemåte for et tallkode. `LDA 08` er det samme som tallet `508` i minnet — se [kap. 1.5](/bok/in1020/in1020-1-5).\n\nDen faste feilen: å forveksle `LDA` og `STA`, som gjør motsatt ting av hverandre. Huskeregel: **L** som i **l**ast **inn** i akkumulatoren, **S** som i **s**tore, altså lagre **ut** til minnet."
+    },
+    {
+      "id": "in1020-1-4-def-assembly",
+      "type": "definition",
+      "title": "Assemblerkode",
+      "content": "Programkode skrevet med mnemonics og adresser i stedet for rene tall — ett steg over maskinkoden, men fortsatt én linje per maskininstruksjon.\n\n`LDA 08` er assemblerkode; `508` er maskinkoden den oversettes til.\n\nAssembler er ikke et høynivåspråk: det finnes ingen løkker, ingen funksjoner og ingen variabelnavn i seg selv. En løkke må du bygge selv med et hopp, og en «variabel» er en minnecelle du har bestemt deg for å bruke."
+    },
+    {
+      "id": "in1020-1-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Instruksjonssettet, én kontrakt om gangen (~15 min)\n\nHver instruksjon er en **kontrakt**: den sier nøyaktig hva som skjer med akkumulatoren, med minnet og med programtelleren. Ingenting annet skjer.\n\nLes kontraktene med den tredelingen i hodet. Det er den som gjør sporing mekanisk: for hver instruksjon spør du «hva ble akkumulatoren?», «hvilken celle endret seg?» og «hvor peker programtelleren nå?»."
+    },
+    {
+      "id": "in1020-1-4-teo-kontrakt",
+      "type": "theorem",
+      "title": "Instruksjonskontrakten — de tre spørsmålene",
+      "content": "Hver LMC-instruksjon endrer nøyaktig én eller to av tre ting:\n\n1. **Akkumulatoren** — endres av `INP`, `LDA`, `ADD` og `SUB`. Uendret av alle andre.\n2. **Minnet** — endres bare av `STA`. Ingen annen instruksjon skriver til en celle.\n3. **Programtelleren** — økes med 1 av alle instruksjoner, unntatt når `BRA` hopper, eller når `BRZ`/`BRP` hopper fordi betingelsen var oppfylt.\n\nEn fjerde ting kan skje uten å endre maskinens tilstand: `OUT` og `OTC` legger noe i ut-kurven.\n\n**Konsekvens for sporing:** en `OUT` endrer ikke akkumulatoren. En `STA` endrer ikke akkumulatoren. En `BRZ` som ikke hopper, endrer ingenting i det hele tatt. Det er lett å tro at «noe må ha skjedd» — men kontrakten sier hva som skjer, og bare det."
+    },
+    {
+      "id": "in1020-1-4-def-inp",
+      "type": "definition",
+      "title": "`INP` — les inn",
+      "content": "Leser det neste tallet fra inn-kurven inn i **akkumulatoren**. Den gamle verdien i akkumulatoren overskrives.\n\nMaskinkode: `901`.\n\nDen faste feilen: å tro at `INP` legger tallet i en minnecelle. Det gjør den ikke — vil du ta vare på inndata, må du følge opp med `STA`."
+    },
+    {
+      "id": "in1020-1-4-def-out",
+      "type": "definition",
+      "title": "`OUT` — skriv ut som tall",
+      "content": "Legger verdien i akkumulatoren i ut-kurven, skrevet som et **tall**. Akkumulatoren er uendret etterpå.\n\nMaskinkode: `902`.\n\nDen faste feilen: å tro at `OUT` tømmer akkumulatoren. Verdien blir liggende, og neste instruksjon ser den fortsatt."
+    },
+    {
+      "id": "in1020-1-4-def-otc",
+      "type": "definition",
+      "title": "`OTC` — skriv ut som ASCII-tegn",
+      "content": "Legger verdien i akkumulatoren i ut-kurven, tolket som en **ASCII-tegnkode**. Akkumulatorverdien 72 gir tegnet `H`, ikke tallet 72.\n\nMaskinkode: `922`.\n\nDette er den hyppigst oversette instruksjonen i sjangeren: et program med `OTC` skriver ut en **tekst**, ikke en tallrekke. Ser du `OTC`, skal du slå opp i ASCII-tabellen."
+    },
+    {
+      "id": "in1020-1-4-def-lda",
+      "type": "definition",
+      "title": "`LDA xx` — last fra minnet",
+      "content": "Kopierer innholdet i celle `xx` inn i akkumulatoren. Cellen er uendret; det er en kopi.\n\nMaskinkode: `5xx`.\n\nDen faste feilen: å blande retningen med `STA`. `LDA` går fra minnet **inn i** akkumulatoren."
+    },
+    {
+      "id": "in1020-1-4-def-sta",
+      "type": "definition",
+      "title": "`STA xx` — lagre til minnet",
+      "content": "Kopierer verdien i akkumulatoren inn i celle `xx`. Akkumulatoren er uendret; cellens gamle innhold er borte.\n\nMaskinkode: `3xx`.\n\nDette er den **eneste** instruksjonen som endrer minnet. Skal du finne ut hvorfor en celle har endret verdi under sporing, er det alltid en `STA` som står bak."
+    },
+    {
+      "id": "in1020-1-4-def-add",
+      "type": "definition",
+      "title": "`ADD xx` — legg til",
+      "content": "Legger innholdet i celle `xx` til akkumulatoren. Cellen er uendret.\n\nMaskinkode: `1xx`.\n\nMerk at det er *cellens innhold* som legges til, ikke celletallet: `ADD 07` legger til det som ligger i celle 07, ikke tallet 7."
+    },
+    {
+      "id": "in1020-1-4-def-sub",
+      "type": "definition",
+      "title": "`SUB xx` — trekk fra",
+      "content": "Trekker innholdet i celle `xx` fra akkumulatoren. Cellen er uendret.\n\nMaskinkode: `2xx`.\n\n`SUB` brukes nesten alltid til to ting: å telle ned mot null, og å **sammenligne** to tall. Er `A − B` null eller større, er `A` minst like stor som `B` — og det er nettopp det `BRZ` og `BRP` tester på."
+    },
+    {
+      "id": "in1020-1-4-def-bra",
+      "type": "definition",
+      "title": "`BRA xx` — hopp alltid",
+      "content": "Setter programtelleren til `xx`, uten betingelse. Akkumulatoren og minnet er uendret.\n\nMaskinkode: `6xx`.\n\nEn `BRA` bakover lager en løkke; en `BRA` framover hopper over en del av koden. Nesten hver løkke i LMC slutter med en `BRA` tilbake til toppen."
+    },
+    {
+      "id": "in1020-1-4-def-brz",
+      "type": "definition",
+      "title": "`BRZ xx` — hopp hvis null",
+      "content": "Setter programtelleren til `xx` hvis akkumulatoren er **nøyaktig 0**. Er den noe annet, fortsetter programmet til neste instruksjon.\n\nMaskinkode: `7xx`.\n\nDen faste fella: `BRZ` treffer bare på eksakt null. Teller du ned med to fra et oddetall, passerer du null uten å treffe den, og løkka stopper aldri."
+    },
+    {
+      "id": "in1020-1-4-def-brp",
+      "type": "definition",
+      "title": "`BRP xx` — hopp hvis ikke negativ",
+      "content": "Setter programtelleren til `xx` hvis akkumulatoren er **0 eller større**. Er den negativ, fortsetter programmet til neste instruksjon.\n\nMaskinkode: `8xx`.\n\nMerk at null regnes som «positiv» her — navnet er misvisende. Dette er den vanligste forvekslingen med `BRZ`, og den endrer ofte antall runder i en løkke med nøyaktig én."
+    },
+    {
+      "id": "in1020-1-4-def-hlt",
+      "type": "definition",
+      "title": "`HLT` — stopp",
+      "content": "Avslutter programmet. Ingenting utføres etterpå.\n\nMaskinkode: `000`.\n\nEn `HLT` kan stå midt i programmet: kommer den etter en `BRA` som hopper over den, nås den bare når en betingelse sender programmet dit."
+    },
+    {
+      "id": "in1020-1-4-def-dat",
+      "type": "definition",
+      "title": "`DAT n` — datacelle",
+      "content": "Ikke en instruksjon, men en beskjed til assembleren: reserver denne cellen og gi den startverdien `n`. Står det bare `DAT`, er startverdien 0.\n\nDatacellene ligger vanligvis nederst i programmet, etter `HLT`, slik at de aldri blir utført.\n\nDen faste feilen: å tro at maskinen «vet» at en `DAT`-celle er data. Det gjør den ikke — hopper programtelleren dit, blir tallet utført som en instruksjon."
+    },
+    {
+      "id": "in1020-1-4-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Det minste hele programmet",
+      "problem": "Hva gjør dette programmet, og hva skriver det ut med inndataene 3 og 4?\n\n```text\n00  INP\n01  STA 90\n02  INP\n03  ADD 90\n04  OUT\n05  HLT\n90  DAT\n```",
+      "solution": "**Sporetabellen.** Én rad per utført instruksjon. Kolonnene er programtelleren før instruksjonen, instruksjonen selv, akkumulatoren etterpå, celle 90 etterpå og ut-kurven.\n\n| PC | Instruksjon | Akkumulator | Celle 90 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 3 | 0 | |\n| 01 | `STA 90` | 3 | **3** | |\n| 02 | `INP` | **4** | 3 | |\n| 03 | `ADD 90` | **7** | 3 | |\n| 04 | `OUT` | 7 | 3 | **7** |\n| 05 | `HLT` | 7 | 3 | 7 |\n\n**Utskrift: `7`.**\n\n**Hva programmet gjør:** det leser to tall og skriver ut summen.\n\n**Legg merke til hvorfor `STA 90` trengs.** Akkumulatoren holder ett tall. Uten linje 01 ville den andre `INP`-en overskrevet det første tallet, og `ADD 90` ville lagt til innholdet i en tom celle. Dette er kjernen i LMC-programmering: du parkerer verdier i minnet fordi du bare har én hånd.\n\n**Legg også merke til at `OUT` ikke endret akkumulatoren.** Den er fortsatt 7 i siste rad."
+    },
+    {
+      "id": "in1020-1-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — instruksjonskontrakter.) For hver av instruksjonene under: hva endres, og hva forblir uendret?\n\n**a)** `STA 45`\n\n**b)** `OUT`\n\n**c)** `BRA 12`",
+        "solution": "**a)** `STA 45` skriver akkumulatorverdien til celle 45. **Minnet endres** (celle 45 får ny verdi). **Akkumulatoren er uendret.** Programtelleren økes med 1 som vanlig.\n\n**b)** `OUT` legger akkumulatorverdien i ut-kurven. **Verken akkumulator eller minne endres.** Programtelleren økes med 1.\n\n**c)** `BRA 12` setter **programtelleren** til 12. **Verken akkumulator eller minne endres.**\n\nMerk mønsteret: bare `STA` skriver til minnet, og bare `INP`, `LDA`, `ADD` og `SUB` endrer akkumulatoren.",
+        "hints": [
+          "Bruk de tre spørsmålene: hva ble akkumulatoren, hvilken celle endret seg, hvor peker programtelleren?",
+          "Hvilken av de tolv instruksjonene er den eneste som skriver til minnet?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver dette programmet ut med inndataene 8 og 5?\n\n```text\n00  INP\n01  STA 80\n02  INP\n03  STA 81\n04  LDA 80\n05  SUB 81\n06  OUT\n07  HLT\n80  DAT\n81  DAT\n```",
+        "solution": "**Sporetabell:**\n\n| PC | Instruksjon | Akkumulator | Celle 80 | Celle 81 | Ut-kurv |\n|---|---|---|---|---|---|\n| 00 | `INP` | 8 | 0 | 0 | |\n| 01 | `STA 80` | 8 | **8** | 0 | |\n| 02 | `INP` | **5** | 8 | 0 | |\n| 03 | `STA 81` | 5 | 8 | **5** | |\n| 04 | `LDA 80` | **8** | 8 | 5 | |\n| 05 | `SUB 81` | **3** | 8 | 5 | |\n| 06 | `OUT` | 3 | 8 | 5 | **3** |\n| 07 | `HLT` | 3 | 8 | 5 | 3 |\n\n**Utskrift: `3`.**\n\nProgrammet trekker det andre tallet fra det første. Merk `LDA 80` på linje 04: den henter det første tallet tilbake inn i akkumulatoren, som på det tidspunktet inneholdt det andre tallet.",
+        "hints": [
+          "Skriv én rad per instruksjon, og hold styr på begge datacellene.",
+          "Legg merke til hva akkumulatoren inneholder rett før `LDA 80` — og hvorfor den linja trengs."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hopp og løkker (~15 min)\n\nSå langt har programmene kjørt rett nedover. Det interessante skjer når programtelleren settes tilbake.\n\nEt **hopp** er ikke annet enn å skrive en ny verdi i programtelleren. `BRA 02` betyr «neste instruksjon er den i celle 02», og hvis vi allerede har passert celle 02, kjører vi de samme instruksjonene om igjen — men med andre verdier i akkumulator og minne. Det er en løkke.\n\nDe to betingede hoppene, `BRZ` og `BRP`, er det som gjør at løkka kan stoppe."
+    },
+    {
+      "id": "in1020-1-4-teo-sporing",
+      "type": "theorem",
+      "title": "Sporingsmetoden",
+      "content": "**Oppsettet.** Lag en tabell med disse kolonnene:\n\n| PC | Instruksjon | Akkumulator | *hver navngitt minnecelle* | Ut-kurv |\n\n**Framgangsmåten, steg for steg:**\n\n1. Start med programteller = 00, akkumulator = 0 og datacellene på sine `DAT`-verdier.\n2. Les instruksjonen i cellen programtelleren peker på. Skriv den i tabellen.\n3. Utfør kontrakten: oppdater akkumulator eller minne, og noter eventuell utskrift.\n4. Sett programtelleren til neste celle — eller til hoppadressen hvis et hopp ble utført.\n5. Gjenta til `HLT`.\n\n**Tre regler som sparer deg for de vanlige bommene:**\n\n- **Én rad per utført instruksjon**, ikke per linje i programmet. Går du åtte ganger gjennom en løkke på fire linjer, får tabellen 32 rader.\n- **Skriv av verdien selv om den er uendret.** En tom celle i tabellen blir til tvil to minutter senere.\n- **Ved betinget hopp: skriv hva betingelsen var.** «akk = 2, ikke 0, hopper ikke» tar tre sekunder og hindrer at du mister en runde.\n\nGår tabellen over tjue rader, ser du som regel et mønster og kan hoppe videre — men bare når du har sett runden gjenta seg **minst to ganger identisk**."
+    },
+    {
+      "id": "in1020-1-4-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: En løkke som teller ned",
+      "problem": "Hva skriver dette programmet ut med inndata 3?\n\n```text\n00  INP\n01  STA 20\n02  LDA 20\n03  OUT\n04  SUB 21\n05  STA 20\n06  BRP 02\n07  HLT\n20  DAT\n21  DAT 1\n```",
+      "solution": "**Sporetabell.** Celle 21 er konstant 1 hele veien og er utelatt.\n\n| PC | Instruksjon | Akkumulator | Celle 20 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 3 | 0 | |\n| 01 | `STA 20` | 3 | 3 | |\n| 02 | `LDA 20` | 3 | 3 | |\n| 03 | `OUT` | 3 | 3 | 3 |\n| 04 | `SUB 21` | 2 | 3 | 3 |\n| 05 | `STA 20` | 2 | 2 | 3 |\n| 06 | `BRP 02` | 2 | 2 | 3 |\n| 02 | `LDA 20` | 2 | 2 | 3 |\n| 03 | `OUT` | 2 | 2 | 3 2 |\n| 04 | `SUB 21` | 1 | 2 | 3 2 |\n| 05 | `STA 20` | 1 | 1 | 3 2 |\n| 06 | `BRP 02` | 1 | 1 | 3 2 |\n| 02 | `LDA 20` | 1 | 1 | 3 2 |\n| 03 | `OUT` | 1 | 1 | 3 2 1 |\n| 04 | `SUB 21` | 0 | 1 | 3 2 1 |\n| 05 | `STA 20` | 0 | 0 | 3 2 1 |\n| 06 | `BRP 02` | 0 | 0 | 3 2 1 |\n| 02 | `LDA 20` | 0 | 0 | 3 2 1 |\n| 03 | `OUT` | 0 | 0 | 3 2 1 0 |\n| 04 | `SUB 21` | −1 | 0 | 3 2 1 0 |\n| 05 | `STA 20` | −1 | −1 | 3 2 1 0 |\n| 06 | `BRP 02` | −1 | −1 | 3 2 1 0 |\n| 07 | `HLT` | −1 | −1 | 3 2 1 0 |\n\n**Utskrift: `3 2 1 0`.**\n\n— naturlig pausepunkt —\n\n**Tre ting å merke seg.**\n\n**1. Null skrives ut.** Det er fordi `BRP` hopper også når akkumulatoren er nøyaktig 0. Hadde linje 06 vært `BRZ 02` i stedet, ville programmet oppført seg helt annerledes.\n\n**2. Løkka går én gang mer enn du tror.** Den intuitive gjetningen er «3 2 1», altså tre runder. Det er fire. Dette er den vanligste bommen i sjangeren, og den fanges bare av sporetabellen.\n\n**3. Akkumulatoren blir negativ til slutt.** Det er den negative verdien som gjør at `BRP` ikke hopper, og programmet faller gjennom til `HLT`."
+    },
+    {
+      "id": "in1020-1-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver dette programmet ut med inndata 6? Og hva skjer med inndata 5?\n\n```text\n00  INP\n01  STA 40\n02  LDA 40\n03  BRZ 08\n04  OUT\n05  SUB 41\n06  STA 40\n07  BRA 02\n08  HLT\n40  DAT\n41  DAT 2\n```",
+        "solution": "**Med inndata 6.** Programmet skriver ut verdien og trekker fra 2, helt til verdien er nøyaktig 0.\n\n| PC | Instruksjon | Akkumulator | Celle 40 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 6 | 0 | |\n| 01 | `STA 40` | 6 | 6 | |\n| 02 | `LDA 40` | 6 | 6 | |\n| 03 | `BRZ 08` | 6 | 6 | akk ≠ 0, hopper ikke |\n| 04 | `OUT` | 6 | 6 | 6 |\n| 05 | `SUB 41` | 4 | 6 | 6 |\n| 06 | `STA 40` | 4 | 4 | 6 |\n| 07 | `BRA 02` | 4 | 4 | 6 |\n| 02 | `LDA 40` | 4 | 4 | 6 |\n| 03 | `BRZ 08` | 4 | 4 | hopper ikke |\n| 04 | `OUT` | 4 | 4 | 6 4 |\n| … | (samme runde) | 2 | 2 | 6 4 2 |\n| 02 | `LDA 40` | 0 | 0 | 6 4 2 |\n| 03 | `BRZ 08` | 0 | 0 | akk = 0, **hopper** |\n| 08 | `HLT` | 0 | 0 | 6 4 2 |\n\n**Utskrift: `6 4 2`.** Merk at 0 ikke skrives ut — `BRZ` fanger den før `OUT`.\n\n**Med inndata 5.** Verdiene blir 5, 3, 1, −1, −3, −5 og videre nedover. `BRZ` tester på **nøyaktig** null, og en nedtelling med to fra et oddetall treffer aldri null. **Programmet stopper aldri** — det er en uendelig løkke som skriver ut alle oddetall nedover.\n\nDette er den klassiske `BRZ`-fella: betingelsen er eksakt likhet, ikke «har passert».",
+        "hints": [
+          "Sett opp sporetabellen og skriv hva betingelsen var hver gang `BRZ` vurderes.",
+          "For den andre delen: list opp verdiene 5, 3, 1 og videre — treffer rekka noen gang eksakt 0?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — LMC-sporing.) Programmet under er det samme som i eksempel 2, men `BRP 02` på linje 06 er byttet ut med `BRZ 02`. Hva skriver det ut med inndata 3?\n\n```text\n00  INP\n01  STA 20\n02  LDA 20\n03  OUT\n04  SUB 21\n05  STA 20\n06  BRZ 02\n07  HLT\n20  DAT\n21  DAT 1\n```",
+        "solution": "**Sporetabell:**\n\n| PC | Instruksjon | Akkumulator | Celle 20 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 3 | 0 | |\n| 01 | `STA 20` | 3 | 3 | |\n| 02 | `LDA 20` | 3 | 3 | |\n| 03 | `OUT` | 3 | 3 | 3 |\n| 04 | `SUB 21` | 2 | 3 | 3 |\n| 05 | `STA 20` | 2 | 2 | 3 |\n| 06 | `BRZ 02` | 2 | 2 | akk = 2, ikke 0, **hopper ikke** |\n| 07 | `HLT` | 2 | 2 | 3 |\n\n**Utskrift: `3`.**\n\nMed `BRZ` hopper programmet bare tilbake når akkumulatoren er nøyaktig null — og det er den ikke etter første runde. Løkka kjører altså én eneste gang.\n\n**Sammenlign med eksempel 2:** samme program, én instruksjon byttet, og utskriften gikk fra `3 2 1 0` til `3`. Forvekslingen `BRZ`/`BRP` er derfor ikke en liten unøyaktighet — den endrer programmet fullstendig.",
+        "hints": [
+          "Skriv ned verdien i akkumulatoren rett før `BRZ` vurderes.",
+          "Sammenlign betingelsen «nøyaktig null» med «null eller større»."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — `OTC` og eksamensformen (~10 min)\n\nDen siste instruksjonen som må sitte, er `OTC`. Den skriver ut akkumulatoren som **tegn**, ikke som tall. Ser du `OTC` i et program, er utskriften en tekst."
+    },
+    {
+      "id": "in1020-1-4-def-ascii",
+      "type": "definition",
+      "title": "ASCII",
+      "content": "Tegnkodingen som gir hvert tegn et tallnummer: `A` er 65, `H` er 72, `a` er 97, mellomrom er 32, og siffertegnet `0` er 48.\n\nI LMC brukes den av `OTC`, som tolker akkumulatorverdien som en tegnkode.\n\nSystematikken er verdt å kunne: store bokstaver ligger sammenhengende fra 65, små fra 97, og siffertegnene fra 48. Vil du skrive ut `C`, tar du `A`-koden 65 og legger til 2.\n\nDen faste feilen: å forveksle tallet 5 med siffertegnet `5`. Tallet er 5; tegnet har koden 53."
+    },
+    {
+      "id": "in1020-1-4-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Et program som skriver tekst",
+      "problem": "Hva skriver dette programmet ut?\n\n```text\n00  LDA 10\n01  OTC\n02  LDA 11\n03  OTC\n04  HLT\n10  DAT 72\n11  DAT 73\n```",
+      "solution": "**Sporetabell:**\n\n| PC | Instruksjon | Akkumulator | Ut-kurv |\n|---|---|---|---|\n| 00 | `LDA 10` | 72 | |\n| 01 | `OTC` | 72 | `H` |\n| 02 | `LDA 11` | 73 | `H` |\n| 03 | `OTC` | 73 | `HI` |\n| 04 | `HLT` | 73 | `HI` |\n\n**Utskrift: `HI`.**\n\nHadde linje 01 og 03 vært `OUT` i stedet for `OTC`, ville utskriften vært `72 73`.\n\n**Dette er hele fella.** Programmet ser ut som et tallprogram — datacellene inneholder tall, akkumulatoren inneholder tall — men utskriften er en tekst. To bokstaver i instruksjonen skiller de to svarene."
+    },
+    {
+      "id": "in1020-1-4-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensform — hva stemmer om programmet?",
+      "problem": "Svarform F1. Programmet under kjøres med inndataene 4 og 9. Kryss av **alle** påstandene som stemmer.\n\n```text\n00  INP\n01  STA 50\n02  INP\n03  STA 51\n04  SUB 50\n05  BRP 08\n06  LDA 50\n07  BRA 09\n08  LDA 51\n09  OUT\n10  HLT\n50  DAT\n51  DAT\n```\n\n**a)** Programmet skriver ut 9.\n\n**b)** Programmet skriver ut det største av de to tallene.\n\n**c)** Instruksjonen på linje 08 blir utført.\n\n**d)** Med inndataene 9 og 4 skriver programmet ut 4.",
+      "solution": "**Sporetabell for inndataene 4 og 9:**\n\n| PC | Instruksjon | Akkumulator | Celle 50 | Celle 51 | Ut-kurv |\n|---|---|---|---|---|---|\n| 00 | `INP` | 4 | 0 | 0 | |\n| 01 | `STA 50` | 4 | 4 | 0 | |\n| 02 | `INP` | 9 | 4 | 0 | |\n| 03 | `STA 51` | 9 | 4 | 9 | |\n| 04 | `SUB 50` | 5 | 4 | 9 | |\n| 05 | `BRP 08` | 5 | 4 | 9 | akk = 5 ≥ 0, **hopper til 08** |\n| 08 | `LDA 51` | 9 | 4 | 9 | |\n| 09 | `OUT` | 9 | 4 | 9 | **9** |\n| 10 | `HLT` | 9 | 4 | 9 | 9 |\n\n**a) Riktig.** Utskriften er 9.\n\n**b) Riktig.** Linje 04 regner `andre − første`. Er differansen null eller større, er det andre tallet størst, og programmet henter det (linje 08). Ellers henter det det første (linje 06). Kontroll med 5 og 5: differansen er 0, `BRP` hopper, og programmet skriver ut 5 — riktig, siden tallene er like.\n\n**c) Riktig.** Sporetabellen viser at `BRP` hoppet til 08, som ble utført.\n\n**d) Galt.** Med inndataene 9 og 4 blir differansen `4 − 9 = −5`, som er negativ. `BRP` hopper **ikke**, programmet går til linje 06, henter celle 50 (som er 9) og hopper over linje 08 med `BRA 09`. Utskriften blir **9**, ikke 4. Distraktoren bygger på at man antar at programmet alltid skriver ut det siste innleste tallet.\n\n**Fasit: a, b og c.**\n\n**Legg merke til `BRA 09` på linje 07.** Uten den ville programmet falt rett ned i linje 08 og overskrevet akkumulatoren med feil verdi. Et hopp som «hopper over» en gren, er standardmønsteret for et valg i assembler."
+    },
+    {
+      "id": "in1020-1-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver dette programmet ut?\n\n```text\n00  LDA 20\n01  OTC\n02  ADD 21\n03  OTC\n04  ADD 21\n05  OTC\n06  HLT\n20  DAT 65\n21  DAT 1\n```",
+        "solution": "**Sporetabell:**\n\n| PC | Instruksjon | Akkumulator | Ut-kurv |\n|---|---|---|---|\n| 00 | `LDA 20` | 65 | |\n| 01 | `OTC` | 65 | `A` |\n| 02 | `ADD 21` | 66 | `A` |\n| 03 | `OTC` | 66 | `AB` |\n| 04 | `ADD 21` | 67 | `AB` |\n| 05 | `OTC` | 67 | `ABC` |\n| 06 | `HLT` | 67 | `ABC` |\n\n**Utskrift: `ABC`.**\n\nProgrammet utnytter at ASCII-kodene for store bokstaver ligger sammenhengende: 65, 66, 67. Å legge til 1 flytter deg ett hakk i alfabetet.\n\nHadde instruksjonene vært `OUT` i stedet, ville utskriften vært `65 66 67`.",
+        "hints": [
+          "Slå opp hva ASCII-koden 65 er, og legg merke til hva `ADD 21` gjør med den.",
+          "`OTC` skriver ut tegnet, ikke tallet — hva blir tegnene for 65, 66 og 67?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — LMC-sporing.) Hva skriver dette programmet ut med inndata 3?\n\n```text\n00  INP\n01  STA 30\n02  LDA 30\n03  ADD 30\n04  STA 30\n05  OUT\n06  SUB 31\n07  BRP 09\n08  BRA 02\n09  HLT\n30  DAT\n31  DAT 20\n```",
+        "solution": "Programmet dobler verdien og skriver den ut, helt til verdien er minst 20.\n\n| PC | Instruksjon | Akkumulator | Celle 30 | Ut-kurv |\n|---|---|---|---|---|\n| 00 | `INP` | 3 | 0 | |\n| 01 | `STA 30` | 3 | 3 | |\n| 02 | `LDA 30` | 3 | 3 | |\n| 03 | `ADD 30` | 6 | 3 | |\n| 04 | `STA 30` | 6 | 6 | |\n| 05 | `OUT` | 6 | 6 | 6 |\n| 06 | `SUB 31` | −14 | 6 | 6 |\n| 07 | `BRP 09` | −14 | 6 | negativ, hopper ikke |\n| 08 | `BRA 02` | −14 | 6 | |\n| 02 | `LDA 30` | 6 | 6 | |\n| 03 | `ADD 30` | 12 | 6 | |\n| 04 | `STA 30` | 12 | 12 | |\n| 05 | `OUT` | 12 | 12 | 6 12 |\n| 06 | `SUB 31` | −8 | 12 | |\n| 07 | `BRP 09` | −8 | 12 | negativ, hopper ikke |\n| 08 | `BRA 02` | −8 | 12 | |\n| 02 | `LDA 30` | 12 | 12 | |\n| 03 | `ADD 30` | 24 | 12 | |\n| 04 | `STA 30` | 24 | 24 | |\n| 05 | `OUT` | 24 | 24 | 6 12 24 |\n| 06 | `SUB 31` | 4 | 24 | |\n| 07 | `BRP 09` | 4 | 24 | 4 ≥ 0, **hopper** |\n| 09 | `HLT` | 4 | 24 | 6 12 24 |\n\n**Utskrift: `6 12 24`.**\n\nMerk at inndataen 3 aldri skrives ut — programmet dobler før første `OUT`. Og merk at `ADD 30` etter `LDA 30` er dobling: du legger cellen til seg selv.",
+        "hints": [
+          "Legg merke til rekkefølgen: doblingen skjer FØR utskriften.",
+          "Skriv ned hva akkumulatoren er rett etter `SUB 31` hver runde — det er den verdien `BRP` tester."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — LMC-sporing, svarform F1.) Kryss av alle påstandene som stemmer om programmet under, kjørt med inndata 1.\n\n```text\n00  INP\n01  STA 30\n02  LDA 30\n03  ADD 30\n04  STA 30\n05  OUT\n06  SUB 31\n07  BRP 09\n08  BRA 02\n09  HLT\n30  DAT\n31  DAT 20\n```\n\n**a)** Programmet skriver ut inndataverdien 1 først.\n\n**b)** Det siste tallet som skrives ut, er 32.\n\n**c)** Programmet skriver ut fem tall.\n\n**d)** Instruksjonen `BRA 02` utføres fire ganger.",
+        "solution": "Programmet dobler og skriver ut, og stopper når verdien minus 20 er null eller større.\n\nVerdiene i celle 30 blir: 1 → 2 → 4 → 8 → 16 → 32. Utskriftene er verdiene etter doblingen, altså **2, 4, 8, 16, 32**.\n\nTesten `SUB 31` gir −18, −16, −12, −4 og til slutt 12. De fire første er negative, så `BRP` hopper ikke, og `BRA 02` utføres. Den femte er positiv, så `BRP` hopper til `HLT`.\n\n**a) Galt.** Inndataverdien 1 skrives aldri ut. Doblingen på linje 03 skjer før `OUT` på linje 05, så den første utskriften er 2. Dette er distraktoren som fanger den som antar at et program «alltid viser det du matet inn».\n\n**b) Riktig.** Det siste er 32, og det er det første som er minst 20.\n\n**c) Riktig.** Fem tall skrives ut: 2, 4, 8, 16, 32.\n\n**d) Riktig.** `BRA 02` utføres etter hver av de fire første utskriftene, altså fire ganger. Etter den femte hopper `BRP` i stedet.\n\n**Fasit: b, c og d.**",
+        "hints": [
+          "List opp verdiene i celle 30 etter hver dobling før du fører hele tabellen.",
+          "Sjekk nøye om utskriften skjer før eller etter doblingen.",
+          "Tell hvor mange ganger testen på linje 07 gir et negativt resultat."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — LMC-sporing, svarform F4.) Et program skal lese ett tall og skrive ut tegnet som ligger den plassen ut i alfabetet. Inndata 1 skal gi `A`, inndata 2 skal gi `B`, og så videre.\n\nHvilken verdi må stå i celle 90 for at programmet skal virke?\n\n```text\n00  INP\n01  ADD 90\n02  OTC\n03  HLT\n90  DAT ?\n```",
+        "solution": "**Kravet:** inndata 1 skal gi tegnet `A`, som har ASCII-koden 65.\n\nEtter `INP` er akkumulatoren 1. Etter `ADD 90` må den være 65. Altså må celle 90 inneholde `65 − 1 = 64`.\n\n**Svar: `DAT 64`.**\n\n**Kontroll med flere inndata:**\n\n| Inndata | Akkumulator etter `ADD 90` | Tegn |\n|---|---|---|\n| 1 | 65 | `A` |\n| 2 | 66 | `B` |\n| 3 | 67 | `C` |\n| 26 | 90 | `Z` |\n\nAlle stemmer, og 90 er nettopp ASCII-koden for `Z` — den siste store bokstaven.\n\n**Merk fella:** den nærliggende gjetningen er 65, fordi `A` er 65. Men da ville inndata 1 gitt 66, altså `B`. Når en oppgave kobler et tall til en posisjon i en rekke, må du alltid sjekke om rekka starter på 0 eller 1.",
+        "hints": [
+          "Skriv ned hva akkumulatoren skal være rett før `OTC` for at tegnet skal bli `A`.",
+          "Sett opp likningen: inndata pluss celleverdien er lik ASCII-koden.",
+          "Kontroller svaret med minst to ulike inndata før du er fornøyd."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å ikke føre sporetabell.** Dette er den dyreste vanen i sjangeren. Et program med en løkke oppfører seg nesten aldri slik det ser ut ved gjennomlesing — se eksempel 2, der den intuitive gjetningen `3 2 1` bommet med én runde.\n\n2. **Å glemme at `OTC` skriver ASCII-tegn.** Ser du `OTC`, er utskriften bokstaver. Samme program med `OUT` gir `72 73`, med `OTC` gir det `HI`.\n\n3. **Å blande `BRZ` og `BRP`.** `BRZ` hopper bare på **nøyaktig** null; `BRP` hopper på null **og alt over**. Oppgave 4 viser at forvekslingen endret utskriften fra `3 2 1 0` til `3`. Og teller du ned med to fra et oddetall, treffer `BRZ` aldri null — programmet stopper aldri.\n\n4. **Å forveksle `LDA` og `STA`.** `LDA` henter **fra** minnet **inn i** akkumulatoren; `STA` lagrer **fra** akkumulatoren **ut i** minnet. Bytter du dem om i sporingen, blir alt etterpå feil.\n\n5. **Å tro at `ADD 07` legger til tallet 7.** Den legger til *innholdet i celle 07*. Adressen og verdien er to forskjellige ting.\n\n6. **Å glemme at `OUT` ikke tømmer akkumulatoren.** Verdien blir liggende, og neste instruksjon regner videre på den."
+    },
+    {
+      "id": "in1020-1-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-1-4-bank-1",
+      "type": "definition",
+      "title": "Sporetabell",
+      "content": "Tabellen du fører for å følge et program mekanisk, med kolonner for programteller, instruksjon, akkumulator, hver navngitt minnecelle og ut-kurven — **én rad per utført instruksjon**.\n\nGår programmet åtte runder i en løkke på fire linjer, får tabellen 32 rader.\n\nDen faste feilen er å føre én rad per programlinje i stedet for per utførelse. Da ser en løkke ut som om den kjører én gang."
+    },
+    {
+      "id": "in1020-1-4-bank-2",
+      "type": "definition",
+      "title": "Ubetinget hopp",
+      "content": "Et hopp som alltid utføres: `BRA xx` setter programtelleren til `xx` uansett hva akkumulatoren inneholder.\n\nEt `BRA` bakover lager en løkke; et `BRA` framover hopper over en gren, slik at bare den ene av to alternative kodebiter utføres.\n\nDen faste feilen er å tro at et hopp «kaller» koden det hopper til og kommer tilbake etterpå. Det gjør det ikke — LMC har ingen retur."
+    },
+    {
+      "id": "in1020-1-4-bank-3",
+      "type": "definition",
+      "title": "Betinget hopp",
+      "content": "Et hopp som bare utføres hvis en betingelse på akkumulatoren er oppfylt: `BRZ` når verdien er nøyaktig 0, `BRP` når den er 0 eller større.\n\nEr betingelsen ikke oppfylt, skjer ingenting i det hele tatt — programtelleren økes med 1 som vanlig, og akkumulator og minne er uendret.\n\nBetingede hopp er den eneste måten et LMC-program kan ta et valg eller avslutte en løkke."
+    },
+    {
+      "id": "in1020-1-4-bank-4",
+      "type": "definition",
+      "title": "Løkke i LMC",
+      "content": "Et mønster der en `BRA` eller et betinget hopp sender programtelleren tilbake til en tidligere celle, slik at de samme instruksjonene utføres om igjen med nye verdier.\n\nStandardformen har tre deler: en teller i en minnecelle, en kropp som gjør arbeidet, og en test som avgjør om løkka skal gå en runde til.\n\nAntallet runder er nesten alltid det som testes på eksamen — og det er nesten alltid én mer eller én mindre enn intuisjonen sier."
+    },
+    {
+      "id": "in1020-1-4-bank-5",
+      "type": "definition",
+      "title": "Sammenligning med SUB",
+      "content": "Måten LMC sammenligner to tall på: trekk det ene fra det andre, og test resultatet med `BRZ` eller `BRP`.\n\nEr `A − B` lik 0, er tallene like. Er den 0 eller større, er `A` minst like stor som `B`. Er den negativ, er `A` minst.\n\nDette mønsteret — `LDA`, `SUB`, `BRP` — er standardformen for et valg i assembler, og du finner det i nesten hvert eneste eksamensprogram."
+    },
+    {
+      "id": "in1020-1-4-bank-6",
+      "type": "definition",
+      "title": "Adresse mot innhold",
+      "content": "Skillet mellom cellens **nummer** og cellens **verdi**. `ADD 07` legger til innholdet i celle 07, ikke tallet 7.\n\nEt program kan derfor endre hva `ADD 07` faktisk legger til, uten å endre instruksjonen — bare ved å skrive en ny verdi i celle 07.\n\nDette skillet er forutsetningen for selvmodifiserende kode, som du møter i [kap. 1.5](/bok/in1020/in1020-1-5)."
+    },
+    {
+      "id": "in1020-1-4-bank-7",
+      "type": "definition",
+      "title": "Inn-kurv og ut-kurv",
+      "content": "LMCs to kanaler til omverdenen. `INP` tar det neste tallet fra inn-kurven; `OUT` og `OTC` legger noe i ut-kurven.\n\nInn-kurven er en kø: tallene leses i den rekkefølgen de ble lagt inn, og hver `INP` tar ett.\n\nDen faste feilen er å tro at `INP` kan lese det samme tallet flere ganger. Vil du bruke en inndataverdi to steder, må du `STA` den til en celle først."
+    },
+    {
+      "id": "in1020-1-4-bank-8",
+      "type": "definition",
+      "title": "Etikett",
+      "content": "Et symbolsk navn på en minnecelle, brukt i stedet for celletallet i lesbar assemblerkode — for eksempel `TELLER` i stedet for `20`.\n\nEtiketter finnes bare i kildekoden. Assembleren erstatter dem med celletall før programmet kjøres, så maskinen ser aldri navnet.\n\nOppgavesettene bruker gjennomgående celletall, så denne boka gjør det også — men møter du en etikett, er den bare et navn på et tall."
+    },
+    {
+      "id": "in1020-1-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter instruksjonssettet?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-1-4-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte. Svar før du ser fasiten.\n\n1. Hvilken instruksjon er den eneste som skriver til minnet?\n2. Hva er forskjellen på `BRZ` og `BRP`?\n3. Hva skjer med akkumulatoren når `OUT` utføres?\n4. Hva skriver `OTC` ut hvis akkumulatoren er 66?\n5. Hva gjør `ADD 12` hvis celle 12 inneholder 30 og akkumulatoren er 5?\n6. Hva er forskjellen på `LDA 20` og `STA 20`?\n7. Hvorfor kan et program ikke lese den samme inndataverdien to ganger med `INP`?\n8. Hva blir programtelleren etter en `BRZ 15` når akkumulatoren er 3?\n\n**Fasit.**\n\n1. `STA`. Ingen andre instruksjoner endrer en celle.\n2. `BRZ` hopper bare når akkumulatoren er nøyaktig 0; `BRP` hopper når den er 0 eller større.\n3. Ingenting — verdien blir liggende, og bare en kopi legges i ut-kurven.\n4. Tegnet `B`, siden ASCII-koden 66 er `B`. Med `OUT` ville den skrevet tallet 66.\n5. Akkumulatoren blir 35. Celle 12 er uendret.\n6. `LDA 20` henter fra celle 20 inn i akkumulatoren; `STA 20` lagrer akkumulatoren ut i celle 20.\n7. Fordi inn-kurven er en kø: hver `INP` tar det neste tallet. Vil du bruke verdien flere ganger, må du `STA` den til en celle.\n8. Programtelleren økes bare med 1, til neste instruksjon. Betingelsen var ikke oppfylt, så hoppet skjer ikke.\n\nSjekk deg selv: ☐ førte du sporetabell i alle oppgavene? ☐ skrev du ned hva betingelsen var ved hvert betinget hopp? ☐ slo du opp ASCII når du så `OTC`? ☐ holdt du `LDA` og `STA` fra hverandre?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

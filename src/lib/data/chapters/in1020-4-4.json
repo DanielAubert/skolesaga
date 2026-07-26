@@ -1,0 +1,423 @@
+{
+  "id": "in1020-4-4",
+  "courseId": "in1020",
+  "chapterNumber": "4.4",
+  "title": "DRILL — Subnetting, adresseregning og overføringstid",
+  "description": "Seksten oppgaver på eksamensnivå i de to garanterte regneteknikkene i seksjon 4: subnett, kringkasting og vertstall regnet binært, og overføringstid med omregningen fra byte til bit.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kunne løse en subnettoppgave mekanisk på under to minutter, med kontroll til slutt",
+    "kunne regne overføringstid begge veier uten å miste faktoren åtte",
+    "kunne velge riktig rate og riktig oktett før regningen begynner",
+    "kunne peke ut hvilken bestemt regnefeil hvert gale alternativ svarer til"
+  ],
+  "content": [
+    {
+      "id": "in1020-4-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** dette er treningsbanken for de to regneteknikkene i seksjon 4. **Subnetting** har egen oppgave i **alle seks årgangene i arkivet (6 av 6 = 100 %)**. **Overføringstid** har det i **fem av seks (83 %)**.\n\n**Prioritet: subnetting må sitte perfekt; overføringstid skal du kunne.** Til sammen er dette de billigste poengene i **seksjon 4, datanettverk** — den seksjonen flest stryker på. Begge teknikkene har entydig fasit, begge kan kontrolleres av deg selv, og begge har nøyaktig én kjent felle.\n\n**Svarformene du møter her**, skrevet ut i klarspråk:\n\n- **F1** — «velg ett *eller flere* alternativer»: flere kan være riktige samtidig.\n- **F2** — sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver.\n- **F4** — nedtrekksmeny: velg ett alternativ per delspørsmål.\n\n**De to fellene, med kodene fra registeret:**\n\n- **Felle #3** — glemt de to reserverte adressene i vertstellingen. Formelen er `2ⁿ − 2`, aldri `2ⁿ`.\n- **Felle #2** — glemt omregningen fra byte til bit. Filstørrelser er i byte, rater i bit per sekund, og faktoren er 8.\n\n**Slik bruker du kapitlet.** Seksten oppgaver på eksamensnivå, omtrent 85 minutter samlet. Del gjerne over to økter — de er merket under. Ta tida: en subnettoppgave skal gå på under to minutter når prosedyren sitter, en overføringsoppgave på under ett."
+    },
+    {
+      "id": "in1020-4-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDrillen bygger på [kap. 4.2](/bok/in1020/in1020-4-2) og [kap. 4.3](/bok/in1020/in1020-4-3). Alt du trenger, står ferdig oppfrisket her — slå ikke opp underveis.\n\n**1. Fra maske til prefiks.** Hver oktett med verdien 255 gir 8 ettall. Den delvise oktetten telles for seg:\n\n| Verdi | Binært | Ettall | Verdi | Binært | Ettall |\n|---|---|---|---|---|---|\n| 128 | `10000000` | 1 | 240 | `11110000` | 4 |\n| 192 | `11000000` | 2 | 248 | `11111000` | 5 |\n| 224 | `11100000` | 3 | 252 | `11111100` | 6 |\n\n**2. Vertstellingen.** `vertsbit = 32 − prefiks`, og\n\n$$\\text{tildelbare verter} = 2^{\\text{vertsbit}} - 2$$\n\n| Prefiks | `/24` | `/25` | `/26` | `/27` | `/28` | `/29` | `/30` |\n|---|---|---|---|---|---|---|---|\n| Verter | 254 | 126 | 62 | 30 | 14 | 6 | 2 |\n\n**3. Subnett og kringkasting.** `subnett = IP AND maske` (alle vertsbit 0, det minste tallet). `kringkasting = IP OR ¬maske` (alle vertsbit 1, det største tallet). Regn binært på den oktetten der masken verken er 0 eller 255.\n\n**4. Kontrollen.** `kringkasting − subnett = 2^vertsbit − 1`.\n\n**5. Overføringstid.**\n\n$$t = \\frac{S \\cdot 8}{R}$$\n\nFilstørrelse `S` i megabyte, rate `R` i megabit per sekund, tid `t` i sekunder. Boka regner `1 MB = 8 Mbit` og `1 GB = 1000 MB`.\n\n**6. Retningen bestemmer raten.** Henter du data: nedlastingsraten. Sender du data: opplastingsraten."
+    },
+    {
+      "id": "in1020-4-4-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-4-4-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| `/27` | CIDR-prefiks: antall 1-ere forrest i nettmasken |\n| `255.255.255.224` | Samme maske i punktnotasjon |\n| Vertsbit | `32 − prefiks` — antall 0-er bakerst i masken |\n| Den delvise oktetten | Den ene oktetten der masken verken er 0 eller 255 |\n| AND | 1 bare når begge bitene er 1 — gir subnettadressen |\n| OR | 1 når minst én er 1 — gir kringkastingsadressen med invertert maske |\n| `¬maske` | Masken med alle bitene snudd |\n| `S` | Filstørrelse i megabyte |\n| `R` | Rate i megabit per sekund |\n| `t` | Tid i sekunder |\n| `MB` mot `Mbit` | Byte mot bit — faktoren er 8, alltid |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{vertsbit} = 32 - \\text{prefiks} \\qquad \\text{tildelbare verter} = 2^{\\text{vertsbit}} - 2$$\n\n$$\\text{subnett} = \\text{IP AND maske} \\qquad \\text{kringkasting} = \\text{IP OR } \\neg\\text{maske}$$\n\n$$\\text{kringkasting} - \\text{subnett} = 2^{\\text{vertsbit}} - 1$$\n\nKontrollregelen. Stemmer ikke avstanden, er noe galt.\n\n$$t = \\frac{S \\cdot 8}{R} \\qquad S = \\frac{t \\cdot R}{8} \\qquad R = \\frac{S \\cdot 8}{t}$$\n\nOverføringstiden og de to omformingene. Åtteren **ganges** når svaret er en tid eller en rate, og **deles** når svaret er en filstørrelse."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-4-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for de to teknikkene",
+      "content": "**A. Subnetting og adresseregning (mål: under to minutter).**\n\n1. **Oversett** mellom maske og prefiks, uansett hvilken av dem oppgaven oppgir. Tell 1-erne.\n2. **Finn den delvise oktetten** — den der masken verken er 0 eller 255. Det er ikke alltid den fjerde.\n3. **Skriv IP-oktetten og maskeoktetten binært, under hverandre.** Dette steget tar tjue sekunder og fjerner nesten alle feil. Ikke regn i hodet.\n4. **AND** gir subnettadressens oktett: kopier IP-biten der masken har 1, sett 0 der masken har 0.\n5. **OR med invertert maske** gir kringkastingsadressens oktett: kopier der masken har 1, sett 1 der masken har 0.\n6. **De øvrige oktettene:** der masken er 255, kopier IP-oktetten. Der masken er 0, sett 0 i subnettadressen og 255 i kringkastingsadressen.\n7. **Vertstallet:** `2^(32 − prefiks) − 2`.\n8. **Kontroller:** `kringkasting − subnett` skal være `2^vertsbit − 1`.\n\n**B. Overføringstid (mål: under ett minutt).**\n\n1. **Avgjør retningen først** — går dataene fra deg eller til deg? Det velger raten.\n2. **Regn om enhetene** hvis nødvendig: `1 GB = 1000 MB`, `1 minutt = 60 s`.\n3. **Skriv omregningen til bit som eget steg:** `S MB × 8 bit/byte = 8S Mbit`.\n4. **Del på raten**, og kontroller enhetene: megabit delt på megabit per sekund gir sekunder.\n5. **Spør deg hva svaret skal måles i** hvis oppgaven går baklengs: byte betyr **del** på 8, bit per sekund betyr **gang** med 8.\n6. **Kontroller** ved å sette svaret inn i grunnformelen på nytt.\n\n**Den ene fellesregelen for begge:** hvert galt alternativ i disse to sjangrene svarer til én bestemt feil — glemt minustoeren, glemt åtteren, feil oktett, feil rate, eller ombyttet AND og OR. Kan du hvilke, kan du kontrollere ditt eget svar mot dem."
+    },
+    {
+      "id": "in1020-4-4-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet subnettoppgave — alle alternativene forklart",
+      "problem": "Svarform F4. Maskinen `192.168.50.90` står i et nett med masken `255.255.255.224`.\n\n**a)** Hva er subnettadressen?\n\n**b)** Hvor mange maskiner kan tildeles adresse?\n\nAlternativene til a): **A.** `192.168.50.0` · **B.** `192.168.50.90` · **C.** `192.168.50.95` · **D.** `192.168.50.64`\n\nAlternativene til b): **A.** 32 · **B.** 62 · **C.** 30 · **D.** 28",
+      "solution": "**Steg 1 — maske til prefiks.** Tre fulle oktetter gir 24 ettall. `224 = 11100000` gir 3 til.\n\n`prefiks = /27`\n\n*Margnotat om uttelling: dette steget er gratis, og uten det er alt som følger, gjetting.*\n\n**Steg 2 — den delvise oktetten.** Masken er `255.255.255.224`, så det er den **fjerde** oktetten som er delvis.\n\n**Steg 3 — skriv den binært.**\n\n```text\nIP     90 = 01011010\nmaske 224 = 11100000\n```\n\n**Steg 4 — AND.** Kopier IP-biten der masken har 1, sett 0 der masken har 0:\n\n```text\nIP     90 = 01011010\nmaske 224 = 11100000\nAND       = 01000000  = 64\n```\n\n`subnettadresse = 192.168.50.64`\n\n**Svar a): D.**\n\n**Steg 5 — OR med invertert maske**, for kontrollen:\n\n```text\nIP      90 = 01011010\n¬maske  31 = 00011111\nOR         = 01011111  = 95\n```\n\n`kringkastingsadresse = 192.168.50.95`\n\n**Steg 6 — vertstallet.**\n\n`vertsbit = 32 − 27 = 5`\n\n`tildelbare verter = 2⁵ − 2 = 32 − 2 = 30`\n\n**Svar b): C.**\n\n**Steg 7 — kontroll.** `95 − 64 = 31`, og `2⁵ − 1 = 31`. Stemmer.\n\n**Hvert galt alternativ til a) forklart:**\n\n**A — `192.168.50.0`.** Regnet som om masken var `255.255.255.0`, altså `/24`. Den delvise oktetten er ikke brukt i det hele tatt. Dette er feilen man gjør hvis man ser tre 255-ere og slutter å lese.\n\n**B — `192.168.50.90`.** Maskinens egen adresse, uten at masken er brukt.\n\n**C — `192.168.50.95`.** Kringkastingsadressen, altså OR i stedet for AND. Den farligste distraktoren, fordi tallet er riktig regnet — bare på feil spørsmål. Huskeregelen: subnett er **bunnen**, det minste tallet.\n\n**Hvert galt alternativ til b) forklart:**\n\n**A — 32.** `2⁵` uten fratrekket. Felle #3 i sin reneste form. Kontrollen: et riktig vertstall er aldri en rund toerpotens.\n\n**B — 62.** `2⁶ − 2`, altså regnet med `/26` i stedet for `/27`. Én bit feil i prefikstellingen.\n\n**D — 28.** Trukket fra 4 i stedet for 2, som om ruteren og noe mer også var reservert. Fratrekket er alltid nøyaktig 2.\n\n*Margnotat om negativ poenggiving: alle fire alternativene i begge deloppgavene er tall du kan komme til å regne deg fram til. Ingen av dem er tullesvar. Det er derfor kontrollen i steg 7 er verdt de ti sekundene den tar.*"
+    },
+    {
+      "id": "in1020-4-4-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Gjennomarbeidet overføringsoppgave — alle alternativene forklart",
+      "problem": "Svarform F4. Du laster ned en fil på 720 MB. Linja er oppgitt som **120 Mbit/s ned og 40 Mbit/s opp**.\n\nHvor lang tid tar nedlastingen?\n\nAlternativene: **A.** 6 s · **B.** 48 s · **C.** 144 s · **D.** 18 s",
+      "solution": "**Steg 1 — retningen.** Du laster **ned**, altså inn til deg. Nedlastingsraten gjelder: 120 Mbit/s.\n\n*Margnotat om uttelling: dette steget avgjør oppgaven, og det gjøres før du ser på et eneste tall i formelen.*\n\n**Steg 2 — omregningen til bit, som eget steg.**\n\n`720 MB × 8 bit/byte = 5760 Mbit`\n\n**Steg 3 — del på raten.**\n\n`5760 Mbit ÷ 120 Mbit/s = 48 s`\n\n**Steg 4 — enhetskontroll.** Megabit delt på megabit per sekund gir sekunder. Stemmer.\n\n**Svar: B — 48 sekunder.**\n\n**Kontroll:** linja gir `120 ÷ 8 = 15` MB/s, og `15 · 48 = 720` MB. Stemmer.\n\n**Hvert galt alternativ forklart:**\n\n**A — 6 s.** `720 ÷ 120`, altså uten omregningen fra byte til bit. Felle #2. Legg merke til at tallet er nøyaktig en åttedel av det riktige — det er signaturen på denne feilen, og den kan du bruke til å kjenne den igjen blant alternativene.\n\n**C — 144 s.** Brukt opplastingsraten 40 Mbit/s: `5760 ÷ 40 = 144`. Riktig regnet, feil premiss. Denne distraktoren er umulig å avsløre med enhetskontroll — den avsløres bare av å lese retningen.\n\n**D — 18 s.** Kombinasjonen: opplastingsraten **og** uten omregningen, `720 ÷ 40 = 18`. Begge feilene på én gang.\n\n*Margnotat om negativ poenggiving: tre av de fire alternativene er tall du får ved å gjøre nøyaktig én ting galt. Under minuspoeng er det ikke nok å regne «omtrent riktig» — regnestykket må være helt riktig, og kontrollen i steg fire tar fem sekunder.*"
+    },
+    {
+      "id": "in1020-4-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #3 — glemt minus to.** `2ⁿ`, ikke `2ⁿ − 2`. Kontrollen: et riktig vertstall er aldri en rund toerpotens. Er svaret 8, 16, 32, 64, 128 eller 256, mangler fratrekket.\n\n**Felle #2 — glemt faktoren 8.** Svaret blir nøyaktig en åttedel av det riktige. Skriv omregningen som eget steg, hver gang.\n\n**Feil oktett.** Med `/22` er det den **tredje** oktetten som er delvis, ikke den fjerde. Finn den oktetten der masken verken er 0 eller 255, før du gjør noe annet.\n\n**Ombyttet AND og OR.** Subnett er bunnen (det minste tallet), kringkasting er taket (det største). Se hvilket av de to svarene som er størst, og du vet hvilket som er hvilket.\n\n**Feil rate.** Sender du data, gjelder opplastingsraten. Oppgaven oppgir gjerne begge, og den som står først, er ikke nødvendigvis den som gjelder.\n\n**Å hoppe over kontrollen.** Begge teknikkene har en kontroll som tar ti sekunder: avstandsregelen for subnetting, og innsetting i grunnformelen for overføringstid. Under negativ poenggiving er de ti sekundene den billigste forsikringen du kan kjøpe."
+    },
+    {
+      "id": "in1020-4-4-okt1",
+      "type": "text",
+      "content": "## Økt 1 — Subnetting og adresseregning (oppgave 1–8, ~45 min)\n\nFørste økt er adresseregningen. Skriv den delvise oktetten binært i hver eneste oppgave — også i dem som ser enkle ut. Ta tida."
+    },
+    {
+      "id": "in1020-4-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — nettverk, svarform F4.) Oppgi CIDR-prefiks og antall tildelbare verter for hver av disse maskene.\n\n**a)** `255.255.255.252`\n\n**b)** `255.255.254.0`",
+        "solution": "**a)** Tre fulle oktetter gir 24 ettall. `252 = 11111100` gir 6 til.\n\n`prefiks = /30`\n\n`vertsbit = 32 − 30 = 2`, altså `2² − 2 = 2` tildelbare verter.\n\n**b)** To fulle oktetter gir 16 ettall. `254 = 11111110` gir 7 til. Fjerde oktett er 0.\n\n`prefiks = 16 + 7 = /23`\n\n`vertsbit = 32 − 23 = 9`, altså `2⁹ − 2 = 512 − 2 = 510` tildelbare verter.\n\n**Svar: a) `/30` med 2 verter, b) `/23` med 510 verter.**\n\nKontroll: begge vertstallene er partall og to mindre enn en toerpotens (4 og 512). Stemmer.\n\nMerk at den delvise oktetten i b) er den **tredje**. Den som automatisk regner på siste oktett, teller 16 ettall og lander på `/16` — som gir 65 534 verter, et helt annet svar.",
+        "hints": [
+          "Tell ettallene oktett for oktett; 255 gir alltid 8.",
+          "Finn hvilken oktett som er delvis før du teller."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — nettverk.) Et subnett har 14 tildelbare adresser.\n\n**a)** Hvilket prefiks har det?\n\n**b)** Hva er nettmasken i punktnotasjon?",
+        "solution": "**a)** `14 = 16 − 2 = 2⁴ − 2`, altså 4 vertsbit.\n\n`prefiks = 32 − 4 = /28`\n\n**b)** `/28` er 28 ettall: tre fulle oktetter (24) pluss 4 i den fjerde.\n\n`4 ettall: 11110000 = 128 + 64 + 32 + 16 = 240`\n\n`maske = 255.255.255.240`\n\n**Svar: a) `/28`, b) `255.255.255.240`.**\n\nKontroll: `/28` gir `2⁴ − 2 = 14`. Stemmer med oppgaven.\n\nDenne oppgavetypen — å regne baklengs fra vertstallet — er en fast variant. Grepet er å legge til 2 først, og så finne hvilken toerpotens du har.",
+        "hints": [
+          "Legg til 2 før du leter etter toerpotensen.",
+          "Prefikset er 32 minus antall vertsbit."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F4.) Maskinen `10.20.30.200` har prefiks `/26`.\n\n**a)** Hva er subnettadressen?\n\n**b)** Hva er kringkastingsadressen?\n\n**c)** Hvor mange maskiner kan tildeles adresse?",
+        "solution": "**Masken for `/26`:** 24 ettall fra tre fulle oktetter, pluss 2. `2 ettall: 11000000 = 192`, altså `255.255.255.192`. Den delvise oktetten er den fjerde.\n\n**a)** AND.\n\n```text\nIP    200 = 11001000\nmaske 192 = 11000000\nAND       = 11000000  = 192\n```\n\n`subnettadresse = 10.20.30.192`\n\n**b)** OR med invertert maske.\n\n```text\nIP     200 = 11001000\n¬maske  63 = 00111111\nOR         = 11111111  = 255\n```\n\n`kringkastingsadresse = 10.20.30.255`\n\n**c)** `vertsbit = 32 − 26 = 6`, altså `2⁶ − 2 = 62` maskiner.\n\n**Svar: a) `10.20.30.192`, b) `10.20.30.255`, c) 62 maskiner.**\n\n**Kontroll:** `255 − 192 = 63`, og `2⁶ − 1 = 63`. Stemmer.\n\nMerk at kringkastingsadressen her ender på `.255`. Det gjør den fordi dette subnettet ligger øverst i `10.20.30.0`-området — ikke fordi `.255` alltid er kringkastingsadressen. For `10.20.30.100/26` ville den vært `10.20.30.127`.",
+        "hints": [
+          "Regn ut masken fra prefikset, og skriv den fjerde oktetten binært.",
+          "AND gir det minste tallet, OR det største.",
+          "Kontroller avstanden til slutt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk.) Maskinen `172.25.8.19` står i et nett med masken `255.255.255.240`.\n\n**a)** Hva er subnettadressen og kringkastingsadressen?\n\n**b)** Hva er den første og den siste adressen som kan tildeles?\n\n**c)** Hvor mange maskiner er det plass til?",
+        "solution": "**Masken `255.255.255.240` er `/28`**, siden `240 = 11110000` har 4 ettall.\n\n**a)**\n\n```text\nIP     19 = 00010011\nmaske 240 = 11110000\nAND       = 00010000  = 16\n```\n\n```text\nIP      19 = 00010011\n¬maske  15 = 00001111\nOR         = 00011111  = 31\n```\n\n`subnettadresse = 172.25.8.16`\n\n`kringkastingsadresse = 172.25.8.31`\n\n**b)** `første = 172.25.8.17`, `siste = 172.25.8.30`.\n\n**c)** `vertsbit = 32 − 28 = 4`, altså `2⁴ − 2 = 14` maskiner.\n\n**Svar: a) `172.25.8.16` og `172.25.8.31`, b) fra `172.25.8.17` til `172.25.8.30`, c) 14 maskiner.**\n\n**Dobbeltkontroll:** `31 − 16 = 15`, og `2⁴ − 1 = 15`. Stemmer. Og teller vi fra 17 til 30: `30 − 17 + 1 = 14`, som stemmer med c).\n\nDet er verdt å gjøre begge kontrollene på en oppgave som denne. De tar til sammen tjue sekunder og gjør at du kan levere uten å nøle.",
+        "hints": [
+          "Skriv den fjerde oktetten binært for både adressen og masken.",
+          "Første tildelbare er subnettadressen pluss én.",
+          "Kontroller vertstallet ved å telle fra første til siste adresse."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F1: velg ett *eller flere* alternativer.) Maskinen `192.168.9.201` har prefiks `/27`. Kryss av **alle** adressene som ligger i **samme subnett**, og begrunn hvert av de fem.\n\n**a)** `192.168.9.200` · **b)** `192.168.9.192` · **c)** `192.168.9.224` · **d)** `192.168.9.222` · **e)** `192.168.9.191`",
+        "solution": "**Steg 1 — finn intervallet.** `/27` gir masken `255.255.255.224`.\n\n```text\nIP    201 = 11001001\nmaske 224 = 11100000\nAND       = 11000000  = 192\n```\n\n```text\nIP     201 = 11001001\n¬maske  31 = 00011111\nOR         = 11011111  = 223\n```\n\n**Subnettet strekker seg fra `192.168.9.192` til `192.168.9.223`.**\n\nNå er hvert alternativ ett enkelt spørsmål: ligger tallet mellom 192 og 223?\n\n**a)** `192.168.9.200` — riktig. 200 ligger i intervallet.\n\n**b)** `192.168.9.192` — riktig. Dette er subnettadressen selv. Den ligger i subnettet — den er nettets navn. Merk at spørsmålet er «i samme subnett», ikke «kan tildeles en maskin».\n\n**c)** `192.168.9.224` — galt. 224 er én over 223, altså subnettadressen til det **neste** subnettet.\n\n**d)** `192.168.9.222` — riktig. 222 ligger i intervallet, og er faktisk den siste tildelbare adressen.\n\n**e)** `192.168.9.191` — galt. 191 er én under 192, altså kringkastingsadressen for det **forrige** subnettet.\n\n**Fasit: a, b og d.**\n\n**Merk hvordan c) og e) er bygd:** de ligger begge nøyaktig én utenfor intervallet, på hver sin side. Det er den vanligste måten å lage distraktorer på i denne sjangeren, og den eneste motgiften er å regne ut intervallet før man ser på alternativene.\n\n**Om negativ poenggiving:** tre av fem er riktige. Alle tre kan begrunnes med ett tall hver, og da skal de krysses av.",
+        "hints": [
+          "Regn ut hele intervallet én gang, før du ser på alternativene.",
+          "Merk deg hvilke tall som ligger nøyaktig én utenfor på hver side.",
+          "Subnettadressen ligger i subnettet, selv om den ikke kan tildeles."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F4.) En bedrift har nettet `172.31.200.0` med masken `255.255.252.0`.\n\n**a)** Hva er CIDR-prefikset?\n\n**b)** Hvor mange maskiner kan tildeles adresse?\n\n**c)** Hva er kringkastingsadressen?\n\n**d)** Ligger maskinen `172.31.204.9` i dette nettet?",
+        "solution": "**a)** To fulle oktetter gir 16 ettall. `252 = 11111100` gir 6 til. Fjerde oktett er 0.\n\n`prefiks = 16 + 6 = /22`\n\n**b)** `vertsbit = 32 − 22 = 10`\n\n`adresser = 2¹⁰ = 1024`\n\n`tildelbare verter = 1024 − 2 = 1022`\n\n**c)** Den delvise oktetten er den **tredje**.\n\n```text\nIP tredje oktett 200 = 11001000\n¬maske             3 = 00000011\nOR                   = 11001011  = 203\n```\n\nFjerde oktett har maske 0 og blir 255.\n\n`kringkastingsadresse = 172.31.203.255`\n\n**d)** Nei. Nettet dekker tredje oktett fra 200 til 203. 204 er over 203.\n\nKontroll med AND: `204 = 11001100`, og `11001100 AND 11111100 = 11001100 = 204`. Subnettadressen blir `172.31.204.0` — et annet nett.\n\n**Svar: a) `/22`, b) 1022 maskiner, c) `172.31.203.255`, d) nei.**\n\n**Kontroll av hele svaret:** nettet dekker fire verdier i tredje oktett (200, 201, 202, 203), hver med 256 adresser: `4 · 256 = 1024`, minus 2 = 1022. Stemmer med b).\n\n**Hva som gjør denne vanskelig:** den delvise oktetten er den tredje. Den som regner på siste oktett, får `/22` riktig i a), men bommer på c) og d) — og det er nøyaktig slik oppgaven er bygd.",
+        "hints": [
+          "Finn hvilken oktett masken er delvis i, før du gjør noe annet.",
+          "Oktetter med maske 0 blir 255 i kringkastingsadressen.",
+          "For d): regn ut subnettadressen for kandidaten og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F2.) Maskinen `10.55.6.240` har masken `255.255.255.240`.\n\nVurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | `10.55.6.240` er subnettadressen, ikke en tildelbar maskinadresse | |\n| b | Kringkastingsadressen er `10.55.6.255` | |\n| c | Subnettet har 16 tildelbare adresser | |\n| d | Den første tildelbare adressen er `10.55.6.241` | |",
+        "solution": "**Regningen først.** `240 = 11110000` gir `/28`. Den delvise oktetten er den fjerde.\n\n```text\nIP    240 = 11110000\nmaske 240 = 11110000\nAND       = 11110000  = 240\n```\n\n```text\nIP     240 = 11110000\n¬maske  15 = 00001111\nOR         = 11111111  = 255\n```\n\n**a)** Sann. AND-en gir 240 — altså er adressen som ble oppgitt, subnettadressen selv. Alle vertsbitene er 0. En slik adresse kan ikke tildeles en maskin; den er nettets navn.\n\n**b)** Sann. OR-en gir 255, altså `10.55.6.255`.\n\n**c)** Usann. `vertsbit = 32 − 28 = 4`, altså `2⁴ − 2 = 14` tildelbare adresser. 16 er antall **adresser** i subnettet, ikke antall som kan tildeles. Felle #3.\n\n**d)** Sann. Første tildelbare er subnettadressen pluss én: `10.55.6.241`.\n\n**Fasit: a sann, b sann, c usann, d sann.**\n\n**Kontroll:** `255 − 240 = 15`, og `2⁴ − 1 = 15`. Stemmer.\n\n**Hva som gjør denne vanskelig:** adressen som er oppgitt, er selv subnettadressen. Det er lett å anta at en oppgitt adresse tilhører en maskin, og påstand a) tester nettopp den antakelsen. Regn AND-en, så ser du det med én gang.",
+        "hints": [
+          "Regn ut AND-en først, og sammenlign med adressen som er oppgitt.",
+          "For c): skill mellom antall adresser og antall tildelbare adresser.",
+          "Kontroller med avstandsregelen til slutt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F1.) To rutere skal kobles direkte til hverandre. Maskinen `192.168.12.35` har prefiks `/30`.\n\nKryss av **alle** påstandene som stemmer, og begrunn hvert av de fire.\n\n**a)** Subnettadressen er `192.168.12.32`.\n\n**b)** `192.168.12.35` kan ikke tildeles en maskin.\n\n**c)** Subnettet har plass til to maskiner.\n\n**d)** De to tildelbare adressene er `192.168.12.33` og `192.168.12.34`.",
+        "solution": "**Regningen først.** `/30` gir masken `255.255.255.252`.\n\n```text\nIP     35 = 00100011\nmaske 252 = 11111100\nAND       = 00100000  = 32\n```\n\n```text\nIP      35 = 00100011\n¬maske   3 = 00000011\nOR         = 00100011  = 35\n```\n\n**a)** Riktig. AND-en gir 32.\n\n**b)** Riktig — og dette er poenget i oppgaven. OR-en gir 35, altså er den oppgitte adressen selv **kringkastingsadressen** for subnettet. Den kan ikke tildeles.\n\n**c)** Riktig. `vertsbit = 32 − 30 = 2`, altså `2² − 2 = 2` tildelbare adresser — akkurat nok til de to endene av en ruterforbindelse, som er hele grunnen til at `/30` brukes her.\n\n**d)** Riktig. Subnettet dekker `.32` til `.35`. Første tildelbare er `.33`, siste er `.34`.\n\n**Fasit: alle fire — a, b, c og d.**\n\n**Kontroll:** `35 − 32 = 3`, og `2² − 1 = 3`. Stemmer.\n\n**Om negativ poenggiving:** her er alle alternativene riktige. Det er en helt lovlig oppgave i formen «velg ett *eller flere*», og den er nådeløs mot den som tror at «minst ett må være galt». Det må det ikke. Kryss av det du kan begrunne — her kan alle fire begrunnes med én utregning.\n\n**Hva som gjør denne vanskelig:** den oppgitte adressen er kringkastingsadressen. Sammen med oppgave 7, der den oppgitte adressen var subnettadressen, dekker de to den fella fra begge sider.",
+        "hints": [
+          "Regn ut både AND og OR før du leser alternativene.",
+          "Sammenlign begge svarene med adressen som ble oppgitt.",
+          "Ikke anta at minst ett alternativ må være galt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-okt2",
+      "type": "text",
+      "content": "## Økt 2 — Overføringstid og blandet (oppgave 9–16, ~40 min)\n\nAndre økt er regningen på tid, med de to siste oppgavene blandet. Skriv omregningen til bit som eget steg i hver eneste oppgave.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-4-4-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — nettverk, svarform F4.) Hvor lang tid tar hver av disse overføringene?\n\n**a)** 160 MB over 40 Mbit/s\n\n**b)** 96 MB over 16 Mbit/s",
+        "solution": "**a)** `160 MB × 8 bit/byte = 1280 Mbit`\n\n`1280 Mbit ÷ 40 Mbit/s = 32 s`\n\n**b)** `96 MB × 8 bit/byte = 768 Mbit`\n\n`768 Mbit ÷ 16 Mbit/s = 48 s`\n\n**Svar: a) 32 sekunder, b) 48 sekunder.**\n\n**Kontroll a):** `40 ÷ 8 = 5` MB/s, og `5 · 32 = 160` MB. Stemmer.\n\n**Kontroll b):** `16 ÷ 8 = 2` MB/s, og `2 · 48 = 96` MB. Stemmer.\n\nDe gale svarene ville vært 4 s og 6 s — begge nøyaktig en åttedel av det riktige.",
+        "hints": [
+          "Skriv omregningen til bit som eget steg i begge.",
+          "Kontroller med å regne ut hvor mange megabyte linja gir per sekund."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk.) Du sender en videofil på 1,8 GB til en tjener. Linja er oppgitt som **300 Mbit/s ned og 150 Mbit/s opp**.\n\nHvor lang tid tar overføringen?",
+        "solution": "**Steg 1 — retningen.** Du **sender**, altså ut fra deg. Opplastingsraten gjelder: 150 Mbit/s.\n\n**Steg 2 — regn om til megabyte.**\n\n`1,8 GB = 1800 MB`\n\n**Steg 3 — til bit.**\n\n`1800 MB × 8 bit/byte = 14 400 Mbit`\n\n**Steg 4 — del på raten.**\n\n`14 400 Mbit ÷ 150 Mbit/s = 96 s`\n\n**Svar: 96 sekunder, altså 1 minutt og 36 sekunder.**\n\n**Kontroll:** `150 ÷ 8 = 18,75` MB/s, og `18,75 · 96 = 1800` MB. Stemmer.\n\n**De tre gale svarene:** 48 s (brukt nedlastingsraten 300), 12 s (glemt åtteren), og 6 s (begge feilene). Merk at alle tre er mindre enn det riktige — det er typisk, fordi begge de vanlige feilene gjør svaret mindre.",
+        "hints": [
+          "Avgjør retningen før du velger tall.",
+          "Husk at 1,8 GB er 1800 MB.",
+          "Kontroller ved å regne ut megabyte per sekund."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F4.) Hvor stor kan en fil være hvis den skal være ferdig overført på 45 sekunder over en linje på 80 Mbit/s?",
+        "solution": "**Steg 1 — hva skal svaret måles i?** Megabyte, altså en filstørrelse. Da skal det **deles** på 8.\n\n**Steg 2 — hvor mange bit rekker?**\n\n`45 s × 80 Mbit/s = 3600 Mbit`\n\n**Steg 3 — til megabyte.**\n\n`3600 Mbit ÷ 8 bit/byte = 450 MB`\n\n**Svar: 450 MB.**\n\n**Kontroll:** sett svaret inn i grunnformelen. `450 MB × 8 = 3600 Mbit`, og `3600 ÷ 80 = 45` s. Stemmer med oppgaven.\n\n**De to gale svarene:** 3600 MB (mellomresultatet, oppgitt med feil enhet) og 28 800 MB (ganget med 8 i stedet for delt). Det første er den farligste, fordi tallet står midt i din egen utregning.",
+        "hints": [
+          "Spør deg hvilken enhet svaret skal ha — det avgjør hvilken vei åtteren går.",
+          "Kontroller ved å regne tida på nytt med svaret ditt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk.) En strømmetjeneste må levere 840 MB på nøyaktig to minutter.\n\n**a)** Hvilken rate kreves?\n\n**b)** Hvor lang tid ville den samme filen tatt over en linje på 70 Mbit/s?",
+        "solution": "**a)** Steg 1 — hva skal svaret måles i? Megabit per sekund, altså en rate. Da skal det **ganges** med 8.\n\n`840 MB × 8 bit/byte = 6720 Mbit`\n\n`2 minutter = 120 s`\n\n`6720 Mbit ÷ 120 s = 56 Mbit/s`\n\n**Svar a): 56 Mbit/s.**\n\n**Kontroll:** `840 · 8 ÷ 56 = 6720 ÷ 56 = 120` s. Stemmer.\n\n**b)** `6720 Mbit ÷ 70 Mbit/s = 96 s`\n\n**Svar b): 96 sekunder, altså 1 minutt og 36 sekunder.**\n\n**Kontroll:** 70 Mbit/s er raskere enn de 56 som akkurat rakk på 120 s, så tida må bli kortere. 96 er kortere enn 120. Stemmer.\n\n**Merk grepet i b):** mellomresultatet 6720 Mbit fra a) kan gjenbrukes direkte. Du trenger ikke gange med 8 på nytt — filen er den samme.",
+        "hints": [
+          "For a): gjør om minuttene til sekunder før du deler.",
+          "For b): gjenbruk bittallet fra a).",
+          "Kontroller at raskere linje gir kortere tid."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F1.) En fil på 480 MB overføres over en linje på 60 Mbit/s. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fire.\n\n**a)** Overføringen tar 64 sekunder.\n\n**b)** Linja flytter 7,5 MB per sekund.\n\n**c)** Overføringen tar 8 sekunder.\n\n**d)** En fil på 240 MB over samme linje ville tatt 32 sekunder.",
+        "solution": "**Regningen først.**\n\n`480 MB × 8 bit/byte = 3840 Mbit`\n\n`3840 Mbit ÷ 60 Mbit/s = 64 s`\n\n**a)** Riktig. 64 sekunder.\n\n**b)** Riktig. `60 Mbit/s ÷ 8 bit/byte = 7,5 MB/s`. Kontroll: `7,5 · 64 = 480` MB. Stemmer.\n\n**c)** Galt. 8 sekunder er `480 ÷ 60`, altså uten omregningen. Nøyaktig en åttedel av det riktige — felle #2 i sin reneste form.\n\n**d)** Riktig. Halv filstørrelse gir halv tid, siden tida er proporsjonal med størrelsen: `240 · 8 ÷ 60 = 1920 ÷ 60 = 32` s.\n\n**Fasit: a, b og d.**\n\n**Om negativ poenggiving:** tre av fire er riktige. Merk at b) og d) begge kan avgjøres uten å regne hele oppgaven på nytt — b) er én divisjon, og d) følger av proporsjonaliteten. Det er billige poeng, og de skal krysses av.",
+        "hints": [
+          "Regn ut grunnoppgaven helt ferdig først.",
+          "For b): del raten på 8.",
+          "For d): hvilken vei går proporsjonaliteten når filen blir mindre?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F2.) En fil på 3 GB overføres over en linje på 250 Mbit/s.\n\nVurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Overføringen tar 96 sekunder | |\n| b | Filen inneholder 24 000 megabit | |\n| c | Uten omregningen fra byte til bit ville svaret blitt 12 sekunder | |\n| d | En linje på 500 Mbit/s ville brukt 192 sekunder på samme fil | |\n| e | Linja flytter 31,25 MB per sekund | |",
+        "solution": "**Regningen først.**\n\n`3 GB = 3000 MB`\n\n`3000 MB × 8 bit/byte = 24 000 Mbit`\n\n`24 000 Mbit ÷ 250 Mbit/s = 96 s`\n\n**a)** Sann. 96 sekunder, altså 1 minutt og 36 sekunder.\n\n**b)** Sann. `3000 · 8 = 24 000` Mbit. Dette er mellomresultatet fra steg 2, og det er et riktig utsagn i seg selv.\n\n**c)** Sann. `3000 ÷ 250 = 12` s, nøyaktig en åttedel av 96. Signaturen på felle #2.\n\n**d)** Usann. En **dobbelt så rask** linje gir **halve** tida, ikke dobbelt: `24 000 ÷ 500 = 48` s. Påstanden snur proporsjonaliteten. Dette er distraktoren som fanger den som regner mekanisk uten å tenke på retningen.\n\n**e)** Sann. `250 ÷ 8 = 31,25` MB/s. Kontroll: `31,25 · 96 = 3000` MB. Stemmer.\n\n**Fasit: a sann, b sann, c sann, d usann, e sann.**\n\nFordelingen er fire sanne og én usann, og den ene usanne står nest sist. Bruk aldri fordelingen i en matrise som ledetråd — regn hver rad for seg.",
+        "hints": [
+          "Regn hele grunnoppgaven ferdig før du vurderer radene.",
+          "For d): blir tida lengre eller kortere når linja blir raskere?",
+          "For e): del raten på 8 og kontroller mot svaret i a)."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o15",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o15",
+        "number": "15",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, blandet.) Et kontor har fått nettet `192.168.100.72/29`. Alle maskinene på kontoret laster samtidig ned den samme oppdateringsfilen på 540 MB, over en felles linje på 90 Mbit/s.\n\n**a)** Hvor mange maskiner kan tildeles adresse i subnettet?\n\n**b)** Hva er kringkastingsadressen?\n\n**c)** Hvor lang tid tar én nedlasting av filen hvis linja gir full rate til den ene overføringen?",
+        "solution": "**a)** `vertsbit = 32 − 29 = 3`\n\n`tildelbare verter = 2³ − 2 = 8 − 2 = 6`\n\n**Svar a): 6 maskiner.**\n\n**b)** `/29` gir masken `255.255.255.248`. Den delvise oktetten er den fjerde.\n\n```text\nIP      72 = 01001000\n¬maske   7 = 00000111\nOR         = 01001111  = 79\n```\n\n`kringkastingsadresse = 192.168.100.79`\n\n**Svar b): `192.168.100.79`.**\n\n**Kontroll:** AND gir `01001000 AND 11111000 = 01001000 = 72`, altså er `.72` subnettadressen. `79 − 72 = 7`, og `2³ − 1 = 7`. Stemmer.\n\n**c)** `540 MB × 8 bit/byte = 4320 Mbit`\n\n`4320 Mbit ÷ 90 Mbit/s = 48 s`\n\n**Svar c): 48 sekunder.**\n\n**Kontroll:** `90 ÷ 8 = 11,25` MB/s, og `11,25 · 48 = 540` MB. Stemmer.\n\n**Merk hva oppgaven ikke spør om:** hvor lang tid det tar når alle seks laster ned samtidig. Det ville krevd antakelser om hvordan linja deles, og slike antakelser er ikke pensum. Les hva som faktisk spørres om — presiseringen «full rate til den ene overføringen» står der nettopp for å fjerne tvilen.",
+        "hints": [
+          "Del oppgaven i to: adressedelen og tidsdelen. De henger ikke sammen regnemessig.",
+          "For b): skriv den fjerde oktetten binært.",
+          "For c): les presiseringen om full rate før du begynner å dele på seks."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-o16",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-4-o16",
+        "number": "16",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F1, blandet.) Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Et `/25`-subnett har dobbelt så mange tildelbare adresser som et `/26`-subnett.\n\n**b)** En fil på 210 MB over 70 Mbit/s tar 24 sekunder.\n\n**c)** Subnettadressen til `10.8.4.130/25` er `10.8.4.128`.\n\n**d)** Å glemme faktoren 8 i en overføringsoppgave gir et svar som er åtte ganger for stort.\n\n**e)** Kringkastingsadressen til `10.8.4.130/25` er `10.8.4.255`.",
+        "solution": "**a)** Galt — men bare så vidt. `/25` gir `2⁷ − 2 = 126`, og `/26` gir `2⁶ − 2 = 62`. Men `2 · 62 = 124`, ikke 126. Antallet **adresser** dobles (128 mot 64), men fratrekket på 2 gjøres i begge, så de tildelbare adressene er to mer enn det dobbelte. Dette er en presis distraktor, og den er verdt å merke seg: minustoeren ødelegger den enkle doblingen.\n\n**b)** Riktig. `210 MB × 8 = 1680 Mbit`, og `1680 ÷ 70 = 24` s. Kontroll: `70 ÷ 8 = 8,75` MB/s, og `8,75 · 24 = 210` MB. Stemmer.\n\n**c)** Riktig. `/25` gir masken `255.255.255.128`.\n\n```text\nIP    130 = 10000010\nmaske 128 = 10000000\nAND       = 10000000  = 128\n```\n\nSubnettadressen er `10.8.4.128`.\n\n**d)** Galt. Å glemme faktoren gir et svar som er åtte ganger for **lite**, ikke for stort. Uten omregningen deler man et for lite tall på raten. Påstanden snur retningen på feilen.\n\n**e)** Riktig.\n\n```text\nIP     130 = 10000010\n¬maske 127 = 01111111\nOR         = 11111111  = 255\n```\n\nKringkastingsadressen er `10.8.4.255`. Kontroll: `255 − 128 = 127`, og `2⁷ − 1 = 127`. Stemmer.\n\n**Fasit: b, c og e.**\n\n**Om negativ poenggiving:** to av fem er gale, og begge er gale på en presis måte — a) med to adresser, d) med retningen på en faktor. Under minuspoeng er det nettopp slike alternativer som koster: de er nesten riktige, og det er fristende å krysse av på «nesten».\n\n**Regelen som gjelder:** kryss av det du kan begrunne. Kan du ikke si **hvorfor** a) er riktig, la den stå.",
+        "hints": [
+          "For a): regn ut begge vertstallene og sammenlign, ikke resonner i hodet.",
+          "For d): tenk gjennom hva som skjer med brøken når telleren blir åtte ganger mindre.",
+          "For c) og e): samme adresse og maske — regn AND og OR i samme oppstilling."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-4-4-bank-1",
+      "type": "definition",
+      "title": "Prosedyren for en subnettoppgave",
+      "content": "Den faste rekkefølgen som gjør oppgaven mekanisk:\n\n1. Oversett mellom maske og prefiks.\n2. Finn den delvise oktetten — den der masken verken er 0 eller 255.\n3. Skriv IP-oktetten og maskeoktetten binært under hverandre.\n4. AND gir subnettadressen, OR med invertert maske gir kringkastingsadressen.\n5. `2^vertsbit − 2` gir vertstallet.\n6. Kontroller: avstanden skal være `2^vertsbit − 1`.\n\nDen faste feilslutningen: å hoppe over steg 3. Det er der alle feilene oppstår, og steget tar tjue sekunder."
+    },
+    {
+      "id": "in1020-4-4-bank-2",
+      "type": "definition",
+      "title": "Prosedyren for en overføringsoppgave",
+      "content": "Den faste rekkefølgen:\n\n1. Avgjør retningen — fra deg eller til deg? Det velger raten.\n2. Regn om enhetene: `1 GB = 1000 MB`, `1 minutt = 60 s`.\n3. Skriv `S MB × 8 bit/byte = 8S Mbit` som eget steg.\n4. Del på raten, og kontroller at enhetene gir sekunder.\n5. Kontroller ved å sette svaret inn i formelen på nytt.\n\nDen faste feilslutningen: å begynne på steg 3 uten å ha gjort steg 1. Feil rate gir et svar som er riktig regnet og likevel galt."
+    },
+    {
+      "id": "in1020-4-4-bank-3",
+      "type": "definition",
+      "title": "Avstandskontrollen",
+      "content": "$$\\text{kringkasting} - \\text{subnett} = 2^{\\text{vertsbit}} - 1$$\n\nFor `/28` skal avstanden være 15, for `/29` sju, for `/30` tre.\n\nKontrollen tar fem sekunder og fanger både ombyttet AND og OR, feil oktett og feiltelt prefiks.\n\nDen faste feilslutningen: å hoppe over den fordi svaret «ser riktig ut». Alle distraktorene i sjangeren ser riktige ut."
+    },
+    {
+      "id": "in1020-4-4-bank-4",
+      "type": "definition",
+      "title": "Åttedelskontrollen",
+      "content": "Det gale svaret i en overføringsoppgave er nesten alltid nøyaktig **en åttedel** av det riktige.\n\nSer du to alternativer der det ene er åtte ganger det andre, tester oppgaven felle #2 — og det største er riktig.\n\nDen faste feilslutningen: å tro at det minste tallet er riktig fordi det virker mer overkommelig."
+    },
+    {
+      "id": "in1020-4-4-bank-5",
+      "type": "definition",
+      "title": "Når den oppgitte adressen selv er reservert",
+      "content": "En oppgave kan oppgi en adresse som viser seg å være subnettadressen eller kringkastingsadressen.\n\n`10.55.6.240/28` har subnettadressen `10.55.6.240` — altså adressen selv. `192.168.12.35/30` har kringkastingsadressen `192.168.12.35`.\n\nDen faste feilslutningen: å anta at en oppgitt adresse tilhører en maskin. Regn AND og OR, og sammenlign med det som ble oppgitt."
+    },
+    {
+      "id": "in1020-4-4-bank-6",
+      "type": "definition",
+      "title": "Distraktoren «én utenfor»",
+      "content": "Den vanligste måten å bygge et galt alternativ på i «samme subnett»-oppgaver: en adresse som ligger nøyaktig én utenfor intervallet.\n\nFor subnettet `192.168.9.192` til `192.168.9.223` er `.191` og `.224` de to klassiske distraktorene. Den ene er forrige subnetts kringkastingsadresse, den andre er neste subnetts subnettadresse.\n\nMotgiften: regn ut intervallet **før** du ser på alternativene."
+    },
+    {
+      "id": "in1020-4-4-bank-7",
+      "type": "definition",
+      "title": "Distraktoren «riktig regnet, feil premiss»",
+      "content": "Et alternativ som er regnet feilfritt, men på feil forutsetning — typisk med opplastingsraten der nedlastingsraten gjelder.\n\nSlike svar kan ikke avsløres med enhetskontroll eller rimelighetsvurdering, fordi selve regningen er riktig.\n\nDen eneste motgiften er å avgjøre premisset først: hvilken vei går dataene?"
+    },
+    {
+      "id": "in1020-4-4-bank-8",
+      "type": "definition",
+      "title": "Feiltallet «rund toerpotens»",
+      "content": "Et vertstall som er 8, 16, 32, 64, 128 eller 256 er alltid galt: det er `2^vertsbit` uten fratrekket.\n\nEt riktig vertstall er alltid partall og alltid to mindre enn en toerpotens.\n\nDen faste feilslutningen: å levere en rund toerpotens fordi den «ser ut som et databehandlingstall»."
+    },
+    {
+      "id": "in1020-4-4-bank-9",
+      "type": "definition",
+      "title": "Feiltallet «mellomresultatet»",
+      "content": "I baklengsoppgaver er mellomresultatet et av alternativene: `t · R` i megabit, når svaret skal være i megabyte.\n\nFor 45 s over 80 Mbit/s er 3600 mellomresultatet, og 450 er svaret.\n\nMotgiften: skriv enheten på hvert mellomresultat. Et tall i megabit kan aldri være svaret på «hvor stor er filen»."
+    },
+    {
+      "id": "in1020-4-4-bank-10",
+      "type": "definition",
+      "title": "Proporsjonalitetene som kontroll",
+      "content": "Tida er **proporsjonal** med filstørrelsen og **omvendt proporsjonal** med raten.\n\nDobbelt så stor fil: dobbelt så lang tid. Dobbelt så rask linje: halve tida.\n\nBegge kan brukes til å kontrollere et svar på fem sekunder, uten å regne alt på nytt — og begge finnes som snudde påstander blant distraktorene."
+    },
+    {
+      "id": "in1020-4-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter begge teknikkene?",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1020-4-4-repetisjon-tekst",
+          "type": "text",
+          "content": "Ta denne når du er ferdig med begge øktene. Svar i hodet før du leser videre på linja.\n\n**1. Hva gjør du aller først i en subnettoppgave?** Oversetter mellom maske og prefiks, og finner den delvise oktetten.\n\n**2. Hvilken oktett er delvis med `/22`?** Den tredje.\n\n**3. AND eller OR for subnettadressen?** AND — og subnettadressen er alltid det **minste** av de to tallene.\n\n**4. Vertstallet for `/29`?** `2³ − 2 = 6`.\n\n**5. Kontrollen for subnetting?** `kringkasting − subnett = 2^vertsbit − 1`.\n\n**6. Hva gjør du aller først i en overføringsoppgave?** Avgjør retningen — fra deg eller til deg.\n\n**7. 160 MB over 40 Mbit/s?** `160 · 8 = 1280` Mbit, delt på 40 gir **32 sekunder**.\n\n**8. Hvilken vei går åtteren når svaret er en filstørrelse?** Du **deler** på 8.\n\n**9. Hvordan kjenner du igjen felle #2 blant alternativene?** Det gale svaret er nøyaktig en åttedel av det riktige.\n\n**10. Hvordan kjenner du igjen felle #3?** Svaret er en rund toerpotens — 8, 16, 32, 64, 128 eller 256.\n\nSitter alle ti? Da er begge regneteknikkene i seksjon 4 på plass. Neste steg er nettjenestene i [kap. 4.5](/bok/in1020/in1020-4-5) — de er ren gjenkalling, og de er de siste 100 %-poengene i seksjonen.\n\nGlapp noe? Adresseregningen står i [kap. 4.2](/bok/in1020/in1020-4-2), overføringstiden i [kap. 4.3](/bok/in1020/in1020-4-3)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

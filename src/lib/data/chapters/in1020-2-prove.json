@@ -1,0 +1,364 @@
+{
+  "id": "in1020-2-prove",
+  "courseId": "in1020",
+  "chapterNumber": "2.P",
+  "title": "Prøver til del 2: Maskinvare og arkitektur",
+  "description": "Fire prøver à 25–30 minutter som dekker portidentifikasjon og identiteter, kretsanalyse med ekvivalente uttrykk, arkitektur-fakta med de faste distraktorene, og cache-beregning med abstraksjonsrangering.",
+  "estimatedMinutes": 115,
+  "competenceGoals": [
+    "kunne identifisere porter og avgjøre boolske identiteter på eksamensnivå under tidspress",
+    "kunne propagere en portliste fram til F og krysse av alle ekvivalente uttrykk",
+    "kunne avvise de faste usanne påstandene om maskinvare uten å nøle",
+    "kunne regne cache-oppgaver med enheter og rangere abstraksjonsnivåer i begge retninger"
+  ],
+  "content": [
+    {
+      "id": "in1020-2-prove-om-provene",
+      "type": "tip",
+      "title": "Fire prøver til del 2 — slik bruker du dem",
+      "content": "Dette kapitlet er **4 prøver à ~25–30 minutter**, til sammen omtrent 115 minutter. Det kan trygt deles over flere kvelder — **én prøve per økt** er en helt vanlig og god måte å gjøre det på.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| **Prøve 1** | Portidentifikasjon og identiteter | ~25 min |\n| **Prøve 2** | Kretsanalyse — skriv F og finn alle ekvivalente uttrykk | ~30 min |\n| **Prøve 3** | Arkitektur-fakta med de faste distraktorene | ~30 min |\n| **Prøve 4** | Cache-beregning og abstraksjonsrangering | ~30 min |\n\n**Hvor flervalget bor.** Oppgavene her er skrevet med alternativene **inne i prøveteksten**, slik at du krysser av på papir eller i hodet. Vil du ha tidsstyrt avkrysning med automatisk retting, ligger den i den interaktive quizen til hvert kapittel i del 2.\n\n**Slik tar du en prøve.** Ta tida. Ikke slå opp underveis, og ikke bruk kalkulator — cache-regningen skal gå for hånd. Fasiten begrunner **hvert** alternativ, også de gale, siden det er den ferdigheten eksamen faktisk måler.\n\n**Om bonus og minus.** Maskinvaredelen kan gi bonuspoeng for full pott på en oppgave og minus per feil avkryssing. Det gjør det ekstra viktig å ha sjekklisten over de fem faste usanne påstandene klar før du begynner på prøve 3.\n\n**Etter hver fasit står en avkryssbar selvdiagnose.** Bruk den. Den peker på hvilket kapittel du bør tilbake til hvis noe glapp."
+    },
+    {
+      "id": "in1020-2-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nPrøvene dekker hele del 2, altså [kap. 2.1](/bok/in1020/in1020-2-1) til [kap. 2.7](/bok/in1020/in1020-2-7). Her er kjernen, ferdig oppfrisket:\n\n**Portene**, utgangskolonnen lest ovenfra og ned for radene `00`, `01`, `10`, `11`:\n\n| Port | Utgang | Port | Utgang |\n|---|---|---|---|\n| AND | `0 0 0 1` | NAND | `1 1 1 0` |\n| OR | `0 1 1 1` | NOR | `1 0 0 0` |\n| XOR | `0 1 1 0` | XNOR | `1 0 0 1` |\n\n**Identitetene.** `A + A·B = A` · `A + A′·B = A + B` · `(A·B)′ = A′ + B′` · `(A + B)′ = A′·B′` · `A·(B + C) = A·B + A·C` · `A + B·C = (A + B)·(A + C)`.\n\n**De fem faste usanne påstandene:** færre transistorer · klokke lagret i RAM · register bygd av RAM · ALU utenfor CPU · 65 en-bits ALU-er for 64 bit.\n\n**Cache.** Et treff koster 1 sykel, et bom koster `k` sykler. `T = treff · 1 + bom · k`, og snittet `T ÷ n` skal ligge mellom 1 og `k`.\n\n**Abstraksjonsstigen, høyest til lavest:** instruksjon · pipeline · register · logiske porter og invertere · transistor · logiske verdier · volt."
+    },
+    {
+      "id": "in1020-2-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Portidentifikasjon og identiteter (~25 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in1020-2-prove-p1-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 25 minutter.** Ingen hjelpemidler.\n\nOppgavene er i svarformene **F1** («velg ett *eller flere* alternativer»), **F2** (sant/usant-matrise), **F3** (kobling) og **F4** (velg ett alternativ per delspørsmål)."
+        },
+        {
+          "id": "in1020-2-prove-p1-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p1-o1",
+            "number": "1.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger D — portidentifikasjon, svarform F4.) Hvilken port har hver av disse utgangskolonnene, lest ovenfra og ned for radene `00`, `01`, `10`, `11`?\n\n**a)** `0 1 1 1`\n\n**b)** `1 0 0 1`\n\n**c)** `0 0 0 1`\n\n**d)** `1 1 1 0`",
+            "solution": "**a) OR.** Tre ettall, og den ene nullen står øverst i raden der begge er 0.\n\n**b) XNOR.** To ettall, i endene — altså 1 når inngangene er like. XOR ville hatt ettallene i midten.\n\n**c) AND.** Ett ettall, nederst i raden der begge er 1. NOR har også ett ettall, men øverst.\n\n**d) NAND.** Tre ettall, med nullen nederst. Dette er den vanligste forvekslingen med NOR, som har `1 0 0 0`.\n\n**Fasit: a) OR, b) XNOR, c) AND, d) NAND.**\n\nMetoden: tell ettallene først (det halverer utvalget), og se deretter hvor det avvikende svaret står.",
+            "hints": [
+              "Tell hvor mange ettall kolonnen har.",
+              "Se så om avviket står øverst eller nederst."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p1-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p1-o2",
+            "number": "1.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger D — portidentifikasjon, svarform F3: kobling.) Koble hver beskrivelse (1–4) til riktig port (A–F). Hver port kan brukes én gang eller ikke i det hele tatt.\n\n**1.** Utgangen er 1 bare når begge inngangene er 0.\n\n**2.** Symbolet er flat bak og rundt foran, uten boble.\n\n**3.** Utgangen er 1 når inngangene er ulike.\n\n**4.** Symbolet har en ekstra bue langs baksiden og en boble på utgangen.\n\n**A.** AND · **B.** OR · **C.** XOR · **D.** NAND · **E.** NOR · **F.** XNOR",
+            "solution": "**1 → E (NOR).** «1 bare når begge er 0» er ettallet i den øverste raden alene.\n\n**2 → A (AND).** Flat bakside og rund framside er AND-formen. Uten boble er det AND; med boble ville det vært NAND.\n\n**3 → C (XOR).** «Ulike innganger» er nettopp det utelukkende eller.\n\n**4 → F (XNOR).** Den ekstra buen gjør symbolet til XOR, og boblen snur svaret til XNOR.\n\n**Fasit: 1→E, 2→A, 3→C, 4→F.**\n\nMerk at OR og NAND ikke er i bruk. En koblingsoppgave krever ikke at alle kategoriene brukes, og å tvinge inn de ubrukte er en fast måte å miste poeng på.",
+            "hints": [
+              "Del beskrivelsene i to: de som beskriver tabellen, og de som beskriver symbolet.",
+              "For symbolene: bestem grunnformen først, og se på boblen etterpå."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p1-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p1-o3",
+            "number": "1.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger D — identiteter, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Enhver logisk funksjon kan realiseres med kun NAND-porter | |\n| b | En port kan ha to utganger dersom den mater to andre porter | |\n| c | `(A + B)′` er lik `A′ + B′` | |\n| d | En NAND med begge inngangene koblet til A gir `A′` | |",
+            "solution": "**a) Sann.** NAND er funksjonelt komplett: NAND med sammenkoblede innganger gir NOT, NAND fulgt av den NOT-en gir AND, og NAND på to inverterte innganger gir OR. Med NOT, AND og OR kan alt bygges.\n\n**b) Usann.** En port har **nøyaktig én** utgang. Det som er sant, er at den ene utgangen kan grene seg og gå inn på flere porter samtidig. Påstanden bytter om forgrening og flere utganger.\n\n**c) Usann.** De Morgan bytter operator: `(A + B)′ = A′·B′`. Påstanden gir NAND der svaret skal være NOR. Motrad: `A = 1, B = 0` gir venstre side 0 og høyre side 1.\n\n**d) Sann.** `A·A = A` (idempotens), så `(A·A)′ = A′`. Tabellen: `A = 0` gir 1, `A = 1` gir 0.\n\n**Fasit: a sann, b usann, c usann, d sann.**\n\nFordelingen er to og to, og den er ikke sortert. Bruk aldri fordelingen i en matrise som ledetråd.",
+            "hints": [
+              "For b): hvor mange utganger har en port, og hva er det ledningen kan gjøre?",
+              "For c): hva skjer med operatoren når De Morgan brukes riktig?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p1-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p1-o4",
+            "number": "1.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger D — ekvivalens, svarform F1.) Kryss av **alle** uttrykkene som er lik `A′ + B`, og begrunn hvert av de fire.\n\n**a)** `B + A′·B`\n\n**b)** `A′ + A·B`\n\n**c)** `A′·B`\n\n**d)** `(A·B′)′`",
+            "solution": "Uttrykket vi matcher mot har kolonnen `1, 1, 0, 1` for radene `00`, `01`, `10`, `11`.\n\n**a) Galt.** `B + A′·B` forenkles ved absorpsjon til `B`, som har kolonnen `0, 1, 0, 1`. Motrad: `A = 0, B = 0` gir uttrykket vårt 1, men alternativet 0. Distraktoren utnytter at leddene *ser* like ut som i b).\n\n**b) Riktig.** Utvidet absorpsjon: `A′ + A·B = A′ + B`. Kontroll i raden `11`: `0 + 1 = 1`, og `A′ + B = 0 + 1 = 1`. Stemmer.\n\n**c) Galt.** `A′·B` har kolonnen `0, 1, 0, 0`. Motrad: `A = 0, B = 0` gir uttrykket vårt `1 + 0 = 1`, men alternativet `1·0 = 0`. Feilen er å bytte OR til AND.\n\n**d) Riktig.** De Morgan: `(A·B′)′ = A′ + (B′)′ = A′ + B`. Kontroll i raden `10`: venstre side `(1·1)′ = 0`, og `A′ + B = 0 + 0 = 0`. Stemmer.\n\n**Fasit: b og d.**\n\nMerk at a) og b) er bygd på samme mønster, men bare den ene overlever forenklingen. Det er nettopp forskjellen mellom `B + A′·B` og `A′ + A·B` som testes.",
+            "hints": [
+              "Skriv ut kolonnen for `A′ + B` først — fire rader.",
+              "For hvert alternativ: finn en motrad, eller før det over med en identitet."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p1-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1\n\nKryss av det du klarte:\n\n☐ kjente du igjen alle fire portene fra utgangskolonnen alene?\n\n☐ skilte du NAND fra NOR på hvor avviket i kolonnen sto?\n\n☐ husket du at boblen betyr «inverter utgangen»?\n\n☐ byttet du operator da du brukte De Morgan?\n\n☐ krysset du av **begge** de riktige alternativene i 1.4?\n\nGlapp noe? Portene og identitetene står i [kap. 2.1](/bok/in1020/in1020-2-1), forenklingsreglene i [kap. 2.2](/bok/in1020/in1020-2-2), og mer trening ligger i [kap. 2.3](/bok/in1020/in1020-2-3)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Kretsanalyse og ekvivalente uttrykk (~30 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in1020-2-prove-p2-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler. Skriv mellomregningen — én kolonne per mellomsignal.\n\nAlle kretsene er gitt som **portlister**: én linje per port, med portens type, dens innganger og navnet på signalet den gir ut."
+        },
+        {
+          "id": "in1020-2-prove-p2-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p2-o1",
+            "number": "2.1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger D — kretsanalyse.) Skriv `F` for kretsen, forenkl så langt det går, og oppgi i hvor mange av de åtte radene `F` er 1.\n\n```text\nPort 1: NAND med inngangene A og B   -> mellomsignal P\nPort 2: NOT  med inngangen C         -> mellomsignal Q\nPort 3: OR   med inngangene P og Q   -> utgangen F\n```",
+            "solution": "**Propagering:** `P = (A·B)′`, `Q = C′`, `F = (A·B)′ + C′`.\n\n**Forenkling med De Morgan, lest baklengs:** `X′ + Y′ = (X·Y)′` med `X = A·B` og `Y = C`, altså\n\n`F = (A·B·C)′`\n\n**Svar: `F = (A·B·C)′`.**\n\n**Antall rader med 1:** uttrykket er 0 bare når `A·B·C` er 1, altså bare i raden `111`. I alle de sju andre er `F` lik 1.\n\n| A | B | C | `P` | `Q` | `F` |\n|---|---|---|---|---|---|\n| 0 | 0 | 0 | 1 | 1 | 1 |\n| 0 | 0 | 1 | 1 | 0 | 1 |\n| 0 | 1 | 0 | 1 | 1 | 1 |\n| 0 | 1 | 1 | 1 | 0 | 1 |\n| 1 | 0 | 0 | 1 | 1 | 1 |\n| 1 | 0 | 1 | 1 | 0 | 1 |\n| 1 | 1 | 0 | 0 | 1 | 1 |\n| 1 | 1 | 1 | 0 | 0 | 0 |\n\n**Svar: `F` er 1 i sju av åtte rader.**\n\nKretsen er altså en NAND med tre innganger, bygd av to porter og en inverter.",
+            "hints": [
+              "Skriv uttrykket for hvert mellomsignal på egen linje.",
+              "Se om de to leddene har formen `X′ + Y′` — da kan De Morgan brukes baklengs.",
+              "Et uttrykk på formen `(noe)′` er 0 nøyaktig der «noe» er 1."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p2-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p2-o2",
+            "number": "2.2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger D — kretsanalyse med fire porter.) Skriv `F` for kretsen, sett opp hele sannhetstabellen, og forenkl uttrykket.\n\n```text\nPort 1: XOR med inngangene A og B   -> mellomsignal P\nPort 2: NOT med inngangen A         -> mellomsignal Q\nPort 3: AND med inngangene P og C   -> mellomsignal R\nPort 4: OR  med inngangene R og Q   -> utgangen F\n```",
+            "solution": "**Propagering:** `P = A⊕B`, `Q = A′`, `R = (A⊕B)·C`, `F = (A⊕B)·C + A′`.\n\n**Tabellen:**\n\n| A | B | C | `P` | `Q` | `R` | `F` |\n|---|---|---|---|---|---|---|\n| 0 | 0 | 0 | 0 | 1 | 0 | 1 |\n| 0 | 0 | 1 | 0 | 1 | 0 | 1 |\n| 0 | 1 | 0 | 1 | 1 | 0 | 1 |\n| 0 | 1 | 1 | 1 | 1 | 1 | 1 |\n| 1 | 0 | 0 | 1 | 0 | 0 | 0 |\n| 1 | 0 | 1 | 1 | 0 | 1 | 1 |\n| 1 | 1 | 0 | 0 | 0 | 0 | 0 |\n| 1 | 1 | 1 | 0 | 0 | 0 | 0 |\n\n**Forenkling.** `F` er 1 i alle fire radene der `A = 0`, og i tillegg i raden `101`. Det gir\n\n`F = A′ + A·B′·C`\n\nog utvidet absorpsjon fjerner `A`-en i det andre leddet:\n\n`F = A′ + B′·C`\n\n**Svar: `F = A′ + B′·C`.**\n\n**Kontroll av forenklingen mot tabellen:** `A′ + B′·C` er 1 i alle radene med `A = 0` (fire stykker) og i raden `A = 1, B = 0, C = 1`. Det er nøyaktig kolonnen over. Stemmer.\n\nMerk at kretsen bruker fire porter på noe som kan skrives med tre operasjoner.",
+            "hints": [
+              "Fyll ut én kolonne per mellomsignal, i rekkefølgen portlisten gir.",
+              "Se på radene der A er 0: hva gjør den siste OR-porten der?",
+              "Til slutt: har uttrykket formen `A′ + A·(noe)`?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p2-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p2-o3",
+            "number": "2.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger D — ekvivalens, svarform F1.) Kretsen er gitt. Kryss av **alle** uttrykkene som er lik `F`, og begrunn hvert av de fire.\n\n```text\nPort 1: NOT med inngangen B         -> mellomsignal P\nPort 2: OR  med inngangene A og P   -> mellomsignal Q\nPort 3: AND med inngangene Q og C   -> utgangen F\n```\n\n**a)** `A·C + B′·C`\n\n**b)** `C·(B′ + A)`\n\n**c)** `A + B′ + C`\n\n**d)** `A·B′·C`",
+            "solution": "**Kretsen:** `P = B′`, `Q = A + B′`, `F = (A + B′)·C`.\n\n**a) Riktig.** Distributiv lov, AND over OR: `(A + B′)·C = A·C + B′·C`.\n\n**b) Riktig.** Bare kommutativitet, to ganger: rekkefølgen på faktorene og på leddene betyr ingenting. Dette er formen som oftest overses fordi den ser «for lik» ut til å være et eget alternativ.\n\n**c) Galt.** Her er den siste AND-en byttet til en OR. Motrad: `A = 1, B = 1, C = 0` gir kretsen `(1 + 0)·0 = 0`, men alternativet `1 + 0 + 0 = 1`.\n\n**d) Galt.** Her er OR-en i parentesen byttet til AND, så alternativet krever at både `A = 1`, `B = 0` og `C = 1`. Motrad: `A = 0, B = 0, C = 1` gir kretsen `(0 + 1)·1 = 1`, men alternativet `0·1·1 = 0`.\n\n**Fasit: a og b.**\n\nTo av fire riktige. Krysser du bare av a, mister du halve uttellingen uten å ha svart noe galt.",
+            "hints": [
+              "Regn ut kretsens uttrykk før du ser på alternativene.",
+              "For hvert alternativ du tror er galt: finn én rad der de gir ulikt svar."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p2-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p2-o4",
+            "number": "2.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger D — De Morgan, svarform F1.) Kryss av **alle** uttrykkene som er lik `(A·B + C′)′`, og begrunn hvert av de fire.\n\n**a)** `(A·B)′ · C`\n\n**b)** `(A′ + B′)·C`\n\n**c)** `A′·B′·C`\n\n**d)** `A′ + B′ + C`",
+            "solution": "**Bruk De Morgan utenfra og inn.** Ytterst er uttrykket en OR av `A·B` og `C′`:\n\n`(A·B + C′)′ = (A·B)′ · (C′)′ = (A·B)′ · C`\n\nDeretter kan første faktor utvides: `(A·B)′ = A′ + B′`, altså `(A′ + B′)·C`.\n\n**a) Riktig.** Første steg, stoppet før den indre De Morgan-en. Merk at `(C′)′ = C` — den doble inverteringen faller bort.\n\n**b) Riktig.** Samme uttrykk, ett steg videre.\n\n**c) Galt.** Her er OR-en i første faktor byttet til AND. Motrad: `A = 1, B = 0, C = 1` gir uttrykket `(0 + 0)′ = 1`, men alternativet `0·1·1 = 0`.\n\n**d) Galt.** Her er hele uttrykket blitt en OR. Motrad: `A = 0, B = 0, C = 0` gir uttrykket `(0·0 + 1)′ = (1)′ = 0`, mens alternativet gir `1 + 1 + 0 = 1`. Der skiller de lag. Alternativet ville passet til `(A·B·C′)′`, som er en annen funksjon.\n\n**Fasit: a og b.**\n\n**Metoderegelen:** ett lag av gangen, og husk at inverteringen av `C′` gir `C`, ikke `C′`. Det er den detaljen som skiller a) fra en gal variant.",
+            "hints": [
+              "Se hva som er den ytterste operatoren inne i parentesen.",
+              "Husk at `(C′)′ = C`.",
+              "For alternativene du tror er gale: let etter én rad der de skiller lag."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p2-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 2\n\nKryss av det du klarte:\n\n☐ propagerte du framover, fra inngangene og ut?\n\n☐ satte du parentes rundt mellomsignaler som inneholdt OR?\n\n☐ brukte du De Morgan ett lag av gangen, med operatorbytte hver gang?\n\n☐ husket du at `(C′)′ = C`?\n\n☐ krysset du av **alle** de ekvivalente formene, ikke bare den første?\n\n☐ fant du forenklingen `A′ + A·X = A′ + X` i 2.2?\n\nGlapp noe? Propageringen og identitetene står i [kap. 2.2](/bok/in1020/in1020-2-2), og fjorten flere oppgaver ligger i [kap. 2.3](/bok/in1020/in1020-2-3)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Arkitektur-fakta (~30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in1020-2-prove-p3-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler.\n\nDenne prøven er ren presisjon: ingen regning, bare påstander som skal vurderes. Ha sjekklisten over de fem faste usanne påstandene klar før du begynner — den avgjør flere av radene direkte."
+        },
+        {
+          "id": "in1020-2-prove-p3-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p3-o1",
+            "number": "3.1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F — arkitektur-fakta, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Teknologiutviklingen har gitt færre transistorer per brikke | |\n| b | Kode og data ligger i samme minne i von Neumann-arkitekturen | |\n| c | En 64-bits ALU krever 65 stk. 1-bits ALU-er | |\n| d | Kontrollenheten avgjør om innholdet i en celle er en instruksjon | |",
+            "solution": "**a) Usann.** Fast usann påstand. Transistorene har blitt mindre, og derfor får det plass **flere** av dem på samme areal. Påstanden snur utviklingen på hodet.\n\n**b) Sann.** Det er selve definisjonen av arkitekturen — og grunnen til at en instruksjon kan behandles som et tall og endres av programmet selv.\n\n**c) Usann.** Fast usann påstand. Det kreves **64** — én per bit. Menten er allerede en del av hver fulladder, så ingen ekstra enhet trengs for den.\n\n**d) Sann.** Cellen bærer ingen informasjon om hva den «er». Det er programtelleren og kontrollenheten som avgjør om innholdet hentes som instruksjon eller som data.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\nTo av fire kunne avgjøres direkte fra sjekklisten, uten å tenke på selve innholdet.",
+            "hints": [
+              "Gå gjennom de fem faste usanne påstandene før du vurderer radene.",
+              "For c): hvor mange bit skal enheten håndtere, og hvor mange enheter trengs per bit?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p3-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p3-o2",
+            "number": "3.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F — CPU-ens deler, svarform F1.) Kryss av **alle** påstandene som er sanne, og begrunn hvert av de fem.\n\n**a)** Kontrollenheten utfører selve addisjonen.\n\n**b)** ALU-en gjør både aritmetiske og logiske operasjoner.\n\n**c)** Et register er bygd av RAM-celler.\n\n**d)** ALU-en ligger inne i CPU-en.\n\n**e)** Programtelleren er et register.",
+            "solution": "**a) Galt.** Kontrollenheten dirigerer; ALU-en regner. Distraktoren utnytter at «kontroll» høres ut som «gjør jobben».\n\n**b) Riktig.** Navnet er «aritmetisk-logisk enhet»: den legger sammen og trekker fra, og den gjør AND, OR og XOR bit for bit på hele ord.\n\n**c) Galt.** Fast usann påstand. Registre er egne, raske lagringskretser på prosessorbrikken. Var de bygd av RAM, ville de også hatt RAM-ens hastighet.\n\n**d) Riktig.** ALU-en er en av CPU-ens tre faste deler. Motsatt påstand står på sjekklisten over de fem faste usanne.\n\n**e) Riktig.** Programtelleren er registeret som holder adressen til neste instruksjon — og alle registre ligger inne i CPU-en.\n\n**Fasit: b, d og e.**\n\nTre av fem riktige. En kandidat som krysser av b og går videre, mister to tredjedeler av uttellingen.",
+            "hints": [
+              "Sjekk hvert alternativ mot listen over de fem faste usanne påstandene.",
+              "For a): hvilken del regner, og hvilken styrer?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p3-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p3-o3",
+            "number": "3.3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger F — busser, klokke og pipeline, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad. Merk at to av radene handler om samme mekanisme med ulik ordlyd.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Adressebussen bærer verdien som skal lagres i cellen | |\n| b | Klokkesignalet lagres i RAM mellom hver sykel | |\n| c | Pipeline gjør hver enkelt instruksjon raskere | |\n| d | Pipeline gjør at flere instruksjoner blir ferdige per sekund | |",
+            "solution": "**a) Usann.** Adressebussen sier *hvor*; databussen bærer *hva*. Påstanden bytter om de to, og den er en fast distraktor fordi begge «bærer tall».\n\n**b) Usann.** Fast usann påstand. Klokka er en oscillatorkrets som genererer pulser fortløpende; et signal som veksler hele tiden, kan ikke lagres som en verdi.\n\n**c) Usann.** Den enkelte instruksjonen går gjennom nøyaktig like mange trinn med pipeline som uten. Med tre trinn tar den tre sykler i begge tilfeller.\n\n**d) Sann.** Når båndet er fylt, blir én instruksjon ferdig per sykel i stedet for én per tre sykler. Seks instruksjoner tar `3 + 5 = 8` sykler med pipeline, mot `6 · 3 = 18` uten.\n\n**Fasit: a usann, b usann, c usann, d sann.**\n\n**Om formen:** tre av fire er usanne, og rad c og d handler om samme mekanisme med motsatt svar. Det er ordlyden som avgjør, ikke temaet — stryk under hva rada faktisk måler før du krysser av.",
+            "hints": [
+              "For a): hvilken buss sier *hvor*, og hvilken bærer *hva*?",
+              "Les rad c og d ved siden av hverandre, og se hva som skiller dem.",
+              "For d): regn ut hvor mange sykler seks instruksjoner tar med og uten pipeline."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p3-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p3-o4",
+            "number": "3.4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F — adderen, svarform F4.) Velg ett alternativ per delspørsmål.\n\n**a)** Hva gir en fulladder ut når to av de tre inngangene er 1?\n\n1. Sum 0, mente ut 1 · 2. Sum 1, mente ut 0 · 3. Sum 1, mente ut 1 · 4. Sum 0, mente ut 0\n\n**b)** Hvordan regner en prosessor ut `A − B`?\n\n1. Med en egen subtraksjonskrets ved siden av adderen · 2. Ved å legge sammen A og invertert B, med mente inn 1 · 3. Ved å legge sammen A og invertert B, med mente inn 0 · 4. Ved å invertere både A og B og legge dem sammen",
+            "solution": "**a) Alternativ 1 — sum 0, mente ut 1.**\n\nMed to ettall inn er summen `1 + 1 = 2`, altså `10₂`: sifferet 0 blir stående, og menten 1 går videre. Kontroll: `2·C_ut + Sum = 2·1 + 0 = 2`. Stemmer.\n\nAlternativ 2 gjelder ved nøyaktig ett ettall inn. Alternativ 3 gjelder ved tre ettall (`2·1 + 1 = 3`). Alternativ 4 gjelder ved null ettall.\n\n**b) Alternativ 2 — legg sammen A og invertert B, med mente inn 1.**\n\n`A − B = A + ¬B + 1`, og ett-tallet kommer inn som mente inn på den nederste fulladderen. Dette er nøyaktig negasjonen i to-er komplement, realisert i maskinvare.\n\nAlternativ 1 er feil: maskinen har **én** adder, brukt på to måter. Alternativ 3 gir ener-komplementet og svarer én for lite. Alternativ 4 inverterer feil operand i tillegg til den riktige.\n\n**Fasit: a) 1, b) 2.**\n\nKontrollregning for b), `100 − 36` i åtte bit: `01100100 + 11011011 + 1 = 01000000` når menten ut kastes, altså 64. Og `100 − 36 = 64`. Stemmer.",
+            "hints": [
+              "For a): tell hvor mange ettall som er inne, og skriv summen binært.",
+              "For b): hvilken regel fra to-er komplement er det som gjenbrukes?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p3-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3\n\nKryss av det du klarte:\n\n☐ kjente du igjen alle de faste usanne påstandene uten å nøle?\n\n☐ skilte du adressebussen fra databussen?\n\n☐ husket du at ALU-en regner og kontrollenheten styrer?\n\n☐ leste du ytelsespåstandene bokstavelig — per instruksjon eller per sekund?\n\n☐ visste du at `n` bit krever `n` en-bits ALU-er, ikke `n + 1`?\n\n☐ husket du at subtraksjon er addisjon med invertert operand og mente inn 1?\n\nGlapp noe? Arkitekturen står i [kap. 2.4](/bok/in1020/in1020-2-4), og flere oppgaver i samme sjanger ligger i [kap. 2.7](/bok/in1020/in1020-2-7)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Cache-beregning og abstraksjonsnivå (~30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in1020-2-prove-p4-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler og ingen kalkulator — regningen skal gå for hånd.\n\nHusk konvensjonen: et **treff koster 1 klokkesykel**, og et **bom koster det antallet sykler oppgaven oppgir**. Regn med enheter hele veien, og kontroller at snittet ligger mellom 1 og bom-kostnaden."
+        },
+        {
+          "id": "in1020-2-prove-p4-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p4-o1",
+            "number": "4.1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger E — cache-beregning, svarform F4.) Et program utfører 2000 instruksjoner. Bom-raten er 30 %, og et bom koster 10 klokkesykler. Hvor mange klokkesykler tar kjøringen?\n\n**1.** 6000 · **2.** 7400 · **3.** 20 000 · **4.** 14 600",
+            "solution": "**Del i to grupper.**\n\n`bom = 0,30 · 2000 instruksjoner = 600 instruksjoner`\n\n`treff = 2000 − 600 = 1400 instruksjoner`\n\nKontroll: `1400 + 600 = 2000`. Stemmer.\n\n**Vekt og summer.**\n\n`treff: 1400 · 1 sykel = 1400 sykler`\n\n`bom: 600 · 10 sykler = 6000 sykler`\n\n`T = 1400 + 6000 = 7400 sykler`\n\n**Fasit: alternativ 2 — 7400 klokkesykler.**\n\n**De tre gale forklart:**\n\n**1 — 6000.** Bommenes bidrag alene, `600 · 10`. Treffenes 1400 sykler mangler. Tallet står midt i din egen utregning, og det er derfor det er den farligste distraktoren.\n\n**3 — 20 000.** `2000 · 10`, altså regnet som om alle instruksjonene var bom. Bom-raten er ikke brukt.\n\n**4 — 14 600.** Ombyttingen: `600 · 1 + 1400 · 10 = 600 + 14 000 = 14 600`.\n\n**Kontroll:** snittet er `7400 ÷ 2000 = 3,7` sykler per instruksjon, som ligger mellom 1 og 10.",
+            "hints": [
+              "Del instruksjonene i to grupper og kontroller at de summerer til 2000.",
+              "Husk at treffene koster én sykel hver.",
+              "Kontroller svaret med gjennomsnittet til slutt."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p4-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p4-o2",
+            "number": "4.2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger E — cache-beregning.) Et program utfører 3600 instruksjoner. Treffraten er 75 %, og et bom koster 16 klokkesykler.\n\n**a)** Hvor mange klokkesykler tar kjøringen?\n\n**b)** Hva er gjennomsnittet per instruksjon?\n\n**c)** Hvor stor andel av syklene skyldes bom?",
+            "solution": "**Les ordlyden:** her er **treff**raten oppgitt. 75 % treff betyr 25 % bom.\n\n**a) Del i to grupper.**\n\n`treff = 0,75 · 3600 instruksjoner = 2700 instruksjoner`\n\n`bom = 3600 − 2700 = 900 instruksjoner`\n\nKontroll: `2700 + 900 = 3600`. Stemmer.\n\n`treff: 2700 · 1 sykel = 2700 sykler`\n\n`bom: 900 · 16 sykler = 14 400 sykler`\n\n`T = 2700 + 14 400 = 17 100 sykler`\n\n**Svar a): 17 100 klokkesykler.**\n\n**b)** `17 100 sykler ÷ 3600 instruksjoner = 4,75 sykler per instruksjon`\n\n**Svar b): 4,75 sykler per instruksjon.** Kontroll: ligger mellom 1 og 16.\n\n**c)** `14 400 ÷ 17 100 = 0,8421…`, altså **≈ 84,2 %** av syklene. (Tallet går ikke opp; oppgitt med én desimal.)\n\n**Svar c): omtrent 84 % av tida går med til bom, selv om bare 25 % av oppslagene er bom.**\n\nDet siste svaret er poenget å ta med seg: et bom koster seksten ganger så mye som et treff, så en firedel av oppslagene kan spise fem sjettedeler av tida.",
+            "hints": [
+              "Sjekk om oppgaven oppgir treffrate eller bom-rate før du regner.",
+              "Kontroller at de to gruppene summerer til 3600.",
+              "For c): del bommenes bidrag på totalen, og oppgi antall desimaler."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p4-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p4-o3",
+            "number": "4.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger F — abstraksjonsnivå, svarform F3.) Sorter disse seks fra **lavest** til **høyest** abstraksjonsnivå.\n\n**A.** Register · **B.** Volt · **C.** Instruksjonen `SUB 03` · **D.** Transistor · **E.** Logiske verdier · **F.** Pipeline",
+            "solution": "**Steg 1 — noter retningen.** Oppgaven ber om **lavest først**, altså motsatt av standardlisten.\n\n**Steg 2 — plasser hvert element i sjuerlisten.**\n\n- Volt → nivå 7\n- Logiske verdier → nivå 6\n- Transistor → nivå 5\n- Register → nivå 3\n- Pipeline → nivå 2\n- `SUB 03` er en instruksjon → nivå 1\n\nPortnivået (4) er ikke med i settet, så det hoppes over.\n\n**Steg 3 — les av med høyest nivånummer først.**\n\n**Fasit: B, E, D, A, F, C.** Altså volt, logiske verdier, transistor, register, pipeline, instruksjonen `SUB 03`.\n\n**De to plasseringene som avgjør oppgaven:**\n\n- **Volt under logiske verdier.** Den logiske verdien er en tolkning av spenningen, og tolkningen ligger over det den tolker. Grunnlaget ligger nederst.\n- **Register under pipeline.** Pipelinen organiserer instruksjonene og bruker registrene; det som bruker, ligger over.\n\nHadde oppgaven bedt om høyest først, ville svaret vært C, F, A, D, E, B — samme liste, lest fra andre enden.",
+            "hints": [
+              "Skriv opp den faste sjuerlisten i margen, og noter hvilken retning oppgaven ber om.",
+              "Plasser hvert element i listen før du sorterer.",
+              "Hopp over de nivåene som ikke er med i settet."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p4-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-2-prove-p4-o4",
+            "number": "4.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger E og F blandet, svarform F1.) En maskin kjører 5000 instruksjoner med bom-rate 10 % og bom-kostnad 30 klokkesykler. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Kjøringen tar 19 500 klokkesykler.\n\n**b)** Snittet er 3,9 sykler per instruksjon.\n\n**c)** Kjøringen tar 15 000 klokkesykler.\n\n**d)** Mellomlageret ligger mellom registeret og hovedminnet i hierarkiet.\n\n**e)** Snittet ville vært det samme om programmet hadde hatt 10 000 instruksjoner med samme rate og kostnad.",
+            "solution": "**Regningen først.**\n\n`bom = 0,10 · 5000 instruksjoner = 500 instruksjoner`\n\n`treff = 5000 − 500 = 4500 instruksjoner`\n\n`treff: 4500 · 1 sykel = 4500 sykler`\n\n`bom: 500 · 30 sykler = 15 000 sykler`\n\n`T = 4500 + 15 000 = 19 500 sykler`\n\n**a) Riktig.** 19 500 klokkesykler.\n\n**b) Riktig.** `19 500 ÷ 5000 = 3,9` sykler per instruksjon. Kontroll: ligger mellom 1 og 30.\n\n**c) Galt.** 15 000 er bommenes bidrag alene. De 4500 syklene fra treffene mangler.\n\n**d) Riktig.** Hierarkiet er register, mellomlager, hovedminne, disk — fra raskest til tregest. Mellomlageret ligger nettopp mellom de to andre, og det er derfor det heter det.\n\n**e) Riktig.** Snittet avhenger bare av bom-raten og bom-kostnaden: `0,90 · 1 + 0,10 · 30 = 0,9 + 3 = 3,9` sykler, uansett programlengde. Kontroll med 10 000 instruksjoner: `9000 · 1 + 1000 · 30 = 9000 + 30 000 = 39 000`, og `39 000 ÷ 10 000 = 3,9`. Stemmer.\n\n**Fasit: a, b, d og e.**\n\nFire av fem riktige. Dette er oppgavetypen som skiller mest under negativ poenggiving: en kandidat som er redd for å krysse av «for mange», mister tre poeng uten å ha svart noe galt.",
+            "hints": [
+              "Regn ut grunnoppgaven helt ferdig før du ser på alternativene.",
+              "For e): prøv å regne snittet med rater i stedet for antall.",
+              "Sjekk om noen av tallene i alternativene er mellomresultater fra din egen utregning."
+            ]
+          }
+        },
+        {
+          "id": "in1020-2-prove-p4-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4\n\nKryss av det du klarte:\n\n☐ leste du om oppgaven oppga treffrate eller bom-rate?\n\n☐ kontrollerte du at treff og bom summerte til antall instruksjoner?\n\n☐ tok du med treffenes ene sykel i summen?\n\n☐ regnet du med enheter — «instruksjoner × sykler per instruksjon = sykler»?\n\n☐ kontrollerte du at snittet lå mellom 1 og bom-kostnaden?\n\n☐ noterte du retningen før du sorterte abstraksjonsnivåene?\n\n☐ satte du logiske verdier over volt, og pipeline over register?\n\nGlapp noe? Cache-regningen står i [kap. 2.5](/bok/in1020/in1020-2-5), abstraksjonsstigen i [kap. 2.6](/bok/in1020/in1020-2-6), og fjorten flere oppgaver i begge sjangre ligger i [kap. 2.7](/bok/in1020/in1020-2-7)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

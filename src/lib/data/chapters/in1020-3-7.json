@@ -1,0 +1,428 @@
+{
+  "id": "in1020-3-7",
+  "courseId": "in1020",
+  "chapterNumber": "3.7",
+  "title": "Personvern, GDPR og skadevare",
+  "description": "Kjernen i personvernreglene — hvem som er ansvarlig, hvilke prinsipper som gjelder, og hva den registrerte har krav på — pluss skadevaretypologien du bør kjenne igjen.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne forklare hvorfor den behandlingsansvarlige beholder ansvaret ved bruk av skyleverandør",
+    "kunne gjengi prinsippene om dataminimering, formålsbegrensning og riktighet",
+    "kunne avvise påstanden om at samtykke alltid kreves for all behandling",
+    "kunne skille skadevaretypene fra hverandre på hvordan de sprer seg og skjuler seg"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-7-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** dette er **sjanger I — personvern og skadevare**. Personvern har egen oppgave i **fire av seks årganger i arkivet (67 %)**; skadevare i tre av seks (50 %).\n\n**Nivå 2 for personvern, nivå 3 for skadevare.** Kapitlet ligger sist i **seksjon 3, datasikkerhet**, en av de fire seksjonene som hver må bestås for seg. Personvernsdelen er den du skal kunne; skadevaretypologien er stoff du **bør kjenne til**, og den er merket som det i kapitlet.\n\n**Slik kommer den:** personvern oftest som **svarform F2** (sant/usant-matrise: én rad per påstand). Skadevare oftest som **F3** (dra-og-slipp: koble hver type til beskrivelsen — i boka skrevet som koblingsoppgave).\n\n**Den ene tingen som skiller bestått fra bom her:** at **den behandlingsansvarlige virksomheten beholder ansvaret** selv om driften settes bort til en skyleverandør. Å sette bort arbeidet er ikke å sette bort ansvaret, og påstanden om det motsatte er den faste distraktoren i sjangeren.\n\n**En felle til:** å tro at **samtykke alltid kreves** for all behandling av personopplysninger. Det gjør det ikke — samtykke er ett av flere lovlige grunnlag, og for en kommune som fatter vedtak, er det som regel ikke det som brukes.\n\n**Tidsbruk:** 50 minutter, fordelt på tre løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-3-7-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/in1020/in1020-3-1) og [kap. 3.2](/bok/in1020/in1020-3-2). Her er det du trenger, ferdig oppfrisket:\n\n**1. Personvern er ett av de sju sikkerhetsmålene** — at personopplysninger behandles lovlig, rimelig og åpent, og bare i nødvendig omfang. Det er det eneste av de sju som er **rettslig** forankret.\n\n**2. Personvern er ikke det samme som konfidensialitet.** Et system kan lagre alt trygt og likevel bryte personvernet, for eksempel ved å samle inn langt mer enn det trenger.\n\n**3. Trusselkoblingene** fra [kap. 3.2](/bok/in1020/in1020-3-2):\n\n| Trussel | Brutt mål |\n|---|---|\n| Tastelogger, spionvare | Konfidensialitet |\n| Rootkit | Integritet |\n| Løsepengevirus | Tilgjengelighet |\n\nDisse er alle **skadevare**, og i dette kapitlet systematiseres typene.\n\n**Et par ord du møter med én gang, ferdig forklart:**\n\n- **Personopplysning** er enhver opplysning som kan knyttes til en enkeltperson — navn, adresse, IP-adresse, karakterer, helseopplysninger.\n- **Behandling** er alt man gjør med slike opplysninger: samle inn, lagre, endre, dele, slette."
+    },
+    {
+      "id": "in1020-3-7-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-3-7-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Personopplysning | Enhver opplysning som kan knyttes til en enkeltperson |\n| Behandling | Alt man gjør med opplysningene: samle, lagre, endre, dele, slette |\n| Behandlingsansvarlig | Virksomheten som bestemmer **hvorfor** og **hvordan** — og som har ansvaret |\n| Databehandler | Den som behandler på oppdrag, for eksempel en skyleverandør |\n| Den registrerte | Personen opplysningene handler om |\n| Innsynsrett | Den registrertes rett til å få vite hva som er lagret |\n| Dataminimering | Samle inn bare det som er nødvendig for formålet |\n| Formålsbegrensning | Bruke opplysningene bare til det de ble samlet inn for |\n\n**Prinsippene du skal kunne:**\n\n```text\n1. Lovlig, rettferdig og åpen behandling\n2. Formålsbegrensning  - bare til det oppgitte formålet\n3. Dataminimering      - bare det som er nødvendig\n4. Riktighet           - opplysningene skal være korrekte\n5. Lagringsbegrensning - ikke lenger enn nødvendig\n6. Egnede tekniske og organisatoriske tiltak\n```\n\n**Skadevaretypene, sortert på hva som kjennetegner dem:**\n\n| Type | Kjennetegn |\n|---|---|\n| **Orm** | Sprer seg **selv** over nett, uten hjelp |\n| **Virus** | Fester seg til en **vertsfil** og spres med den |\n| **Trojaner** | Skjult skadelig funksjon i noe som ser **nyttig** ut |\n| **Rootkit** | **Skjuler seg** dypt i systemet og manipulerer det |\n| **Tastelogger** | Registrerer **tastetrykk** |\n| **Logisk bombe** | Utløses av en **betingelse** — en dato, en hendelse |\n| **Bakdør** | Skjult **inngang** som omgår vanlig innlogging |"
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-7-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hvem har ansvaret? (~16 min)\n\nEn kommune flytter journalsystemet sitt til en skyleverandør. Serverne står nå hos leverandøren, driften gjøres av leverandøren, og sikkerhetskopiene tas av leverandøren.\n\nSå skjer det et innbrudd, og opplysninger om 2000 innbyggere kommer på avveie.\n\nHvem er ansvarlig?\n\nSvaret er **kommunen**, og det er den viktigste enkeltinnsikten i hele kapitlet. Å sette bort arbeidet er ikke å sette bort ansvaret."
+    },
+    {
+      "id": "in1020-3-7-def-behandlingsansvarlig",
+      "type": "definition",
+      "title": "Behandlingsansvarlig",
+      "content": "Virksomheten som bestemmer **hvorfor** og **hvordan** personopplysninger skal behandles — og som derfor har det rettslige ansvaret.\n\nDet er kommunen, skolen, bedriften eller sykehuset som samler inn opplysningene. Ansvaret følger av at man bestemmer formålet, ikke av hvem som trykker på tastene.\n\n**Ansvaret kan ikke settes bort.** Bruker virksomheten en skyleverandør, blir leverandøren en **databehandler** — men den behandlingsansvarlige beholder ansvaret overfor de registrerte og overfor myndighetene.\n\nDen faste feilslutningen, og den mest testede påstanden i sjangeren: at en virksomhet «slipper ansvar» ved å bruke en ekstern leverandør. Det gjør den ikke. Den får i stedet **en plikt til å velge en leverandør som gir tilstrekkelige garantier**, og til å regulere forholdet i en avtale."
+    },
+    {
+      "id": "in1020-3-7-def-databehandler",
+      "type": "definition",
+      "title": "Databehandler",
+      "content": "Den som behandler personopplysninger **på oppdrag** fra den behandlingsansvarlige — typisk en skyleverandør, et driftsselskap eller en leverandør av et fagsystem.\n\nDatabehandleren har ingen selvstendig rett til å bestemme formålet. Den skal gjøre det avtalen sier, og ikke mer.\n\nForholdet reguleres i en avtale som blant annet fastsetter hva som kan gjøres, hvilke sikkerhetstiltak som kreves, og hva som skjer ved avslutning.\n\nSkillet å ha klart: **den behandlingsansvarlige bestemmer, databehandleren utfører.** Ansvaret ligger hos den som bestemmer."
+    },
+    {
+      "id": "in1020-3-7-teo-prinsipper",
+      "type": "theorem",
+      "title": "Prinsippene for behandling",
+      "content": "Seks prinsipper styrer all behandling av personopplysninger. Tre av dem kommer igjen i oppgaver.\n\n**1. Lovlig, rettferdig og åpen behandling.** Det må finnes et lovlig grunnlag, behandlingen må være rimelig overfor den registrerte, og den må være åpen — folk skal kunne vite hva som skjer med opplysningene om dem.\n\n**2. Formålsbegrensning.** Opplysningene skal samles inn til et **uttrykkelig angitt** formål, og ikke brukes til noe annet senere. Adressen du oppga for å få tilsendt en pakke, kan ikke uten videre brukes til markedsføring.\n\n**3. Dataminimering.** Bare det som er **nødvendig** for formålet. Trenger skjemaet bare postnummer, skal det ikke be om full adresse og fødselsdato.\n\n**4. Riktighet.** Opplysningene skal være korrekte og oppdaterte. Uriktige opplysninger skal rettes.\n\n**5. Lagringsbegrensning.** Ikke lenger enn nødvendig for formålet.\n\n**6. Egnede tekniske og organisatoriske tiltak.** Sikkerheten skal stå i forhold til risikoen — altså de tiltakene du kjenner fra [kap. 3.1](/bok/in1020/in1020-3-1), satt inn etter en vurdering.\n\n**De to påstandene som er FEIL, og som står som distraktorer:**\n\n1. **«Samtykke kreves alltid.»** Usant. Samtykke er **ett** av flere lovlige grunnlag. En kommune som fatter et vedtak, eller en arbeidsgiver som utbetaler lønn, bygger på helt andre grunnlag. Samtykke som er en forutsetning for å få en tjeneste, er dessuten sjelden gyldig — det er ikke frivillig.\n2. **«Man kan se bort fra reglene fordi behandlingen er nødvendig.»** Usant. At noe er nødvendig, kan være et **grunnlag** for behandlingen — men prinsippene om dataminimering, riktighet og sikkerhet gjelder likevel.\n\n**Hvem reglene først og fremst rammer:** **virksomheter**. Det er de som kan ilegges gebyrer, og som må kunne dokumentere at reglene følges. Privatpersoners rent personlige bruk faller utenfor."
+    },
+    {
+      "id": "in1020-3-7-def-innsynsrett",
+      "type": "definition",
+      "title": "Innsynsrett",
+      "content": "Den registrertes rett til å få vite **hvilke opplysninger som er lagret om hen**, hva de brukes til, og hvem de eventuelt deles med.\n\nRetten gjelder overfor den **behandlingsansvarlige** — altså virksomheten, ikke skyleverandøren. Har kommunen satt bort driften, er det fortsatt kommunen du henvender deg til.\n\nSammen med innsynsretten hører retten til **retting** av uriktige opplysninger, og i mange tilfeller retten til **sletting**.\n\nDen faste feilslutningen: å tro at innsyn bare gjelder det virksomheten selv har skrevet. Retten gjelder alle personopplysninger som behandles om deg, uansett hvor de kom fra."
+    },
+    {
+      "id": "in1020-3-7-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Kommunen og skyleverandøren",
+      "problem": "En kommune bruker en skyleverandør til å drifte sitt saksbehandlingssystem. Det skjer et innbrudd hos leverandøren, og personopplysninger om 2000 innbyggere kommer på avveie.\n\n**a)** Hvem er behandlingsansvarlig?\n\n**b)** Hvem henvender en innbygger seg til for å få innsyn?\n\n**c)** Hva burde kommunen ha gjort på forhånd?",
+      "solution": "**a) Kommunen.** Det er kommunen som har bestemt hvorfor og hvordan opplysningene skal behandles. Skyleverandøren er **databehandler** og handler på oppdrag.\n\nAnsvaret følger av å bestemme formålet, ikke av hvem som drifter maskinene. Å sette bort arbeidet er ikke å sette bort ansvaret.\n\n**b) Kommunen.** Innsynsretten gjelder overfor den behandlingsansvarlige. Innbyggeren skal ikke måtte finne ut hvilken leverandør kommunen har valgt.\n\n**c) Tre ting:**\n\n1. **Valgt en leverandør som gir tilstrekkelige garantier** for sikkerheten — det er en plikt, ikke en anbefaling.\n2. **Inngått en avtale** som regulerer hva leverandøren kan gjøre, hvilke tiltak som kreves, og hva som skjer ved avslutning.\n3. **Vurdert risikoen** og sørget for egnede tekniske og organisatoriske tiltak i forhold til den.\n\n**Svar: kommunen er ansvarlig i alle tre spørsmålene.**\n\n**Den faste distraktoren i denne oppgavetypen** er å svare «skyleverandøren» på a) eller b). Det er den mest testede enkeltpåstanden i sjangeren, og svaret er alltid at ansvaret ligger hos den som bestemte formålet."
+    },
+    {
+      "id": "in1020-3-7-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — ansvar.) En videregående skole bruker en ekstern leverandør til å drifte læringsplattformen. Hvem er behandlingsansvarlig for elevenes opplysninger, og hvorfor?",
+        "solution": "**Skolen** er behandlingsansvarlig.\n\n**Begrunnelsen:** ansvaret følger av hvem som bestemmer **hvorfor** og **hvordan** opplysningene skal behandles. Det er skolen som har bestemt at plattformen skal brukes, hvilke opplysninger som skal ligge der, og til hvilket formål.\n\nLeverandøren er **databehandler**: den behandler opplysningene på oppdrag og har ingen selvstendig rett til å bestemme formålet.\n\n**Svar: skolen, fordi den bestemmer formålet med behandlingen.**\n\nMerk at svaret ikke endres av at leverandøren gjør alt det praktiske. Å sette bort arbeidet er ikke å sette bort ansvaret.",
+        "hints": [
+          "Spør hvem som har bestemt at opplysningene skal behandles, og til hva.",
+          "Endrer det ansvaret at noen andre gjør det praktiske arbeidet?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — personvern, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Den registrerte har rett til innsyn i opplysninger om seg selv | |\n| b | En virksomhet slipper personvernansvar ved å bruke en skyleverandør | |\n| c | Samtykke kreves alltid for all behandling av personopplysninger | |\n| d | Dataminimering betyr å samle inn bare det som er nødvendig | |",
+        "solution": "**a) Sann.** Innsynsretten gjelder overfor den behandlingsansvarlige, og den omfatter hvilke opplysninger som er lagret, hva de brukes til, og hvem de deles med. Sammen med den hører retten til retting.\n\n**b) Usann.** Dette er den mest testede påstanden i sjangeren. Den behandlingsansvarlige beholder ansvaret; leverandøren blir databehandler. Virksomheten får i tillegg en plikt til å velge en leverandør som gir tilstrekkelige garantier, og til å regulere forholdet i avtale.\n\n**c) Usann.** Samtykke er **ett** av flere lovlige grunnlag. En kommune som fatter vedtak, eller en arbeidsgiver som utbetaler lønn, bygger på andre grunnlag. Samtykke som er en forutsetning for å få tjenesten, er dessuten sjelden gyldig — det er ikke frivillig.\n\n**d) Sann.** Trenger skjemaet bare postnummer, skal det ikke be om full adresse og fødselsdato. Prinsippet gjelder uansett hvor trygt opplysningene lagres.\n\n**Fasit: a sann, b usann, c usann, d sann.**\n\nMerk at de to usanne er nettopp de to faste distraktorene i sjangeren: «ansvaret settes bort» og «samtykke kreves alltid».",
+        "hints": [
+          "For b): hvem bestemte formålet med behandlingen?",
+          "For c): hvilket grunnlag har en kommune når den fatter et vedtak om deg?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — prinsipper, svarform F1 — velg ett *eller flere* alternativer.) En nettbutikk ber om fødselsnummer, full adresse, fødselsdato og telefonnummer for å sende en pakke, og bruker deretter opplysningene til markedsføring. Kryss av **alle** prinsippene som brytes, og begrunn hvert av de fire.\n\n**a)** Lagringsbegrensning\n\n**b)** Formålsbegrensning\n\n**c)** Riktighet\n\n**d)** Dataminimering",
+        "solution": "**a) Galt.** Lagringsbegrensning handler om hvor **lenge** opplysningene beholdes. Oppgaven sier ingenting om lagringstid. Distraktoren er tatt med fordi prinsippet «høres relevant ut» i enhver personvernsak.\n\n**b) Riktig.** Opplysningene ble samlet inn for å sende en pakke. Å bruke dem til markedsføring er et **annet** formål, og det krever et eget grunnlag.\n\n**c) Galt.** Riktighet handler om at opplysningene er **korrekte og oppdaterte**. Ingenting i oppgaven tyder på at de er feil — problemet er at det er samlet inn for mye, og brukt til noe annet.\n\n**d) Riktig.** For å sende en pakke trengs navn og adresse. Fødselsnummer og fødselsdato er ikke nødvendig for formålet, og skal derfor ikke samles inn.\n\n**Fasit: b og d.**\n\n**Metoden:** gå gjennom prinsippene ett for ett og spør hva **denne konkrete** handlingen bryter. To av fire prinsipper er ikke berørt her, selv om saken er klart problematisk.",
+        "hints": [
+          "Del saken i to: hva som samles inn, og hva det brukes til.",
+          "For hvert prinsipp: står det noe i oppgaven som faktisk bryter nettopp det?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Skadevare: hva du bør kjenne til (~16 min)\n\nDenne delen er **stoff du bør kjenne til**, ikke stoff du må kunne perfekt. Temaet har egen oppgave i tre av seks årganger (50 %), og det kommer nesten alltid som en koblingsoppgave: her er sju typer, her er sju beskrivelser, koble dem.\n\nDet gjør stoffet lett å score på hvis du kan kjennetegnene — og lett å bomme på hvis du bare har en vag følelse av at «alt er virus».\n\n**Nøkkelen er å sortere på ett spørsmål:** hvordan sprer den seg, og hvordan skjuler den seg?\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-3-7-def-orm",
+      "type": "definition",
+      "title": "Orm",
+      "content": "Skadevare som **sprer seg selv** over nettverk, uten at noen trenger å gjøre noe.\n\nDen finner sårbare maskiner, kopierer seg dit, og fortsetter derfra. En orm kan spre seg over hele verden på timer.\n\n**Kjennetegnet er selvspredningen.** Det er dette som skiller den fra viruset, som trenger en vertsfil, og fra trojaneren, som må bæres inn av brukeren.\n\nMålene som brytes varierer med hva ormen gjør når den er inne — men selve spredningen belaster nett og maskiner og rammer ofte **tilgjengelighet** i seg selv."
+    },
+    {
+      "id": "in1020-3-7-def-virus",
+      "type": "definition",
+      "title": "Virus",
+      "content": "Skadevare som **fester seg til en vertsfil** og spres når filen kopieres eller kjøres.\n\nDet trenger altså en bærer og en handling: noen må kopiere filen, sende den videre eller åpne den.\n\n**Kjennetegnet er vertsfilen.** Skillet mot ormen er avgjørende og testes ofte: **ormen sprer seg selv, viruset må bæres**.\n\nI dagligtale brukes «virus» om all skadevare. I faget er det én bestemt type, og en oppgave som ber deg koble typer til beskrivelser, forventer det presise skillet."
+    },
+    {
+      "id": "in1020-3-7-def-rootkit",
+      "type": "definition",
+      "title": "Rootkit",
+      "content": "Skadevare som graver seg **dypt inn i systemet** og manipulerer det slik at den selv ikke er synlig — verken i prosesslista, i filsystemet eller i loggene.\n\n**Kjennetegnet er skjulingen.** Et rootkit er ikke definert av hva skaden består i, men av at systemet ikke lenger forteller sannheten om seg selv.\n\nMålet som brytes: **integritet**. Selve systemet er ikke til å stole på.\n\nDen faste feilslutningen: å svare konfidensialitet fordi ordet høres ut som spionasje. Skillet mot **trojaneren** er også verdt å ha klart: trojaneren skjuler seg i **innpakningen** før installasjon, rootkitet skjuler seg **i systemet** etterpå."
+    },
+    {
+      "id": "in1020-3-7-def-logiskbombe",
+      "type": "definition",
+      "title": "Logisk bombe",
+      "content": "Skadelig kode som ligger i ro til en **betingelse** er oppfylt — en bestemt dato, et bestemt antall kjøringer, eller at en bestemt bruker forsvinner fra lønningslistene.\n\n**Kjennetegnet er utløseren.** Koden gjør ingenting før betingelsen inntreffer, og er derfor vanskelig å oppdage ved vanlig testing.\n\nLogiske bomber er klassisk **innsidearbeid**: de plasseres gjerne av noen som har lovlig tilgang, og utløses etter at vedkommende har sluttet.\n\nMottiltakene er de samme som mot andre innsidetrusler: minste privilegium, arbeidsdeling på kritiske endringer, og gjennomgang av kode."
+    },
+    {
+      "id": "in1020-3-7-def-bakdor",
+      "type": "definition",
+      "title": "Bakdør",
+      "content": "En skjult inngang som **omgår den vanlige innloggingen**.\n\nDen kan være lagt inn av en angriper etter et innbrudd — for å komme lett inn igjen senere — eller den kan være en glemt testadgang som aldri ble fjernet.\n\n**Kjennetegnet er omgåelsen.** En bakdør bryter ikke passordet ditt; den går utenom hele mekanismen.\n\nDerfor hjelper det ikke å bytte passord når det finnes en bakdør. Den må finnes og fjernes, og det er en av grunnene til at et system som har vært kompromittert, ofte må settes opp helt på nytt."
+    },
+    {
+      "id": "in1020-3-7-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Koble skadevaretype til beskrivelse",
+      "problem": "Svarform F3, altså en koblingsoppgave: koble hver beskrivelse (1–6) til riktig type (A–G).\n\n**1.** Sprer seg selv over nettet uten at noen gjør noe\n\n**2.** Ligger i ro til en bestemt dato inntreffer\n\n**3.** Skjuler seg dypt i systemet og manipulerer det\n\n**4.** Ligger skjult i et program som ser nyttig ut\n\n**5.** Omgår den vanlige innloggingen\n\n**6.** Fester seg til en fil og spres når filen kopieres\n\n**A.** Virus · **B.** Orm · **C.** Trojaner · **D.** Rootkit · **E.** Tastelogger · **F.** Logisk bombe · **G.** Bakdør",
+      "solution": "**1 → B (orm).** Selvspredning er ormens kjennetegn. Å svare A ville vært den klassiske forvekslingen: viruset må bæres av en vertsfil.\n\n**2 → F (logisk bombe).** Utløseren er kjennetegnet — datoen, antallet kjøringer, hendelsen.\n\n**3 → D (rootkit).** Skjulingen i systemet er kjennetegnet.\n\n**4 → C (trojaner).** Innpakningen er kjennetegnet: brukeren installerer den frivillig.\n\n**5 → G (bakdør).** Omgåelsen av innloggingen er kjennetegnet.\n\n**6 → A (virus).** Vertsfilen er kjennetegnet.\n\n**Fasit: 1→B, 2→F, 3→D, 4→C, 5→G, 6→A.**\n\n**Merk at tastelogger (E) ikke er i bruk.** En koblingsoppgave krever ikke at alle kategoriene brukes, og å tvinge den inn er en fast måte å miste poeng på.\n\n**Merk også at koblingen ikke er 1→A, 2→B, 3→C.** Rekkefølgen er alltid stokket.\n\n**Metoden som avgjør hele oppgaven:** sorter på **spredning** (orm mot virus mot trojaner) og **skjuling** (rootkit mot bakdør). De to spørsmålene skiller alle typene fra hverandre."
+    },
+    {
+      "id": "in1020-3-7-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger I — skadevare.) Hva er forskjellen på en orm og et virus?",
+        "solution": "**Ormen sprer seg selv.** Den finner sårbare maskiner over nettet, kopierer seg dit, og fortsetter derfra uten at noen trenger å gjøre noe.\n\n**Viruset må bæres.** Det fester seg til en vertsfil og spres når filen kopieres, sendes videre eller åpnes. Uten den handlingen står det stille.\n\n**Svar: ormen sprer seg selv over nett; viruset trenger en vertsfil og en menneskelig handling.**\n\nDette er den hyppigst testede skadevare-forskjellen, og den er lett å blande fordi «virus» i dagligtale brukes om all skadevare. I faget er det én bestemt type med ett bestemt kjennetegn.",
+        "hints": [
+          "Spør for hver av dem: må noen gjøre noe for at den skal spre seg videre?",
+          "Den ene trenger en bærer, den andre gjør ikke det."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — skadevare, svarform F3.) Koble hver beskrivelse (1–5) til riktig type (A–F).\n\n**1.** Registrerer alt som skrives på tastaturet\n\n**2.** Utløses når en bestemt ansatt fjernes fra lønnssystemet\n\n**3.** Krypterer filene og krever betaling\n\n**4.** Manipulerer systemet slik at den selv ikke er synlig\n\n**5.** Ligger skjult i et program brukeren installerer frivillig\n\n**A.** Rootkit · **B.** Tastelogger · **C.** Løsepengevirus · **D.** Trojaner · **E.** Orm · **F.** Logisk bombe",
+        "solution": "**1 → B (tastelogger).** Kjennetegnet er hva den registrerer. Målet som brytes, er konfidensialitet.\n\n**2 → F (logisk bombe).** Utløseren er kjennetegnet, og betingelsen her — at en ansatt fjernes — peker mot en innsider som har plassert den før hen sluttet.\n\n**3 → C (løsepengevirus).** Kjennetegnet er låsingen og kravet om betaling. Målet som brytes, er **tilgjengelighet**, ikke konfidensialitet: filene er låst, ikke lest.\n\n**4 → A (rootkit).** Skjulingen i systemet er kjennetegnet.\n\n**5 → D (trojaner).** Innpakningen er kjennetegnet: brukeren installerer den frivillig, i den tro at den er nyttig.\n\n**Fasit: 1→B, 2→F, 3→C, 4→A, 5→D.**\n\n**Orm (E) er ikke i bruk.** Ikke tving den inn.\n\n**Merk sammenhengen mellom 5 og de andre:** en trojaner er innpakningen, ikke skaden. Det den bærer inn, kan godt være en tastelogger, en bakdør eller et løsepengevirus — og da er begge betegnelsene riktige for hver sin del av angrepet.",
+        "hints": [
+          "Sorter på to spørsmål: hvordan kom den inn, og hvordan skjuler den seg?",
+          "Én av typene i listen er ikke i bruk — det er helt normalt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Eksamensformen (~14 min)\n\nSjangeren kommer i to innpakninger, og begge er trent nå: sant/usant om personvern (F2), og kobling av skadevaretyper (F3).\n\nDen tredje varianten er å blande dem: en oppgave om en hendelse der både personopplysninger og skadevare er inne i bildet, og der du skal si hvilke mål som brytes og hvem som er ansvarlig.\n\nFelles for alle tre: svarene er entydige når du har kjennetegnene, og de faste distraktorene er de samme hvert år."
+    },
+    {
+      "id": "in1020-3-7-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — personvern og skadevare i samme sak",
+      "problem": "Svarform F1. En skole rammes av et løsepengevirus som låser elevenes karakterdata. Skolen bruker en ekstern leverandør til å drifte systemet, og det viser seg at leverandøren ikke hadde oppdatert programvaren.\n\nKryss av **alle** påstandene som stemmer.\n\n**a)** Skolen er behandlingsansvarlig.\n\n**b)** Leverandøren er behandlingsansvarlig, siden feilen var deres.\n\n**c)** Tilgjengelighet er brutt.\n\n**d)** Konfidensialitet er brutt.\n\n**e)** Skolen hadde en plikt til å velge en leverandør som gir tilstrekkelige garantier.",
+      "solution": "**a) Riktig.** Skolen bestemte formålet med behandlingen. Ansvaret følger av det, ikke av hvem som driftet maskinene.\n\n**b) Galt.** Leverandøren er **databehandler**. At feilen lå hos leverandøren, kan gi grunnlag for et krav mellom partene — men overfor elevene og myndighetene er det skolen som svarer. Dette er den mest testede påstanden i sjangeren.\n\n**c) Riktig.** Karakterdataene er låst, og skolen får ikke brukt dem. Det er tilgjengelighet i ren form.\n\n**d) Galt.** Løsepengeviruset **låser** dataene; det står ikke i oppgaven at noe er lest eller lekket. Angrepet bruker kryptering som våpen, men målet som brytes, er tilgang. Sier oppgaven derimot at data også ble stjålet, ville konfidensialitet vært brutt i tillegg.\n\n**e) Riktig.** Plikten til å velge en leverandør som gir tilstrekkelige garantier, og til å regulere forholdet i avtale, ligger på den behandlingsansvarlige. Det er nettopp derfor ansvaret ikke kan settes bort.\n\n**Fasit: a, c og e.**\n\n**Om formen:** tre av fem riktige, og de to gale er de to faste fellene — «ansvaret følger leverandøren» og «løsepengevirus bryter konfidensialitet». Begge er verdt å kunne som ferdige svar."
+    },
+    {
+      "id": "in1020-3-7-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I — personvern, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Personvernreglene rammer først og fremst virksomheter | |\n| b | Formålsbegrensning betyr at opplysningene ikke kan lagres lenge | |\n| c | Den registrerte kan kreve at uriktige opplysninger rettes | |\n| d | En IP-adresse kan være en personopplysning | |",
+        "solution": "**a) Sann.** Det er virksomheter som kan ilegges gebyrer, og som må kunne dokumentere at reglene følges. Privatpersoners rent personlige bruk faller utenfor.\n\n**b) Usann.** Formålsbegrensning handler om **hva** opplysningene brukes til — bare til det formålet de ble samlet inn for. Hvor **lenge** de kan lagres, er **lagringsbegrensning**, som er et annet prinsipp. Distraktoren bytter om to prinsipper som begge finnes.\n\n**c) Sann.** Retten til retting følger av prinsippet om **riktighet**: opplysningene skal være korrekte og oppdaterte, og uriktige opplysninger skal rettes.\n\n**d) Sann.** En personopplysning er enhver opplysning som kan **knyttes til en enkeltperson**. En IP-adresse kan i mange sammenhenger knyttes til en bestemt person, og regnes da som en personopplysning. Det samme gjelder for eksempel en unik enhetsidentifikator.\n\n**Fasit: a sann, b usann, c sann, d sann.**\n\nMerk at den ene usanne raden ikke er en oppdiktet påstand — den beskriver et **ekte prinsipp under feil navn**. Det er en fast konstruksjon i denne sjangeren.",
+        "hints": [
+          "For b): hvilke to prinsipper handler om henholdsvis bruk og lagringstid?",
+          "For d): må en opplysning inneholde navn for å kunne knyttes til en person?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — skadevare, svarform F1.) Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** En orm sprer seg uten at noen trenger å gjøre noe.\n\n**b)** Et virus sprer seg selv over nettet, uten vertsfil.\n\n**c)** En trojaner kjennetegnes av innpakningen, ikke av skaden den gjør.\n\n**d)** Et rootkit bryter først og fremst integritet.\n\n**e)** En bakdør fjernes ved at brukeren bytter passord.",
+        "solution": "**a) Riktig.** Selvspredning er ormens kjennetegn. Den finner sårbare maskiner og kopierer seg dit på egen hånd.\n\n**b) Galt.** Dette er ormens kjennetegn, ikke virusets. Viruset **fester seg til en vertsfil** og spres når filen kopieres eller åpnes. Dette er den hyppigst testede forvekslingen i skadevaredelen.\n\n**c) Riktig.** Trojaneren er definert av at den er pakket inn i noe som ser nyttig ut. Hva den bærer inn — tastelogger, bakdør, løsepengevirus — varierer.\n\n**d) Riktig.** Rootkitet manipulerer systemet slik at det ikke lenger rapporterer sannheten om seg selv. Systemet er ikke til å stole på, og det er integritet.\n\n**e) Galt.** En bakdør **omgår** innloggingen fullstendig. Et nytt passord endrer ingenting, siden bakdøren ikke bruker passordet i det hele tatt. Den må finnes og fjernes — og det er en av grunnene til at et kompromittert system ofte må settes opp på nytt.\n\n**Fasit: a, c og d.**\n\n**Merk alternativ e.** Det er den mest praktisk nyttige innsikten i settet: «bytt passord» er standardrådet etter et innbrudd, og det er riktig i mange tilfeller — men ikke mot en bakdør.",
+        "hints": [
+          "For a) og b): hvilken av de to trenger en vertsfil?",
+          "For e): bruker en bakdør innloggingsmekanismen i det hele tatt?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-7-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — blandet, svarform F1.) En helseklinikk oppdager at et program en ansatt lastet ned, har installert en tastelogger. Passord til journalsystemet er fanget opp, og pasientopplysninger er lastet ned av en utenforstående.\n\nKryss av **alle** påstandene som stemmer, og begrunn hvert av de seks.\n\n**a)** Tilgjengelighet er brutt.\n\n**b)** Konfidensialitet er brutt.\n\n**c)** Personvern er brutt.\n\n**d)** Programmet som ble lastet ned, er en trojaner.\n\n**e)** Klinikken er behandlingsansvarlig for pasientopplysningene.\n\n**f)** Tofaktor-autentisering ville gjort det stjålne passordet utilstrekkelig alene.",
+        "solution": "**a) Galt.** Systemet er oppe, og klinikken har fortsatt tilgang til journalene. Ingenting er låst eller slettet. Dette er distraktoren som «føles» riktig fordi hendelsen er alvorlig.\n\n**b) Riktig.** Passord og pasientopplysninger er lest av noen som ikke skulle hatt dem.\n\n**c) Riktig.** Pasientopplysninger er personopplysninger av særlig følsom art, og de er behandlet uten rettslig grunnlag av en utenforstående.\n\n**d) Riktig.** Den ansatte lastet ned og installerte programmet frivillig, i den tro at det var nyttig. Innpakningen er trojanerens kjennetegn — og det den bar inn, var en tastelogger.\n\n**e) Riktig.** Klinikken bestemte formålet med behandlingen av pasientopplysningene, og har dermed ansvaret.\n\n**f) Riktig.** Tasteloggeren fanger «noe du vet». Uten den andre faktoren — telefonen, kodebrikken eller fingeravtrykket — kommer angriperen ikke inn.\n\n**Fasit: b, c, d, e og f.**\n\n**Fem av seks riktige.** Det er en helt vanlig fordeling i en blandet oppgave på slutten av en seksjon, og den er brutal for den som fordeler avkryssingene pent.\n\n**Merk at oppgaven trekker på fire kapitler samtidig:** skadevaretypen fra dette kapitlet, målene fra [kap. 3.1](/bok/in1020/in1020-3-1), ansvaret herfra, og tofaktor fra [kap. 3.6](/bok/in1020/in1020-3-6). Det er slik de siste oppgavene i en seksjon som regel er bygd.",
+        "hints": [
+          "Del saken i tre: hva slags skadevare, hvilke mål, og hvem som er ansvarlig.",
+          "Sjekk for hvert mål om nettopp den egenskapen faktisk er brutt.",
+          "For f): hvilken faktortype fanget tasteloggeren, og hva mangler angriperen da?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-7-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å tro at ansvaret settes bort med driften.** Den **behandlingsansvarlige** virksomheten beholder ansvaret selv om en skyleverandør gjør arbeidet. Dette er den mest testede påstanden i sjangeren.\n\n2. **Å tro at samtykke alltid kreves.** Samtykke er ett av flere lovlige grunnlag. En kommune som fatter vedtak, eller en arbeidsgiver som utbetaler lønn, bygger på andre grunnlag.\n\n3. **Å tro at man kan se bort fra reglene fordi behandlingen er nødvendig.** Nødvendighet kan være et grunnlag, men prinsippene om dataminimering, riktighet og sikkerhet gjelder likevel.\n\n4. **Å blande formålsbegrensning og lagringsbegrensning.** Det ene handler om **hva** opplysningene brukes til, det andre om **hvor lenge** de beholdes. Begge prinsipper finnes, og en distraktor bytter dem gjerne om.\n\n5. **Å blande orm og virus.** Ormen sprer seg **selv**; viruset trenger en **vertsfil**. Dette er den hyppigst testede skadevare-forskjellen.\n\n6. **Å blande trojaner og rootkit.** Trojaneren skjuler seg i **innpakningen** før installasjon; rootkitet skjuler seg **i systemet** etterpå.\n\n7. **Å svare konfidensialitet på rootkit og løsepengevirus.** Rootkit bryter **integritet**, løsepengevirus bryter **tilgjengelighet**.\n\n8. **Å tro at passordbytte fjerner en bakdør.** Bakdøren omgår innloggingen fullstendig og bryr seg ikke om passordet."
+    },
+    {
+      "id": "in1020-3-7-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-3-7-bank-1",
+      "type": "definition",
+      "title": "Personopplysning",
+      "content": "Enhver opplysning som kan **knyttes til en enkeltperson**.\n\nNavn og fødselsnummer er åpenbare eksempler. Men også IP-adresse, unik enhetsidentifikator, karakterer, helseopplysninger og posisjonsdata regnes som personopplysninger når de kan knyttes til en bestemt person.\n\nDen faste feilslutningen: å tro at en opplysning må inneholde navn for å telle. Kriteriet er **om den kan knyttes til noen**, ikke hvordan den ser ut."
+    },
+    {
+      "id": "in1020-3-7-bank-2",
+      "type": "definition",
+      "title": "Behandling av personopplysninger",
+      "content": "Alt man gjør med opplysningene: samle inn, registrere, lagre, endre, søke i, dele, overføre, sperre eller slette.\n\nBegrepet er bevisst vidt. Også ren lagring er behandling, og også sletting er behandling.\n\nKonsekvensen: reglene gjelder fra det øyeblikket opplysningene samles inn, ikke først når noen «gjør noe med dem»."
+    },
+    {
+      "id": "in1020-3-7-bank-3",
+      "type": "definition",
+      "title": "Behandlingsansvarlig",
+      "content": "Virksomheten som bestemmer **hvorfor** og **hvordan** personopplysninger skal behandles.\n\nAnsvaret følger av å bestemme formålet — ikke av hvem som drifter maskinene eller trykker på tastene.\n\n**Ansvaret kan ikke settes bort.** Bruker virksomheten en skyleverandør, får den i tillegg en plikt til å velge en leverandør som gir tilstrekkelige garantier, og til å regulere forholdet i avtale.\n\nDette er den mest testede enkeltpåstanden i sjangeren, og svaret er alltid det samme."
+    },
+    {
+      "id": "in1020-3-7-bank-4",
+      "type": "definition",
+      "title": "Databehandler",
+      "content": "Den som behandler personopplysninger **på oppdrag** fra den behandlingsansvarlige — skyleverandøren, driftsselskapet, leverandøren av fagsystemet.\n\nDatabehandleren har ingen selvstendig rett til å bestemme formålet, og skal bare gjøre det avtalen sier.\n\nSkillet i én setning: **den behandlingsansvarlige bestemmer, databehandleren utfører.** Ansvaret ligger hos den som bestemmer."
+    },
+    {
+      "id": "in1020-3-7-bank-5",
+      "type": "definition",
+      "title": "Innsynsrett",
+      "content": "Den registrertes rett til å få vite hvilke opplysninger som er lagret om hen, hva de brukes til, og hvem de deles med.\n\nRetten gjelder overfor den **behandlingsansvarlige** — altså virksomheten, ikke leverandøren. Innbyggeren skal ikke måtte finne ut hvem kommunen har satt bort driften til.\n\nSammen med innsynsretten hører retten til **retting** av uriktige opplysninger, og i mange tilfeller retten til **sletting**."
+    },
+    {
+      "id": "in1020-3-7-bank-6",
+      "type": "definition",
+      "title": "Dataminimering",
+      "content": "Å samle inn **bare det som er nødvendig** for formålet.\n\nTrenger skjemaet bare postnummer, skal det ikke be om full adresse og fødselsdato. Trenger tjenesten bare en e-postadresse, skal den ikke be om telefonnummer.\n\nPrinsippet gjelder **uansett hvor trygt** opplysningene lagres. Det er derfor et system kan ha perfekt konfidensialitet og likevel bryte personvernet."
+    },
+    {
+      "id": "in1020-3-7-bank-7",
+      "type": "definition",
+      "title": "Formålsbegrensning",
+      "content": "Opplysningene skal samles inn til et **uttrykkelig angitt** formål, og ikke brukes til noe annet senere.\n\nAdressen du oppga for å få tilsendt en pakke, kan ikke uten videre brukes til markedsføring. Det er et annet formål og krever et eget grunnlag.\n\nDen faste forvekslingen: **lagringsbegrensning** handler om hvor **lenge** opplysningene beholdes. Formålsbegrensning handler om **hva** de brukes til. Begge prinsipper finnes, og en distraktor bytter dem gjerne om."
+    },
+    {
+      "id": "in1020-3-7-bank-8",
+      "type": "definition",
+      "title": "Riktighet",
+      "content": "Opplysningene skal være **korrekte og oppdaterte**, og uriktige opplysninger skal rettes.\n\nDet er dette prinsippet retten til **retting** følger av: oppdager du at en virksomhet har feil opplysninger om deg, kan du kreve dem rettet.\n\nMerk skillet mot **integritet** som sikkerhetsmål: integritet handler om at ingen har **endret** opplysningene; riktighet handler om at de faktisk **stemmer**. En opplysning kan være uendret siden registreringen og likevel gal."
+    },
+    {
+      "id": "in1020-3-7-bank-9",
+      "type": "definition",
+      "title": "Lagringsbegrensning",
+      "content": "Opplysningene skal ikke lagres **lenger enn nødvendig** for formålet.\n\nEr saken avsluttet og oppbevaringsplikten utløpt, skal opplysningene slettes eller anonymiseres.\n\nPrinsippet er en av de vanligste svakhetene i praksis: systemer samler opp data over år uten at noen tar stilling til når de skal bort."
+    },
+    {
+      "id": "in1020-3-7-bank-10",
+      "type": "definition",
+      "title": "Egnede tekniske og organisatoriske tiltak",
+      "content": "Sikkerheten skal stå **i forhold til risikoen**. Jo mer følsomme opplysninger, jo strengere krav.\n\nDe tekniske tiltakene kjenner du fra [kap. 3.1](/bok/in1020/in1020-3-1): kryptering, tilgangskontroll, sikkerhetskopi, logging.\n\nDe **organisatoriske** er like viktige: rutiner, opplæring, arbeidsdeling, avtaler med leverandører. Kravet handler ikke bare om teknologi."
+    },
+    {
+      "id": "in1020-3-7-bank-11",
+      "type": "definition",
+      "title": "Samtykke kreves ikke alltid",
+      "content": "Samtykke er **ett** av flere lovlige grunnlag for behandling — ikke det eneste, og ofte ikke det som brukes.\n\nEn kommune som fatter et vedtak, en arbeidsgiver som utbetaler lønn, og et sykehus som fører journal, bygger alle på andre grunnlag.\n\nDessuten: et samtykke som er en **forutsetning for å få tjenesten**, er sjelden gyldig, fordi det ikke er frivillig.\n\nPåstanden «samtykke kreves alltid» er en fast distraktor, og svaret er usant."
+    },
+    {
+      "id": "in1020-3-7-bank-12",
+      "type": "definition",
+      "title": "Nødvendighet fritar ikke fra prinsippene",
+      "content": "At en behandling er **nødvendig**, kan gi et lovlig grunnlag for den. Det fritar ikke fra resten av reglene.\n\nDataminimering, formålsbegrensning, riktighet, lagringsbegrensning og kravet om egnede tiltak gjelder likevel.\n\nPåstanden «vi kan se bort fra reglene fordi behandlingen er nødvendig» er derfor usann — den blander grunnlag med prinsipper."
+    },
+    {
+      "id": "in1020-3-7-bank-13",
+      "type": "definition",
+      "title": "Hvem reglene rammer",
+      "content": "Reglene retter seg først og fremst mot **virksomheter**: det er de som kan ilegges gebyrer, og som må kunne dokumentere at reglene følges.\n\nPrivatpersoners **rent personlige** bruk faller utenfor — en privat kontaktliste på telefonen er ikke omfattet.\n\nGrensen er ikke skarp: en privatperson som publiserer opplysninger om andre offentlig, kan komme innenfor."
+    },
+    {
+      "id": "in1020-3-7-bank-14",
+      "type": "definition",
+      "title": "Personvern mot konfidensialitet",
+      "content": "**Konfidensialitet** er at uvedkommende ikke kan lese. **Personvern** er at behandlingen er lovlig, rimelig og nødvendig.\n\nEt system kan ha perfekt konfidensialitet og likevel bryte personvernet: samler det inn langt mer enn det trenger, hjelper det ikke at alt lagres kryptert.\n\nDette er grunnen til at personvern står som et **eget** mål blant de sju, og ikke som en variant av konfidensialitet."
+    },
+    {
+      "id": "in1020-3-7-bank-15",
+      "type": "definition",
+      "title": "Orm mot virus",
+      "content": "**Orm:** sprer seg **selv** over nettet, uten at noen gjør noe. Finner sårbare maskiner og kopierer seg dit.\n\n**Virus:** fester seg til en **vertsfil** og spres når filen kopieres, sendes eller åpnes. Trenger en bærer og en handling.\n\nDette er den hyppigst testede skadevare-forskjellen. Den er lett å blande fordi «virus» i dagligtale brukes om all skadevare — men i faget er det én bestemt type."
+    },
+    {
+      "id": "in1020-3-7-bank-16",
+      "type": "definition",
+      "title": "Trojaner mot rootkit",
+      "content": "**Trojaner:** skjuler seg i **innpakningen** — et program som ser nyttig ut, og som brukeren installerer frivillig.\n\n**Rootkit:** skjuler seg **i systemet** etter installasjon, ved å manipulere det slik at den selv ikke er synlig.\n\nBegge handler om skjuling, men på hvert sitt tidspunkt: trojaneren før installasjon, rootkitet etterpå. En trojaner kan godt bære inn et rootkit."
+    },
+    {
+      "id": "in1020-3-7-bank-17",
+      "type": "definition",
+      "title": "Tastelogger",
+      "content": "Skadevare — eller en liten fysisk enhet — som registrerer alt som skrives på tastaturet.\n\nMålet som brytes: **konfidensialitet**. Passord, meldinger og søk lekker.\n\nEn fysisk tastelogger settes mellom tastaturet og maskinen og krever **fysisk tilgang**. Det er en av grunnene til at fysisk sikring regnes som et datasikkerhetstiltak."
+    },
+    {
+      "id": "in1020-3-7-bank-18",
+      "type": "definition",
+      "title": "Logisk bombe",
+      "content": "Skadelig kode som ligger i ro til en **betingelse** er oppfylt — en dato, et antall kjøringer, eller at en bestemt bruker forsvinner fra lønningslistene.\n\n**Kjennetegnet er utløseren.** Koden gjør ingenting før betingelsen inntreffer, og er derfor vanskelig å oppdage ved vanlig testing.\n\nDette er klassisk **innsidearbeid**: den plasseres av noen med lovlig tilgang og utløses etter at vedkommende har sluttet. Mottiltakene er minste privilegium, arbeidsdeling og gjennomgang av kode."
+    },
+    {
+      "id": "in1020-3-7-bank-19",
+      "type": "definition",
+      "title": "Bakdør",
+      "content": "En skjult inngang som **omgår** den vanlige innloggingen.\n\nDen kan være lagt inn av en angriper etter et innbrudd, eller være en glemt testadgang som aldri ble fjernet.\n\n**Passordbytte hjelper ikke.** Bakdøren bruker ikke passordet i det hele tatt. Den må finnes og fjernes — og det er en av grunnene til at et system som har vært kompromittert, ofte må settes opp helt på nytt."
+    },
+    {
+      "id": "in1020-3-7-bank-20",
+      "type": "definition",
+      "title": "Løsepengevirus",
+      "content": "Skadevare som **krypterer** filene og krever betaling for nøkkelen.\n\nMålet som brytes: **tilgjengelighet**. Filene finnes, men er låst.\n\nDen faste feilslutningen: å svare konfidensialitet fordi angrepet bruker kryptering. Verktøyet og det brutte målet er to ulike ting.\n\nDet viktigste mottiltaket er **sikkerhetskopi som ikke er tilkoblet**, slik at den ikke krypteres sammen med resten."
+    },
+    {
+      "id": "in1020-3-7-bank-21",
+      "type": "definition",
+      "title": "Sorteringsspørsmålene for skadevare",
+      "content": "To spørsmål skiller alle typene fra hverandre:\n\n**1. Hvordan sprer den seg?**\n- Selv over nett → **orm**\n- Med en vertsfil → **virus**\n- Båret inn av brukeren → **trojaner**\n\n**2. Hvordan skjuler eller utløser den seg?**\n- Skjuler seg i systemet → **rootkit**\n- Omgår innloggingen → **bakdør**\n- Venter på en betingelse → **logisk bombe**\n\nEr det ingen av delene, men bare en funksjon — som å registrere tastetrykk — er navnet gjerne beskrivende: **tastelogger**."
+    },
+    {
+      "id": "in1020-3-7-bank-22",
+      "type": "definition",
+      "title": "Skadevare og brutte mål",
+      "content": "| Skadevare | Brutt mål |\n|---|---|\n| Tastelogger, spionvare | **Konfidensialitet** |\n| Rootkit | **Integritet** |\n| Løsepengevirus | **Tilgjengelighet** |\n| Orm (ved spredning) | **Tilgjengelighet** |\n| Bakdør | **Autentisitet** — innloggingen omgås |\n\nTrojaneren står ikke i tabellen, og det er med vilje: den er en **innpakning**, ikke en skade. Målet som brytes, avhenger av hva den bærer inn."
+    },
+    {
+      "id": "in1020-3-7-bank-23",
+      "type": "definition",
+      "title": "Trojaneren er innpakningen, ikke skaden",
+      "content": "En trojaner er definert av **hvordan den kommer inn**: skjult i et program som ser nyttig ut.\n\nHva den bærer inn, varierer — en tastelogger, en bakdør, et løsepengevirus, et rootkit.\n\nDerfor kan to betegnelser være riktige samtidig for samme hendelse: programmet var en trojaner, og det den installerte, var en tastelogger. I en koblingsoppgave skal hver beskrivelse matches mot sitt eget kjennetegn."
+    },
+    {
+      "id": "in1020-3-7-bank-24",
+      "type": "definition",
+      "title": "De to faste distraktorene i sjanger I",
+      "content": "1. **«Virksomheten slipper ansvar ved å bruke en skyleverandør.»** Usant. Den behandlingsansvarlige beholder ansvaret og får i tillegg plikter ved valg av leverandør.\n2. **«Samtykke kreves alltid.»** Usant. Samtykke er ett av flere lovlige grunnlag.\n\nBegge kommer igjen i ulike formuleringer, og begge har alltid samme svar. Kan du dem som ferdige svar, avgjør du to rader i matrisen på sekunder."
+    },
+    {
+      "id": "in1020-3-7-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter personvernet og skadevaren?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-3-7-rep-tekst",
+          "type": "text",
+          "content": "Ti korte. Svar før du ser på fasiten.\n\n1. Hvem er behandlingsansvarlig når en kommune bruker en skyleverandør?\n2. Kreves samtykke alltid?\n3. Hva betyr dataminimering?\n4. Hva er forskjellen på formålsbegrensning og lagringsbegrensning?\n5. Kan en IP-adresse være en personopplysning?\n6. Hva skiller en orm fra et virus?\n7. Hva kjennetegner en trojaner?\n8. Hvilket mål bryter et rootkit?\n9. Hjelper passordbytte mot en bakdør?\n10. Hvilket mål bryter et løsepengevirus?\n\n**Fasit.**\n\n1. **Kommunen.** Ansvaret følger av å bestemme formålet, og kan ikke settes bort.\n2. Nei. Samtykke er ett av flere lovlige grunnlag.\n3. Å samle inn bare det som er nødvendig for formålet.\n4. Formålsbegrensning gjelder **hva** opplysningene brukes til; lagringsbegrensning gjelder **hvor lenge** de beholdes.\n5. Ja, når den kan knyttes til en bestemt person.\n6. Ormen sprer seg **selv** over nett; viruset trenger en **vertsfil** og en handling.\n7. **Innpakningen** — en skjult skadelig funksjon i noe som ser nyttig ut.\n8. **Integritet.** Systemet manipuleres og rapporterer ikke sannheten om seg selv.\n9. Nei. Bakdøren omgår innloggingen fullstendig.\n10. **Tilgjengelighet.** Filene finnes, men er låst.\n\nSjekk deg selv: ☐ husket du at ansvaret ikke kan settes bort? ☐ avviste du «samtykke kreves alltid»? ☐ skilte du orm fra virus på spredningsmåten? ☐ svarte du integritet på rootkit og tilgjengelighet på løsepengevirus?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

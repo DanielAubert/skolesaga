@@ -1,0 +1,242 @@
+[
+  {
+    "question": "Hva kjennetegner von Neumann-arkitekturen?",
+    "options": [
+      "Kode og data ligger i det samme minnet",
+      "Kode og data ligger i hvert sitt adskilte minne",
+      "Programmet er koblet fast i maskinvaren med ledninger",
+      "Prosessoren har innebygd lagring for hele programmet"
+    ],
+    "explanation": "Instruksjonene lagres som tall i det vanlige minnet, og det er derfor selvmodifiserende kode er mulig. Alternativ 2 beskriver en annen byggemåte med adskilte minner. Alternativ 3 beskriver de aller første regnemaskinene, som måtte kobles om fysisk. Alternativ 4 er feil fordi CPU-en bare har plass til et titall registre."
+  },
+  {
+    "question": "Hvilke tre deler finnes alltid inne i en CPU?",
+    "options": [
+      "ALU, kontrollenhet og registre",
+      "ALU, hovedminne og registre",
+      "Kontrollenhet, hovedminne og databuss",
+      "ALU, kontrollenhet og harddisk"
+    ],
+    "explanation": "De tre er regneverket, styringen og det raske korttidsminnet. Alternativ 2 og 3 plasserer hovedminnet inne i CPU-en, men RAM ligger på egne brikker utenfor. Alternativ 4 gjør en lagringsenhet til en del av prosessoren."
+  },
+  {
+    "question": "Hvilken påstand om ALU-en er sann?",
+    "options": [
+      "Den ligger inne i CPU-en og gjør både aritmetikk og logikk",
+      "Den ligger utenfor CPU-en og kobles til over databussen",
+      "Den ligger inne i CPU-en, men gjør bare aritmetikk",
+      "Den ligger utenfor CPU-en og henter instruksjoner fra minnet"
+    ],
+    "explanation": "Navnet er «aritmetisk-logisk enhet», og den er en av CPU-ens tre faste deler. Alternativ 2 og 4 er varianter av den faste usanne påstanden «ALU-en ligger utenfor CPU-en». Alternativ 3 halverer oppgaven hennes: AND, OR og XOR bit for bit hører også hjemme der."
+  },
+  {
+    "question": "Hvorfor er et register raskere enn en celle i hovedminnet?",
+    "options": [
+      "Det ligger på prosessorbrikken og nås uten å gå over bussene",
+      "Det er bygd av RAM-celler med høyere klokkefrekvens",
+      "Det lagrer færre bit og trenger derfor mindre strøm",
+      "Det ligger nærmere harddisken og slipper å vente på den"
+    ],
+    "explanation": "Nærheten til ALU-en og fraværet av bussturen er hele forklaringen. Alternativ 2 gjentar den faste usanne påstanden om at registre er bygd av RAM. Alternativ 3 forveksler strømforbruk med tilgangstid. Alternativ 4 har ingen sammenheng med hvor et register ligger."
+  },
+  {
+    "question": "Hvilken buss forteller minnet hvilken celle det gjelder?",
+    "options": [
+      "Adressebussen",
+      "Databussen",
+      "Kontrollbussen",
+      "Systembussen samlet"
+    ],
+    "explanation": "Adressebussen bærer *hvor*; den er enveis fra prosessoren til minnet. Alternativ 2 bærer *hva*, altså selve verdien. Alternativ 3 bærer styresignaler som «les» og «skriv». Alternativ 4 er fellesnavnet på alle tre og er ikke et presist svar på spørsmålet."
+  },
+  {
+    "question": "Hvorfor er databussen toveis?",
+    "options": [
+      "Fordi de samme ledningene brukes både ved lesing og skriving",
+      "Fordi adressen sendes tilbake til prosessoren etter hver overføring",
+      "Fordi klokkesignalet må gå begge veier mellom delene",
+      "Fordi to enheter alltid overfører data samtidig"
+    ],
+    "explanation": "Ved lesing kommer verdien fra minnet, ved skriving går den til minnet — samme ledninger, styrt av kontrollbussen. Alternativ 2 er feil: adressen går bare én vei. Alternativ 3 blander inn klokka, som er et eget signal. Alternativ 4 er feil fordi bussen bare kan brukes til én overføring om gangen."
+  },
+  {
+    "question": "Hvor mange celler kan en maskin adressere med 16 adresseledninger?",
+    "options": [
+      "65 536",
+      "32 768",
+      "16 384",
+      "131 072"
+    ],
+    "explanation": "$2^{16} = 65\\,536$, siden hver ledning kan være 0 eller 1. Alternativ 2 er $2^{15}$, altså én ledning for lite. Alternativ 3 er $2^{14}$. Alternativ 4 er $2^{17}$, altså én for mye."
+  },
+  {
+    "question": "Hvilken påstand om klokkesignalet er sann?",
+    "options": [
+      "Det genereres fortløpende av en krets og lagres ikke noe sted",
+      "Det lagres i RAM mellom hver sykel og hentes derfra",
+      "Det lagres i et eget register inne i kontrollenheten",
+      "Det bestemmer hvilken operasjon prosessoren skal utføre"
+    ],
+    "explanation": "Klokka er en oscillator som gir pulser i fast takt. Alternativ 2 er en av de fem faste usanne påstandene. Alternativ 3 er samme feil i annen innpakning — et signal som veksler kontinuerlig, kan ikke lagres. Alternativ 4 forveksler *når* med *hva*: hva som skjer, avgjør kontrollenheten."
+  },
+  {
+    "question": "Hvor mange en-bits ALU-er trengs for å bygge en 64-bits ALU?",
+    "options": [
+      "64",
+      "65",
+      "63",
+      "128"
+    ],
+    "explanation": "Én enhet per bit, og menten er allerede en del av hver fulladder. Alternativ 2 er den faste usanne påstanden, konstruert for å friste deg til å telle en ekstra for menten. Alternativ 3 mangler en enhet. Alternativ 4 dobler uten grunn."
+  },
+  {
+    "question": "Hva gir en halvadder ut?",
+    "options": [
+      "Sumbitet og menten ut, men den har ingen mente inn",
+      "Sumbitet og menten inn, men den har ingen mente ut",
+      "Bare sumbitet, siden menten håndteres av kontrollenheten",
+      "Sumbitet, menten inn og menten ut, altså tre signaler"
+    ],
+    "explanation": "Halvadderen har to innganger og to utganger: sum via XOR og mente ut via AND. Alternativ 2 bytter om inngang og utgang. Alternativ 3 lar kontrollenheten gjøre noe den ikke gjør. Alternativ 4 beskriver en fulladder, som nettopp har en mente inn i tillegg."
+  },
+  {
+    "question": "Hva er sumbitet i en fulladder?",
+    "options": [
+      "`A ⊕ B ⊕ C_inn`",
+      "`A · B · C_inn`",
+      "`A + B + C_inn`",
+      "`(A ⊕ B) · C_inn`"
+    ],
+    "explanation": "Sumbitet er 1 når et odde antall av de tre inngangene er 1, og det er nettopp XOR av alle tre. Alternativ 2 gir 1 bare når alle tre er 1. Alternativ 3 er en OR og gir 1 så snart én er 1. Alternativ 4 mangler tilfellet der bare `C_inn` er 1."
+  },
+  {
+    "question": "Hva er menten ut av en fulladder?",
+    "options": [
+      "1 når minst to av de tre inngangene er 1",
+      "1 når nøyaktig én av de tre inngangene er 1",
+      "1 bare når alle tre inngangene er 1",
+      "1 når et odde antall av inngangene er 1"
+    ],
+    "explanation": "`A·B + A·C_inn + B·C_inn` er nettopp «minst to». Alternativ 2 beskriver et tilfelle der summen er 1 og det ikke er noen mente. Alternativ 3 utelater radene med to ettall, som også gir mente. Alternativ 4 beskriver sumbitet, ikke menten."
+  },
+  {
+    "question": "Hvordan regner en prosessor ut `A − B`?",
+    "options": [
+      "Den legger sammen A og det inverterte B, med mente inn lik 1",
+      "Den bruker en egen subtraksjonskrets ved siden av adderen",
+      "Den legger sammen A og det inverterte B, med mente inn lik 0",
+      "Den inverterer både A og B og legger dem sammen"
+    ],
+    "explanation": "`A − B = A + ¬B + 1`, og ett-tallet kommer inn som mente inn på nederste posisjon. Alternativ 2 er feil: maskinen har én adder, brukt på to måter. Alternativ 3 gir ener-komplementet og svarer én for lite. Alternativ 4 inverterer feil operand i tillegg."
+  },
+  {
+    "question": "Hva er `100 − 36` regnet som addisjon i åtte bit?",
+    "options": [
+      "`01000000₂`, altså 64",
+      "`00111111₂`, altså 63",
+      "`01000001₂`, altså 65",
+      "`10111111₂`, altså 191"
+    ],
+    "explanation": "`01100100` pluss invertert `36` (`11011011`) pluss mente inn 1 gir `01000000`, og `100 − 36 = 64`. Alternativ 2 er svaret hvis du glemmer mente inn og bare bruker ener-komplementet. Alternativ 3 er én for mye. Alternativ 4 er invertert `36` alene, uten addisjonen."
+  },
+  {
+    "question": "Hva består instruksjonssyklusen av?",
+    "options": [
+      "Hent, tolk og utfør",
+      "Les, skriv og lagre",
+      "Hent, lagre og avslutt",
+      "Tolk, utfør og lagre"
+    ],
+    "explanation": "Kontrollenheten henter instruksjonen fra cellen programtelleren peker på, finner ut hva den betyr, og setter delene opp til å utføre den. Alternativ 2, 3 og 4 blander inn minneoperasjoner som er *deler* av utførelsen, ikke selve trinnene i syklusen."
+  },
+  {
+    "question": "Hva holder programtelleren?",
+    "options": [
+      "Adressen til neste instruksjon",
+      "Selve instruksjonen som utføres akkurat nå",
+      "Antall instruksjoner som er utført så langt",
+      "Resultatet av forrige regneoperasjon"
+    ],
+    "explanation": "Programtelleren peker på hvor neste instruksjon ligger, og den økes etter hver instruksjon med mindre et hopp setter den. Alternativ 2 er instruksjonsregisteret. Alternativ 3 er en teller ingen prosessor fører. Alternativ 4 er akkumulatoren eller et resultatregister."
+  },
+  {
+    "question": "Hva øker en pipeline?",
+    "options": [
+      "Antall instruksjoner som blir ferdige per tidsenhet",
+      "Farten på den enkelte instruksjonen gjennom prosessoren",
+      "Antall trinn hver enkelt instruksjon må gjennom",
+      "Klokkefrekvensen prosessoren kan kjøre på"
+    ],
+    "explanation": "Pipeline overlapper trinnene i flere instruksjoner, slik at flere blir ferdige per sekund. Alternativ 2 er den faste feilslutningen: hver instruksjon går gjennom like mange trinn som før. Alternativ 3 er feil fordi antall trinn er uendret. Alternativ 4 blander sammen to helt ulike ytelsesgrep."
+  },
+  {
+    "question": "En prosessor har tre trinn per instruksjon, ett trinn per sykel. Hvor mange sykler tar seks instruksjoner med pipeline, fra tomt bånd?",
+    "options": [
+      "8",
+      "18",
+      "6",
+      "9"
+    ],
+    "explanation": "Formelen er `k + (n − 1)` med `k = 3` og `n = 6`, altså `3 + 5 = 8`. Alternativ 2 er svaret uten pipeline, `6 × 3`. Alternativ 3 glemmer de to syklene det tar å fylle båndet. Alternativ 4 teller fyllingen som tre ekstra i stedet for to."
+  },
+  {
+    "question": "Hvilken av disse påstandene er USANN?",
+    "options": [
+      "Teknologiutviklingen har gitt færre transistorer per brikke",
+      "Registre er raskere enn hovedminnet",
+      "Kode og data ligger i samme minne i von Neumann-arkitekturen",
+      "ALU-en gjør både aritmetiske og logiske operasjoner"
+    ],
+    "explanation": "Transistorene har blitt mindre, og derfor får det plass flere av dem — påstanden snur utviklingen. Alternativ 2, 3 og 4 er alle sanne og hører til de påstandene som ligner på fellene uten å være det."
+  },
+  {
+    "question": "Hva gjør kontrollenheten?",
+    "options": [
+      "Henter og tolker instruksjoner og styrer de andre delene",
+      "Utfører addisjonene og de logiske operasjonene",
+      "Lagrer verdiene prosessoren arbeider med akkurat nå",
+      "Genererer klokkesignalet som gir maskinen takt"
+    ],
+    "explanation": "Kontrollenheten dirigerer rekkefølgen og avgjør om en celle behandles som instruksjon eller data. Alternativ 2 er ALU-ens oppgave. Alternativ 3 er registrenes. Alternativ 4 er oscillatorkretsens, og klokka bestemmer bare *når*, ikke *hva*."
+  },
+  {
+    "question": "Hva avgjør om innholdet i en minnecelle behandles som en instruksjon?",
+    "options": [
+      "Kontrollenheten, ut fra hvilken adresse programtelleren peker på",
+      "En egen markørbit som er lagret sammen med hver celle",
+      "Minnebrikken selv, som skiller kodeceller fra dataceller",
+      "Databussen, som sender kode og data på ulike ledninger"
+    ],
+    "explanation": "Cellen bærer ingen informasjon om hva den «er»; det er hentefasen som gjør et tall til en instruksjon. Alternativ 2 og 3 finner opp et skille arkitekturen ikke har. Alternativ 4 er feil fordi databussen er den samme uansett hva som fraktes."
+  },
+  {
+    "question": "Hvilken sammenheng gjelder mellom klokkefrekvens og ytelse?",
+    "options": [
+      "Ytelsen avhenger både av frekvensen og av antall sykler per oppgave",
+      "Høyere frekvens gir alltid en raskere maskin, uansett annet",
+      "Frekvensen har ingen betydning for hvor lang tid en oppgave tar",
+      "Ytelsen er alltid lik frekvensen delt på antall kjerner"
+    ],
+    "explanation": "En maskin som bruker færre sykler per instruksjon, kan vinne selv med lavere frekvens. Alternativ 2 overser sykeltellingen helt. Alternativ 3 går for langt i motsatt retning: frekvensen setter sykellengden. Alternativ 4 er en oppdiktet formel."
+  },
+  {
+    "question": "Hva er forskjellen på gjennomstrømning og forsinkelse?",
+    "options": [
+      "Gjennomstrømning er ferdige oppgaver per tid; forsinkelse er tid per oppgave",
+      "Gjennomstrømning er tid per oppgave; forsinkelse er ferdige oppgaver per tid",
+      "De to måler det samme, bare i ulike enheter for samme maskin",
+      "Gjennomstrømning gjelder minnet, mens forsinkelse gjelder prosessoren"
+    ],
+    "explanation": "Pipeline øker det første og lar det andre stå. Alternativ 2 bytter om de to definisjonene. Alternativ 3 overser at pipeline endrer den ene uten den andre. Alternativ 4 knytter begrepene til komponenter, men begge gjelder enhver behandling."
+  },
+  {
+    "question": "Hva skjer med menten mellom to fulladdere i en flerbits adder?",
+    "options": [
+      "Menten ut fra én posisjon blir mente inn på den neste",
+      "Menten ut fra én posisjon lagres i et register til slutt",
+      "Hver posisjon regner uavhengig, og mentene legges sammen til slutt",
+      "Menten går motsatt vei, fra øverste mot nederste posisjon"
+    ],
+    "explanation": "Kjeden er nøyaktig den samme som når du fører mente for hånd, fra høyre mot venstre. Alternativ 2 finner opp et register. Alternativ 3 er feil: uten kjeden ville svaret bli galt i alle rader med mente. Alternativ 4 snur retningen, men menten går alltid mot høyere posisjoner."
+  }
+]

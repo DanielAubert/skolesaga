@@ -1,0 +1,421 @@
+{
+  "id": "in1020-1-1",
+  "courseId": "in1020",
+  "chapterNumber": "1.1",
+  "title": "Tallsystemer og direkte konvertering",
+  "description": "Binær, oktal, heksadesimal og desimal — og den raske direkte konverteringen via 3-bits og 4-bits grupper, uten omveien via titallssystemet.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne lese et tall i base 2, 8, 10 og 16 ved hjelp av plassverdiregelen",
+    "kunne konvertere direkte mellom binær og oktal med tre-bits grupper, og mellom binær og heksadesimal med fire-bits grupper",
+    "kunne skrive et desimaltall i en vilkårlig base ved gjentatt divisjon med rest",
+    "kunne avgjøre hvilke av flere tall skrevet i ulike baser som har samme verdi, og begrunne hvorfor de øvrige ikke har det"
+  ],
+  "content": [
+    {
+      "id": "in1020-1-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** tallsystem-konvertering — det boka kaller **sjanger A** — har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**. Ingen annen enkeltferdighet er like sikker.\n\n**Nivå 1 — dette må sitte.** Konvertering har én entydig fasit, kan drilles til feilfrihet, og koster deg under et minutt per oppgave når teknikken sitter. Det er de billigste poengene i hele faget.\n\n**Slik kommer den:** oftest som svarform **F1** («velg ett *eller flere* alternativer» — flere av tallene kan være like) eller **F4** (nedtrekksmeny med ett svar per delspørsmål).\n\n**Det sensorveiledningen fra 2023 fremhever:** konverter **direkte** mellom binær og oktal eller heksadesimal — ikke gå veien om titallssystemet. Omveien er tregere og gir flere steder å regne feil. Dette kapitlet lærer deg den direkte veien først, og bruker divisjonsmetoden bare der du faktisk trenger den.\n\n**Neste kapittel** er drillen: [kap. 1.2](/bok/in1020/in1020-1-2) roterer alle variantene til de sitter."
+    },
+    {
+      "id": "in1020-1-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet kan leses uten forkunnskaper. Du trenger bare å kunne gange og dele med små tall.\n\nTre ting du møter med én gang, og som forklares fortløpende:\n\n- **Bit** — ett siffer som er 0 eller 1.\n- **Base** — hvor mange ulike sifre tallsystemet har (10 i vårt vanlige system, 2 i det binære).\n- **Plassverdi** — at sifferets posisjon bestemmer hvor mye det er verdt.\n\nHar du aldri sett binære tall før, er [Tallsystemer og datarepresentasjon](/bok/im-vg1/im-vg1-1-6) en roligere inngang. Du trenger den ikke — alt du skal kunne, står under."
+    },
+    {
+      "id": "in1020-1-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-1-1-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning |\n|---|---|\n| `1101₂` | Tallet 1101 lest i base 2 (totallssystemet). Subskriptet sier hvilken base sifrene skal leses i |\n| `774₈` | Tallet 774 lest i base 8 (åttetallssystemet) |\n| `42₁₀` | Tallet 42 lest i base 10 — vårt vanlige system |\n| `0x33` eller `33₁₆` | Tallet 33 lest i base 16. `0x`-prefikset er den vanligste skrivemåten i datateknologi |\n| A, B, C, D, E, F | Heksadesimale sifre for verdiene 10, 11, 12, 13, 14 og 15 |\n| Nibble | En gruppe på fire bit — nøyaktig ett heksadesimalt siffer |\n| Bit | Ett binært siffer, 0 eller 1 |\n| Byte | Åtte bit |\n| 3-er gruppering | Tre bit per oktalsiffer, gruppert **fra høyre** |\n| 4-er gruppering | Fire bit per heksadesimalsiffer, gruppert **fra høyre** |\n\n**Formler i dette delkapitlet:**\n\n$$N = \\sum_{i=0}^{k} s_i \\cdot b^{\\,i}$$\n\nVerdien av et tall er summen av hvert siffer $s_i$ ganget med basen $b$ opphøyd i sifferets posisjon $i$, talt fra høyre med start på 0. Dette er plassverdiregelen, og den gjelder i alle baser.\n\n$$8 = 2^{3} \\qquad 16 = 2^{4}$$\n\nGrunnen til at gruppering virker: åtte er to opphøyd i tre, så **tre** bit blir nøyaktig ett oktalsiffer. Seksten er to opphøyd i fire, så **fire** bit blir nøyaktig ett heksadesimalt siffer. Mellom base 10 og base 2 finnes ingen slik sammenheng — derfor må titallssystemet gå veien om divisjon."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Plassverdi og base (~12 min)\n\nSe på tallet 407. Du leser det uten å tenke: fire hundre og sju. Det du egentlig gjør, er å gange hvert siffer med en vekt: `4·100 + 0·10 + 7·1`. Vektene er potenser av ti, og de vokser fra høyre mot venstre.\n\nAlt et annet tallsystem gjør, er å bytte ut tiet. I det binære systemet er vektene 1, 2, 4, 8, 16 og så videre. I det heksadesimale er de 1, 16, 256. Reglene er ellers identiske.\n\nDet er derfor du allerede kan konvertere: du kan plassverdiregelen fra barneskolen. Du har bare brukt den på ett tall."
+    },
+    {
+      "id": "in1020-1-1-def-plassverdi",
+      "type": "definition",
+      "title": "Plassverdisystem",
+      "content": "Et tallsystem der et siffers verdi bestemmes av **posisjonen** det står i, ikke bare av selve sifferet. Verdien av hele tallet er summen av hvert siffer ganget med sin plassverdi.\n\nI `407₁₀` er det bakerste 7-tallet verdt 7, mens 4-tallet er verdt 400 — samme sifferstørrelse ville betydd noe annet på en annen plass.\n\nDen faste feilslutningen: å tro at binære, oktale og heksadesimale tall følger andre regler enn desimaltall. De følger nøyaktig samme regel, med en annen base."
+    },
+    {
+      "id": "in1020-1-1-def-base",
+      "type": "definition",
+      "title": "Base (grunntall)",
+      "content": "Antallet ulike sifre et tallsystem bruker, og samtidig faktoren mellom to nabo-plassverdier.\n\nBase 10 bruker sifrene 0–9 og har vektene 1, 10, 100. Base 2 bruker 0 og 1 og har vektene 1, 2, 4, 8. Base 8 bruker 0–7. Base 16 bruker 0–9 pluss A–F.\n\nMerk sammenhengen: et system med base $b$ har alltid nøyaktig $b$ ulike sifre, og det **største** sifferet er $b - 1$. Ser du et 8-tall i et oktalt tall, er det skrevet feil."
+    },
+    {
+      "id": "in1020-1-1-def-siffer",
+      "type": "definition",
+      "title": "Siffer",
+      "content": "Ett enkelt symbol i et tall. Base 2 har to sifre (0 og 1), base 8 har åtte (0–7), base 16 har seksten (0–9 og A–F).\n\nSkillet mellom siffer og tall er verdt å holde fast på: `10` er to sifre, men verdien er 2 i base 2, 8 i base 8, 10 i base 10 og 16 i base 16. Uten basen betyr sifferrekka ingenting."
+    },
+    {
+      "id": "in1020-1-1-def-subskript",
+      "type": "definition",
+      "title": "Basesubskript-notasjonen",
+      "content": "Skrivemåten som gjør det utvetydig hvilken base et tall skal leses i: basen skrives som et lite tall etter sifrene.\n\n`1101₂` er binært, `774₈` er oktalt, `42₁₀` er desimalt, `33₁₆` er heksadesimalt. I datateknologi skrives heksadesimale tall like ofte med prefikset `0x`: `0x33`.\n\nDenne notasjonen brukes gjennomgående på eksamen, og fella er å overse subskriptet: `11` uten subskript kan være tre, ni, elleve eller sytten."
+    },
+    {
+      "id": "in1020-1-1-def-bit",
+      "type": "definition",
+      "title": "Bit",
+      "content": "Ett binært siffer: 0 eller 1. Ordet er en sammentrekning av *binary digit*.\n\nMed $n$ bit kan du skrive $2^n$ forskjellige verdier — 8 bit gir 256 verdier, fra 0 til 255.\n\nDen faste feilslutningen: å blande bit og byte. En byte er åtte bit, og forskjellen på de to er en faktor 8 — den samme faktoren som feller flest i overføringstidsoppgavene i [kap. 4.3](/bok/in1020/in1020-4-3)."
+    },
+    {
+      "id": "in1020-1-1-def-byte",
+      "type": "definition",
+      "title": "Byte",
+      "content": "En gruppe på **åtte bit**. Den vanligste enheten for å måle datamengder, og standardstørrelsen når eksamen ber deg tolke et bitmønster.\n\nÉn byte skrives som nøyaktig to heksadesimale sifre (`0xFF` = åtte ettall). Oktalt trengs tre sifre, men da bruker det øverste bare to av sine tre bit — åtte går ikke opp i treergrupper. Derfor er heksadesimal den naturlige kortformen for byte-verdier.\n\nFilstørrelser oppgis i byte, mens overføringsrater oppgis i bit per sekund. Å holde de to fra hverandre er felle #2 i registeret."
+    },
+    {
+      "id": "in1020-1-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra binært til desimalt med plassverdi",
+      "problem": "Hva er `110101110₂` i titallssystemet?",
+      "solution": "Skriv vektene over bitene, fra høyre mot venstre: 1, 2, 4, 8, 16, 32, 64, 128, 256.\n\n```text\nbit:    1    1    0    1    0    1    1    1    0\nvekt:  256  128   64   32   16    8    4    2    1\n```\n\nLegg sammen vektene der bitet er 1:\n\n`256 + 128 + 32 + 8 + 4 + 2 = 430`\n\n**Svar: `110101110₂ = 430₁₀`.**\n\nLegg merke til at du aldri trenger å regne med nullene. Plassverdimetoden er å plukke ut ettallene og summere vektene deres — det er alt."
+    },
+    {
+      "id": "in1020-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — plassverdi.) Regn om til titallssystemet.\n\n**a)** `1011₂`\n\n**b)** `1101₂`\n\n**c)** `11010₂`",
+        "solution": "**a)** Vektene er 8, 4, 2, 1. Ettallene står på 8, 2 og 1: `8 + 2 + 1 = 11`. Altså `1011₂ = 11₁₀`.\n\n**b)** Ettallene står på 8, 4 og 1: `8 + 4 + 1 = 13`. Altså `1101₂ = 13₁₀`.\n\n**c)** Vektene er 16, 8, 4, 2, 1. Ettallene står på 16, 8 og 2: `16 + 8 + 2 = 26`. Altså `11010₂ = 26₁₀`.",
+        "hints": [
+          "Skriv vektene 1, 2, 4, 8, 16 over bitene, fra høyre mot venstre.",
+          "Du trenger bare å summere vektene der bitet er 1."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Direkte mellom binær og oktal (~10 min)\n\nNå kommer teknikken som gjør deg rask. Åtte er `2³`. Det betyr at **tre bit** dekker nøyaktig like mange verdier som **ett oktalt siffer**: begge har åtte muligheter, 0 til 7.\n\nDerfor kan du oversette gruppe for gruppe, uten å regne ut hva hele tallet er verdt. Det er den direkte veien, og det er den sensorveiledningen fra 2023 anbefaler."
+    },
+    {
+      "id": "in1020-1-1-teo-oktal",
+      "type": "theorem",
+      "title": "Direkte konvertering binær ↔ oktal",
+      "content": "**Fra binær til oktal:** del bitrekka i grupper på **tre**, regnet **fra høyre**. Fyll opp med ledende nuller i den venstre gruppa hvis den ikke blir full. Oversett hver gruppe for seg til ett siffer 0–7.\n\n**Fra oktal til binær:** skriv hvert oktalsiffer som tre bit.\n\nOversettelsestabellen er hele apparatet:\n\n| Bit | Siffer | Bit | Siffer |\n|---|---|---|---|\n| `000` | 0 | `100` | 4 |\n| `001` | 1 | `101` | 5 |\n| `010` | 2 | `110` | 6 |\n| `011` | 3 | `111` | 7 |\n\n**Hvorfor det virker:** hver gruppe på tre bit representerer en vekt som er en potens av 8. Grupperingen er bare en omskriving av plassverdiregelen — ingen informasjon går tapt, og ingen omregning skjer underveis.\n\n**Grupper alltid fra høyre.** Grupperer du fra venstre, forskyver du alle vektene, og svaret blir feil."
+    },
+    {
+      "id": "in1020-1-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Binær til oktal, direkte",
+      "problem": "Skriv `110101110₂` som oktalt tall. Bruk den direkte metoden.",
+      "solution": "Del i grupper på tre fra høyre:\n\n```text\n110 101 110\n 6   5   6\n```\n\nNi bit gir nøyaktig tre grupper, så det trengs ingen ledende nuller.\n\n**Svar: `110101110₂ = 656₈`.**\n\n**Kontroll mot eksempel 1.** Vi vet at tallet er 430 i titallssystemet. Sjekker vi det oktale svaret: `6·64 + 5·8 + 6·1 = 384 + 40 + 6 = 430`. Det stemmer.\n\nLegg merke til hvor mye kortere den direkte veien var. Kontrollen tok tre multiplikasjoner; selve konverteringen tok tre oppslag."
+    },
+    {
+      "id": "in1020-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A — tallkonvertering.) Konverter direkte, uten å gå via titallssystemet.\n\n**a)** `1011011₂` til oktal.\n\n**b)** `374₈` til binær.",
+        "solution": "**a)** Grupper fra høyre: `1 011 011`. Den venstre gruppa har bare ett bit, så fyll opp med ledende nuller: `001 011 011`. Oversett: 1, 3, 3.\n\nSvar: `1011011₂ = 133₈`.\n\n**b)** Hvert oktalsiffer blir tre bit: 3 → `011`, 7 → `111`, 4 → `100`.\n\nSvar: `374₈ = 011111100₂`, som normalt skrives `11111100₂` uten den ledende nullen.\n\nKontroll: `11111100₂ = 128 + 64 + 32 + 16 + 8 + 4 = 252`, og `3·64 + 7·8 + 4 = 192 + 56 + 4 = 252`. Stemmer.",
+        "hints": [
+          "Tre bit per oktalsiffer, og gruppene telles fra høyre.",
+          "Blir den venstre gruppa ufullstendig, fyller du på med nuller foran — det endrer ikke verdien."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — tallkonvertering.) En medstudent konverterer `100111010₂` til oktal ved å gruppere **fra venstre**: `100 111 010` gir 4, 7, 2. Han får `472₈`. En annen grupperer fra høyre og får samme svar. Forklar hvorfor de fikk samme svar her, og hvorfor metoden hans likevel er farlig.",
+        "solution": "Begge fikk `472₈`, og svaret er riktig: `100111010₂ = 314₁₀`, og `4·64 + 7·8 + 2 = 256 + 56 + 2 = 314`.\n\nGrunnen til at det gikk bra, er at tallet har nøyaktig ni bit. Ni er delelig med tre, så gruppene faller likt uansett hvilken ende du starter i.\n\nMetoden er likevel farlig, fordi den bare virker når antallet bit er delelig med tre. Ta `1011011₂` med sju bit. Fra venstre blir det `101 101 1` = 5, 5, 1, altså `551₈` = 361 i titallssystemet. Riktig svar er `133₈` = 91. Gruppering fra venstre gav her et svar som er nesten fire ganger for stort — 361 mot 91 — fordi den siste gruppa ble tolket som om den hadde tre bit.\n\n**Regelen:** grupper alltid fra høyre. Da er den ufullstendige gruppa den venstre, og der er ledende nuller ufarlige.",
+        "hints": [
+          "Tell antall bit i tallet, og se om det er delelig med tre.",
+          "Prøv den samme framgangsmåten på et tall der antallet bit ikke går opp i tre."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Direkte mellom binær og heksadesimal (~10 min)\n\nSamme idé, ny gruppestørrelse. Seksten er `2⁴`, så **fire bit** dekker nøyaktig ett heksadesimalt siffer. Fire bit har et eget navn: en **nibble**.\n\nDen eneste nye tingen er at base 16 trenger seks sifre til utover 0–9. Dem har man lånt fra alfabetet."
+    },
+    {
+      "id": "in1020-1-1-def-nibble",
+      "type": "definition",
+      "title": "Nibble",
+      "content": "En gruppe på fire bit. Navnet er et ordspill på *byte* — en nibble er en «liten bit» av en byte, og det går to nibbler på én byte.\n\nEn nibble tilsvarer nøyaktig ett heksadesimalt siffer, og kan ha 16 verdier: `0000` til `1111`, altså 0 til 15.\n\nDette er grunnen til at byte-verdier nesten alltid skrives heksadesimalt: én byte blir nøyaktig to sifre, uten rest."
+    },
+    {
+      "id": "in1020-1-1-def-hexsifre",
+      "type": "definition",
+      "title": "De heksadesimale sifferverdiene A–F",
+      "content": "Base 16 trenger seksten sifre, men vi har bare ti tallsymboler. De seks siste er derfor bokstaver:\n\n| Siffer | A | B | C | D | E | F |\n|---|---|---|---|---|---|---|\n| Verdi | 10 | 11 | 12 | 13 | 14 | 15 |\n| Nibble | `1010` | `1011` | `1100` | `1101` | `1110` | `1111` |\n\nDen faste feilen er å forskyve rekka og tro at A er 11 fordi A er den første bokstaven. A er 10, fordi verdiene 0–9 allerede er brukt opp av tallsymbolene.\n\nNyttig holdepunkt: F er 15, altså `1111` — alle fire bit satt."
+    },
+    {
+      "id": "in1020-1-1-def-0x",
+      "type": "definition",
+      "title": "0x-prefikset",
+      "content": "Skrivemåten som markerer at et tall er heksadesimalt: `0x` foran sifrene. `0x1AE` betyr det samme som `1AE₁₆`.\n\nPrefikset kommer fra programmeringsspråket C og brukes i hele datateknologien — i minneadresser, fargekoder og maskinkode.\n\nDen faste feilslutningen: å lese `0x` som en del av verdien. Nullen og x-en er bare et merke, akkurat som subskriptet."
+    },
+    {
+      "id": "in1020-1-1-teo-hex",
+      "type": "theorem",
+      "title": "Direkte konvertering binær ↔ heksadesimal",
+      "content": "**Fra binær til heksadesimal:** del bitrekka i grupper på **fire**, regnet **fra høyre**. Fyll opp med ledende nuller i den venstre gruppa. Oversett hver nibble til ett siffer 0–9 eller A–F.\n\n**Fra heksadesimal til binær:** skriv hvert siffer som fire bit.\n\n| Nibble | Siffer | Nibble | Siffer |\n|---|---|---|---|\n| `0000` | 0 | `1000` | 8 |\n| `0001` | 1 | `1001` | 9 |\n| `0010` | 2 | `1010` | A |\n| `0011` | 3 | `1011` | B |\n| `0100` | 4 | `1100` | C |\n| `0101` | 5 | `1101` | D |\n| `0110` | 6 | `1110` | E |\n| `0111` | 7 | `1111` | F |\n\n**Nøkkelen er å ikke blande gruppestørrelsene:** tre bit for oktal, fire bit for heksadesimal. Bytter du om, får du et tall som ser plausibelt ut, men er feil — og på en eksamen med minuspoeng er «plausibelt, men feil» det dyreste svaret som finnes."
+    },
+    {
+      "id": "in1020-1-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Begge veier på heksadesimal",
+      "problem": "**a)** Skriv `110101110₂` heksadesimalt.\n\n**b)** Skriv `0x3B7` binært, og finn verdien i titallssystemet.",
+      "solution": "**a)** Grupper fra høyre i firere: `1 1010 1110`. Den venstre gruppa mangler tre bit, så fyll på: `0001 1010 1110`.\n\n```text\n0001 1010 1110\n  1    A    E\n```\n\n**Svar: `110101110₂ = 0x1AE`.**\n\nKontroll mot eksempel 1, der vi fant 430: `1·256 + 10·16 + 14 = 256 + 160 + 14 = 430`. Stemmer.\n\n**b)** Hvert siffer blir en nibble: 3 → `0011`, B → `1011`, 7 → `0111`.\n\n```text\n  3    B    7\n0011 1011 0111\n```\n\n**Svar: `0x3B7 = 001110110111₂`, normalt skrevet `1110110111₂`.**\n\nVerdien: `3·256 + 11·16 + 7 = 768 + 176 + 7 = 951`.\n\nLegg merke til hvor lite arbeid del b) var: tre oppslag i tabellen. Hadde du gått via titallssystemet, måtte du først regnet ut 951 og deretter delt på 2 ti ganger."
+    },
+    {
+      "id": "in1020-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A — tallkonvertering.) Konverter direkte.\n\n**a)** `11111100₂` til heksadesimal.\n\n**b)** `0x5C` til binær.",
+        "solution": "**a)** To nibbler: `1111 1100`. Første nibble er F (15), andre er C (12).\n\nSvar: `11111100₂ = 0xFC`.\n\n**b)** 5 → `0101`, C → `1100`.\n\nSvar: `0x5C = 01011100₂`, altså `1011100₂` uten den ledende nullen.\n\nKontroll: `1011100₂ = 64 + 16 + 8 + 4 = 92`, og `5·16 + 12 = 92`. Stemmer.",
+        "hints": [
+          "Fire bit per heksadesimalt siffer, gruppert fra høyre.",
+          "Husk at C er 12 og F er 15 — verdiene starter på 10 for A."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — tallkonvertering.) Skriv `2AF₁₆` både binært og oktalt. Gå ikke via titallssystemet i noen av stegene.",
+        "solution": "**Binært:** hvert heksadesimalt siffer blir en nibble. 2 → `0010`, A → `1010`, F → `1111`.\n\n`2AF₁₆ = 001010101111₂`, altså `1010101111₂`.\n\n**Oktalt:** ta den binære rekka og grupper på nytt, nå i treere fra høyre: `1 010 101 111`. Fyll opp den venstre gruppa: `001 010 101 111` gir sifrene 1, 2, 5, 7.\n\n`2AF₁₆ = 1257₈`.\n\nDette er poenget med den direkte metoden: veien mellom to baser som begge er potenser av to, går alltid gjennom binærtallet — aldri gjennom titallssystemet.\n\nKontroll: `1010101111₂ = 512 + 128 + 32 + 8 + 4 + 2 + 1 = 687`. Og `1·512 + 2·64 + 5·8 + 7 = 512 + 128 + 40 + 7 = 687`. Stemmer.",
+        "hints": [
+          "Bruk det binære tallet som mellomstasjon — det er broa mellom base 8 og base 16.",
+          "Grupper på nytt fra høyre når du bytter fra fire-grupper til tre-grupper."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Fra titallssystemet: gjentatt divisjon (~8 min)\n\nTi er ingen potens av to. Derfor finnes det ingen grupperingssnarvei mellom base 10 og base 2 — her må du regne.\n\nMetoden er mekanisk: del gjentatte ganger på basen og les restene baklengs."
+    },
+    {
+      "id": "in1020-1-1-teo-divisjon",
+      "type": "theorem",
+      "title": "Gjentatt divisjon med rest",
+      "content": "For å skrive et desimaltall $N$ i base $b$:\n\n1. Del $N$ på $b$. Noter **resten**.\n2. Fortsett med kvotienten: del den på $b$, noter resten.\n3. Gjenta til kvotienten er 0.\n4. Les restene **nedenfra og opp** — det er tallet i base $b$.\n\n**Hvorfor restene leses baklengs:** den første resten du får, er verdien på plassen med vekt 1, altså det bakerste sifferet. Den siste resten hører til den høyeste vekten.\n\n**Snarvei for oktal og heksadesimal:** konverter til binært først, og grupper. Å dele gjentatte ganger på 16 i hodet er mye mer feilutsatt enn å dele på 2 og deretter slå opp i nibble-tabellen."
+    },
+    {
+      "id": "in1020-1-1-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: 205 i tre baser",
+      "problem": "Skriv `205₁₀` binært, oktalt og heksadesimalt.",
+      "solution": "**Binært, ved gjentatt divisjon på 2:**\n\n| Steg | Regnestykke | Kvotient | Rest |\n|---|---|---|---|\n| 1 | 205 ÷ 2 | 102 | **1** |\n| 2 | 102 ÷ 2 | 51 | **0** |\n| 3 | 51 ÷ 2 | 25 | **1** |\n| 4 | 25 ÷ 2 | 12 | **1** |\n| 5 | 12 ÷ 2 | 6 | **0** |\n| 6 | 6 ÷ 2 | 3 | **0** |\n| 7 | 3 ÷ 2 | 1 | **1** |\n| 8 | 1 ÷ 2 | 0 | **1** |\n\nLes restene nedenfra og opp: `11001101`.\n\n**`205₁₀ = 11001101₂`.**\n\n**Oktalt og heksadesimalt — nå grupperer vi bare.**\n\n```text\noktal:  011 001 101   ->  3 1 5\nhex:    1100 1101     ->  C D\n```\n\n**`205₁₀ = 315₈ = 0xCD`.**\n\nKontroll: `3·64 + 1·8 + 5 = 192 + 8 + 5 = 205`, og `12·16 + 13 = 192 + 13 = 205`. Begge stemmer.\n\nMerk hvor lite ekstraarbeid de to siste konverteringene var. Én divisjonsrekke, to grupperinger — aldri to divisjonsrekker."
+    },
+    {
+      "id": "in1020-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — tallkonvertering.) Skriv `137₁₀` binært, oktalt og heksadesimalt. Bruk divisjon bare én gang.",
+        "solution": "**Binært, divisjon på 2:** restene blir, fra første til siste: 1, 0, 0, 1, 0, 0, 0, 1. Lest nedenfra og opp: `10001001`.\n\n`137₁₀ = 10001001₂`.\n\n**Oktalt:** grupper i treere fra høyre: `010 001 001` gir 2, 1, 1.\n\n`137₁₀ = 211₈`.\n\n**Heksadesimalt:** grupper i firere: `1000 1001` gir 8 og 9.\n\n`137₁₀ = 0x89`.\n\nKontroll: `2·64 + 1·8 + 1 = 137`, og `8·16 + 9 = 137`. Begge stemmer.",
+        "hints": [
+          "Del på 2 til kvotienten blir 0, og les restene nedenfra og opp.",
+          "Når det binære tallet står der, er de to andre basene bare gruppering — ikke ny divisjon."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Eksamensnivå: «hvilke av disse er like?» (~10 min)\n\nDen vanligste innpakningen på eksamen er ikke «konverter dette tallet». Det er en liste med tall skrevet i **ulike baser**, og spørsmålet: hvilke av dem er like?\n\nFormen er svarform F1: flere alternativer kan være riktige samtidig. Under negativ poenggiving betyr det at du må vurdere hvert alternativ for seg — og kunne si hvorfor de gale er gale.\n\nOppskriften er alltid den samme: **bring alt til én felles base før du sammenligner.** Hvilken base du velger, er opp til deg, men binær er ofte lettest når kandidatene er oktale og heksadesimale."
+    },
+    {
+      "id": "in1020-1-1-eks-5",
+      "type": "example",
+      "title": "Eksempel 5: Eksamensform — hvilke er lik 101101₂?",
+      "problem": "Svarform F1: kryss av **alle** alternativene som er lik `101101₂`.\n\n**a)** `55₈`\n\n**b)** `0x2D`\n\n**c)** `45₁₀`\n\n**d)** `0x2B`",
+      "solution": "Først: hva er `101101₂`? Vi trenger ikke titallsverdien for å sammenligne med a) og b), men den trengs for c). Vektene 32, 8, 4, 1 er satt: `32 + 8 + 4 + 1 = 45`.\n\n**a) Riktig.** Grupper `101101` i treere fra høyre: `101 101` gir 5 og 5, altså `55₈`. Alternativet stemmer.\n\n**b) Riktig.** Grupper i firere: `10 1101` fylles til `0010 1101`, som gir 2 og D. Altså `0x2D`. Stemmer.\n\n**c) Riktig.** Titallsverdien er 45, som regnet ut over.\n\n**d) Galt.** `0x2B` er `0010 1011₂`, altså `101011₂`. Sammenlignet med `101101₂` er de to bitene med vekt 2 og 4 byttet om. I titallssystemet: `2·16 + 11 = 43`, ikke 45. Alternativet ligger to unna og er nettopp derfor en god distraktor — det ser riktig ut hvis du slurver med rekkefølgen i nibbelen.\n\n**Fasit: a, b og c.** Tre av fire alternativer var riktige.\n\n**Metanotat.** Dette er den viktigste vanen i faget: du fant ikke «det riktige svaret» — du vurderte fire påstander og begrunnet hver. Hadde du krysset av kun a) fordi du sluttet å lese, ville du fått ett av tre poeng. Hadde du krysset av alt, ville du fått null."
+    },
+    {
+      "id": "in1020-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — tallkonvertering, svarform F1.) Kryss av alle alternativene som er lik `10011100₂`, og begrunn hvert av de fire.\n\n**a)** `0x4E`\n\n**b)** `0x9C`\n\n**c)** `156₁₀`\n\n**d)** `234₈`",
+        "solution": "Titallsverdien først: vektene 128, 16, 8, 4 er satt, så `128 + 16 + 8 + 4 = 156`.\n\n**a) Galt.** `0x4E` er `0100 1110₂` = `1001110₂`, som er 78 — nøyaktig halvparten. Dette er en typisk distraktor: nibblene er forskjøvet ett hakk, slik at hele tallet blir halvert.\n\n**b) Riktig.** Grupper i firere: `1001 1100` gir 9 og C. Altså `0x9C`.\n\n**c) Riktig.** Titallsverdien er 156, som regnet ut over.\n\n**d) Riktig.** Grupper i treere fra høyre: `10 011 100` fylles til `010 011 100`, som gir 2, 3, 4. Altså `234₈`.\n\n**Fasit: b, c og d.**",
+        "hints": [
+          "Regn ut titallsverdien én gang, og bruk gruppering på de to andre alternativene.",
+          "Sjekk om et galt alternativ er et forskjøvet eller ombyttet bitmønster — det avslører hvilken feil distraktoren tester."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-egendefinert-intro",
+      "type": "text",
+      "content": "### En variant: tallsystemer med egne symboler\n\nNoen ganger snus oppgaven på hodet: du får et system med en uvanlig base og egne symboler, og skal vise at du forstår **prinsippet**, ikke bare de fire vanlige basene.\n\nBehandle det nøyaktig som ethvert annet plassverdisystem: finn ut hvilken verdi hvert symbol har, og bruk plassverdiregelen."
+    },
+    {
+      "id": "in1020-1-1-def-egendefinert",
+      "type": "definition",
+      "title": "Egendefinert tallsystem",
+      "content": "Et plassverdisystem med en oppgitt base og et oppgitt sett symboler, der symbolene ikke nødvendigvis er de vanlige sifrene.\n\nEksempel: base 6 med symbolene 0, 1, 2, A, B, C, der A = 3, B = 4 og C = 5. Da er `BA2₆` lik `4·36 + 3·6 + 2 = 144 + 18 + 2 = 164`.\n\nAlt fungerer som før: det største symbolet har verdien base minus 1, vektene er potenser av basen, og gjentatt divisjon virker for veien tilbake. Den faste feilen er å lete etter en snarvei — den finnes bare når basen er en potens av to."
+    },
+    {
+      "id": "in1020-1-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — tallkonvertering, svarform F4.) Et tallsystem har base 6 og bruker symbolene 0, 1, 2, A, B, C, der A = 3, B = 4 og C = 5.\n\n**a)** Hvilken verdi har `CAB₆` i titallssystemet?\n\n**b)** Skriv `100₁₀` i dette systemet.",
+        "solution": "**a)** Vektene er 36, 6 og 1. Symbolverdiene er C = 5, A = 3 og B = 4.\n\n`5·36 + 3·6 + 4·1 = 180 + 18 + 4 = 202`.\n\nSvar: `CAB₆ = 202₁₀`.\n\n**b)** Gjentatt divisjon på 6:\n\n| Regnestykke | Kvotient | Rest |\n|---|---|---|\n| 100 ÷ 6 | 16 | 4 |\n| 16 ÷ 6 | 2 | 4 |\n| 2 ÷ 6 | 0 | 2 |\n\nRestene lest nedenfra og opp: 2, 4, 4. Symbolene for disse verdiene er 2, B og B.\n\nSvar: `100₁₀ = 2BB₆`.\n\nKontroll: `2·36 + 4·6 + 4 = 72 + 24 + 4 = 100`. Stemmer.",
+        "hints": [
+          "Skriv opp verdien til hvert symbol før du begynner: 0=0, 1=1, 2=2, A=3, B=4, C=5.",
+          "Vektene er potenser av 6: 1, 6, 36, 216.",
+          "For deloppgave b: del gjentatte ganger på 6 og oversett restene til symboler til slutt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-1-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fire feil står for nesten alle bommene i denne sjangeren.\n\n1. **Å regne via titallssystemet når direkte gruppering er raskere (felle #6 — omveien via desimal).** Skal du fra oktal til heksadesimal, går veien gjennom binærtallet, ikke gjennom desimaltallet. Omveien er ikke gal, bare treg — og hvert ekstra regnesteg er et nytt sted å bomme.\n\n2. **Feil gruppestørrelse.** Tre bit for oktal, fire for heksadesimal. Bytter du om, får du et tall som ser riktig ut. Holdepunkt: oktal har åtte sifre og `8 = 2³`; heksadesimal har seksten og `16 = 2⁴`.\n\n3. **Å gruppere fra venstre.** Gruppene skal telles fra høyre, slik at det er den venstre gruppa som eventuelt må fylles opp med nuller. Grupperer du fra venstre, forskyver du alle vektene — se oppgave 3.\n\n4. **Å blande de heksadesimale sifferverdiene.** A er 10, ikke 11. F er 15, ikke 16. Fest det i minnet via `F = 1111₂`: alle fire bit satt er 15, ikke 16 — 16 krever fem bit."
+    },
+    {
+      "id": "in1020-1-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-1-1-def-binaer",
+      "type": "definition",
+      "title": "Totallssystemet (binært)",
+      "content": "Plassverdisystemet med base 2. Sifrene er 0 og 1, og vektene er 1, 2, 4, 8, 16, 32 og videre oppover.\n\nDette er systemet maskinvaren faktisk arbeider i: hvert siffer svarer til en fysisk tilstand som er på eller av.\n\nSkrivemåte: `1101₂`. Å lese `1101` uten subskript som «ett tusen ett hundre og én» er den vanligste startfeilen."
+    },
+    {
+      "id": "in1020-1-1-def-oktal",
+      "type": "definition",
+      "title": "Åttetallssystemet (oktalt)",
+      "content": "Plassverdisystemet med base 8. Sifrene er 0 til 7, og vektene er 1, 8, 64, 512.\n\nOktale tall brukes som kortform for bitmønstre fordi tre bit går nøyaktig opp i ett oktalsiffer.\n\nSer du et 8-tall eller 9-tall i et tall merket med subskript 8, er tallet skrevet feil — det største lovlige sifferet er 7."
+    },
+    {
+      "id": "in1020-1-1-def-hex",
+      "type": "definition",
+      "title": "Sekstentallssystemet (heksadesimalt)",
+      "content": "Plassverdisystemet med base 16. Sifrene er 0–9 og A–F, og vektene er 1, 16, 256, 4096.\n\nDette er standardkortformen for byte-verdier, minneadresser og fargekoder, fordi én byte blir nøyaktig to sifre.\n\nSkrivemåte: `0x1AE` eller `1AE₁₆`."
+    },
+    {
+      "id": "in1020-1-1-def-desimal",
+      "type": "definition",
+      "title": "Titallssystemet (desimalt)",
+      "content": "Plassverdisystemet med base 10 — det vi bruker til daglig. Sifrene er 0 til 9, og vektene er 1, 10, 100.\n\nI datateknologi er dette systemet ofte et **mellomledd du skal unngå**: siden 10 ikke er en potens av 2, finnes ingen grupperingssnarvei mellom base 10 og base 2.\n\nDu trenger titallssystemet når oppgaven oppgir eller ber om en desimalverdi — ikke som mellomstasjon mellom to andre baser."
+    },
+    {
+      "id": "in1020-1-1-def-vekt",
+      "type": "definition",
+      "title": "Plassverdi (vekt)",
+      "content": "Verdien én enhet på en gitt sifferplass er verdt: basen opphøyd i posisjonen, talt fra høyre med start på 0.\n\nI base 2 er vektene 1, 2, 4, 8, 16, 32, 64, 128. I base 16 er de 1, 16, 256, 4096.\n\nÅ kunne toerpotensene opp til 128 utenat er den enkleste enkeltinvesteringen i hele faget: den brukes i konvertering, i to-er komplement, i cache-regning og i subnetting."
+    },
+    {
+      "id": "in1020-1-1-def-msb",
+      "type": "definition",
+      "title": "Mest signifikante bit",
+      "content": "Bitet lengst til **venstre** i et binærtall — det med den høyeste vekten.\n\nI en byte er dette bitet i posisjon 7, med vekten 128. Det er også bitet som i [kap. 1.3](/bok/in1020/in1020-1-3) blir fortegnsbit når byten tolkes med fortegn.\n\nForkortelsen MSB brukes ofte, av engelsk *most significant bit*."
+    },
+    {
+      "id": "in1020-1-1-def-lsb",
+      "type": "definition",
+      "title": "Minst signifikante bit",
+      "content": "Bitet lengst til **høyre** i et binærtall — det med vekten 1.\n\nDet er dette bitet som avgjør om tallet er partall eller oddetall, og det er den første resten du får når du deler på 2 i divisjonsmetoden.\n\nForkortelsen LSB brukes ofte, av engelsk *least significant bit*."
+    },
+    {
+      "id": "in1020-1-1-def-ledende",
+      "type": "definition",
+      "title": "Ledende nuller",
+      "content": "Nuller helt til venstre i et tall, som ikke endrer verdien: `0011₂` og `11₂` er begge lik 3.\n\nDe er likevel nyttige når du grupperer: fyll den venstre gruppa opp til full størrelse med ledende nuller, så blir oversettelsen entydig.\n\nLedende nuller er også grunnen til at en byte alltid skrives med åtte bit selv om verdien er liten — `00000101₂` viser at tallet ligger i en byte."
+    },
+    {
+      "id": "in1020-1-1-def-gruppering",
+      "type": "definition",
+      "title": "Gruppering fra høyre",
+      "content": "Regelen om at bitgrupper alltid telles fra det minst signifikante bitet og oppover, slik at en eventuell ufullstendig gruppe havner til venstre.\n\nGrunnen er at vektene bygges opp fra høyre. Starter du grupperingen til venstre, forskyves alle vektene, og resultatet blir feil for alle tall der antall bit ikke går opp i gruppestørrelsen.\n\nDette er den vanligste enkeltfeilen i konvertering — se oppgave 3 for et regnestykke som viser hvor galt det går."
+    },
+    {
+      "id": "in1020-1-1-def-direkte",
+      "type": "definition",
+      "title": "Direkte konvertering",
+      "content": "Metoden der du oversetter mellom to baser ved å gruppere bit, uten å regne ut tallets verdi i titallssystemet underveis.\n\nDen virker mellom base 2 og enhver base som er en potens av 2: tre bit per oktalsiffer, fire bit per heksadesimalt siffer.\n\nSensorveiledningen fra 2023 fremhever denne metoden eksplisitt som raskere og mindre feilutsatt enn omveien via titallssystemet."
+    },
+    {
+      "id": "in1020-1-1-def-omvei",
+      "type": "definition",
+      "title": "Omveien via titallssystemet",
+      "content": "Å konvertere fra base A til base B ved først å regne ut tallets desimalverdi og deretter dele gjentatte ganger.\n\nMetoden gir riktig svar, men krever mange flere regnesteg enn direkte gruppering — og hvert steg er et sted å bomme. Dette er felle #6 i registeret.\n\nBruk den bare når titallssystemet faktisk er den ene enden av konverteringen."
+    },
+    {
+      "id": "in1020-1-1-def-2n",
+      "type": "definition",
+      "title": "Antall verdier med n bit",
+      "content": "Med $n$ bit kan du skrive $2^n$ ulike verdier, fra 0 til $2^n - 1$.\n\nFire bit gir 16 verdier (0–15), åtte bit gir 256 (0–255), ti bit gir 1024.\n\nDenne sammenhengen dukker opp igjen i [kap. 4.2](/bok/in1020/in1020-4-2), der antallet tildelbare adresser i et subnett er $2^n - 2$ — de samme toerpotensene, minus to reserverte adresser."
+    },
+    {
+      "id": "in1020-1-1-def-sortering",
+      "type": "definition",
+      "title": "Sortering på tvers av baser",
+      "content": "Oppgavetypen der du får en liste tall skrevet i ulike baser og skal rangere dem etter størrelse.\n\nOppskriften: **bring alle til samme base før du sammenligner** — vanligvis titallssystemet, siden du skal rangere verdier og ikke mønstre.\n\nDen faste feilen er å sammenligne sifferrekkene direkte. `100₂` ser større ut enn `9₁₀`, men er 4. Antall sifre sier ingenting om verdien når basene er ulike."
+    },
+    {
+      "id": "in1020-1-1-def-bitmonster",
+      "type": "definition",
+      "title": "Bitmønster",
+      "content": "Selve rekka av nuller og ettall, uavhengig av hvordan den skal tolkes.\n\nSkillet er viktigere enn det ser ut: `10110₂` er et bitmønster, mens «22» er en tolkning av det som et tall uten fortegn. Det samme mønsteret kan også tolkes som et tegn, en farge eller en instruksjon.\n\nDette er forberedelsen til [kap. 1.3](/bok/in1020/in1020-1-3), der én og samme byte har to lovlige talltolkninger samtidig — og til [kap. 1.5](/bok/in1020/in1020-1-5), der et bitmønster i minnet er en instruksjon og et tall på én gang."
+    },
+    {
+      "id": "in1020-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter teknikken?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-1-1-rep-tekst",
+          "type": "text",
+          "content": "Seks korte. Regn i hodet eller på papir, og sammenlign med fasiten under.\n\n1. `1101₂` i titallssystemet.\n2. `11111100₂` som heksadesimalt tall.\n3. `374₈` som binærtall.\n4. `0x89` i titallssystemet.\n5. Hvor mange bit går det på ett oktalsiffer, og hvor mange på ett heksadesimalt?\n6. `58₁₀` binært, oktalt og heksadesimalt.\n\n**Fasit.**\n\n1. `8 + 4 + 1 = 13`.\n2. `1111 1100` gir F og C, altså `0xFC`.\n3. 3 → `011`, 7 → `111`, 4 → `100`, altså `11111100₂`.\n4. `8·16 + 9 = 137`.\n5. Tre bit per oktalsiffer, fire per heksadesimalt siffer — fordi `8 = 2³` og `16 = 2⁴`.\n6. Divisjon på 2 gir restene 0, 1, 0, 1, 1, 1 lest nedenfra og opp: `111010₂`. Gruppert i treere: `111 010` → `72₈`. Gruppert i firere: `0011 1010` → `0x3A`. Kontroll: `7·8 + 2 = 58` og `3·16 + 10 = 58`.\n\nSjekk deg selv: ☐ grupperte du fra høyre? ☐ brukte du tre bit for oktal og fire for heksadesimal? ☐ unngikk du omveien via titallssystemet der begge basene var potenser av to?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

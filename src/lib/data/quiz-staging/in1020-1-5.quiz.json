@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hvilken instruksjon tilsvarer maskinkoden `508`?",
+    "options": [
+      "`LDA 08`",
+      "`STA 08`",
+      "`ADD 08`",
+      "`BRP 08`"
+    ],
+    "explanation": "Opkode 5 er `LDA`, og 08 er adressen. `STA 08` ville vært `308`, `ADD 08` ville vært `108`, og `BRP 08` ville vært `808`. Forvekslingen mellom 5 og 3 er den vanligste, siden de to gjør motsatt ting av hverandre."
+  },
+  {
+    "question": "Hva er maskinkoden for `SUB 12`?",
+    "options": [
+      "`212`",
+      "`122`",
+      "`312`",
+      "`612`"
+    ],
+    "explanation": "Opkoden for `SUB` er 2, ganget med 100 og pluss adressen 12. `122` er `ADD 22`, `312` er `STA 12` og `612` er `BRA 12`. Kontroller alltid begge veier: 2 ganger 100 pluss 12 er 212."
+  },
+  {
+    "question": "Hvordan deles en tresifret LMC-instruksjon?",
+    "options": [
+      "Første siffer er opkoden, de to siste er celleadressen",
+      "De to første sifrene er opkoden, det siste er celleadressen",
+      "Første siffer er celleadressen, de to siste er opkoden",
+      "Alle tre sifrene utgjør opkoden, og adressen ligger i neste celle"
+    ],
+    "explanation": "`508` er opkode 5 og adresse 08. Alternativ 2 ville gitt bare ti mulige adresser, altfor få for 100 celler. Alternativ 3 snur oppdelingen. Alternativ 4 beskriver en toords-instruksjon, som LMC ikke har."
+  },
+  {
+    "question": "Hva er kjennetegnet på selvmodifiserende kode?",
+    "options": [
+      "En `STA` med adresse i kodeområdet i programmet",
+      "En `LDA` som henter fra en celle med lavt nummer",
+      "En `DAT`-celle som ligger mellom to instruksjoner i minnet",
+      "Et `BRA` som hopper bakover til en tidligere celle"
+    ],
+    "explanation": "Bare `STA` skriver til minnet, så en `STA` mot kodeområdet er den eneste måten kode kan endres på. Alternativ 2 leser bare. Alternativ 3 er vanlig i selvmodifiserende programmer, men er ikke i seg selv en modifikasjon. Alternativ 4 beskriver en helt vanlig løkke."
+  },
+  {
+    "question": "Hva blir `130` når 2 legges til, tolket som instruksjon?",
+    "options": [
+      "`ADD 32`",
+      "`ADD 30`",
+      "`SUB 30`",
+      "`ADD 132`"
+    ],
+    "explanation": "`132` har fortsatt opkode 1, men adressen er flyttet fra 30 til 32. Alternativ 2 overser at adressen endret seg. Alternativ 3 ville krevd at 100 ble lagt til, ikke 2. Alternativ 4 behandler hele tallet som adresse, som ikke er mulig med to adressesifre."
+  },
+  {
+    "question": "Hvorfor kan et LMC-program endre sine egne instruksjoner?",
+    "options": [
+      "Fordi kode og data ligger i samme minne, i samme format",
+      "Fordi `STA` har en egen modus for å skrive til kodeceller",
+      "Fordi programtelleren kan settes til å peke på dataområdet",
+      "Fordi instruksjonen lagres i akkumulatoren mens den utføres"
+    ],
+    "explanation": "Dette er von Neumann-prinsippet: `508` er både et tall og en instruksjon. Alternativ 2 er feil — `STA` har bare én modus og bryr seg ikke om hva cellen brukes til. Alternativ 3 er sant, men er en annen konsekvens av det samme. Alternativ 4 beskriver ingen mekanisme i LMC."
+  },
+  {
+    "question": "Hva må du gjøre i sporetabellen når et program skriver til en kodecelle?",
+    "options": [
+      "Gi cellen egen kolonne og dekode den nye verdien før du sporer videre",
+      "Starte sporingen på nytt fra celle 00 med den nye verdien på plass",
+      "Notere verdien i en fotnote under sporetabellen",
+      "Ignorere endringen fram til programmet er ferdig med løkka"
+    ],
+    "explanation": "Cellen er nå en variabel i sporingen, og den nye verdien avgjør hva som utføres. Alternativ 2 er unødvendig og feil — tidligere steg påvirkes ikke. Alternativ 3 og 4 er nettopp felle #7: å overse modifikasjonen, som gjør alt etterpå feil."
+  },
+  {
+    "question": "Et program har en `DAT`-celle med verdien `600`. Hva er den ment som?",
+    "options": [
+      "En hoppmal — `BRA 00` — som skal modifiseres",
+      "En markering av at programmet slutter, tilsvarende `HLT`",
+      "En teller som starter på 600 og telles ned mot null",
+      "En adresse som peker på celle 600 i et utvidet minne"
+    ],
+    "explanation": "`600` dekodes som `BRA 00`, og ved å legge til en verdi flyttes hoppmålet. Alternativ 2 er feil: `HLT` er `000`. Alternativ 3 er mulig i prinsippet, men en `DAT`-verdi som ser ut som en gyldig instruksjon, er sjelden tilfeldig. Alternativ 4 er feil — LMC har bare cellene 00 til 99."
+  },
+  {
+    "question": "Hvilke inndata gir utskriften 7 fra et program som regner ut absoluttverdien?",
+    "options": [
+      "Både 7 og −7",
+      "Bare 7",
+      "Bare −7",
+      "7, −7 og 0"
+    ],
+    "explanation": "Absoluttverdien mister fortegnet, så to inndata gir samme utskrift. Alternativ 2 og 3 oppgir bare den ene grenen, som er den klassiske halve besvarelsen. Alternativ 4 tar med 0, som gir utskriften 0, ikke 7."
+  },
+  {
+    "question": "Hvorfor har baklengs sporing ofte mer enn ett riktig svar?",
+    "options": [
+      "Fordi programmet mister informasjon underveis, så flere inndata gir samme svar",
+      "Fordi utskriften alltid kan nås fra begge grenene i et program med `BRP`",
+      "Fordi LMC ikke kan skille mellom positive og negative tall i akkumulatoren",
+      "Fordi en `OUT` skriver ut både akkumulatoren og den sist brukte cellen"
+    ],
+    "explanation": "Et program som glemmer fortegnet eller bare tester «minst 10», kan ikke skjelne mellom flere inndata. Alternativ 2 er for sterkt: grenene ender ofte i ulike utskrifter. Alternativ 3 er feil. Alternativ 4 beskriver ingen reell instruksjon."
+  },
+  {
+    "question": "Hva er `604` som instruksjon?",
+    "options": [
+      "`BRA 04`",
+      "`BRP 04`",
+      "`BRZ 04`",
+      "`STA 04`"
+    ],
+    "explanation": "Opkode 6 er det ubetingede hoppet `BRA`. `BRP 04` ville vært `804`, `BRZ 04` ville vært `704` og `STA 04` ville vært `304`. De tre hoppene ligger på opkodene 6, 7 og 8, i den rekkefølgen."
+  },
+  {
+    "question": "Hvilken opkode er ubrukt i LMC?",
+    "options": [
+      "`4xx`",
+      "`2xx`",
+      "`7xx`",
+      "`8xx`"
+    ],
+    "explanation": "Instruksjonssettet bruker 1, 2, 3, 5, 6, 7 og 8, pluss de faste 9-kodene. `2xx` er `SUB`, `7xx` er `BRZ` og `8xx` er `BRP`. At 4 er ledig, er en av grunnene til at en tilfeldig verdi skrevet inn i kodeområdet kan gi noe som ikke er en gyldig instruksjon."
+  },
+  {
+    "question": "Hva skiller `901` fra de andre instruksjonene?",
+    "options": [
+      "Hele tallet er koden — det er ingen adresse",
+      "Den utføres bare når akkumulatoren er null",
+      "Den kan bare stå som første instruksjon i et program",
+      "Den skriver til celle 01 i tillegg til akkumulatoren"
+    ],
+    "explanation": "`901`, `902` og `922` er faste koder uten operand. Alternativ 2 beskriver en betingelse `INP` ikke har. Alternativ 3 er feil: `INP` kan stå hvor som helst, også flere ganger. Alternativ 4 er den vanlige misforståelsen om at `INP` lagrer i minnet — det gjør den ikke."
+  },
+  {
+    "question": "Et program har `STA 04` i celle 02, og celle 04 er en instruksjon. Rekker modifikasjonen fram?",
+    "options": [
+      "Ja, fordi celle 04 utføres etter at celle 02 har skrevet til den",
+      "Nei, fordi en kodecelle bare kan skrives før start",
+      "Nei, fordi `STA` ikke kan skrive til celler under 10",
+      "Bare hvis celle 03 inneholder et hopp til celle 04"
+    ],
+    "explanation": "Programtelleren går 02, 03, 04 — så den nye verdien står der når celle 04 skal utføres. Alternativ 2 og 3 innfører begrensninger LMC ikke har. Alternativ 4 er unødvendig: programtelleren kommer dit av seg selv."
+  },
+  {
+    "question": "Hva skjer hvis et beregnet hopp lander midt inne i en annen rutine?",
+    "options": [
+      "Ingenting spesielt — programmet fortsetter derfra som om det var meningen",
+      "Programmet stopper med en feilmelding om ugyldig hoppadresse",
+      "Programtelleren settes tilbake til 00 og programmet starter på nytt",
+      "Hoppet ignoreres, og programmet fortsetter på neste celle"
+    ],
+    "explanation": "LMC kontrollerer ikke hoppadresser. Alternativ 2 forutsetter en feilhåndtering maskinen ikke har. Alternativ 3 og 4 beskriver mekanismer som ikke finnes. Det er nettopp derfor beregnede hopp er skjøre: en bom på én celle gir ingen advarsel."
+  },
+  {
+    "question": "Hva gjør `LDA 21` rett før en modifisert `ADD`-instruksjon i et tabelloppslag?",
+    "options": [
+      "Nullstiller akkumulatoren før tabelloppslaget",
+      "Laster inn indeksen som skal brukes i oppslaget",
+      "Lagrer den beregnede instruksjonen for senere bruk",
+      "Setter akkumulatoren til startadressen for hele tabellen"
+    ],
+    "explanation": "Uten nullstillingen ville `ADD` lagt tabellverdien til den beregnede instruksjonsverdien, og utskriften blitt et helt annet tall. Alternativ 2 og 4 gir cellen en rolle den ikke har — celle 21 inneholder 0. Alternativ 3 beskriver `STA`."
+  },
+  {
+    "question": "Hva blir `130` pluss 100, tolket som instruksjon?",
+    "options": [
+      "`SUB 30` — tillegget rullet over i opkoden",
+      "`ADD 130` — adressen ble tresifret",
+      "`ADD 30` — bare adressen kan endres av en addisjon",
+      "`STA 30` — opkoden økte med to hakk"
+    ],
+    "explanation": "`230` har opkode 2, som er `SUB`. Alternativ 2 er umulig: adressefeltet har bare to sifre. Alternativ 3 overser at tillegget var stort nok til å nå opkodesifferet. Alternativ 4 ville krevd at 200 ble lagt til."
+  },
+  {
+    "question": "En oppgave viser minneinnholdet som rene tall og spør hva programmet gjør. Hva heter den jobben du gjør?",
+    "options": [
+      "Disassemblering — fra maskinkode til assemblerkode",
+      "Assemblering — fra lesbar assemblerkode til maskinkode",
+      "Kompilering — fra høynivåspråk til maskinkode",
+      "Sporing — fra program til utskrift for gitte inndata"
+    ],
+    "explanation": "Retningen er fra tall til mnemonics. Alternativ 2 er den motsatte veien. Alternativ 3 gjelder høynivåspråk, som LMC ikke har. Alternativ 4 er noe annet — det kommer etter at du har disassemblert."
+  },
+  {
+    "question": "Hva er hensikten med `BRA 08` i et grenmønster der celle 09 er den andre grenen?",
+    "options": [
+      "Å hoppe over den andre grenen, så bare én utføres",
+      "Å hoppe tilbake til testen, slik at grenen kan gjentas",
+      "Å avslutte programmet uten `HLT`",
+      "Å sikre at akkumulatoren er nullstilt før neste gren"
+    ],
+    "explanation": "Uten dette hoppet ville den første grenen falt rett ned i den andre, og begge blitt utført. Alternativ 2 beskriver en løkke, ikke en gren. Alternativ 3 er feil: `BRA` stopper ingenting. Alternativ 4 er feil — hopp endrer aldri akkumulatoren."
+  },
+  {
+    "question": "Et program tester med `SUB 61` der celle 61 er 10, og bruker `BRP`. Hvilken inndata ligger nøyaktig på grensen?",
+    "options": [
+      "10, som gir differansen 0 og derfor hopper",
+      "10, som gir differansen 0 og derfor ikke hopper",
+      "11, som er den minste verdien der differansen er positiv",
+      "9, som er den største verdien før differansen blir positiv"
+    ],
+    "explanation": "`BRP` hopper på null og alt over, så inndata 10 havner i den «store» grenen. Alternativ 2 forveksler `BRP` med et strengt større enn. Alternativ 3 og 4 peker på nabotallene, som ikke er grensen — de er de første verdiene på hver side av den."
+  }
+]

@@ -1,0 +1,377 @@
+{
+  "id": "in1020-1-7",
+  "courseId": "in1020",
+  "chapterNumber": "1.7",
+  "title": "Tegn, filformater, farger og komprimering",
+  "description": "ASCII og UTF-8, RGB-fargekoder i heksadesimal, skillet mellom tapsfri og tapskomprimert lagring, og hva rastergrafikk og vektorgrafikk egner seg til.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne gjøre rede for forskjellen mellom ASCII og UTF-8, og regne ut hvor mange byte en tekst tar",
+    "kunne lese en heksadesimal fargekode som tre komponenter mellom 0 og 255",
+    "kunne skille tapsfri fra tapskomprimert lagring og plassere de vanlige formatene riktig",
+    "kunne begrunne valg av bildeformat ut fra hva innholdet er og hva det skal brukes til"
+  ],
+  "content": [
+    {
+      "id": "in1020-1-7-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** filformater, fargekoder, ASCII og UTF-8 har egen oppgave i **3 av de 6 årgangene i arkivet (50 %)** — men alle tre er blant de nyeste (2020, 2022 og 2023). Temaet er **voksende**.\n\n**Nivå 3 — bør kjenne til.** Dette er det letteste stoffet i seksjon 1, og det ligger sist i delen av en grunn: de tre garanterte sjangrene (tallkonvertering, to-er komplement og LMC) er viktigere. Men trenden gjør at du ikke bør hoppe over kapitlet — seksjon 1 må bestås for seg, og noen få poeng her kan være det som avgjør.\n\n**Slik kommer den:** som svarform **F3** (dra-og-slipp — «plasser hvert format i riktig kolonne»), **F2** (sant/usant om formategenskaper) eller **F1** («kryss av alle som stemmer om denne fargekoden»).\n\n**Det eneste som krever regning:** RGB-fargekoder. Og den regningen er allerede kjent — det er heksadesimal konvertering fra [kap. 1.1](/bok/in1020/in1020-1-1), gjort tre ganger.\n\n**Tidsbruk:** 45 minutter."
+    },
+    {
+      "id": "in1020-1-7-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 1.1](/bok/in1020/in1020-1-1). Her er det du trenger, ferdig oppfrisket:\n\n**1. Heksadesimal konvertering.** Ett heksadesimalt siffer er fire bit; to sifre er én byte. Sifferverdiene A til F er 10 til 15.\n\n```text\n0x2E = 2·16 + 14 = 46\n0xFF = 15·16 + 15 = 255\n```\n\n**2. Verdiområdet for en byte** uten fortegn: 0 til 255. Det er nøyaktig området en fargekomponent kan ha.\n\n**3. ASCII-tanken** fra [kap. 1.4](/bok/in1020/in1020-1-4): at et tall kan representere et tegn. `A` er 65.\n\nIngenting mer trengs. Resten av kapitlet er begreper og skiller."
+    },
+    {
+      "id": "in1020-1-7-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-1-7-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning |\n|---|---|\n| `0x2E8B57` | En RGB-fargekode: seks heksadesimale sifre, altså tre byte |\n| `#2E8B57` | Samme kode i webnotasjon — firkanttegnet erstatter `0x` |\n| R, G, B | De tre fargekomponentene rød, grønn og blå, hver 0–255 |\n| ASCII | Tegnkoding med 7 bit per tegn, 128 tegn totalt |\n| UTF-8 | Tegnkoding med variabel lengde, 1 til 4 byte per tegn |\n| Tapsfri | Komprimering som kan rekonstruere originalen eksakt |\n| Tapskomprimert | Komprimering som forkaster informasjon permanent |\n| Raster | Bilde lagret som et rutenett av piksler |\n| Vektor | Bilde lagret som en beskrivelse av former |\n\n**ASCII-utdrag:**\n\n| Tegn | Kode | Tegn | Kode |\n|---|---|---|---|\n| `A` | 65 | `a` | 97 |\n| `Z` | 90 | `z` | 122 |\n| `0` (siffer) | 48 | `9` (siffer) | 57 |\n| mellomrom | 32 | `!` | 33 |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{fargekode} = \\underbrace{\\text{RR}}_{\\text{rød}}\\ \\underbrace{\\text{GG}}_{\\text{grønn}}\\ \\underbrace{\\text{BB}}_{\\text{blå}}$$\n\nDel de seks sifrene i tre par, og konverter hvert par til desimal. Hvert par er én byte, altså en verdi mellom 0 og 255.\n\n$$\\text{antall farger} = 256^{3} = 2^{24} = 16\\,777\\,216$$\n\nTre byte gir omtrent 16,8 millioner ulike farger — det som kalles «24-bits farge»."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-7-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Tegn: ASCII og UTF-8 (~12 min)\n\nDa du skrev navnet ditt i et skjema i går, ble hver bokstav lagret som et tall. Hvilket tall, og hvor mange byte det tok, avhenger av hvilken **tegnkoding** systemet bruker.\n\nDet er to du må kjenne: ASCII, som er den gamle og enkle, og UTF-8, som er den som faktisk brukes i dag."
+    },
+    {
+      "id": "in1020-1-7-def-ascii",
+      "type": "definition",
+      "title": "ASCII",
+      "content": "Tegnkodingen som gir hvert tegn et tall mellom 0 og 127, altså **7 bit per tegn**.\n\nSystematikken: store bokstaver ligger sammenhengende fra 65, små bokstaver fra 97, siffertegnene fra 48. Mellomrom er 32.\n\n**Begrensningen som er hele poenget:** 128 koder rekker til det engelske alfabetet, sifrene og noen skilletegn. Det er ikke plass til `æ`, `ø` og `å`, og heller ikke til gresk, kyrillisk eller kinesisk.\n\nDen faste feilslutningen: at ASCII er 8 bit. Det er 7 — den åttende biten i en byte var opprinnelig ubrukt eller en kontrollbit."
+    },
+    {
+      "id": "in1020-1-7-def-utf8",
+      "type": "definition",
+      "title": "UTF-8",
+      "content": "Tegnkodingen som bruker **variabelt antall byte** per tegn: 1 byte for de vanlige engelske tegnene, 2 for de fleste europeiske spesialtegnene, 3 for de fleste andre skriftsystemer og 4 for de mest sjeldne tegnene og emojier.\n\n**Den avgjørende egenskapen: UTF-8 er bakoverkompatibel med ASCII.** De 128 ASCII-tegnene har nøyaktig samme koder i UTF-8 og tar én byte. En ren ASCII-fil *er* en gyldig UTF-8-fil.\n\nKonsekvens du kan bli spurt om: `A` tar én byte, mens `ø` tar to. En tekst på hundre tegn kan derfor være mer enn hundre byte.\n\nDen faste feilslutningen: at UTF-8 alltid bruker flere byte enn ASCII. For engelsk tekst er de identiske."
+    },
+    {
+      "id": "in1020-1-7-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Hvor mange byte tar teksten?",
+      "problem": "Hvor mange byte tar teksten `Bra jobb!` i ASCII, og hvor mange i UTF-8? Og hva med `Bra jøbb!`?",
+      "solution": "**`Bra jobb!` i ASCII.** Tell tegnene: B, r, a, mellomrom, j, o, b, b, utropstegn — **9 tegn**. Hvert ASCII-tegn er én byte.\n\n**9 byte.**\n\n**`Bra jobb!` i UTF-8.** Alle ni tegnene er ASCII-tegn, og UTF-8 er bakoverkompatibel. Derfor: **9 byte** — nøyaktig det samme.\n\n**`Bra jøbb!` i UTF-8.** Åtte av tegnene er ASCII og tar én byte hver. Tegnet `ø` er ikke ASCII og tar **to** byte i UTF-8.\n\n`8 · 1 + 1 · 2 = 10 byte`.\n\n**`Bra jøbb!` i ASCII:** lar seg ikke gjøre. `ø` finnes ikke i ASCII-tabellen.\n\n**Poenget:** antall tegn og antall byte er ikke det samme. For ren engelsk tekst er de like; så snart et spesialtegn dukker opp, spriker de."
+    },
+    {
+      "id": "in1020-1-7-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-7-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — tegnkoding.) Hvor mange byte tar hver av disse tekstene i UTF-8?\n\n**a)** `Hei`\n\n**b)** `Hæ?`\n\n**c)** `abc123`",
+        "solution": "**a)** Tre tegn, alle ASCII: **3 byte**.\n\n**b)** Tre tegn, men `æ` er ikke ASCII og tar to byte. `H` og `?` tar én hver: `1 + 2 + 1 = ` **4 byte**.\n\n**c)** Seks tegn, alle ASCII (bokstaver og siffertegn): **6 byte**.\n\nMerk at siffertegnene `1`, `2` og `3` er vanlige ASCII-tegn med kodene 49, 50 og 51 — ikke tallene 1, 2 og 3.",
+        "hints": [
+          "Tell tegnene først, og se deretter etter tegn som ikke finnes i ASCII.",
+          "Norske spesialtegn tar to byte i UTF-8."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-7-def-tegn-vs-tall",
+      "type": "definition",
+      "title": "Siffertegn mot tallverdi",
+      "content": "Skillet mellom tegnet `5` og tallet 5. Tegnet har ASCII-koden 53; tallet er verdien 5.\n\nSiffertegnene ligger sammenhengende fra 48: `0` er 48, `1` er 49, og `9` er 57. Vil du gjøre et siffertegn om til tallverdien, trekker du fra 48.\n\nDette er den samme forskjellen som mellom `OUT` og `OTC` i [kap. 1.4](/bok/in1020/in1020-1-4): den ene skriver verdien, den andre skriver tegnet.\n\nDen faste feilen: å regne med at en tekstfil med tallet «255» tar én byte. Den tar tre — ett per siffertegn."
+    },
+    {
+      "id": "in1020-1-7-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-7-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Tegnkoding, svarform F2 — sant/usant-matrise.) Vurder hver påstand som sann eller usann, og begrunn.\n\n**a)** ASCII bruker 7 bit per tegn.\n\n**b)** En ren ASCII-fil er også en gyldig UTF-8-fil.\n\n**c)** UTF-8 bruker alltid flere byte per tegn enn ASCII.\n\n**d)** Teksten `2024` tar fire byte som ren tekst.",
+        "solution": "**a) Sann.** ASCII har 128 koder, og 128 er to opphøyd i sju. Den åttende biten i en byte var opprinnelig ubrukt.\n\n**b) Sann.** UTF-8 er bakoverkompatibel: de 128 ASCII-tegnene har samme koder og tar én byte. Dette er en av hovedgrunnene til at UTF-8 vant fram framfor andre unicode-kodinger.\n\n**c) Usann.** For tegn som finnes i ASCII, bruker UTF-8 nøyaktig én byte — det samme. Det er bare for tegn utenfor ASCII at UTF-8 bruker to, tre eller fire byte.\n\n**d) Sann.** Fire siffertegn, hvert med sin ASCII-kode (`2` er 50, `0` er 48, `4` er 52), altså fire byte. Merk kontrasten: som **tall** ville 2024 fått plass i to byte, siden verdiområdet for to byte går til 65535.\n\n**Fasit: a sann, b sann, c usann, d sann.**",
+        "hints": [
+          "For a: hvor mange koder gir 7 bit, og hvor mange tegn har ASCII?",
+          "For c: hva skjer med et tegn som finnes i begge kodingene?",
+          "For d: teller du tegn eller tallverdi?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-7-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Fargekoder i heksadesimal (~12 min)\n\nÅpner du fargevelgeren i et tegneprogram, står det gjerne `#2E8B57` i et lite felt. Det er den ene regneoppgaven i dette kapitlet — og du kan den allerede.\n\nSeks heksadesimale sifre er tre byte. Ett byte per farge: rød, grønn og blå."
+    },
+    {
+      "id": "in1020-1-7-teo-rgb",
+      "type": "theorem",
+      "title": "RGB-fargekoder",
+      "content": "**Regelen:** del de seks sifrene i **tre par**. Første par er rødt, andre er grønt, tredje er blått. Konverter hvert par til desimal.\n\n```text\n0x 2E 8B 57\n   RR GG BB\n```\n\n`0x2E` = `2·16 + 14` = **46** rødt\n`0x8B` = `8·16 + 11` = **139** grønt\n`0x57` = `5·16 + 7` = **87** blått\n\n**Verdiområdet** for hver komponent er 0 til 255 — nøyaktig det en byte uten fortegn rommer. 0 er ingen lys i den kanalen, 255 er full styrke.\n\n**De faste holdepunktene:**\n\n| Kode | R, G, B | Farge |\n|---|---|---|\n| `0x000000` | 0, 0, 0 | svart |\n| `0xFFFFFF` | 255, 255, 255 | hvit |\n| `0xFF0000` | 255, 0, 0 | rent rødt |\n| `0x00FF00` | 0, 255, 0 | rent grønt |\n| `0x0000FF` | 0, 0, 255 | rent blått |\n\n**Antall farger:** hver komponent har 256 verdier, så totalt `256³ = 2²⁴ = 16 777 216` farger. Det er derfor formatet kalles 24-bits farge.\n\n**Den ene fella:** feil oppdeling. Deler du i to trippel-sifre eller starter fra feil ende, får du tre tall som ser plausible ut og er helt gale."
+    },
+    {
+      "id": "in1020-1-7-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Les to fargekoder",
+      "problem": "Hva er RGB-komponentene i **a)** `0xFF7F00` og **b)** `0x336699`?",
+      "solution": "**a) `0xFF7F00`.** Del i par: `FF`, `7F`, `00`.\n\n- Rød: `0xFF = 15·16 + 15 = 255` — full styrke.\n- Grønn: `0x7F = 7·16 + 15 = 127` — omtrent halv styrke.\n- Blå: `0x00 = 0` — helt av.\n\n**R = 255, G = 127, B = 0.** Full rød, halv grønn, ingen blå — det gir en oransje farge.\n\n**b) `0x336699`.** Del i par: `33`, `66`, `99`.\n\n- Rød: `0x33 = 3·16 + 3 = 51`\n- Grønn: `0x66 = 6·16 + 6 = 102`\n- Blå: `0x99 = 9·16 + 9 = 153`\n\n**R = 51, G = 102, B = 153.** Mest blå, minst rød — en dempet blåfarge.\n\n**Legg merke til mønsteret i b).** Hvert par har to like sifre, og verdiene 51, 102, 153 er nøyaktig 1, 2 og 3 ganger 51. Det er ingen tilfeldighet: `0xNN` med to like sifre er alltid `N · 17`."
+    },
+    {
+      "id": "in1020-1-7-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-7-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Fargekoder — samme heksadesimale teknikk som sjanger A.) Finn RGB-komponentene i `0x1E90FF`.",
+        "solution": "Del i par: `1E`, `90`, `FF`.\n\n- Rød: `0x1E = 1·16 + 14 = 30`\n- Grønn: `0x90 = 9·16 + 0 = 144`\n- Blå: `0xFF = 15·16 + 15 = 255`\n\n**R = 30, G = 144, B = 255.**\n\nBlå er på full styrke og rød er nesten av, så fargen er klart blå med et innslag av grønt — en lys, klar blåfarge.",
+        "hints": [
+          "Del de seks sifrene i tre par før du regner noe.",
+          "Hvert par konverteres som et tosifret heksadesimalt tall: første siffer ganger 16, pluss det andre."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-7-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-7-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, fargekoder, svarform F1.) Kryss av alle påstandene som stemmer om fargekoden `0xC0392B`.\n\n**a)** Grønnkomponenten er 39.\n\n**b)** Blåkomponenten er 43.\n\n**c)** Rødkomponenten er 192.\n\n**d)** Fargen har mer rødt enn grønt og blått til sammen.",
+        "solution": "Del i par: `C0`, `39`, `2B`.\n\n- Rød: `0xC0 = 12·16 + 0 = 192`\n- Grønn: `0x39 = 3·16 + 9 = 57`\n- Blå: `0x2B = 2·16 + 11 = 43`\n\n**a) Galt.** Grønnkomponenten er 57, ikke 39. Distraktoren leser `39` som om det var et desimaltall — den klassiske feilen når et heksadesimalt par tilfeldigvis består av sifre 0–9.\n\n**b) Riktig.** 43.\n\n**c) Riktig.** 192.\n\n**d) Riktig.** `57 + 43 = 100`, og 192 er større enn 100. Fargen er tydelig rød — dette er en mørk, dempet rødfarge.\n\n**Fasit: b, c og d.**\n\n**Merk fella i a.** Par som `39`, `12` og `50` ser ut som desimaltall og blir lest som det. Konverter alltid, også når sifrene er 0–9.",
+        "hints": [
+          "Del i tre par og konverter hvert par, også de som ser ut som vanlige tall.",
+          "For alternativ d: legg sammen de to andre komponentene og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-7-def-24bit",
+      "type": "definition",
+      "title": "24-bits farge",
+      "content": "Fargerepresentasjonen der hver av de tre komponentene får én byte, altså 24 bit til sammen.\n\nAntall mulige farger er $256^3 = 2^{24} = 16\\,777\\,216$ — omtrent 16,8 millioner.\n\nDette er standarden på skjermer og i vanlige bildeformater. Noen formater bruker en fjerde byte til gjennomsiktighet, som gir 32 bit per piksel.\n\nDen faste feilslutningen: at flere bit per farge betyr høyere oppløsning. Oppløsning er antall piksler; fargedybde er antall bit per piksel. De to er uavhengige."
+    },
+    {
+      "id": "in1020-1-7-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Komprimering: hva som kan gjenskapes (~11 min)\n\nDu har sikkert lagt merke til at et bilde tatt med mobilen tar noen få megabyte, mens det samme bildet ubehandlet ville tatt langt mer. Noe er blitt fjernet. Spørsmålet er hva — og om det kan komme tilbake.\n\nDet er hele skillet i denne løkka, og det er det som testes."
+    },
+    {
+      "id": "in1020-1-7-def-tapsfri",
+      "type": "definition",
+      "title": "Tapsfri komprimering",
+      "content": "Komprimering der **hele originalen kan rekonstrueres eksakt** fra den komprimerte fila. Ingen informasjon går tapt.\n\nEksempler: ZIP, PNG, FLAC, GIF.\n\nMetoden bygger på å finne mønstre og gjentakelser: i stedet for å lagre «hvit piksel» tusen ganger, lagres «tusen hvite piksler».\n\nKonsekvens: du kan komprimere og pakke ut så mange ganger du vil uten at kvaliteten synker. Kompresjonsgraden er til gjengjeld begrenset — en fil uten mønstre lar seg knapt komprimere."
+    },
+    {
+      "id": "in1020-1-7-def-tapskomprimert",
+      "type": "definition",
+      "title": "Tapskomprimert",
+      "content": "Komprimering der **informasjon forkastes permanent** for å få fila mindre. Originalen kan ikke gjenskapes.\n\nEksempler: JPEG, MP3, MP4, AAC.\n\nMetoden bygger på hva sansene våre ikke merker: JPEG forkaster fine fargedetaljer øyet ikke ser, MP3 forkaster lyd som maskeres av annen lyd.\n\n**Den viktigste konsekvensen: tapet er kumulativt.** Lagrer du en JPEG på nytt hver gang du redigerer den, forsvinner mer for hver runde. Det finnes ingen vei tilbake.\n\nDen faste feilslutningen: at JPEG er tapsfritt fordi bildet «ser likt ut». Det ser likt ut nettopp fordi metoden er god til å fjerne det du ikke ser."
+    },
+    {
+      "id": "in1020-1-7-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Sorter formatene",
+      "problem": "Svarform F3. Plasser hvert format i riktig kolonne: **tapsfri** eller **tapskomprimert**.\n\n1. PNG\n2. JPEG\n3. MP3\n4. ZIP\n5. FLAC\n6. MP4",
+      "solution": "| Format | Kolonne | Hvorfor |\n|---|---|---|\n| **PNG** | Tapsfri | Bildeformat som gjenskaper hver piksel eksakt. Brukes til grafikk, logoer og skjermbilder |\n| **JPEG** | Tapskomprimert | Forkaster fargedetaljer øyet ikke ser. Brukes til fotografier |\n| **MP3** | Tapskomprimert | Forkaster lyd som maskeres av annen lyd |\n| **ZIP** | Tapsfri | Generell filkomprimering — en pakket tekstfil må komme ut identisk |\n| **FLAC** | Tapsfri | Lydformat som gjenskaper opptaket eksakt. Større filer enn MP3 |\n| **MP4** | Tapskomprimert | Videoformat som forkaster både bilde- og lyddetaljer |\n\n**Fasit: tapsfri er 1, 4 og 5. Tapskomprimert er 2, 3 og 6.**\n\n**Regelen som avgjør nesten alle slike oppgaver:** spør hva formatet brukes til.\n\n- Skal originalen kunne gjenskapes — et program, et dokument, en logo, et lydopptak i studio — må formatet være tapsfritt.\n- Skal fila være liten nok til å sendes eller strømmes, og er den ment for øyne og ører — foto, musikk, video — er den tapskomprimert.\n\n**Den ene fella:** PNG og JPEG er begge bildeformater, men står i hver sin kolonne. Det er ikke medietypen som avgjør, men hva formatet gjør med informasjonen."
+    },
+    {
+      "id": "in1020-1-7-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-7-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, filformater, svarform F3.) Koble hvert format til riktig kategori. Formatene er nummerert, kategoriene bokstavmerket.\n\n1. FLAC\n2. JPEG\n3. ZIP\n4. MP3\n\n**A** Tapskomprimert\n**B** Tapsfri\n\nOppgi koblingene på formen «1→X».",
+        "solution": "**Fasit: 1→B, 2→A, 3→B, 4→A.**\n\n**1. FLAC → B (tapsfri).** Lydformatet gjenskaper opptaket bit for bit. Det er derfor filene er langt større enn MP3 av samme opptak.\n\n**2. JPEG → A (tapskomprimert).** Forkaster fargedetaljer permanent. Fella er å tro at JPEG er tapsfritt fordi bildet ser uendret ut.\n\n**3. ZIP → B (tapsfri).** Et komprimert program eller dokument må komme ut identisk — ellers ville det ikke virket.\n\n**4. MP3 → A (tapskomprimert).** Forkaster lyd som maskeres av annen lyd.\n\n**Legg merke til at koblingen ikke er 1→A, 2→B, 3→A, 4→B** eller noe annet regelmessig mønster. I dra-og-slipp-oppgaver er rekkefølgen alltid blandet, og en kandidat som svarer etter mønster i stedet for etter innhold, treffer omtrent tilfeldig.",
+        "hints": [
+          "Spør hva formatet brukes til: må originalen kunne gjenskapes, eller er målet minst mulig fil?",
+          "To av de fire er lydformater — men de havner i hver sin kategori."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-7-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Raster mot vektor (~10 min)\n\nDet siste skillet handler ikke om komprimering, men om hvordan bildet er **beskrevet**."
+    },
+    {
+      "id": "in1020-1-7-def-raster",
+      "type": "definition",
+      "title": "Rastergrafikk",
+      "content": "Bilde lagret som et **rutenett av piksler**, der hver piksel har sin egen farge.\n\nEksempler: JPEG, PNG, GIF, BMP — og alt et kamera produserer.\n\n**Egenskapen som avgjør bruken:** oppløsningen er fast. Forstørrer du bildet, blir pikslene større og bildet uskarpt eller rutete.\n\nFilstørrelsen avhenger av antall piksler, ikke av hvor komplisert motivet er. Et helt hvitt bilde og et fotografi med samme oppløsning har like mange piksler — men det hvite komprimeres langt bedre."
+    },
+    {
+      "id": "in1020-1-7-def-vektor",
+      "type": "definition",
+      "title": "Vektorgrafikk",
+      "content": "Bilde lagret som en **beskrivelse av former**: linjer, kurver, sirkler og fyllfarger, med koordinater og parametere.\n\nEksempler: SVG, EPS, og formatene tegneprogrammer for illustrasjon bruker.\n\n**Egenskapen som avgjør bruken: bildet kan forstørres fritt uten å bli uskarpt**, fordi formene regnes ut på nytt for hver visningsstørrelse. En logo i vektorformat ser like skarp ut på et visittkort og på en husvegg.\n\n**Begrensningen:** vektorgrafikk egner seg ikke til fotografier. Et fotografi består ikke av rene former, og en beskrivelse av det ville blitt både enorm og unøyaktig.\n\nDen faste feilslutningen: at vektorgrafikk «alltid er bedre». Til logoer, ikoner og diagrammer er den det. Til bilder av virkeligheten er den ubrukelig."
+    },
+    {
+      "id": "in1020-1-7-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Hvilket format ville du valgt?",
+      "problem": "For hver oppgave: hvilket format egner seg best, og hvorfor?\n\n**a)** Firmalogoen som skal brukes både på visittkort og på en reklameplakat.\n\n**b)** Et fotografi som skal legges ut på en nettside.\n\n**c)** Et skjermbilde av en feilmelding, som skal sendes til brukerstøtte.",
+      "solution": "**a) Vektorformat, for eksempel SVG.** Logoen består av rene former, og den skal skaleres fra noen få centimeter til flere meter. Vektorgrafikk regnes ut på nytt for hver størrelse og blir aldri uskarp. Et rasterbilde måtte lagres i den største oppløsningen som trengs, og ville likevel bli grovkornet hvis noen forstørret det ytterligere.\n\n**b) JPEG.** Fotografier består ikke av rene former, så vektor er utelukket. Og på en nettside teller filstørrelsen: JPEG kan forkaste fargedetaljer øyet ikke ser, og gir en fil som ofte er ti ganger mindre enn den tapsfrie varianten. Tapet gjør ingenting her — bildet skal ses, ikke redigeres videre.\n\n**c) PNG.** Et skjermbilde har skarpe kanter, ensfargede flater og lesbar tekst. Nettopp der er JPEG dårligst: metoden lager synlige artefakter rundt skarpe kanter, og teksten blir grumsete. PNG er tapsfritt og komprimerer ensfargede flater svært godt, så fila blir både skarp og liten.\n\n**Regelen bak alle tre:** velg etter hva innholdet er, ikke etter hva som «pleier å brukes».\n\n| Innhold | Format |\n|---|---|\n| Former som skal skaleres | Vektor (SVG) |\n| Fotografi | Tapskomprimert raster (JPEG) |\n| Skarpe kanter og tekst | Tapsfri raster (PNG) |"
+    },
+    {
+      "id": "in1020-1-7-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-7-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, filformater, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn.\n\n**a)** Vektorgrafikk kan forstørres uten å bli uskarp.\n\n**b)** Vektorgrafikk egner seg godt til fotografier.\n\n**c)** PNG er tapsfritt, mens JPEG er tapskomprimert.\n\n**d)** Filstørrelsen på et rasterbilde avhenger av antall piksler.",
+        "solution": "**a) Sann.** Formene beskrives matematisk og regnes ut på nytt for hver visningsstørrelse.\n\n**b) Usann.** Et fotografi består ikke av rene former. En vektorbeskrivelse av et fotografi ville blitt både enorm og unøyaktig. Dette er den klassiske distraktoren: at vektor «alltid er bedre».\n\n**c) Sann.** Begge er bildeformater, men de står i hver sin kategori. PNG gjenskaper hver piksel eksakt; JPEG forkaster fargedetaljer permanent.\n\n**d) Sann.** Et rasterbilde er et rutenett, og antall ruter avgjør hvor mye som må lagres. Merk likevel at komprimeringen påvirker den faktiske filstørrelsen kraftig: to bilder med like mange piksler kan ende svært ulikt hvis det ene har store ensfargede flater.\n\n**Fasit: a sann, b usann, c sann, d sann.**\n\nLegg merke til at fasitrekka her er tre sanne og én usann — sant/usant-matriser er sjelden jevnt fordelt, og du kan ikke bruke fordelingen som ledetråd.",
+        "hints": [
+          "For b: hva består et fotografi av, og lar det seg beskrive som former?",
+          "For d: hva er det som lagres i et rasterbilde, og hvor mange av dem er det?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-7-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-7-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, blandet, svarform F1.) Kryss av alle påstandene som stemmer.\n\n**a)** Fargekoden `0x00FF00` er rent grønn.\n\n**b)** En tekst med hundre norske tegn kan ta mer enn hundre byte i UTF-8.\n\n**c)** En JPEG som lagres på nytt ti ganger, mister mer informasjon for hver gang.\n\n**d)** ASCII kan representere bokstaven `ø`.",
+        "solution": "**a) Riktig.** Del i par: `00`, `FF`, `00`. Rød er 0, grønn er 255, blå er 0 — full grønn, ingenting annet.\n\n**b) Riktig.** Tegn som `æ`, `ø` og `å` tar to byte i UTF-8, mens de øvrige tar én. Hundre tegn der noen er norske spesialtegn, gir derfor mer enn hundre byte.\n\n**c) Riktig.** Tapskomprimering er kumulativ: hver ny lagring forkaster mer. Dette er den praktiske konsekvensen av at originalen ikke kan gjenskapes.\n\n**d) Galt.** ASCII har 128 koder og dekker det engelske alfabetet, sifre og skilletegn. Norske bokstaver finnes ikke der — det var nettopp derfor UTF-8 og de andre unicode-kodingene ble laget.\n\n**Fasit: a, b og c.**",
+        "hints": [
+          "Del fargekoden i tre par og konverter hvert par.",
+          "For b: hvor mange byte tar et norsk spesialtegn i UTF-8?",
+          "For d: hvor mange tegn har ASCII plass til, og hvilke er det?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-7-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Feil oppdeling av fargekoden.** Seks sifre skal deles i **tre par**, ikke i to trippel-sifre. Og parene leses fra venstre: rødt, grønt, blått.\n\n2. **Å lese et heksadesimalt par som desimaltall.** `0x39` er 57, ikke 39. Fella slår til når paret tilfeldigvis bare inneholder sifre 0–9, som i `39`, `12` eller `50`. Konverter alltid.\n\n3. **Å tro at JPEG er tapsfritt.** Bildet ser uendret ut nettopp fordi metoden er god til å fjerne det du ikke ser. Informasjonen er borte, og tapet er kumulativt.\n\n4. **Å blande ASCII og UTF-8.** ASCII er 7 bit og 128 tegn, uten norske bokstaver. UTF-8 har variabel lengde og er bakoverkompatibel med ASCII — for engelsk tekst er de identiske.\n\n5. **Å tro at vektorgrafikk egner seg til fotografier.** Vektor er for former som skal skaleres: logoer, ikoner, diagrammer. Et fotografi består ikke av former.\n\n6. **Å blande fargedybde og oppløsning.** 24-bits farge sier hvor mange farger hver piksel kan ha; oppløsningen sier hvor mange piksler bildet har. De to er uavhengige."
+    },
+    {
+      "id": "in1020-1-7-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-1-7-bank-1",
+      "type": "definition",
+      "title": "Tegnkoding",
+      "content": "Avtalen om hvilket tall som representerer hvilket tegn. Uten en tegnkoding er en tekstfil bare en rekke byte.\n\nDe to du må kjenne, er ASCII (7 bit, 128 tegn) og UTF-8 (variabel lengde, hele Unicode).\n\nDette er den samme typen avtale som tolkningskontrakten for en byte i [kap. 1.3](/bok/in1020/in1020-1-3): bitene bærer ikke sin egen betydning."
+    },
+    {
+      "id": "in1020-1-7-bank-2",
+      "type": "definition",
+      "title": "Bakoverkompatibilitet",
+      "content": "At et nytt format kan lese alt det gamle formatet kunne, uten endringer.\n\nUTF-8 er bakoverkompatibel med ASCII: de 128 ASCII-tegnene har samme koder og tar én byte. En ren ASCII-fil er derfor allerede en gyldig UTF-8-fil.\n\nDette er hovedgrunnen til at UTF-8 ble standarden framfor andre unicode-kodinger som brøt med ASCII."
+    },
+    {
+      "id": "in1020-1-7-bank-3",
+      "type": "definition",
+      "title": "Variabel lengde",
+      "content": "At antall byte per tegn ikke er fast. I UTF-8 tar et tegn 1, 2, 3 eller 4 byte, avhengig av hvilket tegn det er.\n\nKonsekvens: antall tegn og antall byte er ikke det samme. En tekst med hundre tegn kan ta mer enn hundre byte.\n\nDen faste feilen er å regne filstørrelse ved å telle tegn. Det virker bare for ren ASCII-tekst."
+    },
+    {
+      "id": "in1020-1-7-bank-4",
+      "type": "definition",
+      "title": "RGB-modellen",
+      "content": "Fargemodellen der enhver farge beskrives som en blanding av rødt, grønt og blått lys, hver med en styrke fra 0 til 255.\n\nModellen er additiv: alle tre på full styrke gir hvitt, alle tre av gir svart.\n\nDen brukes på skjermer fordi de faktisk sender ut lys i disse tre fargene. Trykk bruker en annen modell, fordi blekk trekker lys fra i stedet for å legge til."
+    },
+    {
+      "id": "in1020-1-7-bank-5",
+      "type": "definition",
+      "title": "Fargedybde",
+      "content": "Antall bit som brukes per piksel til å beskrive farge. 24-bits farge gir én byte per kanal og dermed 16,8 millioner farger.\n\nNoen formater bruker en fjerde byte til gjennomsiktighet, altså 32 bit per piksel.\n\nFargedybde og oppløsning er uavhengige: fargedybden sier hvor mange farger hver piksel kan ha, oppløsningen sier hvor mange piksler det er."
+    },
+    {
+      "id": "in1020-1-7-bank-6",
+      "type": "definition",
+      "title": "Oppløsning",
+      "content": "Antall piksler i et rasterbilde, oppgitt som bredde ganger høyde.\n\nEt bilde på 1920 ganger 1080 piksler har litt over to millioner piksler. Med 24-bits farge tar det ubehandlede bildet omtrent 6 MB — derfor komprimeres bilder alltid.\n\nDen faste feilslutningen er å blande oppløsning med skarphet: et forstørret lavoppløst bilde blir uskarpt uansett hvor mange farger hver piksel har."
+    },
+    {
+      "id": "in1020-1-7-bank-7",
+      "type": "definition",
+      "title": "Kompresjonsgrad",
+      "content": "Forholdet mellom original størrelse og komprimert størrelse.\n\nTapsfrie metoder oppnår typisk beskjeden gevinst på data uten mønstre, og stor gevinst på data med mange gjentakelser — et helt hvitt bilde krymper enormt.\n\nTapskomprimerte metoder oppnår mye høyere grad, fordi de har lov til å kaste informasjon. Prisen er at valget er endelig."
+    },
+    {
+      "id": "in1020-1-7-bank-8",
+      "type": "definition",
+      "title": "Kumulativt tap",
+      "content": "At tapskomprimering forverres for hver gang fila lagres på nytt, fordi hver runde forkaster mer informasjon.\n\nEn JPEG som redigeres og lagres ti ganger, er merkbart dårligere enn originalen — selv om ingen enkelt lagring så ille ut.\n\nPraktisk konsekvens: arbeid i et tapsfritt format mens du redigerer, og eksporter til et tapskomprimert format først til slutt."
+    },
+    {
+      "id": "in1020-1-7-bank-9",
+      "type": "definition",
+      "title": "PNG",
+      "content": "Tapsfritt rasterformat for bilder med skarpe kanter, tekst og ensfargede flater: skjermbilder, logoer, diagrammer.\n\nKomprimerer ensfargede områder svært godt, og støtter gjennomsiktighet.\n\nDen faste feilen er å bruke JPEG til slikt innhold. JPEG lager synlige artefakter rundt skarpe kanter, og tekst blir grumsete."
+    },
+    {
+      "id": "in1020-1-7-bank-10",
+      "type": "definition",
+      "title": "JPEG",
+      "content": "Tapskomprimert rasterformat laget for fotografier. Forkaster fargedetaljer øyet ikke oppfatter.\n\nGir ofte filer som er en tiendedel av den tapsfrie varianten, med nesten umerkelig kvalitetstap på et fotografi.\n\nUegnet til grafikk med skarpe kanter, og uegnet som arbeidsformat, siden tapet er kumulativt."
+    },
+    {
+      "id": "in1020-1-7-bank-11",
+      "type": "definition",
+      "title": "ZIP",
+      "content": "Tapsfri, generell filkomprimering som virker på alle filtyper.\n\nEt komprimert program eller dokument må komme ut bit for bit identisk — ellers ville det ikke virket. Derfor kan generell filkomprimering aldri være tapskomprimert.\n\nKompresjonsgraden varierer sterkt: tekst og kode krymper mye, mens en allerede komprimert JPEG knapt krymper i det hele tatt."
+    },
+    {
+      "id": "in1020-1-7-bank-12",
+      "type": "definition",
+      "title": "SVG",
+      "content": "Vektorformat for grafikk på nett. Bildet lagres som en tekstbeskrivelse av former med koordinater og farger.\n\nSkalerer fritt uten kvalitetstap, og filene er små for enkel grafikk.\n\nUegnet til fotografier. Fordi formatet er tekst, kan en SVG-fil også søkes i og redigeres i en vanlig teksteditor — noe et rasterbilde aldri kan."
+    },
+    {
+      "id": "in1020-1-7-bank-13",
+      "type": "definition",
+      "title": "Piksel",
+      "content": "Det minste elementet i et rasterbilde: én rute i rutenettet, med én farge.\n\nOrdet er en sammentrekning av *picture element*.\n\nEn piksel har ingen fysisk størrelse i seg selv — den får størrelse først når bildet vises på en skjerm eller trykkes. Det er derfor det samme bildet kan være både lite og stort uten å endre antall piksler."
+    },
+    {
+      "id": "in1020-1-7-bank-14",
+      "type": "definition",
+      "title": "Metadata i bildefiler",
+      "content": "Data om bildet som lagres i fila ved siden av selve bildeinnholdet: opptaksdato, kameramodell, eksponering og ofte posisjon.\n\nDette er verdt å kjenne fordi det er et personvernpoeng: et bilde du deler, kan røpe hvor og når det ble tatt. Du møter temaet igjen i [kap. 3.7](/bok/in1020/in1020-3-7).\n\nMetadata påvirker filstørrelsen lite, men fjernes ofte automatisk når bilder lastes opp til nettsteder."
+    },
+    {
+      "id": "in1020-1-7-bank-15",
+      "type": "definition",
+      "title": "Additiv fargeblanding",
+      "content": "Prinsippet bak RGB: fargene lages ved å **legge til** lys. Alle tre kanalene på full styrke gir hvitt, alle av gir svart.\n\nDette er hvordan skjermer virker — de sender ut lys i rødt, grønt og blått.\n\nTrykk bruker motsatt prinsipp: blekk **trekker fra** lys fra det hvite papiret. Derfor har trykk sin egen fargemodell, og en farge på skjerm ser ofte litt annerledes ut på papir."
+    },
+    {
+      "id": "in1020-1-7-bank-16",
+      "type": "definition",
+      "title": "Artefakt",
+      "content": "Synlig feil som oppstår som følge av tapskomprimering: uskarpe firkanter rundt skarpe kanter i JPEG, eller metallisk klang i en kraftig komprimert MP3.\n\nArtefaktene er ikke en feil i fila — de er den forkastede informasjonen som mangler.\n\nDe blir tydeligere jo hardere fila er komprimert, og de stabler seg opp ved gjentatt lagring. Ser du firkantmønstre rundt tekst i et bilde, er bildet lagret som JPEG en gang for mye."
+    },
+    {
+      "id": "in1020-1-7-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter skillene?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-1-7-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte.\n\n1. Hvor mange bit bruker ASCII per tegn, og hvor mange tegn gir det?\n2. Hvor mange byte tar `Bø` i UTF-8?\n3. Hva er R, G og B i `0x7B68EE`?\n4. Hvor mange farger gir 24-bits farge?\n5. Er FLAC tapsfritt eller tapskomprimert?\n6. Hvorfor egner ikke vektorgrafikk seg til fotografier?\n7. Hva skjer med en JPEG som lagres på nytt mange ganger?\n8. Hvilket format ville du valgt til et skjermbilde med tekst?\n\n**Fasit.**\n\n1. 7 bit, som gir $2^7 = 128$ tegn.\n2. Tre byte: `B` tar én, `ø` tar to.\n3. `0x7B = 123`, `0x68 = 104`, `0xEE = 238`. Altså R = 123, G = 104, B = 238 — en blåfiolett farge.\n4. $256^3 = 2^{24} = 16\\,777\\,216$, altså omtrent 16,8 millioner.\n5. Tapsfritt. Derfor er FLAC-filer mye større enn MP3-filer av samme opptak.\n6. Fordi et fotografi ikke består av rene former. En formbeskrivelse av det ville blitt både enorm og unøyaktig.\n7. Tapet er kumulativt — hver ny lagring forkaster mer informasjon, og den kan aldri hentes tilbake.\n8. PNG. Tapsfritt, skarpe kanter bevares, og ensfargede flater komprimeres godt.\n\nSjekk deg selv: ☐ delte du fargekoden i tre par? ☐ konverterte du også parene som så ut som desimaltall? ☐ husket du at UTF-8 og ASCII er like for engelsk tekst? ☐ skilte du mellom hva formatet gjør og hva slags medium det er for?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

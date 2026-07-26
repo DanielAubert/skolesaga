@@ -1,0 +1,383 @@
+{
+  "id": "in1020-2-7",
+  "courseId": "in1020",
+  "chapterNumber": "2.7",
+  "title": "DRILL — Arkitektur-fakta, cache og abstraksjonsnivå",
+  "description": "Fjorten oppgaver på eksamensnivå i sjanger E og F: sant/usant om maskinvare med de faste distraktorene, cache-beregning med enheter, og rangering av abstraksjonsnivåer.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne avgjøre en sant/usant-rad om maskinvare på under et halvt minutt ved hjelp av sjekklisten",
+    "kunne regne ut klokkesykler og gjennomsnitt per instruksjon uten å bytte om treff og bom",
+    "kunne rangere abstraksjonsnivåer i begge retninger uten å snu listen",
+    "kunne peke ut hvilken regnefeil hvert gale talltilbud i en cache-oppgave svarer til"
+  ],
+  "content": [
+    {
+      "id": "in1020-2-7-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** dette er treningsbanken for de to andre sjangrene i seksjon 2. **Sjanger F — arkitektur-fakta og abstraksjonsnivå**: faktadelen har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**, rangeringsdelen i to av seks (33 %), men begge er blant de ferskeste settene. **Sjanger E — cache-beregning**: fire av seks årganger (67 %), og voksende.\n\n**Prioritet: faktadelen må sitte perfekt; cache og rangering skal du kunne.** Alt hører til **seksjon 2, maskinvare og arkitektur**, en av de fire seksjonene som hver må bestås for seg.\n\n**Svarformene du møter her**, skrevet ut i klarspråk:\n\n- **F1** — «velg ett *eller flere* alternativer»: flere kan være riktige samtidig.\n- **F2** — sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver.\n- **F3** — dra-og-slipp: koble eller sorter elementer. I boka skrevet som koblings- og sorteringsoppgaver.\n- **F4** — nedtrekksmeny: velg ett alternativ per delspørsmål.\n\n**Om bonuspoeng:** maskinvaredelen kan gi **bonuspoeng** for full pott på en oppgave, og **minus** per feil avkryssing. Det gjør sjekklisten over de fem faste usanne påstandene ekstra godt betalt her.\n\n**Slik bruker du kapitlet.** Fjorten oppgaver på eksamensnivå, omtrent 80 minutter samlet. Del gjerne over to økter — de er merket under. Ta tida: en sant/usant-rad skal avgjøres på under et halvt minutt, en cache-beregning på under to."
+    },
+    {
+      "id": "in1020-2-7-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDrillen bygger på [kap. 2.4](/bok/in1020/in1020-2-4), [kap. 2.5](/bok/in1020/in1020-2-5) og [kap. 2.6](/bok/in1020/in1020-2-6). Alt du trenger, står ferdig oppfrisket her — slå ikke opp underveis.\n\n**1. De fem faste usanne påstandene.** Alle fem er **usanne**:\n\n| Påstand | Sannheten |\n|---|---|\n| Teknologiutviklingen gir *færre* transistorer | Det blir flere, og de blir mindre |\n| Klokkesignalet er lagret i RAM | Det genereres av en krets, det lagres ikke |\n| Et register er bygd av RAM | Registre er egne, raske kretser i CPU-en |\n| ALU-en ligger utenfor CPU-en | Den er en av CPU-ens tre faste deler |\n| En 64-bits ALU krever 65 en-bits ALU-er | Det kreves 64 — én per bit |\n\n**2. Cache-formelen.** Et treff koster 1 klokkesykel; et bom koster det oppgaven oppgir.\n\n$$T = \\text{treff} \\cdot 1 + \\text{bom} \\cdot k \\qquad \\bar{t} = \\frac{T}{n}$$\n\nSnittet skal alltid ligge **mellom 1 og bom-kostnaden**.\n\n**3. Abstraksjonsstigen, høyest til lavest:** instruksjon, pipeline, register, logiske porter og invertere, transistor, logiske verdier, volt.\n\n**4. Hva som er inne i CPU-en:** ALU, kontrollenhet og alle registre. Hovedminnet, disken og inn- og utenhetene ligger utenfor."
+    },
+    {
+      "id": "in1020-2-7-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-2-7-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| `n` | Antall instruksjoner i kjøringen |\n| `r` | Bom-raten som desimaltall (20 % blir 0,20) |\n| `k` | Bom-kostnaden i klokkesykler |\n| `T` | Totalt antall klokkesykler |\n| Treff | Verdien lå i mellomlageret — koster 1 sykel |\n| Bom | Verdien måtte hentes fra hovedminnet — koster `k` sykler |\n| ALU | Regneenheten inne i CPU-en |\n| Fulladder | Krets som legger sammen to bit og en mente inn |\n| Abstraksjonsnivå | Ett lag i beskrivelsen, fra instruksjon (høyest) til volt (lavest) |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{bom} = n \\cdot r \\qquad \\text{treff} = n - n \\cdot r$$\n\nDelingen i to grupper. Kontroller alltid at de summerer til `n`.\n\n$$T = \\text{treff} \\cdot 1 + \\text{bom} \\cdot k$$\n\nDen vektede summen, i klokkesykler.\n\n$$\\bar{t} = \\frac{T}{n}$$\n\nGjennomsnitt per instruksjon. Skal ligge mellom 1 og `k`.\n\n$$S = A \\oplus B \\oplus C_{\\text{inn}} \\qquad C_{\\text{ut}} = A \\cdot B + C_{\\text{inn}} \\cdot (A \\oplus B)$$\n\nFulladderens to utganger: sum ved odde antall ettall, mente ut ved minst to."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-7-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger E og F",
+      "content": "**A. Arkitektur-fakta, svarform F2 (mål: under 30 sekunder per rad).**\n\n1. **Sjekk mot de fem faste usanne først.** Er rada en av dem eller en nær variant, er svaret usant, og du er ferdig.\n2. Er den ikke det: still ett av tre spørsmål — *hvor ligger det?* (inne i eller utenfor CPU-en), *hva gjør det?* (regner, styrer eller lagrer), *hva måler påstanden?* (per instruksjon eller per tidsenhet).\n3. **Les avgrensningen bokstavelig.** «Per instruksjon» og «per sekund» gir motsatt svar på samme tema.\n\n**B. Cache-beregning, svarform F4 (mål: under 2 minutter).**\n\n1. Les om oppgaven oppgir **treffrate** eller **bom-rate**. Skriv ned begge tallene.\n2. Regn ut de to gruppene, og **kontroller at de summerer til `n`**.\n3. Vekt hver gruppe: treff med 1 sykel, bom med `k` sykler. Summer.\n4. Regn gjennomsnittet hvis oppgaven ber om det, og **kontroller at det ligger mellom 1 og `k`**.\n5. Regn med enheter hele veien: «instruksjoner × sykler per instruksjon = sykler».\n\n**C. Abstraksjonsrangering, svarform F3 (mål: under ett minutt).**\n\n1. Skriv opp sjuerlisten i margen.\n2. **Noter hvilken retning oppgaven ber om** — høyest først eller lavest først.\n3. Plasser hvert gitte element i listen. Hopp over nivåer som ikke er med.\n4. Les av i den retningen oppgaven ba om.\n\n**Den ene fellesregelen:** hvert galt alternativ i denne seksjonen svarer til en bestemt feil — en fast usann påstand, en bestemt regnefeil, eller en snudd liste. Kan du hvilke, kan du kontrollere ditt eget svar mot dem."
+    },
+    {
+      "id": "in1020-2-7-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet case — cache med alle feiltallene forklart",
+      "problem": "Svarform F4. Et program utfører 3200 instruksjoner. Bom-raten er 25 %, og et bom koster 12 klokkesykler.\n\n**a)** Hvor mange klokkesykler tar kjøringen?\n\n**b)** Hva er gjennomsnittet per instruksjon?\n\nAlternativene til a): **A.** 12 000 · **B.** 9600 · **C.** 38 400 · **D.** 29 600",
+      "solution": "**Steg 1 — les ordlyden.** Det er **bom**-raten som er oppgitt: 25 % bom, altså 75 % treff.\n\n**Steg 2 — del i to grupper, og kontroller summen.**\n\n`bom = 0,25 · 3200 instruksjoner = 800 instruksjoner`\n\n`treff = 3200 − 800 = 2400 instruksjoner`\n\nKontroll: `2400 + 800 = 3200`. Stemmer.\n\n*Margnotat om uttelling: det er dette steget som gir poengene. Nesten alle feilsvarene i sjangeren oppstår før det er gjort.*\n\n**Steg 3 — vekt og summer, med enheter.**\n\n`treff: 2400 instruksjoner · 1 sykel/instruksjon = 2400 sykler`\n\n`bom: 800 instruksjoner · 12 sykler/instruksjon = 9600 sykler`\n\n`T = 2400 sykler + 9600 sykler = 12 000 sykler`\n\n**Svar a): A — 12 000 klokkesykler.**\n\n**Steg 4 — gjennomsnittet.**\n\n`12 000 sykler ÷ 3200 instruksjoner = 3,75 sykler per instruksjon`\n\n**Svar b): 3,75 sykler per instruksjon.**\n\nKontroll: 3,75 ligger mellom 1 og 12, og nærmere 1 enn 12 — som det skal når tre av fire oppslag er treff.\n\n**Hvert galt alternativ forklart:**\n\n**B — 9600.** Bommenes bidrag alene, `800 · 12`. Feilen er å glemme at treffene også koster én sykel hver. Dette er den farligste distraktoren, fordi tallet står midt i din egen utregning.\n\n**C — 38 400.** `3200 · 12`, altså regnet som om **alle** instruksjonene var bom. Bom-raten er ikke brukt i det hele tatt.\n\n**D — 29 600.** Ombyttingen: `800 · 1 + 2400 · 12 = 800 + 28 800 = 29 600`. Her er de 800 bommene talt som treff og de 2400 treffene som bom.\n\n*Margnotat om negativ poenggiving: alle tre feiltallene er av «rimelig» størrelsesorden. Det er derfor du ikke kan sjekke svaret ditt ved å se om det ser fornuftig ut — du må gjøre kontrollen med gjennomsnittet.*"
+    },
+    {
+      "id": "in1020-2-7-okt1",
+      "type": "text",
+      "content": "## Økt 1 — Arkitektur-fakta og cache (oppgave 1–8, ~45 min)\n\nFørste økt er de to store: sant/usant om maskinvare, og regningen. Ta tida på hver oppgave."
+    },
+    {
+      "id": "in1020-2-7-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger F — arkitektur-fakta, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | ALU-en ligger inne i CPU-en | |\n| b | Et register er bygd opp av RAM-celler | |\n| c | Hovedminnet ligger utenfor CPU-en | |\n| d | Klokkesignalet lagres i RAM mellom hver sykel | |",
+        "solution": "**a) Sann.** ALU-en er en av CPU-ens tre faste deler, sammen med kontrollenheten og registrene. Den motsatte påstanden står på sjekklisten over de fem faste usanne.\n\n**b) Usann.** Fast usann påstand nummer 3. Registre er egne, raske lagringskretser på prosessorbrikken. Var de bygd av RAM, ville de også hatt RAM-ens hastighet, og hele poenget med registre ville falt bort.\n\n**c) Sann.** RAM ligger på egne brikker og nås over adressebussen og databussen. Det er nettopp bussturen som gjør et RAM-oppslag mye dyrere enn et registeroppslag.\n\n**d) Usann.** Fast usann påstand nummer 2. Klokka er en oscillatorkrets som genererer pulser fortløpende; signalet er ikke en verdi som huskes noe sted.\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\nTo av fire kunne avgjøres direkte fra sjekklisten. Det er en typisk andel i denne oppgavetypen.",
+        "hints": [
+          "Gå gjennom de fem faste usanne påstandene før du vurderer radene.",
+          "For radene som ikke står på listen: spør hvor komponenten ligger — inne i eller utenfor CPU-en."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger E — cache-beregning.) Et program utfører 600 instruksjoner. Halvparten av oppslagene er bom, og et bom koster 8 klokkesykler. Hvor mange klokkesykler tar kjøringen, og hva er snittet per instruksjon?",
+        "solution": "**Del i to grupper.** 50 % gir `0,50 · 600 = 300` bom og `600 − 300 = 300` treff. Kontroll: `300 + 300 = 600`. Stemmer.\n\n**Vekt og summer.**\n\n`treff: 300 · 1 sykel = 300 sykler`\n\n`bom: 300 · 8 sykler = 2400 sykler`\n\n`T = 300 + 2400 = 2700 sykler`\n\n**Gjennomsnittet.**\n\n`2700 sykler ÷ 600 instruksjoner = 4,5 sykler per instruksjon`\n\n**Svar: 2700 klokkesykler, 4,5 sykler per instruksjon.**\n\nKontroll: 4,5 ligger mellom 1 og 8, omtrent midt mellom — som det skal når halvparten er bom.\n\nMerk at ved nøyaktig 50 % bom gir en ombytting av treff og bom samme svar. Det er den eneste raten der den fella ikke slår ut, og derfor er den sjelden i eksamensoppgaver.",
+        "hints": [
+          "Del de 600 instruksjonene i to like store grupper.",
+          "Husk at treffene koster én sykel hver."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — cache-beregning, svarform F4.) Et program utfører 7000 instruksjoner. Treffraten er 80 %, og et bom koster 15 klokkesykler.\n\n**a)** Hvor mange klokkesykler tar kjøringen?\n\n**b)** Hvor stor andel av syklene skyldes bom?",
+        "solution": "**Les ordlyden:** her er **treff**raten oppgitt. 80 % treff betyr 20 % bom.\n\n**a) Del i to grupper.**\n\n`treff = 0,80 · 7000 instruksjoner = 5600 instruksjoner`\n\n`bom = 7000 − 5600 = 1400 instruksjoner`\n\nKontroll: `5600 + 1400 = 7000`. Stemmer.\n\n**Vekt og summer.**\n\n`treff: 5600 · 1 sykel = 5600 sykler`\n\n`bom: 1400 · 15 sykler = 21 000 sykler`\n\n`T = 5600 + 21 000 = 26 600 sykler`\n\n**Svar a): 26 600 klokkesykler.**\n\n**b)** `21 000 ÷ 26 600 = 0,7894…`, altså **≈ 78,9 %** av syklene. (Tallet går ikke opp; oppgitt med én desimal.)\n\n**Svar b): omtrent 79 % av tida går med til bom, selv om bare 20 % av oppslagene er bom.**\n\n**Kontroll:** snittet er `26 600 ÷ 7000 = 3,8` sykler per instruksjon, som ligger mellom 1 og 15.\n\nDe tre feiltallene her: 21 000 (bommene alene), 105 000 (`7000 · 15`, alt som bom) og 85 400 (`1400 · 1 + 5600 · 15`, ombyttet).",
+        "hints": [
+          "Sjekk om oppgaven oppgir treffrate eller bom-rate før du regner.",
+          "Kontroller at de to gruppene summerer til 7000.",
+          "For b): del bommenes bidrag på totalen, og oppgi antall desimaler."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — arkitektur, svarform F1.) Kryss av **alle** påstandene som er sanne, og begrunn hvert av de fem.\n\n**a)** En 64-bits ALU bygges av 65 en-bits ALU-er.\n\n**b)** Kode og data ligger i samme minne i von Neumann-arkitekturen.\n\n**c)** Registre er raskere enn hovedminnet.\n\n**d)** Adressebussen bærer verdien som skal lagres i cellen.\n\n**e)** Pipeline øker antall instruksjoner som blir ferdige per sekund.",
+        "solution": "**a) Usann.** Fast usann påstand nummer 5. Det kreves 64 — én per bit. Menten er allerede en del av hver fulladder og krever ingen ekstra enhet.\n\n**b) Sann.** Det er selve definisjonen av arkitekturen, og grunnen til at en instruksjon kan behandles som et tall.\n\n**c) Sann.** Registeret ligger på prosessorbrikken og nås uten å gå over bussene. Rekkefølgen i hierarkiet er register, mellomlager, hovedminne, disk.\n\n**d) Usann.** Adressebussen bærer *hvor*; databussen bærer *hva*. Påstanden bytter om de to.\n\n**e) Sann.** Det er nettopp gjennomstrømningen pipeline øker. Den påstanden som ville vært usann, er «pipeline gjør hver enkelt instruksjon raskere» — les ordlyden nøye, for de to ligner.\n\n**Fasit: b, c og e.**\n\n**Om formen:** tre av fem er riktige. En kandidat som krysser av b og går videre, mister to tredjedeler av uttellingen uten å ha svart noe galt — og en som krysser av alt, trekkes for to.",
+        "hints": [
+          "Gå gjennom sjekklisten over de fem faste usanne påstandene først.",
+          "For d): hvilken buss sier *hvor*, og hvilken bærer *hva*?",
+          "For e): les nøyaktig hva rada måler — per instruksjon eller per sekund?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — cache-beregning, svarform F1.) Et program utfører 2400 instruksjoner. En tredjedel av oppslagene er bom, og et bom koster 9 klokkesykler. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fire.\n\n**a)** Kjøringen tar 8800 klokkesykler.\n\n**b)** Snittet er omtrent 3,67 sykler per instruksjon.\n\n**c)** Kjøringen tar 7200 klokkesykler.\n\n**d)** Bommene står for over 90 % av syklene.",
+        "solution": "**Regningen først.**\n\n`bom = (1/3) · 2400 instruksjoner = 800 instruksjoner`\n\n`treff = 2400 − 800 = 1600 instruksjoner`\n\n`treff: 1600 · 1 sykel = 1600 sykler`\n\n`bom: 800 · 9 sykler = 7200 sykler`\n\n`T = 1600 + 7200 = 8800 sykler`\n\n**a) Riktig.** 8800 sykler.\n\n**b) Riktig.** `8800 ÷ 2400 = 3,666…`, altså omtrent **3,67** sykler per instruksjon med to desimaler. Kontroll: ligger mellom 1 og 9.\n\n**c) Galt.** 7200 er bommenes bidrag alene. De 1600 syklene fra treffene mangler. Tallet står midt i utregningen din, og det er derfor det er tatt med som alternativ.\n\n**d) Galt.** Regn ut andelen: `7200 ÷ 8800 = 0,8181…`, altså omtrent **81,8 %**. Det er høyt, men det er ikke over 90 %. Distraktoren er bygd på at man kjenner igjen at «bommene dominerer» og krysser av uten å regne — og forskjellen mellom 81,8 % og 90 % avgjør rada.\n\n**Fasit: a og b.**\n\nMerk hvor lett det er å svare for raskt på en prosentpåstand. Regn den ut — det tar ti sekunder — i stedet for å anslå.",
+        "hints": [
+          "En tredjedel av 2400 er et helt tall — regn det ut først.",
+          "Kontroller at de to gruppene summerer til 2400.",
+          "For d): regn ut prosenten i stedet for å anslå den."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — komponentplassering, svarform F3.) Koble hver komponent (1–6) til riktig plassering (A–B). Hver plassering kan brukes flere ganger.\n\n**1.** Programtelleren · **2.** Hovedminnet · **3.** Kontrollenheten · **4.** Harddisken · **5.** ALU-en · **6.** Instruksjonsregisteret\n\n**A.** Inne i CPU-en · **B.** Utenfor CPU-en",
+        "solution": "**1 → A.** Programtelleren er et register, og alle registre ligger inne i CPU-en.\n\n**2 → B.** Hovedminnet ligger på egne brikker og nås over bussene.\n\n**3 → A.** Kontrollenheten er en av CPU-ens tre faste deler.\n\n**4 → B.** Harddisken er en lagringsenhet, og et diskoppslag er størrelsesordener tregere enn et RAM-oppslag.\n\n**5 → A.** ALU-en er den tredje av CPU-ens faste deler. Motsatt påstand er en av de fem faste usanne.\n\n**6 → A.** Instruksjonsregisteret er et register — det holder selve instruksjonen som utføres nå.\n\n**Fasit: 1→A, 2→B, 3→A, 4→B, 5→A, 6→A.**\n\nFire av seks havner inne i CPU-en. En koblingsoppgave krever ikke jevn fordeling mellom kategoriene, og å prøve å spre svarene «rettferdig» er en fast måte å miste poeng på.\n\n**Huskeregelen:** alt som er lite og raskt, er inne. Alt som er stort, er ute.",
+        "hints": [
+          "Del komponentene i to grupper: de som er små og raske, og de som er store.",
+          "Husk at alle registre — uansett navn — ligger inne i CPU-en."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — sammenligning.) En maskin kjører 9000 instruksjoner med bom-kostnad 25 klokkesykler. I dag er bom-raten 10 %.\n\n**a)** Hvor mange klokkesykler tar kjøringen i dag?\n\n**b)** Et nytt mellomlager ville gitt bom-rate 2 % med 10 000 instruksjoner og bom-kostnad 50 sykler i en annen maskin. Regn ut den kjøringen også, og sammenlign gjennomsnittene per instruksjon.",
+        "solution": "**a) Første maskin.**\n\n`bom = 0,10 · 9000 instruksjoner = 900 instruksjoner`\n\n`treff = 9000 − 900 = 8100 instruksjoner`\n\n`treff: 8100 · 1 sykel = 8100 sykler`\n\n`bom: 900 · 25 sykler = 22 500 sykler`\n\n`T₁ = 8100 + 22 500 = 30 600 sykler`\n\nGjennomsnitt: `30 600 ÷ 9000 = 3,4 sykler per instruksjon`\n\n**Svar a): 30 600 klokkesykler, snitt 3,4.**\n\n**b) Andre maskin.**\n\n`bom = 0,02 · 10 000 instruksjoner = 200 instruksjoner`\n\n`treff = 10 000 − 200 = 9800 instruksjoner`\n\n`treff: 9800 · 1 sykel = 9800 sykler`\n\n`bom: 200 · 50 sykler = 10 000 sykler`\n\n`T₂ = 9800 + 10 000 = 19 800 sykler`\n\nGjennomsnitt: `19 800 ÷ 10 000 = 1,98 sykler per instruksjon`\n\n**Sammenligningen:** den andre maskinen har **dobbelt så dyre bom** (50 mot 25 sykler), men bare en femdel så høy bom-rate (2 % mot 10 %). Snittet er 1,98 mot 3,4 sykler per instruksjon — altså klart bedre, til tross for den høyere bom-kostnaden.\n\n**Svar b): 19 800 klokkesykler, snitt 1,98. Den andre maskinen bruker færre sykler per instruksjon.**\n\n**Poenget:** bom-raten betyr mer enn bom-kostnaden når kostnaden allerede er høy. Begge snittene ligger mellom 1 og sin egen bom-kostnad, som kontrollen krever.",
+        "hints": [
+          "Regn de to maskinene helt ferdig hver for seg før du sammenligner.",
+          "Sammenlign snittene per instruksjon, ikke totalene — maskinene kjører ulikt antall instruksjoner.",
+          "Kontroller begge snittene mot sin egen bom-kostnad."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — feilanalyse.) Et program utfører 4500 instruksjoner. Bom-raten er 40 %, og et bom koster 6 klokkesykler.\n\n**a)** Regn ut totalt antall klokkesykler og snittet per instruksjon.\n\n**b)** Tre kandidater svarer 10 800, 27 000 og 18 000. Forklar nøyaktig hvilken regnefeil hver av dem har gjort.",
+        "solution": "**a) Regningen.**\n\n`bom = 0,40 · 4500 instruksjoner = 1800 instruksjoner`\n\n`treff = 4500 − 1800 = 2700 instruksjoner`\n\n`treff: 2700 · 1 sykel = 2700 sykler`\n\n`bom: 1800 · 6 sykler = 10 800 sykler`\n\n`T = 2700 + 10 800 = 13 500 sykler`\n\nGjennomsnitt: `13 500 ÷ 4500 = 3 sykler per instruksjon`\n\n**Svar a): 13 500 klokkesykler, 3,0 sykler per instruksjon.** Kontroll: 3 ligger mellom 1 og 6.\n\n**b) De tre feilene:**\n\n**10 800** er `1800 · 6`, altså bommenes bidrag alene. Feilen er å glemme at treffene koster én sykel hver — de 2700 syklene mangler. Dette tallet er den farligste distraktoren, fordi det står midt i den riktige utregningen.\n\n**27 000** er `4500 · 6`, altså regnet som om **alle** instruksjonene var bom. Bom-raten er ikke brukt i det hele tatt. Kontrollspørsmålet som avslører feilen: står raten noe sted i utregningen din?\n\n**18 000** er ombyttingen: `1800 · 1 + 2700 · 6 = 1800 + 16 200 = 18 000`. Her er de 1800 bommene talt som treff og de 2700 treffene som bom.\n\n**Kontrollen som ville avslørt alle tre:** regn ut snittet. `10 800 ÷ 4500 = 2,4`, `27 000 ÷ 4500 = 6,0` og `18 000 ÷ 4500 = 4,0`. Det midterste er nøyaktig lik bom-kostnaden, altså umulig med mindre alt er bom — der ryker den ene. De to andre ligger riktignok mellom 1 og 6, så snittkontrollen fanger ikke alt. Den sikre kontrollen er å skrive opp begge gruppene og sjekke at de summerer til 4500.",
+        "hints": [
+          "Regn ut oppgaven helt ferdig før du analyserer feilene.",
+          "For b): prøv å lage hvert av de tre tallene av 4500, 1800, 2700 og 6 med bare én operasjon.",
+          "Sjekk om noen av feiltallene ville blitt avslørt av kontrollen med gjennomsnittet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-okt2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Økt 2 — Abstraksjonsnivå og blandede sett (oppgave 9–14, ~35 min)\n\nAndre økt er rangeringen og de blandede oppgavene der alle tre temaene møtes i samme sett. Ta pause før du starter."
+    },
+    {
+      "id": "in1020-2-7-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger F — rangering, svarform F3.) Sorter disse fem fra **høyest** til **lavest** abstraksjonsnivå.\n\n**A.** Transistor · **B.** Pipeline · **C.** Volt · **D.** Instruksjonen `STA 04` · **E.** Register",
+        "solution": "**Steg 1 — noter retningen.** Oppgaven ber om **høyest først**.\n\n**Steg 2 — plasser hvert element i sjuerlisten.**\n\n- `STA 04` er en instruksjon → nivå 1\n- Pipeline → nivå 2\n- Register → nivå 3\n- Transistor → nivå 5\n- Volt → nivå 7\n\nPortnivået (4) og nivået for logiske verdier (6) er ikke med i settet, så de hoppes over.\n\n**Steg 3 — les av.**\n\n**Svar: D, B, E, A, C.** Altså `STA 04`, pipeline, register, transistor, volt.\n\n**Kontrollen:** les listen ovenfra og ned og spør «er dette bygd av eller organisert over det neste?». Instruksjonen organiseres av pipelinen, pipelinen bruker registrene, registeret er bygd av porter som er bygd av transistorer, og transistoren styrer en spenning. Stemmer hele veien.",
+        "hints": [
+          "Skriv opp den faste sjuerlisten i margen først.",
+          "Noter hvilken retning oppgaven ber om, før du sorterer.",
+          "Hopp over de nivåene som ikke er med i settet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — rangering, svarform F3.) Sorter disse seks fra **lavest** til **høyest** abstraksjonsnivå, og pek ut hvilke to som ofte forveksles.\n\n**A.** Logiske verdier · **B.** Instruksjonen `ADD 06` · **C.** Logisk port · **D.** Volt · **E.** Pipeline · **F.** Register",
+        "solution": "**Steg 1 — noter retningen.** Oppgaven ber om **lavest først**, altså motsatt av standardlisten.\n\n**Steg 2 — plasser hvert element.**\n\n- Volt → nivå 7\n- Logiske verdier → nivå 6\n- Logisk port → nivå 4\n- Register → nivå 3\n- Pipeline → nivå 2\n- `ADD 06` er en instruksjon → nivå 1\n\nTransistoren (nivå 5) er ikke med.\n\n**Steg 3 — les av med høyest nivånummer først.**\n\n**Svar: D, A, C, F, E, B.** Altså volt, logiske verdier, logisk port, register, pipeline, instruksjonen `ADD 06`.\n\n**De to som ofte forveksles:**\n\n**Volt og logiske verdier (D og A).** Volt plasseres gjerne øverst fordi «fysikken er grunnlaget» — men grunnlaget ligger nederst. Den logiske verdien er en tolkning av spenningen, og tolkningen ligger over det den tolker.\n\n**Register og pipeline (F og E).** Registeret føles mer håndfast og plasseres derfor gjerne høyest. Men pipeline organiserer instruksjonene og bruker registrene; det som bruker, ligger over.\n\nMerk at begge forvekslingsparene er nabopar i listen — det er alltid der feilene skjer.",
+        "hints": [
+          "Les to ganger om oppgaven ber om høyest eller lavest først.",
+          "Plasser alle seks i sjuerlisten før du snur rekkefølgen.",
+          "Se etter forvekslingsparene blant naboene i listen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — adderen.) Fyll ut fulladderens sannhetstabell for de tre radene under, og kontroller hver rad mot regnestykket `A + B + C_inn`.\n\n| A | B | `C_inn` | Sum | `C_ut` |\n|---|---|---|---|---|\n| 0 | 1 | 1 | | |\n| 1 | 0 | 1 | | |\n| 1 | 1 | 1 | | |",
+        "solution": "Formlene er `S = A ⊕ B ⊕ C_inn` og `C_ut = 1 når minst to av de tre er 1`.\n\n| A | B | `C_inn` | Sum | `C_ut` | Kontroll |\n|---|---|---|---|---|---|\n| 0 | 1 | 1 | 0 | 1 | `0+1+1 = 2`, og `2·1 + 0 = 2` |\n| 1 | 0 | 1 | 0 | 1 | `1+0+1 = 2`, og `2·1 + 0 = 2` |\n| 1 | 1 | 1 | 1 | 1 | `1+1+1 = 3`, og `2·1 + 1 = 3` |\n\n**Slik leses kontrollkolonnen:** svaret på addisjonen er `2·C_ut + Sum`. Det stemmer i alle tre radene.\n\n**Svar: rad 1 gir sum 0 og mente ut 1; rad 2 gir sum 0 og mente ut 1; rad 3 gir sum 1 og mente ut 1.**\n\nMerk at de to første radene er identiske i utfall selv om inngangene er ulike — det er fordi antallet ettall er det samme. Fulladderen bryr seg bare om **hvor mange** av de tre inngangene som er 1, ikke om hvilke.",
+        "hints": [
+          "Tell hvor mange av de tre inngangene som er 1, i hver rad.",
+          "Sum er 1 ved odde antall ettall; mente ut er 1 ved minst to.",
+          "Kontroller hver rad med `2·C_ut + Sum` mot den vanlige summen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E og F blandet, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Ved 60 % bom og bom-kostnad 10 sykler er snittet 6,4 sykler per instruksjon | |\n| b | Pipeline ligger på et lavere abstraksjonsnivå enn registeret | |\n| c | Mellomlageret styres av programmet med egne instruksjoner | |\n| d | En fulladder gir mente ut når minst to av de tre inngangene er 1 | |",
+        "solution": "**a) Sann.** Regn det ut: `0,40 · 1 + 0,60 · 10 = 0,4 + 6 = 6,4` sykler per instruksjon, uavhengig av programlengden. Kontroll med konkrete tall: 1500 instruksjoner gir `600 · 1 + 900 · 10 = 600 + 9000 = 9600` sykler, og `9600 ÷ 1500 = 6,4`. Stemmer. Snittet ligger mellom 1 og 10, nærmere 10 — som det skal når over halvparten er bom.\n\n**b) Usann.** Det er motsatt: pipeline er nivå 2 og registeret nivå 3, så pipeline ligger **høyere**. Pipelinen organiserer instruksjonene og bruker registrene, og det som bruker, ligger over.\n\n**c) Usann.** Mellomlageret styres av maskinvaren og er usynlig for programmereren. Det finnes ingen instruksjon som legger noe i cachen. Det programmereren kan påvirke, er hvordan programmet bruker minnet — altså om det utnytter lokalitet.\n\n**d) Sann.** Menten ut er `A·B + A·C_inn + B·C_inn`, som er nettopp «minst to av tre». Kontroll: raden `0,1,1` gir mente ut 1, og raden `1,0,0` gir 0.\n\n**Fasit: a sann, b usann, c usann, d sann.**\n\nMerk at rad a kunne besvares uten at antall instruksjoner var oppgitt. Gjennomsnittet per instruksjon avhenger bare av bom-raten og bom-kostnaden — en snarvei det er verdt å kunne.",
+        "hints": [
+          "For a): prøv å regne med rater i stedet for antall.",
+          "For b): hvilket av de to bruker det andre?",
+          "For d): tell hvor mange ettall som skal til for at menten går videre."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — arkitektur, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad. Merk at to av radene handler om samme tema med ulik ordlyd.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Pipeline gjør hver enkelt instruksjon raskere gjennom prosessoren | |\n| b | Pipeline gjør at flere instruksjoner blir ferdige per sekund | |\n| c | Høyere klokkefrekvens gir alltid en raskere maskin | |\n| d | Høyere klokkefrekvens gir kortere klokkesykel | |",
+        "solution": "**a) Usann.** Den enkelte instruksjonen går gjennom nøyaktig like mange trinn med pipeline som uten. Med tre trinn tar den tre sykler i begge tilfeller.\n\n**b) Sann.** Når båndet er fylt, blir én instruksjon ferdig per sykel i stedet for én per tre sykler. Seks instruksjoner tar 8 sykler med pipeline mot 18 uten.\n\n**c) Usann.** Ytelsen avhenger både av frekvensen og av hvor mange sykler hver oppgave krever. En maskin som bruker halvparten så mange sykler per instruksjon, vinner selv med lavere frekvens.\n\n**d) Sann.** Frekvensen er antall sykler per sekund, så høyere frekvens betyr kortere sykel. Ved 3 GHz varer hver sykel omtrent en tredjedels nanosekund.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\n**Poenget med oppgaven:** rad a og b handler om nøyaktig samme mekanisme, og svarene er motsatte. Det samme gjelder c og d. Det er ordlyden som avgjør, ikke temaet — og under negativ poenggiving er det å lese avgrensningen bokstavelig en egen ferdighet.\n\n**Arbeidsmåten:** stryk under hva rada faktisk måler. «Hver enkelt instruksjon» mot «per sekund». «Alltid raskere maskin» mot «kortere klokkesykel».",
+        "hints": [
+          "Les rad a og b ved siden av hverandre, og se hva som skiller dem.",
+          "For c): hvilke to størrelser er det som til sammen bestemmer ytelsen?",
+          "For d): hva er frekvens målt i, og hva følger av det for lengden på én periode?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-7-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E og F blandet, svarform F1.) En maskin kjører 1500 instruksjoner med bom-rate 60 % og bom-kostnad 10 klokkesykler. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Kjøringen tar 9600 klokkesykler.\n\n**b)** Snittet er 6,4 sykler per instruksjon.\n\n**c)** Kjøringen tar 9000 klokkesykler.\n\n**d)** Bommene står for under halvparten av syklene.\n\n**e)** Et bedre mellomlager som halverer bom-raten til 30 %, ville gitt 5550 sykler.",
+        "solution": "**Regningen først.**\n\n`bom = 0,60 · 1500 instruksjoner = 900 instruksjoner`\n\n`treff = 1500 − 900 = 600 instruksjoner`\n\n`treff: 600 · 1 sykel = 600 sykler`\n\n`bom: 900 · 10 sykler = 9000 sykler`\n\n`T = 600 + 9000 = 9600 sykler`\n\n**a) Riktig.** 9600 sykler.\n\n**b) Riktig.** `9600 ÷ 1500 = 6,4` sykler per instruksjon. Kontroll: ligger mellom 1 og 10, nærmere 10 — som det skal når over halvparten er bom.\n\n**c) Galt.** 9000 er bommenes bidrag alene. De 600 syklene fra treffene mangler.\n\n**d) Galt.** `9000 ÷ 9600 = 0,9375`, altså **93,75 %** av syklene — langt over halvparten. Påstanden snur forholdet helt.\n\n**e) Riktig.** Med 30 % bom: `bom = 0,30 · 1500 = 450` og `treff = 1050`. Da blir `T = 1050 · 1 + 450 · 10 = 1050 + 4500 = 5550` sykler. Stemmer.\n\n**Fasit: a, b og e.**\n\n**Legg merke til e):** bom-raten ble halvert, men tida falt fra 9600 til 5550 sykler — en nedgang på `(9600 − 5550) ÷ 9600 = 0,4218…`, altså omtrent 42,2 %, ikke 50 %. Treffene koster fortsatt, og de er nå flere.",
+        "hints": [
+          "Regn ut hele grunnoppgaven før du ser på alternativene.",
+          "For d): regn ut prosenten i stedet for å anslå den.",
+          "For e): regn scenariet helt på nytt — ikke prøv å halvere svaret fra a)."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-7-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **De fem faste usanne påstandene (felle #11).** Færre transistorer, klokke i RAM, register av RAM, ALU utenfor CPU, 65 enheter for 64 bit. Sjekk hver sant/usant-rad mot listen først — det avgjør ofte halvparten av radene på sekunder.\n\n2. **Å bytte om treff og bom.** «40 % bom» betyr 40 % bom og 60 % treff. Skriv opp begge gruppene og kontroller at de summerer til `n` før du ganger med noe.\n\n3. **Å glemme at treffene koster.** `bom · k` er den farligste distraktoren, fordi tallet står midt i din egen utregning. Fullfør summeringen før du ser på alternativene.\n\n4. **Å regne som om alle oppslag var bom.** `n · k` betyr at bom-raten ikke er brukt. Kontrollspørsmålet: står raten noe sted i utregningen din?\n\n5. **Å blande treffrate og bom-rate.** Oppgavene veksler bevisst mellom de to formuleringene. Les ordlyden, og skriv ned begge tallene.\n\n6. **Å snu abstraksjonsrangeringen.** Oppgaven kan be om høyest eller lavest først. Noter retningen ved siden av listen din før du sorterer.\n\n7. **Å plassere register over pipeline, eller volt over logiske verdier.** De to forvekslingsparene står alltid som naboer i listen, og nesten alle feil skjer der.\n\n8. **Å anslå en prosentpåstand i stedet for å regne den.** «Under halvparten» og «over 80 %» tar ti sekunder å avgjøre nøyaktig. Under negativ poenggiving er det godt betalt tid."
+    },
+    {
+      "id": "in1020-2-7-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-2-7-bank-1",
+      "type": "definition",
+      "title": "Sjekklisten for sant/usant om maskinvare",
+      "content": "Møter du en sant/usant-matrise om arkitektur, gå gjennom denne først:\n\n1. Færre transistorer? → **usant**\n2. Klokke lagret i RAM? → **usant**\n3. Register bygd av RAM? → **usant**\n4. ALU utenfor CPU? → **usant**\n5. 65 enheter for 64 bit? → **usant**\n\nDe radene som ikke står på listen, avgjøres med tre spørsmål: hvor ligger komponenten, hva gjør den, og hva måler påstanden?"
+    },
+    {
+      "id": "in1020-2-7-bank-2",
+      "type": "definition",
+      "title": "De tre feiltallene i cache-oppgaver",
+      "content": "For `n` instruksjoner, bom-rate `r` og bom-kostnad `k`:\n\n| Tall | Feilen |\n|---|---|\n| `n·r·k` | Glemt at treffene koster 1 sykel hver |\n| `n·k` | Regnet som om alt var bom — raten er ikke brukt |\n| `n·r·1 + n·(1−r)·k` | Byttet om treff og bom |\n\nAlle tre gir tall av rimelig størrelsesorden. Du kan derfor ikke sjekke svaret ved å se om det «ser fornuftig ut» — du må kontrollere gruppene og gjennomsnittet."
+    },
+    {
+      "id": "in1020-2-7-bank-3",
+      "type": "definition",
+      "title": "Snittet uten å kjenne n",
+      "content": "Gjennomsnittet per instruksjon avhenger bare av bom-raten og bom-kostnaden:\n\n$$\\bar{t} = (1 - r) \\cdot 1 + r \\cdot k$$\n\nVed 60 % bom og kostnad 10: `0,40 + 6 = 6,4` sykler per instruksjon, uansett programlengde.\n\nSnarveien er nyttig når oppgaven bare spør om snittet, og den er dessuten den raskeste kontrollen på en totalsum du allerede har regnet ut."
+    },
+    {
+      "id": "in1020-2-7-bank-4",
+      "type": "definition",
+      "title": "Kontrollen som fanger flest feil",
+      "content": "Skriv opp begge gruppene med navn og kontroller at de summerer til `n`:\n\n```text\ntreff: 2700\nbom:   1800\nsum:   4500  = n  ✓\n```\n\nDenne kontrollen fanger ombyttingsfeilen, som gjennomsnittkontrollen ikke alltid gjør — både 4,0 og 2,4 kan ligge pent mellom 1 og 6 uten å være riktige.\n\nTo kontroller er derfor bedre enn én: gruppene mot `n`, og snittet mot intervallet fra 1 til `k`."
+    },
+    {
+      "id": "in1020-2-7-bank-5",
+      "type": "definition",
+      "title": "Retningen i rangeringsoppgaven",
+      "content": "Oppgaven ber enten om «høyest til lavest» eller «lavest til høyest». Listen er den samme; retningen er ikke.\n\nEt helt snudd svar gir null poeng selv om innholdet er riktig, og det er den vanligste måten å tape en ellers sikker oppgave på.\n\nArbeidsmåten: skriv opp sjuerlisten i margen, noter retningen ved siden av, plasser elementene, og les av."
+    },
+    {
+      "id": "in1020-2-7-bank-6",
+      "type": "definition",
+      "title": "De to forvekslingsparene i stigen",
+      "content": "| Par | Riktig rekkefølge | Hvorfor man bommer |\n|---|---|---|\n| Pipeline og register | Pipeline over register | Registeret føles mer håndfast |\n| Logiske verdier og volt | Verdier over volt | Fysikken føles som «grunnlaget» |\n\nBegge er nabopar i listen, og nesten alle feil i sjangeren skjer i ett av dem. Resten av rekkefølgen følger byggeregelen og er intuitiv."
+    },
+    {
+      "id": "in1020-2-7-bank-7",
+      "type": "definition",
+      "title": "Ordlyd avgjør, ikke tema",
+      "content": "Samme tema gir ofte både en sann og en usann rad, avhengig av avgrensningen:\n\n| Påstand | Svar |\n|---|---|\n| Pipeline gjør hver instruksjon raskere | Usann |\n| Pipeline gjør at flere blir ferdige per sekund | Sann |\n| Høyere frekvens gir alltid raskere maskin | Usann |\n| Høyere frekvens gir kortere klokkesykel | Sann |\n\nStryk under hva rada faktisk måler — per instruksjon eller per tidsenhet — før du krysser av."
+    },
+    {
+      "id": "in1020-2-7-bank-8",
+      "type": "definition",
+      "title": "Bom-rate slår bom-kostnad",
+      "content": "En maskin med 2 % bom og kostnad 50 sykler har snitt `0,98 + 1,0 = 1,98` sykler per instruksjon.\n\nEn maskin med 10 % bom og kostnad 25 sykler har snitt `0,90 + 2,5 = 3,4`.\n\nDen første har dobbelt så dyre bom, men er likevel klart raskere per instruksjon. Når kostnaden allerede er høy, er det **antallet** bom som avgjør — og det er derfor prosessorer bruker så mye areal på mellomlagre."
+    },
+    {
+      "id": "in1020-2-7-bank-9",
+      "type": "definition",
+      "title": "Fulladderen i en drilloppgave",
+      "content": "Fulladderen bryr seg bare om **hvor mange** av de tre inngangene som er 1, ikke om hvilke:\n\n| Antall ettall inn | Sum | Mente ut |\n|---|---|---|\n| 0 | 0 | 0 |\n| 1 | 1 | 0 |\n| 2 | 0 | 1 |\n| 3 | 1 | 1 |\n\nKontrollen for hver rad: svaret på addisjonen er `2·C_ut + Sum`, og det skal være lik antall ettall inn."
+    },
+    {
+      "id": "in1020-2-7-bank-10",
+      "type": "definition",
+      "title": "Tidsbudsjettet i seksjon 2",
+      "content": "Retningsgivende tider når du har drillet ferdig: en sant/usant-rad under 30 sekunder, en cache-beregning under 2 minutter, en abstraksjonsrangering under 1 minutt.\n\nSeksjonen har omtrent 60 minutter til rådighet på eksamen, og med disse tidene rekker du å kontrollere svarene også.\n\nBlir du sittende lenger på en enkeltrad, er det nesten alltid fordi du ikke har skrevet ned sjekklisten eller sjuerlisten — de to tar femten sekunder hver og gjør resten mekanisk."
+    },
+    {
+      "id": "in1020-2-7-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter seksjon 2?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-2-7-rep-tekst",
+          "type": "text",
+          "content": "Ni korte. Svar før du ser på fasiten.\n\n1. Nevn de fem faste usanne påstandene.\n2. 3200 instruksjoner, 25 % bom, kostnad 12. Hvor mange sykler?\n3. Hva er snittet i oppgave 2?\n4. Hvilket feiltall får du hvis du glemmer treffenes sykler?\n5. Treffraten er 80 %. Hva er bom-raten?\n6. Skriv sjuerlisten fra høyest til lavest.\n7. Hva ligger høyest: pipeline eller register?\n8. Er «pipeline gjør hver instruksjon raskere» sant eller usant?\n9. Fulladder: hva er mente ut når to av tre innganger er 1?\n\n**Fasit.**\n\n1. Færre transistorer; klokke lagret i RAM; register bygd av RAM; ALU utenfor CPU; 65 enheter for 64 bit. Alle fem er usanne.\n2. `bom = 800`, `treff = 2400`. `2400·1 + 800·12 = 2400 + 9600 = 12 000` sykler.\n3. `12 000 ÷ 3200 = 3,75` sykler per instruksjon. Ligger mellom 1 og 12. Stemmer.\n4. `800 · 12 = 9600`. Tallet står midt i din egen utregning.\n5. 20 %. De to summerer alltid til 100 %.\n6. Instruksjon, pipeline, register, logiske porter og invertere, transistor, logiske verdier, volt.\n7. Pipeline. Den organiserer instruksjonene og bruker registrene.\n8. Usant. Pipeline øker gjennomstrømningen, ikke farten på den enkelte instruksjonen.\n9. 1. Mente ut går videre når minst to av de tre inngangene er 1.\n\nSjekk deg selv: ☐ gikk du gjennom de fem faste usanne før du vurderte radene? ☐ kontrollerte du at treff og bom summerte til n? ☐ tok du med treffenes ene sykel? ☐ noterte du retningen i rangeringsoppgaven? ☐ leste du ytelsespåstandene bokstavelig?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

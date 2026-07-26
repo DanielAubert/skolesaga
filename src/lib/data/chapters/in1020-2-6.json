@@ -1,0 +1,335 @@
+{
+  "id": "in1020-2-6",
+  "courseId": "in1020",
+  "chapterNumber": "2.6",
+  "title": "Abstraksjonsnivåer",
+  "description": "Stigen fra instruksjon ned til volt: de sju nivåene i rekkefølge, hvorfor rekkefølgen er som den er, og hvordan rangeringsoppgaven løses.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne rangere de sju abstraksjonsnivåene fra høyest til lavest uten oppslag",
+    "kunne begrunne hver plassering ut fra hvor nær nivået ligger fysikken",
+    "kunne plassere et nytt begrep på riktig nivå ved å spørre hva det er bygd av",
+    "kunne løse rangeringsoppgaven uten å snu rekkefølgen"
+  ],
+  "content": [
+    {
+      "id": "in1020-2-6-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** abstraksjonsnivåer hører til **sjanger F — arkitektur-fakta og abstraksjonsnivå**. Rangeringsoppgaven har egen oppgave i **to av seks årganger i arkivet (33 %)**, men begge er blant de **to ferskeste** representative settene. Den er altså **ny og voksende**, ikke sjelden.\n\n**Nivå 2 — prioritér den fordi den er ny og fast.** Den hører til **seksjon 2, maskinvare og arkitektur**, en av de fire seksjonene som hver må bestås for seg. Kapitlet er kort, og hele pensum er én rekkefølge på sju punkter. Det er den beste tid-mot-poeng-avveiningen i hele seksjonen.\n\n**Slik kommer den:** som **svarform F3** (dra-og-slipp: du plasserer elementer i riktig rekkefølge eller kategori — i boka skrevet som en sorterings- eller koblingsoppgave). Av og til som **F2** (sant/usant-matrise: én rad per påstand).\n\n**Den ene tingen som skiller bestått fra bom her:** å snu rangeringen. Oppgaven kan be om «høyest til lavest» eller «lavest til høyest», og listen er den samme — bare lest fra hver sin ende. Les oppgaveteksten to ganger før du begynner å plassere.\n\n**Tidsbruk:** 40 minutter."
+    },
+    {
+      "id": "in1020-2-6-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 2.1](/bok/in1020/in1020-2-1) og [kap. 2.4](/bok/in1020/in1020-2-4). Alle de sju nivåene er begreper du allerede har møtt — her skal du bare ordne dem. Her er de, ferdig oppfrisket:\n\n**1. Instruksjon.** Fra [kap. 1.4](/bok/in1020/in1020-1-4): `STA 04` betyr «lagre akkumulatorens verdi i celle 04». Det er en ordre til maskinen, skrevet i maskinens eget språk.\n\n**2. Pipeline.** Fra [kap. 2.4](/bok/in1020/in1020-2-4): å la trinnene i flere instruksjoner overlappe, slik at flere blir ferdige per tidsenhet.\n\n**3. Register.** Fra [kap. 2.4](/bok/in1020/in1020-2-4): et lite, raskt lager inne i CPU-en som holder ett tall.\n\n**4. Logiske porter og invertere.** Fra [kap. 2.1](/bok/in1020/in1020-2-1): AND, OR, XOR, NOT og de andre, hver med sin sannhetstabell.\n\n**5. Transistor.** Fra [kap. 2.4](/bok/in1020/in1020-2-4): den elektroniske bryteren som portene er bygd av.\n\n**6. Logiske verdier.** Fra [kap. 2.1](/bok/in1020/in1020-2-1): 0 og 1, altså «usant» og «sant».\n\n**7. Volt.** Fra [kap. 2.1](/bok/in1020/in1020-2-1): den fysiske spenningen i ledningen, som de logiske verdiene er en tolkning av."
+    },
+    {
+      "id": "in1020-2-6-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-2-6-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Abstraksjon | Å beskrive noe uten å ta med detaljene i det underliggende laget |\n| Abstraksjonsnivå | Ett bestemt lag i beskrivelsen, med sitt eget begrepsapparat |\n| Høyt nivå | Fjernt fra fysikken; nær måten mennesker beskriver oppgaven på |\n| Lavt nivå | Nær fysikken; nær elektronene og spenningene |\n| `STA 04` | En instruksjon — det høyeste nivået i denne stigen |\n| Volt | Spenningsnivået i ledningen — det laveste nivået i stigen |\n\n**Ordningen i dette delkapitlet — fra høyest til lavest:**\n\n```text\n1. instruksjon              (høyest)\n2. pipeline\n3. register\n4. logiske porter / invertere\n5. transistor\n6. logiske verdier\n7. volt                     (lavest)\n```\n\nDette er hele pensum i kapitlet, og rekkefølgen skal kunne gjengis begge veier. Det finnes ingen formel her — bare denne listen."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-6-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva abstraksjon er (~10 min)\n\nDu kjører bil uten å tenke på forbrenning. Du trår på gassen, og bilen akselererer. Gasspedalen er en **abstraksjon**: den lar deg styre motoren uten å kjenne den.\n\nUnder abstraksjonen finnes hele det virkelige laget — drivstoff, ventiler, sylindre. Det er ikke borte. Det er bare skjult bak et enklere grensesnitt.\n\nEn datamaskin er bygd av abstraksjoner i lag på lag. Skriver du `STA 04`, sier du «lagre dette tallet i celle 04». Du sier ingenting om registre, ingenting om porter, ingenting om spenninger — men alt det skjer.\n\nEksamensoppgaven er enkel i formen: her er en liste elementer, sorter dem etter abstraksjonsnivå. Det som gjør den verdt et eget kapittel, er at rekkefølgen ikke er helt intuitiv."
+    },
+    {
+      "id": "in1020-2-6-def-abstraksjon",
+      "type": "definition",
+      "title": "Abstraksjon",
+      "content": "Å beskrive noe **uten** å ta med detaljene i laget under.\n\nEn instruksjon som `STA 04` beskriver hva som skal skje, uten å si noe om hvilke porter som slår inn eller hvilke spenninger som endres.\n\nGevinsten er at hvert lag kan tenkes på for seg: den som skriver et program, trenger ikke kunne transistorfysikk, og den som konstruerer en transistor, trenger ikke kjenne programmet.\n\nDen faste feilslutningen: å tro at abstraksjon betyr at det underliggende laget ikke finnes eller ikke betyr noe. Det finnes, og det er derfor et program kan gå tregere enn ventet — for eksempel når mellomlageret bommer, slik du så i [kap. 2.5](/bok/in1020/in1020-2-5)."
+    },
+    {
+      "id": "in1020-2-6-def-nivaa",
+      "type": "definition",
+      "title": "Abstraksjonsnivå",
+      "content": "Ett bestemt lag i beskrivelsen av maskinen, med sitt eget sett begreper.\n\n**Høyt nivå** betyr fjernt fra fysikken og nær måten en oppgave beskrives på i ord. **Lavt nivå** betyr nær fysikken — nær ledninger, spenninger og elektroner.\n\nTesten for å plassere et nytt begrep: **spør hva det er bygd av.** Er svaret et annet begrep i listen, ligger begrepet du vurderer, over det.\n\n- Et register er bygd av porter → registeret ligger over portene.\n- En port er bygd av transistorer → porten ligger over transistoren.\n\nDen faste feilslutningen: å rangere etter hvor komplisert noe *virker*. Transistorfysikk er vanskelig, men transistoren er likevel et lavt nivå — den ligger nær det fysiske."
+    },
+    {
+      "id": "in1020-2-6-teo-ordningen",
+      "type": "theorem",
+      "title": "Abstraksjonsordningen — de sju nivåene",
+      "content": "Fra **høyest** (fjernest fra fysikken) til **lavest** (nærmest fysikken):\n\n| # | Nivå | Hva det handler om |\n|---|---|---|\n| 1 | **Instruksjon** | En ordre til maskinen, som `STA 04` |\n| 2 | **Pipeline** | Hvordan instruksjonene organiseres i overlappende trinn |\n| 3 | **Register** | Hvor tallene ligger mens de behandles |\n| 4 | **Logiske porter / invertere** | Byggeklossene registrene og regneverket er laget av |\n| 5 | **Transistor** | Den elektroniske bryteren porten er laget av |\n| 6 | **Logiske verdier** | Tolkningen av signalene som 0 og 1 |\n| 7 | **Volt** | Den fysiske spenningen i ledningen |\n\n**Begrunnelsen, lag for lag:**\n\n- **Instruksjonen ligger øverst** fordi den beskriver hva maskinen skal gjøre, uten å si noe om hvordan.\n- **Pipeline ligger under instruksjonen** fordi den handler om hvordan instruksjonene faktisk gjennomføres i maskinen — den er en implementasjonsdetalj under instruksjonsnivået.\n- **Registeret ligger under pipeline** fordi det er en konkret komponent som pipelinen flytter verdier mellom.\n- **Portene ligger under registeret** fordi registeret er bygd av dem.\n- **Transistoren ligger under porten** fordi porten er bygd av transistorer.\n- **Logiske verdier ligger under transistoren** fordi de er tolkningen av det signalet transistoren slipper gjennom.\n- **Volt ligger nederst** fordi det er den rene fysikken, uten noen tolkning i det hele tatt.\n\n**De to plasseringene som overrasker:**\n\n1. **Pipeline over register.** Mange plasserer registeret høyest av de to fordi det er «mer konkret» — men pipeline handler om organiseringen av instruksjoner, og det er et høyere lag enn de komponentene organiseringen bruker.\n2. **Logiske verdier over volt.** En logisk verdi er en **tolkning** av en spenning: «over denne terskelen kaller vi det 1». Tolkningen ligger alltid over det den tolker.\n\n**Én ting til:** listen skal kunne gjengis begge veier. Ber oppgaven om «lavest til høyest», er svaret volt, logiske verdier, transistor, porter, register, pipeline, instruksjon."
+    },
+    {
+      "id": "in1020-2-6-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Rangér fire elementer",
+      "problem": "Svarform F3, altså en sorteringsoppgave: sorter disse fire fra **høyest** til **lavest** abstraksjonsnivå.\n\n**A.** Transistor · **B.** `STA 04` · **C.** Volt · **D.** Register",
+      "solution": "**Steg 1 — les oppgaven en gang til.** Den ber om høyest **først**. Det er den ene tingen som avgjør om hele svaret blir riktig eller helt snudd.\n\n**Steg 2 — plasser hvert element i den faste listen.**\n\n- `STA 04` er en instruksjon → nivå 1.\n- Register → nivå 3.\n- Transistor → nivå 5.\n- Volt → nivå 7.\n\n**Steg 3 — sorter etter nivånummer, lavest nummer først.**\n\n**Svar: B, D, A, C.** Altså `STA 04`, register, transistor, volt.\n\n**Begrunnelse for hvert steg i rekkefølgen:** instruksjonen sier hva som skal skje uten å si hvordan; registeret er en komponent som brukes for å få det til; registeret er bygd av porter, som er bygd av transistorer; og transistoren styrer til slutt en spenning målt i volt.\n\n**Kontroll:** rekkefølgen skal alltid gå fra «hva skal gjøres» til «hvilken fysikk skjer». Ender du med volt øverst, har du snudd listen."
+    },
+    {
+      "id": "in1020-2-6-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — ordningen.) Skriv opp de sju abstraksjonsnivåene fra høyest til lavest, uten å slå opp.",
+        "solution": "**Svar, fra høyest til lavest:**\n\n1. Instruksjon\n2. Pipeline\n3. Register\n4. Logiske porter og invertere\n5. Transistor\n6. Logiske verdier\n7. Volt\n\nEn huskeregel som holder rekkefølgen på plass: begynn med **ordren** (instruksjon), gå videre til **hvordan ordrene organiseres** (pipeline), så til **hvor tallene ligger** (register), så til **hva det er bygd av** (porter, deretter transistor), og til slutt ned i **fysikken** (logiske verdier som tolkning, og volt som den rene spenningen).",
+        "hints": [
+          "Start med det som er lengst fra fysikken, og arbeid deg nedover.",
+          "Husk at pipeline står over register, og at logiske verdier står over volt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-6-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F — abstraksjonsnivå.) For hvert par: hvilket av de to ligger høyest?\n\n**a)** Transistor eller logisk port\n\n**b)** Volt eller logiske verdier\n\n**c)** Register eller pipeline\n\n**d)** Instruksjon eller register",
+        "solution": "**a)** **Logisk port.** Porten er bygd av transistorer, og det som er bygd av noe, ligger over det.\n\n**b)** **Logiske verdier.** Den logiske verdien er en tolkning av spenningen: «over terskelen kaller vi det 1». Tolkningen ligger alltid over det den tolker.\n\n**c)** **Pipeline.** Dette er den plasseringen flest bommer på. Pipeline handler om organiseringen av instruksjoner, og registeret er en komponent den organiseringen bruker.\n\n**d)** **Instruksjon.** Instruksjonen sier hva som skal skje; registeret er en av delene som brukes for å få det til.\n\n**Fasit: a) logisk port, b) logiske verdier, c) pipeline, d) instruksjon.**\n\nTesten som avgjør alle fire: **spør hva det ene er bygd av eller organiserer.** Er svaret det andre elementet, ligger det første høyest.",
+        "hints": [
+          "Bruk spørsmålet «hva er dette bygd av?» på hvert par.",
+          "For b): hva kommer først, spenningen eller navnet vi gir den?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-6-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hvorfor rekkefølgen er som den er (~12 min)\n\nDe fem første nivåene følger en enkel regel: **hvert lag er bygd av laget under.** Et register er bygd av porter, en port er bygd av transistorer.\n\nDe to nederste følger en annen regel: **tolkningen ligger over det som tolkes.** En logisk verdi er ikke bygd av volt — den er en *lesning* av en spenning.\n\nDet er verdt å ha begge reglene klare, for det er nettopp overgangen mellom dem som gjør de to nederste plasseringene uintuitive."
+    },
+    {
+      "id": "in1020-2-6-def-tolkning",
+      "type": "definition",
+      "title": "Tolkningsregelen: verdier over volt",
+      "content": "En logisk verdi er en **avtale om hvordan en spenning skal leses**: er spenningen over en gitt terskel, kaller vi det 1; er den under, kaller vi det 0.\n\nSpenningen finnes uten avtalen. Verdien gjør det ikke.\n\nDerfor ligger **logiske verdier over volt** i abstraksjonsstigen, selv om volt kan virke som det «større» og mer omfattende begrepet.\n\nDette er samme mønster som du så i [kap. 1.3](/bok/in1020/in1020-1-3): bitmønsteret `10101100` er 172 eller −84 avhengig av tolkningen, og tolkningen ligger over mønsteret.\n\nDen faste feilslutningen: å plassere volt over logiske verdier fordi «det fysiske er grunnlaget». Grunnlaget ligger nederst, ikke øverst."
+    },
+    {
+      "id": "in1020-2-6-def-pipelineniva",
+      "type": "definition",
+      "title": "Hvorfor pipeline ligger over register",
+      "content": "Pipeline handler om **hvordan instruksjoner organiseres i tid** — at trinnene i flere instruksjoner overlapper.\n\nRegisteret er en **komponent** som denne organiseringen flytter verdier gjennom.\n\nSpørsmålet «hva bruker hva?» avgjør: pipelinen bruker registrene, ikke motsatt. Det som bruker, ligger over det som brukes.\n\nDette er den plasseringen flest bommer på, fordi et register føles mer «håndfast» enn en organiseringsmåte — og håndfast forveksles lett med høyt nivå. Testen er ikke hvor konkret noe er, men hva som er bygd på hva."
+    },
+    {
+      "id": "in1020-2-6-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — rangering, svarform F3.) Sorter disse fem elementene fra **lavest** til **høyest** abstraksjonsnivå, og begrunn hver plassering.\n\n**A.** Logisk port · **B.** Pipeline · **C.** Logiske verdier · **D.** Instruksjonen `LDA 07` · **E.** Transistor",
+        "solution": "**Merk ordlyden:** oppgaven ber om **lavest først**. Det er motsatt av standardlisten, så svaret skal leses nedenfra og opp.\n\n**Steg 1 — plasser hvert element i den faste listen.**\n\n- Logiske verdier → nivå 6\n- Transistor → nivå 5\n- Logisk port → nivå 4\n- Pipeline → nivå 2\n- `LDA 07` er en instruksjon → nivå 1\n\n**Steg 2 — sorter med høyest nivånummer først, siden lavest abstraksjon skal komme først.**\n\n**Svar: C, E, A, B, D.** Altså logiske verdier, transistor, logisk port, pipeline, instruksjonen `LDA 07`.\n\n**Begrunnelsene:**\n\n- **Logiske verdier** er nederst av disse fem, fordi bare volt ligger under — og volt er ikke med i settet.\n- **Transistoren** ligger over den logiske verdien: den er en fysisk bryter som styres av signalet.\n- **Porten** er bygd av transistorer.\n- **Pipeline** er organiseringen av instruksjoner og ligger over alle komponentene.\n- **Instruksjonen** ligger øverst: den sier hva som skal skje, uten et ord om hvordan.\n\nMerk at register ikke er med i settet. En rangeringsoppgave bruker sjelden alle sju nivåene, og du må plassere de elementene som faktisk står der — ikke fylle inn de manglende.",
+        "hints": [
+          "Les to ganger om oppgaven ber om høyest eller lavest først.",
+          "Plasser hvert element i den faste sjuerlisten før du sorterer.",
+          "Hopp over de nivåene som ikke er med i settet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-6-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — abstraksjonsnivå, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Transistoren ligger på et lavere abstraksjonsnivå enn den logiske porten | |\n| b | Volt ligger på et høyere nivå enn logiske verdier | |\n| c | Pipeline ligger på et høyere nivå enn register | |\n| d | Instruksjonen ligger på det laveste nivået i stigen | |",
+        "solution": "**a) Sann.** Porten er bygd av transistorer, så transistoren ligger under. Nivå 5 mot nivå 4.\n\n**b) Usann.** Det er motsatt: volt er nivå 7, altså det laveste, og logiske verdier er nivå 6. En logisk verdi er en tolkning av en spenning, og tolkningen ligger over det den tolker.\n\n**c) Sann.** Pipeline er nivå 2, register er nivå 3. Pipelinen organiserer instruksjoner og bruker registrene; det som bruker, ligger over.\n\n**d) Usann.** Instruksjonen ligger **øverst**, på nivå 1. Påstanden snur hele stigen — og det er nettopp den fella oppgaven tester.\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\nMerk at de to usanne begge er snuoperasjoner: den ene snur ett par, den andre snur hele listen. Under negativ poenggiving lønner det seg å skrive opp sjuerlisten i margen med én gang og deretter lese av — det tar femten sekunder og avgjør alle radene.",
+        "hints": [
+          "Skriv opp den faste sjuerlisten før du vurderer noen rad.",
+          "For b) og d): sjekk om påstanden snur den rekkefølgen du nettopp skrev opp."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-6-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Å plassere et nytt begrep (~10 min)\n\nOppgaven kan ta med et element som ikke står i sjuerlisten. Da må du plassere det selv, og du har to spørsmål å bruke:\n\n1. **Hva er dette bygd av?** Er svaret et av nivåene i listen, ligger begrepet over det.\n2. **Hva bruker dette?** Er svaret et av nivåene, ligger begrepet også over det.\n\nBegge spørsmålene peker samme vei: det som hviler på noe annet, ligger høyest."
+    },
+    {
+      "id": "in1020-2-6-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensnivå — elementer utenfor sjuerlisten",
+      "problem": "Svarform F3. Sorter disse fem fra høyest til lavest abstraksjonsnivå, og begrunn de to som ikke står i sjuerlisten.\n\n**A.** Fulladder · **B.** Volt · **C.** ALU · **D.** Transistor · **E.** Instruksjonen `ADD 05`",
+      "solution": "**De tre som står i listen:** `ADD 05` er en instruksjon (nivå 1), transistor er nivå 5, volt er nivå 7.\n\n**De to som må plasseres:**\n\n**ALU.** Hva er den bygd av? Av fulladdere og annen portlogikk. Den ligger altså **over** fulladderen. Og hvor ligger den i forhold til registeret? En ALU er en større enhet bygd av de samme byggeklossene — den hører hjemme like under instruksjons- og pipelinelaget, altså på omtrent samme høyde som registeret.\n\n**Fulladder.** Hva er den bygd av? Av logiske porter — XOR, AND og OR, slik du så i [kap. 2.4](/bok/in1020/in1020-2-4). Den ligger altså **over** portnivået, og dermed også over transistoren.\n\n**Rangeringen blir:**\n\n1. `ADD 05` — instruksjon\n2. ALU — bygd av adderkretser\n3. Fulladder — bygd av porter\n4. Transistor — porten er bygd av den\n5. Volt — den rene fysikken\n\n**Svar: E, C, A, D, B.**\n\n**Metoden, oppsummert:** du trengte aldri å gjette. To spørsmål — «hva er det bygd av?» og «hva bruker det?» — plasserte begge de ukjente begrepene entydig.\n\n**Feil å unngå:** å plassere ALU nederst fordi den «er maskinvare». Alt i listen er maskinvare bortsett fra instruksjonen; det er ikke materialet som avgjør nivået, men hva som hviler på hva."
+    },
+    {
+      "id": "in1020-2-6-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — plassering.) Hvor i sjuerlisten hører hvert av disse hjemme, og hvorfor?\n\n**a)** En halvadder\n\n**b)** En NAND-port\n\n**c)** Programtelleren",
+        "solution": "**a)** **Halvadderen ligger over portnivået**, altså over nivå 4. Den er bygd av to porter: en XOR for summen og en AND for menten. Det som er bygd av porter, ligger over dem. Den ligger under registernivået, siden en halvadder er en byggekloss i regneverket, ikke et lager.\n\n**b)** **NAND-porten ligger på portnivået**, nivå 4. Den er en av de sju portene, og den er bygd av transistorer.\n\n**c)** **Programtelleren ligger på registernivået**, nivå 3. Den *er* et register — det som holder adressen til neste instruksjon.\n\n**Fasit: a) over portnivået, b) på portnivået, c) på registernivået.**\n\nMetoden var den samme i alle tre: spør hva begrepet er bygd av, og plasser det ett hakk over.",
+        "hints": [
+          "Spør «hva er dette bygd av?» for hvert av de tre.",
+          "For c): er programtelleren en egen slags komponent, eller er den et eksempel på en komponent du alt kjenner?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-6-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — rangering, svarform F3.) Sorter disse seks fra **høyest** til **lavest** abstraksjonsnivå. To av dem ligger på nivåer som ofte forveksles — pek ut hvilke, og begrunn.\n\n**A.** Logiske verdier · **B.** Register · **C.** Volt · **D.** Pipeline · **E.** Instruksjonen `BRZ 09` · **F.** Logisk port",
+        "solution": "**Steg 1 — plasser hvert element.**\n\n- `BRZ 09` er en instruksjon → nivå 1\n- Pipeline → nivå 2\n- Register → nivå 3\n- Logisk port → nivå 4\n- Logiske verdier → nivå 6\n- Volt → nivå 7\n\nTransistoren (nivå 5) er ikke med i settet, så vi hopper over den.\n\n**Steg 2 — sorter, høyest først.**\n\n**Svar: E, D, B, F, A, C.** Altså `BRZ 09`, pipeline, register, logisk port, logiske verdier, volt.\n\n**De to parene som ofte forveksles:**\n\n**1. Pipeline og register (D og B).** Registeret føles mer håndfast og plasseres derfor gjerne høyest. Men pipeline er organiseringen av instruksjoner, og registeret er en komponent organiseringen bruker. Det som bruker, ligger over.\n\n**2. Logiske verdier og volt (A og C).** Volt plasseres gjerne høyest fordi «fysikken er grunnlaget». Men grunnlaget ligger nederst: en logisk verdi er en tolkning av spenningen, og tolkningen ligger over det den tolker.\n\n**Kontrollen til slutt:** les listen din ovenfra og ned og spør for hvert steg «er dette bygd av eller tolket ut fra det neste?». Er svaret ja hele veien, er rekkefølgen riktig.",
+        "hints": [
+          "Skriv opp den faste sjuerlisten i margen først, og plasser elementene inn i den.",
+          "Hopp over de nivåene som ikke er representert i settet.",
+          "De to forvekslingsparene er begge nabopar i listen — se etter dem der."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-6-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — abstraksjon, svarform F1.) Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fire.\n\n**a)** En logisk verdi er en tolkning av en fysisk spenning.\n\n**b)** Abstraksjon betyr at det underliggende laget ikke påvirker ytelsen.\n\n**c)** Et register ligger på et høyere abstraksjonsnivå enn en logisk port.\n\n**d)** Rekkefølgen i stigen avgjøres av hvor komplisert hvert nivå er å forstå.",
+        "solution": "**a) Riktig.** Spenningen finnes uten avtalen; verdien gjør det ikke. «Over terskelen kaller vi det 1» er nettopp en tolkning, og derfor ligger logiske verdier over volt.\n\n**b) Galt.** Abstraksjon skjuler detaljene, men fjerner dem ikke. Et program som bommer i mellomlageret, går tregere selv om programmereren ikke ser mellomlageret i det hele tatt — regningen i [kap. 2.5](/bok/in1020/in1020-2-5) viste hvor mye det utgjør. Distraktoren er farlig fordi den beskriver et ideal som høres riktig ut.\n\n**c) Riktig.** Registeret er nivå 3, porten er nivå 4. Registeret er bygd av porter, og det som er bygd av noe, ligger over.\n\n**d) Galt.** Rekkefølgen følger to regler: hva som er bygd av hva, og hva som er tolkning av hva. Hvor vanskelig et nivå er å forstå, spiller ingen rolle — transistorfysikk er krevende, men transistoren er likevel et lavt nivå.\n\n**Fasit: a og c.**\n\nMerk at begge de gale påstandene handler om **hva abstraksjon er**, ikke om selve rekkefølgen. Det er en fast form: halvparten av radene tester listen, halvparten tester om du har forstått hvorfor listen ser slik ut.",
+        "hints": [
+          "For a) og c): sjekk mot den faste sjuerlisten.",
+          "For b): hva skjer med kjøretida når mellomlageret bommer, selv om programmereren ikke ser mellomlageret?",
+          "For d): hvilke to regler er det som faktisk bestemmer rekkefølgen?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-6-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å snu hele rangeringen.** Oppgaven kan be om «høyest først» eller «lavest først». Les to ganger. Et helt snudd svar gir null poeng selv om listen din er riktig.\n\n2. **Å plassere register over pipeline.** Registeret føles mer håndfast, men pipeline organiserer instruksjonene og bruker registrene. Det som bruker, ligger over.\n\n3. **Å plassere volt over logiske verdier.** Grunnlaget ligger nederst. Den logiske verdien er tolkningen, og tolkningen ligger alltid over det den tolker.\n\n4. **Å rangere etter hvor vanskelig noe er.** Transistorfysikk er krevende, men transistoren er et lavt nivå. Reglene er «hva er bygd av hva» og «hva er tolkning av hva» — ikke «hva er vanskelig».\n\n5. **Å fylle inn nivåer som ikke står i oppgaven.** Et sett med fem elementer skal sorteres som fem, ikke utvides til sju. Hopp over de nivåene som ikke er representert.\n\n6. **Å tro at abstraksjon gjør det underliggende laget likegyldig.** Det er skjult, ikke borte. Bom i mellomlageret koster tid uansett hvor høyt oppe du programmerer."
+    },
+    {
+      "id": "in1020-2-6-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-2-6-bank-1",
+      "type": "definition",
+      "title": "Sjuerlisten utenat",
+      "content": "Fra høyest til lavest:\n\n```text\n1. instruksjon\n2. pipeline\n3. register\n4. logiske porter / invertere\n5. transistor\n6. logiske verdier\n7. volt\n```\n\nDette er hele pensum i kapitlet. Skriv den opp i margen med én gang du ser en rangeringsoppgave — det tar femten sekunder og avgjør hele oppgaven.\n\nMotsatt vei: volt, logiske verdier, transistor, porter, register, pipeline, instruksjon."
+    },
+    {
+      "id": "in1020-2-6-bank-2",
+      "type": "definition",
+      "title": "Byggeregelen",
+      "content": "Er A bygd av B, ligger A **over** B i abstraksjonsstigen.\n\n- Registeret er bygd av porter → registeret over portene.\n- Porten er bygd av transistorer → porten over transistoren.\n- Fulladderen er bygd av porter → fulladderen over portene.\n\nDette er den første av de to reglene som bestemmer hele rekkefølgen, og den avgjør nivå 1 til 5."
+    },
+    {
+      "id": "in1020-2-6-bank-3",
+      "type": "definition",
+      "title": "Tolkningsregelen",
+      "content": "Er A en **tolkning** av B, ligger A **over** B.\n\nEn logisk verdi er en tolkning av en spenning: «over terskelen kaller vi det 1». Derfor ligger logiske verdier over volt.\n\nSamme mønster som i [kap. 1.3](/bok/in1020/in1020-1-3), der tallverdien 172 eller −84 er en tolkning av bitmønsteret `10101100` — og tolkningen ligger over mønsteret.\n\nDette er den andre av de to reglene, og den avgjør de to nederste nivåene."
+    },
+    {
+      "id": "in1020-2-6-bank-4",
+      "type": "definition",
+      "title": "Instruksjonsnivået",
+      "content": "Det høyeste nivået i stigen: en ordre til maskinen, som `STA 04` eller `BRZ 09`.\n\nInstruksjonen sier **hva** som skal skje, og ingenting om hvordan. Den nevner ikke porter, ikke transistorer, ikke spenninger.\n\nDet er nettopp derfor den ligger øverst: den er den beskrivelsen som er lengst fra fysikken."
+    },
+    {
+      "id": "in1020-2-6-bank-5",
+      "type": "definition",
+      "title": "Pipelinenivået",
+      "content": "Nivå 2: hvordan instruksjonene organiseres i tid, med overlappende trinn.\n\nPipeline er en **implementasjonsdetalj under instruksjonsnivået** — den forteller hvordan ordrene faktisk gjennomføres — men den ligger over alle komponentene den bruker.\n\nDette er den plasseringen flest bommer på, fordi en organiseringsmåte føles mindre «virkelig» enn et register."
+    },
+    {
+      "id": "in1020-2-6-bank-6",
+      "type": "definition",
+      "title": "Registernivået",
+      "content": "Nivå 3: de komponentene som holder tallene mens de behandles.\n\nProgramtelleren og instruksjonsregisteret hører hjemme her — de **er** registre.\n\nRegisteret er bygd av porter og ligger derfor over portnivået, men det brukes av pipelinen og ligger derfor under den."
+    },
+    {
+      "id": "in1020-2-6-bank-7",
+      "type": "definition",
+      "title": "Portnivået",
+      "content": "Nivå 4: AND, OR, XOR, NAND, NOR, XNOR og NOT — byggeklossene alt regneverk er laget av.\n\nPortene er bygd av transistorer og ligger derfor over transistornivået.\n\nSammensatte kretser som halvadder, fulladder og ALU er bygd **av** porter og ligger dermed over portnivået, men under registeret og pipelinen."
+    },
+    {
+      "id": "in1020-2-6-bank-8",
+      "type": "definition",
+      "title": "Transistornivået",
+      "content": "Nivå 5: den elektroniske bryteren som slipper strøm gjennom eller stenger, styrt av et tredje signal.\n\nTransistoren er den fysiske komponenten portene bygges av. En moderne prosessor inneholder titalls milliarder av dem.\n\nDen faste feilslutningen: å plassere transistoren høyt fordi transistorfysikk er vanskelig. Vanskelighetsgrad har ingenting med abstraksjonsnivå å gjøre."
+    },
+    {
+      "id": "in1020-2-6-bank-9",
+      "type": "definition",
+      "title": "Nivået for logiske verdier",
+      "content": "Nivå 6: 0 og 1, altså «usant» og «sant» — navnene vi gir spenningsnivåene.\n\nDe ligger **over** volt fordi de er en tolkning, og **under** transistoren fordi transistoren er den fysiske komponenten som styres av dem.\n\nAt de ligger så lavt, overrasker mange: 0 og 1 føles som noe abstrakt. Men de er bare ett skritt fra spenningen, og alt annet i maskinen er bygd oppå dem."
+    },
+    {
+      "id": "in1020-2-6-bank-10",
+      "type": "definition",
+      "title": "Voltnivået",
+      "content": "Nivå 7, det laveste: den fysiske spenningen i ledningen, uten noen tolkning.\n\nHer finnes ingen 0 og 1 — bare et måletall. Det er først når vi legger en terskel på det, at verdiene oppstår.\n\nVolt ligger nederst fordi grunnlaget alltid ligger nederst i en abstraksjonsstige. Å plassere det øverst fordi «fysikken kommer først», er å forveksle *grunnlag* med *toppnivå*."
+    },
+    {
+      "id": "in1020-2-6-bank-11",
+      "type": "definition",
+      "title": "Å plassere et ukjent begrep",
+      "content": "To spørsmål avgjør plasseringen av et begrep som ikke står i sjuerlisten:\n\n1. **Hva er dette bygd av?** Er svaret et nivå i listen, ligger begrepet over det.\n2. **Hva bruker dette?** Er svaret et nivå i listen, ligger begrepet over det.\n\nEksempler: en fulladder er bygd av porter → over nivå 4. En ALU er bygd av adderkretser → like under pipelinelaget. En kontrollenhet organiserer instruksjonstrinn → høyt, nær pipelinenivået."
+    },
+    {
+      "id": "in1020-2-6-bank-12",
+      "type": "definition",
+      "title": "Å ikke fylle inn manglende nivåer",
+      "content": "En rangeringsoppgave bruker sjelden alle sju nivåene. Har settet fem elementer, skal svaret ha fem — ikke sju.\n\nArbeidsmåten: plasser hvert gitte element i sjuerlisten, hopp over de nivåene som ikke er representert, og les av rekkefølgen.\n\nDen faste feilen er å legge til de manglende nivåene «for fullstendighetens skyld». Det er ikke det oppgaven ber om, og under negativ poenggiving koster hver ekstra plassering."
+    },
+    {
+      "id": "in1020-2-6-bank-13",
+      "type": "definition",
+      "title": "Retningen i oppgaveteksten",
+      "content": "Rangeringsoppgaver ber enten om «høyest til lavest» eller «lavest til høyest». Listen er den samme; retningen er ikke.\n\nEt helt snudd svar gir null poeng, selv om innholdet er riktig — og det er den vanligste måten å tape en ellers sikker oppgave på.\n\nRegelen: les oppgaveteksten to ganger, og skriv retningen ned ved siden av listen din før du begynner å sortere."
+    },
+    {
+      "id": "in1020-2-6-bank-14",
+      "type": "definition",
+      "title": "Abstraksjon skjuler, men fjerner ikke",
+      "content": "Et lavere lag påvirker fortsatt det som skjer, selv om det er skjult.\n\nEt program som hopper tilfeldig rundt i minnet, går tregere enn ett som leser i rekkefølge — og programmereren ser aldri mellomlageret som forklarer det. Regningen i [kap. 2.5](/bok/in1020/in1020-2-5) viser hvor mye det utgjør.\n\nPåstanden «abstraksjon betyr at det underliggende laget ikke påvirker ytelsen» er derfor **usann**, selv om den beskriver et ideal som høres riktig ut."
+    },
+    {
+      "id": "in1020-2-6-bank-15",
+      "type": "definition",
+      "title": "Vanskelighetsgrad er ikke abstraksjonsnivå",
+      "content": "Hvor krevende et nivå er å forstå, sier ingenting om hvor det ligger i stigen.\n\nTransistorfysikk er blant det vanskeligste i faget, og transistoren ligger likevel på nivå 5 av 7. Instruksjonen `STA 04` er det letteste å forstå, og den ligger øverst.\n\nDe to reglene som faktisk bestemmer rekkefølgen, er byggeregelen og tolkningsregelen. Ingen annen intuisjon skal brukes."
+    },
+    {
+      "id": "in1020-2-6-bank-16",
+      "type": "definition",
+      "title": "De to forvekslingsparene",
+      "content": "Nesten alle feil i sjangeren skjer i ett av disse to nabo-parene:\n\n| Par | Riktig rekkefølge | Hvorfor man bommer |\n|---|---|---|\n| Pipeline og register | Pipeline over register | Registeret føles mer håndfast |\n| Logiske verdier og volt | Verdier over volt | Fysikken føles som «grunnlaget», altså toppen |\n\nKan du disse to parene, kan du i praksis hele oppgavetypen — resten av listen følger byggeregelen og er intuitiv."
+    },
+    {
+      "id": "in1020-2-6-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter stigen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-2-6-rep-tekst",
+          "type": "text",
+          "content": "Sju korte. Svar før du ser på fasiten.\n\n1. Skriv sjuerlisten fra høyest til lavest.\n2. Hva ligger høyest: register eller pipeline?\n3. Hva ligger høyest: volt eller logiske verdier?\n4. Hvilke to regler bestemmer rekkefølgen?\n5. Hvor hører en fulladder hjemme?\n6. Hvor hører programtelleren hjemme?\n7. Settet har fem elementer. Hvor mange skal svaret ditt ha?\n\n**Fasit.**\n\n1. Instruksjon, pipeline, register, logiske porter og invertere, transistor, logiske verdier, volt.\n2. Pipeline. Den organiserer instruksjoner og bruker registrene.\n3. Logiske verdier. Verdien er en tolkning av spenningen, og tolkningen ligger over.\n4. Byggeregelen (er A bygd av B, ligger A over B) og tolkningsregelen (er A en tolkning av B, ligger A over B).\n5. Over portnivået — den er bygd av XOR-, AND- og OR-porter.\n6. På registernivået. Den **er** et register.\n7. Fem. Ikke fyll inn de manglende nivåene.\n\nSjekk deg selv: ☐ leste du om oppgaven ba om høyest eller lavest først? ☐ satte du pipeline over register? ☐ satte du logiske verdier over volt? ☐ lot du de nivåene som ikke var med i settet, være ute?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

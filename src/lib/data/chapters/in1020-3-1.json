@@ -1,0 +1,452 @@
+{
+  "id": "in1020-3-1",
+  "courseId": "in1020",
+  "chapterNumber": "3.1",
+  "title": "Sikkerhetsmål og sikkerhetstiltak",
+  "description": "De sju sikkerhetsmålene, de vanlige tiltakene, og skillet mellom dem — hva vi vil oppnå kontra hvordan vi oppnår det. Fagets hyppigst påpekte forveksling.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne navngi de sju sikkerhetsmålene og forklare hva hvert av dem beskytter",
+    "kunne avgjøre om et gitt element er et mål eller et tiltak",
+    "kunne koble et tiltak til det målet det først og fremst tjener",
+    "kunne begrunne hvorfor en sjekksum gir integritet og ikke konfidensialitet"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** skillet mellom mål og tiltak hører til **sjanger G — sikkerhetsmål, sikkerhetstiltak og trusselmodellering**. Det har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Dette er første kapittel i **seksjon 3, datasikkerhet**, som er en av de fire seksjonene som hver må bestås for seg. Seksjonen er den mest begrepstunge i faget, og dette skillet er det som oftest presiseres i rettingen.\n\n**Slik kommer den:** oftest som **svarform F3** (dra-og-slipp: du plasserer hvert element i riktig kategori — i boka skrevet som en koblingsoppgave), og som **F1** («velg ett *eller flere* alternativer» — flere kan være riktige samtidig).\n\n**Den ene tingen som skiller bestått fra bom her:** å krysse av et *tiltak* der oppgaven spør etter et *mål*. Det er **felle #1 i registeret — å blande sikkerhetsmål og sikkerhetstiltak** — og den er den hyppigst påpekte feilen i hele faget. Brannmur er ikke et mål. Kryptering er ikke et mål. De er verktøy, og målet er det de skal oppnå.\n\n**En felle til, som hører hjemme her:** å krysse av hash eller sjekksum for konfidensialitet. Det er **felle #9**, og svaret er integritet.\n\n**Tidsbruk:** 45 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-3-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet kan leses uten forkunnskaper fra resten av boka. Det er første kapittel i seksjon 3, og alt apparatet bygges opp her.\n\nTo ord du møter med én gang, ferdig forklart:\n\n**1. Data.** Alt maskinen lagrer og sender — filer, meldinger, passord, journaler. Du har sett i [kap. 1.3](/bok/in1020/in1020-1-3) at data i bunn og grunn er bitmønstre, og at det er tolkningen som gir dem mening. I dette kapitlet er det innholdet som betyr noe, ikke bitene.\n\n**2. Trussel.** Noe eller noen som kan påføre skade — en angriper, en feil, et strømbrudd, en uheldig ansatt. Trusler behandles for seg i neste kapittel; her trenger du bare ordet.\n\nEn roligere gjennomgang av sikkerhetstiltak i praksis, med flere hverdagseksempler, ligger i [Informasjonssikkerhet og tiltak](/bok/im-vg1/im-vg1-6-4)."
+    },
+    {
+      "id": "in1020-3-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-3-1-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n**De sju målene:**\n\n| Mål | Ett spørsmål som fanger det |\n|---|---|\n| Konfidensialitet | Kan uvedkommende **lese** det? |\n| Integritet | Er innholdet **uendret** og korrekt? |\n| Tilgjengelighet | Får de rette **tak i** det når de trenger det? |\n| Sporbarhet | Kan vi i ettertid se **hvem gjorde hva**? |\n| Uavviselighet | Kan avsenderen **nekte** for å ha gjort det? |\n| Autentisitet | Er det **virkelig** den vi tror? |\n| Personvern | Behandles **personopplysninger** lovlig og rimelig? |\n\n**De vanlige tiltakene:** brannmur · kryptering · sikkerhetskopiering · tofaktor-autentisering · tilgangskontroll · antivirus · sikkerhetsoppdatering · sikkerhetsøvelse · hashing av passord.\n\n**Koblingstabellen tiltak → mål:**\n\n| Tiltak | Målet det først og fremst tjener |\n|---|---|\n| Diskkryptering, HTTPS, tofaktor, tilgangskontroll | **Konfidensialitet** |\n| Sjekksum, hash, digital signatur | **Integritet** |\n| Sikkerhetskopi, redundans, brannmur mot tjenestenekt | **Tilgjengelighet** |\n| Logging | **Sporbarhet** |\n\n**Forkortelsen du møter:** **CIA** står for *confidentiality, integrity, availability* — altså konfidensialitet, integritet og tilgjengelighet, de tre eldste og mest siterte målene. Denne boka skriver dem alltid ut på norsk.\n\n**Testen som avgjør mål mot tiltak:** spør «er dette noe man **kjøper, installerer eller gjennomfører**?» Er svaret ja, er det et **tiltak**. Spør «er dette en **egenskap man ønsker at systemet skal ha**?» Er svaret ja, er det et **mål**."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva vi vil oppnå (~13 min)\n\nEn legejournal skal ikke leses av naboen. Den skal heller ikke inneholde feil blodtype. Og den skal være tilgjengelig klokka tre om natta når det haster.\n\nDet er tre helt ulike krav, og de kan svikte hver for seg. Journalen kan være riktig og tilgjengelig, men lest av feil folk. Den kan være hemmelig og tilgjengelig, men endret. Den kan være hemmelig og riktig, men utilgjengelig fordi serveren er nede.\n\nDette er **sikkerhetsmålene**: de egenskapene vi vil at systemet skal ha. De sier ingenting om hvordan vi får dem til — bare hva vi er ute etter.\n\nDet finnes sju av dem i dette faget, og du skal kunne alle."
+    },
+    {
+      "id": "in1020-3-1-def-maal",
+      "type": "definition",
+      "title": "Sikkerhetsmål",
+      "content": "En **egenskap vi ønsker at systemet skal ha** — noe som kan være oppfylt eller brutt, men som ikke i seg selv er en mekanisme.\n\n«Innholdet skal ikke kunne leses av uvedkommende» er et mål. «Vi bruker kryptering» er ikke et mål — det er måten vi prøver å nå målet på.\n\nTesten: et mål er en **tilstand**, ikke en **handling**. Du kan ikke installere konfidensialitet; du kan bare gjøre tiltak som gir den.\n\nDen faste feilslutningen: å krysse av brannmur, kryptering eller sikkerhetskopiering som «mål». Alle tre er tiltak, og det er felle #1 i registeret — den hyppigst påpekte feilen i faget."
+    },
+    {
+      "id": "in1020-3-1-def-konfidensialitet",
+      "type": "definition",
+      "title": "Konfidensialitet",
+      "content": "At informasjon **ikke er tilgjengelig for uvedkommende** — bare de som skal ha tilgang, kan lese den.\n\nBrytes når noen leser noe de ikke skal: en tastelogger fanger passordet, en usikret database blir lastet ned, en e-post går til feil mottaker.\n\nTypiske tiltak som tjener målet: diskkryptering, HTTPS, tilgangskontroll, tofaktor-autentisering.\n\nDen faste feilslutningen: å tro at en sjekksum eller en hash gir konfidensialitet. De gir **integritet** — de avslører endringer, men skjuler ingenting. Det er felle #9."
+    },
+    {
+      "id": "in1020-3-1-def-integritet",
+      "type": "definition",
+      "title": "Integritet",
+      "content": "At informasjon er **uendret og korrekt** — ingen har endret den underveis eller i lagret tilstand, verken med vilje eller ved uhell.\n\nBrytes når innhold endres: en overføring blir forvansket, en angriper endrer et beløp i en betaling, en nettside blir byttet ut med en forfalskning.\n\nTypiske tiltak: sjekksum, hash-verdi, digital signatur, versjonskontroll.\n\nDen faste feilslutningen: å blande integritet med konfidensialitet. En melding kan være fullt lesbar for alle og likevel ha perfekt integritet — poenget er ikke at ingen ser den, men at ingen har endret den."
+    },
+    {
+      "id": "in1020-3-1-def-tilgjengelighet",
+      "type": "definition",
+      "title": "Tilgjengelighet",
+      "content": "At de som har rett til informasjonen eller tjenesten, **får tak i den når de trenger den**.\n\nBrytes av tjenestenektangrep, av løsepengevirus som låser filene, av manglende sikkerhetskopi når en disk ryker, og av rene strømbrudd.\n\nTypiske tiltak: sikkerhetskopiering, redundans (flere maskiner som kan overta), brannmur som stopper flomangrep, avtaler om reservestrøm.\n\nDen faste feilslutningen: å glemme at tilgjengelighet er et **sikkerhets**mål. Et system som er perfekt hemmelig og perfekt korrekt, men nede, har et sikkerhetsproblem."
+    },
+    {
+      "id": "in1020-3-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Tre brudd på samme journal",
+      "problem": "En sykehusjournal rammes av tre ulike hendelser. Hvilket mål brytes i hvert tilfelle?\n\n**a)** En ansatt uten tjenstlig behov åpner journalen og leser den.\n\n**b)** Et program skriver feil blodtype inn i journalen.\n\n**c)** Et tjenestenektangrep gjør journalsystemet utilgjengelig i seks timer.",
+      "solution": "**a) Konfidensialitet.** Noen som ikke skulle ha tilgang, har lest innholdet. Merk at ingenting er endret, og systemet virker som det skal — det er bare feil person som har sett det.\n\n**b) Integritet.** Innholdet er ikke lenger korrekt. Legg merke til at bruddet skjedde uten at noen angrep systemet: integritet kan brytes ved rene feil, ikke bare av ondsinnede handlinger.\n\n**c) Tilgjengelighet.** Informasjonen er hverken lest av feil folk eller endret — den er bare ikke å få tak i når den trengs. I et sykehus kan nettopp det være det farligste av de tre.\n\n**Svar: a) konfidensialitet, b) integritet, c) tilgjengelighet.**\n\n**Poenget:** de tre målene er **uavhengige**. Et system kan oppfylle to av dem og svikte på det tredje, og alle tre kombinasjonene finnes i virkeligheten.\n\n**Feil å unngå:** å svare «datasikkerhet» eller «personvern» på alle tre. Oppgavene i denne sjangeren krever at du navngir det bestemte målet, og en distraktor er ofte et annet mål som «også kunne passet litt»."
+    },
+    {
+      "id": "in1020-3-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — de tre første målene.) Nevn de tre målene som ofte forkortes CIA, og skriv ett spørsmål som fanger hvert av dem.",
+        "solution": "**Konfidensialitet** — «kan uvedkommende lese det?»\n\n**Integritet** — «er innholdet uendret og korrekt?»\n\n**Tilgjengelighet** — «får de rette tak i det når de trenger det?»\n\n**Svar: konfidensialitet, integritet og tilgjengelighet.**\n\nForkortelsen kommer av de engelske ordene *confidentiality*, *integrity* og *availability*. Denne boka skriver dem alltid ut på norsk, fordi eksamensoppgavene gjør det — men du bør kjenne forkortelsen så du ikke stusser når den dukker opp i en lærebok.\n\nDe fire andre målene i dette faget er sporbarhet, uavviselighet, autentisitet og personvern.",
+        "hints": [
+          "Tenk på tre måter en legejournal kan svikte på.",
+          "Ett av spørsmålene handler om lesing, ett om endring, ett om å få tak i noe."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger G — mål.) Hvilket mål brytes i hvert tilfelle?\n\n**a)** Et løsepengevirus krypterer alle filene på en skole, og skolen har ingen sikkerhetskopi.\n\n**b)** En angriper endrer kontonummeret i en faktura før den sendes.\n\n**c)** En bærbar maskin uten diskkryptering blir stjålet, og innholdet leses.",
+        "solution": "**a) Tilgjengelighet.** Filene finnes fortsatt, men skolen får ikke tak i dem. Merk at angrepet bruker kryptering som våpen — det samme verktøyet som ellers er et tiltak for konfidensialitet.\n\n**b) Integritet.** Innholdet er endret. Fakturaen er fortsatt lesbar og tilgjengelig, men den er ikke lenger korrekt.\n\n**c) Konfidensialitet.** Innholdet er lest av noen som ikke skulle hatt tilgang. Hadde disken vært kryptert, ville tyven hatt maskinen, men ikke innholdet.\n\n**Fasit: a) tilgjengelighet, b) integritet, c) konfidensialitet.**\n\nLegg merke til at ingen av de tre svarene er «det samme målet» — oppgavene i sjangeren fordeler seg som regel over flere mål, og en fasit der alt er konfidensialitet er sjelden.",
+        "hints": [
+          "Spør for hvert tilfelle: er noe blitt lest, endret eller utilgjengelig?",
+          "Se på hva som faktisk gikk tapt, ikke på hvilket verktøy angriperen brukte."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De fire andre målene (~10 min)\n\nDe tre første målene dekker det meste, men de holder ikke alene.\n\nTenk på en nettbankoverføring. Den skal være hemmelig, uendret og tilgjengelig — men i tillegg skal banken kunne bevise **hvem** som ba om overføringen, og du skal ikke kunne nekte for at du gjorde det etterpå.\n\nDet er fire mål til, og alle fire er pensum."
+    },
+    {
+      "id": "in1020-3-1-def-sporbarhet",
+      "type": "definition",
+      "title": "Sporbarhet",
+      "content": "At det i ettertid går an å se **hvem som gjorde hva, og når**.\n\nOppnås med logging: systemet skriver ned hvilken bruker som åpnet hvilken journal på hvilket tidspunkt.\n\nSporbarhet er grunnen til at snoking i journaler kan oppdages i det hele tatt. Uten logg finnes det ingen forskjell mellom «ingen har lest den» og «vi vet ikke hvem som har lest den».\n\nDen faste feilslutningen: å tro at sporbarhet **hindrer** noe. Den hindrer ingenting i øyeblikket; den gjør det mulig å finne ut av det etterpå — og virker derfor mest forebyggende."
+    },
+    {
+      "id": "in1020-3-1-def-uavviselighet",
+      "type": "definition",
+      "title": "Uavviselighet",
+      "content": "At den som har gjort noe, **ikke i ettertid kan nekte for å ha gjort det**.\n\nEt eksempel: har du signert en avtale digitalt, skal du ikke kunne hevde at det var noen andre. Har en bank mottatt en betalingsordre med gyldig signatur, skal ordren stå seg.\n\nMålet oppnås først og fremst med **digital signatur**, som behandles grundig senere i denne delen. Der er nøkkelretningen selve poenget.\n\nDen faste feilslutningen: å blande uavviselighet med autentisitet. Autentisitet svarer på «er det virkelig deg?» *nå*. Uavviselighet svarer på «kan du nekte for det?» *etterpå*. De henger sammen, men de er to mål."
+    },
+    {
+      "id": "in1020-3-1-def-autentisitet",
+      "type": "definition",
+      "title": "Autentisitet",
+      "content": "At noe eller noen **virkelig er den de utgir seg for å være**.\n\nBrytes når en forfalsket nettside utgir seg for å være banken din, når en e-post ser ut til å komme fra sjefen din, eller når noen bruker identiteten din til å logge inn.\n\nTypiske tiltak: digitale sertifikater, tofaktor-autentisering, digital signatur.\n\nMerk at et brudd på autentisitet ofte også bryter **integritet**: en forfalsket nettside er både «ikke den den utgir seg for» og «ikke innholdet den skal ha». Oppgavene i sjangeren er ofte «velg ett *eller flere*» nettopp derfor, og da skal begge målene krysses av."
+    },
+    {
+      "id": "in1020-3-1-def-personvern",
+      "type": "definition",
+      "title": "Personvern",
+      "content": "At **personopplysninger** behandles lovlig, rimelig og åpent — og bare i det omfanget som er nødvendig.\n\nPersonvern skiller seg fra de andre målene ved at det er **rettslig** forankret: det er ikke bare noe vi ønsker, men noe loven krever. Reglene behandles sist i denne delen.\n\nEt system kan være perfekt konfidensielt og likevel bryte personvernet — for eksempel ved å samle inn langt mer enn det trenger, selv om alt lagres trygt.\n\nDen faste feilslutningen: å bruke «personvern» som et samlebegrep for all datasikkerhet. Det er ett av sju mål, og det handler spesifikt om opplysninger om personer."
+    },
+    {
+      "id": "in1020-3-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — mål, svarform F1.) En angriper setter opp en falsk innloggingsside som ser ut som bankens, og fanger opp brukernavn og passord. Kryss av **alle** målene som brytes, og begrunn hvert av de fire.\n\n**a)** Tilgjengelighet\n\n**b)** Konfidensialitet\n\n**c)** Autentisitet\n\n**d)** Sporbarhet",
+        "solution": "**a) Galt.** Bankens virkelige tjeneste er fortsatt oppe og fungerer. Ingen mister tilgang til noe. Distraktoren utnytter at «angrep» ofte assosieres med nedetid, men her er tjenesten uberørt.\n\n**b) Riktig.** Brukernavn og passord blir lest av noen som ikke skulle hatt dem. Innholdet har lekket til uvedkommende.\n\n**c) Riktig.** Nettsiden utgir seg for å være banken, men er det ikke. Det er selve definisjonen av et brudd på autentisitet.\n\n**d) Galt.** Det er ikke sporbarheten som svikter — bankens logger virker som før, og angrepet skjedde utenfor bankens systemer. Distraktoren er tatt med fordi sporbarhet ofte «føles relevant» i alt som handler om angrep.\n\n**Fasit: b og c.**\n\n**Om formen:** dette er en typisk «velg ett *eller flere*»-oppgave der nøyaktig to av fire er riktige. Krysser du bare av a, mister du halve uttellingen; krysser du av alle fire, trekkes du for to.",
+        "hints": [
+          "Gå gjennom målene ett for ett og spør: er nettopp denne egenskapen brutt her?",
+          "Sjekk for hvert alternativ om noe faktisk har skjedd med bankens egne systemer."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Tiltakene, og skillet som avgjør oppgaven (~12 min)\n\nNå til den andre halvdelen. Et **tiltak** er en mekanisme — noe man kjøper, installerer, konfigurerer eller gjennomfører.\n\nBrannmur er et tiltak. Kryptering er et tiltak. Å øve på hva man gjør ved et angrep, er et tiltak.\n\nDet høres enkelt ut, og det er det også — helt til oppgaven lister opp åtte elementer i tilfeldig rekkefølge og ber deg sortere dem i to kolonner under tidspress."
+    },
+    {
+      "id": "in1020-3-1-def-tiltak",
+      "type": "definition",
+      "title": "Sikkerhetstiltak",
+      "content": "En **mekanisme eller handling** som brukes for å nå ett eller flere sikkerhetsmål.\n\nTypiske tiltak i dette faget: brannmur, kryptering, sikkerhetskopiering, tofaktor-autentisering, tilgangskontroll, antivirus, sikkerhetsoppdatering, sikkerhetsøvelser og hashing av passord.\n\n**Testen som skiller:** spør «kan man **kjøpe, installere eller gjennomføre** dette?» Er svaret ja, er det et tiltak. Et mål kan man bare **ha eller mangle**.\n\nDen faste feilslutningen: å behandle «kryptering» som om det var et mål i seg selv. Kryptering er verktøyet; konfidensialitet er det man er ute etter. Under negativ poenggiving koster forvekslingen dobbelt — du mister målet du skulle krysset av, og trekkes for tiltaket du krysset i stedet."
+    },
+    {
+      "id": "in1020-3-1-teo-kobling",
+      "type": "theorem",
+      "title": "Koblingen tiltak → mål",
+      "content": "Hvert tiltak tjener **først og fremst** ett mål, og av og til flere. Dette er tabellen oppgavene bygger på:\n\n| Tiltak | Først og fremst | Også |\n|---|---|---|\n| Diskkryptering | Konfidensialitet | — |\n| HTTPS | Konfidensialitet | Integritet, autentisitet |\n| Tofaktor-autentisering | Konfidensialitet | Autentisitet |\n| Tilgangskontroll | Konfidensialitet | — |\n| Sjekksum og hash | **Integritet** | — |\n| Digital signatur | Uavviselighet, autentisitet | Integritet |\n| Sikkerhetskopiering | Tilgjengelighet | — |\n| Redundans | Tilgjengelighet | — |\n| Brannmur | Tilgjengelighet, konfidensialitet | — |\n| Logging | Sporbarhet | — |\n| Antivirus | Integritet, tilgjengelighet | — |\n\n**De tre koblingene som testes oftest:**\n\n1. **Diskkryptering, HTTPS og tofaktor → konfidensialitet.** Alle tre hindrer at uvedkommende får lest noe.\n2. **Sjekksum og hash → integritet, ikke konfidensialitet.** En hash-verdi avslører at en fil er endret. Den skjuler ingenting — filen er like lesbar som før. Dette er **felle #9**.\n3. **Sikkerhetskopi og redundans → tilgjengelighet.** De hindrer verken lesing eller endring; de sørger for at innholdet finnes når det trengs.\n\n**Merk at koblingen ikke alltid er én til én.** HTTPS gir både konfidensialitet, integritet og autentisitet. I en «velg ett *eller flere*»-oppgave skal alle de riktige krysses av."
+    },
+    {
+      "id": "in1020-3-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Eksamensform — mål eller tiltak?",
+      "problem": "Svarform F3, altså en koblingsoppgave: plasser hvert element (1–8) i riktig kolonne (A eller B).\n\n**1.** Brannmur · **2.** Integritet · **3.** Sikkerhetskopiering · **4.** Uavviselighet · **5.** Tofaktor-autentisering · **6.** Tilgjengelighet · **7.** Antivirus · **8.** Konfidensialitet\n\n**A.** Sikkerhetsmål · **B.** Sikkerhetstiltak",
+      "solution": "Bruk testen på hvert element: kan man **installere eller gjennomføre** det (tiltak), eller er det en **egenskap systemet har eller mangler** (mål)?\n\n**1 → B.** Brannmur er noe man setter opp. Tiltak.\n\n**2 → A.** Integritet er en egenskap ved dataene. Mål.\n\n**3 → B.** Sikkerhetskopiering er noe man gjør, gjerne hver natt. Tiltak.\n\n**4 → A.** Uavviselighet er en egenskap ved en handling — at den ikke kan benektes. Mål.\n\n**5 → B.** Tofaktor-autentisering er noe man slår på. Tiltak.\n\n**6 → A.** Tilgjengelighet er en egenskap ved tjenesten. Mål.\n\n**7 → B.** Antivirus er programvare man installerer. Tiltak.\n\n**8 → A.** Konfidensialitet er en egenskap ved informasjonen. Mål.\n\n**Fasit: mål = 2, 4, 6, 8. Tiltak = 1, 3, 5, 7.**\n\n**Merk fordelingen:** fire og fire. Men ikke stol på at det alltid er jevnt — en oppgave kan godt ha seks tiltak og to mål.\n\n**Om negativ poenggiving:** hvert feilplassert element trekker. Testen tar to sekunder per element og er den billigste forsikringen som finnes i denne seksjonen: *installerer man det, eller ønsker man det?*"
+    },
+    {
+      "id": "in1020-3-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — mål og tiltak, svarform F3.) Plasser hvert element (1–6) i riktig kolonne (A eller B), og begrunn hver plassering.\n\n**1.** Kryptering · **2.** Sporbarhet · **3.** Logging · **4.** Personvern · **5.** Sikkerhetsøvelse · **6.** Autentisitet\n\n**A.** Sikkerhetsmål · **B.** Sikkerhetstiltak",
+        "solution": "**1 → B (tiltak).** Kryptering er en mekanisme man tar i bruk. Målet den tjener, er konfidensialitet. Dette er det elementet flest plasserer feil, fordi ordet «kryptering» er så sentralt i sikkerhet at det føles som et mål i seg selv.\n\n**2 → A (mål).** Sporbarhet er egenskapen at man i ettertid kan se hvem som gjorde hva.\n\n**3 → B (tiltak).** Logging er handlingen som gir sporbarhet. Legg merke til paret: 3 er tiltaket, 2 er målet.\n\n**4 → A (mål).** Personvern er en egenskap ved behandlingen av personopplysninger — og et rettslig krav.\n\n**5 → B (tiltak).** En sikkerhetsøvelse er noe man gjennomfører. Den tjener flere mål, først og fremst tilgjengelighet, siden den trener på å komme tilbake i drift.\n\n**6 → A (mål).** Autentisitet er egenskapen at noe virkelig er det det utgir seg for.\n\n**Fasit: mål = 2, 4, 6. Tiltak = 1, 3, 5.**\n\n**Legg merke til paret 2 og 3:** logging og sporbarhet er tiltaket og målet i samme oppgave. Det er en fast konstruksjon — når du ser to elementer som ligner på hverandre, er det ofte nettopp et slikt par.",
+        "hints": [
+          "Bruk testen: kan man installere eller gjennomføre det, eller er det noe systemet har eller mangler?",
+          "Se etter par der det ene elementet er tiltaket som gir det andre."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — tiltak til mål, svarform F1.) Kryss av **alle** tiltakene som først og fremst tjener **konfidensialitet**, og begrunn hvert av de fem.\n\n**a)** HTTPS\n\n**b)** Sjekksum\n\n**c)** Diskkryptering\n\n**d)** Sikkerhetskopiering\n\n**e)** Tilgangskontroll",
+        "solution": "**a) Riktig.** HTTPS krypterer trafikken mellom nettleser og tjener, slik at ingen på veien kan lese den. Merk at HTTPS i tillegg gir integritet og autentisitet — men konfidensialitet er kjernen.\n\n**b) Galt.** En sjekksum avslører om innholdet er **endret**, altså integritet. Den skjuler ingenting: filen er like lesbar med sjekksum som uten. Dette er **felle #9 — å krysse av hash eller sjekksum for konfidensialitet**, og den er en av de hyppigste i seksjonen.\n\n**c) Riktig.** Diskkryptering gjør innholdet uleselig for den som ikke har nøkkelen. Det er derfor en stjålet, kryptert maskin ikke er et konfidensialitetsbrudd.\n\n**d) Galt.** Sikkerhetskopiering tjener **tilgjengelighet** — at innholdet finnes når det trengs. En sikkerhetskopi gjør faktisk ingenting for å hindre lesing; tvert imot finnes innholdet nå to steder.\n\n**e) Riktig.** Tilgangskontroll bestemmer hvem som får lese hva, og det er konfidensialitet i ren form.\n\n**Fasit: a, c og e.**\n\nTre av fem riktige. De to gale er de to viktigste koblingene å ha på plass i hele kapitlet: sjekksum gir integritet, sikkerhetskopi gir tilgjengelighet.",
+        "hints": [
+          "Spør for hvert tiltak: hindrer dette at noen LESER noe?",
+          "To av alternativene handler om helt andre mål — finn ut hvilke."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensformen (~10 min)\n\nSjangeren kommer i to innpakninger, og begge er trent nå: sorter elementer i mål og tiltak (F3), og kryss av alle tiltakene som tjener et gitt mål (F1).\n\nDen tredje varianten er å gå motsatt vei: gitt en hendelse, hvilket mål ble brutt? Den møter du igjen i neste kapittel, der trusler kobles til mål.\n\nFelles for alle tre: svaret er entydig, og du kan kontrollere det med to spørsmål. *Installerer man det, eller ønsker man det?* Og: *hindrer dette lesing, endring eller nedetid?*"
+    },
+    {
+      "id": "in1020-3-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — sant/usant om mål og tiltak",
+      "problem": "Svarform F2, altså sant/usant-matrise: vurder hver påstand.\n\n**a)** En hash-verdi gir konfidensialitet.\n\n**b)** Sikkerhetskopiering tjener først og fremst tilgjengelighet.\n\n**c)** Brannmur er et sikkerhetsmål.\n\n**d)** En melding kan ha full integritet selv om alle kan lese den.",
+      "solution": "**a) Usann.** Hash gir **integritet**: den avslører om innholdet er endret. Den skjuler ingenting. Dette er felle #9, og den er tatt med i nesten hvert sett i en eller annen form.\n\n**b) Sann.** En sikkerhetskopi sørger for at innholdet finnes når originalen er borte eller låst. Den hindrer verken lesing eller endring.\n\n**c) Usann.** Brannmur er et **tiltak** — noe man setter opp. Målene den tjener, er tilgjengelighet og konfidensialitet. Dette er felle #1, den hyppigst påpekte feilen i faget.\n\n**d) Sann.** Integritet handler om at innholdet er **uendret**, ikke om at det er hemmelig. En offentlig kunngjøring med gyldig signatur har full integritet og null konfidensialitet — og det er helt som det skal.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\n**Om formen:** to sanne og to usanne, og de to usanne er nettopp felle #1 og felle #9. Det er ingen tilfeldighet — i denne sjangeren er de gale radene som regel de to faste forvekslingene.\n\n**Arbeidsmåten:** les rada, spør «mål eller tiltak?», og deretter «lesing, endring eller nedetid?». To spørsmål avgjorde alle fire radene."
+    },
+    {
+      "id": "in1020-3-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — mål og tiltak, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Kryptering er et sikkerhetsmål | |\n| b | Logging er tiltaket som gir sporbarhet | |\n| c | En sjekksum avslører om en fil er endret | |\n| d | Tilgjengelighet er ikke et sikkerhetsmål, men et driftskrav | |",
+        "solution": "**a) Usann.** Kryptering er et **tiltak** — en mekanisme man tar i bruk. Målet den tjener, er konfidensialitet. Dette er felle #1, og kryptering er det tiltaket som oftest feilplasseres, fordi ordet er så sentralt i sikkerhet.\n\n**b) Sann.** Logging er handlingen; sporbarhet er egenskapen man oppnår. Dette paret dukker ofte opp som to elementer i samme koblingsoppgave.\n\n**c) Sann.** Det er nettopp det en sjekksum gjør: den er en kort verdi utregnet av innholdet, og endres innholdet, stemmer ikke verdien lenger. Målet er integritet.\n\n**d) Usann.** Tilgjengelighet er ett av de sju sikkerhetsmålene, og det er det tredje leddet i CIA. Et system som er hemmelig og korrekt, men nede, har et sikkerhetsproblem — ikke bare et driftsproblem. Distraktoren er farlig fordi den høres administrativt fornuftig ut.\n\n**Fasit: a usann, b sann, c sann, d usann.**\n\nMerk at rad c er sann og likevel er nær felle #9 — forskjellen ligger i ordlyden. «Avslører om en fil er endret» er integritet og dermed sant; «gjør en fil uleselig for andre» ville vært usant.",
+        "hints": [
+          "Bruk testen på rad a: installerer man det, eller ønsker man det?",
+          "For rad d: hvor mange mål er det i faget, og er tilgjengelighet blant dem?",
+          "For rad c: les nøyaktig hva påstanden sier at sjekksummen gjør."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — kobling, svarform F3.) Koble hvert tiltak (1–6) til det målet det **først og fremst** tjener (A–D). Hvert mål kan brukes flere ganger eller ikke i det hele tatt.\n\n**1.** Sjekksum · **2.** Redundans · **3.** Diskkryptering · **4.** Logging · **5.** Sikkerhetskopiering · **6.** Tilgangskontroll\n\n**A.** Konfidensialitet · **B.** Integritet · **C.** Tilgjengelighet · **D.** Sporbarhet",
+        "solution": "**1 → B (integritet).** Sjekksummen avslører endringer. Den skjuler ingenting, så A ville vært felle #9.\n\n**2 → C (tilgjengelighet).** Redundans betyr at flere maskiner kan overta for hverandre, slik at tjenesten er oppe selv om én svikter.\n\n**3 → A (konfidensialitet).** Kryptert innhold kan ikke leses uten nøkkelen.\n\n**4 → D (sporbarhet).** Loggen gjør det mulig å se hvem som gjorde hva i ettertid.\n\n**5 → C (tilgjengelighet).** Sikkerhetskopien sørger for at innholdet finnes når originalen er borte. Den gjør ingenting for å hindre lesing — tvert imot finnes innholdet nå to steder.\n\n**6 → A (konfidensialitet).** Tilgangskontroll bestemmer hvem som får lese hva.\n\n**Fasit: 1→B, 2→C, 3→A, 4→D, 5→C, 6→A.**\n\n**Merk fordelingen:** A og C brukes to ganger hver, B og D én gang hver. En koblingsoppgave krever ikke jevn fordeling, og det å «spre» svarene er en fast måte å miste poeng på.\n\n**De to som avgjør oppgaven:** sjekksum (integritet, ikke konfidensialitet) og sikkerhetskopiering (tilgjengelighet, ikke konfidensialitet). Begge er faste feller, og begge handler om å motstå fristelsen til å svare «konfidensialitet» på alt som handler om sikkerhet.",
+        "hints": [
+          "Spør for hvert tiltak: hindrer det lesing, avslører det endring, sikrer det oppetid, eller dokumenterer det hva som skjedde?",
+          "To av tiltakene ender på samme mål — ikke tving fram en jevn fordeling."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — mål, svarform F1.) En kommune oppdager at en ansatt har endret beløp i flere fakturaer og slettet loggene etterpå. Kryss av **alle** målene som er brutt, og begrunn hvert av de fem.\n\n**a)** Tilgjengelighet\n\n**b)** Sporbarhet\n\n**c)** Konfidensialitet\n\n**d)** Integritet\n\n**e)** Uavviselighet",
+        "solution": "**a) Galt.** Systemet er oppe, og fakturaene er tilgjengelige — de er bare gale. Ingen har mistet tilgang til noe.\n\n**b) Riktig.** Loggene er slettet, så det går ikke lenger an å se hvem som gjorde hva. Det er nettopp sporbarhet.\n\n**c) Galt.** Ingenting tyder på at uvedkommende har **lest** noe de ikke skulle. Den ansatte hadde trolig lovlig tilgang til fakturasystemet; problemet er hva vedkommende gjorde med tilgangen. Distraktoren utnytter at «innsideangrep» høres ut som lesing.\n\n**d) Riktig.** Beløpene er endret. Innholdet er ikke lenger korrekt, og det er integritet i ren form.\n\n**e) Riktig.** Når loggene er borte, kan den ansatte nekte for å ha gjort endringene, og kommunen kan ikke bevise det motsatte. Det er uavviselighet som svikter.\n\n**Fasit: b, d og e.**\n\n**Om oppgaven:** tre av fem riktige, og de to gale er de to «vanligste» målene. Det er en fast konstruksjon i sjangeren — konfidensialitet og tilgjengelighet tas med som distraktorer nettopp fordi de er de første man tenker på.\n\n**Merk sammenhengen mellom b og e:** sletting av logger rammer begge, men de er ulike mål. Sporbarhet er å kunne se hva som skjedde; uavviselighet er at den ansvarlige ikke kan nekte. Begge skal krysses av.",
+        "hints": [
+          "Gå gjennom målene ett for ett, og spør om nettopp den egenskapen er brutt.",
+          "For c): hadde den ansatte lov til å se fakturaene i utgangspunktet?",
+          "To av de riktige henger sammen, men er likevel to ulike mål."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å blande mål og tiltak (felle #1).** Den hyppigst påpekte feilen i hele faget. Brannmur, kryptering, sikkerhetskopiering og tofaktor er **tiltak**. Testen tar to sekunder: kan man installere eller gjennomføre det, eller er det noe systemet har eller mangler?\n\n2. **Å krysse av hash eller sjekksum for konfidensialitet (felle #9).** De gir **integritet**. En hash avslører endring; den skjuler ingenting.\n\n3. **Å tro at sikkerhetskopiering gir konfidensialitet.** Den gir **tilgjengelighet**. En kopi hindrer ingen i å lese noe — tvert imot finnes innholdet nå to steder.\n\n4. **Å bruke «personvern» som samlebegrep for all sikkerhet.** Det er ett av sju mål, og det handler spesifikt om personopplysninger.\n\n5. **Å svare bare ett mål når flere er brutt.** Mange hendelser bryter to eller tre mål samtidig — en forfalsket nettside bryter både autentisitet og integritet. Under «velg ett *eller flere*» skal alle krysses av.\n\n6. **Å blande sporbarhet og uavviselighet.** Sporbarhet er å kunne se hvem som gjorde hva. Uavviselighet er at den ansvarlige ikke kan nekte for det. De henger sammen, men de er to mål.\n\n7. **Å glemme at tilgjengelighet er et sikkerhetsmål.** Et system som er nede, har et sikkerhetsproblem — ikke bare et driftsproblem."
+    },
+    {
+      "id": "in1020-3-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-3-1-bank-1",
+      "type": "definition",
+      "title": "Testen som skiller mål fra tiltak",
+      "content": "To spørsmål, og de avgjør hele sjangeren:\n\n1. **Kan man kjøpe, installere eller gjennomføre det?** → **tiltak**\n2. **Er det en egenskap systemet har eller mangler?** → **mål**\n\nBrannmur installeres. Konfidensialitet har man eller mangler. Kryptering tas i bruk. Integritet er en tilstand.\n\nTesten tar to sekunder per element og er den billigste forsikringen i hele seksjon 3 — under negativ poenggiving koster hver forveksling både det tapte riktige krysset og det gale du satte i stedet."
+    },
+    {
+      "id": "in1020-3-1-bank-2",
+      "type": "definition",
+      "title": "CIA-triaden",
+      "content": "De tre eldste og mest siterte målene: **konfidensialitet**, **integritet** og **tilgjengelighet**.\n\nForkortelsen kommer av engelsk *confidentiality, integrity, availability*. Denne boka skriver dem alltid ut på norsk, siden oppgavene gjør det.\n\nDe fire andre målene i faget — sporbarhet, uavviselighet, autentisitet og personvern — er like fullt pensum, og en oppgave kan godt spørre etter et av dem."
+    },
+    {
+      "id": "in1020-3-1-bank-3",
+      "type": "definition",
+      "title": "Brannmur",
+      "content": "Et **tiltak**: en mekanisme som kontrollerer hvilken nettverkstrafikk som slipper inn og ut av et nett eller en maskin.\n\nMålene den tjener: **tilgjengelighet** (den kan stoppe flomangrep) og **konfidensialitet** (den kan hindre at tjenester eksponeres utenfor).\n\nDen faste feilslutningen: å krysse av brannmur som et *mål*. Det er felle #1. En brannmur er noe man setter opp — den er aldri en egenskap i seg selv."
+    },
+    {
+      "id": "in1020-3-1-bank-4",
+      "type": "definition",
+      "title": "Kryptering som tiltak",
+      "content": "Et **tiltak**: å gjøre innhold uleselig for den som ikke har nøkkelen.\n\nMålet: **konfidensialitet**. Mekanikken — symmetrisk og asymmetrisk kryptering, og hvilken nøkkel som brukes til hva — behandles senere i denne delen.\n\nDette er det tiltaket som oftest feilplasseres som et mål, fordi ordet er så sentralt i sikkerhet. Men man **bruker** kryptering; man **har** konfidensialitet."
+    },
+    {
+      "id": "in1020-3-1-bank-5",
+      "type": "definition",
+      "title": "Sikkerhetskopiering",
+      "content": "Et **tiltak**: å ta og oppbevare kopier av data, slik at de kan gjenopprettes.\n\nMålet: **tilgjengelighet**. Kopien sørger for at innholdet finnes når originalen er slettet, ødelagt eller låst av et løsepengevirus.\n\nDen faste feilslutningen: å tro at sikkerhetskopiering gir konfidensialitet. Den gjør ingenting for å hindre lesing — snarere tvert imot, siden innholdet nå finnes to steder og begge må sikres."
+    },
+    {
+      "id": "in1020-3-1-bank-6",
+      "type": "definition",
+      "title": "Tilgangskontroll",
+      "content": "Et **tiltak**: å bestemme hvem som får lese, endre eller slette hva.\n\nMålet: først og fremst **konfidensialitet**, men også integritet, siden den som ikke får skrive, heller ikke kan endre.\n\nEt bærende prinsipp er **minste privilegium**: hver bruker skal ha akkurat de rettighetene jobben krever, og ikke flere. Da blir skaden mindre både ved feil og ved misbruk.\n\nSkillet mot autentisering — å bekrefte *hvem* du er — behandles senere i denne delen."
+    },
+    {
+      "id": "in1020-3-1-bank-7",
+      "type": "definition",
+      "title": "Sjekksum",
+      "content": "Et **tiltak**: en kort verdi regnet ut fra innholdet i en fil eller en melding.\n\nEndres innholdet med så mye som ett bit, stemmer ikke verdien lenger. Målet er derfor **integritet**.\n\nDen faste feilslutningen: å krysse av sjekksum for konfidensialitet. Det er **felle #9**. Sjekksummen skjuler ingenting — filen er nøyaktig like lesbar med sjekksum som uten."
+    },
+    {
+      "id": "in1020-3-1-bank-8",
+      "type": "definition",
+      "title": "Logging",
+      "content": "Et **tiltak**: at systemet fortløpende skriver ned hvem som gjorde hva, og når.\n\nMålet: **sporbarhet**. Loggen hindrer ingenting i øyeblikket, men den gjør det mulig å finne ut av hendelser i ettertid — og virker derfor forebyggende.\n\nBlir loggene slettet, rammes både sporbarhet og **uavviselighet**: da kan den ansvarlige nekte for handlingen, og ingen kan bevise noe annet."
+    },
+    {
+      "id": "in1020-3-1-bank-9",
+      "type": "definition",
+      "title": "Redundans",
+      "content": "Et **tiltak**: at det finnes mer enn ett eksemplar av noe kritisk — flere maskiner, flere disker, flere nettforbindelser.\n\nMålet: **tilgjengelighet**. Svikter én enhet, tar en annen over, og tjenesten fortsetter.\n\nSkillet mot sikkerhetskopiering: en sikkerhetskopi lar deg *gjenopprette* etterpå, mens redundans gjør at tjenesten *aldri går ned*. Begge tjener samme mål, men på ulik måte."
+    },
+    {
+      "id": "in1020-3-1-bank-10",
+      "type": "definition",
+      "title": "Antivirus",
+      "content": "Et **tiltak**: programvare som oppdager og fjerner skadevare.\n\nMålene det tjener: **integritet** (skadevare endrer filer og systemer) og **tilgjengelighet** (skadevare kan låse eller ødelegge).\n\nSkadevaretypene — orm, virus, trojaner, rootkit og de andre — behandles sist i denne delen."
+    },
+    {
+      "id": "in1020-3-1-bank-11",
+      "type": "definition",
+      "title": "Sikkerhetsoppdatering",
+      "content": "Et **tiltak**: å installere rettelser som lukker kjente svakheter i programvare.\n\nMålene: alle tre i CIA, avhengig av hva svakheten kunne utnyttes til.\n\nManglende oppdatering er en av de vanligste årsakene til vellykkede angrep, og «systemet er ikke oppdatert» er derfor en standardtrussel i oppgavene i neste kapittel."
+    },
+    {
+      "id": "in1020-3-1-bank-12",
+      "type": "definition",
+      "title": "Sikkerhetsøvelse",
+      "content": "Et **tiltak**: å øve på hva man gjør når noe går galt — gjenoppretting fra sikkerhetskopi, varsling, nødrutiner.\n\nMålet: først og fremst **tilgjengelighet**, siden øvelsen trener på å komme raskt tilbake i drift.\n\nDette er det tiltaket som minner minst om teknologi, og nettopp derfor er det med i oppgavene: det tester om du har forstått at et tiltak er *noe man gjør*, ikke bare *noe man installerer*."
+    },
+    {
+      "id": "in1020-3-1-bank-13",
+      "type": "definition",
+      "title": "Konfidensialitet — kjennetegn og feller",
+      "content": "**Målet:** informasjon er ikke tilgjengelig for uvedkommende.\n\n**Brytes av:** tastelogger, spionvare, tapt eller stjålet utstyr uten kryptering, feilsendte e-poster, usikrede databaser.\n\n**Tjenes av:** diskkryptering, HTTPS, tilgangskontroll, tofaktor.\n\n**Fellen:** å krysse av konfidensialitet for tiltak som egentlig gir integritet (sjekksum, hash) eller tilgjengelighet (sikkerhetskopi, redundans). Konfidensialitet er det målet flest gjetter på, og distraktorene utnytter det."
+    },
+    {
+      "id": "in1020-3-1-bank-14",
+      "type": "definition",
+      "title": "Integritet — kjennetegn og feller",
+      "content": "**Målet:** informasjonen er uendret og korrekt.\n\n**Brytes av:** endring av innhold, forfalskede nettsider, rootkit som manipulerer systemet, og av rene feil — integritet kan svikte uten at noen angriper.\n\n**Tjenes av:** sjekksum, hash, digital signatur, versjonskontroll.\n\n**Fellen:** å tro at integritet forutsetter hemmelighold. En offentlig kunngjøring alle kan lese, kan ha perfekt integritet."
+    },
+    {
+      "id": "in1020-3-1-bank-15",
+      "type": "definition",
+      "title": "Tilgjengelighet — kjennetegn og feller",
+      "content": "**Målet:** de som har rett til informasjonen eller tjenesten, får tak i den når de trenger den.\n\n**Brytes av:** tjenestenektangrep, løsepengevirus, manglende sikkerhetskopi, strømbrudd, maskinvarefeil.\n\n**Tjenes av:** sikkerhetskopiering, redundans, brannmur mot flomangrep, reservestrøm.\n\n**Fellen:** å avfeie tilgjengelighet som «bare drift». Det er ett av de sju sikkerhetsmålene, og i et sykehus kan det være det mest kritiske av dem alle."
+    },
+    {
+      "id": "in1020-3-1-bank-16",
+      "type": "definition",
+      "title": "Sporbarhet kontra uavviselighet",
+      "content": "**Sporbarhet:** at det i ettertid går an å se hvem som gjorde hva, og når. Oppnås med logging.\n\n**Uavviselighet:** at den ansvarlige ikke kan nekte for å ha gjort det. Oppnås først og fremst med digital signatur.\n\nDe henger sammen — sletting av logger rammer begge — men de er to ulike mål. Sporbarhet handler om **å kunne se**; uavviselighet handler om **å kunne bevise overfor andre**."
+    },
+    {
+      "id": "in1020-3-1-bank-17",
+      "type": "definition",
+      "title": "Autentisitet kontra integritet",
+      "content": "**Autentisitet:** er avsenderen eller nettstedet virkelig den det utgir seg for?\n\n**Integritet:** er innholdet uendret?\n\nEn forfalsket nettside bryter **begge**: den er ikke den den utgir seg for, og innholdet er ikke det ekte.\n\nDerfor er slike oppgaver ofte i «velg ett *eller flere*»-form, og da skal begge målene krysses av. Å velge bare det ene er en av de vanligste måtene å tape halve poenget på."
+    },
+    {
+      "id": "in1020-3-1-bank-18",
+      "type": "definition",
+      "title": "Personvern som eget mål",
+      "content": "At personopplysninger behandles lovlig, rimelig og åpent, og bare i nødvendig omfang.\n\nPersonvern er det eneste av de sju målene som er **rettslig forankret** — det er ikke bare ønskelig, det er lovpålagt. Reglene behandles sist i denne delen.\n\nMerk at et system kan ha perfekt konfidensialitet og likevel bryte personvernet: samler man inn mye mer enn nødvendig, hjelper det ikke at alt lagres trygt."
+    },
+    {
+      "id": "in1020-3-1-bank-19",
+      "type": "definition",
+      "title": "Ett tiltak, flere mål",
+      "content": "Koblingen tiltak → mål er ikke alltid én til én.\n\n**HTTPS** gir konfidensialitet (ingen kan lese trafikken), integritet (ingen kan endre den underveis) og autentisitet (sertifikatet viser at du snakker med rett tjener).\n\n**Digital signatur** gir uavviselighet, autentisitet og integritet — men **ikke** konfidensialitet.\n\nI en «velg ett *eller flere*»-oppgave skal alle de riktige krysses av. Spør oppgaven derimot hva tiltaket tjener «først og fremst», er det hovedmålet som gjelder."
+    },
+    {
+      "id": "in1020-3-1-bank-20",
+      "type": "definition",
+      "title": "Én hendelse, flere brutte mål",
+      "content": "De fleste virkelige hendelser bryter mer enn ett mål.\n\nEn ansatt som endrer beløp og sletter loggene, bryter **integritet** (innholdet er endret), **sporbarhet** (det kan ikke ses hva som skjedde) og **uavviselighet** (den ansvarlige kan nekte).\n\nArbeidsmåten: gå gjennom alle sju målene og spør for hvert enkelt om nettopp den egenskapen er brutt. Ikke stopp ved det første som passer."
+    },
+    {
+      "id": "in1020-3-1-bank-21",
+      "type": "definition",
+      "title": "Distraktorene i mål-oppgaver",
+      "content": "De to målene som oftest står som gale alternativer, er **konfidensialitet** og **tilgjengelighet** — nettopp fordi de er de to man tenker på først når man hører ordet «angrep».\n\nKontrollspørsmålet for hvert alternativ:\n\n- Konfidensialitet: har noen **lest** noe de ikke skulle?\n- Tilgjengelighet: har noen **mistet tilgang** til noe?\n\nEr svaret nei, er målet ikke brutt — uansett hvor alvorlig hendelsen er ellers."
+    },
+    {
+      "id": "in1020-3-1-bank-22",
+      "type": "definition",
+      "title": "Tiltak—mål-par i koblingsoppgaver",
+      "content": "En fast konstruksjon: oppgaven inneholder både et tiltak og det målet tiltaket gir, som to separate elementer.\n\nEksempler på slike par: **logging** og **sporbarhet** · **kryptering** og **konfidensialitet** · **sikkerhetskopiering** og **tilgjengelighet**.\n\nSer du to elementer som «hører sammen», er det som regel et slikt par — og da er det ene et tiltak og det andre et mål. Bruk testen på begge, hver for seg."
+    },
+    {
+      "id": "in1020-3-1-bank-23",
+      "type": "definition",
+      "title": "Sårbarhet",
+      "content": "En **svakhet** i et system som kan utnyttes: en uoppdatert programvare, et svakt passord, en feilkonfigurert tjeneste, en ansatt som ikke er opplært.\n\nSårbarheten er hverken et mål eller et tiltak — den er tilstanden tiltakene skal fjerne, og den trusler utnytter.\n\nSammenhengen: en **trussel** utnytter en **sårbarhet** og bryter et **mål**. Tiltakene settes inn for å fjerne sårbarheten eller redusere skaden. Kjeden behandles i neste kapittel."
+    },
+    {
+      "id": "in1020-3-1-bank-24",
+      "type": "definition",
+      "title": "Sikkerhet er aldri ett tiltak",
+      "content": "Ingen enkelt mekanisme dekker alle sju målene. Kryptering gjør ingenting mot nedetid; sikkerhetskopi gjør ingenting mot lekkasje; brannmur gjør ingenting mot en ansatt som misbruker sin egen tilgang.\n\nDerfor bygges sikkerhet i lag: flere tiltak som dekker hverandres svakheter.\n\nDen faste feilslutningen på eksamen: å tro at ett tiltak «løser sikkerheten». Spør alltid hvilket mål tiltaket faktisk tjener — og hvilke det ikke gjør noe med."
+    },
+    {
+      "id": "in1020-3-1-bank-25",
+      "type": "definition",
+      "title": "Tofaktor-autentisering",
+      "content": "Et **tiltak**: å kreve to uavhengige typer bevis for at du er den du sier — typisk noe du **vet** (passord) og noe du **har** (kode på telefonen).\n\nMålene: **konfidensialitet** (uvedkommende kommer ikke inn) og **autentisitet** (den som logger inn, er virkelig deg).\n\nMekanikken og hvorfor det virker mot både gjettede og lurte passord, behandles senere i denne delen."
+    },
+    {
+      "id": "in1020-3-1-bank-26",
+      "type": "definition",
+      "title": "HTTPS",
+      "content": "Et **tiltak**: kryptert overføring mellom nettleser og tjener, med sertifikat som bekrefter hvem tjeneren er.\n\nMålene: **konfidensialitet** (ingen på veien kan lese trafikken), **integritet** (ingen kan endre den underveis) og **autentisitet** (sertifikatet viser at du snakker med rett tjener).\n\nDette er det klareste eksempelet på at ett tiltak kan tjene flere mål — og i en «velg ett *eller flere*»-oppgave skal alle tre krysses av."
+    },
+    {
+      "id": "in1020-3-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter skillet?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-3-1-rep-tekst",
+          "type": "text",
+          "content": "Ni korte. Svar før du ser på fasiten.\n\n1. Nevn de sju sikkerhetsmålene.\n2. Er brannmur et mål eller et tiltak?\n3. Hvilket mål tjener en sjekksum?\n4. Hvilket mål tjener sikkerhetskopiering?\n5. Hva er testen som skiller mål fra tiltak?\n6. Hva er forskjellen på sporbarhet og uavviselighet?\n7. Hvilke mål brytes av en forfalsket nettside?\n8. Hvilke tre mål gir HTTPS?\n9. Kan en melding ha integritet selv om alle kan lese den?\n\n**Fasit.**\n\n1. Konfidensialitet, integritet, tilgjengelighet, sporbarhet, uavviselighet, autentisitet og personvern.\n2. Tiltak. Det er noe man setter opp. Målene den tjener, er tilgjengelighet og konfidensialitet.\n3. Integritet. Den avslører endring; den skjuler ingenting (felle #9).\n4. Tilgjengelighet. Innholdet finnes når originalen er borte.\n5. «Kan man installere eller gjennomføre det?» → tiltak. «Er det en egenskap systemet har eller mangler?» → mål.\n6. Sporbarhet er å kunne se hvem som gjorde hva. Uavviselighet er at den ansvarlige ikke kan nekte for det.\n7. Autentisitet og integritet — begge, og begge skal krysses av.\n8. Konfidensialitet, integritet og autentisitet.\n9. Ja. Integritet handler om at innholdet er uendret, ikke om at det er hemmelig.\n\nSjekk deg selv: ☐ brukte du testen på hvert element før du plasserte det? ☐ svarte du integritet og ikke konfidensialitet på sjekksum? ☐ krysset du av ALLE de brutte målene, ikke bare det første? ☐ husket du at tilgjengelighet ER et sikkerhetsmål?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

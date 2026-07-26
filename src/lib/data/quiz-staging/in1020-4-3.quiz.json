@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hvor lang tid tar det å laste ned 300 MB over en linje på 60 Mbit/s?",
+    "options": [
+      "40 sekunder",
+      "5 sekunder",
+      "320 sekunder",
+      "18 sekunder"
+    ],
+    "explanation": "300 MB ganger 8 gir 2400 Mbit, og 2400 delt på 60 gir 40 sekunder. «5 sekunder» er filstørrelsen delt rett på raten, altså uten omregningen — den klassiske fella, og nøyaktig en åttedel av riktig svar. «320 sekunder» har ganget med 8 og glemt å dele. «18 sekunder» svarer til en helt annen rate."
+  },
+  {
+    "question": "Hvorfor må filstørrelsen ganges med 8 i overføringstidsformelen?",
+    "options": [
+      "Filer måles i byte, mens rater måles i bit per sekund, og en byte er åtte bit",
+      "Fordi en pakke alltid inneholder åtte byte med nyttedata i tillegg til hodet",
+      "Fordi åtte er antallet parallelle kanaler en vanlig nettlinje er delt inn i",
+      "Fordi hver byte må sendes åtte ganger for at feilkontrollen skal virke"
+    ],
+    "explanation": "Enhetene er ulike i teller og nevner, og faktoren 8 er broen mellom dem. «Fordi en pakke alltid inneholder åtte byte med nyttedata i…» blander inn pakkestruktur, som formelen ser helt bort fra. «Fordi åtte er antallet parallelle kanaler en vanlig…» og «Fordi hver byte må sendes åtte ganger for at feilkontrollen skal virke» er oppdiktede tekniske forklaringer uten dekning."
+  },
+  {
+    "question": "En fil på 120 MB skal over en linje på 40 Mbit/s. Hvor lang tid tar det?",
+    "options": [
+      "24 sekunder",
+      "3 sekunder",
+      "192 sekunder",
+      "30 sekunder"
+    ],
+    "explanation": "120 ganger 8 gir 960 Mbit, delt på 40 gir 24 sekunder. «3 sekunder» er svaret uten omregningen. «192 sekunder» har ganget filstørrelsen med 8 og glemt divisjonen helt. «30 sekunder» stemmer med en rate på 32 Mbit/s, ikke 40."
+  },
+  {
+    "question": "Du sikkerhetskopierer en mappe til skyen. Hvilken rate gjelder?",
+    "options": [
+      "Opplastingsraten, siden dataene går fra deg",
+      "Nedlastingsraten, siden skyen laster ned filene",
+      "Den høyeste av de to, siden linja velger den raskeste retningen",
+      "Gjennomsnittet av opplastings- og nedlastingsraten"
+    ],
+    "explanation": "Sikkerhetskopiering sender data ut fra maskinen din, og da er det opplastingsraten som er flaskehalsen. «Nedlastingsraten, siden skyen laster ned filene» snur perspektivet feil vei — det er din linje som teller, ikke skyens. «Den høyeste av de to, siden linja velger den raskeste retningen» og «Gjennomsnittet av opplastings- og nedlastingsraten» beskriver mekanismer som ikke finnes."
+  },
+  {
+    "question": "Hvor stor kan en fil være hvis den skal overføres på 30 sekunder over 40 Mbit/s?",
+    "options": [
+      "150 MB",
+      "1200 MB",
+      "9600 MB",
+      "75 MB"
+    ],
+    "explanation": "30 ganger 40 gir 1200 Mbit, delt på 8 gir 150 MB. «1200 MB» er mellomresultatet i megabit, oppgitt med feil enhet. «9600 MB» har ganget med 8 i stedet for å dele. «75 MB» er halvparten, altså delt på 16."
+  },
+  {
+    "question": "Hvilken rate kreves for å overføre 600 MB på ett minutt?",
+    "options": [
+      "80 Mbit/s",
+      "10 Mbit/s",
+      "4800 Mbit/s",
+      "600 Mbit/s"
+    ],
+    "explanation": "600 ganger 8 gir 4800 Mbit, delt på 60 sekunder gir 80 Mbit/s. «10 Mbit/s» er svaret uten omregningen. «4800 Mbit/s» er mellomresultatet, uten at det er delt på tida. «600 Mbit/s» bruker verken faktoren 8 eller tida."
+  },
+  {
+    "question": "Hvor mange megabyte per sekund flytter en linje på 40 Mbit/s?",
+    "options": [
+      "5 MB/s",
+      "40 MB/s",
+      "320 MB/s",
+      "8 MB/s"
+    ],
+    "explanation": "40 delt på 8 gir 5 megabyte i sekundet. «40 MB/s» leser Mbit/s som om det var megabyte per sekund. «320 MB/s» ganger med 8 i stedet for å dele. «8 MB/s» forveksler svaret med selve omregningsfaktoren."
+  },
+  {
+    "question": "Hva blir svaret hvis man glemmer omregningen fra byte til bit?",
+    "options": [
+      "Nøyaktig en åttedel av det riktige svaret",
+      "Nøyaktig åtte ganger det riktige svaret",
+      "Omtrent fem prosent for lavt, avhengig av filstørrelsen",
+      "Riktig svar, men med feil enhet oppgitt"
+    ],
+    "explanation": "Uten faktoren 8 blir tida delt på 8, altså en åttedel. «Nøyaktig åtte ganger det riktige svaret» snur feilen. «Omtrent fem prosent for lavt, avhengig av filstørrelsen» beskriver forskjellen mellom MB og MiB, som er noe helt annet. «Riktig svar, men med feil enhet oppgitt» er galt — tallet blir faktisk feil, ikke bare enheten."
+  },
+  {
+    "question": "En sikkerhetskopi på 5 GB skal over en linje på 250 Mbit/s. Hvor lang tid tar det?",
+    "options": [
+      "160 sekunder",
+      "20 sekunder",
+      "0,16 sekunder",
+      "40 sekunder"
+    ],
+    "explanation": "5 GB er 5000 MB, ganger 8 gir 40 000 Mbit, delt på 250 gir 160 sekunder. «20 sekunder» er svaret uten omregningen fra byte til bit. «0,16 sekunder» har glemt å regne om gigabyte til megabyte. «40 sekunder» svarer til en rate på 1000 Mbit/s."
+  },
+  {
+    "question": "Hva er forskjellen mellom MB og MiB?",
+    "options": [
+      "MB er 10^6 byte, MiB er 2^20 byte, altså omtrent 4,9 prosent mer",
+      "MB er 2^20 byte, MiB er 10^6 byte, altså omtrent 4,9 prosent mindre",
+      "MB brukes om filer, MiB om overføringsrater over nettverk",
+      "MB er megabyte, MiB er megabit — forskjellen er faktoren åtte"
+    ],
+    "explanation": "MiB er den binære varianten på 1 048 576 byte, litt større enn den desimale megabyten. «MB er 2^20 byte, MiB er 10^6 byte, altså omtrent 4,9 prosent mindre» bytter om de to. «MB brukes om filer, MiB om overføringsrater over nettverk» er oppdiktet — rater måles i bit per sekund uansett. «MB er megabyte, MiB er megabit — forskjellen er faktoren åtte» forveksler prefikset med bit-og-byte-skillet."
+  },
+  {
+    "question": "Du laster opp 900 MB. Linja er 150 Mbit/s ned og 30 Mbit/s opp. Hvor lang tid tar det?",
+    "options": [
+      "240 sekunder",
+      "48 sekunder",
+      "30 sekunder",
+      "120 sekunder"
+    ],
+    "explanation": "Opplasting bruker 30 Mbit/s: 900 ganger 8 gir 7200 Mbit, delt på 30 gir 240 sekunder. «48 sekunder» bruker nedlastingsraten 150 i stedet. «30 sekunder» har brukt riktig rate, men glemt omregningen. «120 sekunder» kombinerer feil rate og feil enhetsbruk."
+  },
+  {
+    "question": "Hvordan kan du kontrollere at du har delt riktig vei i en overføringsoppgave?",
+    "options": [
+      "Sjekk enhetene: megabit delt på megabit per sekund gir sekunder",
+      "Sjekk at svaret er et helt tall, siden tider alltid går opp i oppgaver",
+      "Sjekk at svaret er større enn filstørrelsen målt i megabyte",
+      "Sjekk at svaret er mindre enn raten målt i megabit per sekund"
+    ],
+    "explanation": "Enhetsregningen gir bare et tidssvar i én av de to retningene, og det avslører feil før du ser på tallet. «Sjekk at svaret er et helt tall, siden tider alltid går opp i oppgaver» er en vane, ikke en regel — tider kan ha desimaler. «Sjekk at svaret er større enn filstørrelsen målt i megabyte» og «Sjekk at svaret er mindre enn raten målt i megabit per sekund» er tilfeldige sammenligninger uten faglig grunnlag."
+  },
+  {
+    "question": "En fil tar 64 sekunder over 30 Mbit/s. Hvor stor er filen?",
+    "options": [
+      "240 MB",
+      "1920 MB",
+      "2 MB",
+      "480 MB"
+    ],
+    "explanation": "64 ganger 30 gir 1920 Mbit, delt på 8 gir 240 MB. «1920 MB» er mellomresultatet i megabit. «2 MB» er filstørrelsen delt på både 8 og noe mer. «480 MB» er dobbelt så mye, altså delt på 4 i stedet for 8."
+  },
+  {
+    "question": "Hva skjer med overføringstida hvis linja blir dobbelt så rask?",
+    "options": [
+      "Tida halveres, siden tida er omvendt proporsjonal med raten",
+      "Tida dobles, siden mer data må håndteres per sekund",
+      "Tida blir uendret, siden filstørrelsen ikke er endret",
+      "Tida reduseres med en åttedel, på grunn av omregningsfaktoren"
+    ],
+    "explanation": "Raten står i nevneren, så dobbel rate gir halv tid. «Tida dobles, siden mer data må håndteres per sekund» snur sammenhengen. «Tida blir uendret, siden filstørrelsen ikke er endret» overser at raten er med i formelen. «Tida reduseres med en åttedel, på grunn av omregningsfaktoren» blander inn faktoren 8, som ikke har noe med endringen å gjøre."
+  },
+  {
+    "question": "Hva skjer med overføringstida hvis filen blir dobbelt så stor?",
+    "options": [
+      "Tida dobles, siden tida er proporsjonal med filstørrelsen",
+      "Tida halveres, siden linja utnyttes bedre av store filer",
+      "Tida blir uendret, siden raten er den samme",
+      "Tida åttedobles, på grunn av omregningen fra byte til bit"
+    ],
+    "explanation": "Filstørrelsen står i telleren, så dobbel størrelse gir dobbel tid. «Tida halveres, siden linja utnyttes bedre av store filer» er oppspinn — utnyttelsesgraden er ikke med i formelen. «Tida blir uendret, siden raten er den samme» overser at filstørrelsen er med. «Tida åttedobles, på grunn av omregningen fra byte til bit» blander inn faktoren 8, som gjelder uansett størrelse."
+  },
+  {
+    "question": "Når skal du dele på 8 i stedet for å gange med 8?",
+    "options": [
+      "Når svaret skal være en filstørrelse i byte",
+      "Når svaret skal være en tid i sekunder",
+      "Når svaret skal være en rate i bit per sekund",
+      "Når oppgaven oppgir tida i minutter"
+    ],
+    "explanation": "Produktet av tid og rate er i bit, og skal svaret være i byte, må det deles på 8. «Når svaret skal være en tid i sekunder» og «Når svaret skal være en rate i bit per sekund» krever begge at man ganger filstørrelsen med 8. «Når oppgaven oppgir tida i minutter» handler om å regne om minutter til sekunder, som er en helt annen omregning."
+  },
+  {
+    "question": "Hvilken av disse tar lengst tid?",
+    "options": [
+      "1500 MB over 100 Mbit/s",
+      "900 MB over 150 Mbit/s",
+      "450 MB over 90 Mbit/s",
+      "120 MB over 40 Mbit/s"
+    ],
+    "explanation": "1500 ganger 8 delt på 100 gir 120 sekunder, mot 48, 40 og 24 sekunder for de tre andre. «900 MB over 150 Mbit/s» gir 48 sekunder, «450 MB over 90 Mbit/s» gir 40 og «120 MB over 40 Mbit/s» gir 24. Merk at faktoren 8 påvirker alle fire likt, så forholdet mellom størrelse og rate avgjør alene."
+  },
+  {
+    "question": "Hva ser overføringstidsformelen bort fra?",
+    "options": [
+      "Oppsett av forbindelsen, pakkehoder og ventetid i køer underveis",
+      "Filstørrelsen, som antas å være den samme for alle overføringer",
+      "Raten, som antas å variere gjennom overføringen",
+      "Retningen dataene går, som ikke påvirker resultatet"
+    ],
+    "explanation": "Formelen regner bare selve overføringen ved full rate, og i dette faget er det riktig å gjøre det. «Filstørrelsen, som antas å være den samme for alle overføringer» og «Raten, som antas å variere gjennom overføringen» er tvert imot de to størrelsene formelen bygger på. «Retningen dataene går, som ikke påvirker resultatet» er galt: retningen avgjør hvilken rate som gjelder."
+  }
+]

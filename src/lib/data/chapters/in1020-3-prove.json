@@ -1,0 +1,356 @@
+{
+  "id": "in1020-3-prove",
+  "courseId": "in1020",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Datasikkerhet",
+  "description": "Fire prøver à 25–30 minutter som dekker mål og tiltak, kryptering og digital signatur, trusselmodellering med risiko og autentisering, og personvern med skadevare.",
+  "estimatedMinutes": 115,
+  "competenceGoals": [
+    "kunne skille mål fra tiltak og koble tiltak til riktig mål under tidspress",
+    "kunne velge riktig nøkkel i både hemmelighold og signering, hver gang",
+    "kunne regne og rangere risiko og vurdere autentiseringsløsninger",
+    "kunne plassere personvernansvar og kjenne igjen skadevaretypene"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-prove-om-provene",
+      "type": "tip",
+      "title": "Fire prøver til del 3 — slik bruker du dem",
+      "content": "Dette kapitlet er **4 prøver à ~25–30 minutter**, til sammen omtrent 115 minutter. Det kan trygt deles over flere kvelder — **én prøve per økt** er en helt vanlig og god måte å gjøre det på.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| **Prøve 1** | Mål, tiltak og koblingen mellom dem | ~25 min |\n| **Prøve 2** | Kryptering, digital signatur og nøkkelretning | ~30 min |\n| **Prøve 3** | Trusselmodellering, risiko og autentisering | ~30 min |\n| **Prøve 4** | Personvern, GDPR og skadevare | ~30 min |\n\n**Hvor flervalget bor.** Oppgavene her er skrevet med alternativene **inne i prøveteksten**, slik at du krysser av på papir eller i hodet. Vil du ha tidsstyrt avkrysning med automatisk retting, ligger den i den interaktive quizen til hvert kapittel i del 3.\n\n**Slik tar du en prøve.** Ta tida. Ikke slå opp underveis. Fasiten begrunner **hvert** alternativ, også de gale — det er den ferdigheten eksamen faktisk måler, siden gale avkrysninger trekker poeng.\n\n**Ha sjekklisten klar før du begynner.** De fire fellene i denne seksjonen er **#1** (mål mot tiltak), **#4** (signatur og konfidensialitet), **#5** (snudd nøkkelretning) og **#9** (hash og konfidensialitet). Skriv dem i margen.\n\n**Etter hver fasit står en avkryssbar selvdiagnose.** Bruk den. Den peker på hvilket kapittel du bør tilbake til hvis noe glapp."
+    },
+    {
+      "id": "in1020-3-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nPrøvene dekker hele del 3, altså [kap. 3.1](/bok/in1020/in1020-3-1) til [kap. 3.7](/bok/in1020/in1020-3-7). Her er kjernen, ferdig oppfrisket:\n\n**De sju målene:** konfidensialitet (lese) · integritet (endre) · tilgjengelighet (få tak i) · sporbarhet (se i ettertid) · uavviselighet (kunne nekte) · autentisitet (virkelig den) · personvern (lovlig behandling).\n\n**Testen mål mot tiltak:** kan man installere eller gjennomføre det → **tiltak**. Er det en egenskap systemet har eller mangler → **mål**.\n\n**De to nøkkelretningene:**\n\n```text\nHEMMELIG MELDING til Bob:\n  krypter med    ->  Bobs OFFENTLIGE      (mottakerens)\n  dekrypter med  ->  Bobs PRIVATE         (mottakerens)\n\nDIGITAL SIGNATUR fra Alice:\n  signer med     ->  Alices PRIVATE       (avsenderens)\n  valider med    ->  Alices OFFENTLIGE    (avsenderens)\n```\n\n**Hva hvert tiltak gir:** kryptering → konfidensialitet. Hash → integritet. Signatur → integritet, autentisitet og uavviselighet, men **ikke** konfidensialitet.\n\n**Risiko:** `sannsynlighet × konsekvens`. Begge faktorene må med.\n\n**Tofaktor:** to bevis av **ulik** type — noe du vet, noe du har, noe du er.\n\n**Personvern:** den **behandlingsansvarlige** beholder ansvaret selv om driften settes bort. Samtykke er ett av flere lovlige grunnlag."
+    },
+    {
+      "id": "in1020-3-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Mål, tiltak og koblinger (~25 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in1020-3-prove-p1-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 25 minutter.** Ingen hjelpemidler.\n\nOppgavene er i svarformene **F1** («velg ett *eller flere* alternativer»), **F2** (sant/usant-matrise) og **F3** (kobling)."
+        },
+        {
+          "id": "in1020-3-prove-p1-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p1-o1",
+            "number": "1.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger G — mål eller tiltak, svarform F3.) Plasser hvert element (1–8) i riktig kolonne (A eller B).\n\n**1.** Integritet · **2.** Brannmur · **3.** Sporbarhet · **4.** Sikkerhetskopiering · **5.** Autentisitet · **6.** Tofaktor-autentisering · **7.** Tilgjengelighet · **8.** Logging\n\n**A.** Sikkerhetsmål · **B.** Sikkerhetstiltak",
+            "solution": "Bruk testen: kan man installere eller gjennomføre det (tiltak), eller er det en egenskap (mål)?\n\n**1 → A.** Integritet er en egenskap ved dataene.\n\n**2 → B.** Brannmuren settes opp.\n\n**3 → A.** Sporbarhet er egenskapen at man kan se hvem som gjorde hva.\n\n**4 → B.** Sikkerhetskopiering er noe man gjør.\n\n**5 → A.** Autentisitet er egenskapen at noe virkelig er det det utgir seg for.\n\n**6 → B.** Tofaktor slås på.\n\n**7 → A.** Tilgjengelighet er en egenskap ved tjenesten.\n\n**8 → B.** Logging er handlingen som gir sporbarhet.\n\n**Fasit: mål = 1, 3, 5, 7. Tiltak = 2, 4, 6, 8.**\n\nMerk paret 3 og 8: sporbarhet er målet, logging er tiltaket. Ser du to elementer som «hører sammen», er det som regel et slikt par.",
+            "hints": [
+              "Ett spørsmål per element: installerer man det, eller ønsker man det?",
+              "Se etter par der det ene er tiltaket som gir det andre."
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p1-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p1-o2",
+            "number": "1.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger G — tiltak til mål, svarform F3.) Koble hvert tiltak (1–6) til det målet det **først og fremst** tjener (A–D).\n\n**1.** Hash-verdi · **2.** Redundans · **3.** HTTPS · **4.** Logging · **5.** Sikkerhetskopiering · **6.** Tilgangskontroll\n\n**A.** Konfidensialitet · **B.** Integritet · **C.** Tilgjengelighet · **D.** Sporbarhet",
+            "solution": "**1 → B (integritet).** Hash-verdien avslører endringer. Å svare A ville vært felle #9.\n\n**2 → C (tilgjengelighet).** Flere maskiner som kan overta, holder tjenesten oppe.\n\n**3 → A (konfidensialitet).** HTTPS krypterer trafikken. Den gir også integritet og autentisitet, men konfidensialitet er kjernen.\n\n**4 → D (sporbarhet).** Loggen gjør det mulig å se hvem som gjorde hva.\n\n**5 → C (tilgjengelighet).** Kopien sørger for at innholdet finnes når originalen er borte.\n\n**6 → A (konfidensialitet).** Tilgangskontroll bestemmer hvem som får lese hva.\n\n**Fasit: 1→B, 2→C, 3→A, 4→D, 5→C, 6→A.**\n\nA og C brukes to ganger hver. Ikke tving fram jevn fordeling.",
+            "hints": [
+              "Spør: hindrer det lesing, avslører det endring, sikrer det oppetid, eller dokumenterer det?",
+              "To av tiltakene er de faste fellene — hvilke?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p1-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p1-o3",
+            "number": "1.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger G — mål og tiltak, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Kryptering er et sikkerhetsmål | |\n| b | En sjekksum tjener integritet | |\n| c | Sikkerhetskopiering tjener konfidensialitet | |\n| d | Tilgjengelighet er ett av de sju sikkerhetsmålene | |",
+            "solution": "**a) Usann — felle #1.** Kryptering er et **tiltak**. Målet den tjener, er konfidensialitet. Dette er det tiltaket som oftest feilplasseres, fordi ordet er så sentralt i sikkerhet.\n\n**b) Sann.** Sjekksummen avslører endringer i innholdet. Den skjuler ingenting.\n\n**c) Usann.** Sikkerhetskopiering tjener **tilgjengelighet**. En kopi hindrer ingen i å lese noe — tvert imot finnes innholdet nå to steder, og begge må sikres.\n\n**d) Sann.** De sju er konfidensialitet, integritet, tilgjengelighet, sporbarhet, uavviselighet, autentisitet og personvern. Et system som er hemmelig og korrekt, men nede, har et sikkerhetsproblem.\n\n**Fasit: a usann, b sann, c usann, d sann.**",
+            "hints": [
+              "Bruk testen på rad a.",
+              "For c): hva gjør en kopi med lesbarheten til innholdet?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p1-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p1-o4",
+            "number": "1.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger G — mål, svarform F1.) En ansatt i en bank endrer beløp i flere overføringer og sletter loggene etterpå. Kryss av **alle** målene som brytes, og begrunn hvert av de fem.\n\n**a)** Integritet\n\n**b)** Sporbarhet\n\n**c)** Uavviselighet\n\n**d)** Konfidensialitet\n\n**e)** Tilgjengelighet",
+            "solution": "**a) Riktig.** Beløpene er endret, og innholdet er ikke lenger korrekt.\n\n**b) Riktig.** Loggene er slettet, så det går ikke lenger an å se hvem som gjorde hva.\n\n**c) Riktig.** Uten logger kan den ansatte nekte for å ha gjort endringene, og banken kan ikke bevise noe annet.\n\n**d) Galt.** Ingenting tyder på at uvedkommende har **lest** noe de ikke skulle. Den ansatte hadde trolig lovlig tilgang til overføringssystemet; problemet er hva vedkommende gjorde med tilgangen.\n\n**e) Galt.** Systemet er oppe, og overføringene er tilgjengelige — de er bare gale. Ingen har mistet tilgang til noe.\n\n**Fasit: a, b og c.**\n\nDe to gale er de to «vanligste» målene, og de er tatt med som distraktorer nettopp fordi de er de første man tenker på ved ordet «angrep».",
+            "hints": [
+              "Gå gjennom målene ett for ett.",
+              "For d): hadde den ansatte lov til å se overføringene i utgangspunktet?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p1-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1\n\nKryss av det du klarte:\n\n☐ brukte du testen på hvert element før du plasserte det?\n\n☐ svarte du integritet og ikke konfidensialitet på sjekksum og hash?\n\n☐ svarte du tilgjengelighet og ikke konfidensialitet på sikkerhetskopi?\n\n☐ gikk du gjennom **alle** målene i 1.4, ikke bare de to første som passet?\n\n☐ unngikk du å tvinge fram jevn fordeling i koblingsoppgaven?\n\nGlapp noe? Mål og tiltak står i [kap. 3.1](/bok/in1020/in1020-3-1), og fjorten flere oppgaver ligger i [kap. 3.5](/bok/in1020/in1020-3-5)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Kryptering og digital signatur (~30 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in1020-3-prove-p2-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler.\n\nSkriv opp de to retningsreglene i margen før du begynner. De avgjør tre av de fire oppgavene."
+        },
+        {
+          "id": "in1020-3-prove-p2-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p2-o1",
+            "number": "2.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger H — nøkkelretning, svarform F4.) Velg ett alternativ per delspørsmål.\n\n**a)** Alice sender en hemmelig melding til Bob. Hun krypterer med …\n\n1. Alices private nøkkel · 2. Alices offentlige nøkkel · 3. Bobs offentlige nøkkel · 4. Bobs private nøkkel\n\n**b)** Bob dekrypterer meldingen med …\n\n1. Bobs private nøkkel · 2. Bobs offentlige nøkkel · 3. Alices offentlige nøkkel · 4. Alices private nøkkel\n\n**c)** Alice signerer et dokument. Bob validerer signaturen med …\n\n1. Bobs offentlige nøkkel · 2. Alices private nøkkel · 3. Bobs private nøkkel · 4. Alices offentlige nøkkel",
+            "solution": "**a) Alternativ 3 — Bobs offentlige nøkkel.** Hemmelighold bruker mottakerens nøkler. Alternativ 1 ville vært signering. Alternativ 2 ville låst meldingen så bare Alice kunne åpne den. Alternativ 4 er umulig.\n\n**b) Alternativ 1 — Bobs private nøkkel.** Den eneste som åpner det Bobs offentlige låste. Alternativ 2 er nøkkelen som låste. Alternativ 3 og 4 bruker Alices nøkler, som ikke er involvert.\n\n**c) Alternativ 4 — Alices offentlige nøkkel.** Signering bruker avsenderens nøkler i begge ledd. Alternativ 2 er umulig: Bob har ikke Alices private nøkkel. Alternativ 1 og 3 bruker Bobs eget nøkkelpar.\n\n**Fasit: a) 3, b) 1, c) 4.**\n\nMerk at fasit-alternativene er ulike i alle tre delspørsmålene. Rekkefølgen er alltid stokket.",
+            "hints": [
+              "Avgjør først om formålet er hemmelighold eller signering.",
+              "Hemmelighold bruker mottakerens nøkler; signering bruker avsenderens."
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p2-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p2-o2",
+            "number": "2.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger H — signatur, svarform F1.) Kryss av **alle** påstandene som stemmer om en digital signatur, og begrunn hvert av de fem.\n\n**a)** Den gir konfidensialitet.\n\n**b)** Den gir integritet.\n\n**c)** Den gir uavviselighet.\n\n**d)** Det er hash-verdien som signeres, ikke hele meldingen.\n\n**e)** Den valideres med avsenderens offentlige nøkkel.",
+            "solution": "**a) Galt — felle #4.** Meldingen sendes i klartekst, og mottakeren må kunne lese den for å regne ut hash-verdien. Alle som fanger opp meldingen, kan lese den.\n\n**b) Riktig.** Endres meldingen med ett bit, stemmer ikke hash-verdiene lenger, og valideringen mislykkes.\n\n**c) Riktig.** Bare avsenderen har sin private nøkkel, så bare hun kan ha laget signaturen.\n\n**d) Riktig.** Hash-verdien er liten uansett meldingens størrelse, og asymmetrisk kryptering er treg.\n\n**e) Riktig.** Signering bruker avsenderens private, validering avsenderens offentlige.\n\n**Fasit: b, c, d og e.**\n\nFire av fem riktige, og det ene gale er fagets mest testede enkeltinnsikt.",
+            "hints": [
+              "Gå gjennom hva en gyldig signatur lar mottakeren slutte.",
+              "Må mottakeren kunne lese meldingen for å kontrollere signaturen?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p2-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p2-o3",
+            "number": "2.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger H — de to formene, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Symmetrisk kryptering er raskere enn asymmetrisk | |\n| b | Den offentlige nøkkelen må holdes hemmelig | |\n| c | Symmetrisk kryptering gir uavviselighet | |\n| d | En hash-verdi kan ikke regnes tilbake til innholdet | |",
+            "solution": "**a) Sann.** Symmetriske algoritmer krypterer gigabyte i sekundet; asymmetriske operasjoner er størrelsesordener tregere og brukes bare på små mengder.\n\n**b) Usann.** Den offentlige nøkkelen er laget for å være kjent og kan deles åpent. Det er den **private** som aldri skal forlate eieren.\n\n**c) Usann.** Begge parter har samme nøkkel, så ingen kan bevise hvem som lagde meldingen. Uavviselighet krever digital signatur.\n\n**d) Sann.** Hash-funksjonen går bare én vei. Det er nettopp derfor den kan brukes til passordlagring.\n\n**Fasit: a sann, b usann, c usann, d sann.**",
+            "hints": [
+              "For b): hva betyr ordet «offentlig» i «offentlig nøkkel»?",
+              "For c): kan noen bevise noe når begge har samme nøkkel?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p2-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p2-o4",
+            "number": "2.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger H — kombinasjon, svarform F1.) Alice vil sende Bob en melding som både er hemmelig og bevislig kommer fra henne. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Hun må gjøre to operasjoner.\n\n**b)** Hun signerer med sin egen private nøkkel.\n\n**c)** Hun krypterer med Bobs offentlige nøkkel.\n\n**d)** Bob validerer signaturen med sin egen private nøkkel.\n\n**e)** Til sammen brukes fire nøkler.",
+            "solution": "**a) Riktig.** Signering gir integritet, autentisitet og uavviselighet; kryptering gir konfidensialitet. Ingen enkelt operasjon gir begge deler.\n\n**b) Riktig.** Signering bruker avsenderens private nøkkel.\n\n**c) Riktig.** Hemmelighold bruker mottakerens offentlige nøkkel.\n\n**d) Galt — felle #5.** Bob validerer med **Alices offentlige** nøkkel. Sin egen private nøkkel bruker han til å **dekryptere**, som er en annen operasjon. Distraktoren er farlig fordi Bobs private nøkkel faktisk er i bruk i saken — bare ikke til valideringen.\n\n**e) Riktig.** Alices private og offentlige, Bobs offentlige og private. To fra hvert nøkkelpar.\n\n**Fasit: a, b, c og e.**\n\nDe halvriktige alternativene er de dyreste under negativ poenggiving. Knytt hver nøkkel til **én bestemt operasjon** før du vurderer.",
+            "hints": [
+              "Hold de to operasjonene atskilt, og skriv opp hvilke nøkler hver bruker.",
+              "For d): hvilken operasjon bruker Bobs private nøkkel?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p2-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 2\n\nKryss av det du klarte:\n\n☐ skrev du opp begge retningsreglene før du begynte?\n\n☐ krypterte du med **mottakerens** offentlige nøkkel i hemmelig melding?\n\n☐ signerte du med **avsenderens** private nøkkel?\n\n☐ husket du at signatur **ikke** gir konfidensialitet?\n\n☐ unngikk du å blande begge parters nøkler i én operasjon?\n\nGlapp noe? Kryptering står i [kap. 3.3](/bok/in1020/in1020-3-3), signatur og hash i [kap. 3.4](/bok/in1020/in1020-3-4)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Trusler, risiko og autentisering (~30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in1020-3-prove-p3-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler og ingen kalkulator — risikoregningen går for hånd.\n\nHusk at risiko er `sannsynlighet × konsekvens`, og at begge faktorene må med."
+        },
+        {
+          "id": "in1020-3-prove-p3-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p3-o1",
+            "number": "3.1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger G — trussel til mål, svarform F3.) Koble hver trussel (1–6) til det målet den **først og fremst** bryter (A–D).\n\n**1.** Tjenestenektangrep · **2.** Tastelogger · **3.** Rootkit · **4.** Sletting av loggfiler · **5.** Løsepengevirus · **6.** Stjålet ukryptert bærbar maskin\n\n**A.** Konfidensialitet · **B.** Integritet · **C.** Tilgjengelighet · **D.** Sporbarhet",
+            "solution": "**1 → C (tilgjengelighet).** Tjenesten går ned; ingenting leses eller endres.\n\n**2 → A (konfidensialitet).** Tastetrykk og passord lekker.\n\n**3 → B (integritet).** Systemet manipuleres og rapporterer ikke sannheten om seg selv. Å svare A er fella: navnet høres ut som spionasje.\n\n**4 → D (sporbarhet).** Uten logger kan ingen se hva som skjedde.\n\n**5 → C (tilgjengelighet).** Filene finnes, men er låst. Kryptering er verktøyet, ikke det brutte målet.\n\n**6 → A (konfidensialitet).** Finneren kan lese innholdet. Var disken kryptert, ville bare tilgjengelighet vært brutt.\n\n**Fasit: 1→C, 2→A, 3→B, 4→D, 5→C, 6→A.**\n\nA og C brukes to ganger hver.",
+            "hints": [
+              "Bruk grunnreglene: lese, endre eller hindre bruk?",
+              "For 5): hva er det som faktisk gikk tapt for eieren?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p3-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p3-o2",
+            "number": "3.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger G — risiko.) En bedrift har vurdert fire trusler på skalaen 1 til 5. Regn ut risikoen for hver, og rangér dem fra høyest til lavest.\n\n| Trussel | Sannsynlighet | Konsekvens |\n|---|---|---|\n| Ansatt klikker på falsk lenke | 5 | 3 |\n| Brann i serverrom | 1 | 5 |\n| Tapt mobiltelefon med kryptering | 3 | 2 |\n| Utdatert programvare utnyttes | 3 | 4 |",
+            "solution": "**Regn ut produktet for hver:**\n\n`Falsk lenke: 5 · 3 = 15`\n\n`Brann: 1 · 5 = 5`\n\n`Tapt mobiltelefon: 3 · 2 = 6`\n\n`Utdatert programvare: 3 · 4 = 12`\n\n**Rangeringen fra høyest til lavest:**\n\n1. **Falsk lenke — 15**\n2. **Utdatert programvare — 12**\n3. **Tapt mobiltelefon — 6**\n4. **Brann — 5**\n\n**Svar: falsk lenke, utdatert programvare, tapt mobiltelefon, brann.**\n\n**Legg merke til brannen:** høyest konsekvens av alle fire, lavest risiko. Rangerer du etter konsekvens alene, havner den øverst — den vanligste feilen i oppgavetypen.\n\n**Og legg merke til den tapte telefonen:** konsekvensen er satt lavt nettopp fordi den er kryptert. Tiltaket har allerede senket den ene faktoren.",
+            "hints": [
+              "Regn ut alle fire produktene før du sammenligner.",
+              "Se på trusselen med høyest konsekvens — hva er sannsynligheten der?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p3-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p3-o3",
+            "number": "3.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger G — autentisering, svarform F1.) Kryss av **alle** kombinasjonene som er reell tofaktor-autentisering, og begrunn hvert av de fem.\n\n**a)** Passord og sikkerhetsspørsmål\n\n**b)** Brukernavn og passord\n\n**c)** Fingeravtrykk og PIN-kode\n\n**d)** Passord og engangskode på mobil\n\n**e)** Kodebrikke og PIN-kode",
+            "solution": "**a) Galt.** Begge er **noe du vet** — én faktor brukt to ganger. En angriper som har lurt deg for det ene, har som regel også det andre.\n\n**b) Galt.** Brukernavnet er en **identifikator**, ikke et hemmelig bevis. Bare passordet er en faktor, så dette er enfaktor.\n\n**c) Riktig.** Fingeravtrykk er «noe du er», PIN er «noe du vet».\n\n**d) Riktig.** Passord er «noe du vet», engangskoden krever telefonen, altså «noe du har».\n\n**e) Riktig.** Kodebrikken er «noe du har», PIN er «noe du vet».\n\n**Fasit: c, d og e.**\n\nMerk alternativ b: mange regner brukernavn som «halve påloggingen», men det er ofte offentlig kjent.",
+            "hints": [
+              "Sorter hvert element i «vet», «har» eller «er».",
+              "Er begge i samme kategori, er det ikke tofaktor."
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p3-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p3-o4",
+            "number": "3.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger G — passord og trusler, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Saltet må holdes hemmelig for at det skal virke | |\n| b | Et internt system uten internettforbindelse er uten risiko | |\n| c | Et system som kan sende deg passordet ditt, lagrer det i klartekst | |\n| d | Brannmur stopper innsidetrusler effektivt | |",
+            "solution": "**a) Usann.** Saltet lagres åpent ved siden av hash-verdien. Poenget er at det er **unikt per bruker** — det er unikheten som gjør ferdiglagde oppslagstabeller ubrukelige, ikke hemmeligholdet.\n\n**b) Usann — felle #12.** Innsidere har allerede tilgang, fysisk tilgang omgår sperrene, og strømbrudd, brann og feilbetjening rammer uansett. Absolutte formuleringer som «uten risiko» er nesten alltid usanne.\n\n**c) Sann.** En hash-verdi kan ikke reverseres, så et system som henter fram passordet, må ha det i lesbar form. Et riktig bygd system tilbyr **tilbakestilling**, ikke gjenutsending.\n\n**d) Usann.** Innsideren er allerede innenfor brannmuren. Mottiltakene er minste privilegium, logging, arbeidsdeling og opplæring.\n\n**Fasit: a usann, b usann, c sann, d usann.**\n\n**Om formen:** tre av fire er usanne. Fordelingen er ingen ledetråd — vurder hver rad for seg.",
+            "hints": [
+              "For a): hva er det saltet skal oppnå?",
+              "Se etter absolutte formuleringer — de er ofte de usanne."
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p3-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3\n\nKryss av det du klarte:\n\n☐ skilte du verktøyet fra det brutte målet i løsepengevirus-oppgaven?\n\n☐ ganget du **begge** faktorene i risikoregningen?\n\n☐ sjekket du at de to faktorene i tofaktor var av **ulik** type?\n\n☐ husket du at brukernavn ikke er en faktor?\n\n☐ husket du at saltet ikke er hemmelig?\n\nGlapp noe? Trusler og risiko står i [kap. 3.2](/bok/in1020/in1020-3-2), autentisering og passord i [kap. 3.6](/bok/in1020/in1020-3-6)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Personvern og skadevare (~30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in1020-3-prove-p4-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler.\n\nHusk de to faste distraktorene i personverndelen: at ansvaret kan settes bort, og at samtykke alltid kreves. Begge er usanne."
+        },
+        {
+          "id": "in1020-3-prove-p4-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p4-o1",
+            "number": "4.1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger I — personvern, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | En virksomhet slipper ansvar ved å bruke en skyleverandør | |\n| b | Dataminimering betyr å samle inn bare det som er nødvendig | |\n| c | Samtykke kreves alltid for all behandling | |\n| d | En IP-adresse kan være en personopplysning | |",
+            "solution": "**a) Usann.** Den **behandlingsansvarlige** beholder ansvaret; leverandøren blir databehandler. Virksomheten får i tillegg en plikt til å velge en leverandør som gir tilstrekkelige garantier, og til å regulere forholdet i avtale. Dette er den mest testede påstanden i sjangeren.\n\n**b) Sann.** Trenger skjemaet bare postnummer, skal det ikke be om full adresse og fødselsdato. Prinsippet gjelder uansett hvor trygt opplysningene lagres.\n\n**c) Usann.** Samtykke er ett av flere lovlige grunnlag. En kommune som fatter vedtak, eller en arbeidsgiver som utbetaler lønn, bygger på andre.\n\n**d) Sann.** Kriteriet er om opplysningen kan **knyttes til en enkeltperson**, ikke hvordan den ser ut.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\nDe to usanne er nettopp de to faste distraktorene.",
+            "hints": [
+              "For a): hvem bestemte formålet med behandlingen?",
+              "For c): hvilket grunnlag har en arbeidsgiver som utbetaler lønn?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p4-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p4-o2",
+            "number": "4.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger I — skadevare, svarform F3.) Koble hver beskrivelse (1–6) til riktig type (A–G).\n\n**1.** Fester seg til en vertsfil og spres med den\n\n**2.** Omgår den vanlige innloggingen\n\n**3.** Sprer seg selv over nettet uten hjelp\n\n**4.** Utløses når en bestemt betingelse inntreffer\n\n**5.** Skjuler seg dypt i systemet og manipulerer det\n\n**6.** Ligger skjult i et program brukeren installerer selv\n\n**A.** Orm · **B.** Virus · **C.** Trojaner · **D.** Rootkit · **E.** Tastelogger · **F.** Logisk bombe · **G.** Bakdør",
+            "solution": "**1 → B (virus).** Vertsfilen er kjennetegnet.\n\n**2 → G (bakdør).** Omgåelsen av innloggingen er kjennetegnet.\n\n**3 → A (orm).** Selvspredningen er kjennetegnet. Skillet mot viruset er det hyppigst testede i skadevaredelen.\n\n**4 → F (logisk bombe).** Utløseren er kjennetegnet.\n\n**5 → D (rootkit).** Skjulingen i systemet er kjennetegnet.\n\n**6 → C (trojaner).** Innpakningen er kjennetegnet.\n\n**Fasit: 1→B, 2→G, 3→A, 4→F, 5→D, 6→C.**\n\n**Tastelogger (E) er ikke i bruk.** Ikke tving den inn — en koblingsoppgave krever ikke at alle kategorier brukes.\n\nMetoden: sorter på **spredning** (orm, virus, trojaner) og **skjuling eller utløser** (rootkit, bakdør, logisk bombe).",
+            "hints": [
+              "To spørsmål avgjør: hvordan sprer den seg, og hvordan skjuler den seg?",
+              "Én av typene er ikke i bruk — det er normalt."
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p4-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p4-o3",
+            "number": "4.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger I — prinsipper, svarform F1.) En treningsapp ber om fødselsnummer og full adresse for å lage en brukerkonto, og selger deretter opplysningene videre til annonsører. Kryss av **alle** prinsippene som brytes, og begrunn hvert av de fire.\n\n**a)** Dataminimering\n\n**b)** Formålsbegrensning\n\n**c)** Riktighet\n\n**d)** Lagringsbegrensning",
+            "solution": "**a) Riktig.** For å lage en brukerkonto trengs verken fødselsnummer eller full adresse. Det er samlet inn langt mer enn formålet krever.\n\n**b) Riktig.** Opplysningene ble samlet inn for å lage en konto. Videresalg til annonsører er et **annet** formål og krever et eget grunnlag.\n\n**c) Galt.** Riktighet handler om at opplysningene er **korrekte og oppdaterte**. Ingenting tyder på at de er feil — problemet er mengden og bruken.\n\n**d) Galt.** Lagringsbegrensning gjelder hvor **lenge** opplysningene beholdes, og oppgaven sier ingenting om lagringstid. Distraktoren er med fordi prinsippet «høres relevant ut» i enhver personvernsak.\n\n**Fasit: a og b.**\n\nMetoden: gå gjennom prinsippene ett for ett og spør hva **denne konkrete** handlingen bryter.",
+            "hints": [
+              "Del saken i to: hva som samles inn, og hva det brukes til.",
+              "Står det noe i oppgaven som faktisk bryter nettopp det prinsippet?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p4-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-3-prove-p4-o4",
+            "number": "4.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger G og I blandet, svarform F1.) En kommune rammes av et løsepengevirus som låser innbyggerregisteret. Systemet driftes av en ekstern leverandør som ikke hadde oppdatert programvaren.\n\nKryss av **alle** påstandene som stemmer, og begrunn hvert av de seks.\n\n**a)** Kommunen er behandlingsansvarlig.\n\n**b)** Leverandøren er behandlingsansvarlig, siden feilen var deres.\n\n**c)** Tilgjengelighet er brutt.\n\n**d)** Konfidensialitet er brutt.\n\n**e)** Kommunen hadde plikt til å velge en leverandør som gir tilstrekkelige garantier.\n\n**f)** En sikkerhetskopi som ikke var tilkoblet, ville vært det viktigste mottiltaket.",
+            "solution": "**a) Riktig.** Kommunen bestemte formålet med behandlingen. Ansvaret følger av det, ikke av hvem som driftet maskinene.\n\n**b) Galt.** Leverandøren er **databehandler**. At feilen lå hos leverandøren, kan gi grunnlag for et krav mellom partene — men overfor innbyggerne og myndighetene svarer kommunen. Dette er den mest testede påstanden i sjangeren.\n\n**c) Riktig.** Registeret er låst, og kommunen får ikke brukt det. Det er tilgjengelighet i ren form.\n\n**d) Galt.** Løsepengeviruset **låser** dataene; oppgaven sier ikke at noe er lest eller lekket. Kryptering er verktøyet, ikke det brutte målet. Sier oppgaven derimot at data også ble stjålet, ville konfidensialitet vært brutt i tillegg.\n\n**e) Riktig.** Plikten ligger på den behandlingsansvarlige — og det er nettopp derfor ansvaret ikke kan settes bort.\n\n**f) Riktig.** En kopi som ikke er tilkoblet, blir ikke kryptert sammen med resten, og gjør det mulig å gjenopprette uten å betale.\n\n**Fasit: a, c, e og f.**\n\n**Fire av seks riktige.** Oppgaven trekker på tre kapitler samtidig, og det er slik de siste oppgavene i en seksjon som regel er bygd.",
+            "hints": [
+              "Del saken i tre: hvem er ansvarlig, hvilke mål er brutt, og hva ville hjulpet?",
+              "For d): sier oppgaven noe om at data er lest eller lekket?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-3-prove-p4-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4\n\nKryss av det du klarte:\n\n☐ husket du at ansvaret **ikke** kan settes bort til en leverandør?\n\n☐ avviste du påstanden om at samtykke alltid kreves?\n\n☐ skilte du formålsbegrensning fra lagringsbegrensning?\n\n☐ skilte du orm fra virus på **spredningsmåten**?\n\n☐ svarte du tilgjengelighet og ikke konfidensialitet på løsepengevirus?\n\n☐ lot du den ubrukte skadevaretypen stå ubrukt?\n\nGlapp noe? Personvern og skadevare står i [kap. 3.7](/bok/in1020/in1020-3-7), og de brutte målene i [kap. 3.1](/bok/in1020/in1020-3-1) og [kap. 3.2](/bok/in1020/in1020-3-2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

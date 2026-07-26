@@ -1,0 +1,526 @@
+{
+  "id": "in1020-2-4",
+  "courseId": "in1020",
+  "chapterNumber": "2.4",
+  "title": "Datamaskinens arkitektur — von Neumann, CPU, ALU, buss og pipeline",
+  "description": "Hvordan en datamaskin er satt sammen: lagret program i samme minne som data, prosessoren med ALU og registre, bussene mellom delene — og de fem påstandene som alltid er usanne.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne forklare hva som ligger inne i prosessoren og hva som ligger utenfor",
+    "kunne begrunne hvorfor et register ikke er RAM, og hvorfor ALU-en ikke ligger utenfor CPU-en",
+    "kunne beskrive instruksjonssyklusen og hva en pipeline gjør med den",
+    "kunne kjenne igjen og avvise de faste usanne påstandene om maskinvare"
+  ],
+  "content": [
+    {
+      "id": "in1020-2-4-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** arkitektur-fakta hører til **sjanger F — arkitektur-fakta og abstraksjonsnivå**, altså oppgavene der du skal vurdere påstander om hvordan maskinen er bygd. Faktadelen har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Dette er den begrepstunge halvdelen av **seksjon 2, maskinvare og arkitektur**, en av de fire seksjonene som hver må bestås for seg. Ingen regning her, bare presisjon.\n\n**Slik kommer den:** nesten alltid som **svarform F2** (sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver). Av og til som **F1** («velg ett *eller flere* alternativer»).\n\n**Den ene tingen som skiller bestått fra bom her:** fem påstander går igjen år etter år, og alle fem er **usanne**. De er samlet i en egen blokk i dette kapitlet. Kan du dem, har du en gratis sjekkliste å måle hver rad mot — og det er felle #11 i registeret, altså de faste «alltid usanne» arkitektur-distraktorene.\n\n**Om bonuspoeng:** maskinvaredelen kan gi **bonuspoeng** for full pott på en oppgave, og **minus** per feil avkryssing. Det gjør presisjon ekstra godt betalt akkurat her.\n\n**Tidsbruk:** 55 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-2-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet kan leses uten forkunnskaper fra resten av boka, men to ting du alt har møtt, gjør det lettere:\n\n**1. Instruksjoner er tall i minnet.** Fra [kap. 1.5](/bok/in1020/in1020-1-5): maskinkoden `508` er ikke et tall i seg selv, den er instruksjonen `LDA 08`. Det er hele grunnlaget for arkitekturen i dette kapitlet.\n\n**2. Binær addisjon med mente.** Fra [kap. 1.3](/bok/in1020/in1020-1-3): `0+0 = 0`, `0+1 = 1`, `1+1 = 0 med mente 1`, `1+1+1 = 1 med mente 1`. Kretsen som gjør nettopp dette, heter fulladder, og vi bygger den her.\n\n**3. Logiske porter.** Fra [kap. 2.1](/bok/in1020/in1020-2-1): AND, OR, XOR og NOT med sannhetstabellene sine. Du trenger XOR-en og AND-en i avsnittet om adderen.\n\nEt roligere hverdagsbilde av maskinens deler — hva som sitter hvor i kabinettet — ligger i [Datamaskinen og dens komponenter](/bok/im-vg1/im-vg1-1-1)."
+    },
+    {
+      "id": "in1020-2-4-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-2-4-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| CPU | Prosessoren — brikken som utfører instruksjonene |\n| ALU | Den aritmetisk-logiske enheten, **inne i** CPU-en; regner og gjør logikk |\n| Kontrollenhet | Delen av CPU-en som styrer rekkefølgen og setter opp de andre delene |\n| Register | Svært lite og svært raskt minne **inne i** CPU-en |\n| Programteller | Registeret som holder adressen til neste instruksjon |\n| RAM | Hovedminnet **utenfor** CPU-en, adressert celle for celle |\n| Databuss | Ledningsknippet som frakter dataverdier mellom delene |\n| Adressebuss | Ledningsknippet som frakter hvilken celle det gjelder |\n| Klokkesignal | Et signal som veksler 0 og 1 i fast takt og styrer når ting skjer |\n| Klokkesykel | Én periode av klokkesignalet — maskinens minste tidsenhet |\n| Halvadder | Krets som legger sammen to bit: sum og mente ut |\n| Fulladder | Krets som legger sammen to bit **og en mente inn** |\n| Mente inn | Menten fra forrige bitposisjon, inn i denne adderen |\n| Pipeline | Å overlappe trinnene i flere instruksjoner, som et samlebånd |\n\n**Formler i dette delkapitlet:**\n\n$$S = A \\oplus B \\oplus C_{\\text{inn}}$$\n\nSumbitet i en fulladder: XOR av alle tre inngangene.\n\n$$C_{\\text{ut}} = A \\cdot B + C_{\\text{inn}} \\cdot (A \\oplus B)$$\n\nMenten ut av en fulladder. En ekvivalent form er $A \\cdot B + A \\cdot C_{\\text{inn}} + B \\cdot C_{\\text{inn}}$ — begge gir samme kolonne i alle åtte radene.\n\n$$A - B = A + \\neg B + 1$$\n\nSubtraksjon som addisjon: inverter det andre tallet og sett mente inn lik 1.\n\n$$n \\text{ bit krever } n \\text{ stk. 1-bits ALU-er}$$\n\nEn 64-bits ALU bygges av **64** en-bits enheter, ikke 65."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Det lagrede programmet (~12 min)\n\nDe første regnemaskinene ble programmert med ledninger. Skulle de gjøre noe annet, måtte noen koble om fysisk.\n\nGjennombruddet var innsikten om at **programmet kan ligge i minnet, akkurat som data**. Maskinen henter instruksjonen sin fra en minnecelle, på samme måte som den henter et tall. Da kan et nytt program lastes inn uten at noen rører en eneste ledning.\n\nDu har allerede sett konsekvensen: i [kap. 1.5](/bok/in1020/in1020-1-5) kunne et program endre sin egen instruksjon ved å legge et tall til den, nettopp fordi instruksjonen bare var et tall i en celle.\n\nDenne måten å bygge en maskin på kalles **von Neumann-arkitekturen**, og den er den maskinen du sitter foran nå."
+    },
+    {
+      "id": "in1020-2-4-def-vonneumann",
+      "type": "definition",
+      "title": "Von Neumann-arkitekturen",
+      "content": "Byggemåten der **kode og data ligger i samme minne**, og prosessoren henter begge deler over den samme forbindelsen.\n\nDelene er: en **prosessor** (med regneenhet, kontrollenhet og registre), et **hovedminne** som er adressert celle for celle, **inn- og utenheter**, og **busser** som binder det hele sammen.\n\nKonsekvensen som testes: en instruksjon er ikke noe annet enn et tall i en celle. Derfor kan et program lastes inn, lagres på disk, sendes over nett — og i prinsippet endre seg selv.\n\nDen faste feilslutningen: å tro at maskinen «vet» hva som er kode og hva som er data. Det gjør den ikke. Det er kontrollenheten som bestemmer det, ut fra hvilken celle programtelleren peker på."
+    },
+    {
+      "id": "in1020-2-4-def-lagretprogram",
+      "type": "definition",
+      "title": "Lagret program-prinsippet",
+      "content": "At instruksjonene til maskinen lagres i det vanlige minnet, i samme format som alle andre tall.\n\nDet er dette prinsippet som gjør en datamaskin til en **generell** maskin: samme maskinvare kan kjøre en tekstbehandler i dag og en simulering i morgen, uten fysiske endringer.\n\nDen praktiske følgen du har sett: selvmodifiserende kode ([kap. 1.5](/bok/in1020/in1020-1-5)) er mulig fordi en instruksjon kan behandles som et tall og legges til.\n\nDen faste feilslutningen: å tro at kode ligger i et eget, beskyttet minne fra maskinvarens side. Beskyttelsen finnes, men den er noe operativsystemet lager — ikke noe arkitekturen gir gratis."
+    },
+    {
+      "id": "in1020-2-4-def-cpu",
+      "type": "definition",
+      "title": "CPU (prosessoren)",
+      "content": "Brikken som henter instruksjoner, tolker dem og utfører dem. Inneholder minst tre ting: **ALU**, **kontrollenhet** og et sett **registre**.\n\nAlt dette ligger **inne i** samme brikke. Det er en fast eksamensfelle å plassere en av delene utenfor.\n\nEn moderne CPU har flere **kjerner**, altså flere komplette regneverk på samme brikke, som kan arbeide med hver sin instruksjonsstrøm samtidig.\n\nDen faste feilslutningen: å blande CPU og hovedminne. RAM-en ligger utenfor prosessoren, på egne brikker, og nås over bussene."
+    },
+    {
+      "id": "in1020-2-4-def-alu",
+      "type": "definition",
+      "title": "ALU — den aritmetisk-logiske enheten",
+      "content": "Delen av CPU-en som gjør selve regningen: addisjon og subtraksjon, **og** logiske operasjoner som AND, OR og XOR bit for bit.\n\nNavnet sier begge deler: aritmetikk *og* logikk. Å tro at den bare regner, er halve sannheten.\n\n**ALU-en ligger inne i CPU-en.** Dette er en av de fem faste usanne påstandene i motsatt form — «ALU-en ligger utenfor CPU-en» er alltid galt.\n\nEn ALU for `n` bit bygges av `n` en-bits enheter koblet etter hverandre, der menten sendes videre fra hver enhet til den neste. En 64-bits ALU trenger derfor **64** slike, ikke 65."
+    },
+    {
+      "id": "in1020-2-4-def-kontrollenhet",
+      "type": "definition",
+      "title": "Kontrollenheten",
+      "content": "Delen av CPU-en som styrer rekkefølgen: den henter neste instruksjon, tolker hva den betyr, og setter de andre delene opp til å utføre den.\n\nDet er kontrollenheten som avgjør om innholdet i en minnecelle skal behandles som en instruksjon eller som et tall. Cellen selv bærer ikke den informasjonen.\n\nDen faste feilslutningen: å tro at kontrollenheten regner. Den regner ikke — den dirigerer. Regningen skjer i ALU-en."
+    },
+    {
+      "id": "in1020-2-4-def-register",
+      "type": "definition",
+      "title": "Register",
+      "content": "Et svært lite, svært raskt lager **inne i** CPU-en, som holder ett tall om gangen — typisk like mange bit som maskinens ordbredde.\n\nRegistre er raskere enn RAM fordi de ligger på selve prosessorbrikken og nås uten å gå over bussene. Til gjengjeld er det få av dem: et titall, mot milliarder av celler i RAM.\n\n**Et register er ikke bygd av RAM.** Dette er en av de fem faste usanne påstandene. Registre bygges av egne, raske lagringskretser på prosessorbrikken.\n\nDen faste feilslutningen ved siden av: å tro at RAM er raskere enn register fordi RAM er «hovedminnet». Rekkefølgen er motsatt — register er det raskeste i hele maskinen."
+    },
+    {
+      "id": "in1020-2-4-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Hvor ligger hva?",
+      "problem": "Svarform F3, altså en koblingsoppgave: koble hver komponent (1–5) til riktig plassering (A–C). Hver plassering kan brukes flere ganger.\n\n**1.** ALU · **2.** Hovedminnet (RAM) · **3.** Programtelleren · **4.** Kontrollenheten · **5.** Harddisken\n\n**A.** Inne i CPU-en · **B.** Utenfor CPU-en, på hovedkortet · **C.** Utenfor CPU-en, som lagringsenhet",
+      "solution": "**1 → A.** ALU-en er en del av prosessoren. «ALU utenfor CPU» er en av de faste usanne påstandene.\n\n**2 → B.** RAM ligger på egne brikker og nås over bussene. Det er nettopp derfor et RAM-oppslag er tregere enn et registeroppslag.\n\n**3 → A.** Programtelleren er et register, og registre ligger inne i CPU-en.\n\n**4 → A.** Kontrollenheten er den tredje faste delen av prosessoren.\n\n**5 → C.** Harddisken er en lagringsenhet — den er ikke en del av hovedminnet, og den nås gjennom helt andre mekanismer.\n\n**Fasit: 1→A, 2→B, 3→A, 4→A, 5→C.**\n\nMerk at plassering A brukes tre ganger. En koblingsoppgave krever ikke at kategoriene fordeles jevnt, og å prøve å «spre» svarene er en fast måte å miste poeng på.\n\n**Grensen å huske:** alt som er raskt og lite, er inne i CPU-en. Alt som er stort, er utenfor."
+    },
+    {
+      "id": "in1020-2-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — arkitekturens deler.) Nevn de tre delene som alltid finnes inne i en CPU, og si i én setning hva hver av dem gjør.",
+        "solution": "**1. ALU** — gjør aritmetikken (addisjon, subtraksjon) og logikken (AND, OR, XOR bit for bit).\n\n**2. Kontrollenheten** — henter neste instruksjon, tolker den, og setter de andre delene opp til å utføre den.\n\n**3. Registrene** — holder tallene prosessoren arbeider med akkurat nå, inkludert programtelleren som peker på neste instruksjon.\n\n**Svar: ALU, kontrollenhet og registre.**\n\nHovedminnet (RAM) er **ikke** en del av CPU-en. Det er den grensen oppgavene tester oftest.",
+        "hints": [
+          "Del oppgaven i «hva regner?», «hva styrer?» og «hva husker på kort sikt?».",
+          "Hovedminnet hører ikke med — tenk på hva som ligger på selve prosessorbrikken."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F — arkitektur-fakta.) Forklar hvorfor et register er raskere enn en celle i hovedminnet, og hvorfor maskinen likevel trenger hovedminnet.",
+        "solution": "**Hvorfor registeret er raskere:** det ligger på selve prosessorbrikken, noen få mikrometer fra ALU-en. Verdien hentes uten å gå over adressebussen og databussen, og uten å vente på en minnebrikke.\n\n**Hvorfor maskinen likevel trenger hovedminnet:** det er **plassen**. En prosessor har typisk noen titalls registre — nok til å holde de verdiene den arbeider med akkurat nå. Hovedminnet holder milliarder av celler, altså hele programmet og alle dataene.\n\n**Svar: registeret vinner på fart og nærhet, hovedminnet på størrelse.**\n\nDette er den samme avveiningen som styrer hele minnehierarkiet, og du møter den igjen i neste kapittel: raskt er dyrt og lite, tregt er billig og stort.\n\nMerk at påstanden «RAM er raskere enn register» er blant de faste feilene. Rekkefølgen er alltid: register raskest, deretter mellomlagre, deretter RAM, deretter disk.",
+        "hints": [
+          "Tenk på veien signalet må gå i hvert av de to tilfellene.",
+          "Tenk deretter på hvor mange verdier hver av dem har plass til."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Bussene og klokka (~12 min)\n\nDelene må snakke sammen. Det gjør de over **busser**: knipper av ledninger som er felles for flere enheter.\n\nOg de må snakke sammen **i takt**. Det er klokkesignalets jobb.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-2-4-def-databuss",
+      "type": "definition",
+      "title": "Databuss",
+      "content": "Ledningsknippet som frakter selve dataverdiene mellom prosessor, minne og andre enheter.\n\nBussen er **toveis**: samme ledninger brukes både når prosessoren leser fra minnet og når den skriver til det. Hvilken retning som gjelder, styres av kontrollenheten.\n\n**Bredden** — antall ledninger — avgjør hvor mange bit som kan flyttes samtidig. En 64 bit bred databuss flytter åtte byte i én overføring.\n\nDen faste feilslutningen: å tro at bussen «inneholder» data. Den lagrer ingenting; den frakter, og verdien er der bare mens overføringen skjer."
+    },
+    {
+      "id": "in1020-2-4-def-adressebuss",
+      "type": "definition",
+      "title": "Adressebuss",
+      "content": "Ledningsknippet som forteller minnet **hvilken celle** det gjelder.\n\nDen er enveis: prosessoren sender adressen, minnet svarer over databussen.\n\nBredden avgjør hvor mange celler maskinen kan adressere: `n` adresseledninger gir $2^n$ mulige adresser. Med 32 adresseledninger blir det $2^{32}$ celler, altså rundt 4 milliarder.\n\nDen faste feilslutningen: å blande adressebussen og databussen. Den ene sier *hvor*, den andre bærer *hva*."
+    },
+    {
+      "id": "in1020-2-4-def-kontrollbuss",
+      "type": "definition",
+      "title": "Kontrollbuss",
+      "content": "Ledningene som bærer styresignalene: skal det leses eller skrives, er dataene klare, skal enheten avbryte det den holder på med.\n\nSammen med databussen og adressebussen utgjør den systembussen.\n\nDen faste feilslutningen: å tro at det bare finnes én buss. De tre har helt ulike oppgaver, og en påstand som blander dem, er usann selv om den høres rimelig ut."
+    },
+    {
+      "id": "in1020-2-4-def-klokke",
+      "type": "definition",
+      "title": "Klokkesignal",
+      "content": "Et signal som veksler mellom 0 og 1 i fast takt, og som avgjør **når** de andre delene skal handle.\n\nKlokka er en fysisk krets — en oscillator — inne i eller like ved prosessoren. Den **lagres ikke** noe sted.\n\n**«Klokkesignalet er lagret i RAM» er en av de fem faste usanne påstandene.** Signalet er ikke en verdi som huskes; det er en puls som genereres kontinuerlig.\n\nDen faste feilslutningen ved siden av: å tro at klokka bestemmer *hva* som skjer. Den bestemmer bare *når*. Hva som skjer, avgjør kontrollenheten."
+    },
+    {
+      "id": "in1020-2-4-def-klokkesykel",
+      "type": "definition",
+      "title": "Klokkesykel og klokkefrekvens",
+      "content": "En **klokkesykel** er én periode av klokkesignalet — maskinens minste tidsenhet. **Klokkefrekvensen** er antall sykler per sekund, målt i hertz.\n\n3 GHz betyr tre milliarder sykler i sekundet, altså at hver sykel varer omtrent en tredjedels nanosekund.\n\nSykelen er den enheten arbeidsmengde måles i når vi regner på ytelse: et minneoppslag som «koster 10 sykler», bruker ti slike perioder. Du regner med akkurat den enheten i neste kapittel.\n\nDen faste feilslutningen: å tro at høyere frekvens alltid gir raskere maskin. Antall sykler en oppgave krever, teller like mye — og det er derfor pipeline og mellomlagring betyr så mye."
+    },
+    {
+      "id": "in1020-2-4-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Hva skjer på bussene under ett minneoppslag?",
+      "problem": "Prosessoren skal lese verdien i minnecelle 42 og legge den i et register. Beskriv hvilken buss som brukes til hva, og i hvilken rekkefølge.",
+      "solution": "**Steg 1 — adressen ut.** Prosessoren legger tallet 42 på **adressebussen**. Det er beskjeden «det er denne cellen jeg vil ha».\n\n**Steg 2 — styresignalet ut.** Kontrollenheten setter «les» på **kontrollbussen**. Uten dette signalet vet ikke minnet om det skal lese eller skrive.\n\n**Steg 3 — verdien inn.** Minnet finner celle 42 og legger innholdet på **databussen**. Prosessoren leser det derfra og lagrer det i et register.\n\n**Rekkefølgen er alltid slik: hvor, så hva slags operasjon, så verdien.**\n\n**Tidsbruken:** hele runden tar mange klokkesykler, fordi signalene skal ut av brikken, gjennom bussene, inn i minnebrikken og tilbake. Et registeroppslag tar til sammenligning én sykel — verdien ligger allerede inne i prosessoren.\n\n**Det er nettopp denne forskjellen som er grunnen til mellomlagring**, og som er utgangspunktet for regningen i neste kapittel.\n\n**Feil å unngå:** å si at «adressen sendes på databussen». Da har du byttet om de to, og det er en påstand som ofte står som en rad i en sant/usant-matrise."
+    },
+    {
+      "id": "in1020-2-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — arkitektur-fakta, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Databussen er toveis, mens adressebussen er enveis | |\n| b | Klokkesignalet lagres i RAM mellom hver sykel | |\n| c | Med 16 adresseledninger kan maskinen adressere 65 536 celler | |\n| d | Kontrollenheten utfører selve addisjonen | |",
+        "solution": "**a) Sann.** Databussen brukes både til lesing og skriving og må derfor kunne gå begge veier. Adressen sendes bare fra prosessoren til minnet, aldri motsatt.\n\n**b) Usann.** Dette er en av de fem faste usanne påstandene. Klokka er en oscillatorkrets som genererer pulser kontinuerlig; signalet er ikke en verdi som huskes noe sted.\n\n**c) Sann.** $2^{16} = 65\\,536$. Regnestykket: 16 ledninger, hver med to mulige verdier, gir $2^{16}$ ulike adresser.\n\n**d) Usann.** Kontrollenheten dirigerer, ALU-en regner. Påstanden bytter om de to rollene, og den er en fast distraktor fordi «kontroll» høres ut som «gjør jobben».\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\nMerk at fordelingen er to og to, og at den ikke er sortert. Bruk aldri fordelingen som ledetråd.",
+        "hints": [
+          "For a): tenk på hvem som sender hva, i hver av de to retningene.",
+          "For c): hvor mange ulike verdier kan `n` ledninger bære?",
+          "For d): hva står bokstavene i ALU for?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Adderen: fra porter til aritmetikk (~15 min)\n\nNå kobler vi seksjonens to halvdeler sammen. Du kan portene fra [kap. 2.1](/bok/in1020/in1020-2-1), og du kan binær addisjon med mente fra [kap. 1.3](/bok/in1020/in1020-1-3). Adderen er stedet der de møtes.\n\nDette er også svaret på et spørsmål du kanskje har hatt: hvordan kan noe som bare kjenner 0 og 1, faktisk **regne**?"
+    },
+    {
+      "id": "in1020-2-4-def-halvadder",
+      "type": "definition",
+      "title": "Halvadder",
+      "content": "Kretsen som legger sammen **to** bit og gir ut to signaler: sumbitet og menten ut.\n\n| A | B | Sum | Mente ut |\n|---|---|---|---|\n| 0 | 0 | 0 | 0 |\n| 0 | 1 | 1 | 0 |\n| 1 | 0 | 1 | 0 |\n| 1 | 1 | 0 | 1 |\n\nSumkolonnen er `0 1 1 0`, altså **XOR**. Mentekolonnen er `0 0 0 1`, altså **AND**.\n\n```text\nPort 1: XOR med inngangene A og B   -> Sum\nPort 2: AND med inngangene A og B   -> Mente ut\n```\n\nDen kalles «halv» fordi den mangler noe vesentlig: den har ingen **mente inn**. Den kan derfor bare brukes på det aller nederste bitet i en flerbits addisjon."
+    },
+    {
+      "id": "in1020-2-4-teo-fulladder",
+      "type": "theorem",
+      "title": "Fulladderen",
+      "content": "Kretsen som legger sammen **tre** bit: `A`, `B` og menten inn fra forrige posisjon. Den gir ut sumbitet og menten videre.\n\n$$S = A \\oplus B \\oplus C_{\\text{inn}}$$\n\n$$C_{\\text{ut}} = A \\cdot B + C_{\\text{inn}} \\cdot (A \\oplus B)$$\n\n**Hele sannhetstabellen:**\n\n| A | B | `C_inn` | Sum | `C_ut` | Kontroll |\n|---|---|---|---|---|---|\n| 0 | 0 | 0 | 0 | 0 | 0 + 0 + 0 = 0 |\n| 0 | 0 | 1 | 1 | 0 | 0 + 0 + 1 = 1 |\n| 0 | 1 | 0 | 1 | 0 | 0 + 1 + 0 = 1 |\n| 0 | 1 | 1 | 0 | 1 | 0 + 1 + 1 = 2 |\n| 1 | 0 | 0 | 1 | 0 | 1 + 0 + 0 = 1 |\n| 1 | 0 | 1 | 0 | 1 | 1 + 0 + 1 = 2 |\n| 1 | 1 | 0 | 0 | 1 | 1 + 1 + 0 = 2 |\n| 1 | 1 | 1 | 1 | 1 | 1 + 1 + 1 = 3 |\n\nKontrollkolonnen leses slik: svaret er `2·C_ut + Sum`. I den nederste raden gir det `2·1 + 1 = 3`. Det stemmer i alle åtte radene.\n\n**Slik bygger du en 8-bits adder:** åtte fulladdere på rad. Menten ut av den ene kobles til menten inn på den neste. Det er nøyaktig det du gjorde for hånd i [kap. 1.3](/bok/in1020/in1020-1-3), bare i maskinvare.\n\n**Og derfor:** en 64-bits ALU bygges av **64** en-bits enheter. Ikke 65. Påstanden om 65 er en av de fem faste usanne — den er konstruert for å friste deg til å telle en ekstra for menten, men menten er allerede en del av hver enhet."
+    },
+    {
+      "id": "in1020-2-4-def-subtraktor",
+      "type": "definition",
+      "title": "Fulladderen som subtraktor",
+      "content": "En prosessor trenger ingen egen subtraksjonskrets. Den bruker adderen, med to grep:\n\n1. **Inverter** alle bitene i tallet som skal trekkes fra.\n2. **Sett mente inn lik 1** på den nederste fulladderen.\n\n$$A - B = A + \\neg B + 1$$\n\nDette er nøyaktig negasjonen i to-er komplement fra [kap. 1.3](/bok/in1020/in1020-1-3): inverter og legg til 1. Ett-tallet kommer gratis via mente inn.\n\n**Kontrollregning, 75 − 30 i åtte bit:** `75` er `01001011`, `30` er `00011110`. Invertert blir `30` til `11100001`. Med mente inn 1:\n\n```text\n  01001011      (75)\n+ 11100001      (invertert 30)\n+        1      (mente inn)\n-----------\n1 00101101      (menten ut faller ut av byten)\n```\n\nSvaret er `00101101₂ = 45`, og `75 − 30 = 45`. Stemmer.\n\nDen faste feilslutningen: å tro at maskinen har egne kretser for pluss og minus. Den har én, brukt på to måter."
+    },
+    {
+      "id": "in1020-2-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — adderen.) Bruk fulladderens tabell og regn ut hva en 4-bits adder gir for `1011₂ + 0110₂`. Vis menten inn og menten ut for hver av de fire posisjonene.",
+        "solution": "Vi går fra høyre mot venstre, posisjon 0 til 3. Menten inn på posisjon 0 er 0.\n\n| Posisjon | A | B | `C_inn` | Sum | `C_ut` |\n|---|---|---|---|---|---|\n| 0 | 1 | 0 | 0 | 1 | 0 |\n| 1 | 1 | 1 | 0 | 0 | 1 |\n| 2 | 0 | 1 | 1 | 0 | 1 |\n| 3 | 1 | 0 | 1 | 0 | 1 |\n\nSumbitene lest fra posisjon 3 til 0: `0001`. Menten ut av posisjon 3 er 1, og den faller ut av de fire bitene.\n\n**Svar: `0001₂` med mente ut 1.**\n\n**Kontroll i desimal:** `1011₂ = 11` og `0110₂ = 6`, og `11 + 6 = 17`. I fire bit får bare `17 − 16 = 1` plass, altså `0001₂`, og menten ut representerer nettopp de 16 som ikke fikk plass. Stemmer.\n\nMerk at dette er usignert overflyt: menten ut av øverste posisjon betyr at summen passerte det området fire bit rommer.",
+        "hints": [
+          "Start på posisjon 0 lengst til høyre, med mente inn lik 0.",
+          "Bruk fulladderens tabell rad for rad, og før menten ut videre som mente inn i neste posisjon.",
+          "Kontroller til slutt i desimal, og husk at menten ut av øverste posisjon ikke får plass i svaret."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — subtraksjon i maskinvare.) Vis hvordan en adder regner ut `100 − 36` i åtte bit, og kontroller svaret.",
+        "solution": "**Steg 1 — skriv begge tallene binært.** `100 = 01100100₂` (64 + 32 + 4). `36 = 00100100₂` (32 + 4).\n\n**Steg 2 — inverter tallet som skal trekkes fra.** `00100100` invertert er `11011011`.\n\n**Steg 3 — legg sammen, med mente inn lik 1.**\n\n```text\n  01100100      (100)\n+ 11011011      (invertert 36)\n+        1      (mente inn)\n-----------\n1 01000000      (menten ut faller ut)\n```\n\n**Svaret er `01000000₂` = 64.**\n\n**Kontroll:** `100 − 36 = 64`. Stemmer.\n\n**Kontroll nummer to, via to-er komplement:** invertert `36` pluss 1 er `11011100₂`, som er `−36` i to-er komplement (usignert 220, og `220 − 256 = −36`). Adderen regner altså `100 + (−36)`, og det er akkurat det subtraksjon betyr.\n\n**Poenget:** maskinen har ingen subtraksjonskrets. Den har en adder, et lag med invertere som kan slås på, og en mente inn som kan settes til 1.",
+        "hints": [
+          "Skriv begge tallene som åtte bit før du gjør noe annet.",
+          "Inverter bare det tallet som skal trekkes fra, ikke begge.",
+          "Husk at ett-tallet i «inverter og legg til 1» kommer inn som mente inn på nederste posisjon."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Pipeline og de fem faste usanne (~16 min)\n\nTil slutt to ting: hvordan prosessoren får gjort mer per sekund, og listen du skal måle hver eneste sant/usant-rad mot."
+    },
+    {
+      "id": "in1020-2-4-def-instruksjonssyklus",
+      "type": "definition",
+      "title": "Instruksjonssyklusen",
+      "content": "Runden prosessoren går for hver eneste instruksjon, i tre trinn:\n\n1. **Hent** — kontrollenheten leser instruksjonen fra cellen programtelleren peker på.\n2. **Tolk** — den finner ut hva instruksjonen betyr, og setter opp de delene som trengs.\n3. **Utfør** — ALU-en regner, eller verdien flyttes, eller programtelleren settes til en ny adresse.\n\nDeretter går programtelleren videre, og runden gjentas. Dette er nøyaktig det du sporet for hånd i LMC-sporetabellene i [kap. 1.4](/bok/in1020/in1020-1-4).\n\nDen faste feilslutningen: å tro at én instruksjon tar én klokkesykel. De tre trinnene tar hver sin tid, og et minneoppslag underveis kan koste mange sykler ekstra."
+    },
+    {
+      "id": "in1020-2-4-def-pipeline",
+      "type": "definition",
+      "title": "Pipeline",
+      "content": "Å la trinnene i **flere** instruksjoner overlappe, slik at prosessoren arbeider med flere instruksjoner samtidig — i ulike trinn.\n\nBildet er et samlebånd: mens instruksjon 1 utføres, tolkes instruksjon 2 og hentes instruksjon 3.\n\n```text\nsykel:      1      2      3      4\ninstr. 1:  hent   tolk   utfør\ninstr. 2:         hent   tolk   utfør\ninstr. 3:                hent   tolk   utfør\n```\n\n**Hva du vinner:** når båndet er fylt, blir én instruksjon ferdig per sykel i stedet for én per tre sykler.\n\n**Hva du ikke vinner:** den enkelte instruksjonen går ikke fortere. Den bruker like mange trinn som før; det er *gjennomstrømningen* som øker.\n\nDen faste feilslutningen: å tro at pipeline gjør hver instruksjon raskere. Den gjør flere ferdige per tidsenhet."
+    },
+    {
+      "id": "in1020-2-4-teo-femusanne",
+      "type": "theorem",
+      "title": "De fem faste usanne påstandene",
+      "content": "Disse fem går igjen i sant/usant-matrisene om maskinvare, og **alle fem er usanne**. Kan du dem, har du en gratis sjekkliste.\n\n| Påstand | Hvorfor den er usann |\n|---|---|\n| Teknologiutviklingen gir **færre** transistorer per brikke | Motsatt: transistorene blir mindre, og det får plass **flere** av dem |\n| Klokkesignalet er **lagret i RAM** | Klokka er en oscillatorkrets som genererer pulser; signalet lagres ikke |\n| Et register er **bygd av RAM** | Registre er egne, raske kretser inne i CPU-en, ikke RAM-celler |\n| **ALU-en ligger utenfor CPU-en** | ALU-en er en av CPU-ens tre faste deler |\n| En 64-bits ALU krever **65** stk. 1-bits ALU-er | Det kreves **64** — én per bit; menten er alt en del av hver enhet |\n\n**Slik bruker du listen:** når du møter en sant/usant-matrise om maskinvare, sjekk først om rada er en av disse fem eller en nær variant. Er den det, er svaret usant, og du har spart et halvt minutt.\n\n**To sanne påstander som ligner, og som du ikke skal avvise:**\n\n- «En portutgang kan være inngang på flere porter» er **sann** (det er forgrening).\n- «Registre er raskere enn hovedminnet» er **sann**.\n\nDette er felle #11 i registeret. Den er dyr under negativ poenggiving, fordi hver av de fem påstandene ser rimelig ut isolert sett."
+    },
+    {
+      "id": "in1020-2-4-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — sant/usant om maskinvare",
+      "problem": "Svarform F2. Vurder hver påstand som sann eller usann.\n\n**a)** Et register er bygd opp av mange RAM-celler.\n\n**b)** ALU-en gjør både aritmetiske og logiske operasjoner.\n\n**c)** En 32-bits ALU bygges av 33 en-bits ALU-er.\n\n**d)** Pipeline gjør at hver enkelt instruksjon blir ferdig raskere.",
+      "solution": "**a) Usann.** En av de fem faste. Registre er egne, raske lagringskretser på prosessorbrikken. Ville de vært bygd av RAM, ville de også hatt RAM-ens hastighet — og da hadde hele poenget med registre falt bort.\n\n**b) Sann.** Navnet sier det: aritmetisk-**logisk** enhet. Den legger sammen og trekker fra, og den gjør AND, OR og XOR bit for bit. Å tro at den bare regner, er en halv sannhet — men rada spør om begge deler, og da er svaret sant.\n\n**c) Usann.** Samme felle som «65 for 64 bit», bare med andre tall: en `n`-bits ALU bygges av **`n`** en-bits enheter, altså 32. Menten er allerede en del av hver fulladder og krever ingen ekstra enhet.\n\n**d) Usann.** Pipeline øker **gjennomstrømningen**, ikke farten på den enkelte instruksjonen. Instruksjon nummer én går gjennom nøyaktig like mange trinn som før; gevinsten er at instruksjon to og tre kan være i gang samtidig.\n\n**Fasit: a usann, b sann, c usann, d usann.**\n\n**Om formen:** tre av fire er usanne, og de tre er alle varianter av faste distraktorer. Det er derfor listen over de fem faste er verdt å kunne utenat — den avgjorde rad a og rad c direkte, og bare rad b og d krevde egentlig ettertanke.\n\n**Om bonus og minus:** maskinvareoppgaver kan gi bonuspoeng for full pott og minus per feil. En kandidat som krysser «sann» på c fordi tallet 33 «ser ut som noe med mente», taper både poenget og bonusen."
+    },
+    {
+      "id": "in1020-2-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — arkitektur-fakta, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | I von Neumann-arkitekturen ligger kode og data i samme minne | |\n| b | Teknologiutviklingen har ført til færre transistorer per brikke | |\n| c | Kontrollenheten avgjør om innholdet i en celle behandles som instruksjon | |\n| d | En 64-bits ALU krever 65 stk. 1-bits ALU-er | |",
+        "solution": "**a) Sann.** Det er selve definisjonen av arkitekturen, og grunnen til at selvmodifiserende kode er mulig i det hele tatt.\n\n**b) Usann.** En av de fem faste. Transistorene har blitt mindre og mindre, og derfor får det plass **flere** av dem på samme areal. Påstanden snur utviklingen på hodet.\n\n**c) Sann.** Cellen selv bærer ingen informasjon om hva den «er». Det er programtelleren og kontrollenheten som avgjør om innholdet hentes som instruksjon eller som data.\n\n**d) Usann.** En av de fem faste. Det kreves 64 — én per bit. Menten er allerede en del av hver fulladder, så ingen ekstra enhet trengs for den.\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\nTo av de fire var faste distraktorer. Det er en typisk andel: omtrent halvparten av radene i en slik matrise kan avgjøres direkte fra listen over de fem.",
+        "hints": [
+          "Gå gjennom listen over de fem faste usanne påstandene før du vurderer radene.",
+          "For rad c: hva skiller en instruksjon fra et tall i minnet, sett fra maskinvarens side?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — arkitektur, svarform F1.) Kryss av **alle** påstandene som er sanne om ALU-en, og begrunn hvert av de fire.\n\n**a)** Den ligger inne i CPU-en.\n\n**b)** Den utfører både aritmetiske og logiske operasjoner.\n\n**c)** Den kan brukes til subtraksjon ved å invertere den ene operanden og sette mente inn lik 1.\n\n**d)** Den henter instruksjonene fra hovedminnet.",
+        "solution": "**a) Riktig.** ALU-en er en av CPU-ens tre faste deler, sammen med kontrollenheten og registrene. Motsatt påstand er en av de fem faste usanne.\n\n**b) Riktig.** Navnet er «aritmetisk-logisk enhet», og begge halvdelene er reelle: den legger sammen og trekker fra, og den gjør AND, OR og XOR bit for bit.\n\n**c) Riktig.** `A − B = A + ¬B + 1`, der ett-tallet kommer inn som mente inn på den nederste fulladderen. Det er derfor maskinen ikke trenger en egen subtraksjonskrets.\n\n**d) Galt.** Henting av instruksjoner er kontrollenhetens jobb. ALU-en får operandene servert og regner; den snakker ikke med minnet på egen hånd. Distraktoren utnytter at ALU-en er den delen studenten husker best, og lar den «gjøre alt».\n\n**Fasit: a, b og c.**\n\nMerk at tre av fire er riktige. Krysser du bare av a, mister du to tredjedeler av uttellingen uten å ha svart noe galt.",
+        "hints": [
+          "Gå tilbake til hva de tre bokstavene i ALU står for.",
+          "For c): hvilken regel fra to-er komplement er det som gjenbrukes her?",
+          "For d): hvilken av CPU-ens tre deler har ansvaret for rekkefølgen?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — pipeline.) En prosessor bruker tre trinn per instruksjon: hent, tolk og utfør. Hvert trinn tar én klokkesykel.\n\n**a)** Hvor mange sykler tar seks instruksjoner uten pipeline?\n\n**b)** Hvor mange sykler tar de samme seks med pipeline, når båndet fylles fra tomt?\n\n**c)** Hvor mange sykler bruker den **enkelte** instruksjonen i hvert av de to tilfellene?",
+        "solution": "**a)** **Uten pipeline** utføres instruksjonene helt etter hverandre: hver tar tre sykler.\n\n`6 instruksjoner × 3 sykler/instruksjon = 18 sykler`\n\n**b)** **Med pipeline** kommer den første instruksjonen ferdig etter tre sykler, og deretter blir én ny ferdig hver sykel.\n\n`3 sykler (fylle båndet) + 5 sykler (de fem øvrige) = 8 sykler`\n\nSkrevet som formel med `n` instruksjoner og `k` trinn: `k + (n − 1)` sykler. Her: `3 + 5 = 8`.\n\nKontroll med samlebåndet:\n\n```text\nsykel:      1     2     3     4     5     6     7     8\ninstr. 1:  hent  tolk  utfør\ninstr. 2:        hent  tolk  utfør\ninstr. 3:              hent  tolk  utfør\ninstr. 4:                    hent  tolk  utfør\ninstr. 5:                          hent  tolk  utfør\ninstr. 6:                                hent  tolk  utfør\n```\n\nInstruksjon 6 er ferdig i sykel 8. Stemmer.\n\n**c)** **Den enkelte instruksjonen bruker tre sykler i begge tilfeller.** Den går gjennom nøyaktig like mange trinn med pipeline som uten.\n\n**Svar: a) 18 sykler, b) 8 sykler, c) 3 sykler i begge tilfeller.**\n\n**Poenget som testes:** gevinsten er 18 mot 8 sykler totalt, altså mer enn en halvering — men **ingen** enkeltinstruksjon ble raskere. Det er skillet mellom gjennomstrømning og forsinkelse, og påstanden «pipeline gjør hver instruksjon raskere» er derfor usann.",
+        "hints": [
+          "Regn først ut det enkle tilfellet: hvor mange sykler bruker én instruksjon alene?",
+          "For pipeline: tegn opp samlebåndet med én rad per instruksjon, forskjøvet én sykel hver.",
+          "For c): tell trinnene den enkelte instruksjonen faktisk går gjennom, ikke hvor lenge den venter."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-4-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — arkitektur, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Adressebussen bærer verdien som skal lagres i cellen | |\n| b | En fulladder legger sammen tre bit og gir ut to | |\n| c | Registre er raskere enn hovedminnet | |\n| d | Pipeline øker antall instruksjoner som blir ferdige per sekund | |",
+        "solution": "**a) Usann.** Adressebussen bærer **hvilken celle** det gjelder; verdien går på databussen. Påstanden bytter om de to bussene, og den er en fast distraktor fordi begge «bærer tall».\n\n**b) Sann.** Inngangene er `A`, `B` og mente inn — tre bit. Utgangene er sumbitet og menten ut — to bit. Kontroll i den nederste raden i tabellen: `1 + 1 + 1 = 3`, som gir sum 1 og mente ut 1, altså `2·1 + 1 = 3`.\n\n**c) Sann.** Registre ligger på prosessorbrikken og nås uten å gå over bussene. Den motsatte påstanden — at RAM er raskere — er blant de faste feilene.\n\n**d) Sann.** Det er nettopp gjennomstrømningen pipeline øker. Den påstanden som ville vært usann, er «pipeline gjør hver enkelt instruksjon raskere» — les rada nøye, for de to ligner.\n\n**Fasit: a usann, b sann, c sann, d sann.**\n\n**Om rad d:** dette er den mest presise formuleringen i settet, og den er sann nettopp fordi den sier «per sekund» og ikke «per instruksjon». Under negativ poenggiving er det å lese slike avgrensninger bokstavelig en egen ferdighet — samme tema kan gi både en sann og en usann rad, avhengig av ordlyden.",
+        "hints": [
+          "For a): hvilken buss sier *hvor*, og hvilken bærer *hva*?",
+          "For b): tell inngangene og utgangene i fulladderens tabell.",
+          "For d): les nøye hva rada faktisk måler — per instruksjon eller per sekund?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **De fem faste usanne påstandene (felle #11).** Færre transistorer, klokke i RAM, register av RAM, ALU utenfor CPU, 65 ALU-er for 64 bit. Alle fem er usanne, og de kommer igjen i ulike innpakninger. Lær dem som en sjekkliste.\n\n2. **Å tro at RAM er raskere enn register.** Rekkefølgen er register først, deretter mellomlagre, deretter RAM, deretter disk. Registeret er raskest fordi det ligger på prosessorbrikken.\n\n3. **Å bytte om adressebuss og databuss.** Adressebussen sier *hvor*, databussen bærer *hva*. Påstander som blander dem, høres alltid rimelige ut.\n\n4. **Å la ALU-en gjøre alt.** ALU-en regner. Kontrollenheten henter og styrer. En distraktor som lar ALU-en hente instruksjoner fra minnet, er gal.\n\n5. **Å tro at pipeline gjør hver instruksjon raskere.** Den øker gjennomstrømningen, ikke farten på den enkelte instruksjonen. Samme tema gir en sann og en usann rad avhengig av ordlyden — les nøyaktig.\n\n6. **Å telle en ekstra ALU-enhet for menten.** Menten er allerede en del av hver fulladder. `n` bit krever `n` enheter.\n\n7. **Å tro at maskinen har en egen subtraksjonskrets.** Den har en adder, invertere som kan slås på, og en mente inn som kan settes til 1."
+    },
+    {
+      "id": "in1020-2-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-2-4-bank-1",
+      "type": "definition",
+      "title": "Programteller",
+      "content": "Registeret som holder **adressen til neste instruksjon**. Den ligger inne i CPU-en, som alle registre.\n\nEtter hver instruksjon økes den med én — med mindre instruksjonen selv setter den til en annen adresse. Det er nøyaktig det et hopp gjør.\n\nDu førte programtelleren i egen kolonne i LMC-sporetabellene i [kap. 1.4](/bok/in1020/in1020-1-4). Kolonnen der er den samme mekanismen som her, bare i en forenklet maskin."
+    },
+    {
+      "id": "in1020-2-4-bank-2",
+      "type": "definition",
+      "title": "Instruksjonsregister",
+      "content": "Registeret som holder **selve instruksjonen** som utføres akkurat nå, etter at den er hentet fra minnet.\n\nSkillet mot programtelleren er verdt å ha klart: programtelleren holder en **adresse**, instruksjonsregisteret holder **innholdet** på den adressen.\n\nDen faste feilslutningen: å tro at de to er samme register. De har hver sin rolle i hvert eneste trinn av instruksjonssyklusen."
+    },
+    {
+      "id": "in1020-2-4-bank-3",
+      "type": "definition",
+      "title": "RAM (hovedminnet)",
+      "content": "Maskinens store arbeidsminne, organisert som celler med hver sin adresse. Ligger **utenfor** CPU-en, på egne brikker.\n\n«Random access» betyr at enhver celle kan nås direkte, uten å lese seg gjennom de foregående — i motsetning til en magnetbåndspoler.\n\nRAM er **flyktig**: innholdet forsvinner når strømmen går. Det er derfor programmer lagres på disk og lastes inn i RAM når de startes.\n\nDen faste feilslutningen: å tro at registre er bygd av RAM. De er egne kretser, og de er vesentlig raskere."
+    },
+    {
+      "id": "in1020-2-4-bank-4",
+      "type": "definition",
+      "title": "Bussbredde",
+      "content": "Antall ledninger i en buss — altså hvor mange bit som kan flyttes eller adresseres samtidig.\n\nFor **databussen** avgjør bredden hvor mye som overføres per operasjon: 64 bit bred buss flytter åtte byte om gangen.\n\nFor **adressebussen** avgjør bredden hvor mange celler maskinen kan nå: `n` ledninger gir $2^n$ adresser.\n\nDen faste feilslutningen: å tro at de to breddene alltid er like. De er uavhengige størrelser, valgt hver for seg når maskinen konstrueres."
+    },
+    {
+      "id": "in1020-2-4-bank-5",
+      "type": "definition",
+      "title": "Transistoren",
+      "content": "Den elektroniske bryteren som alle logiske porter er bygd av. Den slipper strøm gjennom eller stenger, styrt av et tredje signal.\n\nEn NAND-port bygges av noen få transistorer; en moderne prosessor inneholder titalls milliarder av dem.\n\n**Utviklingen går mot flere, ikke færre.** Transistorene blir mindre, og derfor får det plass flere på samme areal. Påstanden om at teknologiutviklingen gir *færre* transistorer, er en av de fem faste usanne."
+    },
+    {
+      "id": "in1020-2-4-bank-6",
+      "type": "definition",
+      "title": "Integrert krets",
+      "content": "En hel krets — porter, ledninger og alt — laget i ett stykke på en liten silisiumbrikke.\n\nDet er integrasjonen som gjør moderne maskiner mulige: signalveiene blir korte, produksjonen billig, og et helt regneverk får plass på noen kvadratmillimeter.\n\nEn prosessor er én stor integrert krets. Hovedminnet er andre integrerte kretser, på egne brikker."
+    },
+    {
+      "id": "in1020-2-4-bank-7",
+      "type": "definition",
+      "title": "Ord og ordbredde i arkitekturen",
+      "content": "Ordbredden er antall bit prosessoren behandler under ett — typisk 32 eller 64 i dagens maskiner.\n\nDen setter størrelsen på registrene, bredden på ALU-en og som regel bredden på databussen.\n\nEn 64-bits maskin har 64-bits registre og en ALU bygd av 64 en-bits enheter. Det er samme tall hele veien — og det er derfor «65 enheter for 64 bit» er så lett å avvise når du har regelen klar."
+    },
+    {
+      "id": "in1020-2-4-bank-8",
+      "type": "definition",
+      "title": "Kjerne og flerkjerneprosessor",
+      "content": "En **kjerne** er et komplett regneverk med egen ALU, egne registre og egen kontrollenhet. En moderne prosessorbrikke har flere.\n\nFlere kjerner betyr at maskinen kan arbeide med flere instruksjonsstrømmer **samtidig**, ikke bare raskere etter hverandre.\n\nSkillet mot pipeline: pipeline overlapper trinnene i **én** strøm av instruksjoner; flere kjerner kjører **flere** strømmer parallelt. De to teknikkene brukes sammen."
+    },
+    {
+      "id": "in1020-2-4-bank-9",
+      "type": "definition",
+      "title": "Gjennomstrømning kontra forsinkelse",
+      "content": "**Gjennomstrømning** er hvor mange oppgaver som blir ferdige per tidsenhet. **Forsinkelse** er hvor lang tid den enkelte oppgaven bruker fra start til slutt.\n\nPipeline øker gjennomstrømningen og lar forsinkelsen stå uendret. Samlebåndet i en fabrikk gjør det samme: bilen bruker like lang tid gjennom fabrikken, men det kommer flere biler ut per time.\n\nDette skillet er selve innholdet i de to påstandene «pipeline gjør hver instruksjon raskere» (usann) og «pipeline øker antall instruksjoner som blir ferdige per sekund» (sann)."
+    },
+    {
+      "id": "in1020-2-4-bank-10",
+      "type": "definition",
+      "title": "Systembussen",
+      "content": "Fellesnavnet på de tre bussene sammen: databuss, adressebuss og kontrollbuss.\n\nAt de er **felles** for flere enheter, er både styrken og svakheten: det er billig i ledninger, men bare én overføring kan skje av gangen.\n\nDen faste feilslutningen: å tro at «bussen» er én ting med én oppgave. De tre har helt ulike roller, og en påstand som bytter dem om, er usann."
+    },
+    {
+      "id": "in1020-2-4-bank-11",
+      "type": "definition",
+      "title": "Von Neumann-flaskehalsen",
+      "content": "At prosessoren og hovedminnet deler den samme forbindelsen, slik at både instruksjoner og data må gjennom det samme nåløyet.\n\nProsessoren blir da stående og vente på minnet, uansett hvor rask den selv er.\n\nDette er problemet mellomlagring er svaret på — og det er utgangspunktet for regningen i neste kapittel: hvor mye taper du på hvert oppslag som må helt ut til hovedminnet?"
+    },
+    {
+      "id": "in1020-2-4-bank-12",
+      "type": "definition",
+      "title": "Mente inn og mente ut i maskinvare",
+      "content": "**Mente inn** er signalet fra forrige bitposisjon, inn i denne fulladderen. **Mente ut** er signalet videre til neste posisjon.\n\nI en 8-bits adder er de sju indre mentene interne ledninger. Menten inn på den nederste posisjonen og menten ut av den øverste er derimot styresignaler du kan bruke:\n\n- Mente inn = 1 på nederste posisjon gir subtraksjon, sammen med inverterte operander.\n- Mente ut av øverste posisjon er nettopp den usignerte overflyten du så i [kap. 1.3](/bok/in1020/in1020-1-3)."
+    },
+    {
+      "id": "in1020-2-4-bank-13",
+      "type": "definition",
+      "title": "ALU-ens logiske side",
+      "content": "At ALU-en ikke bare regner, men også gjør logiske operasjoner bit for bit: AND, OR, XOR og invertering på hele ord samtidig.\n\nEn 64-bits AND tar de to operandene og AND-er bit 0 med bit 0, bit 1 med bit 1, og så videre — 64 uavhengige AND-porter i parallell.\n\nDen faste feilslutningen: å tro at «logisk operasjon» betyr en test som gir sant eller usant. Her betyr det en portoperasjon på hvert bitpar."
+    },
+    {
+      "id": "in1020-2-4-bank-14",
+      "type": "definition",
+      "title": "Inn- og utenheter",
+      "content": "Alt som kobler maskinen til verden utenfor: tastatur, skjerm, nettkort, disk.\n\nDe er koblet til de samme bussene som minnet, og prosessoren snakker med dem på liknende måte — den skriver og leser på bestemte adresser.\n\nDen faste feilslutningen: å tro at disken er en del av hovedminnet. Den er en utenhet, og et diskoppslag er størrelsesordener tregere enn et RAM-oppslag."
+    },
+    {
+      "id": "in1020-2-4-bank-15",
+      "type": "definition",
+      "title": "Hva som er inne i CPU-en",
+      "content": "Sjekklisten, som avgjør en fast oppgavetype:\n\n**Inne i CPU-en:** ALU, kontrollenhet, alle registre (inkludert programteller og instruksjonsregister), og de innerste mellomlagrene.\n\n**Utenfor CPU-en:** hovedminnet (RAM), disken, alle inn- og utenheter, og bussene mellom dem.\n\nHuskeregelen: alt som er lite og raskt, er inne. Alt som er stort, er ute."
+    },
+    {
+      "id": "in1020-2-4-bank-16",
+      "type": "definition",
+      "title": "Hentefasen",
+      "content": "Første trinn i instruksjonssyklusen: kontrollenheten legger programtellerens verdi på adressebussen, ber om lesing, og får instruksjonen tilbake på databussen.\n\nInstruksjonen legges i instruksjonsregisteret, og programtelleren økes.\n\nMerk at maskinen på dette tidspunktet ikke vet hva instruksjonen betyr — den vet bare hvilket tall som sto i cellen. Tolkningen er neste trinn."
+    },
+    {
+      "id": "in1020-2-4-bank-17",
+      "type": "definition",
+      "title": "Utførelsesfasen",
+      "content": "Tredje trinn i instruksjonssyklusen, der selve virkningen skjer: ALU-en regner, en verdi flyttes mellom register og minne, eller programtelleren settes til en ny adresse.\n\nHvor lang tid trinnet tar, avhenger helt av instruksjonen. En addisjon mellom to registre kan ta én sykel; en instruksjon som må hente en verdi fra hovedminnet, kan koste mange.\n\nDen faste feilslutningen: å tro at alle instruksjoner tar like lang tid. Det er nettopp variasjonen som gjør cache-regningen i neste kapittel interessant."
+    },
+    {
+      "id": "in1020-2-4-bank-18",
+      "type": "definition",
+      "title": "Overlapping i pipeline",
+      "content": "At ulike instruksjoner er i **ulike trinn** samtidig: én hentes, én tolkes, én utføres.\n\nFormelen for `n` instruksjoner og `k` trinn, når hvert trinn tar én sykel: `k + (n − 1)` sykler totalt.\n\nEksempel: seks instruksjoner og tre trinn gir `3 + 5 = 8` sykler, mot 18 uten pipeline.\n\nDe første `k − 1` syklene er «fyllingen» av båndet, og der er ikke alle trinn i bruk ennå."
+    },
+    {
+      "id": "in1020-2-4-bank-19",
+      "type": "definition",
+      "title": "Klokka bestemmer når, ikke hva",
+      "content": "Klokkesignalet gir takten. Det avgjør **når** en verdi låses inn i et register eller når neste trinn starter — men aldri **hva** som skal skje.\n\nHva som skjer, avgjøres av kontrollenheten ut fra instruksjonen.\n\nDette skillet er grunnen til at påstanden «klokkesignalet er lagret i RAM» er usann på to måter samtidig: signalet lagres ikke, og det bærer ingen informasjon som kunne vært lagret."
+    },
+    {
+      "id": "in1020-2-4-bank-20",
+      "type": "definition",
+      "title": "Klokkefrekvens er ikke hele ytelsen",
+      "content": "En prosessor på 3 GHz er ikke automatisk raskere enn en på 2,5 GHz. Ytelsen avhenger av **både** hvor mange sykler hver oppgave krever og hvor lang hver sykel er.\n\nEn maskin som bruker halvparten så mange sykler per instruksjon, vinner selv med lavere frekvens.\n\nDet er derfor pipeline, flere kjerner og mellomlagring betyr mer for ytelsen i dag enn frekvenstallet gjør."
+    },
+    {
+      "id": "in1020-2-4-bank-21",
+      "type": "definition",
+      "title": "Fulladderens to formler",
+      "content": "$$S = A \\oplus B \\oplus C_{\\text{inn}}$$\n\n$$C_{\\text{ut}} = A \\cdot B + C_{\\text{inn}} \\cdot (A \\oplus B)$$\n\nSumbitet er 1 når et **odde** antall av de tre inngangene er 1. Menten ut er 1 når **minst to** av dem er 1.\n\nEn ekvivalent form for menten er `A·B + A·C_inn + B·C_inn`, som sier «minst to» direkte. De to formene gir samme kolonne i alle åtte radene."
+    },
+    {
+      "id": "in1020-2-4-bank-22",
+      "type": "definition",
+      "title": "Serieadder med gjennomløpende mente",
+      "content": "Måten `n` fulladdere kobles sammen på: menten ut fra posisjon `i` går inn som mente inn på posisjon `i + 1`.\n\nDet betyr at den øverste posisjonen ikke kan bli ferdig før alle de under er det — menten «løper gjennom» kjeden.\n\nDet er derfor en bred adder er tregere enn en smal, og det er et av flere steder der kretsdybde koster tid i praksis."
+    },
+    {
+      "id": "in1020-2-4-bank-23",
+      "type": "definition",
+      "title": "Én adder, to operasjoner",
+      "content": "En prosessor har ingen egen subtraksjonskrets. Den har en adder, et lag invertere som kan slås av og på, og en mente inn som kan settes til 1.\n\n$$A - B = A + \\neg B + 1$$\n\nEt styresignal fra kontrollenheten avgjør om invertererne og mente inn er aktive. Er de av, adderer kretsen; er de på, subtraherer den.\n\nDette er samme regel som negasjonen i to-er komplement fra [kap. 1.3](/bok/in1020/in1020-1-3), realisert i maskinvare."
+    },
+    {
+      "id": "in1020-2-4-bank-24",
+      "type": "definition",
+      "title": "Instruksjonssett",
+      "content": "Listen over alle instruksjoner en gitt prosessor forstår, med hva hver av dem gjør.\n\nDu har allerede arbeidet med et lite instruksjonssett: LMC-instruksjonene i [kap. 1.4](/bok/in1020/in1020-1-4) med sine tre-sifrede opkoder.\n\nEn virkelig prosessor har hundrevis av instruksjoner i stedet for elleve, men prinsippet er det samme: en opkode identifiserer operasjonen, og resten av instruksjonen sier hva den skal virke på."
+    },
+    {
+      "id": "in1020-2-4-bank-25",
+      "type": "definition",
+      "title": "De fem faste usanne — sjekklisten",
+      "content": "1. Teknologiutviklingen gir **færre** transistorer. *(Usant — det blir flere og mindre.)*\n2. Klokkesignalet er **lagret i RAM**. *(Usant — det genereres, det lagres ikke.)*\n3. Et register er **bygd av RAM**. *(Usant — egne, raske kretser i CPU-en.)*\n4. **ALU-en ligger utenfor CPU-en.** *(Usant — den er en av CPU-ens tre deler.)*\n5. En 64-bits ALU krever **65** en-bits ALU-er. *(Usant — det er 64.)*\n\nMål hver rad i en maskinvare-matrise mot denne listen først. Er rada en av de fem eller en nær variant, er svaret usant."
+    },
+    {
+      "id": "in1020-2-4-bank-26",
+      "type": "definition",
+      "title": "De sanne påstandene som ligner på fellene",
+      "content": "Disse er **sanne**, og de skal ikke avvises selv om de handler om samme temaer som de fem faste usanne:\n\n- Registre er raskere enn hovedminnet.\n- ALU-en gjør både aritmetiske og logiske operasjoner.\n- En portutgang kan være inngang på flere porter.\n- Kode og data ligger i samme minne i von Neumann-arkitekturen.\n- Pipeline øker antall instruksjoner som blir ferdige per sekund.\n\nPoenget: temaet avgjør ikke svaret. Ordlyden gjør."
+    },
+    {
+      "id": "in1020-2-4-bank-27",
+      "type": "definition",
+      "title": "Å lese en påstand om ytelse presist",
+      "content": "Samme tema gir ofte både en sann og en usann rad, avhengig av avgrensningen i ordlyden.\n\n| Påstand | Svar |\n|---|---|\n| Pipeline gjør hver enkelt instruksjon raskere | Usann |\n| Pipeline øker antall ferdige instruksjoner per sekund | Sann |\n| Høyere klokkefrekvens gir alltid raskere maskin | Usann |\n| Høyere klokkefrekvens gir kortere klokkesykel | Sann |\n\nArbeidsmåten: stryk under hva rada faktisk måler — per instruksjon eller per tidsenhet — før du krysser av."
+    },
+    {
+      "id": "in1020-2-4-bank-28",
+      "type": "definition",
+      "title": "Bonus og minus i maskinvaredelen",
+      "content": "Oppgaver i seksjon 2 kan gi **bonuspoeng** for full pott på en matrise, og **minus** per feil avkryssing.\n\nKonsekvensen for arbeidsmåten: det lønner seg ekstra godt å ha en fast sjekkliste for de radene som går igjen, slik at tiden kan brukes på de radene som faktisk krever ettertanke.\n\nRegelen fra formatet ellers gjelder fortsatt: kryss av det du kan begrunne, og la stå åpent der du er reelt i tvil."
+    },
+    {
+      "id": "in1020-2-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter arkitekturen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-2-4-rep-tekst",
+          "type": "text",
+          "content": "Ni korte. Svar før du ser på fasiten.\n\n1. Hvilke tre deler finnes alltid inne i en CPU?\n2. Hva kjennetegner von Neumann-arkitekturen?\n3. Hvilken buss sier *hvor*, og hvilken bærer *hva*?\n4. Hvor mange en-bits ALU-er trengs til en 64-bits ALU?\n5. Hva er sum- og mente-formlene i en fulladder?\n6. Hvordan subtraherer en adder?\n7. Hva øker pipeline — farten per instruksjon eller antall ferdige per sekund?\n8. Hvor mange sykler tar seks instruksjoner med tre trinn og pipeline?\n9. Nevn de fem faste usanne påstandene.\n\n**Fasit.**\n\n1. ALU, kontrollenhet og registre. Hovedminnet er **ikke** en del av CPU-en.\n2. Kode og data ligger i samme minne — en instruksjon er bare et tall i en celle.\n3. Adressebussen sier hvor; databussen bærer hva. Kontrollbussen sier om det skal leses eller skrives.\n4. 64. Én per bit — menten er allerede en del av hver fulladder.\n5. `S = A ⊕ B ⊕ C_inn` og `C_ut = A·B + C_inn·(A⊕B)`. Sum er 1 ved odde antall ettall; mente ut er 1 ved minst to.\n6. Ved å invertere den ene operanden og sette mente inn lik 1: `A − B = A + ¬B + 1`.\n7. Antall ferdige per sekund. Den enkelte instruksjonen går gjennom like mange trinn som før.\n8. `3 + (6 − 1) = 8` sykler. Uten pipeline: `6 × 3 = 18`.\n9. Færre transistorer; klokke lagret i RAM; register bygd av RAM; ALU utenfor CPU; 65 enheter for 64 bit. Alle fem er usanne.\n\nSjekk deg selv: ☐ husket du at ALU-en ligger INNE i CPU-en? ☐ skilte du adressebuss fra databuss? ☐ telte du `n` og ikke `n + 1` ALU-enheter? ☐ leste du ytelsespåstandene bokstavelig — per instruksjon eller per sekund?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

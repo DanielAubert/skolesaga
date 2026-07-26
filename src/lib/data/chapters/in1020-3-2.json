@@ -1,0 +1,412 @@
+{
+  "id": "in1020-3-2",
+  "courseId": "in1020",
+  "chapterNumber": "3.2",
+  "title": "Trusselmodellering og risiko",
+  "description": "Å koble en trussel til målet den bryter, og å regne risiko som sannsynlighet ganger konsekvens — inkludert hvorfor et lukket system aldri er uten risiko.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne koble en gitt trussel til det eller de målene den bryter",
+    "kunne regne ut og rangere risiko ut fra sannsynlighet og konsekvens",
+    "kunne forklare hvorfor fysisk tilgang og innsidetrusler omgår de fleste andre tiltak",
+    "kunne avvise påstanden om at et lukket eller internt system er uten risiko"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** trusselmodellering hører til **sjanger G — sikkerhetsmål, sikkerhetstiltak og trusselmodellering**, som har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Kapitlet hører til **seksjon 3, datasikkerhet**, en av de fire seksjonene som hver må bestås for seg. Sammen med [kap. 3.1](/bok/in1020/in1020-3-1) utgjør det halvparten av seksjonens begrepsapparat.\n\n**Slik kommer den:** oftest som **svarform F3** (dra-og-slipp: koble hvert element til riktig kategori — i boka skrevet som en koblingsoppgave), der du kobler trussel til brutt mål. Av og til som **F1** («velg ett *eller flere* alternativer» — flere kan være riktige samtidig).\n\n**Den ene tingen som skiller bestått fra bom her:** at én trussel ofte bryter **flere** mål. En forfalsket nettside bryter både autentisitet og integritet. Krysser du bare av det ene, mister du halve poenget uten å ha svart noe galt.\n\n**En fast felle til:** å tro at et lukket eller internt system er «uten risiko». Det er **felle #12 i registeret**, og svaret er alltid nei — fysisk tilgang, innsidere og feil finnes uansett hvor lukket nettet er.\n\n**Tidsbruk:** 45 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-3-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/in1020/in1020-3-1). Her er det du trenger, ferdig oppfrisket:\n\n**1. De sju sikkerhetsmålene**, med spørsmålet som fanger hvert av dem:\n\n| Mål | Spørsmålet |\n|---|---|\n| Konfidensialitet | Kan uvedkommende **lese** det? |\n| Integritet | Er innholdet **uendret** og korrekt? |\n| Tilgjengelighet | Får de rette **tak i** det når de trenger det? |\n| Sporbarhet | Kan vi i ettertid se **hvem gjorde hva**? |\n| Uavviselighet | Kan den ansvarlige **nekte** for det? |\n| Autentisitet | Er det **virkelig** den vi tror? |\n| Personvern | Behandles **personopplysninger** lovlig? |\n\n**2. Skillet mål mot tiltak.** Et mål er en egenskap systemet har eller mangler; et tiltak er noe man installerer eller gjennomfører. Brannmur og kryptering er tiltak.\n\n**3. Sårbarhet.** En svakhet som kan utnyttes — uoppdatert programvare, svakt passord, feil oppsett, manglende opplæring.\n\n**Kjeden som binder det sammen, og som er ny i dette kapitlet:** en **trussel** utnytter en **sårbarhet** og bryter et **mål**. Tiltakene settes inn for å fjerne sårbarheten eller redusere skaden."
+    },
+    {
+      "id": "in1020-3-2-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-3-2-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Trussel | Noe eller noen som kan påføre skade |\n| Sårbarhet | Svakheten trusselen utnytter |\n| Risiko | Hvor alvorlig trusselen er samlet sett |\n| Sannsynlighet | Hvor ofte eller hvor lett det kan skje |\n| Konsekvens | Hvor stor skaden blir dersom det skjer |\n| Restrisiko | Risikoen som står igjen etter at tiltakene er satt inn |\n| Innsidetrussel | Trussel fra noen som allerede har lovlig tilgang |\n| Tjenestenekt | Angrep som overbelaster en tjeneste så den blir utilgjengelig |\n\n**Koblingstabellen trussel → brutt mål:**\n\n| Trussel | Bryter først og fremst |\n|---|---|\n| Tjenestenektangrep, løsepengevirus, manglende oppdatering | **Tilgjengelighet** |\n| Tastelogger, spionvare, tapt USB-minne, avlytting | **Konfidensialitet** |\n| Endring av data, rootkit, mellommannsangrep | **Integritet** |\n| DNS-modifisering, forfalsket nettside | **Integritet og autentisitet** |\n| Identitetstyveri | **Autentisitet** (ofte også konfidensialitet) |\n| Sletting av logger | **Sporbarhet og uavviselighet** |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{risiko} = \\text{sannsynlighet} \\times \\text{konsekvens}$$\n\nBegge faktorene må med. En hendelse som er svært sannsynlig, men helt ufarlig, gir lav risiko — og det samme gjør en katastrofe som praktisk talt aldri inntreffer.\n\n$$\\text{restrisiko} = \\text{risiko etter at tiltakene er satt inn}$$\n\nIngen tiltakspakke bringer risikoen til null. Det som står igjen, må aksepteres bevisst."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Kjeden trussel, sårbarhet, mål (~12 min)\n\nEn kommune har et gammelt saksbehandlingssystem som ikke er oppdatert på to år. En angriper finner en kjent svakhet og kommer inn.\n\nDe tre leddene er:\n\n- **Trusselen** er angriperen — den som kan påføre skade.\n- **Sårbarheten** er den manglende oppdateringen — svakheten som blir utnyttet.\n- **Målet som brytes** avhenger av hva angriperen gjør: leser hen dokumenter, er det konfidensialitet; endrer hen dem, er det integritet; låser hen dem, er det tilgjengelighet.\n\nEksamensoppgaven spør nesten alltid om det siste leddet: **hvilket mål bryter denne trusselen?** Og svaret er ofte mer enn ett."
+    },
+    {
+      "id": "in1020-3-2-def-trussel",
+      "type": "definition",
+      "title": "Trussel",
+      "content": "Noe eller noen som kan påføre skade på informasjon eller systemer.\n\nEn trussel trenger ikke være ondsinnet. Et strømbrudd er en trussel. En ansatt som ved et uhell sletter en mappe, er en trussel. En harddisk som ryker etter fem år, er en trussel.\n\nDen faste feilslutningen: å tenke på trusler bare som «hackere». Da bygger man et forsvar som glemmer strømbrudd, feilbetjening og maskinvarefeil — og de tre står for en stor del av de faktiske hendelsene.\n\nMerk skillet mot **sårbarhet**: trusselen er den ytre kraften, sårbarheten er svakheten som gjør at kraften får virkning."
+    },
+    {
+      "id": "in1020-3-2-teo-kobling",
+      "type": "theorem",
+      "title": "Koblingen trussel → brutt mål",
+      "content": "Dette er tabellen oppgavene bygger på. Les den som «bryter først og fremst», og husk at flere mål kan rammes samtidig.\n\n| Trussel | Brutt mål | Hvorfor |\n|---|---|---|\n| Tjenestenektangrep | **Tilgjengelighet** | Tjenesten går ned; ingenting leses eller endres |\n| Løsepengevirus | **Tilgjengelighet** | Filene finnes, men er låst |\n| Manglende oppdatering | **Tilgjengelighet** (og alt annet) | Åpner for angrep som kan ramme alle mål |\n| Tastelogger | **Konfidensialitet** | Passord og tastetrykk lekker |\n| Spionvare | **Konfidensialitet** | Innhold sendes ut av maskinen |\n| Tapt eller stjålet USB-minne | **Konfidensialitet** | Innholdet kan leses av finneren |\n| Avlytting av trafikk | **Konfidensialitet** | Innholdet leses underveis |\n| Endring av data | **Integritet** | Innholdet er ikke lenger korrekt |\n| Rootkit | **Integritet** | Systemet manipuleres og skjuler angriperen |\n| Mellommannsangrep | **Integritet** (og konfidensialitet) | Trafikken både leses og kan endres |\n| DNS-modifisering | **Integritet og autentisitet** | Du sendes til feil tjener, som utgir seg for å være rett |\n| Forfalsket nettside | **Integritet og autentisitet** | Innholdet er falskt, og avsenderen er ikke den den utgir seg for |\n| Identitetstyveri | **Autentisitet** (ofte også konfidensialitet) | Noen opptrer som deg |\n| Sletting av logger | **Sporbarhet og uavviselighet** | Ingen kan se hva som skjedde, og ingen kan bevise det |\n\n**De tre reglene som gjør tabellen enkel å bruke:**\n\n1. **Handler det om å lese?** Da er det konfidensialitet.\n2. **Handler det om å endre?** Da er det integritet.\n3. **Handler det om å hindre bruk?** Da er det tilgjengelighet.\n\n**Og den fjerde, som er den som skiller på eksamen:** handler det om å **utgi seg for å være noen andre**, er det autentisitet — som regel i tillegg til integritet.\n\n**Merk løsepengeviruset spesielt.** Det bruker kryptering, som ellers er et tiltak for konfidensialitet, men målet som brytes, er **tilgjengelighet**. Verktøyet og målet er to ulike ting."
+    },
+    {
+      "id": "in1020-3-2-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Fire trusler, fire koblinger",
+      "problem": "Svarform F3, altså en koblingsoppgave: koble hver trussel (1–4) til det målet den først og fremst bryter (A–D).\n\n**1.** En tastelogger installeres på en resepsjonsmaskin.\n\n**2.** Et tjenestenektangrep rammer kommunens nettsider.\n\n**3.** En angriper endrer karakterene i et studieadministrativt system.\n\n**4.** En falsk innloggingsside utgir seg for å være universitetets.\n\n**A.** Konfidensialitet · **B.** Integritet · **C.** Tilgjengelighet · **D.** Autentisitet",
+      "solution": "**1 → A (konfidensialitet).** Tasteloggeren fanger opp det som skrives, altså passord og innhold. Ingenting endres, og ingenting går ned — det handler om **lesing**.\n\n**2 → C (tilgjengelighet).** Nettsidene er der fortsatt og er uendret, men ingen får tak i dem. Det handler om **bruk**.\n\n**3 → B (integritet).** Karakterene er endret og er ikke lenger korrekte. Systemet er oppe, og ingen har nødvendigvis lest noe de ikke skulle.\n\n**4 → D (autentisitet).** Siden utgir seg for å være noen den ikke er. Merk at den **også** bryter konfidensialitet, siden passordene fanges opp — men oppgaven ber om det den «først og fremst» bryter, og det som er særegent ved en forfalskning, er nettopp identiteten.\n\n**Fasit: 1→A, 2→C, 3→B, 4→D.**\n\n**Om formen:** koblingen er ikke 1→A, 2→B, 3→C, 4→D. Rekkefølgen i slike oppgaver er alltid stokket, og en pen diagonal er et varsel om at du har gjettet.\n\n**Om «først og fremst»:** ber oppgaven i stedet om «alle mål som brytes», skal du krysse av både autentisitet og konfidensialitet på nummer 4. Les ordlyden."
+    },
+    {
+      "id": "in1020-3-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — de tre reglene.) Hvilket mål brytes i hvert tilfelle?\n\n**a)** En ansatt kopierer kundelisten til en privat minnepinne.\n\n**b)** Et virus endrer innholdet i regnskapsfilene.\n\n**c)** En strømfeil gjør at ordresystemet er nede i fire timer.",
+        "solution": "**a) Konfidensialitet.** Innholdet er kopiert ut til noen som ikke skulle hatt det. Merk at ingenting er endret, og systemet virker som før — det handler om **lesing**.\n\n**b) Integritet.** Innholdet er ikke lenger korrekt. Det handler om **endring**.\n\n**c) Tilgjengelighet.** Ingen har lest noe, ingen har endret noe — men ingen får brukt systemet heller. Det handler om **bruk**.\n\n**Fasit: a) konfidensialitet, b) integritet, c) tilgjengelighet.**\n\nMerk at c) ikke er et angrep i det hele tatt. En trussel trenger ikke være ondsinnet, og strømbrudd er en av de vanligste årsakene til brudd på tilgjengelighet.",
+        "hints": [
+          "Spør for hvert tilfelle: er noe lest, endret eller gjort utilgjengelig?",
+          "Se på hva som faktisk skjedde med dataene, ikke på hvem som sto bak."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — trussel til mål, svarform F1.) Et løsepengevirus krypterer alle filene i en bedrift og krever betaling for nøkkelen. Kryss av **alle** målene som brytes, og begrunn hvert av de fire.\n\n**a)** Tilgjengelighet\n\n**b)** Konfidensialitet\n\n**c)** Integritet\n\n**d)** Sporbarhet",
+        "solution": "**a) Riktig.** Filene finnes fortsatt på disken, men bedriften får ikke brukt dem. Det er tilgjengelighet i ren form, og det er hovedskaden.\n\n**b) Galt.** Løsepengeviruset **låser** innholdet, det lekker det ikke. Angriperen har ikke nødvendigvis lest en eneste fil. Distraktoren er farlig fordi angrepet bruker **kryptering** — som ellers er et tiltak for konfidensialitet. Verktøyet og det brutte målet er to ulike ting.\n\n**c) Galt.** Innholdet er ikke endret; det er gjort utilgjengelig. Gjenoppretter bedriften fra sikkerhetskopi, er filene nøyaktig som før.\n\n**d) Galt.** Loggene er intakte, og det går fint an å se hva som skjedde og når. Sporbarhet er tvert imot ofte det som gjør at man finner ut hvordan angriperen kom inn.\n\n**Fasit: bare a.**\n\n**Om formen:** her er nøyaktig ett alternativ riktig, selv om formen er «velg ett *eller flere*». Det er helt vanlig, og du skal ikke lete etter et nummer to bare fordi formen tillater flere.\n\n**Merk nyansen:** moderne løsepengevirus **stjeler** ofte dataene før de krypterer dem, og da brytes også konfidensialitet. Sier oppgaven ikke noe om det, holder du deg til det som står.",
+        "hints": [
+          "Skille mellom hva angriperen brukte som verktøy, og hva som faktisk gikk tapt.",
+          "Sjekk for hvert mål om nettopp den egenskapen er brutt av det som beskrives."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Når én trussel bryter flere mål (~11 min)\n\nDen forrige oppgaven hadde ett riktig svar. Nå kommer den andre typen, og den er hyppigere: trusler som rammer bredt.\n\nEn forfalsket nettside utgir seg for å være banken (autentisitet), viser innhold som ikke er bankens (integritet), og fanger opp passordet ditt (konfidensialitet). Tre mål, ett angrep.\n\n**Regelen er å gå gjennom alle sju målene, ett for ett.** Det tar tretti sekunder og er forskjellen mellom halvt og helt poeng."
+    },
+    {
+      "id": "in1020-3-2-def-mellommann",
+      "type": "definition",
+      "title": "Mellommannsangrep",
+      "content": "At en angriper plasserer seg **mellom** to parter som tror de snakker direkte med hverandre, og videreformidler trafikken.\n\nAngriperen kan da både **lese** alt som sendes (konfidensialitet) og **endre** det underveis (integritet) — uten at noen av partene merker noe.\n\nDet klassiske stedet er et åpent trådløst nett: du tror du snakker med nettbanken, men trafikken går gjennom en maskin som er satt opp av angriperen.\n\nMottiltaket er **HTTPS med sertifikat**, som både krypterer trafikken og bekrefter hvem du snakker med. Derfor er advarselen om ugyldig sertifikat ikke noe å klikke seg forbi."
+    },
+    {
+      "id": "in1020-3-2-def-dns",
+      "type": "definition",
+      "title": "DNS-modifisering",
+      "content": "At oppslaget fra navn til adresse manipuleres, slik at du havner på **feil tjener** selv om du skrev riktig adresse.\n\nDu skriver navnet på banken, men blir sendt til angriperens maskin. Navnetjenesten som gjør oppslaget, behandles i del 4 om datanettverk.\n\nMålene som brytes: **integritet** (innholdet du får, er ikke det ekte) og **autentisitet** (tjeneren er ikke den den utgir seg for).\n\nDen faste feilslutningen: å tro at dette er et konfidensialitetsbrudd i seg selv. Det blir det først når du taster inn noe på den falske siden."
+    },
+    {
+      "id": "in1020-3-2-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Én hendelse, hvor mange mål?",
+      "problem": "Svarform F1. En angriper får kontroll over en ansatts konto, logger inn i saksbehandlingssystemet, laster ned personopplysninger om 400 innbyggere, endrer to vedtak og sletter loggene for de siste tre dagene.\n\nKryss av **alle** målene som brytes.\n\n**a)** Konfidensialitet · **b)** Integritet · **c)** Tilgjengelighet · **d)** Sporbarhet · **e)** Uavviselighet · **f)** Autentisitet · **g)** Personvern",
+      "solution": "Gå gjennom alle sju, ett for ett:\n\n**a) Riktig — konfidensialitet.** 400 innbyggeres opplysninger er lastet ned av noen som ikke skulle hatt dem.\n\n**b) Riktig — integritet.** To vedtak er endret. Innholdet er ikke lenger korrekt.\n\n**c) Galt — tilgjengelighet.** Systemet er oppe hele tiden, og ingen mister tilgang til noe. Dette er distraktoren som «føles» riktig fordi hendelsen er alvorlig.\n\n**d) Riktig — sporbarhet.** Loggene for tre dager er slettet, og det går ikke lenger an å se hva som skjedde.\n\n**e) Riktig — uavviselighet.** Uten logger kan handlingene ikke knyttes til noen med sikkerhet, og den ansvarlige kan nekte.\n\n**f) Riktig — autentisitet.** Angriperen opptrådte som den ansatte. Systemet trodde det snakket med rett person, men gjorde det ikke.\n\n**g) Riktig — personvern.** Personopplysninger er behandlet ulovlig: hverken nedlastingen eller endringen har rettslig grunnlag.\n\n**Fasit: a, b, d, e, f og g — alle unntatt tilgjengelighet.**\n\n**Om formen:** seks av sju riktige. Slike oppgaver finnes, og de er brutale for den som har lært seg å «fordele avkryssingene pent». Regelen er å vurdere hvert mål for seg og krysse av det du kan begrunne.\n\n**Om negativ poenggiving:** krysser du av tre av de seks riktige og lar resten stå, har du halvt poeng. Krysser du av alle sju, trekkes du for det ene gale. Den som går gjennom listen systematisk, får full pott på tretti sekunder."
+    },
+    {
+      "id": "in1020-3-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — trussel til mål, svarform F1.) En angriper setter opp et falskt trådløst nett på en kafé og videreformidler all trafikk gjennom sin egen maskin. Kryss av **alle** målene som kan brytes, og begrunn hvert av de fire.\n\n**a)** Sporbarhet\n\n**b)** Integritet\n\n**c)** Autentisitet\n\n**d)** Konfidensialitet",
+        "solution": "Dette er et **mellommannsangrep**.\n\n**a) Galt.** Sporbarhet handler om at systemet kan vise hvem som gjorde hva i ettertid. Angrepet skjer utenfor de systemene som fører logg, og deres logger er uberørte. Distraktoren er med fordi sporbarhet «føles relevant» i alt som handler om angrep.\n\n**b) Riktig.** Angriperen kan også **endre** trafikken underveis: bytte ut innhold, legge til noe, fjerne noe. Det er nettopp det som gjør mellommannsangrepet farligere enn ren avlytting.\n\n**c) Riktig.** Nettet utgir seg for å være kafeens, og angriperen kan i tillegg utgi seg for å være tjeneren du prøver å nå. Autentisiteten er brutt i begge ledd.\n\n**d) Riktig.** Angriperen kan lese all ukryptert trafikk som går gjennom maskinen — nettsider, søk, ubeskyttede innlogginger.\n\n**Fasit: b, c og d.**\n\n**Mottiltaket, som er verdt å kunne:** HTTPS med gyldig sertifikat gjør at trafikken hverken kan leses eller endres, og at du kan kontrollere hvem du snakker med. Det er derfor en sertifikatadvarsel aldri skal klikkes bort på et åpent nett.",
+        "hints": [
+          "Hva kan en som sitter midt imellom, gjøre med trafikken — bare se på den, eller mer?",
+          "Sjekk for hvert mål om nettopp den egenskapen kan brytes av angrepet som beskrives."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Risiko: sannsynlighet ganger konsekvens (~12 min)\n\nEn virksomhet kan ikke sikre seg mot alt. Den må velge hvor pengene skal brukes, og da trenger den et mål på hvor alvorlig hver trussel er.\n\nDet målet er **risiko**, og det har to faktorer: hvor lett det skjer, og hvor ille det blir.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-3-2-teo-risiko",
+      "type": "theorem",
+      "title": "Risiko = sannsynlighet × konsekvens",
+      "content": "$$\\text{risiko} = \\text{sannsynlighet} \\times \\text{konsekvens}$$\n\n**Begge faktorene må med.** Det er hele poenget med formelen:\n\n- En hendelse som skjer hver uke, men som ikke gjør noen skade, har **lav** risiko.\n- En hendelse som ville vært katastrofal, men som praktisk talt aldri inntreffer, har også **lav** risiko.\n- Det farlige er kombinasjonen: noe som både kan skje og som gjør stor skade.\n\n**Slik regnes det i praksis.** Begge faktorene settes på en skala, typisk 1 til 5, og risikoen er produktet — et tall mellom 1 og 25.\n\n| Sannsynlighet | Konsekvens | Risiko |\n|---|---|---|\n| 5 (svært sannsynlig) | 1 (ubetydelig) | `5 · 1 = 5` |\n| 1 (svært usannsynlig) | 5 (katastrofal) | `1 · 5 = 5` |\n| 3 (mulig) | 4 (alvorlig) | `3 · 4 = 12` |\n| 4 (sannsynlig) | 4 (alvorlig) | `4 · 4 = 16` |\n\nDe to øverste radene er like alvorlige etter formelen, selv om de føles helt ulike. Det er en kjent svakhet ved metoden — og grunnen til at tallet aldri brukes alene, men sammen med skjønn.\n\n**Rangering er det oppgavene spør om.** Regn ut produktet for hver trussel og sorter. Ved likt produkt regnes den med høyest konsekvens som regel som mest alvorlig, fordi skaden er varig.\n\n**Restrisiko.** Etter at tiltakene er satt inn, står det alltid noe igjen. Ingen tiltakspakke gir null risiko, og det som står igjen, må aksepteres bevisst av ledelsen — ikke ignoreres.\n\n**Den faste feilen:** å regne med bare den ene faktoren. «Dette skjer ofte, altså er risikoen høy» er ikke et gyldig resonnement før du vet hva konsekvensen er."
+    },
+    {
+      "id": "in1020-3-2-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Rangér fire trusler etter risiko",
+      "problem": "En liten bedrift har vurdert fire trusler på en skala fra 1 til 5 for både sannsynlighet og konsekvens. Regn ut risikoen for hver, og rangér dem fra høyest til lavest.\n\n| Trussel | Sannsynlighet | Konsekvens |\n|---|---|---|\n| Løsepengevirus | 3 | 5 |\n| Tapt bærbar maskin | 4 | 2 |\n| Strømbrudd i én time | 5 | 1 |\n| Innbrudd i lokalene | 2 | 4 |",
+      "solution": "**Regn ut produktet for hver:**\n\n`Løsepengevirus: 3 · 5 = 15`\n\n`Tapt bærbar maskin: 4 · 2 = 8`\n\n`Strømbrudd i én time: 5 · 1 = 5`\n\n`Innbrudd i lokalene: 2 · 4 = 8`\n\n**Rangeringen fra høyest til lavest:**\n\n1. **Løsepengevirus — 15.** Klart høyest.\n2. **Tapt bærbar maskin og innbrudd i lokalene — 8 hver.** Likt produkt.\n3. **Strømbrudd i én time — 5.**\n\n**Ved likt produkt:** de to på 8 skilles på konsekvens. Innbrudd har konsekvens 4 mot tapt maskins 2, og regnes derfor som noe mer alvorlig — skaden er større når den først inntreffer, selv om den inntreffer sjeldnere.\n\n**Svar: løsepengevirus (15), innbrudd (8), tapt maskin (8), strømbrudd (5).**\n\n**Legg merke til strømbruddet.** Det er den mest sannsynlige hendelsen av alle fire, med sannsynlighet 5 — og likevel den minst alvorlige, fordi konsekvensen er 1. Det er nettopp derfor formelen har to faktorer.\n\n**Feil å unngå:** å rangere etter sannsynlighet alene. Da ville strømbruddet havnet øverst og løsepengeviruset i midten, altså stikk motsatt av det riktige svaret."
+    },
+    {
+      "id": "in1020-3-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — risikoformelen.) Regn ut risikoen for hver av disse tre, på skalaen 1 til 5 for begge faktorene, og si hvilken som er mest alvorlig.\n\n**a)** Sannsynlighet 2, konsekvens 5\n\n**b)** Sannsynlighet 5, konsekvens 2\n\n**c)** Sannsynlighet 3, konsekvens 3",
+        "solution": "**a)** `2 · 5 = 10`\n\n**b)** `5 · 2 = 10`\n\n**c)** `3 · 3 = 9`\n\n**Svar: a) og b) er like alvorlige med 10, og begge ligger over c) med 9.**\n\n**Merk hva regnestykket viser:** a) og b) er svært ulike i praksis — den ene er en sjelden katastrofe, den andre en hyppig plage — men formelen gir samme tall. Ved likt produkt skiller man som regel på konsekvens, og da regnes a) som mest alvorlig.\n\nDette er en kjent svakhet ved metoden, og det er derfor risikotallet aldri brukes alene. Det sorterer og prioriterer; det erstatter ikke skjønn.",
+        "hints": [
+          "Gang de to tallene sammen for hver linje.",
+          "Sammenlign produktene, ikke faktorene hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — risiko, svarform F4 — nedtrekksmeny, ett alternativ per delspørsmål.) En skole har vurdert fire trusler. Regn ut risikoen for hver, og oppgi hvilken som har høyest og hvilken som har lavest.\n\n| Trussel | Sannsynlighet | Konsekvens |\n|---|---|---|\n| Elev gjetter et svakt lærerpassord | 4 | 3 |\n| Brann i serverrommet | 1 | 5 |\n| Tjenestenektangrep mot skolens nett | 2 | 3 |\n| Uoppdatert programvare utnyttes | 3 | 4 |",
+        "solution": "**Regn ut produktet for hver:**\n\n`Svakt lærerpassord: 4 · 3 = 12`\n\n`Brann i serverrommet: 1 · 5 = 5`\n\n`Tjenestenektangrep: 2 · 3 = 6`\n\n`Uoppdatert programvare: 3 · 4 = 12`\n\n**Høyest:** to trusler deler førsteplassen med 12 — svakt lærerpassord og uoppdatert programvare. Skilles de på konsekvens, regnes **uoppdatert programvare** (konsekvens 4) som mest alvorlig.\n\n**Lavest:** **brann i serverrommet** med 5.\n\n**Svar: høyest risiko er uoppdatert programvare (12, konsekvens 4), lavest er brann (5).**\n\n**Legg merke til brannen.** Den har den høyeste konsekvensen av alle fire — men den laveste risikoen, fordi sannsynligheten er 1. Rangerer du etter konsekvens alene, havner den øverst, og det er den vanligste feilen i denne oppgavetypen.\n\n**Merk også hva rangeringen betyr i praksis:** de to viktigste tiltakene her er å kreve sterke passord og å holde programvaren oppdatert. Begge er billige. Det er ikke tilfeldig — risikoberegningen er nettopp et verktøy for å finne ut hvor pengene gjør mest nytte.",
+        "hints": [
+          "Regn ut alle fire produktene før du sammenligner.",
+          "Se særlig på den trusselen som har høyest konsekvens — hva er sannsynligheten der?",
+          "Ved likt produkt: hvilken faktor skiller de to?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Innsidere, fysisk tilgang og myten om det lukkede systemet (~10 min)\n\nTil slutt den innsikten som oftest testes som en sant/usant-rad, og som alltid har samme svar.\n\nEn virksomhet setter opp et internt nett uten forbindelse til internett og konkluderer: «dette systemet er trygt».\n\nDet er feil, og det er verdt å forstå hvorfor."
+    },
+    {
+      "id": "in1020-3-2-def-innsidetrussel",
+      "type": "definition",
+      "title": "Innsidetrussel",
+      "content": "En trussel fra noen som **allerede har lovlig tilgang** — en ansatt, en innleid konsulent, en vaktmester med nøkkel.\n\nInnsideren trenger ikke bryte seg inn. Alle de tiltakene som stopper utenforstående — brannmur, passord, nettverkssegmentering — er allerede passert.\n\nInnsidetrusselen er heller ikke alltid ondsinnet: en ansatt som klikker på en lenke i en falsk e-post, eller som sletter feil mappe, er en innsidetrussel i praktisk forstand.\n\nMottiltakene er andre enn mot utenforstående: **minste privilegium** (hver bruker får bare de rettighetene jobben krever), **logging** for sporbarhet, arbeidsdeling på kritiske oppgaver, og opplæring."
+    },
+    {
+      "id": "in1020-3-2-def-fysisk",
+      "type": "definition",
+      "title": "Fysisk tilgang",
+      "content": "At noen kommer fysisk til maskinen — kan ta på den, koble noe til den, eller ta den med seg.\n\nFysisk tilgang omgår **så og si alle** andre tiltak. Den som står foran maskinen, kan starte den fra sitt eget medium, koble til en tastelogger, ta ut disken, eller bare bære hele maskinen ut.\n\nDet er derfor låste dører, adgangskontroll og kameraovervåking regnes som datasikkerhetstiltak, ikke bare som eiendomsvern.\n\n**Det ene tiltaket som fortsatt virker:** diskkryptering. Den som stjeler en kryptert maskin, får maskinvaren, men ikke innholdet — og da er tilgjengelighet brutt, men ikke konfidensialitet."
+    },
+    {
+      "id": "in1020-3-2-def-lukket",
+      "type": "definition",
+      "title": "Myten om det lukkede systemet",
+      "content": "Påstanden «systemet er internt og har ingen forbindelse til internett, altså er det uten risiko» er **usann**. Dette er felle #12 i registeret.\n\nHvorfor den er usann, i fire punkter:\n\n1. **Innsidere** har allerede tilgang, og de er innenfor alle sperrene.\n2. **Fysisk tilgang** omgår så og si alle tiltak — en minnepinne båret inn i bygget er nok.\n3. **Feil og uhell** rammer uansett: slettede filer, feilkonfigurasjon, maskinvaresvikt.\n4. **Trusler mot tilgjengelighet** bryr seg ikke om nettforbindelse: strømbrudd, brann og diskkrasj rammer et lukket system like hardt.\n\nDet en frakobling faktisk gir, er at én kategori trusler blir vanskeligere: angrep utenfra over nett. Det er en reell gevinst, men det er ikke det samme som null risiko.\n\n**Formuleringen som er riktig:** et lukket system har **lavere** risiko for enkelte trusler, og **uendret** risiko for andre. Restrisiko finnes alltid."
+    },
+    {
+      "id": "in1020-3-2-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — sant/usant om trusler og risiko",
+      "problem": "Svarform F2, altså sant/usant-matrise: vurder hver påstand.\n\n**a)** Et internt system uten internettforbindelse er uten risiko.\n\n**b)** Fysisk tilgang til en maskin omgår så og si alle andre tiltak.\n\n**c)** Risiko regnes ut som sannsynlighet ganger konsekvens.\n\n**d)** En trussel bryter alltid nøyaktig ett sikkerhetsmål.",
+      "solution": "**a) Usann.** Dette er felle #12. Innsidere har allerede tilgang, fysisk tilgang omgår sperrene, og strømbrudd, brann og feilbetjening rammer uansett. Frakoblingen fjerner én kategori trusler, ikke risikoen.\n\n**b) Sann.** Den som står foran maskinen, kan starte den fra eget medium, koble til utstyr, ta ut disken eller bære maskinen ut. Det eneste tiltaket som fortsatt holder innholdet hemmelig, er diskkryptering.\n\n**c) Sann.** Begge faktorene må med. En hyppig, men ufarlig hendelse gir lav risiko, og det samme gjør en katastrofe som aldri inntreffer.\n\n**d) Usann.** De fleste trusler bryter flere mål. En forfalsket nettside bryter både autentisitet, integritet og — når du taster inn passordet — konfidensialitet. Det er derfor oppgavene bruker «velg ett *eller flere*».\n\n**Fasit: a usann, b sann, c sann, d usann.**\n\n**Om formen:** to sanne og to usanne. De to usanne er begge «for enkle» påstander: den ene lover total sikkerhet, den andre lover én ren kobling. Under negativ poenggiving er absolutte formuleringer — «uten risiko», «alltid nøyaktig ett» — nesten alltid verdt et ekstra blikk."
+    },
+    {
+      "id": "in1020-3-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — trusler, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | En trussel må være ondsinnet for å regnes som en trussel | |\n| b | Et løsepengevirus bryter først og fremst tilgjengelighet | |\n| c | Diskkryptering beskytter innholdet selv om maskinen blir stjålet | |\n| d | Innsidetrusler stoppes effektivt av brannmur | |",
+        "solution": "**a) Usann.** Et strømbrudd, en slettet mappe og en disk som ryker, er alle trusler. Å tenke på trusler bare som angrep gir et forsvar som glemmer de vanligste årsakene til faktiske hendelser.\n\n**b) Sann.** Filene finnes, men er låst. Merk at angrepet bruker kryptering som våpen — verktøyet er det samme som ellers tjener konfidensialitet, men det brutte målet er tilgjengelighet.\n\n**c) Sann.** Tyven får maskinvaren, men ikke innholdet. Tilgjengelighet er brutt for eieren, men konfidensialitet er i behold. Dette er det eneste tiltaket som holder mot fysisk tilgang.\n\n**d) Usann.** Innsideren er allerede innenfor brannmuren — den kontrollerer trafikk inn og ut av nettet, ikke hva en autorisert bruker gjør innenfor. Mottiltakene mot innsidere er minste privilegium, logging, arbeidsdeling og opplæring.\n\n**Fasit: a usann, b sann, c sann, d usann.**\n\nMerk at rad d er en variant av felle #12: den forutsetter at det som stopper utenforstående, også stopper innsidere. Det gjør det aldri.",
+        "hints": [
+          "For a): tenk på hva som faktisk forårsaker flest hendelser i praksis.",
+          "For d): hvor står brannmuren, og hvor står innsideren?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — trussel til mål, svarform F3.) Koble hver trussel (1–6) til det målet den **først og fremst** bryter (A–D). Hvert mål kan brukes flere ganger eller ikke i det hele tatt.\n\n**1.** Tastelogger på en delt maskin · **2.** Tjenestenektangrep · **3.** Rootkit som skjuler seg i systemet · **4.** Sletting av loggfiler · **5.** Stjålet ukryptert minnepinne · **6.** Manglende sikkerhetskopi når en disk ryker\n\n**A.** Konfidensialitet · **B.** Integritet · **C.** Tilgjengelighet · **D.** Sporbarhet",
+        "solution": "**1 → A (konfidensialitet).** Tasteloggeren fanger opp det som skrives, altså passord og innhold. Ingenting endres.\n\n**2 → C (tilgjengelighet).** Tjenesten går ned. Ingenting leses eller endres.\n\n**3 → B (integritet).** Et rootkit manipulerer selve systemet — det endrer hvordan maskinen rapporterer om seg selv, slik at angriperen forblir skjult. Det er innholdet i systemet som ikke lenger er til å stole på.\n\n**4 → D (sporbarhet).** Uten logger kan ingen se hva som skjedde. Merk at slettingen også rammer uavviselighet, men blant de fire alternativene er sporbarhet det presise svaret.\n\n**5 → A (konfidensialitet).** Finneren kan lese innholdet. Hadde minnepinnen vært kryptert, hadde bare tilgjengelighet vært brutt.\n\n**6 → C (tilgjengelighet).** Dataene er borte og kan ikke gjenopprettes. Ingen har lest eller endret noe — det er tapet av tilgang som er skaden.\n\n**Fasit: 1→A, 2→C, 3→B, 4→D, 5→A, 6→C.**\n\n**Merk fordelingen:** A og C brukes to ganger hver, B og D én gang hver. En koblingsoppgave krever ikke jevn fordeling, og det å spre svarene er en fast måte å miste poeng på.\n\n**De to som avgjør oppgaven:** nummer 3, der «rootkit» ofte gjettes til konfidensialitet fordi det høres ut som spionasje, og nummer 6, der en manglende sikkerhetskopi ikke er et angrep i det hele tatt — men like fullt et brudd på tilgjengelighet.",
+        "hints": [
+          "Bruk de tre reglene: handler det om å lese, å endre, eller å hindre bruk?",
+          "For 3): hva er det et rootkit faktisk gjør med systemet?",
+          "For 6): er dette et angrep, og spiller det noen rolle for hvilket mål som brytes?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — risiko og trusler, svarform F1.) En kommune har vurdert to trusler: «ansatt klikker på falsk e-post» med sannsynlighet 4 og konsekvens 4, og «brann i datarom» med sannsynlighet 1 og konsekvens 5.\n\nKryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Risikoen for den falske e-posten er 16.\n\n**b)** Risikoen for brann er 5.\n\n**c)** Brannen har høyest risiko, siden konsekvensen er størst.\n\n**d)** Å flytte systemet til et internt nett uten internettforbindelse ville fjernet all risiko.\n\n**e)** Opplæring av ansatte er et relevant tiltak mot den ene av de to truslene.",
+        "solution": "**Regningen først.**\n\n`Falsk e-post: 4 · 4 = 16`\n\n`Brann: 1 · 5 = 5`\n\n**a) Riktig.** `4 · 4 = 16`.\n\n**b) Riktig.** `1 · 5 = 5`.\n\n**c) Galt.** Brannen har høyest **konsekvens**, men lavest **risiko**: 5 mot 16. Dette er den vanligste feilen i sjangeren — å rangere etter den ene faktoren alene. Formelen har to faktorer nettopp fordi en katastrofe som aldri inntreffer, ikke er det mest presserende å bruke penger på.\n\n**d) Galt.** Dette er felle #12. Et lukket system har lavere risiko for angrep utenfra, men innsidere, fysisk tilgang, feilbetjening og brann rammer uendret. Legg merke til at den ene trusselen i oppgaven — brann — er helt upåvirket av om nettet er koblet til internett.\n\n**e) Riktig.** Opplæring er et direkte tiltak mot den falske e-posten: en ansatt som gjenkjenner mønsteret, klikker ikke. Mot brann virker helt andre tiltak, som slokkeanlegg og redundant driftssted.\n\n**Fasit: a, b og e.**\n\n**Merk sammenhengen mellom c og d:** begge er «enkle» påstander som høres fornuftige ut. Den ene ser bare på konsekvens, den andre lover total sikkerhet. Under negativ poenggiving er absolutte og forenklede formuleringer verdt et ekstra blikk.",
+        "hints": [
+          "Regn ut begge risikotallene før du vurderer alternativene.",
+          "For c): hvilken faktor ser påstanden bort fra?",
+          "For d): ville en frakobling fra internett hjulpet mot brann?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å tro at et lukket system er uten risiko (felle #12).** Innsidere, fysisk tilgang, feil og strømbrudd rammer uansett. Frakobling fjerner én kategori trusler, ikke risikoen.\n\n2. **Å krysse av bare ett mål når flere er brutt.** De fleste trusler rammer bredt. Gå gjennom alle sju målene ett for ett — det tar tretti sekunder.\n\n3. **Å regne risiko med bare den ene faktoren.** «Konsekvensen er katastrofal, altså er risikoen høyest» er galt hvis sannsynligheten er 1. Begge faktorene skal ganges sammen.\n\n4. **Å forveksle verktøyet med det brutte målet.** Et løsepengevirus bruker kryptering, men bryter **tilgjengelighet**. Spør alltid hva som faktisk gikk tapt.\n\n5. **Å tenke på trusler bare som angrep.** Strømbrudd, feilbetjening og maskinvaresvikt er trusler, og de står for en stor del av de faktiske hendelsene.\n\n6. **Å tro at brannmur stopper innsidere.** Innsideren er allerede innenfor. Mottiltakene er minste privilegium, logging, arbeidsdeling og opplæring.\n\n7. **Å tro at DNS-modifisering i seg selv er et konfidensialitetsbrudd.** Den bryter integritet og autentisitet; konfidensialiteten ryker først når du taster inn noe på den falske siden."
+    },
+    {
+      "id": "in1020-3-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-3-2-bank-1",
+      "type": "definition",
+      "title": "Kjeden trussel, sårbarhet, mål",
+      "content": "En **trussel** utnytter en **sårbarhet** og bryter et **mål**.\n\nEksempel: en angriper (trussel) utnytter uoppdatert programvare (sårbarhet) og endrer innhold (bryter integritet).\n\nTiltakene settes inn på to steder: de kan fjerne sårbarheten (oppdatere), eller de kan redusere skaden når den først skjer (sikkerhetskopi).\n\nDen faste feilslutningen: å blande trussel og sårbarhet. Trusselen er den ytre kraften; sårbarheten er svakheten som gjør at kraften får virkning."
+    },
+    {
+      "id": "in1020-3-2-bank-2",
+      "type": "definition",
+      "title": "De tre reglene for trussel til mål",
+      "content": "1. **Handler det om å lese?** → konfidensialitet\n2. **Handler det om å endre?** → integritet\n3. **Handler det om å hindre bruk?** → tilgjengelighet\n\nOg den fjerde, som skiller på eksamen: **handler det om å utgi seg for å være noen andre?** → autentisitet, som regel i tillegg til integritet.\n\nTre spørsmål avgjør de fleste koblingsoppgavene i sjangeren, og de tar noen sekunder hver."
+    },
+    {
+      "id": "in1020-3-2-bank-3",
+      "type": "definition",
+      "title": "Tjenestenektangrep",
+      "content": "Et angrep som overbelaster en tjeneste med forespørsler, slik at den ikke lenger klarer å svare på ekte trafikk.\n\nMålet som brytes: **tilgjengelighet**. Ingenting leses, og ingenting endres — tjenesten er bare ikke å få tak i.\n\nAngrepet kommer ofte fra mange maskiner samtidig, gjerne fra et nett av infiserte maskiner. Mottiltak er filtrering i brannmur, ekstra kapasitet og tjenester som spres på mange steder."
+    },
+    {
+      "id": "in1020-3-2-bank-4",
+      "type": "definition",
+      "title": "Løsepengevirus",
+      "content": "Skadevare som **krypterer** filene på en maskin og krever betaling for nøkkelen.\n\nMålet som brytes: **tilgjengelighet**. Filene finnes fortsatt, men er låst.\n\nDen faste feilslutningen: å svare konfidensialitet fordi angrepet bruker kryptering. Verktøyet og det brutte målet er to ulike ting — angriperen har ikke nødvendigvis lest en eneste fil.\n\nDet viktigste mottiltaket er **sikkerhetskopi** som ikke er tilkoblet, slik at den ikke krypteres sammen med resten."
+    },
+    {
+      "id": "in1020-3-2-bank-5",
+      "type": "definition",
+      "title": "Tastelogger",
+      "content": "Programvare eller en liten fysisk enhet som registrerer alt som skrives på tastaturet.\n\nMålet som brytes: **konfidensialitet**. Passord, meldinger og søk lekker til den som har satt den opp.\n\nEn fysisk tastelogger settes mellom tastaturet og maskinen og krever **fysisk tilgang** — som er nettopp grunnen til at fysisk sikring regnes som et datasikkerhetstiltak."
+    },
+    {
+      "id": "in1020-3-2-bank-6",
+      "type": "definition",
+      "title": "Spionvare",
+      "content": "Skadevare som samler inn opplysninger fra maskinen og sender dem videre uten at brukeren vet det.\n\nMålet som brytes: **konfidensialitet**.\n\nSkillet mot tastelogger: spionvaren kan hente langt mer enn tastetrykk — filer, skjermbilder, posisjon, nettlogg. Skadevaretypene systematiseres sist i denne delen."
+    },
+    {
+      "id": "in1020-3-2-bank-7",
+      "type": "definition",
+      "title": "Rootkit",
+      "content": "Skadevare som graver seg **dypt inn i systemet** og manipulerer det slik at den selv ikke er synlig — verken i prosesslista eller i filsystemet.\n\nMålet som brytes: **integritet**. Selve systemet er ikke lenger til å stole på: det rapporterer noe annet enn det som faktisk er tilfelle.\n\nDen faste feilslutningen: å svare konfidensialitet fordi rootkit høres ut som spionasje. Rootkitets kjennetegn er **skjulingen** og manipulasjonen av systemet, ikke datatyveriet."
+    },
+    {
+      "id": "in1020-3-2-bank-8",
+      "type": "definition",
+      "title": "Mellommannsangrep",
+      "content": "At en angriper plasserer seg mellom to parter som tror de snakker direkte sammen.\n\nMål som brytes: **konfidensialitet** (trafikken kan leses), **integritet** (den kan endres) og **autentisitet** (angriperen utgir seg for å være motparten).\n\nTypisk sted: et åpent trådløst nett satt opp av angriperen.\n\nMottiltak: HTTPS med gyldig sertifikat, som både krypterer og bekrefter hvem du snakker med. Derfor skal en sertifikatadvarsel aldri klikkes bort."
+    },
+    {
+      "id": "in1020-3-2-bank-9",
+      "type": "definition",
+      "title": "DNS-modifisering",
+      "content": "Manipulasjon av oppslaget fra navn til adresse, slik at du havner på feil tjener selv om du skrev riktig navn.\n\nMål som brytes: **integritet** (innholdet er ikke det ekte) og **autentisitet** (tjeneren er ikke den den utgir seg for).\n\nKonfidensialitet ryker først når du taster inn noe på den falske siden — det er en følge, ikke selve bruddet.\n\nNavnetjenesten som manipuleres, behandles i del 4 om datanettverk."
+    },
+    {
+      "id": "in1020-3-2-bank-10",
+      "type": "definition",
+      "title": "Forfalsket nettside",
+      "content": "En side som utgir seg for å være en annen — typisk en bank eller en innloggingsside.\n\nMål som brytes: **autentisitet** (den er ikke den den utgir seg for), **integritet** (innholdet er falskt), og **konfidensialitet** når brukeren taster inn noe.\n\nDette er standardeksempelet på at én trussel bryter flere mål samtidig, og i «velg ett *eller flere*»-form skal alle krysses av."
+    },
+    {
+      "id": "in1020-3-2-bank-11",
+      "type": "definition",
+      "title": "Identitetstyveri",
+      "content": "At noen opptrer som deg — logger inn med din konto, bruker ditt navn, signerer i ditt navn.\n\nMål som brytes: **autentisitet** først og fremst, og som regel **konfidensialitet** i tillegg, siden angriperen får tilgang til det du har tilgang til.\n\nDet mest effektive mottiltaket er **tofaktor-autentisering**: et stjålet passord alene er ikke nok når det også kreves noe du har."
+    },
+    {
+      "id": "in1020-3-2-bank-12",
+      "type": "definition",
+      "title": "Risikoformelen",
+      "content": "$$\\text{risiko} = \\text{sannsynlighet} \\times \\text{konsekvens}$$\n\nBegge faktorene settes typisk på en skala fra 1 til 5, og produktet ligger mellom 1 og 25.\n\nBegge må med: en hyppig, men ufarlig hendelse gir lav risiko, og det samme gjør en katastrofe som praktisk talt aldri inntreffer.\n\nDen faste feilen er å rangere etter den ene faktoren alene — som regel etter konsekvens, fordi katastrofer er lettere å forestille seg enn hyppighet."
+    },
+    {
+      "id": "in1020-3-2-bank-13",
+      "type": "definition",
+      "title": "Rangering ved likt produkt",
+      "content": "To trusler kan få samme risikotall med helt ulike faktorer: `2 · 5` og `5 · 2` gir begge 10.\n\nDe føles svært ulike — den ene er en sjelden katastrofe, den andre en hyppig plage — men formelen skiller dem ikke.\n\nRegelen som brukes: ved likt produkt regnes den med **høyest konsekvens** som mest alvorlig, fordi skaden er varig når den først inntreffer.\n\nDette er en kjent svakhet ved metoden, og grunnen til at risikotallet sorterer og prioriterer, men ikke erstatter skjønn."
+    },
+    {
+      "id": "in1020-3-2-bank-14",
+      "type": "definition",
+      "title": "Restrisiko",
+      "content": "Den risikoen som står igjen etter at tiltakene er satt inn.\n\nIngen tiltakspakke gir null risiko. Det som står igjen, skal aksepteres **bevisst** av ledelsen — ikke overses.\n\nDen faste feilslutningen: å tro at et gjennomført tiltak «lukker» en risiko. Det reduserer den, som regel ved å senke sannsynligheten eller konsekvensen — sjelden begge, og aldri til null."
+    },
+    {
+      "id": "in1020-3-2-bank-15",
+      "type": "definition",
+      "title": "Innsidetrussel",
+      "content": "En trussel fra noen som allerede har lovlig tilgang: ansatt, konsulent, vaktmester.\n\nInnsideren har passert brannmur, passord og nettverkssperrer i utgangspunktet. Derfor er mottiltakene andre: **minste privilegium**, **logging**, arbeidsdeling på kritiske oppgaver, og opplæring.\n\nInnsidetrusselen er ikke alltid ondsinnet. Den ansatte som klikker på en falsk lenke eller sletter feil mappe, hører til samme kategori."
+    },
+    {
+      "id": "in1020-3-2-bank-16",
+      "type": "definition",
+      "title": "Fysisk tilgang omgår alt",
+      "content": "Den som står foran maskinen, kan starte den fra eget medium, koble til utstyr, ta ut disken eller bære maskinen ut.\n\nDerfor regnes låste dører, adgangskontroll og kameraovervåking som **datasikkerhetstiltak**, ikke bare som eiendomsvern.\n\nDet ene tiltaket som fortsatt virker mot fysisk tilgang, er **diskkryptering**: tyven får maskinvaren, men ikke innholdet. Da er tilgjengelighet brutt, men konfidensialitet i behold."
+    },
+    {
+      "id": "in1020-3-2-bank-17",
+      "type": "definition",
+      "title": "Felle #12 — det lukkede systemet",
+      "content": "Påstanden «systemet er internt og uten internettforbindelse, altså uten risiko» er **usann**.\n\nFire grunner: innsidere har allerede tilgang; fysisk tilgang omgår sperrene; feil og uhell rammer uansett; og strømbrudd, brann og diskkrasj bryr seg ikke om nettforbindelse.\n\nDen riktige formuleringen: et lukket system har **lavere** risiko for enkelte trusler og **uendret** risiko for andre.\n\nAbsolutte formuleringer — «uten risiko», «fullstendig sikker», «kan ikke skje» — er nesten alltid usanne i denne sjangeren."
+    },
+    {
+      "id": "in1020-3-2-bank-18",
+      "type": "definition",
+      "title": "Minste privilegium",
+      "content": "Prinsippet om at hver bruker og hvert program skal ha **akkurat de rettighetene oppgaven krever**, og ikke flere.\n\nGevinsten er dobbel: skaden blir mindre både når noen gjør en feil, og når en konto blir overtatt av en angriper.\n\nDette er det viktigste enkelttiltaket mot innsidetrusler, og det er også grunnen til at ingen bør arbeide daglig med en konto som har fulle rettigheter."
+    },
+    {
+      "id": "in1020-3-2-bank-19",
+      "type": "definition",
+      "title": "Trusler som ikke er angrep",
+      "content": "Strømbrudd, brann, vannlekkasje, diskkrasj, feilbetjening og feilkonfigurasjon er alle trusler.\n\nDe rammer først og fremst **tilgjengelighet**, og av og til **integritet** — data kan bli ødelagt uten at noen har villet det.\n\nDen faste feilslutningen: å bygge et forsvar som bare tenker på angripere. I praksis står ikke-ondsinnede hendelser for en stor del av bruddene, og de vanligste tiltakene mot dem er sikkerhetskopi, redundans og øvelse."
+    },
+    {
+      "id": "in1020-3-2-bank-20",
+      "type": "definition",
+      "title": "Å gå gjennom alle sju målene",
+      "content": "Arbeidsmåten i en «hvilke mål brytes»-oppgave: ta målene i fast rekkefølge og spør for hvert enkelt om nettopp den egenskapen er brutt.\n\nKonfidensialitet — er noe **lest**? Integritet — er noe **endret**? Tilgjengelighet — har noen **mistet tilgang**? Sporbarhet — er **loggene** borte? Uavviselighet — kan den ansvarlige **nekte**? Autentisitet — har noen **utgitt seg for** å være en annen? Personvern — er **personopplysninger** behandlet ulovlig?\n\nSju spørsmål på tretti sekunder, og du har full pott i stedet for halv."
+    },
+    {
+      "id": "in1020-3-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter trusselkoblingene?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-3-2-rep-tekst",
+          "type": "text",
+          "content": "Ni korte. Svar før du ser på fasiten.\n\n1. Hvilket mål bryter et løsepengevirus først og fremst?\n2. Hvilket mål bryter en tastelogger?\n3. Hvilke mål bryter en forfalsket nettside?\n4. Hva er risikoformelen?\n5. Sannsynlighet 2 og konsekvens 5 mot sannsynlighet 4 og konsekvens 3 — hvilken har høyest risiko?\n6. Er et internt system uten internettforbindelse uten risiko?\n7. Hva stopper brannmur ikke?\n8. Hvilket mål bryter et rootkit?\n9. Hva er restrisiko?\n\n**Fasit.**\n\n1. Tilgjengelighet. Filene finnes, men er låst. Kryptering er verktøyet, ikke det brutte målet.\n2. Konfidensialitet. Tastetrykk og passord lekker.\n3. Autentisitet og integritet — og konfidensialitet når du taster inn noe. Alle skal krysses av i «velg ett eller flere»-form.\n4. `risiko = sannsynlighet × konsekvens`. Begge faktorene må med.\n5. Den andre: `4 · 3 = 12` mot `2 · 5 = 10`.\n6. Nei — felle #12. Innsidere, fysisk tilgang, feil og strømbrudd rammer uansett.\n7. Innsidetrusler. Innsideren er allerede innenfor brannmuren.\n8. Integritet. Systemet manipuleres og rapporterer noe annet enn det som er tilfelle.\n9. Risikoen som står igjen etter tiltak. Den er aldri null og må aksepteres bevisst.\n\nSjekk deg selv: ☐ gikk du gjennom ALLE målene før du svarte? ☐ skilte du verktøyet fra det brutte målet? ☐ ganget du begge faktorene i risikoformelen? ☐ stusset du på absolutte formuleringer som «uten risiko»?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

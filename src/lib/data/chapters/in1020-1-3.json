@@ -1,0 +1,409 @@
+{
+  "id": "in1020-1-3",
+  "courseId": "in1020",
+  "chapterNumber": "1.3",
+  "title": "To-er komplement og byte-tolkning",
+  "description": "Samme åtte-bits mønster har to lovlige tolkninger — uten fortegn og med fortegn — pluss byte-addisjon med mente og overflyt.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne oppgi begge tolkningene av en byte, uten fortegn og med fortegn i to-er komplement",
+    "kunne skrive et negativt tall som byte ved å invertere alle bit og legge til 1",
+    "kunne legge sammen to byte i åtte bit og oppgi begge tolkningene av resultatet",
+    "kunne avgjøre om et resultat har overflyt, med riktig kriterium for signert og usignert tolkning"
+  ],
+  "content": [
+    {
+      "id": "in1020-1-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** to-er komplement og byte-tolkning — **sjanger B** — har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**.\n\n**Nivå 1 — dette må sitte.** Sammen med [kap. 1.1](/bok/in1020/in1020-1-1) og LMC-sporingen i [kap. 1.4](/bok/in1020/in1020-1-4) utgjør dette de tre garanterte poengene i seksjon 1.\n\n**Slik kommer den:** oftest som svarform **F1** («velg ett *eller flere* alternativer») eller **F2** (sant/usant-matrise, der du vurderer én påstand per rad).\n\n**Den ene tingen som skiller bestått fra bom her:** oppgavene krever ofte **begge** tolkningene av det samme bitmønsteret — én uten fortegn og én med. Krysser du bare av den positive, mister du halve poenget uten å ha gjort noe galt. Det er felle #8 i registeret, og den er så vanlig at den fortjener sin egen vane: **spør alltid om oppgaven vil ha én tolkning eller to.**\n\n**Tidsbruk:** 45 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-1-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 1.1](/bok/in1020/in1020-1-1). Her er det du trenger, ferdig oppfrisket:\n\n**1. Plassverdiregelen i binærtall.** Vektene fra høyre er 1, 2, 4, 8, 16, 32, 64, 128. Verdien er summen av vektene der bitet er 1.\n\n```text\nbit:    1    0    1    0    1    1    0    0\nvekt:  128   64   32   16    8    4    2    1\n```\n\n**2. En byte er åtte bit** og skrives som to heksadesimale sifre. `10101100₂ = 0xAC`.\n\n**3. Toerpotensene:** 1, 2, 4, 8, 16, 32, 64, 128, 256.\n\nDet ene nye tallet i dette kapitlet er `256`, altså $2^8$ — antall verdier en byte kan ha.\n\nHar du sett binærtall for første gang i [kap. 1.1](/bok/in1020/in1020-1-1), er du klar. Trenger du en roligere inngang, ligger den i [Tallsystemer og datarepresentasjon](/bok/im-vg1/im-vg1-1-6)."
+    },
+    {
+      "id": "in1020-1-3-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-1-3-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning |\n|---|---|\n| `10101100₂` | En byte: åtte bit, skrevet med basesubskript |\n| $b_7 \\ldots b_0$ | Bitene i en byte, nummerert fra høyre med start på 0 |\n| $b_7$ | Det mest signifikante bitet — **fortegnsbitet** når byten tolkes med fortegn |\n| Usignert | Tolkning uten fortegn: verdiområdet 0 til 255 |\n| Signert | Tolkning med fortegn (to-er komplement): verdiområdet −128 til 127 |\n| Mente | Sifferet som «tas med videre» til neste bitposisjon i en addisjon |\n| Overflyt | At resultatet ikke får plass i verdiområdet tolkningen tillater |\n| ¬ | Invertering: hvert 0 blir 1 og hvert 1 blir 0 |\n\n**Formler i dette delkapitlet:**\n\n$$N_{\\text{usignert}} = \\sum_{i=0}^{7} b_i \\cdot 2^{\\,i}$$\n\nVanlig plassverdi: alle åtte bit har positiv vekt, og verdiområdet er 0 til 255.\n\n$$N_{\\text{signert}} = -\\,b_7 \\cdot 2^{7} + \\sum_{i=0}^{6} b_i \\cdot 2^{\\,i}$$\n\nTo-er komplement: det øverste bitet har **negativ** vekt (−128), resten er positive. Verdiområdet er −128 til 127.\n\n$$N_{\\text{signert}} = N_{\\text{usignert}} - 256 \\quad \\text{når } b_7 = 1$$\n\nSnarveien: er fortegnsbitet satt, trekker du 256 fra den usignerte verdien.\n\n$$-N = \\neg N + 1$$\n\nNegasjon i to-er komplement: inverter alle bit og legg til 1."
+        }
+      ]
+    },
+    {
+      "id": "in1020-1-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Én byte, to lovlige svar (~12 min)\n\nTenk på et termometer som sender målinger over en ledning. Det kan bare sende åtte bit av gangen, og det sender `10101100`.\n\nHva er temperaturen? Svaret avhenger av en avtale mellom sender og mottaker som **ikke** ligger i bitene: skal tallet leses som en verdi mellom 0 og 255, eller som en verdi mellom −128 og 127?\n\nEr avtalen «uten fortegn», er svaret 172 grader. Er den «med fortegn», er svaret −84 grader. Begge er riktige lesninger av det samme mønsteret.\n\nDette er hele poenget med kapitlet: **bitmønsteret bærer ikke sin egen tolkning.** Og på eksamen betyr det at et spørsmål ofte har to riktige svar samtidig."
+    },
+    {
+      "id": "in1020-1-3-def-usignert",
+      "type": "definition",
+      "title": "Usignert tolkning (uten fortegn)",
+      "content": "Lesningen der alle åtte bit har positiv vekt, etter vanlig plassverdi: 128, 64, 32, 16, 8, 4, 2, 1.\n\nVerdiområdet er **0 til 255** — altså $2^8 = 256$ ulike verdier.\n\nDenne tolkningen brukes for størrelser som aldri kan være negative: antall, adresser, fargekomponenter, tegn.\n\nDen faste feilslutningen: å tro at dette er «den riktige» tolkningen fordi det er den enkleste. Uten en avtale om tolkning er begge like gyldige."
+    },
+    {
+      "id": "in1020-1-3-teo-komplement",
+      "type": "theorem",
+      "title": "To-er komplement på 8 bit",
+      "content": "**Regelen:** det mest signifikante bitet ($b_7$) får vekten **−128** i stedet for +128. De sju andre beholder sine vanlige, positive vekter.\n\n$$N_{\\text{signert}} = -\\,b_7 \\cdot 2^{7} + \\sum_{i=0}^{6} b_i \\cdot 2^{\\,i}$$\n\n```text\nbit:    1     0    1    0    1    1    0    0\nvekt: -128   64   32   16    8    4    2    1\n```\n\n**Konsekvenser du skal kunne uten å tenke:**\n\n- Er $b_7 = 0$, er tallet positivt, og de to tolkningene gir **samme verdi**. `01011010₂` er 90 uansett.\n- Er $b_7 = 1$, er tallet negativt, og du finner verdien raskest ved å ta den usignerte verdien og **trekke fra 256**.\n- Verdiområdet er **−128 til 127**. Det er 256 verdier, akkurat som uten fortegn — bare forskjøvet.\n- Området er **usymmetrisk**: −128 finnes, men +128 finnes ikke. Det er én negativ verdi mer enn positive, fordi null tar plassen til den ene positive.\n\n**Hvorfor akkurat denne konstruksjonen?** Fordi den lar samme addisjonskrets brukes for både positive og negative tall. Legger du `11110000₂` (−16) og `00010000₂` (16) sammen bit for bit, får du `00000000₂` — null, uten at maskinen trenger å vite noe om fortegn."
+    },
+    {
+      "id": "in1020-1-3-def-fortegnsbit",
+      "type": "definition",
+      "title": "Fortegnsbit",
+      "content": "Det mest signifikante bitet ($b_7$ i en byte), som ved signert tolkning avgjør om tallet er negativt.\n\nEr bitet 0, er tallet null eller positivt. Er det 1, er tallet negativt.\n\nMerk formuleringen: bitet **er ikke bare et fortegn** — det bærer også vekten −128. Å behandle det som et rent fortegnsmerke og lese de sju andre bitene som tallverdien er en klassisk feil: `10101100₂` er ikke «minus 44», men −128 + 44 = −84."
+    },
+    {
+      "id": "in1020-1-3-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Begge tolkningene av samme byte",
+      "problem": "En sensor sender byten `10101100`. Hva er verdien, tolket uten fortegn og med fortegn?",
+      "solution": "**Uten fortegn.** Vektene der bitet er 1: 128, 32, 8, 4.\n\n`128 + 32 + 8 + 4 = 172`.\n\n**Med fortegn.** Det øverste bitet er 1, så det bidrar med −128 i stedet for +128. De øvrige er uendret:\n\n`−128 + 32 + 8 + 4 = −84`.\n\n**Snarveien:** siden fortegnsbitet er satt, kunne vi ha regnet `172 − 256 = −84` direkte. Det er ett regnestykke i stedet for fire.\n\n**Svar: `10101100₂` er 172 uten fortegn og −84 med fortegn.**\n\nBegge er riktige. Spør oppgaven «hvilke av disse verdiene kan byten representere?», skal begge krysses av."
+    },
+    {
+      "id": "in1020-1-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — to tolkninger.) Oppgi begge tolkningene av `11110000₂`.",
+        "solution": "**Uten fortegn:** vektene 128, 64, 32 og 16 er satt: `128 + 64 + 32 + 16 = 240`.\n\n**Med fortegn:** fortegnsbitet er satt, så bruk snarveien: `240 − 256 = −16`.\n\nKontroll med den lange veien: `−128 + 64 + 32 + 16 = −16`. Stemmer.\n\n**Svar: 240 uten fortegn, −16 med fortegn.**",
+        "hints": [
+          "Regn den usignerte verdien først.",
+          "Er det øverste bitet satt, trekk 256 fra den usignerte verdien."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger B — to-er komplement.) Hvilke av disse bytene gir **samme** verdi enten du tolker dem med eller uten fortegn?\n\n**a)** `01011010₂`\n\n**b)** `10000000₂`\n\n**c)** `00101101₂`\n\n**d)** `11111111₂`",
+        "solution": "Regelen er at tolkningene faller sammen når fortegnsbitet er 0.\n\n**a) Ja.** Øverste bit er 0, så verdien er 64 + 16 + 8 + 2 = 90 i begge tolkninger.\n\n**b) Nei.** Øverste bit er 1. Uten fortegn er verdien 128, med fortegn `128 − 256 = −128`.\n\n**c) Ja.** Øverste bit er 0, og verdien er 32 + 8 + 4 + 1 = 45 i begge tolkninger.\n\n**d) Nei.** Uten fortegn er verdien 255, med fortegn `255 − 256 = −1`. Dette er byten det er verdt å huske: **alle bit satt er −1 med fortegn.**\n\n**Fasit: a og c.**",
+        "hints": [
+          "Se på det mest signifikante bitet før du regner noe som helst.",
+          "Er fortegnsbitet 0, er de to tolkningene identiske."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-def-omraade",
+      "type": "definition",
+      "title": "Verdiområdene for en byte",
+      "content": "Åtte bit gir alltid **256 ulike mønstre**. Hvordan de fordeles på tallinja, avhenger av tolkningen:\n\n| Tolkning | Minste | Største | Antall |\n|---|---|---|---|\n| Uten fortegn | 0 | 255 | 256 |\n| Med fortegn (to-er komplement) | −128 | 127 | 256 |\n\nGrensemønstrene er verdt å kunne utenat: `00000000₂` er 0 i begge, `01111111₂` er 127 i begge, `10000000₂` er 128 uten fortegn og −128 med, og `11111111₂` er 255 uten fortegn og −1 med.\n\nDen faste feilslutningen: å tro at signert tolkning «mister» en verdi. Antallet er det samme — området er bare forskjøvet."
+    },
+    {
+      "id": "in1020-1-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Å bytte fortegn: inverter og legg til én (~10 min)\n\nHvordan skriver du −45 som en byte? Du kan regne `−45 + 256 = 211` og konvertere 211. Det virker, men det er tungvint.\n\nDen mekaniske metoden er raskere og er den du skal bruke under tidspress."
+    },
+    {
+      "id": "in1020-1-3-teo-negasjon",
+      "type": "theorem",
+      "title": "Negasjon i to-er komplement: inverter og legg til 1",
+      "content": "For å finne bitmønsteret til $-N$ når du har mønsteret til $N$:\n\n1. **Inverter** alle åtte bit (hvert 0 blir 1, hvert 1 blir 0).\n2. **Legg til 1** binært.\n\n$$-N = \\neg N + 1$$\n\nMetoden virker begge veier: bruker du den to ganger, er du tilbake der du startet.\n\n**Hvorfor den virker.** Inverteringen gir deg $255 - N$. Legger du til 1, får du $256 - N$ — og det er nettopp mønsteret som tolkes som $-N$ i to-er komplement, siden signert verdi er usignert verdi minus 256.\n\n**Den ene fallgruva:** `10000000₂` er −128, og inverterer du og legger til 1, får du `10000000₂` tilbake. Det er ikke en feil — det er asymmetrien i verdiområdet. +128 finnes ikke i en signert byte, så −128 har ingen positiv motpart."
+    },
+    {
+      "id": "in1020-1-3-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Skriv −45 som en byte",
+      "problem": "Skriv `−45` som en byte i to-er komplement, og kontroller svaret.",
+      "solution": "**Steg 1 — skriv 45 binært.** 45 er 32 + 8 + 4 + 1, altså `00101101`.\n\n**Steg 2 — inverter.**\n\n```text\n00101101   ->   11010010\n```\n\n**Steg 3 — legg til 1.**\n\n```text\n  11010010\n+        1\n----------\n  11010011\n```\n\n**Svar: `−45` er `11010011₂` = `0xD3`.**\n\n**Kontroll 1, via snarveien:** `11010011₂` uten fortegn er 128 + 64 + 16 + 2 + 1 = 211. Med fortegn: `211 − 256 = −45`. Stemmer.\n\n**Kontroll 2, ved å negere tilbake:** inverter `11010011` og få `00101100`, legg til 1 og få `00101101` = 45. Stemmer."
+    },
+    {
+      "id": "in1020-1-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — to-er komplement.) Skriv `−90` som en byte, og oppgi svaret både binært og heksadesimalt.",
+        "solution": "**Steg 1:** 90 er 64 + 16 + 8 + 2, altså `01011010`.\n\n**Steg 2 — inverter:** `10100101`.\n\n**Steg 3 — legg til 1:** `10100110`.\n\n**Svar: `−90` er `10100110₂` = `0xA6`.**\n\nKontroll: usignert er `10100110₂` lik 128 + 32 + 4 + 2 = 166, og `166 − 256 = −90`. Heksadesimalt er nibblene `1010` og `0110`, altså A og 6 — og 10·16 + 6 = 166. Stemmer.",
+        "hints": [
+          "Skriv den positive verdien binært først.",
+          "Inverter alle åtte bit, og husk at et eventuelt mente forplanter seg når du legger til 1."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — to-er komplement.) Hva er `−1` som byte, og hva er `−128`? Forklar hvorfor den ene av dem oppfører seg spesielt under negasjon.",
+        "solution": "**−1:** 1 er `00000001`. Invertert blir det `11111110`, pluss 1 gir `11111111`.\n\n`−1` er `11111111₂` = `0xFF` — alle bit satt.\n\n**−128:** 128 får ikke plass som positivt tall i en signert byte, så vi går motsatt vei. Vi vet at signert verdi er usignert minus 256, så vi trenger den usignerte verdien `−128 + 256 = 128`, altså `10000000`.\n\n`−128` er `10000000₂` = `0x80`.\n\n**Det spesielle:** inverterer du `10000000` får du `01111111`, og legger du til 1 får du `10000000` tilbake — samme mønster. Negasjonen av −128 er altså −128.\n\nÅrsaken er at verdiområdet er usymmetrisk: det går fra −128 til 127, så +128 finnes ikke. −128 har ingen positiv motpart å bli negert til.",
+        "hints": [
+          "Start med det positive tallet der det finnes, og med den usignerte verdien der det ikke gjør det.",
+          "Tell hvor mange positive og hvor mange negative verdier området rommer — de er ikke like mange."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Addisjon i åtte bit: mente og overflyt (~15 min)\n\nNå kommer den delen som gir flest bom. Å legge sammen to byte er enkelt — du legger sammen bit for bit med mente, akkurat som i titallssystemet. Det vanskelige er å avgjøre om **svaret er til å stole på**.\n\nÅtte bit rommer 256 verdier. Legger du sammen to tall der summen ikke får plass, blir svaret feil — men maskinen gir ingen advarsel. Den skriver bare de åtte nederste bitene og går videre."
+    },
+    {
+      "id": "in1020-1-3-teo-addisjon",
+      "type": "theorem",
+      "title": "Byte-addisjon",
+      "content": "**Regelen:** legg sammen bit for bit fra høyre, med mente videre til neste posisjon. Behold **nøyaktig åtte bit** i svaret — et eventuelt niende bit faller ut.\n\n```text\nmente:   1 1 1 1 1 1 0 0     <- menten inn i hver posisjon\n         0 1 0 1 1 0 1 0     (90)\n       + 0 0 1 1 0 1 1 1     (55)\n       -------------------\n         1 0 0 1 0 0 0 1\n```\n\n**Bit-for-bit-reglene:** `0+0 = 0`, `0+1 = 1`, `1+1 = 0 med mente 1`, og `1+1+1 = 1 med mente 1`.\n\n**Oppgi begge tolkningene av svaret** når oppgaven ber om det: `10010001₂` er 145 uten fortegn og `145 − 256 = −111` med fortegn.\n\n**Ikke regn med flere enn åtte bit.** Det er den vanligste mekaniske feilen: man lar svaret bli ni bit langt og oppgir en verdi over 255."
+    },
+    {
+      "id": "in1020-1-3-def-mente",
+      "type": "definition",
+      "title": "Mente",
+      "content": "Sifferet som overføres til neste bitposisjon når summen i en posisjon ikke får plass i ett bit.\n\n`1 + 1` er `10₂`, altså 0 i posisjonen og mente 1 videre. `1 + 1 + 1` er `11₂`, altså 1 i posisjonen og mente 1 videre.\n\nTo menter har egne navn og egne roller i overflytsregelen: **menten inn i bit 7** (fra posisjon 6) og **menten ut av bit 7** (som faller ut av byten). Ikke bland dem — det er nettopp forholdet mellom dem som avgjør om resultatet er gyldig."
+    },
+    {
+      "id": "in1020-1-3-def-overflyt",
+      "type": "definition",
+      "title": "Overflyt",
+      "content": "At resultatet av en regneoperasjon ikke får plass i verdiområdet tolkningen tillater, slik at den lagrede verdien blir feil.\n\n**Ved signert tolkning** oppstår overflyt når **menten inn i bit 7 er forskjellig fra menten ut av bit 7**. Er de like, er svaret gyldig.\n\n**Ved usignert tolkning** er kriteriet et annet: overflyt oppstår når det er mente **ut** av bit 7, altså når summen passerer 255.\n\nDen faste feilslutningen: å tro at «mente ut» alltid betyr overflyt. Legger du sammen to negative tall i to-er komplement, er mente ut helt normalt — og svaret er riktig så lenge menten inn også er 1."
+    },
+    {
+      "id": "in1020-1-3-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Overflyt som ikke ser ut som overflyt",
+      "problem": "Regn ut `01011010₂ + 00110111₂` i åtte bit. Oppgi begge tolkningene av svaret, og avgjør om resultatet er gyldig.",
+      "solution": "**Addisjonen.**\n\n```text\nmente:  1 1 1 1 1 1 0 0\n        0 1 0 1 1 0 1 0     (90)\n      + 0 0 1 1 0 1 1 1     (55)\n      -----------------\n        1 0 0 1 0 0 0 1\n```\n\n**Svaret er `10010001₂`.** Uten fortegn er det 128 + 16 + 1 = **145**. Med fortegn er det `145 − 256 = −111`.\n\n**Er svaret gyldig?**\n\n**Usignert:** vi la sammen 90 og 55 og fikk 145. Det er under 255, og det er ingen mente ut av bit 7. **Svaret er riktig.**\n\n**Signert:** begge operandene var positive (90 og 55), men svaret er negativt (−111). Det kan umulig stemme. Sjekk kriteriet: menten **inn** i bit 7 er 1 (den kom fra posisjon 6), mens menten **ut** av bit 7 er 0. De er ulike, altså **overflyt**.\n\n**Poenget:** samme regnestykke, samme bitmønster — gyldig i den ene tolkningen, ugyldig i den andre. Riktig sum 145 finnes ikke i det signerte området, som stopper på 127.\n\nDette er den fella oppgavene liker: to positive tall som gir et negativt svar. Ser du det mønsteret, har du signert overflyt."
+    },
+    {
+      "id": "in1020-1-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — byte-addisjon.) Regn ut `01100100₂ + 01010000₂` i åtte bit. Oppgi begge tolkningene av svaret, og avgjør om det er signert overflyt.",
+        "solution": "**Addisjonen:**\n\n```text\n        0 1 1 0 0 1 0 0     (100)\n      + 0 1 0 1 0 0 0 0     (80)\n      -----------------\n        1 0 1 1 0 1 0 0\n```\n\n**Svaret er `10110100₂`.** Uten fortegn: 128 + 32 + 16 + 4 = **180**. Med fortegn: `180 − 256 = −76`.\n\n**Usignert:** 100 + 80 = 180, som får plass under 255. Gyldig.\n\n**Signert:** begge operandene er positive (100 og 80), men svaret er negativt. Menten inn i bit 7 er 1, menten ut er 0 — de er ulike, altså **signert overflyt**. Riktig sum 180 ligger utenfor området, som stopper på 127.",
+        "hints": [
+          "Legg sammen bit for bit fra høyre, og hold nøyaktig åtte bit.",
+          "Sammenlign fortegnet på operandene med fortegnet på svaret — to positive som gir negativt er alltid overflyt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — byte-addisjon.) Regn ut `10010110₂ + 11101011₂` i åtte bit. Er det signert overflyt?",
+        "solution": "**Addisjonen:**\n\n```text\n        1 0 0 1 0 1 1 0     (150 usignert, −106 signert)\n      + 1 1 1 0 1 0 1 1     (235 usignert, −21 signert)\n      -----------------\n      1 1 0 0 0 0 0 0 1\n```\n\nDet niende bitet faller ut, så svaret er `10000001₂`. Uten fortegn: 128 + 1 = **129**. Med fortegn: `129 − 256 = −127`.\n\n**Signert:** operandene er −106 og −21, og riktig sum er −127. Svaret vårt er nettopp −127, så det stemmer. Kriteriet: menten inn i bit 7 er 1 og menten ut er 1 — de er like, altså **ingen signert overflyt**.\n\n**Usignert:** her er saken en annen. 150 + 235 = 385, som er langt over 255, og det ER mente ut av bit 7. Usignert er dette overflyt, og verdien 129 er feil.\n\n**Poenget:** mente ut av bit 7 er ikke i seg selv signert overflyt. Ved addisjon av to negative tall er den helt normal.",
+        "hints": [
+          "Regn addisjonen først, og kast det niende bitet.",
+          "Finn den signerte verdien av begge operandene, og sammenlign med den signerte verdien av svaret.",
+          "Husk at kriteriet for signert overflyt er at menten inn i og menten ut av bit 7 er FORSKJELLIGE."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — byte-addisjon.) Regn ut `11110000₂ + 00010000₂` i åtte bit, og forklar hva regnestykket viser om to-er komplement.",
+        "solution": "**Addisjonen:**\n\n```text\n        1 1 1 1 0 0 0 0     (240 usignert, −16 signert)\n      + 0 0 0 1 0 0 0 0     (16 usignert, 16 signert)\n      -----------------\n      1 0 0 0 0 0 0 0 0\n```\n\nDet niende bitet faller ut, og svaret er `00000000₂` = **0**.\n\n**Hva det viser:** signert regnet vi ut `−16 + 16 = 0`, og resultatet er riktig — uten at addisjonen trengte å vite noe som helst om fortegn. Den samme kretsen som legger sammen positive tall, håndterer negative tall automatisk.\n\nDet er hele grunnen til at to-er komplement ble standarden. Alternativer der fortegnet er et eget merke, krever egen logikk for å avgjøre om man skal addere eller subtrahere.\n\n**Overflyt?** Menten inn i bit 7 er 1 og menten ut er 1 — like, altså ingen signert overflyt. Usignert er 240 + 16 = 256, som ikke får plass, så usignert er dette overflyt.",
+        "hints": [
+          "Skriv opp den signerte verdien av begge operandene før du regner.",
+          "Legg merke til hva maskinen måtte vite om fortegn for å få riktig svar."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensformen (~8 min)\n\nSjangeren kommer nesten alltid som en liste påstander om ett bitmønster, der du skal krysse av alle som stemmer. Under negativ poenggiving betyr det at du må vurdere hvert alternativ og kunne si hvorfor de gale bommer."
+    },
+    {
+      "id": "in1020-1-3-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensform — kryss av alle som stemmer",
+      "problem": "Svarform F1. Byten `11001001₂` er gitt. Kryss av **alle** alternativene som stemmer.\n\n**a)** Verdien er −73 med fortegn.\n\n**b)** Verdien er −55 med fortegn.\n\n**c)** Verdien er 201 uten fortegn.\n\n**d)** Byten er `0xC9`.",
+      "solution": "**a) Galt.** −73 ville svart til den usignerte verdien `−73 + 256 = 183`, altså `10110111₂`. Det er et annet bitmønster. Distraktoren er bygd på en klassisk feil: å lese fortegnsbitet som et rent minustegn og de sju resterende bitene som tallverdien. `1001001₂` er 73, så «minus 73» ser plausibelt ut — men fortegnsbitet bærer vekten −128, det er ikke et merke.\n\n**b) Riktig.** Fortegnsbitet er satt, så `201 − 256 = −55`. Kontroll med den lange veien: `−128 + 64 + 8 + 1 = −55`. Stemmer.\n\n**c) Riktig.** Vektene 128, 64, 8 og 1 er satt: `128 + 64 + 8 + 1 = 201`.\n\n**d) Riktig.** Nibblene er `1100` og `1001`, altså C og 9. Kontroll: `12·16 + 9 = 201`. Stemmer.\n\n**Fasit: b, c og d.**\n\nLegg merke til at tre av fire var riktige, og at den ene gale var den som så mest ut som et fornuftig negativt tall. Det er typisk."
+    },
+    {
+      "id": "in1020-1-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger B — to-er komplement, svarform F1.) Kryss av alle alternativene som stemmer for byten `10000001₂`, og begrunn hvert av de fire.\n\n**a)** Verdien er 129 uten fortegn.\n\n**b)** Verdien er −127 med fortegn.\n\n**c)** Verdien er −1 med fortegn.\n\n**d)** Negasjonen er `01111110₂`.",
+        "solution": "**a) Riktig.** Vektene 128 og 1 er satt: `128 + 1 = 129`.\n\n**b) Riktig.** `129 − 256 = −127`. Kontroll: `−128 + 1 = −127`. Stemmer.\n\n**c) Galt.** −1 er `11111111₂`, altså alle bit satt. Distraktoren utnytter at `10000001₂` har «en ener på hver ende» og derfor ser symmetrisk ut, men mønsteret for −1 er et helt annet.\n\n**d) Galt — og dette er den viktige.** `01111110₂` er bare inverteringen. Negasjonen krever pluss-én-steget i tillegg: `10000001` invertert er `01111110`, og pluss 1 gir `01111111₂` = 127. Kontroll: `−(−127) = 127`, som stemmer. Alternativet er altså nøyaktig én for lite, som er den klassiske følgen av å stoppe etter inverteringen.\n\n**Fasit: a og b.**",
+        "hints": [
+          "Regn den usignerte verdien først, og bruk snarveien med 256 for den signerte.",
+          "For negasjonen: inverter alle bit, og legg deretter til 1 — ikke stopp etter inverteringen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-1-3-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger B — byte-addisjon, svarform F2.) Vurder hver påstand om regnestykket `10000001₂ + 11111110₂` i åtte bit som sann eller usann, og begrunn.\n\n**a)** Svaret er `01111111₂`.\n\n**b)** Det er signert overflyt.\n\n**c)** Den signerte summen av operandene er −129.\n\n**d)** Uten fortegn er svaret 127, og det er riktig.",
+        "solution": "**Addisjonen:**\n\n```text\n        1 0 0 0 0 0 0 1     (129 usignert, −127 signert)\n      + 1 1 1 1 1 1 1 0     (254 usignert, −2 signert)\n      -----------------\n      1 0 1 1 1 1 1 1 1\n```\n\nDet niende bitet faller ut, så svaret er `01111111₂` = 127 usignert, 127 signert.\n\n**a) Sann.** Svaret er `01111111₂`.\n\n**b) Sann.** Operandene er −127 og −2, altså begge negative, men svaret er positivt (127). Kriteriet bekrefter det: menten inn i bit 7 er 0, menten ut er 1 — de er forskjellige, altså overflyt.\n\n**c) Sann.** `−127 + (−2) = −129`, som ligger utenfor området −128 til 127. Det er nettopp derfor overflyten oppstår.\n\n**d) Usann.** Usignert er operandene 129 og 254, og summen er 383. Det får ikke plass i åtte bit — det er mente ut av bit 7, altså usignert overflyt. Verdien 127 er `383 − 256`, ikke riktig sum.\n\n**Fasit: a sann, b sann, c sann, d usann.**\n\nMerk at fasitrekka her er tre sanne og én usann. Sant/usant-matriser er sjelden jevnt fordelt, og du kan ikke bruke fordelingen som ledetråd.",
+        "hints": [
+          "Regn addisjonen først, og kast det niende bitet.",
+          "Finn den signerte verdien av begge operandene og legg dem sammen i vanlig aritmetikk — sammenlign med det byten faktisk inneholder.",
+          "Husk at usignert og signert overflyt har ulike kriterier."
+        ]
+      }
+    },
+    {
+      "id": "in1020-1-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å bare oppgi den positive tolkningen (felle #8 — én tolkning der to kreves).** Dette er den hyppigst påpekte feilen i sjangeren. Når oppgaven lister verdier å krysse av, er både den usignerte og den signerte lesningen ofte med, og begge er riktige. Spør deg alltid: ber oppgaven om én tolkning eller to?\n\n2. **Å lese fortegnsbitet som et rent minustegn.** `10101100₂` er ikke «minus 44». Fortegnsbitet bærer vekten −128, så verdien er `−128 + 44 = −84`. Distraktoren «minus de sju nederste bitene» er med i nesten hvert sett.\n\n3. **Å regne med flere enn åtte bit.** Menten som faller ut av bit 7, forsvinner. Lar du svaret bli ni bit, får du en verdi over 255 som ikke kan lagres i byten.\n\n4. **Å forveksle mente og overflyt.** Mente ut av bit 7 er *ikke* det samme som signert overflyt. Signert overflyt krever at menten **inn** i og **ut** av bit 7 er forskjellige. Legger du sammen to negative tall, er mente ut normalt.\n\n5. **Å glemme at området er usymmetrisk.** −128 finnes, +128 gjør ikke. Negasjonen av −128 er −128."
+    },
+    {
+      "id": "in1020-1-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-1-3-bank-1",
+      "type": "definition",
+      "title": "Negasjon i to-er komplement",
+      "content": "Å finne bitmønsteret for det motsatte tallet: **inverter alle bit og legg til 1**.\n\n`00101101₂` (45) blir invertert til `11010010₂`, og pluss 1 gir `11010011₂` (−45).\n\nMetoden virker begge veier. Den faste feilen er å stoppe etter inverteringen — da har du ener-komplementet, som er én for lite."
+    },
+    {
+      "id": "in1020-1-3-bank-2",
+      "type": "definition",
+      "title": "Invertering",
+      "content": "Å bytte hvert 0 med 1 og hvert 1 med 0 i et bitmønster. Skrives ofte `¬N` eller med en strek over navnet.\n\nInverteringen av en byte gir alltid `255 − N`, siden de to mønstrene til sammen har alle åtte bit satt.\n\nInvertering alene er ikke negasjon i to-er komplement — det mangler pluss-én-steget."
+    },
+    {
+      "id": "in1020-1-3-bank-3",
+      "type": "definition",
+      "title": "Fortegnsutvidelse",
+      "content": "Å utvide et signert tall til flere bit ved å **gjenta fortegnsbitet** i de nye posisjonene, slik at verdien bevares.\n\n`11010011₂` (−45 i åtte bit) blir `1111111111010011₂` i seksten bit — fortsatt −45.\n\nFyller du på med nuller i stedet, endrer du verdien fra −45 til 211. Det er derfor utvidelse av signerte og usignerte tall gjøres ulikt."
+    },
+    {
+      "id": "in1020-1-3-bank-4",
+      "type": "definition",
+      "title": "Asymmetrien i verdiområdet",
+      "content": "At en signert byte har én negativ verdi mer enn positive: området går fra −128 til 127.\n\nÅrsaken er at null tar plassen til én av de positive verdiene. De 256 mønstrene fordeles på 128 negative, null, og 127 positive.\n\nKonsekvens: −128 har ingen positiv motpart, og negasjonen av −128 gir −128 tilbake."
+    },
+    {
+      "id": "in1020-1-3-bank-5",
+      "type": "definition",
+      "title": "Snarveien «minus 256»",
+      "content": "Regelen om at den signerte verdien er den usignerte minus 256 når fortegnsbitet er satt.\n\n`11001001₂` er 201 usignert, og `201 − 256 = −55` signert.\n\nSnarveien er ett regnestykke i stedet for åtte vektbidrag, og den er derfor den raskeste veien under tidspress. Er fortegnsbitet 0, er de to verdiene like."
+    },
+    {
+      "id": "in1020-1-3-bank-6",
+      "type": "definition",
+      "title": "Mente inn i bit 7",
+      "content": "Menten som kommer fra bitposisjon 6 og legges til i posisjon 7 under en addisjon.\n\nDenne menten er den ene halvdelen av overflytskriteriet for signerte tall.\n\nDen forveksles lett med menten UT av bit 7 — men de to har helt ulik rolle, og det er nettopp forskjellen mellom dem som avgjør om resultatet er gyldig."
+    },
+    {
+      "id": "in1020-1-3-bank-7",
+      "type": "definition",
+      "title": "Mente ut av bit 7",
+      "content": "Menten som faller ut av byten når summen passerer 255. Den lagres ikke i resultatet.\n\nFor **usignerte** tall betyr mente ut alltid overflyt: summen fikk ikke plass.\n\nFor **signerte** tall betyr den ingenting alene. Legger du sammen to negative tall, er mente ut helt normalt, og resultatet er riktig så lenge menten inn også er 1."
+    },
+    {
+      "id": "in1020-1-3-bank-8",
+      "type": "definition",
+      "title": "Signert overflytskriterium",
+      "content": "Overflyt ved signert tolkning oppstår **hvis og bare hvis menten inn i bit 7 er forskjellig fra menten ut av bit 7**.\n\nEn praktisk variant av samme regel: to positive operander som gir negativt svar, eller to negative som gir positivt svar, er alltid overflyt. To operander med ulikt fortegn kan aldri gi overflyt.\n\nDen faste feilen er å bruke det usignerte kriteriet (mente ut) på et signert regnestykke."
+    },
+    {
+      "id": "in1020-1-3-bank-9",
+      "type": "definition",
+      "title": "Usignert overflytskriterium",
+      "content": "Overflyt ved usignert tolkning oppstår når det er **mente ut av bit 7**, altså når summen overstiger 255.\n\n`10010110₂ + 11101011₂` er 150 + 235 = 385, som ikke får plass. Byten inneholder 129, som er 385 minus 256.\n\nSamme regnestykke kan være gyldig signert og ugyldig usignert, eller omvendt — kriteriene er uavhengige."
+    },
+    {
+      "id": "in1020-1-3-bank-10",
+      "type": "definition",
+      "title": "Subtraksjon som addisjon",
+      "content": "At $A - B$ regnes ut som $A + (-B)$, der $-B$ finnes ved å invertere og legge til 1.\n\nDette er grunnen til at en prosessor ikke trenger egen subtraksjonskrets: den samme adderen brukes, med en invertering og et ekstra ett-tall på inngangen.\n\nDu møter samme idé igjen i [kap. 2.4](/bok/in1020/in1020-2-4), der en fulladder brukes som subtraktor ved å sette mente inn lik 1."
+    },
+    {
+      "id": "in1020-1-3-bank-11",
+      "type": "definition",
+      "title": "Null i to-er komplement",
+      "content": "Null har nøyaktig ett bitmønster: `00000000₂`.\n\nDette er en av grunnene til at to-er komplement vant fram: i eldre representasjoner fantes både «positiv null» og «negativ null», som kompliserte sammenligninger.\n\nKontroll: negasjonen av null er invertert `11111111` pluss 1, som gir `00000000` med menten ut — altså null igjen."
+    },
+    {
+      "id": "in1020-1-3-bank-12",
+      "type": "definition",
+      "title": "Minus én som alle bit satt",
+      "content": "`11111111₂` er 255 uten fortegn og **−1** med fortegn.\n\nDette er verdt å kunne utenat, både fordi mønsteret dukker opp stadig, og fordi det er en rask kontroll på at du har forstått snarveien: `255 − 256 = −1`.\n\nGeneraliseringen: alle bit satt er alltid −1 i to-er komplement, uansett hvor mange bit du har."
+    },
+    {
+      "id": "in1020-1-3-bank-13",
+      "type": "definition",
+      "title": "Grensemønstrene i en byte",
+      "content": "De fire mønstrene du bør kjenne igjen umiddelbart:\n\n| Mønster | Usignert | Signert |\n|---|---|---|\n| `00000000` | 0 | 0 |\n| `01111111` | 127 | 127 |\n| `10000000` | 128 | −128 |\n| `11111111` | 255 | −1 |\n\nDe to midterste er vippepunktet: `01111111` er den største positive, og neste mønster hopper helt ned til −128."
+    },
+    {
+      "id": "in1020-1-3-bank-14",
+      "type": "definition",
+      "title": "Ordbredde",
+      "content": "Antall bit maskinen behandler under ett. En byte er 8 bit, men prosessorer arbeider også med 16, 32 og 64 bit.\n\nVerdiområdet følger av bredden: med $n$ bit er signert område $-2^{n-1}$ til $2^{n-1}-1$, og usignert 0 til $2^n - 1$.\n\nOppgavene i IN1020 bruker gjennomgående 8 bit, men prinsippene er de samme — det er bare vekten på det øverste bitet som endres."
+    },
+    {
+      "id": "in1020-1-3-bank-15",
+      "type": "definition",
+      "title": "Tolkningskontrakten",
+      "content": "At et bitmønster ikke bærer sin egen tolkning: det er avtalen mellom den som skriver og den som leser, som avgjør om `10101100₂` betyr 172 eller −84.\n\nI et program ligger avtalen i datatypen; på eksamen ligger den i oppgaveteksten.\n\nDette er grunnen til at et spørsmål om en byte ofte har to riktige svar samtidig — og til at du må lese oppgaveteksten nøye for å se om den ber om én tolkning eller begge."
+    },
+    {
+      "id": "in1020-1-3-bank-16",
+      "type": "definition",
+      "title": "Bit-for-bit-reglene i addisjon",
+      "content": "De fire tilfellene du trenger når du legger sammen to byte:\n\n| Inn | Sum i posisjonen | Mente videre |\n|---|---|---|\n| `0 + 0` | 0 | 0 |\n| `0 + 1` | 1 | 0 |\n| `1 + 1` | 0 | 1 |\n| `1 + 1 + 1` (med mente inn) | 1 | 1 |\n\nDen siste raden er den som glemmes: når det allerede ligger en mente inn i posisjonen, kan tre ettall møtes.\n\nReglene er identiske med det en fulladder gjør i maskinvare, som du møter igjen i [kap. 2.4](/bok/in1020/in1020-2-4)."
+    },
+    {
+      "id": "in1020-1-3-bank-17",
+      "type": "definition",
+      "title": "To riktige svar samtidig",
+      "content": "Situasjonen der en flervalgsoppgave om ett bitmønster har både den usignerte og den signerte verdien blant alternativene — og begge skal krysses av.\n\nDette er den vanligste formen sjanger B kommer i, fordi den tester nettopp innsikten om at bitmønsteret ikke bærer sin egen tolkning.\n\nDen faste feilen er å slutte å lese etter det første alternativet som stemmer. Det gir deg halve poenget uten at du har krysset noe galt — se felle #8 i registeret."
+    },
+    {
+      "id": "in1020-1-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter begge tolkningene?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-1-3-rep-tekst",
+          "type": "text",
+          "content": "Sju korte. Svar før du ser på fasiten.\n\n1. Begge tolkningene av `10000000₂`.\n2. Begge tolkningene av `01111111₂`.\n3. Skriv `−16` som byte.\n4. Hva er `11111111₂` med fortegn?\n5. `01011010₂ + 00110111₂` i åtte bit — er det signert overflyt?\n6. Hvorfor er negasjonen av −128 lik −128?\n7. Hva er kriteriet for signert overflyt?\n\n**Fasit.**\n\n1. 128 uten fortegn, −128 med fortegn (`128 − 256`).\n2. 127 i begge — fortegnsbitet er 0, så tolkningene faller sammen.\n3. 16 er `00010000`; invertert `11101111`; pluss 1 gir `11110000₂` = `0xF0`. Kontroll: 240 − 256 = −16.\n4. −1. Alle bit satt er alltid −1 i to-er komplement.\n5. Ja. 90 + 55 = 145, som er over 127. Svaret `10010001₂` leses som −111 signert. Menten inn i bit 7 er 1, menten ut er 0 — forskjellige, altså overflyt.\n6. Fordi verdiområdet er usymmetrisk: +128 finnes ikke i en signert byte, så −128 har ingen positiv motpart. Inverter og legg til 1 gir mønsteret tilbake.\n7. Menten inn i bit 7 er forskjellig fra menten ut av bit 7. Praktisk variant: to like fortegn inn som gir motsatt fortegn ut.\n\nSjekk deg selv: ☐ oppga du BEGGE tolkningene der oppgaven ba om det? ☐ ga du fortegnsbitet vekten −128, ikke bare et minustegn? ☐ holdt du deg til åtte bit? ☐ brukte du riktig overflytskriterium for riktig tolkning?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

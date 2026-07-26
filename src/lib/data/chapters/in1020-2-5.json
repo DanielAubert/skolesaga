@@ -1,0 +1,406 @@
+{
+  "id": "in1020-2-5",
+  "courseId": "in1020",
+  "chapterNumber": "2.5",
+  "title": "Minnehierarki og cache-beregning",
+  "description": "Minnehierarkiet fra register til disk, hvorfor mellomlagring virker, og den vektede regningen som gir totalt antall klokkesykler ut fra treff, bom og bom-kostnad.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne plassere register, mellomlager, hovedminne og disk riktig i hierarkiet etter fart, pris og størrelse",
+    "kunne forklare hvorfor lokalitet gjør mellomlagring lønnsomt",
+    "kunne regne ut totalt antall klokkesykler ut fra antall instruksjoner, bom-rate og bom-kostnad",
+    "kunne regne ut gjennomsnittlig antall sykler per instruksjon og tolke tallet"
+  ],
+  "content": [
+    {
+      "id": "in1020-2-5-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** cache-beregning er **sjanger E — cache-beregning**, altså oppgavene der du regner ut hvor mange klokkesykler en kjøring koster. Den har egen oppgave i **fire av seks årganger i arkivet (67 %)**, og den er **voksende** — den har vært fast siden 2019.\n\n**Nivå 2 — dette avgjør ofte om seksjonen bestås.** Sjangeren er ikke like gammel som portene, men den er den eneste regneoppgaven i **seksjon 2, maskinvare og arkitektur**, og et regnepoeng er alltid det billigste poenget i en seksjon: fasiten er entydig, og du kan kontrollere svaret ditt selv.\n\n**Slik kommer den:** som **svarform F4** (nedtrekksmeny: velg ett alternativ per delspørsmål) eller **F1** («velg ett *eller flere* alternativer»). Alternativene er tall, og hvert galt tall svarer til en bestemt regnefeil.\n\n**Den ene tingen som skiller bestått fra bom her:** å bytte om treff og bom. Sier oppgaven «40 % bom», er 40 % av instruksjonene bom og 60 % treff — ikke motsatt. Regner du med feil andel, får du et tall som ser helt rimelig ut, og som står blant alternativene nettopp derfor.\n\n**Tidsbruk:** 50 minutter, fordelt på fire løkker med tidsanslag."
+    },
+    {
+      "id": "in1020-2-5-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 2.4](/bok/in1020/in1020-2-4). Her er det du trenger, ferdig oppfrisket:\n\n**1. Klokkesykelen er maskinens minste tidsenhet.** Alt arbeid måles i antall sykler. En prosessor på 3 GHz gjør tre milliarder sykler i sekundet.\n\n**2. Register er raskest, hovedminnet er tregt.** Registeret ligger på prosessorbrikken og nås uten å gå over bussene. Et oppslag i hovedminnet må ut på adressebussen, inn i minnebrikken og tilbake på databussen — og det tar mange sykler.\n\n**3. Von Neumann-flaskehalsen.** Prosessoren og hovedminnet deler samme forbindelse, så prosessoren blir stående og vente. Dette kapitlet handler om svaret på nettopp det problemet.\n\n**4. Prosentregning.** 40 % av 3000 er `0,40 · 3000 = 1200`. Resten, 60 %, er `3000 − 1200 = 1800`. Du trenger ikke mer regning enn dette — men du må holde styr på hvilken andel som er hva."
+    },
+    {
+      "id": "in1020-2-5-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-2-5-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Mellomlager (cache) | Lite, raskt minne mellom prosessoren og hovedminnet |\n| Treff | At verdien prosessoren ber om, ligger i mellomlageret |\n| Bom | At den ikke gjør det, og må hentes fra hovedminnet |\n| Treffrate | Andelen oppslag som er treff, oppgitt i prosent |\n| Bom-rate | Andelen oppslag som er bom, oppgitt i prosent |\n| Bom-kostnad | Antall klokkesykler et bom koster |\n| Klokkesykel | Maskinens minste tidsenhet — enheten alt regnes i her |\n| Lokalitet | At programmer bruker de samme og nærliggende adressene om igjen |\n| Blokk (cachelinje) | Den sammenhengende bunken byte som hentes inn ved et bom |\n\n**Konvensjonen i denne boka (les den før du regner):** et **treff koster 1 klokkesykel**, og et **bom koster det antallet sykler oppgaven oppgir** — ikke 1 pluss det tallet. Sier oppgaven «bom-kostnad 10 sykler», er det de 10 syklene som er hele kostnaden for den instruksjonen.\n\n**Formler i dette delkapitlet:**\n\n$$\\text{treff} = n \\cdot (1 - r) \\qquad \\text{bom} = n \\cdot r$$\n\nDeling av `n` instruksjoner i treff og bom, når `r` er bom-raten som desimaltall.\n\n$$T = \\text{treff} \\cdot 1 + \\text{bom} \\cdot k$$\n\nTotal tid i klokkesykler, når `k` er bom-kostnaden i sykler.\n\n$$\\bar{t} = \\frac{T}{n}$$\n\nGjennomsnittlig antall klokkesykler per instruksjon."
+        }
+      ]
+    },
+    {
+      "id": "in1020-2-5-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hierarkiet: raskt er lite, stort er tregt (~12 min)\n\nTenk på et kjøkken. Det du bruker hele tiden — salt, pepper, sleiv — ligger på benken, en armlengdes avstand unna. Det du bruker av og til, står i skapet over. Det du bruker sjelden, står i kjelleren.\n\nIngen har bestemt dette; det følger av at benkeplass er dyrt og kjellerplass er billig.\n\nEt datamaskinminne er organisert etter nøyaktig samme logikk. Det raskeste minnet er også det dyreste per byte, og derfor er det lite. Det billigste er tregt, og derfor er det stort."
+    },
+    {
+      "id": "in1020-2-5-def-hierarki",
+      "type": "definition",
+      "title": "Minnehierarkiet",
+      "content": "Lagene av lagring i en datamaskin, ordnet fra raskt, dyrt og lite øverst til tregt, billig og stort nederst:\n\n| Nivå | Typisk størrelse | Typisk tilgangstid |\n|---|---|---|\n| Register | noen titalls ord | 1 klokkesykel |\n| Mellomlager (cache) | kilobyte til megabyte | noen få sykler |\n| Hovedminne (RAM) | gigabyte | titalls til hundrevis av sykler |\n| Disk | terabyte | millioner av sykler |\n\nDe tre egenskapene henger sammen: **raskere betyr dyrere per byte, og dyrere betyr mindre.** Det er ingen teknologi som er både raskest og størst.\n\nRekkefølgen skal sitte begge veier. Den faste feilslutningen er å plassere hovedminnet over mellomlageret fordi det heter «hoved»-minne — men navnet sier noe om rollen, ikke om farten."
+    },
+    {
+      "id": "in1020-2-5-def-cache",
+      "type": "definition",
+      "title": "Mellomlager (cache)",
+      "content": "Et lite, raskt minne mellom prosessoren og hovedminnet, som holder en kopi av de dataene som nylig har vært i bruk.\n\nNår prosessoren ber om en verdi, ser den først i mellomlageret. Ligger verdien der, er saken avgjort på noen få sykler. Ligger den ikke der, må turen gå ut til hovedminnet — og det er den turen som koster.\n\nMellomlageret styres av maskinvaren og er **usynlig for programmereren**: det finnes ingen instruksjon som sier «legg dette i cachen». Det eneste programmereren merker, er at noen programmer går fortere enn andre.\n\nDen faste feilslutningen: å tro at mellomlageret er et eget minne der man kan lagre noe permanent. Det er en kopi, og innholdet byttes ut hele tiden."
+    },
+    {
+      "id": "in1020-2-5-def-lokalitet",
+      "type": "definition",
+      "title": "Lokalitetsprinsippet",
+      "content": "Observasjonen som gjør mellomlagring lønnsomt: programmer bruker ikke minnet tilfeldig.\n\n**Tidsmessig lokalitet** — en adresse som nettopp har vært brukt, blir gjerne brukt igjen snart. En løkkevariabel leses på nytt i hver runde.\n\n**Romlig lokalitet** — når én adresse brukes, blir naboadressene gjerne brukt like etter. Et program som går gjennom en liste, tar element etter element.\n\nDerfor henter maskinen inn en hel **blokk** ved et bom, ikke bare den ene byten det ble spurt om: nabobytene kommer trolig til nytte om et øyeblikk.\n\nDen faste feilslutningen: å tro at mellomlageret virker fordi det er «smart» og gjetter. Det gjetter ikke — det utnytter et mønster som nesten alle programmer har."
+    },
+    {
+      "id": "in1020-2-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — hierarkiet.) Sorter disse fire fra raskest til tregest, og oppgi for hver om den er stor eller liten sammenlignet med de andre: hovedminne (RAM), disk, mellomlager (cache), register.",
+        "solution": "**Fra raskest til tregest:**\n\n1. **Register** — raskest, og desidert minst. Noen titalls ord, inne i CPU-en.\n2. **Mellomlager (cache)** — noen få sykler, og lite: kilobyte til megabyte.\n3. **Hovedminne (RAM)** — titalls til hundrevis av sykler, og stort: gigabyte.\n4. **Disk** — tregest med god margin, og størst: terabyte.\n\n**Svar: register, mellomlager, hovedminne, disk.**\n\nMerk sammenhengen: rekkefølgen etter fart er nøyaktig omvendt av rekkefølgen etter størrelse. Det er ikke tilfeldig — raskt minne er dyrt per byte, og derfor har man lite av det.\n\nDen vanligste bommen er å sette hovedminnet foran mellomlageret. «Hoved» sier noe om rollen, ikke om farten.",
+        "hints": [
+          "Start med det som ligger nærmest ALU-en, og arbeid deg utover.",
+          "Kontroller til slutt at størrelsesrekkefølgen er den motsatte av fartsrekkefølgen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger E — lokalitet.) Et program går gjennom en liste med 1000 tall og legger dem sammen, ett om gangen. Forklar hvilken form for lokalitet dette utnytter, og hvorfor maskinen henter inn en hel blokk ved første bom.",
+        "solution": "**Formen for lokalitet: romlig.** Programmet bruker adresser som ligger rett etter hverandre — element 0, så element 1, så element 2.\n\n**Hvorfor blokken hentes:** når maskinen først har betalt for turen ut til hovedminnet, koster det nesten ingenting ekstra å ta med nabobytene i samme slengen. Og romlig lokalitet gjør det svært sannsynlig at de trengs straks etterpå.\n\n**Effekten:** det første oppslaget i hver blokk er et bom, og resten av oppslagene i den blokken er treff. Henter maskinen inn 16 tall om gangen, blir 1 av 16 oppslag bom — altså en bom-rate på ca. 6 %.\n\n**I tillegg utnyttes tidsmessig lokalitet** for summen: variabelen som holder totalen, leses og skrives i hver eneste runde, og den ligger i mellomlageret hele tiden etter første gang.\n\n**Svar: romlig lokalitet, med tidsmessig lokalitet for summen. Blokken hentes fordi turen ut allerede er betalt for.**",
+        "hints": [
+          "Spør deg: bruker programmet samme adresse om igjen, eller nærliggende adresser etter hverandre?",
+          "Tenk på hva som koster mest — å hente 1 byte eller å hente 64 byte — når turen først er tatt."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Regningen: treff, bom og vektet sum (~15 min)\n\nNå til selve regnesjangeren. Den er enkel når du har den, og den har nøyaktig én felle.\n\nOppgaven gir deg tre tall: hvor mange instruksjoner som utføres, hvor stor andel som er bom, og hvor mange sykler et bom koster. Du skal finne totalt antall klokkesykler.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-2-5-teo-cache",
+      "type": "theorem",
+      "title": "Cache-beregningen",
+      "content": "**Konvensjonen først:** et **treff koster 1 klokkesykel**. Et **bom koster det antallet sykler oppgaven oppgir**. Sier oppgaven «bom-kostnad 10 sykler», er hele kostnaden for den instruksjonen 10 sykler.\n\n**Prosedyren, tre steg:**\n\n**Steg 1 — del instruksjonene i to grupper.** Er `n` antall instruksjoner og `r` bom-raten som desimaltall:\n\n$$\\text{antall bom} = n \\cdot r \\qquad \\text{antall treff} = n - n \\cdot r = n \\cdot (1 - r)$$\n\n**Steg 2 — vekt hver gruppe med sin kostnad og summer.** Med bom-kostnad `k` sykler:\n\n$$T = \\text{treff} \\cdot 1 \\text{ sykel} + \\text{bom} \\cdot k \\text{ sykler}$$\n\n**Steg 3 — gjennomsnitt per instruksjon, hvis oppgaven ber om det:**\n\n$$\\bar{t} = \\frac{T}{n}$$\n\n**Regn med enhetene hele veien.** «instruksjoner × sykler/instruksjon = sykler». Et svar uten enhet er halvferdig, og enhetene er dessuten den beste kontrollen på at du ikke har delt feil vei.\n\n**Den ene fella:** «40 % bom» betyr at 40 % er bom og **60 % er treff**. Bytter du om, får du et tall som ser helt rimelig ut — og som står blant alternativene, fordi det er nettopp den feilen distraktoren er bygd for.\n\n**Sunn fornuft-kontrollen:** gjennomsnittet per instruksjon må alltid ligge **mellom 1 og bom-kostnaden**. Får du et snitt på 0,8 eller på 15 når bom-kostnaden er 10, har du regnet feil et sted."
+    },
+    {
+      "id": "in1020-2-5-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Grunnformen, regnet med enheter",
+      "problem": "Et program utfører 2000 instruksjoner. 25 % av oppslagene er bom, og et bom koster 8 klokkesykler. Hvor mange klokkesykler tar kjøringen, og hva er gjennomsnittet per instruksjon?",
+      "solution": "**Steg 1 — del i to grupper.**\n\n`antall bom = 0,25 · 2000 instruksjoner = 500 instruksjoner`\n\n`antall treff = 2000 − 500 = 1500 instruksjoner`\n\nKontroll: `1500 + 500 = 2000`. Stemmer.\n\n**Steg 2 — vekt og summer.**\n\n`treff: 1500 instruksjoner · 1 sykel/instruksjon = 1500 sykler`\n\n`bom: 500 instruksjoner · 8 sykler/instruksjon = 4000 sykler`\n\n`T = 1500 sykler + 4000 sykler = 5500 sykler`\n\n**Steg 3 — gjennomsnitt.**\n\n`5500 sykler ÷ 2000 instruksjoner = 2,75 sykler per instruksjon`\n\n**Svar: 5500 klokkesykler totalt, 2,75 sykler per instruksjon.**\n\n**Kontroll med sunn fornuft:** snittet 2,75 ligger mellom 1 (rent treff) og 8 (rent bom), og nærmere 1 enn 8 — som det skal, siden tre av fire oppslag er treff. Stemmer.\n\n**Det galeste svaret du kan få:** bytter du om treff og bom, regner du `500·1 + 1500·8 = 12 500` sykler. Det tallet ser like rimelig ut, og det er derfor det står blant alternativene."
+    },
+    {
+      "id": "in1020-2-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — cache-beregning.) Et program utfører 3000 instruksjoner. Halvparten av oppslagene er bom, og et bom koster 4 klokkesykler. Hvor mange klokkesykler tar kjøringen?",
+        "solution": "**Steg 1 — del i to.** 50 % bom gir `0,50 · 3000 = 1500` bom og `3000 − 1500 = 1500` treff.\n\n**Steg 2 — vekt og summer.**\n\n`treff: 1500 · 1 sykel = 1500 sykler`\n\n`bom: 1500 · 4 sykler = 6000 sykler`\n\n`T = 1500 + 6000 = 7500 sykler`\n\n**Svar: 7500 klokkesykler.**\n\nGjennomsnittet er `7500 ÷ 3000 = 2,5` sykler per instruksjon, som ligger mellom 1 og 4. Stemmer.\n\nMerk at ved 50 % bom er de to gruppene like store, så en ombytting av treff og bom ville gitt samme svar her. Det er den eneste raten der fella ikke slår ut — og derfor er den sjelden i oppgaver.",
+        "hints": [
+          "Del de 3000 instruksjonene i to grupper før du regner noe som helst.",
+          "Husk at et treff også koster — 1 klokkesykel."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — cache-beregning, svarform F4.) Et program utfører 4000 instruksjoner. Bom-raten er 10 %, og et bom koster 12 klokkesykler.\n\n**a)** Hvor mange klokkesykler tar kjøringen?\n\n**b)** Hva er gjennomsnittlig antall sykler per instruksjon?",
+        "solution": "**a) Steg 1 — del i to grupper.**\n\n`antall bom = 0,10 · 4000 instruksjoner = 400 instruksjoner`\n\n`antall treff = 4000 − 400 = 3600 instruksjoner`\n\n**Steg 2 — vekt og summer.**\n\n`treff: 3600 · 1 sykel = 3600 sykler`\n\n`bom: 400 · 12 sykler = 4800 sykler`\n\n`T = 3600 + 4800 = 8400 sykler`\n\n**Svar a): 8400 klokkesykler.**\n\n**b)** `8400 sykler ÷ 4000 instruksjoner = 2,1 sykler per instruksjon`\n\n**Svar b): 2,1 sykler per instruksjon.**\n\n**Kontroll:** snittet ligger mellom 1 og 12, og tett opp mot 1 — som det skal når ni av ti oppslag er treff.\n\n**De tre gale tallene du kan få her:** `400·1 + 3600·12 = 43 600` (byttet om treff og bom), `4000·12 = 48 000` (glemt at bare en tiendedel er bom), og `400·12 = 4800` (glemt at treffene også koster en sykel hver).",
+        "hints": [
+          "Regn ut antall bom først — det er den lille gruppen.",
+          "Husk at treffene også bidrar: én sykel hver.",
+          "Kontroller til slutt at gjennomsnittet ligger mellom 1 og bom-kostnaden."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — cache-beregning.) Et program utfører 5000 instruksjoner. Treffraten er 80 %, og et bom koster 20 klokkesykler. Regn ut totalt antall klokkesykler og gjennomsnittet per instruksjon.",
+        "solution": "**Merk ordlyden:** her er det **treff**raten som er oppgitt, ikke bom-raten. 80 % treff betyr 20 % bom.\n\n**Steg 1 — del i to grupper.**\n\n`antall treff = 0,80 · 5000 instruksjoner = 4000 instruksjoner`\n\n`antall bom = 5000 − 4000 = 1000 instruksjoner`\n\n**Steg 2 — vekt og summer.**\n\n`treff: 4000 · 1 sykel = 4000 sykler`\n\n`bom: 1000 · 20 sykler = 20 000 sykler`\n\n`T = 4000 + 20 000 = 24 000 sykler`\n\n**Steg 3 — gjennomsnitt.**\n\n`24 000 sykler ÷ 5000 instruksjoner = 4,8 sykler per instruksjon`\n\n**Svar: 24 000 klokkesykler, 4,8 sykler per instruksjon.**\n\n**Legg merke til fordelingen:** bare hver femte instruksjon er bom, men bommene står for 20 000 av de 24 000 syklene — over 83 % av tida. Det er hele poenget med mellomlagring: det er de få bommene som koster, og derfor lønner det seg å jage bom-raten nedover.\n\n**Kontroll:** 4,8 ligger mellom 1 og 20. Stemmer.",
+        "hints": [
+          "Les nøye om oppgaven oppgir treffrate eller bom-rate — de er hverandres motsatte.",
+          "Regn ut begge gruppene og kontroller at de summerer til 5000.",
+          "Kontroller at snittet ligger mellom 1 og 20."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hva forbedringer er verdt (~12 min)\n\nEn variant som kommer stadig oftere: oppgaven gir deg to scenarier og spør hvor mye du sparer på å forbedre mellomlageret.\n\nDette er samme regning to ganger, pluss en subtraksjon. Det som gjør den lærerik, er at gevinsten nesten alltid er større enn man tror — fordi det er de få bommene som eier klokka."
+    },
+    {
+      "id": "in1020-2-5-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Hva er en bedre cache verdt?",
+      "problem": "En maskin kjører 8000 instruksjoner med bom-kostnad 20 klokkesykler. I dag er bom-raten 10 %. Et nytt mellomlager ville gitt 5 %. Hvor mange sykler spares, og hvor stor andel av tida er det?",
+      "solution": "**Scenario 1 — bom-rate 10 %.**\n\n`bom = 0,10 · 8000 = 800 instruksjoner`, `treff = 8000 − 800 = 7200 instruksjoner`\n\n`T₁ = 7200 · 1 sykel + 800 · 20 sykler = 7200 + 16 000 = 23 200 sykler`\n\n**Scenario 2 — bom-rate 5 %.**\n\n`bom = 0,05 · 8000 = 400 instruksjoner`, `treff = 8000 − 400 = 7600 instruksjoner`\n\n`T₂ = 7600 · 1 sykel + 400 · 20 sykler = 7600 + 8000 = 15 600 sykler`\n\n**Besparelsen.**\n\n`23 200 sykler − 15 600 sykler = 7600 sykler`\n\n`7600 ÷ 23 200 = 0,3276…`, altså **≈ 32,8 %** av tida. (Tallet går ikke opp, så det er oppgitt med én desimal.)\n\n**Svar: 7600 klokkesykler spart, omtrent 32,8 % av kjøretida.**\n\n**Det som overrasker:** bom-raten ble halvert, fra 10 % til 5 %, men kjøretida ble ikke halvert — den falt med en tredjedel. Grunnen er at treffene fortsatt koster 1 sykel hver, og de 7600 syklene fra treffene forsvinner ikke.\n\n**Gjennomsnittene:** `23 200 ÷ 8000 = 2,9` sykler før, og `15 600 ÷ 8000 = 1,95` sykler etter. Begge ligger mellom 1 og 20. Stemmer."
+    },
+    {
+      "id": "in1020-2-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — sammenligning.) En maskin kjører 6000 instruksjoner med bom-kostnad 14 klokkesykler. Bom-raten er 15 %.\n\n**a)** Hvor mange klokkesykler tar kjøringen?\n\n**b)** Hvor stor andel av syklene skyldes bom?\n\n**c)** Hva blir gjennomsnittet per instruksjon?",
+        "solution": "**a) Del i to grupper.**\n\n`bom = 0,15 · 6000 instruksjoner = 900 instruksjoner`\n\n`treff = 6000 − 900 = 5100 instruksjoner`\n\n`treff: 5100 · 1 sykel = 5100 sykler`\n\n`bom: 900 · 14 sykler = 12 600 sykler`\n\n`T = 5100 + 12 600 = 17 700 sykler`\n\n**Svar a): 17 700 klokkesykler.**\n\n**b)** `12 600 ÷ 17 700 = 0,7118…`, altså **≈ 71,2 %** av syklene. (Tallet går ikke opp; oppgitt med én desimal.)\n\n**Svar b): omtrent 71 % av tida går med til bom, selv om bare 15 % av oppslagene er bom.**\n\n**c)** `17 700 sykler ÷ 6000 instruksjoner = 2,95 sykler per instruksjon`\n\n**Svar c): 2,95 sykler per instruksjon.**\n\n**Kontroll:** 2,95 ligger mellom 1 og 14. Stemmer.\n\nSvaret i b) er det som er verdt å ta med seg: en liten andel bom kan spise mesteparten av kjøretida, og det er derfor prosessorer bruker så mye av brikkearealet på mellomlagre.",
+        "hints": [
+          "Regn ut de to gruppene og kontroller at de summerer til 6000.",
+          "For b): hvilke to tall er det du skal dele på hverandre?",
+          "Går et tall ikke opp, oppgi antall desimaler eksplisitt og skriv «omtrent»."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — cache-beregning, svarform F1.) Et program utfører 1200 instruksjoner. Bom-raten er 25 %, og et bom koster 16 klokkesykler. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fire.\n\n**a)** Kjøringen tar 4800 klokkesykler.\n\n**b)** Gjennomsnittet er 4,75 sykler per instruksjon.\n\n**c)** Kjøringen tar 5700 klokkesykler.\n\n**d)** Bommene står for over 80 % av syklene.",
+        "solution": "**Regningen først.**\n\n`bom = 0,25 · 1200 instruksjoner = 300 instruksjoner`\n\n`treff = 1200 − 300 = 900 instruksjoner`\n\n`treff: 900 · 1 sykel = 900 sykler`\n\n`bom: 300 · 16 sykler = 4800 sykler`\n\n`T = 900 + 4800 = 5700 sykler`\n\n**a) Galt.** 4800 er bommenes bidrag alene. Distraktoren er bygd på den nest vanligste feilen i sjangeren: å glemme at treffene også koster én sykel hver. De 900 syklene fra treffene mangler.\n\n**b) Riktig.** `5700 ÷ 1200 = 4,75` sykler per instruksjon. Kontroll: tallet ligger mellom 1 og 16.\n\n**c) Riktig.** 5700 sykler er svaret.\n\n**d) Riktig.** `4800 ÷ 5700 = 0,8421…`, altså omtrent 84,2 % — som er over 80 %. Under en firedel av oppslagene står for over fire femdeler av tida.\n\n**Fasit: b, c og d.**\n\n**Om formen:** tre av fire riktige, og den ene gale er et tall som dukker opp midt i din egen utregning. Det er den mest effektive distraktortypen som finnes i regnesjangre — den «kjennes igjen» fordi du nettopp har skrevet den ned.",
+        "hints": [
+          "Regn ut hele oppgaven én gang før du ser på alternativene.",
+          "Sjekk om noen av tallene i alternativene er mellomresultater fra din egen utregning.",
+          "For d): del bommenes bidrag på totalen."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Eksamensformen og distraktorene (~11 min)\n\nI en flervalgsoppgave med tall er distraktorene ikke tilfeldige. Hver av dem svarer til en bestemt regnefeil, og du kan lære deg hvilke.\n\nDet gir en gratis kontroll: har du regnet riktig, skal ditt tall stå der — og de andre tallene skal du kunne forklare hvor kommer fra."
+    },
+    {
+      "id": "in1020-2-5-def-distraktorer",
+      "type": "definition",
+      "title": "De fire faste feiltallene i cache-oppgaver",
+      "content": "Når alternativene er tall, svarer hvert galt tall til én bestemt feil. For `n` instruksjoner, bom-rate `r` og bom-kostnad `k`:\n\n| Tall | Feilen bak det |\n|---|---|\n| `n·(1−r)·1 + n·r·k` | **Riktig svar** |\n| `n·r·1 + n·(1−r)·k` | Byttet om treff og bom |\n| `n·r·k` | Glemt at treffene koster 1 sykel hver |\n| `n·k` | Regnet som om alle oppslag var bom |\n\nEn femte variant finnes også: `n·(1−r)·1 + n·r·(k+1)`, som kommer av å legge treffsykelen oppå bom-kostnaden. Boka bruker konvensjonen der bom-kostnaden er hele kostnaden.\n\n**Slik bruker du tabellen:** har du regnet ut et svar og finner det blant alternativene, sjekk raskt om ett av de andre tallene er ett av de tre feiltallene dine. Er det det, har du bekreftet at du har regnet riktig — oppgaven er bygd nettopp slik."
+    },
+    {
+      "id": "in1020-2-5-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Eksamensnivå — alternativene forklart ett for ett",
+      "problem": "Svarform F4. Et program utfører 2500 instruksjoner. Bom-raten er 60 %, og et bom koster 5 klokkesykler. Hvor mange klokkesykler tar kjøringen?\n\n**a)** 8500 · **b)** 7500 · **c)** 12 500 · **d)** 6500",
+      "solution": "**Regningen.**\n\n`bom = 0,60 · 2500 instruksjoner = 1500 instruksjoner`\n\n`treff = 2500 − 1500 = 1000 instruksjoner`\n\n`treff: 1000 · 1 sykel = 1000 sykler`\n\n`bom: 1500 · 5 sykler = 7500 sykler`\n\n`T = 1000 + 7500 = 8500 sykler`\n\n**a) Riktig — 8500 sykler.**\n\n**b) Galt — 7500.** Dette er bommenes bidrag alene. Feilen er å glemme at treffene også koster: de 1000 syklene fra treffene mangler.\n\n**c) Galt — 12 500.** Dette er `2500 · 5`, altså regnet som om **alle** instruksjonene var bom. Bom-raten er ikke brukt i det hele tatt.\n\n**d) Galt — 6500.** Dette er ombyttingen av treff og bom: `1500 · 1 + 1000 · 5 = 1500 + 5000 = 6500`. Her er de 1500 bommene talt som treff og de 1000 treffene som bom. Tallet er av samme størrelsesorden som det riktige, og det er nettopp derfor det er den vanligste bommen i sjangeren.\n\n**Fasit: a.**\n\n**Gjennomsnittet, som kontroll:** `8500 ÷ 2500 = 3,4` sykler per instruksjon. Det ligger mellom 1 og 5, og nærmere 5 enn 1 — som det skal, siden over halvparten av oppslagene er bom. Stemmer."
+    },
+    {
+      "id": "in1020-2-5-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — cache-beregning, svarform F4.) Et program utfører 900 instruksjoner. En tredjedel av oppslagene er bom, og et bom koster 7 klokkesykler.\n\n**a)** Hvor mange klokkesykler tar kjøringen?\n\n**b)** Forklar hvilken regnefeil som ville gitt svaret 2100, og hvilken som ville gitt 6300.",
+        "solution": "**a) Regningen.**\n\n`bom = (1/3) · 900 instruksjoner = 300 instruksjoner`\n\n`treff = 900 − 300 = 600 instruksjoner`\n\n`treff: 600 · 1 sykel = 600 sykler`\n\n`bom: 300 · 7 sykler = 2100 sykler`\n\n`T = 600 + 2100 = 2700 sykler`\n\n**Svar a): 2700 klokkesykler.**\n\nGjennomsnittet er `2700 ÷ 900 = 3` sykler per instruksjon, som ligger mellom 1 og 7. Stemmer.\n\n**b) De to feiltallene:**\n\n**2100** er bommenes bidrag alene, `300 · 7`. Feilen er å glemme at treffene også koster én sykel hver — de 600 syklene mangler. Dette er tallet som er farligst, fordi det står midt i din egen utregning.\n\n**6300** er `900 · 7`, altså regnet som om **alle** instruksjonene var bom. Bom-raten er ikke brukt i det hele tatt. Feilen kommer typisk av å lese oppgaven for fort og gripe de to tallene som står tydeligst.\n\n**Et tredje feiltall, for ordens skyld:** ombyttingen av treff og bom gir `300 · 1 + 600 · 7 = 300 + 4200 = 4500` sykler.",
+        "hints": [
+          "En tredjedel av 900 er et helt tall — regn det ut først.",
+          "Skriv opp begge gruppene og kontroller at de summerer til 900.",
+          "For b): se hvilke tall du kan lage av 900, 300, 600 og 7 med bare én operasjon."
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-2-5-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E og F blandet, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Et mellomlager er raskere enn hovedminnet, men tregere enn et register | |\n| b | Ved 10 % bom og bom-kostnad 20 sykler er snittet 2,9 sykler per instruksjon | |\n| c | Å halvere bom-raten halverer alltid kjøretida | |\n| d | Mellomlageret styres av programmet med egne instruksjoner | |",
+        "solution": "**a) Sann.** Rekkefølgen i hierarkiet er register, mellomlager, hovedminne, disk — fra raskest til tregest. Mellomlageret ligger nettopp mellom de to andre, og det er derfor det heter det.\n\n**b) Sann.** Regn det ut: med `n` instruksjoner er `0,10·n` bom og `0,90·n` treff, så\n\n`T = 0,90n · 1 + 0,10n · 20 = 0,9n + 2n = 2,9n` sykler.\n\nSnittet er `2,9n ÷ n = 2,9` sykler per instruksjon, uavhengig av hvor mange instruksjoner det er. Kontroll med konkrete tall: 8000 instruksjoner gir `7200 + 16 000 = 23 200` sykler, og `23 200 ÷ 8000 = 2,9`. Stemmer.\n\n**c) Usann.** Treffene koster fortsatt én sykel hver, og de forsvinner ikke. I eksempelet med 8000 instruksjoner og bom-kostnad 20 falt tida fra 23 200 til 15 600 sykler da bom-raten gikk fra 10 % til 5 % — en nedgang på omtrent 32,8 %, ikke 50 %.\n\n**d) Usann.** Mellomlageret styres av maskinvaren og er usynlig for programmereren. Det finnes ingen instruksjon som legger noe i cachen. Det programmereren kan påvirke, er hvordan programmet bruker minnet — altså om det utnytter lokalitet.\n\n**Fasit: a sann, b sann, c usann, d usann.**\n\n**Merk rad b:** den er sann uten at antall instruksjoner er oppgitt. Gjennomsnittet per instruksjon avhenger bare av bom-raten og bom-kostnaden, ikke av hvor lenge programmet kjører. Det er en nyttig snarvei når oppgaven bare spør om snittet.",
+        "hints": [
+          "For b): prøv å regne med `n` som ukjent i stedet for et konkret tall.",
+          "For c): hva skjer med syklene fra treffene når bom-raten synker?",
+          "For d): finnes det en instruksjon i noe instruksjonssett du har sett som sier «legg dette i cachen»?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-2-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å bytte om treff og bom.** «40 % bom» betyr 40 % bom og 60 % treff. Ombyttingen gir et tall som ser rimelig ut, og det står blant alternativene nettopp derfor. Skriv opp begge gruppene og kontroller at de summerer til `n`.\n\n2. **Å glemme at treffene koster.** Et treff koster 1 klokkesykel, ikke 0. Regner du bare `bom · kostnad`, får du et tall som står midt i din egen utregning — den farligste distraktoren som finnes.\n\n3. **Å regne som om alle oppslag var bom.** `n · k` er svaret på en helt annen oppgave. Denne feilen kommer av å lese fort og gripe de to tallene som står tydeligst.\n\n4. **Å blande treffrate og bom-rate.** Les ordlyden. «Treffraten er 80 %» betyr 20 % bom. Oppgavene veksler bevisst mellom de to formuleringene.\n\n5. **Å regne uten enheter.** «instruksjoner × sykler/instruksjon = sykler». Enhetene er den beste kontrollen på at du ikke har delt feil vei, og et svar uten enhet er halvferdig.\n\n6. **Å oppgi et desimaltall upresist.** Går tallet ikke opp, skriv «omtrent» og oppgi antall desimaler. `7600 ÷ 23 200` er 32,8 % med én desimal — ikke «cirka en tredjedel» uten videre.\n\n7. **Å tro at halvert bom-rate gir halvert tid.** Treffene koster fortsatt. Regn begge scenariene og trekk fra."
+    },
+    {
+      "id": "in1020-2-5-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-2-5-bank-1",
+      "type": "definition",
+      "title": "Treff",
+      "content": "At verdien prosessoren ber om, allerede ligger i mellomlageret.\n\nEt treff koster **1 klokkesykel** i denne bokas konvensjon — turen ut til hovedminnet er unngått.\n\nDen faste feilslutningen: å tro at et treff er gratis. Det koster mindre enn et bom, men det koster. Å glemme treffenes bidrag er den nest vanligste feilen i sjangeren."
+    },
+    {
+      "id": "in1020-2-5-bank-2",
+      "type": "definition",
+      "title": "Bom",
+      "content": "At verdien ikke ligger i mellomlageret, slik at den må hentes fra hovedminnet.\n\nEt bom koster det antallet klokkesykler oppgaven oppgir — typisk mellom 4 og 20 i eksamensoppgaver.\n\nVed et bom hentes ikke bare den ene verdien, men en hel **blokk** av naboadresser, fordi romlig lokalitet gjør det sannsynlig at de trengs snart."
+    },
+    {
+      "id": "in1020-2-5-bank-3",
+      "type": "definition",
+      "title": "Treffrate og bom-rate",
+      "content": "**Treffraten** er andelen oppslag som er treff. **Bom-raten** er andelen som er bom. De summerer alltid til 100 %.\n\nEr treffraten 85 %, er bom-raten 15 %. Er bom-raten 40 %, er treffraten 60 %.\n\nOppgavene veksler bevisst mellom de to formuleringene, og å lese feil her er den vanligste enkeltbommen i sjanger E. Skriv ned begge tallene før du regner videre."
+    },
+    {
+      "id": "in1020-2-5-bank-4",
+      "type": "definition",
+      "title": "Bom-kostnad",
+      "content": "Antall klokkesykler et bom koster — altså hva turen ut til hovedminnet er verdt i tid.\n\nI denne boka er bom-kostnaden **hele** kostnaden for den instruksjonen, ikke et tillegg til treffsykelen. Sier oppgaven «bom-kostnad 10 sykler», koster den instruksjonen 10 sykler.\n\nStørrelsen forteller noe reelt: at et RAM-oppslag koster titalls sykler, er selve grunnen til at mellomlageret finnes."
+    },
+    {
+      "id": "in1020-2-5-bank-5",
+      "type": "definition",
+      "title": "Den vektede summen",
+      "content": "$$T = \\text{treff} \\cdot 1 + \\text{bom} \\cdot k$$\n\nHver gruppe ganges med sin egen kostnad, og de to legges sammen. Det er alt regnestykket er.\n\nEnhetene bærer utregningen: «instruksjoner × sykler per instruksjon = sykler».\n\nDen faste feilen er å hoppe over det første leddet. Treffene er som regel den store gruppen, og bidraget deres er sjelden neglisjerbart."
+    },
+    {
+      "id": "in1020-2-5-bank-6",
+      "type": "definition",
+      "title": "Gjennomsnitt per instruksjon",
+      "content": "$$\\bar{t} = \\frac{T}{n}$$\n\nTotalt antall sykler delt på antall instruksjoner.\n\nEn nyttig snarvei: snittet avhenger bare av bom-raten og bom-kostnaden, ikke av `n`. Ved 10 % bom og kostnad 20 er snittet `0,9·1 + 0,1·20 = 2,9` sykler, uansett programlengde.\n\nSnittet er også den beste rimelighetskontrollen: det skal alltid ligge **mellom 1 og bom-kostnaden**."
+    },
+    {
+      "id": "in1020-2-5-bank-7",
+      "type": "definition",
+      "title": "Rimelighetskontrollen",
+      "content": "Gjennomsnittet per instruksjon må ligge mellom 1 sykel (alt er treff) og bom-kostnaden (alt er bom).\n\nEr bom-raten liten, skal snittet ligge nær 1. Er den stor, skal det ligge nær bom-kostnaden.\n\nFår du et snitt på 0,8 eller på 25 når bom-kostnaden er 20, har du gjort en feil — og kontrollen tar fem sekunder."
+    },
+    {
+      "id": "in1020-2-5-bank-8",
+      "type": "definition",
+      "title": "Tidsmessig lokalitet",
+      "content": "At en adresse som nettopp har vært brukt, sannsynligvis brukes igjen snart.\n\nDet klassiske eksempelet er en løkkevariabel: den leses og skrives i hver eneste runde av løkka, og etter første oppslag ligger den i mellomlageret hele veien.\n\nDette er den ene av de to formene for lokalitet som gjør mellomlagring lønnsom."
+    },
+    {
+      "id": "in1020-2-5-bank-9",
+      "type": "definition",
+      "title": "Romlig lokalitet",
+      "content": "At naboadressene til en adresse som brukes, sannsynligvis brukes like etter.\n\nEksempelet er et program som går gjennom en liste element for element: adressene kommer i rekkefølge.\n\nDette er grunnen til at maskinen henter en hel **blokk** ved et bom. Er blokken 16 elementer stor, blir 1 av 16 oppslag bom — bom-raten faller fra 100 % til ca. 6 % uten at programmet er endret."
+    },
+    {
+      "id": "in1020-2-5-bank-10",
+      "type": "definition",
+      "title": "Blokk (cachelinje)",
+      "content": "Den sammenhengende bunken byte som hentes inn i mellomlageret ved ett bom — typisk 32 til 128 byte.\n\nStørrelsen er en avveining: en stor blokk utnytter romlig lokalitet bedre, men bruker mer plass og mer tid på data som kanskje ikke trengs.\n\nDet er blokkstørrelsen som gjør at bom-raten i praksis er lav selv i programmer som leser store mengder data — så lenge de leser dem i rekkefølge."
+    },
+    {
+      "id": "in1020-2-5-bank-11",
+      "type": "definition",
+      "title": "Nivåene i mellomlageret",
+      "content": "Moderne prosessorer har flere lag mellomlager, ofte kalt L1, L2 og L3.\n\nL1 er minst og raskest og ligger nærmest kjernen. L3 er størst og tregest og deles gjerne mellom flere kjerner.\n\nPrinsippet er det samme som i hele hierarkiet: hvert lag utover er større, tregere og billigere per byte. Eksamensoppgavene regner som regel med bare ett lag, men rekkefølgen bør du kjenne."
+    },
+    {
+      "id": "in1020-2-5-bank-12",
+      "type": "definition",
+      "title": "Mellomlageret er usynlig for programmereren",
+      "content": "Det finnes ingen instruksjon som sier «legg dette i cachen». Maskinvaren avgjør hva som lagres og hva som kastes ut.\n\nDet programmereren kan påvirke, er **hvordan programmet bruker minnet**: leser du data i rekkefølge, utnytter du romlig lokalitet og får få bom. Hopper du tilfeldig rundt, får du mange.\n\nDen faste feilslutningen: å tro at cachen er et lager man styrer selv, som en fil eller en variabel."
+    },
+    {
+      "id": "in1020-2-5-bank-13",
+      "type": "definition",
+      "title": "Flyktig kontra varig lagring",
+      "content": "**Flyktig** lagring mister innholdet når strømmen går: registre, mellomlager og hovedminne.\n\n**Varig** lagring beholder det: disk og annen sekundærlagring.\n\nDet er derfor et program alltid lagres varig og lastes inn i hovedminnet når det startes — og det er grunnen til at ulagret arbeid forsvinner ved et strømbrudd."
+    },
+    {
+      "id": "in1020-2-5-bank-14",
+      "type": "definition",
+      "title": "Pris per byte styrer hierarkiet",
+      "content": "Grunnen til at hierarkiet ser ut som det gjør, er økonomisk: raskt minne koster mer per byte enn tregt.\n\nEn maskin bygd bare av registerraskt minne ville vært svært rask og helt uoverkommelig dyr. En maskin bygd bare av disk ville vært billig og ubrukelig treg.\n\nHierarkiet er kompromisset: mye av det billige, litt av det dyre, og lokalitet som sørger for at det dyre brukes der det gir mest."
+    },
+    {
+      "id": "in1020-2-5-bank-15",
+      "type": "definition",
+      "title": "Hvorfor de få bommene eier klokka",
+      "content": "Med 20 % bom og bom-kostnad 20 sykler står bommene for 20 000 av 24 000 sykler — over 83 % av tida, fra en femdel av oppslagene.\n\nÅrsaken er størrelsesforholdet: et bom koster tjue ganger så mye som et treff, så det trengs bare noen få av dem før de dominerer.\n\nDette er hele begrunnelsen for at prosessorer bruker en stor del av brikkearealet på mellomlagre."
+    },
+    {
+      "id": "in1020-2-5-bank-16",
+      "type": "definition",
+      "title": "Halvert bom-rate gir ikke halvert tid",
+      "content": "Treffene koster fortsatt 1 sykel hver, og de syklene forsvinner ikke når bom-raten synker.\n\nEksempel: 8000 instruksjoner, bom-kostnad 20 sykler. Ved 10 % bom er tida 23 200 sykler; ved 5 % bom er den 15 600. Nedgangen er 7600 sykler, altså omtrent 32,8 % — ikke 50 %.\n\nRegel: regn ut begge scenariene og trekk fra. Ikke resonner deg til prosenten."
+    },
+    {
+      "id": "in1020-2-5-bank-17",
+      "type": "definition",
+      "title": "Feiltallet «bom alene»",
+      "content": "Tallet `bom · k`, altså bommenes bidrag uten treffene.\n\nDette er den farligste distraktoren i sjangeren, fordi tallet står midt i din egen utregning: du skriver det ned som mellomresultat, og så kjenner du det igjen blant alternativene.\n\nMotgiften er å gjøre summeringen ferdig **før** du ser på alternativene."
+    },
+    {
+      "id": "in1020-2-5-bank-18",
+      "type": "definition",
+      "title": "Feiltallet «alt er bom»",
+      "content": "Tallet `n · k`, altså regnet som om hvert eneste oppslag var bom.\n\nFeilen oppstår når man leser oppgaven fort og griper de to tallene som står tydeligst — antall instruksjoner og bom-kostnaden — uten å bruke bom-raten.\n\nKontrollen: er bom-raten brukt i utregningen din i det hele tatt? Er den ikke det, har du regnet på en annen oppgave."
+    },
+    {
+      "id": "in1020-2-5-bank-19",
+      "type": "definition",
+      "title": "Feiltallet «ombyttet»",
+      "content": "Tallet `n·r · 1 + n·(1−r) · k`, altså med treff og bom byttet om.\n\nDette er den vanligste feilen, og resultatet ser alltid rimelig ut — det er et tall av samme størrelsesorden som det riktige.\n\nMotgiften er mekanisk: skriv opp begge gruppene med navn («treff: 3600», «bom: 400») og kontroller at de summerer til `n` før du ganger med noe som helst."
+    },
+    {
+      "id": "in1020-2-5-bank-20",
+      "type": "definition",
+      "title": "Å oppgi et tall som ikke går opp",
+      "content": "Går et resultat ikke opp i hele tall, skal du oppgi antall desimaler eksplisitt og skrive «omtrent» eller «≈».\n\n`7600 ÷ 23 200 = 0,3276…`, som er **32,8 %** med én desimal.\n\nDen faste feilen er å skrive et avrundet tall som om det var eksakt, eller å oppgi flere desimaler enn utregningen faktisk gir. Sensorkravet i regnesjangre er å vise mellomregningen og være presis om avrundingen."
+    },
+    {
+      "id": "in1020-2-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter cache-regningen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-2-5-rep-tekst",
+          "type": "text",
+          "content": "Åtte korte. Svar før du ser på fasiten.\n\n1. Sorter fra raskest til tregest: RAM, disk, register, mellomlager.\n2. Hva koster et treff i denne bokas konvensjon?\n3. 2000 instruksjoner, 25 % bom, bom-kostnad 8. Hvor mange sykler?\n4. Hva er gjennomsnittet per instruksjon i oppgave 3?\n5. Treffraten er 80 %. Hva er bom-raten?\n6. Hvilke to former for lokalitet finnes?\n7. Hvilket feiltall får du hvis du glemmer at treffene koster?\n8. Halveres kjøretida når bom-raten halveres?\n\n**Fasit.**\n\n1. Register, mellomlager, RAM, disk. Størrelsesrekkefølgen er den motsatte.\n2. 1 klokkesykel. Ikke null.\n3. `bom = 500`, `treff = 1500`. `1500·1 + 500·8 = 1500 + 4000 = 5500` sykler.\n4. `5500 ÷ 2000 = 2,75` sykler per instruksjon. Ligger mellom 1 og 8. Stemmer.\n5. 20 %. De to summerer alltid til 100 %.\n6. Tidsmessig (samme adresse igjen) og romlig (naboadresser).\n7. `bom · kostnad`, her `500 · 8 = 4000`. Tallet står midt i din egen utregning.\n8. Nei. Treffene koster fortsatt. I eksempelet med 8000 instruksjoner og kostnad 20 falt tida omtrent 32,8 %, ikke 50 %.\n\nSjekk deg selv: ☐ delte du instruksjonene i to grupper og kontrollerte summen? ☐ tok du med treffenes ene sykel? ☐ leste du om oppgaven oppga treffrate eller bom-rate? ☐ regnet du med enheter hele veien? ☐ sjekket du at snittet lå mellom 1 og bom-kostnaden?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

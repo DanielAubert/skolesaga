@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Hvilken vei skal du regne når du analyserer en krets?",
+    "options": [
+      "Fra inngangene og framover, port for port",
+      "Fra utgangen og bakover mot kretsens innganger",
+      "Fra midten og utover mot begge ender",
+      "Fra den porten som har flest innganger"
+    ],
+    "explanation": "En port kan regnes så snart alle inngangene er kjent, og det er bare oppfylt hvis du starter ved inngangene. Alternativ 2 er den vanligste mekaniske feilen: bakover mister du oversikten over hvilket signal som mater hva. Alternativ 3 og 4 gir ingen rekkefølge som garanterer at inngangene til en port er kjent når du kommer til den."
+  },
+  {
+    "question": "Mellomsignalet `P = A + B` settes inn i porten `F = P·C`. Hva blir F?",
+    "options": [
+      "`(A + B)·C`",
+      "`A + B·C`",
+      "`A·C + B`",
+      "`A + B + C`"
+    ],
+    "explanation": "Fordi P inneholder en OR og settes inn i en AND, må den inn med parentes. Alternativ 2 er nettopp feilen som oppstår uten parentes, og det gir en annen funksjon i to av åtte rader. Alternativ 3 setter parentesen feil sted. Alternativ 4 bytter ut AND-porten med en OR."
+  },
+  {
+    "question": "En krets har portlisten: port 1 er AND med A og B og gir P; port 2 er NOT med C og gir Q; port 3 er OR med P og Q og gir F. Hva er `F`?",
+    "options": [
+      "`A·B + C′`",
+      "`A·B·C′`",
+      "`(A + B)·C′`",
+      "`(A·B + C)′`"
+    ],
+    "explanation": "Port 3 er en OR av `A·B` og `C′`, og AND binder allerede sterkest, så ingen parentes trengs. Alternativ 2 bytter den siste OR-porten med en AND. Alternativ 3 bytter den første AND-porten med en OR. Alternativ 4 flytter inverteringen ut til hele uttrykket i stedet for å la den stå på C."
+  },
+  {
+    "question": "Hva blir `(A + B)′` etter De Morgan?",
+    "options": [
+      "`A′ · B′`",
+      "`A′ + B′`",
+      "`A · B`",
+      "`(A · B)′`"
+    ],
+    "explanation": "Inverteringen dras inn i parentesen, og operatoren byttes fra OR til AND. Alternativ 2 lar operatoren stå og gir NAND der svaret skal være NOR — de er ulike i tre av fire rader. Alternativ 3 mangler inverteringene helt. Alternativ 4 er samme uttrykk som alternativ 2, bare skrevet med parentes."
+  },
+  {
+    "question": "Hva blir `A + A·B` forenklet?",
+    "options": [
+      "`A`",
+      "`A·B`",
+      "`A + B`",
+      "`B`"
+    ],
+    "explanation": "Absorpsjon: er A lik 1, er summen 1 uansett B; er A lik 0, er også `A·B` lik 0. Utgangen følger A nøyaktig. Alternativ 2 er den vanlige feilbruken der man fjerner feil ledd. Alternativ 3 er svaret på `A + A′·B`, altså utvidet absorpsjon. Alternativ 4 ville krevd at A falt bort, men det er A som blir stående."
+  },
+  {
+    "question": "Hva blir `A + A′·B` forenklet?",
+    "options": [
+      "`A + B`",
+      "`A`",
+      "`A·B`, altså med OR byttet til AND",
+      "`B`"
+    ],
+    "explanation": "Utvidet absorpsjon: er A lik 1 er begge sider 1, og er A lik 0 blir begge sider B. Alternativ 2 er svaret på vanlig absorpsjon `A + A·B`, der leddet forsvinner helt. Alternativ 3 bytter OR til AND. Alternativ 4 glemmer at A alene også gir utgangen 1."
+  },
+  {
+    "question": "Er `A + B·C` lik `(A + B)·(A + C)`?",
+    "options": [
+      "Ja — det er den distributive loven for OR over AND",
+      "Nei — den loven finnes bare i vanlig tallregning",
+      "Ja, men bare når A er lik 0",
+      "Nei — høyresiden er lik `A·B + C`"
+    ],
+    "explanation": "Loven gjelder i boolsk algebra og kan kontrolleres i alle åtte radene: er A lik 1 er begge sider 1, er A lik 0 blir begge sider `B·C`. Alternativ 2 snur saken: den finnes nettopp ikke i tallregning, men gjelder her. Alternativ 3 er feil fordi likheten gjelder i alle rader. Alternativ 4 oppgir feil forenkling av høyresiden."
+  },
+  {
+    "question": "Hva blir `A·(B + C)` skrevet som sum av produkter?",
+    "options": [
+      "`A·B + A·C`",
+      "`A·B + C`",
+      "`(A + B)·(A + C)`",
+      "`A + B·C`"
+    ],
+    "explanation": "Distributiv lov, AND over OR — den vanlige «gang inn i parentesen», og A ganges inn i begge leddene. Alternativ 2 ganger A inn i bare det ene leddet. Alternativ 3 og 4 hører til den andre distributive loven og beskriver en annen funksjon."
+  },
+  {
+    "question": "Når er to boolske uttrykk ekvivalente?",
+    "options": [
+      "Når de gir samme utgang i hver eneste rad i sannhetstabellen",
+      "Når de inneholder de samme variablene i samme rekkefølge",
+      "Når de kan bygges med like mange porter av samme type",
+      "Når de gir samme utgang for minst én inngangskombinasjon"
+    ],
+    "explanation": "Ekvivalens er en påstand om hele tabellen. Alternativ 2 er verken nødvendig eller tilstrekkelig: `A + C` og `C + A` er ekvivalente med ulik rekkefølge. Alternativ 3 blander ekvivalens med kretsstørrelse — den forenklede formen bruker færre porter, men er samme funksjon. Alternativ 4 holder ikke: to ulike uttrykk er som regel like i noen rader."
+  },
+  {
+    "question": "Hvor mange rader trenger du for å bevise at et alternativ IKKE er ekvivalent med kretsen?",
+    "options": [
+      "Én — en enkelt rad der de gir ulikt svar er nok",
+      "Alle radene, siden ekvivalens gjelder hele tabellen",
+      "Minst halvparten av radene i tabellen",
+      "To rader, én for hver verdi av den første variabelen"
+    ],
+    "explanation": "Én motrad avviser alternativet endelig. Alternativ 2 beskriver kravet for å **godta** et alternativ, ikke for å avvise det — asymmetrien er verdt å utnytte under tidspress. Alternativ 3 og 4 er vilkårlige tall uten logisk grunnlag."
+  },
+  {
+    "question": "En NAND-port etterfølges av en NOT-port. Hva gir de to til sammen?",
+    "options": [
+      "En AND-port",
+      "En NOR-port",
+      "En OR-port",
+      "En NAND-port, siden NOT ikke endrer noe"
+    ],
+    "explanation": "Dobbel invertering opphever seg selv: `((A·B)′)′ = A·B`. Alternativ 2 ville krevd at den første porten var en OR. Alternativ 3 ville krevd De Morgan på inverterte innganger, ikke en NOT på utgangen. Alternativ 4 er feil fordi NOT nettopp snur svaret."
+  },
+  {
+    "question": "Hvor mange rader har sannhetstabellen til en krets med tre innganger?",
+    "options": [
+      "8",
+      "6",
+      "4",
+      "9"
+    ],
+    "explanation": "Antall rader er $2^n$, og $2^3 = 8$. Alternativ 2 forveksler $2^n$ med $2 \\cdot n$. Alternativ 3 er antallet for to innganger. Alternativ 4 forveksler $2^n$ med $n^2$."
+  },
+  {
+    "question": "Hvilke kretstemaer skal du IKKE drille til denne eksamenen?",
+    "options": [
+      "Karnaugh-diagram, multiplekser og dekoder",
+      "Portidentifikasjon og oppsett av sannhetstabeller",
+      "Propagering av en portliste fram til F",
+      "De Morgans lover og absorpsjon"
+    ],
+    "explanation": "De tre i alternativ 1 er uttrykkelig plassert utenfor pensum i emnet og er derfor ikke pensum i denne boka; å øve på dem fra gamle sett er felle #10. Alternativ 2, 3 og 4 er derimot kjernen i sjanger D og kommer hvert år."
+  },
+  {
+    "question": "Hva blir `A·(A + B)` forenklet?",
+    "options": [
+      "`A`",
+      "`A·B`",
+      "`A + B`",
+      "`B`"
+    ],
+    "explanation": "Absorpsjon i den speilvendte formen: er A lik 0 er hele produktet 0, og er A lik 1 er parentesen også 1. Utgangen følger A. Alternativ 2 er den vanligste feilen — man husker at «noe forsvinner», men fjerner feil ledd. Alternativ 3 og 4 lar B bli stående, men B har ingen innflytelse her."
+  },
+  {
+    "question": "Hva er `A + A′` lik i en krets?",
+    "options": [
+      "Konstant 1, uansett inngangen",
+      "Konstant 0, uansett inngangen",
+      "`A`, siden inverteringen faller bort",
+      "`A′`, siden inverteringen står sist"
+    ],
+    "explanation": "Nøyaktig én av A og A′ er 1 til enhver tid, så OR-en er alltid 1. Alternativ 2 er svaret på `A·A′`. Alternativ 3 og 4 ville krevd at det ene leddet kunne strykes, men her er det operatoren som avgjør, ikke leddene."
+  },
+  {
+    "question": "Hva er `A · 0` lik?",
+    "options": [
+      "0",
+      "`A`",
+      "1",
+      "`A′`"
+    ],
+    "explanation": "En AND med en fast 0 på den ene inngangen gir alltid 0 — nullelementet overtar hele uttrykket. Alternativ 2 er svaret på `A · 1`, der konstanten forsvinner. Alternativ 3 er svaret på `A + 1`. Alternativ 4 ville krevd en invertering som ikke finnes i uttrykket."
+  },
+  {
+    "question": "Utgangen er 1 bare i raden der `A = 1`, `B = 0` og `C = 1`. Hvilket uttrykk beskriver funksjonen?",
+    "options": [
+      "`A·B′·C`",
+      "`A·B·C`",
+      "`A + B′ + C`",
+      "`A′·B·C′`"
+    ],
+    "explanation": "Metoden er å skrive ett AND-ledd for raden: variabelen selv der den er 1, invertert der den er 0. Alternativ 2 glemmer inverteringen på B og treffer raden `111` i stedet. Alternativ 3 er en OR og gir 1 i sju av åtte rader. Alternativ 4 inverterer nøyaktig de motsatte variablene."
+  },
+  {
+    "question": "Hva er riktig arbeidsmåte i en F1-oppgave om ekvivalente uttrykk?",
+    "options": [
+      "Regn ut kretsens F én gang, og vurder så hvert alternativ mot den",
+      "Kryss av det første alternativet som stemmer, og gå videre",
+      "Prøv å bygge om hvert alternativ til kretsen, ett om gangen",
+      "Kryss av alle alternativene som inneholder de samme variablene"
+    ],
+    "explanation": "Ett utregnet svar og deretter fire selvstendige vurderinger er både raskest og sikrest. Alternativ 2 gir halv uttelling når flere er riktige — den billigste måten å tape poeng på. Alternativ 3 er unødvendig arbeid fire ganger. Alternativ 4 ser på form i stedet for funksjon, og alle fire alternativene har som regel de samme variablene."
+  },
+  {
+    "question": "Hva menes med kretsdybden?",
+    "options": [
+      "Antall porter et signal passerer langs den lengste veien",
+      "Det totale antallet porter kretsen består av",
+      "Antall innganger den bredeste porten har",
+      "Antall mellomsignaler som er navngitt i portlisten"
+    ],
+    "explanation": "Dybden måler den lengste kjeden fra inngang til utgang, og den bestemmer hvor lang tid kretsen bruker på å gi svar. Alternativ 2 er kretsens størrelse, som er noe annet: en bred krets kan være grunn. Alternativ 3 og 4 måler heller ikke veilengden gjennom kretsen."
+  },
+  {
+    "question": "I en portliste står mellomsignalet `P` som inngang på både port 2 og port 3. Hva betyr det?",
+    "options": [
+      "Ledningen fra P er delt, og begge portene ser samme verdi",
+      "Porten som lager P må ha to utganger",
+      "P kan bare brukes av den første porten som tar den inn",
+      "Portlisten er feil satt opp og må skrives om"
+    ],
+    "explanation": "Et signal kan leses av så mange porter du vil; det er forgrening, og alle mottakerne ser samme verdi. Alternativ 2 er den faste fella som forveksler forgrening med flere utganger — en port har alltid nøyaktig én. Alternativ 3 er feil fordi et signal ikke «brukes opp». Alternativ 4 er feil fordi forgrening er helt vanlig."
+  },
+  {
+    "question": "En krets har portlisten: port 1 er NOR med A og B og gir P; port 2 er NOT med inngangen P og gir F. Hva er `F`?",
+    "options": [
+      "`A + B`",
+      "`A · B`",
+      "`A′ · B′`",
+      "`A′ + B′`"
+    ],
+    "explanation": "NOR gir `(A+B)′`, og NOT-en snur den tilbake: `((A+B)′)′ = A + B`. Alternativ 2 ville krevd at den første porten var en NAND. Alternativ 3 er NOR-utgangen selv, altså svaret uten den siste inverteringen. Alternativ 4 er NAND, som hverken port 1 eller port 2 lager."
+  },
+  {
+    "question": "Hva blir `(A·B + C)′` etter De Morgan?",
+    "options": [
+      "`(A′ + B′)·C′`",
+      "`A′·B′·C′`",
+      "`A′ + B′ + C′`",
+      "`(A′·B′) + C′`"
+    ],
+    "explanation": "Bruk loven utenfra og inn: ytterst er det en OR, så den blir `(A·B)′ · C′`, og deretter blir `(A·B)′` til `A′ + B′`. Alternativ 2 bytter OR-en i midten til AND. Alternativ 3 lar begge operatorene stå som OR og ville passet til `(A·B·C)′`. Alternativ 4 beholder OR-en mellom leddene i stedet for å bytte den."
+  }
+]
