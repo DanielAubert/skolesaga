@@ -29,6 +29,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🎓',
     color: 'from-red-600 to-rose-700',
     subjects: [
+      { courseId: 'in1020', name: 'IN1020 Introduksjon til datateknologi', icon: '🖥️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'econ1100', name: 'ECON1100 Matematikk I', icon: '∂', color: 'from-slate-500 to-slate-700' },
       { courseId: 'econ2310', name: 'ECON2310 Makroøkonomi 2', icon: '🌍', color: 'from-slate-500 to-slate-700' },
       { courseId: 'fys1001', name: 'FYS1001 Innføring i fysikk', icon: '⚛️', color: 'from-slate-500 to-slate-700' },

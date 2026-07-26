@@ -112,7 +112,7 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     courseId: 'jus1111',
     institusjon: 'Universitetet i Oslo (UiO) — Det juridiske fakultet',
     sammendrag:
-      'Boka er kalibrert mot JUS1111s eksamensarkiv ved UiO: 30 eksamensgjennomføringer 2011–2025 og 32 sensorveiledninger. Typetilfellene, metodekravene og feilkodene i boka er destillert fra det sensorveiledningene faktisk trekker for og belønner.',
+      'Boka er kalibrert mot JUS1111s eksamensarkiv ved UiO: 30 eksamensgjennomføringer 2011–2025 og 21 sensorveiledninger. Typetilfellene, metodekravene og feilkodene i boka er destillert fra det sensorveiledningene faktisk trekker for og belønner.',
     eksamenssett: [
       {
         tittel: '30 eksamensgjennomføringer (2011–2025)',
@@ -122,9 +122,9 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     sensorveiledninger: [
       {
-        tittel: '32 sensorveiledninger (2011–2025)',
+        tittel: '21 sensorveiledninger (2011–2025)',
         detalj:
-          'Samtlige er lest i sin helhet — inkludert delte veiledninger (del 1/del 2) for årgangene med todelt eksamen. Veiledningene er kilden til bokas sensornøkler og typiske feil.',
+          'Samtlige er lest i sin helhet — inkludert delte veiledninger (del 1/del 2) for årgangene med todelt eksamen. Veiledningene er kilden til bokas sensornøkler og typiske feil. Tallet er kontrollert mot arkivet 25. juli 2026; en tidligere versjon oppga 32.',
       },
     ],
     andreKilder: [
@@ -222,6 +222,45 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  in1020: {
+    courseId: 'in1020',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for informatikk (IFI)',
+    sammendrag:
+      'Boka er kalibrert mot IN1020s eksamensarkiv ved UiO: oppgavesett fra seks moderne årganger, med fagets egne løsningsforslag. For høsten 2023 finnes i tillegg en publisert sensorveiledning i tre deler, med poenggiving og begrunnelse per oppgave — den eneste i arkivet. Temavekting, oppgavesjangre og svarformene F1–F4 speiler hva settene faktisk tester.',
+    eksamenssett: [
+      {
+        tittel: 'Oppgavesett fra seks moderne årganger',
+        detalj:
+          'Digital eksamen med tung vekt på flervalg og matche-oppgaver. Settene finnes på bokmål og engelsk. Frekvenstallene i boka er talt mot disse seks, og nevneren står oppgitt hver gang («N av 6 moderne sett»).',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Én publisert sensorveiledning: H2023',
+        detalj:
+          'Sensorveiledningen for høsten 2023 er den eneste i arkivet, og den er lest grundig. Den er i tre deler med poenggiving og begrunnelse per oppgave, og er kilden til bokas viktigste stilregel: at hvert galt svaralternativ skal begrunnes, fordi eksamen har negativ poenggiving. Merk at selve oppgavesettet fra det året ikke ligger i arkivet.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'Fagets egne løsningsforslag',
+        detalj:
+          'Løsningsforslag følger flere av settene og er brukt som fasitkilde. De er faglærerskrevne og opphavsrettsbeskyttet — ingenting er gjengitt ordrett, og alle løsninger i boka er nyskrevne.',
+      },
+      {
+        tittel: 'UiOs emnebeskrivelse for IN1020',
+        detalj: 'Omskrevet sammendrag, brukt til å avgrense pensum.',
+      },
+    ],
+    forbehold: [
+      'Kun H2023 har publisert sensorveiledning. For de øvrige årgangene bygger vurderingen av hva som gir uttelling på løsningsforslagene og på oppgavenes egen poengfordeling — ikke på sensormerknader.',
+      'Oppgavesettet fra H2023 mangler i arkivet, selv om sensorveiledningen for det året finnes.',
+      'Kretser og nettverkstopologi er skrevet som strukturerte lister, ikke tegninger. Det er et bevisst valg: ingen oppgave lover en figur boka ikke har.',
+      'Alle oppgaver, tall og kontekster i boka er nyskrevne. De tre øvingseksamenene i Del 5 er våre egne, ikke offisielle UiO-sett, og det står eksplisitt i kapitlene.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   econ1100: {
     courseId: 'econ1100',
     institusjon: 'Universitetet i Oslo (UiO) — Økonomisk institutt',

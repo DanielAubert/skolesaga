@@ -50,6 +50,11 @@ FASIT = re.compile(r"(?:riktig svar|rett svar|fasit|svar)\s*[:=]?\s*\*{0,2}([a-e
                    r"(?![^\n]{0,60}\bb\))", re.I)
 FASITREKKE = re.compile(r"\b\d+([a-e])\b(?:\s*[·,]\s*\d+[a-e]\b){2,}", re.I)
 REKKELEDD = re.compile(r"\b\d+([a-e])\b")
+# Tredje konvensjon: «**Oppgave 9** (2 p): **b) 7.**» — IN1000. Fasiten står
+# etter et oppgavenummer og poeng, uten ordet «fasit» eller «riktig svar».
+# Uten denne var porten grønn-blind for hele boka og meldte «0 fasitlinjer».
+FASIT_OPPGAVE = re.compile(
+    r"\*\*Oppgave\s+\d+[^*]{0,30}\*\*[^\n]{0,20}?\*\*([a-e])\)", re.I)
 
 
 def strenger(n):
@@ -78,6 +83,8 @@ def mål(emne):
             for t in FASITREKKE.finditer(s):
                 for b in REKKELEDD.finditer(t.group(0)):
                     per_del[delen][b.group(1).lower()] += 1
+            for t in FASIT_OPPGAVE.finditer(s):
+                per_del[delen][t.group(1).lower()] += 1
     return per_del
 
 
@@ -89,6 +96,7 @@ def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
     avvik = 0
+    umalt = []
     for emne in sys.argv[1:]:
         per_del = mål(emne)
         tot = collections.Counter()
@@ -101,7 +109,7 @@ def main():
                   ("  ← boka HAR prøvekapitler, så formatet er trolig ukjent "
                    "for porten. Kontroller manuelt." if har_prover(emne) else ""))
             if har_prover(emne):
-                avvik += 1
+                umalt.append(emne)
             continue
         print(f"\n{emne}: {n} flervalgsfasiter")
         print(f"  {'del':5s} {'a':>4s} {'b':>4s} {'c':>4s} {'d':>4s} {'e':>4s}  verste")
@@ -129,10 +137,19 @@ def main():
             avvik += 1
 
     print()
+    if umalt:
+        # Skill «målt og for skjevt» fra «klarte ikke måle». Å blande dem gjør
+        # porten misvisende: IN1000 har reelt bare 7 bokstavfasiter, og en
+        # AVVIK-melding om «over 45 %» ville sendt redaktøren på villspor.
+        print(f"KAN IKKE MÅLE: {', '.join(umalt)} — for få gjenkjente fasitlinjer.")
+        print("Boka bruker trolig et format porten ikke kjenner. Tell manuelt,")
+        print("og legg formatet inn her hvis det er en ny konvensjon.")
     if avvik:
         print(f"FASITPORT AVVIK: {avvik} deler/bøker over {TERSKEL:.0f} %.")
         print("Bytt om alternativer — og husk å oppdatere fasitlinje, prosareferanser")
         print("til bokstaver, hint og distraktorbegrunnelser i samme slengen.")
+        sys.exit(1)
+    if umalt:
         sys.exit(1)
     print(f"FASITPORT OK — ingen bokstav over {TERSKEL:.0f} % i noen del")
 
