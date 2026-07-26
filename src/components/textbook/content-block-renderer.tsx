@@ -237,7 +237,7 @@ function DefinitionBlock({ title, content }: { title: string; content: string })
       <CardHeader className="px-4 py-0">
         <CardTitle className="text-lg flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-primary" />
-          {title}
+          <LatexRenderer content={title} inline />
         </CardTitle>
       </CardHeader>
       <CardContent className="px-4 pt-1 pb-0">
@@ -261,7 +261,7 @@ function TheoremBlock({ title, content, proof }: { title: string; content: strin
       <CardHeader className="pb-2">
         <CardTitle className="text-lg flex items-center gap-2 text-purple-700 dark:text-purple-300">
           <span className="text-xl">📜</span>
-          {title}
+          <LatexRenderer content={title} inline />
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -458,7 +458,7 @@ function WarningBlock({ title, content }: { title?: string; content: string }) {
   return (
     <Alert className="border-amber-200/70 bg-amber-50/40 dark:border-amber-900/50 dark:bg-amber-950/20">
       <AlertTriangle className="h-4 w-4 text-amber-500" />
-      {title && <AlertTitle className="text-amber-800 dark:text-amber-200">{title}</AlertTitle>}
+      {title && <AlertTitle className="text-amber-800 dark:text-amber-200"><LatexRenderer content={title} inline /></AlertTitle>}
       <AlertDescription className="text-amber-800 dark:text-amber-200">
         <LatexRenderer content={content} />
       </AlertDescription>
@@ -770,7 +770,7 @@ function FormulaBlock({
       {title && (
         <CardHeader className="pb-2">
           <CardTitle className="text-lg text-indigo-700 dark:text-indigo-300">
-            {title}
+            <LatexRenderer content={title} inline />
           </CardTitle>
         </CardHeader>
       )}
@@ -942,7 +942,7 @@ function CollapsibleBlockComponent({
     <Card className="border border-dashed border-muted-foreground/25 shadow-none">
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-xl font-bold">{title}</CardTitle>
+          <CardTitle className="text-xl font-bold"><LatexRenderer content={title} inline /></CardTitle>
           <Button
             variant="outline"
             size="sm"

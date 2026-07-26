@@ -52,7 +52,11 @@ def strenger(o, sti="", i_oppgaveboks=False):
 
 
 FENCE = re.compile(r"```([A-Za-z0-9_-]*)\n([\s\S]*?)```")
-UT = re.compile(r"\A\s*\*\*Utskrift:\*\*\s*\n```\n([\s\S]*?)```")
+# Utskriftsgjerdet kan vaere bart (```) ELLER ha en sprakkode (```text).
+# Den gamle regexen krevde bart gjerde, og var derfor BLIND for hele Del 8 i
+# fys1100: atte kodeblokker med utskrift ble aldri sammenliknet, bare meldt som
+# «mangler Utskrift-blokk». Oppdaget 26. juli 2026 av agenten som skrev Del 11.
+UT = re.compile(r"\A\s*\*\*Utskrift:\*\*\s*\n```[A-Za-z0-9_-]*\n([\s\S]*?)```")
 
 feil, kjort, sammenlignet = [], 0, 0
 for sti, s, i_oppgaveboks in strenger(d):
