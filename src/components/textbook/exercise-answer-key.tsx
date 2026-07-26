@@ -70,7 +70,10 @@ export function ExerciseAnswerKey({ exercises }: ExerciseAnswerKeyProps) {
 
   // Filtrer til bare oppgaver som har fasit (solution-feltet)
   const exercisesWithSolutions = exercises.filter(
-    (ex) => ex.solution || (ex.solutionSteps && ex.solutionSteps.length > 0)
+    // Defensivt: kalleren skal ha filtrert bort tomme innslag, men denne lista
+    // settes sammen fra tre kilder med ulike bokskjemaer — én undefined her tok
+    // ned hele sida.
+    (ex) => ex && (ex.solution || (ex.solutionSteps && ex.solutionSteps.length > 0))
   );
 
   if (exercisesWithSolutions.length === 0) {

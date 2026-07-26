@@ -539,7 +539,12 @@ export function TextbookChapterView({
               // Hent alle oppgaver fra både exercises-arrayet og content-arrayet
               const contentExercises: TextbookExercise[] = chapterContent.content
                 .filter((block): block is { type: 'exercise'; exercise: TextbookExercise; id: string } => block.type === 'exercise')
-                .map((block) => block.exercise);
+                .map((block) => block.exercise)
+                // Noen bøker (fysikk2, geofag-2 m.fl.) legger oppgavefeltene rett på
+                // blokka i stedet for i et nestet `exercise`-objekt. Da blir dette
+                // undefined, og fasit-lista krasjet på `ex.solution`. 59 kapitler ga
+                // HTTP 500 i produksjon 26. juli 2026.
+                .filter((ex): ex is TextbookExercise => Boolean(ex));
 
               // Hent oppgaver fra collapsible-blokker (f.eks. repetisjonsoppgaver)
               const collapsibleExercises: TextbookExercise[] = chapterContent.content
@@ -552,7 +557,7 @@ export function TextbookChapterView({
                       if (innerBlock.type !== 'exercise') return null;
                       return innerBlock.exercise;
                     })
-                    .filter((ex): ex is TextbookExercise => ex !== null);
+                    .filter((ex): ex is TextbookExercise => Boolean(ex));
                 });
 
               const allExercises = [...(chapterContent.exercises || []), ...contentExercises, ...collapsibleExercises];
@@ -569,7 +574,7 @@ export function TextbookChapterView({
                   {/* Teoriinnhold */}
                   <section className="mb-12">
                     <div className="space-y-8">
-                      {chapterContent.content.map((block) => (
+                      {(chapterContent.content ?? []).map((block) => (
                         <ContentBlockRenderer
                           key={block.id}
                           block={block}
@@ -582,7 +587,10 @@ export function TextbookChapterView({
                   </section>
 
                   {/* Oppgaver (bare hvis exercises-arrayet har oppgaver) */}
-                  {chapterContent.exercises.length > 0 && (
+                  {/* 59 kapitler (fysikk2, geofag-2 m.fl.) mangler `exercises` helt — uten
+                      denne guarden ga hver av dem HTTP 500. Feltet er valgfritt i
+                      dataene, så det skal behandles som valgfritt her. */}
+                  {(chapterContent.exercises?.length ?? 0) > 0 && (
                     <section>
                       <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                         <BookOpen className="h-6 w-6" />
