@@ -20,6 +20,71 @@ fs.writeFileSync(
 
 console.log(`Kombinerte ${registry.chapterIds.length} kapitler til _all.json`);
 
+// ---------------------------------------------------------------------------
+// _dates.json — endringstidspunkt per kapittel, til <lastmod> i sitemapet.
+//
+// Dette MÅ forhåndsberegnes her, ikke slås opp i sitemap.ts. Gjorde vi det
+// siste, ble deployen avvist 26. juli 2026:
+//
+//   The Vercel Function "sitemap.xml.rsc" is 597.12mb uncompressed which
+//   exceeds the maximum uncompressed size limit of 250mb.
+//
+// Årsaken var et dynamisk fs-oppslag — `fs.statSync(dir + `${stem}.json`)`.
+// Turbopack klarer ikke se hvilken fil et interpolert navn peker på, så den
+// pakker HELE mønsteret inn i funksjonen: «matches 43670 files». Ett statisk
+// import av denne ene fila (~0,5 MB) koster ingenting.
+//
+// Kilder, i prioritert rekkefølge:
+//   1. git commit-tid — stabil på tvers av bygg, endrer seg aldri i ettertid
+//   2. filas mtime — når git mangler (shallow clone, ingen .git i byggemiljøet)
+//   3. utelates — sitemap.ts faller da tilbake til byggetidspunktet
+const { execFileSync } = require('child_process');
+
+const relChapterDir = path.join('src', 'lib', 'data', 'chapters');
+const gitTimes = new Map();
+try {
+  const out = execFileSync(
+    'git',
+    ['log', '--pretty=format:%ct', '--name-only', '--no-renames', '--', relChapterDir],
+    { cwd: path.join(__dirname, '..'), encoding: 'utf-8',
+      maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] },
+  );
+  let ts = 0;
+  const prefix = relChapterDir + path.sep;
+  for (const line of out.split('\n')) {
+    if (!line) continue;
+    if (/^\d{9,11}$/.test(line)) { ts = Number(line) * 1000; continue; }
+    if (!line.startsWith(prefix) || !line.endsWith('.json')) continue;
+    // git log er nyeste-først, så første treff per fil er siste endring.
+    const stem = line.slice(prefix.length, -'.json'.length);
+    if (!gitTimes.has(stem)) gitTimes.set(stem, ts);
+  }
+} catch {
+  // Ingen git tilgjengelig — vi faller tilbake til mtime under.
+}
+
+const dates = {};
+let fraGit = 0, fraMtime = 0;
+for (const id of registry.chapterIds) {
+  const stem = (registry.aliases && registry.aliases[id]) || id;
+  const git = gitTimes.get(stem) || gitTimes.get(id);
+  if (git) {
+    dates[id] = new Date(git).toISOString();
+    fraGit++;
+  } else {
+    try {
+      dates[id] = fs.statSync(path.join(dir, stem + '.json')).mtime.toISOString();
+      fraMtime++;
+    } catch { /* utelates; sitemap.ts bruker byggetidspunkt */ }
+  }
+}
+
+fs.writeFileSync(path.join(dir, '_dates.json'), JSON.stringify(dates));
+console.log(
+  `Datoer for ${Object.keys(dates).length} kapitler til _dates.json ` +
+  `(${fraGit} fra git, ${fraMtime} fra mtime)`
+);
+
 // Nynorsk-versjoner (sidecar): bunt til _all.nn.json. Kun de som faktisk er oversatt.
 // _meta.tm (translation memory) strippes — rendereren trenger bare det oversatte innholdet.
 const nnDir = path.join(dir, 'nn');

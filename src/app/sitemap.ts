@@ -1,6 +1,4 @@
-import { execFileSync } from 'node:child_process';
-import fs from 'node:fs';
-import path from 'node:path';
+import chapterDates from '@/lib/data/chapters/_dates.json';
 import type { MetadataRoute } from 'next';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 
@@ -61,74 +59,22 @@ const GRADE_LEVELS = ['5', '6', '7', '8', '9', '10', 'vg1', 'vg2', 'vg3', 'hoyer
 // Kurssider (/bok/<id>, /flashcards, /kompetansemal) arver nyeste tidspunkt
 // blant kursets egne kapitler; quiz-sida arver kapittelets eget tidspunkt.
 
-const CHAPTER_DIR = path.join('src', 'lib', 'data', 'chapters');
-
-/**
- * chapterId → filnavn-stamme. Metadata bruker enkelte steder en annen id enn
- * innholdsfila (kjent alias-indireksjon, f.eks. `helseoppvekst-vg2-5-4` →
- * `hov2-5-4.json`). `_registry.json` holder den kartleggingen.
- */
-function loadAliases(): Record<string, string> {
-  try {
-    const p = path.join(process.cwd(), CHAPTER_DIR, '_registry.json');
-    const reg = JSON.parse(fs.readFileSync(p, 'utf-8')) as { aliases?: Record<string, string> };
-    return reg.aliases ?? {};
-  } catch {
-    return {};
-  }
-}
-
-/** Nyeste commit-tid (ms) per kapittelfil, fra ett batch-kall til git. */
-function loadGitTimestamps(): Map<string, number> {
-  const map = new Map<string, number>();
-  try {
-    const out = execFileSync(
-      'git',
-      ['log', '--pretty=format:%ct', '--name-only', '--no-renames', '--', CHAPTER_DIR],
-      { cwd: process.cwd(), encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] },
-    );
-    let ts = 0;
-    const prefix = `${CHAPTER_DIR}/`;
-    for (const line of out.split('\n')) {
-      if (!line) continue;
-      if (/^\d{9,11}$/.test(line)) {
-        ts = Number(line) * 1000;
-        continue;
-      }
-      if (!line.startsWith(prefix) || !line.endsWith('.json')) continue;
-      const stem = line.slice(prefix.length, -'.json'.length);
-      // git log er nyeste-først, så første treff er siste endring.
-      if (!map.has(stem)) map.set(stem, ts);
-    }
-  } catch {
-    // Ingen git i byggemiljøet — vi faller tilbake til mtime.
-  }
-  return map;
-}
+// Datoene er forhandsberegnet av scripts/combine-chapters.js (prebuild) og
+// ligger i _dates.json. De MA importeres statisk.
+//
+// Slar vi dem opp med fs her, avvises deployen: et interpolert filnavn som
+// `${stem}.json` kan ikke spores av Turbopack, sa den pakker hele mappa inn i
+// funksjonen. 26. juli 2026 ble sitemap-funksjonen 597 MB mot en grense pa 250,
+// og tre produksjonsdeployer feilet pa rad. Se kommentaren i combine-chapters.js.
+const DATES = chapterDates as Record<string, string>;
 
 function createChapterDateLookup(buildTime: Date) {
-  const aliases = loadAliases();
-  const gitTimes = loadGitTimestamps();
   const cache = new Map<string, Date>();
-
   return function chapterDate(chapterId: string): Date {
     const cached = cache.get(chapterId);
     if (cached) return cached;
-
-    const stem = aliases[chapterId] ?? chapterId;
-    let date = buildTime;
-
-    const git = gitTimes.get(stem) ?? gitTimes.get(chapterId);
-    if (git) {
-      date = new Date(git);
-    } else {
-      try {
-        date = fs.statSync(path.join(process.cwd(), CHAPTER_DIR, `${stem}.json`)).mtime;
-      } catch {
-        /* beholder buildTime */
-      }
-    }
-
+    const iso = DATES[chapterId];
+    const date = iso ? new Date(iso) : buildTime;
     cache.set(chapterId, date);
     return date;
   };

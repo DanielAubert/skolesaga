@@ -32,6 +32,19 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     '/**': ['./src/lib/data/chapters/_all.json'],
   },
+  // ⚠ HODEROM: `/**`-regelen over legger _all.json (163 MB) i HVER funksjon, og
+  // Vercels grense er 250 MB ukomprimert. Sitemap-ruta lå på 167,6 MB 26. juli
+  // 2026 — det er ~83 MB igjen, og _all.json vokser med hver nye bok.
+  //
+  // Et forsøk på å unnta _all.json for `/sitemap.xml` her hadde INGEN effekt
+  // (målt: 167,6 MB både med og uten linja) — `outputFileTracingIncludes` vinner
+  // over excludes for samme fil. Skal ruta slankes, må INCLUDE-mønsteret snevres
+  // inn til de rutene som faktisk leser kapittelinnhold, ikke `/**`.
+  //
+  // Samme dag feilet tre produksjonsdeployer fordi sitemap.ts slo opp kapittel-
+  // filer med et interpolert filnavn: Turbopack kunne ikke spore det og pakket
+  // hele mappa inn, 597 MB. Datoene forhåndsberegnes nå til _dates.json i
+  // scripts/combine-chapters.js. Ikke innfør dynamiske fs-oppslag i en rute.
   outputFileTracingExcludes: {
     '/**': [
       './src/lib/data/chapters/_all.nn.json',
