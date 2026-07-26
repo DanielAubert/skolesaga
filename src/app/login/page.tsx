@@ -71,6 +71,8 @@ function LoginPageContent() {
         <div className="w-full max-w-md space-y-6">
           {/* Welcome text */}
           <div className="text-center space-y-4">
+            {/* Logoen er den visuelle tittelen; skjermlesere trenger en ekte <h1> */}
+            <h1 className="sr-only">Logg inn eller registrer deg på Skolesaga</h1>
             <div className="flex justify-center">
               <Logo size="lg" />
             </div>

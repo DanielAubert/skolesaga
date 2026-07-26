@@ -218,7 +218,7 @@ export default function PlayPage({ params }: PageProps) {
             {gaveUp ? (
               <>
                 <div className="text-6xl mb-4">🏳️</div>
-                <h2 className="text-2xl font-bold mb-2">Ga opp</h2>
+                <h1 className="text-2xl font-bold mb-2">Ga opp</h1>
                 <p className="text-muted-foreground mb-4">
                   Du kom til {currentProblemIndex}/{problems.length} oppgaver
                 </p>
@@ -226,7 +226,7 @@ export default function PlayPage({ params }: PageProps) {
             ) : (
               <>
                 <div className="text-6xl mb-4">🎉</div>
-                <h2 className="text-2xl font-bold mb-2">Ferdig!</h2>
+                <h1 className="text-2xl font-bold mb-2">Ferdig!</h1>
                 <p className="text-3xl font-mono text-primary mb-4">
                   {formatTime(elapsedTime)}
                 </p>
@@ -280,6 +280,8 @@ export default function PlayPage({ params }: PageProps) {
 
       {/* Main game area */}
       <main id="main-content" className="flex-1 flex flex-col items-center justify-center px-4">
+        {/* Spillflaten har ingen synlig tittel — <h1> for skjermlesere */}
+        <h1 className="sr-only">Hoderegning-challenge</h1>
         <Card className="w-full max-w-lg">
           <CardContent className="pt-8 pb-8">
             {/* Problem display with inline input */}

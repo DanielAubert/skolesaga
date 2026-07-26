@@ -248,7 +248,7 @@ export function EksamenClient({
           <Card className="max-w-2xl mx-auto">
             <CardContent className="pt-6 text-center">
               <ClipboardList className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-              <h2 className="text-2xl font-bold mb-2">Eksamenstrening kommer snart</h2>
+              <h1 className="text-2xl font-bold mb-2">Eksamenstrening kommer snart</h1>
               <p className="text-muted-foreground mb-6">
                 Dette faget har ikke nok quizspørsmål til en eksamensøkt ennå.
                 Eksamenssimulatoren åpner så snart quizbanken er på plass.
@@ -389,7 +389,7 @@ export function EksamenClient({
             {/* Øktoppsett */}
             <Card className="mb-6">
               <CardContent className="pt-6">
-                <h3 className="font-semibold mb-3">Denne økten</h3>
+                <h2 className="text-2xl md:text-3xl font-semibold mb-3">Denne økten</h2>
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div className="p-3 rounded-lg bg-muted/50">
                     <div className="text-2xl font-bold">{oktantall}</div>
@@ -474,7 +474,7 @@ export function EksamenClient({
                       prosent >= 60 ? "text-yellow-500" : "text-muted-foreground"
                     }`}
                   />
-                  <h2 className="text-2xl font-bold mb-1">Eksamensøkt fullført</h2>
+                  <h1 className="text-2xl font-bold mb-1">Eksamensøkt fullført</h1>
                   <p className="text-muted-foreground">{courseTitle}</p>
                 </div>
 
@@ -509,10 +509,10 @@ export function EksamenClient({
                 {/* Gjettestrategi-innsikt (kun ved minuspoeng) */}
                 {minuspoeng && (
                   <div className="mb-6 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-                    <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
+                    <h2 className="text-2xl md:text-3xl font-semibold text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
                       <Lightbulb className="h-4 w-4" />
                       Gjettestrategi
-                    </h3>
+                    </h2>
                     <p className="text-sm text-blue-800 dark:text-blue-200 mb-2">
                       Med {feilstraff.toLocaleString("nb-NO")} for feil og 0 for blankt er
                       forventet verdi av å gjette blindt på {antAlt} alternativer{" "}
@@ -541,10 +541,10 @@ export function EksamenClient({
                 {/* Sensornøkler som lesetips */}
                 {fagprofil.sensornokler.length > 0 && (
                   <div className="mb-4">
-                    <h3 className="font-semibold mb-2 flex items-center gap-2">
+                    <h2 className="text-2xl md:text-3xl font-semibold mb-2 flex items-center gap-2">
                       <ClipboardList className="h-4 w-4 text-primary" />
                       Sensornøkler å ta med videre
-                    </h3>
+                    </h2>
                     <ul className="space-y-1.5 text-sm text-muted-foreground list-disc pl-5">
                       {fagprofil.sensornokler.slice(0, 6).map((s, i) => (
                         <li key={i}>{s}</li>
@@ -555,10 +555,10 @@ export function EksamenClient({
 
                 {fagprofil.typiskeFeil.length > 0 && (
                   <div className="mb-6">
-                    <h3 className="font-semibold mb-2 flex items-center gap-2">
+                    <h2 className="text-2xl md:text-3xl font-semibold mb-2 flex items-center gap-2">
                       <AlertTriangle className="h-4 w-4 text-amber-600" />
                       Typiske feil sensor trekker for
-                    </h3>
+                    </h2>
                     <ul className="space-y-1.5 text-sm text-muted-foreground list-disc pl-5">
                       {fagprofil.typiskeFeil.slice(0, 6).map((f, i) => (
                         <li key={i}>{f}</li>
@@ -596,8 +596,10 @@ export function EksamenClient({
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <MainNav />
-      <main className="flex-1 container mx-auto px-4 py-4">
+      <main id="main-content" className="flex-1 container mx-auto px-4 py-4">
         <div className="max-w-2xl mx-auto">
+          {/* Eksamensøkten har ingen synlig tittel — <h1> for skjermlesere */}
+          <h1 className="sr-only">Eksamenstrening — {courseTitle}</h1>
           {/* Topplinje: nedtelling + framdrift */}
           <div className="flex items-center justify-between mb-3">
             <div
@@ -649,6 +651,7 @@ export function EksamenClient({
                       className={klasse}
                       onClick={() => svar(idx)}
                       disabled={aktiv.skipped}
+                      aria-pressed={valgt}
                     >
                       <div className="flex items-center gap-2.5">
                         <span className="shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-medium">

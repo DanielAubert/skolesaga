@@ -211,7 +211,7 @@ export default function AdminFeedbackPage() {
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div className="flex items-center gap-3">
                 <Flag className="h-6 w-6" />
-                <CardTitle>Tilbakemeldinger</CardTitle>
+                <CardTitle asChild className="text-base"><h1>Tilbakemeldinger</h1></CardTitle>
                 <Badge variant="outline">{total} meldinger</Badge>
               </div>
               <div className="flex items-center gap-2">

@@ -530,9 +530,9 @@ export default function PoengkalkulatorPage() {
 
                   {fagGrupper.map((gruppe) => (
                     <div key={gruppe.gruppe}>
-                      <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                      <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
                         {gruppe.gruppe}
-                      </h3>
+                      </h2>
                       {gruppe.beskrivelse && (
                         <p className="text-xs text-muted-foreground mb-2">{gruppe.beskrivelse}</p>
                       )}
@@ -572,9 +572,9 @@ export default function PoengkalkulatorPage() {
 
                   {/* Programfag / egne fag */}
                   <div>
-                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                    <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
                       Programfag
-                    </h3>
+                    </h2>
                     <p className="text-xs text-muted-foreground mb-2">
                       Legg til programfag med standpunkt og evt. eksamen.
                     </p>
@@ -678,9 +678,9 @@ export default function PoengkalkulatorPage() {
 
                   {/* Trekkfag / eksamenskarakterer */}
                   <div>
-                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                    <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
                       Trekkfag (eksamen)
-                    </h3>
+                    </h2>
                     <p className="text-xs text-muted-foreground mb-2">
                       Ble du trukket til eksamen i noen fag? Legg dem til her. Norsk hovedmål eksamen ligger allerede over.
                     </p>
@@ -794,7 +794,7 @@ export default function PoengkalkulatorPage() {
               {/* Realfag */}
               {realfag.map((gruppe) => (
                 <div key={gruppe.kategori}>
-                  <h3 className="text-sm font-semibold mb-3">{gruppe.kategori}</h3>
+                  <h2 className="text-sm font-semibold mb-3">{gruppe.kategori}</h2>
                   <div className="grid gap-2">
                     {gruppe.fag.map((fag) => (
                       <label
@@ -819,10 +819,10 @@ export default function PoengkalkulatorPage() {
 
               {/* Språk */}
               <div>
-                <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                <h2 className="text-sm font-semibold mb-3 flex items-center gap-2">
                   <Languages className="h-4 w-4" />
                   Fremmedspråk programfag
-                </h3>
+                </h2>
                 <div className="grid gap-2">
                   {sprakfag.map((fag) => (
                     <label

@@ -7,6 +7,7 @@ import { Terminal, Loader2 } from 'lucide-react';
 import { usePyodide } from '@/contexts/pyodide-context';
 import { PyodideLoader } from './pyodide-loader';
 import { Input } from '@/components/ui/input';
+import { scrollBehavior } from '@/lib/utils';
 
 export interface PythonInputRunnerProps {
   initialCode?: string;
@@ -49,7 +50,7 @@ export function PythonInputRunner({
     if (consoleEndRef.current && consoleOutput.length > 0) {
       consoleEndRef.current.parentElement?.scrollTo({
         top: consoleEndRef.current.parentElement.scrollHeight,
-        behavior: 'smooth'
+        behavior: scrollBehavior()
       });
     }
   }, [consoleOutput, waitingForInput]);

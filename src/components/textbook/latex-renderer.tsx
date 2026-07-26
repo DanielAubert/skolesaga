@@ -157,6 +157,10 @@ function renderMixedContent(content: string): string {
   // Handle Markdown-style formatting
   // Headings (#, ##, ### and ####) - process from most specific to least specific
   // Use [^\n]+ instead of .+ to ensure we don't match across lines
+  // NB (WCAG 1.3.1): «##» blir <h3> rett under sidens <h1> — et nivåhopp i ~10 200
+  // av 11 243 kapitler. Riktig fiks krever kapittel-nivå-kontekst (se
+  // docs/wcag-revisjon.md); nivå-normalisering per tekstblokk flater ut ekte
+  // underkapitler og er derfor bevisst IKKE gjort her.
   result = result.replace(/^#### ([^\n\r]+)$/gm, '<h5 class="text-base font-semibold mt-4 mb-2">$1</h5>');
   result = result.replace(/^### ([^\n\r]+)$/gm, '<h4 class="text-lg font-semibold mt-6 mb-2">$1</h4>');
   result = result.replace(/^## ([^\n\r]+)$/gm, '<h3 class="text-xl font-bold mt-6 mb-3">$1</h3>');

@@ -119,7 +119,9 @@ export default function ChangePasswordPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl">Endre passord</CardTitle>
+              <CardTitle asChild className="text-2xl">
+                <h1>Endre passord</h1>
+              </CardTitle>
               <CardDescription>
                 Velg et nytt passord for kontoen din
               </CardDescription>

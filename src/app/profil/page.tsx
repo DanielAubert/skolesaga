@@ -230,7 +230,9 @@ export default function ProfilePage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
-                <CardTitle className="text-2xl">Min profil</CardTitle>
+                <CardTitle asChild className="text-2xl">
+                  <h1>Min profil</h1>
+                </CardTitle>
                 <CardDescription>Administrer kontoinformasjonen din</CardDescription>
               </div>
               <Link href="/onboarding">

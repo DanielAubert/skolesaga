@@ -91,7 +91,7 @@ export default function PersonlighetsTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-950">
                     <Clock className="h-5 w-5 text-teal-600" />
                   </div>
-                  <h3 className="font-semibold">Ca. 10 minutter</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Ca. 10 minutter</h2>
                   <p className="text-sm text-muted-foreground">60 påstander du vurderer på en skala</p>
                 </CardContent>
               </Card>
@@ -101,7 +101,7 @@ export default function PersonlighetsTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-950">
                     <BarChart3 className="h-5 w-5 text-teal-600" />
                   </div>
-                  <h3 className="font-semibold">5 personlighetstrekk</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">5 personlighetstrekk</h2>
                   <p className="text-sm text-muted-foreground">Radardiagram og detaljert profil</p>
                 </CardContent>
               </Card>
@@ -111,7 +111,7 @@ export default function PersonlighetsTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-950">
                     <Sparkles className="h-5 w-5 text-teal-600" />
                   </div>
-                  <h3 className="font-semibold">AI-analyse</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">AI-analyse</h2>
                   <p className="text-sm text-muted-foreground">Personlig analyse av din profil</p>
                 </CardContent>
               </Card>

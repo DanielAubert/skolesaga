@@ -734,6 +734,8 @@ export function DiagnostiskClient({
       <TextbookHeader />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
+          {/* Selve quizen har ingen synlig tittel — <h1> for skjermlesere */}
+          <h1 className="sr-only">{config.title.replace('Gigaquiz', 'Diagnostisk quiz')}</h1>
           {/* Top bar: dot progress + "Se resultater" */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
@@ -815,6 +817,7 @@ export function DiagnostiskClient({
                         key={idx}
                         onClick={() => handleOptionClick(idx)}
                         disabled={hasAnswered}
+                        aria-pressed={isSelected}
                         className={`w-full text-left p-4 rounded-lg border-2 transition-all ${optionClass} ${!hasAnswered ? 'cursor-pointer' : 'cursor-default'}`}
                       >
                         <div className="flex items-start gap-3">

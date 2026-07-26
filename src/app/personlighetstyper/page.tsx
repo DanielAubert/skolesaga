@@ -85,7 +85,7 @@ export default function PersonlighetsTyperPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-950">
                     <Clock className="h-5 w-5 text-orange-600" />
                   </div>
-                  <h3 className="font-semibold">Ca. 8 minutter</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Ca. 8 minutter</h2>
                   <p className="text-sm text-muted-foreground">48 påstander på en skala</p>
                 </CardContent>
               </Card>
@@ -95,7 +95,7 @@ export default function PersonlighetsTyperPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-950">
                     <BarChart3 className="h-5 w-5 text-orange-600" />
                   </div>
-                  <h3 className="font-semibold">4 dimensjoner</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">4 dimensjoner</h2>
                   <p className="text-sm text-muted-foreground">Gir én av 16 unike typer</p>
                 </CardContent>
               </Card>
@@ -105,7 +105,7 @@ export default function PersonlighetsTyperPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-950">
                     <Sparkles className="h-5 w-5 text-orange-600" />
                   </div>
-                  <h3 className="font-semibold">AI-analyse</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">AI-analyse</h2>
                   <p className="text-sm text-muted-foreground">Personlig beskrivelse av din type</p>
                 </CardContent>
               </Card>

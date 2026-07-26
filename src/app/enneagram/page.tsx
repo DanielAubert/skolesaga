@@ -74,7 +74,7 @@ export default function EnneagramPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-950">
                     <Clock className="h-5 w-5 text-amber-600" />
                   </div>
-                  <h3 className="font-semibold">Ca. 10 minutter</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Ca. 10 minutter</h2>
                   <p className="text-sm text-muted-foreground">54 påstander om din personlighet</p>
                 </CardContent>
               </Card>
@@ -84,7 +84,7 @@ export default function EnneagramPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-950">
                     <BarChart3 className="h-5 w-5 text-amber-600" />
                   </div>
-                  <h3 className="font-semibold">9 typer + vinge</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">9 typer + vinge</h2>
                   <p className="text-sm text-muted-foreground">Din type med tilhørende vinge</p>
                 </CardContent>
               </Card>
@@ -94,7 +94,7 @@ export default function EnneagramPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-950">
                     <Sparkles className="h-5 w-5 text-amber-600" />
                   </div>
-                  <h3 className="font-semibold">AI-analyse</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">AI-analyse</h2>
                   <p className="text-sm text-muted-foreground">Personlig vekst og utvikling</p>
                 </CardContent>
               </Card>

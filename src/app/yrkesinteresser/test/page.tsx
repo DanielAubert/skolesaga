@@ -107,7 +107,7 @@ export default function RIASECTestPage() {
         <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-4">
             <Loader2 className="h-12 w-12 animate-spin mx-auto text-blue-600" />
-            <h2 className="text-2xl font-bold">Analyserer dine interesser...</h2>
+            <h1 className="text-2xl font-bold">Analyserer dine interesser...</h1>
             <p className="text-muted-foreground">Finner dine sterkeste interesseområder og karriereforslag</p>
           </div>
         </main>
@@ -214,7 +214,7 @@ export default function RIASECTestPage() {
                           <span className="font-semibold">{score.percentile}%</span>
                         </div>
                       </div>
-                      <Progress value={score.percentile} className="h-2" />
+                      <Progress value={score.percentile} className="h-2" aria-label="Persentil" />
                     </div>
                   );
                 })}
@@ -285,8 +285,10 @@ export default function RIASECTestPage() {
     <div className="flex min-h-screen flex-col">
       <MainNav />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="container py-6 max-w-2xl">
+          {/* Testfasen har ingen synlig tittel — <h1> for skjermlesere */}
+          <h1 className="sr-only">Yrkesinteressetest</h1>
           <div className="sticky top-16 z-10 bg-background/95 backdrop-blur py-3 mb-6 border-b">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm font-medium">
@@ -297,7 +299,7 @@ export default function RIASECTestPage() {
                 <span>{elapsedMinutes} min</span>
               </div>
             </div>
-            <Progress value={progressPercent} className="h-1.5" />
+            <Progress value={progressPercent} className="h-1.5" aria-label="Framdrift i testen" />
           </div>
 
           <Card className={`transition-all duration-300 ${selectedScore !== null ? 'opacity-50 scale-[0.98]' : 'opacity-100 scale-100'}`}>
@@ -337,6 +339,7 @@ export default function RIASECTestPage() {
                       key={score}
                       onClick={() => handleAnswer(score)}
                       disabled={selectedScore !== null}
+                      aria-pressed={isSelected}
                       className="flex flex-col items-center gap-2 group"
                     >
                       <div

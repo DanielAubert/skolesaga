@@ -96,7 +96,9 @@ export function FeedbackDialog({ courseId, chapterId, chapterTitle }: FeedbackDi
       <DialogContent className="sm:max-w-md">
         {submitted ? (
           <>
-            <DialogHeader>
+            {/* role="alert" gjør at skjermlesere annonserer kvitteringen når
+                dialoginnholdet byttes ut — tittelbyttet alene varsles ikke. */}
+            <DialogHeader role="alert">
               <DialogTitle className="flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-green-600" />
                 Takk for tilbakemeldingen!

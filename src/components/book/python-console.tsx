@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { usePyodide } from '@/contexts/pyodide-context';
 import { PyodideLoader } from './pyodide-loader';
 import { markExerciseCompleted, isExerciseCompleted } from '@/lib/data/book-chapters';
+import { scrollBehavior } from '@/lib/utils';
 
 export interface PythonConsoleProps {
   title?: string;
@@ -90,7 +91,7 @@ export function PythonConsole({
       // Only scroll within the console container, not the page
       historyEndRef.current.parentElement?.scrollTo({
         top: historyEndRef.current.parentElement.scrollHeight,
-        behavior: 'smooth'
+        behavior: scrollBehavior()
       });
     }
   }, [history]);

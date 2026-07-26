@@ -97,7 +97,7 @@ export default function YrkesinteresserPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-950">
                     <Clock className="h-5 w-5 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold">Ca. 8 minutter</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Ca. 8 minutter</h2>
                   <p className="text-sm text-muted-foreground">48 påstander om dine interesser</p>
                 </CardContent>
               </Card>
@@ -107,7 +107,7 @@ export default function YrkesinteresserPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-950">
                     <BarChart3 className="h-5 w-5 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold">6 interesseområder</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">6 interesseområder</h2>
                   <p className="text-sm text-muted-foreground">Radardiagram + Holland-kode</p>
                 </CardContent>
               </Card>
@@ -117,7 +117,7 @@ export default function YrkesinteresserPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-950">
                     <Sparkles className="h-5 w-5 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold">Karriereforslag</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Karriereforslag</h2>
                   <p className="text-sm text-muted-foreground">Yrker som passer din profil</p>
                 </CardContent>
               </Card>

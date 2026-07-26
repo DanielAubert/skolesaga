@@ -97,7 +97,7 @@ export default function IQTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-950">
                     <Clock className="h-5 w-5 text-violet-600" />
                   </div>
-                  <h3 className="font-semibold">15–20 minutter</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">15–20 minutter</h2>
                   <p className="text-sm text-muted-foreground">Ca. 30–35 spørsmål tilpasset ditt nivå</p>
                 </CardContent>
               </Card>
@@ -107,7 +107,7 @@ export default function IQTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-950">
                     <BarChart3 className="h-5 w-5 text-violet-600" />
                   </div>
-                  <h3 className="font-semibold">6 kognitive domener</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">6 kognitive domener</h2>
                   <p className="text-sm text-muted-foreground">Detaljert nedbrytning av styrker og svakheter</p>
                 </CardContent>
               </Card>
@@ -117,7 +117,7 @@ export default function IQTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-950">
                     <Sparkles className="h-5 w-5 text-violet-600" />
                   </div>
-                  <h3 className="font-semibold">AI-analyse</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">AI-analyse</h2>
                   <p className="text-sm text-muted-foreground">Personlig analyse av dine kognitive evner</p>
                 </CardContent>
               </Card>

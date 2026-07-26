@@ -85,7 +85,7 @@ export default function LaeringsstilPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-950">
                     <Clock className="h-5 w-5 text-indigo-600" />
                   </div>
-                  <h3 className="font-semibold">Ca. 8 minutter</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Ca. 8 minutter</h2>
                   <p className="text-sm text-muted-foreground">48 påstander om hvordan du lærer</p>
                 </CardContent>
               </Card>
@@ -95,7 +95,7 @@ export default function LaeringsstilPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-950">
                     <BarChart3 className="h-5 w-5 text-indigo-600" />
                   </div>
-                  <h3 className="font-semibold">4 læringstiler</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">4 læringstiler</h2>
                   <p className="text-sm text-muted-foreground">Profil med studietips for deg</p>
                 </CardContent>
               </Card>
@@ -105,7 +105,7 @@ export default function LaeringsstilPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-950">
                     <Sparkles className="h-5 w-5 text-indigo-600" />
                   </div>
-                  <h3 className="font-semibold">AI-analyse</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">AI-analyse</h2>
                   <p className="text-sm text-muted-foreground">Personlige studiestrategier</p>
                 </CardContent>
               </Card>

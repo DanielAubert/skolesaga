@@ -255,7 +255,7 @@ export default function LobbyPage({ params }: PageProps) {
                   {challengeInfo.icon}
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold">{challengeInfo.name}</h2>
+                  <h1 className="text-xl font-bold">{challengeInfo.name}</h1>
                   <p className="text-muted-foreground">{challengeInfo.description}</p>
                   <p className="text-sm text-muted-foreground mt-1">
                     15 oppgaver - førstemann ferdig vinner!

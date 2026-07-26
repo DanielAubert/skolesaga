@@ -94,7 +94,9 @@ export default function JoinClassPage() {
               <div className="mx-auto p-3 rounded-full bg-blue-100 dark:bg-blue-950/50 w-fit mb-4">
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
-              <CardTitle className="text-2xl">Bli med i en klasse</CardTitle>
+              <CardTitle asChild className="text-2xl">
+                <h1>Bli med i en klasse</h1>
+              </CardTitle>
               <CardDescription>
                 Skriv inn invitasjonskoden du har fått fra læreren din
               </CardDescription>
@@ -108,6 +110,8 @@ export default function JoinClassPage() {
                     placeholder="F.eks. ABC123"
                     value={code}
                     onChange={(e) => setCode(e.target.value.toUpperCase())}
+                    aria-invalid={error ? true : undefined}
+                    aria-describedby={error ? "join-error" : undefined}
                     className="text-center text-lg font-mono tracking-widest"
                     maxLength={10}
                     disabled={isJoining}
@@ -115,7 +119,7 @@ export default function JoinClassPage() {
                 </div>
 
                 {error && (
-                  <div role="alert" className="flex items-center gap-2 p-3 rounded-lg bg-red-100 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-sm">
+                  <div id="join-error" role="alert" className="flex items-center gap-2 p-3 rounded-lg bg-red-100 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-sm">
                     <XCircle className="h-4 w-4 flex-shrink-0" />
                     <span>{error}</span>
                   </div>

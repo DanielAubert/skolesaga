@@ -341,6 +341,7 @@ export function StandaloneQuizClient({
                         key={idx}
                         onClick={() => handleOptionClick(idx)}
                         disabled={hasAnswered}
+                        aria-pressed={isSelected}
                         className={`w-full text-left p-4 rounded-lg border-2 transition-all ${optionClass} ${!hasAnswered ? 'cursor-pointer' : 'cursor-default'}`}
                       >
                         <div className="flex items-start gap-3">

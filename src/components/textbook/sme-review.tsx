@@ -406,6 +406,8 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
       <MainNav />
       <main ref={mainRef} id="main-content" className="flex-1 container mx-auto max-w-4xl px-4 py-8">
         <div className="mb-4 text-sm text-muted-foreground">Nordsamisk review</div>
+        {/* Siden har ingen synlig tittel-overskrift — <h1> for skjermlesere */}
+        <h1 className="sr-only">Nordsamisk review: {courseTitle} — {chapterTitle}</h1>
         <div className="rounded-lg border bg-amber-50 dark:bg-amber-950/30 p-4 mb-6 text-sm">
           <p className="font-semibold mb-1">Nordsamisk review · {courseTitle} — {chapterTitle}</p>
           <p>

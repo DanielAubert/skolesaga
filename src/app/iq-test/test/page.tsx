@@ -135,7 +135,7 @@ export default function IQTestPage() {
         <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-4">
             <Loader2 className="h-12 w-12 animate-spin mx-auto text-violet-600" />
-            <h2 className="text-2xl font-bold">Beregner resultat...</h2>
+            <h1 className="text-2xl font-bold">Beregner resultat...</h1>
             <p className="text-muted-foreground">Analyserer dine svar med adaptiv algoritme</p>
           </div>
         </main>
@@ -152,12 +152,14 @@ export default function IQTestPage() {
     return (
       <div className="flex min-h-screen flex-col">
         <MainNav />
-        <main className="flex-1">
+        <main id="main-content" className="flex-1">
           <div className="container py-8 max-w-4xl">
             {/* IQ Score */}
             <Card className="mb-8">
               <CardHeader className="text-center pb-2">
-                <CardTitle className="text-2xl">Ditt resultat</CardTitle>
+                <CardTitle asChild className="text-2xl">
+                  <h1>Ditt resultat</h1>
+                </CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <div className="flex justify-center">
@@ -231,7 +233,7 @@ export default function IQTestPage() {
                           <span className="font-semibold text-foreground">{score.percentile}%</span>
                         </div>
                       </div>
-                      <Progress value={score.percentile} className="h-2" />
+                      <Progress value={score.percentile} className="h-2" aria-label="Persentil" />
                     </div>
                   );
                 })}
@@ -324,8 +326,10 @@ export default function IQTestPage() {
     <div className="flex min-h-screen flex-col">
       <MainNav />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="container py-6 max-w-2xl">
+          {/* Testfasen har ingen synlig tittel — <h1> for skjermlesere */}
+          <h1 className="sr-only">IQ-test</h1>
           {/* Header med progress */}
           <div className="sticky top-16 z-10 bg-background/95 backdrop-blur py-3 mb-6 border-b">
             <div className="flex justify-between items-center mb-2">
@@ -343,7 +347,7 @@ export default function IQTestPage() {
                 </div>
               </div>
             </div>
-            <Progress value={progressPercent} className="h-1.5" />
+            <Progress value={progressPercent} className="h-1.5" aria-label="Framdrift i testen" />
           </div>
 
           {/* Spørsmål */}
@@ -375,6 +379,7 @@ export default function IQTestPage() {
                     key={index}
                     onClick={() => handleAnswer(index)}
                     disabled={selectedOption !== null}
+                    aria-pressed={isSelected}
                     className={buttonClass}
                   >
                     <div className="flex items-start gap-3">

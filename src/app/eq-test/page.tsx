@@ -95,7 +95,7 @@ export default function EQTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-950">
                     <Clock className="h-5 w-5 text-rose-600" />
                   </div>
-                  <h3 className="font-semibold">Ca. 10 minutter</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Ca. 10 minutter</h2>
                   <p className="text-sm text-muted-foreground">50 påstander om følelser og relasjoner</p>
                 </CardContent>
               </Card>
@@ -105,7 +105,7 @@ export default function EQTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-950">
                     <BarChart3 className="h-5 w-5 text-rose-600" />
                   </div>
-                  <h3 className="font-semibold">5 dimensjoner</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">5 dimensjoner</h2>
                   <p className="text-sm text-muted-foreground">EQ-profil med radardiagram</p>
                 </CardContent>
               </Card>
@@ -115,7 +115,7 @@ export default function EQTestPage() {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-950">
                     <Sparkles className="h-5 w-5 text-rose-600" />
                   </div>
-                  <h3 className="font-semibold">AI-analyse</h3>
+                  <h2 className="text-2xl md:text-3xl font-semibold">AI-analyse</h2>
                   <p className="text-sm text-muted-foreground">Personlige utviklingstips</p>
                 </CardContent>
               </Card>

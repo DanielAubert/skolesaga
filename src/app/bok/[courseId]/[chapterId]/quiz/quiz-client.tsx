@@ -190,7 +190,7 @@ export function QuizClient({
           <Card className="max-w-2xl mx-auto">
             <CardContent className="pt-6 text-center">
               <BookCheck className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-              <h2 className="text-2xl font-bold mb-2">Quiz kommer snart!</h2>
+              <h1 className="text-2xl font-bold mb-2">Quiz kommer snart!</h1>
               <p className="text-muted-foreground mb-6">
                 Quizen for dette kapitlet er under utvikling.
               </p>
@@ -220,9 +220,9 @@ export function QuizClient({
           <Card className="max-w-2xl mx-auto">
             <CardContent className="pt-6 text-center">
               <Trophy className={`h-20 w-20 mx-auto mb-4 ${isGoodScore ? 'text-yellow-500' : 'text-muted-foreground'}`} />
-              <h2 className="text-3xl font-bold mb-2">
+              <h1 className="text-3xl font-bold mb-2">
                 {isGoodScore ? 'Bra jobba!' : 'Fortsett å øve!'}
-              </h2>
+              </h1>
               <p className="text-4xl font-bold text-primary mb-2">
                 {score} / {problems.length}
               </p>
@@ -291,6 +291,9 @@ export function QuizClient({
           </BreadcrumbList>
         </Breadcrumb>
 
+        {/* Selve quizen har ingen synlig tittel — <h1> for skjermlesere */}
+        <h1 className="sr-only">Quiz: {chapterNumber} {chapterTitle}</h1>
+
         {/* Progress indicator */}
         <div className="max-w-2xl mx-auto mb-4">
           <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
@@ -340,6 +343,7 @@ export function QuizClient({
                     className={buttonClass}
                     onClick={() => handleOptionClick(idx)}
                     disabled={hasAnswered}
+                    aria-pressed={isSelected}
                   >
                     <div className="flex items-center gap-2.5">
                       <span className="shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-medium">

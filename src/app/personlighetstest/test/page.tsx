@@ -107,7 +107,7 @@ export default function PersonlighetsTestPage() {
         <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-4">
             <Loader2 className="h-12 w-12 animate-spin mx-auto text-teal-600" />
-            <h2 className="text-2xl font-bold">Beregner din personlighetsprofil...</h2>
+            <h1 className="text-2xl font-bold">Beregner din personlighetsprofil...</h1>
             <p className="text-muted-foreground">Analyserer dine svar på tvers av 5 trekk og 15 fasetter</p>
           </div>
         </main>
@@ -205,7 +205,7 @@ export default function PersonlighetsTestPage() {
                           <span className="font-bold text-sm">{score.percentile}%</span>
                         </div>
                       </div>
-                      <Progress value={score.percentile} className="h-2" />
+                      <Progress value={score.percentile} className="h-2" aria-label="Persentil" />
                       {/* Facets */}
                       <div className="grid grid-cols-3 gap-2 pl-9">
                         {score.facetScores.map(fs => (
@@ -300,8 +300,10 @@ export default function PersonlighetsTestPage() {
     <div className="flex min-h-screen flex-col">
       <MainNav />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="container py-6 max-w-2xl">
+          {/* Testfasen har ingen synlig tittel — <h1> for skjermlesere */}
+          <h1 className="sr-only">Personlighetstest</h1>
           {/* Header with progress */}
           <div className="sticky top-16 z-10 bg-background/95 backdrop-blur py-3 mb-6 border-b">
             <div className="flex justify-between items-center mb-2">
@@ -313,7 +315,7 @@ export default function PersonlighetsTestPage() {
                 <span>{elapsedMinutes} min</span>
               </div>
             </div>
-            <Progress value={progressPercent} className="h-1.5" />
+            <Progress value={progressPercent} className="h-1.5" aria-label="Framdrift i testen" />
           </div>
 
           {/* Statement */}
@@ -356,6 +358,7 @@ export default function PersonlighetsTestPage() {
                       key={score}
                       onClick={() => handleAnswer(score)}
                       disabled={selectedScore !== null}
+                      aria-pressed={isSelected}
                       className="flex flex-col items-center gap-2 group"
                     >
                       <div

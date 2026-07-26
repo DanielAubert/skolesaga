@@ -502,7 +502,7 @@ export function GigaquizClient({ config }: { config: GigaquizConfig }) {
             <Card className={`border ${bgColor}`}>
               <CardContent className="p-6 text-center space-y-4">
                 <Badge variant="outline">{level} – Kapittel {chapterNumber}</Badge>
-                <h2 className="text-xl font-bold">{title}</h2>
+                <h1 className="text-xl font-bold">{title}</h1>
                 <div className={`text-4xl font-bold ${color}`}>
                   {correct}/{total} riktig
                 </div>
@@ -781,6 +781,8 @@ export function GigaquizClient({ config }: { config: GigaquizConfig }) {
       <TextbookHeader />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
+          {/* Selve quizen har ingen synlig tittel — <h1> for skjermlesere */}
+          <h1 className="sr-only">{config.title}</h1>
           {/* Back link */}
           <Link
             href="/quiz/gigaquiz"
@@ -875,6 +877,7 @@ export function GigaquizClient({ config }: { config: GigaquizConfig }) {
                         key={idx}
                         onClick={() => handleOptionClick(idx)}
                         disabled={hasAnswered}
+                        aria-pressed={isSelected}
                         className={`w-full text-left p-4 rounded-lg border-2 transition-all ${optionClass} ${!hasAnswered ? 'cursor-pointer' : 'cursor-default'}`}
                       >
                         <div className="flex items-start gap-3">

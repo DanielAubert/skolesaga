@@ -188,7 +188,7 @@ export default function AdminUsersPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Users className="h-6 w-6" />
-                <CardTitle>Brukeradministrasjon</CardTitle>
+                <CardTitle asChild className="text-base"><h1>Brukeradministrasjon</h1></CardTitle>
                 <Badge variant="outline">{total} brukere</Badge>
                 <Badge variant="outline" className="gap-1">
                   <Mail className="h-3 w-3" />

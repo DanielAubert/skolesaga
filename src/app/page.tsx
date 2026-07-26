@@ -5,11 +5,16 @@ import { ArrowRight, Calculator } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { DashboardBanner } from '@/components/home/dashboard-banner';
 import { mediaUrl } from '@/lib/media';
+import { pageMetadata } from '@/lib/seo';
+
+const HOME_TITLE = 'Skolesaga – Interaktive lærebøker';
+const HOME_DESCRIPTION =
+  'Komplette, interaktive lærebøker med teori, eksempler og oppgaver i én løkke – for ungdomsskole, videregående og høyskole/universitet. Gratis å lese, rett i nettleseren.';
 
 export const metadata: Metadata = {
-  title: 'Skolesaga – Interaktive lærebøker',
-  description:
-    'Komplette, interaktive lærebøker med teori, eksempler og oppgaver i én løkke – for ungdomsskole, videregående og høyskole/universitet. Gratis å lese, rett i nettleseren.',
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  ...pageMetadata({ path: '/', title: HOME_TITLE, description: HOME_DESCRIPTION }),
 };
 
 interface GradeCardProps {

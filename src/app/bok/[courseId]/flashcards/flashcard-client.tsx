@@ -473,7 +473,7 @@ export function FlashcardClient({
 
   const sectionSelect = (
     <Select value={sectionFilter} onValueChange={setSectionFilter}>
-      <SelectTrigger className="w-[200px]">
+      <SelectTrigger className="w-[200px]" aria-label="Filtrer kort på seksjon">
         <SelectValue placeholder="Alle seksjoner" />
       </SelectTrigger>
       <SelectContent>
@@ -545,9 +545,9 @@ export function FlashcardClient({
           </div>
           <div className="max-w-lg mx-auto text-center py-8">
             <CheckCircle2 className="h-16 w-16 mx-auto text-green-600 mb-4" />
-            <h2 className="text-2xl font-bold mb-2">
+            <h1 className="text-2xl font-bold mb-2">
               {srsSessionDone > 0 ? "Økt fullført!" : "Ingenting å repetere nå"}
-            </h2>
+            </h1>
             <p className="text-muted-foreground mb-6">
               {srsSessionDone > 0 ? (
                 <>Du repeterte {srsSessionDone} kort. Godt jobbet!</>
@@ -607,7 +607,7 @@ export function FlashcardClient({
           </div>
           <div className="max-w-lg mx-auto text-center py-8">
             <Layers className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Alle kort gjennomgått!</h2>
+            <h1 className="text-2xl font-bold mb-2">Alle kort gjennomgått!</h1>
             <p className="text-muted-foreground mb-6">
               Du har gjennomgått alle tilgjengelige kort
               {sectionFilter !== "all" ? " i denne seksjonen" : ""}.
@@ -803,9 +803,9 @@ export function FlashcardClient({
                   <Badge variant="outline" className="mb-3 text-xs self-start">
                     {currentCard.chapterNumber} {currentCard.chapterTitle}
                   </Badge>
-                  <h3 className="text-lg font-bold mb-3">
+                  <h2 className="text-lg font-bold mb-3">
                     <LatexRenderer content={currentCard.title} />
-                  </h3>
+                  </h2>
                   <div className="text-sm sm:text-base leading-relaxed flex-1">
                     <LatexRenderer content={currentCard.content} />
                   </div>
