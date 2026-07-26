@@ -222,6 +222,46 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  fil1001: {
+    courseId: 'fil1001',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for filosofi, idé- og kunsthistorie og klassiske språk (IFIKK)',
+    sammendrag:
+      'Boka er kalibrert mot FIL1001s eksamensarkiv ved UiO: 22 filer som utgjør 21 unike oppgavesett fra 2005 til 2024 — 18 ordinære og 3 utsatte prøver. Arkivet inneholder nøyaktig én sensorveiledning, for høsten 2018, og ingen løsningsforslag i det hele tatt. Temafrekvensene, sjangerkodene S1–S5 og feilkatalogen #1–#10 er utledet av settene selv.',
+    eksamenssett: [
+      {
+        tittel: '18 ordinære oppgavesett (H2005 – H2024)',
+        detalj:
+          'H2005, H2006, V2008–V2018, H2018, H2019, H2022, H2023 og H2024. V2017 finnes i både bokmåls- og nynorskutgave, men er ett sett og telles én gang. Alle frekvenspåstander i boka har nevner 21 og er talt mot settene.',
+      },
+      {
+        tittel: '3 utsatte prøver (H2018, V2018, H2021)',
+        detalj:
+          'Utsatt eksamen har samme form og vekt som ordinær, og inngår derfor i frekvenstellingen på lik linje. H2021-settet bærer i tillegg sensorveiledningen, se under.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Én sensorveiledning: høsten 2018',
+        detalj:
+          'Den ligger på siste side av det utsatte H2021-settet, ikke som eget dokument, og gir fem kjennetegn på et godt svar. Den er den eneste som finnes for emnet, og boka omtaler den konsekvent i entall. Sensorkravene i eksamenskartet hviler på denne veiledningen, på oppgavenes egne instruksjonsverb og på UiOs generelle kvalitative karakterbeskrivelser A–F.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for FIL1001',
+        detalj:
+          'Omskrevet sammendrag, kontrollert 26. juli 2026: 10 studiepoeng, 4-timers digital skoleeksamen i Inspera, ingen hjelpemidler, karakterskala A–F. Besvarelsen kan skrives på norsk, svensk, dansk eller engelsk.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har verken fasit eller løsningsforslag for FIL1001 — mappene finnes, men er tomme. Alle modellbesvarelser i boka er derfor nyskrevet av oss, og er merket som det hvert eneste sted de forekommer. Ingen av dem er en ekte kandidatbesvarelse.',
+      'Eksamensoppgaver og sensorveiledninger fra offentlige institusjoner er unntatt opphavsrett etter åndsverkloven § 14. Alt innhold i boka er likevel omskrevet med egne ord; ingen oppgavetekst er gjengitt ordrett.',
+      'Koblinger til pensumlitteraturen (Conee & Sider, Kim) er merket med ⚠ fordi utgave og kapittelinndeling varierer. Boka oppgir aldri sidetall — ingen er attestert i arkivet.',
+      'Frekvenstallet for qualia-komplekset ble målt til 12 av 21 sett ved gjennomgang av selve oppgavesettene 26. juli 2026. Grunnlagsdokumentet oppga 14; boka bruker 12.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   in1000: {
     courseId: 'in1000',
     institusjon: 'Universitetet i Oslo (UiO) — Institutt for informatikk (IFI)',

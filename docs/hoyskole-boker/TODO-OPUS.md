@@ -26,7 +26,7 @@ reserve når UiO-listen er tom.
 **UiO bachelor 1. semester, i volumrekkefølge:** `in1000` (~800, ✅ ferdig) · `in1020` (~800, ✅ ferdig)
 · `in1900` (≥250, ✅ ferdig) · `econ1100` (≥215, ✅ ferdig) · `sos1004` (~140, ⛔ blokkert — kilder
 mangler på disk) · `fys1100` (~120, 🔨 under bygging) · `sosant1000` (91, mangler rammeverk —
-skjelett + analyse må lages først) · `fil1001` (59, 🔨 under bygging) · `ling1100` (40).
+skjelett + analyse må lages først) · ~~`fil1001`~~ (59, ✅ **FERDIG 26. juli 2026**) · `ling1100` (40).
 Alt bygget fra før i denne kategorien: `exphil03`, `jus1111`, `mat1100`, `econ1210`,
 og nå `in1900` og `econ1100` (begge landet 25. juli 2026).
 
@@ -59,7 +59,7 @@ gjennom boka, ikke semesterplassering.
 | 8 | ~~`sos1004`~~ | UiO | ~140 plasser | ⛔ **BLOKKERT 26. juli 2026 — kildene finnes ikke på disk.** Arkivet har ingen SOS1004-mappe; analysens primærkilder lå i en scratchpad som er slettet. Last ned settene på nytt fra UiO før bygging. Se `docs/kildekontroll/README.md` |
 | 9 | `fys1100` | UiO | ~120 plasser | 1. sem. i Fysikk og astronomi + Elektronikk/IT |
 | 10 | `sosant1000` | UiO | 91 plasser | NB: emnet har byttet tittel til «Antropologisk samfunnsanalyse» — bruk begge navn i SEO |
-| 11 | `fil1001` | UiO | 59 plasser | Bachelor filosofi |
+| 11 | ~~`fil1001`~~ | UiO | 59 plasser | ✅ **FERDIG 26. juli 2026** — 30 kap. + 7 prøvekapitler, 685 quiz, 764 fc, verifisert av tre redaktører |
 | 12 | `ling1100` | UiO | 40 plasser | Bachelor lingvistikk |
 | 13 | `oslomet-mat1000` | OsloMet | 70 + 110 plasser | **Delvis:** 1. sem. for maskin/elektro, 1.–2. for bygg/energi, men **2. sem. for dataingeniør** (den største gruppa) |
 

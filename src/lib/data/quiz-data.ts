@@ -201,6 +201,7 @@ import quizData_in1900 from './quiz-data-in1900';
 import quizData_econ1100 from './quiz-data-econ1100';
 import quizData_in1020 from './quiz-data-in1020';
 import quizData_in1000 from './quiz-data-in1000';
+import quizData_fil1001 from './quiz-data-fil1001';
 
 // Merged quiz data from all subject files
 export const quizData: Record<string, QuizQuestion[]> = {
@@ -370,6 +371,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_econ1100,
   ...quizData_in1020,
   ...quizData_in1000,
+  ...quizData_fil1001,
 };
 
 /**
