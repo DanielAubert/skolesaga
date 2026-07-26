@@ -23,7 +23,7 @@ import { SignDiagram, createSignDiagram } from './sign-diagram';
 import { FinanceCalculator } from './finance-calculator';
 import { DynamicPlot } from './dynamic-plot';
 import { getExerciseSubTaskProgress } from '@/lib/textbook/progress';
-import DOMPurify from 'isomorphic-dompurify';
+import { SafeSvg } from './safe-svg';
 import dynamic from 'next/dynamic';
 import { mediaUrl } from '@/lib/media';
 import { ProveSvarFelt } from './prove-svar-felt';
@@ -1142,7 +1142,7 @@ function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {
     return (
       <figure className="my-6">
         <div className="flex justify-center">
-          <div className="max-w-full w-full sm:max-w-sm md:max-w-md" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(block.illustrationId.svgContent, { USE_PROFILES: { svg: true, svgFilters: true } }) }} />
+          <SafeSvg svg={block.illustrationId.svgContent} className="max-w-full w-full sm:max-w-sm md:max-w-md" />
         </div>
         {block.caption && (
           <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">
