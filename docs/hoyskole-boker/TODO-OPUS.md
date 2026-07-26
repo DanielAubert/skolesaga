@@ -23,7 +23,7 @@ tar `nokut-afb` (nasjonal sykepleieeksamen, ~6 000 kandidater) og `tdt4110` (NTN
 Tier 1-tabellen under er derfor delt: UiO-bachelor-emnene først, resten som
 reserve når UiO-listen er tom.
 
-**UiO bachelor 1. semester, i volumrekkefølge:** `in1000` (~800) · `in1020` (~800, ✅ ferdig)
+**UiO bachelor 1. semester, i volumrekkefølge:** `in1000` (~800, ✅ ferdig) · `in1020` (~800, ✅ ferdig)
 · `in1900` (≥250, ✅ ferdig) · `econ1100` (≥215, ✅ ferdig) · `sos1004` (~140) ·
 `fys1100` (~120) · `sosant1000` (91) · `fil1001` (59) · `ling1100` (40).
 Alt bygget fra før i denne kategorien: `exphil03`, `jus1111`, `mat1100`, `econ1210`,
@@ -50,7 +50,7 @@ gjennom boka, ikke semesterplassering.
 |---|---|---|---|---|
 | 1 | `nokut-afb` | Nasjonal (13 inst.) | **~6 000 kandidater/år** | Eneste reelle kandidattall i lista (NOKUT). 1. sem. ved alle sjekkede sykepleierutdanninger |
 | 2 | `tdt4110` | NTNU | ~1 375 plasser | Obligatorisk 1. sem. i 14 program. **NB:** de datatunge bruker søsterkoden TDT4109 med identisk navn — boka bør adressere begge |
-| 3 | `in1000` | UiO | ~800 plasser | 1. sem. i fem IFI-bachelorprogram + informatikk-årsstudium (199) og maskinlæring/KI (80) |
+| 3 | ~~`in1000`~~ | UiO | ~800 plasser | ✅ **FERDIG 26. juli 2026** — 37 kap., 516 quiz, 580 fc, 715 kjørte kodeblokker |
 | 4 | ~~`in1020`~~ | UiO | ~800 plasser | ✅ **FERDIG 26. juli 2026** — 36 kap., 697 quiz, 677 fc, verifisert av to redaktører |
 | 5 | `med1100` | UiO | 275 plasser | Alle nye medisinstudenter, to kull i året. Modulen spenner 1.–2. sem. |
 | 6 | ~~`in1900`~~ | UiO | ≥250 plasser | ✅ **FERDIG 25. juli 2026** — 43 kap., 602 quiz, 567 fc, verifisert av fire redaktører |

@@ -222,6 +222,46 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  in1000: {
+    courseId: 'in1000',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for informatikk (IFI)',
+    sammendrag:
+      'Boka er kalibrert mot IN1000s eksamensarkiv ved UiO: 27 filer fra 2014 til 2024 — 8 avsluttende oppgavesett, 3 fulle løsningsforslag og 4 prøveeksamener med fasit. UiO publiserer løsningsforslag for dette emnet, ikke sensorveiledninger. Sjangerkatalogen A–I, feilkatalogen #1–#16 og temavektingen speiler hva settene faktisk tester.',
+    eksamenssett: [
+      {
+        tittel: '8 avsluttende oppgavesett (H2014 – H2024)',
+        detalj:
+          'H2014, H2015, H2017, H2018, H2020, H2022, H2023 og H2024. De seks moderne settene bærer frekvenstallene i boka, og nevneren står oppgitt hver gang («N av 6 moderne sett»). H2015-settet er fra da emnet het INF1001.',
+      },
+      {
+        tittel: '4 prøveeksamener med fasit (2016, 2017, 2020, 2022)',
+        detalj:
+          'Fagets egne prøveeksamener. De bekrefter at strukturen har vært stabil, og er brukt til formregistrering snarere enn til frekvensvekting.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Ingen sensorveiledninger — UiO publiserer løsningsforslag',
+        detalj:
+          'Arkivet inneholder ingen sensorveiledninger for IN1000. Det som finnes, er fulle løsningsforslag med kode (H2014, H2015, H2018) og fasit til de moderne settene. Boka utleder derfor føringsstandarden av løsningsforslagenes kodestil og av poengfordelingen i settene — ikke av sensormerknader, og den påstår ingen steder noe annet.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for IN1000',
+        detalj:
+          'Omskrevet sammendrag, brukt til å avgrense pensum. Emnet har et bevisst smalt pensum: ingen import, ingen arv, ingen rekursjon — og boka holder seg innenfor.',
+      },
+    ],
+    forbehold: [
+      'Løsningsforslagene er faglærerskrevne og opphavsrettsbeskyttet. De er brukt som fasitkilde for å kontrollere våre egne, nyskrevne løsninger — ingenting er gjengitt ordrett.',
+      'H2015-settet er fra INF1001, forgjengeren til IN1000. Det er brukt til sjangerregistrering, ikke til frekvensprognosene.',
+      'Poengspennet for den store modelleringsoppgaven oppgis som 47–50 i tabellene og 47–55 i prosaen i vårt eget grunnlagsdokument. Boka bruker konsekvent 47–50, men avviket er ikke avklart mot settene.',
+      'Alle oppgaver, datafiler og kontekster i boka er nyskrevne. All Python-kode er kjørt, og hver utskrift i boka er den maskinen faktisk gir.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   in1020: {
     courseId: 'in1020',
     institusjon: 'Universitetet i Oslo (UiO) — Institutt for informatikk (IFI)',
