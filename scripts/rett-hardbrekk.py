@@ -37,7 +37,14 @@ import pathlib
 import re
 import sys
 
-HOPP = re.compile(r'^\s*(?:[-*+>|#]|\d+[.)]|\$\$|```|\\)')
+# Linjer som ALDRI skal slås sammen — verken som forrige eller neste linje.
+#
+# `[a-e])` var opprinnelig IKKE med, og det kostet: første kjøring 26. juli 2026
+# limte 1 817 flervalgsalternativer i 430 filer inn i løpende prosa, fordi
+# «b) tre ganger så stor» ser ut som en fortsettelse (liten forbokstav, forrige
+# linje uten punktum). Regresjonssjekken min så det ikke — den lette etter fet
+# merking (`**a)**`), mens alternativlister er umerkede.
+HOPP = re.compile(r'^\s*(?:[-*+>|#]|\d+[.)]|[a-eA-E][.)]\s|\$\$|```|\\)')
 SLUTT = re.compile(r'[.!?:;»)\]}]\s*$|\*\*$|\$$')
 
 
