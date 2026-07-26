@@ -268,3 +268,13 @@ Commit etter HVERT ferdig kapittel — ikke til slutt.
 Les alltid først: `BYGGEKONTRAKT.md` (format og krav — HELE, særlig §0,
 Kodekontrakten og §K5b delegerings-navneregelen), `SKJELETT.md` (faglig innhold
 per kapittel), `../DNA-regnefag.md` (arketype), `../README.md` «Leserkrav».
+
+## Uavklart: poengspennet for Oppgave 4
+
+EKSAMENSANALYSE og BYGGEKONTRAKT motsier seg selv. **Tabellene** i begge sier
+**47–50 p**; **prosaen** i begge sier **47–55 p**. Boka er gjort konsistent på
+47–50 (26. juli 2026), fordi tabeller normalt kommer av telling og prosa av
+hukommelse — men det er en antakelse, ikke en kontroll.
+
+Skal det avgjøres: tell poengsummen for Oppgave 4 i de seks moderne settene i
+`~/Desktop/Eksamner/UiO/IN1000/`. Til da bør ingen ny tekst gjenta 47–55.
