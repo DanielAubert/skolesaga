@@ -1,272 +1,272 @@
 {
- "id": "in1900-4-prove",
- "courseId": "in1900",
- "chapterNumber": "4.P",
- "title": "Prøver til del 4: NumPy, vektorisering og plotting",
- "description": "Fire prøver med full fasit: array-sporing og punkttelling, «med løkke / uten løkke», plotting med legende og fasekurve, og en integrert eksamensoppgave.",
- "estimatedMinutes": 115,
- "competenceGoals": [
-  "kunne spore tabellkode og angi utskriften nøyaktig under tidspress",
-  "kunne skrive begge malene for en verditabell uten å kjøre koden",
-  "kunne skrive plottekode med legende og navngitte akser, og beskrive figuren i ord",
-  "kunne løse en flerdelt eksamensoppgave der tabell, vektorisering og plott inngår"
- ],
- "content": [
-  {
-   "id": "in1900-4-prove-tip",
-   "type": "tip",
-   "title": "Om prøvene til del 4",
-   "content": "**Fire prøver à 25–35 minutter.** Prøvene dekker hele Del 4: NumPy-tabeller, sjangeren «med løkke / uten løkke» og plotting. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 4.A (25 min):** NumPy-arrays — sporing av tabellkode og punkttelling (sjanger A og M).\n- **Prøve 4.B (35 min):** Lister mot NumPy — «med løkke / uten løkke», inkludert en «finn feilen» (sjanger M og O).\n- **Prøve 4.C (25 min):** Plotting — flere kurver med legende, fasekurve og figuren i ord.\n- **Prøve 4.D (30 min):** Integrert — bygg tabellen begge veier og plott resultatet (M pluss plott).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden** — eksamen er hjelpemiddelfri, så det å skrive kode i editoren uten å teste den er en ferdighet du må øve på. Åpne løsningsforslaget etterpå, og bruk selvdiagnose-listen nederst i hver prøve.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 4.A står inline med bokstavsvar; den interaktive quizen til kapitlene 4.1–4.3 er den store flervalgsbanken og tas separat."
-  },
-  {
-   "id": "in1900-4-prove-forkunn",
-   "type": "text",
-   "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 4: [kap. 4.1](/bok/in1900/in1900-4-1) om arrays og punktgitter, [kap. 4.2](/bok/in1900/in1900-4-2) om de to malene, og [kap. 4.3](/bok/in1900/in1900-4-3) om plotting. Fra Del 1 trengs lister og slicing ([kap. 1.2](/bok/in1900/in1900-1-2)), løkker ([kap. 1.3](/bok/in1900/in1900-1-3)), f-strenger ([kap. 1.4](/bok/in1900/in1900-1-4)) og funksjoner ([kap. 1.6](/bok/in1900/in1900-1-6))."
-  },
-  {
-   "id": "in1900-4-prove-A",
-   "type": "collapsible",
-   "title": "Prøve 4.A — NumPy-arrays (25 min)",
-   "buttonText": "Vis prøve 1",
-   "content": [
+  "id": "in1900-4-prove",
+  "courseId": "in1900",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: NumPy, vektorisering og plotting",
+  "description": "Fire prøver med full fasit: array-sporing og punkttelling, «med løkke / uten løkke», plotting med legende og fasekurve, og en integrert eksamensoppgave.",
+  "estimatedMinutes": 115,
+  "competenceGoals": [
+    "kunne spore tabellkode og angi utskriften nøyaktig under tidspress",
+    "kunne skrive begge malene for en verditabell uten å kjøre koden",
+    "kunne skrive plottekode med legende og navngitte akser, og beskrive figuren i ord",
+    "kunne løse en flerdelt eksamensoppgave der tabell, vektorisering og plott inngår"
+  ],
+  "content": [
     {
-     "id": "in1900-4-prove-A-intro",
-     "type": "text",
-     "content": "**Prøve 4.A — NumPy-arrays (25 minutter, sjanger A og M).** Fem flervalgsspørsmål og tre sporingsoppgaver. Skriv utskriftene nøyaktig, med de mellomrommene og hakeparentesene Python bruker. Ingen hjelpemidler, og ikke kjør koden."
+      "id": "in1900-4-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 4",
+      "content": "**Fire prøver à 25–35 minutter.** Prøvene dekker hele Del 4: NumPy-tabeller, sjangeren «med løkke / uten løkke» og plotting. Alle oppgaver er nyskrevne og satt i eksamens sjangre, og løsningsforslagene viser den korte, idiomatiske koden sensor forventer — med margnotater om hva som gir uttelling steg for steg.\n\n- **Prøve 4.A (25 min):** NumPy-arrays — sporing av tabellkode og punkttelling (sjanger A og M).\n- **Prøve 4.B (35 min):** Lister mot NumPy — «med løkke / uten løkke», inkludert en «finn feilen» (sjanger M og O).\n- **Prøve 4.C (25 min):** Plotting — flere kurver med legende, fasekurve og figuren i ord.\n- **Prøve 4.D (30 min):** Integrert — bygg tabellen begge veier og plott resultatet (M pluss plott).\n\n**Slik bruker du dem:** ta én prøve på tid, uten fasit og **uten å kjøre koden** — eksamen er hjelpemiddelfri, så det å skrive kode i editoren uten å teste den er en ferdighet du må øve på. Åpne løsningsforslaget etterpå, og bruk selvdiagnose-listen nederst i hver prøve.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Flervalgsspørsmålene i prøve 4.A står inline med bokstavsvar; den interaktive quizen til kapitlene 4.1–4.3 er den store flervalgsbanken og tas separat."
     },
     {
-     "id": "in1900-4-prove-A-ex1",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-A-o1",
-      "number": "1",
-      "type": "classic",
-      "difficulty": "middels",
-      "task": "(Midtveisnivå, sjanger A og D — flervalg. «Sjanger D» er matche-typen der du avgjør hvilke av flere påstander som er riktige.) Velg ett svar per spørsmål.\n\n**1)** Hvor mange tall inneholder `np.linspace(2, 12, 26)`?\n\na) 25 b) 27 c) 26 d) 11\n\n**2)** Hva blir `np.array([1, 2]) + np.array([10, 20])`?\n\na) `[11 22]` b) `[1 2 10 20]` c) `[10 40]` d) `[33]`\n\n**3)** Hva er steglengden i `np.linspace(0, 9, 10)`?\n\na) 0.9 b) 0.111 c) 9.0 d) 1.0\n\n**4)** Hvilket uttrykk gir hele kolonne 1 i et array `A` med 4 rader og 3 kolonner?\n\na) `A[1]` b) `A[:, 1]` c) `A[1, :]` d) `A[:, 1:]`\n\n**5)** Hva blir `sum(np.array([2, 5, 5]) == np.array([2, 4, 5]))`?\n\na) `True` b) 3 c) 1 d) 2",
-      "solution": "**1) c)** 26. Tredje argument er antall punkter, så du får 26 punkter og 25 intervaller. Alternativ a) er av-én-feilen #1 (av-én på antall punkter).\n\n**2) a)** `[11 22]`. Array-addisjon er elementvis, og et array skrives uten komma. Alternativ b) er liste-skjøting (feil #5), c) er det elementvise produktet.\n\n**3) d)** 1.0. Ti punkter fra 0 til 9 gir ni intervaller, altså $9/9 = 1$. Alternativ a) deler på antall punkter.\n\n**4) b)** `A[:, 1]`. Kolon på første plass betyr alle rader. Alternativ c) er rad 1, og d) er et 2D-utsnitt med alle rader og kolonne 1 og utover.\n\n**5) d)** 2. Sammenligningen gir `True`, `False`, `True`, og `True` teller som 1 i summen. Alternativ b) er antall elementer i alt, og a) ville krevd at sammenligningen ga én verdi for hele tabellen.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Blankt og feil gir likt, altså 0 — kryss derfor alltid av på noe.",
-      "hints": [
-       "Skriv alltid ned antall elementer i svaret før du velger alternativ.",
-       "For punkttelling: tell intervaller og punkter hver for seg."
-      ]
-     }
+      "id": "in1900-4-prove-forkunn",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nPrøvene forutsetter hele Del 4: [kap. 4.1](/bok/in1900/in1900-4-1) om arrays og punktgitter, [kap. 4.2](/bok/in1900/in1900-4-2) om de to malene, og [kap. 4.3](/bok/in1900/in1900-4-3) om plotting. Fra Del 1 trengs lister og slicing ([kap. 1.2](/bok/in1900/in1900-1-2)), løkker ([kap. 1.3](/bok/in1900/in1900-1-3)), f-strenger ([kap. 1.4](/bok/in1900/in1900-1-4)) og funksjoner ([kap. 1.6](/bok/in1900/in1900-1-6))."
     },
     {
-     "id": "in1900-4-prove-A-ex2",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-A-o2",
-      "number": "2",
-      "type": "classic",
-      "difficulty": "lett",
-      "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\na = [2, 3]\nb = np.array([2, 3])\nprint(a * 2)\nprint(b * 2)\nprint(sum(b * 2))\n```",
-      "solution": "**Sporingstavle**\n\n| Linje | Type | Regel | Skriver |\n|---|---|---|---|\n| `a * 2` | liste | gjentakelse | fire tall med komma |\n| `b * 2` | array | elementvis dobling | to tall uten komma |\n| `sum(b * 2)` | array inn, tall ut | $4 + 6$ | 10 |\n\n**Utskrift:**\n```\n[2, 3, 2, 3]\n[4 6]\n10\n```\n\n**Fellenote:** #5 — gjentakelse mot elementvis multiplikasjon. Legg merke til at samme uttrykk `* 2` gjør to helt ulike ting, og at bare den ene utskriften har komma.\n\n**Poeng:** 3 (ett per linje). Får du de to første riktig og bommer på summen, får du 2.",
-      "hints": [
-       "Avgjør først for hver variabel om den er liste eller array.",
-       "Summen regnes av tallene i det doblede arrayet."
+      "id": "in1900-4-prove-A",
+      "type": "collapsible",
+      "title": "Prøve 4.A — NumPy-arrays (25 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in1900-4-prove-A-intro",
+          "type": "text",
+          "content": "**Prøve 4.A — NumPy-arrays (25 minutter, sjanger A og M).** Fem flervalgsspørsmål og tre sporingsoppgaver. Skriv utskriftene nøyaktig, med de mellomrommene og hakeparentesene Python bruker. Ingen hjelpemidler, og ikke kjør koden."
+        },
+        {
+          "id": "in1900-4-prove-A-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-A-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Midtveisnivå, sjanger A og D — flervalg. «Sjanger D» er matche-typen der du avgjør hvilke av flere påstander som er riktige.) Velg ett svar per spørsmål.\n\n**1)** Hvor mange tall inneholder `np.linspace(2, 12, 26)`?\n\na) 25 b) 27 c) 26 d) 11\n\n**2)** Hva blir `np.array([1, 2]) + np.array([10, 20])`?\n\na) `[11 22]` b) `[1 2 10 20]` c) `[10 40]` d) `[33]`\n\n**3)** Hva er steglengden i `np.linspace(0, 9, 10)`?\n\na) 0.9 b) 0.111 c) 9.0 d) 1.0\n\n**4)** Hvilket uttrykk gir hele kolonne 1 i et array `A` med 4 rader og 3 kolonner?\n\na) `A[1]` b) `A[:, 1]` c) `A[1, :]` d) `A[:, 1:]`\n\n**5)** Hva blir `sum(np.array([2, 5, 5]) == np.array([2, 4, 5]))`?\n\na) `True` b) 3 c) 1 d) 2",
+            "solution": "**1) c)** 26. Tredje argument er antall punkter, så du får 26 punkter og 25 intervaller. Alternativ a) er av-én-feilen #1 (av-én på antall punkter).\n\n**2) a)** `[11 22]`. Array-addisjon er elementvis, og et array skrives uten komma. Alternativ b) er liste-skjøting (feil #5), c) er det elementvise produktet.\n\n**3) d)** 1.0. Ti punkter fra 0 til 9 gir ni intervaller, altså $9/9 = 1$. Alternativ a) deler på antall punkter.\n\n**4) b)** `A[:, 1]`. Kolon på første plass betyr alle rader. Alternativ c) er rad 1, og d) er et 2D-utsnitt med alle rader og kolonne 1 og utover.\n\n**5) d)** 2. Sammenligningen gir `True`, `False`, `True`, og `True` teller som 1 i summen. Alternativ b) er antall elementer i alt, og a) ville krevd at sammenligningen ga én verdi for hele tabellen.\n\n**Poengfordeling:** 1 poeng per riktig svar, 5 poeng i alt. Blankt og feil gir likt, altså 0 — kryss derfor alltid av på noe.",
+            "hints": [
+              "Skriv alltid ned antall elementer i svaret før du velger alternativ.",
+              "For punkttelling: tell intervaller og punkter hver for seg."
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-A-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-A-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\na = [2, 3]\nb = np.array([2, 3])\nprint(a * 2)\nprint(b * 2)\nprint(sum(b * 2))\n```",
+            "solution": "**Sporingstavle**\n\n| Linje | Type | Regel | Skriver |\n|---|---|---|---|\n| `a * 2` | liste | gjentakelse | fire tall med komma |\n| `b * 2` | array | elementvis dobling | to tall uten komma |\n| `sum(b * 2)` | array inn, tall ut | $4 + 6$ | 10 |\n\n**Utskrift:**\n```\n[2, 3, 2, 3]\n[4 6]\n10\n```\n\n**Fellenote:** #5 — gjentakelse mot elementvis multiplikasjon. Legg merke til at samme uttrykk `* 2` gjør to helt ulike ting, og at bare den ene utskriften har komma.\n\n**Poeng:** 3 (ett per linje). Får du de to første riktig og bommer på summen, får du 2.",
+            "hints": [
+              "Avgjør først for hver variabel om den er liste eller array.",
+              "Summen regnes av tallene i det doblede arrayet."
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-A-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-A-o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nt = np.linspace(1, 7, 4)\nprint(t)\nprint(t[1] - t[0], t.size)\n```",
+            "solution": "**Sporingstavle**\n\n| Steg | Regel | Verdi |\n|---|---|---|\n| antall punkter | tredje argument | 4 |\n| antall intervaller | punkter minus 1 | 3 |\n| steglengde | $(7-1)/3$ | 2.0 |\n| punktene | `start + i*dx` | 1, 3, 5, 7 |\n\n**Utskrift:**\n```\n[1. 3. 5. 7.]\n2.0 4\n```\n\n**Fellenote:** #1 — å tolke tredje argument som antall intervaller gir steglengde $6/4 = 1.5$ og punktene 1, 2.5, 4, 5.5, som er et helt annet gitter.\n\n**Poeng:** 3. Delvis riktig teller: har du riktig antall punkter men feil steglengde, får du 1.",
+            "hints": [
+              "Regn ut steglengden før du skriver punktene.",
+              "`linspace` gir alltid flyttall."
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-A-ex4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-A-o4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nm = np.array([4, 9, 16, 25])\nprint(np.sqrt(m))\nprint(m[2:])\nprint(m[1:] - m[:-1])\n```",
+            "solution": "**Sporingstavle**\n\n| Uttrykk | Elementer | Antall |\n|---|---|---|\n| `np.sqrt(m)` | 2, 3, 4, 5 (flyttall) | 4 |\n| `m[2:]` | 16, 25 (heltall) | 2 |\n| `m[1:]` | 9, 16, 25 | 3 |\n| `m[:-1]` | 4, 9, 16 | 3 |\n| differansen | 5, 7, 9 | 3 |\n\n**Utskrift:**\n```\n[2. 3. 4. 5.]\n[16 25]\n[5 7 9]\n```\n\n**Fellenote:** to feller i én oppgave. Kvadratrot gir **flyttall** selv om tallene inn er hele (derfor punktum i første linje), og differansetabellen har **ett element mindre** enn originalen — en variant av #1.\n\n**Poeng:** 3. Å få riktig antall elementer i hver linje er halve poenget; sensor belønner riktig struktur selv når ett tall er feil.\n\n**Selvdiagnose etter prøve 4.A**\n\n☐ Skrev du array-utskrifter uten komma og liste-utskrifter med komma?\n\n☐ Tolket du tredje argument i `np.linspace` som antall punkter?\n\n☐ Regnet du steglengden som intervallets lengde delt på antall intervaller?\n\n☐ Fikk differansetabellen `a[1:] - a[:-1]` ett element mindre enn `a`?\n\n☐ Krysset du av på alle fem flervalgene, også de du var usikker på?",
+            "hints": [
+              "Skriv de to utsnittene under hverandre før du trekker fra.",
+              "Kvadratrot av et heltall er ikke et heltall i Python."
+            ]
+          }
+        }
       ]
-     }
     },
     {
-     "id": "in1900-4-prove-A-ex3",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-A-o3",
-      "number": "3",
-      "type": "classic",
-      "difficulty": "middels",
-      "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nt = np.linspace(1, 7, 4)\nprint(t)\nprint(t[1] - t[0], t.size)\n```",
-      "solution": "**Sporingstavle**\n\n| Steg | Regel | Verdi |\n|---|---|---|\n| antall punkter | tredje argument | 4 |\n| antall intervaller | punkter minus 1 | 3 |\n| steglengde | $(7-1)/3$ | 2.0 |\n| punktene | `start + i*dx` | 1, 3, 5, 7 |\n\n**Utskrift:**\n```\n[1. 3. 5. 7.]\n2.0 4\n```\n\n**Fellenote:** #1 — å tolke tredje argument som antall intervaller gir steglengde $6/4 = 1.5$ og punktene 1, 2.5, 4, 5.5, som er et helt annet gitter.\n\n**Poeng:** 3. Delvis riktig teller: har du riktig antall punkter men feil steglengde, får du 1.",
-      "hints": [
-       "Regn ut steglengden før du skriver punktene.",
-       "`linspace` gir alltid flyttall."
+      "id": "in1900-4-prove-B",
+      "type": "collapsible",
+      "title": "Prøve 4.B — Lister mot NumPy (35 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in1900-4-prove-B-intro",
+          "type": "text",
+          "content": "**Prøve 4.B — «med løkke / uten løkke» (35 minutter, sjanger M og O).** Tre oppgaver. Skriv kort, idiomatisk kode: ingen unødvendige hjelpevariabler, ingen ekstra utskrift, og nødvendige importer med. Ikke kjør koden."
+        },
+        {
+          "id": "in1900-4-prove-B-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-B-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Eksamensnivå, sjanger M — «med løkke / uten løkke».) En laboratoriemåling skal tabelleres for $y = \\ln x$ med 9 punkter i intervallet $[1, 5]$.\n\n**a)** Skriv koden med løkke og lister.\n\n**b)** Skriv den samme tabellen uten løkke.\n\n**c)** Hva er `dx`, og hva er siste $x$-verdi i begge versjonene?",
+            "solution": "\n**a)** 9 punkter betyr $N = 8$ intervaller:\n\n```python\nfrom math import log\n\nstart = 1.0 stop = 5.0\nN = 8\n\nx = []\ny = []\ndx = (stop - start)/N for i in range(N+1):\n    xi = start + i*dx x.append(xi)\n    y.append(log(xi))\n```\n\n**b)**\n\n```python\nimport numpy as np\n\nx = np.linspace(1, 5, 9)\ny = np.log(x)\n```\n\n**c)** `dx` er $(5-1)/8 = 0.5$, og siste $x$-verdi er 5.0 i begge versjonene. Kontrollen kan kjøres slik:\n\n```python\nfrom math import log import numpy as np\n\nstart, stop, N = 1.0, 5.0, 8 x1 = []\ny1 = []\ndx = (stop - start)/N for i in range(N+1):\n    xi = start + i*dx x1.append(xi)\n    y1.append(log(xi))\n\nx2 = np.linspace(1, 5, 9)\ny2 = np.log(x2)\n\nprint(len(x1), x2.size, dx, x1[-1], x2[-1])\nprint('Største avvik:', max(abs(np.array(y1) - y2)))\n```\n\n**Utskrift:**\n```\n9 9 0.5 5.0 5.0\nStørste avvik: 0.0\n```\n\n**Hva gir uttelling (5 poeng):** 1 poeng for tomme lister og `range(N+1)`, 1 for riktig `dx`, 1 for `log` brukt på `xi` i løkka, 1 for `np.linspace(1, 5, 9)`, 1 for `np.log(x)` på hele arrayet. Bruker du `math.log` i del b), mister du bare det siste poenget — strukturen er riktig.",
+            "hints": [
+              "Antall punkter er oppgitt, så N er ett mindre.",
+              "Den vektoriserte versjonen skal ikke inneholde `for`, `while` eller `.append`."
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-B-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-B-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Eksamensnivå, sjanger O — «finn feilen».) Programmet skal lage en tabell over $y = \\sqrt{x}$ med 11 punkter i $[0, 10]$, vektorisert, og skrive ut antall punkter og siste verdi. Finn feilene, si hva hver av dem fører til, og skriv den rettede koden.\n\n```text\nfrom math import sqrt import numpy as np\n\nx = np.linspace(0, 10, 10)\ny = sqrt(x)\nprint(x.size, y[-1])\n```",
+            "solution": "\n**To feil:**\n\n1. **Antall punkter.** `np.linspace(0, 10, 10)` gir 10 punkter, ikke 11, og steglengden blir $10/9 \\approx 1.111$ i stedet for 1. Dette er feil #1 (av-én på antall punkter). Rettelse: tredje argument skal være 11.\n2. **`sqrt` fra `math` på et array.** `math.sqrt` tar bare ett tall, så programmet stopper med `TypeError: only length-1 arrays can be converted to Python scalars`. Rettelse: `np.sqrt(x)`.\n\n**Rettet kode:**\n\n```python\nimport numpy as np\n\nx = np.linspace(0, 10, 11)\ny = np.sqrt(x)\nprint(x.size, y[-1])\n```\n\n**Utskrift:**\n```\n11 3.1622776601683795\n```\n\nMerk at importlinjen `from math import sqrt` kan fjernes når den ikke brukes, men en ubrukt import er ikke en feil og gir ikke trekk.\n\n**Hva gir uttelling (4 poeng):** 1 poeng per feil du navngir, 1 poeng per rettelse. Å rette uten å forklare gir halv uttelling, fordi oppgaven ber om hva som er galt.",
+            "hints": [
+              "Tell antall punkter først.",
+              "Se på hvilken modul hver funksjon kommer fra, og hvor mange tall den kan ta."
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-B-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-B-o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Eksamensnivå, sjanger M med utskrift.) Skriv et program som lager tabellen over $f(x) = x^3 - x$ for 5 punkter i $[0, 2]$ vektorisert, og skriver den ut med to desimaler på $x$ og tre på $f$.\n\n**a)** Skriv programmet.\n\n**b)** Hvor mange linjer skriver det ut, og hvilke to $x$-verdier gir $f = 0$?\n\n**c)** En variant av oppgaven ber om samme tabell «uten bruk av NumPy». Skriv den varianten.",
+            "solution": "\n**a)**\n\n```python\nimport numpy as np\n\nx = np.linspace(0, 2, 5)\ny = x**3 - x for i in range(x.size):\n    print(f'{x[i]:5.2f} {y[i]:8.3f}')\n```\n\n**Utskrift:**\n```\n 0.00    0.000\n 0.50   -0.375\n 1.00    0.000\n 1.50    1.875\n 2.00    6.000\n```\n\n**b)** 5 linjer, én per punkt. Verdiene $x = 0$ og $x = 1$ gir $f = 0$, siden $x^3 - x = x(x-1)(x+1)$.\n\n**c)** Uten NumPy må både punktene og verdiene lages i en løkke:\n\n```python\nstart = 0.0 stop = 2.0\nN = 4\n\nx = []\ny = []\ndx = (stop - start)/N for i in range(N+1):\n    xi = start + i*dx x.append(xi)\n    y.append(xi**3 - xi)\n    print(f'{xi:5.2f} {xi**3 - xi:8.3f}')\n```\n\n**Utskrift:**\n```\n 0.00    0.000\n 0.50   -0.375\n 1.00    0.000\n 1.50    1.875\n 2.00    6.000\n```\n\n**Hva gir uttelling (6 poeng):** 2 poeng for riktig punktgitter i a) (`np.linspace(0, 2, 5)`), 1 for det vektoriserte uttrykket, 1 for utskriftsløkka med riktige feltbredder, 1 for svaret i b), 1 for løkkeversjonen i c). At utskriften skjer i en løkke er ikke et brudd på «vektorisert» — kravet gjelder utregningen.\n\n**Selvdiagnose etter prøve 4.B**\n\n☐ Regnet du ut N som antall punkter minus én, før du skrev koden?\n\n☐ Var nevneren i `dx` antall intervaller?\n\n☐ Gikk løkka over `range(N+1)`?\n\n☐ Brukte du `np.`-funksjoner i den vektoriserte delen og `math`-funksjoner i løkkedelen?\n\n☐ Er begge versjonene like lange, og slutter de på samme verdi?",
+            "hints": [
+              "Faktoriser uttrykket for å finne nullpunktene i del b).",
+              "I del c) må hvert punkt regnes ut for seg, uten `np.linspace`."
+            ]
+          }
+        }
       ]
-     }
     },
     {
-     "id": "in1900-4-prove-A-ex4",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-A-o4",
-      "number": "4",
-      "type": "classic",
-      "difficulty": "vanskelig",
-      "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nimport numpy as np\n\nm = np.array([4, 9, 16, 25])\nprint(np.sqrt(m))\nprint(m[2:])\nprint(m[1:] - m[:-1])\n```",
-      "solution": "**Sporingstavle**\n\n| Uttrykk | Elementer | Antall |\n|---|---|---|\n| `np.sqrt(m)` | 2, 3, 4, 5 (flyttall) | 4 |\n| `m[2:]` | 16, 25 (heltall) | 2 |\n| `m[1:]` | 9, 16, 25 | 3 |\n| `m[:-1]` | 4, 9, 16 | 3 |\n| differansen | 5, 7, 9 | 3 |\n\n**Utskrift:**\n```\n[2. 3. 4. 5.]\n[16 25]\n[5 7 9]\n```\n\n**Fellenote:** to feller i én oppgave. Kvadratrot gir **flyttall** selv om tallene inn er hele (derfor punktum i første linje), og differansetabellen har **ett element mindre** enn originalen — en variant av #1.\n\n**Poeng:** 3. Å få riktig antall elementer i hver linje er halve poenget; sensor belønner riktig struktur selv når ett tall er feil.\n\n**Selvdiagnose etter prøve 4.A**\n\n☐ Skrev du array-utskrifter uten komma og liste-utskrifter med komma?\n\n☐ Tolket du tredje argument i `np.linspace` som antall punkter?\n\n☐ Regnet du steglengden som intervallets lengde delt på antall intervaller?\n\n☐ Fikk differansetabellen `a[1:] - a[:-1]` ett element mindre enn `a`?\n\n☐ Krysset du av på alle fem flervalgene, også de du var usikker på?",
-      "hints": [
-       "Skriv de to utsnittene under hverandre før du trekker fra.",
-       "Kvadratrot av et heltall er ikke et heltall i Python."
+      "id": "in1900-4-prove-C",
+      "type": "collapsible",
+      "title": "Prøve 4.C — Plotting (25 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in1900-4-prove-C-intro",
+          "type": "text",
+          "content": "**Prøve 4.C — Plotting (25 minutter).** Fire oppgaver. Husk de tre tingene sensor ser etter: `label=` med `plt.legend()`, navngitte akser, og `plt.show()` til slutt."
+        },
+        {
+          "id": "in1900-4-prove-C-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-C-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Innstegsoppgave.) Skriv et program som plotter $y = 3\\sin(x)$ for 101 punkter i $[0, 6]$, med navngitte akser og tittelen «Svingning».",
+            "solution": "\n```python\nimport numpy as np import matplotlib.pyplot as plt\n\nx = np.linspace(0, 6, 101)\ny = 3*np.sin(x)\n\nplt.plot(x, y)\nplt.xlabel('x (radianer)')\nplt.ylabel('utslag')\nplt.title('Svingning')\nplt.show()\n```\n\n**Figur i ord:** Førsteaksen viser $x$ fra 0 til 6 radianer, andreaksen utslag fra $-3$ til 3. Kurven starter i 0, stiger til toppen 3 ved $x \\approx 1{,}57$, krysser null ved $x \\approx 3{,}14$, faller til bunnen $-3$ ved $x \\approx 4{,}71$ og er på vei opp igjen mot om lag $-0{,}84$ ved $x = 6$. Ingen legende, siden det bare er én kurve.\n\n**Poeng (3):** 1 for de to importene og punktgitteret, 1 for plottekallet med riktig argumentrekkefølge, 1 for aksenavn, tittel og `show`.",
+            "hints": [
+              "Malen er `plot`, aksenavn, eventuell tittel, `show`.",
+              "101 punkter gir en kurve som ser glatt ut."
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-C-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-C-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Eksamensnivå, del-b på sjanger J — ODE-system.) Etter en simulering har du tidsarrayet `t` og løsningstabellen `u` med tre kolonner: antall mottakelige, smittede og immune. Skriv koden som plotter alle tre mot tiden i samme figur, med legende og navngitte akser.",
+            "solution": "Bare de nye linjene; `t` og `u` finnes alt fra simuleringen, så snutten er ikke kjørbar alene.\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(t, u[:, 0], label='mottakelige')\nplt.plot(t, u[:, 1], label='smittede')\nplt.plot(t, u[:, 2], label='immune')\nplt.xlabel('tid (døgn)')\nplt.ylabel('antall personer')\nplt.legend()\nplt.show()\n```\n\n**Hva gir uttelling (4 poeng):** 1 poeng for tre plottekall med riktige kolonner, 1 for `label=` på alle tre, 1 for `plt.legend()`, 1 for aksenavn og `show`. Plotter du bare to av tre kurver, mister du én halv — strukturen er fortsatt riktig.\n\nMerk kolonnenummereringen: første komponent er kolonne **0**. Bommer du der, tegnes figuren pent, men den viser feil størrelse — og det er en av de fellene som er umulig å oppdage uten å lese aksenavnene og legenden du selv har skrevet.",
+            "hints": [
+              "Én `plot`-linje per kurve, alle før visningen.",
+              "Kolonnene i en løsningstabell nummereres fra 0."
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-C-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-C-o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Eksamensnivå.) Du har arrayene `B` (byttedyr) og `R` (rovdyr) fra samme simulering.\n\n**a)** Skriv koden som plotter fasekurven med byttedyr langs førsteaksen.\n\n**b)** Kurven blir en spiral som trekker seg innover mot punktet $(30, 8)$. Beskriv i ord hva det forteller om de to bestandene.",
+            "solution": "**a)** Bare de nye linjene; `B` og `R` kommer fra simuleringen.\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.show()\n```\n\n**b)** Førsteaksen viser antall byttedyr og andreaksen antall rovdyr; tiden er ikke en akse, men rekkefølgen punktene tegnes i. At kurven spiralerer innover betyr at svingningene i de to bestandene **dempes**: hver runde er mindre enn den forrige, og systemet nærmer seg en likevekt der det er 30 byttedyr og 8 rovdyr. Hadde kurven vært en lukket løkke, ville svingningene vart evig med samme utslag.\n\n**Poeng (4):** 2 for koden (riktig argumentrekkefølge og aksenavn uten tid), 2 for tolkningen (dempede svingninger mot likevekt, og at et lukket forløp ville betydd vedvarende svingninger).",
+            "hints": [
+              "En fasekurve har ingen tidsakse.",
+              "Hva betyr det at hver runde i spiralen er mindre enn forrige?"
+            ]
+          }
+        },
+        {
+          "id": "in1900-4-prove-C-ex4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-C-o4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Midtveisnivå, sjanger E — «hvilken linje mangler?».) Programmet under viser en figur, men navnene på de to kurvene kommer ikke fram noe sted. Velg ett svar.\n\n```text\nimport numpy as np import matplotlib.pyplot as plt\n\nx = np.linspace(0, 3, 31)\nplt.plot(x, x**2, label='kvadrat')\nplt.plot(x, x**3, label='kube')\nplt.xlabel('x')\nplt.ylabel('verdi')\nplt.show()\n```\n\na) `plt.title('Kurver')` mangler før `plt.show()` b) `plt.legend()` mangler før `plt.show()` c) `label=` må byttes til `name=` i begge plottekallene d) `plt.show()` må flyttes til før plottekallene",
+            "solution": "**b)** `plt.legend()` mangler, og den skal stå etter begge plottekallene og før `plt.show()`.\n\nHvorfor de andre er gale: en tittel er figurens overskrift og navngir ingen kurve (a); argumentet heter `label` og ingenting annet (c); og `plt.show()` skal alltid stå sist, ellers vises en tom figur og kurvene havner i den neste (d).\n\n**Poeng:** 1. Merk at fasitbokstavene i denne prøven er blandet — c, a, d, b, d i oppgave 1 i prøve 4.A, og b her. Ikke se etter mønstre i bokstavene på eksamen; de finnes ikke.\n\n**Selvdiagnose etter prøve 4.C**\n\n☐ Har hver kurve en `label=`, og kalte du `plt.legend()` én gang?\n\n☐ Er begge aksene navngitt, med enhet der det er naturlig?\n\n☐ Står `plt.show()` sist?\n\n☐ Plottet du riktig kolonne av løsningstabellen, med tid som første argument?\n\n☐ Har fasekurven aksenavn som viser at ingen av aksene er tid?",
+            "hints": [
+              "Alle `label=`-argumentene er på plass; noe må vise dem.",
+              "Tenk på hva hvert av de fire kallene faktisk gjør."
+            ]
+          }
+        }
       ]
-     }
+    },
+    {
+      "id": "in1900-4-prove-D",
+      "type": "collapsible",
+      "title": "Prøve 4.D — Integrert oppgave (30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in1900-4-prove-D-intro",
+          "type": "text",
+          "content": "**Prøve 4.D — integrert oppgave (30 minutter, sjanger M pluss plott).** Én flerdelt oppgave i eksamensform, av samme type som del-a og del-b på en reell oppgave. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på b) og c)."
+        },
+        {
+          "id": "in1900-4-prove-D-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1900-4-prove-D-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Eksamensnivå, sjanger M pluss plott.) Veksten i en bakteriekultur beskrives av den logistiske funksjonen\n\n$$P(t) = \\frac{200}{1 + 3e^{-0{,}5t}}$$\n\nder $P$ er antall millioner celler og $t$ er tid i timer.\n\n**a)** Lag en tabell over $t$ og $P(t)$ med 11 punkter i $[0, 10]$, med løkke og lister.\n\n**b)** Lag den samme tabellen uten løkke.\n\n**c)** Skriv koden som plotter kurven med navngitte akser, og beskriv figuren i ord.\n\n**d)** Hva er $P(0)$, og hvilken verdi nærmer $P$ seg når $t$ blir stor?",
+            "solution": "\n**a)** 11 punkter betyr $N = 10$ og $dt = 1$:\n\n```python\nfrom math import exp\n\nstart = 0.0 stop = 10.0\nN = 10\n\nt = []\nP = []\ndt = (stop - start)/N for i in range(N+1):\n    ti = start + i*dt t.append(ti)\n    P.append(200/(1 + 3*exp(-0.5*ti)))\n```\n\n**b)**\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 10, 11)\nP = 200/(1 + 3*np.exp(-0.5*t))\n\nfor i in [0, 5, 10]:\n    print(f'{t[i]:5.1f} {P[i]:8.2f}')\n```\n\n**Utskrift:**\n```\n  0.0    50.00\n  5.0   160.48\n 10.0   196.04\n```\n\n**c)**\n\n```python\nimport numpy as np import matplotlib.pyplot as plt\n\nt = np.linspace(0, 10, 101)\nP = 200/(1 + 3*np.exp(-0.5*t))\n\nplt.plot(t, P)\nplt.xlabel('tid (timer)')\nplt.ylabel('antall celler (millioner)')\nplt.show()\n```\n\n**Figur i ord:** Førsteaksen viser tid fra 0 til 10 timer, andreaksen antall celler i millioner fra 50 til om lag 200. Kurven starter i 50, stiger først stadig raskere, har sitt bratteste punkt der $P$ er halvparten av 200, altså rundt $t \\approx 2{,}2$, og flater deretter ut. Ved $t = 5$ er den kommet til om lag 160, og ved $t = 10$ til om lag 196. Kurven har den karakteristiske S-formen til logistisk vekst, og den krysser aldri 200. Ingen legende, siden figuren har én kurve.\n\n**d)** $P(0) = 200/(1+3) = 50$ millioner celler. Når $t$ blir stor, går $e^{-0{,}5t}$ mot 0, så nevneren går mot 1 og $P$ nærmer seg **200** millioner uten å nå den. Det er bærekapasiteten i modellen.\n\n**Hva gir uttelling (10 poeng):**\n\n- a) 3 poeng: tomme lister, riktig `dt`, `range(N+1)`, og `exp` brukt på `ti`.\n- b) 2 poeng: `np.linspace(0, 10, 11)` og `np.exp` på hele arrayet. Merk at uttrykket ellers er identisk med a) — det er nettopp poenget med sjangeren.\n- c) 3 poeng: to importer, plottekall med tid først, aksenavn og `show`. Beskrivelsen trenger ikke presise tall; S-form, startverdi og utflating er nok.\n- d) 2 poeng: begge svarene med kort begrunnelse.\n\nSensor belønner riktig overordnet struktur selv med en indeksfeil eller en glemt `label` — å få alle detaljer 100 % riktig under tidspress er nesten umulig, og poengene er lagt opp etter det.\n\n**Selvdiagnose etter prøve 4.D**\n\n☐ Er det samme antall punkter i a) og b), og slutter begge tabellene på $t = 10$?\n\n☐ Byttet du til `np.exp` i den vektoriserte versjonen?\n\n☐ Står tiden som første argument i plottekallet?\n\n☐ Fikk du med både startverdien og grenseverdien i d)?\n\n☐ Beskrev du figuren med akser, start, forløp og sluttoppførsel?",
+            "hints": [
+              "Del a) og b) har samme uttrykk; det er bare punktgitteret og funksjonsnavnene som skiller.",
+              "Til del d): hva skjer med `exp(-0.5*t)` når `t` vokser?"
+            ]
+          }
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "in1900-4-prove-B",
-   "type": "collapsible",
-   "title": "Prøve 4.B — Lister mot NumPy (35 min)",
-   "buttonText": "Vis prøve 2",
-   "content": [
-    {
-     "id": "in1900-4-prove-B-intro",
-     "type": "text",
-     "content": "**Prøve 4.B — «med løkke / uten løkke» (35 minutter, sjanger M og O).** Tre oppgaver. Skriv kort, idiomatisk kode: ingen unødvendige hjelpevariabler, ingen ekstra utskrift, og nødvendige importer med. Ikke kjør koden."
-    },
-    {
-     "id": "in1900-4-prove-B-ex1",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-B-o1",
-      "number": "1",
-      "type": "classic",
-      "difficulty": "middels",
-      "task": "(Eksamensnivå, sjanger M — «med løkke / uten løkke».) En laboratoriemåling skal tabelleres for $y = \\ln x$ med 9 punkter i intervallet $[1, 5]$.\n\n**a)** Skriv koden med løkke og lister.\n\n**b)** Skriv den samme tabellen uten løkke.\n\n**c)** Hva er `dx`, og hva er siste $x$-verdi i begge versjonene?",
-      "solution": "\n**a)** 9 punkter betyr $N = 8$ intervaller:\n\n```python\nfrom math import log\n\nstart = 1.0\nstop = 5.0\nN = 8\n\nx = []\ny = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    xi = start + i*dx\n    x.append(xi)\n    y.append(log(xi))\n```\n\n**b)**\n\n```python\nimport numpy as np\n\nx = np.linspace(1, 5, 9)\ny = np.log(x)\n```\n\n**c)** `dx` er $(5-1)/8 = 0.5$, og siste $x$-verdi er 5.0 i begge versjonene. Kontrollen kan kjøres slik:\n\n```python\nfrom math import log\nimport numpy as np\n\nstart, stop, N = 1.0, 5.0, 8\nx1 = []\ny1 = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    xi = start + i*dx\n    x1.append(xi)\n    y1.append(log(xi))\n\nx2 = np.linspace(1, 5, 9)\ny2 = np.log(x2)\n\nprint(len(x1), x2.size, dx, x1[-1], x2[-1])\nprint('Største avvik:', max(abs(np.array(y1) - y2)))\n```\n\n**Utskrift:**\n```\n9 9 0.5 5.0 5.0\nStørste avvik: 0.0\n```\n\n**Hva gir uttelling (5 poeng):** 1 poeng for tomme lister og `range(N+1)`, 1 for riktig `dx`, 1 for `log` brukt på `xi` i løkka, 1 for `np.linspace(1, 5, 9)`, 1 for `np.log(x)` på hele arrayet. Bruker du `math.log` i del b), mister du bare det siste poenget — strukturen er riktig.",
-      "hints": [
-       "Antall punkter er oppgitt, så N er ett mindre.",
-       "Den vektoriserte versjonen skal ikke inneholde `for`, `while` eller `.append`."
-      ]
-     }
-    },
-    {
-     "id": "in1900-4-prove-B-ex2",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-B-o2",
-      "number": "2",
-      "type": "classic",
-      "difficulty": "middels",
-      "task": "(Eksamensnivå, sjanger O — «finn feilen».) Programmet skal lage en tabell over $y = \\sqrt{x}$ med 11 punkter i $[0, 10]$, vektorisert, og skrive ut antall punkter og siste verdi. Finn feilene, si hva hver av dem fører til, og skriv den rettede koden.\n\n```text\nfrom math import sqrt\nimport numpy as np\n\nx = np.linspace(0, 10, 10)\ny = sqrt(x)\nprint(x.size, y[-1])\n```",
-      "solution": "\n**To feil:**\n\n1. **Antall punkter.** `np.linspace(0, 10, 10)` gir 10 punkter, ikke 11, og steglengden blir $10/9 \\approx 1.111$ i stedet for 1. Dette er feil #1 (av-én på antall punkter). Rettelse: tredje argument skal være 11.\n2. **`sqrt` fra `math` på et array.** `math.sqrt` tar bare ett tall, så programmet stopper med `TypeError: only length-1 arrays can be converted to Python scalars`. Rettelse: `np.sqrt(x)`.\n\n**Rettet kode:**\n\n```python\nimport numpy as np\n\nx = np.linspace(0, 10, 11)\ny = np.sqrt(x)\nprint(x.size, y[-1])\n```\n\n**Utskrift:**\n```\n11 3.1622776601683795\n```\n\nMerk at importlinjen `from math import sqrt` kan fjernes når den ikke brukes, men en ubrukt import er ikke en feil og gir ikke trekk.\n\n**Hva gir uttelling (4 poeng):** 1 poeng per feil du navngir, 1 poeng per rettelse. Å rette uten å forklare gir halv uttelling, fordi oppgaven ber om hva som er galt.",
-      "hints": [
-       "Tell antall punkter først.",
-       "Se på hvilken modul hver funksjon kommer fra, og hvor mange tall den kan ta."
-      ]
-     }
-    },
-    {
-     "id": "in1900-4-prove-B-ex3",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-B-o3",
-      "number": "3",
-      "type": "classic",
-      "difficulty": "vanskelig",
-      "task": "(Eksamensnivå, sjanger M med utskrift.) Skriv et program som lager tabellen over $f(x) = x^3 - x$ for 5 punkter i $[0, 2]$ vektorisert, og skriver den ut med to desimaler på $x$ og tre på $f$.\n\n**a)** Skriv programmet.\n\n**b)** Hvor mange linjer skriver det ut, og hvilke to $x$-verdier gir $f = 0$?\n\n**c)** En variant av oppgaven ber om samme tabell «uten bruk av NumPy». Skriv den varianten.",
-      "solution": "\n**a)**\n\n```python\nimport numpy as np\n\nx = np.linspace(0, 2, 5)\ny = x**3 - x\nfor i in range(x.size):\n    print(f'{x[i]:5.2f} {y[i]:8.3f}')\n```\n\n**Utskrift:**\n```\n 0.00    0.000\n 0.50   -0.375\n 1.00    0.000\n 1.50    1.875\n 2.00    6.000\n```\n\n**b)** 5 linjer, én per punkt. Verdiene $x = 0$ og $x = 1$ gir $f = 0$, siden $x^3 - x = x(x-1)(x+1)$.\n\n**c)** Uten NumPy må både punktene og verdiene lages i en løkke:\n\n```python\nstart = 0.0\nstop = 2.0\nN = 4\n\nx = []\ny = []\ndx = (stop - start)/N\nfor i in range(N+1):\n    xi = start + i*dx\n    x.append(xi)\n    y.append(xi**3 - xi)\n    print(f'{xi:5.2f} {xi**3 - xi:8.3f}')\n```\n\n**Utskrift:**\n```\n 0.00    0.000\n 0.50   -0.375\n 1.00    0.000\n 1.50    1.875\n 2.00    6.000\n```\n\n**Hva gir uttelling (6 poeng):** 2 poeng for riktig punktgitter i a) (`np.linspace(0, 2, 5)`), 1 for det vektoriserte uttrykket, 1 for utskriftsløkka med riktige feltbredder, 1 for svaret i b), 1 for løkkeversjonen i c). At utskriften skjer i en løkke er ikke et brudd på «vektorisert» — kravet gjelder utregningen.\n\n**Selvdiagnose etter prøve 4.B**\n\n☐ Regnet du ut N som antall punkter minus én, før du skrev koden?\n\n☐ Var nevneren i `dx` antall intervaller?\n\n☐ Gikk løkka over `range(N+1)`?\n\n☐ Brukte du `np.`-funksjoner i den vektoriserte delen og `math`-funksjoner i løkkedelen?\n\n☐ Er begge versjonene like lange, og slutter de på samme verdi?",
-      "hints": [
-       "Faktoriser uttrykket for å finne nullpunktene i del b).",
-       "I del c) må hvert punkt regnes ut for seg, uten `np.linspace`."
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "id": "in1900-4-prove-C",
-   "type": "collapsible",
-   "title": "Prøve 4.C — Plotting (25 min)",
-   "buttonText": "Vis prøve 3",
-   "content": [
-    {
-     "id": "in1900-4-prove-C-intro",
-     "type": "text",
-     "content": "**Prøve 4.C — Plotting (25 minutter).** Fire oppgaver. Husk de tre tingene sensor ser etter: `label=` med `plt.legend()`, navngitte akser, og `plt.show()` til slutt."
-    },
-    {
-     "id": "in1900-4-prove-C-ex1",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-C-o1",
-      "number": "1",
-      "type": "classic",
-      "difficulty": "lett",
-      "task": "(Innstegsoppgave.) Skriv et program som plotter $y = 3\\sin(x)$ for 101 punkter i $[0, 6]$, med navngitte akser og tittelen «Svingning».",
-      "solution": "\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 6, 101)\ny = 3*np.sin(x)\n\nplt.plot(x, y)\nplt.xlabel('x (radianer)')\nplt.ylabel('utslag')\nplt.title('Svingning')\nplt.show()\n```\n\n**Figur i ord:** Førsteaksen viser $x$ fra 0 til 6 radianer, andreaksen utslag fra $-3$ til 3. Kurven starter i 0, stiger til toppen 3 ved $x \\approx 1{,}57$, krysser null ved $x \\approx 3{,}14$, faller til bunnen $-3$ ved $x \\approx 4{,}71$ og er på vei opp igjen mot om lag $-0{,}84$ ved $x = 6$. Ingen legende, siden det bare er én kurve.\n\n**Poeng (3):** 1 for de to importene og punktgitteret, 1 for plottekallet med riktig argumentrekkefølge, 1 for aksenavn, tittel og `show`.",
-      "hints": [
-       "Malen er `plot`, aksenavn, eventuell tittel, `show`.",
-       "101 punkter gir en kurve som ser glatt ut."
-      ]
-     }
-    },
-    {
-     "id": "in1900-4-prove-C-ex2",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-C-o2",
-      "number": "2",
-      "type": "classic",
-      "difficulty": "middels",
-      "task": "(Eksamensnivå, del-b på sjanger J — ODE-system.) Etter en simulering har du tidsarrayet `t` og løsningstabellen `u` med tre kolonner: antall mottakelige, smittede og immune. Skriv koden som plotter alle tre mot tiden i samme figur, med legende og navngitte akser.",
-      "solution": "Bare de nye linjene; `t` og `u` finnes alt fra simuleringen, så snutten er ikke kjørbar alene.\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(t, u[:, 0], label='mottakelige')\nplt.plot(t, u[:, 1], label='smittede')\nplt.plot(t, u[:, 2], label='immune')\nplt.xlabel('tid (døgn)')\nplt.ylabel('antall personer')\nplt.legend()\nplt.show()\n```\n\n**Hva gir uttelling (4 poeng):** 1 poeng for tre plottekall med riktige kolonner, 1 for `label=` på alle tre, 1 for `plt.legend()`, 1 for aksenavn og `show`. Plotter du bare to av tre kurver, mister du én halv — strukturen er fortsatt riktig.\n\nMerk kolonnenummereringen: første komponent er kolonne **0**. Bommer du der, tegnes figuren pent, men den viser feil størrelse — og det er en av de fellene som er umulig å oppdage uten å lese aksenavnene og legenden du selv har skrevet.",
-      "hints": [
-       "Én `plot`-linje per kurve, alle før visningen.",
-       "Kolonnene i en løsningstabell nummereres fra 0."
-      ]
-     }
-    },
-    {
-     "id": "in1900-4-prove-C-ex3",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-C-o3",
-      "number": "3",
-      "type": "classic",
-      "difficulty": "middels",
-      "task": "(Eksamensnivå.) Du har arrayene `B` (byttedyr) og `R` (rovdyr) fra samme simulering.\n\n**a)** Skriv koden som plotter fasekurven med byttedyr langs førsteaksen.\n\n**b)** Kurven blir en spiral som trekker seg innover mot punktet $(30, 8)$. Beskriv i ord hva det forteller om de to bestandene.",
-      "solution": "**a)** Bare de nye linjene; `B` og `R` kommer fra simuleringen.\n\n```text\nimport matplotlib.pyplot as plt\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.show()\n```\n\n**b)** Førsteaksen viser antall byttedyr og andreaksen antall rovdyr; tiden er ikke en akse, men rekkefølgen punktene tegnes i. At kurven spiralerer innover betyr at svingningene i de to bestandene **dempes**: hver runde er mindre enn den forrige, og systemet nærmer seg en likevekt der det er 30 byttedyr og 8 rovdyr. Hadde kurven vært en lukket løkke, ville svingningene vart evig med samme utslag.\n\n**Poeng (4):** 2 for koden (riktig argumentrekkefølge og aksenavn uten tid), 2 for tolkningen (dempede svingninger mot likevekt, og at et lukket forløp ville betydd vedvarende svingninger).",
-      "hints": [
-       "En fasekurve har ingen tidsakse.",
-       "Hva betyr det at hver runde i spiralen er mindre enn forrige?"
-      ]
-     }
-    },
-    {
-     "id": "in1900-4-prove-C-ex4",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-C-o4",
-      "number": "4",
-      "type": "classic",
-      "difficulty": "lett",
-      "task": "(Midtveisnivå, sjanger E — «hvilken linje mangler?».) Programmet under viser en figur, men navnene på de to kurvene kommer ikke fram noe sted. Velg ett svar.\n\n```text\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 3, 31)\nplt.plot(x, x**2, label='kvadrat')\nplt.plot(x, x**3, label='kube')\nplt.xlabel('x')\nplt.ylabel('verdi')\nplt.show()\n```\n\na) `plt.title('Kurver')` mangler før `plt.show()`\nb) `plt.legend()` mangler før `plt.show()`\nc) `label=` må byttes til `name=` i begge plottekallene\nd) `plt.show()` må flyttes til før plottekallene",
-      "solution": "**b)** `plt.legend()` mangler, og den skal stå etter begge plottekallene og før `plt.show()`.\n\nHvorfor de andre er gale: en tittel er figurens overskrift og navngir ingen kurve (a); argumentet heter `label` og ingenting annet (c); og `plt.show()` skal alltid stå sist, ellers vises en tom figur og kurvene havner i den neste (d).\n\n**Poeng:** 1. Merk at fasitbokstavene i denne prøven er blandet — c, a, d, b, d i oppgave 1 i prøve 4.A, og b her. Ikke se etter mønstre i bokstavene på eksamen; de finnes ikke.\n\n**Selvdiagnose etter prøve 4.C**\n\n☐ Har hver kurve en `label=`, og kalte du `plt.legend()` én gang?\n\n☐ Er begge aksene navngitt, med enhet der det er naturlig?\n\n☐ Står `plt.show()` sist?\n\n☐ Plottet du riktig kolonne av løsningstabellen, med tid som første argument?\n\n☐ Har fasekurven aksenavn som viser at ingen av aksene er tid?",
-      "hints": [
-       "Alle `label=`-argumentene er på plass; noe må vise dem.",
-       "Tenk på hva hvert av de fire kallene faktisk gjør."
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "id": "in1900-4-prove-D",
-   "type": "collapsible",
-   "title": "Prøve 4.D — Integrert oppgave (30 min)",
-   "buttonText": "Vis prøve 4",
-   "content": [
-    {
-     "id": "in1900-4-prove-D-intro",
-     "type": "text",
-     "content": "**Prøve 4.D — integrert oppgave (30 minutter, sjanger M pluss plott).** Én flerdelt oppgave i eksamensform, av samme type som del-a og del-b på en reell oppgave. Deloppgavene kan løses uavhengig: klarer du ikke a), kan du fortsatt få full uttelling på b) og c)."
-    },
-    {
-     "id": "in1900-4-prove-D-ex1",
-     "type": "exercise",
-     "exercise": {
-      "id": "in1900-4-prove-D-o1",
-      "number": "1",
-      "type": "classic",
-      "difficulty": "vanskelig",
-      "task": "(Eksamensnivå, sjanger M pluss plott.) Veksten i en bakteriekultur beskrives av den logistiske funksjonen\n\n$$P(t) = \\frac{200}{1 + 3e^{-0{,}5t}}$$\n\nder $P$ er antall millioner celler og $t$ er tid i timer.\n\n**a)** Lag en tabell over $t$ og $P(t)$ med 11 punkter i $[0, 10]$, med løkke og lister.\n\n**b)** Lag den samme tabellen uten løkke.\n\n**c)** Skriv koden som plotter kurven med navngitte akser, og beskriv figuren i ord.\n\n**d)** Hva er $P(0)$, og hvilken verdi nærmer $P$ seg når $t$ blir stor?",
-      "solution": "\n**a)** 11 punkter betyr $N = 10$ og $dt = 1$:\n\n```python\nfrom math import exp\n\nstart = 0.0\nstop = 10.0\nN = 10\n\nt = []\nP = []\ndt = (stop - start)/N\nfor i in range(N+1):\n    ti = start + i*dt\n    t.append(ti)\n    P.append(200/(1 + 3*exp(-0.5*ti)))\n```\n\n**b)**\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 10, 11)\nP = 200/(1 + 3*np.exp(-0.5*t))\n\nfor i in [0, 5, 10]:\n    print(f'{t[i]:5.1f} {P[i]:8.2f}')\n```\n\n**Utskrift:**\n```\n  0.0    50.00\n  5.0   160.48\n 10.0   196.04\n```\n\n**c)**\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 10, 101)\nP = 200/(1 + 3*np.exp(-0.5*t))\n\nplt.plot(t, P)\nplt.xlabel('tid (timer)')\nplt.ylabel('antall celler (millioner)')\nplt.show()\n```\n\n**Figur i ord:** Førsteaksen viser tid fra 0 til 10 timer, andreaksen antall celler i millioner fra 50 til om lag 200. Kurven starter i 50, stiger først stadig raskere, har sitt bratteste punkt der $P$ er halvparten av 200, altså rundt $t \\approx 2{,}2$, og flater deretter ut. Ved $t = 5$ er den kommet til om lag 160, og ved $t = 10$ til om lag 196. Kurven har den karakteristiske S-formen til logistisk vekst, og den krysser aldri 200. Ingen legende, siden figuren har én kurve.\n\n**d)** $P(0) = 200/(1+3) = 50$ millioner celler. Når $t$ blir stor, går $e^{-0{,}5t}$ mot 0, så nevneren går mot 1 og $P$ nærmer seg **200** millioner uten å nå den. Det er bærekapasiteten i modellen.\n\n**Hva gir uttelling (10 poeng):**\n\n- a) 3 poeng: tomme lister, riktig `dt`, `range(N+1)`, og `exp` brukt på `ti`.\n- b) 2 poeng: `np.linspace(0, 10, 11)` og `np.exp` på hele arrayet. Merk at uttrykket ellers er identisk med a) — det er nettopp poenget med sjangeren.\n- c) 3 poeng: to importer, plottekall med tid først, aksenavn og `show`. Beskrivelsen trenger ikke presise tall; S-form, startverdi og utflating er nok.\n- d) 2 poeng: begge svarene med kort begrunnelse.\n\nSensor belønner riktig overordnet struktur selv med en indeksfeil eller en glemt `label` — å få alle detaljer 100 % riktig under tidspress er nesten umulig, og poengene er lagt opp etter det.\n\n**Selvdiagnose etter prøve 4.D**\n\n☐ Er det samme antall punkter i a) og b), og slutter begge tabellene på $t = 10$?\n\n☐ Byttet du til `np.exp` i den vektoriserte versjonen?\n\n☐ Står tiden som første argument i plottekallet?\n\n☐ Fikk du med både startverdien og grenseverdien i d)?\n\n☐ Beskrev du figuren med akser, start, forløp og sluttoppførsel?",
-      "hints": [
-       "Del a) og b) har samme uttrykk; det er bare punktgitteret og funksjonsnavnene som skiller.",
-       "Til del d): hva skjer med `exp(-0.5*t)` når `t` vokser?"
-      ]
-     }
-    }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

@@ -1,421 +1,421 @@
 {
- "id": "in1000-3-1",
- "courseId": "in1000",
- "chapterNumber": "3.1",
- "title": "Lister",
- "description": "Lister: indeksering (også negativ), append, gjennomløping, len og bygging av nye lister — den mest brukte datastrukturen i hele faget.",
- "estimatedMinutes": 45,
- "competenceGoals": [
-  "kunne hente ut et bestemt element fra en liste, også talt bakfra",
-  "kunne velge riktig løkkeform etter om du trenger verdien eller plassen",
-  "kunne bygge en ny liste med et utvalg eller en omforming av en gammel",
-  "kunne sikre at en funksjon over en liste også tåler at lista er tom"
- ],
- "content": [
-  {
-   "id": "in1000-3-1-1",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Lister står i 6 av 6 moderne eksamenssett (100 %)**, og de dukker opp to\nsteder samtidig. I Oppgave 1 — **sjanger A, kodeforståelse**, altså «hva skriver\ndette programmet ut?» — er indeksering en fast felle: et program henter ut to\nelementer og legger dem sammen, og hele poenget er om du teller riktig. I\nOppgave 3 — **sjanger C, skriv en liten funksjon over en liste** — er lista selve\ndataene, og det er den enkeltoppgaven som gir flest poeng etter den store\nklassemodelleringen.\n\nLista er også byggematerialet i Oppgave 4: når et objekt skal holde mange andre\nobjekter, er en liste den vanligste løsningen.\n\n**Dette må sitte** — bokas høyeste av tre nivåer. To feil koster nesten alle\npoengene som mistes her: **#5**, av-med-én i løkkegrensene, og **#6**, at\nprogrammet ikke tåler en tom eller kort liste."
-  },
-  {
-   "id": "in1000-3-1-2",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.3 — Løkker: for, while og range](/bok/in1000/in1000-1-3) og\n[kap. 2.1 — Funksjoner: def, parametere og return](/bok/in1000/in1000-2-1).\n\nDe tre tingene du bruker mest her:\n\n- **teller- og akkumulatormønsteret**: startverdi før løkka, oppdatering inne i\n  den, bruk etter,\n- **`range(start, stopp, steg)`**, og at stoppverdien aldri er med,\n- **flagg med tidlig retur**: `return False` ved første moteksempel inne i\n  løkka, `return True` etter løkka.\n\nKort oppfrisket, med en tekst som data:\n\n```python\nantall = 0\nfor tegn in \"resirkulering\":\n    if tegn == \"r\":\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n3\n```\n\nI dette kapitlet bytter vi ut teksten med en **liste**. Løkka ser nesten\nnøyaktig lik ut — men lista kan inneholde hva som helst, ikke bare enkelttegn,\nog den kan endres underveis."
-  },
-  {
-   "id": "in1000-3-1-3",
-   "type": "text",
-   "content": "## Løkke 1 — Hva en liste er, og hvordan du henter ut ett element (~12 min)\n\nEn sykkelutleie har fem stativer, og teller hvor mange ledige sykler som står i\nhvert av dem. Fem tall hører sammen. Du kunne gitt dem fem variabelnavn, men da\nmåtte du skrevet fem linjer for å legge dem sammen — og ti linjer hvis stativene\nble ti.\n\nEn **liste** samler dem i én verdi, som du kan gå gjennom med én løkke uansett\nhvor mange de er."
-  },
-  {
-   "id": "in1000-3-1-4",
-   "type": "definition",
-   "title": "Liste",
-   "content": "En verdi som holder flere andre verdier i en bestemt **rekkefølge**.\n\nDu skriver den med hakeparenteser og komma mellom elementene:\n\n```python\nledige = [4, 7, 12, 9, 3]\nprint(ledige)\n```\n\n**Utskrift:**\n```\n[4, 7, 12, 9, 3]\n```\n\nTre egenskaper er verdt å merke seg med én gang. Rekkefølgen er fast — det\nfjerde tallet blir værende det fjerde. Lista kan **endres** etter at den er\nlaget, i motsetning til en tekst. Og den kan vokse: du kan legge til nye\nelementer underveis.\n\nEt enkelt element i lista kalles et **element**, og plassen det står på, kalles\nen **indeks**."
-  },
-  {
-   "id": "in1000-3-1-5",
-   "type": "definition",
-   "title": "`[...]` — listelitteral og tom liste",
-   "content": "En liste skrevet rett inn i koden. Den kan være tom, og elementene trenger ikke\nvære av samme type:\n\n```python\ntomme = []\nblandet = [3, \"buss\", True]\nprint(tomme, len(tomme))\nprint(blandet)\n```\n\n**Utskrift:**\n```\n[] 0\n[3, 'buss', True]\n```\n\nDen **tomme lista** `[]` er ikke en kuriositet — den er startpunktet i det\nviktigste listemønsteret i faget: du begynner med en tom liste og fyller den\nunderveis.\n\nLegg merke til at teksten `buss` vises med **enkle anførselstegn** når hele\nlista skrives ut. Det er slik Python viser strenger inne i en liste, og det er\net detaljspørsmål som avgjør poeng i et auto-rettet svarfelt."
-  },
-  {
-   "id": "in1000-3-1-6",
-   "type": "definition",
-   "title": "`len(liste)`",
-   "content": "Gir antall elementer i lista, som et heltall:\n\n```python\ndager = [\"mandag\", \"tirsdag\", \"onsdag\"]\nprint(len(dager))\nprint(len(dager) - 1)\nprint(dager[len(dager) - 1])\n```\n\n**Utskrift:**\n```\n3\n2\nonsdag\n```\n\nLegg merke til de to første linjene. **Lengden er 3, men den siste indeksen er\n2.** Den forskjellen på én er kilden til feilkode #5, av-med-én, og den skal du\nmøte igjen hver gang du skriver `range(len(...))`.\n\n`len` virker også på tekster, akkurat som du så i forkunnskapene."
-  },
-  {
-   "id": "in1000-3-1-7",
-   "type": "definition",
-   "title": "Indeksering `liste[i]`",
-   "content": "Henter ut elementet som står på plass `i`. **Tellingen starter på null:**\n\n```python\nplasser = [12, 8, 5, 20]\nprint(plasser[0])\nprint(plasser[2])\nprint(plasser[0] + plasser[2])\n```\n\n**Utskrift:**\n```\n12\n5\n17\n```\n\nDet første elementet har indeks 0, det andre har indeks 1, og det siste har\nindeks `len(liste) - 1`. Å blande «det andre elementet» med «indeks 2» er den\nvanligste kilden til feil svar i en sporingsoppgave.\n\nUttrykket `plasser[2]` er en helt vanlig verdi. Du kan regne med den, sende den\ntil en funksjon eller sammenligne den, akkurat som med en variabel."
-  },
-  {
-   "id": "in1000-3-1-8",
-   "type": "definition",
-   "title": "Negativ indeks `liste[-1]`",
-   "content": "Teller bakfra. `-1` er det **siste** elementet, `-2` det nest siste:\n\n```python\nplasser = [12, 8, 5, 20]\nprint(plasser[-1], plasser[-2])\nprint(plasser[3] == plasser[-1])\n```\n\n**Utskrift:**\n```\n20 5\nTrue\n```\n\nMerk at det ikke finnes noen `-0`; null teller forfra. Formen `liste[-1]` er\npraktisk fordi du slipper å regne ut lengden først, og den brukes flittig i\nfagets løsningsforslag."
-  },
-  {
-   "id": "in1000-3-1-9",
-   "type": "example",
-   "title": "Eksempel 1: Fem stativer, lest ut ett og ett",
-   "problem": "Sykkelutleien har fem stativer med henholdsvis 4, 7, 12, 9 og 3 ledige sykler.\nSkriv ut hele oversikten, antall stativer, det første og det fjerde tallet, det\nsiste tallet, og summen av det første og det fjerde.",
-   "solution": "Alt hentes ut av den samme lista:\n\n```python\nledige = [4, 7, 12, 9, 3]\nprint(ledige)\nprint(len(ledige))\nprint(ledige[0], ledige[3])\nprint(ledige[-1])\nprint(ledige[0] + ledige[3])\n```\n\n**Utskrift:**\n```\n[4, 7, 12, 9, 3]\n5\n4 9\n3\n13\n```\n\nTre ting er verdt å legge merke til.\n\n**Det fjerde tallet har indeks 3.** Oppgaveteksten teller fra én, som mennesker\ngjør; Python teller fra null. Den oversettelsen må du gjøre bevisst hver gang.\n\n**`print(ledige)` viser hakeparentesene og komma med mellomrom etter.** I et\nauto-rettet felt er `[4, 7, 12, 9, 3]` riktig og `4 7 12 9 3` galt.\n\n**`print(ledige[0], ledige[3])` gir derimot ingen hakeparenteser** — der er det\nto enkeltverdier skilt av ett mellomrom, som ved alle andre `print` med komma."
-  },
-  {
-   "id": "in1000-3-1-oppg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave — ren gjengivelse.) En kollektivrute har disse stoppene:\n\n```python\nstopp = [\"Majorstuen\", \"Nationaltheatret\", \"Jernbanetorget\"]\n```\n\n**a)** Hva gir `len(stopp)`?\n\n**b)** Hva gir `stopp[1]`?\n\n**c)** Hva gir `stopp[-1]`?\n\n**d)** Hvilken indeks har det første stoppet?\n\n**e)** Hva skjer hvis du skriver `stopp[3]`?",
-    "solution": "**a)** `3` — det er tre elementer i lista.\n\n**b)** `Nationaltheatret`. Indeks 1 er det **andre** elementet, ikke det første.\n\n**c)** `Jernbanetorget` — negativ indeks teller bakfra, og `-1` er det siste.\n\n**d)** Indeks `0`. Tellingen starter alltid på null.\n\n**e)** Programmet stopper med en feilmelding. Gyldige indekser er 0, 1 og 2;\nindeks 3 finnes ikke, selv om lengden er 3. Nettopp den forskjellen på én er\nfeilkode #5.",
-    "hints": [
-     "Tell elementene, og husk at den første plassen heter 0.",
-     "For e): hva er den største lovlige indeksen når lengden er 3?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-10",
-   "type": "warning",
-   "title": "Typisk feil #6 — indeks utenfor rekkevidde",
-   "content": "Feilkode #6 er at koden ikke tåler en tom eller kortere liste enn du tenkte\ndeg. Den viser seg slik:\n\n```text\nplasser = [12, 8, 5]\nprint(plasser[3])\n```\n\nProgrammet stopper, og siste linje i feilmeldingen er `IndexError: list index\nout of range`. Blokken er merket som ikke-kjørbar fordi feilen er plantet med\nvilje.\n\nLista har tre elementer, og de lovlige indeksene er 0, 1 og 2. Indeks 3 finnes\nikke — selv om lengden er 3.\n\n**Der dette faktisk koster poeng**, er ikke i en tabbe som denne, men i en\nfunksjon som skal virke på hvilken som helst liste. Skriver du `liste[0]` for å\nfå tak i «det første tallet», krasjer funksjonen din på en **tom** liste. Løsningen\ner en sjekk før du indekserer:\n\n```python\ndef forste_eller_null(tallene):\n    if len(tallene) == 0:\n        return 0\n    return tallene[0]\n\nprint(forste_eller_null([9, 2]))\nprint(forste_eller_null([]))\n```\n\n**Utskrift:**\n```\n9\n0\n```\n\nVane som lønner seg: hver gang du skriver en hakeparentes, spør deg selv hva som\nskjer om lista er tom."
-  },
-  {
-   "id": "in1000-3-1-oppg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nmaal = [2, 0, 1, 4]\nprint(maal[0], maal[-1])\nprint(maal[1] + maal[2])\nprint(len(maal))\nprint(maal)\n```",
-    "solution": "Fire linjer, og de tester fire ulike ting.\n\n| Linje | Hva den henter | Utskrift |\n|---|---|---|\n| 1 | indeks 0 og siste element | `2 4` |\n| 2 | indeks 1 og 2, lagt sammen | `1` |\n| 3 | antall elementer | `4` |\n| 4 | hele lista | `[2, 0, 1, 4]` |\n\n**Utskrift:**\n```\n2 4\n1\n4\n[2, 0, 1, 4]\n```\n\nFellen her er linje 2. `maal[1]` er `0` og `maal[2]` er `1`, ikke `2` og `0` —\ndet er lett å lese indeksene som «det første og det andre tallet». Og legg merke\ntil at bare siste linje viser hakeparenteser.",
-    "hints": [
-     "Skriv opp indeksene 0, 1, 2, 3 over tallene før du svarer.",
-     "Hvilke linjer skriver ut enkeltverdier, og hvilken skriver ut hele lista?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-11",
-   "type": "text",
-   "content": "## Løkke 2 — Å gå gjennom en liste (~12 min)\n\nNå kommer selve arbeidshesten. Det finnes to måter å løpe gjennom en liste på,\nog de brukes til hver sine ting. Du skal kunne begge, og du skal kunne velge\nriktig — det er et av de få stedene i faget der valget er verdt poeng."
-  },
-  {
-   "id": "in1000-3-1-12",
-   "type": "definition",
-   "title": "`for e in liste:`",
-   "content": "Går gjennom lista **element for element**. Løkkevariabelen får verdien til\nelementet, ikke plassen:\n\n```python\npriser = [30, 45, 20]\ntotal = 0\nfor pris in priser:\n    total = total + pris\nprint(total)\n```\n\n**Utskrift:**\n```\n95\n```\n\nDette er den formen du skal bruke når du bare trenger **verdiene**. Den er\nkortere, den kan ikke bomme på grensene, og den er det fagets løsningsforslag\nvelger når de kan.\n\nLegg merke til at den ser nøyaktig ut som løkka over en tekst i forkunnskapene.\nForskjellen er bare hva elementene er."
-  },
-  {
-   "id": "in1000-3-1-13",
-   "type": "definition",
-   "title": "`for i in range(len(liste)):`",
-   "content": "Går gjennom **plassene** i stedet for verdiene. Løkkevariabelen `i` er en\nindeks, og du henter selv ut elementet:\n\n```python\npriser = [30, 45, 20]\nfor i in range(len(priser)):\n    print(i, priser[i])\n```\n\n**Utskrift:**\n```\n0 30\n1 45\n2 20\n```\n\n`range(len(priser))` gir tallene 0, 1 og 2 — nøyaktig de lovlige indeksene, og\nikke én mer. Det er derfor formen er trygg akkurat slik den står.\n\n**Bruk den bare når du faktisk trenger plassen**: når du skal skrive tilbake til\nlista, når du skal sammenligne to naboelementer, eller når du skal hoppe over\nannethvert. Trenger du bare verdiene, er `for e in liste:` bedre."
-  },
-  {
-   "id": "in1000-3-1-14",
-   "type": "definition",
-   "title": "`e in liste`",
-   "content": "Svarer `True` eller `False` på om verdien finnes i lista:\n\n```python\nlinjer = [\"31\", \"20\", \"37\"]\nprint(\"20\" in linjer)\nprint(\"21\" in linjer)\nprint(20 in linjer)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\n```\n\nSiste linje er fellen. Tallet `20` og teksten `\"20\"` er ikke samme verdi, så\ntesten svarer `False` selv om det «ser riktig ut». Det er den samme\ntype-forvekslingen som i feilkode #3.\n\n`in` er praktisk i en betingelse, men den forteller deg bare **om** verdien\nfinnes — ikke **hvor**. Trenger du plassen, må du telle deg fram selv med en\nløkke."
-  },
-  {
-   "id": "in1000-3-1-15",
-   "type": "example",
-   "title": "Eksempel 2: Samme telling, to løkkeformer",
-   "problem": "Et bibliotek registrerer hvor mange ganger fem bøker har vært utlånt:\n`[3, 0, 7, 0, 5]`. Tell hvor mange av bøkene som aldri har vært utlånt, først\nmed en løkke over verdiene og deretter med en løkke over indeksene. Hvilken av\ndem ville du levert på eksamen?",
-   "solution": "Begge gir samme svar. Forskjellen er hva løkkevariabelen betyr:\n\n```python\nutlan = [3, 0, 7, 0, 5]\n\nantall = 0\nfor tall in utlan:\n    if tall == 0:\n        antall = antall + 1\nprint(antall)\n\nantall_med_indeks = 0\nfor i in range(len(utlan)):\n    if utlan[i] == 0:\n        antall_med_indeks = antall_med_indeks + 1\nprint(antall_med_indeks)\n```\n\n**Utskrift:**\n```\n2\n2\n```\n\n**Den første ville jeg levert.** Den sier hva den gjør uten omveier, og den kan\nikke bomme på grensene. Den andre må først slå opp `utlan[i]` for å komme til\nden samme verdien.\n\n**Slik ville sensor sett på det:** begge gir full uttelling. Riktig svar og\nriktig struktur er det som teller — men den første formen har færre steder å\ngjøre feil, og det er verdt noe i seg selv når du skriver på papir uten å kunne\nprøve koden.\n\nTrengte oppgaven derimot å vite **hvilken** bok som aldri var utlånt, måtte du\nbrukt indeksformen. Da er plassen selve svaret."
-  },
-  {
-   "id": "in1000-3-1-oppg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntall = [3, 6, 9, 12]\ntotal = 0\nfor i in range(1, len(tall)):\n    total = total + tall[i]\nprint(total)\n```",
-    "solution": "Løkka starter på 1, ikke på 0 — så det første elementet hoppes over.\n\n| `i` | `tall[i]` | `total` etter runden |\n|---|---|---|\n| 1 | 6 | 6 |\n| 2 | 9 | 15 |\n| 3 | 12 | 27 |\n\n**Utskrift:**\n```\n27\n```\n\nFellen er startverdien i `range`. Hadde det stått `range(len(tall))`, ville\nsvaret vært 30. Forskjellen er nøyaktig det første elementet, og en slik\nforskyvning er feilkode #5.\n\nFormen `range(1, len(liste))` er ikke en feil i seg selv — den brukes bevisst\nnår du sammenligner hvert element med det forrige. Men da må du vite at du gjør\ndet.",
-    "hints": [
-     "Skriv opp hvilke verdier `range(1, 4)` faktisk gir.",
-     "Hvilket element blir aldri lagt til?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-16",
-   "type": "warning",
-   "title": "Snarveiene finnes — men grunnformen er den som belønnes",
-   "content": "Python har ferdige funksjoner som løser flere av oppgavene i dette kapitlet på\nén linje: `sum(tallene)` legger sammen, `max(tallene)` finner den største,\n`tallene.count(x)` teller forekomster, `tallene.index(x)` finner plassen, og en\nsåkalt list comprehension bygger en ny liste i ett uttrykk.\n\n**Denne boka bruker dem ikke, og det er et bevisst valg.** Fagets egne\nløsningsforslag skriver den eksplisitte løkka, fordi det er løkka som er\nferdigheten kurset måler. En besvarelse som bruker `sum(...)` viser ikke at du\nkan akkumulatormønsteret — og på den store Oppgave 4 finnes det ingen ferdig\nfunksjon å ty til.\n\nLær grunnformen først. Snarveien kan du plukke opp på ti minutter etterpå, og\nden er uansett ikke det du blir bedt om her."
-  },
-  {
-   "id": "in1000-3-1-oppg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) Skriv funksjonen\n`antall_over(tallene, grense)` som returnerer hvor mange av tallene i lista som\ner **strengt større** enn grensen.\n\n**a)** Skriv funksjonen med tellermønsteret.\n\n**b)** Hva returnerer `antall_over([], 5)`, og hvorfor?\n\n**c)** Hva ville endret seg hvis oppgaven sa «minst like stor som grensen»?",
-    "solution": "**a)** Teller før løkka, `if` inne i den, `return` etter:\n\n```python\ndef antall_over(tallene, grense):\n    antall = 0\n    for tall in tallene:\n        if tall > grense:\n            antall = antall + 1\n    return antall\n\nprint(antall_over([3, 8, 5, 12], 5))\nprint(antall_over([1, 2], 5))\n```\n\n**Utskrift:**\n```\n2\n0\n```\n\nTallene 8 og 12 er større enn 5. Legg merke til at 5 selv **ikke** telles med,\nfordi testen er streng.\n\n**b)** `0`. Løkka kjører null ganger over en tom liste, så telleren beholder\nstartverdien og returneres uendret. Det er et rimelig svar, og du fikk det\ngratis av mønsteret — men det er verdt å sjekke bevisst hver gang, jf. feilkode\n#6.\n\n**c)** Da måtte `>` byttes til `>=`. Det er én tegns forskjell som flytter alle\nelementene som er nøyaktig lik grensen, fra den ene siden til den andre. Les\noppgaveteksten nøye: «over», «større enn», «minst» og «fra og med» betyr ikke\ndet samme.",
-    "hints": [
-     "Startverdi før løkka, oppdatering inne i den, `return` etter.",
-     "For c): hvilket av tegnene `>` og `>=` tar med grensen selv?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-17",
-   "type": "text",
-   "content": "## Løkke 3 — Å endre en liste og bygge en ny (~13 min)\n\nEn liste kan endres etter at den er laget. Det er den store forskjellen fra en\ntekst, og det er grunnen til at lista er byggematerialet i den store\nklassemodelleringen: et objekt kan holde en liste som vokser mens programmet\nkjører."
-  },
-  {
-   "id": "in1000-3-1-18",
-   "type": "definition",
-   "title": "`liste.append(e)`",
-   "content": "Legger til ett nytt element **bakerst** i lista. Lista endres på stedet — det\nlages ingen ny:\n\n```python\nledige = []\nledige.append(4)\nledige.append(9)\nprint(ledige, len(ledige))\n```\n\n**Utskrift:**\n```\n[4, 9] 2\n```\n\nLegg merke til formen: `append` skrives **etter** lista med et punktum mellom.\nDet er en **metode** — en funksjon som hører til verdien den står bak. Du møter\nsamme skrivemåte igjen på tekster og på dine egne klasser senere i boka.\n\n`append` returnerer ingenting. Skriver du `ledige = ledige.append(4)`, mister du\nhele lista og sitter igjen med `None`. Det er en klassisk nybegynnerfeil, og den\ner stum til du prøver å bruke resultatet."
-  },
-  {
-   "id": "in1000-3-1-19",
-   "type": "definition",
-   "title": "`liste[i] = ny_verdi`",
-   "content": "Bytter ut elementet på plass `i`. Lista må allerede ha en verdi der:\n\n```python\nplasser = [12, 8, 5]\nplasser[1] = 99\nprint(plasser)\n```\n\n**Utskrift:**\n```\n[12, 99, 5]\n```\n\nDette er den ene tingen du **trenger** indeksløkka til: skal du endre lista\nmens du går gjennom den, må du vite hvilken plass du er på. En løkke av formen\n`for e in liste:` gir deg bare en kopi av verdien, og å tilordne til `e` endrer\ningenting i lista.\n\nMerk forskjellen fra `append`: tilordning bytter ut noe som finnes, mens\n`append` gjør lista én lengre."
-  },
-  {
-   "id": "in1000-3-1-20",
-   "type": "theorem",
-   "title": "Bygg-en-ny-liste-mønsteret",
-   "content": "Bokas fjerde kodemønster, og standardsvaret på enhver oppgave som ber om «en ny\nliste med …».\n\nOppskriften har tre faste steg:\n\n1. **Før løkka:** lag en tom liste, `ny = []`.\n2. **Inne i løkka:** legg til det som skal være med, med `ny.append(...)`.\n3. **Etter løkka:** `return ny`.\n\n```python\ntall = [4, 11, 7, 20]\nstore = []\nfor t in tall:\n    if t > 9:\n        store.append(t)\nprint(store)\n```\n\n**Utskrift:**\n```\n[11, 20]\n```\n\nDet er nøyaktig samme skjelett som akkumulatormønsteret fra\n[kap. 1.3](/bok/in1000/in1000-1-3) — bare med en tom liste i stedet for en\nnullstilt teller. Startverdi før, oppdatering inne, bruk etter.\n\nMønsteret dekker tre oppgavetyper som ser ulike ut: **filtrere** (ta med noen),\n**omforme** (ta med alle, men endret) og **kombinere** (bygge nye verdier av\ngamle). Kjenner du igjen skjelettet, er alle tre den samme oppgaven."
-  },
-  {
-   "id": "in1000-3-1-21",
-   "type": "definition",
-   "title": "`+` på lister",
-   "content": "Skjøter to lister til en **ny** liste. De opprinnelige er urørt:\n\n```python\na = [1, 2]\nb = [3]\nprint(a + b)\nprint(a)\n```\n\n**Utskrift:**\n```\n[1, 2, 3]\n[1, 2]\n```\n\nPlusstegnet gjør altså det samme på lister som på tekster: det setter dem etter\nhverandre. Det legger **ikke** sammen elementene parvis — `[1, 2] + [3, 4]` gir\n`[1, 2, 3, 4]`, ikke `[4, 6]`."
-  },
-  {
-   "id": "in1000-3-1-22",
-   "type": "warning",
-   "title": "`append` mot `+` — en forskjell som endrer svaret",
-   "content": "De to ser ut til å gjøre det samme, men gjør det ikke:\n\n```python\na = [1, 2]\na.append([3, 4])\nprint(a)\n\nb = [1, 2]\nb = b + [3, 4]\nprint(b)\n```\n\n**Utskrift:**\n```\n[1, 2, [3, 4]]\n[1, 2, 3, 4]\n```\n\n`append` legger til **ett** element. Er det elementet selv en liste, havner hele\nlista inn som ett element — det er hakeparentesene inni i den første utskriften.\n`+` derimot skjøter, og elementene havner side om side.\n\n**Regelen som holder:** `append` når du legger til én verdi, `+` når du setter\nsammen to lister. Og husk at `+` lager en ny liste, mens `append` endrer den du\nallerede har."
-  },
-  {
-   "id": "in1000-3-1-23",
-   "type": "example",
-   "title": "Eksempel 3: En funksjon som bygger en ny liste",
-   "problem": "Skriv `annethvert(liste)` som returnerer en **ny** liste med elementene som står\npå partallsindeks — altså 0, 2, 4 og så videre. Vis også hva funksjonen gjør med\nen tom liste og med en liste som har bare ett element.",
-   "solution": "Her trenger du plassene, ikke verdiene, så indeksløkka er riktig valg — og\n`range` med steg gjør hoppingen for deg:\n\n```python\ndef annethvert(liste):\n    ny = []\n    for i in range(0, len(liste), 2):\n        ny.append(liste[i])\n    return ny\n\nprint(annethvert([10, 20, 30, 40, 50]))\nprint(annethvert([]))\nprint(annethvert([\"a\"]))\n```\n\n**Utskrift:**\n```\n[10, 30, 50]\n[]\n['a']\n```\n\n**Slik ville sensor sett på det:** tre ting gir uttelling hver for seg.\n\nDen ene er at du **lager en ny liste** i stedet for å prøve å fjerne annethvert\nelement fra den gamle. Den andre er at `range(0, len(liste), 2)` treffer\nnøyaktig de lovlige indeksene — stoppverdien er `len(liste)`, som selv aldri er\nen lovlig indeks, og det er nettopp derfor det stemmer. Den tredje er at\nfunksjonen **returnerer** lista, i stedet for å skrive den ut.\n\nDe to siste kallene viser kanttilfellene. En tom liste gir en tom liste, og en\nliste med ett element gir det ene elementet — begge deler faller ut av mønsteret\nuten en eneste ekstra `if`. Det er slik du vil ha det: kant-tilfellene skal helst\nløses av strukturen, ikke av lappverk."
-  },
-  {
-   "id": "in1000-3-1-oppg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) En kantine registrerer prisene\npå dagens retter i en liste. Skriv funksjonen `med_rabatt(priser, kroner)` som\nreturnerer en **ny** liste der `kroner` er trukket fra hver pris.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva skjer med den opprinnelige lista når funksjonen kalles?\n\n**c)** Hvorfor ville det vært galt å skrive `return priser` til slutt?",
-    "solution": "**a)** Bygg-en-ny-liste-mønsteret, med en regneoperasjon i stedet for en `if`:\n\n```python\ndef med_rabatt(priser, kroner):\n    ny = []\n    for pris in priser:\n        ny.append(pris - kroner)\n    return ny\n\ngamle = [89, 65, 120]\nprint(med_rabatt(gamle, 10))\nprint(gamle)\n```\n\n**Utskrift:**\n```\n[79, 55, 110]\n[89, 65, 120]\n```\n\n**b)** Ingenting. Funksjonen leser bare fra `priser` og skriver til `ny`, så den\nopprinnelige lista er uendret — det viser den andre utskriftslinja.\n\n**c)** Fordi `priser` er den lista funksjonen fikk inn. Å returnere den ville gitt\ntilbake de gamle prisene, uten rabatt, mens den nye lista du nettopp bygde, ble\nkastet. Feilen er lett å gjøre når de to navnene ligner på hverandre, og den er\nverdt å lete etter i din egen kode: **returnerer du den lista du faktisk bygde?**",
-    "hints": [
-     "Tom liste før løkka, `append` inne i den, `return` etter.",
-     "For b): skriver funksjonen noe som helst tilbake til lista den fikk inn?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-oppg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\nliste = [1, 2, 3]\nny = []\nfor e in liste:\n    ny.append(e * 2)\nliste[0] = 99\nprint(liste)\nprint(ny)\nprint(liste + ny)\n```",
-    "solution": "Løkka bygger `ny` ferdig **før** lista endres. Rekkefølgen på linjene avgjør\nalt.\n\n| Steg | `liste` | `ny` |\n|---|---|---|\n| etter løkka | `[1, 2, 3]` | `[2, 4, 6]` |\n| etter `liste[0] = 99` | `[99, 2, 3]` | `[2, 4, 6]` |\n\n**Utskrift:**\n```\n[99, 2, 3]\n[2, 4, 6]\n[99, 2, 3, 2, 4, 6]\n```\n\nTo feller. Den ene er at `ny` **ikke** endres av tilordningen på linja etter\nløkka — den inneholder ferdig utregnede tall, ikke koblinger tilbake til den\nførste lista. Den andre er siste linje: `+` skjøter, så resultatet har seks\nelementer, ikke tre.",
-    "hints": [
-     "Fyll ut hva `ny` inneholder før du leser linja som endrer `liste`.",
-     "Hvor mange elementer har resultatet av `+` mellom to lister?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-24",
-   "type": "text",
-   "content": "## Løkke 4 — Lister i en sporingsoppgave (~10 min)\n\nLister dukker like ofte opp i Oppgave 1 som i Oppgave 3, og da er spørsmålet\nikke hva du kan skrive, men om du kan lese. To detaljer avgjør nesten alle slike\noppgaver: **hvordan en liste ser ut når den skrives ut**, og **nøyaktig hvilke\nindekser løkka treffer**."
-  },
-  {
-   "id": "in1000-3-1-25",
-   "type": "definition",
-   "title": "Utskrift av en liste",
-   "content": "`print(liste)` viser hakeparentesene, komma og ett mellomrom mellom elementene\n— og strenger vises med **enkle anførselstegn**:\n\n```python\nblandet = [1, \"to\", 3.0, True]\nprint(blandet)\nprint(blandet[1])\nprint(blandet[2])\n```\n\n**Utskrift:**\n```\n[1, 'to', 3.0, True]\nto\n3.0\n```\n\nMerk de tre forskjellene mellom første og andre linje. Hele lista får\nhakeparenteser; ett element får ikke. Teksten inne i lista får anførselstegn;\nden samme teksten skrevet ut alene får ikke. Og desimaltallet `3.0` beholder\npunktum og null begge steder — det er en `float`, og det er ikke det samme som\n`3`.\n\nI et auto-rettet svarfelt er alle tre forskjellene forskjellen på rett og galt."
-  },
-  {
-   "id": "in1000-3-1-26",
-   "type": "example",
-   "title": "Eksempel 4: En full sjanger A-oppgave med liste, sporet linje for linje",
-   "problem": "Hva skriver dette programmet ut?\n\n```text\ntall = [5, 3, 8, 1]\nresultat = []\ni = 0\nwhile i < len(tall):\n    if tall[i] > tall[0]:\n        resultat.append(tall[i])\n    i = i + 2\nprint(resultat, len(resultat))\nprint(tall[-1] + tall[1])\n```\n\nBruk sporingstavle. Legg merke til at løkkevariabelen øker med 2.",
-   "solution": "Først tavla. Lengden er 4, så løkka går så lenge `i` er under 4:\n\n| `i` ved start | `tall[i]` | Større enn `tall[0]` = 5? | `resultat` etter runden | `i` etter runden |\n|---|---|---|---|---|\n| 0 | 5 | nei | `[]` | 2 |\n| 2 | 8 | ja | `[8]` | 4 |\n| 4 | — | løkka stopper | `[8]` | 4 |\n\nSå de to utskriftslinjene. Den første viser lista og lengden; den andre henter\nsiste element (`1`) og elementet på indeks 1 (`3`).\n\n```python\ntall = [5, 3, 8, 1]\nresultat = []\ni = 0\nwhile i < len(tall):\n    if tall[i] > tall[0]:\n        resultat.append(tall[i])\n    i = i + 2\nprint(resultat, len(resultat))\nprint(tall[-1] + tall[1])\n```\n\n**Utskrift:**\n```\n[8] 1\n4\n```\n\n**Tre feller i én oppgave.** Den første er at `tall[0]` sammenlignes med seg selv\ni første runde, og `5 > 5` er usann — kantverdien igjen. Den andre er steget på\n2, som gjør at indeks 1 og 3 aldri besøkes. Den tredje er at\n`print(resultat, len(resultat))` blander en liste og et tall på samme linje, så\nsvaret er `[8] 1` med hakeparenteser rundt det ene og ingenting rundt det andre.\n\n**Margnotat om uttelling:** har du ført tavla riktig, men skrevet `8 1` uten\nhakeparenteser til slutt, er sporingen di korrekt og bare formen feil. I et\nauto-rettet felt gir det likevel null poeng — så skriv utskriften slik terminalen\nville vist den, hver gang."
-  },
-  {
-   "id": "in1000-3-1-oppg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv\nutskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nverdier = [4, 8, 15, 16]\nresultat = []\nfor i in range(len(verdier) - 1):\n    resultat.append(verdier[i + 1] - verdier[i])\nprint(resultat)\nprint(len(resultat), verdier[-1])\n```",
-    "solution": "Løkka sammenligner hvert element med det neste, og da må den stoppe én runde\ntidlig.\n\n| `i` | `verdier[i + 1]` | `verdier[i]` | Lagt til |\n|---|---|---|---|\n| 0 | 8 | 4 | 4 |\n| 1 | 15 | 8 | 7 |\n| 2 | 16 | 15 | 1 |\n\n**Utskrift:**\n```\n[4, 7, 1]\n3 16\n```\n\n**Hvorfor `- 1` i grensen?** Fordi løkka bruker `verdier[i + 1]`. Uten minus én\nville `i` til slutt blitt 3, og `verdier[4]` finnes ikke — programmet ville\nstoppet med feilmeldingen fra feilkode #6.\n\nLegg merke til at resultatlista er **én kortere** enn den opprinnelige. Det er\nalltid slik når du regner på naboer: fire tall gir tre avstander. Det er verdt å\nkontrollere lengden når du er ferdig; stemmer den ikke, har du som regel bommet\npå grensen.",
-    "hints": [
-     "Hvor mange verdier gir `range(len(verdier) - 1)`?",
-     "Regn ut hver differanse for seg, og tell hvor mange det blir til slutt."
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-oppg-8",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-3-1-o8",
-    "number": "8",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) En værstasjon lagrer døgnets\nmålinger i en liste med heltall. Skriv funksjonen `storste_verdi(tallene)` som\nreturnerer den største verdien i lista.\n\n**a)** Skriv funksjonen. Den skal returnere `None` hvis lista er tom.\n\n**b)** Hvorfor er `beste = 0` en dårlig startverdi?\n\n**c)** Hva returnerer funksjonen din for `[7, 7, 7]`?",
-    "solution": "**a)** Sett den beste verdien til det første elementet, og la løkka forbedre den:\n\n```python\ndef storste_verdi(tallene):\n    if len(tallene) == 0:\n        return None\n    beste = tallene[0]\n    for tall in tallene:\n        if tall > beste:\n            beste = tall\n    return beste\n\nprint(storste_verdi([4, 19, 7]))\nprint(storste_verdi([-5, -2, -9]))\nprint(storste_verdi([]))\n```\n\n**Utskrift:**\n```\n19\n-2\nNone\n```\n\n**Slik gir det poeng:** tomsjekken først (1 p), riktig startverdi (2 p), løkke\nmed sammenligning (2 p) og `return` etter løkka (1 p). Glemmer du tomsjekken,\nkrasjer funksjonen på `tallene[0]` — men resten av strukturen er riktig, og det\ngir fortsatt god uttelling.\n\n**b)** Fordi den antar at et av tallene er positivt. Andre kall over viser hvorfor:\nalle målingene er minusgrader, og med `beste = 0` ville funksjonen svart `0` —\nen verdi som ikke engang finnes i dataene. **Startverdien skal alltid hentes fra\ndataene selv**, ikke fra hva du tror om dem.\n\n**c)** `7`. Testen er streng (`>`), så ingen av de like verdiene bytter ut den\nførste — men svaret blir riktig uansett, siden alle er like. Denne detaljen får\nbetydning først når du skal returnere **hvilket** element som var størst; da\navgjør `>` mot `>=` om du får det første eller det siste av de like.\n\nMønsteret her heter **finn beste**, og du møter det igjen når du skal finne\nnøkkelen med størst verdi i en ordbok, i [kap. 3.2](/bok/in1000/in1000-3-2).",
-    "hints": [
-     "Hva må skje før du i det hele tatt kan skrive `tallene[0]`?",
-     "Velg en startverdi som garantert finnes i dataene."
-    ]
-   }
-  },
-  {
-   "id": "in1000-3-1-27",
-   "type": "warning",
-   "title": "Typiske feil i dette kapitlet",
-   "content": "Fem feil koster nesten alle poengene som mistes på lister:\n\n- **#5 — av-med-én.** Lengden er `len(liste)`, men den siste indeksen er\n  `len(liste) - 1`. Skriv opp indeksene over elementene før du sporer.\n- **#6 — kanttilfellene.** Hva gjør funksjonen din med en **tom** liste? Enhver\n  `liste[0]` er et krasj som venter på å skje.\n- **Indeks lest som telling.** «Det tredje elementet» har indeks 2. Gjør den\n  oversettelsen bevisst hver gang.\n- **`append` mot `+`.** `append` legger til **ett** element og endrer lista;\n  `+` skjøter to lister til en ny. `liste = liste.append(x)` ødelegger lista.\n- **Feil form på utskriften.** `print(liste)` gir hakeparenteser, komma og\n  enkle anførselstegn rundt tekster. `print(liste[0])` gir ingen av delene.\n\nOg én ting til, som ikke er en feil, men et valg: bruk `for e in liste:` når du\nbare trenger verdiene. Færre steder å bomme."
-  },
-  {
-   "id": "in1000-3-1-coll-28",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "in1000-3-1",
+  "courseId": "in1000",
+  "chapterNumber": "3.1",
+  "title": "Lister",
+  "description": "Lister: indeksering (også negativ), append, gjennomløping, len og bygging av nye lister — den mest brukte datastrukturen i hele faget.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne hente ut et bestemt element fra en liste, også talt bakfra",
+    "kunne velge riktig løkkeform etter om du trenger verdien eller plassen",
+    "kunne bygge en ny liste med et utvalg eller en omforming av en gammel",
+    "kunne sikre at en funksjon over en liste også tåler at lista er tom"
+  ],
+  "content": [
     {
-     "id": "in1000-3-1-c1",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `[e1, e2, e3]` | Listelitteral. Rekkefølgen er fast; elementene kan ha ulik type. |\n| `[]` | Tom liste, lengde 0. Startpunktet i bygg-en-ny-liste-mønsteret. |\n| `len(liste)` | Antall elementer, som heltall. Siste lovlige indeks er `len(liste) - 1`. |\n| `liste[i]` | Elementet på plass `i`. **Tellingen starter på 0.** |\n| `liste[-1]` | Siste element. `-2` er nest sist. Det finnes ingen `-0`. |\n| `liste[i] = v` | Bytter ut elementet på plass `i`. Plassen må finnes fra før. |\n| `liste.append(e)` | Legger til **ett** element bakerst. Endrer lista, returnerer ingenting. |\n| `liste1 + liste2` | **Ny** liste med elementene etter hverandre. De to originalene er urørt. |\n| `e in liste` | `True`/`False` om verdien finnes. Type teller: `20` er ikke `\"20\"`. |\n| `for e in liste:` | Går gjennom **verdiene**. Førstevalget når du ikke trenger plassen. |\n| `for i in range(len(liste)):` | Går gjennom **plassene** 0 til `len(liste) - 1`. Bruk når plassen trengs. |\n| `range(0, len(liste), 2)` | Annenhver lovlig indeks: 0, 2, 4 … Stopper før `len(liste)`. |\n| `print(liste)` | Viser `[4, 7, 12]` — hakeparenteser, komma og mellomrom. Tekster får `'…'`. |\n| `IndexError` | Feilmeldingen når indeksen ikke finnes: `list index out of range`. |\n\n**Det som avgjør poeng i Oppgave 3:** at du bygger en ny liste i stedet for å\nendre den du fikk inn, og at funksjonen tåler at lista er tom."
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-1-29",
-   "type": "text",
-   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
-  },
-  {
-   "id": "in1000-3-1-30",
-   "type": "definition",
-   "title": "Element",
-   "content": "En enkeltverdi i lista. I `[4, 7, 12]` er `4`, `7` og `12` de tre elementene.\n\nElementene trenger ikke ha samme type, men i praksis har de nesten alltid det —\nen liste med målinger inneholder tall, og en liste med stoppesteder inneholder\ntekster. Blandede lister forekommer, men de er vanskeligere å skrive kode for,\nfordi du ikke vet hva du får.\n\nSenere i boka blir elementene **objekter** du selv har laget, og det er nettopp\nda lista blir kraftig."
-  },
-  {
-   "id": "in1000-3-1-31",
-   "type": "definition",
-   "title": "Indeks",
-   "content": "Plassen et element står på, talt fra **null**.\n\nDet gir tre tall som er lette å blande, og som du bør si høyt for deg selv:\nlengden er antallet, den første indeksen er 0, og den siste indeksen er\n`len(liste) - 1`.\n\nEn indeks er alltid et heltall. Skriver du `liste[1.0]` eller `liste[\"1\"]`,\nstopper programmet — indeksen må være av riktig type."
-  },
-  {
-   "id": "in1000-3-1-32",
-   "type": "definition",
-   "title": "Lengde mot siste indeks",
-   "content": "Den ene forskjellen som produserer flest gale svar i faget.\n\nFor lista `[10, 20, 30]` er lengden `3`, mens den siste indeksen er `2`. Derfor\ner `liste[len(liste)]` **alltid** en feil, mens `liste[len(liste) - 1]` alltid er\ndet siste elementet — det samme som `liste[-1]`.\n\nDen samme forskjellen er grunnen til at `range(len(liste))` treffer nøyaktig de\nlovlige indeksene: `range` stopper før stoppverdien."
-  },
-  {
-   "id": "in1000-3-1-33",
-   "type": "definition",
-   "title": "`IndexError`",
-   "content": "Feilmeldingen Python gir når du ber om en plass som ikke finnes. Siste linje\nlyder `IndexError: list index out of range`.\n\nDen kommer nesten alltid fra ett av tre steder: en indeks som er én for stor, en\nløkke som går én runde for langt, eller en liste som viste seg å være tom.\n\nI en sporingsoppgave er «programmet stopper med en feilmelding» et fullgodt svar\n— men du bør kunne peke på hvilken linje som feiler."
-  },
-  {
-   "id": "in1000-3-1-34",
-   "type": "definition",
-   "title": "Tom liste",
-   "content": "Lista `[]`, med lengde 0.\n\nDen er ikke en spesialtilfelle du kan overse. En løkke over en tom liste kjører\n**null** runder, så alt du gjorde før løkka, står uendret når du kommer til\nlinja etter. Det er derfor teller- og bygg-mønstrene håndterer tomme lister av\nseg selv.\n\nDet som **ikke** går av seg selv, er å indeksere. `liste[0]` på en tom liste\nstopper programmet, og det er hele grunnen til at tomsjekken står øverst i\nfinn-beste-funksjoner."
-  },
-  {
-   "id": "in1000-3-1-35",
-   "type": "definition",
-   "title": "Å bygge en liste",
-   "content": "Å starte med `ny = []` og legge til med `append` i en løkke.\n\nMønsteret dekker tre oppgavetyper som ser forskjellige ut i teksten: **filtrere**\n(«en ny liste med bare de som …»), **omforme** («en ny liste der hvert element\ner …») og **kombinere** («en ny liste med differansene mellom …»).\n\nKjenn igjen skjelettet, så er alle tre den samme oppgaven: tom liste før,\n`append` inne, `return` etter."
-  },
-  {
-   "id": "in1000-3-1-36",
-   "type": "definition",
-   "title": "To navn på samme liste",
-   "content": "Skriver du `b = a` når `a` er en liste, får du **ikke** en kopi. Du får et navn\ntil på den samme lista, og en endring gjennom det ene navnet sees gjennom det\nandre:\n\n```python\na = [1, 2]\nb = a\nb.append(3)\nprint(a)\nprint(b)\n```\n\n**Utskrift:**\n```\n[1, 2, 3]\n[1, 2, 3]\n```\n\nDette er feilkode #15, og det er et av de vanskeligste punktene i faget. Tall og\ntekster oppfører seg annerledes — der gir `b = a` i praksis to uavhengige\nverdier.\n\nHele mekanismen har et navn, **referanser**, og den får en grundig gjennomgang i\ndel 5 om klasser og objekter. Her holder det å vite at en liste ikke kopieres av\net likhetstegn."
-  },
-  {
-   "id": "in1000-3-1-37",
-   "type": "definition",
-   "title": "Sekvens",
-   "content": "Fellesordet for verdier som har elementer i rekkefølge, og som du kan gå gjennom\nmed `for e in ...:`. Både lister og tekster er sekvenser.\n\nDet er derfor så mye av det du lærte om tekster, virker uendret på lister:\n`len(...)`, indeksering med hakeparentes, negativ indeks og `in`-testen oppfører\nseg likt.\n\nDen store forskjellen er at en liste kan **endres**, mens en tekst ikke kan. Du\nkan skrive `liste[0] = 9`, men `tekst[0] = \"a\"` stopper programmet."
-  },
-  {
-   "id": "in1000-3-1-38",
-   "type": "definition",
-   "title": "Liste som parameter",
-   "content": "En liste kan sendes inn i en funksjon som et hvilket som helst annet argument:\n`def antall_over(tallene, grense):`.\n\nInne i funksjonen er `tallene` et navn på den **samme** lista som utenfor, ikke\nen kopi. Leser du bare fra den, spiller det ingen rolle. Kaller du derimot\n`tallene.append(...)`, endrer du kallerens liste også — og det er sjelden det du\nvil på eksamen.\n\n**Den trygge stilen** er den du har brukt her: les fra lista du fikk inn, bygg en\n**ny** liste, og returner den nye."
-  },
-  {
-   "id": "in1000-3-1-39",
-   "type": "definition",
-   "title": "Å finne plassen selv",
-   "content": "`in`-testen forteller om en verdi finnes, men ikke hvor. Trenger du plassen,\nteller du deg fram med indeksløkka og returnerer indeksen ved første treff:\n\n```python\ndef plassen_til(liste, verdi):\n    for i in range(len(liste)):\n        if liste[i] == verdi:\n            return i\n    return -1\n\nprint(plassen_til([9, 4, 7], 7))\nprint(plassen_til([9, 4, 7], 5))\n```\n\n**Utskrift:**\n```\n2\n-1\n```\n\nVerdien `-1` for «ikke funnet» kalles en **sentinel-verdi** — en verdi som betyr\nnoe annet enn de vanlige. Den er trygg her, fordi en plass aldri kan være\nnegativ. Er `-1` derimot gyldige data, kolliderer de to betydningene, og da er\n`None` det bedre valget. Det er feilkode #10."
-  },
-  {
-   "id": "in1000-3-1-40",
-   "type": "definition",
-   "title": "Blandede typer i en liste",
-   "content": "En liste kan inneholde tall, tekster og boolske verdier om hverandre:\n`[3, \"buss\", True]`.\n\nPython tillater det, men koden din må tåle det. En løkke som legger sammen\nelementene, stopper i det den treffer teksten — og feilmeldingen dukker opp midt\ni løkka, ikke der lista ble laget.\n\nI praksis holder du typene ensartede, og lar i stedet **en klasse** holde\nsammen opplysninger av ulik art. Det er hele poenget med objektorientering, og\ndet er dit boka er på vei."
-  },
-  {
-   "id": "in1000-3-1-41",
-   "type": "definition",
-   "title": "Utsnitt av en liste",
-   "content": "Formen `liste[1:3]` gir en **ny** liste med elementene fra indeks 1 til og med\n2 — stoppverdien er eksklusiv, som i `range`.\n\nKonstruksjonen kalles et **utsnitt**, og den nevnes her fordi du vil se den i\nkode andre har skrevet. **Denne boka bruker den ikke**, og eksamensoppgavene\nkrever den ikke: fasitens svar på «de tre første» er en løkke med `range(0, 3)`\nog `append`.\n\nLærer du utsnitt før du behersker løkka, får du et verktøy uten det håndverket\nkurset faktisk måler."
-  },
-  {
-   "id": "in1000-3-1-42",
-   "type": "definition",
-   "title": "Å velge løkkeform",
-   "content": "Spørsmålet er alltid det samme: **trenger du plassen?**\n\nTrenger du bare verdiene — telle, summere, sjekke, bygge en ny liste — skriver\ndu `for e in liste:`. Trenger du plassen — skrive tilbake til lista, sammenligne\nnaboer, hoppe over annethvert, eller returnere hvor noe sto — skriver du\n`for i in range(len(liste)):`.\n\nBegge gir full uttelling når svaret er riktig. Men den første kan ikke bomme på\ngrensene, og på en hjelpemiddelfri eksamen er det et reelt argument."
-  },
-  {
-   "id": "in1000-3-1-43",
-   "type": "definition",
-   "title": "Rekkefølge betyr noe",
-   "content": "En liste husker rekkefølgen elementene ble lagt inn i, og `append` legger alltid\ntil bakerst.\n\nDet gjør lista til riktig valg når rekkefølgen er en del av dataene: køen på\nsykkelutleien, stoppene langs ruta, målingene time for time.\n\nSkal du derimot slå opp på en **nøkkel** — «hvor mange ganger forekom dette\nordet?», «hvem eier denne boka?» — er lista feil verktøy. Da trenger du en\nordbok, og det er neste kapittel."
-  },
-  {
-   "id": "in1000-3-1-coll-44",
-   "type": "collapsible",
-   "title": "Repetisjon — de sju setningene som må sitte",
-   "buttonText": "Vis repetisjon",
-   "content": [
+      "id": "in1000-3-1-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Lister står i 6 av 6 moderne eksamenssett (100 %)**, og de dukker opp to\nsteder samtidig. I Oppgave 1 — **sjanger A, kodeforståelse**, altså «hva skriver dette programmet ut?» — er indeksering en fast felle: et program henter ut to elementer og legger dem sammen, og hele poenget er om du teller riktig. I\nOppgave 3 — **sjanger C, skriv en liten funksjon over en liste** — er lista selve dataene, og det er den enkeltoppgaven som gir flest poeng etter den store klassemodelleringen.\n\nLista er også byggematerialet i Oppgave 4: når et objekt skal holde mange andre objekter, er en liste den vanligste løsningen.\n\n**Dette må sitte** — bokas høyeste av tre nivåer. To feil koster nesten alle\npoengene som mistes her: **#5**, av-med-én i løkkegrensene, og **#6**, at programmet ikke tåler en tom eller kort liste."
+    },
     {
-     "id": "in1000-3-1-c2",
-     "type": "text",
-     "content": "1. En liste holder flere verdier i **fast rekkefølge**, og kan endres etter at\n   den er laget.\n2. **Tellingen starter på null.** Lengden er `len(liste)`, siste indeks er\n   `len(liste) - 1`, og `liste[-1]` er det siste elementet.\n3. `for e in liste:` gir **verdiene**; `for i in range(len(liste)):` gir\n   **plassene**. Velg den første når du kan.\n4. **Bygg-en-ny-liste-mønsteret:** `ny = []` før løkka, `ny.append(...)` inne i\n   den, `return ny` etter.\n5. `append` legger til **ett** element og endrer lista; `+` skjøter to lister til\n   en **ny**. `liste = liste.append(x)` ødelegger lista.\n6. **Sjekk den tomme lista.** En løkke tåler den av seg selv; enhver `liste[0]`\n   gjør det ikke.\n7. `print(liste)` viser hakeparenteser, komma og enkle anførselstegn rundt\n   tekster — `print(liste[0])` viser ingen av delene."
+      "id": "in1000-3-1-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.3 — Løkker: for, while og range](/bok/in1000/in1000-1-3) og\n[kap. 2.1 — Funksjoner: def, parametere og return](/bok/in1000/in1000-2-1).\n\nDe tre tingene du bruker mest her:\n\n- **teller- og akkumulatormønsteret**: startverdi før løkka, oppdatering inne i\n  den, bruk etter,\n- **`range(start, stopp, steg)`**, og at stoppverdien aldri er med,\n- **flagg med tidlig retur**: `return False` ved første moteksempel inne i\n  løkka, `return True` etter løkka.\n\nKort oppfrisket, med en tekst som data:\n\n```python\nantall = 0 for tegn in \"resirkulering\":\n    if tegn == \"r\":\n        antall = antall + 1 print(antall)\n```\n\n**Utskrift:**\n```\n3\n```\n\nI dette kapitlet bytter vi ut teksten med en **liste**. Løkka ser nesten nøyaktig lik ut — men lista kan inneholde hva som helst, ikke bare enkelttegn, og den kan endres underveis."
+    },
+    {
+      "id": "in1000-3-1-3",
+      "type": "text",
+      "content": "## Løkke 1 — Hva en liste er, og hvordan du henter ut ett element (~12 min)\n\nEn sykkelutleie har fem stativer, og teller hvor mange ledige sykler som står i hvert av dem. Fem tall hører sammen. Du kunne gitt dem fem variabelnavn, men da måtte du skrevet fem linjer for å legge dem sammen — og ti linjer hvis stativene ble ti.\n\nEn **liste** samler dem i én verdi, som du kan gå gjennom med én løkke uansett hvor mange de er."
+    },
+    {
+      "id": "in1000-3-1-4",
+      "type": "definition",
+      "title": "Liste",
+      "content": "En verdi som holder flere andre verdier i en bestemt **rekkefølge**.\n\nDu skriver den med hakeparenteser og komma mellom elementene:\n\n```python\nledige = [4, 7, 12, 9, 3]\nprint(ledige)\n```\n\n**Utskrift:**\n```\n[4, 7, 12, 9, 3]\n```\n\nTre egenskaper er verdt å merke seg med én gang. Rekkefølgen er fast — det fjerde tallet blir værende det fjerde. Lista kan **endres** etter at den er laget, i motsetning til en tekst. Og den kan vokse: du kan legge til nye elementer underveis.\n\nEt enkelt element i lista kalles et **element**, og plassen det står på, kalles en **indeks**."
+    },
+    {
+      "id": "in1000-3-1-5",
+      "type": "definition",
+      "title": "`[...]` — listelitteral og tom liste",
+      "content": "En liste skrevet rett inn i koden. Den kan være tom, og elementene trenger ikke være av samme type:\n\n```python\ntomme = []\nblandet = [3, \"buss\", True]\nprint(tomme, len(tomme))\nprint(blandet)\n```\n\n**Utskrift:**\n```\n[] 0\n[3, 'buss', True]\n```\n\nDen **tomme lista** `[]` er ikke en kuriositet — den er startpunktet i det viktigste listemønsteret i faget: du begynner med en tom liste og fyller den underveis.\n\nLegg merke til at teksten `buss` vises med **enkle anførselstegn** når hele lista skrives ut. Det er slik Python viser strenger inne i en liste, og det er et detaljspørsmål som avgjør poeng i et auto-rettet svarfelt."
+    },
+    {
+      "id": "in1000-3-1-6",
+      "type": "definition",
+      "title": "`len(liste)`",
+      "content": "Gir antall elementer i lista, som et heltall:\n\n```python\ndager = [\"mandag\", \"tirsdag\", \"onsdag\"]\nprint(len(dager))\nprint(len(dager) - 1)\nprint(dager[len(dager) - 1])\n```\n\n**Utskrift:**\n```\n3\n2 onsdag\n```\n\nLegg merke til de to første linjene. **Lengden er 3, men den siste indeksen er\n2.** Den forskjellen på én er kilden til feilkode #5, av-med-én, og den skal du\nmøte igjen hver gang du skriver `range(len(...))`.\n\n`len` virker også på tekster, akkurat som du så i forkunnskapene."
+    },
+    {
+      "id": "in1000-3-1-7",
+      "type": "definition",
+      "title": "Indeksering `liste[i]`",
+      "content": "Henter ut elementet som står på plass `i`. **Tellingen starter på null:**\n\n```python\nplasser = [12, 8, 5, 20]\nprint(plasser[0])\nprint(plasser[2])\nprint(plasser[0] + plasser[2])\n```\n\n**Utskrift:**\n```\n12\n5\n17\n```\n\nDet første elementet har indeks 0, det andre har indeks 1, og det siste har indeks `len(liste) - 1`. Å blande «det andre elementet» med «indeks 2» er den vanligste kilden til feil svar i en sporingsoppgave.\n\nUttrykket `plasser[2]` er en helt vanlig verdi. Du kan regne med den, sende den til en funksjon eller sammenligne den, akkurat som med en variabel."
+    },
+    {
+      "id": "in1000-3-1-8",
+      "type": "definition",
+      "title": "Negativ indeks `liste[-1]`",
+      "content": "Teller bakfra. `-1` er det **siste** elementet, `-2` det nest siste:\n\n```python\nplasser = [12, 8, 5, 20]\nprint(plasser[-1], plasser[-2])\nprint(plasser[3] == plasser[-1])\n```\n\n**Utskrift:**\n```\n20 5\nTrue\n```\n\nMerk at det ikke finnes noen `-0`; null teller forfra. Formen `liste[-1]` er praktisk fordi du slipper å regne ut lengden først, og den brukes flittig i fagets løsningsforslag."
+    },
+    {
+      "id": "in1000-3-1-9",
+      "type": "example",
+      "title": "Eksempel 1: Fem stativer, lest ut ett og ett",
+      "problem": "Sykkelutleien har fem stativer med henholdsvis 4, 7, 12, 9 og 3 ledige sykler.\nSkriv ut hele oversikten, antall stativer, det første og det fjerde tallet, det siste tallet, og summen av det første og det fjerde.",
+      "solution": "Alt hentes ut av den samme lista:\n\n```python\nledige = [4, 7, 12, 9, 3]\nprint(ledige)\nprint(len(ledige))\nprint(ledige[0], ledige[3])\nprint(ledige[-1])\nprint(ledige[0] + ledige[3])\n```\n\n**Utskrift:**\n```\n[4, 7, 12, 9, 3]\n5\n4 9\n3\n13\n```\n\nTre ting er verdt å legge merke til.\n\n**Det fjerde tallet har indeks 3.** Oppgaveteksten teller fra én, som mennesker\ngjør; Python teller fra null. Den oversettelsen må du gjøre bevisst hver gang.\n\n**`print(ledige)` viser hakeparentesene og komma med mellomrom etter.** I et\nauto-rettet felt er `[4, 7, 12, 9, 3]` riktig og `4 7 12 9 3` galt.\n\n**`print(ledige[0], ledige[3])` gir derimot ingen hakeparenteser** — der er det\nto enkeltverdier skilt av ett mellomrom, som ved alle andre `print` med komma."
+    },
+    {
+      "id": "in1000-3-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) En kollektivrute har disse stoppene:\n\n```python\nstopp = [\"Majorstuen\", \"Nationaltheatret\", \"Jernbanetorget\"]\n```\n\n**a)** Hva gir `len(stopp)`?\n\n**b)** Hva gir `stopp[1]`?\n\n**c)** Hva gir `stopp[-1]`?\n\n**d)** Hvilken indeks har det første stoppet?\n\n**e)** Hva skjer hvis du skriver `stopp[3]`?",
+        "solution": "**a)** `3` — det er tre elementer i lista.\n\n**b)** `Nationaltheatret`. Indeks 1 er det **andre** elementet, ikke det første.\n\n**c)** `Jernbanetorget` — negativ indeks teller bakfra, og `-1` er det siste.\n\n**d)** Indeks `0`. Tellingen starter alltid på null.\n\n**e)** Programmet stopper med en feilmelding. Gyldige indekser er 0, 1 og 2;\nindeks 3 finnes ikke, selv om lengden er 3. Nettopp den forskjellen på én er feilkode #5.",
+        "hints": [
+          "Tell elementene, og husk at den første plassen heter 0.",
+          "For e): hva er den største lovlige indeksen når lengden er 3?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-10",
+      "type": "warning",
+      "title": "Typisk feil #6 — indeks utenfor rekkevidde",
+      "content": "Feilkode #6 er at koden ikke tåler en tom eller kortere liste enn du tenkte deg. Den viser seg slik:\n\n```text\nplasser = [12, 8, 5]\nprint(plasser[3])\n```\n\nProgrammet stopper, og siste linje i feilmeldingen er `IndexError: list index out of range`. Blokken er merket som ikke-kjørbar fordi feilen er plantet med vilje.\n\nLista har tre elementer, og de lovlige indeksene er 0, 1 og 2. Indeks 3 finnes ikke — selv om lengden er 3.\n\n**Der dette faktisk koster poeng**, er ikke i en tabbe som denne, men i en\nfunksjon som skal virke på hvilken som helst liste. Skriver du `liste[0]` for å få tak i «det første tallet», krasjer funksjonen din på en **tom** liste. Løsningen er en sjekk før du indekserer:\n\n```python\ndef forste_eller_null(tallene):\n    if len(tallene) == 0:\n        return 0 return tallene[0]\n\nprint(forste_eller_null([9, 2]))\nprint(forste_eller_null([]))\n```\n\n**Utskrift:**\n```\n9\n0\n```\n\nVane som lønner seg: hver gang du skriver en hakeparentes, spør deg selv hva som skjer om lista er tom."
+    },
+    {
+      "id": "in1000-3-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nmaal = [2, 0, 1, 4]\nprint(maal[0], maal[-1])\nprint(maal[1] + maal[2])\nprint(len(maal))\nprint(maal)\n```",
+        "solution": "Fire linjer, og de tester fire ulike ting.\n\n| Linje | Hva den henter | Utskrift |\n|---|---|---|\n| 1 | indeks 0 og siste element | `2 4` |\n| 2 | indeks 1 og 2, lagt sammen | `1` |\n| 3 | antall elementer | `4` |\n| 4 | hele lista | `[2, 0, 1, 4]` |\n\n**Utskrift:**\n```\n2 4\n1\n4\n[2, 0, 1, 4]\n```\n\nFellen her er linje 2. `maal[1]` er `0` og `maal[2]` er `1`, ikke `2` og `0` — det er lett å lese indeksene som «det første og det andre tallet». Og legg merke til at bare siste linje viser hakeparenteser.",
+        "hints": [
+          "Skriv opp indeksene 0, 1, 2, 3 over tallene før du svarer.",
+          "Hvilke linjer skriver ut enkeltverdier, og hvilken skriver ut hele lista?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-11",
+      "type": "text",
+      "content": "## Løkke 2 — Å gå gjennom en liste (~12 min)\n\nNå kommer selve arbeidshesten. Det finnes to måter å løpe gjennom en liste på, og de brukes til hver sine ting. Du skal kunne begge, og du skal kunne velge riktig — det er et av de få stedene i faget der valget er verdt poeng."
+    },
+    {
+      "id": "in1000-3-1-12",
+      "type": "definition",
+      "title": "`for e in liste:`",
+      "content": "Går gjennom lista **element for element**. Løkkevariabelen får verdien til elementet, ikke plassen:\n\n```python\npriser = [30, 45, 20]\ntotal = 0 for pris in priser:\n    total = total + pris print(total)\n```\n\n**Utskrift:**\n```\n95\n```\n\nDette er den formen du skal bruke når du bare trenger **verdiene**. Den er kortere, den kan ikke bomme på grensene, og den er det fagets løsningsforslag velger når de kan.\n\nLegg merke til at den ser nøyaktig ut som løkka over en tekst i forkunnskapene.\nForskjellen er bare hva elementene er."
+    },
+    {
+      "id": "in1000-3-1-13",
+      "type": "definition",
+      "title": "`for i in range(len(liste)):`",
+      "content": "Går gjennom **plassene** i stedet for verdiene. Løkkevariabelen `i` er en indeks, og du henter selv ut elementet:\n\n```python\npriser = [30, 45, 20]\nfor i in range(len(priser)):\n    print(i, priser[i])\n```\n\n**Utskrift:**\n```\n0 30\n1 45\n2 20\n```\n\n`range(len(priser))` gir tallene 0, 1 og 2 — nøyaktig de lovlige indeksene, og ikke én mer. Det er derfor formen er trygg akkurat slik den står.\n\n**Bruk den bare når du faktisk trenger plassen**: når du skal skrive tilbake til\nlista, når du skal sammenligne to naboelementer, eller når du skal hoppe over annethvert. Trenger du bare verdiene, er `for e in liste:` bedre."
+    },
+    {
+      "id": "in1000-3-1-14",
+      "type": "definition",
+      "title": "`e in liste`",
+      "content": "Svarer `True` eller `False` på om verdien finnes i lista:\n\n```python\nlinjer = [\"31\", \"20\", \"37\"]\nprint(\"20\" in linjer)\nprint(\"21\" in linjer)\nprint(20 in linjer)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\n```\n\nSiste linje er fellen. Tallet `20` og teksten `\"20\"` er ikke samme verdi, så testen svarer `False` selv om det «ser riktig ut». Det er den samme type-forvekslingen som i feilkode #3.\n\n`in` er praktisk i en betingelse, men den forteller deg bare **om** verdien finnes — ikke **hvor**. Trenger du plassen, må du telle deg fram selv med en løkke."
+    },
+    {
+      "id": "in1000-3-1-15",
+      "type": "example",
+      "title": "Eksempel 2: Samme telling, to løkkeformer",
+      "problem": "Et bibliotek registrerer hvor mange ganger fem bøker har vært utlånt:\n`[3, 0, 7, 0, 5]`. Tell hvor mange av bøkene som aldri har vært utlånt, først med en løkke over verdiene og deretter med en løkke over indeksene. Hvilken av dem ville du levert på eksamen?",
+      "solution": "Begge gir samme svar. Forskjellen er hva løkkevariabelen betyr:\n\n```python\nutlan = [3, 0, 7, 0, 5]\n\nantall = 0 for tall in utlan:\n    if tall == 0:\n        antall = antall + 1 print(antall)\n\nantall_med_indeks = 0 for i in range(len(utlan)):\n    if utlan[i] == 0:\n        antall_med_indeks = antall_med_indeks + 1 print(antall_med_indeks)\n```\n\n**Utskrift:**\n```\n2\n2\n```\n\n**Den første ville jeg levert.** Den sier hva den gjør uten omveier, og den kan\nikke bomme på grensene. Den andre må først slå opp `utlan[i]` for å komme til den samme verdien.\n\n**Slik ville sensor sett på det:** begge gir full uttelling. Riktig svar og\nriktig struktur er det som teller — men den første formen har færre steder å gjøre feil, og det er verdt noe i seg selv når du skriver på papir uten å kunne prøve koden.\n\nTrengte oppgaven derimot å vite **hvilken** bok som aldri var utlånt, måtte du brukt indeksformen. Da er plassen selve svaret."
+    },
+    {
+      "id": "in1000-3-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ntall = [3, 6, 9, 12]\ntotal = 0 for i in range(1, len(tall)):\n    total = total + tall[i]\nprint(total)\n```",
+        "solution": "Løkka starter på 1, ikke på 0 — så det første elementet hoppes over.\n\n| `i` | `tall[i]` | `total` etter runden |\n|---|---|---|\n| 1 | 6 | 6 |\n| 2 | 9 | 15 |\n| 3 | 12 | 27 |\n\n**Utskrift:**\n```\n27\n```\n\nFellen er startverdien i `range`. Hadde det stått `range(len(tall))`, ville svaret vært 30. Forskjellen er nøyaktig det første elementet, og en slik forskyvning er feilkode #5.\n\nFormen `range(1, len(liste))` er ikke en feil i seg selv — den brukes bevisst når du sammenligner hvert element med det forrige. Men da må du vite at du gjør det.",
+        "hints": [
+          "Skriv opp hvilke verdier `range(1, 4)` faktisk gir.",
+          "Hvilket element blir aldri lagt til?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-16",
+      "type": "warning",
+      "title": "Snarveiene finnes — men grunnformen er den som belønnes",
+      "content": "Python har ferdige funksjoner som løser flere av oppgavene i dette kapitlet på én linje: `sum(tallene)` legger sammen, `max(tallene)` finner den største,\n`tallene.count(x)` teller forekomster, `tallene.index(x)` finner plassen, og en såkalt list comprehension bygger en ny liste i ett uttrykk.\n\n**Denne boka bruker dem ikke, og det er et bevisst valg.** Fagets egne\nløsningsforslag skriver den eksplisitte løkka, fordi det er løkka som er ferdigheten kurset måler. En besvarelse som bruker `sum(...)` viser ikke at du kan akkumulatormønsteret — og på den store Oppgave 4 finnes det ingen ferdig funksjon å ty til.\n\nLær grunnformen først. Snarveien kan du plukke opp på ti minutter etterpå, og den er uansett ikke det du blir bedt om her."
+    },
+    {
+      "id": "in1000-3-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) Skriv funksjonen\n`antall_over(tallene, grense)` som returnerer hvor mange av tallene i lista som er **strengt større** enn grensen.\n\n**a)** Skriv funksjonen med tellermønsteret.\n\n**b)** Hva returnerer `antall_over([], 5)`, og hvorfor?\n\n**c)** Hva ville endret seg hvis oppgaven sa «minst like stor som grensen»?",
+        "solution": "**a)** Teller før løkka, `if` inne i den, `return` etter:\n\n```python\ndef antall_over(tallene, grense):\n    antall = 0 for tall in tallene:\n        if tall > grense:\n            antall = antall + 1 return antall\n\nprint(antall_over([3, 8, 5, 12], 5))\nprint(antall_over([1, 2], 5))\n```\n\n**Utskrift:**\n```\n2\n0\n```\n\nTallene 8 og 12 er større enn 5. Legg merke til at 5 selv **ikke** telles med, fordi testen er streng.\n\n**b)** `0`. Løkka kjører null ganger over en tom liste, så telleren beholder\nstartverdien og returneres uendret. Det er et rimelig svar, og du fikk det gratis av mønsteret — men det er verdt å sjekke bevisst hver gang, jf. feilkode\n#6.\n\n**c)** Da måtte `>` byttes til `>=`. Det er én tegns forskjell som flytter alle\nelementene som er nøyaktig lik grensen, fra den ene siden til den andre. Les oppgaveteksten nøye: «over», «større enn», «minst» og «fra og med» betyr ikke det samme.",
+        "hints": [
+          "Startverdi før løkka, oppdatering inne i den, `return` etter.",
+          "For c): hvilket av tegnene `>` og `>=` tar med grensen selv?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-17",
+      "type": "text",
+      "content": "## Løkke 3 — Å endre en liste og bygge en ny (~13 min)\n\nEn liste kan endres etter at den er laget. Det er den store forskjellen fra en tekst, og det er grunnen til at lista er byggematerialet i den store klassemodelleringen: et objekt kan holde en liste som vokser mens programmet kjører."
+    },
+    {
+      "id": "in1000-3-1-18",
+      "type": "definition",
+      "title": "`liste.append(e)`",
+      "content": "Legger til ett nytt element **bakerst** i lista. Lista endres på stedet — det lages ingen ny:\n\n```python\nledige = []\nledige.append(4)\nledige.append(9)\nprint(ledige, len(ledige))\n```\n\n**Utskrift:**\n```\n[4, 9] 2\n```\n\nLegg merke til formen: `append` skrives **etter** lista med et punktum mellom.\nDet er en **metode** — en funksjon som hører til verdien den står bak. Du møter samme skrivemåte igjen på tekster og på dine egne klasser senere i boka.\n\n`append` returnerer ingenting. Skriver du `ledige = ledige.append(4)`, mister du hele lista og sitter igjen med `None`. Det er en klassisk nybegynnerfeil, og den er stum til du prøver å bruke resultatet."
+    },
+    {
+      "id": "in1000-3-1-19",
+      "type": "definition",
+      "title": "`liste[i] = ny_verdi`",
+      "content": "Bytter ut elementet på plass `i`. Lista må allerede ha en verdi der:\n\n```python\nplasser = [12, 8, 5]\nplasser[1] = 99 print(plasser)\n```\n\n**Utskrift:**\n```\n[12, 99, 5]\n```\n\nDette er den ene tingen du **trenger** indeksløkka til: skal du endre lista mens du går gjennom den, må du vite hvilken plass du er på. En løkke av formen\n`for e in liste:` gir deg bare en kopi av verdien, og å tilordne til `e` endrer ingenting i lista.\n\nMerk forskjellen fra `append`: tilordning bytter ut noe som finnes, mens\n`append` gjør lista én lengre."
+    },
+    {
+      "id": "in1000-3-1-20",
+      "type": "theorem",
+      "title": "Bygg-en-ny-liste-mønsteret",
+      "content": "Bokas fjerde kodemønster, og standardsvaret på enhver oppgave som ber om «en ny liste med …».\n\nOppskriften har tre faste steg:\n\n1. **Før løkka:** lag en tom liste, `ny = []`.\n2. **Inne i løkka:** legg til det som skal være med, med `ny.append(...)`.\n3. **Etter løkka:** `return ny`.\n\n```python\ntall = [4, 11, 7, 20]\nstore = []\nfor t in tall:\n    if t > 9:\n        store.append(t)\nprint(store)\n```\n\n**Utskrift:**\n```\n[11, 20]\n```\n\nDet er nøyaktig samme skjelett som akkumulatormønsteret fra\n[kap. 1.3](/bok/in1000/in1000-1-3) — bare med en tom liste i stedet for en nullstilt teller. Startverdi før, oppdatering inne, bruk etter.\n\nMønsteret dekker tre oppgavetyper som ser ulike ut: **filtrere** (ta med noen),\n**omforme** (ta med alle, men endret) og **kombinere** (bygge nye verdier av\ngamle). Kjenner du igjen skjelettet, er alle tre den samme oppgaven."
+    },
+    {
+      "id": "in1000-3-1-21",
+      "type": "definition",
+      "title": "`+` på lister",
+      "content": "Skjøter to lister til en **ny** liste. De opprinnelige er urørt:\n\n```python\na = [1, 2]\nb = [3]\nprint(a + b)\nprint(a)\n```\n\n**Utskrift:**\n```\n[1, 2, 3]\n[1, 2]\n```\n\nPlusstegnet gjør altså det samme på lister som på tekster: det setter dem etter hverandre. Det legger **ikke** sammen elementene parvis — `[1, 2] + [3, 4]` gir\n`[1, 2, 3, 4]`, ikke `[4, 6]`."
+    },
+    {
+      "id": "in1000-3-1-22",
+      "type": "warning",
+      "title": "`append` mot `+` — en forskjell som endrer svaret",
+      "content": "De to ser ut til å gjøre det samme, men gjør det ikke:\n\n```python\na = [1, 2]\na.append([3, 4])\nprint(a)\n\nb = [1, 2]\nb = b + [3, 4]\nprint(b)\n```\n\n**Utskrift:**\n```\n[1, 2, [3, 4]]\n[1, 2, 3, 4]\n```\n\n`append` legger til **ett** element. Er det elementet selv en liste, havner hele lista inn som ett element — det er hakeparentesene inni i den første utskriften.\n`+` derimot skjøter, og elementene havner side om side.\n\n**Regelen som holder:** `append` når du legger til én verdi, `+` når du setter\nsammen to lister. Og husk at `+` lager en ny liste, mens `append` endrer den du allerede har."
+    },
+    {
+      "id": "in1000-3-1-23",
+      "type": "example",
+      "title": "Eksempel 3: En funksjon som bygger en ny liste",
+      "problem": "Skriv `annethvert(liste)` som returnerer en **ny** liste med elementene som står på partallsindeks — altså 0, 2, 4 og så videre. Vis også hva funksjonen gjør med en tom liste og med en liste som har bare ett element.",
+      "solution": "Her trenger du plassene, ikke verdiene, så indeksløkka er riktig valg — og\n`range` med steg gjør hoppingen for deg:\n\n```python\ndef annethvert(liste):\n    ny = []\n    for i in range(0, len(liste), 2):\n        ny.append(liste[i])\n    return ny\n\nprint(annethvert([10, 20, 30, 40, 50]))\nprint(annethvert([]))\nprint(annethvert([\"a\"]))\n```\n\n**Utskrift:**\n```\n[10, 30, 50]\n[]\n['a']\n```\n\n**Slik ville sensor sett på det:** tre ting gir uttelling hver for seg.\n\nDen ene er at du **lager en ny liste** i stedet for å prøve å fjerne annethvert element fra den gamle. Den andre er at `range(0, len(liste), 2)` treffer nøyaktig de lovlige indeksene — stoppverdien er `len(liste)`, som selv aldri er en lovlig indeks, og det er nettopp derfor det stemmer. Den tredje er at funksjonen **returnerer** lista, i stedet for å skrive den ut.\n\nDe to siste kallene viser kanttilfellene. En tom liste gir en tom liste, og en liste med ett element gir det ene elementet — begge deler faller ut av mønsteret uten en eneste ekstra `if`. Det er slik du vil ha det: kant-tilfellene skal helst løses av strukturen, ikke av lappverk."
+    },
+    {
+      "id": "in1000-3-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) En kantine registrerer prisene på dagens retter i en liste. Skriv funksjonen `med_rabatt(priser, kroner)` som returnerer en **ny** liste der `kroner` er trukket fra hver pris.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva skjer med den opprinnelige lista når funksjonen kalles?\n\n**c)** Hvorfor ville det vært galt å skrive `return priser` til slutt?",
+        "solution": "**a)** Bygg-en-ny-liste-mønsteret, med en regneoperasjon i stedet for en `if`:\n\n```python\ndef med_rabatt(priser, kroner):\n    ny = []\n    for pris in priser:\n        ny.append(pris - kroner)\n    return ny\n\ngamle = [89, 65, 120]\nprint(med_rabatt(gamle, 10))\nprint(gamle)\n```\n\n**Utskrift:**\n```\n[79, 55, 110]\n[89, 65, 120]\n```\n\n**b)** Ingenting. Funksjonen leser bare fra `priser` og skriver til `ny`, så den\nopprinnelige lista er uendret — det viser den andre utskriftslinja.\n\n**c)** Fordi `priser` er den lista funksjonen fikk inn. Å returnere den ville gitt\ntilbake de gamle prisene, uten rabatt, mens den nye lista du nettopp bygde, ble kastet. Feilen er lett å gjøre når de to navnene ligner på hverandre, og den er verdt å lete etter i din egen kode: **returnerer du den lista du faktisk bygde?**",
+        "hints": [
+          "Tom liste før løkka, `append` inne i den, `return` etter.",
+          "For b): skriver funksjonen noe som helst tilbake til lista den fikk inn?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\nliste = [1, 2, 3]\nny = []\nfor e in liste:\n    ny.append(e * 2)\nliste[0] = 99 print(liste)\nprint(ny)\nprint(liste + ny)\n```",
+        "solution": "Løkka bygger `ny` ferdig **før** lista endres. Rekkefølgen på linjene avgjør alt.\n\n| Steg | `liste` | `ny` |\n|---|---|---|\n| etter løkka | `[1, 2, 3]` | `[2, 4, 6]` |\n| etter `liste[0] = 99` | `[99, 2, 3]` | `[2, 4, 6]` |\n\n**Utskrift:**\n```\n[99, 2, 3]\n[2, 4, 6]\n[99, 2, 3, 2, 4, 6]\n```\n\nTo feller. Den ene er at `ny` **ikke** endres av tilordningen på linja etter løkka — den inneholder ferdig utregnede tall, ikke koblinger tilbake til den første lista. Den andre er siste linje: `+` skjøter, så resultatet har seks elementer, ikke tre.",
+        "hints": [
+          "Fyll ut hva `ny` inneholder før du leser linja som endrer `liste`.",
+          "Hvor mange elementer har resultatet av `+` mellom to lister?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-24",
+      "type": "text",
+      "content": "## Løkke 4 — Lister i en sporingsoppgave (~10 min)\n\nLister dukker like ofte opp i Oppgave 1 som i Oppgave 3, og da er spørsmålet ikke hva du kan skrive, men om du kan lese. To detaljer avgjør nesten alle slike oppgaver: **hvordan en liste ser ut når den skrives ut**, og **nøyaktig hvilke indekser løkka treffer**."
+    },
+    {
+      "id": "in1000-3-1-25",
+      "type": "definition",
+      "title": "Utskrift av en liste",
+      "content": "`print(liste)` viser hakeparentesene, komma og ett mellomrom mellom elementene\n— og strenger vises med **enkle anførselstegn**:\n\n```python\nblandet = [1, \"to\", 3.0, True]\nprint(blandet)\nprint(blandet[1])\nprint(blandet[2])\n```\n\n**Utskrift:**\n```\n[1, 'to', 3.0, True]\nto\n3.0\n```\n\nMerk de tre forskjellene mellom første og andre linje. Hele lista får hakeparenteser; ett element får ikke. Teksten inne i lista får anførselstegn;\nden samme teksten skrevet ut alene får ikke. Og desimaltallet `3.0` beholder punktum og null begge steder — det er en `float`, og det er ikke det samme som\n`3`.\n\nI et auto-rettet svarfelt er alle tre forskjellene forskjellen på rett og galt."
+    },
+    {
+      "id": "in1000-3-1-26",
+      "type": "example",
+      "title": "Eksempel 4: En full sjanger A-oppgave med liste, sporet linje for linje",
+      "problem": "Hva skriver dette programmet ut?\n\n```text\ntall = [5, 3, 8, 1]\nresultat = []\ni = 0 while i < len(tall):\n    if tall[i] > tall[0]:\n        resultat.append(tall[i])\n    i = i + 2 print(resultat, len(resultat))\nprint(tall[-1] + tall[1])\n```\n\nBruk sporingstavle. Legg merke til at løkkevariabelen øker med 2.",
+      "solution": "Først tavla. Lengden er 4, så løkka går så lenge `i` er under 4:\n\n| `i` ved start | `tall[i]` | Større enn `tall[0]` = 5? | `resultat` etter runden | `i` etter runden |\n|---|---|---|---|---|\n| 0 | 5 | nei | `[]` | 2 |\n| 2 | 8 | ja | `[8]` | 4 |\n| 4 | — | løkka stopper | `[8]` | 4 |\n\nSå de to utskriftslinjene. Den første viser lista og lengden; den andre henter siste element (`1`) og elementet på indeks 1 (`3`).\n\n```python\ntall = [5, 3, 8, 1]\nresultat = []\ni = 0 while i < len(tall):\n    if tall[i] > tall[0]:\n        resultat.append(tall[i])\n    i = i + 2 print(resultat, len(resultat))\nprint(tall[-1] + tall[1])\n```\n\n**Utskrift:**\n```\n[8] 1\n4\n```\n\n**Tre feller i én oppgave.** Den første er at `tall[0]` sammenlignes med seg selv\ni første runde, og `5 > 5` er usann — kantverdien igjen. Den andre er steget på\n2, som gjør at indeks 1 og 3 aldri besøkes. Den tredje er at\n`print(resultat, len(resultat))` blander en liste og et tall på samme linje, så svaret er `[8] 1` med hakeparenteser rundt det ene og ingenting rundt det andre.\n\n**Margnotat om uttelling:** har du ført tavla riktig, men skrevet `8 1` uten\nhakeparenteser til slutt, er sporingen di korrekt og bare formen feil. I et auto-rettet felt gir det likevel null poeng — så skriv utskriften slik terminalen ville vist den, hver gang."
+    },
+    {
+      "id": "in1000-3-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut? Skriv utskriften nøyaktig, med mellomrom og linjeskift slik terminalen viser den.\n\n```python\nverdier = [4, 8, 15, 16]\nresultat = []\nfor i in range(len(verdier) - 1):\n    resultat.append(verdier[i + 1] - verdier[i])\nprint(resultat)\nprint(len(resultat), verdier[-1])\n```",
+        "solution": "Løkka sammenligner hvert element med det neste, og da må den stoppe én runde tidlig.\n\n| `i` | `verdier[i + 1]` | `verdier[i]` | Lagt til |\n|---|---|---|---|\n| 0 | 8 | 4 | 4 |\n| 1 | 15 | 8 | 7 |\n| 2 | 16 | 15 | 1 |\n\n**Utskrift:**\n```\n[4, 7, 1]\n3 16\n```\n\n**Hvorfor `- 1` i grensen?** Fordi løkka bruker `verdier[i + 1]`. Uten minus én\nville `i` til slutt blitt 3, og `verdier[4]` finnes ikke — programmet ville stoppet med feilmeldingen fra feilkode #6.\n\nLegg merke til at resultatlista er **én kortere** enn den opprinnelige. Det er alltid slik når du regner på naboer: fire tall gir tre avstander. Det er verdt å kontrollere lengden når du er ferdig; stemmer den ikke, har du som regel bommet på grensen.",
+        "hints": [
+          "Hvor mange verdier gir `range(len(verdier) - 1)`?",
+          "Regn ut hver differanse for seg, og tell hvor mange det blir til slutt."
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-3-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) En værstasjon lagrer døgnets målinger i en liste med heltall. Skriv funksjonen `storste_verdi(tallene)` som returnerer den største verdien i lista.\n\n**a)** Skriv funksjonen. Den skal returnere `None` hvis lista er tom.\n\n**b)** Hvorfor er `beste = 0` en dårlig startverdi?\n\n**c)** Hva returnerer funksjonen din for `[7, 7, 7]`?",
+        "solution": "**a)** Sett den beste verdien til det første elementet, og la løkka forbedre den:\n\n```python\ndef storste_verdi(tallene):\n    if len(tallene) == 0:\n        return None beste = tallene[0]\n    for tall in tallene:\n        if tall > beste:\n            beste = tall return beste\n\nprint(storste_verdi([4, 19, 7]))\nprint(storste_verdi([-5, -2, -9]))\nprint(storste_verdi([]))\n```\n\n**Utskrift:**\n```\n19\n-2\nNone\n```\n\n**Slik gir det poeng:** tomsjekken først (1 p), riktig startverdi (2 p), løkke\nmed sammenligning (2 p) og `return` etter løkka (1 p). Glemmer du tomsjekken, krasjer funksjonen på `tallene[0]` — men resten av strukturen er riktig, og det gir fortsatt god uttelling.\n\n**b)** Fordi den antar at et av tallene er positivt. Andre kall over viser hvorfor:\nalle målingene er minusgrader, og med `beste = 0` ville funksjonen svart `0` — en verdi som ikke engang finnes i dataene. **Startverdien skal alltid hentes fra dataene selv**, ikke fra hva du tror om dem.\n\n**c)** `7`. Testen er streng (`>`), så ingen av de like verdiene bytter ut den\nførste — men svaret blir riktig uansett, siden alle er like. Denne detaljen får betydning først når du skal returnere **hvilket** element som var størst; da avgjør `>` mot `>=` om du får det første eller det siste av de like.\n\nMønsteret her heter **finn beste**, og du møter det igjen når du skal finne nøkkelen med størst verdi i en ordbok, i [kap. 3.2](/bok/in1000/in1000-3-2).",
+        "hints": [
+          "Hva må skje før du i det hele tatt kan skrive `tallene[0]`?",
+          "Velg en startverdi som garantert finnes i dataene."
+        ]
+      }
+    },
+    {
+      "id": "in1000-3-1-27",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "Fem feil koster nesten alle poengene som mistes på lister:\n\n- **#5 — av-med-én.** Lengden er `len(liste)`, men den siste indeksen er\n  `len(liste) - 1`. Skriv opp indeksene over elementene før du sporer.\n- **#6 — kanttilfellene.** Hva gjør funksjonen din med en **tom** liste? Enhver\n  `liste[0]` er et krasj som venter på å skje.\n- **Indeks lest som telling.** «Det tredje elementet» har indeks 2. Gjør den\n  oversettelsen bevisst hver gang.\n- **`append` mot `+`.** `append` legger til **ett** element og endrer lista;\n  `+` skjøter to lister til en ny. `liste = liste.append(x)` ødelegger lista.\n- **Feil form på utskriften.** `print(liste)` gir hakeparenteser, komma og\n  enkle anførselstegn rundt tekster. `print(liste[0])` gir ingen av delene.\n\nOg én ting til, som ikke er en feil, men et valg: bruk `for e in liste:` når du bare trenger verdiene. Færre steder å bomme."
+    },
+    {
+      "id": "in1000-3-1-coll-28",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1000-3-1-c1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `[e1, e2, e3]` | Listelitteral. Rekkefølgen er fast; elementene kan ha ulik type. |\n| `[]` | Tom liste, lengde 0. Startpunktet i bygg-en-ny-liste-mønsteret. |\n| `len(liste)` | Antall elementer, som heltall. Siste lovlige indeks er `len(liste) - 1`. |\n| `liste[i]` | Elementet på plass `i`. **Tellingen starter på 0.** |\n| `liste[-1]` | Siste element. `-2` er nest sist. Det finnes ingen `-0`. |\n| `liste[i] = v` | Bytter ut elementet på plass `i`. Plassen må finnes fra før. |\n| `liste.append(e)` | Legger til **ett** element bakerst. Endrer lista, returnerer ingenting. |\n| `liste1 + liste2` | **Ny** liste med elementene etter hverandre. De to originalene er urørt. |\n| `e in liste` | `True`/`False` om verdien finnes. Type teller: `20` er ikke `\"20\"`. |\n| `for e in liste:` | Går gjennom **verdiene**. Førstevalget når du ikke trenger plassen. |\n| `for i in range(len(liste)):` | Går gjennom **plassene** 0 til `len(liste) - 1`. Bruk når plassen trengs. |\n| `range(0, len(liste), 2)` | Annenhver lovlig indeks: 0, 2, 4 … Stopper før `len(liste)`. |\n| `print(liste)` | Viser `[4, 7, 12]` — hakeparenteser, komma og mellomrom. Tekster får `'…'`. |\n| `IndexError` | Feilmeldingen når indeksen ikke finnes: `list index out of range`. |\n\n**Det som avgjør poeng i Oppgave 3:** at du bygger en ny liste i stedet for å\nendre den du fikk inn, og at funksjonen tåler at lista er tom."
+        }
+      ]
+    },
+    {
+      "id": "in1000-3-1-29",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1000-3-1-30",
+      "type": "definition",
+      "title": "Element",
+      "content": "En enkeltverdi i lista. I `[4, 7, 12]` er `4`, `7` og `12` de tre elementene.\n\nElementene trenger ikke ha samme type, men i praksis har de nesten alltid det — en liste med målinger inneholder tall, og en liste med stoppesteder inneholder tekster. Blandede lister forekommer, men de er vanskeligere å skrive kode for, fordi du ikke vet hva du får.\n\nSenere i boka blir elementene **objekter** du selv har laget, og det er nettopp da lista blir kraftig."
+    },
+    {
+      "id": "in1000-3-1-31",
+      "type": "definition",
+      "title": "Indeks",
+      "content": "Plassen et element står på, talt fra **null**.\n\nDet gir tre tall som er lette å blande, og som du bør si høyt for deg selv:\nlengden er antallet, den første indeksen er 0, og den siste indeksen er\n`len(liste) - 1`.\n\nEn indeks er alltid et heltall. Skriver du `liste[1.0]` eller `liste[\"1\"]`, stopper programmet — indeksen må være av riktig type."
+    },
+    {
+      "id": "in1000-3-1-32",
+      "type": "definition",
+      "title": "Lengde mot siste indeks",
+      "content": "Den ene forskjellen som produserer flest gale svar i faget.\n\nFor lista `[10, 20, 30]` er lengden `3`, mens den siste indeksen er `2`. Derfor er `liste[len(liste)]` **alltid** en feil, mens `liste[len(liste) - 1]` alltid er det siste elementet — det samme som `liste[-1]`.\n\nDen samme forskjellen er grunnen til at `range(len(liste))` treffer nøyaktig de lovlige indeksene: `range` stopper før stoppverdien."
+    },
+    {
+      "id": "in1000-3-1-33",
+      "type": "definition",
+      "title": "`IndexError`",
+      "content": "Feilmeldingen Python gir når du ber om en plass som ikke finnes. Siste linje lyder `IndexError: list index out of range`.\n\nDen kommer nesten alltid fra ett av tre steder: en indeks som er én for stor, en løkke som går én runde for langt, eller en liste som viste seg å være tom.\n\nI en sporingsoppgave er «programmet stopper med en feilmelding» et fullgodt svar\n— men du bør kunne peke på hvilken linje som feiler."
+    },
+    {
+      "id": "in1000-3-1-34",
+      "type": "definition",
+      "title": "Tom liste",
+      "content": "Lista `[]`, med lengde 0.\n\nDen er ikke en spesialtilfelle du kan overse. En løkke over en tom liste kjører\n**null** runder, så alt du gjorde før løkka, står uendret når du kommer til\nlinja etter. Det er derfor teller- og bygg-mønstrene håndterer tomme lister av seg selv.\n\nDet som **ikke** går av seg selv, er å indeksere. `liste[0]` på en tom liste stopper programmet, og det er hele grunnen til at tomsjekken står øverst i finn-beste-funksjoner."
+    },
+    {
+      "id": "in1000-3-1-35",
+      "type": "definition",
+      "title": "Å bygge en liste",
+      "content": "Å starte med `ny = []` og legge til med `append` i en løkke.\n\nMønsteret dekker tre oppgavetyper som ser forskjellige ut i teksten: **filtrere**\n(«en ny liste med bare de som …»), **omforme** («en ny liste der hvert element er …») og **kombinere** («en ny liste med differansene mellom …»).\n\nKjenn igjen skjelettet, så er alle tre den samme oppgaven: tom liste før,\n`append` inne, `return` etter."
+    },
+    {
+      "id": "in1000-3-1-36",
+      "type": "definition",
+      "title": "To navn på samme liste",
+      "content": "Skriver du `b = a` når `a` er en liste, får du **ikke** en kopi. Du får et navn til på den samme lista, og en endring gjennom det ene navnet sees gjennom det andre:\n\n```python\na = [1, 2]\nb = a b.append(3)\nprint(a)\nprint(b)\n```\n\n**Utskrift:**\n```\n[1, 2, 3]\n[1, 2, 3]\n```\n\nDette er feilkode #15, og det er et av de vanskeligste punktene i faget. Tall og tekster oppfører seg annerledes — der gir `b = a` i praksis to uavhengige verdier.\n\nHele mekanismen har et navn, **referanser**, og den får en grundig gjennomgang i del 5 om klasser og objekter. Her holder det å vite at en liste ikke kopieres av et likhetstegn."
+    },
+    {
+      "id": "in1000-3-1-37",
+      "type": "definition",
+      "title": "Sekvens",
+      "content": "Fellesordet for verdier som har elementer i rekkefølge, og som du kan gå gjennom med `for e in ...:`. Både lister og tekster er sekvenser.\n\nDet er derfor så mye av det du lærte om tekster, virker uendret på lister:\n`len(...)`, indeksering med hakeparentes, negativ indeks og `in`-testen oppfører seg likt.\n\nDen store forskjellen er at en liste kan **endres**, mens en tekst ikke kan. Du kan skrive `liste[0] = 9`, men `tekst[0] = \"a\"` stopper programmet."
+    },
+    {
+      "id": "in1000-3-1-38",
+      "type": "definition",
+      "title": "Liste som parameter",
+      "content": "En liste kan sendes inn i en funksjon som et hvilket som helst annet argument:\n`def antall_over(tallene, grense):`.\n\nInne i funksjonen er `tallene` et navn på den **samme** lista som utenfor, ikke en kopi. Leser du bare fra den, spiller det ingen rolle. Kaller du derimot\n`tallene.append(...)`, endrer du kallerens liste også — og det er sjelden det du vil på eksamen.\n\n**Den trygge stilen** er den du har brukt her: les fra lista du fikk inn, bygg en\n**ny** liste, og returner den nye."
+    },
+    {
+      "id": "in1000-3-1-39",
+      "type": "definition",
+      "title": "Å finne plassen selv",
+      "content": "`in`-testen forteller om en verdi finnes, men ikke hvor. Trenger du plassen, teller du deg fram med indeksløkka og returnerer indeksen ved første treff:\n\n```python\ndef plassen_til(liste, verdi):\n    for i in range(len(liste)):\n        if liste[i] == verdi:\n            return i return -1\n\nprint(plassen_til([9, 4, 7], 7))\nprint(plassen_til([9, 4, 7], 5))\n```\n\n**Utskrift:**\n```\n2\n-1\n```\n\nVerdien `-1` for «ikke funnet» kalles en **sentinel-verdi** — en verdi som betyr noe annet enn de vanlige. Den er trygg her, fordi en plass aldri kan være negativ. Er `-1` derimot gyldige data, kolliderer de to betydningene, og da er\n`None` det bedre valget. Det er feilkode #10."
+    },
+    {
+      "id": "in1000-3-1-40",
+      "type": "definition",
+      "title": "Blandede typer i en liste",
+      "content": "En liste kan inneholde tall, tekster og boolske verdier om hverandre:\n`[3, \"buss\", True]`.\n\nPython tillater det, men koden din må tåle det. En løkke som legger sammen elementene, stopper i det den treffer teksten — og feilmeldingen dukker opp midt i løkka, ikke der lista ble laget.\n\nI praksis holder du typene ensartede, og lar i stedet **en klasse** holde sammen opplysninger av ulik art. Det er hele poenget med objektorientering, og det er dit boka er på vei."
+    },
+    {
+      "id": "in1000-3-1-41",
+      "type": "definition",
+      "title": "Utsnitt av en liste",
+      "content": "Formen `liste[1:3]` gir en **ny** liste med elementene fra indeks 1 til og med\n2 — stoppverdien er eksklusiv, som i `range`.\n\nKonstruksjonen kalles et **utsnitt**, og den nevnes her fordi du vil se den i kode andre har skrevet. **Denne boka bruker den ikke**, og eksamensoppgavene krever den ikke: fasitens svar på «de tre første» er en løkke med `range(0, 3)` og `append`.\n\nLærer du utsnitt før du behersker løkka, får du et verktøy uten det håndverket kurset faktisk måler."
+    },
+    {
+      "id": "in1000-3-1-42",
+      "type": "definition",
+      "title": "Å velge løkkeform",
+      "content": "Spørsmålet er alltid det samme: **trenger du plassen?**\n\nTrenger du bare verdiene — telle, summere, sjekke, bygge en ny liste — skriver du `for e in liste:`. Trenger du plassen — skrive tilbake til lista, sammenligne naboer, hoppe over annethvert, eller returnere hvor noe sto — skriver du\n`for i in range(len(liste)):`.\n\nBegge gir full uttelling når svaret er riktig. Men den første kan ikke bomme på grensene, og på en hjelpemiddelfri eksamen er det et reelt argument."
+    },
+    {
+      "id": "in1000-3-1-43",
+      "type": "definition",
+      "title": "Rekkefølge betyr noe",
+      "content": "En liste husker rekkefølgen elementene ble lagt inn i, og `append` legger alltid til bakerst.\n\nDet gjør lista til riktig valg når rekkefølgen er en del av dataene: køen på sykkelutleien, stoppene langs ruta, målingene time for time.\n\nSkal du derimot slå opp på en **nøkkel** — «hvor mange ganger forekom dette ordet?», «hvem eier denne boka?» — er lista feil verktøy. Da trenger du en ordbok, og det er neste kapittel."
+    },
+    {
+      "id": "in1000-3-1-coll-44",
+      "type": "collapsible",
+      "title": "Repetisjon — de sju setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1000-3-1-c2",
+          "type": "text",
+          "content": "1. En liste holder flere verdier i **fast rekkefølge**, og kan endres etter at\n   den er laget.\n2. **Tellingen starter på null.** Lengden er `len(liste)`, siste indeks er\n   `len(liste) - 1`, og `liste[-1]` er det siste elementet.\n3. `for e in liste:` gir **verdiene**; `for i in range(len(liste)):` gir\n   **plassene**. Velg den første når du kan.\n4. **Bygg-en-ny-liste-mønsteret:** `ny = []` før løkka, `ny.append(...)` inne i\n   den, `return ny` etter.\n5. `append` legger til **ett** element og endrer lista; `+` skjøter to lister til\n   en **ny**. `liste = liste.append(x)` ødelegger lista.\n6. **Sjekk den tomme lista.** En løkke tåler den av seg selv; enhver `liste[0]`\n   gjør det ikke.\n7. `print(liste)` viser hakeparenteser, komma og enkle anførselstegn rundt\n   tekster — `print(liste[0])` viser ingen av delene."
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

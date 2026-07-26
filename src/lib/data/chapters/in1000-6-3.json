@@ -1,415 +1,415 @@
 {
- "id": "in1000-6-3",
- "courseId": "in1000",
- "chapterNumber": "6.3",
- "title": "Algoritme-metoder i klasser",
- "description": "De smarte metodene på toppen av modellen: finn den beste, tell, unngå duplikater og regn ut match — de samme løkkemønstrene som før, nå inne i en klasse.",
- "estimatedMinutes": 55,
- "competenceGoals": [
-  "kunne skrive en metode som finner det beste elementet i en samling objekter",
-  "kunne bygge et regnskap over en samling og lese det i en egen løkke etterpå",
-  "kunne svare ja eller nei på en påstand om hele samlingen, med riktig plassert retur",
-  "kunne tenke gjennom hva metoden svarer på en tom samling og på to like verdier"
- ],
- "content": [
-  {
-   "id": "in1000-6-3-1",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Enkel algoritmikk i klasser står i 5 av 6 moderne eksamenssett (83 %)** — og\ndet er ofte **den høyest vektede deloppgaven** i hele Oppgave 4.\n\nFormuleringene går igjen: «finn den travleste dagen», «hvilken destinasjon er\nmest populær», «sett inn i første ledige plass i prioritert rekkefølge». Alle er\nden samme øvelsen: én løkke over samlingen, med et lite regnskap ved siden av.\n\nSjangeren er **F — stor klassemodellering**, altså å bygge samarbeidende klasser\nfra en beskrevet oppgave. **Dette må sitte** — bokas høyeste prioritetsnivå.\n\nDen gode nyheten er at du kan mønstrene fra før. Teller, akkumulator, flagg og\nfinn-beste kommer alle fra [del 3](/bok/in1000/in1000-3-1). Det eneste nye er at\nløkka nå går over `self._elementer`, og at verdiene hentes med et metodekall.\n\nKapitlet er langt (~55 min) og er delt i fire løkker med tidsanslag."
-  },
-  {
-   "id": "in1000-6-3-2",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 6.2 — Samarbeidende klasser](/bok/in1000/in1000-6-2), og\ngjenbruker mønstrene fra [kap. 3.1 — Lister](/bok/in1000/in1000-3-1) og\n[kap. 3.2 — Ordbøker](/bok/in1000/in1000-3-2).\n\n**De tre mønstrene som kommer igjen**, friskes opp med kjørt kode.\n\n**1. Teller og akkumulator:**\n\n```python\ntall = [4, 9, 2, 7]\nantall = 0\ntotal = 0\nfor x in tall:\n    if x > 3:\n        antall = antall + 1\n    total = total + x\nprint(antall, total)\n```\n\n**Utskrift:**\n```\n3 22\n```\n\n**2. Finn beste — to variabler som oppdateres sammen:**\n\n```python\ntall = [4, 9, 2, 7]\nbeste = None\nbeste_verdi = 0\nfor x in tall:\n    if x > beste_verdi:\n        beste = x\n        beste_verdi = x\nprint(beste, beste_verdi)\n```\n\n**Utskrift:**\n```\n9 9\n```\n\n**3. Teller-ordbok med `if k not in d:`:**\n\n```python\nd = {}\nfor navn in [\"ada\", \"nora\", \"ada\"]:\n    if navn not in d:\n        d[navn] = 0\n    d[navn] = d[navn] + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'ada': 2, 'nora': 1}\n```\n\nNå flytter vi alle tre inn i en klassemetode."
-  },
-  {
-   "id": "in1000-6-3-3",
-   "type": "text",
-   "content": "## Løkke 1 — Finn beste, inne i en klasse (~15 min)\n\n«Hvilken sal er travlest?» «Hvilken forfatter har flest utlån?» «Hvilken rett har\nsolgt mest?»\n\nAlle tre er det samme spørsmålet, og svaret er det samme mønsteret: løp gjennom\nsamlingen, hold styr på den beste så langt, og oppdater **to** variabler når du\nfinner en bedre."
-  },
-  {
-   "id": "in1000-6-3-4",
-   "type": "theorem",
-   "title": "Finn-beste-malen",
-   "content": "Bokas attende kodemønster, og det som oftest bærer den tyngst vektede\ndeloppgaven i Oppgave 4:\n\n```text\n    def beste_element(self):\n        beste = None\n        beste_verdi = 0\n        for e in self._elementer:\n            if e.hent_verdi() > beste_verdi:\n                beste = e\n                beste_verdi = e.hent_verdi()\n        return beste\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\nFire regler, og hver av dem er verdt poeng:\n\n1. **To variabler, satt FØR løkka.** `beste = None` og `beste_verdi = 0`.\n2. **Begge oppdateres SAMMEN**, inne i samme `if`. Oppdaterer du bare den ene,\n   finner løkka feil element.\n3. **`return` ETTER løkka**, aldri inne i den — det ville gitt det første\n   elementet over grensen, ikke det største.\n4. **`beste = None` er det ærlige svaret på en tom samling.** Den som kaller,\n   tester med `if svar != None:`.\n\nSkal du finne det **minste**, snus sammenligningen til `<`, og startverdien må\nsettes høyt nok — eller til `None`, med en egen sjekk i første runde."
-  },
-  {
-   "id": "in1000-6-3-5",
-   "type": "definition",
-   "title": "Hvorfor to variabler",
-   "content": "`beste` holder **elementet**, `beste_verdi` holder **verdien** du sammenligner\nmed.\n\nDu kunne klart deg med én, ved å skrive `if e.hent_verdi() > beste.hent_verdi():`\n— men da må `beste` allerede peke på noe i første runde, og på en tom samling\nstopper programmet.\n\nTo variabler er dessuten raskere å lese, og de gjør fasiten lettere å rette. Det\ner formen fagets egne løsningsforslag bruker.\n\n**Den vanligste feilen er å oppdatere bare den ene.** Glemmer du\n`beste_verdi = e.hent_verdi()`, blir grensen stående på 0, og løkka ender med det\n**siste** elementet over 0 i stedet for det største."
-  },
-  {
-   "id": "in1000-6-3-6",
-   "type": "definition",
-   "title": "Startverdien for «beste»",
-   "content": "`beste_verdi = 0` virker når alle verdiene er positive — antall, poeng, besøk.\n\nKan verdiene være **negative**, er 0 for høyt: et element med verdien `-3` ville\naldri blitt valgt, og metoden ville returnert `None` på en samling som ikke er\ntom.\n\nDa er svaret å la den første runden sette startverdien:\n\n```text\n        beste = None\n        for e in self._elementer:\n            if beste == None or e.hent_verdi() > beste.hent_verdi():\n                beste = e\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\nI denne boka er verdiene nesten alltid tellinger, så `0` holder — men det er verdt\nå nevne valget i en kommentar hvis oppgaven åpner for negative tall."
-  },
-  {
-   "id": "in1000-6-3-7",
-   "type": "example",
-   "title": "Eksempel 1: Den travleste salen",
-   "problem": "Et treningssenter holder salene i en ordbok. Skriv en metode som returnerer salen\nmed flest påmeldte, og en som returnerer navnet på den.",
-   "solution": "Finn-beste-malen satt rett inn i en klassemetode:\n\n```python\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn\n        self._kapasitet = kapasitet\n        self._paameldte = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\n    def meld_paa(self, antall):\n        self._paameldte = self._paameldte + antall\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._paameldte) + \")\"\n\nclass Senter:\n    def __init__(self):\n        self._saler = {}\n\n    def legg_til(self, sal):\n        self._saler[sal.hent_navn()] = sal\n\n    def travleste_sal(self):\n        beste = None\n        beste_antall = 0\n        for navn in self._saler:\n            sal = self._saler[navn]\n            if sal.hent_paameldte() > beste_antall:\n                beste = sal\n                beste_antall = sal.hent_paameldte()\n        return beste\n\ns = Senter()\ns.legg_til(Sal(\"Speilsal\", 20))\ns.legg_til(Sal(\"Spinning\", 14))\ns.legg_til(Sal(\"Yoga\", 30))\n\ns._saler[\"Speilsal\"].meld_paa(12)\ns._saler[\"Spinning\"].meld_paa(14)\ns._saler[\"Yoga\"].meld_paa(9)\n\nprint(s.travleste_sal())\nprint(s.travleste_sal().hent_navn())\n```\n\n**Utskrift:**\n```\nSpinning (14)\nSpinning\n```\n\n**Hjelpevariabelen `sal = self._saler[navn]` er verdt å legge merke til.** Uten\nden måtte du skrevet `self._saler[navn].hent_paameldte()` tre ganger i samme\nmetode. Én linje ekstra gjør resten mye lettere å lese — og å rette.\n\n**At metoden returnerer selve salen og ikke navnet**, er et bevisst valg. Den som\nkaller, kan da spørre videre: `travleste_sal().hent_navn()`, eller\n`travleste_sal().hent_paameldte()`. Returnerte metoden bare navnet, ville det\nvært et blindspor.\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg — de to\nstartverdiene før løkka, løkka over samlingen, at **begge** variablene oppdateres\nsammen, og `return` **etter** løkka. Hadde du glemt\n`beste_antall = sal.hent_paameldte()`, ville svaret her blitt `Yoga` — det siste\nover null.\n\n**Merk linjene med `s._saler[...]`.** De rører objektets innside utenfra, som boka\nellers aldri gjør — feilkode **#11**. De står her bare fordi klassen i dette\neksempelet ikke har en `finn`-metode; i en besvarelse ville du skrevet den\nførst."
-  },
-  {
-   "id": "in1000-6-3-oppg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave — gjengivelse.) Se på metoden. Blokken er et utdrag av en\nklasse og er derfor merket som ikke-kjørbar.\n\n```text\n    def beste(self):\n        beste = None\n        beste_verdi = 0\n        for e in self._elementer:\n            if e.hent_verdi() > beste_verdi:\n                beste = e\n        return beste\n```\n\n**a)** Hvilken linje mangler, og hvor skal den stå?\n\n**b)** Hva blir resultatet uten den, på verdiene 4, 9 og 7?\n\n**c)** Hvorfor står `return` etter løkka og ikke inne i den?",
-    "solution": "**a)** `beste_verdi = e.hent_verdi()` mangler, rett under `beste = e`, inne i\n`if`-en. De to variablene skal alltid oppdateres **sammen**.\n\n**b)** Grensen blir stående på 0, så **hvert** element over 0 overskriver\n`beste`. Løkka ender med det **siste**, altså 7 — ikke det største, som er 9.\n\nKjørt, med og uten linjen:\n\n```python\ntall = [4, 9, 7]\n\nbeste = None\nbeste_verdi = 0\nfor x in tall:\n    if x > beste_verdi:\n        beste = x\nprint(\"uten:\", beste)\n\nbeste = None\nbeste_verdi = 0\nfor x in tall:\n    if x > beste_verdi:\n        beste = x\n        beste_verdi = x\nprint(\"med: \", beste)\n```\n\n**Utskrift:**\n```\nuten: 7\nmed:  9\n```\n\n**c)** Fordi `return` inne i løkka avslutter metoden på det **første** elementet\nover grensen. Da ville svaret blitt 4. Løkka må se hele samlingen før den kan\nsvare hvem som er best — det er feilkode **#7**, for tidlig retur.",
-    "hints": [
-     "De to variablene skal alltid endres i samme `if`.",
-     "Prøv å spore løkka på papir med bare den ene oppdateringen."
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-8",
-   "type": "text",
-   "content": "## Løkke 2 — Telle og gruppere gjennom klassen (~14 min)\n\nDen nest vanligste algoritme-metoden er en **teller-ordbok**: «hvor mange bøker\nhar hver forfatter?», «hvor mange deltakere er det per dag?».\n\nMønsteret er nøyaktig det fra [kap. 3.2](/bok/in1000/in1000-3-2). Det eneste nye\ner at nøkkelen og verdien hentes med metodekall på underobjektene."
-  },
-  {
-   "id": "in1000-6-3-9",
-   "type": "definition",
-   "title": "Teller-ordbok bygget fra en samling objekter",
-   "content": "Idiomet, nå med objekter i stedet for rådata:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter, utlaan):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaan = utlaan\n\n    def hent_forfatter(self):\n        return self._forfatter\n\n    def hent_utlaan(self):\n        return self._utlaan\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = []\n\n    def legg_til(self, b):\n        self._boker.append(b)\n\n    def utlaan_per_forfatter(self):\n        d = {}\n        for b in self._boker:\n            f = b.hent_forfatter()\n            if f not in d:\n                d[f] = 0\n            d[f] = d[f] + b.hent_utlaan()\n        return d\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\", 3))\nbib.legg_til(Bok(\"Vaar\", \"Undset\", 7))\nbib.legg_til(Bok(\"Markens grode\", \"Hamsun\", 5))\nprint(bib.utlaan_per_forfatter())\n```\n\n**Utskrift:**\n```\n{'Hamsun': 8, 'Undset': 7}\n```\n\nTre faste deler: **ordboka opprettes før løkka**, **`if f not in d:` og\n`d[f] = 0`** før du legger til, og **`return` etter løkka**.\n\nUten `if`-sjekken stopper programmet med `KeyError` på den første boka — feilkode\n**#14**."
-  },
-  {
-   "id": "in1000-6-3-10",
-   "type": "definition",
-   "title": "Grupperings-idiomet",
-   "content": "Varianten der verdien er en **liste** i stedet for et tall:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_forfatter(self):\n        return self._forfatter\n\nboker = [Bok(\"Sult\", \"Hamsun\"), Bok(\"Vaar\", \"Undset\"), Bok(\"Pan\", \"Hamsun\")]\nd = {}\nfor b in boker:\n    f = b.hent_forfatter()\n    if f not in d:\n        d[f] = []\n    d[f].append(b.hent_tittel())\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Hamsun': ['Sult', 'Pan'], 'Undset': ['Vaar']}\n```\n\nForskjellen fra telleren er to tegn: `[]` i stedet for `0`, og `.append(...)` i\nstedet for `+`.\n\nKjenn det igjen i oppgaveteksten på «lag en ordbok fra … til en liste over …»\neller «grupper etter …»."
-  },
-  {
-   "id": "in1000-6-3-11",
-   "type": "example",
-   "title": "Eksempel 2: Teller-ordbok og finn-beste i samme metode",
-   "problem": "Skriv en metode som returnerer forfatteren med flest utlån til sammen. Bygg først\nen teller-ordbok, og finn så den største med en eksplisitt løkke.",
-   "solution": "To mønstre etter hverandre i samme metode — det er den vanligste formen den\ntyngste deloppgaven i Oppgave 4 har:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter, utlaan):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaan = utlaan\n\n    def hent_forfatter(self):\n        return self._forfatter\n\n    def hent_utlaan(self):\n        return self._utlaan\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = []\n\n    def legg_til(self, b):\n        self._boker.append(b)\n\n    def mest_populaere_forfatter(self):\n        teller = {}\n        for b in self._boker:\n            f = b.hent_forfatter()\n            if f not in teller:\n                teller[f] = 0\n            teller[f] = teller[f] + b.hent_utlaan()\n\n        beste = None\n        beste_antall = 0\n        for f in teller:\n            if teller[f] > beste_antall:\n                beste = f\n                beste_antall = teller[f]\n        return beste\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\", 3))\nbib.legg_til(Bok(\"Vaar\", \"Undset\", 7))\nbib.legg_til(Bok(\"Pan\", \"Hamsun\", 5))\nbib.legg_til(Bok(\"Naboer\", \"Bjornson\", 2))\nprint(bib.mest_populaere_forfatter())\n```\n\n**Utskrift:**\n```\nHamsun\n```\n\n**Metoden er to løkker etter hverandre, ikke én nøstet.** Første løkke bygger\nregnskapet, andre løkke leser det. Å prøve å gjøre begge deler i én løkke er både\nvanskeligere og lettere å bomme på.\n\n**Legg merke til at den andre løkka går over `teller`, ikke over `self._boker`.**\nDet er nettopp derfor telleren måtte bygges først: Hamsun står på to bøker, og\nsummen 3 pluss 5 finnes ikke i noen enkelt bok.\n\n**Slik ville sensor sett på det:** dette er ofte den høyest vektede deloppgaven,\ntypisk 8–12 poeng, og de deles i to. Teller-ordboka med `if f not in teller:`\ner én halvdel; finn-beste-løkka med to variabler er den andre. Får du bare den\nførste til, har du halve poengsummen.\n\n**Snarveien finnes, men den belønnes ikke.** Python har ferdige funksjoner som\n`max(..., key=...)` og `sorted(...)`, og en `Counter` som teller for deg. Denne\nboka bruker dem ikke, fordi kurset og fasiten belønner grunnformen — og fordi den\neksplisitte løkka er det du trenger når oppgaven ber om noe som ikke passer inn i\nen ferdig funksjon.\n\n— naturlig pausepunkt —"
-  },
-  {
-   "id": "in1000-6-3-oppg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F — algoritme-metode.) En kantine har retter med navn,\npris og antall solgte.\n\n**a)** Skriv `Rett` og `Kantine` med det som trengs, og en metode\n`bestselger(self)` som returnerer retten med flest solgte porsjoner.\n\n**b)** Legg til `samlet_omsetning(self)`.\n\n**c)** Test med tre retter, og skriv ut både bestselgeren og omsetningen.",
-    "solution": "**a)–c)** Finn-beste og akkumulator i samme klasse:\n\n```python\nclass Rett:\n    def __init__(self, navn, pris, solgte):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = solgte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_solgte(self):\n        return self._solgte\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._solgte)\n\nclass Kantine:\n    def __init__(self):\n        self._retter = []\n\n    def legg_til(self, r):\n        self._retter.append(r)\n\n    def bestselger(self):\n        beste = None\n        beste_antall = 0\n        for r in self._retter:\n            if r.hent_solgte() > beste_antall:\n                beste = r\n                beste_antall = r.hent_solgte()\n        return beste\n\n    def samlet_omsetning(self):\n        total = 0\n        for r in self._retter:\n            total = total + r.omsetning()\n        return total\n\nk = Kantine()\nk.legg_til(Rett(\"Fiskesuppe\", 89, 14))\nk.legg_til(Rett(\"Lapskaus\", 79, 22))\nk.legg_til(Rett(\"Vafler\", 35, 9))\nprint(k.bestselger())\nprint(k.bestselger().hent_navn())\nprint(\"Omsetning:\", k.samlet_omsetning())\n```\n\n**Utskrift:**\n```\nLapskaus x22\nLapskaus\nOmsetning: 3299\n```\n\n**`bestselger` returnerer retten**, ikke navnet. Da kan den som kaller, spørre\nvidere — om navnet, om omsetningen, om hva som helst retten vet.\n\n**`samlet_omsetning` spør hver rett** i stedet for å regne `pris * solgte` selv.\nKantina har ikke engang aksessorer for pris, og trenger dem ikke.\n\n**Slik ville sensor sett på det:** de to metodene rettes hver for seg.\nFinn-beste-løkka har fire poeng i seg (to startverdier, løkka, samlet oppdatering,\n`return` etter), og akkumulatoren tre (start før, `+` inne, `return` etter).",
-    "hints": [
-     "To variabler før løkka, begge oppdatert i samme `if`.",
-     "La retten regne ut sin egen omsetning."
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-oppg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Hva skriver programmet ut?\n\n```python\nclass Okt:\n    def __init__(self, dag, antall):\n        self._dag = dag\n        self._antall = antall\n\n    def hent_dag(self):\n        return self._dag\n\n    def hent_antall(self):\n        return self._antall\n\nclass Senter:\n    def __init__(self):\n        self._okter = []\n\n    def legg_til(self, o):\n        self._okter.append(o)\n\n    def per_dag(self):\n        d = {}\n        for o in self._okter:\n            dag = o.hent_dag()\n            if dag not in d:\n                d[dag] = 0\n            d[dag] = d[dag] + o.hent_antall()\n        return d\n\n    def travleste_dag(self):\n        d = self.per_dag()\n        beste = None\n        beste_antall = 0\n        for dag in d:\n            if d[dag] > beste_antall:\n                beste = dag\n                beste_antall = d[dag]\n        return beste\n\ns = Senter()\ns.legg_til(Okt(\"mandag\", 14))\ns.legg_til(Okt(\"tirsdag\", 20))\ns.legg_til(Okt(\"mandag\", 9))\ns.legg_til(Okt(\"onsdag\", 6))\nprint(s.per_dag())\nprint(s.travleste_dag())\n```",
-    "solution": "**Sporingstavle for teller-ordboka.** Én rad per økt:\n\n| Økt | `dag` ny? | Ordboka etter |\n|---|---|---|\n| mandag 14 | ja, settes til 0 | `{'mandag': 14}` |\n| tirsdag 20 | ja, settes til 0 | `{'mandag': 14, 'tirsdag': 20}` |\n| mandag 9 | nei | `{'mandag': 23, 'tirsdag': 20}` |\n| onsdag 6 | ja, settes til 0 | `{'mandag': 23, 'tirsdag': 20, 'onsdag': 6}` |\n\nSå finn-beste over ordboka: 23 slår 0, 20 slår ikke 23, 6 slår ikke 23.\n\n**Utskrift:**\n```\n{'mandag': 23, 'tirsdag': 20, 'onsdag': 6}\nmandag\n```\n\n**Legg merke til hva `travleste_dag` returnerer:** `beste`, som er **nøkkelen**\n`dag` — ikke `beste_antall`. Det er en klassisk lesefelle når begge variablene\nligger rett foran deg.\n\n**Tre ting til å legge merke til.**\n\nMandag telles **to ganger**, og det er nettopp derfor teller-ordboka trengs:\nsummen 23 finnes ikke i noen enkelt økt.\n\nRekkefølgen i ordboka følger den nøklene ble **opprettet** i, ikke størrelsen.\n\nOg `travleste_dag` kaller `self.per_dag()` — en metode som kaller en annen metode\npå samme objekt. Det er ryddigere enn å gjenta hele telleløkka.\n\n**På eksamen** skrives ordboka nøyaktig som terminalen viser den, med krøllparenteser,\nenkle anførselstegn rundt nøklene og komma mellom parene.",
-    "hints": [
-     "Skriv opp ordboka på nytt etter hver økt.",
-     "Se nøye på hva `travleste_dag` returnerer: nøkkelen eller verdien?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-12",
-   "type": "text",
-   "content": "## Løkke 3 — Flagg, duplikater og match (~13 min)\n\nTre mindre mønstre som dukker opp som deloppgaver: å svare ja eller nei på noe om\nhele samlingen, å unngå at det samme legges inn to ganger, og å telle treff mot\nen annen samling."
-  },
-  {
-   "id": "in1000-6-3-13",
-   "type": "definition",
-   "title": "Flagg med tidlig retur",
-   "content": "Mønsteret for «finnes det …?» og «er alle …?»:\n\n```python\nclass Sal:\n    def __init__(self, navn, ledige):\n        self._navn = navn\n        self._ledige = ledige\n\n    def hent_ledige(self):\n        return self._ledige\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def finnes_ledig(self):\n        for s in self._saler:\n            if s.hent_ledige() > 0:\n                return True\n        return False\n\n    def alle_fulle(self):\n        for s in self._saler:\n            if s.hent_ledige() > 0:\n                return False\n        return True\n\nsen = Senter()\nsen.legg_til(Sal(\"A\", 0))\nsen.legg_til(Sal(\"B\", 3))\nprint(sen.finnes_ledig(), sen.alle_fulle())\n```\n\n**Utskrift:**\n```\nTrue False\n```\n\n**«Finnes det …?»** returnerer `True` inne i løkka og `False` etter. **«Er alle\n…?»** returnerer `False` inne i løkka og `True` etter.\n\n**Retur-etter-løkka-linjen er obligatorisk.** Glemmer du den, gir metoden `None`\nnår løkka går helt gjennom — og `None` oppfører seg som usant i en `if`, så feilen\ner stum.\n\nÅ snu de to — returnere `True` inne i en «er alle»-sjekk — er feilkode **#7**, for\ntidlig retur."
-  },
-  {
-   "id": "in1000-6-3-14",
-   "type": "definition",
-   "title": "Unngå duplikater",
-   "content": "Mønsteret for «legg til bare hvis den ikke allerede er der»:\n\n```python\nclass Klubb:\n    def __init__(self):\n        self._navn = []\n\n    def meld_inn(self, n):\n        if n in self._navn:\n            print(n, \"er allerede medlem\")\n        else:\n            self._navn.append(n)\n\n    def antall(self):\n        return len(self._navn)\n\nk = Klubb()\nk.meld_inn(\"Ada\")\nk.meld_inn(\"Nora\")\nk.meld_inn(\"Ada\")\nprint(k.antall())\n```\n\n**Utskrift:**\n```\nAda er allerede medlem\n2\n```\n\nFor en **liste** brukes `if n in self._navn:`. For en **ordbok** er problemet\nborte av seg selv: en nøkkel kan bare finnes én gang — men da **overskrives** den\ngamle verdien uten et pip, så sjekken kan likevel være nødvendig.\n\nSkal du sjekke duplikater blant **objekter**, sammenlign en verdi de har, ikke\nobjektene selv: `if navn in self._navn:` der `self._navn` er en liste av navn,\neller en løkke som spør hvert objekt."
-  },
-  {
-   "id": "in1000-6-3-15",
-   "type": "definition",
-   "title": "Beregn match",
-   "content": "Mønsteret for «hvor godt passer disse to sammen?»: tell positive treff, trekk fra\nnegative.\n\n```python\nmine = [\"sjakk\", \"kolonier\", \"ordjakt\"]\ndine = [\"kolonier\", \"yatzy\", \"sjakk\"]\npoeng = 0\nfor spill in mine:\n    if spill in dine:\n        poeng = poeng + 1\n    else:\n        poeng = poeng - 1\nprint(poeng)\n```\n\n**Utskrift:**\n```\n1\n```\n\nTo treff og ett bom gir 1. Formen er en akkumulator med to grener, og den er lett\nå utvide: ulik vekt på treff og bom, eller bare positive poeng.\n\nKjenn den igjen i oppgaveteksten på «regn ut hvor godt to … passer sammen» eller\n«gi ett poeng for hver felles …»."
-  },
-  {
-   "id": "in1000-6-3-16",
-   "type": "example",
-   "title": "Eksempel 3: Prioritert søk med ferdig-flagg",
-   "problem": "Et bibliotek skal sette en innlevert bok i første ledige hylle, i en gitt\nprioritert rekkefølge. Skriv metoden.",
-   "solution": "Mønsteret er en løkke med et **flagg** som sier om jobben er gjort:\n\n```python\nclass Hylle:\n    def __init__(self, navn, plasser):\n        self._navn = navn\n        self._plasser = plasser\n        self._boker = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def er_ledig(self):\n        return len(self._boker) < self._plasser\n\n    def sett_inn(self, tittel):\n        self._boker.append(tittel)\n\n    def __str__(self):\n        return self._navn + \": \" + str(len(self._boker)) + \"/\" + str(self._plasser)\n\nclass Bibliotek:\n    def __init__(self):\n        self._hyller = []\n\n    def legg_til_hylle(self, h):\n        self._hyller.append(h)\n\n    def sett_inn_ledig(self, tittel):\n        ferdig = False\n        for h in self._hyller:\n            if h.er_ledig() and ferdig == False:\n                h.sett_inn(tittel)\n                ferdig = True\n        if ferdig == False:\n            print(\"Ingen ledig hylle for\", tittel)\n        return ferdig\n\n    def skriv_alle(self):\n        for h in self._hyller:\n            print(h)\n\nbib = Bibliotek()\nbib.legg_til_hylle(Hylle(\"H1\", 1))\nbib.legg_til_hylle(Hylle(\"H2\", 2))\n\nbib.sett_inn_ledig(\"Sult\")\nbib.sett_inn_ledig(\"Vaar\")\nbib.sett_inn_ledig(\"Pan\")\nbib.sett_inn_ledig(\"Naboer\")\nbib.skriv_alle()\n```\n\n**Utskrift:**\n```\nIngen ledig hylle for Naboer\nH1: 1/1\nH2: 2/2\n```\n\n**Rekkefølgen i lista er prioriteringen.** H1 fylles først, så H2. Skal\nprioriteringen være en annen, legger du hyllene inn i en annen rekkefølge — eller\noppgaven oppgir en egen prioritetsliste.\n\n**`ferdig`-flagget er det som gjør at boka settes inn bare én gang.** Uten det\nville løkka satt den inn i **hver** ledige hylle den kom til. Betingelsen\n`h.er_ledig() and ferdig == False` sjekker begge deler.\n\n**Alternativet er `return` inne i løkka**, som ville vært kortere. Boka bruker\nflagget her fordi metoden skal gjøre noe **etter** løkka — skrive en beskjed hvis\ningen hylle var ledig — og fordi flagget er formen fagets egne løsningsforslag\nbruker for dette mønsteret.\n\n**Slik ville sensor sett på det:** fem ting gir uttelling — flagget satt til\n`False` før løkka, løkka i prioritert rekkefølge, den todelte betingelsen,\n`ferdig = True` etter innsettingen, og håndteringen av «ingen ledig» etter løkka.\nGlemmer du flagget, er strukturen riktig og trekket lite — men boka havner fire\nsteder."
-  },
-  {
-   "id": "in1000-6-3-oppg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F — algoritme-metode med flagg.) En sykkelutleie har\nstativer i en liste.\n\n**a)** Skriv `Stativ` med navn, antall plasser og en liste av sykler, med\n`er_ledig()` og `sett_inn(self, kode)`.\n\n**b)** Skriv `Utleie` med en metode `finnes_ledig(self)` som svarer `True` eller\n`False`, og en `parker(self, kode)` som setter sykkelen i **første** ledige\nstativ og skriver en beskjed hvis ingen er ledige.\n\n**c)** Test med to stativer med til sammen tre plasser, og fire sykler.",
-    "solution": "**a)–c)** Flagg-mønsteret i to varianter — tidlig retur i den ene metoden,\n`ferdig`-flagg i den andre:\n\n```python\nclass Stativ:\n    def __init__(self, navn, plasser):\n        self._navn = navn\n        self._plasser = plasser\n        self._sykler = []\n\n    def er_ledig(self):\n        return len(self._sykler) < self._plasser\n\n    def sett_inn(self, kode):\n        self._sykler.append(kode)\n\n    def __str__(self):\n        return self._navn + \": \" + str(len(self._sykler)) + \"/\" + str(self._plasser)\n\nclass Utleie:\n    def __init__(self):\n        self._stativer = []\n\n    def legg_til(self, s):\n        self._stativer.append(s)\n\n    def finnes_ledig(self):\n        for s in self._stativer:\n            if s.er_ledig():\n                return True\n        return False\n\n    def parker(self, kode):\n        ferdig = False\n        for s in self._stativer:\n            if s.er_ledig() and ferdig == False:\n                s.sett_inn(kode)\n                ferdig = True\n        if ferdig == False:\n            print(\"Ingen plass til\", kode)\n\n    def skriv_alle(self):\n        for s in self._stativer:\n            print(s)\n\nu = Utleie()\nu.legg_til(Stativ(\"Blindern\", 1))\nu.legg_til(Stativ(\"Toyen\", 2))\n\nprint(u.finnes_ledig())\nu.parker(\"R31\")\nu.parker(\"R48\")\nu.parker(\"R07\")\nu.parker(\"R99\")\nu.skriv_alle()\nprint(u.finnes_ledig())\n```\n\n**Utskrift:**\n```\nTrue\nIngen plass til R99\nBlindern: 1/1\nToyen: 2/2\nFalse\n```\n\n**Legg merke til at `finnes_ledig()` svarer ulikt før og etter.** Først er begge\nstativene tomme, til slutt er begge fulle.\n\n**De to metodene bruker hver sin variant av flagget.** `finnes_ledig` returnerer\nmed én gang den finner et treff — det er tidlig retur, og det er riktig her fordi\nmetoden ikke skal gjøre noe etterpå. `parker` bruker et `ferdig`-flagg, fordi den\n**skal** gjøre noe etter løkka.\n\n**Slik ville sensor sett på det:** `return False` **etter** løkka i `finnes_ledig`\ner et selvstendig poeng — glemmer du den, gir metoden `None`, og feilen er stum\nfordi `None` oppfører seg som usant i en `if`.",
-    "hints": [
-     "«Finnes det …?» returnerer `True` inne i løkka og `False` etter.",
-     "«Sett inn i første ledige» trenger et flagg, fordi metoden skal si fra etterpå."
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-oppg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F — gruppering.) Et bibliotek har bøker med tittel og\nforfatter.\n\n**a)** Skriv en metode `boker_per_forfatter(self)` som returnerer en ordbok fra\nforfatter til en **liste** over titlene.\n\n**b)** Skriv `forfatter_med_flest(self)` som returnerer navnet på den forfatteren\nsom har flest bøker.\n\n**c)** Test med fem bøker fordelt på tre forfattere.",
-    "solution": "**a)–c)** Grupperings-idiomet, og deretter finn-beste over ordboka:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_forfatter(self):\n        return self._forfatter\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = []\n\n    def legg_til(self, b):\n        self._boker.append(b)\n\n    def boker_per_forfatter(self):\n        d = {}\n        for b in self._boker:\n            f = b.hent_forfatter()\n            if f not in d:\n                d[f] = []\n            d[f].append(b.hent_tittel())\n        return d\n\n    def forfatter_med_flest(self):\n        d = self.boker_per_forfatter()\n        beste = None\n        beste_antall = 0\n        for f in d:\n            if len(d[f]) > beste_antall:\n                beste = f\n                beste_antall = len(d[f])\n        return beste\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\"))\nbib.legg_til(Bok(\"Vaar\", \"Undset\"))\nbib.legg_til(Bok(\"Pan\", \"Hamsun\"))\nbib.legg_til(Bok(\"Naboer\", \"Bjornson\"))\nbib.legg_til(Bok(\"Markens grode\", \"Hamsun\"))\nprint(bib.boker_per_forfatter())\nprint(bib.forfatter_med_flest())\n```\n\n**Utskrift:**\n```\n{'Hamsun': ['Sult', 'Pan', 'Markens grode'], 'Undset': ['Vaar'], 'Bjornson': ['Naboer']}\nHamsun\n```\n\n**Metoden returnerer `beste`, som er forfatternavnet** — ikke antallet. Med\n`return beste_antall` ville svaret blitt `3`. Les siste setning i oppgaveteksten\nen gang til før du skriver `return`.\n\n**Grupperingen skiller seg fra telleren med to tegn:** `[]` i stedet for `0`, og\n`.append(...)` i stedet for `+`. Alt annet er likt.\n\n**`forfatter_med_flest` kaller `self.boker_per_forfatter()`** i stedet for å bygge\nordboka på nytt. En metode kan kalle en annen på samme objekt, og det er\nryddigere enn å gjenta ti linjer.\n\n**Merk `len(d[f])` som verdi i sammenligningen.** Verdien i ordboka er en liste,\nså antallet er lengden. Hadde du sammenlignet listene direkte, ville Python\nsammenlignet dem tekst for tekst — og svart noe helt annet enn du ville.",
-    "hints": [
-     "Grupperingen legger i en liste; telleren legger til et tall.",
-     "Kall den første metoden fra den andre med `self.` foran."
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-17",
-   "type": "text",
-   "content": "## Løkke 4 — Kant-tilfellene (~12 min)\n\nAlgoritme-metoder feller folk på kantene: den tomme samlingen, den ene\nenkeltverdien, og de to som er like store.\n\nDet er ikke vanskelig å håndtere dem — men det må gjøres bevisst, og det gir\npoeng."
-  },
-  {
-   "id": "in1000-6-3-18",
-   "type": "warning",
-   "title": "Typisk feil #6 — kant-tilfellene",
-   "content": "Feilkode **#6** er at metoden ikke tåler en tom eller minimal samling.\n\n**Den tomme samlingen.** Finn-beste-malen svarer `None`, og det er riktig — men\nden som kaller, må sjekke. `senter.travleste_sal().hent_navn()` på et tomt senter\nstopper programmet med\n`AttributeError: 'NoneType' object has no attribute 'hent_navn'`.\n\n**Ett element.** Løkka går én runde, og svaret er det ene elementet. Det går bra\nmed malen — men bare fordi startverdien er 0 og verdien er positiv.\n\n**To like store.** Malen bruker `>` og beholder derfor det **første**. Med `>=`\nville den beholdt det **siste**. Begge er forsvarlige, men oppgaven kan si hvilken\nsom gjelder, og da må du lese sakte.\n\n**Alle verdier er null.** Med `beste_verdi = 0` og `>` blir svaret `None`, selv om\nsamlingen ikke er tom. Er det et problem, dokumentér valget i en kommentar — eller\nla første runde sette startverdien.\n\n**Motgiften er en huskeliste:** hva svarer metoden på tom samling, på ett element,\nog på to like? Tre spørsmål, ti sekunder, og de fanger de fleste trekkene."
-  },
-  {
-   "id": "in1000-6-3-19",
-   "type": "example",
-   "title": "Eksempel 4: Full algoritme-deloppgave på eksamensnivå",
-   "problem": "> Et treningssenter har medlemmer og økter. Hvert medlem har et navn og et antall\n> besøk. Hver økt har en dag, et salnavn og et antall deltakere. Senteret skal\n> kunne si hvilken dag som er travlest, hvilket medlem som har flest besøk, om det\n> finnes en økt med færre enn fem deltakere, og hvor mange ulike saler som er i\n> bruk.\n\nSkriv metodene.",
-   "solution": "Fire metoder, fire mønstre. Klassene først:\n\n```python\nclass Medlem:\n    def __init__(self, navn, besok):\n        self._navn = navn\n        self._besok = besok\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_besok(self):\n        return self._besok\n\nclass Okt:\n    def __init__(self, dag, sal, deltakere):\n        self._dag = dag\n        self._sal = sal\n        self._deltakere = deltakere\n\n    def hent_dag(self):\n        return self._dag\n\n    def hent_sal(self):\n        return self._sal\n\n    def hent_deltakere(self):\n        return self._deltakere\n```\n\nSå senteret, med de fire metodene:\n\n```python\nclass Medlem:\n    def __init__(self, navn, besok):\n        self._navn = navn\n        self._besok = besok\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_besok(self):\n        return self._besok\n\nclass Okt:\n    def __init__(self, dag, sal, deltakere):\n        self._dag = dag\n        self._sal = sal\n        self._deltakere = deltakere\n\n    def hent_dag(self):\n        return self._dag\n\n    def hent_sal(self):\n        return self._sal\n\n    def hent_deltakere(self):\n        return self._deltakere\n\nclass Senter:\n    def __init__(self):\n        self._medlemmer = []\n        self._okter = []\n\n    def legg_til_medlem(self, m):\n        self._medlemmer.append(m)\n\n    def legg_til_okt(self, o):\n        self._okter.append(o)\n\n    def travleste_dag(self):\n        d = {}\n        for o in self._okter:\n            dag = o.hent_dag()\n            if dag not in d:\n                d[dag] = 0\n            d[dag] = d[dag] + o.hent_deltakere()\n        beste = None\n        beste_antall = 0\n        for dag in d:\n            if d[dag] > beste_antall:\n                beste = dag\n                beste_antall = d[dag]\n        return beste\n\n    def flittigste_medlem(self):\n        beste = None\n        beste_besok = 0\n        for m in self._medlemmer:\n            if m.hent_besok() > beste_besok:\n                beste = m\n                beste_besok = m.hent_besok()\n        return beste\n\n    def finnes_liten_okt(self):\n        for o in self._okter:\n            if o.hent_deltakere() < 5:\n                return True\n        return False\n\n    def antall_ulike_saler(self):\n        saler = []\n        for o in self._okter:\n            if o.hent_sal() not in saler:\n                saler.append(o.hent_sal())\n        return len(saler)\n\ns = Senter()\ns.legg_til_medlem(Medlem(\"Ada\", 18))\ns.legg_til_medlem(Medlem(\"Nora\", 25))\ns.legg_til_medlem(Medlem(\"Per\", 7))\ns.legg_til_okt(Okt(\"mandag\", \"Speilsal\", 14))\ns.legg_til_okt(Okt(\"mandag\", \"Spinning\", 9))\ns.legg_til_okt(Okt(\"tirsdag\", \"Speilsal\", 20))\ns.legg_til_okt(Okt(\"onsdag\", \"Yoga\", 3))\n\nprint(\"Travleste dag:\", s.travleste_dag())\nprint(\"Flittigste:\", s.flittigste_medlem().hent_navn())\nprint(\"Liten okt finnes:\", s.finnes_liten_okt())\nprint(\"Ulike saler:\", s.antall_ulike_saler())\n```\n\n**Utskrift:**\n```\nTravleste dag: mandag\nFlittigste: Nora\nLiten okt finnes: True\nUlike saler: 3\n```\n\n**Fire mønstre, fire deloppgaver, og de rettes hver for seg.**\n\n`travleste_dag` er teller-ordbok **pluss** finn-beste — to løkker etter hverandre.\nMandag har 14 pluss 9, altså 23, mot tirsdags 20.\n\n`flittigste_medlem` er ren finn-beste, og den returnerer **medlemmet**, slik at\nden som kaller, kan spørre videre.\n\n`finnes_liten_okt` er flagg med tidlig retur: `True` inne i løkka, `False` etter.\n\n`antall_ulike_saler` er duplikat-mønsteret: bygg en liste over dem du har sett, og\ntell lengden. Speilsal telles bare én gang, selv om den brukes to dager.\n\n**Slik ville sensor sett på det:** dette er en 15–20-poengs deloppgave i den store\noppgaven, og poengene ligger jevnt fordelt. Hver metode er selvstendig, så du kan\nhoppe over en du står fast på og fortsatt få de tre andre.\n\n**Kant-tilfellene:** på et tomt senter gir de to første `None`, den tredje `False`\nog den fjerde `0`. Alle fire er fornuftige svar — men den som kaller\n`flittigste_medlem().hent_navn()`, må sjekke først."
-  },
-  {
-   "id": "in1000-6-3-oppg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_antall(self):\n        return self._antall\n\nclass Lager:\n    def __init__(self):\n        self._varer = []\n\n    def legg_til(self, v):\n        self._varer.append(v)\n\n    def storste(self):\n        beste = None\n        beste_antall = 0\n        for v in self._varer:\n            if v.hent_antall() > beste_antall:\n                beste = v\n        return beste\n\nlager = Lager()\nlager.legg_til(Vare(\"skrue\", 120))\nlager.legg_til(Vare(\"bolt\", 45))\nlager.legg_til(Vare(\"skive\", 200))\nlager.legg_til(Vare(\"mutter\", 80))\nprint(lager.storste().hent_navn())\n```",
-    "solution": "**Sporingstavle.** Legg merke til at `beste_antall` **aldri** oppdateres:\n\n| Vare | `hent_antall()` | `> beste_antall` (som er 0)? | `beste` etter |\n|---|---|---|---|\n| skrue 120 | 120 | ja | skrue |\n| bolt 45 | 45 | ja | bolt |\n| skive 200 | 200 | ja | skive |\n| mutter 80 | 80 | ja | mutter |\n\n**Utskrift:**\n```\nmutter\n```\n\n**Fellen her er den glemte oppdateringen av `beste_antall`.** Grensen blir stående\npå 0, så **hver** vare over null overskriver `beste`. Løkka ender med den\n**siste** varen, ikke den største.\n\nRiktig svar skulle vært `skive` med 200. Feilen er stum: metoden returnerer et\ngyldig objekt, og utskriften ser fornuftig ut.\n\n**Motgiften:** de to variablene i finn-beste-malen skal alltid oppdateres i samme\n`if`, rett under hverandre. Skriv dem som ett par, hver gang.\n\n**På eksamen** er dette et vanlig «finn feilen»-spørsmål i tillegg til et\nsporingsspørsmål — og et konkret moteksempel er nettopp denne listen.",
-    "hints": [
-     "Skriv opp verdien til `beste_antall` etter hver runde.",
-     "Hvor mange ganger er betingelsen sann?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-oppg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger F — algoritme-metode med match.) En brettspillklubb har\nmedlemmer, og hvert medlem har en liste over spill det liker.\n\n**a)** Skriv `Medlem` med navn og en liste over spilltitler, med\n`legg_til_spill(self, tittel)` og `liker(self, tittel)` som svarer `True` eller\n`False`.\n\n**b)** Skriv `match(self, annet)` i `Medlem`, som gir ett poeng for hvert spill\nbegge liker og trekker ett for hvert bare den ene liker — regnet fra dette\nmedlemmets liste.\n\n**c)** Skriv `Klubb` med en metode `beste_match(self, medlem)` som finner det\nandre medlemmet med høyest match.\n\n**d)** Test med tre medlemmer.",
-    "solution": "**a)–d)** Match-mønsteret er en akkumulator med to grener:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._spill = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def legg_til_spill(self, tittel):\n        self._spill.append(tittel)\n\n    def liker(self, tittel):\n        if tittel in self._spill:\n            return True\n        return False\n\n    def match(self, annet):\n        poeng = 0\n        for tittel in self._spill:\n            if annet.liker(tittel):\n                poeng = poeng + 1\n            else:\n                poeng = poeng - 1\n        return poeng\n\n    def __str__(self):\n        return self._navn\n\nclass Klubb:\n    def __init__(self):\n        self._medlemmer = []\n\n    def meld_inn(self, m):\n        self._medlemmer.append(m)\n\n    def beste_match(self, medlem):\n        beste = None\n        beste_poeng = 0\n        for m in self._medlemmer:\n            if m != medlem:\n                p = medlem.match(m)\n                if p > beste_poeng:\n                    beste = m\n                    beste_poeng = p\n        return beste\n\nada = Medlem(\"Ada\")\nada.legg_til_spill(\"Sjakk\")\nada.legg_til_spill(\"Kolonier\")\nada.legg_til_spill(\"Ordjakt\")\n\nnora = Medlem(\"Nora\")\nnora.legg_til_spill(\"Kolonier\")\nnora.legg_til_spill(\"Sjakk\")\n\nper = Medlem(\"Per\")\nper.legg_til_spill(\"Yatzy\")\n\nk = Klubb()\nk.meld_inn(ada)\nk.meld_inn(nora)\nk.meld_inn(per)\n\nprint(ada.match(nora), ada.match(per))\nprint(k.beste_match(ada))\n```\n\n**Utskrift:**\n```\n1 -3\nNora\n```\n\n**Match-regnestykket:** Ada liker tre spill. Nora liker to av dem og ikke det\ntredje, altså 1 pluss 1 minus 1 er **1**. Per liker ingen av dem: minus 1 tre\nganger er **-3**.\n\n**Legg merke til `if m != medlem:` i `beste_match`.** Uten den ville medlemmet\nblitt sammenlignet med seg selv, og det ville alltid gitt full match. Å utelate\nseg selv er et selvstendig poeng i denne typen oppgave.\n\n**Og legg merke til `medlem.match(m)` — ikke `m.match(medlem)`.** Regnestykket er\nikke symmetrisk: det går over **dette** medlemmets liste. Ada mot Per gir -3, mens\nPer mot Ada ville gitt -1, fordi Per bare har ett spill. Les oppgaveteksten nøye\nfor å se hvilken vei den ber om.\n\n**`liker` returnerer `True`/`False` i to grener** i stedet for `return tittel in\nself._spill`. Begge er riktige; boka skriver den eksplisitte formen, som er den\nfasiten bruker.\n\n**Slik ville sensor sett på det:** de tre metodene rettes hver for seg. `match`\nhar tre poeng i seg (akkumulator før løkka, begge grenene, `return` etter), og\n`beste_match` fire (de to startverdiene, utelatelsen av seg selv, samlet\noppdatering, `return` etter).",
-    "hints": [
-     "Match er en akkumulator med `+ 1` i den ene grenen og `- 1` i den andre.",
-     "Husk å hoppe over medlemmet selv når du leter etter den beste matchen."
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-oppg-8",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-6-3-o8",
-    "number": "8",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger I — «finn feilen», med konkret moteksempel.) En\nmedstudent har skrevet:\n\n```python\nclass Sal:\n    def __init__(self, navn, paameldte):\n        self._navn = navn\n        self._paameldte = paameldte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def travleste(self):\n        for s in self._saler:\n            beste = None\n            beste_antall = 0\n            if s.hent_paameldte() > beste_antall:\n                beste = s\n                beste_antall = s.hent_paameldte()\n            return beste\n```\n\n**a)** Metoden har to feil. Hvilke?\n\n**b)** Gi et **konkret moteksempel**.\n\n**c)** Skriv den rettede metoden.",
-    "solution": "**a)** To plasseringsfeil, begge i samme familie:\n\n1. **Startverdiene står INNE i løkka.** `beste = None` og `beste_antall = 0`\n   nullstilles på hver runde, så sammenligningen skjer alltid mot 0 — regnskapet\n   fra forrige runde er borte.\n2. **`return` står INNE i løkka.** Metoden avslutter på første runde — feilkode\n   **#7**, for tidlig retur. Resten av salene blir aldri sett.\n\nFeil nummer 2 skjuler feil nummer 1: siden metoden aldri kommer til andre runde,\nmerker du ikke at startverdiene nullstilles.\n\n**b)** Moteksempelet:\n\n```python\nclass Sal:\n    def __init__(self, navn, paameldte):\n        self._navn = navn\n        self._paameldte = paameldte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def travleste(self):\n        for s in self._saler:\n            beste = None\n            beste_antall = 0\n            if s.hent_paameldte() > beste_antall:\n                beste = s\n                beste_antall = s.hent_paameldte()\n            return beste\n\nsen = Senter()\nsen.legg_til(Sal(\"Speilsal\", 5))\nsen.legg_til(Sal(\"Spinning\", 40))\nprint(sen.travleste().hent_navn())\n```\n\n**Utskrift:**\n```\nSpeilsal\n```\n\nKallet gir **Speilsal** med 5 påmeldte. Det skulle gitt **Spinning** med 40.\n\n**c)** Den rettede metoden — startverdiene over løkka, `return` under den:\n\n```python\nclass Sal:\n    def __init__(self, navn, paameldte):\n        self._navn = navn\n        self._paameldte = paameldte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def travleste(self):\n        beste = None\n        beste_antall = 0\n        for s in self._saler:\n            if s.hent_paameldte() > beste_antall:\n                beste = s\n                beste_antall = s.hent_paameldte()\n        return beste\n\nsen = Senter()\nsen.legg_til(Sal(\"Speilsal\", 5))\nsen.legg_til(Sal(\"Spinning\", 40))\nprint(sen.travleste().hent_navn())\n```\n\n**Utskrift:**\n```\nSpinning\n```\n\n**Regelen som fanger begge feilene:** i finn-beste-malen står **to linjer over**\nløkka og **én linje under** den. Sitter den plasseringen, kan du ikke gjøre denne\nfeilen.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling — hvilket kall som gir galt svar, og hva det riktige\nville vært. Å finne én av to feil gir halvparten.",
-    "hints": [
-     "Se på innrykket: hvilke linjer står inne i løkka, og hvilke burde stått utenfor?",
-     "Hvor mange runder rekker løkka å gå?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-6-3-20",
-   "type": "warning",
-   "title": "Typiske feil i dette kapitlet",
-   "content": "Fem feil koster nesten alle poengene som mistes på algoritme-metoder:\n\n- **Bare den ene variabelen oppdatert i finn-beste.** Grensen blir stående, og\n  løkka ender med det **siste** elementet over 0 i stedet for det største. Stum\n  feil.\n- **Startverdiene inne i løkka.** De nullstilles hver runde, og regnskapet\n  forsvinner.\n- **#7 — `return` inne i løkka.** Metoden svarer på det første elementet i stedet\n  for å se hele samlingen.\n- **#14 — teller-ordbok uten `if k not in d:`.** Programmet stopper med `KeyError`\n  på den første nøkkelen.\n- **#6 — kant-tilfellene ikke tenkt gjennom.** Tom samling gir `None`, og den som\n  kaller, må sjekke. To like store: `>` beholder den første, `>=` den siste.\n\nOg én som ikke gir feil svar, men som trekker: **snarveiene.** `max(..., key=...)`,\n`sorted(...)` og ferdige tellere finnes, men kurset og fasiten belønner\ngrunnformen — lær den eksplisitte løkka først."
-  },
-  {
-   "id": "in1000-6-3-coll-21",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "in1000-6-3",
+  "courseId": "in1000",
+  "chapterNumber": "6.3",
+  "title": "Algoritme-metoder i klasser",
+  "description": "De smarte metodene på toppen av modellen: finn den beste, tell, unngå duplikater og regn ut match — de samme løkkemønstrene som før, nå inne i en klasse.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne skrive en metode som finner det beste elementet i en samling objekter",
+    "kunne bygge et regnskap over en samling og lese det i en egen løkke etterpå",
+    "kunne svare ja eller nei på en påstand om hele samlingen, med riktig plassert retur",
+    "kunne tenke gjennom hva metoden svarer på en tom samling og på to like verdier"
+  ],
+  "content": [
     {
-     "id": "in1000-6-3-c1",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `beste = None` `beste_verdi = 0` | Finn-beste: to variabler, satt **før** løkka. |\n| `if e.hent_verdi() > beste_verdi:` | Sammenligningen. `>` beholder den **første** av to like; `>=` den siste. |\n| `beste = e` `beste_verdi = e.hent_verdi()` | **Begge** oppdateres sammen, inne i samme `if`. |\n| `return beste` etter løkka | Inne i løkka gir det første element over grensen (**#7**). |\n| `total = 0` … `total = total + e.metode()` | Akkumulator med delegering. Start før, `+` inne, `return` etter. |\n| `antall = 0` … `antall = antall + 1` | Teller. Samme plasseringsregler. |\n| `if k not in d:` `d[k] = 0` | Teller-ordbok. Uten sjekken: `KeyError` (**#14**). |\n| `if k not in d:` `d[k] = []` … `d[k].append(v)` | Grupperings-idiomet. Verdien er en liste. |\n| `for e in liste:` `if …: return True` … `return False` | «Finnes det …?» — tidlig retur, og `False` **etter** løkka. |\n| `for e in liste:` `if …: return False` … `return True` | «Er alle …?» — motsatt vei. Å bytte om er **#7**. |\n| `ferdig = False` … `if … and ferdig == False:` … `ferdig = True` | Prioritert søk. Rekkefølgen i lista er prioriteringen. |\n| `if x in liste:` før `append` | Unngå duplikater i en liste. |\n| `if e not in sett_liste:` `sett_liste.append(e)` `return len(sett_liste)` | Tell ulike verdier. |\n| `poeng = poeng + 1` / `poeng = poeng - 1` | Match-mønsteret: to grener i samme akkumulator. |\n| `if m != medlem:` | Utelat elementet selv når du sammenligner alle mot én. |\n| `self.annen_metode()` | En metode kaller en annen på samme objekt — bygg regnskapet i en egen metode. |\n\n**Det som avgjør poeng i Oppgave 4:** at startverdiene står **før** løkka, at\n`return` står **etter** den, og at begge finn-beste-variablene oppdateres\nsammen."
-    }
-   ]
-  },
-  {
-   "id": "in1000-6-3-22",
-   "type": "text",
-   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
-  },
-  {
-   "id": "in1000-6-3-23",
-   "type": "definition",
-   "title": "Algoritme-metode",
-   "content": "En metode på toppen av modellen som **regner ut noe** av samlingen: finn den\ntravleste, tell de ulike, avgjør om noe finnes.\n\nDen er ofte den høyest vektede deloppgaven i Oppgave 4, og den er der de\nvanskelige poengene ligger — resten av modellen er mønstre du kan skrive uten å\ntenke.\n\nAlle formene er de samme løkkemønstrene fra del 3, flyttet inn i en klasse."
-  },
-  {
-   "id": "in1000-6-3-24",
-   "type": "definition",
-   "title": "Finn-beste-malen",
-   "content": "To variabler før løkka, samlet oppdatering inne i den, `return` etter.\n\n`beste` holder **elementet**, `beste_verdi` holder verdien du sammenligner med.\nOppdaterer du bare den ene, ender løkka med det siste elementet over grensen i\nstedet for det største.\n\nDet er den vanligste stumme feilen i hele Del 6, fordi metoden fortsatt\nreturnerer noe som ser fornuftig ut."
-  },
-  {
-   "id": "in1000-6-3-25",
-   "type": "definition",
-   "title": "Hvorfor `return` står etter løkka",
-   "content": "Fordi løkka må se **hele** samlingen før den kan svare hvem som er best.\n\nEt `return` inne i løkka gir det **første** elementet over grensen. Det er\nfeilkode **#7**, for tidlig retur, og den kommer igjen i hvert eneste\nflagg-mønster.\n\nUnntaket er «finnes det …?»-mønsteret, der et tidlig `return True` er nettopp det\nriktige — men da må `return False` stå etter løkka."
-  },
-  {
-   "id": "in1000-6-3-26",
-   "type": "definition",
-   "title": "Startverdi for «beste»",
-   "content": "`beste_verdi = 0` virker når verdiene er positive tellinger, som de nesten alltid\ner i denne boka.\n\nKan verdiene være negative, er 0 for høyt: metoden ville svart `None` på en\nsamling som ikke er tom. Da lar du første runde sette startverdien, med\n`if beste == None or …`.\n\nEr alle verdiene null, gir `>` og startverdi 0 også `None`. Dokumentér valget i\nen kommentar hvis oppgaven åpner for det."
-  },
-  {
-   "id": "in1000-6-3-27",
-   "type": "definition",
-   "title": "Å returnere objektet, ikke navnet",
-   "content": "`return beste` der `beste` er selve elementet, ikke `beste.hent_navn()`.\n\nDa kan den som kaller, spørre videre: `travleste_sal().hent_navn()` eller\n`travleste_sal().hent_paameldte()`. Returnerer metoden bare navnet, er det et\nblindspor.\n\nUnntaket er når oppgaveteksten uttrykkelig ber om navnet. Les hva den spør\netter."
-  },
-  {
-   "id": "in1000-6-3-28",
-   "type": "definition",
-   "title": "Teller-ordbok fra objekter",
-   "content": "`if f not in d:` og `d[f] = 0` før `d[f] = d[f] + verdi`.\n\nNøkkelen og verdien hentes med metodekall på underobjektene: `b.hent_forfatter()`\nog `b.hent_utlaan()`.\n\nUten `if`-sjekken stopper programmet med `KeyError` på den første nøkkelen —\nfeilkode **#14**."
-  },
-  {
-   "id": "in1000-6-3-29",
-   "type": "definition",
-   "title": "Grupperings-idiomet",
-   "content": "Telleren med to tegn byttet ut: `[]` i stedet for `0`, og `.append(...)` i stedet\nfor `+`.\n\nResultatet er en ordbok fra nøkkel til **liste**:\n`{'Hamsun': ['Sult', 'Pan']}`.\n\nKjenn det igjen i oppgaveteksten på «lag en ordbok fra … til en liste over …»\neller «grupper etter …»."
-  },
-  {
-   "id": "in1000-6-3-30",
-   "type": "definition",
-   "title": "To løkker etter hverandre",
-   "content": "Formen den tyngste deloppgaven ofte har: bygg et regnskap i én løkke, og les det\ni en annen.\n\nÅ prøve å gjøre begge deler i samme løkke er både vanskeligere og lettere å bomme\npå — og det gir ingen ekstra poeng.\n\nLegg gjerne den første løkka i sin **egen metode**, og kall den med `self.` foran.\nDa kan begge delene brukes hver for seg, og deloppgavene rettes uavhengig."
-  },
-  {
-   "id": "in1000-6-3-31",
-   "type": "definition",
-   "title": "Flagg med tidlig retur",
-   "content": "«Finnes det …?»: `return True` inne i løkka, `return False` **etter**.\n«Er alle …?»: `return False` inne, `return True` etter.\n\nÅ bytte om de to er feilkode **#7**: en «er alle»-sjekk som returnerer `True` på\ndet første treffet, svarer ja så snart ett element passer.\n\n**Linjen etter løkka er obligatorisk.** Glemmer du den, gir metoden `None`, og\n`None` oppfører seg som usant i en `if` — så feilen er stum."
-  },
-  {
-   "id": "in1000-6-3-32",
-   "type": "definition",
-   "title": "`ferdig`-flagget",
-   "content": "Mønsteret for «gjør noe med det **første** elementet som passer, og si fra hvis\ningen gjør det».\n\n`ferdig = False` før løkka, betingelsen `if … and ferdig == False:`, og\n`ferdig = True` etter handlingen.\n\nAlternativet er `return` inne i løkka. Flagget brukes når metoden skal gjøre noe\n**etter** løkka — og det er formen fagets egne løsningsforslag bruker for\nprioritert innsetting."
-  },
-  {
-   "id": "in1000-6-3-33",
-   "type": "definition",
-   "title": "Prioritert rekkefølge",
-   "content": "Rekkefølgen elementene ligger i, er prioriteringen. Første ledige i lista blir\nvalgt.\n\nSkal prioriteringen være en annen enn innsettingsrekkefølgen, oppgir oppgaven som\nregel en egen liste å løpe over.\n\nKombinert med `ferdig`-flagget er dette «sett inn i første ledige plass»-mønsteret\nsom går igjen i settene."
-  },
-  {
-   "id": "in1000-6-3-34",
-   "type": "definition",
-   "title": "Unngå duplikater",
-   "content": "`if x in self._liste:` før `append`, eller `if x not in d:` for en ordbok.\n\nFor en liste må du sjekke selv. For en ordbok er problemet borte — men da\n**overskrives** den gamle verdien uten et pip, så sjekken kan likevel trengs.\n\nSkal du telle **ulike** verdier, bygg en liste over dem du har sett, og returner\n`len(...)`."
-  },
-  {
-   "id": "in1000-6-3-35",
-   "type": "definition",
-   "title": "Match-mønsteret",
-   "content": "En akkumulator med to grener: `+ 1` for hvert treff, `- 1` for hvert bom.\n\n```text\n        poeng = 0\n        for x in self._mine:\n            if annet.liker(x):\n                poeng = poeng + 1\n            else:\n                poeng = poeng - 1\n        return poeng\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\n**Regnestykket er ikke symmetrisk:** det går over **dette** objektets liste. A mot\nB og B mot A kan gi ulike svar. Les oppgaveteksten for å se hvilken vei den ber\nom."
-  },
-  {
-   "id": "in1000-6-3-36",
-   "type": "definition",
-   "title": "Å utelate seg selv",
-   "content": "`if m != medlem:` når du sammenligner alle elementer mot ett av dem.\n\nUten den blir elementet sammenlignet med seg selv, og det gir alltid full match —\nså svaret blir alltid «seg selv».\n\nDet er et selvstendig poeng i den typen oppgave, og det er lett å glemme under\ntidspress."
-  },
-  {
-   "id": "in1000-6-3-37",
-   "type": "definition",
-   "title": "Feilkode #6 — kant-tilfellene",
-   "content": "At metoden ikke tåler en tom eller minimal samling.\n\nTre spørsmål tar de fleste trekkene: hva svarer metoden på **tom** samling, på\n**ett** element, og på **to like store**?\n\nFinn-beste gir `None` på tom samling — riktig, men den som kaller, må sjekke.\n`>` beholder den første av to like, `>=` den siste."
-  },
-  {
-   "id": "in1000-6-3-38",
-   "type": "definition",
-   "title": "`None` som svar",
-   "content": "Det ærlige svaret når en metode ikke finner noe: en tom samling, eller ingen som\noppfyller kravet.\n\nDen som kaller, tester med `if svar != None:`. Gjør du ikke det, stopper\nprogrammet med\n`AttributeError: 'NoneType' object has no attribute 'hent_navn'`.\n\nDen feilmeldingen er verdt å kjenne igjen: den betyr nesten alltid at et søk ga\n`None` og at sjekken manglet."
-  },
-  {
-   "id": "in1000-6-3-39",
-   "type": "definition",
-   "title": "Hjelpevariabel i løkka",
-   "content": "`sal = self._saler[navn]` øverst i løkkekroppen, i stedet for å skrive\n`self._saler[navn]` tre ganger.\n\nÉn linje ekstra gjør resten mye lettere å lese — og å rette. Det gir ingen ekstra\npoeng i seg selv, men det reduserer sjansen for skrivefeil betraktelig.\n\nSamme teknikk brukes når en lenket kjede blir lang: del den opp med en variabel\nunderveis."
-  },
-  {
-   "id": "in1000-6-3-40",
-   "type": "definition",
-   "title": "Metode som kaller metode",
-   "content": "`self.per_dag()` inne i `travleste_dag()` — en metode kan kalle en annen på samme\nobjekt.\n\nGevinsten er at regnskapet bygges ett sted. Endrer du hvordan det regnes, treffer\nendringen begge metodene.\n\n**Navnene må være ulike.** En metode som kaller en metode med samme navn, ser ut\nsom om den kaller seg selv — og det er **rekursjon**, som er utenfor pensum i\ndette emnet."
-  },
-  {
-   "id": "in1000-6-3-41",
-   "type": "definition",
-   "title": "Snarveiene og hvorfor boka ikke bruker dem",
-   "content": "Python har `max(..., key=...)`, `sorted(...)`, `sum(...)` og ferdige tellere som\nløser flere av mønstrene på én linje.\n\n**Denne boka bruker dem ikke, og det er et bevisst valg.** Fagets egne\nløsningsforslag skriver den eksplisitte løkka, fordi det er løkka som er\nferdigheten kurset måler.\n\nOg fordi den eksplisitte formen er den eneste som virker når oppgaven ber om noe\nen ferdig funksjon ikke dekker — som å telle poeng med to grener, eller å hoppe\nover elementet selv."
-  },
-  {
-   "id": "in1000-6-3-42",
-   "type": "definition",
-   "title": "Å lese hva metoden skal returnere",
-   "content": "Nøkkelen eller verdien? Objektet eller navnet? Antallet eller elementet?\n\nFeilen er lett å gjøre i en finn-beste-løkke, der du har begge deler liggende:\n`return beste` gir elementet, `return beste_verdi` gir tallet.\n\nLes siste setning i oppgaveteksten en gang til før du skriver `return`. Det tar\nfem sekunder og redder et helt poeng."
-  },
-  {
-   "id": "in1000-6-3-coll-43",
-   "type": "collapsible",
-   "title": "Repetisjon — de sju setningene som må sitte",
-   "buttonText": "Vis repetisjon",
-   "content": [
+      "id": "in1000-6-3-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Enkel algoritmikk i klasser står i 5 av 6 moderne eksamenssett (83 %)** — og\ndet er ofte **den høyest vektede deloppgaven** i hele Oppgave 4.\n\nFormuleringene går igjen: «finn den travleste dagen», «hvilken destinasjon er mest populær», «sett inn i første ledige plass i prioritert rekkefølge». Alle er den samme øvelsen: én løkke over samlingen, med et lite regnskap ved siden av.\n\nSjangeren er **F — stor klassemodellering**, altså å bygge samarbeidende klasser fra en beskrevet oppgave. **Dette må sitte** — bokas høyeste prioritetsnivå.\n\nDen gode nyheten er at du kan mønstrene fra før. Teller, akkumulator, flagg og finn-beste kommer alle fra [del 3](/bok/in1000/in1000-3-1). Det eneste nye er at løkka nå går over `self._elementer`, og at verdiene hentes med et metodekall.\n\nKapitlet er langt (~55 min) og er delt i fire løkker med tidsanslag."
+    },
     {
-     "id": "in1000-6-3-c2",
-     "type": "text",
-     "content": "1. **Finn-beste har to variabler**, satt **før** løkka, oppdatert **sammen** inne\n   i den, med `return` **etter**.\n2. **Glemmer du å oppdatere `beste_verdi`**, ender løkka med det siste elementet\n   over grensen — en stum feil.\n3. **`return` inne i løkka** gir det første elementet over grensen. Det er\n   feilkode **#7**.\n4. **Teller-ordbok:** `if k not in d:` og `d[k] = 0` før du legger til. Uten det:\n   `KeyError` (**#14**).\n5. **Gruppering** er telleren med `[]` og `.append(...)` i stedet for `0` og `+`.\n6. **«Finnes det …?»** returnerer `True` inne i løkka og `False` **etter**. Linjen\n   etter løkka er obligatorisk.\n7. **Tenk gjennom tre kanter hver gang:** tom samling, ett element, to like\n   store."
+      "id": "in1000-6-3-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 6.2 — Samarbeidende klasser](/bok/in1000/in1000-6-2), og gjenbruker mønstrene fra [kap. 3.1 — Lister](/bok/in1000/in1000-3-1) og\n[kap. 3.2 — Ordbøker](/bok/in1000/in1000-3-2).\n\n**De tre mønstrene som kommer igjen**, friskes opp med kjørt kode.\n\n**1. Teller og akkumulator:**\n\n```python\ntall = [4, 9, 2, 7]\nantall = 0 total = 0 for x in tall:\n    if x > 3:\n        antall = antall + 1 total = total + x print(antall, total)\n```\n\n**Utskrift:**\n```\n3 22\n```\n\n**2. Finn beste — to variabler som oppdateres sammen:**\n\n```python\ntall = [4, 9, 2, 7]\nbeste = None beste_verdi = 0 for x in tall:\n    if x > beste_verdi:\n        beste = x beste_verdi = x print(beste, beste_verdi)\n```\n\n**Utskrift:**\n```\n9 9\n```\n\n**3. Teller-ordbok med `if k not in d:`:**\n\n```python\nd = {}\nfor navn in [\"ada\", \"nora\", \"ada\"]:\n    if navn not in d:\n        d[navn] = 0 d[navn] = d[navn] + 1 print(d)\n```\n\n**Utskrift:**\n```\n{'ada': 2, 'nora': 1}\n```\n\nNå flytter vi alle tre inn i en klassemetode."
+    },
+    {
+      "id": "in1000-6-3-3",
+      "type": "text",
+      "content": "## Løkke 1 — Finn beste, inne i en klasse (~15 min)\n\n«Hvilken sal er travlest?» «Hvilken forfatter har flest utlån?» «Hvilken rett har solgt mest?»\n\nAlle tre er det samme spørsmålet, og svaret er det samme mønsteret: løp gjennom samlingen, hold styr på den beste så langt, og oppdater **to** variabler når du finner en bedre."
+    },
+    {
+      "id": "in1000-6-3-4",
+      "type": "theorem",
+      "title": "Finn-beste-malen",
+      "content": "Bokas attende kodemønster, og det som oftest bærer den tyngst vektede deloppgaven i Oppgave 4:\n\n```text\n    def beste_element(self):\n        beste = None beste_verdi = 0 for e in self._elementer:\n            if e.hent_verdi() > beste_verdi:\n                beste = e beste_verdi = e.hent_verdi()\n        return beste\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\nFire regler, og hver av dem er verdt poeng:\n\n1. **To variabler, satt FØR løkka.** `beste = None` og `beste_verdi = 0`.\n2. **Begge oppdateres SAMMEN**, inne i samme `if`. Oppdaterer du bare den ene,\n   finner løkka feil element.\n3. **`return` ETTER løkka**, aldri inne i den — det ville gitt det første\n   elementet over grensen, ikke det største.\n4. **`beste = None` er det ærlige svaret på en tom samling.** Den som kaller,\n   tester med `if svar != None:`.\n\nSkal du finne det **minste**, snus sammenligningen til `<`, og startverdien må settes høyt nok — eller til `None`, med en egen sjekk i første runde."
+    },
+    {
+      "id": "in1000-6-3-5",
+      "type": "definition",
+      "title": "Hvorfor to variabler",
+      "content": "`beste` holder **elementet**, `beste_verdi` holder **verdien** du sammenligner med.\n\nDu kunne klart deg med én, ved å skrive `if e.hent_verdi() > beste.hent_verdi():`\n— men da må `beste` allerede peke på noe i første runde, og på en tom samling stopper programmet.\n\nTo variabler er dessuten raskere å lese, og de gjør fasiten lettere å rette. Det er formen fagets egne løsningsforslag bruker.\n\n**Den vanligste feilen er å oppdatere bare den ene.** Glemmer du\n`beste_verdi = e.hent_verdi()`, blir grensen stående på 0, og løkka ender med det\n**siste** elementet over 0 i stedet for det største."
+    },
+    {
+      "id": "in1000-6-3-6",
+      "type": "definition",
+      "title": "Startverdien for «beste»",
+      "content": "`beste_verdi = 0` virker når alle verdiene er positive — antall, poeng, besøk.\n\nKan verdiene være **negative**, er 0 for høyt: et element med verdien `-3` ville aldri blitt valgt, og metoden ville returnert `None` på en samling som ikke er tom.\n\nDa er svaret å la den første runden sette startverdien:\n\n```text\n        beste = None for e in self._elementer:\n            if beste == None or e.hent_verdi() > beste.hent_verdi():\n                beste = e\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\nI denne boka er verdiene nesten alltid tellinger, så `0` holder — men det er verdt å nevne valget i en kommentar hvis oppgaven åpner for negative tall."
+    },
+    {
+      "id": "in1000-6-3-7",
+      "type": "example",
+      "title": "Eksempel 1: Den travleste salen",
+      "problem": "Et treningssenter holder salene i en ordbok. Skriv en metode som returnerer salen med flest påmeldte, og en som returnerer navnet på den.",
+      "solution": "Finn-beste-malen satt rett inn i en klassemetode:\n\n```python\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn self._kapasitet = kapasitet self._paameldte = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\n    def meld_paa(self, antall):\n        self._paameldte = self._paameldte + antall\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._paameldte) + \")\"\n\nclass Senter:\n    def __init__(self):\n        self._saler = {}\n\n    def legg_til(self, sal):\n        self._saler[sal.hent_navn()] = sal\n\n    def travleste_sal(self):\n        beste = None beste_antall = 0 for navn in self._saler:\n            sal = self._saler[navn]\n            if sal.hent_paameldte() > beste_antall:\n                beste = sal beste_antall = sal.hent_paameldte()\n        return beste\n\ns = Senter()\ns.legg_til(Sal(\"Speilsal\", 20))\ns.legg_til(Sal(\"Spinning\", 14))\ns.legg_til(Sal(\"Yoga\", 30))\n\ns._saler[\"Speilsal\"].meld_paa(12)\ns._saler[\"Spinning\"].meld_paa(14)\ns._saler[\"Yoga\"].meld_paa(9)\n\nprint(s.travleste_sal())\nprint(s.travleste_sal().hent_navn())\n```\n\n**Utskrift:**\n```\nSpinning (14)\nSpinning\n```\n\n**Hjelpevariabelen `sal = self._saler[navn]` er verdt å legge merke til.** Uten\nden måtte du skrevet `self._saler[navn].hent_paameldte()` tre ganger i samme metode. Én linje ekstra gjør resten mye lettere å lese — og å rette.\n\n**At metoden returnerer selve salen og ikke navnet**, er et bevisst valg. Den som\nkaller, kan da spørre videre: `travleste_sal().hent_navn()`, eller\n`travleste_sal().hent_paameldte()`. Returnerte metoden bare navnet, ville det vært et blindspor.\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg — de to\nstartverdiene før løkka, løkka over samlingen, at **begge** variablene oppdateres sammen, og `return` **etter** løkka. Hadde du glemt\n`beste_antall = sal.hent_paameldte()`, ville svaret her blitt `Yoga` — det siste over null.\n\n**Merk linjene med `s._saler[...]`.** De rører objektets innside utenfra, som boka\nellers aldri gjør — feilkode **#11**. De står her bare fordi klassen i dette eksempelet ikke har en `finn`-metode; i en besvarelse ville du skrevet den først."
+    },
+    {
+      "id": "in1000-6-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — gjengivelse.) Se på metoden. Blokken er et utdrag av en klasse og er derfor merket som ikke-kjørbar.\n\n```text\n    def beste(self):\n        beste = None beste_verdi = 0 for e in self._elementer:\n            if e.hent_verdi() > beste_verdi:\n                beste = e return beste\n```\n\n**a)** Hvilken linje mangler, og hvor skal den stå?\n\n**b)** Hva blir resultatet uten den, på verdiene 4, 9 og 7?\n\n**c)** Hvorfor står `return` etter løkka og ikke inne i den?",
+        "solution": "**a)** `beste_verdi = e.hent_verdi()` mangler, rett under `beste = e`, inne i\n`if`-en. De to variablene skal alltid oppdateres **sammen**.\n\n**b)** Grensen blir stående på 0, så **hvert** element over 0 overskriver\n`beste`. Løkka ender med det **siste**, altså 7 — ikke det største, som er 9.\n\nKjørt, med og uten linjen:\n\n```python\ntall = [4, 9, 7]\n\nbeste = None beste_verdi = 0 for x in tall:\n    if x > beste_verdi:\n        beste = x print(\"uten:\", beste)\n\nbeste = None beste_verdi = 0 for x in tall:\n    if x > beste_verdi:\n        beste = x beste_verdi = x print(\"med: \", beste)\n```\n\n**Utskrift:**\n```\nuten: 7 med:  9\n```\n\n**c)** Fordi `return` inne i løkka avslutter metoden på det **første** elementet\nover grensen. Da ville svaret blitt 4. Løkka må se hele samlingen før den kan svare hvem som er best — det er feilkode **#7**, for tidlig retur.",
+        "hints": [
+          "De to variablene skal alltid endres i samme `if`.",
+          "Prøv å spore løkka på papir med bare den ene oppdateringen."
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-8",
+      "type": "text",
+      "content": "## Løkke 2 — Telle og gruppere gjennom klassen (~14 min)\n\nDen nest vanligste algoritme-metoden er en **teller-ordbok**: «hvor mange bøker har hver forfatter?», «hvor mange deltakere er det per dag?».\n\nMønsteret er nøyaktig det fra [kap. 3.2](/bok/in1000/in1000-3-2). Det eneste nye er at nøkkelen og verdien hentes med metodekall på underobjektene."
+    },
+    {
+      "id": "in1000-6-3-9",
+      "type": "definition",
+      "title": "Teller-ordbok bygget fra en samling objekter",
+      "content": "Idiomet, nå med objekter i stedet for rådata:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter, utlaan):\n        self._tittel = tittel self._forfatter = forfatter self._utlaan = utlaan\n\n    def hent_forfatter(self):\n        return self._forfatter\n\n    def hent_utlaan(self):\n        return self._utlaan\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = []\n\n    def legg_til(self, b):\n        self._boker.append(b)\n\n    def utlaan_per_forfatter(self):\n        d = {}\n        for b in self._boker:\n            f = b.hent_forfatter()\n            if f not in d:\n                d[f] = 0 d[f] = d[f] + b.hent_utlaan()\n        return d\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\", 3))\nbib.legg_til(Bok(\"Vaar\", \"Undset\", 7))\nbib.legg_til(Bok(\"Markens grode\", \"Hamsun\", 5))\nprint(bib.utlaan_per_forfatter())\n```\n\n**Utskrift:**\n```\n{'Hamsun': 8, 'Undset': 7}\n```\n\nTre faste deler: **ordboka opprettes før løkka**, **`if f not in d:` og\n`d[f] = 0`** før du legger til, og **`return` etter løkka**.\n\nUten `if`-sjekken stopper programmet med `KeyError` på den første boka — feilkode\n**#14**."
+    },
+    {
+      "id": "in1000-6-3-10",
+      "type": "definition",
+      "title": "Grupperings-idiomet",
+      "content": "Varianten der verdien er en **liste** i stedet for et tall:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_forfatter(self):\n        return self._forfatter\n\nboker = [Bok(\"Sult\", \"Hamsun\"), Bok(\"Vaar\", \"Undset\"), Bok(\"Pan\", \"Hamsun\")]\nd = {}\nfor b in boker:\n    f = b.hent_forfatter()\n    if f not in d:\n        d[f] = []\n    d[f].append(b.hent_tittel())\nprint(d)\n```\n\n**Utskrift:**\n```\n{'Hamsun': ['Sult', 'Pan'], 'Undset': ['Vaar']}\n```\n\nForskjellen fra telleren er to tegn: `[]` i stedet for `0`, og `.append(...)` i stedet for `+`.\n\nKjenn det igjen i oppgaveteksten på «lag en ordbok fra … til en liste over …»\neller «grupper etter …»."
+    },
+    {
+      "id": "in1000-6-3-11",
+      "type": "example",
+      "title": "Eksempel 2: Teller-ordbok og finn-beste i samme metode",
+      "problem": "Skriv en metode som returnerer forfatteren med flest utlån til sammen. Bygg først en teller-ordbok, og finn så den største med en eksplisitt løkke.",
+      "solution": "To mønstre etter hverandre i samme metode — det er den vanligste formen den tyngste deloppgaven i Oppgave 4 har:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter, utlaan):\n        self._tittel = tittel self._forfatter = forfatter self._utlaan = utlaan\n\n    def hent_forfatter(self):\n        return self._forfatter\n\n    def hent_utlaan(self):\n        return self._utlaan\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = []\n\n    def legg_til(self, b):\n        self._boker.append(b)\n\n    def mest_populaere_forfatter(self):\n        teller = {}\n        for b in self._boker:\n            f = b.hent_forfatter()\n            if f not in teller:\n                teller[f] = 0 teller[f] = teller[f] + b.hent_utlaan()\n\n        beste = None beste_antall = 0 for f in teller:\n            if teller[f] > beste_antall:\n                beste = f beste_antall = teller[f]\n        return beste\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\", 3))\nbib.legg_til(Bok(\"Vaar\", \"Undset\", 7))\nbib.legg_til(Bok(\"Pan\", \"Hamsun\", 5))\nbib.legg_til(Bok(\"Naboer\", \"Bjornson\", 2))\nprint(bib.mest_populaere_forfatter())\n```\n\n**Utskrift:**\n```\nHamsun\n```\n\n**Metoden er to løkker etter hverandre, ikke én nøstet.** Første løkke bygger\nregnskapet, andre løkke leser det. Å prøve å gjøre begge deler i én løkke er både vanskeligere og lettere å bomme på.\n\n**Legg merke til at den andre løkka går over `teller`, ikke over `self._boker`.**\nDet er nettopp derfor telleren måtte bygges først: Hamsun står på to bøker, og summen 3 pluss 5 finnes ikke i noen enkelt bok.\n\n**Slik ville sensor sett på det:** dette er ofte den høyest vektede deloppgaven,\ntypisk 8–12 poeng, og de deles i to. Teller-ordboka med `if f not in teller:` er én halvdel; finn-beste-løkka med to variabler er den andre. Får du bare den første til, har du halve poengsummen.\n\n**Snarveien finnes, men den belønnes ikke.** Python har ferdige funksjoner som\n`max(..., key=...)` og `sorted(...)`, og en `Counter` som teller for deg. Denne boka bruker dem ikke, fordi kurset og fasiten belønner grunnformen — og fordi den eksplisitte løkka er det du trenger når oppgaven ber om noe som ikke passer inn i en ferdig funksjon.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1000-6-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — algoritme-metode.) En kantine har retter med navn, pris og antall solgte.\n\n**a)** Skriv `Rett` og `Kantine` med det som trengs, og en metode\n`bestselger(self)` som returnerer retten med flest solgte porsjoner.\n\n**b)** Legg til `samlet_omsetning(self)`.\n\n**c)** Test med tre retter, og skriv ut både bestselgeren og omsetningen.",
+        "solution": "**a)–c)** Finn-beste og akkumulator i samme klasse:\n\n```python\nclass Rett:\n    def __init__(self, navn, pris, solgte):\n        self._navn = navn self._pris = pris self._solgte = solgte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_solgte(self):\n        return self._solgte\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._solgte)\n\nclass Kantine:\n    def __init__(self):\n        self._retter = []\n\n    def legg_til(self, r):\n        self._retter.append(r)\n\n    def bestselger(self):\n        beste = None beste_antall = 0 for r in self._retter:\n            if r.hent_solgte() > beste_antall:\n                beste = r beste_antall = r.hent_solgte()\n        return beste\n\n    def samlet_omsetning(self):\n        total = 0 for r in self._retter:\n            total = total + r.omsetning()\n        return total\n\nk = Kantine()\nk.legg_til(Rett(\"Fiskesuppe\", 89, 14))\nk.legg_til(Rett(\"Lapskaus\", 79, 22))\nk.legg_til(Rett(\"Vafler\", 35, 9))\nprint(k.bestselger())\nprint(k.bestselger().hent_navn())\nprint(\"Omsetning:\", k.samlet_omsetning())\n```\n\n**Utskrift:**\n```\nLapskaus x22\nLapskaus\nOmsetning: 3299\n```\n\n**`bestselger` returnerer retten**, ikke navnet. Da kan den som kaller, spørre\nvidere — om navnet, om omsetningen, om hva som helst retten vet.\n\n**`samlet_omsetning` spør hver rett** i stedet for å regne `pris * solgte` selv.\nKantina har ikke engang aksessorer for pris, og trenger dem ikke.\n\n**Slik ville sensor sett på det:** de to metodene rettes hver for seg.\nFinn-beste-løkka har fire poeng i seg (to startverdier, løkka, samlet oppdatering,\n`return` etter), og akkumulatoren tre (start før, `+` inne, `return` etter).",
+        "hints": [
+          "To variabler før løkka, begge oppdatert i samme `if`.",
+          "La retten regne ut sin egen omsetning."
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut?\n\n```python\nclass Okt:\n    def __init__(self, dag, antall):\n        self._dag = dag self._antall = antall\n\n    def hent_dag(self):\n        return self._dag\n\n    def hent_antall(self):\n        return self._antall\n\nclass Senter:\n    def __init__(self):\n        self._okter = []\n\n    def legg_til(self, o):\n        self._okter.append(o)\n\n    def per_dag(self):\n        d = {}\n        for o in self._okter:\n            dag = o.hent_dag()\n            if dag not in d:\n                d[dag] = 0 d[dag] = d[dag] + o.hent_antall()\n        return d\n\n    def travleste_dag(self):\n        d = self.per_dag()\n        beste = None beste_antall = 0 for dag in d:\n            if d[dag] > beste_antall:\n                beste = dag beste_antall = d[dag]\n        return beste\n\ns = Senter()\ns.legg_til(Okt(\"mandag\", 14))\ns.legg_til(Okt(\"tirsdag\", 20))\ns.legg_til(Okt(\"mandag\", 9))\ns.legg_til(Okt(\"onsdag\", 6))\nprint(s.per_dag())\nprint(s.travleste_dag())\n```",
+        "solution": "**Sporingstavle for teller-ordboka.** Én rad per økt:\n\n| Økt | `dag` ny? | Ordboka etter |\n|---|---|---|\n| mandag 14 | ja, settes til 0 | `{'mandag': 14}` |\n| tirsdag 20 | ja, settes til 0 | `{'mandag': 14, 'tirsdag': 20}` |\n| mandag 9 | nei | `{'mandag': 23, 'tirsdag': 20}` |\n| onsdag 6 | ja, settes til 0 | `{'mandag': 23, 'tirsdag': 20, 'onsdag': 6}` |\n\nSå finn-beste over ordboka: 23 slår 0, 20 slår ikke 23, 6 slår ikke 23.\n\n**Utskrift:**\n```\n{'mandag': 23, 'tirsdag': 20, 'onsdag': 6}\nmandag\n```\n\n**Legg merke til hva `travleste_dag` returnerer:** `beste`, som er **nøkkelen**\n`dag` — ikke `beste_antall`. Det er en klassisk lesefelle når begge variablene ligger rett foran deg.\n\n**Tre ting til å legge merke til.**\n\nMandag telles **to ganger**, og det er nettopp derfor teller-ordboka trengs:\nsummen 23 finnes ikke i noen enkelt økt.\n\nRekkefølgen i ordboka følger den nøklene ble **opprettet** i, ikke størrelsen.\n\nOg `travleste_dag` kaller `self.per_dag()` — en metode som kaller en annen metode på samme objekt. Det er ryddigere enn å gjenta hele telleløkka.\n\n**På eksamen** skrives ordboka nøyaktig som terminalen viser den, med krøllparenteser,\nenkle anførselstegn rundt nøklene og komma mellom parene.",
+        "hints": [
+          "Skriv opp ordboka på nytt etter hver økt.",
+          "Se nøye på hva `travleste_dag` returnerer: nøkkelen eller verdien?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-12",
+      "type": "text",
+      "content": "## Løkke 3 — Flagg, duplikater og match (~13 min)\n\nTre mindre mønstre som dukker opp som deloppgaver: å svare ja eller nei på noe om hele samlingen, å unngå at det samme legges inn to ganger, og å telle treff mot en annen samling."
+    },
+    {
+      "id": "in1000-6-3-13",
+      "type": "definition",
+      "title": "Flagg med tidlig retur",
+      "content": "Mønsteret for «finnes det …?» og «er alle …?»:\n\n```python\nclass Sal:\n    def __init__(self, navn, ledige):\n        self._navn = navn self._ledige = ledige\n\n    def hent_ledige(self):\n        return self._ledige\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def finnes_ledig(self):\n        for s in self._saler:\n            if s.hent_ledige() > 0:\n                return True return False\n\n    def alle_fulle(self):\n        for s in self._saler:\n            if s.hent_ledige() > 0:\n                return False return True\n\nsen = Senter()\nsen.legg_til(Sal(\"A\", 0))\nsen.legg_til(Sal(\"B\", 3))\nprint(sen.finnes_ledig(), sen.alle_fulle())\n```\n\n**Utskrift:**\n```\nTrue False\n```\n\n**«Finnes det …?»** returnerer `True` inne i løkka og `False` etter. **«Er alle\n…?»** returnerer `False` inne i løkka og `True` etter.\n\n**Retur-etter-løkka-linjen er obligatorisk.** Glemmer du den, gir metoden `None`\nnår løkka går helt gjennom — og `None` oppfører seg som usant i en `if`, så feilen er stum.\n\nÅ snu de to — returnere `True` inne i en «er alle»-sjekk — er feilkode **#7**, for tidlig retur."
+    },
+    {
+      "id": "in1000-6-3-14",
+      "type": "definition",
+      "title": "Unngå duplikater",
+      "content": "Mønsteret for «legg til bare hvis den ikke allerede er der»:\n\n```python\nclass Klubb:\n    def __init__(self):\n        self._navn = []\n\n    def meld_inn(self, n):\n        if n in self._navn:\n            print(n, \"er allerede medlem\")\n        else:\n            self._navn.append(n)\n\n    def antall(self):\n        return len(self._navn)\n\nk = Klubb()\nk.meld_inn(\"Ada\")\nk.meld_inn(\"Nora\")\nk.meld_inn(\"Ada\")\nprint(k.antall())\n```\n\n**Utskrift:**\n```\nAda er allerede medlem\n2\n```\n\nFor en **liste** brukes `if n in self._navn:`. For en **ordbok** er problemet borte av seg selv: en nøkkel kan bare finnes én gang — men da **overskrives** den gamle verdien uten et pip, så sjekken kan likevel være nødvendig.\n\nSkal du sjekke duplikater blant **objekter**, sammenlign en verdi de har, ikke objektene selv: `if navn in self._navn:` der `self._navn` er en liste av navn, eller en løkke som spør hvert objekt."
+    },
+    {
+      "id": "in1000-6-3-15",
+      "type": "definition",
+      "title": "Beregn match",
+      "content": "Mønsteret for «hvor godt passer disse to sammen?»: tell positive treff, trekk fra negative.\n\n```python\nmine = [\"sjakk\", \"kolonier\", \"ordjakt\"]\ndine = [\"kolonier\", \"yatzy\", \"sjakk\"]\npoeng = 0 for spill in mine:\n    if spill in dine:\n        poeng = poeng + 1 else:\n        poeng = poeng - 1 print(poeng)\n```\n\n**Utskrift:**\n```\n1\n```\n\nTo treff og ett bom gir 1. Formen er en akkumulator med to grener, og den er lett å utvide: ulik vekt på treff og bom, eller bare positive poeng.\n\nKjenn den igjen i oppgaveteksten på «regn ut hvor godt to … passer sammen» eller\n«gi ett poeng for hver felles …»."
+    },
+    {
+      "id": "in1000-6-3-16",
+      "type": "example",
+      "title": "Eksempel 3: Prioritert søk med ferdig-flagg",
+      "problem": "Et bibliotek skal sette en innlevert bok i første ledige hylle, i en gitt prioritert rekkefølge. Skriv metoden.",
+      "solution": "Mønsteret er en løkke med et **flagg** som sier om jobben er gjort:\n\n```python\nclass Hylle:\n    def __init__(self, navn, plasser):\n        self._navn = navn self._plasser = plasser self._boker = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def er_ledig(self):\n        return len(self._boker) < self._plasser\n\n    def sett_inn(self, tittel):\n        self._boker.append(tittel)\n\n    def __str__(self):\n        return self._navn + \": \" + str(len(self._boker)) + \"/\" + str(self._plasser)\n\nclass Bibliotek:\n    def __init__(self):\n        self._hyller = []\n\n    def legg_til_hylle(self, h):\n        self._hyller.append(h)\n\n    def sett_inn_ledig(self, tittel):\n        ferdig = False for h in self._hyller:\n            if h.er_ledig() and ferdig == False:\n                h.sett_inn(tittel)\n                ferdig = True if ferdig == False:\n            print(\"Ingen ledig hylle for\", tittel)\n        return ferdig\n\n    def skriv_alle(self):\n        for h in self._hyller:\n            print(h)\n\nbib = Bibliotek()\nbib.legg_til_hylle(Hylle(\"H1\", 1))\nbib.legg_til_hylle(Hylle(\"H2\", 2))\n\nbib.sett_inn_ledig(\"Sult\")\nbib.sett_inn_ledig(\"Vaar\")\nbib.sett_inn_ledig(\"Pan\")\nbib.sett_inn_ledig(\"Naboer\")\nbib.skriv_alle()\n```\n\n**Utskrift:**\n```\nIngen ledig hylle for Naboer\nH1: 1/1\nH2: 2/2\n```\n\n**Rekkefølgen i lista er prioriteringen.** H1 fylles først, så H2. Skal\nprioriteringen være en annen, legger du hyllene inn i en annen rekkefølge — eller oppgaven oppgir en egen prioritetsliste.\n\n**`ferdig`-flagget er det som gjør at boka settes inn bare én gang.** Uten det\nville løkka satt den inn i **hver** ledige hylle den kom til. Betingelsen\n`h.er_ledig() and ferdig == False` sjekker begge deler.\n\n**Alternativet er `return` inne i løkka**, som ville vært kortere. Boka bruker\nflagget her fordi metoden skal gjøre noe **etter** løkka — skrive en beskjed hvis ingen hylle var ledig — og fordi flagget er formen fagets egne løsningsforslag bruker for dette mønsteret.\n\n**Slik ville sensor sett på det:** fem ting gir uttelling — flagget satt til\n`False` før løkka, løkka i prioritert rekkefølge, den todelte betingelsen,\n`ferdig = True` etter innsettingen, og håndteringen av «ingen ledig» etter løkka.\nGlemmer du flagget, er strukturen riktig og trekket lite — men boka havner fire steder."
+    },
+    {
+      "id": "in1000-6-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — algoritme-metode med flagg.) En sykkelutleie har stativer i en liste.\n\n**a)** Skriv `Stativ` med navn, antall plasser og en liste av sykler, med\n`er_ledig()` og `sett_inn(self, kode)`.\n\n**b)** Skriv `Utleie` med en metode `finnes_ledig(self)` som svarer `True` eller\n`False`, og en `parker(self, kode)` som setter sykkelen i **første** ledige stativ og skriver en beskjed hvis ingen er ledige.\n\n**c)** Test med to stativer med til sammen tre plasser, og fire sykler.",
+        "solution": "**a)–c)** Flagg-mønsteret i to varianter — tidlig retur i den ene metoden,\n`ferdig`-flagg i den andre:\n\n```python\nclass Stativ:\n    def __init__(self, navn, plasser):\n        self._navn = navn self._plasser = plasser self._sykler = []\n\n    def er_ledig(self):\n        return len(self._sykler) < self._plasser\n\n    def sett_inn(self, kode):\n        self._sykler.append(kode)\n\n    def __str__(self):\n        return self._navn + \": \" + str(len(self._sykler)) + \"/\" + str(self._plasser)\n\nclass Utleie:\n    def __init__(self):\n        self._stativer = []\n\n    def legg_til(self, s):\n        self._stativer.append(s)\n\n    def finnes_ledig(self):\n        for s in self._stativer:\n            if s.er_ledig():\n                return True return False\n\n    def parker(self, kode):\n        ferdig = False for s in self._stativer:\n            if s.er_ledig() and ferdig == False:\n                s.sett_inn(kode)\n                ferdig = True if ferdig == False:\n            print(\"Ingen plass til\", kode)\n\n    def skriv_alle(self):\n        for s in self._stativer:\n            print(s)\n\nu = Utleie()\nu.legg_til(Stativ(\"Blindern\", 1))\nu.legg_til(Stativ(\"Toyen\", 2))\n\nprint(u.finnes_ledig())\nu.parker(\"R31\")\nu.parker(\"R48\")\nu.parker(\"R07\")\nu.parker(\"R99\")\nu.skriv_alle()\nprint(u.finnes_ledig())\n```\n\n**Utskrift:**\n```\nTrue\nIngen plass til R99\nBlindern: 1/1\nToyen: 2/2\nFalse\n```\n\n**Legg merke til at `finnes_ledig()` svarer ulikt før og etter.** Først er begge\nstativene tomme, til slutt er begge fulle.\n\n**De to metodene bruker hver sin variant av flagget.** `finnes_ledig` returnerer\nmed én gang den finner et treff — det er tidlig retur, og det er riktig her fordi metoden ikke skal gjøre noe etterpå. `parker` bruker et `ferdig`-flagg, fordi den\n**skal** gjøre noe etter løkka.\n\n**Slik ville sensor sett på det:** `return False` **etter** løkka i `finnes_ledig`\ner et selvstendig poeng — glemmer du den, gir metoden `None`, og feilen er stum fordi `None` oppfører seg som usant i en `if`.",
+        "hints": [
+          "«Finnes det …?» returnerer `True` inne i løkka og `False` etter.",
+          "«Sett inn i første ledige» trenger et flagg, fordi metoden skal si fra etterpå."
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — gruppering.) Et bibliotek har bøker med tittel og forfatter.\n\n**a)** Skriv en metode `boker_per_forfatter(self)` som returnerer en ordbok fra\nforfatter til en **liste** over titlene.\n\n**b)** Skriv `forfatter_med_flest(self)` som returnerer navnet på den forfatteren\nsom har flest bøker.\n\n**c)** Test med fem bøker fordelt på tre forfattere.",
+        "solution": "**a)–c)** Grupperings-idiomet, og deretter finn-beste over ordboka:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_forfatter(self):\n        return self._forfatter\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = []\n\n    def legg_til(self, b):\n        self._boker.append(b)\n\n    def boker_per_forfatter(self):\n        d = {}\n        for b in self._boker:\n            f = b.hent_forfatter()\n            if f not in d:\n                d[f] = []\n            d[f].append(b.hent_tittel())\n        return d\n\n    def forfatter_med_flest(self):\n        d = self.boker_per_forfatter()\n        beste = None beste_antall = 0 for f in d:\n            if len(d[f]) > beste_antall:\n                beste = f beste_antall = len(d[f])\n        return beste\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\"))\nbib.legg_til(Bok(\"Vaar\", \"Undset\"))\nbib.legg_til(Bok(\"Pan\", \"Hamsun\"))\nbib.legg_til(Bok(\"Naboer\", \"Bjornson\"))\nbib.legg_til(Bok(\"Markens grode\", \"Hamsun\"))\nprint(bib.boker_per_forfatter())\nprint(bib.forfatter_med_flest())\n```\n\n**Utskrift:**\n```\n{'Hamsun': ['Sult', 'Pan', 'Markens grode'], 'Undset': ['Vaar'], 'Bjornson': ['Naboer']}\nHamsun\n```\n\n**Metoden returnerer `beste`, som er forfatternavnet** — ikke antallet. Med\n`return beste_antall` ville svaret blitt `3`. Les siste setning i oppgaveteksten en gang til før du skriver `return`.\n\n**Grupperingen skiller seg fra telleren med to tegn:** `[]` i stedet for `0`, og\n`.append(...)` i stedet for `+`. Alt annet er likt.\n\n**`forfatter_med_flest` kaller `self.boker_per_forfatter()`** i stedet for å bygge\nordboka på nytt. En metode kan kalle en annen på samme objekt, og det er ryddigere enn å gjenta ti linjer.\n\n**Merk `len(d[f])` som verdi i sammenligningen.** Verdien i ordboka er en liste,\nså antallet er lengden. Hadde du sammenlignet listene direkte, ville Python sammenlignet dem tekst for tekst — og svart noe helt annet enn du ville.",
+        "hints": [
+          "Grupperingen legger i en liste; telleren legger til et tall.",
+          "Kall den første metoden fra den andre med `self.` foran."
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-17",
+      "type": "text",
+      "content": "## Løkke 4 — Kant-tilfellene (~12 min)\n\nAlgoritme-metoder feller folk på kantene: den tomme samlingen, den ene enkeltverdien, og de to som er like store.\n\nDet er ikke vanskelig å håndtere dem — men det må gjøres bevisst, og det gir poeng."
+    },
+    {
+      "id": "in1000-6-3-18",
+      "type": "warning",
+      "title": "Typisk feil #6 — kant-tilfellene",
+      "content": "Feilkode **#6** er at metoden ikke tåler en tom eller minimal samling.\n\n**Den tomme samlingen.** Finn-beste-malen svarer `None`, og det er riktig — men\nden som kaller, må sjekke. `senter.travleste_sal().hent_navn()` på et tomt senter stopper programmet med\n`AttributeError: 'NoneType' object has no attribute 'hent_navn'`.\n\n**Ett element.** Løkka går én runde, og svaret er det ene elementet. Det går bra\nmed malen — men bare fordi startverdien er 0 og verdien er positiv.\n\n**To like store.** Malen bruker `>` og beholder derfor det **første**. Med `>=`\nville den beholdt det **siste**. Begge er forsvarlige, men oppgaven kan si hvilken som gjelder, og da må du lese sakte.\n\n**Alle verdier er null.** Med `beste_verdi = 0` og `>` blir svaret `None`, selv om\nsamlingen ikke er tom. Er det et problem, dokumentér valget i en kommentar — eller la første runde sette startverdien.\n\n**Motgiften er en huskeliste:** hva svarer metoden på tom samling, på ett element,\nog på to like? Tre spørsmål, ti sekunder, og de fanger de fleste trekkene."
+    },
+    {
+      "id": "in1000-6-3-19",
+      "type": "example",
+      "title": "Eksempel 4: Full algoritme-deloppgave på eksamensnivå",
+      "problem": "> Et treningssenter har medlemmer og økter. Hvert medlem har et navn og et antall\n> besøk. Hver økt har en dag, et salnavn og et antall deltakere. Senteret skal\n> kunne si hvilken dag som er travlest, hvilket medlem som har flest besøk, om det\n> finnes en økt med færre enn fem deltakere, og hvor mange ulike saler som er i\n> bruk.\n\nSkriv metodene.",
+      "solution": "Fire metoder, fire mønstre. Klassene først:\n\n```python\nclass Medlem:\n    def __init__(self, navn, besok):\n        self._navn = navn self._besok = besok\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_besok(self):\n        return self._besok\n\nclass Okt:\n    def __init__(self, dag, sal, deltakere):\n        self._dag = dag self._sal = sal self._deltakere = deltakere\n\n    def hent_dag(self):\n        return self._dag\n\n    def hent_sal(self):\n        return self._sal\n\n    def hent_deltakere(self):\n        return self._deltakere\n```\n\nSå senteret, med de fire metodene:\n\n```python\nclass Medlem:\n    def __init__(self, navn, besok):\n        self._navn = navn self._besok = besok\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_besok(self):\n        return self._besok\n\nclass Okt:\n    def __init__(self, dag, sal, deltakere):\n        self._dag = dag self._sal = sal self._deltakere = deltakere\n\n    def hent_dag(self):\n        return self._dag\n\n    def hent_sal(self):\n        return self._sal\n\n    def hent_deltakere(self):\n        return self._deltakere\n\nclass Senter:\n    def __init__(self):\n        self._medlemmer = []\n        self._okter = []\n\n    def legg_til_medlem(self, m):\n        self._medlemmer.append(m)\n\n    def legg_til_okt(self, o):\n        self._okter.append(o)\n\n    def travleste_dag(self):\n        d = {}\n        for o in self._okter:\n            dag = o.hent_dag()\n            if dag not in d:\n                d[dag] = 0 d[dag] = d[dag] + o.hent_deltakere()\n        beste = None beste_antall = 0 for dag in d:\n            if d[dag] > beste_antall:\n                beste = dag beste_antall = d[dag]\n        return beste\n\n    def flittigste_medlem(self):\n        beste = None beste_besok = 0 for m in self._medlemmer:\n            if m.hent_besok() > beste_besok:\n                beste = m beste_besok = m.hent_besok()\n        return beste\n\n    def finnes_liten_okt(self):\n        for o in self._okter:\n            if o.hent_deltakere() < 5:\n                return True return False\n\n    def antall_ulike_saler(self):\n        saler = []\n        for o in self._okter:\n            if o.hent_sal() not in saler:\n                saler.append(o.hent_sal())\n        return len(saler)\n\ns = Senter()\ns.legg_til_medlem(Medlem(\"Ada\", 18))\ns.legg_til_medlem(Medlem(\"Nora\", 25))\ns.legg_til_medlem(Medlem(\"Per\", 7))\ns.legg_til_okt(Okt(\"mandag\", \"Speilsal\", 14))\ns.legg_til_okt(Okt(\"mandag\", \"Spinning\", 9))\ns.legg_til_okt(Okt(\"tirsdag\", \"Speilsal\", 20))\ns.legg_til_okt(Okt(\"onsdag\", \"Yoga\", 3))\n\nprint(\"Travleste dag:\", s.travleste_dag())\nprint(\"Flittigste:\", s.flittigste_medlem().hent_navn())\nprint(\"Liten okt finnes:\", s.finnes_liten_okt())\nprint(\"Ulike saler:\", s.antall_ulike_saler())\n```\n\n**Utskrift:**\n```\nTravleste dag: mandag\nFlittigste: Nora\nLiten okt finnes: True\nUlike saler: 3\n```\n\n**Fire mønstre, fire deloppgaver, og de rettes hver for seg.**\n\n`travleste_dag` er teller-ordbok **pluss** finn-beste — to løkker etter hverandre.\nMandag har 14 pluss 9, altså 23, mot tirsdags 20.\n\n`flittigste_medlem` er ren finn-beste, og den returnerer **medlemmet**, slik at den som kaller, kan spørre videre.\n\n`finnes_liten_okt` er flagg med tidlig retur: `True` inne i løkka, `False` etter.\n\n`antall_ulike_saler` er duplikat-mønsteret: bygg en liste over dem du har sett, og tell lengden. Speilsal telles bare én gang, selv om den brukes to dager.\n\n**Slik ville sensor sett på det:** dette er en 15–20-poengs deloppgave i den store\noppgaven, og poengene ligger jevnt fordelt. Hver metode er selvstendig, så du kan hoppe over en du står fast på og fortsatt få de tre andre.\n\n**Kant-tilfellene:** på et tomt senter gir de to første `None`, den tredje `False`\nog den fjerde `0`. Alle fire er fornuftige svar — men den som kaller\n`flittigste_medlem().hent_navn()`, må sjekke først."
+    },
+    {
+      "id": "in1000-6-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn self._antall = antall\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_antall(self):\n        return self._antall\n\nclass Lager:\n    def __init__(self):\n        self._varer = []\n\n    def legg_til(self, v):\n        self._varer.append(v)\n\n    def storste(self):\n        beste = None beste_antall = 0 for v in self._varer:\n            if v.hent_antall() > beste_antall:\n                beste = v return beste\n\nlager = Lager()\nlager.legg_til(Vare(\"skrue\", 120))\nlager.legg_til(Vare(\"bolt\", 45))\nlager.legg_til(Vare(\"skive\", 200))\nlager.legg_til(Vare(\"mutter\", 80))\nprint(lager.storste().hent_navn())\n```",
+        "solution": "**Sporingstavle.** Legg merke til at `beste_antall` **aldri** oppdateres:\n\n| Vare | `hent_antall()` | `> beste_antall` (som er 0)? | `beste` etter |\n|---|---|---|---|\n| skrue 120 | 120 | ja | skrue |\n| bolt 45 | 45 | ja | bolt |\n| skive 200 | 200 | ja | skive |\n| mutter 80 | 80 | ja | mutter |\n\n**Utskrift:**\n```\nmutter\n```\n\n**Fellen her er den glemte oppdateringen av `beste_antall`.** Grensen blir stående\npå 0, så **hver** vare over null overskriver `beste`. Løkka ender med den\n**siste** varen, ikke den største.\n\nRiktig svar skulle vært `skive` med 200. Feilen er stum: metoden returnerer et gyldig objekt, og utskriften ser fornuftig ut.\n\n**Motgiften:** de to variablene i finn-beste-malen skal alltid oppdateres i samme\n`if`, rett under hverandre. Skriv dem som ett par, hver gang.\n\n**På eksamen** er dette et vanlig «finn feilen»-spørsmål i tillegg til et\nsporingsspørsmål — og et konkret moteksempel er nettopp denne listen.",
+        "hints": [
+          "Skriv opp verdien til `beste_antall` etter hver runde.",
+          "Hvor mange ganger er betingelsen sann?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — algoritme-metode med match.) En brettspillklubb har medlemmer, og hvert medlem har en liste over spill det liker.\n\n**a)** Skriv `Medlem` med navn og en liste over spilltitler, med\n`legg_til_spill(self, tittel)` og `liker(self, tittel)` som svarer `True` eller\n`False`.\n\n**b)** Skriv `match(self, annet)` i `Medlem`, som gir ett poeng for hvert spill\nbegge liker og trekker ett for hvert bare den ene liker — regnet fra dette medlemmets liste.\n\n**c)** Skriv `Klubb` med en metode `beste_match(self, medlem)` som finner det\nandre medlemmet med høyest match.\n\n**d)** Test med tre medlemmer.",
+        "solution": "**a)–d)** Match-mønsteret er en akkumulator med to grener:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn self._spill = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def legg_til_spill(self, tittel):\n        self._spill.append(tittel)\n\n    def liker(self, tittel):\n        if tittel in self._spill:\n            return True return False\n\n    def match(self, annet):\n        poeng = 0 for tittel in self._spill:\n            if annet.liker(tittel):\n                poeng = poeng + 1 else:\n                poeng = poeng - 1 return poeng\n\n    def __str__(self):\n        return self._navn\n\nclass Klubb:\n    def __init__(self):\n        self._medlemmer = []\n\n    def meld_inn(self, m):\n        self._medlemmer.append(m)\n\n    def beste_match(self, medlem):\n        beste = None beste_poeng = 0 for m in self._medlemmer:\n            if m != medlem:\n                p = medlem.match(m)\n                if p > beste_poeng:\n                    beste = m beste_poeng = p return beste\n\nada = Medlem(\"Ada\")\nada.legg_til_spill(\"Sjakk\")\nada.legg_til_spill(\"Kolonier\")\nada.legg_til_spill(\"Ordjakt\")\n\nnora = Medlem(\"Nora\")\nnora.legg_til_spill(\"Kolonier\")\nnora.legg_til_spill(\"Sjakk\")\n\nper = Medlem(\"Per\")\nper.legg_til_spill(\"Yatzy\")\n\nk = Klubb()\nk.meld_inn(ada)\nk.meld_inn(nora)\nk.meld_inn(per)\n\nprint(ada.match(nora), ada.match(per))\nprint(k.beste_match(ada))\n```\n\n**Utskrift:**\n```\n1 -3\nNora\n```\n\n**Match-regnestykket:** Ada liker tre spill. Nora liker to av dem og ikke det\ntredje, altså 1 pluss 1 minus 1 er **1**. Per liker ingen av dem: minus 1 tre ganger er **-3**.\n\n**Legg merke til `if m != medlem:` i `beste_match`.** Uten den ville medlemmet\nblitt sammenlignet med seg selv, og det ville alltid gitt full match. Å utelate seg selv er et selvstendig poeng i denne typen oppgave.\n\n**Og legg merke til `medlem.match(m)` — ikke `m.match(medlem)`.** Regnestykket er\nikke symmetrisk: det går over **dette** medlemmets liste. Ada mot Per gir -3, mens\nPer mot Ada ville gitt -1, fordi Per bare har ett spill. Les oppgaveteksten nøye for å se hvilken vei den ber om.\n\n**`liker` returnerer `True`/`False` i to grener** i stedet for `return tittel in\nself._spill`. Begge er riktige; boka skriver den eksplisitte formen, som er den fasiten bruker.\n\n**Slik ville sensor sett på det:** de tre metodene rettes hver for seg. `match`\nhar tre poeng i seg (akkumulator før løkka, begge grenene, `return` etter), og\n`beste_match` fire (de to startverdiene, utelatelsen av seg selv, samlet oppdatering, `return` etter).",
+        "hints": [
+          "Match er en akkumulator med `+ 1` i den ene grenen og `- 1` i den andre.",
+          "Husk å hoppe over medlemmet selv når du leter etter den beste matchen."
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-6-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — «finn feilen», med konkret moteksempel.) En medstudent har skrevet:\n\n```python\nclass Sal:\n    def __init__(self, navn, paameldte):\n        self._navn = navn self._paameldte = paameldte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def travleste(self):\n        for s in self._saler:\n            beste = None beste_antall = 0 if s.hent_paameldte() > beste_antall:\n                beste = s beste_antall = s.hent_paameldte()\n            return beste\n```\n\n**a)** Metoden har to feil. Hvilke?\n\n**b)** Gi et **konkret moteksempel**.\n\n**c)** Skriv den rettede metoden.",
+        "solution": "**a)** To plasseringsfeil, begge i samme familie:\n\n1. **Startverdiene står INNE i løkka.** `beste = None` og `beste_antall = 0`\n   nullstilles på hver runde, så sammenligningen skjer alltid mot 0 — regnskapet fra forrige runde er borte.\n2. **`return` står INNE i løkka.** Metoden avslutter på første runde — feilkode\n   **#7**, for tidlig retur. Resten av salene blir aldri sett.\n\nFeil nummer 2 skjuler feil nummer 1: siden metoden aldri kommer til andre runde, merker du ikke at startverdiene nullstilles.\n\n**b)** Moteksempelet:\n\n```python\nclass Sal:\n    def __init__(self, navn, paameldte):\n        self._navn = navn self._paameldte = paameldte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def travleste(self):\n        for s in self._saler:\n            beste = None beste_antall = 0 if s.hent_paameldte() > beste_antall:\n                beste = s beste_antall = s.hent_paameldte()\n            return beste\n\nsen = Senter()\nsen.legg_til(Sal(\"Speilsal\", 5))\nsen.legg_til(Sal(\"Spinning\", 40))\nprint(sen.travleste().hent_navn())\n```\n\n**Utskrift:**\n```\nSpeilsal\n```\n\nKallet gir **Speilsal** med 5 påmeldte. Det skulle gitt **Spinning** med 40.\n\n**c)** Den rettede metoden — startverdiene over løkka, `return` under den:\n\n```python\nclass Sal:\n    def __init__(self, navn, paameldte):\n        self._navn = navn self._paameldte = paameldte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_paameldte(self):\n        return self._paameldte\n\nclass Senter:\n    def __init__(self):\n        self._saler = []\n\n    def legg_til(self, s):\n        self._saler.append(s)\n\n    def travleste(self):\n        beste = None beste_antall = 0 for s in self._saler:\n            if s.hent_paameldte() > beste_antall:\n                beste = s beste_antall = s.hent_paameldte()\n        return beste\n\nsen = Senter()\nsen.legg_til(Sal(\"Speilsal\", 5))\nsen.legg_til(Sal(\"Spinning\", 40))\nprint(sen.travleste().hent_navn())\n```\n\n**Utskrift:**\n```\nSpinning\n```\n\n**Regelen som fanger begge feilene:** i finn-beste-malen står **to linjer over**\nløkka og **én linje under** den. Sitter den plasseringen, kan du ikke gjøre denne feilen.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling — hvilket kall som gir galt svar, og hva det riktige ville vært. Å finne én av to feil gir halvparten.",
+        "hints": [
+          "Se på innrykket: hvilke linjer står inne i løkka, og hvilke burde stått utenfor?",
+          "Hvor mange runder rekker løkka å gå?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-6-3-20",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "Fem feil koster nesten alle poengene som mistes på algoritme-metoder:\n\n- **Bare den ene variabelen oppdatert i finn-beste.** Grensen blir stående, og\n  løkka ender med det **siste** elementet over 0 i stedet for det største. Stum feil.\n- **Startverdiene inne i løkka.** De nullstilles hver runde, og regnskapet\n  forsvinner.\n- **#7 — `return` inne i løkka.** Metoden svarer på det første elementet i stedet\n  for å se hele samlingen.\n- **#14 — teller-ordbok uten `if k not in d:`.** Programmet stopper med `KeyError`\n  på den første nøkkelen.\n- **#6 — kant-tilfellene ikke tenkt gjennom.** Tom samling gir `None`, og den som\n  kaller, må sjekke. To like store: `>` beholder den første, `>=` den siste.\n\nOg én som ikke gir feil svar, men som trekker: **snarveiene.** `max(..., key=...)`,\n`sorted(...)` og ferdige tellere finnes, men kurset og fasiten belønner grunnformen — lær den eksplisitte løkka først."
+    },
+    {
+      "id": "in1000-6-3-coll-21",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1000-6-3-c1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `beste = None` `beste_verdi = 0` | Finn-beste: to variabler, satt **før** løkka. |\n| `if e.hent_verdi() > beste_verdi:` | Sammenligningen. `>` beholder den **første** av to like; `>=` den siste. |\n| `beste = e` `beste_verdi = e.hent_verdi()` | **Begge** oppdateres sammen, inne i samme `if`. |\n| `return beste` etter løkka | Inne i løkka gir det første element over grensen (**#7**). |\n| `total = 0` … `total = total + e.metode()` | Akkumulator med delegering. Start før, `+` inne, `return` etter. |\n| `antall = 0` … `antall = antall + 1` | Teller. Samme plasseringsregler. |\n| `if k not in d:` `d[k] = 0` | Teller-ordbok. Uten sjekken: `KeyError` (**#14**). |\n| `if k not in d:` `d[k] = []` … `d[k].append(v)` | Grupperings-idiomet. Verdien er en liste. |\n| `for e in liste:` `if …: return True` … `return False` | «Finnes det …?» — tidlig retur, og `False` **etter** løkka. |\n| `for e in liste:` `if …: return False` … `return True` | «Er alle …?» — motsatt vei. Å bytte om er **#7**. |\n| `ferdig = False` … `if … and ferdig == False:` … `ferdig = True` | Prioritert søk. Rekkefølgen i lista er prioriteringen. |\n| `if x in liste:` før `append` | Unngå duplikater i en liste. |\n| `if e not in sett_liste:` `sett_liste.append(e)` `return len(sett_liste)` | Tell ulike verdier. |\n| `poeng = poeng + 1` / `poeng = poeng - 1` | Match-mønsteret: to grener i samme akkumulator. |\n| `if m != medlem:` | Utelat elementet selv når du sammenligner alle mot én. |\n| `self.annen_metode()` | En metode kaller en annen på samme objekt — bygg regnskapet i en egen metode. |\n\n**Det som avgjør poeng i Oppgave 4:** at startverdiene står **før** løkka, at\n`return` står **etter** den, og at begge finn-beste-variablene oppdateres sammen."
+        }
+      ]
+    },
+    {
+      "id": "in1000-6-3-22",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1000-6-3-23",
+      "type": "definition",
+      "title": "Algoritme-metode",
+      "content": "En metode på toppen av modellen som **regner ut noe** av samlingen: finn den travleste, tell de ulike, avgjør om noe finnes.\n\nDen er ofte den høyest vektede deloppgaven i Oppgave 4, og den er der de vanskelige poengene ligger — resten av modellen er mønstre du kan skrive uten å tenke.\n\nAlle formene er de samme løkkemønstrene fra del 3, flyttet inn i en klasse."
+    },
+    {
+      "id": "in1000-6-3-24",
+      "type": "definition",
+      "title": "Finn-beste-malen",
+      "content": "To variabler før løkka, samlet oppdatering inne i den, `return` etter.\n\n`beste` holder **elementet**, `beste_verdi` holder verdien du sammenligner med.\nOppdaterer du bare den ene, ender løkka med det siste elementet over grensen i stedet for det største.\n\nDet er den vanligste stumme feilen i hele Del 6, fordi metoden fortsatt returnerer noe som ser fornuftig ut."
+    },
+    {
+      "id": "in1000-6-3-25",
+      "type": "definition",
+      "title": "Hvorfor `return` står etter løkka",
+      "content": "Fordi løkka må se **hele** samlingen før den kan svare hvem som er best.\n\nEt `return` inne i løkka gir det **første** elementet over grensen. Det er feilkode **#7**, for tidlig retur, og den kommer igjen i hvert eneste flagg-mønster.\n\nUnntaket er «finnes det …?»-mønsteret, der et tidlig `return True` er nettopp det riktige — men da må `return False` stå etter løkka."
+    },
+    {
+      "id": "in1000-6-3-26",
+      "type": "definition",
+      "title": "Startverdi for «beste»",
+      "content": "`beste_verdi = 0` virker når verdiene er positive tellinger, som de nesten alltid er i denne boka.\n\nKan verdiene være negative, er 0 for høyt: metoden ville svart `None` på en samling som ikke er tom. Da lar du første runde sette startverdien, med\n`if beste == None or …`.\n\nEr alle verdiene null, gir `>` og startverdi 0 også `None`. Dokumentér valget i en kommentar hvis oppgaven åpner for det."
+    },
+    {
+      "id": "in1000-6-3-27",
+      "type": "definition",
+      "title": "Å returnere objektet, ikke navnet",
+      "content": "`return beste` der `beste` er selve elementet, ikke `beste.hent_navn()`.\n\nDa kan den som kaller, spørre videre: `travleste_sal().hent_navn()` eller\n`travleste_sal().hent_paameldte()`. Returnerer metoden bare navnet, er det et blindspor.\n\nUnntaket er når oppgaveteksten uttrykkelig ber om navnet. Les hva den spør etter."
+    },
+    {
+      "id": "in1000-6-3-28",
+      "type": "definition",
+      "title": "Teller-ordbok fra objekter",
+      "content": "`if f not in d:` og `d[f] = 0` før `d[f] = d[f] + verdi`.\n\nNøkkelen og verdien hentes med metodekall på underobjektene: `b.hent_forfatter()` og `b.hent_utlaan()`.\n\nUten `if`-sjekken stopper programmet med `KeyError` på den første nøkkelen — feilkode **#14**."
+    },
+    {
+      "id": "in1000-6-3-29",
+      "type": "definition",
+      "title": "Grupperings-idiomet",
+      "content": "Telleren med to tegn byttet ut: `[]` i stedet for `0`, og `.append(...)` i stedet for `+`.\n\nResultatet er en ordbok fra nøkkel til **liste**:\n`{'Hamsun': ['Sult', 'Pan']}`.\n\nKjenn det igjen i oppgaveteksten på «lag en ordbok fra … til en liste over …»\neller «grupper etter …»."
+    },
+    {
+      "id": "in1000-6-3-30",
+      "type": "definition",
+      "title": "To løkker etter hverandre",
+      "content": "Formen den tyngste deloppgaven ofte har: bygg et regnskap i én løkke, og les det i en annen.\n\nÅ prøve å gjøre begge deler i samme løkke er både vanskeligere og lettere å bomme på — og det gir ingen ekstra poeng.\n\nLegg gjerne den første løkka i sin **egen metode**, og kall den med `self.` foran.\nDa kan begge delene brukes hver for seg, og deloppgavene rettes uavhengig."
+    },
+    {
+      "id": "in1000-6-3-31",
+      "type": "definition",
+      "title": "Flagg med tidlig retur",
+      "content": "«Finnes det …?»: `return True` inne i løkka, `return False` **etter**.\n«Er alle …?»: `return False` inne, `return True` etter.\n\nÅ bytte om de to er feilkode **#7**: en «er alle»-sjekk som returnerer `True` på det første treffet, svarer ja så snart ett element passer.\n\n**Linjen etter løkka er obligatorisk.** Glemmer du den, gir metoden `None`, og\n`None` oppfører seg som usant i en `if` — så feilen er stum."
+    },
+    {
+      "id": "in1000-6-3-32",
+      "type": "definition",
+      "title": "`ferdig`-flagget",
+      "content": "Mønsteret for «gjør noe med det **første** elementet som passer, og si fra hvis ingen gjør det».\n\n`ferdig = False` før løkka, betingelsen `if … and ferdig == False:`, og\n`ferdig = True` etter handlingen.\n\nAlternativet er `return` inne i løkka. Flagget brukes når metoden skal gjøre noe\n**etter** løkka — og det er formen fagets egne løsningsforslag bruker for\nprioritert innsetting."
+    },
+    {
+      "id": "in1000-6-3-33",
+      "type": "definition",
+      "title": "Prioritert rekkefølge",
+      "content": "Rekkefølgen elementene ligger i, er prioriteringen. Første ledige i lista blir valgt.\n\nSkal prioriteringen være en annen enn innsettingsrekkefølgen, oppgir oppgaven som regel en egen liste å løpe over.\n\nKombinert med `ferdig`-flagget er dette «sett inn i første ledige plass»-mønsteret som går igjen i settene."
+    },
+    {
+      "id": "in1000-6-3-34",
+      "type": "definition",
+      "title": "Unngå duplikater",
+      "content": "`if x in self._liste:` før `append`, eller `if x not in d:` for en ordbok.\n\nFor en liste må du sjekke selv. For en ordbok er problemet borte — men da\n**overskrives** den gamle verdien uten et pip, så sjekken kan likevel trengs.\n\nSkal du telle **ulike** verdier, bygg en liste over dem du har sett, og returner\n`len(...)`."
+    },
+    {
+      "id": "in1000-6-3-35",
+      "type": "definition",
+      "title": "Match-mønsteret",
+      "content": "En akkumulator med to grener: `+ 1` for hvert treff, `- 1` for hvert bom.\n\n```text\n        poeng = 0 for x in self._mine:\n            if annet.liker(x):\n                poeng = poeng + 1 else:\n                poeng = poeng - 1 return poeng\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\n**Regnestykket er ikke symmetrisk:** det går over **dette** objektets liste. A mot\nB og B mot A kan gi ulike svar. Les oppgaveteksten for å se hvilken vei den ber om."
+    },
+    {
+      "id": "in1000-6-3-36",
+      "type": "definition",
+      "title": "Å utelate seg selv",
+      "content": "`if m != medlem:` når du sammenligner alle elementer mot ett av dem.\n\nUten den blir elementet sammenlignet med seg selv, og det gir alltid full match — så svaret blir alltid «seg selv».\n\nDet er et selvstendig poeng i den typen oppgave, og det er lett å glemme under tidspress."
+    },
+    {
+      "id": "in1000-6-3-37",
+      "type": "definition",
+      "title": "Feilkode #6 — kant-tilfellene",
+      "content": "At metoden ikke tåler en tom eller minimal samling.\n\nTre spørsmål tar de fleste trekkene: hva svarer metoden på **tom** samling, på\n**ett** element, og på **to like store**?\n\nFinn-beste gir `None` på tom samling — riktig, men den som kaller, må sjekke.\n`>` beholder den første av to like, `>=` den siste."
+    },
+    {
+      "id": "in1000-6-3-38",
+      "type": "definition",
+      "title": "`None` som svar",
+      "content": "Det ærlige svaret når en metode ikke finner noe: en tom samling, eller ingen som oppfyller kravet.\n\nDen som kaller, tester med `if svar != None:`. Gjør du ikke det, stopper programmet med\n`AttributeError: 'NoneType' object has no attribute 'hent_navn'`.\n\nDen feilmeldingen er verdt å kjenne igjen: den betyr nesten alltid at et søk ga\n`None` og at sjekken manglet."
+    },
+    {
+      "id": "in1000-6-3-39",
+      "type": "definition",
+      "title": "Hjelpevariabel i løkka",
+      "content": "`sal = self._saler[navn]` øverst i løkkekroppen, i stedet for å skrive\n`self._saler[navn]` tre ganger.\n\nÉn linje ekstra gjør resten mye lettere å lese — og å rette. Det gir ingen ekstra poeng i seg selv, men det reduserer sjansen for skrivefeil betraktelig.\n\nSamme teknikk brukes når en lenket kjede blir lang: del den opp med en variabel underveis."
+    },
+    {
+      "id": "in1000-6-3-40",
+      "type": "definition",
+      "title": "Metode som kaller metode",
+      "content": "`self.per_dag()` inne i `travleste_dag()` — en metode kan kalle en annen på samme objekt.\n\nGevinsten er at regnskapet bygges ett sted. Endrer du hvordan det regnes, treffer endringen begge metodene.\n\n**Navnene må være ulike.** En metode som kaller en metode med samme navn, ser ut\nsom om den kaller seg selv — og det er **rekursjon**, som er utenfor pensum i dette emnet."
+    },
+    {
+      "id": "in1000-6-3-41",
+      "type": "definition",
+      "title": "Snarveiene og hvorfor boka ikke bruker dem",
+      "content": "Python har `max(..., key=...)`, `sorted(...)`, `sum(...)` og ferdige tellere som løser flere av mønstrene på én linje.\n\n**Denne boka bruker dem ikke, og det er et bevisst valg.** Fagets egne\nløsningsforslag skriver den eksplisitte løkka, fordi det er løkka som er ferdigheten kurset måler.\n\nOg fordi den eksplisitte formen er den eneste som virker når oppgaven ber om noe en ferdig funksjon ikke dekker — som å telle poeng med to grener, eller å hoppe over elementet selv."
+    },
+    {
+      "id": "in1000-6-3-42",
+      "type": "definition",
+      "title": "Å lese hva metoden skal returnere",
+      "content": "Nøkkelen eller verdien? Objektet eller navnet? Antallet eller elementet?\n\nFeilen er lett å gjøre i en finn-beste-løkke, der du har begge deler liggende:\n`return beste` gir elementet, `return beste_verdi` gir tallet.\n\nLes siste setning i oppgaveteksten en gang til før du skriver `return`. Det tar fem sekunder og redder et helt poeng."
+    },
+    {
+      "id": "in1000-6-3-coll-43",
+      "type": "collapsible",
+      "title": "Repetisjon — de sju setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1000-6-3-c2",
+          "type": "text",
+          "content": "1. **Finn-beste har to variabler**, satt **før** løkka, oppdatert **sammen** inne\n   i den, med `return` **etter**.\n2. **Glemmer du å oppdatere `beste_verdi`**, ender løkka med det siste elementet\n   over grensen — en stum feil.\n3. **`return` inne i løkka** gir det første elementet over grensen. Det er\n   feilkode **#7**.\n4. **Teller-ordbok:** `if k not in d:` og `d[k] = 0` før du legger til. Uten det:\n   `KeyError` (**#14**).\n5. **Gruppering** er telleren med `[]` og `.append(...)` i stedet for `0` og `+`.\n6. **«Finnes det …?»** returnerer `True` inne i løkka og `False` **etter**. Linjen\n   etter løkka er obligatorisk.\n7. **Tenk gjennom tre kanter hver gang:** tom samling, ett element, to like\n   store."
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

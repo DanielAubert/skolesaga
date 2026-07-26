@@ -1,357 +1,357 @@
 {
- "id": "in1000-5-3",
- "courseId": "in1000",
- "chapterNumber": "5.3",
- "title": "`__str__` og pen objektutskrift",
- "description": "Gjøre et objekt pent utskrivbart med spesialmetoden for tekst, og skrive utskriftsmetoder som lar hvert underobjekt vise seg selv.",
- "estimatedMinutes": 40,
- "competenceGoals": [
-  "kunne gi en klasse en metode som gjør objektet lesbart når det skrives ut",
-  "kunne se når et tall må gjøres om til tekst før det skjøtes sammen med annen tekst",
-  "kunne skille en metode som leverer en tekst fra en som bare viser den",
-  "kunne la en klasse som holder mange objekter, be hvert av dem om å vise seg selv"
- ],
- "content": [
-  {
-   "id": "in1000-5-3-1",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "**Spesialmetoden `__str__` står i 3 av 6 moderne eksamenssett (50 %)** — og den\ndukker aldri opp alene. Den er en deloppgave inne i **Oppgave 4**, den store\nklassemodelleringen, der bestillingen er formulert som «gi klassen en metode som\ngjør at objektet kan skrives pent ut».\n\nSjangeren er **F — stor klassemodellering**, altså å bygge flere samarbeidende\nklasser fra en beskrevet oppgave. Deloppgaven er liten, typisk 3–5 poeng, men den\ner gratis når mønsteret sitter.\n\n**Dette skal du kunne** — bokas midterste av tre prioritetsnivåer. Nivået over\nheter «må sitte» og gjelder konstruktør og innkapsling; dette ligger et hakk\nunder, fordi det er færre poeng og et enklere mønster.\n\nI tillegg møter du her det som blir kjernen i hele Del 6: **delegering**, altså\nat en klasse som holder mange objekter, ber hvert av dem om å skrive seg selv ut\ni stedet for å gjøre jobben selv. Det mønsteret er fast delkrav i den store\noppgaven, og navngivingen av det har en egen regel du skal lære nå."
-  },
-  {
-   "id": "in1000-5-3-2",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 5.1 — Klasser og objekter](/bok/in1000/in1000-5-1) og\n[kap. 5.2 — Innkapsling](/bok/in1000/in1000-5-2), og bruker\n`str(...)`-konverteringen fra [kap. 3.3 — Strenger](/bok/in1000/in1000-3-3).\n\n**De to tingene du trenger å ha helt klart**, friskes opp med kjørt kode.\n\n**1. `str(tall)` gjør et tall om til tekst, slik at det kan skjøtes sammen med\nannen tekst med `+`:**\n\n```python\nnavn = \"Sult\"\naar = 1890\nprint(navn + \" (\" + str(aar) + \")\")\n```\n\n**Utskrift:**\n```\nSult (1890)\n```\n\nUten `str(...)` rundt tallet stopper programmet, og siste linje i feilmeldingen\ner `TypeError: can only concatenate str (not \"int\") to str`.\n\n**2. En metode når objektets verdier med `self._x`, og returnerer med `return`:**\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel\n        self._aar = aar\n\n    def hent_tittel(self):\n        return self._tittel\n\nb = Bok(\"Sult\", 1890)\nprint(b.hent_tittel())\n```\n\n**Utskrift:**\n```\nSult\n```\n\nNå setter vi de to sammen: en metode som **bygger en tekst** av objektets egne\nverdier."
-  },
-  {
-   "id": "in1000-5-3-3",
-   "type": "text",
-   "content": "## Løkke 1 — Hva skjer når du skriver ut et objekt? (~10 min)\n\nEt bibliotek har et `Bok`-objekt, og du vil bare se hva som står i det. Det\nnærliggende er å skrive `print(b)`.\n\nDet virker ikke slik du håper. Uten videre gir Python deg noe i denne stilen:\n\n```text\n<__main__.Bok object at 0x104a2f130>\n```\n\nBlokken er merket som ikke-kjørbar fordi tallet på slutten er en adresse i\nmaskinens minne og blir forskjellig hver gang programmet kjøres. Det er\nmaskinens svar på «hvilket objekt dette er», og det er ubrukelig for et\nmenneske.\n\n**Løsningen er å fortelle Python hvordan objektet skal se ut som tekst.** Det\ngjør du med spesialmetoden `__str__`."
-  },
-  {
-   "id": "in1000-5-3-4",
-   "type": "definition",
-   "title": "`__str__`",
-   "content": "Spesialmetoden som **returnerer en tekst** som beskriver objektet. Python kaller\nden automatisk når objektet skal skrives ut.\n\nNavnet har to understreker på hver side, som `__init__`, og du kaller den aldri\nselv:\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel\n        self._aar = aar\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._aar) + \")\"\n\nb = Bok(\"Sult\", 1890)\nprint(b)\n```\n\n**Utskrift:**\n```\nSult (1890)\n```\n\nMetoden har `self` som eneste parameter, og den **returnerer** — den skriver\nikke ut. Bruker du `print` inni i stedet for `return`, går det galt på en måte\nsom forklares i advarselen lenger nede."
-  },
-  {
-   "id": "in1000-5-3-5",
-   "type": "theorem",
-   "title": "`__str__`-malen",
-   "content": "Bokas ellevte kodemønster. Malen er kort og alltid den samme:\n\n```text\n    def __str__(self):\n        return \"...\" + self._tekstfelt + \" \" + str(self._tallfelt)\n```\n\nBlokken er en mal med plassholdernavn og er derfor merket som ikke-kjørbar.\n\nTre regler:\n\n1. **`return`, aldri `print`.** Metoden leverer en tekst; det er den som kaller,\n   som bestemmer om teksten skal vises.\n2. **`str(...)` rundt hvert tall.** Tekst pluss tall stopper programmet.\n   Tekstfelt trenger det ikke, men det skader ikke å ta det med.\n3. **Mellomrom og skilletegn skrives inn selv.** `+` skjøter uten å legge til\n   noe, i motsetning til komma i et `print`-kall.\n\nFormen på teksten bestemmer du. Ber oppgaven om et bestemt format, følg det\ntegn for tegn — det er den slags detalj som rettes strengt."
-  },
-  {
-   "id": "in1000-5-3-6",
-   "type": "example",
-   "title": "Eksempel 1: Fra ubrukelig utskrift til lesbar linje",
-   "problem": "Gi klassen `Medlem` på et treningssenter en `__str__` som gjør at\n`print(medlem)` viser navn, medlemsnummer og antall besøk på én linje.",
-   "solution": "Metoden bygger én tekst av de tre verdiene, med skilletegn skrevet inn for hånd:\n\n```python\nclass Medlem:\n    def __init__(self, navn, nummer):\n        self._navn = navn\n        self._nummer = nummer\n        self._besok = 0\n\n    def registrer_besok(self):\n        self._besok = self._besok + 1\n\n    def __str__(self):\n        return self._navn + \" (nr \" + str(self._nummer) + \"), \" + str(self._besok) + \" besok\"\n\nm = Medlem(\"Ada\", 104)\nm.registrer_besok()\nm.registrer_besok()\nprint(m)\n```\n\n**Utskrift:**\n```\nAda (nr 104), 2 besok\n```\n\n**Legg merke til de tre `str(...)`-kallene.** `self._navn` er allerede tekst og\ntrenger ingen, men `self._nummer` og `self._besok` er tall. Uten konverteringen\nstopper programmet med `TypeError: can only concatenate str (not \"int\") to str`.\n\n**Slik ville sensor sett på det:** tre ting gir uttelling hver for seg — at\nmetoden heter `__str__` med riktige understreker, at den bruker `return`, og at\ntallene er konvertert. Hadde du glemt ett `str(...)`, ville de to andre fortsatt\ntelt.\n\nMerk at teksten er skrevet uten æ, ø og å, som all kode i denne boka. «besok»\ni stedet for «besøk» er den vanlige omskrivingen."
-  },
-  {
-   "id": "in1000-5-3-oppg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-5-3-o1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave — gjengivelse.) Klassen `Rett` i en kantine har\n`self._navn` og `self._pris`.\n\n**a)** Skriv `__str__` slik at `print(rett)` gir for eksempel\n`Fiskesuppe: 89 kr`.\n\n**b)** Hvorfor må prisen gjennom `str(...)`?\n\n**c)** Hva ville `print(rett)` gitt hvis klassen ikke hadde noen `__str__`?",
-    "solution": "**a)**\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        self._pris = pris\n\n    def __str__(self):\n        return self._navn + \": \" + str(self._pris) + \" kr\"\n\nr = Rett(\"Fiskesuppe\", 89)\nprint(r)\n```\n\n**Utskrift:**\n```\nFiskesuppe: 89 kr\n```\n\n**b)** Fordi `+` mellom en tekst og et tall ikke er tillatt i Python. Plusstegnet\nbetyr «legg sammen» for to tall og «skjøt sammen» for to tekster, og Python\nnekter å gjette hvilken av delene du mente. Siste linje i feilmeldingen er\n`TypeError: can only concatenate str (not \"int\") to str`.\n\n**c)** Noe i stilen `<__main__.Rett object at 0x...>` — klassenavnet og en adresse\ni minnet. Adressen er forskjellig hver gang programmet kjøres, så utskriften er\nikke noe du kan spore deg fram til på papir. Det er nettopp derfor `__str__`\nfinnes.",
-    "hints": [
-     "Bygg én tekst med `+` og returner den.",
-     "Kolon og «kr» er tegn du må skrive inn selv, med mellomrom der du vil ha dem."
-    ]
-   }
-  },
-  {
-   "id": "in1000-5-3-7",
-   "type": "text",
-   "content": "## Løkke 2 — `__str__` mot en skriv-metode (~10 min)\n\nDet finnes to måter å få et objekt til å vise seg fram på, og eksamensoppgaver\nber om begge. Forskjellen er liten i kode og stor i bruk.\n\nEn `__str__` **returnerer** en tekst. En skriv-metode **skriver den ut**. Den\nførste kan brukes videre — legges i en liste, skjøtes med annen tekst, sendes\ntil en annen metode. Den andre er ferdig i det øyeblikket den kjører."
-  },
-  {
-   "id": "in1000-5-3-8",
-   "type": "definition",
-   "title": "`str(objekt)` og `print(objekt)`",
-   "content": "De to måtene `__str__` blir kalt på — begge automatisk, ingen av dem av deg.\n\n`print(objekt)` kaller `__str__` og skriver resultatet. `str(objekt)` kaller\n`__str__` og gir deg teksten, slik at du kan bruke den videre:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def __str__(self):\n        return \"Bok: \" + self._tittel\n\nb = Bok(\"Sult\")\nlinje = str(b)\nprint(linje + \" | \" + str(b))\n```\n\n**Utskrift:**\n```\nBok: Sult | Bok: Sult\n```\n\nDet er dette som gjør `__str__` mer verdt enn en skriv-metode: teksten kan brukes\ntil noe. Du kan skjøte den, sammenligne den eller legge den i en liste."
-  },
-  {
-   "id": "in1000-5-3-9",
-   "type": "definition",
-   "title": "Skriv-metode",
-   "content": "En vanlig metode som **skriver ut** i stedet for å returnere:\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel\n        self._aar = aar\n\n    def skriv(self):\n        print(self._tittel, self._aar)\n\nb = Bok(\"Sult\", 1890)\nb.skriv()\n```\n\n**Utskrift:**\n```\nSult 1890\n```\n\nNavnet er fritt — `skriv`, `skriv_ut`, `vis`. Metoden returnerer ingenting, og\nverdien kan derfor ikke brukes videre.\n\n**Legg merke til komma i `print`-kallet.** Komma skiller argumentene med **ett\nmellomrom** og konverterer tall automatisk, så du slipper både `+` og `str(...)`.\nDet er den store praktiske forskjellen fra `__str__`, der du må skrive begge\ndeler selv.\n\nBer oppgaven om «en metode som skriver ut objektet», er dette svaret. Ber den om\n«at objektet kan skrives pent ut med `print`», er svaret `__str__`."
-  },
-  {
-   "id": "in1000-5-3-10",
-   "type": "warning",
-   "title": "Typisk feil: `__str__` som ikke returnerer en streng",
-   "content": "To varianter, og begge stopper programmet — eller gjør noe verre.\n\n**Variant 1: `print` i stedet for `return`.**\n\n```text\n    def __str__(self):\n        print(self._tittel)\n```\n\nMetoden skriver ut tittelen og returnerer `None`. Når `print(b)` da skal skrive\ndet `__str__` ga tilbake, stopper programmet, og siste linje i feilmeldingen er\n`TypeError: __str__ returned non-string (type NoneType)`. Utskriften kommer\naltså, men programmet krasjer rett etterpå — en forvirrende kombinasjon første\ngang du ser den.\n\n**Variant 2: returnere et tall.**\n\n```text\n    def __str__(self):\n        return self._aar\n```\n\nSamme type feilmelding, med `(type int)` til slutt. `__str__` **skal** returnere\nen tekst, uansett hva feltet er. Løsningen er `return str(self._aar)`.\n\nBegge blokkene er merket som ikke-kjørbare, fordi feilen er plantet med vilje.\n\n**Motgiften:** les metoden din og spør «gir siste linje her en tekst?». Er\nsvaret nei, mangler det enten et `return` eller en `str(...)`."
-  },
-  {
-   "id": "in1000-5-3-11",
-   "type": "example",
-   "title": "Eksempel 2: Samme klasse med begge deler",
-   "problem": "Gi klassen `Sykkel` både en `__str__` og en skriv-metode, og vis når hver av dem\ner nyttig.",
-   "solution": "Klassen får begge, og bruken viser forskjellen:\n\n```python\nclass Sykkel:\n    def __init__(self, kode, stativ):\n        self._kode = kode\n        self._stativ = stativ\n\n    def __str__(self):\n        return self._kode + \" @ \" + self._stativ\n\n    def skriv(self):\n        print(\"Sykkel\", self._kode, \"staar i\", self._stativ)\n\ns = Sykkel(\"R31\", \"Blindern\")\nprint(s)\ns.skriv()\n\nlinjer = []\nlinjer.append(str(s))\nlinjer.append(\"R48 @ Majorstuen\")\nprint(len(linjer), linjer[0])\n```\n\n**Utskrift:**\n```\nR31 @ Blindern\nSykkel R31 staar i Blindern\n2 R31 @ Blindern\n```\n\n**De to første linjene ser like nyttige ut, men bare den ene teksten kan gjenbrukes.**\nNederst legges den i en liste, og det kunne like gjerne vært en fil, en\nsammenligning eller en lengre rapport. Skriv-metoden har ingen slik verdi å gi\nfra seg.\n\n**Slik ville sensor sett på det:** ber oppgaven om «en metode som gjør at\nobjektet kan skrives ut med `print`», er `__str__` det riktige svaret, og en\nskriv-metode gir bare delvis uttelling. Ber den om «en metode som skriver ut\nopplysningene», er skriv-metoden riktig. Les hvilket av de to verbene som står\nder.\n\n**Merk `@`-tegnet i teksten.** Det er et helt vanlig tegn i en streng, og det er\nlov å bruke det som skilletegn. Æ, ø og å er det derimot ikke, som ellers i\nbokas kode."
-  },
-  {
-   "id": "in1000-5-3-oppg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-5-3-o2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Hva skriver programmet ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall, pris):\n        self._navn = navn\n        self._antall = antall\n        self._pris = pris\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._antall)\n\n    def hent_verdi(self):\n        return self._antall * self._pris\n\nv = Vare(\"skrue\", 4, 3)\nprint(v)\nprint(v, v.hent_verdi())\nprint(str(v) + \"!\")\n```",
-    "solution": "**Sporingstavle.** Ingen verdier endres her; det som avgjør, er hvordan hver\nlinje settes sammen:\n\n| Linje | Hva Python gjør | Utskrift |\n|---|---|---|\n| `print(v)` | kaller `__str__` | `skrue x4` |\n| `print(v, v.hent_verdi())` | `__str__`, så komma og ett mellomrom, så 4 ganger 3 | `skrue x4 12` |\n| `print(str(v) + \"!\")` | `str(v)` gir teksten, `+` skjøter uten mellomrom | `skrue x4!` |\n\n**Utskrift:**\n```\nskrue x4\nskrue x4 12\nskrue x4!\n```\n\n**Fellen her er forskjellen på komma og pluss.** Komma i et `print`-kall setter\n**ett mellomrom** mellom argumentene; `+` skjøter uten å legge til noe. Derfor\nstår det mellomrom foran `12`, men ikke foran utropstegnet.\n\nLegg også merke til at `print(v, ...)` kaller `__str__` helt av seg selv — du\nskriver ikke `str(v)` når objektet er et av argumentene til `print`.\n\n**På eksamen** skrives alle tre linjene, i riktig rekkefølge. De teller hver for\nseg.",
-    "hints": [
-     "Skriv opp hva `__str__` gir, og sett den teksten inn i hver av de tre linjene.",
-     "Hva legger komma inn mellom to argumenter i `print`? Og hva legger `+` inn?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-5-3-oppg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-5-3-o3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F-del — skriv `__str__`.) En kollektivrute skal kunne\nskrives ut på formen `Rute 20: Blindern - Toyen (14 passasjerer)`.\n\n**a)** Skriv klassen `Rute` med konstruktør som tar rutenummer, startsted og\nendested, og et passasjerantall som starter på 0.\n\n**b)** Skriv `__str__` som gir nøyaktig formen over.\n\n**c)** Legg til `paa(self, antall)` og vis at utskriften følger med.",
-    "solution": "**a)–c)** Klassen samlet, med bruken nederst i samme blokk:\n\n```python\nclass Rute:\n    def __init__(self, nummer, start, slutt):\n        self._nummer = nummer\n        self._start = start\n        self._slutt = slutt\n        self._passasjerer = 0\n\n    def paa(self, antall):\n        self._passasjerer = self._passasjerer + antall\n\n    def __str__(self):\n        return (\"Rute \" + str(self._nummer) + \": \" + self._start + \" - \"\n                + self._slutt + \" (\" + str(self._passasjerer) + \" passasjerer)\")\n\nr = Rute(20, \"Blindern\", \"Toyen\")\nprint(r)\nr.paa(14)\nprint(r)\n```\n\n**Utskrift:**\n```\nRute 20: Blindern - Toyen (0 passasjerer)\nRute 20: Blindern - Toyen (14 passasjerer)\n```\n\n**Legg merke til at `return`-setningen er delt over to linjer med parenteser\nrundt.** Det er en helt vanlig måte å skrive en lang tekst på, og den endrer\ningenting — Python leser innholdet i parentesen som én sammenhengende linje.\nAlternativt kan du bygge teksten i flere steg med en lokal variabel.\n\n**Slik ville sensor sett på det:** her rettes formatet strengt, fordi oppgaven\noppgir det. Mellomrommene rundt bindestreken, kolonet etter rutenummeret og\nparentesen rundt passasjerantallet er alle en del av bestillingen. Har du riktig\nstruktur men glemt ett mellomrom, er trekket lite — men les formatet en gang til\nfør du leverer.\n\n**Merk at utskriften endrer seg av seg selv** når passasjerantallet endres.\n`__str__` leser instansvariablene i det øyeblikket den kalles; den husker\ningenting fra sist.",
-    "hints": [
-     "Bygg teksten med `+`, og husk `str(...)` rundt de to tallene.",
-     "Skriv formatet fra oppgaven på papir først, og marker hvert mellomrom."
-    ]
-   }
-  },
-  {
-   "id": "in1000-5-3-12",
-   "type": "text",
-   "content": "## Løkke 3 — Delegering: la hvert objekt skrive seg selv (~12 min)\n\nNå kommer mønsteret som er fast delkrav i den store oppgaven.\n\nEt bibliotek holder mange bøker. Skal biblioteket skrive ut hele samlingen sin,\nhar det to valg: enten grave i hver boks verdier selv, eller **be hver bok om å\nskrive seg selv**.\n\nDet siste heter **delegering**, og det er alltid riktig svar. Grunnen er den\nsamme som i [kap. 5.2](/bok/in1000/in1000-5-2): boka vet hvordan en bok skal\nvises, og biblioteket skal slippe å vite det."
-  },
-  {
-   "id": "in1000-5-3-13",
-   "type": "theorem",
-   "title": "Delegerings-malen",
-   "content": "Bokas tolvte kodemønster, og kjernen i Oppgave 4:\n\n```text\nclass Container:\n    def __init__(self):\n        self._elementer = []\n\n    def legg_til(self, e):\n        self._elementer.append(e)\n\n    def skriv_alle(self):\n        for e in self._elementer:\n            print(e)\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\nLøkka går gjennom samlingen og lar `print(e)` kalle hvert underobjekts\n`__str__`. Ytterklassen skriver ikke ett eneste felt selv.\n\n**Alternativet — å skrive `print(e.hent_tittel(), e.hent_aar())` inne i løkka —\ngir dårligere uttelling**, fordi visningen da er duplisert: endrer boka format,\nmå biblioteket endres også. Og verst av alt er `print(e._tittel)`, som i tillegg\ner feilkode **#11**, direkte tilgang til en instansvariabel utenfra."
-  },
-  {
-   "id": "in1000-5-3-14",
-   "type": "tip",
-   "title": "Navneregelen: containeren skal IKKE hete det samme som elementet",
-   "content": "Legg merke til at metoden i malen heter **`skriv_alle`**, ikke `skriv`. Det er en\nbindende regel i denne boka, og den er verdt å ta med til eksamen.\n\nGrunnen er dels lesbarhet: de to metodene gjør ulike ting. `bok.skriv()` viser\n**én** bok; `bibliotek.skriv_alle()` viser **alle**. To ulike jobber bør ha to\nulike navn.\n\nDels er den praktisk. En metode som heter det samme som den den kaller, er\nvanskelig å lese — og et verktøy som leser koden, kan ikke se forskjell på\n`self.skriv()` og `bok.skriv()`. Det ser ut som om metoden kaller seg selv, og en\nmetode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette\nemnet.\n\nBruk disse navneparene:\n\n| Elementets metode | Containerens metode |\n|---|---|\n| `skriv()` | `skriv_alle()` |\n| `hent_navn()` | `hent_alle_navn()` eller `navneliste()` |\n| `antall()` | `totalt_antall()` |\n| `__str__` | `skriv_alle()`, som bruker `print(e)` |"
-  },
-  {
-   "id": "in1000-5-3-15",
-   "type": "example",
-   "title": "Eksempel 3: `Bibliotek` som delegerer utskriften til hver `Bok`",
-   "problem": "La klassen `Bibliotek` holde flere `Bok`-objekter i en liste, og gi den en metode\nsom skriver ut hele samlingen ved å be hver bok om å vise seg selv.",
-   "solution": "To klasser, der den ytre bare holder styr på samlingen:\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel\n        self._aar = aar\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._aar) + \")\"\n\nclass Bibliotek:\n    def __init__(self, navn):\n        self._navn = navn\n        self._boker = []\n\n    def legg_til(self, bok):\n        self._boker.append(bok)\n\n    def skriv_alle(self):\n        print(\"Samling:\", self._navn)\n        for b in self._boker:\n            print(\" -\", b)\n\nbib = Bibliotek(\"Deichman\")\nbib.legg_til(Bok(\"Sult\", 1890))\nbib.legg_til(Bok(\"Markens grode\", 1917))\nbib.skriv_alle()\n```\n\n**Utskrift:**\n```\nSamling: Deichman\n - Sult (1890)\n - Markens grode (1917)\n```\n\n**Linjen `print(\" -\", b)` er hele delegeringen.** `b` er et `Bok`-objekt, og\n`print` kaller boka sin egen `__str__`. `Bibliotek` vet ikke — og trenger ikke å\nvite — at en bok vises med tittel og årstall i parentes.\n\n**Prøv tanken:** skal bøkene senere vises med forfatter i tillegg, endrer du én\nmetode i `Bok`, og `Bibliotek` merker ingenting. Det er den samme gevinsten som i\n[kap. 5.2](/bok/in1000/in1000-5-2), nå mellom to klasser.\n\n**Slik ville sensor sett på det:** fem ting gir uttelling. `self._boker = []` i\nkonstruktøren, `append` i `legg_til`, løkka i `skriv_alle`, at utskriften\ndelegeres i stedet for å hentes felt for felt, og at metoden heter noe annet enn\nelementets. Hadde du skrevet `print(\" -\", b.hent_tittel())`, ville strukturen\nvært riktig og trekket lite — men delegeringspoenget hadde gått tapt.\n\n— naturlig pausepunkt —"
-  },
-  {
-   "id": "in1000-5-3-oppg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-5-3-o4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Spill:\n    def __init__(self, tittel, maks):\n        self._tittel = tittel\n        self._maks = maks\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._maks) + \")\"\n\nclass Klubb:\n    def __init__(self):\n        self._spill = []\n\n    def legg_til(self, s):\n        self._spill.append(s)\n\n    def skriv_alle(self):\n        for s in self._spill:\n            print(s)\n        print(\"Antall:\", len(self._spill))\n\nk = Klubb()\nk.legg_til(Spill(\"Kolonier\", 4))\nk.legg_til(Spill(\"Sjakk\", 2))\nk.skriv_alle()\n```",
-    "solution": "**Sporingstavle.** Lista fylles først, så løper løkka:\n\n| Steg | `_spill` | Utskrift |\n|---|---|---|\n| `legg_til(Spill(\"Kolonier\", 4))` | ett element | |\n| `legg_til(Spill(\"Sjakk\", 2))` | to elementer | |\n| løkka, runde 1 | to elementer | `Kolonier (4)` |\n| løkka, runde 2 | to elementer | `Sjakk (2)` |\n| linjen etter løkka | to elementer | `Antall: 2` |\n\n**Utskrift:**\n```\nKolonier (4)\nSjakk (2)\nAntall: 2\n```\n\n**Fellen her er den siste linjen.** `print(\"Antall:\", len(self._spill))` står\n**etter** løkka og uten innrykk under den, så den kjører én gang. Hadde den stått\ninne i løkka, ville den kommet to ganger — én per spill. Sjekk alltid innrykket\npå siste linje i en løkke før du sporer.\n\nLegg også merke til at `print(s)` kaller `__str__` på hvert spill: det er\ndelegering, og formatet med parentes rundt tallet kommer fra `Spill`, ikke fra\n`Klubb`.\n\n**På eksamen** skrives alle tre linjene, i riktig rekkefølge.",
-    "hints": [
-     "Skriv opp hva `__str__` gir for hvert av de to objektene før du sporer løkka.",
-     "Se nøye på innrykket til den siste `print`-linjen."
-    ]
-   }
-  },
-  {
-   "id": "in1000-5-3-oppg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-5-3-o5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F-del — delegering.) En resirkuleringsstasjon har flere\ncontainere, hver med et materiale og en fyllingsgrad i prosent.\n\n**a)** Skriv klassen `Container` med `__str__` på formen `glass: 40 %`.\n\n**b)** Skriv klassen `Stasjon` som holder containerne i en liste, med\n`legg_til(self, c)` og en metode som skriver ut alle.\n\n**c)** Hva skal metoden i b) hete, og hvorfor ikke `skriv`?",
-    "solution": "**a)–b)** De to klassene, med bruken nederst:\n\n```python\nclass Container:\n    def __init__(self, materiale, fylling):\n        self._materiale = materiale\n        self._fylling = fylling\n\n    def __str__(self):\n        return self._materiale + \": \" + str(self._fylling) + \" %\"\n\nclass Stasjon:\n    def __init__(self, sted):\n        self._sted = sted\n        self._containere = []\n\n    def legg_til(self, c):\n        self._containere.append(c)\n\n    def skriv_alle(self):\n        for c in self._containere:\n            print(c)\n\ns = Stasjon(\"Ryen\")\ns.legg_til(Container(\"glass\", 40))\ns.legg_til(Container(\"papir\", 85))\ns.skriv_alle()\n```\n\n**Utskrift:**\n```\nglass: 40 %\npapir: 85 %\n```\n\n**c)** Den skal hete **`skriv_alle`**. To grunner:\n\nDen gjør noe annet enn `Container` sin utskrift — den viser **alle**, ikke én —\nog to ulike jobber bør ha to ulike navn.\n\nOg en metode som heter det samme som den kaller, ser ut som om den kaller seg\nselv. En metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i\ndette emnet — så navnet ville sendt et feil signal til alle som leser koden.\n\n**Merk prosenttegnet.** Det er et helt vanlig tegn i en streng og gir ingen\nproblemer, i motsetning til æ, ø og å, som bokas kode aldri bruker.",
-    "hints": [
-     "`__str__` returnerer én tekst; ytterklassen løper gjennom lista og lar `print` gjøre resten.",
-     "Se på navneparene i tipsboksen om navneregelen."
-    ]
-   }
-  },
-  {
-   "id": "in1000-5-3-16",
-   "type": "text",
-   "content": "## Løkke 4 — Delegering med en ordbok (~8 min)\n\nUnderobjektene ligger ikke alltid i en liste. Skal du kunne slå opp på et navn\neller et nummer, er en ordbok fra\n[kap. 3.2](/bok/in1000/in1000-3-2) et bedre valg — og det er formen den store\noppgaven ofte bruker.\n\nDelegeringen er akkurat den samme; bare løkka ser litt annerledes ut."
-  },
-  {
-   "id": "in1000-5-3-17",
-   "type": "definition",
-   "title": "Delegering over en ordbok",
-   "content": "Løkka over en ordbok gir deg **nøklene**. Objektet henter du med et oppslag:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def __str__(self):\n        return \"Bok: \" + self._tittel\n\nboker = {}\nboker[\"sult\"] = Bok(\"Sult\")\nboker[\"vaar\"] = Bok(\"Vaar\")\nfor n in boker:\n    print(n, \"->\", boker[n])\n```\n\n**Utskrift:**\n```\nsult -> Bok: Sult\nvaar -> Bok: Vaar\n```\n\nRekkefølgen følger den de ble satt inn i. Verdien `boker[n]` er et helt vanlig\nobjekt, så `print` kaller dets `__str__` som før.\n\n**Nøkkelen er ofte navnet, og verdien objektet.** Da har du både oppslag og\ngjennomløping i samme struktur — derfor er ordboka så vanlig i Oppgave 4."
-  },
-  {
-   "id": "in1000-5-3-18",
-   "type": "example",
-   "title": "Eksempel 4: Full modell på eksamensnivå — treningssenter med saler",
-   "problem": "Et treningssenter holder salene sine i en ordbok fra salnavn til `Sal`-objekt.\nSkriv de to klassene med `__str__` og en utskriftsmetode som delegerer, pluss en\nmetode som finner én sal på navn.",
-   "solution": "Ordboka gir både oppslag og gjennomløping:\n\n```python\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn\n        self._kapasitet = kapasitet\n\n    def hent_navn(self):\n        return self._navn\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._kapasitet) + \" plasser)\"\n\nclass Senter:\n    def __init__(self, sted):\n        self._sted = sted\n        self._saler = {}\n\n    def legg_til(self, sal):\n        self._saler[sal.hent_navn()] = sal\n\n    def finn(self, navn):\n        if navn in self._saler:\n            return self._saler[navn]\n        return None\n\n    def skriv_alle(self):\n        print(\"Senter:\", self._sted)\n        for n in self._saler:\n            print(\" -\", self._saler[n])\n\nsenter = Senter(\"Toyen\")\nsenter.legg_til(Sal(\"Speilsal\", 20))\nsenter.legg_til(Sal(\"Spinning\", 14))\nsenter.skriv_alle()\nprint(senter.finn(\"Spinning\"))\nprint(senter.finn(\"Basseng\"))\n```\n\n**Utskrift:**\n```\nSenter: Toyen\n - Speilsal (20 plasser)\n - Spinning (14 plasser)\nSpinning (14 plasser)\nNone\n```\n\n**Fire ting er verdt å merke seg.**\n\n`legg_til` bruker salens **egen** aksessor til å finne nøkkelen:\n`self._saler[sal.hent_navn()] = sal`. Senteret bestemmer altså ikke navnet selv,\ndet spør salen. Å skrive `sal._navn` her ville vært feilkode #11.\n\n`finn` sjekker med `if navn in self._saler:` før den slår opp. Uten sjekken\nstopper programmet på en nøkkel som ikke finnes — det er feilkode **#14**, å\nslå opp noe som ikke er lagt inn.\n\nSiste linje skriver `None`, fordi `finn(\"Basseng\")` ikke fant noe. `None` er\nPythons ord for «ingen verdi», og `print` viser det med stor forbokstav.\n\nOg `skriv_alle` heter ikke `skriv`, etter navneregelen.\n\n**Slik ville sensor sett på det:** dette er en typisk 12–15-poengs deloppgave i\nOppgave 4, og poengene ligger spredt: ordboka i konstruktøren, innsettingen med\nriktig nøkkel, `if navn in ...`-sjekken, `return None`-grenen, løkka, og\ndelegeringen. Mangler én av dem, står de andre."
-  },
-  {
-   "id": "in1000-5-3-oppg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-5-3-o6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Medlem:\n    def __init__(self, navn, timer):\n        self._navn = navn\n        self._timer = timer\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \"/\" + str(self._timer)\n\nclass Sentral:\n    def __init__(self):\n        self._medlemmer = {}\n\n    def legg_til(self, m, nokkel):\n        self._medlemmer[nokkel] = m\n\n    def totalt_antall_timer(self):\n        total = 0\n        for n in self._medlemmer:\n            total = total + self._medlemmer[n].hent_timer()\n        return total\n\n    def skriv_alle(self):\n        for n in self._medlemmer:\n            print(n, self._medlemmer[n])\n\ns = Sentral()\ns.legg_til(Medlem(\"Ada\", 12), \"ada\")\ns.legg_til(Medlem(\"Nora\", 7), \"nora\")\ns.legg_til(Medlem(\"Ada\", 3), \"ada\")\ns.skriv_alle()\nprint(s.totalt_antall_timer())\n```",
-    "solution": "**Sporingstavle.** Se nøye på den tredje innsettingen:\n\n| Steg | Ordboka etter | Merknad |\n|---|---|---|\n| `legg_til(Medlem(\"Ada\", 12), \"ada\")` | `ada` gir Ada med 12 | ny nøkkel |\n| `legg_til(Medlem(\"Nora\", 7), \"nora\")` | pluss `nora` med 7 | ny nøkkel |\n| `legg_til(Medlem(\"Ada\", 3), \"ada\")` | `ada` gir nå Ada med 3 | **overskrevet** |\n\n**Utskrift:**\n```\nada Ada/3\nnora Nora/7\n10\n```\n\n**Fellen her er at en ordbok aldri får to like nøkler.** Den tredje innsettingen\nbruker nøkkelen `\"ada\"` på nytt, og det **overskriver** det første medlemmet i\nstedet for å legge til et nytt. Objektet med 12 timer finnes ikke lenger noe\nsted, og summen blir 3 pluss 7, ikke 12 pluss 7 pluss 3.\n\nLegg også merke til rekkefølgen: `ada` kommer først i utskriften selv om den ble\noverskrevet sist. En ordbok husker rekkefølgen nøklene ble **opprettet** i, ikke\nnår de sist ble endret.\n\nOg legg merke til at `totalt_antall_timer` heter noe annet enn medlemmets\n`hent_timer` — etter navneregelen for containere.\n\n**På eksamen** skrives alle tre linjene. Å bomme på summen koster ikke de to\nførste.",
-    "hints": [
-     "Skriv opp ordboka på nytt etter hver innsetting.",
-     "Hva skjer når en nøkkel som allerede finnes, brukes en gang til?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-5-3-oppg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-5-3-o7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger F — stor klassemodellering, altså å bygge flere\nsamarbeidende klasser fra en beskrivelse.) En brettspillklubb har medlemmer, og\nhvert medlem har et navn og en liste over spill det eier.\n\n**a)** Skriv klassen `Medlem` med `__str__` på formen `Ada (2 spill)`, og en\nmetode `legg_til_spill(self, tittel)`.\n\n**b)** Skriv klassen `Klubb` som holder medlemmene i en ordbok fra navn til\n`Medlem`-objekt, med `meld_inn(self, medlem)` og `skriv_alle(self)`.\n\n**c)** Legg til en metode i `Klubb` som gir det samlede antall spill i klubben.\n\n**d)** Hvorfor kan ikke metoden i c) hete det samme som noen metode i `Medlem`?",
-    "solution": "**a)–c)** De to klassene, med bruken nederst i samme blokk:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._spill = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def antall_spill(self):\n        return len(self._spill)\n\n    def legg_til_spill(self, tittel):\n        self._spill.append(tittel)\n\n    def __str__(self):\n        return self._navn + \" (\" + str(len(self._spill)) + \" spill)\"\n\nclass Klubb:\n    def __init__(self):\n        self._medlemmer = {}\n\n    def meld_inn(self, medlem):\n        self._medlemmer[medlem.hent_navn()] = medlem\n\n    def totalt_antall_spill(self):\n        total = 0\n        for n in self._medlemmer:\n            total = total + self._medlemmer[n].antall_spill()\n        return total\n\n    def skriv_alle(self):\n        for n in self._medlemmer:\n            print(self._medlemmer[n])\n\nada = Medlem(\"Ada\")\nada.legg_til_spill(\"Kolonier\")\nada.legg_til_spill(\"Sjakk\")\nnora = Medlem(\"Nora\")\nnora.legg_til_spill(\"Ordjakt\")\n\nk = Klubb()\nk.meld_inn(ada)\nk.meld_inn(nora)\nk.skriv_alle()\nprint(k.totalt_antall_spill())\n```\n\n**Utskrift:**\n```\nAda (2 spill)\nNora (1 spill)\n3\n```\n\n**d)** Fordi `totalt_antall_spill` **kaller** `antall_spill` inne i løkka si.\nHadde de hett det samme, ville linjen sett ut som om metoden kalte seg selv — og\nen metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette\nemnet.\n\nNavnet skal dessuten si hva metoden gjør. `antall_spill()` er spillene til **ett**\nmedlem; `totalt_antall_spill()` er spillene i **hele** klubben. To ulike jobber,\nto ulike navn.\n\n**Slik ville sensor sett på det:** dette er en flerdelt deloppgave der hver del\nteller for seg. Konstruktørene, lista og ordboka, innsettingen med riktig nøkkel,\n`__str__`, akkumulatoren i tellemetoden og delegeringen i `skriv_alle` er seks\nselvstendige poeng. Har du glemt `hent_navn()` og skrevet `medlem._navn` i\n`meld_inn`, står resten — men den ene linjen er feilkode #11 og trekker.",
-    "hints": [
-     "Medlemmet teller sine egne spill; klubben summerer det medlemmene svarer.",
-     "Se på navneparene i tipsboksen om navneregelen før du navngir metoden i c)."
-    ]
-   }
-  },
-  {
-   "id": "in1000-5-3-19",
-   "type": "warning",
-   "title": "Typiske feil i dette kapitlet",
-   "content": "Fem feil koster nesten alle poengene som mistes på objektutskrift:\n\n- **`__str__` uten `return`.** Bruker du `print` inni, returnerer metoden `None`,\n  og programmet stopper med\n  `TypeError: __str__ returned non-string (type NoneType)`.\n- **`__str__` som returnerer et tall.** Samme feilmelding med `(type int)`.\n  Løsningen er `return str(self._x)`.\n- **Glemt `str(...)` rundt et tall i skjøtingen.** Programmet stopper med\n  `TypeError: can only concatenate str (not \"int\") to str`.\n- **Ikke delegere.** Å skrive ut underobjektets felt for felt i ytterklassen\n  dupliserer visningen, og med `e._tittel` blir det i tillegg feilkode **#11**.\n- **Containerens metode heter det samme som elementets.** `skriv` som kaller\n  `skriv` ser ut som om den kaller seg selv. Bruk `skriv_alle`.\n\nOg én lesefelle: **komma i `print` gir ett mellomrom, `+` gir ingenting.**\nBlander du dem, blir formatet feil selv om alt annet er riktig."
-  },
-  {
-   "id": "in1000-5-3-coll-20",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "in1000-5-3",
+  "courseId": "in1000",
+  "chapterNumber": "5.3",
+  "title": "`__str__` og pen objektutskrift",
+  "description": "Gjøre et objekt pent utskrivbart med spesialmetoden for tekst, og skrive utskriftsmetoder som lar hvert underobjekt vise seg selv.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne gi en klasse en metode som gjør objektet lesbart når det skrives ut",
+    "kunne se når et tall må gjøres om til tekst før det skjøtes sammen med annen tekst",
+    "kunne skille en metode som leverer en tekst fra en som bare viser den",
+    "kunne la en klasse som holder mange objekter, be hvert av dem om å vise seg selv"
+  ],
+  "content": [
     {
-     "id": "in1000-5-3-c1",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def __str__(self):` | Spesialmetode. Kalles automatisk av `print(obj)` og `str(obj)`. |\n| `return tekst` i `__str__` | Obligatorisk. Returverdien **må** være en tekst, ellers stopper programmet. |\n| `print(obj)` | Kaller `__str__` og skriver resultatet. Uten `__str__`: klassenavn og minneadresse. |\n| `str(obj)` | Kaller `__str__` og gir deg teksten, slik at den kan brukes videre. |\n| `a + str(tall)` | Skjøter tekst og tall. Uten `str(...)`: `TypeError`. |\n| `print(a, b)` | Skiller argumentene med **ett** mellomrom og konverterer tall selv. |\n| `a + b` | Skjøter uten å legge til noe — mellomrom må skrives inn selv. |\n| `def skriv(self):` `print(...)` | Skriv-metode. Viser noe, men gir ingen verdi tilbake. |\n| `self._elementer = []` | Container-klassens samling av underobjekter. Settes i konstruktøren. |\n| `self._elementer.append(e)` | Legger et objekt inn i samlingen. |\n| `self._elementer[navn] = e` | Ordbok-varianten: nøkkel er ofte navnet, verdi er objektet. |\n| `for e in self._elementer:` `print(e)` | **Delegering** over en liste. `print` kaller elementets `__str__`. |\n| `for n in d:` `print(d[n])` | Delegering over en ordbok. Løkka gir nøklene, oppslaget gir objektet. |\n| `if navn in d:` | Sjekk før oppslag. Uten den stopper programmet på en nøkkel som mangler. |\n| `skriv_alle` mot `skriv` | Containerens metode har **alltid** et annet navn enn elementets. |\n\n**Det som avgjør poeng i Oppgave 4:** at `__str__` returnerer en tekst, og at\nytterklassen delegerer visningen i stedet for å hente feltene selv."
-    }
-   ]
-  },
-  {
-   "id": "in1000-5-3-21",
-   "type": "text",
-   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
-  },
-  {
-   "id": "in1000-5-3-22",
-   "type": "definition",
-   "title": "Spesialmetode",
-   "content": "En metode med to understreker på hver side av navnet, som Python kaller\nautomatisk — du kaller den aldri selv.\n\nI denne boka finnes bare to: `__init__`, som kjører når objektet lages, og\n`__str__`, som kjører når objektet skal bli tekst.\n\nBlander du dem, er symptomet lett å kjenne igjen: skriver du `__str__` der\n`__init__` skulle stått, får objektet ingen verdier i det hele tatt."
-  },
-  {
-   "id": "in1000-5-3-23",
-   "type": "definition",
-   "title": "Delegering",
-   "content": "At en klasse ber et underobjekt om å gjøre jobben, i stedet for å gjøre den selv.\n\nI dette kapitlet er jobben utskrift: `Bibliotek` lar hver `Bok` vise seg selv med\nsin egen `__str__`. Senere delegeres også telling, søk og oppdatering.\n\nKjennetegnet i koden er en løkke der kroppen er ett kall på et underobjekt, og\ningen felt hentes ut. Det motsatte — at ytterklassen graver i underobjektets\nverdier — er både dårligere kode og dårligere uttelling."
-  },
-  {
-   "id": "in1000-5-3-24",
-   "type": "definition",
-   "title": "Navneregelen for containere",
-   "content": "En metode i denne boka kaller aldri en metode med samme navn — verken på seg selv\neller på et underobjekt.\n\nElementet har `skriv()`, containeren har `skriv_alle()`. Elementet har\n`antall_spill()`, containeren har `totalt_antall_spill()`.\n\nRegelen har to grunner: navnene beskriver ulike jobber, og en metode som ser ut\nsom om den kaller seg selv, ligner på **rekursjon**, som er utenfor pensum i\ndette emnet."
-  },
-  {
-   "id": "in1000-5-3-25",
-   "type": "definition",
-   "title": "Format som del av bestillingen",
-   "content": "Når en oppgave oppgir hvordan utskriften skal se ut, er formatet en del av\noppgaven og rettes deretter.\n\nSkriv formatet av på papir før du koder, og marker hvert mellomrom, hvert\nskilletegn og hver parentes. `Rute 20: Blindern - Toyen (14 passasjerer)`\ninneholder fem slike detaljer.\n\nEr formatet ikke oppgitt, velger du selv — men velg noe som er lett å lese, og\nhold det likt for alle objektene av samme klasse."
-  },
-  {
-   "id": "in1000-5-3-26",
-   "type": "definition",
-   "title": "Tekst mot utskrift",
-   "content": "Skillet som avgjør om en metode skal bruke `return` eller `print`.\n\nEn metode som **lager en tekst**, returnerer den, og den som kaller, bestemmer\nhva som skjer videre. En metode som **viser noe**, skriver ut, og da er saken\navgjort.\n\n`__str__` er alltid av den første typen. Det er nettopp derfor den er mer verdt\nenn en skriv-metode: teksten kan legges i en liste, skjøtes med annen tekst eller\nsammenlignes."
-  },
-  {
-   "id": "in1000-5-3-27",
-   "type": "definition",
-   "title": "Minneadressen i standardutskriften",
-   "content": "Det Python viser når en klasse mangler `__str__`: klassenavnet og et\nsekskantsifret tall, som `<__main__.Bok object at 0x104a2f130>`.\n\nTallet er hvor objektet ligger i maskinens minne, og det er forskjellig hver gang\nprogrammet kjøres. Derfor kan en slik utskrift aldri være fasit i en\nsporingsoppgave.\n\nSer du den i din egen kjøring, betyr det bare at klassen mangler `__str__`."
-  },
-  {
-   "id": "in1000-5-3-28",
-   "type": "definition",
-   "title": "Å bygge en lang tekst",
-   "content": "Skal `__str__` sette sammen mange biter, blir linjen lang. To ryddige måter:\n\nSett parenteser rundt hele uttrykket og del over flere linjer — Python leser\ninnholdet i en parentes som én sammenhengende linje. Eller bygg teksten i steg\nmed en lokal variabel og returner den til slutt.\n\nBegge er like riktige. Velg den som gjør formatet lettest å kontrollere mot\nbestillingen."
-  },
-  {
-   "id": "in1000-5-3-29",
-   "type": "definition",
-   "title": "`None` i en utskrift",
-   "content": "Pythons ord for «ingen verdi». Skrives ut med stor forbokstav.\n\nDu møter den to steder i dette kapitlet: som returverdi fra en metode som glemte\n`return`, og som ærlig svar fra en søkemetode som ikke fant noe.\n\nDet siste er riktig og ønsket. `return None` når et søk mislykkes, er bedre enn å\nreturnere en tom tekst — den som kaller, kan da sjekke med `if svar != None:`."
-  },
-  {
-   "id": "in1000-5-3-30",
-   "type": "definition",
-   "title": "Container-klasse",
-   "content": "En klasse hvis viktigste jobb er å holde mange objekter av en annen klasse:\n`Bibliotek` med bøker, `Klubb` med medlemmer, `Senter` med saler.\n\nDen kjennes igjen på tre trekk: en samling i konstruktøren (`[]` eller `{}`), en\n`legg_til`-metode, og én eller flere metoder som løper gjennom samlingen.\n\nHver eneste Oppgave 4 inneholder minst én slik klasse. Mønsteret er derfor verdt\nå kunne i fingrene, og det bygges ferdig i\n[kap. 6.2](/bok/in1000/in1000-6-2)."
-  },
-  {
-   "id": "in1000-5-3-31",
-   "type": "definition",
-   "title": "Liste eller ordbok for samlingen",
-   "content": "Valget avgjøres av ett spørsmål: **skal du slå opp på et navn eller et nummer?**\n\nEr svaret ja, bruk en ordbok med det navnet som nøkkel og objektet som verdi. Er\nsvaret nei — du skal bare gå gjennom alle — er en liste enklere.\n\nEn ordbok kan aldri ha to like nøkler. Legger du inn samme navn to ganger,\n**overskrives** det første objektet uten en advarsel. Det er verdt å huske både\nnår du koder og når du sporer."
-  },
-  {
-   "id": "in1000-5-3-32",
-   "type": "definition",
-   "title": "Å bruke en aksessor som nøkkel",
-   "content": "Formen containeren bruker når objektet selv vet hva det heter:\n`self._saler[sal.hent_navn()] = sal`.\n\nContaineren spør altså objektet i stedet for å bestemme navnet selv. Alternativet\n`self._saler[sal._navn] = sal` er feilkode **#11**, direkte tilgang til en\ninstansvariabel utenfra.\n\nDette er den vanligste formen feilkode #11 tar når to klasser samarbeider — og\nden vanligste i den store oppgaven."
-  },
-  {
-   "id": "in1000-5-3-33",
-   "type": "definition",
-   "title": "Sjekk før oppslag",
-   "content": "`if navn in self._saler:` før `self._saler[navn]`.\n\nUten sjekken stopper programmet på en nøkkel som ikke finnes, og siste linje i\nfeilmeldingen er `KeyError` med nøkkelen som mangler. Det er feilkode **#14**.\n\nStandardformen på en søkemetode er derfor tredelt: sjekk, returner objektet hvis\ndet finnes, og returner `None` ellers."
-  },
-  {
-   "id": "in1000-5-3-34",
-   "type": "definition",
-   "title": "Hvorfor `__str__` leses på nytt hver gang",
-   "content": "`__str__` husker ingenting. Den leser instansvariablene i det øyeblikket den\nkalles, og bygger teksten på nytt.\n\nDerfor endrer utskriften seg av seg selv når objektet endres — du trenger ikke å\nkalle noe for å «oppdatere» teksten.\n\nDet er også grunnen til at `__str__` aldri skal lagre noe i en instansvariabel.\nMetoden skal lese og returnere, ingenting annet."
-  },
-  {
-   "id": "in1000-5-3-35",
-   "type": "definition",
-   "title": "Å velge mellom `__str__` og skriv-metode",
-   "content": "Les verbet i oppgaveteksten.\n\n«Objektet skal kunne skrives pent ut med `print`» eller «gi klassen en metode som\ngjør objektet utskrivbart» betyr **`__str__`**.\n\n«Skriv en metode som skriver ut opplysningene om …» betyr en vanlig\n**skriv-metode**.\n\nEr du i tvil, skriv `__str__` — den kan alltid brukes av en skriv-metode etterpå,\nmens det ikke går den andre veien."
-  },
-  {
-   "id": "in1000-5-3-coll-36",
-   "type": "collapsible",
-   "title": "Repetisjon — de seks setningene som må sitte",
-   "buttonText": "Vis repetisjon",
-   "content": [
+      "id": "in1000-5-3-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Spesialmetoden `__str__` står i 3 av 6 moderne eksamenssett (50 %)** — og den\ndukker aldri opp alene. Den er en deloppgave inne i **Oppgave 4**, den store klassemodelleringen, der bestillingen er formulert som «gi klassen en metode som gjør at objektet kan skrives pent ut».\n\nSjangeren er **F — stor klassemodellering**, altså å bygge flere samarbeidende klasser fra en beskrevet oppgave. Deloppgaven er liten, typisk 3–5 poeng, men den er gratis når mønsteret sitter.\n\n**Dette skal du kunne** — bokas midterste av tre prioritetsnivåer. Nivået over\nheter «må sitte» og gjelder konstruktør og innkapsling; dette ligger et hakk under, fordi det er færre poeng og et enklere mønster.\n\nI tillegg møter du her det som blir kjernen i hele Del 6: **delegering**, altså at en klasse som holder mange objekter, ber hvert av dem om å skrive seg selv ut i stedet for å gjøre jobben selv. Det mønsteret er fast delkrav i den store oppgaven, og navngivingen av det har en egen regel du skal lære nå."
+    },
     {
-     "id": "in1000-5-3-c2",
-     "type": "text",
-     "content": "1. **`__str__` returnerer en tekst.** Python kaller den automatisk fra\n   `print(obj)` og `str(obj)`; du kaller den aldri selv.\n2. **`return`, aldri `print`, inne i `__str__`.** Ellers returnerer metoden\n   `None`, og programmet stopper med `TypeError: __str__ returned non-string`.\n3. **`str(...)` rundt hvert tall** når du skjøter med `+`. Tekst pluss tall\n   stopper programmet.\n4. **Komma i `print` gir ett mellomrom; `+` gir ingenting.** Formatet avgjøres av\n   hvilken du bruker.\n5. **Delegering:** ytterklassen løper gjennom samlingen og lar `print(e)` kalle\n   hvert underobjekts `__str__`. Den henter aldri feltene selv.\n6. **Containerens metode heter noe annet enn elementets** — `skriv_alle` mot\n   `skriv`, `totalt_antall` mot `antall`."
+      "id": "in1000-5-3-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 5.1 — Klasser og objekter](/bok/in1000/in1000-5-1) og\n[kap. 5.2 — Innkapsling](/bok/in1000/in1000-5-2), og bruker\n`str(...)`-konverteringen fra [kap. 3.3 — Strenger](/bok/in1000/in1000-3-3).\n\n**De to tingene du trenger å ha helt klart**, friskes opp med kjørt kode.\n\n**1. `str(tall)` gjør et tall om til tekst, slik at det kan skjøtes sammen med\nannen tekst med `+`:**\n\n```python\nnavn = \"Sult\" aar = 1890 print(navn + \" (\" + str(aar) + \")\")\n```\n\n**Utskrift:**\n```\nSult (1890)\n```\n\nUten `str(...)` rundt tallet stopper programmet, og siste linje i feilmeldingen er `TypeError: can only concatenate str (not \"int\") to str`.\n\n**2. En metode når objektets verdier med `self._x`, og returnerer med `return`:**\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel self._aar = aar\n\n    def hent_tittel(self):\n        return self._tittel\n\nb = Bok(\"Sult\", 1890)\nprint(b.hent_tittel())\n```\n\n**Utskrift:**\n```\nSult\n```\n\nNå setter vi de to sammen: en metode som **bygger en tekst** av objektets egne verdier."
+    },
+    {
+      "id": "in1000-5-3-3",
+      "type": "text",
+      "content": "## Løkke 1 — Hva skjer når du skriver ut et objekt? (~10 min)\n\nEt bibliotek har et `Bok`-objekt, og du vil bare se hva som står i det. Det nærliggende er å skrive `print(b)`.\n\nDet virker ikke slik du håper. Uten videre gir Python deg noe i denne stilen:\n\n```text\n<__main__.Bok object at 0x104a2f130>\n```\n\nBlokken er merket som ikke-kjørbar fordi tallet på slutten er en adresse i maskinens minne og blir forskjellig hver gang programmet kjøres. Det er maskinens svar på «hvilket objekt dette er», og det er ubrukelig for et menneske.\n\n**Løsningen er å fortelle Python hvordan objektet skal se ut som tekst.** Det\ngjør du med spesialmetoden `__str__`."
+    },
+    {
+      "id": "in1000-5-3-4",
+      "type": "definition",
+      "title": "`__str__`",
+      "content": "Spesialmetoden som **returnerer en tekst** som beskriver objektet. Python kaller den automatisk når objektet skal skrives ut.\n\nNavnet har to understreker på hver side, som `__init__`, og du kaller den aldri selv:\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel self._aar = aar\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._aar) + \")\"\n\nb = Bok(\"Sult\", 1890)\nprint(b)\n```\n\n**Utskrift:**\n```\nSult (1890)\n```\n\nMetoden har `self` som eneste parameter, og den **returnerer** — den skriver ikke ut. Bruker du `print` inni i stedet for `return`, går det galt på en måte som forklares i advarselen lenger nede."
+    },
+    {
+      "id": "in1000-5-3-5",
+      "type": "theorem",
+      "title": "`__str__`-malen",
+      "content": "Bokas ellevte kodemønster. Malen er kort og alltid den samme:\n\n```text\n    def __str__(self):\n        return \"...\" + self._tekstfelt + \" \" + str(self._tallfelt)\n```\n\nBlokken er en mal med plassholdernavn og er derfor merket som ikke-kjørbar.\n\nTre regler:\n\n1. **`return`, aldri `print`.** Metoden leverer en tekst; det er den som kaller,\n   som bestemmer om teksten skal vises.\n2. **`str(...)` rundt hvert tall.** Tekst pluss tall stopper programmet.\n   Tekstfelt trenger det ikke, men det skader ikke å ta det med.\n3. **Mellomrom og skilletegn skrives inn selv.** `+` skjøter uten å legge til\n   noe, i motsetning til komma i et `print`-kall.\n\nFormen på teksten bestemmer du. Ber oppgaven om et bestemt format, følg det tegn for tegn — det er den slags detalj som rettes strengt."
+    },
+    {
+      "id": "in1000-5-3-6",
+      "type": "example",
+      "title": "Eksempel 1: Fra ubrukelig utskrift til lesbar linje",
+      "problem": "Gi klassen `Medlem` på et treningssenter en `__str__` som gjør at\n`print(medlem)` viser navn, medlemsnummer og antall besøk på én linje.",
+      "solution": "Metoden bygger én tekst av de tre verdiene, med skilletegn skrevet inn for hånd:\n\n```python\nclass Medlem:\n    def __init__(self, navn, nummer):\n        self._navn = navn self._nummer = nummer self._besok = 0\n\n    def registrer_besok(self):\n        self._besok = self._besok + 1\n\n    def __str__(self):\n        return self._navn + \" (nr \" + str(self._nummer) + \"), \" + str(self._besok) + \" besok\"\n\nm = Medlem(\"Ada\", 104)\nm.registrer_besok()\nm.registrer_besok()\nprint(m)\n```\n\n**Utskrift:**\n```\nAda (nr 104), 2 besok\n```\n\n**Legg merke til de tre `str(...)`-kallene.** `self._navn` er allerede tekst og\ntrenger ingen, men `self._nummer` og `self._besok` er tall. Uten konverteringen stopper programmet med `TypeError: can only concatenate str (not \"int\") to str`.\n\n**Slik ville sensor sett på det:** tre ting gir uttelling hver for seg — at\nmetoden heter `__str__` med riktige understreker, at den bruker `return`, og at tallene er konvertert. Hadde du glemt ett `str(...)`, ville de to andre fortsatt telt.\n\nMerk at teksten er skrevet uten æ, ø og å, som all kode i denne boka. «besok»\ni stedet for «besøk» er den vanlige omskrivingen."
+    },
+    {
+      "id": "in1000-5-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-5-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — gjengivelse.) Klassen `Rett` i en kantine har\n`self._navn` og `self._pris`.\n\n**a)** Skriv `__str__` slik at `print(rett)` gir for eksempel\n`Fiskesuppe: 89 kr`.\n\n**b)** Hvorfor må prisen gjennom `str(...)`?\n\n**c)** Hva ville `print(rett)` gitt hvis klassen ikke hadde noen `__str__`?",
+        "solution": "**a)**\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn self._pris = pris\n\n    def __str__(self):\n        return self._navn + \": \" + str(self._pris) + \" kr\"\n\nr = Rett(\"Fiskesuppe\", 89)\nprint(r)\n```\n\n**Utskrift:**\n```\nFiskesuppe: 89 kr\n```\n\n**b)** Fordi `+` mellom en tekst og et tall ikke er tillatt i Python. Plusstegnet\nbetyr «legg sammen» for to tall og «skjøt sammen» for to tekster, og Python nekter å gjette hvilken av delene du mente. Siste linje i feilmeldingen er\n`TypeError: can only concatenate str (not \"int\") to str`.\n\n**c)** Noe i stilen `<__main__.Rett object at 0x...>` — klassenavnet og en adresse\ni minnet. Adressen er forskjellig hver gang programmet kjøres, så utskriften er ikke noe du kan spore deg fram til på papir. Det er nettopp derfor `__str__` finnes.",
+        "hints": [
+          "Bygg én tekst med `+` og returner den.",
+          "Kolon og «kr» er tegn du må skrive inn selv, med mellomrom der du vil ha dem."
+        ]
+      }
+    },
+    {
+      "id": "in1000-5-3-7",
+      "type": "text",
+      "content": "## Løkke 2 — `__str__` mot en skriv-metode (~10 min)\n\nDet finnes to måter å få et objekt til å vise seg fram på, og eksamensoppgaver ber om begge. Forskjellen er liten i kode og stor i bruk.\n\nEn `__str__` **returnerer** en tekst. En skriv-metode **skriver den ut**. Den første kan brukes videre — legges i en liste, skjøtes med annen tekst, sendes til en annen metode. Den andre er ferdig i det øyeblikket den kjører."
+    },
+    {
+      "id": "in1000-5-3-8",
+      "type": "definition",
+      "title": "`str(objekt)` og `print(objekt)`",
+      "content": "De to måtene `__str__` blir kalt på — begge automatisk, ingen av dem av deg.\n\n`print(objekt)` kaller `__str__` og skriver resultatet. `str(objekt)` kaller\n`__str__` og gir deg teksten, slik at du kan bruke den videre:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def __str__(self):\n        return \"Bok: \" + self._tittel\n\nb = Bok(\"Sult\")\nlinje = str(b)\nprint(linje + \" | \" + str(b))\n```\n\n**Utskrift:**\n```\nBok: Sult | Bok: Sult\n```\n\nDet er dette som gjør `__str__` mer verdt enn en skriv-metode: teksten kan brukes til noe. Du kan skjøte den, sammenligne den eller legge den i en liste."
+    },
+    {
+      "id": "in1000-5-3-9",
+      "type": "definition",
+      "title": "Skriv-metode",
+      "content": "En vanlig metode som **skriver ut** i stedet for å returnere:\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel self._aar = aar\n\n    def skriv(self):\n        print(self._tittel, self._aar)\n\nb = Bok(\"Sult\", 1890)\nb.skriv()\n```\n\n**Utskrift:**\n```\nSult 1890\n```\n\nNavnet er fritt — `skriv`, `skriv_ut`, `vis`. Metoden returnerer ingenting, og verdien kan derfor ikke brukes videre.\n\n**Legg merke til komma i `print`-kallet.** Komma skiller argumentene med **ett\nmellomrom** og konverterer tall automatisk, så du slipper både `+` og `str(...)`.\nDet er den store praktiske forskjellen fra `__str__`, der du må skrive begge deler selv.\n\nBer oppgaven om «en metode som skriver ut objektet», er dette svaret. Ber den om\n«at objektet kan skrives pent ut med `print`», er svaret `__str__`."
+    },
+    {
+      "id": "in1000-5-3-10",
+      "type": "warning",
+      "title": "Typisk feil: `__str__` som ikke returnerer en streng",
+      "content": "To varianter, og begge stopper programmet — eller gjør noe verre.\n\n**Variant 1: `print` i stedet for `return`.**\n\n```text\n    def __str__(self):\n        print(self._tittel)\n```\n\nMetoden skriver ut tittelen og returnerer `None`. Når `print(b)` da skal skrive det `__str__` ga tilbake, stopper programmet, og siste linje i feilmeldingen er\n`TypeError: __str__ returned non-string (type NoneType)`. Utskriften kommer altså, men programmet krasjer rett etterpå — en forvirrende kombinasjon første gang du ser den.\n\n**Variant 2: returnere et tall.**\n\n```text\n    def __str__(self):\n        return self._aar\n```\n\nSamme type feilmelding, med `(type int)` til slutt. `__str__` **skal** returnere en tekst, uansett hva feltet er. Løsningen er `return str(self._aar)`.\n\nBegge blokkene er merket som ikke-kjørbare, fordi feilen er plantet med vilje.\n\n**Motgiften:** les metoden din og spør «gir siste linje her en tekst?». Er\nsvaret nei, mangler det enten et `return` eller en `str(...)`."
+    },
+    {
+      "id": "in1000-5-3-11",
+      "type": "example",
+      "title": "Eksempel 2: Samme klasse med begge deler",
+      "problem": "Gi klassen `Sykkel` både en `__str__` og en skriv-metode, og vis når hver av dem er nyttig.",
+      "solution": "Klassen får begge, og bruken viser forskjellen:\n\n```python\nclass Sykkel:\n    def __init__(self, kode, stativ):\n        self._kode = kode self._stativ = stativ\n\n    def __str__(self):\n        return self._kode + \" @ \" + self._stativ\n\n    def skriv(self):\n        print(\"Sykkel\", self._kode, \"staar i\", self._stativ)\n\ns = Sykkel(\"R31\", \"Blindern\")\nprint(s)\ns.skriv()\n\nlinjer = []\nlinjer.append(str(s))\nlinjer.append(\"R48 @ Majorstuen\")\nprint(len(linjer), linjer[0])\n```\n\n**Utskrift:**\n```\nR31 @ Blindern\nSykkel R31 staar i Blindern\n2 R31 @ Blindern\n```\n\n**De to første linjene ser like nyttige ut, men bare den ene teksten kan gjenbrukes.**\nNederst legges den i en liste, og det kunne like gjerne vært en fil, en sammenligning eller en lengre rapport. Skriv-metoden har ingen slik verdi å gi fra seg.\n\n**Slik ville sensor sett på det:** ber oppgaven om «en metode som gjør at\nobjektet kan skrives ut med `print`», er `__str__` det riktige svaret, og en skriv-metode gir bare delvis uttelling. Ber den om «en metode som skriver ut opplysningene», er skriv-metoden riktig. Les hvilket av de to verbene som står der.\n\n**Merk `@`-tegnet i teksten.** Det er et helt vanlig tegn i en streng, og det er\nlov å bruke det som skilletegn. Æ, ø og å er det derimot ikke, som ellers i bokas kode."
+    },
+    {
+      "id": "in1000-5-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-5-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Hva skriver programmet ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall, pris):\n        self._navn = navn self._antall = antall self._pris = pris\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._antall)\n\n    def hent_verdi(self):\n        return self._antall * self._pris\n\nv = Vare(\"skrue\", 4, 3)\nprint(v)\nprint(v, v.hent_verdi())\nprint(str(v) + \"!\")\n```",
+        "solution": "**Sporingstavle.** Ingen verdier endres her; det som avgjør, er hvordan hver\nlinje settes sammen:\n\n| Linje | Hva Python gjør | Utskrift |\n|---|---|---|\n| `print(v)` | kaller `__str__` | `skrue x4` |\n| `print(v, v.hent_verdi())` | `__str__`, så komma og ett mellomrom, så 4 ganger 3 | `skrue x4 12` |\n| `print(str(v) + \"!\")` | `str(v)` gir teksten, `+` skjøter uten mellomrom | `skrue x4!` |\n\n**Utskrift:**\n```\nskrue x4 skrue x4 12 skrue x4!\n```\n\n**Fellen her er forskjellen på komma og pluss.** Komma i et `print`-kall setter\n**ett mellomrom** mellom argumentene; `+` skjøter uten å legge til noe. Derfor\nstår det mellomrom foran `12`, men ikke foran utropstegnet.\n\nLegg også merke til at `print(v, ...)` kaller `__str__` helt av seg selv — du skriver ikke `str(v)` når objektet er et av argumentene til `print`.\n\n**På eksamen** skrives alle tre linjene, i riktig rekkefølge. De teller hver for\nseg.",
+        "hints": [
+          "Skriv opp hva `__str__` gir, og sett den teksten inn i hver av de tre linjene.",
+          "Hva legger komma inn mellom to argumenter i `print`? Og hva legger `+` inn?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-5-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-5-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F-del — skriv `__str__`.) En kollektivrute skal kunne skrives ut på formen `Rute 20: Blindern - Toyen (14 passasjerer)`.\n\n**a)** Skriv klassen `Rute` med konstruktør som tar rutenummer, startsted og\nendested, og et passasjerantall som starter på 0.\n\n**b)** Skriv `__str__` som gir nøyaktig formen over.\n\n**c)** Legg til `paa(self, antall)` og vis at utskriften følger med.",
+        "solution": "**a)–c)** Klassen samlet, med bruken nederst i samme blokk:\n\n```python\nclass Rute:\n    def __init__(self, nummer, start, slutt):\n        self._nummer = nummer self._start = start self._slutt = slutt self._passasjerer = 0\n\n    def paa(self, antall):\n        self._passasjerer = self._passasjerer + antall\n\n    def __str__(self):\n        return (\"Rute \" + str(self._nummer) + \": \" + self._start + \" - \"\n                + self._slutt + \" (\" + str(self._passasjerer) + \" passasjerer)\")\n\nr = Rute(20, \"Blindern\", \"Toyen\")\nprint(r)\nr.paa(14)\nprint(r)\n```\n\n**Utskrift:**\n```\nRute 20: Blindern - Toyen (0 passasjerer)\nRute 20: Blindern - Toyen (14 passasjerer)\n```\n\n**Legg merke til at `return`-setningen er delt over to linjer med parenteser\nrundt.** Det er en helt vanlig måte å skrive en lang tekst på, og den endrer ingenting — Python leser innholdet i parentesen som én sammenhengende linje.\nAlternativt kan du bygge teksten i flere steg med en lokal variabel.\n\n**Slik ville sensor sett på det:** her rettes formatet strengt, fordi oppgaven\noppgir det. Mellomrommene rundt bindestreken, kolonet etter rutenummeret og parentesen rundt passasjerantallet er alle en del av bestillingen. Har du riktig struktur men glemt ett mellomrom, er trekket lite — men les formatet en gang til før du leverer.\n\n**Merk at utskriften endrer seg av seg selv** når passasjerantallet endres.\n`__str__` leser instansvariablene i det øyeblikket den kalles; den husker ingenting fra sist.",
+        "hints": [
+          "Bygg teksten med `+`, og husk `str(...)` rundt de to tallene.",
+          "Skriv formatet fra oppgaven på papir først, og marker hvert mellomrom."
+        ]
+      }
+    },
+    {
+      "id": "in1000-5-3-12",
+      "type": "text",
+      "content": "## Løkke 3 — Delegering: la hvert objekt skrive seg selv (~12 min)\n\nNå kommer mønsteret som er fast delkrav i den store oppgaven.\n\nEt bibliotek holder mange bøker. Skal biblioteket skrive ut hele samlingen sin, har det to valg: enten grave i hver boks verdier selv, eller **be hver bok om å skrive seg selv**.\n\nDet siste heter **delegering**, og det er alltid riktig svar. Grunnen er den samme som i [kap. 5.2](/bok/in1000/in1000-5-2): boka vet hvordan en bok skal vises, og biblioteket skal slippe å vite det."
+    },
+    {
+      "id": "in1000-5-3-13",
+      "type": "theorem",
+      "title": "Delegerings-malen",
+      "content": "Bokas tolvte kodemønster, og kjernen i Oppgave 4:\n\n```text\nclass Container:\n    def __init__(self):\n        self._elementer = []\n\n    def legg_til(self, e):\n        self._elementer.append(e)\n\n    def skriv_alle(self):\n        for e in self._elementer:\n            print(e)\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\nLøkka går gjennom samlingen og lar `print(e)` kalle hvert underobjekts\n`__str__`. Ytterklassen skriver ikke ett eneste felt selv.\n\n**Alternativet — å skrive `print(e.hent_tittel(), e.hent_aar())` inne i løkka —\ngir dårligere uttelling**, fordi visningen da er duplisert: endrer boka format, må biblioteket endres også. Og verst av alt er `print(e._tittel)`, som i tillegg er feilkode **#11**, direkte tilgang til en instansvariabel utenfra."
+    },
+    {
+      "id": "in1000-5-3-14",
+      "type": "tip",
+      "title": "Navneregelen: containeren skal IKKE hete det samme som elementet",
+      "content": "Legg merke til at metoden i malen heter **`skriv_alle`**, ikke `skriv`. Det er en bindende regel i denne boka, og den er verdt å ta med til eksamen.\n\nGrunnen er dels lesbarhet: de to metodene gjør ulike ting. `bok.skriv()` viser\n**én** bok; `bibliotek.skriv_alle()` viser **alle**. To ulike jobber bør ha to\nulike navn.\n\nDels er den praktisk. En metode som heter det samme som den den kaller, er vanskelig å lese — og et verktøy som leser koden, kan ikke se forskjell på\n`self.skriv()` og `bok.skriv()`. Det ser ut som om metoden kaller seg selv, og en metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette emnet.\n\nBruk disse navneparene:\n\n| Elementets metode | Containerens metode |\n|---|---|\n| `skriv()` | `skriv_alle()` |\n| `hent_navn()` | `hent_alle_navn()` eller `navneliste()` |\n| `antall()` | `totalt_antall()` |\n| `__str__` | `skriv_alle()`, som bruker `print(e)` |"
+    },
+    {
+      "id": "in1000-5-3-15",
+      "type": "example",
+      "title": "Eksempel 3: `Bibliotek` som delegerer utskriften til hver `Bok`",
+      "problem": "La klassen `Bibliotek` holde flere `Bok`-objekter i en liste, og gi den en metode som skriver ut hele samlingen ved å be hver bok om å vise seg selv.",
+      "solution": "To klasser, der den ytre bare holder styr på samlingen:\n\n```python\nclass Bok:\n    def __init__(self, tittel, aar):\n        self._tittel = tittel self._aar = aar\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._aar) + \")\"\n\nclass Bibliotek:\n    def __init__(self, navn):\n        self._navn = navn self._boker = []\n\n    def legg_til(self, bok):\n        self._boker.append(bok)\n\n    def skriv_alle(self):\n        print(\"Samling:\", self._navn)\n        for b in self._boker:\n            print(\" -\", b)\n\nbib = Bibliotek(\"Deichman\")\nbib.legg_til(Bok(\"Sult\", 1890))\nbib.legg_til(Bok(\"Markens grode\", 1917))\nbib.skriv_alle()\n```\n\n**Utskrift:**\n```\nSamling: Deichman\n - Sult (1890)\n - Markens grode (1917)\n```\n\n**Linjen `print(\" -\", b)` er hele delegeringen.** `b` er et `Bok`-objekt, og\n`print` kaller boka sin egen `__str__`. `Bibliotek` vet ikke — og trenger ikke å vite — at en bok vises med tittel og årstall i parentes.\n\n**Prøv tanken:** skal bøkene senere vises med forfatter i tillegg, endrer du én\nmetode i `Bok`, og `Bibliotek` merker ingenting. Det er den samme gevinsten som i\n[kap. 5.2](/bok/in1000/in1000-5-2), nå mellom to klasser.\n\n**Slik ville sensor sett på det:** fem ting gir uttelling. `self._boker = []` i\nkonstruktøren, `append` i `legg_til`, løkka i `skriv_alle`, at utskriften delegeres i stedet for å hentes felt for felt, og at metoden heter noe annet enn elementets. Hadde du skrevet `print(\" -\", b.hent_tittel())`, ville strukturen vært riktig og trekket lite — men delegeringspoenget hadde gått tapt.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1000-5-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-5-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Spill:\n    def __init__(self, tittel, maks):\n        self._tittel = tittel self._maks = maks\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._maks) + \")\"\n\nclass Klubb:\n    def __init__(self):\n        self._spill = []\n\n    def legg_til(self, s):\n        self._spill.append(s)\n\n    def skriv_alle(self):\n        for s in self._spill:\n            print(s)\n        print(\"Antall:\", len(self._spill))\n\nk = Klubb()\nk.legg_til(Spill(\"Kolonier\", 4))\nk.legg_til(Spill(\"Sjakk\", 2))\nk.skriv_alle()\n```",
+        "solution": "**Sporingstavle.** Lista fylles først, så løper løkka:\n\n| Steg | `_spill` | Utskrift |\n|---|---|---|\n| `legg_til(Spill(\"Kolonier\", 4))` | ett element | |\n| `legg_til(Spill(\"Sjakk\", 2))` | to elementer | |\n| løkka, runde 1 | to elementer | `Kolonier (4)` |\n| løkka, runde 2 | to elementer | `Sjakk (2)` |\n| linjen etter løkka | to elementer | `Antall: 2` |\n\n**Utskrift:**\n```\nKolonier (4)\nSjakk (2)\nAntall: 2\n```\n\n**Fellen her er den siste linjen.** `print(\"Antall:\", len(self._spill))` står\n**etter** løkka og uten innrykk under den, så den kjører én gang. Hadde den stått\ninne i løkka, ville den kommet to ganger — én per spill. Sjekk alltid innrykket på siste linje i en løkke før du sporer.\n\nLegg også merke til at `print(s)` kaller `__str__` på hvert spill: det er delegering, og formatet med parentes rundt tallet kommer fra `Spill`, ikke fra\n`Klubb`.\n\n**På eksamen** skrives alle tre linjene, i riktig rekkefølge.",
+        "hints": [
+          "Skriv opp hva `__str__` gir for hvert av de to objektene før du sporer løkka.",
+          "Se nøye på innrykket til den siste `print`-linjen."
+        ]
+      }
+    },
+    {
+      "id": "in1000-5-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-5-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F-del — delegering.) En resirkuleringsstasjon har flere containere, hver med et materiale og en fyllingsgrad i prosent.\n\n**a)** Skriv klassen `Container` med `__str__` på formen `glass: 40 %`.\n\n**b)** Skriv klassen `Stasjon` som holder containerne i en liste, med\n`legg_til(self, c)` og en metode som skriver ut alle.\n\n**c)** Hva skal metoden i b) hete, og hvorfor ikke `skriv`?",
+        "solution": "**a)–b)** De to klassene, med bruken nederst:\n\n```python\nclass Container:\n    def __init__(self, materiale, fylling):\n        self._materiale = materiale self._fylling = fylling\n\n    def __str__(self):\n        return self._materiale + \": \" + str(self._fylling) + \" %\"\n\nclass Stasjon:\n    def __init__(self, sted):\n        self._sted = sted self._containere = []\n\n    def legg_til(self, c):\n        self._containere.append(c)\n\n    def skriv_alle(self):\n        for c in self._containere:\n            print(c)\n\ns = Stasjon(\"Ryen\")\ns.legg_til(Container(\"glass\", 40))\ns.legg_til(Container(\"papir\", 85))\ns.skriv_alle()\n```\n\n**Utskrift:**\n```\nglass: 40 % papir: 85 %\n```\n\n**c)** Den skal hete **`skriv_alle`**. To grunner:\n\nDen gjør noe annet enn `Container` sin utskrift — den viser **alle**, ikke én — og to ulike jobber bør ha to ulike navn.\n\nOg en metode som heter det samme som den kaller, ser ut som om den kaller seg selv. En metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette emnet — så navnet ville sendt et feil signal til alle som leser koden.\n\n**Merk prosenttegnet.** Det er et helt vanlig tegn i en streng og gir ingen\nproblemer, i motsetning til æ, ø og å, som bokas kode aldri bruker.",
+        "hints": [
+          "`__str__` returnerer én tekst; ytterklassen løper gjennom lista og lar `print` gjøre resten.",
+          "Se på navneparene i tipsboksen om navneregelen."
+        ]
+      }
+    },
+    {
+      "id": "in1000-5-3-16",
+      "type": "text",
+      "content": "## Løkke 4 — Delegering med en ordbok (~8 min)\n\nUnderobjektene ligger ikke alltid i en liste. Skal du kunne slå opp på et navn eller et nummer, er en ordbok fra\n[kap. 3.2](/bok/in1000/in1000-3-2) et bedre valg — og det er formen den store oppgaven ofte bruker.\n\nDelegeringen er akkurat den samme; bare løkka ser litt annerledes ut."
+    },
+    {
+      "id": "in1000-5-3-17",
+      "type": "definition",
+      "title": "Delegering over en ordbok",
+      "content": "Løkka over en ordbok gir deg **nøklene**. Objektet henter du med et oppslag:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def __str__(self):\n        return \"Bok: \" + self._tittel\n\nboker = {}\nboker[\"sult\"] = Bok(\"Sult\")\nboker[\"vaar\"] = Bok(\"Vaar\")\nfor n in boker:\n    print(n, \"->\", boker[n])\n```\n\n**Utskrift:**\n```\nsult -> Bok: Sult vaar -> Bok: Vaar\n```\n\nRekkefølgen følger den de ble satt inn i. Verdien `boker[n]` er et helt vanlig objekt, så `print` kaller dets `__str__` som før.\n\n**Nøkkelen er ofte navnet, og verdien objektet.** Da har du både oppslag og\ngjennomløping i samme struktur — derfor er ordboka så vanlig i Oppgave 4."
+    },
+    {
+      "id": "in1000-5-3-18",
+      "type": "example",
+      "title": "Eksempel 4: Full modell på eksamensnivå — treningssenter med saler",
+      "problem": "Et treningssenter holder salene sine i en ordbok fra salnavn til `Sal`-objekt.\nSkriv de to klassene med `__str__` og en utskriftsmetode som delegerer, pluss en metode som finner én sal på navn.",
+      "solution": "Ordboka gir både oppslag og gjennomløping:\n\n```python\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn self._kapasitet = kapasitet\n\n    def hent_navn(self):\n        return self._navn\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._kapasitet) + \" plasser)\"\n\nclass Senter:\n    def __init__(self, sted):\n        self._sted = sted self._saler = {}\n\n    def legg_til(self, sal):\n        self._saler[sal.hent_navn()] = sal\n\n    def finn(self, navn):\n        if navn in self._saler:\n            return self._saler[navn]\n        return None\n\n    def skriv_alle(self):\n        print(\"Senter:\", self._sted)\n        for n in self._saler:\n            print(\" -\", self._saler[n])\n\nsenter = Senter(\"Toyen\")\nsenter.legg_til(Sal(\"Speilsal\", 20))\nsenter.legg_til(Sal(\"Spinning\", 14))\nsenter.skriv_alle()\nprint(senter.finn(\"Spinning\"))\nprint(senter.finn(\"Basseng\"))\n```\n\n**Utskrift:**\n```\nSenter: Toyen\n - Speilsal (20 plasser)\n - Spinning (14 plasser)\nSpinning (14 plasser)\nNone\n```\n\n**Fire ting er verdt å merke seg.**\n\n`legg_til` bruker salens **egen** aksessor til å finne nøkkelen:\n`self._saler[sal.hent_navn()] = sal`. Senteret bestemmer altså ikke navnet selv, det spør salen. Å skrive `sal._navn` her ville vært feilkode #11.\n\n`finn` sjekker med `if navn in self._saler:` før den slår opp. Uten sjekken stopper programmet på en nøkkel som ikke finnes — det er feilkode **#14**, å slå opp noe som ikke er lagt inn.\n\nSiste linje skriver `None`, fordi `finn(\"Basseng\")` ikke fant noe. `None` er\nPythons ord for «ingen verdi», og `print` viser det med stor forbokstav.\n\nOg `skriv_alle` heter ikke `skriv`, etter navneregelen.\n\n**Slik ville sensor sett på det:** dette er en typisk 12–15-poengs deloppgave i\nOppgave 4, og poengene ligger spredt: ordboka i konstruktøren, innsettingen med riktig nøkkel, `if navn in ...`-sjekken, `return None`-grenen, løkka, og delegeringen. Mangler én av dem, står de andre."
+    },
+    {
+      "id": "in1000-5-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-5-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nclass Medlem:\n    def __init__(self, navn, timer):\n        self._navn = navn self._timer = timer\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \"/\" + str(self._timer)\n\nclass Sentral:\n    def __init__(self):\n        self._medlemmer = {}\n\n    def legg_til(self, m, nokkel):\n        self._medlemmer[nokkel] = m\n\n    def totalt_antall_timer(self):\n        total = 0 for n in self._medlemmer:\n            total = total + self._medlemmer[n].hent_timer()\n        return total\n\n    def skriv_alle(self):\n        for n in self._medlemmer:\n            print(n, self._medlemmer[n])\n\ns = Sentral()\ns.legg_til(Medlem(\"Ada\", 12), \"ada\")\ns.legg_til(Medlem(\"Nora\", 7), \"nora\")\ns.legg_til(Medlem(\"Ada\", 3), \"ada\")\ns.skriv_alle()\nprint(s.totalt_antall_timer())\n```",
+        "solution": "**Sporingstavle.** Se nøye på den tredje innsettingen:\n\n| Steg | Ordboka etter | Merknad |\n|---|---|---|\n| `legg_til(Medlem(\"Ada\", 12), \"ada\")` | `ada` gir Ada med 12 | ny nøkkel |\n| `legg_til(Medlem(\"Nora\", 7), \"nora\")` | pluss `nora` med 7 | ny nøkkel |\n| `legg_til(Medlem(\"Ada\", 3), \"ada\")` | `ada` gir nå Ada med 3 | **overskrevet** |\n\n**Utskrift:**\n```\nada Ada/3 nora Nora/7\n10\n```\n\n**Fellen her er at en ordbok aldri får to like nøkler.** Den tredje innsettingen\nbruker nøkkelen `\"ada\"` på nytt, og det **overskriver** det første medlemmet i stedet for å legge til et nytt. Objektet med 12 timer finnes ikke lenger noe sted, og summen blir 3 pluss 7, ikke 12 pluss 7 pluss 3.\n\nLegg også merke til rekkefølgen: `ada` kommer først i utskriften selv om den ble overskrevet sist. En ordbok husker rekkefølgen nøklene ble **opprettet** i, ikke når de sist ble endret.\n\nOg legg merke til at `totalt_antall_timer` heter noe annet enn medlemmets\n`hent_timer` — etter navneregelen for containere.\n\n**På eksamen** skrives alle tre linjene. Å bomme på summen koster ikke de to\nførste.",
+        "hints": [
+          "Skriv opp ordboka på nytt etter hver innsetting.",
+          "Hva skjer når en nøkkel som allerede finnes, brukes en gang til?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-5-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-5-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — stor klassemodellering, altså å bygge flere samarbeidende klasser fra en beskrivelse.) En brettspillklubb har medlemmer, og hvert medlem har et navn og en liste over spill det eier.\n\n**a)** Skriv klassen `Medlem` med `__str__` på formen `Ada (2 spill)`, og en\nmetode `legg_til_spill(self, tittel)`.\n\n**b)** Skriv klassen `Klubb` som holder medlemmene i en ordbok fra navn til\n`Medlem`-objekt, med `meld_inn(self, medlem)` og `skriv_alle(self)`.\n\n**c)** Legg til en metode i `Klubb` som gir det samlede antall spill i klubben.\n\n**d)** Hvorfor kan ikke metoden i c) hete det samme som noen metode i `Medlem`?",
+        "solution": "**a)–c)** De to klassene, med bruken nederst i samme blokk:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn self._spill = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def antall_spill(self):\n        return len(self._spill)\n\n    def legg_til_spill(self, tittel):\n        self._spill.append(tittel)\n\n    def __str__(self):\n        return self._navn + \" (\" + str(len(self._spill)) + \" spill)\"\n\nclass Klubb:\n    def __init__(self):\n        self._medlemmer = {}\n\n    def meld_inn(self, medlem):\n        self._medlemmer[medlem.hent_navn()] = medlem\n\n    def totalt_antall_spill(self):\n        total = 0 for n in self._medlemmer:\n            total = total + self._medlemmer[n].antall_spill()\n        return total\n\n    def skriv_alle(self):\n        for n in self._medlemmer:\n            print(self._medlemmer[n])\n\nada = Medlem(\"Ada\")\nada.legg_til_spill(\"Kolonier\")\nada.legg_til_spill(\"Sjakk\")\nnora = Medlem(\"Nora\")\nnora.legg_til_spill(\"Ordjakt\")\n\nk = Klubb()\nk.meld_inn(ada)\nk.meld_inn(nora)\nk.skriv_alle()\nprint(k.totalt_antall_spill())\n```\n\n**Utskrift:**\n```\nAda (2 spill)\nNora (1 spill)\n3\n```\n\n**d)** Fordi `totalt_antall_spill` **kaller** `antall_spill` inne i løkka si.\nHadde de hett det samme, ville linjen sett ut som om metoden kalte seg selv — og en metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette emnet.\n\nNavnet skal dessuten si hva metoden gjør. `antall_spill()` er spillene til **ett**\nmedlem; `totalt_antall_spill()` er spillene i **hele** klubben. To ulike jobber, to ulike navn.\n\n**Slik ville sensor sett på det:** dette er en flerdelt deloppgave der hver del\nteller for seg. Konstruktørene, lista og ordboka, innsettingen med riktig nøkkel,\n`__str__`, akkumulatoren i tellemetoden og delegeringen i `skriv_alle` er seks selvstendige poeng. Har du glemt `hent_navn()` og skrevet `medlem._navn` i\n`meld_inn`, står resten — men den ene linjen er feilkode #11 og trekker.",
+        "hints": [
+          "Medlemmet teller sine egne spill; klubben summerer det medlemmene svarer.",
+          "Se på navneparene i tipsboksen om navneregelen før du navngir metoden i c)."
+        ]
+      }
+    },
+    {
+      "id": "in1000-5-3-19",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "Fem feil koster nesten alle poengene som mistes på objektutskrift:\n\n- **`__str__` uten `return`.** Bruker du `print` inni, returnerer metoden `None`,\n  og programmet stopper med\n  `TypeError: __str__ returned non-string (type NoneType)`.\n- **`__str__` som returnerer et tall.** Samme feilmelding med `(type int)`.\n  Løsningen er `return str(self._x)`.\n- **Glemt `str(...)` rundt et tall i skjøtingen.** Programmet stopper med\n  `TypeError: can only concatenate str (not \"int\") to str`.\n- **Ikke delegere.** Å skrive ut underobjektets felt for felt i ytterklassen\n  dupliserer visningen, og med `e._tittel` blir det i tillegg feilkode **#11**.\n- **Containerens metode heter det samme som elementets.** `skriv` som kaller\n  `skriv` ser ut som om den kaller seg selv. Bruk `skriv_alle`.\n\nOg én lesefelle: **komma i `print` gir ett mellomrom, `+` gir ingenting.**\nBlander du dem, blir formatet feil selv om alt annet er riktig."
+    },
+    {
+      "id": "in1000-5-3-coll-20",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1000-5-3-c1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def __str__(self):` | Spesialmetode. Kalles automatisk av `print(obj)` og `str(obj)`. |\n| `return tekst` i `__str__` | Obligatorisk. Returverdien **må** være en tekst, ellers stopper programmet. |\n| `print(obj)` | Kaller `__str__` og skriver resultatet. Uten `__str__`: klassenavn og minneadresse. |\n| `str(obj)` | Kaller `__str__` og gir deg teksten, slik at den kan brukes videre. |\n| `a + str(tall)` | Skjøter tekst og tall. Uten `str(...)`: `TypeError`. |\n| `print(a, b)` | Skiller argumentene med **ett** mellomrom og konverterer tall selv. |\n| `a + b` | Skjøter uten å legge til noe — mellomrom må skrives inn selv. |\n| `def skriv(self):` `print(...)` | Skriv-metode. Viser noe, men gir ingen verdi tilbake. |\n| `self._elementer = []` | Container-klassens samling av underobjekter. Settes i konstruktøren. |\n| `self._elementer.append(e)` | Legger et objekt inn i samlingen. |\n| `self._elementer[navn] = e` | Ordbok-varianten: nøkkel er ofte navnet, verdi er objektet. |\n| `for e in self._elementer:` `print(e)` | **Delegering** over en liste. `print` kaller elementets `__str__`. |\n| `for n in d:` `print(d[n])` | Delegering over en ordbok. Løkka gir nøklene, oppslaget gir objektet. |\n| `if navn in d:` | Sjekk før oppslag. Uten den stopper programmet på en nøkkel som mangler. |\n| `skriv_alle` mot `skriv` | Containerens metode har **alltid** et annet navn enn elementets. |\n\n**Det som avgjør poeng i Oppgave 4:** at `__str__` returnerer en tekst, og at\nytterklassen delegerer visningen i stedet for å hente feltene selv."
+        }
+      ]
+    },
+    {
+      "id": "in1000-5-3-21",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1000-5-3-22",
+      "type": "definition",
+      "title": "Spesialmetode",
+      "content": "En metode med to understreker på hver side av navnet, som Python kaller automatisk — du kaller den aldri selv.\n\nI denne boka finnes bare to: `__init__`, som kjører når objektet lages, og\n`__str__`, som kjører når objektet skal bli tekst.\n\nBlander du dem, er symptomet lett å kjenne igjen: skriver du `__str__` der\n`__init__` skulle stått, får objektet ingen verdier i det hele tatt."
+    },
+    {
+      "id": "in1000-5-3-23",
+      "type": "definition",
+      "title": "Delegering",
+      "content": "At en klasse ber et underobjekt om å gjøre jobben, i stedet for å gjøre den selv.\n\nI dette kapitlet er jobben utskrift: `Bibliotek` lar hver `Bok` vise seg selv med sin egen `__str__`. Senere delegeres også telling, søk og oppdatering.\n\nKjennetegnet i koden er en løkke der kroppen er ett kall på et underobjekt, og ingen felt hentes ut. Det motsatte — at ytterklassen graver i underobjektets verdier — er både dårligere kode og dårligere uttelling."
+    },
+    {
+      "id": "in1000-5-3-24",
+      "type": "definition",
+      "title": "Navneregelen for containere",
+      "content": "En metode i denne boka kaller aldri en metode med samme navn — verken på seg selv eller på et underobjekt.\n\nElementet har `skriv()`, containeren har `skriv_alle()`. Elementet har\n`antall_spill()`, containeren har `totalt_antall_spill()`.\n\nRegelen har to grunner: navnene beskriver ulike jobber, og en metode som ser ut som om den kaller seg selv, ligner på **rekursjon**, som er utenfor pensum i dette emnet."
+    },
+    {
+      "id": "in1000-5-3-25",
+      "type": "definition",
+      "title": "Format som del av bestillingen",
+      "content": "Når en oppgave oppgir hvordan utskriften skal se ut, er formatet en del av oppgaven og rettes deretter.\n\nSkriv formatet av på papir før du koder, og marker hvert mellomrom, hvert skilletegn og hver parentes. `Rute 20: Blindern - Toyen (14 passasjerer)` inneholder fem slike detaljer.\n\nEr formatet ikke oppgitt, velger du selv — men velg noe som er lett å lese, og hold det likt for alle objektene av samme klasse."
+    },
+    {
+      "id": "in1000-5-3-26",
+      "type": "definition",
+      "title": "Tekst mot utskrift",
+      "content": "Skillet som avgjør om en metode skal bruke `return` eller `print`.\n\nEn metode som **lager en tekst**, returnerer den, og den som kaller, bestemmer hva som skjer videre. En metode som **viser noe**, skriver ut, og da er saken avgjort.\n\n`__str__` er alltid av den første typen. Det er nettopp derfor den er mer verdt enn en skriv-metode: teksten kan legges i en liste, skjøtes med annen tekst eller sammenlignes."
+    },
+    {
+      "id": "in1000-5-3-27",
+      "type": "definition",
+      "title": "Minneadressen i standardutskriften",
+      "content": "Det Python viser når en klasse mangler `__str__`: klassenavnet og et sekskantsifret tall, som `<__main__.Bok object at 0x104a2f130>`.\n\nTallet er hvor objektet ligger i maskinens minne, og det er forskjellig hver gang programmet kjøres. Derfor kan en slik utskrift aldri være fasit i en sporingsoppgave.\n\nSer du den i din egen kjøring, betyr det bare at klassen mangler `__str__`."
+    },
+    {
+      "id": "in1000-5-3-28",
+      "type": "definition",
+      "title": "Å bygge en lang tekst",
+      "content": "Skal `__str__` sette sammen mange biter, blir linjen lang. To ryddige måter:\n\nSett parenteser rundt hele uttrykket og del over flere linjer — Python leser innholdet i en parentes som én sammenhengende linje. Eller bygg teksten i steg med en lokal variabel og returner den til slutt.\n\nBegge er like riktige. Velg den som gjør formatet lettest å kontrollere mot bestillingen."
+    },
+    {
+      "id": "in1000-5-3-29",
+      "type": "definition",
+      "title": "`None` i en utskrift",
+      "content": "Pythons ord for «ingen verdi». Skrives ut med stor forbokstav.\n\nDu møter den to steder i dette kapitlet: som returverdi fra en metode som glemte\n`return`, og som ærlig svar fra en søkemetode som ikke fant noe.\n\nDet siste er riktig og ønsket. `return None` når et søk mislykkes, er bedre enn å returnere en tom tekst — den som kaller, kan da sjekke med `if svar != None:`."
+    },
+    {
+      "id": "in1000-5-3-30",
+      "type": "definition",
+      "title": "Container-klasse",
+      "content": "En klasse hvis viktigste jobb er å holde mange objekter av en annen klasse:\n`Bibliotek` med bøker, `Klubb` med medlemmer, `Senter` med saler.\n\nDen kjennes igjen på tre trekk: en samling i konstruktøren (`[]` eller `{}`), en\n`legg_til`-metode, og én eller flere metoder som løper gjennom samlingen.\n\nHver eneste Oppgave 4 inneholder minst én slik klasse. Mønsteret er derfor verdt å kunne i fingrene, og det bygges ferdig i\n[kap. 6.2](/bok/in1000/in1000-6-2)."
+    },
+    {
+      "id": "in1000-5-3-31",
+      "type": "definition",
+      "title": "Liste eller ordbok for samlingen",
+      "content": "Valget avgjøres av ett spørsmål: **skal du slå opp på et navn eller et nummer?**\n\nEr svaret ja, bruk en ordbok med det navnet som nøkkel og objektet som verdi. Er svaret nei — du skal bare gå gjennom alle — er en liste enklere.\n\nEn ordbok kan aldri ha to like nøkler. Legger du inn samme navn to ganger,\n**overskrives** det første objektet uten en advarsel. Det er verdt å huske både\nnår du koder og når du sporer."
+    },
+    {
+      "id": "in1000-5-3-32",
+      "type": "definition",
+      "title": "Å bruke en aksessor som nøkkel",
+      "content": "Formen containeren bruker når objektet selv vet hva det heter:\n`self._saler[sal.hent_navn()] = sal`.\n\nContaineren spør altså objektet i stedet for å bestemme navnet selv. Alternativet\n`self._saler[sal._navn] = sal` er feilkode **#11**, direkte tilgang til en instansvariabel utenfra.\n\nDette er den vanligste formen feilkode #11 tar når to klasser samarbeider — og den vanligste i den store oppgaven."
+    },
+    {
+      "id": "in1000-5-3-33",
+      "type": "definition",
+      "title": "Sjekk før oppslag",
+      "content": "`if navn in self._saler:` før `self._saler[navn]`.\n\nUten sjekken stopper programmet på en nøkkel som ikke finnes, og siste linje i feilmeldingen er `KeyError` med nøkkelen som mangler. Det er feilkode **#14**.\n\nStandardformen på en søkemetode er derfor tredelt: sjekk, returner objektet hvis det finnes, og returner `None` ellers."
+    },
+    {
+      "id": "in1000-5-3-34",
+      "type": "definition",
+      "title": "Hvorfor `__str__` leses på nytt hver gang",
+      "content": "`__str__` husker ingenting. Den leser instansvariablene i det øyeblikket den kalles, og bygger teksten på nytt.\n\nDerfor endrer utskriften seg av seg selv når objektet endres — du trenger ikke å kalle noe for å «oppdatere» teksten.\n\nDet er også grunnen til at `__str__` aldri skal lagre noe i en instansvariabel.\nMetoden skal lese og returnere, ingenting annet."
+    },
+    {
+      "id": "in1000-5-3-35",
+      "type": "definition",
+      "title": "Å velge mellom `__str__` og skriv-metode",
+      "content": "Les verbet i oppgaveteksten.\n\n«Objektet skal kunne skrives pent ut med `print`» eller «gi klassen en metode som gjør objektet utskrivbart» betyr **`__str__`**.\n\n«Skriv en metode som skriver ut opplysningene om …» betyr en vanlig\n**skriv-metode**.\n\nEr du i tvil, skriv `__str__` — den kan alltid brukes av en skriv-metode etterpå, mens det ikke går den andre veien."
+    },
+    {
+      "id": "in1000-5-3-coll-36",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1000-5-3-c2",
+          "type": "text",
+          "content": "1. **`__str__` returnerer en tekst.** Python kaller den automatisk fra\n   `print(obj)` og `str(obj)`; du kaller den aldri selv.\n2. **`return`, aldri `print`, inne i `__str__`.** Ellers returnerer metoden\n   `None`, og programmet stopper med `TypeError: __str__ returned non-string`.\n3. **`str(...)` rundt hvert tall** når du skjøter med `+`. Tekst pluss tall\n   stopper programmet.\n4. **Komma i `print` gir ett mellomrom; `+` gir ingenting.** Formatet avgjøres av\n   hvilken du bruker.\n5. **Delegering:** ytterklassen løper gjennom samlingen og lar `print(e)` kalle\n   hvert underobjekts `__str__`. Den henter aldri feltene selv.\n6. **Containerens metode heter noe annet enn elementets** — `skriv_alle` mot\n   `skriv`, `totalt_antall` mot `antall`."
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

@@ -1,137 +1,137 @@
 {
- "id": "in1000-3-prove",
- "courseId": "in1000",
- "chapterNumber": "3.P",
- "title": "Prøver til del 3: Lister, ordbøker og strenger",
- "description": "Fire prøver på til sammen 125 minutter som dekker lister, ordbøker, strenger og en full Oppgave 3 på eksamensnivå — med full fasit, poengfordeling og selvdiagnose.",
- "estimatedMinutes": 125,
- "competenceGoals": [
-  "kunne skrive en liten funksjon over en liste i sensors grunnform",
-  "kunne bygge en telling og en gruppering med ordbok, uten ferdige hjelpemidler",
-  "kunne dele opp en innlest linje og konvertere feltene riktig",
-  "kunne løse fire deloppgaver uavhengig av hverandre innenfor eksamensfart"
- ],
- "content": [
-  {
-   "id": "in1000-3-prove-1",
-   "type": "tip",
-   "title": "Fire prøver til del 3 — dekning og tidsbruk",
-   "content": "Denne delen har **4 prøver à 30, 30, 30 og 35 minutter** — til sammen 125\nminutter. De kan trygt deles over flere kvelder: **én prøve per økt** er en helt\nvanlig og fornuftig rytme.\n\n| Prøve | Dekker | Tid |\n|---|---|---|\n| 3.A | Lister: teller, flagg og bygg ny liste ([kap. 3.1](/bok/in1000/in1000-3-1)) | 30 min |\n| 3.B | Ordbøker: teller, gruppering og finn beste ([kap. 3.2](/bok/in1000/in1000-3-2)) | 30 min |\n| 3.C | Strenger: tegn for tegn, `.split()` og `.rstrip()` ([kap. 3.3](/bok/in1000/in1000-3-3)) | 30 min |\n| 3.D | Full Oppgave 3 på eksamensnivå, fire deloppgaver | 35 min |\n\nAlle oppgavene er i **sjanger C, D og E — skriv en liten funksjon** over\nhenholdsvis en liste, en ordbok og en streng. Det er formen Oppgave 3 har på\neksamen, og den er verdt rundt 28 av de 100 poengene.\n\n**Flervalgsoppgavene bor to steder.** Denne delen har ingen statiske flervalg —\nalle oppgavene er kodeskriving, som på eksamen. Vil du ha flervalg, tar du den\ninteraktive quizen som hører til hvert kapittel; der stokkes rekkefølgen hver\ngang.\n\n**Skriv koden for hånd, uten å kjøre den.** Eksamen er hjelpemiddelfri, og det er\nnettopp den vanen prøvene skal bygge. Fasiten ligger i en egen boks under hver\nprøve, slik at du ikke ser den ved et uhell."
-  },
-  {
-   "id": "in1000-3-prove-2",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\nHele del 3: [kap. 3.1 — Lister](/bok/in1000/in1000-3-1),\n[kap. 3.2 — Ordbøker](/bok/in1000/in1000-3-2),\n[kap. 3.3 — Strenger](/bok/in1000/in1000-3-3) og drillen i\n[kap. 3.4](/bok/in1000/in1000-3-4).\n\nDe seks tingene prøvene tester hardest:\n\n- **skjelettet**: startverdi før løkka, oppdatering inne i den, `return` etter,\n- **teller-idiomet**: `if k not in d: d[k] = 0`, deretter `d[k] = d[k] + 1`,\n- **grupperings-idiomet**: `if k not in d: d[k] = []`, deretter\n  `d[k].append(v)`,\n- **finn beste**: `beste = None` og `beste_antall = 0`, og oppdater **begge**,\n- **`.rstrip()` før `.split()`**, og `int(...)` på felt du skal regne med,\n- **kanttilfellene**: tom samling, ingen treff, alle like.\n\nTrenger du å friske opp ett av punktene, gjør det før du starter klokka."
-  },
-  {
-   "id": "in1000-3-prove-coll-1",
-   "type": "collapsible",
-   "title": "Prøve 3.A — Lister",
-   "buttonText": "Vis prøve 1",
-   "content": [
+  "id": "in1000-3-prove",
+  "courseId": "in1000",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Lister, ordbøker og strenger",
+  "description": "Fire prøver på til sammen 125 minutter som dekker lister, ordbøker, strenger og en full Oppgave 3 på eksamensnivå — med full fasit, poengfordeling og selvdiagnose.",
+  "estimatedMinutes": 125,
+  "competenceGoals": [
+    "kunne skrive en liten funksjon over en liste i sensors grunnform",
+    "kunne bygge en telling og en gruppering med ordbok, uten ferdige hjelpemidler",
+    "kunne dele opp en innlest linje og konvertere feltene riktig",
+    "kunne løse fire deloppgaver uavhengig av hverandre innenfor eksamensfart"
+  ],
+  "content": [
     {
-     "id": "in1000-3-prove-cp1",
-     "type": "text",
-     "content": "**Prøve 3.A — Lister** — 30 minutter. Tre funksjoner i sjanger C.\n\n\nTotalt 18 poeng. Skriv kort og eksplisitt kode: løkke, `if` og `return`. Ingen ferdige hjelpefunksjoner — grunnformen er den som gir uttelling.\n\n\nEn kantine registrerer hvor mange porsjoner som er igjen av hver rett, i en liste med heltall.\n\n**Oppgave 1** (5 p). Skriv `antall_utsolgt(porsjonene)` som returnerer hvor mange retter det er null porsjoner igjen av.\n\n**Oppgave 2** (6 p). Skriv `alle_under(prisene, grense)` som returnerer `True` hvis alle prisene i lista er strengt under grensen, og `False` ellers.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `alle_under([], 100)`, og er det rimelig?\n\n**Oppgave 3** (7 p). Kantina skal øke alle prisene med et fast beløp.\n\n**a)** Skriv `med_okning(prisene, kroner)` som returnerer en **ny** liste der hver pris er økt med `kroner`.\n\n**b)** Hva skjer med den opprinnelige lista?\n\n**c)** Hvorfor ville det vært galt å avslutte funksjonen med `return prisene`?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-coll-2",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 3.A — Lister",
-   "buttonText": "Vis fasit 1",
-   "content": [
+      "id": "in1000-3-prove-1",
+      "type": "tip",
+      "title": "Fire prøver til del 3 — dekning og tidsbruk",
+      "content": "Denne delen har **4 prøver à 30, 30, 30 og 35 minutter** — til sammen 125 minutter. De kan trygt deles over flere kvelder: **én prøve per økt** er en helt vanlig og fornuftig rytme.\n\n| Prøve | Dekker | Tid |\n|---|---|---|\n| 3.A | Lister: teller, flagg og bygg ny liste ([kap. 3.1](/bok/in1000/in1000-3-1)) | 30 min |\n| 3.B | Ordbøker: teller, gruppering og finn beste ([kap. 3.2](/bok/in1000/in1000-3-2)) | 30 min |\n| 3.C | Strenger: tegn for tegn, `.split()` og `.rstrip()` ([kap. 3.3](/bok/in1000/in1000-3-3)) | 30 min |\n| 3.D | Full Oppgave 3 på eksamensnivå, fire deloppgaver | 35 min |\n\nAlle oppgavene er i **sjanger C, D og E — skriv en liten funksjon** over henholdsvis en liste, en ordbok og en streng. Det er formen Oppgave 3 har på eksamen, og den er verdt rundt 28 av de 100 poengene.\n\n**Flervalgsoppgavene bor to steder.** Denne delen har ingen statiske flervalg —\nalle oppgavene er kodeskriving, som på eksamen. Vil du ha flervalg, tar du den interaktive quizen som hører til hvert kapittel; der stokkes rekkefølgen hver gang.\n\n**Skriv koden for hånd, uten å kjøre den.** Eksamen er hjelpemiddelfri, og det er\nnettopp den vanen prøvene skal bygge. Fasiten ligger i en egen boks under hver prøve, slik at du ikke ser den ved et uhell."
+    },
     {
-     "id": "in1000-3-prove-cf1",
-     "type": "text",
-     "content": "**Fasit — Prøve 3.A — Lister.** All kode under er kjørt. Riktig struktur gir god uttelling selv om en detalj er feil, og deloppgavene rettes uavhengig av hverandre.\n\n\n**Oppgave 1** (5 p). Rent tellermønster:\n\n```python\ndef antall_utsolgt(porsjonene):\n    antall = 0\n    for p in porsjonene:\n        if p == 0:\n            antall = antall + 1\n    return antall\n\nprint(antall_utsolgt([12, 0, 5, 0]))\nprint(antall_utsolgt([]))\n```\n\n**Utskrift:**\n```\n2\n0\n```\n\n**Slik gir det poeng:** `antall = 0` før løkka (1 p), løkka (1 p), betingelsen (1 p), økningen (1 p), `return` **etter** løkka (1 p). Står `return` inne i løkka, returnerer funksjonen etter første rett — riktig idé, alvorlig plassering.\n\n**Oppgave 2** (6 p).\n\n**a)** Signalordet «alle» peker på flagg med tidlig retur:\n\n```python\ndef alle_under(prisene, grense):\n    for pris in prisene:\n        if pris >= grense:\n            return False\n    return True\n\nprint(alle_under([45, 60], 100))\nprint(alle_under([45, 120], 100))\nprint(alle_under([100], 100))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\n```\n\nMerk tredje kall: 100 er ikke **strengt under** 100, så svaret er `False`. Betingelsen inne i løkka må derfor være `>=`, ikke `>`.\n\n**b)** `True`. Løkka kjører null ganger, så programmet går rett til `return True`.\n\nDet er logisk forsvarlig — det finnes ingen pris som bryter kravet — men det er ikke sikkert oppgaven mener det. Er teksten uklar, skriv en kommentar om forutsetningen din.\n\n**Oppgave 3** (7 p).\n\n**a)** Bygg-en-ny-liste-mønsteret:\n\n```python\ndef med_okning(prisene, kroner):\n    ny = []\n    for pris in prisene:\n        ny.append(pris + kroner)\n    return ny\n\ngamle = [89, 65, 120]\nprint(med_okning(gamle, 10))\nprint(gamle)\n```\n\n**Utskrift:**\n```\n[99, 75, 130]\n[89, 65, 120]\n```\n\n**b)** Ingenting. Funksjonen leser fra `prisene` og skriver til `ny`, så den opprinnelige lista er urørt — det viser den andre utskriftslinja.\n\n**c)** Fordi `prisene` er den lista funksjonen fikk inn. Å returnere den ville gitt tilbake de gamle prisene, mens den nye lista du nettopp bygde, ble kastet. Kontrollspørsmålet er alltid: **returnerer du den lista du faktisk bygde?**\n\n**Selvdiagnose — kryss av:**\n\n☐ Sto startverdien før løkka og `return` etter den, i alle tre?\n☐ Returnerte funksjonene en verdi, i stedet for å skrive den ut?\n☐ Sjekket du hva hver funksjon gjør med den tomme lista?\n☐ Traff du kantverdien riktig i oppgave 2 — «strengt under» mot «under eller lik»?\n☐ Bygde du en ny liste, i stedet for å endre den du fikk inn?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-coll-3",
-   "type": "collapsible",
-   "title": "Prøve 3.B — Ordbøker",
-   "buttonText": "Vis prøve 2",
-   "content": [
+      "id": "in1000-3-prove-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nHele del 3: [kap. 3.1 — Lister](/bok/in1000/in1000-3-1),\n[kap. 3.2 — Ordbøker](/bok/in1000/in1000-3-2),\n[kap. 3.3 — Strenger](/bok/in1000/in1000-3-3) og drillen i\n[kap. 3.4](/bok/in1000/in1000-3-4).\n\nDe seks tingene prøvene tester hardest:\n\n- **skjelettet**: startverdi før løkka, oppdatering inne i den, `return` etter,\n- **teller-idiomet**: `if k not in d: d[k] = 0`, deretter `d[k] = d[k] + 1`,\n- **grupperings-idiomet**: `if k not in d: d[k] = []`, deretter\n  `d[k].append(v)`,\n- **finn beste**: `beste = None` og `beste_antall = 0`, og oppdater **begge**,\n- **`.rstrip()` før `.split()`**, og `int(...)` på felt du skal regne med,\n- **kanttilfellene**: tom samling, ingen treff, alle like.\n\nTrenger du å friske opp ett av punktene, gjør det før du starter klokka."
+    },
     {
-     "id": "in1000-3-prove-cp2",
-     "type": "text",
-     "content": "**Prøve 3.B — Ordbøker** — 30 minutter. Tre funksjoner i sjanger D.\n\n\nTotalt 19 poeng. Skriv kort og eksplisitt kode. Ingen ferdige tellefunksjoner — bruk de tre idiomene.\n\n\nEn brettspillklubb fører logg over hvilke spill som lånes ut. Hver utlåning registreres som spillets navn i en liste, slik at samme navn kan stå der flere ganger.\n\n**Oppgave 1** (6 p). Skriv `tell_utlan(spillene)` som returnerer en ordbok fra spillnavn til antall utlån.\n\n**Oppgave 2** (6 p). Klubben vil se hvilke spill som er like populære.\n\n**a)** Skriv `grupper_etter_antall(telling)` som tar imot en slik ordbok og returnerer en ny ordbok fra **antall utlån** til lista over spill med det antallet.\n\n**b)** Hvorfor er startverdien for hver nøkkel `[]` og ikke `0` her?\n\n**Oppgave 3** (7 p).\n\n**a)** Skriv `mest_utlant(telling)` som returnerer navnet på spillet med flest utlån, eller `None` hvis ordboka er tom.\n\n**b)** Hva returnerer funksjonen din hvis to spill har like mange utlån?\n\n**c)** Hva ville gått galt hvis du glemte å oppdatere `beste_antall` inne i `if`-en? Gi et konkret eksempel."
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-coll-4",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 3.B — Ordbøker",
-   "buttonText": "Vis fasit 2",
-   "content": [
+      "id": "in1000-3-prove-coll-1",
+      "type": "collapsible",
+      "title": "Prøve 3.A — Lister",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in1000-3-prove-cp1",
+          "type": "text",
+          "content": "**Prøve 3.A — Lister** — 30 minutter. Tre funksjoner i sjanger C.\n\n\nTotalt 18 poeng. Skriv kort og eksplisitt kode: løkke, `if` og `return`. Ingen ferdige hjelpefunksjoner — grunnformen er den som gir uttelling.\n\n\nEn kantine registrerer hvor mange porsjoner som er igjen av hver rett, i en liste med heltall.\n\n**Oppgave 1** (5 p). Skriv `antall_utsolgt(porsjonene)` som returnerer hvor mange retter det er null porsjoner igjen av.\n\n**Oppgave 2** (6 p). Skriv `alle_under(prisene, grense)` som returnerer `True` hvis alle prisene i lista er strengt under grensen, og `False` ellers.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `alle_under([], 100)`, og er det rimelig?\n\n**Oppgave 3** (7 p). Kantina skal øke alle prisene med et fast beløp.\n\n**a)** Skriv `med_okning(prisene, kroner)` som returnerer en **ny** liste der hver pris er økt med `kroner`.\n\n**b)** Hva skjer med den opprinnelige lista?\n\n**c)** Hvorfor ville det vært galt å avslutte funksjonen med `return prisene`?"
+        }
+      ]
+    },
     {
-     "id": "in1000-3-prove-cf2",
-     "type": "text",
-     "content": "**Fasit — Prøve 3.B — Ordbøker.** All kode under er kjørt. Riktig struktur gir god uttelling selv om en detalj er feil, og deloppgavene rettes uavhengig av hverandre.\n\n\n**Oppgave 1** (6 p). Teller-idiomet, uendret:\n\n```python\ndef tell_utlan(spillene):\n    antall = {}\n    for spill in spillene:\n        if spill not in antall:\n            antall[spill] = 0\n        antall[spill] = antall[spill] + 1\n    return antall\n\nprint(tell_utlan([\"sjakk\", \"yatzy\", \"sjakk\", \"domino\", \"sjakk\"]))\nprint(tell_utlan([]))\n```\n\n**Utskrift:**\n```\n{'sjakk': 3, 'yatzy': 1, 'domino': 1}\n{}\n```\n\n**Slik gir det poeng:** tom ordbok (1 p), løkka (1 p), opprettelsen av nøkkelen (2 p), økningen (1 p), `return` etter løkka (1 p). Opprettelsen er den linja som oftest glemmes, og uten den stopper programmet med `KeyError` allerede på første runde — feilkode #14.\n\n**Oppgave 2** (6 p).\n\n**a)** Grupperings-idiomet, men med en **ordbok** som inndata i stedet for en liste:\n\n```python\ndef grupper_etter_antall(telling):\n    grupper = {}\n    for spill in telling:\n        n = telling[spill]\n        if n not in grupper:\n            grupper[n] = []\n        grupper[n].append(spill)\n    return grupper\n\nprint(grupper_etter_antall({\"sjakk\": 3, \"yatzy\": 1, \"domino\": 1}))\nprint(grupper_etter_antall({}))\n```\n\n**Utskrift:**\n```\n{3: ['sjakk'], 1: ['yatzy', 'domino']}\n{}\n```\n\nLegg merke til at nøklene nå er **heltall** og derfor skrives uten anførselstegn, mens spillnavnene inne i listene får enkle anførselstegn.\n\n**b)** Fordi svaret skal inneholde **spillene**, ikke bare hvor mange det er av dem. Med `0` og `+ 1` ville du fått `{3: 1, 1: 2}` — riktig telling, men feil spørsmål besvart. «Hvor mange» gir teller; «hvilke» gir gruppering.\n\n**Oppgave 3** (7 p).\n\n**a)** Finn-beste-løkka:\n\n```python\ndef mest_utlant(telling):\n    beste = None\n    beste_antall = 0\n    for spill in telling:\n        if telling[spill] > beste_antall:\n            beste = spill\n            beste_antall = telling[spill]\n    return beste\n\nprint(mest_utlant({\"sjakk\": 3, \"yatzy\": 1, \"domino\": 5}))\nprint(mest_utlant({}))\n```\n\n**Utskrift:**\n```\ndomino\nNone\n```\n\n**Slik gir det poeng:** to startverdier (2 p), løkka (1 p), sammenligningen (1 p), oppdatering av **begge** variablene (2 p), `return` etter løkka (1 p).\n\n**b)** Den **første** av dem, i den rekkefølgen nøklene ble opprettet. Testen er streng, så `>` er usann ved likhet og den som allerede står som beste, beholder plassen. Med `>=` ville den siste vunnet. Begge er forsvarlige når oppgaven tier — skriv en kommentar om valget.\n\n**c)** Da ville `beste_antall` stått på 0 gjennom hele løkka, og enhver positiv verdi ville vært større. Betingelsen ville slått til hver runde, og svaret blitt den **siste** nøkkelen.\n\nKonkret: `mest_utlant({\"sjakk\": 3, \"yatzy\": 1, \"domino\": 5})` ville gitt `\"domino\"` — som tilfeldigvis er riktig her, siden det største tallet står sist. Et moteksempel som faktisk avslører feilen, er `mest_utlant({\"sjakk\": 9, \"yatzy\": 1})`, som ville gitt `\"yatzy\"` i stedet for `\"sjakk\"`. **Velg alltid et moteksempel der feilen slår ut.**\n\n**Selvdiagnose — kryss av:**\n\n☐ Opprettet du nøkkelen før du regnet på den, i begge idiomene?\n☐ Valgte du riktig startverdi per nøkkel — `0` for antall, `[]` for innhold?\n☐ Oppdaterte `if`-blokken i finn beste like mange variabler som du satte før løkka?\n☐ Returnerte du nøkkelen og ikke verdien i oppgave 3?\n☐ Skrev du ned hva funksjonene gjør med en tom ordbok?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-coll-5",
-   "type": "collapsible",
-   "title": "Prøve 3.C — Strenger",
-   "buttonText": "Vis prøve 3",
-   "content": [
+      "id": "in1000-3-prove-coll-2",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 3.A — Lister",
+      "buttonText": "Vis fasit 1",
+      "content": [
+        {
+          "id": "in1000-3-prove-cf1",
+          "type": "text",
+          "content": "**Fasit — Prøve 3.A — Lister.** All kode under er kjørt. Riktig struktur gir god uttelling selv om en detalj er feil, og deloppgavene rettes uavhengig av hverandre.\n\n\n**Oppgave 1** (5 p). Rent tellermønster:\n\n```python\ndef antall_utsolgt(porsjonene):\n    antall = 0 for p in porsjonene:\n        if p == 0:\n            antall = antall + 1 return antall\n\nprint(antall_utsolgt([12, 0, 5, 0]))\nprint(antall_utsolgt([]))\n```\n\n**Utskrift:**\n```\n2\n0\n```\n\n**Slik gir det poeng:** `antall = 0` før løkka (1 p), løkka (1 p), betingelsen (1 p), økningen (1 p), `return` **etter** løkka (1 p). Står `return` inne i løkka, returnerer funksjonen etter første rett — riktig idé, alvorlig plassering.\n\n**Oppgave 2** (6 p).\n\n**a)** Signalordet «alle» peker på flagg med tidlig retur:\n\n```python\ndef alle_under(prisene, grense):\n    for pris in prisene:\n        if pris >= grense:\n            return False return True\n\nprint(alle_under([45, 60], 100))\nprint(alle_under([45, 120], 100))\nprint(alle_under([100], 100))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\nFalse\n```\n\nMerk tredje kall: 100 er ikke **strengt under** 100, så svaret er `False`. Betingelsen inne i løkka må derfor være `>=`, ikke `>`.\n\n**b)** `True`. Løkka kjører null ganger, så programmet går rett til `return True`.\n\nDet er logisk forsvarlig — det finnes ingen pris som bryter kravet — men det er ikke sikkert oppgaven mener det. Er teksten uklar, skriv en kommentar om forutsetningen din.\n\n**Oppgave 3** (7 p).\n\n**a)** Bygg-en-ny-liste-mønsteret:\n\n```python\ndef med_okning(prisene, kroner):\n    ny = []\n    for pris in prisene:\n        ny.append(pris + kroner)\n    return ny\n\ngamle = [89, 65, 120]\nprint(med_okning(gamle, 10))\nprint(gamle)\n```\n\n**Utskrift:**\n```\n[99, 75, 130]\n[89, 65, 120]\n```\n\n**b)** Ingenting. Funksjonen leser fra `prisene` og skriver til `ny`, så den opprinnelige lista er urørt — det viser den andre utskriftslinja.\n\n**c)** Fordi `prisene` er den lista funksjonen fikk inn. Å returnere den ville gitt tilbake de gamle prisene, mens den nye lista du nettopp bygde, ble kastet. Kontrollspørsmålet er alltid: **returnerer du den lista du faktisk bygde?**\n\n**Selvdiagnose — kryss av:**\n\n☐ Sto startverdien før løkka og `return` etter den, i alle tre?\n☐ Returnerte funksjonene en verdi, i stedet for å skrive den ut?\n☐ Sjekket du hva hver funksjon gjør med den tomme lista?\n☐ Traff du kantverdien riktig i oppgave 2 — «strengt under» mot «under eller lik»?\n☐ Bygde du en ny liste, i stedet for å endre den du fikk inn?"
+        }
+      ]
+    },
     {
-     "id": "in1000-3-prove-cp3",
-     "type": "text",
-     "content": "**Prøve 3.C — Strenger** — 30 minutter. Tre funksjoner i sjanger E.\n\n\nTotalt 19 poeng. Skriv kort og eksplisitt kode. Du har lov til å bruke `.split()`, `.rstrip()`, `.strip()`, `.lower()` og `.upper()` — men ingen andre ferdige strengmetoder.\n\n\nEn værstasjon merker hver måling med en tekstkode.\n\n**Oppgave 1** (6 p). Skriv `fjern_sifre(tekst)` som returnerer en ny tekst uten sifre, i samme rekkefølge som resten.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `fjern_sifre(\"2026\")`, og hvordan ser det ut i en utskrift?\n\n**Oppgave 2** (6 p). Stasjonen leser inn linjer på formen `\"mai;14\"`, med et linjeskift på slutten. Første felt er månedsnavnet, andre felt er antall regndager.\n\n**a)** Skriv `les_maaling(linje)` som returnerer to verdier: månedsnavnet som tekst og antall regndager som **tall**.\n\n**b)** Hvorfor må `.rstrip()` stå før `.split(\";\")` og ikke etter?\n\n**Oppgave 3** (7 p).\n\n**a)** Skriv `lengste_ord(setning)` som returnerer det lengste ordet i setningen.\n\n**b)** Hva skal funksjonen returnere for den tomme setningen? Begrunn valget ditt.\n\n**c)** Hva returnerer funksjonen din hvis to ord er like lange?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-coll-6",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 3.C — Strenger",
-   "buttonText": "Vis fasit 3",
-   "content": [
+      "id": "in1000-3-prove-coll-3",
+      "type": "collapsible",
+      "title": "Prøve 3.B — Ordbøker",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in1000-3-prove-cp2",
+          "type": "text",
+          "content": "**Prøve 3.B — Ordbøker** — 30 minutter. Tre funksjoner i sjanger D.\n\n\nTotalt 19 poeng. Skriv kort og eksplisitt kode. Ingen ferdige tellefunksjoner — bruk de tre idiomene.\n\n\nEn brettspillklubb fører logg over hvilke spill som lånes ut. Hver utlåning registreres som spillets navn i en liste, slik at samme navn kan stå der flere ganger.\n\n**Oppgave 1** (6 p). Skriv `tell_utlan(spillene)` som returnerer en ordbok fra spillnavn til antall utlån.\n\n**Oppgave 2** (6 p). Klubben vil se hvilke spill som er like populære.\n\n**a)** Skriv `grupper_etter_antall(telling)` som tar imot en slik ordbok og returnerer en ny ordbok fra **antall utlån** til lista over spill med det antallet.\n\n**b)** Hvorfor er startverdien for hver nøkkel `[]` og ikke `0` her?\n\n**Oppgave 3** (7 p).\n\n**a)** Skriv `mest_utlant(telling)` som returnerer navnet på spillet med flest utlån, eller `None` hvis ordboka er tom.\n\n**b)** Hva returnerer funksjonen din hvis to spill har like mange utlån?\n\n**c)** Hva ville gått galt hvis du glemte å oppdatere `beste_antall` inne i `if`-en? Gi et konkret eksempel."
+        }
+      ]
+    },
     {
-     "id": "in1000-3-prove-cf3",
-     "type": "text",
-     "content": "**Fasit — Prøve 3.C — Strenger.** All kode under er kjørt. Riktig struktur gir god uttelling selv om en detalj er feil, og deloppgavene rettes uavhengig av hverandre.\n\n\n**Oppgave 1** (6 p).\n\n**a)** Tegn-for-tegn-mønsteret, med sifferbetingelsen snudd:\n\n```python\ndef fjern_sifre(tekst):\n    ny = \"\"\n    for tegn in tekst:\n        if tegn < \"0\" or tegn > \"9\":\n            ny = ny + tegn\n    return ny\n\nprint(fjern_sifre(\"R31-2026\"))\nprint(fjern_sifre(\"2026\"))\nprint(len(fjern_sifre(\"2026\")))\n```\n\n**Utskrift:**\n```\nR-\n\n0\n```\n\n**b)** Den tomme teksten `\"\"`. I en utskrift ser den ut som **ingenting** — den blanke linja i midten. Tredje linje beviser at det likevel er en tekst med lengde 0, og ikke `None`.\n\n**Slik gir det poeng:** tom tekst før løkka (1 p), løkka (1 p), betingelsen (2 p), oppbyggingen (1 p), `return` etter løkka (1 p).\n\n**Oppgave 2** (6 p).\n\n**a)** Rens, del, konverter — de tre stegene i rekkefølge:\n\n```python\ndef les_maaling(linje):\n    felt = linje.rstrip().split(\";\")\n    maaned = felt[0]\n    dager = int(felt[1])\n    return maaned, dager\n\nm, d = les_maaling(\"mai;14\\n\")\nprint(m, d)\nprint(d + 1)\nprint(len(m))\n```\n\n**Utskrift:**\n```\nmai 14\n15\n3\n```\n\nDen andre linja beviser at `dager` faktisk er et tall — uten `int(...)` ville `+ 1` ikke gått. Den tredje beviser at månedsnavnet ikke har usynlige tegn hengende ved seg.\n\n**b)** Fordi linjeskiftet sitter **helt sist i linja**, og havner derfor i det siste feltet hvis du deler først. Da ville `int(felt[1])` riktignok fortsatt virket, men en sammenligning som `felt[1] == \"14\"` ville svart `False`, og et månedsnavn i siste felt ville aldri matchet noe. Feilen er stum — det er feilkode #8.\n\n**Oppgave 3** (7 p).\n\n**a)** Finn beste, med lengden som mål:\n\n```python\ndef lengste_ord(setning):\n    beste = \"\"\n    for tekst in setning.split():\n        if len(tekst) > len(beste):\n            beste = tekst\n    return beste\n\nprint(lengste_ord(\"buss tog trikk bane\"))\nprint(lengste_ord(\"a\"))\nprint(len(lengste_ord(\"\")))\n```\n\n**Utskrift:**\n```\ntrikk\na\n0\n```\n\n**Slik gir det poeng:** startverdien (2 p), `.split()` (1 p), sammenligningen av lengder (2 p), oppdateringen (1 p), `return` etter løkka (1 p).\n\n**b)** Den tomme teksten `\"\"` er et godt valg her, og det er det du får gratis av startverdien: `\"\".split()` gir en tom liste, løkka kjører null runder, og `beste` returneres uendret.\n\n`None` ville også vært forsvarlig, men da måtte du håndtert det med en egen sjekk — og den som mottar svaret, ville måttet skille mellom en tekst og en manglende verdi. Skriv en kommentar om valget ditt uansett.\n\n**c)** Det **første** av dem. Testen `len(tekst) > len(beste)` er streng, så et ord som er like langt som det beste hittil, bytter ikke ut. Med `>=` ville det siste vunnet.\n\n**Selvdiagnose — kryss av:**\n\n☐ Startet du med `ny = \"\"` når svaret skulle være en tekst?\n☐ Sto `.rstrip()` før `.split()`?\n☐ Konverterte du med `int(...)` det feltet du skulle regne med?\n☐ Sjekket du hva hver funksjon gjør med den tomme teksten?\n☐ Vet du hvilket av to like lange ord funksjonen din returnerer?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-coll-7",
-   "type": "collapsible",
-   "title": "Prøve 3.D — Full Oppgave 3",
-   "buttonText": "Vis prøve 4",
-   "content": [
+      "id": "in1000-3-prove-coll-4",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 3.B — Ordbøker",
+      "buttonText": "Vis fasit 2",
+      "content": [
+        {
+          "id": "in1000-3-prove-cf2",
+          "type": "text",
+          "content": "**Fasit — Prøve 3.B — Ordbøker.** All kode under er kjørt. Riktig struktur gir god uttelling selv om en detalj er feil, og deloppgavene rettes uavhengig av hverandre.\n\n\n**Oppgave 1** (6 p). Teller-idiomet, uendret:\n\n```python\ndef tell_utlan(spillene):\n    antall = {}\n    for spill in spillene:\n        if spill not in antall:\n            antall[spill] = 0 antall[spill] = antall[spill] + 1 return antall\n\nprint(tell_utlan([\"sjakk\", \"yatzy\", \"sjakk\", \"domino\", \"sjakk\"]))\nprint(tell_utlan([]))\n```\n\n**Utskrift:**\n```\n{'sjakk': 3, 'yatzy': 1, 'domino': 1}\n{}\n```\n\n**Slik gir det poeng:** tom ordbok (1 p), løkka (1 p), opprettelsen av nøkkelen (2 p), økningen (1 p), `return` etter løkka (1 p). Opprettelsen er den linja som oftest glemmes, og uten den stopper programmet med `KeyError` allerede på første runde — feilkode #14.\n\n**Oppgave 2** (6 p).\n\n**a)** Grupperings-idiomet, men med en **ordbok** som inndata i stedet for en liste:\n\n```python\ndef grupper_etter_antall(telling):\n    grupper = {}\n    for spill in telling:\n        n = telling[spill]\n        if n not in grupper:\n            grupper[n] = []\n        grupper[n].append(spill)\n    return grupper\n\nprint(grupper_etter_antall({\"sjakk\": 3, \"yatzy\": 1, \"domino\": 1}))\nprint(grupper_etter_antall({}))\n```\n\n**Utskrift:**\n```\n{3: ['sjakk'], 1: ['yatzy', 'domino']}\n{}\n```\n\nLegg merke til at nøklene nå er **heltall** og derfor skrives uten anførselstegn, mens spillnavnene inne i listene får enkle anførselstegn.\n\n**b)** Fordi svaret skal inneholde **spillene**, ikke bare hvor mange det er av dem. Med `0` og `+ 1` ville du fått `{3: 1, 1: 2}` — riktig telling, men feil spørsmål besvart. «Hvor mange» gir teller; «hvilke» gir gruppering.\n\n**Oppgave 3** (7 p).\n\n**a)** Finn-beste-løkka:\n\n```python\ndef mest_utlant(telling):\n    beste = None beste_antall = 0 for spill in telling:\n        if telling[spill] > beste_antall:\n            beste = spill beste_antall = telling[spill]\n    return beste\n\nprint(mest_utlant({\"sjakk\": 3, \"yatzy\": 1, \"domino\": 5}))\nprint(mest_utlant({}))\n```\n\n**Utskrift:**\n```\ndomino\nNone\n```\n\n**Slik gir det poeng:** to startverdier (2 p), løkka (1 p), sammenligningen (1 p), oppdatering av **begge** variablene (2 p), `return` etter løkka (1 p).\n\n**b)** Den **første** av dem, i den rekkefølgen nøklene ble opprettet. Testen er streng, så `>` er usann ved likhet og den som allerede står som beste, beholder plassen. Med `>=` ville den siste vunnet. Begge er forsvarlige når oppgaven tier — skriv en kommentar om valget.\n\n**c)** Da ville `beste_antall` stått på 0 gjennom hele løkka, og enhver positiv verdi ville vært større. Betingelsen ville slått til hver runde, og svaret blitt den **siste** nøkkelen.\n\nKonkret: `mest_utlant({\"sjakk\": 3, \"yatzy\": 1, \"domino\": 5})` ville gitt `\"domino\"` — som tilfeldigvis er riktig her, siden det største tallet står sist. Et moteksempel som faktisk avslører feilen, er `mest_utlant({\"sjakk\": 9, \"yatzy\": 1})`, som ville gitt `\"yatzy\"` i stedet for `\"sjakk\"`. **Velg alltid et moteksempel der feilen slår ut.**\n\n**Selvdiagnose — kryss av:**\n\n☐ Opprettet du nøkkelen før du regnet på den, i begge idiomene?\n☐ Valgte du riktig startverdi per nøkkel — `0` for antall, `[]` for innhold?\n☐ Oppdaterte `if`-blokken i finn beste like mange variabler som du satte før løkka?\n☐ Returnerte du nøkkelen og ikke verdien i oppgave 3?\n☐ Skrev du ned hva funksjonene gjør med en tom ordbok?"
+        }
+      ]
+    },
     {
-     "id": "in1000-3-prove-cp4",
-     "type": "text",
-     "content": "**Prøve 3.D — Full Oppgave 3** — 35 minutter. Fire deloppgaver i eksamensform, med roterende datatyper.\n\n\nTotalt 28 poeng. Dette er en komplett Oppgave 3 slik den ser ut på eksamen. Deloppgavene rettes uavhengig av hverandre — får du ikke en av dem til, går du videre og bruker funksjonen som om den var ferdig.\n\n\nEt kollektivselskap logger hver avgang som linjenummeret, skrevet som tekst. Loggen er en liste, slik at samme nummer kan stå der mange ganger.\n\n**Oppgave a** (6 p). Skriv `tell_avganger(loggen)` som returnerer en ordbok fra linjenummer til antall avganger.\n\n**Oppgave b** (7 p). Skriv `travleste_linje(telling)` som tar imot en slik ordbok og returnerer linjenummeret med flest avganger, eller `None` hvis ordboka er tom.\n\n**Oppgave c** (7 p). Skriv `over_snittet(telling)` som returnerer en **ny** ordbok med bare de linjene som har flere avganger enn gjennomsnittet. Er ordboka tom, skal funksjonen returnere en tom ordbok.\n\n**Oppgave d** (8 p). Selskapet leser også inn rutene fra en fil. Hver linje har formen `\"31;Grorud;Tonsenhagen;Fornebu\"`, med et linjeskift på slutten: først linjenummeret, deretter stoppene.\n\nSkriv `stopp_per_linje(linjene)` som tar imot en liste med slike tekster og returnerer en ordbok fra linjenummer til **antall stopp** på ruta."
-    }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-coll-8",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 3.D — Full Oppgave 3",
-   "buttonText": "Vis fasit 4",
-   "content": [
+      "id": "in1000-3-prove-coll-5",
+      "type": "collapsible",
+      "title": "Prøve 3.C — Strenger",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in1000-3-prove-cp3",
+          "type": "text",
+          "content": "**Prøve 3.C — Strenger** — 30 minutter. Tre funksjoner i sjanger E.\n\n\nTotalt 19 poeng. Skriv kort og eksplisitt kode. Du har lov til å bruke `.split()`, `.rstrip()`, `.strip()`, `.lower()` og `.upper()` — men ingen andre ferdige strengmetoder.\n\n\nEn værstasjon merker hver måling med en tekstkode.\n\n**Oppgave 1** (6 p). Skriv `fjern_sifre(tekst)` som returnerer en ny tekst uten sifre, i samme rekkefølge som resten.\n\n**a)** Skriv funksjonen.\n\n**b)** Hva returnerer `fjern_sifre(\"2026\")`, og hvordan ser det ut i en utskrift?\n\n**Oppgave 2** (6 p). Stasjonen leser inn linjer på formen `\"mai;14\"`, med et linjeskift på slutten. Første felt er månedsnavnet, andre felt er antall regndager.\n\n**a)** Skriv `les_maaling(linje)` som returnerer to verdier: månedsnavnet som tekst og antall regndager som **tall**.\n\n**b)** Hvorfor må `.rstrip()` stå før `.split(\";\")` og ikke etter?\n\n**Oppgave 3** (7 p).\n\n**a)** Skriv `lengste_ord(setning)` som returnerer det lengste ordet i setningen.\n\n**b)** Hva skal funksjonen returnere for den tomme setningen? Begrunn valget ditt.\n\n**c)** Hva returnerer funksjonen din hvis to ord er like lange?"
+        }
+      ]
+    },
     {
-     "id": "in1000-3-prove-cf4",
-     "type": "text",
-     "content": "**Fasit — Prøve 3.D — Full Oppgave 3.** All kode under er kjørt. Deloppgavene rettes uavhengig, og riktig struktur gir god uttelling selv om en detalj er feil.\n\n\n**Oppgave a** (6 p). Teller-idiomet:\n\n```python\ndef tell_avganger(loggen):\n    antall = {}\n    for nummer in loggen:\n        if nummer not in antall:\n            antall[nummer] = 0\n        antall[nummer] = antall[nummer] + 1\n    return antall\n\nprint(tell_avganger([\"31\", \"20\", \"31\", \"37\", \"31\", \"20\"]))\nprint(tell_avganger([]))\n```\n\n**Utskrift:**\n```\n{'31': 3, '20': 2, '37': 1}\n{}\n```\n\nLegg merke til at linjenumrene er **tekster**, så nøklene vises med enkle anførselstegn.\n\n**Margnotat (6 p):** tom ordbok (1 p), løkka (1 p), opprettelsen (2 p), økningen (1 p), `return` etter løkka (1 p).\n\n— naturlig pausepunkt —\n\n**Oppgave b** (7 p). Finn beste:\n\n```python\ndef travleste_linje(telling):\n    beste = None\n    beste_antall = 0\n    for nummer in telling:\n        if telling[nummer] > beste_antall:\n            beste = nummer\n            beste_antall = telling[nummer]\n    return beste\n\nprint(travleste_linje({\"31\": 3, \"20\": 2, \"37\": 1}))\nprint(travleste_linje({\"20\": 2, \"31\": 9}))\nprint(travleste_linje({}))\n```\n\n**Utskrift:**\n```\n31\n31\nNone\n```\n\nDe to første kallene er valgt med vilje: i det ene står den største verdien først, i det andre sist. En funksjon som glemmer å oppdatere `beste_antall`, ville svart riktig på det andre og galt på det første — så prøv alltid begge når du kontrollerer koden din i hodet.\n\n**Margnotat (7 p):** to startverdier (2 p), løkka (1 p), sammenligningen (1 p), oppdatering av **begge** (2 p), `return` etter løkka (1 p).\n\n**Oppgave c** (7 p). To løkker: én for å regne ut snittet, én for å bygge svaret.\n\n```python\ndef over_snittet(telling):\n    ny = {}\n    if len(telling) == 0:\n        return ny\n    total = 0\n    for nummer in telling:\n        total = total + telling[nummer]\n    snitt = total / len(telling)\n    for nummer in telling:\n        if telling[nummer] > snitt:\n            ny[nummer] = telling[nummer]\n    return ny\n\nt = {\"31\": 3, \"20\": 2, \"37\": 1}\nprint(over_snittet(t))\nprint(over_snittet({}))\nprint(t)\n```\n\n**Utskrift:**\n```\n{'31': 3}\n{}\n{'31': 3, '20': 2, '37': 1}\n```\n\nSnittet er 6 delt på 3, altså 2.0. Bare linje 31 ligger over — linje 20 har nøyaktig 2 avganger, og testen er streng.\n\n**Margnotat (7 p):** tomsjekken før divisjonen (2 p), akkumulatoren (2 p), den andre løkka med sammenligningen (2 p), `return` etter løkka (1 p). Uten tomsjekken deler du på null og programmet stopper — det er feilkode #6. Den siste utskriftslinja viser at originalen er urørt.\n\n— naturlig pausepunkt —\n\n**Oppgave d** (8 p). Rens, del, tell felt:\n\n```python\ndef stopp_per_linje(linjene):\n    d = {}\n    for linje in linjene:\n        felt = linje.rstrip().split(\";\")\n        nummer = felt[0]\n        d[nummer] = len(felt) - 1\n    return d\n\ndata = [\"31;Grorud;Tonsenhagen;Fornebu\\n\", \"20;Majorstuen;Blindern\\n\"]\nprint(stopp_per_linje(data))\nprint(stopp_per_linje([]))\n```\n\n**Utskrift:**\n```\n{'31': 3, '20': 2}\n{}\n```\n\n**Minus én er hele poenget:** det første feltet er linjenummeret, ikke et stopp. Fire felt gir tre stopp.\n\n**Margnotat (8 p):** tom ordbok (1 p), løkka over linjene (1 p), `.rstrip()` (1 p), `.split(\";\")` (2 p), riktig antall med minus én (2 p), `return` etter løkka (1 p). Glemmer du minus én, er hele strukturen riktig og svaret én for høyt overalt — en klassisk av-med-én, og et lite trekk.\n\nHar du i stedet talt stoppene med en egen løkke fra indeks 1, er det like riktig og gir full uttelling.\n\n**Selvdiagnose — kryss av:**\n\n☐ Løste du deloppgavene uavhengig, uten å stoppe opp på én?\n☐ Sto tomsjekken **før** divisjonen i oppgave c?\n☐ Sto `.rstrip()` før `.split()` i oppgave d?\n☐ Husket du at det første feltet ikke er et stopp?\n☐ Prøvde du finn-beste-funksjonen på data der den største verdien står først?\n☐ Returnerte alle fire funksjonene en verdi, i stedet for å skrive den ut?"
+      "id": "in1000-3-prove-coll-6",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 3.C — Strenger",
+      "buttonText": "Vis fasit 3",
+      "content": [
+        {
+          "id": "in1000-3-prove-cf3",
+          "type": "text",
+          "content": "**Fasit — Prøve 3.C — Strenger.** All kode under er kjørt. Riktig struktur gir god uttelling selv om en detalj er feil, og deloppgavene rettes uavhengig av hverandre.\n\n\n**Oppgave 1** (6 p).\n\n**a)** Tegn-for-tegn-mønsteret, med sifferbetingelsen snudd:\n\n```python\ndef fjern_sifre(tekst):\n    ny = \"\" for tegn in tekst:\n        if tegn < \"0\" or tegn > \"9\":\n            ny = ny + tegn return ny\n\nprint(fjern_sifre(\"R31-2026\"))\nprint(fjern_sifre(\"2026\"))\nprint(len(fjern_sifre(\"2026\")))\n```\n\n**Utskrift:**\n```\nR-\n\n0\n```\n\n**b)** Den tomme teksten `\"\"`. I en utskrift ser den ut som **ingenting** — den blanke linja i midten. Tredje linje beviser at det likevel er en tekst med lengde 0, og ikke `None`.\n\n**Slik gir det poeng:** tom tekst før løkka (1 p), løkka (1 p), betingelsen (2 p), oppbyggingen (1 p), `return` etter løkka (1 p).\n\n**Oppgave 2** (6 p).\n\n**a)** Rens, del, konverter — de tre stegene i rekkefølge:\n\n```python\ndef les_maaling(linje):\n    felt = linje.rstrip().split(\";\")\n    maaned = felt[0]\n    dager = int(felt[1])\n    return maaned, dager\n\nm, d = les_maaling(\"mai;14\\n\")\nprint(m, d)\nprint(d + 1)\nprint(len(m))\n```\n\n**Utskrift:**\n```\nmai 14\n15\n3\n```\n\nDen andre linja beviser at `dager` faktisk er et tall — uten `int(...)` ville `+ 1` ikke gått. Den tredje beviser at månedsnavnet ikke har usynlige tegn hengende ved seg.\n\n**b)** Fordi linjeskiftet sitter **helt sist i linja**, og havner derfor i det siste feltet hvis du deler først. Da ville `int(felt[1])` riktignok fortsatt virket, men en sammenligning som `felt[1] == \"14\"` ville svart `False`, og et månedsnavn i siste felt ville aldri matchet noe. Feilen er stum — det er feilkode #8.\n\n**Oppgave 3** (7 p).\n\n**a)** Finn beste, med lengden som mål:\n\n```python\ndef lengste_ord(setning):\n    beste = \"\" for tekst in setning.split():\n        if len(tekst) > len(beste):\n            beste = tekst return beste\n\nprint(lengste_ord(\"buss tog trikk bane\"))\nprint(lengste_ord(\"a\"))\nprint(len(lengste_ord(\"\")))\n```\n\n**Utskrift:**\n```\ntrikk a\n0\n```\n\n**Slik gir det poeng:** startverdien (2 p), `.split()` (1 p), sammenligningen av lengder (2 p), oppdateringen (1 p), `return` etter løkka (1 p).\n\n**b)** Den tomme teksten `\"\"` er et godt valg her, og det er det du får gratis av startverdien: `\"\".split()` gir en tom liste, løkka kjører null runder, og `beste` returneres uendret.\n\n`None` ville også vært forsvarlig, men da måtte du håndtert det med en egen sjekk — og den som mottar svaret, ville måttet skille mellom en tekst og en manglende verdi. Skriv en kommentar om valget ditt uansett.\n\n**c)** Det **første** av dem. Testen `len(tekst) > len(beste)` er streng, så et ord som er like langt som det beste hittil, bytter ikke ut. Med `>=` ville det siste vunnet.\n\n**Selvdiagnose — kryss av:**\n\n☐ Startet du med `ny = \"\"` når svaret skulle være en tekst?\n☐ Sto `.rstrip()` før `.split()`?\n☐ Konverterte du med `int(...)` det feltet du skulle regne med?\n☐ Sjekket du hva hver funksjon gjør med den tomme teksten?\n☐ Vet du hvilket av to like lange ord funksjonen din returnerer?"
+        }
+      ]
+    },
+    {
+      "id": "in1000-3-prove-coll-7",
+      "type": "collapsible",
+      "title": "Prøve 3.D — Full Oppgave 3",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in1000-3-prove-cp4",
+          "type": "text",
+          "content": "**Prøve 3.D — Full Oppgave 3** — 35 minutter. Fire deloppgaver i eksamensform, med roterende datatyper.\n\n\nTotalt 28 poeng. Dette er en komplett Oppgave 3 slik den ser ut på eksamen. Deloppgavene rettes uavhengig av hverandre — får du ikke en av dem til, går du videre og bruker funksjonen som om den var ferdig.\n\n\nEt kollektivselskap logger hver avgang som linjenummeret, skrevet som tekst. Loggen er en liste, slik at samme nummer kan stå der mange ganger.\n\n**Oppgave a** (6 p). Skriv `tell_avganger(loggen)` som returnerer en ordbok fra linjenummer til antall avganger.\n\n**Oppgave b** (7 p). Skriv `travleste_linje(telling)` som tar imot en slik ordbok og returnerer linjenummeret med flest avganger, eller `None` hvis ordboka er tom.\n\n**Oppgave c** (7 p). Skriv `over_snittet(telling)` som returnerer en **ny** ordbok med bare de linjene som har flere avganger enn gjennomsnittet. Er ordboka tom, skal funksjonen returnere en tom ordbok.\n\n**Oppgave d** (8 p). Selskapet leser også inn rutene fra en fil. Hver linje har formen `\"31;Grorud;Tonsenhagen;Fornebu\"`, med et linjeskift på slutten: først linjenummeret, deretter stoppene.\n\nSkriv `stopp_per_linje(linjene)` som tar imot en liste med slike tekster og returnerer en ordbok fra linjenummer til **antall stopp** på ruta."
+        }
+      ]
+    },
+    {
+      "id": "in1000-3-prove-coll-8",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 3.D — Full Oppgave 3",
+      "buttonText": "Vis fasit 4",
+      "content": [
+        {
+          "id": "in1000-3-prove-cf4",
+          "type": "text",
+          "content": "**Fasit — Prøve 3.D — Full Oppgave 3.** All kode under er kjørt. Deloppgavene rettes uavhengig, og riktig struktur gir god uttelling selv om en detalj er feil.\n\n\n**Oppgave a** (6 p). Teller-idiomet:\n\n```python\ndef tell_avganger(loggen):\n    antall = {}\n    for nummer in loggen:\n        if nummer not in antall:\n            antall[nummer] = 0 antall[nummer] = antall[nummer] + 1 return antall\n\nprint(tell_avganger([\"31\", \"20\", \"31\", \"37\", \"31\", \"20\"]))\nprint(tell_avganger([]))\n```\n\n**Utskrift:**\n```\n{'31': 3, '20': 2, '37': 1}\n{}\n```\n\nLegg merke til at linjenumrene er **tekster**, så nøklene vises med enkle anførselstegn.\n\n**Margnotat (6 p):** tom ordbok (1 p), løkka (1 p), opprettelsen (2 p), økningen (1 p), `return` etter løkka (1 p).\n\n— naturlig pausepunkt —\n\n**Oppgave b** (7 p). Finn beste:\n\n```python\ndef travleste_linje(telling):\n    beste = None beste_antall = 0 for nummer in telling:\n        if telling[nummer] > beste_antall:\n            beste = nummer beste_antall = telling[nummer]\n    return beste\n\nprint(travleste_linje({\"31\": 3, \"20\": 2, \"37\": 1}))\nprint(travleste_linje({\"20\": 2, \"31\": 9}))\nprint(travleste_linje({}))\n```\n\n**Utskrift:**\n```\n31\n31\nNone\n```\n\nDe to første kallene er valgt med vilje: i det ene står den største verdien først, i det andre sist. En funksjon som glemmer å oppdatere `beste_antall`, ville svart riktig på det andre og galt på det første — så prøv alltid begge når du kontrollerer koden din i hodet.\n\n**Margnotat (7 p):** to startverdier (2 p), løkka (1 p), sammenligningen (1 p), oppdatering av **begge** (2 p), `return` etter løkka (1 p).\n\n**Oppgave c** (7 p). To løkker: én for å regne ut snittet, én for å bygge svaret.\n\n```python\ndef over_snittet(telling):\n    ny = {}\n    if len(telling) == 0:\n        return ny total = 0 for nummer in telling:\n        total = total + telling[nummer]\n    snitt = total / len(telling)\n    for nummer in telling:\n        if telling[nummer] > snitt:\n            ny[nummer] = telling[nummer]\n    return ny\n\nt = {\"31\": 3, \"20\": 2, \"37\": 1}\nprint(over_snittet(t))\nprint(over_snittet({}))\nprint(t)\n```\n\n**Utskrift:**\n```\n{'31': 3}\n{}\n{'31': 3, '20': 2, '37': 1}\n```\n\nSnittet er 6 delt på 3, altså 2.0. Bare linje 31 ligger over — linje 20 har nøyaktig 2 avganger, og testen er streng.\n\n**Margnotat (7 p):** tomsjekken før divisjonen (2 p), akkumulatoren (2 p), den andre løkka med sammenligningen (2 p), `return` etter løkka (1 p). Uten tomsjekken deler du på null og programmet stopper — det er feilkode #6. Den siste utskriftslinja viser at originalen er urørt.\n\n— naturlig pausepunkt —\n\n**Oppgave d** (8 p). Rens, del, tell felt:\n\n```python\ndef stopp_per_linje(linjene):\n    d = {}\n    for linje in linjene:\n        felt = linje.rstrip().split(\";\")\n        nummer = felt[0]\n        d[nummer] = len(felt) - 1 return d\n\ndata = [\"31;Grorud;Tonsenhagen;Fornebu\\n\", \"20;Majorstuen;Blindern\\n\"]\nprint(stopp_per_linje(data))\nprint(stopp_per_linje([]))\n```\n\n**Utskrift:**\n```\n{'31': 3, '20': 2}\n{}\n```\n\n**Minus én er hele poenget:** det første feltet er linjenummeret, ikke et stopp. Fire felt gir tre stopp.\n\n**Margnotat (8 p):** tom ordbok (1 p), løkka over linjene (1 p), `.rstrip()` (1 p), `.split(\";\")` (2 p), riktig antall med minus én (2 p), `return` etter løkka (1 p). Glemmer du minus én, er hele strukturen riktig og svaret én for høyt overalt — en klassisk av-med-én, og et lite trekk.\n\nHar du i stedet talt stoppene med en egen løkke fra indeks 1, er det like riktig og gir full uttelling.\n\n**Selvdiagnose — kryss av:**\n\n☐ Løste du deloppgavene uavhengig, uten å stoppe opp på én?\n☐ Sto tomsjekken **før** divisjonen i oppgave c?\n☐ Sto `.rstrip()` før `.split()` i oppgave d?\n☐ Husket du at det første feltet ikke er et stopp?\n☐ Prøvde du finn-beste-funksjonen på data der den største verdien står først?\n☐ Returnerte alle fire funksjonene en verdi, i stedet for å skrive den ut?"
+        }
+      ]
+    },
+    {
+      "id": "in1000-3-prove-3",
+      "type": "text",
+      "content": "## Etter prøvene\n\nFikk du under halvparten på prøve 3.D, er det ikke nødvendigvis kapitlene du mangler — det er ofte tempoet. Fire deloppgaver på 35 minutter er omtrent eksamensfart, og den fart bygges bare ved å skrive koden for hånd flere ganger.\nTa prøven om igjen om en uke, uten å se på fasiten først.\n\nBommet du på ett bestemt idiom, gå tilbake til kapitlet det hører hjemme i:\nteller og gruppering står i [kap. 3.2](/bok/in1000/in1000-3-2), finn beste samme sted, og `.rstrip()`-regelen i [kap. 3.3](/bok/in1000/in1000-3-3). Drillen i [kap. 3.4](/bok/in1000/in1000-3-4) har fjorten oppgaver til i samme sjangre.\n\nKom du gjennom med god margin, er Oppgave 3 på plass — rundt 28 av 100 poeng.\nNeste steg er [kap. 4.1](/bok/in1000/in1000-4-1), som driller Oppgave 1:\nkodesporing. Den er den billigste poengkilden på hele settet, fordi den er mekanisk og fullstendig forutsigbar."
     }
-   ]
-  },
-  {
-   "id": "in1000-3-prove-3",
-   "type": "text",
-   "content": "## Etter prøvene\n\nFikk du under halvparten på prøve 3.D, er det ikke nødvendigvis kapitlene du\nmangler — det er ofte tempoet. Fire deloppgaver på 35 minutter er omtrent\neksamensfart, og den fart bygges bare ved å skrive koden for hånd flere ganger.\nTa prøven om igjen om en uke, uten å se på fasiten først.\n\nBommet du på ett bestemt idiom, gå tilbake til kapitlet det hører hjemme i:\nteller og gruppering står i [kap. 3.2](/bok/in1000/in1000-3-2), finn beste\nsamme sted, og `.rstrip()`-regelen i [kap. 3.3](/bok/in1000/in1000-3-3). Drillen\ni [kap. 3.4](/bok/in1000/in1000-3-4) har fjorten oppgaver til i samme sjangre.\n\nKom du gjennom med god margin, er Oppgave 3 på plass — rundt 28 av 100 poeng.\nNeste steg er [kap. 4.1](/bok/in1000/in1000-4-1), som driller Oppgave 1:\nkodesporing. Den er den billigste poengkilden på hele settet, fordi den er\nmekanisk og fullstendig forutsigbar."
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

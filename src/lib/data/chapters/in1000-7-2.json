@@ -1,349 +1,349 @@
 {
- "id": "in1000-7-2",
- "courseId": "in1000",
- "chapterNumber": "7.2",
- "title": "DRILL — Filinnlesing i klassemodellering",
- "description": "Full drill på fil-deloppgaven i den store oppgaven: les en fil og bygg opp en samling av objekter, med roterende skilletegn, overskriftslinje og datatyper.",
- "estimatedMinutes": 75,
- "competenceGoals": [
-  "kunne lese et dataformat av en eksempellinje og planlegge innlesingen før du koder",
-  "kunne skrive innlesingen både som en frittstående funksjon og som en metode i en klasse",
-  "kunne velge mellom liste og ordbok ut fra hva oppgaven skal kunne slå opp senere",
-  "kunne kjenne igjen og rette de fem feilene som oftest ødelegger fil-deloppgaven"
- ],
- "content": [
-  {
-   "id": "in1000-7-2-1",
-   "type": "tip",
-   "title": "Eksamensvinkel",
-   "content": "Dette kapitlet trener **fil-deloppgaven i Oppgave 4**, og bare den.\n\n**Filbehandling står i 5 av 6 moderne eksamenssett (83 %)**, nesten alltid som én\ndeloppgave inne i den store modelleringen, verdt 5–10 poeng. Sjangeren er\n**F — stor klassemodellering**, altså å bygge samarbeidende klasser fra en\nbeskrevet oppgave.\n\n**Dette må sitte** — bokas høyeste prioritetsnivå. Bestillingen er formulert\nnesten likt hvert år: «les fila og opprett objektene». Det som varierer, er\n**dataformatet**: skilletegnet, om det finnes en overskriftslinje, hvilke felt\nsom er tall, og om samlingen skal være en liste eller en ordbok.\n\nDrillen roterer nettopp de fire tingene. Alt annet er den samme løkka du lærte i\n[kap. 7.1](/bok/in1000/in1000-7-1).\n\nKapitlet er langt (~75 min). Det er delt i tre økter med tidsanslag, og du kan\ntrygt ta én økt om gangen."
-  },
-  {
-   "id": "in1000-7-2-2",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 7.1 — Filinnlesing linje for linje](/bok/in1000/in1000-7-1)\nog [kap. 6.2 — Flere samarbeidende klasser](/bok/in1000/in1000-6-2), og bruker\nklassene fra [kap. 5.1](/bok/in1000/in1000-5-1) og\n[kap. 5.2](/bok/in1000/in1000-5-2).\n\n**De to tingene drillen hviler på**, friskes opp med kjørt kode.\n\n**1. Filinnlesing-løkkas fem deler**, her på fila `medlemmer.txt`:\n\n**Innholdet i `medlemmer.txt`:**\n```\nAda 24\nNora 31\nPer 19\n```\n\n```python\nfil = open(\"medlemmer.txt\")\nlinje = fil.readline()\nwhile linje != \"\":\n    felt = linje.rstrip().split()\n    print(felt[0], int(felt[1]) + 1)\n    linje = fil.readline()\nfil.close()\n```\n\n**Utskrift:**\n```\nAda 25\nNora 32\nPer 20\n```\n\n**2. En samling av objektreferanser**, ikke av rådata:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\nalle = []\nalle.append(Medlem(\"Ada\"))\nalle.append(Medlem(\"Nora\"))\nprint(len(alle), alle[0].hent_navn())\n```\n\n**Utskrift:**\n```\n2 Ada\n```\n\nHar du de to, er resten rotasjon av dataformatet."
-  },
-  {
-   "id": "in1000-7-2-3",
-   "type": "theorem",
-   "title": "Løsningsoppskriften for fil-deloppgaven — åtte steg",
-   "content": "Bruk den samme framgangsmåten hver gang, uansett hvordan fila ser ut.\n\n**Steg 0 — Les eksempellinjen i oppgaveteksten og skriv den av på kladden.**\nMarker skilletegnet, og skriv hvilket felt som er hva: `felt[0]` navn,\n`felt[1]` alder, `felt[2]` timer. To minutter her sparer deg for begge\nhalvdelene av feilkode **#8**.\n\n**Steg 1 — Opprett samlingen FØR løkka.** `[]` hvis du bare skal gå gjennom alle,\n`{}` hvis noe skal slås opp på et navn eller en kode senere.\n\n**Steg 2 — `fil = open(filnavn)`.**\n\n**Steg 3 — Hopp over headeren hvis fila har en**, med ett ekstra\n`fil.readline()`.\n\n**Steg 4 — `linje = fil.readline()` og `while linje != \"\":`.**\n\n**Steg 5 — Inne i løkka: `felt = linje.rstrip().split(sep)`.** Rens først, del\nså, med det skilletegnet fila faktisk bruker.\n\n**Steg 6 — Lag objektet og legg det i samlingen.** `int(...)` på hvert felt som\nskal være tall, og bare på dem. `samling.append(obj)` eller\n`samling[felt[0]] = obj`.\n\n**Steg 7 — `linje = fil.readline()` NEDERST i løkka**, så `fil.close()` etter\nden, og til slutt `return samling` **etter** løkka.\n\nÅtte steg, og bare tre av dem endrer seg fra oppgave til oppgave: skilletegnet,\nheaderen, og valget mellom liste og ordbok."
-  },
-  {
-   "id": "in1000-7-2-4",
-   "type": "definition",
-   "title": "Fire ting som roterer",
-   "content": "Det eneste som varierer mellom fil-deloppgavene i settene:\n\n- **Skilletegnet.** Semikolon, komma, kolon eller mellomrom. Står i\n  eksempellinjen i oppgaveteksten. Mellomrom betyr `.split()` uten argument.\n- **Headeren.** Har fila en overskriftslinje, hoppes den over med ett ekstra\n  `fil.readline()` før løkka.\n- **Hvilke felt som er tall.** Bare de du skal regne eller sammenligne med som\n  tall, skal gjennom `int(...)`. Navn, koder og postnumre forblir tekst.\n- **Liste eller ordbok.** Skal noe slås opp på en nøkkel senere, er det en\n  ordbok. Ellers en liste.\n\nAlt annet — de åtte stegene — er identisk hver gang."
-  },
-  {
-   "id": "in1000-7-2-5",
-   "type": "text",
-   "content": "## Økt 1 — Den gjennomarbeidede casen (~20 min)\n\nUnder står en fil-deloppgave slik den ser ut på eksamen, med margnotater om hva\nsom gir uttelling ved hvert steg."
-  },
-  {
-   "id": "in1000-7-2-6",
-   "type": "example",
-   "title": "Eksempel 1: Full fil-deloppgave med sensor-margnotater",
-   "problem": "Et treningssenter har medlemmene sine i fila `medlemsregister.txt`. Fila har en\noverskriftslinje, og hver datalinje har formen `navn;alder;timer`.\n\nSkriv klassen `Medlem` og en funksjon `les_register(filnavn)` som returnerer en\n**ordbok** fra navn til `Medlem`-objekt. Skriv deretter en funksjon som finner\nmedlemmet med flest timer.",
-   "solution": "**Steg 0 — les formatet.** Fila ser slik ut:\n\n**Innholdet i `medlemsregister.txt`:**\n```\nnavn;alder;timer\nAda;24;18\nNora;31;7\nPer;19;25\nKari;42;3\n```\n\nSkilletegnet er **semikolon**. Fila har en **header**. `felt[0]` er navn (tekst),\n`felt[1]` er alder (tall), `felt[2]` er timer (tall). Samlingen skal være en\n**ordbok**, fordi oppgaven sier «fra navn til objekt».\n\n**Steg 1–7 — hele løsningen:**\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder, timer):\n        self._navn = navn\n        self._alder = alder\n        self._timer = timer\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._alder) + \" ar, \" + str(self._timer) + \" t)\"\n\ndef les_register(filnavn):\n    register = {}\n    fil = open(filnavn)\n    fil.readline()\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\";\")\n        m = Medlem(felt[0], int(felt[1]), int(felt[2]))\n        register[felt[0]] = m\n        linje = fil.readline()\n    fil.close()\n    return register\n\ndef flest_timer(register):\n    beste = None\n    beste_timer = 0\n    for navn in register:\n        m = register[navn]\n        if m.hent_timer() > beste_timer:\n            beste = m\n            beste_timer = m.hent_timer()\n    return beste\n\nreg = les_register(\"medlemsregister.txt\")\nfor navn in reg:\n    print(reg[navn])\nprint(\"Antall:\", len(reg))\nprint(\"Flest timer:\", flest_timer(reg))\n```\n\n**Utskrift:**\n```\nAda (24 ar, 18 t)\nNora (31 ar, 7 t)\nPer (19 ar, 25 t)\nKari (42 ar, 3 t)\nAntall: 4\nFlest timer: Per (19 ar, 25 t)\n```\n\n**Sensors margnotater, steg for steg.**\n\n**`register = {}` før løkka** (1 p). Inne i løkka ville den blitt nullstilt hver\nrunde, og bare det siste medlemmet ville overlevd.\n\n**`fil.readline()` alene** (1 p) hopper over headeren. Uten den ville\n`int(\"alder\")` stoppet programmet med `ValueError`, og feilmeldingen ville\ninneholdt selve ordet fra overskriften.\n\n**`linje.rstrip().split(\";\")`** (2 p). Rens før deling, og semikolon fordi det er\ndet fila bruker. Med `.split(\",\")` ville `felt[1]` gitt en `IndexError`.\n\n**`int(felt[1])` og `int(felt[2])`, men ikke på `felt[0]`** (2 p). Bare det du\nskal regne med, konverteres.\n\n**`register[felt[0]] = m`** (2 p). Nøkkelen er navnet, verdien er **objektet** —\nikke rådataen. Lagrer du `register[felt[0]] = felt[2]`, mister du tilgangen til\nmetodene, og alle senere deloppgaver blir vanskeligere.\n\n**`linje = fil.readline()` nederst** (2 p). Uten den henger programmet.\n\n**`return register` etter løkka** (1 p). Inne i løkka ville funksjonen gitt en\nordbok med bare det første medlemmet — feilkode **#7**.\n\n**Finn-beste-løkka** (4 p): `beste = None` og `beste_timer = 0` **før** løkka,\nsammenligningen, og at **begge** oppdateres sammen. Oppdaterer du bare `beste`,\nfinner løkka det siste medlemmet over grensen i stedet for det største.\n\n**Riktig struktur belønnes selv med småfeil.** Har du hele løkka riktig, men glemt\n`.rstrip()`, er trekket lite — den delen av strukturen som er riktig, teller.\n\n— naturlig pausepunkt —"
-  },
-  {
-   "id": "in1000-7-2-7",
-   "type": "text",
-   "content": "## Økt 2 — Roterende skilletegn og header (~28 min)\n\nDe fem første oppgavene varierer dataformatet: komma, kolon, mellomrom, med og\nuten overskriftslinje. Bruk de åtte stegene hver gang, og begynn alltid med steg\n0 — å skrive av eksempellinjen og markere hva som er hva."
-  },
-  {
-   "id": "in1000-7-2-oppg-1",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o1",
-    "number": "1",
-    "type": "classic",
-    "difficulty": "lett",
-    "task": "(Innstegsoppgave — gjengivelse.) En fil `varelager.txt` har linjer på formen\n`varenavn,antall,pris`, uten overskriftslinje:\n\n```\nskrue,120,4\nmutter,80,2\nbolt,45,7\nskive,200,1\n```\n\n**a)** Hvilket skilletegn skal `.split()` ha?\n\n**b)** Hvilke av de tre feltene skal gjennom `int(...)`?\n\n**c)** Skriv linjen som deler linja i felt.",
-    "solution": "**a)** Komma: `.split(\",\")`. Skilletegnet er en del av dataformatet, og du leser\ndet av eksempellinjen — det er ikke noe du velger.\n\n**b)** `felt[1]` og `felt[2]`, altså antall og pris. Varenavnet skal forbli\ntekst.\n\nRegelen er enkel: **konverter bare det du faktisk skal regne eller sammenligne\nmed som tall.** Et navn, en varekode eller et postnummer skal aldri gjennom\n`int(...)` — postnummeret `0150` ville blitt tallet 150 og mistet nullen.\n\n**c)** `felt = linje.rstrip().split(\",\")`\n\nRens først, del så, som én fast lenke.\n\nKjørt på én linje:\n\n```python\nlinje = \"skrue,120,4\\n\"\nfelt = linje.rstrip().split(\",\")\nprint(felt)\nprint(felt[0], int(felt[1]) * int(felt[2]))\n```\n\n**Utskrift:**\n```\n['skrue', '120', '4']\nskrue 480\n```",
-    "hints": [
-     "Skilletegnet står i eksempellinjen i oppgaveteksten.",
-     "Hvilke felt skal du regne med, og hvilket er bare en merkelapp?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-2",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o2",
-    "number": "2",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F-del — fil til liste av objekter.) Fila `varelager.txt`\nhar linjer på formen `varenavn,antall,pris` uten overskriftslinje:\n\n```\nskrue,120,4\nmutter,80,2\nbolt,45,7\nskive,200,1\n```\n\n**a)** Skriv klassen `Vare` med konstruktør, aksessorer for antall og pris, en\nmetode `verdi(self)` som gir antall ganger pris, og en `__str__` på formen\n`skrue x120`.\n\n**b)** Skriv `les_varer(filnavn)` som returnerer en **liste** av\n`Vare`-objekter.\n\n**c)** Skriv kode som leser fila, skriver ut alle varene, og skriver ut den\nsamlede lagerverdien.",
-    "solution": "**a)–c)** Hele løsningen:\n\n```python\nclass Vare:\n    def __init__(self, navn, antall, pris):\n        self._navn = navn\n        self._antall = antall\n        self._pris = pris\n\n    def hent_antall(self):\n        return self._antall\n\n    def hent_pris(self):\n        return self._pris\n\n    def verdi(self):\n        return self._antall * self._pris\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._antall)\n\ndef les_varer(filnavn):\n    varer = []\n    fil = open(filnavn)\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\",\")\n        varer.append(Vare(felt[0], int(felt[1]), int(felt[2])))\n        linje = fil.readline()\n    fil.close()\n    return varer\n\nalle = les_varer(\"varelager.txt\")\nfor v in alle:\n    print(v)\n\ntotal = 0\nfor v in alle:\n    total = total + v.verdi()\nprint(\"Lagerverdi:\", total)\n```\n\n**Utskrift:**\n```\nskrue x120\nmutter x80\nbolt x45\nskive x200\nLagerverdi: 1155\n```\n\n**Legg merke til at `verdi` er en metode på `Vare`, ikke et regnestykke i\nløkka.** Objektet vet hva det er verdt; den som summerer, trenger bare å spørre.\nHadde du skrevet `total = total + v.hent_antall() * v.hent_pris()`, ville det\nvirket, men regnestykket ville ligget på feil sted — og det er den slags valg\nsensor ser etter i den store oppgaven.\n\n**Slik ville sensor sett på det:** de tre deloppgavene rettes hver for seg.\nKlassen med `__str__` og `verdi` er ett sett poeng, innlesingsfunksjonen et\nannet, og summeringen et tredje. Bommer du på skilletegnet i b), teller a) og c)\nfortsatt — så lenge du har skrevet dem.",
-    "hints": [
-     "Bruk de åtte stegene, og bytt bare ut skilletegnet og klassenavnet.",
-     "La objektet regne ut sin egen verdi i en metode."
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-3",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o3",
-    "number": "3",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F-del — fil med header til ordbok.) Fila `timeplan.txt`\nhar en overskriftslinje og deretter linjer på formen `dag rom antall`, skilt med\n**mellomrom**:\n\n```\ndag rom antall\nmandag A12 24\ntirsdag B03 18\nonsdag A12 31\ntorsdag C07 12\n```\n\n**a)** Skriv `les_timeplan(filnavn)` som returnerer en **ordbok** fra dag til\nantall deltakere, og som hopper over headeren.\n\n**b)** Skriv kode som skriver ut ordboka og det samlede antallet.\n\n**c)** Hva ville skjedd om du hadde brukt `.split(\";\")` i stedet?",
-    "solution": "**a)–b)** Mellomrom betyr `.split()` **uten** argument:\n\n```python\ndef les_timeplan(filnavn):\n    d = {}\n    fil = open(filnavn)\n    fil.readline()\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split()\n        d[felt[0]] = int(felt[2])\n        linje = fil.readline()\n    fil.close()\n    return d\n\nplan = les_timeplan(\"timeplan.txt\")\nprint(plan)\n\ntotal = 0\nfor dag in plan:\n    total = total + plan[dag]\nprint(\"Totalt:\", total)\n```\n\n**Utskrift:**\n```\n{'mandag': 24, 'tirsdag': 18, 'onsdag': 31, 'torsdag': 12}\nTotalt: 85\n```\n\n**c)** Semikolon finnes ikke i linjene, så `.split(\";\")` ville gitt **én** stor\nbit: `['mandag A12 24']`. Programmet ville stoppet på `felt[2]` med\n`IndexError: list index out of range`.\n\nDet er den andre halvdelen av feilkode **#8**, og den er snillere enn den\nførste: den sier tydelig fra med en gang.\n\n**Merk at rommet `A12` ikke er med i ordboka.** Oppgaven ba om dag til antall, og\nda skal bare de to feltene brukes. Å ta med felt oppgaven ikke ber om, gir ingen\nekstra poeng — men det gjør heller ingen skade.\n\n**Legg merke til rekkefølgen i ordboka:** den følger filas rekkefølge, fordi\nordbøker husker når nøklene ble opprettet.",
-    "hints": [
-     "Mellomrom som skilletegn betyr `.split()` uten argument.",
-     "Fila har en overskriftslinje — hva må stå før løkka?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-4",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o4",
-    "number": "4",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Fila `resultat.txt` inneholder:\n\n```\nAda:12:3\nNora:9:5\nPer:15:1\n```\n\nHva skriver programmet ut?\n\n```python\nfil = open(\"resultat.txt\")\nlinje = fil.readline()\nbeste = None\nbeste_poeng = 0\nantall = 0\nwhile linje != \"\":\n    felt = linje.rstrip().split(\":\")\n    poeng = int(felt[1]) - int(felt[2])\n    antall = antall + 1\n    if poeng > beste_poeng:\n        beste = felt[0]\n        beste_poeng = poeng\n    linje = fil.readline()\nfil.close()\nprint(antall, beste, beste_poeng)\n```",
-    "solution": "**Sporingstavle.** Én rad per linje i fila:\n\n| Linje | `felt` | `poeng` | `poeng > beste_poeng`? | `beste` etter | `beste_poeng` etter |\n|---|---|---|---|---|---|\n| `Ada:12:3` | `['Ada', '12', '3']` | 9 | 9 > 0 sann | `Ada` | 9 |\n| `Nora:9:5` | `['Nora', '9', '5']` | 4 | 4 > 9 usann | `Ada` | 9 |\n| `Per:15:1` | `['Per', '15', '1']` | 14 | 14 > 9 sann | `Per` | 14 |\n\n**Utskrift:**\n```\n3 Per 14\n```\n\n**Tre ting å legge merke til.**\n\nSkilletegnet er **kolon**, som er like gyldig som semikolon — det er fila som\nbestemmer.\n\n`beste` og `beste_poeng` oppdateres **sammen**, inne i samme `if`. Det er hele\nfinn-beste-mønsteret: oppdaterer du bare den ene, blir svaret galt så snart det\nkommer en større verdi senere.\n\nOg `antall = antall + 1` står **utenfor** `if`-en, så den teller alle linjene,\nikke bare de som slo rekorden.\n\n**På eksamen** skrives de tre verdiene på én linje, skilt med ett mellomrom, uten\npynt.",
-    "hints": [
-     "Regn ut `poeng` for hver linje før du sammenligner.",
-     "Sjekk hvilke linjer som står inne i `if`-en, og hvilke som står utenfor."
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-5",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o5",
-    "number": "5",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F-del — teller-ordbok fra fil.) Fila `sykkelturer.txt`\nhar linjer på formen `kode;stativ;turer`, uten overskriftslinje, og **samme\nsykkelkode kan stå på flere linjer**:\n\n```\nR31;Blindern;12\nR48;Majorstuen;5\nR07;Toyen;23\nR31;Blindern;8\n```\n\n**a)** Skriv `turer_per_sykkel(filnavn)` som returnerer en ordbok fra sykkelkode\ntil **samlet** antall turer.\n\n**b)** Skriv kode som skriver ut ordboka og antall ulike sykler.\n\n**c)** Hva ville skjedd om du hadde skrevet `d[felt[0]] = int(felt[2])` i stedet\nfor å akkumulere?",
-    "solution": "**a)–b)** Teller-idiomet fra [kap. 3.2](/bok/in1000/in1000-3-2), nå med data fra\nen fil:\n\n```python\ndef turer_per_sykkel(filnavn):\n    d = {}\n    fil = open(filnavn)\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\";\")\n        kode = felt[0]\n        if kode not in d:\n            d[kode] = 0\n        d[kode] = d[kode] + int(felt[2])\n        linje = fil.readline()\n    fil.close()\n    return d\n\nturer = turer_per_sykkel(\"sykkelturer.txt\")\nprint(turer)\nprint(\"Ulike sykler:\", len(turer))\n```\n\n**Utskrift:**\n```\n{'R31': 20, 'R48': 5, 'R07': 23}\nUlike sykler: 3\n```\n\n**c)** Da ville den siste linja **overskrevet** den første: `R31` ville fått 8 i\nstedet for 20, og totalen ville vært feil uten at noe sa fra.\n\nEn ordbok kan aldri ha to like nøkler. Skal verdier fra flere linjer legges\nsammen, må du bruke teller-idiomet: `if kode not in d:` og `d[kode] = 0` før du\nakkumulerer.\n\n**Uten `if`-sjekken** stopper programmet på den første linja med\n`KeyError: 'R31'` — feilkode **#14**, å slå opp en nøkkel som ikke er lagt inn.\n\n**Slik ville sensor sett på det:** her ligger poengene på filinnlesing-løkka,\n`int(...)`, `if kode not in d:`-sjekken, akkumuleringen med `+`, og `return`\netter løkka. Å skrive `=` i stedet for `+` er en klassisk halvbom: strukturen er\nriktig, og trekket er lite, men svaret er galt.",
-    "hints": [
-     "Samme nøkkel på flere linjer betyr at verdiene skal legges sammen.",
-     "Hva må stå i ordboka før du kan legge til noe på en ny nøkkel?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-8",
-   "type": "text",
-   "content": "## Økt 3 — Fila fyller en to-klasse-modell (~27 min)\n\nDe siste fem oppgavene er på full eksamensform: fila skal ikke bare bli en\nliste, den skal fylle en **modell** med to samarbeidende klasser. Det er nøyaktig\ndet Oppgave 4 ber om."
-  },
-  {
-   "id": "in1000-7-2-9",
-   "type": "definition",
-   "title": "Fil til to-klasse-modell",
-   "content": "Formen der ytterklassen leser fila selv og fyller sin egen samling:\n\n```text\nclass Container:\n    def __init__(self, navn):\n        self._navn = navn\n        self._elementer = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(sep)\n            self._elementer[felt[0]] = Element(felt[0], int(felt[1]))\n            linje = fil.readline()\n        fil.close()\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\nTo ting skiller den fra en frittstående funksjon:\n\n- Den legger objektene i **`self._elementer`**, ikke i en lokal liste, og\n  returnerer derfor ingenting.\n- Den kan bygge filnavnet av objektets eget navn:\n  `open(self._navn + \".txt\")`.\n\nBegge formene forekommer i settene. Ber oppgaven om «en metode i klassen\n`Register` som leser fila», er det denne; ber den om «en funksjon som returnerer\nen liste», er det den frittstående."
-  },
-  {
-   "id": "in1000-7-2-oppg-6",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o6",
-    "number": "6",
-    "type": "classic",
-    "difficulty": "middels",
-    "task": "(Eksamensnivå, sjanger F — stor klassemodellering med fil.) En\nresirkuleringsstasjon har fila `containere.txt` med linjer på formen\n`materiale;fylling`:\n\n```\nglass;40\npapir;85\nmetall;80\nplast;12\n```\n\n**a)** Skriv klassen `Container` med konstruktør, aksessor for fyllingen og\n`__str__` på formen `glass: 40 %`.\n\n**b)** Skriv klassen `Stasjon` med et sted, en tom liste, og metoden\n`les_fra_fil(self, filnavn)` som fyller lista med `Container`-objekter.\n\n**c)** Legg til `skriv_alle(self)` og `antall_fulle(self)`, som teller\ncontainere med fylling på minst 80.\n\n**d)** Hvorfor heter metoden i c) `skriv_alle` og ikke `skriv`?",
-    "solution": "**a)–c)** De to klassene:\n\n```python\nclass Container:\n    def __init__(self, materiale, fylling):\n        self._materiale = materiale\n        self._fylling = fylling\n\n    def hent_fylling(self):\n        return self._fylling\n\n    def __str__(self):\n        return self._materiale + \": \" + str(self._fylling) + \" %\"\n\nclass Stasjon:\n    def __init__(self, sted):\n        self._sted = sted\n        self._containere = []\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            self._containere.append(Container(felt[0], int(felt[1])))\n            linje = fil.readline()\n        fil.close()\n\n    def skriv_alle(self):\n        for c in self._containere:\n            print(c)\n\n    def antall_fulle(self):\n        antall = 0\n        for c in self._containere:\n            if c.hent_fylling() >= 80:\n                antall = antall + 1\n        return antall\n\nst = Stasjon(\"Ryen\")\nst.les_fra_fil(\"containere.txt\")\nst.skriv_alle()\nprint(\"Fulle:\", st.antall_fulle())\n```\n\n**Utskrift:**\n```\nglass: 40 %\npapir: 85 %\nmetall: 80 %\nplast: 12 %\nFulle: 2\n```\n\n**d)** Fordi den gjør noe annet enn containerens egen utskrift — den viser\n**alle**, ikke én — og to ulike jobber bør ha to ulike navn.\n\nOg en metode som heter det samme som den kaller, ser ut som om den kaller seg\nselv. En metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i\ndette emnet.\n\n**Slik ville sensor sett på det:** `les_fra_fil` legger objektene i\n`self._containere`, ikke i en lokal liste, og returnerer derfor ingenting. Det er\net selvstendig poeng — skriver du `containere = []` inne i metoden og glemmer\n`self.`, blir lista borte når metoden er ferdig, og `skriv_alle` skriver\ningenting. Det er feilkode **#1** i en metode.\n\n**Kantverdien:** `>= 80` teller med containeren på nøyaktig 80, siden oppgaven\nsier «minst 80».",
-    "hints": [
-     "Metoden skal fylle objektets egen liste, ikke en lokal.",
-     "Se på navneparene: elementets metode mot containerens."
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-7",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o7",
-    "number": "7",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger F — full fil-deloppgave med ordbok av objekter.) Fila\n`medlemsregister.txt` har en overskriftslinje og linjer på formen\n`navn;alder;timer`:\n\n```\nnavn;alder;timer\nAda;24;18\nNora;31;7\nPer;19;25\nKari;42;3\n```\n\n**a)** Skriv klassen `Medlem` med konstruktør, aksessorer for navn og timer, og\n`__str__` på formen `Ada/18`.\n\n**b)** Skriv klassen `Senter` med en ordbok fra navn til `Medlem`-objekt,\n`les_fra_fil(self, filnavn)`, og `finn(self, navn)` som gir medlemmet eller\n`None`.\n\n**c)** Legg til `totalt_antall_timer(self)`.\n\n**d)** Skriv kode som leser fila, slår opp «Per» og «Kari», slår opp en som ikke\nfinnes, og skriver ut totalen.",
-    "solution": "**a)–d)** Hele modellen:\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder, timer):\n        self._navn = navn\n        self._alder = alder\n        self._timer = timer\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \"/\" + str(self._timer)\n\nclass Senter:\n    def __init__(self, sted):\n        self._sted = sted\n        self._medlemmer = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        fil.readline()\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            m = Medlem(felt[0], int(felt[1]), int(felt[2]))\n            self._medlemmer[m.hent_navn()] = m\n            linje = fil.readline()\n        fil.close()\n\n    def finn(self, navn):\n        if navn in self._medlemmer:\n            return self._medlemmer[navn]\n        return None\n\n    def totalt_antall_timer(self):\n        total = 0\n        for navn in self._medlemmer:\n            total = total + self._medlemmer[navn].hent_timer()\n        return total\n\ns = Senter(\"Toyen\")\ns.les_fra_fil(\"medlemsregister.txt\")\nprint(s.finn(\"Per\"))\nprint(s.finn(\"Kari\"))\nprint(s.finn(\"Ola\"))\nprint(\"Totalt:\", s.totalt_antall_timer())\n```\n\n**Utskrift:**\n```\nPer/25\nKari/3\nNone\nTotalt: 53\n```\n\n**Fire ting er verdt å merke seg.**\n\n`self._medlemmer[m.hent_navn()] = m` bruker medlemmets **egen** aksessor til å\nfinne nøkkelen. Senteret bestemmer ikke navnet, det spør medlemmet. Å skrive\n`m._navn` her ville vært feilkode **#11**.\n\n`finn` sjekker med `if navn in self._medlemmer:` **før** oppslaget, og returnerer\n`None` når nøkkelen mangler. Uten sjekken ville `s.finn(\"Ola\")` stoppet\nprogrammet med `KeyError: 'Ola'` — feilkode **#14**.\n\n`totalt_antall_timer` heter noe annet enn medlemmets `hent_timer`, etter\nnavneregelen for containere.\n\nOg headeren hoppes over med ett `fil.readline()` alene. Uten den ville\n`int(\"alder\")` stoppet programmet med `ValueError`.\n\n**Slik ville sensor sett på det:** dette er en 15–18-poengs deloppgave, og\npoengene ligger spredt utover: klassen med `__str__`, ordboka i konstruktøren,\nheader-hoppet, løkkas fem deler, `.rstrip().split(\";\")`, de to `int(...)`,\ninnsettingen med riktig nøkkel, `if navn in ...`-sjekken, `return None`-grenen,\nakkumulatoren og løkka i tellemetoden. Mangler én, står de andre.",
-    "hints": [
-     "Bruk objektets egen aksessor til å finne nøkkelen i ordboka.",
-     "En søkemetode skal sjekke før den slår opp, og gi `None` når den ikke finner noe."
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-8",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o8",
-    "number": "8",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger I — «finn feilen», med konkret moteksempel.) En\nmedstudent har skrevet denne metoden. Fila `varelager.txt` har linjer på formen\n`varenavn,antall,pris` uten overskriftslinje.\n\n```python\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def les_fra_fil(self, filnavn):\n        varer = {}\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            varer[felt[0]] = felt[1]\n            linje = fil.readline()\n        fil.close()\n\n    def antall_varer(self):\n        return len(self._varer)\n```\n\n**a)** Metoden har tre feil. Hvilke?\n\n**b)** Gi et **konkret moteksempel**: hva gir `antall_varer()` etter et kall på\n`les_fra_fil(\"varelager.txt\")`, og hva skulle det gitt?\n\n**c)** Skriv den rettede metoden.",
-    "solution": "**a)** Tre feil, i den rekkefølgen de gjør skade:\n\n1. **`varer = {}` i stedet for å bruke `self._varer`.** Ordboka blir en lokal\n   variabel som forsvinner når metoden er ferdig. `self._varer` forblir tom. Det\n   er feilkode **#1**, `self`-fella, i en metode.\n2. **Feil skilletegn.** Fila bruker komma, ikke semikolon. `.split(\";\")` gir én\n   stor bit, så `felt[1]` ville stoppet programmet med `IndexError` — hvis feil\n   nummer 1 ikke hadde gjort ordboka meningsløs uansett.\n3. **Rådata i stedet for objektreferanser.** `varer[felt[0]] = felt[1]` lagrer en\n   tekst, ikke et objekt. Alle senere deloppgaver som skal spørre varen om noe,\n   faller da sammen.\n\n**b)** Moteksempelet er selve kallet, og det **stopper programmet**:\n\n```text\nlager = Lager()\nlager.les_fra_fil(\"varelager.txt\")\nprint(lager.antall_varer())\n```\n\nSiste linje i feilmeldingen er `IndexError: list index out of range`. Blokken er\nmerket som ikke-kjørbar fordi feilen er plantet med vilje.\n\nGrunnen er feil nummer 2: `.split(\";\")` på linja `skrue,120,4` finner ingen\nsemikolon og gir **én** bit, `['skrue,120,4']`. Da finnes ikke `felt[1]`.\n\nKallet skulle gitt en ordbok med fire varer, slik at `antall_varer()` svarer\n**4**.\n\n**Feilene skjuler hverandre**, og det er verdt å se hvordan. Retter du bare\nskilletegnet, kjører programmet — og svarer fortsatt feil:\n\n```python\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def les_fra_fil(self, filnavn):\n        varer = {}\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\",\")\n            varer[felt[0]] = felt[1]\n            linje = fil.readline()\n        fil.close()\n\n    def antall_varer(self):\n        return len(self._varer)\n\nlager = Lager()\nlager.les_fra_fil(\"varelager.txt\")\nprint(lager.antall_varer())\n```\n\n**Utskrift:**\n```\n0\n```\n\nNå er svaret **0** i stedet for 4: den lokale ordboka ble fylt og kastet, mens\n`self._varer` aldri ble rørt. Det er feilkode **#1**, og den er stum — programmet\nkjører helt rolig.\n\n**c)** Den rettede metoden, med en `Vare`-klasse rundt:\n\n```python\nclass Vare:\n    def __init__(self, navn, antall, pris):\n        self._navn = navn\n        self._antall = antall\n        self._pris = pris\n\n    def verdi(self):\n        return self._antall * self._pris\n\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\",\")\n            self._varer[felt[0]] = Vare(felt[0], int(felt[1]), int(felt[2]))\n            linje = fil.readline()\n        fil.close()\n\n    def antall_varer(self):\n        return len(self._varer)\n\n    def samlet_verdi(self):\n        total = 0\n        for navn in self._varer:\n            total = total + self._varer[navn].verdi()\n        return total\n\nlager = Lager()\nlager.les_fra_fil(\"varelager.txt\")\nprint(lager.antall_varer())\nprint(lager.samlet_verdi())\n```\n\n**Utskrift:**\n```\n4\n1155\n```\n\nTre endringer: `self._varer` i stedet for en lokal ordbok, komma som skilletegn,\nog et `Vare`-objekt som verdi i stedet for en tekst.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling — hvilket kall som gir galt svar, og hva det riktige\nville vært. Å finne to av tre feil gir to tredjedeler.",
-    "hints": [
-     "Se på venstre side av tilordningen i metoden: hvilken ordbok skrives det til?",
-     "Sammenlign skilletegnet i koden med skilletegnet i eksempellinjen."
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-9",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o9",
-    "number": "9",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger F — objektet leser sin egen fil.) En brettspillklubb har\nén fil per spill. Fila heter `<spilltittel>.txt` og har ett navn per linje.\n`Kolonier.txt` og `Ordjakt.txt` inneholder:\n\n```\nAda\nNora\nPer\n```\n\n```\nAda\nPer\n```\n\n**a)** Skriv klassen `Spill` med tittel, en tom liste av eiere, og\n`les_eiere(self)` som bygger filnavnet av tittelen og fyller lista.\n\n**b)** Skriv klassen `Klubb` som holder spillene i en ordbok fra tittel til\n`Spill`-objekt, med `legg_til(self, spill)` og `totalt_antall_eiere(self)`.\n\n**c)** Lag begge spillene, les inn eierne, legg dem i klubben, og skriv ut\ntotalen.\n\n**d)** Hvorfor kan ikke metoden i b) hete `antall_eiere`?",
-    "solution": "**a)–c)** Filnavnet bygges av objektets egen instansvariabel:\n\n```python\nclass Spill:\n    def __init__(self, tittel):\n        self._tittel = tittel\n        self._eiere = []\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def les_eiere(self):\n        fil = open(self._tittel + \".txt\")\n        linje = fil.readline()\n        while linje != \"\":\n            self._eiere.append(linje.rstrip())\n            linje = fil.readline()\n        fil.close()\n\n    def antall_eiere(self):\n        return len(self._eiere)\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(len(self._eiere)) + \")\"\n\nclass Klubb:\n    def __init__(self):\n        self._spill = {}\n\n    def legg_til(self, spill):\n        self._spill[spill.hent_tittel()] = spill\n\n    def totalt_antall_eiere(self):\n        total = 0\n        for tittel in self._spill:\n            total = total + self._spill[tittel].antall_eiere()\n        return total\n\n    def skriv_alle(self):\n        for tittel in self._spill:\n            print(self._spill[tittel])\n\nkolonier = Spill(\"Kolonier\")\nordjakt = Spill(\"Ordjakt\")\nkolonier.les_eiere()\nordjakt.les_eiere()\n\nk = Klubb()\nk.legg_til(kolonier)\nk.legg_til(ordjakt)\nk.skriv_alle()\nprint(\"Totalt:\", k.totalt_antall_eiere())\n```\n\n**Utskrift:**\n```\nKolonier (3)\nOrdjakt (2)\nTotalt: 5\n```\n\n**d)** Fordi `totalt_antall_eiere` **kaller** `antall_eiere` inne i løkka si.\nHadde de hett det samme, ville linjen sett ut som om metoden kalte seg selv — og\nen metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette\nemnet.\n\nNavnet skal dessuten si hva metoden gjør: `antall_eiere()` er eierne av **ett**\nspill, `totalt_antall_eiere()` er eierne i **hele** klubben.\n\n**Tre ting til å merke seg.**\n\n`open(self._tittel + \".txt\")` bygger filnavnet av objektets eget navn. Formen er\nen gjenganger i settene, og punktumet må skrives inn selv.\n\n`.rstrip()` på hver linje er nødvendig her, selv om det bare er ett felt. Uten\nden ville hvert navn hatt et linjeskift på slutten, og en senere sammenligning\n`if navn == \"Ada\":` ville svart `False` — feilkode **#8** i sin stumme form.\n\n`legg_til` bruker spillets egen aksessor til å finne nøkkelen. `spill._tittel`\nville vært feilkode **#11**.",
-    "hints": [
-     "Metoden skal bygge filnavnet av instansvariabelen sin, ikke av en parameter.",
-     "Se på navneparene: elementets metode mot containerens."
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-oppg-10",
-   "type": "exercise",
-   "exercise": {
-    "id": "in1000-7-2-o10",
-    "number": "10",
-    "type": "classic",
-    "difficulty": "vanskelig",
-    "task": "(Eksamensnivå, sjanger A — kodesporing med fil.) Fila `sykkelturer.txt`\ninneholder:\n\n```\nR31;Blindern;12\nR48;Majorstuen;5\nR07;Toyen;23\nR31;Blindern;8\n```\n\nHva skriver programmet ut?\n\n```python\nclass Sykkel:\n    def __init__(self, kode, turer):\n        self._kode = kode\n        self._turer = turer\n\n    def hent_turer(self):\n        return self._turer\n\n    def __str__(self):\n        return self._kode + \"=\" + str(self._turer)\n\nd = {}\nfil = open(\"sykkelturer.txt\")\nlinje = fil.readline()\nwhile linje != \"\":\n    felt = linje.rstrip().split(\";\")\n    d[felt[0]] = Sykkel(felt[0], int(felt[2]))\n    linje = fil.readline()\nfil.close()\n\nfor kode in d:\n    print(d[kode])\n\ntotal = 0\nfor kode in d:\n    total = total + d[kode].hent_turer()\nprint(len(d), total)\n```",
-    "solution": "**Sporingstavle.** Se nøye på den fjerde linja:\n\n| Linje fra fila | Ordboka etter | Merknad |\n|---|---|---|\n| `R31;Blindern;12` | `R31` gir et objekt med 12 | ny nøkkel |\n| `R48;Majorstuen;5` | pluss `R48` med 5 | ny nøkkel |\n| `R07;Toyen;23` | pluss `R07` med 23 | ny nøkkel |\n| `R31;Blindern;8` | `R31` gir nå et objekt med 8 | **overskrevet** |\n\n**Utskrift:**\n```\nR31=8\nR48=5\nR07=23\n3 36\n```\n\n**Fellen her er at koden bruker `=` og ikke teller-idiomet.** Den fjerde linja\nlager et **nytt** `Sykkel`-objekt og legger det på en nøkkel som allerede fantes.\nDet gamle objektet med 12 turer blir overskrevet uten et pip, og summen blir\n`8 + 5 + 23 = 36` i stedet for 48.\n\nLegg også merke til rekkefølgen: `R31` står **først** i utskriften selv om den\nble overskrevet sist. En ordbok husker når nøklene ble **opprettet**, ikke når de\nsist ble endret.\n\n**Er dette en feil?** Det avhenger av oppgaveteksten. Skal turene legges sammen,\ner det en feil, og løsningen er teller-idiomet. Skal siste linje gjelde, er det\nriktig. **Les alltid hva oppgaven ber om når samme nøkkel kan komme flere\nganger.**\n\n**På eksamen** skrives alle fire linjene, i riktig rekkefølge.",
-    "hints": [
-     "Skriv opp ordboka på nytt etter hver linje i fila.",
-     "Hva skjer når en nøkkel som allerede finnes, brukes en gang til?"
-    ]
-   }
-  },
-  {
-   "id": "in1000-7-2-10",
-   "type": "warning",
-   "title": "Typiske feil i dette kapitlet",
-   "content": "Fem feil koster nesten alle poengene som mistes på fil-deloppgaven:\n\n- **#8 — feil skilletegn.** Les eksempellinjen i oppgaveteksten og bruk det\n  tegnet fila faktisk bruker. Feil tegn gir én stor bit og en `IndexError`.\n- **#8 — glemt `.rstrip()`.** Linjeskiftet henger igjen i siste felt. Stum feil\n  som slår ut først når noen sammenligner.\n- **#4 — glemt `int(...)`.** Feltene er alltid tekster. Og motsatt: ikke\n  konverter et navn eller et postnummer.\n- **#1 — lokal samling i en metode.** `varer = {}` i stedet for `self._varer`\n  gjør at alt forsvinner når metoden er ferdig, og objektet står tomt igjen.\n- **Rådata i stedet for objektreferanser.** `d[navn] = felt[1]` lagrer en tekst.\n  Alle senere deloppgaver som skal spørre objektet om noe, faller da sammen.\n\nOg to plasseringsfeil: **samlingen opprettet inne i løkka** (nullstilles hver\nrunde), og **glemt header-hopp** (`ValueError` med overskriftsordet i\nfeilmeldingen)."
-  },
-  {
-   "id": "in1000-7-2-coll-11",
-   "type": "collapsible",
-   "title": "API- og konstruksjonsliste",
-   "buttonText": "Vis API og konstruksjoner",
-   "content": [
+  "id": "in1000-7-2",
+  "courseId": "in1000",
+  "chapterNumber": "7.2",
+  "title": "DRILL — Filinnlesing i klassemodellering",
+  "description": "Full drill på fil-deloppgaven i den store oppgaven: les en fil og bygg opp en samling av objekter, med roterende skilletegn, overskriftslinje og datatyper.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne lese et dataformat av en eksempellinje og planlegge innlesingen før du koder",
+    "kunne skrive innlesingen både som en frittstående funksjon og som en metode i en klasse",
+    "kunne velge mellom liste og ordbok ut fra hva oppgaven skal kunne slå opp senere",
+    "kunne kjenne igjen og rette de fem feilene som oftest ødelegger fil-deloppgaven"
+  ],
+  "content": [
     {
-     "id": "in1000-7-2-c1",
-     "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `samling = []` før løkka | Liste når du bare skal gå gjennom alle. Opprettes **utenfor** løkka. |\n| `samling = {}` før løkka | Ordbok når noe skal slås opp på en nøkkel senere. |\n| `fil = open(filnavn)` | Åpner fila. `FileNotFoundError` hvis navnet er feil. |\n| `fil.readline()` alene | Hopper over én linje — headeren. |\n| `while linje != \"\":` | Løkker til filslutt. Krever `readline` før løkka og nederst i den. |\n| `linje.rstrip().split(\";\")` | Rens først, del så. Skilletegnet leses av eksempellinjen. |\n| `.split()` uten argument | Deler på blanktegn. Brukes når feltene er skilt med mellomrom. |\n| `int(felt[1])` | Bare på felt du skal regne eller sammenligne med som tall. |\n| `samling.append(Klasse(...))` | Liste-varianten: objektet legges bakerst. |\n| `samling[felt[0]] = Klasse(...)` | Ordbok-varianten: feltet blir nøkkel, objektet blir verdi. |\n| `d[obj.hent_navn()] = obj` | Nøkkelen hentes med objektets **egen** aksessor, aldri `obj._navn`. |\n| `if k not in d:` `d[k] = 0` | Teller-idiomet, når samme nøkkel kan komme på flere linjer. |\n| `d[k] = d[k] + int(felt[2])` | Akkumulering. Med `=` i stedet overskrives forrige verdi. |\n| `self._elementer[...] = ...` | I en metode: skriv til objektets samling, ikke til en lokal. |\n| `open(self._navn + \".txt\")` | Objektet leser sin egen fil, navngitt etter seg selv. |\n| `if navn in d:` `return d[navn]` `return None` | Standard søkemetode. Uten sjekken: `KeyError` (#14). |\n| `return samling` etter løkka | Inne i løkka gir det bare første element (#7). |\n\n**Det som avgjør poeng i Oppgave 4:** at samlingen holder **objektreferanser** og\nikke rådata, og at skilletegnet stemmer med eksempellinjen i oppgaveteksten."
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-2-12",
-   "type": "text",
-   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
-  },
-  {
-   "id": "in1000-7-2-13",
-   "type": "definition",
-   "title": "Steg 0 — les formatet først",
-   "content": "Det viktigste steget, og det som oftest hoppes over.\n\nSkriv av eksempellinjen fra oppgaveteksten på kladden, marker skilletegnet, og\nskriv hvilket felt som er hva: `felt[0]` navn, `felt[1]` alder, `felt[2]` timer.\n\nTo minutter der sparer deg for begge halvdelene av feilkode **#8** — feil\nskilletegn og glemt rensing — og for å konvertere feil felt."
-  },
-  {
-   "id": "in1000-7-2-14",
-   "type": "definition",
-   "title": "De fire tingene som roterer",
-   "content": "Skilletegnet, headeren, hvilke felt som er tall, og valget mellom liste og\nordbok.\n\nAlt annet i de åtte stegene er identisk fra oppgave til oppgave. Kjenner du de\nfire variablene, er hver ny fil-deloppgave den samme oppgaven i ny innpakning.\n\nDomenet varierer også — medlemsregister, varelager, timeplan, resultatliste —\nmen det er bare kulisser."
-  },
-  {
-   "id": "in1000-7-2-15",
-   "type": "definition",
-   "title": "Objektreferanser, ikke rådata",
-   "content": "`d[felt[0]] = Vare(felt[0], int(felt[1]), int(felt[2]))`, ikke\n`d[felt[0]] = felt[1]`.\n\nLagrer du rådataen, mister du tilgangen til objektets metoder, og alle senere\ndeloppgaver — «finn den dyreste», «skriv ut alle», «regn ut samlet verdi» — blir\nvanskeligere eller umulige.\n\nDet er en av de faste vurderingene i Oppgave 4, og det er en av grunnene til at\nfil-deloppgaven kommer først: resten bygger på den."
-  },
-  {
-   "id": "in1000-7-2-16",
-   "type": "definition",
-   "title": "Liste eller ordbok",
-   "content": "Ett spørsmål avgjør: **skal noe slås opp på et navn eller en kode senere?**\n\nEr svaret ja, bruk en ordbok med navnet som nøkkel og objektet som verdi. Er\nsvaret nei — du skal bare gå gjennom alle — er en liste enklere.\n\nOppgaveteksten sier det som regel rett ut: «returner en ordbok fra navn til\nobjekt» eller «returner en liste av objekter»."
-  },
-  {
-   "id": "in1000-7-2-17",
-   "type": "definition",
-   "title": "Samme nøkkel på flere linjer",
-   "content": "En ordbok kan aldri ha to like nøkler. Kommer samme navn på to linjer, blir det\nførste objektet **overskrevet** uten en advarsel.\n\nSkal verdiene legges sammen, må du bruke teller-idiomet: `if k not in d:` og\n`d[k] = 0` før akkumuleringen.\n\nSkal siste linje gjelde, er overskrivingen riktig. **Les hva oppgaven ber om** —\nbegge deler forekommer."
-  },
-  {
-   "id": "in1000-7-2-18",
-   "type": "definition",
-   "title": "Innlesing som metode mot funksjon",
-   "content": "Begge formene forekommer i settene.\n\n**Som metode:** `def les_fra_fil(self, filnavn):` skriver til `self._elementer`\nog returnerer ingenting. Ber oppgaven om «en metode i klassen `Register` som\nleser fila», er det denne.\n\n**Som funksjon:** `def les_alle(filnavn):` bygger en lokal samling og returnerer\nden. Ber oppgaven om «en funksjon som returnerer en liste», er det denne.\n\nBlander du dem — en metode som bygger en lokal samling og ikke returnerer noe —\nforsvinner alt. Det er feilkode **#1** i en metode."
-  },
-  {
-   "id": "in1000-7-2-19",
-   "type": "definition",
-   "title": "Nøkkelen fra objektets egen aksessor",
-   "content": "`self._medlemmer[m.hent_navn()] = m`.\n\nContaineren bestemmer ikke navnet, den spør objektet. Alternativet `m._navn` er\nfeilkode **#11**, direkte tilgang til en instansvariabel utenfra — og det er den\nvanligste formen den tar når to klasser samarbeider.\n\nFormen er også tryggere: endrer `Medlem` hvordan navnet lagres, merker\ncontaineren ingenting."
-  },
-  {
-   "id": "in1000-7-2-20",
-   "type": "definition",
-   "title": "Header i praksis",
-   "content": "Ett `fil.readline()` alene, **før** løkka. Du trenger ikke å ta vare på\nverdien.\n\nGlemmer du det, prøver programmet å konvertere et ord fra overskriften til tall,\nog stopper med `ValueError` — med selve ordet i feilmeldingen. Ser du\n`invalid literal for int()` med et overskriftsord i, vet du med én gang hva som\nmangler.\n\nSjekk alltid om eksempelfila i oppgaveteksten har en overskriftslinje. Den er\nlett å overse fordi den ser ut som data."
-  },
-  {
-   "id": "in1000-7-2-21",
-   "type": "definition",
-   "title": "Hvilke felt som skal konverteres",
-   "content": "Bare de du faktisk skal regne eller sammenligne med som tall.\n\nNavn, koder, romnumre og materialer forblir tekst. Postnummeret `0150` ville\nblitt tallet 150 og mistet nullen; en varekode som `R07` lar seg ikke konvertere\ni det hele tatt.\n\nEr du i tvil, spør: skal jeg noen gang legge sammen, trekke fra eller\nsammenligne denne verdien med `>`? Da er den et tall."
-  },
-  {
-   "id": "in1000-7-2-22",
-   "type": "definition",
-   "title": "Finn-beste-løkka over en fil-samling",
-   "content": "Mønsteret som ofte er den høyest vektede deloppgaven rett etter innlesingen:\n\n```text\n    beste = None\n    beste_verdi = 0\n    for e in samlingen:\n        if e.hent_verdi() > beste_verdi:\n            beste = e\n            beste_verdi = e.hent_verdi()\n    return beste\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\n**Begge variablene oppdateres sammen.** Oppdaterer du bare `beste`, finner løkka\ndet siste elementet over grensen i stedet for det største. `beste = None` er det\nærlige svaret på en tom samling."
-  },
-  {
-   "id": "in1000-7-2-23",
-   "type": "definition",
-   "title": "Å dele oppgaven i to funksjoner",
-   "content": "Én som leser fila, én som regner på resultatet.\n\nDet er slik oppgaveteksten deler den også: «c) les fila og opprett objektene» og\n«d) skriv en metode som finner …».\n\nGevinsten på eksamen er konkret: du kan få full uttelling på den ene selv om du\nstår fast på den andre — og du kan bruke en metode oppgaven beskriver, uten selv\nå ha skrevet den."
-  },
-  {
-   "id": "in1000-7-2-24",
-   "type": "definition",
-   "title": "Objektet leser sin egen fil",
-   "content": "`open(self._tittel + \".txt\")` inne i en metode på klassen.\n\nFormen er en gjenganger i settene: hvert objekt har sin egen fil, navngitt etter\nobjektet. Punktumet og filendelsen skrives inn selv.\n\nMetoden returnerer som regel ingenting — den fyller objektets egen samling, og\nresultatet hentes med en aksessor etterpå."
-  },
-  {
-   "id": "in1000-7-2-25",
-   "type": "definition",
-   "title": "Delvis uttelling i fil-deloppgaven",
-   "content": "Poengene ligger spredt utover, og hver del teller for seg: samlingen før løkka,\n`open`, header-hoppet, løkkas fem deler, rensingen, delingen, konverteringene,\nopprettelsen av objektet, innsettingen, og `return` etter løkka.\n\nDet betyr at en glemt `.rstrip()` koster lite når resten står. Og det betyr at\ndet aldri lønner seg å stå fast: skriv løkka ferdig med det du er sikker på, og\ngå videre.\n\nEr du usikker på et format, skriv en kommentar om hva du har forutsatt. Det er\nden ene legitime bruken av kommentarer i en besvarelse."
-  },
-  {
-   "id": "in1000-7-2-26",
-   "type": "definition",
-   "title": "Å teste uten å kjøre",
-   "content": "Eksamen er hjelpemiddelfri, så koden din blir aldri kjørt før den rettes.\nKontrollen må derfor gjøres med øynene.\n\nTre spørsmål tar de vanligste feilene: Står `readline` **to** steder? Står\nsamlingen **over** løkka og `return` **under** den? Stemmer skilletegnet med\neksempellinjen?\n\nBruk et halvt minutt på de tre etter hver fil-deloppgave. Det er den billigste\nkontrollen som finnes."
-  },
-  {
-   "id": "in1000-7-2-coll-27",
-   "type": "collapsible",
-   "title": "Repetisjon — de sju setningene som må sitte",
-   "buttonText": "Vis repetisjon",
-   "content": [
+      "id": "in1000-7-2-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet trener **fil-deloppgaven i Oppgave 4**, og bare den.\n\n**Filbehandling står i 5 av 6 moderne eksamenssett (83 %)**, nesten alltid som én\ndeloppgave inne i den store modelleringen, verdt 5–10 poeng. Sjangeren er\n**F — stor klassemodellering**, altså å bygge samarbeidende klasser fra en\nbeskrevet oppgave.\n\n**Dette må sitte** — bokas høyeste prioritetsnivå. Bestillingen er formulert\nnesten likt hvert år: «les fila og opprett objektene». Det som varierer, er\n**dataformatet**: skilletegnet, om det finnes en overskriftslinje, hvilke felt\nsom er tall, og om samlingen skal være en liste eller en ordbok.\n\nDrillen roterer nettopp de fire tingene. Alt annet er den samme løkka du lærte i\n[kap. 7.1](/bok/in1000/in1000-7-1).\n\nKapitlet er langt (~75 min). Det er delt i tre økter med tidsanslag, og du kan trygt ta én økt om gangen."
+    },
     {
-     "id": "in1000-7-2-c2",
-     "type": "text",
-     "content": "1. **Steg 0 er å lese formatet.** Skriv av eksempellinjen, marker skilletegnet,\n   og noter hvilket felt som er hva.\n2. **Bare fire ting roterer:** skilletegnet, headeren, hvilke felt som er tall,\n   og liste mot ordbok.\n3. **Samlingen opprettes FØR løkka**, fylles inne i den, og returneres ETTER\n   den.\n4. **`linje.rstrip().split(sep)`** som én fast lenke, med det tegnet fila\n   faktisk bruker.\n5. **Samlingen holder objektreferanser**, ikke rådata. Ellers faller alle senere\n   deloppgaver.\n6. **I en metode skrives det til `self._elementer`**, ikke til en lokal samling —\n   ellers forsvinner alt når metoden er ferdig (**#1**).\n7. **Nøkkelen hentes med objektets egen aksessor**, aldri med `obj._navn`\n   (**#11**)."
+      "id": "in1000-7-2-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 7.1 — Filinnlesing linje for linje](/bok/in1000/in1000-7-1)\nog [kap. 6.2 — Flere samarbeidende klasser](/bok/in1000/in1000-6-2), og bruker klassene fra [kap. 5.1](/bok/in1000/in1000-5-1) og\n[kap. 5.2](/bok/in1000/in1000-5-2).\n\n**De to tingene drillen hviler på**, friskes opp med kjørt kode.\n\n**1. Filinnlesing-løkkas fem deler**, her på fila `medlemmer.txt`:\n\n**Innholdet i `medlemmer.txt`:**\n```\nAda 24\nNora 31\nPer 19\n```\n\n```python\nfil = open(\"medlemmer.txt\")\nlinje = fil.readline()\nwhile linje != \"\":\n    felt = linje.rstrip().split()\n    print(felt[0], int(felt[1]) + 1)\n    linje = fil.readline()\nfil.close()\n```\n\n**Utskrift:**\n```\nAda 25\nNora 32\nPer 20\n```\n\n**2. En samling av objektreferanser**, ikke av rådata:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\nalle = []\nalle.append(Medlem(\"Ada\"))\nalle.append(Medlem(\"Nora\"))\nprint(len(alle), alle[0].hent_navn())\n```\n\n**Utskrift:**\n```\n2 Ada\n```\n\nHar du de to, er resten rotasjon av dataformatet."
+    },
+    {
+      "id": "in1000-7-2-3",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for fil-deloppgaven — åtte steg",
+      "content": "Bruk den samme framgangsmåten hver gang, uansett hvordan fila ser ut.\n\n**Steg 0 — Les eksempellinjen i oppgaveteksten og skriv den av på kladden.**\nMarker skilletegnet, og skriv hvilket felt som er hva: `felt[0]` navn,\n`felt[1]` alder, `felt[2]` timer. To minutter her sparer deg for begge halvdelene av feilkode **#8**.\n\n**Steg 1 — Opprett samlingen FØR løkka.** `[]` hvis du bare skal gå gjennom alle,\n`{}` hvis noe skal slås opp på et navn eller en kode senere.\n\n**Steg 2 — `fil = open(filnavn)`.**\n\n**Steg 3 — Hopp over headeren hvis fila har en**, med ett ekstra\n`fil.readline()`.\n\n**Steg 4 — `linje = fil.readline()` og `while linje != \"\":`.**\n\n**Steg 5 — Inne i løkka: `felt = linje.rstrip().split(sep)`.** Rens først, del\nså, med det skilletegnet fila faktisk bruker.\n\n**Steg 6 — Lag objektet og legg det i samlingen.** `int(...)` på hvert felt som\nskal være tall, og bare på dem. `samling.append(obj)` eller\n`samling[felt[0]] = obj`.\n\n**Steg 7 — `linje = fil.readline()` NEDERST i løkka**, så `fil.close()` etter\nden, og til slutt `return samling` **etter** løkka.\n\nÅtte steg, og bare tre av dem endrer seg fra oppgave til oppgave: skilletegnet, headeren, og valget mellom liste og ordbok."
+    },
+    {
+      "id": "in1000-7-2-4",
+      "type": "definition",
+      "title": "Fire ting som roterer",
+      "content": "Det eneste som varierer mellom fil-deloppgavene i settene:\n\n- **Skilletegnet.** Semikolon, komma, kolon eller mellomrom. Står i\n  eksempellinjen i oppgaveteksten. Mellomrom betyr `.split()` uten argument.\n- **Headeren.** Har fila en overskriftslinje, hoppes den over med ett ekstra\n  `fil.readline()` før løkka.\n- **Hvilke felt som er tall.** Bare de du skal regne eller sammenligne med som\n  tall, skal gjennom `int(...)`. Navn, koder og postnumre forblir tekst.\n- **Liste eller ordbok.** Skal noe slås opp på en nøkkel senere, er det en\n  ordbok. Ellers en liste.\n\nAlt annet — de åtte stegene — er identisk hver gang."
+    },
+    {
+      "id": "in1000-7-2-5",
+      "type": "text",
+      "content": "## Økt 1 — Den gjennomarbeidede casen (~20 min)\n\nUnder står en fil-deloppgave slik den ser ut på eksamen, med margnotater om hva som gir uttelling ved hvert steg."
+    },
+    {
+      "id": "in1000-7-2-6",
+      "type": "example",
+      "title": "Eksempel 1: Full fil-deloppgave med sensor-margnotater",
+      "problem": "Et treningssenter har medlemmene sine i fila `medlemsregister.txt`. Fila har en overskriftslinje, og hver datalinje har formen `navn;alder;timer`.\n\nSkriv klassen `Medlem` og en funksjon `les_register(filnavn)` som returnerer en\n**ordbok** fra navn til `Medlem`-objekt. Skriv deretter en funksjon som finner\nmedlemmet med flest timer.",
+      "solution": "**Steg 0 — les formatet.** Fila ser slik ut:\n\n**Innholdet i `medlemsregister.txt`:**\n```\nnavn;alder;timer\nAda;24;18\nNora;31;7\nPer;19;25\nKari;42;3\n```\n\nSkilletegnet er **semikolon**. Fila har en **header**. `felt[0]` er navn (tekst),\n`felt[1]` er alder (tall), `felt[2]` er timer (tall). Samlingen skal være en\n**ordbok**, fordi oppgaven sier «fra navn til objekt».\n\n**Steg 1–7 — hele løsningen:**\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder, timer):\n        self._navn = navn self._alder = alder self._timer = timer\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._alder) + \" ar, \" + str(self._timer) + \" t)\"\n\ndef les_register(filnavn):\n    register = {}\n    fil = open(filnavn)\n    fil.readline()\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\";\")\n        m = Medlem(felt[0], int(felt[1]), int(felt[2]))\n        register[felt[0]] = m linje = fil.readline()\n    fil.close()\n    return register\n\ndef flest_timer(register):\n    beste = None beste_timer = 0 for navn in register:\n        m = register[navn]\n        if m.hent_timer() > beste_timer:\n            beste = m beste_timer = m.hent_timer()\n    return beste\n\nreg = les_register(\"medlemsregister.txt\")\nfor navn in reg:\n    print(reg[navn])\nprint(\"Antall:\", len(reg))\nprint(\"Flest timer:\", flest_timer(reg))\n```\n\n**Utskrift:**\n```\nAda (24 ar, 18 t)\nNora (31 ar, 7 t)\nPer (19 ar, 25 t)\nKari (42 ar, 3 t)\nAntall: 4\nFlest timer: Per (19 ar, 25 t)\n```\n\n**Sensors margnotater, steg for steg.**\n\n**`register = {}` før løkka** (1 p). Inne i løkka ville den blitt nullstilt hver\nrunde, og bare det siste medlemmet ville overlevd.\n\n**`fil.readline()` alene** (1 p) hopper over headeren. Uten den ville\n`int(\"alder\")` stoppet programmet med `ValueError`, og feilmeldingen ville inneholdt selve ordet fra overskriften.\n\n**`linje.rstrip().split(\";\")`** (2 p). Rens før deling, og semikolon fordi det er\ndet fila bruker. Med `.split(\",\")` ville `felt[1]` gitt en `IndexError`.\n\n**`int(felt[1])` og `int(felt[2])`, men ikke på `felt[0]`** (2 p). Bare det du\nskal regne med, konverteres.\n\n**`register[felt[0]] = m`** (2 p). Nøkkelen er navnet, verdien er **objektet** —\nikke rådataen. Lagrer du `register[felt[0]] = felt[2]`, mister du tilgangen til metodene, og alle senere deloppgaver blir vanskeligere.\n\n**`linje = fil.readline()` nederst** (2 p). Uten den henger programmet.\n\n**`return register` etter løkka** (1 p). Inne i løkka ville funksjonen gitt en\nordbok med bare det første medlemmet — feilkode **#7**.\n\n**Finn-beste-løkka** (4 p): `beste = None` og `beste_timer = 0` **før** løkka,\nsammenligningen, og at **begge** oppdateres sammen. Oppdaterer du bare `beste`, finner løkka det siste medlemmet over grensen i stedet for det største.\n\n**Riktig struktur belønnes selv med småfeil.** Har du hele løkka riktig, men glemt\n`.rstrip()`, er trekket lite — den delen av strukturen som er riktig, teller.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1000-7-2-7",
+      "type": "text",
+      "content": "## Økt 2 — Roterende skilletegn og header (~28 min)\n\nDe fem første oppgavene varierer dataformatet: komma, kolon, mellomrom, med og uten overskriftslinje. Bruk de åtte stegene hver gang, og begynn alltid med steg\n0 — å skrive av eksempellinjen og markere hva som er hva."
+    },
+    {
+      "id": "in1000-7-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — gjengivelse.) En fil `varelager.txt` har linjer på formen\n`varenavn,antall,pris`, uten overskriftslinje:\n\n```\nskrue,120,4 mutter,80,2 bolt,45,7 skive,200,1\n```\n\n**a)** Hvilket skilletegn skal `.split()` ha?\n\n**b)** Hvilke av de tre feltene skal gjennom `int(...)`?\n\n**c)** Skriv linjen som deler linja i felt.",
+        "solution": "**a)** Komma: `.split(\",\")`. Skilletegnet er en del av dataformatet, og du leser\ndet av eksempellinjen — det er ikke noe du velger.\n\n**b)** `felt[1]` og `felt[2]`, altså antall og pris. Varenavnet skal forbli\ntekst.\n\nRegelen er enkel: **konverter bare det du faktisk skal regne eller sammenligne med som tall.** Et navn, en varekode eller et postnummer skal aldri gjennom\n`int(...)` — postnummeret `0150` ville blitt tallet 150 og mistet nullen.\n\n**c)** `felt = linje.rstrip().split(\",\")`\n\nRens først, del så, som én fast lenke.\n\nKjørt på én linje:\n\n```python\nlinje = \"skrue,120,4\\n\" felt = linje.rstrip().split(\",\")\nprint(felt)\nprint(felt[0], int(felt[1]) * int(felt[2]))\n```\n\n**Utskrift:**\n```\n['skrue', '120', '4']\nskrue 480\n```",
+        "hints": [
+          "Skilletegnet står i eksempellinjen i oppgaveteksten.",
+          "Hvilke felt skal du regne med, og hvilket er bare en merkelapp?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F-del — fil til liste av objekter.) Fila `varelager.txt` har linjer på formen `varenavn,antall,pris` uten overskriftslinje:\n\n```\nskrue,120,4 mutter,80,2 bolt,45,7 skive,200,1\n```\n\n**a)** Skriv klassen `Vare` med konstruktør, aksessorer for antall og pris, en\nmetode `verdi(self)` som gir antall ganger pris, og en `__str__` på formen\n`skrue x120`.\n\n**b)** Skriv `les_varer(filnavn)` som returnerer en **liste** av\n`Vare`-objekter.\n\n**c)** Skriv kode som leser fila, skriver ut alle varene, og skriver ut den\nsamlede lagerverdien.",
+        "solution": "**a)–c)** Hele løsningen:\n\n```python\nclass Vare:\n    def __init__(self, navn, antall, pris):\n        self._navn = navn self._antall = antall self._pris = pris\n\n    def hent_antall(self):\n        return self._antall\n\n    def hent_pris(self):\n        return self._pris\n\n    def verdi(self):\n        return self._antall * self._pris\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._antall)\n\ndef les_varer(filnavn):\n    varer = []\n    fil = open(filnavn)\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\",\")\n        varer.append(Vare(felt[0], int(felt[1]), int(felt[2])))\n        linje = fil.readline()\n    fil.close()\n    return varer\n\nalle = les_varer(\"varelager.txt\")\nfor v in alle:\n    print(v)\n\ntotal = 0 for v in alle:\n    total = total + v.verdi()\nprint(\"Lagerverdi:\", total)\n```\n\n**Utskrift:**\n```\nskrue x120 mutter x80 bolt x45 skive x200\nLagerverdi: 1155\n```\n\n**Legg merke til at `verdi` er en metode på `Vare`, ikke et regnestykke i\nløkka.** Objektet vet hva det er verdt; den som summerer, trenger bare å spørre.\nHadde du skrevet `total = total + v.hent_antall() * v.hent_pris()`, ville det virket, men regnestykket ville ligget på feil sted — og det er den slags valg sensor ser etter i den store oppgaven.\n\n**Slik ville sensor sett på det:** de tre deloppgavene rettes hver for seg.\nKlassen med `__str__` og `verdi` er ett sett poeng, innlesingsfunksjonen et annet, og summeringen et tredje. Bommer du på skilletegnet i b), teller a) og c)\nfortsatt — så lenge du har skrevet dem.",
+        "hints": [
+          "Bruk de åtte stegene, og bytt bare ut skilletegnet og klassenavnet.",
+          "La objektet regne ut sin egen verdi i en metode."
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F-del — fil med header til ordbok.) Fila `timeplan.txt` har en overskriftslinje og deretter linjer på formen `dag rom antall`, skilt med\n**mellomrom**:\n\n```\ndag rom antall mandag A12 24 tirsdag B03 18 onsdag A12 31 torsdag C07 12\n```\n\n**a)** Skriv `les_timeplan(filnavn)` som returnerer en **ordbok** fra dag til\nantall deltakere, og som hopper over headeren.\n\n**b)** Skriv kode som skriver ut ordboka og det samlede antallet.\n\n**c)** Hva ville skjedd om du hadde brukt `.split(\";\")` i stedet?",
+        "solution": "**a)–b)** Mellomrom betyr `.split()` **uten** argument:\n\n```python\ndef les_timeplan(filnavn):\n    d = {}\n    fil = open(filnavn)\n    fil.readline()\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split()\n        d[felt[0]] = int(felt[2])\n        linje = fil.readline()\n    fil.close()\n    return d\n\nplan = les_timeplan(\"timeplan.txt\")\nprint(plan)\n\ntotal = 0 for dag in plan:\n    total = total + plan[dag]\nprint(\"Totalt:\", total)\n```\n\n**Utskrift:**\n```\n{'mandag': 24, 'tirsdag': 18, 'onsdag': 31, 'torsdag': 12}\nTotalt: 85\n```\n\n**c)** Semikolon finnes ikke i linjene, så `.split(\";\")` ville gitt **én** stor\nbit: `['mandag A12 24']`. Programmet ville stoppet på `felt[2]` med\n`IndexError: list index out of range`.\n\nDet er den andre halvdelen av feilkode **#8**, og den er snillere enn den første: den sier tydelig fra med en gang.\n\n**Merk at rommet `A12` ikke er med i ordboka.** Oppgaven ba om dag til antall, og\nda skal bare de to feltene brukes. Å ta med felt oppgaven ikke ber om, gir ingen ekstra poeng — men det gjør heller ingen skade.\n\n**Legg merke til rekkefølgen i ordboka:** den følger filas rekkefølge, fordi\nordbøker husker når nøklene ble opprettet.",
+        "hints": [
+          "Mellomrom som skilletegn betyr `.split()` uten argument.",
+          "Fila har en overskriftslinje — hva må stå før løkka?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet ut?».) Fila `resultat.txt` inneholder:\n\n```\nAda:12:3\nNora:9:5\nPer:15:1\n```\n\nHva skriver programmet ut?\n\n```python\nfil = open(\"resultat.txt\")\nlinje = fil.readline()\nbeste = None beste_poeng = 0 antall = 0 while linje != \"\":\n    felt = linje.rstrip().split(\":\")\n    poeng = int(felt[1]) - int(felt[2])\n    antall = antall + 1 if poeng > beste_poeng:\n        beste = felt[0]\n        beste_poeng = poeng linje = fil.readline()\nfil.close()\nprint(antall, beste, beste_poeng)\n```",
+        "solution": "**Sporingstavle.** Én rad per linje i fila:\n\n| Linje | `felt` | `poeng` | `poeng > beste_poeng`? | `beste` etter | `beste_poeng` etter |\n|---|---|---|---|---|---|\n| `Ada:12:3` | `['Ada', '12', '3']` | 9 | 9 > 0 sann | `Ada` | 9 |\n| `Nora:9:5` | `['Nora', '9', '5']` | 4 | 4 > 9 usann | `Ada` | 9 |\n| `Per:15:1` | `['Per', '15', '1']` | 14 | 14 > 9 sann | `Per` | 14 |\n\n**Utskrift:**\n```\n3 Per 14\n```\n\n**Tre ting å legge merke til.**\n\nSkilletegnet er **kolon**, som er like gyldig som semikolon — det er fila som bestemmer.\n\n`beste` og `beste_poeng` oppdateres **sammen**, inne i samme `if`. Det er hele finn-beste-mønsteret: oppdaterer du bare den ene, blir svaret galt så snart det kommer en større verdi senere.\n\nOg `antall = antall + 1` står **utenfor** `if`-en, så den teller alle linjene, ikke bare de som slo rekorden.\n\n**På eksamen** skrives de tre verdiene på én linje, skilt med ett mellomrom, uten\npynt.",
+        "hints": [
+          "Regn ut `poeng` for hver linje før du sammenligner.",
+          "Sjekk hvilke linjer som står inne i `if`-en, og hvilke som står utenfor."
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F-del — teller-ordbok fra fil.) Fila `sykkelturer.txt` har linjer på formen `kode;stativ;turer`, uten overskriftslinje, og **samme sykkelkode kan stå på flere linjer**:\n\n```\nR31;Blindern;12\nR48;Majorstuen;5\nR07;Toyen;23\nR31;Blindern;8\n```\n\n**a)** Skriv `turer_per_sykkel(filnavn)` som returnerer en ordbok fra sykkelkode\ntil **samlet** antall turer.\n\n**b)** Skriv kode som skriver ut ordboka og antall ulike sykler.\n\n**c)** Hva ville skjedd om du hadde skrevet `d[felt[0]] = int(felt[2])` i stedet\nfor å akkumulere?",
+        "solution": "**a)–b)** Teller-idiomet fra [kap. 3.2](/bok/in1000/in1000-3-2), nå med data fra\nen fil:\n\n```python\ndef turer_per_sykkel(filnavn):\n    d = {}\n    fil = open(filnavn)\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\";\")\n        kode = felt[0]\n        if kode not in d:\n            d[kode] = 0 d[kode] = d[kode] + int(felt[2])\n        linje = fil.readline()\n    fil.close()\n    return d\n\nturer = turer_per_sykkel(\"sykkelturer.txt\")\nprint(turer)\nprint(\"Ulike sykler:\", len(turer))\n```\n\n**Utskrift:**\n```\n{'R31': 20, 'R48': 5, 'R07': 23}\nUlike sykler: 3\n```\n\n**c)** Da ville den siste linja **overskrevet** den første: `R31` ville fått 8 i\nstedet for 20, og totalen ville vært feil uten at noe sa fra.\n\nEn ordbok kan aldri ha to like nøkler. Skal verdier fra flere linjer legges sammen, må du bruke teller-idiomet: `if kode not in d:` og `d[kode] = 0` før du akkumulerer.\n\n**Uten `if`-sjekken** stopper programmet på den første linja med\n`KeyError: 'R31'` — feilkode **#14**, å slå opp en nøkkel som ikke er lagt inn.\n\n**Slik ville sensor sett på det:** her ligger poengene på filinnlesing-løkka,\n`int(...)`, `if kode not in d:`-sjekken, akkumuleringen med `+`, og `return` etter løkka. Å skrive `=` i stedet for `+` er en klassisk halvbom: strukturen er riktig, og trekket er lite, men svaret er galt.",
+        "hints": [
+          "Samme nøkkel på flere linjer betyr at verdiene skal legges sammen.",
+          "Hva må stå i ordboka før du kan legge til noe på en ny nøkkel?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-8",
+      "type": "text",
+      "content": "## Økt 3 — Fila fyller en to-klasse-modell (~27 min)\n\nDe siste fem oppgavene er på full eksamensform: fila skal ikke bare bli en liste, den skal fylle en **modell** med to samarbeidende klasser. Det er nøyaktig det Oppgave 4 ber om."
+    },
+    {
+      "id": "in1000-7-2-9",
+      "type": "definition",
+      "title": "Fil til to-klasse-modell",
+      "content": "Formen der ytterklassen leser fila selv og fyller sin egen samling:\n\n```text\nclass Container:\n    def __init__(self, navn):\n        self._navn = navn self._elementer = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(sep)\n            self._elementer[felt[0]] = Element(felt[0], int(felt[1]))\n            linje = fil.readline()\n        fil.close()\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\nTo ting skiller den fra en frittstående funksjon:\n\n- Den legger objektene i **`self._elementer`**, ikke i en lokal liste, og\n  returnerer derfor ingenting.\n- Den kan bygge filnavnet av objektets eget navn:\n  `open(self._navn + \".txt\")`.\n\nBegge formene forekommer i settene. Ber oppgaven om «en metode i klassen\n`Register` som leser fila», er det denne; ber den om «en funksjon som returnerer en liste», er det den frittstående."
+    },
+    {
+      "id": "in1000-7-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger F — stor klassemodellering med fil.) En resirkuleringsstasjon har fila `containere.txt` med linjer på formen\n`materiale;fylling`:\n\n```\nglass;40 papir;85 metall;80 plast;12\n```\n\n**a)** Skriv klassen `Container` med konstruktør, aksessor for fyllingen og\n`__str__` på formen `glass: 40 %`.\n\n**b)** Skriv klassen `Stasjon` med et sted, en tom liste, og metoden\n`les_fra_fil(self, filnavn)` som fyller lista med `Container`-objekter.\n\n**c)** Legg til `skriv_alle(self)` og `antall_fulle(self)`, som teller\ncontainere med fylling på minst 80.\n\n**d)** Hvorfor heter metoden i c) `skriv_alle` og ikke `skriv`?",
+        "solution": "**a)–c)** De to klassene:\n\n```python\nclass Container:\n    def __init__(self, materiale, fylling):\n        self._materiale = materiale self._fylling = fylling\n\n    def hent_fylling(self):\n        return self._fylling\n\n    def __str__(self):\n        return self._materiale + \": \" + str(self._fylling) + \" %\"\n\nclass Stasjon:\n    def __init__(self, sted):\n        self._sted = sted self._containere = []\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            self._containere.append(Container(felt[0], int(felt[1])))\n            linje = fil.readline()\n        fil.close()\n\n    def skriv_alle(self):\n        for c in self._containere:\n            print(c)\n\n    def antall_fulle(self):\n        antall = 0 for c in self._containere:\n            if c.hent_fylling() >= 80:\n                antall = antall + 1 return antall\n\nst = Stasjon(\"Ryen\")\nst.les_fra_fil(\"containere.txt\")\nst.skriv_alle()\nprint(\"Fulle:\", st.antall_fulle())\n```\n\n**Utskrift:**\n```\nglass: 40 % papir: 85 % metall: 80 % plast: 12 %\nFulle: 2\n```\n\n**d)** Fordi den gjør noe annet enn containerens egen utskrift — den viser\n**alle**, ikke én — og to ulike jobber bør ha to ulike navn.\n\nOg en metode som heter det samme som den kaller, ser ut som om den kaller seg selv. En metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette emnet.\n\n**Slik ville sensor sett på det:** `les_fra_fil` legger objektene i\n`self._containere`, ikke i en lokal liste, og returnerer derfor ingenting. Det er et selvstendig poeng — skriver du `containere = []` inne i metoden og glemmer\n`self.`, blir lista borte når metoden er ferdig, og `skriv_alle` skriver ingenting. Det er feilkode **#1** i en metode.\n\n**Kantverdien:** `>= 80` teller med containeren på nøyaktig 80, siden oppgaven\nsier «minst 80».",
+        "hints": [
+          "Metoden skal fylle objektets egen liste, ikke en lokal.",
+          "Se på navneparene: elementets metode mot containerens."
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — full fil-deloppgave med ordbok av objekter.) Fila\n`medlemsregister.txt` har en overskriftslinje og linjer på formen\n`navn;alder;timer`:\n\n```\nnavn;alder;timer\nAda;24;18\nNora;31;7\nPer;19;25\nKari;42;3\n```\n\n**a)** Skriv klassen `Medlem` med konstruktør, aksessorer for navn og timer, og\n`__str__` på formen `Ada/18`.\n\n**b)** Skriv klassen `Senter` med en ordbok fra navn til `Medlem`-objekt,\n`les_fra_fil(self, filnavn)`, og `finn(self, navn)` som gir medlemmet eller\n`None`.\n\n**c)** Legg til `totalt_antall_timer(self)`.\n\n**d)** Skriv kode som leser fila, slår opp «Per» og «Kari», slår opp en som ikke\nfinnes, og skriver ut totalen.",
+        "solution": "**a)–d)** Hele modellen:\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder, timer):\n        self._navn = navn self._alder = alder self._timer = timer\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \"/\" + str(self._timer)\n\nclass Senter:\n    def __init__(self, sted):\n        self._sted = sted self._medlemmer = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        fil.readline()\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            m = Medlem(felt[0], int(felt[1]), int(felt[2]))\n            self._medlemmer[m.hent_navn()] = m linje = fil.readline()\n        fil.close()\n\n    def finn(self, navn):\n        if navn in self._medlemmer:\n            return self._medlemmer[navn]\n        return None\n\n    def totalt_antall_timer(self):\n        total = 0 for navn in self._medlemmer:\n            total = total + self._medlemmer[navn].hent_timer()\n        return total\n\ns = Senter(\"Toyen\")\ns.les_fra_fil(\"medlemsregister.txt\")\nprint(s.finn(\"Per\"))\nprint(s.finn(\"Kari\"))\nprint(s.finn(\"Ola\"))\nprint(\"Totalt:\", s.totalt_antall_timer())\n```\n\n**Utskrift:**\n```\nPer/25\nKari/3\nNone\nTotalt: 53\n```\n\n**Fire ting er verdt å merke seg.**\n\n`self._medlemmer[m.hent_navn()] = m` bruker medlemmets **egen** aksessor til å finne nøkkelen. Senteret bestemmer ikke navnet, det spør medlemmet. Å skrive\n`m._navn` her ville vært feilkode **#11**.\n\n`finn` sjekker med `if navn in self._medlemmer:` **før** oppslaget, og returnerer\n`None` når nøkkelen mangler. Uten sjekken ville `s.finn(\"Ola\")` stoppet programmet med `KeyError: 'Ola'` — feilkode **#14**.\n\n`totalt_antall_timer` heter noe annet enn medlemmets `hent_timer`, etter navneregelen for containere.\n\nOg headeren hoppes over med ett `fil.readline()` alene. Uten den ville\n`int(\"alder\")` stoppet programmet med `ValueError`.\n\n**Slik ville sensor sett på det:** dette er en 15–18-poengs deloppgave, og\npoengene ligger spredt utover: klassen med `__str__`, ordboka i konstruktøren, header-hoppet, løkkas fem deler, `.rstrip().split(\";\")`, de to `int(...)`, innsettingen med riktig nøkkel, `if navn in ...`-sjekken, `return None`-grenen, akkumulatoren og løkka i tellemetoden. Mangler én, står de andre.",
+        "hints": [
+          "Bruk objektets egen aksessor til å finne nøkkelen i ordboka.",
+          "En søkemetode skal sjekke før den slår opp, og gi `None` når den ikke finner noe."
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — «finn feilen», med konkret moteksempel.) En medstudent har skrevet denne metoden. Fila `varelager.txt` har linjer på formen\n`varenavn,antall,pris` uten overskriftslinje.\n\n```python\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def les_fra_fil(self, filnavn):\n        varer = {}\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            varer[felt[0]] = felt[1]\n            linje = fil.readline()\n        fil.close()\n\n    def antall_varer(self):\n        return len(self._varer)\n```\n\n**a)** Metoden har tre feil. Hvilke?\n\n**b)** Gi et **konkret moteksempel**: hva gir `antall_varer()` etter et kall på\n`les_fra_fil(\"varelager.txt\")`, og hva skulle det gitt?\n\n**c)** Skriv den rettede metoden.",
+        "solution": "**a)** Tre feil, i den rekkefølgen de gjør skade:\n\n1. **`varer = {}` i stedet for å bruke `self._varer`.** Ordboka blir en lokal\n   variabel som forsvinner når metoden er ferdig. `self._varer` forblir tom. Det er feilkode **#1**, `self`-fella, i en metode.\n2. **Feil skilletegn.** Fila bruker komma, ikke semikolon. `.split(\";\")` gir én\n   stor bit, så `felt[1]` ville stoppet programmet med `IndexError` — hvis feil nummer 1 ikke hadde gjort ordboka meningsløs uansett.\n3. **Rådata i stedet for objektreferanser.** `varer[felt[0]] = felt[1]` lagrer en\n   tekst, ikke et objekt. Alle senere deloppgaver som skal spørre varen om noe, faller da sammen.\n\n**b)** Moteksempelet er selve kallet, og det **stopper programmet**:\n\n```text\nlager = Lager()\nlager.les_fra_fil(\"varelager.txt\")\nprint(lager.antall_varer())\n```\n\nSiste linje i feilmeldingen er `IndexError: list index out of range`. Blokken er merket som ikke-kjørbar fordi feilen er plantet med vilje.\n\nGrunnen er feil nummer 2: `.split(\";\")` på linja `skrue,120,4` finner ingen semikolon og gir **én** bit, `['skrue,120,4']`. Da finnes ikke `felt[1]`.\n\nKallet skulle gitt en ordbok med fire varer, slik at `antall_varer()` svarer\n**4**.\n\n**Feilene skjuler hverandre**, og det er verdt å se hvordan. Retter du bare\nskilletegnet, kjører programmet — og svarer fortsatt feil:\n\n```python\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def les_fra_fil(self, filnavn):\n        varer = {}\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\",\")\n            varer[felt[0]] = felt[1]\n            linje = fil.readline()\n        fil.close()\n\n    def antall_varer(self):\n        return len(self._varer)\n\nlager = Lager()\nlager.les_fra_fil(\"varelager.txt\")\nprint(lager.antall_varer())\n```\n\n**Utskrift:**\n```\n0\n```\n\nNå er svaret **0** i stedet for 4: den lokale ordboka ble fylt og kastet, mens\n`self._varer` aldri ble rørt. Det er feilkode **#1**, og den er stum — programmet kjører helt rolig.\n\n**c)** Den rettede metoden, med en `Vare`-klasse rundt:\n\n```python\nclass Vare:\n    def __init__(self, navn, antall, pris):\n        self._navn = navn self._antall = antall self._pris = pris\n\n    def verdi(self):\n        return self._antall * self._pris\n\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\",\")\n            self._varer[felt[0]] = Vare(felt[0], int(felt[1]), int(felt[2]))\n            linje = fil.readline()\n        fil.close()\n\n    def antall_varer(self):\n        return len(self._varer)\n\n    def samlet_verdi(self):\n        total = 0 for navn in self._varer:\n            total = total + self._varer[navn].verdi()\n        return total\n\nlager = Lager()\nlager.les_fra_fil(\"varelager.txt\")\nprint(lager.antall_varer())\nprint(lager.samlet_verdi())\n```\n\n**Utskrift:**\n```\n4\n1155\n```\n\nTre endringer: `self._varer` i stedet for en lokal ordbok, komma som skilletegn, og et `Vare`-objekt som verdi i stedet for en tekst.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling — hvilket kall som gir galt svar, og hva det riktige ville vært. Å finne to av tre feil gir to tredjedeler.",
+        "hints": [
+          "Se på venstre side av tilordningen i metoden: hvilken ordbok skrives det til?",
+          "Sammenlign skilletegnet i koden med skilletegnet i eksempellinjen."
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F — objektet leser sin egen fil.) En brettspillklubb har én fil per spill. Fila heter `<spilltittel>.txt` og har ett navn per linje.\n`Kolonier.txt` og `Ordjakt.txt` inneholder:\n\n```\nAda\nNora\nPer\n```\n\n```\nAda\nPer\n```\n\n**a)** Skriv klassen `Spill` med tittel, en tom liste av eiere, og\n`les_eiere(self)` som bygger filnavnet av tittelen og fyller lista.\n\n**b)** Skriv klassen `Klubb` som holder spillene i en ordbok fra tittel til\n`Spill`-objekt, med `legg_til(self, spill)` og `totalt_antall_eiere(self)`.\n\n**c)** Lag begge spillene, les inn eierne, legg dem i klubben, og skriv ut\ntotalen.\n\n**d)** Hvorfor kan ikke metoden i b) hete `antall_eiere`?",
+        "solution": "**a)–c)** Filnavnet bygges av objektets egen instansvariabel:\n\n```python\nclass Spill:\n    def __init__(self, tittel):\n        self._tittel = tittel self._eiere = []\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def les_eiere(self):\n        fil = open(self._tittel + \".txt\")\n        linje = fil.readline()\n        while linje != \"\":\n            self._eiere.append(linje.rstrip())\n            linje = fil.readline()\n        fil.close()\n\n    def antall_eiere(self):\n        return len(self._eiere)\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(len(self._eiere)) + \")\"\n\nclass Klubb:\n    def __init__(self):\n        self._spill = {}\n\n    def legg_til(self, spill):\n        self._spill[spill.hent_tittel()] = spill\n\n    def totalt_antall_eiere(self):\n        total = 0 for tittel in self._spill:\n            total = total + self._spill[tittel].antall_eiere()\n        return total\n\n    def skriv_alle(self):\n        for tittel in self._spill:\n            print(self._spill[tittel])\n\nkolonier = Spill(\"Kolonier\")\nordjakt = Spill(\"Ordjakt\")\nkolonier.les_eiere()\nordjakt.les_eiere()\n\nk = Klubb()\nk.legg_til(kolonier)\nk.legg_til(ordjakt)\nk.skriv_alle()\nprint(\"Totalt:\", k.totalt_antall_eiere())\n```\n\n**Utskrift:**\n```\nKolonier (3)\nOrdjakt (2)\nTotalt: 5\n```\n\n**d)** Fordi `totalt_antall_eiere` **kaller** `antall_eiere` inne i løkka si.\nHadde de hett det samme, ville linjen sett ut som om metoden kalte seg selv — og en metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette emnet.\n\nNavnet skal dessuten si hva metoden gjør: `antall_eiere()` er eierne av **ett**\nspill, `totalt_antall_eiere()` er eierne i **hele** klubben.\n\n**Tre ting til å merke seg.**\n\n`open(self._tittel + \".txt\")` bygger filnavnet av objektets eget navn. Formen er en gjenganger i settene, og punktumet må skrives inn selv.\n\n`.rstrip()` på hver linje er nødvendig her, selv om det bare er ett felt. Uten den ville hvert navn hatt et linjeskift på slutten, og en senere sammenligning\n`if navn == \"Ada\":` ville svart `False` — feilkode **#8** i sin stumme form.\n\n`legg_til` bruker spillets egen aksessor til å finne nøkkelen. `spill._tittel` ville vært feilkode **#11**.",
+        "hints": [
+          "Metoden skal bygge filnavnet av instansvariabelen sin, ikke av en parameter.",
+          "Se på navneparene: elementets metode mot containerens."
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-7-2-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — kodesporing med fil.) Fila `sykkelturer.txt` inneholder:\n\n```\nR31;Blindern;12\nR48;Majorstuen;5\nR07;Toyen;23\nR31;Blindern;8\n```\n\nHva skriver programmet ut?\n\n```python\nclass Sykkel:\n    def __init__(self, kode, turer):\n        self._kode = kode self._turer = turer\n\n    def hent_turer(self):\n        return self._turer\n\n    def __str__(self):\n        return self._kode + \"=\" + str(self._turer)\n\nd = {}\nfil = open(\"sykkelturer.txt\")\nlinje = fil.readline()\nwhile linje != \"\":\n    felt = linje.rstrip().split(\";\")\n    d[felt[0]] = Sykkel(felt[0], int(felt[2]))\n    linje = fil.readline()\nfil.close()\n\nfor kode in d:\n    print(d[kode])\n\ntotal = 0 for kode in d:\n    total = total + d[kode].hent_turer()\nprint(len(d), total)\n```",
+        "solution": "**Sporingstavle.** Se nøye på den fjerde linja:\n\n| Linje fra fila | Ordboka etter | Merknad |\n|---|---|---|\n| `R31;Blindern;12` | `R31` gir et objekt med 12 | ny nøkkel |\n| `R48;Majorstuen;5` | pluss `R48` med 5 | ny nøkkel |\n| `R07;Toyen;23` | pluss `R07` med 23 | ny nøkkel |\n| `R31;Blindern;8` | `R31` gir nå et objekt med 8 | **overskrevet** |\n\n**Utskrift:**\n```\nR31=8\nR48=5\nR07=23\n3 36\n```\n\n**Fellen her er at koden bruker `=` og ikke teller-idiomet.** Den fjerde linja\nlager et **nytt** `Sykkel`-objekt og legger det på en nøkkel som allerede fantes.\nDet gamle objektet med 12 turer blir overskrevet uten et pip, og summen blir\n`8 + 5 + 23 = 36` i stedet for 48.\n\nLegg også merke til rekkefølgen: `R31` står **først** i utskriften selv om den ble overskrevet sist. En ordbok husker når nøklene ble **opprettet**, ikke når de sist ble endret.\n\n**Er dette en feil?** Det avhenger av oppgaveteksten. Skal turene legges sammen,\ner det en feil, og løsningen er teller-idiomet. Skal siste linje gjelde, er det riktig. **Les alltid hva oppgaven ber om når samme nøkkel kan komme flere ganger.**\n\n**På eksamen** skrives alle fire linjene, i riktig rekkefølge.",
+        "hints": [
+          "Skriv opp ordboka på nytt etter hver linje i fila.",
+          "Hva skjer når en nøkkel som allerede finnes, brukes en gang til?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-7-2-10",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "Fem feil koster nesten alle poengene som mistes på fil-deloppgaven:\n\n- **#8 — feil skilletegn.** Les eksempellinjen i oppgaveteksten og bruk det\n  tegnet fila faktisk bruker. Feil tegn gir én stor bit og en `IndexError`.\n- **#8 — glemt `.rstrip()`.** Linjeskiftet henger igjen i siste felt. Stum feil\n  som slår ut først når noen sammenligner.\n- **#4 — glemt `int(...)`.** Feltene er alltid tekster. Og motsatt: ikke\n  konverter et navn eller et postnummer.\n- **#1 — lokal samling i en metode.** `varer = {}` i stedet for `self._varer`\n  gjør at alt forsvinner når metoden er ferdig, og objektet står tomt igjen.\n- **Rådata i stedet for objektreferanser.** `d[navn] = felt[1]` lagrer en tekst.\n  Alle senere deloppgaver som skal spørre objektet om noe, faller da sammen.\n\nOg to plasseringsfeil: **samlingen opprettet inne i løkka** (nullstilles hver runde), og **glemt header-hopp** (`ValueError` med overskriftsordet i feilmeldingen)."
+    },
+    {
+      "id": "in1000-7-2-coll-11",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1000-7-2-c1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `samling = []` før løkka | Liste når du bare skal gå gjennom alle. Opprettes **utenfor** løkka. |\n| `samling = {}` før løkka | Ordbok når noe skal slås opp på en nøkkel senere. |\n| `fil = open(filnavn)` | Åpner fila. `FileNotFoundError` hvis navnet er feil. |\n| `fil.readline()` alene | Hopper over én linje — headeren. |\n| `while linje != \"\":` | Løkker til filslutt. Krever `readline` før løkka og nederst i den. |\n| `linje.rstrip().split(\";\")` | Rens først, del så. Skilletegnet leses av eksempellinjen. |\n| `.split()` uten argument | Deler på blanktegn. Brukes når feltene er skilt med mellomrom. |\n| `int(felt[1])` | Bare på felt du skal regne eller sammenligne med som tall. |\n| `samling.append(Klasse(...))` | Liste-varianten: objektet legges bakerst. |\n| `samling[felt[0]] = Klasse(...)` | Ordbok-varianten: feltet blir nøkkel, objektet blir verdi. |\n| `d[obj.hent_navn()] = obj` | Nøkkelen hentes med objektets **egen** aksessor, aldri `obj._navn`. |\n| `if k not in d:` `d[k] = 0` | Teller-idiomet, når samme nøkkel kan komme på flere linjer. |\n| `d[k] = d[k] + int(felt[2])` | Akkumulering. Med `=` i stedet overskrives forrige verdi. |\n| `self._elementer[...] = ...` | I en metode: skriv til objektets samling, ikke til en lokal. |\n| `open(self._navn + \".txt\")` | Objektet leser sin egen fil, navngitt etter seg selv. |\n| `if navn in d:` `return d[navn]` `return None` | Standard søkemetode. Uten sjekken: `KeyError` (#14). |\n| `return samling` etter løkka | Inne i løkka gir det bare første element (#7). |\n\n**Det som avgjør poeng i Oppgave 4:** at samlingen holder **objektreferanser** og\nikke rådata, og at skilletegnet stemmer med eksempellinjen i oppgaveteksten."
+        }
+      ]
+    },
+    {
+      "id": "in1000-7-2-12",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1000-7-2-13",
+      "type": "definition",
+      "title": "Steg 0 — les formatet først",
+      "content": "Det viktigste steget, og det som oftest hoppes over.\n\nSkriv av eksempellinjen fra oppgaveteksten på kladden, marker skilletegnet, og skriv hvilket felt som er hva: `felt[0]` navn, `felt[1]` alder, `felt[2]` timer.\n\nTo minutter der sparer deg for begge halvdelene av feilkode **#8** — feil skilletegn og glemt rensing — og for å konvertere feil felt."
+    },
+    {
+      "id": "in1000-7-2-14",
+      "type": "definition",
+      "title": "De fire tingene som roterer",
+      "content": "Skilletegnet, headeren, hvilke felt som er tall, og valget mellom liste og ordbok.\n\nAlt annet i de åtte stegene er identisk fra oppgave til oppgave. Kjenner du de fire variablene, er hver ny fil-deloppgave den samme oppgaven i ny innpakning.\n\nDomenet varierer også — medlemsregister, varelager, timeplan, resultatliste — men det er bare kulisser."
+    },
+    {
+      "id": "in1000-7-2-15",
+      "type": "definition",
+      "title": "Objektreferanser, ikke rådata",
+      "content": "`d[felt[0]] = Vare(felt[0], int(felt[1]), int(felt[2]))`, ikke\n`d[felt[0]] = felt[1]`.\n\nLagrer du rådataen, mister du tilgangen til objektets metoder, og alle senere deloppgaver — «finn den dyreste», «skriv ut alle», «regn ut samlet verdi» — blir vanskeligere eller umulige.\n\nDet er en av de faste vurderingene i Oppgave 4, og det er en av grunnene til at fil-deloppgaven kommer først: resten bygger på den."
+    },
+    {
+      "id": "in1000-7-2-16",
+      "type": "definition",
+      "title": "Liste eller ordbok",
+      "content": "Ett spørsmål avgjør: **skal noe slås opp på et navn eller en kode senere?**\n\nEr svaret ja, bruk en ordbok med navnet som nøkkel og objektet som verdi. Er svaret nei — du skal bare gå gjennom alle — er en liste enklere.\n\nOppgaveteksten sier det som regel rett ut: «returner en ordbok fra navn til objekt» eller «returner en liste av objekter»."
+    },
+    {
+      "id": "in1000-7-2-17",
+      "type": "definition",
+      "title": "Samme nøkkel på flere linjer",
+      "content": "En ordbok kan aldri ha to like nøkler. Kommer samme navn på to linjer, blir det første objektet **overskrevet** uten en advarsel.\n\nSkal verdiene legges sammen, må du bruke teller-idiomet: `if k not in d:` og\n`d[k] = 0` før akkumuleringen.\n\nSkal siste linje gjelde, er overskrivingen riktig. **Les hva oppgaven ber om** — begge deler forekommer."
+    },
+    {
+      "id": "in1000-7-2-18",
+      "type": "definition",
+      "title": "Innlesing som metode mot funksjon",
+      "content": "Begge formene forekommer i settene.\n\n**Som metode:** `def les_fra_fil(self, filnavn):` skriver til `self._elementer`\nog returnerer ingenting. Ber oppgaven om «en metode i klassen `Register` som leser fila», er det denne.\n\n**Som funksjon:** `def les_alle(filnavn):` bygger en lokal samling og returnerer\nden. Ber oppgaven om «en funksjon som returnerer en liste», er det denne.\n\nBlander du dem — en metode som bygger en lokal samling og ikke returnerer noe — forsvinner alt. Det er feilkode **#1** i en metode."
+    },
+    {
+      "id": "in1000-7-2-19",
+      "type": "definition",
+      "title": "Nøkkelen fra objektets egen aksessor",
+      "content": "`self._medlemmer[m.hent_navn()] = m`.\n\nContaineren bestemmer ikke navnet, den spør objektet. Alternativet `m._navn` er feilkode **#11**, direkte tilgang til en instansvariabel utenfra — og det er den vanligste formen den tar når to klasser samarbeider.\n\nFormen er også tryggere: endrer `Medlem` hvordan navnet lagres, merker containeren ingenting."
+    },
+    {
+      "id": "in1000-7-2-20",
+      "type": "definition",
+      "title": "Header i praksis",
+      "content": "Ett `fil.readline()` alene, **før** løkka. Du trenger ikke å ta vare på verdien.\n\nGlemmer du det, prøver programmet å konvertere et ord fra overskriften til tall, og stopper med `ValueError` — med selve ordet i feilmeldingen. Ser du\n`invalid literal for int()` med et overskriftsord i, vet du med én gang hva som mangler.\n\nSjekk alltid om eksempelfila i oppgaveteksten har en overskriftslinje. Den er lett å overse fordi den ser ut som data."
+    },
+    {
+      "id": "in1000-7-2-21",
+      "type": "definition",
+      "title": "Hvilke felt som skal konverteres",
+      "content": "Bare de du faktisk skal regne eller sammenligne med som tall.\n\nNavn, koder, romnumre og materialer forblir tekst. Postnummeret `0150` ville blitt tallet 150 og mistet nullen; en varekode som `R07` lar seg ikke konvertere i det hele tatt.\n\nEr du i tvil, spør: skal jeg noen gang legge sammen, trekke fra eller sammenligne denne verdien med `>`? Da er den et tall."
+    },
+    {
+      "id": "in1000-7-2-22",
+      "type": "definition",
+      "title": "Finn-beste-løkka over en fil-samling",
+      "content": "Mønsteret som ofte er den høyest vektede deloppgaven rett etter innlesingen:\n\n```text\n    beste = None beste_verdi = 0 for e in samlingen:\n        if e.hent_verdi() > beste_verdi:\n            beste = e beste_verdi = e.hent_verdi()\n    return beste\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\n**Begge variablene oppdateres sammen.** Oppdaterer du bare `beste`, finner løkka\ndet siste elementet over grensen i stedet for det største. `beste = None` er det ærlige svaret på en tom samling."
+    },
+    {
+      "id": "in1000-7-2-23",
+      "type": "definition",
+      "title": "Å dele oppgaven i to funksjoner",
+      "content": "Én som leser fila, én som regner på resultatet.\n\nDet er slik oppgaveteksten deler den også: «c) les fila og opprett objektene» og\n«d) skriv en metode som finner …».\n\nGevinsten på eksamen er konkret: du kan få full uttelling på den ene selv om du står fast på den andre — og du kan bruke en metode oppgaven beskriver, uten selv å ha skrevet den."
+    },
+    {
+      "id": "in1000-7-2-24",
+      "type": "definition",
+      "title": "Objektet leser sin egen fil",
+      "content": "`open(self._tittel + \".txt\")` inne i en metode på klassen.\n\nFormen er en gjenganger i settene: hvert objekt har sin egen fil, navngitt etter objektet. Punktumet og filendelsen skrives inn selv.\n\nMetoden returnerer som regel ingenting — den fyller objektets egen samling, og resultatet hentes med en aksessor etterpå."
+    },
+    {
+      "id": "in1000-7-2-25",
+      "type": "definition",
+      "title": "Delvis uttelling i fil-deloppgaven",
+      "content": "Poengene ligger spredt utover, og hver del teller for seg: samlingen før løkka,\n`open`, header-hoppet, løkkas fem deler, rensingen, delingen, konverteringene, opprettelsen av objektet, innsettingen, og `return` etter løkka.\n\nDet betyr at en glemt `.rstrip()` koster lite når resten står. Og det betyr at det aldri lønner seg å stå fast: skriv løkka ferdig med det du er sikker på, og gå videre.\n\nEr du usikker på et format, skriv en kommentar om hva du har forutsatt. Det er den ene legitime bruken av kommentarer i en besvarelse."
+    },
+    {
+      "id": "in1000-7-2-26",
+      "type": "definition",
+      "title": "Å teste uten å kjøre",
+      "content": "Eksamen er hjelpemiddelfri, så koden din blir aldri kjørt før den rettes.\nKontrollen må derfor gjøres med øynene.\n\nTre spørsmål tar de vanligste feilene: Står `readline` **to** steder? Står samlingen **over** løkka og `return` **under** den? Stemmer skilletegnet med eksempellinjen?\n\nBruk et halvt minutt på de tre etter hver fil-deloppgave. Det er den billigste kontrollen som finnes."
+    },
+    {
+      "id": "in1000-7-2-coll-27",
+      "type": "collapsible",
+      "title": "Repetisjon — de sju setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1000-7-2-c2",
+          "type": "text",
+          "content": "1. **Steg 0 er å lese formatet.** Skriv av eksempellinjen, marker skilletegnet,\n   og noter hvilket felt som er hva.\n2. **Bare fire ting roterer:** skilletegnet, headeren, hvilke felt som er tall,\n   og liste mot ordbok.\n3. **Samlingen opprettes FØR løkka**, fylles inne i den, og returneres ETTER\n   den.\n4. **`linje.rstrip().split(sep)`** som én fast lenke, med det tegnet fila\n   faktisk bruker.\n5. **Samlingen holder objektreferanser**, ikke rådata. Ellers faller alle senere\n   deloppgaver.\n6. **I en metode skrives det til `self._elementer`**, ikke til en lokal samling —\n   ellers forsvinner alt når metoden er ferdig (**#1**).\n7. **Nøkkelen hentes med objektets egen aksessor**, aldri med `obj._navn`\n   (**#11**)."
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

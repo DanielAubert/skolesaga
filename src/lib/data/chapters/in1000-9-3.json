@@ -1,158 +1,158 @@
 {
- "id": "in1000-9-3",
- "courseId": "in1000",
- "chapterNumber": "9.3",
- "title": "Avsluttende øvingseksamen 3 — podkast-arkiv (tyngre)",
- "description": "Siste og tyngste sett på 100 poeng: podkast-arkiv med nøstet modell, filinnlesing per objekt, grensesnitt-spørsmål og to oppgaver som krever konkret moteksempel.",
- "estimatedMinutes": 240,
- "competenceGoals": [
-  "kunne gjennomføre et sett på nivå med de nyeste settene i arkivet",
-  "kunne bygge en modell med to nivåer av samlinger og filinnlesing per objekt",
-  "kunne gi et konkret moteksempel når en funksjon er logisk feil",
-  "kunne svare på et grensesnitt-spørsmål uten å spore kode"
- ],
- "content": [
-  {
-   "id": "in1000-9-3-1",
-   "type": "tip",
-   "title": "Øvingseksamen 3 — format, poeng og tidsbudsjett",
-   "content": "Siste og **tyngste** sett, på nivå med de nyeste settene i arkivet: **fem\noppgaver, 100 poeng, fire timer**. Alle oppgavene skal besvares.\n\n| Oppgave | Innhold | Poeng | Tid |\n|---|---|---|---|\n| 1 | Kodeforståelse, med «finn alle feilene» (A + I) | 8 | ~20 min |\n| 2 | Flervalg om objekter, med grensesnitt-spørsmål (B) | 9 | ~15 min |\n| 3 | Fire funksjoner over liste, ordbok og streng (C/D/E) | 28 | ~55 min |\n| 4 | Stor klassemodellering: podkast-arkiv, med **nøstet** struktur, fil og input (F/H) | 47 | ~100 min |\n| 5 | To funksjoner over nøstede ordbøker, med moteksempel (G + I) | 8 | ~25 min |\n| | Kontroll og gjennomlesing | | ~25 min |\n\n**Det nye her er sjanger I — «finn feilen»** — som krever et **konkret\nmoteksempel**: ett kall som gir galt svar, og hva det riktige ville vært. En ren\nverbal forklaring gir bare delvis uttelling.\n\n**De tre settene dekker til sammen alle sjangrene A–I.** Har du tatt alle tre, har\ndu møtt hver form minst én gang.\n\n**Skriv settet uten å kjøre koden.** Eksamen er hjelpemiddelfri. **Delkarakter gis\nper deloppgave** — stå aldri fast.\n\n— naturlig pausepunkt etter Oppgave 3 —"
-  },
-  {
-   "id": "in1000-9-3-2",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 9.1](/bok/in1000/in1000-9-1) og\n[kap. 9.2](/bok/in1000/in1000-9-2) først. Dette settet legger til\n**sjanger I** fra [kap. 4.2 — «Finn feilen»](/bok/in1000/in1000-4-2),\ngrensesnitt-teorien fra [kap. 5.2](/bok/in1000/in1000-5-2), og en **nøstet**\nstruktur inne i den store modelleringen, fra\n[kap. 8.1](/bok/in1000/in1000-8-1).\n\nSett av fire sammenhengende timer, legg vekk maskinen, og start klokka."
-  },
-  {
-   "id": "in1000-9-3-coll-o1",
-   "type": "collapsible",
-   "title": "Oppgavesett — Oppgave 1: Kodeforståelse og finn feilen (8 p)",
-   "buttonText": "Vis oppgave 1",
-   "content": [
+  "id": "in1000-9-3",
+  "courseId": "in1000",
+  "chapterNumber": "9.3",
+  "title": "Avsluttende øvingseksamen 3 — podkast-arkiv (tyngre)",
+  "description": "Siste og tyngste sett på 100 poeng: podkast-arkiv med nøstet modell, filinnlesing per objekt, grensesnitt-spørsmål og to oppgaver som krever konkret moteksempel.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "kunne gjennomføre et sett på nivå med de nyeste settene i arkivet",
+    "kunne bygge en modell med to nivåer av samlinger og filinnlesing per objekt",
+    "kunne gi et konkret moteksempel når en funksjon er logisk feil",
+    "kunne svare på et grensesnitt-spørsmål uten å spore kode"
+  ],
+  "content": [
     {
-     "id": "in1000-9-3-o1t",
-     "type": "text",
-     "content": "Skriv hva hvert program skriver ut, og svar på den siste deloppgaven.\n\n**1a)** (1 p)\n\n```python\nd = {\"a\": {\"x\": 1}, \"b\": {\"x\": 2, \"y\": 3}}\nfor ytre in d:\n    for indre in d[ytre]:\n        print(ytre, indre, d[ytre][indre])\n```\n\n**1b)** (2 p)\n\n```python\ntall = [3, 1, 4, 1, 5]\nbeste = None\nbeste_v = 0\nfor x in tall:\n    if x > beste_v:\n        beste = x\n        beste_v = x\nprint(beste, beste_v)\n```\n\n**1c)** (2 p)\n\n```python\nny = \"\"\nfor tegn in \"podkast\":\n    ny = tegn + ny\nprint(ny, len(ny))\n```\n\n**1d)** (1 p)\n\n```python\nprint(7 // 2, 7 / 2, 7 % 2)\n```\n\n**1e)** (2 p)\n\n```python\nlinje = \"Dommen;44;5600\\n\"\nfelt = linje.split(\";\")\nprint(len(felt), felt[2] == \"5600\")\n```\n\n**1f)** (I — finn alle feilene.) Funksjonen under skal returnere summen av alle\ntallene i en nøstet liste. Den har **to** feil. Hvilke, og hva gir kallet\n`sum_alle([[1, 2], [3]])`?\n\n```text\ndef sum_alle(y):\n    for indre in y:\n        total = 0\n        for x in indre:\n            total = total + x\n    return total\n```\n\nBlokken er merket som ikke-kjørbar fordi feilene er plantet med vilje."
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-f1",
-   "type": "collapsible",
-   "title": "Modellbesvarelse — Oppgave 1",
-   "buttonText": "Vis løsning 1",
-   "content": [
+      "id": "in1000-9-3-1",
+      "type": "tip",
+      "title": "Øvingseksamen 3 — format, poeng og tidsbudsjett",
+      "content": "Siste og **tyngste** sett, på nivå med de nyeste settene i arkivet: **fem oppgaver, 100 poeng, fire timer**. Alle oppgavene skal besvares.\n\n| Oppgave | Innhold | Poeng | Tid |\n|---|---|---|---|\n| 1 | Kodeforståelse, med «finn alle feilene» (A + I) | 8 | ~20 min |\n| 2 | Flervalg om objekter, med grensesnitt-spørsmål (B) | 9 | ~15 min |\n| 3 | Fire funksjoner over liste, ordbok og streng (C/D/E) | 28 | ~55 min |\n| 4 | Stor klassemodellering: podkast-arkiv, med **nøstet** struktur, fil og input (F/H) | 47 | ~100 min |\n| 5 | To funksjoner over nøstede ordbøker, med moteksempel (G + I) | 8 | ~25 min |\n| | Kontroll og gjennomlesing | | ~25 min |\n\n**Det nye her er sjanger I — «finn feilen»** — som krever et **konkret\nmoteksempel**: ett kall som gir galt svar, og hva det riktige ville vært. En ren verbal forklaring gir bare delvis uttelling.\n\n**De tre settene dekker til sammen alle sjangrene A–I.** Har du tatt alle tre, har\ndu møtt hver form minst én gang.\n\n**Skriv settet uten å kjøre koden.** Eksamen er hjelpemiddelfri. **Delkarakter gis\nper deloppgave** — stå aldri fast.\n\n— naturlig pausepunkt etter Oppgave 3 —"
+    },
     {
-     "id": "in1000-9-3-f1t",
-     "type": "text",
-     "content": "**Modellbesvarelse — Oppgave 1** (8 poeng). Alle utskriftene er kjørt.\n\n**1a)** (1 p):\n\n```\na x 1\nb x 2\nb y 3\n```\n\nBegge løkkevariablene er **nøkler**. Verdien hentes med det doble oppslaget.\n\n**1b)** (2 p):\n\n```\n5 5\n```\n\nFinn-beste med begge variablene oppdatert sammen. Grensen følger med oppover.\n\n**1c)** (2 p):\n\n```\ntsakdop 7\n```\n\n`ny = tegn + ny` setter det nye tegnet **foran**, så teksten snus.\n\n**1d)** (1 p):\n\n```\n3 3.5 1\n```\n\nHeltallsdivisjon, vanlig divisjon som alltid gir desimaltall, og rest.\n\n**1e)** (2 p):\n\n```\n3 False\n```\n\nUten `.rstrip()` henger linjeskiftet igjen i det **siste** feltet, så sammenligningen svarer usant — feilkode #8.\n\n**1f)** To feil, begge plasseringsfeil:\n\n1. **`total = 0` står inne i den ytre løkka.** Den nullstilles for hver indre\n   liste, så bare den siste telles.\n2. **`total` er ikke initialisert utenfor løkka i det hele tatt.** På en tom\n   ytterliste går den ytre løkka null runder, og `return total` stopper\n   programmet med `UnboundLocalError: local variable 'total' referenced before\n   assignment` — den varianten av navnefeil du får når navnet er lokalt i en\n   funksjon, men aldri satt.\n\n**Konkret moteksempel:** `sum_alle([[1, 2], [3]])` gir\n\n```\n3\n```\n\nDet skulle gitt **6**, altså 1 pluss 2 pluss 3.\n\nDen rettede funksjonen flytter `total = 0` opp over den ytre løkka:\n\n```python\ndef sum_alle(y):\n    total = 0\n    for indre in y:\n        for x in indre:\n            total = total + x\n    return total\n\nprint(sum_alle([[1, 2], [3]]), sum_alle([]))\n```\n\n**Utskrift:**\n```\n6 0\n```\n\nNå gir også den tomme lista et fornuftig svar.\n\n**Vekting.** Hver deloppgave rettes for seg. I 1f) gir et **konkret moteksempel**\nfull uttelling; en ren verbal forklaring gir delvis.\n\n**Selvdiagnose — kryss av:**\n\n☐ Så du at begge løkkevariablene over en nøstet ordbok er **nøkler**?\n☐ Skilte du `//`, `/` og `%` fra hverandre?\n☐ Husket du at et manglende `.rstrip()` rammer det **siste** feltet?\n☐ Ga du et konkret moteksempel i 1f), med både galt og riktig svar?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-o2",
-   "type": "collapsible",
-   "title": "Oppgavesett — Oppgave 2: Flervalg om objekter (9 p)",
-   "buttonText": "Vis oppgave 2",
-   "content": [
+      "id": "in1000-9-3-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 9.1](/bok/in1000/in1000-9-1) og\n[kap. 9.2](/bok/in1000/in1000-9-2) først. Dette settet legger til\n**sjanger I** fra [kap. 4.2 — «Finn feilen»](/bok/in1000/in1000-4-2),\ngrensesnitt-teorien fra [kap. 5.2](/bok/in1000/in1000-5-2), og en **nøstet**\nstruktur inne i den store modelleringen, fra\n[kap. 8.1](/bok/in1000/in1000-8-1).\n\nSett av fire sammenhengende timer, legg vekk maskinen, og start klokka."
+    },
     {
-     "id": "in1000-9-3-o2t",
-     "type": "text",
-     "content": "Se på klassene og snutten under, og svar på 2a–2d. **Kryss alltid av** — blankt\ngir null poeng.\n\n```python\nclass Episode:\n    def __init__(self, tittel, minutter):\n        self._tittel = tittel\n        self._minutter = minutter\n        self._avspillinger = 0\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def spill(self):\n        self._avspillinger = self._avspillinger + 1\n\n    def hent_avspillinger(self):\n        return self._avspillinger\n\n    def __str__(self):\n        return self._tittel + \"(\" + str(self._avspillinger) + \")\"\n\nclass Podkast:\n    def __init__(self, navn):\n        self._navn = navn\n        self._episoder = {}\n\n    def legg_til(self, e):\n        self._episoder[e.hent_tittel()] = e\n\n    def finn(self, tittel):\n        if tittel in self._episoder:\n            return self._episoder[tittel]\n        return None\n\n    def totalt_antall_avspillinger(self):\n        total = 0\n        for tittel in self._episoder:\n            total = total + self._episoder[tittel].hent_avspillinger()\n        return total\n\ne1 = Episode(\"Dommen\", 44)\ne2 = Episode(\"Anken\", 51)\n\np = Podkast(\"Rettssalen\")\np.legg_til(e1)\np.legg_til(e2)\np.legg_til(e1)\n\ne1.spill()\ne1.spill()\np.finn(\"Anken\").spill()\n\ne1 = Episode(\"Dommen\", 44)\ne1.spill()\n```\n\n**2a)** (2 p) Hva gir `p.totalt_antall_avspillinger()`?\n\nA. `2`\nB. `3`\nC. `4`\nD. `5`\n\n**2b)** (2 p) Hvor mange nøkler har `p._episoder`, og hvor mange\n`Episode`-objekter er laget?\n\nA. 2 nøkler og 2 objekter\nB. 3 nøkler og 3 objekter\nC. 2 nøkler og 3 objekter\nD. 3 nøkler og 2 objekter\n\n**2c)** (2 p) Hva gir `p.finn(\"Dommen\").hent_avspillinger()`?\n\nA. `0`\nB. `1`\nC. `2`\nD. Programmet stopper.\n\n**2d)** (3 p) Hvilke av navnene under er del av **grensesnittet** til `Podkast`,\nog hvilke er ikke det? Begrunn i én setning.\n\n`_navn` · `_episoder` · `legg_til(e)` · `finn(tittel)` ·\n`totalt_antall_avspillinger()`"
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-f2",
-   "type": "collapsible",
-   "title": "Modellbesvarelse — Oppgave 2",
-   "buttonText": "Vis løsning 2",
-   "content": [
+      "id": "in1000-9-3-coll-o1",
+      "type": "collapsible",
+      "title": "Oppgavesett — Oppgave 1: Kodeforståelse og finn feilen (8 p)",
+      "buttonText": "Vis oppgave 1",
+      "content": [
+        {
+          "id": "in1000-9-3-o1t",
+          "type": "text",
+          "content": "Skriv hva hvert program skriver ut, og svar på den siste deloppgaven.\n\n**1a)** (1 p)\n\n```python\nd = {\"a\": {\"x\": 1}, \"b\": {\"x\": 2, \"y\": 3}}\nfor ytre in d:\n    for indre in d[ytre]:\n        print(ytre, indre, d[ytre][indre])\n```\n\n**1b)** (2 p)\n\n```python\ntall = [3, 1, 4, 1, 5]\nbeste = None beste_v = 0 for x in tall:\n    if x > beste_v:\n        beste = x beste_v = x print(beste, beste_v)\n```\n\n**1c)** (2 p)\n\n```python\nny = \"\" for tegn in \"podkast\":\n    ny = tegn + ny print(ny, len(ny))\n```\n\n**1d)** (1 p)\n\n```python\nprint(7 // 2, 7 / 2, 7 % 2)\n```\n\n**1e)** (2 p)\n\n```python\nlinje = \"Dommen;44;5600\\n\" felt = linje.split(\";\")\nprint(len(felt), felt[2] == \"5600\")\n```\n\n**1f)** (I — finn alle feilene.) Funksjonen under skal returnere summen av alle\ntallene i en nøstet liste. Den har **to** feil. Hvilke, og hva gir kallet\n`sum_alle([[1, 2], [3]])`?\n\n```text\ndef sum_alle(y):\n    for indre in y:\n        total = 0 for x in indre:\n            total = total + x return total\n```\n\nBlokken er merket som ikke-kjørbar fordi feilene er plantet med vilje."
+        }
+      ]
+    },
     {
-     "id": "in1000-9-3-f2t",
-     "type": "text",
-     "content": "**Modellbesvarelse — Oppgave 2** (9 poeng).\n\n**Steg 1 — konstruktørene er riktige.** Ingen `self`-felle her. Fellene ligger i\nordboknøklene og i rebindingen.\n\n**Steg 2–3 — tegningen.** `p.legg_til(e1)` kalles **to** ganger med det samme\nobjektet, og nøkkelen er tittelen begge gangene — så den andre innsettingen\noverskriver den første med seg selv. Ordboka får derfor bare **to** nøkler.\n\nRebindingen `e1 = Episode(\"Dommen\", 44)` på slutten lager et **tredje** objekt\nsom ikke ligger i podkasten. Avspillingen der treffer ikke totalen.\n\n**Kjørt:**\n\n```python\nclass Episode:\n    def __init__(self, tittel, minutter):\n        self._tittel = tittel\n        self._minutter = minutter\n        self._avspillinger = 0\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def spill(self):\n        self._avspillinger = self._avspillinger + 1\n\n    def hent_avspillinger(self):\n        return self._avspillinger\n\n    def __str__(self):\n        return self._tittel + \"(\" + str(self._avspillinger) + \")\"\n\nclass Podkast:\n    def __init__(self, navn):\n        self._navn = navn\n        self._episoder = {}\n\n    def legg_til(self, e):\n        self._episoder[e.hent_tittel()] = e\n\n    def finn(self, tittel):\n        if tittel in self._episoder:\n            return self._episoder[tittel]\n        return None\n\n    def totalt_antall_avspillinger(self):\n        total = 0\n        for tittel in self._episoder:\n            total = total + self._episoder[tittel].hent_avspillinger()\n        return total\n\ne1 = Episode(\"Dommen\", 44)\ne2 = Episode(\"Anken\", 51)\n\np = Podkast(\"Rettssalen\")\np.legg_til(e1)\np.legg_til(e2)\np.legg_til(e1)\n\ne1.spill()\ne1.spill()\np.finn(\"Anken\").spill()\n\ne1 = Episode(\"Dommen\", 44)\ne1.spill()\nprint(p.totalt_antall_avspillinger())\nprint(len(p._episoder))\nprint(p.finn(\"Dommen\").hent_avspillinger())\n```\n\n**Utskrift:**\n```\n3\n2\n2\n```\n\n**2a) B — `3`** (2 p). Dommen har to avspillinger, Anken én.\n\nKontrollkoden over leser `p._episoder` direkte for å telle nøklene. **Det er\nfeilkode #11**, og det gjøres her bare for å se innsiden i en sporingsoppgave —\nklassen har ingen metode som teller nøkler. I din egen kode går du alltid gjennom\nen metode.\n\n**2b) C — 2 nøkler og 3 objekter** (2 p). `Episode(` står tre ganger, men\nordboka har bare nøklene `Dommen` og `Anken`.\n\n**2c) C — `2`** (2 p). Oppslaget gir det **første** Dommen-objektet, som ligger i\nordboka — ikke det nye som `e1` peker på nå.\n\n**2d)** (3 p) **Del av grensesnittet:** `legg_til(e)`, `finn(tittel)` og\n`totalt_antall_avspillinger()`, samt konstruktøren `__init__(navn)`. **Ikke del av\ngrensesnittet:** `_navn` og `_episoder`.\n\nBegrunnelsen: grensesnittet er de **offentlige metodene** med navn og parametere.\nUnderstrek-variablene er innside, også de som en metode bygger på — og `self`\nskrives ikke, siden den som kaller aldri oppgir den.\n\n**Vekting.** De fire deloppgavene rettes hver for seg, og blankt gir null.\n\n**Selvdiagnose — kryss av:**\n\n☐ Så du at samme nøkkel satt inn to ganger gir **én** nøkkel?\n☐ Talte du objekter ved å telle klassenavn med parentes?\n☐ Så du at rebindingen ikke rørte ordboka?\n☐ Holdt du understrek-variablene ute av grensesnittet, og `self` ute av\n  signaturene?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-o3",
-   "type": "collapsible",
-   "title": "Oppgavesett — Oppgave 3: Skriv funksjoner (28 p)",
-   "buttonText": "Vis oppgave 3",
-   "content": [
+      "id": "in1000-9-3-coll-f1",
+      "type": "collapsible",
+      "title": "Modellbesvarelse — Oppgave 1",
+      "buttonText": "Vis løsning 1",
+      "content": [
+        {
+          "id": "in1000-9-3-f1t",
+          "type": "text",
+          "content": "**Modellbesvarelse — Oppgave 1** (8 poeng). Alle utskriftene er kjørt.\n\n**1a)** (1 p):\n\n```\na x 1 b x 2 b y 3\n```\n\nBegge løkkevariablene er **nøkler**. Verdien hentes med det doble oppslaget.\n\n**1b)** (2 p):\n\n```\n5 5\n```\n\nFinn-beste med begge variablene oppdatert sammen. Grensen følger med oppover.\n\n**1c)** (2 p):\n\n```\ntsakdop 7\n```\n\n`ny = tegn + ny` setter det nye tegnet **foran**, så teksten snus.\n\n**1d)** (1 p):\n\n```\n3 3.5 1\n```\n\nHeltallsdivisjon, vanlig divisjon som alltid gir desimaltall, og rest.\n\n**1e)** (2 p):\n\n```\n3 False\n```\n\nUten `.rstrip()` henger linjeskiftet igjen i det **siste** feltet, så sammenligningen svarer usant — feilkode #8.\n\n**1f)** To feil, begge plasseringsfeil:\n\n1. **`total = 0` står inne i den ytre løkka.** Den nullstilles for hver indre\n   liste, så bare den siste telles.\n2. **`total` er ikke initialisert utenfor løkka i det hele tatt.** På en tom\n   ytterliste går den ytre løkka null runder, og `return total` stopper programmet med `UnboundLocalError: local variable 'total' referenced before assignment` — den varianten av navnefeil du får når navnet er lokalt i en funksjon, men aldri satt.\n\n**Konkret moteksempel:** `sum_alle([[1, 2], [3]])` gir\n\n```\n3\n```\n\nDet skulle gitt **6**, altså 1 pluss 2 pluss 3.\n\nDen rettede funksjonen flytter `total = 0` opp over den ytre løkka:\n\n```python\ndef sum_alle(y):\n    total = 0 for indre in y:\n        for x in indre:\n            total = total + x return total\n\nprint(sum_alle([[1, 2], [3]]), sum_alle([]))\n```\n\n**Utskrift:**\n```\n6 0\n```\n\nNå gir også den tomme lista et fornuftig svar.\n\n**Vekting.** Hver deloppgave rettes for seg. I 1f) gir et **konkret moteksempel**\nfull uttelling; en ren verbal forklaring gir delvis.\n\n**Selvdiagnose — kryss av:**\n\n☐ Så du at begge løkkevariablene over en nøstet ordbok er **nøkler**?\n☐ Skilte du `//`, `/` og `%` fra hverandre?\n☐ Husket du at et manglende `.rstrip()` rammer det **siste** feltet?\n☐ Ga du et konkret moteksempel i 1f), med både galt og riktig svar?"
+        }
+      ]
+    },
     {
-     "id": "in1000-9-3-o3t",
-     "type": "text",
-     "content": "Skriv fire funksjoner med grunnkonstruksjoner.\n\n**3a)** (6 p) Skriv `lengste(titler)` som returnerer den lengste teksten i lista.\nEr lista tom, returneres den tomme teksten.\n\n**3b)** (8 p) Skriv `grupper_etter_lengde(titler)` som returnerer en ordbok fra\ntekstlengde til en **liste** over titlene med den lengden.\n\n**3c)** (7 p) Skriv `minst_en_over(d, grense)` som tar en ordbok fra tittel til\nantall avspillinger og returnerer `True` hvis **minst én** verdi er over grensen.\n\n**3d)** (7 p) Skriv `fjern_vokaler(tekst)` som returnerer en ny tekst uten\nbokstavene a, e, i, o, u og y."
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-f3",
-   "type": "collapsible",
-   "title": "Modellbesvarelse — Oppgave 3",
-   "buttonText": "Vis løsning 3",
-   "content": [
+      "id": "in1000-9-3-coll-o2",
+      "type": "collapsible",
+      "title": "Oppgavesett — Oppgave 2: Flervalg om objekter (9 p)",
+      "buttonText": "Vis oppgave 2",
+      "content": [
+        {
+          "id": "in1000-9-3-o2t",
+          "type": "text",
+          "content": "Se på klassene og snutten under, og svar på 2a–2d. **Kryss alltid av** — blankt gir null poeng.\n\n```python\nclass Episode:\n    def __init__(self, tittel, minutter):\n        self._tittel = tittel self._minutter = minutter self._avspillinger = 0\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def spill(self):\n        self._avspillinger = self._avspillinger + 1\n\n    def hent_avspillinger(self):\n        return self._avspillinger\n\n    def __str__(self):\n        return self._tittel + \"(\" + str(self._avspillinger) + \")\"\n\nclass Podkast:\n    def __init__(self, navn):\n        self._navn = navn self._episoder = {}\n\n    def legg_til(self, e):\n        self._episoder[e.hent_tittel()] = e\n\n    def finn(self, tittel):\n        if tittel in self._episoder:\n            return self._episoder[tittel]\n        return None\n\n    def totalt_antall_avspillinger(self):\n        total = 0 for tittel in self._episoder:\n            total = total + self._episoder[tittel].hent_avspillinger()\n        return total\n\ne1 = Episode(\"Dommen\", 44)\ne2 = Episode(\"Anken\", 51)\n\np = Podkast(\"Rettssalen\")\np.legg_til(e1)\np.legg_til(e2)\np.legg_til(e1)\n\ne1.spill()\ne1.spill()\np.finn(\"Anken\").spill()\n\ne1 = Episode(\"Dommen\", 44)\ne1.spill()\n```\n\n**2a)** (2 p) Hva gir `p.totalt_antall_avspillinger()`?\n\nA. `2`\nB. `3`\nC. `4`\nD. `5`\n\n**2b)** (2 p) Hvor mange nøkler har `p._episoder`, og hvor mange\n`Episode`-objekter er laget?\n\nA. 2 nøkler og 2 objekter\nB. 3 nøkler og 3 objekter\nC. 2 nøkler og 3 objekter\nD. 3 nøkler og 2 objekter\n\n**2c)** (2 p) Hva gir `p.finn(\"Dommen\").hent_avspillinger()`?\n\nA. `0`\nB. `1`\nC. `2`\nD. Programmet stopper.\n\n**2d)** (3 p) Hvilke av navnene under er del av **grensesnittet** til `Podkast`,\nog hvilke er ikke det? Begrunn i én setning.\n\n`_navn` · `_episoder` · `legg_til(e)` · `finn(tittel)` ·\n`totalt_antall_avspillinger()`"
+        }
+      ]
+    },
     {
-     "id": "in1000-9-3-f3t",
-     "type": "text",
-     "content": "**Modellbesvarelse — Oppgave 3** (28 poeng).\n\n```python\ndef lengste(titler):\n    beste = \"\"\n    for t in titler:\n        if len(t) > len(beste):\n            beste = t\n    return beste\n\ndef grupper_etter_lengde(titler):\n    d = {}\n    for t in titler:\n        n = len(t)\n        if n not in d:\n            d[n] = []\n        d[n].append(t)\n    return d\n\ndef minst_en_over(d, grense):\n    for tittel in d:\n        if d[tittel] > grense:\n            return True\n    return False\n\ndef fjern_vokaler(tekst):\n    vokaler = \"aeiouy\"\n    ny = \"\"\n    for t in tekst:\n        if t not in vokaler:\n            ny = ny + t\n    return ny\n\nprint(lengste([\"Anken\", \"Dommen\", \"Helgeprat\"]), lengste([]) == \"\")\nprint(grupper_etter_lengde([\"Anken\", \"Dommen\", \"Kaffe\"]))\nprint(minst_en_over({\"a\": 1200, \"b\": 900}, 1000), minst_en_over({\"a\": 100}, 1000))\nprint(fjern_vokaler(\"podkast\"), fjern_vokaler(\"aeiouy\") == \"\")\n```\n\n**Utskrift:**\n```\nHelgeprat True\n{5: ['Anken', 'Kaffe'], 6: ['Dommen']}\nTrue False\npdkst True\n```\n\n**3a)** (6 p): `beste = \"\"` **før** løkka (2 p) — den tomme teksten har lengde 0\nog fungerer som startverdi. Sammenligningen på `len` (2 p), `return` etter løkka\n(2 p). Den tomme lista gir da den tomme teksten uten at noe ekstra trengs.\n\n**3b)** (8 p): ordboka før løkka (2 p), `n = len(t)` som nøkkel (1 p),\n`if n not in d:` med `d[n] = []` (3 p), `.append(t)` (1 p), `return` etter (1 p).\nGrupperings-idiomet: `[]` og `.append(...)` der telleren har `0` og `+`.\n\n**3c)** (7 p): løkka over nøklene (2 p), `if d[tittel] > grense:` med oppslaget\n(2 p), `return True` **inne** i løkka (2 p), `return False` **etter** (1 p). «Minst\nén» er «finnes det …»-formen — motsatt vei av «er alle …».\n\n**3d)** (7 p): vokalene som en tekst (1 p), `ny = \"\"` før løkka (2 p),\n`if t not in vokaler:` (2 p), bygging og `return` etter (2 p).\n\n**`t not in vokaler` virker fordi `vokaler` er en tekst**, og `in` på en tekst\nsjekker om et tegn finnes i den. Med en liste `[\"a\", \"e\", ...]` ville det virket\nlike godt.\n\n**Selvdiagnose — kryss av:**\n\n☐ Fungerer 3a) på en tom liste uten en egen `if`?\n☐ Har grupperingen `[]` som startverdi og `.append(...)`?\n☐ Returnerer «minst én» `True` inne i løkka og `False` etter?\n☐ Bygger tekstfunksjonen en **ny** tekst?\n☐ Testet du kantverdiene: tom liste, tom tekst, kun vokaler?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-o4",
-   "type": "collapsible",
-   "title": "Oppgavesett — Oppgave 4: Stor klassemodellering (47 p)",
-   "buttonText": "Vis oppgave 4",
-   "content": [
+      "id": "in1000-9-3-coll-f2",
+      "type": "collapsible",
+      "title": "Modellbesvarelse — Oppgave 2",
+      "buttonText": "Vis løsning 2",
+      "content": [
+        {
+          "id": "in1000-9-3-f2t",
+          "type": "text",
+          "content": "**Modellbesvarelse — Oppgave 2** (9 poeng).\n\n**Steg 1 — konstruktørene er riktige.** Ingen `self`-felle her. Fellene ligger i\nordboknøklene og i rebindingen.\n\n**Steg 2–3 — tegningen.** `p.legg_til(e1)` kalles **to** ganger med det samme\nobjektet, og nøkkelen er tittelen begge gangene — så den andre innsettingen overskriver den første med seg selv. Ordboka får derfor bare **to** nøkler.\n\nRebindingen `e1 = Episode(\"Dommen\", 44)` på slutten lager et **tredje** objekt som ikke ligger i podkasten. Avspillingen der treffer ikke totalen.\n\n**Kjørt:**\n\n```python\nclass Episode:\n    def __init__(self, tittel, minutter):\n        self._tittel = tittel self._minutter = minutter self._avspillinger = 0\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def spill(self):\n        self._avspillinger = self._avspillinger + 1\n\n    def hent_avspillinger(self):\n        return self._avspillinger\n\n    def __str__(self):\n        return self._tittel + \"(\" + str(self._avspillinger) + \")\"\n\nclass Podkast:\n    def __init__(self, navn):\n        self._navn = navn self._episoder = {}\n\n    def legg_til(self, e):\n        self._episoder[e.hent_tittel()] = e\n\n    def finn(self, tittel):\n        if tittel in self._episoder:\n            return self._episoder[tittel]\n        return None\n\n    def totalt_antall_avspillinger(self):\n        total = 0 for tittel in self._episoder:\n            total = total + self._episoder[tittel].hent_avspillinger()\n        return total\n\ne1 = Episode(\"Dommen\", 44)\ne2 = Episode(\"Anken\", 51)\n\np = Podkast(\"Rettssalen\")\np.legg_til(e1)\np.legg_til(e2)\np.legg_til(e1)\n\ne1.spill()\ne1.spill()\np.finn(\"Anken\").spill()\n\ne1 = Episode(\"Dommen\", 44)\ne1.spill()\nprint(p.totalt_antall_avspillinger())\nprint(len(p._episoder))\nprint(p.finn(\"Dommen\").hent_avspillinger())\n```\n\n**Utskrift:**\n```\n3\n2\n2\n```\n\n**2a) B — `3`** (2 p). Dommen har to avspillinger, Anken én.\n\nKontrollkoden over leser `p._episoder` direkte for å telle nøklene. **Det er feilkode #11**, og det gjøres her bare for å se innsiden i en sporingsoppgave — klassen har ingen metode som teller nøkler. I din egen kode går du alltid gjennom en metode.\n\n**2b) C — 2 nøkler og 3 objekter** (2 p). `Episode(` står tre ganger, men\nordboka har bare nøklene `Dommen` og `Anken`.\n\n**2c) C — `2`** (2 p). Oppslaget gir det **første** Dommen-objektet, som ligger i\nordboka — ikke det nye som `e1` peker på nå.\n\n**2d)** (3 p) **Del av grensesnittet:** `legg_til(e)`, `finn(tittel)` og\n`totalt_antall_avspillinger()`, samt konstruktøren `__init__(navn)`. **Ikke del av grensesnittet:** `_navn` og `_episoder`.\n\nBegrunnelsen: grensesnittet er de **offentlige metodene** med navn og parametere.\nUnderstrek-variablene er innside, også de som en metode bygger på — og `self` skrives ikke, siden den som kaller aldri oppgir den.\n\n**Vekting.** De fire deloppgavene rettes hver for seg, og blankt gir null.\n\n**Selvdiagnose — kryss av:**\n\n☐ Så du at samme nøkkel satt inn to ganger gir **én** nøkkel?\n☐ Talte du objekter ved å telle klassenavn med parentes?\n☐ Så du at rebindingen ikke rørte ordboka?\n☐ Holdt du understrek-variablene ute av grensesnittet, og `self` ute av signaturene?"
+        }
+      ]
+    },
     {
-     "id": "in1000-9-3-o4t",
-     "type": "text",
-     "content": "> Et podkast-arkiv har et navn, podkaster og abonnenter. Hver podkast har et navn\n> og en samling episoder. Hver episode har en tittel, en varighet i minutter og et\n> antall avspillinger. En episode kan spilles av, som øker antall avspillinger.\n> Arkivet kan lese inn episodene til en podkast fra en fil, finne en podkast på\n> navn, skrive ut alle podkastene med episodene sine, si hvilken podkast som har\n> flest avspillinger til sammen, og la brukeren melde seg på som abonnent — der\n> navnet må være nytt.\n>\n> Hver podkast har **sin egen fil**, som heter `<podkastnavn>.txt` og har linjer på\n> formen `tittel;minutter;avspillinger`:\n>\n> ```\n> Dommen;44;5600\n> Anken;51;4100\n> ```\n\n**4a)** (7 p) Skriv `Episode` med konstruktør, aksessorer, `spill(self)` og\n`__str__` på formen `Dommen (44 min, 5600 avspillinger)`.\n\n**4b)** (10 p) Skriv `Podkast` med navn og en **ordbok** fra episodetittel til\n`Episode`-objekt, `hent_navn`, `legg_til`, `finn`, og\n`les_fra_fil(self)` som bygger filnavnet av podkastnavnet.\n\n**4c)** (8 p) Legg til `totalt_antall_avspillinger(self)` og `skriv_alle(self)` i\n`Podkast`.\n\n**4d)** (10 p) Skriv `Arkiv` med en **ordbok** fra podkastnavn til\n`Podkast`-objekt og en **liste** over abonnentnavn, `legg_til(self, podkast)`,\n`finn(self, navn)` og `skriv_alt(self)`.\n\n**4e)** (6 p) Skriv `mest_populaere_podkast(self)` i `Arkiv`.\n\n**4f)** (6 p) Skriv `ny_abonnent(self)` i eksamensform, med `input`: den skal\nspørre om et navn og gjenta spørsmålet til navnet **ikke** allerede står i\nabonnentlista, og deretter legge det til."
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-f4",
-   "type": "collapsible",
-   "title": "Modellbesvarelse — Oppgave 4",
-   "buttonText": "Vis løsning 4",
-   "content": [
+      "id": "in1000-9-3-coll-o3",
+      "type": "collapsible",
+      "title": "Oppgavesett — Oppgave 3: Skriv funksjoner (28 p)",
+      "buttonText": "Vis oppgave 3",
+      "content": [
+        {
+          "id": "in1000-9-3-o3t",
+          "type": "text",
+          "content": "Skriv fire funksjoner med grunnkonstruksjoner.\n\n**3a)** (6 p) Skriv `lengste(titler)` som returnerer den lengste teksten i lista.\nEr lista tom, returneres den tomme teksten.\n\n**3b)** (8 p) Skriv `grupper_etter_lengde(titler)` som returnerer en ordbok fra\ntekstlengde til en **liste** over titlene med den lengden.\n\n**3c)** (7 p) Skriv `minst_en_over(d, grense)` som tar en ordbok fra tittel til\nantall avspillinger og returnerer `True` hvis **minst én** verdi er over grensen.\n\n**3d)** (7 p) Skriv `fjern_vokaler(tekst)` som returnerer en ny tekst uten\nbokstavene a, e, i, o, u og y."
+        }
+      ]
+    },
     {
-     "id": "in1000-9-3-f4t",
-     "type": "text",
-     "content": "**Modellbesvarelse — Oppgave 4** (47 poeng). Deloppgavene rettes hver for seg.\n\n**Steg 1–4 på papir:**\n\n| Klasse | Instansvariabler | Merknad |\n|---|---|---|\n| `Episode` | `_tittel`, `_minutter`, `_avspillinger` | alle utenfra |\n| `Podkast` | `_navn`, `_episoder` (ordbok) | leser sin **egen** fil |\n| `Arkiv` | `_navn`, `_podkaster` (ordbok), `_abonnenter` (liste) | to samlinger, ulik type |\n\nDette er en **nøstet** modell: arkivet holder podkaster, og hver podkast holder\nepisoder. To nivåer av «en-til-mange», og hvert nivå følger samme mønster.\n\n**Innholdet i `Rettssalen.txt`:**\n```\nDommen;44;5600\nAnken;51;4100\n```\n\n**4a)–4e):**\n\n```python\nclass Episode:\n    def __init__(self, tittel, minutter, avspillinger):\n        self._tittel = tittel\n        self._minutter = minutter\n        self._avspillinger = avspillinger\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_avspillinger(self):\n        return self._avspillinger\n\n    def spill(self):\n        self._avspillinger = self._avspillinger + 1\n\n    def __str__(self):\n        return (self._tittel + \" (\" + str(self._minutter) + \" min, \"\n                + str(self._avspillinger) + \" avspillinger)\")\n\nclass Podkast:\n    def __init__(self, navn):\n        self._navn = navn\n        self._episoder = {}\n\n    def hent_navn(self):\n        return self._navn\n\n    def legg_til(self, e):\n        self._episoder[e.hent_tittel()] = e\n\n    def finn(self, tittel):\n        if tittel in self._episoder:\n            return self._episoder[tittel]\n        return None\n\n    def les_fra_fil(self):\n        fil = open(self._navn + \".txt\")\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            self.legg_til(Episode(felt[0], int(felt[1]), int(felt[2])))\n            linje = fil.readline()\n        fil.close()\n\n    def totalt_antall_avspillinger(self):\n        total = 0\n        for tittel in self._episoder:\n            total = total + self._episoder[tittel].hent_avspillinger()\n        return total\n\n    def skriv_alle(self):\n        print(self._navn + \":\")\n        for tittel in self._episoder:\n            print(\"  -\", self._episoder[tittel])\n\nclass Arkiv:\n    def __init__(self, navn):\n        self._navn = navn\n        self._podkaster = {}\n        self._abonnenter = []\n\n    def legg_til(self, podkast):\n        self._podkaster[podkast.hent_navn()] = podkast\n\n    def finn(self, navn):\n        if navn in self._podkaster:\n            return self._podkaster[navn]\n        return None\n\n    def skriv_alt(self):\n        print(\"Arkiv:\", self._navn)\n        for navn in self._podkaster:\n            self._podkaster[navn].skriv_alle()\n\n    def mest_populaere_podkast(self):\n        beste = None\n        beste_antall = 0\n        for navn in self._podkaster:\n            p = self._podkaster[navn]\n            if p.totalt_antall_avspillinger() > beste_antall:\n                beste = p\n                beste_antall = p.totalt_antall_avspillinger()\n        return beste\n\na = Arkiv(\"Lydarkivet\")\nfor navn in [\"Morgenkaffen\", \"Rettssalen\"]:\n    p = Podkast(navn)\n    p.les_fra_fil()\n    a.legg_til(p)\n\na.finn(\"Rettssalen\").finn(\"Dommen\").spill()\na.skriv_alt()\nprint(\"Mest populaer:\", a.mest_populaere_podkast().hent_navn())\nprint(a.finn(\"Nyhetsuka\"))\n```\n\n**Utskrift:**\n```\nArkiv: Lydarkivet\nMorgenkaffen:\n  - Oppvaakning (18 min, 1200 avspillinger)\n  - Kaffe og kaos (22 min, 3400 avspillinger)\n  - Helgeprat (35 min, 900 avspillinger)\nRettssalen:\n  - Dommen (44 min, 5601 avspillinger)\n  - Anken (51 min, 4100 avspillinger)\nMest populaer: Rettssalen\nNone\n```\n\n**4f)** — `ny_abonnent` i eksamensform:\n\n```text\n    def ny_abonnent(self):\n        navn = input(\"Velg abonnentnavn: \")\n        while navn in self._abonnenter:\n            navn = input(\"Navnet er tatt, prov igjen: \")\n        self._abonnenter.append(navn)\n        return navn\n```\n\nBlokken er et utdrag som venter på inndata, og er derfor merket som\nikke-kjørbar.\n\n**Terminaldialog:**\n```\nVelg abonnentnavn: ada\nNavnet er tatt, prov igjen: ada2\n```\n\nLegg merke til at betingelsen er `navn in self._abonnenter` — **ikke** `not in`.\nHer er det navn som **allerede finnes**, som er ugyldige. Å snu betingelsen er\nden vanligste feilen i denne varianten.\n\n**Vekting og hva som gir uttelling.**\n\n**4a)** (7 p): tre `self._`-linjer (3 p), to aksessorer (2 p), `spill` som øker\n(1 p), `__str__` med `str(...)` rundt begge tallene (1 p).\n\n**4b)** (10 p): ordboka i konstruktøren (2 p), nøkkelen fra episodens **egen**\naksessor (2 p), oppslaget med sjekk og `return None` (2 p), filnavnet bygget av\n`self._navn + \".txt\"` (2 p), løkkas fem deler med `.rstrip().split(\";\")` og begge\n`int(...)` (2 p).\n\n**4c)** (8 p): akkumulatoren før løkka og `return` etter (3 p), det doble\noppslaget (2 p), delegeringen i `skriv_alle` (3 p).\n\n**4d)** (10 p): **to** samlinger med hver sin type (3 p), innsetting med\npodkastens egen aksessor (2 p), oppslaget med sjekk (2 p), og `skriv_alt` som\ndelegerer videre til hver podkasts `skriv_alle` (3 p) — det er delegering i **to**\nlag.\n\n**4e)** (6 p): to variabler før løkka (2 p), begge oppdatert sammen (2 p),\n`return` etter (2 p). Metoden returnerer **podkasten**, ikke navnet.\n\n**4f)** (6 p): `input` før løkka (1 p), `while` og ikke `if` (2 p), riktig vei på\nbetingelsen (2 p), `append` etter løkka (1 p).\n\n**Regn etter:** Morgenkaffen har 1200 pluss 3400 pluss 900, altså 5500.\nRettssalen har 5600 pluss 1 pluss 4100, altså 9701. Rettssalen vinner.\n\n**Legg merke til navnene på metodene.** `Podkast.skriv_alle` og\n`Arkiv.skriv_alt` heter ulikt, og `Episode.hent_avspillinger` og\n`Podkast.totalt_antall_avspillinger` heter ulikt. En metode som kaller en metode\nmed samme navn, ser ut som om den kaller seg selv.\n\n**Slik ser en B-besvarelse ut.** Modellen er riktig, men to ting glipper:\n`les_fra_fil` tar filnavnet som parameter i stedet for å bygge det av\n`self._navn`, og `ny_abonnent` bruker `not in` i stedet for `in`. Strukturen er\nder, begge ordbøkene er riktige, delegeringen i to lag er der — og trekket er noen\nfå poeng. **Det er en helt god besvarelse.**\n\n**Selvdiagnose — kryss av:**\n\n☐ Ligger begge ordbøkene og lista i konstruktørene?\n☐ Bygger `les_fra_fil` filnavnet av **objektets eget** navn?\n☐ Hentet du nøklene med aksessorer og ikke med `obj._navn`?\n☐ Delegerer `skriv_alt` videre til hver podkasts egen utskriftsmetode?\n☐ Har alle metodene i ytterklassene **andre** navn enn i innerklassene?\n☐ Returnerer finn-beste **objektet** og ikke navnet?\n☐ Peker input-løkka riktig vei: er det navn som **finnes**, som er ugyldige?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-o5",
-   "type": "collapsible",
-   "title": "Oppgavesett — Oppgave 5: Nøstede strukturer og moteksempel (8 p)",
-   "buttonText": "Vis oppgave 5",
-   "content": [
+      "id": "in1000-9-3-coll-f3",
+      "type": "collapsible",
+      "title": "Modellbesvarelse — Oppgave 3",
+      "buttonText": "Vis løsning 3",
+      "content": [
+        {
+          "id": "in1000-9-3-f3t",
+          "type": "text",
+          "content": "**Modellbesvarelse — Oppgave 3** (28 poeng).\n\n```python\ndef lengste(titler):\n    beste = \"\" for t in titler:\n        if len(t) > len(beste):\n            beste = t return beste\n\ndef grupper_etter_lengde(titler):\n    d = {}\n    for t in titler:\n        n = len(t)\n        if n not in d:\n            d[n] = []\n        d[n].append(t)\n    return d\n\ndef minst_en_over(d, grense):\n    for tittel in d:\n        if d[tittel] > grense:\n            return True return False\n\ndef fjern_vokaler(tekst):\n    vokaler = \"aeiouy\" ny = \"\" for t in tekst:\n        if t not in vokaler:\n            ny = ny + t return ny\n\nprint(lengste([\"Anken\", \"Dommen\", \"Helgeprat\"]), lengste([]) == \"\")\nprint(grupper_etter_lengde([\"Anken\", \"Dommen\", \"Kaffe\"]))\nprint(minst_en_over({\"a\": 1200, \"b\": 900}, 1000), minst_en_over({\"a\": 100}, 1000))\nprint(fjern_vokaler(\"podkast\"), fjern_vokaler(\"aeiouy\") == \"\")\n```\n\n**Utskrift:**\n```\nHelgeprat True\n{5: ['Anken', 'Kaffe'], 6: ['Dommen']}\nTrue False pdkst True\n```\n\n**3a)** (6 p): `beste = \"\"` **før** løkka (2 p) — den tomme teksten har lengde 0\nog fungerer som startverdi. Sammenligningen på `len` (2 p), `return` etter løkka\n(2 p). Den tomme lista gir da den tomme teksten uten at noe ekstra trengs.\n\n**3b)** (8 p): ordboka før løkka (2 p), `n = len(t)` som nøkkel (1 p),\n`if n not in d:` med `d[n] = []` (3 p), `.append(t)` (1 p), `return` etter (1 p).\nGrupperings-idiomet: `[]` og `.append(...)` der telleren har `0` og `+`.\n\n**3c)** (7 p): løkka over nøklene (2 p), `if d[tittel] > grense:` med oppslaget\n(2 p), `return True` **inne** i løkka (2 p), `return False` **etter** (1 p). «Minst én» er «finnes det …»-formen — motsatt vei av «er alle …».\n\n**3d)** (7 p): vokalene som en tekst (1 p), `ny = \"\"` før løkka (2 p),\n`if t not in vokaler:` (2 p), bygging og `return` etter (2 p).\n\n**`t not in vokaler` virker fordi `vokaler` er en tekst**, og `in` på en tekst\nsjekker om et tegn finnes i den. Med en liste `[\"a\", \"e\", ...]` ville det virket like godt.\n\n**Selvdiagnose — kryss av:**\n\n☐ Fungerer 3a) på en tom liste uten en egen `if`?\n☐ Har grupperingen `[]` som startverdi og `.append(...)`?\n☐ Returnerer «minst én» `True` inne i løkka og `False` etter?\n☐ Bygger tekstfunksjonen en **ny** tekst?\n☐ Testet du kantverdiene: tom liste, tom tekst, kun vokaler?"
+        }
+      ]
+    },
     {
-     "id": "in1000-9-3-o5t",
-     "type": "text",
-     "content": "En nøstet ordbok går fra **podkastnavn** til **episodetittel** til antall\navspillinger:\n\n```python\narkiv = {\"Morgenkaffen\": {\"Oppvaakning\": 1200, \"Kaffe og kaos\": 3400},\n         \"Rettssalen\": {\"Dommen\": 5600, \"Anken\": 4100},\n         \"Helgeprat\": {\"Oppvaakning\": 900}}\n```\n\n**5a)** (4 p) Skriv `per_episodetittel(arkiv)` som returnerer en **flat** ordbok\nfra episodetittel til samlet antall avspillinger over alle podkaster.\n\n**5b)** (4 p) En medstudent har skrevet denne funksjonen, som skal returnere\n`True` hvis **alle** podkastene har minst én episode over grensen:\n\n```text\ndef alle_over(arkiv, grense):\n    for p in arkiv:\n        for tittel in arkiv[p]:\n            if arkiv[p][tittel] > grense:\n                return True\n    return False\n```\n\nBlokken er merket som ikke-kjørbar fordi feilen er plantet med vilje.\n\nGi et **konkret moteksempel** som viser at funksjonen er feil, og skriv den\nrettede versjonen."
-    }
-   ]
-  },
-  {
-   "id": "in1000-9-3-coll-f5",
-   "type": "collapsible",
-   "title": "Modellbesvarelse — Oppgave 5",
-   "buttonText": "Vis løsning 5",
-   "content": [
+      "id": "in1000-9-3-coll-o4",
+      "type": "collapsible",
+      "title": "Oppgavesett — Oppgave 4: Stor klassemodellering (47 p)",
+      "buttonText": "Vis oppgave 4",
+      "content": [
+        {
+          "id": "in1000-9-3-o4t",
+          "type": "text",
+          "content": "> Et podkast-arkiv har et navn, podkaster og abonnenter. Hver podkast har et navn\n> og en samling episoder. Hver episode har en tittel, en varighet i minutter og et\n> antall avspillinger. En episode kan spilles av, som øker antall avspillinger.\n> Arkivet kan lese inn episodene til en podkast fra en fil, finne en podkast på\n> navn, skrive ut alle podkastene med episodene sine, si hvilken podkast som har\n> flest avspillinger til sammen, og la brukeren melde seg på som abonnent — der\n> navnet må være nytt.\n>\n> Hver podkast har **sin egen fil**, som heter `<podkastnavn>.txt` og har linjer på\n> formen `tittel;minutter;avspillinger`:\n>\n> ```\n> Dommen;44;5600\n> Anken;51;4100\n> ```\n\n**4a)** (7 p) Skriv `Episode` med konstruktør, aksessorer, `spill(self)` og\n`__str__` på formen `Dommen (44 min, 5600 avspillinger)`.\n\n**4b)** (10 p) Skriv `Podkast` med navn og en **ordbok** fra episodetittel til\n`Episode`-objekt, `hent_navn`, `legg_til`, `finn`, og\n`les_fra_fil(self)` som bygger filnavnet av podkastnavnet.\n\n**4c)** (8 p) Legg til `totalt_antall_avspillinger(self)` og `skriv_alle(self)` i\n`Podkast`.\n\n**4d)** (10 p) Skriv `Arkiv` med en **ordbok** fra podkastnavn til\n`Podkast`-objekt og en **liste** over abonnentnavn, `legg_til(self, podkast)`,\n`finn(self, navn)` og `skriv_alt(self)`.\n\n**4e)** (6 p) Skriv `mest_populaere_podkast(self)` i `Arkiv`.\n\n**4f)** (6 p) Skriv `ny_abonnent(self)` i eksamensform, med `input`: den skal\nspørre om et navn og gjenta spørsmålet til navnet **ikke** allerede står i abonnentlista, og deretter legge det til."
+        }
+      ]
+    },
     {
-     "id": "in1000-9-3-f5t",
-     "type": "text",
-     "content": "**Modellbesvarelse — Oppgave 5** (8 poeng).\n\n**Steg 1 — nivåene.** Ytre = podkastnavn, indre = episodetittel, verdi = antall\navspillinger.\n\n```python\ndef per_episodetittel(arkiv):\n    ut = {}\n    for p in arkiv:\n        for tittel in arkiv[p]:\n            if tittel not in ut:\n                ut[tittel] = 0\n            ut[tittel] = ut[tittel] + arkiv[p][tittel]\n    return ut\n\ndef alle_over_gal(arkiv, grense):\n    for p in arkiv:\n        for tittel in arkiv[p]:\n            if arkiv[p][tittel] > grense:\n                return True\n    return False\n\ndef alle_over(arkiv, grense):\n    for p in arkiv:\n        funnet = False\n        for tittel in arkiv[p]:\n            if arkiv[p][tittel] > grense:\n                funnet = True\n        if funnet == False:\n            return False\n    return True\n\narkiv = {\"Morgenkaffen\": {\"Oppvaakning\": 1200, \"Kaffe og kaos\": 3400},\n         \"Rettssalen\": {\"Dommen\": 5600, \"Anken\": 4100},\n         \"Helgeprat\": {\"Oppvaakning\": 900}}\n\nprint(per_episodetittel(arkiv))\nprint(alle_over_gal(arkiv, 1000))\nprint(alle_over(arkiv, 1000))\nprint(alle_over(arkiv, 500))\n```\n\n**Utskrift:**\n```\n{'Oppvaakning': 2100, 'Kaffe og kaos': 3400, 'Dommen': 5600, 'Anken': 4100}\nTrue\nFalse\nTrue\n```\n\n**5a)** (4 p): `ut = {}` **før** begge løkkene (1 p), den todelte løkka (1 p),\n`if tittel not in ut:` med `ut[tittel] = 0` (1 p), akkumuleringen med `+` (1 p).\n\nTittelen `Oppvaakning` finnes i **to** podkaster, og 1200 pluss 900 er 2100. Med\n`=` i stedet for `+` ville svaret blitt 900.\n\n**5b)** (4 p) **Feilen:** funksjonen returnerer `True` så snart den finner **én**\nepisode over grensen i **én** podkast. Den sjekker altså «finnes det …», ikke «har\nalle …». Det er feilkode **#7**, for tidlig retur.\n\n**Konkret moteksempel:** `alle_over(arkiv, 1000)` gir `True`, som du ser på andre\nutskriftslinje. Det skulle gitt **`False`** — podkasten `Helgeprat` har bare én\nepisode med 900 avspillinger, som er under 1000.\n\n**Den rettede versjonen** trenger et flagg per podkast:\n\n- `funnet = False` **inne i den ytre løkka**, nullstilt for hver podkast,\n- den indre løkka setter `funnet = True` hvis noen episode er over grensen,\n- **etter** den indre løkka: `if funnet == False: return False`,\n- og `return True` etter den ytre løkka.\n\nTredje utskriftslinje viser at den rettede versjonen gir `False` for grensen 1000,\nog fjerde at den gir `True` for grensen 500 — da er alle tre podkastene med.\n\n**Vekting.** Et **konkret moteksempel** gir full uttelling på 5b); en ren verbal\nforklaring gir delvis. Å skrive den rettede versjonen er en del av besvarelsen.\n\n**Selvdiagnose — kryss av:**\n\n☐ Brukte du `+` og ikke `=` i akkumuleringen i 5a)?\n☐ Så du at samme episodetittel kan finnes i flere podkaster?\n☐ Ga du et konkret moteksempel med både galt og riktig svar i 5b)?\n☐ Står flagget i den rettede versjonen **inne i den ytre løkka**?\n☐ Står sjekken av flagget **etter** den indre løkka, men inne i den ytre?"
+      "id": "in1000-9-3-coll-f4",
+      "type": "collapsible",
+      "title": "Modellbesvarelse — Oppgave 4",
+      "buttonText": "Vis løsning 4",
+      "content": [
+        {
+          "id": "in1000-9-3-f4t",
+          "type": "text",
+          "content": "**Modellbesvarelse — Oppgave 4** (47 poeng). Deloppgavene rettes hver for seg.\n\n**Steg 1–4 på papir:**\n\n| Klasse | Instansvariabler | Merknad |\n|---|---|---|\n| `Episode` | `_tittel`, `_minutter`, `_avspillinger` | alle utenfra |\n| `Podkast` | `_navn`, `_episoder` (ordbok) | leser sin **egen** fil |\n| `Arkiv` | `_navn`, `_podkaster` (ordbok), `_abonnenter` (liste) | to samlinger, ulik type |\n\nDette er en **nøstet** modell: arkivet holder podkaster, og hver podkast holder episoder. To nivåer av «en-til-mange», og hvert nivå følger samme mønster.\n\n**Innholdet i `Rettssalen.txt`:**\n```\nDommen;44;5600\nAnken;51;4100\n```\n\n**4a)–4e):**\n\n```python\nclass Episode:\n    def __init__(self, tittel, minutter, avspillinger):\n        self._tittel = tittel self._minutter = minutter self._avspillinger = avspillinger\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_avspillinger(self):\n        return self._avspillinger\n\n    def spill(self):\n        self._avspillinger = self._avspillinger + 1\n\n    def __str__(self):\n        return (self._tittel + \" (\" + str(self._minutter) + \" min, \"\n                + str(self._avspillinger) + \" avspillinger)\")\n\nclass Podkast:\n    def __init__(self, navn):\n        self._navn = navn self._episoder = {}\n\n    def hent_navn(self):\n        return self._navn\n\n    def legg_til(self, e):\n        self._episoder[e.hent_tittel()] = e\n\n    def finn(self, tittel):\n        if tittel in self._episoder:\n            return self._episoder[tittel]\n        return None\n\n    def les_fra_fil(self):\n        fil = open(self._navn + \".txt\")\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            self.legg_til(Episode(felt[0], int(felt[1]), int(felt[2])))\n            linje = fil.readline()\n        fil.close()\n\n    def totalt_antall_avspillinger(self):\n        total = 0 for tittel in self._episoder:\n            total = total + self._episoder[tittel].hent_avspillinger()\n        return total\n\n    def skriv_alle(self):\n        print(self._navn + \":\")\n        for tittel in self._episoder:\n            print(\"  -\", self._episoder[tittel])\n\nclass Arkiv:\n    def __init__(self, navn):\n        self._navn = navn self._podkaster = {}\n        self._abonnenter = []\n\n    def legg_til(self, podkast):\n        self._podkaster[podkast.hent_navn()] = podkast\n\n    def finn(self, navn):\n        if navn in self._podkaster:\n            return self._podkaster[navn]\n        return None\n\n    def skriv_alt(self):\n        print(\"Arkiv:\", self._navn)\n        for navn in self._podkaster:\n            self._podkaster[navn].skriv_alle()\n\n    def mest_populaere_podkast(self):\n        beste = None beste_antall = 0 for navn in self._podkaster:\n            p = self._podkaster[navn]\n            if p.totalt_antall_avspillinger() > beste_antall:\n                beste = p beste_antall = p.totalt_antall_avspillinger()\n        return beste\n\na = Arkiv(\"Lydarkivet\")\nfor navn in [\"Morgenkaffen\", \"Rettssalen\"]:\n    p = Podkast(navn)\n    p.les_fra_fil()\n    a.legg_til(p)\n\na.finn(\"Rettssalen\").finn(\"Dommen\").spill()\na.skriv_alt()\nprint(\"Mest populaer:\", a.mest_populaere_podkast().hent_navn())\nprint(a.finn(\"Nyhetsuka\"))\n```\n\n**Utskrift:**\n```\nArkiv: Lydarkivet\nMorgenkaffen:\n  - Oppvaakning (18 min, 1200 avspillinger)\n  - Kaffe og kaos (22 min, 3400 avspillinger)\n  - Helgeprat (35 min, 900 avspillinger)\nRettssalen:\n  - Dommen (44 min, 5601 avspillinger)\n  - Anken (51 min, 4100 avspillinger)\nMest populaer: Rettssalen\nNone\n```\n\n**4f)** — `ny_abonnent` i eksamensform:\n\n```text\n    def ny_abonnent(self):\n        navn = input(\"Velg abonnentnavn: \")\n        while navn in self._abonnenter:\n            navn = input(\"Navnet er tatt, prov igjen: \")\n        self._abonnenter.append(navn)\n        return navn\n```\n\nBlokken er et utdrag som venter på inndata, og er derfor merket som ikke-kjørbar.\n\n**Terminaldialog:**\n```\nVelg abonnentnavn: ada\nNavnet er tatt, prov igjen: ada2\n```\n\nLegg merke til at betingelsen er `navn in self._abonnenter` — **ikke** `not in`.\nHer er det navn som **allerede finnes**, som er ugyldige. Å snu betingelsen er den vanligste feilen i denne varianten.\n\n**Vekting og hva som gir uttelling.**\n\n**4a)** (7 p): tre `self._`-linjer (3 p), to aksessorer (2 p), `spill` som øker\n(1 p), `__str__` med `str(...)` rundt begge tallene (1 p).\n\n**4b)** (10 p): ordboka i konstruktøren (2 p), nøkkelen fra episodens **egen**\naksessor (2 p), oppslaget med sjekk og `return None` (2 p), filnavnet bygget av\n`self._navn + \".txt\"` (2 p), løkkas fem deler med `.rstrip().split(\";\")` og begge\n`int(...)` (2 p).\n\n**4c)** (8 p): akkumulatoren før løkka og `return` etter (3 p), det doble\noppslaget (2 p), delegeringen i `skriv_alle` (3 p).\n\n**4d)** (10 p): **to** samlinger med hver sin type (3 p), innsetting med\npodkastens egen aksessor (2 p), oppslaget med sjekk (2 p), og `skriv_alt` som delegerer videre til hver podkasts `skriv_alle` (3 p) — det er delegering i **to**\nlag.\n\n**4e)** (6 p): to variabler før løkka (2 p), begge oppdatert sammen (2 p),\n`return` etter (2 p). Metoden returnerer **podkasten**, ikke navnet.\n\n**4f)** (6 p): `input` før løkka (1 p), `while` og ikke `if` (2 p), riktig vei på\nbetingelsen (2 p), `append` etter løkka (1 p).\n\n**Regn etter:** Morgenkaffen har 1200 pluss 3400 pluss 900, altså 5500.\nRettssalen har 5600 pluss 1 pluss 4100, altså 9701. Rettssalen vinner.\n\n**Legg merke til navnene på metodene.** `Podkast.skriv_alle` og\n`Arkiv.skriv_alt` heter ulikt, og `Episode.hent_avspillinger` og\n`Podkast.totalt_antall_avspillinger` heter ulikt. En metode som kaller en metode med samme navn, ser ut som om den kaller seg selv.\n\n**Slik ser en B-besvarelse ut.** Modellen er riktig, men to ting glipper:\n`les_fra_fil` tar filnavnet som parameter i stedet for å bygge det av\n`self._navn`, og `ny_abonnent` bruker `not in` i stedet for `in`. Strukturen er der, begge ordbøkene er riktige, delegeringen i to lag er der — og trekket er noen få poeng. **Det er en helt god besvarelse.**\n\n**Selvdiagnose — kryss av:**\n\n☐ Ligger begge ordbøkene og lista i konstruktørene?\n☐ Bygger `les_fra_fil` filnavnet av **objektets eget** navn?\n☐ Hentet du nøklene med aksessorer og ikke med `obj._navn`?\n☐ Delegerer `skriv_alt` videre til hver podkasts egen utskriftsmetode?\n☐ Har alle metodene i ytterklassene **andre** navn enn i innerklassene?\n☐ Returnerer finn-beste **objektet** og ikke navnet?\n☐ Peker input-løkka riktig vei: er det navn som **finnes**, som er ugyldige?"
+        }
+      ]
+    },
+    {
+      "id": "in1000-9-3-coll-o5",
+      "type": "collapsible",
+      "title": "Oppgavesett — Oppgave 5: Nøstede strukturer og moteksempel (8 p)",
+      "buttonText": "Vis oppgave 5",
+      "content": [
+        {
+          "id": "in1000-9-3-o5t",
+          "type": "text",
+          "content": "En nøstet ordbok går fra **podkastnavn** til **episodetittel** til antall avspillinger:\n\n```python\narkiv = {\"Morgenkaffen\": {\"Oppvaakning\": 1200, \"Kaffe og kaos\": 3400},\n         \"Rettssalen\": {\"Dommen\": 5600, \"Anken\": 4100},\n         \"Helgeprat\": {\"Oppvaakning\": 900}}\n```\n\n**5a)** (4 p) Skriv `per_episodetittel(arkiv)` som returnerer en **flat** ordbok\nfra episodetittel til samlet antall avspillinger over alle podkaster.\n\n**5b)** (4 p) En medstudent har skrevet denne funksjonen, som skal returnere\n`True` hvis **alle** podkastene har minst én episode over grensen:\n\n```text\ndef alle_over(arkiv, grense):\n    for p in arkiv:\n        for tittel in arkiv[p]:\n            if arkiv[p][tittel] > grense:\n                return True return False\n```\n\nBlokken er merket som ikke-kjørbar fordi feilen er plantet med vilje.\n\nGi et **konkret moteksempel** som viser at funksjonen er feil, og skriv den rettede versjonen."
+        }
+      ]
+    },
+    {
+      "id": "in1000-9-3-coll-f5",
+      "type": "collapsible",
+      "title": "Modellbesvarelse — Oppgave 5",
+      "buttonText": "Vis løsning 5",
+      "content": [
+        {
+          "id": "in1000-9-3-f5t",
+          "type": "text",
+          "content": "**Modellbesvarelse — Oppgave 5** (8 poeng).\n\n**Steg 1 — nivåene.** Ytre = podkastnavn, indre = episodetittel, verdi = antall\navspillinger.\n\n```python\ndef per_episodetittel(arkiv):\n    ut = {}\n    for p in arkiv:\n        for tittel in arkiv[p]:\n            if tittel not in ut:\n                ut[tittel] = 0 ut[tittel] = ut[tittel] + arkiv[p][tittel]\n    return ut\n\ndef alle_over_gal(arkiv, grense):\n    for p in arkiv:\n        for tittel in arkiv[p]:\n            if arkiv[p][tittel] > grense:\n                return True return False\n\ndef alle_over(arkiv, grense):\n    for p in arkiv:\n        funnet = False for tittel in arkiv[p]:\n            if arkiv[p][tittel] > grense:\n                funnet = True if funnet == False:\n            return False return True\n\narkiv = {\"Morgenkaffen\": {\"Oppvaakning\": 1200, \"Kaffe og kaos\": 3400},\n         \"Rettssalen\": {\"Dommen\": 5600, \"Anken\": 4100},\n         \"Helgeprat\": {\"Oppvaakning\": 900}}\n\nprint(per_episodetittel(arkiv))\nprint(alle_over_gal(arkiv, 1000))\nprint(alle_over(arkiv, 1000))\nprint(alle_over(arkiv, 500))\n```\n\n**Utskrift:**\n```\n{'Oppvaakning': 2100, 'Kaffe og kaos': 3400, 'Dommen': 5600, 'Anken': 4100}\nTrue\nFalse\nTrue\n```\n\n**5a)** (4 p): `ut = {}` **før** begge løkkene (1 p), den todelte løkka (1 p),\n`if tittel not in ut:` med `ut[tittel] = 0` (1 p), akkumuleringen med `+` (1 p).\n\nTittelen `Oppvaakning` finnes i **to** podkaster, og 1200 pluss 900 er 2100. Med\n`=` i stedet for `+` ville svaret blitt 900.\n\n**5b)** (4 p) **Feilen:** funksjonen returnerer `True` så snart den finner **én**\nepisode over grensen i **én** podkast. Den sjekker altså «finnes det …», ikke «har alle …». Det er feilkode **#7**, for tidlig retur.\n\n**Konkret moteksempel:** `alle_over(arkiv, 1000)` gir `True`, som du ser på andre\nutskriftslinje. Det skulle gitt **`False`** — podkasten `Helgeprat` har bare én episode med 900 avspillinger, som er under 1000.\n\n**Den rettede versjonen** trenger et flagg per podkast:\n\n- `funnet = False` **inne i den ytre løkka**, nullstilt for hver podkast,\n- den indre løkka setter `funnet = True` hvis noen episode er over grensen,\n- **etter** den indre løkka: `if funnet == False: return False`,\n- og `return True` etter den ytre løkka.\n\nTredje utskriftslinje viser at den rettede versjonen gir `False` for grensen 1000, og fjerde at den gir `True` for grensen 500 — da er alle tre podkastene med.\n\n**Vekting.** Et **konkret moteksempel** gir full uttelling på 5b); en ren verbal\nforklaring gir delvis. Å skrive den rettede versjonen er en del av besvarelsen.\n\n**Selvdiagnose — kryss av:**\n\n☐ Brukte du `+` og ikke `=` i akkumuleringen i 5a)?\n☐ Så du at samme episodetittel kan finnes i flere podkaster?\n☐ Ga du et konkret moteksempel med både galt og riktig svar i 5b)?\n☐ Står flagget i den rettede versjonen **inne i den ytre løkka**?\n☐ Står sjekken av flagget **etter** den indre løkka, men inne i den ytre?"
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

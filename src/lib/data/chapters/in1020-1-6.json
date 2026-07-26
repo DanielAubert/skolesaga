@@ -126,7 +126,7 @@
         "number": "5",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Sjanger C — maskinkode.) Cellene 00 til 08 inneholder tallene under. Dekod programmet, og si hva det skriver ut med inndataene 8 og 3.\n\n```text\ncelle:   00   01   02   03   04   05   06   07   08\ntall:   901  380  901  381  580  281  902  000  000\n```",
+        "task": "(Sjanger C — maskinkode.) Cellene 00 til 08 inneholder tallene under. Dekod programmet, og si hva det skriver ut med inndataene 8 og 3.\n\n```text\ncelle:   00   01   02   03   04   05   06   07   08 tall:   901  380  901  381  580  281  902  000  000\n```",
         "solution": "**Dekoding:**\n\n| Celle | Tall | Instruksjon |\n|---|---|---|\n| 00 | `901` | `INP` |\n| 01 | `380` | `STA 80` |\n| 02 | `901` | `INP` |\n| 03 | `381` | `STA 81` |\n| 04 | `580` | `LDA 80` |\n| 05 | `281` | `SUB 81` |\n| 06 | `902` | `OUT` |\n| 07 | `000` | `HLT` |\n| 08 | `000` | datacelle |\n\n**Programmet:**\n\n```text\n00  INP\n01  STA 80\n02  INP\n03  STA 81\n04  LDA 80\n05  SUB 81\n06  OUT\n07  HLT\n```\n\n**Sporing med 8 og 3:** celle 80 blir 8, celle 81 blir 3, `LDA 80` gir 8, `SUB 81` gir 5.\n\n**Utskrift: `5`.**\n\nProgrammet trekker det andre tallet fra det første. Kontroller dekodingen ved å kode tilbake: `STA 80` er `3·100 + 80 = 380`. Stemmer.",
         "hints": [
           "Del hvert tresifrede tall i første siffer og de to siste.",

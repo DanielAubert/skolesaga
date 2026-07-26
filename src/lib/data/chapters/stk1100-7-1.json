@@ -77,7 +77,7 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "En oppgave bruker **rate-parametriseringen** av eksponensialfordelingen: $f(x) = \\lambda e^{-\\lambda x}$, altså $F(x) = 1 - e^{-\\lambda x}$ for $x > 0$, med rate $\\lambda$.\n\n**a)** Utled inversjonsformelen $F^{-1}(u)$ i denne parametriseringen.\n\n**b)** Skriv en Python-funksjon `simuler(n, lam)` som trekker $n$ realisasjoner, og forklar hvorfor svaret er konsistent med forventnings-formen $x = -\\mu\\ln(1-u)$ når $\\mu = 1/\\lambda$.",
-        "solution": "**a)** $1 - e^{-\\lambda x} = u \\Rightarrow e^{-\\lambda x} = 1-u \\Rightarrow -\\lambda x = \\ln(1-u) \\Rightarrow x = -\\frac{1}{\\lambda}\\ln(1-u)$. Så $F^{-1}(u) = -\\dfrac{\\ln(1-u)}{\\lambda}$.\n\n**b)**\n\n```python\nimport numpy as np\n\ndef simuler(n, lam):\n    u = np.random.uniform(size=n)\n    return -np.log(1 - u) / lam\n\nnp.random.seed(10)\nx = simuler(10**6, 0.2)   # lambda = 0.2  =>  mu = 1/0.2 = 5\nprint(np.mean(x))\n# 5.0006...\n```\n\nSiden $\\mu = 1/\\lambda$, er $-\\frac{1}{\\lambda}\\ln(1-u) = -\\mu\\ln(1-u)$ — nøyaktig samme formel. Rate- og forventnings-parametriseringen gir samme tall når $\\mu = 1/\\lambda$; det er bare to skrivemåter. Med $\\lambda = 0{,}2$ blir $\\mu = 5$, og gjennomsnittet ligger på $\\approx 5$.",
+        "solution": "**a)** $1 - e^{-\\lambda x} = u \\Rightarrow e^{-\\lambda x} = 1-u \\Rightarrow -\\lambda x = \\ln(1-u) \\Rightarrow x = -\\frac{1}{\\lambda}\\ln(1-u)$. Så $F^{-1}(u) = -\\dfrac{\\ln(1-u)}{\\lambda}$.\n\n**b)**\n\n```python\nimport numpy as np\n\ndef simuler(n, lam):\n    u = np.random.uniform(size=n)\n    return -np.log(1 - u) / lam\n\nnp.random.seed(10)\nx = simuler(10**6, 0.2)   # lambda = 0.2  =>  mu = 1/0.2 = 5 print(np.mean(x))\n# 5.0006...\n```\n\nSiden $\\mu = 1/\\lambda$, er $-\\frac{1}{\\lambda}\\ln(1-u) = -\\mu\\ln(1-u)$ — nøyaktig samme formel. Rate- og forventnings-parametriseringen gir samme tall når $\\mu = 1/\\lambda$; det er bare to skrivemåter. Med $\\lambda = 0{,}2$ blir $\\mu = 5$, og gjennomsnittet ligger på $\\approx 5$.",
         "hints": [
           "Inversjonsformelen: løs $1 - e^{-\\lambda x} = u$ for $x$ (samme grep som i oppgave 1, men med $\\lambda$ i stedet for $1/\\mu$).",
           "Bruk `np.random.uniform(size=n)` og del på `lam`.",
@@ -100,7 +100,7 @@
       "type": "example",
       "title": "Eksempel 2: Trekke normalfordelte tall — pass på argumentet",
       "problem": "Konsentrasjonen $Y$ (mg/l) av et stoff er $N(\\mu, \\sigma^2)$ med forventning $\\mu = 10$ og varians $\\sigma^2 = 4$. Trekk $10^6$ realisasjoner med `stats.norm.rvs`, og kontroller gjennomsnitt og empirisk standardavvik. Hva er den vanligste feilen her?",
-      "solution": "Variansen er $\\sigma^2 = 4$, så **standardavviket er $\\sigma = \\sqrt{4} = 2$**. Det er $2$ — ikke $4$ — som skal inn som annet argument:\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nnp.random.seed(3)\ny = stats.norm.rvs(10, 2, size=10**6)   # 2 = standardavviket (ikke variansen 4!)\nprint(np.mean(y), np.std(y, ddof=1))\n# 10.0039...  1.9966...\n```\n\nGjennomsnittet ligger på $\\approx 10$ og empirisk standardavvik på $\\approx 2 = \\sigma$. \n\n**Den vanligste feilen** er å skrive `stats.norm.rvs(10, 4, ...)` — da sender du variansen der funksjonen vil ha standardavviket, og får spredning $\\sigma = 4$ i stedet for $2$. Empirisk standardavvik ville da blitt $\\approx 4$, og alle etterfølgende sannsynligheter feil. Les alltid dokumentasjonen: `scale` = standardavvik."
+      "solution": "Variansen er $\\sigma^2 = 4$, så **standardavviket er $\\sigma = \\sqrt{4} = 2$**. Det er $2$ — ikke $4$ — som skal inn som annet argument:\n\n```python\nimport numpy as np from scipy import stats\n\nnp.random.seed(3)\ny = stats.norm.rvs(10, 2, size=10**6)   # 2 = standardavviket (ikke variansen 4!)\nprint(np.mean(y), np.std(y, ddof=1))\n# 10.0039...  1.9966...\n```\n\nGjennomsnittet ligger på $\\approx 10$ og empirisk standardavvik på $\\approx 2 = \\sigma$. \n\n**Den vanligste feilen** er å skrive `stats.norm.rvs(10, 4, ...)` — da sender du variansen der funksjonen vil ha standardavviket, og får spredning $\\sigma = 4$ i stedet for $2$. Empirisk standardavvik ville da blitt $\\approx 4$, og alle etterfølgende sannsynligheter feil. Les alltid dokumentasjonen: `scale` = standardavvik."
     },
     {
       "id": "stk1100-7-1-ex-l2a",
@@ -199,7 +199,7 @@
       "id": "stk1100-7-1-ex4",
       "type": "example",
       "title": "Eksempel 4: Les snutten — fordeling og estimand",
-      "problem": "Hva trekker denne koden fra, og hva estimerer siste linje?\n\n```python\nimport numpy as np\nnp.random.seed(4)\nu = np.random.uniform(size=10**6)\nx = -5 * np.log(1 - u)\nprint(np.mean(x > 2))\n```",
+      "problem": "Hva trekker denne koden fra, og hva estimerer siste linje?\n\n```python\nimport numpy as np np.random.seed(4)\nu = np.random.uniform(size=10**6)\nx = -5 * np.log(1 - u)\nprint(np.mean(x > 2))\n```",
       "solution": "**Fordeling:** Inversjonsformelen `-5*np.log(1-u)` er $-\\mu\\ln(1-u)$ med $\\mu = 5$ — altså eksponensialfordeling med forventning $\\mu = 5$.\n\n**Estimand:** `x > 2` er en indikatorvektor, og `np.mean` av den er andelen realisasjoner større enn 2 — et estimat av $P(X > 2)$.\n\n**Kontroll:** For eksponensial med forventning $\\mu = 5$ er $P(X > 2) = e^{-2/5} = e^{-0{,}4} \\approx 0{,}6703$.\n\n```python\n# kjører koden over gir:\n# 0.67048...\n# mot eksakt e^{-0.4} = 0.67032...\n```\n\nSvaret: koden estimerer $P(X > 2) \\approx 0{,}670$ for en eksponensialfordeling med forventning 5."
     },
     {
@@ -210,7 +210,7 @@
         "number": "7",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Kodelesing.) Hva trekker koden fra, og hva estimerer siste linje? Gi også den eksakte verdien.\n\n```python\nimport numpy as np\nnp.random.seed(0)\nu = np.random.uniform(size=10**6)\nx = 1 * (1 - u)**(-1/4)\nprint(np.mean(x))\n```",
+        "task": "(Kodelesing.) Hva trekker koden fra, og hva estimerer siste linje? Gi også den eksakte verdien.\n\n```python\nimport numpy as np np.random.seed(0)\nu = np.random.uniform(size=10**6)\nx = 1 * (1 - u)**(-1/4)\nprint(np.mean(x))\n```",
         "solution": "**Fordeling:** `1*(1-u)**(-1/4)` er $k(1-u)^{-1/\\theta}$ med $k = 1$, $\\theta = 4$ — Pareto med minsteverdi $1$ og formparameter $4$.\n\n**Estimand:** `np.mean(x)` estimerer $E(X)$.\n\n**Eksakt:** For Pareto med $k=1, \\theta=4$ er $E(X) = \\dfrac{\\theta k}{\\theta - 1} = \\dfrac{4\\cdot 1}{3} = \\dfrac{4}{3} \\approx 1{,}333$. Simuleringen gir en verdi nær $1{,}33$.",
         "hints": [
           "Kjenn igjen inversjonsformelen $k(1-u)^{-1/\\theta}$ — hvilke $k$ og $\\theta$?",
@@ -227,7 +227,7 @@
         "number": "8",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Kodelesing + feilsøk.) En student vil estimere $P(X > 8)$ for en eksponensialfordeling med forventning $\\mu = 5$ og skriver:\n\n```python\nimport numpy as np\nu = np.random.uniform(size=10**6)\nx = -5 * np.log(u)\nprint(np.mean(x > 8))\n```\n\n**a)** Er koden riktig? Forklar hva `-5*np.log(u)` trekker fra.\n\n**b)** Hva estimerer siste linje, og hva er den eksakte verdien den bør ligge nær?",
+        "task": "(Kodelesing + feilsøk.) En student vil estimere $P(X > 8)$ for en eksponensialfordeling med forventning $\\mu = 5$ og skriver:\n\n```python\nimport numpy as np u = np.random.uniform(size=10**6)\nx = -5 * np.log(u)\nprint(np.mean(x > 8))\n```\n\n**a)** Er koden riktig? Forklar hva `-5*np.log(u)` trekker fra.\n\n**b)** Hva estimerer siste linje, og hva er den eksakte verdien den bør ligge nær?",
         "solution": "**a)** Koden er **riktig** — men av en subtil grunn. Inversjonsformelen er egentlig $-\\mu\\ln(1-u)$. Her står det $-\\mu\\ln(u)$. Siden $U$ er uniform på $(0,1)$, er $1-U$ *også* uniform på $(0,1)$; de har samme fordeling. Derfor gir både $-\\mu\\ln(1-u)$ og $-\\mu\\ln(u)$ eksponensialfordelte tall med forventning $\\mu = 5$. Snarveien er vanlig og korrekt.\n\n(Hadde fordelingen ikke hatt denne symmetrien i $u \\leftrightarrow 1-u$, måtte man brukt $1-u$ nøyaktig.)\n\n**b)** Siste linje estimerer $P(X > 8)$. Eksakt: $e^{-8/5} = e^{-1{,}6} \\approx 0{,}2019$. Estimatet bør ligge nær $0{,}202$.",
         "hints": [
           "Hvilken fordeling har $1 - U$ når $U$ er uniform på $(0,1)$?",

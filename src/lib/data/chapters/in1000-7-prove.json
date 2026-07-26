@@ -1,132 +1,132 @@
 {
- "id": "in1000-7-prove",
- "courseId": "in1000",
- "chapterNumber": "7.P",
- "title": "Prøver til del 7: Filbehandling",
- "description": "Fire prøver til del 7: innlesingsløkka, fil til liste av objekter, fil til ordbok av objekter, og en full fil-i-modellering-oppgave — alle med kjørt fasit og selvdiagnose.",
- "estimatedMinutes": 120,
- "competenceGoals": [
-  "kunne skrive innlesingsløkka riktig uten hjelpemidler",
-  "kunne bygge en liste eller ordbok av objekter fra en fil, med riktig skilletegn og konvertering",
-  "kunne la et objekt lese sin egen fil og fylle sin egen samling",
-  "kunne kombinere filinnlesing med oppslag, delegering og en algoritmemetode"
- ],
- "content": [
-  {
-   "id": "in1000-7-prove-1",
-   "type": "tip",
-   "title": "Fire prøver til del 7 — dekning og tidsbruk",
-   "content": "Denne delen har **4 prøver** på til sammen **120 minutter**. De kan trygt deles\nover flere kvelder: **én prøve per økt** er en helt vanlig og fornuftig rytme.\n\n| Prøve | Dekker | Tid |\n|---|---|---|\n| 7.A | Filinnlesing-løkka: rens, del, konverter ([kap. 7.1](/bok/in1000/in1000-7-1)) | 25 min |\n| 7.B | Fil til **liste** av objekter ([kap. 7.2](/bok/in1000/in1000-7-2)) | 30 min |\n| 7.C | Fil til **ordbok** av objekter, med filnavn bygget av et navn | 30 min |\n| 7.D | Full fil-i-modellering-oppgave med to samarbeidende klasser | 35 min |\n\nAlle fire er i **sjanger F — stor klassemodellering**, altså å bygge\nsamarbeidende klasser fra en beskrevet oppgave. Det er formen **Oppgave 4** har,\nog filinnlesingen er én deloppgave i den.\n\n**Denne delen har ingen statiske flervalg.** Alle svarene er kode du skriver\nselv. Vil du ha flervalg, tar du den interaktive quizen som hører til hvert\nkapittel.\n\n**Skriv koden for hånd eller i en editor uten å kjøre den.** Eksamen er\nhjelpemiddelfri og digital i Inspera — UiOs eksamenssystem. Kjør gjerne koden\netterpå, som en kontroll."
-  },
-  {
-   "id": "in1000-7-prove-2",
-   "type": "text",
-   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 7.1 — Filinnlesing linje for linje](/bok/in1000/in1000-7-1) og\n[kap. 7.2 — DRILL: filinnlesing i klassemodellering](/bok/in1000/in1000-7-2).\nUnder dem ligger [kap. 3.3 — Strenger](/bok/in1000/in1000-3-3) og hele del 5.\n\nDe sju tingene prøvene tester hardest:\n\n- **løkkas fem deler**: `open`, `readline` før løkka, `while linje != \"\":`,\n  kroppen, `readline` nederst — og `close` etter,\n- **`linje.rstrip().split(sep)`** som én fast lenke, med det skilletegnet fila\n  faktisk bruker,\n- **`int(...)` bare på de feltene du skal regne med**,\n- **samlingen opprettes FØR løkka** og returneres ETTER den,\n- **objektreferanser, ikke rådata**, i samlingen,\n- **header** hoppes over med ett ekstra `readline`,\n- **i en metode skrives det til `self._elementer`**, ikke til en lokal samling.\n\nTrenger du å friske opp ett av punktene, gjør det før du starter klokka."
-  },
-  {
-   "id": "in1000-7-prove-coll-p1",
-   "type": "collapsible",
-   "title": "Prøve 7.A — Filinnlesing-løkka",
-   "buttonText": "Vis prøve 1",
-   "content": [
+  "id": "in1000-7-prove",
+  "courseId": "in1000",
+  "chapterNumber": "7.P",
+  "title": "Prøver til del 7: Filbehandling",
+  "description": "Fire prøver til del 7: innlesingsløkka, fil til liste av objekter, fil til ordbok av objekter, og en full fil-i-modellering-oppgave — alle med kjørt fasit og selvdiagnose.",
+  "estimatedMinutes": 120,
+  "competenceGoals": [
+    "kunne skrive innlesingsløkka riktig uten hjelpemidler",
+    "kunne bygge en liste eller ordbok av objekter fra en fil, med riktig skilletegn og konvertering",
+    "kunne la et objekt lese sin egen fil og fylle sin egen samling",
+    "kunne kombinere filinnlesing med oppslag, delegering og en algoritmemetode"
+  ],
+  "content": [
     {
-     "id": "in1000-7-prove-p1t",
-     "type": "text",
-     "content": "**Prøve 7.A — Filinnlesing-løkka** — 25 minutter. Tre oppgaver.\n\n\nTotalt 20 poeng. Skriv koden for hånd, uten å kjøre den.\n\nFila `utlaan.txt` har linjer på formen `tittel:forfatter:utlaan`, uten\noverskriftslinje:\n\n```\nSult:Hamsun:3\nVaar:Undset:7\nNaboer:Bjornson:2\n```\n\n**Oppgave 1** (6 p). Skriv et program som leser fila og skriver ut hver tittel\nmed antall utlån, på formen `Sult 3`.\n\n**Oppgave 2** (7 p). Utvid programmet slik at det også skriver ut det samlede\nantallet utlån til slutt.\n\n**Oppgave 3** (7 p). Utvid programmet slik at det til slutt skriver ut tittelen\npå boka med flest utlån. Bruk en eksplisitt finn-beste-løkke, ikke en ferdig\nfunksjon."
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-prove-coll-f1",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 7.A",
-   "buttonText": "Vis fasit 1",
-   "content": [
+      "id": "in1000-7-prove-1",
+      "type": "tip",
+      "title": "Fire prøver til del 7 — dekning og tidsbruk",
+      "content": "Denne delen har **4 prøver** på til sammen **120 minutter**. De kan trygt deles over flere kvelder: **én prøve per økt** er en helt vanlig og fornuftig rytme.\n\n| Prøve | Dekker | Tid |\n|---|---|---|\n| 7.A | Filinnlesing-løkka: rens, del, konverter ([kap. 7.1](/bok/in1000/in1000-7-1)) | 25 min |\n| 7.B | Fil til **liste** av objekter ([kap. 7.2](/bok/in1000/in1000-7-2)) | 30 min |\n| 7.C | Fil til **ordbok** av objekter, med filnavn bygget av et navn | 30 min |\n| 7.D | Full fil-i-modellering-oppgave med to samarbeidende klasser | 35 min |\n\nAlle fire er i **sjanger F — stor klassemodellering**, altså å bygge samarbeidende klasser fra en beskrevet oppgave. Det er formen **Oppgave 4** har, og filinnlesingen er én deloppgave i den.\n\n**Denne delen har ingen statiske flervalg.** Alle svarene er kode du skriver\nselv. Vil du ha flervalg, tar du den interaktive quizen som hører til hvert kapittel.\n\n**Skriv koden for hånd eller i en editor uten å kjøre den.** Eksamen er\nhjelpemiddelfri og digital i Inspera — UiOs eksamenssystem. Kjør gjerne koden etterpå, som en kontroll."
+    },
     {
-     "id": "in1000-7-prove-f1t",
-     "type": "text",
-     "content": "**Fasit — Prøve 7.A.** Koden under er kjørt mot fila, ikke gjettet. De tre\ndeloppgavene bygger på hverandre, men rettes hver for seg.\n\n**Oppgave 1–3 samlet** (20 p):\n\n```python\nfil = open(\"utlaan.txt\")\nlinje = fil.readline()\ntotal = 0\nbeste = None\nbeste_antall = 0\nwhile linje != \"\":\n    felt = linje.rstrip().split(\":\")\n    tittel = felt[0]\n    antall = int(felt[2])\n    print(tittel, antall)\n    total = total + antall\n    if antall > beste_antall:\n        beste = tittel\n        beste_antall = antall\n    linje = fil.readline()\nfil.close()\nprint(\"Totalt:\", total)\nprint(\"Flest utlaan:\", beste, beste_antall)\n```\n\n**Utskrift:**\n```\nSult 3\nVaar 7\nNaboer 2\nTotalt: 12\nFlest utlaan: Vaar 7\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (6 p): `open` (1 p), `readline` **før** løkka (1 p),\n`while linje != \"\":` (1 p), `linje.rstrip().split(\":\")` i riktig rekkefølge\n(2 p), og `readline` **nederst** i løkka (1 p). Glemmer du den siste, henger\nprogrammet.\n\n**Oppgave 2** (7 p): `total = 0` **før** løkka (3 p), `total = total + antall`\ninne i den (2 p), og utskriften **etter** løkka (2 p). Står `total = 0` inne i\nløkka, nullstilles den hver runde og svaret blir 2.\n\n**Oppgave 3** (7 p): `beste = None` og `beste_antall = 0` før løkka (2 p),\nsammenligningen (2 p), at **begge** oppdateres sammen (2 p), og utskriften etter\nløkka (1 p). Oppdaterer du bare `beste`, finner løkka den siste boka over\ngrensen i stedet for den største.\n\n**Merk `int(felt[2])`.** Uten den ville `total + antall` stoppet programmet med\n`TypeError`, og `antall > beste_antall` ville sammenlignet en tekst med et tall.\nTittelen og forfatteren skal derimot **ikke** konverteres.\n\n**Selvdiagnose — kryss av:**\n\n☐ Står `readline` **to** steder — før løkka og nederst i den?\n☐ Skrev du `.rstrip()` **før** `.split()`?\n☐ Brukte du kolon som skilletegn, slik fila gjør?\n☐ Konverterte du bare det feltet du skulle regne med?\n☐ Står `total = 0` og `beste_antall = 0` **utenfor** løkka?\n☐ Oppdaterte du `beste` og `beste_antall` sammen, inne i samme `if`?\n☐ Skrev du ut resultatene **etter** løkka, ikke inne i den?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-prove-coll-p2",
-   "type": "collapsible",
-   "title": "Prøve 7.B — Fil til liste av objekter",
-   "buttonText": "Vis prøve 2",
-   "content": [
+      "id": "in1000-7-prove-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 7.1 — Filinnlesing linje for linje](/bok/in1000/in1000-7-1) og\n[kap. 7.2 — DRILL: filinnlesing i klassemodellering](/bok/in1000/in1000-7-2).\nUnder dem ligger [kap. 3.3 — Strenger](/bok/in1000/in1000-3-3) og hele del 5.\n\nDe sju tingene prøvene tester hardest:\n\n- **løkkas fem deler**: `open`, `readline` før løkka, `while linje != \"\":`,\n  kroppen, `readline` nederst — og `close` etter,\n- **`linje.rstrip().split(sep)`** som én fast lenke, med det skilletegnet fila\n  faktisk bruker,\n- **`int(...)` bare på de feltene du skal regne med**,\n- **samlingen opprettes FØR løkka** og returneres ETTER den,\n- **objektreferanser, ikke rådata**, i samlingen,\n- **header** hoppes over med ett ekstra `readline`,\n- **i en metode skrives det til `self._elementer`**, ikke til en lokal samling.\n\nTrenger du å friske opp ett av punktene, gjør det før du starter klokka."
+    },
     {
-     "id": "in1000-7-prove-p2t",
-     "type": "text",
-     "content": "**Prøve 7.B — Fil til liste av objekter** — 30 minutter. Tre oppgaver.\n\n\nTotalt 25 poeng. Skriv koden for hånd, uten å kjøre den.\n\nFila `retter.txt` i en kantine har en **overskriftslinje** og deretter linjer på\nformen `rett,pris,solgte`:\n\n```\nrett,pris,solgte\nFiskesuppe,89,14\nLapskaus,79,22\nSalat,65,9\nVafler,35,40\n```\n\n**Oppgave 1** (8 p). Skriv klassen `Rett` med konstruktør, en metode\n`omsetning(self)` som gir pris ganger antall solgte, og en `__str__` på formen\n`Fiskesuppe: 89 kr x14`.\n\n**Oppgave 2** (9 p). Skriv `les_retter(filnavn)` som returnerer en **liste** av\n`Rett`-objekter, og som hopper over overskriftslinja.\n\n**Oppgave 3** (8 p). Skriv kode som leser fila, skriver ut alle rettene, og\nskriver ut den samlede omsetningen og antall retter som har solgt minst 20\nporsjoner."
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-prove-coll-f2",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 7.B",
-   "buttonText": "Vis fasit 2",
-   "content": [
+      "id": "in1000-7-prove-coll-p1",
+      "type": "collapsible",
+      "title": "Prøve 7.A — Filinnlesing-løkka",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in1000-7-prove-p1t",
+          "type": "text",
+          "content": "**Prøve 7.A — Filinnlesing-løkka** — 25 minutter. Tre oppgaver.\n\n\nTotalt 20 poeng. Skriv koden for hånd, uten å kjøre den.\n\nFila `utlaan.txt` har linjer på formen `tittel:forfatter:utlaan`, uten overskriftslinje:\n\n```\nSult:Hamsun:3\nVaar:Undset:7\nNaboer:Bjornson:2\n```\n\n**Oppgave 1** (6 p). Skriv et program som leser fila og skriver ut hver tittel\nmed antall utlån, på formen `Sult 3`.\n\n**Oppgave 2** (7 p). Utvid programmet slik at det også skriver ut det samlede\nantallet utlån til slutt.\n\n**Oppgave 3** (7 p). Utvid programmet slik at det til slutt skriver ut tittelen\npå boka med flest utlån. Bruk en eksplisitt finn-beste-løkke, ikke en ferdig funksjon."
+        }
+      ]
+    },
     {
-     "id": "in1000-7-prove-f2t",
-     "type": "text",
-     "content": "**Fasit — Prøve 7.B.** Koden under er kjørt mot fila, ikke gjettet.\n\n**Oppgave 1–3 samlet** (25 p):\n\n```python\nclass Rett:\n    def __init__(self, navn, pris, solgte):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = solgte\n\n    def hent_solgte(self):\n        return self._solgte\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\n    def __str__(self):\n        return self._navn + \": \" + str(self._pris) + \" kr x\" + str(self._solgte)\n\ndef les_retter(filnavn):\n    retter = []\n    fil = open(filnavn)\n    fil.readline()\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\",\")\n        retter.append(Rett(felt[0], int(felt[1]), int(felt[2])))\n        linje = fil.readline()\n    fil.close()\n    return retter\n\nalle = les_retter(\"retter.txt\")\nfor r in alle:\n    print(r)\n\ntotal = 0\npopulaere = 0\nfor r in alle:\n    total = total + r.omsetning()\n    if r.hent_solgte() >= 20:\n        populaere = populaere + 1\nprint(\"Omsetning:\", total)\nprint(\"Minst 20 solgte:\", populaere)\n```\n\n**Utskrift:**\n```\nFiskesuppe: 89 kr x14\nLapskaus: 79 kr x22\nSalat: 65 kr x9\nVafler: 35 kr x40\nOmsetning: 4969\nMinst 20 solgte: 2\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (8 p): konstruktøren med tre `self._`-linjer (3 p), `omsetning`\nsom **returnerer** (2 p), og `__str__` som returnerer en tekst med `str(...)`\nrundt begge tallene (3 p). Formatet er oppgitt og rettes strengt: kolon,\nmellomrom, «kr» og «x» er alle en del av bestillingen.\n\n**Oppgave 2** (9 p): `retter = []` **før** løkka (2 p), `fil.readline()` alene\nfor headeren (2 p), løkkas fem deler (2 p), `.rstrip().split(\",\")` (1 p),\n`int(...)` på pris og solgte, men **ikke** på navnet (1 p), og `return` **etter**\nløkka (1 p).\n\nGlemmer du header-hoppet, stopper programmet med\n`ValueError: invalid literal for int() with base 10: 'pris'` — med selve\noverskriftsordet i meldingen.\n\n**Oppgave 3** (8 p): begge akkumulatorene før løkka (2 p), summeringen med\n`r.omsetning()` og ikke med et regnestykke i løkka (3 p), kantverdien `>= 20`\n(2 p), og utskriftene etter løkka (1 p).\n\n**`>= 20` teller med retten som har solgt nøyaktig 20** — her Lapskaus, som har\n22, og Vafler med 40. Hadde en rett solgt akkurat 20, ville `>` gitt feil svar.\n\n**Merk at omsetningen regnes i en metode på `Rett`.** Retten vet hva den har\nomsatt for; den som summerer, trenger bare å spørre. Det er den slags plassering\nsensor ser etter i den store oppgaven.\n\n**Selvdiagnose — kryss av:**\n\n☐ Hoppet du over overskriftslinja med ett ekstra `readline`?\n☐ Brukte du komma som skilletegn, slik fila gjør?\n☐ Opprettet du lista **før** løkka og returnerte **etter** den?\n☐ Konverterte du pris og solgte, men lot navnet være tekst?\n☐ La du omsetningsregnestykket i en metode på `Rett`?\n☐ Returnerte `__str__` en tekst, med `str(...)` rundt tallene?\n☐ Testet du kantverdien: skal 20 telle som «minst 20»?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-prove-coll-p3",
-   "type": "collapsible",
-   "title": "Prøve 7.C — Fil til ordbok av objekter",
-   "buttonText": "Vis prøve 3",
-   "content": [
+      "id": "in1000-7-prove-coll-f1",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 7.A",
+      "buttonText": "Vis fasit 1",
+      "content": [
+        {
+          "id": "in1000-7-prove-f1t",
+          "type": "text",
+          "content": "**Fasit — Prøve 7.A.** Koden under er kjørt mot fila, ikke gjettet. De tre\ndeloppgavene bygger på hverandre, men rettes hver for seg.\n\n**Oppgave 1–3 samlet** (20 p):\n\n```python\nfil = open(\"utlaan.txt\")\nlinje = fil.readline()\ntotal = 0 beste = None beste_antall = 0 while linje != \"\":\n    felt = linje.rstrip().split(\":\")\n    tittel = felt[0]\n    antall = int(felt[2])\n    print(tittel, antall)\n    total = total + antall if antall > beste_antall:\n        beste = tittel beste_antall = antall linje = fil.readline()\nfil.close()\nprint(\"Totalt:\", total)\nprint(\"Flest utlaan:\", beste, beste_antall)\n```\n\n**Utskrift:**\n```\nSult 3\nVaar 7\nNaboer 2\nTotalt: 12\nFlest utlaan: Vaar 7\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (6 p): `open` (1 p), `readline` **før** løkka (1 p),\n`while linje != \"\":` (1 p), `linje.rstrip().split(\":\")` i riktig rekkefølge\n(2 p), og `readline` **nederst** i løkka (1 p). Glemmer du den siste, henger programmet.\n\n**Oppgave 2** (7 p): `total = 0` **før** løkka (3 p), `total = total + antall`\ninne i den (2 p), og utskriften **etter** løkka (2 p). Står `total = 0` inne i løkka, nullstilles den hver runde og svaret blir 2.\n\n**Oppgave 3** (7 p): `beste = None` og `beste_antall = 0` før løkka (2 p),\nsammenligningen (2 p), at **begge** oppdateres sammen (2 p), og utskriften etter løkka (1 p). Oppdaterer du bare `beste`, finner løkka den siste boka over grensen i stedet for den største.\n\n**Merk `int(felt[2])`.** Uten den ville `total + antall` stoppet programmet med\n`TypeError`, og `antall > beste_antall` ville sammenlignet en tekst med et tall.\nTittelen og forfatteren skal derimot **ikke** konverteres.\n\n**Selvdiagnose — kryss av:**\n\n☐ Står `readline` **to** steder — før løkka og nederst i den?\n☐ Skrev du `.rstrip()` **før** `.split()`?\n☐ Brukte du kolon som skilletegn, slik fila gjør?\n☐ Konverterte du bare det feltet du skulle regne med?\n☐ Står `total = 0` og `beste_antall = 0` **utenfor** løkka?\n☐ Oppdaterte du `beste` og `beste_antall` sammen, inne i samme `if`?\n☐ Skrev du ut resultatene **etter** løkka, ikke inne i den?"
+        }
+      ]
+    },
     {
-     "id": "in1000-7-prove-p3t",
-     "type": "text",
-     "content": "**Prøve 7.C — Fil til ordbok av objekter** — 30 minutter. Tre oppgaver.\n\n\nTotalt 25 poeng. Skriv koden for hånd, uten å kjøre den.\n\nEt treningssenter har **én fil per sal**. Fila heter `<salnavn>.txt` og har\nlinjer på formen `dag antall`, skilt med mellomrom, uten overskriftslinje.\n`Speilsal.txt` og `Spinning.txt` inneholder:\n\n```\nmandag 24\ntirsdag 18\nonsdag 31\n```\n\n```\nmandag 14\nonsdag 20\n```\n\n**Oppgave 1** (9 p). Skriv klassen `Sal` med et navn og en tom **ordbok** fra dag\ntil antall, og metoden `les_fra_fil(self)` som bygger filnavnet av salnavnet og\nfyller ordboka.\n\n**Oppgave 2** (8 p). Legg til `totalt_antall(self)` som summerer alle dagene, og\n`travleste_dag(self)` som gir dagen med flest deltakere. Bruk en eksplisitt\nfinn-beste-løkke.\n\n**Oppgave 3** (8 p). Lag de to salene, les inn begge, og skriv ut navn, total og\ntravleste dag for hver."
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-prove-coll-f3",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 7.C",
-   "buttonText": "Vis fasit 3",
-   "content": [
+      "id": "in1000-7-prove-coll-p2",
+      "type": "collapsible",
+      "title": "Prøve 7.B — Fil til liste av objekter",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in1000-7-prove-p2t",
+          "type": "text",
+          "content": "**Prøve 7.B — Fil til liste av objekter** — 30 minutter. Tre oppgaver.\n\n\nTotalt 25 poeng. Skriv koden for hånd, uten å kjøre den.\n\nFila `retter.txt` i en kantine har en **overskriftslinje** og deretter linjer på formen `rett,pris,solgte`:\n\n```\nrett,pris,solgte\nFiskesuppe,89,14\nLapskaus,79,22\nSalat,65,9\nVafler,35,40\n```\n\n**Oppgave 1** (8 p). Skriv klassen `Rett` med konstruktør, en metode\n`omsetning(self)` som gir pris ganger antall solgte, og en `__str__` på formen\n`Fiskesuppe: 89 kr x14`.\n\n**Oppgave 2** (9 p). Skriv `les_retter(filnavn)` som returnerer en **liste** av\n`Rett`-objekter, og som hopper over overskriftslinja.\n\n**Oppgave 3** (8 p). Skriv kode som leser fila, skriver ut alle rettene, og\nskriver ut den samlede omsetningen og antall retter som har solgt minst 20 porsjoner."
+        }
+      ]
+    },
     {
-     "id": "in1000-7-prove-f3t",
-     "type": "text",
-     "content": "**Fasit — Prøve 7.C.** Koden under er kjørt mot de to filene, ikke gjettet.\n\n**Oppgave 1–3 samlet** (25 p):\n\n```python\nclass Sal:\n    def __init__(self, navn):\n        self._navn = navn\n        self._dager = {}\n\n    def hent_navn(self):\n        return self._navn\n\n    def les_fra_fil(self):\n        fil = open(self._navn + \".txt\")\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split()\n            self._dager[felt[0]] = int(felt[1])\n            linje = fil.readline()\n        fil.close()\n\n    def totalt_antall(self):\n        total = 0\n        for dag in self._dager:\n            total = total + self._dager[dag]\n        return total\n\n    def travleste_dag(self):\n        beste = None\n        beste_antall = 0\n        for dag in self._dager:\n            if self._dager[dag] > beste_antall:\n                beste = dag\n                beste_antall = self._dager[dag]\n        return beste\n\nspeil = Sal(\"Speilsal\")\nspinning = Sal(\"Spinning\")\nspeil.les_fra_fil()\nspinning.les_fra_fil()\n\nfor s in [speil, spinning]:\n    print(s.hent_navn(), s.totalt_antall(), s.travleste_dag())\n```\n\n**Utskrift:**\n```\nSpeilsal 73 onsdag\nSpinning 34 onsdag\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (9 p): `self._dager = {}` i **konstruktøren** (2 p), filnavnet\nbygget av instansvariabelen med `self._navn + \".txt\"` (3 p), løkkas fem deler\n(2 p), `.split()` **uten** argument fordi feltene er skilt med mellomrom (1 p),\nog `int(felt[1])` (1 p).\n\n**Den dyreste enkeltfeilen her er å skrive `dager = {}` inne i metoden.** Da blir\nordboka lokal og forsvinner når metoden er ferdig, `self._dager` forblir tom, og\nalle de andre metodene svarer 0 eller `None`. Det er feilkode **#1**, og den er\nstum — programmet kjører helt rolig.\n\n**Oppgave 2** (8 p): akkumulatoren før løkka og `return` etter (3 p), løkka over\n**nøklene** med oppslag `self._dager[dag]` (2 p), og finn-beste-løkka der **begge**\nvariablene oppdateres sammen (3 p).\n\n**Oppgave 3** (8 p): to objekter opprettet (2 p), `les_fra_fil()` kalt på hver\n(2 p), og utskriften (4 p). Legg merke til at `les_fra_fil` ikke tar noe\nargument: filnavnet kommer fra objektet selv.\n\n**Merk at metoden ikke returnerer noe.** Den **endrer objektet**, og resultatet\nhentes med `totalt_antall()` etterpå. Det er en helt vanlig og riktig form i den\nstore oppgaven.\n\n**Selvdiagnose — kryss av:**\n\n☐ Opprettet du ordboka i **konstruktøren**, ikke i innlesingsmetoden?\n☐ Skrev du til `self._dager`, og ikke til en lokal variabel?\n☐ Bygde du filnavnet av `self._navn + \".txt\"`, med punktumet skrevet inn?\n☐ Brukte du `.split()` uten argument, siden feltene er skilt med mellomrom?\n☐ Løp løkkene over nøklene, med oppslag for å få verdien?\n☐ Oppdaterte du `beste` og `beste_antall` sammen?\n☐ Kalte du `les_fra_fil()` på **begge** salene før du skrev ut?"
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-prove-coll-p4",
-   "type": "collapsible",
-   "title": "Prøve 7.D — Full fil-i-modellering-oppgave",
-   "buttonText": "Vis prøve 4",
-   "content": [
+      "id": "in1000-7-prove-coll-f2",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 7.B",
+      "buttonText": "Vis fasit 2",
+      "content": [
+        {
+          "id": "in1000-7-prove-f2t",
+          "type": "text",
+          "content": "**Fasit — Prøve 7.B.** Koden under er kjørt mot fila, ikke gjettet.\n\n**Oppgave 1–3 samlet** (25 p):\n\n```python\nclass Rett:\n    def __init__(self, navn, pris, solgte):\n        self._navn = navn self._pris = pris self._solgte = solgte\n\n    def hent_solgte(self):\n        return self._solgte\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\n    def __str__(self):\n        return self._navn + \": \" + str(self._pris) + \" kr x\" + str(self._solgte)\n\ndef les_retter(filnavn):\n    retter = []\n    fil = open(filnavn)\n    fil.readline()\n    linje = fil.readline()\n    while linje != \"\":\n        felt = linje.rstrip().split(\",\")\n        retter.append(Rett(felt[0], int(felt[1]), int(felt[2])))\n        linje = fil.readline()\n    fil.close()\n    return retter\n\nalle = les_retter(\"retter.txt\")\nfor r in alle:\n    print(r)\n\ntotal = 0 populaere = 0 for r in alle:\n    total = total + r.omsetning()\n    if r.hent_solgte() >= 20:\n        populaere = populaere + 1 print(\"Omsetning:\", total)\nprint(\"Minst 20 solgte:\", populaere)\n```\n\n**Utskrift:**\n```\nFiskesuppe: 89 kr x14\nLapskaus: 79 kr x22\nSalat: 65 kr x9\nVafler: 35 kr x40\nOmsetning: 4969\nMinst 20 solgte: 2\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (8 p): konstruktøren med tre `self._`-linjer (3 p), `omsetning`\nsom **returnerer** (2 p), og `__str__` som returnerer en tekst med `str(...)` rundt begge tallene (3 p). Formatet er oppgitt og rettes strengt: kolon, mellomrom, «kr» og «x» er alle en del av bestillingen.\n\n**Oppgave 2** (9 p): `retter = []` **før** løkka (2 p), `fil.readline()` alene\nfor headeren (2 p), løkkas fem deler (2 p), `.rstrip().split(\",\")` (1 p),\n`int(...)` på pris og solgte, men **ikke** på navnet (1 p), og `return` **etter**\nløkka (1 p).\n\nGlemmer du header-hoppet, stopper programmet med\n`ValueError: invalid literal for int() with base 10: 'pris'` — med selve overskriftsordet i meldingen.\n\n**Oppgave 3** (8 p): begge akkumulatorene før løkka (2 p), summeringen med\n`r.omsetning()` og ikke med et regnestykke i løkka (3 p), kantverdien `>= 20`\n(2 p), og utskriftene etter løkka (1 p).\n\n**`>= 20` teller med retten som har solgt nøyaktig 20** — her Lapskaus, som har\n22, og Vafler med 40. Hadde en rett solgt akkurat 20, ville `>` gitt feil svar.\n\n**Merk at omsetningen regnes i en metode på `Rett`.** Retten vet hva den har\nomsatt for; den som summerer, trenger bare å spørre. Det er den slags plassering sensor ser etter i den store oppgaven.\n\n**Selvdiagnose — kryss av:**\n\n☐ Hoppet du over overskriftslinja med ett ekstra `readline`?\n☐ Brukte du komma som skilletegn, slik fila gjør?\n☐ Opprettet du lista **før** løkka og returnerte **etter** den?\n☐ Konverterte du pris og solgte, men lot navnet være tekst?\n☐ La du omsetningsregnestykket i en metode på `Rett`?\n☐ Returnerte `__str__` en tekst, med `str(...)` rundt tallene?\n☐ Testet du kantverdien: skal 20 telle som «minst 20»?"
+        }
+      ]
+    },
     {
-     "id": "in1000-7-prove-p4t",
-     "type": "text",
-     "content": "**Prøve 7.D — Full fil-i-modellering-oppgave** — 35 minutter. Fire oppgaver.\n\n\nTotalt 30 poeng. Dette er en komplett Oppgave 4-deloppgave med to samarbeidende\nklasser. Skriv koden for hånd, uten å kjøre den.\n\nEt bibliotek har fila `utlaan.txt` med linjer på formen\n`tittel:forfatter:utlaan`, uten overskriftslinje:\n\n```\nSult:Hamsun:3\nVaar:Undset:7\nNaboer:Bjornson:2\n```\n\n**Oppgave 1** (7 p). Skriv klassen `Bok` med tittel, forfatter og antall utlån.\nDen skal ha aksessorer for tittel, forfatter og antall utlån, en metode\n`laan_ut(self)` som øker antall utlån med én, og en `__str__` på formen\n`Sult av Hamsun (3)`.\n\n**Oppgave 2** (9 p). Skriv klassen `Bibliotek` med et navn og en **ordbok** fra\ntittel til `Bok`-objekt, og metoden `les_fra_fil(self, filnavn)` som fyller\nordboka.\n\n**Oppgave 3** (8 p). Legg til `finn(self, tittel)` som gir boka eller `None`, og\n`skriv_alle(self)` som lar hver bok vise seg selv.\n\n**Oppgave 4** (6 p). Legg til `mest_populaere_forfatter(self)`, som returnerer\nforfatteren med flest utlån til sammen. Bygg en teller-ordbok over forfattere, og\nfinn den største med en eksplisitt løkke.\n\nSkriv til slutt kode som leser fila, låner ut «Sult» to ganger, slår opp «Vaar»\nog en tittel som ikke finnes, skriver ut alle bøkene og den mest populære\nforfatteren."
-    }
-   ]
-  },
-  {
-   "id": "in1000-7-prove-coll-f4",
-   "type": "collapsible",
-   "title": "Fasit — Prøve 7.D",
-   "buttonText": "Vis fasit 4",
-   "content": [
+      "id": "in1000-7-prove-coll-p3",
+      "type": "collapsible",
+      "title": "Prøve 7.C — Fil til ordbok av objekter",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in1000-7-prove-p3t",
+          "type": "text",
+          "content": "**Prøve 7.C — Fil til ordbok av objekter** — 30 minutter. Tre oppgaver.\n\n\nTotalt 25 poeng. Skriv koden for hånd, uten å kjøre den.\n\nEt treningssenter har **én fil per sal**. Fila heter `<salnavn>.txt` og har linjer på formen `dag antall`, skilt med mellomrom, uten overskriftslinje.\n`Speilsal.txt` og `Spinning.txt` inneholder:\n\n```\nmandag 24 tirsdag 18 onsdag 31\n```\n\n```\nmandag 14 onsdag 20\n```\n\n**Oppgave 1** (9 p). Skriv klassen `Sal` med et navn og en tom **ordbok** fra dag\ntil antall, og metoden `les_fra_fil(self)` som bygger filnavnet av salnavnet og fyller ordboka.\n\n**Oppgave 2** (8 p). Legg til `totalt_antall(self)` som summerer alle dagene, og\n`travleste_dag(self)` som gir dagen med flest deltakere. Bruk en eksplisitt finn-beste-løkke.\n\n**Oppgave 3** (8 p). Lag de to salene, les inn begge, og skriv ut navn, total og\ntravleste dag for hver."
+        }
+      ]
+    },
     {
-     "id": "in1000-7-prove-f4t",
-     "type": "text",
-     "content": "**Fasit — Prøve 7.D.** Koden under er kjørt mot fila, ikke gjettet. Deloppgavene\nrettes hver for seg — å stå fast på én koster ikke de andre.\n\n**Oppgave 1–4 samlet** (30 p):\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter, utlaan):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaan = utlaan\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_forfatter(self):\n        return self._forfatter\n\n    def hent_utlaan(self):\n        return self._utlaan\n\n    def laan_ut(self):\n        self._utlaan = self._utlaan + 1\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter + \" (\" + str(self._utlaan) + \")\"\n\nclass Bibliotek:\n    def __init__(self, navn):\n        self._navn = navn\n        self._boker = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\":\")\n            b = Bok(felt[0], felt[1], int(felt[2]))\n            self._boker[b.hent_tittel()] = b\n            linje = fil.readline()\n        fil.close()\n\n    def finn(self, tittel):\n        if tittel in self._boker:\n            return self._boker[tittel]\n        return None\n\n    def skriv_alle(self):\n        for tittel in self._boker:\n            print(self._boker[tittel])\n\n    def mest_populaere_forfatter(self):\n        teller = {}\n        for tittel in self._boker:\n            b = self._boker[tittel]\n            f = b.hent_forfatter()\n            if f not in teller:\n                teller[f] = 0\n            teller[f] = teller[f] + b.hent_utlaan()\n        beste = None\n        beste_antall = 0\n        for f in teller:\n            if teller[f] > beste_antall:\n                beste = f\n                beste_antall = teller[f]\n        return beste\n\nbib = Bibliotek(\"Deichman\")\nbib.les_fra_fil(\"utlaan.txt\")\n\nsult = bib.finn(\"Sult\")\nsult.laan_ut()\nsult.laan_ut()\n\nprint(bib.finn(\"Vaar\"))\nprint(bib.finn(\"Sultne\"))\nbib.skriv_alle()\nprint(\"Mest populaer:\", bib.mest_populaere_forfatter())\n```\n\n**Utskrift:**\n```\nVaar av Undset (7)\nNone\nSult av Hamsun (5)\nVaar av Undset (7)\nNaboer av Bjornson (2)\nMest populaer: Undset\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (7 p): konstruktøren med tre `self._`-linjer (2 p), de tre\naksessorene (2 p), `laan_ut` som **øker** i stedet for å overskrive (1 p), og\n`__str__` som returnerer en tekst med `str(...)` rundt tallet (2 p).\n\n**Oppgave 2** (9 p): ordboka i **konstruktøren** (2 p), løkkas fem deler (2 p),\n`.rstrip().split(\":\")` med riktig skilletegn (2 p), `int(felt[2])` men ikke på\ntittel og forfatter (1 p), og `self._boker[b.hent_tittel()] = b` — nøkkelen hentet\nmed bokas **egen** aksessor, og **objektet** som verdi (2 p).\n\nÅ skrive `self._boker[felt[0]] = felt[2]` ville lagret rådata, og da faller både\noppgave 3 og 4 sammen.\n\n**Oppgave 3** (8 p): `if tittel in self._boker:` **før** oppslaget (3 p),\n`return None`-grenen (2 p), og `skriv_alle` som **delegerer** med\n`print(self._boker[tittel])` (3 p). Uten `if`-sjekken ville\n`bib.finn(\"Sultne\")` stoppet programmet med `KeyError: 'Sultne'` — feilkode\n**#14**.\n\nMetoden heter `skriv_alle`, ikke `skriv`: den gjør noe annet enn bokas egen\nutskrift, og en metode som heter det samme som den kaller, ser ut som om den\nkaller seg selv.\n\n**Oppgave 4** (6 p): teller-ordboka med `if f not in teller:` og `teller[f] = 0`\n(2 p), akkumuleringen med bokas antall utlån (2 p), og finn-beste-løkka der\nbegge variablene oppdateres sammen (2 p).\n\n**Legg merke til at «Sult» har 5 utlån i utskriften**, ikke 3. De to\n`laan_ut()`-kallene gikk på **objektet** som ligger i ordboka — `bib.finn(\"Sult\")`\nga en referanse, ikke en kopi. Det er referansesemantikken fra\n[kap. 5.4](/bok/in1000/in1000-5-4) i praksis, og det er nettopp derfor\nsamlingen skal holde objekter og ikke rådata.\n\n**Riktig struktur belønnes selv med småfeil.** Har du hele modellen riktig men\nglemt `.rstrip()`, er trekket lite. Har du derimot lagret rådata i ordboka,\nfaller flere deloppgaver samtidig — det er den dyreste enkeltbeslutningen i hele\noppgaven.\n\n**Selvdiagnose — kryss av:**\n\n☐ Ligger ordboka i konstruktøren, og skrives det til `self._boker` i metoden?\n☐ Er **objektet** verdien i ordboka, og ikke et felt fra fila?\n☐ Hentet du nøkkelen med bokas egen aksessor, og ikke med `b._tittel`?\n☐ Sjekket `finn` med `if tittel in ...` før oppslaget, og ga den `None` ellers?\n☐ Delegerte `skriv_alle` utskriften til hver bok?\n☐ Har containerens metoder andre navn enn bokas?\n☐ Initierte du teller-ordboka med 0 før du akkumulerte?\n☐ Oppdaterte du `beste` og `beste_antall` sammen?"
+      "id": "in1000-7-prove-coll-f3",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 7.C",
+      "buttonText": "Vis fasit 3",
+      "content": [
+        {
+          "id": "in1000-7-prove-f3t",
+          "type": "text",
+          "content": "**Fasit — Prøve 7.C.** Koden under er kjørt mot de to filene, ikke gjettet.\n\n**Oppgave 1–3 samlet** (25 p):\n\n```python\nclass Sal:\n    def __init__(self, navn):\n        self._navn = navn self._dager = {}\n\n    def hent_navn(self):\n        return self._navn\n\n    def les_fra_fil(self):\n        fil = open(self._navn + \".txt\")\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split()\n            self._dager[felt[0]] = int(felt[1])\n            linje = fil.readline()\n        fil.close()\n\n    def totalt_antall(self):\n        total = 0 for dag in self._dager:\n            total = total + self._dager[dag]\n        return total\n\n    def travleste_dag(self):\n        beste = None beste_antall = 0 for dag in self._dager:\n            if self._dager[dag] > beste_antall:\n                beste = dag beste_antall = self._dager[dag]\n        return beste\n\nspeil = Sal(\"Speilsal\")\nspinning = Sal(\"Spinning\")\nspeil.les_fra_fil()\nspinning.les_fra_fil()\n\nfor s in [speil, spinning]:\n    print(s.hent_navn(), s.totalt_antall(), s.travleste_dag())\n```\n\n**Utskrift:**\n```\nSpeilsal 73 onsdag\nSpinning 34 onsdag\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (9 p): `self._dager = {}` i **konstruktøren** (2 p), filnavnet\nbygget av instansvariabelen med `self._navn + \".txt\"` (3 p), løkkas fem deler\n(2 p), `.split()` **uten** argument fordi feltene er skilt med mellomrom (1 p), og `int(felt[1])` (1 p).\n\n**Den dyreste enkeltfeilen her er å skrive `dager = {}` inne i metoden.** Da blir\nordboka lokal og forsvinner når metoden er ferdig, `self._dager` forblir tom, og alle de andre metodene svarer 0 eller `None`. Det er feilkode **#1**, og den er stum — programmet kjører helt rolig.\n\n**Oppgave 2** (8 p): akkumulatoren før løkka og `return` etter (3 p), løkka over\n**nøklene** med oppslag `self._dager[dag]` (2 p), og finn-beste-løkka der **begge**\nvariablene oppdateres sammen (3 p).\n\n**Oppgave 3** (8 p): to objekter opprettet (2 p), `les_fra_fil()` kalt på hver\n(2 p), og utskriften (4 p). Legg merke til at `les_fra_fil` ikke tar noe argument: filnavnet kommer fra objektet selv.\n\n**Merk at metoden ikke returnerer noe.** Den **endrer objektet**, og resultatet\nhentes med `totalt_antall()` etterpå. Det er en helt vanlig og riktig form i den store oppgaven.\n\n**Selvdiagnose — kryss av:**\n\n☐ Opprettet du ordboka i **konstruktøren**, ikke i innlesingsmetoden?\n☐ Skrev du til `self._dager`, og ikke til en lokal variabel?\n☐ Bygde du filnavnet av `self._navn + \".txt\"`, med punktumet skrevet inn?\n☐ Brukte du `.split()` uten argument, siden feltene er skilt med mellomrom?\n☐ Løp løkkene over nøklene, med oppslag for å få verdien?\n☐ Oppdaterte du `beste` og `beste_antall` sammen?\n☐ Kalte du `les_fra_fil()` på **begge** salene før du skrev ut?"
+        }
+      ]
+    },
+    {
+      "id": "in1000-7-prove-coll-p4",
+      "type": "collapsible",
+      "title": "Prøve 7.D — Full fil-i-modellering-oppgave",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in1000-7-prove-p4t",
+          "type": "text",
+          "content": "**Prøve 7.D — Full fil-i-modellering-oppgave** — 35 minutter. Fire oppgaver.\n\n\nTotalt 30 poeng. Dette er en komplett Oppgave 4-deloppgave med to samarbeidende klasser. Skriv koden for hånd, uten å kjøre den.\n\nEt bibliotek har fila `utlaan.txt` med linjer på formen\n`tittel:forfatter:utlaan`, uten overskriftslinje:\n\n```\nSult:Hamsun:3\nVaar:Undset:7\nNaboer:Bjornson:2\n```\n\n**Oppgave 1** (7 p). Skriv klassen `Bok` med tittel, forfatter og antall utlån.\nDen skal ha aksessorer for tittel, forfatter og antall utlån, en metode\n`laan_ut(self)` som øker antall utlån med én, og en `__str__` på formen\n`Sult av Hamsun (3)`.\n\n**Oppgave 2** (9 p). Skriv klassen `Bibliotek` med et navn og en **ordbok** fra\ntittel til `Bok`-objekt, og metoden `les_fra_fil(self, filnavn)` som fyller ordboka.\n\n**Oppgave 3** (8 p). Legg til `finn(self, tittel)` som gir boka eller `None`, og\n`skriv_alle(self)` som lar hver bok vise seg selv.\n\n**Oppgave 4** (6 p). Legg til `mest_populaere_forfatter(self)`, som returnerer\nforfatteren med flest utlån til sammen. Bygg en teller-ordbok over forfattere, og finn den største med en eksplisitt løkke.\n\nSkriv til slutt kode som leser fila, låner ut «Sult» to ganger, slår opp «Vaar»\nog en tittel som ikke finnes, skriver ut alle bøkene og den mest populære forfatteren."
+        }
+      ]
+    },
+    {
+      "id": "in1000-7-prove-coll-f4",
+      "type": "collapsible",
+      "title": "Fasit — Prøve 7.D",
+      "buttonText": "Vis fasit 4",
+      "content": [
+        {
+          "id": "in1000-7-prove-f4t",
+          "type": "text",
+          "content": "**Fasit — Prøve 7.D.** Koden under er kjørt mot fila, ikke gjettet. Deloppgavene\nrettes hver for seg — å stå fast på én koster ikke de andre.\n\n**Oppgave 1–4 samlet** (30 p):\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter, utlaan):\n        self._tittel = tittel self._forfatter = forfatter self._utlaan = utlaan\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_forfatter(self):\n        return self._forfatter\n\n    def hent_utlaan(self):\n        return self._utlaan\n\n    def laan_ut(self):\n        self._utlaan = self._utlaan + 1\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter + \" (\" + str(self._utlaan) + \")\"\n\nclass Bibliotek:\n    def __init__(self, navn):\n        self._navn = navn self._boker = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\":\")\n            b = Bok(felt[0], felt[1], int(felt[2]))\n            self._boker[b.hent_tittel()] = b linje = fil.readline()\n        fil.close()\n\n    def finn(self, tittel):\n        if tittel in self._boker:\n            return self._boker[tittel]\n        return None\n\n    def skriv_alle(self):\n        for tittel in self._boker:\n            print(self._boker[tittel])\n\n    def mest_populaere_forfatter(self):\n        teller = {}\n        for tittel in self._boker:\n            b = self._boker[tittel]\n            f = b.hent_forfatter()\n            if f not in teller:\n                teller[f] = 0 teller[f] = teller[f] + b.hent_utlaan()\n        beste = None beste_antall = 0 for f in teller:\n            if teller[f] > beste_antall:\n                beste = f beste_antall = teller[f]\n        return beste\n\nbib = Bibliotek(\"Deichman\")\nbib.les_fra_fil(\"utlaan.txt\")\n\nsult = bib.finn(\"Sult\")\nsult.laan_ut()\nsult.laan_ut()\n\nprint(bib.finn(\"Vaar\"))\nprint(bib.finn(\"Sultne\"))\nbib.skriv_alle()\nprint(\"Mest populaer:\", bib.mest_populaere_forfatter())\n```\n\n**Utskrift:**\n```\nVaar av Undset (7)\nNone\nSult av Hamsun (5)\nVaar av Undset (7)\nNaboer av Bjornson (2)\nMest populaer: Undset\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (7 p): konstruktøren med tre `self._`-linjer (2 p), de tre\naksessorene (2 p), `laan_ut` som **øker** i stedet for å overskrive (1 p), og\n`__str__` som returnerer en tekst med `str(...)` rundt tallet (2 p).\n\n**Oppgave 2** (9 p): ordboka i **konstruktøren** (2 p), løkkas fem deler (2 p),\n`.rstrip().split(\":\")` med riktig skilletegn (2 p), `int(felt[2])` men ikke på tittel og forfatter (1 p), og `self._boker[b.hent_tittel()] = b` — nøkkelen hentet med bokas **egen** aksessor, og **objektet** som verdi (2 p).\n\nÅ skrive `self._boker[felt[0]] = felt[2]` ville lagret rådata, og da faller både oppgave 3 og 4 sammen.\n\n**Oppgave 3** (8 p): `if tittel in self._boker:` **før** oppslaget (3 p),\n`return None`-grenen (2 p), og `skriv_alle` som **delegerer** med\n`print(self._boker[tittel])` (3 p). Uten `if`-sjekken ville\n`bib.finn(\"Sultne\")` stoppet programmet med `KeyError: 'Sultne'` — feilkode\n**#14**.\n\nMetoden heter `skriv_alle`, ikke `skriv`: den gjør noe annet enn bokas egen utskrift, og en metode som heter det samme som den kaller, ser ut som om den kaller seg selv.\n\n**Oppgave 4** (6 p): teller-ordboka med `if f not in teller:` og `teller[f] = 0`\n(2 p), akkumuleringen med bokas antall utlån (2 p), og finn-beste-løkka der begge variablene oppdateres sammen (2 p).\n\n**Legg merke til at «Sult» har 5 utlån i utskriften**, ikke 3. De to\n`laan_ut()`-kallene gikk på **objektet** som ligger i ordboka — `bib.finn(\"Sult\")` ga en referanse, ikke en kopi. Det er referansesemantikken fra\n[kap. 5.4](/bok/in1000/in1000-5-4) i praksis, og det er nettopp derfor samlingen skal holde objekter og ikke rådata.\n\n**Riktig struktur belønnes selv med småfeil.** Har du hele modellen riktig men\nglemt `.rstrip()`, er trekket lite. Har du derimot lagret rådata i ordboka, faller flere deloppgaver samtidig — det er den dyreste enkeltbeslutningen i hele oppgaven.\n\n**Selvdiagnose — kryss av:**\n\n☐ Ligger ordboka i konstruktøren, og skrives det til `self._boker` i metoden?\n☐ Er **objektet** verdien i ordboka, og ikke et felt fra fila?\n☐ Hentet du nøkkelen med bokas egen aksessor, og ikke med `b._tittel`?\n☐ Sjekket `finn` med `if tittel in ...` før oppslaget, og ga den `None` ellers?\n☐ Delegerte `skriv_alle` utskriften til hver bok?\n☐ Har containerens metoder andre navn enn bokas?\n☐ Initierte du teller-ordboka med 0 før du akkumulerte?\n☐ Oppdaterte du `beste` og `beste_antall` sammen?"
+        }
+      ]
     }
-   ]
-  }
- ],
- "exercises": []
+  ],
+  "exercises": []
 }

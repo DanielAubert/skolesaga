@@ -106,7 +106,7 @@
             "number": "5",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nx = 7\nx += 3\nx //= 2\nprint(x, type(x))\n```",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\nx = 7 x += 3 x //= 2 print(x, type(x))\n```",
             "solution": "`x += 3` gir 10, og `x //= 2` gir 5 med heltallsdivisjon. Siden begge operandene er heltall, forblir `x` et heltall — og `type` skrives på formen `<class '...'>`.\n\n**Utskrift:**\n```\n5 <class 'int'>\n```\n\nHadde siste linja vært `x /= 2`, ville svaret vært `5.0 <class 'float'>`.",
             "hints": [
               "`x += 3` er kortform for `x = x + 3`.",
@@ -399,7 +399,7 @@
             "number": "2",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(1, 5):\n    total += i * i\nprint(total)\n```",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\ntotal = 0 for i in range(1, 5):\n    total += i * i print(total)\n```",
             "solution": "`range(1, 5)` gir 1, 2, 3, 4, og summen av kvadratene er $1 + 4 + 9 + 16 = 30$. `print` står utenfor løkka og skriver bare én gang.\n\n**Utskrift:**\n```\n30\n```\n\nFellen er #1 — å ta med 5 og svare 55.",
             "hints": [
               "Tell løkkerundene før du regner.",
@@ -431,7 +431,7 @@
             "number": "4",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(1 poeng. Sjanger A/D.) Hva skriver programmet ut?\n\n```python\nn = 20\nk = 0\nwhile n > 3:\n    n = n // 2\n    k += 1\nprint(n, k)\n```",
+            "task": "(1 poeng. Sjanger A/D.) Hva skriver programmet ut?\n\n```python\nn = 20 k = 0 while n > 3:\n    n = n // 2 k += 1 print(n, k)\n```",
             "solution": "`n` går 20, 10, 5, 2. Ved 2 er `n > 3` usann, og løkka stopper etter tre runder.\n\n**Utskrift:**\n```\n2 3\n```\n\nHeltallsdivisjonen er det som gjør at løkka terminerer: 5 halveres til 2, ikke til 2,5.",
             "hints": [
               "Skriv ned verdien `n` har etter hver runde.",
@@ -463,7 +463,7 @@
             "number": "6",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\ns = 'a-b-c'\nfelt = s.split('-')\nprint(felt, '+'.join(felt))\n```",
+            "task": "(1 poeng. Sjanger A.) Hva skriver programmet ut?\n\n```python\ns = 'a-b-c' felt = s.split('-')\nprint(felt, '+'.join(felt))\n```",
             "solution": "`.split('-')` deler på bindestrekene og gir en **liste** med tre strenger. `.join` gjør motsatt vei, og kalles på skilletegnet.\n\n**Utskrift:**\n```\n['a', 'b', 'c'] a+b+c\n```\n\nDetaljen som avgjør poenget: strengene inne i lista skrives **med** fnutter, mens den sammenskjøtte strengen skrives uten.",
             "hints": [
               "`.split` gir alltid en liste, også når det bare er ett felt.",
@@ -528,7 +528,7 @@
             "number": "10",
             "type": "classic",
             "difficulty": "vanskelig",
-            "task": "(1 poeng. Sjanger A — nøstet ordbok.) Hva skriver programmet ut?\n\n```python\nd = {'nord': {'u1': 4}, 'sor': {'u1': 2, 'u2': 6}}\ntotal = 0\nfor omr in d:\n    for u in d[omr]:\n        total += d[omr][u]\nprint(len(d), total, 'u2' in d['nord'])\n```",
+            "task": "(1 poeng. Sjanger A — nøstet ordbok.) Hva skriver programmet ut?\n\n```python\nd = {'nord': {'u1': 4}, 'sor': {'u1': 2, 'u2': 6}}\ntotal = 0 for omr in d:\n    for u in d[omr]:\n        total += d[omr][u]\nprint(len(d), total, 'u2' in d['nord'])\n```",
             "solution": "Den ytre løkka gir områdenavnene, den indre går over `d[omr]` og gir ukenavnene. Summen er $4 + 2 + 6 = 12$. `len(d)` teller de to ytre nøklene, og `'u2'` finnes ikke blant nordens nøkler.\n\n**Utskrift:**\n```\n2 12 False\n```\n\nFeilkode #20 — å blande nivåene. `len(d)` er 2, ikke 3, selv om det er tre tall i strukturen.",
             "hints": [
               "Tegn de to nivåene før du begynner: ytre nøkler øverst, indre under.",
@@ -674,7 +674,7 @@
             "number": "8",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(1 poeng. Sjanger A — scope.) Hva skriver programmet ut?\n\n```python\nk = 3\ndef f(n):\n    k = 100\n    return n + k\nprint(f(1), k)\n```\n\n**a)** `4 3`  **b)** `101 100`  **c)** `101 3`  **d)** `4 100`",
+            "task": "(1 poeng. Sjanger A — scope.) Hva skriver programmet ut?\n\n```python\nk = 3 def f(n):\n    k = 100 return n + k print(f(1), k)\n```\n\n**a)** `4 3`  **b)** `101 100`  **c)** `101 3`  **d)** `4 100`",
             "solution": "**Riktig: c.** Tilordningen inne i funksjonen lager en **lokal** `k` med verdien 100, så returverdien er 101. Den globale `k` er fortsatt 3.\n\n**Utskrift:**\n```\n101 3\n```\n\nAlternativ b) er svaret om du tror funksjonen endrer den globale variabelen, og a) om du tror funksjonen leser den globale verdien (feilkode #13).",
             "hints": [
               "Tegn to bokser: en for det globale nivået og en for funksjonen.",
