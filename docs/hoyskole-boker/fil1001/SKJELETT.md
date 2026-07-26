@@ -90,7 +90,7 @@ modellbesvarelser).
 | 3 | Metafysikk III: Kausalitet, modalitet og fri vilje | 3 | Kausalitet 11/21 (tredje søyle, tyngst gjenbrukt: Hume↔Lewis fire ganger); modalitet 5/21; fri vilje 6/21 (Conee & Siders soft determinism). |
 | 4 | Bevissthetsfilosofi I: Dualisme og fysikalisme | 4 | Dualisme 13/21 (Descartes hyppigste enkeltposisjon, H2024 kobler mot Kripke); identitetsteori/fysikalisme 11/21; mental kausalitet/Kims eksklusjon 8/21 (gjenbruk H2019/V2018u/H2021u). |
 | 5 | Bevissthetsfilosofi II: Funksjonalisme og behaviorisme | 2 | Funksjonalisme 13/21 (jevnt med dualisme); behaviorisme 4/21 som fast kontrastfigur; kinesisk rom/Chinese Nation er standardinnvendingene. |
-| 6 | Bevissthetsfilosofi III: Qualia og det vanskelige problemet | 3 | Qualia-komplekset 14/21 — emnets hyppigste *cluster* (Jackson/Mary, Nagel bat, Chalmers zombier, invertert spektrum); intensjonalitet 2/21 + randtemaer. |
+| 6 | Bevissthetsfilosofi III: Qualia og det vanskelige problemet | 3 | Qualia-komplekset 12/21 — emnets hyppigste *cluster* (Jackson/Mary, Nagel bat, Chalmers zombier, invertert spektrum); intensjonalitet 2/21 + randtemaer. |
 | 7 | Eksamenstrening | 8 | 5 sjangerkapitler (dekker alle oppgavetyper + tankeeksperiment-katalog + feilvaksine) + 3 modellbesvarelser (DNA-krav ≥3). |
 
 Rasjonale for fordelingen: ⭐⭐⭐-temaene (kausalitet, tid/rom, identitet/
@@ -334,7 +334,7 @@ skal beholde ⚠-forbeholdet i pensumkart-blokkene.
   og fine-tuning, det ondes problem og teodicé, og Parfits aksiarkiske hypotese om
   hvorfor det i det hele tatt finnes noe.
 - **Eksamensbelegg:** Guds eksistens/kosmologi 10/21: V2008 (Aquinas), V2009,
-  V2011, H2016/V2016 (design), H2018 (det ondes problem), H2021-utsatt (fem veier),
+  V2011, V2016 (design), H2018 (det ondes problem), H2021-utsatt (fem veier),
   H2022 (design), H2024 (Parfits aksiarkiske). Sjangre: S1, S3 (rekonstruer
   gudsbevis), S5 («kan man bevise Guds eksistens?»). Prioritet: kunne, høy
   (§7 pkt. 9 — differensierer).
@@ -375,7 +375,7 @@ skal beholde ⚠-forbeholdet i pensumkart-blokkene.
   idealisme og master-argumentet, Descartes vs. Berkeley om materiell substans —
   pluss en kort «bør kjenne til»-note om Mackies error theory.
 - **Eksamensbelegg:** Realisme/idealisme 5/21: V2009, V2011 (Descartes vs. Berkeley),
-  H2016/V2016, H2018, H2023 (Locke/Kant om realisme). Metaetikk/Mackie 1/21 (V2017,
+  V2016, H2018, H2023 (Locke/Kant om realisme). Metaetikk/Mackie 1/21 (V2017,
   perifert). Sjangre: S1, S2 (Descartes vs. Berkeley), S5 («finnes en materiell
   virkelighet uavhengig av sinnet?»). Prioritet: kunne (§7 pkt. 13); Mackie:
   kjenne (§7 pkt. 16).
@@ -901,7 +901,7 @@ skal beholde ⚠-forbeholdet i pensumkart-blokkene.
 - **Description:** To klassiske angrep på fysikalismen: Jacksons Mary
   (kunnskapsargumentet) og Nagels flaggermus (subjektiv karakter) — de mest
   gjenbrukte tankeeksperimentene i emnet.
-- **Eksamensbelegg:** Del av qualia-komplekset 14/21 — de tyngst gjenbrukte:
+- **Eksamensbelegg:** Del av qualia-komplekset 12/21 — de tyngst gjenbrukte:
   **Jacksons Mary** i V2010, V2014, V2018, H2018, H2018u, H2019, H2021-utsatt;
   **Nagel bat** i V2017, H2018, H2019, H2021-utsatt. Sjangre: S1, S3 (rekonstruer
   tankeeksperimentet), S2 (Jackson vs. Nagel). Prioritet: **perfekt** (§7 pkt. 7).
@@ -937,7 +937,7 @@ skal beholde ⚠-forbeholdet i pensumkart-blokkene.
 - **Description:** Chalmers' filosofiske zombier og det vanskelige problemet,
   invertert spektrum, og qualia-representasjonalisme — antifysikalismens
   tenkelighetsstrategi på sitt skarpeste.
-- **Eksamensbelegg:** Del av qualia-komplekset 14/21: **Chalmers zombier/hard
+- **Eksamensbelegg:** Del av qualia-komplekset 12/21: **Chalmers zombier/hard
   problem** i V2015, V2018, H2022, H2023; **invertert spektrum** i H2019; qualia-
   representasjonalisme i V2018u. Sjangre: S1, S3 (zombie-argumentet), S5 («hva viser
   zombiers mulighet om kropp/bevissthet?»). Prioritet: **perfekt** (§7 pkt. 7).
