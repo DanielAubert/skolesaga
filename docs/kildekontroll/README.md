@@ -59,6 +59,29 @@ løsningsforslag»), `in1020` (nøyaktig én, H2023, omtalt i entall).
 `exphil03` og `econ1310` oppgir færre enn arkivet har — understated, altså
 ufarlig.
 
+## SOS1004 er blokkert: kildene finnes ikke på disk
+
+Kontrollen skal kjøres **før** bygging, ikke etter. Da `sos1004` sto for tur
+26. juli 2026, stoppet den boka:
+
+- Arkivet har **ingen SOS1004-mappe**. Ikke én fil. Manifestet gir null treff.
+- Analysen bygger på PDF-er lastet ned fra uio.no 7. juli 2026 til en midlertidig
+  scratchpad (`scratchpad/sos1004/*.txt`). **Den katalogen er borte.**
+- Forgjengerarkivene finnes riktignok (`SOS1000` 37 filer, `SOS1001` 25,
+  `SOS1003` 24) — men de bærer bare *sekundær*kildene i analysen. De seks
+  sensorveiledningene H2021–H2025 som er selve grunnlaget, er kun sitert.
+
+Boka kunne isolert sett vært bygget: skjelettet er autoritativt for
+forfatterne og passerer kvalitetsporten. Men da ville **kildegrunnlaget påstå
+seks sensorveiledninger vi ikke kan vise fram**, og ingen ledd i kjeden kunne
+kontrollert en eneste frekvenspåstand mot kilden. Det er nøyaktig feilen
+avsnittet «Lærdommen» nedenfor beskriver.
+
+**Gjenopptak:** last ned settene på nytt fra UiOs emneside (analysens §8 har
+eksakte filnavn), legg dem i `~/Desktop/Eksamner/UiO/SOS1004/`, kjør
+sorteringen så de havner i `manifest.csv`, og bygg deretter. Til det er gjort
+er sos1004 hoppet over i køen — ikke forkastet.
+
 ## Framover: BI-bøkene bør vente
 
 Køen har **13 BI-bøker**, og åtte av dem matcher emnekoder som ligger i
