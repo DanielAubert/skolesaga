@@ -1,0 +1,515 @@
+{
+  "id": "fys1100-4-1",
+  "courseId": "fys1100",
+  "chapterNumber": "4.1",
+  "title": "Sentripetalkraft, loop og vertikal sirkel",
+  "description": "Kreftene inn mot sentrum gir ΣF = mv²/r — riktig fortegnsoppsett i topp og bunn av en loop, og kontakttap ved N = 0.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne utlede sentripetalakselerasjonen fra baneakselerasjonen og bruke både formen med banefart og formen med vinkelfart",
+    "kunne sette opp Newtons 2. lov i radiell retning med riktige fortegn i topp og bunn av en vertikal sirkel",
+    "kunne utlede minstefarten i toppen fra kontaktbetingelsen og forklare hvorfor svaret er en ulikhet",
+    "kunne koble et energiregnskap til sirkelbetingelsen og finne minste starthøyde for en loop"
+  ],
+  "content": [
+    {
+      "id": "fys1100-4-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sirkelbevegelse er settets faste «nesten alltid»-oppgave.** Temaet har minst én deloppgave i **5 av 7 sett (71 %)** i eksamensarkivet, og det opptrer i to former: som en egen oppgave, og som et ledd inne i en større energi- eller Newton-oppgave.\n\nKapitlet hører til **sjanger E — sirkelbevegelse og sentripetalkraft**. «Sjanger» er vår merkelapp på en oppgavetype som går igjen år etter år; sjangerbokstavene A–K er listet opp i [kap. 0.1](/bok/fys1100/fys1100-0-1). Sjanger E kjennes igjen på at noe beveger seg langs en krum bane, og at spørsmålet er hvilke krefter som holder det på banen.\n\nTre ting gir poeng nesten hver gang:\n\n- **fortegnsoppsettet** i topp og bunn av en vertikal sirkel — samme to krefter, motsatt regnestykke;\n- **kontakttapet** når normalkraften blir null, og at grensen skal skrives som en **ulikhet**;\n- **frilegemediagrammet** uten en oppdiktet «sentripetalkraft» tegnet inn.\n\n**Prioritet: bør sitte.** Sirkelbevegelse er ikke like uunngåelig som Newtons lover eller energi, men når temaet først kommer, er deloppgavene korte og godt betalte — dette er billige poeng for den som har oppsettet i fingrene."
+    },
+    {
+      "id": "fys1100-4-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/fys1100/fys1100-3-1) og [kap. 3.2](/bok/fys1100/fys1100-3-2), og på krumningsavsnittet i [kap. 2.1](/bok/fys1100/fys1100-2-1). Det du trenger derfra, oppfrisket:\n\n**Newtons 2. lov, komponentvis** — den gjelder i enhver retning du velger, også en retning som peker inn mot et sentrum:\n\n$$\\sum F_x = ma_x, \\qquad \\sum F_y = ma_y$$\n\n**Baneakselerasjonens to komponenter** (fra formelarket): en akselerasjon langs en krum bane deles i én del langs banen og én på tvers av den,\n\n$$\\mathbf{a} = \\dot{v}\\,\\hat{\\mathbf{u}}_T + \\frac{v^2}{\\rho}\\,\\hat{\\mathbf{u}}_N$$\n\nder $\\rho$ er krumningsradien. Den andre delen er hele grunnlaget for dette kapitlet.\n\n**Kraftmodellene** fra [kap. 3.2](/bok/fys1100/fys1100-3-2): normalkraften $\\mathbf{N}$ står vinkelrett ut fra kontaktflaten og er **ikke** automatisk lik $mg$; den statiske friksjonen er en **ulikhet**, $\\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N$.\n\nFra videregående kan du ha møtt temaet i [Sirkelbevegelse og sentripetalkraft](/bok/fysikk2/fysikk2-1-4).\n\n**Notasjon i dette kapitlet:** baneradien skrives $R$, avstanden fra sentrum generelt $r$. Snordraget skrives $T$, og **omløpstiden skrives $T_p$** — de to opptrer i samme oppgave, og en bar $T$ ville vært tvetydig. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$. Vi regner med $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — hva en sirkelbevegelse egentlig krever (~15 min)\n\nDu sitter på passasjersetet i en bil som svinger jevnt gjennom en rundkjøring. Speedometeret står stille — farten er den samme hele veien rundt. Likevel presses du mot døra. Noe akselererer deg, selv om tallet på speedometeret ikke rører seg.\n\nDet er nøkkelen til hele kapitlet: **akselerasjon betyr endring av hastigheten som vektor**, og en vektor kan endre seg ved å snu, ikke bare ved å vokse. En bil som svinger, akselererer — innover."
+    },
+    {
+      "id": "fys1100-4-1-def-uniform",
+      "type": "definition",
+      "title": "Uniform sirkelbevegelse",
+      "content": "Bevegelse langs en sirkelbane med **konstant banefart**. Ordet «uniform» betyr her bare at farten (tallverdien av hastigheten) ikke endrer seg; retningen gjør det hele tiden.\n\nEn uniform sirkelbevegelse er altså **ikke** en bevegelse uten akselerasjon. Hastigheten $\\mathbf{v}$ har konstant lengde, men skifter retning kontinuerlig, og nettopp den retningsendringen er akselerasjonen."
+    },
+    {
+      "id": "fys1100-4-1-def-vinkelfart",
+      "type": "definition",
+      "title": "Vinkelfart",
+      "content": "Hvor fort vinkelen til legemet endrer seg, sett fra sentrum av sirkelen. Symbolet er $\\omega$ (skalar) eller $\\boldsymbol{\\omega}$ når retningen langs rotasjonsaksen er med:\n\n$$\\omega = \\frac{d\\theta}{dt}$$\n\nEnheten er **radianer per sekund**, $\\text{rad/s}$. Radianen er dimensjonsløs, så i en benevningskontroll teller $\\text{rad/s}$ som $1/\\text{s}$ — det er verdt å huske når du kontrollerer et uttrykk."
+    },
+    {
+      "id": "fys1100-4-1-def-omlopstid",
+      "type": "definition",
+      "title": "Omløpstid (perioden)",
+      "content": "Tiden det tar å gå én gang rundt sirkelen. Vi skriver den $T_p$ for å skille den fra snordraget $T$:\n\n$$T_p = \\frac{2\\pi R}{v} = \\frac{2\\pi}{\\omega}$$\n\nEnhet: sekund. Den omvendte størrelsen, $f = 1/T_p$, kalles **frekvensen** og måles i hertz ($\\text{Hz}$), altså omløp per sekund."
+    },
+    {
+      "id": "fys1100-4-1-def-v-omega",
+      "type": "definition",
+      "title": "Sammenhengen mellom banefart og vinkelfart",
+      "content": "Går legemet én runde, tilbakelegger det omkretsen $2\\pi R$ mens vinkelen øker med $2\\pi$. Deler du de to på hverandre, får du sammenhengen mellom farten langs banen og vinkelfarten:\n\n$$v = \\omega R$$\n\nHer er $v$ i $\\text{m/s}$, $\\omega$ i $\\text{rad/s}$ og $R$ i meter. Formelen sier noe fysisk: to punkter på samme roterende skive har **samme** vinkelfart, men det ytterste har størst banefart."
+    },
+    {
+      "id": "fys1100-4-1-utledning-ar",
+      "type": "text",
+      "content": "### Akselerasjonen inn mot sentrum — utledningen du skal kunne\n\nVi trenger ikke starte fra bunnen: [kap. 2.1](/bok/fys1100/fys1100-2-1) ga oss allerede akselerasjonen langs en krum bane, delt i to.\n\n**Steg 1.** Baneakselerasjonen er\n\n$$\\mathbf{a} = \\dot{v}\\,\\hat{\\mathbf{u}}_T + \\frac{v^2}{\\rho}\\,\\hat{\\mathbf{u}}_N$$\n\n*Intuisjon:* første ledd endrer **hvor fort** du går, andre ledd endrer **hvilken vei** du går. De to er uavhengige — du kan ha det ene uten det andre.\n\n**Steg 2.** For en sirkel er krumningsradien den samme overalt og lik selve baneradien: $\\rho = R$.\n\n*Intuisjon:* krumningsradien er radien i den sirkelen som ligger tettest inntil banen. For en sirkel er det sirkelen selv.\n\n**Steg 3.** Er farten konstant, er $\\dot v = 0$, og bare normalleddet står igjen:\n\n$$a_r = \\frac{v^2}{R} = \\omega^2 R$$\n\nrettet **inn mot sentrum**. Den siste formen får du ved å sette inn $v = \\omega R$.\n\n*Intuisjon:* farten inngår i **andre potens**. Dobler du farten gjennom samme sving, firedobles akselerasjonen — og dermed kraften som trengs. Det er derfor fartsgrenser i svinger virker strengere enn de «burde».\n\n**Steg 4 — benevningskontroll.** Venstre side har enhet $\\text{m/s}^2$. Høyre side: $(\\text{m/s})^2/\\text{m} = \\text{m}^2/\\text{s}^2 \\cdot 1/\\text{m} = \\text{m/s}^2$. Det stemmer. Sjekk også $\\omega^2 R$: $(1/\\text{s})^2\\cdot\\text{m} = \\text{m/s}^2$. ✓"
+    },
+    {
+      "id": "fys1100-4-1-def-sentripetalakselerasjon",
+      "type": "definition",
+      "title": "Sentripetalakselerasjon",
+      "content": "Akselerasjonen som skyldes at banen krummer. Ordet betyr «sentrum-søkende», og retningen er alltid **inn mot sentrum**, altså vinkelrett på hastigheten:\n\n$$a_r = \\frac{v^2}{R} = \\omega^2 R$$\n\nEnhet: $\\text{m/s}^2$. Fordi den står vinkelrett på farten, endrer den bare **retningen** på bevegelsen, aldri farten. Det er også grunnen til at en normalkraft som peker inn mot sentrum aldri gjør arbeid på legemet."
+    },
+    {
+      "id": "fys1100-4-1-def-krumningsradius",
+      "type": "definition",
+      "title": "Krumningsradius i en sirkelbane",
+      "content": "Krumningsradien $\\rho$ er radien i den sirkelen som ligger tettest inntil banen i et punkt. For en **sirkelbane** er den ganske enkelt lik baneradien, $\\rho = R$, i alle punkter.\n\nPoenget med å holde de to symbolene fra hverandre er at $\\rho$ også er definert for baner som ikke er sirkler — en spiral, en parabelbane, en sving som strammer seg til. Da varierer $\\rho$ fra punkt til punkt, mens $v^2/\\rho$ fortsatt gir akselerasjonen på tvers av banen."
+    },
+    {
+      "id": "fys1100-4-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Bilen i rundkjøringen",
+      "problem": "En bil kjører med konstant banefart $8{,}0\\ \\text{m/s}$ gjennom en rundkjøring der banen har radius $18\\ \\text{m}$.\n\n**a)** Finn sentripetalakselerasjonen.\n\n**b)** Finn vinkelfarten og omløpstiden.\n\n**c)** Hva skjer med akselerasjonen om føreren øker farten til $12{,}0\\ \\text{m/s}$?",
+      "solution": "**Metodevalg først:** banefarten er konstant, så det tangentielle leddet i baneakselerasjonen faller bort, og hele akselerasjonen er normalkomponenten $v^2/R$ rettet inn mot sentrum.\n\n**a)**\n\n$$a_r = \\frac{v^2}{R} = \\frac{(8{,}0)^2}{18} = \\frac{64}{18} = 3{,}6\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nrettet **inn mot rundkjøringens sentrum**. Til sammenligning er $g = 9{,}81\\ \\text{m/s}^2$, så dette er omtrent $0{,}36\\,g$ — merkbart, men langt fra dramatisk.\n\n**b)**\n\n$$\\omega = \\frac{v}{R} = \\frac{8{,}0}{18} = 0{,}44\\ \\tfrac{\\text{rad}}{\\text{s}}, \\qquad T_p = \\frac{2\\pi R}{v} = \\frac{2\\pi \\cdot 18}{8{,}0} = 14\\ \\text{s}$$\n\nKontroll med den andre formen for akselerasjonen: $\\omega^2 R = (0{,}4444)^2 \\cdot 18 = 3{,}56\\ \\text{m/s}^2$ — samme svar som i a). ✓\n\n**c)** Farten er $1{,}5$ ganger så stor, og akselerasjonen går som $v^2$, altså $1{,}5^2 = 2{,}25$ ganger:\n\n$$a_r = \\frac{(12{,}0)^2}{18} = 8{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nfortsatt inn mot sentrum. Kraften veigrepet må levere, mer enn dobles."
+    },
+    {
+      "id": "fys1100-4-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Forklar med egne ord hvorfor en bil som kjører med konstant fart rundt en sving, likevel har en akselerasjon.\n\n**b)** Hvilken vei peker denne akselerasjonen, og hvordan står den i forhold til hastigheten?",
+        "solution": "**a)** Akselerasjon er endring av **hastigheten**, og hastigheten er en vektor med både lengde og retning. Bilen holder lengden konstant, men snur retningen hele tiden. En retningsendring er en endring av vektoren, altså en akselerasjon — selv om speedometeret står stille.\n\n**b)** Den peker **inn mot sirkelens sentrum** og står **vinkelrett** på hastigheten. Nettopp fordi den står vinkelrett, endrer den bare retningen og ikke farten: hadde den hatt en komponent langs banen, ville farten endret seg.",
+        "hints": [
+          "Skriv ned hva akselerasjon er definert som, og spør deg om en vektor kan endre seg på mer enn én måte.",
+          "Tenk på hvilken retning bilen «trekkes» mot når den svinger."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En sentrifuge i et laboratorium roterer med $2\\,400$ omdreininger per minutt. En prøve ligger $8{,}5\\ \\text{cm}$ fra rotasjonsaksen.\n\n**a)** Finn vinkelfarten i $\\text{rad/s}$ og omløpstiden.\n\n**b)** Finn sentripetalakselerasjonen, og oppgi den også som et antall $g$.\n\n**c)** Hvor stor banefart har prøven?",
+        "solution": "**Metodevalg:** omdreiningstallet gir frekvensen, frekvensen gir vinkelfarten, og $a_r = \\omega^2 R$ er den formen som passer når vi kjenner $\\omega$ og ikke $v$.\n\n**a)** $2\\,400$ omdreininger per minutt er $2\\,400/60 = 40{,}0$ omdreininger per sekund, altså $f = 40{,}0\\ \\text{Hz}$:\n\n$$\\omega = 2\\pi f = 2\\pi \\cdot 40{,}0 = 251\\ \\tfrac{\\text{rad}}{\\text{s}}, \\qquad T_p = \\frac{1}{f} = 0{,}0250\\ \\text{s}$$\n\n**b)** Med $R = 0{,}085\\ \\text{m}$:\n\n$$a_r = \\omega^2 R = (251{,}3)^2 \\cdot 0{,}085 = 5{,}37 \\cdot 10^{3}\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nrettet inn mot rotasjonsaksen. Delt på $g$: $5{,}37\\cdot 10^3/9{,}81 = 547$, altså omtrent $550\\,g$. Det er nettopp derfor sentrifuger skiller stoffer så effektivt.\n\n**c)** $v = \\omega R = 251{,}3 \\cdot 0{,}085 = 21{,}4\\ \\tfrac{\\text{m}}{\\text{s}}$ langs banen.\n\n**Rimelighetssjekk:** $v^2/R = (21{,}4)^2/0{,}085 = 5{,}4\\cdot 10^3\\ \\text{m/s}^2$ — samme svar som i b), slik det skal være.",
+        "hints": [
+          "Gjør om omdreininger per minutt til omdreininger per sekund først — det er frekvensen $f$.",
+          "$\\omega = 2\\pi f$, og husk å regne radien om til meter.",
+          "Bruk formen $a_r = \\omega^2 R$ når du kjenner vinkelfarten."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Newtons 2. lov i radiell retning (~15 min)\n\nSå langt har vi bare beskrevet bevegelsen. Nå kommer fysikken: en akselerasjon krever en resultantkraft, og en akselerasjon inn mot sentrum krever en resultantkraft inn mot sentrum.\n\nDette er hele hemmeligheten bak sjanger E. Det er ikke en ny lov — det er Newtons 2. lov brukt i en retning som følger banen i stedet for å ligge fast."
+    },
+    {
+      "id": "fys1100-4-1-th-n2-radiell",
+      "type": "theorem",
+      "title": "Newtons 2. lov i radiell retning",
+      "content": "Velg positiv retning **inn mot sentrum**. Da er\n\n$$\\sum F_r = m\\,a_r = \\frac{mv^2}{R}$$\n\nSummen på venstresiden går over **de virkelige kreftene** — tyngde, normalkraft, friksjon, snordrag — hver med sitt fortegn etter om den peker inn mot eller ut fra sentrum.\n\nLoven brukes helt likt som i [kap. 3.1](/bok/fys1100/fys1100-3-1); det eneste nye er at høyresiden allerede er kjent: den ER $mv^2/R$. Oppgaven består derfor nesten alltid i å sette opp venstresiden riktig."
+    },
+    {
+      "id": "fys1100-4-1-def-sentripetalkraft",
+      "type": "definition",
+      "title": "Sentripetalkraft",
+      "content": "Fellesnavnet på **resultanten** av de virkelige kreftene i radiell retning — ikke en egen kraft med egen fysisk opprinnelse.\n\n$$F_{\\text{sentripetal}} = \\sum F_r = \\frac{mv^2}{R}$$\n\nI én situasjon er det snordraget som spiller rollen, i en annen normalkraften, i en tredje friksjonen, i en fjerde gravitasjonen. Spørsmålet «hva er sentripetalkraften her?» betyr derfor alltid: **hvilke virkelige krefter summerer seg til $mv^2/R$?**\n\nKonsekvensen for tegningen er absolutt: en sentripetalkraft skal **aldri** tegnes inn som en egen pil i et frilegemediagram. Da har du talt den samme kraften to ganger."
+    },
+    {
+      "id": "fys1100-4-1-def-radiell-retning",
+      "type": "definition",
+      "title": "Radiell retning og fortegnskonvensjon",
+      "content": "Den radielle retningen er linja fra legemet til sirkelens sentrum. Før du skriver en eneste likning, bestemmer du deg for hva som er **positiv** radiell retning — nesten alltid *inn mot sentrum*, fordi akselerasjonen peker den veien og høyresiden da blir positiv.\n\nDeretter får hver kraft fortegn etter valget ditt: krefter inn mot sentrum teller positivt, krefter ut fra sentrum negativt. Skriv valget ned i besvarelsen. Halvparten av fortegnsfeilene i vertikale sirkler kommer av at kandidaten byttet konvensjon underveis uten å merke det."
+    },
+    {
+      "id": "fys1100-4-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — den oppdiktede kraften",
+      "content": "**Den fiktive sentripetalkraften i frilegemediagrammet (felle #8 — udefinerte eller oppdiktede krefter i frilegemediagrammet).** Feilkodene #1–#15 er bokas register over de feilene som koster mest på eksamen; hele lista står i [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\nDen vanligste varianten ser slik ut: kandidaten tegner $N$, $mg$ **og** en ekstra pil merket «sentripetalkraft» inn mot sentrum. **Den figuren er gal**, og den koster $-1$ poeng. Sentripetalkraften er resultanten av $N$ og $mg$; tegner du den i tillegg, har du dobbelttalt.\n\nEn beslektet feil går motsatt vei: å tegne inn en pil **ut** fra sentrum for å forklare at man «presses utover». **Også den figuren er gal.** I et inertialsystem — et system som ikke selv akselererer, se [kap. 3.1](/bok/fys1100/fys1100-3-1) — finnes ingen slik kraft. Følelsen av å presses mot bildøra kommer av at *du* fortsetter rett fram mens *døra* svinger inn mot deg. I denne boka arbeider vi konsekvent i inertialsystemer og sier «resultanten inn mot sentrum».\n\n**Regelen for tegningen:** bare krefter med en navngitt fysisk kilde — et underlag, en snor, jordas tyngde, en flate som gnisser — får plass i frilegemediagrammet."
+    },
+    {
+      "id": "fys1100-4-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvor fort kan bilen ta en flat sving?",
+      "problem": "En bil kjører gjennom en **flat** (ikke dosert) sving med radius $45\\ \\text{m}$. Friksjonstallet mellom dekk og asfalt er $\\mu_s = 0{,}70$.\n\n**a)** Hvilken kraft holder bilen på banen? Sett opp Newtons 2. lov radielt.\n\n**b)** Finn den største farten bilen kan holde uten å skli ut.\n\n**c)** Forklar hvorfor svaret ikke inneholder bilens masse.",
+      "solution": "**Metodevalg først:** bilen går i sirkel med (tilnærmet) konstant fart, så resultanten i radiell retning må være $mv^2/R$. Vi setter opp Newtons 2. lov både loddrett og radielt.\n\n**a)** Tre krefter virker på bilen: tyngden $m\\mathbf{g}$ nedover, normalkraften $\\mathbf{N}$ oppover fra vegbanen, og den **statiske friksjonen** $\\mathbf{f}_s$ fra asfalten. Vegen er flat, så både tyngden og normalkraften er loddrette og har ingen komponent inn mot svingens sentrum. Da er det bare friksjonen igjen:\n\n$$\\text{radielt (positiv inn mot sentrum):} \\quad f_s = \\frac{mv^2}{R}$$\n$$\\text{loddrett:} \\quad N - mg = 0 \\ \\Rightarrow\\ N = mg$$\n\nLegg merke til at friksjonen her peker **sidelengs**, ikke bakover. Den motvirker at dekkene sklir utover — og det er nettopp den relative bevegelsen friksjonen alltid motsetter seg.\n\n**b)** Statisk friksjon er en ulikhet, $f_s \\le \\mu_s N = \\mu_s mg$. Setter vi det inn:\n\n$$\\frac{mv^2}{R} \\le \\mu_s m g \\quad \\Rightarrow \\quad v \\le \\sqrt{\\mu_s g R}$$\n\n$$v_{\\max} = \\sqrt{0{,}70 \\cdot 9{,}81 \\cdot 45} = \\sqrt{309} = 17{,}6\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\naltså om lag $63\\ \\text{km/h}$ langs banen. Over den farten kan asfalten ikke levere nok sidekraft, og bilen glir ut av svingen.\n\n**c)** Massen står på begge sider av ulikheten og forkortes bort. Fysisk: en tyngre bil trenger større sentripetalkraft ($mv^2/R$ vokser), men presser samtidig hardere ned og får større friksjonsgrense ($\\mu_s mg$ vokser like mye). De to effektene opphever hverandre presist — samme mekanisme som gjør at akselerasjonen på et friksjonsfritt skråplan er masseuavhengig.\n\n**Grensetilfelle-kontroll:** med $\\mu_s \\to 0$ (svartis) gir uttrykket $v_{\\max} \\to 0$ — du kan ikke svinge i det hele tatt. Med $R \\to \\infty$ (rett veg) går $v_{\\max} \\to \\infty$ — ingen sving, ingen fartsgrense fra friksjonen. Begge er fysisk riktige."
+    },
+    {
+      "id": "fys1100-4-1-def-maksfart-flat",
+      "type": "definition",
+      "title": "Maksfart i en flat sving",
+      "content": "Den største farten et kjøretøy kan holde i en **usidehellende** sving uten å skli ut:\n\n$$v_{\\max} = \\sqrt{\\mu_s g R}$$\n\nUttrykket er uavhengig av massen, og det er en **øvre grense**, ikke en fart bilen må ha. Den kommer av at friksjonen er den eneste kraften med komponent inn mot sentrum, kombinert med taket $f_s \\le \\mu_s N$.\n\nLegg merke til at farten vokser som kvadratroten: firedobler du radien, dobler du bare maksfarten."
+    },
+    {
+      "id": "fys1100-4-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En syklist tar en flat sving med radius $22\\ \\text{m}$ i farten $9{,}0\\ \\text{m/s}$.\n\n**a)** Hvor stor sentripetalakselerasjon har syklisten?\n\n**b)** Hvilket friksjonstall må underlaget minst ha for at svingen skal være mulig?\n\n**c)** Etter regn faller friksjonstallet til $0{,}30$. Hva er den største farten nå?",
+        "solution": "**Metodevalg:** i en flat sving er friksjonen den eneste kraften inn mot sentrum, så $f_s = mv^2/R$ med taket $f_s \\le \\mu_s mg$.\n\n**a)**\n\n$$a_r = \\frac{v^2}{R} = \\frac{81}{22} = 3{,}7\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\ninn mot svingens sentrum.\n\n**b)** Betingelsen $mv^2/R \\le \\mu_s mg$ gir\n\n$$\\mu_s \\ge \\frac{v^2}{gR} = \\frac{81}{9{,}81 \\cdot 22} = 0{,}375$$\n\nUnderlaget må altså ha $\\mu_s \\ge 0{,}38$. Merk at dette er nøyaktig $a_r/g = 3{,}68/9{,}81$ — friksjonstallet du trenger, er sentripetalakselerasjonen målt i enheter av $g$.\n\n**c)**\n\n$$v_{\\max} = \\sqrt{\\mu_s g R} = \\sqrt{0{,}30 \\cdot 9{,}81 \\cdot 22} = \\sqrt{64{,}7} = 8{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nSyklisten må altså ned fra $9{,}0$ til under $8{,}0\\ \\text{m/s}$ — en beskjeden reduksjon i fart, men den er nødvendig.",
+        "hints": [
+          "Sentripetalakselerasjonen er $v^2/R$; radien er allerede i meter.",
+          "Sett friksjonskravet $mv^2/R \\le \\mu_s mg$ og forkort massen.",
+          "I c) er det samme uttrykk løst med hensyn på farten i stedet."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-def-konisk-pendel",
+      "type": "definition",
+      "title": "Konisk pendel",
+      "content": "En kule som henger i en snor og går i en **vannrett** sirkel, slik at snora sveiper ut en kjegle. Snora danner en vinkel $\\theta$ med loddlinja.\n\nTo krefter virker: snordraget $\\mathbf{T}$ langs snora og tyngden $m\\mathbf{g}$ nedover. Dekomponerer du snordraget, gir den loddrette delen likevekt og den vannrette delen hele sentripetalkraften:\n\n$$T\\cos\\theta = mg, \\qquad T\\sin\\theta = \\frac{mv^2}{R}$$\n\nDeler du den nederste likningen på den øverste, forsvinner både $T$ og $m$:\n\n$$\\tan\\theta = \\frac{v^2}{gR}$$\n\nDette er samme struktur som den doserte svingen i [kap. 4.2](/bok/fys1100/fys1100-4-2) — der er det normalkraften som spiller snordragets rolle."
+    },
+    {
+      "id": "fys1100-4-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kule med masse $0{,}250\\ \\text{kg}$ henger i en snor og går i en vannrett sirkel med radius $0{,}60\\ \\text{m}$. Snora danner vinkelen $\\theta = 32^\\circ$ med loddlinja.\n\n**a)** Sett opp Newtons 2. lov loddrett og radielt, og finn snordraget.\n\n**b)** Finn farten til kula.\n\n**c)** Hva skjer med vinkelen om farten økes? Begrunn med uttrykket.",
+        "solution": "**Metodevalg:** kula går i uniform sirkelbevegelse, så resultanten loddrett er null og resultanten radielt er $mv^2/R$. To krefter virker: snordraget og tyngden.\n\n**a)** Med $\\theta$ målt fra loddlinja:\n\n$$\\text{loddrett:} \\quad T\\cos\\theta - mg = 0 \\quad \\Rightarrow \\quad T = \\frac{mg}{\\cos\\theta} = \\frac{0{,}250 \\cdot 9{,}81}{\\cos 32^\\circ} = \\frac{2{,}453}{0{,}848} = 2{,}89\\ \\text{N}$$\n\n$$\\text{radielt:} \\quad T\\sin\\theta = \\frac{mv^2}{R}$$\n\nSnordraget er altså **større** enn tyngden $mg = 2{,}45\\ \\text{N}$ — snora må både bære kula og trekke den innover.\n\n**b)** Fra $\\tan\\theta = v^2/(gR)$:\n\n$$v = \\sqrt{gR\\tan\\theta} = \\sqrt{9{,}81 \\cdot 0{,}60 \\cdot 0{,}6249} = \\sqrt{3{,}678} = 1{,}92\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nlangs banen.\n\n**c)** Uttrykket $\\tan\\theta = v^2/(gR)$ er voksende i $v$: større fart gir større $\\tan\\theta$ og dermed større vinkel — kula svinger utover. Grensen $\\theta \\to 90^\\circ$ ville krevd uendelig fart, og der ville også snordraget $T = mg/\\cos\\theta$ gått mot uendelig. Snora kan altså aldri bli helt vannrett.",
+        "hints": [
+          "Del kreftene i en loddrett og en vannrett komponent, og bruk at akselerasjonen bare har en radiell del.",
+          "Den loddrette likningen gir snordraget uten at du trenger farten.",
+          "Deler du den radielle likningen på den loddrette, forsvinner både $T$ og $m$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — den vertikale sirkelen (~20 min)\n\n— naturlig pausepunkt —\n\nEn berg-og-dal-bane går gjennom en loop. På vei opp presses du ned i setet; i toppen henger du opp-ned uten å falle ut. Hvorfor faller du ikke?\n\nSvaret er at tyngden ikke slutter å virke i toppen — den er tvert imot **nødvendig**. I toppen peker den nemlig samme vei som sentripetalakselerasjonen, altså innover. Det er hele grunnen til at fortegnsoppsettet er forskjellig i topp og bunn, og det er nettopp det sensor sjekker."
+    },
+    {
+      "id": "fys1100-4-1-fig-loop",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-4-1-loop-fbd.svg",
+      "alt": "Frilegemediagram for en vogn i en vertikal loop, tegnet to steder. I bunnpunktet peker normalkraften N oppover mot sentrum og tyngden mg nedover, og positiv radiell retning er opp. I toppunktet peker bade normalkraften N og tyngden mg nedover mot sentrum, og positiv radiell retning er ned. Ingen sentripetalkraft er tegnet inn som egen pil.",
+      "caption": "De to frilegemediagrammene du bør ha i hodet resten av kapitlet. Kreftene er de **samme** i topp og bunn — det er retningen inn mot sentrum som snur, og derfor bytter tyngden fortegn i likningen. Merk at ingen «sentripetalkraft» er tegnet inn: den er resultanten av $\\mathbf{N}$ og $m\\mathbf{g}$."
+    },
+    {
+      "id": "fys1100-4-1-th-topp-bunn",
+      "type": "theorem",
+      "title": "Fortegnsoppsettet i topp og bunn av en vertikal sirkel",
+      "content": "Et legeme går i en vertikal sirkel med radius $R$ på innsiden av banen. Velg positiv retning **inn mot sentrum** i hvert punkt.\n\n**I bunnen** peker sentrum oppover. Normalkraften peker oppover (inn), tyngden nedover (ut):\n\n$$N - mg = \\frac{mv_{\\text{bunn}}^2}{R} \\quad \\Rightarrow \\quad N = m\\left(\\frac{v_{\\text{bunn}}^2}{R} + g\\right) > mg$$\n\n**I toppen** peker sentrum nedover. Nå peker **begge** kreftene innover:\n\n$$N + mg = \\frac{mv_{\\text{topp}}^2}{R} \\quad \\Rightarrow \\quad N = m\\left(\\frac{v_{\\text{topp}}^2}{R} - g\\right)$$\n\nForskjellen er ett fortegn, og det ene fortegnet er hele oppgaven. I bunnen *motarbeider* tyngden sentripetalkraften og normalkraften må være ekstra stor; i toppen *bidrar* tyngden, og normalkraften kan være liten — eller null."
+    },
+    {
+      "id": "fys1100-4-1-def-kontaktbetingelse",
+      "type": "definition",
+      "title": "Kontaktbetingelsen for en normalkraft",
+      "content": "En normalkraft kan bare **skyve**, aldri trekke. Et underlag som ligger under eller utenfor deg, kan presse deg innover, men ikke holde fast i deg. Derfor gjelder alltid\n\n$$N \\ge 0$$\n\nBlir det utregnede uttrykket for $N$ negativt, betyr det ikke at kraften «peker andre veien». Det betyr at **kontakten er brutt**: legemet har forlatt banen, og modellen gjelder ikke lenger.\n\n$N = 0$ er derfor grensetilfellet — akkurat i det øyeblikket berører legemet fortsatt banen, men uten å presse mot den. Alle «hvor fort må den minst gå?»-oppgaver i dette kapitlet bygger på nettopp den betingelsen."
+    },
+    {
+      "id": "fys1100-4-1-utledning-vtopp",
+      "type": "text",
+      "content": "### Minstefarten i toppen — utledningen du skal kunne\n\n**Steg 1.** Skriv Newtons 2. lov i toppunktet med positiv retning nedover, altså inn mot sentrum:\n\n$$N + mg = \\frac{mv_{\\text{topp}}^2}{R}$$\n\n*Intuisjon:* begge kreftene hjelper til med å bøye banen. Jo mer tyngden bidrar, desto mindre trenger underlaget å gjøre.\n\n**Steg 2.** Løs for normalkraften:\n\n$$N = m\\left(\\frac{v_{\\text{topp}}^2}{R} - g\\right)$$\n\n*Intuisjon:* uttrykket er en differanse. Går legemet fort, dominerer $v^2/R$ og $N$ er stor. Går det sakte, kan parentesen bli negativ — og det er fysisk umulig.\n\n**Steg 3.** Bruk kontaktbetingelsen $N \\ge 0$:\n\n$$\\frac{v_{\\text{topp}}^2}{R} - g \\ge 0 \\quad \\Rightarrow \\quad v_{\\text{topp}} \\ge \\sqrt{gR}$$\n\n*Intuisjon:* ved akkurat $v_{\\text{topp}} = \\sqrt{gR}$ er tyngden **alene** nok til å krumme banen. Legemet er i fritt fall, men faller nøyaktig langs sirkelen. Det er det samme som skjer for en satellitt i bane, bare i mye mindre skala.\n\n**Steg 4 — benevningskontroll og grensetilfeller.** $\\sqrt{gR}$ har enhet $\\sqrt{\\text{m/s}^2 \\cdot \\text{m}} = \\text{m/s}$ ✓. Stor loop krever stor minstefart ($R$ opp gir $v$ opp) — rimelig, siden en slak krumning gir liten sentripetalakselerasjon per fart. Og på månen, med mindre $g$, ville minstefarten vært lavere, siden det er tyngden som skal levere krumningen."
+    },
+    {
+      "id": "fys1100-4-1-th-vtopp",
+      "type": "theorem",
+      "title": "Minste fart i toppen av en vertikal sirkel",
+      "content": "For et legeme som går på **innsiden** av en vertikal sirkelbane med radius $R$, er betingelsen for at det holder kontakt med banen hele veien rundt:\n\n$$v_{\\text{topp}} \\ge \\sqrt{gR}$$\n\nGrensen $v_{\\text{topp}} = \\sqrt{gR}$ svarer til $N = 0$: banen berøres, men presses ikke. Går legemet saktere, forlater det banen **før** toppen og går over i et fritt kast.\n\nMerk at $R$ her er loopens radius, ikke dens høyde. Høyden i toppen er $2R$."
+    },
+    {
+      "id": "fys1100-4-1-warn-2",
+      "type": "warning",
+      "title": "Typiske feil — likhet der det skulle stått ulikhet",
+      "content": "**Å skrive $v = \\sqrt{gR}$ uten å forklare $N = 0$-grensen (felle #12 — likhetstegn i en betingelse som egentlig er en ulikhet).** Dette er den mest siterte fellen i sirkeloppgavene, og den koster $-1$ poeng selv når tallet er riktig.\n\nProblemet er ikke regnestykket, men logikken. Spørsmålet «hvor fort må kula minst gå?» har svaret «minst $\\sqrt{gR}$» — altså en **ulikhet**. Likhetstegnet gjelder kun i det ene grensetilfellet der normalkraften akkurat er null. Skriver du bare $v = \\sqrt{gR}$, har du besvart et annet spørsmål enn det som ble stilt.\n\nSlik berger du poenget: skriv setningen «kontakten er akkurat brutt når $N = 0$, og siden $N \\ge 0$ alltid, gir det $v_{\\text{topp}} \\ge \\sqrt{gR}$» før du setter inn tall. Én linje, ett poeng.\n\n**Beslektet feil:** å glemme tyngdens bidrag helt og sette $N = mv^2/R$ i toppen. Da har du brukt bunn-oppsettet på toppunktet."
+    },
+    {
+      "id": "fys1100-4-1-def-snor-vs-ror",
+      "type": "definition",
+      "title": "Vertikal sirkel med snor kontra rør eller skinne",
+      "content": "Betingelsen $v_{\\text{topp}} \\ge \\sqrt{gR}$ gjelder bare når banen kun kan **skyve** utenfra og inn — en vogn på innsiden av en loop, en bøtte i enden av en snor, en kule på innsiden av en sylinder.\n\nEr legemet festet i en **stiv stang** eller går det i et **rør** eller i et spor som griper om det, kan banen både skyve og trekke. Da er ikke $N \\ge 0$ noe krav lenger, og legemet kan i prinsippet krype rundt toppen med vilkårlig liten fart.\n\nLes derfor oppgaveteksten nøye: ordene «snor», «tau» og «på innsiden av» utløser minstefartsbetingelsen, mens «stiv stang», «rør» og «i et spor» slår den av. Sensor belønner den som sier hvilket av tilfellene som gjelder."
+    },
+    {
+      "id": "fys1100-4-1-def-tilsynelatende-vekt",
+      "type": "definition",
+      "title": "Tilsynelatende vekt i bunnen av en loop",
+      "content": "Det du «kjenner» som din egen vekt, er ikke tyngden, men **normalkraften fra setet**. I bunnen av en loop er den\n\n$$N = m\\left(\\frac{v^2}{R} + g\\right)$$\n\naltså alltid større enn $mg$. Forholdet $N/(mg)$ kalles gjerne belastningen i «antall $g$»: er $N = 4mg$, sier man at passasjeren kjenner $4\\,g$.\n\nI toppen av loopen er det motsatte tilfellet: der er $N = m(v^2/R - g)$, og ved minstefarten blir $N = 0$ — det er den korte følelsen av vektløshet berg-og-dal-baner selges på."
+    },
+    {
+      "id": "fys1100-4-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Normalkraften i topp og bunn",
+      "problem": "En liten vogn med masse $0{,}120\\ \\text{kg}$ kjører på innsiden av en vertikal loop med radius $R = 2{,}50\\ \\text{m}$. I toppunktet er farten $6{,}00\\ \\text{m/s}$, og i bunnpunktet $11{,}0\\ \\text{m/s}$.\n\n**a)** Finn normalkraften i toppunktet.\n\n**b)** Finn normalkraften i bunnpunktet, og sammenlign med tyngden.\n\n**c)** Hvor sakte kunne vogna gått i toppen uten å falle av banen?",
+      "solution": "**Metodevalg først:** Newtons 2. lov i radiell retning i hvert av de to punktene, med positiv retning inn mot sentrum. Kreftene er de samme begge steder — normalkraft og tyngde — men retningen inn mot sentrum snur.\n\nTyngden er $mg = 0{,}120 \\cdot 9{,}81 = 1{,}18\\ \\text{N}$.\n\n**a)** I toppen peker sentrum nedover, og begge kreftene peker nedover:\n\n$$N + mg = \\frac{mv^2}{R} \\quad \\Rightarrow \\quad N = m\\left(\\frac{v^2}{R} - g\\right) = 0{,}120\\left(\\frac{36{,}0}{2{,}50} - 9{,}81\\right)$$\n\n$$N = 0{,}120 \\cdot (14{,}4 - 9{,}81) = 0{,}551\\ \\text{N}$$\n\nrettet **nedover**, altså inn mot sentrum. Kraften er positiv, så vogna har fortsatt kontakt med banen.\n\n**b)** I bunnen peker sentrum oppover; normalkraften peker inn, tyngden ut:\n\n$$N - mg = \\frac{mv^2}{R} \\quad \\Rightarrow \\quad N = m\\left(\\frac{v^2}{R} + g\\right) = 0{,}120\\left(\\frac{121}{2{,}50} + 9{,}81\\right)$$\n\n$$N = 0{,}120 \\cdot (48{,}4 + 9{,}81) = 6{,}99\\ \\text{N}$$\n\nrettet **oppover**. Det er $6{,}99/1{,}18 = 5{,}9$ ganger tyngden — vogna «veier» nesten seks ganger så mye i bunnen som i ro.\n\n**c)** Grensen er $N = 0$:\n\n$$v_{\\text{topp}} \\ge \\sqrt{gR} = \\sqrt{9{,}81 \\cdot 2{,}50} = 4{,}95\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nFarten $6{,}00\\ \\text{m/s}$ ligger altså trygt over minstekravet, slik det positive svaret i a) også viste. Merk formen på svaret: det er en **ulikhet**, fordi kontakten brytes først når normalkraften ville blitt negativ."
+    },
+    {
+      "id": "fys1100-4-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En pilot flyr et løkkeformet stup og går gjennom bunnen av sløyfen med farten $140\\ \\text{m/s}$. Sløyfen har radius $520\\ \\text{m}$. Piloten har masse $78\\ \\text{kg}$.\n\n**a)** Finn sentripetalakselerasjonen i bunnpunktet.\n\n**b)** Finn kraften setet må presse mot piloten, og oppgi den i antall $g$.\n\n**c)** Hvor stor radius måtte sløyfen minst hatt for at belastningen ikke skulle overstige $5{,}0\\,g$ ved samme fart?",
+        "solution": "**Metodevalg:** Newtons 2. lov radielt i bunnpunktet, med positiv retning oppover mot sentrum. Kreftene på piloten er setets normalkraft oppover og tyngden nedover.\n\n**a)**\n\n$$a_r = \\frac{v^2}{R} = \\frac{140^2}{520} = \\frac{19\\,600}{520} = 37{,}7\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nrettet **oppover**, inn mot sløyfens sentrum.\n\n**b)**\n\n$$N = m\\left(\\frac{v^2}{R} + g\\right) = 78 \\cdot (37{,}7 + 9{,}81) = 3{,}71 \\cdot 10^{3}\\ \\text{N}$$\n\nrettet oppover. Delt på tyngden $mg = 765\\ \\text{N}$ gir det $4{,}84$, altså om lag $4{,}8\\,g$.\n\n**c)** Kravet $N \\le 5{,}0\\,mg$ betyr $v^2/R + g \\le 5{,}0g$, altså $v^2/R \\le 4{,}0g$:\n\n$$R \\ge \\frac{v^2}{4{,}0g} = \\frac{19\\,600}{39{,}24} = 499\\ \\text{m}$$\n\nSløyfen måtte altså hatt radius minst $5{,}0 \\cdot 10^{2}\\ \\text{m}$. Den faktiske radien på $520\\ \\text{m}$ er litt større, i tråd med at vi fant $4{,}8\\,g$ og ikke $5{,}0\\,g$.\n\n**Merk hvilken vei ulikheten peker:** større radius gir *mindre* belastning, så kravet blir en nedre grense for $R$.",
+        "hints": [
+          "Bunnpunktet: normalkraften peker inn mot sentrum, tyngden ut.",
+          "«Antall $g$» betyr normalkraften delt på $mg$.",
+          "I c) skriver du kravet som en ulikhet i $N$ og løser for $R$ — pass på hvilken vei ulikhetstegnet snur."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** En passasjer i en berg-og-dal-bane sier: «I toppen av loopen er jeg vektløs — tyngden har sluttet å virke.» Er utsagnet riktig? Begrunn.\n\n**b)** En annen sier: «Det må være en kraft som presser meg utover i setet, ellers ville jeg falt ut.» Hva er galt med denne forklaringen, og hva er den riktige?\n\n**c)** Hvorfor er det ikke farlig å kjøre loopen for **fort**, mens det er farlig å kjøre den for sakte?",
+        "solution": "**a)** Nei. Tyngden virker uendret hele veien rundt; det er den som gjør det mulig å gå gjennom toppen i det hele tatt. Det passasjeren kjenner, er **normalkraften fra setet**, og den kan bli null ved minstefarten $v_{\\text{topp}} = \\sqrt{gR}$. Følelsen av vektløshet er altså at $N = 0$, ikke at $mg = 0$. Presist sagt: passasjeren er i fritt fall, men faller nøyaktig langs banen.\n\n**b)** Det finnes ingen kraft som presser passasjeren utover. Alle kreftene som virker på henne — tyngden og normalkraften fra setet — peker **inn mot sentrum** i toppunktet. Grunnen til at hun ikke faller ut, er at hun *faller*: banen krummer nedover like fort som hun gjør. Følelsen av å presses ut i setet kommer av at kroppen fortsetter rett fram mens setet svinger inn mot sentrum og møter den.\n\n**c)** For høy fart gir bare større normalkraft, $N = m(v^2/R - g)$, som vokser med farten. Banen og kroppen tåler mye, og belastningen øker gradvis. For lav fart gjør derimot at uttrykket for $N$ blir **negativt**, og siden en normalkraft aldri kan trekke, betyr det at kontakten er brutt: vogna forlater banen før toppen og går over i et fritt kast. Overgangen er brå, ikke gradvis — og det er derfor minstefarten er en sikkerhetsgrense.",
+        "hints": [
+          "Skill mellom tyngden $mg$ og normalkraften $N$ — hvilken av dem «kjenner» du?",
+          "List opp alle kreftene som faktisk virker på passasjeren i toppunktet, og se hvilken vei de peker.",
+          "Se på fortegnet i uttrykket $N = m(v^2/R - g)$ når farten blir liten."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — loopen møter energiregnskapet (~10 min)\n\nPå eksamen står minstefarten i toppen nesten aldri alene. Den kommer som deloppgave b) etter et spørsmål av typen «fra hvilken høyde må kula slippes?». Da trenger du ett verktøy til: energiregnskapet.\n\nVi tar bare med det minimum du trenger her. Hele apparatet — arbeid, effekt, friksjonstap og bevaringsbetingelsene i full bredde — bygges ut i [kap. 5.1](/bok/fys1100/fys1100-5-1)."
+    },
+    {
+      "id": "fys1100-4-1-def-kinetisk",
+      "type": "definition",
+      "title": "Kinetisk energi",
+      "content": "Bevegelsesenergien til et legeme med masse $m$ og fart $v$:\n\n$$K = \\tfrac12 mv^2$$\n\nEnheten er **joule**, $\\text{J} = \\text{N}\\cdot\\text{m} = \\text{kg}\\cdot\\text{m}^2/\\text{s}^2$. Energi er en **skalar** — den har ingen retning, og skal derfor aldri skrives med vektormarkering. Legg merke til at farten inngår kvadratisk, akkurat som i sentripetalakselerasjonen."
+    },
+    {
+      "id": "fys1100-4-1-def-potensiell",
+      "type": "definition",
+      "title": "Potensiell energi i tyngdefeltet",
+      "content": "Den lagrede energien et legeme har i kraft av høyden sin:\n\n$$U = mgy$$\n\nder $y$ måles fra et **referansenivå** du velger selv. Valget er fritt fordi bare *differanser* i $U$ har fysisk betydning; i loop-oppgaver er det praktisk å legge $y = 0$ i bunnen av banen.\n\nSi alltid i besvarelsen hvor nullnivået ditt ligger. Halvparten av fortegnsforvirringen i energiregnskaper kommer av et referansenivå som aldri ble skrevet ned."
+    },
+    {
+      "id": "fys1100-4-1-def-mekanisk-energi",
+      "type": "definition",
+      "title": "Mekanisk energi og når den er bevart",
+      "content": "Summen av kinetisk og potensiell energi, $E = K + U$, kalles den mekaniske energien.\n\nDen er **bevart** — altså den samme før og etter — når bare krefter som lagrer energi gjør arbeid på legemet. På en friksjonsfri loop er den betingelsen oppfylt, og begrunnelsen er verdt å skrive ut hver gang:\n\n> Tyngden er den eneste kraften som gjør arbeid. Normalkraften står vinkelrett på > bevegelsen i hvert punkt, og en kraft vinkelrett på farten gjør ikke arbeid.\n\n$$\\tfrac12 mv_1^2 + mgy_1 = \\tfrac12 mv_2^2 + mgy_2$$\n\n**Betingelsen er det som gir poeng.** Å bruke likningen uten å si hvorfor den gjelder, koster $-1$ poeng (felle #7 — bevaringslov brukt uten begrunnelse). Er banen ru, gjelder den ikke lenger, og da må friksjonsarbeidet inn i regnskapet — det er tema i [kap. 5.1](/bok/fys1100/fys1100-5-1)."
+    },
+    {
+      "id": "fys1100-4-1-utledning-hmin",
+      "type": "text",
+      "content": "### Starthøyden for å komme gjennom loopen — utledningen du skal kunne\n\nEn kule slippes fra hvile i høyden $h$ over bunnen av en friksjonsfri bane og kjører gjennom en loop med radius $R$. Hvor stor må $h$ minst være?\n\n**Steg 1 — sett opp energiregnskapet** mellom startpunktet og toppen av loopen, med $y = 0$ i bunnen. Toppen ligger i høyden $2R$:\n\n$$mgh = \\tfrac12 mv_{\\text{topp}}^2 + mg\\cdot 2R$$\n\n*Intuisjon:* all høydeenergien fra start deles i to: en del er fortsatt lagret som høyde i toppen av loopen, resten er blitt fart.\n\n**Steg 2 — massen forkortes**, og vi løser for farten i toppen:\n\n$$v_{\\text{topp}}^2 = 2g(h - 2R)$$\n\n*Intuisjon:* det er **høydeforskjellen ned til toppen av loopen** som er blitt fart — ikke hele fallhøyden. Slippes kula fra nøyaktig $h = 2R$, ankommer den toppen med farten null, og det er altfor sakte.\n\n**Steg 3 — koble på kontaktbetingelsen** fra forrige løkke, $v_{\\text{topp}}^2 \\ge gR$:\n\n$$2g(h - 2R) \\ge gR \\quad \\Rightarrow \\quad h - 2R \\ge \\tfrac{R}{2} \\quad \\Rightarrow \\quad h \\ge \\tfrac52 R$$\n\n*Intuisjon:* kula må starte en halv radius **over** toppen av loopen. Den ekstra halvradien er nettopp den fartsreserven som holder hjulene mot banen.\n\n**Steg 4 — kontroller.** Uttrykket $h \\ge \\tfrac52 R$ er dimensjonsriktig (lengde mot lengde) og inneholder verken $g$ eller $m$. At $g$ faller ut, er et godt tegn: både energiregnskapet og kontaktbetingelsen er proporsjonale med $g$, så den forkortes. **Konsekvens:** samme loop ville krevd samme starthøyde på månen."
+    },
+    {
+      "id": "fys1100-4-1-th-hmin",
+      "type": "theorem",
+      "title": "Minste starthøyde for å fullføre en loop",
+      "content": "En kule som slippes fra hvile på en **friksjonsfri** bane og skal gjennom en vertikal loop med radius $R$ på innsiden, må starte i høyden\n\n$$h \\ge \\frac{5}{2}R$$\n\nover bunnen av loopen. Grensen $h = \\tfrac52 R$ svarer til at normalkraften akkurat blir null i toppunktet.\n\nResultatet er uavhengig av både massen og tyngdeakselerasjonen. Med friksjon i banen kreves større starthøyde, fordi noe av energien går tapt til varme underveis."
+    },
+    {
+      "id": "fys1100-4-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Loop fra en rampe (eksamensnivå)",
+      "problem": "En liten vogn med masse $0{,}120\\ \\text{kg}$ slippes fra hvile i høyden $h$ over bunnen av en friksjonsfri bane og kjører gjennom en vertikal loop med radius $R = 2{,}50\\ \\text{m}$.\n\n**a)** Sett opp Newtons 2. lov radielt i toppunktet og finn minste tillatte fart der. Begrunn hvorfor svaret er en ulikhet.\n\n**b)** Bruk energibevaring til å finne minste starthøyde $h$. Begrunn hvorfor energibevaring gjelder her.\n\n**c)** Vogna slippes i stedet fra $h = 8{,}00\\ \\text{m}$. Finn farten og normalkraften i toppunktet.\n\n**d)** Finn normalkraften i bunnen av loopen for samme start, og oppgi belastningen i antall $g$.",
+      "solution": "**a) Metodevalg:** Newtons 2. lov i radiell retning i toppunktet, positiv retning nedover (inn mot sentrum). To krefter virker på vogna: normalkraften fra banen og tyngden — begge peker nedover der.\n\n$$N + mg = \\frac{mv_{\\text{topp}}^2}{R} \\quad \\Rightarrow \\quad N = m\\left(\\frac{v_{\\text{topp}}^2}{R} - g\\right)$$\n\nEn normalkraft kan bare skyve, aldri trekke, så $N \\ge 0$. Det gir\n\n$$v_{\\text{topp}} \\ge \\sqrt{gR} = \\sqrt{9{,}81 \\cdot 2{,}50} = 4{,}95\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nSvaret er en **ulikhet** nettopp fordi $N = 0$ er en grense og ikke en likevekt: alle farter over $4{,}95\\ \\text{m/s}$ er tillatt, og da er bare normalkraften større.\n\n— naturlig pausepunkt —\n\n**b) Metodevalg og begrunnelse:** mekanisk energi er bevart fra start til toppunktet fordi **bare tyngden gjør arbeid** på vogna: banen er friksjonsfri, og normalkraften står i hvert punkt vinkelrett på bevegelsen, så den gjør ikke arbeid. Med $y = 0$ i bunnen av loopen og toppen i høyden $2R$:\n\n$$mgh = \\tfrac12 mv_{\\text{topp}}^2 + mg \\cdot 2R \\quad \\Rightarrow \\quad v_{\\text{topp}}^2 = 2g(h - 2R)$$\n\nSetter vi inn kravet $v_{\\text{topp}}^2 \\ge gR$:\n\n$$2g(h - 2R) \\ge gR \\quad \\Rightarrow \\quad h \\ge \\tfrac52 R = 2{,}5 \\cdot 2{,}50 = 6{,}25\\ \\text{m}$$\n\n**c)** Med $h = 8{,}00\\ \\text{m}$:\n\n$$v_{\\text{topp}}^2 = 2 \\cdot 9{,}81 \\cdot (8{,}00 - 5{,}00) = 58{,}9\\ \\tfrac{\\text{m}^2}{\\text{s}^2} \\quad \\Rightarrow \\quad v_{\\text{topp}} = 7{,}67\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$N = m\\left(\\frac{v_{\\text{topp}}^2}{R} - g\\right) = 0{,}120\\left(\\frac{58{,}86}{2{,}50} - 9{,}81\\right) = 0{,}120 \\cdot 13{,}7 = 1{,}65\\ \\text{N}$$\n\nrettet **nedover**, altså inn mot sentrum. Farten ligger godt over minstekravet $4{,}95\\ \\text{m/s}$, og normalkraften er positiv — begge stemmer overens.\n\n**d)** I bunnen av loopen er $y = 0$, så hele starthøyden er blitt fart:\n\n$$v_{\\text{bunn}}^2 = 2gh = 2 \\cdot 9{,}81 \\cdot 8{,}00 = 157\\ \\tfrac{\\text{m}^2}{\\text{s}^2} \\quad \\Rightarrow \\quad v_{\\text{bunn}} = 12{,}5\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$N = m\\left(\\frac{v_{\\text{bunn}}^2}{R} + g\\right) = 0{,}120\\left(\\frac{156{,}96}{2{,}50} + 9{,}81\\right) = 0{,}120 \\cdot 72{,}6 = 8{,}71\\ \\text{N}$$\n\nrettet **oppover**. Tyngden er $mg = 1{,}18\\ \\text{N}$, så belastningen er $8{,}71/1{,}18 = 7{,}4$, altså $7{,}4\\,g$.\n\n**Sammenlikning som er verdt en linje i besvarelsen:** normalkraften er over fem ganger så stor i bunnen som i toppen, selv om det er de samme to kreftene begge steder. Hele forskjellen ligger i fortegnet på tyngdens bidrag."
+    },
+    {
+      "id": "fys1100-4-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — sirkelbevegelse, kombinert med energiregnskap.)\n\nEn kule med masse $0{,}35\\ \\text{kg}$ henger i en lett snor med lengde $\\ell = 1{,}20\\ \\text{m}$ og svinges i en vertikal sirkel.\n\n**a)** Finn minste fart i toppunktet for at snora fortsatt skal være stram, og forklar hvilken betingelse du bruker.\n\n**b)** Kula har akkurat denne farten i toppen. Bruk energibevaring til å finne farten i bunnpunktet, og begrunn hvorfor loven gjelder.\n\n**c)** Finn snordraget i bunnpunktet med denne farten.\n\n**d)** Vis generelt at snordraget i bunnen er $6mg$ når kula så vidt kommer rundt, uansett masse og snorlengde.",
+        "solution": "**a) Metodevalg:** Newtons 2. lov radielt i toppunktet med positiv retning nedover. En snor kan bare **trekke**, altså $T \\ge 0$ — samme type betingelse som for en normalkraft.\n\n$$T + mg = \\frac{mv_{\\text{topp}}^2}{\\ell} \\quad \\Rightarrow \\quad T = m\\left(\\frac{v_{\\text{topp}}^2}{\\ell} - g\\right) \\ge 0$$\n\n$$v_{\\text{topp}} \\ge \\sqrt{g\\ell} = \\sqrt{9{,}81 \\cdot 1{,}20} = 3{,}43\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nGrensen svarer til at snora akkurat er slakk: tyngden alene leverer da hele sentripetalkraften.\n\n**b) Begrunnelse:** mekanisk energi er bevart fordi bare tyngden gjør arbeid — snordraget står i hvert punkt vinkelrett på bevegelsen og gjør derfor ikke arbeid. Høydeforskjellen fra bunn til topp er $2\\ell = 2{,}40\\ \\text{m}$, med $y = 0$ i bunnen:\n\n$$\\tfrac12 mv_{\\text{bunn}}^2 = \\tfrac12 mv_{\\text{topp}}^2 + mg \\cdot 2\\ell \\quad \\Rightarrow \\quad v_{\\text{bunn}}^2 = v_{\\text{topp}}^2 + 4g\\ell$$\n\n$$v_{\\text{bunn}}^2 = 11{,}77 + 4 \\cdot 9{,}81 \\cdot 1{,}20 = 58{,}9 \\quad \\Rightarrow \\quad v_{\\text{bunn}} = 7{,}67\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**c)** I bunnen peker snordraget inn mot sentrum (oppover) og tyngden ut:\n\n$$T - mg = \\frac{mv_{\\text{bunn}}^2}{\\ell} \\quad \\Rightarrow \\quad T = 0{,}35\\left(\\frac{58{,}86}{1{,}20} + 9{,}81\\right) = 0{,}35 \\cdot 58{,}9 = 20{,}6\\ \\text{N}$$\n\nrettet oppover langs snora.\n\n**d)** Sett $v_{\\text{topp}}^2 = g\\ell$ i uttrykket fra b):\n\n$$v_{\\text{bunn}}^2 = g\\ell + 4g\\ell = 5g\\ell$$\n\nSetter vi det inn i bunn-likningen:\n\n$$T = m\\left(\\frac{5g\\ell}{\\ell} + g\\right) = m(5g + g) = 6mg$$\n\nBåde $\\ell$ og $g$ forkortes ut av forholdet, og resultatet er det samme for enhver masse og snorlengde. **Kontroll mot tallene:** $6mg = 6 \\cdot 0{,}35 \\cdot 9{,}81 = 20{,}6\\ \\text{N}$ — samme svar som i c). ✓\n\nSnora må altså tåle seks ganger kulas tyngde i bunnen, mens den er helt uten belastning i toppen. Det er derfor snorer ryker nederst i svingen, ikke øverst.",
+        "hints": [
+          "I toppen kan snora bare trekke — hvilken ulikhet gir det for $T$?",
+          "Energibevaring krever at du sier hvorfor: hvilken kraft gjør arbeid, og hvilken gjør det ikke?",
+          "Høydeforskjellen mellom bunn og topp i en sirkel med radius $\\ell$ er $2\\ell$.",
+          "I d) setter du inn grensefarten symbolsk og lar $\\ell$ og $g$ forkorte seg."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E med kontaktdrøfting.)\n\nEn liten kloss slippes fra hvile i toppen av en glatt (friksjonsfri) kule med radius $R$ og glir nedover **utsiden** av kula. Vinkelen $\\varphi$ måles fra toppunktet, sett fra kulas sentrum.\n\n**a)** Bruk energibevaring til å vise at farten i vinkelen $\\varphi$ er $v^2 = 2gR(1 - \\cos\\varphi)$, og begrunn hvorfor loven gjelder.\n\n**b)** Sett opp Newtons 2. lov radielt og finn normalkraften som funksjon av $\\varphi$.\n\n**c)** Finn vinkelen der klossen forlater kula, og forklar hvilken betingelse som bestemmer den.\n\n**d)** Hvor stor er farten i det øyeblikket, uttrykt ved $g$ og $R$?",
+        "solution": "**a) Begrunnelse:** overflaten er friksjonsfri, og normalkraften står vinkelrett på bevegelsen i hvert punkt. Bare tyngden gjør arbeid, altså er mekanisk energi bevart.\n\nHøyden over kulas sentrum er $R\\cos\\varphi$, mens den var $R$ i toppen. Fallhøyden er derfor $R - R\\cos\\varphi$:\n\n$$\\tfrac12 mv^2 = mgR(1 - \\cos\\varphi) \\quad \\Rightarrow \\quad v^2 = 2gR(1-\\cos\\varphi)$$\n\n**Kontroll:** $\\varphi = 0$ gir $v = 0$ (klossen starter i ro) ✓, og $\\varphi = 90^\\circ$ gir $v^2 = 2gR$, som er farten etter et fritt fall på høyden $R$ ✓.\n\n**b)** Klossen er på **utsiden**, så her peker normalkraften **ut** fra sentrum og tyngdens radielle komponent $mg\\cos\\varphi$ peker inn. Med positiv retning inn mot sentrum:\n\n$$mg\\cos\\varphi - N = \\frac{mv^2}{R} \\quad \\Rightarrow \\quad N = mg\\cos\\varphi - \\frac{mv^2}{R}$$\n\nSetter vi inn farten fra a):\n\n$$N = mg\\cos\\varphi - 2mg(1-\\cos\\varphi) = mg(3\\cos\\varphi - 2)$$\n\n**c)** Klossen forlater flaten når kontakten brytes, altså når $N = 0$ (en normalkraft kan ikke trekke):\n\n$$3\\cos\\varphi - 2 = 0 \\quad \\Rightarrow \\quad \\cos\\varphi = \\tfrac23 \\quad \\Rightarrow \\quad \\varphi = 48{,}2^\\circ$$\n\nSvaret er uavhengig av både $m$ og $R$ — en fin kontroll på at utledningen er riktig.\n\n**d)**\n\n$$v^2 = 2gR\\left(1 - \\tfrac23\\right) = \\tfrac23 gR \\quad \\Rightarrow \\quad v = \\sqrt{\\tfrac23 gR} = 0{,}816\\sqrt{gR}$$\n\n**Merk kontrasten til loopen:** på **innsiden** av en bane peker normalkraften inn og hjelper til, og kravet blir en **minste** fart. På **utsiden** peker den ut og motarbeider, og da er det en **største** vinkel man kommer til før kontakten ryker. Samme betingelse $N \\ge 0$, motsatt konsekvens.",
+        "hints": [
+          "Fallhøyden fra toppen ned til vinkelen $\\varphi$ er $R(1-\\cos\\varphi)$ — tegn trekanten.",
+          "På utsiden av kula peker normalkraften bort fra sentrum. Hvilken vei peker akselerasjonen?",
+          "Kontakten brytes akkurat når normalkraften blir null."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-4-1-def-ikke-uniform",
+      "type": "definition",
+      "title": "Ikke-uniform sirkelbevegelse",
+      "content": "Sirkelbevegelse der banefarten endrer seg — for eksempel en kule som svinger i en vertikal sirkel og går saktere i toppen enn i bunnen.\n\nDa er **begge** leddene i baneakselerasjonen med: én komponent inn mot sentrum, $v^2/R$, og én langs banen, $\\dot v$. De to behandles i hver sin likning, og du trenger som regel bare den radielle for å svare på kraftspørsmålene."
+    },
+    {
+      "id": "fys1100-4-1-def-tangentiell",
+      "type": "definition",
+      "title": "Tangentiell akselerasjon",
+      "content": "Komponenten av akselerasjonen **langs** banen, $a_T = \\dot v$. Den endrer farten, ikke retningen.\n\nI en vertikal sirkel er det tyngdens komponent langs banen som gir den. I toppunktet og bunnpunktet er tyngden loddrett og banen vannrett, så der er den tangentielle akselerasjonen null — det er nettopp derfor de to punktene er så greie å regne på. Der snora er vannrett, er situasjonen motsatt: hele tyngden er tangentiell, og $a_T = g$."
+    },
+    {
+      "id": "fys1100-4-1-def-frekvens",
+      "type": "definition",
+      "title": "Frekvens og omdreiningstall",
+      "content": "Frekvensen $f = 1/T_p$ er antall omløp per sekund, målt i hertz ($\\text{Hz}$). Sammenhengen med vinkelfarten er\n\n$$\\omega = 2\\pi f$$\n\nI tekniske oppgaver oppgis rotasjon ofte som **omdreininger per minutt**. Del på $60$ for å få frekvensen i hertz, og gang med $2\\pi$ for å få vinkelfarten i $\\text{rad/s}$. Å hoppe over det første steget er en klassisk regnefeil."
+    },
+    {
+      "id": "fys1100-4-1-def-vektloshet",
+      "type": "definition",
+      "title": "Vektløshet langs en bane",
+      "content": "Følelsen av vektløshet oppstår når **normalkraften** fra underlaget er null, ikke når tyngden forsvinner.\n\nI toppen av en loop skjer det ved $v_{\\text{topp}} = \\sqrt{gR}$: da er tyngden akkurat den kraften som trengs for å bøye banen, og setet trenger ikke bidra. Legemet er da i fritt fall, men faller langs sirkelen i stedet for rett ned. Det er samme fenomen som holder astronauter «vektløse» i en romstasjon i bane."
+    },
+    {
+      "id": "fys1100-4-1-def-g-belastning",
+      "type": "definition",
+      "title": "Belastning målt i antall g",
+      "content": "Forholdet mellom normalkraften fra underlaget og tyngden, $N/(mg)$. En passasjer som kjenner $N = 4mg$, sier gjerne at hun opplever «$4\\,g$».\n\nI bunnen av en sirkelbane er belastningen $v^2/(gR) + 1$, altså alltid større enn 1. Størrelsen er dimensjonsløs, og den brukes fordi kroppens tåleevne henger sammen med forholdet til normal tyngde, ikke med kraften i newton."
+    },
+    {
+      "id": "fys1100-4-1-def-hva-tegnes-ikke",
+      "type": "definition",
+      "title": "Kreftene som ikke skal tegnes i et sirkel-frilegemediagram",
+      "content": "Tre piler hører **ikke** hjemme i et frilegemediagram for sirkelbevegelse:\n\n- en pil merket «sentripetalkraft» — den er resultanten av de andre;\n- en pil som peker **ut** fra sentrum for å forklare at man «kastes utover» — i et inertialsystem finnes den ikke;\n- massen ganger akselerasjonen, $mv^2/R$, tegnet som en kraft — det er høyresiden i Newtons 2. lov, ikke en kraft på legemet.\n\nAlle tre koster poeng. Tegn bare krefter med en navngitt kilde: et underlag, en snor, jordas tyngde, en flate som gnisser."
+    },
+    {
+      "id": "fys1100-4-1-def-grensetilfelle-sirkel",
+      "type": "definition",
+      "title": "Grensetilfellene som avslører feil i en sirkeloppgave",
+      "content": "Fire innsettinger tar femten sekunder hver og fanger de fleste regnefeil:\n\n- **$R \\to \\infty$** (rett bane): sentripetalkraften skal gå mot null.\n- **$v \\to 0$**: normalkraften i bunnen skal gå mot $mg$, altså vanlig hvile.\n- **$g \\to 0$** (tenkt vektløs verden): topp- og bunnlikningen skal bli identiske.\n- **$\\mu_s \\to 0$** i en flat sving: maksfarten skal gå mot null.\n\nFår du et annet svar enn det som er fysisk opplagt, ligger feilen nesten alltid i et fortegn."
+    },
+    {
+      "id": "fys1100-4-1-def-sirkel-vs-kast",
+      "type": "definition",
+      "title": "Når slutter sirkelmodellen å gjelde?",
+      "content": "Formelen $\\sum F_r = mv^2/R$ forutsetter at legemet **faktisk følger sirkelen**. Den forutsetningen kan briste:\n\n- en vogn i en loop mister kontakten når $N$ ville blitt negativ, og går over i et fritt kast (se [kap. 2.2](/bok/fys1100/fys1100-2-2));\n- en bil i en sving glir ut når kravet overstiger $\\mu_s N$;\n- en snor blir slakk når det utregnede snordraget ville blitt negativt.\n\nI alle tre tilfellene er svaret det samme: modellen din gjelder ikke lenger, og besvarelsen bør si det uttrykkelig. Sensor premierer den som ser når en modell slutter å gjelde."
+    },
+    {
+      "id": "fys1100-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-4-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $R$ | baneradien i sirkelbevegelsen | $\\text{m}$ |\n| $r$ | avstand fra sentrum (generelt) | $\\text{m}$ |\n| $\\rho$ | krumningsradius; for en sirkel er $\\rho = R$ | $\\text{m}$ |\n| $v$ | banefart (tallverdien av $\\mathbf{v}$) | $\\text{m/s}$ |\n| $\\omega$ | vinkelfart | $\\text{rad/s}$ |\n| $T_p$ | omløpstid (perioden) | $\\text{s}$ |\n| $f$ | frekvens, $f = 1/T_p$ | $\\text{Hz}$ |\n| $a_r$ | sentripetalakselerasjon (inn mot sentrum) | $\\text{m/s}^2$ |\n| $a_T$ | tangentiell akselerasjon (langs banen) | $\\text{m/s}^2$ |\n| $\\mathbf{N}$, $N$ | normalkraft og dens tallverdi | $\\text{N}$ |\n| $T$ | snordrag | $\\text{N}$ |\n| $\\mathbf{f}_s$, $\\mu_s$ | statisk friksjonskraft og friksjonstall | $\\text{N}$, dimensjonsløs |\n| $\\mathbf{F}_g = m\\mathbf{g}$ | tyngde | $\\text{N}$ |\n| $m$ | masse (skalar) | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjon, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $\\theta$, $\\varphi$ | vinkler (snorvinkel, posisjonsvinkel) | grader eller radianer |\n| $\\ell$ | snorlengde | $\\text{m}$ |\n| $K$ | kinetisk energi | $\\text{J}$ |\n| $U$ | potensiell energi | $\\text{J}$ |\n| $h$, $y$ | høyde over valgt referansenivå | $\\text{m}$ |\n\n**Symbolkollisjoner du må håndtere:** $T$ er **snordrag**, mens omløpstiden skrives $T_p$ — begge opptrer i dette kapitlet, og en bar $T$ ville vært tvetydig. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, **aldri** $\\mathbf{G}$; $G$ er reservert for gravitasjonskonstanten. $R$ er baneradien, $r$ en generell avstand fra sentrum, og $\\rho$ krumningsradien — de faller sammen for en ren sirkel, men ikke for en spiral. Snorlengden skrives $\\ell$, ikke $L$.\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{a} = \\dot v\\,\\hat{\\mathbf{u}}_T + \\frac{v^2}{\\rho}\\hat{\\mathbf{u}}_N$$\n\nBaneakselerasjonen delt i en tangentiell og en normal komponent. **[formelarket]** — du skal kunne tolke de to leddene, ikke utlede dem.\n\n$$a_r = \\frac{v^2}{R} = \\omega^2 R, \\qquad v = \\omega R$$\n\nSentripetalakselerasjonen og koblingen fart–vinkelfart. **[må kunne utledes]** — de følger av baneakselerasjonen med $\\rho = R$ og $\\dot v = 0$.\n\n$$\\sum F_r = \\frac{mv^2}{R}$$\n\nNewtons 2. lov i radiell retning. **[formelarket]** i formen $\\sum\\mathbf{F} = m\\mathbf{a}$ — det som må sitte, er å sette opp venstresiden med riktige fortegn.\n\n$$N - mg = \\frac{mv^2}{R} \\ (\\text{bunn}), \\qquad N + mg = \\frac{mv^2}{R} \\ (\\text{topp})$$\n\nFortegnsoppsettet i en vertikal sirkel. **[må kunne utledes]** — utled dem fra frilegemediagrammet hver gang, aldri fra hukommelsen.\n\n$$v_{\\text{topp}} \\ge \\sqrt{gR}$$\n\nMinstefarten i toppen, fra kontaktbetingelsen $N \\ge 0$. **[må kunne utledes]** — og husk at det er en ulikhet.\n\n$$h \\ge \\tfrac52 R$$\n\nMinste starthøyde for å komme gjennom en friksjonsfri loop fra hvile. **[må kunne utledes]** — energiregnskap pluss kontaktbetingelse.\n\n$$v_{\\max} = \\sqrt{\\mu_s g R}, \\qquad \\tan\\theta = \\frac{v^2}{gR}$$\n\nMaksfart i en flat sving og vinkelen i en konisk pendel. **[må kunne utledes]** — begge følger av Newtons 2. lov radielt og loddrett.\n\n$$K = \\tfrac12 mv^2, \\qquad U = mgy$$\n\nKinetisk og potensiell energi. **[formelarket]** — det som gir poeng, er å begrunne når summen er bevart."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-4-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) Hva er de seks punktene et fullstendig frilegemediagram skal ha, og hvilket av dem er det lettest å bryte i en sirkeloppgave?",
+            "solution": "1) Isolér ett legeme. 2) Tegn alle krefter **på** det, med navngitte symboler. 3) Riktig retning og angrepspunkt. 4) Rimelig lengde på pilene. 5) Koordinatsystemet inntegnet. 6) Ingen krefter som ikke finnes.\n\nDet er punkt 6 som ryker i sirkeloppgaver: kandidaten tegner inn en «sentripetalkraft» eller en kraft utover, og begge er oppdiktede.",
+            "hints": [
+              "Tenk på hva sensor konkret kan trekke poeng for i en tegning."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Hva er normalkomponenten av baneakselerasjonen, og hva betyr den fysisk?",
+            "solution": "Normalkomponenten er $a_N = v^2/\\rho$, der $\\rho$ er krumningsradien. Den peker inn mot banens krumningssentrum og beskriver at **retningen** på hastigheten endrer seg. En rett bane har $\\rho \\to \\infty$ og dermed $a_N = 0$.",
+            "hints": [
+              "Baneakselerasjonen har to ledd — hvilket av dem endrer retningen?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-1-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) Hvorfor er statisk friksjon en ulikhet og ikke en likhet, og når får du lov til å sette $f_s = \\mu_s N$?",
+            "solution": "Statisk friksjon er akkurat så stor som den må være for å hindre glidning, opp til taket $\\mu_s N$: $\\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N$. Du får sette likhetstegn bare når du spør etter **grensen** — «hvor fort kan bilen kjøre?», «hvor bratt kan planet være?». I en sving som kjøres roligere enn maksfarten, er friksjonen mindre enn $\\mu_s N$.",
+            "hints": [
+              "Hva skjer hvis du skyver forsiktig på en kasse som ikke rikker seg?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-1-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.3](/bok/fys1100/fys1100-3-3).) Nevn to grensetilfeller du kan bruke til å kontrollere et uttrykk, og forklar hva du ser etter.",
+            "solution": "Typiske valg er å sette en masse, en vinkel eller et friksjonstall til null eller til en ytterverdi, og se om uttrykket går mot noe du kjenner fra før. Eksempler: $\\mu \\to 0$ skal gi det friksjonsfrie svaret; $\\theta \\to 0$ skal gi det vannrette tilfellet.\n\nDu ser etter to ting: at uttrykket **går mot noe fysisk fornuftig**, og at det ikke gir noe umulig (negativ normalkraft, uendelig fart). Metoden er billig og fanger både fortegnsfeil og bytte av sinus og cosinus.",
+            "hints": [
+              "Tenk på hva som skjer når en parameter forsvinner helt."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-1-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-1-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/fys1100/fys1100-2-2).) En vogn mister kontakten med loopen før toppen. Hvilken bevegelse går den over i, og hvilke likninger beskriver den da?",
+            "solution": "Den går over i et **fritt kast**: den eneste kraften er tyngden, og banen blir en parabel. Med $x$ vannrett og $y$ loddrett gjelder $a_x = 0$ og $a_y = -g$, altså\n\n$$x = x_0 + v_{0x}t, \\qquad y = y_0 + v_{0y}t - \\tfrac12 gt^2$$\n\nder startbetingelsene er posisjonen og hastigheten i det øyeblikket kontakten brøt. Sirkelmodellen gjelder ikke lenger, og det er poenget: du må bytte modell i det $N$ blir null.",
+            "hints": [
+              "Hvilke krefter virker på vogna når den ikke lenger rører banen?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

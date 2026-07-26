@@ -1,0 +1,350 @@
+{
+  "id": "fys1100-1-3",
+  "courseId": "fys1100",
+  "chapterNumber": "1.3",
+  "title": "Fermi-estimering og størrelsesorden",
+  "description": "Overslagsregning i tierpotenser — enkel geometrisk modell, tydelig tankegang, rimelighetsvurdering. Sensor premierer resonnementet, ikke presisjonen.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne gjennomføre et overslag i fire steg med tankegang, modell, tierpotensregning og rimelighetsvurdering",
+    "kunne velge en enkel geometrisk modell og regne ut volum og masse fra anslåtte mål",
+    "kunne oppgi et overslag med riktig antall gjeldende siffer og et ærlig usikkerhetsspenn",
+    "kunne finne systematiske skjevheter i en overslagsberegning og si hvilken vei de trekker"
+  ],
+  "content": [
+    {
+      "id": "fys1100-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Fermi-oppgaven er testet i 4 av 7 avsluttende sett (57 %) — og den har en helt egen retteregel.**\n\nI de fleste oppgaver på eksamen er tallet svaret. Her er det ikke det. En typisk Fermi-deloppgave gir omtrent **2 poeng for tallet og 3 poeng for forklaringen** av hvordan du kom fram til det. En velbegrunnet estimering som bommer med en faktor hundre, får derfor bedre uttelling enn et presist tall uten resonnement.\n\nDet gjør Fermi-oppgaven til noen av de billigste poengene på hele settet — **for den som har drillet tankegangen**. Og til noen av de dyreste for den som tror at «anslå» betyr «gjett».\n\nSjangeren kalles **sjanger B** i denne boka: overslagsoppgaven, der du skal anslå en størrelse ingen har målt, ut fra ting du vet omtrent. De reelle innpakningene har vært et fjell målt i lastebillass, jorda komprimert til en fyrstikkeske, antall sivilisasjoner i galaksen, og energien du bruker på å bøye deg ned. Fysikken bak er alltid den samme: en enkel geometrisk modell og tierpotenser.\n\n**Prioritet: bør sitte.** Kapitlet er kort, og ferdigheten koster deg lite å skaffe.\n\nKapitlet trener også **sjanger J** — de kvalitative oppgavene der du forklarer, begrunner eller kritiserer i ord. Det finnes minst én slik deloppgave i hvert eneste sett, og en Fermi-oppgave er halvveis en J-oppgave i seg selv."
+    },
+    {
+      "id": "fys1100-1-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 1.1](/bok/fys1100/fys1100-1-1). Det du trenger derfra:\n\n**1. Standardform og tierpotensregning.** Et tall skrives $a\\cdot 10^{n}$ med $1 \\le a < 10$, og\n$$10^{a}\\cdot 10^{b} = 10^{a+b}, \\qquad \\frac{10^{a}}{10^{b}} = 10^{a-b}, \\qquad \\sqrt{10^{a}} = 10^{a/2}$$\n\n**2. Benevningskontroll.** Regn ut enheten på begge sider av svaret. I en overslagsoppgave er dette *ekstra* viktig, fordi du ganger sammen mange anslag og lett mister en faktor på veien.\n\n**3. Størrelsesorden.** Eksponenten $n$ i standardformen. To tall er «av samme størrelsesorden» når de ligger innenfor omtrent en faktor 10 fra hverandre.\n\nI tillegg trenger du volumformlene for de enkleste kroppene. Vi lister dem opp i kapitlet, så du trenger ikke ha dem klare på forhånd:\n\n$$V_{\\text{boks}} = LBH, \\qquad V_{\\text{sylinder}} = \\pi r^{2}h, \\qquad V_{\\text{kule}} = \\tfrac43\\pi r^{3}, \\qquad V_{\\text{kjegle}} = \\tfrac13\\pi r^{2}h$$\n\nFra energidelen senere i boka låner vi ett uttrykk, **løftearbeidet** $E = mgh$. Vi forklarer det der vi bruker det, så du trenger ikke ha lest energidelen først."
+    },
+    {
+      "id": "fys1100-1-3-intro",
+      "type": "text",
+      "content": "Du står på et fly som skal lande i Oslo, og ser ned på byen. Hvor mange liter maling ville det gå med til å male alle takene?\n\nIngen vet. Det finnes ingen statistikk over det. Men du kan komme innenfor en faktor ti på fem minutter, med papir og blyant og ingenting annet.\n\nDet er dette som kalles et **Fermi-problem**, etter fysikeren Enrico Fermi, som var berømt for å be studentene sine anslå slike ting på stående fot. Poenget er ikke tallet. Poenget er at en fysiker skal kunne bryte et ukjent problem ned i biter hun kan anslå hver for seg, og holde styr på tierpotensene underveis.\n\n**På eksamen er dette en egen sjanger med egne poengregler.** Og i praksis er det ferdigheten du bruker hver gang du skal svare på «er dette svaret rimelig?» — som er det siste spørsmålet du bør stille deg i hver eneste oppgave i faget.\n\nKapitlet er delt i tre løkker: først selve oppskriften og tierpotensregningen, så den geometriske modellen, og til slutt energibudsjetter og hvordan man oppgir usikkerheten ærlig."
+    },
+    {
+      "id": "fys1100-1-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — oppskriften og tierpotensene (~15 min)"
+    },
+    {
+      "id": "fys1100-1-3-def-fermiproblem",
+      "type": "definition",
+      "title": "Fermi-problem",
+      "content": "Et **Fermi-problem** er et spørsmål om en tallstørrelse ingen har slått opp for deg, og som skal besvares med et **overslag** — riktig størrelsesorden, ikke riktig siffer.\n\nKjennetegnene er tre:\n\n- spørsmålet virker umulig ved første øyekast («hvor mange sandkorn er det på en strand?»);\n- det kan brytes ned i noen få delspørsmål du **kan** anslå;\n- svaret er interessant selv om det bommer med en faktor to eller ti.\n\nNavnet kommer fra Enrico Fermi, som anslo styrken til den første kjernefysiske prøvesprengningen ved å slippe papirbiter og se hvor langt trykkbølgen flyttet dem. Anslaget hans lå innenfor en faktor to av den senere målte verdien.\n\n**På eksamen** heter dette sjanger B, og oppgaveteksten sier gjerne «anslå», «gjør et overslag over» eller «estimer»."
+    },
+    {
+      "id": "fys1100-1-3-def-oppskrift",
+      "type": "definition",
+      "title": "Fermi-oppskriften — fire steg",
+      "content": "Framgangsmåten som gir poeng, er alltid den samme:\n\n**Steg 1 — forklar tankegangen eksplisitt.** Skriv hvilken vei du skal gå, *før* du regner: «jeg finner volumet av hallen, ganger med lufttettheten, og sammenligner med noe kjent».\n\n**Steg 2 — velg en enkel geometrisk modell.** En boks, en kule, en sylinder, en kjegle. Aldri noe mer komplisert — presisjonen du vinner, forsvinner uansett i usikkerheten i anslagene.\n\n**Steg 3 — regn i tierpotenser.** Skriv hvert anslag på formen $a\\cdot 10^{n}$ med ett eller to siffer, og gang sammen. Skriv ned **hvert eneste anslag** du gjør, med enhet.\n\n**Steg 4 — avslutt med en rimelighetsvurdering.** Er svaret troverdig? Hva sammenligner du det med? Hvor stor er usikkerheten, og hvilken vei drar den?\n\n**Steg 1 og steg 4 er de som gir flest poeng.** De er også de som studenter oftest hopper over. Et Fermi-svar som består av et enslig tall, får nesten ingenting — selv om tallet er riktig."
+    },
+    {
+      "id": "fys1100-1-3-def-retteregel",
+      "type": "definition",
+      "title": "Retteregelen for Fermi-oppgaver",
+      "content": "Fermi-oppgaven rettes annerledes enn resten av eksamen.\n\n- Uttellingen ligger i **resonnementet og størrelsesordenen**, ikke i presisjonen.\n- Typisk fordeling: rundt **2 poeng for tallet, 3 poeng for forklaringen** (av inntil 5 per deloppgave).\n- En estimering som bommer med **to tierpotenser**, men som er tydelig forklart og har rimelige delanslag, får mer uttelling enn et presist tall uten forklaring.\n- Alle delanslag må stå eksplisitt i besvarelsen. Et anslag du ikke skrev ned, teller ikke — sensor kan ikke gi poeng for noe som bare skjedde i hodet ditt.\n\n**Praktisk konsekvens:** skriv mer prosa i en Fermi-oppgave enn i en vanlig regneoppgave. Ett avsnitt om framgangsmåten, en punktvis liste over anslagene, regnestykket, og et avsnitt om rimeligheten."
+    },
+    {
+      "id": "fys1100-1-3-def-storrelsesordensvar",
+      "type": "definition",
+      "title": "Størrelsesorden-svar",
+      "content": "Et **størrelsesorden-svar** er et svar som oppgis som én tierpotens, eventuelt med ett siffer foran:\n\n$$N \\approx 10^{14}, \\qquad m \\approx 1\\cdot 10^{4}\\ \\text{kg}, \\qquad E \\approx 10^{11}\\ \\text{J}$$\n\nDet er dette formatet en Fermi-oppgave skal besvares i. Å skrive $N = 1{,}4437\\cdot 10^{14}$ er ikke mer presist — det er bare mer villedende, siden ingen av delanslagene hadde fem gjeldende siffer.\n\n**Tommelfingerregel:** rund til ett gjeldende siffer i sluttsvaret på en overslagsoppgave, og si i klartekst at det er et overslag. I resten av faget gjelder derimot regelen om 2–3 gjeldende siffer."
+    },
+    {
+      "id": "fys1100-1-3-utledning-hvorfor",
+      "type": "text",
+      "content": "### Hvorfor virker det i det hele tatt?\n\nDet virker urimelig at et produkt av seks løse anslag skal treffe innenfor en faktor ti. Grunnen er verdt å forstå, fordi den også forteller deg **når metoden svikter**.\n\n**Steg 1 — feilene er multiplikative, ikke additive.** Anslår du seks størrelser og ganger dem sammen, ganges også feilene sammen. Bommer du med en faktor 2 opp på én og en faktor 2 ned på en annen, er du tilbake der du startet.\n\n*Intuisjon:* i tierpotens-språk er dette å legge sammen feil i eksponenten. En feil på $+0{,}3$ i én eksponent og $-0{,}3$ i en annen gir null til sammen.\n\n**Steg 2 — feilene er som regel uavhengige.** Du har ingen systematisk tendens til å overvurdere både bredden på en strand *og* størrelsen på et sandkorn. Uavhengige feil har en tendens til å delvis oppheve hverandre.\n\n*Intuisjon:* det er den samme grunnen til at gjennomsnittet av mange målinger er bedre enn én enkelt måling.\n\n**Steg 3 — og her svikter metoden.** Har du en **systematisk** skjevhet — for eksempel at du konsekvent tenker på idealtilfellet og glemmer at ingenting er perfekt pakket — opphever ikke feilene hverandre. De hoper seg opp.\n\n*Intuisjon:* tenker du «hvor mange kubikkcentimeter er det plass til», og glemmer at kuler ikke fyller rommet helt, bommer du alltid samme vei. Slike systematiske faktorer skal du lete aktivt etter.\n\n**Steg 4 — derfor er rimelighetsvurderingen ikke pynt.** Den er stedet der du fanger den systematiske feilen: «svaret sier at hallen inneholder ti tonn luft. Det høres mye ut — men ti tonn er bare ti personbiler, og hallen er stor. Det er rimelig.»"
+    },
+    {
+      "id": "fys1100-1-3-def-kjede",
+      "type": "definition",
+      "title": "Multiplikativ kjede",
+      "content": "En **multiplikativ kjede** er den vanligste strukturen i et Fermi-problem: svaret er et produkt av flere anslag, der enhetene «kansellerer» seg fram til riktig sluttenhet.\n\n$$\\text{antall hjerteslag} = \\frac{\\text{slag}}{\\text{minutt}}\\times\\frac{\\text{minutter}}{\\text{år}}\\times\\frac{\\text{år}}{\\text{liv}}$$\n\nLegg merke til hvordan enhetene stryker: «minutt» i nevneren i første faktor mot «minutter» i telleren i andre, og så videre. Til slutt står «slag per liv» igjen.\n\n**Dette er benevningskontroll i praksis, og den viktigste feilsikringen du har i en Fermi-oppgave.** Setter du opp kjeden med enheter og ser at de stryker riktig, har du ikke snudd en brøk opp ned — og en snudd brøk er en bom på flere tierpotenser."
+    },
+    {
+      "id": "fys1100-1-3-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: hvor mange hjerteslag i et liv?",
+      "problem": "Anslå hvor mange ganger hjertet til et menneske slår i løpet av et helt liv. Følg de fire stegene i oppskriften.",
+      "solution": "**Steg 1 — tankegangen.** Antall slag er hvilepulsen ganget med antall minutter i et liv. Antall minutter i et liv finner jeg som minutter per år ganger antall leveår. Alle tre faktorene er størrelser jeg kan anslå direkte.\n\n**Steg 2 — modell.** Ingen geometrisk modell trengs her; dette er en ren multiplikativ kjede. Jeg regner med gjennomsnittlig hvilepuls og ser bort fra at pulsen er høyere under aktivitet og hos barn — det er en korreksjon på titalls prosent, ikke på en tierpotens.\n\n**Steg 3 — anslagene og regnestykket.**\n\n| Størrelse | Anslag |\n|---|---|\n| hvilepuls | $7\\cdot 10^{1}$ slag per minutt |\n| minutter per time | $6\\cdot 10^{1}$ |\n| timer per døgn | $2{,}4\\cdot 10^{1}$ |\n| døgn per år | $3{,}65\\cdot 10^{2}$ |\n| leveår | $8\\cdot 10^{1}$ år |\n\nMinutter per år:\n$$6\\cdot 10^{1}\\times 2{,}4\\cdot 10^{1}\\times 3{,}65\\cdot 10^{2} = 5{,}3\\cdot 10^{5}\\ \\text{min/år}$$\n\nMinutter i et liv:\n$$5{,}3\\cdot 10^{5}\\times 8\\cdot 10^{1} = 4{,}2\\cdot 10^{7}\\ \\text{min}$$\n\nAntall slag:\n$$7\\cdot 10^{1}\\ \\frac{\\text{slag}}{\\text{min}}\\times 4{,}2\\cdot 10^{7}\\ \\text{min} = 2{,}9\\cdot 10^{9}\\ \\text{slag}$$\n\n**Svar:** omtrent $3\\cdot 10^{9}$ slag, altså rundt tre milliarder.\n\n**Steg 4 — rimelighetsvurdering.** Usikkerheten ligger i pulsen (kanskje 60–80 i snitt, altså $\\pm 15\\ \\%$) og i levealderen (70–90 år, $\\pm 12\\ \\%$). Ingen av dem endrer tierpotensen. Svaret er altså robust: **tre milliarder, sikkert innenfor en faktor to.**\n\nEn morsom kontroll: den samme regningen gjort for en mus (puls rundt 600, levetid 2 år) gir $6\\cdot 10^{2}\\times 5{,}3\\cdot 10^{5}\\times 2 \\approx 6\\cdot 10^{8}$ — samme størrelsesorden. Det er et velkjent biologisk mønster, og at overslaget fanger det, er et tegn på at metoden fungerer."
+    },
+    {
+      "id": "fys1100-1-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg. Ren multiplikativ kjede — ingen geometri.)\n\nAnslå hvor mange liter luft du puster inn i løpet av ett år.\n\nFølg oppskriften: forklar tankegangen, list opp anslagene dine med enhet, regn i tierpotenser, og avslutt med en rimelighetsvurdering.",
+        "solution": "**Steg 1 — tankegangen.** Volumet per år er volumet per pust ganget med antall pust per minutt ganget med antall minutter i et år. En ren multiplikativ kjede.\n\n**Steg 2 — modell.** Ingen geometrisk modell nødvendig. Jeg regner med hvilepust og ser bort fra økningen under aktivitet.\n\n**Steg 3 — anslagene.**\n\n| Størrelse | Anslag |\n|---|---|\n| volum per pust | $0{,}5\\ \\text{L} = 5\\cdot 10^{-1}\\ \\text{L}$ |\n| pust per minutt | $1{,}5\\cdot 10^{1}$ |\n| minutter per år | $5{,}3\\cdot 10^{5}$ (fra eksempel 1) |\n\n$$V = 5\\cdot 10^{-1}\\ \\frac{\\text{L}}{\\text{pust}}\\times 1{,}5\\cdot 10^{1}\\ \\frac{\\text{pust}}{\\text{min}}\\times 5{,}3\\cdot 10^{5}\\ \\text{min} = 4{,}0\\cdot 10^{6}\\ \\text{L}$$\n\n**Svar:** omtrent $4\\cdot 10^{6}$ liter, altså rundt fire millioner liter — eller $4\\cdot 10^{3}\\ \\text{m}^{3}$.\n\n*Benevningskontroll:* «pust» stryker mot «pust», «min» mot «min», og liter står igjen ✓\n\n**Steg 4 — rimelighetsvurdering.** $4\\cdot 10^{3}\\ \\text{m}^{3}$ er omtrent volumet av et hus på $180\\ \\text{m}^{2}$ med fire meter takhøyde ganger fem — eller en tredjedel av idrettshallen vi regner på i eksempel 2. At et menneske puster gjennom en luftmengde av den størrelsen på et år, virker rimelig.\n\nUsikkerheten er størst i pusteraten (10–20 per minutt i hvile, mer under aktivitet), altså rundt en faktor to. Størrelsesordenen $10^{6}$ liter står støtt.",
+        "hints": [
+          "Sett opp kjeden med enheter først, og sjekk at de stryker mot hverandre før du setter inn tall.",
+          "Volumet av ett normalt hvilepust er omtrent en halv liter — det er lettere å anslå enn du tror, hvis du tenker på en liten drikkeflaske.",
+          "Bruk $5{,}3\\cdot 10^{5}$ minutter per år fra eksempel 1 i stedet for å regne det ut på nytt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — overslagsregning",
+      "content": "**Feil A: å hoppe rett til et tall.** Den dyreste feilen i denne sjangeren. Et rimelig svar uten framgangsmåte mister forklaringspoengene, som er flertallet av poengene. Dette er en variant av **felle #1 — tallsvar uten resonnement**, den enkeltfeilen sensor påpeker oftest på hele FYS1100-eksamen. Feilene i denne boka er nummererte fordi de går igjen, og hele registeret står samlet i eksamenskartet.\n\n**Feil B: å velge en unødvendig komplisert modell.** Et fjell er en kjegle. En hall er en boks. Et menneske er en sylinder. Bruker du tid på å modellere formen nøyaktig, taper du tid uten å vinne presisjon — usikkerheten sitter i anslagene, ikke i geometrien.\n\n**Feil C: falsk presisjon.** Å oppgi $2{,}9437\\cdot 10^{9}$ når inngangsdataene var «rundt 70» og «rundt 80 år». Rund til ett gjeldende siffer og si at det er et overslag.\n\n**Feil D: å glemme rimelighetsvurderingen.** Den er ikke en høflighetsfrase. Den er stedet du fanger systematiske feil, og den er eksplisitt poenggivende.\n\n**Feil E: enhetsrot i tierpotensregningen.** Kubikkmeter mot liter ($1\\ \\text{m}^{3} = 10^{3}\\ \\text{L}$), kubikkcentimeter mot kubikkmeter ($1\\ \\text{m}^{3} = 10^{6}\\ \\text{cm}^{3}$), tonn mot kilogram. Skriv alle anslag i SI-grunnenheter først, og gjør om helt til slutt. En snudd brøk eller en glemt tredjepotens er en bom på flere tierpotenser — langt større enn all annen usikkerhet i oppgaven."
+    },
+    {
+      "id": "fys1100-1-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — den geometriske modellen (~20 min)\n\n— naturlig pausepunkt —\n\nDe fleste Fermi-oppgavene på eksamen handler om et volum eller en masse. Da trenger du en enkel kropp å erstatte virkeligheten med."
+    },
+    {
+      "id": "fys1100-1-3-def-geomodell",
+      "type": "definition",
+      "title": "Geometrisk modell",
+      "content": "En **geometrisk modell** er den enkle kroppen du erstatter det virkelige objektet med, for å kunne regne ut et volum eller et areal.\n\nReglene er to:\n\n1. **Velg den enkleste kroppen som fanger hovedformen.** Et fjell er en kjegle. En innsjø er en flat boks. En person er en sylinder. En jordklode er en kule.\n2. **Tegn den, og skriv anslåtte mål på figuren.** En figur med tall på er både raskere for deg og lettere å gi poeng for.\n\nPresisjonen du taper på å bruke en kjegle i stedet for den virkelige fjellformen, er kanskje $30\\ \\%$. Usikkerheten i dine egne anslag av høyde og bredde er minst like stor. Å modellere formen nøyaktig er derfor bortkastet arbeid."
+    },
+    {
+      "id": "fys1100-1-3-def-volumformler",
+      "type": "definition",
+      "title": "Volumformlene for standardkroppene",
+      "content": "De fire du trenger, og ikke flere:\n\n$$V_{\\text{boks}} = L\\,B\\,H$$\n$$V_{\\text{sylinder}} = \\pi r^{2}h$$\n$$V_{\\text{kule}} = \\frac{4}{3}\\pi r^{3}$$\n$$V_{\\text{kjegle}} = \\frac{1}{3}\\pi r^{2}h$$\n\nAlle fire står i Rottmann, den matematiske formelsamlingen du får bruke på eksamen — så de er ikke puggestoff. Men de er så korte at det lønner seg å ha dem i fingrene, siden du ellers bruker et minutt på å slå opp noe du kunne skrevet på fem sekunder.\n\n**To nyttige forhold å ha i bakhodet:** en kjegle har en tredjedel av volumet til sylinderen den passer inni, og en kule to tredjedeler.\n\n**Overflater**, som du trenger til malings- og varmeoppgaver: kule $4\\pi r^{2}$, sylindermantel $2\\pi r h$."
+    },
+    {
+      "id": "fys1100-1-3-def-tetthet",
+      "type": "definition",
+      "title": "Tetthet",
+      "content": "**Tettheten** til et stoff er masse per volum:\n\n$$\\rho = \\frac{m}{V}, \\qquad [\\rho] = [M][L]^{-3}, \\qquad \\text{SI: } \\text{kg}/\\text{m}^{3}$$\n\nSammenhengen du bruker i praksis er den snudde formen: $m = \\rho V$. Anslå volumet, gang med tettheten, og du har massen.\n\n**Referanseverdier du bør ha i hodet:**\n\n| Stoff | $\\rho$ (kg/m³) |\n|---|---|\n| luft ved havnivå | $1{,}2$ |\n| vann | $1{,}0\\cdot 10^{3}$ |\n| snø (nyfallen) | $\\sim 1\\cdot 10^{2}$ |\n| menneskekropp | $\\approx 1{,}0\\cdot 10^{3}$ (vi flyter så vidt) |\n| stein, betong | $\\sim 2{,}5\\cdot 10^{3}$ |\n| jern, stål | $7{,}9\\cdot 10^{3}$ |\n| jorda i snitt | $5{,}5\\cdot 10^{3}$ |\n\nMerk at nesten alt fast og flytende du møter, ligger mellom $10^{3}$ og $10^{4}\\ \\text{kg}/\\text{m}^{3}$. Det er en enorm hjelp: bommer du på materialet, bommer du sjelden på tierpotensen."
+    },
+    {
+      "id": "fys1100-1-3-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: hvor mye veier lufta i en idrettshall?",
+      "problem": "En idrettshall har omtrent plass til en håndballbane med publikumsplasser rundt. Anslå massen av lufta inne i hallen.\n\nFølg oppskriften, og tegn den geometriske modellen med anslåtte mål.",
+      "solution": "**Steg 1 — tankegangen.** Massen er lufttettheten ganget med hallens volum. Volumet finner jeg ved å modellere hallen som en rett boks og anslå de tre målene.\n\n**Steg 2 — modell.** En rett boks. En håndballbane er $40\\ \\text{m}$ lang og $20\\ \\text{m}$ bred; med tilskuerplasser rundt setter jeg bredden til $25\\ \\text{m}$. Takhøyden i en hall der man spiller ballspill, må være godt over kastehøyde — jeg anslår $12\\ \\text{m}$.\n\n**Steg 3 — regnestykket.**\n\n$$V = L\\,B\\,H = 4{,}0\\cdot 10^{1}\\ \\text{m}\\times 2{,}5\\cdot 10^{1}\\ \\text{m}\\times 1{,}2\\cdot 10^{1}\\ \\text{m} = 1{,}2\\cdot 10^{4}\\ \\text{m}^{3}$$\n\n$$m = \\rho V = 1{,}2\\ \\frac{\\text{kg}}{\\text{m}^{3}}\\times 1{,}2\\cdot 10^{4}\\ \\text{m}^{3} = 1{,}4\\cdot 10^{4}\\ \\text{kg}$$\n\n**Svar:** omtrent $1\\cdot 10^{4}\\ \\text{kg}$, altså rundt **ti tonn luft**.\n\n*Benevningskontroll:* $\\dfrac{\\text{kg}}{\\text{m}^{3}}\\cdot\\text{m}^{3} = \\text{kg}$ ✓\n\n**Steg 4 — rimelighetsvurdering.** Ti tonn høres voldsomt ut for «bare luft». Sammenligningen som gjør det troverdig: ti tonn er omtrent **ti personbiler**. En idrettshall er et stort rom — flere tusen kubikkmeter — og selv om lufta er tynn, blir det mye av den.\n\nUsikkerheten ligger i takhøyden (kanskje 8–15 m) og i om hallen er større eller mindre enn antatt. Samlet gir det en faktor rundt to hver vei. Størrelsesordenen $10^{4}\\ \\text{kg}$ står støtt.\n\nEn kontroll som er verdt å gjøre: din egen kropp har volum rundt $0{,}07\\ \\text{m}^{3}$, altså under en promille av hallen. Det stemmer med at et menneske forsvinner i en idrettshall."
+    },
+    {
+      "id": "fys1100-1-3-fig-hall",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-1-3-hall-boks.svg",
+      "alt": "Skisse av en idrettshall tegnet som en rett boks sett i perspektiv. Lengden er merket 40 meter, bredden 25 meter og hoeyden 12 meter med maalepiler. Under figuren staar volumet og lufttettheten, og nederst massen paa omtrent ti tusen kilogram.",
+      "caption": "Den geometriske modellen i eksempel 2: hallen erstattes av en rett boks med anslåtte mål påført. Slik skal en Fermi-figur se ut — enkel kropp, mål på figuren, og delresultatene skrevet ut. Merk at det er *målene* som er usikre her, ikke geometrien: en hall er faktisk temmelig boksformet."
+    },
+    {
+      "id": "fys1100-1-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær, sjanger B — overslagsoppgaven.)\n\nAnslå hvor mange tennisballer det er plass til i et vanlig klasserom.\n\nFølg oppskriften. Husk at kuler ikke fyller rommet helt — ta med den korreksjonen og forklar den.",
+        "solution": "**Steg 1 — tankegangen.** Antall baller er romvolumet delt på volumet av én ball, korrigert for at kuler ikke kan pakkes helt tett.\n\n**Steg 2 — modell.** Klasserommet som en boks, tennisballen som en kule.\n\n**Steg 3 — anslagene og regnestykket.**\n\n| Størrelse | Anslag |\n|---|---|\n| romlengde | $8\\ \\text{m}$ |\n| rombredde | $6\\ \\text{m}$ |\n| takhøyde | $3\\ \\text{m}$ |\n| tennisball, diameter | $6{,}7\\ \\text{cm}$, altså $r = 3{,}4\\cdot 10^{-2}\\ \\text{m}$ |\n| fyllgrad ved tett kulepakking | $\\approx 0{,}64$ |\n\nRomvolum:\n$$V_{\\text{rom}} = 8\\times 6\\times 3\\ \\text{m}^{3} = 1{,}4\\cdot 10^{2}\\ \\text{m}^{3}$$\n\nBallvolum:\n$$V_{\\text{ball}} = \\tfrac43\\pi r^{3} = \\tfrac43\\pi(3{,}4\\cdot 10^{-2})^{3}\\ \\text{m}^{3} = 1{,}6\\cdot 10^{-4}\\ \\text{m}^{3}$$\n\nAntall:\n$$N = \\frac{0{,}64\\times 1{,}4\\cdot 10^{2}}{1{,}6\\cdot 10^{-4}} = 5{,}6\\cdot 10^{5}$$\n\n**Svar:** omtrent $6\\cdot 10^{5}$ tennisballer, altså rundt en halv million.\n\n*Benevningskontroll:* $\\dfrac{\\text{m}^{3}}{\\text{m}^{3}}$ — svaret er dimensjonsløst, som et antall skal være ✓\n\n**Om fyllgraden:** kuler stablet så tett som mulig fyller $\\pi/\\sqrt{18} \\approx 0{,}74$ av rommet; slengt tilfeldig i en haug fyller de rundt $0{,}64$. Uten denne korreksjonen ville svaret blitt $8{,}8\\cdot 10^{5}$ — altså $56\\ \\%$ for høyt. Det er innenfor samme tierpotens, men korreksjonen er billig å ta med og viser at du tenker på systematiske skjevheter.\n\n**Steg 4 — rimelighetsvurdering.** En halv million baller er mye, men klasserommet er $10^{2}\\ \\text{m}^{3}$ og ballen under $10^{-3}\\ \\text{m}^{3}$ — en faktor $10^{6}$ i utgangspunktet, redusert av fyllgraden. Størrelsesordenen $10^{5}$–$10^{6}$ er robust.\n\nEn kontroll: langs en 8 meters vegg får du plass til $8/0{,}067 \\approx 120$ baller. Ganger vi $120\\times 90\\times 45$ (for de tre retningene), får vi $4{,}9\\cdot 10^{5}$ — samme størrelsesorden, uten å bruke kulevolum i det hele tatt.",
+        "hints": [
+          "Regn ut romvolumet og ballvolumet hver for seg, i kubikkmeter begge to, før du deler.",
+          "Pass på at radien er halve diameteren, og at den er i meter — en tennisballs radius er $3{,}4\\cdot 10^{-2}$ m, ikke $6{,}7$ cm.",
+          "Kuler kan ikke fylle rommet helt: rundt 64 % av volumet blir fylt når de ligger tilfeldig. Gang med den faktoren."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-def-fyllgrad",
+      "type": "definition",
+      "title": "Fyllgrad (pakningsgrad)",
+      "content": "**Fyllgraden** er den andelen av et volum som faktisk fylles når du stabler like kropper i det.\n\n$$\\text{fyllgrad} = \\frac{\\text{samlet volum av kroppene}}{\\text{volumet de opptar}}$$\n\nVerdier verdt å kjenne:\n\n| Situasjon | Fyllgrad |\n|---|---|\n| kuler, tettest mulig pakket | $\\pi/\\sqrt{18} \\approx 0{,}74$ |\n| kuler slengt tilfeldig i en haug | $\\approx 0{,}64$ |\n| terninger eller bokser | $\\approx 1{,}0$ |\n| grus, sand, korn | $0{,}5$–$0{,}7$ |\n\n**Hvorfor du skal ta den med:** fyllgraden er en av de få *systematiske* skjevhetene i en Fermi-oppgave. Glemmer du den, bommer du alltid samme vei — for høyt. Slike feil opphever ikke hverandre, og det er derfor de er verdt en egen linje i besvarelsen.\n\nKorreksjonen er sjelden større enn en faktor to, så den flytter ikke tierpotensen. Men den viser at du leter etter systematiske feil, og det er nettopp det som skiller en gjennomtenkt besvarelse fra et gjett."
+    },
+    {
+      "id": "fys1100-1-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — energibudsjett og ærlig usikkerhet (~15 min)\n\n— naturlig pausepunkt —\n\nDen siste hovedtypen Fermi-oppgave handler om energi. Da trenger vi ett uttrykk til."
+    },
+    {
+      "id": "fys1100-1-3-def-mgh",
+      "type": "definition",
+      "title": "Løftearbeidet $E = mgh$",
+      "content": "Løfter du en masse $m$ en høyde $h$ i tyngdefeltet, må du tilføre energien\n\n$$E = mgh$$\n\nder $g = 9{,}81\\ \\text{m/s}^{2}$ er tyngdeakselerasjonen.\n\n**I ord:** kraften du må overvinne er tyngden $mg$, og arbeidet er kraft ganger strekning. Energien blir liggende i systemet som **potensiell energi** — den kan hentes ut igjen når massen faller ned.\n\n*Benevningskontroll:* $\\text{kg}\\cdot\\text{m}/\\text{s}^{2}\\cdot\\text{m} = \\text{kg}\\cdot\\text{m}^{2}/\\text{s}^{2} = \\text{J}$ ✓\n\nUttrykket står på formelarket som deles ut på eksamen, og vi bygger det opp ordentlig i energidelen senere i boka. Her bruker vi det bare som et regneverktøy for overslag.\n\n**Referanse for å få følelse for tallene:** en kilowattime er $3{,}6\\cdot 10^{6}\\ \\text{J}$. Å løfte deg selv ($75\\ \\text{kg}$) opp fire etasjer ($15\\ \\text{m}$) koster $1{,}1\\cdot 10^{4}\\ \\text{J}$ — altså tre tusendels kilowattime. Mennesker er billige å løfte; vann er det ikke, fordi det er så mye av det."
+    },
+    {
+      "id": "fys1100-1-3-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: energien i byens vannforsyning (eksamensnivå)",
+      "problem": "Drikkevannet til en storby må pumpes opp til et høydebasseng før det kan renne ned til abonnentene igjen. Anslå hvor mye energi som går med til å pumpe ett døgns forbruk opp til et basseng $100\\ \\text{m}$ over byen.\n\nFølg oppskriften, og oppgi svaret både i joule og i kilowattimer.",
+      "solution": "**Steg 1 — tankegangen.** Energien er $E = mgh$, der $m$ er massen av ett døgns vannforbruk og $h$ er løftehøyden. Massen finner jeg som antall innbyggere ganger forbruk per person, omregnet fra liter til kilogram via vannets tetthet.\n\n**Steg 2 — modell.** Ingen geometrisk modell trengs; her er det en multiplikativ kjede pluss ett energiuttrykk. Jeg ser bort fra pumpetap (virkningsgraden er kanskje $70\\ \\%$, altså en korreksjon på $40\\ \\%$ — ikke en tierpotens).\n\n**Steg 3 — anslagene og regnestykket.**\n\n| Størrelse | Anslag |\n|---|---|\n| innbyggere | $7\\cdot 10^{5}$ |\n| vannforbruk per person per døgn | $1{,}5\\cdot 10^{2}\\ \\text{L}$ |\n| vannets tetthet | $1{,}0\\cdot 10^{3}\\ \\text{kg}/\\text{m}^{3}$, altså $1\\ \\text{kg}$ per liter |\n| løftehøyde | $1{,}0\\cdot 10^{2}\\ \\text{m}$ |\n\nMassen per døgn:\n$$m = 7\\cdot 10^{5}\\times 1{,}5\\cdot 10^{2}\\ \\text{kg} = 1{,}05\\cdot 10^{8}\\ \\text{kg}$$\n\naltså rundt hundre tusen tonn, eller $1{,}05\\cdot 10^{5}\\ \\text{m}^{3}$ vann.\n\nEnergien:\n$$E = mgh = 1{,}05\\cdot 10^{8}\\ \\text{kg}\\times 9{,}81\\ \\frac{\\text{m}}{\\text{s}^{2}}\\times 1{,}0\\cdot 10^{2}\\ \\text{m} = 1{,}0\\cdot 10^{11}\\ \\text{J}$$\n\nI kilowattimer:\n$$\\frac{1{,}0\\cdot 10^{11}\\ \\text{J}}{3{,}6\\cdot 10^{6}\\ \\text{J}/\\text{kWh}} = 2{,}9\\cdot 10^{4}\\ \\text{kWh}$$\n\n**Svar:** omtrent $1\\cdot 10^{11}\\ \\text{J}$, altså rundt $3\\cdot 10^{4}\\ \\text{kWh}$ per døgn.\n\n*Benevningskontroll:* $\\text{kg}\\cdot\\text{m}/\\text{s}^{2}\\cdot\\text{m} = \\text{J}$ ✓, og $\\text{J}/(\\text{J}/\\text{kWh}) = \\text{kWh}$ ✓\n\n**Steg 4 — rimelighetsvurdering.** $3\\cdot 10^{4}\\ \\text{kWh}$ per døgn tilsvarer årsforbruket til rundt to eneboliger ($\\sim 2\\cdot 10^{4}\\ \\text{kWh}$ per hus per år). Det virker overraskende lite for en hel by — men det er nettopp poenget: å løfte vann $100$ meter er energimessig billig sammenlignet med å varme det opp eller å transportere folk.\n\nUsikkerheten: forbruket per person kan være 100–250 liter (kommunale tall varierer sterkt med lekkasjer og industri), innbyggertallet er ganske sikkert, og løftehøyden er oppgitt. Samlet spenn: kanskje en faktor to. **Størrelsesordenen $10^{11}\\ \\text{J}$ er robust.**\n\nTar vi med at pumpene har virkningsgrad rundt $70\\ \\%$, øker energibehovet til $1{,}4\\cdot 10^{11}\\ \\text{J}$ — fortsatt samme tierpotens."
+    },
+    {
+      "id": "fys1100-1-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær, sjanger B kombinert med et energibudsjett.)\n\nAnslå hvor mye energi du bruker i løpet av ett år på å gå opp trappa til leiligheten din i fjerde etasje. Anta at du går opp to ganger per dag.\n\n**a)** Gjør overslaget etter de fire stegene.\n\n**b)** Sammenlign med årsforbruket til en vaskemaskin, som er i størrelsesorden $200\\ \\text{kWh}$.\n\n**c)** Hva forteller sammenligningen deg om hvor mye av kroppens energibruk som går til å løfte deg selv?",
+        "solution": "**a) Steg 1 — tankegangen.** Energien per tur er $mgh$, der $m$ er kroppsmassen og $h$ er høydeforskjellen opp til fjerde etasje. Ganger jeg med antall turer per år, får jeg årsforbruket.\n\n**Steg 2 — modell.** Ingen geometri; en etasje er omtrent $3\\ \\text{m}$, og fra bakkeplan til fjerde etasje er det fire–fem etasjehøyder. Jeg setter $h = 15\\ \\text{m}$.\n\n**Steg 3 — anslagene.**\n\n| Størrelse | Anslag |\n|---|---|\n| kroppsmasse | $7{,}5\\cdot 10^{1}\\ \\text{kg}$ |\n| høyde til 4. etasje | $1{,}5\\cdot 10^{1}\\ \\text{m}$ |\n| turer per døgn | $2$ |\n| dager i året du er hjemme | $2{,}5\\cdot 10^{2}$ |\n\nPer tur:\n$$E_1 = mgh = 7{,}5\\cdot 10^{1}\\times 9{,}81\\times 1{,}5\\cdot 10^{1}\\ \\text{J} = 1{,}1\\cdot 10^{4}\\ \\text{J}$$\n\nPer år:\n$$E = 1{,}1\\cdot 10^{4}\\ \\text{J}\\times 2\\times 2{,}5\\cdot 10^{2} = 5{,}5\\cdot 10^{6}\\ \\text{J}$$\n\nI kilowattimer: $\\dfrac{5{,}5\\cdot 10^{6}}{3{,}6\\cdot 10^{6}} = 1{,}5\\ \\text{kWh}$.\n\n**Svar:** omtrent $5\\cdot 10^{6}\\ \\text{J}$, altså rundt $1{,}5\\ \\text{kWh}$ per år.\n\n**Steg 4 — rimelighetsvurdering.** Halvannen kilowattime i året er nesten ingenting — mindre enn å koke fem liter vann. Det høres for lite ut, men regnestykket er robust: usikkerheten i kroppsmasse, etasjehøyde og antall turer er hver for seg under en faktor to.\n\n**b)** Vaskemaskinen bruker $2\\cdot 10^{2}\\ \\text{kWh}$ per år, altså rundt **130 ganger mer** enn trappegåingen din.\n\n**c)** At det å løfte hele kroppen $15$ meter to ganger daglig i et helt år, koster mindre enn én prosent av en vaskemaskins årsforbruk, viser at **den rene løftejobben er en forsvinnende liten del av kroppens energiomsetning**. En person forbrenner rundt $10^{7}\\ \\text{J}$ per døgn — altså like mye på ett døgn som trappa krever på et helt år.\n\nForklaringen er at kroppen bruker det aller meste av energien på å holde seg i gang (varme, hjerte, hjerne, muskelspenning) og har lav virkningsgrad i selve muskelarbeidet — rundt $20\\ \\%$. Det mekaniske løftearbeidet er bare toppen av et mye større energibudsjett.",
+        "hints": [
+          "Regn ut energien for én tur først, med $E = mgh$, og gang deretter opp med antall turer.",
+          "En etasjehøyde er omtrent 3 meter — til fjerde etasje er det rundt 15 meter fra bakkeplan.",
+          "For å sammenligne med kilowattimer: $1\\ \\text{kWh} = 3{,}6\\cdot 10^{6}\\ \\text{J}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-def-spenn",
+      "type": "definition",
+      "title": "Usikkerhetsspenn (min/maks-metoden)",
+      "content": "**Min/maks-metoden** er å regne overslaget tre ganger: én gang med alle anslag satt lavt, én gang med dem satt høyt, og én gang med de mest sannsynlige verdiene.\n\n$$N_{\\min} \\le N_{\\text{beste}} \\le N_{\\max}$$\n\nResultatet er et **spenn** i stedet for et enkelt tall, og spennet forteller ærlig hvor mye du vet.\n\n**Når du skal bruke den:** når anslagene dine er svært usikre, eller når kjeden er lang. Den mest berømte anvendelsen er Drake-likningen for antall kommuniserende sivilisasjoner i galaksen, der spennet strekker seg over rundt tolv tierpotenser — og det er selve svaret: vi vet ikke.\n\n**Praktisk regel:** har du $n$ anslag som hver er usikre med en faktor $f$, blir spennet i verste fall $f^{n}$ bredt. Fem anslag med faktor 2 hver gir en faktor 32 fra bunn til topp — altså halvannen tierpotens.\n\n**Ikke oppgi bare ytterpunktene.** Sensor vil ha det beste anslaget *og* spennet: «rundt $10^{14}$, med et rimelig spenn fra $10^{13}$ til $10^{16}$»."
+    },
+    {
+      "id": "fys1100-1-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende, sjanger B med usikkerhetsvurdering.)\n\nAnslå hvor mange sandkorn det er på en strand som er $1\\ \\text{km}$ lang.\n\n**a)** Gjør det beste anslaget etter de fire stegene.\n\n**b)** Bruk min/maks-metoden: sett alle anslag lavt, deretter alle høyt, og oppgi spennet.\n\n**c)** Hvilket av anslagene dine er spennet mest følsomt for? Begrunn.",
+        "solution": "**Metodevalg:** volumet av sandlaget delt på volumet av ett korn, korrigert for fyllgrad. Så gjentar vi regningen med ytterverdier for å få spennet.\n\n**a) Steg 1 — tankegangen.** Sandvolumet er lengde ganger bredde ganger dybde. Antall korn er sandvolumet ganger fyllgraden, delt på volumet av ett korn.\n\n**Steg 2 — modell.** Stranda som en flat boks; sandkornet som en liten terning med sidekant lik korndiameteren (en terning er enklere enn en kule og gir samme tierpotens).\n\n**Steg 3 — anslagene.**\n\n| Størrelse | Anslag |\n|---|---|\n| lengde | $1{,}0\\cdot 10^{3}\\ \\text{m}$ |\n| bredde | $3{,}0\\cdot 10^{1}\\ \\text{m}$ |\n| dybde på sandlaget | $1{,}0\\ \\text{m}$ |\n| korndiameter | $5\\cdot 10^{-4}\\ \\text{m}$ (en halv millimeter) |\n| fyllgrad | $0{,}6$ |\n\nSandvolum:\n$$V = 1{,}0\\cdot 10^{3}\\times 3{,}0\\cdot 10^{1}\\times 1{,}0\\ \\text{m}^{3} = 3{,}0\\cdot 10^{4}\\ \\text{m}^{3}$$\n\nKornvolum:\n$$V_{\\text{korn}} = (5\\cdot 10^{-4})^{3}\\ \\text{m}^{3} = 1{,}25\\cdot 10^{-10}\\ \\text{m}^{3}$$\n\nAntall:\n$$N = \\frac{0{,}6\\times 3{,}0\\cdot 10^{4}}{1{,}25\\cdot 10^{-10}} = 1{,}4\\cdot 10^{14}$$\n\n**Beste anslag:** omtrent $1\\cdot 10^{14}$ sandkorn.\n\n**Steg 4 — rimelighetsvurdering.** Hundre billioner korn på én strand høres enormt ut, men et korn er $10^{-10}\\ \\text{m}^{3}$ og sandlaget $10^{4}\\ \\text{m}^{3}$ — forholdet er $10^{14}$ før noen korreksjon i det hele tatt. Tallet følger direkte av at et sandkorn er så bitteliten.\n\n**b) Min/maks.**\n\n*Alle anslag lavt:* dybde $0{,}5\\ \\text{m}$, bredde $20\\ \\text{m}$, korndiameter $1{,}0\\ \\text{mm}$ (grovt sandkorn, gir stort kornvolum og dermed færre korn):\n$$V = 1{,}0\\cdot 10^{3}\\times 20\\times 0{,}5 = 1{,}0\\cdot 10^{4}\\ \\text{m}^{3}, \\qquad V_{\\text{korn}} = 1{,}0\\cdot 10^{-9}\\ \\text{m}^{3}$$\n$$N_{\\min} = \\frac{0{,}6\\times 1{,}0\\cdot 10^{4}}{1{,}0\\cdot 10^{-9}} = 6\\cdot 10^{12}$$\n\n*Alle anslag høyt:* dybde $3{,}0\\ \\text{m}$, bredde $50\\ \\text{m}$, korndiameter $0{,}2\\ \\text{mm}$ (fin sand):\n$$V = 1{,}0\\cdot 10^{3}\\times 50\\times 3{,}0 = 1{,}5\\cdot 10^{5}\\ \\text{m}^{3}, \\qquad V_{\\text{korn}} = 8{,}0\\cdot 10^{-12}\\ \\text{m}^{3}$$\n$$N_{\\max} = \\frac{0{,}6\\times 1{,}5\\cdot 10^{5}}{8{,}0\\cdot 10^{-12}} = 1{,}1\\cdot 10^{16}$$\n\n**Spenn:** fra rundt $10^{13}$ til rundt $10^{16}$, med beste anslag $10^{14}$. Altså **tre tierpotensers usikkerhet**.\n\n**c)** Spennet er klart mest følsomt for **korndiameteren**, fordi den inngår i **tredje potens**. Å endre diameteren fra $0{,}2$ til $1{,}0\\ \\text{mm}$ — en faktor 5 — endrer kornvolumet med en faktor $5^{3} = 125$, altså over to tierpotenser alene. Til sammenligning gir dybden (faktor 6 fra $0{,}5$ til $3\\ \\text{m}$) og bredden (faktor 2,5) til sammen bare en faktor 15.\n\n**Lærdommen som er verdt å ta med:** i en multiplikativ kjede er de anslagene som står i høy potens, de eneste som virkelig betyr noe. Bruk tiden din på å anslå dem godt, og ikke på å finstille de andre.",
+        "hints": [
+          "Regn ut sandvolumet og kornvolumet hver for seg i kubikkmeter, og del til slutt.",
+          "En terning med sidekant $d$ har volum $d^{3}$ — det er enkelt nok som modell for et sandkorn.",
+          "I c): se etter hvilken størrelse som opptrer i høyest potens i regnestykket."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-def-falsk-presisjon",
+      "type": "definition",
+      "title": "Falsk presisjon",
+      "content": "**Falsk presisjon** er å oppgi flere gjeldende siffer enn inngangsdataene bærer.\n\nSkriver du $N = 1{,}4437\\cdot 10^{14}$ etter å ha anslått «rundt en halv millimeter» og «kanskje en meter dypt», har du gitt et inntrykk av nøyaktighet som ikke finnes.\n\n**Regelen i en overslagsoppgave:** ett gjeldende siffer i sluttsvaret, eventuelt bare tierpotensen. Skriv «omtrent $10^{14}$» eller «rundt $1\\cdot 10^{14}$», og si i klartekst at det er et overslag.\n\n**Merk skillet mot resten av faget:** i en vanlig regneoppgave med oppgitte data skal du oppgi 2–3 gjeldende siffer. Der er inngangsdataene presise, og å runde til ett siffer koster deg poeng. Det er *hvor presise inngangsdataene er*, som avgjør — ikke hvilken oppgavetype det er.\n\nKalkulatoren gir deg alltid ti siffer. Det er ditt ansvar, ikke kalkulatorens, å vite hvor mange av dem som betyr noe."
+    },
+    {
+      "id": "fys1100-1-3-def-rimelighet",
+      "type": "definition",
+      "title": "Rimelighetsvurdering",
+      "content": "En **rimelighetsvurdering** er den avsluttende drøftingen der du spør om svaret kan stemme.\n\nDen skal inneholde tre ting:\n\n1. **En sammenligning med noe kjent.** «Ti tonn er omtrent ti personbiler.» «Halvannen kilowattime er mindre enn å koke fem liter vann.» Det er sammenligningen som gjør et abstrakt tall vurderbart.\n2. **En vurdering av usikkerheten.** Hvilke anslag er dårligst? Hvor bred er usikkerheten samlet — en faktor to, ti, tusen?\n3. **Retningen på usikkerheten.** Har du systematisk regnet for høyt eller for lavt? Har du glemt en fyllgrad, en virkningsgrad, et tap?\n\nRimelighetsvurderingen er eksplisitt poenggivende i denne sjangeren, og den er den delen studenter oftest dropper. Den koster deg tre setninger.\n\n**Den brukes også utenfor Fermi-oppgaver:** hver gang du har regnet ut en fart, en kraft eller en energi i denne boka, bør du bruke fem sekunder på å spørre om tallet er troverdig. En bil som akselererer med $200\\ \\text{m/s}^{2}$ er et regnefeil-varsel."
+    },
+    {
+      "id": "fys1100-1-3-def-referanseverdier",
+      "type": "definition",
+      "title": "Referanseverdier verdt å kunne",
+      "content": "Et lite lager av tall du kan i hodet, gjør Fermi-oppgaver mye raskere. Dette er et utvalg som dekker de fleste oppgavene i sjangeren:\n\n| Størrelse | Verdi |\n|---|---|\n| jordas radius | $6{,}4\\cdot 10^{6}\\ \\text{m}$ |\n| jordas masse | $6\\cdot 10^{24}\\ \\text{kg}$ |\n| sekunder i et år | $3{,}2\\cdot 10^{7}\\ \\text{s}$ |\n| minutter i et år | $5{,}3\\cdot 10^{5}$ |\n| en kilowattime | $3{,}6\\cdot 10^{6}\\ \\text{J}$ |\n| menneskets døgnforbruk av energi | $\\sim 1\\cdot 10^{7}\\ \\text{J}$ (rundt 2 500 kcal) |\n| en persons volum | $\\sim 7\\cdot 10^{-2}\\ \\text{m}^{3}$ |\n| takhøyde i et rom | $\\sim 2{,}5\\ \\text{m}$; en etasje $\\sim 3\\ \\text{m}$ |\n| Norges befolkning | $5{,}5\\cdot 10^{6}$ |\n| jordas befolkning | $8\\cdot 10^{9}$ |\n| lysfarten | $3{,}0\\cdot 10^{8}\\ \\text{m/s}$ |\n\nAlle er oppgitt med ett eller to siffer — mer trenger du ikke. Poenget er ikke å pugge en tabell, men å ha noen faste holdepunkter å måle nye anslag mot."
+    },
+    {
+      "id": "fys1100-1-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær, sjanger B med tetthetssammenligning.)\n\nEn hvit dverg er restene av en utbrent stjerne, komprimert til omtrent jordas størrelse.\n\n**a)** Anslå tettheten til en hvit dverg med samme masse som sola ($2\\cdot 10^{30}\\ \\text{kg}$), komprimert til en kule med jordas radius ($6{,}4\\cdot 10^{6}\\ \\text{m}$).\n\n**b)** Hvor mange ganger tettere er dette enn vann?\n\n**c)** Hvor mye ville en teskje (om lag $5\\ \\text{mL}$) av dette stoffet veie?\n\n**d)** Avslutt med en rimelighetsvurdering.",
+        "solution": "**Metodevalg:** ren tetthetsregning, $\\rho = m/V$, med kula som geometrisk modell. Alt består i å holde styr på tierpotensene.\n\n**a)** Volumet av kula:\n$$V = \\frac{4}{3}\\pi R^{3} = \\frac{4}{3}\\pi(6{,}4\\cdot 10^{6})^{3}\\ \\text{m}^{3} = 1{,}1\\cdot 10^{21}\\ \\text{m}^{3}$$\n\nTettheten:\n$$\\rho = \\frac{m}{V} = \\frac{2\\cdot 10^{30}\\ \\text{kg}}{1{,}1\\cdot 10^{21}\\ \\text{m}^{3}} = 1{,}8\\cdot 10^{9}\\ \\text{kg}/\\text{m}^{3}$$\n\n**Svar:** omtrent $2\\cdot 10^{9}\\ \\text{kg}/\\text{m}^{3}$.\n\n**b)** Vann har $1{,}0\\cdot 10^{3}\\ \\text{kg}/\\text{m}^{3}$, så forholdet er\n$$\\frac{1{,}8\\cdot 10^{9}}{1{,}0\\cdot 10^{3}} = 1{,}8\\cdot 10^{6}$$\n\nAltså rundt **to millioner ganger tettere enn vann**.\n\n**c)** $5\\ \\text{mL} = 5\\cdot 10^{-6}\\ \\text{m}^{3}$:\n$$m = \\rho V = 1{,}8\\cdot 10^{9}\\times 5\\cdot 10^{-6}\\ \\text{kg} = 9\\cdot 10^{3}\\ \\text{kg}$$\n\nEn teskje ville altså veie omtrent **ni tonn** — som en liten lastebil.\n\n*Benevningskontroll:* $\\dfrac{\\text{kg}}{\\text{m}^{3}}\\cdot\\text{m}^{3} = \\text{kg}$ ✓\n\n**d) Rimelighetsvurdering.** Tallene er ekstreme, men de følger direkte av oppgaveteksten: sola har $3\\cdot 10^{5}$ ganger jordas masse, og skal den presses inn i jordas volum, må tettheten opp med nettopp den faktoren. Jordas middeltetthet er $5{,}5\\cdot 10^{3}\\ \\text{kg}/\\text{m}^{3}$, og $3\\cdot 10^{5}\\times 5{,}5\\cdot 10^{3} = 1{,}7\\cdot 10^{9}$ — samme svar, funnet på en helt annen måte. **To uavhengige veier til samme tierpotens er den beste rimelighetskontrollen som finnes.**\n\nUsikkerheten er liten her, siden alle inngangstallene er oppgitte og ikke anslåtte. Det som er «anslått», er bare at en hvit dverg faktisk har omtrent jordas størrelse — og det er en modellantakelse, ikke et regneanslag.",
+        "hints": [
+          "Regn ut kulevolumet først, med $V = \\tfrac43\\pi R^{3}$, og pass på at radien er i meter.",
+          "Kubér tierpotensen for seg: $(6{,}4\\cdot 10^{6})^{3} = 6{,}4^{3}\\cdot 10^{18}$.",
+          "I c): gjør om milliliter til kubikkmeter først — $1\\ \\text{mL} = 10^{-6}\\ \\text{m}^{3}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — kritiser en løsning. Svar i sammenhengende tekst.)\n\nEn student får oppgaven «anslå massen av vannet i en middels stor norsk innsjø» og leverer følgende besvarelse:\n\n> Innsjøen er 12 km lang og 2 km bred og 40 m dyp. Volumet blir $12\\,000 \\cdot 2\\,000 \\cdot 40 = 9{,}6\\cdot 10^{8}\\ \\text{m}^{3}$. Massen blir $9{,}6\\cdot 10^{11}\\ \\text{kg}$.\n\nBesvarelsen har riktig regnestykke, men får likevel langt fra full uttelling.\n\n**a)** Nevn tre ting som mangler, målt mot retteregelen for denne sjangeren.\n\n**b)** Er det noe systematisk galt med modellen? Begrunn.\n\n**c)** Skriv om besvarelsen slik at den ville fått full uttelling. Du kan bruke studentens tall.",
+        "solution": "**a) Tre ting som mangler:**\n\n1. **Forklaringen av tankegangen.** Besvarelsen starter rett på tallene uten å si hva framgangsmåten er. Ifølge retteregelen ligger flertallet av poengene her — typisk 3 av 5.\n2. **Begrunnelsen for anslagene.** Hvorfor 12 km, 2 km og 40 m? Er dette hentet fra en innsjø studenten kjenner, eller er det et typisk tall? Et anslag uten begrunnelse er ikke etterprøvbart.\n3. **Rimelighetsvurderingen.** Ingen sammenligning med noe kjent, ingen vurdering av usikkerheten, ingen omtale av hvilken vei modellen bommer.\n\nI tillegg oppgis svaret med to gjeldende siffer ($9{,}6$) etter anslag som knapt bærer ett — altså **falsk presisjon**. Og tettheten $1{,}0\\cdot 10^{3}\\ \\text{kg}/\\text{m}^{3}$ brukes uten å nevnes; leseren må selv gjette hvor faktoren $10^{3}$ kom fra.\n\n**b) Ja — modellen er systematisk skjev.** En innsjø er ikke en rett boks: den er dypest på midten og grunn langs bredden. Boksmodellen med *maksimal* dybde overvurderer derfor volumet systematisk, kanskje med en faktor to. Dette er en av de feilene som **ikke** opphever seg selv, siden den alltid slår samme vei.\n\nEn bedre modell er å bruke en middeldybde i stedet for maksdybden — eller å gange boksvolumet med en formfaktor rundt $0{,}5$.\n\n**c) Omskrevet besvarelse:**\n\n*Framgangsmåte:* jeg modellerer innsjøen som en flat boks og ganger volumet med vannets tetthet. Siden en innsjø er dypest på midten, bruker jeg middeldybde og ikke maksdybde.\n\n*Anslag:* lengde $1{,}2\\cdot 10^{4}\\ \\text{m}$ (en middels norsk innsjø er noen få mil lang), bredde $2\\cdot 10^{3}\\ \\text{m}$, maksdybde $4\\cdot 10^{1}\\ \\text{m}$, middeldybde omtrent halvparten, altså $2\\cdot 10^{1}\\ \\text{m}$. Vannets tetthet $1{,}0\\cdot 10^{3}\\ \\text{kg}/\\text{m}^{3}$.\n\n*Regning:*\n$$V = 1{,}2\\cdot 10^{4}\\times 2\\cdot 10^{3}\\times 2\\cdot 10^{1}\\ \\text{m}^{3} = 4{,}8\\cdot 10^{8}\\ \\text{m}^{3}$$\n$$m = \\rho V = 1{,}0\\cdot 10^{3}\\times 4{,}8\\cdot 10^{8}\\ \\text{kg} = 5\\cdot 10^{11}\\ \\text{kg}$$\n\n*Svar:* omtrent $5\\cdot 10^{11}\\ \\text{kg}$, altså rundt fem hundre millioner tonn.\n\n*Rimelighetsvurdering:* dette er $5\\cdot 10^{8}\\ \\text{m}^{3}$ vann. Til sammenligning bruker en storby med $7\\cdot 10^{5}$ innbyggere rundt $10^{5}\\ \\text{m}^{3}$ per døgn, så innsjøen rommer noen tusen døgns forbruk — altså flere år. Det virker rimelig for en innsjø av denne størrelsen. Usikkerheten ligger mest i middeldybden og i hva som menes med «middels stor»; samlet spenn er kanskje en faktor tre hver vei, men størrelsesordenen $10^{11}\\ \\text{kg}$ står støtt.",
+        "hints": [
+          "Gå gjennom de fire stegene i Fermi-oppskriften og kryss av hvilke besvarelsen faktisk gjennomfører.",
+          "I b): tenk på tverrsnittet av en innsjø — er det et rektangel?",
+          "I c): du trenger ikke endre tallene, bare legge til det som mangler og korrigere modellen der den er systematisk skjev."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kort innøving i tierpotenser og referanseverdier. Ingen kalkulator.)\n\nAnslå, med ett gjeldende siffer:\n\n**a)** Hvor mange sekunder er det i en menneskealder på 80 år?\n\n**b)** Hvor mange mennesker ville det være plass til, stående tett, på et areal på $1\\ \\text{km}^{2}$? Regn med at hver person opptar $0{,}25\\ \\text{m}^{2}$.\n\n**c)** Hvor stor er jordas overflate? Bruk $R = 6{,}4\\cdot 10^{6}\\ \\text{m}$ og $A = 4\\pi R^{2}$.\n\n**d)** Hvor mange kvadratmeter jordoverflate er det per menneske, når vi er $8\\cdot 10^{9}$?",
+        "solution": "**a)** Ett år er $3{,}2\\cdot 10^{7}\\ \\text{s}$ (en av referanseverdiene). Altså\n$$8\\cdot 10^{1}\\times 3{,}2\\cdot 10^{7} = 2{,}6\\cdot 10^{9}\\ \\text{s} \\approx 3\\cdot 10^{9}\\ \\text{s}$$\nOmtrent tre milliarder sekunder — påfallende nær antall hjerteslag fra eksempel 1, siden hvilepulsen er litt over ett slag per sekund.\n\n**b)** $1\\ \\text{km}^{2} = (10^{3}\\ \\text{m})^{2} = 10^{6}\\ \\text{m}^{2}$.\n$$N = \\frac{10^{6}\\ \\text{m}^{2}}{0{,}25\\ \\text{m}^{2}} = 4\\cdot 10^{6}$$\nFire millioner mennesker på én kvadratkilometer.\n\n**c)**\n$$A = 4\\pi(6{,}4\\cdot 10^{6})^{2}\\ \\text{m}^{2} = 4\\pi\\times 4{,}1\\cdot 10^{13}\\ \\text{m}^{2} = 5{,}1\\cdot 10^{14}\\ \\text{m}^{2}$$\nAltså omtrent $5\\cdot 10^{14}\\ \\text{m}^{2}$, eller $5\\cdot 10^{8}\\ \\text{km}^{2}$.\n\n**d)**\n$$\\frac{5{,}1\\cdot 10^{14}\\ \\text{m}^{2}}{8\\cdot 10^{9}} = 6\\cdot 10^{4}\\ \\text{m}^{2} \\text{ per person}$$\n\nSeksti tusen kvadratmeter, altså rundt seks hektar — men vel to tredjedeler av det er hav.\n\n*Bonuskontroll:* fra b) og c) følger at hele menneskeheten stående tett ville trengt $8\\cdot 10^{9}\\times 0{,}25 = 2\\cdot 10^{9}\\ \\text{m}^{2} = 2\\cdot 10^{3}\\ \\text{km}^{2}$ — altså et område på rundt $45\\times 45$ kilometer. Det er en av de mest kjente Fermi-konklusjonene: alle mennesker får plass i en middels stor kommune.",
+        "hints": [
+          "Bruk referanseverdien $3{,}2\\cdot 10^{7}$ sekunder per år i stedet for å regne $365\\cdot 24\\cdot 3600$.",
+          "I b): pass på at $1\\ \\text{km}^{2} = 10^{6}\\ \\text{m}^{2}$, ikke $10^{3}$.",
+          "I c): kvadrer sifferdel og tierpotens hver for seg — $(6{,}4)^{2} = 41$ og $(10^{6})^{2} = 10^{12}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-3-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende, sjanger B og J kombinert — eksamensnivå.)\n\nAnslå hvor mange kilo bensin som brennes av personbiler i Norge i løpet av ett døgn.\n\n**a)** Gjør overslaget etter de fire stegene, med alle anslag skrevet ut.\n\n**b)** Bruk min/maks-metoden og oppgi spennet.\n\n**c)** Bensin frigjør omtrent $4{,}4\\cdot 10^{7}\\ \\text{J}$ per kilo. Hvor mye energi tilsvarer døgnforbruket ditt fra a), og hvordan står det i forhold til energien i eksempel 3 (byens vannpumping, $1\\cdot 10^{11}\\ \\text{J}$)?\n\n**d)** Nevn to systematiske skjevheter i overslaget ditt, og si hvilken vei de trekker.",
+        "solution": "**Metodevalg:** en multiplikativ kjede: antall biler ganger kjørelengde per døgn ganger forbruk per kilometer. Alle tre kan anslås fra hverdagskunnskap.\n\n**a) Steg 1 — tankegangen.** Bensinforbruket per døgn er antall bensinbiler ganget med gjennomsnittlig kjørelengde per døgn, ganget med forbruk per kilometer. Til slutt gjør jeg om fra liter til kilo med bensinens tetthet.\n\n**Steg 2 — modell.** Ingen geometri; ren kjede. Jeg regner alle biler under ett med et gjennomsnittsforbruk.\n\n**Steg 3 — anslagene.**\n\n| Størrelse | Anslag |\n|---|---|\n| innbyggere i Norge | $5{,}5\\cdot 10^{6}$ |\n| personbiler per innbygger | $0{,}5$, altså $\\approx 2{,}8\\cdot 10^{6}$ biler |\n| andel som brenner flytende drivstoff | $0{,}7$, altså $\\approx 2\\cdot 10^{6}$ biler |\n| kjørelengde per bil per døgn | $1{,}3\\cdot 10^{4}\\ \\text{km/år} / 365 \\approx 3{,}5\\cdot 10^{1}\\ \\text{km}$ |\n| forbruk | $0{,}07\\ \\text{L}/\\text{km}$ (altså $0{,}7\\ \\text{L}$ per mil) |\n| bensinens tetthet | $7{,}5\\cdot 10^{2}\\ \\text{kg}/\\text{m}^{3}$, altså $0{,}75\\ \\text{kg}/\\text{L}$ |\n\nVolum per døgn:\n$$V = 2\\cdot 10^{6}\\ \\text{biler}\\times 3{,}5\\cdot 10^{1}\\ \\frac{\\text{km}}{\\text{bil}}\\times 7\\cdot 10^{-2}\\ \\frac{\\text{L}}{\\text{km}} = 4{,}9\\cdot 10^{6}\\ \\text{L}$$\n\nMasse:\n$$m = 4{,}9\\cdot 10^{6}\\ \\text{L}\\times 0{,}75\\ \\frac{\\text{kg}}{\\text{L}} = 3{,}7\\cdot 10^{6}\\ \\text{kg}$$\n\n**Svar:** omtrent $4\\cdot 10^{6}\\ \\text{kg}$, altså rundt fire tusen tonn per døgn.\n\n*Benevningskontroll:* «bil» stryker mot «bil», «km» mot «km», «L» mot «L» — kilogram står igjen ✓\n\n**Steg 4 — rimelighetsvurdering.** Fire tusen tonn per døgn gir $1{,}4\\cdot 10^{9}\\ \\text{kg}$ per år, altså rundt $1{,}8\\cdot 10^{9}$ liter. Fordelt på $5{,}5$ millioner innbyggere blir det rundt $330$ liter per person per år — omtrent en tankfull i måneden per innbygger. Det er et troverdig tall.\n\n**b) Min/maks.**\n\n*Lavt:* $1{,}5\\cdot 10^{6}$ biler, $2\\cdot 10^{1}\\ \\text{km}$ per døgn, $0{,}05\\ \\text{L/km}$:\n$$V_{\\min} = 1{,}5\\cdot 10^{6}\\times 20\\times 0{,}05 = 1{,}5\\cdot 10^{6}\\ \\text{L} \\Rightarrow m_{\\min} \\approx 1\\cdot 10^{6}\\ \\text{kg}$$\n\n*Høyt:* $2{,}5\\cdot 10^{6}$ biler, $5\\cdot 10^{1}\\ \\text{km}$ per døgn, $0{,}10\\ \\text{L/km}$:\n$$V_{\\max} = 2{,}5\\cdot 10^{6}\\times 50\\times 0{,}10 = 1{,}25\\cdot 10^{7}\\ \\text{L} \\Rightarrow m_{\\max} \\approx 9\\cdot 10^{6}\\ \\text{kg}$$\n\n**Spenn:** fra rundt $1\\cdot 10^{6}$ til rundt $1\\cdot 10^{7}\\ \\text{kg}$, med beste anslag $4\\cdot 10^{6}$. Altså **én tierpotens** — betydelig strammere enn sandkornoppgaven, fordi ingen av anslagene inngår i høy potens.\n\n**c)** Energien:\n$$E = 3{,}7\\cdot 10^{6}\\ \\text{kg}\\times 4{,}4\\cdot 10^{7}\\ \\frac{\\text{J}}{\\text{kg}} = 1{,}6\\cdot 10^{14}\\ \\text{J}$$\n\nSammenlignet med vannpumpingen i eksempel 3 ($1\\cdot 10^{11}\\ \\text{J}$ per døgn for en hel by) er dette **omtrent tusen ganger mer**.\n\nDet er en lærerik sammenligning: å flytte biler rundt i Norge krever tre tierpotenser mer energi per døgn enn å løfte alt drikkevannet i en storby hundre meter opp. Kjemisk energi i drivstoff er i en helt annen liga enn mekanisk løftearbeid.\n\n**d) To systematiske skjevheter:**\n\n1. **Jeg har regnet med gjennomsnittsbiler og gjennomsnittsdistanser, men forbruket per kilometer er høyere ved bykjøring og korte turer** — motoren er kald, og det går mye på tomgang og i kø. Denne skjevheten trekker anslaget **for lavt**.\n2. **Jeg har utelatt varebiler, busser og lastebiler**, som kjører mye lengre distanser og bruker langt mer per kilometer enn personbiler. Oppgaven ba riktignok bare om personbiler, men hvis man tolker spørsmålet som «veitrafikk», trekker dette anslaget kraftig **for lavt**.\n\nEn tredje, som trekker motsatt vei: andelen elbiler i Norge er høy og økende, så anslaget på $0{,}7$ for andelen med flytende drivstoff kan være for høyt — det ville gjøre svaret **for høyt**.\n\nAt skjevhetene trekker i ulike retninger, er nettopp grunnen til at overslaget likevel treffer innenfor en tierpotens.",
+        "hints": [
+          "Sett opp kjeden med enheter: biler ganger kilometer per bil ganger liter per kilometer gir liter.",
+          "Anslå antall biler via befolkningen — omtrent én bil per to innbyggere er et brukbart utgangspunkt.",
+          "Gjør om til kilo helt til slutt, med bensinens tetthet på rundt $0{,}75\\ \\text{kg}$ per liter."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-1-3-def-kansellering",
+      "type": "definition",
+      "title": "Kansellering av uavhengige feil",
+      "content": "**Kansellering av feil** er grunnen til at et produkt av mange usikre anslag likevel treffer overraskende godt.\n\nNår feilene er **uavhengige** og går like ofte opp som ned, har de en tendens til å oppheve hverandre i produktet: en overvurdering med en faktor 2 ett sted og en undervurdering med en faktor 2 et annet sted gir null samlet feil.\n\nRegnet i tierpotenser: feilene legges sammen i **eksponenten**, og en sum av like mange positive som negative bidrag er nær null.\n\n**Forutsetningen er uavhengighet.** Har du en systematisk skjevhet — glemt fyllgrad, brukt maksdybde i stedet for middeldybde, oversett en virkningsgrad — går alle feilene samme vei, og de hoper seg opp i stedet for å kansellere.\n\n**Dette er hele begrunnelsen for steg 4 i oppskriften:** rimelighetsvurderingen er stedet du leter etter de systematiske skjevhetene, siden de tilfeldige tar seg av seg selv."
+    },
+    {
+      "id": "fys1100-1-3-def-skranke",
+      "type": "definition",
+      "title": "Nedre og øvre skranke",
+      "content": "En **skranke** er et tall du kan si med sikkerhet at svaret ligger over (nedre skranke) eller under (øvre skranke), uten å anslå noe.\n\nSkranker er ofte lettere å finne enn selve anslaget, og de er kraftfulle når de er stramme:\n\n- *Nedre skranke for antall tennisballer i et klasserom:* legg dem i ett lag på gulvet — $8/0{,}067 \\times 6/0{,}067 \\approx 1{,}1\\cdot 10^{4}$. Svaret må være minst så stort.\n- *Øvre skranke:* romvolumet delt på ballvolumet uten fyllgrad — $8{,}8\\cdot 10^{5}$. Svaret kan ikke være større.\n\nLigger anslaget ditt utenfor en skranke, har du gjort en regnefeil — og det er en kontroll som er verdt fem sekunder.\n\n**Bruk skranker i rimelighetsvurderingen:** «svaret mitt er $5{,}6\\cdot 10^{5}$, som ligger godt innenfor den absolutte øvre grensen på $8{,}8\\cdot 10^{5}$» er en sterk avslutning på en Fermi-besvarelse."
+    },
+    {
+      "id": "fys1100-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-1-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $N$ | antall (dimensjonsløst) | ingen |\n| $V$ | volum | $\\text{m}^{3}$ |\n| $A$ | areal | $\\text{m}^{2}$ |\n| $L$, $B$, $H$ | lengde, bredde, høyde i en boksmodell | $\\text{m}$ |\n| $r$, $R$ | radius | $\\text{m}$ |\n| $h$ | høyde (i kjegle/sylinder) eller løftehøyde | $\\text{m}$ |\n| $d$ | tykkelse eller diameter | $\\text{m}$ |\n| $m$ | masse (skalar) | $\\text{kg}$ |\n| $\\rho$ | tetthet, $\\rho = m/V$ (skalar) | $\\text{kg}/\\text{m}^{3}$ |\n| $g$ | tyngdeakselerasjon, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^{2}$ |\n| $E$ | energi (skalar) | $\\text{J}$ |\n| $a\\cdot 10^{n}$ | standardform, $1 \\le a < 10$ | — |\n| $n$ | størrelsesorden (eksponenten) | ingen |\n\n**Symbolkollisjoner du må holde styr på i dette kapitlet:**\n\n- $h$ brukes både om høyden i en kjegle eller sylinder og om løftehøyden i $E = mgh$. Skriv ut hvilken du mener når begge opptrer.\n- $R$ er her en radius. I rotasjonsdelen senere i boka betyr $R$ baneradius, og $r$ avstand fra sentrum — samme bokstaver, samme betydning.\n- $\\rho$ er tetthet her. I baneakselerasjonen senere brukes $\\rho$ om krumningsradius; det er en annen størrelse med samme bokstav, og den varsles der.\n- $n$ er størrelsesorden her, ikke en potens i en formel.\n\n**Formler i dette delkapitlet:**\n\n$$V_{\\text{boks}} = LBH, \\quad V_{\\text{sylinder}} = \\pi r^{2}h, \\quad V_{\\text{kule}} = \\tfrac43\\pi r^{3}, \\quad V_{\\text{kjegle}} = \\tfrac13\\pi r^{2}h$$\nVolumformlene for standardkroppene. **[Rottmann]** — men så korte at det lønner seg å ha dem i fingrene.\n\n$$A_{\\text{kule}} = 4\\pi r^{2}, \\qquad A_{\\text{sylindermantel}} = 2\\pi r h$$\nOverflater, til malings- og varmeoppgaver. **[Rottmann]**\n\n$$\\rho = \\frac{m}{V} \\quad\\Longleftrightarrow\\quad m = \\rho V$$\nTetthet. **[må kunne utledes]** — dette er en definisjon, ikke en formel å pugge.\n\n$$E = mgh$$\nLøftearbeidet, altså den potensielle energien i tyngdefeltet. **[formelarket]** (der skrevet $U = mgy$). Bygges opp ordentlig i energidelen senere i boka.\n\n$$N \\approx \\frac{\\text{fyllgrad}\\times V_{\\text{rom}}}{V_{\\text{enhet}}}$$\nAntall enheter som får plass i et volum. **[må kunne utledes]**\n\n$$1\\ \\text{kWh} = 3{,}6\\cdot 10^{6}\\ \\text{J}$$\nOmregning mellom kilowattimer og joule. **[må kunne utledes]** fra $1\\ \\text{W} = 1\\ \\text{J/s}$ og $1\\ \\text{h} = 3600\\ \\text{s}$.\n\n**Merk formelark-strategien:** eksamen deler ut et fagspesifikt formelark og tillater Rottmann. Alle formlene over er derfor tilgjengelige. Poengene i en Fermi-oppgave ligger ikke i formlene i det hele tatt — de ligger i å *velge* en enkel modell, *skrive ut* hvert anslag, og *vurdere* om svaret er rimelig."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-1-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-1-3-repetisjon-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver på stoffet dette kapitlet bygger på, hentet fra [kap. 1.1](/bok/fys1100/fys1100-1-1). Fasit står rett under hvert spørsmål — dekk den til først.\n\n**R1.** Hva er størrelsesorden til $4{,}9\\cdot 10^{6}$ og til $8{,}0\\cdot 10^{-12}$?\n\n*Fasit:* $6$ og $-12$. Størrelsesorden er eksponenten når tallet står på standardform med sifferdel mellom 1 og 10.\n\n**R2.** Regn ut $\\dfrac{3{,}0\\cdot 10^{4}}{1{,}25\\cdot 10^{-10}}$ uten kalkulator.\n\n*Fasit:* $\\dfrac{3{,}0}{1{,}25} = 2{,}4$ og $\\dfrac{10^{4}}{10^{-10}} = 10^{14}$, altså $2{,}4\\cdot 10^{14}$.\n\n**R3.** Hvor mange kubikkmeter er $1$ liter? Og hvor mange liter er $1\\ \\text{m}^{3}$?\n\n*Fasit:* $1\\ \\text{L} = 10^{-3}\\ \\text{m}^{3}$, og $1\\ \\text{m}^{3} = 10^{3}\\ \\text{L}$. En kubikkdesimeter er en liter, og det går tusen kubikkdesimeter i en kubikkmeter.\n\n**R4.** Kontrollér ved benevningskontroll at $m = \\rho V$ gir kilogram når $\\rho$ er i $\\text{kg}/\\text{m}^{3}$ og $V$ i $\\text{m}^{3}$.\n\n*Fasit:* $\\dfrac{\\text{kg}}{\\text{m}^{3}}\\cdot\\text{m}^{3} = \\text{kg}$ ✓ — kubikkmeterne stryker.\n\n**R5.** Et anslag skal ganges med en faktor som er usikker med en faktor 3 hver vei. Hvor bredt blir spennet fra bunn til topp?\n\n*Fasit:* Fra $1/3$ til $3$ av det beste anslaget, altså en faktor $9$ fra bunn til topp — noe under én tierpotens."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

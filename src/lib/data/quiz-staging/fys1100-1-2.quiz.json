@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er koeffisienten foran $(x-a)^{j}$ i et Taylor-polynom?",
+    "options": [
+      "$\\dfrac{f^{(j)}(a)}{j!}$",
+      "$\\dfrac{f^{(j)}(a)}{j}$",
+      "$\\dfrac{f^{(j)}(x)}{j!}$",
+      "$j!\\,f^{(j)}(a)$"
+    ],
+    "explanation": "Fakultetet i nevneren nøytraliserer de faktorene som oppstår når $x^{j}$ deriveres $j$ ganger. Varianten med $j$ i stedet for $j!$ ligger nærmest og gir riktig svar for de to første leddene, men bryter sammen fra tredje ledd der $3! = 6$ og ikke 3."
+  },
+  {
+    "question": "Hva er Maclaurin-polynomet av 2. orden til $\\cos\\theta$?",
+    "options": [
+      "$1 - \\dfrac{\\theta^{2}}{2}$",
+      "$1 - \\dfrac{\\theta^{2}}{6}$",
+      "$1 + \\dfrac{\\theta^{2}}{2}$",
+      "$\\theta - \\dfrac{\\theta^{2}}{2}$"
+    ],
+    "explanation": "Med $f(0)=1$, $f'(0)=0$ og $f''(0)=-1$ blir andreordensleddet $-\\theta^{2}/2$. Varianten med 6 i nevneren ligger nærmest, men den nevneren hører til tredjeordensleddet i sinusrekka, ikke til andreordensleddet i cosinusrekka."
+  },
+  {
+    "question": "Hva er Maclaurin-polynomet av 3. orden til $\\sin\\theta$?",
+    "options": [
+      "$\\theta - \\dfrac{\\theta^{3}}{6}$",
+      "$\\theta - \\dfrac{\\theta^{3}}{3}$",
+      "$\\theta - \\dfrac{\\theta^{2}}{2}$",
+      "$1 - \\dfrac{\\theta^{3}}{6}$"
+    ],
+    "explanation": "Tredjeordensleddet har koeffisienten $f'''(0)/3! = -1/6$. Varianten med 3 i nevneren ligger nærmest, men den forveksler fakultetet $3! = 6$ med selve ordenen."
+  },
+  {
+    "question": "Hvorfor må vinkler måles i radianer i tilnærmingen $\\sin\\theta \\approx \\theta$?",
+    "options": [
+      "Fordi derivasjonsregelen $(\\sin x)' = \\cos x$ bare gjelder i radianer",
+      "Fordi radianer er dimensjonsløse, mens grader har en enhet",
+      "Fordi radianer alltid gir mindre tallverdier enn grader",
+      "Fordi kalkulatoren regner internt i radianer uansett innstilling"
+    ],
+    "explanation": "Hele Taylor-rekka bygger på de deriverte, og de har den enkle formen bare når vinkelen måles i radianer; i grader kommer det en faktor $\\pi/180$ inn ved hver derivasjon. Argumentet om dimensjonsløshet ligger nærmest og er delvis riktig, men grader er også dimensjonsløse — det er derivasjonsregelen som er avgjørende."
+  },
+  {
+    "question": "Hva er restleddet $R_n(x)$ i Taylors formel?",
+    "options": [
+      "Den eksakte differansen mellom funksjonen og polynomet",
+      "Det første leddet som er tatt med i polynomet",
+      "Summen av alle leddene i polynomet av orden $n$",
+      "Den deriverte av polynomet i utviklingspunktet"
+    ],
+    "explanation": "Per definisjon er $R_n(x) = f(x) - P_n(x)$, altså feilen man gjør ved å bytte funksjonen med polynomet. Alternativet om det første leddet som er med ligger nærmest i formulering, men restleddet handler tvert imot om det som er utelatt."
+  },
+  {
+    "question": "Hvor stor kan en vinkel omtrent være før $\\sin\\theta \\approx \\theta$ bommer med mer enn $1\\ \\%$?",
+    "options": [
+      "Rundt $0{,}25$ radianer, altså omtrent $15^{\\circ}$",
+      "Rundt $0{,}05$ radianer, altså omtrent $3^{\\circ}$",
+      "Rundt $0{,}80$ radianer, altså omtrent $45^{\\circ}$",
+      "Rundt $1{,}6$ radianer, altså omtrent $90^{\\circ}$"
+    ],
+    "explanation": "Ved $\\theta = 0{,}25$ rad er det relative avviket akkurat $1{,}0\\ \\%$, og det er derfor pendeloppgaver alltid sier «små utslag». Grensen på $3^{\\circ}$ ligger nærmest, men er unødvendig streng: der er avviket bare rundt $0{,}05\\ \\%$."
+  },
+  {
+    "question": "Hva er andreordensleddet i utviklingen av $(1+x)^{n}$ om $x = 0$?",
+    "options": [
+      "$\\dfrac{n(n-1)}{2}x^{2}$",
+      "$\\dfrac{n(n+1)}{2}x^{2}$",
+      "$\\dfrac{n^{2}}{2}x^{2}$",
+      "$n(n-1)x^{2}$"
+    ],
+    "explanation": "Koeffisienten kommer fra $f''(0)/2! = n(n-1)/2$. Varianten med $n(n+1)$ ligger nærmest, men fortegnet blir da galt for brøkeksponenter: for $n = \\tfrac12$ skal leddet være $-x^{2}/8$, ikke $+3x^{2}/8$."
+  },
+  {
+    "question": "Hva er førsteordenstilnærmingen til $\\dfrac{1}{\\sqrt{1-x}}$ for små $x$?",
+    "options": [
+      "$1 + \\dfrac{x}{2}$",
+      "$1 - \\dfrac{x}{2}$",
+      "$1 + 2x$",
+      "$1 - x$"
+    ],
+    "explanation": "Med $n = -\\tfrac12$ og argumentet $-x$ blir førsteordensleddet $(-\\tfrac12)(-x) = +x/2$. Varianten med minustegn ligger nærmest, men to minustegn opphever hverandre her — og resultatet må være større enn 1, siden nevneren er mindre enn 1."
+  },
+  {
+    "question": "Hva er linearisering?",
+    "options": [
+      "Å erstatte en funksjon med sitt førsteordens Taylor-polynom om et punkt",
+      "Å erstatte en funksjon med sitt andreordens Taylor-polynom om et punkt",
+      "Å erstatte alle ikke-lineære ledd i en likning med null",
+      "Å velge et utviklingspunkt der funksjonen er tilnærmet rett"
+    ],
+    "explanation": "Resultatet er tangentlinja i punktet, altså $f(a) + f'(a)(x-a)$. Å sette ikke-lineære ledd til null ligger nærmest i virkning, men er ikke det samme: lineariseringen beholder informasjon fra den deriverte i punktet, som ikke er null."
+  },
+  {
+    "question": "Hvorfor forsvinner alltid nullteordensleddet når man lineariserer en kraft om et likevektspunkt?",
+    "options": [
+      "Fordi kraften per definisjon er null i et likevektspunkt",
+      "Fordi den deriverte av kraften er null i et likevektspunkt",
+      "Fordi den potensielle energien er null i et likevektspunkt",
+      "Fordi man alltid velger origo i likevektspunktet"
+    ],
+    "explanation": "Nullteordensleddet er $F(x_0)$, og et likevektspunkt er nettopp definert ved at summen av kreftene der er null. Alternativet om den deriverte ligger nærmest, men det er den *potensielle energien* som har null derivert der — kraftens deriverte er tvert imot det som blir fjærkonstanten."
+  },
+  {
+    "question": "Hva er den effektive fjærkonstanten for små svingninger om et stabilt likevektspunkt $x_0$?",
+    "options": [
+      "$k = U''(x_0)$, den andrederiverte av den potensielle energien",
+      "$k = U'(x_0)$, den førstederiverte av den potensielle energien",
+      "$k = -U''(x_0)$, med minustegn foran den andrederiverte",
+      "$k = U(x_0)$, verdien av den potensielle energien"
+    ],
+    "explanation": "Siden $F = -U'$, blir $-F'(x_0) = U''(x_0)$, og for en stabil likevekt er den positiv. Varianten med minustegn ligger nærmest, men den ville gitt negativ fjærkonstant i en energibrønn, altså en kraft som skyver legemet vekk fra likevekten."
+  },
+  {
+    "question": "Hva er Lorentz-faktoren $\\gamma$?",
+    "options": [
+      "$\\left(1 - v^{2}/c^{2}\\right)^{-1/2}$, alltid større enn eller lik 1",
+      "$\\left(1 - v^{2}/c^{2}\\right)^{1/2}$, alltid mindre enn eller lik 1",
+      "$\\left(1 + v^{2}/c^{2}\\right)^{-1/2}$, alltid mindre enn 1",
+      "$\\left(1 - v/c\\right)^{-1}$, alltid større enn 1"
+    ],
+    "explanation": "Den negative halve eksponenten gjør at $\\gamma$ vokser uten grense når farten nærmer seg lysfarten. Varianten med positiv eksponent ligger nærmest, men den er den omvendte størrelsen og ville gjort tidsdilatasjonen til en sammentrekning."
+  },
+  {
+    "question": "Hva blir $\\gamma$ utviklet til andre orden i $\\beta = v/c$?",
+    "options": [
+      "$1 + \\tfrac12\\beta^{2}$",
+      "$1 - \\tfrac12\\beta^{2}$",
+      "$1 + \\tfrac12\\beta$",
+      "$1 + \\tfrac38\\beta^{2}$"
+    ],
+    "explanation": "Med $u = \\beta^{2}$ og binomialrekka for $(1-u)^{-1/2}$ blir førsteleddet i $u$ lik $+u/2$. Varianten med minustegn ligger nærmest, men den ville gitt $\\gamma < 1$, som er umulig — og alle leddene i denne rekka er positive."
+  },
+  {
+    "question": "Hva blir den relativistiske kinetiske energien $K = (\\gamma-1)mc^{2}$ for lave farter?",
+    "options": [
+      "$\\tfrac12 mv^{2} + \\tfrac38\\,mv^{4}/c^{2}$",
+      "$\\tfrac12 mv^{2} + \\tfrac38\\,mv^{4}c^{2}$",
+      "$mc^{2} + \\tfrac12 mv^{2}$",
+      "$\\tfrac12 mv^{2} - \\tfrac38\\,mv^{4}/c^{2}$"
+    ],
+    "explanation": "Første ledd er nøyaktig det klassiske uttrykket, og korreksjonen er positiv fordi alle ledd i $\\gamma$-rekka er positive. Varianten med $mc^{2}$ først ligger nærmest, men det er den *totale* energien — hvileenergien er allerede trukket fra i $K$."
+  },
+  {
+    "question": "Hvorfor inneholder rekka for $\\gamma$ bare like potenser av $\\beta$?",
+    "options": [
+      "Fordi $\\gamma$ avhenger av farten bare gjennom $\\beta^{2}$",
+      "Fordi odde potenser alltid forsvinner i binomialrekker",
+      "Fordi $\\beta$ er dimensjonsløs og derfor alltid opptrer i par",
+      "Fordi rekka bare er gyldig for positive verdier av $\\beta$"
+    ],
+    "explanation": "Uttrykket $(1-\\beta^{2})^{-1/2}$ inneholder ikke $\\beta$ alene noe sted, så enhver rekke i $\\beta^{2}$ gir bare like potenser tilbake. Påstanden om binomialrekker generelt ligger nærmest, men er gal: $(1+x)^{n}$ har både odde og like potenser av $x$."
+  },
+  {
+    "question": "Hvordan endrer feilen seg når man halverer avstanden til utviklingspunktet i en førsteordens tilnærming?",
+    "options": [
+      "Den faller til omtrent en fjerdedel",
+      "Den faller til omtrent en halvdel",
+      "Den faller til omtrent en åttedel",
+      "Den faller til omtrent en sekstendedel"
+    ],
+    "explanation": "Restleddet i en førsteordens tilnærming er proporsjonalt med $(x-a)^{2}$, så en halvering gir en faktor $\\tfrac14$. Svaret «en halvdel» ligger nærmest og ville vært riktig for en nullteordens tilnærming, der restleddet går lineært."
+  }
+]

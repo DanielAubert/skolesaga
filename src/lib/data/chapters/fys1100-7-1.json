@@ -1,0 +1,439 @@
+{
+  "id": "fys1100-7-1",
+  "courseId": "fys1100",
+  "chapterNumber": "7.1",
+  "title": "Differensiallikninger fra Newtons 2. lov",
+  "description": "Hvordan Newtons 2. lov blir en differensiallikning, hvordan du klassifiserer den, hva initialbetingelsene gjør — og hvorfor det å integrere som om den ukjente var konstant gir null poeng.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne sette opp bevegelseslikningen for et legeme ut fra frilegemediagram og Newtons 2. lov",
+    "kunne klassifisere en differensiallikning etter orden, linearitet, homogenitet og separabilitet, og velge metode ut fra klassifiseringen",
+    "kunne begrunne initialbetingelser fysisk og vite hvor mange som trengs",
+    "kunne forklare hvorfor en differensiallikning ikke kan integreres som om den ukjente var konstant"
+  ],
+  "content": [
+    {
+      "id": "fys1100-7-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Differensiallikninger er testet i 6 av 7 sett (86 %).** De kommer nesten alltid i samme form: du får en fysisk situasjon, skal utlede likningen fra Newtons 2. lov, løse den analytisk, og til slutt skissere hvordan du ville løst den på datamaskin. Det er én sammenhengende oppgave, og den er verdt fem–seks deloppgaver.\n\nKapitlet hører til **sjanger G — svingninger og differensiallikninger**, altså oppgavene der den ukjente er en *funksjon* av tiden og ikke et tall. Her bygger vi inngangen: å sette opp likningen og å se hva slags likning du har fått.\n\n**Slik ligger poengene, ut fra sensorveiledningene i H2023, V2024 og V2025:**\n\n| Steg | Uttelling |\n|---|---|\n| Frilegemediagram og oppsett av likningen fra Newtons 2. lov | bærende — resten hviler på det |\n| **Klassifisering** (orden, lineær/ikke-lineær, homogen/inhomogen, separabel) | **selvstendig poenggivende** — skriv den alltid ut |\n| Riktig antall initialbetingelser, fysisk begrunnet | egne poeng |\n| Å velge riktig løsningsmetode ut fra klassifiseringen | egne poeng |\n\n**Den dyreste fellen i hele boka bor i dette kapitlet.** Å «integrere» en differensiallikning som om den ukjente funksjonen var en konstant gir **null poeng** — ikke delvis uttelling, null. Dette er **felle #3** i bokas feilregister (feilene har et samlet register i [kap. 0.1](/bok/fys1100/fys1100-0-1)). Vi bruker en hel læringsløkke på å vise nøyaktig hva som går galt.\n\n**Høyeste prioritet — dette må sitte.** Del 7 er dessuten inngangen til det numeriske sporet: den samme likningen du setter opp her, er den du senere løser med datamaskin."
+    },
+    {
+      "id": "fys1100-7-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 2.1](/bok/fys1100/fys1100-2-1), [kap. 3.1](/bok/fys1100/fys1100-3-1) og [kap. 3.2](/bok/fys1100/fys1100-3-2). Det du trenger derfra, ferdig oppfrisket:\n\n**Newtons 2. lov, komponentvis, én gang per legeme:**\n\n$$\\sum F_x = ma_x, \\qquad \\sum F_y = ma_y$$\n\n**Akselerasjonen er den dobbelt deriverte av posisjonen:**\n\n$$v = \\frac{dy}{dt}, \\qquad a = \\frac{dv}{dt} = \\frac{d^2y}{dt^2}$$\n\nDet er nettopp denne sammenhengen som gjør Newtons 2. lov til en differensiallikning: venstre side inneholder krefter, høyre side inneholder en derivert av den ukjente funksjonen.\n\n**Kraftmodellene fra [kap. 3.2](/bok/fys1100/fys1100-3-2):** tyngden $m\\mathbf{g}$, normalkraften $\\mathbf{N}$, dynamisk friksjon $\\lvert\\mathbf{f}_d\\rvert = \\mu_d N$ mot bevegelsesretningen, og fjærkraften\n\n$$\\mathbf{F} = -k(x - x_0)$$\n\nder $k$ er fjærkonstanten og $x_0$ er posisjonen der fjæra er avspent.\n\n**Konstant-$a$-formlene** $v = v_0 + at$ og $x = x_0 + v_0t + \\tfrac12at^2$ gjelder **bare** når akselerasjonen er konstant. Så snart en kraft avhenger av farten eller posisjonen, er de ubrukelige — og da er du i dette kapitlet.\n\nFra matematikken trenger du derivasjon og integrasjon: [Derivasjon av vektorfunksjoner](/bok/r2/r2-6-2) og [Variabelskifte (substitusjon)](/bok/r2/r2-3-1). R2 dekker ikke differensiallikninger som eget tema — hele typologien innføres her, fra bunnen.\n\n**Notasjonsavtale for kapitlet.** Vi arbeider stort sett i én dimensjon og skriver da posisjonen $y$ (eller $x$) og farten $v$ som kursive skalarer med fortegn: positiv verdi betyr «i den positive akseretningen». Krefter som opptrer som vektorer skrives fete: $\\mathbf{F}$, $\\mathbf{N}$. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$ — **aldri** $\\mathbf{G}$, siden $G$ er reservert gravitasjonskonstanten senere i boka. Snordrag er $T$; en svingeperiode skriver vi $T_p$ for å unngå kollisjon. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-7-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — når kraften ikke er konstant (~12 min)\n\nDu slipper pedalene i en lang nedoverbakke. De første sekundene øker farten jevnt, som i fritt fall langs bakken. Men farten fortsetter ikke å øke jevnt: etter hvert flater den ut mot en verdi der du bare triller, uansett hvor lang bakken er.\n\nHvorfor? Fordi luftmotstanden vokser med farten. Kraften som bremser deg, **avhenger av det du prøver å regne ut**. Og i det øyeblikket er ikke lenger $v = v_0 + at$ til noen hjelp: den formelen forutsetter at $a$ er konstant, og her er den ikke det.\n\n**Intuisjon:** så lenge kreftene er konstante, er mekanikk en oppskrift. Så snart en kraft avhenger av fart eller posisjon, blir den en *likning om en funksjon* — og det er en differensiallikning."
+    },
+    {
+      "id": "fys1100-7-1-def-ode",
+      "type": "definition",
+      "title": "Differensiallikning",
+      "content": "En differensiallikning er en likning der den ukjente er en **funksjon**, og der likningen knytter funksjonen sammen med én eller flere av dens deriverte.\n\nI mekanikken er den ukjente funksjonen posisjonen $y(t)$ eller farten $v(t)$, og likningen har formen\n\n$$m\\frac{d^2y}{dt^2} = \\sum F$$\n\n**Det avgjørende skillet:** i en vanlig likning som $3x + 2 = 11$ leter du etter et **tall**. I en differensiallikning leter du etter en **funksjon** — en hel kurve $y(t)$ som oppfyller likningen i hvert eneste tidspunkt. Å svare med et tall på et spørsmål om en differensiallikning er derfor alltid feil."
+    },
+    {
+      "id": "fys1100-7-1-th-bevegelseslikning",
+      "type": "theorem",
+      "title": "Bevegelseslikningen: Newtons 2. lov som differensiallikning",
+      "content": "Sett opp Newtons 2. lov for legemet, sett inn kraftmodellene, og erstatt akselerasjonen med den andrederiverte av posisjonen:\n\n$$m\\frac{d^2y}{dt^2} = \\sum F\\left(y,\\ \\frac{dy}{dt},\\ t\\right)$$\n\nHøyresiden kan inneholde tre slags avhengighet, og det er dem du skal lete etter:\n\n- **avhengighet av posisjonen $y$** — fjærkraft, gravitasjon, potensialkrefter;\n- **avhengighet av farten $dy/dt$** — luftmotstand, dempere, viskøs motstand;\n- **eksplisitt avhengighet av tiden $t$** — en motor som skrus opp, en varierende ytre påkjenning.\n\nEr høyresiden helt uavhengig av alle tre, er akselerasjonen konstant, og du kan bruke konstant-$a$-formlene i stedet. **Det er den ene sjekken som avgjør om du i det hele tatt har en differensiallikning å hanskes med.**"
+    },
+    {
+      "id": "fys1100-7-1-def-losning",
+      "type": "definition",
+      "title": "Løsning av en differensiallikning",
+      "content": "En løsning er en **funksjon** som gjør likningen sann for alle tidspunkt i det aktuelle intervallet. Du sjekker en påstått løsning ved å **derivere den og sette den inn** — akkurat som du sjekker en tallikning ved å sette inn tallet.\n\nInnsettingsprøven er både en kontroll og en poenghøster: sensor godtar en riktig løsning som er verifisert ved innsetting selv om veien fram var kort. Og på en «vis at $y(t) = \\dots$ løser likningen»-deloppgave er innsetting *hele* metoden."
+    },
+    {
+      "id": "fys1100-7-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fritt fall som differensiallikning",
+      "problem": "En ball slippes fra en høyde. Vi regner $y$ positivt oppover og ser bort fra luftmotstanden.\n\n**a)** Sett opp bevegelseslikningen.\n\n**b)** Vis at $y(t) = y_0 + v_0t - \\tfrac12 gt^2$ er en løsning.\n\n**c)** Hva betyr $y_0$ og $v_0$ fysisk?",
+      "solution": "**Metodevalg først:** vi bruker Newtons 2. lov på ballen alene. Med luftmotstanden neglisjert er tyngden den eneste kraften, så oppsettet er kort — men strukturen er den samme som i alle senere oppgaver.\n\n**a)** Frilegemediagrammet for ballen har én pil: tyngden $m\\mathbf{g}$ rett nedover, altså i negativ $y$-retning. Newtons 2. lov i $y$-retningen gir\n\n$$m\\frac{d^2y}{dt^2} = -mg \\quad \\Longrightarrow \\quad \\frac{d^2y}{dt^2} = -g$$\n\nMassen faller ut. Høyresiden er en konstant — den avhenger verken av $y$, av farten eller av tiden.\n\n**b)** Vi deriverer den påståtte løsningen to ganger:\n\n$$\\frac{dy}{dt} = v_0 - gt, \\qquad \\frac{d^2y}{dt^2} = -g$$\n\nDen andrederiverte er $-g$, som er nøyaktig høyresiden. Likningen er altså oppfylt for **alle** $t$, og funksjonen er en løsning.\n\n**c)** Setter vi $t = 0$, får vi $y(0) = y_0$ og $dy/dt\\big|_{t=0} = v_0$. Altså er $y_0$ starthøyden og $v_0$ startfarten (positiv oppover). De to konstantene er ikke noe likningen bestemmer — de kommer fra **hvordan** ballen ble sluppet.\n\n**Benevningskontroll:** venstre side i $d^2y/dt^2 = -g$ har enhet $\\text{m/s}^2$, og det har $g$ også. Det stemmer.\n\n**Merk hva vi gjorde her:** vi *verifiserte* en løsning uten å utlede den. Det er en helt gyldig og ofte rask metode, og på eksamen er svaret ofte oppgitt i oppgaveteksten nettopp for at du skal kunne gjøre dette."
+    },
+    {
+      "id": "fys1100-7-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv opp bevegelseslikningen for hvert av de tre tilfellene, og si i hver av dem **hvilken funksjon som er den ukjente**. Du skal ikke løse noe.\n\n**a)** En kloss glir uten friksjon nedover et fast skråplan med helning $\\theta$. La $s$ være posisjonen langs planet, positiv nedover.\n\n**b)** En kloss på et vannrett, friksjonsfritt underlag er festet til en fjær med fjærkonstant $k$. La $x$ være utslaget fra der fjæra er avspent.\n\n**c)** En kasse skyves over et vannrett gulv av en konstant kraft $F$, med dynamisk friksjonstall $\\mu_d$ mot underlaget. La $x$ være posisjonen langs gulvet, positiv i skyveretningen.",
+        "solution": "**Metodevalg:** ett frilegemediagram per legeme, Newtons 2. lov langs bevegelsesretningen, og deretter $a = d^2(\\text{posisjon})/dt^2$.\n\n**a)** Tyngdekomponenten langs planet er $mg\\sin\\theta$, normalkraften har ingen komponent langs planet:\n\n$$m\\frac{d^2s}{dt^2} = mg\\sin\\theta \\quad \\Longrightarrow \\quad \\frac{d^2s}{dt^2} = g\\sin\\theta$$\n\nDen ukjente er posisjonen $s(t)$ langs planet. Høyresiden er konstant.\n\n**b)** Fjærkraften er $-kx$, målt fra avspent lengde:\n\n$$m\\frac{d^2x}{dt^2} = -kx$$\n\nDen ukjente er utslaget $x(t)$. Høyresiden avhenger av den ukjente selv — dette er en ekte differensiallikning som ikke kan skrives om til konstant akselerasjon.\n\n**c)** Normalkraften er $N = mg$ (vannrett underlag, ingen loddrett komponent av skyvekraften), så friksjonen har tallverdien $\\mu_d mg$ og peker mot bevegelsen:\n\n$$m\\frac{d^2x}{dt^2} = F - \\mu_d mg$$\n\nDen ukjente er $x(t)$. Høyresiden er konstant så lenge kassa beveger seg framover.\n\n**Legg merke til mønsteret:** bare i **b)** står den ukjente funksjonen på begge sider. I **a)** og **c)** er akselerasjonen konstant, og da holder det med bevegelseslikningene fra [kap. 2.1](/bok/fys1100/fys1100-2-1).",
+        "hints": [
+          "Tegn frilegemediagram og skriv $\\sum F = ma$ langs bevegelsesretningen.",
+          "Bytt ut $a$ med $d^2x/dt^2$ (eller $d^2s/dt^2$) til slutt.",
+          "Spørsmålet «hva er den ukjente?» besvares alltid med en funksjon av tiden, aldri med et tall."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — klassifiseringen som gir poeng (~16 min)\n\nNår likningen står der, er neste steg alltid det samme: **hva slags likning er dette?** Sensor gir egne poeng for klassifiseringen, og grunnen er praktisk — det er klassifiseringen som bestemmer hvilken metode du kan bruke. Hopper du over den, gjetter du på metode.\n\nFire spørsmål, i denne rekkefølgen. De tar tjue sekunder til sammen når de sitter."
+    },
+    {
+      "id": "fys1100-7-1-def-orden",
+      "type": "definition",
+      "title": "Ordenen til en differensiallikning",
+      "content": "Ordenen er nummeret på den **høyeste** deriverte som opptrer i likningen.\n\n$$m\\frac{dv}{dt} = mg - k_v v \\quad \\text{er av \\textbf{første} orden}$$\n\n$$m\\frac{d^2y}{dt^2} = -ky \\quad \\text{er av \\textbf{andre} orden}$$\n\nNewtons 2. lov skrevet for posisjonen gir alltid andre orden, fordi akselerasjonen er den andrederiverte. Skriver du den i stedet for farten, og posisjonen ikke inngår, faller ordenen til én. **Det trikset er halve verktøykassa i luftmotstandsoppgaver.**\n\nOrdenen bestemmer hvor mange ubestemte konstanter løsningen får — og dermed hvor mange initialbetingelser du trenger."
+    },
+    {
+      "id": "fys1100-7-1-def-linear",
+      "type": "definition",
+      "title": "Lineær differensiallikning",
+      "content": "En likning er **lineær** dersom den ukjente funksjonen og alle dens deriverte opptrer i første potens, hver for seg, uten å multipliseres med hverandre og uten å stå inni en funksjon som $\\sin$, $\\sqrt{\\ }$ eller en potens.\n\nLineært: $\\ \\dfrac{d^2y}{dt^2} + 3\\dfrac{dy}{dt} + 5y = 2t$\n\nIkke lineært: $\\ \\dfrac{d^2\\theta}{dt^2} = -\\dfrac{g}{\\ell}\\sin\\theta \\quad$ (den ukjente står inni en sinus)\n\nIkke lineært: $\\ m\\dfrac{dv}{dt} = mg - D\\lvert v\\rvert v \\quad$ (den ukjente er kvadrert)\n\n**Hvorfor det betyr noe:** lineære likninger med konstante koeffisienter har en fullstendig, mekanisk løsningsoppskrift, som du finner i Rottmann. Ikke-lineære har det som hovedregel ikke — de må enten lineariseres ([kap. 7.2](/bok/fys1100/fys1100-7-2)) eller løses numerisk."
+    },
+    {
+      "id": "fys1100-7-1-def-homogen",
+      "type": "definition",
+      "title": "Homogen og inhomogen likning",
+      "content": "Samle alle ledd som inneholder den ukjente funksjonen på venstre side. Står det **null** igjen på høyre side, er likningen **homogen**. Står det et ledd som ikke inneholder den ukjente — en konstant kraft, en ytre påkjenning — er den **inhomogen**.\n\n$$\\frac{d^2u}{dt^2} + \\omega_0^2 u = 0 \\qquad \\text{homogen}$$\n\n$$\\frac{dv}{dt} + \\frac{k_v}{m}v = g \\qquad \\text{inhomogen (tyngden er drivleddet)}$$\n\n**Fysisk lesning:** det inhomogene leddet er den kraften som holdes utenfra og som ikke forsvinner selv om systemet står stille. Ofte kan du gjøre en inhomogen likning homogen ved å måle utslaget fra **likevekten** i stedet for fra origo — det trikset er kjernen i [kap. 7.2](/bok/fys1100/fys1100-7-2)."
+    },
+    {
+      "id": "fys1100-7-1-def-separabel",
+      "type": "definition",
+      "title": "Separabel differensiallikning",
+      "content": "En førsteordens likning er **separabel** dersom den kan skrives slik at alt som inneholder den ukjente står på den ene siden, og alt som inneholder den frie variabelen på den andre:\n\n$$\\frac{dv}{dt} = f(v)\\,h(t) \\quad \\Longrightarrow \\quad \\frac{dv}{f(v)} = h(t)\\,dt$$\n\nDa kan du integrere hver side for seg. Alle de førsteordens luftmotstandslikningene i [kap. 7.3](/bok/fys1100/fys1100-7-3) er separable, også de ikke-lineære — separabel og lineær er to helt ulike egenskaper, og en likning kan være det ene uten å være det andre.\n\nAndreordens likninger er ikke separable på denne måten; der er karakteristisk likning verktøyet."
+    },
+    {
+      "id": "fys1100-7-1-tabell-strategi",
+      "type": "text",
+      "content": "**Klassifiseringen peker rett på metoden.** Denne tabellen er hele beslutningstreet for Del 7, og den er verdt å kunne uten å slå opp:\n\n| Likningen er … | Typisk fysikk | Metode | Hvor i boka |\n|---|---|---|---|\n| 1. orden, separabel | fall med lineær eller kvadratisk luftmotstand | separér variablene og integrer | [kap. 7.3](/bok/fys1100/fys1100-7-3) |\n| 2. orden, lineær, homogen, konstante koeffisienter | fjær, pendel for små utslag, dempet svingning | karakteristisk likning | [kap. 7.2](/bok/fys1100/fys1100-7-2) |\n| 2. orden, lineær, **in**homogen | hengende fjær med tyngde | flytt origo til likevekten, så som over | [kap. 7.2](/bok/fys1100/fys1100-7-2) |\n| ikke-lineær, men nær en likevekt | pendel, ikke-lineær fjær | Taylor-utvikle og linearisér | [kap. 7.2](/bok/fys1100/fys1100-7-2) |\n| ikke-lineær, langt fra likevekt, eller 2D | kast med luftmotstand, planetbane | numerisk løsning | Del 8 |\n\n**Den nederste raden er ikke en nødløsning.** Numerisk løsning er en egen, fullverdig metode i dette emnet, og den er testet i alle sju settene. Del 8 bygger den fra grunnen. Frem til da skal du kunne si i klartekst *at* likningen må løses numerisk, og hvorfor — det er en vanlig deloppgave i seg selv."
+    },
+    {
+      "id": "fys1100-7-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Klassifiser fire bevegelseslikninger",
+      "problem": "Klassifiser hver av likningene etter orden, lineær/ikke-lineær og homogen/inhomogen, og si hvilken metode klassifiseringen peker på. Alle konstantene er positive.\n\n**a)** $\\ m\\dfrac{dv}{dt} = mg - k_v v$ — lodd som faller med lineær luftmotstand\n\n**b)** $\\ m\\dfrac{d^2y}{dt^2} = -ky$ — kloss på vannrett fjær\n\n**c)** $\\ m\\dfrac{d^2y}{dt^2} = -ky - b\\dfrac{dy}{dt}$ — samme fjær, med en demper\n\n**d)** $\\ m\\ell\\dfrac{d^2\\theta}{dt^2} = -mg\\sin\\theta$ — pendel med lengde $\\ell$",
+      "solution": "**Metodevalg:** vi kjører de fire spørsmålene i rekkefølge på hver likning. Klassifiseringen skrives alltid ut i klartekst — det er den som gir poeng, ikke bare svaret etterpå.\n\n**a)** Høyeste deriverte er $dv/dt$, altså **første orden**. Den ukjente $v$ opptrer i første potens alene, så likningen er **lineær**. Flytter vi $k_v v$ over, står det $m\\,dv/dt + k_v v = mg$, og høyresiden $mg$ inneholder ikke $v$ — den er **inhomogen**. Den er også **separabel**: alt med $v$ kan samles på den ene siden.\n*Metode:* separér og integrer.\n\n**b)** Høyeste deriverte er $d^2y/dt^2$, altså **andre orden**. Den ukjente står i første potens: **lineær**. Alt inneholder $y$, høyresiden blir null: **homogen**, og med **konstante koeffisienter**.\n*Metode:* karakteristisk likning.\n\n**c)** Fortsatt **andre orden**, fortsatt **lineær** (både $y$ og $dy/dt$ er i første potens), fortsatt **homogen**. Dempeleddet endrer ikke klassifiseringen — det endrer bare hvilke røtter den karakteristiske likningen får.\n*Metode:* karakteristisk likning, samme oppskrift som b).\n\n**d)** **Andre orden**. Men $\\theta$ står inni en sinus, så likningen er **ikke lineær**. Den er homogen i den forstand at høyresiden er null når $\\theta = 0$, men den vanlige oppskriften gjelder ikke.\n*Metode:* Taylor-utvikle $\\sin\\theta \\approx \\theta$ for små utslag, og løs den lineariserte likningen; for store utslag må den løses numerisk.\n\n**Sensorblikk:** legg merke til at c) og d) ser like «kompliserte» ut, men bare den ene har en lukket løsningsformel. Det er nettopp det klassifiseringen avslører — og derfor den skal skrives før du velger metode."
+    },
+    {
+      "id": "fys1100-7-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Klassifiser hver av likningene etter (i) orden, (ii) lineær eller ikke-lineær, (iii) homogen eller inhomogen. Alle konstanter er positive.\n\n**a)** $\\ \\dfrac{dv}{dt} = -\\dfrac{D}{m}\\lvert v\\rvert v$\n\n**b)** $\\ \\dfrac{d^2x}{dt^2} + 4\\dfrac{dx}{dt} + 9x = 0$\n\n**c)** $\\ \\dfrac{d^2y}{dt^2} = -g - \\dfrac{k_v}{m}\\dfrac{dy}{dt}$\n\n**d)** $\\ \\dfrac{d^2x}{dt^2} = -\\dfrac{k}{m}x - \\dfrac{c}{m}x^3$",
+        "solution": "**a)** Første orden. **Ikke lineær** — den ukjente opptrer i andre potens gjennom $\\lvert v\\rvert v$. Homogen: høyresiden er null når $v = 0$, og det finnes ikke noe ledd uten $v$.\n\n**b)** Andre orden. Lineær. Homogen.\n\n**c)** Andre orden. Lineær ($y$ opptrer ikke i det hele tatt, bare den førstederiverte og den andrederiverte, begge i første potens). **Inhomogen** — leddet $-g$ inneholder ikke den ukjente. Merk at siden $y$ selv ikke står i likningen, kan den skrives om til en **førsteordens** likning for $v = dy/dt$, og da blir den separabel.\n\n**d)** Andre orden. **Ikke lineær** på grunn av $x^3$. Homogen.\n\n**Fellesnevner:** to av de fire (a og d) er ikke-lineære, og for dem finnes ingen generell løsningsoppskrift. Det er nettopp derfor det numeriske sporet i Del 8 finnes.",
+        "hints": [
+          "Orden = nummeret på den høyeste deriverte.",
+          "Se etter potenser, produkter av den ukjente med seg selv, og funksjoner som $\\sin$ eller $\\lvert\\ \\rvert$ rundt den ukjente.",
+          "Et ledd uten den ukjente noe sted i seg gjør likningen inhomogen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — initialbetingelsene (~12 min)\n\nEn differensiallikning beskriver **loven**. Den sier hva som styrer bevegelsen, men ikke hvor bevegelsen startet. Derfor har en differensiallikning uendelig mange løsninger — én for hver måte du kunne ha satt systemet i gang på.\n\n**Intuisjon:** likningen $d^2y/dt^2 = -g$ gjelder like godt for en ball du slipper som for en ball du kaster oppover. Fysikken er den samme; startbetingelsene er ulike."
+    },
+    {
+      "id": "fys1100-7-1-def-initialbetingelse",
+      "type": "definition",
+      "title": "Initialbetingelse",
+      "content": "En initialbetingelse er en opplysning om systemets **tilstand ved et bestemt tidspunkt**, typisk $t = 0$: hvor legemet var, og hvor fort det gikk.\n\n$$y(0) = y_0, \\qquad \\frac{dy}{dt}\\bigg|_{t=0} = v(0) = v_0$$\n\nInitialbetingelsene kommer aldri fra likningen — de kommer fra oppgaveteksten, og de skal **begrunnes fysisk**: «kula slippes fra ro, altså $v(0) = 0$», «loddet henger i ro i likevekt når snora kuttes, altså $u(0) = 0$ og $v(0) = 0$ målt fra den nye likevekten».\n\nEn setning som begrunner initialbetingelsen fysisk er selvstendig poenggivende. Å bare skrive «$v(0) = 0$» uten å si hvorfor, er å la poeng ligge igjen."
+    },
+    {
+      "id": "fys1100-7-1-th-antall-ic",
+      "type": "theorem",
+      "title": "Like mange initialbetingelser som ordenen",
+      "content": "Løsningen av en differensiallikning av orden $n$ inneholder $n$ ubestemte konstanter, og du trenger nøyaktig $n$ initialbetingelser for å bestemme dem.\n\n- **Første orden** (fart med luftmotstand): én konstant, én initialbetingelse — typisk $v(0)$.\n- **Andre orden** (fjær, pendel): to konstanter, to initialbetingelser — typisk $y(0)$ **og** $v(0)$.\n\n**Intuisjon:** ordenen teller hvor mange ganger du må «integrere opp», og hver integrasjon føder én ukjent konstant.\n\n**Praktisk konsekvens:** ser du en andreordens likning og bare én oppgitt startopplysning, mangler du noe — les oppgaveteksten en gang til. Ofte ligger den andre betingelsen skjult i en formulering som «slippes fra ro» eller «passerer likevektspunktet»."
+    },
+    {
+      "id": "fys1100-7-1-def-generell-partikular",
+      "type": "definition",
+      "title": "Generell og partikulær løsning",
+      "content": "Den **generelle løsningen** er hele familien av funksjoner som oppfyller likningen, med de ubestemte konstantene stående. Den **partikulære løsningen** er det ene medlemmet av familien som i tillegg oppfyller initialbetingelsene.\n\n$$y(t) = y_0 + v_0t - \\tfrac12gt^2 \\quad \\text{er generell så lenge } y_0, v_0 \\text{ er frie}$$\n\nPå eksamen forventes begge deler: først den generelle løsningen (den viser at du kan metoden), deretter innsettingen av initialbetingelsene (den viser at du kan svare på *denne* oppgaven). Poengene er delt mellom de to stegene."
+    },
+    {
+      "id": "fys1100-7-1-fig-1",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-7-1-losning-er-funksjon.svg",
+      "alt": "Tre kurver for farten til et fallende legeme med luftmotstand i samme diagram. En stiplet gra rett linje merket fritt fall stiger jevnt og forlater diagrammet. En bla heltrukket kurve stiger raskt og flater ut mot en vannrett stiplet linje merket terminalfarten. En rod stiplet kurve stiger langsommere og naermer seg den samme vannrette linja nedenfra, men ligger klart under den bla kurven i hele det viste tidsrommet.",
+      "caption": "Samme likning, tre påstander om $v(t)$. Den blå kurven er den eneste som faktisk løser likningen for et lodd som faller med lineær luftmotstand. Den røde er resultatet av å «integrere» likningen som om farten var konstant — den treffer samme sluttverdi, men er gal hele veien dit. Den grå rette linja er fritt fall, altså løsningen hvis luftmotstanden hadde vært null."
+    },
+    {
+      "id": "fys1100-7-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Fra generell til partikulær løsning",
+      "problem": "En stein kastes rett oppover fra $y = 0$ med farten $6{,}0\\ \\text{m/s}$. Luftmotstanden neglisjeres, og $y$ regnes positivt oppover.\n\n**a)** Skriv den generelle løsningen av bevegelseslikningen.\n\n**b)** Bestem konstantene fra initialbetingelsene, og begrunn dem fysisk.\n\n**c)** Når er steinen på det høyeste, og hvor høyt kommer den?",
+      "solution": "**Metodevalg:** likningen er $d^2y/dt^2 = -g$ med konstant høyreside, altså den enkleste typen. Vi integrerer to ganger og lar konstantene stå til initialbetingelsene settes inn.\n\n**a)** Første integrasjon gir farten, andre gir posisjonen:\n\n$$\\frac{dy}{dt} = -gt + C_1, \\qquad y(t) = -\\tfrac12gt^2 + C_1t + C_2$$\n\nTo ubestemte konstanter — som seg hør og bør for en andreordens likning.\n\n**b)** Steinen forlater hånden i origo, så $y(0) = 0$, og den kastes oppover med $6{,}0\\ \\text{m/s}$, altså i positiv retning: $v(0) = +6{,}0\\ \\text{m/s}$. Innsatt i uttrykkene over:\n\n$$y(0) = C_2 = 0, \\qquad \\frac{dy}{dt}\\bigg|_{t=0} = C_1 = 6{,}0\\ \\text{m/s}$$\n\n$$y(t) = 6{,}0\\,t - 4{,}905\\,t^2 \\quad (\\text{meter, med } t \\text{ i sekunder})$$\n\n**c)** På toppen er farten null:\n\n$$\\frac{dy}{dt} = 6{,}0 - 9{,}81t = 0 \\quad \\Longrightarrow \\quad t = 0{,}6116\\ \\text{s}$$\n\n$$y(0{,}6116) = 6{,}0 \\cdot 0{,}6116 - 4{,}905 \\cdot 0{,}6116^2 = 3{,}670 - 1{,}835 = 1{,}83\\ \\text{m}$$\n\nSteinen er på det høyeste etter $0{,}61\\ \\text{s}$ og kommer $1{,}83\\ \\text{m}$ over utgangspunktet.\n\n**Kontroll med en annen metode:** energibetraktningen gir $\\tfrac12mv_0^2 = mgh$, altså $h = v_0^2/(2g) = 36/19{,}62 = 1{,}83\\ \\text{m}$ ✓. To uavhengige veier til samme tall er et godt tegn, og sensor godtar begge.\n\n**Merk:** her *kunne* vi integrere rett fram, fordi høyresiden var en ren konstant. Det er nettopp den situasjonen som ikke gjelder i resten av kapitlet."
+    },
+    {
+      "id": "fys1100-7-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kloss på en fjær beveger seg etter likningen\n\n$$\\frac{d^2x}{dt^2} = -25\\,x$$\n\nmed $x$ i meter og $t$ i sekunder.\n\n**a)** Vis ved innsetting at $x(t) = A\\cos(5t) + B\\sin(5t)$ er en løsning for alle verdier av $A$ og $B$.\n\n**b)** Klossen slippes fra ro i $x = 0{,}12\\ \\text{m}$. Bestem $A$ og $B$, og begrunn begge initialbetingelsene fysisk.\n\n**c)** Hvor mange initialbetingelser trengs, og hvorfor akkurat så mange?",
+        "solution": "**Metodevalg:** oppgaven ber om innsetting, så vi deriverer den oppgitte funksjonen to ganger og sammenlikner med høyresiden. Det er hele metoden — vi trenger ikke utlede løsningen.\n\n**a)** Vi deriverer:\n\n$$\\frac{dx}{dt} = -5A\\sin(5t) + 5B\\cos(5t)$$\n\n$$\\frac{d^2x}{dt^2} = -25A\\cos(5t) - 25B\\sin(5t) = -25\\big(A\\cos(5t) + B\\sin(5t)\\big) = -25\\,x$$\n\nDette er nøyaktig likningen, og regningen brukte aldri noen bestemt verdi av $A$ eller $B$. Funksjonen er altså en løsning for alle $A$ og $B$.\n\n**b)** «Slippes fra ro» betyr at farten er null i startøyeblikket, altså $v(0) = 0$; og «i $x = 0{,}12\\ \\text{m}$» gir $x(0) = 0{,}12\\ \\text{m}$. Innsatt:\n\n$$x(0) = A = 0{,}12\\ \\text{m}$$\n\n$$\\frac{dx}{dt}\\bigg|_{t=0} = 5B = 0 \\quad \\Longrightarrow \\quad B = 0$$\n\n$$x(t) = 0{,}12\\cos(5t)\\ \\text{m}$$\n\n**c)** To, fordi likningen er av andre orden. Hver gang du integrerer opp, kommer det én ny ubestemt konstant, og en andreordens likning krever to integrasjoner. Fysisk svarer det til at du må vite både hvor systemet var og hvor fort det gikk for å kunne forutsi resten av bevegelsen.\n\n**Kontroll:** $x(t) = 0{,}12\\cos(5t)$ gir $x(0) = 0{,}12\\ \\text{m}$ ✓ og $dx/dt = -0{,}60\\sin(5t)$, som er null ved $t = 0$ ✓.",
+        "hints": [
+          "Deriver den oppgitte funksjonen to ganger og sammenlikn med høyresiden.",
+          "«Fra ro» er alltid en opplysning om farten, ikke om posisjonen.",
+          "Antallet nødvendige initialbetingelser er lik ordenen til likningen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — metodefellen som gir null poeng (~12 min)\n\nNå kommer den viktigste enkeltbiten i kapitlet. Se på likningen for et lodd som faller med lineær luftmotstand:\n\n$$m\\frac{dv}{dt} = mg - k_v v$$\n\nEn fristende, men **feil**, tanke er: «jeg integrerer begge sider med hensyn på tiden». Gjør du det og behandler $v$ på høyresiden som om den var en konstant, får du\n\n$$m\\,v = (mg - k_v v)\\,t \\quad \\Longrightarrow \\quad v = \\frac{gt}{1 + k_v t/m}$$\n\nDet ser ut som et svar. Det har riktig enhet. Det starter til og med i null og flater ut mot riktig sluttverdi. **Og det gir null poeng**, fordi funksjonen ikke løser likningen.\n\n**Hvorfor:** når du integrerer $k_v v\\,dt$, kan du ikke sette $\\int v\\,dt = v\\,t$. Det ville krevd at $v$ var konstant — og hele poenget med likningen er at $v$ *endrer seg*. Du bruker altså svaret ditt som forutsetning for å finne svaret.\n\n**Hvor galt blir det?** Med et lodd der terminalfarten er $2{,}62\\ \\text{m/s}$, gir den gale metoden $1{,}38\\ \\text{m/s}$ etter $0{,}30$ sekunder, mens den riktige løsningen gir $1{,}77\\ \\text{m/s}$. Avviket er $22\\ \\%$ — midt i det tidsrommet oppgaven som regel spør om. At de to kurvene ender på samme verdi når $t \\to \\infty$, er en tilfeldighet ved akkurat denne modellen, og redder ingenting: sensor retter metoden, ikke sluttverdien."
+    },
+    {
+      "id": "fys1100-7-1-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #3 — «integrere» en differensiallikning som om den ukjente er konstant.** Gir **null poeng**, ikke delvis uttelling. Kjennetegnet er at $\\int v\\,dt$ blir skrevet som $vt$, eller at $\\int y\\,dt$ blir $yt$. Er den ukjente funksjonen på høyresiden, må du enten separere variablene ([kap. 7.3](/bok/fys1100/fys1100-7-3)) eller bruke karakteristisk likning ([kap. 7.2](/bok/fys1100/fys1100-7-2)).\n\n**Å svare med et tall på et spørsmål om en differensiallikning.** Løsningen er en funksjon. Et tall kan være svaret på «hvor fort går den etter 2 sekunder», men aldri på «løs likningen».\n\n**Feil orden.** Å kalle $m\\,d^2y/dt^2 = -ky$ førsteordens fordi den «ser enkel ut». Ordenen leses av den høyeste deriverte, ikke av hvor komplisert likningen føles.\n\n**For få initialbetingelser.** En andreordens likning med bare $y(0)$ oppgitt gir en løsning med én konstant fortsatt ubestemt — og et svar med en ubestemt konstant i er ikke ferdig.\n\n**Å hoppe over klassifiseringen.** Den er selvstendig poenggivende og tar tjue sekunder. Skriv den ut hver eneste gang, også når du «ser» metoden med det samme.\n\n**Å blande derivasjon med hensyn på tid og med hensyn på posisjon.** I $dU/dx$ deriverer du et potensial med hensyn på posisjon; i $dv/dt$ deriverer du farten med hensyn på tid. De to har ulik enhet og kan aldri settes lik hverandre uten et mellomledd."
+    },
+    {
+      "id": "fys1100-7-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student skal finne farten til et lodd som faller i en væske. Bevegelseslikningen er\n\n$$m\\frac{dv}{dt} = mg - k_v v$$\n\nStudenten skriver: «Jeg integrerer begge sider fra $0$ til $t$ og får $mv = mgt - k_v vt$, altså $v = \\dfrac{gt}{1 + k_vt/m}$.»\n\n**a)** Forklar presist hvilket steg som er ugyldig, og hvorfor.\n\n**b)** Test svaret ved å sette det inn i differensiallikningen for et lite tidspunkt. Hva ser du?\n\n**c)** Studenten innvender: «Men uttrykket mitt gir jo riktig terminalfart når $t$ blir stor!» Er det et gyldig forsvar?",
+        "solution": "**Metodevalg:** dette er en kvalitativ oppgave om metode. Svaret skal peke på det ene ugyldige steget og begrunne det — ikke regne ut den riktige løsningen.\n\n**a)** Det ugyldige steget er $\\int_0^t k_v v\\,dt' = k_v v t$. Den likheten forutsetter at $v$ er **konstant** i intervallet, og hele poenget med likningen er at $v$ vokser. Studenten bruker altså det ukjente svaret som om det allerede var kjent og fast. Riktig framgangsmåte er å skille variablene: samle alt med $v$ på den ene siden og $dt$ på den andre, og integrere hver side for seg.\n\n**b)** Sett $f(t) = gt/(1 + t/\\tau)$ med $\\tau = m/k_v$. Deriverer vi, får vi\n\n$$\\frac{df}{dt} = \\frac{g}{(1+t/\\tau)^2}$$\n\nmens likningen krever $df/dt = g - f/\\tau$. Ved $t = 0$ gir begge $g$, så de starter likt — men allerede ved $t = \\tau$ gir venstresiden $g/4$ og høyresiden $g - g\\tau/(2\\tau) = g/2$. De er ikke like, altså er funksjonen ikke en løsning.\n\n**c)** Nei. At en gal funksjon tilfeldigvis har riktig grenseverdi, sier ingenting om metoden, og sensor gir poeng for metoden. Uttrykket avviker med over $20\\ \\%$ fra den riktige løsningen midt i tidsrommet, og det er der oppgaver flest spør. Riktig terminalfart kan du dessuten få gratis og korrekt ved å sette $dv/dt = 0$ i likningen — det er en helt egen, gyldig framgangsmåte som ikke krever at du løser likningen i det hele tatt.",
+        "hints": [
+          "Spør hva $\\int v\\,dt$ egentlig er når $v$ varierer med tiden.",
+          "En påstått løsning testes ved innsetting: deriver den og se om likningen blir oppfylt.",
+          "Tenk på hva sensor gir poeng for — metoden eller sluttverdien."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-def-likevektslosning",
+      "type": "definition",
+      "title": "Likevektsløsning",
+      "content": "En likevektsløsning er en **konstant** funksjon som oppfyller differensiallikningen. Du finner den ved å sette alle deriverte lik null og løse den vanlige likningen som blir igjen.\n\n$$m\\frac{dv}{dt} = mg - k_v v \\quad \\xrightarrow{\\ dv/dt = 0\\ } \\quad v = \\frac{mg}{k_v}$$\n\nFysisk er dette den tilstanden der kreftene balanserer og ingenting endrer seg mer. For et fallende legeme kalles den **terminalfarten**, og den behandles grundig i [kap. 7.3](/bok/fys1100/fys1100-7-3).\n\n**Dette er en gratis poenghøster:** likevektsløsningen kan du finne uten å løse likningen, og den er ofte et eget spørsmål i deloppgave a) eller b). Den fungerer også som kontroll: den fulle løsningen skal nærme seg likevektsløsningen når tiden går, hvis likevekten er stabil."
+    },
+    {
+      "id": "fys1100-7-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et lodd faller i olje. Bevegelseslikningen er\n\n$$m\\frac{dv}{dt} = mg - k_v v$$\n\nmed $m = 0{,}0200\\ \\text{kg}$ og $k_v = 0{,}0800\\ \\text{kg/s}$. Positiv retning er nedover.\n\n**a)** Finn likevektsløsningen, og forklar fysisk hva den betyr.\n\n**b)** Hva er akselerasjonen i det øyeblikket loddet slippes fra ro?\n\n**c)** Hva er akselerasjonen når farten er halvparten av likevektsverdien?\n\n**d)** Uten å løse likningen: skisser med ord hvordan $v(t)$ ser ut, og begrunn formen ut fra a)–c).",
+        "solution": "**Metodevalg:** alle fire spørsmålene kan besvares uten å løse differensiallikningen — vi bruker bare likningen selv, punkt for punkt. Det er en metode som er verdt å ha i fingrene, fordi den gir mange poeng for lite arbeid.\n\n**a)** Sett $dv/dt = 0$:\n\n$$v_{\\text{likevekt}} = \\frac{mg}{k_v} = \\frac{0{,}0200 \\cdot 9{,}81}{0{,}0800} = \\frac{0{,}1962}{0{,}0800} = 2{,}45\\ \\text{m/s}$$\n\nnedover. Fysisk: ved denne farten er motstandskraften $k_v v$ nøyaktig like stor som tyngden $mg$, resultantkraften er null, og farten endrer seg ikke mer.\n\n**b)** Ved $v = 0$ er det ingen motstandskraft:\n\n$$\\frac{dv}{dt} = g = 9{,}81\\ \\text{m/s}^2 \\quad \\text{nedover}$$\n\nLoddet starter altså som i fritt fall.\n\n**c)** Med $v = 1{,}226\\ \\text{m/s}$:\n\n$$\\frac{dv}{dt} = g - \\frac{k_v}{m}v = 9{,}81 - \\frac{0{,}0800}{0{,}0200}\\cdot 1{,}226 = 9{,}81 - 4{,}905 = 4{,}91\\ \\text{m/s}^2$$\n\nnedover — nøyaktig halvparten av starten. Det er ingen tilfeldighet: motstanden er proporsjonal med farten, så halv fart gir halv motstand og dermed halvert «resterende» akselerasjon.\n\n**d)** Kurven starter i origo med stigningstall $g$, altså like bratt som fritt fall. Så avtar stigningen jevnt etter hvert som farten vokser, fordi motstanden spiser mer og mer av tyngden. Kurven bøyer av og nærmer seg den vannrette linja $v = 2{,}45\\ \\text{m/s}$ nedenfra, uten å nå den i endelig tid. Ingen del av denne beskrivelsen krevde at vi løste likningen.",
+        "hints": [
+          "Likevektsløsningen finner du ved å sette den deriverte lik null.",
+          "I b) og c) setter du bare inn en fartsverdi i høyresiden av likningen — den gir akselerasjonen direkte.",
+          "I d): tenk på hva stigningstallet til $v(t)$ er i hvert punkt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — når analytisk løsning ryker, og hva som da skjer (~14 min)\n\nDet finnes ingen generell metode for å løse differensiallikninger. Det som finnes, er noen få familier vi kan løse eksakt — og de dekker heldigvis mesteparten av det som testes på eksamen:\n\n- **førsteordens separable** likninger, som luftmotstandslikningene i [kap. 7.3](/bok/fys1100/fys1100-7-3);\n- **andreordens lineære med konstante koeffisienter**, som fjæra og den lineariserte pendelen i [kap. 7.2](/bok/fys1100/fys1100-7-2).\n\nAlt annet — kvadratisk luftmotstand i to dimensjoner, pendelen med store utslag, en planet i bane rundt sola — må løses **numerisk**.\n\nDet numeriske sporet er en egen del av denne boka (Del 8), og det er ikke en nødløsning: numerisk Python er testet i **7 av 7 sett (100 %)**, og det er nesten alltid siste deloppgave i nettopp ODE-oppgaven. Metoden heter **Euler–Cromer**, og den bygger på at du deler tiden i små steg og oppdaterer fart og posisjon steg for steg. Del 8 bygger den fra grunnen av. **Det du skal ta med deg herfra, er å skrive likningen på en form som er klar for numerisk behandling:** akselerasjonen isolert på venstre side, alt annet uttrykt ved posisjon, fart og tid."
+    },
+    {
+      "id": "fys1100-7-1-def-tilstandsform",
+      "type": "definition",
+      "title": "Tilstandsform: én andreordens likning blir til to førsteordens",
+      "content": "Enhver andreordens bevegelseslikning kan skrives om til **to koblede førsteordens likninger** ved å innføre farten som egen ukjent:\n\n$$\\frac{d^2y}{dt^2} = f\\left(y, \\frac{dy}{dt}\\right) \\quad \\Longleftrightarrow \\quad \\begin{cases} \\dfrac{dy}{dt} = v \\\\[6pt] \\dfrac{dv}{dt} = f(y, v)\\end{cases}$$\n\nParet $(y, v)$ kalles systemets **tilstand**: kjenner du begge to i ett øyeblikk, er hele framtiden bestemt av likningen.\n\nDenne omskrivingen er ikke bare kosmetisk. Den er **selve formen enhver numerisk metode arbeider i** — også Euler–Cromer i Del 8, som oppdaterer først $v$, så $y$. Kan du gjøre omskrivingen raskt, har du allerede halve den numeriske deloppgaven i boks."
+    },
+    {
+      "id": "fys1100-7-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4 (eksamensnivå): fjær med luftmotstand",
+      "problem": "En kule med masse $m$ henger i en fjær med fjærkonstant $k$ og svinger loddrett i lufta. Fjæra er avspent ved $y = 0$, og $y$ regnes positivt oppover. I tillegg til tyngden og fjærkraften virker en luftmotstand med tallverdi $D\\lvert v\\rvert v$, rettet mot bevegelsen.\n\n**a)** Sett opp bevegelseslikningen.\n\n**b)** Klassifiser den.\n\n**c)** Finn likevektsposisjonen.\n\n**d)** Kan likningen løses analytisk? Begrunn, og si hva neste steg ville vært.\n\n**e)** Skriv likningen på tilstandsform.",
+      "solution": "**Metodevalg:** ett frilegemediagram for kula, Newtons 2. lov loddrett, deretter klassifisering før noe annet. Kraften fra luftmotstanden skrives med absoluttverdi nettopp fordi kula skifter retning under svingningen.\n\n**a)** Tre krefter virker på kula: fjærkraften $-ky$ (peker mot avspent lengde), tyngden $-mg$ (nedover) og luftmotstanden $-D\\lvert v\\rvert v$ (alltid mot bevegelsen). Newtons 2. lov loddrett:\n\n$$m\\frac{d^2y}{dt^2} = -ky - mg - D\\left\\lvert\\frac{dy}{dt}\\right\\rvert\\frac{dy}{dt}$$\n\n**Hvorfor absoluttverdi?** Skriver du $-Dv^2$, blir motstandsleddet negativt uansett retning, og kula ville bli bremset på vei ned og *skjøvet* nedover på vei opp. Med $-D\\lvert v\\rvert v$ snur leddet fortegn samtidig med farten, og kraften peker alltid mot bevegelsen. Dette er **felle #4** i feilregisteret, og den koster poeng både i utledningen og senere i koden.\n\n**b)** **Andre orden** (høyeste deriverte er $d^2y/dt^2$). **Ikke lineær**, på grunn av $\\lvert v\\rvert v$. **Inhomogen**, fordi tyngdeleddet $-mg$ ikke inneholder den ukjente.\n\n**c)** I likevekt står kula i ro: både farten og akselerasjonen er null, så luftmotstanden faller bort:\n\n$$0 = -ky_L - mg \\quad \\Longrightarrow \\quad y_L = -\\frac{mg}{k}$$\n\nAltså henger kula en strekk $mg/k$ **under** avspent lengde — negativ $y$, som seg hør og bør når $y$ er positiv oppover.\n\n**d)** Nei. Likningen er andreordens og ikke-lineær, og den faller utenfor begge de familiene vi kan løse eksakt: den er ikke separabel (andre orden), og karakteristisk likning gjelder bare for lineære likninger. Neste steg er **numerisk løsning**: del tiden i små steg og oppdater fart og posisjon steg for steg med Euler–Cromer-metoden, som bygges i Del 8.\n\n**Delvis analytisk innsikt får vi likevel:** for svært små svingninger er farten liten, og $\\lvert v\\rvert v$ er da mye mindre enn $v$ selv. Da nærmer likningen seg den udempede fjærlikningen fra [kap. 7.2](/bok/fys1100/fys1100-7-2), som vi kan løse. Det er alltid verdt å si i en slik deloppgave — det viser at du kjenner grensetilfellet.\n\n**e)** Med $v = dy/dt$:\n\n$$\\begin{cases} \\dfrac{dy}{dt} = v \\\\[6pt] \\dfrac{dv}{dt} = -\\dfrac{k}{m}y - g - \\dfrac{D}{m}\\lvert v\\rvert v \\end{cases}$$\n\n**Sensorblikk:** legg merke til at $D$ deles på $m$ i akselerasjonslinja. Det er en av de vanligste feilene når et nytt kraftledd legges til — kraften må gjennom Newtons 2. lov før den blir en akselerasjon. To initialbetingelser trengs, $y(0)$ og $v(0)$, og de er samtidig startverdiene den numeriske løkka trenger."
+    },
+    {
+      "id": "fys1100-7-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En fallskjermhopper i fritt fall før skjermen åpnes påvirkes av tyngden og en kvadratisk luftmotstand med tallverdi $Dv^2$. Vi regner positiv retning nedover, og hopperen faller hele tiden nedover.\n\n**a)** Sett opp bevegelseslikningen for farten $v(t)$, og forklar hvorfor du kan skrive motstandsleddet som $-Dv^2$ i akkurat denne situasjonen.\n\n**b)** Klassifiser likningen.\n\n**c)** Finn terminalfarten uttrykt ved $m$, $g$ og $D$, og regn den ut for $m = 80{,}0\\ \\text{kg}$ og $D = 0{,}250\\ \\text{kg/m}$.\n\n**d)** Hvorfor må motstandsleddet skrives $-D\\lvert v\\rvert v$ i det generelle tilfellet?",
+        "solution": "**Metodevalg:** Newtons 2. lov på hopperen, med tyngden nedover (positiv) og motstanden oppover (negativ). Fordi bevegelsen er ensrettet, kan vi forenkle skrivemåten — men vi må si hvorfor.\n\n**a)** $$m\\frac{dv}{dt} = mg - Dv^2$$\n\nMotstanden peker alltid mot bevegelsen. Så lenge hopperen bare faller nedover, er $v > 0$, og da er $\\lvert v\\rvert v = v^2$. Forenklingen er altså gyldig **fordi farten ikke skifter fortegn i denne fasen** — det er en betingelse som skal skrives ut, ikke antas stilltiende.\n\n**b)** Første orden (høyeste deriverte er $dv/dt$). **Ikke lineær** — den ukjente er kvadrert. **Inhomogen**, siden leddet $mg$ ikke inneholder $v$. Den er dessuten **separabel**, så en analytisk løsning finnes i dette ensrettede tilfellet.\n\n**c)** Terminalfarten er likevektsløsningen, $dv/dt = 0$:\n\n$$mg = Dv_T^2 \\quad \\Longrightarrow \\quad v_T = \\sqrt{\\frac{mg}{D}} = \\sqrt{\\frac{80{,}0 \\cdot 9{,}81}{0{,}250}} = \\sqrt{3139{,}2} = 56{,}0\\ \\text{m/s}$$\n\nnedover, altså om lag $202\\ \\text{km/h}$ — en realistisk verdi for magefall uten skjerm.\n\n**Benevningskontroll:** $[mg/D] = \\text{N}/(\\text{kg/m}) = (\\text{kg}\\cdot\\text{m/s}^2)\\cdot\\text{m}/\\text{kg} = \\text{m}^2/\\text{s}^2$, og kvadratroten gir $\\text{m/s}$ ✓.\n\n**d)** Fordi $v^2$ er positiv uansett fortegn på farten. Skulle legemet bevege seg oppover — en ball som kastes rett opp, en kule som svinger på en fjær — ville $-Dv^2$ fortsatt peke nedover, og modellen ville *drive* legemet i stedet for å bremse det. Med $\\lvert v\\rvert v$ snur leddet fortegn samtidig med farten, og kraften peker alltid mot bevegelsen.",
+        "hints": [
+          "Newtons 2. lov nedover: tyngden er positiv, motstanden negativ.",
+          "Terminalfarten er den konstante løsningen — sett den deriverte lik null.",
+          "I d): tenk på hva som skjer med $-Dv^2$ hvis farten skifter fortegn."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kloss med masse $m$ ligger på et vannrett, friksjonsfritt bord og er festet til en fjær med fjærkonstant $k$. Fjæra er avspent ved $x = 0$. I tillegg virker en dempende kraft $-b\\,dx/dt$ fra en oljedemper, og en ytre motor drar i klossen med kraften $F_0\\cos(\\Omega t)$.\n\n**a)** Sett opp bevegelseslikningen.\n\n**b)** Klassifiser den fullstendig.\n\n**c)** Hvor mange initialbetingelser trengs, og hva ville de være fysisk?\n\n**d)** Hva ville likningen bli hvis motoren skrus av, og hva ville den bli hvis både motoren og demperen fjernes?\n\n**e)** Skriv den fulle likningen på tilstandsform.",
+        "solution": "**Metodevalg:** ett frilegemediagram for klossen, sett opp Newtons 2. lov vannrett, og klassifisér før noe annet.\n\n**a)** Tre vannrette krefter virker på klossen: fjærkraften $-kx$, dempekraften $-b\\,dx/dt$ og motorkraften $F_0\\cos(\\Omega t)$. Tyngden og normalkraften er loddrette og opphever hverandre.\n\n$$m\\frac{d^2x}{dt^2} = -kx - b\\frac{dx}{dt} + F_0\\cos(\\Omega t)$$\n\n**b)** **Andre orden.** **Lineær** — både $x$ og $dx/dt$ opptrer i første potens, og de multipliseres ikke med hverandre. **Inhomogen**, fordi $F_0\\cos(\\Omega t)$ ikke inneholder den ukjente. Koeffisientene $m$, $b$ og $k$ er **konstante**. Merk at $\\cos(\\Omega t)$ ikke gjør likningen ikke-lineær: det er ikke den *ukjente* som står inne i cosinusen, bare tiden.\n\n**c)** To, siden likningen er av andre orden. Fysisk: hvor klossen står ved $t = 0$ ($x(0)$), og hvor fort den går da ($v(0)$). En typisk formulering i en oppgavetekst er «klossen holdes $5{,}0\\ \\text{cm}$ ute og slippes idet motoren startes», som gir $x(0) = 0{,}050\\ \\text{m}$ og $v(0) = 0$.\n\n**d)** Uten motor: $m\\,d^2x/dt^2 = -kx - b\\,dx/dt$, altså andre orden, lineær, **homogen** — den dempede svingningen. Uten både motor og demper: $m\\,d^2x/dt^2 = -kx$, den rene harmoniske oscillatoren fra [kap. 7.2](/bok/fys1100/fys1100-7-2). Merk at hver forenkling bare fjerner ledd; ordenen og lineariteten er uendret.\n\n**e)** $$\\begin{cases} \\dfrac{dx}{dt} = v \\\\[6pt] \\dfrac{dv}{dt} = -\\dfrac{k}{m}x - \\dfrac{b}{m}v + \\dfrac{F_0}{m}\\cos(\\Omega t) \\end{cases}$$\n\nLegg merke til at **hvert** kraftledd er delt på $m$ i den andre linja. Det er akselerasjonen som står på venstre side, og en kraft må alltid gjennom Newtons 2. lov før den kan legges til der.",
+        "hints": [
+          "Tegn frilegemediagram først; bare vannrette krefter inngår i likningen.",
+          "En likning er ikke-lineær bare hvis den *ukjente* opptrer ulineært — en cosinus av tiden teller ikke.",
+          "På tilstandsform skal hver kraft deles på massen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Eksamensnivå, sjanger G — differensiallikningsoppgaven.)** En dykkerklokke med masse $m$ senkes i vann. Kreftene på den er tyngden $mg$ nedover, en konstant oppdrift $B$ oppover, og en lineær vannmotstand med tallverdi $k_v\\lvert v\\rvert$ rettet mot bevegelsen. Regn positiv retning nedover, og anta $mg > B$.\n\n**a)** Sett opp bevegelseslikningen for farten $v(t)$, gyldig så lenge klokka synker.\n\n**b)** Klassifiser likningen.\n\n**c)** Finn synkefarten i likevekt, og sett opp betingelsen for at klokka i det hele tatt synker.\n\n**d)** Klokka slippes fra ro. Vil den nærme seg likevektsfarten ovenfra eller nedenfra? Begrunn uten å løse likningen.\n\n**e)** Oppdriften økes langsomt til $B > mg$. Hva skjer med likevektsløsningen, og hva betyr fortegnet fysisk?",
+        "solution": "**Metodevalg:** Newtons 2. lov med tre krefter langs loddlinja. Vi arbeider med farten som ukjent, siden ingen av kreftene avhenger av posisjonen — da faller ordenen til én.\n\n**a)** Med positiv retning nedover og $v > 0$ (klokka synker) peker motstanden oppover:\n\n$$m\\frac{dv}{dt} = mg - B - k_v v$$\n\n**b)** **Første orden** (bare $dv/dt$). **Lineær** — $v$ i første potens. **Inhomogen**, fordi $mg - B$ ikke inneholder $v$. Og **separabel**, så den kan løses analytisk med metoden i [kap. 7.3](/bok/fys1100/fys1100-7-3).\n\n**c)** Sett $dv/dt = 0$:\n\n$$v_{\\text{lik}} = \\frac{mg - B}{k_v}$$\n\nKlokka synker bare hvis denne er positiv, altså hvis $mg > B$ — tyngden må være større enn oppdriften. Det var forutsetningen i oppgaven, og den skal skrives ut.\n\n**Benevningskontroll:** $[\\text{N}]/[\\text{kg/s}] = (\\text{kg}\\cdot\\text{m/s}^2)/(\\text{kg/s}) = \\text{m/s}$ ✓.\n\n**d)** Nedenfra. Ved $t = 0$ er $v = 0$, som er mindre enn $v_{\\text{lik}}$. Da er høyresiden $mg - B > 0$, altså er $dv/dt > 0$ og farten vokser. Så lenge $v < v_{\\text{lik}}$ er høyresiden positiv, så farten fortsetter å vokse; når $v$ nærmer seg $v_{\\text{lik}}$, går høyresiden mot null og veksten stopper opp. Farten nærmer seg altså likevektsverdien nedenfra, uten å passere den. **Merk at hele dette argumentet bare bruker fortegnet til høyresiden — vi trengte aldri løsningen.**\n\n**e)** Med $B > mg$ blir $v_{\\text{lik}} = (mg - B)/k_v$ **negativ**. Siden positiv retning er nedover, betyr en negativ likevektsfart at klokka stiger: den flyter opp med konstant fart når oppdriften er størst. Modellen gir altså riktig svar også utenfor det opprinnelige tilfellet, og det er en god kontroll på at oppsettet er riktig.\n\n**Merk om absoluttverdien:** i e) skifter farten retning, og da er $-k_v v$ (uten absoluttverdi) fortsatt riktig, fordi motstanden er *lineær* — leddet snur fortegn av seg selv sammen med $v$. Det er bare i den kvadratiske modellen at absoluttverdien må skrives eksplisitt.",
+        "hints": [
+          "Tre krefter langs loddlinja; velg positiv retning og hold den.",
+          "Likevektsfarten finner du ved å sette $dv/dt = 0$ — ingen løsning av likningen trengs.",
+          "I d): se på fortegnet til høyresiden når $v$ er mindre enn likevektsverdien."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-7-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Kvalitativ.)** To studenter diskuterer utsagnet: «En differensiallikning har alltid uendelig mange løsninger, så den kan ikke forutsi noe.»\n\n**a)** Forklar hva som er riktig og hva som er galt i utsagnet.\n\n**b)** En kule svinger på en fjær. Hvorfor er det ikke nok å kjenne posisjonen ved $t = 0$ for å vite hva som skjer videre?\n\n**c)** For en førsteordens likning som $m\\,dv/dt = mg - k_v v$ holder det derimot med én opplysning. Forklar hvorfor forskjellen ligger i ordenen og ikke i fysikken.\n\nSvar i to–fire setninger per punkt.",
+        "solution": "**a)** Det er riktig at likningen alene har uendelig mange løsninger — én for hvert mulig utgangspunkt. Det er galt at den derfor ikke forutsier noe: likningen er *loven*, og sammen med initialbetingelsene bestemmer den bevegelsen entydig. Å skille lov fra startbetingelse er nettopp poenget med formalismen — den samme loven gjelder for alle måter du kan sette systemet i gang på.\n\n**b)** Fordi likningen er av andre orden. Posisjonen alene skiller ikke mellom en kule som holdes i ro i det punktet og slippes, og en kule som farer forbi det samme punktet i full fart. Bevegelsen videre er helt ulik i de to tilfellene, så vi må også kjenne farten. Paret (posisjon, fart) er systemets tilstand.\n\n**c)** Fordi høyeste deriverte i den likningen er den førstederiverte: én integrasjon, én ubestemt konstant, én initialbetingelse. Fysisk svarer det til at kreftene i den modellen bare avhenger av farten, ikke av hvor legemet befinner seg — så posisjonen er ikke nødvendig for å forutsi fartsutviklingen. Ordenen er ikke en tilfeldig matematisk egenskap; den speiler hvor mye informasjon fysikken faktisk krever.",
+        "hints": [
+          "Skill mellom likningen (loven) og initialbetingelsene (utgangspunktet).",
+          "Spør deg hva som skiller to bevegelser som starter i samme punkt.",
+          "Antallet nødvendige opplysninger er lik ordenen — koble det til hvor mange ganger du må integrere."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-7-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-7-1-bb-startverdiproblem",
+      "type": "definition",
+      "title": "Startverdiproblem",
+      "content": "En differensiallikning **sammen med** akkurat nok initialbetingelser til å bestemme alle konstantene. Det er startverdiproblemet, ikke likningen alene, som har ett entydig svar.\n\nNesten alle oppgaver i FYS1100 er startverdiproblemer: likningen kommer fra Newtons 2. lov, betingelsene fra formuleringer som «slippes fra ro» eller «kastes med farten $v_0$»."
+    },
+    {
+      "id": "fys1100-7-1-bb-randbetingelse",
+      "type": "definition",
+      "title": "Randbetingelse (til forskjell fra initialbetingelse)",
+      "content": "En **initialbetingelse** gir tilstanden i ett tidspunkt, typisk $t = 0$. En **randbetingelse** gir opplysninger i to ulike punkter — for eksempel «kula er i $x = 0$ ved $t = 0$ **og** ved $t = 2{,}0\\ \\text{s}$».\n\nI mekanikkens tidsutviklingsproblemer er det initialbetingelser som gjelder, og det er dem eksamen spør etter. Randbetingelser hører til i andre deler av fysikken (bølger på en streng, statiske bjelker) og er **kjenne-stoff** her."
+    },
+    {
+      "id": "fys1100-7-1-bb-autonom",
+      "type": "definition",
+      "title": "Autonom differensiallikning",
+      "content": "En likning der tiden ikke opptrer eksplisitt på høyresiden — bare gjennom den ukjente funksjonen og dens deriverte.\n\n$$m\\frac{dv}{dt} = mg - k_v v \\quad \\text{er autonom}$$\n\n$$m\\frac{d^2x}{dt^2} = -kx + F_0\\cos(\\Omega t) \\quad \\text{er det ikke}$$\n\nAutonome likninger har den praktiske egenskapen at det er likegyldig **når** du starter klokka: samme starttilstand gir samme forløp. Det er også de som har likevektsløsninger i vanlig forstand."
+    },
+    {
+      "id": "fys1100-7-1-bb-konstante-koeffisienter",
+      "type": "definition",
+      "title": "Konstante koeffisienter",
+      "content": "En lineær likning har konstante koeffisienter når tallene foran den ukjente og dens deriverte ikke avhenger av tiden:\n\n$$a\\frac{d^2y}{dt^2} + b\\frac{dy}{dt} + cy = 0 \\quad \\text{med } a, b, c \\text{ konstante}$$\n\nDette er den ene klassen der en fullstendig og mekanisk løsningsoppskrift finnes — den karakteristiske likningen. Fysisk svarer konstante koeffisienter til at massen, fjærkonstanten og dempingen ikke endrer seg underveis, noe som gjelder i praktisk talt alle oppgavene i dette emnet."
+    },
+    {
+      "id": "fys1100-7-1-bb-analytisk",
+      "type": "definition",
+      "title": "Analytisk løsning",
+      "content": "En løsning skrevet som en formel i kjente funksjoner: potenser, eksponentialfunksjoner, sinus og cosinus. Den kan deriveres, grensebetraktes og settes inn i andre uttrykk.\n\nAnalytiske løsninger finnes bare for spesielle likninger. Når de finnes, er de å foretrekke: de viser *hvordan* svaret avhenger av parametrene, ikke bare hva tallet blir for én bestemt kalibrering."
+    },
+    {
+      "id": "fys1100-7-1-bb-numerisk",
+      "type": "definition",
+      "title": "Numerisk løsning",
+      "content": "En tabell av tallverdier for den ukjente funksjonen i et endelig antall tidspunkt, beregnet steg for steg fra initialbetingelsene. Du får ingen formel, men du får kurven — og du får den for likninger som ikke kan løses analytisk.\n\nMetoden emnet bygger på heter **Euler–Cromer** og utvikles i Del 8. Der lærer du også hvorfor akkurat den metoden foretrekkes framfor den enda enklere Forward Euler-metoden."
+    },
+    {
+      "id": "fys1100-7-1-bb-diskretisering",
+      "type": "definition",
+      "title": "Diskretisering",
+      "content": "Å erstatte den kontinuerlige tiden med et rutenett av tidspunkt $t_0, t_1, t_2, \\dots$ med fast avstand $\\Delta t$, og de deriverte med differanser mellom nabopunkter:\n\n$$\\frac{dv}{dt} \\approx \\frac{v_{i+1} - v_i}{\\Delta t}$$\n\nDette er det første steget i enhver numerisk metode, og forklarer hvorfor svaret blir en tallrekke og ikke en formel. Detaljene, og hva som skjer når $\\Delta t$ velges for stort, hører til Del 8."
+    },
+    {
+      "id": "fys1100-7-1-bb-superposisjon",
+      "type": "definition",
+      "title": "Superposisjonsprinsippet for lineære homogene likninger",
+      "content": "Er $y_1(t)$ og $y_2(t)$ begge løsninger av **samme lineære homogene** likning, er også enhver sum $Ay_1(t) + By_2(t)$ en løsning.\n\nDet er dette prinsippet som gjør at den generelle løsningen av en andreordens lineær homogen likning kan skrives som en sum av to grunnløsninger med hver sin konstant — for eksempel $A\\cos\\omega_0 t + B\\sin\\omega_0 t$. Prinsippet gjelder **ikke** for ikke-lineære likninger, og det er en av de viktigste praktiske forskjellene mellom de to klassene."
+    },
+    {
+      "id": "fys1100-7-1-bb-kraftlov",
+      "type": "definition",
+      "title": "Kraftlov: hva høyresiden kan avhenge av",
+      "content": "Høyresiden i en bevegelseslikning kan avhenge av **posisjonen** (fjærkraft, gravitasjon), av **farten** (luftmotstand, demping) og av **tiden** (en ytre påkjenning som varierer) — eller av flere av delene samtidig.\n\nÅ identifisere hvilken av de tre du har, er det som avgjør både klassifiseringen og metoden. Avhenger høyresiden av ingen av dem, er akselerasjonen konstant, og du er tilbake i [kap. 2.1](/bok/fys1100/fys1100-2-1)."
+    },
+    {
+      "id": "fys1100-7-1-bb-innsetting",
+      "type": "definition",
+      "title": "Verifisering ved innsetting",
+      "content": "Å kontrollere en påstått løsning ved å derivere den så mange ganger som ordenen krever og sette resultatet inn i likningen. Går likningen opp for alle $t$, er funksjonen en løsning.\n\nDette er både en kontroll og en fullverdig løsningsmetode når svaret er oppgitt: en «vis at $y(t) = \\dots$ oppfyller likningen»-deloppgave besvares nøyaktig slik, og det er full uttelling for det."
+    },
+    {
+      "id": "fys1100-7-1-bb-dimensjonskontroll",
+      "type": "definition",
+      "title": "Dimensjonskontroll av en differensiallikning",
+      "content": "Hvert ledd i en differensiallikning må ha samme enhet. I $m\\,d^2y/dt^2 = -ky - mg$ har alle tre ledd enheten newton.\n\nKontrollen avslører raskt en glemt masse eller en kraft som ikke er delt på $m$ i akselerasjonslinja. Den koster fem sekunder og er en av de billigste kvalitetssikringene som finnes — samme teknikk som benevningskontrollen i [kap. 1.1](/bok/fys1100/fys1100-1-1)."
+    },
+    {
+      "id": "fys1100-7-1-bb-entydighet",
+      "type": "definition",
+      "title": "Entydighet: én tilstand, én framtid",
+      "content": "For de bevegelseslikningene som opptrer i dette emnet gjelder at én gitt starttilstand gir nøyaktig én løsning. To ulike bevegelser kan altså aldri ha samme posisjon **og** samme fart i samme øyeblikk.\n\nPraktisk konsekvens: får du to ulike svar på samme startverdiproblem, er minst ett av dem galt. Dette er **kjenne-stoff** — de matematiske betingelsene bak er ikke pensum, men konklusjonen brukes hele tiden."
+    },
+    {
+      "id": "fys1100-7-1-bb-eksplisitt-form",
+      "type": "definition",
+      "title": "Eksplisitt form: akselerasjonen isolert",
+      "content": "En bevegelseslikning står på **eksplisitt form** når den høyeste deriverte er alene på venstre side:\n\n$$\\frac{d^2y}{dt^2} = \\frac{1}{m}\\sum F\\left(y, \\frac{dy}{dt}, t\\right)$$\n\nDette er formen både klassifiseringen og den numeriske behandlingen tar utgangspunkt i. Første grep etter at Newtons 2. lov er satt opp: del på massen og få akselerasjonen alene."
+    },
+    {
+      "id": "fys1100-7-1-bb-parameter-vs-ukjent",
+      "type": "definition",
+      "title": "Parameter kontra ukjent",
+      "content": "I $m\\,d^2y/dt^2 = -ky - mg$ er $m$, $k$ og $g$ **parametre** — kjente tall som beskriver systemet. $y(t)$ er den **ukjente funksjonen**.\n\nBlandingen av de to er en klassisk kilde til rot: å «løse for $k$» i en bevegelseslikning gir ingen mening med mindre oppgaven eksplisitt ber om å bestemme fjærkonstanten fra en observert bevegelse. Spør alltid: hva er det jeg leter etter — et tall eller en funksjon?"
+    },
+    {
+      "id": "fys1100-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-7-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $y$, $x$, $s$ | posisjon langs den valgte aksen | $\\text{m}$ |\n| $v = dy/dt$ | fart langs aksen, med fortegn | $\\text{m/s}$ |\n| $a = d^2y/dt^2$ | akselerasjon langs aksen | $\\text{m/s}^2$ |\n| $t$ | tid | $\\text{s}$ |\n| $m$ | masse | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $k$ | fjærkonstant | $\\text{N/m}$ |\n| $k_v$ | koeffisient i lineær luftmotstand $F_D = -k_v v$ | $\\text{kg/s}$ |\n| $D$ | koeffisient i kvadratisk luftmotstand $F_D = -D\\lvert v\\rvert v$ | $\\text{kg/m}$ |\n| $b$ | dempekoeffisient i $-b\\,dy/dt$ | $\\text{kg/s}$ |\n| $B$ | oppdrift (kraft) | $\\text{N}$ |\n| $\\mu_d$ | dynamisk friksjonstall | dimensjonsløs |\n| $C_1$, $C_2$, $A$, $B$ | integrasjonskonstanter, bestemt av initialbetingelsene | varierer |\n| $\\theta$ | vinkelutslag (pendel) | radianer |\n| $\\ell$ | pendellengde | $\\text{m}$ |\n\n**Symbolkollisjoner i dette delkapitlet:** $b$ brukes om dempekoeffisienten og $B$ om oppdriften — hold dem fra hverandre, og les alltid oppgaveteksten før du antar hva en bokstav betyr. $B$ brukes dessuten som integrasjonskonstant i den generelle løsningen; det går fram av sammenhengen, men skriv det ut når begge opptrer. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$, siden $G$ er gravitasjonskonstanten senere i boka. En svingeperiode skrives $T_p$, fordi $T$ er snordrag. Pendellengden skrives $\\ell$, siden $L$ er spinn i Del 6.\n\n**Formler i dette delkapitlet:**\n\n$$\\sum \\mathbf{F} = m\\mathbf{a} = \\frac{d\\mathbf{p}}{dt}$$\n\nNewtons 2. lov, kilden til alle bevegelseslikninger. **[formelarket]**\n\n$$m\\frac{d^2y}{dt^2} = \\sum F\\left(y, \\frac{dy}{dt}, t\\right)$$\n\nBevegelseslikningen: Newtons 2. lov med akselerasjonen skrevet som andrederivert. **[må kunne utledes]** — dette oppsettet er selve inngangen til hver eneste ODE-oppgave.\n\n$$\\mathbf{F} = -k(x - x_0), \\qquad F_D = -k_v v, \\qquad F_D = -D\\lvert v\\rvert v$$\n\nFjærkraft og de to luftmotstandsmodellene. **[formelarket]** — men *hvorfor* absoluttverdien trengs, må du kunne begrunne selv.\n\n$$\\begin{cases} dy/dt = v \\\\ dv/dt = f(y, v, t)\\end{cases}$$\n\nTilstandsform: én andreordens likning skrevet som to førsteordens. **[må kunne utledes]**\n\n$$\\frac{dv}{dt} = 0 \\quad \\Longrightarrow \\quad v = v_{\\text{likevekt}}$$\n\nLikevektsløsningen, funnet ved å sette den deriverte lik null. **[må kunne utledes]**\n\n$$\\frac{dv}{f(v)} = h(t)\\,dt$$\n\nSeparasjon av variable for en førsteordens separabel likning. Oppskriften står i **[Rottmann]**; gjennomføringen i fysikkoppgaven er din.\n\nOppskriften for andreordens lineære likninger med konstante koeffisienter — karakteristisk likning med de tre rot-tilfellene — står også i **[Rottmann]** og brukes i [kap. 7.2](/bok/fys1100/fys1100-7-2)."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-7-1-rep-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver fra kapitlene dette bygger på. Bruk dem som oppvarming før du går videre til [kap. 7.2](/bok/fys1100/fys1100-7-2).\n\n**R1.** ([kap. 2.1](/bok/fys1100/fys1100-2-1)) En bil akselererer jevnt fra ro til $25{,}0\\ \\text{m/s}$ på $8{,}00\\ \\text{s}$. Finn akselerasjonen og strekningen.\n\n*Løsning:* $a = \\Delta v/\\Delta t = 25{,}0/8{,}00 = 3{,}13\\ \\text{m/s}^2$ i kjøreretningen. Strekningen: $s = \\tfrac12 a t^2 = 0{,}5 \\cdot 3{,}125 \\cdot 64{,}0 = 100\\ \\text{m}$. Her *er* akselerasjonen konstant, så konstant-$a$-formlene gjelder.\n\n**R2.** ([kap. 3.1](/bok/fys1100/fys1100-3-1)) En kloss på $2{,}50\\ \\text{kg}$ henger i en snor fra taket i en heis som akselererer oppover med $1{,}80\\ \\text{m/s}^2$. Finn snordraget.\n\n*Løsning:* Newtons 2. lov oppover med $a$ positiv oppover: $T - mg = ma$, altså $T = m(g + a) = 2{,}50(9{,}81 + 1{,}80) = 29{,}0\\ \\text{N}$. Snordraget er større enn tyngden $24{,}5\\ \\text{N}$, som seg hør og bør når heisen akselererer oppover.\n\n**R3.** ([kap. 3.2](/bok/fys1100/fys1100-3-2)) En kloss glir nedover et plan med helning $22{,}0^\\circ$ og $\\mu_d = 0{,}180$. Finn akselerasjonen.\n\n*Løsning:* $a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81(0{,}3746 - 0{,}180\\cdot 0{,}9272) = 9{,}81 \\cdot 0{,}2077 = 2{,}04\\ \\text{m/s}^2$ nedover langs planet.\n\n**R4.** ([kap. 1.2](/bok/fys1100/fys1100-1-2)) Taylor-utvikle $e^{-x}$ til og med andreordens ledd om $x = 0$.\n\n*Løsning:* $e^{-x} \\approx 1 - x + \\tfrac12x^2$. Denne utviklingen brukes direkte i [kap. 7.3](/bok/fys1100/fys1100-7-3), når vi skal vise at fartsuttrykket for et fall med luftmotstand går over i fritt fall for små $t$.\n\n**R5.** ([kap. 1.1](/bok/fys1100/fys1100-1-1)) Kontroller at $\\sqrt{m/k}$ har enhet sekund, når $m$ er en masse og $k$ en fjærkonstant.\n\n*Løsning:* $[m/k] = \\text{kg}/(\\text{N/m}) = \\text{kg}\\cdot\\text{m}/\\text{N} = \\text{kg}\\cdot\\text{m}/(\\text{kg}\\cdot\\text{m/s}^2) = \\text{s}^2$, og kvadratroten gir sekunder ✓. Dette er nøyaktig den kombinasjonen som dukker opp som svingetid i [kap. 7.2](/bok/fys1100/fys1100-7-2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,423 @@
+{
+  "id": "fys1100-1-2",
+  "courseId": "fys1100",
+  "chapterNumber": "1.2",
+  "title": "Taylor-utvikling og linearisering",
+  "description": "Rekkeutvikling om et punkt, sin θ ≈ θ for små vinkler, og relativistisk E for små farter — verktøyet bak lineariseringen i svingnings- og relativitetsoppgaver.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne regne ut Taylor- og Maclaurin-polynomer av gitt orden for standardfunksjoner",
+    "kunne anslå feilen i en tilnærming med restleddet og oppgi gyldighetsområdet",
+    "kunne linearisere en kraft eller et kraftmoment om et likevektspunkt og finne den effektive fjærkonstanten",
+    "kunne utvikle relativistisk kinetisk energi for lave farter og gjenfinne det klassiske uttrykket"
+  ],
+  "content": [
+    {
+      "id": "fys1100-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Taylor-utvikling er testet i 4 av 7 avsluttende sett (57 %)** — og de gangene den ikke er testet direkte, er den likevel maskineriet bak en annen oppgave.\n\nSlik dukker den opp:\n\n- **Linearisering av $\\sin\\theta \\approx \\theta$** når en pendel skal gi en pen bevegelseslikning. Dette er selve inngangen til svingningsdelen senere i boka.\n- **Rekkeutvikling av relativistisk energi** for lave farter, slik at man gjenfinner det klassiske uttrykket $\\tfrac12 mv^2$. Dette står i settet fra høsten 2022.\n- **Linearisering av en ikke-lineær kraft om en likevekt**, som er det som gjør et hvilket som helst potensial til en harmonisk svingning i nærheten av bunnen.\n- **Som rent flervalgsspørsmål på midtveiseksamen** (den digitale flervalgsprøven som teller 20 % av karakteren): «hva er andreordensleddet i utviklingen av …?»\n\n**Prioritet: bør sitte.** Kapitlet er blant de mest gjenbrukte i boka — du trenger det i svingningskapitlene, i luftmotstandskapitlet og i relativitetsdelen.\n\nKapitlet trener også **sjanger J**, de kvalitative oppgavene der du skal forklare eller begrunne i ord i stedet for å regne — minst én slik deloppgave finnes i hvert eneste sett — og **sjanger I**, relativitetsoppgaven, som er i 6 av 7 sett (86 %) og nesten alltid ligger sist."
+    },
+    {
+      "id": "fys1100-1-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 1.1](/bok/fys1100/fys1100-1-1) (benevningskontroll — vi bruker den på hvert eneste ledd i en rekke) og på derivasjon fra R1 og R2.\n\n**De tre tingene du må ha friskt:**\n\n**1. Den deriverte som stigningstall.** For en funksjon $f$ er\n$$f'(a) = \\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}$$\naltså stigningstallet til tangenten i punktet $x = a$. Repetisjon: [Derivasjonens definisjon](/bok/r1/r1-3-3) og [Derivasjonsregler](/bok/r1/r1-4-1).\n\n**2. De deriverte av $\\sin$, $\\cos$ og $e^x$**, med $x$ i **radianer**:\n$$(\\sin x)' = \\cos x, \\qquad (\\cos x)' = -\\sin x, \\qquad (e^{x})' = e^{x}$$\nRepetisjon: [Derivasjon av trigonometriske funksjoner](/bok/r1/r1-7-5) og [Kjerneregelen](/bok/r1/r1-4-3) (som du trenger når du deriverer $(1-\\beta^2)^{-1/2}$).\n\n**3. Fakultet.** $n! = 1\\cdot 2\\cdot 3\\cdots n$, og $0! = 1$. Altså $1! = 1$, $2! = 2$, $3! = 6$, $4! = 24$. Fakultetene er nevnerne i alle Taylor-rekker.\n\nHar du sett uendelige rekker før, er det en fordel — men ikke et krav. Repetisjon om du vil ha det: [Rekker og summasjon](/bok/r2/r2-1-4) og [Uendelige rekker og konvergens](/bok/r2/r2-1-5)."
+    },
+    {
+      "id": "fys1100-1-2-intro",
+      "type": "text",
+      "content": "En pendel som svinger med store utslag, er et vanskelig fysikkproblem. Bevegelseslikningen inneholder $\\sin\\theta$, og den likningen har ingen løsning som kan skrives med de funksjonene du kjenner.\n\nEn pendel som svinger med *små* utslag, er et av de enkleste problemene i hele mekanikken. Løsningen er en ren cosinusbølge med konstant periode.\n\nForskjellen mellom «umulig» og «enkelt» er ett eneste grep: å erstatte $\\sin\\theta$ med $\\theta$. Det grepet heter **linearisering**, og verktøyet bak det heter **Taylor-utvikling**.\n\nIdeen er å bytte ut en tung funksjon med et polynom som ligner den *i nærheten av ett bestemt punkt*. Polynomet er lett å regne med; funksjonen er ikke. Prisen er en feil, og hele kunsten ligger i å vite hvor stor den feilen er.\n\nKapitlet er delt i tre løkker: først bygger vi Taylor-polynomet, så bruker vi det til linearisering, og til slutt gjør vi det klassiske grepet fra relativitetsteorien — å vise at $\\tfrac12 mv^2$ bare er førsteleddet i noe større."
+    },
+    {
+      "id": "fys1100-1-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Taylor-polynomet (~20 min)"
+    },
+    {
+      "id": "fys1100-1-2-def-utviklingspunkt",
+      "type": "definition",
+      "title": "Utviklingspunkt",
+      "content": "**Utviklingspunktet** er det punktet $x = a$ som tilnærmingen bygges rundt.\n\nEn Taylor-tilnærming er alltid **lokal**: den er laget for å være god *nær* $a$ og blir gradvis dårligere jo lenger vekk du kommer. Det finnes ingen «Taylor-utvikling av $\\sin x$» uten videre — det finnes en utvikling om $x = 0$, en annen om $x = \\pi/2$, og de er forskjellige.\n\n**Konsekvens for eksamen:** oppgaven sier alltid hvilket punkt du skal utvikle om, enten direkte («utvikle om $x=0$») eller indirekte («for små utslag», som betyr om $\\theta = 0$, eller «for lave farter», som betyr om $v = 0$). Å utvikle om feil punkt gir et svar som er galt fra første linje."
+    },
+    {
+      "id": "fys1100-1-2-def-taylorpolynom",
+      "type": "definition",
+      "title": "Taylor-polynom",
+      "content": "**Taylor-polynomet av orden $n$** til en funksjon $f$ om punktet $x = a$ er det polynomet av grad $n$ som har nøyaktig samme verdi og nøyaktig samme $n$ første deriverte som $f$ i punktet $a$.\n\nFormelt:\n\n$$P_n(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\cdots + \\frac{f^{(n)}(a)}{n!}(x-a)^n$$\n\nI sum-notasjon:\n\n$$P_n(x) = \\sum_{j=0}^{n}\\frac{f^{(j)}(a)}{j!}(x-a)^{j}$$\n\n**I ord:** vi bygger et polynom som «etterligner» funksjonen stadig bedre — først samme verdi, så samme stigning, så samme krumning, og så videre. Den generelle formen med restledd står på formelarket og i Rottmann; det du må kunne, er å *regne den ut* for en konkret funksjon."
+    },
+    {
+      "id": "fys1100-1-2-def-maclaurin",
+      "type": "definition",
+      "title": "Maclaurin-polynom",
+      "content": "Et **Maclaurin-polynom** er ganske enkelt et Taylor-polynom med utviklingspunkt $a = 0$:\n\n$$P_n(x) = f(0) + f'(0)\\,x + \\frac{f''(0)}{2!}x^2 + \\cdots + \\frac{f^{(n)}(0)}{n!}x^{n}$$\n\nNesten alle utviklinger du trenger i FYS1100 er av denne typen, fordi «små utslag», «lave farter» og «små høyder over bakken» alle betyr at den relevante variabelen er nær null.\n\nNavnet er verdt å kjenne fordi det brukes i Rottmann og i mange lærebøker, men det er ingen ny idé — bare et spesialtilfelle."
+    },
+    {
+      "id": "fys1100-1-2-def-orden",
+      "type": "definition",
+      "title": "Orden på en tilnærming",
+      "content": "**Ordenen** til en tilnærming er den høyeste potensen av $(x-a)$ som er med.\n\n- **1. orden** (lineær): $f(a) + f'(a)(x-a)$ — en rett linje.\n- **2. orden** (kvadratisk): tar med $\\tfrac{1}{2}f''(a)(x-a)^2$ — en parabel som også fanger krumningen.\n- og så videre.\n\n**Viktig detalj:** ordenen teller potensene som er *med i formelen*, ikke antall ledd som er forskjellig fra null. For $\\sin x$ om $x=0$ er både $P_1$ og $P_2$ lik $x$, fordi andreordensleddet tilfeldigvis er null. Det er derfor $\\sin x \\approx x$ er så uvanlig god en tilnærming: den første feilen kommer først i tredje potens."
+    },
+    {
+      "id": "fys1100-1-2-utledning-koeffisienter",
+      "type": "text",
+      "content": "### Hvor kommer $f^{(j)}(a)/j!$ fra?\n\nUtledningen er kortere enn formelen ser ut til.\n\n**Steg 1 — still kravet.** Vi vil finne et polynom\n$$P_n(x) = c_0 + c_1(x-a) + c_2(x-a)^2 + \\cdots + c_n(x-a)^n$$\nsom har samme verdi og samme deriverte som $f$ i punktet $a$.\n\n*Intuisjon:* vi kjøper likhet med funksjonen i ett punkt, og håper at det holder et lite stykke rundt.\n\n**Steg 2 — sett $x = a$.** Alle ledd med $(x-a)$ blir null, og vi står igjen med $P_n(a) = c_0$. Kravet $P_n(a) = f(a)$ gir\n$$c_0 = f(a)$$\n\n*Intuisjon:* det nullte kravet er bare «treff funksjonsverdien».\n\n**Steg 3 — deriver én gang og sett $x=a$.** $P_n'(x) = c_1 + 2c_2(x-a) + \\cdots$, som i $x=a$ blir $c_1$. Kravet $P_n'(a) = f'(a)$ gir\n$$c_1 = f'(a)$$\n\n*Intuisjon:* nå har vi også riktig stigning — vi har fått tangenten.\n\n**Steg 4 — deriver to ganger.** $P_n''(x) = 2c_2 + 6c_3(x-a) + \\cdots$, som i $x=a$ blir $2c_2$. Kravet $P_n''(a) = f''(a)$ gir\n$$c_2 = \\frac{f''(a)}{2}$$\n\n*Intuisjon:* faktoren 2 dukker opp fordi $x^2$ derivert to ganger gir 2. Deriverer du $x^j$ $j$ ganger, får du $j!$ — og det er nøyaktig den faktoren vi må dele med for å nøytralisere den.\n\n**Steg 5 — generelt.** Samme regning $j$ ganger gir\n$$c_j = \\frac{f^{(j)}(a)}{j!}$$\n\n*Intuisjon:* fakultetene i nevneren er ikke magi. De er bare motvekten til de fakultetene som oppstår når man deriverer en potens gjentatte ganger.\n\n**Benevningskontroll (den vanes verdt):** i en fysisk Taylor-rekke må hvert ledd ha samme enhet. I $\\sin\\theta \\approx \\theta - \\theta^3/6$ er alle ledd dimensjonsløse, fordi $\\theta$ i radianer er dimensjonsløs — dette er en av grunnene til at radianer er tvingende nødvendig (se advarselen lenger nede)."
+    },
+    {
+      "id": "fys1100-1-2-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: utvikling av $e^{x}$ om $x = 0$",
+      "problem": "**a)** Finn Taylor-polynomene $P_1$, $P_2$ og $P_3$ til $f(x) = e^{x}$ om $x = 0$.\n\n**b)** Bruk dem til å anslå $e^{0{,}3}$, og sammenlign med den eksakte verdien $e^{0{,}3} = 1{,}349859$.\n\n**c)** Hvor mye bedre blir tilnærmingen for hvert ledd du tar med?",
+      "solution": "**Metodevalg:** vi bruker definisjonen direkte — regn de deriverte i utviklingspunktet, del på fakultetene, sett sammen.\n\n**a)** Alle deriverte av $e^{x}$ er $e^{x}$ selv, og $e^{0} = 1$. Altså er $f(0) = f'(0) = f''(0) = f'''(0) = 1$, og\n\n$$P_1(x) = 1 + x$$\n$$P_2(x) = 1 + x + \\frac{x^2}{2}$$\n$$P_3(x) = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}$$\n\n**b)** Med $x = 0{,}3$:\n\n| Tilnærming | Verdi | Avvik fra $1{,}349859$ |\n|---|---|---|\n| $P_1$ | $1{,}300000$ | $-0{,}049859$ |\n| $P_2$ | $1{,}345000$ | $-0{,}004859$ |\n| $P_3$ | $1{,}349500$ | $-0{,}000359$ |\n\n**c)** Avviket krymper med omtrent en faktor 10 for hvert ledd. Det er ingen tilfeldighet: det første leddet vi *ikke* tar med, er av orden $x^{k+1}$, og med $x = 0{,}3$ gir hver ekstra potens en faktor $0{,}3$ — pluss at fakultetet i nevneren vokser.\n\n**Merk hvor tilnærmingen er god:** ved $x = 0{,}3$ bommer den lineære tilnærmingen med under 4 %. Ved $x = 3$ ville $P_1 = 4$, mens $e^{3} \\approx 20{,}1$ — en bom på 80 %. **Nær utviklingspunktet er god; langt unna er ubrukelig.**"
+    },
+    {
+      "id": "fys1100-1-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg. Ren bruk av definisjonen fra eksempel 1.)\n\n**a)** Finn Maclaurin-polynomet av 2. orden til $f(x) = \\cos x$ (altså utviklingen om $x = 0$).\n\n**b)** Finn Maclaurin-polynomet av 3. orden til $g(x) = \\sin x$.\n\n**c)** Bruk svaret i a) til å anslå $\\cos(0{,}5)$, og sammenlign med den eksakte verdien $0{,}877583$.",
+        "solution": "**a)** Vi trenger $f(0)$, $f'(0)$ og $f''(0)$:\n$$f(x) = \\cos x \\Rightarrow f(0) = 1$$\n$$f'(x) = -\\sin x \\Rightarrow f'(0) = 0$$\n$$f''(x) = -\\cos x \\Rightarrow f''(0) = -1$$\n\n$$P_2(x) = 1 + 0\\cdot x + \\frac{-1}{2}x^2 = 1 - \\frac{x^2}{2}$$\n\n**b)** For $g(x) = \\sin x$:\n$$g(0) = 0, \\quad g'(0) = \\cos 0 = 1, \\quad g''(0) = -\\sin 0 = 0, \\quad g'''(0) = -\\cos 0 = -1$$\n\n$$P_3(x) = 0 + x + 0 - \\frac{1}{6}x^3 = x - \\frac{x^3}{6}$$\n\n**c)** $1 - \\dfrac{0{,}5^2}{2} = 1 - 0{,}125 = 0{,}875$.\n\nAvviket fra den eksakte verdien $0{,}877583$ er $0{,}0026$, altså rundt $0{,}3\\ \\%$. Tilnærmingen er god selv $0{,}5$ radianer (nesten $29^\\circ$) fra utviklingspunktet — fordi den første feilen først kommer i fjerde potens.",
+        "hints": [
+          "Sett opp en liten tabell med $f$, $f'$, $f''$, $f'''$ i én kolonne og verdiene i $x = 0$ i den neste.",
+          "Husk at $\\sin 0 = 0$ og $\\cos 0 = 1$ — annenhver derivert forsvinner derfor.",
+          "Del hvert ledd på $j!$: $1! = 1$, $2! = 2$, $3! = 6$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-teo-restledd",
+      "type": "theorem",
+      "title": "Taylors formel med restledd",
+      "content": "For en funksjon $f$ som er tilstrekkelig mange ganger deriverbar gjelder **eksakt**:\n\n$$f(x) = \\underbrace{\\sum_{j=0}^{n}\\frac{f^{(j)}(a)}{j!}(x-a)^{j}}_{P_n(x)} \\;+\\; \\underbrace{\\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x-a)^{n+1}}_{R_n(x)}$$\n\nder $\\xi$ er et punkt et sted mellom $a$ og $x$ (vi vet ikke hvilket).\n\n**Hva formelen er verdt i praksis:** vi kjenner ikke $\\xi$, men vi kan ofte sette en øvre grense for $|f^{(n+1)}|$ i hele intervallet. Da får vi en **feilgrense**:\n\n$$|R_n(x)| \\le \\frac{\\max|f^{(n+1)}|}{(n+1)!}\\,|x-a|^{n+1}$$\n\nFor $\\sin$ og $\\cos$ er alle deriverte tallmessig høyst 1, så feilgrensen er ganske enkelt $|x-a|^{n+1}/(n+1)!$.\n\n**Formelen med restledd står i Rottmann** — du skal kjenne den igjen og bruke den, ikke pugge den. Det som må sitte i fingrene, er å regne ut de deriverte og sette inn."
+    },
+    {
+      "id": "fys1100-1-2-def-restledd",
+      "type": "definition",
+      "title": "Restleddet $R_n$",
+      "content": "**Restleddet** er den eksakte feilen du gjør ved å bytte funksjonen ut med polynomet:\n\n$$R_n(x) = f(x) - P_n(x)$$\n\nTo ting er verdt å merke seg:\n\n- Restleddet er **proporsjonalt med $(x-a)^{n+1}$**. Halverer du avstanden til utviklingspunktet, faller feilen i en 1.-ordens tilnærming til en fjerdedel, og i en 2.-ordens tilnærming til en åttedel.\n- Restleddet forteller deg **hvor du kan stole på tilnærmingen**. En påstand som «$\\sin\\theta \\approx \\theta$» er verdiløs uten en oppfatning om hvor stor $\\theta$ kan bli.\n\nPå eksamen er det ofte nok å si «feilen er av orden $\\theta^3$», altså å oppgi hvilken potens den første utelatte feilen har."
+    },
+    {
+      "id": "fys1100-1-2-def-relativt-avvik",
+      "type": "definition",
+      "title": "Relativt avvik",
+      "content": "Det **relative avviket** til en tilnærming er feilen målt som andel av den riktige verdien:\n\n$$\\text{relativt avvik} = \\frac{|\\text{tilnærmet verdi} - \\text{eksakt verdi}|}{|\\text{eksakt verdi}|}$$\n\noppgitt i prosent.\n\nDette er nesten alltid det målet som betyr noe i fysikk. En absolutt feil på $0{,}01$ er katastrofal hvis svaret er $0{,}02$ og likegyldig hvis svaret er $2000$.\n\nNår vi i dette kapitlet sier at «$\\sin\\theta \\approx \\theta$ bommer med $1{,}5\\ \\%$ ved $\\theta = 0{,}3$», er det det relative avviket vi mener."
+    },
+    {
+      "id": "fys1100-1-2-def-radian",
+      "type": "definition",
+      "title": "Radian",
+      "content": "En **radian** er den vinkelen som spenner over en bue like lang som radien. Én full sirkel er $2\\pi$ radianer, så\n\n$$180^{\\circ} = \\pi \\text{ rad}, \\qquad 1\\ \\text{rad} = \\frac{180^{\\circ}}{\\pi} \\approx 57{,}3^{\\circ}$$\n\nRadianen er **dimensjonsløs**: den er buelengde delt på radius, altså $[L]/[L] = 1$.\n\n**Hvorfor dette er et fysikkspørsmål og ikke et matematikkspørsmål:** de deriverte $(\\sin x)' = \\cos x$ og $(\\cos x)' = -\\sin x$ gjelder **bare** når $x$ måles i radianer. Måler du i grader, kommer det en faktor $\\pi/180$ inn i hver derivasjon, og hele Taylor-rekka blir en annen. Derfor er $\\sin\\theta \\approx \\theta$ tvangsmessig knyttet til radianer.\n\nSjekk: $\\sin(30^\\circ) = 0{,}500$, mens $30$ (som tall) er $60$ ganger større. I radianer: $30^\\circ = 0{,}524$ rad, og $\\sin(0{,}524) = 0{,}500$ — nå ligner de to."
+    },
+    {
+      "id": "fys1100-1-2-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: hvor små må «små vinkler» være?",
+      "problem": "Tilnærmingen $\\sin\\theta \\approx \\theta$ er selve inngangsporten til pendelfysikken. Undersøk hvor god den er.\n\n**a)** Bruk restleddet til å sette en øvre grense for feilen i $\\sin\\theta \\approx \\theta$.\n\n**b)** Regn ut det relative avviket ved $\\theta = 0{,}1$, $\\theta = 0{,}2$ og $\\theta = 0{,}3$ radianer.\n\n**c)** Hvor stor kan vinkelen være i grader dersom vi tåler et relativt avvik på $1\\ \\%$?\n\n**d)** Hvor mye bedre blir det med tredjeordensleddet, $\\sin\\theta \\approx \\theta - \\theta^{3}/6$?",
+      "solution": "**Metodevalg:** vi bruker restleddsformelen for feilgrensen, og regner deretter faktiske avvik. Grensen fra restleddet er en *garanti*; de faktiske avvikene forteller hvor konservativ garantien er.\n\n**a)** Maclaurin-polynomene $P_1$ og $P_2$ til $\\sin\\theta$ er begge lik $\\theta$, fordi andreordensleddet er null. Vi kan derfor bruke restleddet for $n = 2$:\n\n$$|R_2(\\theta)| \\le \\frac{\\max|f'''|}{3!}\\,|\\theta|^{3} = \\frac{1}{6}|\\theta|^{3}$$\n\nsiden $f'''(\\theta) = -\\cos\\theta$ og $|\\cos\\theta| \\le 1$.\n\n*Dette er hele grunnen til at tilnærmingen er så god:* feilen går som $\\theta^3$, ikke som $\\theta^2$.\n\n**b)** Med $\\sin(0{,}1) = 0{,}0998334$, $\\sin(0{,}2) = 0{,}1986693$ og $\\sin(0{,}3) = 0{,}2955202$:\n\n| $\\theta$ (rad) | $\\theta$ (grader) | $\\sin\\theta$ | relativt avvik |\n|---|---|---|---|\n| $0{,}1$ | $5{,}7^{\\circ}$ | $0{,}0998334$ | $0{,}17\\ \\%$ |\n| $0{,}2$ | $11{,}5^{\\circ}$ | $0{,}1986693$ | $0{,}67\\ \\%$ |\n| $0{,}3$ | $17{,}2^{\\circ}$ | $0{,}2955202$ | $1{,}5\\ \\%$ |\n\nAvviket firedobles omtrent når vinkelen dobles — akkurat som en $\\theta^3$-feil delt på en $\\theta$-verdi skal gjøre.\n\n**c)** Relativt avvik er $(\\theta - \\sin\\theta)/\\sin\\theta$. Ved $\\theta = 0{,}25$ rad blir det $1{,}0\\ \\%$, og $0{,}25\\ \\text{rad} = 14^{\\circ}$.\n\n**Praktisk regel: under omtrent $15^{\\circ}$ er $\\sin\\theta \\approx \\theta$ god til én prosent.** Det er nettopp derfor pendeloppgaver alltid sier «små utslag».\n\n**d)** Ved $\\theta = 0{,}3$: $\\theta - \\theta^3/6 = 0{,}3 - 0{,}0045 = 0{,}29550$, mot eksakt $0{,}2955202$. Avviket er nå $2\\cdot 10^{-5}$ i absolutt verdi og under $0{,}007\\ \\%$ relativt — altså rundt **200 ganger bedre** enn den lineære tilnærmingen.\n\n**Hvorfor vi likevel bruker den lineære i pendeloppgaver:** fordi et $\\theta^3$-ledd i bevegelseslikningen gjør den ulineær, og da forsvinner den enkle løsningen. Vi ofrer nøyaktighet for å få en likning vi kan løse."
+    },
+    {
+      "id": "fys1100-1-2-fig-sin",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-1-2-sin-taylor.svg",
+      "alt": "Graf med tre kurver fra 0 til 1,6 radianer: sinus theta som en kurve som flater ut mot 1, den rette linja y lik theta som stiger jevnt, og tredjeordenstilnaermingen theta minus theta i tredje delt paa seks som foelger sinuskurven tett. En stiplet loddrett linje markerer theta lik 0,3.",
+      "caption": "Ved $\\theta = 0{,}3$ rad ($17^{\\circ}$) er den rette linja $y=\\theta$ så vidt skilt fra $\\sin\\theta$ — avviket er $1{,}5\\ \\%$, som regnet ut i eksempel 2. Tredjeordenskurven $\\theta-\\theta^3/6$ ligger derimot oppå sinuskurven helt til rundt $1$ rad. Legg merke til at avstanden mellom linja og sinuskurven vokser raskt: det er $\\theta^3$-leddet i restleddet som slår inn."
+    },
+    {
+      "id": "fys1100-1-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving på feilgrensen fra restleddet.)\n\n**a)** Bruk restleddet til å sette en øvre grense for feilen i tilnærmingen $\\cos\\theta \\approx 1 - \\theta^{2}/2$.\n\n**b)** Regn ut grensen for $\\theta = 0{,}5$ rad, og sammenlign med det faktiske avviket. Eksakt: $\\cos(0{,}5) = 0{,}877583$.\n\n**c)** En student regner $\\sin(20^{\\circ})$ som $20$. Hva er galt, og hva blir riktig svar med tilnærmingen?",
+        "solution": "**a)** Maclaurin-polynomene $P_2$ og $P_3$ til $\\cos\\theta$ er begge $1-\\theta^2/2$ (tredjeordensleddet er null). Vi bruker restleddet for $n=3$:\n$$|R_3(\\theta)| \\le \\frac{\\max|f^{(4)}|}{4!}|\\theta|^{4} = \\frac{|\\theta|^{4}}{24}$$\nsiden den fjerdederiverte av $\\cos$ er $\\cos$ igjen, med tallverdi høyst 1.\n\n**b)** Grensen: $\\dfrac{0{,}5^{4}}{24} = \\dfrac{0{,}0625}{24} = 2{,}6\\cdot 10^{-3}$.\n\nFaktisk avvik: $|0{,}875 - 0{,}877583| = 2{,}6\\cdot 10^{-3}$.\n\nHer treffer grensen nesten nøyaktig, fordi $\\cos\\xi$ er svært nær 1 på hele intervallet.\n\n**c)** Feilen er at $20$ er antall **grader**, mens tilnærmingen krever **radianer**. Riktig framgangsmåte:\n$$20^{\\circ} = 20\\cdot\\frac{\\pi}{180}\\ \\text{rad} = 0{,}349\\ \\text{rad}$$\n$$\\sin(20^{\\circ}) \\approx 0{,}349$$\nDen eksakte verdien er $0{,}342$, så tilnærmingen bommer med rundt $2\\ \\%$ — mens studentens svar bommet med en faktor 58.",
+        "hints": [
+          "I a): finn den laveste ordenen $n$ der neste ledd faktisk er forskjellig fra null, og bruk restleddet for den.",
+          "Alle deriverte av $\\cos$ er $\\pm\\sin$ eller $\\pm\\cos$, og alle har tallverdi høyst 1.",
+          "I c): tenk på hvilken enhet de deriverte av $\\sin$ og $\\cos$ forutsetter."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — Taylor-utvikling",
+      "content": "**Feil A: å bruke grader i stedet for radianer.** $\\sin\\theta \\approx \\theta$ gjelder bare i radianer, fordi derivasjonsreglene $(\\sin x)' = \\cos x$ gjør det. Sett alltid kalkulatoren i radianmodus før du regner på svingninger, og skriv om vinkler oppgitt i grader **først**.\n\n**Feil B: å utvikle om feil punkt.** «For små utslag» betyr utvikling om $\\theta = 0$. «For farter nær lysfarten» betyr *ikke* utvikling om $v = 0$ — der er hele poenget at $\\beta$ er stor. Les hvilken grense oppgaven ber om.\n\n**Feil C: å ta med feil antall ledd.** Ber oppgaven om «andre orden», skal $x^2$-leddet være med, også hvis det er null. Ber den om «det første korreksjonsleddet», mener den det første leddet etter det du allerede har — som for $\\sin$ er $-\\theta^3/6$, ikke $\\theta^2$-leddet.\n\n**Feil D: regnefeil i de deriverte.** Fortegnene i $\\sin$/$\\cos$-kjeden ($\\sin \\to \\cos \\to -\\sin \\to -\\cos \\to \\sin$) er den vanligste kilden. Skriv opp kjeden før du setter inn.\n\n**Feil E: å bruke tilnærmingen langt utenfor gyldighetsområdet** uten å si noe om feilen. Dette er en variant av **felle #1 — tallsvar uten resonnement**, den dyreste enkeltfeilen på eksamen: et tall fra en tilnærming uten en setning om når tilnærmingen holder, er et tall sensor ikke kan gi full uttelling for. Feilene i denne boka er nummererte fordi de går igjen, og hele registeret står samlet i eksamenskartet."
+    },
+    {
+      "id": "fys1100-1-2-def-smaavinkel",
+      "type": "definition",
+      "title": "Småvinkeltilnærmingen $\\sin\\theta \\approx \\theta$",
+      "content": "For små vinkler målt i **radianer** gjelder\n\n$$\\sin\\theta \\approx \\theta \\qquad (\\text{feil av orden } \\theta^{3}/6)$$\n\nGyldighetsområde i praksis: relativt avvik under $1\\ \\%$ for $\\theta \\lesssim 0{,}25\\ \\text{rad} \\approx 15^{\\circ}$, under $0{,}2\\ \\%$ for $\\theta \\lesssim 0{,}1\\ \\text{rad} \\approx 6^{\\circ}$.\n\nNeste ledd, når du trenger det: $\\sin\\theta \\approx \\theta - \\theta^{3}/6$.\n\n**Dette er den enkeltformelen som brukes flest ganger i FYS1100.** Den forvandler pendelens bevegelseslikning fra uløselig til harmonisk svingning.\n\nEn nyttig følge: $\\tan\\theta \\approx \\theta$ for små $\\theta$ også, siden $\\cos\\theta \\approx 1$."
+    },
+    {
+      "id": "fys1100-1-2-def-cos",
+      "type": "definition",
+      "title": "Cosinustilnærmingen $\\cos\\theta \\approx 1 - \\theta^{2}/2$",
+      "content": "For små vinkler i radianer:\n\n$$\\cos\\theta \\approx 1 - \\frac{\\theta^{2}}{2} \\qquad (\\text{feil av orden } \\theta^{4}/24)$$\n\n**Hvor du trenger den:** i energiregnskapet for en pendel. Løftehøyden til en pendellodd som svinger ut vinkelen $\\theta$ fra loddrett, er\n\n$$h = \\ell(1-\\cos\\theta) \\approx \\frac{\\ell\\theta^{2}}{2}$$\n\nLegg merke til at høyden går som $\\theta^{2}$, ikke som $\\theta$ — det er derfor pendelens potensielle energi ser ut som en fjærs, $U \\propto \\theta^2$, og dermed hvorfor pendelen svinger harmonisk i det hele tatt.\n\n**Fallgruve:** å sette $\\cos\\theta \\approx 1$ (nullte orden) i dette uttrykket gir $h = 0$, altså ingen energi i det hele tatt. Når en tilnærming får hele svaret til å forsvinne, har du kuttet ett ledd for tidlig."
+    },
+    {
+      "id": "fys1100-1-2-def-binomial",
+      "type": "definition",
+      "title": "Binomialtilnærmingen $(1+x)^{n} \\approx 1 + nx$",
+      "content": "For $|x| \\ll 1$ og et hvilket som helst reelt tall $n$:\n\n$$(1+x)^{n} \\approx 1 + nx + \\frac{n(n-1)}{2}x^{2} + \\cdots$$\n\nFørsteordensformen $(1+x)^{n} \\approx 1+nx$ er trolig den mest brukte tilnærmingen i all fysikk, fordi $n$ gjerne er en brøk eller et negativt tall:\n\n- $\\sqrt{1+x} = (1+x)^{1/2} \\approx 1 + \\tfrac12 x$\n- $\\dfrac{1}{1-x} = (1-x)^{-1} \\approx 1 + x$\n- $\\dfrac{1}{\\sqrt{1-x}} = (1-x)^{-1/2} \\approx 1 + \\tfrac12 x$\n\nDen siste er **Lorentz-faktoren** i forkledning, som vi kommer til i løkke 3.\n\nKontroll: $\\sqrt{1{,}05} = 1{,}0247$, mens $1 + \\tfrac12\\cdot 0{,}05 = 1{,}025$ — avvik $0{,}03\\ \\%$."
+    },
+    {
+      "id": "fys1100-1-2-def-exp",
+      "type": "definition",
+      "title": "Eksponentialtilnærmingen $e^{x} \\approx 1 + x + x^{2}/2$",
+      "content": "$$e^{x} = 1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\cdots$$\n\nRekka er spesielt lett å huske fordi alle deriverte av $e^x$ er $e^x$, slik at alle koeffisienter blir $1/j!$.\n\n**Hvor du trenger den:** i luftmotstandskapitlet dukker løsningen $v(t) = v_T\\left(1 - e^{-gt/v_T}\\right)$ opp. For korte tider er eksponenten liten, og\n$$e^{-gt/v_T} \\approx 1 - \\frac{gt}{v_T} \\quad\\Rightarrow\\quad v(t) \\approx gt$$\naltså fritt fall — nøyaktig som det skal være rett etter slipp, før luftmotstanden rekker å bygge seg opp. Det er en grensetilfelle-kontroll av typen sensor premierer."
+    },
+    {
+      "id": "fys1100-1-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær — dette er nøyaktig formen midtveis-flervalget har.)\n\n**a)** Finn de tre første leddene i utviklingen av $f(x) = \\dfrac{1}{1+x}$ om $x = 0$, både ved å derivere og ved å bruke binomialtilnærmingen med $n = -1$.\n\n**b)** Finn andreordensleddet i utviklingen av $\\sqrt{1+x}$ om $x=0$.\n\n**c)** Bruk resultatet i b) til å anslå $\\sqrt{1{,}08}$, og oppgi det relative avviket fra den eksakte verdien $1{,}039230$.",
+        "solution": "**Metodevalg:** to veier til samme svar. Den direkte derivasjonen er tryggest når du er usikker; binomialtilnærmingen er raskere under tidspress. Vi viser begge, slik sensor liker.\n\n**a) Ved derivasjon:** $f(x) = (1+x)^{-1}$ gir\n$$f(0) = 1, \\qquad f'(x) = -(1+x)^{-2} \\Rightarrow f'(0) = -1, \\qquad f''(x) = 2(1+x)^{-3} \\Rightarrow f''(0) = 2$$\n$$P_2(x) = 1 - x + \\frac{2}{2}x^{2} = 1 - x + x^{2}$$\n\n**Ved binomialtilnærmingen** med $n=-1$:\n$$1 + (-1)x + \\frac{(-1)(-2)}{2}x^{2} = 1 - x + x^{2}$$\nSamme svar. Den andre veien er klart raskest når man har $n$ i hodet.\n\n**b)** Med $n = \\tfrac12$:\n$$\\frac{n(n-1)}{2} = \\frac{\\tfrac12\\cdot(-\\tfrac12)}{2} = -\\frac{1}{8}$$\n$$\\sqrt{1+x} \\approx 1 + \\frac{x}{2} - \\frac{x^{2}}{8}$$\n\n**c)** Med $x = 0{,}08$:\n$$1 + 0{,}04 - \\frac{0{,}0064}{8} = 1 + 0{,}04 - 0{,}0008 = 1{,}039200$$\n\nRelativt avvik: $\\dfrac{|1{,}039200 - 1{,}039230|}{1{,}039230} = 2{,}9\\cdot 10^{-5}$, altså rundt $0{,}003\\ \\%$.\n\nTil sammenlikning: den rene førsteordenstilnærmingen $1 + x/2 = 1{,}040$ bommer med $0{,}07\\ \\%$ — over tjue ganger mer.",
+        "hints": [
+          "Skriv $1/(1+x)$ som $(1+x)^{-1}$ før du deriverer — da er det bare potensregelen.",
+          "I binomialtilnærmingen er andreordenskoeffisienten $\\dfrac{n(n-1)}{2}$; sett inn $n=\\tfrac12$ og regn nøye med fortegnet.",
+          "I c): identifiser hva $x$ er før du setter inn — $\\sqrt{1{,}08}$ betyr $x = 0{,}08$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — linearisering (~20 min)\n\n— naturlig pausepunkt —\n\nNå bruker vi verktøyet til det fysikken faktisk trenger det til: å bytte en tung funksjon med en rett linje, slik at en umulig likning blir løsbar."
+    },
+    {
+      "id": "fys1100-1-2-def-linearisering",
+      "type": "definition",
+      "title": "Linearisering",
+      "content": "**Linearisering** er å erstatte en funksjon med sitt førsteordens Taylor-polynom om et valgt punkt:\n\n$$f(x) \\approx f(a) + f'(a)(x-a)$$\n\nResultatet er en **rett linje** — tangenten i punktet $a$.\n\nHvorfor vi gjør det i fysikk: en bevegelseslikning der kraften avhenger lineært av posisjonen, har en pen, kjent løsning (harmonisk svingning). En likning der kraften avhenger av $\\sin$ av posisjonen, har det ikke. Linearisering er prisen vi betaler for å få et problem vi kan løse i hånda på eksamen.\n\n**Prisen skal alltid oppgis:** når du lineariserer, skriv én setning om hvor stor avstanden fra $a$ kan være før tilnærmingen svikter."
+    },
+    {
+      "id": "fys1100-1-2-def-tangentlinje",
+      "type": "definition",
+      "title": "Tangentlinje-tilnærmingen",
+      "content": "Førsteordens Taylor-polynom **er** tangentlinja i punktet $a$:\n\n$$y = f(a) + f'(a)(x-a)$$\n\nDet gir en nyttig geometrisk lesning av alt vi gjør: å linearisere er å følge tangenten i stedet for kurven. Nær berøringspunktet er de umulige å skille; langt unna spriker de.\n\nBruk gjerne dette som en rask sanity-sjekk: krummer funksjonen kraftig i området du er interessert i, er lineariseringen dårlig. Er den nesten rett, er den god."
+    },
+    {
+      "id": "fys1100-1-2-utledning-linearisering",
+      "type": "text",
+      "content": "### Utledningen: tyngden litt over bakken\n\nDu har brukt $F_g = mg$ hele videregående. Men gravitasjonsloven sier at kraften avtar med kvadratet av avstanden fra jordas sentrum. Hvordan henger de sammen?\n\n**Steg 1 — start med den eksakte loven.** For et legeme i høyde $h$ over overflaten på en planet med masse $M$ og radius $R$:\n\n$$F(h) = \\frac{GMm}{(R+h)^{2}}$$\n\n*Intuisjon:* avstanden fra sentrum er $R+h$, ikke $h$ — legemet er allerede $6\\,371$ kilometer fra sentrum før det løftes en meter.\n\n**Steg 2 — trekk ut den store faktoren.** Skriv $(R+h)^2 = R^2(1 + h/R)^2$:\n\n$$F(h) = \\frac{GMm}{R^{2}}\\left(1+\\frac{h}{R}\\right)^{-2}$$\n\n*Intuisjon:* nå står hele avstandsavhengigheten i en parentes som er *nesten* 1, fordi $h/R$ er et lite tall. Dette grepet — å skrive uttrykket som «noe stort ganger noe nær 1» — er det som gjør Taylor brukbar.\n\n**Steg 3 — kjenn igjen $g$.** Faktoren foran er nettopp tyngdekraften ved overflaten, så vi definerer\n\n$$g = \\frac{GM}{R^{2}}$$\n\n*Intuisjon:* $g$ er ikke en naturkonstant på linje med $G$. Den er en egenskap ved *denne* planeten, ved *denne* radien.\n\n**Steg 4 — lineariser.** Med $x = h/R \\ll 1$ og $n = -2$ i binomialtilnærmingen:\n\n$$\\left(1+\\frac{h}{R}\\right)^{-2} \\approx 1 - \\frac{2h}{R}$$\n\n$$F(h) \\approx mg\\left(1 - \\frac{2h}{R}\\right)$$\n\n*Intuisjon:* tyngden avtar lineært med høyden i første omgang, med en relativ endring på $2h/R$ per meter. Faktoren 2 kommer fra kvadratet i gravitasjonsloven.\n\n**Steg 5 — tallfest.** For $h = 1\\,000\\ \\text{m}$ og $R = 6{,}371\\cdot 10^{6}\\ \\text{m}$:\n\n$$\\frac{2h}{R} = \\frac{2\\cdot 1000}{6{,}371\\cdot 10^{6}} = 3{,}14\\cdot 10^{-4}$$\n\nTyngden er altså $0{,}03\\ \\%$ mindre en kilometer oppe. Det er derfor $F_g = mg$ med konstant $g$ er en helt trygg modell for all mekanikk nær bakken — og **hvorfor vi likevel skriver ut betingelsen** når vi bruker den.\n\n**Kontroll av tilnærmingen:** eksakt er $(1+1{,}5696\\cdot 10^{-4})^{-2} = 0{,}99968615$, mens lineariseringen gir $0{,}99968608$. Avviket er under $10^{-5}$ prosent."
+    },
+    {
+      "id": "fys1100-1-2-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: når slutter «konstant $g$» å være godt nok?",
+      "problem": "Bruk lineariseringen $F(h) \\approx mg\\left(1-\\dfrac{2h}{R}\\right)$ med $R = 6{,}371\\cdot 10^{6}\\ \\text{m}$ og $g = 9{,}81\\ \\text{m/s}^{2}$.\n\n**a)** Hvor mange prosent svakere er tyngden i $10\\ \\text{km}$ høyde (rutehøyde for et passasjerfly)?\n\n**b)** Regn ut både den lineariserte og den eksakte verdien for $h = 100\\ \\text{km}$, og sammenlign.\n\n**c)** Vurder: kan man bruke konstant $g$ i en oppgave om et fall fra $100\\ \\text{km}$?",
+      "solution": "**Metodevalg:** vi bruker lineariseringen der den er ment å brukes (små $h/R$), og sammenligner med den eksakte verdien der den begynner å knirke. Det er nettopp den vurderingen sensor ser etter når en tilnærming brukes.\n\n**a)** Med $h = 1{,}00\\cdot 10^{4}\\ \\text{m}$:\n$$\\frac{2h}{R} = \\frac{2\\cdot 1{,}00\\cdot 10^{4}}{6{,}371\\cdot 10^{6}} = 3{,}14\\cdot 10^{-3}$$\n\nTyngden er altså **$0{,}31\\ \\%$ svakere** i $10\\ \\text{km}$ høyde. Tilsvarende $g$-verdi: $9{,}81\\cdot(1-0{,}00314) = 9{,}78\\ \\text{m/s}^{2}$.\n\n**b)** Med $h = 1{,}00\\cdot 10^{5}\\ \\text{m}$ er $h/R = 1{,}570\\cdot 10^{-2}$.\n\nLinearisert: $1 - 2\\cdot 0{,}01570 = 0{,}96861$, altså $g_{\\text{lin}} = 9{,}502\\ \\text{m/s}^{2}$.\n\nEksakt: $(1+0{,}01570)^{-2} = 0{,}96933$, altså $g_{\\text{eks}} = 9{,}509\\ \\text{m/s}^{2}$.\n\nLineariseringen bommer på selve tilnærmingen med bare $0{,}075\\ \\%$ — den er fremdeles utmerket. Men tyngden **selv** er nå $3{,}1\\ \\%$ svakere enn ved bakken.\n\n**c)** To ulike spørsmål må skilles:\n\n- *Er lineariseringen god?* Ja, svært god helt opp hit — avviket mot den eksakte formelen er under en promille.\n- *Er konstant $g$ godt nok?* Det avhenger av hvilken nøyaktighet oppgaven krever. Tyngden varierer $3\\ \\%$ over fallet, så en falltidsberegning med konstant $g$ vil bomme i samme størrelsesorden. For et overslag er det greit; for en presis beregning må variasjonen med.\n\n**Konklusjon i én setning:** for all vanlig mekanikk nær bakken (bygninger, kast, skråplan, pendler) er konstant $g$ trygt, og du bør si hvorfor — $h/R$ er av orden $10^{-5}$ eller mindre."
+    },
+    {
+      "id": "fys1100-1-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær bruk av binomialtilnærmingen.)\n\nTrykket $p$ i en væskesøyle øker med dybden. For en gass avtar derimot tettheten oppover, og en enkel modell for lufttrykket i høyde $h$ over bakken er\n\n$$p(h) = p_0\\,e^{-h/H}, \\qquad H \\approx 8{,}5\\ \\text{km}$$\n\nder $p_0$ er trykket ved bakken og $H$ kalles skalahøyden.\n\n**a)** Lineariser $p(h)$ for $h \\ll H$, og skriv resultatet med $p_0$ og $H$.\n\n**b)** Hvor mange prosent faller trykket over de første $100\\ \\text{m}$, etter den lineariserte modellen?\n\n**c)** Regn ut det eksakte fallet over $100\\ \\text{m}$ og sammenlign. Bruk $e^{-x} \\approx 1 - x + x^{2}/2$ om nødvendig.\n\n**d)** Ved hvilken høyde bommer lineariseringen med mer enn $1\\ \\%$ av trykkfallet?",
+        "solution": "**Metodevalg:** eksponentialfunksjonen lineariseres direkte fra sin egen Maclaurin-rekke, $e^{u} \\approx 1+u$ med $u = -h/H$.\n\n**a)**\n$$p(h) = p_0 e^{-h/H} \\approx p_0\\left(1 - \\frac{h}{H}\\right)$$\n\nTrykket avtar altså **lineært** med høyden så lenge $h$ er liten mot skalahøyden.\n\n**b)** Med $h = 100\\ \\text{m} = 0{,}100\\ \\text{km}$ og $H = 8{,}5\\ \\text{km}$:\n$$\\frac{h}{H} = \\frac{0{,}100}{8{,}5} = 1{,}18\\cdot 10^{-2}$$\nTrykket faller altså med **$1{,}18\\ \\%$**.\n\n**c)** Eksakt: $e^{-0{,}011765} = 0{,}988304$, altså et fall på $1{,}1696\\ \\%$.\n\nLinearisert ga $1{,}1765\\ \\%$. Avviket i selve trykkfallet er $\\dfrac{1{,}1765-1{,}1696}{1{,}1696} = 0{,}59\\ \\%$ — altså under én prosent av fallet.\n\nKontroll med andreordensleddet: $x^2/2 = (0{,}011765)^2/2 = 6{,}9\\cdot 10^{-5}$, som er nøyaktig differansen vi fant.\n\n**d)** Feilen i fallet er omtrent $\\dfrac{x^{2}/2}{x} = \\dfrac{x}{2}$ med $x = h/H$. Kravet $x/2 < 0{,}01$ gir $x < 0{,}02$, altså\n$$h < 0{,}02\\cdot 8{,}5\\ \\text{km} = 0{,}17\\ \\text{km} = 170\\ \\text{m}$$\n\nOver rundt $170\\ \\text{m}$ bommer den lineære modellen med mer enn $1\\ \\%$ av trykkfallet — selv om den absolutte feilen fremdeles er bitteliten.",
+        "hints": [
+          "Sett $u = -h/H$ og bruk Maclaurin-rekka for $e^{u}$.",
+          "I b) og c): regn ut $h/H$ først som et rent tall, og pass på at $h$ og $H$ har samme enhet.",
+          "I d): sammenlign størrelsen på det første utelatte leddet med størrelsen på leddet du beholdt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-def-likevekt",
+      "type": "definition",
+      "title": "Likevektspunkt",
+      "content": "Et **likevektspunkt** er en posisjon $x_0$ der den samlede kraften på legemet er null:\n\n$$F(x_0) = 0$$\n\nEkvivalent, uttrykt med den potensielle energien: $\\dfrac{dU}{dx}\\Big|_{x_0} = 0$, siden $F = -dU/dx$.\n\nLikevekten er **stabil** hvis kraften peker *tilbake* mot $x_0$ når legemet forskyves litt — det svarer til at $U$ har et minimum der, altså $U''(x_0) > 0$. Er $U''(x_0) < 0$, er likevekten ustabil (en blyant på spissen).\n\nEt legeme som ligger i ro i en stabil likevekt og blir dyttet litt, kommer til å svinge. Neste definisjon forteller hvordan."
+    },
+    {
+      "id": "fys1100-1-2-def-lin-likevekt",
+      "type": "definition",
+      "title": "Linearisering om likevekt",
+      "content": "**Linearisering om likevekt** er å Taylor-utvikle kraften om et likevektspunkt $x_0$ og beholde bare det lineære leddet:\n\n$$F(x) \\approx \\underbrace{F(x_0)}_{= 0} + F'(x_0)(x-x_0) = F'(x_0)\\,(x-x_0)$$\n\nSiden $F(x_0) = 0$ per definisjon, blir *alt* som er igjen, det lineære leddet. Skriver vi $k = -F'(x_0)$, blir dette\n\n$$F(x) \\approx -k(x-x_0)$$\n\nsom er nøyaktig **fjærkraftens form**. For en stabil likevekt er $k > 0$.\n\n**Dette er et av de dypeste resultatene i mekanikken:** i nærheten av en stabil likevekt oppfører *ethvert* system seg som en fjær. Det er derfor den harmoniske oscillatoren dukker opp overalt — i pendler, i molekylbindinger, i broer og i elektriske kretser. Selve svingningen regnes ut i svingningsdelen senere i boka; her nøyer vi oss med å finne $k$."
+    },
+    {
+      "id": "fys1100-1-2-teo-effektiv-fjaerkonstant",
+      "type": "theorem",
+      "title": "Den effektive fjærkonstanten",
+      "content": "La et legeme bevege seg i en potensiell energi $U(x)$ med et stabilt likevektspunkt i $x_0$. Da er den effektive fjærkonstanten for små forskyvninger\n\n$$k = U''(x_0)$$\n\n**Kort begrunnelse:** kraften er $F(x) = -U'(x)$. Deriverer vi den, får vi $F'(x) = -U''(x)$, og med $k = -F'(x_0)$ følger $k = U''(x_0)$.\n\n**Bruk:** finn likevektspunktet ved å løse $U'(x)=0$, deriver én gang til, sett inn — og du har fjærkonstanten uten å ha løst en eneste bevegelseslikning.\n\nKravet $U''(x_0) > 0$ er nøyaktig kravet om at likevekten er stabil. Er den andrederiverte negativ, finnes det ingen svingning — legemet løper vekk fra punktet."
+    },
+    {
+      "id": "fys1100-1-2-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: pendelen lineariseres",
+      "problem": "En pendel består av en liten kule med masse $m$ i enden av en masseløs stang med lengde $\\ell$. Når stanga danner vinkelen $\\theta$ med loddlinja, er kraftmomentet fra tyngden om opphengspunktet\n\n$$\\tau(\\theta) = -mg\\ell\\sin\\theta$$\n\n(minustegnet betyr at momentet driver pendelen *tilbake* mot $\\theta = 0$).\n\n**a)** Vis at $\\theta = 0$ er et likevektspunkt, og at det er stabilt.\n\n**b)** Lineariser $\\tau(\\theta)$ om likevekten.\n\n**c)** For $m = 0{,}50\\ \\text{kg}$ og $\\ell = 1{,}20\\ \\text{m}$: regn ut det eksakte og det lineariserte momentet ved $\\theta = 10^{\\circ}$ og ved $\\theta = 20^{\\circ}$, og oppgi de relative avvikene.\n\n**d)** Hva er den fysiske gevinsten ved lineariseringen?",
+      "solution": "**Metodevalg:** vi bruker linearisering om likevekt. Her er «kraften» et kraftmoment og «posisjonen» en vinkel, men matematikken er identisk — det er nettopp derfor metoden er så generell.\n\n**a)** $\\tau(0) = -mg\\ell\\sin 0 = 0$, så $\\theta = 0$ er et likevektspunkt.\n\nStabilitet: $\\tau'(\\theta) = -mg\\ell\\cos\\theta$, som i $\\theta = 0$ gir $\\tau'(0) = -mg\\ell < 0$. Et negativt stigningstall betyr at et positivt utslag gir et negativt (tilbakedrivende) moment. **Stabil** ✓\n\n**b)** Førsteordens Taylor om $\\theta = 0$:\n$$\\tau(\\theta) \\approx \\tau(0) + \\tau'(0)\\,\\theta = -mg\\ell\\,\\theta$$\n\nAlternativt, og raskere: sett $\\sin\\theta \\approx \\theta$ rett inn i uttrykket. Begge veier gir samme svar, og på eksamen er den siste raskest — men den første viser tydeligere *hvorfor* det er lov.\n\nDen effektive «vinkel-fjærkonstanten» er altså $k_{\\theta} = mg\\ell$.\n\n**c)** Med $mg\\ell = 0{,}50\\cdot 9{,}81\\cdot 1{,}20 = 5{,}886\\ \\text{N}\\cdot\\text{m}$:\n\n| $\\theta$ | $\\theta$ (rad) | eksakt $|\\tau|$ | linearisert $|\\tau|$ | relativt avvik |\n|---|---|---|---|---|\n| $10^{\\circ}$ | $0{,}1745$ | $1{,}022\\ \\text{N}\\cdot\\text{m}$ | $1{,}027\\ \\text{N}\\cdot\\text{m}$ | $0{,}51\\ \\%$ |\n| $20^{\\circ}$ | $0{,}3491$ | $2{,}013\\ \\text{N}\\cdot\\text{m}$ | $2{,}055\\ \\text{N}\\cdot\\text{m}$ | $2{,}1\\ \\%$ |\n\nMomentet er rettet **mot likevektsstillingen** i begge tilfeller. Avviket firedobles når vinkelen dobles, akkurat som en $\\theta^{3}$-feil skal gjøre.\n\n**d)** Gevinsten er at bevegelseslikningen skifter karakter. Med det eksakte momentet får vi en likning som inneholder $\\sin\\theta$ og som ikke kan løses med kjente funksjoner. Med det lineariserte momentet får vi en likning der akselerasjonen er proporsjonal med utslaget og motsatt rettet — den samme formen som en fjær — og den har en enkel løsning: en ren svingning med fast periode. Hele svingningsdelen av faget hviler på dette ene grepet."
+    },
+    {
+      "id": "fys1100-1-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Linearisering om likevekt i en potensiell energi.)\n\nEn atomær binding kan grovt modelleres med den potensielle energien\n\n$$U(x) = U_0\\left[\\left(\\frac{x_0}{x}\\right)^{2} - 2\\,\\frac{x_0}{x}\\right], \\qquad x > 0$$\n\nder $U_0 > 0$ og $x_0 > 0$ er konstanter, og $x$ er avstanden mellom atomene.\n\n**a)** Vis at $x = x_0$ er et likevektspunkt, og finn $U(x_0)$.\n\n**b)** Vis at likevekten er stabil, og finn den effektive fjærkonstanten $k$.\n\n**c)** Skriv den lineariserte kraften på formen $F \\approx -k(x-x_0)$.\n\n**d)** Sett inn $U_0 = 4{,}0\\cdot 10^{-21}\\ \\text{J}$ og $x_0 = 3{,}0\\cdot 10^{-10}\\ \\text{m}$, og regn ut $k$ med to gjeldende siffer. Kontrollér enheten.",
+        "solution": "**Metodevalg:** vi bruker sammenhengen $F = -dU/dx$ og resultatet $k = U''(x_0)$. Alt består i å derivere et potensuttrykk to ganger — skriv derfor $U$ med negative eksponenter først.\n\nSkriv om: $U(x) = U_0\\left[x_0^{2}x^{-2} - 2x_0x^{-1}\\right]$.\n\n**a)** Deriver:\n$$U'(x) = U_0\\left[-2x_0^{2}x^{-3} + 2x_0x^{-2}\\right] = \\frac{2U_0x_0}{x^{2}}\\left[1 - \\frac{x_0}{x}\\right]$$\n\nDette er null når klammeparentesen er null, altså når $x = x_0$ ✓ (og bare der, for $x>0$).\n\nVerdien i likevekt:\n$$U(x_0) = U_0\\left[1 - 2\\right] = -U_0$$\naltså bunnen av en energibrønn med dybde $U_0$.\n\n**b)** Deriver én gang til:\n$$U''(x) = U_0\\left[6x_0^{2}x^{-4} - 4x_0x^{-3}\\right]$$\n\nSett inn $x = x_0$:\n$$U''(x_0) = U_0\\left[\\frac{6}{x_0^{2}} - \\frac{4}{x_0^{2}}\\right] = \\frac{2U_0}{x_0^{2}}$$\n\nSiden $U_0 > 0$, er $U''(x_0) > 0$ — **stabil likevekt** ✓. Den effektive fjærkonstanten er\n$$k = U''(x_0) = \\frac{2U_0}{x_0^{2}}$$\n\n**c)** Med $F(x) = -U'(x)$ og linearisering om $x_0$:\n$$F(x) \\approx -U''(x_0)(x-x_0) = -\\frac{2U_0}{x_0^{2}}\\,(x-x_0)$$\n\nFor $x > x_0$ (atomene trukket fra hverandre) er kraften negativ, altså tiltrekkende — som forventet i en binding.\n\n**d)**\n$$k = \\frac{2\\cdot 4{,}0\\cdot 10^{-21}\\ \\text{J}}{(3{,}0\\cdot 10^{-10}\\ \\text{m})^{2}} = \\frac{8{,}0\\cdot 10^{-21}}{9{,}0\\cdot 10^{-20}}\\ \\text{J}/\\text{m}^{2} = 8{,}9\\cdot 10^{-2}\\ \\text{N}/\\text{m}$$\n\n**Enhetskontroll:** $\\text{J}/\\text{m}^{2} = \\dfrac{\\text{N}\\cdot\\text{m}}{\\text{m}^{2}} = \\text{N}/\\text{m}$ ✓ — riktig enhet for en fjærkonstant.\n\n*Kommentar:* hvilken svingefrekvens denne fjærkonstanten gir, regner vi ut i svingningsdelen senere i boka. Her er poenget at hele det harmoniske apparatet var gjemt inne i et uttrykk som ikke lignet en fjær i det hele tatt.",
+        "hints": [
+          "Skriv $U(x)$ med negative eksponenter, $x^{-2}$ og $x^{-1}$, før du deriverer.",
+          "Faktorisér $U'(x)$ slik at du kan lese av nullpunktet uten å løse en tredjegradslikning.",
+          "Bruk $k = U''(x_0)$ — da slipper du å derivere kraften separat."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — relativistisk energi for lave farter (~20 min)\n\n— naturlig pausepunkt —\n\nDette er den klassiske Taylor-oppgaven i FYS1100, og en av de vakreste regningene i hele faget: vi skal vise at det uttrykket du lærte for kinetisk energi på videregående, bare er det første leddet i en større sannhet.\n\nVi trenger noen begreper fra relativitetsteorien først. Du møter dem grundig i relativitetsdelen sist i boka; her bruker vi dem bare som matematiske uttrykk. Har du hatt Fysikk 2 på videregående, har du sett dem før — og du kan friske opp bakgrunnen i [Relativistisk energi og masse](/bok/fysikk2/fysikk2-6-4)."
+    },
+    {
+      "id": "fys1100-1-2-def-beta",
+      "type": "definition",
+      "title": "Hastighetsforholdet $\\beta$",
+      "content": "**Hastighetsforholdet** er farten målt som andel av lysfarten:\n\n$$\\beta = \\frac{v}{c}, \\qquad c = 2{,}998\\cdot 10^{8}\\ \\text{m/s}$$\n\nStørrelsen er **dimensjonsløs** (fart delt på fart), og den ligger alltid mellom 0 og 1 for et legeme med masse.\n\nEt par referansepunkter for å få følelse for tallene:\n\n- en satellitt i lav bane, $7{,}7\\ \\text{km/s}$: $\\beta = 2{,}6\\cdot 10^{-5}$\n- et elektron i et TV-rør fra 1990-tallet: $\\beta \\approx 0{,}3$\n- et proton i en stor akselerator: $\\beta > 0{,}999$\n\nDet er nettopp fordi $\\beta$ er så bitteliten for alt vi gjør til daglig, at Taylor-utvikling i $\\beta$ er så nyttig."
+    },
+    {
+      "id": "fys1100-1-2-def-gamma",
+      "type": "definition",
+      "title": "Lorentz-faktoren $\\gamma$",
+      "content": "**Lorentz-faktoren** er den dimensjonsløse størrelsen\n\n$$\\gamma = \\frac{1}{\\sqrt{1-\\beta^{2}}} = \\left(1-\\frac{v^{2}}{c^{2}}\\right)^{-1/2}$$\n\nDen er alltid $\\ge 1$, og den vokser uten grense når $v$ nærmer seg $c$.\n\n$\\gamma$ er faktoren som dukker opp i alle relativistiske uttrykk: tidsdilatasjon, lengdekontraksjon, bevegelsesmengde og energi. **Uttrykket står på formelarket** som deles ut på eksamen — det du må kunne, er å regne med den, og særlig å utvikle den for små $\\beta$.\n\nTallverdier verdt å kjenne: $\\gamma(0{,}1) = 1{,}0050$, $\\gamma(0{,}5) = 1{,}1547$, $\\gamma(0{,}9) = 2{,}294$."
+    },
+    {
+      "id": "fys1100-1-2-def-rel-kinetisk",
+      "type": "definition",
+      "title": "Relativistisk kinetisk energi",
+      "content": "Den totale energien til et fritt legeme med masse $m$ og fart $v$ er $E = \\gamma mc^{2}$. Trekker vi fra hvileenergien $mc^{2}$ (energien legemet har når det står stille), står den **kinetiske** energien igjen:\n\n$$K = (\\gamma - 1)mc^{2}$$\n\nI ord: den kinetiske energien er den ekstra energien legemet har fordi det er i bevegelse.\n\n**Poenget vi skal vise:** dette uttrykket ser ikke ut som $\\tfrac12 mv^{2}$ i det hele tatt. Likevel *er* det $\\tfrac12 mv^{2}$ i praksis for alle farter du møter utenfor en partikkelakselerator — og Taylor-utvikling er verktøyet som viser hvorfor.\n\nUttrykket står på formelarket. Utviklingen for lave farter må du kunne gjøre selv."
+    },
+    {
+      "id": "fys1100-1-2-teo-lavfart",
+      "type": "theorem",
+      "title": "Lavfartsgrensen for relativistisk energi",
+      "content": "For $\\beta = v/c \\ll 1$ gjelder\n\n$$K = (\\gamma-1)mc^{2} = \\frac{1}{2}mv^{2} + \\frac{3}{8}\\frac{mv^{4}}{c^{2}} + \\cdots$$\n\n**Det første leddet er nøyaktig den klassiske kinetiske energien.** Det andre er den første relativistiske korreksjonen, og den er mindre enn det første leddet med en faktor $\\tfrac34\\beta^{2}$.\n\nRelativitetsteorien motsier altså ikke den klassiske mekanikken — den **inneholder** den som grensetilfelle. Det er et av de sterkeste argumentene for at teorien er riktig, og et poeng sensor gjerne vil se skrevet ut i ord."
+    },
+    {
+      "id": "fys1100-1-2-utledning-rel",
+      "type": "text",
+      "content": "### Utledningen steg for steg\n\n**Steg 1 — skriv $\\gamma$ på binomialform.** Sett $u = \\beta^{2}$:\n\n$$\\gamma = (1-\\beta^{2})^{-1/2} = (1-u)^{-1/2}$$\n\n*Intuisjon:* nå ser uttrykket ut som $(1+x)^{n}$ med $x = -u$ og $n = -\\tfrac12$ — det er nøyaktig formen binomialtilnærmingen er laget for.\n\n**Steg 2 — utvikle to ledd.** Med $(1+x)^{n} \\approx 1 + nx + \\tfrac{n(n-1)}{2}x^{2}$ og $x = -u$, $n = -\\tfrac12$:\n\n$$nx = -\\tfrac12\\cdot(-u) = \\tfrac12 u$$\n$$\\frac{n(n-1)}{2}x^{2} = \\frac{(-\\tfrac12)(-\\tfrac32)}{2}u^{2} = \\frac{3}{8}u^{2}$$\n\n$$\\gamma \\approx 1 + \\frac{1}{2}\\beta^{2} + \\frac{3}{8}\\beta^{4}$$\n\n*Intuisjon:* alle ledd er positive, som de må være — $\\gamma$ er alltid større enn 1.\n\n**Steg 3 — trekk fra 1 og gang med $mc^2$.**\n\n$$K = (\\gamma-1)mc^{2} \\approx \\left(\\frac{1}{2}\\beta^{2} + \\frac{3}{8}\\beta^{4}\\right)mc^{2}$$\n\n*Intuisjon:* å trekke fra 1 fjerner hvileenergien og lar korreksjonsleddene stå igjen. Legg merke til at det ikke finnes noe ledd av første orden i $\\beta$ — energien avhenger av farten i **andre** potens, som den skal.\n\n**Steg 4 — sett $\\beta = v/c$ tilbake inn.**\n\n$$\\frac{1}{2}\\beta^{2}mc^{2} = \\frac{1}{2}\\frac{v^{2}}{c^{2}}mc^{2} = \\frac{1}{2}mv^{2}$$\n\n$$\\frac{3}{8}\\beta^{4}mc^{2} = \\frac{3}{8}\\frac{v^{4}}{c^{4}}mc^{2} = \\frac{3}{8}\\frac{mv^{4}}{c^{2}}$$\n\n$$\\boxed{K \\approx \\frac{1}{2}mv^{2} + \\frac{3}{8}\\frac{mv^{4}}{c^{2}}}$$\n\n*Intuisjon:* faktorene $c^{2}$ forkorter seg bort i første ledd — og det er nettopp derfor lysfarten ikke synes i klassisk mekanikk.\n\n**Steg 5 — benevningskontroll.** Første ledd: $\\text{kg}\\cdot\\text{m}^{2}/\\text{s}^{2} = \\text{J}$ ✓. Andre ledd:\n$$\\frac{\\text{kg}\\cdot(\\text{m/s})^{4}}{(\\text{m/s})^{2}} = \\text{kg}\\cdot\\frac{\\text{m}^{2}}{\\text{s}^{2}} = \\text{J} \\;\\checkmark$$\n\nBegge ledd har energienhet, som de må ha for i det hele tatt å kunne legges sammen."
+    },
+    {
+      "id": "fys1100-1-2-eks-5",
+      "type": "example",
+      "title": "Eksempel 5: elektronet ved $0{,}10c$ (eksamensnivå)",
+      "problem": "Et elektron har masse $m = 9{,}109\\cdot 10^{-31}\\ \\text{kg}$ og beveger seg med farten $v = 0{,}100c$, der $c = 2{,}998\\cdot 10^{8}\\ \\text{m/s}$.\n\n**a)** Regn ut $\\gamma$ og den eksakte kinetiske energien $K = (\\gamma-1)mc^{2}$.\n\n**b)** Regn ut den klassiske verdien $\\tfrac12 mv^{2}$, og finn det relative avviket fra a).\n\n**c)** Legg til korreksjonsleddet $\\tfrac38 mv^{4}/c^{2}$ og finn det nye avviket.\n\n**d)** Ved hvilken $\\beta$ bommer den rene andreordenstilnærmingen $\\gamma \\approx 1+\\tfrac12\\beta^{2}$ med mer enn $1\\ \\%$?",
+      "solution": "**Metodevalg:** vi regner den eksakte verdien først, slik at vi har en fasit å måle tilnærmingene mot. Det er slik man alltid bør vurdere en tilnærming — mot den eksakte verdien, ikke mot magefølelsen.\n\n**a)** Med $\\beta = 0{,}100$:\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}0100}} = \\frac{1}{\\sqrt{0{,}9900}} = 1{,}005038$$\n\nHvileenergien:\n$$mc^{2} = 9{,}109\\cdot 10^{-31}\\cdot (2{,}998\\cdot 10^{8})^{2}\\ \\text{J} = 8{,}187\\cdot 10^{-14}\\ \\text{J}$$\n(som er $0{,}511\\ \\text{MeV}$ — den mest siterte tallverdien i partikkelfysikken).\n\n$$K = (1{,}005038-1)\\cdot 8{,}187\\cdot 10^{-14}\\ \\text{J} = 4{,}125\\cdot 10^{-16}\\ \\text{J}$$\n\n**b)** Farten er $v = 0{,}100\\cdot 2{,}998\\cdot 10^{8} = 2{,}998\\cdot 10^{7}\\ \\text{m/s}$.\n$$\\frac{1}{2}mv^{2} = \\tfrac12\\cdot 9{,}109\\cdot 10^{-31}\\cdot(2{,}998\\cdot 10^{7})^{2}\\ \\text{J} = 4{,}094\\cdot 10^{-16}\\ \\text{J}$$\n\nRelativt avvik:\n$$\\frac{4{,}094 - 4{,}125}{4{,}125} = -7{,}5\\cdot 10^{-3} = -0{,}75\\ \\%$$\n\nDen klassiske formelen gir altså for lite, med tre kvarte prosent.\n\n**c)** Korreksjonsleddet kan skrives som en brøkdel av det klassiske leddet:\n$$\\frac{3}{8}\\frac{mv^{4}}{c^{2}} = \\frac{3}{4}\\beta^{2}\\cdot\\frac{1}{2}mv^{2}$$\n\nMen enklest er å bruke $\\tfrac38\\beta^{4}mc^{2}$ direkte:\n$$\\frac{3}{8}\\cdot(0{,}100)^{4}\\cdot 8{,}187\\cdot 10^{-14}\\ \\text{J} = 3{,}070\\cdot 10^{-18}\\ \\text{J}$$\n\nSum: $4{,}094\\cdot 10^{-16} + 0{,}031\\cdot 10^{-16} = 4{,}1243\\cdot 10^{-16}\\ \\text{J}$.\n\nNytt relativt avvik: $-6{,}3\\cdot 10^{-5}$, altså **$-0{,}006\\ \\%$** — mer enn hundre ganger bedre enn den rene klassiske verdien.\n\n**d)** Vi løser $\\dfrac{1+\\tfrac12\\beta^{2}}{\\gamma} = 0{,}99$ numerisk. Ved $\\beta = 0{,}30$ er avviket $0{,}31\\ \\%$, ved $\\beta = 0{,}40$ er det $1{,}0\\ \\%$, ved $\\beta = 0{,}50$ er det $2{,}6\\ \\%$. Grensen ligger altså ved\n\n$$\\beta \\approx 0{,}40, \\qquad v \\approx 1{,}2\\cdot 10^{8}\\ \\text{m/s}$$\n\n**Konklusjon å ta med:** for alt som beveger seg langsommere enn omtrent $10\\ \\%$ av lysfarten — altså alt du møter i resten av denne boka utenom relativitetsdelen — er $\\tfrac12mv^{2}$ riktig til bedre enn én prosent. Det er derfor klassisk mekanikk fungerer."
+    },
+    {
+      "id": "fys1100-1-2-fig-gamma",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-1-2-gamma-taylor.svg",
+      "alt": "Graf av Lorentz-faktoren gamma mot beta fra 0 til 0,8. Den eksakte kurven stiger fra 1 og kroeker bratt oppover. To tilnaermingskurver ligger under den: andreordenskurven en pluss beta i andre delt paa to, og fjerdeordenskurven som ogsaa har leddet tre beta i fjerde delt paa aatte. En stiplet loddrett linje markerer beta lik 0,3.",
+      "caption": "Utviklingen $\\gamma \\approx 1+\\tfrac12\\beta^{2}$ (stiplet) følger den eksakte kurven tett helt til $\\beta \\approx 0{,}3$, der avviket er $0{,}31\\ \\%$ — tallet fra eksempel 5d. Tar du med fjerdeordensleddet $\\tfrac38\\beta^{4}$ (prikket), holder tilnærmingen mye lenger. Legg merke til at begge tilnærmingene ligger **under** den eksakte kurven: alle utelatte ledd er positive."
+    },
+    {
+      "id": "fys1100-1-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær, sjanger I — relativitetsoppgaven, som er i 6 av 7 sett.)\n\nEt proton har masse $m = 1{,}673\\cdot 10^{-27}\\ \\text{kg}$ og beveger seg med $v = 0{,}200c$, der $c = 2{,}998\\cdot 10^{8}\\ \\text{m/s}$.\n\n**a)** Regn ut $\\gamma$ med fem gjeldende siffer.\n\n**b)** Regn ut den eksakte kinetiske energien $K = (\\gamma-1)mc^{2}$.\n\n**c)** Regn ut den klassiske verdien og oppgi det relative avviket.\n\n**d)** Forklar i to setninger hvorfor avviket er større her enn for elektronet i eksempel 5, selv om protonet er nesten to tusen ganger tyngre.",
+        "solution": "**Metodevalg:** samme framgangsmåte som i eksempel 5. Poenget i d) er at avviket avhenger av $\\beta$, ikke av massen.\n\n**a)** $\\beta = 0{,}200$, så $\\beta^{2} = 0{,}0400$:\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}0400}} = \\frac{1}{\\sqrt{0{,}9600}} = 1{,}02062$$\n\n**b)** Hvileenergien:\n$$mc^{2} = 1{,}673\\cdot 10^{-27}\\cdot(2{,}998\\cdot 10^{8})^{2}\\ \\text{J} = 1{,}5036\\cdot 10^{-10}\\ \\text{J}$$\n\n$$K = (1{,}02062 - 1)\\cdot 1{,}5036\\cdot 10^{-10}\\ \\text{J} = 3{,}101\\cdot 10^{-12}\\ \\text{J}$$\n\n**c)** $v = 0{,}200\\cdot 2{,}998\\cdot 10^{8} = 5{,}996\\cdot 10^{7}\\ \\text{m/s}$:\n$$\\frac{1}{2}mv^{2} = \\tfrac12\\cdot 1{,}673\\cdot 10^{-27}\\cdot(5{,}996\\cdot 10^{7})^{2}\\ \\text{J} = 3{,}007\\cdot 10^{-12}\\ \\text{J}$$\n\nRelativt avvik:\n$$\\frac{3{,}007 - 3{,}101}{3{,}101} = -3{,}0\\cdot 10^{-2} = -3{,}0\\ \\%$$\n\n**d)** Avviket bestemmes utelukkende av **hastighetsforholdet** $\\beta$, ikke av massen: i utviklingen $K = \\tfrac12 mv^{2}\\left(1 + \\tfrac34\\beta^{2} + \\cdots\\right)$ står massen som en felles faktor utenfor parentesen og forkorter seg bort når man regner ut det *relative* avviket. Protonet her har $\\beta = 0{,}200$ mot elektronets $0{,}100$, altså dobbelt så stort $\\beta$, og siden korreksjonen går som $\\beta^{2}$, blir avviket omtrent fire ganger så stort — $3{,}0\\ \\%$ mot $0{,}75\\ \\%$.",
+        "hints": [
+          "Regn ut $\\beta^{2}$ først, sett det inn i $\\gamma = (1-\\beta^{2})^{-1/2}$, og behold nok siffer — $\\gamma-1$ er en differanse mellom to nesten like tall.",
+          "Regn hvileenergien $mc^{2}$ som et eget mellomsvar; da blir b) bare en multiplikasjon.",
+          "I d): skriv utviklingen som $\\tfrac12 mv^{2}$ ganger en parentes, og se hva som står igjen i parentesen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende, sjanger I kombinert med Taylor. Dette er mønsteret fra det avsluttende settet der relativistisk energi skulle rekkeutvikles.)\n\n**a)** Vis ved Taylor-utvikling at $\\gamma = (1-\\beta^{2})^{-1/2}$ har utviklingen\n$$\\gamma \\approx 1 + \\frac{1}{2}\\beta^{2} + \\frac{3}{8}\\beta^{4} + \\frac{5}{16}\\beta^{6}$$\n\n**b)** Skriv den kinetiske energien $K = (\\gamma-1)mc^{2}$ med de tre første leddene uttrykt ved $m$, $v$ og $c$.\n\n**c)** Ved $\\beta = 0{,}500$ er $\\gamma = 1{,}154701$ eksakt. Regn ut hvor godt hver av de tre tilnærmingene (to, tre og fire ledd) treffer, og oppgi de relative avvikene.\n\n**d)** Forklar hvorfor rekka bare inneholder **like** potenser av $\\beta$.",
+        "solution": "**Metodevalg:** vi bruker binomialrekka med $n = -\\tfrac12$ og $x = -\\beta^{2}$. Å utvikle i $u = \\beta^{2}$ i stedet for i $\\beta$ er grepet som gjør regningen kort.\n\n**a)** Sett $u = \\beta^{2}$ og bruk\n$$(1-u)^{-1/2} = 1 + \\frac{1}{2}u + \\frac{3}{8}u^{2} + \\frac{5}{16}u^{3} + \\cdots$$\n\nKoeffisientene kommer fra den generelle binomialrekka med $n = -\\tfrac12$:\n\n- $j=1$: $n = -\\tfrac12$, og med $x = -u$ blir leddet $(-\\tfrac12)(-u) = \\tfrac12 u$\n- $j=2$: $\\dfrac{n(n-1)}{2!} = \\dfrac{(-\\tfrac12)(-\\tfrac32)}{2} = \\dfrac{3}{8}$, og $x^{2} = u^{2}$, altså $\\tfrac38 u^{2}$\n- $j=3$: $\\dfrac{n(n-1)(n-2)}{3!} = \\dfrac{(-\\tfrac12)(-\\tfrac32)(-\\tfrac52)}{6} = -\\dfrac{15}{48} = -\\dfrac{5}{16}$, og $x^{3} = -u^{3}$, altså $+\\tfrac{5}{16}u^{3}$\n\nMed $u = \\beta^{2}$ tilbake:\n$$\\gamma \\approx 1 + \\frac{1}{2}\\beta^{2} + \\frac{3}{8}\\beta^{4} + \\frac{5}{16}\\beta^{6}$$\n\n**b)** Trekk fra 1, gang med $mc^{2}$ og sett $\\beta = v/c$:\n\n$$K \\approx \\frac{1}{2}mv^{2} + \\frac{3}{8}\\frac{mv^{4}}{c^{2}} + \\frac{5}{16}\\frac{mv^{6}}{c^{4}}$$\n\n*Benevningskontroll av tredje ledd:* $\\dfrac{\\text{kg}\\cdot(\\text{m/s})^{6}}{(\\text{m/s})^{4}} = \\text{kg}\\cdot\\text{m}^{2}/\\text{s}^{2} = \\text{J}$ ✓\n\n**c)** Med $\\beta = 0{,}500$: $\\beta^{2} = 0{,}250$, $\\beta^{4} = 0{,}0625$, $\\beta^{6} = 0{,}015625$.\n\n| Tilnærming | Verdi | Relativt avvik |\n|---|---|---|\n| $1 + \\tfrac12\\beta^{2}$ | $1{,}125000$ | $-2{,}57\\ \\%$ |\n| $+\\ \\tfrac38\\beta^{4}$ | $1{,}148438$ | $-0{,}54\\ \\%$ |\n| $+\\ \\tfrac{5}{16}\\beta^{6}$ | $1{,}153320$ | $-0{,}12\\ \\%$ |\n\nAvviket faller med omtrent en faktor 5 for hvert ledd. Merk at **alle** tilnærmingene ligger under den eksakte verdien: alle utelatte ledd er positive.\n\nMerk også at ved $\\beta = 0{,}5$ er vi langt utenfor det området der to ledd holder — det bekrefter grensen $\\beta \\approx 0{,}4$ fra eksempel 5d.\n\n**d)** Fordi $\\gamma$ avhenger av farten bare gjennom $\\beta^{2}$: uttrykket $(1-\\beta^{2})^{-1/2}$ inneholder ikke $\\beta$ alene noe sted. Enhver rekke i $u = \\beta^{2}$ blir derfor automatisk en rekke i like potenser av $\\beta$ når vi setter $u$ tilbake.\n\nFysisk sier dette at energien er den samme uansett hvilken **retning** legemet beveger seg — bytter du fortegn på farten, endres ikke $\\beta^{2}$. Et ledd med odde potens ville brutt med det.",
+        "hints": [
+          "Sett $u = \\beta^{2}$ og bruk binomialrekka for $(1-u)^{-1/2}$ — da slipper du å derivere fire ganger.",
+          "Den generelle binomialkoeffisienten er $\\dfrac{n(n-1)(n-2)\\cdots(n-j+1)}{j!}$; regn den ut for $n=-\\tfrac12$ og $j = 1, 2, 3$.",
+          "Pass på fortegnene: $x = -u$, så $x^{3} = -u^{3}$ — og et minustegn foran koeffisienten gir da pluss."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-2-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — kvalitativ oppgave. Svar i sammenhengende tekst, 3–5 setninger per punkt. Ingen regning.)\n\n**a)** En medstudent skriver: «$\\sin\\theta \\approx \\theta$, så jeg kan alltid erstatte sinus med vinkelen.» Hva mangler i påstanden, og hvordan ville du formulert den riktig?\n\n**b)** Forklar hvorfor det at $K = (\\gamma-1)mc^{2}$ går over i $\\tfrac12 mv^{2}$ for lave farter, er et argument *for* relativitetsteorien og ikke mot den.\n\n**c)** En oppgave ber deg linearisere en kraft om et likevektspunkt. Hvorfor forsvinner alltid nullteordensleddet i den utviklingen?",
+        "solution": "**a)** Påstanden mangler **gyldighetsområdet** og **enheten**. Riktig formulert: «for små vinkler målt i radianer er $\\sin\\theta \\approx \\theta$, med et relativt avvik under $1\\ \\%$ så lenge $\\theta \\lesssim 0{,}25$ rad, altså rundt $15^{\\circ}$.» Uten radiankravet blir tilnærmingen meningsløs — $\\sin(30^{\\circ}) = 0{,}5$, ikke 30 — og uten gyldighetsområdet er den ubrukelig ved store utslag, der feilen vokser som $\\theta^{3}$.\n\n**b)** Fordi den klassiske mekanikken er svært godt bekreftet eksperimentelt for alle farter vi normalt måler. En ny teori som skal erstatte den, må derfor reprodusere den i det området der den gamle teorien virker — ellers ville teorien vært i strid med velkjente målinger. At Taylor-utviklingen gir nøyaktig $\\tfrac12 mv^{2}$ som første ledd, og at avviket er under en prosent for $\\beta < 0{,}1$, viser at relativitetsteorien består denne prøven uten at man har justert noe for å få det til.\n\n**c)** Fordi nullteordensleddet er $F(x_0)$, altså kraften *i* likevektspunktet — og et likevektspunkt er per definisjon et punkt der den samlede kraften er null. Utviklingen starter derfor alltid med det lineære leddet, og det er nettopp derfor enhver stabil likevekt gir en fjærlignende kraft $F \\approx -k(x-x_0)$.",
+        "hints": [
+          "I a): tenk på både hvilken enhet vinkelen må måles i, og hvor stor den kan bli.",
+          "I b): hva må en ny teori gjøre med et område der den gamle teorien allerede er bekreftet av målinger?",
+          "I c): hva er definisjonen av et likevektspunkt, og hvilket ledd i Taylor-rekka svarer til den størrelsen?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-1-2-def-gyldighetsomrade",
+      "type": "definition",
+      "title": "Gyldighetsområde for en tilnærming",
+      "content": "**Gyldighetsområdet** er det intervallet rundt utviklingspunktet der tilnærmingen holder innenfor den nøyaktigheten du krever.\n\nDet er alltid tre ting som må oppgis:\n\n1. **utviklingspunktet** — hvor tilnærmingen er sentrert;\n2. **kravet** — hvor stort relativt avvik du tåler;\n3. **intervallet** som følger av de to.\n\nEksempler fra dette kapitlet:\n\n| Tilnærming | Krav | Gyldighetsområde |\n|---|---|---|\n| $\\sin\\theta \\approx \\theta$ | $1\\ \\%$ | $\\theta \\lesssim 0{,}25\\ \\text{rad} \\approx 15^{\\circ}$ |\n| $\\gamma \\approx 1+\\tfrac12\\beta^{2}$ | $1\\ \\%$ | $\\beta \\lesssim 0{,}40$ |\n| $F \\approx mg$ nær bakken | $0{,}1\\ \\%$ | $h \\lesssim 3\\ \\text{km}$ |\n\nÅ oppgi gyldighetsområdet er en del av svaret, ikke en pynt."
+    },
+    {
+      "id": "fys1100-1-2-def-storrelsesorden-ledd",
+      "type": "definition",
+      "title": "Ordensvurdering av et ledd",
+      "content": "En **ordensvurdering** er å anslå størrelsen på et ledd uten å regne det nøyaktig ut, ved å se på hvilken potens av den lille størrelsen det inneholder.\n\nEr $\\varepsilon$ en liten størrelse (typisk $\\theta$, $\\beta$ eller $h/R$), så gjelder som tommelfingerregel:\n\n$$\\varepsilon^{2} \\text{-ledd} \\sim \\varepsilon \\cdot (\\varepsilon\\text{-ledd}), \\qquad \\varepsilon^{3}\\text{-ledd} \\sim \\varepsilon^{2}\\cdot(\\varepsilon\\text{-ledd})$$\n\nEr $\\varepsilon = 0{,}1$, betyr det at hvert nye ledd er omtrent ti ganger mindre enn det forrige.\n\n**Bruk på eksamen:** når du har lineariserert og vil si noe om feilen uten å regne den ut, skriv «det første utelatte leddet er av orden $\\theta^{3}$, altså omtrent $\\theta^{2}$ ganger mindre enn leddet vi beholdt». Det er en fullgod feilvurdering og tar fem sekunder."
+    },
+    {
+      "id": "fys1100-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-1-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $f(x)$ | funksjonen som utvikles | avhenger av sammenhengen |\n| $a$ | utviklingspunktet | samme som $x$ |\n| $P_n(x)$ | Taylor-polynom av orden $n$ | samme som $f$ |\n| $R_n(x)$ | restleddet, $f(x)-P_n(x)$ | samme som $f$ |\n| $f^{(j)}$ | den $j$-te deriverte | — |\n| $j!$ | fakultet, $1\\cdot 2\\cdots j$ | ingen |\n| $\\xi$ | ukjent mellompunkt i restleddet | samme som $x$ |\n| $\\theta$ | vinkel, pendelutslag | radianer (dimensjonsløs) |\n| $\\ell$ | pendellengde | $\\text{m}$ |\n| $m$ | masse | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjon, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $G$ | gravitasjonskonstanten | $\\text{m}^3/(\\text{kg}\\cdot\\text{s}^2)$ |\n| $M$, $R$ | planetmasse og planetradius | $\\text{kg}$, $\\text{m}$ |\n| $h$ | høyde over overflaten | $\\text{m}$ |\n| $H$ | skalahøyde i lufttrykkmodellen | $\\text{m}$ |\n| $\\tau$ | kraftmoment (tallverdi) | $\\text{N}\\cdot\\text{m}$ |\n| $U(x)$ | potensiell energi | $\\text{J}$ |\n| $x_0$ | likevektsposisjon | $\\text{m}$ |\n| $k$ | effektiv fjærkonstant, $k=U''(x_0)$ | $\\text{N}/\\text{m}$ |\n| $v$ | fart (tallverdien av $\\mathbf{v}$) | $\\text{m/s}$ |\n| $c$ | lysfarten, $2{,}998\\cdot 10^{8}$ | $\\text{m/s}$ |\n| $\\beta$ | hastighetsforholdet $v/c$ | ingen |\n| $\\gamma$ | Lorentz-faktoren | ingen |\n| $K$ | kinetisk energi (skalar) | $\\text{J}$ |\n| $mc^{2}$ | hvileenergi | $\\text{J}$ |\n| $\\varepsilon$ | generisk liten størrelse i en ordensvurdering | ingen |\n\n**Symbolkollisjoner du må holde styr på i dette kapitlet:**\n\n- $a$ betyr her **utviklingspunkt**, ikke akselerasjon. Akselerasjonen dukker ikke opp i dette kapitlet; fra kinematikkdelen og utover er $\\mathbf{a}$ akselerasjon.\n- $k$ er her den **effektive fjærkonstanten** fra en linearisering. Den har samme rolle og samme enhet som en vanlig fjærkonstant.\n- $\\gamma$ er Lorentz-faktoren. I rotasjonsdelen senere brukes $\\boldsymbol{\\alpha}$ om vinkelakselerasjon — her betyr $\\alpha$ ingenting, og vi bruker det ikke.\n- $\\ell$ brukes om pendellengde for ikke å kollidere med spinn $\\mathbf{L}$, som du møter i rotasjonsdelen.\n\n**Formler i dette delkapitlet:**\n\n$$P_n(x) = \\sum_{j=0}^{n}\\frac{f^{(j)}(a)}{j!}(x-a)^{j}$$\nTaylor-polynomet. Den generelle formen står **[Rottmann]** og på **[formelarket]** (som Taylor-rekke med restledd) — det du må kunne, er å regne den ut for en konkret funksjon. **[må kunne utledes]** for standardfunksjonene.\n\n$$|R_n(x)| \\le \\frac{\\max|f^{(n+1)}|}{(n+1)!}|x-a|^{n+1}$$\nFeilgrensen fra restleddet. **[Rottmann]**\n\n$$\\sin\\theta \\approx \\theta - \\frac{\\theta^{3}}{6}, \\qquad \\cos\\theta \\approx 1 - \\frac{\\theta^{2}}{2}$$\nSmåvinkeltilnærmingene, i radianer. **[må kunne utledes]** — og bør sitte i fingrene, siden de brukes i hver eneste pendeloppgave.\n\n$$(1+x)^{n} \\approx 1 + nx + \\frac{n(n-1)}{2}x^{2}$$\nBinomialtilnærmingen for $|x| \\ll 1$. **[Rottmann]**, men **[må kunne utledes]** raskt.\n\n$$e^{x} \\approx 1 + x + \\frac{x^{2}}{2}$$\nEksponentialrekka. **[Rottmann]**\n\n$$F(x) \\approx -k(x-x_0), \\qquad k = U''(x_0)$$\nLinearisering om likevekt. Sammenhengen $F = -dU/dx$ står **[formelarket]**; selve lineariseringen **[må kunne utledes]**.\n\n$$\\gamma = \\frac{1}{\\sqrt{1-\\beta^{2}}}, \\qquad \\beta = \\frac{v}{c}$$\nLorentz-faktoren. **[formelarket]**\n\n$$K = (\\gamma-1)mc^{2} \\approx \\frac{1}{2}mv^{2} + \\frac{3}{8}\\frac{mv^{4}}{c^{2}}$$\nRelativistisk kinetisk energi og lavfartsgrensen. Uttrykket for $K$ står **[formelarket]**; utviklingen **[må kunne utledes]**.\n\n**Merk formelark-strategien:** eksamen deler ut et fagspesifikt formelark og tillater Rottmann. Både Taylor-rekka med restledd og Lorentz-faktoren står der. Poengene ligger derfor ikke i å huske dem, men i å *velge* riktig utviklingspunkt, *gjennomføre* derivasjonene uten fortegnsfeil og *begrunne* hvor tilnærmingen gjelder."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-1-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-1-2-repetisjon-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver på stoffet dette kapitlet bygger på. Fasit står rett under hvert spørsmål — dekk den til først.\n\n**R1.** Deriver $f(x) = \\sin(3x)$ og $g(x) = (1+2x)^{-1/2}$.\n\n*Fasit:* $f'(x) = 3\\cos(3x)$ og $g'(x) = -\\tfrac12(1+2x)^{-3/2}\\cdot 2 = -(1+2x)^{-3/2}$. Begge krever kjerneregelen.\n\n**R2.** Regn ut $4!$ og $\\dfrac{5!}{3!}$.\n\n*Fasit:* $4! = 24$, og $\\dfrac{5!}{3!} = \\dfrac{120}{6} = 20$ (eller kortere: $5\\cdot 4 = 20$).\n\n**R3.** Gjør om $35^{\\circ}$ til radianer, og $0{,}80$ rad til grader.\n\n*Fasit:* $35^{\\circ} = 35\\cdot\\dfrac{\\pi}{180} = 0{,}611\\ \\text{rad}$; $0{,}80\\ \\text{rad} = 0{,}80\\cdot\\dfrac{180}{\\pi} = 45{,}8^{\\circ}$.\n\n**R4.** Fra [kap. 1.1](/bok/fys1100/fys1100-1-1): kontrollér at leddet $\\tfrac38\\,mv^{4}/c^{2}$ har energienhet.\n\n*Fasit:* $\\dfrac{\\text{kg}\\cdot(\\text{m/s})^{4}}{(\\text{m/s})^{2}} = \\text{kg}\\cdot\\text{m}^{2}/\\text{s}^{2} = \\text{J}$ ✓\n\n**R5.** Fra [kap. 1.1](/bok/fys1100/fys1100-1-1): hva er størrelsesorden til $\\beta = 2{,}6\\cdot 10^{-5}$, og hva blir størrelsesorden til $\\beta^{2}$?\n\n*Fasit:* Størrelsesorden til $\\beta$ er $-5$. Kvadratet er $6{,}8\\cdot 10^{-10}$, altså størrelsesorden $-10$. Å kvadrere et lite tall omtrent dobler antallet nuller — det er derfor relativistiske korreksjoner er så ubetydelige ved vanlige farter."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

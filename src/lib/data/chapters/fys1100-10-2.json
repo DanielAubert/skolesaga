@@ -1,0 +1,463 @@
+{
+  "id": "fys1100-10-2",
+  "courseId": "fys1100",
+  "chapterNumber": "10.2",
+  "title": "Relativitetsparadokser og samtidighet",
+  "description": "Konseptvarianten i spesiell relativitet: stigen i låven, tvillingene og to romskip som skyter på hverandre — der samtidighetens relativitet er det som løser paradokset.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne forklare hva relativitet av samtidighet er, og regne ut samtidighetsforskyvningen mellom to systemer",
+    "kunne drøfte stige-i-låve-paradokset i begge systemer og vise hvorfor begge beskrivelsene er riktige",
+    "kunne gjøre rede for asymmetrien i tvillingparadokset og for samtidighetsspranget ved vendepunktet",
+    "kunne avgjøre om to hendelser er romlik eller tidlik atskilt, og forklare hvorfor årsak og virkning aldri bytter plass"
+  ],
+  "content": [
+    {
+      "id": "fys1100-10-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sjanger I — spesiell relativitet** står i **6 av 7 sett (86 %)**, og den kommer i to varianter. [Kap. 10.1](/bok/fys1100/fys1100-10-1) tok regnevarianten. Dette kapitlet tar den andre: **paradoksvarianten**, der du får en situasjon som ser selvmotsigende ut og skal forklare hvorfor den ikke er det.\n\nGjengangerne i arkivet er stigen som skal inn i låven, tvillingene der den ene reiser ut i rommet, og to romskip som skyter på hverandre.\n\n**Og her er regelen som avgjør alt:**\n\n> **Å skrive opp SR-formlene fra formelarket uten å drøfte samtidighet gir INGEN poeng.**\n\nIkke delvis uttelling. Ingen. Dette er **felle #11 — SR-formler i et paradoks uten samtidighetsdrøfting** (feilene har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1)). Motsatt gis det romslig uttelling for fornuftige betraktninger selv når regningen ikke er komplett — **så lenge ordet *samtidighet* faktisk trekkes fram og brukes på den konkrete situasjonen**.\n\nSlik ligger poengene i paradoksvarianten:\n\n| Steg | Hva sensor ser etter |\n|---|---|\n| Hvilke to (eller flere) **hendelser** paradokset handler om | de må navngis, ikke bare antydes |\n| **I hvilket system** de er samtidige | og dermed i hvilket de ikke er |\n| Hvordan samtidighetsforskyvningen løser motsetningen | det er selve svaret |\n| At begge beskrivelsene er **riktige** | et paradoks er ikke en feil som skal rettes |\n| Et romtidsdiagram der oppgaven ber om det | figur er selvstendig poenggivende |\n\n**Skriv aldri at «den ene har rett og den andre tar feil».** Det er det sikreste signalet til sensor om at poenget ikke er forstått. Begge har rett; de svarer på forskjellige spørsmål.\n\n**Prioritet: bør sitte.** Paradoksdrøftingen er billigere å lære enn regnevarianten — den krever ingen tunge utregninger — og den er den delen av pensum der en presis halvside gir full uttelling.\n\n**Ikke med på midtveiseksamen.** Relativitet dekkes bare av den avsluttende skoleeksamenen (4 timer, teller 80 %), og der er den nesten alltid siste oppgave. Bla bakover og les den tidlig.\n\n**Tidsbruk: ~60 minutter lesing**, i fem korte løkker med tidsanslag."
+    },
+    {
+      "id": "fys1100-10-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger helt og holdent på [kap. 10.1](/bok/fys1100/fys1100-10-1). Her er det du trenger, ferdig oppfrisket.\n\n**Lorentz-faktoren og de to grunnformlene:**\n\n$$\\gamma = \\frac{1}{\\sqrt{1-v^2/c^2}}, \\qquad \\Delta t = \\gamma\\,\\Delta t_0, \\qquad l = \\frac{l_0}{\\gamma}$$\n\nmed **egentida** $\\Delta t_0$ (også skrevet $\\tau$) målt der de to hendelsene skjer på samme sted, og **egenlengda** $l_0$ målt i gjenstandens hvilesystem. Egentida er den korteste tida; egenlengda er den lengste lengden.\n\n**Lorentz-transformasjonen**, som er den vi skal bruke mest her:\n\n$$x' = \\gamma(x-ut), \\qquad t' = \\gamma\\!\\left(t - \\frac{ux}{c^2}\\right)$$\n\n**Legg særlig merke til det siste leddet, $-ux/c^2$.** Det er hele kapitlet i kortform: *hvor* en hendelse skjer, påvirker *når* den skjer i et annet system. Alle paradoksene er dette ene leddet i forkledning.\n\n**Romtidsdiagrammet** fra [kap. 10.1](/bok/fys1100/fys1100-10-1): $x$ vannrett, $ct$ loddrett, lys på 45 grader. En **verdenslinje** er et legemes historie; en **samtidighetslinje** for en observatør med $\\beta = u/c$ er en linje med stigningstall $\\beta$ i $(x, ct)$-planet. Vi tegner mye i dette kapitlet.\n\n**Notasjonsavtale.** Samme som i [kap. 10.1](/bok/fys1100/fys1100-10-1): egentid $\\Delta t_0$ eller $\\tau$, egenlengde $l_0$, systemenes innbyrdes fart $u$, $\\beta = u/c$, og $c = 3{,}00\\cdot10^{8}\\,\\text{m/s}$. Hendelser navngis med store bokstaver: A, B, C."
+    },
+    {
+      "id": "fys1100-10-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — samtidighetens relativitet (~15 min)\n\nSett deg midt i et romskip med en lampe rett over hodet. Du slår den på, og lyset går mot begge endene av skipet. Du har målt opp: det er nøyaktig like langt til baugen og til hekken. Lyset går like fort begge veier. Altså treffer det de to endene **samtidig**.\n\nEn romstasjon ser skipet fare forbi. Stasjonen er også enig i at lyset går med farten $c$ begge veier — det er postulat 2. Men i stasjonens system **kommer hekken lyset i møte** mens **baugen flykter unna**. Derfor treffer lyset hekken først.\n\nBegge har rett. Og med det er «samtidig» ikke lenger noe absolutt."
+    },
+    {
+      "id": "fys1100-10-2-def-samtidighet",
+      "type": "definition",
+      "title": "Relativitet av samtidighet",
+      "content": "To hendelser som skjer **samtidig** i ett inertialsystem, skjer i sin alminnelighet **ikke** samtidig i et annet system som beveger seg i forhold til det første.\n\nUnntaket er hendelser som skjer på **samme sted**: skjer to ting i samme punkt til samme tid, er alle systemer enige om at de var samtidige. Det er avstanden mellom hendelsene som skaper uenigheten.\n\n**Gyldighetsbetingelsen som gir poeng:** effekten er større jo lengre fra hverandre hendelsene er, og jo raskere systemene beveger seg i forhold til hverandre. Er avstanden null eller den relative farten null, forsvinner effekten.\n\nDette er den mest radikale konsekvensen av Einsteins postulater — mer radikal enn tidsdilatasjonen — og **den er nøkkelen til hvert eneste relativitetsparadoks**."
+    },
+    {
+      "id": "fys1100-10-2-th-forskyvning",
+      "type": "theorem",
+      "title": "Samtidighetsforskyvningen",
+      "content": "La to hendelser A og B skje **samtidig** i system $S$, i posisjonene $x_A$ og $x_B$, med $\\Delta x = x_B - x_A$. Et system $S'$ som beveger seg med farten $u$ langs $x$-aksen måler tidsforskjellen\n\n$$\\Delta t' = -\\frac{\\gamma\\,u\\,\\Delta x}{c^2}$$\n\n**Utledningen er to linjer.** Lorentz-transformasjonen gir tida for hver hendelse:\n\n$$t_A' = \\gamma\\!\\left(t - \\frac{u x_A}{c^2}\\right), \\qquad t_B' = \\gamma\\!\\left(t - \\frac{u x_B}{c^2}\\right)$$\n\n*Intuisjon:* de har samme $t$ fordi de er samtidige i $S$. Alt som skiller dem, er posisjonen.\n\n$$\\Delta t' = t_B' - t_A' = -\\frac{\\gamma u (x_B - x_A)}{c^2} = -\\frac{\\gamma u \\Delta x}{c^2}$$\n\n*Intuisjon:* fortegnet sier at for en observatør som beveger seg i **positiv** $x$-retning, skjer hendelsen som ligger lengst i positiv retning **tidligst**. En kortere huskeregel: **klokka som ligger foran, ligger etter**. Den handler om *hendelsen* «klokka viser null»: den inntreffer tidligst for klokka som står lengst framover i bevegelsesretningen. Ser du derimot på hva klokkene *viser* i ett og samme øyeblikk i $S'$, er det motsatt — den fremste har da rukket lengst og viser **mest**. De to utsagnene er samme sak sett fra hver sin side, og nettopp derfor er huskeregelen lett å snu feil vei.\n\n**Størrelsesorden.** Faktoren $c^2$ i nevneren gjør effekten bitteliten i dagliglivet: to hendelser 100 meter fra hverandre, sett fra en bil i 100 km/t, forskyves med rundt $3\\cdot10^{-14}\\,\\text{s}$. Men over astronomiske avstander eller ved relativistiske farter blir den avgjørende.\n\nFormelen følger av Lorentz-transformasjonen, som står på formelarket; **selve sammensetningen må du kunne gjøre selv.**"
+    },
+    {
+      "id": "fys1100-10-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Lampen midt i romskipet",
+      "problem": "Et romskip har egenlengde $l_0 = 300\\,\\text{m}$ og passerer en romstasjon med $u = 0{,}600c$. En lampe midt i skipet blinker én gang. I skipets system treffer lyset baug og hekk samtidig.\n\n**a)** Hvilke to hendelser er dette, og i hvilket system er de samtidige?\n\n**b)** Finn tidsforskjellen mellom dem i stasjonens system, ved å bruke samtidighetsforskyvningen.\n\n**c)** Regn den ut på nytt, direkte i stasjonens system, som en kontroll.\n\n**d)** Hvilken ende treffes først i stasjonens system? Forklar fysisk.",
+      "solution": "**a)** Hendelse A: **lyset treffer hekken**. Hendelse B: **lyset treffer baugen**. De er samtidige i **skipets** system, der de har avstanden $\\Delta x' = 300\\,\\text{m}$ (hele egenlengda).\n\n**b)** Her er hendelsene samtidige i det systemet som beveger seg (skipet), så vi bruker transformasjonen den andre veien: $\\Delta t = \\gamma(\\Delta t' + u\\Delta x'/c^2)$ med $\\Delta t' = 0$:\n\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}600^2}} = \\frac{1}{0{,}8000} = 1{,}250$$\n\n$$\\Delta t = \\frac{\\gamma\\,u\\,\\Delta x'}{c^2} = \\frac{1{,}250\\cdot0{,}600\\cdot300}{3{,}00\\cdot10^{8}} = 7{,}50\\cdot10^{-7}\\,\\text{s} = 0{,}750\\ \\mu\\text{s}$$\n\n**c) Kontrollen, regnet rett fram i stasjonens system.** Der er skipet lengdekontrahert:\n\n$$l = \\frac{300}{1{,}250} = 240\\,\\text{m}$$\n\nså lampen står $120\\,\\text{m}$ fra hver ende. Lyset mot hekken møter en hekk som kommer det i møte med $0{,}600c$, så de nærmer seg hverandre med $c + u$ regnet i stasjonens koordinater:\n\n$$t_{\\text{hekk}} = \\frac{120}{c+u} = \\frac{120}{1{,}600\\cdot3{,}00\\cdot10^{8}} = 2{,}50\\cdot10^{-7}\\,\\text{s}$$\n\nLyset mot baugen må ta igjen en baug som flykter:\n\n$$t_{\\text{baug}} = \\frac{120}{c-u} = \\frac{120}{0{,}400\\cdot3{,}00\\cdot10^{8}} = 1{,}00\\cdot10^{-6}\\,\\text{s}$$\n\n$$\\Delta t = 1{,}00\\cdot10^{-6} - 2{,}50\\cdot10^{-7} = 7{,}50\\cdot10^{-7}\\,\\text{s} ✓$$\n\nSamme svar som i b).\n\n**Et forbehold verdt å skrive:** størrelsene $c+u$ og $c-u$ her er ikke lysfarten målt i noe system — de er hvor fort **avstanden mellom lyset og skipsenden** krymper, regnet i stasjonens koordinater. Lyset selv går med nøyaktig $c$ hele veien. Å blande disse to er en klassisk snubletråd.\n\n**d) Hekken treffes først**, med $0{,}750\\ \\mu\\text{s}$. Fysisk fordi hekken kommer lyset i møte mens baugen flykter unna — mens lyset bruker like lang tid på å gå like langt i begge retninger.\n\nDet er ingen motsetning mellom dette og skipets beskrivelse. **De to systemene er uenige om hva «samtidig» betyr**, ikke om noe fysisk måleresultat. Alle er enige om at lyset traff begge ender, og alle er enige om hva klokkene på hvert sted viste da det skjedde."
+    },
+    {
+      "id": "fys1100-10-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.) Svar med egne ord, to–tre setninger på hver.\n\n**a)** Hva betyr det at samtidighet er relativ?\n\n**b)** To hendelser skjer på **samme sted** til samme tid. Er alle systemer enige om at de var samtidige?\n\n**c)** Hvilke to størrelser i situasjonen bestemmer hvor stor samtidighetsforskyvningen blir?",
+        "solution": "**a)** At to hendelser som skjer samtidig for én observatør, i sin alminnelighet ikke skjer samtidig for en annen som beveger seg i forhold til den første. «Samtidig» er altså ikke en egenskap ved hendelsene alene, men ved forholdet mellom hendelsene og et referansesystem — på samme måte som «i ro» er det.\n\n**b)** Ja. Skjer to ting i samme punkt til samme tid, faller de sammen til ett punkt i romtida, og det kan ingen koordinattransformasjon skille. Uenigheten oppstår bare når hendelsene er atskilt i rom.\n\n**c)** Avstanden $\\Delta x$ mellom hendelsene og den relative farten $u$ mellom systemene, gjennom $\\Delta t' = -\\gamma u\\Delta x/c^2$. Er én av dem null, er det ingen forskyvning i det hele tatt.",
+        "hints": [
+          "I a): er «samtidig» en egenskap ved hendelsene, eller ved forholdet til et system?",
+          "I c): se på hvilke størrelser som står i telleren i samtidighetsforskyvningen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I.) I jordas system settes to klokker opp, den ene i $x = 0$ og den andre i $x = 1{,}20\\cdot10^{9}\\,\\text{m}$, og de synkroniseres slik at begge viser null i samme øyeblikk. Et romskip passerer med $u = 0{,}800c$ i positiv $x$-retning.\n\n**a)** Hva viser de to klokkene, sett fra romskipet, i det øyeblikket skipet regner som «da den nærmeste klokka viste null»?\n\n**b)** Hvilken av klokkene ligger foran, sett fra skipet?\n\n**c)** Hva blir svaret hvis skipet i stedet går i negativ $x$-retning?",
+        "solution": "**a)** De to hendelsene «klokke 1 viser null» og «klokke 2 viser null» er samtidige i jordas system, med $\\Delta x = 1{,}20\\cdot10^{9}\\,\\text{m}$. Med $u = +0{,}800c$ og $\\gamma = 1{,}667$:\n\n$$\\Delta t' = -\\frac{\\gamma u\\Delta x}{c^2} = -\\frac{1{,}667\\cdot0{,}800\\cdot1{,}20\\cdot10^{9}}{3{,}00\\cdot10^{8}} = -5{,}33\\,\\text{s}$$\n\nDet betyr at i skipets system skjer «klokke 2 viser null» **$5{,}33$ sekunder før** «klokke 1 viser null».\n\nI det øyeblikket skipet regner som samtidig med at klokke 1 viser null, har altså klokke 2 for lengst passert null: den viser **$5{,}33/\\gamma = 3{,}20$ sekunder**. (Divisjonen med $\\gamma$ er fordi klokke 2, sett fra skipet, går langsomt i de $5{,}33$ sekundene.)\n\n**b) Klokke 2 — den som ligger lengst framme i skipets bevegelsesretning — ligger foran i tid.** Det kan virke bakvendt, siden huskeregelen sier «klokka som ligger foran, ligger etter». Men huskeregelen handler om **hendelsen** «klokka viser null»: den skjer tidligst for den fremste klokka, og derfor har den fremste klokka rukket lengst når skipet ser etter. De to formuleringene er den samme saken sett fra hver sin side, og det er nettopp derfor du **alltid bør regne med formelen framfor å stole på en huskeregel**.\n\n**c)** Da snur fortegnet på $u$, og dermed på $\\Delta t'$: nå er det klokke 1 som ligger foran, med de samme $3{,}20$ sekundene. Situasjonen er speilvendt, som den må være.",
+        "hints": [
+          "Skriv opp de to hendelsene, og bruk $\\Delta t' = -\\gamma u \\Delta x/c^2$.",
+          "Pass på fortegnet på $u$ — det er det som avgjør hvilken klokke som ligger foran.",
+          "I overgangen fra tidsforskjell til klokkeavlesning må du huske at den bevegelige klokka går langsomt."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — drøftingsmetoden (~8 min)\n\nParadoksoppgaver ser ut som essayoppgaver, men de har en fast oppskrift. Følger du den, får du full uttelling med en halv side.\n\nDet er verdt å lære oppskriften utenat, fordi den fjerner den verste risikoen i sjangeren: å begynne å regne uten å ha sagt hva man regner på."
+    },
+    {
+      "id": "fys1100-10-2-def-metode",
+      "type": "definition",
+      "title": "Drøftingsmetoden for et relativitetsparadoks",
+      "content": "Fire steg, i denne rekkefølgen:\n\n**1. Navngi hendelsene.** Skriv dem ut med ord og bokstaver: «A: forreste dør lukkes. B: bakerste dør lukkes.» Nesten alle paradokser handler om to eller tre hendelser, og halve arbeidet er gjort når de står på papiret.\n\n**2. Spør: samtidige i hvilket system?** Finn ut i hvilket system hendelsene er samtidige — og slå fast at de da **ikke** er det i det andre. Regn gjerne ut forskyvningen $\\Delta t' = -\\gamma u\\Delta x/c^2$; et tall gjør drøftingen konkret.\n\n**3. Fortell historien i BEGGE systemer, hver for seg.** Ikke bland dem. Skriv «i låvens system skjer …» og deretter «i stigens system skjer …». Det er i blandingen paradokset ser ut til å oppstå.\n\n**4. Konkludér med at begge beskrivelsene er riktige, og pek på hva de er enige om.** De er alltid enige om alt som er fysisk avgjørbart: om noe ble knust, om en dør traff en stige, om en tvilling ble eldre. De er uenige om hva som skjedde «samtidig».\n\n**Et romtidsdiagram gjør steg 2 og 3 nesten selvforklarende**, og det gir egne poeng når oppgaven ber om figur."
+    },
+    {
+      "id": "fys1100-10-2-adv-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #11 — SR-formler i et paradoks uten samtidighetsdrøfting — gir INGEN poeng.** Fire varianter, alle dokumentert:\n\n**1. Ren formelramse.** Kandidaten skriver $\\Delta t = \\gamma\\Delta t_0$ og $l = l_0/\\gamma$, regner ut $\\gamma$, og stopper. Formlene står på formelarket, så avskrift viser ingenting. Uten at ordet *samtidighet* brukes på den konkrete situasjonen, gis det ikke uttelling.\n\n**2. Å behandle paradokset som en feil.** «Stigen kan jo ikke både passe og ikke passe, så det ene svaret må være galt.» Nei — begge er riktige. Et paradoks i denne sjangeren er ikke en selvmotsigelse, men en situasjon som ser selvmotsigende ut fordi man ubevisst har antatt at «samtidig» betyr det samme for alle.\n\n**3. Å glemme systembyttet i tvillingparadokset.** Situasjonen ser symmetrisk ut, men den er det ikke: den reisende **snur**, og bytter dermed inertialsystem. Uten det poenget er drøftingen ufullstendig.\n\n**4. Svada uten fagbegrep.** Lange avsnitt om at «tid er relativt» og «alt avhenger av observatøren» uten å nevne hvilke hendelser, hvilke systemer og hvilken forskyvning. Sensor honorerer presisjon og trekker for helgardering — to–fire presise setninger slår en side med generelle betraktninger.\n\n**Den enkleste forsikringen:** skriv setningen «*Hendelsene A og B er samtidige i systemet X, men ikke i systemet Y, og det er nettopp dette som løser paradokset*» — med ekte navn på A, B, X og Y. Da har du krysset av det sensor leter etter."
+    },
+    {
+      "id": "fys1100-10-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kvalitativ, sjanger J — «forklar/begrunn/kritiser»-oppgaven, som har minst én deloppgave i hvert sett.) En medstudent har levert denne besvarelsen på en paradoksoppgave:\n\n*«Farten er $0{,}80c$, så $\\gamma = 1{,}67$. Stigen blir dermed kortere med denne faktoren, og lengden blir $l = l_0/\\gamma$. Låven er kortere enn stigen i hvile. Derfor passer stigen.»*\n\n**a)** Hvor mange poeng ville dette gitt, og hvorfor?\n\n**b)** Hva mangler, konkret?\n\n**c)** Skriv om besvarelsen til én setning som ville gitt uttelling.",
+        "solution": "**a)** Svært lite, og trolig null på selve drøftingsdelen. Alt som står der, er riktig, men det er ren avskrift fra formelarket pluss én innsetting. Oppgaven ber om en forklaring på hvorfor to tilsynelatende motstridende beskrivelser begge kan være riktige, og det spørsmålet er ikke berørt.\n\n**b)** Tre ting. For det første er ingen **hendelser** navngitt — hva er det som skjer, og når? For det andre er situasjonen bare beskrevet i **ett** system (låvens); stigens system er ikke nevnt, og det er der paradokset bor. For det tredje — og dyrest — er ordet **samtidighet** ikke brukt i det hele tatt.\n\n**c)** For eksempel: «Hendelsene A (utgangsdøra lukkes) og B (inngangsdøra lukkes) er samtidige i låvens system, der stigen derfor er helt innelukket et øyeblikk; i stigens system er de ikke samtidige — A skjer først, mens stigens forende ennå ikke har nådd fram — og derfor er stigen aldri innelukket der, uten at noen av beskrivelsene er gale.»\n\nDen ene setningen inneholder hendelsene, begge systemene, samtidighetspoenget og konklusjonen. Den er verdt mer enn en halv side med $\\gamma$-utregninger.",
+        "hints": [
+          "Sammenlign besvarelsen med de fire stegene i drøftingsmetoden — hvilke er utført?",
+          "Hvilket ord er det sensor leter etter, og står det der?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — stigen i låven (~15 min)\n\nDette er sjangerens mest kjente oppsett, og det som oftest dukker opp i eksamensarkivet — gjerne i en leken innpakning.\n\nEn bonde har en låve med to porter, én i hver ende. En løper kommer med en stige som er **lengre enn låven** når begge står stille. Bonden hevder at hvis løperen bare springer fort nok, blir stigen kortere enn låven, og han kan smelle igjen begge portene i det øyeblikket stigen er inne.\n\nLøperen ler. I hans system er det **låven** som farer forbi og blir kortere, mens stigen har sin fulle lengde. Stigen kan aldri være inne.\n\nBegge har rett. Nå skal vi se nøyaktig hvordan."
+    },
+    {
+      "id": "fys1100-10-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2 (eksamensnivå): Stigen som passer og ikke passer",
+      "problem": "En stige har egenlengde $l_0 = 12{,}0\\,\\text{m}$. En låve har egenlengde $L_0 = 8{,}00\\,\\text{m}$ og en port i hver ende. Stigen føres gjennom låven med $u = 0{,}800c$.\n\n**a)** Hvor lang er stigen i låvens system, og hvor lang er låven i stigens system?\n\n**b)** I låvens system lukkes begge portene samtidig, i det øyeblikket stigen er midtstilt. Beskriv hva som skjer.\n\n**c)** Finn tidsforskjellen mellom de to portlukkingene i stigens system, og beskriv hva som skjer der.\n\n**d)** Er stigen innelukket eller ikke? Forklar hvorfor begge svarene er riktige.\n\n**e)** Hva er begge systemene enige om?",
+      "solution": "**Steg 1 — hendelsene.** A: **inngangsporten lukkes** (og åpnes straks igjen). B: **utgangsporten lukkes** (og åpnes straks igjen). Vi legger $x = 0$ ved inngangsporten og $x = 8{,}00\\,\\text{m}$ ved utgangsporten, og setter $t = 0$ i låvens system i det de lukkes.\n\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}800^2}} = \\frac{1}{0{,}6000} = 1{,}667$$\n\n**a)** I låvens system er stigen kontrahert:\n\n$$l = \\frac{l_0}{\\gamma} = \\frac{12{,}0}{1{,}667} = 7{,}20\\,\\text{m}$$\n\nsom er **kortere** enn låvens $8{,}00\\,\\text{m}$. I stigens system er det låven som er kontrahert:\n\n$$L = \\frac{L_0}{\\gamma} = \\frac{8{,}00}{1{,}667} = 4{,}80\\,\\text{m}$$\n\nsom er **mye kortere** enn stigens fulle $12{,}0\\,\\text{m}$. Der begynner paradokset.\n\n**b) I låvens system** er stigen $7{,}20\\,\\text{m}$ og låven $8{,}00\\,\\text{m}$, så det er $0{,}80\\,\\text{m}$ til overs — $0{,}40\\,\\text{m}$ i hver ende når stigen er midtstilt. Ved $t = 0$ er stigens bakende i $x = 0{,}40\\,\\text{m}$ og forenden i $x = 7{,}60\\,\\text{m}$. Begge porter lukkes samtidig, og stigen er **fullstendig innelukket** i et kort øyeblikk. Bonden har rett.\n\nHvor lenge varer det? Stigen er helt inne fra bakenden passerer $x=0$ til forenden når $x = 8{,}00$, altså mens stigen flytter seg $0{,}80\\,\\text{m}$:\n\n$$\\Delta t = \\frac{0{,}80}{0{,}800\\cdot3{,}00\\cdot10^{8}} = 3{,}33\\cdot10^{-9}\\,\\text{s} = 3{,}33\\,\\text{ns}$$\n\n— naturlig pausepunkt —\n\n**c) Steg 2 — samtidige i hvilket system?** Hendelsene A og B er samtidige i **låvens** system, med $\\Delta x = 8{,}00\\,\\text{m}$. I stigens system:\n\n$$\\Delta t' = -\\frac{\\gamma u \\Delta x}{c^2} = -\\frac{1{,}667\\cdot0{,}800\\cdot8{,}00}{3{,}00\\cdot10^{8}} = -3{,}56\\cdot10^{-8}\\,\\text{s} = -35{,}6\\,\\text{ns}$$\n\nNegativt betyr at **B (utgangsporten) lukkes 35,6 ns FØR A (inngangsporten)** i stigens system.\n\n**Steg 3 — historien i stigens system.** Stigen står stille med sine $12{,}0\\,\\text{m}$, og låven på $4{,}80\\,\\text{m}$ farer forbi med $0{,}800c$. Rekkefølgen blir:\n\n1. Utgangsporten (som kommer imot) lukkes og åpnes igjen — og i det øyeblikket mangler stigens forende fortsatt $0{,}667\\,\\text{m}$ på å nå den. Porten smeller altså igjen rett foran nesa på stigen.\n2. $35{,}6\\,\\text{ns}$ senere lukkes inngangsporten — og da har stigens bakende allerede passert den med $0{,}667\\,\\text{m}$. Porten smeller igjen bak stigen.\n\nPå **intet** tidspunkt er begge porter lukket med stigen mellom dem. Løperen har rett.\n\n*(De $0{,}667\\,\\text{m}$ i begge ender kommer av å transformere endepunktene: $\\gamma\\cdot0{,}40 = 0{,}667$. Symmetrien er en fin kontroll på at regningen stemmer.)*\n\n**d) Steg 4 — begge svarene er riktige.** Spørsmålet «er stigen innelukket?» betyr «er begge portene lukket **samtidig** mens stigen er mellom dem?». Ordet *samtidig* er den skjulte forutsetningen, og det ordet betyr ikke det samme i de to systemene. Spørsmålet er altså ikke ett spørsmål, men to — og de har hvert sitt riktige svar.\n\nDette er hele oppløsningen. Ingen av beskrivelsene er en illusjon, ingen av dem er gal, og det finnes ingen tredje, «egentlig sann» beskrivelse.\n\n**e) Enighet om alt som er fysisk avgjørbart.** Begge systemene er enige om at:\n\n- stigen kom seg gjennom låven uten å bli truffet av noen port;\n- hver port var lukket i det øyeblikket klokka på nettopp det stedet viste null (i låvens system);\n- ingen splinter ble slått av stigen.\n\n**Uenigheten gjelder utelukkende rekkefølgen på to hendelser som er romlik atskilt** — avstanden mellom dem er $8{,}00\\,\\text{m}$, mens lys ville brukt $26{,}7\\,\\text{ns}$ på strekningen og tidsforskjellen i låvens system er null. Ingen av portlukkingene kan ha påvirket den andre, og derfor er det ufarlig at systemene rangerer dem ulikt."
+    },
+    {
+      "id": "fys1100-10-2-fig-stige",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-10-2-stige-laave.svg",
+      "alt": "Et romtidsdiagram tegnet i laavens system, med x vannrett og ct loddrett. To loddrette graa linjer viser inngangsdoera i x lik null og utgangsdoera i x lik aatte meter. To skraa blaa linjer viser stigens bakende og forende, som beveger seg mot hoeyre. To roede punkter A og B ligger paa samme hoeyde der de to doerene lukkes. En oransje vannrett stiplet linje gjennom dem er merket t lik null i laaven. En lilla stiplet linje som heller oppover mot hoeyre gjennom A er merket t merket lik null i stigen, og B ligger godt under den. Et lyst groent baand mellom doerene viser tidsrommet der stigen er helt inne i laavens system.",
+      "caption": "Stige-i-låve-paradokset tegnet ut, med tallene fra eksempel 2. Det grønne båndet er de $3{,}33\\,\\text{ns}$ der stigen er helt innelukket i **låvens** regning. Følger du i stedet den lilla samtidighetslinja — stigens «nå» — ser du at $B$ ligger langt under den, altså skjedde $35{,}6\\,\\text{ns}$ tidligere i stigens system."
+    },
+    {
+      "id": "fys1100-10-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I.) Et romskip med egenlengde $l_0 = 90{,}0\\,\\text{m}$ flyr gjennom en tunnel med egenlengde $L_0 = 60{,}0\\,\\text{m}$ og en luke i hver ende.\n\n**a)** Hvor stor må farten minst være for at skipet skal være kortere enn tunnelen i tunnelens system?\n\n**b)** Skipet flyr med $0{,}900c$. Hvor langt er det i tunnelens system, og hvor lang er tunnelen i skipets system?\n\n**c)** Lukene lukkes samtidig i tunnelens system. Hvor lang tid er det mellom de to lukkingene i skipets system, og hvilken skjer først?\n\n**d)** Forklar i to–fire setninger hvorfor begge beskrivelsene er riktige.",
+        "solution": "**a)** Kravet er $l_0/\\gamma \\le L_0$, altså\n\n$$\\gamma \\ge \\frac{l_0}{L_0} = \\frac{90{,}0}{60{,}0} = 1{,}500$$\n\n$$\\beta = \\sqrt{1 - \\frac{1}{\\gamma^2}} = \\sqrt{1 - \\frac{1}{2{,}250}} = \\sqrt{0{,}5556} = 0{,}745$$\n\nFarten må altså være minst $0{,}745c$.\n\n**b)** Med $\\beta = 0{,}900$ er $\\gamma = 2{,}294$:\n\n$$l = \\frac{90{,}0}{2{,}294} = 39{,}2\\,\\text{m} \\quad \\text{(i tunnelens system)}$$\n\n$$L = \\frac{60{,}0}{2{,}294} = 26{,}2\\,\\text{m} \\quad \\text{(i skipets system)}$$\n\n**Retningskontroll:** begge er kortere enn sine egenlengder ✓.\n\n**c)** Hendelsene A (bakre luke lukkes, i $x = 0$) og B (fremre luke lukkes, i $x = 60{,}0\\,\\text{m}$) er samtidige i tunnelens system:\n\n$$\\Delta t' = -\\frac{\\gamma u\\Delta x}{c^2} = -\\frac{2{,}294\\cdot0{,}900\\cdot60{,}0}{3{,}00\\cdot10^{8}} = -4{,}13\\cdot10^{-7}\\,\\text{s} = -413\\,\\text{ns}$$\n\n**B skjer først**, $413\\,\\text{ns}$ før A, i skipets system.\n\n**d)** I tunnelens system er skipet $39{,}2\\,\\text{m}$ og tunnelen $60{,}0\\,\\text{m}$, så begge luker kan være lukket samtidig med skipet trygt inne. I skipets system er skipet $90{,}0\\,\\text{m}$ og tunnelen bare $26{,}2\\,\\text{m}$, og lukene lukkes med $413\\,\\text{ns}$ mellomrom — den fremre først, lenge før skipets nese når fram, og den bakre først etter at halen har passert. **Begge beskrivelsene er riktige fordi spørsmålet «er skipet inne?» forutsetter at lukene er lukket samtidig, og «samtidig» betyr ulike ting i de to systemene.** De er enige om alt som kan måles: ingen luke traff skipet.",
+        "hints": [
+          "I a): hvilken ulikhet må $\\gamma$ oppfylle, og hvordan finner du $\\beta$ ut av en gitt $\\gamma$?",
+          "I c): bruk $\\Delta t' = -\\gamma u\\Delta x/c^2$ med $\\Delta x$ lik tunnelens egenlengde.",
+          "I d): hvilket skjult ord i spørsmålet «er skipet inne?» er det som ikke betyr det samme i de to systemene?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I kombinert med J.) Bonden i stige-i-låve-oppgaven skjerper påstanden: han vil lukke **begge** porter og holde dem lukket. Stigen har egenlengde $12{,}0\\,\\text{m}$, låven $8{,}00\\,\\text{m}$, farten er $0{,}800c$.\n\n**a)** Hva skjer nå, fysisk?\n\n**b)** Kan stigen bremses opp momentant i hele sin lengde, slik at den passer i låven etterpå? Drøft.\n\n**c)** Hva er det generelle prinsippet bak svaret i b)?",
+        "solution": "**a)** Da knuses noe. Med portene permanent lukket treffer stigens forende utgangsporten, og støtet forplanter seg bakover gjennom stigen med lydfarten i materialet — som er svært mye mindre enn $c$. Bakenden av stigen «vet» ennå ikke at noe har skjedd, og fortsetter framover. Resultatet er at stigen komprimeres eller brekker.\n\n**Begge systemene er enige om at stigen brekker.** Det er en fysisk hendelse, ikke en beskrivelse. De er derimot uenige om rekkefølgen på delhendelsene, og det er helt greit så lenge hendelser som påvirker hverandre beholder sin rekkefølge — noe de gjør, siden signalet gjennom stigen går langsommere enn lyset.\n\n**b) Nei, ikke i noen meningsfull forstand.** «Å bremse hele stigen momentant» forutsetter at alle punkter på stigen stopper **samtidig** — og det er nettopp det ordet som ikke er systemuavhengig. En bremsing som er momentan og samtidig i låvens system, er slett ikke samtidig i stigens system: der stopper forenden lenge før bakenden, og stigen blir presset sammen fra 12,0 til 7,20 meter. Det er en voldsom deformasjon, ikke en ufarlig manøver.\n\nMotsatt: en bremsing som er samtidig i stigens system, lar stigen beholde sine $12{,}0\\,\\text{m}$ — og da passer den ikke i låven når den står stille, akkurat som man ville vente.\n\n**c)** Det finnes ingen **stive** legemer i relativitetsteorien. Et helt stivt legeme ville ha overført påvirkning momentant fra den ene enden til den andre, altså med uendelig signalfart, og det er forbudt fordi ingen påvirkning kan gå fortere enn lyset.\n\nAlle legemer er derfor elastiske i relativistisk forstand, og «å gjøre noe med hele gjenstanden på én gang» er alltid en systemavhengig beskrivelse. Det er den samme innsikten som løser selve stige-paradokset, brukt på et nytt spørsmål.",
+        "hints": [
+          "I a): hvor fort forplanter et støt seg gjennom et fast stoff, sammenlignet med lyset?",
+          "I b): hva betyr «momentant i hele sin lengde», og er det utsagnet systemuavhengig?",
+          "I c): hva ville et perfekt stivt legeme innebåret om signalfarten inne i det?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — tvillingparadokset (~12 min)\n\nTo tvillinger. Den ene blir hjemme, den andre reiser til en fjern stjerne og tilbake med nesten lysfart. Når hun kommer hjem, er hun yngre enn broren.\n\nParadokset er ikke at hun er yngre. Paradokset er at situasjonen ser **symmetrisk** ut: hver av dem ser den andres klokke gå sakte, så hver av dem burde finne den andre yngst. Begge kan ikke være yngre enn den andre.\n\nSymmetrien er falsk, og det er hele svaret. Men det må sies presist hvorfor."
+    },
+    {
+      "id": "fys1100-10-2-def-tvilling",
+      "type": "definition",
+      "title": "Tvillingparadokset",
+      "content": "Den ene tvillingen blir på jorda, den andre reiser ut til en stjerne med høy fart og returnerer. Ved gjenforeningen har den reisende blitt mindre gammel enn den hjemmeværende, og forskjellen er reell og målbar.\n\n«Paradokset» er at oppsettet ved første øyekast ser symmetrisk ut: fra den reisendes synsvinkel er det jorda som farer av gårde og kommer tilbake.\n\n**Oppløsningen er at symmetrien ikke finnes.** Den hjemmeværende er i **ett og samme inertialsystem** hele tiden. Den reisende **snur**, og bytter dermed inertialsystem underveis. Bare den ene av dem kjenner en akselerasjon, og bare den ene har en verdenslinje med knekk. De to situasjonene er derfor ikke likeverdige, og relativitetsprinsippet — som gjelder for inertialsystemer — kan ikke brukes til å bytte om på dem."
+    },
+    {
+      "id": "fys1100-10-2-def-asymmetri",
+      "type": "definition",
+      "title": "Asymmetrien: systembyttet",
+      "content": "Det som bryter symmetrien i tvillingparadokset, er at den reisende **skifter inertialsystem** ved vendepunktet.\n\nKonsekvensen er dramatisk og lar seg regne ut: i det hun snur, endres hennes samtidighetslinje brått. Hendelsen på jorda som hun regnet som «nå» i utsystemet, er en helt annen enn den hun regner som «nå» i hjemsystemet. Jordklokka ser ut til å hoppe framover med et stort sprang — ikke fordi noe skjer med klokka, men fordi hun bytter definisjon av hvilke hendelser som er samtidige med henne.\n\n**Det er nettopp dette spranget som er «den manglende tida», og det er derfor tvillingparadokset er et samtidighetsproblem, ikke et akselerasjonsproblem.** Akselerasjonen er årsaken til systembyttet, men det er samtidighetsforskyvningen som gjør regnskapet.\n\nEn besvarelse som bare skriver «hun akselererer, derfor blir hun yngre» treffer riktig fenomen, men ikke mekanismen — og sensor skiller mellom de to."
+    },
+    {
+      "id": "fys1100-10-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Tvillingene med tall",
+      "problem": "Anna blir på jorda. Bea reiser til en stjerne $6{,}00$ lysår unna (målt fra jorda) med $0{,}800c$, snur momentant og kommer tilbake med samme fart.\n\n**a)** Hvor lenge varer turen målt på jorda?\n\n**b)** Hvor mye eldre blir Bea?\n\n**c)** Vis hvordan Bea kan regne seg fram til samme svar, og gjør rede for spranget ved vendepunktet.\n\n**d)** Hvorfor er situasjonen ikke symmetrisk?",
+      "solution": "$$\\gamma = \\frac{1}{\\sqrt{1-0{,}800^2}} = 1{,}667$$\n\n**a)** Jorda måler avstanden $6{,}00$ lysår hver vei, og Bea går med $0{,}800c$:\n\n$$t_{\\text{jord}} = \\frac{2\\cdot6{,}00}{0{,}800} = 15{,}0\\ \\text{år}$$\n\n**b)** Hendelsene «avreise» og «vendepunkt» skjer begge der Bea er, så hennes klokke måler **egentid** på hver etappe:\n\n$$\\tau = \\frac{t_{\\text{jord}}}{\\gamma} = \\frac{15{,}0}{1{,}667} = 9{,}00\\ \\text{år}$$\n\nBea blir altså $9{,}00$ år eldre, Anna $15{,}0$ år. **Forskjellen er $6{,}00$ år**, og den er ikke en synsbedrag: de står side om side ved gjenforeningen og sammenligner.\n\n**Beas egen kontroll:** i hennes system er avstanden til stjerna kontrahert til $6{,}00/1{,}667 = 3{,}60$ lysår, og med $0{,}800c$ tar den turen $3{,}60/0{,}800 = 4{,}50$ år hver vei, altså $9{,}00$ år totalt ✓.\n\n— naturlig pausepunkt —\n\n**c) Beas regnskap over Annas klokke.** Her kommer poenget.\n\n**På utturen** er Bea i et inertialsystem som beveger seg med $+0{,}800c$. I det systemet går Annas klokke langsomt med faktoren $\\gamma$. Beas egne $4{,}50$ år svarer da til\n\n$$4{,}50/\\gamma = 4{,}50/1{,}667 = 2{,}70\\ \\text{år}$$\n\npå Annas klokke. (Regn gjerne kontrollen med Lorentz-transformasjonen: vendepunktet ligger i $(x, t) = (6{,}00\\ \\text{ly},\\ 7{,}50\\ \\text{år})$ i jordas system, og $t' = \\gamma(t - \\beta x) = 1{,}667(7{,}50 - 4{,}80) = 4{,}50$ år ✓. Hendelsen på Annas verdenslinje som er samtidig med dette i utsystemet, har $t = 4{,}50/\\gamma = 2{,}70$ år.)\n\n**På hjemturen** er Bea i et annet inertialsystem, som beveger seg med $-0{,}800c$. Der er hendelsen på jorda som er samtidig med vendepunktet, ved\n\n$$t = 15{,}0 - 2{,}70 = 12{,}3\\ \\text{år}$$\n\nved symmetri (hjemturen er speilbildet av utturen).\n\n**Spranget ved vendepunktet** er dermed\n\n$$12{,}3 - 2{,}70 = 9{,}60\\ \\text{år}$$\n\nRegnskapet går opp:\n\n$$2{,}70 + 9{,}60 + 2{,}70 = 15{,}0\\ \\text{år} ✓$$\n\n**Ingenting rart skjer med Annas klokke.** Den tikker jevnt hele tiden. Det som hopper, er **Beas definisjon av hva som er «nå» på jorda**, fordi hun bytter inertialsystem — og dermed bytter samtidighetslinje. Spranget er samtidighetsforskyvningen $2\\gamma u\\Delta x/c^2$ med $\\Delta x = 6{,}00$ lysår, altså $2\\cdot1{,}667\\cdot0{,}800\\cdot6{,}00/1 = 16{,}0$ år uttrykt i Beas tid, som svarer til $16{,}0/\\gamma = 9{,}60$ år på Annas klokke ✓.\n\n**d)** Anna er i **ett** inertialsystem fra start til slutt; verdenslinja hennes er en rett linje. Bea er i **to** ulike inertialsystemer, med en knekk imellom; hun kjenner akselerasjonen og kan måle den med et akselerometer om bord. Relativitetsprinsippet sier at alle **inertialsystemer** er likeverdige, og Beas reise er ikke ett inertialsystem. Symmetrien er derfor brutt — og den er brutt på en måte begge kan bli enige om, siden akselerasjonen er en absolutt, målbar størrelse."
+    },
+    {
+      "id": "fys1100-10-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger I.) En tvilling reiser til en stjerne $10{,}0$ lysår unna (målt fra jorda) med $0{,}600c$ og returnerer med samme fart.\n\n**a)** Hvor lang tid tar turen målt på jorda, og hvor mye eldre blir den reisende?\n\n**b)** Hvor langt er det til stjerna målt i den reisendes system, og hvor lang tid tar hver etappe der?\n\n**c)** En student sier at siden hver av dem ser den andres klokke gå sakte, må de være like gamle ved gjenforeningen. Hva er galt?",
+        "solution": "$$\\gamma = \\frac{1}{\\sqrt{1-0{,}600^2}} = \\frac{1}{0{,}8000} = 1{,}250$$\n\n**a)**\n\n$$t_{\\text{jord}} = \\frac{2\\cdot10{,}0}{0{,}600} = 33{,}3\\ \\text{år}$$\n\n$$\\tau = \\frac{33{,}3}{1{,}250} = 26{,}7\\ \\text{år}$$\n\nDen reisende blir altså $26{,}7$ år eldre, den hjemmeværende $33{,}3$ år — en forskjell på $6{,}7$ år.\n\n**b)** Avstanden er lengdekontrahert i den reisendes system:\n\n$$l = \\frac{10{,}0}{1{,}250} = 8{,}00\\ \\text{lysår}$$\n\n$$t_{\\text{etappe}} = \\frac{8{,}00}{0{,}600} = 13{,}3\\ \\text{år}$$\n\nTo etapper gir $26{,}7$ år ✓ — samme svar som i a), regnet på en helt annen måte.\n\n**c)** Studenten bruker et argument som bare gjelder mellom to **inertialsystemer**, på en situasjon der den ene parten ikke er i ett inertialsystem. Den reisende snur, og bytter dermed system. Ved systembyttet endres hennes samtidighetslinje brått, og den hjemmeværendes klokke «hopper» framover i hennes regnskap. Det er dette spranget som gjør at symmetrien brytes, og at de to ikke er like gamle ved gjenforeningen.\n\nLegg merke til at spørsmålet **har** et entydig svar: de står ved siden av hverandre til slutt og kan sammenligne. Det er nettopp derfor svaret ikke kan være systemavhengig, og derfor argumentet om gjensidig tidsdilatasjon må være ufullstendig et sted.",
+        "hints": [
+          "Regn først jordtida, og bruk deretter at den reisendes klokke måler egentid på hver etappe.",
+          "I b): hvilken avstand måler den reisende, og hvorfor er den kortere?",
+          "I c): gjelder argumentet om gjensidig tidsdilatasjon mellom to inertialsystemer — og er den reisende i ett?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — to romskip som skyter på hverandre (~10 min)\n\nDet siste standardoppsettet handler om **rekkefølgen** av hendelser, og det er det som kommer nærmest å virke farlig: hvis to observatører er uenige om hvem som skjøt først, kan man da ikke lure seg til å påvirke fortida?\n\nNei. Og grensa mellom det som er tillatt og det som ikke er det, er skarp."
+    },
+    {
+      "id": "fys1100-10-2-def-romlik",
+      "type": "definition",
+      "title": "Romlik og tidlik atskillelse",
+      "content": "To hendelser med romlig avstand $\\Delta x$ og tidsavstand $\\Delta t$ er\n\n- **tidlik atskilt** hvis $|\\Delta x| < c\\,|\\Delta t|$ — et signal med fart under $c$ rekker fra den ene til den andre;\n- **lyslik atskilt** hvis $|\\Delta x| = c\\,|\\Delta t|$ — bare lys rekker akkurat fram;\n- **romlik atskilt** hvis $|\\Delta x| > c\\,|\\Delta t|$ — ingenting rekker fram.\n\n**Klassifiseringen er systemuavhengig.** Alle observatører er enige om hvilken av de tre kategoriene et hendelsepar tilhører, selv om de er uenige om tallene $\\Delta x$ og $\\Delta t$ hver for seg.\n\nFor **tidlik** atskilte hendelser er rekkefølgen den samme i alle systemer. For **romlik** atskilte kan rekkefølgen snus ved å bytte system. Dette er ikke en svakhet ved teorien, men en presis grense: nettopp de hendelseparene som **kan** påvirke hverandre, har absolutt rekkefølge."
+    },
+    {
+      "id": "fys1100-10-2-def-kausalitet",
+      "type": "definition",
+      "title": "Kausalitetsvernet",
+      "content": "Årsak og virkning kan aldri bytte plass, uansett hvilket inertialsystem man regner i.\n\nBegrunnelsen er den forrige definisjonen: for at A skal kunne forårsake B, må et signal rekke fra A til B, altså må de være tidlik (eller lyslik) atskilt — og for slike par er rekkefølgen den samme i alle systemer.\n\nRekkefølgen kan altså bare snus for hendelser som **uansett ikke kan påvirke hverandre**. At to observatører er uenige om hvilket av to fjerne romskip som skjøt først, er derfor ufarlig: ingen av skuddene kunne ha utløst det andre.\n\n**Dette er svaret på innvendingen «men da kan man jo se virkningen før årsaken».** Nei — teorien er konstruert slik at det ikke går."
+    },
+    {
+      "id": "fys1100-10-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Hvem skjøt først?",
+      "problem": "En romstasjon observerer at to romskip A og B avfyrer hvert sitt skudd. I stasjonens system skjer de **samtidig**, i posisjonene $x_A = 0$ og $x_B = 600\\,\\text{m}$.\n\n**a)** Vis at de to hendelsene er romlik atskilt.\n\n**b)** En observatør beveger seg med $0{,}600c$ i positiv $x$-retning. Hvilket skudd kom først for henne, og med hvilken tidsforskjell?\n\n**c)** En annen observatør beveger seg med $0{,}600c$ i negativ retning. Hva ser hun?\n\n**d)** Kan det ene skuddet ha utløst det andre? Hva sier det om faren for årsaksbrudd?",
+      "solution": "**Hendelsene:** $E_1$ = «A skyter», $E_2$ = «B skyter».\n\n**a)** I stasjonens system er $\\Delta t = 0$ og $\\Delta x = 600\\,\\text{m}$. Kravet for romlik atskillelse er $|\\Delta x| > c|\\Delta t|$, altså $600\\,\\text{m} > 0$ ✓. Lys ville brukt $600/(3{,}00\\cdot10^{8}) = 2{,}00\\ \\mu\\text{s}$ på strekningen, mens tidsforskjellen er null — ingen forbindelse er mulig.\n\n**b)** Med $u = +0{,}600c$ og $\\gamma = 1{,}250$:\n\n$$\\Delta t' = -\\frac{\\gamma u \\Delta x}{c^2} = -\\frac{1{,}250\\cdot0{,}600\\cdot600}{3{,}00\\cdot10^{8}} = -1{,}50\\cdot10^{-6}\\,\\text{s}$$\n\nNegativt betyr at $E_2$ (B skyter) skjer **først**, $1{,}50\\ \\mu\\text{s}$ før $E_1$. For henne skjøt **B** først.\n\n**c)** Nå er $u = -0{,}600c$, så fortegnet snur:\n\n$$\\Delta t' = +1{,}50\\cdot10^{-6}\\,\\text{s}$$\n\nFor henne skjøt **A** først, med samme tidsforskjell.\n\n**Tre observatører, tre svar på «hvem skjøt først»** — samtidig, B først, A først. Alle tre er riktige.\n\n**d) Nei.** Skuddene er romlik atskilt, og ikke engang lys rekker fra det ene til det andre i den tida som er til rådighet. Ingen av dem kan derfor ha utløst det andre.\n\nOg det er nøyaktig derfor det er ufarlig at systemene rangerer dem ulikt: **relativitetsteorien tillater bare ombytting av rekkefølge for hendelser som uansett ikke kan påvirke hverandre.** Hadde A skutt og B blitt truffet, ville de to hendelsene vært tidlik atskilt, og da ville alle systemer vært enige om at skuddet kom før treffet."
+    },
+    {
+      "id": "fys1100-10-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-10-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kvalitativ, sjanger J.) Svar i tre–fem setninger på hver.\n\n**a)** Et fjernt supernovautbrudd og et jordskjelv på jorda skjer samtidig i jordas system, med $1{,}0\\cdot10^{3}$ lysår mellom seg. Finnes det et inertialsystem der jordskjelvet skjedde først? Der supernovaen skjedde først? Begrunn.\n\n**b)** Tenk deg at det fantes en måte å sende signaler med farten $2c$. Vis, ved å bruke samtidighetsforskyvningen, at det ville gjøre det mulig å sende et signal bakover i tid i et annet system.\n\n**c)** Hva er den generelle lærdommen av a) og b)?",
+        "solution": "**a) Ja på begge.** De to hendelsene er romlik atskilt: avstanden er $1000$ lysår, mens tidsforskjellen i jordas system er null, så $|\\Delta x| \\gg c|\\Delta t|$. For romlik atskilte hendelser kan rekkefølgen snus ved å bytte inertialsystem: et system som beveger seg fra jorda mot supernovaen ser supernovaen først, og et som beveger seg motsatt vei ser jordskjelvet først.\n\nDet er ufarlig, fordi ingen av hendelsene kan ha påvirket den andre — lyset fra supernovaen bruker $1000$ år på å nå oss.\n\n**b)** Anta at A sender et signal med farten $2c$ til B, som ligger $\\Delta x$ unna. I A's system tar det $\\Delta t = \\Delta x/(2c)$, altså er $c\\,\\Delta t = \\Delta x/2 < \\Delta x$ — hendelsene er romlik atskilt. Da finnes det et inertialsystem der de skjer samtidig, og systemer der **mottaket skjer før sendingen**.\n\nKonkret gir Lorentz-transformasjonen $\\Delta t' = \\gamma(\\Delta t - u\\Delta x/c^2)$, som blir negativ så snart $u/c > c\\Delta t/\\Delta x = 1/2$. En observatør med $u > 0{,}5c$ ser altså signalet ankomme før det ble sendt. Kombinerer du to slike overføringer, kan et svar nå avsenderen før spørsmålet ble stilt — og da er årsak og virkning brutt.\n\n**c)** At $c$ ikke bare er en fartsgrense for materie, men **kausalitetens grense**. Relativitetsteorien tillater at rekkefølgen på hendelser er systemavhengig, men bare i nøyaktig det området der ingen påvirkning er mulig. Å tillate signaler over $c$ ville rive ned den beskyttelsen. Grensen er derfor ikke en teknisk hindring man kan håpe å komme rundt — den er innebygd i romtidas struktur.",
+        "hints": [
+          "I a): sammenlign $|\\Delta x|$ med $c|\\Delta t|$ og avgjør typen atskillelse.",
+          "I b): regn ut $c\\Delta t$ for et signal med farten $2c$, og sammenlign med $\\Delta x$.",
+          "I b): finn hvilken $u$ som gjør $\\Delta t' = \\gamma(\\Delta t - u\\Delta x/c^2)$ negativ."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-10-2-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-10-2-bb-1",
+      "type": "definition",
+      "title": "Hendelse",
+      "content": "Noe som skjer på ett bestemt sted til ett bestemt tidspunkt — en port lukkes, et skudd avfyres, to skip møtes.\n\n**Å navngi hendelsene er første steg i enhver paradoksdrøfting.** Uten dem blir drøftingen uunngåelig vag, og vaghet er det sensor trekker mest for i denne sjangeren."
+    },
+    {
+      "id": "fys1100-10-2-bb-2",
+      "type": "definition",
+      "title": "Samtidighetsforskyvningen",
+      "content": "For to hendelser som er samtidige i $S$ med avstanden $\\Delta x$, måler et system $S'$ med farten $u$ tidsforskjellen\n\n$$\\Delta t' = -\\frac{\\gamma u \\Delta x}{c^2}$$\n\nFortegnet sier at hendelsen lengst framme i bevegelsesretningen skjer **tidligst** i $S'$. Forskyvningen vokser med både avstanden og farten, og forsvinner helt hvis én av dem er null."
+    },
+    {
+      "id": "fys1100-10-2-bb-3",
+      "type": "definition",
+      "title": "«Klokka som ligger foran, ligger etter»",
+      "content": "En rekke klokker som er synkronisert i system $S$ og satt opp langs $x$-aksen, er ikke synkrone sett fra $S'$. Huskeregelen gjelder **hendelsen** «klokka viser null»: den skjer tidligst for klokka som står lengst framme i $S'$ sin bevegelsesretning. Ser du på hva klokkene viser i ett og samme øyeblikk i $S'$, har den fremste derfor rukket lengst og viser **mest**.\n\nHuskeregelen er nyttig for å sjekke fortegn raskt, men den er lett å snu feil vei under press. **Regn heller ut $\\Delta t' = -\\gamma u\\Delta x/c^2$ og les fortegnet.** Da har du også et tall å vise fram."
+    },
+    {
+      "id": "fys1100-10-2-bb-4",
+      "type": "definition",
+      "title": "Stige-i-låve-paradokset",
+      "content": "En stige som er lengre enn en låve i hvile, føres gjennom låven med høy fart. I låvens system er stigen kontrahert og passer akkurat inn mellom to samtidig lukkede porter; i stigens system er låven kontrahert og stigen passer aldri.\n\n**Oppløsningen:** portlukkingene er samtidige bare i låvens system. I stigens system lukkes utgangsporten først, og åpnes igjen før forenden når fram. Begge beskrivelsene er riktige, og de er enige om alt som er fysisk avgjørbart — stigen kom seg gjennom uten å bli truffet."
+    },
+    {
+      "id": "fys1100-10-2-bb-5",
+      "type": "definition",
+      "title": "Tvillingparadokset",
+      "content": "Den reisende tvillingen blir mindre gammel enn den hjemmeværende. Effekten er reell og målbar ved gjenforeningen.\n\nSituasjonen ser symmetrisk ut, men er det ikke: den hjemmeværende er i ett inertialsystem hele tiden, mens den reisende **snur** og dermed bytter inertialsystem. Bare den ene kjenner en akselerasjon, og bare den ene har en verdenslinje med knekk."
+    },
+    {
+      "id": "fys1100-10-2-bb-6",
+      "type": "definition",
+      "title": "Samtidighetsspranget ved vendepunktet",
+      "content": "Når den reisende tvillingen snur, bytter hun inertialsystem, og dermed endres samtidighetslinja hennes brått. Hendelsen på jorda som hun regner som «nå», hopper framover med et stort sprang.\n\n**Ingenting skjer med den hjemmeværendes klokke** — den tikker jevnt. Det som hopper, er definisjonen av hva som er samtidig. Spranget er nøyaktig den «manglende tida» i regnskapet, og det er derfor tvillingparadokset i bunn og grunn er et samtidighetsproblem."
+    },
+    {
+      "id": "fys1100-10-2-bb-7",
+      "type": "definition",
+      "title": "Romlik atskillelse",
+      "content": "To hendelser med $|\\Delta x| > c|\\Delta t|$ er romlik atskilt: ikke engang lys rekker fra den ene til den andre.\n\nFor slike par er **rekkefølgen systemavhengig** — noen observatører ser A først, andre B først, og noen ser dem samtidig. Alle tre svarene er riktige. Klassifiseringen som romlik er derimot den samme i alle systemer."
+    },
+    {
+      "id": "fys1100-10-2-bb-8",
+      "type": "definition",
+      "title": "Tidlik atskillelse",
+      "content": "To hendelser med $|\\Delta x| < c|\\Delta t|$ er tidlik atskilt: et signal med fart under $c$ rekker fra den ene til den andre.\n\nFor slike par er **rekkefølgen absolutt** — alle inertialsystemer er enige om hvilken som kom først. Det er dette som verner årsakssammenhenger: bare hendelser som kan påvirke hverandre, har en entydig rekkefølge."
+    },
+    {
+      "id": "fys1100-10-2-bb-9",
+      "type": "definition",
+      "title": "Kausalitetsvernet",
+      "content": "Årsak kommer alltid før virkning, i alle inertialsystemer. Grunnen er at årsakssammenheng krever et signal, signalet kan ikke gå fortere enn $c$, og hendelser som kan nås av et slikt signal er tidlik atskilt — med systemuavhengig rekkefølge.\n\nLysfarten er derfor ikke bare en fartsgrense for materie, men **kausalitetens grense**. Et tenkt signal med fart over $c$ ville i noen systemer ankommet før det ble sendt."
+    },
+    {
+      "id": "fys1100-10-2-bb-10",
+      "type": "definition",
+      "title": "Drøftingsmetoden",
+      "content": "Fire steg som gir full uttelling i paradoksoppgaver:\n\n1. **navngi hendelsene** med ord og bokstaver;\n2. **spør i hvilket system de er samtidige**, og regn ut forskyvningen i det andre;\n3. **fortell historien i begge systemer**, hver for seg, uten å blande;\n4. **konkludér at begge beskrivelsene er riktige**, og pek på hva systemene er enige om.\n\nMetoden tar en halv side og er verdt mer enn en hel side med formler."
+    },
+    {
+      "id": "fys1100-10-2-bb-11",
+      "type": "definition",
+      "title": "Hva systemene alltid er enige om",
+      "content": "Uansett hvor mye to observatører er uenige om lengder, tider og rekkefølge, er de alltid enige om alt som er **fysisk avgjørbart**:\n\n- om to legemer kolliderte;\n- om en gjenstand ble knust;\n- hvilket klokkeslett en bestemt klokke viste da en bestemt hendelse skjedde **på samme sted som klokka**;\n- hvem som var eldst da tvillingene sto side om side.\n\n**Å peke på denne enigheten er en obligatorisk del av en god paradoksdrøfting**, fordi den viser at teorien er konsistent og ikke bare rar."
+    },
+    {
+      "id": "fys1100-10-2-bb-12",
+      "type": "definition",
+      "title": "Ingen stive legemer",
+      "content": "I relativitetsteorien finnes det ikke helt stive legemer. Et stivt legeme ville overført påvirkning momentant fra den ene enden til den andre, altså med uendelig signalfart, og det er forbudt.\n\nPraktisk konsekvens: «å stoppe en stang momentant i hele sin lengde» er en systemavhengig beskrivelse. Er stoppen samtidig i ett system, er den det ikke i et annet, og stanga blir uunngåelig deformert. Dette er svaret på hele familien av «men hva om vi bare holder den fast»-innvendinger."
+    },
+    {
+      "id": "fys1100-10-2-bb-13",
+      "type": "definition",
+      "title": "Paradoks er ikke selvmotsigelse",
+      "content": "Et relativitetsparadoks er en situasjon som **ser** selvmotsigende ut fordi man ubevisst har antatt at «samtidig» betyr det samme for alle. Når antakelsen fjernes, forsvinner motsetningen.\n\n**Skriv derfor aldri at den ene observatøren tar feil.** Det er det sikreste signalet til sensor om at poenget ikke er forstått. Begge har rett; de svarer på ulike spørsmål."
+    },
+    {
+      "id": "fys1100-10-2-bb-14",
+      "type": "definition",
+      "title": "Gjensidigheten i tidsdilatasjonen",
+      "content": "Hver av to observatører i relativ bevegelse måler den andres klokke som langsom. Det er ingen motsigelse, fordi de to påstandene gjelder ulike hendelsepar og bruker hver sin definisjon av samtidighet.\n\nGjensidigheten gjelder **bare mellom inertialsystemer**. I tvillingparadokset brytes den nettopp fordi den reisende ikke holder seg i ett inertialsystem — og da har spørsmålet «hvem er yngst?» et entydig svar, siden de to møtes igjen på samme sted."
+    },
+    {
+      "id": "fys1100-10-2-bb-15",
+      "type": "definition",
+      "title": "Verdenslinje med knekk",
+      "content": "En observatør som akselererer, har en verdenslinje med en knekk (eller en krumning) i romtidsdiagrammet. Det er en **absolutt, målbar** egenskap: et akselerometer om bord slår ut, og alle systemer er enige om at det gjorde det.\n\nDette er den geometriske måten å si hvorfor tvillingene ikke er likestilte. Den rette verdenslinja mellom to hendelser er alltid den med **størst** egentid — noe som er motsatt av trekantulikheten i vanlig geometri, og en av romtidas mest særegne trekk."
+    },
+    {
+      "id": "fys1100-10-2-bb-16",
+      "type": "definition",
+      "title": "Lyskjegle",
+      "content": "45-graderslinjene gjennom en hendelse i romtidsdiagrammet, altså banene til lyssignaler ut fra og inn mot hendelsen.\n\nAlt hendelsen kan påvirke, ligger inne i den fremtidige lyskjegla; alt som kan ha påvirket den, ligger inne i den fortidige. Alt utenfor er romlik atskilt og kan verken påvirke eller påvirkes. **Å tegne lyskjegla fra en hendelse er den raskeste måten å avgjøre om rekkefølgen kan snus.**"
+    },
+    {
+      "id": "fys1100-10-2-bb-17",
+      "type": "definition",
+      "title": "Samtidighetslinje",
+      "content": "Mengden av hendelser som skjer samtidig for en gitt observatør. I et romtidsdiagram med $x$ vannrett og $ct$ loddrett er dette vannrette linjer for en observatør i ro, og linjer med stigningstall $\\beta$ for en observatør med farten $u = \\beta c$.\n\nVerdenslinja og samtidighetslinja lukker seg symmetrisk om 45-graderslinja, som en saks. **Tegner du begge observatørers samtidighetslinjer, ser du paradokset løse seg med øyet** — og figuren gir egne poeng når oppgaven ber om den."
+    },
+    {
+      "id": "fys1100-10-2-bb-18",
+      "type": "definition",
+      "title": "Setningen som gir uttelling",
+      "content": "Én setning krysser av alt sensor leter etter i en paradoksoppgave:\n\n> «Hendelsene A og B er samtidige i systemet X, men ikke i systemet Y, og det er nettopp dette som løser paradokset.»\n\nSett inn ekte navn på A, B, X og Y, legg til tallet fra $\\Delta t' = -\\gamma u\\Delta x/c^2$ og en setning om hva systemene er enige om, så har du en full besvarelse. **Uten ordet *samtidighet* gis det ingen poeng**, uansett hvor mange formler som står på arket."
+    },
+    {
+      "id": "fys1100-10-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-10-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $c$ | lysfarten i vakuum, $3{,}00\\cdot10^{8}$ | $\\text{m/s}$ |\n| $u$ | farten til ett system i forhold til et annet | $\\text{m/s}$ |\n| $\\beta$ | hastighetsforholdet $u/c$ (**dimensjonsløs**) | — |\n| $\\gamma$ | Lorentz-faktoren (**dimensjonsløs**) | — |\n| A, B | navn på hendelser | — |\n| $\\Delta x$ | avstanden mellom to hendelser i et gitt system | $\\text{m}$ |\n| $\\Delta t$ | tidsforskjellen mellom to hendelser i system $S$ | $\\text{s}$ |\n| $\\Delta t'$ | den samme tidsforskjellen i system $S'$ | $\\text{s}$ |\n| $l_0$, $L_0$ | egenlengder (stigen og låven) | $\\text{m}$ |\n| $l$, $L$ | de observerte lengdene | $\\text{m}$ |\n| $\\tau$ | egentid | $\\text{s}$ eller år |\n| $x$, $ct$ | aksene i romtidsdiagrammet | $\\text{m}$ |\n\n**Symbolkollisjoner som er avklart i denne boka.** Store $L_0$ er låvens egenlengde her, mens $L$ i Del 6 og 9 betyr spinn — de opptrer aldri i samme likning, og i dette kapitlet finnes ikke spinn. Symbolet $T$ er snordrag ellers i boka og brukes ikke om tid; en periode skrives $T_p$. Bokstaven $u$ er systemenes innbyrdes fart. Alle størrelsene i dette kapitlet er **skalarer** og skal aldri ha vektormarkering.\n\n**Formler i dette delkapitlet:**\n\n$$x' = \\gamma(x-ut), \\qquad t' = \\gamma\\!\\left(t-\\frac{ux}{c^2}\\right)$$\n\nLorentz-transformasjonen. **[formelarket]** — leddet $-ux/c^2$ er kilden til alt i dette kapitlet.\n\n$$\\Delta t' = -\\frac{\\gamma u \\Delta x}{c^2}$$\n\nSamtidighetsforskyvningen for to hendelser som er samtidige i $S$. **[må kunne utledes]** — to linjer fra Lorentz-transformasjonen, og den er selve regneverktøyet i paradoksoppgavene.\n\n$$l = \\frac{l_0}{\\gamma}, \\qquad \\Delta t = \\gamma\\,\\Delta t_0$$\n\nLengdekontraksjon og tidsdilatasjon. **[formelarket]** — brukes til å sette opp situasjonen, men de alene løser aldri et paradoks.\n\n$$|\\Delta x| > c\\,|\\Delta t| \\ \\Rightarrow \\ \\text{romlik atskilt}$$\n\nKriteriet for at rekkefølgen kan snus. **[må kunne utledes]** — det følger av at ingen signal kan gå fortere enn lyset.\n\n$$\\tau_{\\text{reisende}} = \\frac{t_{\\text{hjemme}}}{\\gamma}$$\n\nTvillingregnskapet ved konstant fart på hver etappe. **[må kunne utledes]** — en direkte anvendelse av tidsdilatasjonen, men **begrunnelsen for at symmetrien er brutt, er det som gir poeng**.\n\n**Fra Rottmann** — den matematiske formelsamlingen som er tillatt hjelpemiddel — trenger du ingenting spesielt i dette kapitlet — regningen er elementær algebra. Det er argumentasjonen som er arbeidet."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-10-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-10-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 10.1](/bok/fys1100/fys1100-10-1).) Regn ut $\\gamma$ for $u = 0{,}600c$ og $u = 0{,}800c$.",
+            "solution": "$$\\gamma(0{,}600) = \\frac{1}{\\sqrt{1-0{,}360}} = \\frac{1}{0{,}8000} = 1{,}250$$\n\n$$\\gamma(0{,}800) = \\frac{1}{\\sqrt{1-0{,}640}} = \\frac{1}{0{,}6000} = 1{,}667$$\n\nDe to verdiene går igjen i nesten alle oppgavene i denne delen, fordi de gir pene tall.",
+            "hints": [
+              "Regn $\\beta^2$ først, og trekk fra 1."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 10.1](/bok/fys1100/fys1100-10-1).) En stang har egenlengde $40{,}0\\,\\text{m}$ og farer forbi et laboratorium med $0{,}600c$. Hvor lang er den målt i laboratoriet? Hvilken av de to lengdene er egenlengda?",
+            "solution": "Egenlengda er $40{,}0\\,\\text{m}$ — den er målt der stanga er i ro. Laboratoriet måler\n\n$$l = \\frac{l_0}{\\gamma} = \\frac{40{,}0}{1{,}250} = 32{,}0\\,\\text{m}$$\n\n**Retningskontroll:** kortere enn egenlengda ✓.",
+            "hints": [
+              "Hvilket system er stanga i ro i?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 10.1](/bok/fys1100/fys1100-10-1).) En hendelse har koordinatene $x = 1{,}80\\cdot10^{9}\\,\\text{m}$ og $t = 4{,}00\\,\\text{s}$ i system $S$. Finn $t'$ i et system som beveger seg med $u = 0{,}600c$ i positiv $x$-retning.",
+            "solution": "$$t' = \\gamma\\!\\left(t - \\frac{ux}{c^2}\\right) = 1{,}250\\left(4{,}00 - \\frac{0{,}600\\cdot1{,}80\\cdot10^{9}}{3{,}00\\cdot10^{8}}\\right)$$\n\n$$= 1{,}250\\,(4{,}00 - 3{,}60) = 0{,}500\\,\\text{s}$$\n\nLegg merke til hvor mye leddet $ux/c^2$ trekker fra her — det er nettopp dette leddet som bærer hele Del 10.2.",
+            "hints": [
+              "Sett inn i $t' = \\gamma(t - ux/c^2)$ og regn $ux/c^2$ for seg først."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-2-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 10.1](/bok/fys1100/fys1100-10-1).) Et romskip går med $0{,}800c$ forbi jorda. Om bord tar et måltid $30{,}0$ minutter. Hvor lenge varer det målt fra jorda? Hvilket system måler egentid, og hvorfor?",
+            "solution": "**Egentida måles om bord**, fordi måltidet starter og slutter på samme sted i skipets system.\n\n$$\\Delta t = \\gamma\\Delta t_0 = 1{,}667\\cdot30{,}0 = 50{,}0\\ \\text{minutter}$$\n\n**Retningskontroll:** lengre enn egentida ✓.",
+            "hints": [
+              "Still testspørsmålet: skjer start og slutt på samme sted i skipets system?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-10-2-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-10-2-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.2](/bok/fys1100/fys1100-1-2) og [kap. 10.1](/bok/fys1100/fys1100-10-1).) Bruk $\\gamma \\approx 1 + \\tfrac12\\beta^2$ til å anslå hvor stor samtidighetsforskyvningen er mellom to hendelser $100\\,\\text{m}$ fra hverandre, sett fra en bil i $100\\,\\text{km/t}$.",
+            "solution": "$$u = \\frac{100}{3{,}6} = 27{,}8\\,\\text{m/s}, \\qquad \\beta = 9{,}26\\cdot10^{-8}$$\n\nHer er $\\tfrac12\\beta^2 \\approx 4\\cdot10^{-15}$, altså $\\gamma \\approx 1$ til alle praktiske formål.\n\n$$|\\Delta t'| = \\frac{\\gamma u\\Delta x}{c^2} \\approx \\frac{27{,}8\\cdot100}{9{,}00\\cdot10^{16}} = 3{,}09\\cdot10^{-14}\\,\\text{s}$$\n\nOmtrent 30 femtosekunder. Effekten er reell, men langt under alt som kan merkes — og det er derfor «samtidig» virker absolutt i dagliglivet.",
+            "hints": [
+              "Regn om farten til meter per sekund først.",
+              "Sjekk om $\\gamma$ i det hele tatt avviker merkbart fra 1 her."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

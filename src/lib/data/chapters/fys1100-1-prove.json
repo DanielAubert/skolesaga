@@ -1,0 +1,241 @@
+{
+  "id": "fys1100-1-prove",
+  "courseId": "fys1100",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Modelleringsverktøy: dimensjonsanalyse, Taylor og Fermi",
+  "description": "Fire prøver som dekker dimensjonsanalyse, benevningskontroll, Taylor-utvikling, linearisering og overslagsregning — med fullstendige løsningsforslag. Fire prøver à 20–30 min, kan tas som separate økter.",
+  "estimatedMinutes": 105,
+  "competenceGoals": [
+    "kunne løse eksamensoppgaver i dimensjonsanalyse og benevningskontroll på tid",
+    "kunne gjennomføre en Taylor-utvikling med feilgrense og linearisere om et gitt punkt",
+    "kunne besvare en overslagsoppgave med full oppskrift og vurdere en besvarelse mot retteregelen",
+    "kunne løse flervalgsspørsmål i midtveisformat på alle tre verktøyene i Del 1"
+  ],
+  "content": [
+    {
+      "id": "fys1100-1-prove-tip-om-provene",
+      "type": "tip",
+      "title": "Om prøvene til Del 1",
+      "content": "**Fire prøver à 20–30 minutter — til sammen 105 minutter.** De kan trygt deles over flere kvelder; ta gjerne én prøve per økt.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| **1.A** | dimensjonsanalyse og benevningskontroll | 20 min |\n| **1.B** | Taylor-utvikling og linearisering, inkludert relativistisk energi | 30 min |\n| **1.C** | overslagsregning med full oppskrift og refleksjon over retteregelen | 30 min |\n| **1.D** | midtveisformat: flervalg og kortsvar på alle tre verktøyene | 25 min |\n\n**Prøvene dekker hele Del 1:** [kap. 1.1](/bok/fys1100/fys1100-1-1) om dimensjonsanalyse, benevningskontroll og størrelsesorden, [kap. 1.2](/bok/fys1100/fys1100-1-2) om Taylor-utvikling og linearisering, og [kap. 1.3](/bok/fys1100/fys1100-1-3) om overslagsregning.\n\n**Prøve 1.D er midtveistrening.** Midtveiseksamen er en digital flervalgsprøve på tre timer som teller 20 % av karakteren, og alle de tre verktøyene i Del 1 er testet der. **Flervalgsspørsmålene bor inne i prøve 1.D** — de er skrevet i akkurat det formatet, og du får ni minutter per spørsmål på den ekte prøven. Her har du under tre, så bruk 1.D som fartstrening.\n\n**Slik tar du en prøve:** legg bort boka, ta tiden, og skriv løsningen som du ville gjort på eksamen — med begrunnelse først, enhet og retning på hvert tallsvar, og en kontroll til slutt. Åpne fasiten først når tiden er ute.\n\n**Poeng:** hver deloppgave er verdt inntil 5 poeng, og alle teller likt — nøyaktig som på eksamen. Poengfordelingen står i hver fasit."
+    },
+    {
+      "id": "fys1100-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nPrøvene forutsetter at du har lest hele Del 1. Her er de fire verktøyene i kortform, slik at du har dem samlet før du starter.\n\n**1. Dimensjonsformelen** ([kap. 1.1](/bok/fys1100/fys1100-1-1)). Enhver mekanisk størrelse er bygd av masse, lengde og tid:\n$$[X] = [M]^{a}[L]^{b}[T]^{c}, \\qquad [v] = [L][T]^{-1}, \\quad [a] = [L][T]^{-2}, \\quad [F] = [M][L][T]^{-2}$$\nBenevningskontroll er sluttsjekken: venstre og høyre side må ha samme dimensjon.\n\n**2. Dimensjonsanalysens oppskrift** ([kap. 1.1](/bok/fys1100/fys1100-1-1)). Sett $X = k\\,A^{\\alpha}B^{\\beta}C^{\\gamma}$, krev at eksponentene til $[M]$, $[L]$ og $[T]$ stemmer på begge sider, og løs. Den dimensjonsløse faktoren $k$ kan metoden ikke finne. Svaret er entydig når antall gitte størrelser er lik antall uavhengige dimensjoner som opptrer.\n\n**3. Taylor-polynomet** ([kap. 1.2](/bok/fys1100/fys1100-1-2)):\n$$P_n(x) = \\sum_{j=0}^{n}\\frac{f^{(j)}(a)}{j!}(x-a)^{j}, \\qquad |R_n| \\le \\frac{\\max|f^{(n+1)}|}{(n+1)!}|x-a|^{n+1}$$\nStandardutviklingene: $\\sin\\theta \\approx \\theta - \\theta^{3}/6$, $\\cos\\theta \\approx 1-\\theta^{2}/2$, $(1+x)^{n} \\approx 1+nx+\\tfrac{n(n-1)}{2}x^{2}$, $e^{x} \\approx 1+x+x^{2}/2$. Alt i **radianer**.\n\n**4. Fermi-oppskriften** ([kap. 1.3](/bok/fys1100/fys1100-1-3)). Fire steg: forklar tankegangen, velg en enkel geometrisk modell, regn i tierpotenser, avslutt med en rimelighetsvurdering. Uttellingen ligger i resonnementet og størrelsesordenen, ikke i presisjonen — typisk 2 poeng for tallet og 3 for forklaringen.\n\nBoka bruker $g = 9{,}81\\ \\text{m/s}^{2}$ gjennomgående. For lysfarten regner vi her med $c = 2{,}998\\cdot 10^{8}\\ \\text{m/s}$; noen oppgaver runder til $3{,}00\\cdot 10^{8}\\ \\text{m/s}$, og da står det i oppgaveteksten."
+    },
+    {
+      "id": "fys1100-1-prove-prove-1a",
+      "type": "collapsible",
+      "title": "Prøve 1 (1.A) — Dimensjonsanalyse og benevningskontroll (20 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "fys1100-1-prove-p1a-ingress",
+          "type": "text",
+          "content": "**Prøve 1.A — 20 minutter · 6 deloppgaver à 0–5 poeng · maks 30 poeng**\n\nHjelpemidler: kalkulator og Rottmann. Husk at alle svar må begrunnes."
+        },
+        {
+          "id": "fys1100-1-prove-p1a-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-1-prove-p1a-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Oppgave 1 — dimensjoner og benevningskontroll (sjanger: dimensjonsanalyse).**\n\nNår en væske strømmer langs en flate, virker det en kraft $F = \\eta A \\dfrac{v}{d}$ mellom lagene, der $A$ er et areal, $v$ en fart, $d$ en avstand og $\\eta$ en materialkonstant kalt viskositeten.\n\n**a)** Finn dimensjonsformelen til $\\eta$, og oppgi SI-enheten i grunnenheter.\n\n**b)** Ett av uttrykkene under kan **ikke** være riktig. Finn det, og forklar i én setning hva som er galt. ($s$ er en strekning, $v$ og $v_0$ farter, $a$ en akselerasjon, $t$ en tid, $m$ en masse, $P$ en effekt.)\n\n1. $t = \\sqrt{2s/a}$\n2. $v^{2} = v_0^{2} + 2as$\n3. $P = \\dfrac{mv^{2}}{t}$\n4. $s = \\dfrac{v^{2}t}{2a}$\n\n**c)** Ett av uttrykkene i b) inneholder en dimensjonsløs faktor som en dimensjonsanalyse aldri kunne funnet. Hvilket, og hvilken faktor?",
+            "solution": "**Metodevalg:** vi løser hver likning for størrelsen vi er ute etter, oversetter til dimensjoner, og bruker dimensjonshomogenitet til å avvise det som ikke kan stemme.\n\n**a) (5 p)** Løs kraftuttrykket for $\\eta$:\n$$\\eta = \\frac{F d}{A v}$$\n\n$$[\\eta] = \\frac{[M][L][T]^{-2}\\cdot[L]}{[L]^{2}\\cdot[L][T]^{-1}} = \\frac{[M][L]^{2}[T]^{-2}}{[L]^{3}[T]^{-1}} = [M][L]^{-1}[T]^{-1}$$\n\nSI-enhet: $\\text{kg}/(\\text{m}\\cdot\\text{s})$.\n\n*(2 p for riktig omskriving, 3 p for riktig dimensjonsformel med enhet.)*\n\n**b) (5 p)** **Uttrykk 4 er umulig.**\n\nKontroll av de tre andre:\n\n1. $\\left[\\sqrt{2s/a}\\right] = \\sqrt{[L]/([L][T]^{-2})} = \\sqrt{[T]^{2}} = [T]$ ✓\n2. begge sider $[L]^{2}[T]^{-2}$ ✓\n3. $\\left[\\dfrac{mv^{2}}{t}\\right] = \\dfrac{[M][L]^{2}[T]^{-2}}{[T]} = [M][L]^{2}[T]^{-3}$, som er dimensjonen til effekt ✓\n\nUttrykk 4:\n$$\\left[\\frac{v^{2}t}{2a}\\right] = \\frac{[L]^{2}[T]^{-2}\\cdot[T]}{[L][T]^{-2}} = [L][T]$$\nmens venstre side er $[L]$ ✗\n\n**Én setning:** uttrykk 4 har en overflødig faktor tid — riktig form er $s = v^{2}/(2a)$, som gir $[L]^{2}[T]^{-2}/([L][T]^{-2}) = [L]$.\n\n*(3 p for å peke ut riktig uttrykk med regning, 2 p for forklaringen.)*\n\n**c) (5 p)** **Uttrykk 2**, som inneholder faktoren $2$ i leddet $2as$. (Også uttrykk 1 har en $2$ under rottegnet, og den rettede formen av uttrykk 4 har en $2$ i nevneren — alle tre er samme faktor, som stammer fra $\\tfrac12$ i $s = \\tfrac12 at^{2}$.)\n\nGrunnen er at et rent tall er dimensjonsløst: det har eksponent null for både $[M]$, $[L]$ og $[T]$, og bidrar derfor ikke til noen av homogenitetslikningene. Dimensjonsanalyse kan ikke skille $v^{2} = v_0^{2} + 2as$ fra $v^{2} = v_0^{2} + 7as$.\n\n*(2 p for å peke ut faktoren, 3 p for begrunnelsen.)*",
+            "hints": [
+              "I a): løs kraftuttrykket for $\\eta$ slik at den står alene, før du oversetter til dimensjoner.",
+              "I b): regn ut dimensjonen til høyre side i hvert uttrykk og sammenlign med venstre side.",
+              "I c): tenk på hva et rent tall bidrar med i dimensjonsformelen $[M]^{a}[L]^{b}[T]^{c}$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-1-prove-p1a-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-1-prove-p1a-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Oppgave 2 — utled formen ved dimensjonsanalyse (sjanger: dimensjonsanalyse, med sjanger J — den kvalitative «forklar/begrunn»-oppgaven — i c).**\n\nEt lodd med masse $m$ henger i en fjær med fjærkonstant $k$ og svinger opp og ned. Fjærkonstanten er definert ved $F = kx$, der $x$ er utstrekningen.\n\n**a)** Anta at svingetiden $T_p$ avhenger av $m$ og $k$, og bestem formen på $T_p$ ved dimensjonsanalyse. Kontrollér svaret ved benevningskontroll.\n\n**b)** Den eksakte formelen har den dimensjonsløse faktoren $2\\pi$. Regn ut svingetiden for $m = 0{,}25\\ \\text{kg}$ og $k = 40\\ \\text{N/m}$, med to gjeldende siffer.\n\n**c)** En medstudent vil ta med tyngdeakselerasjonen $g$ i lista over størrelser svingetiden avhenger av. Forklar hva som skjer med entydigheten i dimensjonsanalysen da.",
+            "solution": "**Metodevalg:** oppskriften i seks steg fra [kap. 1.1](/bok/fys1100/fys1100-1-1) — ansats, dimensjoner, homogenitetskrav, løs, svar, kontroll.\n\n**a) (5 p)** Dimensjonene: $[T_p] = [T]$, $[m] = [M]$, og fra $F = kx$ er $[k] = [F]/[L] = [M][T]^{-2}$.\n\nAnsats $T_p = C\\,m^{\\alpha}k^{\\beta}$ (med $C$ dimensjonsløs):\n$$[T] = [M]^{\\alpha}\\big([M][T]^{-2}\\big)^{\\beta} = [M]^{\\alpha+\\beta}\\,[T]^{-2\\beta}$$\n\n$$[M]: \\quad 0 = \\alpha + \\beta$$\n$$[T]: \\quad 1 = -2\\beta$$\n\nTidslikningen gir $\\beta = -\\tfrac12$, og masselikningen gir $\\alpha = \\tfrac12$:\n\n$$T_p \\sim \\sqrt{\\frac{m}{k}}$$\n\n**Benevningskontroll:** $\\left[\\sqrt{m/k}\\right] = \\sqrt{[M]/([M][T]^{-2})} = \\sqrt{[T]^{2}} = [T]$ ✓\n\n*(3 p for riktig oppsett og løsning av eksponentlikningene, 2 p for benevningskontrollen.)*\n\n**b) (5 p)**\n$$T_p = 2\\pi\\sqrt{\\frac{m}{k}} = 2\\pi\\sqrt{\\frac{0{,}25\\ \\text{kg}}{40\\ \\text{N/m}}} = 2\\pi\\cdot 0{,}0791\\ \\text{s} = 0{,}497\\ \\text{s}$$\n\nAvrundet til to gjeldende siffer: $T_p \\approx 0{,}50\\ \\text{s}$.\n\n*Enhetskontroll av tallregningen:* $\\dfrac{\\text{kg}}{\\text{N/m}} = \\dfrac{\\text{kg}\\cdot\\text{m}}{\\text{kg}\\cdot\\text{m}/\\text{s}^{2}} = \\text{s}^{2}$, og rota gir sekunder ✓\n\n*Rimelighetssjekk:* et halvt sekund per svingning er en fart øyet kan følge — helt troverdig for et lodd i en fjær.\n\n*(3 p for tallsvaret med enhet, 2 p for enhetskontrollen eller rimelighetsvurderingen.)*\n\n**c) (5 p)** Da blir problemet **underbestemt**.\n\nMed tre gitte størrelser ($m$, $k$, $g$) har vi tre ukjente eksponenter, men bare **to** dimensjoner som faktisk opptrer på en uavhengig måte: dimensjonene til $m$, $k$ og $g$ er $[M]$, $[M][T]^{-2}$ og $[L][T]^{-2}$, og homogenitetskravet gir tre likninger — men lengdelikningen krever $\\gamma = 0$ dersom $g$ er den eneste størrelsen med lengde i seg.\n\nSer vi nærmere etter: $[L]$-likningen blir $0 = \\gamma$, altså faller $g$ ut av seg selv, og vi er tilbake til det entydige svaret i a). Det er en pen illustrasjon av metoden: **en størrelse som er den eneste bæreren av en dimensjon som ikke finnes i svaret, kan ikke inngå.**\n\nHadde medstudenten i stedet tatt med en lengde til — for eksempel fjærens ulastede lengde $\\ell_0$ — ville $[L]$-likningen fått to bidrag, og da ville svaret blitt en hel familie: $T_p \\sim \\sqrt{m/k}\\cdot f(g\\ell_0 k/(\\ldots))$. Da må man legge til en fysisk antakelse for å komme videre.\n\n*(3 p for å se at $g$ faller ut, 2 p for den generelle innsikten om når entydigheten ryker.)*",
+            "hints": [
+              "Finn dimensjonen til $k$ fra $F = kx$ først.",
+              "Sett opp én likning per grunnstørrelse og start med den som bare inneholder én ukjent.",
+              "I c): sjekk hvilke av de gitte størrelsene som i det hele tatt inneholder lengdedimensjonen $[L]$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-1-prove-p1a-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.A\n\nKryss av. Alt som ikke er krysset av, er en ting å repetere før neste prøve.\n\n☐ Skrev jeg **dimensjonsformelen** med hakeparenteser, og **enheten** med SI-grunnenheter — uten å blande de to?\n\n☐ Løste jeg likningen for den ukjente størrelsen **før** jeg oversatte til dimensjoner?\n\n☐ Satte jeg opp **én likning per grunnstørrelse** ($[M]$, $[L]$, $[T]$), og brukte den overflødige som kontroll?\n\n☐ Skrev jeg eksplisitt at den **dimensjonsløse faktoren ikke kan bestemmes** av metoden?\n\n☐ Har hvert tallsvar **enhet** og **2–3 gjeldende siffer**?\n\n☐ Gjorde jeg en **benevningskontroll** på sluttsvaret, og skrev den ned?\n\n☐ Sjekket jeg **entydighetsbetingelsen** før jeg påstod at jeg hadde funnet formelen?"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-1-prove-prove-1b",
+      "type": "collapsible",
+      "title": "Prøve 2 (1.B) — Taylor-utvikling og linearisering (30 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "fys1100-1-prove-p1b-ingress",
+          "type": "text",
+          "content": "**Prøve 1.B — 30 minutter · 8 deloppgaver à 0–5 poeng · maks 40 poeng**\n\nHjelpemidler: kalkulator og Rottmann. Husk at alle svar må begrunnes, og at alle vinkler måles i radianer."
+        },
+        {
+          "id": "fys1100-1-prove-p1b-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-1-prove-p1b-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Oppgave 1 — Maclaurin-utvikling med feilgrense (sjanger: Taylor).**\n\n**a)** Finn Maclaurin-polynomet av 3. orden til $f(x) = \\ln(1+x)$.\n\n**b)** Bruk restleddet til å sette en øvre grense for feilen når $x = 0{,}20$.\n\n**c)** Regn ut tilnærmingen for $x = 0{,}20$ og sammenlign med den eksakte verdien $\\ln(1{,}20) = 0{,}1823216$. Ligger avviket innenfor grensen fra b)?",
+            "solution": "**Metodevalg:** vi bruker definisjonen av Taylor-polynomet direkte — regn de deriverte i $x = 0$, del på fakultetene — og deretter restleddsformelen for feilgrensen.\n\n**a) (5 p)** De deriverte:\n$$f(x) = \\ln(1+x) \\Rightarrow f(0) = 0$$\n$$f'(x) = (1+x)^{-1} \\Rightarrow f'(0) = 1$$\n$$f''(x) = -(1+x)^{-2} \\Rightarrow f''(0) = -1$$\n$$f'''(x) = 2(1+x)^{-3} \\Rightarrow f'''(0) = 2$$\n\n$$P_3(x) = 0 + x + \\frac{-1}{2!}x^{2} + \\frac{2}{3!}x^{3} = x - \\frac{x^{2}}{2} + \\frac{x^{3}}{3}$$\n\n*(3 p for de deriverte, 2 p for riktig sammensatt polynom med fakultetene.)*\n\n**b) (5 p)** Restleddet for $n = 3$ krever den fjerdederiverte:\n$$f^{(4)}(x) = -6(1+x)^{-4}$$\n\nPå intervallet $[0;\\,0{,}20]$ er $|f^{(4)}|$ størst i $x = 0$, der den er $6$. Altså\n$$|R_3(0{,}20)| \\le \\frac{6}{4!}(0{,}20)^{4} = \\frac{6}{24}\\cdot 1{,}6\\cdot 10^{-3} = 4{,}0\\cdot 10^{-4}$$\n\n*(2 p for riktig fjerdederivert, 2 p for maksimeringen på intervallet, 1 p for tallet.)*\n\n**c) (5 p)**\n$$P_3(0{,}20) = 0{,}20 - \\frac{0{,}040}{2} + \\frac{0{,}0080}{3} = 0{,}20 - 0{,}020 + 0{,}002667 = 0{,}182667$$\n\nAvvik: $|0{,}182667 - 0{,}182322| = 3{,}45\\cdot 10^{-4}$.\n\n**Ja** — avviket $3{,}45\\cdot 10^{-4}$ ligger under grensen $4{,}0\\cdot 10^{-4}$ fra b), slik det skal. At grensen er nesten stram her, kommer av at $x$ er liten, slik at den fjerdederiverte knapt endrer seg over intervallet.\n\nRelativt avvik: $3{,}45\\cdot 10^{-4}/0{,}182322 = 0{,}19\\ \\%$.\n\n*(3 p for tallregningen, 2 p for sammenligningen med grensen og konklusjonen.)*",
+            "hints": [
+              "Skriv $\\ln(1+x)$ sine deriverte som potenser: $(1+x)^{-1}$, $(1+x)^{-2}$, $(1+x)^{-3}$.",
+              "Restleddet for et polynom av orden $n$ krever den $(n+1)$-te deriverte — her den fjerde.",
+              "Den fjerdederiverte er størst i tallverdi i den enden av intervallet der $(1+x)$ er minst."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-1-prove-p1b-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-1-prove-p1b-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Oppgave 2 — linearisering av en falltidsformel (sjanger: Taylor kombinert med sjanger G — oppgaven om svingninger og differensiallikninger).**\n\nEt legeme som slippes fra ro og møter luftmotstand, får farten\n\n$$v(t) = v_T\\left(1 - e^{-gt/v_T}\\right)$$\n\nder $v_T$ er terminalfarten. (Uttrykket utledes i differensiallikningsdelen senere i boka; her skal du bare behandle det matematisk.)\n\n**a)** Lineariser $v(t)$ for små tider, og vis at resultatet er det du forventer for et fritt fall.\n\n**b)** Innfør den dimensjonsløse størrelsen $u = gt/v_T$ og finn det relative avviket mellom lineariseringen og det eksakte uttrykket, uttrykt ved $u$.\n\n**c)** For hvilken $u$ bommer lineariseringen med $1\\ \\%$? Regn om til en tid når $v_T = 24\\ \\text{m/s}$.",
+            "solution": "**Metodevalg:** vi utvikler eksponentialfunksjonen om null. At argumentet er dimensjonsløst, er en forutsetning for at rekka gir mening — derfor er det naturlig å innføre $u$ først.\n\n**a) (5 p)** Sett $u = gt/v_T$, som er dimensjonsløs:\n$$\\left[\\frac{gt}{v_T}\\right] = \\frac{[L][T]^{-2}\\cdot[T]}{[L][T]^{-1}} = 1 \\;\\checkmark$$\n\nMed $e^{-u} \\approx 1 - u$ for små $u$:\n$$v(t) = v_T\\left(1 - e^{-u}\\right) \\approx v_T\\left(1 - (1-u)\\right) = v_T u = v_T\\cdot\\frac{gt}{v_T} = gt$$\n\n$$\\boxed{v(t) \\approx gt \\quad \\text{for små } t}$$\n\n**Dette er nøyaktig fritt fall**, som det skal være: rett etter slipp er farten så liten at luftmotstanden ennå ikke rekker å bety noe. Det er en grensetilfelle-kontroll av den typen sensor premierer.\n\n*(2 p for lineariseringen, 2 p for å komme fram til $gt$, 1 p for tolkningen.)*\n\n**b) (5 p)** Eksakt: $v/v_T = 1 - e^{-u}$. Linearisert: $v/v_T = u$.\n\n$$\\text{relativt avvik} = \\frac{u - (1-e^{-u})}{1-e^{-u}}$$\n\nUtvikler vi teller og nevner:\n$$1 - e^{-u} = u - \\frac{u^{2}}{2} + \\frac{u^{3}}{6} - \\cdots$$\n$$u - (1-e^{-u}) = \\frac{u^{2}}{2} - \\frac{u^{3}}{6} + \\cdots \\approx \\frac{u^{2}}{2}$$\n\n$$\\text{relativt avvik} \\approx \\frac{u^{2}/2}{u} = \\frac{u}{2}$$\n\nLineariseringen gir altså **for høy** fart, med omtrent $u/2$ i relativt avvik.\n\n*(3 p for oppsettet av avviket, 2 p for forenklingen til $u/2$.)*\n\n**c) (5 p)** Kravet $u/2 = 0{,}010$ gir $u = 0{,}020$.\n\nKontroll mot det eksakte uttrykket: ved $u = 0{,}0200$ er $1-e^{-u} = 0{,}019801$, og\n$$\\frac{0{,}0200 - 0{,}019801}{0{,}019801} = 1{,}00\\ \\%$$\nTilnærmingen $u/2$ traff altså på tre siffer.\n\nRegnet om til tid, med $v_T = 24\\ \\text{m/s}$ og $g = 9{,}81\\ \\text{m/s}^{2}$:\n$$t = \\frac{u\\,v_T}{g} = \\frac{0{,}0199\\cdot 24\\ \\text{m/s}}{9{,}81\\ \\text{m/s}^{2}} = 0{,}049\\ \\text{s}$$\n\nAltså: **allerede etter rundt 5 hundredels sekund bommer fritt-fall-tilnærmingen med én prosent.** Farten er da bare $0{,}47\\ \\text{m/s}$, rettet nedover.\n\n*Enhetskontroll:* $\\dfrac{\\text{m/s}}{\\text{m/s}^{2}} = \\text{s}$ ✓\n\n*(2 p for $u$, 2 p for omregningen til tid med enhet, 1 p for kontrollen mot det eksakte uttrykket.)*",
+            "hints": [
+              "Innfør en dimensjonsløs variabel for eksponenten før du utvikler — en Taylor-rekke i en størrelse med enhet gir ikke mening.",
+              "Bruk $e^{-u} \\approx 1 - u + u^{2}/2$ og se hvilket ledd som blir det første som ikke kanselleres.",
+              "I c): sett uttrykket for det relative avviket lik $0{,}010$ og løs for $u$, og gjør deretter om til tid."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-1-prove-p1b-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-1-prove-p1b-o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Oppgave 3 — relativistisk energi for lave farter (sjanger I — relativitetsoppgaven — kombinert med Taylor).**\n\nDen kinetiske energien til et legeme med masse $m$ og fart $v$ er eksakt\n\n$$K = (\\gamma - 1)mc^{2}, \\qquad \\gamma = \\left(1 - \\frac{v^{2}}{c^{2}}\\right)^{-1/2}$$\n\n**a)** Vis ved Taylor-utvikling at $K$ går over i det klassiske uttrykket $\\tfrac12 mv^{2}$ når $v \\ll c$, og finn det neste korreksjonsleddet.\n\n**b)** Skriv $K$ på formen $\\tfrac12 mv^{2}\\left(1 + \\ldots\\right)$ og bruk det til å finne ved hvilken $\\beta = v/c$ det klassiske uttrykket bommer med $2\\ \\%$.\n\n**c)** Et myon har masse $m = 1{,}883\\cdot 10^{-28}\\ \\text{kg}$ og beveger seg med $v = 0{,}900c$. Regn ut den eksakte kinetiske energien, og forklar i to setninger hvorfor du **ikke** kan bruke utviklingen fra a) her.",
+            "solution": "**Metodevalg:** vi utvikler i $u = \\beta^{2}$ med binomialtilnærmingen. Å utvikle i kvadratet av farten i stedet for i farten selv, er grepet som gjør regningen kort.\n\n**a) (5 p)** Sett $\\beta = v/c$ og $u = \\beta^{2}$. Da er $\\gamma = (1-u)^{-1/2}$, og binomialrekka med $n = -\\tfrac12$ gir\n\n$$\\gamma \\approx 1 + \\frac{1}{2}u + \\frac{3}{8}u^{2} = 1 + \\frac{1}{2}\\beta^{2} + \\frac{3}{8}\\beta^{4}$$\n\nTrekk fra 1 og gang med $mc^{2}$:\n$$K \\approx \\left(\\frac{1}{2}\\beta^{2} + \\frac{3}{8}\\beta^{4}\\right)mc^{2} = \\frac{1}{2}\\frac{v^{2}}{c^{2}}mc^{2} + \\frac{3}{8}\\frac{v^{4}}{c^{4}}mc^{2}$$\n\n$$\\boxed{K \\approx \\frac{1}{2}mv^{2} + \\frac{3}{8}\\frac{mv^{4}}{c^{2}}}$$\n\nFørste ledd er **nøyaktig** det klassiske uttrykket. Neste korreksjonsledd er $\\tfrac38\\,mv^{4}/c^{2}$.\n\n*Benevningskontroll av korreksjonsleddet:* $\\dfrac{\\text{kg}\\cdot(\\text{m/s})^{4}}{(\\text{m/s})^{2}} = \\text{kg}\\cdot\\text{m}^{2}/\\text{s}^{2} = \\text{J}$ ✓\n\n*(3 p for utviklingen av $\\gamma$, 2 p for omskrivingen til $m$, $v$ og $c$ med benevningskontroll.)*\n\n**b) (5 p)** Faktoriser ut det første leddet:\n$$K \\approx \\frac{1}{2}mv^{2}\\left(1 + \\frac{3}{4}\\beta^{2}\\right)$$\n\nDet klassiske uttrykket mangler altså parentesen, og bommer relativt sett med omtrent\n$$\\frac{\\tfrac12 mv^{2} - K}{K} \\approx -\\frac{3}{4}\\beta^{2}$$\n\nKravet $\\tfrac34\\beta^{2} = 0{,}020$ gir $\\beta^{2} = 0{,}0267$, altså\n$$\\beta \\approx 0{,}163, \\qquad v \\approx 4{,}9\\cdot 10^{7}\\ \\text{m/s}$$\n\nKontroll mot den eksakte verdien: ved $\\beta = 0{,}1631$ er $\\gamma = 1{,}013536$, $K/(mc^{2}) = 0{,}013536$, og $\\tfrac12\\beta^{2} = 0{,}013301$ — et avvik på $-2{,}00\\ \\%$ ✓\n\n**Det klassiske uttrykket er altså godt til bedre enn 2 % for alle farter under omtrent 16 % av lysfarten** — som er langt over alt du møter utenfor en partikkelakselerator.\n\n*(3 p for faktoriseringen og avviksuttrykket, 2 p for tallsvaret med kontroll.)*\n\n**c) (5 p)** Hvileenergien:\n$$mc^{2} = 1{,}883\\cdot 10^{-28}\\cdot(2{,}998\\cdot 10^{8})^{2}\\ \\text{J} = 1{,}692\\cdot 10^{-11}\\ \\text{J}$$\n(som er $106\\ \\text{MeV}$).\n\nLorentz-faktoren ved $\\beta = 0{,}900$:\n$$\\gamma = \\frac{1}{\\sqrt{1-0{,}810}} = \\frac{1}{\\sqrt{0{,}190}} = 2{,}294$$\n\n$$K = (2{,}294-1)\\cdot 1{,}692\\cdot 10^{-11}\\ \\text{J} = 2{,}19\\cdot 10^{-11}\\ \\text{J}$$\n\n**Hvorfor utviklingen fra a) ikke kan brukes:** Taylor-utviklingen er gjort om $\\beta = 0$ og gjelder bare når $\\beta \\ll 1$, mens myonet her har $\\beta = 0{,}900$ — altså langt utenfor gyldighetsområdet. Setter man likevel inn, gir de to første leddene $\\tfrac12\\beta^{2}+\\tfrac38\\beta^{4} = 0{,}405+0{,}246 = 0{,}651$ mot den eksakte verdien $\\gamma - 1 = 1{,}294$, altså en bom på nesten $50\\ \\%$ — og rekka konvergerer så sakte her at det ikke hjelper å ta med noen flere ledd.\n\n*(3 p for tallregningen med enhet, 2 p for begrunnelsen med gyldighetsområdet.)*",
+            "hints": [
+              "Sett $u = \\beta^{2}$ og bruk binomialrekka for $(1-u)^{-1/2}$ — da slipper du å derivere flere ganger.",
+              "I b): trekk $\\tfrac12 mv^{2}$ utenfor en parentes og se hva som står igjen inne i den.",
+              "I c): regn hvileenergien $mc^{2}$ som et eget mellomsvar, og tenk på hvor Taylor-utviklingen var sentrert."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-1-prove-p1b-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.B\n\n☐ Regnet jeg i **radianer**, og skrev jeg om eventuelle vinkler i grader først?\n\n☐ Utviklet jeg om **riktig punkt** — det punktet oppgaven faktisk peker på?\n\n☐ Tok jeg med **riktig antall ledd**, også de som tilfeldigvis er null?\n\n☐ Brukte jeg **restleddet** til å si noe om feilen, og sammenlignet grensen med det faktiske avviket?\n\n☐ Skrev jeg ut **gyldighetsområdet** for tilnærmingen, i stedet for bare å bruke den?\n\n☐ Gjorde jeg **benevningskontroll** på hvert ledd i en rekke — de må alle ha samme enhet?\n\n☐ Har hvert tallsvar **enhet** og **2–3 gjeldende siffer**?\n\n☐ Kontrollerte jeg tilnærmingen mot den **eksakte** verdien der jeg kunne?"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-1-prove-prove-1c",
+      "type": "collapsible",
+      "title": "Prøve 3 (1.C) — Overslagsregning med full oppskrift (30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "fys1100-1-prove-p1c-ingress",
+          "type": "text",
+          "content": "**Prøve 1.C — 30 minutter · 6 deloppgaver à 0–5 poeng · maks 30 poeng**\n\nHjelpemidler: kalkulator og Rottmann. **Merk retteregelen for denne sjangeren:** uttellingen ligger i resonnementet og størrelsesordenen, ikke i presisjonen — typisk 2 poeng for tallet og 3 for forklaringen. Skriv derfor ut hvert eneste anslag."
+        },
+        {
+          "id": "fys1100-1-prove-p1c-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-1-prove-p1c-o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Oppgave 1 — overslag med geometrisk modell (sjanger B — overslagsoppgaven).**\n\nEt kraftig regnvær gir $30\\ \\text{mm}$ nedbør over Oslo i løpet av et døgn.\n\n**a)** Anslå den totale massen av regnvannet som faller over byen. Følg de fire stegene: forklar tankegangen, velg og **tegn** en geometrisk modell med anslåtte mål, regn i tierpotenser, og avslutt med en rimelighetsvurdering.\n\n**b)** Anslå hvor mye energi som ville frigjøres dersom alt dette vannet falt fra en typisk skyhøyde på $1\\ \\text{km}$ og all den potensielle energien ble omgjort. Bruk $E = mgh$.\n\n**c)** Sammenlign svaret i b) med energien i Norges samlede strømforbruk på ett døgn, som er i størrelsesorden $4\\cdot 10^{14}\\ \\text{J}$. Kommentér.",
+            "solution": "**Metodevalg:** vannmassen er tettheten ganger volumet, og volumet er byarealet ganger nedbørsdybden. Nedbøren er et tynt, flatt skall over et stort areal — en boksmodell er derfor helt tilstrekkelig.\n\n**a) (5 p) Steg 1 — tankegangen.** Jeg modellerer nedbøren som et flatt lag med tykkelse $d$ over et areal $A$. Massen er $m = \\rho A d$ med vannets tetthet.\n\n**Steg 2 — modell og anslag.** Byen som et rektangel:\n\n| Størrelse | Anslag |\n|---|---|\n| utstrekning øst–vest | $2{,}0\\cdot 10^{4}\\ \\text{m}$ (20 km) |\n| utstrekning nord–sør | $1{,}5\\cdot 10^{4}\\ \\text{m}$ (15 km) |\n| nedbørsdybde | $3{,}0\\cdot 10^{-2}\\ \\text{m}$ (30 mm, oppgitt) |\n| vannets tetthet | $1{,}0\\cdot 10^{3}\\ \\text{kg}/\\text{m}^{3}$ |\n\n**Steg 3 — regningen.**\n$$A = 2{,}0\\cdot 10^{4}\\times 1{,}5\\cdot 10^{4}\\ \\text{m}^{2} = 3{,}0\\cdot 10^{8}\\ \\text{m}^{2}$$\n$$V = A d = 3{,}0\\cdot 10^{8}\\times 3{,}0\\cdot 10^{-2}\\ \\text{m}^{3} = 9{,}0\\cdot 10^{6}\\ \\text{m}^{3}$$\n$$m = \\rho V = 1{,}0\\cdot 10^{3}\\times 9{,}0\\cdot 10^{6}\\ \\text{kg} = 9\\cdot 10^{9}\\ \\text{kg}$$\n\n**Svar:** omtrent $1\\cdot 10^{10}\\ \\text{kg}$, altså rundt ti millioner tonn.\n\n*Benevningskontroll:* $\\dfrac{\\text{kg}}{\\text{m}^{3}}\\cdot\\text{m}^{2}\\cdot\\text{m} = \\text{kg}$ ✓\n\n**Steg 4 — rimelighetsvurdering.** Ni millioner kubikkmeter vann er omtrent hundre døgns vannforbruk for byen, eller volumet av en innsjø på to kvadratkilometer med fem meters dyp. At et døgns kraftig regn tilsvarer det, virker rimelig.\n\nUsikkerheten ligger i arealet: hva regner man som «byen»? Et spenn fra $10\\times 10$ til $30\\times 20$ kilometer gir en faktor seks fra bunn til topp, men tierpotensen $10^{10}\\ \\text{kg}$ står støtt. Nedbørsdybden er oppgitt og bidrar ikke til usikkerheten.\n\n*(1 p for tankegangen, 1 p for modellen med anslag, 2 p for regningen med enhet, 1 p for rimelighetsvurderingen.)*\n\n**b) (5 p)**\n$$E = mgh = 9{,}0\\cdot 10^{9}\\ \\text{kg}\\times 9{,}81\\ \\frac{\\text{m}}{\\text{s}^{2}}\\times 1{,}0\\cdot 10^{3}\\ \\text{m} = 8{,}8\\cdot 10^{13}\\ \\text{J}$$\n\n**Svar:** omtrent $9\\cdot 10^{13}\\ \\text{J}$, eller rundt $10^{14}\\ \\text{J}$ i størrelsesorden.\n\n*Benevningskontroll:* $\\text{kg}\\cdot\\text{m}/\\text{s}^{2}\\cdot\\text{m} = \\text{J}$ ✓\n\n**Merk hva regnestykket forutsetter:** i virkeligheten bremses regndråpene av luftmotstand og når terminalfart lenge før bakken, slik at det aller meste av den potensielle energien går til å varme opp lufta underveis, ikke til bevegelse ved nedslaget. Regnestykket er derfor et **øvre tak**, ikke en beskrivelse av hva som faktisk skjer.\n\n*(3 p for tallregningen med enhet, 2 p for forbeholdet om luftmotstanden.)*\n\n**c) (5 p)** Forholdet:\n$$\\frac{8{,}8\\cdot 10^{13}\\ \\text{J}}{4\\cdot 10^{14}\\ \\text{J}} \\approx 0{,}22$$\n\nEnergien i nedbøren over én by på ett døgn er altså i **samme størrelsesorden** som hele Norges strømforbruk på ett døgn — omtrent en femtedel.\n\n**Kommentar:** dette er den typen sammenligning en overslagsoppgave er til for. Den viser to ting. For det første at værsystemer flytter helt enorme energimengder, langt større enn menneskelig energiforbruk. For det andre at det likevel ikke er praktisk å høste denne energien: den er spredt utover $3\\cdot 10^{8}\\ \\text{m}^{2}$ og faller som dråper med lav fart — energitettheten er altfor lav.\n\nAt vannkraft likevel fungerer, skyldes at naturen selv **konsentrerer** nedbøren: den samles i elver og magasiner, og der kan den hentes ut på ett sted.\n\n*(2 p for forholdstallet, 3 p for kommentaren.)*",
+            "hints": [
+              "Start med å regne ut byarealet i kvadratmeter, og pass på at kilometer gjøres om til meter før du kvadrerer.",
+              "Nedbør oppgis i millimeter dybde — det er nettopp tykkelsen på laget, så $30\\ \\text{mm}$ blir $3{,}0\\cdot 10^{-2}$ meter.",
+              "I b): bruk massen fra a) direkte, og husk at $g$ og høyden må være i SI-enheter."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-1-prove-p1c-fig",
+          "type": "image",
+          "src": "/images/textbook/fys1100/fys1100-1-prove-regn-boks.svg",
+          "alt": "Skisse av nedboeren over en by, tegnet som et tynt flatt lag over et rektangulaert areal. Sidene er merket omtrent 20 km og 15 km, og lagtykkelsen er merket d omtrent 30 mm. Under figuren staar volumet og massen.",
+          "caption": "Den geometriske modellen i oppgave 1a: byen som et rektangel, nedbøren som et tynt skall over det. Legg merke til at tykkelsen er sterkt overdrevet i tegningen — et lag på $30\\ \\text{mm}$ over $20\\ \\text{km}$ ville i riktig skala vært usynlig. En figur skal vise *strukturen* i modellen, ikke være målestokkriktig."
+        },
+        {
+          "id": "fys1100-1-prove-p1c-fig-note",
+          "type": "text",
+          "content": "*Slik skal en Fermi-figur se ut på eksamen: enkel kropp, anslåtte mål påført figuren, og delresultatene skrevet ut ved siden av. Tegningen tar under et minutt og er eksplisitt poenggivende, fordi den viser hvilken modell du faktisk har brukt.*"
+        },
+        {
+          "id": "fys1100-1-prove-p1c-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-1-prove-p1c-o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Oppgave 2 — vurder en besvarelse mot retteregelen (sjanger J — kvalitativ oppgave).**\n\nEn kandidat får oppgaven «anslå hvor mange kilo mat en person spiser i løpet av et liv» og leverer dette:\n\n> Man spiser ca. 1,5 kg mat per dag. 1,5 · 365 · 80 = 43 800 kg. Svar: 43 800 kg.\n\n**a)** Tallet er faktisk rimelig. Forklar likevel hvorfor besvarelsen får langt fra full uttelling, med henvisning til hvordan denne sjangeren rettes.\n\n**b)** Nevn to konkrete ting kandidaten kunne lagt til, som hver ville hevet uttellingen.\n\n**c)** Sett opp en poengfordeling: hvor mange av 5 poeng ville du gitt denne besvarelsen, og hvordan fordeler de seg?",
+            "solution": "**Metodevalg:** vi måler besvarelsen mot de fire stegene i Fermi-oppskriften og mot retteregelen om at forklaringen veier tyngre enn tallet.\n\n**a) (5 p)** Besvarelsen inneholder **bare steg 3** av fire.\n\nDen mangler **steg 1**, forklaringen av tankegangen: hvorfor er det riktig å gange daglig matmengde med antall dager? Den mangler **steg 4**, rimelighetsvurderingen: er 44 tonn troverdig, og hvor usikkert er anslaget? Og anslaget «1,5 kg per dag» står helt ubegrunnet — leseren får ikke vite om det er hentet fra erfaring, fra en beregning av kaloribehov, eller gjettet.\n\nSiden retteregelen i denne sjangeren gir omtrent **2 poeng for tallet og 3 for forklaringen**, faller mesteparten av uttellingen bort selv om tallet er godt.\n\nI tillegg oppgis svaret med **fem gjeldende siffer** ($43\\,800$) etter et anslag som knapt bærer ett. Det er falsk presisjon, og det signaliserer at kandidaten ikke har forstått hva slags svar oppgaven ber om.\n\n*(3 p for å knytte manglene til de fire stegene og retteregelen, 2 p for å påpeke den falske presisjonen.)*\n\n**b) (5 p)** To konkrete tillegg:\n\n**1. En begrunnelse for anslaget på 1,5 kg per dag.** For eksempel: «et voksent menneske trenger rundt $10^{7}\\ \\text{J}$ per døgn, og mat gir grovt $5\\cdot 10^{6}\\ \\text{J}$ per kilo, altså rundt 2 kilo per dag — men mye av matvekten er vann, så jeg setter 1,5 kg som et rimelig anslag.» Nå er anslaget etterprøvbart.\n\n**2. En rimelighetsvurdering med sammenligning.** For eksempel: «$4\\cdot 10^{4}\\ \\text{kg}$ er omtrent 500 ganger kandidatens egen kroppsvekt, eller vekten av tretti personbiler. At et menneske spiser seg gjennom det i løpet av et liv, virker troverdig. Usikkerheten ligger i den daglige matmengden — kanskje 1–2,5 kg — altså en faktor under to, som ikke flytter tierpotensen.»\n\nEt tredje, billig tillegg: rund svaret til $4\\cdot 10^{4}\\ \\text{kg}$ og si at det er et overslag.\n\n*(2 p per konkret tillegg med begrunnelse, 1 p for avrundingen.)*\n\n**c) (5 p)** **Jeg ville gitt 2 av 5 poeng.**\n\n| Element | Poeng |\n|---|---|\n| riktig struktur på regnestykket (kjeden mat per dag × dager) | 1 |\n| rimelig størrelsesorden i svaret | 1 |\n| forklaring av tankegangen | 0 |\n| begrunnelse av anslaget | 0 |\n| rimelighetsvurdering | 0 |\n| **Sum** | **2** |\n\nKandidaten har altså gjort det tekniske riktig og likevel mistet tre femdeler av poengene. Det er hele poenget med å drille denne sjangeren: **det som mangler, er ikke fysikk, det er tre setninger prosa** — og de tre setningene er verdt mer enn regnestykket.\n\n*(2 p for et forsvarlig totaltall, 3 p for en fordeling som viser at forklaringsdelen veier tyngst.)*",
+            "hints": [
+              "Gå gjennom de fire stegene i Fermi-oppskriften og kryss av hvilke besvarelsen faktisk gjennomfører.",
+              "Tenk på hvordan poengene fordeler seg mellom tall og forklaring i denne sjangeren.",
+              "I c): la fordelingen speile retteregelen — forklaringsdelen skal veie tyngre enn tallet."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-1-prove-p1c-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.C\n\n☐ Skrev jeg ut **tankegangen** i ord før jeg begynte å regne?\n\n☐ Valgte jeg en **enkel** geometrisk modell — og **tegnet** den med anslåtte mål påført?\n\n☐ Står **hvert eneste anslag** eksplisitt i besvarelsen, med enhet?\n\n☐ Regnet jeg i **tierpotenser**, med sifferdel og eksponent hver for seg?\n\n☐ Rundet jeg sluttsvaret til **ett gjeldende siffer**, og sa jeg at det er et overslag?\n\n☐ Avsluttet jeg med en **rimelighetsvurdering** som sammenligner med noe kjent?\n\n☐ Nevnte jeg **hvilken vei** usikkerheten trekker, og om det finnes en systematisk skjevhet?\n\n☐ Gjorde jeg **benevningskontroll** på sluttsvaret?"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-1-prove-prove-1d",
+      "type": "collapsible",
+      "title": "Prøve 4 (1.D) — Midtveisformat: flervalg og kortsvar (25 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "fys1100-1-prove-p1d-ingress",
+          "type": "text",
+          "content": "**Prøve 1.D — 25 minutter · 10 flervalgsspørsmål + 2 kortsvar**\n\n**Dette er midtveistrening.** Midtveiseksamen er ren flervalg, tre timer, rundt tjue spørsmål, og teller 20 % av karakteren. Alle tre verktøyene fra Del 1 er testet der.\n\nTa tiden. Du har i snitt under to minutter per flervalgsspørsmål her, mot ni på den ekte prøven — så dette er fartstrening. Kryss av **ett** alternativ per spørsmål, og skriv gjerne ned hvorfor før du sjekker fasiten.\n\nHjelpemidler: kalkulator og Rottmann."
+        },
+        {
+          "id": "fys1100-1-prove-p1d-flervalg",
+          "type": "text",
+          "content": "### Del 1 — flervalg\n\n**1.** Hvilken dimensjon har fjærkonstanten $k$, definert ved $F = kx$?\n\na) $[M][L][T]^{-2}$\nb) $[M][L]^{-1}[T]^{-2}$\nc) $[M][T]^{-2}$\nd) $[M][L]^{2}[T]^{-2}$\n\n**2.** Ett av uttrykkene under er dimensjonelt umulig. Hvilket? ($s$ strekning, $v$ fart, $a$ akselerasjon, $t$ tid, $m$ masse, $P$ effekt.)\n\na) $s = \\dfrac{v^{2}t}{2a}$\nb) $t = \\sqrt{2s/a}$\nc) $P = \\dfrac{mv^{2}}{t}$\nd) $v^{2} = 2as$\n\n**3.** En bølge løper langs en stram streng med strammekraft $S$ og masse per lengde $\\mu$. Dimensjonsanalyse gir at farten går som:\n\na) $v \\sim S\\mu$\nb) $v \\sim S/\\mu$\nc) $v \\sim \\sqrt{S\\mu}$\nd) $v \\sim \\sqrt{S/\\mu}$\n\n**4.** Maclaurin-polynomet av 2. orden til $\\cos\\theta$ er:\n\na) $\\theta - \\theta^{2}/2$\nb) $1 - \\theta^{2}/2$\nc) $1 - \\theta^{2}/6$\nd) $1 + \\theta^{2}/2$\n\n**5.** Tilnærmingen $\\sin\\theta \\approx \\theta$ har relativt avvik under $1\\ \\%$ omtrent så lenge:\n\na) $\\theta \\lesssim 1\\ \\text{rad}$\nb) $\\theta \\lesssim 45^{\\circ}$\nc) $\\theta \\lesssim 1^{\\circ}$\nd) $\\theta \\lesssim 15^{\\circ}$\n\n**6.** Andreordensleddet i utviklingen av $\\sqrt{1+x}$ om $x = 0$ er:\n\na) $-x^{2}/8$\nb) $+x^{2}/8$\nc) $-x^{2}/2$\nd) $+x^{2}/4$\n\n**7.** Lorentz-faktoren $\\gamma = (1-\\beta^{2})^{-1/2}$ har utviklingen:\n\na) $1 - \\tfrac12\\beta^{2} + \\tfrac38\\beta^{4}$\nb) $1 + \\tfrac12\\beta^{2} + \\tfrac38\\beta^{4}$\nc) $1 + \\beta^{2} + \\beta^{4}$\nd) $1 + \\tfrac12\\beta + \\tfrac38\\beta^{2}$\n\n**8.** Hva er størrelsesorden til tallet $4{,}9\\cdot 10^{-7}$?\n\na) $-6$\nb) $5$\nc) $-7$\nd) $4$\n\n**9.** I en overslagsoppgave gir dette best uttelling:\n\na) et resonnement med alle anslag skrevet ut, som lander to tierpotenser fra det «riktige» svaret\nb) et presist tall uten forklaring\nc) et resonnement uten tall\nd) et tall med fem gjeldende siffer og en kort kommentar\n\n**10.** En student anslår hvor mange appelsiner det er plass til i en kasse, ved å dele kassevolumet på appelsinvolumet. Hva er den systematiske skjevheten i anslaget?\n\na) ingen — metoden er riktig\nb) svaret blir for lavt, fordi appelsiner kan presses sammen\nc) svaret blir for lavt, fordi kassen kan overfylles\nd) svaret blir for høyt, fordi kuler ikke fyller rommet helt\n\n### Del 2 — kortsvar\n\n**11.** En medstudent skriver $\\sin(25^{\\circ}) \\approx 25$. Hva er galt, og hva blir riktig verdi med småvinkeltilnærmingen? (2–3 setninger.)\n\n**12.** Forklar i to setninger hvorfor dimensjonsanalyse aldri kan gi faktoren $\\tfrac12$ i $s = \\tfrac12 at^{2}$."
+        },
+        {
+          "id": "fys1100-1-prove-p1d-fasit",
+          "type": "text",
+          "content": "### Fasit prøve 1.D\n\n**Flervalg:** 1c · 2a · 3d · 4b · 5d · 6a · 7b · 8c · 9a · 10d\n\n**1 — c.** Fra $F = kx$ er $k = F/x$, altså $[k] = \\dfrac{[M][L][T]^{-2}}{[L]} = [M][T]^{-2}$. Alternativ a er dimensjonen til kraft selv (man har glemt å dele på lengden), og b er dimensjonen til trykk.\n\n**2 — a.** $\\left[\\dfrac{v^{2}t}{2a}\\right] = \\dfrac{[L]^{2}[T]^{-2}[T]}{[L][T]^{-2}} = [L][T]$, mens venstre side er $[L]$. Uttrykket har en overflødig faktor tid; riktig form er $s = v^{2}/(2a)$. De tre andre passerer benevningskontrollen.\n\n**3 — d.** $[S] = [M][L][T]^{-2}$ og $[\\mu] = [M][L]^{-1}$, så $[S/\\mu] = [L]^{2}[T]^{-2}$, og kvadratrota gir $[L][T]^{-1}$ — en fart. Alternativ b har riktig brøk, men mangler kvadratrota og har derfor dimensjonen til en akselerasjon ganger lengde.\n\n**4 — b.** Med $f(0) = 1$, $f'(0) = -\\sin 0 = 0$ og $f''(0) = -\\cos 0 = -1$ blir $P_2 = 1 - \\theta^{2}/2$. Alternativ c har blandet inn nevneren 6 fra sinusrekka, og d har feil fortegn.\n\n**5 — d.** Ved $\\theta = 0{,}25\\ \\text{rad} = 14^{\\circ}$ er det relative avviket $1{,}0\\ \\%$. Ved $45^{\\circ}$ er avviket over $11\\ \\%$, og $1^{\\circ}$ er unødvendig strengt — tilnærmingen er brukbar langt over det.\n\n**6 — a.** Med $n = \\tfrac12$ er andreordenskoeffisienten $\\dfrac{n(n-1)}{2} = \\dfrac{\\tfrac12\\cdot(-\\tfrac12)}{2} = -\\dfrac18$. Alternativ b har riktig størrelse, men feil fortegn — og fortegnet er det som gjør at rota vokser saktere enn den lineære tilnærmingen.\n\n**7 — b.** Med $u = \\beta^{2}$ og binomialrekka for $(1-u)^{-1/2}$ blir alle koeffisientene positive: $1 + \\tfrac12 u + \\tfrac38 u^{2}$. Alternativ a har feil fortegn på andreleddet og ville gitt $\\gamma < 1$, som er umulig siden $\\gamma \\ge 1$ alltid. Alternativ d har odde potenser, som ikke kan forekomme fordi $\\gamma$ bare avhenger av $\\beta^{2}$.\n\n**8 — c.** På standardform står tallet allerede som $4{,}9\\cdot 10^{-7}$ med sifferdel mellom 1 og 10, så størrelsesorden er eksponenten $-7$. Alternativ a er svaret man får hvis man runder $4{,}9$ opp til $10$ og flytter en tierpotens.\n\n**9 — a.** Retteregelen i denne sjangeren gir omtrent 2 poeng for tallet og 3 for forklaringen. Et velbegrunnet anslag to tierpotenser unna får derfor mer enn et presist tall uten resonnement. Alternativ d taper i tillegg på falsk presisjon, og c mister tallpoengene.\n\n**10 — d.** Kuler kan ikke fylle rommet fullstendig: tilfeldig pakking gir en fyllgrad rundt $0{,}64$, tettest mulig pakking rundt $0{,}74$. Uten den korreksjonen blir anslaget systematisk for høyt, med rundt $50\\ \\%$. Dette er en systematisk skjevhet, ikke en tilfeldig feil — den opphever seg ikke selv.\n\n**11.** Feilen er at $25$ er antall **grader**, mens småvinkeltilnærmingen krever **radianer**. Derivasjonsreglene $(\\sin x)' = \\cos x$ gjelder bare i radianer, og det er de som ligger bak tilnærmingen. Riktig: $25^{\\circ} = 25\\cdot\\dfrac{\\pi}{180} = 0{,}436\\ \\text{rad}$, så $\\sin(25^{\\circ}) \\approx 0{,}44$. (Den eksakte verdien er $0{,}423$, så tilnærmingen bommer med rundt $3\\ \\%$ — mens studentens svar bommet med en faktor 59.)\n\n**12.** Dimensjonsanalyse arbeider utelukkende med dimensjonene til størrelsene, og et rent tall som $\\tfrac12$ er dimensjonsløst — det har eksponent null for $[M]$, $[L]$ og $[T]$ og bidrar derfor ikke til noen av homogenitetslikningene. Metoden kan dermed ikke skille $s = \\tfrac12 at^{2}$ fra $s = at^{2}$ eller $s = 7at^{2}$; forfaktoren må komme fra en integrasjon av bevegelseslikningen."
+        },
+        {
+          "id": "fys1100-1-prove-p1d-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1.D\n\n☐ Rakk jeg alle ti flervalgsspørsmålene på tiden?\n\n☐ Kunne jeg **begrunne** hvert kryss, og ikke bare kjenne igjen svaret?\n\n☐ Klarte jeg å **avvise distraktorene** aktivt — altså si hva som er galt med hver av dem?\n\n☐ Sjekket jeg **fortegn** i binomialkoeffisientene, som er den vanligste tabben i spørsmål 6 og 7?\n\n☐ Husket jeg at $\\gamma \\ge 1$ alltid, som utelukker ethvert alternativ med negativt andreledd?\n\n☐ Skilte jeg mellom **grader og radianer** uten å måtte tenke over det?\n\n☐ Var kortsvarene mine på **2–3 setninger** med en konkret begrunnelse, ikke en generell frase?\n\n**Er du usikker på tre eller flere:** gå tilbake til [kap. 1.1](/bok/fys1100/fys1100-1-1), [kap. 1.2](/bok/fys1100/fys1100-1-2) og [kap. 1.3](/bok/fys1100/fys1100-1-3) og ta prøvene 1.A til 1.C på nytt før du går videre til Del 2."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

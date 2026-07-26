@@ -1,0 +1,514 @@
+{
+  "id": "fys1100-5-2",
+  "courseId": "fys1100",
+  "chapterNumber": "5.2",
+  "title": "Bevegelsesmengde, impuls og støt",
+  "description": "Impulsbevaring gjennom støt (begrunn «ingen ytre krefter»), elastisk mot uelastisk, ballistisk pendel og relativt energitap — med metodefellen som gir 0 poeng.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne bruke impulsteoremet til å knytte kraft, tid og endring i bevegelsesmengde",
+    "kunne utlede impulsbevaring fra Newtons 3. lov og skrive ut betingelsen hver gang loven brukes",
+    "kunne skille elastiske fra uelastiske støt og vite hvorfor energibevaring ikke kan brukes gjennom et uelastisk støt",
+    "kunne kjede impulsbevaring og energibevaring i riktig rekkefølge i en ballistisk pendel eller en fjærutskyting"
+  ],
+  "content": [
+    {
+      "id": "fys1100-5-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Støtoppgaven er nesten like sikker som energioppgaven.** Bevegelsesmengde og støt har minst én deloppgave i **5 av 7 sett (71 %)** i eksamensarkivet, i tre gjenkjennelige innpakninger: en sammentrykt fjær som skyter to klosser fra hverandre, en kule som blir sittende fast i en kloss, og en ballistisk pendel som svinger opp etter et støt.\n\nKapitlet hører til **sjanger D — bevaringslover**, altså oppgavetypen der du velger en bevart størrelse, begrunner hvorfor den er bevart, og setter opp et før/etter-regnskap. Sjangerbokstavene A–K er listet opp i [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\n**Her bor bokas viktigste metodefelle.** Å bruke energibevaring på et **uelastisk** støt gir **null poeng** — ikke delvis uttelling, ikke trekk, men null. Grunnen er at det er en metodefeil, ikke en regnefeil: du har brukt en lov der forutsetningen ikke holder. Kapitlet underviser fellen eksplisitt, med tall som viser hvor mye energi som faktisk forsvinner.\n\nDe tre tingene som gir poeng nesten hver gang:\n\n- **begrunnelsen** for impulsbevaring — «ingen ytre krefter i denne retningen», skrevet ut;\n- **riktig valg av lov per fase** — driv gjennom støtet, energi først etterpå;\n- **retning** på hver bevegelsesmengde. Bevegelsesmengde er en vektor, og manglende retning koster $-2$ poeng.\n\n**Prioritet: høyeste — dette må sitte.**"
+    },
+    {
+      "id": "fys1100-5-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 5.1](/bok/fys1100/fys1100-5-1) og på Newtons lover i [kap. 3.1](/bok/fys1100/fys1100-3-1). Det du trenger, oppfrisket:\n\n**Newtons 2. og 3. lov:**\n\n$$\\sum \\mathbf{F} = m\\mathbf{a}, \\qquad \\mathbf{F}_{A\\to B} = -\\mathbf{F}_{B\\to A}$$\n\nDen tredje loven er selve grunnen til at bevegelsesmengden er bevart — vi utleder det i løkke 2.\n\n**Energiregnskapet** fra [kap. 5.1](/bok/fys1100/fys1100-5-1), med gyldighetsbetingelsen:\n\n$$\\tfrac12 mv_A^2 + U_A = \\tfrac12 mv_B^2 + U_B \\quad \\text{(bare når de kreftene som gjør arbeid, er konservative)}$$\n\n**Potensiell energi** $U = mgy$, og at referansenivået velges fritt, men skrives ned.\n\n**Notasjon i dette kapitlet:** bevegelsesmengde $\\mathbf{p}$ og impuls $\\mathbf{J}$ er **vektorer** og skrives med fet markering; energiene $K$ og $U$ er skalarer. I endimensjonale oppgaver arbeider vi med komponentene $p_x$ og $J_x$ langs en akse vi velger, og da bærer fortegnet retningen. Snordrag skrives $T$. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$. Vi regner med $g = 9{,}81\\ \\text{m/s}^2$.\n\n**Ordbruk:** «bevegelsesmengde» og «driv» er to navn på samme størrelse, $\\mathbf{p} = m\\mathbf{v}$. Eksamenssettene bruker begge; vi skriver «bevegelsesmengde» i teksten og «driv» der det er kortere."
+    },
+    {
+      "id": "fys1100-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — bevegelsesmengde og impuls (~15 min)\n\nEn kollisjonspute redder liv uten å endre noe som helst ved hvor fort bilen stopper. Den endrer bare **hvor lang tid** stoppen tar — fra noen millisekunder mot rattet til et par hundredeler mot en pute.\n\nAt det er nok, forteller deg at det finnes en fysisk størrelse der kraft og tid opptrer sammen. Den heter impuls, og motstykket er bevegelsesmengden."
+    },
+    {
+      "id": "fys1100-5-2-def-bevegelsesmengde",
+      "type": "definition",
+      "title": "Bevegelsesmengde (driv)",
+      "content": "Et mål på «hvor mye bevegelse» et legeme har, som tar hensyn til både massen og hastigheten:\n\n$$\\mathbf{p} = m\\mathbf{v}$$\n\nEnheten er $\\text{kg}\\cdot\\text{m/s}$. Størrelsen er en **vektor** og peker samme vei som hastigheten. Retningen skal alltid oppgis — manglende retning på en vektorstørrelse koster $-2$ poeng.\n\nMerk kontrasten til kinetisk energi $\\tfrac12 mv^2$: den er en skalar og går som farten i **andre** potens, mens bevegelsesmengden er en vektor og går som farten i første. To kuler som går like fort i motsatt retning, har samme kinetiske energi, men motsatt bevegelsesmengde — og summen av bevegelsesmengdene er null."
+    },
+    {
+      "id": "fys1100-5-2-def-impuls",
+      "type": "definition",
+      "title": "Impuls",
+      "content": "Den samlede virkningen av en kraft over et tidsrom:\n\n$$\\mathbf{J} = \\int_{t_1}^{t_2} \\mathbf{F}\\,dt$$\n\nEnheten er $\\text{N}\\cdot\\text{s}$, som er nøyaktig det samme som $\\text{kg}\\cdot\\text{m/s}$ — og det er ikke tilfeldig.\n\nFor en **konstant** kraft blir det ganske enkelt $\\mathbf{J} = \\mathbf{F}\\,\\Delta t$. Varierer kraften, som i et støt, er impulsen **arealet under kraft–tid-grafen**. I praksis brukes ofte en middelkraft: $\\bar F = J/\\Delta t$.\n\nImpuls er en vektor med samme retning som kraften."
+    },
+    {
+      "id": "fys1100-5-2-th-impulsteoremet",
+      "type": "theorem",
+      "title": "Impulsteoremet (Newtons 2. lov i drivform)",
+      "content": "Impulsen fra resultantkraften er lik endringen i bevegelsesmengde:\n\n$$\\mathbf{J} = \\int \\sum\\mathbf{F}\\,dt = \\Delta\\mathbf{p} = \\mathbf{p}_{\\text{etter}} - \\mathbf{p}_{\\text{før}}$$\n\nDette er Newtons 2. lov skrevet på en annen måte. Er massen konstant, følger det direkte:\n\n$$\\sum\\mathbf{F} = \\frac{d\\mathbf{p}}{dt} = m\\frac{d\\mathbf{v}}{dt} = m\\mathbf{a}$$\n\nDrivformen er faktisk den **mer generelle**: den gjelder også når massen endrer seg, som for en rakett som brenner drivstoff.\n\nTeoremet er også en parallell til arbeids–energi-teoremet i [kap. 5.1](/bok/fys1100/fys1100-5-1): der integrerte vi kraften over **strekning** og fikk energi; her integrerer vi over **tid** og får bevegelsesmengde."
+    },
+    {
+      "id": "fys1100-5-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Ballen mot veggen — og kollisjonsputen",
+      "problem": "En ball med masse $0{,}145\\ \\text{kg}$ treffer en vegg med farten $32\\ \\text{m/s}$ og spretter rett tilbake med $24\\ \\text{m/s}$. Kontakten varer $1{,}2\\ \\text{ms}$.\n\n**a)** Finn endringen i bevegelsesmengde.\n\n**b)** Finn middelkraften fra veggen.\n\n**c)** En passasjer på $75\\ \\text{kg}$ i en bil som kjører $14\\ \\text{m/s}$, stanses av en kollisjonspute over $0{,}15\\ \\text{s}$ i stedet for mot rattet over $0{,}015\\ \\text{s}$. Sammenlign kreftene.",
+      "solution": "**Metodevalg først:** impulsteoremet, $\\mathbf{J} = \\Delta\\mathbf{p}$. Vi velger positiv retning **bort fra veggen**, altså i ballens retning etter sprettet.\n\n**a)** Før støtet går ballen mot veggen, altså i negativ retning: $p_{\\text{før}} = 0{,}145 \\cdot (-32) = -4{,}64\\ \\text{kg}\\cdot\\text{m/s}$. Etter: $p_{\\text{etter}} = 0{,}145 \\cdot 24 = 3{,}48\\ \\text{kg}\\cdot\\text{m/s}$.\n\n$$\\Delta p = 3{,}48 - (-4{,}64) = 8{,}12\\ \\text{kg}\\cdot\\tfrac{\\text{m}}{\\text{s}}$$\n\nrettet **bort fra veggen**. Legg merke til at endringen er **større** enn hver av de to enkeltverdiene: fordi ballen snur, legges de to bidragene sammen. Det er en av de hyppigste fortegnsfeilene i faget — hadde ballen blitt liggende inntil veggen, ville endringen bare vært $4{,}64\\ \\text{kg}\\cdot\\text{m/s}$.\n\n**b)**\n\n$$\\bar F = \\frac{\\Delta p}{\\Delta t} = \\frac{8{,}12}{1{,}2 \\cdot 10^{-3}} = 6{,}8 \\cdot 10^{3}\\ \\text{N}$$\n\nrettet bort fra veggen. Til sammenligning er ballens tyngde bare $1{,}4\\ \\text{N}$ — under en promille av støtkraften. Det er derfor tyngden trygt kan neglisjeres **under selve støtet**.\n\n**c)** Endringen i bevegelsesmengde er den samme i begge tilfellene:\n\n$$\\Delta p = 75 \\cdot 14 = 1{,}05 \\cdot 10^{3}\\ \\text{kg}\\cdot\\tfrac{\\text{m}}{\\text{s}}$$\n\nMed kollisjonspute: $\\bar F = 1\\,050/0{,}15 = 7{,}0\\cdot 10^{3}\\ \\text{N}$.\nUten: $\\bar F = 1\\,050/0{,}015 = 7{,}0\\cdot 10^{4}\\ \\text{N}$.\n\n**Ti ganger så lang stopptid gir en tidel så stor kraft.** Puta endrer ingenting ved hvor mye bevegelsesmengde som skal bort — bare hvor lang tid det tar, og dermed hvor hardt kroppen belastes."
+    },
+    {
+      "id": "fys1100-5-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Forklar med egne ord forskjellen på bevegelsesmengde og kinetisk energi.\n\n**b)** To biler med samme masse kjører like fort i motsatt retning. Sammenlign summen av bevegelsesmengdene og summen av de kinetiske energiene.",
+        "solution": "**a)** Bevegelsesmengden $\\mathbf{p} = m\\mathbf{v}$ er en **vektor**: den har retning, og den vokser proporsjonalt med farten. Kinetisk energi $K = \\tfrac12 mv^2$ er en **skalar**: den har ingen retning, den er aldri negativ, og den vokser med farten i andre potens.\n\nDe svarer også på ulike spørsmål: bevegelsesmengden endres av kraft ganger **tid**, den kinetiske energien av kraft ganger **strekning**.\n\n**b)** Summen av bevegelsesmengdene er **null**, fordi de to vektorene er like store og motsatt rettet og opphever hverandre. Summen av de kinetiske energiene er derimot $2 \\cdot \\tfrac12 mv^2 = mv^2$, altså dobbelt så mye som for én bil — energier legges sammen uten fortegnshensyn, siden $v^2$ er positiv uansett retning.",
+        "hints": [
+          "Den ene er en vektor, den andre en skalar — hva betyr det for hvordan de legges sammen?",
+          "Se på fortegnene: hva skjer med $v$ og med $v^2$ når retningen snur?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En vannstråle treffer en vegg vannrett med farten $18\\ \\text{m/s}$ og renner ned langs veggen uten å sprette tilbake. Strålen leverer $2{,}5\\ \\text{kg}$ vann per sekund.\n\n**a)** Hvor stor bevegelsesmengde treffer veggen per sekund?\n\n**b)** Hvor stor kraft utøver strålen på veggen?\n\n**c)** Hvordan ville svaret endret seg om vannet spratt rett tilbake med samme fart?",
+        "solution": "**Metodevalg:** impulsteoremet i formen $\\sum F = \\Delta p/\\Delta t$. Vi ser på den vannrette retningen og velger positiv retning i strålens retning.\n\n**a)** Per sekund treffer $2{,}5\\ \\text{kg}$ vann med farten $18\\ \\text{m/s}$:\n\n$$\\frac{\\Delta p}{\\Delta t} = 2{,}5 \\cdot 18 = 45\\ \\text{kg}\\cdot\\tfrac{\\text{m}}{\\text{s}} \\text{ per sekund}$$\n\n**b)** Vannet mister hele sin vannrette bevegelsesmengde, så veggen må levere en kraft:\n\n$$F = \\frac{\\Delta p}{\\Delta t} = 45\\ \\text{N}$$\n\nrettet mot strålen. Etter Newtons 3. lov presser strålen like hardt på veggen, altså $45\\ \\text{N}$ i strålens retning.\n\n**c)** Da måtte den vannrette bevegelsesmengden ikke bare fjernes, men snus: endringen per sekund ville blitt $2{,}5 \\cdot (18 - (-18)) = 90\\ \\text{kg}\\cdot\\text{m/s}$ per sekund, altså **dobbelt** så stor kraft, $90\\ \\text{N}$.\n\nDette er den samme innsikten som i ballen mot veggen: et sprett krever dobbelt så stor impuls som en full stopp.",
+        "hints": [
+          "Kraften er endringen i bevegelsesmengde per tid.",
+          "Hvor mye bevegelsesmengde forsvinner per sekund når vannet renner ned langs veggen?",
+          "I c): hvor mye må bevegelsesmengden endres når retningen snur?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — impulsbevaring (~15 min)\n\nNå kommer den loven som løser støtoppgavene. Den er ikke ny fysikk — den er Newtons 3. lov sett fra en litt annen vinkel."
+    },
+    {
+      "id": "fys1100-5-2-def-system",
+      "type": "definition",
+      "title": "System og systemgrense",
+      "content": "Før du kan bruke en bevaringslov, må du si **hva systemet er**. Systemet er de legemene du regner som «innenfor»; alt annet er omgivelser.\n\nKreftene deles da i to:\n\n- **indre krefter** virker mellom legemer inne i systemet (kule på kloss, kloss på kule). Etter Newtons 3. lov opptrer de parvis og motsatt rettet;\n- **ytre krefter** kommer utenfra (tyngden, normalkraften fra bordet, friksjon mot underlaget).\n\nBare de ytre kreftene kan endre systemets samlede bevegelsesmengde — de indre opphever hverandre parvis. Å tegne systemgrensen som en stiplet ring rundt legemene er derfor ikke pynt: det er selve begrunnelsen for bevaringsloven."
+    },
+    {
+      "id": "fys1100-5-2-def-impulsbevaring",
+      "type": "definition",
+      "title": "Impulsbevaring",
+      "content": "Når summen av de **ytre** kreftene på et system er null i en gitt retning, er systemets samlede bevegelsesmengde i den retningen den samme før og etter. Formelt:\n\n$$\\sum \\mathbf{p}_{\\text{før}} = \\sum \\mathbf{p}_{\\text{etter}}$$\n\n**Betingelsen er det som gir poeng, og den skal skrives ut hver eneste gang loven brukes.** Setningen sensor ser etter, er av typen: «Det virker ingen ytre krefter i vannrett retning på systemet kule + kloss under støtet, så den vannrette bevegelsesmengden er bevart.»\n\nLegg merke til at loven kan gjelde i **én retning** selv om den ikke gjelder i en annen. I et støt på et bord er den vannrette bevegelsesmengden bevart, mens den loddrette ikke er det — der virker tyngden og normalkraften."
+    },
+    {
+      "id": "fys1100-5-2-utledning-bevaring",
+      "type": "text",
+      "content": "### Hvorfor bevegelsesmengden er bevart — utledningen du skal kunne\n\n**Steg 1.** Se på to legemer $A$ og $B$ som støter sammen, og ingen ytre krefter. Under støtet virker $\\mathbf{F}_{A\\to B}$ på $B$ og $\\mathbf{F}_{B\\to A}$ på $A$.\n\n*Intuisjon:* de to kreftene er det eneste som skjer. Alt annet er borte fra regnestykket.\n\n**Steg 2.** Newtons 3. lov gir at de er like store og motsatt rettet:\n\n$$\\mathbf{F}_{A\\to B} = -\\mathbf{F}_{B\\to A}$$\n\n*Intuisjon:* kula dytter like hardt på klossen som klossen dytter tilbake — og i nøyaktig like lang tid, siden de er i kontakt samtidig.\n\n**Steg 3.** Integrer begge over kontakttiden. Da får vi impulser, og impulsteoremet gjør dem om til endringer i bevegelsesmengde:\n\n$$\\Delta\\mathbf{p}_B = -\\Delta\\mathbf{p}_A$$\n\n*Intuisjon:* like store og motsatt rettede krefter over samme tid gir like store og motsatt rettede endringer i driv. Det ene legemet vinner nøyaktig det det andre taper.\n\n**Steg 4.** Flytt over:\n\n$$\\Delta\\mathbf{p}_A + \\Delta\\mathbf{p}_B = 0 \\quad \\Rightarrow \\quad \\mathbf{p}_A + \\mathbf{p}_B = \\text{konstant}$$\n\n*Intuisjon:* summen endrer seg ikke — den er bevart. Merk hva utledningen **ikke** krevde: den sa ingenting om hvor hard kollisjonen var, om legemene henger sammen etterpå, eller om energi går tapt. Derfor gjelder impulsbevaring i **alle** støt, også de der mekanisk energi forsvinner."
+    },
+    {
+      "id": "fys1100-5-2-fig-stot",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-5-2-stot.svg",
+      "alt": "For- og etterskisse av et fullstendig uelastisk stot. I ovre rute merket FOR beveger en vogn med masse 0,80 kilogram seg mot hoyre med 4,5 meter per sekund mot en vogn med masse 1,20 kilogram som star i ro. En stiplet ramme markerer systemgrensen. I nedre rute merket ETTER henger de to vognene sammen og beveger seg mot hoyre med 1,80 meter per sekund.",
+      "caption": "Standardskissen for enhver støtoppgave: én rute for **før** og én for **etter**, med masser og hastigheter påført og en stiplet **systemgrense** rundt legemene. Systemgrensen er ikke pynt — den er begrunnelsen for at kreftene mellom vognene er indre og dermed opphever hverandre."
+    },
+    {
+      "id": "fys1100-5-2-def-stotvarighet",
+      "type": "definition",
+      "title": "Hvorfor tyngden kan neglisjeres under støtet",
+      "content": "Et støt varer typisk noen millisekunder, mens kreftene mellom legemene er tusenvis av newton. Ytre krefter som tyngden har da så kort tid på seg at impulsen deres, $\\mathbf{F}\\Delta t$, blir forsvinnende liten i forhold.\n\nDet er derfor bevegelsesmengden regnes som bevart **gjennom selve støtet**, også når legemene faktisk befinner seg i et tyngdefelt.\n\nGrepet gjelder bare for det korte støtøyeblikket. I fasen **etter** støtet — når klossen svinger opp eller glir bortover — virker tyngden og friksjonen over lang tid, og da er bevegelsesmengden slett ikke bevart. Å holde de to fasene fra hverandre er hele håndverket i sjanger D."
+    },
+    {
+      "id": "fys1100-5-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Fjæren som skyter to klosser",
+      "problem": "To klosser med masse $m_A = 0{,}60\\ \\text{kg}$ og $m_B = 1{,}80\\ \\text{kg}$ holdes sammen med en sammentrykt fjær mellom seg på et friksjonsfritt, vannrett bord. Fjæren har lagret energien $U_0 = 12{,}0\\ \\text{J}$. Systemet slippes.\n\n**a)** Finn forholdet mellom fartene rett etter at fjæren har sluppet.\n\n**b)** Finn de to fartene.\n\n**c)** Hvor stor andel av $U_0$ havner i den letteste klossen?",
+      "solution": "**Metodevalg og begrunnelse:** systemet er de to klossene og fjæren. Bordet er friksjonsfritt, og bevegelsen er vannrett, så det virker **ingen ytre krefter i vannrett retning**. Den samlede vannrette bevegelsesmengden er derfor bevart. Fjæren er en konservativ kraft, så den lagrede energien går uavkortet over i kinetisk energi — her er altså **begge** lovene i bruk, hver med sin begrunnelse.\n\n**a)** Før: begge i ro, samlet bevegelsesmengde null. Etter: klossene går hver sin vei. Med positiv retning mot høyre, altså den veien $B$ går:\n\n$$0 = m_A v_A + m_B v_B \\quad \\Rightarrow \\quad v_A = -\\frac{m_B}{m_A}v_B = -3{,}00\\,v_B$$\n\nMinustegnet betyr at $A$ går motsatt vei av $B$, altså mot venstre. Den letteste klossen får **tre ganger** så stor fart — nøyaktig i omvendt forhold til massene.\n\n**b)** All fjærenergien blir kinetisk:\n\n$$U_0 = \\tfrac12 m_A v_A^2 + \\tfrac12 m_B v_B^2 = \\tfrac12 \\cdot 0{,}60 \\cdot 9v_B^2 + \\tfrac12 \\cdot 1{,}80 \\cdot v_B^2 = 3{,}60\\,v_B^2$$\n\n$$v_B^2 = \\frac{12{,}0}{3{,}60} = 3{,}333 \\quad \\Rightarrow \\quad v_B = 1{,}83\\ \\tfrac{\\text{m}}{\\text{s}} \\ (\\text{mot høyre})$$\n\n$$v_A = 3{,}00 \\cdot 1{,}826 = 5{,}48\\ \\tfrac{\\text{m}}{\\text{s}} \\ (\\text{mot venstre})$$\n\n**Kontroll:** $m_A v_A = 0{,}60 \\cdot 5{,}477 = 3{,}29$ og $m_B v_B = 1{,}80 \\cdot 1{,}826 = 3{,}29$ — like store og motsatt rettet ✓.\n\n**c)**\n\n$$K_A = \\tfrac12 \\cdot 0{,}60 \\cdot 30{,}0 = 9{,}00\\ \\text{J} \\quad \\Rightarrow \\quad \\frac{K_A}{U_0} = \\frac{9{,}00}{12{,}0} = 0{,}750$$\n\nAltså $75\\ \\%$. Generelt gjelder $K_A/U_0 = m_B/(m_A + m_B)$: **den letteste klossen får mest energi**, i forhold gitt av den andres masse. Kontroll: $1{,}80/2{,}40 = 0{,}750$ ✓.\n\nDet er derfor rekylen fra et gevær er beskjeden sammenlignet med kulas energi — geværet og skytteren er den «tunge klossen»."
+    },
+    {
+      "id": "fys1100-5-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En astronaut med masse $84\\ \\text{kg}$ svever i ro i forhold til romstasjonen og kaster en verktøykasse på $6{,}0\\ \\text{kg}$ fra seg med farten $3{,}5\\ \\text{m/s}$.\n\n**a)** Begrunn hvorfor bevegelsesmengden er bevart, og finn astronautens fart etterpå.\n\n**b)** Sammenlign de kinetiske energiene til astronauten og kassa etterpå.\n\n**c)** Hvor kom energien fra?",
+        "solution": "**a) Begrunnelse:** systemet er astronaut pluss verktøykasse. Ute i verdensrommet, langt fra kontakt med noe, virker det ingen ytre krefter på systemet — kreftene mellom astronauten og kassa er indre og opphever hverandre etter Newtons 3. lov. Den samlede bevegelsesmengden er derfor bevart.\n\nMed positiv retning i kastets retning, og null bevegelsesmengde før:\n\n$$0 = 6{,}0 \\cdot 3{,}5 + 84 \\cdot v \\quad \\Rightarrow \\quad v = -\\frac{21{,}0}{84} = -0{,}25\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nAstronauten driver altså $0{,}25\\ \\text{m/s}$ i **motsatt** retning av kastet.\n\n**b)**\n\n$$K_{\\text{kasse}} = \\tfrac12 \\cdot 6{,}0 \\cdot 3{,}5^2 = 36{,}8\\ \\text{J}, \\qquad K_{\\text{astronaut}} = \\tfrac12 \\cdot 84 \\cdot 0{,}25^2 = 2{,}63\\ \\text{J}$$\n\nKassa får altså $14$ ganger så mye energi, selv om de to har nøyaktig like stor bevegelsesmengde. Forholdet er $m_{\\text{astronaut}}/m_{\\text{kasse}} = 14$, i tråd med regelen om at det letteste legemet får mest energi.\n\n**c)** Fra astronautens muskler — kjemisk energi omdannet til mekanisk arbeid. Merk at den samlede **energien** altså ikke var bevart her (den ble tilført utenfra), mens **bevegelsesmengden** var det. Det er en nyttig påminnelse om at de to lovene har helt ulike betingelser.",
+        "hints": [
+          "Systemet er astronaut + kasse. Hvilke ytre krefter virker?",
+          "Samlet bevegelsesmengde før kastet er null.",
+          "Regn ut $\\tfrac12 mv^2$ for hver av dem og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — elastisk og uelastisk støt, og fellen (~20 min)\n\n— naturlig pausepunkt —\n\nTo biljardkuler som treffer hverandre, spretter fra hverandre nesten uten energitap. To biler som kolliderer og blir hengende sammen, gjør det stikk motsatte: nesten all bevegelsesenergi forsvinner inn i deformert plate.\n\nBevegelsesmengden er bevart i **begge** tilfellene. Den mekaniske energien er det bare i det første. Denne forskjellen er den enkeltinnsikten som gir og tar flest poeng i hele Del 5."
+    },
+    {
+      "id": "fys1100-5-2-def-uelastisk",
+      "type": "definition",
+      "title": "Fullstendig uelastisk støt",
+      "content": "Et støt der legemene **henger sammen etterpå** og fortsetter med en felles hastighet.\n\n$$m_1\\mathbf{v}_1 + m_2\\mathbf{v}_2 = (m_1 + m_2)\\mathbf{v}$$\n\nBevegelsesmengden er bevart (ingen ytre krefter i retningen), men den **mekaniske energien er det ikke**: en del av den er omdannet til deformasjon, varme og lyd. Dette er den varianten som er mest utbredt på eksamen, fordi den bare har én ukjent etterpå.\n\nKjennetegn i oppgaveteksten: «blir sittende fast i», «kobles sammen», «går inn i», «henger sammen etterpå». Ser du et av disse uttrykkene, er det bevegelsesmengden — og **bare** den — som er bevart gjennom støtet."
+    },
+    {
+      "id": "fys1100-5-2-def-elastisk",
+      "type": "definition",
+      "title": "Elastisk støt",
+      "content": "Et støt der **både** bevegelsesmengden **og** den kinetiske energien er bevart:\n\n$$m_1u_1 + m_2u_2 = m_1v_1 + m_2v_2, \\qquad \\tfrac12 m_1u_1^2 + \\tfrac12 m_2u_2^2 = \\tfrac12 m_1v_1^2 + \\tfrac12 m_2v_2^2$$\n\nIdeelt elastiske støt finnes strengt tatt bare mellom atomer og molekyler, men biljardkuler og stålkuler kommer nær nok til at modellen er nyttig.\n\nMerk at energibevaringen her er en **ekstra opplysning oppgaven må gi deg**, ikke noe du kan anta. Står det ikke «elastisk» eller «energien er bevart» i teksten, har du ingen rett til å bruke den andre likningen. Alt imellom de to ytterpunktene kalles delvis uelastisk, og der må energitapet oppgis."
+    },
+    {
+      "id": "fys1100-5-2-warn-1",
+      "type": "warning",
+      "title": "Metodefellen: energibevaring i et uelastisk støt gir NULL poeng",
+      "content": "**Dette er den viktigste enkeltadvarselen i hele boka (felle #2 — energibevaring brukt på et uelastisk støt).** Feilkodene #1–#15 er bokas register over de feilene som koster mest på eksamen; hele lista står i [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\nSlik ser feilen ut i praksis. Oppgaven sier at en kule blir sittende fast i en kloss, og kandidaten skriver:\n\n> $\\tfrac12 m v_0^2 = \\tfrac12 (m + M)v^2$\n\n**Dette gir null poeng.** Ikke fordi regningen er feil, men fordi loven ikke gjelder: i et uelastisk støt **forsvinner** mekanisk energi inn i deformasjon og varme. Å bruke energibevaring der er en metodefeil, og metodefeil gir ikke delvis uttelling.\n\n**Riktig er:**\n\n> $m v_0 = (m + M)v$, fordi det ikke virker ytre krefter i vannrett retning under > støtet.\n\n**Hvor galt blir det?** Ta tallene fra eksempel 3 under: den gale metoden gir $v = 2{,}85\\ \\text{m/s}$, den riktige $1{,}80\\ \\text{m/s}$ — nesten $60\\ \\%$ for høyt. Feilen forplanter seg deretter til alle senere deloppgaver.\n\n**Slik unngår du den, hver gang:** før du skriver en eneste likning, still deg spørsmålet **«henger de sammen etterpå?»** Er svaret ja, er det bevegelsesmengden — og bare den — som er bevart gjennom støtet. Energiregnskapet får du bruke i fasen **etter**, når systemet svinger opp eller glir bortover.\n\n**Beslektede feller i samme sjanger:**\n\n- **Å glemme at et delsystem også får fart (felle #14).** I fjæroppgaven er det ikke bare den lille klossen som beveger seg — den store gjør det også, og glemmer du den, får du maks 2 poeng.\n- **Manglende retning på bevegelsesmengden (felle #9).** $\\mathbf{p}$ er en vektor. Et svar uten retning koster $-2$ poeng.\n- **Bevaring uten begrunnelse (felle #7).** Skriv setningen om de ytre kreftene, hver gang."
+    },
+    {
+      "id": "fys1100-5-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Det uelastiske støtet, med og uten fellen",
+      "problem": "En vogn med masse $0{,}80\\ \\text{kg}$ ruller med $4{,}5\\ \\text{m/s}$ mot en vogn med masse $1{,}20\\ \\text{kg}$ som står i ro på et friksjonsfritt, vannrett spor. De to kobles sammen i støtet.\n\n**a)** Finn den felles farten etter støtet, og begrunn metodevalget.\n\n**b)** Hvor mye mekanisk energi er tapt, og hvor stor andel er det?\n\n**c)** Vis hva du ville fått om du (feilaktig) brukte energibevaring, og kommenter avviket.",
+      "solution": "**a) Metodevalg og begrunnelse:** systemet er de to vognene. Sporet er friksjonsfritt og vannrett, så det virker **ingen ytre krefter i bevegelsesretningen**; tyngden og normalkraften er loddrette og opphever hverandre. Den vannrette bevegelsesmengden er derfor bevart gjennom støtet.\n\nMekanisk energi er derimot **ikke** bevart, siden vognene henger sammen etterpå — det er et fullstendig uelastisk støt, og deformasjonen i koblingen tar energi.\n\nMed positiv retning i den første vognas fartsretning:\n\n$$m_1u_1 = (m_1 + m_2)v \\quad \\Rightarrow \\quad v = \\frac{0{,}80 \\cdot 4{,}5}{2{,}00} = \\frac{3{,}60}{2{,}00} = 1{,}80\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\ni **samme retning** som den første vogna gikk.\n\n**b)**\n\n$$K_{\\text{før}} = \\tfrac12 \\cdot 0{,}80 \\cdot 4{,}5^2 = 8{,}10\\ \\text{J}, \\qquad K_{\\text{etter}} = \\tfrac12 \\cdot 2{,}00 \\cdot 1{,}80^2 = 3{,}24\\ \\text{J}$$\n\n$$\\Delta K = 8{,}10 - 3{,}24 = 4{,}86\\ \\text{J} \\ \\text{omdannet til varme og deformasjon}$$\n\nAndelen som er igjen, er $3{,}24/8{,}10 = 0{,}400$, altså $40\\ \\%$ — og $60\\ \\%$ er borte. Generelt gjelder for et fullstendig uelastisk støt der det ene legemet er i ro:\n\n$$\\frac{K_{\\text{etter}}}{K_{\\text{før}}} = \\frac{m_1}{m_1 + m_2}$$\n\nKontroll: $0{,}80/2{,}00 = 0{,}400$ ✓. Jo tyngre det stillestående legemet er, desto større andel av energien forsvinner.\n\n**c) Den gale veien, for sammenligning.** Hadde vi feilaktig satt $\\tfrac12 m_1u_1^2 = \\tfrac12(m_1+m_2)v^2$, ville vi fått\n\n$$v = u_1\\sqrt{\\frac{m_1}{m_1+m_2}} = 4{,}5 \\cdot \\sqrt{0{,}400} = 2{,}85\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\naltså $58\\ \\%$ for høyt. Og feilen er verre enn tallet: den bygger på en lov som ikke gjelder, og gir derfor **null poeng** på deloppgaven, ikke delvis uttelling. Bruker du dessuten det gale svaret videre i neste deloppgave, ryker den også — selv om regningen der er upåklagelig.\n\n**Vanen som redder deg:** spør «henger de sammen etterpå?» før du velger lov."
+    },
+    {
+      "id": "fys1100-5-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kule med masse $30\\ \\text{g}$ skytes horisontalt med farten $320\\ \\text{m/s}$ inn i en sandsekk med masse $2{,}0\\ \\text{kg}$ som ligger på et friksjonsfritt bord. Kula blir sittende.\n\n**a)** Finn den felles farten rett etter, og begrunn metodevalget.\n\n**b)** Hvor stor andel av den kinetiske energien er igjen?\n\n**c)** Hvor ble resten av energien av?",
+        "solution": "**a) Metodevalg og begrunnelse:** systemet er kule pluss sandsekk. Bordet er friksjonsfritt og bevegelsen vannrett, så ingen ytre krefter virker i den retningen — den vannrette bevegelsesmengden er bevart. Kula blir sittende, altså et fullstendig uelastisk støt, og mekanisk energi er **ikke** bevart.\n\n$$m v_0 = (m + M)v \\quad \\Rightarrow \\quad v = \\frac{0{,}030 \\cdot 320}{2{,}030} = \\frac{9{,}60}{2{,}030} = 4{,}73\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\ni kulas opprinnelige retning.\n\n**b)**\n\n$$K_{\\text{før}} = \\tfrac12 \\cdot 0{,}030 \\cdot 320^2 = 1{,}54 \\cdot 10^{3}\\ \\text{J}, \\qquad K_{\\text{etter}} = \\tfrac12 \\cdot 2{,}030 \\cdot 4{,}729^2 = 22{,}7\\ \\text{J}$$\n\n$$\\frac{K_{\\text{etter}}}{K_{\\text{før}}} = \\frac{m}{m + M} = \\frac{0{,}030}{2{,}030} = 0{,}0148$$\n\nBare $1{,}5\\ \\%$ av energien er igjen som bevegelse — over $98\\ \\%$ er borte.\n\n**c)** Til deformasjon av kula og sanden, til varme i sandsekken, og til lyd. Energien er ikke ødelagt, men den er ikke lenger mekanisk. Det ekstreme energitapet er typisk når et lett legeme treffer et mye tyngre: nesten hele bevegelsesenergien går inn i deformasjonen.",
+        "hints": [
+          "Kula blir sittende — hvilken lov gjelder da gjennom støtet?",
+          "Sett opp bevegelsesmengden før og etter, og husk at massene skal i kilogram.",
+          "Forholdet mellom kinetisk energi etter og før kan skrives kompakt med massene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-th-elastisk-1d",
+      "type": "theorem",
+      "title": "Elastisk støt i én dimensjon",
+      "content": "Støter et legeme med masse $m_1$ og fart $u_1$ elastisk mot et legeme med masse $m_2$ som er i ro, gir de to bevaringslovene til sammen\n\n$$v_1 = \\frac{m_1 - m_2}{m_1 + m_2}\\,u_1, \\qquad v_2 = \\frac{2m_1}{m_1 + m_2}\\,u_1$$\n\nTre grensetilfeller er verdt å kjenne igjen, og de kontrollerer utledningen:\n\n- **Like masser** ($m_1 = m_2$): $v_1 = 0$ og $v_2 = u_1$. Det første legemet stopper helt, det andre overtar farten — som i biljard.\n- **Lett mot tungt** ($m_1 \\ll m_2$): $v_1 \\to -u_1$. Legemet spretter tilbake med nesten uendret fart, som en ball mot en vegg.\n- **Tungt mot lett** ($m_1 \\gg m_2$): $v_1 \\to u_1$ og $v_2 \\to 2u_1$. Det tunge legemet merker knapt noe, og det lette skytes av gårde med dobbelt fart.\n\nFormlene er **ikke** på formelarket og skal ikke pugges. Kan du sette opp de to bevaringslovene og løse likningssettet, har du dem — og det er nettopp det som gir poeng."
+    },
+    {
+      "id": "fys1100-5-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kule med masse $0{,}30\\ \\text{kg}$ og fart $4{,}0\\ \\text{m/s}$ treffer en kule med masse $0{,}50\\ \\text{kg}$ i ro. Støtet er elastisk.\n\n**a)** Skriv opp de to bevaringslovene, og si hvorfor hver av dem gjelder her.\n\n**b)** Finn de to fartene etter støtet.\n\n**c)** Kontroller at både bevegelsesmengden og energien stemmer.\n\n**d)** Hvordan ville svaret sett ut om massene var like?",
+        "solution": "**a) Begrunnelser.** *Bevegelsesmengde:* systemet er de to kulene, underlaget er friksjonsfritt og bevegelsen vannrett, så det virker ingen ytre krefter i den retningen — den vannrette bevegelsesmengden er bevart. *Kinetisk energi:* oppgaven sier at støtet er **elastisk**, og det betyr per definisjon at ingen mekanisk energi går tapt til deformasjon eller varme. Merk at den siste begrunnelsen kommer fra oppgaveteksten — den kan aldri antas.\n\n$$0{,}30 \\cdot 4{,}0 = 0{,}30\\,v_1 + 0{,}50\\,v_2$$\n$$\\tfrac12 \\cdot 0{,}30 \\cdot 16 = \\tfrac12 \\cdot 0{,}30\\,v_1^2 + \\tfrac12 \\cdot 0{,}50\\,v_2^2$$\n\n**b)** Med standardresultatet for elastisk støt mot et legeme i ro:\n\n$$v_1 = \\frac{m_1 - m_2}{m_1 + m_2}u_1 = \\frac{0{,}30 - 0{,}50}{0{,}80} \\cdot 4{,}0 = -1{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$v_2 = \\frac{2m_1}{m_1 + m_2}u_1 = \\frac{0{,}60}{0{,}80} \\cdot 4{,}0 = 3{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nDen første kula spretter **tilbake** med $1{,}0\\ \\text{m/s}$ (minustegnet), den andre sendes framover med $3{,}0\\ \\text{m/s}$. At den lette spretter tilbake når den treffer noe tyngre, er akkurat det du forventer fysisk.\n\n**c) Kontroller.**\n\nBevegelsesmengde: $0{,}30 \\cdot (-1{,}0) + 0{,}50 \\cdot 3{,}0 = -0{,}30 + 1{,}50 = 1{,}20 = 0{,}30 \\cdot 4{,}0$ ✓\n\nEnergi: $\\tfrac12 \\cdot 0{,}30 \\cdot 1{,}0 + \\tfrac12 \\cdot 0{,}50 \\cdot 9{,}0 = 0{,}15 + 2{,}25 = 2{,}40\\ \\text{J}$, og før: $\\tfrac12 \\cdot 0{,}30 \\cdot 16 = 2{,}40\\ \\text{J}$ ✓\n\nBegge stemmer — og det å vise kontrollen er en billig måte å sikre poeng på.\n\n**d)** Med $m_1 = m_2$ gir formlene $v_1 = 0$ og $v_2 = u_1$: den første kula stopper helt, den andre overtar hele farten. Dette er biljardtilfellet, og det er også grunnen til at et perfekt støt mellom to like kuler ser ut som om «bevegelsen hopper over».",
+        "hints": [
+          "To bevaringslover gir to likninger — men den andre må oppgaven gi deg lov til å bruke.",
+          "Legg merke til at bevegelsesmengdelikningen er lineær og energilikningen kvadratisk.",
+          "Kontroller alltid ved å sette svarene inn i begge lovene.",
+          "I d) setter du bare $m_1 = m_2$ i uttrykkene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — den ballistiske pendelen: kjeden som gir full uttelling (~15 min)\n\nNå kobler vi det hele sammen. Den ballistiske pendelen er en gammel metode for å måle farten til en kule: du skyter den inn i en tung kloss som henger i snorer, og måler hvor høyt klossen svinger.\n\nOppgaven er en gjenganger nettopp fordi den tester om du klarer å holde to bevaringslover fra hverandre i to faser. Klarer du det, er hele oppgaven grei. Blander du dem, ryker alt."
+    },
+    {
+      "id": "fys1100-5-2-th-ballistisk",
+      "type": "theorem",
+      "title": "Den ballistiske pendelen — kjeden",
+      "content": "En kule med masse $m$ og fart $v_0$ skytes inn i en kloss med masse $M$ som henger i ro. Kula blir sittende, og klossen svinger opp til høyden $h$.\n\n**Fase 1 — gjennom støtet: bevegelsesmengde.** Støtet varer noen millisekunder, så tyngdens impuls er neglisjerbar og snorene er fortsatt loddrette. Ingen ytre krefter i vannrett retning:\n\n$$m v_0 = (m + M)\\,v$$\n\n**Fase 2 — etter støtet: energi.** Nå er kula og klossen ett legeme som svinger fritt. Bare tyngden gjør arbeid; snorene står vinkelrett på bevegelsen:\n\n$$\\tfrac12 (m+M)v^2 = (m+M)gh \\quad \\Rightarrow \\quad v = \\sqrt{2gh}$$\n\n**Sett sammen:**\n\n$$v_0 = \\frac{m+M}{m}\\sqrt{2gh}$$\n\n**Merk rekkefølgen.** Bevegelsesmengden er bevart i fase 1, men ikke i fase 2 (tyngden virker over lang tid). Energien er bevart i fase 2, men ikke i fase 1. **Ingen av lovene gjelder gjennom hele forløpet** — og det er hele poenget med oppgaven."
+    },
+    {
+      "id": "fys1100-5-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Ballistisk pendel (eksamensnivå)",
+      "problem": "En kule med masse $12{,}0\\ \\text{g}$ skytes horisontalt inn i en trekloss med masse $1{,}20\\ \\text{kg}$ som henger i ro i en snor med lengde $1{,}10\\ \\text{m}$. Kula blir sittende fast, og systemet svinger opp.\n\n**a)** Kulas fart er $210\\ \\text{m/s}$. Finn den felles farten rett etter støtet, og begrunn hvorfor mekanisk energi ikke er bevart her.\n\n**b)** Finn hvor høyt klossen svinger, og hvilken vinkel snora danner med loddlinja.\n\n**c)** Hvor stor andel av kulas kinetiske energi er igjen etter støtet?\n\n**d)** Forklar hvorfor metoden fungerer som en fartsmåler, og hva som ville gått galt om du brukte energibevaring gjennom støtet.",
+      "solution": "**a) Metodevalg og begrunnelse:** systemet er kule pluss kloss. Under støtet — som varer noen få millisekunder — er snora fortsatt loddrett, og det virker ingen ytre krefter i vannrett retning. Tyngdens impuls over så kort tid er neglisjerbar. Den vannrette bevegelsesmengden er derfor bevart.\n\nMekanisk energi er **ikke** bevart: kula blir sittende fast, altså et fullstendig uelastisk støt, der energi går til deformasjon av tre og bly og til varme.\n\n$$m v_0 = (m + M)v \\quad \\Rightarrow \\quad v = \\frac{0{,}0120 \\cdot 210}{1{,}212} = \\frac{2{,}52}{1{,}212} = 2{,}08\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\ni kulas opprinnelige retning.\n\n— naturlig pausepunkt —\n\n**b) Ny fase, ny begrunnelse:** etter støtet svinger kule og kloss som ett legeme. Nå gjør bare tyngden arbeid — snordraget står i hvert punkt vinkelrett på bevegelsen — så mekanisk energi er bevart i **denne** fasen. Med $y = 0$ i det laveste punktet:\n\n$$\\tfrac12 (m+M)v^2 = (m+M)gh \\quad \\Rightarrow \\quad h = \\frac{v^2}{2g} = \\frac{4{,}323}{19{,}62} = 0{,}220\\ \\text{m}$$\n\nMassene forkortes bort. Vinkelen finner vi av geometrien, $h = \\ell(1 - \\cos\\varphi)$:\n\n$$\\cos\\varphi = 1 - \\frac{h}{\\ell} = 1 - \\frac{0{,}2203}{1{,}10} = 0{,}7997 \\quad \\Rightarrow \\quad \\varphi = 36{,}9^\\circ$$\n\n**c)**\n\n$$K_{\\text{før}} = \\tfrac12 \\cdot 0{,}0120 \\cdot 210^2 = 265\\ \\text{J}, \\qquad K_{\\text{etter}} = \\tfrac12 \\cdot 1{,}212 \\cdot 2{,}079^2 = 2{,}62\\ \\text{J}$$\n\n$$\\frac{K_{\\text{etter}}}{K_{\\text{før}}} = \\frac{m}{m+M} = \\frac{0{,}0120}{1{,}212} = 0{,}00990$$\n\naltså under **ett prosent**. Over $99\\ \\%$ av kulas energi er blitt varme og deformasjon i klossen — nettopp fordi kula er så mye lettere enn klossen.\n\n**d)** Metoden fungerer fordi du kan snu kjeden: måler du svinghøyden $h$, finner du $v = \\sqrt{2gh}$ fra fase 2, og deretter $v_0 = \\frac{m+M}{m}\\sqrt{2gh}$ fra fase 1. Høyden er lett å måle, mens kulas fart ikke er det — og det er hele ideen bak innretningen.\n\nBrukte du derimot energibevaring gjennom støtet, ville du fått\n\n$$v = v_0\\sqrt{\\frac{m}{m+M}} = 210 \\cdot \\sqrt{0{,}00990} = 20{,}9\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\naltså **ti ganger** for stor fart, og en svinghøyde på $22\\ \\text{m}$ — som er tjue ganger snorlengden og fysisk umulig. Her avslører altså et grensetilfelle fellen helt av seg selv: et svar som ikke kan stemme, er alltid verdt en ekstra gjennomlesing av metodevalget."
+    },
+    {
+      "id": "fys1100-5-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger D — bevaringslover i to faser.)\n\nEn kloss med masse $M = 0{,}90\\ \\text{kg}$ ligger i ro på et vannrett bord. En kule med masse $m = 45\\ \\text{g}$ skytes horisontalt inn i klossen og blir sittende. Systemet glir deretter $1{,}6\\ \\text{m}$ før det stopper. Friksjonstallet mellom kloss og bord er $\\mu_d = 0{,}32$.\n\n**a)** Del prosessen i faser og si hvilken bevaringslov som gjelder i hver, med begrunnelse.\n\n**b)** Finn farten rett etter støtet.\n\n**c)** Finn kulas fart før støtet.\n\n**d)** Hvor stor andel av kulas opprinnelige kinetiske energi ble omdannet i selve støtet?",
+        "solution": "**a) Fasedeling.**\n\n**Fase 1 — gjennom støtet.** Støtet varer noen millisekunder. I den tiden er friksjonens impuls neglisjerbar sammenlignet med støtkreftene, så det virker ingen vesentlige ytre krefter i vannrett retning: **bevegelsesmengden er bevart**. Mekanisk energi er **ikke** bevart, siden kula blir sittende (fullstendig uelastisk støt).\n\n**Fase 2 — glidefasen.** Nå virker friksjonen over en strekning på $1{,}6\\ \\text{m}$, og den er en ytre kraft: bevegelsesmengden er **ikke** bevart. Friksjonen er heller ikke konservativ, så mekanisk energi er ikke bevart — men **energiregnskapet med friksjonsledd** gjelder, og det er det vi bruker.\n\n**b)** Fase 2 regnes baklengs, fra stopp til rett etter støtet. All kinetisk energi går til friksjonsarbeid:\n\n$$\\tfrac12 (m+M)v^2 = \\mu_d (m+M) g\\,s \\quad \\Rightarrow \\quad v = \\sqrt{2\\mu_d g s}$$\n\n$$v = \\sqrt{2 \\cdot 0{,}32 \\cdot 9{,}81 \\cdot 1{,}6} = \\sqrt{10{,}05} = 3{,}17\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\ni kulas opprinnelige retning. Legg merke til at den samlede massen forkortes bort.\n\n**c)** Fase 1 med bevegelsesmengde:\n\n$$m v_0 = (m + M)v \\quad \\Rightarrow \\quad v_0 = \\frac{0{,}945}{0{,}045} \\cdot 3{,}170 = 21{,}0 \\cdot 3{,}170 = 66{,}6\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**d)**\n\n$$K_{\\text{før}} = \\tfrac12 \\cdot 0{,}045 \\cdot 66{,}56^2 = 99{,}7\\ \\text{J}, \\qquad K_{\\text{etter støtet}} = \\tfrac12 \\cdot 0{,}945 \\cdot 3{,}170^2 = 4{,}75\\ \\text{J}$$\n\n$$\\text{andel omdannet} = 1 - \\frac{m}{m+M} = 1 - \\frac{0{,}045}{0{,}945} = 0{,}952$$\n\naltså $95{,}2\\ \\%$ omdannet i **selve støtet**. De resterende $4{,}75\\ \\text{J}$ gikk til friksjonsvarme i glidefasen. Til sammen er all den mekaniske energien borte til slutt — men det er verdt å merke seg at den aller største delen forsvant allerede i de få millisekundene støtet varte.",
+        "hints": [
+          "Del prosessen i to faser, og velg lov for hver av dem separat.",
+          "Fase 2 løses baklengs: hvor fort må systemet ha gått for å gli akkurat så langt?",
+          "Massen forkortes i friksjonsregnskapet, men ikke i bevegelsesmengdelikningen.",
+          "Andelen som er igjen etter et uelastisk støt mot et legeme i ro, kan skrives med massene alene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To biler kolliderer i et kryss og blir hengende sammen. Bil A ($1\\,200\\ \\text{kg}$) kjørte østover med $15{,}0\\ \\text{m/s}$, bil B ($1\\,600\\ \\text{kg}$) nordover med $12{,}0\\ \\text{m/s}$.\n\n**a)** Begrunn hvorfor bevegelsesmengden er bevart, og finn de to komponentene av den samlede bevegelsesmengden.\n\n**b)** Finn farten og retningen til vraket rett etter kollisjonen.\n\n**c)** Hvor mye mekanisk energi ble omdannet?",
+        "solution": "**a) Begrunnelse:** systemet er de to bilene. Under selve kollisjonen — noen tidels sekund — er kreftene mellom bilene enorme sammenlignet med friksjonen mot vegen, så friksjonens impuls er neglisjerbar. Bevegelsesmengden er derfor bevart i **begge** vannrette retninger, hver for seg.\n\nMed $x$ mot øst og $y$ mot nord:\n\n$$p_x = 1\\,200 \\cdot 15{,}0 = 1{,}80 \\cdot 10^{4}\\ \\text{kg}\\cdot\\tfrac{\\text{m}}{\\text{s}}, \\qquad p_y = 1\\,600 \\cdot 12{,}0 = 1{,}92 \\cdot 10^{4}\\ \\text{kg}\\cdot\\tfrac{\\text{m}}{\\text{s}}$$\n\n**b)** Samlet masse er $2\\,800\\ \\text{kg}$:\n\n$$\\lvert\\mathbf{p}\\rvert = \\sqrt{p_x^2 + p_y^2} = \\sqrt{(1{,}80)^2 + (1{,}92)^2} \\cdot 10^4 = 2{,}632 \\cdot 10^{4}\\ \\text{kg}\\cdot\\tfrac{\\text{m}}{\\text{s}}$$\n\n$$v = \\frac{2{,}632 \\cdot 10^4}{2\\,800} = 9{,}40\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$\\tan\\theta = \\frac{p_y}{p_x} = \\frac{1{,}92}{1{,}80} = 1{,}067 \\quad \\Rightarrow \\quad \\theta = 46{,}8^\\circ$$\n\nVraket beveger seg altså med $9{,}40\\ \\text{m/s}$ i retning $46{,}8^\\circ$ nord for øst. **Retningen er en del av svaret** — uten den mangler halve informasjonen.\n\n**c)**\n\n$$K_{\\text{før}} = \\tfrac12 \\cdot 1\\,200 \\cdot 225 + \\tfrac12 \\cdot 1\\,600 \\cdot 144 = 1{,}35\\cdot 10^5 + 1{,}152\\cdot 10^5 = 2{,}50 \\cdot 10^{5}\\ \\text{J}$$\n\n$$K_{\\text{etter}} = \\tfrac12 \\cdot 2\\,800 \\cdot 9{,}399^2 = 1{,}24 \\cdot 10^{5}\\ \\text{J}$$\n\n$$\\Delta K = 2{,}50\\cdot 10^5 - 1{,}24\\cdot 10^5 = 1{,}26 \\cdot 10^{5}\\ \\text{J}$$\n\naltså om lag halvparten, omdannet til deformasjon av karosseriene. Det er nettopp den energien deformasjonssonene er konstruert for å ta opp.",
+        "hints": [
+          "Bevegelsesmengde er en vektor — behandle $x$- og $y$-retningen hver for seg.",
+          "Legg sammen komponentene, og finn lengden med Pytagoras.",
+          "Retningen finner du med $\\tan\\theta = p_y/p_x$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — massesenteret (~5 min)\n\nKaster du en skiftenøkkel som roterer gjennom lufta, ser bevegelsen kaotisk ut. Men **ett** punkt i nøkkelen følger en ren parabel, som om hele massen var samlet der. Det punktet er massesenteret."
+    },
+    {
+      "id": "fys1100-5-2-def-massesenter",
+      "type": "definition",
+      "title": "Massesenter",
+      "content": "Det veide gjennomsnittet av posisjonene til alle delene i et system, med massene som vekter:\n\n$$\\mathbf{R}_{cm} = \\frac{1}{M}\\sum_i m_i\\mathbf{r}_i, \\qquad M = \\sum_i m_i$$\n\nFor to legemer på en linje blir det $x_{cm} = (m_1x_1 + m_2x_2)/(m_1+m_2)$ — massesenteret ligger alltid nærmest det tyngste legemet.\n\nMassesenteret trenger ikke ligge i materialet: for en smultring ligger det i hullet."
+    },
+    {
+      "id": "fys1100-5-2-def-cm-bevegelse",
+      "type": "definition",
+      "title": "Massesenterets bevegelse",
+      "content": "Massesenteret beveger seg som om **hele** systemets masse var samlet der og alle de ytre kreftene virket i det punktet:\n\n$$M\\mathbf{a}_{cm} = \\sum \\mathbf{F}_{\\text{ytre}}, \\qquad \\mathbf{p}_{\\text{total}} = M\\mathbf{v}_{cm}$$\n\nIndre krefter — også de voldsomme kreftene i et støt — kan ikke flytte massesenteret i det hele tatt.\n\nDet gir en elegant omformulering av impulsbevaring: er summen av de ytre kreftene null, beveger massesenteret seg med **konstant hastighet**, uansett hva som skjer inne i systemet. To klosser som skytes fra hverandre av en fjær i ro, har et massesenter som blir stående nøyaktig stille."
+    },
+    {
+      "id": "fys1100-5-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-5-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** To klosser, $2{,}0\\ \\text{kg}$ i posisjon $x = 0$ og $3{,}0\\ \\text{kg}$ i $x = 1{,}5\\ \\text{m}$, ligger på et friksjonsfritt bord. Finn massesenteret.\n\n**b)** En sammentrykt fjær mellom dem slippes, og klossene skyves fra hverandre. Hva skjer med massesenteret? Begrunn.\n\n**c)** En medstudent sier: «Etter støtet må vraket ha mindre bevegelsesmengde, for det har jo mindre energi.» Hva er galt med resonnementet?",
+        "solution": "**a)**\n\n$$x_{cm} = \\frac{2{,}0 \\cdot 0 + 3{,}0 \\cdot 1{,}5}{5{,}0} = \\frac{4{,}5}{5{,}0} = 0{,}90\\ \\text{m}$$\n\nMassesenteret ligger nærmest den tyngste klossen, slik det skal.\n\n**b)** Det blir stående **helt i ro** i $x = 0{,}90\\ \\text{m}$. Begrunnelsen: fjæren utøver bare **indre** krefter i systemet, og indre krefter kan ikke endre massesenterets bevegelse. Summen av de ytre kreftene i vannrett retning er null (friksjonsfritt bord), så $\\mathbf{a}_{cm} = 0$, og siden massesenteret var i ro fra før, blir det stående.\n\nKlossene beveger seg altså i motsatt retning på hver sin side av et punkt som ikke rører seg — den letteste raskest.\n\n**c)** Resonnementet blander to uavhengige størrelser. Bevegelsesmengde og kinetisk energi har **ulike** bevaringsbetingelser: bevegelsesmengden er bevart så lenge ingen ytre krefter virker i retningen, uansett hvor mye energi som forsvinner i deformasjonen. Energien er bevart bare når støtet er elastisk.\n\nI et uelastisk støt er derfor bevegelsesmengden nøyaktig den samme før og etter, mens den kinetiske energien er mindre. Det er ingen motsetning: energien har gått til varme og deformasjon, som ikke har noen bevegelsesmengde å snakke om.",
+        "hints": [
+          "Massesenteret er et veid gjennomsnitt av posisjonene.",
+          "Er fjærkraften indre eller ytre for systemet?",
+          "Sammenlign betingelsene for de to bevaringslovene — er de de samme?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-5-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-5-2-def-driv-vs-energi",
+      "type": "definition",
+      "title": "Bevegelsesmengde kontra kinetisk energi — når gjelder hva?",
+      "content": "| | Bevegelsesmengde $\\mathbf{p} = m\\mathbf{v}$ | Kinetisk energi $K = \\tfrac12 mv^2$ |\n|---|---|---|\n| Type | vektor | skalar |\n| Bevart når | ingen **ytre krefter** i retningen | bare **konservative** krefter gjør arbeid |\n| Endres av | kraft ganger **tid** (impuls) | kraft ganger **strekning** (arbeid) |\n| I et uelastisk støt | **bevart** | **ikke** bevart |\n| I et elastisk støt | bevart | bevart |\n\nDet er den nest siste linja som gir og tar flest poeng i hele Del 5. De to lovene har ulike betingelser, og det er ingen motsetning i at den ene gjelder mens den andre ikke gjør det."
+    },
+    {
+      "id": "fys1100-5-2-def-relativt-tap",
+      "type": "definition",
+      "title": "Relativt kontra absolutt energitap",
+      "content": "**Absolutt tap** er antall joule som er borte: $\\Delta K = K_{\\text{før}} - K_{\\text{etter}}$, oppgitt i joule.\n\n**Relativt tap** er andelen: $\\Delta K/K_{\\text{før}}$, oppgitt som desimaltall eller prosent — en dimensjonsløs størrelse.\n\nLes oppgaveteksten nøye: «hvor mye energi gikk tapt» ber om det absolutte, «hvor stor andel» eller «hvor mange prosent» om det relative. Å svare med feil av de to koster poeng selv om regningen er riktig.\n\nFor et fullstendig uelastisk støt mot et legeme i ro er andelen som er **igjen**, $m_1/(m_1+m_2)$ — et uttrykk det er verdt å kjenne igjen som kontroll."
+    },
+    {
+      "id": "fys1100-5-2-def-eksplosjon",
+      "type": "definition",
+      "title": "Eksplosjon som et støt baklengs",
+      "content": "En fjær som skyter to klosser fra hverandre, en rakett som støter ut gass, en granat som sprenges: alt dette er «støt baklengs». Legemene starter samlet og går fra hverandre.\n\nFysikken er den samme: er summen av de ytre kreftene null, er bevegelsesmengden bevart, og siden den var null før, må den være null etterpå:\n\n$$m_1\\mathbf{v}_1 + m_2\\mathbf{v}_2 = 0$$\n\nDen kinetiske energien **øker** derimot, fordi lagret energi (fjærenergi, kjemisk energi) frigjøres. Det er en fin påminnelse om at bevaring av bevegelsesmengde ikke sier noe som helst om energien."
+    },
+    {
+      "id": "fys1100-5-2-def-newton3-bevaring",
+      "type": "definition",
+      "title": "Newtons 3. lov som grunnlag for bevaring",
+      "content": "Impulsbevaring er ikke en ny naturlov — den er en direkte følge av Newtons 3. lov.\n\nKreftene mellom to legemer i kontakt er like store og motsatt rettet, og de virker i **nøyaktig like lang tid**. Impulsene blir derfor like store og motsatt rettede, og endringene i bevegelsesmengde opphever hverandre.\n\nÅ kunne si dette i én setning er verdt et poeng i seg selv, og det gjør det også lettere å huske betingelsen: det er bare de **ytre** kreftene som ikke har noen partner inne i systemet, og derfor bare de som kan endre summen."
+    },
+    {
+      "id": "fys1100-5-2-def-kraft-tid-graf",
+      "type": "definition",
+      "title": "Kraft–tid-grafen i et støt",
+      "content": "Et virkelig støt har ikke konstant kraft: kraften stiger bratt til en topp og faller tilbake til null på noen millisekunder.\n\n**Impulsen er arealet under kraft–tid-grafen**, og det er den som bestemmer fartsendringen — ikke toppverdien. Middelkraften defineres som $\\bar F = J/\\Delta t$, altså den konstante kraften som ville gitt samme areal.\n\nDet er dette som gjør kollisjonsputer, hjelmer og fallunderlag effektive: de endrer ikke arealet (det er gitt av fartsendringen), men strekker det ut i tid, slik at toppkraften blir lavere."
+    },
+    {
+      "id": "fys1100-5-2-def-fase-valg",
+      "type": "definition",
+      "title": "Fasevalget i en støtoppgave",
+      "content": "Nesten alle eksamensoppgaver i denne sjangeren har minst to faser, og hver fase har sin egen gyldige lov:\n\n1. **Før støtet:** ofte et fritt fall eller en pendelsving — **energi** bevart.\n2. **Gjennom støtet:** noen millisekunder — **bevegelsesmengde** bevart, energi ikke.\n3. **Etter støtet:** oppsving, glidning eller kast — **energi** bevart hvis ingen friksjon, ellers energiregnskap med friksjonsledd.\n\nSkriv fasene ned som overskrifter i besvarelsen, med begrunnelsen under hver. Det gjør det umulig for deg selv å blande dem, og det gjør det lett for sensor å se at du har kontroll. Metoden drilles i [kap. 5.3](/bok/fys1100/fys1100-5-3)."
+    },
+    {
+      "id": "fys1100-5-2-def-retning-driv",
+      "type": "definition",
+      "title": "Retning på bevegelsesmengden",
+      "content": "$\\mathbf{p}$ er en **vektor**, og et svar uten retning er ufullstendig — det koster $-2$ poeng.\n\nI én dimensjon holder det å velge en positiv retning og si det: «positiv retning er mot høyre». Da bærer fortegnet retningen, og et negativt svar betyr «mot venstre». I to dimensjoner må du oppgi enten begge komponentene eller lengde pluss vinkel.\n\nDen vanligste fortegnsfeilen oppstår når et legeme **snur**: da har $p$ motsatt fortegn før og etter, og endringen blir summen av tallverdiene, ikke differansen."
+    },
+    {
+      "id": "fys1100-5-2-def-rakett",
+      "type": "definition",
+      "title": "Systemer med variabel masse (kjenne til)",
+      "content": "En rakett kaster ut masse mens den akselererer, og da holder ikke $\\sum\\mathbf{F} = m\\mathbf{a}$ i sin enkle form — massen er jo ikke konstant. Den generelle formen\n\n$$\\sum\\mathbf{F} = \\frac{d\\mathbf{p}}{dt}$$\n\ngjelder derimot fortsatt, og det er en av grunnene til at drivformen er den mer fundamentale.\n\nFull rakettlikning er **kjenne-stoff** i FYS1100 — det er nok å vite at prinsippet er impulsbevaring: raketten skyves framover fordi den skyter masse bakover, akkurat som astronauten som kaster verktøykassa."
+    },
+    {
+      "id": "fys1100-5-2-def-delvis-uelastisk",
+      "type": "definition",
+      "title": "Delvis uelastisk støt",
+      "content": "De aller fleste virkelige støt ligger mellom ytterpunktene: legemene spretter fra hverandre, men med mindre samlet energi enn før.\n\nBevegelsesmengden er fortsatt bevart, men energilikningen er det ikke, og da har du **én likning og to ukjente**. Oppgaven må derfor gi deg en tilleggsopplysning — for eksempel energitapet i joule, farten til det ene legemet etterpå, eller en restitusjonskoeffisient.\n\nEr du usikker på hvilken type støt du står overfor, tell ukjente mot likninger. Har du flere ukjente enn likninger, mangler du en opplysning — og da har du sannsynligvis oversett noe i teksten."
+    },
+    {
+      "id": "fys1100-5-2-def-sensorkrav-stot",
+      "type": "definition",
+      "title": "Sensorkravet til en støtbesvarelse",
+      "content": "En full besvarelse på en støtoppgave inneholder fem ting:\n\n1. **Systemet** — hvilke legemer regner du som innenfor?\n2. **Fasen** — hvilken del av forløpet ser du på?\n3. **Loven og begrunnelsen** — «bevegelsesmengden er bevart fordi det ikke virker ytre krefter i vannrett retning under støtet».\n4. **Positiv retning** — sagt eksplisitt før den første likningen.\n5. **Svar med enhet og retning.**\n\nPunkt 3 er det dyreste å utelate, og punkt 2 er det som oftest går galt. En besvarelse som gjør alle fem, får uttelling selv om regningen skulle stoppe underveis — sensor gir poeng for en god løsningsidé."
+    },
+    {
+      "id": "fys1100-5-2-def-kule-i-stav",
+      "type": "definition",
+      "title": "Støt mot noe som roterer (kommer senere)",
+      "content": "En variant du vil møte, er en kule som treffer enden av en stav som kan rotere om et opphengspunkt. Da er **ikke** bevegelsesmengden bevart: opphengspunktet leverer en ytre kraft.\n\nI stedet er det **spinnet** om opphengspunktet som er bevart, siden den ytre kraften ikke gir noe kraftmoment om nettopp det punktet.\n\nSpinn, kraftmoment og treghetsmoment innføres i delen om rotasjon og stive legemer, og vi bruker dem ikke i Del 5. Nevner vi varianten her, er det for at du skal kjenne igjen signalet: **er det et fast opphengspunkt, er ikke bevegelsesmengden bevart.**"
+    },
+    {
+      "id": "fys1100-5-2-def-retningsvis-bevaring",
+      "type": "definition",
+      "title": "Bevaring i én retning, men ikke i en annen",
+      "content": "Impulsbevaring gjelder **retningsvis**. Er summen av de ytre kreftene null i $x$-retningen, er $p_x$ bevart — selv om $p_y$ ikke er det.\n\nDet vanligste eksempelet er et støt på et bord: vannrett virker ingen ytre krefter (om vi ser bort fra friksjon i det korte støtøyeblikket), så $p_x$ er bevart. Loddrett virker tyngden og normalkraften, og der er ikke $p_y$ bevart.\n\nPraktisk konsekvens: si alltid **hvilken retning** du bruker loven i. «Den vannrette bevegelsesmengden er bevart» er en fullstendig setning; «bevegelsesmengden er bevart» er det ofte ikke."
+    },
+    {
+      "id": "fys1100-5-2-def-energiandel-fjaer",
+      "type": "definition",
+      "title": "Energifordelingen ved en fjærutskyting",
+      "content": "Skyter en fjær to legemer fra hverandre fra ro, deles den lagrede energien i omvendt forhold til massene:\n\n$$\\frac{K_1}{U_0} = \\frac{m_2}{m_1+m_2}, \\qquad \\frac{K_2}{U_0} = \\frac{m_1}{m_1+m_2}$$\n\n**Det letteste legemet får mest energi.** Grunnen er at de to har like store bevegelsesmengder, $mv$, mens energien går som $p^2/(2m)$ — altså omvendt proporsjonal med massen.\n\nDet er nettopp derfor rekylen fra et gevær er til å leve med: skytteren og geværet er det tunge legemet og får bare en brøkdel av energien, selv om bevegelsesmengden er nøyaktig like stor som kulas."
+    },
+    {
+      "id": "fys1100-5-2-def-sprett-vs-stopp",
+      "type": "definition",
+      "title": "Sprett kontra full stopp",
+      "content": "Et legeme som treffer en vegg og **stopper**, får endret bevegelsesmengden med $mv$. Et legeme som **spretter tilbake** med samme fart, får den endret med $2mv$ — dobbelt så mye, fordi retningen snur.\n\nDet betyr at et sprett krever **dobbelt så stor impuls**, og dermed dobbelt så stor middelkraft ved samme kontakttid.\n\nRegelen er verdt å ha i fingrene, både fordi den forklarer hvorfor sprettende gjenstander slår hardere, og fordi den er den vanligste fortegnsfeilen i sjangeren: kandidater som glemmer å bytte fortegn på farten etter sprettet, får halvparten av riktig svar."
+    },
+    {
+      "id": "fys1100-5-2-def-tell-ukjente",
+      "type": "definition",
+      "title": "Tell ukjente mot likninger",
+      "content": "En rask diagnose når du står fast i en støtoppgave: **tell hvor mange ukjente du har, og hvor mange likninger.**\n\n- **Fullstendig uelastisk:** én ukjent (den felles farten), én likning (bevegelsesmengde). Alltid løsbart.\n- **Elastisk:** to ukjente, to likninger (bevegelsesmengde og energi). Løsbart.\n- **Delvis uelastisk:** to ukjente, men bare **én** likning. Da må oppgaven gi deg en opplysning til — og har den ikke gjort det, har du oversett noe i teksten.\n\nTellingen tar ti sekunder og forteller deg umiddelbart om du mangler informasjon eller bare mangler idé."
+    },
+    {
+      "id": "fys1100-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-5-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\mathbf{p} = m\\mathbf{v}$ | bevegelsesmengde (driv), vektor | $\\text{kg}\\cdot\\text{m/s}$ |\n| $\\mathbf{J}$ | impuls, vektor | $\\text{N}\\cdot\\text{s}$ |\n| $\\bar F$ | middelkraft under et støt | $\\text{N}$ |\n| $\\Delta t$ | støtvarighet | $\\text{s}$ |\n| $u_1$, $u_2$ | farter **før** støtet | $\\text{m/s}$ |\n| $v_1$, $v_2$, $v$ | farter **etter** støtet | $\\text{m/s}$ |\n| $v_0$ | kulas fart før støtet i pendeloppgaver | $\\text{m/s}$ |\n| $m$, $M$ | massene til kule og kloss | $\\text{kg}$ |\n| $K$ | kinetisk energi (skalar) | $\\text{J}$ |\n| $U$ | potensiell energi (skalar) | $\\text{J}$ |\n| $h$ | svinghøyde etter støtet | $\\text{m}$ |\n| $\\ell$ | snorlengde i pendelen | $\\text{m}$ |\n| $\\varphi$ | vinkelen snora danner med loddlinja | grader |\n| $\\mathbf{R}_{cm}$ | massesenterets posisjon | $\\text{m}$ |\n| $\\mu_d$ | dynamisk friksjonstall | dimensjonsløs |\n| $g$ | tyngdeakselerasjon, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner du må håndtere:** $\\mathbf{p}$ (bevegelsesmengde) må ikke forveksles med trykk eller med impuls $\\mathbf{J}$ — de har samme enhet, men impuls er en **endring** og bevegelsesmengde en **tilstand**. $m$ er kulas masse og $M$ klossens; les alltid oppgaveteksten for hvilken som er hvilken. Snorlengden skrives $\\ell$, ikke $L$, siden $\\mathbf{L}$ er reservert for spinn i delen om rotasjon. $T$ er snordrag; omløpstid skrives $T_p$. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{p} = m\\mathbf{v}$$\n\nBevegelsesmengde. **[formelarket]** — en vektor, så retningen skal alltid med.\n\n$$\\mathbf{J} = \\int \\mathbf{F}\\,dt = \\Delta\\mathbf{p}$$\n\nImpulsteoremet. **[formelarket]** — for konstant kraft: $\\mathbf{J} = \\mathbf{F}\\Delta t$.\n\n$$\\sum\\mathbf{F} = \\frac{d\\mathbf{p}}{dt}$$\n\nNewtons 2. lov i drivform. **[formelarket]** — den mer generelle formen, gyldig også ved variabel masse.\n\n$$\\sum\\mathbf{p}_{\\text{før}} = \\sum\\mathbf{p}_{\\text{etter}}$$\n\nImpulsbevaring, **gyldig når summen av de ytre kreftene i retningen er null**. **[må kunne utledes]** — fra Newtons 3. lov; og betingelsen skal skrives ut hver gang.\n\n$$m_1u_1 + m_2u_2 = (m_1+m_2)v$$\n\nFullstendig uelastisk støt. **[må kunne utledes]** — mekanisk energi er **ikke** bevart her.\n\n$$v_1 = \\frac{m_1-m_2}{m_1+m_2}u_1, \\qquad v_2 = \\frac{2m_1}{m_1+m_2}u_1$$\n\nElastisk støt mot et legeme i ro. **[må kunne utledes]** — fra de to bevaringslovene; står **ikke** på formelarket og skal ikke pugges.\n\n$$v_0 = \\frac{m+M}{m}\\sqrt{2gh}$$\n\nDen ballistiske pendelen. **[må kunne utledes]** — driv gjennom støtet, energi etterpå, i den rekkefølgen.\n\n$$\\frac{K_{\\text{etter}}}{K_{\\text{før}}} = \\frac{m_1}{m_1+m_2}$$\n\nAndelen kinetisk energi som er igjen etter et fullstendig uelastisk støt mot et legeme i ro. **[må kunne utledes]** — nyttig som kontroll.\n\n$$\\mathbf{R}_{cm} = \\frac{1}{M}\\sum_i m_i\\mathbf{r}_i$$\n\nMassesenteret. **[formelarket]** — indre krefter kan ikke endre bevegelsen til dette punktet."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-5-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/fys1100/fys1100-3-1).) Formuler Newtons 3. lov, og forklar hvorfor kraft og motkraft ikke opphever hverandre for ett enkelt legeme.",
+            "solution": "Newtons 3. lov: virker legeme $A$ med en kraft på legeme $B$, virker $B$ med en like stor, motsatt rettet kraft på $A$: $\\mathbf{F}_{A\\to B} = -\\mathbf{F}_{B\\to A}$.\n\nDe opphever ikke hverandre for ett legeme fordi de virker på **forskjellige** legemer. Skal du sette opp Newtons 2. lov for $B$, tar du bare med kreftene som virker **på** $B$ — og motkraften virker på $A$.\n\nBetrakter du derimot $A$ og $B$ som ett system, blir de to indre krefter, og da opphever de hverandre. Det er nettopp derfor bevegelsesmengden er bevart.",
+            "hints": [
+              "Hvilket legeme virker hver av de to kreftene på?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) Når er mekanisk energi bevart, og hvilken setning skal stå i besvarelsen?",
+            "solution": "Mekanisk energi $K + U$ er bevart **når de eneste kreftene som gjør arbeid, er konservative**. Krefter som står vinkelrett på bevegelsen (normalkraft, snordrag i en pendel), gjør ikke arbeid og er derfor uproblematiske.\n\nSetningen sensor ser etter, er av typen: «Bare tyngden gjør arbeid, siden banen er friksjonsfri og normalkraften står vinkelrett på bevegelsen.» Uten den koster bruken av loven $-1$ poeng.",
+            "hints": [
+              "Betingelsen handler om hvilke krefter som gjør arbeid."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) En kloss med masse $1{,}5\\ \\text{kg}$ har farten $2{,}0\\ \\text{m/s}$. Finn både den kinetiske energien og bevegelsesmengden, med enheter.",
+            "solution": "$$K = \\tfrac12 mv^2 = \\tfrac12 \\cdot 1{,}5 \\cdot 4{,}0 = 3{,}0\\ \\text{J}$$\n\n$$p = mv = 1{,}5 \\cdot 2{,}0 = 3{,}0\\ \\text{kg}\\cdot\\tfrac{\\text{m}}{\\text{s}} \\ \\text{i bevegelsesretningen}$$\n\nAt de to tallene blir like her, er en tilfeldighet som skyldes farten $2{,}0\\ \\text{m/s}$ — enhetene er helt forskjellige, og det ene er en skalar, det andre en vektor.",
+            "hints": [
+              "Pass på enhetene, og husk retning på den ene av dem."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-2-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-2-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) En kloss glir $2{,}5\\ \\text{m}$ på et vannrett bord med $\\mu_d = 0{,}40$ og stopper. Hvor fort gikk den?",
+            "solution": "All kinetisk energi går til friksjonsarbeid — friksjonen er den eneste kraften som gjør arbeid, siden tyngden og normalkraften er loddrette og bevegelsen vannrett:\n\n$$\\tfrac12 mv^2 = \\mu_d mg s \\quad \\Rightarrow \\quad v = \\sqrt{2\\mu_d g s} = \\sqrt{2 \\cdot 0{,}40 \\cdot 9{,}81 \\cdot 2{,}5} = 4{,}4\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nMassen forkortes bort. Dette er nøyaktig samme regnestykke som i andre fase av en kule-i-kloss-oppgave.",
+            "hints": [
+              "Sett den kinetiske energien lik friksjonsarbeidet."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-2-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-2-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 4.1](/bok/fys1100/fys1100-4-1).) En kloss henger i en snor med lengde $\\ell$ og svinger opp til vinkelen $\\varphi$ fra loddlinja. Vis at høyden er $h = \\ell(1-\\cos\\varphi)$.",
+            "solution": "I det laveste punktet henger klossen $\\ell$ under festepunktet. Ved vinkelen $\\varphi$ er den loddrette avstanden ned til klossen $\\ell\\cos\\varphi$ (hosliggende katet i den rettvinklede trekanten med hypotenus $\\ell$).\n\nHøyden over det laveste punktet er differansen:\n\n$$h = \\ell - \\ell\\cos\\varphi = \\ell(1 - \\cos\\varphi)$$\n\n**Kontroll:** $\\varphi = 0$ gir $h = 0$ ✓, og $\\varphi = 90^\\circ$ gir $h = \\ell$ ✓ — snora er da vannrett, og klossen er nøyaktig $\\ell$ over det laveste punktet.",
+            "hints": [
+              "Tegn trekanten og finn hvor langt under festepunktet klossen er i hver stilling."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-5-2-oppg-R6",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-5-2-r6",
+            "number": "R6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Begrepskontroll.) Et støt der to legemer henger sammen etterpå — hvilke to påstander er riktige, og hvilke to er gale?\n\n1. Bevegelsesmengden er bevart.\n2. Den kinetiske energien er bevart.\n3. Den kinetiske energien er alltid mindre etter enn før.\n4. Bevegelsesmengden er alltid mindre etter enn før.",
+            "solution": "**Riktige: 1 og 3.**\n\n**1** er riktig fordi det ikke virker vesentlige ytre krefter i bevegelsesretningen under det korte støtet.\n\n**3** er riktig fordi et fullstendig uelastisk støt alltid tar ut energi til deformasjon og varme; andelen som er igjen, er $m_1/(m_1+m_2) < 1$.\n\n**2 er galt** — det er nettopp denne påstanden som utgjør bokas viktigste metodefelle og gir null poeng.\n\n**4 er galt** — bevegelsesmengden er nøyaktig den samme, verken mer eller mindre. At energien synker, sier ingenting om bevegelsesmengden; de to har ulike bevaringsbetingelser.",
+            "hints": [
+              "Gå gjennom betingelsen for hver av de to bevaringslovene hver for seg."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

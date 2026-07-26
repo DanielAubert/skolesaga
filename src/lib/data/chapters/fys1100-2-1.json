@@ -1,0 +1,474 @@
+{
+  "id": "fys1100-2-1",
+  "courseId": "fys1100",
+  "chapterNumber": "2.1",
+  "title": "Kinematikk: posisjon, fart og akselerasjon",
+  "description": "Sammenhengen posisjon–fart–akselerasjon som derivasjon/integrasjon, bevegelsesgrafer, og standardformlene for konstant akselerasjon.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne regne mellom posisjon, fart og akselerasjon ved derivasjon og integrasjon",
+    "kunne lese akselerasjon som stigningstall og forflytning som areal i bevegelsesgrafer",
+    "kunne bruke bevegelseslikningene for konstant akselerasjon og begrunne når de gjelder",
+    "kunne skille forflytning fra veistrekning og alltid oppgi retning på fart og akselerasjon"
+  ],
+  "content": [
+    {
+      "id": "fys1100-2-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kinematikk er språket resten av boka er skrevet på.** Å beskrive *hvordan* noe beveger seg — hvor det er, hvor fort det går og hvordan farten endrer seg — er første halvdel av hver eneste mekanikkoppgave. Andre halvdel er å forklare *hvorfor* (det kommer i delen om Newtons lover).\n\n- På **midtveiseksamen** — den digitale flervalgsprøven som teller **20 %** av karakteren, 3 timer, rundt 20 spørsmål — er graftolkning en gjenganger: «hvilken av grafene hører sammen?», «hvor er akselerasjonen størst?», «hvilken bevegelse er umulig?». Slike spørsmål krever ingen lang utregning, bare at du leser stigningstall og areal riktig.\n- På den **avsluttende skoleeksamen** (4 timer, penn og papir, teller **80 %**) står kinematikk sjelden alene. Den er innbakt: du finner en akselerasjon med Newtons 2. lov og skal så finne farten eller strekningen. Den frittstående kastoppgaven — **sjanger A, altså skrått kast og bevegelse i to dimensjoner** — dukker opp i **3–4 av 7 sett (~50 %)**, og den bygger direkte på dette kapitlet.\n\n**Hjelpemidler du får utdelt:** godkjent kalkulator, den matematiske formelsamlingen **Rottmann**, og et **fagspesifikt formelark** som følger med oppgavesettet. Formlene for konstant akselerasjon står på det arket. Poengene ligger derfor ikke i å huske dem, men i å vite **når de gjelder** — og å begrunne valget.\n\n**Prioritet:** dette bør sitte. Kapitlet er kort, men alt som kommer senere hviler på det."
+    },
+    {
+      "id": "fys1100-2-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette er bokas første fysikkapittel, så du trenger ikke noe fra tidligere kapitler her. Det du derimot bør ha friskt fra matematikken, er to sammenhenger:\n\n**1. Den deriverte som momentan endringsrate.** For en funksjon $f(t)$ er\n\n$$f'(t) = \\lim_{\\Delta t \\to 0} \\frac{f(t + \\Delta t) - f(t)}{\\Delta t}$$\n\naltså grenseverdien av gjennomsnittlig endring per tidsenhet når tidsintervallet krymper mot null. Repetisjon: [Derivasjonens definisjon](/bok/r1/r1-3-3) og [Derivasjon av vektorfunksjoner](/bok/r2/r2-6-2).\n\n**2. Det bestemte integralet som areal under en graf.** For en fartsfunksjon gjelder\n\n$$\\int_{t_1}^{t_2} v(t)\\,dt = x(t_2) - x(t_1)$$\n\n— arealet under $v(t)$-grafen mellom to tidspunkt er forflytningen i det intervallet, med fortegn. Repetisjon: [Bestemt integral som grenseverdi](/bok/r2/r2-2-4) og [Analysens fundamentalsetning](/bok/r2/r2-2-5).\n\nI tillegg forutsetter vi at du kan splitte en vektor i komponenter langs to akser — se [Hastighet og akselerasjon](/bok/r2/r2-6-3) og [Vektorer og komponenter](/bok/fysikk2/fysikk2-1-1). Har du hatt Fysikk 1 på videregående, har du møtt mye av dette før; her strammer vi det opp til universitetsnotasjon.\n\n**Notasjonsavtale for hele kapitlet:** posisjon, hastighet og akselerasjon er **vektorer** og skrives med fet skrift ($\\mathbf{r}$, $\\mathbf{v}$, $\\mathbf{a}$). Skriver vi det samme symbolet kursivt og uten fet skrift ($x$, $v$, $a$), mener vi **komponenten langs én akse** — et tall som kan være negativt. I rettlinjet bevegelse holder det med komponentene, og da dropper vi den fete skriften. Vi bruker $g = 9{,}81\\ \\text{m/s}^2$ gjennom hele boka."
+    },
+    {
+      "id": "fys1100-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — posisjon, fart og akselerasjon (~15 min)\n\nDu sitter på T-banen. Toget setter i gang, og du kjenner ryggen presses mot setet. Etter noen sekunder slutter presset — ikke fordi toget står stille, men fordi det har sluttet å øke farten. Kroppen din merker **akselerasjon**, ikke fart.\n\nDet er hele poenget med kinematikken: fart og akselerasjon er to helt forskjellige størrelser, og de henger sammen på nøyaktig samme måte som fart og posisjon gjør. Vi bygger derfor de tre begrepene i rekkefølge."
+    },
+    {
+      "id": "fys1100-2-1-def-posisjon",
+      "type": "definition",
+      "title": "Posisjon og posisjonsvektor",
+      "content": "Posisjonen forteller hvor legemet befinner seg i forhold til et valgt nullpunkt (origo). I to eller tre dimensjoner samler vi opplysningen i én vektor:\n\n$$\\mathbf{r}(t) = x(t)\\,\\hat{\\mathbf{i}} + y(t)\\,\\hat{\\mathbf{j}}$$\n\nder $\\hat{\\mathbf{i}}$ og $\\hat{\\mathbf{j}}$ er enhetsvektorene langs $x$- og $y$-aksen. Enhet: meter. Merk at posisjonen ikke er noe legemet «har» i seg selv — den avhenger av hvor du la origo og hvilken vei du valgte som positiv. Det valget skal alltid stå i besvarelsen din, ellers er ikke fortegnene til å tolke."
+    },
+    {
+      "id": "fys1100-2-1-def-forflytning",
+      "type": "definition",
+      "title": "Forflytning og veistrekning",
+      "content": "**Forflytningen** er endringen i posisjon, altså vektoren fra der du var til der du er:\n\n$$\\Delta \\mathbf{r} = \\mathbf{r}(t_2) - \\mathbf{r}(t_1)$$\n\n**Veistrekningen** (også kalt tilbakelagt vei) er derimot den totale lengden av banen legemet faktisk fulgte. Går du 100 m fram og 100 m tilbake, er forflytningen null, men veistrekningen 200 m. Forflytning er en vektor og kan være negativ langs en akse; veistrekning er en skalar og aldri negativ. Eksamen spør oftest om forflytning — les nøye."
+    },
+    {
+      "id": "fys1100-2-1-def-gjennomsnittsfart",
+      "type": "definition",
+      "title": "Gjennomsnittsfart",
+      "content": "Gjennomsnittsfarten over et tidsintervall er forflytningen delt på tiden det tok:\n\n$$\\mathbf{v}_{\\text{gj}} = \\frac{\\Delta \\mathbf{r}}{\\Delta t}$$\n\nDen sier ingenting om hva som skjedde underveis — bare hvor du havnet i forhold til hvor du startet, per sekund. Enhet: $\\text{m/s}$. Deler du i stedet *veistrekningen* på tiden, får du gjennomsnittlig **banefart**, som er noe annet og alltid minst like stor."
+    },
+    {
+      "id": "fys1100-2-1-utledning-momentan",
+      "type": "text",
+      "content": "### Fra gjennomsnitt til øyeblikk\n\nGjennomsnittsfarten er grovkornet. Vil du vite hvor fort du kjørte *akkurat da du passerte fotoboksen*, må intervallet krympe.\n\n**Steg 1.** Regn gjennomsnittsfarten over et kort intervall $\\Delta t$ som starter i $t$:\n\n$$v_{\\text{gj}} = \\frac{x(t + \\Delta t) - x(t)}{\\Delta t}$$\n\n*Intuisjon:* dette er stigningstallet til den rette linja mellom to punkter på $x(t)$-grafen — en sekant.\n\n**Steg 2.** La $\\Delta t \\to 0$:\n\n$$v(t) = \\lim_{\\Delta t \\to 0} \\frac{x(t+\\Delta t) - x(t)}{\\Delta t} = \\frac{dx}{dt}$$\n\n*Intuisjon:* sekanten glir over i tangenten. Momentanfarten er **stigningstallet til tangenten** i $x(t)$-grafen — dette er hele grunnen til at grafavlesning gir poeng på midtveis.\n\n**Steg 3.** Gjør nøyaktig det samme med farten i stedet for posisjonen, og du får akselerasjonen. Kinematikken har altså bare ett grep, brukt to ganger."
+    },
+    {
+      "id": "fys1100-2-1-def-momentanfart",
+      "type": "definition",
+      "title": "Momentanfart (hastighet)",
+      "content": "Hastigheten i et øyeblikk er den deriverte av posisjonen med hensyn på tiden:\n\n$$\\mathbf{v}(t) = \\frac{d\\mathbf{r}}{dt}$$\n\nHastigheten er en **vektor**: den har både tallverdi og retning, og et svar uten retning er et ufullstendig svar (det koster typisk 2 poeng på eksamen). Tallverdien $|\\mathbf{v}|$ kalles **banefarten** — det er den bilens speedometer viser. Enhet: $\\text{m/s}$. I rettlinjet bevegelse langs $x$-aksen holder det å oppgi komponenten $v$, der fortegnet forteller retningen."
+    },
+    {
+      "id": "fys1100-2-1-def-akselerasjon",
+      "type": "definition",
+      "title": "Akselerasjon",
+      "content": "Akselerasjonen forteller hvor raskt **hastigheten** endrer seg, og er den deriverte av hastigheten:\n\n$$\\mathbf{a}(t) = \\frac{d\\mathbf{v}}{dt} = \\frac{d^2\\mathbf{r}}{dt^2}$$\n\nEnhet: $\\text{m/s}^2$. Legg merke til at akselerasjon ikke betyr «å øke farten». Hastigheten er en vektor, så den endres også når bare **retningen** endres. En bil som kjører i en sving med konstant speedometeravlesning, akselererer — det er nettopp derfor du kastes mot døra. Akselerasjonen er en vektor og skal alltid oppgis med retning."
+    },
+    {
+      "id": "fys1100-2-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fra posisjonsuttrykk til fart og akselerasjon",
+      "problem": "En tralle beveger seg langs en rett skinne. Posisjonen langs skinna er\n\n$$x(t) = 2{,}0\\ \\text{m} + \\left(4{,}0\\ \\tfrac{\\text{m}}{\\text{s}}\\right) t - \\left(0{,}50\\ \\tfrac{\\text{m}}{\\text{s}^2}\\right) t^2$$\n\n**a)** Finn $v(t)$ og $a(t)$.\n\n**b)** Når snur trallen, og hvor langt fra origo er den da?\n\n**c)** Hvor er trallen ved $t = 6{,}0\\ \\text{s}$, og hvilken vei beveger den seg?",
+      "solution": "**Metodevalg først:** oppgaven gir posisjonen som funksjon av tiden, og fart og akselerasjon er per definisjon den første og andre deriverte av posisjonen. Vi trenger altså ingen bevegelseslikning — bare derivasjon.\n\n**a)** Deriverer vi ledd for ledd:\n\n$$v(t) = \\frac{dx}{dt} = 4{,}0\\ \\tfrac{\\text{m}}{\\text{s}} - \\left(1{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2}\\right) t, \\qquad a(t) = \\frac{dv}{dt} = -1{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nAkselerasjonen er altså konstant, $1{,}0\\ \\text{m/s}^2$ rettet i negativ $x$-retning.\n\n**Benevningskontroll:** koeffisienten foran $t^2$ har enhet $\\text{m/s}^2$; ganget med $t^2$ (enhet $\\text{s}^2$) gir det meter. Det stemmer, og den samme kontrollen bekrefter at $v$ får $\\text{m/s}$ og $a$ får $\\text{m/s}^2$.\n\n**b)** Trallen snur i det øyeblikket hastigheten skifter fortegn, altså der $v = 0$:\n\n$$4{,}0 - 1{,}0\\,t = 0 \\quad \\Rightarrow \\quad t = 4{,}0\\ \\text{s}$$\n\n$$x(4{,}0\\ \\text{s}) = 2{,}0 + 4{,}0 \\cdot 4{,}0 - 0{,}50 \\cdot 4{,}0^2 = 10{,}0\\ \\text{m}$$\n\nTrallen snur $10{,}0\\ \\text{m}$ fra origo, $4{,}0\\ \\text{s}$ etter start.\n\n**c)** Ved $t = 6{,}0\\ \\text{s}$:\n\n$$x = 2{,}0 + 24{,}0 - 18{,}0 = 8{,}0\\ \\text{m}, \\qquad v = 4{,}0 - 6{,}0 = -2{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nTrallen er $8{,}0\\ \\text{m}$ fra origo og beveger seg med farten $2{,}0\\ \\text{m/s}$ i **negativ** $x$-retning — altså tilbake mot startpunktet. Retningen er en del av svaret, ikke en ekstraopplysning.\n\nLegg merke til at akselerasjonen er den samme hele veien ($-1{,}0\\ \\text{m/s}^2$), selv i det øyeblikket farten er null. Fart null betyr ikke akselerasjon null."
+    },
+    {
+      "id": "fys1100-2-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med dine egne ord, i to–tre setninger hver:\n\n**a)** forskjellen på forflytning og veistrekning,\n\n**b)** hvorfor et legeme kan ha akselerasjon ulik null i et øyeblikk der farten er null.",
+        "solution": "**a)** Forflytningen er vektoren fra startposisjonen til sluttposisjonen: den bryr seg bare om endepunktene, og den kan være null selv om legemet har vært i bevegelse. Veistrekningen er den samlede lengden av banen som faktisk ble fulgt, og den kan aldri minke. En løper som fullfører én runde på en 400-meterbane, har veistrekning $400\\ \\text{m}$ og forflytning null.\n\n**b)** Akselerasjonen måler hvor raskt hastigheten **endrer seg**, ikke hvor stor den er. En ball som kastes rett opp, har $v = 0$ i toppunktet, men tyngden virker fortsatt, så hastigheten er i full gang med å endre seg fra oppover til nedover. Akselerasjonen er $9{,}81\\ \\text{m/s}^2$ rettet nedover hele veien, også nøyaktig i toppen.",
+        "hints": [
+          "Tenk på en løper som går én runde på en rundbane — hva er start- og sluttposisjonen?",
+          "Skriv ned definisjonen $a = dv/dt$ og spør hva den sier om et øyeblikk der $v$ tilfeldigvis er null."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En heis starter i første etasje og beveger seg langs en loddrett $y$-akse med positiv retning oppover. Posisjonen er\n\n$$y(t) = \\left(1{,}2\\ \\tfrac{\\text{m}}{\\text{s}^2}\\right)t^2 - \\left(0{,}080\\ \\tfrac{\\text{m}}{\\text{s}^3}\\right)t^3$$\n\nfor $0 \\le t \\le 10\\ \\text{s}$.\n\n**a)** Finn $v(t)$ og $a(t)$.\n\n**b)** Når er heisens fart størst, og hvor stor er den da?\n\n**c)** Hva er akselerasjonen i det øyeblikket, og hva merker en passasjer akkurat da?",
+        "solution": "**Metodevalg først:** posisjonen er gitt som funksjon av tiden, så fart og akselerasjon finnes ved å derivere. Farten er størst der den deriverte av farten — altså akselerasjonen — er null og skifter fortegn fra positiv til negativ.\n\n**a)** \n\n$$v(t) = 2{,}4\\,t - 0{,}24\\,t^2 \\quad (\\text{m/s}), \\qquad a(t) = 2{,}4 - 0{,}48\\,t \\quad (\\text{m/s}^2)$$\n\n**b)** Farten har maksimum der $a = 0$:\n\n$$2{,}4 - 0{,}48\\,t = 0 \\quad \\Rightarrow \\quad t = 5{,}0\\ \\text{s}$$\n\nSiden $a > 0$ før og $a < 0$ etter, er dette et maksimum. Farten der er\n\n$$v(5{,}0) = 2{,}4 \\cdot 5{,}0 - 0{,}24 \\cdot 25 = 12{,}0 - 6{,}0 = 6{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\naltså $6{,}0\\ \\text{m/s}$ oppover.\n\n**c)** Akselerasjonen er null i det øyeblikket. Passasjeren kjenner da nøyaktig sin vanlige vekt: gulvet skyver like hardt som ellers, og det er akselerasjonen — ikke farten — kroppen registrerer. Heisen går fortsatt $6{,}0\\ \\text{m/s}$ oppover, men følelsen av «å bli presset ned i gulvet» er borte.",
+        "hints": [
+          "Farten er størst der $dv/dt = 0$ — altså der akselerasjonen skifter fortegn.",
+          "Deriver ledd for ledd, og hold styr på enhetene til hver koeffisient.",
+          "I c): tenk på hva kroppen faktisk merker i en heis — fart eller endring av fart?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — den andre veien: fra akselerasjon til fart og posisjon (~15 min)\n\nI en typisk eksamensoppgave går det motsatt vei av det vi nettopp gjorde. Du finner først akselerasjonen — den kommer ut av kreftene, via Newtons 2. lov — og skal så finne farten og strekningen. Det betyr **integrasjon**, den motsatte operasjonen av derivasjon."
+    },
+    {
+      "id": "fys1100-2-1-def-areal",
+      "type": "definition",
+      "title": "Areal under fartsgrafen",
+      "content": "Å integrere hastigheten over et tidsintervall gir forflytningen i det intervallet:\n\n$$x(t_2) - x(t_1) = \\int_{t_1}^{t_2} v(t)\\,dt$$\n\nGeometrisk er dette **arealet mellom $v(t)$-grafen og $t$-aksen**, regnet med fortegn: areal under aksen (negativ fart) trekker fra. Tilsvarende gir arealet under $a(t)$-grafen fartsendringen $\\Delta v$. Dette er den ene halvdelen av grafavlesning; den andre er at stigningstallet i $v(t)$ er akselerasjonen."
+    },
+    {
+      "id": "fys1100-2-1-th-konstant-a",
+      "type": "theorem",
+      "title": "Bevegelseslikningene for konstant akselerasjon",
+      "content": "Er akselerasjonen **konstant** i hele tidsrommet du regner på, gjelder disse tre (de står på formelarket du får utdelt):\n\n$$v = v_0 + a t$$\n$$x = x_0 + v_0 t + \\tfrac12 a t^2$$\n$$v^2 - v_0^2 = 2a\\,(x - x_0)$$\n\nHer er $x_0$ og $v_0$ posisjonen og farten ved $t = 0$ — **initialbetingelsene**. Den siste likningen er tidløs og er den raskeste når oppgaven verken gir eller spør etter tiden.\n\n**Gyldighetsbetingelsen er alt:** likningene gjelder bare når $a$ er konstant. Varierer akselerasjonen — luftmotstand, en fjær, en kraft som avhenger av posisjonen — er de **feil**, og å bruke dem der gir null uttelling uansett hvor pent regnestykket ser ut. Da må du integrere selv eller regne numerisk."
+    },
+    {
+      "id": "fys1100-2-1-utledning-konstant-a",
+      "type": "text",
+      "content": "### Utledningen du skal kunne gjøre selv\n\nFormlene står på arket, men sensor kan be deg utlede dem — og utledningen er tre linjer.\n\n**Steg 1.** Start med definisjonen $a = dv/dt$ og integrer fra $0$ til $t$ med $a$ konstant:\n\n$$\\int_{v_0}^{v} dv' = \\int_0^t a\\,dt' \\quad \\Rightarrow \\quad v - v_0 = a t$$\n\n*Intuisjon:* når fartsendringen per sekund er den samme hele veien, blir samlet fartsendring rett og slett «endring per sekund ganger antall sekunder».\n\n**Steg 2.** Sett inn $v = dx/dt$ og integrer én gang til:\n\n$$x - x_0 = \\int_0^t (v_0 + a t')\\,dt' = v_0 t + \\tfrac12 a t^2$$\n\n*Intuisjon:* arealet under en rett fartsgraf er et rektangel ($v_0 t$) pluss en trekant ($\\tfrac12 \\cdot t \\cdot at$). Det er hele formelen, tegnet.\n\n**Steg 3.** Eliminér $t$ ved å sette $t = (v - v_0)/a$ inn i uttrykket for $x$. Etter litt algebra sitter du igjen med $v^2 - v_0^2 = 2a(x-x_0)$.\n\n*Intuisjon:* denne varianten er den du griper etter når oppgaven snakker om strekning og fart, men aldri nevner tid."
+    },
+    {
+      "id": "fys1100-2-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Bremselengde",
+      "problem": "En bil kjører i $90\\ \\text{km/h}$ når føreren bremser hardt. Bremsene gir en konstant retardasjon på $6{,}0\\ \\text{m/s}^2$ helt til bilen står stille.\n\n**a)** Hvor lang tid tar innbremsingen?\n\n**b)** Hvor langt kjører bilen i løpet av innbremsingen?\n\n**c)** Hvor mye lengre blir bremselengden dersom farten i stedet var $110\\ \\text{km/h}$?",
+      "solution": "**Metodevalg først:** akselerasjonen er oppgitt som konstant gjennom hele innbremsingen, så bevegelseslikningene for konstant akselerasjon gjelder — det er nettopp betingelsen de krever. Vi legger $x$-aksen langs kjøreretningen, med positiv retning framover. Da er $v_0 = +25\\ \\text{m/s}$ og $a = -6{,}0\\ \\text{m/s}^2$.\n\nFørst enhetene: $90\\ \\text{km/h} = 90/3{,}6 = 25{,}0\\ \\text{m/s}$.\n\n**a)** Fra $v = v_0 + at$ med $v = 0$:\n\n$$t = \\frac{-v_0}{a} = \\frac{-25{,}0}{-6{,}0} = 4{,}17\\ \\text{s} \\approx 4{,}2\\ \\text{s}$$\n\n**b)** Her er tiden allerede kjent, men den tidløse likningen er raskere og unngår at en avrundingsfeil i $t$ forplanter seg:\n\n$$v^2 - v_0^2 = 2a\\,\\Delta x \\quad \\Rightarrow \\quad \\Delta x = \\frac{0 - (25{,}0)^2}{2 \\cdot (-6{,}0)} = 52{,}1\\ \\text{m} \\approx 52\\ \\text{m}$$\n\n**Kontroll med den andre metoden:** $\\Delta x = v_0 t + \\tfrac12 a t^2 = 25{,}0 \\cdot 4{,}17 - 3{,}0 \\cdot 4{,}17^2 = 104{,}2 - 52{,}1 = 52{,}1\\ \\text{m}$. Begge metodene er fullt gyldige; den tidløse er raskest under tidspress, og det er den du bør gripe til når tiden ikke er etterspurt.\n\n**c)** $110\\ \\text{km/h} = 30{,}6\\ \\text{m/s}$, som gir\n\n$$\\Delta x = \\frac{(30{,}6)^2}{2 \\cdot 6{,}0} = 77{,}8\\ \\text{m} \\approx 78\\ \\text{m}$$\n\nBremselengden øker altså med $26\\ \\text{m}$ — nesten femti prosent — for en fartsøkning på drøyt tjue prosent. Grunnen er at $\\Delta x$ går som $v_0^2$: dobler du farten, firedobler du bremselengden. Det er dette kvadratet som ligger bak alle fartsgrensekampanjer.\n\n**Benevningskontroll:** $(\\text{m/s})^2 / (\\text{m/s}^2) = \\text{m}$. Riktig enhet."
+    },
+    {
+      "id": "fys1100-2-1-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å bruke formlene for konstant akselerasjon der akselerasjonen ikke er konstant.** Dette er den dyreste feilen i kapitlet, og den er lett å gjøre fordi formlene er så tilgjengelige på formelarket. Så snart oppgaven nevner luftmotstand, en fjær, en kraft som avhenger av farten eller posisjonen — eller så snart $a(t)$-grafen ikke er en vannrett linje — er $x = x_0 + v_0t + \\tfrac12 at^2$ ugyldig. Da må du integrere selv, eller regne numerisk (det kommer i delen om numerisk modellering med Python).\n\n**Å forveksle stigningstall og areal i en graf.** I en $v(t)$-graf er stigningstallet akselerasjonen og arealet forflytningen. Å lese av «høyden» i grafen og kalle den akselerasjon er en klassisk midtveisfelle.\n\n**Å glemme fortegnet.** Retardasjon er ikke en egen størrelse — det er akselerasjon med motsatt fortegn av farten. Velg positiv retning én gang, skriv den ned, og hold deg til den. Et tallsvar for fart eller akselerasjon uten retning er ufullstendig og koster typisk 2 poeng (dette er **felle #9 — manglende retning på en vektorstørrelse**, som har sitt eget punkt i feilregisteret i bokas Del 0).\n\n**Å svare med et tall uten begrunnelse.** Hvert sett har setningen «Husk at alle svar må begrunnes!» i hodet. Et riktig tall uten en setning om hvilket prinsipp du brukte, gir liten uttelling (**felle #1**). En formel du skriver opp uten å bruke den, gir null."
+    },
+    {
+      "id": "fys1100-2-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En sykkel triller fra ro nedover en jevn bakke med konstant akselerasjon $1{,}5\\ \\text{m/s}^2$.\n\n**a)** Hvor fort går sykkelen etter $8{,}0\\ \\text{s}$?\n\n**b)** Hvor langt har den kommet da?\n\n**c)** Hvilken av de tre bevegelseslikningene ville du brukt om oppgaven i stedet ga strekningen og spurte etter sluttfarten, og hvorfor?",
+        "solution": "**Metodevalg:** akselerasjonen er oppgitt som konstant, så bevegelseslikningene gjelder. Positiv retning nedover bakken, $v_0 = 0$.\n\n**a)** $v = v_0 + at = 0 + 1{,}5 \\cdot 8{,}0 = 12{,}0\\ \\text{m/s}$ nedover bakken (det er $43\\ \\text{km/h}$ — sykkelhjelm anbefales).\n\n**b)** $x = v_0 t + \\tfrac12 a t^2 = \\tfrac12 \\cdot 1{,}5 \\cdot 8{,}0^2 = 48\\ \\text{m}$.\n\n**c)** Da ville jeg brukt den tidløse: $v^2 - v_0^2 = 2a(x - x_0)$. Den knytter fart og strekning direkte, uten å gå veien om tiden. Å først regne ut $t$ og så $v$ gir samme svar, men er to regnetrinn i stedet for ett — og hvert ekstra trinn er en ny sjanse til å regne feil.",
+        "hints": [
+          "Start fra ro betyr $v_0 = 0$ — det forenkler begge de to første likningene.",
+          "Sjekk til slutt at enhetene i svaret ditt blir $\\text{m/s}$ og $\\text{m}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En stein slippes fra hvile fra toppen av en bygning og bruker $2{,}8\\ \\text{s}$ på å nå bakken. Se bort fra luftmotstand, og bruk $g = 9{,}81\\ \\text{m/s}^2$.\n\n**a)** Hvor høy er bygningen?\n\n**b)** Hvor stor er farten idet steinen treffer bakken? Oppgi retning.\n\n**c)** En medstudent hevder at hvis steinen hadde dobbelt så stor masse, ville den brukt halve tiden. Er det riktig? Begrunn.",
+        "solution": "**Metodevalg:** uten luftmotstand er den eneste kraften på steinen tyngden, og den gir konstant akselerasjon $g$ nedover. Da gjelder bevegelseslikningene for konstant akselerasjon. Vi legger positiv retning **nedover** og origo på toppen, så $v_0 = 0$ og $a = +9{,}81\\ \\text{m/s}^2$.\n\n**a)** $h = \\tfrac12 g t^2 = \\tfrac12 \\cdot 9{,}81 \\cdot 2{,}8^2 = 38{,}5\\ \\text{m}$. Bygningen er om lag $38\\ \\text{m}$ høy — rundt tolv etasjer.\n\n**b)** $v = g t = 9{,}81 \\cdot 2{,}8 = 27{,}5\\ \\text{m/s}$, rettet **nedover**. (Kontroll med den tidløse: $v = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 38{,}5} = 27{,}5\\ \\text{m/s}$ — samme svar, som det skal.)\n\n**c)** Nei. I fritt fall uten luftmotstand er akselerasjonen $g$ for alle legemer, uavhengig av massen: dobler du massen, dobler du både tyngden som drar og tregheten som motsetter seg, og de to virkningene opphever hverandre nøyaktig. Falltiden er derfor den samme. (Med luftmotstand blir bildet et annet, fordi luftmotstanden ikke vokser proporsjonalt med massen — men det ligger utenfor denne modellen.)",
+        "hints": [
+          "Fritt fall fra ro: $v_0 = 0$ og $a = g$. Velg positiv retning nedover, så slipper du minustegn.",
+          "I c): hva sier akselerasjonsuttrykket for fritt fall om massen?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — les bevegelsen ut av grafene (~15 min)\n\nPå midtveiseksamen får du sjelden et pent formeluttrykk. Du får en graf, og skal svare raskt. Da er det to avlesninger som gjelder, og de er verdt å automatisere:\n\n- **stigningstallet** i en graf er den deriverte — stigningstall i $x(t)$ er farten, stigningstall i $v(t)$ er akselerasjonen;\n- **arealet** under en graf er integralet — areal under $v(t)$ er forflytningen, areal under $a(t)$ er fartsendringen.\n\nFiguren under viser samme bevegelse tegnet på tre måter. Studer den til du ser koblingene."
+    },
+    {
+      "id": "fys1100-2-1-fig-xva",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-2-1-xva-grafer.svg",
+      "alt": "Tre grafer over hverandre for samme bevegelse. Øverst posisjon mot tid: en oppoverkrummet kurve fra 0 til 24 meter de forste fire sekundene, deretter en rett stigende linje til 96 meter ved 10 sekunder, og til slutt en flatende kurve som ender pa 114 meter ved 13 sekunder. I midten fart mot tid: en rett linje fra 0 til 12 meter per sekund pa fire sekunder, konstant 12 meter per sekund fram til 10 sekunder, og deretter rett ned til null ved 13 sekunder, med arealet under kurven skravert. Nederst akselerasjon mot tid: konstant 3,0 de forste fire sekundene, null fra 4 til 10 sekunder, og minus 4,0 fra 10 til 13 sekunder.",
+      "caption": "Samme bevegelse, tre grafer. Der $v(t)$ har en knekk (ved $t = 4\\ \\text{s}$ og $t = 10\\ \\text{s}$), får $a(t)$ et sprang — mens $x(t)$ forblir glatt. Det skraverte arealet under $v(t)$ er strekningen $114\\ \\text{m}$, og stigningstallet i $x(t)$ er nettopp høyden i $v(t)$."
+    },
+    {
+      "id": "fys1100-2-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Full graftolkning (eksamensnivå)",
+      "problem": "En trikk kjører rett fram. Fart–tid-grafen i figuren over gjelder: farten vokser jevnt fra $0$ til $12\\ \\text{m/s}$ i løpet av de første $4{,}0\\ \\text{s}$, holder seg konstant på $12\\ \\text{m/s}$ fram til $t = 10{,}0\\ \\text{s}$, og avtar deretter jevnt til null ved $t = 13{,}0\\ \\text{s}$.\n\n**a)** Finn akselerasjonen i hver av de tre fasene.\n\n**b)** Hvor langt kjører trikken i alt?\n\n**c)** I hvilket øyeblikk er akselerasjonens tallverdi størst, og hva merker de stående passasjerene da?\n\n**d)** Kan hele bevegelsen beskrives med formelen $x = \\tfrac12 a t^2$? Begrunn.",
+      "solution": "**Metodevalg først:** grafen er stykkevis rett, så akselerasjonen er konstant innenfor hver fase — men *forskjellig* fra fase til fase. Vi leser derfor av stigningstall fasevis, og finner strekningen som arealet under grafen.\n\n**a)** Stigningstall i $v(t)$:\n\n$$a_1 = \\frac{12{,}0 - 0}{4{,}0 - 0} = 3{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2} \\quad (\\text{i kjøreretningen})$$\n$$a_2 = 0 \\quad (\\text{konstant fart})$$\n$$a_3 = \\frac{0 - 12{,}0}{13{,}0 - 10{,}0} = -4{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2} \\quad (\\text{mot kjøreretningen})$$\n\n**b)** Arealet under grafen, stykke for stykke:\n\n$$\\text{trekant} = \\tfrac12 \\cdot 4{,}0 \\cdot 12{,}0 = 24{,}0\\ \\text{m}$$\n$$\\text{rektangel} = 6{,}0 \\cdot 12{,}0 = 72{,}0\\ \\text{m}$$\n$$\\text{trekant} = \\tfrac12 \\cdot 3{,}0 \\cdot 12{,}0 = 18{,}0\\ \\text{m}$$\n\nTil sammen $114\\ \\text{m}$. Siden farten aldri er negativ, er forflytning og veistrekning her den samme.\n\n**c)** Størst tallverdi har akselerasjonen i siste fase, $4{,}0\\ \\text{m/s}^2$ rettet **bakover** i forhold til kjøreretningen. Passasjerene kastes framover — kroppen fortsetter med den farten den hadde, mens trikken bremser under føttene deres. Det er også her de fleste holder seg fast.\n\n**d)** Nei. $x = \\tfrac12 a t^2$ forutsetter at akselerasjonen er den **samme** hele tiden og at $v_0 = 0$. Her endrer $a$ seg to ganger. Formelen er riktig for den første fasen ($0 \\le t \\le 4{,}0\\ \\text{s}$), men brukt på hele intervallet gir den galt svar. Vil du regne uten graf, må du dele opp i tre faser og bruke sluttilstanden i den ene som starttilstand i den neste."
+    },
+    {
+      "id": "fys1100-2-1-fig-vt-oppgave",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-2-1-vt-oppgave.svg",
+      "alt": "Fart-tid-graf for en tralle: farten stiger rett fra null til 6 meter per sekund i lopet av de forste tre sekundene, holder seg konstant pa 6 meter per sekund fram til 5 sekunder, og faller deretter rett til minus 3 meter per sekund ved 8 sekunder, med nullkryssing ved 7 sekunder.",
+      "caption": "Grafen til oppgave 5. Legg merke til at kurven krysser $t$-aksen ved $t = 7{,}0\\ \\text{s}$: der snur trallen, og arealet etter det punktet skal trekkes fra når du regner forflytning."
+    },
+    {
+      "id": "fys1100-2-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk fart–tid-grafen over. Den viser en tralle som beveger seg langs en rett skinne; positiv fart betyr mot høyre.\n\n**a)** Finn akselerasjonen i hver av de tre fasene.\n\n**b)** Når snur trallen?\n\n**c)** Finn forflytningen fra $t = 0$ til $t = 8{,}0\\ \\text{s}$.\n\n**d)** Finn veistrekningen i samme tidsrom, og forklar hvorfor de to svarene er forskjellige.",
+        "solution": "**Metodevalg:** grafen er stykkevis rett, så akselerasjonen leses av som stigningstall fase for fase, og forflytningen som areal med fortegn.\n\n**a)** \n\n$$a_1 = \\frac{6{,}0 - 0}{3{,}0} = 2{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2}, \\qquad a_2 = 0, \\qquad a_3 = \\frac{-3{,}0 - 6{,}0}{8{,}0 - 5{,}0} = -3{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nDe to første er rettet mot høyre (positiv retning), den siste mot venstre.\n\n**b)** Trallen snur der farten skifter fortegn. I siste fase faller farten fra $6{,}0$ med $3{,}0\\ \\text{m/s}$ per sekund, så den er null $2{,}0\\ \\text{s}$ etter $t = 5{,}0\\ \\text{s}$, altså ved $t = 7{,}0\\ \\text{s}$.\n\n**c)** Areal med fortegn:\n\n$$\\tfrac12 \\cdot 3{,}0 \\cdot 6{,}0 + 2{,}0 \\cdot 6{,}0 + \\tfrac12 \\cdot 2{,}0 \\cdot 6{,}0 - \\tfrac12 \\cdot 1{,}0 \\cdot 3{,}0 = 9{,}0 + 12{,}0 + 6{,}0 - 1{,}5 = 25{,}5\\ \\text{m}$$\n\nForflytningen er $25{,}5\\ \\text{m}$ mot høyre.\n\n**d)** Veistrekningen teller alle arealene positivt: $9{,}0 + 12{,}0 + 6{,}0 + 1{,}5 = 28{,}5\\ \\text{m}$. Forskjellen på $3{,}0\\ \\text{m}$ er de $1{,}5\\ \\text{m}$ trallen trillet tilbake etter at den snudde — de legges til veistrekningen, men trekkes fra forflytningen.",
+        "hints": [
+          "Stigningstall leses fase for fase; se etter knekkene i grafen.",
+          "Del arealet i to trekanter og ett rektangel — og husk at arealet under $t$-aksen er negativt når du regner forflytning."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave — «forklar/begrunn»-typen som det er minst én av i hvert eksamenssett.) Fire påstander om grafer for rettlinjet bevegelse. Avgjør for hver om den beskriver en **mulig** eller en **umulig** bevegelse, og begrunn hver i én til to setninger.\n\n**a)** En $x(t)$-graf som går rett opp (loddrett) i et punkt.\n\n**b)** En $v(t)$-graf som har en skarp knekk.\n\n**c)** En $x(t)$-graf med en skarp knekk.\n\n**d)** En $v(t)$-graf som er positiv mens $a(t)$ er negativ i samme øyeblikk.",
+        "solution": "**a) Umulig.** En loddrett $x(t)$-graf betyr at legemet er to steder samtidig, eller at det flytter seg en endelig strekning på null tid. Det ville krevd uendelig fart.\n\n**b) Mulig.** En knekk i $v(t)$ betyr at akselerasjonen skifter verdi brått. Det svarer til at en kraft slås av eller på — bremsene griper, motoren kuttes. Akselerasjonen får da et sprang, men holder seg endelig. Nettopp dette skjer to steder i figuren tidligere i kapitlet.\n\n**c) Umulig i praksis.** En knekk i $x(t)$ betyr at farten hopper fra én verdi til en annen på null tid, altså uendelig akselerasjon — og dermed uendelig kraft. I idealiserte støtmodeller tegnes den knekken likevel av og til, som en kortvarig kraft «komprimert» til et øyeblikk; da er den en modell, ikke en fysisk bevegelse.\n\n**d) Mulig.** Dette er den vanligste situasjonen av alle: legemet beveger seg framover og bremser. Fartsvektoren peker den ene veien, akselerasjonen den andre. En ball på vei opp etter et kast er akkurat dette.\n\nAt **b** er mulig mens **c** ikke er det, er poenget: én derivasjon tåler en knekk, to gjør det ikke.",
+        "hints": [
+          "Spør for hver graf: hvilken fart eller akselerasjon må dette punktet svare til?",
+          "Husk at en knekk i en graf betyr at den deriverte hopper.",
+          "Bruk at $v$ er stigningstallet i $x(t)$, og at $a$ er stigningstallet i $v(t)$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — når banen krummer (~10 min)\n\nAlt vi har gjort så langt, gjelder bevegelse langs en rett linje. Krummer banen, er det praktisk å splitte akselerasjonen i to retninger som følger banen selv i stedet for faste akser. Denne oppdelingen står på formelarket, og du får bruk for den når vi kommer til sirkelbevegelse."
+    },
+    {
+      "id": "fys1100-2-1-def-baneakselerasjon",
+      "type": "definition",
+      "title": "Baneakselerasjonens to komponenter",
+      "content": "En akselerasjon langs en krum bane kan alltid splittes i én komponent langs banen og én på tvers av den:\n\n$$\\mathbf{a} = \\dot{v}\\,\\hat{\\mathbf{u}}_T + \\frac{v^2}{\\rho}\\,\\hat{\\mathbf{u}}_N$$\n\nHer er $\\hat{\\mathbf{u}}_T$ enhetsvektoren langs banen (tangenten) og $\\hat{\\mathbf{u}}_N$ enhetsvektoren inn mot banens krumningssentrum (normalen). Den første komponenten endrer **farten**, den andre endrer **retningen**. Uttrykket står på formelarket; det du må kunne, er å tolke de to leddene riktig."
+    },
+    {
+      "id": "fys1100-2-1-def-normalakselerasjon",
+      "type": "definition",
+      "title": "Normalakselerasjon og krumningsradius",
+      "content": "Normalkomponenten $a_N = v^2/\\rho$ er akselerasjonen som skyldes at banen krummer. Størrelsen $\\rho$ er **krumningsradien**: radien i den sirkelen som ligger tettest inntil banen i det punktet. En rett bane har $\\rho \\to \\infty$ og dermed $a_N = 0$; en skarp sving har liten $\\rho$ og stor $a_N$. Legg merke til at farten inngår i **andre potens** — dobler du farten gjennom samme sving, firedobles normalakselerasjonen. Enhet: $\\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-2-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bil kjører gjennom en sving med krumningsradius $\\rho = 45\\ \\text{m}$.\n\n**a)** Bilen holder konstant speedometeravlesning $54\\ \\text{km/h}$ gjennom hele svingen. Hva er akselerasjonen — i tallverdi og retning?\n\n**b)** Sjåføren bremser samtidig med $2{,}0\\ \\text{m/s}^2$ langs banen. Hvor stor blir den samlede akselerasjonen i det øyeblikket farten er $54\\ \\text{km/h}$?\n\n**c)** Forklar i én setning hvorfor svaret i a) ikke er null, selv om «farten er konstant».",
+        "solution": "**Metodevalg:** akselerasjonen deles i en tangentiell komponent (endrer farten) og en normalkomponent (endrer retningen). De to står vinkelrett på hverandre, så tallverdien av summen finnes med Pytagoras.\n\n$54\\ \\text{km/h} = 15{,}0\\ \\text{m/s}$.\n\n**a)** Med konstant banefart er $\\dot{v} = 0$, så bare normalkomponenten er igjen:\n\n$$a_N = \\frac{v^2}{\\rho} = \\frac{15{,}0^2}{45} = 5{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nAkselerasjonen er $5{,}0\\ \\text{m/s}^2$ rettet **inn mot svingens sentrum**.\n\n**b)** Nå er $\\dot{v} = -2{,}0\\ \\text{m/s}^2$ langs banen, mens $a_N$ er den samme:\n\n$$|\\mathbf{a}| = \\sqrt{(-2{,}0)^2 + (5{,}0)^2} = \\sqrt{4{,}0 + 25{,}0} = 5{,}39 \\approx 5{,}4\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nRetningen er $\\arctan(2{,}0/5{,}0) = 22^\\circ$ bakover fra innoverretningen.\n\n**c)** Fordi hastigheten er en vektor: selv om tallverdien er uendret, endrer **retningen** seg hele tiden gjennom svingen, og enhver endring av hastighetsvektoren er en akselerasjon.",
+        "hints": [
+          "Del akselerasjonen i to: én komponent langs banen og én inn mot sentrum.",
+          "Komponentene står vinkelrett på hverandre — da gjelder Pytagoras for tallverdien.",
+          "Husk å gjøre om km/h til m/s før du regner."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) En heis i et høyhus starter fra ro i første etasje og skal opp. Bevegelsen har tre faser: den akselererer jevnt opp til $4{,}0\\ \\text{m/s}$ på $2{,}5\\ \\text{s}$, holder deretter denne farten, og bremser til slutt jevnt til null på $2{,}0\\ \\text{s}$. Hele turen tar $18{,}0\\ \\text{s}$.\n\n**a)** Finn akselerasjonen i første og siste fase.\n\n**b)** Hvor langt kjører heisen i alt? Oppgi svaret med to gjeldende siffer.\n\n**c)** Etasjehøyden er $3{,}2\\ \\text{m}$. Hvor mange etasjer kom heisen opp?\n\n**d)** Skisser $a(t)$ for hele turen, og forklar hva en passasjer kjenner ved $t = 2{,}5\\ \\text{s}$ og ved $t = 16{,}0\\ \\text{s}$.",
+        "solution": "**Metodevalg først:** akselerasjonen er konstant *innenfor hver fase*, men ulik mellom fasene. Bevegelseslikningene brukes derfor fase for fase, og totalstrekningen er summen — som også er arealet under $v(t)$-grafen.\n\n**a)** \n\n$$a_1 = \\frac{4{,}0 - 0}{2{,}5} = 1{,}6\\ \\tfrac{\\text{m}}{\\text{s}^2} \\ (\\text{oppover}), \\qquad a_3 = \\frac{0 - 4{,}0}{2{,}0} = -2{,}0\\ \\tfrac{\\text{m}}{\\text{s}^2} \\ (\\text{nedover})$$\n\n**b)** Midtfasen varer $18{,}0 - 2{,}5 - 2{,}0 = 13{,}5\\ \\text{s}$. Strekningene:\n\n$$s_1 = \\tfrac12 \\cdot 1{,}6 \\cdot 2{,}5^2 = 5{,}0\\ \\text{m}, \\qquad s_2 = 4{,}0 \\cdot 13{,}5 = 54{,}0\\ \\text{m}, \\qquad s_3 = \\tfrac12 \\cdot 4{,}0 \\cdot 2{,}0 = 4{,}0\\ \\text{m}$$\n\n(Den siste er trekantarealet under $v(t)$ i bremsefasen.) Til sammen\n\n$$s = 5{,}0 + 54{,}0 + 4{,}0 = 63{,}0\\ \\text{m} \\approx 63\\ \\text{m}$$\n\n**c)** $63{,}0 / 3{,}2 = 19{,}7$, altså rundt 20 etasjer. Modellen tillater ikke større presisjon enn det — heisen stopper selvsagt ved et helt etasjeplan, så en liten justering i en av fasene er å vente i virkeligheten.\n\n**d)** $a(t)$ er en trappefunksjon: $+1{,}6\\ \\text{m/s}^2$ fra $0$ til $2{,}5\\ \\text{s}$, null fra $2{,}5$ til $16{,}0\\ \\text{s}$, og $-2{,}0\\ \\text{m/s}^2$ fra $16{,}0$ til $18{,}0\\ \\text{s}$ (den ligner formmessig på nederste panel i figuren tidligere i kapitlet, men med andre verdier).\n\nVed $t = 2{,}5\\ \\text{s}$ slutter passasjeren å kjenne seg tung: akselerasjonen faller fra $1{,}6\\ \\text{m/s}^2$ til null, og gulvet slutter å presse ekstra. Ved $t = 16{,}0\\ \\text{s}$ skjer det motsatte — akselerasjonen blir negativ, og passasjeren kjenner seg et øyeblikk lettere. Begge steder er farten uendret i selve øyeblikket; det er **endringen** i akselerasjon kroppen registrerer.",
+        "hints": [
+          "Del turen i tre faser og regn hver for seg — akselerasjonen er bare konstant innenfor hver fase.",
+          "Midtfasens varighet finner du ved å trekke de to andre fra totaltiden.",
+          "Strekningen i bremsefasen er et trekantareal under fartsgrafen.",
+          "I d): tenk på hva som skjer med gulvets kraft mot føttene når akselerasjonen skifter."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-2-1-def-kinematikk",
+      "type": "definition",
+      "title": "Kinematikk",
+      "content": "Kinematikk er læren om **hvordan** legemer beveger seg — posisjon, fart og akselerasjon som funksjoner av tiden — uten å spørre hvorfor. Årsakene, altså kreftene, hører til **dynamikken**, som er temaet i delen om Newtons lover. Skillet er nyttig i praksis: en kinematikkoppgave kan løses uten å vite noe som helst om massene eller kreftene."
+    },
+    {
+      "id": "fys1100-2-1-def-referansesystem",
+      "type": "definition",
+      "title": "Referansesystem og positiv retning",
+      "content": "Et referansesystem er valget av origo, akseretninger og klokke som all posisjon og fart måles i forhold til. Ingen fart er «absolutt»: passasjeren i toget har fart null i togets system og $200\\ \\text{km/h}$ i skinnegangens. Praktisk regel for besvarelsen: skriv i én linje hvor origo ligger og hvilken vei som er positiv, **før** du regner. Uten det er ikke fortegnene i svaret til å tolke, og sensor må gjette."
+    },
+    {
+      "id": "fys1100-2-1-def-rettlinjet",
+      "type": "definition",
+      "title": "Rettlinjet bevegelse",
+      "content": "Bevegelse langs en rett linje. Da peker alle vektorene langs samme akse, og du kan erstatte vektorene med fortegnsbestemte komponenter: $x$, $v$ og $a$ i stedet for $\\mathbf{r}$, $\\mathbf{v}$ og $\\mathbf{a}$. Det er denne forenklingen som gjør at bevegelseslikningene for konstant akselerasjon kan skrives uten fet skrift. Så snart banen krummer, må du tilbake til vektorformen eller dele bevegelsen i komponenter."
+    },
+    {
+      "id": "fys1100-2-1-def-gjennomsnittsakselerasjon",
+      "type": "definition",
+      "title": "Gjennomsnittsakselerasjon",
+      "content": "Endringen i hastighet delt på tiden det tok:\n\n$$\\mathbf{a}_{\\text{gj}} = \\frac{\\Delta \\mathbf{v}}{\\Delta t} = \\frac{\\mathbf{v}(t_2) - \\mathbf{v}(t_1)}{t_2 - t_1}$$\n\nEr akselerasjonen konstant, faller gjennomsnittsakselerasjonen sammen med den momentane. Varierer den, er gjennomsnittet bare et sammendrag — og da kan du ikke bruke bevegelseslikningene for konstant akselerasjon på intervallet, selv om du kjenner gjennomsnittet."
+    },
+    {
+      "id": "fys1100-2-1-def-middelverdi",
+      "type": "definition",
+      "title": "Middelverdiformelen for konstant akselerasjon",
+      "content": "Når akselerasjonen er konstant, vokser farten lineært, og gjennomsnittsfarten blir rett og slett middelverdien av start- og sluttfart:\n\n$$v_{\\text{gj}} = \\frac{v_0 + v}{2} \\qquad \\Rightarrow \\qquad \\Delta x = \\frac{v_0 + v}{2}\\,t$$\n\nDette er ikke en ny formel, bare bevegelseslikningene skrevet om, men den er ofte den raskeste veien når du kjenner begge fartene og tiden. **Betingelsen er avgjørende:** midling på denne måten er bare gyldig for konstant akselerasjon."
+    },
+    {
+      "id": "fys1100-2-1-def-initialbetingelser",
+      "type": "definition",
+      "title": "Initialbetingelser",
+      "content": "Verdiene av posisjon og fart ved starttidspunktet, $x_0$ og $v_0$. Integrasjon gir alltid en ukjent konstant, og initialbetingelsene er det som fastsetter dem — uten dem er bevegelsen ikke bestemt. I den numeriske delen av faget dukker de opp igjen som de to første linjene i koden (`x[0] = ...` og `v[0] = ...`), og de gir egne poeng der. Å skrive ned initialbetingelsene eksplisitt er derfor en vane som lønner seg tidlig."
+    },
+    {
+      "id": "fys1100-2-1-def-vendepunkt",
+      "type": "definition",
+      "title": "Vendepunkt i bevegelsen",
+      "content": "Et øyeblikk der hastigheten er null og skifter fortegn — legemet snur. I $x(t)$-grafen er dette et topp- eller bunnpunkt (vannrett tangent), i $v(t)$-grafen et nullkryss. Å finne vendepunktet er nesten alltid første skritt når en oppgave spør «hvor langt kom legemet?», fordi veistrekning og forflytning skiller lag akkurat der. Merk at akselerasjonen som regel **ikke** er null i vendepunktet."
+    },
+    {
+      "id": "fys1100-2-1-def-frittfall",
+      "type": "definition",
+      "title": "Fritt fall",
+      "content": "Bevegelse der tyngden er den eneste kraften som virker. Da er akselerasjonen $g = 9{,}81\\ \\text{m/s}^2$ rettet nedover, **uavhengig av massen**, og bevegelseslikningene for konstant akselerasjon gjelder. Modellen krever at luftmotstanden kan neglisjeres; for en fjær, et papirark eller et fallskjermhopp er den ubrukelig, og da må luftmotstanden med i regnskapet (den behandles senere i boka, i delene om kraftmodeller og numerisk modellering)."
+    },
+    {
+      "id": "fys1100-2-1-def-banefart",
+      "type": "definition",
+      "title": "Banefart",
+      "content": "Tallverdien av hastigheten, $|\\mathbf{v}|$ — det speedometeret viser. Banefarten er en skalar og aldri negativ, mens hastighetskomponenten $v$ langs en akse gjerne er det. En bil med $v = -20\\ \\text{m/s}$ langs $x$-aksen har banefart $20\\ \\text{m/s}$. I krum bane er banefarten også $\\rho \\left|\\dfrac{d\\theta}{dt}\\right|$, altså krumningsradien ganger vinkelfarten."
+    },
+    {
+      "id": "fys1100-2-1-def-stigningstall",
+      "type": "definition",
+      "title": "Stigningstall i en bevegelsesgraf",
+      "content": "Stigningstallet til tangenten forteller hva den deriverte er i det punktet: i en $x(t)$-graf gir det hastigheten, i en $v(t)$-graf gir det akselerasjonen. Å lese av stigningstall er den raskeste veien til svar på en flervalgsoppgave — men bare hvis du husker hvilken graf du ser på. Bland aldri **høyden** i grafen (verdien) med **brattheten** (den deriverte); det er den vanligste graffellen på midtveiseksamen."
+    },
+    {
+      "id": "fys1100-2-1-def-retardasjon",
+      "type": "definition",
+      "title": "Retardasjon",
+      "content": "Dagligtale for at farten minker. Fysisk er det ikke en egen størrelse: retardasjon er ganske enkelt akselerasjon som peker **motsatt vei** av hastigheten. Om tallet $a$ er positivt eller negativt, avhenger bare av hvilken vei du valgte som positiv — derfor er «$a = -3{,}0\\ \\text{m/s}^2$» meningsløst uten at retningsvalget står i besvarelsen. Bremser bilen mens den kjører i positiv retning, er $a < 0$; rygger den og bremser, er $a > 0$ selv om farten minker."
+    },
+    {
+      "id": "fys1100-2-1-def-areal-a",
+      "type": "definition",
+      "title": "Fartsendring som areal under akselerasjonsgrafen",
+      "content": "På samme måte som arealet under $v(t)$ gir forflytningen, gir arealet under $a(t)$ fartsendringen:\n\n$$v(t_2) - v(t_1) = \\int_{t_1}^{t_2} a(t)\\,dt$$\n\nDette er den raskeste veien til sluttfarten når akselerasjonen varierer stykkevis — for eksempel når en motor slås av og på. Areal under tidsaksen (negativ akselerasjon) trekker fra. Samme idé møter du igjen som **impuls** i delen om bevegelsesmengde, der arealet under en kraft–tid-graf gir endringen i bevegelsesmengde."
+    },
+    {
+      "id": "fys1100-2-1-def-benevningskontroll",
+      "type": "definition",
+      "title": "Benevningskontroll",
+      "content": "Sluttsjekken der du setter inn **enheter** i stedet for tall og kontrollerer at venstre og høyre side får samme enhet. Et uttrykk som ikke består benevningskontrollen, er sikkert galt; ett som består den, kan fortsatt være galt, men de fleste algebrafeil røper seg her. Eksempel: i $v^2 = 2a\\Delta x$ har høyre side $(\\text{m/s}^2)(\\text{m}) = \\text{m}^2/\\text{s}^2$, som er nettopp enheten til $v^2$. Kontrollen tar noen sekunder og er gratis poeng — sensor forventer den i utledningsoppgaver."
+    },
+    {
+      "id": "fys1100-2-1-def-punktmasse",
+      "type": "definition",
+      "title": "Punktmasse",
+      "content": "Modellen der hele legemet erstattes av ett eneste punkt med all massen samlet. Den er gyldig så lenge legemets utstrekning og eventuelle rotasjon ikke spiller noen rolle for spørsmålet — en bil på en motorvei kan trygt behandles som et punkt, en bil som velter kan ikke. All kinematikk i dette kapitlet er punktmassekinematikk. Når utstrekningen først betyr noe, trenger vi begrepene massesenter og treghetsmoment, som kommer i delene om bevegelsesmengde og rotasjon."
+    },
+    {
+      "id": "fys1100-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-2-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\mathbf{r}$, $x$, $y$ | posisjonsvektor og komponentene langs aksene | $\\text{m}$ |\n| $\\Delta \\mathbf{r}$ | forflytning (endring i posisjon) | $\\text{m}$ |\n| $s$ | veistrekning (tilbakelagt vei) | $\\text{m}$ |\n| $\\mathbf{v}$, $v$ | hastighet (vektor) og fartskomponent langs en akse | $\\text{m/s}$ |\n| $\\lvert\\mathbf{v}\\rvert$ | banefart — tallverdien av hastigheten | $\\text{m/s}$ |\n| $v_0$, $x_0$ | fart og posisjon ved $t = 0$ (initialbetingelser) | $\\text{m/s}$, $\\text{m}$ |\n| $\\mathbf{a}$, $a$ | akselerasjon (vektor) og komponent langs en akse | $\\text{m/s}^2$ |\n| $\\dot v$ | tangentiell akselerasjon — endring av farten langs banen | $\\text{m/s}^2$ |\n| $a_N$ | normalakselerasjon — endring av retningen | $\\text{m/s}^2$ |\n| $\\hat{\\mathbf{u}}_T$, $\\hat{\\mathbf{u}}_N$ | enhetsvektorer langs og på tvers av banen | — |\n| $\\rho$ | krumningsradius | $\\text{m}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $t$, $\\Delta t$ | tid og tidsintervall | $\\text{s}$ |\n\n**Symbolkollisjoner å være obs på:** $\\mathbf{r}$ (posisjonsvektor) er ikke det samme som $\\rho$ (krumningsradius) eller $r$ (avstand fra et sentrum), som dukker opp i delen om sirkelbevegelse. Og prikken i $\\dot v$ betyr derivasjon med hensyn på **tiden** — den brukes bare om tidsderiverte i denne boka.\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{v} = \\frac{d\\mathbf{r}}{dt}, \\qquad \\mathbf{a} = \\frac{d\\mathbf{v}}{dt} = \\frac{d^2\\mathbf{r}}{dt^2}$$\n\nDefinisjonene av hastighet og akselerasjon. **[formelarket]** — men de er så grunnleggende at de bør sitte uansett.\n\n$$x(t_2) - x(t_1) = \\int_{t_1}^{t_2} v\\,dt$$\n\nForflytning som areal under fartsgrafen. **[må kunne utledes]** — den er analysens fundamentalsetning brukt på bevegelse.\n\n$$v = v_0 + at, \\qquad x = x_0 + v_0 t + \\tfrac12 a t^2, \\qquad v^2 - v_0^2 = 2a(x - x_0)$$\n\nBevegelseslikningene for **konstant** akselerasjon. **[formelarket]** — du skal ikke pugge dem, men du må kunne begrunne at betingelsen er oppfylt, og du bør kunne utlede dem ved integrasjon.\n\n$$v_{\\text{gj}} = \\frac{v_0 + v}{2}$$\n\nMiddelverdiformelen, gyldig kun ved konstant akselerasjon. **[må kunne utledes]** — den følger direkte av de to første bevegelseslikningene.\n\n$$\\mathbf{a} = \\dot{v}\\,\\hat{\\mathbf{u}}_T + \\frac{v^2}{\\rho}\\,\\hat{\\mathbf{u}}_N$$\n\nBaneakselerasjonen splittet i tangentiell og normal komponent. **[formelarket]** — den skal tolkes, ikke pugges, og den brukes for alvor i delen om sirkelbevegelse."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-2-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-2-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra matematikken.) Deriver $f(t) = 5t^3 - 2t + 7$ med hensyn på $t$, og forklar i én setning hva den deriverte forteller hvis $f$ var en posisjon målt i meter.",
+            "solution": "$f'(t) = 15t^2 - 2$. Var $f$ en posisjon i meter, ville $f'$ vært hastigheten i $\\text{m/s}$: den momentane endringen i posisjon per sekund, altså stigningstallet til tangenten i $f(t)$-grafen.",
+            "hints": [
+              "Deriver ledd for ledd; konstantleddet forsvinner."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra matematikken.) Regn ut $\\displaystyle\\int_0^{3} (4 - 2t)\\,dt$, og tegn for deg selv hvilket areal svaret svarer til.",
+            "solution": "$$\\int_0^3 (4-2t)\\,dt = \\left[4t - t^2\\right]_0^3 = 12 - 9 = 3$$\n\nGrafen til $4 - 2t$ krysser $t$-aksen ved $t = 2$. Fra $0$ til $2$ ligger arealet over aksen ($+4$), fra $2$ til $3$ under aksen ($-1$). Netto $3$ — nøyaktig slik forflytning regnes når farten skifter fortegn.",
+            "hints": [
+              "Finn først den antideriverte, og sett så inn grensene.",
+              "Legg merke til hvor uttrykket skifter fortegn."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-1-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Enhetsregning.) Gjør om $72\\ \\text{km/h}$ til $\\text{m/s}$, og $15\\ \\text{m/s}$ til $\\text{km/h}$.",
+            "solution": "$72\\ \\text{km/h} = 72/3{,}6 = 20{,}0\\ \\text{m/s}$, og $15\\ \\text{m/s} = 15 \\cdot 3{,}6 = 54\\ \\text{km/h}$. Faktoren $3{,}6$ kommer av at $1\\ \\text{km/h} = 1000\\ \\text{m} / 3600\\ \\text{s}$.",
+            "hints": [
+              "Del på 3,6 den ene veien, gang med 3,6 den andre."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-1-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Vektorkomponenter.) En hastighetsvektor har komponentene $v_x = 6{,}0\\ \\text{m/s}$ og $v_y = -8{,}0\\ \\text{m/s}$. Finn banefarten og retningen.",
+            "solution": "$$|\\mathbf{v}| = \\sqrt{6{,}0^2 + (-8{,}0)^2} = \\sqrt{36 + 64} = 10{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nRetningen: $\\arctan\\!\\left(\\dfrac{8{,}0}{6{,}0}\\right) = 53^\\circ$ **under** den positive $x$-aksen, siden $v_y$ er negativ. Å oppgi bare tallverdien $10{,}0\\ \\text{m/s}$ ville vært et halvt svar — retningen hører med.",
+            "hints": [
+              "Pytagoras gir tallverdien; arctan gir vinkelen.",
+              "Se på fortegnene til komponentene for å plassere vinkelen riktig."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-1-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-1-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Benevningskontroll.) En medstudent har kommet fram til uttrykket $v = \\sqrt{2 a t}$ for sluttfarten etter fritt fall fra ro. Bruk benevningskontroll til å vise at uttrykket ikke kan stemme, og finn det riktige.",
+            "solution": "Høyre side har enhet $\\sqrt{(\\text{m/s}^2)(\\text{s})} = \\sqrt{\\text{m/s}} $, mens venstre side har $\\text{m/s}$. Enhetene stemmer ikke, så uttrykket kan ikke være riktig — uansett hvor regningen gikk galt.\n\nRiktig sammenheng ved fall fra ro over strekningen $h$ er $v = \\sqrt{2gh}$, som har enhet $\\sqrt{(\\text{m/s}^2)(\\text{m})} = \\text{m/s}$. Skal svaret uttrykkes med tid i stedet, er det $v = gt$. Benevningskontroll er en gratis sluttsjekk som fanger opp overraskende mange feil, og den tar fem sekunder.",
+            "hints": [
+              "Sett inn enhetene i stedet for symbolene og se om de to sidene får samme enhet.",
+              "Husk at et kvadratrottegn også virker på enhetene."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

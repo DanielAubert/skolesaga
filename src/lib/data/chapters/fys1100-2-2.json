@@ -1,0 +1,462 @@
+{
+  "id": "fys1100-2-2",
+  "courseId": "fys1100",
+  "chapterNumber": "2.2",
+  "title": "Skrått kast og 2D-kinematikk (sjanger A)",
+  "description": "Dekomponér i uavhengige x- og y-bevegelser, bruk symmetri om toppunktet, finn g, v₀ og θ — settets faste kast-oppgave.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne dele et kast i uavhengige vannrette og loddrette bevegelser og bruke tiden som bro mellom dem",
+    "kunne utlede og bruke flytid, rekkevidde og topphøyde, og vite når symmetriformlene gjelder",
+    "kunne bestemme tyngdeakselerasjon, startfart og utskytingsvinkel fra måledata",
+    "kunne oppgi fart ved nedslag med både tallverdi og retning"
+  ],
+  "content": [
+    {
+      "id": "fys1100-2-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kastoppgaven er en av de mest forutsigbare på hele eksamen.** I sjangerkatalogen i bokas Del 0 heter den **sjanger A — skrått kast og bevegelse i to dimensjoner**, og den dukker opp i **3–4 av 7 sett (~50 %)**. Innpakningen varierer (en pakke som slippes fra et luftfartøy, et golfslag, et kast på en fremmed planet), men fysikken er alltid den samme: to uavhengige bevegelser, én i hver retning.\n\nSlik pleier poengene å ligge:\n\n- **Flest poeng på fartsdelen.** Å finne $v_0$ eller farten ved nedslag krever begge komponentene. Regner du bare ut den ene, mister du typisk 2 poeng (dette er **felle #9 — manglende retning eller manglende komponent på en vektorstørrelse**; feilene har et samlet register i bokas Del 0).\n- **Færre, men sikre poeng på vinkeldelen.** $\\theta = \\arctan(v_{0y}/v_{0x})$ er én linje, og den linja er verdt å ta med selv om du står fast lenger ned. Alle deloppgaver teller likt, med inntil 5 poeng hver, så bredde lønner seg.\n- **Retningen er en del av svaret.** «$33\\ \\text{m/s}$» er ikke et fullstendig svar på hva farten ved nedslag er; «$33\\ \\text{m/s}$, rettet $63^\\circ$ under vannrett» er det.\n\nKapitlet er både teori og drill: første halvdel bygger metoden, siste halvdel kjører den gjennom eksamensvariantene. **Prioritet:** dette bør sitte — og når oppgaven kommer, er den en trygg poenghøster."
+    },
+    {
+      "id": "fys1100-2-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger rett på [kap. 2.1](/bok/fys1100/fys1100-2-1). Det du trenger derfra, i ferdig oppfrisket form:\n\n**Bevegelseslikningene for konstant akselerasjon** (de står også på formelarket du får utdelt):\n\n$$v = v_0 + at, \\qquad x = x_0 + v_0t + \\tfrac12 at^2, \\qquad v^2 - v_0^2 = 2a(x-x_0)$$\n\nder $x_0$ og $v_0$ er posisjon og fart ved $t = 0$. **Gyldighetsbetingelsen er at $a$ er konstant** — og i et kast uten luftmotstand er den nettopp det, i begge retninger.\n\n**Akselerasjonen er den deriverte av hastigheten**, $\\mathbf{a} = d\\mathbf{v}/dt$, og hastigheten den deriverte av posisjonen. Det er derfor vi kan bruke likningene over på hver akse for seg.\n\nFra matematikken trenger du **komponentoppdeling med sinus og cosinus**: en vektor $\\mathbf{v}_0$ med tallverdi $v_0$ og vinkel $\\theta$ over vannrett har komponentene $v_{0x} = v_0\\cos\\theta$ og $v_{0y} = v_0\\sin\\theta$. Repetisjon: [Trigonometriske funksjoner og enhetssirkelen](/bok/r1/r1-7-1) og [Parameterframstilling av kurver](/bok/r2/r2-6-1).\n\nHar du hatt Fysikk 2 på videregående, har du sett det meste av dette: [Bevegelse i to dimensjoner](/bok/fysikk2/fysikk2-1-2) og [Kastering - horisontal og skrå](/bok/fysikk2/fysikk2-1-3). Her er kravet strengere på ett punkt: **retning skal alltid oppgis**, og begrunnelsen skal stå skrevet."
+    },
+    {
+      "id": "fys1100-2-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — to bevegelser i én (~20 min)\n\nEn drone flyr rett fram i konstant høyde og slipper en pakke. Hva skjer med pakken?\n\nDet overraskende svaret er: **ingenting horisontalt**. Pakken beholder dronens framoverfart hele veien ned, og lander rett under dronen — forutsatt at dronen fortsetter uendret. Samtidig faller den nøyaktig som om den hadde blitt sluppet fra ro fra samme høyde. De to bevegelsene bryr seg ikke om hverandre.\n\nDet er dette som er hele kastfysikken, og grunnen er enkel: tyngden peker **rett ned**. Den har ingen horisontal komponent, og kan derfor ikke endre den horisontale farten."
+    },
+    {
+      "id": "fys1100-2-2-def-dekomponering",
+      "type": "definition",
+      "title": "Dekomponering av en vektor",
+      "content": "Å dekomponere en vektor betyr å skrive den som summen av to vektorer langs hver sin akse. For en startfart med tallverdi $v_0$ og vinkel $\\theta$ over vannrett:\n\n$$v_{0x} = v_0\\cos\\theta, \\qquad v_{0y} = v_0\\sin\\theta$$\n\nVeien tilbake går med Pytagoras og arctangens: $v_0 = \\sqrt{v_{0x}^2 + v_{0y}^2}$ og $\\theta = \\arctan(v_{0y}/v_{0x})$. Huskeregelen «cosinus til den vinkelen ligger inntil» er tryggere enn å pugge hvilken som er hvilken: $\\theta$ måles fra $x$-aksen, så $x$-komponenten får cosinus. Tegn alltid vinkelen inn i en figur før du velger."
+    },
+    {
+      "id": "fys1100-2-2-def-uavhengighet",
+      "type": "definition",
+      "title": "Uavhengighetsprinsippet",
+      "content": "Bevegelsen langs $x$-aksen og bevegelsen langs $y$-aksen kan behandles hver for seg, som to separate én-dimensjonale problemer, og de er koblet sammen bare gjennom **tiden**. Grunnen er at Newtons 2. lov gjelder komponentvis: en kraft langs $y$ endrer bare $v_y$.\n\nI et kast uten luftmotstand betyr dette at $a_x = 0$ og $a_y = -g$. Den horisontale farten er derfor konstant hele veien, mens den vertikale endres jevnt. **Tiden er broen mellom de to** — finner du flytiden fra $y$-bevegelsen, setter du den inn i $x$-bevegelsen for å få rekkevidden."
+    },
+    {
+      "id": "fys1100-2-2-th-kastlikninger",
+      "type": "theorem",
+      "title": "Bevegelseslikningene for et kast",
+      "content": "Med origo i utskytingspunktet, $x$-aksen vannrett i kastretningen og $y$-aksen oppover, er akselerasjonen $a_x = 0$ og $a_y = -g$. Bevegelseslikningene for konstant akselerasjon gir da, komponent for komponent:\n\n$$x(t) = v_0\\cos\\theta \\cdot t, \\qquad \\qquad v_x(t) = v_0\\cos\\theta$$\n$$y(t) = v_0\\sin\\theta \\cdot t - \\tfrac12 g t^2, \\qquad v_y(t) = v_0\\sin\\theta - g t$$\n\nFire likninger, og du trenger sjelden mer enn to av dem samtidig. Legg merke til at $v_x$ ikke inneholder $t$ i det hele tatt: den horisontale farten er den samme ved utskyting, i toppen og ved nedslag.\n\n**Modellens gyldighet:** likningene forutsetter at tyngden er den eneste kraften. Med luftmotstand er $a_x$ ikke lenger null, banen blir ikke en parabel, og problemet har ingen enkel formelløsning — da må det regnes numerisk, slik boka gjør i delen om numerisk modellering med Python."
+    },
+    {
+      "id": "fys1100-2-2-fig-bane",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-2-2-banekurve.svg",
+      "alt": "Banekurven for et skratt kast der startfarten 24 meter per sekund er dekomponert i en vannrett komponent pa 19,7 meter per sekund og en loddrett komponent pa 13,8 meter per sekund ved 35 graders utskytingsvinkel. I toppunktet 9,7 meter over bakken er hastigheten vannrett, og ved nedslag 55 meter fra utskytingspunktet peker hastighetsvektoren skratt nedover med samme tallverdi som ved start.",
+      "caption": "Kastet fra eksempel 3, tegnet ut. Den vannrette komponenten $v_x = 19{,}7\\ \\text{m/s}$ er den samme i alle tre punktene — bare den loddrette endres, fra $+13{,}8\\ \\text{m/s}$ ved start, via null i toppen, til $-13{,}8\\ \\text{m/s}$ ved nedslag."
+    },
+    {
+      "id": "fys1100-2-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Pakkelevering fra drone (horisontalt kast)",
+      "problem": "En drone flyr vannrett med farten $15{,}0\\ \\text{m/s}$ i høyden $45{,}0\\ \\text{m}$ og slipper en pakke. Se bort fra luftmotstand.\n\n**a)** Hvor lang tid bruker pakken ned?\n\n**b)** Hvor langt fra utslippspunktet, målt vannrett, lander pakken?\n\n**c)** Hvor stor er farten idet pakken treffer bakken? Oppgi retning.\n\n**d)** Hvor er dronen i det øyeblikket pakken lander, dersom den fortsetter uendret?",
+      "solution": "**Metodevalg først:** tyngden er den eneste kraften, så akselerasjonen er konstant ($a_x = 0$, $a_y = -g$) og bevegelseslikningene for konstant akselerasjon gjelder i hver retning for seg. Origo legges i utslippspunktet, $x$ i flyretningen, $y$ oppover. Startbetingelsene er $v_{0x} = 15{,}0\\ \\text{m/s}$ og $v_{0y} = 0$ — pakken slippes, den kastes ikke.\n\n**a)** Falltiden bestemmes utelukkende av $y$-bevegelsen:\n\n$$-45{,}0 = -\\tfrac12 g t^2 \\quad \\Rightarrow \\quad t = \\sqrt{\\frac{2 \\cdot 45{,}0}{9{,}81}} = 3{,}03\\ \\text{s}$$\n\nMerk at $v_{0x}$ ikke er med i regnestykket i det hele tatt. En pakke sluppet fra en stillestående drone i samme høyde ville brukt nøyaktig like lang tid.\n\n**b)** Nå bruker vi tiden som bro over til $x$-bevegelsen:\n\n$$x = v_{0x}\\,t = 15{,}0 \\cdot 3{,}03 = 45{,}4\\ \\text{m} \\approx 45\\ \\text{m}$$\n\n**c)** Begge komponentene trengs:\n\n$$v_x = 15{,}0\\ \\tfrac{\\text{m}}{\\text{s}} \\ (\\text{uendret}), \\qquad v_y = -g t = -9{,}81 \\cdot 3{,}03 = -29{,}7\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$v = \\sqrt{15{,}0^2 + 29{,}7^2} = 33{,}3\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nRetningen: $\\arctan(29{,}7/15{,}0) = 63{,}2^\\circ$ **under** vannrett, altså skrått framover og ned. Svaret er $33{,}3\\ \\text{m/s}$ rettet $63^\\circ$ under vannrett — tallverdien alene ville vært et halvt svar.\n\n**d)** Dronen har fløyet $15{,}0 \\cdot 3{,}03 = 45{,}4\\ \\text{m}$ i samme tidsrom, altså nøyaktig like langt som pakken. Dronen er derfor rett over pakken i nedslagsøyeblikket. Dette er uavhengighetsprinsippet i klartekst: ingenting horisontalt endret seg for pakken da den forlot dronen."
+    },
+    {
+      "id": "fys1100-2-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med egne ord, i to–tre setninger hver:\n\n**a)** hvorfor den vannrette farten i et kast uten luftmotstand er den samme hele veien,\n\n**b)** hvorfor en pakke som slippes fra en drone i vannrett flukt, lander rett under dronen.",
+        "solution": "**a)** Tyngden er den eneste kraften, og den peker rett nedover. Den har derfor ingen komponent langs den vannrette aksen, og siden det er kraften som endrer farten, er det ingenting som kan endre $v_x$. Formelt: $a_x = 0$ gir $v_x = v_{0x}$ for alle $t$.\n\n**b)** Pakken beholder dronens vannrette fart i det øyeblikket den slippes, og den farten forblir uendret hele veien ned. Dronen flyr med den samme vannrette farten. Begge tilbakelegger derfor nøyaktig like lang vannrett strekning i samme tidsrom, og pakken lander rett under dronen — forutsatt at dronen ikke endrer fart eller retning underveis.",
+        "hints": [
+          "Spør hvilken retning tyngden peker, og hvilken fartskomponent den derfor kan endre.",
+          "Skriv opp $a_x$ og se hva likningen $v_x = v_{0x} + a_x t$ da gir."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En stein kastes vannrett ut fra en klippe med farten $8{,}0\\ \\text{m/s}$. Klippen er $20{,}0\\ \\text{m}$ høy. Se bort fra luftmotstand.\n\n**a)** Hvor lang tid bruker steinen ned?\n\n**b)** Hvor langt fra klippefoten treffer den?\n\n**c)** Finn farten ved nedslag, med retning.",
+        "solution": "**Metodevalg:** kast uten luftmotstand gir konstant akselerasjon i hver retning ($a_x = 0$, $a_y = -g$). Origo i utkastpunktet, $y$ oppover, $v_{0y} = 0$.\n\n**a)** $$t = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2 \\cdot 20{,}0}{9{,}81}} = 2{,}02\\ \\text{s}$$\n\n**b)** $$x = v_{0x} t = 8{,}0 \\cdot 2{,}02 = 16{,}2\\ \\text{m} \\approx 16\\ \\text{m}$$\n\n**c)** $v_x = 8{,}0\\ \\text{m/s}$ (uendret) og $v_y = -9{,}81 \\cdot 2{,}02 = -19{,}8\\ \\text{m/s}$, som gir\n\n$$v = \\sqrt{8{,}0^2 + 19{,}8^2} = 21{,}4\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nrettet $\\arctan(19{,}8/8{,}0) = 68^\\circ$ under vannrett.\n\n**Kontroll:** den vannrette farten er fortsatt nøyaktig $8{,}0\\ \\text{m/s}$. Får du et annet tall der, har du blandet inn tyngden i $x$-retningen — en feil som koster poeng også når resten av regningen er riktig.",
+        "hints": [
+          "Falltiden avgjøres av $y$-bevegelsen alene: $h = \\tfrac12 g t^2$.",
+          "Bruk tiden som bro til $x$-bevegelsen.",
+          "Nedslagsfarten krever begge komponentene — og en retning."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — symmetri, flytid og rekkevidde (~20 min)\n\nKastes noe skrått oppover fra bakken og lander på samme høyde, er banen **symmetrisk om toppunktet**. Det er ikke en tilfeldighet, men en direkte følge av at $v_y$ endrer seg lineært med tiden: den bruker like lang tid på å gå fra $+v_{0y}$ til $0$ som fra $0$ til $-v_{0y}$.\n\nSymmetrien er verdt å utnytte, for den halverer regnearbeidet — men den gjelder **bare** når start- og sluttpunktet ligger i samme høyde."
+    },
+    {
+      "id": "fys1100-2-2-def-toppunkt",
+      "type": "definition",
+      "title": "Toppunktet i et kast",
+      "content": "Punktet der banen er høyest. Der er den vertikale fartskomponenten null:\n\n$$v_y = v_0\\sin\\theta - g t = 0 \\quad \\Rightarrow \\quad t_{\\text{topp}} = \\frac{v_0\\sin\\theta}{g}$$\n\nHastigheten er **ikke** null i toppunktet — den vannrette komponenten $v_x$ er uendret, så legemet farer forbi toppen med farten $v_0\\cos\\theta$ vannrett. Toppunktshøyden blir $h = (v_0\\sin\\theta)^2/(2g)$. Å sette hele hastigheten lik null i toppen er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "fys1100-2-2-utledning-flytid",
+      "type": "text",
+      "content": "### Utledningen sensor kan be om\n\nFlytid og rekkevidde står *ikke* nødvendigvis ferdig på formelarket i den formen du trenger dem, og de er uansett raskest å utlede. Utledningen er tre linjer, og den bør sitte i fingrene.\n\n**Steg 1 — flytiden.** Kastet lander der $y = 0$ igjen:\n\n$$0 = v_0\\sin\\theta \\cdot t - \\tfrac12 g t^2 = t\\left(v_0\\sin\\theta - \\tfrac12 g t\\right)$$\n\nDen ene løsningen, $t = 0$, er utskytingsøyeblikket. Den andre er flytiden:\n\n$$t_1 = \\frac{2 v_0 \\sin\\theta}{g}$$\n\n*Intuisjon:* dette er nøyaktig dobbelt så lenge som veien opp til toppunktet — symmetrien, skrevet som formel.\n\n**Steg 2 — rekkevidden.** Sett flytiden inn i $x$-likningen:\n\n$$x_1 = v_0\\cos\\theta \\cdot \\frac{2v_0\\sin\\theta}{g} = \\frac{2v_0^2 \\sin\\theta\\cos\\theta}{g}$$\n\n*Intuisjon:* «vannrett fart ganger flytid» — ikke noe mer.\n\n**Steg 3 — forenkling.** Med identiteten $2\\sin\\theta\\cos\\theta = \\sin 2\\theta$:\n\n$$x_1 = \\frac{v_0^2 \\sin 2\\theta}{g}$$\n\n*Intuisjon:* nå ser du med én gang at rekkevidden er størst når $\\sin 2\\theta = 1$, altså ved $\\theta = 45^\\circ$ — og at $\\theta$ og $90^\\circ - \\theta$ gir nøyaktig samme rekkevidde, siden $\\sin 2\\theta = \\sin(180^\\circ - 2\\theta)$.\n\n**Merk gyldigheten:** begge uttrykkene forutsetter at nedslaget skjer i **samme høyde** som utskytingen. Kastes ballen fra et stup eller ned i et hull, må du løse annengradslikningen for $y(t) = -h$ i stedet."
+    },
+    {
+      "id": "fys1100-2-2-def-flytid",
+      "type": "definition",
+      "title": "Flytid og rekkevidde",
+      "content": "For et kast som lander i samme høyde som det ble skutt ut fra:\n\n$$t_1 = \\frac{2v_0\\sin\\theta}{g}, \\qquad x_1 = \\frac{v_0^2 \\sin 2\\theta}{g}$$\n\nFlytiden avhenger bare av den **vertikale** startkomponenten, rekkevidden av begge. Uttrykkene er blant dem du bør kunne utlede raskt — de er kortere å utlede enn å lete etter. **Betingelsen «samme høyde» er avgjørende**: for kast fra en høyde $h$ gjelder de ikke, og da må landingstidspunktet finnes fra annengradslikningen $-h = v_0\\sin\\theta\\,t - \\tfrac12 g t^2$."
+    },
+    {
+      "id": "fys1100-2-2-def-optimal-vinkel",
+      "type": "definition",
+      "title": "Optimal utskytingsvinkel og komplementære vinkler",
+      "content": "Siden $x_1 = v_0^2\\sin 2\\theta / g$, er rekkevidden størst når $2\\theta = 90^\\circ$, altså ved $\\theta = 45^\\circ$ — gitt samme utskytings- og nedslagshøyde og ingen luftmotstand.\n\nTo vinkler som summerer til $90^\\circ$ (for eksempel $30^\\circ$ og $60^\\circ$) gir **nøyaktig samme rekkevidde**, fordi $\\sin 2\\theta = \\sin(180^\\circ - 2\\theta)$. Den bratte varianten har lengre flytid og større topphøyde, den flate kortere flytid — og de kompenserer hverandre presist. I virkeligheten forskyver luftmotstanden den optimale vinkelen nedover, typisk til $35$–$40^\\circ$ for en ball."
+    },
+    {
+      "id": "fys1100-2-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Fullt skrått kast (eksamensnivå)",
+      "problem": "En ball skytes ut fra bakkenivå med farten $24{,}0\\ \\text{m/s}$ i vinkelen $35{,}0^\\circ$ over vannrett. Se bort fra luftmotstand.\n\n**a)** Finn fartskomponentene ved utskyting.\n\n**b)** Hvor lenge er ballen i lufta, og hvor langt kommer den?\n\n**c)** Hvor høyt kommer ballen?\n\n**d)** Hvor stor er farten idet ballen lander, og i hvilken retning?\n\n**e)** En medstudent hevder at ballen ville kommet nøyaktig like langt med utskytingsvinkel $55^\\circ$. Har hun rett?",
+      "solution": "**Metodevalg først:** uten luftmotstand er akselerasjonen konstant ($a_x = 0$, $a_y = -g$), så vi behandler $x$ og $y$ som to uavhengige bevegelser koblet gjennom tiden. Utskyting og nedslag er i samme høyde, så symmetriformlene gjelder.\n\n**a)** \n\n$$v_{0x} = 24{,}0\\cos 35{,}0^\\circ = 19{,}7\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad v_{0y} = 24{,}0\\sin 35{,}0^\\circ = 13{,}8\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**b)** Flytid og rekkevidde:\n\n$$t_1 = \\frac{2 \\cdot 13{,}8}{9{,}81} = 2{,}81\\ \\text{s}, \\qquad x_1 = \\frac{24{,}0^2 \\cdot \\sin 70{,}0^\\circ}{9{,}81} = 55{,}2\\ \\text{m}$$\n\n**Kontroll med den andre metoden:** $x_1 = v_{0x}t_1 = 19{,}7 \\cdot 2{,}81 = 55{,}3\\ \\text{m}$ — samme svar bortsett fra avrunding. Begge veier er fullt gyldige; «vannrett fart ganger flytid» er den tryggeste når du er usikker på formelen, mens $\\sin 2\\theta$-varianten er raskest.\n\n**c)** Toppunktet nås etter halve flytiden, $1{,}40\\ \\text{s}$:\n\n$$h = \\frac{(v_0\\sin\\theta)^2}{2g} = \\frac{13{,}8^2}{2 \\cdot 9{,}81} = 9{,}66\\ \\text{m} \\approx 9{,}7\\ \\text{m}$$\n\n**d)** Ved nedslag er $v_x = 19{,}7\\ \\text{m/s}$ (uendret) og $v_y = 13{,}8 - 9{,}81 \\cdot 2{,}81 = -13{,}8\\ \\text{m/s}$. Altså:\n\n$$v = \\sqrt{19{,}7^2 + 13{,}8^2} = 24{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nrettet $35{,}0^\\circ$ **under** vannrett. Ballen lander med nøyaktig samme fart som den ble skutt ut med, speilvendt om vannrett — nok en følge av symmetrien.\n\n**e)** Ja. $55^\\circ$ og $35^\\circ$ summerer til $90^\\circ$, og siden $\\sin(2 \\cdot 55^\\circ) = \\sin 110^\\circ = \\sin 70^\\circ$, blir rekkevidden identisk: $55{,}2\\ \\text{m}$. Banen ser derimot helt annerledes ut — det bratte kastet varer lenger ($4{,}01\\ \\text{s}$) og går høyere ($19{,}7\\ \\text{m}$). Det er altså bare *rekkevidden* som er lik, ikke bevegelsen."
+    },
+    {
+      "id": "fys1100-2-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En fotball sparkes fra bakken med farten $18{,}0\\ \\text{m/s}$ i vinkelen $40{,}0^\\circ$ over vannrett.\n\n**a)** Finn flytiden og rekkevidden.\n\n**b)** Hvor høyt kommer ballen?\n\n**c)** En forsvarsspiller står $30\\ \\text{m}$ unna. Rekker ballen fram til ham, og i så fall — i hvilken høyde er ballen der?",
+        "solution": "**Metodevalg:** kast uten luftmotstand, utskyting og nedslag i samme høyde, så symmetriformlene gjelder.\n\n$$v_{0x} = 18{,}0\\cos 40^\\circ = 13{,}8\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad v_{0y} = 18{,}0\\sin 40^\\circ = 11{,}6\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**a)** $$t_1 = \\frac{2 \\cdot 11{,}6}{9{,}81} = 2{,}36\\ \\text{s}, \\qquad x_1 = \\frac{18{,}0^2\\sin 80^\\circ}{9{,}81} = 32{,}5\\ \\text{m}$$\n\n**b)** $$h = \\frac{11{,}6^2}{2 \\cdot 9{,}81} = 6{,}82\\ \\text{m}$$\n\n**c)** Ja — rekkevidden er $32{,}5\\ \\text{m}$, altså mer enn $30\\ \\text{m}$. Tiden ballen bruker til $x = 30\\ \\text{m}$:\n\n$$t = \\frac{30{,}0}{13{,}8} = 2{,}18\\ \\text{s}$$\n\n$$y = 11{,}6 \\cdot 2{,}18 - \\tfrac12 \\cdot 9{,}81 \\cdot 2{,}18^2 = 25{,}3 - 23{,}3 = 2{,}0\\ \\text{m}$$\n\nBallen passerer forsvarsspilleren i om lag $2{,}0\\ \\text{m}$ høyde — akkurat i hodehøyde for en hoppende spiller.",
+        "hints": [
+          "Dekomponer startfarten først, og skriv ned begge komponentene før du regner videre.",
+          "Rekkevidden avgjør om ballen når fram; høyden der finner du ved først å regne ut tiden til $x = 30\\ \\text{m}$.",
+          "Sett den tiden inn i $y(t)$ — ikke i rekkeviddeformelen."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ oppgave.) To baller kastes fra samme punkt med samme fart, den ene i $25^\\circ$ over vannrett, den andre i $65^\\circ$.\n\n**a)** Hvilken lander lengst unna? Begrunn med formelen for rekkevidde.\n\n**b)** Hvilken er lengst i lufta? Begrunn.\n\n**c)** Ballene kastes i stedet fra kanten av et stup, slik at de lander langt under utskytingshøyden. Gjelder svaret i a) fortsatt? Forklar hvorfor eller hvorfor ikke.",
+        "solution": "**a)** Ingen av dem — de lander like langt unna. Rekkevidden er $x_1 = v_0^2\\sin 2\\theta/g$, og $\\sin(2 \\cdot 25^\\circ) = \\sin 50^\\circ$ mens $\\sin(2 \\cdot 65^\\circ) = \\sin 130^\\circ = \\sin 50^\\circ$. Vinklene er komplementære (de summerer til $90^\\circ$), og da er rekkevidden identisk.\n\n**b)** Den bratte, $65^\\circ$. Flytiden er $t_1 = 2v_0\\sin\\theta/g$ og vokser med $\\theta$ helt opp til $90^\\circ$. Den bratte ballen har større vertikal startfart, bruker lenger tid opp og ned — men har til gjengjeld mindre vannrett fart, og de to virkningene opphever hverandre akkurat når det gjelder rekkevidden.\n\n**c)** Nei. Formelen $x_1 = v_0^2\\sin 2\\theta/g$ forutsetter at nedslaget skjer i **samme høyde** som utskytingen. Faller ballene lenger ned, får den flate ballen ekstra nytte av sin større vannrette fart i den ekstra falltiden, mens den bratte «kaster bort» mer av startfarten på høyde. Fra et stup kommer derfor den flate ballen lengst, og den optimale vinkelen blir mindre enn $45^\\circ$ — desto mindre, jo høyere stupet er.",
+        "hints": [
+          "Skriv opp rekkeviddeformelen og regn ut $\\sin 2\\theta$ for begge vinklene.",
+          "Flytiden avhenger bare av den vertikale startkomponenten.",
+          "I c): sjekk hvilken forutsetning rekkeviddeformelen hviler på."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — den motsatte veien: finn $g$, $v_0$ og $\\theta$ fra data (~20 min)\n\nEn eksamensvariant som går igjen, snur oppgaven på hodet: du får **måledata** fra et kast — gjerne på en fremmed planet med ukjent tyngdeakselerasjon — og skal finne $g$, startfarten og utskytingsvinkelen.\n\nFremgangsmåten er alltid den samme, og den er verdt å lære som en fast oppskrift:\n\n1. **Finn $g$ fra endringen i den vertikale farten:** $g = -\\Delta v_y/\\Delta t$. Bare to avlesninger trengs, og de trenger ikke være ved start eller topp.\n2. **Regn deg tilbake til $v_{0y}$** med $v_y = v_{0y} - g t$.\n3. **Les av $v_x$**, som er konstant — én avlesning hvor som helst i kastet holder.\n4. **Sett sammen:** $v_0 = \\sqrt{v_{0x}^2 + v_{0y}^2}$ og $\\theta = \\arctan(v_{0y}/v_{0x})$.\n\nSteg 4 er ofte en egen deloppgave, og den er verdt å ta selv om du ikke rekker resten."
+    },
+    {
+      "id": "fys1100-2-2-def-vy-lineaer",
+      "type": "definition",
+      "title": "Den vertikale farten er lineær i tiden",
+      "content": "I et kast uten luftmotstand endrer den vertikale fartskomponenten seg med konstant rate:\n\n$$v_y(t) = v_{0y} - g t$$\n\nGrafen til $v_y$ mot $t$ er derfor en rett linje med stigningstall $-g$. Dette er nøkkelen til å finne tyngdeakselerasjonen på en ukjent planet: to punkter på linja gir stigningstallet, og stigningstallet gir $g$. Nettopp fordi sammenhengen er lineær, trenger du ikke måle i toppunktet eller ved utskyting — hvilke som helst to tidspunkt duger."
+    },
+    {
+      "id": "fys1100-2-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Kast på en ukjent planet",
+      "problem": "En sonde filmer et kast på en fremmed planet uten atmosfære. Av filmen leser forskerne av den **vertikale** fartskomponenten på to tidspunkt:\n\n$$v_y(0{,}40\\ \\text{s}) = 12{,}0\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad v_y(1{,}60\\ \\text{s}) = 4{,}8\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nDen vannrette fartskomponenten måles til $10{,}8\\ \\text{m/s}$.\n\n**a)** Finn tyngdeakselerasjonen på planeten.\n\n**b)** Finn den vertikale startfarten.\n\n**c)** Finn startfarten $v_0$ og utskytingsvinkelen $\\theta$.\n\n**d)** Hvor lenge var prosjektilet i lufta, dersom det landet i samme høyde som det ble skutt ut fra?",
+      "solution": "**Metodevalg først:** planeten har ingen atmosfære, så det er ingen luftmotstand, og den vertikale farten er derfor lineær i tiden: $v_y = v_{0y} - gt$. To målepunkter på en rett linje bestemmer både stigningstall og skjæringspunkt — det er hele oppgaven.\n\n**a)** Stigningstallet er $-g$:\n\n$$g = -\\frac{\\Delta v_y}{\\Delta t} = -\\frac{4{,}8 - 12{,}0}{1{,}60 - 0{,}40} = \\frac{7{,}2}{1{,}20} = 6{,}00\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nTyngdeakselerasjonen er $6{,}00\\ \\text{m/s}^2$ rettet nedover — om lag $60\\ \\%$ av jordas.\n\n**b)** Regn tilbake til $t = 0$ fra den første avlesningen:\n\n$$v_{0y} = v_y(0{,}40) + g \\cdot 0{,}40 = 12{,}0 + 6{,}00 \\cdot 0{,}40 = 14{,}4\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**Kontroll:** den andre avlesningen skal gi det samme: $4{,}8 + 6{,}00 \\cdot 1{,}60 = 14{,}4\\ \\text{m/s}$. Den kontrollen tar fem sekunder og fanger regnefeil.\n\n**c)** Den vannrette komponenten er konstant, altså $v_{0x} = 10{,}8\\ \\text{m/s}$:\n\n$$v_0 = \\sqrt{10{,}8^2 + 14{,}4^2} = \\sqrt{116{,}6 + 207{,}4} = 18{,}0\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$\\theta = \\arctan\\!\\left(\\frac{14{,}4}{10{,}8}\\right) = 53{,}1^\\circ \\ \\text{over vannrett}$$\n\n**d)** Med symmetri (samme utskytings- og nedslagshøyde):\n\n$$t_1 = \\frac{2 v_{0y}}{g} = \\frac{2 \\cdot 14{,}4}{6{,}00} = 4{,}80\\ \\text{s}$$\n\n**Benevningskontroll:** $(\\text{m/s})/(\\text{m/s}^2) = \\text{s}$ — riktig enhet.\n\nLegg merke til hvor lite som trengtes: to avlesninger av $v_y$ og én av $v_x$ ga hele kastet."
+    },
+    {
+      "id": "fys1100-2-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En rover på en annen planet filmer et kast. Den vertikale fartskomponenten måles til $12{,}0\\ \\text{m/s}$ ved $t = 0{,}50\\ \\text{s}$ og $6{,}0\\ \\text{m/s}$ ved $t = 2{,}00\\ \\text{s}$. Den vannrette komponenten er $14{,}0\\ \\text{m/s}$.\n\n**a)** Finn tyngdeakselerasjonen på planeten.\n\n**b)** Finn startfarten og utskytingsvinkelen.\n\n**c)** Hva er det spesielle med utskytingsvinkelen du fant, og hvilken praktisk følge har det for rekkevidden?",
+        "solution": "**Metodevalg:** uten atmosfære er $v_y$ lineær i tiden, så stigningstallet mellom to målepunkter gir $-g$ direkte.\n\n**a)** $$g = -\\frac{6{,}0 - 12{,}0}{2{,}00 - 0{,}50} = \\frac{6{,}0}{1{,}50} = 4{,}00\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\n**b)** Tilbakeregning til $t = 0$: $v_{0y} = 12{,}0 + 4{,}00 \\cdot 0{,}50 = 14{,}0\\ \\text{m/s}$. Da er\n\n$$v_0 = \\sqrt{14{,}0^2 + 14{,}0^2} = 19{,}8\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad \\theta = \\arctan\\!\\left(\\frac{14{,}0}{14{,}0}\\right) = 45{,}0^\\circ$$\n\n**c)** Vinkelen er nøyaktig $45^\\circ$, som er den vinkelen som gir **størst rekkevidde** når utskyting og nedslag er i samme høyde og luftmotstanden kan neglisjeres. Kastet utnytter altså startfarten optimalt: enhver annen vinkel med samme $v_0$ ville gitt kortere kast. Rekkevidden blir $x_1 = v_0^2\\sin 90^\\circ/g = 392/4{,}00 = 98{,}0\\ \\text{m}$ — nesten to og en halv ganger så langt som det samme kastet ville nådd på jorda ($392/9{,}81 = 40{,}0\\ \\text{m}$), siden rekkevidden er omvendt proporsjonal med $g$.",
+        "hints": [
+          "Stigningstallet i $v_y(t)$ er $-g$ — bruk de to målepunktene.",
+          "Regn deg tilbake til $t = 0$ før du setter sammen $v_0$ og $\\theta$.",
+          "Sammenlign vinkelen du får med den som maksimerer $\\sin 2\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — drill på eksamensvariantene (~15 min)\n\nHer er oppskriften samlet, slik du bør kjøre den under tidspress:\n\n1. **Tegn banen** og sett på akser. Skriv ned hvor origo er, og hvilken vei som er positiv.\n2. **Dekomponer** startfarten: $v_{0x} = v_0\\cos\\theta$, $v_{0y} = v_0\\sin\\theta$.\n3. **Skriv opp de fire likningene** for $x$, $y$, $v_x$, $v_y$. Da ser du hvilken som mangler én størrelse.\n4. **Finn tiden** fra den retningen oppgaven gir mest opplysninger om — som regel $y$.\n5. **Bruk tiden som bro** til den andre retningen.\n6. **Sett sammen vektorene** til slutt: tallverdi med Pytagoras, retning med arctangens.\n7. **Retning og enhet på hvert svar.** Sjekk til slutt at $v_x$ fortsatt er den du startet med.\n\nDe neste oppgavene er på eksamensnivå og roterer variantene: kast fra en høyde, treffoppgave, og en oppgave der du skal vurdere en påstand."
+    },
+    {
+      "id": "fys1100-2-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — kast- og 2D-kinematikkoppgaven.) Et forsyningsfly flyr vannrett i $80{,}0\\ \\text{m}$ høyde med farten $25{,}0\\ \\text{m/s}$ og skal slippe en pakke til en gruppe på bakken. Se bort fra luftmotstand.\n\n**a)** Hvor lang tid bruker pakken ned?\n\n**b)** Hvor langt før målet, målt vannrett, må pakken slippes?\n\n**c)** Finn farten ved nedslag, med retning.\n\n**d)** Mannskapet foreslår å fly saktere for å treffe bedre. Hvordan endrer det falltiden og slipp-punktet? Begrunn.",
+        "solution": "**Metodevalg først:** tyngden er eneste kraft, så $a_x = 0$ og $a_y = -g$, og de to retningene behandles hver for seg med tiden som bro. Origo i slipp-punktet, $y$ oppover, $v_{0y} = 0$ (pakken slippes, den kastes ikke).\n\n**a)** $$t = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2 \\cdot 80{,}0}{9{,}81}} = 4{,}04\\ \\text{s}$$\n\n**b)** $$x = v_{0x}t = 25{,}0 \\cdot 4{,}04 = 101\\ \\text{m}$$\n\nPakken må slippes om lag $101\\ \\text{m}$ før målet, målt vannrett.\n\n**c)** $v_x = 25{,}0\\ \\text{m/s}$ (uendret hele veien) og $v_y = -9{,}81 \\cdot 4{,}04 = -39{,}6\\ \\text{m/s}$:\n\n$$v = \\sqrt{25{,}0^2 + 39{,}6^2} = 46{,}8\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nrettet $\\arctan(39{,}6/25{,}0) = 57{,}7^\\circ$ under vannrett.\n\n**d)** Falltiden endres **ikke** — den avhenger bare av høyden, siden $v_{0y} = 0$ uansett flyfart: $t = \\sqrt{2h/g}$. Slipp-punktet flyttes derimot nærmere målet, fordi $x = v_{0x}t$ er proporsjonal med farten. Flyr flyet halv fart, må pakken slippes halvparten så langt før målet, men den bruker nøyaktig like lang tid ned. Vil mannskapet redusere spredningen, hjelper det derfor mer å fly **lavere** enn å fly saktere — lavere høyde gir kortere falltid og mindre tid for feil å vokse.",
+        "hints": [
+          "Falltiden avgjøres av høyden alene når pakken slippes uten vertikal startfart.",
+          "Vannrett strekning = uendret vannrett fart ganger falltiden.",
+          "I d): se hvilke størrelser som faktisk står i uttrykket for $t$ — er flyfarten en av dem?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) En ball kastes fra en balkong $12{,}0\\ \\text{m}$ over bakken, med farten $15{,}0\\ \\text{m/s}$ i vinkelen $30{,}0^\\circ$ over vannrett.\n\n**a)** Finn fartskomponentene ved utskyting.\n\n**b)** Hvor lang tid går det før ballen treffer bakken?\n\n**c)** Hvor langt fra balkongen, målt vannrett, lander den?\n\n**d)** Finn farten ved nedslag, og kontroller svaret med en uavhengig metode.",
+        "solution": "**Metodevalg først:** kast uten luftmotstand, men **ikke** samme start- og sluttnivå — symmetriformlene for flytid og rekkevidde gjelder derfor ikke. Vi må løse annengradslikningen for $y(t) = -12{,}0\\ \\text{m}$. Origo i utkastpunktet, $y$ oppover.\n\n**a)** $$v_{0x} = 15{,}0\\cos 30^\\circ = 13{,}0\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad v_{0y} = 15{,}0\\sin 30^\\circ = 7{,}50\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**b)** Ballen treffer bakken når $y = -12{,}0\\ \\text{m}$:\n\n$$-12{,}0 = 7{,}50\\,t - \\tfrac12 \\cdot 9{,}81\\,t^2 \\quad \\Rightarrow \\quad 4{,}905\\,t^2 - 7{,}50\\,t - 12{,}0 = 0$$\n\n$$t = \\frac{7{,}50 + \\sqrt{7{,}50^2 + 4 \\cdot 4{,}905 \\cdot 12{,}0}}{2 \\cdot 4{,}905} = \\frac{7{,}50 + 17{,}08}{9{,}81} = 2{,}51\\ \\text{s}$$\n\nDen negative roten forkastes: den svarer til et tidspunkt før kastet.\n\n**c)** $$x = 13{,}0 \\cdot 2{,}51 = 32{,}5\\ \\text{m}$$\n\n**d)** $v_x = 13{,}0\\ \\text{m/s}$ og $v_y = 7{,}50 - 9{,}81 \\cdot 2{,}51 = -17{,}1\\ \\text{m/s}$:\n\n$$v = \\sqrt{13{,}0^2 + 17{,}1^2} = 21{,}5\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nrettet $52{,}7^\\circ$ under vannrett.\n\n**Uavhengig kontroll:** for hver av de to retningene gjelder den tidløse bevegelseslikningen, og siden $v_x$ er uendret, kan vi sette $v^2 = v_0^2 + 2gh$ med $h = 12{,}0\\ \\text{m}$:\n\n$$v = \\sqrt{15{,}0^2 + 2 \\cdot 9{,}81 \\cdot 12{,}0} = \\sqrt{225 + 235} = 21{,}5\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nSamme svar, og denne veien går utenom både flytiden og annengradslikningen. Under tidspress er den raskeste ruten når bare *tallverdien* av nedslagsfarten er etterspurt; skal du også oppgi retningen, trenger du komponentene uansett.",
+        "hints": [
+          "Symmetriformlene gjelder ikke her — start og slutt er i ulik høyde.",
+          "Sett $y(t) = -12{,}0\\ \\text{m}$ og løs annengradslikningen; velg den positive roten.",
+          "Til kontrollen: hvilken sammenheng knytter fart og fallhøyde uten at tiden er med?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-2-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) En golfball slås fra flat bakke med farten $20{,}0\\ \\text{m/s}$ i vinkelen $55{,}0^\\circ$ over vannrett. $25{,}0\\ \\text{m}$ unna står et $4{,}0\\ \\text{m}$ høyt tregjerde.\n\n**a)** Går ballen over gjerdet? Vis regningen.\n\n**b)** Hvor langt lander ballen fra utslagsstedet, dersom den klarer gjerdet?\n\n**c)** En medspiller mener at en flatere ball på $35^\\circ$ ville gitt samme rekkevidde, og at det derfor er likegyldig hvilken av de to man velger her. Vurder påstanden.",
+        "solution": "**Metodevalg først:** kast uten luftmotstand fra og til samme høyde. For å avgjøre gjerdespørsmålet finner vi først tiden til $x = 25{,}0\\ \\text{m}$ og setter den inn i $y(t)$ — det er høyden **ved gjerdet** som avgjør, ikke rekkevidden.\n\n$$v_{0x} = 20{,}0\\cos 55^\\circ = 11{,}5\\ \\tfrac{\\text{m}}{\\text{s}}, \\qquad v_{0y} = 20{,}0\\sin 55^\\circ = 16{,}4\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n**a)** Tiden til gjerdet:\n\n$$t = \\frac{25{,}0}{11{,}5} = 2{,}18\\ \\text{s}$$\n\n$$y = 16{,}4 \\cdot 2{,}18 - \\tfrac12 \\cdot 9{,}81 \\cdot 2{,}18^2 = 35{,}7 - 23{,}3 = 12{,}4\\ \\text{m}$$\n\nBallen er $12{,}4\\ \\text{m}$ over bakken ved gjerdet, altså $8{,}4\\ \\text{m}$ over toppen. Den går klart over.\n\n**b)** $$x_1 = \\frac{20{,}0^2 \\sin 110^\\circ}{9{,}81} = \\frac{400 \\cdot 0{,}9397}{9{,}81} = 38{,}3\\ \\text{m}$$\n\n**c)** Påstanden er **halvveis riktig, men konklusjonen er gal**. Rekkevidden er den samme: $35^\\circ$ og $55^\\circ$ er komplementære, så $\\sin 70^\\circ = \\sin 110^\\circ$ gir $38{,}3\\ \\text{m}$ i begge tilfeller. Men høyden ved gjerdet er ikke den samme. Med $35^\\circ$ er $v_{0x} = 16{,}4\\ \\text{m/s}$ og $v_{0y} = 11{,}5\\ \\text{m/s}$, slik at tiden til gjerdet blir $25{,}0/16{,}4 = 1{,}53\\ \\text{s}$ og høyden\n\n$$y = 11{,}5 \\cdot 1{,}53 - \\tfrac12 \\cdot 9{,}81 \\cdot 1{,}53^2 = 17{,}6 - 11{,}5 = 6{,}1\\ \\text{m}$$\n\nBallen klarer så vidt gjerdet også da — med $2{,}1\\ \\text{m}$ margin mot $8{,}4\\ \\text{m}$. Rekkevidden er altså identisk, men **banen** er det ikke, og der det står en hindring underveis, er det banen som teller. Det er nettopp derfor golfspillere velger kølle etter hindringene, ikke bare etter avstanden.",
+        "hints": [
+          "Gjerdespørsmålet avgjøres av høyden ved $x = 25\\ \\text{m}$, ikke av rekkevidden.",
+          "Finn først tiden til gjerdet fra $x$-bevegelsen.",
+          "I c): regn gjennom den samme beregningen for $35^\\circ$ og sammenlign banene, ikke bare rekkeviddene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-2-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Bare én fartskomponent regnes ut.** Spørres det om «farten ved nedslag», er svaret $\\sqrt{v_x^2 + v_y^2}$ med retning — ikke $v_y$ alene. Dette er den vanligste tapskilden i sjangeren og koster typisk 2 poeng (**felle #9 — manglende retning eller komponent på en vektorstørrelse**).\n\n**Retningen mangler.** Et kastsvar uten «under vannrett», «over vannrett» eller en vinkel er ufullstendig. Skriv den ene setningen.\n\n**En følgefeil gjør $v_x$ ulik startverdien uten at det kommenteres.** Har du regnet deg fram til at den vannrette farten har endret seg i et kast uten luftmotstand, er noe galt — og kommenterer du det ikke, ser sensor en kandidat som ikke forstår modellen (**felle #13**). Følgefeil straffes ikke når mellomregningen er synlig, men en usannsynlig verdi bør du **si fra om**: «her må jeg ha regnet feil, for $v_x$ skal være uendret».\n\n**Sinus og cosinus byttes om.** Vinkelen $\\theta$ måles fra vannrett, så $x$-komponenten får cosinus. Tegn vinkelen inn i figuren og sjekk mot et grensetilfelle: ved $\\theta = 0$ skal hele farten være vannrett.\n\n**Symmetriformlene brukes på et kast fra en høyde.** $t_1 = 2v_0\\sin\\theta/g$ og $x_1 = v_0^2\\sin2\\theta/g$ gjelder bare når utskyting og nedslag er i samme høyde. Kastes ballen fra en balkong, må annengradslikningen løses.\n\n**Hele hastigheten settes lik null i toppunktet.** Bare $v_y$ er null der; $v_x$ farer uforstyrret videre."
+    },
+    {
+      "id": "fys1100-2-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-2-2-def-skraatt-kast",
+      "type": "definition",
+      "title": "Skrått kast",
+      "content": "Modellen for et legeme som kastes ut med en fart i en vilkårlig vinkel og deretter bare påvirkes av tyngden. Akselerasjonen er $a_x = 0$ og $a_y = -g$ hele veien, banen blir en parabel, og bevegelsen er fullstendig bestemt av tre tall: $v_0$, $\\theta$ og utskytingshøyden. Modellen forutsetter at luftmotstanden kan neglisjeres — en rimelig antakelse for en kompakt, tung gjenstand over korte avstander, men ikke for en fjærball eller et fallskjermhopp."
+    },
+    {
+      "id": "fys1100-2-2-def-horisontalt-kast",
+      "type": "definition",
+      "title": "Horisontalt kast",
+      "content": "Spesialtilfellet $\\theta = 0$: legemet slippes eller skytes ut vannrett, slik at $v_{0y} = 0$. Falltiden blir da $t = \\sqrt{2h/g}$ og avhenger **bare av høyden**, ikke av den vannrette farten. En kule som slippes og en som skytes vannrett ut fra samme høyde, treffer bakken samtidig — et av fysikkens mest kontraintuitive, og oftest demonstrerte, resultater."
+    },
+    {
+      "id": "fys1100-2-2-def-banekurve",
+      "type": "definition",
+      "title": "Banekurven er en parabel",
+      "content": "Eliminerer du tiden mellom $x(t)$ og $y(t)$, får du banens likning:\n\n$$y = x\\tan\\theta - \\frac{g\\,x^2}{2v_0^2\\cos^2\\theta}$$\n\nDette er en annengradsfunksjon i $x$, altså en parabel med toppunkt. Formen er nyttig når oppgaven spør om høyden ved en bestemt vannrett avstand og du vil unngå å regne ut tiden først. Med luftmotstand er banen **ikke** lenger en parabel: den blir asymmetrisk, med brattere nedstigning enn oppstigning."
+    },
+    {
+      "id": "fys1100-2-2-def-nedslagsfart",
+      "type": "definition",
+      "title": "Nedslagsfart",
+      "content": "Farten idet legemet treffer, satt sammen av begge komponentene:\n\n$$v = \\sqrt{v_x^2 + v_y^2}, \\qquad \\text{retning} = \\arctan\\!\\left(\\frac{\\lvert v_y\\rvert}{v_x}\\right) \\ \\text{under vannrett}$$\n\nLander legemet i samme høyde som det ble skutt ut fra, er nedslagsfarten **like stor** som startfarten, med vinkelen speilvendt om vannrett. Lander det lavere, er den større — og da er $v = \\sqrt{v_0^2 + 2gh}$ ofte den raskeste veien til tallverdien, siden den går utenom både flytid og komponenter."
+    },
+    {
+      "id": "fys1100-2-2-def-arctan-kvadrant",
+      "type": "definition",
+      "title": "Retningsangivelse med arctangens",
+      "content": "Kalkulatorens $\\arctan$ gir alltid en vinkel mellom $-90^\\circ$ og $90^\\circ$, og skiller derfor ikke mellom «$63^\\circ$ over vannrett framover» og «$63^\\circ$ under vannrett bakover». Praktisk regel: regn ut vinkelen med **tallverdiene** av komponentene, og bestem kvadranten ved å se på fortegnene og på figuren. Skriv svaret i ord — «$63^\\circ$ under vannrett, i kastretningen» — i stedet for å overlate tolkningen til sensor."
+    },
+    {
+      "id": "fys1100-2-2-def-symmetri",
+      "type": "definition",
+      "title": "Symmetri om toppunktet",
+      "content": "For et kast med samme utskytings- og nedslagshøyde gjelder:\n\n- veien opp tar like lang tid som veien ned;\n- farten i to punkter i samme høyde er like stor, med speilvendt vertikal komponent;\n- banen er symmetrisk om den loddrette linja gjennom toppunktet.\n\nSymmetrien halverer regnearbeidet, men **faller bort** så snart start- og sluttnivå er forskjellige. Den faller også bort med luftmotstand, siden legemet da taper fart underveis."
+    },
+    {
+      "id": "fys1100-2-2-def-tiden-bro",
+      "type": "definition",
+      "title": "Tiden som bro mellom komponentene",
+      "content": "$x$- og $y$-bevegelsen er uavhengige, men de deler **samme klokke**. Nesten alle kastoppgaver løses derfor ved å finne tiden fra den ene retningen og sette den inn i den andre. Praktisk regel: den retningen oppgaven gir flest opplysninger om (som regel $y$, fordi høyden er kjent), er den du finner tiden fra. Går du deg fast, spør: *hvilken størrelse kjenner jeg i begge retninger?* — svaret er alltid $t$."
+    },
+    {
+      "id": "fys1100-2-2-def-luftmotstand-grense",
+      "type": "definition",
+      "title": "Modellgrensen: luftmotstand",
+      "content": "Alt i dette kapitlet forutsetter at luftmotstanden kan neglisjeres. Med luftmotstand virker en kraft **mot** bevegelsesretningen, som også bremser den vannrette farten. Da er $a_x \\neq 0$, banen blir asymmetrisk, rekkevidden kortere, og det finnes ingen enkel formelløsning: bevegelseslikningene blir differensiallikninger som må løses numerisk. Boka kommer tilbake til dette i delene om kraftmodeller og numerisk modellering med Python, der nettopp kast med luftmotstand er et fast eksempel."
+    },
+    {
+      "id": "fys1100-2-2-def-relativ-fart-kast",
+      "type": "definition",
+      "title": "Startfart fra et bevegelig utskytingspunkt",
+      "content": "Slippes eller kastes noe fra en gjenstand som selv er i bevegelse — en drone, en bil, et fly — er startfarten til prosjektilet **summen av** utskytingsfarten i forhold til gjenstanden og gjenstandens egen fart. Slippes pakken uten ekstra fart, arver den ganske enkelt hele farten til dronen. Dette er grunnen til at pakken lander rett under dronen, og det er også kimen til Galilei-transformasjonen, som knytter to referansesystemer i jevn bevegelse sammen."
+    },
+    {
+      "id": "fys1100-2-2-def-frittfall-2d",
+      "type": "definition",
+      "title": "Kastet er fritt fall i to dimensjoner",
+      "content": "Så snart legemet har forlatt hånden, køllen eller dronen, er tyngden den eneste kraften — akkurat som i et loddrett fall. Et kast er derfor **fritt fall med en sidelengs startfart**, ikke en egen bevegelsestype. Konsekvensen er at akselerasjonen er $g$ nedover hele veien, uavhengig av massen: en tung og en lett ball kastet likt følger nøyaktig samme bane. Innsikten sparer deg for arbeid, for da vet du at all fysikken ligger i startbetingelsene."
+    },
+    {
+      "id": "fys1100-2-2-def-landingsbetingelse",
+      "type": "definition",
+      "title": "Landingsbetingelsen",
+      "content": "Likningen som bestemmer når kastet er over. Lander legemet i samme høyde som det ble skutt ut fra, er betingelsen $y = 0$; lander det $h$ lavere, er den $y = -h$:\n\n$$-h = v_0\\sin\\theta \\cdot t - \\tfrac12 g t^2$$\n\nDette er en annengradslikning i $t$ med to røtter. Den **positive** roten er flytiden; den negative svarer til et tenkt tidspunkt før kastet startet, og forkastes. Å skrive landingsbetingelsen eksplisitt før du løser, er den beste måten å unngå å bruke symmetriformlene et sted de ikke gjelder."
+    },
+    {
+      "id": "fys1100-2-2-def-grensetilfelle-kast",
+      "type": "definition",
+      "title": "Grensetilfelle-sjekk av kastformler",
+      "content": "En rask kontroll av at et uttrykk er riktig: sett inn en ekstremverdi og se om svaret er fysisk fornuftig.\n\n- $\\theta = 0$ i $x_1 = v_0^2\\sin 2\\theta/g$ gir $x_1 = 0$ — riktig, for et vannrett kast fra bakkenivå lander umiddelbart.\n- $\\theta = 90^\\circ$ gir også $x_1 = 0$ — riktig, for da går kastet rett opp og ned.\n- $g \\to 0$ gir $x_1 \\to \\infty$ — riktig, for uten tyngde ville prosjektilet aldri kommet ned.\n\nMetoden koster ti sekunder og fanger fortegns- og faktorfeil. Den er også en selvstendig, poenggivende ferdighet senere i boka, der uttrykkene blir lengre og feilene vanskeligere å se."
+    },
+    {
+      "id": "fys1100-2-2-def-grader-radianer",
+      "type": "definition",
+      "title": "Grader og radianer",
+      "content": "Kalkulatoren regner sinus og cosinus i den modusen den står i, og en kalkulator i radianmodus gir $\\sin 35 = -0{,}428$ i stedet for $0{,}574$ — et svar som er galt uten å se galt ut. Praktisk regel: sjekk moduslampen før hver kastoppgave, og gjør en rimelighetssjekk (er $\\sin 35^\\circ$ omtrent $0{,}57$?). Merk at tilnærmingen $\\sin\\theta \\approx \\theta$ for små vinkler, som boka bruker i delen om svingninger, **bare** gjelder i radianer."
+    },
+    {
+      "id": "fys1100-2-2-def-banefart-underveis",
+      "type": "definition",
+      "title": "Banefarten underveis i kastet",
+      "content": "Farten i et vilkårlig punkt er\n\n$$v(t) = \\sqrt{v_{0x}^2 + (v_{0y} - gt)^2}$$\n\nDen er **minst i toppunktet**, der den er nøyaktig $v_{0x}$, og størst ved det laveste punktet i banen. Merk at farten aldri blir null i et skrått kast (med mindre kastet er helt loddrett): det er bare den vertikale komponenten som forsvinner i toppen. Uttrykket er nyttig når en oppgave spør om farten på et bestemt tidspunkt i stedet for ved nedslag."
+    },
+    {
+      "id": "fys1100-2-2-def-origovalg",
+      "type": "definition",
+      "title": "Origovalg i kastoppgaver",
+      "content": "Hvor du legger origo, er ditt valg — men det skal stå i besvarelsen, og valget avgjør fortegnene i alle likningene. To vanlige konvensjoner:\n\n- **origo i utskytingspunktet, $y$ oppover:** da er $y_0 = 0$ og bakken ligger ved $y = -h$;\n- **origo på bakken, $y$ oppover:** da er $y_0 = +h$ og landing skjer ved $y = 0$.\n\nBegge gir samme svar. Den første gir enklest likninger; den andre er lettere å tegne. Det som koster poeng, er å blande dem midt i regningen — velg én, skriv den ned, og hold deg til den."
+    },
+    {
+      "id": "fys1100-2-2-def-maks-rekkevidde",
+      "type": "definition",
+      "title": "Maksimal rekkevidde som rimelighetssjekk",
+      "content": "Siden $\\sin 2\\theta \\le 1$, kan et kast med startfart $v_0$ fra flat bakke aldri nå lenger enn\n\n$$x_{\\text{maks}} = \\frac{v_0^2}{g}$$\n\nDette er en billig kontroll å gjøre til slutt: for $v_0 = 18\\ \\text{m/s}$ er taket $33\\ \\text{m}$, og et svar på $95\\ \\text{m}$ er da åpenbart galt uansett hvor pen regningen er. Sensor premierer at du oppdager slikt selv og sier fra — rimelighetsvurdering er en del av det å begrunne svaret."
+    },
+    {
+      "id": "fys1100-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-2-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $v_0$ | startfartens tallverdi | $\\text{m/s}$ |\n| $\\theta$ | utskytingsvinkelen, målt fra vannrett | grader eller radianer |\n| $v_{0x}$, $v_{0y}$ | startfartens vannrette og loddrette komponent | $\\text{m/s}$ |\n| $v_x$, $v_y$ | fartskomponentene ved et vilkårlig tidspunkt | $\\text{m/s}$ |\n| $x$, $y$ | posisjon vannrett og loddrett, med origo i utskytingspunktet | $\\text{m}$ |\n| $t_1$ | flytid — tiden fra utskyting til nedslag | $\\text{s}$ |\n| $x_1$ | rekkevidde — vannrett strekning fra utskyting til nedslag | $\\text{m}$ |\n| $h$ | topphøyde over utskytingsnivået, eller utskytingshøyde over bakken | $\\text{m}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ på jorda | $\\text{m/s}^2$ |\n\n**Symbolkollisjon å være obs på:** $h$ brukes både om topphøyden i kastet og om høyden legemet kastes fra. Oppgaveteksten avgjør; skriv gjerne $h_{\\text{topp}}$ og $h_0$ i kladden når begge opptrer samtidig. Merk også at $\\theta$ i dette kapitlet alltid måles fra **vannrett** — i kapitlet om skråplan måles vinkelen fra vannrett til selve planet, som er noe annet.\n\n**Formler i dette delkapitlet:**\n\n$$v_{0x} = v_0\\cos\\theta, \\qquad v_{0y} = v_0\\sin\\theta$$\n\nDekomponering av startfarten. **[må kunne utledes]** — ren trigonometri i en rettvinklet trekant.\n\n$$x(t) = v_{0x}t, \\qquad y(t) = v_{0y}t - \\tfrac12 g t^2$$\n$$v_x(t) = v_{0x}, \\qquad v_y(t) = v_{0y} - g t$$\n\nBevegelseslikningene for kastet. **[formelarket]** — de er bevegelseslikningene for konstant akselerasjon brukt komponentvis, med $a_x = 0$ og $a_y = -g$.\n\n$$t_1 = \\frac{2v_0\\sin\\theta}{g}, \\qquad x_1 = \\frac{v_0^2\\sin 2\\theta}{g}$$\n\nFlytid og rekkevidde ved lik utskytings- og nedslagshøyde. **[må kunne utledes]** — utledningen er tre linjer og går raskere enn å lete.\n\n$$h_{\\text{topp}} = \\frac{(v_0\\sin\\theta)^2}{2g}$$\n\nTopphøyden. **[må kunne utledes]** — følger av den tidløse bevegelseslikningen brukt på $y$-retningen.\n\n$$y = x\\tan\\theta - \\frac{g x^2}{2v_0^2\\cos^2\\theta}$$\n\nBanelikningen (parabelen). **[må kunne utledes]** — eliminér $t$ mellom $x(t)$ og $y(t)$."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-2-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-2-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Under hvilken betingelse gjelder $x = x_0 + v_0t + \\tfrac12 at^2$, og hvorfor er betingelsen oppfylt i begge retninger i et kast uten luftmotstand?",
+            "solution": "Betingelsen er at akselerasjonen er **konstant** i hele tidsrommet. I et kast uten luftmotstand er tyngden den eneste kraften, og den er konstant både i størrelse og retning. Dermed er $a_x = 0$ og $a_y = -g$ hele veien, og likningen gjelder i begge retninger — med $a = 0$ i den ene, slik at leddet med $t^2$ faller bort.",
+            "hints": [
+              "Se på hvilke krefter som virker, og om de endrer seg underveis."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) En stein slippes fra ro og faller i $2{,}0\\ \\text{s}$. Hvor langt faller den, og hvor stor er farten da?",
+            "solution": "$$h = \\tfrac12 g t^2 = \\tfrac12 \\cdot 9{,}81 \\cdot 4{,}0 = 19{,}6\\ \\text{m}, \\qquad v = gt = 19{,}6\\ \\tfrac{\\text{m}}{\\text{s}} \\ \\text{nedover}$$\n\nAt de to tallene er like her, er en ren tilfeldighet som skyldes at $t = 2{,}0\\ \\text{s}$ — enhetene er forskjellige, og sammenhengen holder ikke for andre tider.",
+            "hints": [
+              "Fall fra ro: $v_0 = 0$ i begge likningene."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Trigonometri.) En vektor har tallverdi $12{,}0$ og peker $60^\\circ$ over vannrett. Finn komponentene, og kontroller med Pytagoras.",
+            "solution": "$$v_x = 12{,}0\\cos 60^\\circ = 6{,}00, \\qquad v_y = 12{,}0\\sin 60^\\circ = 10{,}4$$\n\nKontroll: $\\sqrt{6{,}00^2 + 10{,}4^2} = \\sqrt{36{,}0 + 108} = 12{,}0$ ✓. Legg merke til at den **loddrette** komponenten er størst her, fordi vinkelen er over $45^\\circ$ — en rask rimelighetssjekk som avslører ombytting av sinus og cosinus.",
+            "hints": [
+              "$x$-komponenten får cosinus når vinkelen måles fra vannrett."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-2-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-2-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Forklar hvorfor akselerasjonen i et kast ikke er null i toppunktet, selv om den vertikale farten er det.",
+            "solution": "Akselerasjonen måler hvor raskt hastigheten **endrer seg**, ikke hvor stor den er. I toppunktet er $v_y$ akkurat i ferd med å skifte fortegn fra positiv til negativ, og en slik endring krever akselerasjon ulik null. Tyngden virker uavbrutt gjennom hele kastet, så $a_y = -g$ også nøyaktig i toppen. Hadde akselerasjonen vært null der, ville $v_y$ blitt værende null, og legemet ville svevd.",
+            "hints": [
+              "Skriv opp $v_y(t) = v_{0y} - gt$ og deriver den."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-2-2-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-2-2-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Enheter og rimelighet.) En student har regnet ut at en fotball sparket med $18\\ \\text{m/s}$ når $95\\ \\text{m}$. Vurder svaret uten å regne oppgaven på nytt.",
+            "solution": "Den største mulige rekkevidden med $v_0 = 18\\ \\text{m/s}$ er $x_1 = v_0^2/g = 324/9{,}81 = 33\\ \\text{m}$, oppnådd ved $45^\\circ$. Et svar på $95\\ \\text{m}$ er altså nesten tre ganger over det som overhodet er mulig, og må være galt — sannsynligvis er $g$ utelatt eller en kvadratrot glemt. Å regne ut den maksimale rekkevidden er en rask rimelighetssjekk som koster én linje og fanger grove feil.",
+            "hints": [
+              "Hva er den største rekkevidden en gitt startfart kan gi?",
+              "Sett $\\sin 2\\theta = 1$ i rekkeviddeformelen."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

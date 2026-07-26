@@ -1,0 +1,267 @@
+{
+  "id": "fys1100-11-3",
+  "courseId": "fys1100",
+  "chapterNumber": "11.3",
+  "title": "Øvingseksamen 1: flertrinnsoppgaver med Python-ledd",
+  "description": "Komplett fire timers avsluttende skoleeksamen: fem flertrinnsoppgaver etter standardmalen, inkludert en differensiallikningsoppgave som ender i en Euler–Cromer-deloppgave.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "kunne gjennomføre et komplett eksamenssett på tid, med riktig fordeling av minuttene mellom fem flertrinnsoppgaver",
+    "kunne skrive løsninger som begrunner metodevalget og oppgir enhet og retning på hvert svar",
+    "kunne kontrollere symbolske uttrykk med grensetilfeller og tallsvar med en uavhengig framgangsmåte",
+    "kunne skrive en korrekt Euler–Cromer-løkke for hånd og begrunne metodevalget"
+  ],
+  "content": [
+    {
+      "id": "fys1100-11-3-tip",
+      "type": "tip",
+      "title": "Slik bruker du øvingseksamenen",
+      "content": "**Formatet:** dette er en komplett **avsluttende skoleeksamen** i FYS1100 — den skriftlige eksamenen på slutten av semesteret, som teller **80 %** av karakteren (midtveiseksamenen teller de resterende **20 %**). Settet har **fem flertrinnsoppgaver**, hver med **fem deloppgaver**. Hver deloppgave gir **inntil 5 poeng, og alle deloppgaver teller likt**. Tida er **fire timer**.\n\n**Tidsbudsjett: omkring 48 minutter per oppgave.** Det er mindre enn det høres ut som, for i de fire timene skal du også lese oppgavetekstene, tegne figurer og lese gjennom til slutt. Regn med rundt 40 minutter ren regne- og skrivetid per oppgave og bruk resten på lesing og kontroll.\n\n**Strategien som lønner seg:** siden alle deloppgaver teller likt, er a-deloppgavene i alle fem oppgavene verdt nøyaktig like mye som e-deloppgavene. **Ta derfor alle a- og b-deloppgavene først**, i alle fem oppgavene, før du graver deg ned i noe. Det er også derfor det gis poeng for en god løsningsidé selv om den ikke fullføres — bredde lønner seg.\n\n**Alle svar må begrunnes.** Et riktig tall uten resonnement gir liten eller ingen uttelling, og å skrive opp relevante formler uten å bruke dem gir null. Hvert løsningsforslag i dette kapitlet modellerer begrunnelsen, ikke bare svaret.\n\n**Hjelpemidler:** godkjent kalkulator, den matematiske formelsamlingen **Rottmann**, og det **fagspesifikke formelarket** som deles ut bakerst i settet. Legg dem fram før du starter klokka — å øve uten dem er å øve på feil eksamen.\n\n**Settet kan trygt deles over flere kvelder.** Én oppgave per økt er en helt legitim måte å bruke det på første gangen. Men **skriv minst ett helt sett for hånd på tid** før eksamen: fire timer med håndskrift, figurer og kode på papir er en fysisk ferdighet, og den kan ikke leses inn.\n\n**Konstanter:** $g = 9{,}81\\ \\text{m/s}^2$ og $c = 3{,}00\\cdot 10^{8}\\ \\text{m/s}$ med mindre annet er oppgitt."
+    },
+    {
+      "id": "fys1100-11-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nSettet trekker på hele boka. De fem oppgavene følger **grunnmalen O1–O5**, altså det stabile oppgavemønsteret i moderne sett: O1 er Newton- og energioppgaven med krefttegning, O2 rotasjonsoppgaven, O3 differensiallikningsoppgaven som ender i et Python-ledd, O4 relativitetsoppgaven, og O5 en femte oppgave trukket fra kast, sirkelbevegelse, overslag eller gravitasjon.\n\nDet du bør ha friskt før du starter klokka:\n\n**Newtons 2. lov komponentvis, med tyngden dekomponert** ([kap. 3.2](/bok/fys1100/fys1100-3-2)):\n\n$$\\sum \\mathbf{F} = m\\mathbf{a}, \\qquad N = mg\\cos\\theta, \\qquad \\lvert\\mathbf{f}_d\\rvert = \\mu_d N$$\n\n**Rotasjonens Newtons 2. lov og spinnbevaring** ([kap. 6.1](/bok/fys1100/fys1100-6-1), [kap. 6.3](/bok/fys1100/fys1100-6-3)):\n\n$$\\tau_{\\text{net}} = I\\alpha, \\qquad L_z = I_z\\omega_z \\ \\text{er bevart når det ytre momentet om aksen er null}$$\n\n**Den separable førsteordens likningen og terminalfart** ([kap. 7.3](/bok/fys1100/fys1100-7-3)):\n\n$$m\\frac{dv}{dt} = F - k_v v \\qquad \\Longrightarrow \\qquad v(t) = v_T\\left(1 - e^{-t/\\tau}\\right)$$\n\n**Euler–Cromer-løkka** ([kap. 8.1](/bok/fys1100/fys1100-8-1)) — fart før posisjon, og posisjonen med den **oppdaterte** farten.\n\n**Lorentz-faktoren og de to lengde-/tidsreglene** ([kap. 10.1](/bok/fys1100/fys1100-10-1)):\n\n$$\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}, \\qquad \\Delta t = \\gamma\\,\\Delta t_0, \\qquad l = \\frac{l_0}{\\gamma}$$\n\n**Skrått kast i to uavhengige retninger** ([kap. 2.2](/bok/fys1100/fys1100-2-2))."
+    },
+    {
+      "id": "fys1100-11-3-sett",
+      "type": "text",
+      "content": "## Øvingseksamen 1\n\n**FYS1100 Mekanikk og modellering · fire timer · fem oppgaver · inntil 5 poeng per deloppgave**\n\n**Husk at alle svar må begrunnes.** Bruk $g = 9{,}81\\ \\text{m/s}^2$ og $c = 3{,}00\\cdot 10^{8}\\ \\text{m/s}$ der ikke annet er oppgitt. Oppgi svar med to eller tre gjeldende siffer, med enhet og — for størrelser som har retning — med retning."
+    },
+    {
+      "id": "fys1100-11-3-o1",
+      "type": "text",
+      "content": "### Oppgave 1 (O1) — kasse, snor og bøtte\n\nEn kasse med masse $m_1 = 4{,}00\\ \\text{kg}$ ligger på et skråplan med helning $\\theta = 25{,}0°$. Kassa er festet til en masseløs snor som går over en masseløs, friksjonsfri trinse på toppen av planet. I den andre enden av snora henger en bøtte med masse $m_2 = 3{,}00\\ \\text{kg}$ fritt. Mellom kassa og planet er det dynamisk friksjonstall $\\mu_d = 0{,}200$. Systemet slippes fra ro, og kassa begynner å bevege seg oppover langs planet.\n\n**a)** Tegn fullstendige frilegemediagram for kassa og for bøtta. Navngi alle kreftene, og tegn inn koordinatsystemet du bruker.\n\n**b)** Vis at akselerasjonen er\n\n$$a = \\frac{m_2 g - m_1 g\\sin\\theta - \\mu_d m_1 g\\cos\\theta}{m_1 + m_2}$$\n\nog regn ut både $a$ og snordraget $T$ med enhet og retning.\n\n**c)** Kontrollér uttrykket i de to grensetilfellene $\\mu_d = 0$ og $m_2 = 0$. Hva betyr fortegnet du får i det siste tilfellet, og hvorfor bryter uttrykket sammen der?\n\n**d)** Finn farten når kassa har flyttet seg $1{,}50\\ \\text{m}$ oppover langs planet. Bruk **to** framgangsmåter: et energiregnskap og en kinematisk beregning.\n\n**e)** Forklar i to til fire setninger hvorfor snordraget ikke er lik $m_2 g$, og hva som skulle til for at det var det."
+    },
+    {
+      "id": "fys1100-11-3-o2",
+      "type": "text",
+      "content": "### Oppgave 2 (O2) — karusellen\n\nEn karusell modelleres som en **homogen skive** med masse $M = 150\\ \\text{kg}$ og radius $R = 2{,}00\\ \\text{m}$, som roterer friksjonsfritt om en fast loddrett akse gjennom sentrum. Et barn med masse $m = 30{,}0\\ \\text{kg}$ sitter helt ytterst på kanten og kan regnes som en punktmasse. Treghetsmomentet til en homogen skive om symmetriaksen er $I = \\tfrac12 MR^2$.\n\n**a)** Finn systemets treghetsmoment om aksen. Tegn en skisse sett ovenfra som viser dyttekraften, momentarmen og rotasjonsretningen.\n\n**b)** En voksen dytter tangentielt på kanten med konstant kraft $F = 63{,}0\\ \\text{N}$ i $8{,}00\\ \\text{s}$, fra ro. Finn vinkelakselerasjonen og vinkelfarten ved slutten av dyttet, med retning.\n\n**c)** Den voksne slipper. Barnet kryper deretter inn til $r = 0{,}500\\ \\text{m}$ fra aksen. Finn den nye vinkelfarten, og **begrunn** hvilken bevaringslov du bruker og hvorfor den gjelder.\n\n**d)** Finn systemets rotasjonsenergi rett før og rett etter at barnet har krøpet inn. Forklar hvor differansen kommer fra.\n\n**e)** Forklar i to til fire setninger hvorfor du kan bruke spinnbevaring i c), men ikke i b) — og hvorfor systemets bevegelsesmengde ikke er bevart i noen av fasene."
+    },
+    {
+      "id": "fys1100-11-3-o3",
+      "type": "text",
+      "content": "### Oppgave 3 (O3) — den elektriske båten\n\nEn liten elektrisk båt med samlet masse $m = 12{,}0\\ \\text{kg}$ ligger i ro ved brygga. Ved $t = 0$ startes motoren, som gir en konstant framoverrettet skyvekraft $F = 30{,}0\\ \\text{N}$. Vannmotstanden modelleres først som **lineær**, $F_D = -k_v v$ med $k_v = 6{,}00\\ \\text{N}\\cdot\\text{s/m}$. Båten beveger seg langs en rett linje, og oppdriften balanserer tyngden.\n\n**a)** Sett opp bevegelseslikningen for farten $v(t)$ fra Newtons 2. lov, og klassifiser likningen: orden, lineær eller ikke, homogen eller ikke.\n\n**b)** Løs likningen analytisk med initialbetingelsen $v(0) = 0$. Finn terminalfarten $v_T$ og tidskonstanten, og skriv løsningen på formen $v(t) = v_T(1 - e^{-t/\\tau})$.\n\n**c)** Regn ut farten etter $3{,}00\\ \\text{s}$ og hvor lang tid båten bruker på å nå $90{,}0\\ \\%$ av terminalfarten.\n\n**d)** Modellen byttes til **kvadratisk** motstand, $F_D = -D\\lvert v\\rvert v$ med $D = 1{,}20\\ \\text{N}\\cdot\\text{s}^2/\\text{m}^2$. Vis at terminalfarten blir den samme som før, og forklar hvorfor absoluttverdien må stå i uttrykket.\n\n**e)** Motoren slås av ved $t = 5{,}00\\ \\text{s}$, og båten seiler videre med bare den kvadratiske motstanden. Skisser en Python-kode som løser den fulle bevegelseslikningen numerisk fra $t = 0$ til $t = 15{,}0\\ \\text{s}$: angi initialbetingelsene og skriv integrasjonsløkka. Begrunn valget av metode i to setninger."
+    },
+    {
+      "id": "fys1100-11-3-o4",
+      "type": "text",
+      "content": "### Oppgave 4 (O4) — reisen til Barnards stjerne\n\nEt bemannet romskip reiser fra jorda til en romstasjon som ligger $4{,}20$ lysår unna, målt i jordas hvilesystem. Farten er konstant $v = 0{,}750c$ hele veien, og vi ser bort fra akselerasjonsfasene. Skipets masse er $m = 2{,}0\\cdot 10^{5}\\ \\text{kg}$.\n\n**a)** Regn ut Lorentz-faktoren $\\gamma$, og finn hvor lang tid reisen tar målt fra jorda.\n\n**b)** Hvor lang tid tar reisen målt av mannskapet om bord? Si eksplisitt hvilket system som måler egentid, og hvorfor.\n\n**c)** Hvor lang er strekningen målt fra romskipet? Kontrollér at svaret ditt er konsistent med svaret i b).\n\n**d)** En sonde skytes ut forover fra skipet med farten $0{,}500c$ målt fra skipet. Hvilken fart har sonden målt fra jorda?\n\n**e)** Regn ut skipets relativistiske kinetiske energi, og sammenlign med det klassiske uttrykket $\\tfrac12 mv^2$. Forklar i to til fire setninger hvorfor det klassiske uttrykket bommer så mye ved denne farten."
+    },
+    {
+      "id": "fys1100-11-3-o5",
+      "type": "text",
+      "content": "### Oppgave 5 (O5) — vannballongen fra taket\n\nEn vannballong kastes fra kanten av et tak som ligger $h = 18{,}0\\ \\text{m}$ over bakken. Startfarten er $v_0 = 14{,}0\\ \\text{m/s}$ i vinkelen $35{,}0°$ over vannrett, rettet ut fra bygningen. Se bort fra luftmotstand i a) til d).\n\n**a)** Hvor lang tid går det før ballongen treffer bakken?\n\n**b)** Hvor langt fra bygningen lander den?\n\n**c)** Hvor stor er farten idet den treffer bakken, og i hvilken retning? Regn ut farten på **to** måter: fra komponentene og fra et energiregnskap.\n\n**d)** Hvor høyt over bakken er banens toppunkt?\n\n**e)** Med luftmotstand $-D\\lvert\\mathbf{v}\\rvert\\mathbf{v}$ blir både rekkevidden og nedslagsfarten mindre. Forklar i to til fire setninger hvorfor den **vannrette** farten ikke lenger er konstant, og hvorfor problemet ikke lenger kan løses med de samme formlene som i a) til d)."
+    },
+    {
+      "id": "fys1100-11-3-los-1",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 1",
+      "buttonText": "Vis løsningsforslag O1",
+      "content": [
+        {
+          "id": "fys1100-11-3-los-1-a",
+          "type": "text",
+          "content": "\n**a) Frilegemediagram (5 p).**\n\n**Kassa** ($m_1$) på planet påvirkes av fire krefter: tyngden $m_1\\mathbf{g}$ rett nedover, normalkraften $\\mathbf{N}$ vinkelrett ut fra planet, snordraget $\\mathbf{T}$ oppover langs planet, og den dynamiske friksjonen $\\mathbf{f}_d$ nedover langs planet — friksjonen motvirker den relative bevegelsen, og kassa beveger seg oppover.\n\n**Bøtta** ($m_2$) påvirkes av to krefter: tyngden $m_2\\mathbf{g}$ nedover og snordraget $\\mathbf{T}$ oppover. Snordraget har **samme tallverdi** i begge ender, fordi snora er masseløs og trinsa både masseløs og friksjonsfri.\n\nKoordinatsystem: for kassa legges $x$-aksen langs planet med positiv retning oppover, og $y$-aksen normalt på planet. For bøtta brukes en loddrett akse med positiv retning nedover, slik at begge legemene får positiv akselerasjon samtidig.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-1-fig",
+          "type": "image",
+          "src": "/images/textbook/fys1100/fys1100-3-3-system-to-klosser.svg",
+          "alt": "Skisse av en kloss paa et skraaplan koblet med snor over en masseloes trinse til et lodd som henger fritt, og under den to frilegemediagram: ett for klossen med normalkraft, snordrag, friksjon og tyngde, og ett for det hengende loddet med snordrag opp og tyngde ned.",
+          "caption": "Slik skal de to diagrammene dine se ut. I denne oppgaven er $m_1 = 4{,}00\\ \\text{kg}$ kassa på planet og $m_2 = 3{,}00\\ \\text{kg}$ bøtta, og siden kassa går **oppover**, peker den dynamiske friksjonen $\\mathbf{f}_d$ nedover langs planet, slik figuren viser. Merk at snordraget er tegnet med samme lengde i begge diagrammene — det er masseløs snor over masseløs trinse som gir den likheten."
+        },
+        {
+          "id": "fys1100-11-3-los-1-b",
+          "type": "text",
+          "content": "\n**b) Akselerasjon og snordrag (5 p).**\n\n**Metodevalg:** to legemer koblet med en uttøyelig snor har samme tallverdi på akselerasjonen. Vi skriver derfor Newtons 2. lov komponentvis for hvert legeme og eliminerer $T$.\n\nKassa, normalt på planet (ingen akselerasjon der):\n\n$$N - m_1g\\cos\\theta = 0 \\qquad \\Longrightarrow \\qquad N = m_1g\\cos\\theta$$\n\nKassa, langs planet med positiv retning oppover:\n\n$$T - m_1g\\sin\\theta - \\mu_d N = m_1 a$$\n\nBøtta, med positiv retning nedover:\n\n$$m_2 g - T = m_2 a$$\n\nLegger vi de to siste sammen, faller $T$ ut:\n\n$$m_2g - m_1g\\sin\\theta - \\mu_d m_1 g\\cos\\theta = (m_1 + m_2)a$$\n\n$$a = \\frac{m_2 g - m_1 g\\sin\\theta - \\mu_d m_1 g\\cos\\theta}{m_1 + m_2}$$\n\nsom var det vi skulle vise.\n\n**Tall.** De tre kreftene i telleren er $m_2g = 29{,}43\\ \\text{N}$, $m_1g\\sin\\theta = 16{,}58\\ \\text{N}$ og $\\mu_d m_1g\\cos\\theta = 7{,}11\\ \\text{N}$:\n\n$$a = \\frac{29{,}43 - 16{,}58 - 7{,}11}{7{,}00} = \\frac{5{,}73}{7{,}00} = 0{,}819\\ \\text{m/s}^2$$\n\nrettet **oppover langs planet** for kassa og **nedover** for bøtta.\n\nSnordraget finner vi enklest fra bøtta:\n\n$$T = m_2(g - a) = 3{,}00\\,(9{,}81 - 0{,}819) = 27{,}0\\ \\text{N}$$\n\n**Kontroll med det andre legemet:** $T = m_1a + m_1g\\sin\\theta + \\mu_dm_1g\\cos\\theta = 3{,}28 + 16{,}58 + 7{,}11 = 27{,}0\\ \\text{N}$. Samme svar fra begge kanter.\n\n**Benevningskontroll:** telleren i uttrykket for $a$ har enhet $\\text{N}$, nevneren $\\text{kg}$, og $\\text{N/kg} = \\text{m/s}^2$. Det stemmer.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-1-c",
+          "type": "text",
+          "content": "\n**c) Grensetilfeller (5 p).**\n\n**$\\mu_d = 0$:** friksjonsleddet faller bort, og\n\n$$a = \\frac{m_2g - m_1g\\sin\\theta}{m_1+m_2} = \\frac{29{,}43 - 16{,}58}{7{,}00} = 1{,}84\\ \\text{m/s}^2$$\n\nDet er større enn med friksjon, som det skal være — friksjonen bremser. Uttrykket er også nøyaktig det klassiske resultatet for et friksjonsfritt trinsesystem, og for $\\theta = 0$ faller det videre til $a = m_2g/(m_1+m_2)$, som er svaret for en kloss på et vannrett bord.\n\n**$m_2 = 0$:** her forsvinner bøtta helt, og uttrykket gir\n\n$$a = \\frac{0 - 16{,}58 - 7{,}11}{4{,}00} = -5{,}92\\ \\text{m/s}^2$$\n\n**Det negative fortegnet betyr at akselerasjonen peker nedover langs planet** — kassa blir altså dratt nedover, slik den skal uten noe som drar den opp.\n\n**Men uttrykket bryter sammen her**, og det er selve poenget med kontrollen. Vi utledet det under antakelsen at kassa **glir oppover**, og det var derfor vi satte friksjonen nedover langs planet. Uten bøtta glir kassa nedover, og da snur friksjonen og skal peke **oppover**. Riktig uttrykk i det tilfellet er $a = -g(\\sin\\theta - \\mu_d\\cos\\theta) = -2{,}37\\ \\text{m/s}^2$.\n\n**Hvorvidt kassa i det hele tatt glir uten bøtta,** avgjøres av om $\\tan\\theta > \\mu_s$. Med $\\tan 25{,}0° = 0{,}466$ og et statisk friksjonstall i samme størrelsesorden som det dynamiske, glir den — men det er en egen vurdering, ikke noe formelen kan svare på.\n\n**Lærdommen:** et symbolsk uttrykk gjelder bare innenfor de antakelsene det ble utledet under, og en grensekontroll som gir et «rart» svar er ofte et signal om at man har forlatt gyldighetsområdet.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-1-d",
+          "type": "text",
+          "content": "\n**d) Farten etter $1{,}50\\ \\text{m}$ — to framgangsmåter (5 p).**\n\n**Kinematisk.** Akselerasjonen er konstant, så $v^2 = 2as$ med $v_0 = 0$:\n\n$$v = \\sqrt{2\\cdot 0{,}819\\cdot 1{,}50} = \\sqrt{2{,}457} = 1{,}57\\ \\text{m/s}$$\n\n**Energiregnskap.** Vi ser på hele systemet over strekningen $s = 1{,}50\\ \\text{m}$. Bøtta faller $s$ og frigjør $m_2gs$; kassa løftes høyden $s\\sin\\theta$ og binder $m_1gs\\sin\\theta$; friksjonen tar $\\mu_dm_1g\\cos\\theta\\cdot s$ ut av regnskapet som varme. Resten blir kinetisk energi i **begge** legemene, som har samme fart:\n\n$$\\left(m_2g - m_1g\\sin\\theta - \\mu_dm_1g\\cos\\theta\\right)s = \\tfrac12(m_1+m_2)v^2$$\n\n$$5{,}734\\cdot 1{,}50 = 8{,}60\\ \\text{J} = \\tfrac12\\cdot 7{,}00\\cdot v^2 \\qquad \\Longrightarrow \\qquad v = 1{,}57\\ \\text{m/s}$$\n\nFarten er $1{,}57\\ \\text{m/s}$, rettet oppover langs planet for kassa.\n\n**Merk:** mekanisk energi er **ikke** bevart her, siden friksjonen gjør negativt arbeid. Det er derfor regnskapet er skrevet som «tilført minus bundet minus tapt», ikke som $K + U = \\text{konstant}$. Å skrive energibevaring uten friksjonsleddet er en av de vanligste feilene i denne oppgavetypen.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-1-e",
+          "type": "text",
+          "content": "\n**e) Hvorfor $T \\ne m_2g$ (5 p).**\n\nSnordraget er $27{,}0\\ \\text{N}$, mens $m_2g = 29{,}4\\ \\text{N}$. Grunnen er at **bøtta ikke er i likevekt**: den akselererer nedover med $0{,}819\\ \\text{m/s}^2$. Newtons 2. lov for bøtta krever da en nettokraft nedover, altså $m_2g - T = m_2a > 0$, som gir $T = m_2(g-a) < m_2g$.\n\nSnordraget ville vært nøyaktig $m_2g$ bare hvis akselerasjonen var null — altså hvis systemet sto i ro eller beveget seg med konstant fart. Det ville krevd at de tre kreftene i telleren balanserte hverandre, for eksempel med et større friksjonstall eller en tyngre kasse.\n\n**Grensetilfelle som viser det samme:** gjør kassa svært tung, så nærmer $a$ seg null, og $T$ nærmer seg $m_2g$ ovenfra.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-1-diag",
+          "type": "text",
+          "content": "\n**Selvdiagnose — oppgave 1:**\n\n☐ navnga du **alle** kreftene i begge frilegemediagrammene, og tegnet inn koordinatsystemet?\n\n☐ skrev du ut at snordraget er likt i begge ender **fordi** snora og trinsa er masseløse?\n\n☐ har hvert tallsvar enhet **og** retning?\n\n☐ kontrollerte du uttrykket i minst ett grensetilfelle, og sa hva et negativt fortegn betyr?\n\n☐ viste du begge framgangsmåtene i d), og fikk samme tall?\n"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-11-3-los-2",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 2",
+      "buttonText": "Vis løsningsforslag O2",
+      "content": [
+        {
+          "id": "fys1100-11-3-los-2-a",
+          "type": "text",
+          "content": "\n**a) Treghetsmoment og skisse (5 p).**\n\n**Metodevalg:** treghetsmomentet til et sammensatt system er summen av bidragene fra delene, så lenge de regnes om **samme** akse.\n\nSkiva om symmetriaksen:\n\n$$I_{\\text{skive}} = \\tfrac12 MR^2 = \\tfrac12\\cdot 150\\cdot (2{,}00)^2 = 300\\ \\text{kg}\\cdot\\text{m}^2$$\n\nBarnet som punktmasse ytterst på kanten:\n\n$$I_{\\text{barn}} = mR^2 = 30{,}0\\cdot (2{,}00)^2 = 120\\ \\text{kg}\\cdot\\text{m}^2$$\n\n$$I_{\\text{tot}} = 300 + 120 = 420\\ \\text{kg}\\cdot\\text{m}^2$$\n\nLegg merke til at barnet, som bare er en femtedel av skivas masse, likevel bidrar med $40\\ \\%$ av skivas treghetsmoment. Det er fordi all massen sitter ytterst, der avstanden teller i andre potens.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-2-fig",
+          "type": "image",
+          "src": "/images/textbook/fys1100/fys1100-11-3-karusell.svg",
+          "alt": "Karusellen sett ovenfra. En tangentiell kraft paa 63,0 newton virker paa kanten, momentarmen er radien paa 2,00 meter, og karusellen roterer mot klokka. Barnet sitter forst paa kanten og kryper inn til 0,50 meter fra aksen.",
+          "caption": "Fasitfiguren til deloppgave a). Skissen din trenger ikke være penere enn dette, men den må vise de tre tingene som gir poeng: **hvor** kraften angriper, **hvor lang momentarmen er**, og **hvilken vei** rotasjonen går. Legg merke til at momentarmen er hele radien nettopp fordi kraften står vinkelrett på den."
+        },
+        {
+          "id": "fys1100-11-3-los-2-b",
+          "type": "text",
+          "content": "\n**b) Vinkelakselerasjon og vinkelfart (5 p).**\n\nKraften angriper tangentielt på kanten og står dermed vinkelrett på radien, så hele radien er momentarm:\n\n$$\\tau = FR = 63{,}0\\cdot 2{,}00 = 126\\ \\text{N}\\cdot\\text{m}$$\n\nRotasjonens Newtons 2. lov gir\n\n$$\\alpha = \\frac{\\tau}{I_{\\text{tot}}} = \\frac{126}{420} = 0{,}300\\ \\text{rad/s}^2$$\n\nrettet **mot klokka sett ovenfra**, altså samme vei som kraften dytter.\n\nVinkelakselerasjonen er konstant fordi både kraften og treghetsmomentet er det, så\n\n$$\\omega = \\alpha t = 0{,}300\\cdot 8{,}00 = 2{,}40\\ \\text{rad/s} \\quad \\text{mot klokka}$$\n\n**Kontroll av størrelsesorden:** det svarer til $2{,}40/(2\\pi) = 0{,}382$ omdreininger i sekundet, altså én runde på $2{,}6\\ \\text{s}$. Det er raskt for en karusell, men fullt mulig — og barnets banefart blir $\\omega R = 4{,}80\\ \\text{m/s}$, omtrent som en rask joggetur.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-2-c",
+          "type": "text",
+          "content": "\n**c) Ny vinkelfart etter at barnet kryper inn (5 p).**\n\n**Begrunnelse for bevaringsloven, som er der poengene ligger:** når den voksne har sluppet, virker det ikke lenger noe ytre kraftmoment om rotasjonsaksen. Aksen selv leverer riktignok krefter, men de angriper i selve aksen og har derfor null momentarm om den. Tyngden og normalkreftene er loddrette og parallelle med aksen, så de gir ikke moment om den heller. Og kreftene mellom barnet og karusellgulvet er **indre** krefter i systemet. Dermed er **spinnet om aksen bevart**.\n\n$$L = I_1\\omega_1 = 420\\cdot 2{,}40 = 1008\\ \\text{kg}\\cdot\\text{m}^2/\\text{s}$$\n\nNytt treghetsmoment med barnet i $r = 0{,}500\\ \\text{m}$:\n\n$$I_2 = 300 + 30{,}0\\cdot (0{,}500)^2 = 300 + 7{,}50 = 307{,}5\\ \\text{kg}\\cdot\\text{m}^2$$\n\n$$\\omega_2 = \\frac{L}{I_2} = \\frac{1008}{307{,}5} = 3{,}28\\ \\text{rad/s} \\quad \\text{fortsatt mot klokka}$$\n\nKarusellen går altså $37\\ \\%$ raskere rundt enn før — den samme mekanismen som får en kunstløper til å spinne opp når hun trekker armene inn.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-2-d",
+          "type": "text",
+          "content": "\n**d) Rotasjonsenergien før og etter (5 p).**\n\n$$K_1 = \\tfrac12 I_1\\omega_1^2 = \\tfrac12\\cdot 420\\cdot (2{,}40)^2 = 1210\\ \\text{J}$$\n\n$$K_2 = \\tfrac12 I_2\\omega_2^2 = \\tfrac12\\cdot 307{,}5\\cdot (3{,}28)^2 = 1650\\ \\text{J}$$\n\nEnergien har altså **økt** med omkring $440\\ \\text{J}$.\n\n**Hvor kommer den fra?** Fra barnet. For å komme innover må barnet dra seg inn mot aksen, mot den kraften som skal til for å holde det i sirkelbane. Den kraften virker innover, og barnet flytter seg innover — kraft og forflytning peker samme vei, så arbeidet er positivt. Det er muskelarbeidet som havner i rotasjonsenergien.\n\n**Rask sjekk med et symbolsk uttrykk:** siden $L$ er konstant, kan energien skrives $K = L^2/(2I)$. Når $I$ synker, må $K$ stige — og forholdet blir $K_2/K_1 = I_1/I_2 = 420/307{,}5 = 1{,}37$, som stemmer med tallene over.\n\n**Merk:** dette er nettopp grunnen til at man **ikke** kan bruke energibevaring til å finne $\\omega_2$ i c). Energien er ikke bevart, spinnet er det. Å bruke feil bevaringslov her ville gitt $\\omega_2 = \\omega_1\\sqrt{I_1/I_2} = 2{,}80\\ \\text{rad/s}$, altså et for lavt svar.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-2-e",
+          "type": "text",
+          "content": "\n**e) Hvorfor spinnbevaring i c), men ikke i b) (5 p).**\n\nI **b)** dytter den voksne tangentielt på kanten. Det er en **ytre** kraft med momentarm $R$ om aksen, altså et ytre kraftmoment på $126\\ \\text{N}\\cdot\\text{m}$. Spinnsatsen $\\boldsymbol{\\tau} = d\\mathbf{L}/dt$ sier da at spinnet **endrer seg** — det er nettopp derfor karusellen kommer i gang. Bevaringsloven gjelder ikke når det finnes et ytre moment.\n\nI **c)** er den ytre kraften borte, og de eneste kreftene som er igjen — aksekreftene, tyngden og kreftene mellom barn og gulv — gir alle null moment om aksen, av grunnene i c). Da, og bare da, er spinnet bevart.\n\n**Bevegelsesmengden er aldri bevart her.** Aksen er festet til bakken og leverer den kraften som skal til for å holde systemets massesenter på plass. Under dyttet virker i tillegg den voksnes kraft, som er en ren ytre kraft på systemet. En roterende karusell med et barn på kanten har til og med en massesenterfart som varierer med tida, og det krever en ytre kraft.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-2-diag",
+          "type": "text",
+          "content": "\n**Selvdiagnose — oppgave 2:**\n\n☐ regnet du treghetsmomentet om **samme** akse for begge delene?\n\n☐ skrev du ut HVORFOR spinnet er bevart i c) — med setningen om at aksekreftene har null momentarm?\n\n☐ har vinkelfartene retning («mot klokka sett ovenfra»), ikke bare tallverdi?\n\n☐ forklarte du energiøkningen i d) med et **arbeid**, ikke bare med at «det bare blir sånn»?\n\n☐ unngikk du å bruke energibevaring der spinnbevaring var riktig lov?\n"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-11-3-los-3",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 3",
+      "buttonText": "Vis løsningsforslag O3",
+      "content": [
+        {
+          "id": "fys1100-11-3-los-3-a",
+          "type": "text",
+          "content": "\n**a) Bevegelseslikningen (5 p).**\n\nBåten er ett legeme. Oppdriften balanserer tyngden loddrett, så bare de to vannrette kreftene er igjen: skyvekraften $F$ framover og motstanden $-k_v v$ bakover. Newtons 2. lov langs bevegelsesretningen:\n\n$$m\\frac{dv}{dt} = F - k_v v$$\n\n**Klassifisering:** likningen er **førsteordens** (bare den førstederiverte av $v$ opptrer), **lineær** (både $v$ og $dv/dt$ står i første potens og ikke inne i noen funksjon) og **inhomogen** (leddet $F$ inneholder ikke den ukjente funksjonen). Den er dessuten **separabel**, som er det vi utnytter i b).\n"
+        },
+        {
+          "id": "fys1100-11-3-los-3-b",
+          "type": "text",
+          "content": "\n**b) Analytisk løsning (5 p).**\n\n**Metodevalg:** likningen er separabel, så vi samler alt som inneholder $v$ på den ene siden og alt som inneholder $t$ på den andre. Metoden gjelder her nettopp fordi høyresiden er et produkt av en funksjon av $v$ alene og en konstant.\n\n$$\\frac{dv}{F - k_v v} = \\frac{dt}{m}$$\n\nIntegrasjon med $v(0) = 0$ gir\n\n$$-\\frac{1}{k_v}\\ln\\!\\left(\\frac{F - k_v v}{F}\\right) = \\frac{t}{m} \\qquad \\Longrightarrow \\qquad v(t) = \\frac{F}{k_v}\\left(1 - e^{-k_v t/m}\\right)$$\n\n**Terminalfarten** er den farten der akselerasjonen blir null, altså der de to kreftene balanserer:\n\n$$F - k_v v_T = 0 \\qquad \\Longrightarrow \\qquad v_T = \\frac{F}{k_v} = \\frac{30{,}0}{6{,}00} = 5{,}00\\ \\text{m/s}$$\n\n**Tidskonstanten** leser vi av eksponenten:\n\n$$\\tau = \\frac{m}{k_v} = \\frac{12{,}0}{6{,}00} = 2{,}00\\ \\text{s}$$\n\n$$v(t) = 5{,}00\\left(1 - e^{-t/2{,}00}\\right)\\ \\text{m/s}$$\n\n**Kontroll av grensene:** for $t \\to 0$ gir rekkeutvikling $v \\approx (F/m)t = 2{,}50t$, altså ren akselerasjon uten motstand, som det skal være når farten er null. For $t \\to \\infty$ går $v \\to v_T = 5{,}00\\ \\text{m/s}$. Begge stemmer.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-3-c",
+          "type": "text",
+          "content": "\n**c) Tallsvar (5 p).**\n\nFarten etter $3{,}00\\ \\text{s}$:\n\n$$v(3{,}00) = 5{,}00\\left(1 - e^{-1{,}50}\\right) = 5{,}00\\,(1 - 0{,}2231) = 3{,}88\\ \\text{m/s}$$\n\nrettet framover langs bevegelsesretningen.\n\nTida til $90{,}0\\ \\%$ av terminalfarten:\n\n$$0{,}900 = 1 - e^{-t/\\tau} \\qquad \\Longrightarrow \\qquad e^{-t/\\tau} = 0{,}100 \\qquad \\Longrightarrow \\qquad t = \\tau\\ln 10 = 2{,}00\\cdot 2{,}303 = 4{,}61\\ \\text{s}$$\n\n**Verdt å merke seg:** tida til en gitt **andel** av terminalfarten avhenger bare av tidskonstanten, ikke av hvor stor $v_T$ er. Det er en generell egenskap ved eksponentiell tilnærming, og en rask måte å sjekke rimeligheten på: etter én tidskonstant er man på $63\\ \\%$, etter to på $86\\ \\%$, etter tre på $95\\ \\%$.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-3-d",
+          "type": "text",
+          "content": "\n**d) Kvadratisk motstand (5 p).**\n\nTerminalfarten finnes igjen ved å sette akselerasjonen lik null. Med kvadratisk motstand og positiv fart er $\\lvert v\\rvert v = v^2$:\n\n$$F - Dv_T^2 = 0 \\qquad \\Longrightarrow \\qquad v_T = \\sqrt{\\frac{F}{D}} = \\sqrt{\\frac{30{,}0}{1{,}20}} = \\sqrt{25{,}0} = 5{,}00\\ \\text{m/s}$$\n\nSamme terminalfart som med den lineære modellen — koeffisientene er valgt slik med vilje, for at sammenlikningen skal være ren.\n\n**Hvorfor absoluttverdien må stå der.** Uttrykket $-Dv^2$ er alltid **negativt**, uansett hvilken vei båten går. Snur båten og får negativ fart, ville et $-Dv^2$-ledd fortsatt peke i negativ retning — altså akselerere båten videre bakover i stedet for å bremse den. Skrivemåten $-D\\lvert v\\rvert v$ har samme tallverdi, men fortegnet følger farten, slik at kraften alltid motvirker bevegelsen. I kode: `-D*abs(v[i])*v[i]`, aldri `-D*v[i]**2`.\n\n**Selv om terminalfarten er lik, er veien dit ulik.** Ved lave farter er $Dv^2$ mye mindre enn $k_v v$, så den kvadratiske modellen bremser mindre i starten og båten kommer raskere opp i fart: etter $3{,}00\\ \\text{s}$ ligger den på $4{,}53\\ \\text{m/s}$ mot $3{,}88\\ \\text{m/s}$ for den lineære.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-3-e",
+          "type": "text",
+          "content": "\n**e) Euler–Cromer-løkka (5 p).**\n\n**Metodebegrunnelsen først**, siden det er den som skiller mot toppkarakter: Euler–Cromer oppdaterer farten først og bruker den **oppdaterte** farten når posisjonen regnes ut. Feilen bommer da vekselvis litt for mye og litt for lite, i stedet for systematisk samme vei som i Forward Euler, som bruker den gamle farten. Derfor akkumuleres feilen langt saktere, og metoden er tilnærmet energibevarende — det er den sensor forventer i dette emnet.\n\n**Slik ser eksamensversjonen ut** — det er initialbetingelsene og løkka som gir poeng, ikke importlinjer:\n\n```text\nm = 12.0, F0 = 30.0, D = 1.20, t_av = 5.0\ndt = 0.001, N = 15001\n\nx[0] = 0,  v[0] = 0,  t[0] = 0\n\nfor i in range(N-1):\n    hvis t[i] < t_av:  F = F0    ellers:  F = 0\n    a = (F - D*abs(v[i])*v[i]) / m\n    v[i+1] = v[i] + a*dt\n    x[i+1] = x[i] + v[i+1]*dt\n    t[i+1] = t[i] + dt\n```\n\n**Kjørbar referanseversjon:**\n\n```python\nimport numpy as np\n\nm = 12.0            # kg, bat med last\nF0 = 30.0           # N, skyvekraften mens motoren gaar\nD = 1.20            # N s^2/m^2, kvadratisk motstandskoeffisient\nt_av = 5.0          # s, motoren slaas av\n\nN = 150001\ndt = 0.0010         # s\n\nt = np.zeros(N)\nx = np.zeros(N)\nv = np.zeros(N)\n\nx[0] = 0.0          # m, ved bryggekanten\nv[0] = 0.0          # m/s, starter fra ro\n\nfor i in range(N - 1):\n    F = F0 if t[i] < t_av else 0.0\n    a = (F - D * abs(v[i]) * v[i]) / m\n    v[i + 1] = v[i] + a * dt\n    x[i + 1] = x[i] + v[i + 1] * dt\n    t[i + 1] = t[i] + dt\n\nprint(\"fart ved  3,0 s \", round(v[3000], 3))\nprint(\"fart ved  5,0 s \", round(v[5000], 3))\nprint(\"fart ved 10,0 s \", round(v[10000], 3))\nprint(\"fart ved 15,0 s \", round(v[15000], 3))\nprint(\"strekning 15,0 s\", round(x[15000], 2))\n```\n\n**Utskrift:**\n```\nfart ved  3,0 s  4.526\nfart ved  5,0 s  4.933\nfart ved 10,0 s  1.423\nfart ved 15,0 s  0.831\nstrekning 15,0 s 35.94\n```\n\n**Kontroll mot analytisk løsning.** Den kvadratiske likningen med konstant skyvekraft har faktisk en lukket løsning, $v(t) = v_T\\tanh(t/\\tau_q)$ med $\\tau_q = m/(Dv_T) = 2{,}00\\ \\text{s}$. Den gir $v(3{,}00) = 5{,}00\\tanh(1{,}50) = 4{,}526\\ \\text{m/s}$ og $v(5{,}00) = 4{,}933\\ \\text{m/s}$ — de samme tallene som koden, til fire siffer.\n\nEtter at motoren er slått av, er likningen $m\\,dv/dt = -Dv^2$, som gir $v(t) = v_5/(1 + Dv_5(t-5)/m)$. Den gir $1{,}423\\ \\text{m/s}$ ved $t = 10{,}0\\ \\text{s}$ og $0{,}832\\ \\text{m/s}$ ved $t = 15{,}0\\ \\text{s}$ — igjen samme svar som koden.\n\n**Det er nettopp slike kontroller som gjør en numerisk besvarelse trygg:** finn et tilfelle der du har et analytisk fasitsvar, kjør koden på det, og sammenlign. Da vet du at løkka er riktig før du slipper den løs på et problem uten kjent svar.\n\n**Merk fortegnet på slutten:** farten er fortsatt positiv ved $t = 15{,}0\\ \\text{s}$. Med kvadratisk motstand og ingen drivkraft går farten mot null som $1/t$, altså langsomt — båten stopper aldri helt i modellen, men blir bare tregere og tregere.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-3-diag",
+          "type": "text",
+          "content": "\n**Selvdiagnose — oppgave 3:**\n\n☐ klassifiserte du likningen med alle tre kjennetegnene (orden, lineær, homogen)?\n\n☐ brukte du initialbetingelsen til å bestemme konstanten, i stedet for å la den stå?\n\n☐ kontrollerte du løsningen i grensene $t \\to 0$ og $t \\to \\infty$?\n\n☐ skrev du `abs(v[i])*v[i]` og ikke `v[i]**2` — og forklarte hvorfor?\n\n☐ har hver variabel i løkka **indeks**, og oppdateres farten **før** posisjonen?\n\n☐ begrunnet du metodevalget med ord, ikke bare skrev koden?\n"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-11-3-los-4",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 4",
+      "buttonText": "Vis løsningsforslag O4",
+      "content": [
+        {
+          "id": "fys1100-11-3-los-4-a",
+          "type": "text",
+          "content": "\n**a) Lorentz-faktor og reisetid fra jorda (5 p).**\n\n$$\\gamma = \\frac{1}{\\sqrt{1 - (0{,}750)^2}} = \\frac{1}{\\sqrt{1 - 0{,}5625}} = \\frac{1}{\\sqrt{0{,}4375}} = 1{,}51$$\n\nReisetida målt fra jorda er strekningen delt på farten, begge målt i jordas system:\n\n$$t = \\frac{4{,}20\\ \\text{lysår}}{0{,}750c} = 5{,}60\\ \\text{år}$$\n\nEt lysår er per definisjon den strekningen lys tilbakelegger på ett år, så $4{,}20$ lysår delt på $0{,}750$ lysår per år gir $5{,}60$ år direkte — ingen omregning til meter er nødvendig.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-4-b",
+          "type": "text",
+          "content": "\n**b) Reisetid om bord (5 p).**\n\n**Hvilket system måler egentid?** **Romskipet.** Egentida er tidsintervallet mellom to hendelser målt av den klokka som er til stede ved **begge** hendelsene, altså der de skjer på samme sted. Hendelsene her er «skipet forlater jorda» og «skipet ankommer stasjonen». For mannskapet skjer begge på samme sted — nemlig om bord, ved instrumentpanelet. For jorda skjer de to helt ulike steder, $4{,}20$ lysår fra hverandre, og må måles med to synkroniserte klokker.\n\n$$\\Delta t_0 = \\frac{\\Delta t}{\\gamma} = \\frac{5{,}60}{1{,}51} = 3{,}70\\ \\text{år}$$\n\nMannskapet blir altså $3{,}70$ år eldre, mens $5{,}60$ år går på jorda. **Egentida er alltid den korteste** — det er en god sluttkontroll: får du et større tall om bord enn på jorda, har du snudd $\\gamma$.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-4-c",
+          "type": "text",
+          "content": "\n**c) Strekningen målt fra skipet (5 p).**\n\n**Egenlengden** er $l_0 = 4{,}20$ lysår, fordi den er målt i det systemet der begge endepunktene — jorda og stasjonen — ligger i ro. Det er jordas system.\n\nMålt fra skipet er strekningen kontrahert:\n\n$$l = \\frac{l_0}{\\gamma} = \\frac{4{,}20}{1{,}51} = 2{,}78\\ \\text{lysår}$$\n\n**Konsistenskontroll mot b):** for mannskapet farer stasjonen mot dem med farten $0{,}750c$ over en strekning på $2{,}78$ lysår. Det tar\n\n$$\\frac{2{,}78}{0{,}750} = 3{,}70\\ \\text{år}$$\n\nnøyaktig det samme som egentida i b). De to beskrivelsene er altså to måter å regne på samme fysiske hendelse: jorda sier «lang strekning, langsom klokke om bord», skipet sier «kort strekning, vanlig klokke». **Begge har rett, og de er enige om det eneste som er målbart** — hvor gammelt mannskapet er ved ankomst.\n\n**Merk fella:** her er det lett å bytte om $l$ og $l_0$. Spørsmålet er alltid «i hvilket system ligger legemet eller strekningen i ro?» — der måles egenlengden.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-4-d",
+          "type": "text",
+          "content": "\n**d) Sondens fart sett fra jorda (5 p).**\n\nKlassisk addisjon ville gitt $0{,}750c + 0{,}500c = 1{,}25c$, altså raskere enn lyset — som er umulig. Den relativistiske hastighetstransformasjonen gir i stedet\n\n$$u = \\frac{u' + v}{1 + u'v/c^2} = \\frac{0{,}500c + 0{,}750c}{1 + 0{,}500\\cdot 0{,}750} = \\frac{1{,}250c}{1{,}375} = 0{,}909c$$\n\nSonden beveger seg altså med $0{,}909c$ i samme retning som skipet, målt fra jorda.\n\n**Kontroll av formelen i to grenser:** setter du $u' = c$, får du $u = (c + v)/(1 + v/c) = c$ — lysfarten er den samme i alle systemer, som postulatet krever. Og for små farter, $u'v \\ll c^2$, går nevneren mot 1 og uttrykket over i den klassiske addisjonen.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-4-e",
+          "type": "text",
+          "content": "\n**e) Relativistisk mot klassisk kinetisk energi (5 p).**\n\nRelativistisk kinetisk energi er totalenergien minus hvileenergien:\n\n$$K = (\\gamma - 1)mc^2 = (1{,}5119 - 1)\\cdot 2{,}0\\cdot 10^{5}\\cdot (3{,}00\\cdot 10^{8})^2 = 9{,}2\\cdot 10^{21}\\ \\text{J}$$\n\nDet klassiske uttrykket gir\n\n$$\\tfrac12 mv^2 = \\tfrac12\\cdot 2{,}0\\cdot 10^{5}\\cdot (0{,}750\\cdot 3{,}00\\cdot 10^{8})^2 = 5{,}1\\cdot 10^{21}\\ \\text{J}$$\n\nDet riktige svaret er altså **1,8 ganger** så stort som det klassiske.\n\n**Hvorfor bommer det klassiske uttrykket så mye?** Fordi $\\tfrac12 mv^2$ bare er **det første leddet** i en rekkeutvikling av det eksakte uttrykket. Taylor-utvikler vi $\\gamma = (1-\\beta^2)^{-1/2} \\approx 1 + \\tfrac12\\beta^2 + \\tfrac38\\beta^4$, får vi\n\n$$K \\approx \\tfrac12 mv^2\\left(1 + \\tfrac34\\beta^2 + \\dots\\right)$$\n\nVed lave farter er $\\beta^2$ forsvinnende lite, og korreksjonsleddene betyr ingenting — derfor virker klassisk mekanikk perfekt i hverdagen. Ved $\\beta = 0{,}750$ er $\\beta^2 = 0{,}563$, og korreksjonen er ikke lenger liten. Rekka konvergerer dessuten stadig langsommere jo nærmere $c$ man kommer: energien vokser mot uendelig når $v \\to c$, og det er nettopp derfor ingen masse kan nå lysfarten.\n\n**Til sammenlikning:** $9{,}2\\cdot 10^{21}\\ \\text{J}$ er omkring femten ganger verdens samlede årlige energiforbruk. Det sier noe om hvorfor interstellar reise med $0{,}750c$ er et tankeeksperiment.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-4-diag",
+          "type": "text",
+          "content": "\n**Selvdiagnose — oppgave 4:**\n\n☐ sa du eksplisitt hvilket system som måler egentid, og **hvorfor**?\n\n☐ sjekket du at tida om bord er kortere enn tida på jorda?\n\n☐ kontrollerte du at strekningen målt fra skipet, delt på farten, gir samme svar som egentida?\n\n☐ havnet sondens fart under $c$?\n\n☐ brukte du Lorentz-faktoren i **alle** ledd der den hører hjemme — bevegelseslikninger uten $\\gamma$ gir null uttelling?\n"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-11-3-los-5",
+      "type": "collapsible",
+      "title": "Løsningsforslag — oppgave 5",
+      "buttonText": "Vis løsningsforslag O5",
+      "content": [
+        {
+          "id": "fys1100-11-3-los-5-a",
+          "type": "text",
+          "content": "\n**a) Flytid (5 p).**\n\n**Metodevalg:** uten luftmotstand er de to retningene uavhengige. Den loddrette bevegelsen har konstant akselerasjon $-g$, så vi kan bruke standardformelen — men bare fordi $a$ er konstant.\n\nKomponentene av startfarten:\n\n$$v_{0x} = 14{,}0\\cos 35{,}0° = 11{,}47\\ \\text{m/s}, \\qquad v_{0y} = 14{,}0\\sin 35{,}0° = 8{,}03\\ \\text{m/s}$$\n\nMed origo på bakken under utkastpunktet og $y$ positiv oppover:\n\n$$y(t) = 18{,}0 + 8{,}03t - 4{,}905t^2 = 0$$\n\nAndregradsformelen med den positive roten:\n\n$$t = \\frac{8{,}03 + \\sqrt{8{,}03^2 + 4\\cdot 4{,}905\\cdot 18{,}0}}{2\\cdot 4{,}905} = \\frac{8{,}03 + 20{,}44}{9{,}81} = 2{,}90\\ \\text{s}$$\n\nDen negative roten svarer til et tidspunkt før kastet og forkastes.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-5-b",
+          "type": "text",
+          "content": "\n**b) Rekkevidde (5 p).**\n\nDen vannrette farten er konstant fordi ingen kraft virker vannrett:\n\n$$x = v_{0x}t = 11{,}47\\cdot 2{,}90 = 33{,}3\\ \\text{m}$$\n\nBallongen lander altså $33{,}3\\ \\text{m}$ fra bygningen, målt vannrett.\n\n**Rimelighetskontroll:** hadde kastet vært vannrett fra samme høyde, ville flytida vært $\\sqrt{2h/g} = 1{,}92\\ \\text{s}$ og rekkevidden $22{,}0\\ \\text{m}$. At et skrått kast med samme fart går lenger, stemmer.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-5-c",
+          "type": "text",
+          "content": "\n**c) Nedslagsfart med retning — to metoder (5 p).**\n\n**Fra komponentene.** Den vannrette farten er uendret, den loddrette har vokst:\n\n$$v_x = 11{,}47\\ \\text{m/s}, \\qquad v_y = 8{,}03 - 9{,}81\\cdot 2{,}90 = -20{,}44\\ \\text{m/s}$$\n\n$$v = \\sqrt{11{,}47^2 + 20{,}44^2} = \\sqrt{131{,}5 + 417{,}6} = 23{,}4\\ \\text{m/s}$$\n\n**Retningen** finner vi av forholdet mellom komponentene:\n\n$$\\alpha = \\arctan\\frac{20{,}44}{11{,}47} = 60{,}7°\\ \\text{under vannrett}$$\n\n**Fra energiregnskap.** Bare tyngden gjør arbeid — det er ingen luftmotstand, og ingen andre krefter virker under flukten. Mekanisk energi er derfor bevart:\n\n$$\\tfrac12 mv_0^2 + mgh = \\tfrac12 mv^2 \\qquad \\Longrightarrow \\qquad v = \\sqrt{v_0^2 + 2gh} = \\sqrt{196 + 353} = 23{,}4\\ \\text{m/s}$$\n\nSamme svar. **Merk at energiveien er mye kortere**, men den gir bare tallverdien — retningen må uansett hentes fra komponentene. Under tidspress er derfor en god arbeidsdeling: energi for farten, komponenter for retningen.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-5-d",
+          "type": "text",
+          "content": "\n**d) Banens toppunkt (5 p).**\n\nI toppunktet er $v_y = 0$. Fra $v_y^2 = v_{0y}^2 - 2g\\Delta y$ med $v_y = 0$:\n\n$$\\Delta y = \\frac{v_{0y}^2}{2g} = \\frac{8{,}03^2}{2\\cdot 9{,}81} = 3{,}29\\ \\text{m}$$\n\nover utkastpunktet, altså\n\n$$y_{\\text{maks}} = 18{,}0 + 3{,}29 = 21{,}3\\ \\text{m}$$\n\nover bakken. Toppunktet nås ved $t = v_{0y}/g = 0{,}819\\ \\text{s}$, altså tidlig i flukten — bare $28\\ \\%$ ut i flytida, fordi ballongen skal falle mye lenger ned enn den steg opp.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-5-e",
+          "type": "text",
+          "content": "\n**e) Hva luftmotstanden gjør (5 p).**\n\nUten luftmotstand er tyngden den eneste kraften, og den er **loddrett**. Derfor er $a_x = 0$, og den vannrette farten er konstant hele veien.\n\nMed luftmotstand $-D\\lvert\\mathbf{v}\\rvert\\mathbf{v}$ peker kraften motsatt av den **fulle** hastighetsvektoren, ikke bare motsatt av den loddrette bevegelsen. Så lenge ballongen har vannrett fart, har dragkraften en vannrett komponent\n\n$$F_{D,x} = -D\\sqrt{v_x^2 + v_y^2}\\; v_x$$\n\nsom bremser den vannrette bevegelsen gjennom hele flukten. Rekkevidden blir dermed mindre, og banen mister symmetrien om toppunktet: nedstigningen blir brattere enn oppstigningen.\n\n**Hvorfor formlene fra a) til d) ikke lenger gjelder.** De hviler alle på at akselerasjonen er **konstant**. Nå avhenger akselerasjonen av farten, som avhenger av tida — og de to komponentlikningene er koblet gjennom faktoren $\\sqrt{v_x^2+v_y^2}$. Systemet har ingen enkel lukket løsning, og svaret er en numerisk integrasjon: fire tabeller (`x`, `y`, `vx`, `vy`), begge akselerasjonskomponentene inne i løkka, og Euler–Cromer på hver av dem. Å ta med bare én romlig retning i en slik kode gir maks to av fem poeng.\n"
+        },
+        {
+          "id": "fys1100-11-3-los-5-diag",
+          "type": "text",
+          "content": "\n**Selvdiagnose — oppgave 5:**\n\n☐ dekomponerte du startfarten med sinus i den loddrette og cosinus i den vannrette retningen?\n\n☐ valgte du riktig rot i andregradslikningen, og sa hvorfor den andre forkastes?\n\n☐ oppga du nedslagsfarten med **retning**, ikke bare tallverdi?\n\n☐ viste du begge metodene i c) og fikk samme tall?\n\n☐ forklarte du i e) hvorfor drag også virker **vannrett**?\n"
+        }
+      ]
+    },
+    {
+      "id": "fys1100-11-3-etterord",
+      "type": "text",
+      "content": "## Etter settet\n\n**Rett deg selv realistisk.** Gi deg selv 0 til 5 poeng per deloppgave etter samme prinsipp som sensor: full uttelling krever riktig svar **med begrunnelse**, med enhet og retning. Et riktig tall uten resonnement er verdt lite. Et godt påbegynt resonnement som ikke kommer helt i mål, er verdt en del.\n\n**De fem stedene poeng oftest ryker i dette settet:**\n\n- **O1 a)** — udefinerte symboler eller manglende koordinatsystem i frilegemediagrammet.\n- **O2 c)** — spinnbevaring brukt uten at det står **hvorfor** det ytre momentet er null.\n- **O3 e)** — variabel uten indeks i løkka, eller posisjonen oppdatert med den gamle farten.\n- **O4 b)** — egentid og observert tid byttet om.\n- **O5 c)** — farten oppgitt uten retning.\n\n**Neste steg:** [øvingseksamen 2](/bok/fys1100/fys1100-11-4) har samme mal, men i anvendt innpakning og med flere kvalitative deloppgaver. Legg de to settene til ulike helger — ikke stable dem i uka før eksamen."
+    }
+  ],
+  "exercises": []
+}

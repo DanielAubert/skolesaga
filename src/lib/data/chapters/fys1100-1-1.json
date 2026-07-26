@@ -1,0 +1,374 @@
+{
+  "id": "fys1100-1-1",
+  "courseId": "fys1100",
+  "chapterNumber": "1.1",
+  "title": "Dimensjonsanalyse, benevning og størrelsesorden",
+  "description": "Å utlede formens skjelett fra enheter alene, sjekke uttrykk med benevningskontroll, og tenke i tierpotenser.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne skrive dimensjonsformelen til en mekanisk størrelse i masse, lengde og tid",
+    "kunne bruke benevningskontroll til å avvise uttrykk som ikke kan være riktige",
+    "kunne utlede formen på et uttrykk ved dimensjonsanalyse og avgjøre om svaret er entydig",
+    "kunne regne trygt i tierpotenser og oppgi svar med riktig antall gjeldende siffer"
+  ],
+  "content": [
+    {
+      "id": "fys1100-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet gir deg en gratis kvalitetssjekk på hvert eneste svar du skriver på eksamen — og av og til hele svaret.**\n\nDimensjonsanalyse er den nyeste av verktøysjangrene i FYS1100. Analysen av arkivet gir den ikke et eget frekvenstall slik de store temaene har, fordi den opptrer i to former:\n\n- **som rent flervalgsspørsmål på midtveiseksamen** (den digitale flervalgsprøven midt i semesteret, som teller 20 % av karakteren) — «hvilket av uttrykkene kan ikke være riktig?»;\n- **som verktøy inne i en større oppgave på den avsluttende skoleeksamenen** — i settet fra høsten 2025 skulle banefarten til en satellitt utledes ved dimensjonsanalyse før den ble regnet ut.\n\nI tillegg er **benevningskontroll** — å sjekke at venstre og høyre side i en likning har samme enhet — noe sensor forventer at du gjør uoppfordret. Det koster deg femten sekunder og redder deg fra å levere et svar der en fart har enhet $\\text{m}^2/\\text{s}$.\n\n**Prioritet: bør sitte.** Kapitlet er kort, og ferdigheten brukes i alle de ti neste delene av boka.\n\nKapitlet trener også **sjanger J** — de kvalitative oppgavene der du blir bedt om å forklare, begrunne eller kritisere noe i ord i stedet for å regne. Minst én deloppgave av den typen finnes i hvert eneste eksamenssett."
+    },
+    {
+      "id": "fys1100-1-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette er bokas første fagkapittel, og det krever nesten ingenting på forhånd. Det du trenger, er trygg regning med tierpotenser:\n\n$$10^a \\cdot 10^b = 10^{a+b}, \\qquad \\frac{10^a}{10^b} = 10^{a-b}, \\qquad (10^a)^b = 10^{ab}, \\qquad \\sqrt{10^a} = 10^{a/2}$$\n\nHer er $a$ og $b$ vanlige tall (de kan gjerne være negative eller brøker). Trenger du å friske opp dette, ligger det i [Potenser og logaritmer](/bok/r1/r1-1-2).\n\nEllers skal du kjenne igjen de vanligste SI-enhetene fra videregående: meter $\\text{m}$, kilogram $\\text{kg}$, sekund $\\text{s}$, newton $\\text{N}$ og joule $\\text{J}$. Alt annet — hva en *dimensjon* er, hvordan man skriver den, og hvordan man bruker den — bygger vi opp fra bunnen her."
+    },
+    {
+      "id": "fys1100-1-1-intro",
+      "type": "text",
+      "content": "Heng en nøkkelknippe i en snor og la den svinge. Bytt til en tyngre nøkkelknippe i **samme** snor. Svinger den saktere?\n\nNei. Svingetiden er nøyaktig den samme. Det virker urimelig første gang du ser det — en tyngre klump burde da være tregere? — men du kan komme fram til svaret uten å kunne en eneste formel for pendler. Du trenger bare å spørre: *hvilke enheter har størrelsene som er i spill, og hvordan kan de settes sammen slik at det kommer et sekund ut?*\n\nDet er hele ideen i dette kapitlet. Vi skal gjøre tre ting:\n\n1. lære å skrive **dimensjonen** til en fysisk størrelse — et slags DNA-kort som sier hvor mye masse, lengde og tid som stikker i den;\n2. bruke dimensjonen til å **kontrollere** svar (fem sekunders arbeid, ofte flere poeng verdt);\n3. bruke dimensjonen til å **utlede formen** på et uttrykk vi ikke husker — og forstå nøyaktig hvor metoden slutter å virke.\n\nKapitlet er bygd som tre korte læringsløkker: teori, gjennomregnet eksempel, og deretter en oppgave på nettopp det du nettopp leste."
+    },
+    {
+      "id": "fys1100-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — dimensjon, enhet og benevningskontroll (~15 min)"
+    },
+    {
+      "id": "fys1100-1-1-def-dimensjon",
+      "type": "definition",
+      "title": "Dimensjon",
+      "content": "En **dimensjon** er *hva slags* fysisk størrelse noe er — en lengde, en tid, en masse — uavhengig av hvilken målestokk vi tilfeldigvis bruker.\n\nHøyden til et bord er en lengde enten vi måler den i meter, tommer eller lysår. Alle tre er *enheter* for den samme *dimensjonen*.\n\nVi skriver dimensjonen til en størrelse $X$ med hakeparenteser: $[X]$. Leses «dimensjonen til $X$»."
+    },
+    {
+      "id": "fys1100-1-1-def-si-grunnenhet",
+      "type": "definition",
+      "title": "SI-grunnenhet",
+      "content": "En **SI-grunnenhet** er en av de sju enhetene i det internasjonale enhetssystemet som alle andre enheter bygges av. I mekanikk trenger vi bare tre av dem:\n\n| Størrelse | SI-grunnenhet | Symbol |\n|---|---|---|\n| lengde | meter | $\\text{m}$ |\n| masse | kilogram | $\\text{kg}$ |\n| tid | sekund | $\\text{s}$ |\n\nDe fire andre (ampere, kelvin, mol og candela) hører hjemme i elektrisitet, termofysikk og kjemi, og møter du dem ikke i FYS1100."
+    },
+    {
+      "id": "fys1100-1-1-def-grunnstorrelser",
+      "type": "definition",
+      "title": "De tre mekaniske grunnstørrelsene $[M]$, $[L]$ og $[T]$",
+      "content": "All mekanikk er bygd av tre uavhengige grunnstørrelser, og vi gir dem hver sin store bokstav i hakeparentes:\n\n- $[M]$ — **masse** (grunnenhet kilogram)\n- $[L]$ — **lengde** (grunnenhet meter)\n- $[T]$ — **tid** (grunnenhet sekund)\n\n«Uavhengige» betyr at ingen av dem kan lages av de to andre: du får aldri et kilogram ved å gange meter med sekunder.\n\n**Advarsel om bokstaven $T$:** i denne boka betyr $T$ i vanlig kursiv som regel *snordrag* (kraften i en snor), og $[T]$ med hakeparentes betyr *tidsdimensjonen*. Hakeparentesene er skillet. Der en periode også opptrer, skriver vi den $T_p$."
+    },
+    {
+      "id": "fys1100-1-1-def-avledet-enhet",
+      "type": "definition",
+      "title": "Avledet enhet",
+      "content": "En **avledet enhet** er en enhet som er satt sammen av grunnenhetene, ofte med et eget navn.\n\nNewton er et eksempel: $1\\,\\text{N}$ er *definert* som den kraften som gir $1\\,\\text{kg}$ akselerasjonen $1\\,\\text{m/s}^2$, altså\n\n$$1\\,\\text{N} = 1\\,\\text{kg}\\cdot\\text{m}/\\text{s}^2$$\n\nJoule er et annet: $1\\,\\text{J} = 1\\,\\text{N}\\cdot\\text{m} = 1\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}^2$.\n\nPoenget for oss: **et hvilket som helst egennavn på en enhet kan skrives om til grunnenheter**, og det er den formen du trenger når du skal kontrollere en likning."
+    },
+    {
+      "id": "fys1100-1-1-def-dimensjonsformel",
+      "type": "definition",
+      "title": "Dimensjonsformel",
+      "content": "**Dimensjonsformelen** til en størrelse er dimensjonen skrevet som et produkt av potenser av grunnstørrelsene:\n\n$$[X] = [M]^a\\,[L]^b\\,[T]^c$$\n\nTallene $a$, $b$ og $c$ er **dimensjonseksponentene**. De er entydige: en størrelse har nøyaktig én dimensjonsformel.\n\nEksempler du vil bruke hele tiden:\n\n$$[v] = [L][T]^{-1}, \\qquad [a] = [L][T]^{-2}, \\qquad [F] = [M][L][T]^{-2}$$\n\nMerk at eksponentene godt kan være negative eller brøker."
+    },
+    {
+      "id": "fys1100-1-1-utledning-dimensjon",
+      "type": "text",
+      "content": "### Slik finner du dimensjonen til hva som helst\n\nOppskriften er kort: **finn en definisjon eller en lov som størrelsen står alene i, og oversett den til dimensjoner.** Dimensjonene følger de vanlige regnereglene for potenser.\n\n**Steg 1 — start fra definisjonen.** Fart er strekning delt på tid, altså $v = \\Delta x/\\Delta t$. I dimensjoner:\n\n$$[v] = \\frac{[L]}{[T]} = [L][T]^{-1}$$\n\n*Intuisjon:* en brøkstrek mellom størrelser blir en brøkstrek mellom dimensjoner. Ingenting mer.\n\n**Steg 2 — bygg videre på det du allerede har.** Akselerasjon er endring i fart per tid, $a = \\Delta v/\\Delta t$:\n\n$$[a] = \\frac{[L][T]^{-1}}{[T]} = [L][T]^{-2}$$\n\n*Intuisjon:* hver gang du deler på en tid til, går tidseksponenten ned med én. «Meter per sekund per sekund» er nøyaktig det $[L][T]^{-2}$ sier.\n\n**Steg 3 — bruk en fysisk lov når definisjonen ikke holder.** Kraft har ingen enkel «strekning delt på noe»-definisjon, men Newtons 2. lov binder den til masse og akselerasjon, $\\sum \\mathbf{F} = m\\mathbf{a}$:\n\n$$[F] = [M]\\cdot[L][T]^{-2} = [M][L][T]^{-2}$$\n\n*Intuisjon:* en lov er en likhet, og en likhet må stemme dimensjonelt. Derfor kan enhver lov leses baklengs som en definisjon av dimensjonen til den størrelsen du mangler.\n\n**Steg 4 — ledd som legges sammen, må ha samme dimensjon.** I $v = v_0 + at$ har både $v$, $v_0$ og $at$ dimensjonen $[L][T]^{-1}$. Det er ikke en tilfeldighet, det er et krav — og det kravet er hele grunnlaget for resten av kapitlet.\n\n*Intuisjon:* du kan ikke legge tre meter til fem sekunder. Summen ville ikke bety noe."
+    },
+    {
+      "id": "fys1100-1-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: dimensjonskort for seks vanlige størrelser",
+      "problem": "Finn dimensjonsformelen $[X] = [M]^a[L]^b[T]^c$ for fart, akselerasjon, kraft, arbeid (energi), effekt og trykk. Oppgi også SI-enheten uttrykt i grunnenheter.",
+      "solution": "**Metodevalg:** hver størrelse har en definisjon eller en lov som binder den til størrelser vi allerede kjenner dimensjonen til. Vi starter nederst i kjeden (fart) og bygger oppover.\n\n**Fart**, $v = \\Delta x/\\Delta t$:\n$$[v] = [L][T]^{-1}, \\qquad \\text{SI: } \\text{m}/\\text{s}$$\n\n**Akselerasjon**, $a = \\Delta v/\\Delta t$:\n$$[a] = [L][T]^{-2}, \\qquad \\text{SI: } \\text{m}/\\text{s}^2$$\n\n**Kraft**, fra $\\sum\\mathbf{F} = m\\mathbf{a}$:\n$$[F] = [M][L][T]^{-2}, \\qquad \\text{SI: } \\text{kg}\\cdot\\text{m}/\\text{s}^2 = \\text{N}$$\n\n**Arbeid og energi**, fra $W = Fs$ (kraft ganger strekning langs kraftretningen):\n$$[W] = [M][L][T]^{-2}\\cdot[L] = [M][L]^2[T]^{-2}, \\qquad \\text{SI: } \\text{kg}\\cdot\\text{m}^2/\\text{s}^2 = \\text{J}$$\n\n*Kontroll:* kinetisk energi er $\\tfrac12 mv^2$, og $[M]\\cdot([L][T]^{-1})^2 = [M][L]^2[T]^{-2}$ — samme svar. To ulike energiformer må ha samme dimensjon, ellers kunne vi ikke lagt dem sammen i et energiregnskap.\n\n**Effekt**, energi per tid:\n$$[P] = [M][L]^2[T]^{-3}, \\qquad \\text{SI: } \\text{kg}\\cdot\\text{m}^2/\\text{s}^3 = \\text{W}$$\n\n**Trykk**, kraft per areal:\n$$[p] = \\frac{[M][L][T]^{-2}}{[L]^2} = [M][L]^{-1}[T]^{-2}, \\qquad \\text{SI: } \\text{kg}/(\\text{m}\\cdot\\text{s}^2) = \\text{Pa}$$\n\n**Merk:** trykk har *negativ* lengdeeksponent. Negative eksponenter er helt vanlige og betyr bare at størrelsen står i en nevner."
+    },
+    {
+      "id": "fys1100-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg. Ren gjengivelse av metoden fra eksempel 1.)\n\nFinn dimensjonsformelen $[X] = [M]^a[L]^b[T]^c$ for hver av størrelsene under. Skriv også SI-enheten i grunnenheter.\n\n**a)** Tetthet, definert som $\\rho = m/V$ der $V$ er et volum.\n\n**b)** Kraftmoment, som i den enkleste formen er kraft ganger arm: $\\tau = rF$.\n\n**c)** Fjærkonstanten $k$ i kraftmodellen $F = kx$, der $x$ er en lengde.\n\n**d)** Gravitasjonskonstanten $G$ i $F = GMm/r^2$.",
+        "solution": "**a)** Volum er lengde i tredje potens, $[V] = [L]^3$, så\n$$[\\rho] = \\frac{[M]}{[L]^3} = [M][L]^{-3}, \\qquad \\text{SI: } \\text{kg}/\\text{m}^3$$\n\n**b)** Kraftmoment er lengde ganger kraft:\n$$[\\tau] = [L]\\cdot[M][L][T]^{-2} = [M][L]^2[T]^{-2}, \\qquad \\text{SI: } \\text{kg}\\cdot\\text{m}^2/\\text{s}^2 = \\text{N}\\cdot\\text{m}$$\nLegg merke til at kraftmoment har *samme* dimensjon som energi. Det er ikke en feil, men en påminnelse om at dimensjonen alene ikke forteller hva en størrelse *er* — den forteller bare hvordan den er bygd.\n\n**c)** Fra $F = kx$ får vi $k = F/x$:\n$$[k] = \\frac{[M][L][T]^{-2}}{[L]} = [M][T]^{-2}, \\qquad \\text{SI: } \\text{kg}/\\text{s}^2 = \\text{N}/\\text{m}$$\n\n**d)** Løs $F = GMm/r^2$ for $G$: $G = Fr^2/(Mm)$, altså\n$$[G] = \\frac{[M][L][T]^{-2}\\cdot[L]^2}{[M]^2} = [M]^{-1}[L]^3[T]^{-2}, \\qquad \\text{SI: } \\text{m}^3/(\\text{kg}\\cdot\\text{s}^2)$$\nDenne kommer vi til å bruke igjen i eksempel 4 — det lønner seg å kjenne den igjen.",
+        "hints": [
+          "Start alltid med å løse likningen for størrelsen du er ute etter, slik at den står alene på én side.",
+          "Sett så inn dimensjonene du allerede kjenner: $[F] = [M][L][T]^{-2}$ og $[L]$ for alle lengder.",
+          "I d): $G$ står i telleren av en brøk der massene står i nevneren — begge massene bidrar med $[M]$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-def-dimensjonslos",
+      "type": "definition",
+      "title": "Dimensjonsløs størrelse",
+      "content": "En størrelse er **dimensjonsløs** når alle dimensjonseksponentene er null, altså $[X] = [M]^0[L]^0[T]^0 = 1$. Den har da ingen enhet — den er «bare et tall».\n\nTypiske dimensjonsløse størrelser i FYS1100:\n\n- **forhold mellom to like størrelser**: friksjonstallet $\\mu_s = |\\mathbf{f}_s|/N$ (kraft delt på kraft), hastighetsforholdet $\\beta = v/c$ (fart delt på fart);\n- **vinkler målt i radianer**: en radian er buelengde delt på radius, altså $[L]/[L] = 1$;\n- **rene tall i formler**: $2$, $\\pi$, $\\tfrac12$.\n\nAt radianen er dimensjonsløs er en av grunnene til at $\\sin\\theta \\approx \\theta$ i det hele tatt gir mening — mer om det i neste kapittel."
+    },
+    {
+      "id": "fys1100-1-1-def-homogenitet",
+      "type": "definition",
+      "title": "Dimensjonshomogenitet",
+      "content": "En likning er **dimensjonshomogen** når hvert eneste ledd i den har samme dimensjon.\n\n$$\\underbrace{v}_{[L][T]^{-1}} = \\underbrace{v_0}_{[L][T]^{-1}} + \\underbrace{at}_{[L][T]^{-2}\\cdot[T] = [L][T]^{-1}} \\qquad \\checkmark$$\n\n**Enhver fysisk riktig likning er dimensjonshomogen.** Det er ikke en tommelfingerregel, det er en logisk nødvendighet: å legge en lengde til en tid gir ikke mening, uansett hvilken fysikk man tror på.\n\nDen motsatte veien gjelder derimot **ikke**: en likning kan være dimensjonshomogen og likevel være fysisk gal. $E = 7mv^2$ er dimensjonelt upåklagelig, men faktoren er feil."
+    },
+    {
+      "id": "fys1100-1-1-def-benevningskontroll",
+      "type": "definition",
+      "title": "Benevningskontroll",
+      "content": "**Benevningskontroll** er sluttsjekken der du regner ut dimensjonen (eller enheten) på hver side av svaret ditt og ser om de stemmer.\n\nOppskriften er tre linjer:\n\n1. skriv dimensjonen til venstre side;\n2. skriv dimensjonen til høyre side, ledd for ledd;\n3. konkludér i ord: «venstre side har enhet $\\text{m}/\\text{s}^2$, høyre side $\\text{N}/\\text{kg} = \\text{m}/\\text{s}^2$ — det stemmer».\n\nStemmer det ikke, har du funnet en feil *før* sensor gjorde det. Stemmer det, har du ikke bevist at svaret er riktig — men du har utelukket en stor familie av feil, og du har vist sensor at du arbeider kontrollert.\n\nGjør dette på **hvert** sluttsvar. Det tar under et halvt minutt."
+    },
+    {
+      "id": "fys1100-1-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: fire uttrykk gjennom benevningskontroll",
+      "problem": "En student har skrevet ned fire uttrykk fra hukommelsen. Bruk benevningskontroll til å avgjøre hvilke som **umulig** kan være riktige, og hvilke som passerer kontrollen.\n\n1. $s = v_0 t + \\tfrac12 a t$\n2. $v^2 = v_0^2 + 2as$\n3. $P = Fv^2$\n4. $U = \\tfrac12 k x^2$   (potensiell energi i en fjær, $k$ fra $F=kx$)",
+      "solution": "**Metodevalg:** vi bruker dimensjonshomogenitet. Et uttrykk der to ledd har ulik dimensjon, kan avvises uten videre; et uttrykk som er homogent, *kan* være riktig, men er ikke dermed bevist.\n\n**1.** Venstre side: $[s] = [L]$. Første ledd til høyre: $[v_0 t] = [L][T]^{-1}\\cdot[T] = [L]$ ✓. Andre ledd: $[at] = [L][T]^{-2}\\cdot[T] = [L][T]^{-1}$ ✗.\n\nDe to leddene på høyre side har *ulik* dimensjon — en lengde pluss en fart. **Umulig.** Riktig form er $\\tfrac12 a t^2$, som gir $[L][T]^{-2}\\cdot[T]^2 = [L]$.\n\n**2.** Venstre: $[v^2] = [L]^2[T]^{-2}$. Høyre, ledd for ledd: $[v_0^2] = [L]^2[T]^{-2}$ ✓ og $[2as] = [L][T]^{-2}\\cdot[L] = [L]^2[T]^{-2}$ ✓ (tallet 2 er dimensjonsløst).\n\n**Passerer.** (Og dette er faktisk den riktige formelen for konstant akselerasjon.)\n\n**3.** Venstre: $[P] = [M][L]^2[T]^{-3}$. Høyre: $[Fv^2] = [M][L][T]^{-2}\\cdot[L]^2[T]^{-2} = [M][L]^3[T]^{-4}$ ✗.\n\n**Umulig.** Riktig er $P = \\mathbf{F}\\cdot\\mathbf{v}$, altså kraft ganger fart, som gir $[M][L][T]^{-2}\\cdot[L][T]^{-1} = [M][L]^2[T]^{-3}$ ✓.\n\n**4.** $[k] = [M][T]^{-2}$ (fra oppgave 1c). Høyre: $[k x^2] = [M][T]^{-2}\\cdot[L]^2 = [M][L]^2[T]^{-2}$, som er dimensjonen til energi ✓.\n\n**Passerer.**\n\n**Oppsummert:** to av de fire faller på benevningskontroll (uttrykk 1 og 3), to passerer (uttrykk 2 og 4). Legg merke til at kontrollen aldri sier «riktig» — den sier bare «ikke avvist»."
+    },
+    {
+      "id": "fys1100-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger: dimensjonsanalyse som flervalg — nøyaktig formen den har på midtveiseksamen.)\n\nNøyaktig ett av uttrykkene under er dimensjonelt umulig. Finn det, og forklar i én setning hva som er galt.\n\n**a)** $E = mgh$   (masse, tyngdeakselerasjon, høyde)\n\n**b)** $\\omega = \\sqrt{k/m}$   (vinkelfart, fjærkonstant, masse) — skal ha enhet $\\text{s}^{-1}$\n\n**c)** $p = \\rho g h$   (trykk, tetthet, tyngdeakselerasjon, dybde)\n\n**d)** $F = \\dfrac{mv}{r}$   (kraft, masse, fart, radius)",
+        "solution": "**Svaret er d).**\n\n**a)** $[mgh] = [M]\\cdot[L][T]^{-2}\\cdot[L] = [M][L]^2[T]^{-2}$ — energi ✓\n\n**b)** $[k/m] = [M][T]^{-2}/[M] = [T]^{-2}$, og kvadratrota gir $[T]^{-1}$ ✓\n\n**c)** $[\\rho g h] = [M][L]^{-3}\\cdot[L][T]^{-2}\\cdot[L] = [M][L]^{-1}[T]^{-2}$ — trykk ✓\n\n**d)** $\\left[\\dfrac{mv}{r}\\right] = \\dfrac{[M][L][T]^{-1}}{[L]} = [M][T]^{-1}$, mens kraft skal ha $[M][L][T]^{-2}$ ✗\n\n**Én setning:** uttrykket i d) mangler én potens av farten — riktig form er $F = mv^2/r$, som gir $[M][L]^2[T]^{-2}/[L] = [M][L][T]^{-2}$.",
+        "hints": [
+          "Regn ut dimensjonen til høyre side i hvert alternativ, og sammenlign med dimensjonen størrelsen på venstre side skal ha.",
+          "$[g] = [L][T]^{-2}$ — tyngdeakselerasjonen er en akselerasjon som alle andre.",
+          "Alternativ b) krever at du tar kvadratrota av en dimensjon: $\\sqrt{[T]^{-2}} = [T]^{-1}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær. Benevningskontroll på et uttrykk du møter igjen i luftmotstandskapitlet.)\n\nFor et legeme som faller gjennom luft, brukes ofte kraftmodellen $F_D = D v^2$, der $D$ er en konstant som avhenger av legemets form og lufta. Når tyngden og luftmotstanden balanserer, faller legemet med konstant fart — **terminalfarten**:\n\n$$v_T = \\sqrt{\\frac{mg}{D}}$$\n\n**a)** Finn dimensjonen til $D$, og oppgi SI-enheten.\n\n**b)** Vis ved benevningskontroll at uttrykket for $v_T$ har riktig dimensjon.\n\n**c)** En tennisball har $m = 0{,}060\\ \\text{kg}$ og $D = 1{,}06\\cdot 10^{-3}\\ \\text{kg/m}$. Regn ut $v_T$ med to gjeldende siffer, og avslutt med en benevningskontroll av tallregningen.",
+        "solution": "**Metodevalg:** vi løser kraftmodellen for $D$, oversetter til dimensjoner, og bruker resultatet til å kontrollere uttrykket for $v_T$. Til slutt setter vi inn tall — og kontrollerer enhetene i selve tallregningen, ikke bare i symbolformen.\n\n**a)** Fra $F_D = Dv^2$ får vi $D = F_D/v^2$:\n$$[D] = \\frac{[M][L][T]^{-2}}{[L]^2[T]^{-2}} = [M][L]^{-1}$$\nSI-enheten er $\\text{kg}/\\text{m}$.\n\n**b)** Innsiden av rota:\n$$\\left[\\frac{mg}{D}\\right] = \\frac{[M]\\cdot[L][T]^{-2}}{[M][L]^{-1}} = [L]^2[T]^{-2}$$\nKvadratrota gir $[L][T]^{-1}$ — nettopp dimensjonen til en fart ✓. Uttrykket passerer kontrollen.\n\n**c)** Med $g = 9{,}81\\,\\text{m/s}^2$:\n$$v_T = \\sqrt{\\frac{0{,}060\\,\\text{kg}\\cdot 9{,}81\\,\\text{m/s}^2}{1{,}06\\cdot 10^{-3}\\,\\text{kg/m}}} = \\sqrt{555{,}3\\ \\text{m}^2/\\text{s}^2} = 23{,}6\\ \\text{m/s}$$\n\nAvrundet til to gjeldende siffer: $v_T \\approx 24\\ \\text{m/s}$, rettet **nedover** (mot bakken).\n\n**Benevningskontroll av tallregningen:** i telleren har vi $\\text{kg}\\cdot\\text{m/s}^2$, i nevneren $\\text{kg}/\\text{m}$. Kilogrammene stryker mot hverandre, og $\\frac{\\text{m/s}^2}{1/\\text{m}} = \\text{m}^2/\\text{s}^2$. Kvadratrota gir $\\text{m/s}$ — riktig enhet for en fart.\n\n**Rimelighetssjekk:** $24\\ \\text{m/s}$ er omtrent $85\\ \\text{km/h}$, som er en helt troverdig fallfart for en tennisball.",
+        "hints": [
+          "Løs kraftmodellen $F_D = Dv^2$ for $D$ først — da får du dimensjonen til $D$ uten å gjette.",
+          "I b): regn ut dimensjonen til uttrykket *inne i* kvadratrota, og halvér deretter alle eksponentene.",
+          "I c): behold enhetene med i regnestykket i stedet for å regne med rene tall. Da gjør kalkulatoren benevningskontrollen for deg."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — dimensjon og enhet",
+      "content": "**Feil A: å blande enhet og dimensjon.** Dimensjonen $[L]$ er «lengde». Enheten er meter, tomme eller lysår. Et sluttsvar oppgis alltid i **enheter**; en dimensjonsanalyse føres i **dimensjoner**. Blander du de to, ender du med å skrive $[\\text{m}]$, som ikke betyr noe.\n\n**Feil B: å blande prefikser midt i et regnestykke.** Gram og kilogram, centimeter og meter, gram per kubikkcentimeter og kilogram per kubikkmeter. Gjør alltid om til SI-grunnenheter **før** du regner. En faktor $10^3$ på feil sted er en av de vanligste kildene til svar som er tusen ganger for store.\n\n**Feil C: å hoppe over benevningskontrollen på sluttsvaret.** Dette er den billigste kvalitetssjekken i hele faget. Sensor forventer at du gjør den uoppfordret.\n\n**Feil D: å tro at dimensjonen forteller hva størrelsen *er*.** Kraftmoment og energi har begge dimensjonen $[M][L]^2[T]^{-2}$, men de er ikke samme fysiske størrelse og kan ikke legges sammen. Dimensjonskontroll utelukker feil — den bekrefter aldri.\n\nAlle fire henger sammen med **felle #1 — tallsvar uten resonnement**, den dyreste enkeltfeilen på FYS1100-eksamen: et tall uten enhet og uten kontroll er et tall sensor ikke kan gi poeng for. Feilene i boka har numre fordi de går igjen; du finner hele registeret samlet i eksamenskartet."
+    },
+    {
+      "id": "fys1100-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — å utlede formens skjelett (~20 min)\n\n— naturlig pausepunkt —\n\nTil nå har vi brukt dimensjoner til å *kontrollere* uttrykk. Nå snur vi det: vi bruker dem til å *finne* uttrykk vi ikke har."
+    },
+    {
+      "id": "fys1100-1-1-def-dimensjonsanalyse",
+      "type": "definition",
+      "title": "Dimensjonsanalyse",
+      "content": "**Dimensjonsanalyse** er metoden der du bestemmer *formen* på et fysisk uttrykk ut fra kravet om at dimensjonene må stemme — uten å løse den underliggende fysikken.\n\nDu antar at størrelsen $X$ du er ute etter, avhenger av noen gitte størrelser $A$, $B$, $C$ som et produkt av potenser:\n\n$$X \\sim A^{\\alpha} B^{\\beta} C^{\\gamma}$$\n\nTegnet $\\sim$ leses «går som» eller «skalerer som»: det betyr *proporsjonal med, opp til en dimensjonsløs faktor*. Deretter krever du at dimensjonene stemmer på begge sider, og løser for eksponentene.\n\nMetoden gir deg skjelettet — hvilke størrelser som står i telleren, hvilke i nevneren, og med hvilke potenser. Den gir deg **aldri** tallfaktoren foran."
+    },
+    {
+      "id": "fys1100-1-1-teo-oppskrift",
+      "type": "theorem",
+      "title": "Oppskriften for dimensjonsanalyse",
+      "content": "**Gitt:** størrelsen $X$ antas å avhenge av $A$, $B$ og $C$.\n\n1. **Sett opp ansatsen** $X = k\\, A^{\\alpha} B^{\\beta} C^{\\gamma}$, der $k$ er en ukjent, dimensjonsløs konstant.\n2. **Skriv dimensjonsformelen** for hver størrelse i $[M]$, $[L]$, $[T]$.\n3. **Krev homogenitet:** eksponenten til $[M]$ på venstre side må være lik eksponenten til $[M]$ på høyre side, og likeens for $[L]$ og $[T]$. Det gir **tre likninger** i de ukjente eksponentene.\n4. **Løs likningssettet** for $\\alpha$, $\\beta$, $\\gamma$.\n5. **Skriv svaret** som $X \\sim A^{\\alpha}B^{\\beta}C^{\\gamma}$, og si eksplisitt at den dimensjonsløse faktoren $k$ ikke kan bestemmes med denne metoden.\n6. **Kontrollér** ved å sette dimensjonene inn i sluttuttrykket.\n\nSteg 5 er ikke en formalitet. På eksamen er det å skrive ut hva metoden *ikke* kan gi, en del av begrunnelsen sensor ser etter."
+    },
+    {
+      "id": "fys1100-1-1-utledning-pendel",
+      "type": "text",
+      "content": "### Utledningen steg for steg — pendelen\n\nLa oss ta nøkkelknippet fra innledningen. Vi vil finne svingetiden $T_p$ til en pendel med masse $m$ i en snor med lengde $\\ell$, i et tyngdefelt med tyngdeakselerasjon $g$.\n\n**Steg 1 — ansatsen.**\n$$T_p = k\\, m^{\\alpha}\\, \\ell^{\\beta}\\, g^{\\gamma}$$\n\n*Intuisjon:* vi later som vi ikke aner hvordan formelen ser ut, men vi tør å tippe at den er et rent produkt av potenser. Det er en antakelse — og den holder overraskende ofte i mekanikk.\n\n**Steg 2 — dimensjonene.**\n$$[T_p] = [T], \\qquad [m] = [M], \\qquad [\\ell] = [L], \\qquad [g] = [L][T]^{-2}$$\n\n*Intuisjon:* nå er all fysikken borte. Det som står igjen, er ren bokføring av masse, lengde og tid.\n\n**Steg 3 — homogenitetskravet.**\n$$[T] = [M]^{\\alpha}\\,[L]^{\\beta}\\,\\big([L][T]^{-2}\\big)^{\\gamma} = [M]^{\\alpha}\\,[L]^{\\beta+\\gamma}\\,[T]^{-2\\gamma}$$\n\nSammenlign eksponentene grunnstørrelse for grunnstørrelse:\n\n$$[M]: \\quad 0 = \\alpha$$\n$$[L]: \\quad 0 = \\beta + \\gamma$$\n$$[T]: \\quad 1 = -2\\gamma$$\n\n*Intuisjon:* venstre side er ren tid, så både masse- og lengdeeksponenten der er null. Det er de tre nullene og énerne som gir oss likningene.\n\n**Steg 4 — løs.** Fra tidslikningen: $\\gamma = -\\tfrac12$. Satt inn i lengdelikningen: $\\beta = \\tfrac12$. Og masselikningen ga oss $\\alpha = 0$ direkte.\n\n**Steg 5 — svaret.**\n$$T_p \\sim \\sqrt{\\frac{\\ell}{g}}$$\n\n*Intuisjon:* $\\alpha = 0$ er hele poenget — **massen faller ut av seg selv**. Vi trengte ikke vite noe om pendelfysikk for å se det. Det er ingen kombinasjon av kilogram, meter og sekund som gir et rent sekund og samtidig har masse i seg.\n\n**Steg 6 — kontroll.** $\\left[\\sqrt{\\ell/g}\\right] = \\sqrt{[L]/([L][T]^{-2})} = \\sqrt{[T]^2} = [T]$ ✓\n\nDen eksakte formelen for små utslag er $T_p = 2\\pi\\sqrt{\\ell/g}$. Dimensjonsanalysen traff alt bortsett fra tallet $2\\pi \\approx 6{,}28$ — og det tallet finnes det ingen måte å hente ut av enheter alene."
+    },
+    {
+      "id": "fys1100-1-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: pendelen med tall, og hva $\\alpha = 0$ er verdt",
+      "problem": "**a)** En pendel har snorlengde $\\ell = 1{,}00\\ \\text{m}$. Bruk dimensjonsanalysens resultat $T_p \\sim \\sqrt{\\ell/g}$ til å anslå svingetiden, og sammenlign med den eksakte verdien $T_p = 2\\pi\\sqrt{\\ell/g}$.\n\n**b)** Hvor lang må snoren være for at svingetiden skal bli $1{,}00\\ \\text{s}$?\n\n**c)** En student sier: «Formelen må være feil — en tung kule må da svinge saktere enn en lett.» Svar på innvendingen.",
+      "solution": "**Metodevalg:** vi bruker resultatet fra dimensjonsanalysen for skaleringen, og den eksakte formelen når vi trenger et tall. Poenget med a) er å se nøyaktig hva metoden ga oss, og hva den ikke ga.\n\n**a)** Uten forfaktor:\n$$\\sqrt{\\frac{\\ell}{g}} = \\sqrt{\\frac{1{,}00\\ \\text{m}}{9{,}81\\ \\text{m/s}^2}} = 0{,}319\\ \\text{s}$$\n\nMed den eksakte forfaktoren $2\\pi$:\n$$T_p = 2\\pi \\cdot 0{,}319\\ \\text{s} = 2{,}01\\ \\text{s}$$\n\nDimensjonsanalysen bommet altså med en faktor $2\\pi \\approx 6{,}3$ — men den fant *strukturen*: kvadratrot, lengde i telleren, tyngdeakselerasjon i nevneren, ingen masse.\n\n**b)** Løs den eksakte formelen for $\\ell$:\n$$\\ell = \\frac{g\\,T_p^2}{4\\pi^2} = \\frac{9{,}81\\ \\text{m/s}^2 \\cdot (1{,}00\\ \\text{s})^2}{4\\pi^2} = 0{,}248\\ \\text{m} \\approx 25\\ \\text{cm}$$\n\n*Benevningskontroll:* $\\text{m/s}^2 \\cdot \\text{s}^2 = \\text{m}$ ✓.\n\n**c)** Innvendingen bygger på en riktig intuisjon (tunge ting er tregere å sette i bevegelse) som glemmer den andre halvparten: **den kraften som driver pendelen tilbake, er også proporsjonal med massen**. Tyngdekomponenten langs banen er $mg\\sin\\theta$, og akselerasjonen blir derfor $a = g\\sin\\theta$ — massen forsvinner. Tregheten vokser og drivkraften vokser i takt.\n\nDimensjonsanalysen ser dette uten å kjenne fysikken: masse er den eneste av de tre størrelsene som inneholder $[M]$, så hvis $[M]$ skal ha eksponent null i svaret, kan massen ikke være med i det hele tatt."
+    },
+    {
+      "id": "fys1100-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær. Klassisk dimensjonsanalyse med tre gitte størrelser.)\n\nEn stram streng har strammekraft $S$ (en kraft) og **masse per lengde** $\\mu = m/\\ell$. En bølge løper langs strengen med fart $v$.\n\n**a)** Finn dimensjonene til $S$ og $\\mu$.\n\n**b)** Anta $v = k\\,S^{\\alpha}\\mu^{\\beta}$ og bestem $\\alpha$ og $\\beta$ ved dimensjonsanalyse.\n\n**c)** En gitarstreng har $S = 100\\ \\text{N}$ og $\\mu = 5{,}0\\cdot 10^{-3}\\ \\text{kg/m}$. Anslå bølgefarten, og si tydelig hva anslaget ikke tar hensyn til.",
+        "solution": "**Metodevalg:** to gitte størrelser og to relevante dimensjoner. Vi setter opp homogenitetskravet og løser.\n\n**a)** $[S] = [M][L][T]^{-2}$ (en kraft), og $[\\mu] = [M][L]^{-1}$ (masse per lengde).\n\n**b)** Ansats: $[v] = [S]^{\\alpha}[\\mu]^{\\beta}$, altså\n$$[L][T]^{-1} = \\big([M][L][T]^{-2}\\big)^{\\alpha}\\big([M][L]^{-1}\\big)^{\\beta} = [M]^{\\alpha+\\beta}\\,[L]^{\\alpha-\\beta}\\,[T]^{-2\\alpha}$$\n\nEksponentlikningene:\n\n$$[M]: \\quad 0 = \\alpha + \\beta$$\n$$[L]: \\quad 1 = \\alpha - \\beta$$\n$$[T]: \\quad -1 = -2\\alpha$$\n\nTidslikningen gir $\\alpha = \\tfrac12$; masselikningen gir da $\\beta = -\\tfrac12$; og lengdelikningen kontrollerer: $\\tfrac12 - (-\\tfrac12) = 1$ ✓. Alle tre likningene stemmer samtidig, så løsningen er entydig.\n\n$$v \\sim \\sqrt{\\frac{S}{\\mu}}$$\n\n**c)** Med tall:\n$$\\sqrt{\\frac{100\\ \\text{N}}{5{,}0\\cdot 10^{-3}\\ \\text{kg/m}}} = \\sqrt{2{,}0\\cdot 10^{4}\\ \\text{m}^2/\\text{s}^2} = 1{,}4\\cdot 10^{2}\\ \\text{m/s}$$\n\naltså omtrent $140\\ \\text{m/s}$.\n\n*Benevningskontroll:* $\\text{N}/(\\text{kg/m}) = \\frac{\\text{kg}\\cdot\\text{m}/\\text{s}^2}{\\text{kg}/\\text{m}} = \\text{m}^2/\\text{s}^2$, og rota gir $\\text{m/s}$ ✓.\n\n**Hva anslaget ikke tar hensyn til:** den dimensjonsløse forfaktoren $k$. Dimensjonsanalysen kan ikke skille $v = \\sqrt{S/\\mu}$ fra $v = 3\\sqrt{S/\\mu}$. (For en ideell streng er $k$ faktisk lik 1, men det må vises med bølgefysikk, ikke med enheter.)",
+        "hints": [
+          "Skriv $\\mu$ som masse delt på lengde før du oversetter til dimensjoner.",
+          "Sett opp én likning per grunnstørrelse: én for $[M]$, én for $[L]$, én for $[T]$. Du har to ukjente og tre likninger, så den tredje fungerer som kontroll.",
+          "Start med $[T]$-likningen — den inneholder bare én ukjent."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-def-entydighet",
+      "type": "definition",
+      "title": "Entydighetsbetingelsen for dimensjonsanalyse",
+      "content": "Dimensjonsanalyse gir et **entydig** svar (én bestemt kombinasjon av potenser) når antallet gitte størrelser er lik antallet **uavhengige dimensjoner** som faktisk opptrer i problemet.\n\n- **Tre gitte størrelser og alle tre av $[M]$, $[L]$, $[T]$ i spill** ⇒ tre likninger, tre ukjente ⇒ entydig. (Pendelen: $m$, $\\ell$, $g$.)\n- **To gitte størrelser og bare to dimensjoner i spill** ⇒ to likninger, to ukjente ⇒ entydig. (Strengen: $S$, $\\mu$, der $[M]$, $[L]$ og $[T]$ riktignok alle opptrer, men den tredje likningen viste seg å være en følge av de to andre.)\n- **Flere gitte størrelser enn uavhengige likninger** ⇒ **ikke entydig**: du får en hel familie av mulige svar, og må legge til en fysisk antakelse for å velge mellom dem.\n\nSjekk alltid denne betingelsen **før** du påstår at du har funnet «formelen». Å oppdage at problemet er underbestemt, og si det, er et fullverdig svar — det motsatte, å presentere én tilfeldig løsning som om den var den eneste, er en faglig feil."
+    },
+    {
+      "id": "fys1100-1-1-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: banefarten til en satellitt (eksamensnivå)",
+      "problem": "En satellitt går i sirkelbane rundt en planet med masse $M$, i avstand $r$ fra planetens sentrum. Farten $v$ antas å avhenge av gravitasjonskonstanten $G$, planetmassen $M$ og avstanden $r$.\n\n**a)** Bestem formen på $v$ ved dimensjonsanalyse.\n\n**b)** Kontrollér at entydighetsbetingelsen er oppfylt.\n\n**c)** Regn ut farten for en satellitt $300\\ \\text{km}$ over jordoverflaten. Bruk $M = 5{,}97\\cdot 10^{24}\\ \\text{kg}$, jordradius $R = 6{,}371\\cdot 10^{6}\\ \\text{m}$ og $G = 6{,}674\\cdot 10^{-11}\\ \\text{m}^3/(\\text{kg}\\cdot\\text{s}^2)$. Den eksakte forfaktoren er 1.\n\n**d)** Hvor lang tid bruker satellitten på ett omløp?",
+      "solution": "**Metodevalg:** dette er den formen dimensjonsanalyse har hatt på avsluttende eksamen: den brukes til å *utlede skjelettet*, og deretter settes tall inn. Vi følger de seks stegene i oppskriften.\n\n**a) Steg 1 — ansats.**\n$$v = k\\,G^{\\alpha}M^{\\beta}r^{\\gamma}$$\n\n**Steg 2 — dimensjoner.** Fra oppgave 1d har vi $[G] = [M]^{-1}[L]^{3}[T]^{-2}$. Videre $[M] = [M]$, $[r] = [L]$ og $[v] = [L][T]^{-1}$.\n\n**Steg 3 — homogenitet.**\n$$[L][T]^{-1} = \\big([M]^{-1}[L]^{3}[T]^{-2}\\big)^{\\alpha}[M]^{\\beta}[L]^{\\gamma} = [M]^{-\\alpha+\\beta}\\,[L]^{3\\alpha+\\gamma}\\,[T]^{-2\\alpha}$$\n\n$$[M]: \\quad 0 = -\\alpha + \\beta$$\n$$[L]: \\quad 1 = 3\\alpha + \\gamma$$\n$$[T]: \\quad -1 = -2\\alpha$$\n\n**Steg 4 — løs.** $[T]$-likningen gir $\\alpha = \\tfrac12$. $[M]$-likningen gir $\\beta = \\tfrac12$. $[L]$-likningen gir $\\gamma = 1 - \\tfrac32 = -\\tfrac12$.\n\n**Steg 5 — svar.**\n$$v \\sim \\sqrt{\\frac{GM}{r}}$$\n\nDen dimensjonsløse faktoren $k$ kan ikke bestemmes av metoden. (Her er den tilfeldigvis 1, som oppgaven opplyser.)\n\n**Steg 6 — kontroll.**\n$$\\left[\\sqrt{\\frac{GM}{r}}\\right] = \\sqrt{\\frac{[M]^{-1}[L]^{3}[T]^{-2}\\cdot[M]}{[L]}} = \\sqrt{[L]^{2}[T]^{-2}} = [L][T]^{-1} \\;\\checkmark$$\n\n**b)** Tre gitte størrelser ($G$, $M$, $r$), og alle tre grunnstørrelsene $[M]$, $[L]$, $[T]$ opptrer. Tre likninger, tre ukjente, og likningssettet hadde nøyaktig én løsning. **Entydig** ✓\n\n**c)** Avstanden fra sentrum er $r = R + h = 6{,}371\\cdot 10^{6}\\ \\text{m} + 3{,}00\\cdot 10^{5}\\ \\text{m} = 6{,}671\\cdot 10^{6}\\ \\text{m}$.\n\n$$v = \\sqrt{\\frac{6{,}674\\cdot 10^{-11}\\cdot 5{,}97\\cdot 10^{24}}{6{,}671\\cdot 10^{6}}}\\ \\text{m/s} = \\sqrt{5{,}973\\cdot 10^{7}}\\ \\text{m/s} = 7{,}73\\cdot 10^{3}\\ \\text{m/s}$$\n\nAltså $v \\approx 7{,}7\\ \\text{km/s}$, rettet **tangentielt langs banen** (vinkelrett på linja ut til planetsentrum).\n\n*Benevningskontroll:* $\\frac{\\text{m}^3/(\\text{kg}\\cdot\\text{s}^2)\\cdot\\text{kg}}{\\text{m}} = \\text{m}^2/\\text{s}^2$, rota gir $\\text{m/s}$ ✓\n\n**d)** Omkretsen av banen er $2\\pi r$, og med konstant fart:\n$$T_p = \\frac{2\\pi r}{v} = \\frac{2\\pi\\cdot 6{,}671\\cdot 10^{6}\\ \\text{m}}{7{,}73\\cdot 10^{3}\\ \\text{m/s}} = 5{,}42\\cdot 10^{3}\\ \\text{s} \\approx 90\\ \\text{min}$$\n\n**Rimelighetsvurdering:** en omløpstid på halvannen time for en lav bane rundt jorda stemmer godt med det man vet om romstasjoner. Det er slik en rimelighetsvurdering ser ut, og den er verdt poeng."
+    },
+    {
+      "id": "fys1100-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnær, sjanger K — gravitasjonsoppgaven, altså bevegelse i tyngdefeltet fra en stor masse.)\n\n**Unnslipningsfarten** $v_u$ fra en planet er den minste starthastigheten et legeme må ha rett oppover for aldri å falle tilbake. Anta at den avhenger av gravitasjonskonstanten $G$, planetmassen $M$ og planetradien $R$.\n\n**a)** Bestem formen på $v_u$ ved dimensjonsanalyse, og kontrollér entydighetsbetingelsen.\n\n**b)** Den eksakte formelen har den dimensjonsløse faktoren $\\sqrt{2}$. Regn ut $v_u$ for jorda med $M = 5{,}97\\cdot 10^{24}\\ \\text{kg}$ og $R = 6{,}371\\cdot 10^{6}\\ \\text{m}$.\n\n**c)** Forklar i to setninger hvorfor svaret ditt i a) ikke avhenger av massen til legemet som skytes opp.",
+        "solution": "**Metodevalg:** samme oppskrift som i eksempel 4 — de gitte størrelsene er de samme, bare med $R$ i stedet for $r$.\n\n**a)** Ansats $v_u = k\\,G^{\\alpha}M^{\\beta}R^{\\gamma}$ gir nøyaktig samme tre likninger som i eksempel 4:\n\n$$[M]: 0 = -\\alpha+\\beta, \\qquad [L]: 1 = 3\\alpha+\\gamma, \\qquad [T]: -1 = -2\\alpha$$\n\nmed løsningen $\\alpha = \\beta = \\tfrac12$, $\\gamma = -\\tfrac12$:\n\n$$v_u \\sim \\sqrt{\\frac{GM}{R}}$$\n\n**Entydighetsbetingelsen:** tre gitte størrelser, tre uavhengige dimensjoner i spill, tre likninger med én løsning ⇒ entydig ✓\n\n**b)** Med forfaktoren $\\sqrt{2}$:\n$$v_u = \\sqrt{\\frac{2GM}{R}} = \\sqrt{\\frac{2\\cdot 6{,}674\\cdot 10^{-11}\\cdot 5{,}97\\cdot 10^{24}}{6{,}371\\cdot 10^{6}}}\\ \\text{m/s} = 1{,}12\\cdot 10^{4}\\ \\text{m/s}$$\n\nAltså $v_u \\approx 11{,}2\\ \\text{km/s}$, rettet **radielt utover** fra jordoverflaten.\n\n**c)** Massen til legemet som skytes opp, var ikke blant de gitte størrelsene — og det er ikke en tilfeldighet: både tyngdekraften på legemet og tregheten dets er proporsjonale med den samme massen, slik at den forkortes bort i bevegelseslikningen. Derfor er unnslipningsfarten den samme for et sandkorn og for en romferge.",
+        "hints": [
+          "Legg merke til at de gitte størrelsene er de samme som i eksempel 4, med $R$ i stedet for $r$ — likningssettet blir identisk.",
+          "Start med $[T]$-likningen: bare $G$ inneholder tid, så den gir $\\alpha$ direkte.",
+          "I c): tenk på hvilke størrelser som i det hele tatt var listet opp i oppgaveteksten, og hvorfor legemets masse ikke var blant dem."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-def-forfaktor",
+      "type": "definition",
+      "title": "Den dimensjonsløse forfaktoren",
+      "content": "Den **dimensjonsløse forfaktoren** er tallet foran uttrykket som dimensjonsanalyse aldri kan finne: $2\\pi$ i pendelperioden, $\\tfrac12$ i kinetisk energi, $\\sqrt{2}$ i unnslipningsfarten, $\\tfrac13$ i kjeglevolumet.\n\nGrunnen er enkel: et rent tall har ingen dimensjon, så det setter ingen spor i dimensjonsregnskapet. $\\sqrt{\\ell/g}$ og $2\\pi\\sqrt{\\ell/g}$ har nøyaktig samme dimensjon.\n\n**Konsekvens for eksamen:** når en oppgave ber deg utlede noe ved dimensjonsanalyse, skal svaret ditt inneholde setningen «forfaktoren kan ikke bestemmes med denne metoden». Trenger oppgaven et tall, oppgir den forfaktoren — eller ber om et *overslag*, og da er faktoren mindre viktig enn størrelsesordenen."
+    },
+    {
+      "id": "fys1100-1-1-def-skalering",
+      "type": "definition",
+      "title": "Skaleringslov",
+      "content": "En **skaleringslov** er en påstand om hvordan en størrelse endrer seg når en annen endres — uten at forfaktoren betyr noe.\n\nFra $T_p \\sim \\sqrt{\\ell}$ følger: firedobler du snorlengden, dobles svingetiden. Fra $v \\sim r^{-1/2}$ følger: firedobler du baneradien, halveres banefarten.\n\nRegelen bak: hvis $X \\sim A^{n}$, og $A$ ganges med en faktor $f$, blir $X$ ganget med $f^{n}$.\n\nSkaleringslover er ofte det dimensjonsanalyse er *mest* verdt: du trenger ikke kjenne forfaktoren for å svare på «hva skjer hvis vi dobler …?»."
+    },
+    {
+      "id": "fys1100-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Denne oppgaven har ikke ett svar — det er poenget.)\n\nEn liten kule med radius $r$ faller gjennom en tyktflytende væske og når til slutt en konstant fart $v_T$. En student antar at $v_T$ avhenger av kuleradien $r$, tyngdeakselerasjonen $g$ og en materialkonstant $b$ med enhet $\\text{s}^{-1}$.\n\n**a)** Sett opp homogenitetslikningene for ansatsen $v_T = k\\,r^{\\alpha}g^{\\beta}b^{\\gamma}$.\n\n**b)** Vis at likningssettet **ikke** har entydig løsning, og forklar hvorfor ut fra entydighetsbetingelsen.\n\n**c)** Finn to konkrete kombinasjoner av $r$, $g$ og $b$ som begge har enhet $\\text{m/s}$.\n\n**d)** Hva må studenten gjøre for å komme videre?",
+        "solution": "**Metodevalg:** vi gjennomfører oppskriften som vanlig, og bruker entydighetsbetingelsen til å tolke det vi får. At et problem er underbestemt, er en konklusjon — ikke en blindvei.\n\n**a)** Dimensjonene er $[r] = [L]$, $[g] = [L][T]^{-2}$ og $[b] = [T]^{-1}$. Ingen av dem inneholder masse.\n\n$$[L][T]^{-1} = [L]^{\\alpha}\\big([L][T]^{-2}\\big)^{\\beta}\\big([T]^{-1}\\big)^{\\gamma} = [L]^{\\alpha+\\beta}\\,[T]^{-2\\beta-\\gamma}$$\n\n$$[M]: \\quad 0 = 0 \\qquad (\\text{tom — ingen av størrelsene har masse})$$\n$$[L]: \\quad 1 = \\alpha + \\beta$$\n$$[T]: \\quad -1 = -2\\beta - \\gamma$$\n\n**b)** Vi har **tre ukjente** ($\\alpha$, $\\beta$, $\\gamma$), men bare **to** likninger som sier noe. Masselikningen er tom, fordi ingen av de gitte størrelsene inneholder $[M]$ — den teller derfor ikke som en uavhengig ligning.\n\nEtter entydighetsbetingelsen kreves like mange gitte størrelser som uavhengige dimensjoner i spill. Her er det tre størrelser og bare to dimensjoner ($[L]$ og $[T]$). Vi får en **énparameterfamilie** av løsninger: velg $\\beta$ fritt, så følger $\\alpha = 1-\\beta$ og $\\gamma = 1-2\\beta$.\n\n**c)** To valg av $\\beta$ gir to konkrete kombinasjoner:\n\n- $\\beta = 0$: da er $\\alpha = 1$, $\\gamma = 1$, altså $v_T \\sim rb$. Enhet: $\\text{m}\\cdot\\text{s}^{-1} = \\text{m/s}$ ✓\n- $\\beta = 1$: da er $\\alpha = 0$, $\\gamma = -1$, altså $v_T \\sim g/b$. Enhet: $\\frac{\\text{m/s}^2}{\\text{s}^{-1}} = \\text{m/s}$ ✓\n\nBegge er dimensjonelt upåklagelige, og enhver blanding $\\big(rb\\big)^{1-\\lambda}\\big(g/b\\big)^{\\lambda}$ er det også. Dimensjonene alene kan ikke velge mellom dem.\n\n**d)** Studenten må **tilføre fysikk**. Tre veier:\n\n- fjern en størrelse fra lista ved et fysisk argument (kan man argumentere for at $r$ ikke skal inn, blir $v_T \\sim g/b$ entydig);\n- ta med en fjerde størrelse som inneholder masse (for eksempel væskens tetthet), slik at masselikningen blir reell;\n- gjør et eksperiment eller en fullstendig utledning som fastlegger hvilken kombinasjon som gjelder.\n\n**Poenget å ta med videre:** dimensjonsanalyse er en *begrensning*, ikke en orakel. Den fjerner alle uttrykk som er umulige, og lar de mulige stå igjen. Er det bare ett igjen, har du svaret. Er det flere, har du lært noe viktig om hva som mangler.",
+        "hints": [
+          "Begynn med å skrive dimensjonene til $r$, $g$ og $b$ og se etter hvilke grunnstørrelser som i det hele tatt opptrer.",
+          "Tell antall likninger som faktisk sier noe, mot antall ukjente eksponenter.",
+          "I c): prøv å sette $\\beta = 0$ og deretter $\\beta = 1$, og les av hva $\\alpha$ og $\\gamma$ blir."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — størrelsesorden og tierpotenser (~10 min)\n\nDimensjonsanalyse forteller deg hvilken *form* et svar har. Størrelsesorden forteller deg hvor stort det er — grovt, men raskt. De to hører sammen, og størrelsesorden er direkte forberedelse til Fermi-estimering i [kap. 1.3](/bok/fys1100/fys1100-1-3)."
+    },
+    {
+      "id": "fys1100-1-1-def-standardform",
+      "type": "definition",
+      "title": "Standardform (tierpotensform)",
+      "content": "Et tall er skrevet på **standardform** når det står som\n\n$$a \\cdot 10^{n}, \\qquad 1 \\le a < 10, \\qquad n \\text{ et helt tall}$$\n\nEksempler: $5{,}97\\cdot 10^{24}\\ \\text{kg}$ (jordas masse), $6{,}674\\cdot 10^{-11}$ (gravitasjonskonstanten), $3{,}00\\cdot 10^{8}\\ \\text{m/s}$ (lysfarten).\n\nStandardformen gjør to ting for deg: den skiller **sifrene** ($a$) fra **skalaen** ($n$), og den gjør multiplikasjon og divisjon til addisjon og subtraksjon av eksponenter."
+    },
+    {
+      "id": "fys1100-1-1-def-storrelsesorden",
+      "type": "definition",
+      "title": "Størrelsesorden",
+      "content": "**Størrelsesorden** til et positivt tall er eksponenten $n$ når tallet er skrevet på standardform $a\\cdot 10^{n}$ med $1 \\le a < 10$.\n\nStørrelsesorden til $5{,}97\\cdot 10^{24}$ er altså $24$; til $6{,}674\\cdot 10^{-11}$ er den $-11$.\n\n**Konvensjonen i denne boka:** vi bruker eksponenten i standardform, slik den er definert over. (Noen bøker runder i stedet til *nærmeste* tierpotens, slik at $8\\cdot 10^{3}$ får størrelsesorden 4. Sier en oppgave ikke noe annet, bruk definisjonen over — og skriv hvilken du bruker.)\n\nTo størrelser er «av samme størrelsesorden» når de har samme $n$, eller ligger innenfor omtrent en faktor 10 fra hverandre. Når vi sier at et anslag er «to tierpotenser feil», mener vi at det bommer med en faktor rundt 100."
+    },
+    {
+      "id": "fys1100-1-1-def-gjeldende-siffer",
+      "type": "definition",
+      "title": "Gjeldende siffer",
+      "content": "**Gjeldende siffer** er de sifrene i et tall som bærer reell informasjon.\n\nI FYS1100 gjelder to regler:\n\n- **oppgi 2–3 gjeldende siffer i alle sluttsvar.** Skriv $23{,}6\\ \\text{m/s}$, ikke $23{,}58925\\ldots\\ \\text{m/s}$;\n- **behold ett siffer ekstra i mellomregningen**, og rund først til slutt, slik at avrundingsfeil ikke hoper seg opp.\n\nSensor godtar svar med ett siffer mer eller mindre enn fasiten, men trekker for svar oppgitt med bare *ett* gjeldende siffer der oppgaven ba om en presis verdi. Et anslag i en overslagsoppgave er unntaket — der er ett siffer ofte alt tallet fortjener."
+    },
+    {
+      "id": "fys1100-1-1-eks-5",
+      "type": "example",
+      "title": "Eksempel 5: regning i tierpotenser",
+      "problem": "Regn ut, uten kalkulator, og oppgi svaret på standardform med to gjeldende siffer:\n\n**a)** $\\dfrac{6\\cdot 10^{24}\\ \\text{kg}}{1{,}1\\cdot 10^{21}\\ \\text{m}^3}$   (jordas masse delt på jordas volum — altså middeltettheten)\n\n**b)** $\\sqrt{4{,}0\\cdot 10^{7}\\ \\text{m}^2/\\text{s}^2}$\n\n**c)** Hvor mange størrelsesordener større er jordas masse enn massen til en person på $70\\ \\text{kg}$?",
+      "solution": "**Metodevalg:** vi skiller sifrene fra tierpotensene, regner hver del for seg, og setter sammen til slutt. Det er nettopp denne oppdelingen som gjør hoderegning i tierpotenser mulig.\n\n**a)** Sifrene: $6/1{,}1 = 5{,}45\\ldots \\approx 5{,}5$. Tierpotensene: $10^{24}/10^{21} = 10^{3}$. Enhetene: $\\text{kg}/\\text{m}^3$.\n\n$$\\rho \\approx 5{,}5\\cdot 10^{3}\\ \\text{kg/m}^3$$\n\n*Rimelighetsvurdering:* vann har $1{,}0\\cdot 10^{3}\\ \\text{kg/m}^3$ og jern rundt $7{,}9\\cdot 10^{3}\\ \\text{kg/m}^3$. At jorda i snitt er drøyt fem ganger tettere enn vann, og litt lettere enn rent jern, passer med en steinmantel rundt en jernkjerne.\n\n**b)** Skriv om slik at eksponenten blir et partall — da blir kvadratrota et helt tierpotenstall:\n$$\\sqrt{4{,}0\\cdot 10^{7}} = \\sqrt{40\\cdot 10^{6}} = \\sqrt{40}\\cdot 10^{3} = 6{,}3\\cdot 10^{3}$$\nMed enhet: $6{,}3\\cdot 10^{3}\\ \\text{m/s}$.\n\n*Intuisjon:* $\\sqrt{10^{n}} = 10^{n/2}$, så oddetallseksponenter må «låne» en tier fra sifferdelen først.\n\n**c)** Jorda: størrelsesorden $24$. Personen: $70 = 7{,}0\\cdot 10^{1}$, altså størrelsesorden $1$. Differansen er $24 - 1 = 23$.\n\nJordas masse er altså rundt **23 størrelsesordener** — en faktor omtrent $10^{23}$ — større enn en persons."
+    },
+    {
+      "id": "fys1100-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Innøving i tierpotensregning. Ingen kalkulator.)\n\n**a)** Skriv $0{,}00047$ og $384\\,000\\,000$ på standardform, og oppgi størrelsesorden til hver.\n\n**b)** Regn ut $\\dfrac{(3{,}0\\cdot 10^{8})^2}{6{,}0\\cdot 10^{5}}$ og oppgi svaret på standardform med to gjeldende siffer.\n\n**c)** Lysfarten er $3{,}0\\cdot 10^{8}\\ \\text{m/s}$ og avstanden til månen er $3{,}84\\cdot 10^{8}\\ \\text{m}$. Hvor lang tid bruker lyset dit? Oppgi svaret med to gjeldende siffer og med enhet.\n\n**d)** En sirkelbane har radius $r$. Med $v \\sim r^{-1/2}$ fra eksempel 4: hva skjer med banefarten hvis radien nidobles?",
+        "solution": "**a)** $0{,}00047 = 4{,}7\\cdot 10^{-4}$, størrelsesorden $-4$.\n$384\\,000\\,000 = 3{,}84\\cdot 10^{8}$, størrelsesorden $8$.\n\n**b)** Teller: $(3{,}0)^2 = 9{,}0$ og $(10^{8})^2 = 10^{16}$, altså $9{,}0\\cdot 10^{16}$. Divisjon: $9{,}0/6{,}0 = 1{,}5$ og $10^{16}/10^{5} = 10^{11}$.\n\n$$\\frac{(3{,}0\\cdot 10^{8})^2}{6{,}0\\cdot 10^{5}} = 1{,}5\\cdot 10^{11}$$\n\n**c)** $t = \\dfrac{s}{v} = \\dfrac{3{,}84\\cdot 10^{8}\\ \\text{m}}{3{,}0\\cdot 10^{8}\\ \\text{m/s}} = 1{,}3\\ \\text{s}$\n\n*Benevningskontroll:* $\\text{m}/(\\text{m/s}) = \\text{s}$ ✓. Og $1{,}3$ sekunder er nøyaktig den forsinkelsen man kjenner igjen fra radiosamtaler med månen.\n\n**d)** Med $v \\sim r^{-1/2}$ og $r \\to 9r$ blir farten ganget med\n$$9^{-1/2} = \\frac{1}{\\sqrt{9}} = \\frac{1}{3}$$\nBanefarten blir altså **en tredjedel** av det den var.",
+        "hints": [
+          "På standardform skal sifferdelen ligge mellom 1 og 10 — flytt komma og tell hvor mange plasser du flyttet det.",
+          "I b): kvadrer sifferdelen og eksponenten hver for seg før du deler.",
+          "I d): bruk regelen at hvis $X \\sim A^{n}$ og $A$ ganges med $f$, ganges $X$ med $f^{n}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-1-1-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — kvalitativ oppgave. Svar i sammenhengende tekst, 3–5 setninger per punkt. Ingen regning.)\n\n**a)** Forklar hvorfor dimensjonsanalyse aldri kan gi faktoren $2\\pi$ i pendelformelen $T_p = 2\\pi\\sqrt{\\ell/g}$.\n\n**b)** En medstudent sier: «Uttrykket mitt bestod benevningskontrollen, så det må være riktig.» Er det et gyldig resonnement? Begrunn.\n\n**c)** Gi ett argument for hvorfor det likevel lønner seg å bruke tid på benevningskontroll under en fire timers eksamen med tidspress.",
+        "solution": "**a)** Dimensjonsanalyse arbeider utelukkende med *dimensjonene* til størrelsene, og et rent tall som $2\\pi$ er dimensjonsløst — det har eksponent null for både $[M]$, $[L]$ og $[T]$. Derfor gir det ingen bidrag til noen av homogenitetslikningene, og likningene kan ikke skille $\\sqrt{\\ell/g}$ fra $2\\pi\\sqrt{\\ell/g}$ eller fra $17\\sqrt{\\ell/g}$. Å bestemme forfaktoren krever at man løser den faktiske bevegelseslikningen.\n\n**b)** Nei. Benevningskontroll er en **nødvendig**, men ikke tilstrekkelig betingelse: enhver riktig likning er dimensjonshomogen, men mange gale likninger er det også. $E = 7mv^2$ og $E = \\tfrac12 mv^2$ har nøyaktig samme dimensjon, og bare den ene er riktig. Kontrollen kan avvise et uttrykk, aldri godkjenne det.\n\n**c)** Fordi kostnaden er svært lav og gevinsten svært høy. Kontrollen tar under et halvt minutt, mens en dimensjonsfeil typisk forplanter seg gjennom alle de påfølgende deloppgavene i en flertrinnsoppgave. Siden hver deloppgave teller like mye, kan et halvt minutts kontroll redde flere deloppgavers uttelling — og en synlig kontroll viser dessuten sensor at du arbeider systematisk, noe som er en del av begrunnelsen sensor ser etter.",
+        "hints": [
+          "I a): tenk på hva et rent tall bidrar med i dimensjonsformelen $[M]^a[L]^b[T]^c$.",
+          "I b): finn et moteksempel — to uttrykk med samme dimensjon der bare det ene er fysisk riktig.",
+          "I c): tenk på hva en tidlig feil koster i en flertrinnsoppgave der alle deloppgavene teller like mye."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-1-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-1-1-def-enhet-vs-dimensjon",
+      "type": "definition",
+      "title": "Enhet mot dimensjon — skillet",
+      "content": "**Dimensjonen** sier *hva slags* størrelse noe er: lengde, masse, tid, eller en kombinasjon. Den skrives med hakeparenteser, $[L]$, $[M]$, $[T]$, og er uavhengig av målestokk.\n\n**Enheten** sier *hvilken målestokk* vi bruker for den dimensjonen: meter, tomme, lysår er alle enheter for dimensjonen $[L]$.\n\nPraktisk regel: **fører du en dimensjonsanalyse, regn i dimensjoner. Oppgir du et svar, oppgi i enheter.** Blander du dem, skriver du meningsløsheter som «$[\\text{m/s}]$».\n\nEn benevningskontroll kan gjøres begge veier — enten i dimensjoner ($[L][T]^{-1}$) eller i enheter ($\\text{m/s}$). Enheter er ofte raskest når du allerede har tall i uttrykket."
+    },
+    {
+      "id": "fys1100-1-1-def-ansats",
+      "type": "definition",
+      "title": "Ansats",
+      "content": "En **ansats** er et kvalifisert startgjett om formen på en løsning, som man deretter tester eller bestemmer parametrene i.\n\nI dimensjonsanalyse er ansatsen antakelsen om at $X$ er et **rent produkt av potenser** av de gitte størrelsene:\n\n$$X = k\\,A^{\\alpha}B^{\\beta}C^{\\gamma}$$\n\nDette er en reell antakelse, ikke en selvfølge. Uttrykk som $v(t) = v_T(1-e^{-gt/v_T})$ er ikke et rent potensprodukt, og dimensjonsanalyse kan ikke produsere dem — men den kan fremdeles kontrollere at hvert ledd i dem er dimensjonsriktig, og at eksponenten er dimensjonsløs.\n\nOrdet «ansats» brukes på samme måte i differensiallikningskapitlene senere i boka."
+    },
+    {
+      "id": "fys1100-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-1-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $[X]$ | dimensjonen til størrelsen $X$ | (dimensjonsløs notasjon) |\n| $[M]$ | grunnstørrelsen masse | $\\text{kg}$ |\n| $[L]$ | grunnstørrelsen lengde | $\\text{m}$ |\n| $[T]$ | grunnstørrelsen tid | $\\text{s}$ |\n| $m$ | masse (skalar) | $\\text{kg}$ |\n| $\\ell$ | lengde, snorlengde (skalar) | $\\text{m}$ |\n| $r$, $R$ | avstand fra sentrum / radius (skalar) | $\\text{m}$ |\n| $t$ | tid (skalar) | $\\text{s}$ |\n| $T_p$ | periode, svingetid (skalar) | $\\text{s}$ |\n| $v$, $v_0$ | fart og startfart (tallverdien av $\\mathbf{v}$) | $\\text{m/s}$ |\n| $v_T$ | terminalfart | $\\text{m/s}$ |\n| $v_u$ | unnslipningsfart | $\\text{m/s}$ |\n| $a$ | akselerasjon (tallverdien av $\\mathbf{a}$) | $\\text{m/s}^2$ |\n| $g$ | tyngdeakselerasjon, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n| $F$, $\\mathbf{F}$ | kraft (tallverdi / vektor) | $\\text{N} = \\text{kg}\\cdot\\text{m}/\\text{s}^2$ |\n| $F_D$ | luftmotstand (drag) | $\\text{N}$ |\n| $D$ | koeffisient i kvadratisk drag, $F_D = Dv^2$ | $\\text{kg}/\\text{m}$ |\n| $k$ | fjærkonstant — **og** dimensjonsløs forfaktor | $\\text{N}/\\text{m}$ / ingen |\n| $W$, $E$, $U$ | arbeid og energi (skalarer) | $\\text{J} = \\text{kg}\\cdot\\text{m}^2/\\text{s}^2$ |\n| $P$ | effekt (skalar) | $\\text{W} = \\text{J/s}$ |\n| $p$ | trykk (skalar) | $\\text{Pa} = \\text{N}/\\text{m}^2$ |\n| $\\rho$ | tetthet (skalar) | $\\text{kg}/\\text{m}^3$ |\n| $\\mu$ | masse per lengde (i strengoppgaven) | $\\text{kg}/\\text{m}$ |\n| $\\tau$ | kraftmoment (tallverdi) | $\\text{N}\\cdot\\text{m}$ |\n| $G$ | gravitasjonskonstanten, $6{,}674\\cdot 10^{-11}$ | $\\text{m}^3/(\\text{kg}\\cdot\\text{s}^2)$ |\n| $M$ | massen til en planet eller stjerne | $\\text{kg}$ |\n| $\\alpha$, $\\beta$, $\\gamma$ | dimensjonseksponenter i en ansats | ingen |\n| $\\sim$ | «skalerer som», opp til en dimensjonsløs faktor | — |\n\n**Symbolkollisjoner du må holde styr på i dette kapitlet:**\n\n- $T$ i kursiv brukes ellers i boka om **snordrag**; tidsdimensjonen skrives alltid med hakeparenteser, $[T]$; en periode skrives $T_p$.\n- $M$ med hakeparenteser er **massedimensjonen**; $M$ uten er massen til en planet.\n- $k$ er både fjærkonstanten og den dimensjonsløse forfaktoren i en ansats. Sammenhengen avgjør; i tvilstilfeller skriv det ut.\n- $\\mu$ er her masse per lengde. Fra kapitlet om friksjon og utover betyr $\\mu_s$ og $\\mu_d$ friksjonstall — alltid med subskript.\n\n**Formler i dette delkapitlet:**\n\n$$[X] = [M]^{a}[L]^{b}[T]^{c}$$\nDimensjonsformelen: enhver mekanisk størrelse er entydig bestemt av tre eksponenter. **[må kunne utledes]**\n\n$$[v] = [L][T]^{-1}, \\quad [a] = [L][T]^{-2}, \\quad [F] = [M][L][T]^{-2}, \\quad [E] = [M][L]^{2}[T]^{-2}$$\nDimensjonskortene du bruker oftest. Utledes fra definisjonene og Newtons 2. lov — **[må kunne utledes]**\n\n$$X = k\\,A^{\\alpha}B^{\\beta}C^{\\gamma}$$\nAnsatsen i dimensjonsanalyse, med $k$ dimensjonsløs. **[må kunne utledes]**\n\n$$T_p = 2\\pi\\sqrt{\\ell/g}$$\nPerioden til en pendel med små utslag. Skjelettet $\\sqrt{\\ell/g}$ **[må kunne utledes]** ved dimensjonsanalyse; selve formelen bygges opp i svingningskapitlene.\n\n$$v = \\sqrt{GM/r}, \\qquad v_u = \\sqrt{2GM/R}$$\nBanefart i sirkelbane og unnslipningsfart. Gravitasjonsloven $\\mathbf{F} = -\\frac{GMm}{r^2}\\hat{\\mathbf{r}}$ som de bygger på, står **[formelarket]**; selve uttrykkene **[må kunne utledes]** (ved dimensjonsanalyse eller energibetraktning).\n\n$$v_T = \\sqrt{mg/D}$$\nTerminalfart med kvadratisk luftmotstand. Kraftmodellen $F_D = -D|v|v$ står **[formelarket]**; terminalfarten **[må kunne utledes]** ved å sette akselerasjonen lik null.\n\n$$a\\cdot 10^{n}, \\quad 1 \\le a < 10$$\nStandardform. Regnereglene for tierpotenser står **[Rottmann]**, men bør sitte i fingrene.\n\n**Merk formelark-strategien:** eksamen deler ut et fagspesifikt formelark og tillater Rottmann. Poengene ligger derfor ikke i å pugge formlene over, men i å *velge* riktig, *begrunne* hvorfor den gjelder, og *utlede* det arket ikke gir. Dimensjonsanalyse er ett av de verktøyene arket ikke redder deg på."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-1-1-repetisjon-tekst",
+          "type": "text",
+          "content": "Fem korte oppgaver på stoffet dette kapitlet bygger på. Fasit står rett under hvert spørsmål — dekk den til først.\n\n**R1.** Skriv $10^{5}\\cdot 10^{-8}$ og $\\dfrac{10^{-3}}{10^{-7}}$ som én tierpotens.\n\n*Fasit:* $10^{5-8} = 10^{-3}$ og $10^{-3-(-7)} = 10^{4}$.\n\n**R2.** Regn ut $\\sqrt{9\\cdot 10^{6}}$ uten kalkulator.\n\n*Fasit:* $\\sqrt{9}\\cdot\\sqrt{10^{6}} = 3\\cdot 10^{3}$.\n\n**R3.** Gjør om $2{,}5\\ \\text{g}/\\text{cm}^3$ til SI-grunnenheter.\n\n*Fasit:* $1\\ \\text{g} = 10^{-3}\\ \\text{kg}$ og $1\\ \\text{cm}^3 = (10^{-2}\\ \\text{m})^3 = 10^{-6}\\ \\text{m}^3$, så $2{,}5\\ \\text{g}/\\text{cm}^3 = 2{,}5\\cdot\\dfrac{10^{-3}}{10^{-6}}\\ \\text{kg}/\\text{m}^3 = 2{,}5\\cdot 10^{3}\\ \\text{kg}/\\text{m}^3$.\n\n**R4.** Hvor mange sekunder er det i ett døgn? Oppgi svaret på standardform med to gjeldende siffer.\n\n*Fasit:* $24\\cdot 60\\cdot 60 = 86\\,400\\ \\text{s} = 8{,}6\\cdot 10^{4}\\ \\text{s}$.\n\n**R5.** Skriv om $72\\ \\text{km/h}$ til $\\text{m/s}$, og forklar hvorfor omregningsfaktoren er $1/3{,}6$.\n\n*Fasit:* $72\\ \\text{km/h} = 72\\cdot\\dfrac{10^{3}\\ \\text{m}}{3600\\ \\text{s}} = 20\\ \\text{m/s}$. Faktoren er $\\dfrac{10^{3}}{3600} = \\dfrac{1}{3{,}6}$: en kilometer er tusen meter, og en time er 3 600 sekunder."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

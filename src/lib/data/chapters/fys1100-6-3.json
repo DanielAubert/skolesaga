@@ -1,0 +1,492 @@
+{
+  "id": "fys1100-6-3",
+  "courseId": "fys1100",
+  "chapterNumber": "6.3",
+  "title": "Spinn, spinnbevaring og «kritiser løsningen»",
+  "description": "Spinn L = r × p, spinnbevaring når netto ytre moment er null, kule skutt inn i stav, og den kvalitative «finn feilen i løsningen»-oppgaven.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne regne ut spinnet til en partikkel og til et stivt legeme om en oppgitt akse, med retning",
+    "kunne begrunne presist hvorfor spinnet er bevart i en gitt situasjon, og hvorfor bevegelsesmengden ikke alltid er det",
+    "kunne løse kule-i-stav-oppgaven i tre faser med riktig lov i hver fase",
+    "kunne finne den konkrete feilen i en gal løsning og skrive ut hvilket prinsipp som faktisk gjelder"
+  ],
+  "content": [
+    {
+      "id": "fys1100-6-3-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet dekker to sjangre samtidig.\n\n**Sjanger F — rotasjonsoppgaven**, altså et stivt legeme som roterer, ruller eller får et støt, står i **7 av 7 sett (100 %)**. Spinnvarianten er den som kobler rotasjon til [Del 5](/bok/fys1100/fys1100-5-2): en kule som skytes inn i en stav, en kunstløper som trekker inn armene, en person som setter seg på en roterende plattform.\n\n**Sjanger J — kvalitative «forklar/begrunn/kritiser»-oppgaver** har **minst én deloppgave i hvert eneste sett**. Den spisseste varianten er å få forelagt en **ferdig, gal løsning** og bli bedt om å finne feilen. Den varianten er dokumentert i ett av de sju settene, i form av en maskingenerert besvarelse som forveksler masse med treghetsmoment og feilaktig hevder at spinnet ikke er bevart. Arkivet gir ikke grunnlag for å telle en høyere frekvens enn det ene settet — men sjangeren er billig å trene og dyr å møte uforberedt.\n\nSlik ligger poengene i spinnoppgavene:\n\n| Steg | Hva sensor ser etter |\n|---|---|\n| **Begrunnelsen** for at spinnet er bevart | «fordi ytre kraftmoment om aksen er null» — dette er det hyppigste trekket i delen |\n| Riktig treghetsmoment før og etter | ikke masse, ikke sum av masser |\n| Retning på spinnet | felle #9 — manglende retning på en vektorstørrelse, typisk −2 p |\n| Skille mellom hva som er bevart og hva som ikke er det | driv, spinn og energi følger ulike regler i samme støt |\n\n**Å bruke en bevaringslov uten å begrunne den er felle #7 og koster typisk 1 poeng.** I denne delen er det den hyppigste enkeltfeilen. Feilene har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\n**Prioritet: høyeste — dette må sitte.** [Kap. 6.4](/bok/fys1100/fys1100-6-4) driller hele sjangeren samlet."
+    },
+    {
+      "id": "fys1100-6-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på to kapitler, og bruker begge fra første side.\n\n**Fra [kap. 6.1](/bok/fys1100/fys1100-6-1) og [kap. 6.2](/bok/fys1100/fys1100-6-2) — rotasjon:**\n\n$$\\tau = rF\\sin\\varphi = F\\cdot(\\text{momentarm}), \\qquad \\tau_{\\text{net}} = I\\alpha, \\qquad K_{\\text{rot}} = \\tfrac12 I\\omega^2$$\n\npluss parallellakseteoremet $I = I_{cm} + Md^2$ og standardverdiene $\\tfrac13 M\\ell^2$ for en stav om enden, $\\tfrac12 MR^2$ for en sylinder og $\\tfrac25 MR^2$ for en kule. Og igjen den avgjørende observasjonen: **en kraft gjennom aksen gir null moment**.\n\n**Fra [kap. 5.2](/bok/fys1100/fys1100-5-2) — bevegelsesmengde og støt:**\n\n$$\\mathbf{p} = m\\mathbf{v}, \\qquad \\mathbf{J} = \\int\\mathbf{F}\\,dt = \\Delta\\mathbf{p}$$\n\nog selve bevaringsloven, med betingelsen skrevet ut:\n\n$$\\sum\\mathbf{p}_{\\text{før}} = \\sum\\mathbf{p}_{\\text{etter}} \\quad \\text{når netto ytre kraft er null i den retningen}$$\n\nHusk også skillet mellom støttypene: i et **elastisk** støt er både bevegelsesmengde og mekanisk energi bevart; i et **uelastisk** støt er bare bevegelsesmengden bevart. Å bruke energibevaring i et uelastisk støt er **felle #2** og gir null poeng.\n\nDette kapitlet legger til en tredje bevaringslov ved siden av de to, og hele kunsten er å vite hvilken som gjelder når.\n\n**Notasjonsavtale for kapitlet.** Spinn er en vektor og skrives $\\mathbf{L}$; komponenten langs rotasjonsaksen skrives $L_z$. **Lengden av en stav skrives $\\ell$**, aldri $L$ — kollisjonen er reell i nettopp dette kapitlet, der begge opptrer i samme likning. Treghetsmomentet $I$, massen $m$ og energien $K$ er skalarer. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, **aldri** $\\mathbf{G}$. Vi bruker $g = 9{,}81\\,\\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-6-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — spinnet (~15 min)\n\nEn kunstløper avslutter programmet med en pirouette. Hun starter med armene ute og snurrer rolig; så trekker hun armene inn til kroppen, og farten øker dramatisk — uten at noen dytter på henne.\n\nIngen gir henne rotasjon. Hun bare **omfordeler massen sin**, og noe annet holder seg konstant. Den størrelsen heter spinn, og den er rotasjonens motstykke til bevegelsesmengden."
+    },
+    {
+      "id": "fys1100-6-3-def-spinn",
+      "type": "definition",
+      "title": "Spinn (dreieimpuls)",
+      "content": "Spinnet er rotasjonens motstykke til bevegelsesmengden: et mål på «hvor mye rotasjon» et system har om en gitt akse.\n\nFor en partikkel med bevegelsesmengde $\\mathbf{p}$ i posisjonen $\\mathbf{r}$ fra aksen:\n\n$$\\mathbf{L} = \\mathbf{r}\\times\\mathbf{p}, \\qquad L = rp\\sin\\varphi = p\\cdot(\\text{momentarm})$$\n\nFor et stivt legeme som roterer om en fast akse er uttrykket enda enklere:\n\n$$L_z = I_z\\omega_z$$\n\nEnheten er $\\text{kg}\\cdot\\text{m}^2/\\text{s}$, som også kan skrives $\\text{N}\\cdot\\text{m}\\cdot\\text{s}$.\n\n**Gyldighetsbetingelsen er at aksen må oppgis** — akkurat som for kraftmoment og treghetsmoment. Og legg merke til at en partikkel som beveger seg i **rett linje** godt kan ha spinn forskjellig fra null om et punkt utenfor linja: det er avstanden fra punktet til bevegelseslinja som teller. Det er dette som gjør at en kule i fart kan sette en stav i rotasjon."
+    },
+    {
+      "id": "fys1100-6-3-def-spinn-stivt",
+      "type": "definition",
+      "title": "Spinn for et stivt legeme",
+      "content": "For et stivt legeme som roterer om en fast akse, er spinnet om den aksen ganske enkelt treghetsmomentet ganger vinkelfarten:\n\n$$L_z = I_z\\omega_z$$\n\nSammenlign med $p = mv$: massen er byttet med treghetsmomentet, farten med vinkelfarten. Analogien fra [kap. 6.1](/bok/fys1100/fys1100-6-1) holder også her.\n\n**Retningen er den samme som $\\boldsymbol{\\omega}$**, altså langs rotasjonsaksen, gitt av høyrehåndsregelen. I planet: ut av papirplanet for rotasjon mot klokka.\n\n**Gyldighetsbetingelsen** er at rotasjonen skjer om en fast symmetriakse. For skjeve akser kan $\\mathbf{L}$ og $\\boldsymbol{\\omega}$ peke i ulike retninger — det er derfor et hjul som er ute av balanse rister. Den komplikasjonen møter du ikke i FYS1100."
+    },
+    {
+      "id": "fys1100-6-3-th-spinnsatsen",
+      "type": "theorem",
+      "title": "Spinnsatsen",
+      "content": "Endringsraten til et systems spinn er lik det ytre kraftmomentet:\n\n$$\\boldsymbol{\\tau}_{\\text{ytre}} = \\frac{d\\mathbf{L}}{dt}$$\n\nLoven står på formelarket, og den er nøyaktig samme setning som $\\sum\\mathbf{F} = d\\mathbf{p}/dt$, oversatt til rotasjon.\n\nTo ting følger direkte:\n\n1. **Er det ytre kraftmomentet null, er spinnet konstant.** Det er spinnbevaringen, og den er hovedverktøyet i dette kapitlet.\n2. **For et stivt legeme med fast $I$** gir loven $\\tau = I\\,d\\omega/dt = I\\alpha$ — altså rotasjonens Newtons 2. lov fra [kap. 6.1](/bok/fys1100/fys1100-6-1) som spesialtilfelle. Er $I$ derimot **ikke** konstant (kunstløperen som trekker inn armene), gjelder $\\tau = I\\alpha$ ikke lenger, og du må bruke spinnsatsen i den generelle formen.\n\nDet siste punktet er verdt å merke seg: $\\tau = I\\alpha$ er den spesielle formen, $\\boldsymbol{\\tau} = d\\mathbf{L}/dt$ den generelle."
+    },
+    {
+      "id": "fys1100-6-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Svar med egne ord, to–tre setninger hver.\n\n**a)** Hva er forskjellen på bevegelsesmengde og spinn?\n\n**b)** En kloss glir i rett linje over et bord. Kan den ha spinn forskjellig fra null?\n\n**c)** Hvorfor er det ikke nok å si «spinnet er bevart» — hva må skrives i tillegg for å få full uttelling?",
+        "solution": "**a)** Bevegelsesmengden $\\mathbf{p} = m\\mathbf{v}$ måler hvor mye rettlinjet bevegelse et legeme har, og den avhenger bare av masse og fart. Spinnet $\\mathbf{L} = \\mathbf{r}\\times\\mathbf{p}$ måler hvor mye rotasjonsbevegelse det har **om et bestemt punkt eller en bestemt akse**, og det avhenger i tillegg av hvor legemet befinner seg i forhold til den aksen.\n\nDet er analogien mellom kraft og kraftmoment om igjen: den ene bryr seg ikke om hvor noe skjer, den andre gjør det.\n\n**b)** Ja. Spinnet om et punkt er $L = p\\cdot(\\text{momentarm})$, der momentarmen er den vinkelrette avstanden fra punktet ned på bevegelseslinja. Ligger punktet utenfor linja, er den avstanden forskjellig fra null, og klossen har spinn — selv om den ikke snurrer i det hele tatt.\n\nDette er ikke en kuriositet: det er nettopp derfor en kule som treffer enden av en stav kan sette staven i rotasjon.\n\n**c)** **Hvorfor** den er bevart: at det ytre kraftmomentet om aksen er null, og gjerne hvorfor det er null (for eksempel «hengselkraften angriper i aksen og har derfor null momentarm»). Å bruke en bevaringslov uten begrunnelse er felle #7 og koster typisk 1 poeng — og det er den hyppigste enkeltfeilen i denne delen.",
+        "hints": [
+          "Sammenlign definisjonene: hva inngår i den ene som ikke inngår i den andre?",
+          "I b): hva er momentarmen fra et punkt utenfor bevegelseslinja?",
+          "I c): tenk på hva sensorveiledningene i H2023, V2024 og V2025 sier om bruk av bevaringslover."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Spinnet til et legeme i rett linje",
+      "problem": "En kloss med masse $0{,}50\\,\\text{kg}$ glir langs en rett linje med den konstante farten $3{,}0\\,\\text{m/s}$. Den vinkelrette avstanden fra et punkt $O$ ned på bevegelseslinja er $0{,}40\\,\\text{m}$.\n\n**a)** Finn spinnet om $O$.\n\n**b)** Vis at spinnet er konstant, selv om klossen flytter seg.\n\n**c)** Hva er spinnet om et punkt som ligger **på** bevegelseslinja?",
+      "solution": "**Metodevalg først:** vi bruker $L = p\\cdot(\\text{momentarm})$, som er nøyaktig samme regnemåte som for kraftmoment — bare med $\\mathbf{p}$ i stedet for $\\mathbf{F}$.\n\n**a)** $$L = mvb = 0{,}50 \\cdot 3{,}0 \\cdot 0{,}40 = 0{,}60\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$$\n\nmed retning ut av papirplanet dersom klossen passerer til høyre for $O$ og beveger seg oppover i figuren — retningen finnes med høyrehåndsregelen, og den skal alltid oppgis.\n\n**b)** Både $m$, $v$ og den vinkelrette avstanden $b$ er konstante mens klossen glir, så $L = mvb$ er konstant.\n\nDet stemmer også med spinnsatsen: klossen har ingen resultantkraft (den går med konstant fart), altså heller ikke noe ytre kraftmoment om $O$, og $d\\mathbf{L}/dt = 0$.\n\nLegg merke til at avstanden $r$ fra $O$ **ut til klossen** endrer seg hele tiden — men produktet $r\\sin\\varphi$ gjør det ikke. Det er nettopp derfor momentarm-formen er den nyttige.\n\n**c)** Null. Da ligger $O$ på bevegelseslinja, momentarmen er null, og $L = p \\cdot 0 = 0$.\n\n**Benevningskontroll:** $\\text{kg}\\cdot\\text{m/s} \\cdot \\text{m} = \\text{kg}\\cdot\\text{m}^2/\\text{s}$ ✓ — riktig enhet for spinn."
+    },
+    {
+      "id": "fys1100-6-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — spinnbevaring (~15 min)\n\nNå kan vi svare på kunstløperen. Ingen ytre kraftmoment virker om den loddrette aksen hun snurrer om: tyngden peker langs aksen og har ingen momentarm om den, og friksjonen mot isen under skøyta er neglisjerbar. Da sier spinnsatsen at spinnet er konstant — og hun kan bare bytte $I$ mot $\\omega$."
+    },
+    {
+      "id": "fys1100-6-3-def-spinnbevaring",
+      "type": "definition",
+      "title": "Spinnbevaring",
+      "content": "Er summen av de ytre kraftmomentene om en akse null, holder systemets samlede spinn om den aksen seg konstant gjennom hele prosessen:\n\n$$\\mathbf{L}_{\\text{før}} = \\mathbf{L}_{\\text{etter}} \\qquad \\text{når} \\qquad \\boldsymbol{\\tau}_{\\text{ytre}} = 0$$\n\nFor et legeme som endrer form, blir det $I_1\\omega_1 = I_2\\omega_2$: synker treghetsmomentet, må vinkelfarten øke tilsvarende.\n\n**Gyldighetsbetingelsen er det som gir poeng**, og den skal skrives ut hver eneste gang. Merk at betingelsen gjelder **kraftmomentet**, ikke kreftene. Det er fullt mulig at det virker store ytre krefter på systemet, og at spinnet likevel er bevart — så lenge kreftene ikke har momentarm om aksen.\n\nDette er det avgjørende poenget i kule-i-stav-oppgaven: hengselen utøver en stor kraft, så **bevegelsesmengden er ikke bevart**. Men hengselkraften angriper i aksen, så den har null momentarm, og **spinnet om hengselaksen er bevart**."
+    },
+    {
+      "id": "fys1100-6-3-def-energi-vs-spinn",
+      "type": "definition",
+      "title": "Spinn bevart, energi ikke bevart",
+      "content": "En felle som er verdt et eget begrep: at spinnet er bevart, betyr **ikke** at den kinetiske energien er det.\n\nGrunnen ser du av regnestykket. Med $L = I\\omega$ konstant blir\n\n$$K_{\\text{rot}} = \\tfrac12 I\\omega^2 = \\frac{L^2}{2I}$$\n\nHalveres $I$, holder $L$ seg, $\\omega$ dobles — og $K$ **dobles**. Energien er altså ikke bevart, den øker.\n\nHvor kommer den fra? Fra arbeid. Kunstløperen som trekker inn armene, må dra dem innover mot en betydelig kraft, og musklene hennes gjør nettopp den ekstra energien. Motsatt vei — armene ut igjen — gjør hun negativt arbeid, og energien synker.\n\nRegel å ta med videre: **spinnbevaring sier noe om $I\\omega$, ikke om $I\\omega^2$.** Skal du finne en energi, må du regne den ut i begge tilstander og sammenligne — ikke anta at den er den samme."
+    },
+    {
+      "id": "fys1100-6-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Kunstløperen",
+      "problem": "En kunstløper snurrer om en loddrett akse med armene ute. Da er treghetsmomentet hennes $I_1 = 4{,}50\\,\\text{kg}\\cdot\\text{m}^2$ og vinkelfarten $\\omega_1 = 1{,}20\\,\\text{rad/s}$. Hun trekker armene inn til kroppen, og treghetsmomentet synker til $I_2 = 1{,}50\\,\\text{kg}\\cdot\\text{m}^2$.\n\n**a)** Begrunn at spinnet er bevart, og finn den nye vinkelfarten.\n\n**b)** Finn rotasjonsenergien før og etter.\n\n**c)** Er energien bevart? Hvis ikke, hvor kommer forskjellen fra?\n\n**d)** Hva ville skjedd om hun strakte armene ut igjen?",
+      "solution": "**Metodevalg først:** vi bruker spinnbevaring om den loddrette rotasjonsaksen, og regner energien separat i begge tilstander — spinnbevaring sier ingenting om energien.\n\n**a)** **Begrunnelsen:** de ytre kreftene på kunstløperen er tyngden og normalkraften fra isen. Begge peker **langs** den loddrette rotasjonsaksen og har derfor null momentarm om den. Friksjonen mellom skøyta og isen om den loddrette aksen er neglisjerbar. Altså er $\\tau_{\\text{ytre}} = 0$ om aksen, og spinnsatsen gir $d\\mathbf{L}/dt = 0$: spinnet er bevart.\n\nKreftene hun bruker på å trekke inn armene, er **indre** krefter i systemet og kan ikke endre systemets samlede spinn.\n\n$$I_1\\omega_1 = I_2\\omega_2 \\quad \\Longrightarrow \\quad \\omega_2 = \\frac{I_1\\omega_1}{I_2} = \\frac{4{,}50 \\cdot 1{,}20}{1{,}50} = 3{,}60\\,\\text{rad/s}$$\n\nsamme retning som før — treghetsmomentet er en positiv skalar, så rotasjonsretningen kan ikke snu.\n\n**b)** $$K_1 = \\tfrac12 I_1\\omega_1^2 = \\tfrac12 \\cdot 4{,}50 \\cdot 1{,}44 = 3{,}24\\,\\text{J}$$\n\n$$K_2 = \\tfrac12 I_2\\omega_2^2 = \\tfrac12 \\cdot 1{,}50 \\cdot 12{,}96 = 9{,}72\\,\\text{J}$$\n\n**c)** **Nei — energien er tredoblet**, fra $3{,}24\\,\\text{J}$ til $9{,}72\\,\\text{J}$. Økningen er $6{,}48\\,\\text{J}$.\n\nDen kommer fra **arbeidet musklene hennes gjør**. Mens hun snurrer, må armene holdes i sirkelbane av en innoverrettet kraft, og skal de trekkes enda lenger inn, må hun dra dem innover mot den kraften over en strekning. Det arbeidet blir til rotasjonsenergi.\n\nRegnestykket bak faktoren tre: med $L$ konstant er $K = L^2/(2I)$, så $K_2/K_1 = I_1/I_2 = 4{,}50/1{,}50 = 3{,}00$ ✓.\n\n**d)** Da ville prosessen gå baklengs: $I$ tilbake til $4{,}50\\,\\text{kg}\\cdot\\text{m}^2$, $\\omega$ tilbake til $1{,}20\\,\\text{rad/s}$, og energien tilbake til $3{,}24\\,\\text{J}$. De $6{,}48\\,\\text{J}$ ville nå bli gjort **negativt** arbeid av musklene — armene «drar med seg» rotasjonen utover, og hun må holde igjen.\n\nSpinnet er bevart hele veien; det er bare fordelingen mellom $I$ og $\\omega$ som endres."
+    },
+    {
+      "id": "fys1100-6-3-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Bevaringslov brukt uten begrunnelse (felle #7, typisk −1 p).** «Spinnet er bevart» er ikke et argument. Skriv ut hvorfor: «det ytre kraftmomentet om hengselaksen er null, fordi hengselkraften angriper i aksen og tyngden er den eneste andre ytre kraften — og i støtøyeblikket er tyngdens impuls neglisjerbar». Dette er den hyppigste enkeltfeilen i denne delen.\n\n**Bevegelsesmengdebevaring brukt der spinn skal brukes.** I en kule-i-stav-oppgave med hengsel er bevegelsesmengden **ikke** bevart: hengselen gir en ytre kraft. Spinnet om hengselaksen er derimot bevart, fordi den kraften ikke har momentarm. Å bruke feil bevaringslov er en metodefeil, og metodefeil straffes hardere enn regnefeil.\n\n**Masse forvekslet med treghetsmoment.** Å skrive $mv_0\\ell = (m+M)\\omega\\ell$, eller å bruke «totalmassen» som om den var et treghetsmoment, er den mest siterte feilen i sjangeren. Et stivt legeme som roterer har ikke én fart — hver del har sin egen — og det er nettopp derfor $I$ finnes.\n\n**Antatt at energien er bevart fordi spinnet er det.** De to lovene er uavhengige. Med $L$ konstant er $K = L^2/(2I)$, så en endring i $I$ endrer energien. I et uelastisk støt går det dessuten alltid energi tapt (felle #2 — energibevaring i et uelastisk støt gir null poeng).\n\n**Manglende retning på spinnet (felle #9, typisk −2 p).** $\\mathbf{L}$ er en vektor. «$1{,}6\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$» er ikke et fullstendig svar; «$1{,}6\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$ inn i papirplanet» er det.\n\n**$\\tau = I\\alpha$ brukt når $I$ endrer seg.** For kunstløperen som trekker inn armene, er $I$ ikke konstant, og den formen gjelder ikke. Bruk spinnsatsen $\\boldsymbol{\\tau} = d\\mathbf{L}/dt$ i den generelle formen.\n\n**Svada i «kritiser»-oppgaven.** «Løsningen virker litt unøyaktig» gir ingenting. Sensor ser etter at du **peker på den konkrete feilen med fagbegrep**, sier **hvilket prinsipp som faktisk gjelder**, og skisserer riktig framgangsmåte."
+    },
+    {
+      "id": "fys1100-6-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student sitter på en dreiestol med en manual i hver hånd og armene ut fra kroppen. Systemets treghetsmoment er da $6{,}0\\,\\text{kg}\\cdot\\text{m}^2$, og han snurrer med $0{,}80\\,\\text{rad/s}$. Han trekker armene inn, og treghetsmomentet synker til $2{,}4\\,\\text{kg}\\cdot\\text{m}^2$.\n\n**a)** Begrunn at spinnet er bevart, og finn den nye vinkelfarten.\n\n**b)** Finn rotasjonsenergien før og etter.\n\n**c)** Hvem eller hva har levert energiforskjellen?",
+        "solution": "**a)** **Begrunnelse:** de ytre kreftene på systemet «student + manualer + stol» er tyngden og normalkraften fra gulvet, som begge virker langs eller gjennom den loddrette rotasjonsaksen og derfor har null momentarm om den. Lagerfriksjonen i stolen er neglisjerbar. Altså er det ytre kraftmomentet om aksen null, og spinnet om aksen er konstant.\n\n$$I_1\\omega_1 = I_2\\omega_2 \\quad \\Rightarrow \\quad \\omega_2 = \\frac{6{,}0 \\cdot 0{,}80}{2{,}4} = 2{,}0\\,\\text{rad/s}$$\n\nsamme retning som før, altså to og en halv gang så fort.\n\n**b)** $$K_1 = \\tfrac12 \\cdot 6{,}0 \\cdot 0{,}64 = 1{,}92\\,\\text{J}, \\qquad K_2 = \\tfrac12 \\cdot 2{,}4 \\cdot 4{,}0 = 4{,}80\\,\\text{J}$$\n\n**c)** **Studenten selv.** Forskjellen $4{,}80 - 1{,}92 = 2{,}88\\,\\text{J}$ er arbeidet musklene hans gjør når han drar manualene innover mot den kraften som holder dem i sirkelbane.\n\nKontroll av faktoren: $K_2/K_1 = I_1/I_2 = 6{,}0/2{,}4 = 2{,}5$, og $1{,}92 \\cdot 2{,}5 = 4{,}80\\,\\text{J}$ ✓. Merk at energien vokser i samme forhold som $I$ synker, ikke i kvadratet — det følger av $K = L^2/(2I)$.",
+        "hints": [
+          "Hvilke ytre krefter virker, og har noen av dem momentarm om den loddrette aksen?",
+          "Bruk $I_1\\omega_1 = I_2\\omega_2$ etter at du har skrevet ut begrunnelsen.",
+          "I c): sammenlign de to energiene, og spør hvor et eventuelt overskudd kan komme fra."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En karusell modelleres som en homogen skive med treghetsmoment $120\\,\\text{kg}\\cdot\\text{m}^2$ og radius $1{,}80\\,\\text{m}$. Den snurrer fritt med $1{,}50\\,\\text{rad/s}$. Et barn med masse $30\\,\\text{kg}$ hopper rett ned på ytterkanten og blir stående der, i ro i forhold til karusellen.\n\n**a)** Begrunn at spinnet om den loddrette aksen er bevart, selv om barnet kommer utenfra.\n\n**b)** Finn den nye vinkelfarten.\n\n**c)** Finn rotasjonsenergien før og etter, og forklar hvor differansen ble av.",
+        "solution": "**Metodevalg:** spinnbevaring om karusellens loddrette akse. Barnet behandles som en punktmasse i avstand $R$ fra aksen, altså $I_{\\text{barn}} = mR^2$.\n\n**a)** Barnet faller **rett ned**, altså langs aksen, og har derfor ingen spinnkomponent om den loddrette aksen når det lander. Kreftene som virker mellom barnet og karusellen under landingen, er **indre** krefter i det samlede systemet. De ytre kreftene — tyngden på begge og lagerkraften fra aksen — virker langs eller gjennom aksen og har null momentarm om den.\n\nAltså er det ytre kraftmomentet om aksen null, og systemets samlede spinn om aksen er bevart.\n\n**b)** $$I_{\\text{ny}} = 120 + 30 \\cdot 1{,}80^2 = 120 + 97{,}2 = 217{,}2\\,\\text{kg}\\cdot\\text{m}^2$$\n\n$$\\omega_2 = \\frac{I_1\\omega_1}{I_{\\text{ny}}} = \\frac{120 \\cdot 1{,}50}{217{,}2} = \\frac{180}{217{,}2} = 0{,}829\\,\\text{rad/s}$$\n\nsamme retning som før. Karusellen bremses altså kraftig ned.\n\n**c)** $$K_1 = \\tfrac12 \\cdot 120 \\cdot 1{,}50^2 = 135\\,\\text{J}, \\qquad K_2 = \\tfrac12 \\cdot 217{,}2 \\cdot 0{,}8287^2 = 74{,}6\\,\\text{J}$$\n\nNesten $45\\,\\%$ av energien er borte — $60{,}4\\,\\text{J}$.\n\nDen er gått til **varme og deformasjon** i landingen. Dette er et **uelastisk** støt: barnet og karusellen ender opp med felles vinkelfart, akkurat som to klosser som setter seg fast i hverandre. Å bruke energibevaring her ville vært felle #2, som gir null poeng.\n\nMerk kontrasten til kunstløperen: der **økte** energien, fordi noen gjorde arbeid innenfra. Her **synker** den, fordi støtet er uelastisk. I begge tilfeller er spinnet bevart — spinnbevaring sier ingenting om energien.",
+        "hints": [
+          "Hvilken vei faller barnet, og hvor stor spinnkomponent om den loddrette aksen har det da?",
+          "Behandle barnet som en punktmasse: $I = mR^2$.",
+          "I c): hva slags støt er dette, og hva sier det om den mekaniske energien?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — kule skutt inn i en stav (~20 min)\n\nNå kommer den varianten som går igjen i settene, og som er verdt å kunne kaldt: en liten, rask kule treffer en hengslet stav og setter seg fast. Etterpå svinger staven opp til en største vinkel.\n\nOppgaven består av **tre faser med hver sin lov**, og det er nettopp faseinndelingen sensor ser etter:\n\n1. **Gjennom støtet:** spinnbevaring om hengselaksen.\n2. **Etter støtet:** energibevaring mens staven svinger opp.\n3. **Underveis:** energiregnskapet for hvor mye som gikk tapt i selve støtet.\n\nÅ bruke feil lov i feil fase er den dyreste feilen i sjangeren."
+    },
+    {
+      "id": "fys1100-6-3-fig-kule-stav",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-3-kule-stav.svg",
+      "alt": "To paneler side om side. Til venstre foer stoetet: en stav henger loddrett fra et hengsel i taket, og en liten roed kule kommer inn vannrett fra venstre med farten v null og treffer staven i avstanden d under hengselet. Til hoyre etter stoetet: staven er svingt ut vinkelen theta fra loddrett med kula sittende fast i seg, og en groenn buet pil viser vinkelfarten omega om hengselaksen.",
+      "caption": "Før og etter i eksempel 3. Legg merke til hva figuren sier om bevaringslovene: **hengselen gir en stor ytre kraft** i støtøyeblikket, så bevegelsesmengden er ikke bevart — men den kraften angriper i aksen og har null momentarm, så **spinnet om hengselaksen er det**. Momentarmen til kulas bevegelsesmengde er avstanden $d$ ned til treffpunktet."
+    },
+    {
+      "id": "fys1100-6-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Kule skutt inn i en hengslet stav",
+      "problem": "En homogen stav med masse $M = 2{,}00\\,\\text{kg}$ og lengde $\\ell = 1{,}00\\,\\text{m}$ henger i ro fra et hengsel i den øvre enden. En kule med masse $m = 0{,}050\\,\\text{kg}$ kommer vannrett med farten $v_0 = 40{,}0\\,\\text{m/s}$, treffer staven i avstanden $d = 0{,}80\\,\\text{m}$ under hengselet og blir sittende fast.\n\n**a)** Begrunn hvorfor bevegelsesmengden **ikke** er bevart, men spinnet om hengselaksen er det.\n\n**b)** Finn vinkelfarten rett etter støtet.\n\n**c)** Hvor stor andel av den kinetiske energien er igjen etter støtet?\n\n**d)** Finn den største vinkelen staven svinger ut til.",
+      "solution": "**Metodevalg først:** oppgaven har to faser med hver sin lov. **Gjennom støtet** bruker vi spinnbevaring om hengselaksen — ikke bevegelsesmengde, og ikke energi. **Etter støtet** bruker vi energibevaring mens staven svinger opp. Faseinndelingen er selve løsningsideen.\n\n**a)** **Bevegelsesmengden er ikke bevart.** Under støtet må hengselen holde stavens øvre ende på plass, og den utøver derfor en betydelig ytre kraft på systemet «kule + stav» i horisontal retning. Med en ytre kraft er ikke $\\sum\\mathbf{p}$ konstant, og en regning basert på $mv_0 = (m+M)v$ er dømt til å bli feil.\n\n**Spinnet om hengselaksen er bevart.** Hengselkraften angriper **i** aksen, og har derfor null momentarm om den — den bidrar ikke til det ytre kraftmomentet. Tyngden på staven har riktignok momentarm, men staven henger loddrett i støtøyeblikket, så momentarmen er null akkurat da; og uansett er støtet så kort at tyngdens impulsmoment er neglisjerbart. Altså er $\\tau_{\\text{ytre}} \\approx 0$ om aksen gjennom støtet, og spinnet om den er bevart.\n\nDette er kjernen i oppgaven, og det er her de fleste poengene ligger.\n\n**b)** **Før støtet:** kula har spinn om hengselaksen med momentarm $d$, staven har null:\n\n$$L_{\\text{før}} = mv_0d = 0{,}050 \\cdot 40{,}0 \\cdot 0{,}80 = 1{,}60\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$$\n\n**Etter støtet** roterer stav og kule sammen om hengselaksen med felles vinkelfart $\\omega$. Treghetsmomentet er summen:\n\n$$I = \\underbrace{\\tfrac13 M\\ell^2}_{\\text{stav om enden}} + \\underbrace{md^2}_{\\text{kule som punktmasse}} = \\tfrac13 \\cdot 2{,}00 \\cdot 1{,}00 + 0{,}050 \\cdot 0{,}640$$\n\n$$I = 0{,}667 + 0{,}032 = 0{,}699\\,\\text{kg}\\cdot\\text{m}^2$$\n\n$$\\omega = \\frac{L_{\\text{før}}}{I} = \\frac{1{,}60}{0{,}6987} = 2{,}29\\,\\text{rad/s}$$\n\nmed retning inn i papirplanet dersom kula kom fra venstre, altså den veien staven svinger.\n\n**Merk hva som IKKE skjer her:** vi setter ikke $I$ lik $(m+M)$ eller lik noen masse. Staven roterer, og hver del av den har sin egen fart — det er nettopp derfor treghetsmomentet finnes.\n\n— naturlig pausepunkt —\n\n**c)** $$K_{\\text{før}} = \\tfrac12 mv_0^2 = \\tfrac12 \\cdot 0{,}050 \\cdot 1600 = 40{,}0\\,\\text{J}$$\n\n$$K_{\\text{etter}} = \\tfrac12 I\\omega^2 = \\tfrac12 \\cdot 0{,}6987 \\cdot 2{,}2901^2 = 1{,}83\\,\\text{J}$$\n\n$$\\frac{K_{\\text{etter}}}{K_{\\text{før}}} = \\frac{1{,}832}{40{,}0} = 0{,}0458$$\n\nBare $4{,}6\\,\\%$ av energien er igjen; $38{,}2\\,\\text{J}$ er gått til varme og deformasjon i kula og staven. Det er typisk for et **uelastisk** støt der et lite, raskt legeme treffer et mye tyngre — nesten all energien forsvinner, men spinnet gjør ikke det.\n\n**d)** Etter støtet virker bare tyngden og hengselkraften. Hengselkraften gjør ikke arbeid (angrepspunktet flytter seg ikke), og tyngden er konservativ. **Altså er mekanisk energi bevart fra rett etter støtet til det høyeste punktet.**\n\nNår staven har svingt ut vinkelen $\\theta$ fra loddrett, er stavens massesenter løftet $\\dfrac{\\ell}{2}(1-\\cos\\theta)$ og kula løftet $d(1-\\cos\\theta)$:\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mgd\\right](1-\\cos\\theta)$$\n\nHøyresidens klammefaktor er\n\n$$Mg\\frac{\\ell}{2} + mgd = 2{,}00 \\cdot 9{,}81 \\cdot 0{,}500 + 0{,}050 \\cdot 9{,}81 \\cdot 0{,}80 = 9{,}81 + 0{,}392 = 10{,}20\\,\\text{J}$$\n\n$$1-\\cos\\theta = \\frac{1{,}832}{10{,}20} = 0{,}1796 \\quad \\Longrightarrow \\quad \\cos\\theta = 0{,}8204$$\n\n$$\\theta = 34{,}9^\\circ$$\n\n**Grensetilfelle-kontroll:** en raskere kule gir større $\\omega$ og dermed større $\\theta$, som forventet. Og setter vi $m \\to 0$, går både $L_{\\text{før}}$ og $\\omega$ mot null, og staven blir stående — også riktig.\n\n**Rimelighetssjekk:** $35^\\circ$ er et betydelig utslag for en kule som veier $2{,}5\\,\\%$ av staven, men kula kom i $40\\,\\text{m/s}$, så det er ikke urimelig. Hadde vi fått $\\cos\\theta < -1$, ville staven gått hele veien rundt, og da måtte svaret formuleres deretter."
+    },
+    {
+      "id": "fys1100-6-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En homogen stav med masse $1{,}20\\,\\text{kg}$ og lengde $0{,}90\\,\\text{m}$ henger i ro fra et hengsel i den øvre enden. En kule med masse $0{,}030\\,\\text{kg}$ og fart $25{,}0\\,\\text{m/s}$ treffer staven vannrett helt nederst og setter seg fast.\n\n**a)** Finn systemets treghetsmoment om hengselaksen etter støtet.\n\n**b)** Finn vinkelfarten rett etter støtet, med begrunnelse for bevaringsloven du bruker.\n\n**c)** Finn den største vinkelen staven svinger ut til.",
+        "solution": "**Metodevalg:** spinnbevaring om hengselaksen gjennom støtet, deretter energibevaring mens staven svinger opp.\n\n**a)** Kula treffer i $d = \\ell = 0{,}90\\,\\text{m}$:\n\n$$I = \\tfrac13 M\\ell^2 + m\\ell^2 = \\tfrac13 \\cdot 1{,}20 \\cdot 0{,}810 + 0{,}030 \\cdot 0{,}810 = 0{,}324 + 0{,}0243 = 0{,}348\\,\\text{kg}\\cdot\\text{m}^2$$\n\n**b)** **Begrunnelse:** hengselkraften angriper i aksen og har null momentarm om den; stavens tyngde har null momentarm i støtøyeblikket fordi staven henger loddrett, og støtet er så kort at tyngdens impulsmoment uansett er neglisjerbart. Altså er det ytre kraftmomentet om hengselaksen null, og spinnet om den er bevart.\n\n$$mv_0\\ell = I\\omega \\quad \\Rightarrow \\quad \\omega = \\frac{0{,}030 \\cdot 25{,}0 \\cdot 0{,}90}{0{,}3483} = \\frac{0{,}675}{0{,}3483} = 1{,}94\\,\\text{rad/s}$$\n\nmed retning inn i papirplanet dersom kula kom fra venstre.\n\n**c)** Etter støtet gjør bare tyngden arbeid (hengselkraftens angrepspunkt flytter seg ikke), så mekanisk energi er bevart:\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mg\\ell\\right](1-\\cos\\theta)$$\n\nVenstre side: $\\tfrac12 \\cdot 0{,}3483 \\cdot 1{,}938^2 = 0{,}654\\,\\text{J}$.\n\nKlammefaktoren: $1{,}20 \\cdot 9{,}81 \\cdot 0{,}450 + 0{,}030 \\cdot 9{,}81 \\cdot 0{,}90 = 5{,}297 + 0{,}265 = 5{,}562\\,\\text{J}$.\n\n$$1-\\cos\\theta = \\frac{0{,}654}{5{,}562} = 0{,}1176 \\quad \\Rightarrow \\quad \\theta = 28{,}1^\\circ$$",
+        "hints": [
+          "Treghetsmomenter om samme akse legges sammen: stav om enden pluss kula som punktmasse.",
+          "Skriv begrunnelsen for spinnbevaring FØR du setter opp likningen — det er der poengene sitter.",
+          "I c): begge deler av systemet løftes, men ikke like høyt. Hvor høyt løftes stavens massesenter, og hvor høyt kula?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — å kritisere en gal løsning (~10 min)\n\nNyere sett har en egen variant av den kvalitative sjangeren: du får en **ferdig løsning som er feil**, og skal finne feilen. I det dokumenterte tilfellet er den gale løsningen laget av en språkmodell, og den er verdt å studere nettopp fordi den ser overbevisende ut — riktig notasjon, ryddig oppsett, feil fysikk.\n\nSensor ser ikke etter at du er skeptisk. Sensor ser etter at du peker på **den konkrete feilen**, med fagbegrep."
+    },
+    {
+      "id": "fys1100-6-3-def-kritiser-metoden",
+      "type": "definition",
+      "title": "Metoden for å kritisere en løsning",
+      "content": "En fast tretrinnsoppskrift som gjør den kvalitative sjangeren til en regneoppgave med ord:\n\n1. **Identifiser den gale antakelsen.** Ikke «regnestykket ser rart ut», men «her brukes bevegelsesmengdebevaring i en situasjon der det virker en ytre kraft fra hengselen».\n2. **Si hvilket prinsipp som faktisk gjelder**, og **hvorfor** det gjelder. «Spinnet om hengselaksen er bevart, fordi hengselkraften angriper i aksen og dermed ikke gir noe ytre kraftmoment.»\n3. **Skisser riktig framgangsmåte**, gjerne med likningen satt opp — du trenger ikke regne den ferdig for å få uttelling.\n\n**Det som ikke gir uttelling:** helgardering («løsningen kan være riktig, men det er vanskelig å si»), generell skepsis uten fagbegrep, eller å bare regne oppgaven på nytt uten å si hva som var galt med den første.\n\nEt nyttig grep når du leter: **gå gjennom bevaringslovene én for én og spør om betingelsen er oppfylt.** Er det ytre krefter? Har de momentarm? Er støtet elastisk eller uelastisk? Ni av ti feil i denne sjangeren er en bevaringslov brukt utenfor sitt gyldighetsområde."
+    },
+    {
+      "id": "fys1100-6-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Kritiser den feilaktige løsningen",
+      "problem": "En kule med masse $m$ og fart $v_0$ treffer enden av en stav med masse $M$ og lengde $\\ell$, hengslet i den andre enden, og setter seg fast. En automatisk generert løsning lyder:\n\n> «Siden kule og stav utgjør et lukket system, er bevegelsesmengden bevart gjennom støtet:\n> $$mv_0 = (m+M)v$$\n> Dette gir den felles farten $v = \\dfrac{mv_0}{m+M}$, og med $v = \\omega\\ell$ blir vinkelfarten $\\omega = \\dfrac{mv_0}{(m+M)\\ell}$.\n> Etter støtet er også energien bevart, siden ingen ytre krefter virker, så staven svinger opp til høyden $h = \\dfrac{v^2}{2g}$.»\n\nFinn feilene, si hva som faktisk gjelder, og skisser riktig framgangsmåte.",
+      "solution": "**Løsningen inneholder fire feil, og de henger sammen. La oss ta dem i rekkefølge.**\n\n**Feil 1: bevegelsesmengden er ikke bevart.** Systemet er ikke lukket. Hengselen holder stavens ene ende fast, og for å klare det må den utøve en betydelig ytre kraft på systemet under støtet. Med en ytre kraft er $\\sum\\mathbf{p}$ ikke konstant, og likningen $mv_0 = (m+M)v$ har ikke noe grunnlag.\n\n**Det som faktisk gjelder, er spinnbevaring om hengselaksen** — og begrunnelsen er avgjørende: hengselkraften angriper **i** aksen, har derfor momentarm null, og gir ikke noe ytre kraftmoment om den aksen. Det er nettopp forskjellen mellom kraft og kraftmoment som redder oppgaven.\n\n**Feil 2: masse forvekslet med treghetsmoment.** Uttrykket $(m+M)$ behandler staven som om alle delene av den beveget seg med samme fart $v$. Det gjør de ikke: staven roterer om hengselen, så delen nærmest hengselen står nesten stille, mens enden går fortest. Størrelsen som beskriver dette, er treghetsmomentet:\n\n$$I = \\tfrac13 M\\ell^2 + m\\ell^2$$\n\nLegg merke til hvor stor forskjellen er. Løsningens $(m+M)$ tilsvarer å bruke $M$ i sin helhet; det riktige er å bruke $\\tfrac13 M$ i denne sammenhengen — altså **tre ganger for mye** av stavens masse.\n\n**Feil 3: $v = \\omega\\ell$ brukt på et legeme som ikke har én fart.** Sammenhengen gjelder for ett punkt i avstand $\\ell$ fra aksen, ikke for «staven» som helhet. Løsningen bruker den som om staven var en punktmasse.\n\n**Feil 4: energibevaring gjennom støtet.** Støtet er **uelastisk** — kula setter seg fast — så mekanisk energi går tapt til varme og deformasjon, typisk over $90\\,\\%$ av den. Energibevaring gjelder **først etter** støtet, mens staven svinger opp. I tillegg er høydeuttrykket $h = v^2/(2g)$ galt selv der, fordi det er stavens massesenter og kula som løftes, hver sin høyde, ikke ett enkelt legeme.\n\n— naturlig pausepunkt —\n\n**Riktig framgangsmåte, i tre faser:**\n\n**Fase 1, gjennom støtet — spinnbevaring om hengselaksen.** Begrunnelsen skrives ut: ingen ytre kraftmoment om aksen, fordi hengselkraften angriper i aksen.\n\n$$mv_0\\ell = \\left(\\tfrac13 M\\ell^2 + m\\ell^2\\right)\\omega \\quad \\Longrightarrow \\quad \\omega = \\frac{mv_0\\ell}{\\tfrac13 M\\ell^2 + m\\ell^2} = \\frac{mv_0}{\\left(\\tfrac13 M + m\\right)\\ell}$$\n\n**Fase 2, energiregnskap for støtet.** Regn ut $K_{\\text{før}} = \\tfrac12 mv_0^2$ og $K_{\\text{etter}} = \\tfrac12 I\\omega^2$ hver for seg, og sammenlign — ikke anta at de er like.\n\n**Fase 3, etter støtet — energibevaring.** Nå gjelder den, fordi bare tyngden gjør arbeid (hengselkraftens angrepspunkt flytter seg ikke):\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mg\\ell\\right](1-\\cos\\theta)$$\n\n**Sammenlign de to svarene.** Den gale løsningen gir $\\omega = \\dfrac{mv_0}{(m+M)\\ell}$, det riktige er $\\omega = \\dfrac{mv_0}{(\\tfrac13 M + m)\\ell}$. For $M \\gg m$ er forholdet mellom dem $\\dfrac{M}{\\tfrac13 M} = 3$ — den gale løsningen gir altså en vinkelfart som er omtrent **tre ganger for liten**, og dermed et energiregnskap som er nesten en tierpotens galt.\n\nInteressant nok blir feilen mindre synlig hvis kula er tung i forhold til staven; det er nettopp derfor slike løsninger kan «se riktige ut» i enkelte grensetilfeller. En grensetilfelle-kontroll med $M \\to 0$ gir samme svar i begge — men det er den eneste situasjonen der de er enige."
+    },
+    {
+      "id": "fys1100-6-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kvalitativ, sjanger J — «kritiser løsningen».) En løsning på følgende oppgave er gjengitt under: *«En kule med masse $m$ treffer en fritt liggende stav (ingen hengsel, ingen friksjon mot underlaget) med masse $M$ i den ene enden, og setter seg fast. Finn stavens bevegelse etterpå.»*\n\n> «Fordi det ikke finnes noe hengsel, er spinnet om stavens massesenter bevart, og siden staven sto stille før, må $\\omega = 0$ etter. Staven kommer altså bare til å gli sidelengs, ikke rotere.»\n\n**a)** Er konklusjonen riktig? Begrunn.\n\n**b)** Hvilke bevaringslover gjelder faktisk her, og hvorfor?\n\n**c)** Skisser riktig framgangsmåte uten å regne den ferdig.",
+        "solution": "**a)** **Nei, konklusjonen er gal.** Staven vil både gli sidelengs **og** rotere.\n\nFeilen ligger i påstanden om at spinnet om massesenteret var null før støtet. Det var det ikke: kula kom inn i den ene enden, altså **utenfor** stavens massesenter, og en partikkel som beveger seg langs en linje som ikke går gjennom et punkt, har spinn om det punktet. Momentarmen er avstanden $\\ell/2$ fra massesenteret ut til treffpunktet, så kulas spinn om massesenteret er $mv_0\\ell/2$, ikke null.\n\nDet er den samme innsikten som i eksempel 1: rettlinjet bevegelse gir spinn om ethvert punkt utenfor bevegelseslinja.\n\n**b)** Her gjelder **begge** bevaringslovene, og det er nettopp det som skiller denne oppgaven fra kule-i-stav med hengsel:\n\n- **Bevegelsesmengden er bevart**, fordi det ikke finnes noen ytre horisontal kraft — ingen hengsel, ingen friksjon. Tyngden og normalkraften er loddrette og oppheves.\n- **Spinnet om systemets massesenter er bevart**, fordi de samme kreftene heller ikke gir noe netto ytre kraftmoment.\n\n**Mekanisk energi er derimot ikke bevart** — støtet er uelastisk, kula setter seg fast, og energi går til varme og deformasjon.\n\n**c)** Tre steg:\n\n1. **Bevegelsesmengde:** $mv_0 = (m+M)v_{cm}$ gir massesenterets fart etter støtet. (Merk at *her* er $(m+M)$ riktig, fordi bevegelsesmengden faktisk avhenger av totalmassen — i motsetning til i spinnlikningen.)\n2. **Finn systemets nye massesenter.** Med kula festet i den ene enden ligger det ikke lenger midt på staven, og alle spinnregnskaper må gjøres om **det** punktet.\n3. **Spinn om det nye massesenteret:** $m v_0 b = I_{cm}\\omega$, der $b$ er den vinkelrette avstanden fra det nye massesenteret ned på kulas bevegelseslinje, og $I_{cm}$ er systemets treghetsmoment om samme punkt (stavens $\\tfrac{1}{12}M\\ell^2$ flyttet med parallellakseteoremet, pluss kulas $m$ ganger dens avstand i annen).\n\nResultatet er en stav som glir framover med farten $v_{cm}$ **og** roterer om sitt eget massesenter med vinkelfarten $\\omega$ — nøyaktig den kombinerte bevegelsen fra [kap. 6.2](/bok/fys1100/fys1100-6-2).",
+        "hints": [
+          "Sjekk påstanden «spinnet var null før» — hvor traff kula i forhold til stavens massesenter?",
+          "Gå gjennom bevaringslovene én for én og spør om betingelsen er oppfylt: er det ytre krefter? Har de momentarm?",
+          "I c): når kula setter seg fast, flytter systemets massesenter seg. Hvilket punkt skal spinnet regnes om?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ — «forklar/begrunn»-typen som det er minst én av i hvert eksamenssett.)\n\n**a)** En person står på en dreiestol som snurrer, og holder et sykkelhjul som spinner om en vannrett akse. Han vipper hjulets akse til loddrett stilling. Hva skjer med stolen, og hvorfor?\n\n**b)** Forklar hvorfor en katt som slippes opp-ned kan snu seg i lufta og lande på beina, uten at det bryter med spinnbevaring.\n\n**c)** Hvorfor øker kunstløperens rotasjonsenergi når hun trekker inn armene, mens karusellens rotasjonsenergi synker når et barn hopper på?",
+        "solution": "**a)** **Stolen begynner å snurre den motsatte veien** av hjulet — eller endrer farten sin, om den allerede snurret.\n\nBegrunnelsen: om den loddrette aksen er det ytre kraftmomentet null (tyngden og normalkraften virker langs eller gjennom aksen, og lagerfriksjonen er neglisjerbar). Altså er systemets samlede spinn om den loddrette aksen bevart. Da hjulets akse lå vannrett, hadde hjulet **ingen** spinnkomponent langs den loddrette aksen. Når aksen vippes til loddrett, får hjulet plutselig en stor loddrett spinnkomponent — og for at totalen skal holde seg, må personen og stolen få en like stor komponent motsatt vei.\n\nDette er en klassisk demonstrasjon, og poenget er at det er **komponenten langs aksen** som er bevart, ikke tallverdien av hjulets spinn.\n\n**b)** Katten har spinn null hele tiden i lufta — den bryter aldri med bevaringsloven. Trikset er at den **endrer form**: den trekker forbeina inn og strekker bakbeina ut, slik at fremkroppen får lite treghetsmoment og bakkroppen mye. Så vrir den fremkroppen én vei og bakkroppen den andre veien. Fordi treghetsmomentene er ulike, dreier fremkroppen mye og bakkroppen lite. Deretter bytter den om og gjentar.\n\nNetto ender katten opp snudd, mens summen av spinnbidragene hele tiden har vært null. Et **stivt** legeme kunne ikke gjort dette — det er formendringen som er nøkkelen.\n\n**c)** Fordi de to prosessene er helt forskjellige, selv om spinnet er bevart i begge.\n\n**Kunstløperen** gjør **arbeid** innenfra: hun drar armene inn mot den kraften som holder dem i sirkelbane, og musklene tilfører energi. Med $L$ konstant er $K = L^2/(2I)$, så når $I$ synker, stiger $K$.\n\n**Karusellen** utsettes for et **uelastisk støt**: barnet lander og blir sittende fast, og energi går til varme og deformasjon. Her øker $I$, og med $L$ konstant synker $K$ tilsvarende.\n\nFellesnevneren er formelen $K = L^2/(2I)$: energien går motsatt vei av treghetsmomentet. Forskjellen er hvem som betaler — musklene i det ene tilfellet, den tapte mekaniske energien i det andre.",
+        "hints": [
+          "I a): hvilken komponent av spinnet er det som må holde seg konstant?",
+          "I b): kan et legeme snu seg uten å ha spinn, hvis det får lov til å endre form?",
+          "I c): bruk $K = L^2/(2I)$ og spør i hvilken retning $I$ endrer seg i hvert tilfelle."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F med spinn og energi kjedet.) En homogen stav med masse $M = 1{,}80\\,\\text{kg}$ og lengde $\\ell = 1{,}10\\,\\text{m}$ henger i ro fra et hengsel i den øvre enden. En leirklump med masse $m = 0{,}20\\,\\text{kg}$ kommer vannrett med farten $v_0 = 6{,}0\\,\\text{m/s}$ og setter seg fast i staven i avstanden $d = 0{,}80\\,\\text{m}$ under hengselet.\n\n**a)** Finn vinkelfarten rett etter støtet, med full begrunnelse.\n\n**b)** Finn hvor stor andel av den kinetiske energien som går tapt i støtet.\n\n**c)** Finn den største vinkelen staven svinger ut til.\n\n**d)** Hva ville skjedd om leirklumpen i stedet hadde truffet staven rett ved hengselet? Svar uten å regne.",
+        "solution": "**Metodevalg:** spinnbevaring om hengselaksen gjennom støtet, deretter energibevaring under oppsvinget. De to fasene har hver sin lov, og faseinndelingen er selve løsningsideen.\n\n**a)** **Begrunnelse:** hengselkraften angriper i aksen og har null momentarm om den; stavens tyngde har null momentarm i støtøyeblikket fordi staven henger loddrett; og støtet er så kort at tyngdens impulsmoment er neglisjerbart. Det ytre kraftmomentet om hengselaksen er altså null, og spinnet om den er bevart. Bevegelsesmengden er derimot **ikke** bevart, siden hengselen gir en ytre kraft.\n\n$$L_{\\text{før}} = mv_0d = 0{,}20 \\cdot 6{,}0 \\cdot 0{,}80 = 0{,}96\\,\\text{kg}\\cdot\\text{m}^2/\\text{s}$$\n\n$$I = \\tfrac13 M\\ell^2 + md^2 = \\tfrac13 \\cdot 1{,}80 \\cdot 1{,}21 + 0{,}20 \\cdot 0{,}64 = 0{,}726 + 0{,}128 = 0{,}854\\,\\text{kg}\\cdot\\text{m}^2$$\n\n$$\\omega = \\frac{0{,}96}{0{,}854} = 1{,}12\\,\\text{rad/s}$$\n\nmed retning inn i papirplanet dersom klumpen kom fra venstre.\n\n**b)** $$K_{\\text{før}} = \\tfrac12 \\cdot 0{,}20 \\cdot 36{,}0 = 3{,}60\\,\\text{J}$$\n\n$$K_{\\text{etter}} = \\tfrac12 \\cdot 0{,}854 \\cdot 1{,}124^2 = 0{,}540\\,\\text{J}$$\n\n$$\\text{tapt andel} = 1 - \\frac{0{,}540}{3{,}60} = 0{,}850$$\n\naltså $85{,}0\\,\\%$. Støtet er uelastisk, så mekanisk energi er ikke bevart — å bruke energibevaring gjennom støtet er felle #2 og gir null poeng.\n\n**c)** Etter støtet gjør bare tyngden arbeid, og hengselkraftens angrepspunkt flytter seg ikke. Mekanisk energi er derfor bevart fra rett etter støtet:\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mgd\\right](1-\\cos\\theta)$$\n\nKlammefaktoren: $1{,}80 \\cdot 9{,}81 \\cdot 0{,}550 + 0{,}20 \\cdot 9{,}81 \\cdot 0{,}80 = 9{,}712 + 1{,}570 = 11{,}28\\,\\text{J}$.\n\n$$1-\\cos\\theta = \\frac{0{,}540}{11{,}28} = 0{,}0479 \\quad \\Rightarrow \\quad \\cos\\theta = 0{,}9521 \\quad \\Rightarrow \\quad \\theta = 17{,}8^\\circ$$\n\n**d)** Da ville momentarmen $d$ gått mot null, og dermed også klumpens spinn om hengselaksen. Med $L_{\\text{før}} \\to 0$ blir $\\omega \\to 0$: staven ville nesten ikke begynt å svinge i det hele tatt.\n\nAll bevegelsesmengden ville i stedet blitt tatt opp av hengselen, som en ytre kraft — og nesten hele den kinetiske energien ville gått tapt. Dette er en verdifull kontroll på at man har brukt riktig lov: en løsning basert på bevegelsesmengdebevaring ville gitt samme vinkelfart uansett hvor klumpen traff, noe som åpenbart er galt.",
+        "hints": [
+          "Skriv begrunnelsen for spinnbevaring før du setter opp likningen — og si eksplisitt hvorfor bevegelsesmengden ikke er bevart.",
+          "Treghetsmomentet er summen av stavens om enden og klumpens som punktmasse i avstand $d$.",
+          "I c): stavens massesenter og klumpen løftes ulikt høyt.",
+          "I d): hva skjer med momentarmen, og dermed med spinnet klumpen bringer med seg?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En homogen skive med treghetsmoment $0{,}80\\,\\text{kg}\\cdot\\text{m}^2$ roterer fritt om en loddrett akse med $3{,}0\\,\\text{rad/s}$. En liten klump med masse $0{,}25\\,\\text{kg}$ slippes rett ned og fester seg i avstanden $0{,}40\\,\\text{m}$ fra aksen.\n\n**a)** Finn den nye vinkelfarten.\n\n**b)** Finn rotasjonsenergien før og etter.\n\n**c)** Hvor ville klumpen måttet feste seg for at vinkelfarten skulle sunket mest mulig?",
+        "solution": "**Metodevalg:** spinnbevaring om den loddrette aksen. Klumpen slippes **rett ned**, altså langs aksen, og bringer derfor ikke med seg noe spinn om den. De ytre kreftene (tyngde og lagerkraft) virker langs eller gjennom aksen og har null momentarm, så spinnet om aksen er bevart.\n\n**a)** $$I_{\\text{ny}} = 0{,}80 + 0{,}25 \\cdot 0{,}40^2 = 0{,}80 + 0{,}040 = 0{,}84\\,\\text{kg}\\cdot\\text{m}^2$$\n\n$$\\omega_2 = \\frac{0{,}80 \\cdot 3{,}0}{0{,}84} = \\frac{2{,}40}{0{,}84} = 2{,}86\\,\\text{rad/s}$$\n\nsamme retning som før.\n\n**b)** $$K_1 = \\tfrac12 \\cdot 0{,}80 \\cdot 9{,}0 = 3{,}60\\,\\text{J}, \\qquad K_2 = \\tfrac12 \\cdot 0{,}84 \\cdot 2{,}857^2 = 3{,}43\\,\\text{J}$$\n\nDet er tapt $0{,}17\\,\\text{J}$ — omtrent $4{,}8\\,\\%$ — til varme og deformasjon i landingen, som i ethvert uelastisk støt.\n\n**c)** **Så langt ute på skiva som mulig**, altså helt ute ved randa. Bidraget til treghetsmomentet er $mr^2$, som vokser med kvadratet av avstanden, og størst $I_{\\text{ny}}$ gir minst $\\omega_2$ når $L$ er fast.\n\nMotsatt: fester klumpen seg helt inntil aksen, er $mr^2 \\approx 0$, treghetsmomentet er praktisk talt uendret, og vinkelfarten holder seg.",
+        "hints": [
+          "Hvilken vei slippes klumpen, og hvor mye spinn om den loddrette aksen bringer den med seg?",
+          "Behandle klumpen som en punktmasse: $I = mr^2$.",
+          "I c): hvordan vokser klumpens bidrag til $I$ med avstanden fra aksen?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-1",
+      "type": "definition",
+      "title": "Spinnets retning",
+      "content": "Spinnet er en vektor, og retningen finnes med høyrehåndsregelen: krøll høyre hånds fingre den veien legemet roterer, så peker tommelen langs $\\mathbf{L}$.\n\nI planet gir det to muligheter: **ut av papirplanet** for rotasjon mot klokka, **inn i papirplanet** for rotasjon med klokka.\n\nRetningen er ikke pynt. **Manglende retning på en vektorstørrelse er felle #9 og koster typisk 2 poeng.** Og i oppgaver der to spinnbidrag skal legges sammen — en kule som treffer en stav som allerede roterer — er fortegnet avgjørende for om de forsterker eller motvirker hverandre."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-2",
+      "type": "definition",
+      "title": "Spinn for en partikkel i rett linje",
+      "content": "En partikkel som beveger seg i rett linje har spinn om ethvert punkt som **ikke** ligger på linja:\n\n$$L = mvb$$\n\nder $b$ er den vinkelrette avstanden fra punktet ned på bevegelseslinja.\n\nSpinnet er **konstant** så lenge partikkelen går med uendret hastighet, selv om avstanden $r$ ut til partikkelen endrer seg — det er produktet $r\\sin\\varphi = b$ som holder seg.\n\nDette er innsikten som gjør kule-i-stav-oppgaven mulig: kula «har rotasjon» om hengselaksen før den treffer, selv om den bare flyr rett fram."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-3",
+      "type": "definition",
+      "title": "Ytre og indre kraftmoment",
+      "content": "Skillet som avgjør om spinnbevaring gjelder.\n\n**Ytre kraftmomenter** kommer fra krefter utenfor systemet, og bare de kan endre systemets samlede spinn.\n\n**Indre kraftmomenter** kommer fra krefter mellom deler inne i systemet. De opptrer alltid parvis etter Newtons 3. lov, med samme momentarm, og summerer seg derfor til null.\n\nPraktisk konsekvens: kunstløperen kan ikke endre sitt eget spinn uansett hvor hardt hun drar i armene, fordi de kreftene er indre. Hun kan bare flytte det mellom $I$ og $\\omega$. Det samme gjelder katten i lufta og astronauten i vektløs tilstand."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-4",
+      "type": "definition",
+      "title": "Valg av akse i en spinnoppgave",
+      "content": "Spinn er alltid **om en akse**, og valget avgjør om oppgaven er løsbar.\n\nRegelen er den samme som for kraftmoment i [kap. 6.1](/bok/fys1100/fys1100-6-1): **legg aksen der de ukjente kreftene angriper.** I en kule-i-stav-oppgave med hengsel er det hengselaksen, fordi hengselkraften da får null momentarm og faller ut.\n\nEr det ikke noe hengsel, er **systemets massesenter** som regel riktig valg — der faller tyngden ut.\n\nAksen må oppgis, og den må være den **samme** før og etter. Å regne spinn før støtet om hengselen og etter støtet om massesenteret gir et regnestykke uten mening."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-5",
+      "type": "definition",
+      "title": "Uelastisk rotasjonsstøt",
+      "content": "Et støt der to legemer ender opp med **felles vinkelfart** om en akse — en kule som setter seg fast i en stav, et barn som lander på en karusell, en clutch som kobler inn.\n\nKjennetegnene er de samme som for et vanlig uelastisk støt:\n\n- **spinnet om aksen er bevart** (når ytre kraftmoment er null);\n- **mekanisk energi er ikke bevart** — den går til varme og deformasjon;\n- sluttilstanden har alltid **mindre** kinetisk energi enn starttilstanden.\n\nÅ bruke energibevaring gjennom et slikt støt er felle #2 og gir null poeng. Energien regnes ut i begge tilstander og sammenlignes; den antas aldri lik."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-6",
+      "type": "definition",
+      "title": "Faseinndeling i en spinnoppgave",
+      "content": "Grepet som gjør de sammensatte oppgavene overkommelige: del prosessen i faser, og avgjør for **hver** fase hvilken lov som gjelder og hvorfor.\n\nStandardkjeden i kule-i-stav-oppgaven:\n\n1. **Før støtet:** kula i fri flukt, staven i ro.\n2. **Gjennom støtet:** spinnbevaring om hengselaksen. Kort tid, store krefter — energi går tapt.\n3. **Etter støtet:** energibevaring mens systemet svinger opp. Nå er kreftene små og tiden lang.\n\nFeilen som koster mest, er å bruke én lov gjennom hele forløpet. Skriv fasene ned som overskrifter i besvarelsen — det gjør både tenkningen og rettingen enklere."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-7",
+      "type": "definition",
+      "title": "Energitap i et rotasjonsstøt",
+      "content": "Andelen kinetisk energi som er igjen etter et uelastisk rotasjonsstøt:\n\n$$\\frac{K_{\\text{etter}}}{K_{\\text{før}}} = \\frac{\\tfrac12 I\\omega^2}{\\tfrac12 mv_0^2}$$\n\nFor en lett kule som treffer en tung stav er andelen svært liten — typisk noen få prosent. Grunnen er at spinnet er bevart, men fordelt på et mye større treghetsmoment, og energien går som $L^2/(2I)$.\n\nStørrelsen etterspørres ofte direkte («hvor stor andel av energien går tapt?»), og den regnes alltid som et forhold mellom to utregnede energier — aldri ved å anta noe om bevaring."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-8",
+      "type": "definition",
+      "title": "Oppsvinget etter støtet",
+      "content": "Fasen der det sammenkoblede systemet svinger opp til sin største vinkel. Energibevaring gjelder, fordi bare tyngden gjør arbeid (hengselkraftens angrepspunkt flytter seg ikke):\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mgd\\right](1-\\cos\\theta)$$\n\nFaktoren $(1-\\cos\\theta)$ kommer av at et punkt i avstand $r$ fra hengselet løftes høyden $r(1-\\cos\\theta)$ når staven svinger ut vinkelen $\\theta$ fra loddrett.\n\nMerk at **hver del av systemet løftes sin egen høyde**: stavens massesenter $\\ell/2$, kula $d$. Å bruke én felles høyde er en vanlig feil.\n\nGir regnestykket $\\cos\\theta < -1$, betyr det at systemet går hele veien rundt — og da skal svaret formuleres slik, ikke tvinges inn i en arccos."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-9",
+      "type": "definition",
+      "title": "Presesjon",
+      "content": "Fenomenet der spinnaksen til et roterende legeme selv dreier seg langsomt rundt, i stedet for at legemet velter — en snurrebass som «vandrer» i sirkel, eller et sykkelhjul hengt opp i den ene enden av akselen.\n\nForklaringen ligger i spinnsatsen $\\boldsymbol{\\tau} = d\\mathbf{L}/dt$: tyngdens moment står **vinkelrett** på $\\mathbf{L}$, så det endrer ikke spinnets størrelse, bare retningen. Vektoren $\\mathbf{L}$ svinger derfor rundt i stedet for å krympe.\n\nPresesjon er ikke regnestoff i FYS1100, men fenomenet er tatt med her fordi det er den mest slående demonstrasjonen av at spinnsatsen er en **vektorlikning** — og fordi det viser hvorfor en sykkel i fart er lett å holde oppreist."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-10",
+      "type": "definition",
+      "title": "Spinn i et system uten hengsel",
+      "content": "Treffer noe et **fritt** legeme — ingen hengsel, ingen friksjon — gjelder **begge** bevaringslovene samtidig:\n\n- **bevegelsesmengden**, fordi det ikke er noen ytre horisontal kraft;\n- **spinnet om systemets massesenter**, fordi de samme kreftene heller ikke gir noe ytre kraftmoment.\n\nResultatet blir kombinert bevegelse: massesenteret glir framover, og legemet roterer om det.\n\nMerk kontrasten til hengseltilfellet, der bevegelsesmengden **ikke** er bevart. Det er hengselen som gjør forskjellen, og det er nettopp derfor det første du bør spørre om i en støtoppgave, er: **finnes det et festepunkt?**"
+    },
+    {
+      "id": "fys1100-6-3-def-bank-11",
+      "type": "definition",
+      "title": "Massesenteret som spinnakse",
+      "content": "For et fritt legeme er systemets massesenter det naturlige valget av spinnakse, av to grunner.\n\nFor det første **faller tyngden ut**: den angriper i massesenteret og har null momentarm om det, uansett hvordan legemet er orientert.\n\nFor det andre gjelder en pen oppdeling: systemets samlede spinn om et vilkårlig punkt er summen av spinnet massesenteret har om det punktet, og spinnet legemet har om sitt eget massesenter. De to bidragene kan behandles hver for seg.\n\nPraktisk konsekvens: i en oppgave uten hengsel regner du bevegelsesmengden for massesenterets bevegelse, og spinnet om massesenteret for rotasjonen. Aldri om hverandre."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-12",
+      "type": "definition",
+      "title": "Momentarm for bevegelsesmengde",
+      "content": "Den vinkelrette avstanden fra aksen ned på bevegelseslinja til en partikkel, brukt i $L = p \\cdot (\\text{momentarm})$.\n\nRegnemåten er nøyaktig den samme som for kraftmoment i [kap. 6.1](/bok/fys1100/fys1100-6-1) — bare med $\\mathbf{p}$ i stedet for $\\mathbf{F}$. Kommer kula inn vannrett og treffer en loddrett stav i avstand $d$ under hengselet, er momentarmen $d$.\n\nTreffer kula derimot **skrått**, er momentarmen $d\\sin\\varphi$, der $\\varphi$ er vinkelen mellom staven og kulas bane. Bare komponenten vinkelrett på staven bidrar til spinnet om hengselen — resten går rett inn i hengselen."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-13",
+      "type": "definition",
+      "title": "Konsekvent tidspunkt i bevaringslikningen",
+      "content": "En disiplinregel som fanger mange feil: **alle størrelser på venstre side skal gjelde ett bestemt tidspunkt, alle på høyre side et annet.**\n\nI kule-i-stav-oppgaven betyr det: venstre side er rett **før** støtet (kula har fart $v_0$, staven står stille), høyre side er rett **etter** støtet (alt roterer med felles $\\omega$). Ingenting fra oppsvinget hører hjemme i den likningen.\n\nTilsvarende for energilikningen i oppsvingfasen: venstre side er rett etter støtet, høyre side er ved største utslag.\n\nÅ blande tidspunkter — for eksempel bruke kulas opprinnelige fart i oppsvingregnskapet — er en feil som er lett å gjøre og lett å unngå ved å skrive «før støtet» og «etter støtet» i margen."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-14",
+      "type": "definition",
+      "title": "Grensetilfelle-kontroll i spinnoppgaver",
+      "content": "Sluttsjekken som fanger de fleste oppsettsfeil, og som ofte er en egen poenggivende deloppgave.\n\nNyttige grenser i denne sjangeren:\n\n- **$m \\to 0$** (svært lett kule): $\\omega \\to 0$, staven blir stående. Riktig.\n- **$d \\to 0$** (treffer ved hengselet): $\\omega \\to 0$, all bevegelsesmengde tas opp av hengselen. Riktig.\n- **$M \\to 0$** (svært lett stav): $\\omega \\to v_0/d$, altså kula fortsetter med uendret fart i sirkelbane. Riktig.\n\nGår en av disse galt, ligger feilen i oppsettet, ikke i regningen. En løsning basert på bevegelsesmengdebevaring feiler nettopp på $d \\to 0$-testen: den gir samme $\\omega$ uansett hvor kula treffer."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-15",
+      "type": "definition",
+      "title": "Spinn og symmetri",
+      "content": "En dypere grunn til at spinnbevaring finnes: bevaringslovene i mekanikken henger sammen med symmetrier i naturen. Bevegelsesmengde er bevart fordi fysikkens lover er de samme overalt i rommet; **spinn er bevart fordi lovene er de samme i alle retninger**.\n\nSammenhengen kalles Noethers teorem, og den er ikke regnestoff i FYS1100.\n\nDen praktiske verdien er likevel reell: den forklarer hvorfor spinnbevaring gjelder om **enhver** akse der det ytre kraftmomentet er null, og hvorfor det ikke finnes unntak. Er betingelsen oppfylt, er loven eksakt — ikke en tilnærming."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-16",
+      "type": "definition",
+      "title": "Vinkelfart etter et rotasjonsstøt",
+      "content": "Standardresultatet for en kule som setter seg fast i en hengslet stav:\n\n$$\\omega = \\frac{mv_0d}{\\tfrac13 M\\ell^2 + md^2}$$\n\nUttrykket **må kunne utledes**, og hvert ledd har en tolkning: telleren er kulas spinn om hengselen før støtet, nevneren er systemets samlede treghetsmoment om samme akse etter støtet.\n\nTo ting å legge merke til. Nevneren inneholder **$\\tfrac13 M$**, ikke $M$ — det er der forskjellen fra en feilaktig bevegelsesmengdeløsning ligger. Og $d$ opptrer både i teller (lineært) og nevner (kvadratisk), så det finnes en optimal treffhøyde som gir størst $\\omega$."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-17",
+      "type": "definition",
+      "title": "Prosessens tidsskala",
+      "content": "Argumentet som rettferdiggjør at tyngden neglisjeres gjennom et støt.\n\nStøtet varer typisk noen millisekunder. I den tiden rekker hengselkraften å levere en stor impuls, fordi den er enorm — men tyngden er liten og rekker ikke å endre spinnet merkbart. Derfor kan vi sette $\\tau_{\\text{ytre}} \\approx 0$ gjennom støtet, selv om tyngden strengt tatt gir et lite moment i det generelle tilfellet.\n\nEtter støtet snur bildet: nå går det sekunder, tyngden er den eneste kraften som gjør arbeid, og den styrer hele oppsvinget.\n\nÅ si dette eksplisitt i besvarelsen er en billig måte å vise at man forstår hvorfor faseinndelingen er lovlig."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-18",
+      "type": "definition",
+      "title": "Sammenligning av de tre bevaringslovene",
+      "content": "Et oppslagskort for å velge riktig lov i en støtoppgave:\n\n| Lov | Bevart når | Typisk situasjon |\n|---|---|---|\n| Bevegelsesmengde | ingen ytre **kraft** i retningen | fritt legeme, ingen hengsel |\n| Spinn om en akse | ingen ytre **kraftmoment** om aksen | hengsel, lager, fri rotasjon |\n| Mekanisk energi | bare **konservative** krefter gjør arbeid | glatt bevegelse, ingen støt |\n\nDet avgjørende er at de tre er **uavhengige**: i et hengslet støt er spinnet bevart, bevegelsesmengden ikke, og energien ikke. I et fritt uelastisk støt er både bevegelsesmengde og spinn bevart, men energien ikke.\n\nGå gjennom tabellen linje for linje i hver oppgave, og skriv ut hvilken betingelse som er oppfylt. Det er nøyaktig det sensor ser etter."
+    },
+    {
+      "id": "fys1100-6-3-def-bank-19",
+      "type": "definition",
+      "title": "Feilsøkingsspørsmålene i «kritiser»-sjangeren",
+      "content": "En fast sjekkliste å gå gjennom når du får forelagt en gal løsning:\n\n1. **Hvilken bevaringslov brukes, og er betingelsen oppfylt?** Finnes det en ytre kraft? Har den momentarm?\n2. **Er masse brukt der treghetsmoment skulle stått?** Se etter $(m+M)$ i en rotasjonssammenheng.\n3. **Er $v = \\omega r$ brukt på et utstrakt legeme** som om det var en punktmasse?\n4. **Er energibevaring brukt gjennom et uelastisk støt?**\n5. **Er aksen den samme før og etter?**\n6. **Stemmer enhetene, og holder grensetilfellene?**\n\nFire av seks punkter treffer den dokumenterte feiloppgaven i arkivet. Bruk lista som en meny, ikke som en fasit — og skriv alltid ut hvilket prinsipp som **faktisk** gjelder, ikke bare hva som er galt."
+    },
+    {
+      "id": "fys1100-6-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-6-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\mathbf{L}$, $L_z$ | spinn (vektor) og komponenten om rotasjonsaksen | $\\text{kg}\\cdot\\text{m}^2/\\text{s}$ |\n| $\\mathbf{p} = m\\mathbf{v}$ | bevegelsesmengde | $\\text{kg}\\cdot\\text{m/s}$ |\n| $\\boldsymbol{\\tau}$, $\\tau$ | kraftmoment og tallverdien om en akse | $\\text{N}\\cdot\\text{m}$ |\n| $I$, $I_{cm}$ | treghetsmoment, om massesenteret (**skalar**) | $\\text{kg}\\cdot\\text{m}^2$ |\n| $\\omega$, $\\alpha$ | vinkelfart og vinkelakselerasjon | $\\text{rad/s}$, $\\text{rad/s}^2$ |\n| $\\ell$ | stavens lengde | $\\text{m}$ |\n| $d$ | avstand fra hengselaksen til treffpunktet | $\\text{m}$ |\n| $b$ | vinkelrett avstand fra aksen til en bevegelseslinje | $\\text{m}$ |\n| $M$, $m$ | stavens og kulas masse (**skalarer**) | $\\text{kg}$ |\n| $v_0$ | kulas fart før støtet | $\\text{m/s}$ |\n| $\\theta$ | stavens utsvingvinkel fra loddrett | grader eller rad |\n| $K$, $K_{\\text{rot}}$ | kinetisk energi, rotasjonsdelen | $\\text{J}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner som er avklart i denne boka:** **spinn er $\\mathbf{L}$, og stavens lengde er $\\ell$** — begge opptrer i samme likning i dette kapitlet, så skillet er ufravikelig. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, **aldri** $\\mathbf{G}$, siden $G$ er gravitasjonskonstanten. Snordrag er $T$; en periode skrives $T_p$. Symbolet $\\alpha$ betyr vinkelakselerasjon, mens vinkler skrives $\\theta$ og $\\varphi$. Treghetsmomentet $I$, massene og energiene er **skalarer** og skal aldri ha vektormarkering.\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{L} = \\mathbf{r}\\times\\mathbf{p}, \\qquad L = p\\cdot(\\text{momentarm})$$\n\nSpinnet til en partikkel om en akse. **[formelarket]** — momentarm-formen er den som går raskest.\n\n$$L_z = I_z\\omega_z$$\n\nSpinnet til et stivt legeme om en fast akse. **[formelarket]** — motstykket til $p = mv$.\n\n$$\\boldsymbol{\\tau}_{\\text{ytre}} = \\frac{d\\mathbf{L}}{dt}$$\n\nSpinnsatsen. **[formelarket]** — den generelle formen; $\\tau = I\\alpha$ er spesialtilfellet med konstant $I$.\n\n$$\\mathbf{L}_{\\text{før}} = \\mathbf{L}_{\\text{etter}} \\quad \\text{når} \\quad \\boldsymbol{\\tau}_{\\text{ytre}} = 0$$\n\nSpinnbevaring. **[må kunne utledes]** — den følger direkte av spinnsatsen, og **begrunnelsen er det som gir poeng**.\n\n$$I_1\\omega_1 = I_2\\omega_2$$\n\nSpinnbevaring for et legeme som endrer form. **[må kunne utledes]** — kunstløperen, dreiestolen.\n\n$$K_{\\text{rot}} = \\frac{L^2}{2I}$$\n\nRotasjonsenergi uttrykt ved spinnet. **[må kunne utledes]** — den viser direkte at energien **ikke** er bevart når $I$ endres.\n\n$$\\omega = \\frac{mv_0d}{\\tfrac13 M\\ell^2 + md^2}$$\n\nVinkelfarten etter at en kule setter seg fast i en hengslet stav. **[må kunne utledes]** — kapitlets viktigste utledning.\n\n$$\\tfrac12 I\\omega^2 = \\left[Mg\\frac{\\ell}{2} + mgd\\right](1-\\cos\\theta)$$\n\nEnergibevaring under oppsvinget etter støtet. **[må kunne utledes]** — merk at hver del av systemet løftes sin egen høyde."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-6-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-6-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-3-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/fys1100/fys1100-6-1).) En homogen stav har masse $3{,}0\\,\\text{kg}$ og lengde $1{,}2\\,\\text{m}$. Finn treghetsmomentet om en akse gjennom den ene enden.",
+            "solution": "$$I = \\tfrac13 M\\ell^2 = \\tfrac13 \\cdot 3{,}0 \\cdot 1{,}44 = 1{,}44\\,\\text{kg}\\cdot\\text{m}^2$$\n\nVerdien kommer av parallellakseteoremet: $\\tfrac{1}{12}M\\ell^2 + M(\\ell/2)^2 = \\tfrac13 M\\ell^2$. Aksen i enden gir tre ganger så stort treghetsmoment som aksen gjennom massesenteret.",
+            "hints": [
+              "Bruk formelarkets $I_{cm}$ og flytt aksen med parallellakseteoremet — eller slå opp ende-verdien direkte."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-3-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.2](/bok/fys1100/fys1100-5-2).) En kule med masse $0{,}10\\,\\text{kg}$ og fart $20\\,\\text{m/s}$ setter seg fast i en kloss med masse $0{,}90\\,\\text{kg}$ som ligger fritt på et glatt underlag. Finn den felles farten, og begrunn bevaringsloven.",
+            "solution": "**Begrunnelse:** underlaget er glatt, så det finnes ingen ytre horisontal kraft på systemet. Da er bevegelsesmengden bevart i den retningen.\n\n$$mv_0 = (m+M)v \\quad \\Rightarrow \\quad v = \\frac{0{,}10 \\cdot 20}{1{,}00} = 2{,}0\\,\\text{m/s}$$\n\ni kulas opprinnelige retning.\n\nMerk kontrasten til kule-i-stav med hengsel: der er bevegelsesmengden **ikke** bevart, fordi hengselen gir en ytre kraft.",
+            "hints": [
+              "Er det noen ytre horisontal kraft på systemet?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-3-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.2](/bok/fys1100/fys1100-5-2).) Hva er forskjellen på et elastisk og et uelastisk støt, og hvilken bevaringslov gjelder i hvilket?",
+            "solution": "I et **elastisk** støt er både bevegelsesmengde og mekanisk energi bevart; legemene spretter fra hverandre.\n\nI et **uelastisk** støt er bare bevegelsesmengden bevart; mekanisk energi går tapt til varme og deformasjon. Er støtet **fullstendig uelastisk**, henger legemene sammen etterpå med felles fart.\n\nÅ bruke energibevaring i et uelastisk støt er felle #2 og gir null poeng — det er en metodefeil, ikke en regnefeil.",
+            "hints": [
+              "Tenk på hva som skjer med formen på legemene i de to tilfellene."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-3-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 6.1](/bok/fys1100/fys1100-6-1).) Hvorfor gir en kraft som angriper i rotasjonsaksen null kraftmoment, og hvorfor er det så nyttig?",
+            "solution": "Fordi kraftens virkelinje da går gjennom aksen, slik at momentarmen — den vinkelrette avstanden fra aksen ned på virkelinja — er null. Da er $\\tau = F \\cdot 0 = 0$ uansett hvor stor kraften er.\n\nNytten er at **ukjente krefter forsvinner fra regnskapet**. En hengselkraft er nesten alltid ukjent i både størrelse og retning. Velger du hengselaksen, slipper du å kjenne den — og det er nettopp derfor spinnet om hengselaksen er bevart i et støt, mens bevegelsesmengden ikke er det.",
+            "hints": [
+              "Hva er momentarmen til en kraft som angriper i selve aksen?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-3-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-3-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) En pendel med masse $m$ svinger opp til vinkelen $\\theta$ fra loddrett. Hvor høyt løftes loddet, uttrykt ved snorlengden $\\ell$?",
+            "solution": "$$h = \\ell(1-\\cos\\theta)$$\n\nUtledningen: loddet henger $\\ell$ under festepunktet i loddrett stilling, og $\\ell\\cos\\theta$ under det når snora danner vinkelen $\\theta$. Differansen er $\\ell - \\ell\\cos\\theta$.\n\nDette er nøyaktig samme faktor som dukker opp i oppsvinget etter et rotasjonsstøt — der løftes stavens massesenter $\\dfrac{\\ell}{2}(1-\\cos\\theta)$ og kula $d(1-\\cos\\theta)$.",
+            "hints": [
+              "Hvor langt under festepunktet henger loddet i de to stillingene?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-3-rep-6",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-3-r6",
+            "number": "R6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 6.2](/bok/fys1100/fys1100-6-2).) Hvorfor gjør den statiske friksjonen ikke arbeid på et legeme som ruller uten å gli?",
+            "solution": "Fordi angrepspunktet — kontaktpunktet — står **momentant stille** ved ren rulling. Arbeid er $W = \\int\\mathbf{F}\\cdot d\\mathbf{r}$ for kraftens angrepspunkt, og når $d\\mathbf{r} = 0$, er arbeidet null.\n\nDet er grunnen til at mekanisk energi er bevart for et rullende legeme, selv om det åpenbart er friksjon i spill. Glidefriksjon er en helt annen sak: der flytter angrepspunktet seg, og energi går til varme.",
+            "hints": [
+              "Hva er farten til kontaktpunktet ved ren rulling?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

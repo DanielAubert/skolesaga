@@ -1,0 +1,577 @@
+{
+  "id": "fys1100-4-2",
+  "courseId": "fys1100",
+  "chapterNumber": "4.2",
+  "title": "Dosert sving, spiralbane og drill (sjanger E)",
+  "description": "Dosert sving med friksjon — drøft friksjonsretningen — og spiralbanen der bare v cos θ inngår i v²/R.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne utlede den ideelle farten i en dosert sving fra loddrett likevekt og Newtons 2. lov i radiell retning",
+    "kunne drøfte hvilken vei den statiske friksjonen peker i en dosert sving, og finne største og minste tillatte fart",
+    "kunne bruke at bare den vannrette fartskomponenten inngår i sentripetalakselerasjonen i en spiralbane",
+    "kunne følge en fast femstegs løsningsoppskrift for sirkelbevegelsesoppgaver og kontrollere svarene med grensetilfeller"
+  ],
+  "content": [
+    {
+      "id": "fys1100-4-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er de tunge variantene av sirkeloppgaven.** Sirkelbevegelse — **sjanger E**, altså oppgavetypen der noe følger en krum bane og spørsmålet er hvilke krefter som holder det der — forekommer i **5 av 7 sett (71 %)**. Når sensor vil skille kandidatene, kommer den i én av to former:\n\n- **dosert sving**, altså en sving med sidefall, der du må dekomponere både normalkraften og friksjonen — og **drøfte hvilken vei friksjonen peker**. Det siste er der toppoengene ligger; regnestykket alene holder ikke;\n- **spiralbane**, der bare den **vannrette** delen av farten inngår i $v^2/R$. Bruker du hele farten, får du et svar som kan være halvannen gang for stort.\n\nAndre halvdel av kapitlet er en **sjangerdrill**: én fast oppskrift for hele sjanger E og et gjennomregnet eksamenscase med margnotater om hvor poengene sitter, etterfulgt av oppgaver på eksamensnivå.\n\n**Prioritet: bør sitte.** Kommer temaet, er de doserte og spiralformede variantene nesten alltid der de vanskeligste deloppgavene ligger."
+    },
+    {
+      "id": "fys1100-4-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger direkte på [kap. 4.1](/bok/fys1100/fys1100-4-1) og på kraftmodellene i [kap. 3.2](/bok/fys1100/fys1100-3-2). Det du trenger, oppfrisket:\n\n**Newtons 2. lov i radiell retning** — høyresiden er allerede kjent:\n\n$$\\sum F_r = \\frac{mv^2}{R}$$\n\nder positiv retning er inn mot sentrum, og summen går over de **virkelige** kreftene. Ingen «sentripetalkraft» tegnes inn som egen pil.\n\n**Statisk friksjon er en ulikhet:**\n\n$$\\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N$$\n\nLikhetstegnet gjelder bare i grensetilfellet, altså når du spør etter maksfarten eller minstefarten. Retningen på friksjonen må drøftes hver gang — den er ikke en egenskap ved vegen, men ved hvilken vei legemet er i ferd med å gli.\n\n**Den koniske pendelen** fra [kap. 4.1](/bok/fys1100/fys1100-4-1): $\\tan\\theta = v^2/(gR)$. Den doserte svingen har nøyaktig samme struktur, bare med normalkraft i stedet for snordrag.\n\nFra matematikken trenger du grunnleggende trigonometri og [Trigonometriske identiteter](/bok/r1/r1-7-4).\n\n**Notasjon i dette kapitlet:** doseringsvinkelen (sidefallet) skrives $\\alpha$, målt fra vannrett. **Merk:** $\\alpha$ brukes i Del 6 om vinkelakselerasjon — her i Del 4 betyr $\\alpha$ utelukkende banens helningsvinkel, og vinkelakselerasjon forekommer ikke i kapitlet. Spiralens stigningsvinkel skrives $\\theta$, målt fra vannrett. Baneradien er $R$ (målt vannrett fra spiralaksen), snordrag $T$, omløpstid $T_p$. Vi regner med $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1100-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — den doserte svingen uten friksjon (~20 min)\n\nKjør av en motorvei i en lang sving, og legg merke til at vegbanen heller innover. Det er ikke tilfeldig: sidefallet gjør at **normalkraften** fra vegen får en komponent inn mot svingens sentrum. Da trenger ikke friksjonen gjøre hele jobben — og bilen holder svingen selv på glatt føre.\n\nVi starter med det reneste tilfellet: en sving som er dosert akkurat passe til farten, slik at det ikke trengs friksjon i det hele tatt."
+    },
+    {
+      "id": "fys1100-4-2-fig-dosert",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-4-2-dosert-sving.svg",
+      "alt": "Tverrsnitt av en dosert sving med doseringsvinkel alfa. En bil star pa den hellende vegbanen. Normalkraften N star vinkelrett ut fra vegbanen, den statiske friksjonen f peker ned langs banen, og tyngden mg peker rett ned. En stiplet vannrett pil viser retningen inn mot svingens sentrum.",
+      "caption": "Tverrsnittet du bør tegne i hver eneste doserte sving-oppgave. Legg merke til to ting: kreftene dekomponeres i **vannrett og loddrett** retning — ikke langs planet, slik du gjorde på skråplanet i [kap. 3.2](/bok/fys1100/fys1100-3-2) — og friksjonen peker her **ned** langs banen, som er tilfellet ved maksfart."
+    },
+    {
+      "id": "fys1100-4-2-def-dosering",
+      "type": "definition",
+      "title": "Dosering (sidefall)",
+      "content": "En sving er **dosert** når vegbanen heller innover mot svingens sentrum med en vinkel $\\alpha$ målt fra vannrett.\n\nHensikten er at normalkraften — som alltid står vinkelrett på vegbanen — får en **vannrett komponent** $N\\sin\\alpha$ rettet inn mot sentrum. Den komponenten kan levere sentripetalkraften uten hjelp fra friksjonen.\n\nDoserte svinger finnes overalt der farten er høy og friksjonen usikker: motorveiavkjøringer, jernbanekurver, velodromer og ovalbaner for motorsport."
+    },
+    {
+      "id": "fys1100-4-2-utledning-ideell",
+      "type": "text",
+      "content": "### Den ideelle farten — utledningen du skal kunne\n\n**Steg 1 — velg akser.** Her er den viktigste avgjørelsen i hele oppgaven: legg aksene **vannrett og loddrett**, ikke langs banen.\n\n*Intuisjon:* akselerasjonen peker inn mot svingens sentrum, og det sentrum ligger vannrett fra bilen. Legger du aksene langs planet slik du gjorde på skråplanet, får du akselerasjonskomponenter i begge retninger og et rot av likninger.\n\n**Steg 2 — dekomponér normalkraften.** $\\mathbf{N}$ står vinkelrett på vegbanen, som heller vinkelen $\\alpha$. Da danner $\\mathbf{N}$ vinkelen $\\alpha$ med loddlinja:\n\n$$N_{\\text{loddrett}} = N\\cos\\alpha, \\qquad N_{\\text{vannrett}} = N\\sin\\alpha \\ (\\text{inn mot sentrum})$$\n\n*Intuisjon:* jo brattere sidefall, desto mer av normalkraften peker innover og desto mindre peker oppover. Ved $\\alpha = 0$ er hele normalkraften loddrett — det er den flate svingen fra [kap. 4.1](/bok/fys1100/fys1100-4-1).\n\n**Steg 3 — skriv de to likningene.** Uten friksjon virker bare $\\mathbf{N}$ og $m\\mathbf{g}$. Bilen beveger seg ikke opp eller ned, så loddrett akselerasjon er null:\n\n$$\\text{loddrett:} \\quad N\\cos\\alpha - mg = 0$$\n$$\\text{vannrett (inn mot sentrum):} \\quad N\\sin\\alpha = \\frac{mv^2}{R}$$\n\n*Intuisjon:* den ene likningen sier at bilen ikke synker gjennom vegen, den andre at den svinger. To likninger, to ukjente ($N$ og $v$).\n\n**Steg 4 — del den nederste på den øverste.** Da forsvinner både $N$ og $m$:\n\n$$\\tan\\alpha = \\frac{v^2}{gR} \\quad \\Rightarrow \\quad v = \\sqrt{gR\\tan\\alpha}$$\n\n*Intuisjon:* dette er nøyaktig samme uttrykk som for den koniske pendelen i [kap. 4.1](/bok/fys1100/fys1100-4-1). Fysikken er den samme — en skrå kraft som både bærer og svinger — bare med normalkraft i stedet for snordrag.\n\n**Steg 5 — kontroller.** Enheten: $\\sqrt{\\text{m/s}^2 \\cdot \\text{m}} = \\text{m/s}$ ✓. Grensen $\\alpha \\to 0$ gir $v \\to 0$: en flat sving krever friksjon, ellers kan du ikke svinge i det hele tatt ✓. Grensen $\\alpha \\to 90^\\circ$ gir $v \\to \\infty$: en loddrett vegg må passeres uendelig fort, og da er det heller ikke noe igjen til å bære bilen ✓."
+    },
+    {
+      "id": "fys1100-4-2-th-ideell",
+      "type": "theorem",
+      "title": "Ideell fart i en dosert sving",
+      "content": "I en sving med radius $R$ og doseringsvinkel $\\alpha$ finnes nøyaktig **én** fart der det ikke trengs friksjon i det hele tatt:\n\n$$\\tan\\alpha = \\frac{v^2}{gR} \\quad \\Longleftrightarrow \\quad v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha}$$\n\nUttrykket er uavhengig av massen: en fullastet lastebil og en motorsykkel har samme ideelle fart i samme sving.\n\nKjører du **fortere** enn dette, er normalkraftens vannrette komponent for liten, og friksjonen må hjelpe til **nedover** langs banen. Kjører du **saktere**, er den for stor, og friksjonen må virke **oppover** langs banen for å hindre at bilen sklir innover og ned."
+    },
+    {
+      "id": "fys1100-4-2-def-ideell-fart",
+      "type": "definition",
+      "title": "Ideell fart (friksjonsfri fart)",
+      "content": "Den ene farten i en dosert sving der normalkraften alene leverer hele sentripetalkraften:\n\n$$v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha}$$\n\nVed akkurat denne farten er den statiske friksjonen **null** — ikke fordi det ikke er friksjon i vegen, men fordi det ikke er noe for den å gjøre. Statisk friksjon er en ulikhet, og den leverer bare det som trengs.\n\nFartsgrensen som skiltes i en sving, er som regel satt lavere enn den ideelle farten, med sikkerhetsmargin for glatt føre."
+    },
+    {
+      "id": "fys1100-4-2-def-normalkraft-dosert",
+      "type": "definition",
+      "title": "Normalkraften i en dosert sving",
+      "content": "Ved ideell fart følger normalkraften av likevekten loddrett:\n\n$$N = \\frac{mg}{\\cos\\alpha}$$\n\nDen er altså **større** enn tyngden, og forskjellen vokser med doseringsvinkelen. Dette er en av de vanligste feilene i sjangeren: å sette $N = mg$ i en dosert sving. Bare i en helt flat sving er de to like.\n\nVed andre farter enn den ideelle må $N$ regnes ut fra den loddrette likningen med friksjonsleddet inkludert — da er den heller ikke $mg/\\cos\\alpha$."
+    },
+    {
+      "id": "fys1100-4-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Doseringen i en motorveisving",
+      "problem": "En avkjøringssving på en motorveg har radius $220\\ \\text{m}$ og er dosert med $\\alpha = 12{,}0^\\circ$.\n\n**a)** Finn den ideelle farten gjennom svingen.\n\n**b)** En bil med masse $1\\,400\\ \\text{kg}$ kjører i akkurat denne farten. Hvor stor er normalkraften fra vegbanen?\n\n**c)** Hvor stor er friksjonskraften i dette tilfellet?",
+      "solution": "**Metodevalg først:** bilen går i sirkel med konstant fart, så resultanten vannrett er $mv^2/R$ inn mot sentrum og resultanten loddrett er null. Ved ideell fart er friksjonen null, så bare $\\mathbf{N}$ og $m\\mathbf{g}$ er med.\n\n**a)**\n\n$$v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha} = \\sqrt{9{,}81 \\cdot 220 \\cdot \\tan 12{,}0^\\circ} = \\sqrt{9{,}81 \\cdot 220 \\cdot 0{,}2126} = \\sqrt{458{,}8}$$\n\n$$v_{\\text{ideell}} = 21{,}4\\ \\tfrac{\\text{m}}{\\text{s}} = 77\\ \\text{km/h}$$\n\nlangs banen. Det er et plausibelt tall for en avkjøring, og det er nettopp poenget med doseringen: den er dimensjonert for den farten trafikken faktisk holder.\n\n**b)** Fra den loddrette likningen:\n\n$$N\\cos\\alpha = mg \\quad \\Rightarrow \\quad N = \\frac{mg}{\\cos\\alpha} = \\frac{1\\,400 \\cdot 9{,}81}{\\cos 12{,}0^\\circ} = \\frac{13\\,734}{0{,}9781} = 1{,}40 \\cdot 10^{4}\\ \\text{N}$$\n\nrettet vinkelrett ut fra vegbanen. Tyngden er $1{,}37\\cdot 10^4\\ \\text{N}$, så normalkraften er om lag $2\\ \\%$ større — akkurat som $1/\\cos 12^\\circ = 1{,}022$ tilsier.\n\n**c)** Null. Ved ideell fart er normalkraftens vannrette komponent akkurat lik $mv^2/R$, så det er ingenting igjen for friksjonen å bidra med. Statisk friksjon leverer bare det som kreves, og her kreves ingenting.\n\n**Kontroll:** $N\\sin\\alpha = 1{,}404\\cdot 10^4 \\cdot 0{,}2079 = 2{,}92\\cdot 10^3\\ \\text{N}$, og $mv^2/R = 1\\,400 \\cdot 458{,}8/220 = 2{,}92\\cdot 10^3\\ \\text{N}$. De stemmer overens. ✓"
+    },
+    {
+      "id": "fys1100-4-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**a)** Forklar med egne ord hvorfor en dosert sving gjør det lettere å svinge enn en flat sving.\n\n**b)** Hvorfor inneholder ikke uttrykket $v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha}$ bilens masse?",
+        "solution": "**a)** Normalkraften står alltid vinkelrett på vegbanen. Heller vegbanen innover, peker normalkraften ikke lenger rett opp, men skrått innover — og da får den en **vannrett komponent inn mot svingens sentrum**. Den komponenten er nettopp det sentripetalkraften trenger. På en flat veg må friksjonen alene levere hele denne kraften, og friksjonen har et tak, $\\mu_s N$.\n\n**b)** Massen står på begge sider av likningene og forkortes bort når du deler den radielle likningen på den loddrette. Fysisk: en tyngre bil trenger større sentripetalkraft, men presser også hardere ned og får tilsvarende større normalkraft. De to effektene vokser proporsjonalt og opphever hverandre.",
+        "hints": [
+          "Tegn normalkraften på en hellende vegbane, og se hvilke komponenter den får.",
+          "Skriv opp de to likningene, og se hva som skjer når du deler den ene på den andre."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En jernbanekurve har radius $150\\ \\text{m}$ og skal doseres slik at et tog i $14{,}4\\ \\text{m/s}$ ikke gir sidekrefter mot skinnene.\n\n**a)** Finn doseringsvinkelen.\n\n**b)** Toget kjører i stedet med $20{,}0\\ \\text{m/s}$ gjennom samme kurve. Hvilken vei må den vannrette kraften fra skinnene peke, og hvorfor?\n\n**c)** Hva skjer med den nødvendige doseringsvinkelen om radien dobles ved samme fart?",
+        "solution": "**Metodevalg:** ideell dosering betyr at normalkraften alene leverer sentripetalkraften, altså $\\tan\\alpha = v^2/(gR)$.\n\n**a)**\n\n$$\\tan\\alpha = \\frac{v^2}{gR} = \\frac{(14{,}4)^2}{9{,}81 \\cdot 150} = \\frac{207{,}4}{1\\,471{,}5} = 0{,}1409$$\n\n$$\\alpha = \\arctan 0{,}1409 = 8{,}0^\\circ$$\n\n**b)** Ved $20{,}0\\ \\text{m/s}$ trengs en større sentripetalkraft enn doseringen leverer: $v^2/(gR) = 400/1\\,471{,}5 = 0{,}272 > \\tan\\alpha = 0{,}141$. Skinnene må derfor presse toget **ekstra innover**, altså inn mot kurvens sentrum. Det er nettopp denne sidekraften mot den ytre skinnen doseringen er ment å redusere, og som gir slitasje når toget kjører fortere enn kurven er dimensjonert for.\n\n**c)** Dobles $R$ ved samme fart, halveres $\\tan\\alpha$:\n\n$$\\tan\\alpha = \\frac{400}{9{,}81 \\cdot 300} = 0{,}1359 \\quad \\Rightarrow \\quad \\alpha = 7{,}7^\\circ$$\n\nEn slakere kurve krever altså mindre dosering — rimelig, siden den krever mindre sentripetalakselerasjon. Merk at vinkelen ikke halveres, bare tangens til den.",
+        "hints": [
+          "Ideell dosering betyr friksjonsfri passering: $\\tan\\alpha = v^2/(gR)$.",
+          "Sammenlign $v^2/(gR)$ med $\\tan\\alpha$ for å se om doseringen er for slak eller for bratt.",
+          "I c) setter du inn ny radius og samme fart i samme uttrykk."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — dosert sving med friksjon (~25 min)\n\n— naturlig pausepunkt —\n\nI virkeligheten kjører ingen akkurat den ideelle farten. Da må friksjonen inn, og med den kommer spørsmålet som avgjør toppoengene: **hvilken vei peker den?**\n\nSvaret er alltid det samme prinsippet fra [kap. 3.2](/bok/fys1100/fys1100-3-2): friksjonen motsetter seg den bevegelsen som er i ferd med å skje. Så du må først spørre deg hvilken vei bilen ville glidd."
+    },
+    {
+      "id": "fys1100-4-2-def-friksjonsretning",
+      "type": "definition",
+      "title": "Friksjonsretningen i en dosert sving",
+      "content": "Retningen bestemmes av om farten er større eller mindre enn den ideelle:\n\n- **For fort** ($v > v_{\\text{ideell}}$): normalkraftens innoverkomponent er for liten, bilen er i ferd med å skli **opp og ut** av svingen. Friksjonen peker da **ned langs banen**, altså innover og nedover.\n- **For sakte** ($v < v_{\\text{ideell}}$): innoverkomponenten er for stor, bilen er i ferd med å skli **ned og inn** mot sentrum. Friksjonen peker da **opp langs banen**.\n- **Akkurat ideell fart:** friksjonen er null.\n\nÅ skrive denne drøftingen ut i klartekst er det som skiller en full besvarelse fra en halv. Regnestykket er det samme; begrunnelsen er poengene."
+    },
+    {
+      "id": "fys1100-4-2-utledning-vmax",
+      "type": "text",
+      "content": "### Maks- og minfart — utledningen du skal kunne\n\n**Steg 1 — sett opp likningene for maksfarten.** Ved maksfart er bilen på nippet til å skli opp og ut, så friksjonen peker ned langs banen med sin største verdi $f = \\mu_s N$. Dekomponér begge kreftene vannrett og loddrett:\n\n$$\\text{loddrett:} \\quad N\\cos\\alpha - \\mu_s N\\sin\\alpha - mg = 0$$\n$$\\text{vannrett (inn):} \\quad N\\sin\\alpha + \\mu_s N\\cos\\alpha = \\frac{mv^2}{R}$$\n\n*Intuisjon:* friksjonen peker skrått nedover langs banen. Den har derfor en komponent **nedover** (som trekker fra i den loddrette likningen) og en komponent **innover** (som legger til i den radielle). Begge fortegnene følger av retningsvalget, ikke av hukommelsen.\n\n**Steg 2 — del den radielle likningen på den loddrette.** Både $N$ og $m$ forsvinner:\n\n$$\\frac{v^2}{gR} = \\frac{\\sin\\alpha + \\mu_s\\cos\\alpha}{\\cos\\alpha - \\mu_s\\sin\\alpha} = \\frac{\\tan\\alpha + \\mu_s}{1 - \\mu_s\\tan\\alpha}$$\n\nder siste form fås ved å dele teller og nevner på $\\cos\\alpha$.\n\n*Intuisjon:* uttrykket er den ideelle farten «pluss litt friksjon». Sett $\\mu_s = 0$, og du får $\\tan\\alpha$ tilbake.\n\n**Steg 3 — minstefarten** får du ved å snu friksjonen, altså erstatte $\\mu_s$ med $-\\mu_s$:\n\n$$v_{\\min} = \\sqrt{gR\\,\\frac{\\tan\\alpha - \\mu_s}{1 + \\mu_s\\tan\\alpha}}$$\n\n*Intuisjon:* nå hjelper friksjonen til med å holde bilen oppe i stedet for inne, og begge fortegnene snur.\n\n**Steg 4 — les av når uttrykkene gir mening.** Er $\\mu_s \\ge \\tan\\alpha$, blir telleren i $v_{\\min}$ negativ. Det betyr **ikke** at farten er imaginær: det betyr at friksjonen er sterk nok til å holde bilen på plass selv i ro, og at det da ikke finnes noen nedre fartsgrense. Skriv da $v_{\\min} = 0$ og forklar hvorfor.\n\nUttrykket for $v_{\\max}$ har en tilsvarende begrensning: nevneren $1 - \\mu_s\\tan\\alpha$ må være positiv. Er $\\mu_s\\tan\\alpha \\ge 1$ — svært bratt dosering og svært godt veigrep — finnes ingen øvre grense fra glidning i det hele tatt, og andre effekter (velting, dekkenes tåleevne) overtar."
+    },
+    {
+      "id": "fys1100-4-2-th-vmax-vmin",
+      "type": "theorem",
+      "title": "Maks- og minfart i en dosert sving",
+      "content": "For en sving med radius $R$, doseringsvinkel $\\alpha$ og statisk friksjonstall $\\mu_s$:\n\n$$v_{\\max} = \\sqrt{gR\\,\\frac{\\tan\\alpha + \\mu_s}{1 - \\mu_s\\tan\\alpha}} \\qquad (\\text{krever } \\mu_s\\tan\\alpha < 1)$$\n\n$$v_{\\min} = \\sqrt{gR\\,\\frac{\\tan\\alpha - \\mu_s}{1 + \\mu_s\\tan\\alpha}} \\qquad (\\text{bare når } \\mu_s < \\tan\\alpha; \\text{ ellers } v_{\\min} = 0)$$\n\nBegge er uavhengige av massen, og begge inneholder den ideelle farten som $\\mu_s = 0$-tilfellet. Rekkefølgen er alltid\n\n$$v_{\\min} \\le v_{\\text{ideell}} \\le v_{\\max}$$\n\nog det er en billig kontroll å sjekke at tallene dine faktisk kommer i den rekkefølgen."
+    },
+    {
+      "id": "fys1100-4-2-def-gyldighet",
+      "type": "definition",
+      "title": "Når finnes det ingen fartsgrenser?",
+      "content": "De to uttrykkene for maks- og minfart har hver sin gyldighetsbetingelse, og begge svarer til en fysisk situasjon:\n\n- **$\\mu_s \\ge \\tan\\alpha$:** friksjonen alene holder bilen på den skrå vegbanen, også når den står stille. Da finnes ingen nedre fartsgrense — sett $v_{\\min} = 0$.\n- **$\\mu_s\\tan\\alpha \\ge 1$:** dosering og veigrep er så kraftige at ingen fart gir utglidning. Da finnes ingen øvre grense fra denne modellen; andre mekanismer setter grensen i stedet.\n\nBegge tilfellene er verdt å nevne når de oppstår. Å skrive «ingen løsning» der svaret er «ingen nedre grense», er en tolkningsfeil, ikke en regnefeil — og den er lett å unngå med én setning."
+    },
+    {
+      "id": "fys1100-4-2-warn-1",
+      "type": "warning",
+      "title": "Typiske feil — dosert sving",
+      "content": "**1. Å ikke drøfte friksjonsretningen.** Dette er den dyreste feilen i sjangeren. Skriver du bare opp en formel og setter inn tall, får du sjelden full uttelling — gjennomgangskravet på hvert sett er at **alle svar må begrunnes**. Én setning holder: «Ved maksfart er bilen i ferd med å skli opp og ut, så friksjonen peker ned langs banen.»\n\n**2. Å sette $N = mg$.** I en dosert sving er $N = mg/\\cos\\alpha$ ved ideell fart, og noe annet ved andre farter. $N = mg$ gjelder bare på flat veg.\n\n**3. Å dekomponere langs planet.** På skråplanet i [kap. 3.2](/bok/fys1100/fys1100-3-2) la vi aksene langs og normalt på flaten, fordi akselerasjonen gikk langs flaten. Her går akselerasjonen **vannrett** inn mot sentrum, så aksene skal ligge vannrett og loddrett. Bytter du dette, ender du med akselerasjonskomponenter i begge likningene.\n\n**4. Å behandle friksjonen som fast $\\mu_s N$.** Statisk friksjon er en ulikhet (felle #12 — likhetstegn der det skulle stått ulikhet). Likhetstegnet gjelder bare når du spør etter en **grense**. Ved en oppgitt fart mellom $v_{\\min}$ og $v_{\\max}$ er friksjonen mindre enn taket, og da må du regne den ut fra likningene, ikke sette den til $\\mu_s N$."
+    },
+    {
+      "id": "fys1100-4-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Den bratt doserte ovalbanen (eksamensnivå)",
+      "problem": "En ovalbane for motorsport har svinger med radius $300\\ \\text{m}$ og en dosering på $\\alpha = 31{,}0^\\circ$. Friksjonstallet mellom dekk og banedekke er $\\mu_s = 0{,}20$ på et regnvått løp.\n\n**a)** Finn den ideelle farten.\n\n**b)** Finn den største farten en bil kan holde uten å skli ut. Forklar hvilken vei friksjonen peker.\n\n**c)** Finn den minste farten en bil kan holde uten å skli innover.\n\n**d)** Kontroller svarene med et grensetilfelle.",
+      "solution": "**Metodevalg først:** bilen går i sirkel med konstant fart, så resultanten vannrett er $mv^2/R$ inn mot sentrum og resultanten loddrett er null. Tre krefter virker: normalkraften vinkelrett på banen, den statiske friksjonen langs banen og tyngden. Aksene legges **vannrett og loddrett**, fordi akselerasjonen er vannrett.\n\nVi trenger $\\tan 31{,}0^\\circ = 0{,}6009$ og $gR = 9{,}81 \\cdot 300 = 2\\,943\\ \\text{m}^2/\\text{s}^2$.\n\n**a)**\n\n$$v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha} = \\sqrt{2\\,943 \\cdot 0{,}6009} = \\sqrt{1\\,768} = 42{,}1\\ \\tfrac{\\text{m}}{\\text{s}} = 151\\ \\text{km/h}$$\n\n*Sensorblikk: her gis poeng for oppsettet med de to likningene, ikke bare for tallet. Skriv dem opp selv om du husker sluttformelen.*\n\n**b) Retningsdrøftingen først:** ved farter over den ideelle er normalkraftens innoverkomponent for liten til å levere $mv^2/R$. Bilen er da i ferd med å skli **opp og ut** av svingen, og siden friksjonen alltid motsetter seg den bevegelsen som er i ferd med å skje, peker den **ned langs banen**. Ved maksfarten er den på sitt tak, $f = \\mu_s N$.\n\n$$\\text{loddrett:} \\quad N\\cos\\alpha - \\mu_s N \\sin\\alpha = mg$$\n$$\\text{vannrett:} \\quad N\\sin\\alpha + \\mu_s N\\cos\\alpha = \\frac{mv^2}{R}$$\n\nDeler vi den nederste på den øverste:\n\n$$v_{\\max} = \\sqrt{gR\\,\\frac{\\tan\\alpha + \\mu_s}{1 - \\mu_s\\tan\\alpha}} = \\sqrt{2\\,943 \\cdot \\frac{0{,}8009}{0{,}8798}} = \\sqrt{2\\,679} = 51{,}8\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\naltså $186\\ \\text{km/h}$ langs banen.\n\n*Sensorblikk: setningen om friksjonsretningen er selvstendig poenggivende. Uten den er besvarelsen ufullstendig, uansett hvor riktig tallet er.*\n\n— naturlig pausepunkt —\n\n**c)** Ved farter under den ideelle er innoverkomponenten for stor, og bilen er i ferd med å skli **ned og inn**. Friksjonen peker da **opp langs banen**, og de to fortegnene snur:\n\n$$v_{\\min} = \\sqrt{gR\\,\\frac{\\tan\\alpha - \\mu_s}{1 + \\mu_s\\tan\\alpha}} = \\sqrt{2\\,943 \\cdot \\frac{0{,}4009}{1{,}1202}} = \\sqrt{1\\,053} = 32{,}5\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\naltså $117\\ \\text{km/h}$. Her er $\\mu_s = 0{,}20 < \\tan\\alpha = 0{,}601$, så uttrykket gir en reell nedre grense: doseringen er så bratt at en bil som kjører for sakte, faktisk sklir innover.\n\n**d) Kontroller.** Først rekkefølgen: $32{,}5 < 42{,}1 < 51{,}8$ ✓ — maksfarten er størst og minstefarten minst, slik den må være.\n\nSå grensetilfellet $\\mu_s \\to 0$: begge uttrykkene går mot $\\sqrt{gR\\tan\\alpha} = v_{\\text{ideell}}$. Uten friksjon finnes bare én mulig fart ✓.\n\nOg $\\alpha \\to 0$ (flat bane): $v_{\\max} \\to \\sqrt{\\mu_s gR}$, som er akkurat resultatet for en flat sving fra [kap. 4.1](/bok/fys1100/fys1100-4-1), mens telleren i $v_{\\min}$ blir negativ — det finnes ingen nedre grense på flat veg ✓."
+    },
+    {
+      "id": "fys1100-4-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En avkjøringssving har radius $120\\ \\text{m}$, dosering $\\alpha = 18{,}0^\\circ$ og tørt asfaltdekke med $\\mu_s = 0{,}55$.\n\n**a)** Finn den ideelle farten.\n\n**b)** Finn maksfarten, og oppgi den i $\\text{km/h}$.\n\n**c)** Finnes det en minstefart her? Begrunn svaret.",
+        "solution": "**Metodevalg:** to likninger — loddrett likevekt og Newtons 2. lov vannrett inn mot sentrum — med akser lagt vannrett og loddrett. Vi har $\\tan 18{,}0^\\circ = 0{,}3249$ og $gR = 1\\,177\\ \\text{m}^2/\\text{s}^2$.\n\n**a)**\n\n$$v_{\\text{ideell}} = \\sqrt{1\\,177 \\cdot 0{,}3249} = \\sqrt{382{,}5} = 19{,}6\\ \\tfrac{\\text{m}}{\\text{s}} \\ (70\\ \\text{km/h})$$\n\n**b)** Ved maksfart er bilen i ferd med å skli opp og ut, så friksjonen peker ned langs banen med sin største verdi:\n\n$$v_{\\max} = \\sqrt{1\\,177 \\cdot \\frac{0{,}3249 + 0{,}55}{1 - 0{,}55 \\cdot 0{,}3249}} = \\sqrt{1\\,177 \\cdot \\frac{0{,}8749}{0{,}8213}} = \\sqrt{1\\,254} = 35{,}4\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\naltså $127\\ \\text{km/h}$ — langt over enhver skiltet fartsgrense i en avkjøring.\n\n**c)** Nei. Her er $\\mu_s = 0{,}55$ større enn $\\tan\\alpha = 0{,}325$, og telleren i uttrykket for $v_{\\min}$ blir negativ. Fysisk betyr det at friksjonen alene er sterk nok til å holde bilen på den skrå vegbanen — også når den står helt stille. Doseringsvinkelen er mindre enn friksjonsvinkelen $\\arctan\\mu_s = 28{,}8^\\circ$, som er akkurat hvilebetingelsen fra [kap. 3.2](/bok/fys1100/fys1100-3-2). Vi setter derfor $v_{\\min} = 0$ og skriver begrunnelsen ut.",
+        "hints": [
+          "Ideell fart: $\\tan\\alpha = v^2/(gR)$.",
+          "Ved maksfart peker friksjonen ned langs banen — sett $f = \\mu_s N$ og skriv de to likningene.",
+          "Se på fortegnet i telleren $\\tan\\alpha - \\mu_s$ før du regner ut $v_{\\min}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En bil med masse $1\\,250\\ \\text{kg}$ kjører med $25{,}0\\ \\text{m/s}$ gjennom en sving med radius $200\\ \\text{m}$ og dosering $\\alpha = 15{,}0^\\circ$.\n\n**a)** Er farten større eller mindre enn den ideelle? Hvilken vei peker friksjonen?\n\n**b)** Finn normalkraften og friksjonskraften ved denne farten.\n\n**c)** Hvor stort må friksjonstallet minst være?",
+        "solution": "**Metodevalg:** vi kjenner farten, så friksjonen er **ikke** på sitt tak. Da må både $N$ og $f$ regnes ut av de to likningene, med $f$ som ukjent.\n\n**a)** Ideell fart:\n\n$$v_{\\text{ideell}} = \\sqrt{9{,}81 \\cdot 200 \\cdot \\tan 15{,}0^\\circ} = \\sqrt{1\\,962 \\cdot 0{,}2679} = \\sqrt{525{,}7} = 22{,}9\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nFarten $25{,}0\\ \\text{m/s}$ er større, så bilen er i ferd med å skli **opp og ut**. Friksjonen peker derfor **ned langs banen**.\n\n**b)** Med friksjonen $f$ rettet ned langs banen:\n\n$$\\text{loddrett:} \\quad N\\cos\\alpha - f\\sin\\alpha = mg = 12\\,263\\ \\text{N}$$\n$$\\text{vannrett:} \\quad N\\sin\\alpha + f\\cos\\alpha = \\frac{mv^2}{R} = \\frac{1\\,250 \\cdot 625}{200} = 3\\,906\\ \\text{N}$$\n\nLøser vi de to likningene (gang den første med $\\cos\\alpha$, den andre med $\\sin\\alpha$ og legg sammen):\n\n$$N = mg\\cos\\alpha + \\frac{mv^2}{R}\\sin\\alpha = 12\\,263 \\cdot 0{,}9659 + 3\\,906 \\cdot 0{,}2588 = 1{,}29 \\cdot 10^{4}\\ \\text{N}$$\n\n$$f = \\frac{mv^2}{R}\\cos\\alpha - mg\\sin\\alpha = 3\\,906 \\cdot 0{,}9659 - 12\\,263 \\cdot 0{,}2588 = 6{,}00 \\cdot 10^{2}\\ \\text{N}$$\n\nFriksjonen er positiv, i tråd med retningsantakelsen i a).\n\n**c)** Kravet er $f \\le \\mu_s N$:\n\n$$\\mu_s \\ge \\frac{f}{N} = \\frac{600}{12\\,860} = 0{,}047$$\n\nDet er et svært beskjedent krav — nesten enhver vegbane klarer det. Doseringen gjør altså det aller meste av jobben, og friksjonen trenger bare å dekke differansen mellom den faktiske og den ideelle farten.",
+        "hints": [
+          "Sammenlign først farten med $v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha}$ for å få retningen på friksjonen.",
+          "Skriv de to likningene med $f$ som en ukjent størrelse — ikke som $\\mu_s N$.",
+          "Kombiner likningene slik at du får $N$ alene, og deretter $f$ alene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — spiralbanen (~15 min)\n\nEn korketrekker i en berg-og-dal-bane, en spiralformet avkjøringsrampe i et parkeringshus, en vannsklie som snor seg rundt en søyle: dette er **spiralbaner**, eller helikser.\n\nHer er det én ting som må sitte, og den er hele oppgaven: **det er bare den vannrette delen av farten som krummer banen.** Den loddrette delen bærer legemet opp eller ned, men bidrar ikke til sirkelbevegelsen."
+    },
+    {
+      "id": "fys1100-4-2-fig-spiral",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-4-2-spiralbane.svg",
+      "alt": "En spiralbane som snor seg rundt en loddrett akse pa en tenkt sylinder med radius R. I et punkt pa banen er hastigheten v tegnet inn langs banen. Ved siden av star en rettvinklet trekant som viser hastigheten delt i en vannrett komponent v cos theta og en loddrett komponent v sin theta, med stigningsvinkelen theta.",
+      "caption": "Spiralen ligger på en tenkt sylinder med radius $R$. Trekanten til høyre er hele poenget: farten langs banen deles i $v\\cos\\theta$ vannrett og $v\\sin\\theta$ loddrett, og **bare den vannrette delen** går inn i $v^2/R$."
+    },
+    {
+      "id": "fys1100-4-2-def-spiralbane",
+      "type": "definition",
+      "title": "Spiralbane (heliks)",
+      "content": "En bane som følger overflaten av en tenkt sylinder: legemet går rundt en loddrett akse samtidig som det stiger eller synker jevnt.\n\nTo størrelser beskriver banen: **radien $R$**, målt vannrett fra aksen, og **stigningsvinkelen $\\theta$**, som er vinkelen mellom banen og vannrett. En $\\theta = 0$ gir en vanlig vannrett sirkel; store $\\theta$ gir en bratt, tett spiral.\n\nSett ovenfra ser bevegelsen ut som en ren sirkel med radius $R$ — og det er nettopp den projeksjonen som avgjør sentripetalakselerasjonen."
+    },
+    {
+      "id": "fys1100-4-2-th-spiral",
+      "type": "theorem",
+      "title": "Sentripetalakselerasjon i en spiralbane",
+      "content": "For et legeme som følger en spiral med radius $R$ og stigningsvinkel $\\theta$, med farten $v$ **langs banen**, er akselerasjonen inn mot aksen\n\n$$a_r = \\frac{(v\\cos\\theta)^2}{R} = \\frac{v^2\\cos^2\\theta}{R}$$\n\nDen loddrette fartskomponenten $v\\sin\\theta$ er konstant og bidrar ikke: den endrer hverken retning eller størrelse så lenge stigningen er jevn.\n\nBruker du hele farten i stedet, får du et svar som er $1/\\cos^2\\theta$ ganger for stort. Ved $\\theta = 35^\\circ$ er det nesten $50\\ \\%$ for mye — nok til å ødelegge hele deloppgaven."
+    },
+    {
+      "id": "fys1100-4-2-utledning-spiral",
+      "type": "text",
+      "content": "### Hvorfor bare den vannrette delen teller\n\n**Steg 1.** Del hastigheten i to: én komponent i det vannrette planet, $v_h = v\\cos\\theta$, og én langs aksen, $v_z = v\\sin\\theta$.\n\n*Intuisjon:* de to er uavhengige, akkurat som $x$- og $y$-bevegelsen i et skrått kast (se [kap. 2.2](/bok/fys1100/fys1100-2-2)).\n\n**Steg 2.** Se på bevegelsen ovenfra. Da forsvinner den loddrette delen helt, og det du ser, er en ren sirkelbevegelse med radius $R$ og fart $v_h$.\n\n*Intuisjon:* skyggen av legemet på bakken går i sirkel. Det er skyggen som svinger, og akselerasjonen inn mot aksen er nøyaktig skyggens akselerasjon.\n\n**Steg 3.** Er stigningen jevn, er $v_z$ konstant, og den bidrar derfor ingenting til akselerasjonen:\n\n$$a_r = \\frac{v_h^2}{R} = \\frac{v^2\\cos^2\\theta}{R}$$\n\n*Intuisjon:* en konstant fartskomponent er per definisjon uten akselerasjon.\n\n**Steg 4 — kontroller.** Ved $\\theta = 0$ (ingen stigning) gir uttrykket $a_r = v^2/R$, den vanlige sirkelen ✓. Ved $\\theta \\to 90^\\circ$ (loddrett opp) går $a_r \\to 0$: banen er da en rett loddrett linje og krummer ikke ✓."
+    },
+    {
+      "id": "fys1100-4-2-def-stigningsvinkel",
+      "type": "definition",
+      "title": "Stigningsvinkelen i en spiral",
+      "content": "Vinkelen $\\theta$ mellom banen og vannrettplanet. Den knytter sammen de to fartskomponentene:\n\n$$v_h = v\\cos\\theta \\ (\\text{vannrett}), \\qquad v_z = v\\sin\\theta \\ (\\text{langs aksen})$$\n\nEr stigningen oppgitt som en høyde per omdreining, $H$, finner du vinkelen fra geometrien: én omdreining tilbakelegger $2\\pi R$ vannrett og $H$ loddrett, så $\\tan\\theta = H/(2\\pi R)$.\n\nPass på hvilken vinkel oppgaven oppgir. Noen tekster måler vinkelen fra **aksen** i stedet for fra vannrett; da bytter sinus og cosinus plass. Skriv alltid ned hvilken konvensjon du bruker."
+    },
+    {
+      "id": "fys1100-4-2-def-loddrett-spiral",
+      "type": "definition",
+      "title": "Loddrett likevekt i en spiralbane",
+      "content": "Går legemet ned en spiral med **konstant** loddrett fart, er den loddrette akselerasjonen null. Da må resultanten av alle krefter loddrett være null:\n\n$$\\sum F_z = 0$$\n\nSamtidig er resultanten vannrett lik $m v^2\\cos^2\\theta / R$, rettet inn mot aksen.\n\nDet gir det samme likningsparet som i en dosert sving: én likning for at legemet ikke faller, én for at det svinger. Er den loddrette farten derimot **økende** — for eksempel en kloss som akselererer nedover en spiralsklie — må den loddrette akselerasjonen inn i likningen."
+    },
+    {
+      "id": "fys1100-4-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Korketrekkeren",
+      "problem": "En vogn kjører gjennom en korketrekker i en berg-og-dal-bane. Spiralen har radius $6{,}0\\ \\text{m}$ og stigningsvinkel $35^\\circ$ fra vannrett, og farten langs banen er $14\\ \\text{m/s}$.\n\n**a)** Finn den vannrette og den loddrette fartskomponenten.\n\n**b)** Finn sentripetalakselerasjonen inn mot spiralaksen, og oppgi den i antall $g$.\n\n**c)** Hvor stor feil ville du fått om du satte hele farten inn i $v^2/R$?",
+      "solution": "**Metodevalg først:** bare den vannrette delen av farten krummer banen, fordi den loddrette delen er konstant og derfor ikke gir akselerasjon. Vi deler hastigheten i to og bruker $a_r = v_h^2/R$.\n\n**a)**\n\n$$v_h = v\\cos\\theta = 14 \\cdot \\cos 35^\\circ = 14 \\cdot 0{,}8192 = 11{,}5\\ \\tfrac{\\text{m}}{\\text{s}} \\ (\\text{vannrett})$$\n\n$$v_z = v\\sin\\theta = 14 \\cdot 0{,}5736 = 8{,}0\\ \\tfrac{\\text{m}}{\\text{s}} \\ (\\text{langs aksen})$$\n\n**Kontroll:** $\\sqrt{11{,}47^2 + 8{,}03^2} = 14{,}0\\ \\text{m/s}$ ✓ — komponentene summerer seg tilbake til farten langs banen.\n\n**b)**\n\n$$a_r = \\frac{v_h^2}{R} = \\frac{(11{,}47)^2}{6{,}0} = \\frac{131{,}5}{6{,}0} = 21{,}9\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nrettet **vannrett inn mot spiralaksen**. Delt på $g$: $21{,}9/9{,}81 = 2{,}2$, altså om lag $2{,}2\\,g$ — en kraftig, men fullt realistisk belastning i en korketrekker.\n\n**c)** Med hele farten:\n\n$$\\frac{v^2}{R} = \\frac{196}{6{,}0} = 32{,}7\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nDet er $32{,}7/21{,}9 = 1{,}49$, altså nesten $50\\ \\%$ for stort. Forholdet er nøyaktig $1/\\cos^2 35^\\circ = 1{,}49$ — feilen er systematisk, ikke tilfeldig, og vokser raskt med stigningsvinkelen."
+    },
+    {
+      "id": "fys1100-4-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En vannsklie snor seg i en spiral rundt en søyle. Radien er $3{,}5\\ \\text{m}$ og banen danner $28^\\circ$ med vannrett. En badegjest med masse $62\\ \\text{kg}$ har farten $7{,}5\\ \\text{m/s}$ langs sklia.\n\n**a)** Finn sentripetalakselerasjonen inn mot søyla.\n\n**b)** Hvor stor vannrett kraft må sklieveggen levere?\n\n**c)** Hvor mange prosent for stor ville akselerasjonen blitt om du hadde brukt hele farten?",
+        "solution": "**Metodevalg:** det er bare den vannrette fartskomponenten som krummer banen, så $a_r = (v\\cos\\theta)^2/R$.\n\n**a)**\n\n$$v_h = 7{,}5 \\cdot \\cos 28^\\circ = 7{,}5 \\cdot 0{,}8830 = 6{,}62\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$a_r = \\frac{(6{,}62)^2}{3{,}5} = \\frac{43{,}85}{3{,}5} = 12{,}5\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\nrettet vannrett inn mot søyla.\n\n**b)** Newtons 2. lov vannrett gir\n\n$$F_r = m a_r = 62 \\cdot 12{,}5 = 7{,}8 \\cdot 10^{2}\\ \\text{N}$$\n\ninn mot søyla. Til sammenligning er tyngden $608\\ \\text{N}$, så sideveggen presser faktisk hardere innover enn badegjesten veier.\n\n**c)** Med hele farten: $v^2/R = 56{,}25/3{,}5 = 16{,}1\\ \\text{m/s}^2$. Det er $16{,}07/12{,}53 = 1{,}283$, altså $28\\ \\%$ for stort. Forholdet er nøyaktig $1/\\cos^2 28^\\circ$.",
+        "hints": [
+          "Del farten i en vannrett og en loddrett komponent — bare den ene krummer banen.",
+          "Newtons 2. lov i vannrett retning gir kraften fra veggen.",
+          "Forholdet mellom feil og riktig svar er alltid $1/\\cos^2\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — drill: én oppskrift for hele sjanger E (~15 min)\n\n— naturlig pausepunkt —\n\nResten av kapitlet er ren trening. Alle variantene du har møtt — flat sving, dosert sving, konisk pendel, loop, spiral — løses med **samme fem steg**. Lær oppskriften, og du slipper å kjenne igjen oppgaven; du kan bare kjøre prosedyren."
+    },
+    {
+      "id": "fys1100-4-2-th-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskrift for sjanger E",
+      "content": "**1. Identifiser sentrum og den radielle retningen.** Hvor ligger sirkelens sentrum sett fra legemet? Er retningen dit vannrett (dosert sving, spiral, konisk pendel) eller loddrett (topp og bunn av en loop)? Alt annet følger av dette valget.\n\n**2. Tegn frilegemediagrammet.** Bare virkelige krefter, alle navngitt. Ingen «sentripetalkraft», ingen kraft utover.\n\n**3. Skriv de to likningene.** Én i radiell retning med høyresiden $mv^2/R$, og én i retningen der akselerasjonen er null (som regel loddrett):\n\n$$\\sum F_r = \\frac{mv^2}{R}, \\qquad \\sum F_{\\perp} = 0$$\n\n**4. Drøft friksjon og kontakt.** Hvilken vei ville legemet glidd? Er friksjonen på sitt tak $\\mu_s N$, eller er den en ukjent størrelse? Kan normalkraften bli null? Dette steget er der poengene ligger — skriv drøftingen ut i ord.\n\n**5. Løs, kontroller, oppgi.** Del gjerne den ene likningen på den andre for å bli kvitt $N$ og $m$. Sjekk enheten, sjekk minst ett grensetilfelle, og oppgi hvert svar med **enhet og retning**."
+    },
+    {
+      "id": "fys1100-4-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Velodromen — hele oppskriften med sensorblikk",
+      "problem": "En innendørs sykkelbane (velodrom) har svinger med radius $25{,}0\\ \\text{m}$ og en dosering på $\\alpha = 42{,}0^\\circ$. Friksjonstallet mellom dekk og bane er $\\mu_s = 0{,}15$. En rytter med sykkel har samlet masse $85\\ \\text{kg}$.\n\n**a)** Finn den farten der rytteren ikke trenger friksjon i det hele tatt, og finn normalkraften ved denne farten.\n\n**b)** Finn den største og den minste farten rytteren kan holde i svingen.\n\n**c)** Kontroller svarene.",
+      "solution": "**Steg 1 — sentrum og radiell retning.** Svingens sentrum ligger **vannrett** fra rytteren, inne på banen. Den radielle retningen er derfor vannrett, og aksene legges vannrett og loddrett.\n\n*Sensorblikk: dette valget er verdt å skrive ned. Kandidater som legger aksene langs banen — som på et skråplan — ender med akselerasjonskomponenter i begge likningene og mister oversikten.*\n\n**Steg 2 — frilegemediagram.** Tre krefter virker på rytteren: normalkraften $\\mathbf{N}$ vinkelrett ut fra banen, den statiske friksjonen $\\mathbf{f}_s$ langs banen, og tyngden $m\\mathbf{g} = 834\\ \\text{N}$ nedover. Se figuren i løkke 1 — den er tegnet for nettopp denne situasjonen.\n\n**Steg 3–5, deloppgave a).** Ved ideell fart er friksjonen null:\n\n$$\\text{loddrett:} \\quad N\\cos\\alpha = mg \\quad \\Rightarrow \\quad N = \\frac{834}{\\cos 42{,}0^\\circ} = \\frac{834}{0{,}7431} = 1{,}12 \\cdot 10^{3}\\ \\text{N}$$\n\nrettet vinkelrett ut fra banedekket. Det er $1{,}35$ ganger tyngden — merk hvor mye hardere rytteren presses mot banen enn på flat mark.\n\n$$\\text{vannrett:} \\quad N\\sin\\alpha = \\frac{mv^2}{R} \\quad \\Rightarrow \\quad \\tan\\alpha = \\frac{v^2}{gR}$$\n\n$$v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha} = \\sqrt{9{,}81 \\cdot 25{,}0 \\cdot 0{,}9004} = \\sqrt{220{,}9} = 14{,}9\\ \\tfrac{\\text{m}}{\\text{s}} \\ (53{,}5\\ \\text{km/h})$$\n\n*Sensorblikk: normalkraften kan finnes uten farten, rett fra den loddrette likningen. Det er en «billig» deloppgave — ta den selv om resten stopper opp.*\n\n— naturlig pausepunkt —\n\n**Steg 4, deloppgave b) — drøftingen.** Over den ideelle farten er rytteren i ferd med å skli **opp og ut**, så friksjonen peker **ned langs banen**. Under den ideelle farten er hun i ferd med å skli **ned og inn**, og friksjonen peker **opp langs banen**. I begge grensetilfellene er friksjonen på sitt tak, $f = \\mu_s N$.\n\n$$v_{\\max} = \\sqrt{gR\\,\\frac{\\tan\\alpha + \\mu_s}{1 - \\mu_s\\tan\\alpha}} = \\sqrt{245{,}3 \\cdot \\frac{1{,}0504}{0{,}8649}} = \\sqrt{297{,}8} = 17{,}3\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$v_{\\min} = \\sqrt{gR\\,\\frac{\\tan\\alpha - \\mu_s}{1 + \\mu_s\\tan\\alpha}} = \\sqrt{245{,}3 \\cdot \\frac{0{,}7504}{1{,}1351}} = \\sqrt{162{,}1} = 12{,}7\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nRytteren må altså holde seg mellom $12{,}7$ og $17{,}3\\ \\text{m/s}$ langs banen for ikke å gli. Det er nettopp derfor en velodrom må sykles fort: kjører du for sakte i den bratte delen, sklir du ned.\n\n*Sensorblikk: retningsdrøftingen i steg 4 er selvstendig poenggivende. Tall uten den setningen gir sjelden full uttelling.*\n\n**c) Kontroller.**\n\n- **Rekkefølge:** $12{,}7 < 14{,}9 < 17{,}3$ ✓.\n- **Gyldighet:** $\\mu_s\\tan\\alpha = 0{,}15 \\cdot 0{,}900 = 0{,}135 < 1$, så uttrykket for $v_{\\max}$ er gyldig; og $\\mu_s = 0{,}15 < \\tan\\alpha = 0{,}900$, så det finnes en reell nedre grense ✓.\n- **Grensetilfelle:** setter vi $\\mu_s = 0$, faller begge uttrykkene sammen med den ideelle farten $14{,}9\\ \\text{m/s}$ ✓.\n- **Enheter:** alle farter i $\\text{m/s}$, kreftene i newton ✓."
+    },
+    {
+      "id": "fys1100-4-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.) En dosert sving har radius $180\\ \\text{m}$ og skal kunne kjøres i $30{,}0\\ \\text{m/s}$ uten friksjon.\n\n**a)** Finn doseringsvinkelen.\n\n**b)** Hvor stor blir normalkraften på en bil med masse $1\\,600\\ \\text{kg}$ ved denne farten?\n\n**c)** Hvor stor sentripetalakselerasjon har bilen, i antall $g$?",
+        "solution": "**Metodevalg:** friksjonsfri passering betyr $\\tan\\alpha = v^2/(gR)$, med loddrett likevekt $N\\cos\\alpha = mg$.\n\n**a)**\n\n$$\\tan\\alpha = \\frac{900}{9{,}81 \\cdot 180} = \\frac{900}{1\\,765{,}8} = 0{,}5097 \\quad \\Rightarrow \\quad \\alpha = 27{,}0^\\circ$$\n\n**b)**\n\n$$N = \\frac{mg}{\\cos\\alpha} = \\frac{1\\,600 \\cdot 9{,}81}{\\cos 27{,}0^\\circ} = \\frac{15\\,696}{0{,}8910} = 1{,}76 \\cdot 10^{4}\\ \\text{N}$$\n\nvinkelrett ut fra vegbanen.\n\n**c)**\n\n$$a_r = \\frac{v^2}{R} = \\frac{900}{180} = 5{,}00\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\ninn mot svingens sentrum, altså $5{,}00/9{,}81 = 0{,}510\\,g$. Merk at dette tallet er nøyaktig $\\tan\\alpha$ — det er ingen tilfeldighet, siden $\\tan\\alpha = a_r/g$ er selve doseringsbetingelsen.",
+        "hints": [
+          "Friksjonsfri passering gir $\\tan\\alpha = v^2/(gR)$.",
+          "Normalkraften følger av den loddrette likningen alene.",
+          "Legg merke til sammenhengen mellom $a_r/g$ og $\\tan\\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kvalitativ.) To biler kjører gjennom samme doserte sving, den ene dobbelt så tung som den andre, med samme fart.\n\n**a)** Hvilken av dem trenger størst friksjonskraft? Begrunn.\n\n**b)** Hvilken av dem trenger størst friksjons**tall**? Begrunn.\n\n**c)** Hva forteller dette om hvorfor fartsgrenser i svinger er de samme for personbil og lastebil?",
+        "solution": "**a)** Den tunge. Alle kreftene i likningene er proporsjonale med massen: den nødvendige sentripetalkraften er $mv^2/R$, tyngden er $mg$, og normalkraften blir tilsvarende større. Dobler du massen, dobles derfor også friksjonskraften som trengs.\n\n**b)** Ingen av dem — de trenger nøyaktig **samme** friksjonstall. Friksjonstallet er forholdet $f/N$, og både $f$ og $N$ er proporsjonale med massen, så forholdet er uavhengig av den. Det er derfor massen forkortes bort i alle uttrykkene for $v_{\\text{ideell}}$, $v_{\\max}$ og $v_{\\min}$.\n\n**c)** Fordi det er friksjons**tallet**, ikke friksjonskraften, som avgjør om et kjøretøy sklir. Siden det er masseuavhengig, gjelder samme maksfart for alle kjøretøy — og én fartsgrense er nok. (Tunge kjøretøy har likevel egne grenser av andre grunner, blant annet fordi de kan velte før de sklir, og fordi bremselengden er lengre.)",
+        "hints": [
+          "Skriv opp den radielle likningen og se hvilke ledd som inneholder massen.",
+          "Friksjonstallet er et forhold mellom to krefter — hva skjer med et forhold når begge vokser like mye?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E.) En kule henger i en snor fra taket i en buss og danner en vinkel $\\theta = 9{,}0^\\circ$ ut fra loddlinja når bussen kjører jevnt gjennom en sving med radius $95\\ \\text{m}$.\n\n**a)** Hvilken vei henger kula — inn mot eller ut fra svingens sentrum? Begrunn.\n\n**b)** Finn bussens fart.\n\n**c)** En passasjer sier at kula «kastes utover». Forklar hva som egentlig skjer.",
+        "solution": "**a)** Kula henger **ut fra** svingens sentrum. Grunnen er at snordraget må ha en komponent **inn mot** sentrum for å levere sentripetalkraften, og en snor trekker langs seg selv, fra kula mot festepunktet. Skal draget peke innover og oppover, må kula henge utenfor festepunktet.\n\n**b)** Situasjonen er identisk med en konisk pendel: den loddrette komponenten av snordraget bærer kula, den vannrette svinger den:\n\n$$T\\cos\\theta = mg, \\qquad T\\sin\\theta = \\frac{mv^2}{R} \\quad \\Rightarrow \\quad \\tan\\theta = \\frac{v^2}{gR}$$\n\n$$v = \\sqrt{gR\\tan\\theta} = \\sqrt{9{,}81 \\cdot 95 \\cdot 0{,}1584} = \\sqrt{147{,}6} = 12{,}1\\ \\tfrac{\\text{m}}{\\text{s}} \\ (44\\ \\text{km/h})$$\n\n**c)** Ingen kraft kaster kula utover. Kreftene på kula er bare tyngden og snordraget, og resultanten av dem peker **inn mot** svingens sentrum — det er nettopp det som får kula til å svinge sammen med bussen. Det som skjer, er at bussen svinger inn under kula: kula ville fortsatt rett fram, og snora tvinger den til å følge med. Sett fra utsiden er det bussen som beveger seg innover, ikke kula som beveger seg utover.",
+        "hints": [
+          "Snordraget må ha en komponent inn mot sentrum — hvor må kula da henge?",
+          "Dette er en konisk pendel med bussens sving som sirkelbane.",
+          "List opp alle kreftene på kula, og se hvilken vei resultanten peker."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — dosert sving med full drøfting.) En fjellveg har en dosert sving med radius $60{,}0\\ \\text{m}$ og dosering $\\alpha = 9{,}0^\\circ$. Om vinteren faller friksjonstallet til $\\mu_s = 0{,}12$.\n\n**a)** Finn den ideelle farten og maksfarten. Drøft friksjonsretningen i begge tilfellene.\n\n**b)** Finnes det en minstefart? Begrunn.\n\n**c)** Skiltet fartsgrense er $50\\ \\text{km/h}$. Er den forsvarlig på vinterføre?\n\n**d)** Kontroller uttrykket for $v_{\\max}$ i to grensetilfeller.",
+        "solution": "**Metodevalg:** to likninger med akser vannrett og loddrett, statisk friksjon på sitt tak i grensetilfellene. Vi har $\\tan 9{,}0^\\circ = 0{,}1584$ og $gR = 9{,}81 \\cdot 60{,}0 = 588{,}6\\ \\text{m}^2/\\text{s}^2$.\n\n**a)** Ved ideell fart er friksjonen null — det er ingenting for den å gjøre:\n\n$$v_{\\text{ideell}} = \\sqrt{588{,}6 \\cdot 0{,}1584} = \\sqrt{93{,}2} = 9{,}66\\ \\tfrac{\\text{m}}{\\text{s}} \\ (34{,}8\\ \\text{km/h})$$\n\nVed maksfart er bilen i ferd med å skli **opp og ut** av svingen, så friksjonen peker **ned langs banen** og er på sitt tak:\n\n$$v_{\\max} = \\sqrt{588{,}6 \\cdot \\frac{0{,}1584 + 0{,}12}{1 - 0{,}12 \\cdot 0{,}1584}} = \\sqrt{588{,}6 \\cdot \\frac{0{,}2784}{0{,}9810}} = \\sqrt{167{,}0} = 12{,}9\\ \\tfrac{\\text{m}}{\\text{s}} \\ (46{,}5\\ \\text{km/h})$$\n\n**b)** Ja. Sammenlign $\\tan\\alpha$ med $\\mu_s$ før du regner: $\\tan\\alpha = 0{,}158 > \\mu_s = 0{,}12$, så telleren $\\tan\\alpha - \\mu_s = 0{,}038$ er **positiv**, og det finnes en nedre grense:\n\n$$v_{\\min} = \\sqrt{588{,}6 \\cdot \\frac{0{,}0384}{1{,}0190}} = \\sqrt{22{,}2} = 4{,}71\\ \\tfrac{\\text{m}}{\\text{s}} \\ (17\\ \\text{km/h})$$\n\nUnder $17\\ \\text{km/h}$ ville bilen sakte gli innover og nedover i svingen — en reell, om enn sjelden, situasjon på speilblank is.\n\n**c)** Nei. Fartsgrensen $50\\ \\text{km/h}$ er $13{,}9\\ \\text{m/s}$, mens maksfarten på vinterføre er $12{,}9\\ \\text{m/s}$ ($46{,}5\\ \\text{km/h}$). Kjører man i skiltet fart, sklir bilen ut. Skiltet er altså dimensjonert for barmark, og på vinterføre må farten ned — anslagsvis $40\\ \\text{km/h}$ for å ha margin.\n\n**d) Kontroller.**\n\n- $\\mu_s \\to 0$: uttrykket går mot $\\sqrt{gR\\tan\\alpha} = 9{,}66\\ \\text{m/s}$, altså den ideelle farten. Uten friksjon finnes bare den ene farten ✓.\n- $\\alpha \\to 0$: uttrykket går mot $\\sqrt{\\mu_s gR} = \\sqrt{0{,}12 \\cdot 588{,}6} = 8{,}4\\ \\text{m/s}$, som er nøyaktig formelen for en flat sving fra [kap. 4.1](/bok/fys1100/fys1100-4-1) ✓.\n\nBegge grensene gir kjente resultater, og rekkefølgen $4{,}71 < 9{,}66 < 12{,}9$ stemmer.",
+        "hints": [
+          "Regn ut $\\tan\\alpha$ og sammenlign med $\\mu_s$ før du konkluderer om minstefarten.",
+          "Ved maksfart peker friksjonen ned langs banen; ved minstefart opp.",
+          "Gjør om skiltet fartsgrense til $\\text{m/s}$ før du sammenligner.",
+          "Grensetilfellene $\\mu_s \\to 0$ og $\\alpha \\to 0$ skal gi to formler du kjenner fra før."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — spiral.) En spiralformet nedkjøringsrampe i et parkeringshus har radius $9{,}0\\ \\text{m}$ og synker $3{,}2\\ \\text{m}$ per omdreining.\n\n**a)** Finn stigningsvinkelen til rampen.\n\n**b)** En bil kjører rampen med konstant fart $6{,}0\\ \\text{m/s}$ langs banen. Finn sentripetalakselerasjonen.\n\n**c)** Hvor lang tid bruker bilen på én omdreining, og hvor mye synker den per sekund?\n\n**d)** Hvor stort friksjonstall kreves minst dersom rampen ikke er dosert?",
+        "solution": "**Metodevalg:** geometrien gir stigningsvinkelen, og bare den vannrette fartskomponenten inngår i $v^2/R$.\n\n**a)** Én omdreining tilbakelegger $2\\pi R$ vannrett og $H$ loddrett:\n\n$$\\tan\\theta = \\frac{H}{2\\pi R} = \\frac{3{,}2}{2\\pi \\cdot 9{,}0} = \\frac{3{,}2}{56{,}5} = 0{,}0566 \\quad \\Rightarrow \\quad \\theta = 3{,}2^\\circ$$\n\nRampen er altså svært slak — som den må være for at biler skal kunne kjøre den.\n\n**b)**\n\n$$v_h = 6{,}0 \\cdot \\cos 3{,}24^\\circ = 6{,}0 \\cdot 0{,}9984 = 5{,}99\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\n$$a_r = \\frac{(5{,}99)^2}{9{,}0} = 3{,}99\\ \\tfrac{\\text{m}}{\\text{s}^2}$$\n\ninn mot rampens akse. Her er korreksjonen fra $\\cos\\theta$ under en halv prosent — ved så slake vinkler spiller den knapt noen rolle, og det er verdt å si i besvarelsen. Ved bratte spiraler, som korketrekkeren i eksempel 3, er den derimot avgjørende.\n\n**c)** Banelengden per omdreining er $\\sqrt{(2\\pi R)^2 + H^2} = \\sqrt{56{,}5^2 + 3{,}2^2} = 56{,}6\\ \\text{m}$:\n\n$$T_p = \\frac{56{,}6}{6{,}0} = 9{,}4\\ \\text{s}, \\qquad v_z = 6{,}0 \\cdot \\sin 3{,}24^\\circ = 0{,}34\\ \\tfrac{\\text{m}}{\\text{s}} \\ (\\text{nedover})$$\n\n**Kontroll:** $3{,}2\\ \\text{m}/9{,}4\\ \\text{s} = 0{,}34\\ \\text{m/s}$ ✓.\n\n**d)** Uten dosering må friksjonen levere hele den vannrette kraften:\n\n$$\\mu_s \\ge \\frac{a_r}{g} = \\frac{3{,}99}{9{,}81} = 0{,}41$$\n\nDet er et krav vanlig betong tørt klarer, men som blir marginalt hvis dekket er vått eller oljesølt. Det er nettopp derfor slike ramper ofte er lett doserte.",
+        "hints": [
+          "Én omdreining gir en rettvinklet trekant med katetene $2\\pi R$ og $H$.",
+          "Bare den vannrette fartskomponenten inngår i sentripetalakselerasjonen.",
+          "Banelengden per omdreining er hypotenusen i samme trekant.",
+          "På en udosert bane er friksjonen den eneste vannrette kraften."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — kombinert med vertikal sirkel.) En liten kule svinges i en vertikal sirkel med radius $0{,}80\\ \\text{m}$ i enden av en snor. I toppunktet er farten $4{,}0\\ \\text{m/s}$, og kula har masse $0{,}15\\ \\text{kg}$.\n\n**a)** Finn snordraget i toppunktet.\n\n**b)** Hvor mye må farten reduseres før snora blir slakk?\n\n**c)** Hva skjer med kula i det øyeblikket snora blir slakk?",
+        "solution": "**Metodevalg:** Newtons 2. lov radielt i toppunktet, positiv retning nedover mot sentrum. Både snordraget og tyngden peker nedover der.\n\n**a)**\n\n$$T + mg = \\frac{mv^2}{R} \\quad \\Rightarrow \\quad T = m\\left(\\frac{v^2}{R} - g\\right) = 0{,}15\\left(\\frac{16{,}0}{0{,}80} - 9{,}81\\right)$$\n\n$$T = 0{,}15 \\cdot (20{,}0 - 9{,}81) = 1{,}53\\ \\text{N}$$\n\nrettet nedover langs snora, altså inn mot sentrum.\n\n**b)** Snora blir slakk når $T = 0$:\n\n$$v_{\\text{topp}} = \\sqrt{gR} = \\sqrt{9{,}81 \\cdot 0{,}80} = 2{,}80\\ \\tfrac{\\text{m}}{\\text{s}}$$\n\nFarten må altså ned fra $4{,}0$ til $2{,}80\\ \\text{m/s}$, en reduksjon på $1{,}2\\ \\text{m/s}$ eller $30\\ \\%$.\n\n**c)** I det snora blir slakk, er den eneste kraften på kula tyngden. Kula følger da ikke lenger sirkelen, men går over i et **fritt kast**: en parabelbane med utgangshastighet lik farten i det øyeblikket, rettet langs banen (vannrett i toppunktet). Sirkelmodellen gjelder ikke lenger, og snora blir stram igjen først når kula har falt så langt at avstanden til festepunktet igjen er $R$.",
+        "hints": [
+          "I toppunktet peker begge kreftene inn mot sentrum.",
+          "Snora kan bare trekke, aldri skyve — hva betyr det for $T$?",
+          "Hvilke krefter er igjen når snordraget forsvinner?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E — kvalitativ og kvantitativ, sjanger J.) En bil kjører gjennom en dosert sving med akkurat den ideelle farten. Sjåføren øker så farten litt.\n\n**a)** Forklar uten regning hva som skjer med normalkraften, og hvorfor.\n\n**b)** Vis ved regning at normalkraften faktisk øker, ved å bruke uttrykket $N = mg\\cos\\alpha + (mv^2/R)\\sin\\alpha$ som gjelder når friksjonen peker ned langs banen.\n\n**c)** Forklar hvorfor det er en øvre grense for hvor mye farten kan økes, selv om normalkraften vokser.",
+        "solution": "**a)** Ved høyere fart trengs en større kraft inn mot sentrum. Vegen svarer med at friksjonen slår inn nedover langs banen, og friksjonen har en komponent innover som hjelper til. Samtidig har friksjonen en komponent **nedover**, og for at bilen fortsatt ikke skal synke, må normalkraften vokse for å bære både tyngden og friksjonens loddrette del. Normalkraften øker altså.\n\n**b)** I uttrykket\n\n$$N = mg\\cos\\alpha + \\frac{mv^2}{R}\\sin\\alpha$$\n\ner begge leddene positive, og $v$ opptrer bare i det andre leddet, med positiv koeffisient $\\left(m\\sin\\alpha/R > 0\\right)$ for $0 < \\alpha < 90^\\circ$. Uttrykket er derfor **strengt voksende i $v$** i hele det fysisk aktuelle parameterområdet. Setter du inn $v = 0$, får du $N = mg\\cos\\alpha$, altså det rene skråplantilfellet der bilen står stille.\n\n**c)** Grensen kommer ikke fra normalkraften, men fra **friksjonen**. Den nødvendige friksjonskraften vokser raskere med farten enn taket $\\mu_s N$ gjør, og ved $v = v_{\\max}$ møtes de to. Over den farten kan vegen ikke levere mer sidekraft, og bilen glir opp og ut — uansett hvor stor normalkraften er blitt.",
+        "hints": [
+          "Tenk gjennom hvilke komponenter friksjonen får når den peker ned langs banen.",
+          "I b) skal du bare vise at uttrykket er voksende i $v$ — se på fortegnet til leddet som inneholder farten.",
+          "I c): hvilken av de to størrelsene $f$ og $\\mu_s N$ vokser raskest med farten?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-4-2-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger E — modellkritikk, sjanger J.) En besvarelse løser en dosert sving slik: «Aksene legges langs og normalt på vegbanen, som på et skråplan. Da er $N = mg\\cos\\alpha$, og friksjonskraften langs planet er $\\mu_s mg\\cos\\alpha$.»\n\n**a)** Hvorfor er aksevalget uheldig her?\n\n**b)** Hvorfor er $N = mg\\cos\\alpha$ galt i denne situasjonen?\n\n**c)** Hva blir riktig oppsett?",
+        "solution": "**a)** Aksevalget er ikke *galt* — Newtons 2. lov gjelder i enhver retning — men det er upraktisk. Akselerasjonen peker **vannrett** inn mot svingens sentrum. Legger du aksene langs og normalt på vegbanen, får akselerasjonen komponenter i **begge** retninger, nemlig $a_r\\cos\\alpha$ langs banen og $-a_r\\sin\\alpha$ normalt på den. Da får du to koblede likninger med akselerasjonsledd på begge sider, og regningen blir unødig tung.\n\n**b)** Uttrykket $N = mg\\cos\\alpha$ forutsetter at akselerasjonen normalt på flaten er null. Det stemmer for en kloss som glir langs et skråplan, men **ikke** her: bilen har en akselerasjonskomponent normalt på vegbanen, fordi den svinger. Å låne skråplanformelen inn i en dosert sving er den vanligste enkeltfeilen i sjangeren.\n\n**c)** Legg aksene **vannrett og loddrett**, og skriv\n\n$$\\text{loddrett:} \\quad N\\cos\\alpha - f\\sin\\alpha - mg = 0$$\n$$\\text{vannrett:} \\quad N\\sin\\alpha + f\\cos\\alpha = \\frac{mv^2}{R}$$\n\nmed friksjonen $f$ rettet ned langs banen. Ved ideell fart er $f = 0$ og $N = mg/\\cos\\alpha$ — altså **større** enn $mg$, ikke mindre, slik skråplanuttrykket ville gitt.",
+        "hints": [
+          "Hvor peker akselerasjonen i en dosert sving?",
+          "Hva forutsetter uttrykket $N = mg\\cos\\alpha$ om akselerasjonen normalt på flaten?",
+          "Sammenlign størrelsen på $mg\\cos\\alpha$ og $mg/\\cos\\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-4-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-4-2-def-dosert-vs-flat",
+      "type": "definition",
+      "title": "Dosert sving kontra flat sving",
+      "content": "På en **flat** sving er normalkraften loddrett og har ingen komponent inn mot sentrum. Friksjonen må derfor levere hele sentripetalkraften alene, og maksfarten er $\\sqrt{\\mu_s gR}$.\n\nPå en **dosert** sving bidrar normalkraften med $N\\sin\\alpha$ innover. Friksjonen trenger bare å dekke differansen, og både maksfarten og sikkerheten øker.\n\nDen flate svingen er grensetilfellet $\\alpha = 0$ av den doserte: setter du inn $\\alpha = 0$ i $v_{\\max}$-uttrykket, får du nøyaktig $\\sqrt{\\mu_s gR}$ tilbake."
+    },
+    {
+      "id": "fys1100-4-2-def-konisk-dosert",
+      "type": "definition",
+      "title": "Konisk pendel og dosert sving — samme likninger",
+      "content": "De to situasjonene ser ulike ut, men gir identiske likninger:\n\n| | Konisk pendel | Dosert sving (ideell fart) |\n|---|---|---|\n| Skrå kraft | snordraget $T$ | normalkraften $N$ |\n| Loddrett | $T\\cos\\theta = mg$ | $N\\cos\\alpha = mg$ |\n| Radielt | $T\\sin\\theta = mv^2/R$ | $N\\sin\\alpha = mv^2/R$ |\n| Resultat | $\\tan\\theta = v^2/(gR)$ | $\\tan\\alpha = v^2/(gR)$ |\n\nKjenner du igjen dette mønsteret — **én skrå kraft som både bærer og svinger** — har du løst begge oppgavetypene med én gang."
+    },
+    {
+      "id": "fys1100-4-2-def-akser-dosert",
+      "type": "definition",
+      "title": "Aksevalget i en dosert sving",
+      "content": "Legg aksene **vannrett og loddrett**, ikke langs banen.\n\nBegrunnelsen er enkel: akselerasjonen peker vannrett inn mot svingens sentrum. Med vannrette og loddrette akser får du én likning med akselerasjon ($\\sum F_r = mv^2/R$) og én uten ($\\sum F_z = 0$). Med akser langs banen får akselerasjonen komponenter i begge, og du må dekomponere den også.\n\nDette er forskjellen fra skråplanet i [kap. 3.2](/bok/fys1100/fys1100-3-2), der akselerasjonen gikk **langs** flaten og aksene derfor skulle dreies."
+    },
+    {
+      "id": "fys1100-4-2-def-friksjonsspenn",
+      "type": "definition",
+      "title": "Fartsvinduet i en dosert sving",
+      "content": "Friksjonen gjør at en dosert sving kan kjøres i et helt **intervall** av farter, ikke bare i den ideelle:\n\n$$v_{\\min} \\le v \\le v_{\\max}$$\n\nBredden på vinduet vokser med friksjonstallet: jo bedre veigrep, desto større spillerom. Ved $\\mu_s = 0$ krymper vinduet til det ene punktet $v_{\\text{ideell}}$.\n\nRekkefølgen $v_{\\min} \\le v_{\\text{ideell}} \\le v_{\\max}$ gjelder alltid, og er en gratis kontroll på om tallene dine er rimelige."
+    },
+    {
+      "id": "fys1100-4-2-def-friksjonsvinkel-dosert",
+      "type": "definition",
+      "title": "Friksjonsvinkelen og den doserte svingen",
+      "content": "Friksjonsvinkelen $\\arctan\\mu_s$ fra [kap. 3.2](/bok/fys1100/fys1100-3-2) avgjør om det finnes en minstefart:\n\n- Er $\\alpha \\le \\arctan\\mu_s$, altså $\\tan\\alpha \\le \\mu_s$, holder friksjonen kjøretøyet på plass også i ro. Da er $v_{\\min} = 0$.\n- Er $\\alpha > \\arctan\\mu_s$, sklir kjøretøyet innover hvis det går for sakte, og det finnes en reell minstefart.\n\nSammenhengen er den samme hvilebetingelsen som for en kloss på et skråplan — bare brukt på en vegbane."
+    },
+    {
+      "id": "fys1100-4-2-def-spiral-krumning",
+      "type": "definition",
+      "title": "Krumningsradien i en spiralbane",
+      "content": "Merk skillet: **$R$** er spiralens radius målt vannrett fra aksen, mens **$\\rho$** er banens virkelige krumningsradius i rommet. For en heliks er de ikke like — den virkelige krumningsradien er $\\rho = R/\\cos^2\\theta$, altså større enn $R$.\n\nRegner du med den vannrette projeksjonen, som vi gjør her, bruker du $R$ og den vannrette farten $v\\cos\\theta$. Regner du i stedet med banens fulle fart $v$, må du bruke $\\rho$. **Begge veier gir samme svar** — de to formene er den samme likningen — men du må ikke blande dem."
+    },
+    {
+      "id": "fys1100-4-2-def-signalord",
+      "type": "definition",
+      "title": "Signalordene som avslører en sjanger E-oppgave",
+      "content": "Se etter disse i oppgaveteksten:\n\n- «sving», «rundkjøring», «kurve», «radius $R$» — flat eller dosert sving;\n- «dosert», «sidefall», «hellende banedekke», «velodrom», «ovalbane» — dosert sving;\n- «loop», «sløyfe», «vertikal sirkel», «bøtte i en snor» — vertikal sirkel med kontaktbetingelse;\n- «spiral», «korketrekker», «heliks», «stiger $H$ per omdreining» — spiralbane;\n- «henger i en snor og går i sirkel» — konisk pendel.\n\nAlle fem løses med den samme femstegs oppskriften. Det som skiller dem, er hvilken kraft som spiller hovedrollen, og om det finnes en kontaktbetingelse."
+    },
+    {
+      "id": "fys1100-4-2-def-hvorfor-dosere",
+      "type": "definition",
+      "title": "Hvorfor doserer man svinger?",
+      "content": "Tre grunner, alle med samme fysiske rot:\n\n- **Sikkerhet på glatt føre.** Uten dosering forsvinner hele sentripetalkraften når friksjonen svikter. Med dosering er en del av den levert av normalkraften, som ikke avhenger av veigrepet.\n- **Komfort.** Ved ideell fart kjenner passasjerene bare en forsterket «loddrett» kraft gjennom setet, ingen sidekraft.\n- **Slitasje.** I jernbanekurver reduserer doseringen sidekreftene mot den ytre skinnen, som ellers slites raskt.\n\nPrisen er at doseringen er dimensjonert for **én** fart. Trafikk som går mye saktere eller fortere enn den, får friksjonen i arbeid igjen."
+    },
+    {
+      "id": "fys1100-4-2-def-kontroll-dosert",
+      "type": "definition",
+      "title": "Kontrollene som avslører feil i en dosert sving",
+      "content": "Fire raske sjekker før du leverer:\n\n- **$\\mu_s \\to 0$:** både $v_{\\max}$ og $v_{\\min}$ skal gå mot $\\sqrt{gR\\tan\\alpha}$.\n- **$\\alpha \\to 0$:** $v_{\\max}$ skal gå mot $\\sqrt{\\mu_s gR}$, formelen for en flat sving.\n- **Rekkefølge:** $v_{\\min} \\le v_{\\text{ideell}} \\le v_{\\max}$.\n- **Normalkraften:** ved ideell fart skal $N = mg/\\cos\\alpha$ være **større** enn $mg$. Får du noe mindre, har du sannsynligvis brukt skråplanformelen.\n\nHver av dem tar under et halvt minutt og fanger de fleste fortegns- og formelforvekslingene."
+    },
+    {
+      "id": "fys1100-4-2-def-sidefall-prosent",
+      "type": "definition",
+      "title": "Sidefall oppgitt i prosent",
+      "content": "Vegvesenets tegninger oppgir sjelden doseringen i grader. I stedet står et **sidefall i prosent**: et sidefall på $6\\ \\%$ betyr at banen stiger $6\\ \\text{cm}$ per meter på tvers.\n\nOmregningen er ren definisjon av tangens:\n\n$$\\tan\\alpha = \\frac{\\text{sidefall i prosent}}{100}$$\n\nEt sidefall på $6\\ \\%$ svarer altså til $\\alpha = \\arctan 0{,}06 = 3{,}4^\\circ$. Legg merke til at det er $\\tan\\alpha$ — ikke vinkelen selv — som er proporsjonal med prosenttallet, og det er også $\\tan\\alpha$ som går rett inn i formlene."
+    },
+    {
+      "id": "fys1100-4-2-def-velting",
+      "type": "definition",
+      "title": "Velting kontra glidning i en sving",
+      "content": "Modellene i dette kapitlet behandler kjøretøyet som en **punktmasse**, og forutsier derfor bare når det **glir**. Et høyt og smalt kjøretøy kan i stedet **velte** før det glir.\n\nHvilken av de to som skjer først, avgjøres av forholdet mellom sporvidde og tyngdepunktshøyde på den ene siden og friksjonstallet på den andre. Er friksjonstallet høyt nok, når kjøretøyet veltegrensen først.\n\nVelting krever kraftmoment og behandles i Del 6 om rotasjon og stive legemer. I sirkeloppgavene her holder det å nevne forbeholdet: **svaret gjelder glidning, ikke velting.** Å si det er en av de billigste måtene å vise at du kjenner modellens grenser."
+    },
+    {
+      "id": "fys1100-4-2-def-friksjon-ukjent",
+      "type": "definition",
+      "title": "Friksjonen som ukjent størrelse",
+      "content": "Når oppgaven oppgir en **bestemt fart** mellom $v_{\\min}$ og $v_{\\max}$, er friksjonen **ikke** på sitt tak. Da skal den behandles som en ukjent $f$ i de to likningene, ikke settes til $\\mu_s N$.\n\nLøsningen av likningsparet gir da\n\n$$N = mg\\cos\\alpha + \\frac{mv^2}{R}\\sin\\alpha, \\qquad f = \\frac{mv^2}{R}\\cos\\alpha - mg\\sin\\alpha$$\n\nder positiv $f$ betyr at friksjonen peker ned langs banen. Blir $f$ negativ, peker den opp langs banen — regnestykket retter altså opp en feil retningsantakelse av seg selv, så lenge du sier hvilken retning du regnet positivt."
+    },
+    {
+      "id": "fys1100-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-4-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $\\alpha$ | doseringsvinkelen (sidefallet), målt fra vannrett | grader |\n| $\\theta$ | stigningsvinkelen i en spiral, målt fra vannrett; også snorvinkelen i en konisk pendel | grader |\n| $R$ | svingens radius; i en spiral målt vannrett fra aksen | $\\text{m}$ |\n| $\\rho$ | banens virkelige krumningsradius | $\\text{m}$ |\n| $v$ | fart langs banen | $\\text{m/s}$ |\n| $v_h = v\\cos\\theta$ | vannrett fartskomponent i en spiral | $\\text{m/s}$ |\n| $v_z = v\\sin\\theta$ | loddrett fartskomponent i en spiral | $\\text{m/s}$ |\n| $v_{\\text{ideell}}$ | farten der friksjonen er null | $\\text{m/s}$ |\n| $v_{\\max}$, $v_{\\min}$ | største og minste fart uten utglidning | $\\text{m/s}$ |\n| $\\mathbf{N}$, $N$ | normalkraft og dens tallverdi | $\\text{N}$ |\n| $\\mathbf{f}_s$, $f$ | statisk friksjonskraft og dens tallverdi | $\\text{N}$ |\n| $\\mu_s$ | statisk friksjonstall | dimensjonsløs |\n| $T$ | snordrag | $\\text{N}$ |\n| $T_p$ | omløpstid | $\\text{s}$ |\n| $H$ | høydeendring per omdreining i en spiral | $\\text{m}$ |\n| $m$ | masse (skalar) | $\\text{kg}$ |\n| $g$ | tyngdeakselerasjon, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner du må håndtere:** $\\alpha$ betyr i **dette** kapitlet utelukkende doseringsvinkelen. I Del 6 brukes $\\boldsymbol{\\alpha}$ om vinkelakselerasjon; de to møtes ikke her, men si alltid hvilken du mener. $T$ er snordrag, mens omløpstiden skrives $T_p$. $R$ er den vannrette radien i en spiral, mens $\\rho$ er banens virkelige krumningsradius — de er ikke like for en heliks. Tyngden skrives $m\\mathbf{g}$ eller $\\mathbf{F}_g$, aldri $\\mathbf{G}$.\n\n**Formler i dette delkapitlet:**\n\n$$\\tan\\alpha = \\frac{v^2}{gR} \\quad \\Longleftrightarrow \\quad v_{\\text{ideell}} = \\sqrt{gR\\tan\\alpha}$$\n\nIdeell fart i en dosert sving. **[må kunne utledes]** — fra loddrett likevekt og Newtons 2. lov vannrett, ved å dele den ene likningen på den andre.\n\n$$N = \\frac{mg}{\\cos\\alpha}$$\n\nNormalkraften ved ideell fart. **[må kunne utledes]** — merk at den er **større** enn $mg$, ikke mindre.\n\n$$v_{\\max} = \\sqrt{gR\\,\\frac{\\tan\\alpha + \\mu_s}{1 - \\mu_s\\tan\\alpha}}, \\qquad v_{\\min} = \\sqrt{gR\\,\\frac{\\tan\\alpha - \\mu_s}{1 + \\mu_s\\tan\\alpha}}$$\n\nMaks- og minfart med friksjon. **[må kunne utledes]** — utled dem fra de to likningene med $f = \\mu_s N$ og riktig fortegn; ingen forventer at du husker dem utenat.\n\n$$\\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N$$\n\nStatisk friksjon som ulikhet. **[formelarket]** — likhetstegnet gjelder bare i grensetilfellene.\n\n$$a_r = \\frac{(v\\cos\\theta)^2}{R}$$\n\nSentripetalakselerasjon i en spiralbane. **[må kunne utledes]** — bare den vannrette fartskomponenten krummer banen.\n\n$$\\tan\\theta = \\frac{H}{2\\pi R}$$\n\nStigningsvinkelen fra høyde per omdreining. **[må kunne utledes]** — ren geometri: en rettvinklet trekant med katetene $2\\pi R$ og $H$.\n\n$$\\sum F_r = \\frac{mv^2}{R}, \\qquad \\sum F_z = 0$$\n\nLikningsparet som løser hele sjanger E. **[formelarket]** i formen $\\sum\\mathbf{F} = m\\mathbf{a}$."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-4-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-4-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/fys1100/fys1100-4-1).) Hva er sentripetalkraften, og hvorfor skal den ikke tegnes inn i et frilegemediagram?",
+            "solution": "Sentripetalkraften er **resultanten** av de virkelige kreftene i radiell retning, altså $\\sum F_r = mv^2/R$. Den har ingen egen fysisk kilde: i én situasjon er det friksjonen, i en annen normalkraften eller snordraget som utgjør den.\n\nTegner du den inn som en egen pil ved siden av de virkelige kreftene, har du talt de samme kreftene to ganger — og det koster poeng.",
+            "hints": [
+              "Spør deg hva som er kilden til kraften."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) Hva er friksjonsvinkelen, og hva sier den?",
+            "solution": "Friksjonsvinkelen er $\\theta_c = \\arctan\\mu_s$. Den er den bratteste helningen et legeme kan ligge i ro på uten å gli, og følger av hvilebetingelsen $\\mu_s \\ge \\tan\\theta$.\n\nI dette kapitlet dukker den opp igjen som kriteriet for om en dosert sving har en minstefart: er doseringsvinkelen mindre enn friksjonsvinkelen, holder friksjonen bilen på plass også i ro.",
+            "hints": [
+              "Skriv opp hvilebetingelsen fra skråplanet og løs den for vinkelen."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/fys1100/fys1100-4-1).) En bil kjører $15\\ \\text{m/s}$ gjennom en flat sving med radius $50\\ \\text{m}$. Hvilket friksjonstall kreves minst?",
+            "solution": "På flat veg er friksjonen den eneste kraften inn mot sentrum:\n\n$$\\mu_s \\ge \\frac{v^2}{gR} = \\frac{225}{9{,}81 \\cdot 50} = \\frac{225}{490{,}5} = 0{,}459$$\n\nAltså $\\mu_s \\ge 0{,}46$. Det er nær grensen for hva vått asfaltdekke gir, så svingen er marginal i regnvær.",
+            "hints": [
+              "Sett $mv^2/R \\le \\mu_s mg$ og forkort massen."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-2-oppg-R4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-2-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 4.1](/bok/fys1100/fys1100-4-1).) Hvorfor er betingelsen for å komme gjennom en loop en ulikhet og ikke en likhet?",
+            "solution": "Fordi den kommer av kontaktbetingelsen $N \\ge 0$: en normalkraft kan skyve, men ikke trekke. Setter du $N = 0$, får du grensetilfellet $v_{\\text{topp}} = \\sqrt{gR}$, men alle større farter er også tillatt — da er bare normalkraften større.\n\nÅ skrive likhetstegn der oppgaven spør «hvor fort må den minst gå?», er å svare på et annet spørsmål enn det som ble stilt, og koster poeng selv når tallet er riktig.",
+            "hints": [
+              "Hva er den fysiske betingelsen bak minstefarten?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-4-2-oppg-R5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-4-2-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/fys1100/fys1100-2-2).) Hvorfor kan vi behandle den vannrette og den loddrette bevegelsen uavhengig av hverandre — både i et skrått kast og i en spiralbane?",
+            "solution": "Fordi Newtons 2. lov er en **vektorlikning**, og en vektorlikning kan splittes i uavhengige komponentlikninger langs hver akse. $\\sum F_x = ma_x$ inneholder ingen $y$-størrelser, og omvendt.\n\nI et skrått kast gir det $a_x = 0$ og $a_y = -g$. I en spiralbane med jevn stigning er den loddrette farten konstant, mens den vannrette projeksjonen går i sirkel — og bare den siste bidrar til sentripetalakselerasjonen.",
+            "hints": [
+              "Hva slags type likning er Newtons 2. lov?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,499 @@
+{
+  "id": "fys1100-6-2",
+  "courseId": "fys1100",
+  "chapterNumber": "6.2",
+  "title": "Rulling og kombinert translasjon + rotasjon",
+  "description": "Rullebetingelsen v = ωR, kombinert translasjon og rotasjon for sylinder, kule og jojo, og energibevaring for sluttfart.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "kunne bruke rullebetingelsen til å koble massesenterets fart og akselerasjon til rotasjonen",
+    "kunne finne sluttfarten til et rullende legeme med energibevaring, med rotasjonsenergien inkludert og bevaringen begrunnet",
+    "kunne løse den samme oppgaven med kraft- og momentmetoden, og finne friksjonskraften og kravet til friksjonstall",
+    "kunne avgjøre om et legeme ruller rent eller glir, og regne riktig i begge tilfeller"
+  ],
+  "content": [
+    {
+      "id": "fys1100-6-2-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Rullende legemer er den **tyngste** varianten av **sjanger F — rotasjonsoppgaven**, altså oppgaven om et stivt legeme som roterer, ruller eller får et støt. Sjangeren står i **7 av 7 sett (100 %)**, og rullevarianten er den som oftest bærer hele oppgave 2 i grunnmalen: en sylinder eller kule på et skråplan, en jojo, eller et hjul som skal rulle uten å gli.\n\nDet som gjør varianten tyngre, er at **to bevegelser skjer samtidig**: massesenteret flytter seg, og legemet snurrer. Rullebetingelsen $v = \\omega R$ er limet mellom dem, og friksjonen er kraften som håndhever den.\n\nSlik ligger poengene i denne varianten:\n\n| Steg | Hva sensor ser etter |\n|---|---|\n| Frilegemediagram med friksjonen i **riktig retning** | selvstendig poenggivende; friksjonen peker oppover langs planet når legemet ruller nedover |\n| Rullebetingelsen skrevet ut, $v = \\omega R$ og $a = \\alpha R$ | koblingen mellom de to likningene |\n| Rotasjonsenergien **med** i energiregnskapet | å glemme $\\tfrac12 I\\omega^2$ er den vanligste feilen i sjangeren |\n| Begge metodene der oppgaven ber om det | energi *og* kraft/moment side om side |\n| Betingelsen for at rullingen forblir ren | $\\mu_s$ større enn en bestemt grense |\n\n**Fasitene viser ofte begge metodene side om side** — energimetoden for sluttfarten, kraft- og momentmetoden for akselerasjonen og friksjonskraften. Dette kapitlet gjør det samme, og sier hvilken som er raskest når.\n\n**Prioritet: høyeste — dette må sitte.** Sammen med [kap. 6.1](/bok/fys1100/fys1100-6-1) og [kap. 6.3](/bok/fys1100/fys1100-6-3) dekker det hele sjangeren, og [kap. 6.4](/bok/fys1100/fys1100-6-4) driller den."
+    },
+    {
+      "id": "fys1100-6-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet hviler på to kapitler, og begge deler brukes fra første side.\n\n**Fra [kap. 6.1](/bok/fys1100/fys1100-6-1) — rotasjonens verktøy:**\n\n$$\\tau = rF\\sin\\varphi = F\\cdot(\\text{momentarm}), \\qquad \\tau_{\\text{net}} = I\\alpha, \\qquad K_{\\text{rot}} = \\tfrac12 I\\omega^2$$\n\npluss parallellakseteoremet $I = I_{cm} + Md^2$, og den avgjørende observasjonen at **en kraft gjennom aksen gir null moment**. Formelarket gir treghetsmomentene: $\\tfrac12 MR^2$ for en massiv sylinder, $\\tfrac25 MR^2$ for en massiv kule, $MR^2$ for en tynn ring.\n\n**Fra [kap. 5.1](/bok/fys1100/fys1100-5-1) — energi:**\n\n$$K = \\tfrac12 mv^2, \\qquad U = mgy, \\qquad W = \\int\\mathbf{F}\\cdot d\\mathbf{r}$$\n\nog selve bevaringsloven, med gyldighetsbetingelsen skrevet ut:\n\n$$K + U = \\text{konstant} \\quad \\text{når bare konservative krefter gjør arbeid}$$\n\nBegrunnelsen skal med hver gang loven brukes — å bruke en bevaringslov uten å si hvorfor den gjelder er **felle #7** og koster typisk 1 poeng. Feilene har et samlet register i bokas [kap. 0.1](/bok/fys1100/fys1100-0-1).\n\n**Fra [kap. 3.2](/bok/fys1100/fys1100-3-2) — friksjon og skråplan:**\n\n$$F_{g,\\parallel} = mg\\sin\\theta, \\qquad F_{g,\\perp} = mg\\cos\\theta, \\qquad \\lvert\\mathbf{f}_s\\rvert \\le \\mu_s N$$\n\nMerk ulikheten i den siste: hvilefriksjonen er **ikke** $\\mu_s N$, den er *høyst* $\\mu_s N$. Det blir avgjørende i dette kapitlet.\n\n**Notasjonsavtale for kapitlet.** Massesenterets fart skrives $v$ og akselerasjonen $a$; vinkelfart $\\omega$ og vinkelakselerasjon $\\alpha$. Legemets radius er $R$, massen $M$. Vi bruker $g = 9{,}81\\,\\text{m/s}^2$. Tyngden skrives $M\\mathbf{g}$ eller $\\mathbf{F}_g$, **aldri** $\\mathbf{G}$. Symbolet $\\alpha$ betyr vinkelakselerasjon; helningsvinkelen er $\\theta$."
+    },
+    {
+      "id": "fys1100-6-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — rullebetingelsen (~15 min)\n\nSe på et sykkelhjul i fart. Eikene nær navet er lette å skille fra hverandre; de ytterst er en grøt. Og nederst, der dekket møter asfalten, står gummien helt stille et lite øyeblikk — det er derfor et dekk ikke slites ned av å rulle, men av å bremse.\n\nDen observasjonen er hele nøkkelen til rulling. Kontaktpunktet står momentant stille, og det gir en helt bestemt sammenheng mellom hvor fort hjulet ruller framover og hvor fort det snurrer."
+    },
+    {
+      "id": "fys1100-6-2-def-ren-rulling",
+      "type": "definition",
+      "title": "Ren rulling",
+      "content": "Ren rulling er bevegelsen der et legeme ruller uten å skli: kontaktflaten mot underlaget står **momentant stille** i forhold til underlaget, akkurat i det øyeblikket den er i kontakt.\n\nSagt praktisk: legemet «vandrer» langs underlaget uten at det gnisser. Et hjul som ruller fritt, ruller rent. Et hjul som slår låsebrems og skrenser, gjør det ikke.\n\n**Gyldighetsbetingelsen er at friksjonen er sterk nok.** Ren rulling krever en hvilefriksjon av en bestemt størrelse, og den kan bare leveres så lenge $\\lvert f_s\\rvert \\le \\mu_s N$. På glatt underlag svikter betingelsen, og legemet begynner å gli — da gjelder ingen av formlene i dette kapitlet lenger. Skriv derfor alltid ut at du antar ren rulling, og sjekk betingelsen når oppgaven ber om det."
+    },
+    {
+      "id": "fys1100-6-2-def-rullebetingelsen",
+      "type": "definition",
+      "title": "Rullebetingelsen",
+      "content": "Rullebetingelsen er den likningen som binder legemets framoverbevegelse til rotasjonen ved ren rulling:\n\n$$v = \\omega R \\qquad \\text{og, ved derivasjon,} \\qquad a = \\alpha R$$\n\nder $v$ og $a$ gjelder **massesenteret**, mens $\\omega$ og $\\alpha$ gjelder rotasjonen om massesenteret.\n\nUten denne likningen har du to ubekjente ($a$ og $\\alpha$) og bare to likninger som ikke henger sammen. Med den kobles kraftlikningen og momentlikningen, og systemet blir løsbart. **Rullebetingelsen er derfor det steget sensor ser etter først** i en rulleoppgave.\n\n**Gyldighetsbetingelsen er ren rulling.** Glir legemet, er $v \\neq \\omega R$ — og å bruke rullebetingelsen på et legeme som skrenser, er en metodefeil som gjør hele resten av regnestykket ugyldig."
+    },
+    {
+      "id": "fys1100-6-2-utledning-rulling",
+      "type": "text",
+      "content": "### Hvor rullebetingelsen kommer fra\n\n**Steg 1. Se på strekningen.** Ruller hjulet én hel omdreining uten å gli, har det flyttet seg nøyaktig én omkrets framover: $s = 2\\pi R$. Dreier det bare vinkelen $\\theta$, har det flyttet seg buelengden\n\n$$s = R\\theta$$\n\n*Intuisjon:* dekket «legger seg ned» på asfalten uten å skli, så lengden av dekket som har vært i kontakt, er akkurat den strekningen hjulet har tilbakelagt.\n\n**Steg 2. Deriver med hensyn på tid.**\n\n$$\\frac{ds}{dt} = R\\frac{d\\theta}{dt} \\quad \\Longrightarrow \\quad v = \\omega R$$\n\n*Intuisjon:* jo raskere hjulet snurrer, jo raskere ruller det — og forholdstallet er radien.\n\n**Steg 3. Deriver én gang til.**\n\n$$a = \\alpha R$$\n\n*Intuisjon:* dette er versjonen du bruker sammen med Newtons lover, der akselerasjoner er det som opptrer.\n\n**Steg 4. Les av hva kontaktpunktet gjør.** Kontaktpunktet har to bidrag til farten: massesenterets fart $v$ framover, og rotasjonens bidrag $\\omega R$ bakover (fordi punktet nederst går motsatt vei av massesenteret i rotasjonen om det). Til sammen:\n\n$$v_{\\text{kontakt}} = v - \\omega R = 0$$\n\n*Intuisjon:* de to bidragene kansellerer nøyaktig — det er en annen måte å si det samme på. Kontaktpunktet er momentant i ro, og hele legemet kan derfor tenkes som om det roterer om **kontaktpunktet** i det øyeblikket.\n\n**Steg 5. Sjekk toppunktet.** Der peker rotasjonsbidraget samme vei som massesenterets fart:\n\n$$v_{\\text{topp}} = v + \\omega R = 2v$$\n\n*Intuisjon:* toppen av et hjul går **dobbelt så fort** som sykkelen. Det er derfor eikene ser ut som en grøt der oppe, og skarpe i bunnen — et bilde av rullebetingelsen du kan se med det blotte øye."
+    },
+    {
+      "id": "fys1100-6-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et sykkelhjul har radius $0{,}33\\,\\text{m}$ og ruller uten å gli. Vinkelfarten er $20\\,\\text{rad/s}$.\n\n**a)** Hvor fort går sykkelen?\n\n**b)** Hvor fort går det øverste punktet på dekket, sett fra bakken?\n\n**c)** Forklar med egne ord hvorfor det nederste punktet står stille, selv om hjulet er i full fart.",
+        "solution": "**Metodevalg:** rullebetingelsen $v = \\omega R$, som gjelder fordi hjulet ruller uten å gli.\n\n**a)** $$v = \\omega R = 20 \\cdot 0{,}33 = 6{,}6\\,\\text{m/s}$$\n\ni sykkelens kjøreretning, altså omtrent $24\\,\\text{km/h}$.\n\n**b)** Toppunktet har massesenterets fart pluss rotasjonens bidrag, som peker samme vei der oppe:\n\n$$v_{\\text{topp}} = v + \\omega R = 2v = 13{,}2\\,\\text{m/s}$$\n\ni samme retning.\n\n**c)** Fordi de to bidragene peker motsatt vei nederst og er nøyaktig like store. Hjulet flytter seg framover med farten $v$, samtidig som det snurrer; rotasjonen gir det nederste punktet en fart $\\omega R$ **bakover** i forhold til navet. Ved ren rulling er $\\omega R = v$, så summen blir null.\n\nSagt på en annen måte: dekket legger seg ned på asfalten uten å skli. Det er derfor et dekk ikke slites nevneverdig av å rulle, men slites fort når det låser seg og skrenser.",
+        "hints": [
+          "Rullebetingelsen kobler farten og vinkelfarten gjennom radien.",
+          "I b) og c): legg sammen massesenterets fart og rotasjonens bidrag, med riktig fortegn hvert sted."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Sykkelhjulet i tall",
+      "problem": "En syklist holder $18{,}0\\,\\text{km/h}$. Hjulene har radius $0{,}350\\,\\text{m}$ og ruller uten å gli.\n\n**a)** Finn vinkelfarten til hjulet.\n\n**b)** Hvor mange omdreininger gjør hjulet per sekund?\n\n**c)** Hvor stor fart har ventilen når den er på topp, og når den er nederst?",
+      "solution": "**Metodevalg først:** rullebetingelsen $v = \\omega R$ gjelder fordi hjulet ruller uten å gli. Farten må først regnes om til SI-enheter.\n\n$$v = 18{,}0\\,\\text{km/h} = \\frac{18{,}0 \\cdot 1000}{3600} = 5{,}00\\,\\text{m/s}$$\n\n**a)** $$\\omega = \\frac{v}{R} = \\frac{5{,}00}{0{,}350} = 14{,}3\\,\\text{rad/s}$$\n\nmed retning gitt av omdreiningen, altså inn i papirplanet dersom sykkelen kjører mot høyre.\n\n**b)** Én omdreining er $2\\pi$ radianer:\n\n$$\\frac{14{,}29}{2\\pi} = 2{,}27\\ \\text{omdreininger per sekund}$$\n\n**c)** På topp: $v_{\\text{topp}} = 2v = 10{,}0\\,\\text{m/s}$ i kjøreretningen. Nederst: $v_{\\text{bunn}} = 0$.\n\n**Benevningskontroll:** $\\dfrac{\\text{m/s}}{\\text{m}} = \\text{s}^{-1} = \\text{rad/s}$, siden radianen er dimensjonsløs ✓.\n\n**Rimelighetssjekk:** $2{,}27$ omdreininger i sekundet er omtrent 136 i minuttet, som stemmer godt med et hjul i rolig sykkelfart."
+    },
+    {
+      "id": "fys1100-6-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — energimetoden (~20 min)\n\nSlipp en sylinder og en ring ned det samme skråplanet, med samme masse og samme radius. Ringen kommer sist — hver gang, uansett hvor bratt planet er. Og et legeme som *sklir* friksjonsfritt slår dem begge.\n\nGrunnen ser du i energiregnskapet: den potensielle energien må deles mellom to former for bevegelse, og det legemet som må bruke mest på å snurre, får minst igjen til å komme seg nedover."
+    },
+    {
+      "id": "fys1100-6-2-th-kinetisk",
+      "type": "theorem",
+      "title": "Kinetisk energi for et rullende legeme",
+      "content": "Et legeme som både beveger seg og roterer, har begge energiformene samtidig:\n\n$$K = \\underbrace{\\tfrac12 Mv^2}_{\\text{translasjon}} + \\underbrace{\\tfrac12 I\\omega^2}_{\\text{rotasjon}}$$\n\nder $v$ er massesenterets fart og $I$ er treghetsmomentet **om massesenteret**. Begge leddene står på formelarket.\n\nVed ren rulling kan vi bruke $\\omega = v/R$ og samle alt i én farts-variabel:\n\n$$K = \\tfrac12 Mv^2 + \\tfrac12 I\\frac{v^2}{R^2} = \\tfrac12\\left(1 + \\frac{I}{MR^2}\\right)Mv^2 = \\tfrac12(1+c)\\,Mv^2$$\n\n**Å glemme rotasjonsleddet er den vanligste enkeltfeilen i denne sjangeren.** Et rullende legeme har alltid mer kinetisk energi enn et glidende med samme fart og masse — det er derfor det kommer saktere ned, og lenger opp."
+    },
+    {
+      "id": "fys1100-6-2-def-formfaktor",
+      "type": "definition",
+      "title": "Formfaktoren c",
+      "content": "Formfaktoren er det dimensjonsløse tallet som forteller hvor stor andel av bevegelsen som må gå til rotasjon:\n\n$$c = \\frac{I}{MR^2}$$\n\nDen er ren geometri: den avhenger bare av **formen**, ikke av masse eller størrelse. Det er nettopp derfor to kuler av ulik størrelse ruller likt ned det samme planet.\n\n| Legeme | $I$ | $c$ |\n|---|---|---|\n| massiv kule | $\\tfrac25 MR^2$ | $0{,}400$ |\n| massiv sylinder / skive | $\\tfrac12 MR^2$ | $0{,}500$ |\n| kuleskall | $\\tfrac23 MR^2$ | $0{,}667$ |\n| tynn ring / rør | $MR^2$ | $1{,}00$ |\n| legeme som glir uten friksjon | — | $0$ |\n\nFormfaktoren er ikke et eget begrep på formelarket — den er en snarvei du selv innfører ved å dele treghetsmomentet fra tabellen på $MR^2$. Gjør du det først, blir både sluttfarten, akselerasjonen og friksjonskraften enkle uttrykk i $c$, og du slipper å dra på $I$, $M$ og $R$ gjennom hele regningen."
+    },
+    {
+      "id": "fys1100-6-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Kappløpet ned skråplanet",
+      "problem": "Fire legemer settes i gang fra ro i samme høyde $h = 1{,}50\\,\\text{m}$ over foten av et skråplan: en massiv kule, en massiv sylinder, et kuleskall og en tynn ring. Alle ruller uten å gli. Ved siden av ligger en kloss som glir helt friksjonsfritt.\n\n**a)** Finn et generelt uttrykk for farten nederst, uttrykt ved $h$ og formfaktoren $c$.\n\n**b)** Regn ut farten for hvert av de fem tilfellene.\n\n**c)** Hvorfor spiller verken massen eller radien noen rolle?\n\n**d)** Hvor stor andel av den kinetiske energien er rotasjonsenergi for kula, og hvor stor for ringa?",
+      "solution": "**Metodevalg først:** vi bruker energibevaring. Den gjelder her fordi bare tyngden gjør arbeid: normalkraften står vinkelrett på bevegelsen, og **den statiske friksjonen gjør ikke arbeid ved ren rulling**, siden angrepspunktet står momentant stille. Ingen mekanisk energi går tapt til varme.\n\n**a)** All potensiell energi går over til kinetisk energi i begge former:\n\n$$Mgh = \\tfrac12(1+c)Mv^2 \\quad \\Longrightarrow \\quad v = \\sqrt{\\frac{2gh}{1+c}}$$\n\n**b)** Med $2gh = 2 \\cdot 9{,}81 \\cdot 1{,}50 = 29{,}43\\,\\text{m}^2/\\text{s}^2$:\n\n| Legeme | $c$ | $v$ |\n|---|---|---|\n| kloss som glir friksjonsfritt | $0$ | $5{,}42\\,\\text{m/s}$ |\n| massiv kule | $0{,}400$ | $4{,}58\\,\\text{m/s}$ |\n| massiv sylinder | $0{,}500$ | $4{,}43\\,\\text{m/s}$ |\n| kuleskall | $0{,}667$ | $4{,}20\\,\\text{m/s}$ |\n| tynn ring | $1{,}00$ | $3{,}84\\,\\text{m/s}$ |\n\nRekkefølgen nederst blir altså kloss, kule, sylinder, kuleskall, ring — og den er nøyaktig omvendt av rangeringen etter $c$.\n\n**c)** Fordi både $M$ og $R$ faller ut. Massen forsvinner fordi den står på begge sider av energilikningen; radien forsvinner fordi rotasjonsenergien alltid kan skrives $\\tfrac12 c M v^2$, der $c = I/(MR^2)$ er ren geometri. To kuler av ulik størrelse og vekt ruller derfor helt likt.\n\n**d)** Rotasjonsandelen er\n\n$$\\frac{K_{\\text{rot}}}{K_{\\text{tot}}} = \\frac{\\tfrac12 cMv^2}{\\tfrac12(1+c)Mv^2} = \\frac{c}{1+c}$$\n\nFor kula: $0{,}400/1{,}400 = 0{,}286$, altså $28{,}6\\,\\%$. For ringa: $1/2 = 0{,}500$, altså $50{,}0\\,\\%$.\n\nRinga må bruke halvparten av all energien på å snurre. Kula slipper unna med under en tredjedel, og har derfor mer igjen til å komme seg framover.\n\n**Grensetilfelle-kontroll:** setter vi $c = 0$ i uttrykket, får vi $v = \\sqrt{2gh}$ — nøyaktig fritt fall-formelen fra [kap. 5.1](/bok/fys1100/fys1100-5-1). Det stemmer, for $c = 0$ betyr at legemet ikke bruker energi på rotasjon i det hele tatt."
+    },
+    {
+      "id": "fys1100-6-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En massiv kule ruller uten å gli ned fra hvile og faller høyden $0{,}80\\,\\text{m}$. Formelarket gir $I = \\tfrac25 MR^2$.\n\n**a)** Begrunn hvorfor mekanisk energi er bevart her, selv om det er friksjon mellom kula og underlaget.\n\n**b)** Finn farten til massesenteret nederst.\n\n**c)** Hvor stor ville farten vært om kula i stedet gled friksjonsfritt ned den samme høyden? Kommenter forskjellen.",
+        "solution": "**a)** Tre krefter virker på kula: tyngden, normalkraften og den statiske friksjonen. Tyngden er konservativ. Normalkraften står vinkelrett på bevegelsen og gjør derfor ikke arbeid. **Den statiske friksjonen gjør heller ikke arbeid**, fordi angrepspunktet — kontaktpunktet — står momentant stille ved ren rulling; kraften flytter seg ikke, og $W = \\int\\mathbf{F}\\cdot d\\mathbf{r} = 0$.\n\nDa gjør bare konservative krefter arbeid, og mekanisk energi er bevart. Merk at dette er helt annerledes enn **glidefriksjon**, som gnisser og omdanner mekanisk energi til varme.\n\n**b)** Med $c = \\tfrac25 = 0{,}400$:\n\n$$v = \\sqrt{\\frac{2gh}{1+c}} = \\sqrt{\\frac{2 \\cdot 9{,}81 \\cdot 0{,}80}{1{,}400}} = \\sqrt{11{,}21} = 3{,}35\\,\\text{m/s}$$\n\nnedover langs planet.\n\n**c)** Da er $c = 0$:\n\n$$v = \\sqrt{2gh} = \\sqrt{15{,}70} = 3{,}96\\,\\text{m/s}$$\n\nDen glidende kula er altså $18\\,\\%$ raskere. Forskjellen er ikke at den rullende kula har mistet energi — den har like mye — men at $28{,}6\\,\\%$ av energien sitter i rotasjonen og ikke bidrar til massesenterets fart.",
+        "hints": [
+          "Gå gjennom kreftene én for én og spør om hver av dem gjør arbeid.",
+          "Hva er farten til angrepspunktet for den statiske friksjonen ved ren rulling?",
+          "I b): finn $c$ fra $I = cMR^2$ først, så blir energilikningen kort."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En massiv kule ruller uten å gli langs et vannrett underlag med farten $4{,}00\\,\\text{m/s}$, og fortsetter opp en bakke.\n\n**a)** Hvor høyt kommer kula, målt loddrett?\n\n**b)** Hvor høyt ville en friksjonsfri kloss med samme fart kommet?\n\n**c)** Forklar forskjellen med et energiargument.",
+        "solution": "**Metodevalg:** energibevaring begge veier. For den rullende kula gjelder den fordi bare tyngden gjør arbeid (statisk friksjon ved ren rulling gjør ikke arbeid); for den friksjonsfrie klossen fordi det ikke finnes friksjon i det hele tatt.\n\n**a)** All kinetisk energi går over til potensiell:\n\n$$\\tfrac12(1+c)Mv^2 = Mgh \\quad \\Rightarrow \\quad h = \\frac{(1+c)v^2}{2g} = \\frac{1{,}400 \\cdot 16{,}0}{19{,}62} = 1{,}14\\,\\text{m}$$\n\n**b)** $$h = \\frac{v^2}{2g} = \\frac{16{,}0}{19{,}62} = 0{,}816\\,\\text{m}$$\n\n**c)** Den rullende kula kommer $40\\,\\%$ høyere. Med samme massesenterfart har den mer kinetisk energi enn klossen, fordi rotasjonsenergien $\\tfrac12 I\\omega^2$ kommer i tillegg til $\\tfrac12 Mv^2$. Når kula bremses opp i bakken, må **all** denne energien konverteres til høyde — også rotasjonsdelen, som bremses ned samtidig gjennom friksjonen.\n\nDette er en variant av den kvalitative deloppgaven «kommer den lengst opp med eller uten friksjon?». Svaret er **med** friksjon, så lenge friksjonen er statisk og legemet ruller: friksjonen flytter energi mellom translasjon og rotasjon uten å ødelegge noe av den.",
+        "hints": [
+          "Hvor mye kinetisk energi har et rullende legeme i forhold til et glidende med samme fart?",
+          "Sett opp energilikningen med begge leddene på kinetisk side.",
+          "I c): sammenlign energibudsjettene, ikke fartene."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — kraft- og momentmetoden (~20 min)\n\nEnergimetoden gir deg sluttfarten raskt, men den forteller ingenting om **hvor stor friksjonskraften er**, og heller ikke om hvor bratt planet kan bli før legemet begynner å skrense. Til det trenger du Newtons lover — i begge former samtidig.\n\nOppskriften er alltid den samme: én likning for massesenterets bevegelse, én for rotasjonen om massesenteret, og rullebetingelsen som kobler dem."
+    },
+    {
+      "id": "fys1100-6-2-fig-rullende",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-2-rullende-skraaplan.svg",
+      "alt": "En sylinder som ruller nedover et skraaplan med 25 graders helning. Fra kontaktpunktet peker normalkraften N vinkelrett ut fra planet og den statiske friksjonen f s oppover langs planet. Tyngden Mg peker rett nedover fra massesenteret, og en stiplet lilla pil viser massesenterets fart v nedover langs planet. En groenn buet pil inne i sylinderen viser vinkelfarten omega mot klokka.",
+      "caption": "Frilegemediagrammet til eksempel 3. Legg merke til to ting sensor ser etter: **friksjonen peker oppover langs planet** når legemet ruller nedover, og den er den **eneste** kraften med momentarm om massesenteret — tyngden angriper i massesenteret, og normalkraftens virkelinje går gjennom det. Dekomponeringen av tyngden i $Mg\\sin\\theta$ og $Mg\\cos\\theta$ er den samme som i [kap. 3.2](/bok/fys1100/fys1100-3-2)."
+    },
+    {
+      "id": "fys1100-6-2-def-statisk-friksjon-rulling",
+      "type": "definition",
+      "title": "Statisk friksjon ved ren rulling",
+      "content": "Friksjonen som håndhever rullebetingelsen. Den er **statisk**, ikke dynamisk, fordi kontaktpunktet ikke glir — og det har to store konsekvenser.\n\nFor det første er den **ikke** $\\mu_s N$. Den er akkurat så stor som den må være for at $a = \\alpha R$ skal holde, og den finnes ved å løse likningene, ikke ved å slå opp et friksjonstall. Grensen $\\lvert f_s\\rvert \\le \\mu_s N$ er en **ulikhet**, og den brukes bare til å sjekke om rullingen kan opprettholdes.\n\nFor det andre **gjør den ikke arbeid**. Angrepspunktet står momentant stille, så $W = \\int\\mathbf{F}\\cdot d\\mathbf{r} = 0$, og ingen mekanisk energi går tapt. Det er derfor energibevaring er lovlig for et rullende legeme, selv om det åpenbart er friksjon i spill.\n\nRetningen finner du av rollen den spiller: ruller legemet **nedover** et skråplan, må friksjonen gi et moment som setter det i spinn, og den peker derfor **oppover langs planet**."
+    },
+    {
+      "id": "fys1100-6-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Sylinder på skråplan — begge metodene",
+      "problem": "En homogen sylinder med masse $M = 3{,}00\\,\\text{kg}$ og radius $R = 0{,}120\\,\\text{m}$ ruller uten å gli ned et skråplan med helning $\\theta = 25{,}0^\\circ$. Formelarket gir $I = \\tfrac12 MR^2$.\n\n**a)** Tegn frilegemediagram og sett opp likningene.\n\n**b)** Finn massesenterets akselerasjon med kraft- og momentmetoden.\n\n**c)** Finn den samme akselerasjonen med energimetoden, og si hvilken metode som er raskest.\n\n**d)** Finn friksjonskraften og det minste friksjonstallet som gjør ren rulling mulig.\n\n**e)** Finn farten og vinkelfarten etter at sylinderen har rullet $2{,}00\\,\\text{m}$ langs planet.",
+      "solution": "**Metodevalg først:** vi bruker Newtons 2. lov i to former samtidig — én gang for massesenterets bevegelse langs planet, og én gang for rotasjonen om massesenteret — og kobler dem med rullebetingelsen $a = \\alpha R$. Det er dette oppsettet sensor ser etter.\n\n**a)** Tre krefter virker på sylinderen, og de er tegnet inn i figuren over:\n\n- **tyngden $M\\mathbf{g}$** i massesenteret, dekomponert i $Mg\\sin\\theta$ langs planet og $Mg\\cos\\theta$ normalt på det;\n- **normalkraften $\\mathbf{N}$** vinkelrett ut fra planet, med angrepspunkt i kontaktpunktet;\n- **den statiske friksjonen $\\mathbf{f}_s$** langs planet, **oppover**, med angrepspunkt i kontaktpunktet.\n\nMed positiv retning nedover langs planet blir likningene:\n\n$$\\text{langs planet:}\\qquad Mg\\sin\\theta - f_s = Ma$$\n$$\\text{normalt:}\\qquad N = Mg\\cos\\theta$$\n$$\\text{om massesenteret:}\\qquad f_s R = I\\alpha = \\tfrac12 MR^2\\alpha$$\n$$\\text{rullebetingelsen:}\\qquad a = \\alpha R$$\n\n**Legg merke til momentlikningen:** bare friksjonen bidrar. Tyngden angriper i massesenteret og har null momentarm om det (felle #15 — å la tyngden bidra her koster typisk 2 poeng), og normalkraftens virkelinje går rett gjennom massesenteret.\n\n**b)** Fra momentlikningen med $\\alpha = a/R$:\n\n$$f_s R = \\tfrac12 MR^2 \\cdot \\frac{a}{R} \\quad \\Longrightarrow \\quad f_s = \\tfrac12 Ma$$\n\nSatt inn i kraftlikningen:\n\n$$Mg\\sin\\theta - \\tfrac12 Ma = Ma \\quad \\Longrightarrow \\quad a = \\frac{g\\sin\\theta}{1 + \\tfrac12} = \\frac{g\\sin\\theta}{1{,}500}$$\n\n$$a = \\frac{9{,}81 \\cdot 0{,}4226}{1{,}500} = \\frac{4{,}146}{1{,}500} = 2{,}76\\,\\text{m/s}^2$$\n\nnedover langs planet.\n\n**c)** Energimetoden: etter å ha rullet strekningen $s$ langs planet har massesenteret falt $h = s\\sin\\theta$, så\n\n$$Mgs\\sin\\theta = \\tfrac12(1+c)Mv^2 \\quad \\Longrightarrow \\quad v^2 = \\frac{2gs\\sin\\theta}{1+c}$$\n\nSammenlignet med $v^2 = 2as$ for konstant akselerasjon leser vi av\n\n$$a = \\frac{g\\sin\\theta}{1+c} = \\frac{9{,}81 \\cdot 0{,}4226}{1{,}500} = 2{,}76\\,\\text{m/s}^2$$\n\n— samme svar.\n\n**Hvilken er raskest?** Energimetoden, klart, når du bare skal ha farten eller akselerasjonen: den er tre linjer og krever ikke noe frilegemediagram. **Men den kan ikke gi deg friksjonskraften**, siden friksjonen ikke gjør arbeid og derfor ikke opptrer i energiregnskapet i det hele tatt. Ber oppgaven om $f_s$ eller om betingelsen for ren rulling, må du ha kraft- og momentmetoden. Begge vises her fordi fasitene ofte gjør nettopp det.\n\n— naturlig pausepunkt —\n\n**d)** Friksjonskraften fra b):\n\n$$f_s = \\tfrac12 Ma = \\tfrac12 \\cdot 3{,}00 \\cdot 2{,}764 = 4{,}15\\,\\text{N}$$\n\nrettet **oppover langs planet**. Normalkraften er\n\n$$N = Mg\\cos\\theta = 3{,}00 \\cdot 9{,}81 \\cdot 0{,}9063 = 26{,}7\\,\\text{N}$$\n\nRen rulling krever $f_s \\le \\mu_s N$, altså\n\n$$\\mu_s \\ge \\frac{f_s}{N} = \\frac{4{,}146}{26{,}67} = 0{,}155$$\n\nSymbolsk blir betingelsen pen:\n\n$$\\mu_s \\ge \\frac{c}{1+c}\\tan\\theta = \\frac{0{,}500}{1{,}500}\\tan 25{,}0^\\circ = 0{,}3333 \\cdot 0{,}4663 = 0{,}155$$\n\n**Grensetilfelle-kontroll:** når $\\theta \\to 0$ går kravet mot null — på et vannrett plan trengs ingen friksjon for å holde rullingen. Og når $\\theta \\to 90^\\circ$ går $\\tan\\theta \\to \\infty$, altså kan ingen friksjon holde rullingen på et loddrett «plan». Begge stemmer.\n\n**e)** Akselerasjonen er konstant, så bevegelseslikningene fra [kap. 2.1](/bok/fys1100/fys1100-2-1) gjelder:\n\n$$v = \\sqrt{2as} = \\sqrt{2 \\cdot 2{,}764 \\cdot 2{,}00} = 3{,}33\\,\\text{m/s}$$\n\nnedover langs planet, og\n\n$$\\omega = \\frac{v}{R} = \\frac{3{,}325}{0{,}120} = 27{,}7\\,\\text{rad/s}$$\n\n**Kontroll med energi:** massesenteret har falt $h = 2{,}00\\sin 25{,}0^\\circ = 0{,}845\\,\\text{m}$, og $v = \\sqrt{2 \\cdot 9{,}81 \\cdot 0{,}845/1{,}500} = 3{,}33\\,\\text{m/s}$ ✓."
+    },
+    {
+      "id": "fys1100-6-2-th-rulleresultater",
+      "type": "theorem",
+      "title": "Standardresultatene for et legeme som ruller ned et skråplan",
+      "content": "For et hvilket som helst legeme med formfaktor $c = I/(MR^2)$ som ruller uten å gli ned et plan med helning $\\theta$:\n\n$$a = \\frac{g\\sin\\theta}{1+c}, \\qquad f_s = \\frac{c}{1+c}\\,Mg\\sin\\theta, \\qquad \\mu_s \\ge \\frac{c}{1+c}\\tan\\theta$$\n\nog sluttfarten etter å ha falt høyden $h$:\n\n$$v = \\sqrt{\\frac{2gh}{1+c}}$$\n\nIngen av disse står på formelarket — de **må kunne utledes**, og utledningen er nettopp den i eksempel 3. Det er en av de mest lønnsomme utledningene i faget, fordi den kommer igjen i hver eneste rullevariant.\n\nTre observasjoner å ta med seg:\n\n1. **Verken $M$ eller $R$ inngår.** Bare formen betyr noe. En liten kulepenn-kule og en bowlingkule ruller likt.\n2. **Akselerasjonen er alltid mindre enn $g\\sin\\theta$.** Rulling bremser, fordi en del av arbeidet må gå til å sette legemet i spinn.\n3. **Kravet til friksjonstallet vokser med $\\tan\\theta$.** Bratte plan og «rotasjonstunge» legemer (stor $c$) er der rullingen først svikter."
+    },
+    {
+      "id": "fys1100-6-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et tynnvegget rør ($c = 1{,}00$) og en massiv sylinder ($c = 0{,}500$) med samme masse og radius ruller uten å gli ned et skråplan med helning $20{,}0^\\circ$.\n\n**a)** Finn akselerasjonen til hver av dem.\n\n**b)** Hvor mye større er kravet til friksjonstall for røret enn for sylinderen?\n\n**c)** De starter samtidig fra samme høyde. Hvilket når foten først, og hvor mange prosent kortere tid bruker det?",
+        "solution": "**Metodevalg:** standardresultatene $a = g\\sin\\theta/(1+c)$ og $\\mu_s \\ge c\\tan\\theta/(1+c)$, som ble utledet i eksempel 3.\n\n**a)** Med $g\\sin 20{,}0^\\circ = 9{,}81 \\cdot 0{,}3420 = 3{,}355\\,\\text{m/s}^2$:\n\n$$a_{\\text{rør}} = \\frac{3{,}355}{2{,}00} = 1{,}68\\,\\text{m/s}^2, \\qquad a_{\\text{sylinder}} = \\frac{3{,}355}{1{,}500} = 2{,}24\\,\\text{m/s}^2$$\n\nbegge nedover langs planet.\n\n**b)** $$\\mu_{\\text{rør}} \\ge \\frac{1{,}00}{2{,}00}\\tan 20{,}0^\\circ = 0{,}500 \\cdot 0{,}3640 = 0{,}182$$\n\n$$\\mu_{\\text{sylinder}} \\ge \\frac{0{,}500}{1{,}500} \\cdot 0{,}3640 = 0{,}121$$\n\nRøret krever altså $0{,}182/0{,}121 = 1{,}50$ ganger så stort friksjonstall. Det er ikke tilfeldig: forholdet er $\\dfrac{c_1/(1+c_1)}{c_2/(1+c_2)} = \\dfrac{0{,}500}{0{,}3333} = 1{,}50$.\n\n**c)** Samme strekning $s$ langs planet, konstant akselerasjon, start fra ro: $s = \\tfrac12 at^2$ gir $t = \\sqrt{2s/a}$, altså $t \\propto 1/\\sqrt{a}$. Sylinderen har størst $a$ og kommer først:\n\n$$\\frac{t_{\\text{sylinder}}}{t_{\\text{rør}}} = \\sqrt{\\frac{a_{\\text{rør}}}{a_{\\text{sylinder}}}} = \\sqrt{\\frac{1{,}500}{2{,}00}} = 0{,}866$$\n\nSylinderen bruker altså $13{,}4\\,\\%$ kortere tid. Merk at svaret er uavhengig av både helningen og strekningen — det er bare formfaktorene som avgjør.",
+        "hints": [
+          "Bruk standardresultatene direkte; du trenger ikke sette opp likningene på nytt.",
+          "I c): hvordan avhenger tiden av akselerasjonen når strekningen er den samme og begge starter fra ro?",
+          "Sett opp forholdet symbolsk før du setter inn tall — da ser du at helningen faller ut."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Glemt rotasjonsenergi i energiregnskapet.** Å skrive $Mgh = \\tfrac12 Mv^2$ for et rullende legeme gir alltid for stor fart. Rullende legemer har **to** kinetiske energiledd, og det andre er ikke lite: for en ring er det halvparten av totalen.\n\n**Rullebetingelsen brukt på et legeme som glir.** $v = \\omega R$ gjelder **bare** ved ren rulling. Skrenser hjulet, eller er friksjonen for liten, må du behandle translasjon og rotasjon som to uavhengige bevegelser, koblet av glidefriksjonen $f_d = \\mu_d N$.\n\n**Hvilefriksjonen satt lik $\\mu_s N$.** Ved ren rulling er friksjonen akkurat så stor som rullebetingelsen krever, og som regel **mindre** enn $\\mu_s N$. Ulikheten brukes til å sjekke om rullingen holder — ikke til å regne ut kraften.\n\n**Tyngden gitt moment om massesenteret (felle #15, typisk −2 p).** I momentlikningen om massesenteret bidrar **bare** friksjonen. Tyngden angriper i massesenteret, og normalkraftens virkelinje går gjennom det.\n\n**Friksjonen tegnet feil vei.** Ruller legemet nedover, peker den statiske friksjonen **oppover** langs planet — den er det som setter legemet i spinn. Å tegne den nedover er en retningsfeil som typisk koster 1 poeng, og som gjør at momentlikningen får feil fortegn.\n\n**Antatt at friksjon alltid koster energi.** Statisk friksjon ved ren rulling gjør **ikke** arbeid, fordi angrepspunktet står momentant stille. Det er nettopp derfor energibevaring er lovlig her. Glidefriksjon er en helt annen sak.\n\n**Feil treghetsmoment eller feil akse.** Momentlikningen $\\tau = I\\alpha$ er satt opp om **massesenteret**, så $I$ skal være $I_{cm}$ — ikke $I$ om kontaktpunktet. (Momenter om kontaktpunktet er en fullt gyldig alternativ metode, men da må $I$ regnes om **den** aksen med parallellakseteoremet.)"
+    },
+    {
+      "id": "fys1100-6-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F.) En massiv sylinder ($c = 0{,}500$) med radius $R = 0{,}120\\,\\text{m}$ ligger på et skråplan med helning $25{,}0^\\circ$. Friksjonstallene er $\\mu_s = \\mu_d = 0{,}100$.\n\n**a)** Vis at sylinderen **ikke** kan rulle rent på dette planet.\n\n**b)** Finn massesenterets akselerasjon når sylinderen både ruller og glir.\n\n**c)** Finn vinkelakselerasjonen.\n\n**d)** Vis at $a > \\alpha R$, og forklar hva den ulikheten betyr fysisk.",
+        "solution": "**Metodevalg:** vi sjekker først om rullebetingelsen kan opprettholdes. Når den svikter, glir legemet, og da er friksjonen **dynamisk** med kjent størrelse $f_d = \\mu_d N$ — men rullebetingelsen gjelder ikke lenger, så translasjon og rotasjon må regnes hver for seg.\n\n**a)** Ren rulling ville krevd\n\n$$\\mu_s \\ge \\frac{c}{1+c}\\tan\\theta = \\frac{0{,}500}{1{,}500}\\tan 25{,}0^\\circ = 0{,}3333 \\cdot 0{,}4663 = 0{,}155$$\n\nVi har bare $\\mu_s = 0{,}100 < 0{,}155$. Hvilefriksjonen kan altså ikke levere den kraften rullebetingelsen krever, og sylinderen begynner å skrense.\n\n**b)** Nå er friksjonen dynamisk og kjent:\n\n$$f_d = \\mu_d N = \\mu_d Mg\\cos\\theta$$\n\nLangs planet, positiv retning nedover:\n\n$$Mg\\sin\\theta - \\mu_d Mg\\cos\\theta = Ma$$\n\n$$a = g(\\sin\\theta - \\mu_d\\cos\\theta) = 9{,}81\\,(0{,}4226 - 0{,}100 \\cdot 0{,}9063) = 9{,}81 \\cdot 0{,}3320 = 3{,}26\\,\\text{m/s}^2$$\n\nnedover langs planet. Legg merke til at massen faller ut, akkurat som for en glidende kloss i [kap. 3.2](/bok/fys1100/fys1100-3-2) — og at dette er **større** enn de $2{,}76\\,\\text{m/s}^2$ ren rulling ville gitt.\n\n**c)** Momentlikningen om massesenteret, med friksjonen som eneste bidrag:\n\n$$f_d R = I\\alpha = \\tfrac12 MR^2\\alpha \\quad \\Longrightarrow \\quad \\alpha = \\frac{2\\mu_d g\\cos\\theta}{R}$$\n\n$$\\alpha = \\frac{2 \\cdot 0{,}100 \\cdot 9{,}81 \\cdot 0{,}9063}{0{,}120} = \\frac{1{,}778}{0{,}120} = 14{,}8\\,\\text{rad/s}^2$$\n\n**d)** $$\\alpha R = 14{,}82 \\cdot 0{,}120 = 1{,}78\\,\\text{m/s}^2 \\quad < \\quad a = 3{,}26\\,\\text{m/s}^2$$\n\nMassesenteret akselererer altså raskere enn rotasjonen «rekker å følge med på». Fysisk betyr det at sylinderen sklir framover under seg selv: den beveger seg fortere enn ren rulling ville tilsvart, og kontaktpunktet glir bakover i forhold til underlaget. Det er nettopp derfor friksjonen peker oppover langs planet — den motsetter seg denne relative glidningen.\n\nBegge akselerasjonene er konstante, så $v(t) = at$ og $\\omega(t)R = \\alpha R\\,t$. Forholdet $\\omega R/v = \\alpha R/a = 0{,}546$ holder seg dermed **konstant** hele veien ned: sylinderen tar aldri igjen seg selv på et jevnt skråplan, og glir så lenge helningen varer. Ren rulling kan først etableres om planet flater ut.",
+        "hints": [
+          "Sjekk først kravet til $\\mu_s$ for ren rulling, og sammenlign med det du har fått oppgitt.",
+          "Når legemet glir, er friksjonen dynamisk: $f_d = \\mu_d N$, med kjent størrelse.",
+          "Uten rullebetingelsen må du løse kraftlikningen og momentlikningen hver for seg.",
+          "I d): sammenlign $a$ og $\\alpha R$ tallmessig, og tenk på hva kontaktpunktet da gjør."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — jojoen (~15 min)\n\nEn jojo er den samme fysikken uten skråplan: et legeme som faller mens en snor rulles av. Snordraget spiller nøyaktig den rollen friksjonen hadde — det er den ene kraften som har momentarm om massesenteret, og det er den som gjør at jojoen faller saktere enn fritt fall.\n\nVarianten er en gjenganger nettopp fordi den er så ren: to krefter, én momentarm, og rullebetingelsen langs snora."
+    },
+    {
+      "id": "fys1100-6-2-fig-jojo",
+      "type": "image",
+      "src": "/images/textbook/fys1100/fys1100-6-2-jojo.svg",
+      "alt": "En jojo modellert som en sylinder som henger i en snor festet i taket. Snora gaar loddrett ned til hoyre kant av sylinderen. Snordraget T er en blaa pil oppover langs snora, tyngden mg en roed pil nedover fra massesenteret, og momentarmen R er markert som en lilla pil fra massesenteret ut til snora. En groenn buet pil viser vinkelfarten omega, og en stiplet graa pil til venstre viser akselerasjonen nedover.",
+      "caption": "Frilegeme- og momentdiagrammet for jojoen i eksempel 4. Snordraget $T$ har momentarm $R$ om massesenteret; tyngden har momentarm null. Rullebetingelsen gjelder langs snora: snora er uttøyelig, så jojoen «ruller» ned den akkurat som en sylinder ruller på et underlag."
+    },
+    {
+      "id": "fys1100-6-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Jojoen",
+      "problem": "En jojo modelleres som en homogen sylinder med masse $m = 0{,}080\\,\\text{kg}$ og radius $R = 0{,}025\\,\\text{m}$, med snora viklet rundt kanten. Formelarket gir $I = \\tfrac12 mR^2$. Jojoen slippes fra hvile.\n\n**a)** Sett opp kraftlikningen og momentlikningen.\n\n**b)** Finn massesenterets akselerasjon.\n\n**c)** Finn snordraget.\n\n**d)** Kontroller svaret med et grensetilfelle, og med et energiregnskap etter et fall på $0{,}60\\,\\text{m}$.",
+      "solution": "**Metodevalg først:** Newtons 2. lov for massesenterets fall, rotasjonens Newtons 2. lov om massesenteret, og rullebetingelsen $a = \\alpha R$ langs snora. Snora er uttøyelig og masseløs.\n\n**a)** To krefter virker på jojoen:\n\n- **tyngden $m\\mathbf{g}$** nedover, i massesenteret;\n- **snordraget $T$** oppover, langs snora, med angrepspunkt i kanten.\n\nMed positiv retning nedover:\n\n$$\\text{loddrett:}\\qquad mg - T = ma$$\n$$\\text{om massesenteret:}\\qquad TR = I\\alpha = \\tfrac12 mR^2\\alpha$$\n$$\\text{rullebetingelsen:}\\qquad a = \\alpha R$$\n\nTyngden gir **null** moment om massesenteret, siden den angriper der. Snordraget har momentarm $R$.\n\n**b)** Fra momentlikningen med $\\alpha = a/R$:\n\n$$TR = \\tfrac12 mR^2\\frac{a}{R} \\quad \\Longrightarrow \\quad T = \\tfrac12 ma$$\n\nSatt inn i kraftlikningen:\n\n$$mg - \\tfrac12 ma = ma \\quad \\Longrightarrow \\quad a = \\frac{g}{1+c} = \\frac{g}{1{,}500} = \\tfrac23 g = 6{,}54\\,\\text{m/s}^2$$\n\nnedover. Jojoen faller altså med to tredjedeler av tyngdens akselerasjon, uavhengig av både masse og radius.\n\n**c)** $$T = \\tfrac12 ma = \\tfrac12 \\cdot 0{,}080 \\cdot 6{,}54 = 0{,}262\\,\\text{N}$$\n\noppover langs snora. Til sammenligning er tyngden $mg = 0{,}080 \\cdot 9{,}81 = 0{,}785\\,\\text{N}$ — snordraget er altså nøyaktig en tredjedel av tyngden, siden $T = \\tfrac12 ma = \\tfrac12 m \\cdot \\tfrac23 g = \\tfrac13 mg$.\n\n**d)** **Grensetilfelle:** tenk deg at snora ble festet i sentrum i stedet, slik at momentarmen ble null. Da ville jojoen ikke kunne settes i spinn i det hele tatt, den ville bare henge — eller, hvis snora ble kuttet, falle fritt med $a = g$. Formelen $a = g/(1+c)$ gir riktignok $a = g$ når $c = 0$, altså når legemet ikke har rotasjonstreghet. Det stemmer.\n\n**Energikontroll etter et fall på $h = 0{,}600\\,\\text{m}$:** farten skal være $v = \\sqrt{2ah} = \\sqrt{2 \\cdot 6{,}54 \\cdot 0{,}600} = 2{,}80\\,\\text{m/s}$. Energiregnskapet gir\n\n$$mgh = \\tfrac12(1+c)mv^2 \\quad \\Rightarrow \\quad v = \\sqrt{\\frac{2gh}{1{,}500}} = \\sqrt{\\frac{11{,}77}{1{,}500}} = 2{,}80\\,\\text{m/s}$$\n\n✓ — de to metodene gir samme svar, akkurat som for sylinderen på skråplanet."
+    },
+    {
+      "id": "fys1100-6-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En jojo modellert som en homogen sylinder har masse $0{,}150\\,\\text{kg}$. Den slippes fra hvile og faller $1{,}20\\,\\text{m}$ før snora er rullet helt av.\n\n**a)** Finn akselerasjonen.\n\n**b)** Finn snordraget, og sammenlign med tyngden.\n\n**c)** Finn farten når snora er rullet av.\n\n**d)** Hvor stor andel av den kinetiske energien sitter da i rotasjonen?",
+        "solution": "**Metodevalg:** standardresultatene for jojoen fra eksempel 4, $a = g/(1+c)$ og $T = \\dfrac{c}{1+c}mg$, med $c = 0{,}500$ for en homogen sylinder.\n\n**a)** $$a = \\frac{g}{1{,}500} = 6{,}54\\,\\text{m/s}^2$$\n\nnedover. Massen inngår ikke.\n\n**b)** $$T = \\tfrac12 ma = \\tfrac12 \\cdot 0{,}150 \\cdot 6{,}54 = 0{,}491\\,\\text{N}$$\n\noppover. Tyngden er $mg = 0{,}150 \\cdot 9{,}81 = 1{,}47\\,\\text{N}$, så snordraget er nøyaktig en tredjedel av tyngden. De to sammen gir nettokraften $1{,}47 - 0{,}49 = 0{,}98\\,\\text{N} = ma$ ✓.\n\n**c)** $$v = \\sqrt{2ah} = \\sqrt{2 \\cdot 6{,}54 \\cdot 1{,}20} = \\sqrt{15{,}70} = 3{,}96\\,\\text{m/s}$$\n\nnedover.\n\n**d)** $$\\frac{K_{\\text{rot}}}{K_{\\text{tot}}} = \\frac{c}{1+c} = \\frac{0{,}500}{1{,}500} = 0{,}333$$\n\naltså $33{,}3\\,\\%$. En tredjedel av energien sitter i spinnet — det er derfor jojoen kan «klatre» et godt stykke opp igjen når snora strammes i bunnen.",
+        "hints": [
+          "Bruk resultatet $a = g/(1+c)$ fra eksempel 4 — det gjelder for enhver jojo-form.",
+          "I b): finn $T$ av kraftlikningen $mg - T = ma$.",
+          "I d): rotasjonsandelen er $c/(1+c)$, uavhengig av fart og masse."
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kvalitativ — «forklar/begrunn»-typen som det er minst én av i hvert eksamenssett.)\n\n**a)** En kloss som glir friksjonsfritt og en kule som ruller uten å gli sendes oppover den samme bakken med samme startfart. Hvilken kommer høyest? Begrunn **både** med et energiargument og med Newtons 2. lov.\n\n**b)** En medstudent sier: «Friksjon tar alltid energi ut av systemet, så den rullende kula må komme kortere.» Hva er galt i resonnementet?\n\n**c)** Hva ville skjedd om bakken var helt glatt (ingen friksjon) og kula allerede snurret da den kom til bakken?",
+        "solution": "**a)** **Kula kommer høyest.**\n\n*Energiargumentet:* med samme massesenterfart har den rullende kula mer kinetisk energi enn den glidende klossen, fordi rotasjonsenergien $\\tfrac12 I\\omega^2$ kommer i tillegg til $\\tfrac12 Mv^2$. Ved ren rulling gjør den statiske friksjonen ikke arbeid, så all denne energien er tilgjengelig for å bli potensiell energi. Kula må derfor opp høyden $h = (1+c)v^2/(2g)$, mot klossens $v^2/(2g)$.\n\n*Newton-argumentet:* på vei oppover peker friksjonen på kula **nedover** langs planet, siden den må gi et moment som bremser spinnet. Da er retardasjonen\n\n$$a = \\frac{g\\sin\\theta}{1+c} < g\\sin\\theta$$\n\nKula bremses altså **saktere** enn klossen, og med samme startfart kommer den derfor lenger langs planet — og høyere.\n\nDe to argumentene er to lesninger av samme sak, og det er nettopp slike dobbeltbegrunnelser fasitene ofte etterspør.\n\n**b)** Feilen er at han blander sammen **statisk** og **dynamisk** friksjon. Glidefriksjon gnisser: angrepspunktet flytter seg, kraften gjør negativt arbeid, og mekanisk energi går tapt til varme. Hvilefriksjon ved ren rulling gjør derimot **ikke arbeid i det hele tatt**, fordi kontaktpunktet står momentant stille — det finnes ingen forskyvning å gange kraften med.\n\nFriksjonen her flytter energi **mellom** translasjon og rotasjon, den ødelegger den ikke. Derfor er mekanisk energi bevart, og derfor kommer kula lenger, ikke kortere.\n\n**c)** Da ville det ikke finnes noen kraft med momentarm om massesenteret, så $\\tau = 0$ og spinnet ville holdt seg konstant hele veien opp. Bare massesenterets bevegelse ville bremset, med $a = g\\sin\\theta$ — nøyaktig som for klossen. Kula ville altså kommet like høyt som klossen, og fortsatt snurre like fort på toppen.\n\nRotasjonsenergien er da helt utilgjengelig: uten friksjon finnes det ingen kobling som kan gjøre den om til høyde.",
+        "hints": [
+          "I a): sammenlign først hvor mye kinetisk energi de to har med samme fart, og deretter hvilken vei friksjonen peker på vei oppover.",
+          "I b): hva er farten til angrepspunktet for den statiske friksjonen ved ren rulling?",
+          "I c): hvilke krefter har momentarm om massesenteret når underlaget er helt glatt?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1100-6-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger F med energikobling.) En massiv sylinder ($c = 0{,}500$) ruller uten å gli, og en kloss glir helt friksjonsfritt. Begge starter fra hvile i høyden $h = 1{,}20\\,\\text{m}$ over foten av det samme skråplanet, som har helning $30{,}0^\\circ$.\n\n**a)** Finn strekningen langs planet.\n\n**b)** Finn farten nederst for hver av dem.\n\n**c)** Finn tiden hver av dem bruker ned.\n\n**d)** Hvilken kommer først ned, og hvorfor er svaret et annet enn i oppgave 7?",
+        "solution": "**Metodevalg:** energibevaring for fartene (gyldig for begge — for sylinderen fordi statisk friksjon ved ren rulling ikke gjør arbeid, for klossen fordi det ikke er friksjon), og standardresultatet $a = g\\sin\\theta/(1+c)$ med bevegelseslikningene for tidene.\n\n**a)** $$s = \\frac{h}{\\sin\\theta} = \\frac{1{,}20}{0{,}500} = 2{,}40\\,\\text{m}$$\n\n**b)** $$v_{\\text{kloss}} = \\sqrt{2gh} = \\sqrt{23{,}54} = 4{,}85\\,\\text{m/s}$$\n\n$$v_{\\text{sylinder}} = \\sqrt{\\frac{2gh}{1{,}500}} = \\sqrt{15{,}70} = 3{,}96\\,\\text{m/s}$$\n\nbegge nedover langs planet.\n\n**c)** Akselerasjonene er\n\n$$a_{\\text{kloss}} = g\\sin\\theta = 4{,}91\\,\\text{m/s}^2, \\qquad a_{\\text{sylinder}} = \\frac{g\\sin\\theta}{1{,}500} = 3{,}27\\,\\text{m/s}^2$$\n\nog med $s = \\tfrac12 at^2$ fra hvile:\n\n$$t_{\\text{kloss}} = \\sqrt{\\frac{2 \\cdot 2{,}40}{4{,}905}} = 0{,}989\\,\\text{s}, \\qquad t_{\\text{sylinder}} = \\sqrt{\\frac{2 \\cdot 2{,}40}{3{,}270}} = 1{,}21\\,\\text{s}$$\n\n**d)** **Klossen kommer først** — den bruker $0{,}989\\,\\text{s}$ mot sylinderens $1{,}21\\,\\text{s}$, altså $18{,}4\\,\\%$ kortere tid. Forholdet er $\\sqrt{1{,}500} = 1{,}22$ uavhengig av høyde og helning.\n\nHvorfor er dette motsatt av oppgave 7? Fordi spørsmålene er ulike. **Nedover** starter begge fra hvile med samme *energi*, og sylinderen må dele den mellom to bevegelsesformer — den kommer altså saktest ned. **Oppover** startet begge med samme *fart*, og da hadde den rullende sylinderen mest energi, siden rotasjonen kom i tillegg — den kom altså lengst opp.\n\nMerk lærdommen: «har mest energi» og «går fortest» er ikke det samme for et rullende legeme. Skriv alltid ned hva som er felles i sammenligningen — fart eller energi — før du konkluderer.",
+        "hints": [
+          "Regn ut strekningen langs planet først; den er felles for begge.",
+          "Bruk energibevaring for fartene og standardresultatet for akselerasjonene.",
+          "I d): sammenlign hva som er gitt likt i denne oppgaven og i oppgave 7 — fart eller energi?"
+        ]
+      }
+    },
+    {
+      "id": "fys1100-6-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-1",
+      "type": "definition",
+      "title": "Kombinert translasjon og rotasjon",
+      "content": "Bevegelsen til et legeme som samtidig flytter seg og snurrer — en rullende sylinder, en jojo, en ball i lufta med skru.\n\nEnhver slik bevegelse kan alltid deles i to deler: **massesenterets** bevegelse, som følger $\\sum\\mathbf{F} = M\\mathbf{a}_{cm}$, og **rotasjonen om massesenteret**, som følger $\\tau_{cm} = I_{cm}\\alpha$. De to likningene er uavhengige, og det er nettopp derfor du trenger en tredje likning — rullebetingelsen — for å koble dem.\n\nOppdelingen gjelder også energien: $K = \\tfrac12 Mv^2 + \\tfrac12 I\\omega^2$. Den ene halvdelen kan aldri erstatte den andre."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-2",
+      "type": "definition",
+      "title": "Momentan rotasjonsakse",
+      "content": "Den aksen legemet i et gitt øyeblikk kan sies å rotere rent om. For et legeme i ren rulling er dette **kontaktpunktet**, fordi det står momentant stille.\n\nDette gir en snarvei: du kan regne momenter om kontaktpunktet i stedet for om massesenteret. Da faller både friksjonen og normalkraften ut (begge går gjennom kontaktpunktet), og tyngden blir eneste bidrag. Til gjengjeld må $I$ regnes om kontaktpunktaksen, altså $I_{cm} + MR^2$ med parallellakseteoremet.\n\nFor en massiv sylinder: $\\tau = MgR\\sin\\theta$ og $I = \\tfrac32 MR^2$, som gir $\\alpha = 2g\\sin\\theta/(3R)$ og $a = \\alpha R = \\tfrac23 g\\sin\\theta$ — samme svar som før. Aksen er «momentan» fordi den flytter seg hele tiden."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-3",
+      "type": "definition",
+      "title": "Gliding",
+      "content": "Tilstanden der kontaktflaten beveger seg i forhold til underlaget — legemet skrenser. Da gjelder **ikke** rullebetingelsen: $v \\neq \\omega R$.\n\nKjennetegnet er at friksjonen blir **dynamisk** og dermed kjent: $f_d = \\mu_d N$. Det gjør på sett og vis regningen enklere, siden friksjonskraften ikke lenger er en ukjent — men til gjengjeld må translasjon og rotasjon regnes ut hver for seg.\n\nGliding oppstår når hvilefriksjonen ikke strekker til, altså når $\\mu_s < \\dfrac{c}{1+c}\\tan\\theta$ på et skråplan. Sjekk alltid denne betingelsen når oppgaven oppgir et friksjonstall — det er da et tegn på at nettopp dette skal drøftes."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-4",
+      "type": "definition",
+      "title": "Betingelsen for ren rulling",
+      "content": "Kravet som må være oppfylt for at et legeme skal rulle uten å gli ned et skråplan:\n\n$$\\mu_s \\ge \\frac{c}{1+c}\\tan\\theta$$\n\nBetingelsen kommer av å regne ut hvor stor hvilefriksjon rullebetingelsen krever, og deretter sammenligne med taket $\\mu_s N$.\n\nTo ting leses direkte av: **bratte plan** er verre enn slake (tangens vokser), og **rotasjonstunge legemer** med stor $c$ krever mer friksjon enn kompakte. En tynn ring ($c = 1$) trenger dobbelt så stort friksjonstall som en massiv sylinder ($c = \\tfrac12$) i samme bakke."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-5",
+      "type": "definition",
+      "title": "Friksjonens arbeid ved ren rulling",
+      "content": "Ved ren rulling gjør den statiske friksjonen **null arbeid**:\n\n$$W_{f} = \\int\\mathbf{f}_s\\cdot d\\mathbf{r} = 0$$\n\nfordi angrepspunktet — kontaktpunktet — står momentant stille, så $d\\mathbf{r} = 0$ for kraftens angrepspunkt.\n\nDette er den enkeltinnsikten som gjør energibevaring lovlig for rullende legemer, og den skal skrives ut hver gang du bruker den. Uten den ser det ut som om du bruker energibevaring i en situasjon med friksjon, og det er en metodefeil sensor er på vakt mot.\n\nMerk kontrasten til **glidefriksjon**, som gjør negativt arbeid $-\\mu_d N s$ og omdanner mekanisk energi til varme."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-6",
+      "type": "definition",
+      "title": "Sluttfart ved rulling ned en høyde",
+      "content": "Farten til massesenteret etter at et legeme har rullet uten å gli ned høyden $h$ fra hvile:\n\n$$v = \\sqrt{\\frac{2gh}{1+c}}$$\n\nUttrykket **må kunne utledes** — det kommer av $Mgh = \\tfrac12(1+c)Mv^2$.\n\nLegg merke til at verken masse eller radius inngår, bare formen gjennom $c$, og at $v$ alltid er mindre enn fritt falls $\\sqrt{2gh}$. Setter du $c = 0$, får du nettopp $\\sqrt{2gh}$ tilbake — en grensetilfelle-kontroll som tar fem sekunder og som sensorer premierer."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-7",
+      "type": "definition",
+      "title": "Uavhengighet av masse og radius",
+      "content": "En egenskap ved alle rulleresultatene: akselerasjonen, sluttfarten og kravet til friksjonstall avhenger **bare av formen** ($c$) og av planets helning, ikke av $M$ eller $R$.\n\nGrunnen er at både treghetsmomentet og rotasjonsenergien inneholder $MR^2$, som forkortes bort mot $M$ og $v^2/R^2$ i regnestykket.\n\nPraktisk konsekvens: alle massive kuler ruller likt, uansett størrelse. En kulepennkule og en bowlingkule bruker like lang tid ned det samme planet. Får du et svar der $M$ eller $R$ henger igjen i et av standarduttrykkene, har du sannsynligvis regnet feil — det er en gratis kontroll."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-8",
+      "type": "definition",
+      "title": "Rulling oppover",
+      "content": "Et legeme som ruller oppover et skråplan uten å gli, oppfører seg som en speilvending av rullingen nedover, med **én viktig forskjell**: friksjonen peker nå **nedover** langs planet.\n\nGrunnen er at friksjonen alltid må gi det momentet som bremser spinnet i takt med at massesenteret bremses. Retardasjonen er den samme som akselerasjonen nedover:\n\n$$a = \\frac{g\\sin\\theta}{1+c}$$\n\naltså **mindre** enn for et legeme som glir friksjonsfritt. Med samme startfart kommer det rullende legemet derfor **lenger opp** — svaret på den klassiske kvalitative deloppgaven «kommer det lengst opp med eller uten friksjon?»."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-9",
+      "type": "definition",
+      "title": "Kontaktpunktets fart",
+      "content": "Farten til det punktet på legemet som akkurat nå berører underlaget:\n\n$$v_{\\text{kontakt}} = v - \\omega R$$\n\nVed **ren rulling** er den null. Er den **positiv**, glir legemet framover under seg selv (typisk et hjul med for lite friksjon i en bakke). Er den **negativt**, spinner legemet raskere enn det beveger seg (typisk et bildekk som spinner på is ved start).\n\nFortegnet forteller også hvilken vei glidefriksjonen peker: den motsetter seg alltid den relative glidningen, altså motsatt vei av $v_{\\text{kontakt}}$."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-10",
+      "type": "definition",
+      "title": "Toppunktets fart",
+      "content": "Farten til det øverste punktet på et rullende hjul, sett fra bakken:\n\n$$v_{\\text{topp}} = v + \\omega R = 2v$$\n\nved ren rulling — altså **dobbelt så fort som kjøretøyet selv**.\n\nDette er den mest håndfaste konsekvensen av rullebetingelsen, og den er lett å se: eikene ser skarpe ut nederst på et sykkelhjul i fart og utvisket øverst. Punktet er også et populært flervalgsspørsmål på midtveis, nettopp fordi svaret $2v$ overrasker."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-11",
+      "type": "definition",
+      "title": "Trinse med masse",
+      "content": "En trinse som ikke kan regnes som masseløs. Da endres to ting fra [kap. 3.3](/bok/fys1100/fys1100-3-3):\n\n- **snordraget er ikke lenger likt på begge sider** — forskjellen er det som gir trinsa moment;\n- trinsa har et treghetsmoment som må med i regnskapet, typisk $I = \\tfrac12 M_tR^2$ for en skive.\n\nSnora ruller på trinsa uten å gli, så rullebetingelsen $a = \\alpha R$ gjelder på trinsekanten. Systemets akselerasjon blir da\n\n$$a = \\frac{(m_1-m_2)g}{m_1+m_2+I/R^2}$$\n\nder leddet $I/R^2$ er trinsas «effektive masse». Sett $I = 0$, og du får Atwood-maskinen tilbake."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-12",
+      "type": "definition",
+      "title": "Effektiv masse i rotasjon",
+      "content": "Kombinasjonen $I/R^2$, som dukker opp hver gang en rotasjon er koblet til en rettlinjet bevegelse gjennom rullebetingelsen.\n\nStørrelsen har enheten kilogram og oppfører seg akkurat som en ekstra masse i systemet: for en trinse legges den til i nevneren, og for et rullende legeme gir den faktoren $(1+c)M$ i energiregnskapet.\n\nTolkningen er nyttig: et rullende legeme «føles» som om det veide $(1+c)M$ når du skyver på det, selv om vekta viser $M$. Det er derfor et tungt svinghjul er så vanskelig å få i gang."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-13",
+      "type": "definition",
+      "title": "Sammenligning på lik fart eller lik energi",
+      "content": "Et skille som avgjør fortegnet på svaret i mange kvalitative deloppgaver.\n\n**Ved lik fart** har det rullende legemet **mest energi**, fordi rotasjonen kommer i tillegg. Det kommer derfor lengst opp en bakke.\n\n**Ved lik energi** — typisk ved start fra samme høyde — har det rullende legemet **minst massesenterfart**, fordi energien må deles på to bevegelsesformer. Det kommer derfor sist ned.\n\nDe to konklusjonene ser motstridende ut, men de svarer på hvert sitt spørsmål. Skriv alltid ned hva som er felles i sammenligningen før du konkluderer — det er der de fleste bommer."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-14",
+      "type": "definition",
+      "title": "Massesenterets bevegelseslikning",
+      "content": "Newtons 2. lov for et utstrakt legeme, som gjelder uansett hvordan legemet roterer:\n\n$$\\sum\\mathbf{F}_{\\text{ytre}} = M\\mathbf{a}_{cm}$$\n\nMassesenteret beveger seg altså som om hele massen var samlet der og alle ytre krefter angrep der — helt uavhengig av rotasjonen.\n\nDette er halvparten av oppskriften for kombinert bevegelse; den andre halvparten er $\\tau_{cm} = I_{cm}\\alpha$. At de to kan settes opp uavhengig og deretter kobles, er hele grunnen til at rulleoppgaver er løsbare."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-15",
+      "type": "definition",
+      "title": "Ren rulling som en kinematisk binding",
+      "content": "Rullebetingelsen $v = \\omega R$ er ikke en kraftlov, men en **binding** mellom to bevegelser — en kinematisk betingelse som geometrien pålegger systemet.\n\nKonsekvensen er at systemet bare har **én** frihetsgrad: kjenner du $v$, kjenner du $\\omega$, og omvendt. Det er derfor to likninger (kraft og moment) med tre ubekjente ($a$, $\\alpha$, $f_s$) likevel er løsbare — bindingen leverer den tredje likningen.\n\nFaller bindingen bort (legemet glir), går systemet fra én til to frihetsgrader, og du trenger en ny opplysning: glidefriksjonstallet $\\mu_d$."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-16",
+      "type": "definition",
+      "title": "Jojo",
+      "content": "Et legeme som faller mens en snor rulles av det. Fysisk er det den samme oppgaven som en sylinder på et skråplan med $\\theta = 90^\\circ$, men med snordraget i friksjonens rolle.\n\nStandardresultatene, som **må kunne utledes**:\n\n$$a = \\frac{g}{1+c}, \\qquad T = \\frac{c}{1+c}\\,mg$$\n\nFor en homogen sylinder gir det $a = \\tfrac23 g$ og $T = \\tfrac13 mg$.\n\nPoenget som ofte etterspørres: snordraget er den **eneste** kraften med momentarm om massesenteret, siden tyngden angriper der. En ekte jojo har snora viklet om en tynn aksel med radius $r < R$, og da erstattes momentarmen $R$ av $r$ — akselerasjonen blir enda mindre."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-17",
+      "type": "definition",
+      "title": "Rullemotstand",
+      "content": "Den lille bremsende virkningen som kommer av at hjulet og underlaget deformeres litt i kontaktflaten, slik at normalkraften ikke angriper nøyaktig rett under massesenteret.\n\nRullemotstand er **ikke** det samme som friksjonen som håndhever rullebetingelsen: rullemotstanden tapper faktisk energi, mens hvilefriksjonen ved ren rulling ikke gjør arbeid.\n\nI FYS1100 neglisjeres rullemotstanden gjennomgående, og det gjøres også i denne boka. Begrepet er tatt med her fordi det er lett å blande de to, og fordi «friksjon som ikke tar energi» kan virke selvmotsigende inntil skillet er klart."
+    },
+    {
+      "id": "fys1100-6-2-def-bank-18",
+      "type": "definition",
+      "title": "Ren rulling ved akselererende underlag",
+      "content": "En påminnelse om at rullebetingelsen $v = \\omega R$ gjelder farten i forhold til **underlaget**, ikke i forhold til bakken generelt.\n\nRuller en ball på et transportbånd som selv beveger seg, er det den relative farten mellom ball og bånd som skal være null i kontaktpunktet. Da blir betingelsen $v_{\\text{ball}} - v_{\\text{bånd}} = \\omega R$.\n\nPoenget er ikke pensum i seg selv, men det illustrerer hva betingelsen egentlig sier: **kontaktflatene glir ikke mot hverandre**. Alt annet er en konsekvens av det."
+    },
+    {
+      "id": "fys1100-6-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1100-6-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning | Enhet |\n|---|---|---|\n| $v$, $a$ | massesenterets fart og akselerasjon | $\\text{m/s}$, $\\text{m/s}^2$ |\n| $\\omega$, $\\alpha$ | vinkelfart og vinkelakselerasjon om massesenteret | $\\text{rad/s}$, $\\text{rad/s}^2$ |\n| $R$ | legemets radius (rulleradius) | $\\text{m}$ |\n| $M$, $m$ | masse (**skalar**) | $\\text{kg}$ |\n| $I$, $I_{cm}$ | treghetsmoment, om massesenteret | $\\text{kg}\\cdot\\text{m}^2$ |\n| $c = I/(MR^2)$ | formfaktoren — ren geometri | dimensjonsløs |\n| $\\theta$ | skråplanets helningsvinkel | grader eller rad |\n| $\\mathbf{N}$, $N$ | normalkraft og dens tallverdi | $\\text{N}$ |\n| $\\mathbf{f}_s$, $f_s$ | statisk friksjon (hvilefriksjon) | $\\text{N}$ |\n| $\\mathbf{f}_d$, $f_d$ | dynamisk friksjon (glidefriksjon) | $\\text{N}$ |\n| $\\mu_s$, $\\mu_d$ | statisk og dynamisk friksjonstall | dimensjonsløs |\n| $T$ | snordrag | $\\text{N}$ |\n| $h$, $s$ | fallhøyde og strekning langs planet | $\\text{m}$ |\n| $K$, $K_{\\text{rot}}$ | kinetisk energi, rotasjonsdelen | $\\text{J}$ |\n| $g$ | tyngdeakselerasjonen, $9{,}81\\,\\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner som er avklart i denne boka:** tyngden skrives $M\\mathbf{g}$ eller $\\mathbf{F}_g$, **aldri** $\\mathbf{G}$ — $G$ er gravitasjonskonstanten. $T$ er snordrag; en periode skrives $T_p$. Symbolet $\\alpha$ betyr vinkelakselerasjon i hele Del 6, mens helningsvinkelen er $\\theta$. Friksjonstall skrives alltid med subskript, $\\mu_s$ eller $\\mu_d$ — aldri bart $\\mu$. Treghetsmomentet $I$, massen $M$ og formfaktoren $c$ er **skalarer**.\n\n**Formler i dette delkapitlet:**\n\n$$v = \\omega R, \\qquad a = \\alpha R$$\n\nRullebetingelsen. **[formelarket]** — men den må gjenkjennes som en *betingelse* som bare gjelder ved ren rulling.\n\n$$K = \\tfrac12 Mv^2 + \\tfrac12 I\\omega^2$$\n\nKinetisk energi for kombinert translasjon og rotasjon. **[formelarket]** — begge leddene står der hver for seg.\n\n$$K = \\tfrac12(1+c)Mv^2, \\qquad c = \\frac{I}{MR^2}$$\n\nSamme energi samlet med rullebetingelsen. **[må kunne utledes]** — formfaktoren er en snarvei du innfører selv.\n\n$$v = \\sqrt{\\frac{2gh}{1+c}}$$\n\nSluttfart etter å ha rullet ned høyden $h$ fra hvile. **[må kunne utledes]** — via energibevaring, med begrunnelsen for at den gjelder skrevet ut.\n\n$$a = \\frac{g\\sin\\theta}{1+c}$$\n\nMassesenterets akselerasjon ned et skråplan ved ren rulling. **[må kunne utledes]** — både med energimetoden og med kraft/moment-metoden.\n\n$$f_s = \\frac{c}{1+c}\\,Mg\\sin\\theta$$\n\nDen statiske friksjonen som kreves for ren rulling. **[må kunne utledes]** — den finnes **bare** med kraft/moment-metoden, ikke med energi.\n\n$$\\mu_s \\ge \\frac{c}{1+c}\\tan\\theta$$\n\nBetingelsen for at rullingen forblir ren. **[må kunne utledes]** — merk ulikhetstegnet.\n\n$$a = \\frac{g}{1+c}, \\qquad T = \\frac{c}{1+c}\\,mg$$\n\nJojoens akselerasjon og snordrag. **[må kunne utledes]** — samme oppsett som skråplanet, med $\\theta = 90^\\circ$ og snordraget i friksjonens rolle.\n\n$$a = \\frac{(m_1-m_2)g}{m_1+m_2+I/R^2}$$\n\nAtwood-maskin med en trinse som har masse. **[må kunne utledes]** — leddet $I/R^2$ er trinsas effektive masse."
+        }
+      ]
+    },
+    {
+      "id": "fys1100-6-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1100-6-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/fys1100/fys1100-6-1).) En massiv sylinder har masse $2{,}0\\,\\text{kg}$ og radius $0{,}10\\,\\text{m}$. Finn treghetsmomentet om symmetriaksen og formfaktoren $c$.",
+            "solution": "$$I = \\tfrac12 MR^2 = \\tfrac12 \\cdot 2{,}0 \\cdot 0{,}010 = 0{,}010\\,\\text{kg}\\cdot\\text{m}^2$$\n\n$$c = \\frac{I}{MR^2} = \\frac{0{,}010}{0{,}020} = 0{,}50$$\n\nFormfaktoren er alltid tallfaktoren foran $MR^2$ — for en massiv sylinder er den $\\tfrac12$, uansett masse og radius.",
+            "hints": [
+              "Slå opp riktig linje i formelarkets tabell, og del deretter på $MR^2$."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/fys1100/fys1100-6-1).) Hvorfor gir tyngden null kraftmoment om en akse gjennom massesenteret?",
+            "solution": "Fordi tyngden kan behandles som om den angriper **i** massesenteret. Momentarmen — den vinkelrette avstanden fra aksen ned på kraftens virkelinje — er da null, og $\\tau = F \\cdot 0 = 0$.\n\nDette er grunnen til at bare friksjonen bidrar i momentlikningen for et rullende legeme. Å la tyngden bidra er felle #15 og koster typisk 2 poeng.",
+            "hints": [
+              "Hvor angriper tyngden, og hvor stor er momentarmen til en kraft som angriper i selve aksen?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/fys1100/fys1100-3-2).) En kloss med masse $4{,}0\\,\\text{kg}$ ligger på et skråplan med helning $25^\\circ$. Finn normalkraften og tyngdekomponenten langs planet.",
+            "solution": "$$N = mg\\cos\\theta = 4{,}0 \\cdot 9{,}81 \\cdot 0{,}906 = 35{,}6\\,\\text{N}$$\n\n$$F_{g,\\parallel} = mg\\sin\\theta = 4{,}0 \\cdot 9{,}81 \\cdot 0{,}423 = 16{,}6\\,\\text{N}$$\n\nnedover langs planet. Merk at $N \\neq mg = 39{,}2\\,\\text{N}$ — på et skråplan er normalkraften alltid mindre.",
+            "hints": [
+              "Legg aksene langs og normalt på planet før du dekomponerer tyngden."
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-2-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/fys1100/fys1100-5-1).) En kloss glir friksjonsfritt ned fra høyden $2{,}0\\,\\text{m}$. Finn farten nederst, og begrunn hvorfor energibevaring gjelder.",
+            "solution": "**Begrunnelse:** bare tyngden gjør arbeid — normalkraften står vinkelrett på bevegelsen, og det er ingen friksjon. Tyngden er konservativ, altså er mekanisk energi bevart.\n\n$$mgh = \\tfrac12 mv^2 \\quad \\Rightarrow \\quad v = \\sqrt{2gh} = \\sqrt{39{,}24} = 6{,}3\\,\\text{m/s}$$\n\nnedover langs planet. Massen faller ut.\n\nSammenlign med et rullende legeme fra samme høyde: der ville $\\tfrac12 I\\omega^2$ kommet i tillegg på høyre side, og farten blitt mindre.",
+            "hints": [
+              "Gå gjennom kreftene og spør om hver av dem gjør arbeid.",
+              "Hvilke krefter er konservative?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-2-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-2-r5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.3](/bok/fys1100/fys1100-3-3).) To lodd på $3{,}0\\,\\text{kg}$ og $2{,}0\\,\\text{kg}$ henger over en **masseløs** trinse. Finn akselerasjonen, og si hva som ville endret seg om trinsa hadde masse.",
+            "solution": "$$a = \\frac{(m_1-m_2)g}{m_1+m_2} = \\frac{1{,}0 \\cdot 9{,}81}{5{,}0} = 1{,}96\\,\\text{m/s}^2$$\n\nHadde trinsa hatt masse, ville to ting endret seg: snordraget ville ikke lenger vært likt på begge sider (forskjellen er det som gir trinsa moment), og trinsas treghetsmoment ville kommet inn i nevneren som en effektiv masse $I/R^2$:\n\n$$a = \\frac{(m_1-m_2)g}{m_1+m_2+I/R^2}$$\n\nAkselerasjonen ville altså blitt mindre.",
+            "hints": [
+              "Behandle de to loddene som ett system langs snora.",
+              "Hvor kommer trinsas treghetsmoment inn i regnskapet?"
+            ]
+          }
+        },
+        {
+          "id": "fys1100-6-2-rep-6",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1100-6-2-r6",
+            "number": "R6",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/fys1100/fys1100-2-1).) Et legeme starter fra ro med konstant akselerasjon $3{,}0\\,\\text{m/s}^2$ og tilbakelegger $6{,}0\\,\\text{m}$. Finn sluttfarten og tiden.",
+            "solution": "$$v = \\sqrt{2as} = \\sqrt{2 \\cdot 3{,}0 \\cdot 6{,}0} = 6{,}0\\,\\text{m/s}$$\n\n$$t = \\sqrt{\\frac{2s}{a}} = \\sqrt{\\frac{12}{3{,}0}} = 2{,}0\\,\\text{s}$$\n\nBegge likningene forutsetter **konstant** akselerasjon. For et legeme som ruller rent ned et jevnt skråplan er $a$ nettopp konstant, så de gjelder — men de gjelder ikke for en stav som svinger om et hengsel.",
+            "hints": [
+              "Bruk $v^2 = v_0^2 + 2as$ og $s = \\tfrac12 at^2$ for start fra ro."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
