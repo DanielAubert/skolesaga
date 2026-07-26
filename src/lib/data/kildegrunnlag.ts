@@ -222,6 +222,51 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  fys1100: {
+    courseId: 'fys1100',
+    institusjon: 'Universitetet i Oslo (UiO) — Fysisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot FYS1100s eksamensarkiv ved UiO: 38 filer fra 2021 til 2025 — 7 avsluttende skoleeksamener, 1 prøveeksamen og 10 midtveiseksamener, alle med løsningsforslag. Tre av løsningsforslagene har en innebygd sensorveiledning. Arkivet dekker i praksis hele emnets levetid, og sjangerkatalogen A–K, feilkatalogen og temavektingen er utledet av settene selv.',
+    eksamenssett: [
+      {
+        tittel: '7 avsluttende skoleeksamener (H2022 – H2025)',
+        detalj:
+          'H2022, V2023, H2023, V2024, H2024, V2025 og H2025 — alle med fullstendig løsningsforslag. Disse sju er frekvensnevneren i boka: hver gang det står «N av 7 sett», er det disse. Tidsserien er kort, så tallene bør leses som antall av sju, ikke som lange trender.',
+      },
+      {
+        tittel: '1 prøveeksamen (H2022) og 10 midtveiseksamener',
+        detalj:
+          'Prøveeksamenen med fasit, og midtveiseksamener fra H2022 til V2025 med fasit. Midtveis er ren flervalg i Inspera og dekker kun første halvdel av pensum. Disse er brukt til form- og temaregistrering, og teller IKKE med i frekvensnevneren.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Tre sensorveiledninger, innebygd i løsningsforslagene',
+        detalj:
+          'H2023 (rettet versjon), V2024 og V2025 har en sensorveiledning som egen seksjon inne i løsningsforslags-PDF-en — ikke som selvstendig dokument. De er påfallende stabile og bærer bokas metaregler: alt skal begrunnes, formler skrevet opp uten å bli brukt gir null, inntil 5 poeng per deloppgave med alle deloppgaver likt tellende, følgefeil straffes ikke når mellomregningen er sporbar, og flere gyldige metoder godtas. Boka påstår aldri at det finnes sensorveiledning for alle årganger.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for FYS1100',
+        detalj:
+          'Omskrevet sammendrag, kontrollert 26. juli 2026: midtveiseksamen 3 timer som teller 20 %, avsluttende skoleeksamen 4 timer som teller 80 %, karakterskala A–F. Hjelpemidler er godkjent kalkulator, Rottmanns «Matematisk formelsamling» og et fagspesifikt formelark bakerst i settet.',
+      },
+      {
+        tittel: 'FYS-MEK1110 midtveis 2021 med sensorveiledning',
+        detalj:
+          'Forgjengeremnets midtveiseksamen. Den er tatt med for kontekst og lavt vektlagt — den gjelder en annen emnekode og inngår verken i frekvenstellingen eller i sensorkravene boka utleder.',
+      },
+    ],
+    forbehold: [
+      'Løsningsforslagene er faglærerskrevne og opphavsrettsbeskyttet. De er brukt som fasitkilde for å kontrollere våre egne, nyskrevne løsninger — ingenting er gjengitt ordrett. Selve oppgavesettene er unntatt opphavsrett etter åndsverkloven § 14.',
+      'Tidsserien er kort: sju avsluttende sett over fire år. ±1 sett per celle er realistisk usikkerhet i frekvenstallene.',
+      'Lagrange-formalismen står i emnebeskrivelsen, men er ikke testet i noen av de sju settene. Boka omtaler den kort i eksamenskartet og bygger ingen oppgaver på den — det er et bevisst valg, ikke en forglemmelse.',
+      'Alle oppgaver, tall og innpakninger i boka er nyskrevne. All Python-kode er kjørt, og hver utskrift i boka er den maskinen faktisk gir — kontrollert av en egen port som sammenlikner tegn for tegn.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   fil1001: {
     courseId: 'fil1001',
     institusjon: 'Universitetet i Oslo (UiO) — Institutt for filosofi, idé- og kunsthistorie og klassiske språk (IFIKK)',
