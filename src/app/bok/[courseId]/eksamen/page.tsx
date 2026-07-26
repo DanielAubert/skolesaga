@@ -5,6 +5,7 @@ import { getFagprofilOrFallback, hasFagprofil } from "@/lib/data/fagprofil";
 import { getMalform } from "@/lib/i18n/malform";
 import { EksamenClient } from "./eksamen-client";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ courseId: string }>;
@@ -13,10 +14,20 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { courseId } = await params;
   const course = getCourse(courseId);
-  if (!course) return { title: "Eksamenstrening" };
+  // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
+  // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
+  if (!course) notFound();
+  const title = `Eksamenstrening – ${course.title}`;
+  const description = `Tren under eksamensbetingelser: tidspress og fagets faktiske scoring-regler for ${course.title}.`;
   return {
-    title: `Eksamenstrening – ${course.title}`,
-    description: `Tren under eksamensbetingelser: tidspress og fagets faktiske scoring-regler for ${course.title}.`,
+    title,
+    description,
+    ...pageMetadata({
+      path: `/bok/${courseId}/eksamen`,
+      title,
+      description,
+      image: course.coverImage,
+    }),
   };
 }
 

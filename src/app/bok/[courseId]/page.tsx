@@ -175,6 +175,7 @@ function getChapterIcon(chapter: TextbookChapterMeta): LucideIcon {
 import { getCourse, getChaptersBySection, getSectionNames } from '@/lib/data/textbook-courses';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { mediaUrl } from '@/lib/media';
+import { courseJsonLd, jsonLdScript, pageMetadata } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ courseId: string }>;
@@ -184,13 +185,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { courseId } = await params;
   const course = getCourse(courseId);
 
+  // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
+  // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
   if (!course) {
-    return { title: 'Kurs ikke funnet' };
+    notFound();
   }
 
+  const title = `${course.title} | Interaktiv Matematikkbok`;
+
   return {
-    title: `${course.title} | Interaktiv Matematikkbok`,
+    title,
     description: course.description,
+    ...pageMetadata({
+      path: `/bok/${courseId}`,
+      title,
+      description: course.description,
+      image: course.coverImage,
+    }),
   };
 }
 
@@ -215,8 +226,14 @@ export default async function CourseOverviewPage({ params }: PageProps) {
   const harEksamenstrening = eksamensbankAntall >= 4;
   const harKildegrunnlag = getKildegrunnlag(courseId) !== null;
 
+  const structuredData = courseJsonLd(course, sectionNames);
+
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(structuredData) }}
+      />
       <TextbookHeader />
       <TrackRecentVisit itemType="book" itemId={courseId} title={course.title} url={`/bok/${courseId}`} />
       <div className="container mx-auto px-4 py-8">
@@ -231,6 +248,8 @@ export default async function CourseOverviewPage({ params }: PageProps) {
         {/* Hero Image */}
         {course.coverImage && (
           <div className="relative w-full h-44 sm:h-56 md:h-72 lg:h-96 rounded-xl overflow-hidden mb-8 bg-muted">
+            {/* Med forsidebilde vises ingen tekstlig tittel — <h1> for skjermlesere */}
+            <h1 className="sr-only">{course.title}</h1>
             <Image
               src={mediaUrl(course.coverImage)}
               alt={course.title}

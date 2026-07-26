@@ -8,6 +8,14 @@ import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { hasChemistryQuiz } from '@/lib/data/chemistry-quiz-data';
 import { hasSamfunnskunnskapQuiz } from '@/lib/data/samfunnskunnskap-quiz-data';
 import { TrackRecentVisit } from '@/components/track-recent-visit';
+import {
+  absoluteUrl,
+  canonicalChapterId,
+  chapterImagePath,
+  chapterJsonLd,
+  jsonLdScript,
+  pageMetadata,
+} from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ courseId: string; chapterId: string }>;
@@ -18,13 +26,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const course = getCourse(courseId);
   const chapterMeta = getChapterMeta(courseId, chapterId);
 
+  // ⚠️ SOFT-404-FELLE (regresjonsvern): en `loading.tsx` i et FORELDRESEGMENT
+  // lager en Suspense-grense rundt hele siden. Da skylles skallet — og dermed
+  // HTTP-statuskoden 200 — ut FØR notFound() rekker å kjøre, verken herfra
+  // eller fra sidekomponenten. Resultatet er en «soft 404»: Google indekserer
+  // uendelig mange ikke-eksisterende kapitler som gyldige sider.
+  // `src/app/loading.tsx` ble fjernet nettopp derfor. Skal en loading-skjelett
+  // gjeninnføres, må den scopes til en rutegruppe som IKKE omslutter /bok
+  // (f.eks. app/(hjem)/loading.tsx) — og statuskodene må verifiseres med curl
+  // mot prod-server etterpå, ikke bare i koden.
   if (!course || !chapterMeta) {
-    return { title: 'Kapittel ikke funnet' };
+    notFound();
   }
 
+  const title = `${chapterMeta.number} ${chapterMeta.title} | ${course.title}`;
+  // Narrativkapitler kanoniserer til originalen — se canonicalChapterId().
+  const canonicalId = canonicalChapterId(course, chapterMeta);
+
   return {
-    title: `${chapterMeta.number} ${chapterMeta.title} | ${course.title}`,
+    title,
     description: chapterMeta.description,
+    ...pageMetadata({
+      path: `/bok/${courseId}/${chapterId}`,
+      canonicalPath: `/bok/${courseId}/${canonicalId}`,
+      title,
+      description: chapterMeta.description,
+      image: chapterImagePath(course, chapterMeta),
+      ogType: 'article',
+    }),
   };
 }
 
@@ -79,8 +108,22 @@ export default async function ChapterPage({ params }: PageProps) {
     title: c.title,
   }));
 
+  // Strukturerte data bygges alltid på bokmålsmetadataen — søkemotorer setter
+  // ingen målform-cookie og ser derfor bokmålsversjonen. Samme kilde som
+  // generateMetadata bruker, så <title> og JSON-LD ikke spriker.
+  const seoMetaBase = getChapterMeta(courseId, chapterId) ?? chapterMeta;
+  const seoMeta = seoMetaBase.coverImage
+    ? seoMetaBase
+    : { ...seoMetaBase, coverImage: chapterImagePath(course, seoMetaBase) };
+  const canonicalUrl = absoluteUrl(`/bok/${courseId}/${canonicalChapterId(course, seoMeta)}`);
+  const structuredData = chapterJsonLd(course, seoMeta, canonicalUrl);
+
   return (
     <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: jsonLdScript(structuredData) }}
+    />
     <TrackRecentVisit
       itemType="chapter"
       itemId={`${courseId}/${chapterId}`}

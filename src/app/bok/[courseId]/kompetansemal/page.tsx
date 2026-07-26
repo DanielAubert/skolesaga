@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { getCourse, getChaptersBySection, getSectionNames } from '@/lib/data/textbook-courses';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { BreadcrumbHomeLink } from '@/components/book/breadcrumb-home-link';
+import { pageMetadata } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ courseId: string }>;
@@ -16,16 +17,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { courseId } = await params;
   const course = getCourse(courseId);
 
+  // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
+  // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
   if (!course) {
-    return { title: 'Kurs ikke funnet' };
+    notFound();
   }
 
+  const title = `Kompetansemål - ${course.title} | Skolesaga`;
+  const description =
+    course.level === 'Høyskole'
+      ? `Oversikt over alle læringsmål dekket i ${course.title}`
+      : `Oversikt over alle kompetansemål (LK20) dekket i ${course.title}`;
+
   return {
-    title: `Kompetansemål - ${course.title} | Skolesaga`,
-    description:
-      course.level === 'Høyskole'
-        ? `Oversikt over alle læringsmål dekket i ${course.title}`
-        : `Oversikt over alle kompetansemål (LK20) dekket i ${course.title}`,
+    title,
+    description,
+    ...pageMetadata({
+      path: `/bok/${courseId}/kompetansemal`,
+      title,
+      description,
+      image: course.coverImage,
+    }),
   };
 }
 

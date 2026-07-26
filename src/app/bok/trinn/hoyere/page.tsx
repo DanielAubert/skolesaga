@@ -4,11 +4,20 @@ import { ChevronLeft } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 import { INSTITUSJONER } from './institusjoner';
+import { pageMetadata } from '@/lib/seo';
+
+const HOYERE_TITLE = 'Høyskole/universitet | Interaktive Lærebøker';
+const HOYERE_DESCRIPTION =
+  'Vi har lest eksamensarkivet for deg: eksamensrettede lærebøker per emne, bygget på tidligere eksamener og – der de finnes – sensorveiledninger. Velg institusjon for å se fagene.';
 
 export const metadata: Metadata = {
-  title: 'Høyskole/universitet | Interaktive Lærebøker',
-  description:
-    'Vi har lest eksamensarkivet for deg: eksamensrettede lærebøker per emne, bygget på tidligere eksamener og – der de finnes – sensorveiledninger. Velg institusjon for å se fagene.',
+  title: HOYERE_TITLE,
+  description: HOYERE_DESCRIPTION,
+  ...pageMetadata({
+    path: '/bok/trinn/hoyere',
+    title: HOYERE_TITLE,
+    description: HOYERE_DESCRIPTION,
+  }),
 };
 
 function countAvailable(subjects: { courseId: string }[]) {

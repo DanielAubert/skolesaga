@@ -6,6 +6,7 @@ import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 import { AddCourseButton } from '@/components/student/add-course-button';
 import { mediaUrl } from '@/lib/media';
+import { pageMetadata } from '@/lib/seo';
 
 // Define grade configurations
 const GRADE_CONFIG: Record<string, {
@@ -243,13 +244,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { grade } = await params;
   const config = GRADE_CONFIG[grade];
 
+  // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
+  // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
   if (!config) {
-    return { title: 'Klassetrinn ikke funnet' };
+    notFound();
   }
 
+  const title = `${config.title} | Interaktive Lærebøker`;
+  const description = `Alle lærebøker for ${config.title}. ${config.subjects.length} fag tilgjengelig.`;
+
   return {
-    title: `${config.title} | Interaktive Lærebøker`,
-    description: `Alle lærebøker for ${config.title}. ${config.subjects.length} fag tilgjengelig.`,
+    title,
+    description,
+    ...pageMetadata({ path: `/bok/trinn/${grade}`, title, description }),
   };
 }
 
@@ -385,6 +392,8 @@ export default async function GradePage({ params }: PageProps) {
       {/* Hero Section with image or gradient */}
       {config.image ? (
         <div className="relative overflow-hidden h-48 md:h-64 lg:h-72">
+          {/* Bildevarianten har ingen synlig tittel — skjermlesere trenger likevel en <h1> */}
+          <h1 className="sr-only">{config.title}</h1>
           {/* Background image - cropped and centered */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

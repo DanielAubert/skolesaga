@@ -6,9 +6,40 @@ import { getQuizQuestions } from "@/lib/data/quiz-data";
 import { getChemistryQuizQuestions } from "@/lib/data/chemistry-quiz-data";
 import { getSamfunnskunnskapQuizQuestions } from "@/lib/data/samfunnskunnskap-quiz-data";
 import { getMalform } from "@/lib/i18n/malform";
+import { canonicalChapterId, chapterImagePath, pageMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{ courseId: string; chapterId: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { courseId, chapterId } = await params;
+  const course = getCourse(courseId);
+  const chapterMeta = getChapterMeta(courseId, chapterId);
+
+  // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
+  // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
+  if (!course || !chapterMeta) {
+    notFound();
+  }
+
+  // Quiz på et narrativkapittel er samme quiz som på originalen — kanoniser dit.
+  const canonicalId = canonicalChapterId(course, chapterMeta);
+  const title = `Quiz: ${chapterMeta.number} ${chapterMeta.title} | ${course.title}`;
+  const description = `Test deg selv på ${chapterMeta.number} ${chapterMeta.title} i ${course.title}.`;
+
+  return {
+    title,
+    description,
+    ...pageMetadata({
+      path: `/bok/${courseId}/${chapterId}/quiz`,
+      canonicalPath: `/bok/${courseId}/${canonicalId}/quiz`,
+      title,
+      description,
+      image: chapterImagePath(course, chapterMeta),
+    }),
+  };
 }
 
 export default async function QuizPage({ params }: PageProps) {

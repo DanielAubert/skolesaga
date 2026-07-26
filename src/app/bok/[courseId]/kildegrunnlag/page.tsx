@@ -13,6 +13,7 @@ import { getCourse } from '@/lib/data/textbook-courses';
 import { getKildegrunnlag, type KildeGruppe } from '@/lib/data/kildegrunnlag';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { BreadcrumbHomeLink } from '@/components/book/breadcrumb-home-link';
+import { pageMetadata } from '@/lib/seo';
 
 /**
  * Kildegrunnlag-side per høyskolebok: hvilke eksamenssett, sensorveiledninger
@@ -28,12 +29,22 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { courseId } = await params;
   const course = getCourse(courseId);
+  // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
+  // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
   if (!course || !getKildegrunnlag(courseId)) {
-    return { title: 'Kildegrunnlag ikke funnet' };
+    notFound();
   }
+  const title = `Kildegrunnlag — ${course.title} | Skolesaga`;
+  const description = `Hvilke eksamenssett, sensorveiledninger og andre kilder boka for ${course.title} er bygget på.`;
   return {
-    title: `Kildegrunnlag — ${course.title} | Skolesaga`,
-    description: `Hvilke eksamenssett, sensorveiledninger og andre kilder boka for ${course.title} er bygget på.`,
+    title,
+    description,
+    ...pageMetadata({
+      path: `/bok/${courseId}/kildegrunnlag`,
+      title,
+      description,
+      image: course.coverImage,
+    }),
   };
 }
 

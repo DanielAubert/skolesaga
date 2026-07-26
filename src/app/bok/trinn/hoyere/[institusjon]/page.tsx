@@ -7,6 +7,7 @@ import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 import { AddCourseButton } from '@/components/student/add-course-button';
 import { mediaUrl } from '@/lib/media';
 import { INSTITUSJONER, getInstitusjon } from '../institusjoner';
+import { pageMetadata } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ institusjon: string }>;
@@ -16,13 +17,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { institusjon } = await params;
   const inst = getInstitusjon(institusjon);
 
+  // Fail fast når innholdet ikke finnes — se soft-404-merknaden i
+  // [chapterId]/page.tsx for hvorfor statuskoden er skjør her.
   if (!inst) {
-    return { title: 'Institusjon ikke funnet' };
+    notFound();
   }
 
+  const title = `${inst.name} | Høyskole/universitet | Interaktive Lærebøker`;
+  const description = `Eksamensrettede lærebøker for emner ved ${inst.fullName}.`;
+
   return {
-    title: `${inst.name} | Høyskole/universitet | Interaktive Lærebøker`,
-    description: `Eksamensrettede lærebøker for emner ved ${inst.fullName}.`,
+    title,
+    description,
+    ...pageMetadata({ path: `/bok/trinn/hoyere/${institusjon}`, title, description }),
   };
 }
 
