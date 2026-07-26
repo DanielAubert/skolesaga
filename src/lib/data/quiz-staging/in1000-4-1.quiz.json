@@ -1,0 +1,282 @@
+[
+  {
+    "question": "Hva skriver dette ut?\n\n```python\na = \"5\"\nb = \"2\"\nprint(a + b)\n```",
+    "options": [
+      "52",
+      "7",
+      "5 2",
+      "52.0"
+    ],
+    "explanation": "Begge verdiene er tekster, så plusstegnet skjøter dem. `7` krever `int(a) + int(b)`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(8 / 4)\n```",
+    "options": [
+      "2.0",
+      "2",
+      "4.0",
+      "2.00"
+    ],
+    "explanation": "`/` gir alltid desimaltall, også når regnestykket går opp. I et auto-rettet felt er `2` galt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(17 // 5, 17 % 5)\n```",
+    "options": [
+      "3 2",
+      "3.4 2",
+      "2 3",
+      "3, 2"
+    ],
+    "explanation": "Heltallsdivisjon gir 3 hele femmere, og resten er 2. `print` skiller de to verdiene med ett mellomrom, ikke med komma."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(\"ab\" * 3)\n```",
+    "options": [
+      "ababab",
+      "ab ab ab",
+      "abababab",
+      "ab3"
+    ],
+    "explanation": "En tekst ganget med et heltall gjentar teksten, uten mellomrom mellom. Hadde `\"ab\"` vært et tall, ville det vært en vanlig multiplikasjon."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(\"a\", \"b\")\nprint(\"a\" + \"b\")\n```",
+    "options": [
+      "a b\nab",
+      "a b\na b",
+      "ab\nab",
+      "a,b\nab"
+    ],
+    "explanation": "Komma mellom argumentene gir ett mellomrom; pluss skjøter uten. Skillet er verdt et poeng i nesten hver eneste Oppgave 1."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nx = 40\nif x > 40:\n    print(\"A\")\nelif x > 20:\n    print(\"B\")\nelse:\n    print(\"C\")\n```",
+    "options": [
+      "B",
+      "A",
+      "C",
+      "A\nB"
+    ],
+    "explanation": "Kantverdien: `40 > 40` er usann, så første gren hoppes over. Bare den **første sanne** grenen i en kjede kjøres."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nx = 30\nif x > 20:\n    print(\"A\")\nif x > 10:\n    print(\"B\")\n```",
+    "options": [
+      "A\nB",
+      "A",
+      "B",
+      "A B"
+    ],
+    "explanation": "To selvstendige `if`-er er to uavhengige spørsmål, og begge er sanne. Med `elif` på linje tre ville bare `A` blitt skrevet."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\na = 2\nb = 1\nfor i in range(2):\n    a = a + b\n    b = a + b\nprint(a, b)\n```",
+    "options": [
+      "7 11",
+      "6 6",
+      "3 4",
+      "7 8"
+    ],
+    "explanation": "Andre linje bruker den **nye** verdien av `a`, fordi den allerede er oppdatert i samme runde. `6 6` er svaret hvis man bruker den gamle `a`, og `3 4` hvis man stopper etter én runde."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntotal = 0\nfor i in range(4):\n    for j in range(i):\n        total = total + 1\nprint(total)\n```",
+    "options": [
+      "6",
+      "10",
+      "12",
+      "4"
+    ],
+    "explanation": "Den indre løkka kjører 0, 1, 2 og 3 ganger. `range(0)` gir ingen runder i det hele tatt, så den første ytre runden gjør ingenting."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nn = 12\ns = 0\nwhile n > 1:\n    s = s + n\n    n = n // 2\nprint(s, n)\n```",
+    "options": [
+      "21 1",
+      "21 0",
+      "18 1",
+      "12 1"
+    ],
+    "explanation": "Rundene legger til 12, 6 og 3, og `n` ender på 1 fordi betingelsen svikter der. Summen bruker den **gamle** verdien av `n` hver runde."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nfor i in range(8, 0, -3):\n    pass\nprint(i)\n```",
+    "options": [
+      "2",
+      "0",
+      "5",
+      "8"
+    ],
+    "explanation": "`range(8, 0, -3)` gir 8, 5 og 2 — stoppverdien er aldri med. Løkkevariabelen lever videre etter løkka med sin siste verdi."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ni = 0\nwhile i < 5:\n    i = i + 2\nprint(i)\n```",
+    "options": [
+      "6",
+      "5",
+      "4",
+      "7"
+    ],
+    "explanation": "Løkka stopper først når betingelsen er usann, og da har `i` allerede blitt 6. En `while`-variabel har den verdien som gjorde betingelsen usann."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntall = [4, 8, 15, 16]\nprint(tall[1], tall[-2])\n```",
+    "options": [
+      "8 15",
+      "4 16",
+      "8 16",
+      "4 15"
+    ],
+    "explanation": "Indeks 1 er det **andre** elementet, og `-2` er det nest siste. Å lese `[1]` som «det første» er feilkode #5."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntall = [4, 8, 15]\nprint(len(tall), tall)\n```",
+    "options": [
+      "3 [4, 8, 15]",
+      "3 4, 8, 15",
+      "3 [4,8,15]",
+      "[4, 8, 15] 3"
+    ],
+    "explanation": "Hele lista skrives med hakeparenteser, komma og ett mellomrom etter hvert komma. Lengden er en enkeltverdi og får ingen parenteser."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nliste = [1, 2, 3]\nny = []\nfor e in liste:\n    ny.append(e * 2)\nliste[0] = 9\nprint(liste, ny)\n```",
+    "options": [
+      "[9, 2, 3] [2, 4, 6]",
+      "[9, 2, 3] [18, 4, 6]",
+      "[1, 2, 3] [2, 4, 6]",
+      "[9, 2, 3] [9, 2, 3]"
+    ],
+    "explanation": "`ny` ble bygget ferdig før lista ble endret, og inneholder ferdig utregnede tall. Tredje alternativ er hva du får hvis `ny = liste` — det er aliasing, feilkode #15."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nv = [6, 2, 9]\nr = []\nfor i in range(1, len(v)):\n    r.append(v[i] - v[i - 1])\nprint(r)\n```",
+    "options": [
+      "[-4, 7]",
+      "[-4, 7, 3]",
+      "[4, -7]",
+      "[6, 2, 9]"
+    ],
+    "explanation": "Løkka går over indeks 1 og 2 — tre tall gir to avstander. Minus én i grensen er unødvendig her fordi løkka **starter** på 1 i stedet."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntall = [5, 3, 8, 1]\nvalgt = []\ni = 0\nwhile i < len(tall):\n    valgt.append(tall[i])\n    i = i + 2\nprint(valgt, i)\n```",
+    "options": [
+      "[5, 8] 4",
+      "[5, 8] 2",
+      "[3, 1] 4",
+      "[5, 3, 8, 1] 4"
+    ],
+    "explanation": "Steget 2 treffer indeks 0 og 2; ved `i = 4` er betingelsen usann. Etter løkka står `i` på 4, verdien som gjorde betingelsen usann."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {\"a\": 2}\nd[\"b\"] = 5\nd[\"a\"] = d[\"a\"] + 3\nprint(d)\n```",
+    "options": [
+      "{'a': 5, 'b': 5}",
+      "{'a': 2, 'b': 5}",
+      "{'b': 5, 'a': 5}",
+      "{'a': 5, 'b': 5, 'a': 2}"
+    ],
+    "explanation": "Den ene tilordningen oppretter en ny nøkkel, den andre overskriver en verdi. Rekkefølgen følger **opprettelsen**, så `a` beholder plassen først."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {}\nfor b in \"kake\":\n    if b not in d:\n        d[b] = 0\n    d[b] = d[b] + 1\nprint(d)\n```",
+    "options": [
+      "{'k': 2, 'a': 1, 'e': 1}",
+      "{'a': 1, 'e': 1, 'k': 2}",
+      "{'k': 1, 'a': 1, 'e': 1}",
+      "{'k': 2, 'a': 2, 'e': 1}"
+    ],
+    "explanation": "Teller-idiomet over en tekst. Nøklene står i den rekkefølgen de ble opprettet i, ikke alfabetisk — og tekstnøkler får enkle anførselstegn."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {4: 3, 1: 2}\nprint(d, len(d), d[4])\n```",
+    "options": [
+      "{4: 3, 1: 2} 2 3",
+      "{'4': 3, '1': 2} 2 3",
+      "{4: 3, 1: 2} 5 3",
+      "{4: 3, 1: 2} 2 4"
+    ],
+    "explanation": "Heltallsnøkler skrives **uten** anførselstegn. `len(d)` teller par, ikke summen av verdiene, og `d[4]` er verdien til nøkkelen 4."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nd = {\"a\": 1, \"b\": 2}\nfor k in d:\n    d[k] = d[k] * 10\nprint(d)\n```",
+    "options": [
+      "{'a': 10, 'b': 20}",
+      "{'a': 1, 'b': 2}",
+      "{'a': 10, 'b': 10}",
+      "{'a': 11, 'b': 12}"
+    ],
+    "explanation": "Løkkevariabelen er nøkkelen, og verdien skrives tilbake på samme nøkkel. Å endre verdier under en løkke er trygt; å legge til nøkler er det ikke."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nlinje = \"31;Grorud;Fornebu\"\nfelt = linje.split(\";\")\nprint(felt)\nprint(felt[-1], len(felt))\n```",
+    "options": [
+      "['31', 'Grorud', 'Fornebu']\nFornebu 3",
+      "['31', 'Grorud', 'Fornebu']\n'Fornebu' 3",
+      "[31, Grorud, Fornebu]\nFornebu 3",
+      "['31', 'Grorud', 'Fornebu']\nFornebu 2"
+    ],
+    "explanation": "Hele lista vises med enkle anførselstegn rundt hver tekst; ett element skrevet ut alene får ingen. Delingen gir tre felt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nny = \"\"\nfor tegn in \"sti\":\n    ny = tegn + ny\nprint(ny)\n```",
+    "options": [
+      "its",
+      "sti",
+      "i",
+      "s"
+    ],
+    "explanation": "`ny = tegn + ny` setter det nye tegnet **foran**, så teksten snus. `ny = ny + tegn` ville gitt teksten uendret."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef f(x):\n    if x > 5:\n        return x - 5\n    return 0\nprint(f(5), f(9), f(2))\n```",
+    "options": [
+      "0 4 0",
+      "0 4 3",
+      "5 4 0",
+      "0 9 0"
+    ],
+    "explanation": "Kantverdien: `5 > 5` er usann, så første kall faller til `return 0`. Kall nummer tre gjør det samme, men fordi 2 er mindre enn 5."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef g(t):\n    n = 0\n    for tegn in t:\n        n = n + 1\n    return n\nprint(g(\"buss\"), g(\"\"))\n```",
+    "options": [
+      "4 0",
+      "4 None",
+      "4",
+      "5 0"
+    ],
+    "explanation": "Telleren returnerer 0 for den tomme teksten, fordi løkka kjører null runder. `None` ville krevd at funksjonen manglet `return`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(1, 2.0, True)\n```",
+    "options": [
+      "1 2.0 True",
+      "1 2 True",
+      "1 2.0 true",
+      "1, 2.0, True"
+    ],
+    "explanation": "Hver verdi skrives i sin egen form: heltallet uten desimal, desimaltallet med, og den boolske verdien med stor forbokstav."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(\"3\" == 3, 3 == 3.0)\n```",
+    "options": [
+      "False True",
+      "True True",
+      "False False",
+      "True False"
+    ],
+    "explanation": "En tekst og et tall er aldri like, men et heltall og et desimaltall med samme verdi er det. Første del er feilkode #3."
+  },
+  {
+    "question": "Hva er det første du gjør når du får en sporingsoppgave med en løkke?",
+    "options": [
+      "Skriver opp hvilke verdier `range` faktisk gir",
+      "Regner ut sluttverdien og kontrollerer den bakover",
+      "Skriver om løkka til en form du kjenner bedre",
+      "Ser etter hvilken feilkode oppgaven sannsynligvis tester"
+    ],
+    "explanation": "Å telle rundene før du regner tar femten sekunder og fjerner den vanligste kilden til feil svar. Deretter fører du tavle, én rad per runde, ovenfra og ned."
+  }
+]

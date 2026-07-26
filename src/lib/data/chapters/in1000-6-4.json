@@ -1,0 +1,357 @@
+{
+ "id": "in1000-6-4",
+ "courseId": "in1000",
+ "chapterNumber": "6.4",
+ "title": "Terminal-interaksjon i klasser",
+ "description": "Lese fra brukeren og gjenta spørsmålet til svaret er gyldig — sjangeren som oftest ligger som en deloppgave inne i den store oppgaven.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne be brukeren om en verdi og gjøre den om til riktig type",
+  "kunne gjenta et spørsmål til svaret er gyldig, med riktig plasserte kall",
+  "kunne skrive gyldighetstesten for en samling, et indeksområde og et tallområde",
+  "kunne legge spørsmålet inn i en metode som returnerer objektet brukeren valgte"
+ ],
+ "content": [
+  {
+   "id": "in1000-6-4-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Terminal-interaksjon står i 3 av 6 moderne eksamenssett (50 %)**, verdt 5–7\npoeng, og nesten alltid som **en deloppgave inne i Oppgave 4** — den store\nklassemodelleringen.\n\nSjangeren heter **H — terminal-interaksjon**, altså å be brukeren om noe og\ngjenta spørsmålet til svaret er gyldig. Bestillingene går igjen: «spør brukeren\nom et navn til det finnes i registeret», «be om et valg til det er ett av\nalternativene».\n\n**Dette skal du kunne** — bokas midterste av tre prioritetsnivåer. Det er færre\npoeng enn klassene og filbehandlingen, og mønsteret er kort.\n\nÉn feil tar nesten alle poengene: **#9** — å spørre **én** gang med en `if`, i\nstedet for å gjenta i en `while`-løkke til svaret er gyldig. Og én til er nesten\nlike vanlig: **#4**, glemt `int(...)`, fordi `input` **alltid** gir tekst.\n\n**Kodeblokkene med `input` i dette kapitlet er merket som ikke-kjørbare**, fordi\nde venter på at noen skal skrive noe. Dialogen vises i stedet som en\nterminalutskrift, og kapitlet har en kjørbar variant der «brukerens» svar kommer\nfra en liste."
+  },
+  {
+   "id": "in1000-6-4-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 6.2 — Samarbeidende klasser](/bok/in1000/in1000-6-2) og\n[kap. 1.3 — Løkker](/bok/in1000/in1000-1-3), og bruker\n`int(...)` fra [kap. 1.1](/bok/in1000/in1000-1-1).\n\n**De to tingene du trenger**, friskes opp med kjørt kode.\n\n**1. `while` gjentar så lenge betingelsen er sann:**\n\n```python\nsvar = \"x\"\ngyldige = [\"ja\", \"nei\"]\nforsok = 0\nwhile svar not in gyldige:\n    forsok = forsok + 1\n    if forsok == 1:\n        svar = \"kanskje\"\n    else:\n        svar = \"ja\"\nprint(svar, forsok)\n```\n\n**Utskrift:**\n```\nja 2\n```\n\nHer står to «svar» i koden i stedet for at noen skriver dem. Det er nøyaktig det\ngrepet vi bruker for å kunne kjøre eksemplene i dette kapitlet.\n\n**2. Tekst må konverteres før den kan regnes med:**\n\n```python\ntekst = \"12\"\nprint(tekst + tekst)\nprint(int(tekst) + int(tekst))\n```\n\n**Utskrift:**\n```\n1212\n24\n```\n\nAlt brukeren skriver, er tekst. Det er hele grunnen til at `int(...)` er så\nsentralt her."
+  },
+  {
+   "id": "in1000-6-4-3",
+   "type": "text",
+   "content": "## Løkke 1 — `input` gir alltid tekst (~11 min)\n\nEt treningssenter skal spørre hvilken sal medlemmet vil melde seg på. Programmet\nmå da stoppe opp, vente på at noen skriver noe, og fortsette med det som ble\nskrevet.\n\nDet er `input` sin eneste jobb — og den ene tingen alle bommer på første gang, er\nat svaret **alltid** er en tekst."
+  },
+  {
+   "id": "in1000-6-4-4",
+   "type": "definition",
+   "title": "`input(melding)`",
+   "content": "Skriver ut meldingen, venter på at brukeren skriver en linje og trykker enter, og\ngir linja tilbake som en **tekst**.\n\n```text\nnavn = input(\"Hva heter du? \")\nprint(\"Hei,\", navn)\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på at noen skriver noe.\n\n**Terminaldialog (det brukeren skriver, står etter spørsmålet):**\n```\nHva heter du? Ada\nHei, Ada\n```\n\nTo detaljer er verdt å merke seg. **Meldingen skrives uten linjeskift**, så\nbrukeren skriver på samme linje — derfor slutter meldingen som regel med et\nmellomrom.\n\nOg **linjeskiftet brukeren trykker, er ikke med** i teksten du får. `input` renser\ndet bort selv, i motsetning til `readline` fra\n[kap. 7.1](/bok/in1000/in1000-7-1)."
+  },
+  {
+   "id": "in1000-6-4-5",
+   "type": "definition",
+   "title": "`int(input(...))`",
+   "content": "Skal svaret brukes som tall, må det konverteres:\n\n```text\nalder = int(input(\"Hvor gammel er du? \"))\nprint(\"Om ti aar er du\", alder + 10)\n```\n\nBlokken er merket som ikke-kjørbar.\n\n**Terminaldialog:**\n```\nHvor gammel er du? 24\nOm ti aar er du 34\n```\n\nUten `int(...)` ville `alder + 10` stoppet programmet med\n`TypeError: can only concatenate str (not \"int\") to str`. Det er feilkode **#4**,\nglemt konvertering — den samme som ved filinnlesing.\n\n**Skriver brukeren noe som ikke er et tall**, stopper `int(...)` programmet med\n`ValueError: invalid literal for int() with base 10: 'nei'`. Å håndtere det\nkrever konstruksjoner utenfor pensum her; oppgavene i denne boka forutsetter at\nbrukeren skriver et tall når det er tall det spørres om."
+  },
+  {
+   "id": "in1000-6-4-6",
+   "type": "example",
+   "title": "Eksempel 1: Ett spørsmål, ett svar",
+   "problem": "Vis den enkleste formen for terminal-interaksjon, og hva som skiller et\ntekstsvar fra et tallsvar.",
+   "solution": "Programmet spør om to ting, og bare den ene konverteres:\n\n```text\nnavn = input(\"Navn: \")\nantall = int(input(\"Antall okter denne uka: \"))\nprint(navn, \"har trent\", antall, \"ganger\")\nprint(\"Neste uke blir det\", antall + 1)\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\n**Terminaldialog:**\n```\nNavn: Ada\nAntall okter denne uka: 3\nAda har trent 3 ganger\nNeste uke blir det 4\n```\n\n**Legg merke til hva som skjer uten `int(...)`.** Da ville `antall` vært teksten\n`\"3\"`, og `antall + 1` ville stoppet programmet. Hadde du i stedet skrevet\n`antall + \"1\"`, ville svaret blitt `31` — skjøting i stedet for addisjon, som er\nfeilkode **#3**.\n\n**Navnet skal derimot ikke konverteres.** Det er en merkelapp, ikke et tall. Samme\nregel som ved filinnlesing: konverter bare det du faktisk skal regne med.\n\n**Slik ville sensor sett på det:** tre ting gir uttelling — `input` med en\nforståelig melding, `int(...)` på tallet, og at teksten ikke konverteres.\n\n**Merk mellomrommet på slutten av meldingene.** Uten det ville brukeren skrevet\nrett inntil kolonet. Det er en liten detalj, men den gjør dialogen lesbar."
+  },
+  {
+   "id": "in1000-6-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — gjengivelse.) Se på de to linjene:\n\n```text\na = input(\"Tall: \")\nb = int(input(\"Tall: \"))\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata. Brukeren skriver\n`5` begge ganger.\n\n**a)** Hvilken type har `a`, og hvilken har `b`?\n\n**b)** Hva skriver `print(a + a)` ut, og hva skriver `print(b + b)` ut?\n\n**c)** Hva må du gjøre for at `a` skal kunne brukes i et regnestykke?",
+    "solution": "**a)** `a` er en **tekst** — `input` gir alltid tekst. `b` er et **heltall**, fordi\n`int(...)` konverterte svaret.\n\n**b)** `a + a` skjøter to tekster og gir `55`. `b + b` legger sammen to tall og gir\n`10`.\n\nKjørt med de samme verdiene, uten `input`:\n\n```python\na = \"5\"\nb = int(\"5\")\nprint(a + a)\nprint(b + b)\n```\n\n**Utskrift:**\n```\n55\n10\n```\n\n**c)** Konvertere den: `int(a)`. Enten der du leser den —\n`a = int(input(\"Tall: \"))` — eller der du bruker den — `int(a) + int(a)`.\n\n**Den første formen er å foretrekke.** Konverter så snart verdien er lest, ikke\nspredt utover i koden. Da vet du alltid hvilken type en variabel har.",
+    "hints": [
+     "Hva gir `input` alltid tilbake, uansett hva brukeren skriver?",
+     "Hva betyr plusstegnet mellom to tekster?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-4-7",
+   "type": "text",
+   "content": "## Løkke 2 — Spør til svaret er gyldig (~12 min)\n\nNå kommer selve eksamensmønsteret.\n\nBrukeren skriver noe som ikke finnes. Programmet skal **ikke** gi opp, og det\nskal **ikke** gå videre med et ugyldig svar. Det skal spørre på nytt — og på nytt\n— til svaret er gyldig."
+  },
+  {
+   "id": "in1000-6-4-8",
+   "type": "theorem",
+   "title": "Input-løkke-malen",
+   "content": "Bokas nittende kodemønster. Fire linjer, og de er hele sjanger H:\n\n```text\n    svar = input(\"Velg: \")\n    while svar not in gyldige:\n        svar = input(\"Ugyldig, prov igjen: \")\n    return svar\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\nFire regler:\n\n1. **Første `input` står FØR løkka** — ellers har `while` ingenting å teste.\n2. **`while`, ikke `if`.** En `if` spør bare én gang til. Det er feilkode **#9**,\n   og det er den vanligste feilen i hele sjangeren.\n3. **Nytt `input` INNE i løkka.** Glemmer du det, henger programmet: betingelsen\n   endrer seg aldri.\n4. **Løkka avsluttes av seg selv** når svaret er gyldig, og `svar` inneholder da\n   den gyldige verdien.\n\nFormen er nøyaktig den samme som filinnlesing-løkka fra\n[kap. 7.1](/bok/in1000/in1000-7-1): ett kall før løkka, ett inne i den."
+  },
+  {
+   "id": "in1000-6-4-9",
+   "type": "warning",
+   "title": "Typisk feil #9 — `if` i stedet for `while`",
+   "content": "Feilkode **#9** er å spørre **én gang til** i stedet for å gjenta til svaret er\ngyldig:\n\n```text\n    svar = input(\"Velg sal: \")\n    if svar not in self._saler:\n        svar = input(\"Finnes ikke, prov igjen: \")\n    return svar\n```\n\nBlokken er merket som ikke-kjørbar fordi feilen er plantet med vilje.\n\nKoden ser nesten riktig ut, og den virker helt til brukeren skriver feil **to**\nganger. Da går programmet videre med et ugyldig svar, og neste oppslag stopper\nprogrammet med `KeyError`.\n\n**Den motsatte feilen er like vanlig:** å glemme det nye `input`-kallet inne i\nløkka.\n\n```text\n    svar = input(\"Velg sal: \")\n    while svar not in self._saler:\n        print(\"Finnes ikke\")\n    return svar\n```\n\nHer skriver programmet «Finnes ikke» i det uendelige, fordi `svar` aldri endrer\nseg. Blokken er også merket som ikke-kjørbar — den ville aldri stoppet.\n\n**Motgiften er å telle:** `input` skal stå **to** steder, og løkka skal være en\n`while`."
+  },
+  {
+   "id": "in1000-6-4-10",
+   "type": "example",
+   "title": "Eksempel 2: Input-løkka, med kjørbar variant",
+   "problem": "Vis input-løkka slik den skrives på eksamen, og en variant som kan kjøres, der\n«brukerens» svar kommer fra en liste.",
+   "solution": "**Slik den skrives på eksamen:**\n\n```text\ngyldige = [\"ja\", \"nei\"]\nsvar = input(\"Vil du melde deg paa? (ja/nei) \")\nwhile svar not in gyldige:\n    svar = input(\"Svar ja eller nei: \")\nprint(\"Du svarte\", svar)\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\n**Terminaldialog:**\n```\nVil du melde deg paa? (ja/nei) kanskje\nSvar ja eller nei: tja\nSvar ja eller nei: ja\nDu svarte ja\n```\n\n**Og slik den kan kjøres**, med «brukerens» svar hentet fra en liste i stedet for\nfra tastaturet. Løkkestrukturen er nøyaktig den samme:\n\n```python\ndef les_svar(svarene, i):\n    print(\"(bruker skriver)\", svarene[i])\n    return svarene[i]\n\nsvarene = [\"kanskje\", \"tja\", \"ja\"]\ngyldige = [\"ja\", \"nei\"]\ni = 0\nsvar = les_svar(svarene, i)\nwhile svar not in gyldige:\n    i = i + 1\n    svar = les_svar(svarene, i)\nprint(\"Du svarte\", svar)\n```\n\n**Utskrift:**\n```\n(bruker skriver) kanskje\n(bruker skriver) tja\n(bruker skriver) ja\nDu svarte ja\n```\n\n**Sammenlign de to.** `les_svar(svarene, i)` står nøyaktig der `input(...)` sto:\nén gang før løkka, én gang inne i den. Det er den plasseringen som er hele\nmønsteret, og den er lik uansett hvor svaret kommer fra.\n\n**På eksamen skriver du selvsagt `input`.** Erstatningen finnes bare i denne boka,\nså eksemplene kan kjøres og utskriften kan verifiseres.\n\n**Slik ville sensor sett på det:** fire ting gir uttelling — første `input` før\nløkka, `while` og ikke `if`, nytt `input` inne i løkka, og at gyldighetstesten\nfaktisk er riktig."
+  },
+  {
+   "id": "in1000-6-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — terminal-interaksjon, altså å be brukeren om noe og\ngjenta til svaret er gyldig.) En medstudent har skrevet:\n\n```text\nsvar = input(\"Velg dag: \")\nif svar not in dagene:\n    svar = input(\"Ugyldig, prov igjen: \")\nprint(\"Valgt:\", svar)\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\n**a)** Hvilken feilkode er dette, og hva er problemet?\n\n**b)** Gi et konkret eksempel på en dialog der koden går galt.\n\n**c)** Skriv den rettede koden.",
+    "solution": "**a)** Feilkode **#9** — input-løkka terminerer feil. `if` spør bare **én** gang\ntil. Skriver brukeren feil to ganger, går programmet videre med et ugyldig svar.\n\n**b)** Konkret dialog, med `dagene = [\"mandag\", \"tirsdag\"]`:\n\n```\nVelg dag: fredag\nUgyldig, prov igjen: loerdag\nValgt: loerdag\n```\n\nProgrammet aksepterer `loerdag`, som ikke er en gyldig dag. Neste linje som slår\nopp `dagene[svar]` eller `d[svar]`, stopper programmet med `KeyError`.\n\n**c)** Bytt `if` med `while`:\n\n```text\nsvar = input(\"Velg dag: \")\nwhile svar not in dagene:\n    svar = input(\"Ugyldig, prov igjen: \")\nprint(\"Valgt:\", svar)\n```\n\nBlokken er merket som ikke-kjørbar.\n\n**Dialogen blir da:**\n```\nVelg dag: fredag\nUgyldig, prov igjen: loerdag\nUgyldig, prov igjen: mandag\nValgt: mandag\n```\n\n**Ett tegn skiller de to versjonene i lesing, men de er helt ulike i oppførsel.**\n`if` spør én gang til; `while` spør til svaret er gyldig.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling — en dialog som viser hva som går galt. En ren\nverbal forklaring gir delvis.",
+    "hints": [
+     "Hvor mange ganger til spør en `if`?",
+     "Skriv en dialog der brukeren bommer to ganger."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Her er «brukerens» svar hentet fra en liste, slik at koden kan kjøres. Hva\nskriver programmet ut?\n\n```python\ndef les(svarene, i):\n    print(\">\", svarene[i])\n    return svarene[i]\n\nsvarene = [\"5\", \"12\", \"8\"]\ngrense = 10\ni = 0\ntall = int(les(svarene, i))\nwhile tall < grense:\n    i = i + 1\n    tall = int(les(svarene, i))\nprint(\"Godkjent:\", tall)\n```",
+    "solution": "**Sporingstavle.** Løkka gjentar så lenge tallet er **under** grensen:\n\n| Runde | `i` | Svar | `tall` | `tall < 10`? |\n|---|---|---|---|---|\n| før løkka | 0 | `\"5\"` | 5 | ja, løkka starter |\n| 1 | 1 | `\"12\"` | 12 | nei, løkka slutter |\n\n**Utskrift:**\n```\n> 5\n> 12\nGodkjent: 12\n```\n\n**Det tredje svaret i lista blir aldri lest.** Løkka stopper så snart 12 er over\ngrensen, og `\"8\"` ligger ubrukt igjen — nøyaktig som når en bruker skriver et\ngyldig svar og programmet slutter å spørre.\n\n**Legg merke til `int(...)` rundt hvert kall.** Uten den ville `tall < grense`\nsammenlignet en tekst med et tall, og programmet ville stoppet med\n`TypeError: '<' not supported between instances of 'str' and 'int'`.\n\n**Og legg merke til at `les` står to steder** — før løkka og inne i den. Det er\nnøyaktig plasseringen `input` har i det ekte mønsteret. Glemmer du den inne i\nløkka, henger programmet.\n\n**På eksamen** skrives alle tre linjene, i riktig rekkefølge.",
+    "hints": [
+     "Følg `tall` etter hvert kall, og test betingelsen.",
+     "Hvor mange ganger rekker løkka å gå?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-4-11",
+   "type": "text",
+   "content": "## Løkke 3 — Hva «gyldig» betyr (~11 min)\n\nBetingelsen i input-løkka er der oppgaven varierer. Tre former dekker nesten alt\nsom kommer."
+  },
+  {
+   "id": "in1000-6-4-12",
+   "type": "definition",
+   "title": "Validere mot en samling",
+   "content": "`while svar not in gyldige:` — der `gyldige` er en liste, eller en ordbok du skal\nslå opp i.\n\nEr samlingen en **ordbok**, er dette dobbelt nyttig: løkka sikrer at nøkkelen\nfinnes, og da kan du slå opp rett etterpå **uten** en ekstra `if`-sjekk.\n\n```text\n    navn = input(\"Velg sal: \")\n    while navn not in self._saler:\n        navn = input(\"Finnes ikke, prov igjen: \")\n    return self._saler[navn]\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\nLegg merke til at metoden returnerer **objektet**, ikke navnet. Den som kaller,\nkan da spørre videre."
+  },
+  {
+   "id": "in1000-6-4-13",
+   "type": "definition",
+   "title": "Validere mot et indeksområde",
+   "content": "`while indeks < 0 or indeks >= len(liste):` — når brukeren skal velge nummeret på\nnoe i en liste.\n\nBegge grensene må med. Den øvre er `>= len(liste)`, ikke `> len(liste)`: en liste\nmed tre elementer har lovlige indekser 0, 1 og 2.\n\nSkriver oppgaven at valgene skal vises som 1, 2, 3 i stedet, må du trekke fra én\netterpå: `indeks = valgt - 1`. Skriv da en kommentar om det, så leseren ser at\nforskyvningen er bevisst.\n\nFeilen her er feilkode **#5**, av-med-én, og den er lett å gjøre i begge\nretninger."
+  },
+  {
+   "id": "in1000-6-4-14",
+   "type": "definition",
+   "title": "Validere mot et tallområde",
+   "content": "`while tall < min or tall > maks:` — når svaret skal ligge mellom to grenser.\n\nLes oppgaveteksten sakte: «minst 1» betyr `< 1`, «under 100» betyr `>= 100`. Det\ner kantverdiene som avgjør, og de rettes strengt.\n\nHusk `int(...)` rundt `input`, ellers sammenlignes en tekst med et tall og\nprogrammet stopper.\n\nEr begge grensene med i det gyldige området — «mellom 1 og 10, begge inkludert» —\ner betingelsen `tall < 1 or tall > 10`."
+  },
+  {
+   "id": "in1000-6-4-15",
+   "type": "example",
+   "title": "Eksempel 3: Tre gyldighetstester, kjørbart",
+   "problem": "Vis de tre valideringsformene med «brukerens» svar hentet fra en liste, slik at\nutskriften kan kjøres.",
+   "solution": "En hjelpefunksjon står i for tastaturet. Alt annet er nøyaktig som på eksamen:\n\n```python\ndef les(svarene, i):\n    print(\">\", svarene[i])\n    return svarene[i]\n\n# 1) mot en samling\ngyldige = [\"mandag\", \"tirsdag\", \"onsdag\"]\nsvarene = [\"fredag\", \"mandag\"]\ni = 0\ndag = les(svarene, i)\nwhile dag not in gyldige:\n    i = i + 1\n    dag = les(svarene, i)\nprint(\"Dag:\", dag)\n\n# 2) mot et indeksomraade\nsaler = [\"Speilsal\", \"Spinning\", \"Yoga\"]\nsvarene = [\"7\", \"-1\", \"2\"]\ni = 0\nindeks = int(les(svarene, i))\nwhile indeks < 0 or indeks >= len(saler):\n    i = i + 1\n    indeks = int(les(svarene, i))\nprint(\"Sal:\", saler[indeks])\n\n# 3) mot et tallomraade\nsvarene = [\"0\", \"15\", \"8\"]\ni = 0\nantall = int(les(svarene, i))\nwhile antall < 1 or antall > 10:\n    i = i + 1\n    antall = int(les(svarene, i))\nprint(\"Antall:\", antall)\n```\n\n**Utskrift:**\n```\n> fredag\n> mandag\nDag: mandag\n> 7\n> -1\n> 2\nSal: Yoga\n> 0\n> 15\n> 8\nAntall: 8\n```\n\n**De tre løkkene har identisk struktur.** Bare betingelsen er ulik: `not in` mot\nen samling, to grenser mot et indeksområde, to grenser mot et tallområde.\n\n**Legg merke til at indeks 2 er den siste lovlige** når lista har tre elementer.\nBetingelsen `indeks >= len(saler)` fanger 3 og oppover, og `indeks < 0` fanger de\nnegative. Skriver du `> len(saler)`, slipper du gjennom indeks 3, og programmet\nstopper med `IndexError`.\n\n**Og legg merke til at 10 er lovlig** i den tredje løkka: `antall > 10` er usann\nnår tallet er nøyaktig 10. Sier oppgaven «høyst 10», er det riktig. Sier den\n«under 10», skal betingelsen være `antall >= 10`.\n\n**På eksamen skriver du `input(...)` der `les(svarene, i)` står**, og du trenger\nverken lista eller telleren.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-6-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — terminal-interaksjon.) Skriv kode som ber brukeren om\net tall mellom 1 og 5, begge inkludert, og gjentar spørsmålet til svaret er\ngyldig. Skriv den både i eksamensform og i den kjørbare formen.\n\n**a)** Eksamensformen, med `input`.\n\n**b)** Den kjørbare formen, der svarene er `\"0\"`, `\"9\"` og `\"3\"`.\n\n**c)** Hva ville skjedd om betingelsen var `tall < 1 and tall > 5`?",
+    "solution": "**a)** Eksamensformen:\n\n```text\ntall = int(input(\"Velg et tall mellom 1 og 5: \"))\nwhile tall < 1 or tall > 5:\n    tall = int(input(\"Ugyldig, prov igjen: \"))\nprint(\"Valgt:\", tall)\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\n**b)** Den kjørbare formen:\n\n```python\ndef les(svarene, i):\n    print(\">\", svarene[i])\n    return svarene[i]\n\nsvarene = [\"0\", \"9\", \"3\"]\ni = 0\ntall = int(les(svarene, i))\nwhile tall < 1 or tall > 5:\n    i = i + 1\n    tall = int(les(svarene, i))\nprint(\"Valgt:\", tall)\n```\n\n**Utskrift:**\n```\n> 0\n> 9\n> 3\nValgt: 3\n```\n\n**c)** Med `and` ville betingelsen aldri vært sann: **ingen** tall er samtidig\nunder 1 og over 5. Løkka ville aldri kjørt, og programmet ville godtatt det aller\nførste svaret — også `0` og `9`.\n\n**Regelen er verdt å skrive ned:** når du skal fange **flere ugyldige områder**,\nbruker du `or`. `and` brukes når **begge** kravene må være oppfylt samtidig, som i\n«mellom 1 og 5» skrevet som en gyldighetstest: `tall >= 1 and tall <= 5`.\n\nDe to er hverandres speilbilder: `not (a and b)` er det samme som\n`not a or not b`.",
+    "hints": [
+     "Ugyldig er «under 1» ELLER «over 5».",
+     "For c): finnes det et tall som er både under 1 og over 5?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\ndef les(svarene, i):\n    print(\">\", svarene[i])\n    return svarene[i]\n\nsaler = [\"Speilsal\", \"Spinning\", \"Yoga\"]\nsvarene = [\"3\", \"0\"]\ni = 0\nindeks = int(les(svarene, i))\nwhile indeks < 0 or indeks >= len(saler):\n    i = i + 1\n    indeks = int(les(svarene, i))\nprint(saler[indeks], indeks)\n```",
+    "solution": "**Sporingstavle.** Lista har tre elementer, så lovlige indekser er 0, 1 og 2:\n\n| Runde | `i` | Svar | `indeks` | `< 0`? | `>= 3`? | Løkka fortsetter? |\n|---|---|---|---|---|---|---|\n| før løkka | 0 | `\"3\"` | 3 | nei | **ja** | ja |\n| 1 | 1 | `\"0\"` | 0 | nei | nei | nei |\n\n**Utskrift:**\n```\n> 3\n> 0\nSpeilsal 0\n```\n\n**Fellen her er den øvre grensen.** Lista har lengde 3, men **indeks 3 finnes\nikke** — de lovlige er 0, 1 og 2. Betingelsen `indeks >= len(saler)` fanger\nnettopp det. Hadde det stått `> len(saler)`, ville 3 sluppet gjennom, og\n`saler[3]` ville stoppet programmet med `IndexError: list index out of range`.\n\nDet er feilkode **#5**, av-med-én, og den er lett å gjøre i begge retninger.\n\n**Legg også merke til at 0 er lovlig.** Indeksering starter på null, så\n`Speilsal` er den første salen — ikke `Spinning`.\n\n**På eksamen** skrives alle tre linjene, i riktig rekkefølge.",
+    "hints": [
+     "Skriv opp de lovlige indeksene for en liste med tre elementer.",
+     "Test hver av de to grensene for seg."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-4-16",
+   "type": "text",
+   "content": "## Løkke 4 — Input inne i en klassemetode (~11 min)\n\nI settene ligger input-løkka nesten alltid **inne i en metode** på en av\nklassene. Det er den formen du skal skrive.\n\nMetoden gjør typisk tre ting: viser hva som er å velge mellom, spør til svaret er\ngyldig, og returnerer **objektet** som ble valgt."
+  },
+  {
+   "id": "in1000-6-4-17",
+   "type": "definition",
+   "title": "Velg-metoden",
+   "content": "Standardformen for sjanger H i en klasse, i tre steg:\n\n```text\n    def velg_sal(self):\n        for navn in self._saler:\n            print(\" -\", navn)\n        valgt = input(\"Velg sal: \")\n        while valgt not in self._saler:\n            valgt = input(\"Finnes ikke, prov igjen: \")\n        return self._saler[valgt]\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\n**Steg 1: vis alternativene.** Uten det vet ikke brukeren hva som er lovlig, og\nløkka kan gå evig.\n\n**Steg 2: input-løkka.** Betingelsen er `not in self._saler`, altså mot ordboka\nselv.\n\n**Steg 3: returner objektet**, ikke navnet. Løkka har allerede sikret at nøkkelen\nfinnes, så oppslaget trenger ingen ekstra `if`-sjekk — og det er et poeng verdt å\nsi i en kommentar."
+  },
+  {
+   "id": "in1000-6-4-18",
+   "type": "example",
+   "title": "Eksempel 4: Full sjanger H-deloppgave",
+   "problem": "> Et treningssenter holder salene i en ordbok fra navn til `Sal`-objekt. Skriv en\n> metode `velg_sal(self)` som skriver ut alle salnavnene, ber brukeren velge én, og\n> gjentar spørsmålet til navnet finnes. Metoden skal returnere `Sal`-objektet.\n\nSkriv metoden i eksamensform, og vis en kjørbar variant.",
+   "solution": "**Eksamensformen**, slik den skal se ut i besvarelsen:\n\n```text\n    def velg_sal(self):\n        print(\"Saler:\")\n        for navn in self._saler:\n            print(\" -\", navn)\n        valgt = input(\"Velg sal: \")\n        while valgt not in self._saler:\n            valgt = input(\"Finnes ikke, prov igjen: \")\n        return self._saler[valgt]\n```\n\nBlokken er et utdrag som venter på inndata, og er derfor merket som\nikke-kjørbar.\n\n**Terminaldialog:**\n```\nSaler:\n - Speilsal\n - Spinning\nVelg sal: Basseng\nFinnes ikke, prov igjen: Spinning\n```\n\n**Den kjørbare varianten**, med hele modellen rundt og «brukerens» svar fra en\nliste:\n\n```python\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn\n        self._kapasitet = kapasitet\n        self._paameldte = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def meld_paa(self):\n        self._paameldte = self._paameldte + 1\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._paameldte) + \"/\" + str(self._kapasitet) + \")\"\n\nclass Senter:\n    def __init__(self, svarene):\n        self._saler = {}\n        self._svarene = svarene\n        self._i = 0\n\n    def legg_til(self, sal):\n        self._saler[sal.hent_navn()] = sal\n\n    def les(self, melding):\n        svar = self._svarene[self._i]\n        self._i = self._i + 1\n        print(melding, svar)\n        return svar\n\n    def velg_sal(self):\n        print(\"Saler:\")\n        for navn in self._saler:\n            print(\" -\", navn)\n        valgt = self.les(\"Velg sal:\")\n        while valgt not in self._saler:\n            valgt = self.les(\"Finnes ikke, prov igjen:\")\n        return self._saler[valgt]\n\n    def skriv_alle(self):\n        for navn in self._saler:\n            print(self._saler[navn])\n\ns = Senter([\"Basseng\", \"Yoga\", \"Spinning\"])\ns.legg_til(Sal(\"Speilsal\", 20))\ns.legg_til(Sal(\"Spinning\", 14))\n\nsal = s.velg_sal()\nsal.meld_paa()\ns.skriv_alle()\n```\n\n**Utskrift:**\n```\nSaler:\n - Speilsal\n - Spinning\nVelg sal: Basseng\nFinnes ikke, prov igjen: Yoga\nFinnes ikke, prov igjen: Spinning\nSpeilsal (0/20)\nSpinning (1/14)\n```\n\n**Fire ting er verdt å merke seg.**\n\n`velg_sal` returnerer **objektet**, så den som kaller, kan gjøre noe med det med\nén gang: `sal.meld_paa()`.\n\nLøkka har allerede sikret at nøkkelen finnes, så `return self._saler[valgt]`\ntrenger ingen `if`-sjekk. Det er et poeng verdt å nevne i en kommentar.\n\nAlternativene skrives ut **før** spørsmålet. Uten det kan brukeren gjette i det\nuendelige.\n\nOg metoden `les` finnes bare i denne boka. **På eksamen skriver du `input(...)`\nder `self.les(...)` står** — ingenting annet endres.\n\n**Slik ville sensor sett på det:** dette er en typisk 5–7-poengs deloppgave.\nPoengene ligger på utskriften av alternativene, første `input` før løkka,\n`while` og ikke `if`, nytt `input` inne i løkka, og at objektet returneres."
+  },
+  {
+   "id": "in1000-6-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger H — terminal-interaksjon i en klasse.) En brettspillklubb\nholder spillene i en ordbok fra tittel til `Spill`-objekt.\n\n**a)** Skriv metoden `velg_spill(self)` i eksamensform: den skal skrive ut alle\ntitlene, spørre til brukeren skriver en som finnes, og returnere\n`Spill`-objektet.\n\n**b)** Hvorfor trenger ikke `return self._spill[valgt]` en `if`-sjekk foran seg?\n\n**c)** Hva ville skjedd om metoden returnerte tittelen i stedet for objektet?",
+    "solution": "**a)** Eksamensformen:\n\n```text\n    def velg_spill(self):\n        print(\"Spill i klubben:\")\n        for tittel in self._spill:\n            print(\" -\", tittel)\n        valgt = input(\"Velg spill: \")\n        while valgt not in self._spill:\n            valgt = input(\"Finnes ikke, prov igjen: \")\n        return self._spill[valgt]\n```\n\nBlokken er et utdrag som venter på inndata, og er derfor merket som\nikke-kjørbar.\n\n**Terminaldialog:**\n```\nSpill i klubben:\n - Kolonier\n - Sjakk\nVelg spill: Yatzy\nFinnes ikke, prov igjen: Sjakk\n```\n\n**b)** Fordi løkka **allerede har garantert** at nøkkelen finnes. Betingelsen\n`valgt not in self._spill` er usann i det øyeblikket løkka slutter, og det betyr\nnettopp at `valgt` er en nøkkel i ordboka.\n\nÅ legge til en `if`-sjekk ville ikke vært galt, men den ville aldri slått til.\nSkriv gjerne en kommentarlinje om at løkka garanterer det — da ser sensor at\nutelatelsen er bevisst.\n\n**c)** Da måtte den som kaller, slå opp selv: `klubb.velg_spill()` ville gitt en\ntekst, og neste linje måtte vært et oppslag i en ordbok kalleren kanskje ikke har\ntilgang til.\n\n**Regelen er å returnere det mest nyttige.** Objektet kan alltid gi fra seg\ntittelen sin med `hent_tittel()`; tittelen kan ikke gi fra seg objektet.\n\n**Slik ville sensor sett på det:** at metoden returnerer objektet, er et\nselvstendig poeng. Det samme er utskriften av alternativene før spørsmålet.",
+    "hints": [
+     "Vis alltid alternativene før du spør.",
+     "Hva vet du om `valgt` i det øyeblikket løkka slutter?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-4-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger H — full deloppgave.) En resirkuleringsstasjon holder\ncontainerne i en ordbok fra materiale til `Container`-objekt.\n\n**a)** Skriv metoden `lever(self)` i eksamensform. Den skal vise alle\nmaterialene, spørre til brukeren skriver et som finnes, deretter spørre om antall\nkilo til svaret er minst 1, og til slutt levere avfallet til containeren.\n\n**b)** Skriv den kjørbare varianten med hele modellen, der «brukerens» svar er\n`\"papp\"`, `\"glass\"`, `\"0\"` og `\"12\"`.\n\n**c)** Hvor mange `input`-kall står det i metoden, og hvorfor står to av dem inne\ni en løkke?",
+    "solution": "**a)** Eksamensformen — to input-løkker etter hverandre:\n\n```text\n    def lever(self):\n        print(\"Materialer:\")\n        for m in self._containere:\n            print(\" -\", m)\n        valgt = input(\"Hvilket materiale? \")\n        while valgt not in self._containere:\n            valgt = input(\"Finnes ikke, prov igjen: \")\n        kilo = int(input(\"Hvor mange kilo? \"))\n        while kilo < 1:\n            kilo = int(input(\"Må være minst 1, prov igjen: \"))\n        self._containere[valgt].ta_imot(kilo)\n```\n\nBlokken er et utdrag som venter på inndata, og er derfor merket som\nikke-kjørbar.\n\n**b)** Den kjørbare varianten:\n\n```python\nclass Container:\n    def __init__(self, materiale):\n        self._materiale = materiale\n        self._kilo = 0\n\n    def hent_materiale(self):\n        return self._materiale\n\n    def ta_imot(self, kilo):\n        self._kilo = self._kilo + kilo\n\n    def __str__(self):\n        return self._materiale + \": \" + str(self._kilo) + \" kg\"\n\nclass Stasjon:\n    def __init__(self, svarene):\n        self._containere = {}\n        self._svarene = svarene\n        self._i = 0\n\n    def legg_til(self, c):\n        self._containere[c.hent_materiale()] = c\n\n    def les(self, melding):\n        svar = self._svarene[self._i]\n        self._i = self._i + 1\n        print(melding, svar)\n        return svar\n\n    def lever(self):\n        print(\"Materialer:\")\n        for m in self._containere:\n            print(\" -\", m)\n        valgt = self.les(\"Hvilket materiale?\")\n        while valgt not in self._containere:\n            valgt = self.les(\"Finnes ikke, prov igjen:\")\n        kilo = int(self.les(\"Hvor mange kilo?\"))\n        while kilo < 1:\n            kilo = int(self.les(\"Maa vaere minst 1, prov igjen:\"))\n        self._containere[valgt].ta_imot(kilo)\n\n    def skriv_alle(self):\n        for m in self._containere:\n            print(self._containere[m])\n\nst = Stasjon([\"papp\", \"glass\", \"0\", \"12\"])\nst.legg_til(Container(\"glass\"))\nst.legg_til(Container(\"papir\"))\nst.lever()\nst.skriv_alle()\n```\n\n**Utskrift:**\n```\nMaterialer:\n - glass\n - papir\nHvilket materiale? papp\nFinnes ikke, prov igjen: glass\nHvor mange kilo? 0\nMaa vaere minst 1, prov igjen: 12\nglass: 12 kg\npapir: 0 kg\n```\n\n**c)** **Fire** `input`-kall: to før hver av de to løkkene, og to inne i dem.\n\nDe to inne i løkkene er der fordi betingelsen ellers aldri ville endret seg.\nUten dem ville programmet hengt og skrevet den samme oppfordringen i det\nuendelige — den samme feilen som en glemt `readline` nederst i\nfilinnlesing-løkka.\n\n**Legg merke til `int(...)` rundt begge kilo-kallene.** Uten den ville\n`kilo < 1` sammenlignet en tekst med et tall, og programmet ville stoppet.\n\n**Og legg merke til at metoden ikke returnerer noe.** Den **endrer** modellen ved\nå levere avfallet til containeren. Det er en helt vanlig og riktig form.\n\n**Slik ville sensor sett på det:** dette er en 7–9-poengs deloppgave. Poengene\nligger på utskriften av alternativene, hver av de to løkkene (fire poeng til\nsammen), `int(...)`-konverteringen, og at avfallet faktisk leveres til riktig\ncontainer til slutt.",
+    "hints": [
+     "To spørsmål betyr to løkker etter hverandre, hver med sitt eget par av kall.",
+     "Husk `int(...)` rundt det som skal sammenlignes med et tall."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-4-19",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på terminal-interaksjon:\n\n- **#9 — `if` i stedet for `while`.** Spør bare én gang til, og går videre med et\n  ugyldig svar. Den vanligste feilen i hele sjangeren.\n- **Glemt `input` inne i løkka.** Betingelsen endrer seg aldri, og programmet\n  henger og skriver den samme oppfordringen i det uendelige.\n- **#4 — glemt `int(...)`.** `input` gir **alltid** tekst. Uten konvertering\n  sammenlignes en tekst med et tall, og programmet stopper.\n- **#5 — feil grense på et indeksområde.** `>= len(liste)` er riktig; `>\n  len(liste)` slipper gjennom én for mye og gir `IndexError`.\n- **`and` der det skulle stått `or`.** «Ugyldig» er som regel «under grensen\n  ELLER over grensen». Med `and` blir betingelsen aldri sann, og alt godtas.\n\nOg én som ikke er en kodefeil, men som koster: **å ikke vise alternativene før du\nspør.** Brukeren kan da gjette i det uendelige, og oppgaven ber som regel\nuttrykkelig om utskriften."
+  },
+  {
+   "id": "in1000-6-4-coll-20",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-6-4-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `input(melding)` | Skriver meldingen uten linjeskift, venter på en linje, og gir den som **tekst**. |\n| `int(input(...))` | Konverterer svaret til heltall. Uten den er verdien tekst (**#4**). |\n| `svar = input(...)` før løkka | Obligatorisk — `while` trenger en verdi å teste på første gang. |\n| `while svar not in gyldige:` | Gjentar til svaret finnes i samlingen. `while`, aldri `if` (**#9**). |\n| `svar = input(...)` inne i løkka | Obligatorisk — uten den endrer betingelsen seg aldri, og programmet henger. |\n| `while indeks < 0 or indeks >= len(liste):` | Indeksområde. Øvre grense er `>=`, ikke `>` (**#5**). |\n| `while tall < min or tall > maks:` | Tallområde. «Ugyldig» er under ELLER over — derfor `or`. |\n| `return self._d[valgt]` etter løkka | Trygt uten `if`-sjekk: løkka har garantert at nøkkelen finnes. |\n| `for navn in self._d:` `print(\" -\", navn)` | Vis alternativene **før** du spør. |\n| `return self._d[valgt]` | Returner **objektet**, ikke navnet — da kan kalleren spørre videre. |\n\n**Det som avgjør poeng i Oppgave 4:** at løkka er en `while` med to\n`input`-kall, at tall konverteres, og at alternativene vises før spørsmålet."
+    }
+   ]
+  },
+  {
+   "id": "in1000-6-4-21",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-6-4-22",
+   "type": "definition",
+   "title": "`input` gir alltid tekst",
+   "content": "Uansett hva brukeren skriver — `5`, `ja`, `3.14` — er verdien du får tilbake, en\n**tekst**.\n\nSkal den brukes som tall, må den gjennom `int(...)` eller `float(...)`.\nKonverter så snart verdien er lest, ikke spredt utover i koden — da vet du alltid\nhvilken type en variabel har.\n\nNavn, koder og valgalternativer skal derimot forbli tekst. Samme regel som ved\nfilinnlesing."
+  },
+  {
+   "id": "in1000-6-4-23",
+   "type": "definition",
+   "title": "Input-løkke-malen",
+   "content": "Fire linjer, og de er hele sjanger H: `input` før løkka, `while` med\ngyldighetstesten, `input` inne i løkka, og verdien brukt etterpå.\n\n`input` skal stå **to** steder. Glemmer du den første, har `while` ingenting å\nteste; glemmer du den andre, henger programmet.\n\nFormen er identisk med filinnlesing-løkka fra\n[kap. 7.1](/bok/in1000/in1000-7-1): ett kall før, ett inne i."
+  },
+  {
+   "id": "in1000-6-4-24",
+   "type": "definition",
+   "title": "Feilkode #9",
+   "content": "Å spørre **én** gang til med en `if`, i stedet for å gjenta i en `while`-løkke til\nsvaret er gyldig.\n\nKoden virker helt til brukeren bommer to ganger. Da går programmet videre med et\nugyldig svar, og neste oppslag stopper det med `KeyError`.\n\nEtt tegn skiller de to i lesing, og de er helt ulike i oppførsel. Tell alltid: er\ndet en `while` der, eller en `if`?"
+  },
+  {
+   "id": "in1000-6-4-25",
+   "type": "definition",
+   "title": "Den uendelige input-løkka",
+   "content": "Symptomet på en glemt `input` inne i løkka: den samme oppfordringen skrives i det\nuendelige.\n\nGrunnen er at `svar` aldri endrer seg, så betingelsen forblir sann.\n\nDet er den mest synlige feilen i kapitlet, og den letteste å rette — og den er\nnøyaktig samme feil som en glemt `readline` nederst i filinnlesing-løkka."
+  },
+  {
+   "id": "in1000-6-4-26",
+   "type": "definition",
+   "title": "Å validere mot en samling",
+   "content": "`while svar not in gyldige:` — der `gyldige` er en liste av lovlige svar, eller\nordboka du skal slå opp i.\n\nEr det ordboka selv, er dette dobbelt nyttig: når løkka slutter, **vet** du at\nnøkkelen finnes, og oppslaget etterpå trenger ingen `if`-sjekk.\n\nSkriv gjerne en kommentarlinje om det, så ser sensor at utelatelsen er bevisst."
+  },
+  {
+   "id": "in1000-6-4-27",
+   "type": "definition",
+   "title": "Å validere et indeksområde",
+   "content": "`while indeks < 0 or indeks >= len(liste):`.\n\nBegge grensene må med, og den øvre er `>=`. En liste med tre elementer har\nlovlige indekser 0, 1 og 2 — indeks 3 finnes ikke, selv om lengden er 3.\n\nSkal valgene vises som 1, 2, 3, trekker du fra én etterpå: `indeks = valgt - 1`.\nSkriv en kommentar om forskyvningen. Feilen her er **#5**, av-med-én."
+  },
+  {
+   "id": "in1000-6-4-28",
+   "type": "definition",
+   "title": "`or` mot `and` i en gyldighetstest",
+   "content": "«Ugyldig» er som regel **under grensen ELLER over grensen**, altså `or`.\n\nMed `and` blir betingelsen aldri sann — ingen verdi er samtidig under 1 og over\n5 — og løkka kjører aldri. Alt godtas, også det ugyldige.\n\nDe to er hverandres speilbilder: gyldig er `tall >= 1 and tall <= 5`, ugyldig er\n`tall < 1 or tall > 5`."
+  },
+  {
+   "id": "in1000-6-4-29",
+   "type": "definition",
+   "title": "Velg-metoden",
+   "content": "Standardformen for sjanger H i en klasse, i tre steg: vis alternativene, spør til\nsvaret er gyldig, returner **objektet**.\n\nÅ vise alternativene først er ikke pynt — uten det kan brukeren gjette i det\nuendelige, og oppgaven ber som regel uttrykkelig om det.\n\nÅ returnere objektet og ikke navnet er et selvstendig poeng: objektet kan alltid\ngi fra seg navnet sitt, men ikke omvendt."
+  },
+  {
+   "id": "in1000-6-4-30",
+   "type": "definition",
+   "title": "Metoden som endrer i stedet for å returnere",
+   "content": "En input-metode returnerer ikke alltid noe. Den kan i stedet **utføre**\nhandlingen: levere avfallet, melde på medlemmet, registrere besøket.\n\nBegge formene forekommer i settene, og oppgaveteksten sier hvilken som gjelder:\n«returner objektet som ble valgt» mot «meld medlemmet på den valgte salen».\n\nLes den setningen sakte før du skriver `return` — eller lar være."
+  },
+  {
+   "id": "in1000-6-4-31",
+   "type": "definition",
+   "title": "To spørsmål, to løkker",
+   "content": "Skal metoden spørre om to ting, skrives to input-løkker **etter hverandre** — ikke\nén løkke med to spørsmål.\n\nHver løkke har sitt eget par av kall og sin egen gyldighetstest. Til sammen blir\ndet fire `input`-kall.\n\nDet er lengre å skrive, men det er den formen fasiten bruker, og hver løkke gir\nuttelling for seg."
+  },
+  {
+   "id": "in1000-6-4-32",
+   "type": "definition",
+   "title": "Meldingen i `input`",
+   "content": "Teksten som skrives ut mens programmet venter. Den skrives **uten** linjeskift,\nså brukeren skriver på samme linje — derfor slutter den som regel med et\nmellomrom.\n\nDen andre meldingen, den inne i løkka, bør si **hvorfor** svaret var ugyldig:\n«Finnes ikke, prov igjen: » er bedre enn «Feil: ».\n\nMeldingene skrives uten æ, ø og å, som all kode i denne boka."
+  },
+  {
+   "id": "in1000-6-4-33",
+   "type": "definition",
+   "title": "Hva skjer ved et ikke-tall",
+   "content": "`int(\"nei\")` stopper programmet med\n`ValueError: invalid literal for int() with base 10: 'nei'`.\n\nÅ håndtere det pent krever konstruksjoner som er utenfor pensum her, og\neksamensoppgavene forutsetter som regel at brukeren skriver et tall når det er\ntall det spørres om.\n\nEr du usikker, skriv en kommentar om forutsetningen. Det er den ene legitime\nbruken av kommentarer i en besvarelse."
+  },
+  {
+   "id": "in1000-6-4-34",
+   "type": "definition",
+   "title": "Den kjørbare erstatningen",
+   "content": "I denne boka står av og til en hjelpemetode `les(...)` der `input(...)` skulle\nstått, slik at eksemplene kan kjøres og utskriften kan verifiseres.\n\nDen henter «brukerens» svar fra en liste, i rekkefølge. Løkkestrukturen er\nnøyaktig den samme.\n\n**På eksamen skriver du `input(...)`.** Erstatningen finnes bare for at du skal\nkunne se den faktiske utskriften her i boka."
+  },
+  {
+   "id": "in1000-6-4-35",
+   "type": "definition",
+   "title": "Terminaldialog",
+   "content": "Måten boka viser hva som skjer når et `input`-program kjører: spørsmålene og det\nbrukeren skriver, i den rekkefølgen de kommer.\n\nDet brukeren skriver, står etter spørsmålet på samme linje — akkurat slik det ser\nut i et terminalvindu.\n\nDialogen er ikke en «**Utskrift:**»-blokk, fordi den inneholder både programmets\nutskrift og brukerens tastetrykk."
+  },
+  {
+   "id": "in1000-6-4-coll-36",
+   "type": "collapsible",
+   "title": "Repetisjon — de seks setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-6-4-c2",
+     "type": "text",
+     "content": "1. **`input` gir alltid tekst.** Skal den regnes med, må den gjennom `int(...)` —\n   feilkode **#4**.\n2. **`while`, aldri `if`.** En `if` spør bare én gang til og går videre med et\n   ugyldig svar — feilkode **#9**.\n3. **`input` står to steder:** før løkka og inne i den. Glemmer du den andre,\n   henger programmet.\n4. **«Ugyldig» er under ELLER over**, altså `or`. Med `and` blir betingelsen aldri\n   sann.\n5. **Indeksgrensen er `>= len(liste)`.** En liste med tre elementer har lovlige\n   indekser 0, 1 og 2 — feilkode **#5**.\n6. **Vis alternativene før du spør**, og **returner objektet**, ikke navnet."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

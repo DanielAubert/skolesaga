@@ -1,0 +1,392 @@
+{
+ "id": "in1000-5-5",
+ "courseId": "in1000",
+ "chapterNumber": "5.5",
+ "title": "DRILL — Objekt-flervalg: referanser, `self`, scope og grensesnitt",
+ "description": "Full drill på Oppgave 2: en felles kodesnutt med to klasser, og flervalgsspørsmål om hva som skrives ut og hvilke påstander som er sanne.",
+ "estimatedMinutes": 80,
+ "competenceGoals": [
+  "kunne lese en konstruktør og se hvilke verdier som faktisk havner i objektet",
+  "kunne tegne objekter og navn, og oppdatere tegningen linje for linje",
+  "kunne avgjøre om en linje endrer et objekt eller bare flytter et navn",
+  "kunne svare på begrepsspørsmål om grensesnitt og instansvariabler uten å spore koden"
+ ],
+ "content": [
+  {
+   "id": "in1000-5-5-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette kapitlet trener **Oppgave 2**, og bare den. Sjangeren er **B — flervalg om\nobjekter**, altså «hvilken påstand om denne koden er sann?» og «hva skrives ut?».\n\n**Sjanger B står i 6 av 6 moderne eksamenssett (100 %)**, alltid som deloppgave\n2a–2d, til sammen rundt 8–9 poeng. Formen er lik hvert år: **én felles kodesnutt\nmed to klasser**, og fire spørsmål til den.\n\n**Dette må sitte** — bokas høyeste prioritetsnivå. Poengene er lette å ta når\nmetoden sitter, og lette å miste ellers, fordi hvert spørsmål er laget for å\navsløre en bestemt misforståelse.\n\n**Blankt svar gir null poeng, akkurat som et galt svar.** Det er ingen straff for\nå gjette. Klarer du å utelukke to alternativer, er gjetningen mellom de to siste\nverdt halvparten av poengene i snitt — **kryss alltid av.**\n\nKapitlet er langt (~80 min). Det er delt i fire økter med tidsanslag, og du kan\ntrygt ta én økt om gangen."
+  },
+  {
+   "id": "in1000-5-5-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nAlt du trenger, står i de fire foregående kapitlene:\n[kap. 5.1 — Klasser og objekter](/bok/in1000/in1000-5-1),\n[kap. 5.2 — Innkapsling](/bok/in1000/in1000-5-2),\n[kap. 5.3 — `__str__`](/bok/in1000/in1000-5-3) og\n[kap. 5.4 — Referansesemantikk](/bok/in1000/in1000-5-4). I tillegg brukes\nscope-reglene fra [kap. 2.2](/bok/in1000/in1000-2-2).\n\n**De tre tingene drillen hviler på**, friskes opp med kjørt kode.\n\n**1. `b = a` gir to navn på samme objekt; `b = Klasse()` gir et nytt:**\n\n```python\nclass Boks:\n    def __init__(self):\n        self._n = 0\n\n    def opp(self):\n        self._n = self._n + 1\n\n    def hent(self):\n        return self._n\n\na = Boks()\nb = a\nc = Boks()\na.opp()\nprint(a.hent(), b.hent(), c.hent())\n```\n\n**Utskrift:**\n```\n1 1 0\n```\n\n**2. `self`-fella: en tilordning uten `self.` i konstruktøren blir lokal og\nforsvinner:**\n\n```python\nclass Hund:\n    def __init__(self, navn, alder):\n        self._navn = navn\n        self._alder = 0\n        alder = alder\n\n    def hent_alder(self):\n        return self._alder\n\nh = Hund(\"Rex\", 4)\nprint(h.hent_alder())\n```\n\n**Utskrift:**\n```\n0\n```\n\n**3. Grensesnittet er metodene, aldri understrek-variablene.**\n\nHar du de tre, er resten metode."
+  },
+  {
+   "id": "in1000-5-5-3",
+   "type": "theorem",
+   "title": "Løsningsoppskriften for Oppgave 2 — fem steg",
+   "content": "Bruk den samme framgangsmåten hver gang. Den tar to–tre minutter og løser alle\nfire spørsmålene til den samme snutten.\n\n**Steg 1 — Les de to klassene og noter hvilke instansvariabler som faktisk\nsettes.** Gå linje for linje gjennom hver `__init__` og skriv opp bare de linjene\nsom starter med `self._`. En linje som `alder = alder` skriver du **ikke** opp —\nden lager en lokal variabel som forsvinner. Det er `self`-fella, feilkode **#1**,\nog den er plantet i snutten omtrent annethvert år.\n\n**Steg 2 — Tegn objektene og pilene.** Én boks per gang et klassenavn står med\nparentes. Én pil per variabel og per instansvariabel som peker på et objekt.\n\n**Steg 3 — Spor snutten linje for linje, og oppdater tegningen.** To slags\nlinjer, og forskjellen avgjør alt:\n\n- `a.metode(v)` **skriver i boksen**. Alle som peker på den, ser det.\n- `a = ...` **flytter pilen**. Ingen andre merker noe.\n\n**Steg 4 — Svar på hvert spørsmål ut fra tegningen slik den er akkurat da.**\nSpørsmålene kommer i rekkefølge gjennom snutten, så tegningen skal se ulik ut for\n2a og 2d.\n\n**Steg 5 — For begrepsspørsmål: skill metodene fra variablene.** Er spørsmålet om\n**grensesnittet**, stryk alt med understrek. Er det om **instansvariabler**, er\ndet nettopp de som skal med.\n\nOg til slutt, uansett: **kryss av på alle fire.** Blankt gir null."
+  },
+  {
+   "id": "in1000-5-5-4",
+   "type": "definition",
+   "title": "Fellekatalogen i Oppgave 2",
+   "content": "De fem fellene som går igjen. Kjenner du dem igjen, vet du hva spørsmålet er ute\netter før du har lest alternativene.\n\n- **`self`-fella (#1).** En instansvariabel settes uten `self.`, og aksessoren\n  svarer startverdien — eller programmet stopper, hvis ingen startverdi finnes.\n- **To navn på samme objekt (#2).** `b = a` er ikke en kopi.\n- **Rebinding (#2).** `a = Klasse()` flytter bare pilen; det gamle objektet lever\n  uendret videre.\n- **Scope (#12).** En tilordning inne i en funksjon eller metode treffer bare det\n  lokale navnet.\n- **Grensesnitt (#11).** Understrek-variabler er ikke del av grensesnittet, og\n  skal ikke røres utenfra.\n\nSnutten på eksamen inneholder som regel **to eller tre** av dem samtidig."
+  },
+  {
+   "id": "in1000-5-5-5",
+   "type": "text",
+   "content": "## Økt 1 — Den gjennomarbeidede casen (~15 min)\n\nUnder står en komplett Oppgave 2 slik den ser ut på eksamen: to klasser, én\nkodesnutt, fire spørsmål. Les den som om det var eksamensdagen, og bruk de fem\nstegene."
+  },
+  {
+   "id": "in1000-5-5-6",
+   "type": "example",
+   "title": "Eksempel 1: Full Oppgave 2 med sensor-margnotater",
+   "problem": "Gitt klassene og snutten under. Svar på 2a–2d.\n\n```python\nclass Sykkel:\n    def __init__(self, kode, aar):\n        self._kode = kode\n        self._aar = 0\n        aar = aar\n\n    def hent_aar(self):\n        return self._aar\n\n    def sett_aar(self, nytt):\n        self._aar = nytt\n\n    def __str__(self):\n        return self._kode + \"/\" + str(self._aar)\n\nclass Stativ:\n    def __init__(self, sted):\n        self._sted = sted\n        self._sykler = []\n\n    def sett_inn(self, s):\n        self._sykler.append(s)\n\n    def antall(self):\n        return len(self._sykler)\n\n    def skriv_alle(self):\n        for s in self._sykler:\n            print(s)\n\nr31 = Sykkel(\"R31\", 2021)\nr48 = Sykkel(\"R48\", 2019)\nkopi = r31\n\nst = Stativ(\"Blindern\")\nst.sett_inn(r31)\nst.sett_inn(r48)\nst.sett_inn(kopi)\n\nr31.sett_aar(2024)\nr31 = Sykkel(\"R99\", 2025)\n```\n\n**2a)** Hva gir `r48.hent_aar()`?\n\n**2b)** Hva skriver `st.skriv_alle()` ut?\n\n**2c)** Hva gir `st.antall()`, og hvor mange `Sykkel`-objekter er laget?\n\n**2d)** Er `_sykler` del av grensesnittet til `Stativ`?",
+   "solution": "**Steg 1 — hvilke instansvariabler settes faktisk?**\n\nI `Sykkel` settes `self._kode` og `self._aar`, men `self._aar` settes til **0**,\nog linjen `aar = aar` er en lokal tilordning som forsvinner. Det er\n`self`-fella, feilkode **#1**. Årstallene 2021 og 2019 kommer altså aldri inn i\nobjektene.\n\nI `Stativ` settes `self._sted` og `self._sykler`, begge riktig.\n\n**Steg 2–3 — tegningen, oppdatert linje for linje:**\n\n| Linje | boks 1 (R31) | boks 2 (R48) | `r31` | `kopi` | `_sykler` |\n|---|---|---|---|---|---|\n| to `Sykkel(...)` | R31/0 | R48/0 | boks 1 | — | — |\n| `kopi = r31` | R31/0 | R48/0 | boks 1 | boks 1 | — |\n| tre `sett_inn` | R31/0 | R48/0 | boks 1 | boks 1 | 1, 2, 1 |\n| `r31.sett_aar(2024)` | R31/**2024** | R48/0 | boks 1 | boks 1 | 1, 2, 1 |\n| `r31 = Sykkel(\"R99\", 2025)` | R31/2024 | R48/0 | **boks 3** | boks 1 | 1, 2, 1 |\n\n**Steg 4 — svarene.**\n\n**2a)** `0`. Årstallet 2019 forsvant i `self`-fella, og `r48` har aldri fått en\n`sett_aar`.\n\n**2b)** Sporet gjennom lista, som holder boks 1, boks 2 og boks 1 igjen:\n\n```python\nclass Sykkel:\n    def __init__(self, kode, aar):\n        self._kode = kode\n        self._aar = 0\n        aar = aar\n\n    def sett_aar(self, nytt):\n        self._aar = nytt\n\n    def __str__(self):\n        return self._kode + \"/\" + str(self._aar)\n\nclass Stativ:\n    def __init__(self, sted):\n        self._sted = sted\n        self._sykler = []\n\n    def sett_inn(self, s):\n        self._sykler.append(s)\n\n    def antall(self):\n        return len(self._sykler)\n\n    def skriv_alle(self):\n        for s in self._sykler:\n            print(s)\n\nr31 = Sykkel(\"R31\", 2021)\nr48 = Sykkel(\"R48\", 2019)\nkopi = r31\nst = Stativ(\"Blindern\")\nst.sett_inn(r31)\nst.sett_inn(r48)\nst.sett_inn(kopi)\nr31.sett_aar(2024)\nr31 = Sykkel(\"R99\", 2025)\nst.skriv_alle()\nprint(st.antall())\n```\n\n**Utskrift:**\n```\nR31/2024\nR48/0\nR31/2024\n3\n```\n\n**2c)** `st.antall()` gir **3**, men det er laget **tre** `Sykkel`-objekter — og\nbare **to** av dem ligger i stativet. Lista har tre referanser til to objekter;\ndet tredje objektet (`R99`) ble laget etter at lista var fylt, og ligger ikke\nder.\n\n**2d)** **Nei.** `_sykler` er en instansvariabel med understrek, altså innside.\nGrensesnittet til `Stativ` er `__init__(sted)`, `sett_inn(s)`, `antall()` og\n`skriv_alle()`.\n\n**Sensors margnotater, steg for steg:**\n\n- **2a gir uttelling for å se `self`-fella**, ikke for å skrive «0». Ser du at\n  linjen `aar = aar` er lokal, har du poenget.\n- **2b rettes linje for linje.** To riktige av tre linjer gir delvis uttelling.\n- **2c er to spørsmål i ett**, og de teller hver for seg. Å svare 3 på det første\n  og 2 på det andre er en klassisk halvbom — tell klassenavn med parentes for det\n  andre.\n- **2d er gratis når du kan regelen.** Understrek betyr innside, uansett hvor\n  mange aksessorer som finnes.\n- **Blankt gir null.** Er du usikker på 2c, kryss av likevel.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-5-5-7",
+   "type": "text",
+   "content": "## Økt 2 — `self`-fella og scope (~20 min)\n\nDe fire første oppgavene trener steg 1 i oppskriften: å se hvilke\ninstansvariabler som **faktisk** blir satt. Alle fire har en felle plantet i\nkonstruktøren eller i en metode."
+  },
+  {
+   "id": "in1000-5-5-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter, altså «hvilken påstand om denne\nkoden er sann?».) Gitt klassen:\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder):\n        self._navn = navn\n        alder = alder\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_alder(self):\n        return self._alder\n\nm = Medlem(\"Ada\", 24)\n```\n\n**a)** Hva skjer ved kallet `m.hent_alder()`?\n\nA. Det returnerer `0`.\nB. Programmet stopper med en feilmelding.\nC. Det returnerer `24`.\nD. Det returnerer `None`.",
+    "solution": "**Riktig svar: B.**\n\n**Steg 1:** konstruktøren setter bare **én** instansvariabel, `self._navn`.\nLinjen `alder = alder` tilordner den lokale parameteren til seg selv og\nforsvinner når konstruktøren er ferdig. Det er `self`-fella, feilkode **#1**.\n\nObjektet har derfor ingen `_alder` i det hele tatt. Når `hent_alder` prøver å\nlese `self._alder`, stopper programmet, og siste linje i feilmeldingen er\n`AttributeError: 'Medlem' object has no attribute '_alder'`.\n\n```text\nclass Medlem:\n    def __init__(self, navn, alder):\n        self._navn = navn\n        alder = alder\n\n    def hent_alder(self):\n        return self._alder\n\nm = Medlem(\"Ada\", 24)\nprint(m.hent_alder())\n```\n\nBlokken er merket som ikke-kjørbar fordi feilen er plantet med vilje.\n\n**Alternativ A er den lumske varianten**, og den kommer i neste oppgave: hadde\nkonstruktøren i tillegg hatt `self._alder = 0`, ville programmet kjørt rolig og\nsvart feil.\n\n**Fellenoten:** `self`-fella har to utfall. Uten startverdi stopper programmet;\nmed startverdi svarer det galt. Se etter om startverdien finnes, før du velger.",
+    "hints": [
+     "Skriv opp bare de linjene i konstruktøren som starter med `self.`",
+     "Hva prøver `hent_alder` å lese, og finnes det?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B.) Gitt klassen:\n\n```python\nclass Konto:\n    def __init__(self, eier, saldo):\n        self._eier = eier\n        self._saldo = 0\n        saldo = saldo\n\n    def sett_inn(self, belop):\n        self._saldo = self._saldo + belop\n\n    def hent_saldo(self):\n        return self._saldo\n\nk = Konto(\"Ada\", 500)\nk.sett_inn(200)\n```\n\n**a)** Hva gir `k.hent_saldo()`?\n\nA. `700`\nB. `500`\nC. Programmet stopper.\nD. `200`\n\n**b)** Hvilken linje må endres, og til hva?",
+    "solution": "**a) Riktig svar: D.**\n\n**Steg 1:** `self._saldo` settes til **0**, ikke til 500 — linjen `saldo = saldo`\ner lokal og forsvinner. Startverdien 0 finnes, så programmet stopper **ikke**;\ndet svarer rolig feil.\n\n**Steg 3:** `sett_inn(200)` legger 200 til de 0, og svaret blir 200.\n\n```python\nclass Konto:\n    def __init__(self, eier, saldo):\n        self._eier = eier\n        self._saldo = 0\n        saldo = saldo\n\n    def sett_inn(self, belop):\n        self._saldo = self._saldo + belop\n\n    def hent_saldo(self):\n        return self._saldo\n\nk = Konto(\"Ada\", 500)\nk.sett_inn(200)\nprint(k.hent_saldo())\n```\n\n**Utskrift:**\n```\n200\n```\n\n**b)** Linjen `saldo = saldo` skal være `self._saldo = saldo`, og da kan\n`self._saldo = 0` fjernes — verdien kommer nå utenfra. Svaret ville blitt 700.\n\n**Fellenoten:** dette er **#1** i sin farligste form. Programmet kjører, gir et\ntall, og tallet ser plausibelt ut. Motgiften er mekanisk: tell parameterne, tell\n`self._`-linjene, og se om de stemmer.\n\n**På eksamen** rettes a) og b) hver for seg, så en bom på det ene koster ikke det\nandre.",
+    "hints": [
+     "Er det satt en startverdi for saldoen? Hva betyr det for om programmet stopper?",
+     "Tell parameterne i konstruktøren og `self._`-linjene under."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B.) Gitt klassen:\n\n```python\nclass Teller:\n    def __init__(self):\n        self._n = 0\n\n    def opp(self):\n        n = self._n + 1\n\n    def ned(self):\n        self._n = self._n - 1\n\n    def hent(self):\n        return self._n\n\nt = Teller()\nt.opp()\nt.opp()\nt.ned()\n```\n\n**a)** Hva gir `t.hent()`?\n\nA. `-1`\nB. `1`\nC. `2`\nD. `0`",
+    "solution": "**Riktig svar: A.**\n\n**Steg 1:** konstruktøren er riktig — `self._n` settes til 0.\n\n**Steg 3:** her ligger fellen i en **metode**, ikke i konstruktøren. `opp` regner\nut riktig verdi, men legger den i en **lokal** variabel `n` som forsvinner når\nmetoden er ferdig. De to kallene på `opp` gjør altså ingenting.\n\n`ned` er riktig skrevet og trekker fra 1. Sluttverdien er `0 - 1`, altså `-1`.\n\n```python\nclass Teller:\n    def __init__(self):\n        self._n = 0\n\n    def opp(self):\n        n = self._n + 1\n\n    def ned(self):\n        self._n = self._n - 1\n\n    def hent(self):\n        return self._n\n\nt = Teller()\nt.opp()\nt.opp()\nt.ned()\nprint(t.hent())\n```\n\n**Utskrift:**\n```\n-1\n```\n\n**Fellenoten:** feilkode **#1** lever ikke bare i konstruktøren. Enhver metode som\nskal endre objektet, må skrive til `self._x` — ikke til et bart navn.\n\nLegg merke til at feilen er helt stum: ingen feilmelding, og et svar som ser\nregnet ut. Det er derfor `opp` og `ned` er skrevet side om side her; kontrasten\ner hele poenget.",
+    "hints": [
+     "Se på venstre side av likhetstegnet i hver av de to metodene.",
+     "Hvilke av de tre kallene endrer faktisk noe i objektet?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B, med scope.) Gitt koden:\n\n```python\nclass Sal:\n    def __init__(self, navn):\n        self._navn = navn\n        self._paa = 0\n\n    def meld_paa(self, n):\n        self._paa = self._paa + n\n\n    def hent(self):\n        return self._paa\n\ndef fyll(sal, antall):\n    sal.meld_paa(antall)\n    antall = 0\n\ndef bytt_ut(sal):\n    sal = Sal(\"Ny sal\")\n    sal.meld_paa(99)\n\ns = Sal(\"Speilsal\")\nfyll(s, 7)\nbytt_ut(s)\n```\n\n**a)** Hva gir `s.hent()`?\n\nA. `0`\nB. `99`\nC. `7`\nD. `106`\n\n**b)** Hvor mange `Sal`-objekter er laget?",
+    "solution": "**a) Riktig svar: C.**\n\n**Steg 3, funksjon for funksjon.**\n\n`fyll(s, 7)` kaller en **metode på objektet**, og endringen sees utenfor: `_paa`\nblir 7. Linjen `antall = 0` etterpå treffer bare det lokale navnet og har ingen\nvirkning i det hele tatt.\n\n`bytt_ut(s)` gjør ingenting synlig. `sal = Sal(\"Ny sal\")` flytter den **lokale**\npilen til et nytt objekt, og de 99 havner i det nye objektet — som forsvinner når\nfunksjonen er ferdig. Variabelen `s` utenfor har aldri blitt rørt. Det er\nfeilkode **#12**, scope-forvirring, i objektform.\n\n```python\nclass Sal:\n    def __init__(self, navn):\n        self._navn = navn\n        self._paa = 0\n\n    def meld_paa(self, n):\n        self._paa = self._paa + n\n\n    def hent(self):\n        return self._paa\n\ndef fyll(sal, antall):\n    sal.meld_paa(antall)\n    antall = 0\n\ndef bytt_ut(sal):\n    sal = Sal(\"Ny sal\")\n    sal.meld_paa(99)\n\ns = Sal(\"Speilsal\")\nfyll(s, 7)\nbytt_ut(s)\nprint(s.hent())\n```\n\n**Utskrift:**\n```\n7\n```\n\n**b)** **To.** Klassenavnet med parentes står to steder: `Sal(\"Speilsal\")` og\n`Sal(\"Ny sal\")`. Det andre objektet lever bare mens `bytt_ut` kjører.\n\n**Fellenoten:** grensen går ved punktumet. `sal.meld_paa(...)` treffer objektet og\nsees utenfor; `sal = ...` treffer bare det lokale navnet. En funksjon kan endre\nobjektene den får inn, men aldri kallerens piler.",
+    "hints": [
+     "Del de to funksjonene i to: hvilken skriver i en boks, og hvilken flytter en pil?",
+     "Tell hvor mange ganger `Sal(` står i koden."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-8",
+   "type": "text",
+   "content": "## Økt 3 — Referanser, aliaser og rebinding (~22 min)\n\nNå trenes steg 2 og 3: tegningen, og skillet mellom å skrive i en boks og å\nflytte en pil. Dette er det tyngste stoffet i Oppgave 2 — bruk papir."
+  },
+  {
+   "id": "in1000-5-5-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B.) Gitt klassen:\n\n```python\nclass Merke:\n    def __init__(self, tekst):\n        self._tekst = tekst\n\n    def sett(self, ny):\n        self._tekst = ny\n\n    def __str__(self):\n        return self._tekst\n\na = Merke(\"rod\")\nb = a\nc = Merke(\"rod\")\na.sett(\"gul\")\n```\n\n**a)** Hva skriver `print(a, b, c)` ut?\n\nA. `gul rod rod`\nB. `gul gul rod`\nC. `gul gul gul`\nD. `rod rod rod`",
+    "solution": "**Riktig svar: B.**\n\n**Steg 2 — tegningen.** To bokser lages (`Merke(` står to ganger). `a` og `b`\npeker på den første, `c` på den andre.\n\n**Steg 3.** `a.sett(\"gul\")` skriver i boks 1. Både `a` og `b` ser det. Boks 2 er\nurørt.\n\n```python\nclass Merke:\n    def __init__(self, tekst):\n        self._tekst = tekst\n\n    def sett(self, ny):\n        self._tekst = ny\n\n    def __str__(self):\n        return self._tekst\n\na = Merke(\"rod\")\nb = a\nc = Merke(\"rod\")\na.sett(\"gul\")\nprint(a, b, c)\n```\n\n**Utskrift:**\n```\ngul gul rod\n```\n\n**Fellenoten:** `c` ble laget med **samme verdi** som `a`, men er et helt annet\nobjekt. Like verdier gjør ikke to objekter til ett — det er skillet mellom\nlikhet og identitet, og Oppgave 2 spør nesten alltid om det siste.\n\nAlternativ C er svaret hvis man tror alle tre er samme objekt fordi de startet\nlikt; alternativ A er svaret hvis man tror `b = a` er en kopi.",
+    "hints": [
+     "Tell hvor mange ganger klassenavnet står med parentes — det er antall bokser.",
+     "Hvilke av de tre pilene peker på den samme boksen?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B.) Gitt klassen `Merke` fra forrige oppgave, og\nsnutten:\n\n```python\na = Merke(\"en\")\nb = a\na = Merke(\"to\")\nb.sett(\"tre\")\n```\n\n**a)** Hva skriver `print(a, b)` ut?\n\nA. `to tre`\nB. `tre tre`\nC. `to to`\nD. `en tre`\n\n**b)** Hvor mange `Merke`-objekter finnes etter de fire linjene?",
+    "solution": "**a) Riktig svar: A.**\n\n**Steg 3, linje for linje:**\n\n| Linje | `a` peker på | `b` peker på | boks 1 | boks 2 |\n|---|---|---|---|---|\n| `a = Merke(\"en\")` | boks 1 | — | en | — |\n| `b = a` | boks 1 | boks 1 | en | — |\n| `a = Merke(\"to\")` | **boks 2** | boks 1 | en | to |\n| `b.sett(\"tre\")` | boks 2 | boks 1 | **tre** | to |\n\n```python\nclass Merke:\n    def __init__(self, tekst):\n        self._tekst = tekst\n\n    def sett(self, ny):\n        self._tekst = ny\n\n    def __str__(self):\n        return self._tekst\n\na = Merke(\"en\")\nb = a\na = Merke(\"to\")\nb.sett(\"tre\")\nprint(a, b)\n```\n\n**Utskrift:**\n```\nto tre\n```\n\n**b)** **To.** Rebindingen slettet ingenting — det gamle objektet lever videre\nfordi `b` fortsatt peker på det, og det er nettopp derfor `b.sett(\"tre\")` virker.\n\n**Fellenoten:** dette er feilkode **#2** i sin nest vanligste form. Mange leser\ntredje linje som «`a` og dermed `b` blir `to`». Rebinding flytter én pil, og bare\nden.\n\nAlternativ B er svaret hvis man tror `a` og `b` fortsatt er sammenkoblet.",
+    "hints": [
+     "Skriv opp pilene og boksene i to atskilte kolonner.",
+     "Hvilken av de fire linjene flytter en pil, og hvilken skriver i en boks?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B.) Gitt to klasser:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def sett_tittel(self, t):\n        self._tittel = t\n\n    def __str__(self):\n        return self._tittel\n\nclass Hylle:\n    def __init__(self):\n        self._boker = []\n\n    def sett_inn(self, b):\n        self._boker.append(b)\n\n    def antall(self):\n        return len(self._boker)\n\n    def skriv_alle(self):\n        for b in self._boker:\n            print(b)\n\nsult = Bok(\"Sult\")\nh1 = Hylle()\nh2 = Hylle()\nh1.sett_inn(sult)\nh2.sett_inn(sult)\nsult.sett_tittel(\"Sult (1890)\")\nsult = Bok(\"Vaar\")\nh1.sett_inn(sult)\n```\n\n**a)** Hva skriver `h1.skriv_alle()` ut?\n\n**b)** Hva gir `h2.antall()`?\n\n**c)** Hvor mange `Bok`-objekter er laget?\n\n**d)** Er `_boker` del av grensesnittet til `Hylle`?",
+    "solution": "**Steg 2–3 — tegningen.** To `Bok`-objekter og to `Hylle`-objekter lages.\n\n| Linje | boks 1 | boks 2 | `sult` | `h1._boker` | `h2._boker` |\n|---|---|---|---|---|---|\n| `sult = Bok(\"Sult\")` | Sult | — | boks 1 | — | — |\n| to `sett_inn(sult)` | Sult | — | boks 1 | 1 | 1 |\n| `sult.sett_tittel(...)` | **Sult (1890)** | — | boks 1 | 1 | 1 |\n| `sult = Bok(\"Vaar\")` | Sult (1890) | Vaar | **boks 2** | 1 | 1 |\n| `h1.sett_inn(sult)` | Sult (1890) | Vaar | boks 2 | 1, 2 | 1 |\n\n**a)–b)** Kjørt:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def sett_tittel(self, t):\n        self._tittel = t\n\n    def __str__(self):\n        return self._tittel\n\nclass Hylle:\n    def __init__(self):\n        self._boker = []\n\n    def sett_inn(self, b):\n        self._boker.append(b)\n\n    def antall(self):\n        return len(self._boker)\n\n    def skriv_alle(self):\n        for b in self._boker:\n            print(b)\n\nsult = Bok(\"Sult\")\nh1 = Hylle()\nh2 = Hylle()\nh1.sett_inn(sult)\nh2.sett_inn(sult)\nsult.sett_tittel(\"Sult (1890)\")\nsult = Bok(\"Vaar\")\nh1.sett_inn(sult)\nh1.skriv_alle()\nprint(h2.antall())\n```\n\n**Utskrift:**\n```\nSult (1890)\nVaar\n1\n```\n\n**a)** To linjer: `Sult (1890)` og `Vaar`.\n\n**b)** `1`. Bare den første boka ble lagt i `h2`, og rebindingen av `sult` rørte\nikke ventelista.\n\n**c)** **To.** `Bok(` står to ganger. At den samme boka ligger i to hyller, gjør\nden ikke til to objekter.\n\n**d)** **Nei.** `_boker` er en instansvariabel. Grensesnittet til `Hylle` er\n`__init__()`, `sett_inn(b)`, `antall()` og `skriv_alle()`.\n\n**Fellenoten:** tittelendringen skjedde **før** rebindingen og traff derfor boka\nsom ligger i begge hyllene. Rekkefølgen på linjene avgjør, og det er derfor\nsporingen må gjøres ovenfra og ned.\n\n**Sensors notat:** fire deloppgaver, fire selvstendige poeng. Å bomme på a) koster\nikke b), c) eller d) — og d) er gratis når regelen om understrek sitter.",
+    "hints": [
+     "Tegn to bokser og to hyller, og oppdater dem linje for linje.",
+     "Merk deg hvilken linje som kommer først: tittelendringen eller rebindingen."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B.) Gitt to klasser der den ene holder en referanse til\nden andre:\n\n```python\nclass Eier:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\n    def sett_navn(self, n):\n        self._navn = n\n\nclass Konto:\n    def __init__(self, eier):\n        self._eier = eier\n        self._eier_navn = eier.hent_navn()\n\n    def navn_via_referanse(self):\n        return self._eier.hent_navn()\n\n    def navn_via_kopi(self):\n        return self._eier_navn\n\nada = Eier(\"Ada\")\nk = Konto(ada)\nada.sett_navn(\"Ada Lovelace\")\n```\n\n**a)** Hva skriver `print(k.navn_via_referanse(), \"|\", k.navn_via_kopi())` ut?\n\nA. `Ada | Ada Lovelace`\nB. `Ada Lovelace | Ada Lovelace`\nC. `Ada | Ada`\nD. `Ada Lovelace | Ada`\n\n**b)** Hvilken av de to metodene er den riktige modelleringen, og hvorfor?",
+    "solution": "**a) Riktig svar: D.**\n\n`navn_via_referanse` går til eier-objektet og spør om navnet **nå**, og får det\noppdaterte. `navn_via_kopi` returnerer teksten som ble lagret i konstruktøren, og\nden ble aldri oppdatert.\n\n```python\nclass Eier:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\n    def sett_navn(self, n):\n        self._navn = n\n\nclass Konto:\n    def __init__(self, eier):\n        self._eier = eier\n        self._eier_navn = eier.hent_navn()\n\n    def navn_via_referanse(self):\n        return self._eier.hent_navn()\n\n    def navn_via_kopi(self):\n        return self._eier_navn\n\nada = Eier(\"Ada\")\nk = Konto(ada)\nada.sett_navn(\"Ada Lovelace\")\nprint(k.navn_via_referanse(), \"|\", k.navn_via_kopi())\n```\n\n**Utskrift:**\n```\nAda Lovelace | Ada\n```\n\n**b)** **Referansen** er riktig. Å lagre `self._eier = eier` gjør at modellen\nholder seg i takt av seg selv: navnet leses på nytt hver gang, og kontoen trenger\naldri å få beskjed om en endring.\n\nÅ lagre rådata i stedet for en objektreferanse er en av de vanligste\nmodelleringsfeilene i den store Oppgave 4. Symptomet er nettopp dette: en verdi\nsom var riktig da den ble lagret, og som stille blir foreldet.\n\n**Fellenoten:** tekster er uforanderlige. `self._eier_navn` fikk sin egen tekst i\nkonstruktøren, og `sett_navn` laget en **ny** tekst inne i eieren. De to har aldri\nvært koblet.\n\n**Sensors notat:** deloppgave b) er et begrunnelsesspørsmål, og begrunnelsen\nteller. «Referansen er riktig fordi navnet leses på nytt» er nok.",
+    "hints": [
+     "Følg de to instansvariablene hver for seg — den ene peker på et objekt, den andre holder en tekst.",
+     "Kan en tekst som er lagret i en variabel, endre seg av seg selv?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-9",
+   "type": "text",
+   "content": "## Økt 4 — Blandet, som på eksamen (~23 min)\n\nDe siste fire oppgavene blander fellene, slik snutten på eksamen gjør. Bruk alle\nfem stegene, og husk at spørsmålene til samme snutt rettes hver for seg."
+  },
+  {
+   "id": "in1000-5-5-oppg-9",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o9",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B, begrepsspørsmål.) Gitt klassen:\n\n```python\nclass Rute:\n    def __init__(self, nummer, kapasitet):\n        self._nummer = nummer\n        self._kapasitet = kapasitet\n        self._passasjerer = 0\n\n    def hent_nummer(self):\n        return self._nummer\n\n    def paa(self, n):\n        if n > self._kapasitet - self._passasjerer:\n            print(\"Fullt\")\n        else:\n            self._passasjerer = self._passasjerer + n\n\n    def __str__(self):\n        return \"Rute \" + str(self._nummer)\n```\n\n**a)** Hvilket alternativ beskriver grensesnittet til `Rute` riktig?\n\nA. `_nummer`, `_kapasitet`, `_passasjerer`\nB. `__init__(self, nummer, kapasitet)`, `hent_nummer(self)`, `paa(self, n)`\nC. `__init__(nummer, kapasitet)`, `hent_nummer()`, `paa(n)`, `__str__()`\nD. `hent_nummer()` alene, siden det er den eneste aksessoren\n\n**b)** Er `_passasjerer` en instansvariabel?",
+    "solution": "**a) Riktig svar: C.**\n\n**Steg 5:** stryk alt med understrek, stryk metodekroppene, og skriv opp navnene\nmed parameterlistene — **uten** `self`, som den som kaller aldri oppgir.\n\nAlternativ A lister instansvariablene, som er innsiden. Alternativ B har med\n`self` og er derfor ikke en beskrivelse av hva den som kaller, skal skrive.\nAlternativ D glemmer at også `paa` og `__str__` er offentlige.\n\n**b) Ja.** `_passasjerer` **er** en instansvariabel — den settes med `self._` i\nkonstruktøren og hører til objektet.\n\n**Fellenoten:** dette er navnekollisjonen fra\n[kap. 5.2](/bok/in1000/in1000-5-2). Understreken bærer to budskap: «dette er en\ninstansvariabel» **og** «dette er ikke del av grensesnittet». Spør oppgaven om\ndet første, skal variabelen med; spør den om det andre, skal den ikke.\n\nLes hvilket av de to ordene som står i spørsmålet, før du svarer.",
+    "hints": [
+     "Stryk alt som begynner med understrek, og alle metodekroppene.",
+     "For b): står det «instansvariabel» eller «grensesnitt» i spørsmålet?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-10",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o10",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B.) Gitt to klasser:\n\n```python\nclass Spiller:\n    def __init__(self, navn, poeng):\n        self._navn = navn\n        self._poeng = 0\n        poeng = poeng\n\n    def gi(self, n):\n        self._poeng = self._poeng + n\n\n    def hent_poeng(self):\n        return self._poeng\n\n    def __str__(self):\n        return self._navn + \":\" + str(self._poeng)\n\nclass Lag:\n    def __init__(self):\n        self._spillere = []\n\n    def ta_opp(self, s):\n        self._spillere.append(s)\n\n    def totalt_antall_poeng(self):\n        sum_poeng = 0\n        for s in self._spillere:\n            sum_poeng = sum_poeng + s.hent_poeng()\n        return sum_poeng\n\nada = Spiller(\"Ada\", 10)\nnora = Spiller(\"Nora\", 20)\nlag = Lag()\nlag.ta_opp(ada)\nlag.ta_opp(nora)\nada.gi(5)\nada = Spiller(\"Ada2\", 100)\nada.gi(50)\n```\n\n**a)** Hva gir `lag.totalt_antall_poeng()`?\n\nA. `5`\nB. `35`\nC. `85`\nD. `185`\n\n**b)** Hva skriver `print(ada)` ut?\n\n**c)** Hvor mange `Spiller`-objekter er laget?",
+    "solution": "**a) Riktig svar: A.**\n\n**Steg 1:** `self`-fella er plantet i `Spiller`. Startpoengene 10, 20 og 100\nkommer aldri inn i objektene — `self._poeng` settes til 0 hver gang, og linjen\n`poeng = poeng` er lokal.\n\n**Steg 3:** `ada.gi(5)` treffer det første objektet, som dermed har 5 poeng.\n`nora` har 0. Rebindingen `ada = Spiller(\"Ada2\", 100)` lager et tredje objekt som\n**ikke** er med i laget, og de 50 poengene havner der.\n\nSummen over laget er 5 pluss 0.\n\n```python\nclass Spiller:\n    def __init__(self, navn, poeng):\n        self._navn = navn\n        self._poeng = 0\n        poeng = poeng\n\n    def gi(self, n):\n        self._poeng = self._poeng + n\n\n    def hent_poeng(self):\n        return self._poeng\n\n    def __str__(self):\n        return self._navn + \":\" + str(self._poeng)\n\nclass Lag:\n    def __init__(self):\n        self._spillere = []\n\n    def ta_opp(self, s):\n        self._spillere.append(s)\n\n    def totalt_antall_poeng(self):\n        sum_poeng = 0\n        for s in self._spillere:\n            sum_poeng = sum_poeng + s.hent_poeng()\n        return sum_poeng\n\nada = Spiller(\"Ada\", 10)\nnora = Spiller(\"Nora\", 20)\nlag = Lag()\nlag.ta_opp(ada)\nlag.ta_opp(nora)\nada.gi(5)\nada = Spiller(\"Ada2\", 100)\nada.gi(50)\nprint(lag.totalt_antall_poeng())\nprint(ada)\n```\n\n**Utskrift:**\n```\n5\nAda2:50\n```\n\n**b)** `Ada2:50`. Variabelen `ada` peker nå på det tredje objektet.\n\n**c)** **Tre.** `Spiller(` står tre ganger.\n\n**Fellenoten:** to feller samtidig, som på eksamen. `self`-fella tar startverdiene,\nog rebindingen tar de 50 poengene ut av laget. Alternativ D (`185`) er svaret\nhvis man tror alle startverdier og alle tillegg er med.\n\n**Sensors notat:** de tre deloppgavene teller hver for seg. Ser du bare\n`self`-fella og svarer 55 på a), har du fortsatt riktig på b) og c) hvis du\nsporer resten riktig.\n\nLegg merke til at `totalt_antall_poeng` heter noe annet enn spillerens\n`hent_poeng` — etter navneregelen for containere fra\n[kap. 5.3](/bok/in1000/in1000-5-3).",
+    "hints": [
+     "Sjekk konstruktøren FØR du sporer noe annet.",
+     "Er det siste objektet med i laget?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-11",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o11",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B, med et innslag av sjanger I — «finn feilen».) Gitt\nklassen:\n\n```python\nclass Stativ:\n    def __init__(self, sted, plasser):\n        self._sted = sted\n        self._plasser = plasser\n        self._sykler = []\n\n    def sett_inn(self, s):\n        if len(self._sykler) < self._plasser:\n            self._sykler.append(s)\n        else:\n            print(\"Fullt\")\n\n    def antall(self):\n        return len(self._sykler)\n```\n\nEt program bruker klassen slik:\n\n```python\nst = Stativ(\"Blindern\", 2)\nst._sykler.append(\"R31\")\nst._sykler.append(\"R48\")\nst._sykler.append(\"R99\")\n```\n\n**a)** Hva gir `st.antall()`?\n\nA. `2`\nB. `0`\nC. Programmet stopper.\nD. `3`\n\n**b)** Hvilken feilkode er de tre linjene, og hva er den konkrete skaden?\n\n**c)** Hvordan skulle programmet vært skrevet?",
+    "solution": "**a) Riktig svar: D.**\n\nLinjene går rett på instansvariabelen og legger inn tre sykler i et stativ med to\nplasser. Python håndhever ingen stenging, så det virker.\n\n```python\nclass Stativ:\n    def __init__(self, sted, plasser):\n        self._sted = sted\n        self._plasser = plasser\n        self._sykler = []\n\n    def sett_inn(self, s):\n        if len(self._sykler) < self._plasser:\n            self._sykler.append(s)\n        else:\n            print(\"Fullt\")\n\n    def antall(self):\n        return len(self._sykler)\n\nst = Stativ(\"Blindern\", 2)\nst._sykler.append(\"R31\")\nst._sykler.append(\"R48\")\nst._sykler.append(\"R99\")\nprint(st.antall())\n```\n\n**Utskrift:**\n```\n3\n```\n\n**b)** Feilkode **#11**, direkte tilgang til en instansvariabel utenfra. Den\nkonkrete skaden er at kapasitetssjekken i `sett_inn` ble hoppet over: stativet\nhar nå flere sykler enn det har plasser, og ingen ting sa fra.\n\n**Konkret moteksempel:** med `sett_inn` ville det tredje kallet skrevet `Fullt`,\nog `antall()` ville gitt 2.\n\n**c)** Gjennom metoden, som er nettopp den som passer på regelen:\n\n```python\nclass Stativ:\n    def __init__(self, sted, plasser):\n        self._sted = sted\n        self._plasser = plasser\n        self._sykler = []\n\n    def sett_inn(self, s):\n        if len(self._sykler) < self._plasser:\n            self._sykler.append(s)\n        else:\n            print(\"Fullt\")\n\n    def antall(self):\n        return len(self._sykler)\n\nst = Stativ(\"Blindern\", 2)\nst.sett_inn(\"R31\")\nst.sett_inn(\"R48\")\nst.sett_inn(\"R99\")\nprint(st.antall())\n```\n\n**Utskrift:**\n```\nFullt\n2\n```\n\n**Fellenoten:** #11 er en **stum** feil. Programmet kjører, det gir et svar, og\nsvaret ser ut som et tall man kan stole på. Det er derfor sensor må se etter den,\nog derfor den koster poeng selv når koden «virker».\n\n**Sensors notat:** ved «finn feilen» gir et **konkret moteksempel** full\nuttelling, mens en ren verbal forklaring gir delvis. Skriv hvilket kall som gir\ngalt svar, og hva det riktige ville vært.",
+    "hints": [
+     "Stopper Python deg noen gang fra å skrive til en variabel med understrek?",
+     "Hvilken regel ligger inne i `sett_inn`, og hvem hopper over den?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-oppg-12",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-5-o12",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — full Oppgave 2.) Gitt to klasser:\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def ta_ut(self, n):\n        self._antall = self._antall - n\n\n    def hent_antall(self):\n        return self._antall\n\n    def __str__(self):\n        return self._navn + \"=\" + str(self._antall)\n\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def legg_inn(self, nokkel, vare):\n        self._varer[nokkel] = vare\n\n    def finn(self, nokkel):\n        if nokkel in self._varer:\n            return self._varer[nokkel]\n        return None\n\n    def totalt_antall(self):\n        sum_antall = 0\n        for k in self._varer:\n            sum_antall = sum_antall + self._varer[k].hent_antall()\n        return sum_antall\n\nskrue = Vare(\"skrue\", 10)\nmutter = Vare(\"mutter\", 6)\n\nlager = Lager()\nlager.legg_inn(\"skrue\", skrue)\nlager.legg_inn(\"A\", skrue)\nlager.legg_inn(\"mutter\", mutter)\n\nskrue.ta_ut(4)\nskrue = Vare(\"skrue\", 99)\n```\n\n**a)** Hva gir `lager.totalt_antall()`?\n\nA. `22`\nB. `18`\nC. `12`\nD. `111`\n\n**b)** Hva skriver `print(lager.finn(\"A\"))` ut?\n\n**c)** Hva skriver `print(lager.finn(\"bolt\"))` ut, og hvorfor stopper ikke\nprogrammet?\n\n**d)** Hvor mange `Vare`-objekter er laget?",
+    "solution": "**a) Riktig svar: B.**\n\n**Steg 2–3 — tegningen.** To varer lages først. Ordboka får **tre** nøkler, men\nto av dem peker på den samme skruen.\n\n| Linje | boks 1 (skrue) | boks 2 (mutter) | ordboka |\n|---|---|---|---|\n| to `Vare(...)` | 10 | 6 | tom |\n| tre `legg_inn` | 10 | 6 | `skrue` og `A` gir boks 1, `mutter` gir boks 2 |\n| `skrue.ta_ut(4)` | **6** | 6 | uendret |\n| `skrue = Vare(\"skrue\", 99)` | 6 | 6 | uendret — peker fortsatt på boks 1 |\n\nSummen løper over de **tre nøklene**, og boks 1 ligger under to av dem. Den telles\nderfor **to ganger**: 6 pluss 6 pluss 6 er 18.\n\nUttaket skjedde før rebindingen, så boks 1 står på 6. Det nye objektet med 99\nligger ikke i lageret i det hele tatt.\n\nLa oss kjøre det:\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def ta_ut(self, n):\n        self._antall = self._antall - n\n\n    def hent_antall(self):\n        return self._antall\n\n    def __str__(self):\n        return self._navn + \"=\" + str(self._antall)\n\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def legg_inn(self, nokkel, vare):\n        self._varer[nokkel] = vare\n\n    def finn(self, nokkel):\n        if nokkel in self._varer:\n            return self._varer[nokkel]\n        return None\n\n    def totalt_antall(self):\n        sum_antall = 0\n        for k in self._varer:\n            sum_antall = sum_antall + self._varer[k].hent_antall()\n        return sum_antall\n\nskrue = Vare(\"skrue\", 10)\nmutter = Vare(\"mutter\", 6)\nlager = Lager()\nlager.legg_inn(\"skrue\", skrue)\nlager.legg_inn(\"A\", skrue)\nlager.legg_inn(\"mutter\", mutter)\nskrue.ta_ut(4)\nskrue = Vare(\"skrue\", 99)\nprint(lager.totalt_antall())\nprint(lager.finn(\"A\"))\nprint(lager.finn(\"bolt\"))\n```\n\n**Utskrift:**\n```\n18\nskrue=6\nNone\n```\n\nDette er verdt å stoppe ved: to nøkler som peker på samme objekt gjør at objektet\ntelles **to ganger** i en sum over nøklene. Alternativ C (`12`) er svaret hvis man\nteller hvert objekt én gang, og alternativ A (`22`) hvis man glemmer uttaket.\n\n**b)** `skrue=6`. Nøkkelen `A` peker på det første objektet, som ble tappet for\nfire. Rebindingen på siste linje rørte ikke ordboka.\n\n**c)** `None`. Metoden sjekker med `if nokkel in self._varer:` før den slår opp,\nog returnerer `None` når nøkkelen mangler. Uten sjekken ville programmet stoppet\nmed `KeyError: 'bolt'` — feilkode **#14**.\n\n**d)** **Tre.** `Vare(` står tre ganger, men bare to av objektene ligger i\nlageret.\n\n**Fellenoten:** dobbelttellingen i a) er den vanskeligste enkeltdetaljen i hele\nkapitlet. Regelen: en sum over **nøkler** teller referanser, ikke objekter. Skal\nhvert objekt telles én gang, må modellen sikre at hvert objekt bare ligger under\nén nøkkel.\n\n**Sensors notat:** fire deloppgaver, fire poeng. Å bomme på a) koster ikke b), c)\neller d).",
+    "hints": [
+     "Tegn ordboka som tre piler, og se hvor mange av dem som treffer samme boks.",
+     "Skjedde uttaket før eller etter rebindingen?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-5-10",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes i Oppgave 2:\n\n- **Å hoppe over steg 1.** Leser du ikke konstruktøren nøye, ser du ikke\n  `self`-fella (**#1**), og da er hele sporingen bygget på gale startverdier.\n- **Å tro at `b = a` er en kopi (#2).** Det er én ting med to navn.\n- **Å tro at en rebinding endrer objektet (#2).** Den flytter én pil, og bare\n  den.\n- **Å tro at en funksjon kan flytte kallerens pil (#12).** Den kan endre\n  objektet, ikke hvilket objekt kalleren peker på.\n- **Å blande instansvariabel og grensesnitt (#11).** Understreken bærer begge\n  budskapene; les hvilket ord som står i spørsmålet.\n\nOg én tellefeil: **referanser er ikke objekter.** En liste med fire elementer kan\nholde ett objekt. En sum over tre nøkler kan telle det samme objektet to ganger.\n\nOg til slutt det billigste av alt: **et blankt felt gir null poeng.** Kryss alltid\nav."
+  },
+  {
+   "id": "in1000-5-5-coll-11",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-5-5-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `self._x = v` i `__init__` | Riktig. Verdien overlever kallet og ligger i objektet. |\n| `x = v` i `__init__` | **`self`-fella (#1).** Lokal variabel, forsvinner. Aksessoren svarer startverdien — eller stopper. |\n| `x = self._x + 1` i en metode | Samme felle i en metode: utregningen kastes. Må være `self._x = ...`. |\n| `a = Klasse(...)` | Lager ett nytt objekt. Tell disse for å telle objekter. |\n| `b = a` | To navn, ett objekt. Ingen kopi. |\n| `a.metode(v)` | Skriver i boksen. Alle som peker på den, ser det. |\n| `a = Klasse(...)` på nytt | **Rebinding.** Flytter pilen. Det gamle objektet er uendret. |\n| `def f(p):` `p = Klasse()` | Flytter bare det lokale navnet — kalleren merker ingenting (#12). |\n| `def f(p):` `p.sett_x(v)` | Endrer objektet — kalleren ser det. |\n| `liste.append(obj)` | Legger inn en referanse. Samme objekt kan ligge flere ganger. |\n| `d[nokkel] = obj` | To nøkler kan peke på samme objekt. En sum over nøkler teller det da to ganger. |\n| `if nokkel in d:` | Sjekk før oppslag. Uten den: `KeyError` (#14). |\n| `return None` | Ærlig svar fra et søk som ikke fant noe. Skrives ut med stor forbokstav. |\n| `len(liste)` / `len(d)` | Antall **referanser** eller **nøkler**, ikke antall objekter. |\n| `obj._x` utenfra | **Feilkode #11.** Virker i Python, hopper over klassens regler, trekker. |\n| Grensesnitt | Metodenavn med parameterlister, uten `self` og uten understrek-variabler. |\n\n**Det som avgjør poeng i Oppgave 2:** at du leser konstruktøren først, tegner\npilene, og skiller «skriv i boksen» fra «flytt pilen»."
+    }
+   ]
+  },
+  {
+   "id": "in1000-5-5-12",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-5-5-13",
+   "type": "definition",
+   "title": "Oppgave 2 — formen",
+   "content": "Én felles kodesnutt med to klasser, og fire spørsmål (2a–2d) til den. Rundt 8–9\npoeng, flervalg, i alle de seks moderne settene.\n\nSpørsmålene følger snutten kronologisk, så tegningen din skal se ulik ut for 2a\nog 2d.\n\nDe rettes hver for seg. En bom på ett spørsmål koster ikke de tre andre — og\nblankt gir null, så kryss av på alle fire."
+  },
+  {
+   "id": "in1000-5-5-14",
+   "type": "definition",
+   "title": "De fem stegene",
+   "content": "Oppskriften, i kortform: **les konstruktøren, tegn, spor, svar, skill metoder fra\nvariabler.**\n\nSteg 1 er det viktigste og det som oftest hoppes over. En plantet `self`-felle\ngjør alle startverdiene i sporingen gale.\n\nHele oppskriften tar to–tre minutter og brukes på alle fire spørsmålene til den\nsamme snutten."
+  },
+  {
+   "id": "in1000-5-5-15",
+   "type": "definition",
+   "title": "`self`-fella med og uten startverdi",
+   "content": "Feilkode **#1** har to utfall, og du må se hvilket.\n\n**Uten startverdi:** instansvariabelen finnes ikke i det hele tatt, og programmet\nstopper med `AttributeError: 'Klasse' object has no attribute '_x'`.\n\n**Med startverdi:** variabelen finnes, men fikk aldri verdien utenfra. Programmet\nkjører rolig og svarer startverdien — 0, `False` eller den tomme lista.\n\nDen andre varianten er den farlige, og den er den som plantes oftest."
+  },
+  {
+   "id": "in1000-5-5-16",
+   "type": "definition",
+   "title": "`self`-fella i en metode",
+   "content": "Fella lever ikke bare i konstruktøren. En metode som skal endre objektet, må\nskrive til `self._x`:\n\n```text\n    def opp(self):\n        n = self._n + 1\n```\n\nBlokken er et utdrag med en plantet feil og er merket som ikke-kjørbar.\n\nUtregningen er riktig, men resultatet legges i en lokal variabel og kastes.\nMetoden gjør ingenting, uten et eneste varsel."
+  },
+  {
+   "id": "in1000-5-5-17",
+   "type": "definition",
+   "title": "Boks og pil",
+   "content": "Tegnemetoden som løser alle referansespørsmål. Én boks per objekt, én pil per\nvariabel.\n\n- `b = a`: la `b`-pilen peke der `a`-pilen peker.\n- `b = Klasse()`: tegn en **ny** boks.\n- `a.sett_x(5)`: skriv 5 i boksen. Rør ingen piler.\n\nTo minutter på tegningen er raskere enn å lese koden tre ganger, og den brukes på\nalle fire spørsmålene."
+  },
+  {
+   "id": "in1000-5-5-18",
+   "type": "definition",
+   "title": "Å telle objekter i en snutt",
+   "content": "Tell hvor mange ganger et klassenavn står med parentes bak seg. Det er antall\nobjekter, uansett hvor mange variabler og listeplasser som peker på dem.\n\n`len(liste)` teller referanser. En liste med fire elementer kan holde ett objekt.\n\nSpørsmålet «hvor mange objekter er laget?» er et fast flervalg, og det tar ti\nsekunder når du vet hva du skal telle."
+  },
+  {
+   "id": "in1000-5-5-19",
+   "type": "definition",
+   "title": "Dobbelttelling over nøkler",
+   "content": "En ordbok kan ha to nøkler som peker på det **samme** objektet. En sum som løper\nover nøklene, teller da objektet to ganger.\n\nDet er sjelden ønsket, og det er en ekte felle i sporingsoppgaver. Ser du to\n`legg_inn`-kall med ulik nøkkel og samme objekt, er det plantet med vilje.\n\nSkal hvert objekt telles én gang, må modellen sikre at det bare ligger under én\nnøkkel."
+  },
+  {
+   "id": "in1000-5-5-20",
+   "type": "definition",
+   "title": "Rebinding i en snutt",
+   "content": "`a = Klasse(...)` etter at `a` allerede pekte på noe.\n\nKjenn den igjen på at klassenavnet med parentes står på **høyre** side av\nlikhetstegnet, og en variabel som allerede er i bruk, på venstre.\n\nEtter linjen finnes ett objekt mer enn før, og alle andre piler til det gamle\nobjektet er uendret. Det er nettopp derfor lister og ordbøker beholder det\ngamle."
+  },
+  {
+   "id": "in1000-5-5-21",
+   "type": "definition",
+   "title": "Scope i objektform",
+   "content": "En tilordning inne i en funksjon eller metode treffer bare det lokale navnet.\n\n`p = Bok(\"ny\")` inne i en funksjon gjør ingenting synlig utenfor. `p.sett_x(...)`\ngjør det, fordi den treffer objektet.\n\nGrensen går ved punktumet: er det et likhetstegn rett etter navnet, er det\nlokalt; er det et metodekall, treffer det objektet. Dette er feilkode **#12**."
+  },
+  {
+   "id": "in1000-5-5-22",
+   "type": "definition",
+   "title": "Grensesnitt mot instansvariabel",
+   "content": "Understreken bærer to budskap, og spørsmålene utnytter det.\n\nSpørres det om **instansvariabler**, skal `_kapasitet` med — den settes med\n`self._` og hører til objektet.\n\nSpørres det om **grensesnittet**, skal `_kapasitet` **ikke** med, men\n`hent_kapasitet()` skal.\n\nLes hvilket av de to ordene som står i spørsmålet. Det er den vanligste\nlesefeilen i 2d."
+  },
+  {
+   "id": "in1000-5-5-23",
+   "type": "definition",
+   "title": "Feilkode #11 i en snutt",
+   "content": "`obj._x` eller `obj._x = v` utenfor klassen. Python stopper deg ikke, så\nprogrammet kjører og gir et svar.\n\nSkaden er at klassens egne regler hoppes over: en kapasitetssjekk, en telling\neller to felter som skulle vært oppdatert sammen.\n\nVed «finn feilen»-spørsmål gir et **konkret moteksempel** full uttelling: hvilket\nkall som gir galt svar, og hva det riktige ville vært."
+  },
+  {
+   "id": "in1000-5-5-24",
+   "type": "definition",
+   "title": "Identitet mot likhet",
+   "content": "To objekter kan ha nøyaktig like verdier og likevel være to objekter.\n`Merke(\"rod\")` to ganger gir to merker.\n\n**Identitet** er «er dette det samme objektet?». **Likhet** er «har de samme\nverdier?».\n\nOppgave 2 spør nesten alltid om identitet — formuleringene «peker på samme\nobjekt», «hvor mange objekter finnes» og «sees endringen også via …» handler alle\nom det."
+  },
+  {
+   "id": "in1000-5-5-25",
+   "type": "definition",
+   "title": "Objektreferanse mot lagret rådata",
+   "content": "`self._eier = person` mot `self._eier_navn = person.hent_navn()`.\n\nDen første leser navnet på nytt hver gang og holder seg i takt. Den andre lagret\nen tekst i konstruktøren, og teksten blir foreldet i det øyeblikket personen\nskifter navn.\n\nÅ lagre rådata i stedet for en objektreferanse er en av de faste\nvurderingspunktene i den store Oppgave 4."
+  },
+  {
+   "id": "in1000-5-5-26",
+   "type": "definition",
+   "title": "Blankt svar",
+   "content": "Et ubesvart flervalg gir null poeng, akkurat som et galt svar. Det er ingen\nstraff for å gjette.\n\nOppgave 2 er rundt ni poeng fordelt på fire spørsmål, så et blankt felt er over\nto poeng gitt bort gratis.\n\nKlarer du å utelukke to alternativer, er gjetningen mellom de to siste verdt\nhalvparten av poengene i snitt."
+  },
+  {
+   "id": "in1000-5-5-27",
+   "type": "definition",
+   "title": "Å lese alternativene bakfra",
+   "content": "En praktisk teknikk når du står fast: se hva alternativene skiller seg på, og\nspor bare den detaljen.\n\nSkiller de seg på ett tall, er det én linje i snutten som avgjør. Skiller de seg\npå om to navn er like, er det en referanse som er plantet.\n\nAlternativene er laget ut fra fellekatalogen, så hvert av dem svarer til én\nbestemt misforståelse. Å vite hvilken, er ofte nok til å velge riktig."
+  },
+  {
+   "id": "in1000-5-5-28",
+   "type": "definition",
+   "title": "Delvis uttelling i Oppgave 2",
+   "content": "Hvert av de fire spørsmålene rettes for seg. Det er ingen kjedereaksjon: bommer\ndu på 2a, kan 2b, 2c og 2d fortsatt bli riktige.\n\nDet betyr at det aldri lønner seg å stå fast. Sitter du fast på 2a, tegn ferdig\nog gå videre — spørsmålene handler ofte om ulike deler av snutten.\n\nOg 2d er som regel et begrepsspørsmål som kan besvares uten å spore noe i det\nhele tatt."
+  },
+  {
+   "id": "in1000-5-5-coll-29",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-5-5-c2",
+     "type": "text",
+     "content": "1. **Les konstruktøren først.** Skriv opp bare linjene som starter med `self._`.\n   En linje uten `self.` er `self`-fella, feilkode **#1**.\n2. **`self`-fella har to utfall:** uten startverdi stopper programmet, med\n   startverdi svarer det rolig feil.\n3. **Tegn bokser og piler.** Én boks per klassenavn med parentes, én pil per\n   variabel.\n4. **`a.metode(v)` skriver i boksen; `a = ...` flytter pilen.** Det første sees av\n   alle, det andre bare av `a`.\n5. **En funksjon kan endre objektet, ikke kallerens pil.** Tilordning inne i en\n   funksjon er lokal — feilkode **#12**.\n6. **Tell objekter ved å telle klassenavn med parentes.** `len` teller\n   referanser, og to nøkler kan peke på samme objekt.\n7. **Grensesnittet er metodene.** Understrek-variabler er innside — men de **er**\n   instansvariabler. Les hvilket ord spørsmålet bruker.\n\nOg alltid: **kryss av på alle fire.** Blankt gir null."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

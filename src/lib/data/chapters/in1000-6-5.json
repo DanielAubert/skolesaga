@@ -1,0 +1,284 @@
+{
+ "id": "in1000-6-5",
+ "courseId": "in1000",
+ "chapterNumber": "6.5",
+ "title": "DRILL — Full klassemodellering fra spesifikasjon",
+ "description": "Den fullt gjennomarbeidede malen for den store oppgaven: fra beskrivelse til flere samarbeidende klasser med konstruktør, samling, filinnlesing, algoritmemetode og utskrift.",
+ "estimatedMinutes": 90,
+ "competenceGoals": [
+  "kunne gå fra en beskrivelse til en ferdig modell i en fast rekkefølge av steg",
+  "kunne sette sammen konstruktør, samling, filinnlesing, algoritmemetode og utskrift i én besvarelse",
+  "kunne finne de stumme feilene i en modell ved å lese den, ikke ved å kjøre den",
+  "kunne disponere tiden slik at hver deloppgave leveres, også når én av dem ikke blir ferdig"
+ ],
+ "content": [
+  {
+   "id": "in1000-6-5-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "Dette kapitlet trener **Oppgave 4**, og bare den.\n\n**Sjanger F — stor klassemodellering** står i **6 av 6 moderne eksamenssett\n(100 %)** og er verdt **47–50 poeng av 100** — nesten halve eksamen. Den er delt i\nseks–sju deloppgaver à 3–12 poeng, og **hver av dem rettes for seg**.\n\n**Dette må sitte** — bokas høyeste prioritetsnivå.\n\nDomenet roterer fra år til år, men den underliggende øvelsen er identisk: les en\ntekst, finn klassene, bygg dem, fyll dem fra en fil, og legg én–to smarte metoder\npå toppen. Denne drillen roterer domenet på samme måte, med nyskrevne\ninnpakninger.\n\n**To taktiske regler er verdt like mye som kodeferdighetene.** Du skal aldri stå\nfast — hopp til neste deloppgave, som rettes uansett. Og du kan **bruke en metode\noppgaveteksten beskriver** selv om du ikke har rukket å skrive den.\n\nKapitlet er langt (~90 min) og er delt i fire økter med tidsanslag. Ta gjerne én\nøkt om gangen."
+  },
+  {
+   "id": "in1000-6-5-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet samler hele del 5 og 6, og låner én konstruksjon fra del 7:\n[kap. 5.1](/bok/in1000/in1000-5-1) klasser,\n[kap. 5.2](/bok/in1000/in1000-5-2) innkapsling,\n[kap. 5.3](/bok/in1000/in1000-5-3) `__str__` og delegering,\n[kap. 6.1](/bok/in1000/in1000-6-1) modellering,\n[kap. 6.2](/bok/in1000/in1000-6-2) en-til-mange,\n[kap. 6.3](/bok/in1000/in1000-6-3) algoritme-metoder,\n[kap. 6.4](/bok/in1000/in1000-6-4) terminal-interaksjon og\n[kap. 7.1](/bok/in1000/in1000-7-1) filinnlesing.\n\n**De tre bitene som gjentar seg i hver modell**, friskes opp med kjørt kode.\n\n**1. Klasse med konstruktør, aksessor og `__str__`:**\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_antall(self):\n        return self._antall\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._antall)\n\nprint(Vare(\"skrue\", 120))\n```\n\n**Utskrift:**\n```\nskrue x120\n```\n\n**2. Container med ordbok, oppslag og delegering:**\n\n```python\nclass Vare:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\n    def __str__(self):\n        return self._navn\n\nclass Lager:\n    def __init__(self):\n        self._varer = {}\n\n    def legg_til(self, v):\n        self._varer[v.hent_navn()] = v\n\n    def finn(self, navn):\n        if navn in self._varer:\n            return self._varer[navn]\n        return None\n\n    def skriv_alle(self):\n        for n in self._varer:\n            print(self._varer[n])\n\nl = Lager()\nl.legg_til(Vare(\"skrue\"))\nl.skriv_alle()\nprint(l.finn(\"bolt\"))\n```\n\n**Utskrift:**\n```\nskrue\nNone\n```\n\n**3. Filinnlesing-løkka** fra [kap. 7.1](/bok/in1000/in1000-7-1).\n**Merk at det kapitlet står lenger bak i boka.** Leser du rett fram, møter du\nløkka her først — derfor står hele mønsteret oppfrisket her, kjørt og med\nutskrift, slik at du kan lese kapitlet uten å hoppe fram.\n\n**Innholdet i `utlaan.txt`:**\n```\nSult:Hamsun:3\nVaar:Undset:7\nNaboer:Bjornson:2\n```\n\n```python\nfil = open(\"utlaan.txt\")\nlinje = fil.readline()\nwhile linje != \"\":\n    felt = linje.rstrip().split(\":\")\n    print(felt[0], int(felt[2]) + 1)\n    linje = fil.readline()\nfil.close()\n```\n\n**Utskrift:**\n```\nSult 4\nVaar 8\nNaboer 3\n```\n\nDe fem delene er `open` før løkka, `readline` før løkka,\n`while linje != \"\":`, kroppen med `rstrip()` og `split(...)`, og `readline`\nnederst — og `fil.close()` etter.\n\nHar du de tre, er resten rekkefølge og disiplin."
+  },
+  {
+   "id": "in1000-6-5-3",
+   "type": "theorem",
+   "title": "Løsningsoppskriften for Oppgave 4 — ti steg",
+   "content": "Bruk den samme framgangsmåten hver gang, uansett domene. De fire første er\nblyant og papir; resten er kode.\n\n**Steg 1 — Finn klassene.** Hvert substantiv som er en **ting med egne\negenskaper**, blir en klasse. Typisk tre til fem.\n\n**Steg 2 — Sett opp konstruktørene.** Hver egenskap blir en instansvariabel med\n`self._`. Husk startverdiene som ikke kommer utenfra: `0`, `False`, `[]`, `{}`.\n\n**Steg 3 — Finn multiplisiteten.** «Én» gir `self._eier = objekt`; «flere» gir en\nliste eller en ordbok. Ordbok når noe skal slås opp på navn.\n\n**Steg 4 — List opp metodene.** Hver «kan gjøre»-setning blir én metode, plassert\ni den klassen som **eier opplysningene den endrer**.\n\n**Steg 5 — Skriv aksessorer og mutatorer** for det oppgaven faktisk trenger — og\nbare det.\n\n**Steg 6 — Skriv fil-deloppgaven.** Samlingen før løkka, `.rstrip().split(sep)`,\n`int(...)` på tallfeltene, objektet opprettet og lagt i samlingen.\n\n**Steg 7 — Skriv delegeringsmetodene.** Løkka kaller **én** metode på\nunderobjektet. Containerens metode heter noe annet enn elementets.\n\n**Steg 8 — Skriv algoritme-metoden.** Finn beste, tell eller grupper. To variabler\nfør løkka, `return` etter.\n\n**Steg 9 — Skriv `__str__` og eventuell input-metode.**\n\n**Steg 10 — Dokumentér antakelser** i én kommentarlinje der teksten er\nunderspesifisert, og skriv en kommentar om at hver klasse hører hjemme i sin egen\nfil.\n\n**Tidsbudsjettet:** Oppgave 4 er verdt rundt 100 minutter av de fire timene.\nBruk de første ti på steg 1–4. Det er den beste investeringen i hele eksamen."
+  },
+  {
+   "id": "in1000-6-5-4",
+   "type": "definition",
+   "title": "Rekkefølgen deloppgavene kommer i",
+   "content": "Settene følger nesten samme rekkefølge hvert år:\n\n**a)** klassene med konstruktør · **b)** «en-til-mange» og innsetting ·\n**c)** filinnlesing · **d)** algoritme-metode · **e)** `__str__` eller\nutskriftsmetode · **f)** input-metode · **g)** av og til et teorispørsmål om\ngrensesnittet.\n\nRekkefølgen er ikke tilfeldig: hver deloppgave bygger på den forrige. Men **de\nrettes hver for seg**, så du kan hoppe over c) og fortsatt få full uttelling på\nd).\n\nOg du kan **bruke en metode oppgaven beskriver** uten å ha skrevet den. Sier\nteksten at `Bok` har `hent_tittel()`, kall den i d) selv om du sto fast i a)."
+  },
+  {
+   "id": "in1000-6-5-5",
+   "type": "text",
+   "content": "## Økt 1 — Den gjennomarbeidede casen (~25 min)\n\nUnder står en komplett Oppgave 4 med alle deloppgavene, og med margnotater om hva\nsom gir uttelling ved hvert steg. Les den som om det var eksamensdagen."
+  },
+  {
+   "id": "in1000-6-5-6",
+   "type": "example",
+   "title": "Eksempel 1: Full Oppgave 4 — bibliotek, med sensor-margnotater",
+   "problem": "> Et bibliotek har et navn og en samling bøker. Hver bok har en tittel, en\n> forfatter og et antall utlån. En bok kan lånes ut, som øker antall utlån med én.\n> Biblioteket kan legge til en bok, finne en bok på tittel, lese inn bøker fra en\n> fil, skrive ut hele samlingen, og si hvilken forfatter som har flest utlån til\n> sammen.\n>\n> Fila `utlaan.txt` har linjer på formen `tittel:forfatter:utlaan`.\n\n**a)** Skriv klassen `Bok`. **b)** Skriv `Bibliotek` med samlingen, `legg_til` og\n`finn`. **c)** Skriv `les_fra_fil`. **d)** Skriv\n`mest_populaere_forfatter`. **e)** Skriv `__str__` og `skriv_alle`.",
+   "solution": "**Steg 1–4 på papir**, før én linje kode:\n\n| Klasse | Instansvariabler | Metoder |\n|---|---|---|\n| `Bok` | `_tittel`, `_forfatter`, `_utlaan` | `hent_tittel`, `hent_forfatter`, `hent_utlaan`, `laan_ut`, `__str__` |\n| `Bibliotek` | `_navn`, `_boker` (ordbok) | `legg_til`, `finn`, `les_fra_fil`, `skriv_alle`, `mest_populaere_forfatter` |\n\nOrdbok fordi teksten sier «finne en bok **på tittel**».\n\n**Innholdet i `utlaan.txt`:**\n```\nSult:Hamsun:3\nVaar:Undset:7\nNaboer:Bjornson:2\n```\n\n**Hele modellen:**\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter, utlaan):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaan = utlaan\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_forfatter(self):\n        return self._forfatter\n\n    def hent_utlaan(self):\n        return self._utlaan\n\n    def laan_ut(self):\n        self._utlaan = self._utlaan + 1\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter + \" (\" + str(self._utlaan) + \")\"\n\nclass Bibliotek:\n    def __init__(self, navn):\n        self._navn = navn\n        self._boker = {}\n\n    def legg_til(self, bok):\n        self._boker[bok.hent_tittel()] = bok\n\n    def finn(self, tittel):\n        if tittel in self._boker:\n            return self._boker[tittel]\n        return None\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\":\")\n            self.legg_til(Bok(felt[0], felt[1], int(felt[2])))\n            linje = fil.readline()\n        fil.close()\n\n    def skriv_alle(self):\n        print(\"Samling:\", self._navn)\n        for tittel in self._boker:\n            print(\" -\", self._boker[tittel])\n\n    def mest_populaere_forfatter(self):\n        teller = {}\n        for tittel in self._boker:\n            b = self._boker[tittel]\n            f = b.hent_forfatter()\n            if f not in teller:\n                teller[f] = 0\n            teller[f] = teller[f] + b.hent_utlaan()\n        beste = None\n        beste_antall = 0\n        for f in teller:\n            if teller[f] > beste_antall:\n                beste = f\n                beste_antall = teller[f]\n        return beste\n\nbib = Bibliotek(\"Deichman\")\nbib.les_fra_fil(\"utlaan.txt\")\nbib.finn(\"Sult\").laan_ut()\nbib.finn(\"Sult\").laan_ut()\nbib.skriv_alle()\nprint(\"Mest populaer:\", bib.mest_populaere_forfatter())\nprint(bib.finn(\"Pan\"))\n```\n\n**Utskrift:**\n```\nSamling: Deichman\n - Sult av Hamsun (5)\n - Vaar av Undset (7)\n - Naboer av Bjornson (2)\nMest populaer: Undset\nNone\n```\n\n**Sensors margnotater, deloppgave for deloppgave.**\n\n**a) Klassen `Bok`** (8 p): `class`-linjen (1 p), `__init__` med tre\n`self._`-linjer (3 p), de tre aksessorene (2 p), `laan_ut` som **øker** i stedet\nfor å overskrive (2 p).\n\n**b) `Bibliotek` med ordbok** (8 p): `self._boker = {}` i konstruktøren (2 p),\ninnsettingen med bokas **egen** aksessor som nøkkel (3 p), `if tittel in ...`-sjekken\nog `return None` (3 p). `self._boker[bok._tittel]` ville vært feilkode **#11**.\n\n**c) `les_fra_fil`** (10 p): `open` (1 p), `readline` før løkka (1 p),\n`while linje != \"\":` (1 p), `.rstrip().split(\":\")` (2 p), `int(felt[2])` men ikke\npå tittel og forfatter (2 p), objektet opprettet og lagt inn (2 p), `readline`\nnederst (1 p). At metoden kaller `self.legg_til(...)` i stedet for å skrive rett\ni ordboka, er ryddig, men gir ikke ekstra poeng.\n\n**d) `mest_populaere_forfatter`** (12 p, den tyngste): teller-ordboka med\n`if f not in teller:` (4 p), akkumuleringen med bokas utlån (2 p),\nfinn-beste-løkka med **to** variabler oppdatert sammen (4 p), `return` etter\nløkka (2 p).\n\n**e) `__str__` og `skriv_alle`** (8 p): `__str__` returnerer en tekst med\n`str(...)` rundt tallet (4 p), `skriv_alle` delegerer med `print(...)` i stedet\nfor å hente feltene (4 p).\n\n**Legg merke til at «Sult» har fem utlån.** Fila sa 3, og `bib.finn(\"Sult\")` ga en\n**referanse** til det samme objektet begge gangene — ikke en kopi. Det er\nreferansesemantikken fra [kap. 5.4](/bok/in1000/in1000-5-4) i praksis.\n\n**Riktig struktur belønnes selv med småfeil.** En glemt `.rstrip()` koster lite når\nresten står. Å lagre rådata i ordboka i stedet for objekter, koster derimot i\n**fire** deloppgaver samtidig — det er den dyreste enkeltbeslutningen.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-6-5-7",
+   "type": "text",
+   "content": "## Økt 2 — To modelleringer fra bunnen (~25 min)\n\nDe to første oppgavene er komplette Oppgave 4-sett i mindre format. Bruk de ti\nstegene, og bruk de første minuttene på blyant."
+  },
+  {
+   "id": "in1000-6-5-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-5-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — stor klassemodellering, altså å bygge flere\nsamarbeidende klasser fra en beskrevet oppgave.)\n\n> En resirkuleringsstasjon har et sted og flere containere. Hver container har et\n> materiale, en kapasitet i kilo og en fylling som starter på null. En container\n> kan ta imot avfall, men bare hvis det er plass til alt. Stasjonen kan sette inn\n> en container, finne en container på materiale, skrive ut alle, og si hvilket\n> materiale som har høyest fyllingsgrad i prosent.\n\n**a)** Skriv `Container` med konstruktør, aksessorer, `fyllingsgrad(self)` i\nprosent, `ta_imot(self, kilo)` og `__str__` på formen `glass: 60/200 kg`.\n\n**b)** Skriv `Stasjon` med samlingen, `sett_inn`, `finn` og `skriv_alle`.\n\n**c)** Skriv `fulleste(self)` som returnerer containeren med høyest\nfyllingsgrad.\n\n**d)** Test hele modellen, med ett avvist forsøk.",
+    "solution": "**Steg 1–4 på papir:**\n\n| Klasse | Instansvariabler | Metoder |\n|---|---|---|\n| `Container` | `_materiale`, `_kapasitet`, `_fylling` (0) | aksessorer, `fyllingsgrad`, `ta_imot`, `__str__` |\n| `Stasjon` | `_sted`, `_containere` (ordbok) | `sett_inn`, `finn`, `skriv_alle`, `fulleste` |\n\nOrdbok, fordi teksten sier «finne en container **på materiale**».\n\n**a)–d) Hele modellen:**\n\n```python\nclass Container:\n    def __init__(self, materiale, kapasitet):\n        self._materiale = materiale\n        self._kapasitet = kapasitet\n        self._fylling = 0\n\n    def hent_materiale(self):\n        return self._materiale\n\n    def hent_fylling(self):\n        return self._fylling\n\n    def fyllingsgrad(self):\n        return self._fylling * 100 // self._kapasitet\n\n    def ta_imot(self, kilo):\n        if self._fylling + kilo > self._kapasitet:\n            print(\"Ikke plass i\", self._materiale)\n        else:\n            self._fylling = self._fylling + kilo\n\n    def __str__(self):\n        return self._materiale + \": \" + str(self._fylling) + \"/\" + str(self._kapasitet) + \" kg\"\n\nclass Stasjon:\n    def __init__(self, sted):\n        self._sted = sted\n        self._containere = {}\n\n    def sett_inn(self, c):\n        self._containere[c.hent_materiale()] = c\n\n    def finn(self, materiale):\n        if materiale in self._containere:\n            return self._containere[materiale]\n        return None\n\n    def skriv_alle(self):\n        for m in self._containere:\n            print(self._containere[m])\n\n    def fulleste(self):\n        beste = None\n        beste_grad = 0\n        for m in self._containere:\n            c = self._containere[m]\n            if c.fyllingsgrad() > beste_grad:\n                beste = c\n                beste_grad = c.fyllingsgrad()\n        return beste\n\nst = Stasjon(\"Ryen\")\nst.sett_inn(Container(\"glass\", 200))\nst.sett_inn(Container(\"papir\", 100))\nst.sett_inn(Container(\"plast\", 50))\n\nst.finn(\"glass\").ta_imot(60)\nst.finn(\"papir\").ta_imot(90)\nst.finn(\"plast\").ta_imot(70)\n\nst.skriv_alle()\nprint(\"Fulleste:\", st.fulleste())\nprint(st.finn(\"metall\"))\n```\n\n**Utskrift:**\n```\nIkke plass i plast\nglass: 60/200 kg\npapir: 90/100 kg\nplast: 0/50 kg\nFulleste: papir: 90/100 kg\nNone\n```\n\n**Sensors margnotater.**\n\n**a)** (10 p): tre `self._`-linjer med `_fylling = 0` blant dem (3 p), to\naksessorer (2 p), `fyllingsgrad` som **regner ut** i stedet for å lagre (2 p),\n`ta_imot` med `if`/`else` der ingen kilo tas imot ved avvisning (2 p), `__str__`\nmed `str(...)` rundt begge tallene (1 p).\n\n**b)** (8 p): ordboka i konstruktøren (2 p), nøkkelen fra containerens egen\naksessor (2 p), oppslaget med sjekk og `return None` (2 p), delegeringen i\n`skriv_alle` (2 p).\n\n**c)** (7 p): to variabler før løkka (2 p), hjelpevariabelen eller oppslaget i\nløkka (1 p), begge oppdatert sammen (2 p), `return` etter løkka (2 p).\n\n**Legg merke til `//` i `fyllingsgrad`.** Heltallsdivisjonen gir et helt\nprosenttall: glasscontaineren har 60 av 200 kilo, og `60 * 100 // 200` gir\n`30`. Med `/` ville metoden gitt `30.0` — et desimaltall der oppgaven ber om\nprosent. Utskriftsformatet i `__str__` er upåvirket, for det viser kilo, ikke\nfyllingsgrad.\n\n**Deloppgave d) er testprogrammet nederst** — de sju linjene etter\nklassene. Den gir ingen egne poeng, men den er gratis kontroll: kjører den i\nhodet, ser du med én gang om modellen henger sammen.\n\n**Og legg merke til at `ta_imot` avviser 70 kilo i en 50-kilos container** — også\nnår containeren er helt tom. Teksten sier «bare hvis det er plass til **alt**».",
+    "hints": [
+     "Skriv de fire første stegene på papir før du koder.",
+     "Regn ut fyllingsgraden i en metode i stedet for å lagre den."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-5-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-5-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — stor klassemodellering med filinnlesing.)\n\n> Et treningssenter har et navn, medlemmer og økter. Hvert medlem har et navn, en\n> alder og et antall timer. Hver økt har en dag, et salnavn og et antall\n> deltakere. Senteret kan lese medlemmer fra en fil, finne et medlem på navn,\n> legge til en økt, skrive ut alle medlemmene, og si hvilken dag som er travlest.\n>\n> Fila `medlemsregister.txt` har en **overskriftslinje** og deretter linjer på\n> formen `navn;alder;timer`.\n\n**a)** Skriv `Medlem` og `Okt`.\n\n**b)** Skriv `Senter` med en ordbok for medlemmene og en liste for øktene.\n\n**c)** Skriv `les_medlemmer(self, filnavn)`, som hopper over overskriftslinja.\n\n**d)** Skriv `travleste_dag(self)`.\n\n**e)** Test hele modellen.",
+    "solution": "**Steg 1–4 på papir:**\n\n| Klasse | Instansvariabler | Merknad |\n|---|---|---|\n| `Medlem` | `_navn`, `_alder`, `_timer` | alle utenfra |\n| `Okt` | `_dag`, `_sal`, `_deltakere` | alle utenfra |\n| `Senter` | `_navn`, `_medlemmer` (ordbok), `_okter` (liste) | to ulike samlinger |\n\nOrdbok for medlemmene, fordi teksten sier «finne et medlem **på navn**». Liste\nfor øktene, fordi de bare skal gås gjennom.\n\n**Innholdet i `medlemsregister.txt`:**\n```\nnavn;alder;timer\nAda;24;18\nNora;31;7\nPer;19;25\nKari;42;3\n```\n\n**a)–e) Hele modellen:**\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder, timer):\n        self._navn = navn\n        self._alder = alder\n        self._timer = timer\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._alder) + \" ar, \" + str(self._timer) + \" t)\"\n\nclass Okt:\n    def __init__(self, dag, sal, deltakere):\n        self._dag = dag\n        self._sal = sal\n        self._deltakere = deltakere\n\n    def hent_dag(self):\n        return self._dag\n\n    def hent_deltakere(self):\n        return self._deltakere\n\nclass Senter:\n    def __init__(self, navn):\n        self._navn = navn\n        self._medlemmer = {}\n        self._okter = []\n\n    def les_medlemmer(self, filnavn):\n        fil = open(filnavn)\n        fil.readline()\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            m = Medlem(felt[0], int(felt[1]), int(felt[2]))\n            self._medlemmer[m.hent_navn()] = m\n            linje = fil.readline()\n        fil.close()\n\n    def finn(self, navn):\n        if navn in self._medlemmer:\n            return self._medlemmer[navn]\n        return None\n\n    def legg_til_okt(self, o):\n        self._okter.append(o)\n\n    def skriv_medlemmer(self):\n        for navn in self._medlemmer:\n            print(self._medlemmer[navn])\n\n    def travleste_dag(self):\n        d = {}\n        for o in self._okter:\n            dag = o.hent_dag()\n            if dag not in d:\n                d[dag] = 0\n            d[dag] = d[dag] + o.hent_deltakere()\n        beste = None\n        beste_antall = 0\n        for dag in d:\n            if d[dag] > beste_antall:\n                beste = dag\n                beste_antall = d[dag]\n        return beste\n\ns = Senter(\"Toyen\")\ns.les_medlemmer(\"medlemsregister.txt\")\ns.legg_til_okt(Okt(\"mandag\", \"Speilsal\", 14))\ns.legg_til_okt(Okt(\"mandag\", \"Spinning\", 9))\ns.legg_til_okt(Okt(\"tirsdag\", \"Speilsal\", 20))\ns.legg_til_okt(Okt(\"onsdag\", \"Yoga\", 3))\n\ns.skriv_medlemmer()\nprint(\"Travleste dag:\", s.travleste_dag())\nprint(s.finn(\"Per\"))\nprint(s.finn(\"Ola\"))\n```\n\n**Utskrift:**\n```\nAda (24 ar, 18 t)\nNora (31 ar, 7 t)\nPer (19 ar, 25 t)\nKari (42 ar, 3 t)\nTravleste dag: mandag\nPer (19 ar, 25 t)\nNone\n```\n\n**Sensors margnotater.**\n\n**a)** (8 p): to klasser med riktige `self._`-linjer, og aksessorene de andre\nmetodene faktisk bruker.\n\n**b)** (6 p): **to ulike samlingstyper i samme konstruktør** — ordbok for det som\nslås opp, liste for det som bare gås gjennom. Å velge riktig for begge er et\nselvstendig modelleringspoeng.\n\n**c)** (10 p): `fil.readline()` alene for headeren (2 p), løkkas fem deler (3 p),\n`.rstrip().split(\";\")` (2 p), begge `int(...)` (2 p), innsetting med medlemmets\negen aksessor som nøkkel (1 p). Glemmer du header-hoppet, stopper programmet med\n`ValueError: invalid literal for int() with base 10: 'alder'`.\n\n**d)** (12 p): teller-ordboka (4 p), akkumuleringen (2 p), finn-beste-løkka (4 p),\n`return` etter (2 p). Mandag har 14 pluss 9, altså 23, mot tirsdags 20.\n\n**Legg merke til at `travleste_dag` returnerer dagen, ikke antallet.** `beste` er\nnøkkelen, `beste_antall` er verdien. Les siste setning i oppgaveteksten en gang\ntil før du skriver `return`.\n\n**Og legg merke til at medlemsordboka og øktlista lever helt uavhengig.** Ingen\ndeloppgave knytter dem sammen, og det skal de ikke — modellen skal ikke gjøre mer\nenn teksten ber om.",
+    "hints": [
+     "To samlinger i samme klasse: velg type for hver av dem for seg.",
+     "Fila har en overskriftslinje — hva må stå før løkka?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-5-8",
+   "type": "text",
+   "content": "## Økt 3 — Modelleringer med input og tre klasser (~22 min)\n\nDe to neste oppgavene legger til de siste bitene: en input-metode, og en tredje\nklasse som objektene peker på."
+  },
+  {
+   "id": "in1000-6-5-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-5-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F med sjanger H — modellering med terminal-interaksjon.)\n\n> En brettspillklubb har et navn, medlemmer og spill. Hvert medlem har et navn og\n> et antall kvelder som starter på null. Hvert spill har en tittel, et antall\n> spillere det passer for, og **én** eier, som er et medlem. Klubben kan melde inn\n> et medlem, legge til et spill, finne et spill på tittel, skrive ut alle spillene,\n> og la brukeren velge et spill fra en liste — der spørsmålet gjentas til tittelen\n> finnes.\n\n**a)** Skriv de tre klassene.\n\n**b)** Skriv `velg_spill(self)` i eksamensform, med `input`.\n\n**c)** Skriv en kjørbar variant av hele modellen, der «brukerens» svar er\n`\"Yatzy\"` og `\"Sjakk\"`.\n\n**d)** Hvorfor returnerer `velg_spill` objektet og ikke tittelen?",
+    "solution": "**a)–b)** Eksamensformen for `velg_spill`:\n\n```text\n    def velg_spill(self):\n        print(\"Spill i klubben:\")\n        for tittel in self._spill:\n            print(\" -\", tittel)\n        valgt = input(\"Velg spill: \")\n        while valgt not in self._spill:\n            valgt = input(\"Finnes ikke, prov igjen: \")\n        return self._spill[valgt]\n```\n\nBlokken er et utdrag som venter på inndata, og er derfor merket som\nikke-kjørbar.\n\n**c)** Den kjørbare varianten, med hele modellen:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._kvelder = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def registrer_kveld(self):\n        self._kvelder = self._kvelder + 1\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._kvelder) + \" kvelder)\"\n\nclass Spill:\n    def __init__(self, tittel, maks, eier):\n        self._tittel = tittel\n        self._maks = maks\n        self._eier = eier\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_eier(self):\n        return self._eier\n\n    def __str__(self):\n        return self._tittel + \" x\" + str(self._maks) + \" - \" + self._eier.hent_navn()\n\nclass Klubb:\n    def __init__(self, navn, svarene):\n        self._navn = navn\n        self._medlemmer = []\n        self._spill = {}\n        self._svarene = svarene\n        self._i = 0\n\n    def les(self, melding):\n        svar = self._svarene[self._i]\n        self._i = self._i + 1\n        print(melding, svar)\n        return svar\n\n    def meld_inn(self, m):\n        self._medlemmer.append(m)\n\n    def legg_til(self, s):\n        self._spill[s.hent_tittel()] = s\n\n    def finn(self, tittel):\n        if tittel in self._spill:\n            return self._spill[tittel]\n        return None\n\n    def skriv_alle(self):\n        for tittel in self._spill:\n            print(self._spill[tittel])\n\n    def velg_spill(self):\n        print(\"Spill i klubben:\")\n        for tittel in self._spill:\n            print(\" -\", tittel)\n        valgt = self.les(\"Velg spill:\")\n        while valgt not in self._spill:\n            valgt = self.les(\"Finnes ikke, prov igjen:\")\n        return self._spill[valgt]\n\nada = Medlem(\"Ada\")\nnora = Medlem(\"Nora\")\nk = Klubb(\"Brettspillklubben\", [\"Yatzy\", \"Sjakk\"])\nk.meld_inn(ada)\nk.meld_inn(nora)\nk.legg_til(Spill(\"Kolonier\", 4, ada))\nk.legg_til(Spill(\"Sjakk\", 2, nora))\n\nk.skriv_alle()\nvalgt = k.velg_spill()\nvalgt.hent_eier().registrer_kveld()\nprint(valgt)\nprint(nora)\n```\n\n**Utskrift:**\n```\nKolonier x4 - Ada\nSjakk x2 - Nora\nSpill i klubben:\n - Kolonier\n - Sjakk\nVelg spill: Yatzy\nFinnes ikke, prov igjen: Sjakk\nSjakk x2 - Nora\nNora (1 kvelder)\n```\n\n**d)** Fordi objektet kan brukes videre med én gang:\n`valgt.hent_eier().registrer_kveld()`. Returnerte metoden tittelen, måtte den som\nkaller, slå opp på nytt — i en ordbok den kanskje ikke har tilgang til.\n\n**Regelen:** returner det mest nyttige. Objektet kan alltid gi fra seg tittelen\nsin; tittelen kan ikke gi fra seg objektet.\n\n**Sensors margnotater.** Klassene (10 p), objektreferansen `self._eier` (3 p),\nordboka med riktig nøkkel (3 p), oppslaget med sjekk (3 p), delegeringen (3 p),\nog `velg_spill` (7 p: utskrift av alternativene, `input` før løkka, `while` og\nikke `if`, nytt `input` inne i løkka, objektet returnert).\n\n**På eksamen skriver du `input(...)` der `self.les(...)` står.** Erstatningen\nfinnes bare i denne boka, slik at utskriften kan verifiseres.\n\n— naturlig pausepunkt —",
+    "hints": [
+     "Tre klasser: én av dem peker på en annen med `self._eier`.",
+     "Vis alternativene før du spør, og returner objektet."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-5-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-5-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — modellering med to nivåer av «en-til-mange».)\n\n> En sykkelutleie har et navn og flere stativer. Hvert stativ har et navn, et\n> antall plasser og en samling sykler som står der nå. Hver sykkel har en kode og\n> et antall turer som starter på null. En sykkel kan leies ut, som øker antall\n> turer. Et stativ kan sette inn en sykkel, men bare hvis det er ledig plass, og\n> si hvor mange plasser som er ledige. Utleien kan legge til et stativ, finne et\n> stativ på navn, skrive ut alle stativene, og si hvor mange sykler det er til\n> sammen.\n\n**a)** Skriv de tre klassene.\n\n**b)** Test med to stativer, fire sykler og ett avvist forsøk.\n\n**c)** Hvorfor heter metoden i `Utleie` som teller sykler, ikke det samme som\nmetoden i `Stativ`?",
+    "solution": "**Steg 1–4 på papir.** To nivåer av en-til-mange: utleien har mange stativer\n(ordbok, fordi det skal slås opp på navn), og hvert stativ har mange sykler\n(liste, fordi de bare gås gjennom).\n\n**a)–b) Hele modellen:**\n\n```python\nclass Sykkel:\n    def __init__(self, kode):\n        self._kode = kode\n        self._turer = 0\n\n    def hent_kode(self):\n        return self._kode\n\n    def hent_turer(self):\n        return self._turer\n\n    def leie_ut(self):\n        self._turer = self._turer + 1\n\n    def __str__(self):\n        return self._kode + \"/\" + str(self._turer)\n\nclass Stativ:\n    def __init__(self, navn, plasser):\n        self._navn = navn\n        self._plasser = plasser\n        self._sykler = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_ledige(self):\n        return self._plasser - len(self._sykler)\n\n    def antall_sykler(self):\n        return len(self._sykler)\n\n    def sett_inn(self, sykkel):\n        if self.hent_ledige() < 1:\n            print(\"Fullt i\", self._navn)\n        else:\n            self._sykler.append(sykkel)\n\n    def __str__(self):\n        return self._navn + \": \" + str(len(self._sykler)) + \"/\" + str(self._plasser)\n\nclass Utleie:\n    def __init__(self, navn):\n        self._navn = navn\n        self._stativer = {}\n\n    def legg_til(self, s):\n        self._stativer[s.hent_navn()] = s\n\n    def finn(self, navn):\n        if navn in self._stativer:\n            return self._stativer[navn]\n        return None\n\n    def skriv_alle(self):\n        for navn in self._stativer:\n            print(self._stativer[navn])\n\n    def totalt_antall_sykler(self):\n        total = 0\n        for navn in self._stativer:\n            total = total + self._stativer[navn].antall_sykler()\n        return total\n\nu = Utleie(\"Bysykkel\")\nu.legg_til(Stativ(\"Blindern\", 1))\nu.legg_til(Stativ(\"Toyen\", 2))\n\nu.finn(\"Blindern\").sett_inn(Sykkel(\"R31\"))\nu.finn(\"Blindern\").sett_inn(Sykkel(\"R48\"))\nu.finn(\"Toyen\").sett_inn(Sykkel(\"R07\"))\nu.finn(\"Toyen\").sett_inn(Sykkel(\"R99\"))\n\nu.skriv_alle()\nprint(\"Totalt:\", u.totalt_antall_sykler())\nprint(u.finn(\"Majorstuen\"))\n```\n\n**Utskrift:**\n```\nFullt i Blindern\nBlindern: 1/1\nToyen: 2/2\nTotalt: 3\nNone\n```\n\n**c)** Fordi `totalt_antall_sykler` **kaller** `antall_sykler` inne i løkka si.\nHadde de hett det samme, ville linjen sett ut som om metoden kalte seg selv — og\nen metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i dette\nemnet.\n\nNavnene sier dessuten hva metodene gjør: `antall_sykler()` er **ett** stativ,\n`totalt_antall_sykler()` er **hele** utleien.\n\n**Sensors margnotater.** Tre klasser (10 p), de to ulike samlingstypene på to\nnivåer (5 p), kontrollen i `sett_inn` med `else`-grenen (5 p), oppslaget med\nsjekk og `return None` (4 p), delegeringen i begge metodene (4 p), og `__str__`\npå to klasser (4 p).\n\n**Legg merke til `hent_ledige()` kalt fra `sett_inn` med `self.` foran.** En\nmetode kan kalle en annen på samme objekt, og det er ryddigere enn å gjenta\nregnestykket to steder.",
+    "hints": [
+     "To nivåer av en-til-mange: ordbok ytterst, liste innerst.",
+     "Se på navneparene: elementets metode mot containerens."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-5-9",
+   "type": "text",
+   "content": "## Økt 4 — Feilsøking og de siste to modellene (~18 min)\n\nDe siste oppgavene trener det å **finne** feil i en modell — som er halve\nferdigheten når du leser gjennom din egen besvarelse til slutt."
+  },
+  {
+   "id": "in1000-6-5-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-5-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — «finn feilen» i en modell, med konkret moteksempel.)\nEn medstudent har levert denne besvarelsen på en Oppgave 4:\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        pris = pris\n        self._solgte = 0\n\n    def selg(self, antall):\n        solgte = self._solgte + antall\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\nclass Kantine:\n    def __init__(self):\n        self._retter = {}\n\n    def legg_til(self, r):\n        self._retter[r._navn] = r\n\n    def finn(self, navn):\n        return self._retter[navn]\n```\n\n**a)** Finn de fire feilene.\n\n**b)** Gi et **konkret moteksempel** på den som stopper programmet først.\n\n**c)** Skriv den rettede versjonen.",
+    "solution": "**a)** Fire feil, i den rekkefølgen de gjør skade:\n\n1. **`pris = pris` i konstruktøren** — `self`-fella, feilkode **#1**.\n   Instansvariabelen `self._pris` blir aldri satt, og den finnes ikke i det hele\n   tatt.\n2. **`solgte = self._solgte + antall` i `selg`** — samme felle i en metode.\n   Utregningen legges i en lokal variabel og kastes, så salget registreres aldri.\n3. **`r._navn` i `legg_til`** — direkte tilgang til en instansvariabel utenfra,\n   feilkode **#11**. `Rett` mangler dessuten aksessoren som skulle brukt.\n4. **`finn` mangler `if navn in ...`-sjekken** — et oppslag på noe som ikke\n   finnes, stopper programmet med `KeyError`, feilkode **#14**.\n\n**b)** Den første som stopper programmet, er `self`-fella på prisen:\n\n```text\nr = Rett(\"Suppe\", 89)\nr.selg(3)\nprint(r.omsetning())\n```\n\nProgrammet stopper i `omsetning`, og siste linje i feilmeldingen er\n`AttributeError: 'Rett' object has no attribute '_pris'`. Blokken er merket som\nikke-kjørbar fordi feilen er plantet med vilje.\n\nKallet skulle gitt **267**, altså 89 ganger 3.\n\n**c)** Den rettede versjonen:\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def selg(self, antall):\n        self._solgte = self._solgte + antall\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._solgte)\n\nclass Kantine:\n    def __init__(self):\n        self._retter = {}\n\n    def legg_til(self, r):\n        self._retter[r.hent_navn()] = r\n\n    def finn(self, navn):\n        if navn in self._retter:\n            return self._retter[navn]\n        return None\n\nk = Kantine()\nk.legg_til(Rett(\"Suppe\", 89))\nk.finn(\"Suppe\").selg(3)\nprint(k.finn(\"Suppe\").omsetning())\nprint(k.finn(\"Vafler\"))\n```\n\n**Utskrift:**\n```\n267\nNone\n```\n\nFire endringer: `self._pris = pris`, `self._solgte = ...` i `selg`, en aksessor\nbrukt som nøkkel, og `if`-sjekken med `return None`.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling. Å finne tre av fire feil gir tre fjerdedeler.\n\n**Legg merke til at to av de fire feilene er stumme.** `r._navn` virker helt fint,\nog `finn` uten sjekk virker så lenge du bare slår opp noe du har lagt inn. Det er\nderfor gjennomlesingen til slutt må gjøres med konvensjonene i hodet, ikke bare\nved å teste.",
+    "hints": [
+     "Les konstruktøren først, og tell `self._`-linjene mot parameterne.",
+     "Se etter understrek-navn brukt utenfor klassen de er definert i."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-5-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-5-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — komplett Oppgave 4 med alle bitene.)\n\n> En kantine har et navn og en meny. Hver rett har et navn, en pris og et antall\n> solgte porsjoner som starter på null. En rett kan selges, og kan si hva den har\n> omsatt for. Kantina kan lese menyen fra en fil, finne en rett på navn, selge en\n> rett, skrive ut hele menyen, si den samlede omsetningen, og si hvilken rett som\n> er bestselger.\n>\n> Fila `retter.txt` har en **overskriftslinje** og deretter linjer på formen\n> `rett,pris,solgte`.\n\nSkriv hele modellen og test den. Marker selv hvilke deloppgaver du løser.",
+    "solution": "**Steg 1–4 på papir:**\n\n| Klasse | Instansvariabler | Metoder |\n|---|---|---|\n| `Rett` | `_navn`, `_pris`, `_solgte` | aksessorer, `selg`, `omsetning`, `__str__` |\n| `Kantine` | `_navn`, `_retter` (ordbok) | `les_fra_fil`, `finn`, `selg_rett`, `skriv_meny`, `samlet_omsetning`, `bestselger` |\n\n**Innholdet i `retter.txt`:**\n```\nrett,pris,solgte\nFiskesuppe,89,14\nLapskaus,79,22\nSalat,65,9\nVafler,35,40\n```\n\n**Hele modellen:**\n\n```python\nclass Rett:\n    def __init__(self, navn, pris, solgte):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = solgte\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_solgte(self):\n        return self._solgte\n\n    def selg(self, antall):\n        self._solgte = self._solgte + antall\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\n    def __str__(self):\n        return self._navn + \": \" + str(self._pris) + \" kr x\" + str(self._solgte)\n\nclass Kantine:\n    def __init__(self, navn):\n        self._navn = navn\n        self._retter = {}\n\n    def les_fra_fil(self, filnavn):\n        fil = open(filnavn)\n        fil.readline()\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\",\")\n            r = Rett(felt[0], int(felt[1]), int(felt[2]))\n            self._retter[r.hent_navn()] = r\n            linje = fil.readline()\n        fil.close()\n\n    def finn(self, navn):\n        if navn in self._retter:\n            return self._retter[navn]\n        return None\n\n    def selg_rett(self, navn, antall):\n        r = self.finn(navn)\n        if r == None:\n            print(\"Ingen rett som heter\", navn)\n        else:\n            r.selg(antall)\n\n    def skriv_meny(self):\n        print(\"Meny i\", self._navn)\n        for navn in self._retter:\n            print(\" -\", self._retter[navn])\n\n    def samlet_omsetning(self):\n        total = 0\n        for navn in self._retter:\n            total = total + self._retter[navn].omsetning()\n        return total\n\n    def bestselger(self):\n        beste = None\n        beste_antall = 0\n        for navn in self._retter:\n            r = self._retter[navn]\n            if r.hent_solgte() > beste_antall:\n                beste = r\n                beste_antall = r.hent_solgte()\n        return beste\n\nk = Kantine(\"Fredrikke\")\nk.les_fra_fil(\"retter.txt\")\nk.selg_rett(\"Salat\", 6)\nk.selg_rett(\"Pizza\", 3)\nk.skriv_meny()\nprint(\"Omsetning:\", k.samlet_omsetning())\nprint(\"Bestselger:\", k.bestselger())\n```\n\n**Utskrift:**\n```\nIngen rett som heter Pizza\nMeny i Fredrikke\n - Fiskesuppe: 89 kr x14\n - Lapskaus: 79 kr x22\n - Salat: 65 kr x15\n - Vafler: 35 kr x40\nOmsetning: 5359\nBestselger: Vafler: 35 kr x40\n```\n\n**Legg merke til at Salat står på 15**, ikke på 9 som i fila: `k.selg_rett(\"Salat\", 6)`\ngikk gjennom kantinas `selg_rett`, som fant retten og delegerte videre til\nrettens egen `selg`. Forsøket på «Pizza» ble avvist med en beskjed, fordi `finn` ga\n`None`.\n\n**Sensors margnotater, deloppgave for deloppgave.**\n\n**Klassen `Rett`** (10 p): tre `self._`-linjer, to aksessorer, `selg` som **øker**,\n`omsetning` som regner, og `__str__` med `str(...)` rundt begge tallene.\n\n**Ordboka og oppslaget** (8 p): `{}` i konstruktøren, nøkkelen fra rettens egen\naksessor, `if navn in ...` og `return None`.\n\n**Filinnlesingen** (10 p): header-hoppet, løkkas fem deler,\n`.rstrip().split(\",\")`, begge `int(...)`, objektet opprettet og lagt inn.\n\n**`selg_rett` på kantina** (6 p): den gjenbruker `self.finn(...)` i stedet for å\nslå opp på nytt, og den håndterer `None` med en beskjed. Å delegere til rettens\negen `selg` er poenget — kantina rører aldri `r._solgte`.\n\n**`samlet_omsetning` og `bestselger`** (12 p): akkumulator med delegering, og\nfinn-beste med to variabler oppdatert sammen.\n\n**Legg merke til at kantinas metode heter `selg_rett` og ikke `selg`.** Hadde den\nhett det samme som rettens metode, ville linjen `r.selg(antall)` sett ut som om\nmetoden kalte seg selv — og en metode som kaller seg selv, er **rekursjon**, som\ner utenfor pensum i dette emnet. Navneregelen gjelder også mellom to klasser i\nsamme kjede.",
+    "hints": [
+     "Skriv de fire første stegene på papir før du koder en eneste linje.",
+     "Se etter et metodenavn som finnes i begge klassene — navneregelen."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-5-10",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster mest i Oppgave 4:\n\n- **#1 — `self`-fella**, i konstruktøren eller i en metode. Verdien blir lokal og\n  forsvinner, og feilen er stum hvis det er satt en startverdi.\n- **#11 — `obj._x` utenfra.** Den vanligste formen når to klasser samarbeider:\n  `self._d[bok._tittel] = bok` i stedet for `bok.hent_tittel()`.\n- **Rådata i stedet for objektreferanser.** Koster i fire deloppgaver samtidig, og\n  er den dyreste enkeltbeslutningen.\n- **#14 — oppslag uten sjekk**, og **#7 — `return` inne i løkka**. To\n  plasseringsfeil som begge er lette å unngå med malene.\n- **Feil samlingstype.** «Finne på navn» betyr ordbok; «gå gjennom alle» betyr\n  liste. Har klassen begge behov, kan den ha begge samlinger.\n\nOg én navnefeil: **containerens metode som heter det samme som elementets.**\nEn metode som kaller `r.selg(...)`, kan ikke selv hete `selg`. Bruk `selg_rett`\nog `skriv_alle`."
+  },
+  {
+   "id": "in1000-6-5-coll-11",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-6-5-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `class Navn:` + `def __init__(self, …):` | Steg 1–2. Én klasse per «ting», alt objektet husker satt med `self._`. |\n| `self._x = 0` / `False` / `[]` / `{}` | Startverdier som ikke kommer utenfra. Det oftest glemte. |\n| `self._eier = objekt` | Én-til-én. Peker på et objekt av en annen klasse. |\n| `self._d = {}` / `self._liste = []` | En-til-mange. Ordbok når noe slås opp, liste ellers. |\n| `self._d[obj.hent_navn()] = obj` | Innsetting med objektets **egen** aksessor som nøkkel. |\n| `if navn in self._d:` `return self._d[navn]` `return None` | Oppslagsmetoden. Uten sjekken: `KeyError` (**#14**). |\n| `fil = open(f)` … `while linje != \"\":` … `fil.close()` | Filinnlesing-løkkas fem deler. |\n| `fil.readline()` alene | Hopper over overskriftslinja. |\n| `felt = linje.rstrip().split(sep)` | Rens først, del så, med filas eget skilletegn. |\n| `int(felt[i])` | Bare på felt du skal regne med. |\n| `for e in samlingen:` `print(e)` | Delegering. Elementets `__str__` gjør jobben. |\n| `total = total + e.metode()` | Akkumulator med delegering. Start før løkka, `return` etter. |\n| `beste = None` `beste_verdi = 0` … | Finn-beste. **Begge** oppdateres sammen, `return` etter løkka. |\n| `if k not in d:` `d[k] = 0` … | Teller-ordbok. Bygg regnskapet i én løkke, les det i neste. |\n| `svar = input(…)` `while svar not in …:` `svar = input(…)` | Input-løkka. `while`, aldri `if` (**#9**). |\n| `def __str__(self): return … + str(tall)` | Returnerer en tekst. `print(obj)` kaller den. |\n| `# forutsetter at …` | Dokumentert antakelse — den ene legitime kommentaren. |\n\n**Det som avgjør poeng i Oppgave 4:** at klassevalget stemmer med teksten, at\nsamlingen holder objektreferanser, og at hver deloppgave leveres selv om den\nforrige ikke ble ferdig."
+    }
+   ]
+  },
+  {
+   "id": "in1000-6-5-12",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-6-5-13",
+   "type": "definition",
+   "title": "Oppgave 4 — formen",
+   "content": "Seks–sju deloppgaver à 3–12 poeng, til sammen **47–50 av 100**. Sjanger F, 100 %\nfrekvens i de seks moderne settene.\n\nRekkefølgen er nesten fast: klasser, en-til-mange, filinnlesing, algoritme-metode,\n`__str__`, input, og av og til et teorispørsmål om grensesnittet.\n\nDomenet roterer, men øvelsen er identisk hvert år."
+  },
+  {
+   "id": "in1000-6-5-14",
+   "type": "definition",
+   "title": "De ti stegene",
+   "content": "Fire på papir, seks i kode: finn klassene, sett opp konstruktørene, avgjør\nmultiplisiteten, list opp metodene — så aksessorer, fil, delegering, algoritme,\n`__str__`, og dokumenterte antakelser.\n\nDe fire første tar ti minutter og avgjør resten. Det er den beste investeringen i\nhele eksamen.\n\nMotsatt rekkefølge — å skrive ferdig kode på den første klassen med én gang — er\nden vanligste tidsfellen."
+  },
+  {
+   "id": "in1000-6-5-15",
+   "type": "definition",
+   "title": "Delkarakter per deloppgave",
+   "content": "Hver deloppgave rettes for seg. Bommer du på c), teller d) fullt ut.\n\nKonsekvensen er taktisk: **stå aldri fast.** Skriv det du er sikker på, og gå\nvidere.\n\nOg du kan **bruke en metode oppgaveteksten beskriver** uten å ha skrevet den.\nSier teksten at `Bok` har `hent_tittel()`, kall den — sensor vet at den finnes,\nfordi oppgaven sa det."
+  },
+  {
+   "id": "in1000-6-5-16",
+   "type": "definition",
+   "title": "Riktig struktur belønnes",
+   "content": "En indeksfeil, en glemt aksessor eller en litt klønete betingelse trekker lite\nnår modellen er riktig.\n\nDet motsatte gjelder også: perfekt skrevne metoder på en gal modell hjelper ikke,\nfordi feilen gjentar seg i hver deloppgave.\n\nDerfor er de første ti minuttene med blyant verdt mer enn de siste ti med\ntastatur."
+  },
+  {
+   "id": "in1000-6-5-17",
+   "type": "definition",
+   "title": "Den dyreste enkeltbeslutningen",
+   "content": "Å lagre rådata i stedet for objektreferanser i samlingen.\n\n`self._boker[tittel] = felt[1]` i stedet for\n`self._boker[tittel] = Bok(...)` gjør at biblioteket ikke lenger kan be en bok om\nnoe som helst.\n\nDa faller filinnlesingen, delegeringen, algoritme-metoden og utskriften — fire\ndeloppgaver på én linje."
+  },
+  {
+   "id": "in1000-6-5-18",
+   "type": "definition",
+   "title": "To samlinger i samme klasse",
+   "content": "En klasse kan godt ha både en ordbok og en liste: en ordbok for det som skal slås\nopp på navn, og en liste for det som bare skal gås gjennom.\n\n`self._medlemmer = {}` og `self._okter = []` i samme konstruktør er helt vanlig i\nOppgave 4.\n\nÅ velge riktig type for **hver** av dem er et selvstendig modelleringspoeng."
+  },
+  {
+   "id": "in1000-6-5-19",
+   "type": "definition",
+   "title": "To nivåer av en-til-mange",
+   "content": "En utleie har mange stativer, og hvert stativ har mange sykler.\n\nHvert nivå følger nøyaktig samme mønster: samling i konstruktøren, `legg_til`,\nløkke som delegerer.\n\nBlander du nivåene — for eksempel ved å la utleien holde alle syklene direkte —\nmister du muligheten til å svare på «hvor mange står på Blindern?»."
+  },
+  {
+   "id": "in1000-6-5-20",
+   "type": "definition",
+   "title": "Metoden som gjenbruker en annen",
+   "content": "`def selg_rett(self, navn, antall):` som først kaller `self.finn(navn)` i stedet for\nå slå opp på nytt.\n\nGevinsten er at oppslagslogikken — inkludert `if`-sjekken — bare finnes ett sted.\nEndrer du den, treffer endringen begge metodene.\n\nHusk at metoden som kaller, må hete noe **annet** enn den som kalles, når begge\nligger på ulike klasser i samme kjede."
+  },
+  {
+   "id": "in1000-6-5-21",
+   "type": "definition",
+   "title": "Håndtering av `None` fra et søk",
+   "content": "`r = self.finn(navn)` og deretter `if r == None:` før du bruker `r`.\n\nUten sjekken stopper programmet med\n`AttributeError: 'NoneType' object has no attribute '…'` så snart noen slår opp\nnoe som ikke finnes.\n\nÅ skrive en beskjed i `None`-grenen er som regel nok. Oppgaven sier sjelden hva\nsom skal skje — dokumentér valget i en kommentar."
+  },
+  {
+   "id": "in1000-6-5-22",
+   "type": "definition",
+   "title": "Filinnlesing som metode",
+   "content": "`def les_fra_fil(self, filnavn):` fyller **objektets egen** samling og returnerer\ningenting.\n\nSkriver du `retter = {}` uten `self.` inne i metoden, blir ordboka lokal og\nforsvinner — feilkode **#1** i en metode, og en stum feil.\n\nMetoden kan gjerne kalle `self.legg_til(...)` i stedet for å skrive rett i\nsamlingen. Det er ryddig, men det gir ikke ekstra poeng."
+  },
+  {
+   "id": "in1000-6-5-23",
+   "type": "definition",
+   "title": "Å bygge regnskapet i én løkke og lese det i neste",
+   "content": "Formen den tyngste deloppgaven ofte har: teller-ordbok først, finn-beste etterpå.\n\nSummen for en nøkkel finnes ikke i noe enkelt element, så regnskapet må være\nferdig før det kan leses.\n\nLegg gjerne den første løkka i sin egen metode og kall den med `self.` foran. Da\nkan begge delene brukes hver for seg, og deloppgavene rettes uavhengig."
+  },
+  {
+   "id": "in1000-6-5-24",
+   "type": "definition",
+   "title": "Navneregelen i en full modell",
+   "content": "Containerens metode heter aldri det samme som elementets — heller ikke når\nklassene ligger på ulike nivåer.\n\nEn metode på kantina som heter `selg` og kaller `selg` på retten, ser ut som en\nmetode som kaller seg selv. En metode som kaller seg selv, er **rekursjon**, som er utenfor pensum i\ndette emnet.\n\nBruk `selg_rett`, `skriv_alle`, `totalt_antall`. Det koster ingenting og gjør\nbesvarelsen lettere å lese."
+  },
+  {
+   "id": "in1000-6-5-25",
+   "type": "definition",
+   "title": "Gjennomlesingen til slutt",
+   "content": "Sett av fem minutter til å lese gjennom besvarelsen med konvensjonene i hodet.\n\nFire spørsmål fanger det meste: starter **hver** tilordning i konstruktørene med\n`self._`? Står det noe `obj._x` utenfor klassen sin? Har hvert oppslag en\n`if`-sjekk foran? Står `return` etter løkkene, ikke inne i dem?\n\nDe stumme feilene finnes ikke ved å teste — bare ved å lese."
+  },
+  {
+   "id": "in1000-6-5-26",
+   "type": "definition",
+   "title": "Tidsbudsjettet for Oppgave 4",
+   "content": "Rundt 100 minutter av de fire timene, altså nesten halve eksamen — som seg hør og\nbør, siden den er nesten halve poengsummen.\n\nBruk de første ti på steg 1–4 med blyant. Bruk de siste fem på gjennomlesingen.\nDa har du 85 minutter til koden, fordelt på seks–sju deloppgaver.\n\nBlir du sittende fast på én i mer enn ti minutter, gå videre. Den rettes uansett\nikke bedre av at du bruker tjue."
+  },
+  {
+   "id": "in1000-6-5-coll-27",
+   "type": "collapsible",
+   "title": "Repetisjon — de åtte setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-6-5-c2",
+     "type": "text",
+     "content": "1. **Fire steg på papir før én linje kode:** klassene, konstruktørene,\n   multiplisiteten, metodene.\n2. **Alt objektet skal huske, settes i `__init__`** — også startverdiene som ikke\n   kommer utenfra.\n3. **Samlingen holder objektreferanser.** Rådata koster i fire deloppgaver\n   samtidig.\n4. **Ordbok når noe slås opp på navn**, liste ellers — og en klasse kan ha begge.\n5. **Nøkkelen hentes med objektets egen aksessor**, aldri med `obj._navn`\n   (**#11**).\n6. **Hvert oppslag har en `if`-sjekk foran og `return None` etter** (**#14**).\n7. **Finn-beste har to variabler**, satt før løkka, oppdatert sammen, `return`\n   etter (**#7**).\n8. **Stå aldri fast.** Deloppgavene rettes hver for seg, og du kan bruke metoder\n   oppgaveteksten beskriver uten å ha skrevet dem."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

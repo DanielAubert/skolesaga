@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntekst = \"sykkel\"\nprint(len(tekst), tekst[0], tekst[-1])\n```",
+    "options": [
+      "6 s l",
+      "6 s k",
+      "5 s l",
+      "6 y l"
+    ],
+    "explanation": "Seks tegn, første tegn har indeks 0 og siste hentes med negativ indeks. `6 s k` er svaret hvis man leser `-1` som nest siste tegn."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nkode = \"A4213\"\nprint(kode[1] + kode[2])\n```",
+    "options": [
+      "42",
+      "6",
+      "4 2",
+      "A4"
+    ],
+    "explanation": "Begge tegnene er tekster, så plusstegnet **skjøter** dem. `6` er svaret hvis man leser dem som tall — det krever `int(kode[1]) + int(kode[2])`, og er feilkode #3."
+  },
+  {
+    "question": "Hva skjer hvis du skriver `tekst[0] = \"s\"`?",
+    "options": [
+      "Programmet stopper — en tekst kan ikke endres på plass",
+      "Det første tegnet byttes ut, som i en liste",
+      "Teksten forlenges med en ny `s` helt fremst",
+      "Ingenting synlig skjer, men teksten er uendret"
+    ],
+    "explanation": "Strenger er uforanderlige, og forsøket gir `TypeError`. Løsningen er å bygge en ny tekst, for eksempel `\"s\" + tekst[1] + tekst[2]`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntekst = \"buss\"\nny = \"\"\nfor tegn in tekst:\n    ny = ny + tegn\nprint(ny)\n```",
+    "options": [
+      "buss",
+      "ssub",
+      "b",
+      "bu s s"
+    ],
+    "explanation": "`ny = ny + tegn` bygger **forfra**, så teksten kommer ut uendret. `ssub` er hva du får med `ny = tegn + ny`, som bygger bakfra."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntekst = \"buss\"\nny = \"\"\nfor tegn in tekst:\n    ny = tegn + ny\nprint(ny)\n```",
+    "options": [
+      "ssub",
+      "buss",
+      "s",
+      "bssu"
+    ],
+    "explanation": "Her settes det nye tegnet **foran** det som allerede er bygget, og teksten snus. Én ombytting av to navn snur hele svaret."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nantall = 12\nprint(\"Vi har \" + str(antall) + \" sykler\")\n```",
+    "options": [
+      "Vi har 12 sykler",
+      "Vi har12sykler",
+      "Vi har 12sykler",
+      "Vi har  12  sykler"
+    ],
+    "explanation": "Mellomrommene må skrives inn selv, som del av tekstene. `str(...)` er nødvendig — uten den stopper programmet, fordi tekst og tall ikke kan skjøtes."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nsetning = \"buss tog trikk\"\nprint(setning.split())\n```",
+    "options": [
+      "['buss', 'tog', 'trikk']",
+      "[\"buss\", \"tog\", \"trikk\"]",
+      "buss tog trikk",
+      "['buss tog trikk']"
+    ],
+    "explanation": "`.split()` gir en **liste**, og Python viser tekster inne i lister med enkle anførselstegn. Svaret `['buss tog trikk']` — hele teksten som ett element — er hva du får hvis skilletegnet ikke finnes i teksten."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nlinje = \"Ada;19;Oslo\"\nfelt = linje.split(\";\")\nprint(felt[1], int(felt[1]) + 1)\n```",
+    "options": [
+      "19 20",
+      "19 191",
+      "20 20",
+      "1 2"
+    ],
+    "explanation": "Felt fra `.split()` er alltid tekster. Uten `int(...)` ville `+ 1` ikke gått i det hele tatt — og `+ \"1\"` ville gitt `191`. Det er feilkode #4."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nlinje = \"Ada;19\\n\"\nprint(len(linje), len(linje.rstrip()))\n```",
+    "options": [
+      "7 6",
+      "8 6",
+      "6 6",
+      "7 7"
+    ],
+    "explanation": "Linjeskiftet er **ett** tegn, ikke to, og `.rstrip()` fjerner det. `8 6` er svaret hvis man teller `\\n` som to tegn."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nlinje = \"Ada;19\\n\"\nfelt = linje.split(\";\")\nprint(felt[1] == \"19\")\n```",
+    "options": [
+      "False",
+      "True",
+      "19",
+      "en feilmelding"
+    ],
+    "explanation": "Uten `.rstrip()` først henger linjeskiftet igjen i det siste feltet, så sammenligningen svarer usant selv om det «ser riktig ut». Det er feilkode #8, og den er stum."
+  },
+  {
+    "question": "I hvilken rekkefølge skal `.rstrip()` og `.split()` stå når du leser en linje?",
+    "options": [
+      "`.rstrip()` først, `.split()` etterpå",
+      "`.split()` først, `.rstrip()` på hvert felt etterpå",
+      "Rekkefølgen spiller ingen rolle for resultatet",
+      "De kan ikke kombineres — velg én av dem"
+    ],
+    "explanation": "Renser du først, er linjeskiftet borte før delingen. Deler du først, havner linjeskiftet i det siste feltet og må fjernes der. Malen er `linje.rstrip().split(\";\")`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntekst = \"kollektivtrafikk\"\nprint(\"trafikk\" in tekst, \"Trafikk\" in tekst)\n```",
+    "options": [
+      "True False",
+      "True True",
+      "False False",
+      "False True"
+    ],
+    "explanation": "`in` finner delstrenger, men skiller stor og liten bokstav. Skal du sammenligne uten å bry deg om det, gjør begge sider små med `.lower()` først."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nnavn = \"Ada Berg\"\nprint(navn.lower())\nprint(navn)\n```",
+    "options": [
+      "ada berg\nAda Berg",
+      "ada berg\nada berg",
+      "Ada Berg\nada berg",
+      "ADA BERG\nAda Berg"
+    ],
+    "explanation": "`.lower()` returnerer en **ny** tekst og lar originalen være urørt — som alle strengmetoder. Skal du beholde resultatet, må du ta imot det i en variabel."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(len(\"\"), len(\"to ord\"))\n```",
+    "options": [
+      "0 6",
+      "0 5",
+      "1 6",
+      "0 2"
+    ],
+    "explanation": "Den tomme teksten har lengde 0, og mellomrommet i `\"to ord\"` teller som et tegn. `0 2` er antall ord, ikke antall tegn."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef fjern(tekst, tegn):\n    ny = \"\"\n    for t in tekst:\n        if t != tegn:\n            ny = ny + t\n    return ny\nprint(fjern(\"bibliotek\", \"i\"))\n```",
+    "options": [
+      "bblotek",
+      "bibliotek",
+      "iii",
+      "blotek"
+    ],
+    "explanation": "Tegn-for-tegn-mønsteret tar med alt som **ikke** er det angitte tegnet. `iii` er hva du får hvis betingelsen snus til `==`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(\"Blindern\".split(\"-\"))\n```",
+    "options": [
+      "['Blindern']",
+      "[]",
+      "['B', 'lindern']",
+      "Blindern"
+    ],
+    "explanation": "Finnes ikke skilletegnet, gir `.split()` en liste med **ett** element: hele teksten. Den tomme lista får du aldri fra `.split(sep)`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nprint(str(100) + \"!\", len(str(100)))\n```",
+    "options": [
+      "100! 3",
+      "100! 100",
+      "1003",
+      "100 3"
+    ],
+    "explanation": "`str(100)` er teksten `\"100\"` med tre tegn, og plusstegnet skjøter utropstegnet på. `print` skiller de to argumentene med ett mellomrom."
+  },
+  {
+    "question": "Hvorfor må resultatet av `linje.rstrip()` tas imot i en variabel?",
+    "options": [
+      "Fordi metoden returnerer en ny tekst og lar originalen være urørt",
+      "Fordi metoden endrer linja, men bare hvis svaret lagres",
+      "Fordi Python krever en tilordning på hver linje med punktum",
+      "Fordi metoden ellers fjerner tegn fra begge ender i stedet for én"
+    ],
+    "explanation": "Strenger er uforanderlige, så alle strengmetoder gir en ny verdi. `liste.append(e)` er motsatt: den endrer lista og skal **ikke** tas imot."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef antall_ord(setning):\n    return len(setning.split())\nprint(antall_ord(\"buss tog\"), antall_ord(\"\"))\n```",
+    "options": [
+      "2 0",
+      "2 1",
+      "8 0",
+      "2 None"
+    ],
+    "explanation": "`\"\".split()` gir den tomme lista, og `len` av den er 0. Det er derfor `.split()` uten argument håndterer tom inndata av seg selv."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntekst = \"abc\"\nny = \"\"\nfor i in range(len(tekst) - 1, -1, -1):\n    ny = ny + tekst[i]\nprint(ny)\n```",
+    "options": [
+      "cba",
+      "abc",
+      "cb",
+      "ba"
+    ],
+    "explanation": "Løkka går fra siste indeks ned til og med 0, fordi stoppverdien `-1` aldri er med. `cb` er svaret hvis man stopper på 0 i stedet for på `-1`."
+  }
+]

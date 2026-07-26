@@ -1,0 +1,132 @@
+{
+ "id": "in1000-8-prove",
+ "courseId": "in1000",
+ "chapterNumber": "8.P",
+ "title": "Prøver til del 8: Nøstede strukturer",
+ "description": "Fire prøver til del 8: nøstet sporing, funksjon over nøstet liste, funksjon over nøstet ordbok, og en full Oppgave 5 — alle med kjørt fasit og selvdiagnose.",
+ "estimatedMinutes": 120,
+ "competenceGoals": [
+  "kunne spore en løkke inne i en løkke og telle rundene riktig",
+  "kunne plassere akkumulatoren på det nivået oppgaven krever",
+  "kunne bygge og snu en nøstet ordbok med de sjekkene som trengs",
+  "kunne skrive to samarbeidende funksjoner over en nøstet struktur på tiden"
+ ],
+ "content": [
+  {
+   "id": "in1000-8-prove-1",
+   "type": "tip",
+   "title": "Fire prøver til del 8 — dekning og tidsbruk",
+   "content": "Denne delen har **4 prøver** på til sammen **120 minutter**. De kan trygt deles\nover flere kvelder: **én prøve per økt** er en helt vanlig og fornuftig rytme.\n\n| Prøve | Dekker | Tid |\n|---|---|---|\n| 8.A | Nøstet sporing — 8 kortsvar ([kap. 8.1](/bok/in1000/in1000-8-1)) | 25 min |\n| 8.B | Funksjon over nøstet **liste** ([kap. 8.2](/bok/in1000/in1000-8-2)) | 30 min |\n| 8.C | Funksjon over nøstet **ordbok** ([kap. 8.2](/bok/in1000/in1000-8-2)) | 30 min |\n| 8.D | Full Oppgave 5 på eksamensnivå — to funksjoner | 35 min |\n\nPrøve 8.A er i **sjanger A — kodeforståelse**, altså «hva skriver dette\nprogrammet ut?». De tre andre er i **sjanger G — skriv en funksjon over en\nnøstet struktur**, som er formen Oppgave 5 har.\n\n**Denne delen har ingen statiske flervalg.** Svarene i 8.A skrives i klartekst,\nsom i et auto-rettet felt; de tre andre er kode du skriver selv.\n\n**Skriv koden for hånd eller i en editor uten å kjøre den.** Eksamen er\nhjelpemiddelfri og digital i Inspera — UiOs eksamenssystem. Kjør gjerne koden\netterpå, som en kontroll."
+  },
+  {
+   "id": "in1000-8-prove-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 8.1 — Nøstede lister og ordbøker](/bok/in1000/in1000-8-1) og\n[kap. 8.2 — DRILL: funksjoner over nøstede strukturer](/bok/in1000/in1000-8-2).\nUnder dem ligger [kap. 3.1](/bok/in1000/in1000-3-1) og\n[kap. 3.2](/bok/in1000/in1000-3-2).\n\nDe sju tingene prøvene tester hardest:\n\n- **de to nivåene**: skriv ned hva som er ytre og hva som er indre, før du koder,\n- **`len` teller ett nivå** — totalen finnes i ingen enkelt `len`,\n- **antall runder**: et produkt ved faste grenser, en sum ved varierende, og\n  `range(0)` gir null,\n- **akkumulatorens plassering**: utenfor begge løkkene, eller inne i den ytre,\n- **oppbygging krever to sjekker**, i rekkefølgen ytre, indre,\n- **akkumuler med `+`**, ikke `=`, når samme nøkkel kan komme igjen,\n- **flagg**: «finnes det …» gir `True` inne i løkka, «er alle …» gir `False`.\n\nTrenger du å friske opp ett av punktene, gjør det før du starter klokka."
+  },
+  {
+   "id": "in1000-8-prove-coll-p1",
+   "type": "collapsible",
+   "title": "Prøve 8.A — Nøstet sporing",
+   "buttonText": "Vis prøve 1",
+   "content": [
+    {
+     "id": "in1000-8-prove-p1t",
+     "type": "text",
+     "content": "**Prøve 8.A — Nøstet sporing** — 25 minutter. Åtte kortsvar.\n\n\nTotalt 20 poeng. Skriv utskriften nøyaktig slik terminalen viser den — riktig\ntype, ingen pynt, riktige mellomrom. Før sporingstavle på papir før du svarer.\n\n**Oppgave 1** (2 p). Hva skriver programmet ut?\n\n```python\ny = [[3, 8], [1, 4, 9], [7]]\nprint(len(y), len(y[1]), y[1][2])\n```\n\n**Oppgave 2** (2 p). Hva skriver programmet ut?\n\n```python\ny = [[14, 9, 20], [11, 0, 7]]\nprint(y[0][2], y[1][0], y[-1][-1])\n```\n\n**Oppgave 3** (3 p). Hva skriver programmet ut?\n\n```python\ny = [[1, 2], [3, 4]]\ntotal = 0\nfor rad in y:\n    for x in rad:\n        total = total + x\nprint(total)\n```\n\n**Oppgave 4** (3 p). Hva skriver programmet ut?\n\n```python\ny = [[1, 2], [3, 4]]\nfor rad in y:\n    mellom = 0\n    for x in rad:\n        mellom = mellom + x\nprint(mellom)\n```\n\n**Oppgave 5** (3 p). Hva skriver programmet ut?\n\n```python\nantall = 0\nfor i in range(4):\n    for j in range(i):\n        antall = antall + 1\nprint(antall)\n```\n\n**Oppgave 6** (2 p). Hva skriver programmet ut?\n\n```python\nantall = 0\nfor i in range(3):\n    for j in range(4):\n        antall = antall + 1\nprint(antall)\n```\n\n**Oppgave 7** (3 p). Hva skriver programmet ut?\n\n```python\nd = {\"a\": {\"x\": 1, \"y\": 2}, \"b\": {\"y\": 5}, \"c\": {}}\nn = 0\nfor k1 in d:\n    for k2 in d[k1]:\n        n = n + 1\nprint(len(d), n, len(d[\"c\"]))\n```\n\n**Oppgave 8** (2 p). Hva skriver programmet ut?\n\n```python\nd = {}\nfor rad in [[\"a\", \"x\", 1], [\"a\", \"y\", 2], [\"a\", \"x\", 4]]:\n    if rad[0] not in d:\n        d[rad[0]] = {}\n    if rad[1] not in d[rad[0]]:\n        d[rad[0]][rad[1]] = 0\n    d[rad[0]][rad[1]] = d[rad[0]][rad[1]] + rad[2]\nprint(d)\n```"
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-prove-coll-f1",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 8.A",
+   "buttonText": "Vis fasit 1",
+   "content": [
+    {
+     "id": "in1000-8-prove-f1t",
+     "type": "text",
+     "content": "**Fasit — Prøve 8.A.** Utskriftene under er kjørt, ikke gjettet. Delvis riktig\nsporing gir delvis uttelling.\n\n**Oppgave 1** (2 p):\n\n```\n3 3 9\n```\n\n`len` teller alltid ett nivå. Totalen på seks tall finnes i ingen enkelt `len`-kall.\n\n**Oppgave 2** (2 p):\n\n```\n20 11 7\n```\n\nLes indeksene fra venstre. Negativ indeks virker på begge nivåer.\n\n**Oppgave 3** (3 p):\n\n```\n10\n```\n\nAkkumulatoren står utenfor begge løkkene og summerer alt.\n\n**Oppgave 4** (3 p):\n\n```\n7\n```\n\nHer nullstilles den per indre liste, så den ender på summen av den **siste**: 3 pluss 4.\n\n**Oppgave 5** (3 p):\n\n```\n6\n```\n\nVarierende grenser: den indre løkka går 0, 1, 2 og 3 ganger. `range(0)` gir null runder.\n\n**Oppgave 6** (2 p):\n\n```\n12\n```\n\nFaste grenser: antallet ganges. Tre ytre runder ganger fire indre.\n\n**Oppgave 7** (3 p):\n\n```\n3 3 0\n```\n\nDen tomme indre ordboka teller med i den ytre løkka, men gir null runder i den indre.\n\n**Oppgave 8** (2 p):\n\n```\n{'a': {'x': 5, 'y': 2}}\n```\n\nSiste rad treffer nøkler som allerede finnes på begge nivåer, så verdien akkumuleres: 1 pluss 4.\n\n**Selvdiagnose — kryss av:**\n\n☐ Skrev du ned hva som var ytre og hva som var indre nivå?\n☐ Husket du at `len` teller **ett** nivå om gangen?\n☐ Talte du runder som et **produkt** ved faste grenser og en **sum** ved\n  varierende?\n☐ Husket du at `range(0)` gir null runder?\n☐ Sjekket du hvor akkumulatoren sto — utenfor begge løkkene eller inne i den\n  ytre?\n☐ Skrev du ordbøker og lister nøyaktig som Python gjør, med parenteser,\n  anførselstegn og komma?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-prove-coll-p2",
+   "type": "collapsible",
+   "title": "Prøve 8.B — Funksjon over nøstet liste",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1000-8-prove-p2t",
+     "type": "text",
+     "content": "**Prøve 8.B — Funksjon over nøstet liste** — 30 minutter. Fire oppgaver.\n\n\nTotalt 25 poeng. En nøstet liste holder poeng per runde for hver spiller, én\nindre liste per spiller: `[[3, 5, 2], [7, 1], [4, 4, 4]]`.\n\n**Oppgave 1** (5 p). Skriv `antall_runder(data)` som gir hvor mange runder det er\nspilt til sammen.\n\n**Oppgave 2** (7 p). Skriv `sum_per_spiller(data)` som gir en **liste** med\nsummen for hver spiller.\n\n**Oppgave 3** (7 p). Skriv `beste_spiller(data)` som gir **indeksen** til\nspilleren med høyest sum. Bruk en eksplisitt finn-beste-løkke, og gjenbruk\nfunksjonen fra oppgave 2.\n\n**Oppgave 4** (6 p). Skriv `alle_har_spilt(data, minst)` som gir `True` bare hvis\n**alle** spillerne har spilt minst så mange runder. Hva gir funksjonen for en tom\nliste, og er det riktig?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-prove-coll-f2",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 8.B",
+   "buttonText": "Vis fasit 2",
+   "content": [
+    {
+     "id": "in1000-8-prove-f2t",
+     "type": "text",
+     "content": "**Fasit — Prøve 8.B.** Koden er kjørt, ikke gjettet.\n\n**Oppgave 1–4 samlet** (25 p):\n\n```python\ndef antall_runder(data):\n    antall = 0\n    for spiller in data:\n        for p in spiller:\n            antall = antall + 1\n    return antall\n\ndef sum_per_spiller(data):\n    ut = []\n    for spiller in data:\n        s = 0\n        for p in spiller:\n            s = s + p\n        ut.append(s)\n    return ut\n\ndef beste_spiller(data):\n    summer = sum_per_spiller(data)\n    beste = None\n    beste_sum = 0\n    for i in range(len(summer)):\n        if summer[i] > beste_sum:\n            beste = i\n            beste_sum = summer[i]\n    return beste\n\ndef alle_har_spilt(data, minst):\n    for spiller in data:\n        if len(spiller) < minst:\n            return False\n    return True\n\ndata = [[3, 5, 2], [7, 1], [4, 4, 4]]\nprint(antall_runder(data))\nprint(sum_per_spiller(data))\nprint(beste_spiller(data))\nprint(alle_har_spilt(data, 2), alle_har_spilt(data, 3))\nprint(alle_har_spilt([], 3))\n```\n\n**Utskrift:**\n```\n8\n[10, 8, 12]\n2\nTrue False\nTrue\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (5 p): telleren **utenfor** begge løkkene (2 p), den todelte løkka\n(2 p), `return` etter begge (1 p). Merk at `len(data)` gir 3, ikke 8 — `len`\nteller ett nivå.\n\n**Oppgave 2** (7 p): `ut = []` før løkka (2 p), `s = 0` **inne** i den ytre løkka\n(2 p), den indre løkka (1 p), `ut.append(s)` etter den indre men inne i den ytre\n(2 p). Står `s = 0` utenfor begge, får du løpende summer: `[10, 18, 30]`.\n\n**Oppgave 3** (7 p): gjenbruken av `sum_per_spiller` (2 p), to variabler før løkka\n(2 p), løkka over **indekser** fordi indeksen skal returneres (1 p), begge\noppdatert sammen (1 p), `return` etter (1 p).\n\n**Oppgave 4** (6 p): løkka over spillerne (1 p), `len(spiller) < minst` som\nugyldighetstest (2 p), `return False` **inne** i løkka (2 p), `return True`\n**etter** (1 p).\n\n**Den tomme lista gir `True`.** Løkka går ingen runder, så koden faller rett til\n`return True`. Det er logisk riktig — «alle spillerne har spilt nok» er sant når\ndet ikke er noen spillere — men det er verdt en kommentar hvis oppgaven kan\ntolkes annerledes.\n\n**Selvdiagnose — kryss av:**\n\n☐ Står telleren i oppgave 1 utenfor **begge** løkkene?\n☐ Nullstilles `s` for hver spiller i oppgave 2?\n☐ Står `append` inne i den ytre løkka, men utenfor den indre?\n☐ Gjenbrukte du funksjonen fra oppgave 2 i oppgave 3?\n☐ Løper løkka i oppgave 3 over **indekser**, siden indeksen skal returneres?\n☐ Står `return True` **etter** løkka i oppgave 4?\n☐ Tenkte du gjennom hva funksjonen gir for en tom liste?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-prove-coll-p3",
+   "type": "collapsible",
+   "title": "Prøve 8.C — Funksjon over nøstet ordbok",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1000-8-prove-p3t",
+     "type": "text",
+     "content": "**Prøve 8.C — Funksjon over nøstet ordbok** — 30 minutter. Fire oppgaver.\n\n\nTotalt 25 poeng. En nøstet ordbok går fra butikknavn til varenavn til antall på\nlager.\n\n**Oppgave 1** (6 p). Skriv `lager(d, butikk, vare)` som gir antallet, eller `0`\nhvis butikken eller varen ikke finnes. Forklar i én setning hvorfor sjekkene må\nstå i en bestemt rekkefølge.\n\n**Oppgave 2** (6 p). Skriv `butikker_med(d, vare)` som gir en **liste** over\nnavnene på de butikkene som har varen.\n\n**Oppgave 3** (7 p). Skriv `totalt_per_vare(d)` som gir en **flat** ordbok fra\nvare til samlet antall over alle butikkene.\n\n**Oppgave 4** (6 p). Skriv `snu(d)` som gir en **ny** nøstet ordbok med nivåene\nbyttet om: fra vare til butikk til antall."
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-prove-coll-f3",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 8.C",
+   "buttonText": "Vis fasit 3",
+   "content": [
+    {
+     "id": "in1000-8-prove-f3t",
+     "type": "text",
+     "content": "**Fasit — Prøve 8.C.** Koden er kjørt, ikke gjettet.\n\n**Oppgave 1–4 samlet** (25 p):\n\n```python\ndef lager(d, butikk, vare):\n    if butikk not in d:\n        return 0\n    if vare not in d[butikk]:\n        return 0\n    return d[butikk][vare]\n\ndef butikker_med(d, vare):\n    ut = []\n    for butikk in d:\n        if vare in d[butikk]:\n            ut.append(butikk)\n    return ut\n\ndef totalt_per_vare(d):\n    ut = {}\n    for butikk in d:\n        for vare in d[butikk]:\n            if vare not in ut:\n                ut[vare] = 0\n            ut[vare] = ut[vare] + d[butikk][vare]\n    return ut\n\ndef snu(d):\n    ut = {}\n    for butikk in d:\n        for vare in d[butikk]:\n            if vare not in ut:\n                ut[vare] = {}\n            if butikk not in ut[vare]:\n                ut[vare][butikk] = 0\n            ut[vare][butikk] = ut[vare][butikk] + d[butikk][vare]\n    return ut\n\nlagre = {\"Grunerlokka\": {\"skrue\": 120, \"bolt\": 45},\n         \"Toyen\": {\"skrue\": 80},\n         \"Majorstuen\": {\"bolt\": 10, \"mutter\": 30}}\n\nprint(lager(lagre, \"Toyen\", \"skrue\"))\nprint(lager(lagre, \"Toyen\", \"bolt\"), lager(lagre, \"Ryen\", \"skrue\"))\nprint(butikker_med(lagre, \"skrue\"))\nprint(totalt_per_vare(lagre))\nprint(snu(lagre))\n```\n\n**Utskrift:**\n```\n80\n0 0\n['Grunerlokka', 'Toyen']\n{'skrue': 200, 'bolt': 55, 'mutter': 30}\n{'skrue': {'Grunerlokka': 120, 'Toyen': 80}, 'bolt': {'Grunerlokka': 45, 'Majorstuen': 10}, 'mutter': {'Majorstuen': 30}}\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**Oppgave 1** (6 p): butikk-sjekken (2 p), vare-sjekken (2 p), `return\nd[butikk][vare]` til slutt (1 p), begrunnelsen (1 p).\n\n**Begrunnelsen:** `if vare not in d[butikk]:` slår opp `d[butikk]` **før** `not\nin` rekker å virke. På en butikk som ikke finnes, stopper programmet der med\n`KeyError`. Ytternøkkelen må derfor sjekkes først.\n\n**Oppgave 2** (6 p): `ut = []` før løkka (2 p), én løkke over ytternøklene (1 p),\n`if vare in d[butikk]:` uten en indre løkke (2 p), `return` etter (1 p).\n\n**Oppgave 3** (7 p): den todelte løkka (2 p), `if vare not in ut:` med `ut[vare] =\n0` (3 p), akkumuleringen med `+` og det doble oppslaget (2 p). Med `=` i stedet\nfor `+` ville skruen fått 80 i stedet for 200.\n\n**Oppgave 4** (6 p): den todelte løkka inn (1 p), og **to** `if`-sjekker ut —\nførst den nye ytternøkkelen (vare), så den nye indrenøkkelen (butikk) (4 p),\nakkumuleringen (1 p).\n\n**At kildestrukturen finnes, hjelper ikke i oppgave 4.** Målstrukturen starter\ntom, og begge nivåene i den må opprettes før du kan skrive i dem. Det er den\nvanligste feilen i «snu»-oppgaver.\n\n**Selvdiagnose — kryss av:**\n\n☐ Sjekket du butikken **før** varen i oppgave 1?\n☐ Klarte du deg med **én** løkke i oppgave 2?\n☐ Brukte du `+` og ikke `=` i oppgave 3?\n☐ Står `ut = {}` før begge løkkene i oppgave 3 og 4?\n☐ Har `snu` **to** `if`-sjekker, i rekkefølgen ny ytre, ny indre?\n☐ Står `return` etter begge løkkene i alle fire?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-prove-coll-p4",
+   "type": "collapsible",
+   "title": "Prøve 8.D — Full Oppgave 5",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1000-8-prove-p4t",
+     "type": "text",
+     "content": "**Prøve 8.D — Full Oppgave 5** — 35 minutter. To deloppgaver, som på eksamen.\n\n\nTotalt 10 poeng — like mange som den ekte Oppgave 5. Deloppgavene rettes hver for\nseg, og b) bygger på a).\n\n> En ordbok går fra spillernavn til en **liste** over spill spilleren liker.\n\n**a)** (5 p) Skriv `felles(d, a, b)` som returnerer en liste over de spillene\n**både** `a` og `b` liker. Returner en tom liste hvis en av dem ikke finnes i\nordboka.\n\n**b)** (5 p) Skriv `adskilt(d, a, b)` som returnerer en liste over de spillene\n**bare én** av dem liker. Bruk gjerne funksjonen fra a).\n\nSkriv til slutt en kort forklaring på hvorfor b) trenger to løkker."
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-prove-coll-f4",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 8.D",
+   "buttonText": "Vis fasit 4",
+   "content": [
+    {
+     "id": "in1000-8-prove-f4t",
+     "type": "text",
+     "content": "**Fasit — Prøve 8.D.** Koden er kjørt, ikke gjettet.\n\n**a)–b) samlet** (10 p):\n\n```python\ndef felles(d, a, b):\n    ut = []\n    if a not in d:\n        return ut\n    if b not in d:\n        return ut\n    for spill in d[a]:\n        if spill in d[b]:\n            ut.append(spill)\n    return ut\n\ndef adskilt(d, a, b):\n    ut = []\n    if a not in d:\n        return ut\n    if b not in d:\n        return ut\n    for spill in d[a]:\n        if spill not in d[b]:\n            ut.append(spill)\n    for spill in d[b]:\n        if spill not in d[a]:\n            ut.append(spill)\n    return ut\n\nd = {\"Ada\": [\"Sjakk\", \"Kolonier\", \"Ordjakt\"],\n     \"Nora\": [\"Kolonier\", \"Sjakk\", \"Yatzy\"],\n     \"Per\": [\"Yatzy\"]}\n\nprint(felles(d, \"Ada\", \"Nora\"))\nprint(adskilt(d, \"Ada\", \"Nora\"))\nprint(felles(d, \"Ada\", \"Per\"))\nprint(adskilt(d, \"Ada\", \"Per\"))\nprint(felles(d, \"Ada\", \"Kari\"), adskilt(d, \"Ada\", \"Kari\"))\n```\n\n**Utskrift:**\n```\n['Sjakk', 'Kolonier']\n['Ordjakt', 'Yatzy']\n[]\n['Sjakk', 'Kolonier', 'Ordjakt', 'Yatzy']\n[] []\n```\n\n**Poengfordeling og hva som gir uttelling.**\n\n**a)** (5 p): `ut = []` før løkka (1 p), de to tidlige returene for manglende\nnavn (1 p), løkka over `d[a]` (1 p), `if spill in d[b]:` (1 p), `return` etter\nløkka (1 p).\n\n**b)** (5 p): de samme forberedelsene (1 p), **den første** løkka som tar med det\n`a` har alene (2 p), **den andre** løkka som tar med det `b` har alene (2 p).\n\n**Forklaringen:** med bare den første løkka finner du de spillene `a` liker og\n`b` ikke liker. Spillene `b` liker alene, blir aldri sett — for løkka går bare\nover `d[a]`. Derfor trengs én løkke hver vei.\n\nSe på tredje og fjerde linje i utskriften: Ada og Per har ingenting felles, og\n`adskilt` gir alle fire spillene til sammen — tre fra Ada og ett fra Per. Med\nbare den første løkka ville `Yatzy` manglet.\n\n**De tidlige returene gir den tomme lista**, ikke `None`. Det er et bevisst valg:\nden som kaller, kan bruke svaret i en løkke uten å sjekke først. Siste linje viser\nat begge funksjonene håndterer et navn som ikke finnes.\n\n**Rekkefølgen i svarene følger listene**, ikke alfabetet. Det er verdt å vite når\ndu sporer.\n\n**Selvdiagnose — kryss av:**\n\n☐ Står `ut = []` **før** løkka i begge funksjonene?\n☐ Håndterer begge funksjonene et navn som ikke finnes i ordboka?\n☐ Har `adskilt` **to** løkker, én hver vei?\n☐ Bruker du `in` og `not in` på riktig liste i hver av dem?\n☐ Står `return` **etter** løkkene, ikke inne i dem?\n☐ Skrev du forklaringen på hvorfor to løkker trengs?"
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

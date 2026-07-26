@@ -1,0 +1,158 @@
+{
+ "id": "in1000-9-2",
+ "courseId": "in1000",
+ "chapterNumber": "9.2",
+ "title": "Avsluttende øvingseksamen 2 — treningssenter",
+ "description": "Komplett fire timers sett på 100 poeng med treningssenter som modelleringsdomene, og en spørremetode til brukeren som deloppgave i den store oppgaven.",
+ "estimatedMinutes": 240,
+ "competenceGoals": [
+  "kunne gjennomføre et helt sett på fire timer uten hjelpemidler",
+  "kunne bygge en modell med to samlinger, filinnlesing og en spørremetode",
+  "kunne spore referanser gjennom en modell der ett objekt ligger flere steder",
+  "kunne fordele tiden etter poengene i stedet for etter rekkefølgen"
+ ],
+ "content": [
+  {
+   "id": "in1000-9-2-1",
+   "type": "tip",
+   "title": "Øvingseksamen 2 — format, poeng og tidsbudsjett",
+   "content": "Andre komplette sett etter den faste malen: **fem oppgaver, 100 poeng, fire\ntimer**. Alle oppgavene skal besvares.\n\n| Oppgave | Innhold | Poeng | Tid |\n|---|---|---|---|\n| 1 | Kodeforståelse, med nøstet akkumulering (sjanger A) | 8 | ~20 min |\n| 2 | Flervalg om objekter, tungt på referanser (sjanger B) | 8 | ~15 min |\n| 3 | Fire funksjoner over liste, ordbok og streng (C/D/E) | 30 | ~55 min |\n| 4 | Stor klassemodellering: treningssenter, med fil og input (F/H) | 46 | ~100 min |\n| 5 | To funksjoner over nøstede strukturer (G) | 8 | ~25 min |\n| | Kontroll og gjennomlesing | | ~25 min |\n\n**Det nye i dette settet er en input-metode inne i Oppgave 4** — sjanger H, som\nstår i halvparten av settene og nesten alltid ligger i den store oppgaven.\n\n**Skriv settet uten å kjøre koden.** Eksamen er hjelpemiddelfri, og koden din blir\naldri kjørt før den rettes. **Delkarakter gis per deloppgave** — stå aldri fast.\n\n— naturlig pausepunkt etter Oppgave 3 —"
+  },
+  {
+   "id": "in1000-9-2-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 9.1 — Øvingseksamen 1](/bok/in1000/in1000-9-1) først. Dette settet legger\ntil **sjanger H — terminal-interaksjon** fra\n[kap. 6.4](/bok/in1000/in1000-6-4), og er tyngre på referansesemantikk fra\n[kap. 5.4](/bok/in1000/in1000-5-4).\n\nSett av fire sammenhengende timer, legg vekk maskinen, og start klokka."
+  },
+  {
+   "id": "in1000-9-2-coll-o1",
+   "type": "collapsible",
+   "title": "Oppgavesett — Oppgave 1: Kodeforståelse (8 p)",
+   "buttonText": "Vis oppgave 1",
+   "content": [
+    {
+     "id": "in1000-9-2-o1t",
+     "type": "text",
+     "content": "Skriv hva hvert program skriver ut. Skriv utskriften **eksakt**, med riktig type\nog riktige mellomrom, og uten pynt.\n\n**1a)** (1 p)\n\n```python\ntotal = 0\nfor i in range(3):\n    for j in range(3):\n        total = total + 1\nprint(total)\n```\n\n**1b)** (2 p)\n\n```python\ntotal = 0\nfor i in range(5):\n    for j in range(i):\n        total = total + j\nprint(total)\n```\n\n**1c)** (1 p)\n\n```python\ntall = [4, 9, 2]\nprint(tall[-1], tall[0] - tall[-1])\n```\n\n**1d)** (2 p)\n\n```python\nd = {\"a\": [1, 2], \"b\": [3]}\nd[\"a\"].append(9)\nprint(d, len(d), len(d[\"a\"]))\n```\n\n**1e)** (1 p)\n\n```python\ntekst = \"spinning\"\nny = \"\"\nfor t in tekst:\n    if t != \"n\":\n        ny = ny + t\nprint(ny, len(ny))\n```\n\n**1f)** (1 p)\n\n```python\na = [1, 2]\nb = a\nb.append(3)\nprint(a, b)\n```\n"
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-f1",
+   "type": "collapsible",
+   "title": "Modellbesvarelse — Oppgave 1",
+   "buttonText": "Vis løsning 1",
+   "content": [
+    {
+     "id": "in1000-9-2-f1t",
+     "type": "text",
+     "content": "**Modellbesvarelse — Oppgave 1** (8 poeng). Alle utskriftene er kjørt.\n\n**1a)** (1 p):\n\n```\n9\n```\n\nFaste grenser: antallet ganges. Tre ytre runder ganger tre indre.\n\n**1b)** (2 p):\n\n```\n10\n```\n\nVarierende grense. Den indre løkka gir verdiene 0; 0,1; 0,1,2; 0,1,2,3 — og `range(0)` gir null runder.\n\n**1c)** (1 p):\n\n```\n2 2\n```\n\nNegativ indeks teller bakfra. Rekkefølgen i subtraksjonen avgjør fortegnet.\n\n**1d)** (2 p):\n\n```\n{'a': [1, 2, 9], 'b': [3]} 2 3\n```\n\nVerdien er en liste, og `append` endrer den på plass. `len` teller ett nivå om gangen.\n\n**1e)** (1 p):\n\n```\nspiig 5\n```\n\nTegn-for-tegn-mønsteret. Tre n-er fjernes fra åtte tegn.\n\n**1f)** (1 p):\n\n```\n[1, 2, 3] [1, 2, 3]\n```\n\n`b = a` gir to navn på **samme** liste — feilkode #15, aliasing.\n\n**Vekting.** Hver deloppgave rettes for seg. Delvis riktig utskrift på flere\nlinjer gir delvis uttelling.\n\n**Selvdiagnose — kryss av:**\n\n☐ Talte du runder som et **produkt** ved faste grenser og en **sum** ved\n  varierende?\n☐ Husket du at `range(0)` gir null runder?\n☐ Skrev du ordbøker og lister nøyaktig som Python gjør?\n☐ Så du at `b = a` ikke er en kopi?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-o2",
+   "type": "collapsible",
+   "title": "Oppgavesett — Oppgave 2: Flervalg om objekter (8 p)",
+   "buttonText": "Vis oppgave 2",
+   "content": [
+    {
+     "id": "in1000-9-2-o2t",
+     "type": "text",
+     "content": "Se på klassene og snutten under, og svar på 2a–2d. **Kryss alltid av** — blankt\ngir null poeng.\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._besok = 0\n\n    def hent_besok(self):\n        return self._besok\n\n    def registrer(self):\n        self._besok = self._besok + 1\n\n    def __str__(self):\n        return self._navn + \":\" + str(self._besok)\n\nclass Sal:\n    def __init__(self, navn):\n        self._navn = navn\n        self._paameldte = []\n\n    def meld_paa(self, m):\n        self._paameldte.append(m)\n        m.registrer()\n\n    def antall(self):\n        return len(self._paameldte)\n\n    def skriv_alle(self):\n        for m in self._paameldte:\n            print(m)\n\nada = Medlem(\"Ada\")\nnora = Medlem(\"Nora\")\n\nspeil = Sal(\"Speilsal\")\nspinn = Sal(\"Spinning\")\n\nspeil.meld_paa(ada)\nspeil.meld_paa(nora)\nspinn.meld_paa(ada)\n\nada = Medlem(\"Ada2\")\nada.registrer()\n```\n\n**2a)** (2 p) Hva skriver `speil.skriv_alle()` ut?\n\n**2b)** (2 p) Hva gir `spinn.antall()`?\n\nA. `0`\nB. `1`\nC. `2`\nD. `3`\n\n**2c)** (2 p) Hvor mange `Medlem`-objekter er laget?\n\nA. `2`\nB. `3`\nC. `4`\nD. `5`\n\n**2d)** (2 p) Er `_paameldte` del av grensesnittet til `Sal`?\n\nA. Ja, fordi `antall()` bygger på den.\nB. Ja, fordi den settes i konstruktøren.\nC. Nei — grensesnittet er de offentlige metodene, med navn og parametere.\nD. Nei — men den blir det hvis den skrives uten understrek."
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-f2",
+   "type": "collapsible",
+   "title": "Modellbesvarelse — Oppgave 2",
+   "buttonText": "Vis løsning 2",
+   "content": [
+    {
+     "id": "in1000-9-2-f2t",
+     "type": "text",
+     "content": "**Modellbesvarelse — Oppgave 2** (8 poeng).\n\n**Steg 1 — konstruktøren er riktig her.** Ingen `self`-felle: både `_navn` og\n`_besok` settes med `self._`. Fellen ligger et annet sted.\n\n**Steg 2–3 — tegningen.** `meld_paa` gjør **to** ting: legger medlemmet i lista og\nber det registrere et besøk. Ada meldes på i **to** saler, så hun får to besøk på\ndet **samme** objektet.\n\nRebindingen `ada = Medlem(\"Ada2\")` på slutten flytter bare navnet. Det nye\nobjektet er ikke meldt på noe sted, og `registrer()` på det treffer ikke salene.\n\n**Kjørt:**\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._besok = 0\n\n    def hent_besok(self):\n        return self._besok\n\n    def registrer(self):\n        self._besok = self._besok + 1\n\n    def __str__(self):\n        return self._navn + \":\" + str(self._besok)\n\nclass Sal:\n    def __init__(self, navn):\n        self._navn = navn\n        self._paameldte = []\n\n    def meld_paa(self, m):\n        self._paameldte.append(m)\n        m.registrer()\n\n    def antall(self):\n        return len(self._paameldte)\n\n    def skriv_alle(self):\n        for m in self._paameldte:\n            print(m)\n\nada = Medlem(\"Ada\")\nnora = Medlem(\"Nora\")\n\nspeil = Sal(\"Speilsal\")\nspinn = Sal(\"Spinning\")\n\nspeil.meld_paa(ada)\nspeil.meld_paa(nora)\nspinn.meld_paa(ada)\n\nada = Medlem(\"Ada2\")\nada.registrer()\nspeil.skriv_alle()\nprint(spinn.antall())\n```\n\n**Utskrift:**\n```\nAda:2\nNora:1\n1\n```\n\n**2a)** (2 p) To linjer: `Ada:2` og `Nora:1`. Ada har to besøk fordi hun ble\nmeldt på i to saler — begge gikk på det samme objektet.\n\n**2b) B — `1`** (2 p). Bare Ada er meldt på i Spinning.\n\n**2c) B — `3`** (2 p). `Medlem(` står tre ganger. At det tredje objektet ikke er\nmeldt på noe sted, endrer ikke at det er laget.\n\n**2d) C** (2 p). Grensesnittet er de offentlige metodene med navn og parametere.\nUnderstrek-variabler er innside — også de en metode bygger på.\n\n**Vekting.** De fire deloppgavene rettes hver for seg, og blankt gir null.\n\n**Selvdiagnose — kryss av:**\n\n☐ Så du at `meld_paa` gjør **to** ting?\n☐ Tegnet du én boks per gang klassenavnet står med parentes?\n☐ Skilte du `ada.registrer()` (skriver i boksen) fra `ada = Medlem(...)`\n  (flytter pilen)?\n☐ Holdt du understrek-variabelen ute av grensesnittet?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-o3",
+   "type": "collapsible",
+   "title": "Oppgavesett — Oppgave 3: Skriv funksjoner (30 p)",
+   "buttonText": "Vis oppgave 3",
+   "content": [
+    {
+     "id": "in1000-9-2-o3t",
+     "type": "text",
+     "content": "Skriv fire funksjoner med grunnkonstruksjoner — eksplisitte løkker, ikke ferdige\nsnarveier.\n\n**3a)** (7 p) Skriv `snitt(tall)` som returnerer gjennomsnittet av tallene i\nlista. Funksjonen skal returnere `0` for en tom liste.\n\n**3b)** (8 p) Skriv `tell_tegn(tekst)` som returnerer en ordbok fra tegn til\nantall forekomster.\n\n**3c)** (8 p) Skriv `travleste(d)` som tar en ordbok fra dag til antall og\nreturnerer **dagen** med flest. Bruk en eksplisitt finn-beste-løkke.\n\n**3d)** (7 p) Skriv `forkort(tekst, lengde)` som returnerer de `lengde` første\ntegnene i teksten. Er teksten kortere, returneres hele teksten uendret."
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-f3",
+   "type": "collapsible",
+   "title": "Modellbesvarelse — Oppgave 3",
+   "buttonText": "Vis løsning 3",
+   "content": [
+    {
+     "id": "in1000-9-2-f3t",
+     "type": "text",
+     "content": "**Modellbesvarelse — Oppgave 3** (30 poeng).\n\n```python\ndef snitt(tall):\n    if len(tall) == 0:\n        return 0\n    total = 0\n    for x in tall:\n        total = total + x\n    return total // len(tall)\n\ndef tell_tegn(tekst):\n    d = {}\n    for t in tekst:\n        if t not in d:\n            d[t] = 0\n        d[t] = d[t] + 1\n    return d\n\ndef travleste(d):\n    beste = None\n    beste_antall = 0\n    for dag in d:\n        if d[dag] > beste_antall:\n            beste = dag\n            beste_antall = d[dag]\n    return beste\n\ndef forkort(tekst, lengde):\n    ny = \"\"\n    for i in range(len(tekst)):\n        if i < lengde:\n            ny = ny + tekst[i]\n    return ny\n\nprint(snitt([4, 9, 2]), snitt([]))\nprint(tell_tegn(\"spinning\"))\nprint(travleste({\"mandag\": 23, \"tirsdag\": 20, \"onsdag\": 6}))\nprint(forkort(\"Speilsal\", 5), forkort(\"Yoga\", 9))\n```\n\n**Utskrift:**\n```\n5 0\n{'s': 1, 'p': 1, 'i': 2, 'n': 3, 'g': 1}\nmandag\nSpeil Yoga\n```\n\n**3a)** (7 p): sjekken `if len(tall) == 0:` **før** divisjonen (3 p),\nakkumulatoren før løkka (2 p), `return` etter (2 p). Uten sjekken stopper\nprogrammet med `ZeroDivisionError` på en tom liste — et kant-tilfelle oppgaven\nuttrykkelig ber om.\n\nHeltallsdivisjonen `//` gir et helt tall. Med `/` ville svaret blitt `5.0`.\n\n**3b)** (8 p): ordboka før løkka (2 p), `if t not in d:` med `d[t] = 0` (4 p),\nakkumuleringen og `return` etter (2 p). Teller-idiomet virker like godt på tegn\nsom på ord.\n\n**3c)** (8 p): to variabler før løkka (3 p), begge oppdatert sammen (3 p),\n`return beste` — altså **nøkkelen**, ikke verdien (2 p).\n\n**3d)** (7 p): `ny = \"\"` før løkka (2 p), løkka over **indekser** (2 p),\n`if i < lengde:` (2 p), `return` etter (1 p).\n\n**Er teksten kortere enn `lengde`, kommer alle tegnene med** uten at noe ekstra\ntrengs — løkka går bare så mange runder som teksten er lang. Det er et kant-\ntilfelle som løser seg selv, og som er verdt å nevne i en kommentar.\n\n**Selvdiagnose — kryss av:**\n\n☐ Sjekket du den tomme lista **før** divisjonen?\n☐ Har teller-ordboka `if t not in d:` før akkumuleringen?\n☐ Returnerer finn-beste **nøkkelen** og ikke verdien?\n☐ Står alle akkumulatorer før løkka og alle `return` etter?\n☐ Testet du kantverdiene: tom liste, tekst kortere enn grensen?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-o4",
+   "type": "collapsible",
+   "title": "Oppgavesett — Oppgave 4: Stor klassemodellering (46 p)",
+   "buttonText": "Vis oppgave 4",
+   "content": [
+    {
+     "id": "in1000-9-2-o4t",
+     "type": "text",
+     "content": "> Et treningssenter har et navn, medlemmer og saler. Hvert medlem har et navn,\n> en alder og et antall timer. Hver sal har et navn, en kapasitet og en samling\n> påmeldte medlemmer. En sal kan melde på et medlem, men bare hvis det er ledig\n> plass. Senteret kan lese inn medlemmer fra en fil, finne et medlem på navn,\n> legge til en sal, skrive ut alle salene, si hvilket medlem som har flest timer,\n> og la brukeren velge en sal fra en liste — der spørsmålet gjentas til navnet\n> finnes.\n>\n> Fila `medlemsregister.txt` har en **overskriftslinje** og deretter linjer på\n> formen `navn;alder;timer`.\n\n**4a)** (8 p) Skriv `Medlem` med konstruktør, aksessorer og `__str__` på formen\n`Ada (24 ar, 18 t)`.\n\n**4b)** (9 p) Skriv `Sal` med konstruktør, `hent_navn`, `hent_ledige`,\n`antall_paameldte`, `meld_paa` med kapasitetssjekk, og `__str__` på formen\n`Speilsal: 1 av 20`.\n\n**4c)** (10 p) Skriv `Senter` med en **ordbok** for medlemmene og en **ordbok**\nfor salene, `les_medlemmer(self, filnavn)` som hopper over overskriftslinja,\n`finn_medlem` og `legg_til_sal`.\n\n**4d)** (7 p) Skriv `skriv_saler(self)` og `flittigste_medlem(self)`.\n\n**4e)** (12 p) Skriv `velg_sal(self)` i eksamensform, med `input`: den skal vise\nalle salnavnene, spørre til navnet finnes, og returnere `Sal`-objektet. Forklar i\nén setning hvorfor oppslaget etter løkka ikke trenger en `if`-sjekk."
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-f4",
+   "type": "collapsible",
+   "title": "Modellbesvarelse — Oppgave 4",
+   "buttonText": "Vis løsning 4",
+   "content": [
+    {
+     "id": "in1000-9-2-f4t",
+     "type": "text",
+     "content": "**Modellbesvarelse — Oppgave 4** (46 poeng). Deloppgavene rettes hver for seg.\n\n**Steg 1–4 på papir:**\n\n| Klasse | Instansvariabler | Merknad |\n|---|---|---|\n| `Medlem` | `_navn`, `_alder`, `_timer` | alle utenfra |\n| `Sal` | `_navn`, `_kapasitet`, `_paameldte` | siste er en tom **liste** |\n| `Senter` | `_navn`, `_medlemmer`, `_saler` | **to** ordbøker |\n\nTo ordbøker fordi begge skal slås opp på navn.\n\n**4a)–4d):**\n\n```python\nclass Medlem:\n    def __init__(self, navn, alder, timer):\n        self._navn = navn\n        self._alder = alder\n        self._timer = timer\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._alder) + \" ar, \" + str(self._timer) + \" t)\"\n\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn\n        self._kapasitet = kapasitet\n        self._paameldte = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_ledige(self):\n        return self._kapasitet - len(self._paameldte)\n\n    def antall_paameldte(self):\n        return len(self._paameldte)\n\n    def meld_paa(self, medlem):\n        if self.hent_ledige() < 1:\n            print(\"Fullt i\", self._navn)\n        else:\n            self._paameldte.append(medlem)\n\n    def __str__(self):\n        return self._navn + \": \" + str(len(self._paameldte)) + \" av \" + str(self._kapasitet)\n\nclass Senter:\n    def __init__(self, navn):\n        self._navn = navn\n        self._medlemmer = {}\n        self._saler = {}\n\n    def les_medlemmer(self, filnavn):\n        fil = open(filnavn)\n        fil.readline()\n        linje = fil.readline()\n        while linje != \"\":\n            felt = linje.rstrip().split(\";\")\n            m = Medlem(felt[0], int(felt[1]), int(felt[2]))\n            self._medlemmer[m.hent_navn()] = m\n            linje = fil.readline()\n        fil.close()\n\n    def finn_medlem(self, navn):\n        if navn in self._medlemmer:\n            return self._medlemmer[navn]\n        return None\n\n    def legg_til_sal(self, sal):\n        self._saler[sal.hent_navn()] = sal\n\n    def skriv_saler(self):\n        for navn in self._saler:\n            print(self._saler[navn])\n\n    def flittigste_medlem(self):\n        beste = None\n        beste_timer = 0\n        for navn in self._medlemmer:\n            m = self._medlemmer[navn]\n            if m.hent_timer() > beste_timer:\n                beste = m\n                beste_timer = m.hent_timer()\n        return beste\n\ns = Senter(\"Toyen\")\ns.les_medlemmer(\"medlemsregister.txt\")\ns.legg_til_sal(Sal(\"Speilsal\", 2))\ns.legg_til_sal(Sal(\"Spinning\", 10))\n\ns._saler[\"Speilsal\"].meld_paa(s.finn_medlem(\"Ada\"))\ns._saler[\"Speilsal\"].meld_paa(s.finn_medlem(\"Nora\"))\ns._saler[\"Speilsal\"].meld_paa(s.finn_medlem(\"Per\"))\n\ns.skriv_saler()\nprint(s.flittigste_medlem())\nprint(s.finn_medlem(\"Ola\"))\n```\n\n**Utskrift:**\n```\nFullt i Speilsal\nSpeilsal: 2 av 2\nSpinning: 0 av 10\nPer (19 ar, 25 t)\nNone\n```\n\n**4e)** — `velg_sal` i eksamensform:\n\n```text\n    def velg_sal(self):\n        print(\"Saler:\")\n        for navn in self._saler:\n            print(\" -\", navn)\n        valgt = input(\"Velg sal: \")\n        while valgt not in self._saler:\n            valgt = input(\"Finnes ikke, prov igjen: \")\n        # loekka garanterer at nokkelen finnes\n        return self._saler[valgt]\n```\n\nBlokken er et utdrag som venter på inndata, og er derfor merket som\nikke-kjørbar.\n\n**Terminaldialog:**\n```\nSaler:\n - Speilsal\n - Spinning\nVelg sal: Basseng\nFinnes ikke, prov igjen: Spinning\n```\n\n**Begrunnelsen:** når løkka slutter, er betingelsen `valgt not in self._saler`\nusann — og det betyr nettopp at `valgt` **er** en nøkkel i ordboka.\n\n**Vekting og hva som gir uttelling.**\n\n**4a)** (8 p): tre `self._`-linjer, to aksessorer, `__str__` med `str(...)` rundt\nbegge tallene.\n\n**4b)** (9 p): tre `self._`-linjer med `_paameldte = []`, `hent_ledige` som\n**regner ut**, kontrollen i `meld_paa` med `else`-grenen, og `__str__`.\n\n**4c)** (10 p): to ordbøker i konstruktøren (2 p), header-hoppet (2 p), løkkas\nfem deler (3 p), `.rstrip().split(\";\")` og begge `int(...)` (2 p), innsetting med\nmedlemmets **egen** aksessor som nøkkel (1 p).\n\n**4d)** (7 p): delegeringen i `skriv_saler` (3 p), og finn-beste med to variabler\noppdatert sammen og `return` etter løkka (4 p).\n\n**4e)** (12 p): utskriften av alternativene (3 p), `input` **før** løkka (2 p),\n`while` og ikke `if` (4 p), nytt `input` **inne** i løkka (2 p), objektet\nreturnert (1 p).\n\n**Legg merke til linjene med `s._saler[...]` i testkoden.** De rører objektets\ninnside utenfra — feilkode **#11** — og står her bare fordi `velg_sal` ikke kan\nkjøres uten en bruker. **I en besvarelse skriver du aldri slike linjer**; du\nkaller `velg_sal()` i stedet.\n\n**Slik ser en B-besvarelse ut.** Hele modellen er riktig, men to småfeil:\n`meld_paa` sammenligner med `<= 1` i stedet for `< 1`, så salen regnes som full\nalt når det er én ledig plass igjen — Speilsalen skriver «Fullt» to ganger og\nender med ett medlem i stedet for to, og `velg_sal` glemmer å skrive ut alternativene. Strukturen er der,\nbegge ordbøkene er riktige, filinnlesingen er riktig — og trekket er noen få\npoeng. **Det er en helt god besvarelse.**\n\n**Selvdiagnose — kryss av:**\n\n☐ Har `Senter` **to** samlinger, én for hver ting som skal slås opp?\n☐ Hoppet du over overskriftslinja med ett ekstra `readline`?\n☐ Konverterte du alder og timer, men ikke navnet?\n☐ Hentet du nøkkelen med `m.hent_navn()` og ikke med `m._navn`?\n☐ Ligger kapasitetssjekken **inne** i `meld_paa`, med en `else`-gren?\n☐ Er input-løkka en `while`, med `input` **to** steder?\n☐ Skrev du ut alternativene **før** du spurte, og returnerte objektet?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-o5",
+   "type": "collapsible",
+   "title": "Oppgavesett — Oppgave 5: Nøstede strukturer (8 p)",
+   "buttonText": "Vis oppgave 5",
+   "content": [
+    {
+     "id": "in1000-9-2-o5t",
+     "type": "text",
+     "content": "En nøstet ordbok går fra **dag** til **sal** til antall deltakere:\n\n```python\nuke = {\"mandag\": {\"Speilsal\": 14, \"Spinning\": 9},\n       \"tirsdag\": {\"Speilsal\": 20},\n       \"onsdag\": {\"Yoga\": 3, \"Spinning\": 11}}\n```\n\n**5a)** (4 p) Skriv `per_sal(uke)` som returnerer en **flat** ordbok fra sal til\nsamlet antall deltakere over alle dagene.\n\n**5b)** (4 p) Skriv `dager_med(uke, sal)` som returnerer en **liste** over de\ndagene salen er i bruk."
+    }
+   ]
+  },
+  {
+   "id": "in1000-9-2-coll-f5",
+   "type": "collapsible",
+   "title": "Modellbesvarelse — Oppgave 5",
+   "buttonText": "Vis løsning 5",
+   "content": [
+    {
+     "id": "in1000-9-2-f5t",
+     "type": "text",
+     "content": "**Modellbesvarelse — Oppgave 5** (8 poeng).\n\n**Steg 1 — nivåene.** Ytre = dag, indre = sal, verdi = antall deltakere.\n\n```python\ndef per_sal(uke):\n    ut = {}\n    for dag in uke:\n        for sal in uke[dag]:\n            if sal not in ut:\n                ut[sal] = 0\n            ut[sal] = ut[sal] + uke[dag][sal]\n    return ut\n\ndef dager_med(uke, sal):\n    ut = []\n    for dag in uke:\n        if sal in uke[dag]:\n            ut.append(dag)\n    return ut\n\nuke = {\"mandag\": {\"Speilsal\": 14, \"Spinning\": 9},\n       \"tirsdag\": {\"Speilsal\": 20},\n       \"onsdag\": {\"Yoga\": 3, \"Spinning\": 11}}\n\nprint(per_sal(uke))\nprint(dager_med(uke, \"Spinning\"))\nprint(dager_med(uke, \"Basseng\"))\n```\n\n**Utskrift:**\n```\n{'Speilsal': 34, 'Spinning': 20, 'Yoga': 3}\n['mandag', 'onsdag']\n[]\n```\n\n**5a)** (4 p): `ut = {}` **før** begge løkkene (1 p), den todelte løkka (1 p),\n`if sal not in ut:` med `ut[sal] = 0` (1 p), akkumuleringen med `+` (1 p). Med\n`=` ville Speilsal fått 20 i stedet for 34.\n\n**5b)** (4 p): `ut = []` før løkka (1 p), **én** løkke over dagene (1 p),\n`if sal in uke[dag]:` i stedet for en indre løkke (1 p), `return` etter (1 p).\n\n**En sal som ikke finnes, gir den tomme lista** — ikke `None`. Det er et bevisst\nvalg: den som kaller, kan bruke svaret i en løkke uten å sjekke først.\n\n**Selvdiagnose — kryss av:**\n\n☐ Skrev du ned hva som var ytre og indre nivå før du kodet?\n☐ Brukte du `+` og ikke `=` i akkumuleringen?\n☐ Klarte du deg med **én** løkke i b)?\n☐ Står `return` etter løkkene, ikke inne i dem?"
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

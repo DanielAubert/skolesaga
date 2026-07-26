@@ -1,0 +1,390 @@
+{
+ "id": "in1000-2-1",
+ "courseId": "in1000",
+ "chapterNumber": "2.1",
+ "title": "Funksjoner: def, parametere og return",
+ "description": "Definere og kalle funksjoner, parametere, return (også flere returverdier og flere return-steder) — håndverket bak Oppgave 3 og 5 og alle metoder i Oppgave 4.",
+ "estimatedMinutes": 45,
+ "competenceGoals": [
+  "kunne definere en funksjon med parametere og returnere et resultat fra den",
+  "kunne bruke flagg med tidlig retur til å svare ja eller nei om en hel samling",
+  "kunne forklare hvorfor en funksjon gir None, og rette det",
+  "kunne la to funksjoner samarbeide, og ta imot flere returverdier"
+ ],
+ "content": [
+  {
+   "id": "in1000-2-1-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Funksjoner står i 6 av 6 moderne eksamenssett (100 %)**, og de er den formen\nall kodeskriving på eksamen har. Oppgave 3 (~28 poeng) og Oppgave 5 (~9 poeng)\nbestår utelukkende av «skriv en funksjon som …», og hver eneste metode i den\nstore Oppgave 4 er en funksjon.\n\nTil sammen er det **cirka 83 % av poengene** på settet. Ingen annen konstruksjon\ni faget bærer så mye.\n\nEtt mønster går igjen oftere enn noe annet, og det har et navn i denne boka:\n**flagg med tidlig retur**. Du skal svare ja eller nei om en hel samling — «er\nalle positive?», «finnes det en som mangler?» — og fasiten løser det ved å\nreturnere `False` med én gang et moteksempel dukker opp, og `True` først etter\nløkka. Å returnere for tidlig er feilkode #7, og den er godt dokumentert i\narkivet.\n\n**Dette må sitte** — bokas høyeste av tre nivåer."
+  },
+  {
+   "id": "in1000-2-1-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.3 — Løkker: for, while og range](/bok/in1000/in1000-1-3), og gjennom den\n[kap. 1.1](/bok/in1000/in1000-1-1) og [kap. 1.2](/bok/in1000/in1000-1-2).\n\nDe tre tingene du bruker mest her:\n\n- **teller- og akkumulatormønsteret**: startverdi før løkka, oppdatering inne i\n  den, bruk etter,\n- **gjennomløping av en tekst** med `for tegn in tekst:`,\n- **betingelser**, og at bare den første sanne grenen i en kjede kjøres.\n\nKort oppfrisket:\n\n```python\nantall = 0\nfor tegn in \"kodeord\":\n    if tegn == \"o\":\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n2\n```\n\nI dette kapitlet flytter vi nettopp slik kode inn i en **funksjon**, slik at den\nkan gjenbrukes med ulike data."
+  },
+  {
+   "id": "in1000-2-1-3",
+   "type": "text",
+   "content": "## Løkke 1 — Å definere og kalle en funksjon (~10 min)\n\nKoden i oppfriskingen over teller o-ene i ett bestemt ord. Vil du telle o-ene i\net annet ord, må du skrive alt på nytt.\n\nEn **funksjon** løser dette: du skriver oppskriften én gang, gir den et navn, og\nlar den ta imot det den skal jobbe på."
+  },
+  {
+   "id": "in1000-2-1-4",
+   "type": "definition",
+   "title": "Funksjon",
+   "content": "En navngitt bit kode som utfører en bestemt oppgave, og som du kan bruke om\nigjen med ulike data.\n\nTo ting skjer med en funksjon, og de er lett å blande:\n\n- Du **definerer** den én gang, med `def`. Da skjer det ingenting ennå — Python\n  bare noterer oppskriften.\n- Du **kaller** den så mange ganger du vil, ved å skrive navnet med parentes\n  etter. Først da kjøres kroppen.\n\nAlt du har brukt så langt med parentes etter navnet — `print(...)`, `int(...)`,\n`len(...)` — er funksjoner. Nå skal du skrive dine egne."
+  },
+  {
+   "id": "in1000-2-1-5",
+   "type": "definition",
+   "title": "`def navn(parametere):`",
+   "content": "Definerer en funksjon. Linja avsluttes med kolon, og kroppen står innrykket\nunder:\n\n```python\ndef hils(navn):\n    print(\"Hei,\", navn)\n\nhils(\"Ada\")\nhils(\"Nora\")\n```\n\n**Utskrift:**\n```\nHei, Ada\nHei, Nora\n```\n\nLegg merke til at kroppen kjøres **to** ganger, én gang per kall — men den er\nskrevet én gang.\n\nDefinisjonen må stå **før** kallet i programmet. Python leser filen ovenfra, og\nkjenner ikke et navn den ikke har sett ennå."
+  },
+  {
+   "id": "in1000-2-1-6",
+   "type": "definition",
+   "title": "Parameter og argument",
+   "content": "To ord for to sider av samme sak:\n\n- **Parameter** er navnet i definisjonen: `navn` i `def hils(navn):`. Det er en\n  variabel som får en verdi når funksjonen kalles.\n- **Argument** er verdien du sender inn ved kallet: `\"Ada\"` i `hils(\"Ada\")`.\n\nEn funksjon kan ha flere parametere, skilt med komma, og da er **rekkefølgen\navgjørende**: det første argumentet havner i den første parameteren.\n\n```python\ndef vis(fornavn, etternavn):\n    print(fornavn, etternavn)\n\nvis(\"Ada\", \"Berg\")\nvis(\"Berg\", \"Ada\")\n```\n\n**Utskrift:**\n```\nAda Berg\nBerg Ada\n```\n\nPython vet ingenting om hva navnene betyr — den fyller bare inn i rekkefølge."
+  },
+  {
+   "id": "in1000-2-1-7",
+   "type": "definition",
+   "title": "`return`",
+   "content": "Sender en verdi tilbake til den som kalte funksjonen:\n\n```python\ndef dobbel(tall):\n    return tall * 2\n\nsvar = dobbel(21)\nprint(svar)\nprint(dobbel(5) + 1)\n```\n\n**Utskrift:**\n```\n42\n11\n```\n\nTo ting skjer samtidig når `return` kjøres. Funksjonen **avsluttes** umiddelbart\n— ingen linjer under blir kjørt. Og verdien blir **resultatet av kallet**, slik at\ndu kan lagre den i en variabel eller regne videre med den, som på siste linje.\n\n`return` er derfor ikke det samme som `print`. `print` viser noe på skjermen;\n`return` gir en verdi tilbake til programmet."
+  },
+  {
+   "id": "in1000-2-1-8",
+   "type": "warning",
+   "title": "`return` mot `print` — den vanligste nybegynnerfeilen",
+   "content": "Disse to gjør helt forskjellige ting, og en funksjon som skriver ut i stedet for\nå returnere, er nesten alltid ubrukelig på eksamen.\n\n```python\ndef dobbel_skriv(tall):\n    print(tall * 2)\n\ndef dobbel_returner(tall):\n    return tall * 2\n\na = dobbel_skriv(5)\nb = dobbel_returner(5)\nprint(a, b)\n```\n\n**Utskrift:**\n```\n10\nNone 10\n```\n\nDen første funksjonen viste `10` på skjermen, men ga ingenting tilbake — derfor\ner `a` lik `None`. Den andre ga verdien tilbake, og `b` er `10`.\n\n**Regelen på eksamen:** ber oppgaven om en funksjon som «returnerer» noe, skal\ndet stå `return`. Skriver du `print` i stedet, kan ikke resten av programmet\nbruke resultatet, og deloppgavene som bygger videre, faller sammen."
+  },
+  {
+   "id": "in1000-2-1-9",
+   "type": "example",
+   "title": "Eksempel 1: Fra løs kode til gjenbrukbar funksjon",
+   "problem": "Tellekoden fra forkunnskapene teller o-ene i ett bestemt ord. Gjør den om til\nen funksjon som teller hvor mange ganger et gitt tegn finnes i en gitt tekst, og\nvis at den kan brukes flere ganger.",
+   "solution": "Det som varierer, blir parametere; det som skal ut, blir returverdien:\n\n```python\ndef tell_tegn(tekst, tegn):\n    antall = 0\n    for t in tekst:\n        if t == tegn:\n            antall = antall + 1\n    return antall\n\nprint(tell_tegn(\"kodeord\", \"o\"))\nprint(tell_tegn(\"bibliotek\", \"b\"))\nprint(tell_tegn(\"bibliotek\", \"z\"))\n```\n\n**Utskrift:**\n```\n2\n2\n0\n```\n\nTre observasjoner som er verdt poeng:\n\n- **Telleren lever inne i funksjonen.** `antall = 0` står i kroppen, så den\n  starter på null ved hvert nytt kall. Det er nettopp derfor funksjonen kan\n  brukes om igjen.\n- **`return` står etter løkka**, med samme innrykk som `for`. Sto den inne i\n  løkka, ville funksjonen returnert etter første tegn.\n- **Null er et gyldig svar.** Siste kall finner ingen `z`, og returnerer `0`\n  uten at noe går galt. Å håndtere «finnes ikke» uten å krasje er feilkode #6, og\n  her løser mønsteret det av seg selv."
+  },
+  {
+   "id": "in1000-2-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — ren gjengivelse.) Se på denne funksjonen:\n\n```python\ndef trippel(tall):\n    return tall * 3\n```\n\n**a)** Hva er navnet på parameteren?\n\n**b)** Hva gir kallet `trippel(4)`?\n\n**c)** Hva skriver `print(trippel(2) + trippel(3))` ut?\n\n**d)** Hva skjer hvis du skriver `trippel(4)` på en linje for seg, uten `print`\nog uten å lagre svaret?",
+    "solution": "**a)** `tall`. Det er navnet i definisjonen; verdien som sendes inn ved kallet,\nkalles et argument.\n\n**b)** `12` — funksjonen returnerer `4 * 3`.\n\n**c)** `15`. Begge kallene regnes ut først, og gir 6 og 9. Summen skrives ut.\n\n**d)** Funksjonen kjøres, returverdien regnes ut — og kastes. Ingenting skrives\nut, og ingenting lagres. Det er ikke en feil, men det er nesten alltid en\nforglemmelse: du har glemt å ta imot svaret.",
+    "hints": [
+     "Parameteren står i `def`-linja, argumentet står i kallet.",
+     "For c): regn ut hvert kall for seg før du legger sammen."
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-10",
+   "type": "text",
+   "content": "## Løkke 2 — `None`, flere `return` og tidlig retur (~14 min)\n\nNå kommer kapitlets viktigste mønster, og det som gir flest poeng på eksamen.\n\nEn funksjon kan ha **flere** `return`-setninger. Den første som kjøres, avslutter\nfunksjonen — og det er nettopp den egenskapen som gjør «er alle …?»-spørsmål\nenkle å svare på."
+  },
+  {
+   "id": "in1000-2-1-11",
+   "type": "definition",
+   "title": "`None` — funksjonen som ikke returnerte noe",
+   "content": "Kommer en funksjon til slutten av kroppen uten å ha kjørt en `return`, gir den\ntilbake `None`. Det er en egen verdi i Python, og den betyr «ingenting».\n\n```python\ndef uten_retur(x):\n    y = x * 2\n\nprint(uten_retur(5))\n```\n\n**Utskrift:**\n```\nNone\n```\n\n`None` er den vanligste kilden til forvirrende feil hos nybegynnere: programmet\nkrasjer ikke der funksjonen ble skrevet, men et helt annet sted der noen prøver å\nregne med `None`.\n\nSer du `None` i en utskrift, er svaret nesten alltid at det mangler et `return`."
+  },
+  {
+   "id": "in1000-2-1-12",
+   "type": "definition",
+   "title": "Flere `return`-steder",
+   "content": "En funksjon kan ha så mange `return` den vil. Den som kjøres først, avslutter\nfunksjonen:\n\n```python\ndef karakter(poeng):\n    if poeng >= 90:\n        return \"A\"\n    elif poeng >= 60:\n        return \"C\"\n    return \"F\"\n\nprint(karakter(95), karakter(72), karakter(20))\n```\n\n**Utskrift:**\n```\nA C F\n```\n\nLegg merke til at siste linje ikke trenger `else`: kommer programmet dit i det\nhele tatt, betyr det at ingen av de tidligere `return`-ene kjørte.\n\nDette er en ryddig og helt vanlig form i fagets løsningsforslag, og den er lett å\nspore: finn den første betingelsen som er sann, så vet du hva funksjonen gir."
+  },
+  {
+   "id": "in1000-2-1-13",
+   "type": "theorem",
+   "title": "Flagg med tidlig retur",
+   "content": "Bokas tredje kodemønster, og det som går igjen oftest i Oppgave 3. Det brukes\nnår du skal svare **ja eller nei om en hel samling**.\n\nOppskriften har to faste steg:\n\n1. **Inne i løkka:** finner du ett moteksempel, returner `False` med én gang.\n2. **Etter løkka:** har du kommet hit, fantes det ingen moteksempler — returner\n   `True`.\n\n```python\ndef bare_sifre(tekst):\n    for tegn in tekst:\n        if tegn < \"0\" or tegn > \"9\":\n            return False\n    return True\n\nprint(bare_sifre(\"2024\"))\nprint(bare_sifre(\"20x4\"))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\n**Det avgjørende er hvor `return True` står.** Den hører **etter** løkka, med\nsamme innrykk som `for`. Står den inne i løkka, avgjør det aller første tegnet\nhele svaret — og funksjonen blir gal for alt annet enn ettegnsdata.\n\nMønsteret virker like godt på lister, og du bruker det igjen i\n[kap. 3.1](/bok/in1000/in1000-3-1)."
+  },
+  {
+   "id": "in1000-2-1-14",
+   "type": "warning",
+   "title": "Typisk feil #7 — å returnere for tidlig",
+   "content": "Dette er den mest dokumenterte feilen i fagets løsningsforslag, og den ser\ntilforlatelig ut:\n\n```python\ndef bare_sifre_feil(tekst):\n    for tegn in tekst:\n        if tegn < \"0\" or tegn > \"9\":\n            return False\n        else:\n            return True\n\nprint(bare_sifre_feil(\"20x4\"))\n```\n\n**Utskrift:**\n```\nTrue\n```\n\nFunksjonen svarer `True` på en tekst som inneholder en `x`. Grunnen er at\n`return True` står **inne** i løkka: den kjøres etter det aller første tegnet, og\nresten blir aldri undersøkt.\n\n**Kjenn igjen fella på formen.** Har du både `return False` og `return True` inne\ni samme løkke, er noe nesten alltid galt. Det ene svaret krever at du har sett\n**alle** elementene, og det kan du bare vite når løkka er ferdig.\n\n**Moteksempelet du skal gi**, hvis oppgaven ber om det: kallet\n`bare_sifre_feil(\"20x4\")` gir `True`, men skulle gitt `False`."
+  },
+  {
+   "id": "in1000-2-1-15",
+   "type": "example",
+   "title": "Eksempel 2: Samme spørsmål, snudd på hodet",
+   "problem": "Skriv to funksjoner: én som svarer om **alle** tegnene i en tekst er store\nbokstaver, og én som svarer om **minst ett** av dem er det. Hvorfor står `return`\npå motsatt sted i de to?",
+   "solution": "Den ene leter etter et moteksempel, den andre etter et eksempel:\n\n```python\ndef alle_store(tekst):\n    for tegn in tekst:\n        if tegn >= \"a\" and tegn <= \"z\":\n            return False\n    return True\n\ndef noen_store(tekst):\n    for tegn in tekst:\n        if tegn >= \"A\" and tegn <= \"Z\":\n            return True\n    return False\n\nprint(alle_store(\"ABC\"), alle_store(\"AbC\"))\nprint(noen_store(\"abc\"), noen_store(\"abC\"))\n```\n\n**Utskrift:**\n```\nTrue False\nFalse True\n```\n\n**Mønsteret er speilvendt:**\n\n| Spørsmål | Inne i løkka | Etter løkka |\n|---|---|---|\n| «er **alle** …?» | `return False` ved første moteksempel | `return True` |\n| «finnes det **noen** …?» | `return True` ved første treff | `return False` |\n\nBegge returnerer med én gang de vet svaret, og begge venter til etter løkka med\ndet svaret som krever at hele samlingen er sett.\n\n**Slik ville sensor sett på det:** har du riktig løkke og riktig betingelse, men\nhar byttet om de to `return`-ene, er strukturen riktig og feilen liten — det gir\nuttelling. Har du derimot begge `return`-ene inne i løkka, er selve ideen borte."
+  },
+  {
+   "id": "in1000-2-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ndef sjekk(tekst):\n    for tegn in tekst:\n        if tegn == \"a\":\n            return \"funnet\"\n    return \"ikke funnet\"\n\nprint(sjekk(\"banan\"))\nprint(sjekk(\"kork\"))\n```",
+    "solution": "Funksjonen leter etter et treff og returnerer med én gang det finnes.\n\n| Kall | Tegn som undersøkes | Utfall |\n|---|---|---|\n| `sjekk(\"banan\")` | `b`, deretter `a` | treff på andre tegn, returnerer straks |\n| `sjekk(\"kork\")` | `k`, `o`, `r`, `k` — ingen treff | løkka blir ferdig, siste linje kjører |\n\n**Utskrift:**\n```\nfunnet\nikke funnet\n```\n\nLegg merke til at det første kallet aldri ser på de tre siste tegnene. `return`\navslutter funksjonen umiddelbart, og det er hele poenget med mønsteret: du\nslutter å lete når du vet svaret.",
+    "hints": [
+     "Hva skjer med resten av løkka når en `return` kjøres?",
+     "Følg tegnene ett om gangen til enten en `return` treffer eller løkka er ferdig."
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) Skriv funksjonen\n`ingen_mellomrom(tekst)` som returnerer `True` hvis teksten ikke inneholder noen\nmellomrom, og `False` ellers.\n\n**a)** Skriv funksjonen med flagg og tidlig retur.\n\n**b)** Hvor må `return True` stå, og hva blir galt hvis den står inne i løkka?\n\n**c)** Hva returnerer funksjonen for den tomme teksten `\"\"`, og er det rimelig?",
+    "solution": "**a)** Let etter et moteksempel, og svar `True` først når hele teksten er\nundersøkt:\n\n```python\ndef ingen_mellomrom(tekst):\n    for tegn in tekst:\n        if tegn == \" \":\n            return False\n    return True\n\nprint(ingen_mellomrom(\"brukernavn\"))\nprint(ingen_mellomrom(\"bruker navn\"))\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\n**b)** `return True` må stå **etter** løkka, med samme innrykk som `for`. Sto den\ninne i løkka, ville funksjonen svart `True` allerede etter første tegn — og\nteksten `\"a b\"` ville feilaktig blitt godkjent. Det er feilkode #7.\n\n**c)** Den returnerer `True`. Løkka kjører null ganger over en tom tekst, så\nprogrammet går rett til `return True`.\n\nDet er rimelig: en tom tekst inneholder ingen mellomrom. Men legg merke til at du\nfikk svaret **gratis** av mønsteret, ikke av en egen sjekk — og at det er verdt å\nkontrollere hva funksjonen din gjør med tom inndata. Det er feilkode #6, og en\nfast kilde til poengtap.",
+    "hints": [
+     "Hvilket av de to svarene krever at du har sett hele teksten?",
+     "For c): hvor mange runder kjører en løkke over en tom tekst?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-16",
+   "type": "text",
+   "content": "## Løkke 3 — Flere returverdier og funksjoner som samarbeider (~12 min)\n\nTo siste teknikker. Den ene lar en funksjon gi tilbake mer enn én verdi; den\nandre lar funksjoner bruke hverandre — som er selve grunnformen i den store\nOppgave 4."
+  },
+  {
+   "id": "in1000-2-1-17",
+   "type": "definition",
+   "title": "Flere returverdier",
+   "content": "En funksjon kan returnere flere verdier på én gang, skilt med komma. Ved kallet\ntar du imot dem med like mange navn:\n\n```python\ndef del_og_rest(a, b):\n    return a // b, a % b\n\nhele, rest = del_og_rest(17, 5)\nprint(hele, rest)\n```\n\n**Utskrift:**\n```\n3 2\n```\n\nAntall navn på venstre side må stemme med antall verdier funksjonen returnerer.\n\nDette kalles å **pakke ut** returverdiene. Det er en ryddig løsning når to\nopplysninger naturlig hører sammen, og den finnes i fagets egne\nløsningsforslag."
+  },
+  {
+   "id": "in1000-2-1-18",
+   "type": "definition",
+   "title": "Funksjoner som kaller funksjoner",
+   "content": "En funksjon kan bruke en annen funksjon i kroppen sin, akkurat som du kaller den\nfra hovedprogrammet:\n\n```python\ndef er_vokal(tegn):\n    return tegn == \"a\" or tegn == \"e\" or tegn == \"i\" or tegn == \"o\" or tegn == \"u\"\n\ndef tell_vokaler(tekst):\n    antall = 0\n    for tegn in tekst:\n        if er_vokal(tegn):\n            antall = antall + 1\n    return antall\n\nprint(tell_vokaler(\"bibliotek\"))\n```\n\n**Utskrift:**\n```\n4\n```\n\nLegg merke til hvordan `if er_vokal(tegn):` leser nesten som norsk. Det er\npoenget: en godt navngitt **hjelpefunksjon** gjør den ytre funksjonen kortere og\nlettere å lese.\n\nPå eksamen er dette uttrykkelig tillatt — du kan legge til egne hjelpefunksjoner\nved behov, så lenge du kommenterer kort hva de gjør."
+  },
+  {
+   "id": "in1000-2-1-19",
+   "type": "definition",
+   "title": "Hjelpefunksjon",
+   "content": "En liten funksjon som finnes for å gjøre en annen funksjon enklere. `er_vokal`\nover er et typisk eksempel: den gjør én ting, og den gjør den godt.\n\nTo grunner til at dette lønner seg på eksamen. Du får **delkarakter per\ndeloppgave**, og en hjelpefunksjon som virker, gir uttelling selv om den store\nfunksjonen ikke ble ferdig. Og du kan **bruke en metode oppgaveteksten\nbeskriver** selv om du ikke selv rakk å skrive den — da kaller du den bare, som\nom den var ferdig.\n\nRegelen for gode hjelpefunksjoner er enkel: én oppgave per funksjon, og et navn\nsom sier hva den svarer på."
+  },
+  {
+   "id": "in1000-2-1-20",
+   "type": "warning",
+   "title": "Definisjonen må stå før kallet",
+   "content": "Python leser filen ovenfra og ned. Kaller du en funksjon før `def`-linja er\nlest, kjenner den ikke navnet:\n\n```text\nprint(dobbel(4))\n\ndef dobbel(tall):\n    return tall * 2\n```\n\nDette stopper med `NameError: name 'dobbel' is not defined`. Blokken er merket\nsom ikke-kjørbar fordi den er en plantet feil.\n\nI praksis betyr regelen at **alle `def`-ene står øverst** i besvarelsen din, og\nkallene under. Slik ser fasitkoden i faget ut, og slik bør din se ut.\n\nÉn presisering som ofte forvirrer: at én funksjon **kaller** en annen inne i\nkroppen sin, er helt greit uansett rekkefølge på definisjonene — kroppen kjøres\njo ikke før begge er lest. Det er bare selve kallet som må komme sist."
+  },
+  {
+   "id": "in1000-2-1-21",
+   "type": "example",
+   "title": "Eksempel 3: To funksjoner som samarbeider, på eksamensnivå",
+   "problem": "Skriv `lengste_ord(setning)` som returnerer det lengste ordet i en setning, og\n`antall_lange(setning, grense)` som teller hvor mange ord som er lengre enn\ngrensen. Bruk en hjelpefunksjon som deler setningen i ord.\n\nBygg opp svaret med de konstruksjonene du har til nå: gjennomløping tegn for\ntegn, teller og akkumulator.",
+   "solution": "Del problemet i to. Den ene funksjonen finner ordgrensene; de to andre bruker\ndem.\n\n```python\ndef ord_lengder(setning):\n    lengder = \"\"\n    n = 0\n    for tegn in setning:\n        if tegn == \" \":\n            lengder = lengder + str(n) + \" \"\n            n = 0\n        else:\n            n = n + 1\n    return lengder + str(n)\n\nprint(ord_lengder(\"kort og lengre ord\"))\n```\n\n**Utskrift:**\n```\n4 2 6 3\n```\n\nHjelpefunksjonen gir lengdene som en tekst. Nå kan de to andre bruke den:\n\n```python\ndef ord_lengder(setning):\n    lengder = \"\"\n    n = 0\n    for tegn in setning:\n        if tegn == \" \":\n            lengder = lengder + str(n) + \" \"\n            n = 0\n        else:\n            n = n + 1\n    return lengder + str(n)\n\ndef lengste_lengde(setning):\n    beste = 0\n    n = 0\n    for tegn in setning:\n        if tegn == \" \":\n            if n > beste:\n                beste = n\n            n = 0\n        else:\n            n = n + 1\n    if n > beste:\n        beste = n\n    return beste\n\nprint(lengste_lengde(\"kort og lengre ord\"))\nprint(ord_lengder(\"ett\"))\n```\n\n**Utskrift:**\n```\n6\n3\n```\n\n**Slik ville sensor sett på det:** to ting gir uttelling her uavhengig av\nhverandre. Den ene er at telleren nullstilles ved hvert mellomrom. Den andre er\n**oppgjøret etter løkka** — de tre linjene som håndterer det siste ordet, som\nikke har noe mellomrom etter seg. Glemmer du dem, blir alle svar riktige unntatt\nfor det siste ordet, og det er en liten feil med riktig idé bak.\n\nI [kap. 3.3](/bok/in1000/in1000-3-3) får du en ferdig konstruksjon som deler en\ntekst i ord for deg. Poenget her er mekanikken under."
+  },
+  {
+   "id": "in1000-2-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ndef hjelp(x):\n    return x + 1\n\ndef hoved(x):\n    y = hjelp(x)\n    if y > 5:\n        return \"stor\"\n    return \"liten\"\n\nprint(hoved(4), hoved(5))\n```",
+    "solution": "Spor hvert kall for seg, og husk at `hjelp` kjøres først.\n\n| Kall | `y` blir | `y > 5`? | Returnerer |\n|---|---|---|---|\n| `hoved(4)` | `5` | nei | `\"liten\"` |\n| `hoved(5)` | `6` | ja | `\"stor\"` |\n\n**Utskrift:**\n```\nliten stor\n```\n\nFellen er kantverdien: `hoved(4)` gir `y` lik 5, og `5 > 5` er usann. Én mindre i\nargumentet flytter svaret over hele grensen.",
+    "hints": [
+     "Regn ut hva hjelpefunksjonen gir, før du ser på betingelsen.",
+     "Sjekk kantverdien nøye: er `5 > 5` sant?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) Skriv `sum_til(n)` som\nreturnerer summen av alle heltallene fra 1 til og med `n`.\n\n**a)** Skriv funksjonen med akkumulatormønsteret.\n\n**b)** Hva returnerer `sum_til(0)`?\n\n**c)** Hvorfor er det viktig at `return` står etter løkka og ikke inne i den?",
+    "solution": "**a)** Startverdi før løkka, oppdatering inne i den, `return` etter:\n\n```python\ndef sum_til(n):\n    total = 0\n    for i in range(1, n + 1):\n        total = total + i\n    return total\n\nprint(sum_til(4))\nprint(sum_til(1))\n```\n\n**Utskrift:**\n```\n10\n1\n```\n\nLegg merke til `n + 1` i `range`. Stoppverdien er eksklusiv, så uten pluss én\nville `n` selv falt utenfor — feilkode #5.\n\n**b)** `0`. Løkka `range(1, 1)` er tom og kjører null ganger, så `total` beholder\nstartverdien og returneres uendret. Det er et rimelig svar: summen av ingen tall\ner null.\n\n**c)** Fordi `return` avslutter funksjonen umiddelbart. Sto den inne i løkka,\nville funksjonen returnert allerede etter første runde, og `sum_til(4)` ville\ngitt `1` i stedet for `10`.",
+    "hints": [
+     "Husk at stoppverdien i `range` ikke er med — hva må du legge til?",
+     "For b): hvor mange runder kjører `range(1, 1)`?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\ndef f(tekst):\n    for tegn in tekst:\n        if tegn == \"e\":\n            return True\n    return False\n\ndef g(tekst):\n    if f(tekst):\n        return \"har e\"\n    return \"ingen e\"\n\nprint(g(\"tekst\"), g(\"kort\"))\nprint(f(\"\"))\n```",
+    "solution": "`f` er et flagg med tidlig retur, og `g` bruker returverdien som betingelse.\n\n| Kall | Hva `f` finner | `f` gir | `g` gir |\n|---|---|---|---|\n| `g(\"tekst\")` | `e` som andre tegn | `True` | `\"har e\"` |\n| `g(\"kort\")` | ingen `e` | `False` | `\"ingen e\"` |\n| `f(\"\")` | løkka kjører null ganger | `False` | — |\n\n**Utskrift:**\n```\nhar e ingen e\nFalse\n```\n\nTo ting er verdt å merke seg. `if f(tekst):` bruker returverdien direkte som\nbetingelse — det er mulig fordi `f` gir en boolsk verdi, og det er en helt vanlig\nform i fagets fasiter.\n\nOg siste linje: over en tom tekst kjører løkka aldri, så `return False` etter\nløkka er det eneste som kjøres. Mønsteret håndterer den tomme inndataen av seg\nselv.",
+    "hints": [
+     "Regn ut hva den indre funksjonen gir, før du ser på den ytre.",
+     "For siste linje: hvor mange runder kjører en løkke over en tom tekst?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — finn feilen.) En student skal skrive en funksjon som\nsvarer om alle tegnene i en tekst er like. Hun leverer:\n\n```python\ndef alle_like(tekst):\n    for tegn in tekst:\n        if tegn == tekst[0]:\n            return True\n        else:\n            return False\n```\n\nUttrykket `tekst[0]` henter det første tegnet i teksten — det er alt du\ntrenger å vite om indeksering her; den kommer for fullt i\n[kap. 3.3](/bok/in1000/in1000-3-3).\n\n**a)** Hva returnerer `alle_like(\"aab\")`?\n\n**b)** Gi et konkret moteksempel som viser at funksjonen er gal, og forklar i én\nsetning hvorfor.\n\n**c)** Rett feilen.",
+    "solution": "**a)** `True`. Første tegn er `a`, som er lik `tekst[0]`, så `return True` kjøres\nmed én gang — og resten av teksten blir aldri undersøkt.\n\n**b)** Moteksempelet er kallet `alle_like(\"aab\")`, som gir `True` selv om\nteksten inneholder to ulike tegn. Årsaken er at **begge** `return`-ene står inne\ni løkka, slik at det aller første tegnet avgjør hele svaret.\n\nLegg merke til formen på svaret: ett konkret kall med et konkret galt utfall. Det\ner nettopp det sensor ber om når oppgaven sier «gi et moteksempel».\n\n**c)** Behold bare `return False` inne i løkka, og flytt `return True` ut:\n\n```python\ndef alle_like(tekst):\n    for tegn in tekst:\n        if tegn != tekst[0]:\n            return False\n    return True\n\nprint(alle_like(\"aab\"), alle_like(\"aaa\"), alle_like(\"\"))\n```\n\n**Utskrift:**\n```\nFalse True True\n```\n\nMerk at betingelsen også ble snudd: nå leter løkka etter et **moteksempel**, som\ner hele ideen i mønsteret. Den tomme teksten gir `True`, som er det rimelige\nsvaret.\n\nUttrykket `tekst[0]` henter det første tegnet i teksten. Det er den samme\nindekseringen du møter for lister i [kap. 3.1](/bok/in1000/in1000-3-1) og for\nstrenger i [kap. 3.3](/bok/in1000/in1000-3-3); her trenger du bare å vite at\nden gir tegn nummer null.",
+    "hints": [
+     "Hvor mange runder rekker løkka å kjøre før en `return` treffer?",
+     "Hvilket av de to svarene krever at du har sett hele teksten?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-21b",
+   "type": "text",
+   "content": "En funksjon kan returnere **mer enn én** verdi. Du skriver verdiene etter\n`return` med komma mellom, og tar dem imot med like mange navn på venstre\nside av likhetstegnet:\n\n```python\ndef del_og_rest(teller, nevner):\n    hele = teller // nevner\n    rest = teller % nevner\n    return hele, rest\n\nantall, til_overs = del_og_rest(17, 5)\nprint(antall, til_overs)\n```\n\n**Utskrift:**\n```\n3 2\n```\n\nAntallet navn må stemme med antallet verdier: to verdier og tre navn gir en\nfeilmelding, og det samme gjør det motsatte. Tar du imot med **ett** navn i\nstedet, får du begge verdiene samlet som et par i parentes — det er verdt å\nkjenne igjen i en sporingsoppgave."
+  },
+  {
+   "id": "in1000-2-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-2-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) Skriv `min_og_maks(a, b, c)` som\nreturnerer **to** verdier: den minste og den største av de tre argumentene. Bruk\nbare sammenligninger og `if` — ingen ferdige hjelpefunksjoner.\n\nVis også hvordan du tar imot de to verdiene ved kallet.",
+    "solution": "Start med å anta at det første tallet er både minst og størst, og juster:\n\n```python\ndef min_og_maks(a, b, c):\n    minst = a\n    storst = a\n    if b < minst:\n        minst = b\n    if c < minst:\n        minst = c\n    if b > storst:\n        storst = b\n    if c > storst:\n        storst = c\n    return minst, storst\n\nlav, hoy = min_og_maks(7, 2, 9)\nprint(lav, hoy)\nprint(min_og_maks(4, 4, 4))\n```\n\n**Utskrift:**\n```\n2 9\n(4, 4)\n```\n\nTre ting er verdt å merke seg.\n\n**Startverdien er `a`, ikke null.** Hadde du satt `minst = 0`, ville funksjonen\nsvart feil for tre positive tall. Å velge en startverdi som faktisk finnes i\ndataene, er det trygge grepet — og det er samme idé som i finn-beste-mønsteret i\n[kap. 3.2](/bok/in1000/in1000-3-2).\n\n**Like verdier håndteres riktig.** Siste kall gir `4` begge veier, fordi\nsammenligningene bruker `<` og `>` og dermed ikke bytter ved likhet.\n\n**Utskriften av kallet uten utpakking** viser de to verdiene som et par i\nparentes. Det er slik Python skriver flere returverdier når du ikke pakker dem\nut, og det er verdt å kjenne igjen i en sporingsoppgave.",
+    "hints": [
+     "Sett begge svarene til det første tallet før du sammenligner.",
+     "Ta imot to returverdier med to navn: `lav, hoy = ...`"
+    ]
+   }
+  },
+  {
+   "id": "in1000-2-1-22",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på funksjoner:\n\n- **#7 — for tidlig `return`.** Har du både `return True` og `return False` inne\n  i samme løkke, er noe nesten alltid galt. Det svaret som krever at du har sett\n  alt, hører **etter** løkka.\n- **`print` der oppgaven ba om `return`.** Funksjonen viser riktig svar på\n  skjermen, men gir `None` tilbake — og de neste deloppgavene faller sammen.\n- **Glemt `return` helt.** Funksjonen gir `None`, og feilen viser seg et helt\n  annet sted i programmet.\n- **Feil argumentrekkefølge.** Python fyller inn i rekkefølge og aner ikke hva\n  navnene betyr.\n- **#6 — kanttilfellene.** Hva gjør funksjonen din med tom inndata, eller når\n  det ikke finnes noe treff? Sjekk det før du går videre.\n\nOg én formfeil: **kall før definisjon**. Alle `def`-ene øverst, kallene under."
+  },
+  {
+   "id": "in1000-2-1-coll-23",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-2-1-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `def navn(p1, p2):` | Definerer funksjonen. Kroppen kjøres ikke før den kalles. Kolon og innrykk kreves. |\n| `navn(a1, a2)` | Kaller funksjonen. Argumentene fylles inn i **rekkefølge**, ikke etter navn. |\n| parameter | Navnet i `def`-linja. Oppfører seg som en lokal variabel i kroppen. |\n| argument | Verdien som sendes inn ved kallet. |\n| `return uttrykk` | Avslutter funksjonen **umiddelbart** og gir verdien tilbake til kallstedet. |\n| ingen `return` | Funksjonen gir `None`. Også en `return` uten uttrykk gir `None`. |\n| `None` | Verdien «ingenting». Ser du den i en utskrift, mangler det som regel et `return`. |\n| flere `return` | Tillatt. Den første som kjøres, vinner; resten av kroppen hoppes over. |\n| flagg + tidlig retur | `return False` ved første moteksempel inne i løkka, `return True` **etter** løkka. |\n| «finnes det noen» | Speilvendt: `return True` ved første treff, `return False` etter løkka. |\n| `return a, b` | Flere returverdier. Tas imot med `x, y = f(...)` — like mange navn som verdier. |\n| kall inne i en funksjon | Fullt lovlig. En hjelpefunksjon gjør den ytre kortere og gir egen uttelling. |\n| definisjon før kall | Python leser ovenfra. Alle `def`-ene øverst, kallene under. |\n| `tekst[0]` | Første tegn i en tekst. Full gjennomgang for strenger i [kap. 3.3](/bok/in1000/in1000-3-3). |\n\n**Det som avgjør poeng i Oppgave 3:** at `return` for «alle»-svaret står etter\nløkka, og at funksjonen returnerer i stedet for å skrive ut."
+    }
+   ]
+  },
+  {
+   "id": "in1000-2-1-24",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-2-1-25",
+   "type": "definition",
+   "title": "Funksjonskropp",
+   "content": "Linjene som kjøres når funksjonen kalles, altså de innrykkede linjene under\n`def`.\n\nAlt som lages i kroppen — tellere, mellomregninger — finnes bare mens funksjonen\nkjører, og forsvinner når den returnerer. Det er derfor en teller kan settes til\nnull i kroppen uten at gamle kall påvirker nye.\n\nReglene for hva som er synlig hvor, kalles **scope**, og de er tema i\n[kap. 2.2](/bok/in1000/in1000-2-2)."
+  },
+  {
+   "id": "in1000-2-1-26",
+   "type": "definition",
+   "title": "Å pakke ut returverdier",
+   "content": "Å ta imot flere returverdier med like mange navn: `hele, rest =\ndel_og_rest(17, 5)`.\n\nAntallet må stemme. To verdier og tre navn gir en feilmelding, og det samme gjør\ndet motsatte.\n\nTar du imot med **ett** navn i stedet, får du begge verdiene samlet som et par —\ndet er derfor `print(min_og_maks(4, 4, 4))` viser `(4, 4)` med parentes."
+  },
+  {
+   "id": "in1000-2-1-27",
+   "type": "definition",
+   "title": "Returverdi brukt direkte",
+   "content": "Et funksjonskall er et **uttrykk** med en verdi, og kan derfor brukes overalt en\nverdi kan stå: i et regnestykke (`dobbel(5) + 1`), som argument til en annen\nfunksjon (`print(tell_tegn(...))`), eller som betingelse (`if f(tekst):`).\n\nDen siste formen forutsetter at funksjonen returnerer `True` eller `False`, og\nden er vanlig i fagets fasiter fordi den leser som norsk.\n\nDu trenger altså ikke lagre svaret i en variabel først — men gjør det gjerne\nhvis det gjør koden lettere å lese."
+  },
+  {
+   "id": "in1000-2-1-28",
+   "type": "definition",
+   "title": "Å ignorere returverdien",
+   "content": "Skriver du bare `trippel(4)` på en linje for seg, kjøres funksjonen, verdien\nregnes ut, og så kastes den.\n\nDet er ikke en feil, og for funksjoner som skriver ut noe selv, er det helt\nriktig bruk. Men returnerer funksjonen en verdi du trenger, er en slik linje\nnesten alltid en forglemmelse: du har glemt `print` eller glemt å lagre svaret.\n\nI en sporingsoppgave betyr det at linja ikke gir noen utskrift."
+  },
+  {
+   "id": "in1000-2-1-30",
+   "type": "definition",
+   "title": "Å definere og å kalle",
+   "content": "To atskilte hendelser, og skillet er verdt å ha helt klart.\n\n**Definisjonen** (`def dobbel(tall):` med kroppen under) forteller Python hvordan\nnoe skal gjøres. Når linja leses, skjer det ingenting annet enn at navnet blir\nkjent.\n\n**Kallet** (`dobbel(4)`) er det som faktisk kjører kroppen. Uten et kall blir en\nfunksjon aldri brukt, uansett hvor riktig den er skrevet.\n\nI en sporingsoppgave betyr det at du kan hoppe over hele `def`-blokken ved første\ngjennomlesing, og først lese kroppen når du kommer til et kall."
+  },
+  {
+   "id": "in1000-2-1-31",
+   "type": "definition",
+   "title": "Argumentrekkefølgen",
+   "content": "Argumentene fylles inn i parameterne i den rekkefølgen de står — det første\nargumentet i den første parameteren, og så videre.\n\nPython vet ingenting om hva navnene betyr. Kaller du `vis(\"Berg\", \"Ada\")` når\nfunksjonen forventer fornavn først, får du ingen feilmelding; du får bare feil\nsvar.\n\nAntallet må derimot stemme: for få eller for mange argumenter gir en\nfeilmelding med én gang."
+  },
+  {
+   "id": "in1000-2-1-32",
+   "type": "definition",
+   "title": "Boolsk funksjon",
+   "content": "En funksjon som returnerer `True` eller `False`. `er_vokal(tegn)` og\n`ingen_mellomrom(tekst)` er begge boolske.\n\nSlike funksjoner kan brukes **direkte som betingelse**: `if er_vokal(tegn):`.\nDet leser som norsk, og det er den formen fagets løsningsforslag bruker.\n\nNavngi dem som et ja-eller-nei-spørsmål — `er_…`, `har_…`, `alle_…`, `ingen_…`\n— så vet leseren hva et `True` betyr uten å lese kroppen."
+  },
+  {
+   "id": "in1000-2-1-33",
+   "type": "definition",
+   "title": "«Finnes det noen»-mønsteret",
+   "content": "Speilbildet av flagg med tidlig retur, brukt når du leter etter **ett** treff i\nstedet for å kreve at alle oppfyller noe:\n\n- inne i løkka: `return True` ved første treff,\n- etter løkka: `return False`.\n\nMerk hvilket svar som står hvor. Det svaret som kan avgjøres av ett enkelt\nelement, hører **inne** i løkka; det som krever at hele samlingen er undersøkt,\nhører **etter**.\n\nBlander du de to mønstrene, får du feilkode #7."
+  },
+  {
+   "id": "in1000-2-1-34",
+   "type": "definition",
+   "title": "`return` uten uttrykk",
+   "content": "Du kan skrive bare `return` på en linje. Da avsluttes funksjonen umiddelbart, og\nden gir `None` tilbake.\n\nFormen brukes når funksjonen skriver ut noe selv og du vil avbryte tidlig, for\neksempel etter en feilmelding til brukeren.\n\nBer oppgaven om en verdi, er en bar `return` derimot nesten alltid en\nforglemmelse — svaret ble aldri sendt tilbake."
+  },
+  {
+   "id": "in1000-2-1-35",
+   "type": "definition",
+   "title": "Lokale mellomregninger",
+   "content": "Variabler som lages inne i en funksjonskropp, finnes bare mens funksjonen kjører,\nog lages på nytt ved hvert kall.\n\nDet er derfor `antall = 0` i `tell_tegn` ikke husker noe fra forrige kall — hvert\nkall starter med blanke ark. Egenskapen er hele grunnen til at en funksjon kan\nbrukes om igjen med nye data.\n\nDen samme egenskapen er kilden til `self`-fella i\n[kap. 5.1](/bok/in1000/in1000-5-1): en variabel som bare lages lokalt, forsvinner\nnår metoden er ferdig."
+  },
+  {
+   "id": "in1000-2-1-36",
+   "type": "definition",
+   "title": "Moteksempel",
+   "content": "Ett konkret kall med konkrete verdier som viser at en funksjon gir galt svar:\n«`alle_like(\"aab\")` gir `True`, men skulle gitt `False`».\n\nFormen er et eksplisitt krav på eksamen. En forklaring i ord om at «funksjonen\nhåndterer ikke flere ulike tegn» er en halv besvarelse; moteksempelet er en hel.\n\nSlik finner du et: let etter et **kanttilfelle** — tom inndata, ett element, like\nverdier, eller data der feilen slår inn først etter første runde.\n\nSjangeren har eget kapittel i [kap. 4.2](/bok/in1000/in1000-4-2)."
+  },
+  {
+   "id": "in1000-2-1-37",
+   "type": "definition",
+   "title": "Navngiving av funksjoner",
+   "content": "Funksjonsnavnet skal si hva funksjonen **gir**, ikke hvordan den regner det ut.\n`tell_tegn`, `lengste_lengde` og `er_vokal` er gode navn; `funksjon2` og `gjor`\ner det ikke.\n\nNorske navn er helt greie og er stilen i fagets egne løsningsforslag — men\n**ingen æ, ø eller å i koden**. Skriv `stoerst`, `laan`, `baat`.\n\nBruk aldri navnet på en innebygd funksjon (`sum`, `len`, `input`, `str`) — det\ner feilkode #13, og den er stum."
+  },
+  {
+   "id": "in1000-2-1-38",
+   "type": "definition",
+   "title": "Å bruke en metode du ikke har skrevet",
+   "content": "På eksamen har du lov til å **kalle en funksjon eller metode som er beskrevet i\noppgaveteksten**, selv om du ikke selv fikk skrevet den — eller ikke rakk å bli\nferdig med deloppgaven der den skulle stå.\n\nDette er grunnen til at man aldri skal stå fast. Klarte du ikke deloppgave c,\nskriver du likevel deloppgave d som om `c` var ferdig, og kaller funksjonen\nderfra.\n\nDet samme gjelder dine egne hjelpefunksjoner: du kan legge til dem du trenger, så\nlenge du kommenterer kort hva de gjør."
+  },
+  {
+   "id": "in1000-2-1-coll-29",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-2-1-c2",
+     "type": "text",
+     "content": "1. `def` **definerer**, parentes-kallet **kjører**. Definisjonen må stå før\n   kallet.\n2. Argumentene fylles inn i **rekkefølge** — Python vet ikke hva navnene betyr.\n3. `return` avslutter funksjonen **umiddelbart** og gir verdien tilbake.\n4. Uten `return` gir funksjonen **`None`** — og feilen viser seg et helt annet\n   sted.\n5. `return` er ikke `print`. Ber oppgaven om at funksjonen «returnerer», skal\n   det stå `return`.\n6. **Flagg med tidlig retur:** `return False` ved første moteksempel inne i\n   løkka, `return True` **etter** løkka. Bytt om for «finnes det noen».\n7. Har du begge `return`-ene inne i løkka, avgjør det første elementet hele\n   svaret — feilkode #7."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

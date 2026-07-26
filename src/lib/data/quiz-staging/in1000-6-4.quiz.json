@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Hvilken type har verdien `input(\"Alder: \")` gir tilbake, når brukeren skriver `24`?",
+  "options": [
+   "Tekst — `input` gir alltid tekst, uansett hva brukeren skriver.",
+   "Heltall — Python kjenner igjen sifre og konverterer dem automatisk.",
+   "Desimaltall — alle tall fra brukeren leses som flyttall for sikkerhets skyld.",
+   "Det avhenger av meldingen: står ordet «alder» i den, blir det et heltall."
+  ],
+  "explanation": "Skal verdien regnes med, må den gjennom `int(...)`. Uten det stopper `alder + 10` programmet — feilkode #4, den samme som ved filinnlesing."
+ },
+ {
+  "question": "Hva er galt med å bruke `if` i stedet for `while` i en input-løkke?",
+  "options": [
+   "Den spør bare én gang til, og går videre med et ugyldig svar hvis brukeren bommer to ganger.",
+   "Ingenting — `if` og `while` oppfører seg likt når betingelsen er en `not in`-test.",
+   "`if` kan ikke inneholde et `input`-kall, så programmet stopper med en feilmelding.",
+   "`if` gjentar spørsmålet i det uendelige, siden betingelsen aldri blir usann."
+  ],
+  "explanation": "Det er feilkode #9, og det er den vanligste feilen i hele sjangeren. Neste oppslag på det ugyldige svaret stopper programmet med `KeyError`."
+ },
+ {
+  "question": "Hvor mange `input`-kall skal en input-løkke ha?",
+  "options": [
+   "To — ett før løkka og ett inne i den.",
+   "Ett — inne i løkka, siden det er der spørsmålet gjentas.",
+   "Ett — før løkka, siden `while` selv sørger for å spørre på nytt.",
+   "Tre — ett før, ett inne i og ett etter, for å bekrefte svaret."
+  ],
+  "explanation": "Uten det første har `while` ingenting å teste på første runde. Uten det andre endrer betingelsen seg aldri, og programmet henger."
+ },
+ {
+  "question": "Hva skriver dette ut? Her henter `les` «brukerens» svar fra en liste.\n\n```python\ndef les(svarene, i):\n    print(\">\", svarene[i])\n    return svarene[i]\n\nsvarene = [\"kanskje\", \"tja\", \"ja\"]\ngyldige = [\"ja\", \"nei\"]\ni = 0\nsvar = les(svarene, i)\nwhile svar not in gyldige:\n    i = i + 1\n    svar = les(svarene, i)\nprint(\"Svar:\", svar)\n```",
+  "options": [
+   "> kanskje\n> tja\n> ja\nSvar: ja",
+   "> kanskje\nSvar: kanskje",
+   "> kanskje\n> tja\nSvar: tja",
+   "> ja\nSvar: ja"
+  ],
+  "explanation": "Løkka gjentar til svaret finnes blant de gyldige. `les` står to steder, akkurat der `input` ville stått i eksamensformen."
+ },
+ {
+  "question": "Hva skjer hvis `input`-kallet inne i løkka mangler?",
+  "options": [
+   "Betingelsen endrer seg aldri, og programmet skriver den samme oppfordringen i det uendelige.",
+   "Løkka går én runde og avslutter, siden `while` bare tester én gang.",
+   "Programmet stopper med en feilmelding om at variabelen ikke er oppdatert.",
+   "Python henter det forrige svaret på nytt, så løkka avslutter av seg selv."
+  ],
+  "explanation": "Det er nøyaktig samme feil som en glemt `readline` nederst i filinnlesing-løkka: den mest synlige feilen, og den letteste å rette."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef les(svarene, i):\n    print(\">\", svarene[i])\n    return svarene[i]\n\nsaler = [\"Speilsal\", \"Spinning\", \"Yoga\"]\nsvarene = [\"3\", \"1\"]\ni = 0\nindeks = int(les(svarene, i))\nwhile indeks < 0 or indeks >= len(saler):\n    i = i + 1\n    indeks = int(les(svarene, i))\nprint(saler[indeks])\n```",
+  "options": [
+   "> 3\n> 1\nSpinning",
+   "> 3\nYoga",
+   "> 3\n> 1\nSpeilsal",
+   "> 3\n> 1\nYoga"
+  ],
+  "explanation": "Lista har lengde 3, så lovlige indekser er 0, 1 og 2 — indeks 3 avvises. Indeks 1 er det **andre** elementet, siden tellingen starter på null."
+ },
+ {
+  "question": "Hva er riktig gyldighetstest når svaret skal være en lovlig indeks i en liste?",
+  "options": [
+   "`while indeks < 0 or indeks >= len(liste):` — begge grensene, og øvre med `>=`.",
+   "`while indeks < 0 or indeks > len(liste):` — øvre grense er lengden selv.",
+   "`while indeks < 1 or indeks > len(liste):` — indeksering starter på 1.",
+   "`while indeks != len(liste):` — det holder å sjekke mot lengden."
+  ],
+  "explanation": "En liste med tre elementer har lovlige indekser 0, 1 og 2. Med `>` slipper indeks 3 gjennom, og `liste[3]` stopper programmet med `IndexError` — feilkode #5."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef les(svarene, i):\n    print(\">\", svarene[i])\n    return svarene[i]\n\nsvarene = [\"0\", \"9\", \"3\"]\ni = 0\ntall = int(les(svarene, i))\nwhile tall < 1 or tall > 5:\n    i = i + 1\n    tall = int(les(svarene, i))\nprint(\"Valgt:\", tall)\n```",
+  "options": [
+   "> 0\n> 9\n> 3\nValgt: 3",
+   "> 0\nValgt: 0",
+   "> 0\n> 9\nValgt: 9",
+   "> 0\n> 9\n> 3\nValgt: 0"
+  ],
+  "explanation": "Både 0 og 9 er utenfor området 1 til 5, så løkka spør videre. Med `and` i stedet for `or` ville betingelsen aldri vært sann, og 0 ville blitt godtatt."
+ },
+ {
+  "question": "En gyldighetstest skal fange tall under 1 og tall over 5. Hvorfor `or` og ikke `and`?",
+  "options": [
+   "Fordi ingen verdi kan være både under 1 og over 5 — med `and` ville løkka aldri kjørt.",
+   "Fordi `and` bare virker på sannhetsverdier, ikke på sammenligninger av tall.",
+   "Fordi `or` er raskere enn `and` når betingelsen inneholder to sammenligninger.",
+   "Fordi `and` ville gjort at løkka kjørte i det uendelige uansett hva brukeren skrev."
+  ],
+  "explanation": "«Ugyldig» er under grensen ELLER over grensen. Den gyldige varianten er speilbildet: `tall >= 1 and tall <= 5`."
+ },
+ {
+  "question": "Hvorfor trenger ikke `return self._saler[valgt]` en `if`-sjekk foran seg, rett etter en input-løkke?",
+  "options": [
+   "Fordi løkka allerede har garantert at nøkkelen finnes — betingelsen `not in` er usann når løkka slutter.",
+   "Fordi et oppslag i en ordbok aldri kan stoppe programmet når nøkkelen er en tekst.",
+   "Fordi `return` fanger opp feilen selv og gir `None` hvis nøkkelen mangler.",
+   "Fordi `input` bare kan gi verdier som allerede finnes i ordboka."
+  ],
+  "explanation": "Skriv gjerne en kommentarlinje om det, så ser sensor at utelatelsen er bevisst. En `if`-sjekk der ville ikke vært galt, bare aldri slått til."
+ },
+ {
+  "question": "Hva bør en velg-metode i en klasse returnere?",
+  "options": [
+   "Objektet brukeren valgte — det kan alltid gi fra seg navnet sitt etterpå.",
+   "Navnet brukeren skrev, siden det er den verdien `input` faktisk ga.",
+   "Indeksen til objektet i samlingen, slik at kalleren kan slå opp selv.",
+   "`True` eller `False`, avhengig av om brukeren klarte å velge noe gyldig."
+  ],
+  "explanation": "Objektet kan gi fra seg navnet sitt med `hent_navn()`; navnet kan ikke gi fra seg objektet. Å returnere objektet er et selvstendig poeng."
+ },
+ {
+  "question": "Hvorfor skal alternativene skrives ut før spørsmålet i en velg-metode?",
+  "options": [
+   "Fordi brukeren ellers ikke vet hva som er lovlig, og løkka kan gå i det uendelige.",
+   "Fordi `input` krever at det står minst én utskrift foran seg i metoden.",
+   "Fordi utskriften nullstiller terminalen, slik at svaret kan leses riktig.",
+   "Fordi rekkefølgen på alternativene bestemmer hvilket svar som blir gyldig."
+  ],
+  "explanation": "Oppgaven ber som regel uttrykkelig om utskriften, og den er et eget poeng. Uten den kan brukeren bare gjette."
+ },
+ {
+  "question": "Hva skriver dette ut? Verdiene er som om de kom fra `input`.\n\n```python\na = \"5\"\nb = int(\"5\")\nprint(a + a)\nprint(b + b)\nprint(a * 2, b * 2)\n```",
+  "options": [
+   "55\n10\n55 10",
+   "10\n10\n10 10",
+   "55\n10\n10 10",
+   "55\n55\n55 55"
+  ],
+  "explanation": "Plusstegnet skjøter to tekster og legger sammen to tall. Stjerne på en tekst gjentar den, mens stjerne på et tall ganger — to helt ulike operasjoner med samme tegn."
+ },
+ {
+  "question": "En metode skal spørre om to ting, begge med gyldighetskrav. Hvordan skrives det?",
+  "options": [
+   "To input-løkker etter hverandre, hver med sitt eget par av kall og sin egen test.",
+   "Én løkke med to `input`-kall inne i seg, og en betingelse som tester begge.",
+   "Én løkke med en nøstet løkke inni, slik at det andre spørsmålet gjentas først.",
+   "To `if`-setninger etter hverandre, siden to løkker ville gjort koden uleselig."
+  ],
+  "explanation": "Til sammen blir det fire `input`-kall. Det er lengre å skrive, men det er formen fasiten bruker, og hver løkke gir uttelling for seg."
+ }
+]

@@ -1,0 +1,433 @@
+{
+ "id": "in1000-6-1",
+ "courseId": "in1000",
+ "chapterNumber": "6.1",
+ "title": "Fra spesifikasjon til klasser — modelleringsmetoden",
+ "description": "Den systematiske veien fra en beskrevet oppgave til et klasseoppsett: finn klassene, deres verdier og metoder, og hvordan de henger sammen.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne lese en beskrivelse og avgjøre hvilke klasser den trenger",
+  "kunne skille en egenskap ved en ting fra en ting med egne egenskaper",
+  "kunne avgjøre om en forbindelse gjelder ett objekt eller en samling av dem",
+  "kunne sette opp et skjelett med signaturer før du fyller inn en eneste metodekropp"
+ ],
+ "content": [
+  {
+   "id": "in1000-6-1-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Nå er du framme ved bokas tyngdepunkt.** Del 6 handler om **Oppgave 4**, som\nalene er **47–50 poeng av 100** — nesten halve eksamen — og som står i **6 av 6\nmoderne eksamenssett (100 %)**.\n\nSjangeren er **F — stor klassemodellering**, altså å bygge flere samarbeidende\nklasser fra en beskrevet oppgave. Domenet roterer fra år til år, men øvelsen er\nidentisk: les en tekst, finn klassene, og bygg dem.\n\nDette kapitlet handler om **det første steget**, og det er det viktigste: å komme\nfra teksten til et klasseoppsett. Bommer du der, drar feilen med seg alle de seks\n–sju deloppgavene under.\n\n**Dette må sitte** — bokas høyeste prioritetsnivå.\n\nTo ting er verdt å vite på forhånd. **Delkarakter gis per deloppgave**, så du\nskal aldri stå fast: hopp videre, og bruk gjerne en metode oppgaveteksten\nbeskriver selv om du ikke har rukket å skrive den. Og **egne rimelige\nforutsetninger er tillatt** når teksten er underspesifisert — de skal bare\ndokumenteres i en kommentar."
+  },
+  {
+   "id": "in1000-6-1-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på hele del 5:\n[kap. 5.1 — Klasser og objekter](/bok/in1000/in1000-5-1),\n[kap. 5.2 — Innkapsling](/bok/in1000/in1000-5-2) og\n[kap. 5.3 — `__str__`](/bok/in1000/in1000-5-3).\n\n**De tre malene du skal sette sammen**, friskes opp med kjørt kode.\n\n**1. Konstruktør-malen** — alle instansvariabler settes med `self._`:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaant = False\n```\n\nBlokken skriver ingenting ut ennå.\n\n**2. Aksessor/mutator-malen**, og **3. `__str__`** — alle tre satt sammen:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaant = False\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def sett_utlaant(self, ny):\n        self._utlaant = ny\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter\n\nb = Bok(\"Sult\", \"Hamsun\")\nb.sett_utlaant(True)\nprint(b, b.hent_tittel())\n```\n\n**Utskrift:**\n```\nSult av Hamsun Sult\n```\n\nFra nå av er ikke spørsmålet **hvordan** du skriver en klasse, men **hvilke**\nklasser du skal skrive."
+  },
+  {
+   "id": "in1000-6-1-3",
+   "type": "text",
+   "content": "## Løkke 1 — Fra tekst til klasser (~14 min)\n\nEn eksamensoppgave i sjanger F starter alltid med en beskrivelse på noen få\navsnitt. Slik:\n\n> Et bibliotek har et navn og en samling bøker. Hver bok har en tittel, en\n> forfatter og en opplysning om den er utlånt. En bok kan lånes ut og leveres\n> tilbake. Biblioteket kan legge til en bok, finne en bok på tittel, og skrive ut\n> hele samlingen.\n\nDet ser ut som løpende tekst. Det er det ikke — det er en **oppskrift**, og den\nkan leses nesten mekanisk."
+  },
+  {
+   "id": "in1000-6-1-4",
+   "type": "theorem",
+   "title": "Klassemodellering-malen, steg 1 og 2",
+   "content": "Bokas femtende kodemønster, og det som avgjør hele Oppgave 4. De to første\nstegene er ren tekstlesing:\n\n**Steg 1 — hvert substantiv som «er en ting», blir en klasse.** I teksten over:\n*bibliotek* og *bok*. Ikke *navn*, ikke *tittel* — de er egenskaper ved en ting,\nikke ting i seg selv.\n\n**Steg 2 — hver egenskap blir en instansvariabel**, satt med `self._` i\nkonstruktøren. `Bok` får `_tittel`, `_forfatter` og `_utlaant`. `Bibliotek` får\n`_navn` og en samling bøker.\n\n**Steg 3 — hver «kan gjøre»-setning blir en metode.** «En bok kan lånes ut» gir\n`laan_ut(self)`. «Biblioteket kan finne en bok på tittel» gir\n`finn(self, tittel)`.\n\n**Steg 4 — skriv aksessor og mutator for de verdiene som trengs utenfra.** Ikke\nfor alle — bare de oppgaven faktisk bruker.\n\nDe fire stegene tar tre–fire minutter, og de gir deg et **skjelett**: klassene med\ntomme metoder. Fyll aldri inn kroppene før skjelettet står."
+  },
+  {
+   "id": "in1000-6-1-5",
+   "type": "definition",
+   "title": "Å finne klassene",
+   "content": "Framgangsmåten: stryk under hvert substantiv i teksten, og spør om det er en\n**ting med egenskaper** eller bare en **egenskap**.\n\n*Bok* har tittel, forfatter og utlånsstatus — det er en ting. *Tittel* har ingen\negenskaper; det **er** en egenskap. Altså blir `Bok` en klasse og `_tittel` en\ninstansvariabel.\n\nEn god tommelfingerregel: kan du tenke deg **flere** av den, og har hver av dem\nsine egne opplysninger, er det en klasse.\n\nEksamensoppgavene har typisk **tre til fem** klasser. Har du funnet to, har du\nsannsynligvis slått sammen noe; har du funnet åtte, har du gjort egenskaper om\ntil klasser."
+  },
+  {
+   "id": "in1000-6-1-6",
+   "type": "definition",
+   "title": "Å finne instansvariablene",
+   "content": "Hver egenskap teksten nevner om en ting, blir en instansvariabel satt i\nkonstruktøren.\n\nTo slag: de som **kommer utenfra** og står som parametere\n(`def __init__(self, tittel, forfatter):`), og de som har en **startverdi**\n(`self._utlaant = False`, `self._antall_utlaan = 0`, `self._boker = {}`).\n\nDen andre gruppen er den som oftest glemmes. Kjenn den igjen på formuleringer som\n«starter på null», «er ikke utlånt når den registreres» og «har ingen bøker til å\nbegynne med».\n\n**Alt objektet skal huske, settes i `__init__`.** Ingen unntak."
+  },
+  {
+   "id": "in1000-6-1-7",
+   "type": "definition",
+   "title": "Å finne metodene",
+   "content": "Hver «kan gjøre»-setning i teksten blir en metode.\n\n«En bok **kan lånes ut**» gir `laan_ut(self)`. «Biblioteket **kan finne** en bok\npå tittel» gir `finn(self, tittel)`. Trenger metoden en verdi utenfra, blir den\nen parameter.\n\nMetodenavnene skrives med små bokstaver og gjerne som verb: `laan_ut`,\n`legg_til`, `finn`, `meld_paa`. Norske navn er fasitens egen stil — bare uten\næ, ø og å.\n\n**Ligger metoden på riktig klasse?** Spør hvem som eier opplysningene den\ntrenger. Utlånsstatusen ligger i `Bok`, så `laan_ut` hører hjemme der — ikke i\n`Bibliotek`."
+  },
+  {
+   "id": "in1000-6-1-8",
+   "type": "example",
+   "title": "Eksempel 1: Fra spesifikasjon til skjelett",
+   "problem": "Les spesifikasjonen under og sett opp **skjelettet**: klassene med\ninstansvariabler og metodesignaturer, uten å fylle inn kroppene.\n\n> Et bibliotek har et navn og en samling bøker. Hver bok har en tittel, en\n> forfatter og en opplysning om den er utlånt. En bok kan lånes ut og leveres\n> tilbake. Biblioteket kan legge til en bok, finne en bok på tittel, og skrive ut\n> hele samlingen.",
+   "solution": "**Steg 1 — klassene.** Substantivene som er ting: *bibliotek* og *bok*. Altså to\nklasser, `Bibliotek` og `Bok`.\n\n**Steg 2 — instansvariablene.**\n\n| Klasse | Fra teksten | Instansvariabler |\n|---|---|---|\n| `Bok` | tittel, forfatter, utlånt | `_tittel`, `_forfatter`, `_utlaant` |\n| `Bibliotek` | navn, samling bøker | `_navn`, `_boker` |\n\n`_utlaant` og `_boker` kommer ikke utenfra: en ny bok er ikke utlånt, og et nytt\nbibliotek har ingen bøker.\n\n**Steg 3 — metodene.**\n\n| Klasse | «Kan gjøre»-setning | Metode |\n|---|---|---|\n| `Bok` | kan lånes ut | `laan_ut(self)` |\n| `Bok` | kan leveres tilbake | `lever(self)` |\n| `Bibliotek` | kan legge til en bok | `legg_til(self, bok)` |\n| `Bibliotek` | kan finne en bok på tittel | `finn(self, tittel)` |\n| `Bibliotek` | kan skrive ut hele samlingen | `skriv_alle(self)` |\n\n**Steg 4 — aksessorer.** Biblioteket må kunne slå opp på tittel, så `Bok` trenger\n`hent_tittel()`. Utlånsstatusen bør kunne leses utenfra, så `er_utlaant()` blir\nmed. De andre verdiene ber teksten ikke om.\n\n**Skjelettet**, med kroppene bare antydet:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n        self._utlaant = False\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def er_utlaant(self):\n        return self._utlaant\n\n    def laan_ut(self):\n        self._utlaant = True\n\n    def lever(self):\n        self._utlaant = False\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter\n\nclass Bibliotek:\n    def __init__(self, navn):\n        self._navn = navn\n        self._boker = {}\n\n    def legg_til(self, bok):\n        self._boker[bok.hent_tittel()] = bok\n\n    def finn(self, tittel):\n        if tittel in self._boker:\n            return self._boker[tittel]\n        return None\n\n    def skriv_alle(self):\n        for tittel in self._boker:\n            print(self._boker[tittel])\n\nbib = Bibliotek(\"Deichman\")\nbib.legg_til(Bok(\"Sult\", \"Hamsun\"))\nbib.legg_til(Bok(\"Vaar\", \"Undset\"))\nbib.finn(\"Sult\").laan_ut()\nbib.skriv_alle()\nprint(bib.finn(\"Sult\").er_utlaant(), bib.finn(\"Naboer\"))\n```\n\n**Utskrift:**\n```\nSult av Hamsun\nVaar av Undset\nTrue None\n```\n\n**Slik ville sensor sett på det:** klassevalget alene er verdt poeng, før en\neneste metodekropp er skrevet. To klasser med riktige instansvariabler og riktige\nsignaturer gir uttelling selv om kroppene skulle vise seg å ha feil.\n\n**Legg merke til at `laan_ut` ligger på `Bok`, ikke på `Bibliotek`.** Utlånsstatusen\ner bokas egen opplysning. Å legge metoden i `Bibliotek` ville tvunget den til å\nrøre `bok._utlaant` — feilkode **#11**.\n\n**Merk `_boker = {}` og ikke `[]`.** Teksten sier «finne en bok **på tittel**», og\ndet peker rett på en ordbok. Valget mellom liste og ordbok er tema i\n[kap. 6.2](/bok/in1000/in1000-6-2)."
+  },
+  {
+   "id": "in1000-6-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — gjengivelse.) Les spesifikasjonen:\n\n> En kantine har et navn og en meny. Hver rett har et navn, en pris og et antall\n> solgte porsjoner som starter på null. En rett kan selges. Kantina kan legge til\n> en rett og skrive ut hele menyen.\n\n**a)** Hvilke to klasser skal du lage?\n\n**b)** Hvilke instansvariabler får hver av dem?\n\n**c)** Hvilke av instansvariablene kommer **ikke** utenfra?",
+    "solution": "**a)** `Kantine` og `Rett`. *Kantine* og *rett* er de to substantivene som er\nting med egne egenskaper. *Navn*, *pris* og *meny* er egenskaper, ikke ting.\n\n**b)**\n\n| Klasse | Instansvariabler |\n|---|---|\n| `Rett` | `_navn`, `_pris`, `_solgte` |\n| `Kantine` | `_navn`, `_retter` |\n\n**c)** `_solgte` og `_retter`. Antall solgte «starter på null», og en ny kantine\nhar ingen retter ennå — begge settes med en startverdi i konstruktøren:\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = 0\n\nclass Kantine:\n    def __init__(self, navn):\n        self._navn = navn\n        self._retter = []\n\nk = Kantine(\"Fredrikke\")\nr = Rett(\"Fiskesuppe\", 89)\nprint(k._navn, r._pris)\n```\n\n**Utskrift:**\n```\nFredrikke 89\n```\n\n**Merk at denne siste utskriften bruker `k._navn` og `r._pris` direkte**, noe boka\nellers aldri gjør — det er feilkode **#11**. Her er det gjort med vilje for å\nvise at variablene faktisk finnes, siden klassene ennå ikke har aksessorer. I en\nbesvarelse ville du skrevet aksessorene først.\n\n**Startverdiene er det som oftest glemmes**, og de er et selvstendig poeng i den\nstore oppgaven.",
+    "hints": [
+     "Stryk under substantivene og spør om hvert av dem har egne egenskaper.",
+     "Se etter formuleringer som «starter på null» og «har ingen … ennå»."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-9",
+   "type": "text",
+   "content": "## Løkke 2 — Skjelett før innhold (~13 min)\n\nDen vanligste tidsfellen i Oppgave 4 er å begynne å skrive ferdig kode på den\nførste klassen, og oppdage tjue minutter senere at modellen ikke henger sammen.\n\n**Skriv skjelettet først.** Klassene, instansvariablene og metodesignaturene, med\nkroppene tomme eller antydet. Da ser du hele modellen på ett ark før du bruker\ntid på detaljer — og du har allerede sikret deg poengene for strukturen."
+  },
+  {
+   "id": "in1000-6-1-10",
+   "type": "definition",
+   "title": "Skjelett",
+   "content": "Klassene med instansvariabler og metodesignaturer, men uten ferdige\nmetodekropper:\n\n```text\nclass Rett:\n    def __init__(self, navn, pris):\n        # setter _navn, _pris, _solgte = 0\n\n    def selg(self, antall):\n        # oeker _solgte\n\n    def omsetning(self):\n        # returnerer pris ganger solgte\n```\n\nBlokken er et skjelett med kommentarer i stedet for kode, og er derfor merket som\nikke-kjørbar — Python krever en kropp i hver metode.\n\nSkjelettet er verdt poeng i seg selv. Rekker du ikke å fylle inn alle kroppene,\nviser det likevel at du har forstått modellen, og deloppgavene rettes hver for\nseg.\n\n**På kladdepapiret** holder det med enda mindre: klassenavn, en strek under, og\nmetodenavnene i en liste."
+  },
+  {
+   "id": "in1000-6-1-11",
+   "type": "definition",
+   "title": "Metodesignatur",
+   "content": "Navnet på en metode pluss parameterne den tar: `selg(self, antall)`.\n\nSignaturen er det den som kaller, trenger å vite. Er den riktig, kan resten av\nprogrammet skrives selv om kroppen er tom — og på eksamen kan du **bruke en\nmetode oppgaveteksten beskriver** uten selv å ha rukket å skrive den.\n\nDet er en av de viktigste taktiske rådene i hele boka: **stå aldri fast.** Sier\noppgaven at klassen har en metode `hent_ledige()`, kan du kalle den i deloppgave\nd) selv om du hoppet over den i deloppgave b)."
+  },
+  {
+   "id": "in1000-6-1-12",
+   "type": "example",
+   "title": "Eksempel 2: Skjelett først, kropper etterpå",
+   "problem": "Vis framgangsmåten på spesifikasjonen fra oppgave 1: sett opp skjelettet for\n`Kantine` og `Rett`, og fyll deretter inn kroppene.",
+   "solution": "**Skjelettet først**, slik det ville sett ut på kladdepapiret:\n\n```text\nRett\n  __init__(navn, pris)      _navn, _pris, _solgte = 0\n  hent_navn()\n  hent_solgte()\n  selg(antall)\n  omsetning()\n  __str__()\n\nKantine\n  __init__(navn)            _navn, _retter = []\n  legg_til(rett)\n  skriv_alle()\n  samlet_omsetning()\n```\n\nBlokken er en oppstilling, ikke et program, og er derfor merket som\nikke-kjørbar.\n\n**Så kroppene**, én metode om gangen:\n\n```python\nclass Rett:\n    def __init__(self, navn, pris):\n        self._navn = navn\n        self._pris = pris\n        self._solgte = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_solgte(self):\n        return self._solgte\n\n    def selg(self, antall):\n        self._solgte = self._solgte + antall\n\n    def omsetning(self):\n        return self._pris * self._solgte\n\n    def __str__(self):\n        return self._navn + \": \" + str(self._pris) + \" kr x\" + str(self._solgte)\n\nclass Kantine:\n    def __init__(self, navn):\n        self._navn = navn\n        self._retter = []\n\n    def legg_til(self, rett):\n        self._retter.append(rett)\n\n    def skriv_alle(self):\n        for r in self._retter:\n            print(r)\n\n    def samlet_omsetning(self):\n        total = 0\n        for r in self._retter:\n            total = total + r.omsetning()\n        return total\n\nk = Kantine(\"Fredrikke\")\nsuppe = Rett(\"Fiskesuppe\", 89)\nk.legg_til(suppe)\nk.legg_til(Rett(\"Vafler\", 35))\nsuppe.selg(14)\nk.skriv_alle()\nprint(\"Omsetning:\", k.samlet_omsetning())\n```\n\n**Utskrift:**\n```\nFiskesuppe: 89 kr x14\nVafler: 35 kr x0\nOmsetning: 1246\n```\n\n**Legg merke til at omsetningen regnes to steder på to nivåer.** `Rett` vet hva\n**én** rett har omsatt for; `Kantine` summerer det rettene svarer. Ytterklassen\nregner aldri selv med `r._pris * r._solgte` — den spør.\n\n**Og legg merke til navnene:** `omsetning()` på retten, `samlet_omsetning()` på\nkantina. Containerens metode har alltid et annet navn enn elementets, etter\nregelen fra [kap. 5.3](/bok/in1000/in1000-5-3).\n\n**Slik ville sensor sett på det:** skjelettet er verdt poeng før en eneste kropp\ner skrevet. Rekker du bare halve modellen, teller den halvparten fullt ut."
+  },
+  {
+   "id": "in1000-6-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — steg 1: modellering.) Les spesifikasjonen:\n\n> En sykkelutleie har flere stativer. Hvert stativ har et navn, et antall plasser\n> og en samling sykler som står der nå. Hver sykkel har en kode og et antall\n> turer som starter på null. En sykkel kan leies ut, som øker antall turer. Et\n> stativ kan sette inn en sykkel og si hvor mange plasser som er ledige.\n\n**a)** Hvilke klasser skal du lage, og hvilke instansvariabler får hver av dem?\n\n**b)** Sett opp skjelettet med metodesignaturer, uten kropper.\n\n**c)** Hvilken klasse hører metoden «leies ut» hjemme i, og hvorfor?",
+    "solution": "**a)** To klasser:\n\n| Klasse | Instansvariabler |\n|---|---|\n| `Sykkel` | `_kode`, `_turer` (startverdi 0) |\n| `Stativ` | `_navn`, `_plasser`, `_sykler` (startverdi tom liste) |\n\n*Sykkelutleie* nevnes i teksten, men får ingen egenskaper og ingen «kan\ngjøre»-setninger. Den kan derfor droppes — eller tas med som en tredje klasse som\nholder stativene, hvis oppgaven senere ber om det. **Skriv en kommentar om\nvalget** når teksten er så uklar; det er den ene legitime bruken av kommentarer i\nen besvarelse.\n\n**b)** Skjelettet:\n\n```text\nSykkel\n  __init__(kode)            _kode, _turer = 0\n  hent_kode()\n  hent_turer()\n  leie_ut()\n  __str__()\n\nStativ\n  __init__(navn, plasser)   _navn, _plasser, _sykler = []\n  sett_inn(sykkel)\n  hent_ledige()\n```\n\nBlokken er en oppstilling, ikke et program, og er derfor merket som\nikke-kjørbar.\n\n**c)** «Leies ut» hører hjemme i **`Sykkel`**, fordi det er sykkelens eget\nturantall som endres. Legger du metoden i `Stativ`, må den røre\n`sykkel._turer` direkte, og det er feilkode **#11**.\n\n**Regelen er verdt å skrive ned:** en metode hører hjemme i den klassen som eier\nopplysningene den endrer. Spør «hvem sine tall er dette?», så plasserer metoden\nseg selv.",
+    "hints": [
+     "Stryk under substantivene, og spør om hvert av dem har egne egenskaper.",
+     "For c): hvilken klasse eier antall turer?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — steg 1: modellering.) En medstudent har lest denne\nspesifikasjonen:\n\n> En brettspillklubb har medlemmer. Hvert medlem har et navn og en samling spill.\n> Hvert spill har en tittel og et antall spillere det passer for.\n\nog laget **én** klasse:\n\n```python\nclass Klubb:\n    def __init__(self, navn, spilltittel, maks):\n        self._medlemsnavn = navn\n        self._spilltittel = spilltittel\n        self._maks = maks\n```\n\n**a)** Hva er galt med modellen?\n\n**b)** Hvilke klasser skulle det vært, og med hvilke instansvariabler?\n\n**c)** Gi et konkret eksempel på noe modellen over **ikke** kan uttrykke.",
+    "solution": "**a)** Tre nivåer er slått sammen til ett. En klubb, et medlem og et spill er tre\nulike ting, med hver sine egenskaper og hver sin livssyklus. Klassen kan bare\nholde **ett** medlem og **ett** spill om gangen.\n\n**b)** Tre klasser:\n\n| Klasse | Instansvariabler |\n|---|---|\n| `Spill` | `_tittel`, `_maks` |\n| `Medlem` | `_navn`, `_spill` (tom liste) |\n| `Klubb` | `_navn`, `_medlemmer` (tom liste eller ordbok) |\n\n**c)** Et medlem som eier **to** spill. Med den sammenslåtte modellen må du lage\nto `Klubb`-objekter med samme medlemsnavn — og da finnes medlemmet to ganger,\nuten at noe binder dem sammen.\n\nRiktig modell kjørt:\n\n```python\nclass Spill:\n    def __init__(self, tittel, maks):\n        self._tittel = tittel\n        self._maks = maks\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._maks) + \")\"\n\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._spill = []\n\n    def legg_til_spill(self, s):\n        self._spill.append(s)\n\n    def antall_spill(self):\n        return len(self._spill)\n\n    def __str__(self):\n        return self._navn + \" eier \" + str(len(self._spill)) + \" spill\"\n\nada = Medlem(\"Ada\")\nada.legg_til_spill(Spill(\"Kolonier\", 4))\nada.legg_til_spill(Spill(\"Sjakk\", 2))\nprint(ada)\nprint(ada.antall_spill())\n```\n\n**Utskrift:**\n```\nAda eier 2 spill\n2\n```\n\n**Regelen fra dette:** hver «boks» i teksten blir én klasse. Slår du sammen to,\nmister du muligheten til å ha mange av den ene — og det er nettopp det oppgaven\nkommer til å be om i neste deloppgave.\n\n**Motsatt feil finnes også:** å gjøre en egenskap om til en klasse. En `Tittel`-\nklasse med bare en tekst i seg er ren støy.",
+    "hints": [
+     "Tell hvor mange ulike «ting» teksten beskriver.",
+     "For c): prøv å uttrykke et medlem med to spill i den gale modellen."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-13",
+   "type": "text",
+   "content": "## Løkke 3 — Hvor mange av hver? (~14 min)\n\nNår klassene er funnet, gjenstår ett spørsmål per forbindelse mellom dem:\n**hvor mange?**\n\nHar hver bok **én** forfatter, eller mange? Har hvert bibliotek **én** bok, eller\nmange? Svaret bestemmer om instansvariabelen blir ett objekt eller en samling —\nog det er den siste beslutningen du tar før koden skrives."
+  },
+  {
+   "id": "in1000-6-1-14",
+   "type": "definition",
+   "title": "Multiplisitet",
+   "content": "Hvor mange objekter av den ene klassen hvert objekt av den andre er knyttet til.\n\nTo former, og bare to i denne boka:\n\n- **Én-til-én:** instansvariabelen peker på **ett** objekt.\n  `self._eier = person`.\n- **Én-til-mange:** instansvariabelen er en **samling** av objektreferanser.\n  `self._boker = []` eller `self._boker = {}`.\n\nLes teksten sakte. «Hvert stativ har en samling sykler» er én-til-mange. «Hver\nkonto har en eier» er én-til-én.\n\nOrdene som avslører én-til-mange: *flere*, *en samling*, *alle*, *hver av*,\nflertallsform."
+  },
+  {
+   "id": "in1000-6-1-15",
+   "type": "definition",
+   "title": "Liste eller ordbok",
+   "content": "Valget innenfor én-til-mange, og det avgjøres av ett spørsmål: **skal noe slås\nopp på et navn eller en kode?**\n\nEr svaret ja — «finne en bok **på tittel**», «hente salen med et gitt navn» — er\ndet en **ordbok**, med navnet som nøkkel og objektet som verdi.\n\nEr svaret nei — du skal bare gå gjennom alle, telle eller skrive ut — er en\n**liste** enklere.\n\nI tvil: begynn med en liste. Å lete gjennom en liste med en løkke er alltid\nmulig, og det gir uttelling. Ordboka er bare raskere og ryddigere når oppslaget\ner hovedjobben."
+  },
+  {
+   "id": "in1000-6-1-16",
+   "type": "definition",
+   "title": "Objektreferanser, ikke rådata",
+   "content": "Samlingen skal holde **objektene**, ikke opplysninger om dem.\n\n`self._boker.append(bok)` — ikke `self._boker.append(bok.hent_tittel())`.\n\nGrunnen er at du mister metodene. Har du bare titlene, kan biblioteket ikke lenger\nbe en bok om å låne seg ut, skrive seg selv eller si hvem forfatteren er — og\nalle de neste deloppgavene faller sammen.\n\nDet er en av de faste vurderingene i Oppgave 4, og den dyreste\nenkeltbeslutningen i hele oppgaven."
+  },
+  {
+   "id": "in1000-6-1-17",
+   "type": "example",
+   "title": "Eksempel 3: Multiplisitet i praksis",
+   "problem": "Vis forskjellen mellom én-til-én og én-til-mange i den samme modellen, med\nen kollektivrute som domene.",
+   "solution": "Spesifikasjonen:\n\n> Et kollektivselskap har flere ruter. Hver rute har et nummer, **én** sjåfør, og\n> en samling holdeplasser. En sjåfør har et navn. En holdeplass har et navn og et\n> sonenummer.\n\n**Tre klasser, og to ulike forbindelser.** Ruten har **én** sjåfør (én-til-én) og\n**mange** holdeplasser (én-til-mange):\n\n```python\nclass Sjafor:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\nclass Holdeplass:\n    def __init__(self, navn, sone):\n        self._navn = navn\n        self._sone = sone\n\n    def hent_sone(self):\n        return self._sone\n\n    def __str__(self):\n        return self._navn + \" (sone \" + str(self._sone) + \")\"\n\nclass Rute:\n    def __init__(self, nummer, sjafor):\n        self._nummer = nummer\n        self._sjafor = sjafor\n        self._holdeplasser = []\n\n    def legg_til(self, h):\n        self._holdeplasser.append(h)\n\n    def antall_holdeplasser(self):\n        return len(self._holdeplasser)\n\n    def skriv_alle(self):\n        print(\"Rute\", self._nummer, \"med\", self._sjafor.hent_navn())\n        for h in self._holdeplasser:\n            print(\" -\", h)\n\nr = Rute(20, Sjafor(\"Ada\"))\nr.legg_til(Holdeplass(\"Blindern\", 1))\nr.legg_til(Holdeplass(\"Toyen\", 1))\nr.legg_til(Holdeplass(\"Kalbakken\", 2))\nr.skriv_alle()\nprint(\"Antall:\", r.antall_holdeplasser())\n```\n\n**Utskrift:**\n```\nRute 20 med Ada\n - Blindern (sone 1)\n - Toyen (sone 1)\n - Kalbakken (sone 2)\nAntall: 3\n```\n\n**De to formene står side om side i konstruktøren.** `self._sjafor = sjafor` er\n**ett** objekt; `self._holdeplasser = []` er en samling. Ordet «én» i\nspesifikasjonen er hele forskjellen.\n\n**Legg merke til `self._sjafor.hent_navn()`.** Ruten spør sjåføren om navnet i\nstedet for å lagre det selv. Hadde konstruktøren skrevet\n`self._sjafornavn = sjafor.hent_navn()`, ville navnet blitt foreldet i det\nøyeblikket sjåføren skiftet navn — og det er nettopp poenget med å lagre\nreferanser.\n\n**Hvorfor liste og ikke ordbok her?** Fordi teksten aldri ber om å slå opp en\nholdeplass på navn. Skulle en senere deloppgave gjøre det, ville en ordbok vært\nbedre.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-6-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — steg 1: multiplisitet.) For hver forbindelse under:\ner den én-til-én eller én-til-mange, og hvordan skrives instansvariabelen?\n\n**a)** «Hver konto har en eier.»\n\n**b)** «Et treningssenter har flere saler.»\n\n**c)** «Hvert medlem har en samling økter det har deltatt på.»\n\n**d)** «Hver bok har en forfatter, og biblioteket skal kunne finne en bok på\ntittel.»",
+    "solution": "**a)** **Én-til-én.** `self._eier = eier` — instansvariabelen peker på **ett**\n`Eier`-objekt, satt i konstruktøren.\n\n**b)** **Én-til-mange.** `self._saler = []` eller `self._saler = {}`. Ordet\n«flere» avslører det. Teksten sier ikke noe om oppslag, så en liste holder.\n\n**c)** **Én-til-mange.** `self._okter = []`. «En samling» er samme signal som\n«flere».\n\n**d)** To ting på én gang. Boka har **én** forfatter (`self._forfatter`, som kan\nvære en tekst eller et `Forfatter`-objekt), og biblioteket har **mange** bøker —\nmed **ordbok**, fordi teksten sier «finne en bok **på tittel**».\n\nAlle fire i én modell:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = {}\n\n    def legg_til(self, bok):\n        self._boker[bok.hent_tittel()] = bok\n\n    def finn(self, tittel):\n        if tittel in self._boker:\n            return self._boker[tittel]\n        return None\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\"))\nprint(bib.finn(\"Sult\"))\nprint(bib.finn(\"Naboer\"))\n```\n\n**Utskrift:**\n```\nSult av Hamsun\nNone\n```\n\n**Ordene som avslører multiplisiteten:** «en» og «hver … har en» betyr\nén-til-én; «flere», «en samling», «alle» og flertallsform betyr én-til-mange.\nLes den setningen to ganger — den er hele beslutningen.",
+    "hints": [
+     "Se etter ordene «en», «flere» og «en samling».",
+     "Skal noe slås opp på en nøkkel, er svaret en ordbok."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — steg 1: modellering.) Les spesifikasjonen:\n\n> En resirkuleringsstasjon har et sted og flere containere. Hver container har et\n> materiale, en kapasitet i kilo og en fyllingsgrad i kilo som starter på null.\n> En container kan ta imot avfall, men bare hvis det er plass til alt. Stasjonen\n> kan sette inn en container, skrive ut alle, og si hvor mange containere som er\n> mer enn 80 prosent fulle.\n\n**a)** Sett opp de to klassene med instansvariabler og metodesignaturer.\n\n**b)** Skriv klassene ferdig.\n\n**c)** Test med tre containere, der ett forsøk på å ta imot avfall avvises.",
+    "solution": "**a)** Skjelettet:\n\n```text\nContainer\n  __init__(materiale, kapasitet)   _materiale, _kapasitet, _fylling = 0\n  hent_materiale()\n  fyllingsgrad()                   prosent\n  ta_imot(kilo)                    bare hvis det er plass til alt\n  __str__()\n\nStasjon\n  __init__(sted)                   _sted, _containere = []\n  sett_inn(c)\n  skriv_alle()\n  antall_fulle()                   mer enn 80 prosent\n```\n\nBlokken er en oppstilling, ikke et program, og er derfor merket som\nikke-kjørbar.\n\n**b)–c)** Ferdig kode:\n\n```python\nclass Container:\n    def __init__(self, materiale, kapasitet):\n        self._materiale = materiale\n        self._kapasitet = kapasitet\n        self._fylling = 0\n\n    def hent_materiale(self):\n        return self._materiale\n\n    def fyllingsgrad(self):\n        return self._fylling * 100 // self._kapasitet\n\n    def ta_imot(self, kilo):\n        if self._fylling + kilo > self._kapasitet:\n            print(\"Ikke plass i\", self._materiale)\n        else:\n            self._fylling = self._fylling + kilo\n\n    def __str__(self):\n        return self._materiale + \": \" + str(self.fyllingsgrad()) + \" %\"\n\nclass Stasjon:\n    def __init__(self, sted):\n        self._sted = sted\n        self._containere = []\n\n    def sett_inn(self, c):\n        self._containere.append(c)\n\n    def skriv_alle(self):\n        for c in self._containere:\n            print(c)\n\n    def antall_fulle(self):\n        antall = 0\n        for c in self._containere:\n            if c.fyllingsgrad() > 80:\n                antall = antall + 1\n        return antall\n\nst = Stasjon(\"Ryen\")\nglass = Container(\"glass\", 200)\npapir = Container(\"papir\", 100)\nplast = Container(\"plast\", 50)\nst.sett_inn(glass)\nst.sett_inn(papir)\nst.sett_inn(plast)\n\nglass.ta_imot(60)\npapir.ta_imot(90)\nplast.ta_imot(70)\n\nst.skriv_alle()\nprint(\"Mer enn 80 prosent fulle:\", st.antall_fulle())\n```\n\n**Utskrift:**\n```\nIkke plass i plast\nglass: 30 %\npapir: 90 %\nplast: 0 %\nMer enn 80 prosent fulle: 1\n```\n\n**Tre ting er verdt å merke seg.**\n\n`fyllingsgrad()` er en **aksessor som regner ut** i stedet for å lagre. Da kan\nverdien aldri komme i utakt med de to den bygger på. Heltallsdivisjonen `//`\nbrukes for å få et helt prosenttall.\n\n`ta_imot` er en **mutator med kontroll**: sjekken ligger inne i metoden, ikke hos\nden som kaller. Uten `else`-grenen ville avfallet blitt tatt imot likevel, og\nkontrollen ville vært verdiløs.\n\n`antall_fulle` sier «mer enn 80», og bruker derfor `>` og ikke `>=`. Papiret på\n90 telles; hadde en container ligget på nøyaktig 80, skulle den **ikke** telt.\nLes kantverdien sakte.\n\n**Slik ville sensor sett på det:** her ligger poengene på de to konstruktørene,\nhver metode for seg, kontrollen i `ta_imot`, delegeringen i `skriv_alle`, og\ntellerløkka. En bom på kantverdien koster lite når strukturen er riktig.",
+    "hints": [
+     "Regn ut fyllingsgraden i en egen metode i stedet for å lagre den.",
+     "«Bare hvis det er plass til alt» betyr en `if`/`else` inne i metoden."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-18",
+   "type": "text",
+   "content": "## Løkke 4 — Antakelser, filer og hva som gir uttelling (~14 min)\n\nDe siste tre tingene er ikke kode, men de er poeng."
+  },
+  {
+   "id": "in1000-6-1-19",
+   "type": "definition",
+   "title": "Rimelig antakelse dokumentert i kommentar",
+   "content": "Eksamensoppgavene er ofte underspesifiserte med vilje, og **egne rimelige\nforutsetninger er uttrykkelig tillatt** — så lenge de dokumenteres.\n\nSkriv én kommentarlinje der valget tas:\n\n```python\nclass Stativ:\n    def __init__(self, navn, plasser):\n        # forutsetter at et stativ ikke kan ha null plasser\n        self._navn = navn\n        self._plasser = plasser\n        self._sykler = []\n\ns = Stativ(\"Blindern\", 12)\nprint(\"ok\")\n```\n\n**Utskrift:**\n```\nok\n```\n\n**Dette er den ene legitime bruken av kommentarer** i en besvarelse. Ellers\nskriver boka ingen kommentarer: ingen som gjentar hva koden gjør, og ingen\noverskrifter.\n\nTypiske ting å dokumentere: hva som skjer ved en manglende nøkkel, om en verdi\nkan være negativ, om en klasse teksten så vidt nevner, er tatt med eller ikke."
+  },
+  {
+   "id": "in1000-6-1-20",
+   "type": "definition",
+   "title": "Klasser i egne filer",
+   "content": "I et virkelig program legges hver klasse i sin egen fil, og filene hentes inn\nmed en linje øverst i programmet:\n\n```text\nfrom bok import Bok\nfrom bibliotek import Bibliotek\n```\n\nBlokken er merket som ikke-kjørbar: den forutsetter to filer som ikke finnes her.\n\n**Denne boka skriver alle klassene i samme blokk**, slik at hvert eksempel kan\nkjøres nøyaktig som det står. På eksamen er det heller ingen som teller filer —\ndet som rettes, er klassene og metodene.\n\nNevner oppgaveteksten filstrukturen, skriv en kommentar om at hver klasse hører\nhjemme i sin egen fil. Det er nok."
+  },
+  {
+   "id": "in1000-6-1-21",
+   "type": "definition",
+   "title": "Delkarakter per deloppgave",
+   "content": "Oppgave 4 er delt i seks–sju deloppgaver, og **hver av dem rettes for seg**.\n\nKonsekvensen er taktisk og viktig: **stå aldri fast.** Får du ikke til\ndeloppgave c), hopp til d) — den rettes uansett, og den bygger sjelden på at c)\ner skrevet.\n\nOg du kan **bruke en metode oppgaveteksten beskriver** selv om du ikke har rukket\nå skrive den. Sier teksten at `Bok` har `hent_tittel()`, kall den. Sensor vet at\nden finnes, fordi oppgaven sa det.\n\n**Riktig struktur belønnes selv med småfeil.** En løkke med en indeksfeil, en\nglemt aksessor eller en litt klønete betingelse trekker lite når modellen er\nriktig."
+  },
+  {
+   "id": "in1000-6-1-22",
+   "type": "example",
+   "title": "Eksempel 4: Full modelleringsoppgave på eksamensnivå",
+   "problem": "> Et treningssenter har et navn og flere saler. Hver sal har et navn, en\n> kapasitet og en samling påmeldte medlemmer. Hvert medlem har et navn og et\n> medlemsnummer. En sal kan melde på et medlem, men bare hvis det er ledig plass.\n> Senteret kan legge til en sal, finne en sal på navn, og skrive ut alle salene\n> med antall påmeldte.\n\nSett opp modellen og skriv den ferdig.",
+   "solution": "**Steg 1 — klassene.** *Treningssenter*, *sal* og *medlem*: tre klasser.\n\n**Steg 2 — instansvariablene.**\n\n| Klasse | Instansvariabler | Merknad |\n|---|---|---|\n| `Medlem` | `_navn`, `_nummer` | begge utenfra |\n| `Sal` | `_navn`, `_kapasitet`, `_paameldte` | siste er en tom liste |\n| `Senter` | `_navn`, `_saler` | **ordbok**, fordi teksten sier «finne en sal på navn» |\n\n**Steg 3 — metodene.** «Kan melde på», «kan legge til en sal», «kan finne en sal\npå navn», «kan skrive ut alle salene».\n\n**Steg 4 — aksessorer.** `Sal` trenger `hent_navn()`, fordi senteret bruker det\nsom nøkkel i ordboka. `Medlem` trenger ingen i denne omgangen — teksten ber bare\nom at medlemmet meldes på, ikke om at noe hentes ut av det. Ber en senere\ndeloppgave om å skrive ut de påmeldte, legger du til `hent_navn()` og `__str__`\nda.\n\n**Modellen ferdig.** Alle tre klassene og en kjøring står i samme blokk, slik at\nden kan kjøres nøyaktig som den står — i en besvarelse ville hver klasse hatt sin\negen fil:\n\n```python\nclass Medlem:\n    def __init__(self, navn, nummer):\n        self._navn = navn\n        self._nummer = nummer\n\nclass Sal:\n    def __init__(self, navn, kapasitet):\n        self._navn = navn\n        self._kapasitet = kapasitet\n        self._paameldte = []\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_ledige(self):\n        return self._kapasitet - len(self._paameldte)\n\n    def meld_paa(self, medlem):\n        if self.hent_ledige() < 1:\n            print(\"Fullt i\", self._navn)\n        else:\n            self._paameldte.append(medlem)\n\n    def __str__(self):\n        return self._navn + \": \" + str(len(self._paameldte)) + \" av \" + str(self._kapasitet)\n\nclass Senter:\n    def __init__(self, navn):\n        self._navn = navn\n        self._saler = {}\n\n    def legg_til(self, sal):\n        self._saler[sal.hent_navn()] = sal\n\n    def finn(self, navn):\n        if navn in self._saler:\n            return self._saler[navn]\n        return None\n\n    def skriv_alle(self):\n        print(\"Senter:\", self._navn)\n        for navn in self._saler:\n            print(\" -\", self._saler[navn])\n\ns = Senter(\"Toyen\")\ns.legg_til(Sal(\"Speilsal\", 2))\ns.legg_til(Sal(\"Spinning\", 10))\nspeil = s.finn(\"Speilsal\")\nspeil.meld_paa(Medlem(\"Ada\", 104))\nspeil.meld_paa(Medlem(\"Nora\", 105))\nspeil.meld_paa(Medlem(\"Per\", 106))\ns.skriv_alle()\nprint(s.finn(\"Basseng\"))\n```\n\n**Utskrift:**\n```\nFullt i Speilsal\nSenter: Toyen\n - Speilsal: 2 av 2\n - Spinning: 0 av 10\nNone\n```\n\n**Slik ville sensor sett på det, deloppgave for deloppgave.**\n\n**Klassene og konstruktørene** (typisk 10–12 p): tre klasser, riktige\ninstansvariabler, alle satt med `self._`, og de to samlingene med riktig\nstarttype.\n\n**«En-til-mange» som ordbok** (6–8 p): `self._saler = {}`, innsettingen med\nsalens **egen** aksessor som nøkkel, og oppslaget med `if navn in ...`-sjekk.\n\n**Kontrollen i `meld_paa`** (5–7 p): sjekken inne i metoden, `else`-grenen som\nfaktisk melder på, og at ingen meldes på når det er fullt.\n\n**Delegeringen i `skriv_alle`** (4–5 p): løkka over nøklene, og `print` som lar\nsalen vise seg selv.\n\n**`__str__`** (3–4 p): returnerer en tekst, med `str(...)` rundt tallene.\n\n**Riktig struktur belønnes selv med småfeil.** Hadde `hent_ledige` brukt `<= 1` i\nstedet for `< 1`, ville modellen fortsatt vært riktig, og trekket lite — men\nsalen ville vært «full» ved én ledig plass."
+  },
+  {
+   "id": "in1000-6-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger F — steg 1: modellering.) Les spesifikasjonen:\n\n> En frivilligsentral har et sted og flere oppdrag. Hvert oppdrag har en tittel,\n> et antall timer og **én** ansvarlig frivillig. Hver frivillig har et navn og et\n> telefonnummer. Sentralen kan legge til et oppdrag, finne et oppdrag på tittel,\n> og si hvor mange timer det er registrert til sammen.\n\n**a)** Hvilke tre klasser, og hvilke instansvariabler?\n\n**b)** Hvilken forbindelse er én-til-én, og hvilken er én-til-mange?\n\n**c)** Skal samlingen være en liste eller en ordbok? Begrunn.",
+    "solution": "**a)** Tre klasser:\n\n| Klasse | Instansvariabler |\n|---|---|\n| `Frivillig` | `_navn`, `_telefon` |\n| `Oppdrag` | `_tittel`, `_timer`, `_ansvarlig` |\n| `Sentral` | `_sted`, `_oppdrag` |\n\n**b)** `Oppdrag` til `Frivillig` er **én-til-én**: teksten sier «**én** ansvarlig\nfrivillig», så `self._ansvarlig = frivillig` peker på ett objekt.\n\n`Sentral` til `Oppdrag` er **én-til-mange**: «flere oppdrag».\n\n**c)** En **ordbok**, med tittelen som nøkkel. Teksten sier «finne et oppdrag\n**på tittel**», og det er nettopp det oppslag betyr.\n\nModellen kjørt:\n\n```python\nclass Frivillig:\n    def __init__(self, navn, telefon):\n        self._navn = navn\n        self._telefon = telefon\n\n    def hent_navn(self):\n        return self._navn\n\nclass Oppdrag:\n    def __init__(self, tittel, timer, ansvarlig):\n        self._tittel = tittel\n        self._timer = timer\n        self._ansvarlig = ansvarlig\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def hent_timer(self):\n        return self._timer\n\n    def __str__(self):\n        return self._tittel + \" (\" + str(self._timer) + \" t, \" + self._ansvarlig.hent_navn() + \")\"\n\nclass Sentral:\n    def __init__(self, sted):\n        self._sted = sted\n        self._oppdrag = {}\n\n    def legg_til(self, o):\n        self._oppdrag[o.hent_tittel()] = o\n\n    def finn(self, tittel):\n        if tittel in self._oppdrag:\n            return self._oppdrag[tittel]\n        return None\n\n    def totalt_antall_timer(self):\n        total = 0\n        for tittel in self._oppdrag:\n            total = total + self._oppdrag[tittel].hent_timer()\n        return total\n\nada = Frivillig(\"Ada\", \"90012345\")\ns = Sentral(\"Toyen\")\ns.legg_til(Oppdrag(\"Leksehjelp\", 4, ada))\ns.legg_til(Oppdrag(\"Middag\", 6, ada))\nprint(s.finn(\"Middag\"))\nprint(s.finn(\"Turgruppe\"))\nprint(\"Timer totalt:\", s.totalt_antall_timer())\n```\n\n**Utskrift:**\n```\nMiddag (6 t, Ada)\nNone\nTimer totalt: 10\n```\n\n**Legg merke til `self._ansvarlig.hent_navn()` inne i `__str__`.** Oppdraget\nspør den frivillige om navnet i stedet for å lagre det. Skifter Ada navn, følger\nutskriften med av seg selv.\n\nOg `totalt_antall_timer` heter noe annet enn oppdragets `hent_timer`, etter\nnavneregelen for containere.",
+    "hints": [
+     "Ordet «én» i spesifikasjonen avgjør den ene forbindelsen.",
+     "«Finne … på tittel» peker rett på en ordbok."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger F — stor klassemodellering.) Les spesifikasjonen:\n\n> En brettspillklubb har et navn, flere medlemmer og flere spill. Hvert medlem\n> har et navn og et antall kvelder det har deltatt på, som starter på null. Hvert\n> spill har en tittel, et antall spillere det passer for, og **én** eier, som er\n> et medlem. Et medlem kan registrere en kveld. Klubben kan melde inn et medlem,\n> legge til et spill, finne et spill på tittel, og skrive ut alle spillene med\n> eier.\n\n**a)** Sett opp skjelettet for de tre klassene.\n\n**b)** Skriv klassene ferdig, med ordbok for spillene og liste for medlemmene.\n\n**c)** Test modellen: to medlemmer, tre spill, én kveld registrert, ett oppslag\nsom lykkes og ett som ikke gjør det.\n\n**d)** Hvilken instansvariabel er en én-til-én-forbindelse, og hva ville gått tapt\nom du hadde lagret eierens navn som tekst i stedet?",
+    "solution": "**a)** Skjelettet:\n\n```text\nMedlem\n  __init__(navn)              _navn, _kvelder = 0\n  hent_navn()\n  hent_kvelder()\n  registrer_kveld()\n  __str__()\n\nSpill\n  __init__(tittel, maks, eier)  _tittel, _maks, _eier\n  hent_tittel()\n  __str__()\n\nKlubb\n  __init__(navn)              _navn, _medlemmer = [], _spill = {}\n  meld_inn(medlem)\n  legg_til_spill(spill)\n  finn_spill(tittel)\n  skriv_alle_spill()\n```\n\nBlokken er en oppstilling, ikke et program, og er derfor merket som\nikke-kjørbar.\n\n**b)–c)** Modellen ferdig, med testen nederst:\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._kvelder = 0\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_kvelder(self):\n        return self._kvelder\n\n    def registrer_kveld(self):\n        self._kvelder = self._kvelder + 1\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._kvelder) + \" kvelder)\"\n\nclass Spill:\n    def __init__(self, tittel, maks, eier):\n        self._tittel = tittel\n        self._maks = maks\n        self._eier = eier\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def __str__(self):\n        return self._tittel + \" x\" + str(self._maks) + \" - eier: \" + self._eier.hent_navn()\n\nclass Klubb:\n    def __init__(self, navn):\n        self._navn = navn\n        self._medlemmer = []\n        self._spill = {}\n\n    def meld_inn(self, medlem):\n        self._medlemmer.append(medlem)\n\n    def legg_til_spill(self, spill):\n        self._spill[spill.hent_tittel()] = spill\n\n    def finn_spill(self, tittel):\n        if tittel in self._spill:\n            return self._spill[tittel]\n        return None\n\n    def skriv_alle_spill(self):\n        for tittel in self._spill:\n            print(self._spill[tittel])\n\nada = Medlem(\"Ada\")\nnora = Medlem(\"Nora\")\nk = Klubb(\"Brettspillklubben\")\nk.meld_inn(ada)\nk.meld_inn(nora)\nk.legg_til_spill(Spill(\"Kolonier\", 4, ada))\nk.legg_til_spill(Spill(\"Sjakk\", 2, nora))\nk.legg_til_spill(Spill(\"Ordjakt\", 6, ada))\n\nada.registrer_kveld()\nk.skriv_alle_spill()\nprint(k.finn_spill(\"Sjakk\"))\nprint(k.finn_spill(\"Yatzy\"))\nprint(ada)\n```\n\n**Utskrift:**\n```\nKolonier x4 - eier: Ada\nSjakk x2 - eier: Nora\nOrdjakt x6 - eier: Ada\nSjakk x2 - eier: Nora\nNone\nAda (1 kvelder)\n```\n\n**d)** `self._eier` i `Spill` er én-til-én-forbindelsen.\n\nHadde du lagret `self._eiernavn = eier.hent_navn()` i stedet, ville to ting gått\ntapt. Navnet ville blitt **foreldet** hvis medlemmet skiftet navn. Og spillet\nville ikke lenger kunne spørre eieren om noe annet — for eksempel hvor mange\nkvelder eieren har deltatt på, som en senere deloppgave godt kan be om.\n\n**Legg merke til at både Kolonier og Ordjakt har Ada som eier.** Det er den\nsamme referansen i to spill, ikke to Ada-er. Registrerer Ada en kveld, ser begge\nspillene det.\n\n**Slik ville sensor sett på det:** tre konstruktører, to ulike samlingstyper,\noppslaget med `if`-sjekk, `return None`-grenen, delegeringen i utskriften, og\n`__str__` på begge klassene — hver del for seg. Blandingen av liste og ordbok i\nsamme klasse er dessuten et selvstendig modelleringspoeng: du valgte etter hva\nteksten faktisk ba om.",
+    "hints": [
+     "Skriv skjelettet ferdig før du fyller inn en eneste metodekropp.",
+     "«Finne et spill på tittel» betyr ordbok; medlemmene skal bare gås gjennom."
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-6-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — «finn feilen» i en modell, med konkret moteksempel.)\nEn medstudent har modellert denne spesifikasjonen:\n\n> Et bibliotek har flere bøker. Hver bok har en tittel og en forfatter.\n> Biblioteket kan legge til en bok og skrive ut alle bøkene.\n\nslik:\n\n```python\nclass Bibliotek:\n    def __init__(self):\n        self._titler = []\n        self._forfattere = []\n\n    def legg_til(self, tittel, forfatter):\n        self._titler.append(tittel)\n        self._forfattere.append(forfatter)\n\n    def skriv_alle(self):\n        for i in range(len(self._titler)):\n            print(self._titler[i], \"av\", self._forfattere[i])\n```\n\n**a)** Hva er den grunnleggende modelleringsfeilen?\n\n**b)** Gi et **konkret moteksempel**: en operasjon spesifikasjonen ikke nevner,\nmen som en senere deloppgave lett kunne be om, og som modellen ikke tåler.\n\n**c)** Skriv den riktige modellen.",
+    "solution": "**a)** Det finnes ingen `Bok`-klasse. Opplysningene om én bok er spredt over\n**to parallelle lister** som må holdes i takt manuelt.\n\nModellen virker — så lenge ingen rører den. Men det finnes ingenting som binder\ntittel nummer 2 til forfatter nummer 2 utenom at de tilfeldigvis står på samme\nplass.\n\n**b)** Moteksempel: **å fjerne en bok.** Sier en senere deloppgave «biblioteket\nkan fjerne en bok på tittel», må du huske å fjerne fra **begge** listene, på\n**samme** indeks. Glemmer du den ene, forskyves alt etterpå:\n\n```python\ntitler = [\"Sult\", \"Vaar\", \"Naboer\"]\nforfattere = [\"Hamsun\", \"Undset\", \"Bjornson\"]\ntitler.pop(0)\nprint(titler[0], \"av\", forfattere[0])\n```\n\n**Utskrift:**\n```\nVaar av Hamsun\n```\n\nEtter én halv fjerning påstår programmet at Undset skrev Vaar, mens Hamsun står\noppført som forfatter. Ingen feilmelding, ingen advarsel.\n\nDet samme skjer ved sortering, ved innsetting på en bestemt plass, og ved\nenhver operasjon som endrer rekkefølgen i den ene lista.\n\n**c)** Én klasse per «boks», og biblioteket holder **objektreferanser**:\n\n```python\nclass Bok:\n    def __init__(self, tittel, forfatter):\n        self._tittel = tittel\n        self._forfatter = forfatter\n\n    def hent_tittel(self):\n        return self._tittel\n\n    def __str__(self):\n        return self._tittel + \" av \" + self._forfatter\n\nclass Bibliotek:\n    def __init__(self):\n        self._boker = []\n\n    def legg_til(self, bok):\n        self._boker.append(bok)\n\n    def skriv_alle(self):\n        for b in self._boker:\n            print(b)\n\nbib = Bibliotek()\nbib.legg_til(Bok(\"Sult\", \"Hamsun\"))\nbib.legg_til(Bok(\"Vaar\", \"Undset\"))\nbib.skriv_alle()\n```\n\n**Utskrift:**\n```\nSult av Hamsun\nVaar av Undset\n```\n\nNå kan ingenting komme i utakt: tittel og forfatter bor i **samme objekt**, og\nfjerner du objektet, forsvinner begge deler samtidig.\n\n**Slik ville sensor sett på det:** parallelle lister er en klassisk\nmodelleringsfeil og trekker på klassevalget, som er den tyngst vektede delen av\nOppgave 4. Ved «finn feilen» gir et **konkret moteksempel** full uttelling — en\nren verbal forklaring gir delvis.\n\n**Merk `.pop(0)` i moteksempelet.** Den er ikke del av bokas API og brukes bare\nher, for å vise hva som skjer når listene kommer i utakt.",
+    "hints": [
+     "Tell hvor mange «ting» spesifikasjonen beskriver, og hvor mange klasser modellen har.",
+     "Hva må holdes i takt manuelt, og hva skjer den dagen noen glemmer det?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-6-1-23",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på modelleringssteget:\n\n- **Slå sammen to «bokser» i én klasse.** Da kan modellen bare holde én av hver,\n  og alle deloppgaver om «flere» faller sammen.\n- **Parallelle lister i stedet for en klasse.** To lister som må holdes i takt\n  manuelt, kommer i utakt ved første fjerning eller sortering.\n- **Glemme startverdiene i konstruktøren.** `self._solgte = 0` og\n  `self._boker = []` kommer ikke utenfra, men skal likevel settes i `__init__`.\n- **Legge en metode i feil klasse.** Metoden hører hjemme der opplysningene den\n  endrer, bor. Ellers må den røre `annet_objekt._x` — feilkode **#11**.\n- **Velge feil samlingstype.** «Finne på navn» betyr ordbok; «gå gjennom alle»\n  betyr liste. Feil valg gjør neste deloppgave unødig vanskelig.\n\nOg én som ikke er kode: **å ikke dokumentere en antakelse** når teksten er\nunderspesifisert. Én kommentarlinje er nok, og det er den ene legitime bruken av\nkommentarer i en besvarelse."
+  },
+  {
+   "id": "in1000-6-1-coll-24",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-6-1-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `class Navn:` | Én klasse per «ting med egenskaper» i spesifikasjonen. Stor forbokstav. |\n| `def __init__(self, a, b):` | Parameterne er de egenskapene som kommer utenfra. |\n| `self._x = a` | Egenskap fra teksten. **Alt** objektet skal huske, settes her. |\n| `self._x = 0` / `False` | Startverdi som ikke kommer utenfra — «starter på null», «er ikke utlånt». |\n| `self._eier = objekt` | **Én-til-én.** Instansvariabelen peker på ett annet objekt. |\n| `self._elementer = []` | **Én-til-mange** som liste. Når du bare skal gå gjennom alle. |\n| `self._elementer = {}` | **Én-til-mange** som ordbok. Når noe skal slås opp på navn eller kode. |\n| `def metode(self, a):` | Én metode per «kan gjøre»-setning. `self` alltid først. |\n| `def hent_x(self):` | Aksessor. Skrives for de verdiene oppgaven faktisk trenger utenfra. |\n| `def sett_x(self, ny):` | Mutator. Skrives bare der noe faktisk skal kunne endres. |\n| `self._d[obj.hent_navn()] = obj` | Innsetting med objektets **egen** aksessor som nøkkel. |\n| `if navn in self._d:` `return self._d[navn]` `return None` | Standard oppslagsmetode. |\n| `for e in self._elementer:` `print(e)` | Delegering: hvert underobjekt viser seg selv. |\n| `self.annen_metode()` | En metode kaller en annen på samme objekt — slipper å gjenta et regnestykke. |\n| `# forutsetter at …` | Dokumentert antakelse. Den ene legitime kommentaren i en besvarelse. |\n\n**Det som avgjør poeng i Oppgave 4:** at klassevalget stemmer med teksten, at\nalle instansvariabler settes i `__init__`, og at multiplisiteten er lest riktig\nav ordene «en» og «flere»."
+    }
+   ]
+  },
+  {
+   "id": "in1000-6-1-25",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-6-1-26",
+   "type": "definition",
+   "title": "Spesifikasjon",
+   "content": "Den tekstlige beskrivelsen Oppgave 4 starter med — noen få avsnitt som forteller\nhvilke ting som finnes, hva de har, og hva de kan gjøre.\n\nDen ser ut som løpende tekst, men er en oppskrift. Substantivene gir klassene,\negenskapene gir instansvariablene, «kan gjøre»-setningene gir metodene.\n\nLes den to ganger før du skriver noe. Første gang for å forstå domenet, andre\ngang med blyant for å stryke under."
+  },
+  {
+   "id": "in1000-6-1-27",
+   "type": "definition",
+   "title": "Modellering",
+   "content": "Å komme fra spesifikasjonen til et klasseoppsett: hvilke klasser, hva hver av dem\nhusker, hva de kan gjøre, og hvordan de er knyttet sammen.\n\nDet er det første steget i Oppgave 4, og det avgjør de seks–sju deloppgavene\nunder. Bommer du her, drar feilen med seg alt.\n\nSteget tar tre–fire minutter og er verdt poeng i seg selv — selv om du ikke\nrekker å fylle inn alle metodekroppene."
+  },
+  {
+   "id": "in1000-6-1-28",
+   "type": "definition",
+   "title": "Substantivregelen",
+   "content": "Hvert substantiv som er en **ting med egne egenskaper**, blir en klasse.\n\n*Bok* har tittel og forfatter — en ting. *Tittel* har ingen egenskaper — en\negenskap.\n\nTommelfingerregelen: kan du tenke deg **flere** av den, og har hver av dem sine\negne opplysninger, er det en klasse. Eksamensoppgavene har typisk tre til fem."
+  },
+  {
+   "id": "in1000-6-1-29",
+   "type": "definition",
+   "title": "«Kan gjøre»-regelen",
+   "content": "Hver setning i spesifikasjonen som sier at noe **kan** gjøres, blir en metode.\n\n«En bok kan lånes ut» gir `laan_ut(self)`. «Klubben kan finne et spill på tittel»\ngir `finn_spill(self, tittel)`.\n\nTrenger metoden en verdi utenfra, blir den en parameter. Metodenavn skrives med\nsmå bokstaver, gjerne som verb, på norsk uten æ, ø og å."
+  },
+  {
+   "id": "in1000-6-1-30",
+   "type": "definition",
+   "title": "Hvor en metode hører hjemme",
+   "content": "I den klassen som **eier opplysningene metoden endrer**.\n\nUtlånsstatusen bor i `Bok`, så `laan_ut` hører hjemme der. Legger du den i\n`Bibliotek`, må den røre `bok._utlaant` direkte — feilkode **#11**.\n\nSpør «hvem sine tall er dette?», så plasserer metoden seg selv. Det er den\nenkleste av alle modelleringsreglene, og den som oftest avgjør et\nplasseringsspørsmål."
+  },
+  {
+   "id": "in1000-6-1-31",
+   "type": "definition",
+   "title": "Skjelett",
+   "content": "Klassene med instansvariabler og metodesignaturer, uten ferdige kropper.\n\nSkriv det først, hver gang. Da ser du hele modellen før du bruker tid på\ndetaljer, og du har allerede sikret poengene for strukturen.\n\nPå kladdepapiret holder klassenavn, en strek under, og metodenavnene i en liste.\nDet tar ett minutt."
+  },
+  {
+   "id": "in1000-6-1-32",
+   "type": "definition",
+   "title": "Multiplisitet",
+   "content": "Hvor mange objekter av den ene klassen hvert objekt av den andre er knyttet til.\n\n**Én-til-én:** `self._eier = person` — ett objekt.\n**Én-til-mange:** `self._boker = []` eller `{}` — en samling.\n\nOrdene avgjør: «hver konto har **en** eier» mot «senteret har **flere** saler».\nLes den setningen to ganger."
+  },
+  {
+   "id": "in1000-6-1-33",
+   "type": "definition",
+   "title": "Liste eller ordbok",
+   "content": "Ett spørsmål: **skal noe slås opp på et navn eller en kode?**\n\nJa: ordbok, med navnet som nøkkel og objektet som verdi. Nei: liste.\n\nI tvil, velg liste. Å lete gjennom en liste med en løkke er alltid mulig og gir\nuttelling; ordboka er bare ryddigere når oppslaget er hovedjobben."
+  },
+  {
+   "id": "in1000-6-1-34",
+   "type": "definition",
+   "title": "Objektreferanse i samlingen",
+   "content": "Samlingen holder **objektene**, ikke opplysninger om dem:\n`self._boker.append(bok)`, ikke `self._boker.append(bok.hent_tittel())`.\n\nLagrer du rådata, mister du metodene, og alle senere deloppgaver — «skriv ut\nalle», «finn den beste», «lån ut» — faller sammen.\n\nDet er den dyreste enkeltbeslutningen i hele Oppgave 4."
+  },
+  {
+   "id": "in1000-6-1-35",
+   "type": "definition",
+   "title": "Parallelle lister",
+   "content": "Anti-mønsteret: to lister som holder opplysninger om det samme, og som må holdes\ni takt manuelt.\n\n`self._titler` og `self._forfattere` virker helt til noen fjerner ett element fra\nden ene. Da påstår programmet at feil forfatter skrev boka — uten en eneste\nfeilmelding.\n\nLøsningen er alltid den samme: én klasse som holder begge opplysningene, og én\nliste av **de** objektene."
+  },
+  {
+   "id": "in1000-6-1-36",
+   "type": "definition",
+   "title": "Startverdi i konstruktøren",
+   "content": "En instansvariabel som ikke kommer utenfra: `self._solgte = 0`,\n`self._utlaant = False`, `self._boker = []`.\n\nKjenn dem igjen i teksten på «starter på null», «er ikke utlånt når den\nregistreres» og «har ingen … til å begynne med».\n\nDe er det som oftest glemmes, og de er et selvstendig poeng. Uten dem finnes ikke\nvariabelen, og første metode som leter etter den, stopper programmet."
+  },
+  {
+   "id": "in1000-6-1-37",
+   "type": "definition",
+   "title": "Rimelig antakelse",
+   "content": "Eksamensoppgavene er ofte underspesifiserte med vilje, og egne rimelige\nforutsetninger er uttrykkelig tillatt.\n\nDokumentér dem med **én kommentarlinje** der valget tas:\n`# forutsetter at et stativ ikke kan ha null plasser`.\n\nTypiske ting å dokumentere: hva som skjer ved en manglende nøkkel, om en verdi\nkan være negativ, og om en klasse teksten så vidt nevner, er tatt med."
+  },
+  {
+   "id": "in1000-6-1-38",
+   "type": "definition",
+   "title": "Kommentarer i en besvarelse",
+   "content": "Boka skriver ingen kommentarer, med **ett** unntak: den dokumenterte antakelsen.\n\nIngen kommentarer som gjentar hva koden gjør, ingen overskrifter, ingen\nseksjonsstreker. De tar plass og gir ingen uttelling.\n\nVelskrevne metodenavn gjør jobben bedre enn en kommentar: `hent_ledige()` sier\nmer enn `# regner ut ledige plasser`."
+  },
+  {
+   "id": "in1000-6-1-39",
+   "type": "definition",
+   "title": "Klasser i egne filer",
+   "content": "I et virkelig program bor hver klasse i sin egen fil, og filene hentes inn med en\nlinje øverst i programmet.\n\nDenne boka skriver alle klassene i samme blokk, slik at hvert eksempel kan kjøres\nnøyaktig som det står.\n\nPå eksamen teller ingen filer. Nevner oppgaveteksten filstrukturen, skriv en\nkommentar om at hver klasse hører hjemme i sin egen fil."
+  },
+  {
+   "id": "in1000-6-1-40",
+   "type": "definition",
+   "title": "Delkarakter per deloppgave",
+   "content": "Oppgave 4 er delt i seks–sju deloppgaver, og hver av dem rettes for seg.\n\nKonsekvensen er taktisk: **stå aldri fast.** Får du ikke til c), hopp til d) —\nden rettes uansett.\n\nOg du kan **bruke en metode oppgaveteksten beskriver** selv om du ikke har rukket\nå skrive den. Sier teksten at klassen har `hent_ledige()`, kall den."
+  },
+  {
+   "id": "in1000-6-1-41",
+   "type": "definition",
+   "title": "Riktig struktur belønnes",
+   "content": "En løkke med en indeksfeil, en glemt aksessor eller en litt klønete betingelse\ntrekker lite når modellen er riktig.\n\nDet motsatte gjelder også: perfekt skrevne metoder på en gal modell hjelper ikke,\nfordi feilen gjentar seg i hver deloppgave.\n\nBruk derfor de første minuttene på modellen, ikke på å pusse den første\nmetodekroppen."
+  },
+  {
+   "id": "in1000-6-1-42",
+   "type": "definition",
+   "title": "Å velge hvilke aksessorer som trengs",
+   "content": "Skriv dem oppgaven faktisk bruker, ikke alle mulige.\n\nEn ytterklasse som setter inn i en ordbok, trenger elementets `hent_navn()`. En\nutskriftsmetode som delegerer, trenger ingen aksessor i det hele tatt.\n\nEn klasse med åtte unødvendige sett-metoder er dårligere enn en med to\nnødvendige: hver overflødig mutator åpner et hull i kontrollen."
+  },
+  {
+   "id": "in1000-6-1-43",
+   "type": "definition",
+   "title": "Aksessor som regner ut",
+   "content": "En aksessor trenger ikke å returnere en lagret verdi — den kan regne den ut:\n`return self._kapasitet - len(self._paameldte)`.\n\nFor den som bruker klassen, er det ingen forskjell, og det er poenget.\nGrensesnittet lover et tall, ikke en bestemt lagringsmåte.\n\nÅ regne ut i stedet for å lagre er dessuten tryggere: verdien kan aldri komme i\nutakt med de tallene den bygger på."
+  },
+  {
+   "id": "in1000-6-1-44",
+   "type": "definition",
+   "title": "Tre til fem klasser",
+   "content": "Størrelsen på en typisk Oppgave 4.\n\nHar du funnet **to**, har du sannsynligvis slått sammen noe — se etter en «boks»\nsom er blitt til to instansvariabler i stedet for en klasse.\n\nHar du funnet **åtte**, har du gjort egenskaper om til klasser. En `Tittel`-klasse\nmed bare en tekst i seg er ren støy."
+  },
+  {
+   "id": "in1000-6-1-45",
+   "type": "definition",
+   "title": "Rekkefølgen du skriver i",
+   "content": "Modell, skjelett, kropper — i den rekkefølgen.\n\nModellen er tre–fire minutter med blyant. Skjelettet er ett minutt til. Først da\nbegynner du å skrive kode, og da vet du hvor hver metode hører hjemme.\n\nMotsatt rekkefølge — å skrive ferdig kode på den første klassen med én gang — er\nden vanligste tidsfellen i hele eksamen."
+  },
+  {
+   "id": "in1000-6-1-coll-46",
+   "type": "collapsible",
+   "title": "Repetisjon — de åtte setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-6-1-c2",
+     "type": "text",
+     "content": "1. **Spesifikasjonen er en oppskrift.** Substantiv gir klasser, egenskaper gir\n   instansvariabler, «kan gjøre» gir metoder.\n2. **Én klasse per «ting med egne egenskaper».** Typisk tre til fem. Slår du\n   sammen to, faller alle «flere»-deloppgaver.\n3. **Alt objektet skal huske, settes i `__init__`** — også startverdiene som ikke\n   kommer utenfra.\n4. **En metode hører hjemme der opplysningene den endrer, bor.** Spør «hvem sine\n   tall er dette?».\n5. **Multiplisiteten leses av ordene:** «en» gir ett objekt, «flere» og «en\n   samling» gir en liste eller ordbok.\n6. **Ordbok når noe skal slås opp på navn**, liste ellers. I tvil: liste.\n7. **Samlingen holder objektreferanser, ikke rådata.** Parallelle lister er alltid\n   feil.\n8. **Skjelett før kropper**, og **dokumentér antakelser i én kommentarlinje**."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

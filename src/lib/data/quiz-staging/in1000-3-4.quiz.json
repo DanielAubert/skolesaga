@@ -1,0 +1,242 @@
+[
+  {
+    "question": "Oppgaven sier: «returner en ordbok fra hvert dyr til hvor mange ganger det forekommer». Hvilket mønster ber den om?",
+    "options": [
+      "Ordbok som teller",
+      "Grupperings-idiomet med en liste per nøkkel",
+      "Finn beste med to variabler før løkka",
+      "Flagg med tidlig retur inne i løkka"
+    ],
+    "explanation": "«Hvor mange ganger hver» er signalordet for teller-idiomet: `if k not in d: d[k] = 0` og deretter `d[k] = d[k] + 1`. Gruppering ville gitt navnene, ikke antallet."
+  },
+  {
+    "question": "Oppgaven sier: «samle alle navnene som hører til hver forbokstav». Hvilket mønster ber den om?",
+    "options": [
+      "Grupperings-idiomet",
+      "Ordbok som teller med startverdi 0",
+      "Bygg en ny liste med `append`",
+      "Akkumulator med `total = total + x`"
+    ],
+    "explanation": "«Samle alle per» ber om **innholdet**, ikke antallet, så startverdien er `[]` og oppdateringen er `append`. Teller-idiomet ville gitt `{'A': 2}` i stedet for `{'A': ['Ada', 'Ask']}`."
+  },
+  {
+    "question": "Oppgaven sier: «returner True hvis alle målingene er positive». Hvor skal `return True` stå?",
+    "options": [
+      "Etter løkka, med samme innrykk som `for`",
+      "Inne i løkka, i `if`-grenen",
+      "Inne i løkka, i `else`-grenen",
+      "På linja rett før løkka starter"
+    ],
+    "explanation": "Svaret «alle» krever at hele samlingen er sett, så det hører etter løkka. Står det inne, avgjør det første elementet hele svaret — det er feilkode #7."
+  },
+  {
+    "question": "Hva er startverdien når funksjonen skal returnere en ny tekst?",
+    "options": [
+      "Den tomme teksten `\"\"`",
+      "Den tomme lista `[]`",
+      "Den tomme ordboka `{}`",
+      "Verdien `None`"
+    ],
+    "explanation": "Første steg i oppskriften er å lese hva som skal returneres. En tekst gir `\"\"`, en liste gir `[]`, en ordbok gir `{}`. Deretter er skjelettet identisk."
+  },
+  {
+    "question": "Oppgaven sier: «returner måneden med flest regndager». Hva må du holde styr på inne i løkka?",
+    "options": [
+      "Både den beste nøkkelen og den beste verdien",
+      "Bare den beste nøkkelen, siden det er den som returneres",
+      "Bare den beste verdien, som slås opp igjen til slutt",
+      "En teller for hvor mange ganger betingelsen slo til"
+    ],
+    "explanation": "Oppdaterer du bare `beste`, står `beste_antall` på 0 hele veien, og alt er større enn 0. Da blir svaret den siste nøkkelen i stedet for den største."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef f(tallene):\n    total = 0\n    for t in tallene:\n        total = total + t\n    return total\nprint(f([45, 30]), f([]))\n```",
+    "options": [
+      "75 0",
+      "75 None",
+      "75",
+      "0 0"
+    ],
+    "explanation": "Akkumulatoren returnerer startverdien når lista er tom, fordi løkka kjører null runder. `None` ville krevd at funksjonen manglet `return`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef alle_tomme(stativene):\n    for a in stativene:\n        if a != 0:\n            return False\n    return True\nprint(alle_tomme([0, 2]), alle_tomme([]))\n```",
+    "options": [
+      "False True",
+      "False False",
+      "True True",
+      "True False"
+    ],
+    "explanation": "Flagg med tidlig retur svarer `False` ved første moteksempel. Over en tom liste kjører løkka aldri, så `return True` etter løkka er det eneste som skjer."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef ny(tallene, grense):\n    ut = []\n    for t in tallene:\n        if t > grense:\n            ut.append(t)\n    return ut\nprint(ny([12, 3, 20], 10))\n```",
+    "options": [
+      "[12, 20]",
+      "[3]",
+      "[12, 3, 20]",
+      "[20]"
+    ],
+    "explanation": "Bygg-mønsteret tar med bare de elementene som oppfyller betingelsen, i original rekkefølge. `[3]` er svaret hvis betingelsen snus."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef snitt(tallene):\n    total = 0\n    for t in tallene:\n        total = total + t\n    return total / len(tallene)\nprint(snitt([4, 5, 6]))\n```",
+    "options": [
+      "5.0",
+      "5",
+      "15",
+      "5.00"
+    ],
+    "explanation": "Vanlig divisjon med `/` gir alltid desimaltall, også når regnestykket går opp. I et auto-rettet svarfelt er `5` galt."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef tell(varene):\n    d = {}\n    for v in varene:\n        if v not in d:\n            d[v] = 0\n        d[v] = d[v] + 1\n    return d\nprint(tell([\"glass\", \"plast\", \"glass\"]))\n```",
+    "options": [
+      "{'glass': 2, 'plast': 1}",
+      "{'plast': 1, 'glass': 2}",
+      "{'glass': 1, 'plast': 1}",
+      "{'glass': 3, 'plast': 3}"
+    ],
+    "explanation": "Nøkkelrekkefølgen er den nøklene ble **opprettet** i, og `glass` kom først. At `glass` også har høyest antall, endrer ikke plasseringen — ordboka sorterer ikke."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef grupper(navnene):\n    d = {}\n    for n in navnene:\n        b = n[0]\n        if b not in d:\n            d[b] = []\n        d[b].append(n)\n    return d\nprint(grupper([\"Ada\", \"Bo\", \"Ask\"]))\n```",
+    "options": [
+      "{'A': ['Ada', 'Ask'], 'B': ['Bo']}",
+      "{'A': 2, 'B': 1}",
+      "{'A': ['Ada'], 'B': ['Bo'], 'A': ['Ask']}",
+      "{'Ada': ['A'], 'Bo': ['B']}"
+    ],
+    "explanation": "Grupperings-idiomet gir en liste per nøkkel. `{'A': 2}` er hva teller-idiomet ville gitt, og nøkler kan aldri gjenta seg i en ordbok."
+  },
+  {
+    "question": "Denne funksjonen har en feil. Hva skriver den ut?\n\n```python\ndef best(d):\n    beste = None\n    beste_antall = 0\n    for k in d:\n        if d[k] > beste_antall:\n            beste = k\n    return beste\nprint(best({\"mai\": 8, \"juni\": 14, \"juli\": 3}))\n```",
+    "options": [
+      "juli",
+      "juni",
+      "mai",
+      "None"
+    ],
+    "explanation": "`beste_antall` oppdateres aldri, så den står på 0 og alt er større. Betingelsen slår til hver runde, og svaret blir den **siste** nøkkelen. Riktig svar skulle vært `juni`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef fjern(tekst, tegn):\n    ny = \"\"\n    for t in tekst:\n        if t != tegn:\n            ny = ny + t\n    return ny\nprint(fjern(\"bibliotek\", \"b\"))\n```",
+    "options": [
+      "iliotek",
+      "ibliotek",
+      "bibliotek",
+      "bb"
+    ],
+    "explanation": "**Alle** forekomster av `b` fjernes, også den inne i ordet. `ibliotek` er svaret hvis man stopper etter den første, og `bb` er hva du får hvis betingelsen snus til `==`."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef antall(setning, n):\n    a = 0\n    for ord_tekst in setning.split():\n        if len(ord_tekst) > n:\n            a = a + 1\n    return a\nprint(antall(\"buss tog trikk\", 3), antall(\"\", 3))\n```",
+    "options": [
+      "2 0",
+      "3 0",
+      "2 1",
+      "3 None"
+    ],
+    "explanation": "`buss` og `trikk` er lengre enn tre tegn; `tog` er nøyaktig tre og telles ikke, fordi testen er streng. `\"\".split()` gir tom liste, så telleren blir 0."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef lag(a, b):\n    d = {}\n    for i in range(len(a)):\n        d[a[i]] = b[i]\n    return d\nprint(lag([\"mai\", \"juni\"], [8, 14]))\n```",
+    "options": [
+      "{'mai': 8, 'juni': 14}",
+      "{'mai': 'juni', 8: 14}",
+      "{0: 'mai', 1: 'juni'}",
+      "{8: 'mai', 14: 'juni'}"
+    ],
+    "explanation": "Indeksløkka leser de to listene i takt: element `i` i den ene blir nøkkel, element `i` i den andre blir verdi. Det er derfor du trenger plassen her."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nlinje = \"ada;bo\\n\"\nprint(linje.split(\";\")[1] == \"bo\")\n```",
+    "options": [
+      "False",
+      "True",
+      "bo",
+      "en feilmelding"
+    ],
+    "explanation": "Uten `.rstrip()` først henger linjeskiftet igjen i det siste feltet, så sammenligningen svarer usant. Det er feilkode #8, og den gir ingen feilmelding."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef tell_lengder(ordene):\n    d = {}\n    for o in ordene:\n        n = len(o)\n        if n not in d:\n            d[n] = 0\n        d[n] = d[n] + 1\n    return d\nprint(tell_lengder([\"tog\", \"buss\", \"fly\"]))\n```",
+    "options": [
+      "{3: 2, 4: 1}",
+      "{'3': 2, '4': 1}",
+      "{3: 1, 4: 1}",
+      "{'tog': 3, 'buss': 4, 'fly': 3}"
+    ],
+    "explanation": "Nøklene er heltall og vises **uten** anførselstegn. To ord har tre tegn og ett har fire."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ndef store(setning):\n    ny = \"\"\n    for o in setning.split():\n        if len(ny) > 0:\n            ny = ny + \" \"\n        ny = ny + o[0].upper()\n    return ny\nprint(store(\"ada marie berg\"))\n```",
+    "options": [
+      "A M B",
+      "A M B ",
+      "AMB",
+      "Ada Marie Berg"
+    ],
+    "explanation": "Mellomrommet legges til **foran** alle ord unntatt det første, så teksten får ingen etterhengende blank. Bare forbokstaven tas med, ikke resten av ordet."
+  },
+  {
+    "question": "Hva gjør en funksjon som skal returnere den største verdien, hvis den kalles med en tom liste og starter med `beste = tallene[0]`?",
+    "options": [
+      "Programmet stopper med `IndexError`",
+      "Funksjonen returnerer `None` av seg selv",
+      "Funksjonen returnerer 0 som startverdi",
+      "Løkka hopper over, og funksjonen gir en tom liste"
+    ],
+    "explanation": "Indeks 0 finnes ikke i en tom liste. Løsningen er en tomsjekk øverst — det er feilkode #6, og den rammer også `total / len(tallene)`."
+  },
+  {
+    "question": "Hvorfor skal «tell opp» og «finn beste» skrives som to funksjoner i stedet for én?",
+    "options": [
+      "Fordi de rettes hver for seg og gir uttelling uavhengig",
+      "Fordi Python ikke tillater to løkker i samme funksjon",
+      "Fordi en ordbok ikke kan både bygges og leses i samme funksjon",
+      "Fordi finn beste krever at tellingen er sortert først"
+    ],
+    "explanation": "Delkarakter gis per deloppgave, så en telling som virker, gir poeng selv om finn-beste blir feil. På eksamen har du dessuten lov til å kalle en funksjon oppgaveteksten beskriver."
+  },
+  {
+    "question": "Oppgaveteksten sier ingenting om hva som skal skje ved uavgjort. Hva gjør du?",
+    "options": [
+      "Velger en regel og skriver én linje kommentar om valget",
+      "Lar funksjonen returnere `None` når det er uavgjort",
+      "Prøver begge og leverer to versjoner av funksjonen",
+      "Hopper over deloppgaven, siden den er underspesifisert"
+    ],
+    "explanation": "Å dokumentere en rimelig forutsetning i en kommentar er den ene legitime bruken av kommentarer i en besvarelse, og det trekker aldri. Med streng `>` vinner den første; med `>=` vinner den siste."
+  },
+  {
+    "question": "Hva er et moteksempel i denne sammenhengen?",
+    "options": [
+      "Ett konkret kall som gir et konkret galt svar",
+      "En forklaring i ord av hvorfor koden er feil",
+      "En rettet versjon av funksjonen som virker",
+      "Et kall som viser at funksjonen virker for vanlige data"
+    ],
+    "explanation": "Sensor ber om ett kall med konkrete verdier og det gale utfallet. Velg data der feilen faktisk slår ut — med den største verdien sist ville en ødelagt finn-beste tilfeldigvis svart riktig."
+  },
+  {
+    "question": "Hvorfor bygger fasiten en **ny** liste i stedet for å endre den som kom inn som parameter?",
+    "options": [
+      "Fordi parameteren er den samme lista som utenfor funksjonen",
+      "Fordi en liste ikke kan endres etter at den er laget",
+      "Fordi `append` bare virker på lister som er laget inne i funksjonen",
+      "Fordi Python lager en kopi av lista ved hvert funksjonskall"
+    ],
+    "explanation": "Lister sendes som referanse, så en endring inne i funksjonen sees også utenfor. Tekster kan derimot ikke endres i det hele tatt — de må alltid bygges på nytt."
+  },
+  {
+    "question": "Hvilken kontroll fanger den vanligste feilen i finn-beste-mønsteret?",
+    "options": [
+      "Tell at `if`-blokken oppdaterer like mange variabler som du satte før løkka",
+      "Sjekk at løkka går over nøklene og ikke over verdiene",
+      "Sjekk at `return` står etter løkka og ikke inne i den",
+      "Sjekk at startverdien er `None` og ikke den tomme teksten"
+    ],
+    "explanation": "To variabler settes før løkka, og begge må oppdateres inne i `if`-en. Kontrollen tar fem sekunder og redder en hel deloppgave på en hjelpemiddelfri eksamen."
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "question": "Hvilke verdier gir `range(4)`?",
+    "options": [
+      "0, 1, 2, 3",
+      "1, 2, 3, 4",
+      "0, 1, 2, 3, 4",
+      "1, 2, 3"
+    ],
+    "explanation": "Rekka begynner på 0 og tar ikke med stoppverdien, så `range(N)` gir nøyaktig N verdier. De tre distraktorene er de tre vanligste av-med-én-variantene."
+  },
+  {
+    "question": "Hvor mange runder kjører `for i in range(2, 6):`?",
+    "options": [
+      "4",
+      "5",
+      "3",
+      "6"
+    ],
+    "explanation": "Antall runder er stoppverdien minus startverdien. `5` er svaret hvis man tror stoppverdien er med, og `6` er selve stoppverdien."
+  },
+  {
+    "question": "Hvor mange runder kjører `for i in range(3, 3):`?",
+    "options": [
+      "0",
+      "1",
+      "3",
+      "2"
+    ],
+    "explanation": "Når start og stopp er like, er rekka tom og blokken kjøres aldri. Det er ikke en feil — en løkke som ikke kjører, skriver bare ingenting."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntotal = 0\nfor i in range(1, 5):\n    total = total + i\nprint(total)\n```",
+    "options": [
+      "10",
+      "15",
+      "6",
+      "4"
+    ],
+    "explanation": "Summen av 1, 2, 3 og 4. `15` er svaret hvis man tar med 5, altså tror stoppverdien er med, og `6` er summen av 1, 2 og 3."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntotal = 0\nfor i in range(4):\n    total = total + i * 2\nprint(total)\n```",
+    "options": [
+      "12",
+      "20",
+      "24",
+      "6"
+    ],
+    "explanation": "Verdiene er 0, 2, 4 og 6, som gir 12. `20` er svaret hvis man tror rekka er 1 til 4, og `24` hvis man tror den er 0 til 4."
+  },
+  {
+    "question": "Hvor står startverdien i akkumulatormønsteret?",
+    "options": [
+      "Før løkka, slik at den ikke nullstilles hver runde",
+      "Inne i løkka, slik at den settes på nytt hver runde",
+      "Etter løkka, rett før resultatet skrives ut",
+      "Startverdien er valgfri og kan sløyfes helt"
+    ],
+    "explanation": "Mønsteret har tre faste steg: startverdi før, oppdatering inne i, bruk etter. Settes startverdien inne i løkka, nullstilles den hver runde og svaret blir bare siste bidrag."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nantall = 0\nfor i in range(1, 11):\n    if i % 3 == 0:\n        antall = antall + 1\nprint(antall)\n```",
+    "options": [
+      "3",
+      "4",
+      "10",
+      "9"
+    ],
+    "explanation": "Tallene 3, 6 og 9 er delelige med 3. `4` er svaret hvis man feilaktig tar med 12 eller teller 0 som delelig, og `10` er antall runder i løkka."
+  },
+  {
+    "question": "Når sjekkes betingelsen i en `while`-løkke?",
+    "options": [
+      "Før hver runde, også aller første gang",
+      "Etter hver runde, så blokken kjører minst én gang",
+      "Bare første gang, og deretter ikke mer",
+      "Både før og etter hver eneste runde"
+    ],
+    "explanation": "Betingelsen sjekkes før, så en `while` kan kjøre null ganger hvis den er usann fra start. Det er også derfor sluttverdien godt kan ligge forbi grensen."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nn = 20\ns = 0\nwhile n > 1:\n    s = s + n\n    n = n // 2\nprint(s, n)\n```",
+    "options": [
+      "37 1",
+      "38 0",
+      "18 1",
+      "37 0"
+    ],
+    "explanation": "Rundene legger til 20, 10, 5 og 2, og `n` ender på 1 fordi betingelsen svikter der. `18 1` er svaret hvis man legger til den halverte verdien i stedet for den gamle."
+  },
+  {
+    "question": "Hva kjennetegner en uendelig løkke?",
+    "options": [
+      "Ingen linje i kroppen gjør betingelsen usann",
+      "Betingelsen inneholder en sammenligning med `>=`",
+      "Løkka mangler kolon på slutten av første linje",
+      "Løkkevariabelen brukes ikke inne i kroppen"
+    ],
+    "explanation": "En `while` stopper bare hvis noe inne i den endrer det betingelsen spør om. Manglende kolon gir en syntaksfeil med en gang, ikke en uendelig løkke."
+  },
+  {
+    "question": "Hvor mange linjer skriver dette ut?\n\n```python\nfor i in range(2):\n    for j in range(3):\n        print(i, j)\n```",
+    "options": [
+      "6 linjer",
+      "5 linjer",
+      "3 linjer",
+      "9 linjer"
+    ],
+    "explanation": "Med faste grenser ganges antallet: to ytre runder ganger tre indre. `5` er svaret hvis man legger sammen i stedet for å gange."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\ntotal = 0\nfor i in range(4):\n    for j in range(i):\n        total = total + 1\nprint(total)\n```",
+    "options": [
+      "6",
+      "16",
+      "10",
+      "12"
+    ],
+    "explanation": "Den indre løkka kjører 0, 1, 2 og 3 ganger, altså 6 til sammen. `16` er svaret hvis man tror begge løkkene kjører fire runder hver."
+  },
+  {
+    "question": "Hvor mange indre runder gir `for j in range(i):` når `i` er 0?",
+    "options": [
+      "0",
+      "1",
+      "Løkka hopper til neste verdi av `i` etter én runde",
+      "Programmet stopper med en feilmelding"
+    ],
+    "explanation": "`range(0)` er tom, så den indre blokken kjøres aldri i den ytre runden. Å tro at den kjører én gang er den vanligste feilen i nøstede sporingsoppgaver."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\na = 1\nb = 2\nfor i in range(3):\n    a = 2 * a + b\n    b = b + 1\nprint(a)\n```",
+    "options": [
+      "26",
+      "33",
+      "20",
+      "14"
+    ],
+    "explanation": "`a` bruker den gamle verdien av `b`, fordi `b` oppdateres på neste linje. `33` er svaret hvis de to linjene bytter plass — samme regnestykke, motsatt rekkefølge."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\na = 1\nb = 2\nfor i in range(3):\n    b = b + 1\n    a = 2 * a + b\nprint(a)\n```",
+    "options": [
+      "33",
+      "26",
+      "23",
+      "17"
+    ],
+    "explanation": "Her økes `b` først, så `a` bruker den nye verdien hver runde. `26` er svaret når linjene står i motsatt rekkefølge."
+  },
+  {
+    "question": "Hva skriver dette ut?\n\n```python\nx = 3\ny = 1\nfor i in range(3):\n    x = x + y\n    y = x - y\nprint(x, y)\n```",
+    "options": [
+      "11 7",
+      "11 4",
+      "7 4",
+      "10 7"
+    ],
+    "explanation": "Andre linje bruker den nye `x`, siden den allerede er oppdatert i samme runde. `11 4` er svaret hvis man regner `y` med den gamle `x`."
+  },
+  {
+    "question": "Hvilke verdier gir `range(0, 10, 3)`?",
+    "options": [
+      "0, 3, 6, 9",
+      "0, 3, 6, 9, 12",
+      "3, 6, 9",
+      "0, 1, 2, 3"
+    ],
+    "explanation": "Rekka begynner på start og hopper tre om gangen, men stopper før den når stoppverdien. `12` ville vært forbi 10, og startverdien er alltid med."
+  },
+  {
+    "question": "Hvilke verdier gir `range(5, 0, -1)`?",
+    "options": [
+      "5, 4, 3, 2, 1",
+      "5, 4, 3, 2, 1, 0",
+      "4, 3, 2, 1, 0",
+      "0, 1, 2, 3, 4"
+    ],
+    "explanation": "Med negativt steg telles det nedover, startverdien er med og stoppverdien er ikke. Derfor kommer aldri 0 med."
+  },
+  {
+    "question": "Hva avgjør om en linje kjøres hver runde i en løkke?",
+    "options": [
+      "Innrykket foran linja",
+      "Rekkefølgen linjene står i",
+      "Om linja inneholder løkkevariabelen",
+      "Om linja står før eller etter `print`"
+    ],
+    "explanation": "Innrykk er betydning i Python, ikke pynt: de innrykkede linjene under `for` utgjør kroppen. Rekkefølgen avgjør noe annet, nemlig hvilken verdi en oppdatering ser."
+  },
+  {
+    "question": "Hva gir `for tegn in \"sol\":` av runder?",
+    "options": [
+      "3, én per tegn",
+      "1, siden strengen er ett element",
+      "4, siden det telles fra 0",
+      "0, siden en tekst ikke kan gjennomløpes"
+    ],
+    "explanation": "En `for`-løkke over en tekst går tegn for tegn, så antall runder er antall tegn. Løkkevariabelen holder ett enkelt tegn om gangen."
+  },
+  {
+    "question": "Hva skjer hvis `print(total)` står inne i løkka i stedet for etter den?",
+    "options": [
+      "Det skrives én linje per runde, med verdien underveis",
+      "Det skrives fortsatt bare én linje, med sluttverdien",
+      "Programmet stopper med en feilmelding om innrykk",
+      "Verdien nullstilles etter hver utskrift"
+    ],
+    "explanation": "Alt som står innrykket under `for`, kjøres hver runde — også en utskrift. Det er ikke en feil i seg selv, men det er sjelden det oppgaven ber om."
+  },
+  {
+    "question": "Hva er antall runder i `range(1, 26)`?",
+    "options": [
+      "25",
+      "26",
+      "24",
+      "27"
+    ],
+    "explanation": "Stoppverdien minus startverdien: 26 minus 1. Det er nettopp derfor man skriver `range(1, 26)` når man vil ha verdiene 1 til og med 25."
+  },
+  {
+    "question": "Hvilken verdi har `n` etter løkka `while n > 1:` som halverer `n` fra 8?",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "Variabelen finnes ikke lenger"
+    ],
+    "explanation": "Løkka avsluttes idet betingelsen svikter, og variabelen beholder den verdien den hadde da. Den går ikke videre til 0, og den forsvinner ikke."
+  },
+  {
+    "question": "Du skal telle hvor mange av tallene fra 1 til 20 som er delelige med 4. Hvilken betingelse hører hjemme inne i løkka?",
+    "options": [
+      "`if i % 4 == 0:`",
+      "`if i // 4 == 0:`",
+      "`if i / 4 == 0:`",
+      "`if i % 4 == 4:`"
+    ],
+    "explanation": "Resten etter divisjon med 4 er null nettopp for de tallene som er delelige med 4. `//` gir antall hele ganger, og en rest kan aldri bli lik deleren."
+  }
+]

@@ -1,0 +1,182 @@
+[
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ny = [[3, 8], [1, 4, 9], [7]]\nprint(len(y), len(y[1]), y[1][2])\n```",
+  "options": [
+   "3 3 9",
+   "6 3 9",
+   "3 3 4",
+   "3 6 9"
+  ],
+  "explanation": "`len` teller alltid ett nivå: ytterlista har tre elementer, og den andre indre lista har tre tall. Totalen på seks tall finnes i ingen av dem."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ny = [[14, 9, 20], [11, 0, 7]]\nprint(y[0][2], y[1][0], y[-1][-1])\n```",
+  "options": [
+   "20 11 7",
+   "20 14 7",
+   "9 11 0",
+   "20 11 11"
+  ],
+  "explanation": "Les indeksene fra venstre: første hakeparentes velger den indre lista. Negativ indeks virker på begge nivåer, så `y[-1][-1]` er siste tall i siste liste."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ny = [[1, 2], [3, 4]]\ntotal = 0\nfor rad in y:\n    for x in rad:\n        total = total + x\nprint(total)\n```",
+  "options": [
+   "10",
+   "7",
+   "4",
+   "2"
+  ],
+  "explanation": "Akkumulatoren står utenfor begge løkkene og summerer alt. `7` er svaret hvis den står mellom løkkene, og `4` hvis den står innerst."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ny = [[1, 2], [3, 4]]\nfor rad in y:\n    mellom = 0\n    for x in rad:\n        mellom = mellom + x\nprint(mellom)\n```",
+  "options": [
+   "7",
+   "10",
+   "4",
+   "3"
+  ],
+  "explanation": "`mellom = 0` står inne i den ytre løkka og nullstilles per indre liste, så den ender på summen av den **siste**: 3 pluss 4."
+ },
+ {
+  "question": "Hva er løkkevariabelen i den ytre løkka når du løper gjennom en nøstet liste?",
+  "options": [
+   "En liste — den indre lista, ikke et enkelt tall.",
+   "Et tall — Python flater ut strukturen og gir deg elementene direkte.",
+   "En indeks — den ytre løkka teller alltid fra 0 og oppover.",
+   "En tekst — den ytre løkka gir navnet på den indre lista."
+  ],
+  "explanation": "`for uke in uker:` gir `[14, 9, 20]` første runde. Å tro at den gir et tall, er den vanligste lesefeilen i en to nivåers løkke."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nuke = {\"mandag\": {\"a\": 14, \"b\": 9}, \"tirsdag\": {\"a\": 20}}\nprint(len(uke), len(uke[\"mandag\"]))\nprint(uke[\"mandag\"][\"b\"])\n```",
+  "options": [
+   "2 2\n9",
+   "3 2\n9",
+   "2 2\n14",
+   "2 3\n9"
+  ],
+  "explanation": "`len(uke)` teller ytternøklene, `len(uke[\"mandag\"])` teller indrenøklene under mandag. Det doble oppslaget leses fra venstre."
+ },
+ {
+  "question": "Hvilke sjekker trengs når du bygger opp en nøstet ordbok?",
+  "options": [
+   "To — først at ytternøkkelen finnes, så at indrenøkkelen finnes.",
+   "Én — det holder å sjekke indrenøkkelen, siden ytternøkkelen opprettes automatisk.",
+   "Ingen — Python oppretter begge nivåene selv ved en tilordning.",
+   "Tre — ytternøkkelen, indrenøkkelen, og at verdien ikke er `None`."
+  ],
+  "explanation": "`d[ytre][indre] = 0` uten `d[ytre] = {}` først stopper med `KeyError` på ytternøkkelen. Det er feilkode #14 i nøstet form."
+ },
+ {
+  "question": "Hvorfor må ytternøkkelen sjekkes før indrenøkkelen?",
+  "options": [
+   "Fordi `if indre not in d[ytre]:` slår opp `d[ytre]` før sjekken rekker å virke.",
+   "Fordi Python leser betingelser fra høyre mot venstre i en `if`-setning.",
+   "Fordi indrenøkler alltid opprettes automatisk når ytternøkkelen finnes.",
+   "Fordi rekkefølgen ikke spiller noen rolle — begge varianter virker like godt."
+  ],
+  "explanation": "På en ytternøkkel som ikke finnes, stopper programmet allerede i oppslaget. Samme regel gjelder i en trygg oppslagsfunksjon: ytre sjekk først."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nd = {}\nfor rad in [[\"a\", \"x\", 1], [\"a\", \"y\", 2], [\"a\", \"x\", 4]]:\n    ytre = rad[0]\n    indre = rad[1]\n    if ytre not in d:\n        d[ytre] = {}\n    if indre not in d[ytre]:\n        d[ytre][indre] = 0\n    d[ytre][indre] = d[ytre][indre] + rad[2]\nprint(d)\n```",
+  "options": [
+   "{'a': {'x': 5, 'y': 2}}",
+   "{'a': {'x': 4, 'y': 2}}",
+   "{'a': {'x': 1, 'y': 2}}",
+   "{'a': {'x': 5}}"
+  ],
+  "explanation": "Den siste raden treffer en nøkkel som allerede finnes på begge nivåer, så verdien akkumuleres: 1 pluss 4. Med `=` i stedet for `+` ville svaret blitt 4."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nuke = {\"mandag\": {\"a\": 3, \"b\": 5}, \"tirsdag\": {\"a\": 7}, \"onsdag\": {\"b\": 2, \"c\": 4}}\nrunder = 0\nfor dag in uke:\n    for akt in uke[dag]:\n        runder = runder + 1\nprint(runder)\n```",
+  "options": [
+   "5",
+   "6",
+   "3",
+   "9"
+  ],
+  "explanation": "Antall runder er **summen** av størrelsene på de indre ordbøkene: 2 pluss 1 pluss 2. Det er ikke et produkt, siden de indre strukturene har ulik størrelse."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nantall = 0\nfor i in range(4):\n    for j in range(i):\n        antall = antall + 1\nprint(antall)\n```",
+  "options": [
+   "6",
+   "10",
+   "16",
+   "4"
+  ],
+  "explanation": "Den indre løkka går 0, 1, 2 og 3 ganger — til sammen 6. `range(0)` gir null runder, og det er den delen folk glemmer."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nantall = 0\nfor i in range(3):\n    for j in range(4):\n        antall = antall + 1\nprint(antall)\n```",
+  "options": [
+   "12",
+   "7",
+   "6",
+   "9"
+  ],
+  "explanation": "Med **faste** grenser ganges antallet: tre ytre runder ganger fire indre. Med varierende grenser må rundene legges sammen i stedet."
+ },
+ {
+  "question": "Hva skjer med `uke[\"tirsdag\"][\"yoga\"]` når tirsdag finnes, men yoga ikke gjør det?",
+  "options": [
+   "Programmet stopper med `KeyError: 'yoga'` — indrenøkkelen mangler.",
+   "Programmet gir `None`, siden Python vet at det indre nivået er tomt.",
+   "Programmet gir `0`, siden tall er standardverdien i en nøstet ordbok.",
+   "Programmet oppretter nøkkelen med en tom verdi og fortsetter."
+  ],
+  "explanation": "Begge nivåer kan mangle, og hver av dem stopper programmet for seg. En trygg oppslagsfunksjon sjekker begge, med ytternøkkelen først."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef hent(d, ytre, indre):\n    if ytre not in d:\n        return 0\n    if indre not in d[ytre]:\n        return 0\n    return d[ytre][indre]\n\nuke = {\"mandag\": {\"a\": 14}}\nprint(hent(uke, \"mandag\", \"a\"), hent(uke, \"mandag\", \"b\"), hent(uke, \"fredag\", \"a\"))\n```",
+  "options": [
+   "14 0 0",
+   "14 0 14",
+   "0 0 0",
+   "14 14 0"
+  ],
+  "explanation": "Begge de manglende oppslagene fanges av hver sin sjekk og gir `0`. Uten sjekkene ville programmet stoppet med `KeyError` på hvert av dem."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nuke = {\"mandag\": {\"a\": 3, \"b\": 5}, \"tirsdag\": {\"a\": 7}}\nut = {}\nfor dag in uke:\n    for akt in uke[dag]:\n        if akt not in ut:\n            ut[akt] = 0\n        ut[akt] = ut[akt] + uke[dag][akt]\nprint(ut)\n```",
+  "options": [
+   "{'a': 10, 'b': 5}",
+   "{'a': 7, 'b': 5}",
+   "{'a': 3, 'b': 5}",
+   "{'mandag': 8, 'tirsdag': 7}"
+  ],
+  "explanation": "Strukturen flates ut: dagene summeres bort, og resultatet er en **vanlig** ordbok fra aktivitet til totalt antall. Nøkkelen `a` finnes på begge dager."
+ },
+ {
+  "question": "Hvor skal akkumulatoren stå hvis du skal ha én sum per indre liste?",
+  "options": [
+   "Inne i den ytre løkka, slik at den nullstilles for hver indre liste.",
+   "Utenfor begge løkkene, slik at den samler opp alle listene til én sum.",
+   "Innerst i den indre løkka, slik at den oppdateres for hvert element.",
+   "Etter begge løkkene, slik at den regnes ut når alt er gjennomgått."
+  ],
+  "explanation": "Tre plasseringer gir tre helt ulike svar. Å velge riktig er et selvstendig poeng i sjanger G — og å se hvilken koden har, er ofte hele sporingsoppgaven."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\ndef alle_over(data, grense):\n    for rad in data:\n        s = 0\n        for x in rad:\n            s = s + x\n        if s <= grense:\n            return False\n    return True\n\ndata = [[3, 5, 2], [7, 1], [4, 4]]\nprint(alle_over(data, 5), alle_over(data, 8))\n```",
+  "options": [
+   "True False",
+   "False True",
+   "True True",
+   "False False"
+  ],
+  "explanation": "Summene er 10, 8 og 8. Alle er over 5, men ikke alle er over 8 — `8 <= 8` er sann. En «alle»-sjekk returnerer `False` inne i løkka og `True` etter."
+ },
+ {
+  "question": "Når passer en nøstet liste bedre enn en nøstet ordbok?",
+  "options": [
+   "Når posisjonen betyr noe — «rad 0 er spiller 1» — og inndelingene ikke har navn.",
+   "Når det er flere enn ti elementer, siden ordbøker blir trege over den grensen.",
+   "Når verdiene er tall, siden ordbøker bare kan holde tekster som verdier.",
+   "Alltid — en nøstet ordbok kan ikke gås gjennom med en to nivåers løkke."
+  ],
+  "explanation": "Ordboka slås opp med navn og passer når inndelingene heter noe: «mandag», «spinning». Oppgaveteksten sier som regel hvilken av dem den vil ha."
+ }
+]

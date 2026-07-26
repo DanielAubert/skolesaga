@@ -1,0 +1,162 @@
+[
+ {
+  "question": "Hva er steg 0 i oppskriften for fil-deloppgaven?",
+  "options": [
+   "Å skrive av eksempellinjen fra oppgaveteksten og markere skilletegnet og hvilket felt som er hva.",
+   "Å åpne fila og skrive ut den første linja, slik at du ser hva den inneholder.",
+   "Å bestemme hvilke klasser oppgaven trenger, før du ser på dataformatet.",
+   "Å skrive løkka først, og fylle inn skilletegnet når du kommer til delingen."
+  ],
+  "explanation": "Eksamen er hjelpemiddelfri, så du kan ikke kjøre koden for å se hva fila inneholder. To minutter på kladden sparer deg for begge halvdelene av feilkode #8."
+ },
+ {
+  "question": "Hvilke fire ting varierer mellom fil-deloppgavene i settene?",
+  "options": [
+   "Skilletegnet, om fila har en overskriftslinje, hvilke felt som er tall, og liste mot ordbok.",
+   "Antall linjer i fila, filnavnet, klassenavnet, og hvor mange metoder klassen har.",
+   "Programmeringsspråket, filendelsen, tegnsettet, og hvor fila ligger på maskinen.",
+   "Om løkka er en `while` eller en `for`, og om `close` står før eller etter løkka."
+  ],
+  "explanation": "Alt annet i de åtte stegene er identisk hver gang. Domenet varierer også — medlemsregister, varelager, timeplan — men det er bare kulisser."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nlinjer = [\"skrue,120,4\\n\", \"mutter,80,2\\n\"]\nut = []\nfor linje in linjer:\n    felt = linje.rstrip().split(\",\")\n    ut.append(felt[0])\nprint(ut, len(ut))\n```",
+  "options": [
+   "['skrue', 'mutter'] 2",
+   "['skrue'] 1",
+   "['skrue,120,4', 'mutter,80,2'] 2",
+   "['120', '80'] 2"
+  ],
+  "explanation": "Lista opprettes før løkka og fylles inne i den, så begge navnene kommer med. `['skrue'] 1` er svaret hvis `return` eller lista hadde ligget feil i forhold til løkka."
+ },
+ {
+  "question": "Hvor skal `self._varer = {}` stå i en klasse som leser en fil?",
+  "options": [
+   "I konstruktøren — innlesingsmetoden fyller den, men oppretter den ikke.",
+   "Øverst i innlesingsmetoden, slik at den nullstilles for hver ny fil som leses.",
+   "Inne i innlesingsløkka, slik at hver linje får en frisk ordbok å legge seg i.",
+   "Utenfor klassen, som en global variabel begge metodene kan bruke."
+  ],
+  "explanation": "Oppretter du den inne i løkka, nullstilles den hver runde. Skriver du `varer = {}` uten `self.` i metoden, blir den lokal og forsvinner — feilkode #1."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_antall(self):\n        return self._antall\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._antall)\n\nlinjer = [\"skrue,120\\n\", \"mutter,80\\n\"]\nd = {}\nfor linje in linjer:\n    felt = linje.rstrip().split(\",\")\n    v = Vare(felt[0], int(felt[1]))\n    d[v.hent_navn()] = v\nprint(d[\"skrue\"], len(d))\n```",
+  "options": [
+   "skrue x120 2",
+   "skrue x120 1",
+   "skrue 120 2",
+   "Vare x120 2"
+  ],
+  "explanation": "Nøkkelen hentes med objektets egen aksessor, og `print` kaller varens `__str__`. Å skrive `v._navn` i stedet ville vært feilkode #11."
+ },
+ {
+  "question": "Hvorfor skal en ordbok fra fil holde objektreferanser og ikke rådata?",
+  "options": [
+   "Fordi du ellers mister tilgangen til objektets metoder, og alle senere deloppgaver blir vanskeligere.",
+   "Fordi en ordbok bare kan ha objekter som verdier, aldri tekster eller tall.",
+   "Fordi rådata tar mer plass i minnet enn en referanse til det samme objektet.",
+   "Fordi nøkkelen ellers ikke kan hentes med objektets egen aksessormetode."
+  ],
+  "explanation": "Fil-deloppgaven kommer først i Oppgave 4 nettopp fordi resten bygger på den. Lagrer du `d[navn] = felt[1]`, faller «finn den dyreste» og «skriv ut alle» sammen."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nlinjer = [\"R31;12\\n\", \"R48;5\\n\", \"R31;8\\n\"]\nd = {}\nfor linje in linjer:\n    felt = linje.rstrip().split(\";\")\n    d[felt[0]] = int(felt[1])\nprint(d)\n```",
+  "options": [
+   "{'R31': 8, 'R48': 5}",
+   "{'R31': 20, 'R48': 5}",
+   "{'R31': 12, 'R48': 5}",
+   "{'R31': 8, 'R48': 5, 'R31': 8}"
+  ],
+  "explanation": "Den tredje linja bruker en nøkkel som allerede finnes, og `=` **overskriver** i stedet for å legge til. Skal verdiene summeres, må teller-idiomet brukes."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nlinjer = [\"R31;12\\n\", \"R48;5\\n\", \"R31;8\\n\"]\nd = {}\nfor linje in linjer:\n    felt = linje.rstrip().split(\";\")\n    k = felt[0]\n    if k not in d:\n        d[k] = 0\n    d[k] = d[k] + int(felt[1])\nprint(d)\n```",
+  "options": [
+   "{'R31': 20, 'R48': 5}",
+   "{'R31': 8, 'R48': 5}",
+   "{'R31': 12, 'R48': 5}",
+   "{'R48': 5, 'R31': 20}"
+  ],
+  "explanation": "Teller-idiomet akkumulerer på samme nøkkel. Uten `if k not in d:`-sjekken ville programmet stoppet med `KeyError` på første linje — feilkode #14."
+ },
+ {
+  "question": "Når skal samlingen fra fila være en ordbok og ikke en liste?",
+  "options": [
+   "Når noe skal slås opp på et navn eller en kode senere i oppgaven.",
+   "Når fila har mer enn to felt per linje, slik at feltene kan navngis.",
+   "Når fila har en overskriftslinje, siden headeren gir nøklene til ordboka.",
+   "Når objektene skal skrives ut i en bestemt rekkefølge til slutt."
+  ],
+  "explanation": "Oppgaveteksten sier det som regel rett ut: «returner en ordbok fra navn til objekt» eller «returner en liste av objekter». Skal du bare gå gjennom alle, er lista enklere."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nlinjer = [\"mandag A12 24\\n\", \"tirsdag B03 18\\n\"]\nd = {}\nfor linje in linjer:\n    felt = linje.rstrip().split()\n    d[felt[0]] = int(felt[2])\nprint(d, len(d))\n```",
+  "options": [
+   "{'mandag': 24, 'tirsdag': 18} 2",
+   "{'mandag': 'A12', 'tirsdag': 'B03'} 2",
+   "{'mandag': 24, 'tirsdag': 18} 3",
+   "{'A12': 24, 'B03': 18} 2"
+  ],
+  "explanation": "Mellomrom som skilletegn betyr `.split()` uten argument, og indeksene teller fra 0. Rommet i `felt[1]` brukes ikke her — oppgaven ba om dag til antall."
+ },
+ {
+  "question": "En metode `les_fra_fil(self, filnavn)` skriver `varer = {}` øverst og fyller den. Hva blir resultatet?",
+  "options": [
+   "Objektets egen ordbok forblir tom, og alt som ble lest, forsvinner når metoden er ferdig.",
+   "Objektets ordbok blir fylt, siden `varer` og `self._varer` viser til det samme.",
+   "Programmet stopper med en feilmelding om at `varer` ikke er definert i klassen.",
+   "Ordboka blir fylt, men bare med den siste linja i fila, siden den nullstilles."
+  ],
+  "explanation": "Det er feilkode #1, `self`-fella, i en metode. Feilen er stum: programmet kjører rolig, og først en senere `len(self._varer)` avslører at svaret er 0."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nlinjer = [\"Ada:12:3\\n\", \"Nora:9:5\\n\", \"Per:15:1\\n\"]\nbeste = None\nbeste_poeng = 0\nfor linje in linjer:\n    felt = linje.rstrip().split(\":\")\n    poeng = int(felt[1]) - int(felt[2])\n    if poeng > beste_poeng:\n        beste = felt[0]\n        beste_poeng = poeng\nprint(beste, beste_poeng)\n```",
+  "options": [
+   "Per 14",
+   "Ada 9",
+   "Nora 4",
+   "Per 15"
+  ],
+  "explanation": "Poengene er 9, 4 og 14, og både `beste` og `beste_poeng` oppdateres sammen inne i samme `if`. `Ada 9` er svaret hvis man tror den første som slår grensen, blir stående."
+ },
+ {
+  "question": "Hva er galt med å oppdatere bare `beste` og ikke `beste_verdi` i en finn-beste-løkke?",
+  "options": [
+   "Da finner løkka det siste elementet over grensen, i stedet for det største.",
+   "Da stopper programmet, fordi `beste_verdi` aldri får noen verdi å sammenligne med.",
+   "Da finner løkka alltid det første elementet, siden grensen aldri flyttes oppover.",
+   "Da blir resultatet riktig uansett, men koden er unødvendig vanskelig å lese."
+  ],
+  "explanation": "De to variablene hører sammen og oppdateres inne i samme `if`. `beste = None` før løkka er dessuten det ærlige svaret på en tom samling."
+ },
+ {
+  "question": "Fila har en overskriftslinje, men du glemmer å hoppe over den. Hva skjer typisk?",
+  "options": [
+   "Programmet stopper med `ValueError`, med selve ordet fra overskriften i feilmeldingen.",
+   "Programmet kjører, men det første objektet får overskriftsordene som verdier.",
+   "Programmet stopper med `IndexError`, fordi overskriften har færre felt enn datalinjene.",
+   "Ingenting — Python kjenner igjen overskriftslinjer og hopper over dem selv."
+  ],
+  "explanation": "`int(\"alder\")` gir `invalid literal for int() with base 10: 'alder'`. Ser du et overskriftsord i en slik melding, vet du med én gang hva som mangler."
+ },
+ {
+  "question": "Hva skriver dette ut?\n\n```python\nclass Vare:\n    def __init__(self, navn, antall):\n        self._navn = navn\n        self._antall = antall\n\n    def hent_navn(self):\n        return self._navn\n\n    def hent_antall(self):\n        return self._antall\n\n    def __str__(self):\n        return self._navn + \" x\" + str(self._antall)\n\nclass Lager:\n    def __init__(self):\n        self._varer = []\n\n    def legg_til(self, v):\n        self._varer.append(v)\n\n    def totalt_antall(self):\n        sum_a = 0\n        for v in self._varer:\n            sum_a = sum_a + v.hent_antall()\n        return sum_a\n\nlager = Lager()\nlager.legg_til(Vare(\"skrue\", 120))\nlager.legg_til(Vare(\"bolt\", 45))\nprint(lager.totalt_antall())\n```",
+  "options": [
+   "165",
+   "120",
+   "45",
+   "2"
+  ],
+  "explanation": "Akkumulatoren settes til 0 før løkka, legger til én metodeverdi per runde, og returneres etter. `2` er svaret hvis man forveksler summen med antall elementer."
+ },
+ {
+  "question": "Hvorfor heter containerens metode `totalt_antall` og ikke `antall`, når elementet har `antall()`?",
+  "options": [
+   "Fordi en metode som heter det samme som den kaller, ser ut som om den kaller seg selv.",
+   "Fordi Python ikke tillater to metoder med samme navn i det samme programmet.",
+   "Fordi containeren alltid må ha et lengre metodenavn enn elementene den holder.",
+   "Fordi `antall` er et reservert ord som ikke kan brukes som metodenavn i en klasse."
+  ],
+  "explanation": "En metode som kaller seg selv, er rekursjon, som er utenfor pensum i dette emnet. Navnene beskriver dessuten ulike jobber: ett element mot hele samlingen."
+ }
+]

@@ -1,0 +1,421 @@
+{
+ "id": "in1000-8-1",
+ "courseId": "in1000",
+ "chapterNumber": "8.1",
+ "title": "Nøstede lister og ordbøker",
+ "description": "Lister av lister og ordbøker med ordbøker inni: to nivåers indeksering og to nivåers løkke — datastrukturen den siste oppgaven bygger på.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne lese og skrive verdier på to nivåer uten å blande dem",
+  "kunne bygge opp en nøstet ordbok med de sjekkene som trengs",
+  "kunne løpe gjennom begge nivåene og plassere akkumulatoren riktig",
+  "kunne telle antall runder i en løkke inne i en løkke"
+ ],
+ "content": [
+  {
+   "id": "in1000-8-1-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Nøstede strukturer står i 4 av 6 moderne eksamenssett (67 %)** og bærer\n**Oppgave 5**, som er verdt 8–10 poeng — typisk to funksjoner à 4–5 poeng.\n\nSjangeren er **G — skriv en funksjon over en nøstet liste eller ordbok**. I\ntillegg dukker nøstet akkumulering opp som en felle i **Oppgave 1**,\nkodesporingen: en løkke inne i en løkke der du må telle rundene nøyaktig.\n\n**Dette skal du kunne** — bokas midterste av tre prioritetsnivåer. Poengene er\nfærre enn i den store oppgaven, men de er lette å ta når de to nivåene sitter.\n\nAlt du trenger, kan du fra før. En nøstet liste er en liste der elementene er\nlister; en nøstet ordbok er en ordbok der verdiene er ordbøker. Løkkene, tellerne\nog oppslagene er de samme som i [del 3](/bok/in1000/in1000-3-1) — de kommer bare\nto lag dypt."
+  },
+  {
+   "id": "in1000-8-1-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 3.2 — Ordbøker](/bok/in1000/in1000-3-2) og\n[kap. 3.1 — Lister](/bok/in1000/in1000-3-1).\n\n**De tre tingene du trenger**, friskes opp med kjørt kode.\n\n**1. Indeksering og løkke over en liste:**\n\n```python\ntall = [5, 3, 8]\nprint(tall[0], tall[2], len(tall))\nfor x in tall:\n    print(x)\n```\n\n**Utskrift:**\n```\n5 8 3\n5\n3\n8\n```\n\n**2. Løkke over en ordbok gir nøklene, ikke verdiene:**\n\n```python\nd = {\"ada\": 3, \"nora\": 7}\nfor n in d:\n    print(n, d[n])\n```\n\n**Utskrift:**\n```\nada 3\nnora 7\n```\n\n**3. Teller-idiomet, som må opprette nøkkelen først:**\n\n```python\nd = {}\nfor navn in [\"ada\", \"nora\", \"ada\"]:\n    if navn not in d:\n        d[navn] = 0\n    d[navn] = d[navn] + 1\nprint(d)\n```\n\n**Utskrift:**\n```\n{'ada': 2, 'nora': 1}\n```\n\nNå legger vi ett lag til utenpå alt dette."
+  },
+  {
+   "id": "in1000-8-1-3",
+   "type": "text",
+   "content": "## Løkke 1 — Lister av lister (~12 min)\n\nEt treningssenter registrerer deltakere per dag, én liste per uke:\n\n`[[14, 9, 20], [11, 0, 7]]`\n\nYtterlista har to elementer — to uker. Hvert av dem er **selv en liste** med tre\ntall. Det er alt en nøstet liste er."
+  },
+  {
+   "id": "in1000-8-1-4",
+   "type": "definition",
+   "title": "Nøstet liste",
+   "content": "En liste der elementene er lister.\n\n```python\nuker = [[14, 9, 20], [11, 0, 7]]\nprint(len(uker))\nprint(uker[0])\nprint(len(uker[0]))\n```\n\n**Utskrift:**\n```\n2\n[14, 9, 20]\n3\n```\n\n**`len` på ytterlista teller de indre listene**, ikke tallene. Her er svaret 2,\nikke 6.\n\n`uker[0]` gir hele den første indre lista, og den skrives ut med hakeparenteser\nog komma — akkurat som en vanlig liste.\n\nDe indre listene trenger ikke være like lange. `[[1, 2], [3], [4, 5, 6]]` er en\nhelt gyldig nøstet liste."
+  },
+  {
+   "id": "in1000-8-1-5",
+   "type": "definition",
+   "title": "Dobbel indeksering `y[i][j]`",
+   "content": "To hakeparenteser etter hverandre: den første velger den **indre lista**, den\nandre velger et element i den.\n\n```python\nuker = [[14, 9, 20], [11, 0, 7]]\nprint(uker[0][2])\nprint(uker[1][0])\nprint(uker[-1][-1])\n```\n\n**Utskrift:**\n```\n20\n11\n7\n```\n\nLes fra venstre: `uker[0]` er første uke, `[2]` er tredje dag i den.\n\n**Rekkefølgen er hele fellen.** `uker[0][2]` og `uker[2][0]` er to helt ulike\noppslag — og det siste stopper programmet her, fordi ytterlista bare har to\nelementer.\n\nNegativ indeks virker på begge nivåer, som ellers."
+  },
+  {
+   "id": "in1000-8-1-6",
+   "type": "definition",
+   "title": "To nivåers løkke",
+   "content": "En løkke inne i en løkke. Den ytre gir deg de indre listene, den indre gir deg\ntallene:\n\n```python\nuker = [[14, 9, 20], [11, 0, 7]]\ntotal = 0\nfor uke in uker:\n    for tall in uke:\n        total = total + tall\nprint(total)\n```\n\n**Utskrift:**\n```\n61\n```\n\n**Løkkevariabelen i den ytre løkka er en liste**, ikke et tall. Det er den\nvanligste lesefeilen: `for uke in uker:` gir `[14, 9, 20]` første runde.\n\nAkkumulatoren står **utenfor begge** løkkene, og resultatet brukes etter begge.\nStår `total = 0` mellom de to `for`-linjene, nullstilles den for hver indre liste.\n\nAntall runder til sammen er summen av lengdene til de indre listene — her 3 pluss\n3, altså 6."
+  },
+  {
+   "id": "in1000-8-1-7",
+   "type": "example",
+   "title": "Eksempel 1: Summer, tell og finn den største — over to nivåer",
+   "problem": "En nøstet liste holder deltakertall per dag, én indre liste per uke. Skriv kode\nsom summerer alt, teller hvor mange dager som hadde minst ti deltakere, og finner\ndet største tallet.",
+   "solution": "Tre mønstre fra del 3, hvert av dem med én løkke ekstra utenpå:\n\n```python\nuker = [[14, 9, 20], [11, 0, 7], [5, 18]]\n\ntotal = 0\nantall_store = 0\nstorst = 0\nfor uke in uker:\n    for tall in uke:\n        total = total + tall\n        if tall >= 10:\n            antall_store = antall_store + 1\n        if tall > storst:\n            storst = tall\n\nprint(\"Sum:\", total)\nprint(\"Minst ti:\", antall_store)\nprint(\"Storst:\", storst)\nprint(\"Antall uker:\", len(uker))\nprint(\"Dager i uke 2:\", len(uker[1]))\n```\n\n**Utskrift:**\n```\nSum: 84\nMinst ti: 4\nStorst: 20\nAntall uker: 3\nDager i uke 2: 3\n```\n\n**Alle tre akkumulatorene står utenfor begge løkkene.** Det er det avgjørende:\nflytter du `total = 0` inn i den ytre løkka, teller den bare den siste uka.\n\n**Legg merke til at de indre listene har ulik lengde.** Den siste uka har bare to\ndager, og løkka bryr seg ikke — `for tall in uke:` går så mange runder som den\nlista er lang.\n\n**`len(uker)` er 3, ikke 8.** Ytterlista har tre elementer, og hvert av dem er en\nliste. Skal du telle tallene, må du gå gjennom begge nivåene — eller summere\nlengdene.\n\n**Slik ville sensor sett på det:** i sjanger G ligger poengene på den todelte\nløkkestrukturen, på at akkumulatoren står riktig plassert, og på at du bruker\nriktig nivå i betingelsen. Riktig struktur belønnes selv med en indeksfeil."
+  },
+  {
+   "id": "in1000-8-1-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — gjengivelse.) Gitt `y = [[3, 8], [1, 4, 9], [7]]`.\n\n**a)** Hva er `len(y)`?\n\n**b)** Hva er `y[1][2]`?\n\n**c)** Hvor mange tall er det til sammen, og hvordan vet du det?",
+    "solution": "**a)** `3` — ytterlista har tre elementer, og hvert av dem er en liste.\n\n**b)** `9`. Les fra venstre: `y[1]` er `[1, 4, 9]`, og `[2]` er det tredje\nelementet i den.\n\n**c)** `6` tall: 2 pluss 3 pluss 1. Du finner det ved å summere lengdene til de\nindre listene, eller ved å telle med en to nivåers løkke.\n\nAlle tre kjørt:\n\n```python\ny = [[3, 8], [1, 4, 9], [7]]\nprint(len(y))\nprint(y[1][2])\n\nantall = 0\nfor indre in y:\n    for x in indre:\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n3\n9\n6\n```\n\n**Fellen er `len`.** Den teller alltid elementene på det nivået du spør om.\n`len(y)` er 3, `len(y[1])` er 3, og det totale antallet finnes ikke i noen enkelt\n`len`.",
+    "hints": [
+     "Les indeksene fra venstre: første hakeparentes velger den indre lista.",
+     "Hva teller `len` når elementene selv er lister?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-8",
+   "type": "text",
+   "content": "## Løkke 2 — Ordbøker med ordbøker inni (~13 min)\n\nDen andre nøstede formen er en ordbok der **verdiene** er ordbøker:\n\n`{\"mandag\": {\"spinning\": 14, \"yoga\": 9}, \"tirsdag\": {\"spinning\": 20}}`\n\nYtternøkkelen er dagen, indrenøkkelen er aktiviteten, og verdien er\ndeltakertallet. Det er formen Oppgave 5 oftest bruker."
+  },
+  {
+   "id": "in1000-8-1-9",
+   "type": "definition",
+   "title": "Nøstet ordbok",
+   "content": "En ordbok der verdiene selv er ordbøker.\n\n```python\nuke = {\"mandag\": {\"spinning\": 14, \"yoga\": 9}, \"tirsdag\": {\"spinning\": 20}}\nprint(len(uke))\nprint(uke[\"mandag\"])\nprint(uke[\"mandag\"][\"yoga\"])\n```\n\n**Utskrift:**\n```\n2\n{'spinning': 14, 'yoga': 9}\n9\n```\n\n**`len` på ytterordboka teller ytternøklene** — her 2, ikke 3.\n\n`uke[\"mandag\"]` gir hele den indre ordboka, og den skrives ut med\nkrøllparenteser, enkle anførselstegn rundt nøklene og kolon mellom nøkkel og\nverdi.\n\nDe indre ordbøkene trenger ikke ha de samme nøklene. Tirsdag mangler `yoga`, og\ndet er helt i orden."
+  },
+  {
+   "id": "in1000-8-1-10",
+   "type": "definition",
+   "title": "Dobbelt oppslag `d[ytre][indre]`",
+   "content": "To hakeparenteser etter hverandre, som med lister — men med nøkler i stedet for\ntall.\n\n```python\nuke = {\"mandag\": {\"spinning\": 14, \"yoga\": 9}, \"tirsdag\": {\"spinning\": 20}}\nprint(uke[\"tirsdag\"][\"spinning\"])\n```\n\n**Utskrift:**\n```\n20\n```\n\n**Begge nivåer kan mangle.** `uke[\"onsdag\"]` stopper programmet med\n`KeyError: 'onsdag'`, og `uke[\"tirsdag\"][\"yoga\"]` stopper med\n`KeyError: 'yoga'` — selv om ytternøkkelen finnes.\n\nDerfor må en trygg oppslagsfunksjon sjekke **begge** nivåene, hver for seg. Det\nkommer i løkke 3."
+  },
+  {
+   "id": "in1000-8-1-11",
+   "type": "theorem",
+   "title": "Oppbyggings-malen for en nøstet ordbok",
+   "content": "Bokas tjuende kodemønster, og det som oftest kreves i Oppgave 5:\n\n```text\n    d = {}\n    for ytre, indre, verdi in dataene:\n        if ytre not in d:\n            d[ytre] = {}\n        if indre not in d[ytre]:\n            d[ytre][indre] = 0\n        d[ytre][indre] = d[ytre][indre] + verdi\n```\n\nBlokken er en mal med plassholdernavn og er merket som ikke-kjørbar.\n\n**To sjekker, ikke én.** Først må den indre **ordboka** opprettes, så må den\nindre **nøkkelen** opprettes. Hopper du over den første, stopper programmet med\n`KeyError` på ytternøkkelen; hopper du over den andre, stopper det på\nindrenøkkelen.\n\nDet er feilkode **#14** i sin nøstede form, og det er den vanligste feilen i hele\nkapitlet.\n\nSkal verdien være en **liste** i stedet for et tall, byttes `0` med `[]` og\n`+ verdi` med `.append(verdi)` — nøyaktig som i grupperings-idiomet fra\n[kap. 3.2](/bok/in1000/in1000-3-2)."
+  },
+  {
+   "id": "in1000-8-1-12",
+   "type": "example",
+   "title": "Eksempel 2: Bygg en nøstet ordbok fra flate data",
+   "problem": "En liste av økter har formen `[dag, aktivitet, antall]`. Bygg en nøstet ordbok fra\ndag til aktivitet til samlet antall deltakere.",
+   "solution": "Oppbyggings-malen satt rett inn, med de to sjekkene:\n\n```python\nokter = [[\"mandag\", \"spinning\", 14],\n         [\"mandag\", \"yoga\", 9],\n         [\"tirsdag\", \"spinning\", 20],\n         [\"mandag\", \"spinning\", 6],\n         [\"onsdag\", \"yoga\", 3]]\n\nuke = {}\nfor o in okter:\n    dag = o[0]\n    akt = o[1]\n    antall = o[2]\n    if dag not in uke:\n        uke[dag] = {}\n    if akt not in uke[dag]:\n        uke[dag][akt] = 0\n    uke[dag][akt] = uke[dag][akt] + antall\n\nprint(uke)\nprint(uke[\"mandag\"])\nprint(uke[\"mandag\"][\"spinning\"])\nprint(len(uke), len(uke[\"mandag\"]))\n```\n\n**Utskrift:**\n```\n{'mandag': {'spinning': 20, 'yoga': 9}, 'tirsdag': {'spinning': 20}, 'onsdag': {'yoga': 3}}\n{'spinning': 20, 'yoga': 9}\n20\n3 2\n```\n\n**Mandag har spinning to ganger**, og de 14 og 6 legges sammen til 20. Det er\nnettopp derfor den siste linja i malen bruker `+` og ikke `=`.\n\n**De tre hjelpevariablene `dag`, `akt` og `antall`** koster tre linjer og sparer\ndeg for å skrive `o[0]`, `o[1]` og `o[2]` fem ganger. Det gjør koden lettere å\nlese — og å rette.\n\n**Merk at `len(uke)` er 3** (tre dager) mens `len(uke[\"mandag\"])` er 2 (to\naktiviteter). De to `len`-ene teller på hvert sitt nivå.\n\n**Slik ville sensor sett på det:** de **to** `if`-sjekkene er to selvstendige\npoeng, og akkumuleringen med `+` er et tredje. Glemmer du den første sjekken,\nstopper programmet med `KeyError: 'mandag'` på aller første runde.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-8-1-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Hva skriver programmet ut?\n\n```python\nd = {}\nfor par in [[\"a\", \"x\", 1], [\"b\", \"y\", 2], [\"a\", \"y\", 3], [\"a\", \"x\", 4]]:\n    ytre = par[0]\n    indre = par[1]\n    if ytre not in d:\n        d[ytre] = {}\n    if indre not in d[ytre]:\n        d[ytre][indre] = 0\n    d[ytre][indre] = d[ytre][indre] + par[2]\nprint(d)\nprint(len(d), len(d[\"a\"]))\nprint(d[\"a\"][\"x\"])\n```",
+    "solution": "**Sporingstavle.** Én rad per element i lista:\n\n| Element | Ny ytternøkkel? | Ny indrenøkkel? | Ordboka etter |\n|---|---|---|---|\n| `[\"a\", \"x\", 1]` | ja | ja | `{'a': {'x': 1}}` |\n| `[\"b\", \"y\", 2]` | ja | ja | pluss `'b': {'y': 2}` |\n| `[\"a\", \"y\", 3]` | nei | ja | `'a'` blir `{'x': 1, 'y': 3}` |\n| `[\"a\", \"x\", 4]` | nei | nei | `'a'` blir `{'x': 5, 'y': 3}` |\n\n**Utskrift:**\n```\n{'a': {'x': 5, 'y': 3}, 'b': {'y': 2}}\n2 2\n5\n```\n\n**Fellen her er den siste raden.** Både ytternøkkelen og indrenøkkelen finnes\nallerede, så ingen av sjekkene slår til — og verdien **akkumuleres**: 1 pluss 4\ner 5.\n\nHadde siste linje i løkka vært `d[ytre][indre] = par[2]`, ville svaret blitt 4,\nfordi den nye verdien ville overskrevet den gamle.\n\n**`len(d)` er 2** — to ytternøkler. **`len(d[\"a\"])` er 2** — to indrenøkler under\n`a`. De to tallene teller på hvert sitt nivå og er tilfeldigvis like her.\n\n**På eksamen** skrives ordboka nøyaktig som terminalen viser den, med\nkrøllparenteser, enkle anførselstegn og kolon.",
+    "hints": [
+     "Skriv opp hele den nøstede ordboka på nytt etter hvert element.",
+     "Hvilke av de fire radene får begge sjekkene til å slå til?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — funksjon over en nøstet struktur.) En kollektivrute\nregistrerer passasjerer per dag og per holdeplass, som en liste av\n`[dag, holdeplass, antall]`.\n\n**a)** Skriv `bygg(data)` som returnerer en nøstet ordbok fra dag til\nholdeplass til samlet antall.\n\n**b)** Skriv `sum_dag(nostet, dag)` som gir det samlede antallet for én dag, eller\n`0` hvis dagen ikke finnes.\n\n**c)** Test begge med fem registreringer.",
+    "solution": "**a)–c)** Oppbyggings-malen, og en summeringsfunksjon over den indre ordboka:\n\n```python\ndef bygg(data):\n    d = {}\n    for rad in data:\n        dag = rad[0]\n        sted = rad[1]\n        if dag not in d:\n            d[dag] = {}\n        if sted not in d[dag]:\n            d[dag][sted] = 0\n        d[dag][sted] = d[dag][sted] + rad[2]\n    return d\n\ndef sum_dag(nostet, dag):\n    if dag not in nostet:\n        return 0\n    total = 0\n    for sted in nostet[dag]:\n        total = total + nostet[dag][sted]\n    return total\n\ndata = [[\"mandag\", \"Blindern\", 14],\n        [\"mandag\", \"Toyen\", 9],\n        [\"tirsdag\", \"Blindern\", 20],\n        [\"mandag\", \"Blindern\", 6],\n        [\"onsdag\", \"Kalbakken\", 3]]\n\nnostet = bygg(data)\nprint(nostet)\nprint(sum_dag(nostet, \"mandag\"))\nprint(sum_dag(nostet, \"tirsdag\"))\nprint(sum_dag(nostet, \"fredag\"))\n```\n\n**Utskrift:**\n```\n{'mandag': {'Blindern': 20, 'Toyen': 9}, 'tirsdag': {'Blindern': 20}, 'onsdag': {'Kalbakken': 3}}\n29\n20\n0\n```\n\n**`sum_dag` sjekker ytternøkkelen først og returnerer `0` med én gang.** Det er\nen tidlig retur som er helt riktig: uten den ville `for sted in nostet[dag]:`\nstoppet programmet med `KeyError: 'fredag'`.\n\n**Løkka går bare over den indre ordboka**, ikke over begge nivåene. Når dagen er\ngitt, er det bare ett nivå igjen å summere.\n\n**Slik ville sensor sett på det:** i `bygg` ligger poengene på de to\n`if`-sjekkene og på akkumuleringen med `+`. I `sum_dag` ligger de på\n`if`-sjekken med tidlig retur, akkumulatoren før løkka, oppslaget\n`nostet[dag][sted]`, og `return` etter løkka.\n\n**Merk at `0` er et fornuftig svar på en dag som ikke finnes** — bedre enn `None`\nher, siden den som kaller, skal legge sammen tall. Er du i tvil om hva oppgaven\nvil ha, skriv en kommentar om valget.",
+    "hints": [
+     "Bruk oppbyggings-malen med begge sjekkene.",
+     "For b): sjekk ytternøkkelen først, og returner med én gang hvis den mangler."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-13",
+   "type": "text",
+   "content": "## Løkke 3 — Løkke og oppslag over to nivåer (~13 min)\n\nNår strukturen er bygget, skal den leses. To ting går igjen: å løpe gjennom\nbegge nivåene, og å slå opp trygt når begge nivåer kan mangle."
+  },
+  {
+   "id": "in1000-8-1-14",
+   "type": "definition",
+   "title": "Løkke over en nøstet ordbok",
+   "content": "Den ytre løkka gir ytternøklene, den indre gir indrenøklene:\n\n```python\nuke = {\"mandag\": {\"spinning\": 14, \"yoga\": 9}, \"tirsdag\": {\"spinning\": 20}}\nfor dag in uke:\n    for akt in uke[dag]:\n        print(dag, akt, uke[dag][akt])\n```\n\n**Utskrift:**\n```\nmandag spinning 14\nmandag yoga 9\ntirsdag spinning 20\n```\n\n**Begge løkkevariablene er nøkler**, ikke verdier. Verdien hentes med det doble\noppslaget `uke[dag][akt]`.\n\nDen indre løkka går over `uke[dag]` — den indre **ordboka** for nettopp den\ndagen. Skriver du `for akt in uke:` i den indre løkka, går du gjennom dagene to\nganger.\n\n**Antall runder til sammen** er summen av størrelsene på de indre ordbøkene — her\n2 pluss 1, altså 3."
+  },
+  {
+   "id": "in1000-8-1-15",
+   "type": "warning",
+   "title": "Typisk feil #14 i nøstet form — oppslag uten sjekk på begge nivåer",
+   "content": "Begge nivåer kan mangle, og hver av dem stopper programmet:\n\n```text\nuke = {\"mandag\": {\"spinning\": 14}}\nprint(uke[\"tirsdag\"][\"spinning\"])\nprint(uke[\"mandag\"][\"yoga\"])\n```\n\nFørste linje gir `KeyError: 'tirsdag'`, andre gir `KeyError: 'yoga'`. Blokken er\nmerket som ikke-kjørbar fordi feilene er plantet med vilje.\n\n**Den trygge formen sjekker begge, hver for seg:**\n\n```python\ndef hent(uke, dag, akt):\n    if dag not in uke:\n        return 0\n    if akt not in uke[dag]:\n        return 0\n    return uke[dag][akt]\n\nuke = {\"mandag\": {\"spinning\": 14}}\nprint(hent(uke, \"mandag\", \"spinning\"))\nprint(hent(uke, \"mandag\", \"yoga\"))\nprint(hent(uke, \"tirsdag\", \"spinning\"))\n```\n\n**Utskrift:**\n```\n14\n0\n0\n```\n\n**Rekkefølgen på de to sjekkene er ikke valgfri.** Sjekker du den indre først —\n`if akt not in uke[dag]:` — stopper programmet allerede der når dagen mangler,\nfordi `uke[dag]` slås opp før `not in` rekker å gjøre noe.\n\n**Samme feil ved oppbygging.** `d[ytre][indre] = 0` uten at `d[ytre] = {}` er\ngjort først, stopper på ytternøkkelen. Det er den vanligste formen feilen tar i\nOppgave 5."
+  },
+  {
+   "id": "in1000-8-1-16",
+   "type": "example",
+   "title": "Eksempel 3: Full sjanger G-funksjon over en nøstet ordbok",
+   "problem": "En nøstet ordbok går fra dag til aktivitet til deltakertall. Skriv funksjoner som\nfinner totalt antall deltakere, den travleste dagen, og alle aktiviteter som\nbrukes på minst to dager.",
+   "solution": "Tre funksjoner, tre mønstre — alle med to nivåers løkke:\n\n```python\ndef totalt(uke):\n    total = 0\n    for dag in uke:\n        for akt in uke[dag]:\n            total = total + uke[dag][akt]\n    return total\n\ndef travleste_dag(uke):\n    beste = None\n    beste_antall = 0\n    for dag in uke:\n        sum_dag = 0\n        for akt in uke[dag]:\n            sum_dag = sum_dag + uke[dag][akt]\n        if sum_dag > beste_antall:\n            beste = dag\n            beste_antall = sum_dag\n    return beste\n\ndef brukt_flere_dager(uke, grense):\n    teller = {}\n    for dag in uke:\n        for akt in uke[dag]:\n            if akt not in teller:\n                teller[akt] = 0\n            teller[akt] = teller[akt] + 1\n    svar = []\n    for akt in teller:\n        if teller[akt] >= grense:\n            svar.append(akt)\n    return svar\n\nuke = {\"mandag\": {\"spinning\": 14, \"yoga\": 9},\n       \"tirsdag\": {\"spinning\": 20},\n       \"onsdag\": {\"yoga\": 3, \"styrke\": 11}}\n\nprint(totalt(uke))\nprint(travleste_dag(uke))\nprint(brukt_flere_dager(uke, 2))\n```\n\n**Utskrift:**\n```\n57\nmandag\n['spinning', 'yoga']\n```\n\n**Legg merke til hvor akkumulatorene står i de tre funksjonene.**\n\nI `totalt` står `total = 0` utenfor **begge** løkkene — den skal summere alt.\n\nI `travleste_dag` står `sum_dag = 0` **inne i den ytre løkka**, fordi den skal\nnullstilles for hver dag. Det er nettopp den plasseringen oppgaven tester: flytter\ndu den ut, summerer du alle dagene sammen i stedet for å sammenligne dem.\n\nI `brukt_flere_dager` bygges et regnskap i en to nivåers løkke, og det leses i en\nenkel løkke etterpå. Samme todeling som i\n[kap. 6.3](/bok/in1000/in1000-6-3).\n\n**Mandag har 14 pluss 9, altså 23**, mot tirsdags 20 og onsdags 14. Både spinning\nog yoga brukes på to dager; styrke bare på én.\n\n**Slik ville sensor sett på det:** i sjanger G er den todelte løkkestrukturen\nselve poenget, og riktig struktur belønnes selv med en indeksfeil. Plasseringen\nav akkumulatoren — inne i eller utenfor den ytre løkka — er et selvstendig poeng\ni seg selv."
+  },
+  {
+   "id": "in1000-8-1-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nuke = {\"mandag\": {\"a\": 3, \"b\": 5},\n       \"tirsdag\": {\"a\": 7},\n       \"onsdag\": {\"b\": 2, \"c\": 4}}\n\nantall_runder = 0\ntotal = 0\nfor dag in uke:\n    for akt in uke[dag]:\n        antall_runder = antall_runder + 1\n        total = total + uke[dag][akt]\nprint(antall_runder, total)\nprint(len(uke), len(uke[\"mandag\"]), len(uke[\"tirsdag\"]))\n```",
+    "solution": "**Sporingstavle.** Den indre løkka går så mange runder som den indre ordboka er\nstor:\n\n| Dag | Indre nøkler | Runder | `total` etter |\n|---|---|---|---|\n| mandag | `a`, `b` | 2 | 8 |\n| tirsdag | `a` | 1 | 15 |\n| onsdag | `b`, `c` | 2 | 21 |\n\n**Utskrift:**\n```\n5 21\n3 2 1\n```\n\n**Fellen er å telle rundene feil.** Antall runder er **summen** av størrelsene på\nde indre ordbøkene — 2 pluss 1 pluss 2, altså 5. Det er **ikke** 3 ganger 2, som\ndet ville vært hvis alle de indre ordbøkene hadde vært like store.\n\n**`len` teller på hvert sitt nivå.** `len(uke)` er 3 (dager), `len(uke[\"mandag\"])`\ner 2 (aktiviteter mandag), `len(uke[\"tirsdag\"])` er 1.\n\nLegg merke til at nøkkelen `a` finnes både under mandag og tirsdag. De to er helt\nuavhengige verdier i to ulike indre ordbøker.\n\n**På eksamen** skrives begge linjene, med ett mellomrom mellom tallene.",
+    "hints": [
+     "Tell rundene per dag, og legg sammen til slutt.",
+     "Hva teller hver av de tre `len`-kallene?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger G — funksjon over en nøstet struktur.) En nøstet ordbok\ngår fra ukedag til rett til antall solgte porsjoner i en kantine.\n\n**a)** Skriv `solgt(d, dag, rett)` som gir antallet, eller `0` hvis dagen eller\nretten ikke finnes.\n\n**b)** Skriv `totalt_per_rett(d)` som gir en **flat** ordbok fra rett til samlet\nantall over alle dagene.\n\n**c)** Test begge.",
+    "solution": "**a)–c)** To sjekker i den ene funksjonen, én teller-ordbok i den andre:\n\n```python\ndef solgt(d, dag, rett):\n    if dag not in d:\n        return 0\n    if rett not in d[dag]:\n        return 0\n    return d[dag][rett]\n\ndef totalt_per_rett(d):\n    ut = {}\n    for dag in d:\n        for rett in d[dag]:\n            if rett not in ut:\n                ut[rett] = 0\n            ut[rett] = ut[rett] + d[dag][rett]\n    return ut\n\nmeny = {\"mandag\": {\"suppe\": 14, \"vafler\": 40},\n        \"tirsdag\": {\"suppe\": 9, \"salat\": 6},\n        \"onsdag\": {\"vafler\": 22}}\n\nprint(solgt(meny, \"mandag\", \"vafler\"))\nprint(solgt(meny, \"mandag\", \"salat\"))\nprint(solgt(meny, \"fredag\", \"suppe\"))\nprint(totalt_per_rett(meny))\n```\n\n**Utskrift:**\n```\n40\n0\n0\n{'suppe': 23, 'vafler': 62, 'salat': 6}\n```\n\n**De to sjekkene i `solgt` må stå i denne rekkefølgen.** Sjekker du retten først\nmed `if rett not in d[dag]:`, slås `d[dag]` opp før sjekken rekker å virke — og\npå en dag som ikke finnes, stopper programmet med `KeyError`.\n\n**`totalt_per_rett` flater ut strukturen.** Resultatet er en **vanlig** ordbok,\nikke en nøstet: dagene er summert bort. Kjenn formen igjen i oppgaveteksten på\n«gi en ordbok fra … til totalt antall …».\n\nRekkefølgen i svaret følger den nøklene ble **opprettet** i: suppe og vafler kom\nførst, under mandag.\n\n**Slik ville sensor sett på det:** i a) ligger poengene på de to sjekkene i riktig\nrekkefølge og de to tidlige returene. I b) på den todelte løkka, `if`-sjekken før\nakkumuleringen, og `return` etter begge løkkene.",
+    "hints": [
+     "Sjekk ytternøkkelen først — ellers slås den opp før den indre sjekken virker.",
+     "For b): teller-idiomet, men med en to nivåers løkke rundt seg."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-17",
+   "type": "text",
+   "content": "## Løkke 4 — Nøstet akkumulering som sporingsfelle (~12 min)\n\nNøstede løkker dukker også opp i **Oppgave 1**, kodesporingen — og der er de en\nav de vanligste fellene.\n\nSpørsmålet er alltid det samme: **hvor mange runder går den indre løkka til\nsammen, og hva står akkumulatoren på til slutt?**"
+  },
+  {
+   "id": "in1000-8-1-18",
+   "type": "definition",
+   "title": "Å telle runder i en nøstet løkke",
+   "content": "Med **faste** grenser ganges antallet:\n\n```python\nantall = 0\nfor i in range(3):\n    for j in range(4):\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n12\n```\n\nTre ytre runder ganger fire indre.\n\nMed **varierende** grenser må du legge sammen:\n\n```python\nantall = 0\nfor i in range(4):\n    for j in range(i):\n        antall = antall + 1\nprint(antall)\n```\n\n**Utskrift:**\n```\n6\n```\n\nDen indre løkka går 0, 1, 2 og 3 ganger — til sammen 6. `range(0)` gir ingen\nrunder i det hele tatt, og det er den delen folk glemmer.\n\n**Skriv opp én linje per ytre runde** når grensene varierer. Det tar ti sekunder\nog fjerner hele fellen."
+  },
+  {
+   "id": "in1000-8-1-19",
+   "type": "definition",
+   "title": "Hvor akkumulatoren står",
+   "content": "Tre plasseringer, tre helt ulike svar:\n\n```python\ntall = [[1, 2], [3, 4]]\n\nutenfor = 0\nfor rad in tall:\n    for x in rad:\n        utenfor = utenfor + x\nprint(\"utenfor:\", utenfor)\n\nfor rad in tall:\n    mellom = 0\n    for x in rad:\n        mellom = mellom + x\nprint(\"mellom: \", mellom)\n\nfor rad in tall:\n    for x in rad:\n        innerst = 0\n        innerst = innerst + x\nprint(\"innerst:\", innerst)\n```\n\n**Utskrift:**\n```\nutenfor: 10\nmellom:  7\ninnerst: 4\n```\n\n**Utenfor begge** løkkene: summen av alt.\n\n**Mellom løkkene**: nullstilles for hver indre liste, så til slutt står den på\nsummen av den **siste** — her 3 pluss 4.\n\n**Innerst**: nullstilles hver eneste runde, så den står på det **siste**\nelementet.\n\nÅ se hvilken av de tre plasseringene koden har, er ofte hele sporingsoppgaven."
+  },
+  {
+   "id": "in1000-8-1-20",
+   "type": "example",
+   "title": "Eksempel 4: Full sporingsoppgave med nøstet akkumulering",
+   "problem": "Hva skriver programmet ut? Vis sporingen linje for linje.",
+   "solution": "Snutten under er skrevet i samme form som en Oppgave 1-deloppgave:\n\n```python\nrader = [[2, 5], [1, 3, 4], [7]]\ntotal = 0\nrad_sum = 0\nantall = 0\nfor rad in rader:\n    rad_sum = 0\n    for x in rad:\n        total = total + x\n        rad_sum = rad_sum + x\n        antall = antall + 1\n    print(\"rad ferdig:\", rad_sum)\nprint(total, rad_sum, antall)\n```\n\n**Utskrift:**\n```\nrad ferdig: 7\nrad ferdig: 8\nrad ferdig: 7\n22 7 6\n```\n\n**Sporingstavle**, én rad per indre liste:\n\n| Indre liste | Runder | `total` etter | `rad_sum` etter | `antall` etter |\n|---|---|---|---|---|\n| `[2, 5]` | 2 | 7 | 7 | 2 |\n| `[1, 3, 4]` | 3 | 15 | 8 | 5 |\n| `[7]` | 1 | 22 | 7 | 6 |\n\n**Tre akkumulatorer med tre ulike plasseringer.**\n\n`total` og `antall` står **utenfor** begge løkkene og samler opp alt.\n\n`rad_sum` nullstilles **inne i den ytre løkka**, så den viser summen av én rad om\ngangen. Til slutt står den på den siste raden, altså 7.\n\n`print(\"rad ferdig:\", rad_sum)` står i den **ytre** løkka, ikke i den indre — se\npå innrykket. Derfor kommer den tre ganger, ikke seks.\n\n**Antall runder er 2 pluss 3 pluss 1, altså 6** — ikke 3 ganger noe, siden radene\nhar ulik lengde.\n\n**På eksamen** skrives alle fire linjene, i riktig rekkefølge, og tallene på siste\nlinje med ett mellomrom mellom."
+  },
+  {
+   "id": "in1000-8-1-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(4):\n    for j in range(i):\n        total = total + j\nprint(total)\n\nantall = 0\nfor i in range(3):\n    for j in range(3):\n        if i == j:\n            antall = antall + 1\nprint(antall)\n```",
+    "solution": "**Sporingstavle for den første løkka.** Den indre går `range(i)` ganger:\n\n| `i` | `range(i)` gir | Verdier av `j` | Lagt til |\n|---|---|---|---|\n| 0 | ingenting | — | 0 |\n| 1 | 0 | 0 | 0 |\n| 2 | 0, 1 | 0, 1 | 1 |\n| 3 | 0, 1, 2 | 0, 1, 2 | 3 |\n\nTil sammen 0 pluss 0 pluss 1 pluss 3, altså **4**.\n\n**Den andre løkka** har faste grenser: 3 ganger 3 er 9 runder, og `i == j` er sann\ni 3 av dem — når begge er 0, 1 og 2.\n\n**Utskrift:**\n```\n4\n3\n```\n\n**To ulike fellene i én oppgave.**\n\nDen første tester at du husker at `range(0)` gir **null** runder, og at det er\n`j`-verdiene og ikke antall runder som legges sammen.\n\nDen andre tester at du klarer å telle treff i et rutenett. Med faste grenser er\nantallet runder et **produkt**; med varierende grenser er det en **sum**.\n\n**Skriv opp én linje per ytre runde.** Det tar ti sekunder og fjerner begge\nfellene.\n\n**På eksamen** skrives de to tallene på hver sin linje.",
+    "hints": [
+     "Skriv opp hvilke verdier `j` får for hver verdi av `i`.",
+     "Hvor mange runder gir `range(0)`?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger G — funksjon over nøstet liste.) En nøstet liste holder\npoeng per runde for hver spiller: `[[3, 5, 2], [7, 1], [4, 4, 4, 4]]`, der hver\nindre liste er én spiller.\n\n**a)** Skriv `sum_per_spiller(data)` som returnerer en **liste** med summen for\nhver spiller.\n\n**b)** Skriv `beste_spiller(data)` som returnerer **indeksen** til spilleren med\nhøyest sum.\n\n**c)** Skriv `alle_over(data, grense)` som returnerer `True` bare hvis **alle**\nspillerne har en sum over grensen.\n\n**d)** Test alle tre.",
+    "solution": "**a)–d)** Tre mønstre, alle med to nivåer:\n\n```python\ndef sum_per_spiller(data):\n    ut = []\n    for spiller in data:\n        s = 0\n        for p in spiller:\n            s = s + p\n        ut.append(s)\n    return ut\n\ndef beste_spiller(data):\n    summer = sum_per_spiller(data)\n    beste = None\n    beste_sum = 0\n    for i in range(len(summer)):\n        if summer[i] > beste_sum:\n            beste = i\n            beste_sum = summer[i]\n    return beste\n\ndef alle_over(data, grense):\n    summer = sum_per_spiller(data)\n    for s in summer:\n        if s <= grense:\n            return False\n    return True\n\ndata = [[3, 5, 2], [7, 1], [4, 4, 4, 4]]\nprint(sum_per_spiller(data))\nprint(beste_spiller(data))\nprint(alle_over(data, 5))\nprint(alle_over(data, 10))\n```\n\n**Utskrift:**\n```\n[10, 8, 16]\n2\nTrue\nFalse\n```\n\n**`s = 0` står inne i den ytre løkka.** Den skal nullstilles for hver spiller —\ndet er nettopp den plasseringen oppgaven tester. Utenfor ville alle summene blitt\nakkumulert oppå hverandre.\n\n**`beste_spiller` gjenbruker `sum_per_spiller`** i stedet for å regne på nytt. Det\ner ryddigere, og det er formen oppgaveteksten ofte legger opp til når den deler\noppgaven i a) og b).\n\n**Løkka i `beste_spiller` går over indekser**, ikke over verdier, fordi det er\nindeksen som skal returneres. `for i in range(len(summer)):` er formen for det.\n\n**`alle_over` bruker flagg med tidlig retur:** `return False` inne i løkka,\n`return True` **etter**. Å snu de to ville gjort at funksjonen svarte ja så snart\n**én** spiller var over grensen — feilkode **#7**.\n\n**Legg merke til `<=` i betingelsen.** Oppgaven sier «over grensen», så en sum som\ner **lik** grensen, skal gi `False`. Test kantverdien.\n\n**Slik ville sensor sett på det:** de tre funksjonene rettes hver for seg. Riktig\ntodelt løkkestruktur i a) belønnes selv om summen skulle bli feil.",
+    "hints": [
+     "I a) skal akkumulatoren nullstilles for hver indre liste.",
+     "I c): «alle» returnerer `False` inne i løkka og `True` etter."
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-8-1-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger I — «finn feilen», med konkret moteksempel.) En\nmedstudent har skrevet:\n\n```python\ndef bygg(data):\n    d = {}\n    for rad in data:\n        ytre = rad[0]\n        indre = rad[1]\n        if indre not in d[ytre]:\n            d[ytre] = {}\n            d[ytre][indre] = 0\n        d[ytre][indre] = rad[2]\n    return d\n```\n\n**a)** Funksjonen har tre feil. Hvilke?\n\n**b)** Gi et **konkret moteksempel** på den som stopper programmet.\n\n**c)** Skriv den rettede funksjonen.",
+    "solution": "**a)** Tre feil, i den rekkefølgen de gjør skade:\n\n1. **Sjekken på ytternøkkelen mangler.** `if indre not in d[ytre]:` slår opp\n   `d[ytre]` **før** noe er opprettet, så programmet stopper på aller første\n   runde. Feilkode **#14**.\n2. **`d[ytre] = {}` står inne i feil sjekk.** Selv om rekkefølgen var rettet,\n   ville den indre ordboka blitt nullstilt hver gang en ny indrenøkkel dukket\n   opp — og alle tidligere aktiviteter under samme dag ville forsvunnet.\n3. **Siste linje bruker `=` i stedet for `+`.** To rader med samme ytre- og\n   indrenøkkel skal legges sammen; her overskriver den siste.\n\n**b)** Moteksempelet:\n\n```text\nprint(bygg([[\"a\", \"x\", 1]]))\n```\n\nProgrammet stopper på første runde, og siste linje i feilmeldingen er\n`KeyError: 'a'`. Blokken er merket som ikke-kjørbar fordi feilen er plantet med\nvilje.\n\nKallet skulle gitt `{'a': {'x': 1}}`.\n\n**c)** Den rettede funksjonen — to sjekker, i riktig rekkefølge, og `+` til\nslutt:\n\n```python\ndef bygg(data):\n    d = {}\n    for rad in data:\n        ytre = rad[0]\n        indre = rad[1]\n        if ytre not in d:\n            d[ytre] = {}\n        if indre not in d[ytre]:\n            d[ytre][indre] = 0\n        d[ytre][indre] = d[ytre][indre] + rad[2]\n    return d\n\nprint(bygg([[\"a\", \"x\", 1]]))\nprint(bygg([[\"a\", \"x\", 1], [\"a\", \"y\", 2], [\"a\", \"x\", 4]]))\n```\n\n**Utskrift:**\n```\n{'a': {'x': 1}}\n{'a': {'x': 5, 'y': 2}}\n```\n\nTre endringer: sjekken `if ytre not in d:` lagt til først, `d[ytre][indre] = 0`\nflyttet inn i den andre sjekken, og `=` byttet til `+` på siste linje.\n\n**Den andre utskriften beviser at feil nummer 2 og 3 er rettet:** `y` overlevde\nselv om `x` kom igjen etterpå, og de to `x`-verdiene ble lagt sammen til 5.\n\n**Slik ville sensor sett på det:** ved «finn feilen» gir et **konkret\nmoteksempel** full uttelling — hvilket kall som feiler, og hva det skulle gitt.\nÅ finne to av tre feil gir to tredjedeler.",
+    "hints": [
+     "Hvilket oppslag skjer før noe er opprettet?",
+     "Hva skjer med tidligere indrenøkler når den indre ordboka settes til `{}` på nytt?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-8-1-21",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes på nøstede strukturer:\n\n- **#14 i nøstet form — bare én sjekk.** Både ytternøkkelen og indrenøkkelen kan\n  mangle, og hver av dem stopper programmet. **To** sjekker, i riktig rekkefølge:\n  ytre først.\n- **Akkumulatoren på feil nivå.** Utenfor begge løkkene summerer alt; inne i den\n  ytre nullstilles den per indre liste; innerst nullstilles den hver runde. Tre\n  helt ulike svar.\n- **Å blande de to nivåene.** `y[i][j]` og `y[j][i]` er ulike oppslag, og\n  `for akt in uke:` i den indre løkka går gjennom dagene på nytt.\n- **Å telle runder feil.** Med faste grenser er antallet et **produkt**; med\n  varierende grenser en **sum**. Og `range(0)` gir null runder.\n- **#7 — for tidlig retur i en «alle»-sjekk.** `return False` inne i løkka,\n  `return True` **etter**. Å snu dem gir feil svar.\n\nOg én lesefelle: **`len` teller alltid ett nivå.** `len(y)` er antall indre lister,\nikke antall tall."
+  },
+  {
+   "id": "in1000-8-1-coll-22",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-8-1-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `[[1, 2], [3]]` | Nøstet liste. `len` er **2** — antall indre lister, ikke antall tall. |\n| `y[i]` | Hele den indre lista. Skrives ut med hakeparenteser. |\n| `y[i][j]` | Element `j` i indre liste `i`. Rekkefølgen på indeksene avgjør alt. |\n| `len(y)` / `len(y[i])` | Teller på hvert sitt nivå. Totalen finnes i ingen av dem. |\n| `for indre in y:` `for x in indre:` | To nivåers løkke. Ytre variabel er en **liste**. |\n| `{\"a\": {\"x\": 1}}` | Nøstet ordbok. Verdiene er selv ordbøker. |\n| `d[ytre][indre]` | Dobbelt oppslag. **Begge** nivåer kan mangle. |\n| `if ytre not in d:` `d[ytre] = {}` | Opprett den indre ordboka **først**. |\n| `if indre not in d[ytre]:` `d[ytre][indre] = 0` | Deretter den indre nøkkelen. |\n| `d[ytre][indre] = d[ytre][indre] + v` | Akkumuler. Med `=` overskrives forrige verdi. |\n| `for y in d:` `for i in d[y]:` `print(d[y][i])` | Løkke over nøstet ordbok. Begge variabler er **nøkler**. |\n| `if dag not in d: return 0` | Tidlig retur i en trygg oppslagsfunksjon. Ytre sjekk **først**. |\n| `total = 0` utenfor begge løkkene | Summerer alt. |\n| `sum_rad = 0` inne i den ytre løkka | Nullstilles per indre liste — brukes til «per rad»-svar. |\n| `for i in range(len(liste)):` | Løkke over **indekser**, når indeksen skal returneres. |\n| `for j in range(i):` | Varierende grense. Antall runder er en **sum**, ikke et produkt. |\n\n**Det som avgjør poeng i Oppgave 5:** den todelte løkkestrukturen, plasseringen\nav akkumulatoren, og at begge nivåer sjekkes før et dobbelt oppslag."
+    }
+   ]
+  },
+  {
+   "id": "in1000-8-1-23",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-8-1-24",
+   "type": "definition",
+   "title": "Nøstet liste",
+   "content": "En liste der elementene selv er lister: `[[3, 8], [1, 4, 9], [7]]`.\n\n`len` på ytterlista teller de **indre listene** — her 3, ikke 6.\n\nDe indre listene trenger ikke være like lange, og det er nettopp derfor antall\nrunder i en to nivåers løkke må **legges sammen** og ikke ganges."
+  },
+  {
+   "id": "in1000-8-1-25",
+   "type": "definition",
+   "title": "Nøstet ordbok",
+   "content": "En ordbok der verdiene selv er ordbøker:\n`{\"mandag\": {\"spinning\": 14, \"yoga\": 9}}`.\n\nYtternøkkelen er den ene inndelingen, indrenøkkelen den andre, og verdien er\ntallet.\n\nDe indre ordbøkene trenger ikke ha de samme nøklene. Det er hovedgrunnen til at\net dobbelt oppslag må sjekke **begge** nivåene."
+  },
+  {
+   "id": "in1000-8-1-26",
+   "type": "definition",
+   "title": "Dobbel indeksering",
+   "content": "`y[i][j]` for lister, `d[ytre][indre]` for ordbøker.\n\nLes fra venstre: den første hakeparentesen velger den indre strukturen, den andre\nvelger et element i den.\n\n**Rekkefølgen er hele fellen.** `y[0][2]` og `y[2][0]` er to helt ulike oppslag,\nog det ene kan stoppe programmet mens det andre virker."
+  },
+  {
+   "id": "in1000-8-1-27",
+   "type": "definition",
+   "title": "To nivåers løkke",
+   "content": "En løkke inne i en løkke.\n\nFor lister: `for indre in y:` og `for x in indre:` — den ytre variabelen er en\n**liste**.\n\nFor ordbøker: `for ytre in d:` og `for indre in d[ytre]:` — **begge** variablene\ner nøkler, og verdien hentes med `d[ytre][indre]`.\n\nSkriver du `for indre in d:` i den indre løkka, går du gjennom ytternøklene to\nganger."
+  },
+  {
+   "id": "in1000-8-1-28",
+   "type": "definition",
+   "title": "Oppbyggings-malen",
+   "content": "To sjekker, ikke én:\n\n```text\n        if ytre not in d:\n            d[ytre] = {}\n        if indre not in d[ytre]:\n            d[ytre][indre] = 0\n        d[ytre][indre] = d[ytre][indre] + v\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\nFørst den indre **ordboka**, så den indre **nøkkelen**, så akkumuleringen. Hopper\ndu over den første, stopper programmet på ytternøkkelen — feilkode **#14**."
+  },
+  {
+   "id": "in1000-8-1-29",
+   "type": "definition",
+   "title": "Rekkefølgen på de to sjekkene",
+   "content": "Ytternøkkelen sjekkes **først**, alltid.\n\n`if indre not in d[ytre]:` slår opp `d[ytre]` **før** `not in` rekker å virke. På\nen ytternøkkel som ikke finnes, stopper programmet der.\n\nSamme regel gjelder i en trygg oppslagsfunksjon: `if dag not in d: return 0`\nførst, `if akt not in d[dag]: return 0` etterpå."
+  },
+  {
+   "id": "in1000-8-1-30",
+   "type": "definition",
+   "title": "Akkumulatorens tre plasseringer",
+   "content": "**Utenfor begge løkkene:** summerer alt.\n\n**Inne i den ytre løkka:** nullstilles for hver indre liste, og gir «per\nrad»-svar.\n\n**Innerst i den indre løkka:** nullstilles hver runde, og står til slutt på det\nsiste elementet.\n\nÅ se hvilken av de tre plasseringene koden har, er ofte hele\nsporingsoppgaven — og å velge riktig plassering er et selvstendig poeng i sjanger\nG."
+  },
+  {
+   "id": "in1000-8-1-31",
+   "type": "definition",
+   "title": "Å telle runder",
+   "content": "Med **faste** grenser ganges antallet: `range(3)` inne i `range(4)` gir 12\nrunder.\n\nMed **varierende** grenser legges de sammen: `range(i)` inne i `range(4)` gir\n0 pluss 1 pluss 2 pluss 3, altså 6.\n\n`range(0)` gir **null** runder. Det er den delen folk glemmer, og den er plantet\nmed vilje i sporingsoppgavene."
+  },
+  {
+   "id": "in1000-8-1-32",
+   "type": "definition",
+   "title": "`len` på hvert nivå",
+   "content": "`len(y)` teller elementene i ytterstrukturen; `len(y[0])` teller elementene i den\nførste indre.\n\nDet totale antallet finnes i **ingen** av dem. Skal du telle alt, må du gå gjennom\nbegge nivåene med en teller.\n\nFor en nøstet ordbok er det det samme: `len(d)` er antall ytternøkler,\n`len(d[\"a\"])` er antall indrenøkler under `a`."
+  },
+  {
+   "id": "in1000-8-1-33",
+   "type": "definition",
+   "title": "Trygg oppslagsfunksjon",
+   "content": "Formen for å hente en verdi når begge nivåer kan mangle:\n\n```text\ndef hent(d, ytre, indre):\n    if ytre not in d:\n        return 0\n    if indre not in d[ytre]:\n        return 0\n    return d[ytre][indre]\n```\n\nBlokken er en mal og er merket som ikke-kjørbar.\n\n**Tidlig retur er riktig her**, i motsetning til i en finn-beste-løkke: funksjonen\nhar ingenting mer å gjøre når den vet at nøkkelen mangler.\n\nHva den skal returnere ved «ikke funnet», sier oppgaveteksten. `0` er naturlig når\nsvaret skal regnes med; `None` når det skal sammenlignes."
+  },
+  {
+   "id": "in1000-8-1-34",
+   "type": "definition",
+   "title": "Å flate ut en nøstet ordbok",
+   "content": "Å summere bort det ene nivået: fra `dag → rett → antall` til `rett → totalt\nantall`.\n\nFormen er teller-idiomet med en to nivåers løkke rundt seg, og resultatet er en\n**vanlig** ordbok.\n\nKjenn den igjen i oppgaveteksten på «gi en ordbok fra … til totalt antall …»\neller «samlet for alle dagene»."
+  },
+  {
+   "id": "in1000-8-1-35",
+   "type": "definition",
+   "title": "Ulik lengde på de indre strukturene",
+   "content": "En helt vanlig og lovlig situasjon: `[[1, 2], [3], [4, 5, 6]]`, eller en dag som\nmangler en aktivitet.\n\nLøkkene bryr seg ikke — `for x in indre:` går så mange runder som den strukturen\ner lang.\n\nMen **antall runder må da legges sammen**, ikke ganges, og et dobbelt oppslag må\nsjekke begge nivåene. Begge deler er plantet i eksamensoppgavene."
+  },
+  {
+   "id": "in1000-8-1-36",
+   "type": "definition",
+   "title": "Nøstet liste mot nøstet ordbok",
+   "content": "Samme idé, to ulike inngangsnøkler.\n\n**Lista** har rekkefølge og indekseres med tall. Bruk den når posisjonen betyr\nnoe — «rad 0 er spiller 1».\n\n**Ordboka** slås opp med navn og har ingen posisjon utover\ninnsettingsrekkefølgen. Bruk den når inndelingene har navn — «mandag», «spinning».\n\nOppgaveteksten sier som regel hvilken: «en liste av lister» eller «en ordbok fra\n… til en ordbok fra … til …»."
+  },
+  {
+   "id": "in1000-8-1-37",
+   "type": "definition",
+   "title": "Løkke over indekser",
+   "content": "`for i in range(len(liste)):` når det er **indeksen** du trenger, ikke bare\nverdien.\n\nTypisk når svaret skal være «hvilken spiller», og spillerne er nummerert etter\nplassen i lista.\n\nVerdien hentes da med `liste[i]`. Trenger du bare verdien, er `for x in liste:`\nenklere og mindre å bomme på."
+  },
+  {
+   "id": "in1000-8-1-38",
+   "type": "definition",
+   "title": "«Alle»-sjekk over to nivåer",
+   "content": "`return False` inne i løkka, `return True` **etter** den.\n\nÅ snu de to gjør at funksjonen svarer ja så snart **ett** element passer —\nfeilkode **#7**, for tidlig retur.\n\nLinjen etter løkka er obligatorisk. Glemmer du den, gir funksjonen `None`, og\n`None` oppfører seg som usant i en `if` — så feilen er stum."
+  },
+  {
+   "id": "in1000-8-1-39",
+   "type": "definition",
+   "title": "Hjelpevariabler i løkkekroppen",
+   "content": "`dag = rad[0]`, `akt = rad[1]`, `antall = rad[2]` øverst i kroppen, i stedet for å\nskrive `rad[0]` fem ganger.\n\nTre linjer ekstra gjør resten mye lettere å lese — og å rette. I en nøstet\nstruktur, der du allerede har to nivåer å holde styr på, er det verdt hvert\ntegn.\n\nDet gir ingen ekstra poeng i seg selv, men det reduserer sjansen for å blande\nindeksene betraktelig."
+  },
+  {
+   "id": "in1000-8-1-40",
+   "type": "definition",
+   "title": "Oppgave 5 — formen",
+   "content": "To funksjoner over nøstede lister eller ordbøker, 4–5 poeng hver, til sammen\n8–10 poeng.\n\nDen andre bygger ofte på den første: «bruk funksjonen fra a) til å …». Da kan du\nkalle den selv om du ikke fikk den helt riktig — sensor vet hva den skulle gjøre.\n\nSjangeren står i 4 av 6 moderne sett (67 %), og den er den siste oppgaven i\nsettet."
+  },
+  {
+   "id": "in1000-8-1-41",
+   "type": "definition",
+   "title": "Rekkefølge i en nøstet ordbok",
+   "content": "Begge nivåer husker den rekkefølgen nøklene ble **opprettet** i.\n\nBygger du ordboka ovenfra og ned fra en liste, får du nøklene i den rekkefølgen\ndataene kom.\n\nDet er verdt å vite når du skal spore en utskrift av hele strukturen — Python\nskriver den ut med krøllparenteser, enkle anførselstegn rundt tekstnøkler, kolon\nmellom nøkkel og verdi, og komma mellom parene."
+  },
+  {
+   "id": "in1000-8-1-42",
+   "type": "definition",
+   "title": "Feilkode #14 i nøstet form",
+   "content": "Å slå opp eller legge til på en nøkkel som ikke er opprettet — nå på to nivåer.\n\n`d[ytre][indre] = 0` uten at `d[ytre] = {}` er gjort først, stopper med `KeyError`\npå **ytter**nøkkelen. Det er den vanligste feilen i hele kapitlet.\n\nMotgiften er mekanisk: skriv **to** `if`-sjekker hver gang du bygger en nøstet\nstruktur, i rekkefølgen ytre, indre."
+  },
+  {
+   "id": "in1000-8-1-43",
+   "type": "definition",
+   "title": "Hvorfor to nivåer i det hele tatt",
+   "content": "Fordi virkeligheten ofte har to inndelinger samtidig: dag **og** aktivitet, uke\n**og** dag, spiller **og** runde.\n\nAlternativet — én ordbok med sammensatte nøkler som `\"mandag-spinning\"` — virker,\nmen gjør det umulig å spørre «hva skjedde på mandag?» uten å plukke tekster fra\nhverandre.\n\nDen nøstede strukturen holder de to inndelingene atskilt, og det er nettopp det\nsom gjør «summer per dag» og «summer per aktivitet» til to enkle løkker."
+  },
+  {
+   "id": "in1000-8-1-coll-44",
+   "type": "collapsible",
+   "title": "Repetisjon — de sju setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-8-1-c2",
+     "type": "text",
+     "content": "1. **En nøstet liste er en liste av lister**, en nøstet ordbok er en ordbok av\n   ordbøker. `len` teller alltid **ett** nivå.\n2. **`y[i][j]` leses fra venstre.** Første hakeparentes velger den indre\n   strukturen.\n3. **To nivåers løkke:** den ytre variabelen er en liste eller en nøkkel, den\n   indre gir elementene.\n4. **Oppbygging krever to sjekker**, i rekkefølgen ytre, indre — ellers `KeyError`\n   (**#14**).\n5. **Dobbelt oppslag krever to sjekker** av samme grunn, og ytternøkkelen må\n   sjekkes først.\n6. **Akkumulatorens plassering avgjør svaret:** utenfor begge, mellom løkkene,\n   eller innerst.\n7. **Antall runder er et produkt ved faste grenser og en sum ved varierende** —\n   og `range(0)` gir null runder."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

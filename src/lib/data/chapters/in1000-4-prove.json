@@ -1,0 +1,137 @@
+{
+ "id": "in1000-4-prove",
+ "courseId": "in1000",
+ "chapterNumber": "4.P",
+ "title": "Prøver til del 4: Kodesporing og kodeanalyse",
+ "description": "Fire prøver på til sammen 100 minutter: sporing av løkker, sporing av datastrukturer, blandet auto-rettet form, og fire finn-feilen-oppgaver med moteksempel.",
+ "estimatedMinutes": 100,
+ "competenceGoals": [
+  "kunne føre sporingstavle gjennom en løkke som endrer flere variabler",
+  "kunne angi utskriften med riktig type og riktig form, uten pynt",
+  "kunne spore en ordbok som endrer seg selv, runde for runde",
+  "kunne levere et moteksempel som faktisk avslører feilen"
+ ],
+ "content": [
+  {
+   "id": "in1000-4-prove-1",
+   "type": "tip",
+   "title": "Fire prøver til del 4 — dekning og tidsbruk",
+   "content": "Denne delen har **4 prøver à 25 minutter** — til sammen 100 minutter. De kan\ntrygt deles over flere kvelder: **én prøve per økt** er en helt vanlig og\nfornuftig rytme.\n\n| Prøve | Dekker | Tid |\n|---|---|---|\n| 4.A | Sporing av løkker og betingelser ([kap. 4.1](/bok/in1000/in1000-4-1)) | 25 min |\n| 4.B | Sporing av lister, ordbøker og strenger ([kap. 4.1](/bok/in1000/in1000-4-1)) | 25 min |\n| 4.C | Blandet, auto-rettet: eksakt verdi og type | 25 min |\n| 4.D | «Finn feilen» og moteksempel ([kap. 4.2](/bok/in1000/in1000-4-2)) | 25 min |\n\nDe tre første er i **sjanger A — kodeforståelse**, altså «hva skriver dette\nprogrammet ut?». Det er formen Oppgave 1 har, og i de nyere settene rettes den\n**maskinelt**: skriv eksakt verdi, riktig type, ingen pynt. Prøve 4.D er i\n**sjanger I — finn feilen**, der du skal levere et konkret moteksempel.\n\n**Flervalgsoppgavene bor to steder.** Denne delen har ingen statiske flervalg —\nalle svarene skrives i klartekst, som i et auto-rettet felt. Vil du ha flervalg,\ntar du den interaktive quizen som hører til hvert kapittel.\n\n**Før sporingstavle på papir, og skriv svaret før du åpner fasiten.** Eksamen er\nhjelpemiddelfri, og det er nettopp den vanen prøvene skal bygge."
+  },
+  {
+   "id": "in1000-4-prove-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\n[Kap. 4.1 — DRILL: kodesporing](/bok/in1000/in1000-4-1) og\n[kap. 4.2 — «Finn feilen»](/bok/in1000/in1000-4-2). Under dem ligger hele del 1\ntil 3, som er konstruksjonene du nå skal lese i stedet for å skrive.\n\nDe seks tingene prøvene tester hardest:\n\n- **antall runder**: `range(a, b)` gir `b - a` verdier, og stoppverdien er aldri\n  med,\n- **muteringsrekkefølge**: en linje ser verdiene slik de er akkurat da,\n- **typen**: `/` gir alltid desimaltall; `\"1\" + \"2\"` er `\"12\"`,\n- **utskriftsformen**: komma gir ett mellomrom; lister og ordbøker får sine\n  parenteser og enkle anførselstegn rundt tekster,\n- **kantverdien**: `60 > 60` er usann,\n- **moteksempelet**: ett konkret kall, det gale svaret og det riktige.\n\nTrenger du å friske opp ett av punktene, gjør det før du starter klokka."
+  },
+  {
+   "id": "in1000-4-prove-coll-p1",
+   "type": "collapsible",
+   "title": "Prøve 4.A — Løkker og betingelser",
+   "buttonText": "Vis prøve 1",
+   "content": [
+    {
+     "id": "in1000-4-prove-p1p",
+     "type": "text",
+     "content": "**Prøve 4.A — Løkker og betingelser** — 25 minutter. Ti sporingsoppgaver om runder, oppdateringsrekkefølge og forgrening.\n\n\nTotalt 22 poeng. Skriv utskriften nøyaktig slik terminalen viser den — riktig type, ingen pynt, riktige mellomrom.\n\n**Oppgave 1** (1 p). Hva skriver programmet ut?\n\n```python\nfor i in range(4):\n    print(i)\n```\n\n**Oppgave 2** (2 p). Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(2, 6):\n    total = total + i\nprint(total)\n```\n\n**Oppgave 3** (2 p). Hva skriver programmet ut?\n\n```python\nantall = 0\nfor i in range(1, 16):\n    if i % 3 == 0:\n        antall = antall + 1\nprint(antall)\n```\n\n**Oppgave 4** (2 p). Hva skriver programmet ut?\n\n```python\nx = 25\nif x > 25:\n    print(\"A\")\nelif x > 15:\n    print(\"B\")\nelse:\n    print(\"C\")\n```\n\n**Oppgave 5** (2 p). Hva skriver programmet ut?\n\n```python\nx = 25\nif x > 15:\n    print(\"A\")\nif x > 20:\n    print(\"B\")\nprint(\"C\")\n```\n\n**Oppgave 6** (3 p). Hva skriver programmet ut?\n\n```python\na = 3\nb = 2\nfor i in range(3):\n    a = a + b\n    b = b + 1\nprint(a, b)\n```\n\n**Oppgave 7** (3 p). Hva skriver programmet ut?\n\n```python\nn = 100\ns = 0\nwhile n > 5:\n    s = s + n\n    n = n // 3\nprint(s, n)\n```\n\n**Oppgave 8** (2 p). Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(3):\n    for j in range(3):\n        total = total + 1\nprint(total)\n```\n\n**Oppgave 9** (3 p). Hva skriver programmet ut?\n\n```python\ntotal = 0\nfor i in range(5):\n    for j in range(i):\n        if j == 0:\n            total = total + 1\nprint(total)\n```\n\n**Oppgave 10** (2 p). Hva skriver programmet ut?\n\n```python\nfor i in range(9, 0, -4):\n    print(i)\n```"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-coll-f1",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 4.A — Løkker og betingelser",
+   "buttonText": "Vis fasit 1",
+   "content": [
+    {
+     "id": "in1000-4-prove-f1f",
+     "type": "text",
+     "content": "**Fasit — Prøve 4.A — Løkker og betingelser.** Utskriftene under er kjørt, ikke gjettet. Riktig utskrift teller; delvis riktig sporing gir delvis uttelling.\n\n**Oppgave 1** (1 p):\n\n```\n0\n1\n2\n3\n```\n\nFire runder, med verdiene 0 til 3. Stoppverdien er aldri med.\n\n**Oppgave 2** (2 p):\n\n```\n14\n```\n\nVerdiene er 2, 3, 4 og 5 — fire runder, ikke seks. Summen er 14.\n\n**Oppgave 3** (2 p):\n\n```\n5\n```\n\nTallene 3, 6, 9, 12 og 15 er delelige med 3. Merk at 15 er med, siden stoppverdien er 16.\n\n**Oppgave 4** (2 p):\n\n```\nB\n```\n\nKantverdien: `25 > 25` er usann, så første gren hoppes over. Bare den første sanne grenen i en kjede kjøres.\n\n**Oppgave 5** (2 p):\n\n```\nA\nB\nC\n```\n\nTo selvstendige `if`-er er to uavhengige spørsmål, og begge er sanne. Siste linje står uten innrykk og kjøres uansett.\n\n**Oppgave 6** (3 p):\n\n```\n12 5\n```\n\n`a` øker med den verdien `b` hadde ved rundens start: 3 + 2 = 5, 5 + 3 = 8, 8 + 4 = 12. Rekkefølgen på de to linjene avgjør.\n\n**Oppgave 7** (3 p):\n\n```\n144 3\n```\n\nRundene legger til 100, 33 og 11, og `n` går 100, 33, 11, 3. Betingelsen svikter ved 3, som derfor er sluttverdien.\n\n**Oppgave 8** (2 p):\n\n```\n9\n```\n\nMed faste grenser ganges antallet: tre ytre runder ganger tre indre.\n\n**Oppgave 9** (3 p):\n\n```\n4\n```\n\nDen indre løkka kjører 0, 1, 2, 3 og 4 ganger, og `j` er 0 i alle unntatt den første. Fire runder treffer betingelsen.\n\n**Oppgave 10** (2 p):\n\n```\n9\n5\n1\n```\n\nNegativt steg gir 9, 5 og 1. Neste verdi ville vært -3, som er under stoppverdien 0.\n\n**Selvdiagnose — kryss av:**\n\n☐ Skrev du opp hvilke verdier hver `range` faktisk gir, før du sporte?\n☐ Fylte du ut sporingstavla ovenfra og ned, én linje om gangen?\n☐ Sjekket du om linje to sa `elif` eller `if`?\n☐ Testet du med verdien som ligger nøyaktig på grensen?\n☐ Noterte du sluttverdien til betingelsesvariabelen i `while`-oppgaven?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-coll-p2",
+   "type": "collapsible",
+   "title": "Prøve 4.B — Lister, ordbøker og strenger",
+   "buttonText": "Vis prøve 2",
+   "content": [
+    {
+     "id": "in1000-4-prove-p2p",
+     "type": "text",
+     "content": "**Prøve 4.B — Lister, ordbøker og strenger** — 25 minutter. Ti sporingsoppgaver om indekser, ordbok-mutasjon og tekstbygging.\n\n\nTotalt 24 poeng. Skriv utskriften nøyaktig slik terminalen viser den — riktig type, ingen pynt, riktige mellomrom.\n\n**Oppgave 1** (2 p). Hva skriver programmet ut?\n\n```python\ntall = [7, 2, 9, 4]\nprint(tall[2], tall[-1])\n```\n\n**Oppgave 2** (2 p). Hva skriver programmet ut?\n\n```python\ntall = [7, 2, 9]\nprint(len(tall), tall)\n```\n\n**Oppgave 3** (2 p). Hva skriver programmet ut?\n\n```python\nny = []\nfor t in [3, 8, 5]:\n    if t > 4:\n        ny.append(t)\nprint(ny, len(ny))\n```\n\n**Oppgave 4** (3 p). Hva skriver programmet ut?\n\n```python\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(a, b)\n```\n\n**Oppgave 5** (3 p). Hva skriver programmet ut?\n\n```python\nv = [10, 4, 7]\nr = []\nfor i in range(1, len(v)):\n    r.append(v[i] - v[i - 1])\nprint(r, len(r))\n```\n\n**Oppgave 6** (2 p). Hva skriver programmet ut?\n\n```python\nd = {\"a\": 1}\nd[\"b\"] = 4\nd[\"a\"] = d[\"a\"] + 9\nprint(d, len(d))\n```\n\n**Oppgave 7** (3 p). Hva skriver programmet ut?\n\n```python\nd = {}\nfor t in [5, 2, 5, 5, 2]:\n    if t not in d:\n        d[t] = 0\n    d[t] = d[t] + 1\nprint(d)\nprint(len(d), d[5])\n```\n\n**Oppgave 8** (2 p). Hva skriver programmet ut?\n\n```python\nd = {\"a\": 2, \"b\": 3}\nfor k in d:\n    d[k] = d[k] + 10\nprint(d)\n```\n\n**Oppgave 9** (2 p). Hva skriver programmet ut?\n\n```python\nlinje = \"20;Blindern;Ullevaal\"\nfelt = linje.split(\";\")\nprint(felt)\nprint(len(felt), felt[0])\n```\n\n**Oppgave 10** (3 p). Hva skriver programmet ut?\n\n```python\nny = \"\"\nfor tegn in \"rute\":\n    ny = tegn + ny\nprint(ny, len(ny))\n```"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-coll-f2",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 4.B — Lister, ordbøker og strenger",
+   "buttonText": "Vis fasit 2",
+   "content": [
+    {
+     "id": "in1000-4-prove-f2f",
+     "type": "text",
+     "content": "**Fasit — Prøve 4.B — Lister, ordbøker og strenger.** Utskriftene under er kjørt, ikke gjettet. Riktig utskrift teller; delvis riktig sporing gir delvis uttelling.\n\n**Oppgave 1** (2 p):\n\n```\n9 4\n```\n\nIndeks 2 er det **tredje** elementet, og `-1` er det siste. Skriv indeksene over tallene før du svarer.\n\n**Oppgave 2** (2 p):\n\n```\n3 [7, 2, 9]\n```\n\nLengden er en enkeltverdi uten parenteser; hele lista skrives med hakeparenteser, komma og ett mellomrom.\n\n**Oppgave 3** (2 p):\n\n```\n[8, 5] 2\n```\n\nBygg-mønsteret tar med 8 og 5. Lista skrives med hakeparenteser, lengden uten.\n\n**Oppgave 4** (3 p):\n\n```\n[1, 2, 3, 4] [1, 2, 3, 4]\n```\n\n`b = a` gir to navn på **samme** liste, så endringen sees begge veier. Det er feilkode #15, aliasing.\n\n**Oppgave 5** (3 p):\n\n```\n[-6, 3] 2\n```\n\nLøkka går over indeks 1 og 2 — tre tall gir to avstander. Resultatlista er alltid én kortere når du regner på naboer.\n\n**Oppgave 6** (2 p):\n\n```\n{'a': 10, 'b': 4} 2\n```\n\nDen ene tilordningen oppretter en nøkkel, den andre overskriver en verdi. Rekkefølgen følger opprettelsen, så `a` står først.\n\n**Oppgave 7** (3 p):\n\n```\n{5: 3, 2: 2}\n2 3\n```\n\nTeller-idiomet med heltallsnøkler, som skrives **uten** anførselstegn. `len(d)` er antall nøkler, `d[5]` er antall femmere — to helt ulike tall.\n\n**Oppgave 8** (2 p):\n\n```\n{'a': 12, 'b': 13}\n```\n\nLøkkevariabelen er nøkkelen, og den nye verdien skrives tilbake på samme nøkkel. Å endre verdier under en løkke er trygt.\n\n**Oppgave 9** (2 p):\n\n```\n['20', 'Blindern', 'Ullevaal']\n3 20\n```\n\nHele lista vises med enkle anførselstegn rundt hver tekst; ett felt skrevet ut alene får ingen.\n\n**Oppgave 10** (3 p):\n\n```\netur 4\n```\n\n`ny = tegn + ny` setter det nye tegnet **foran**, så teksten snus. `ny = ny + tegn` ville gitt teksten uendret.\n\n**Selvdiagnose — kryss av:**\n\n☐ Skrev du indeksene over elementene før du sporte?\n☐ Skrev du ordboka på nytt etter **hver** runde?\n☐ Skilte du mellom antall nøkler og verdien til en bestemt nøkkel?\n☐ Husket du hakeparentesene på lister og de enkle anførselstegnene på tekster?\n☐ Så du hvilken vei teksten ble bygget?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-coll-p3",
+   "type": "collapsible",
+   "title": "Prøve 4.C — Blandet, auto-rettet",
+   "buttonText": "Vis prøve 3",
+   "content": [
+    {
+     "id": "in1000-4-prove-p3p",
+     "type": "text",
+     "content": "**Prøve 4.C — Blandet, auto-rettet** — 25 minutter. Tolv korte oppgaver der **formen** på svaret er halve poenget. Skriv nøyaktig det terminalen ville vist, tegn for tegn.\n\n\nTotalt 24 poeng. Skriv utskriften nøyaktig slik terminalen viser den — riktig type, ingen pynt, riktige mellomrom.\n\n**Oppgave 1** (2 p). Hva skriver programmet ut?\n\n```python\nprint(12 / 4)\n```\n\n**Oppgave 2** (2 p). Hva skriver programmet ut?\n\n```python\nprint(13 // 4, 13 % 4)\n```\n\n**Oppgave 3** (2 p). Hva skriver programmet ut?\n\n```python\na = \"20\"\nb = \"5\"\nprint(a + b, int(a) + int(b))\n```\n\n**Oppgave 4** (2 p). Hva skriver programmet ut?\n\n```python\nprint(\"ny\" * 3, 3 * 4)\n```\n\n**Oppgave 5** (2 p). Hva skriver programmet ut?\n\n```python\nprint(5 == 5.0, \"5\" == 5)\n```\n\n**Oppgave 6** (2 p). Hva skriver programmet ut?\n\n```python\nprint(\"a\", \"b\", \"c\")\nprint(\"a\" + \"b\" + \"c\")\n```\n\n**Oppgave 7** (2 p). Hva skriver programmet ut?\n\n```python\nprint(2 + 3 * 4, (2 + 3) * 4, 2 ** 3)\n```\n\n**Oppgave 8** (2 p). Hva skriver programmet ut?\n\n```python\nprint(len(\"to ord\"), len([1, 2, 3]), len({\"a\": 1}))\n```\n\n**Oppgave 9** (2 p). Hva skriver programmet ut?\n\n```python\nprint([1, \"to\", 3.0])\nprint(\"to\")\n```\n\n**Oppgave 10** (2 p). Hva skriver programmet ut?\n\n```python\ndef f(x):\n    y = x * 2\nprint(f(4))\n```\n\n**Oppgave 11** (2 p). Hva skriver programmet ut?\n\n```python\ndef g(a, b):\n    return a - b, a + b\nprint(g(9, 4))\nx, y = g(9, 4)\nprint(x, y)\n```\n\n**Oppgave 12** (2 p). Hva skriver programmet ut?\n\n```python\nprint(True, False, not True)\nprint(3 > 2 and 2 > 3)\n```"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-coll-f3",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 4.C — Blandet, auto-rettet",
+   "buttonText": "Vis fasit 3",
+   "content": [
+    {
+     "id": "in1000-4-prove-f3f",
+     "type": "text",
+     "content": "**Fasit — Prøve 4.C — Blandet, auto-rettet.** Utskriftene under er kjørt, ikke gjettet. Riktig utskrift teller; delvis riktig sporing gir delvis uttelling.\n\n**Oppgave 1** (2 p):\n\n```\n3.0\n```\n\n`/` gir alltid desimaltall, også når regnestykket går opp. `3` er galt i et auto-rettet felt.\n\n**Oppgave 2** (2 p):\n\n```\n3 1\n```\n\nHeltallsdivisjon og rest gir begge heltall, skilt av ett mellomrom.\n\n**Oppgave 3** (2 p):\n\n```\n205 25\n```\n\nSamme plusstegn, to betydninger — avgjort av anførselstegnene. Det er feilkode #3.\n\n**Oppgave 4** (2 p):\n\n```\nnynyny 12\n```\n\nEn tekst ganget med et heltall gjentar teksten uten mellomrom; to tall ganges.\n\n**Oppgave 5** (2 p):\n\n```\nTrue False\n```\n\nEt heltall og et desimaltall med samme verdi er like; et tall og en tekst er aldri like.\n\n**Oppgave 6** (2 p):\n\n```\na b c\nabc\n```\n\nKomma gir ett mellomrom mellom argumentene; pluss skjøter uten mellomrom.\n\n**Oppgave 7** (2 p):\n\n```\n14 20 8\n```\n\nGange før pluss i det første; parentesen slår alt i det andre; det tredje er en potens.\n\n**Oppgave 8** (2 p):\n\n```\n6 3 1\n```\n\n`len` teller tegn i en tekst, elementer i en liste og **par** i en ordbok. Mellomrommet i teksten teller med.\n\n**Oppgave 9** (2 p):\n\n```\n[1, 'to', 3.0]\nto\n```\n\nTeksten får enkle anførselstegn **inne i** lista, men ingen når den skrives ut alene. Desimaltallet beholder punktum og null.\n\n**Oppgave 10** (2 p):\n\n```\nNone\n```\n\nFunksjonen mangler `return`, så kallet gir `None` selv om den regnet riktig.\n\n**Oppgave 11** (2 p):\n\n```\n(5, 13)\n5 13\n```\n\nUten utpakking viser Python de to returverdiene som et par i parentes; med to navn skrives de som to enkeltverdier.\n\n**Oppgave 12** (2 p):\n\n```\nTrue False False\nFalse\n```\n\nBoolske verdier skrives med stor forbokstav. `and` krever at begge sider er sanne.\n\n**Selvdiagnose — kryss av:**\n\n☐ Skrev du `3.0` og ikke `3` der `/` var brukt?\n☐ Så du etter anførselstegn før du regnet på noe?\n☐ Skrev du `True` og `None` med stor forbokstav, slik Python gjør?\n☐ Husket du parentesen rundt et par av returverdier?\n☐ Lot du være å sette anførselstegn rundt en tekst i svarfeltet?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-coll-p4",
+   "type": "collapsible",
+   "title": "Prøve 4.D — Finn feilen",
+   "buttonText": "Vis prøve 4",
+   "content": [
+    {
+     "id": "in1000-4-prove-p4p",
+     "type": "text",
+     "content": "**Prøve 4.D — Finn feilen** — 25 minutter. Fire program med logiske feil, i sjanger I.\n\n\nTotalt 24 poeng. For hvert program: si hva den oppgitte koden faktisk gir, gi et **konkret moteksempel** — ett kall, det gale svaret og det riktige — og rett feilen med minst mulig endring.\n\n\n**Oppgave 1** (6 p). Funksjonen skal returnere `True` hvis minst ett tall i lista er negativt.\n\n```text\ndef har_negativt(tallene):\n    for t in tallene:\n        if t < 0:\n            return True\n        else:\n            return False\n```\n\n**Oppgave 2** (6 p). Funksjonen skal returnere plassen til det største tallet i lista.\n\n```text\ndef plassen_til_storste(tallene):\n    beste = 0\n    for i in range(len(tallene)):\n        if tallene[i] > tallene[beste]:\n            beste = tallene[i]\n    return beste\n```\n\n**Oppgave 3** (6 p). Funksjonen skal returnere antall dager der det regnet mer enn grensen.\n\n```text\ndef antall_over(dager, grense):\n    antall = 0\n    for dag in dager:\n        if dag > grense:\n            antall = antall + 1\n        return antall\n```\n\n**Oppgave 4** (6 p). Funksjonen skal gruppere navn etter forbokstav.\n\n```text\ndef grupper(navnene):\n    d = {}\n    for navn in navnene:\n        d[navn[0]].append(navn)\n    return d\n```"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-coll-f4",
+   "type": "collapsible",
+   "title": "Fasit — Prøve 4.D — Finn feilen",
+   "buttonText": "Vis fasit 4",
+   "content": [
+    {
+     "id": "in1000-4-prove-f4f",
+     "type": "text",
+     "content": "**Fasit — Prøve 4.D — Finn feilen.** All rettet kode under er kjørt. Moteksempelet er hovedpoenget og gir mest; forklaringen og rettelsen gir resten.\n\n\n**Oppgave 1** (6 p).\n\n**Hva koden gir:** `har_negativt([3, -1])` returnerer `False`. Det første tallet er positivt, så `else`-grenen kjører og funksjonen avsluttes allerede etter tall nummer én.\n\n**Moteksempel:** `har_negativt([3, -1])` gir `False`, men skulle gitt `True`.\n\n**Forklaringen:** begge `return`-ene står inne i løkka, slik at det første tallet avgjør hele svaret. Det er feilkode #7.\n\n**Rettelsen:** fjern `else`, og flytt `return False` ut av løkka.\n\n```python\ndef har_negativt(tallene):\n    for t in tallene:\n        if t < 0:\n            return True\n    return False\n\nprint(har_negativt([3, -1]), har_negativt([3, 5]), har_negativt([]))\n```\n\n**Utskrift:**\n```\nTrue False False\n```\n\nMerk at moteksempelet må ha et **positivt** tall først. `har_negativt([-1, 3])` ville gitt `True`, som tilfeldigvis er riktig svar, og dermed ikke bevist noe.\n\n**Oppgave 2** (6 p).\n\n**Hva koden gir:** `plassen_til_storste([4, 1, 9])` returnerer `9`. Variabelen `beste` skal være en **plass**, men settes til en **verdi** inne i løkka.\n\n**Moteksempel:** `plassen_til_storste([4, 1, 9])` gir `9`, men skulle gitt `2`.\n\n**Forklaringen:** funksjonen blander sammen plassen og verdien — `beste = tallene[i]` skulle vært `beste = i`.\n\nMerk at feilen også kan vise seg som et krasj. `plassen_til_storste([4, 19, 7])` stopper med `IndexError`, fordi `beste` har blitt 19 og `tallene[19]` ikke finnes. Begge deler er riktige observasjoner, men moteksempelet over er tydeligst: det viser et **galt svar**, som er det sjanger I handler om.\n\n**Rettelsen:** ett ord.\n\n```python\ndef plassen_til_storste(tallene):\n    beste = 0\n    for i in range(len(tallene)):\n        if tallene[i] > tallene[beste]:\n            beste = i\n    return beste\n\nprint(plassen_til_storste([4, 1, 9]), plassen_til_storste([4, 19, 7]), plassen_til_storste([2, 2]))\n```\n\n**Utskrift:**\n```\n2 1 0\n```\n\nSiste kall viser uavgjort-regelen: testen er streng, så den **første** av to like beholder plassen.\n\n**Oppgave 3** (6 p).\n\n**Hva koden gir:** `antall_over([2, 9, 5, 12], 4)` returnerer `0`. Se innrykket: `return` står inne i løkka, så funksjonen avsluttes etter første dag.\n\n**Moteksempel:** `antall_over([2, 9, 5, 12], 4)` gir `0`, men skulle gitt `3`.\n\n**Forklaringen:** `return` står inne i løkka i stedet for etter den, så bare den første dagen blir undersøkt.\n\n**Rettelsen:** ett innrykksnivå ut.\n\n```python\ndef antall_over(dager, grense):\n    antall = 0\n    for dag in dager:\n        if dag > grense:\n            antall = antall + 1\n    return antall\n\nprint(antall_over([2, 9, 5, 12], 4), antall_over([1, 2], 4), antall_over([], 4))\n```\n\n**Utskrift:**\n```\n3 0 0\n```\n\nMerk at den gale koden gir `None` for den tomme lista, siden løkka aldri kjører og `return` derfor aldri nås. Den rettede gir `0`.\n\n**Oppgave 4** (6 p).\n\n**Hva koden gir:** `grupper([\"Ada\"])` stopper med `KeyError: 'A'`. Nøkkelen slås opp før den er opprettet, og `.append` krever at det finnes en liste der fra før.\n\n**Moteksempel:** `grupper([\"Ada\"])` gir `KeyError: 'A'` i stedet for `{'A': ['Ada']}`.\n\n**Forklaringen:** den indre lista opprettes aldri, så `d[navn[0]]` slår opp en nøkkel som ikke finnes. Det er feilkode #14.\n\n**Rettelsen:** to linjer inn foran.\n\n```python\ndef grupper(navnene):\n    d = {}\n    for navn in navnene:\n        b = navn[0]\n        if b not in d:\n            d[b] = []\n        d[b].append(navn)\n    return d\n\nprint(grupper([\"Ada\", \"Bo\", \"Ask\"]))\nprint(grupper([]))\n```\n\n**Utskrift:**\n```\n{'A': ['Ada', 'Ask'], 'B': ['Bo']}\n{}\n```\n\nLegg merke til at den gale koden virker på den **tomme** lista: `grupper([])` gir `{}` uten problemer. En funksjon kan være grunnleggende feil og likevel klare ett kanttilfelle — derfor skal et moteksempel også prøve et helt vanlig kall.\n\n**Selvdiagnose — kryss av:**\n\n☐ Skrev du et konkret **kall** med både galt og riktig svar, for alle fire?\n☐ Valgte du data der feilen faktisk slår ut?\n☐ Skrev du hva koden **returnerer**, i stedet for å påstå at den krasjer?\n☐ Var rettelsen din den minste som fjerner feilen?\n☐ Sjekket du innrykket på `return`-linja i alle fire programmene?"
+    }
+   ]
+  },
+  {
+   "id": "in1000-4-prove-3",
+   "type": "text",
+   "content": "## Etter prøvene\n\nFikk du under åtte av ti riktige på 4.A eller 4.B, er svaret nesten alltid det\nsamme: du sporte i hodet i stedet for på papir. Ta prøven om igjen med\nsporingstavle på alle oppgavene, også de som ser opplagte ut. Det er de\nopplagte som taper poeng.\n\nBommet du på **formen** i 4.C — `3` for `3.0`, manglende hakeparenteser,\nanførselstegn rundt en tekst — er det ikke en forståelsesfeil, men en vane som\nmangler. Les [kap. 4.1](/bok/in1000/in1000-4-1) sin API-liste en gang til, og\nskriv svarene i 4.C på nytt uten å se på fasiten.\n\nKom du gjennom 4.D med konkrete moteksempler på alle fire, er sjanger I på plass.\nDen er verdt 2–6 poeng på settet — men den samme sjekklista bruker du på **din\negen** kode i Oppgave 3 og 4, og der er den verdt langt mer.\n\nNeste del i boka er klasser og objekter. Der bygger du selv de programmene du nå\nhar lært å lese."
+  }
+ ],
+ "exercises": []
+}
