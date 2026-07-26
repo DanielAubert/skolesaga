@@ -964,30 +964,19 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
   description: 'English for 10th grade - exam preparation, literature, academic writing and global English',
   curriculum: 'LK20',
   icon: '🇬🇧',
+  sectionNames: {
+    '1': 'Kommunikasjon, tekstanalyse og kultur',
+    '2': 'Grammatikk, ordforråd og språkbruk',
+    '3': 'Litteratur og sjangre',
+    '4': 'Medier, samfunn og globale spørsmål',
+    '5': 'Eksamensforberedelse',
+    '6': 'Fordypning – film, språkvariasjon og fortellerkunst',
+  },
   chapters: [
-    {
-      id: 'engelsk-10-1', linkedChapterId: 'engelsk-10-1-narrativ',
-      number: '1',
-      title: 'Exam Preparation - Writing',
-      description: 'Forbered deg til skriftlig eksamen med fokus pa ulike teksttyper og skrivestrategier.',
-      estimatedMinutes: 60,
-      exerciseCount: 6,
-      topics: ['Essay', 'Article', 'Short story', 'Formal letter', 'Structure'],
-      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng', 'bruke variert ordforrad og idiomatiske uttrykk'],
-    },
-    {
-      id: 'engelsk-10-2', linkedChapterId: 'engelsk-10-2-narrativ',
-      number: '2',
-      title: 'Exam Preparation - Oral',
-      description: 'Forbered deg til muntlig eksamen med presentasjonsteknikk og samtaleovelser.',
-      estimatedMinutes: 55,
-      exerciseCount: 5,
-      topics: ['Presentations', 'Discussions', 'Body language', 'Spontaneous questions'],
-      competenceGoals: ['presentere og diskutere emner muntlig med god struktur'],
-    },
+    // Seksjon 1: Kommunikasjon, tekstanalyse og kultur
     {
       id: 'engelsk-10-3', linkedChapterId: 'engelsk-10-3-narrativ',
-      number: '3',
+      number: '1.1',
       title: 'Literary Analysis',
       description: 'Laer a analysere litteraere tekster med fokus pa virkemidler, tema og tolkning.',
       estimatedMinutes: 55,
@@ -997,7 +986,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-4', linkedChapterId: 'engelsk-10-4-narrativ',
-      number: '4',
+      number: '1.2',
       title: 'Media and Society',
       description: 'Utforsk medias rolle i samfunnet og laer kritisk medieforstaelse.',
       estimatedMinutes: 50,
@@ -1007,7 +996,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-5', linkedChapterId: 'engelsk-10-5-narrativ',
-      number: '5',
+      number: '1.3',
       title: 'Intercultural Communication',
       description: 'Laer om interkulturell kommunikasjon og engelskspraklige kulturer.',
       estimatedMinutes: 50,
@@ -1017,7 +1006,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-6', linkedChapterId: 'engelsk-10-6-narrativ',
-      number: '6',
+      number: '1.4',
       title: 'Academic Writing',
       description: 'Laer a skrive akademiske tekster med korrekt struktur, kildebruk og sprak.',
       estimatedMinutes: 55,
@@ -1027,7 +1016,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-7', linkedChapterId: 'engelsk-10-7-narrativ',
-      number: '7',
+      number: '1.5',
       title: 'Debating and Argumentation',
       description: 'Laer a bygge sterke argumenter og delta i debatter pa engelsk.',
       estimatedMinutes: 55,
@@ -1037,7 +1026,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-8', linkedChapterId: 'engelsk-10-8-narrativ',
-      number: '8',
+      number: '1.6',
       title: 'Global Challenges',
       description: 'Utforsk globale utfordringer og laer relevante engelske uttrykk.',
       estimatedMinutes: 55,
@@ -1047,7 +1036,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-9', linkedChapterId: 'engelsk-10-9-narrativ',
-      number: '9',
+      number: '1.7',
       title: 'Identity and Belonging',
       description: 'Utforsk temaer som identitet, tilhorighet og selvuttrykk gjennom litteratur og refleksjon.',
       estimatedMinutes: 50,
@@ -1057,7 +1046,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-10', linkedChapterId: 'engelsk-10-10-narrativ',
-      number: '10',
+      number: '1.8',
       title: 'Critical Reading',
       description: 'Utvikle avanserte leseferdigheter med fokus pa kritisk analyse og evaluering.',
       estimatedMinutes: 55,
@@ -1065,10 +1054,10 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
       topics: ['Critical analysis', 'Persuasive techniques', 'Evaluation', 'Synthesis'],
       competenceGoals: ['lese kritisk og evaluere tekster fra ulike kilder'],
     },
-    // --- Del 5: Language and Grammar Mastery (kap 11-16) ---
+    // Seksjon 2: Grammatikk, ordforråd og språkbruk
     {
       id: 'engelsk-10-11', linkedChapterId: 'engelsk-10-11-narrativ',
-      number: '11',
+      number: '2.1',
       title: 'Grammar Review — Verb Tenses',
       description: 'Master English verb tenses from simple to perfect, with Norwegian-specific pitfalls.',
       estimatedMinutes: 90,
@@ -1078,7 +1067,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-12', linkedChapterId: 'engelsk-10-12-narrativ',
-      number: '12',
+      number: '2.2',
       title: 'Sentence Structure and Word Order',
       description: 'Understand SVO structure, adverb placement and complex sentences in English.',
       estimatedMinutes: 85,
@@ -1088,7 +1077,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-13', linkedChapterId: 'engelsk-10-13-narrativ',
-      number: '13',
+      number: '2.3',
       title: 'Vocabulary Building',
       description: 'Expand your vocabulary through word families, prefixes, suffixes and collocations.',
       estimatedMinutes: 80,
@@ -1098,7 +1087,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-14', linkedChapterId: 'engelsk-10-14-narrativ',
-      number: '14',
+      number: '2.4',
       title: 'Spelling and Punctuation',
       description: 'Master English spelling rules and punctuation for clear, correct writing.',
       estimatedMinutes: 75,
@@ -1108,7 +1097,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-15', linkedChapterId: 'engelsk-10-15-narrativ',
-      number: '15',
+      number: '2.5',
       title: 'Translation Skills',
       description: 'Develop skills in translating between Norwegian and English with accuracy.',
       estimatedMinutes: 80,
@@ -1118,7 +1107,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-16', linkedChapterId: 'engelsk-10-16-narrativ',
-      number: '16',
+      number: '2.6',
       title: 'Register and Tone',
       description: 'Learn to adjust your language register and tone for different audiences.',
       estimatedMinutes: 80,
@@ -1126,10 +1115,10 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
       topics: ['Register', 'Formal vs informal', 'Tone', 'Audience awareness'],
       competenceGoals: ['tilpasse språket til formål, mottaker og situasjon'],
     },
-    // --- Del 6: Literature and Cultural Understanding (kap 17-22) ---
+    // Seksjon 3: Litteratur og sjangre
     {
       id: 'engelsk-10-17', linkedChapterId: 'engelsk-10-17-narrativ',
-      number: '17',
+      number: '3.1',
       title: 'Short Stories — Close Reading',
       description: 'Analyse short stories through narrative voice, setting and characterisation.',
       estimatedMinutes: 90,
@@ -1139,7 +1128,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-18', linkedChapterId: 'engelsk-10-18-narrativ',
-      number: '18',
+      number: '3.2',
       title: 'Poetry — Rhythm and Meaning',
       description: 'Explore how poets use rhythm, rhyme, imagery and figurative language.',
       estimatedMinutes: 90,
@@ -1149,7 +1138,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-19', linkedChapterId: 'engelsk-10-19-narrativ',
-      number: '19',
+      number: '3.3',
       title: 'The Novel — Themes and Characters',
       description: 'Study novel structure, character arcs, themes and motifs.',
       estimatedMinutes: 90,
@@ -1159,7 +1148,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-20', linkedChapterId: 'engelsk-10-20-narrativ',
-      number: '20',
+      number: '3.4',
       title: 'Drama and Theatre',
       description: 'Understand dramatic texts, dialogue, stage directions and theatrical conventions.',
       estimatedMinutes: 90,
@@ -1169,7 +1158,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-21', linkedChapterId: 'engelsk-10-21-narrativ',
-      number: '21',
+      number: '3.5',
       title: 'Indigenous and Postcolonial Literature',
       description: 'Explore literature from indigenous and postcolonial perspectives.',
       estimatedMinutes: 90,
@@ -1179,7 +1168,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-22', linkedChapterId: 'engelsk-10-22-narrativ',
-      number: '22',
+      number: '3.6',
       title: 'Young Adult Literature',
       description: 'Analyse contemporary young adult literature and its themes.',
       estimatedMinutes: 90,
@@ -1187,10 +1176,10 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
       topics: ['Young adult fiction', 'Coming of age', 'Identity', 'Social issues'],
       competenceGoals: ['lese, analysere og tolke engelskspråklige tekster av ulik lengde og i ulike sjangre'],
     },
-    // --- Del 7: Society, Media and Global Issues (kap 23-28) ---
+    // Seksjon 4: Medier, samfunn og globale spørsmål
     {
       id: 'engelsk-10-23', linkedChapterId: 'engelsk-10-23-narrativ',
-      number: '23',
+      number: '4.1',
       title: 'News Media and Journalism',
       description: 'Learn about news structures, media bias, and fact-checking in English.',
       estimatedMinutes: 85,
@@ -1200,7 +1189,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-24', linkedChapterId: 'engelsk-10-24-narrativ',
-      number: '24',
+      number: '4.2',
       title: 'Social Media and Digital Communication',
       description: 'Explore social media language, digital rhetoric and responsible online communication.',
       estimatedMinutes: 85,
@@ -1210,7 +1199,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-25', linkedChapterId: 'engelsk-10-25-narrativ',
-      number: '25',
+      number: '4.3',
       title: 'Climate Change and the Environment',
       description: 'Discuss climate science, renewable energy and climate policy perspectives in English.',
       estimatedMinutes: 85,
@@ -1220,7 +1209,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-26', linkedChapterId: 'engelsk-10-26-narrativ',
-      number: '26',
+      number: '4.4',
       title: 'Human Rights and Social Justice',
       description: 'Explore the UDHR, civil rights movements and contemporary social justice issues.',
       estimatedMinutes: 85,
@@ -1230,7 +1219,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-27', linkedChapterId: 'engelsk-10-27-narrativ',
-      number: '27',
+      number: '4.5',
       title: 'Technology and Ethics',
       description: 'Discuss AI, digital privacy and the digital divide from ethical perspectives.',
       estimatedMinutes: 85,
@@ -1240,7 +1229,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-28', linkedChapterId: 'engelsk-10-28-narrativ',
-      number: '28',
+      number: '4.6',
       title: 'Migration and Multiculturalism',
       description: 'Explore global migration patterns, cultural integration and personal migration stories.',
       estimatedMinutes: 85,
@@ -1248,10 +1237,30 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
       topics: ['Migration patterns', 'Cultural integration', 'Multiculturalism', 'Identity'],
       competenceGoals: ['utforske og beskrive levemåter, samfunnsforhold og verdier i ulike engelskspråklige land'],
     },
-    // --- Del 8: Exam Preparation and Advanced Skills (kap 29-34) ---
+    // Seksjon 5: Eksamensforberedelse
+    {
+      id: 'engelsk-10-1', linkedChapterId: 'engelsk-10-1-narrativ',
+      number: '5.1',
+      title: 'Exam Preparation - Writing',
+      description: 'Forbered deg til skriftlig eksamen med fokus pa ulike teksttyper og skrivestrategier.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Essay', 'Article', 'Short story', 'Formal letter', 'Structure'],
+      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng', 'bruke variert ordforrad og idiomatiske uttrykk'],
+    },
+    {
+      id: 'engelsk-10-2', linkedChapterId: 'engelsk-10-2-narrativ',
+      number: '5.2',
+      title: 'Exam Preparation - Oral',
+      description: 'Forbered deg til muntlig eksamen med presentasjonsteknikk og samtaleovelser.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Presentations', 'Discussions', 'Body language', 'Spontaneous questions'],
+      competenceGoals: ['presentere og diskutere emner muntlig med god struktur'],
+    },
     {
       id: 'engelsk-10-29', linkedChapterId: 'engelsk-10-29-narrativ',
-      number: '29',
+      number: '5.3',
       title: 'Writing for the Exam — Long Answer',
       description: 'Master the five-paragraph essay and PEEL method for exam long answers.',
       estimatedMinutes: 90,
@@ -1261,7 +1270,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-30', linkedChapterId: 'engelsk-10-30-narrativ',
-      number: '30',
+      number: '5.4',
       title: 'Writing for the Exam — Short Answer',
       description: 'Learn the PEE method and strategies for concise, high-scoring short answers.',
       estimatedMinutes: 75,
@@ -1271,7 +1280,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-31', linkedChapterId: 'engelsk-10-31-narrativ',
-      number: '31',
+      number: '5.5',
       title: 'Oral Exam Preparation',
       description: 'Prepare for the oral exam with presentation skills and conversation strategies.',
       estimatedMinutes: 80,
@@ -1281,7 +1290,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-32', linkedChapterId: 'engelsk-10-32-narrativ',
-      number: '32',
+      number: '5.6',
       title: 'Listening Comprehension Strategies',
       description: 'Develop advanced listening skills for various English accents and contexts.',
       estimatedMinutes: 75,
@@ -1291,7 +1300,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-33', linkedChapterId: 'engelsk-10-33-narrativ',
-      number: '33',
+      number: '5.7',
       title: 'Reading Comprehension — Advanced',
       description: 'Master advanced reading strategies for complex texts and exam preparation.',
       estimatedMinutes: 85,
@@ -1301,7 +1310,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-34', linkedChapterId: 'engelsk-10-34-narrativ',
-      number: '34',
+      number: '5.8',
       title: 'Exam Strategies and Time Management',
       description: 'Learn exam strategies, time management and how to maximise your score.',
       estimatedMinutes: 70,
@@ -1309,10 +1318,10 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
       topics: ['Exam strategies', 'Time management', 'Revision', 'Self-assessment'],
       competenceGoals: ['planlegge, revidere og bearbeide egne tekster basert på tilbakemelding'],
     },
-    // --- Del 9: Film, Language and History (kap 35-40) ---
+    // Seksjon 6: Fordypning – film, språkvariasjon og fortellerkunst
     {
       id: 'engelsk-10-35', linkedChapterId: 'engelsk-10-35-narrativ',
-      number: '35',
+      number: '6.1',
       title: 'Film and Visual Media',
       description: 'Analyse film as text through shot types, camera angles, editing, sound design and mise-en-scène.',
       estimatedMinutes: 85,
@@ -1322,7 +1331,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-36', linkedChapterId: 'engelsk-10-36-narrativ',
-      number: '36',
+      number: '6.2',
       title: 'World Englishes',
       description: 'Explore how English is spoken around the world, from Indian English to Singlish, and understand Kachru\'s Three Circles model.',
       estimatedMinutes: 80,
@@ -1332,7 +1341,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-37', linkedChapterId: 'engelsk-10-37-narrativ',
-      number: '37',
+      number: '6.3',
       title: 'Pronunciation and Phonetics',
       description: 'Learn the basics of English phonetics, IPA, vowel and consonant sounds, stress and intonation patterns.',
       estimatedMinutes: 80,
@@ -1342,7 +1351,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-38', linkedChapterId: 'engelsk-10-38-narrativ',
-      number: '38',
+      number: '6.4',
       title: 'Informal English and Idioms',
       description: 'Master idioms, slang, phrasal verbs and colloquialisms, and learn when to use informal language.',
       estimatedMinutes: 75,
@@ -1352,7 +1361,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-39', linkedChapterId: 'engelsk-10-39-narrativ',
-      number: '39',
+      number: '6.5',
       title: 'Narrative Techniques',
       description: 'Explore narrative point of view, unreliable narrators, foreshadowing, flashback, stream of consciousness and dialogue.',
       estimatedMinutes: 85,
@@ -1362,7 +1371,7 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
     },
     {
       id: 'engelsk-10-40', linkedChapterId: 'engelsk-10-40-narrativ',
-      number: '40',
+      number: '6.6',
       title: 'English Language History',
       description: 'Trace the history of English from Old English through Middle English to Modern English, exploring etymology and loanwords.',
       estimatedMinutes: 85,
@@ -1382,10 +1391,21 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
   description: 'Samfunnsfag for 10. klasse - demokrati, menneskerettigheter, globalisering og eksamensforberedelse',
   curriculum: 'LK20',
   icon: '🌍',
+  sectionNames: {
+    '1': 'Demokrati, menneskerettigheter og globale utfordringer',
+    '2': 'Det norske samfunnet – politikk, økonomi og medier',
+    '3': 'Geografi – klima, ressurser og befolkning',
+    '4': 'Historie – verdenskrigene og etterkrigstiden',
+    '5': 'Personlig økonomi, arbeidsliv og velferd',
+    '6': 'Identitet, mangfold og livsmestring',
+    '7': 'Samfunnsfaglig metode og fordypning',
+    '8': 'Eksamensforberedelse',
+  },
   chapters: [
+    // Seksjon 1: Demokrati, menneskerettigheter og globale utfordringer
     {
       id: 'samfunnsfag-10-1', linkedChapterId: 'samfunnsfag-10-1-narrativ',
-      number: '1',
+      number: '1.1',
       title: 'Demokrati og medborgerskap',
       description: 'Lær om demokratiets grunnprinsipper og din rolle som medborger.',
       estimatedMinutes: 55,
@@ -1395,7 +1415,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-2', linkedChapterId: 'samfunnsfag-10-2-narrativ',
-      number: '2',
+      number: '1.2',
       title: 'Menneskerettigheter',
       description: 'Forstå menneskerettighetenes betydning og hvordan de beskyttes.',
       estimatedMinutes: 55,
@@ -1405,7 +1425,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-3', linkedChapterId: 'samfunnsfag-10-3-narrativ',
-      number: '3',
+      number: '1.3',
       title: 'Bærekraftig utvikling',
       description: 'Forstå utfordringene med bærekraftig utvikling og FNs bærekraftsmål.',
       estimatedMinutes: 55,
@@ -1415,7 +1435,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-4', linkedChapterId: 'samfunnsfag-10-4-narrativ',
-      number: '4',
+      number: '1.4',
       title: 'Globalisering',
       description: 'Forstå globaliseringens drivkrefter, konsekvenser og dilemmaer.',
       estimatedMinutes: 55,
@@ -1425,7 +1445,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-5', linkedChapterId: 'samfunnsfag-10-5-narrativ',
-      number: '5',
+      number: '1.5',
       title: 'Konflikter og fredsarbeid',
       description: 'Forstå årsaker til konflikter og hvordan fred kan bygges.',
       estimatedMinutes: 55,
@@ -1433,9 +1453,10 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
       topics: ['Konfliktårsaker', 'Fredsbygging', 'FN', 'Diplomati'],
       competenceGoals: ['analysere årsaker til konflikter og reflektere over hvordan fred kan fremmes'],
     },
+    // Seksjon 2: Det norske samfunnet – politikk, økonomi og medier
     {
       id: 'samfunnsfag-10-6', linkedChapterId: 'samfunnsfag-10-6-narrativ',
-      number: '6',
+      number: '2.1',
       title: 'Norsk politikk og styreform',
       description: 'Forstå hvordan Norge styres og hvordan du kan påvirke politikken.',
       estimatedMinutes: 55,
@@ -1445,7 +1466,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-7', linkedChapterId: 'samfunnsfag-10-7-narrativ',
-      number: '7',
+      number: '2.2',
       title: 'Økonomi og arbeidsliv',
       description: 'Forstå økonomiske sammenhenger og arbeidslivets organisering.',
       estimatedMinutes: 55,
@@ -1455,7 +1476,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-8', linkedChapterId: 'samfunnsfag-10-8-narrativ',
-      number: '8',
+      number: '2.3',
       title: 'Medier og kommunikasjon',
       description: 'Forstå medienes rolle i demokratiet og utvikle kritisk medieforståelse.',
       estimatedMinutes: 50,
@@ -1463,30 +1484,10 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
       topics: ['Medier', 'Algoritmer', 'Ekkokammer', 'Ytringskultur'],
       competenceGoals: ['drøfte medienes rolle i demokratiet og utvikle kritisk medieforståelse'],
     },
-    {
-      id: 'samfunnsfag-10-9', linkedChapterId: 'samfunnsfag-10-9-narrativ',
-      number: '9',
-      title: 'Identitet og mangfold',
-      description: 'Utforsk identitet, tilhørighet og mangfold i det norske samfunnet.',
-      estimatedMinutes: 50,
-      exerciseCount: 6,
-      topics: ['Identitet', 'Etnisitet', 'Religion', 'Mangfold'],
-      competenceGoals: ['reflektere over identitet, tilhørighet og mangfold'],
-    },
-    {
-      id: 'samfunnsfag-10-10', linkedChapterId: 'samfunnsfag-10-10-narrativ',
-      number: '10',
-      title: 'Eksamensforberedelse',
-      description: 'Forbered deg til muntlig eksamen i samfunnsfag.',
-      estimatedMinutes: 60,
-      exerciseCount: 7,
-      topics: ['Presentasjon', 'Fagsamtale', 'Struktur', 'Eksamenstips'],
-      competenceGoals: ['presentere og drøfte samfunnsfaglige emner muntlig med god struktur'],
-    },
-    // --- Del 4: Geografi og ressurser (kap 11-16) ---
+    // Seksjon 3: Geografi – klima, ressurser og befolkning
     {
       id: 'samfunnsfag-10-11', linkedChapterId: 'samfunnsfag-10-11-narrativ',
-      number: '11',
+      number: '3.1',
       title: 'Klima og klimasoner',
       description: 'Forstå klimasystemer, klimasoner og klimaendringer.',
       estimatedMinutes: 90,
@@ -1496,7 +1497,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-12', linkedChapterId: 'samfunnsfag-10-12-narrativ',
-      number: '12',
+      number: '3.2',
       title: 'Naturressurser og forvaltning',
       description: 'Lær om fornybare og ikke-fornybare ressurser, og bærekraftig forvaltning.',
       estimatedMinutes: 90,
@@ -1506,7 +1507,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-13', linkedChapterId: 'samfunnsfag-10-13-narrativ',
-      number: '13',
+      number: '3.3',
       title: 'Befolkning og bosetting',
       description: 'Forstå befolkningsgeografi, urbanisering og migrasjon.',
       estimatedMinutes: 90,
@@ -1516,7 +1517,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-14', linkedChapterId: 'samfunnsfag-10-14-narrativ',
-      number: '14',
+      number: '3.4',
       title: 'Kart og kartanalyse',
       description: 'Lær å lese og analysere kart, kartprojeksjoner og GIS.',
       estimatedMinutes: 90,
@@ -1526,7 +1527,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-15', linkedChapterId: 'samfunnsfag-10-15-narrativ',
-      number: '15',
+      number: '3.5',
       title: 'Naturkatastrofer og sårbarhet',
       description: 'Forstå naturkatastrofer, risiko og sårbarhet i ulike samfunn.',
       estimatedMinutes: 90,
@@ -1536,7 +1537,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-16', linkedChapterId: 'samfunnsfag-10-16-narrativ',
-      number: '16',
+      number: '3.6',
       title: 'Arealbruk og interessekonflikter',
       description: 'Forstå interessekonflikter knyttet til arealbruk, natur og utbygging.',
       estimatedMinutes: 90,
@@ -1544,10 +1545,10 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
       topics: ['Arealbruk', 'Interessekonflikter', 'Vindkraft', 'Naturvern'],
       competenceGoals: ['utforske og beskrive sammenhengen mellom mennesker, miljø og bærekraftig utvikling'],
     },
-    // --- Del 5: Historie — Fra 1900 til i dag (kap 17-22) ---
+    // Seksjon 4: Historie – verdenskrigene og etterkrigstiden
     {
       id: 'samfunnsfag-10-17', linkedChapterId: 'samfunnsfag-10-17-narrativ',
-      number: '17',
+      number: '4.1',
       title: 'Første verdenskrig og mellomkrigstiden',
       description: 'Forstå årsakene til første verdenskrig og mellomkrigstidens utfordringer.',
       estimatedMinutes: 90,
@@ -1557,7 +1558,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-18', linkedChapterId: 'samfunnsfag-10-18-narrativ',
-      number: '18',
+      number: '4.2',
       title: 'Andre verdenskrig og Holocaust',
       description: 'Forstå andre verdenskrig, Holocaust og konsekvensene for verden.',
       estimatedMinutes: 100,
@@ -1567,7 +1568,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-19', linkedChapterId: 'samfunnsfag-10-19-narrativ',
-      number: '19',
+      number: '4.3',
       title: 'Den kalde krigen',
       description: 'Forstå den kalde krigen, supermaktrivalisering og ideologisk konflikt.',
       estimatedMinutes: 90,
@@ -1577,7 +1578,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-20', linkedChapterId: 'samfunnsfag-10-20-narrativ',
-      number: '20',
+      number: '4.4',
       title: 'Avkolonisering og den tredje verden',
       description: 'Forstå avkoloniseringsprosessen og dens konsekvenser.',
       estimatedMinutes: 85,
@@ -1587,7 +1588,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-21', linkedChapterId: 'samfunnsfag-10-21-narrativ',
-      number: '21',
+      number: '4.5',
       title: 'Norge etter 1945',
       description: 'Forstå Norges utvikling fra gjenreisning til velferdsstat.',
       estimatedMinutes: 90,
@@ -1597,7 +1598,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-22', linkedChapterId: 'samfunnsfag-10-22-narrativ',
-      number: '22',
+      number: '4.6',
       title: 'Terrorisme og sikkerhet',
       description: 'Forstå terrorisme, sikkerhetspolitikk og trussler i moderne tid.',
       estimatedMinutes: 90,
@@ -1605,10 +1606,10 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
       topics: ['Terrorisme', '22. juli', 'Sikkerhetspolitikk', 'Radikalisering'],
       competenceGoals: ['gjøre rede for sentrale historiske hendelser og forklare sammenhenger mellom dem'],
     },
-    // --- Del 6: Personlig økonomi og arbeidsliv (kap 23-28) ---
+    // Seksjon 5: Personlig økonomi, arbeidsliv og velferd
     {
       id: 'samfunnsfag-10-23', linkedChapterId: 'samfunnsfag-10-23-narrativ',
-      number: '23',
+      number: '5.1',
       title: 'Personlig økonomi — Budsjett og sparing',
       description: 'Lær om budsjett, sparing, renter og BSU.',
       estimatedMinutes: 75,
@@ -1618,7 +1619,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-24', linkedChapterId: 'samfunnsfag-10-24-narrativ',
-      number: '24',
+      number: '5.2',
       title: 'Forbruk og gjeld',
       description: 'Forstå forbrukersamfunnet, gjeldsfeller og forbrukerrettigheter.',
       estimatedMinutes: 75,
@@ -1628,7 +1629,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-25', linkedChapterId: 'samfunnsfag-10-25-narrativ',
-      number: '25',
+      number: '5.3',
       title: 'Arbeidsliv og rettigheter',
       description: 'Lær om arbeidskontrakter, fagforeninger og rettigheter i arbeidslivet.',
       estimatedMinutes: 80,
@@ -1638,7 +1639,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-26', linkedChapterId: 'samfunnsfag-10-26-narrativ',
-      number: '26',
+      number: '5.4',
       title: 'Entreprenørskap og innovasjon',
       description: 'Forstå entreprenørskap, innovasjon og gründervirksomhet.',
       estimatedMinutes: 70,
@@ -1648,7 +1649,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-27', linkedChapterId: 'samfunnsfag-10-27-narrativ',
-      number: '27',
+      number: '5.5',
       title: 'Skatt og velferd',
       description: 'Forstå skattesystemet, omfordeling og velferdsstatens finansiering.',
       estimatedMinutes: 75,
@@ -1658,7 +1659,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-28', linkedChapterId: 'samfunnsfag-10-28-narrativ',
-      number: '28',
+      number: '5.6',
       title: 'Den norske modellen',
       description: 'Forstå den norske arbeidslivs- og velferdsmodellen.',
       estimatedMinutes: 80,
@@ -1666,10 +1667,20 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
       topics: ['Den norske modellen', 'Trepartssamarbeid', 'Velferdsstat', 'Universelle ordninger'],
       competenceGoals: ['gjøre rede for hovedtrekk ved arbeidslivet i Norge og velferdsstatens organisering'],
     },
-    // --- Del 7: Urfolk, mangfold og livsmestring (kap 29-34) ---
+    // Seksjon 6: Identitet, mangfold og livsmestring
+    {
+      id: 'samfunnsfag-10-9', linkedChapterId: 'samfunnsfag-10-9-narrativ',
+      number: '6.1',
+      title: 'Identitet og mangfold',
+      description: 'Utforsk identitet, tilhørighet og mangfold i det norske samfunnet.',
+      estimatedMinutes: 50,
+      exerciseCount: 6,
+      topics: ['Identitet', 'Etnisitet', 'Religion', 'Mangfold'],
+      competenceGoals: ['reflektere over identitet, tilhørighet og mangfold'],
+    },
     {
       id: 'samfunnsfag-10-29', linkedChapterId: 'samfunnsfag-10-29-narrativ',
-      number: '29',
+      number: '6.2',
       title: 'Samene — Urfolk i Norge',
       description: 'Lær om samene som urfolk, fornorskingspolitikken og Sametinget.',
       estimatedMinutes: 90,
@@ -1679,7 +1690,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-30', linkedChapterId: 'samfunnsfag-10-30-narrativ',
-      number: '30',
+      number: '6.3',
       title: 'Kulturelt mangfold i Norge',
       description: 'Forstå kulturelt mangfold, integrering og diskriminering.',
       estimatedMinutes: 90,
@@ -1689,7 +1700,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-31', linkedChapterId: 'samfunnsfag-10-31-narrativ',
-      number: '31',
+      number: '6.4',
       title: 'Likestilling og kjønnsmangfold',
       description: 'Forstå likestilling, kjønnsroller og kjønnsmangfold.',
       estimatedMinutes: 90,
@@ -1699,7 +1710,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-32', linkedChapterId: 'samfunnsfag-10-32-narrativ',
-      number: '32',
+      number: '6.5',
       title: 'Psykisk helse og livsmestring',
       description: 'Lær om psykisk helse, stress og mestringsstrategier.',
       estimatedMinutes: 90,
@@ -1709,7 +1720,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-33', linkedChapterId: 'samfunnsfag-10-33-narrativ',
-      number: '33',
+      number: '6.6',
       title: 'Rus og kriminalitet',
       description: 'Forstå rusmidler, avhengighet og kriminalitet i samfunnet.',
       estimatedMinutes: 90,
@@ -1719,7 +1730,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-34', linkedChapterId: 'samfunnsfag-10-34-narrativ',
-      number: '34',
+      number: '6.7',
       title: 'Seksualitet og grensesetting',
       description: 'Lær om seksualitet, samtykke og grensesetting.',
       estimatedMinutes: 90,
@@ -1727,10 +1738,10 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
       topics: ['Seksualitet', 'Samtykke', 'Grensesetting', 'Lover'],
       competenceGoals: ['reflektere over identitet, tilhørighet og mangfold'],
     },
-    // --- Del 8: Samfunnsfaglig metode og eksamen (kap 35-40) ---
+    // Seksjon 7: Samfunnsfaglig metode og fordypning
     {
       id: 'samfunnsfag-10-35', linkedChapterId: 'samfunnsfag-10-35-narrativ',
-      number: '35',
+      number: '7.1',
       title: 'Samfunnsfaglig metode',
       description: 'Lær om kvalitativ og kvantitativ metode, kildekritikk og statistikk.',
       estimatedMinutes: 80,
@@ -1740,7 +1751,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-36', linkedChapterId: 'samfunnsfag-10-36-narrativ',
-      number: '36',
+      number: '7.2',
       title: 'Argumentasjon og drøfting',
       description: 'Lær å argumentere, drøfte og bruke retoriske virkemidler.',
       estimatedMinutes: 75,
@@ -1750,7 +1761,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-37', linkedChapterId: 'samfunnsfag-10-37-narrativ',
-      number: '37',
+      number: '7.3',
       title: 'Demokrati og medborgerskap — Fordypning',
       description: 'Fordypning i populisme, desinformasjon og valgdeltakelse.',
       estimatedMinutes: 85,
@@ -1760,7 +1771,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-38', linkedChapterId: 'samfunnsfag-10-38-narrativ',
-      number: '38',
+      number: '7.4',
       title: 'Bærekraftig utvikling — Fordypning',
       description: 'Fordypning i bærekraftsmål, klimarettferdighet og sirkulærøkonomi.',
       estimatedMinutes: 85,
@@ -1768,9 +1779,20 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
       topics: ['Bærekraftsmål', 'Klimarettferdighet', 'Sirkulærøkonomi', 'Grønn omstilling'],
       competenceGoals: ['utforske og beskrive sammenhengen mellom mennesker, miljø og bærekraftig utvikling'],
     },
+    // Seksjon 8: Eksamensforberedelse
+    {
+      id: 'samfunnsfag-10-10', linkedChapterId: 'samfunnsfag-10-10-narrativ',
+      number: '8.1',
+      title: 'Eksamensforberedelse',
+      description: 'Forbered deg til muntlig eksamen i samfunnsfag.',
+      estimatedMinutes: 60,
+      exerciseCount: 7,
+      topics: ['Presentasjon', 'Fagsamtale', 'Struktur', 'Eksamenstips'],
+      competenceGoals: ['presentere og drøfte samfunnsfaglige emner muntlig med god struktur'],
+    },
     {
       id: 'samfunnsfag-10-39', linkedChapterId: 'samfunnsfag-10-39-narrativ',
-      number: '39',
+      number: '8.2',
       title: 'Muntlig eksamen i samfunnsfag',
       description: 'Forbered deg til muntlig eksamen med struktur og presentasjonsteknikk.',
       estimatedMinutes: 70,
@@ -1780,7 +1802,7 @@ export const COURSE_SAMFUNNSFAG_10: TextbookCourse = {
     },
     {
       id: 'samfunnsfag-10-40', linkedChapterId: 'samfunnsfag-10-40-narrativ',
-      number: '40',
+      number: '8.3',
       title: 'Eksamensstrategier og repetisjon',
       description: 'Totalrepetisjon og eksamensstrategier for samfunnsfag.',
       estimatedMinutes: 90,
