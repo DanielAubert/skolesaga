@@ -1,0 +1,395 @@
+{
+  "id": "ling1100-1-3",
+  "courseId": "ling1100",
+  "chapterNumber": "1.3",
+  "title": "Referanse og bestemte beskrivelser",
+  "description": "Referansetyper (konstant, variabel og ingen), bestemte beskrivelser med Russell mot Strawson, og skillet mellom egennavn og fellesnavn.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne klassifisere en nominalfrase som konstant, variabel eller uten referanse, og begrunne hver klassifisering med en test",
+    "kunne skille de fire grunnene til at et uttrykk ikke refererer: kvantifiserende, predikativ og generisk bruk, og tom beskrivelse",
+    "kunne gjøre rede for Russells tre betingelser og for Strawsons presupposisjonsanalyse, og si hva hver av dem gir av sannhetsverdi",
+    "kunne vise hva de to analysene sier om den negerte setningen, og hva hver av dem koster"
+  ],
+  "content": [
+    {
+      "id": "ling1100-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet dekker to oppgavetyper som begge er dokumentert i materialet.**\n\n- **Klassifisering av referansetyper** — konstant, variabel eller ingen referanse — forekommer i høsten 2019 og i den utsatte prøven for 2020. Sjangeren er A2: «avgjør for hvert uttrykk, og begrunn».\n- **Bestemte beskrivelser og kontrasten Russell mot Strawson** er eksplisitt prøvd i høsten 2019 og høsten 2022, med det klassiske eksempelet om kongen av Frankrike. Sjangeren er A1, ofte med en A2-hale om hva de to analysene sier om sannhetsverdien.\n- **Begge hører inn under referanse og teorier om mening, som er prøvd i 5 av de 12 settene** og er stigende.\n- **Typisk formulering:** «Avgjør for hvert av uttrykkene under om det har konstant, variabel eller ingen referanse, og begrunn.» Og: «Gjør rede for Russells analyse av bestemte beskrivelser, og forklar hvordan Strawson svarer på den.»\n- **Prioritet: kunne.** Klassifiseringsdelen er billig å beherske, og Russell-Strawson-kontrasten er den delen som faktisk gir uttelling — mange kandidater behandler kongen av Frankrike uten å nevne noen av dem."
+    },
+    {
+      "id": "ling1100-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 1.2](/bok/ling1100/ling1100-1-2).\n\n**Sist du var her** — tre ting du trenger friskt:\n\n- **Referenten er tingen uttrykket står for**, og den er ikke det samme som uttrykket selv.\n- **Ekstensjon er mengden uttrykket gjelder for; intensjon er betingelsen som avgjør ekstensjonen.** Uttrykk kan ha innholdsrik intensjon og tom ekstensjon — *enhjørning* er eksempelet.\n- **Tomme uttrykk har sense uten reference.** Dette kapitlet spør hva som skjer med hele setninger som inneholder dem: er «Den nåværende kongen av Frankrike er skallet» sann, usann, eller ingen av delene?\n\nKapitlet bruker to logiske symboler i én formalisering. De forklares på stedet, og de innføres for fullt i [kap. 4.1](/bok/ling1100/ling1100-4-1). Du kan lese hele kapitlet uten dem — hovedframstillingen står i ord."
+    },
+    {
+      "id": "ling1100-1-3-hverdagsanker",
+      "type": "text",
+      "content": "## Hva ord peker på, og hva som skjer når de ikke peker på noe\n\nSe på tre uttrykk som alle kan stå på samme plass i en setning: *Sofie*, *hun*, og *ingen*.\n\nSier jeg «Sofie kom for sent», peker jeg ut en bestemt person, og hvem det er, endrer seg ikke med hvem som sier setningen. Sier jeg «Hun kom for sent», peker jeg også ut en bestemt person — men hvem det er, avhenger helt av situasjonen. Og sier jeg «Ingen kom for sent», peker jeg ikke ut noen i det hele tatt. Setningen sier noe om en gruppe, ikke om en person.\n\nDe tre er de tre referansetypene, og de er den ene halvdelen av dette kapitlet.\n\nDen andre halvdelen begynner i et uttrykk som ser ut som *Sofie*, men oppfører seg helt annerledes: *den nåværende kongen av Frankrike*. Uttrykket er velformet, du forstår det, og det peker ikke på noen — Frankrike er en republikk. Hva skal vi da si om setningen «Den nåværende kongen av Frankrike er skallet»? Er den usann? Eller er den verken sann eller usann, fordi spørsmålet aldri kommer i gang?\n\nDe to svarene på dette har navn, Russell og Strawson, og de er noe av det mest presise du får trent i hele semantikkhalvdelen. Kapitlet er bygd i tre løkker: referansetypene, de bestemte beskrivelsene, og håndverket."
+    },
+    {
+      "id": "ling1100-1-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De tre referansetypene (~15 min)\n\nFørst et par ord om hva slags uttrykk vi snakker om, og deretter klassifiseringen selv."
+    },
+    {
+      "id": "ling1100-1-3-def-referanse",
+      "type": "definition",
+      "title": "Referanse",
+      "content": "**Handlingen å bruke et uttrykk for å peke ut noe i verden** — eller den relasjonen mellom uttrykk og ting som gjør slik utpeking mulig. Den engelske termen er ‘reference’.\n\nMerk en nyttig presisering som ofte overses: strengt tatt er det **talere som refererer**, ved hjelp av uttrykk. Uttrykket i seg selv har bare de egenskapene som gjør referanse mulig. Denne forskjellen er grunnen til at ett og samme uttrykk kan peke på ulike ting ved ulike anledninger.\n\nI dette kapitlet spør vi hvordan **utpekingen fungerer** for ulike typer uttrykk: er den fast, er den situasjonsavhengig, eller er den fraværende?"
+    },
+    {
+      "id": "ling1100-1-3-def-nominalfrase",
+      "type": "definition",
+      "title": "Nominalfrase",
+      "content": "Den typen ledd som kan brukes til å referere: *Sofie*, *hun*, *bilen*, *en gammel sykkel*, *ingen av gjestene*, *alle togene*. Den engelske termen er ‘noun phrase’, ofte forkortet NP.\n\nNominalfrasen er byggeklossen hele kapitlet handler om, og det er verdt å ha ordet tilgjengelig av én grunn: **det er nominalfraser som klassifiseres etter referansetype**, ikke enkeltord og ikke hele setninger. I «Den eldste eleven i klassen kom for sent» er det hele frasen *den eldste eleven i klassen* som gjør jobben, ikke ordet *eleven* alene.\n\nEn nominalfrase behøver ikke referere. Det ser du allerede av *ingen av gjestene*, og enda tydeligere i predikativ bruk, som du møter senere i kapitlet."
+    },
+    {
+      "id": "ling1100-1-3-def-egennavn",
+      "type": "definition",
+      "title": "Egennavn",
+      "content": "Et uttrykk som **navngir en bestemt enkeltting**: *Sofie*, *Trondheim*, *Nordsjøen*, *Stortinget*. Den engelske termen er ‘proper noun’ eller ‘proper name’.\n\nDet som kjennetegner egennavn semantisk, er at de ikke beskriver. *Trondheim* forteller deg ingenting om byen; navnet fester seg til den uten å nevne noen egenskap. Det er derfor egennavn er hovedeksempelet på konstant referanse.\n\nTo forbehold du bør ha med. For det første finnes det mange personer som heter Sofie, så navnet peker ut én av dem bare gitt en sammenheng. For det andre er det nettopp fordi egennavn ikke beskriver, at Frege trengte begrepet sense: skal to navn på samme ting kunne ha ulik informasjonsverdi, må navn bidra med noe mer enn referenten."
+    },
+    {
+      "id": "ling1100-1-3-def-fellesnavn",
+      "type": "definition",
+      "title": "Fellesnavn",
+      "content": "Et uttrykk som **betegner en type**, og som dermed gjelder for mange ting: *by*, *elev*, *sykkel*, *vann*. Den engelske termen er ‘common noun’.\n\nEt fellesnavn alene refererer ikke. Ordet *sykkel* peker ikke ut noen bestemt sykkel; det angir en betingelse, og ekstensjonen er alle sykler. Skal det brukes til å referere, må det bygges inn i en nominalfrase med bestemmerord: *sykkelen*, *denne sykkelen*, *sykkelen min*.\n\n**Skillet mot egennavn er en A2-oppgave i seg selv.** Testen er om uttrykket beskriver: fellesnavnet stiller en betingelse som flere ting kan oppfylle, egennavnet fester seg til én ting uten å beskrive den."
+    },
+    {
+      "id": "ling1100-1-3-def-konstant",
+      "type": "definition",
+      "title": "Konstant referanse",
+      "content": "At et uttrykk **peker på den samme tingen ved hver bruk**, uavhengig av hvem som ytrer det, hvor og når. Den engelske termen er ‘constant reference’.\n\nEgennavn er standardeksempelet: *Trondheim* peker på Trondheim enten Kari sier det i Oslo på mandag eller Ola sier det i Bergen ti år senere. Det samme gjelder uttrykk som betegner noe unikt og uforanderlig, som *jordas måne* eller *tallet sju*.\n\n**Testen:** bytt ut taler, sted og tidspunkt. Peker uttrykket fortsatt på det samme? Da er referansen konstant.\n\nMerk at kravet gjelder innenfor én sammenheng. At det finnes flere byer som heter Bergen i verden, gjør ikke referansen variabel i den forstand som er i sikte her — variabel referanse betyr at referenten skifter **systematisk** med ytringskonteksten, ikke at navn kan være tvetydige."
+    },
+    {
+      "id": "ling1100-1-3-def-variabel",
+      "type": "definition",
+      "title": "Variabel referanse",
+      "content": "At et uttrykk **peker på ulike ting ved ulike bruk**, fordi referenten bestemmes av ytringskonteksten. Den engelske termen er ‘variable reference’.\n\nDe typiske tilfellene er personlige pronomen (*jeg*, *du*, *hun*), stedsuttrykk (*her*, *der*), tidsuttrykk (*nå*, *i går*) og påvisende uttrykk (*denne*, *det bordet*). Mange bestemte nominalfraser hører også hit: *naboen* peker på ulike personer alt etter hvem som snakker.\n\n**Mekanismen er den samme som i [kap. 1.1](/bok/ling1100/ling1100-1-1):** uttrykket har en fast regel, men ingen fast referent. Regelen for *jeg* er «den som ytrer dette», og den er lik for alle; det er hvem regelen plukker ut, som varierer.\n\nUttrykk av denne typen kalles også **deiktiske**, og de behandles utførlig i Del 10."
+    },
+    {
+      "id": "ling1100-1-3-def-ingen",
+      "type": "definition",
+      "title": "Ingen referanse",
+      "content": "At et uttrykk **ikke brukes til å peke ut noen ting i det hele tatt**, selv om det står på en plass der referanse er mulig.\n\nTre hovedtilfeller, og du bør kunne skille dem:\n\n- **Kvantifiserende uttrykk:** *ingen*, *alle togene*, *de fleste elevene*. «Ingen kom for sent» peker ikke ut en person ved navn Ingen. Setningen sier noe om en gruppe under ett.\n- **Predikativ bruk:** *lærer* i «Sofie er lærer». Uttrykket tilskriver en egenskap; det peker ikke ut en annen person i tillegg til Sofie.\n- **Tomme uttrykk:** *den nåværende kongen av Frankrike*, *enhjørningen i hagen min*. Her er bruken referensiell i formen, men det finnes ingen referent.\n\n**Merk at de tre er ulike i art.** De to første peker ikke fordi det ikke er meningen; det tredje peker ikke fordi verden ikke spiller med. En besvarelse som får med det skillet, har gjort mer enn å klassifisere."
+    },
+    {
+      "id": "ling1100-1-3-def-deiktisk",
+      "type": "definition",
+      "title": "Deiktisk uttrykk",
+      "content": "Et uttrykk hvis referent bestemmes ved å ta utgangspunkt i **ytringssituasjonen selv**: hvem som snakker, hvor de er, og når det skjer. Den engelske termen er ‘deictic expression’.\n\nOrdet kommer fra det greske ordet for å peke, og bildet er presist: uttrykket fungerer som en språklig pekefinger, og hvor den peker, avhenger av hvor den som peker står.\n\nDeiksis deles i typer etter hva slags koordinat som er i sving — person, sted og tid er de tre grunntypene — og det er temaet i [kap. 10.1](/bok/ling1100/ling1100-10-1). Her holder det at du kjenner igjen at **deiktiske uttrykk er den viktigste kilden til variabel referanse**."
+    },
+    {
+      "id": "ling1100-1-3-def-anafor",
+      "type": "definition",
+      "title": "Anafor",
+      "content": "Et uttrykk som **henter referenten sin fra et annet uttrykk i teksten**, typisk et som står tidligere. Den engelske termen er ‘anaphor’.\n\nI «Kari mistet nøkkelen sin, men hun fant den igjen» henter *hun* referenten fra *Kari* og *den* fra *nøkkelen sin*. Uttrykket som gir referenten, kalles antesedent.\n\n**Hvorfor dette er verdt et eget begrep i en klassifiseringsoppgave:** anaforer har variabel referanse, men de får den fra teksten og ikke fra ytringssituasjonen. Sier du bare «variabel», er svaret riktig; sier du «variabel, og bestemt anaforisk av *Kari* tidligere i setningen», har du begrunnet det. Det er forskjellen mellom feil 1 og et fullstendig svar."
+    },
+    {
+      "id": "ling1100-1-3-thm-klassifiser",
+      "type": "theorem",
+      "title": "Prosedyre: klassifiser referansetypen til en nominalfrase",
+      "content": "Fire trinn, i denne rekkefølgen. Rekkefølgen er ikke tilfeldig: spørsmål 1 fanger opp de tilfellene der referanse ikke er forsøkt i det hele tatt, og de må ut av veien først.\n\n**Trinn 1 — er uttrykket i det hele tatt brukt til å peke ut noe?** Er det kvantifiserende (*ingen*, *alle*, *de fleste*) eller predikativt (etter *er*, *ble*, *virker*), er svaret **ingen referanse**, og du er ferdig.\n\n**Trinn 2 — finnes det noe uttrykket peker på?** Er uttrykket referensielt i formen, men uten referent i verden, er svaret **ingen referanse** — og du bør si at grunnen er en annen enn i trinn 1.\n\n**Trinn 3 — bytt ut taler, sted og tidspunkt.** Peker uttrykket nå på noe annet? Da er referansen **variabel**. Si også hvor referenten hentes fra: fra ytringssituasjonen (deiktisk) eller fra teksten (anaforisk).\n\n**Trinn 4 — ellers er referansen konstant.** Uttrykket peker på det samme ved hver bruk.\n\n**Kontroll:** hver klassifisering skal ha en begrunnelse som viser hvilket trinn som avgjorde. Et svar som bare oppgir typenavnet, er feil 1 i registeret — å svare uten forklaring."
+    },
+    {
+      "id": "ling1100-1-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Klassifiser seks nominalfraser",
+      "problem": "Oppgi referansetypen til hvert uthevet ledd, og begrunn med prosedyren.\n\n```text\n(1)  Nordsjøen er grunnere enn folk tror.\n(2)  Legen ba meg komme tilbake i morgen.\n(3)  Ingen av naboene hadde hørt noe.\n(4)  Vi lette etter den siste billetten til forestillingen.\n(5)  Ola er tannlege.\n(6)  Sofie hentet sykkelen, men den var punktert.\n```",
+      "solution": "**(1) *Nordsjøen* — konstant referanse.** Trinn 1 og 2 gir ingen utslag: uttrykket er referensielt og har en referent. Trinn 3: bytter vi taler, sted og tidspunkt, peker uttrykket fortsatt på det samme havområdet. Altså trinn 4, konstant. Egennavn er standardtilfellet.\n\n**(2) *Legen* — variabel referanse, deiktisk bestemt.** Trinn 3 avgjør: hvilken lege det er tale om, avhenger av hvem som snakker og hvilken sammenheng ytringen står i. Merk at uttrykket ser ut som en beskrivelse og likevel oppfører seg som et pekende uttrykk — den bestemte formen signaliserer at taleren regner med at mottakeren vet hvilken lege det gjelder.\n\nLegg også merke til *meg* og *i morgen* i samme setning: begge er deiktiske og har variabel referanse.\n\n**(3) *Ingen av naboene* — ingen referanse.** Trinn 1 avgjør umiddelbart: uttrykket er kvantifiserende. Det er ingen bestemt person setningen sier noe om; setningen sier at det ikke finnes noen i naboskaren som hørte noe.\n\nEn god kontroll: spør «hvem er det som ikke hadde hørt noe?» Har spørsmålet ikke noe svar av formen «det er denne personen», er uttrykket ikke referensielt.\n\n**(4) *Den siste billetten til forestillingen* — variabel referanse.** Uttrykket er en bestemt beskrivelse, og hvilken billett det gjelder, avhenger av hvilken forestilling det er tale om. Bytter vi ytringssituasjon, får vi en annen billett.\n\n**Merk et forbehold her**, som er den vanlige fella i denne oppgavetypen: hvis det ikke finnes noen siste billett — forestillingen er utsolgt for lenge siden, eller den finnes ikke — er uttrykket tomt, og vi havner i trinn 2 i stedet. Referansetypen avhenger altså av hvordan verden er, og et fullstendig svar sier det.\n\n**(5) *tannlege* — ingen referanse.** Trinn 1: uttrykket står predikativt, etter *er*. Det peker ikke ut en tannlege i tillegg til Ola; det tilskriver Ola en egenskap. Setningen handler om én person, ikke to.\n\n**(6) *den* — variabel referanse, anaforisk bestemt.** Trinn 3 avgjør, og begrunnelsen skal si hvor referenten kommer fra: den hentes fra *sykkelen* tidligere i setningen, ikke fra ytringssituasjonen. Skifter vi ut antesedenten, skifter referenten.\n\n**Egen kontrastsetning som viser hvorfor begrunnelsen teller.** I «Sofie hentet sykkelen. Den var borte da hun kom tilbake» er *den* fortsatt anaforisk. Men i en situasjon der noen peker på en sykkel og sier «Den er punktert», er *den* deiktisk. Begge har variabel referanse — det er begrunnelsen som skiller dem, og det er den som viser at du har kjørt prosedyren."
+    },
+    {
+      "id": "ling1100-1-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-1-3-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger A2 — skill nærliggende begreper. Ett ord per punkt pluss én linjes begrunnelse.) Oppgi referansetypen til hvert uthevet ledd.\n\n**a)** «**Mount Everest** er verdens høyeste fjell.»\n**b)** «**Jeg** rakk ikke bussen.»\n**c)** «**Alle deltakerne** fikk diplom.»\n**d)** «Kari er **journalist**.»",
+        "solution": "**a) Konstant referanse.** Egennavn på et bestemt fjell. Bytter vi taler, sted og tidspunkt, peker uttrykket på det samme.\n\n**b) Variabel referanse.** Pronomenet *jeg* har en fast regel — den som ytrer dette — men ingen fast referent. Uttrykket er deiktisk.\n\n**c) Ingen referanse.** Uttrykket er kvantifiserende og peker ikke ut noen bestemt deltaker. Setningen sier noe om deltakergruppa under ett.\n\n**d) Ingen referanse.** Predikativ bruk etter *er*. Uttrykket tilskriver Kari en egenskap i stedet for å peke ut en journalist ved siden av henne.\n\n**Legg merke til at c) og d) begge er «ingen referanse», men av ulike grunner** — den ene fordi uttrykket kvantifiserer, den andre fordi det predikerer. Et fullstendig svar sier hvilken av grunnene som gjelder.",
+        "hints": [
+          "Bruk prosedyren: spør først om uttrykket i det hele tatt er brukt til å peke ut noe.",
+          "For de to siste: spør hvor mange personer setningen handler om."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-1-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-1-3-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2.) Avgjør referansetypen til hvert uthevet ledd, og begrunn hver enkelt med det trinnet i prosedyren som avgjorde.\n\n**a)** «**Vinneren av fjorårets turnering** kom ikke i år.»\n**b)** «**Den runde firkanten** på veggen holdt oss våkne hele natta.»\n**c)** «Ola så en hund. **Den** haltet.»\n**d)** «**De fleste av oss** hadde glemt det.»\n**e)** «**Klokka** på kjøkkenet står.»",
+        "solution": "**a) Variabel referanse (trinn 3).** Uttrykket er en bestemt beskrivelse, og hvem den peker ut, avhenger av hvilken turnering det er tale om og hvilket år som er «i fjor» — og det siste avhenger av når setningen ytres. Ytres den i 2027, er referenten en annen enn om den ytres i 2028.\n\n**b) Ingen referanse (trinn 2).** Uttrykket er referensielt i formen — bestemt form, en beskrivelse — men ingenting kan oppfylle betingelsen, siden en firkant per definisjon ikke er rund. Uttrykket er tomt.\n\nDette er en annen grunn til «ingen referanse» enn den i d), og et fullstendig svar sier det. Merk også at spørsmålet om hva som skjer med sannhetsverdien til setningen, er nettopp det løkke 2 handler om.\n\n**c) Variabel referanse, anaforisk (trinn 3).** Referenten hentes fra *en hund* i forrige setning, ikke fra ytringssituasjonen. Bytt ut antesedenten, og referenten skifter.\n\n**d) Ingen referanse (trinn 1).** Uttrykket er kvantifiserende. Det peker ikke ut bestemte personer, men sier noe om en andel av en gruppe. Merk at *oss* inni frasen er deiktisk og har variabel referanse — men oppgaven spør om hele frasen, og hele frasen kvantifiserer.\n\n**e) Variabel referanse (trinn 3).** Hvilken klokke det gjelder, avhenger av hvilket kjøkken, og det avhenger av hvem som snakker og hvor. Bestemt form signaliserer at taleren regner med at mottakeren vet hvilket kjøkken det er tale om.\n\n**Grepet oppgaven trener:** tre av de fem uttrykkene er bestemte nominalfraser, og de havner i tre ulike bås. Det er derfor formen på uttrykket aldri kan avgjøre alene — du må kjøre prosedyren.",
+        "hints": [
+          "Start med å spørre om uttrykket kvantifiserer eller predikerer — da er du ferdig med det samme.",
+          "For de tomme uttrykkene: sjekk om noe i det hele tatt kan oppfylle beskrivelsen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-1-3-warn-ikke-bland",
+      "type": "warning",
+      "title": "Ikke bland konstant og variabel referanse",
+      "content": "Den skarpe forskjellen i én setning: **konstant referanse gir samme referent ved hver bruk; variabel referanse gir en ny referent når ytringskonteksten skifter.**\n\nTesten som skiller dem: **bytt ut taler, sted og tidspunkt, og se om uttrykket peker på noe annet.** Gjør det det, er referansen variabel.\n\nDe to feilene som faktisk gjøres:\n\n- **Å tro at bestemt form betyr konstant referanse.** *Legen*, *klokka* og *naboen* står alle i bestemt form og har alle variabel referanse. Bestemt form signaliserer at taleren regner med at mottakeren vet hvem eller hva som menes — det er en opplysning om samtalen, ikke om referansen.\n- **Å regne navnetvetydighet som variabel referanse.** At det finnes flere personer som heter Sofie, gjør ikke referansen variabel i den forstand som er i sikte. Variabel referanse betyr at referenten skifter **systematisk** med konteksten, etter en regel som ligger i uttrykket. *Jeg* har en slik regel; *Sofie* har det ikke.\n\nDette er **feil 2 i registeret: å bytte om parvise begreper**."
+    },
+    {
+      "id": "ling1100-1-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Bestemte beskrivelser: Russell mot Strawson (~20 min)\n\nNå til den delen som gir uttelling. Spørsmålet er kort: hva sier egentlig en setning som inneholder en bestemt beskrivelse — og hva skjer når beskrivelsen ikke passer på noe?"
+    },
+    {
+      "id": "ling1100-1-3-def-bestemt-beskrivelse",
+      "type": "definition",
+      "title": "Bestemt beskrivelse",
+      "content": "En nominalfrase som **peker ut noe ved å beskrive det, og som forutsetter at det er nøyaktig én ting som passer**: *den eldste eleven i klassen*, *forfatteren av denne rapporten*, *Norges statsminister*. Den engelske termen er ‘definite description’.\n\nTo trekk gjør dem interessante. For det første **beskriver de**, i motsetning til egennavn: uttrykket sier noe om det som pekes ut, og den som forstår uttrykket, vet hva som ville telt som referenten. For det andre **krever de entydighet**: sier du *den eldste eleven i klassen* i en klasse med to like gamle eldste, har noe gått galt.\n\nDet er kombinasjonen av disse to trekkene som gjør at bestemte beskrivelser kan være **tomme uten å være meningsløse**, og det er der hele striden i denne løkka begynner."
+    },
+    {
+      "id": "ling1100-1-3-def-ubestemt",
+      "type": "definition",
+      "title": "Ubestemt nominalfrase",
+      "content": "En nominalfrase som **innfører noe uten å forutsette at mottakeren kan identifisere det**: *en gammel sykkel*, *et brev*, *noen studenter*. Den engelske termen er ‘indefinite description’ eller ‘indefinite noun phrase’.\n\nKontrasten mot den bestemte beskrivelsen er skarp og lett å teste. «Jeg fant **nøkkelen**» forutsetter at du vet hvilken nøkkel; «Jeg fant **en nøkkel**» gjør det ikke. Den første er merkelig som samtaleåpner mellom fremmede; den andre er helt normal.\n\nUbestemte fraser krever heller ingen entydighet: «Jeg så en sykkel» er sant selv om det sto ti sykler der. Det er nettopp entydighetskravet som skiller den bestemte beskrivelsen fra den ubestemte, og som blir en egen betingelse i Russells analyse."
+    },
+    {
+      "id": "ling1100-1-3-def-generisk",
+      "type": "definition",
+      "title": "Generisk bruk",
+      "content": "Bruk av en nominalfrase for å si noe om **en type i sin alminnelighet**, ikke om bestemte eksemplarer: «Ekornet lever i skogen», «En sykkel er billigere enn en bil». Den engelske termen er ‘generic use’.\n\nGenerisk bruk hører til den delen av klassifiseringsoppgaven som kandidater oftest svarer feil på, fordi uttrykket ser referensielt ut. Setningen «Ekornet lever i skogen» peker ikke ut noe bestemt ekorn — den sier noe om arten.\n\n**Testen:** kan du svare på spørsmålet «hvilket?» Kan du ikke det, og setningen likevel er meningsfull, er bruken generisk. Klassifiser den som ingen referanse, og skriv at grunnen er generisk bruk."
+    },
+    {
+      "id": "ling1100-1-3-def-predikativ",
+      "type": "definition",
+      "title": "Predikativ bruk",
+      "content": "Bruk av en nominalfrase for å **tilskrive en egenskap**, typisk etter et koblingsverb som *er*, *ble*, *virker* eller *ble valgt til*: «Sofie er lærer», «Ola ble kaptein».\n\nTesten er å telle: **hvor mange ting handler setningen om?** «Sofie er lærer» handler om én person. Var *lærer* referensielt, ville setningen handlet om to — og den ville dessuten påstått at de er samme person, som er noe annet.\n\nSkillet er skarpere enn det ser ut, og det er nyttig senere. Setningen «Sofie er læreren» — med bestemt form — er faktisk et identitetsutsagn og ikke en ren predikasjon: den sier at Sofie er den bestemte læreren vi allerede har snakket om. Ett bestemmerord endrer altså hele analysen."
+    },
+    {
+      "id": "ling1100-1-3-def-kvantifiserende",
+      "type": "definition",
+      "title": "Kvantifiserende uttrykk",
+      "content": "En nominalfrase som sier noe om **hvor mange eller hvilken andel** av en gruppe noe gjelder for, uten å peke ut noen enkeltting: *alle*, *ingen*, *noen*, *de fleste*, *minst tre*. Den engelske termen er ‘quantifying expression’ eller ‘quantifier phrase’.\n\nDet avgjørende poenget er at slike uttrykk **ikke er navn på noe**. «Ingen kom» handler ikke om en person som heter Ingen, og «Alle kom» handler ikke om et kollektivvesen kalt Alle. Setningene sier hvor stor del av en gruppe som oppfyller et vilkår.\n\nDette er en av de innsiktene den formelle verktøykassa i [kap. 4.1](/bok/ling1100/ling1100-4-1) bygger på, og det er samme innsikt Russell utnytter i neste definisjon: **bestemte beskrivelser er egentlig kvantifiserende, ikke navngivende.**"
+    },
+    {
+      "id": "ling1100-1-3-def-russell",
+      "type": "definition",
+      "title": "Russells kvantoranalyse av bestemte beskrivelser",
+      "content": "Russells analyse: en setning med en bestemt beskrivelse er **ikke** et utsagn om en navngitt ting, men et sammensatt utsagn som hevder **tre ting samtidig**.\n\nTa «Den nåværende kongen av Frankrike er skallet». Russell leser den som en påstand om at:\n\n- **det finnes minst én ting som er nåværende konge av Frankrike** — eksistensbetingelsen;\n- **det finnes høyst én slik ting** — entydighetsbetingelsen;\n- **den tingen er skallet** — predikasjonsbetingelsen.\n\n**Det avgjørende trekket ved analysen er at alle tre er hevdet.** De er ikke forutsetninger som må være på plass for at setningen skal si noe; de er deler av det setningen påstår. Svikter én av dem, er hele påstanden usann — nøyaktig som «Det regnet og det blåste» er usann når det bare blåste.\n\nFølgen for kongen av Frankrike er derfor klar: **setningen er usann**, siden den første betingelsen svikter. Setningen er ikke meningsløs, og den har ikke noe hull der sannhetsverdien skulle vært. Den er bare usann.\n\nRussell løser dermed problemet med tomme beskrivelser uten å innføre noe nytt nivå: uttrykket *den nåværende kongen av Frankrike* er ikke et navn i det hele tatt, og da er det ikke rart at det ikke navngir noe."
+    },
+    {
+      "id": "ling1100-1-3-def-eksistens",
+      "type": "definition",
+      "title": "Eksistensbetingelsen",
+      "content": "Det første leddet i Russells analyse: **det finnes minst én ting som passer på beskrivelsen.**\n\nDette er leddet som svikter i tilfellet med kongen av Frankrike, og det er derfor det leddet hele striden med Strawson dreier seg om. Er eksistenskravet en del av **det som påstås**, eller er det en forutsetning for i det hele tatt å påstå noe?\n\nMerk hvorfor spørsmålet er skarpt og ikke bare terminologisk: de to svarene gir ulike sannhetsverdier for den samme setningen, og de gir ulike svar på hva som skjer når setningen negeres."
+    },
+    {
+      "id": "ling1100-1-3-def-entydighet",
+      "type": "definition",
+      "title": "Entydighetsbetingelsen",
+      "content": "Det andre leddet i Russells analyse: **det finnes høyst én ting som passer på beskrivelsen.**\n\nSammen med eksistensbetingelsen gir dette nøyaktig én. Det er dette leddet som fanger opp forskjellen mellom *den* og *en*: «En elev i klassen kom for sent» krever ikke entydighet, mens «Den eldste eleven i klassen kom for sent» gjør det.\n\nBetingelsen har en konsekvens som er verdt å nevne på eksamen: **også setninger med for mange kandidater blir usanne** på Russells analyse. Er det to like gamle eldste elever, er «Den eldste eleven i klassen kom for sent» usann, uansett om begge kom for sent. Det er en pris ved analysen, og en besvarelse som ser den, viser at hun har forstått mekanismen og ikke bare listet betingelsene."
+    },
+    {
+      "id": "ling1100-1-3-def-predikasjon",
+      "type": "definition",
+      "title": "Predikasjonsbetingelsen",
+      "content": "Det tredje leddet i Russells analyse: **den tingen som passer på beskrivelsen, har den egenskapen setningen tilskriver den.**\n\nDette er det leddet som svarer til det setningen «egentlig handler om» i vanlig forstand — at kongen er skallet, at eleven kom for sent. I de fleste virkelige tilfeller er det bare dette leddet som står på spill, siden de to første er uproblematisk oppfylt.\n\nPoenget med å skille det ut som et eget ledd er at det gjør negasjonen interessant. Negerer du hele setningen, kan du enten benekte at alle tre leddene holder, eller bare benekte det siste — og de to gir ulike påstander. Russell så dette selv, og det er et tidlig eksempel på det som kalles virkefelt eller scope, temaet i [kap. 4.2](/bok/ling1100/ling1100-4-2)."
+    },
+    {
+      "id": "ling1100-1-3-thm-russell-formell",
+      "type": "theorem",
+      "title": "Russells analyse skrevet formelt",
+      "content": "Analysen kan skrives i logisk notasjon. **Du trenger ikke dette for å svare på oppgaven** — hovedframstillingen står i ord over — men formen er nyttig fordi den viser at alle tre leddene står side om side som deler av én påstand.\n\nTo symboler brukes, og begge innføres for fullt i [kap. 4.1](/bok/ling1100/ling1100-4-1):\n\n- $\\exists x$ leses «det finnes minst én ting $x$ slik at …»\n- $\\forall y$ leses «for enhver ting $y$ gjelder at …»\n\nLa $K(x)$ bety «$x$ er nåværende konge av Frankrike» og $S(x)$ bety «$x$ er skallet». Da blir analysen:\n\n$$\\exists x\\,\\bigl(K(x) \\land \\forall y\\,(K(y) \\rightarrow y = x) \\land S(x)\\bigr)$$\n\nLest tilbake til norsk, ledd for ledd: det finnes en ting $x$ slik at $x$ er nåværende konge av Frankrike, og enhver ting $y$ som er nåværende konge av Frankrike er identisk med $x$, og $x$ er skallet.\n\n**Legg merke til at de tre leddene er bundet sammen med «og».** Det er hele poenget: svikter ett av dem, er konjunksjonen usann, og dermed er setningen usann. Formelen gjør det umulig å overse at eksistenskravet er hevdet og ikke forutsatt."
+    },
+    {
+      "id": "ling1100-1-3-def-strawson",
+      "type": "definition",
+      "title": "Strawsons presupposisjonsanalyse",
+      "content": "Strawsons svar til Russell: eksistensen er **ikke hevdet, men forutsatt**. Å bruke en bestemt beskrivelse er å ta for gitt at det finnes nøyaktig én ting som passer — og gjør det ikke det, kommer spørsmålet om sannhet aldri i gang.\n\nFølgen er en annen enn Russells: «Den nåværende kongen av Frankrike er skallet» er **verken sann eller usann**. Den lider av det som kalles et sannhetsverdigap.\n\nStrawsons argument er hentet fra hvordan vi faktisk reagerer. Spør noen deg om setningen er sann, svarer du ikke «nei» — du svarer at spørsmålet er feilstilt, fordi Frankrike ikke har noen konge. Sier du «nei», har du antydet at han finnes og har hår.\n\nStrawson legger dessuten vekt på skillet fra [kap. 1.1](/bok/ling1100/ling1100-1-1): **det er ytringer, ikke setninger, som er sanne eller usanne.** Setningen har en fast betydning; om en bestemt bruk av den uttrykker noe sant, avhenger av om forutsetningene er på plass.\n\nMerk at forutsetningen Strawson beskriver, har et navn i faget: den er en **presupposisjon**, og hele apparatet for å teste den bygges i [kap. 3.3](/bok/ling1100/ling1100-3-3)."
+    },
+    {
+      "id": "ling1100-1-3-def-sannhetsverdigap",
+      "type": "definition",
+      "title": "Sannhetsverdigap",
+      "content": "Situasjonen der en setning eller ytring **verken er sann eller usann**, fordi en forutsetning for å tilskrive sannhetsverdi ikke er oppfylt. Den engelske termen er ‘truth-value gap’.\n\nBegrepet er Strawsons løsning på det Russell løste med å gjøre setningen usann, og det er selve stridsspørsmålet mellom de to.\n\n**Prisen ved å godta sannhetsverdigap** er verdt å nevne på eksamen: hele det logiske apparatet i Del 3 og Del 4 forutsetter at hver proposisjon har nøyaktig én av to verdier. Slipper du inn et tredje utfall, må sannhetstabellene bygges om. Det er en av grunnene til at den formelle tradisjonen har holdt seg til Russells linje, selv om Strawsons beskrivelse ofte oppleves som mer treffende for hvordan vi faktisk snakker."
+    },
+    {
+      "id": "ling1100-1-3-def-fiksjonsnavn",
+      "type": "definition",
+      "title": "Fiksjonsnavn",
+      "content": "Et egennavn som **ikke har noen referent i den virkelige verden**, men som brukes fullt meningsfullt: navn på romanfigurer, på guder i myter, på steder i oppdiktede verdener.\n\nFiksjonsnavn er den vanskeligste posten i klassifiseringsoppgaven, fordi de deler trekk med to bås. De ligner egennavn med konstant referanse: navnet fester seg til én skikkelse, og alle som kjenner fortellingen, mener det samme med det. Samtidig har de ingen referent i verden.\n\n**Det trygge svaret på eksamen er å klassifisere dem som ingen referanse, og deretter si hvorfor de likevel ikke er som *ingen* eller *alle*:** de er referensielle i formen, brukes som om de pekte, og oppfører seg som konstante innenfor fortellingen. Det er den nyanserte behandlingen som gir uttelling, ikke selve merkelappen.\n\nMerk at problemet er det samme som fiksjonsargumentet i [kap. 1.2](/bok/ling1100/ling1100-1-2), men nå på navnenivå: her rammer det egennavn, som ikke har noen beskrivelse Russell kan bryte opp."
+    },
+    {
+      "id": "ling1100-1-3-warn-russell-strawson",
+      "type": "warning",
+      "title": "Ikke bland Russell og Strawson",
+      "content": "Den skarpe forskjellen i én setning: **hos Russell er eksistensen hevdet, og setningen blir usann når den svikter; hos Strawson er eksistensen forutsatt, og setningen blir verken sann eller usann.**\n\nTesten som skiller dem: **spør hva de sier om sannhetsverdien når beskrivelsen er tom.** Svarer analysen «usann», er den Russells. Svarer den «ingen sannhetsverdi», er den Strawsons. Ett ord skiller dem, og det ordet er svaret på oppgaven.\n\nEn andre test er negasjonen. Negerer du en setning med tom beskrivelse, sier Russell at negasjonen kan være sann — det er jo sant at det ikke finnes noen skallet nåværende konge av Frankrike. Strawson sier at også negasjonen mangler sannhetsverdi, fordi den hviler på den samme forutsetningen. **At forutsetningen overlever negasjonen, er selve kjennetegnet på en presupposisjon**, og det er testen du bygger ut i [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\nDe to feilene som faktisk gjøres:\n\n- **Å skrive at Russell mener setningen er meningsløs.** Han mener ikke det. Den er fullt meningsfull og usann, og det er hele styrken ved analysen — han slipper å si at et forståelig uttrykk er tomt for innhold.\n- **Å behandle kongen av Frankrike uten å nevne noen av dem.** Dette er den hyppigste svakheten i denne oppgavetypen. Eksempelet er ikke poenget; kontrasten mellom de to analysene er poenget."
+    },
+    {
+      "id": "ling1100-1-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Samme setning, to analyser",
+      "problem": "Et bibliotek har aldri hatt noen bibliotekar med doktorgrad. Vurder setningen:\n\n```text\n(7)  Bibliotekaren med doktorgrad sluttet i fjor.\n(8)  Bibliotekaren med doktorgrad sluttet ikke i fjor.\n```\n\n**a)** Hva sier Russells analyse om sannhetsverdien til (7)? Skriv ut de tre betingelsene.\n**b)** Hva sier Strawsons analyse?\n**c)** Hva sier de to om (8), og hva viser forskjellen?",
+      "solution": "**a) Russell: (7) er usann.**\n\nDe tre betingelsene, skrevet ut for denne setningen:\n\n- **Eksistens:** det finnes minst én bibliotekar med doktorgrad ved dette biblioteket.\n- **Entydighet:** det finnes høyst én slik bibliotekar.\n- **Predikasjon:** vedkommende sluttet i fjor.\n\nSetningen hevder alle tre samtidig, bundet sammen med «og». Eksistensbetingelsen svikter, og dermed er hele konjunksjonen usann. **Setningen er usann, ikke meningsløs og ikke uten sannhetsverdi.**\n\n**b) Strawson: (7) er verken sann eller usann.**\n\nÅ bruke uttrykket *bibliotekaren med doktorgrad* er å ta for gitt at det finnes nøyaktig én slik person. Forutsetningen er ikke oppfylt, og dermed kommer spørsmålet om sannhet aldri i gang. Setningen lider av et sannhetsverdigap.\n\nStrawsons begrunnelse er hvordan vi faktisk reagerer: spør noen om (7) er sann, svarer du ikke «nei». Du svarer at biblioteket aldri har hatt noen bibliotekar med doktorgrad — altså at spørsmålet hviler på noe galt.\n\n**c) Her skiller de to analysene lag på en måte som er verdt å skrive ut.**\n\n**Strawson:** også (8) mangler sannhetsverdi. Negasjonen bruker den samme bestemte beskrivelsen og hviler dermed på den samme forutsetningen. **At forutsetningen overlever negasjonen, er nettopp det som gjør den til en presupposisjon.**\n\n**Russell:** her er svaret mer sammensatt, og det er en styrke ved analysen at det er det. Fordi de tre leddene er skilt ut, kan negasjonen ramme ulike deler:\n\n- Rammer negasjonen bare predikasjonsleddet, sier setningen at det finnes nøyaktig én bibliotekar med doktorgrad, og at hun ikke sluttet i fjor. Den lesningen er **usann**, siden eksistensleddet fortsatt hevdes.\n- Rammer negasjonen hele påstanden, sier setningen at det ikke er slik at det finnes nøyaktig én bibliotekar med doktorgrad som sluttet i fjor. Den lesningen er **sann**, siden det ikke finnes noen slik person i det hele tatt.\n\n**Hva forskjellen viser.** Russell får to lesninger av negasjonen, og kan forklare hvorfor «Bibliotekaren med doktorgrad sluttet ikke i fjor — det finnes jo ingen» ikke er selvmotsigende. Prisen er at han må godta at én og samme negerte setning er flertydig. Strawson får bare ett svar, som ligger tettere på hvordan vi reagerer i praksis, men prisen hans er at han må slippe inn et tredje utfall ved siden av sann og usann — og det bryter med det todelte systemet resten av semantikkhalvdelen bygger på.\n\n**Eget kontrasttilfelle.** Er beskrivelsen ikke tom, forsvinner hele striden. Hadde biblioteket hatt nøyaktig én bibliotekar med doktorgrad, ville begge analysene gitt samme svar på både (7) og (8). **Uenigheten viser seg bare i grensetilfellet**, og det er derfor grensetilfellet er så mye brukt."
+    },
+    {
+      "id": "ling1100-1-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-1-3-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A1 — redegjør og eksemplifiser.) Gjør rede for Russells analyse av bestemte beskrivelser, og bruk den på et eget eksempel med en tom beskrivelse. Oppgi sannhetsverdien analysen gir, og begrunn.\n\nBruk maks åtte setninger.",
+        "solution": "**Momentliste — det svaret ditt minst må ha:**\n\n- at en bestemt beskrivelse ikke er et navn, men et kvantifiserende uttrykk;\n- **alle tre** betingelsene, navngitt og skrevet ut for eksempelet ditt;\n- at betingelsene er **hevdet**, ikke forutsatt, og at de er bundet sammen med «og»;\n- sannhetsverdien oppgitt eksplisitt, med begrunnelsen at ett ledd i en konjunksjon svikter;\n- ett **eget** eksempel, ikke kongen av Frankrike.\n\n**Forslag til svar:**\n\n«Russell analyserer bestemte beskrivelser som kvantifiserende uttrykk og ikke som navn. En setning av formen ‘Den F-en er G’ hevder tre ting samtidig: at det finnes minst én F, at det finnes høyst én F, og at den F-en er G. De tre er bundet sammen som en konjunksjon, og alle er en del av det setningen påstår.\n\nEget eksempel: ‘Den norske vulkanen på fastlandet er aktiv.’ Eksistensbetingelsen sier at det finnes minst én vulkan på det norske fastlandet, entydighetsbetingelsen at det finnes høyst én, og predikasjonsbetingelsen at den er aktiv. Eksistensbetingelsen svikter, og siden ett usant ledd gjør hele konjunksjonen usann, er setningen **usann** på Russells analyse. Den er ikke meningsløs og har ikke noe hull der sannhetsverdien skulle stått — vi forstår den utmerket, og vi forstår nettopp derfor at den er gal.»\n\n> Margnotat: legg merke til at forslaget oppgir sannhetsverdien i klartekst og sier hvorfor. Et svar som stopper ved «da svikter eksistensbetingelsen» har utelatt konklusjonen, og det er halvparten av oppgaven.",
+        "hints": [
+          "Første grep: si hva slags uttrykk en bestemt beskrivelse er, ifølge Russell — det avgjør resten.",
+          "Tell betingelsene i svaret ditt. Er det tre?"
+        ]
+      }
+    },
+    {
+      "id": "ling1100-1-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-1-3-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2.) En kandidat skriver:\n\n> «Russell mener at setninger om kongen av Frankrike er meningsløse, siden det ikke\n> finnes noen konge. Strawson er uenig og mener de er usanne.»\n\n**a)** Hva er galt her?\n**b)** Skriv om til to setninger som er riktige, og legg til den testen som skiller de to analysene.",
+        "solution": "**a)** **Begge posisjonene er tillagt feil standpunkt, og de er dessuten byttet om.**\n\nRussell mener ikke at slike setninger er meningsløse. Det er nettopp det han vil unngå: analysen hans er laget for å vise at setningen er fullt forståelig og ganske enkelt **usann**. Å si at han finner den meningsløs, er å tillegge ham det problemet han løste.\n\nStrawson mener ikke at den er usann. Han mener den er **verken sann eller usann**, altså at den lider av et sannhetsverdigap.\n\nDette er feil 2 i registeret i sin reneste form: to nærliggende posisjoner byttet om. Feilen er dyr, fordi hele oppgaven består i å holde dem fra hverandre.\n\n**b) Riktig versjon:**\n\n«Russell mener setningen er fullt meningsfull og usann: eksistensen er en del av det setningen hevder, og siden det ikke finnes noen konge, svikter ett ledd i påstanden. Strawson mener eksistensen er forutsatt snarere enn hevdet, og at setningen derfor verken er sann eller usann.»\n\n**Testen som skiller dem:** neger setningen. Sier analysen at forutsetningen fortsatt gjelder etter negasjonen, er den Strawsons — det er da vi har med en presupposisjon å gjøre. Sier analysen at den negerte setningen kan være sann fordi den benekter hele den sammensatte påstanden, er den Russells.",
+        "hints": [
+          "Sjekk hvilken av de to som ender med å si «usann», og hvilken som ender med «ingen sannhetsverdi».",
+          "Testen handler om hva som skjer når du setter «ikke» inn i setningen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-1-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Håndverket på eksamen (~10 min)\n\nTo ting avgjør uttellingen i dette kapitlet, og de er ulike for de to oppgavetypene.\n\n**I klassifiseringsoppgaven er det begrunnelsen.** Listen med typenavn kan en kandidat gjette seg til; det er trinnet i prosedyren som viser at du kan analysen. Skriv testen du kjørte, ikke bare utfallet.\n\n**I Russell-Strawson-oppgaven er det kontrasten.** Kongen av Frankrike er ikke temaet; han er anledningen. Det som skal fram, er at de to analysene gir ulike svar på ett bestemt spørsmål — sannhetsverdien når beskrivelsen er tom — og at hver av dem betaler en pris for svaret sitt."
+    },
+    {
+      "id": "ling1100-1-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-1-3-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2, blandet batteri.) Klassifiser referansetypen til hvert uthevet ledd, og oppgi kort hvilket trinn i prosedyren som avgjorde.\n\n**a)** «**Hvalen** er et pattedyr.»\n**b)** «**Den yngste av de tre søstrene** arvet huset.»\n**c)** «**Hulda** i eventyret lokket vandrerne på villstrå.»\n**d)** «Sofie ble **rektor** i fjor.»\n**e)** «**Færre enn ti** hadde meldt seg på.»\n**f)** «Kan du gi meg **den boka** der borte?»",
+        "solution": "**a) Ingen referanse — generisk bruk (trinn 1).** Setningen sier noe om arten, ikke om en bestemt hval. Testen: spørsmålet «hvilken hval?» har ikke noe svar, og setningen er likevel meningsfull.\n\n**b) Variabel referanse (trinn 3).** Uttrykket er en bestemt beskrivelse, og hvem den peker ut, avhenger av hvilke tre søstre det er tale om. Bytter vi ytringssituasjon, får vi en annen person.\n\n**c) Ingen referanse — fiksjonsnavn.** Trinn 2 avgjør: navnet er referensielt i formen og oppfører seg som et egennavn med konstant referanse innenfor fortellingen, men det finnes ingen referent i verden.\n\nMerk at et fullstendig svar sier begge deler. Å bare skrive «ingen referanse» skiller ikke dette tilfellet fra e), som ikke peker fordi det kvantifiserer.\n\n**d) Ingen referanse — predikativ bruk (trinn 1).** Uttrykket står etter koblingsverbet *ble* og tilskriver Sofie en rolle. Tellekontrollen: setningen handler om én person, ikke to.\n\n**e) Ingen referanse — kvantifiserende (trinn 1).** Uttrykket sier hvor mange, ikke hvem.\n\n**f) Variabel referanse, deiktisk (trinn 3).** Frasen inneholder et påvisende bestemmerord og følges av *der borte*; referenten bestemmes ved å peke i ytringssituasjonen. Sies setningen i et annet rom, er det en annen bok.\n\n**Sammenfatning verdt å merke seg:** fire av de seks er «ingen referanse», men av fire ulike grunner — generisk, fiksjon, predikativ og kvantifiserende. **Det er grunnene som er svaret**, ikke merkelappen.",
+        "hints": [
+          "Kjør trinn 1 på alle seks først: kvantifiserer eller predikerer uttrykket?",
+          "For dem som blir igjen: bytt ut taler, sted og tidspunkt og se om referenten skifter."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-1-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-1-3-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Eksamenssjanger A1 med A2-hale, full sjanger.) «Gjør rede for Russells og Strawsons analyser av bestemte beskrivelser. Bruk begge analysene på et eget eksempel med en tom beskrivelse, og gjør rede for hva de sier om den negerte setningen. Hvilken av analysene finner du mest overbevisende, og hvorfor?»\n\nSkriv en disposisjon med tidsfordeling innenfor 20 minutter, og skriv ut svaret på den siste delen i sin helhet.",
+        "solution": "**Verbtelling først: fire krav.** «Gjør rede for» begge analysene, «bruk begge på et eget eksempel», «gjør rede for» hva de sier om negasjonen, og «hvilken finner du mest overbevisende, og hvorfor». Fire deler.\n\n**Disposisjon, 20 minutter:**\n\n**1. Problemet (~2 min).** Én setning om hva som er saken: bestemte beskrivelser kan være tomme, og da er det uklart hva som skjer med sannhetsverdien. Ikke bruk mer plass her.\n\n**2. Russell (~4 min).** Beskrivelsen er et kvantifiserende uttrykk, ikke et navn. De tre betingelsene navngitt og skrevet ut. Understrek at alle tre er hevdet, ikke forutsatt, og at de er bundet sammen med «og». Konklusjon: tom beskrivelse gir usann setning.\n\n**3. Strawson (~4 min).** Eksistensen er forutsatt, ikke hevdet. Bruken av uttrykket tar det for gitt. Konklusjon: sannhetsverdigap. Ta med argumentet fra hvordan vi faktisk reagerer, og nevn at forutsetningen er en presupposisjon.\n\n**4. Eget eksempel, begge analyser, positiv og negert (~6 min).** Velg en beskrivelse som åpenbart er tom, og kjør begge analysene på begge setningene. For Russell: vis de to lesningene av negasjonen. For Strawson: vis at forutsetningen overlever negasjonen.\n\n**5. Stillingtaken (~3 min).** Skrevet ut under.\n\n**6. Gjennomlesing (~1 min).** Er alle fire kravene besvart, og er eksempelet ditt eget?\n\n**Svaret på siste del, skrevet ut:**\n\n«Jeg finner Russells analyse mest overbevisende, men ikke fordi den beskriver reaksjonene våre best — der har Strawson åpenbart rett. Møter jeg påstanden om at den norske vulkanen på fastlandet er aktiv, svarer jeg ikke ‘nei’; jeg svarer at det ikke finnes noen slik vulkan. Så langt er Strawson nærmere hvordan vi faktisk snakker.\n\nGrunnen til at jeg likevel lander på Russell, er kostnadssiden. Strawsons løsning krever et tredje utfall ved siden av sann og usann, og det utfallet må bæres av hele det logiske apparatet: sannhetstabellene i [kap. 3.1](/bok/ling1100/ling1100-3-1) må bygges om, definisjonen av logisk implikasjon må omformuleres, og evalueringen mot en modell i [kap. 4.3](/bok/ling1100/ling1100-4-3) må håndtere setninger uten verdi. Russells løsning koster ingenting av dette. Den koster i stedet at negerte setninger blir flertydige — men den flertydigheten er uansett dokumentert i språket, og den behandles med det samme apparatet som annen scope-flertydighet i [kap. 4.2](/bok/ling1100/ling1100-4-2).\n\nMed andre ord: der Strawson tar en pris i systemet for å redde intuisjonen, tar Russell en pris i intuisjonen for å redde systemet — og prisen hans betales med mynt faget allerede bruker. Jeg vil legge til at Strawsons observasjon ikke går tapt på Russells linje. At vi reagerer med å påpeke forutsetningen i stedet for å si ‘nei’, kan forklares som et pragmatisk fenomen: setningen er usann, men den mest opplysende reaksjonen er å si hvorfor. Å skyve observasjonen over til pragmatikken er ikke å avfeie den.»\n\n> Margnotat: standpunktet er skarpt og begrunnet med noe konkret — hva hver løsning koster andre deler av faget. Merk også at forbeholdet i siste avsnitt gjør arbeid: det redder motpartens observasjon i stedet for å bare innrømme at saken er vanskelig.\n\n> Margnotat: standpunktet er fritt i denne oppgavetypen. Motsatt konklusjon kunne fått samme uttelling med like stram begrunnelse — for eksempel ved å veie beskrivelsesevne tyngre enn systemkostnad.",
+        "hints": [
+          "Tell kravene først — det er fire, ikke to.",
+          "Til siste del: spør hva hver av de to løsningene koster resten av faget, ikke bare hvilken som føles riktigst."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-1-3-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Tre feil dominerer dette kapitlet.\n\n- **Feil 2 — å blande referent og sense.** Formen den tar her, er å tro at et uttrykk med tom ekstensjon dermed er meningsløst. Det er nettopp det [kap. 1.2](/bok/ling1100/ling1100-1-2) viste at det ikke er: *den nåværende kongen av Frankrike* har full sense og ingen reference. En annen form er å bytte om Russell og Strawson, som er den dyreste enkeltfeilen i kapitlet.\n- **Feil 1 — å klassifisere uten begrunnelse.** Å skrive «konstant», «variabel», «ingen» i en kolonne er ikke et svar på en oppgave som sier «begrunn». Skriv hvilket trinn i prosedyren som avgjorde, og hvorfor. Det koster én linje per uttrykk.\n- **Å behandle kongen av Frankrike uten Russell og Strawson.** Eksempelet er velkjent, og det er fristende å bare konstatere at uttrykket er tomt. Men oppgaven handler ikke om eksempelet — den handler om de to konkurrerende analysene av det. Nevner du ingen av dem, har du beskrevet problemet uten å berøre svarene.\n\n**En fjerde felle, som rammer flinke kandidater:** å oppgi referansetypen uten å si at den avhenger av hvordan verden er. *Den siste billetten til forestillingen* har variabel referanse hvis det finnes en slik billett, og ingen referanse hvis det ikke gjør det. Et svar som ser dette, viser at klassifiseringen er en analyse og ikke en oppslagsjobb."
+    },
+    {
+      "id": "ling1100-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-1-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\nKapitlet bruker logiske symboler ett eneste sted, i den formelle skrivemåten av Russells analyse. Hovedframstillingen står i ord, og du kan svare fullgodt på eksamensoppgaven uten symbolene. De innføres for fullt i [kap. 4.1](/bok/ling1100/ling1100-4-1).\n\n| Symbol | Betydning |\n|---|---|\n| $\\exists x$ | eksistenskvantor: «det finnes minst én ting $x$ slik at …» |\n| $\\forall y$ | allkvantor: «for enhver ting $y$ gjelder at …» |\n| $\\land$ | konjunksjon, «og» |\n| $\\rightarrow$ | materiell implikasjon, «hvis … så»; innføres i [kap. 3.1](/bok/ling1100/ling1100-3-1) |\n| $K(x)$, $S(x)$ | predikater: «$x$ er nåværende konge av Frankrike», «$x$ er skallet» |\n| $y = x$ | identitet: $y$ er en og samme ting som $x$ |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$\\exists x\\,\\bigl(K(x) \\land \\forall y\\,(K(y) \\rightarrow y = x) \\land S(x)\\bigr)$$\n\nRussells analyse av «Den nåværende kongen av Frankrike er skallet». De tre leddene svarer til de tre betingelsene: $K(x)$ er eksistensbetingelsen, $\\forall y\\,(K(y) \\rightarrow y = x)$ er entydighetsbetingelsen, og $S(x)$ er predikasjonsbetingelsen. **At de er bundet sammen med $\\land$ er hele poenget:** svikter ett ledd, er helheten usann.\n\n**Notasjonsregel:** presupposisjonsforholdet, som Strawson bruker, skrives i ord — «setningen presupponerer at det finnes nøyaktig én slik ting» — og aldri med et eget symbol. Det finnes ingen etablert symbolbruk for det i dette emnet, og et oppfunnet tegn ville vært en påstand om notasjon som ikke stemmer."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-1-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "ling1100-1-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-1-3-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.2](/bok/ling1100/ling1100-1-2)) Hva er forskjellen på ekstensjon og intensjon?",
+            "solution": "Ekstensjonen er mengden av ting et uttrykk gjelder for; intensjonen er betingelsen som avgjør hva som havner i mengden. Ekstensjonen avhenger av hvordan verden faktisk er og kan endre seg; intensjonen står fast. *Enhjørning* har tom ekstensjon og full intensjon.",
+            "hints": [
+              "Den ene er en samling, den andre en oppskrift."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-1-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-1-3-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.2](/bok/ling1100/ling1100-1-2)) Hva er sense, og i hvilken retning virker forholdet til reference?",
+            "solution": "Sense er presentasjonsmåten — måten et uttrykk gir referenten sin på. Retningen går fra sense til reference: **sense bestemmer reference**, ikke motsatt. Derfor kan flere uttrykk ha samme reference med ulik sense, mens det motsatte ikke er mulig.",
+            "hints": [
+              "Tenk på morgenstjernen og aftenstjernen."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-1-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-1-3-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/ling1100/ling1100-1-1)) Hvorfor er det ytringer og ikke setninger som er sanne eller usanne — og hvorfor er nettopp det poenget viktig for Strawson?",
+            "solution": "Fordi mange setninger inneholder uttrykk som først får innhold i en situasjon; setningen fastlegger derfor ingen bestemt påstand om verden. Det er proposisjonen den enkelte ytringen uttrykker, som får sannhetsverdi. Poenget er viktig for Strawson fordi han bygger analysen sin på det: setningen om kongen av Frankrike har fast betydning, men en bruk av den uttrykker bare noe sant eller usant dersom forutsetningen om eksistens er oppfylt.",
+            "hints": [
+              "Tenk på hva som skjer når to personer ytrer «Jeg er hjemme» samtidig fra hvert sitt sted."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-1-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-1-3-rep-e4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 0.2](/bok/ling1100/ling1100-0-2)) Hva må et svar inneholde når oppgaven sier «begrunn», og hvorfor holder ikke kategorinavnet?",
+            "solution": "Svaret må vise **testen kjørt på det konkrete materialet**, ikke bare navngi den. Kategorinavnet alene holder ikke fordi det ikke skiller den som har gjennomført analysen fra den som har gjettet riktig — og det er nettopp den forskjellen som skal måles. Minimumsformen er kategori, test, og resultatet av testen.",
+            "hints": [
+              "Det er feil 1 i registeret."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

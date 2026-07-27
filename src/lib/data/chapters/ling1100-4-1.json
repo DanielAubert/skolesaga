@@ -1,0 +1,435 @@
+{
+  "id": "ling1100-4-1",
+  "courseId": "ling1100",
+  "chapterNumber": "4.1",
+  "title": "Fra naturlig språk til predikatlogikk — predikater, konstanter, kvantorer",
+  "description": "Oversettelse av naturlige setninger til predikatlogikk med relasjonssymboler, konstanter og kvantorene for alle og for det finnes — den ferske F2-ferdigheten.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne skille predikater, konstanter og variabler i en setning og skrive en fullstendig oversettelsesnøkkel",
+    "kunne oversette allsetninger og eksistenssetninger med riktig kvantor og riktig konnektiv, og begrunne parringen",
+    "kunne oversette nektelser i to ekvivalente former og navngi kvantornegasjonsloven som knytter dem sammen",
+    "kunne kontrollere en formel ved å lese den tilbake til norsk og avdekke frie variabler"
+  ],
+  "content": [
+    {
+      "id": "ling1100-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Predikatlogikk er den nyeste ferdigheten i emnet.** Den er prøvd i **1 av de 12 settene** i materialet — settet fra høsten 2024, som ba kandidatene oversette naturlige setninger til predikatlogisk notasjon. Det er samtidig det eneste settet som deler ut en egen symbolliste, og det klart mest formelle i hele materialet.\n\n- **Sjangeren heter F2 i denne boka — predikatlogikk-oversettelse og modellteoretisk evaluering.** Oppskriften er kort: finn predikatene og argumentene, velg symboler og skriv dem ned, bygg formelen, og les den tilbake til norsk som kontroll.\n- **Typisk formulering:** «Oversett hver av setningene under til predikatlogikk. Bruk predikatene og konstantene som er oppgitt.»\n- **Ett sett er et tynt grunnlag, og det skal sies rett ut.** Vi vet ikke om oppgavetypen kommer igjen. Men den formelle andelen av emnet har steget gjennom hele materialet, og en ferdighet som koster et par timer å lære, er billig forsikring.\n- **Prioritet: høy.** Ikke fordi den er hyppig, men fordi den **differensierer**. En oppgave ingen har øvd på, skiller kandidatene mer enn en oppgave alle har øvd på.\n- **Den ene feilen som koster mest** er å parre feil kvantor med feil konnektiv. «Alle A er B» krever $\\forall$ sammen med $\\rightarrow$; «noen A er B» krever $\\exists$ sammen med $\\land$. Bytter du om, får du en formel som betyr noe helt annet — og løkke 3 i dette kapitlet handler bare om hvorfor."
+    },
+    {
+      "id": "ling1100-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 3.1](/bok/ling1100/ling1100-3-1), som innførte sannhetsverdier og de seks konnektivene, og på [kap. 3.2](/bok/ling1100/ling1100-3-2), som skilte material implikasjon fra entailment.\n\n**Sist du var her** — tre ting du trenger friskt:\n\n- **En proposisjon er innholdet i en påstand**, det som kan være sant eller usant. Proposisjonslogikken i kap. 3.1 regnet på hele proposisjoner og brydde seg ikke om hva som var inni dem.\n- **$p \\rightarrow q$ er usann i nøyaktig ett tilfelle:** når $p$ er sann og $q$ er usann. I de tre andre tilfellene er den sann. Denne ene regelen er hele grunnen til at allkvantoren parres med pilen senere i kapitlet.\n- **$p \\land q$ er sann hviss begge deler er sanne.** Ordet **hviss** er bokas faste forkortelse for «hvis og bare hvis», og det låser begge retninger i en betingelse.\n\n**Et løfte fra Del 1 innfris her.** I [kap. 1.3](/bok/ling1100/ling1100-1-3) skrev vi Russells analyse av bestemte beskrivelser med to symboler — $\\exists$ og $\\forall$ — og sa at de skulle innføres for fullt senere. Dette er kapitlet. Når du er ferdig her, kan du lese den formelen ledd for ledd uten hjelp.\n\nKapitlet innfører ni nye symboler. Alle står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-4-1-hverdagsanker",
+      "type": "text",
+      "content": "## Hvorfor proposisjonslogikken ikke rekker\n\nTenk på disse to setningene:\n\n```text\n(1) a. Alle deltakerne leverte skjemaet.\n    b. Nora leverte skjemaet.\n```\n\nEnhver som forstår norsk, ser at (1b) følger av (1a) hvis Nora er en av deltakerne. Men proposisjonslogikken fra kap. 3.1 kan ikke vise det. Der ville (1a) blitt til $p$ og (1b) til $q$, og to ulike bokstaver har ikke noe med hverandre å gjøre. Apparatet ser to udelelige klumper der vi ser en sammenheng.\n\nProblemet er at proposisjonslogikken **ikke ser inni setningen**. Den ser at setningen har en sannhetsverdi, og der stopper det. Den ser ikke at (1a) og (1b) sier noe om de samme personene og den samme handlingen.\n\n**Predikatlogikk er reparasjonen.** Den bryter opp setningen i to slags biter: **hvem eller hva** setningen handler om, og **hva som sies om dem**. Deretter legger den til to ord for mengdeforhold — «alle» og «det finnes minst én» — og det er nok til å fange slutningen over.\n\nKapitlet er bygd i fire løkker. Løkke 1 tar bitene setningen består av, løkke 2 tar de to kvantorene, løkke 3 tar de fire oversettelsesmønstrene som er selve eksamensferdigheten, og løkke 4 tar negasjon av kvantorer."
+    },
+    {
+      "id": "ling1100-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Bitene en setning består av (~15 min)\n\nVi begynner med de minste delene og bygger oss oppover. Alt i denne løkka handler om setninger uten «alle» og «noen» — kvantorene kommer i løkke 2."
+    },
+    {
+      "id": "ling1100-4-1-def-predikatlogikk",
+      "type": "definition",
+      "title": "Predikatlogikk",
+      "content": "Det logiske systemet som **ser inni setningen** og regner på hvem som gjør hva, i tillegg til å regne på sannhetsverdier. Den engelske termen er ‘predicate logic’, også kalt ‘first-order logic’.\n\nForskjellen fra proposisjonslogikken i [kap. 3.1](/bok/ling1100/ling1100-3-1) er skarp og lett å si i én setning: **proposisjonslogikken har setningen som minste enhet; predikatlogikken har individet og egenskapen.**\n\nAlt fra kap. 3.1 er beholdt. De seks konnektivene virker på nøyaktig samme måte, og sannhetstabellene deres gjelder fortsatt. Predikatlogikken **legger til** apparatet under, den kaster ikke noe."
+    },
+    {
+      "id": "ling1100-4-1-def-predikat",
+      "type": "definition",
+      "title": "Predikat",
+      "content": "Symbolet for **det som sies om noe** — en egenskap eller en relasjon. Den engelske termen er ‘predicate’. Vi skriver predikater med store bokstaver: $P$, $S$, $L$, $K$.\n\nTa setningen «Nora synger». Her sies det noe — *synger* — om noen — *Nora*. Predikatet er *synger*, og vi kan skrive det $S$.\n\n**Merk hva som teller som predikat i logisk forstand.** Det er ikke bare verb. Adjektiver (*er trøtt*), substantivfraser (*er bibliotekar*) og hele verbfraser (*leverte skjemaet i tide*) blir alle til predikater. Spørsmålet er ikke hvilken ordklasse uttrykket tilhører, men om det **sier noe om ett eller flere individer**.\n\nEt predikat er ikke i seg selv sant eller usant. $S$ alene sier ingenting; det er først når du fyller inn hvem det gjelder, at du får noe som har en sannhetsverdi."
+    },
+    {
+      "id": "ling1100-4-1-def-konstant",
+      "type": "definition",
+      "title": "Individkonstant",
+      "content": "Symbolet for **et bestemt individ** — en person, en ting, et sted. Den engelske termen er ‘individual constant’. Vi skriver konstanter med små bokstaver fra begynnelsen av alfabetet: $a$, $b$, $c$.\n\nEgennavn blir alltid til konstanter: *Nora* blir $n$, *Odd* blir $o$. Det samme gjelder entydige beskrivelser som peker ut ett bestemt individ i sammenhengen — *biblioteket i sentrum* kan bli $b$.\n\n**Ordet «konstant» betyr at symbolet peker på det samme hele veien.** Innenfor én oppgave står $n$ for Nora i hver eneste formel. Det er nettopp derfor konstanter kan bære slutninger: fordi det er den samme Nora som opptrer i premiss og konklusjon.\n\n**Kvantoruttrykk er ikke konstanter.** *Alle deltakerne*, *ingen*, *noen studenter* peker ikke ut ett individ, og de skal aldri oversettes til $a$ eller $b$. Det er selve poenget i løkke 2, og det er den innsikten [kap. 1.3](/bok/ling1100/ling1100-1-3) allerede forberedte."
+    },
+    {
+      "id": "ling1100-4-1-def-variabel",
+      "type": "definition",
+      "title": "Individvariabel",
+      "content": "Symbolet for **et vilkårlig individ** — en plassholder som ikke peker på noen bestemt. Den engelske termen er ‘individual variable’. Vi bruker $x$, $y$, $z$.\n\nSammenlign de to skrivemåtene:\n\n- $S(n)$ sier at **Nora** synger. Utsagnet er sant eller usant.\n- $S(x)$ sier at **noe** synger, uten å si hva. Utsagnet er verken sant eller usant før du sier hva $x$ er.\n\nVariabler er nøyaktig det samme grepet som $p$ og $q$ var i kap. 3.1 — plassholdere som lar deg formulere en regel én gang for alle. Forskjellen er hva de holder plassen for: $p$ holdt plassen for en **hel proposisjon**, $x$ holder plassen for et **individ**.\n\n**Variabler er nyttige først når noe binder dem**, og det er kvantorenes jobb. En variabel som ingen har bundet, er et løst tau."
+    },
+    {
+      "id": "ling1100-4-1-def-aritet",
+      "type": "definition",
+      "title": "Aritet",
+      "content": "Antallet **argumentplasser** et predikat har. Den engelske termen er ‘arity’.\n\n- **Ettplasspredikat:** $S(x)$ — «$x$ synger». Én plass. Ettplasspredikater uttrykker **egenskaper**.\n- **Toplasspredikat:** $K(x,y)$ — «$x$ kjenner $y$». To plasser. Toplasspredikater uttrykker **relasjoner**.\n- **Treplasspredikat:** $G(x,y,z)$ — «$x$ gir $y$ til $z$». Tre plasser.\n\n**Ariteten er fast for et gitt predikatsymbol i en gitt oppgave.** Har du bestemt at $K$ tar to argumenter, kan du ikke skrive $K(a)$ lenger ute i besvarelsen. En formel med feil antall argumenter er ikke en unøyaktighet — den er ikke en formel i det hele tatt, på samme måte som «Nora kjenner» ikke er en fullstendig norsk setning.\n\n**Praktisk kontroll:** tell hvor mange ting verbet trenger for å gi mening. *Sove* trenger én, *kjenne* trenger to, *gi* trenger tre."
+    },
+    {
+      "id": "ling1100-4-1-def-relasjonssymbol",
+      "type": "definition",
+      "title": "Relasjonssymbol",
+      "content": "Et predikat med **mer enn én argumentplass** — symbolet for en relasjon mellom individer. Den engelske termen er ‘relation symbol’.\n\nDette er den viktigste nyvinningen predikatlogikken gir deg, og grunnen er enkel: relasjoner er overalt i språket. *Kjenne*, *møte*, *eie*, *lese*, *hjelpe*, *være større enn* — alle krever to eller flere deltakere, og ingen av dem kan uttrykkes i proposisjonslogikken uten å bli en udelelig klump.\n\nEt relasjonssymbol skrives med argumentene i parentes, skilt med komma: $K(a,b)$.\n\n**Relasjonssymboler er også nøkkelen til [kap. 4.3](/bok/ling1100/ling1100-4-3)**, der en relasjon tolkes som en mengde av ordnede par. Det er verdt å merke seg allerede nå at rekkefølgen på argumentene bærer informasjon."
+    },
+    {
+      "id": "ling1100-4-1-def-argumentrekkefolge",
+      "type": "definition",
+      "title": "Argumentrekkefølgen",
+      "content": "Regelen om at **plassene i et relasjonssymbol ikke kan byttes om**: $K(a,b)$ og $K(b,a)$ er ulike formler som kan ha ulik sannhetsverdi.\n\nLa $K(x,y)$ bety «$x$ kjenner $y$», $n$ bety Nora og $o$ bety Odd. Da sier $K(n,o)$ at Nora kjenner Odd, mens $K(o,n)$ sier at Odd kjenner Nora. De to kan godt ha ulik sannhetsverdi — Nora kan kjenne Odd fra fjernsynet uten at Odd har hørt om Nora.\n\n**Derfor må nøkkelen din si hvilken plass som er hvilken.** Skriv ikke bare «$K$ = kjenner», men «$K(x,y)$: $x$ kjenner $y$». Uten den presiseringen er formelen din ikke tolkbar, og en utolkbar formel kan ikke rettes.\n\nDenne regelen kommer igjen i skarpere form i [kap. 4.3](/bok/ling1100/ling1100-4-3), der relasjoner tolkes som mengder av **ordnede par**. At parene er ordnede, er nøyaktig det samme poenget sett fra tolkningssiden."
+    },
+    {
+      "id": "ling1100-4-1-def-atomformel",
+      "type": "definition",
+      "title": "Atomær formel",
+      "content": "En formel som består av **ett predikat med sine argumenter fylt ut**, og ingenting mer. Den engelske termen er ‘atomic formula’.\n\n$S(n)$, $K(n,o)$ og $G(n,b,o)$ er atomære formler. $S(n) \\land K(n,o)$ er det ikke — den er sammensatt, bygd av to atomære formler og et konnektiv.\n\n**Atomære formler spiller nøyaktig samme rolle her som atomære proposisjoner gjorde i kap. 3.1:** de er bunnen. Konnektivene bygger større formler av dem, og sannhetsverdien til det store regnes ut fra sannhetsverdien til bunnen. Forskjellen er at bunnen nå har indre struktur — den er ikke en bokstav, men et predikat med argumenter."
+    },
+    {
+      "id": "ling1100-4-1-def-nokkel",
+      "type": "definition",
+      "title": "Oversettelsesnøkkelen",
+      "content": "Listen som sier **hva hvert symbol i formelen din står for**. Dette er predikatlogikkens motstykke til variabelforklaringen i en sannhetstabell, og den er like obligatorisk.\n\nFormen er alltid den samme:\n\n```text\n(2)  n:      Nora\n     o:      Odd\n     S(x):   x synger\n     K(x,y): x kjenner y\n```\n\n**Nøkkelen skal stå i besvarelsen, alltid, også når oppgaven oppgir predikatene selv.** Grunnen er at oppgaven som regel oppgir dem knapt — «bruk $L$ for ‘leser’» — mens leseren av svaret trenger å vite hvilken argumentplass som er hvilken.\n\n**En nøkkel uten argumentplasser er en halv nøkkel.** Skriv $K(x,y)$: «$x$ kjenner $y$», ikke «$K$ = kjenner». Det tar to sekunder ekstra og fjerner all tvil om hva formelen sier."
+    },
+    {
+      "id": "ling1100-4-1-thm-prosedyre",
+      "type": "theorem",
+      "title": "Prosedyre: oversett en setning til predikatlogikk",
+      "content": "Fire trinn. Følg dem i denne rekkefølgen hver gang, også når setningen ser enkel ut.\n\n**Trinn 1 — finn ut hvem eller hva setningen handler om.** Er det ett bestemt individ, blir det en konstant. Er det et kvantoruttrykk («alle», «noen», «ingen»), skal det **ikke** bli en konstant — da trenger du en kvantor, som kommer i løkke 2.\n\n**Trinn 2 — finn ut hva som sies om dem, og tell argumentplassene.** Dette blir predikatet. Tell hvor mange ting verbet trenger: én for egenskaper, to for relasjoner, tre for gi-typen.\n\n**Trinn 3 — skriv nøkkelen ned før du skriver formelen.** Konstanter først, deretter predikater med argumentplassene markert.\n\n**Trinn 4 — bygg formelen, og les den tilbake til norsk.** Tilbakelesingen er ikke pynt; den er kontrollen. Kommer du tilbake til noe som ligner den opprinnelige setningen, er du sannsynligvis i mål. Kommer du tilbake til noe annet, har du funnet feilen din selv.\n\n**Kontroll før du går videre:** står nøkkelen der, stemmer antall argumenter med ariteten du oppga, og gir tilbakelesingen mening? Tre ting, ti sekunder."
+    },
+    {
+      "id": "ling1100-4-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fire setninger uten kvantorer",
+      "problem": "Oversett hver setning til predikatlogikk. Skriv nøkkelen først.\n\n```text\n(3) a. Nora synger.\n    b. Odd synger ikke.\n    c. Nora kjenner Odd.\n    d. Nora kjenner Odd, men Odd kjenner ikke Nora.\n```",
+      "solution": "**Trinn 1 og 2 — hvem, og hva sies om dem.** Setningene handler om to bestemte personer, Nora og Odd. To ting sies: at noen synger (én argumentplass, en egenskap), og at noen kjenner noen (to argumentplasser, en relasjon).\n\n**Trinn 3 — nøkkelen:**\n\n```text\n(4)  n:      Nora\n     o:      Odd\n     S(x):   x synger\n     K(x,y): x kjenner y\n```\n\n**Trinn 4 — formlene:**\n\n**a)** $S(n)$\n\n**b)** $\\lnot S(o)$. Negasjonen fra kap. 3.1 virker på hele den atomære formelen.\n\n**c)** $K(n,o)$. Nora står først fordi nøkkelen sier at første plass er den som kjenner.\n\n**d)** $K(n,o) \\land \\lnot K(o,n)$. Ordet *men* er en konjunksjon i logisk forstand — det sier at begge deler er tilfelle. At *men* i tillegg antyder en motsetning, er en pragmatisk tilleggsbetydning, og den fanges ikke av $\\land$. Det er samme poeng som kap. 3.1 gjorde om *og*.\n\n**Tilbakelesingen, som er kontrollen.** $K(n,o) \\land \\lnot K(o,n)$ leses: «Nora kjenner Odd, og det er ikke tilfelle at Odd kjenner Nora.» Det er setningen vi startet med, minus *men*-nyansen.\n\n**Eget kontrasttilfelle som viser hvorfor rekkefølgen betyr noe.** Hadde vi skrevet $K(o,n) \\land \\lnot K(n,o)$, ville formelen sagt det stikk motsatte: at Odd kjenner Nora, men ikke omvendt. De to formlene bruker nøyaktig de samme symbolene og betyr ulike ting. **Rekkefølgen på argumentene er ikke en formalitet — den er halve informasjonen.**"
+    },
+    {
+      "id": "ling1100-4-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-1-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F2 — predikatlogikk-oversettelse og modellteoretisk evaluering. Innstegsoppgave.)\n\nBruk nøkkelen under.\n\n```text\n(5)  h:      Hedda\n     j:      Jonas\n     B(x):   x er bibliotekar\n     M(x,y): x møtte y\n```\n\n**a)** Hva sier formelen $B(h)$ på norsk?\n**b)** Oversett «Jonas møtte Hedda» til predikatlogikk.\n**c)** Hvor mange argumentplasser har $M$, og hva kalles det tallet?",
+        "solution": "**a)** «Hedda er bibliotekar.» Formelen er atomær: ett predikat med sin ene argumentplass fylt ut av en konstant.\n\n**b)** $M(j,h)$. Nøkkelen sier at første plass er den som møtte, og andre plass er den som ble møtt. Jonas møtte, altså står $j$ først.\n\n**c)** To. Tallet kalles predikatets **aritet**. Et toplasspredikat uttrykker en relasjon, til forskjell fra et ettplasspredikat, som uttrykker en egenskap.\n\n**Legg merke til kontrollen i b):** les formelen tilbake. $M(j,h)$ blir «Jonas møtte Hedda» — den setningen vi startet med. Hadde du skrevet $M(h,j)$, ville tilbakelesingen gitt «Hedda møtte Jonas», og du ville sett feilen selv.",
+        "hints": [
+          "Se på nøkkelen og spør hvilken argumentplass som er hvilken.",
+          "For c): tell hvor mange ting verbet trenger for å gi en fullstendig setning."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De to kvantorene (~15 min)\n\nHer kommer emnets to nye symboler. De er få, de gjør én ting hver, og de er hele grunnen til at predikatlogikken kan si noe om «alle» og «noen»."
+    },
+    {
+      "id": "ling1100-4-1-def-kvantoruttrykk",
+      "type": "definition",
+      "title": "Kvantoruttrykk er ikke navn",
+      "content": "Innsikten hele løkka hviler på: uttrykk som *alle*, *noen*, *ingen* og *de fleste* peker **ikke ut noe individ**. De sier hvor stor del av en gruppe som oppfyller et vilkår.\n\nDette møtte du allerede i [kap. 1.3](/bok/ling1100/ling1100-1-3): «Ingen kom» handler ikke om en person som heter Ingen. Konsekvensen for oversettelse er skarp:\n\n- Egennavn og entydige beskrivelser blir til en **konstant** ($a$, $b$, $n$).\n- Kvantoruttrykk blir til **kvantor pluss variabel**, aldri til en konstant.\n\n**Dette er den feilen som gir mest merkelige formler i besvarelser.** Skriver du «Alle deltakerne leverte» som $L(a)$ med $a$ = «alle deltakerne», har du behandlet en mengdeangivelse som om den var et navn, og formelen kan ikke bære noen slutning."
+    },
+    {
+      "id": "ling1100-4-1-def-allkvantor",
+      "type": "definition",
+      "title": "Allkvantoren",
+      "content": "Symbolet som sier at noe gjelder for **alt**. Vi skriver $\\forall$, og den engelske termen er ‘universal quantifier’.\n\n$\\forall x\\,S(x)$ leses «for enhver ting $x$ gjelder at $x$ synger» — altså «alt synger».\n\n**Symbolet er et opp-ned A**, for *All*. Det er verdt å merke seg, for det er en av de påminnelsene som fungerer under tidspress.\n\n**Hva kvantoren løper over.** $\\forall x$ sier «for alt» — men alt *hva*? Svaret er: alt i det området vi snakker om. Når en oppgave sier «vi snakker om deltakerne på kurset», er det kurset kvantoren løper over. Dette området får et eget navn og en presis rolle i [kap. 4.3](/bok/ling1100/ling1100-4-3), der det kalles **domenet**. Her holder det å vite at kvantorene alltid løper over noe, og at det noe er gitt av sammenhengen."
+    },
+    {
+      "id": "ling1100-4-1-def-eksistenskvantor",
+      "type": "definition",
+      "title": "Eksistenskvantoren",
+      "content": "Symbolet som sier at noe gjelder for **minst én ting**. Vi skriver $\\exists$, og den engelske termen er ‘existential quantifier’.\n\n$\\exists x\\,S(x)$ leses «det finnes minst én ting $x$ slik at $x$ synger» — altså «noe synger».\n\n**Symbolet er et speilvendt E**, for *Exists*.\n\n**Merk hva «minst én» innebærer, for det er en fast felle.** $\\exists$ er sann også når det finnes mange. «Noen deltakere leverte» er i logisk forstand sann også om alle leverte. Det norske *noen* antyder ofte «noen, men ikke alle», men **den innsnevringen ligger ikke i kvantoren**. Den er en pragmatisk tilleggsbetydning av samme slag som den eksklusive lesningen av *eller* i [kap. 3.1](/bok/ling1100/ling1100-3-1), og mekanismen behandles i [kap. 8.2](/bok/ling1100/ling1100-8-2)."
+    },
+    {
+      "id": "ling1100-4-1-def-bundet",
+      "type": "definition",
+      "title": "Bundet variabel",
+      "content": "En variabel som **står i virkefeltet til en kvantor med samme bokstav**. Den engelske termen er ‘bound variable’.\n\nI $\\forall x\\,S(x)$ er $x$ bundet: kvantoren $\\forall x$ står foran og fanger den. Kvantoren og variabelen hører sammen som et par, og de skal ha samme bokstav.\n\n**Bindingen er det som gjør formelen tolkbar.** En bundet variabel er ikke et navn på noe; den er en plassholder kvantoren fyller ut med hver ting i tur og orden. Det er derfor bokstavvalget er likegyldig: $\\forall x\\,S(x)$ og $\\forall y\\,S(y)$ sier nøyaktig det samme.\n\n**Praktisk regel:** hver variabel i en ferdig formel skal ha en kvantor med samme bokstav foran seg. Skriver du $\\exists y$ og bruker $x$ inni, har du to løse tråder i stedet for én binding."
+    },
+    {
+      "id": "ling1100-4-1-def-fri",
+      "type": "definition",
+      "title": "Fri variabel og åpen formel",
+      "content": "En **fri variabel** er en variabel ingen kvantor har bundet. En formel med minst én fri variabel kalles en **åpen formel** (‘open formula’).\n\n$S(x)$ er en åpen formel: den sier «$x$ synger», og siden vi ikke vet hva $x$ er, er den verken sann eller usann.\n\n**Dette er en ren kontroll du kan kjøre på svaret ditt.** En oversettelse av en fullstendig norsk setning skal aldri ende som en åpen formel. Står det en fri variabel igjen, har du enten glemt en kvantor eller brukt to ulike bokstaver der du mente én.\n\nKonstanter er noe annet: $S(n)$ har ingen variabler i det hele tatt og er derfor lukket. Det er bare variabler som kan være frie."
+    },
+    {
+      "id": "ling1100-4-1-thm-kvantornotasjon",
+      "type": "theorem",
+      "title": "Slik leses en kvantorformel",
+      "content": "Kvantoren står **foran** det den virker på, og alt som følger etter den, hører med til det den sier noe om. Notasjonen er alltid: kvantor, variabel, deretter formelen.\n\n$$\\forall x\\,\\varphi \\qquad \\exists x\\,\\varphi$$\n\nHer står den greske bokstaven $\\varphi$ (uttales «fi») for **en vilkårlig formel** — samme grep som $p$ og $q$ var i kap. 3.1, bare ett nivå opp. Du trenger ikke bruke $\\varphi$ i besvarelsen din; den er en skrivemåte for å formulere regler.\n\n**Parenteser avgjør hvor langt kvantoren rekker.** Sammenlign:\n\n- $\\forall x\\,(B(x) \\rightarrow S(x))$ — kvantoren har **hele implikasjonen** i sitt virkefelt.\n- $\\forall x\\,B(x) \\rightarrow S(x)$ — kvantoren har bare $B(x)$ i sitt virkefelt, og $x$-en i $S(x)$ blir **fri**. Formelen er åpen og betyr noe helt annet.\n\n**Sett derfor alltid parentes rundt det kvantoren skal virke på.** Det er samme innsikt som rekkevidde-begrepet i kap. 3.1, og det utvides til et helt kapittel i [kap. 4.2](/bok/ling1100/ling1100-4-2)."
+    },
+    {
+      "id": "ling1100-4-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-1-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F2.) Bruk nøkkelen under.\n\n```text\n(6)  S(x): x synger\n     B(x): x er bibliotekar\n```\n\n**a)** Les $\\forall x\\,S(x)$ og $\\exists x\\,S(x)$ på norsk.\n**b)** Er $S(x)$ sann, usann eller ingen av delene? Begrunn.\n**c)** Er $\\exists x\\,B(x)$ sann i en situasjon der alle er bibliotekarer? Begrunn.",
+        "solution": "**a)** $\\forall x\\,S(x)$: «for enhver ting $x$ gjelder at $x$ synger», altså «alt synger». $\\exists x\\,S(x)$: «det finnes minst én ting $x$ slik at $x$ synger», altså «noe synger».\n\n**b) Ingen av delene.** $S(x)$ er en **åpen formel**: variabelen $x$ er fri, og ingen har sagt hva den står for. En formel med fri variabel har ingen sannhetsverdi, på samme måte som «Hun synger» ikke kan avgjøres uten å vite hvem *hun* er.\n\n**c) Ja, den er sann.** $\\exists$ betyr **minst én**, ikke «noen, men ikke alle». Er alle bibliotekarer, finnes det i høyeste grad minst én, og formelen er sann.\n\n**Grepet oppgaven trener:** at det norske *noen* ofte antyder «ikke alle», mens $\\exists$ ikke gjør det. Innsnevringen er en pragmatisk tilleggsbetydning, ikke en del av kvantorens betydning.",
+        "hints": [
+          "For b): spør om du vet nok til å avgjøre sannhetsverdien.",
+          "For c): les $\\exists$ som «minst én», og spør om det er oppfylt."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — De fire oversettelsesmønstrene (~20 min)\n\n**— naturlig pausepunkt —**\n\nDette er kapitlets kjerne og selve eksamensferdigheten. Fire mønstre dekker det aller meste som blir spurt om, og hvert mønster har en fast kvantor–konnektiv-parring som ikke kan byttes om."
+    },
+    {
+      "id": "ling1100-4-1-def-alle-er",
+      "type": "definition",
+      "title": "Mønsteret «alle A er B»",
+      "content": "Standardoversettelsen av en allsetning:\n\n$$\\forall x\\,(A(x) \\rightarrow B(x))$$\n\nLest tilbake: «for enhver ting $x$ gjelder at hvis $x$ er A, så er $x$ B.»\n\n**Legg merke til hva formelen ikke sier.** Den sier ingenting om at det finnes noen A-er i det hele tatt. Er det ingen bibliotekarer, er «alle bibliotekarer synger» **sann** i denne logikken — hver eneste implikasjon i formelen har usann antesedent og er derfor sann av tom sannhet, akkurat som i [kap. 3.1](/bok/ling1100/ling1100-3-1).\n\nDet virker rart, og det er verdt én setning i et svar. Men det er en logisk konvensjon, ikke en påstand om norsk: den som sier «alle bibliotekarene mine synger», antyder som regel at hun har bibliotekarer. Den antydningen er pragmatisk og fanges ikke av formelen."
+    },
+    {
+      "id": "ling1100-4-1-def-noen-er",
+      "type": "definition",
+      "title": "Mønsteret «noen A er B»",
+      "content": "Standardoversettelsen av en eksistenssetning:\n\n$$\\exists x\\,(A(x) \\land B(x))$$\n\nLest tilbake: «det finnes minst én ting $x$ slik at $x$ er A **og** $x$ er B.»\n\n**Her er konnektivet $\\land$, ikke $\\rightarrow$.** Formelen påstår at det finnes noe som har begge egenskapene. Det er nettopp hva «noen bibliotekarer synger» sier: at minst ett individ er både bibliotekar og syngende.\n\n**Merk kontrasten til forrige mønster.** Allsetningen sier ikke at det finnes noen A-er; eksistenssetningen gjør nettopp det. Det er derfor de to trenger hvert sitt konnektiv."
+    },
+    {
+      "id": "ling1100-4-1-thm-parring",
+      "type": "theorem",
+      "title": "Kvantor–konnektiv-parringen, og hvorfor den er som den er",
+      "content": "Regelen i én linje: **$\\forall$ parres med $\\rightarrow$, og $\\exists$ parres med $\\land$.** Dette er den enkeltregelen som avgjør flest F2-oppgaver, og den er verdt å kunne begrunnet, ikke bare pugget.\n\n**Hvorfor $\\forall$ ikke kan parres med $\\land$.** Betrakt $\\forall x\\,(B(x) \\land S(x))$. Den sier: «alt er bibliotekar **og** alt synger.» Formelen påstår altså at **alle ting i det hele tatt** er bibliotekarer — ikke bare at bibliotekarene synger.\n\nKontroll på en liten situasjon: to individer, der bare det ene er bibliotekar og bare det samme ene synger. Da er «alle bibliotekarer synger» sann, og $\\forall x\\,(B(x) \\rightarrow S(x))$ er sann. Men $\\forall x\\,(B(x) \\land S(x))$ er **usann**, fordi det andre individet verken er bibliotekar eller synger. Formelen er altså for sterk.\n\n**Hvorfor $\\exists$ ikke kan parres med $\\rightarrow$.** Betrakt $\\exists x\\,(B(x) \\rightarrow S(x))$. Denne er sann så snart det finnes **én eneste ting som ikke er bibliotekar** — for da er antesedenten usann, og implikasjonen er sann av tom sannhet.\n\nKontroll: to individer, ett bibliotekar, og **ingen** som synger. Da er «noen bibliotekarer synger» opplagt usann, og $\\exists x\\,(B(x) \\land S(x))$ er usann. Men $\\exists x\\,(B(x) \\rightarrow S(x))$ er **sann**, fordi det andre individet ikke er bibliotekar. Formelen er altså for svak — den er nesten alltid sann og sier derfor nesten ingenting.\n\n**Huskeregelen som følger av begrunnelsen:** allkvantoren trenger en **betingelse** som avgrenser hvem påstanden gjelder, og betingelser skrives med pil. Eksistenskvantoren trenger et **funn** som har begge egenskapene, og funn skrives med og."
+    },
+    {
+      "id": "ling1100-4-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: De to mønstrene på samme materiale",
+      "problem": "Oversett begge setningene, og forklar hvorfor konnektivet er forskjellig.\n\n```text\n(7) a. Alle bibliotekarene synger.\n    b. Noen bibliotekarer synger.\n```",
+      "solution": "**Nøkkelen:**\n\n```text\n(8)  B(x): x er bibliotekar\n     S(x): x synger\n```\n\n**a)** $\\forall x\\,(B(x) \\rightarrow S(x))$\n\nTilbakelest: «for enhver ting gjelder at hvis den er bibliotekar, så synger den.» Pilen gjør jobben med å **avgrense**: påstanden gjelder bare de tingene som faktisk er bibliotekarer. Om de øvrige tingene sier formelen ingenting, og det er nettopp riktig, for det gjør ikke setningen heller.\n\n**b)** $\\exists x\\,(B(x) \\land S(x))$\n\nTilbakelest: «det finnes minst én ting som er bibliotekar og synger.» Her er poenget å **finne** noe med begge egenskapene, og da må begge egenskapene påstås om det samme individet. Det er akkurat hva $\\land$ gjør.\n\n**Hvorfor konnektivene ikke kan byttes, vist på en konkret situasjon.** Tenk deg at vi snakker om to personer: Hedda, som er bibliotekar og synger, og Jonas, som verken er bibliotekar eller synger.\n\n- «Alle bibliotekarene synger» er **sann** her — den ene bibliotekaren vi har, synger.\n- $\\forall x\\,(B(x) \\rightarrow S(x))$ er også sann: for Hedda er både antesedent og konsekvent sanne; for Jonas er antesedenten usann, og implikasjonen er sann av tom sannhet.\n- $\\forall x\\,(B(x) \\land S(x))$ er derimot **usann**, siden Jonas ikke er bibliotekar. Den formelen sier feil ting.\n\n**Og motsatt vei.** Tenk deg nå at Hedda er bibliotekar men ikke synger, og at Jonas verken er bibliotekar eller synger.\n\n- «Noen bibliotekarer synger» er **usann** her.\n- $\\exists x\\,(B(x) \\land S(x))$ er også usann: ingen har begge egenskapene.\n- $\\exists x\\,(B(x) \\rightarrow S(x))$ er derimot **sann**, fordi Jonas ikke er bibliotekar, og implikasjonen med usann antesedent er sann. Igjen sier den formelen feil ting.\n\n> Margnotat: legg merke til at begrunnelsen her ikke er «sånn er regelen», men en **situasjon der den gale formelen får feil sannhetsverdi**. Det er den formen for begrunnelse en F2-oppgave belønner, og det er samme grep som brukes systematisk i [kap. 4.3](/bok/ling1100/ling1100-4-3)."
+    },
+    {
+      "id": "ling1100-4-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-1-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Oversett hver setning til predikatlogikk. Skriv nøkkelen først, og les hver formel tilbake til norsk.\n\n```text\n(9) a. Alle deltakerne leverte skjemaet.\n    b. Noen deltakere leverte skjemaet.\n    c. Hedda leverte skjemaet.\n    d. Alle deltakerne kjenner Hedda.\n```",
+        "solution": "**Nøkkelen:**\n\n```text\n(10)  h:      Hedda\n      D(x):   x er deltaker\n      L(x):   x leverte skjemaet\n      K(x,y): x kjenner y\n```\n\n**a)** $\\forall x\\,(D(x) \\rightarrow L(x))$\n\nTilbakelest: «for enhver ting gjelder at hvis den er deltaker, så leverte den skjemaet.» Allkvantor med implikasjon, siden *deltaker* er betingelsen som avgrenser hvem påstanden gjelder.\n\n**b)** $\\exists x\\,(D(x) \\land L(x))$\n\nTilbakelest: «det finnes minst én ting som er deltaker og leverte skjemaet.» Eksistenskvantor med og, siden begge egenskapene må gjelde det samme individet.\n\n**c)** $L(h)$\n\nIngen kvantor. *Hedda* er et egennavn og blir en konstant. Dette er en atomær formel.\n\n**d)** $\\forall x\\,(D(x) \\rightarrow K(x,h))$\n\nTilbakelest: «for enhver ting gjelder at hvis den er deltaker, så kjenner den Hedda.» Merk at formelen blander en bundet variabel og en konstant i det samme relasjonssymbolet. Det er helt vanlig, og det er nettopp slik setninger med både kvantoruttrykk og egennavn ser ut.\n\n**Kontrollen som fanger den vanligste feilen her:** i a) og d) er konnektivet $\\rightarrow$, i b) er det $\\land$. Bytter du dem, sier a) at alt i verden er deltaker, og b) blir sann så snart det finnes noe som ikke er deltaker.",
+        "hints": [
+          "Spør for hver setning om subjektet er et navn eller et kvantoruttrykk.",
+          "Bruk parringsregelen: allkvantor krever en betingelse, eksistenskvantor krever et funn."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Negasjon av kvantorer (~10 min)\n\nDe to siste mønstrene, og lovene som knytter kvantorene sammen. Her ligger også den siste faste fella i sjangeren."
+    },
+    {
+      "id": "ling1100-4-1-def-ingen-er",
+      "type": "definition",
+      "title": "Mønsteret «ingen A er B»",
+      "content": "Nektelsessetningen har to likeverdige standardformer:\n\n$$\\lnot\\exists x\\,(A(x) \\land B(x))$$\n\n$$\\forall x\\,(A(x) \\rightarrow \\lnot B(x))$$\n\nDen første leses «det finnes ikke noe som er både A og B». Den andre leses «for enhver ting gjelder at hvis den er A, så er den ikke B».\n\n**Begge er riktige, og de er logisk ekvivalente.** Velg den du synes er lettest å lese tilbake, men **oppgi gjerne begge** i en besvarelse og si at de er ekvivalente. Det viser at du kjenner kvantornegasjonslovene, og det koster én linje.\n\n**Merk parringen i hver av dem.** I den første er $\\exists$ parret med $\\land$, og negasjonen ligger utenpå hele kvantorformelen. I den andre er $\\forall$ parret med $\\rightarrow$, og negasjonen ligger inni, på konsekventen. Parringsregelen brytes altså ikke — den holder i begge."
+    },
+    {
+      "id": "ling1100-4-1-def-ikke-alle",
+      "type": "definition",
+      "title": "Mønsteret «ikke alle A er B»",
+      "content": "Den delvise nektelsen, som også har to former:\n\n$$\\lnot\\forall x\\,(A(x) \\rightarrow B(x))$$\n\n$$\\exists x\\,(A(x) \\land \\lnot B(x))$$\n\nLest: «det er ikke tilfelle at alle A-er er B» — som er det samme som «det finnes minst én A som ikke er B».\n\n**Dette mønsteret forveksles ofte med det forrige, og forskjellen er stor.** «Ingen bibliotekarer synger» utelukker alle; «ikke alle bibliotekarer synger» krever bare ett unntak. Den første er en påstand om samtlige, den andre om minst én.\n\n**Kontrollen:** spør om setningen tillater at noen A-er faktisk er B. Gjør den det, er det «ikke alle»-mønsteret; utelukker den det helt, er det «ingen»-mønsteret."
+    },
+    {
+      "id": "ling1100-4-1-def-kvantornegasjon",
+      "type": "definition",
+      "title": "Kvantornegasjonslovene",
+      "content": "De to lovene som sier hva som skjer når en negasjon flyttes forbi en kvantor:\n\n$$\\lnot\\forall x\\,\\varphi \\quad \\text{er ekvivalent med} \\quad \\exists x\\,\\lnot\\varphi$$\n\n$$\\lnot\\exists x\\,\\varphi \\quad \\text{er ekvivalent med} \\quad \\forall x\\,\\lnot\\varphi$$\n\n**Regelen i ord, som er formen du bør kunne den i:** flytter du negasjonen forbi en kvantor, **snur kvantoren**. All blir finnes, og finnes blir all.\n\nDette er nøyaktig samme mønster som **De Morgans lover** i [kap. 3.1](/bok/ling1100/ling1100-3-1), der negasjonen snudde $\\land$ til $\\lor$. Grunnen er den samme: allkvantoren er en slags uendelig konjunksjon, eksistenskvantoren en slags uendelig disjunksjon.\n\n**Prøv lovene på norsk, så ser du at de stemmer.** «Det er ikke tilfelle at alle leverte» sier det samme som «det finnes minst én som ikke leverte». Og «det er ikke tilfelle at noen leverte» sier det samme som «ingen leverte», altså «for alle gjelder at de ikke leverte»."
+    },
+    {
+      "id": "ling1100-4-1-def-identitet",
+      "type": "definition",
+      "title": "Identitetstegnet",
+      "content": "Symbolet $=$ brukt mellom to individuttrykk, med betydningen **«er det samme individet som»**. Den engelske termen er ‘identity’.\n\n$x = n$ sier at $x$ og Nora er én og samme person, ikke at de ligner hverandre.\n\nIdentitetstegnet trengs så snart du skal si «bare», «den eneste» eller «ingen andre enn». «Bare Nora leverte» blir $L(n) \\land \\forall x\\,(L(x) \\rightarrow x = n)$ — Nora leverte, og alt som leverte, er Nora.\n\n**Dette er også formen Russells analyse i [kap. 1.3](/bok/ling1100/ling1100-1-3) hadde.** Entydighetsleddet der sier nettopp at alt som er konge av Frankrike, er den samme tingen. Nå kan du lese hele den formelen ledd for ledd: en eksistenspåstand, en entydighetspåstand med identitet, og en egenskapspåstand, bundet sammen med $\\land$."
+    },
+    {
+      "id": "ling1100-4-1-def-formalisering",
+      "type": "definition",
+      "title": "Formalisering",
+      "content": "Handlingen å oversette en setning fra naturlig språk til logisk notasjon. Den engelske termen er ‘formalisation’.\n\n**Formalisering er alltid delvis.** Formelen fanger det som avgjør sannhetsverdien, og lar resten ligge. *Men* blir til $\\land$ og mister motsetningsnyansen; *noen* blir til $\\exists$ og mister «men ikke alle»; *hvis* blir til $\\rightarrow$ og mister årsakssammenhengen.\n\n**Dette er ikke en svakhet ved apparatet — det er arbeidsdelingen i emnet.** Det formelen mister, er nettopp det pragmatikken tar seg av, og det er en av grunnene til at boka har to halvdeler. En besvarelse som **nevner** hva formaliseringen lot ligge, viser at den forstår verktøyet, ikke bare bruker det."
+    },
+    {
+      "id": "ling1100-4-1-def-parafrasekontroll",
+      "type": "definition",
+      "title": "Parafrasekontrollen",
+      "content": "Sluttkontrollen i enhver oversettelsesoppgave: **les formelen tilbake til norsk, ledd for ledd, og sammenlign med setningen du startet med.**\n\nSlik gjør du det mekanisk:\n\n- $\\forall x$ leses «for enhver ting $x$ gjelder at …»\n- $\\exists x$ leses «det finnes minst én ting $x$ slik at …»\n- $\\rightarrow$ leses «hvis …, så …»\n- $\\land$ leses «… og …»\n- $\\lnot$ leses «det er ikke tilfelle at …»\n\nResultatet blir stivt norsk, og det skal det være. Poenget er ikke at parafrasen skal være vakker, men at den skal **avsløre om formelen sier noe annet enn setningen**.\n\n**Kontrollen tar tjue sekunder og fanger nesten alle parringsfeil.** Har du skrevet $\\exists x\\,(D(x) \\rightarrow L(x))$ i stedet for $\\land$, gir parafrasen «det finnes minst én ting slik at hvis den er deltaker, så leverte den» — og der stopper de fleste opp av seg selv."
+    },
+    {
+      "id": "ling1100-4-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Nektelser, med begge formene og lovene brukt",
+      "problem": "**Nyskrevet eksamensoppgave:** «Oversett setningene under til predikatlogikk. Gi der det er mulig to ekvivalente formler, og forklar hvilken lov som knytter dem sammen.»\n\n```text\n(11) a. Ingen av deltakerne leverte skjemaet.\n     b. Ikke alle deltakerne leverte skjemaet.\n```",
+      "solution": "**Nøkkelen:**\n\n```text\n(12)  D(x): x er deltaker\n      L(x): x leverte skjemaet\n```\n\n**a) «Ingen av deltakerne leverte skjemaet.»**\n\n$$\\lnot\\exists x\\,(D(x) \\land L(x))$$\n\n$$\\forall x\\,(D(x) \\rightarrow \\lnot L(x))$$\n\nDen første leses «det finnes ikke noe som er deltaker og leverte». Den andre leses «for enhver ting gjelder at hvis den er deltaker, så leverte den ikke». **Loven som knytter dem sammen** er kvantornegasjonsloven om at $\\lnot\\exists x\\,\\varphi$ er ekvivalent med $\\forall x\\,\\lnot\\varphi$: negasjonen flyttes inn forbi kvantoren, og kvantoren snur fra $\\exists$ til $\\forall$. At $\\lnot(D(x) \\land L(x))$ deretter blir $D(x) \\rightarrow \\lnot L(x)$, er De Morgan pluss ekvivalensen mellom $\\lnot p \\lor q$ og $p \\rightarrow q$ fra [kap. 3.1](/bok/ling1100/ling1100-3-1).\n\n**b) «Ikke alle deltakerne leverte skjemaet.»**\n\n$$\\lnot\\forall x\\,(D(x) \\rightarrow L(x))$$\n\n$$\\exists x\\,(D(x) \\land \\lnot L(x))$$\n\nDen første leses «det er ikke tilfelle at alle deltakere leverte». Den andre leses «det finnes minst én deltaker som ikke leverte». **Loven** er at $\\lnot\\forall x\\,\\varphi$ er ekvivalent med $\\exists x\\,\\lnot\\varphi$.\n\n**Forskjellen mellom a) og b), som er selve poenget med oppgaven.** Setning a) utelukker at **noen som helst** deltaker leverte. Setning b) krever bare **ett unntak** — den er sann selv om nitten av tjue leverte.\n\n**Egen kontrollsituasjon som skiller dem.** Tenk deg tre deltakere, der to leverte og én ikke gjorde det. Da er b) sann og a) usann. Å kunne peke på en slik situasjon er tryggere enn å stole på språkfølelsen.\n\n> Margnotat: at svaret oppgir **begge** ekvivalente formler og navngir loven som knytter dem, er det som skiller en fullstendig besvarelse fra en riktig. Oppgaveteksten ba om det eksplisitt, og å hoppe over en deloppgave er feil \\#9 i bokas register — altså å svare på feil antall spørsmål."
+    },
+    {
+      "id": "ling1100-4-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-1-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk nøkkelen under, og oversett hver setning. Oppgi to ekvivalente formler der det er mulig.\n\n```text\n(13)  A(x): x er artikkel\n      P(x): x er publisert\n```\n\n**a)** Ingen artikler er publisert.\n**b)** Ikke alle artikler er publisert.\n**c)** Forklar i to setninger hva som skiller a) fra b).",
+        "solution": "**a)** $\\lnot\\exists x\\,(A(x) \\land P(x))$, som er ekvivalent med $\\forall x\\,(A(x) \\rightarrow \\lnot P(x))$.\n\nLest: «det finnes ikke noe som er artikkel og publisert», og «for enhver ting gjelder at hvis den er artikkel, så er den ikke publisert». Loven som knytter dem, er at negasjonen snur $\\exists$ til $\\forall$ når den flyttes inn.\n\n**b)** $\\lnot\\forall x\\,(A(x) \\rightarrow P(x))$, som er ekvivalent med $\\exists x\\,(A(x) \\land \\lnot P(x))$.\n\nLest: «det er ikke tilfelle at alle artikler er publisert», og «det finnes minst én artikkel som ikke er publisert».\n\n**c)** Setning a) utelukker at **noen** artikkel er publisert; den er en påstand om samtlige. Setning b) krever bare **én** upublisert artikkel, og er derfor forenlig med at nesten alle er publisert.\n\n**Situasjonen som skiller dem:** tre artikler, to publiserte og én ikke. Der er b) sann og a) usann.\n\n**Kontroll av parringen i alle fire formlene:** hver gang $\\forall$ opptrer, står $\\rightarrow$ inni; hver gang $\\exists$ opptrer, står $\\land$ inni. Regelen holder også når negasjonen er med — den flytter seg, men den rører ikke parringen.",
+        "hints": [
+          "Skriv først den formen som ligger nærmest den norske ordstillingen, og bruk deretter loven til å finne den andre.",
+          "For c): spør om setningen tillater at noen artikler faktisk er publisert."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-1-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Under står fire formler. For hver av dem: les den tilbake til norsk med parafrasekontrollen, og avgjør om den er en god oversettelse av setningen «Alle bibliotekarene synger».\n\n```text\n(14)  B(x): x er bibliotekar\n      S(x): x synger\n```\n\n**a)** $\\forall x\\,(B(x) \\rightarrow S(x))$\n**b)** $\\forall x\\,(B(x) \\land S(x))$\n**c)** $\\forall x\\,B(x) \\rightarrow S(x)$\n**d)** $\\exists x\\,(B(x) \\land S(x))$",
+        "solution": "**a) Ja — dette er standardoversettelsen.** Parafrasen: «for enhver ting gjelder at hvis den er bibliotekar, så synger den.» Det er nøyaktig hva setningen sier.\n\n**b) Nei — for sterk.** Parafrasen: «for enhver ting gjelder at den er bibliotekar og synger.» Formelen påstår at **alt** er bibliotekar, ikke bare at bibliotekarene synger.\n\n**Situasjonen som avslører feilen:** to individer, Hedda som er syngende bibliotekar, og Jonas som verken er bibliotekar eller synger. Setningen er sann der; formel b) er usann, siden Jonas ikke er bibliotekar.\n\n**c) Nei — her mangler en parentes, og formelen er åpen.** Parafrasen: «hvis alt er bibliotekar, så synger $x$» — og hvem er $x$? Kvantoren rekker bare over $B(x)$, så $x$-en i $S(x)$ er **fri**. En formel med fri variabel har ingen sannhetsverdi og kan ikke være oversettelsen av en fullstendig setning.\n\n**d) Nei — for svak, og feil kvantor.** Parafrasen: «det finnes minst én ting som er bibliotekar og synger.» Det er oversettelsen av «noen bibliotekarer synger». Den følger av setningen vår så lenge det finnes minst én bibliotekar, men den sier langt mindre.\n\n**Grepet oppgaven trener:** at parafrasekontrollen finner alle fire svarene uten at du trenger å huske noen regel. Les formelen stivt tilbake, og sammenlign.",
+        "hints": [
+          "Les hver formel bokstavelig, uten å gjette hva den var ment å si.",
+          "For c): se etter hvor parentesen slutter, og spør hvilke variabler kvantoren rekker over."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-1-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2.) Oversett setningene under. Bruk nøkkelen, og les hver formel tilbake.\n\n```text\n(15)  h:      Hedda\n      D(x):   x er deltaker\n      K(x,y): x kjenner y\n```\n\n**a)** Hedda kjenner alle deltakerne.\n**b)** Noen deltakere kjenner Hedda.\n**c)** Ingen deltakere kjenner Hedda.\n**d)** Bare Hedda kjenner Hedda.",
+        "solution": "**a)** $\\forall x\\,(D(x) \\rightarrow K(h,x))$\n\nTilbakelest: «for enhver ting gjelder at hvis den er deltaker, så kjenner Hedda den.» Merk at konstanten $h$ står i **første** argumentplass, siden det er Hedda som kjenner.\n\n**b)** $\\exists x\\,(D(x) \\land K(x,h))$\n\nTilbakelest: «det finnes minst én ting som er deltaker og kjenner Hedda.» Her står $h$ i **andre** argumentplass, siden Hedda er den som blir kjent. Sammenlign med a): det er samme relasjonssymbol, men motsatt retning.\n\n**c)** $\\lnot\\exists x\\,(D(x) \\land K(x,h))$, som er ekvivalent med $\\forall x\\,(D(x) \\rightarrow \\lnot K(x,h))$\n\nTilbakelest: «det finnes ikke noe som er deltaker og kjenner Hedda», og «for enhver ting gjelder at hvis den er deltaker, så kjenner den ikke Hedda».\n\n**d)** $K(h,h) \\land \\forall x\\,(K(x,h) \\rightarrow x = h)$\n\nTilbakelest: «Hedda kjenner Hedda, og for enhver ting gjelder at hvis den kjenner Hedda, så er den Hedda.» Ordet *bare* krever to ledd: en påstand om at Hedda faktisk kjenner Hedda, og en entydighetspåstand som utelukker alle andre. **Uten identitetstegnet kan «bare» ikke oversettes.**\n\n**Kontroll av hele settet.** Fire formler, fire parafraser som gir mening, ingen frie variabler, og parringsregelen holdt overalt: $\\forall$ med $\\rightarrow$, $\\exists$ med $\\land$. Merk særlig kontrasten mellom a) og b) — argumentrekkefølgen i $K$ er det eneste som skiller «Hedda kjenner dem» fra «de kjenner Hedda».",
+        "hints": [
+          "Spør for hver setning hvem som står i første og hvem som står i andre argumentplass.",
+          "For d): ordet «bare» har to deler — noe er tilfelle, og ingenting annet er det."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-1-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2, full sjanger.) «Betrakt setningen under. (i) Oversett den til predikatlogikk. (ii) Gi en ekvivalent formel med den andre kvantoren, og navngi loven du brukte. (iii) Beskriv en konkret situasjon der setningen er usann, og forklar hvilket ledd i formelen som svikter der. (iv) Nevn én betydningsnyanse i den norske setningen som formaliseringen ikke fanger.»\n\n```text\n(16)  Ingen av søkerne har både fagbrev og praksis.\n```",
+        "solution": "**(i) Nøkkelen og formelen.**\n\n```text\n(17)  S(x): x er søker\n      F(x): x har fagbrev\n      P(x): x har praksis\n```\n\n$$\\lnot\\exists x\\,\\bigl(S(x) \\land F(x) \\land P(x)\\bigr)$$\n\nTilbakelest: «det finnes ikke noe som er søker og har fagbrev og har praksis.» Merk at eksistenskvantoren tåler mer enn to ledd bundet med $\\land$ — parringsregelen sier $\\exists$ med og, ikke $\\exists$ med nøyaktig ett og.\n\n**(ii) Ekvivalent formel med den andre kvantoren.**\n\n$$\\forall x\\,\\bigl(S(x) \\rightarrow \\lnot(F(x) \\land P(x))\\bigr)$$\n\nTilbakelest: «for enhver ting gjelder at hvis den er søker, så er det ikke tilfelle at den har både fagbrev og praksis.» **Loven er kvantornegasjonsloven** om at $\\lnot\\exists x\\,\\varphi$ er ekvivalent med $\\forall x\\,\\lnot\\varphi$: negasjonen flyttes inn, og $\\exists$ snur til $\\forall$.\n\nVil du gå ett skritt til, gir De Morgan fra [kap. 3.1](/bok/ling1100/ling1100-3-1) også formen $\\forall x\\,\\bigl(S(x) \\rightarrow (\\lnot F(x) \\lor \\lnot P(x))\\bigr)$ — «hver søker mangler minst én av delene».\n\n**(iii) En situasjon der setningen er usann.** Tre søkere: Iselin har fagbrev og praksis, Kim har bare fagbrev, Live har bare praksis.\n\nHer er setningen **usann**, fordi Iselin har begge deler. I formelen svikter det slik: $\\lnot\\exists x\\,(\\ldots)$ krever at ingenting oppfyller alle tre leddene, men Iselin oppfyller $S$, $F$ og $P$ samtidig. Eksistensformelen inni er altså sann, og negasjonen utenpå gjør hele formelen usann. **I den ekvivalente $\\forall$-formen svikter det i samme punkt:** for Iselin er antesedenten $S(x)$ sann mens konsekventen $\\lnot(F(x) \\land P(x))$ er usann, og det er nøyaktig den ene raden som gjør en implikasjon usann.\n\n**(iv) En nyanse formaliseringen ikke fanger.** Den norske setningen antyder som regel at det **finnes** søkere — den som sier dette, snakker om en konkret søkerbunke. Formelen sier ingenting om det: er søkerbunken tom, er $\\lnot\\exists x\\,(\\ldots)$ **sann**, siden det ikke finnes noe som oppfyller noe som helst. Denne eksistensantydningen er pragmatisk, og den er i slekt med presupposisjonene i [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\n**Kontroll til slutt:** oppgaveteksten hadde fire krav — formel, ekvivalent formel med lov, konkret situasjon med sviktende ledd, og en nyanse. Alle fire er besvart. Å telle kravene i oppgaveteksten før du leverer, er det billigste grepet i hele emnet.",
+        "hints": [
+          "Start med å avgjøre om setningen er en «ingen»-setning eller en «ikke alle»-setning.",
+          "For (iii): finn ett individ som gjør eksistensformelen inni negasjonen sann."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-1-warn-ikke-bland",
+      "type": "warning",
+      "title": "Ikke bland allkvantor og eksistenskvantor",
+      "content": "De to kvantorene ser like ut på papiret og gjør helt ulike ting. Forvekslingen er feil \\#2 i bokas register — altså det å bytte om parvise begreper — og den er en av de vanligste kunnskapsfeilene i emnet.\n\n**Den skarpe forskjellen i én setning:** $\\forall x\\,\\varphi$ krever at **hver eneste ting** oppfyller $\\varphi$; $\\exists x\\,\\varphi$ krever bare at **minst én** gjør det.\n\n**Testen som skiller dem i praksis:** tenk deg en situasjon der nøyaktig én ting oppfyller $\\varphi$ og resten ikke gjør det. Der er $\\exists$-formelen sann og $\\forall$-formelen usann. Er du i tvil om hvilken kvantor setningen krever, spør om setningen ville vært sann i en slik situasjon.\n\n**Og den skarpe forskjellen på konnektivsiden:** allkvantoren trenger en **betingelse** som avgrenser hvem påstanden gjelder, og betingelser skrives $\\rightarrow$. Eksistenskvantoren trenger et **funn** med begge egenskapene, og funn skrives $\\land$. Bytter du om, blir $\\forall$-formelen absurd sterk og $\\exists$-formelen nesten tom."
+    },
+    {
+      "id": "ling1100-4-1-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Predikatlogisk oversettelse har fasit. Det finnes riktige og gale formler, og en formel som «omtrent» sier det rette, er feil — det er feil \\#4 i bokas register, altså vaghet i formelle svar. Den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk på at vaghet i formelle svar teller som feil, ikke som svakhet.\n\n> **Vagt:** «Setningen betyr omtrent at alle deltakerne er sånn at de leverte, altså noe med $\\forall x$ og $D$ og $L$.»\n> **Presist:** «$\\forall x\\,(D(x) \\rightarrow L(x))$ — for enhver ting gjelder at hvis den er deltaker, så leverte den skjemaet. Allkvantor med implikasjon, siden *deltaker* er betingelsen som avgrenser hvem påstanden gjelder.»\n\nFem spørsmål til din egen formel:\n\n- Står **nøkkelen** der, med argumentplassene markert — $K(x,y)$: «$x$ kjenner $y$», ikke bare «$K$ = kjenner»?\n- Er **parringen** riktig: $\\forall$ med $\\rightarrow$, $\\exists$ med $\\land$?\n- Er alle **variabler bundet**, eller står det en fri $x$ igjen utenfor parentesen?\n- Stemmer **antall argumenter** med ariteten du oppga?\n- Gir **parafrasen** tilbake noe som ligner setningen du startet med?\n\n**Den enkeltformuleringen som koster mest:** «$\\forall x$ betyr alle deltakerne». Nei — $\\forall x$ betyr *alle ting*. At påstanden bare gjelder deltakerne, er det implikasjonen inni som sørger for. Blander du de to, mister du hele begrunnelsen for parringsregelen."
+    },
+    {
+      "id": "ling1100-4-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Seks feil dominerer F2-oversettelser.\n\n- **Feil \\#4 — parringsfeilen.** $\\forall$ med $\\land$ gir en absurd sterk påstand; $\\exists$ med $\\rightarrow$ gir en nesten tom. Kontrollen er parafrasen.\n- **Feil \\#2 — å bytte om de to kvantorene.** Opp-ned A for *All*, speilvendt E for *Exists*. Skriv gjerne huskeregelen i margen på kladden.\n- **Kvantoruttrykk behandlet som navn.** «Alle deltakerne» blir aldri en konstant. Bare egennavn og entydige beskrivelser blir konstanter.\n- **Manglende parentes rundt kvantorens virkefelt.** $\\forall x\\,B(x) \\rightarrow S(x)$ etterlater en fri variabel og betyr noe helt annet enn $\\forall x\\,(B(x) \\rightarrow S(x))$.\n- **Byttet argumentrekkefølge i relasjonssymbolet.** $K(a,b)$ og $K(b,a)$ er ulike formler. Nøkkelen skal si hvilken plass som er hvilken.\n- **Ingen nøkkel.** En formel uten nøkkel kan ikke tolkes, og dermed heller ikke vurderes. Dette er samme mangel som en sannhetstabell uten variabelforklaring i [kap. 3.1](/bok/ling1100/ling1100-3-1).\n\n**En sjuende felle, som hører til feil \\#7 — å hoppe over den formelle verktøykassa.** Noen velger bort predikatlogikk-oppgaven fordi den ser ny og skummel ut. Det er en dårlig handel: mønstrene er fire, de kan læres på en ettermiddag, og en fasit-oppgave gir tryggere uttelling enn en redegjørelse skrevet i hastverk."
+    },
+    {
+      "id": "ling1100-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-4-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $P$, $S$, $B$, $L$, $K$ | predikatsymboler — det som sies om ett eller flere individer |\n| $a$, $b$, $c$, $n$, $h$ | individkonstanter — bestemte individer, typisk egennavn |\n| $x$, $y$, $z$ | individvariabler — plassholdere for vilkårlige individer |\n| $S(x)$ | ettplasspredikat — en egenskap |\n| $K(x,y)$ | toplasspredikat, altså relasjonssymbol — en relasjon der rekkefølgen betyr noe |\n| $\\forall$ | allkvantor — «for enhver ting gjelder at …» |\n| $\\exists$ | eksistenskvantor — «det finnes minst én ting slik at …» |\n| $=$ | identitet — «er det samme individet som» |\n| $\\varphi$ | plassholder for en vilkårlig formel, brukt når regler formuleres |\n| $\\lnot$, $\\land$, $\\lor$, $\\rightarrow$, $\\leftrightarrow$ | konnektivene fra [kap. 3.1](/bok/ling1100/ling1100-3-1), uendret |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$\\forall x\\,(A(x) \\rightarrow B(x))$$\n\n«Alle A er B.» Allkvantor med implikasjon: betingelsen avgrenser hvem påstanden gjelder.\n\n$$\\exists x\\,(A(x) \\land B(x))$$\n\n«Noen A er B.» Eksistenskvantor med konjunksjon: funnet må ha begge egenskapene.\n\n$$\\lnot\\exists x\\,(A(x) \\land B(x)) \\quad \\text{og} \\quad \\forall x\\,(A(x) \\rightarrow \\lnot B(x))$$\n\n«Ingen A er B.» To ekvivalente former.\n\n$$\\lnot\\forall x\\,(A(x) \\rightarrow B(x)) \\quad \\text{og} \\quad \\exists x\\,(A(x) \\land \\lnot B(x))$$\n\n«Ikke alle A er B.» To ekvivalente former; krever bare ett unntak.\n\n$$\\lnot\\forall x\\,\\varphi \\ \\text{er ekvivalent med}\\ \\exists x\\,\\lnot\\varphi$$\n\n$$\\lnot\\exists x\\,\\varphi \\ \\text{er ekvivalent med}\\ \\forall x\\,\\lnot\\varphi$$\n\nKvantornegasjonslovene: flyttes negasjonen forbi kvantoren, snur kvantoren.\n\n$$B(n) \\land \\forall x\\,(B(x) \\rightarrow x = n)$$\n\n«Bare Nora er B.» Ordet *bare* krever et eksistensledd og et entydighetsledd med identitet.\n\n**Notasjonsregler:** kvantoren står foran det den virker på, og virkefeltet markeres med parentes. Hver variabel skal være bundet av en kvantor med samme bokstav; en fri variabel gir en åpen formel uten sannhetsverdi. Argumentrekkefølgen i et relasjonssymbol bærer informasjon, og nøkkelen skal si hvilken plass som er hvilken."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "ling1100-4-1-rep-oppg-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-1-rep-e-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/ling1100/ling1100-3-1)) Når er $p \\rightarrow q$ usann, og hvorfor er svaret viktig for dette kapitlet?",
+            "solution": "$p \\rightarrow q$ er usann i **nøyaktig ett tilfelle**: når $p$ er sann og $q$ er usann. I de tre andre tilfellene er den sann.\n\nDet er viktig her fordi implikasjonen er konnektivet allkvantoren parres med. Når «alle A er B» skrives $\\forall x\\,(A(x) \\rightarrow B(x))$, er det nettopp tom sannhet som sørger for at formelen ikke sier noe om tingene som ikke er A. Uten den egenskapen ville parringen ikke virket.",
+            "hints": [
+              "Tenk på implikasjonen som en garanti mot én bestemt kombinasjon."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-1-rep-oppg-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-1-rep-e-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/ling1100/ling1100-3-1)) Hva sier De Morgans lover, og hvilket mønster i dette kapitlet ligner på dem?",
+            "solution": "De Morgans lover sier at $\\lnot(p \\land q)$ er ekvivalent med $\\lnot p \\lor \\lnot q$, og at $\\lnot(p \\lor q)$ er ekvivalent med $\\lnot p \\land \\lnot q$. Flyttes negasjonen inn i parentesen, snur konnektivet.\n\n**Kvantornegasjonslovene er samme mønster ett nivå opp:** flyttes negasjonen forbi en kvantor, snur kvantoren. All blir finnes, og finnes blir all.",
+            "hints": [
+              "Tenk på hva som skjer med konnektivet når negasjonen flytter seg."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-1-rep-oppg-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-1-rep-e-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.3](/bok/ling1100/ling1100-1-3)) Hvorfor mente Russell at kvantoruttrykk som *alle* og *ingen* ikke er navn?",
+            "solution": "Fordi de ikke peker ut noe individ. «Ingen kom» handler ikke om en person som heter Ingen, og «Alle kom» handler ikke om et kollektivvesen kalt Alle. Setningene sier hvor stor del av en gruppe som oppfyller et vilkår.\n\nKonsekvensen for dette kapitlet er direkte: kvantoruttrykk oversettes til **kvantor pluss variabel**, aldri til en konstant. Det er også grunnen til at Russells analyse av bestemte beskrivelser trenger $\\exists$, $\\forall$ og identitet — den bygger om en tilsynelatende navnebruk til en kvantorpåstand.",
+            "hints": [
+              "Spør hva uttrykket eventuelt skulle vært et navn på."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-1-rep-oppg-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-1-rep-e-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.2](/bok/ling1100/ling1100-3-2)) Hva er forskjellen på material implikasjon og entailment, og hvorfor er det verdt å huske her?",
+            "solution": "**Material implikasjon** er et konnektiv med en sannhetstabell: $p \\rightarrow q$ er usann bare når $p$ er sann og $q$ usann. Den sier noe om **én situasjon om gangen**.\n\n**Entailment** er en relasjon mellom setninger som gjelder i **alle** situasjoner: $p$ entailer $q$ hviss $q$ er sann i hver eneste situasjon der $p$ er sann. Boka skriver det $p \\vDash q$.\n\nDet er verdt å huske her fordi pilen $\\rightarrow$ inni en kvantorformel er konnektivet, ikke relasjonen. $\\forall x\\,(A(x) \\rightarrow B(x))$ er én påstand som er sann eller usann i en gitt situasjon — den er ikke en påstand om at A entailer B.",
+            "hints": [
+              "Spør om påstanden gjelder én situasjon eller alle situasjoner."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
