@@ -29,6 +29,10 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🎓',
     color: 'from-red-600 to-rose-700',
     subjects: [
+      { courseId: 'ling1100', name: 'LING1100 Innføring i semantikk og pragmatikk', icon: '💬', color: 'from-slate-500 to-slate-700' },
+      { courseId: 'sosant1000', name: 'SOSANT1000 Antropologisk samfunnsanalyse (Innføring i sosialantropologi)', icon: '🌍', color: 'from-slate-500 to-slate-700' },
+      { courseId: 'fys1100', name: 'FYS1100 Mekanikk og modellering', icon: '🪐', color: 'from-slate-500 to-slate-700' },
+      { courseId: 'fil1001', name: 'FIL1001 Innføring i metafysikk og bevissthetsfilosofi', icon: '🧠', color: 'from-slate-500 to-slate-700' },
       { courseId: 'in1000', name: 'IN1000 Introduksjon til objektorientert programmering', icon: '🧩', color: 'from-slate-500 to-slate-700' },
       { courseId: 'in1020', name: 'IN1020 Introduksjon til datateknologi', icon: '🖥️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'econ1100', name: 'ECON1100 Matematikk I', icon: '∂', color: 'from-slate-500 to-slate-700' },

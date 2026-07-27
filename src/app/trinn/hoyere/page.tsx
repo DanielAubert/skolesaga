@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: HOYERE_TITLE,
   description: HOYERE_DESCRIPTION,
   ...pageMetadata({
-    path: '/bok/trinn/hoyere',
+    path: '/trinn/hoyere',
     title: HOYERE_TITLE,
     description: HOYERE_DESCRIPTION,
   }),
@@ -79,7 +79,7 @@ export default function HoyerePage() {
             {INSTITUSJONER.map((inst) => {
               const available = countAvailable(inst.subjects);
               return (
-                <Link key={inst.slug} href={`/bok/trinn/hoyere/${inst.slug}`} className="group block">
+                <Link key={inst.slug} href={`/trinn/hoyere/${inst.slug}`} className="group block">
                   <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${inst.color} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
                     <div className="absolute inset-0 opacity-20">
                       <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/30 blur-2xl" />

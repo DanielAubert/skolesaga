@@ -1,6 +1,7 @@
 import chapterDates from '@/lib/data/chapters/_dates.json';
 import type { MetadataRoute } from 'next';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
+import { INSTITUSJONER } from '@/app/trinn/hoyere/institusjoner';
 
 const BASE_URL = 'https://www.skolesaga.no';
 
@@ -102,8 +103,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: r.priority,
   }));
 
+  // Institusjonssidene har aldri stått i sitemapet, enda de er landingssider for
+  // emnekode-søk («UiO», «NTNU» + fag). Lagt inn 27. juli 2026, samtidig med at
+  // trinnsidene flyttet ut av /bok.
+  const institusjonEntries: MetadataRoute.Sitemap = INSTITUSJONER.map((i) => ({
+    url: `${BASE_URL}/trinn/hoyere/${i.slug}`,
+    lastModified: buildTime,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   const gradeEntries: MetadataRoute.Sitemap = GRADE_LEVELS.map((grade) => ({
-    url: `${BASE_URL}/bok/trinn/${grade}`,
+    url: `${BASE_URL}/trinn/${grade}`,
     lastModified: buildTime,
     changeFrequency: 'monthly',
     priority: 0.8,
@@ -164,5 +175,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
   }
 
-  return [...staticEntries, ...gradeEntries, ...courseEntries, ...chapterEntries];
+  return [...staticEntries, ...gradeEntries, ...institusjonEntries, ...courseEntries, ...chapterEntries];
 }

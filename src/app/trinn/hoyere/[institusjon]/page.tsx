@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    ...pageMetadata({ path: `/bok/trinn/hoyere/${institusjon}`, title, description }),
+    ...pageMetadata({ path: `/trinn/hoyere/${institusjon}`, title, description }),
   };
 }
 
@@ -161,7 +161,7 @@ export default async function InstitusjonPage({ params }: PageProps) {
 
         <div className="relative container mx-auto px-4 py-12 md:py-20">
           <Link
-            href="/bok/trinn/hoyere"
+            href="/trinn/hoyere"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -188,7 +188,7 @@ export default async function InstitusjonPage({ params }: PageProps) {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <Link
-            href="/bok/trinn/hoyere"
+            href="/trinn/hoyere"
             className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
           >
             <ChevronLeft className="w-4 h-4" />

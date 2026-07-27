@@ -49,15 +49,15 @@ interface StudentClass {
 function getGradeUrl(gradeLevel: string | null | undefined): string {
   if (!gradeLevel) return "/bok";
   const gradeMap: Record<string, string> = {
-    '5': '/bok/trinn/5',
-    '6': '/bok/trinn/6',
-    '7': '/bok/trinn/7',
-    '8': '/bok/trinn/8',
-    '9': '/bok/trinn/9',
-    '10': '/bok/trinn/10',
-    'vg1': '/bok/trinn/vg1',
-    'vg2': '/bok/trinn/vg2',
-    'vg3': '/bok/trinn/vg3',
+    '5': '/trinn/5',
+    '6': '/trinn/6',
+    '7': '/trinn/7',
+    '8': '/trinn/8',
+    '9': '/trinn/9',
+    '10': '/trinn/10',
+    'vg1': '/trinn/vg1',
+    'vg2': '/trinn/vg2',
+    'vg3': '/trinn/vg3',
   };
   return gradeMap[gradeLevel] || "/bok";
 }

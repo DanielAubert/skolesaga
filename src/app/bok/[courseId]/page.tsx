@@ -24,7 +24,7 @@ import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-definitions';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { getKildegrunnlag } from '@/lib/data/kildegrunnlag';
 import { HoyskoleDisclaimer } from '@/components/textbook/hoyskole-disclaimer';
-import { INSTITUSJONER } from '@/app/bok/trinn/hoyere/institusjoner';
+import { INSTITUSJONER } from '@/app/trinn/hoyere/institusjoner';
 
 // Én aksentfarge per bok (designspråk regel 1): kapittelkortene i samme bok
 // bruker samme fagfarge — aldri tilfeldig farge per kort.

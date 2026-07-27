@@ -232,7 +232,7 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'samfokonomi-2', name: 'Samfunnsøkonomi 2', icon: '💹', color: 'from-teal-500 to-emerald-600', image: '/images/subjects/samfokonomi-2-hero.webp' },
     ],
   },
-  // 'hoyere' håndteres av den statiske ruta /bok/trinn/hoyere
+  // 'hoyere' håndteres av den statiske ruta /trinn/hoyere
   // (Høyskole/universitet → institusjon → fagkode + fagnavn)
 };
 
@@ -256,7 +256,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    ...pageMetadata({ path: `/bok/trinn/${grade}`, title, description }),
+    ...pageMetadata({ path: `/trinn/${grade}`, title, description }),
   };
 }
 

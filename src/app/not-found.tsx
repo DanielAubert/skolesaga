@@ -56,22 +56,22 @@ export default function NotFound() {
                 </p>
                 <div className="flex gap-3 justify-center flex-wrap">
                   <Button asChild variant="outline" size="sm">
-                    <Link href="/bok/trinn/8">8. klasse</Link>
+                    <Link href="/trinn/8">8. klasse</Link>
                   </Button>
                   <Button asChild variant="outline" size="sm">
-                    <Link href="/bok/trinn/9">9. klasse</Link>
+                    <Link href="/trinn/9">9. klasse</Link>
                   </Button>
                   <Button asChild variant="outline" size="sm">
-                    <Link href="/bok/trinn/10">10. klasse</Link>
+                    <Link href="/trinn/10">10. klasse</Link>
                   </Button>
                   <Button asChild variant="outline" size="sm">
-                    <Link href="/bok/trinn/vg1">VG1</Link>
+                    <Link href="/trinn/vg1">VG1</Link>
                   </Button>
                   <Button asChild variant="outline" size="sm">
-                    <Link href="/bok/trinn/vg2">VG2</Link>
+                    <Link href="/trinn/vg2">VG2</Link>
                   </Button>
                   <Button asChild variant="outline" size="sm">
-                    <Link href="/bok/trinn/vg3">VG3</Link>
+                    <Link href="/trinn/vg3">VG3</Link>
                   </Button>
                 </div>
               </div>

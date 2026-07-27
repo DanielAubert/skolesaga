@@ -80,11 +80,22 @@ const nextConfig: NextConfig = {
   // Render-koden bruker mediaUrl() fra src/lib/media.ts; disse redirectene fanger
   // opp eventuelle direkte lenker og referanser som ikke går via hjelperen.
   async redirects() {
+    // Trinnsidene flyttet ut av /bok 27. juli 2026. «trinn» sto i samme slot som
+    // en kurs-id, så /bok/<X> betydde to ulike ting avhengig av verdien — og en
+    // bok med id «trinn» ville kollidert. permanent: true gir 308, som forteller
+    // Google at flyttingen er endelig. Disse MÅ stå før mediaBase-avkortingen
+    // under, ellers forsvinner de i miljøer uten Storage-nøkkel.
+    const trinnRedirects = [
+      { source: '/bok/trinn', destination: '/trinn', permanent: true },
+      { source: '/bok/trinn/:path*', destination: '/trinn/:path*', permanent: true },
+    ];
+
     const mediaBase = process.env.NEXT_PUBLIC_SUPABASE_URL
       ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/media`
       : null;
-    if (!mediaBase) return [];
+    if (!mediaBase) return trinnRedirects;
     return [
+      ...trinnRedirects,
       {
         source: '/audio/:path*',
         destination: `${mediaBase}/audio/:path*`,

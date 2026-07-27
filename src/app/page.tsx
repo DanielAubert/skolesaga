@@ -104,7 +104,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-6">
               <div className="w-56">
                 <GradeCard
-                  href="/bok/trinn/8"
+                  href="/trinn/8"
                   grade="8. klasse"
                   subtitle="13–14 år"
                   gradient="bg-gradient-to-br from-sky-400 to-blue-500"
@@ -113,7 +113,7 @@ export default function HomePage() {
               </div>
               <div className="w-56">
                 <GradeCard
-                  href="/bok/trinn/9"
+                  href="/trinn/9"
                   grade="9. klasse"
                   subtitle="14–15 år"
                   gradient="bg-gradient-to-br from-blue-400 to-indigo-500"
@@ -122,7 +122,7 @@ export default function HomePage() {
               </div>
               <div className="w-56">
                 <GradeCard
-                  href="/bok/trinn/10"
+                  href="/trinn/10"
                   grade="10. klasse"
                   subtitle="15–16 år"
                   gradient="bg-gradient-to-br from-indigo-400 to-violet-500"
@@ -142,7 +142,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-6">
               <div className="w-56">
                 <GradeCard
-                  href="/bok/trinn/vg1"
+                  href="/trinn/vg1"
                   grade="VG1"
                   subtitle="16–17 år"
                   gradient="bg-gradient-to-br from-purple-400 to-fuchsia-500"
@@ -151,7 +151,7 @@ export default function HomePage() {
               </div>
               <div className="w-56">
                 <GradeCard
-                  href="/bok/trinn/vg2"
+                  href="/trinn/vg2"
                   grade="VG2"
                   subtitle="17–18 år"
                   gradient="bg-gradient-to-br from-fuchsia-400 to-pink-500"
@@ -160,7 +160,7 @@ export default function HomePage() {
               </div>
               <div className="w-56">
                 <GradeCard
-                  href="/bok/trinn/vg3"
+                  href="/trinn/vg3"
                   grade="VG3"
                   subtitle="18–19 år"
                   gradient="bg-gradient-to-br from-pink-400 to-rose-500"
@@ -180,7 +180,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-6">
               <div className="w-56">
                 <GradeCard
-                  href="/bok/trinn/hoyere"
+                  href="/trinn/hoyere"
                   grade="Høyskole/universitet"
                   subtitle="Vi har lest eksamensarkivet for deg"
                   gradient="bg-gradient-to-br from-amber-400 to-orange-500"
