@@ -46,10 +46,10 @@ for m in re.finditer(rf"^#### Kapittel (\d+\.\d+):\s*(.+)$", sk, re.M):
     mm = re.search(r"\*\*estimatedMinutes:\*\* (\d+)", tail)
     pm = re.search(r"\*\*prerequisites:\*\* ([^\n]+)", tail)
     # Skjelettene skriver bade «**description:**» og «**Description:**».
-        # Den case-sensitive varianten ga tomme beskrivelser i fire live boker
-        # (psy1010, fil1001, exphil03, stv1100 — 114 kapitler til sammen),
-        # fordi kursmetadataens description da ble tom streng.
-        dm = re.search(r"\*\*description:\*\* (.+)", tail, re.I)
+    # Den case-sensitive varianten ga tomme beskrivelser i fire live boker
+    # (psy1010, fil1001, exphil03, stv1100 — 114 kapitler til sammen),
+    # fordi kursmetadataens description da ble tom streng.
+    dm = re.search(r"\*\*description:\*\* (.+)", tail, re.I)
     chapters.append({
         "id": im.group(1), "number": num, "title": title,
         "desc": dm.group(1).strip() if dm else "",

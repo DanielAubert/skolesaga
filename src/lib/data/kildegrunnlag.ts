@@ -267,6 +267,41 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     analysedato: 'juli 2026',
   },
 
+  sosant1000: {
+    courseId: 'sosant1000',
+    institusjon: 'Universitetet i Oslo (UiO) — Sosialantropologisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot SOSANT1000s eksamensarkiv ved UiO: 21 unike dokumenter fra 2020 til 2025 — 11 oppgavesett og 10 publiserte sensorveiledninger. Det er det rikeste sensorgrunnlaget noen bok i dette prosjektet hviler på: vurderingskravene er utledet av ti uavhengige kilder, ikke ekstrapolert fra én. Temafrekvenser, sjangerkoder og feilkatalogen speiler hva settene faktisk tester.',
+    eksamenssett: [
+      {
+        tittel: '11 unike oppgavesett (H2020 – H2025)',
+        detalj:
+          'H2020 ordinær og utsatt, H2021, og deretter ordinær og utsatt hvert år til og med H2025. Utsatt eksamen har samme form og vekt som ordinær og teller derfor likt. Alle frekvenspåstander i boka har nevner 11 og er talt mot settene. Der boka snevrer inn til dagens todelte skoleeksamensform, sier den det: den formen gjelder de åtte settene fra og med H2022.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '10 publiserte sensorveiledninger',
+        detalj:
+          'UiO publiserer sensorveiledning for dette emnet, og arkivet har ti av dem — én per semester med unntak av H2020 utsatt. De bærer bokas vurderingsakser, tre-nivå-graderingen (minimumskrav, god, meget god), kravet om minst tre pensumtekster i langsvaret og strykregelen i Del 1. Fordi kildene er mange og samstemte, kan boka forankre sensorkravene i belegg i stedet for i skjønn.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for SOSANT1000',
+        detalj:
+          'Omskrevet sammendrag. Merk at emnet har byttet tittel til «Antropologisk samfunnsanalyse»; begge navn brukes fortsatt om hverandre. Vurderingsformen er firetimers digital skoleeksamen i to deler — kortsvar og langsvar — med karakterskala A–F.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har verken fasit eller løsningsforslag for SOSANT1000. Alle modellbesvarelser i boka er nyskrevet av oss og merket som det hvert sted de forekommer. Ingen av dem er en ekte kandidatbesvarelse.',
+      'Eksamensoppgaver og sensorveiledninger fra offentlige institusjoner er unntatt opphavsrett etter åndsverkloven § 14. Alt innhold i boka er likevel omskrevet med egne ord.',
+      'Pensummonografien byttes fra år til år. Boka bruker Alpa Shahs «Nightmarch» (2018), som er monografien for årgangene analysen dekker, og både monografikapitlet og modellbesvarelsen sier eksplisitt at leseren må kontrollere semestersiden for sitt eget år.',
+      'Alle etnografiske caser er hentet fra et attestert register med folk, sted, etnograf og hva studien faktisk viste. Der en kilde ikke lot seg belegge fullt ut, er den brukt på argumentnivå uten oppdiktede feltsteder eller årstall — heller utelatt enn gjettet.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   fil1001: {
     courseId: 'fil1001',
     institusjon: 'Universitetet i Oslo (UiO) — Institutt for filosofi, idé- og kunsthistorie og klassiske språk (IFIKK)',
