@@ -237,6 +237,18 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       3. `python3 scripts/hoyskolebok/sjekk-figurer.py <emne>` — porten tester mot
          Storage, ikke mot disk, så den er den eneste gyldige kvitteringen
       4. FØRST DA kan arbeidstreet fjernes
+
+      **Bedre: gi arbeidstreet tilgang til nøklene fra starten.** Hele dagen
+      27. juli 2026 rapporterte agent etter agent at «`sjekk-figurer.py` kan ikke
+      kjøres i arbeidstreet — `.env.local` mangler», og måtte gjøre HTTP-sjekken
+      manuelt. En ling1100-agent løste det selv:
+
+          ln -s ../../../.env.local .claude/worktrees/bok-<emne>/.env.local
+
+      Fila er gitignorert, så symlinken blir aldri committet. Med den kan
+      byggeagenten kjøre BÅDE `upload-media-storage.ts` og `sjekk-figurer.py`
+      selv, og figurene er i Storage før byggelederen i det hele tatt ser dem.
+      **Legg symlinken inn samtidig med `git worktree add`.**
 - [ ] Bølge 4+5-port (jf. README «Leserkrav»): grep «en A-besvarelse ville» /
       «ville ha drøftet» = 0 (meta-fasit); skann riktig/galt-/felle-fasiter
       for ensartet mønster (aldri «alle felle»); python-sjekk at exercises
