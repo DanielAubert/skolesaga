@@ -21,7 +21,7 @@
   {
    "id": "in1900-4-2-forkunn",
    "type": "text",
-   "content": "## Forkunnskaper\n\n- **NumPy-tabeller**, særlig `np.linspace` og at N intervaller gir N+1 punkter: [kap. 4.1](/bok/in1900/in1900-4-1).\n- **Lister og `.append`** fra [kap. 1.2](/bok/in1900/in1900-1-2).\n- **Løkker med `range`** fra [kap. 1.3](/bok/in1900/in1900-1-3).\n- **Formatert utskrift med f-strenger** fra [kap. 1.4](/bok/in1900/in1900-1-4), til den siste løkka der vi skriver ut tabellen.\n\nKapitlet er delt i tre løkker med tidsanslag."
+   "content": "## Forkunnskaper\n\n- **NumPy-tabeller**, særlig `np.linspace` og at N intervaller gir N+1 punkter: [kap. 4.1](/in1900/in1900-4-1).\n- **Lister og `.append`** fra [kap. 1.2](/in1900/in1900-1-2).\n- **Løkker med `range`** fra [kap. 1.3](/in1900/in1900-1-3).\n- **Formatert utskrift med f-strenger** fra [kap. 1.4](/in1900/in1900-1-4), til den siste løkka der vi skriver ut tabellen.\n\nKapitlet er delt i tre løkker med tidsanslag."
   },
   {
    "id": "in1900-4-2-txt-lokke1",
@@ -122,7 +122,7 @@
   {
    "id": "in1900-4-2-txt-lokke3",
    "type": "text",
-   "content": "## Løkke 3 — når løkka er det riktige valget (~15 min)\n\nDet er lett å tro at vektorisering alltid er «riktigere». Det er ikke slik i dette faget. **Vektorisering kreves bare når oppgaven eksplisitt ber om det** — står det «uten bruk av løkke» eller «vektorisert», skal du vektorisere. Ellers er en løkke helt greit og gir full uttelling.\n\nDet finnes dessuten tabeller du **må** bygge med løkke:\n\n- når verdien i punkt `i` avhenger av verdien i punkt `i-1` (differenslikninger, [kap. 6.2](/bok/in1900/in1900-6-2))\n- når regelen inneholder en `if`-test som skiller mellom punkter\n- når du underveis skal stoppe, telle eller samle opp noe\n\nEn NumPy-tabell kan du gjerne lage plass til på forhånd med `np.zeros(N+1)` og fylle i en løkke. Det er ikke vektorisering, men det er den mest brukte formen i resten av boka."
+   "content": "## Løkke 3 — når løkka er det riktige valget (~15 min)\n\nDet er lett å tro at vektorisering alltid er «riktigere». Det er ikke slik i dette faget. **Vektorisering kreves bare når oppgaven eksplisitt ber om det** — står det «uten bruk av løkke» eller «vektorisert», skal du vektorisere. Ellers er en løkke helt greit og gir full uttelling.\n\nDet finnes dessuten tabeller du **må** bygge med løkke:\n\n- når verdien i punkt `i` avhenger av verdien i punkt `i-1` (differenslikninger, [kap. 6.2](/in1900/in1900-6-2))\n- når regelen inneholder en `if`-test som skiller mellom punkter\n- når du underveis skal stoppe, telle eller samle opp noe\n\nEn NumPy-tabell kan du gjerne lage plass til på forhånd med `np.zeros(N+1)` og fylle i en løkke. Det er ikke vektorisering, men det er den mest brukte formen i resten av boka."
   },
   {
    "id": "in1900-4-2-def-nar-vektor",
@@ -206,7 +206,7 @@
     {
      "id": "in1900-4-2-api-txt",
      "type": "text",
-     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `x = []` | Tom liste, klar til å fylles med `.append`. |\n| `x.append(verdi)` | Legger `verdi` til slutten av lista. Lengden vokser med én per kall. |\n| `len(x)` | Antall elementer. Virker på både liste og array. |\n| `dx = (stop - start)/N` | Steglengde med N **intervaller**. Nevneren er aldri `N+1`. |\n| `for i in range(N+1)` | N+1 runder, `i` fra 0 til N. Gir ett punkt per delepunkt. |\n| `start + i*dx` | Punkt nummer `i`. For `i = N` blir det nøyaktig `stop`. |\n| `np.linspace(start, stop, N+1)` | N+1 punkter, begge endepunkt med. Den vektoriserte malen. |\n| `np.zeros(N+1)` | Ferdig array å fylle med `y[i] = ...` i en løkke. |\n| `np.sqrt`, `np.exp`, `np.log`, `np.sin` | Virker på hele arrayet. `math`-versjonene tar ett tall. |\n| `f'{x[i]:6.2f}'` | Formatert utskrift: bredde 6, to desimaler. Se [kap. 1.4](/bok/in1900/in1900-1-4). |\n| `sum(forbruk)` | Summen av elementene, også for et array. |\n| `if T[i] < 10.0` | Test på **ett** element. Test på hele arrayet gir `ValueError`. |\n\n**Formler i dette delkapitlet:**\n\nPunktene i en tabell med $N+1$ punkter over $[a, b]$ er\n\n$$x_i = a + i\\,\\Delta x, \\qquad \\Delta x = \\frac{b-a}{N}, \\qquad i = 0, 1, \\ldots, N$$\n\nog verditabellen er $y_i = f(x_i)$. Både løkkemalen og den vektoriserte malen skal produsere nøyaktig disse $N+1$ parene."
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene i stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `x = []` | Tom liste, klar til å fylles med `.append`. |\n| `x.append(verdi)` | Legger `verdi` til slutten av lista. Lengden vokser med én per kall. |\n| `len(x)` | Antall elementer. Virker på både liste og array. |\n| `dx = (stop - start)/N` | Steglengde med N **intervaller**. Nevneren er aldri `N+1`. |\n| `for i in range(N+1)` | N+1 runder, `i` fra 0 til N. Gir ett punkt per delepunkt. |\n| `start + i*dx` | Punkt nummer `i`. For `i = N` blir det nøyaktig `stop`. |\n| `np.linspace(start, stop, N+1)` | N+1 punkter, begge endepunkt med. Den vektoriserte malen. |\n| `np.zeros(N+1)` | Ferdig array å fylle med `y[i] = ...` i en løkke. |\n| `np.sqrt`, `np.exp`, `np.log`, `np.sin` | Virker på hele arrayet. `math`-versjonene tar ett tall. |\n| `f'{x[i]:6.2f}'` | Formatert utskrift: bredde 6, to desimaler. Se [kap. 1.4](/in1900/in1900-1-4). |\n| `sum(forbruk)` | Summen av elementene, også for et array. |\n| `if T[i] < 10.0` | Test på **ett** element. Test på hele arrayet gir `ValueError`. |\n\n**Formler i dette delkapitlet:**\n\nPunktene i en tabell med $N+1$ punkter over $[a, b]$ er\n\n$$x_i = a + i\\,\\Delta x, \\qquad \\Delta x = \\frac{b-a}{N}, \\qquad i = 0, 1, \\ldots, N$$\n\nog verditabellen er $y_i = f(x_i)$. Både løkkemalen og den vektoriserte malen skal produsere nøyaktig disse $N+1$ parene."
     }
    ]
   },
@@ -295,7 +295,7 @@
       "number": "R1",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 4.1](/bok/in1900/in1900-4-1).) Hvor mange punkter gir `np.linspace(0, 1, 6)`, og hva er steglengden?",
+      "task": "(Fra [kap. 4.1](/in1900/in1900-4-1).) Hvor mange punkter gir `np.linspace(0, 1, 6)`, og hva er steglengden?",
       "solution": "Seks punkter: $0, 0.2, 0.4, 0.6, 0.8, 1.0$. Seks punkter gir fem intervaller, så steglengden er $1/5 = 0.2$. Dette er samme regnestykke som `dx = (stop - start)/N` i løkkemalen.",
       "hints": [
        "Tredje argument er antall punkter."
@@ -310,7 +310,7 @@
       "number": "R2",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 1.4](/bok/in1900/in1900-1-4).) Hva betyr `5.2f` i `f'{x:5.2f}'`?",
+      "task": "(Fra [kap. 1.4](/in1900/in1900-1-4).) Hva betyr `5.2f` i `f'{x:5.2f}'`?",
       "solution": "Tallet skrives med to desimaler i et felt som er minst fem tegn bredt, med mellomrom foran hvis tallet er kortere. Bredden gjør at kolonnene i en tabell står rett under hverandre — derfor brukes den i utskriften av punkttabeller.",
       "hints": [
        "Tallet før punktumet er bredde, tallet etter er antall desimaler."
@@ -325,7 +325,7 @@
       "number": "R3",
       "type": "classic",
       "difficulty": "middels",
-      "task": "(Fra [kap. 1.3](/bok/in1900/in1900-1-3).) Hvorfor gir `for i in range(N+1)` nøyaktig N+1 runder, og hvilken verdi har `i` i siste runde?",
+      "task": "(Fra [kap. 1.3](/in1900/in1900-1-3).) Hvorfor gir `for i in range(N+1)` nøyaktig N+1 runder, og hvilken verdi har `i` i siste runde?",
       "solution": "Fordi stoppverdien i `range` er eksklusiv: `i` går fra 0 til og med N, som er N+1 verdier. I siste runde er `i = N`, og punktet `start + N*dx` er nettopp `stop`. Det er denne sammenhengen som gjør at løkkemalen og `np.linspace` treffer samme punkter.",
       "hints": [
        "Tell verdiene `i` tar, ikke stoppverdien."

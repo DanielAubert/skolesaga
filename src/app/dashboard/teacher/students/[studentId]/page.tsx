@@ -345,7 +345,7 @@ export default function StudentDetailPage({ params }: { params: Promise<{ studen
                       <div key={chapterId} className="border rounded-lg p-4">
                         <div className="flex items-center justify-between mb-3">
                           <h3 className="font-medium">Kapittel: {chapterId}</h3>
-                          <Link href={`/bok/${courseId}/${chapterId}?studentId=${studentId}`}>
+                          <Link href={`/${courseId}/${chapterId}?studentId=${studentId}`}>
                             <Button variant="outline" size="sm">
                               <ExternalLink className="h-4 w-4 mr-2" />
                               Se i læreboka

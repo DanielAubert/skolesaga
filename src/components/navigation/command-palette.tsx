@@ -34,16 +34,16 @@ type StaticItem = {
 };
 
 const GRADE_ITEMS: StaticItem[] = [
-  { id: "grade-5", label: "5. klasse", href: "/bok/trinn/5", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-6", label: "6. klasse", href: "/bok/trinn/6", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-7", label: "7. klasse", href: "/bok/trinn/7", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-8", label: "8. klasse", href: "/bok/trinn/8", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-9", label: "9. klasse", href: "/bok/trinn/9", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-10", label: "10. klasse", href: "/bok/trinn/10", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-vg1", label: "VG1", href: "/bok/trinn/vg1", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-vg2", label: "VG2", href: "/bok/trinn/vg2", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-vg3", label: "VG3", href: "/bok/trinn/vg3", icon: <GraduationCap className="h-4 w-4" /> },
-  { id: "grade-hoyere", label: "Høyere utdanning", href: "/bok/trinn/hoyere", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-5", label: "5. klasse", href: "/trinn/5", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-6", label: "6. klasse", href: "/trinn/6", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-7", label: "7. klasse", href: "/trinn/7", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-8", label: "8. klasse", href: "/trinn/8", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-9", label: "9. klasse", href: "/trinn/9", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-10", label: "10. klasse", href: "/trinn/10", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-vg1", label: "VG1", href: "/trinn/vg1", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-vg2", label: "VG2", href: "/trinn/vg2", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-vg3", label: "VG3", href: "/trinn/vg3", icon: <GraduationCap className="h-4 w-4" /> },
+  { id: "grade-hoyere", label: "Høyere utdanning", href: "/trinn/hoyere", icon: <GraduationCap className="h-4 w-4" /> },
 ];
 
 const TOOL_ITEMS: StaticItem[] = [
@@ -106,7 +106,7 @@ export function CommandPalette() {
     id: `course-${c.id}`,
     label: c.title,
     hint: c.level,
-    href: `/bok/${c.id}`,
+    href: `/${c.id}`,
     keywords: c.description,
   }));
 
@@ -116,7 +116,7 @@ export function CommandPalette() {
           id: `chap-${ch.id}`,
           label: `${ch.number} ${ch.title}`,
           hint: c.title,
-          href: `/bok/${c.id}/${ch.id}`,
+          href: `/${c.id}/${ch.id}`,
           keywords: ch.topics?.join(" ") ?? "",
         })),
       )

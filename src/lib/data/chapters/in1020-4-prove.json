@@ -21,7 +21,7 @@
     {
       "id": "in1020-4-prove-forkunnskaper",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\nPrøvene dekker hele del 4, altså [kap. 4.1](/bok/in1020/in1020-4-1) til [kap. 4.6](/bok/in1020/in1020-4-6). Her er kjernen, ferdig oppfrisket:\n\n**De fire lagene, ovenfra og ned:** applikasjon, transport, nettverk, lenke. **Ruting hører til nettverkslaget.**\n\n**TCPs fire garantier:** omsending av tapte pakker, riktig rekkefølge, flytkontroll, metningskontroll. Pluss sjekksum. **TCP gir ikke kryptering, ikke ruting og ingen garantert fart.**\n\n**Protokoll til transport:** HTTP, IMAP, SMTP, FTP og DASH → **TCP**. DHCP → **UDP**. DNS → **begge**.\n\n**Adresseregningen:**\n\n| Prefiks | `/24` | `/25` | `/26` | `/27` | `/28` | `/29` | `/30` |\n|---|---|---|---|---|---|---|---|\n| Verter | 254 | 126 | 62 | 30 | 14 | 6 | 2 |\n\n`subnett = IP AND maske` (det minste tallet) · `kringkasting = IP OR ¬maske` (det største) · kontroll: avstanden skal være `2^vertsbit − 1`.\n\n**Maskeverdier:** 128 → 1 ettall, 192 → 2, 224 → 3, 240 → 4, 248 → 5, 252 → 6.\n\n**Overføringstid:** `t = S · 8 / R`. Filstørrelse i megabyte, rate i megabit per sekund. `1 GB = 1000 MB`.\n\n**Tjenestene:** NAT deler én offentlig adresse · DHCP tildeler adresser automatisk · DNS oversetter navn til adresse · CDN flytter innhold nærmere brukeren · IPv6 utvider adresserommet · DASH tilpasser videokvaliteten.\n\n**Operativsystemet:** fordeler ressurser, lar flere dele maskinen, tilbyr felles tjenester, abstraherer bort maskinvaren. Brukerprogrammer kjører i **brukermodus**."
+      "content": "## Forkunnskaper — sist du var her\n\nPrøvene dekker hele del 4, altså [kap. 4.1](/in1020/in1020-4-1) til [kap. 4.6](/in1020/in1020-4-6). Her er kjernen, ferdig oppfrisket:\n\n**De fire lagene, ovenfra og ned:** applikasjon, transport, nettverk, lenke. **Ruting hører til nettverkslaget.**\n\n**TCPs fire garantier:** omsending av tapte pakker, riktig rekkefølge, flytkontroll, metningskontroll. Pluss sjekksum. **TCP gir ikke kryptering, ikke ruting og ingen garantert fart.**\n\n**Protokoll til transport:** HTTP, IMAP, SMTP, FTP og DASH → **TCP**. DHCP → **UDP**. DNS → **begge**.\n\n**Adresseregningen:**\n\n| Prefiks | `/24` | `/25` | `/26` | `/27` | `/28` | `/29` | `/30` |\n|---|---|---|---|---|---|---|---|\n| Verter | 254 | 126 | 62 | 30 | 14 | 6 | 2 |\n\n`subnett = IP AND maske` (det minste tallet) · `kringkasting = IP OR ¬maske` (det største) · kontroll: avstanden skal være `2^vertsbit − 1`.\n\n**Maskeverdier:** 128 → 1 ettall, 192 → 2, 224 → 3, 240 → 4, 248 → 5, 252 → 6.\n\n**Overføringstid:** `t = S · 8 / R`. Filstørrelse i megabyte, rate i megabit per sekund. `1 GB = 1000 MB`.\n\n**Tjenestene:** NAT deler én offentlig adresse · DHCP tildeler adresser automatisk · DNS oversetter navn til adresse · CDN flytter innhold nærmere brukeren · IPv6 utvider adresserommet · DASH tilpasser videokvaliteten.\n\n**Operativsystemet:** fordeler ressurser, lar flere dele maskinen, tilbyr felles tjenester, abstraherer bort maskinvaren. Brukerprogrammer kjører i **brukermodus**."
     },
     {
       "id": "in1020-4-prove-p1",
@@ -103,7 +103,7 @@
         {
           "id": "in1020-4-prove-p1-diagnose",
           "type": "text",
-          "content": "### Selvdiagnose etter prøve 1\n\nKryss av det du klarte:\n\n☐ plasserte du ruting i nettverkslaget, ikke i transportlaget?\n\n☐ husket du at portnumre skiller **programmer**, ikke verter?\n\n☐ skilte du flytkontroll fra metningskontroll?\n\n☐ krysset du av **begge** transportene for navnetjenesten?\n\n☐ satte du strømming på pålitelig transport, ikke rask?\n\n☐ avviste du påstanden om at TCP krypterer?\n\nGlapp noe? Lagene og protokolltabellen står i [kap. 4.1](/bok/in1020/in1020-4-1)."
+          "content": "### Selvdiagnose etter prøve 1\n\nKryss av det du klarte:\n\n☐ plasserte du ruting i nettverkslaget, ikke i transportlaget?\n\n☐ husket du at portnumre skiller **programmer**, ikke verter?\n\n☐ skilte du flytkontroll fra metningskontroll?\n\n☐ krysset du av **begge** transportene for navnetjenesten?\n\n☐ satte du strømming på pålitelig transport, ikke rask?\n\n☐ avviste du påstanden om at TCP krypterer?\n\nGlapp noe? Lagene og protokolltabellen står i [kap. 4.1](/in1020/in1020-4-1)."
         }
       ]
     },
@@ -188,7 +188,7 @@
         {
           "id": "in1020-4-prove-p2-diagnose",
           "type": "text",
-          "content": "### Selvdiagnose etter prøve 2\n\nKryss av det du klarte:\n\n☐ oversatte du mellom maske og prefiks uten å nøle?\n\n☐ fant du den **delvise** oktetten — også når det ikke var den fjerde?\n\n☐ skrev du oktetten binært, i stedet for å regne i hodet?\n\n☐ trakk du fra 2 i vertstellingen?\n\n☐ holdt du AND og OR fra hverandre — bunnen mot taket?\n\n☐ kontrollerte du at avstanden var `2^vertsbit − 1`?\n\nGlapp noe? Teorien står i [kap. 4.2](/bok/in1020/in1020-4-2), og seksten oppgaver til ligger i [kap. 4.4](/bok/in1020/in1020-4-4)."
+          "content": "### Selvdiagnose etter prøve 2\n\nKryss av det du klarte:\n\n☐ oversatte du mellom maske og prefiks uten å nøle?\n\n☐ fant du den **delvise** oktetten — også når det ikke var den fjerde?\n\n☐ skrev du oktetten binært, i stedet for å regne i hodet?\n\n☐ trakk du fra 2 i vertstellingen?\n\n☐ holdt du AND og OR fra hverandre — bunnen mot taket?\n\n☐ kontrollerte du at avstanden var `2^vertsbit − 1`?\n\nGlapp noe? Teorien står i [kap. 4.2](/in1020/in1020-4-2), og seksten oppgaver til ligger i [kap. 4.4](/in1020/in1020-4-4)."
         }
       ]
     },
@@ -272,7 +272,7 @@
         {
           "id": "in1020-4-prove-p3-diagnose",
           "type": "text",
-          "content": "### Selvdiagnose etter prøve 3\n\nKryss av det du klarte:\n\n☐ skrev du omregningen `× 8` som et **eget steg**, hver gang?\n\n☐ avgjorde du retningen før du valgte rate?\n\n☐ regnet du om gigabyte til megabyte der det trengtes?\n\n☐ visste du hvilken vei åtteren skulle når svaret var en filstørrelse?\n\n☐ kontrollerte du med enhetene: megabit delt på megabit per sekund gir sekunder?\n\n☐ husket du at raskere linje gir **kortere** tid?\n\nGlapp noe? Teorien står i [kap. 4.3](/bok/in1020/in1020-4-3), og flere oppgaver ligger i [kap. 4.4](/bok/in1020/in1020-4-4)."
+          "content": "### Selvdiagnose etter prøve 3\n\nKryss av det du klarte:\n\n☐ skrev du omregningen `× 8` som et **eget steg**, hver gang?\n\n☐ avgjorde du retningen før du valgte rate?\n\n☐ regnet du om gigabyte til megabyte der det trengtes?\n\n☐ visste du hvilken vei åtteren skulle når svaret var en filstørrelse?\n\n☐ kontrollerte du med enhetene: megabit delt på megabit per sekund gir sekunder?\n\n☐ husket du at raskere linje gir **kortere** tid?\n\nGlapp noe? Teorien står i [kap. 4.3](/in1020/in1020-4-3), og flere oppgaver ligger i [kap. 4.4](/in1020/in1020-4-4)."
         }
       ]
     },
@@ -356,7 +356,7 @@
         {
           "id": "in1020-4-prove-p4-diagnose",
           "type": "text",
-          "content": "### Selvdiagnose etter prøve 4\n\nKryss av det du klarte:\n\n☐ koblet du hver tjeneste til **problemet** den løser, ikke til et ord som lignet?\n\n☐ skilte du NAT fra IPv6 — å dele mot å ha nok?\n\n☐ skilte du navnetjenesten fra adressetildeling — å finne mot å få?\n\n☐ avviste du påstanden om at IPv6 gjør nettet raskere?\n\n☐ satte du strømming på pålitelig transport?\n\n☐ husket du at brukerprogrammer kjører i brukermodus?\n\n☐ skilte du en TCP-forbindelse fra en dedikert bane?\n\nGlapp noe? Tjenestene står i [kap. 4.5](/bok/in1020/in1020-4-5), operativsystemet og svitsjingen i [kap. 4.6](/bok/in1020/in1020-4-6).\n\n**Er alle fire prøvene gjennomført?** Da er seksjon 4 dekket: lagene, adresseregningen, overføringstiden, tjenestene og operativsystemet. Neste steg er [kap. 5.1](/bok/in1020/in1020-5-1) og de tre komplette øvingseksamenene."
+          "content": "### Selvdiagnose etter prøve 4\n\nKryss av det du klarte:\n\n☐ koblet du hver tjeneste til **problemet** den løser, ikke til et ord som lignet?\n\n☐ skilte du NAT fra IPv6 — å dele mot å ha nok?\n\n☐ skilte du navnetjenesten fra adressetildeling — å finne mot å få?\n\n☐ avviste du påstanden om at IPv6 gjør nettet raskere?\n\n☐ satte du strømming på pålitelig transport?\n\n☐ husket du at brukerprogrammer kjører i brukermodus?\n\n☐ skilte du en TCP-forbindelse fra en dedikert bane?\n\nGlapp noe? Tjenestene står i [kap. 4.5](/in1020/in1020-4-5), operativsystemet og svitsjingen i [kap. 4.6](/in1020/in1020-4-6).\n\n**Er alle fire prøvene gjennomført?** Da er seksjon 4 dekket: lagene, adresseregningen, overføringstiden, tjenestene og operativsystemet. Neste steg er [kap. 5.1](/in1020/in1020-5-1) og de tre komplette øvingseksamenene."
         }
       ]
     }

@@ -16,17 +16,17 @@
       "id": "stk1100-7-2-tip-eksamensvinkel",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Bootstrap er ikke et nytt fenomen på UiO slik det er ved NTNU — det har vært fast inventar i et helt tiår.** Kan du algoritmen og koden, plukker du opp poeng de fleste går glipp av.\n\n- **Bootstrap for standardfeil (sjanger I)**: ikke-parametrisk allerede i V2015 og V2016; parametrisk i V2019 og V2021; full kjørbar Python-kode fra V2020.\n- **Simulert dekningsgrad** (eksakt pivotal-KI mot Wald-KI) i V2024 — den bygger direkte på dekningstallene fra [kap. 6.2](/bok/stk1100/stk1100-6-2).\n- «Sjanger I» = *simulering, bootstrap og Python* (samme kode som i [kap. 7.1](/bok/stk1100/stk1100-7-1)).\n- **Sensorkrav 10:** bootstrap-algoritmen skal beskrives *presist* og koden være kjørbar med `ddof=1`. All kode her er faktisk kjørt.\n\nPrioritet: **kunne** (nivå 2). Sammen med [kap. 7.1](/bok/stk1100/stk1100-7-1) er dette det som skiller en A fra en B når den analytiske standardfeilen er vanskelig eller umulig å regne ut for hånd."
+      "content": "**Bootstrap er ikke et nytt fenomen på UiO slik det er ved NTNU — det har vært fast inventar i et helt tiår.** Kan du algoritmen og koden, plukker du opp poeng de fleste går glipp av.\n\n- **Bootstrap for standardfeil (sjanger I)**: ikke-parametrisk allerede i V2015 og V2016; parametrisk i V2019 og V2021; full kjørbar Python-kode fra V2020.\n- **Simulert dekningsgrad** (eksakt pivotal-KI mot Wald-KI) i V2024 — den bygger direkte på dekningstallene fra [kap. 6.2](/stk1100/stk1100-6-2).\n- «Sjanger I» = *simulering, bootstrap og Python* (samme kode som i [kap. 7.1](/stk1100/stk1100-7-1)).\n- **Sensorkrav 10:** bootstrap-algoritmen skal beskrives *presist* og koden være kjørbar med `ddof=1`. All kode her er faktisk kjørt.\n\nPrioritet: **kunne** (nivå 2). Sammen med [kap. 7.1](/stk1100/stk1100-7-1) er dette det som skiller en A fra en B når den analytiske standardfeilen er vanskelig eller umulig å regne ut for hånd."
     },
     {
       "id": "stk1100-7-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Bygger på **[kap. 7.1](/bok/stk1100/stk1100-7-1)** (simulering, `np.random.uniform`, vektorisering, `ddof=1`) og **[kap. 5.1](/bok/stk1100/stk1100-5-1)** (standardfeil). Dekningsdelen henter inn det eksakte pivotal-KI-et fra **[kap. 6.2](/bok/stk1100/stk1100-6-2)** og den analytiske standardfeilen fra kjeden i **[kap. 6.3](/bok/stk1100/stk1100-6-3)**.\n\n**Sist du var her — det du må ha friskt:**\n\n1. **Standardfeilen** til en estimator er standardavviket til estimatoren: $\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}$ (fra [kap. 5.1](/bok/stk1100/stk1100-5-1)). Den forteller hvor mye estimatet ville variert fra utvalg til utvalg.\n2. **`ddof=1`** i `np.std`/`np.var` gir den forventningsrette empiriske variansen (divisor $n-1$) — vi bruker den til å regne ut bootstrap-SE-en.\n3. **Eksakt pivotal-KI for eksponensial** (forventning $\\mu$, fra [kap. 6.2](/bok/stk1100/stk1100-6-2)): siden $2n\\bar X/\\mu \\sim \\chi^2_{2n}$, er et $95\\%$-KI $\\left[\\dfrac{2n\\bar X}{\\chi^2_{2n,\\,0{,}025}},\\ \\dfrac{2n\\bar X}{\\chi^2_{2n,\\,0{,}975}}\\right]$, der $\\chi^2_{2n,\\,0{,}025}$ og $\\chi^2_{2n,\\,0{,}975}$ er øvre- og nedre-halekvantilene. Dette bruker vi i dekningsstudien til slutt."
+      "content": "**Forkunnskaper:** Bygger på **[kap. 7.1](/stk1100/stk1100-7-1)** (simulering, `np.random.uniform`, vektorisering, `ddof=1`) og **[kap. 5.1](/stk1100/stk1100-5-1)** (standardfeil). Dekningsdelen henter inn det eksakte pivotal-KI-et fra **[kap. 6.2](/stk1100/stk1100-6-2)** og den analytiske standardfeilen fra kjeden i **[kap. 6.3](/stk1100/stk1100-6-3)**.\n\n**Sist du var her — det du må ha friskt:**\n\n1. **Standardfeilen** til en estimator er standardavviket til estimatoren: $\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}$ (fra [kap. 5.1](/stk1100/stk1100-5-1)). Den forteller hvor mye estimatet ville variert fra utvalg til utvalg.\n2. **`ddof=1`** i `np.std`/`np.var` gir den forventningsrette empiriske variansen (divisor $n-1$) — vi bruker den til å regne ut bootstrap-SE-en.\n3. **Eksakt pivotal-KI for eksponensial** (forventning $\\mu$, fra [kap. 6.2](/stk1100/stk1100-6-2)): siden $2n\\bar X/\\mu \\sim \\chi^2_{2n}$, er et $95\\%$-KI $\\left[\\dfrac{2n\\bar X}{\\chi^2_{2n,\\,0{,}025}},\\ \\dfrac{2n\\bar X}{\\chi^2_{2n,\\,0{,}975}}\\right]$, der $\\chi^2_{2n,\\,0{,}025}$ og $\\chi^2_{2n,\\,0{,}975}$ er øvre- og nedre-halekvantilene. Dette bruker vi i dekningsstudien til slutt."
     },
     {
       "id": "stk1100-7-2-intro",
       "type": "text",
-      "content": "Iblant har du en estimator $\\hat\\theta$ der du enkelt kan regne ut estimatet, men der den *analytiske* standardfeilen er stygg eller umulig å utlede — for eksempel medianen, eller en komplisert funksjon av flere parametre. Bootstrap løser dette ved en enkel idé: **lat som utvalget ditt er hele befolkningen, trekk mange nye «utvalg», og se hvor mye estimatoren spriker.** Spredningen i disse gjentatte estimatene *er* standardfeilen.\n\nVi møter to varianter (ikke-parametrisk og parametrisk), pluss det nært beslektede **Monte Carlo**-prinsippet: en sannsynlighet er en forventet indikator, så den estimeres med et gjennomsnitt. Til slutt setter vi alt sammen i en **dekningsstudie** som viser *hvorfor* et eksakt KI treffer 95 % mens et Wald-KI bommer for liten $n$ — mekanismen bak tallene i [kap. 6.2](/bok/stk1100/stk1100-6-2).\n\nFire læringsløkker à ~13 min — ta en pause etter løkke 2."
+      "content": "Iblant har du en estimator $\\hat\\theta$ der du enkelt kan regne ut estimatet, men der den *analytiske* standardfeilen er stygg eller umulig å utlede — for eksempel medianen, eller en komplisert funksjon av flere parametre. Bootstrap løser dette ved en enkel idé: **lat som utvalget ditt er hele befolkningen, trekk mange nye «utvalg», og se hvor mye estimatoren spriker.** Spredningen i disse gjentatte estimatene *er* standardfeilen.\n\nVi møter to varianter (ikke-parametrisk og parametrisk), pluss det nært beslektede **Monte Carlo**-prinsippet: en sannsynlighet er en forventet indikator, så den estimeres med et gjennomsnitt. Til slutt setter vi alt sammen i en **dekningsstudie** som viser *hvorfor* et eksakt KI treffer 95 % mens et Wald-KI bommer for liten $n$ — mekanismen bak tallene i [kap. 6.2](/stk1100/stk1100-6-2).\n\nFire læringsløkker à ~13 min — ta en pause etter løkke 2."
     },
     {
       "id": "stk1100-7-2-l1-head",
@@ -85,7 +85,7 @@
     {
       "id": "stk1100-7-2-l2-tekst",
       "type": "text",
-      "content": "**Parametrisk bootstrap** bruker samme algoritme, men trekker de nye utvalgene **fra den tilpassede fordelingen** — med parameterestimatet $\\hat\\theta$ satt inn — i stedet for fra dataene direkte. Har du grunn til å tro at dataene er (for eksempel) eksponensialfordelte, tilpasser du fordelingen ($\\hat\\mu = \\bar x$), og trekker nye utvalg fra eksponensial$(\\hat\\mu)$ med inversjonsmetoden fra [kap. 7.1](/bok/stk1100/stk1100-7-1).\n\n| | Trekker nye utvalg fra … |\n|---|---|\n| **Ikke-parametrisk** | dataene, med tilbakelegging |\n| **Parametrisk** | den tilpassede fordelingen (med $\\hat\\theta$ satt inn) |\n\n**Når velge hva?** Parametrisk bootstrap er mer presis *hvis* fordelingsantakelsen er riktig (den utnytter modellen); ikke-parametrisk er tryggere når du er usikker på fordelingen. Begge gir SE-en som `np.std(theta_b, ddof=1)`."
+      "content": "**Parametrisk bootstrap** bruker samme algoritme, men trekker de nye utvalgene **fra den tilpassede fordelingen** — med parameterestimatet $\\hat\\theta$ satt inn — i stedet for fra dataene direkte. Har du grunn til å tro at dataene er (for eksempel) eksponensialfordelte, tilpasser du fordelingen ($\\hat\\mu = \\bar x$), og trekker nye utvalg fra eksponensial$(\\hat\\mu)$ med inversjonsmetoden fra [kap. 7.1](/stk1100/stk1100-7-1).\n\n| | Trekker nye utvalg fra … |\n|---|---|\n| **Ikke-parametrisk** | dataene, med tilbakelegging |\n| **Parametrisk** | den tilpassede fordelingen (med $\\hat\\theta$ satt inn) |\n\n**Når velge hva?** Parametrisk bootstrap er mer presis *hvis* fordelingsantakelsen er riktig (den utnytter modellen); ikke-parametrisk er tryggere når du er usikker på fordelingen. Begge gir SE-en som `np.std(theta_b, ddof=1)`."
     },
     {
       "id": "stk1100-7-2-ex2",
@@ -185,14 +185,14 @@
     {
       "id": "stk1100-7-2-l4-tekst",
       "type": "text",
-      "content": "Et $95\\%$-konfidensintervall skal, over mange gjentatte utvalg, dekke den sanne parameteren $95\\%$ av gangene. **Simulert dekningsgrad** sjekker om det stemmer:\n\n1. Generer mange datasett fra en fordeling med *kjent* sann parameter.\n2. Bygg KI-et i hvert datasett.\n3. Tell andelen KI-er som faktisk dekker den sanne parameteren.\n\nDette er mekanismen bak dekningstallene fra [kap. 6.2](/bok/stk1100/stk1100-6-2): det **eksakte pivotal-KI-et** treffer $95\\%$ (fordi $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ er en eksakt pivotal), mens **Wald-KI-et** $\\bar X \\pm 1{,}96\\,\\text{SE}$ underdekker for liten $n$ — fordi $\\bar X$ for eksponensiale data er høyreskjevt, ikke symmetrisk normalfordelt slik Wald antar.\n\n«Dekker»-indikatoren er bare `lo <= mu <= hi`, og dekningsgraden er `np.mean` av den — igjen: en sannsynlighet er en forventet indikator."
+      "content": "Et $95\\%$-konfidensintervall skal, over mange gjentatte utvalg, dekke den sanne parameteren $95\\%$ av gangene. **Simulert dekningsgrad** sjekker om det stemmer:\n\n1. Generer mange datasett fra en fordeling med *kjent* sann parameter.\n2. Bygg KI-et i hvert datasett.\n3. Tell andelen KI-er som faktisk dekker den sanne parameteren.\n\nDette er mekanismen bak dekningstallene fra [kap. 6.2](/stk1100/stk1100-6-2): det **eksakte pivotal-KI-et** treffer $95\\%$ (fordi $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ er en eksakt pivotal), mens **Wald-KI-et** $\\bar X \\pm 1{,}96\\,\\text{SE}$ underdekker for liten $n$ — fordi $\\bar X$ for eksponensiale data er høyreskjevt, ikke symmetrisk normalfordelt slik Wald antar.\n\n«Dekker»-indikatoren er bare `lo <= mu <= hi`, og dekningsgraden er `np.mean` av den — igjen: en sannsynlighet er en forventet indikator."
     },
     {
       "id": "stk1100-7-2-ex4",
       "type": "example",
       "title": "Eksempel 4: Dekningsstudie for eksponensialmodellen, n = 10",
       "problem": "For eksponensialfordelte data med forventning $\\mu = 5$ og $n = 10$: simuler dekningsgraden til (i) det eksakte pivotal-KI-et og (ii) Wald-KI-et $\\bar X \\pm 1{,}96\\,\\bar X/\\sqrt{n}$, over $M = 20000$ datasett. Forklar forskjellen.",
-      "solution": "Vi lager $20000$ datasett fra eksponensial$(\\mu=5)$, bygger begge KI-ene i hvert, og teller andelen som dekker $\\mu = 5$:\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nnp.random.seed(0)\nn, mu, M = 10, 5.0, 20000\ndekk_eksakt = 0\ndekk_wald = 0\nfor _ in range(M):\n    x = -mu * np.log(1 - np.random.uniform(size=n))\n    xbar = np.mean(x)\n    # eksakt pivotal:  2*n*xbar/mu ~ chi^2_{2n}\n    lo = 2*n*xbar / stats.chi2.ppf(0.975, 2*n)\n    hi = 2*n*xbar / stats.chi2.ppf(0.025, 2*n)\n    if lo <= mu <= hi:\n        dekk_eksakt += 1\n    # Wald:  xbar +/- 1.96 * SE, med SE = xbar/sqrt(n)\n    se = xbar / np.sqrt(n)\n    if xbar - 1.96*se <= mu <= xbar + 1.96*se:\n        dekk_wald += 1\n\nprint(dekk_eksakt/M, dekk_wald/M)\n# 0.9508  0.9015\n```\n\n**Resultat:** det eksakte KI-et dekker $\\approx 95{,}1\\%$ — praktisk talt nominelt $95\\%$, som det skal siden pivotalen $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ er eksakt uansett $\\mu$ og $n$. Wald-KI-et dekker bare $\\approx 90{,}2\\%$ — det **underdekker** klart.\n\n**Hvorfor?** Wald antar at $\\bar X$ er tilnærmet normalfordelt og symmetrisk rundt $\\mu$. For $n = 10$ eksponensiale observasjoner er $\\bar X$ fortsatt merkbart høyreskjevt, så det symmetriske $\\pm 1{,}96\\,\\text{SE}$-intervallet bommer oftere enn de lovede $5\\%$. Dette er nøyaktig asymmetrien [kap. 6.2](/bok/stk1100/stk1100-6-2) tallfestet (der ca. $95{,}9\\%$ mot $91{,}1\\%$ for den oppgavens oppsett) — samme mekanisme, små forskjeller skyldes ulikt antall gjentak og tilfeldig frø. Konklusjonen er den samme: for liten $n$ er det eksakte pivotal-KI-et å foretrekke."
+      "solution": "Vi lager $20000$ datasett fra eksponensial$(\\mu=5)$, bygger begge KI-ene i hvert, og teller andelen som dekker $\\mu = 5$:\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nnp.random.seed(0)\nn, mu, M = 10, 5.0, 20000\ndekk_eksakt = 0\ndekk_wald = 0\nfor _ in range(M):\n    x = -mu * np.log(1 - np.random.uniform(size=n))\n    xbar = np.mean(x)\n    # eksakt pivotal:  2*n*xbar/mu ~ chi^2_{2n}\n    lo = 2*n*xbar / stats.chi2.ppf(0.975, 2*n)\n    hi = 2*n*xbar / stats.chi2.ppf(0.025, 2*n)\n    if lo <= mu <= hi:\n        dekk_eksakt += 1\n    # Wald:  xbar +/- 1.96 * SE, med SE = xbar/sqrt(n)\n    se = xbar / np.sqrt(n)\n    if xbar - 1.96*se <= mu <= xbar + 1.96*se:\n        dekk_wald += 1\n\nprint(dekk_eksakt/M, dekk_wald/M)\n# 0.9508  0.9015\n```\n\n**Resultat:** det eksakte KI-et dekker $\\approx 95{,}1\\%$ — praktisk talt nominelt $95\\%$, som det skal siden pivotalen $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ er eksakt uansett $\\mu$ og $n$. Wald-KI-et dekker bare $\\approx 90{,}2\\%$ — det **underdekker** klart.\n\n**Hvorfor?** Wald antar at $\\bar X$ er tilnærmet normalfordelt og symmetrisk rundt $\\mu$. For $n = 10$ eksponensiale observasjoner er $\\bar X$ fortsatt merkbart høyreskjevt, så det symmetriske $\\pm 1{,}96\\,\\text{SE}$-intervallet bommer oftere enn de lovede $5\\%$. Dette er nøyaktig asymmetrien [kap. 6.2](/stk1100/stk1100-6-2) tallfestet (der ca. $95{,}9\\%$ mot $91{,}1\\%$ for den oppgavens oppsett) — samme mekanisme, små forskjeller skyldes ulikt antall gjentak og tilfeldig frø. Konklusjonen er den samme: for liten $n$ er det eksakte pivotal-KI-et å foretrekke."
     },
     {
       "id": "stk1100-7-2-ex-l4a",
@@ -320,7 +320,7 @@
       "id": "stk1100-7-2-def-14",
       "type": "definition",
       "title": "Standardfeil (repetisjon)",
-      "content": "Standardavviket til en estimator: $\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}$ (fra [kap. 5.1](/bok/stk1100/stk1100-5-1)). Bootstrap gir et numerisk estimat av denne når den analytiske er utilgjengelig."
+      "content": "Standardavviket til en estimator: $\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}$ (fra [kap. 5.1](/stk1100/stk1100-5-1)). Bootstrap gir et numerisk estimat av denne når den analytiske er utilgjengelig."
     },
     {
       "id": "stk1100-7-2-def-15",
@@ -338,7 +338,7 @@
       "id": "stk1100-7-2-def-17",
       "type": "definition",
       "title": "Eksakt pivotal-KI dekker nominelt",
-      "content": "Et KI bygget på en eksakt pivotal (som $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ for eksponensial) dekker den sanne parameteren nøyaktig $95\\%$ av gangene, uansett $n$ (kobling [kap. 6.2](/bok/stk1100/stk1100-6-2))."
+      "content": "Et KI bygget på en eksakt pivotal (som $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ for eksponensial) dekker den sanne parameteren nøyaktig $95\\%$ av gangene, uansett $n$ (kobling [kap. 6.2](/stk1100/stk1100-6-2))."
     },
     {
       "id": "stk1100-7-2-def-18",
@@ -356,7 +356,7 @@
       "id": "stk1100-7-2-def-20",
       "type": "definition",
       "title": "`ddof=1` i bootstrap-SE",
-      "content": "Bootstrap-SE-en regnes med `np.std(theta_b, ddof=1)` — divisor $B-1$ gir det forventningsrette standardavviksestimatet av bootstrap-fordelingen (samme grunn som i [kap. 5.1](/bok/stk1100/stk1100-5-1))."
+      "content": "Bootstrap-SE-en regnes med `np.std(theta_b, ddof=1)` — divisor $B-1$ gir det forventningsrette standardavviksestimatet av bootstrap-fordelingen (samme grunn som i [kap. 5.1](/stk1100/stk1100-5-1))."
     },
     {
       "id": "stk1100-7-2-rep-oppg",
@@ -367,7 +367,7 @@
         {
           "id": "stk1100-7-2-rep-1",
           "type": "text",
-          "content": "Korte oppgaver fra forkunnskapskapitlene ([kap. 7.1](/bok/stk1100/stk1100-7-1), [kap. 5.1](/bok/stk1100/stk1100-5-1)). Fasit rett under hver."
+          "content": "Korte oppgaver fra forkunnskapskapitlene ([kap. 7.1](/stk1100/stk1100-7-1), [kap. 5.1](/stk1100/stk1100-5-1)). Fasit rett under hver."
         },
         {
           "id": "stk1100-7-2-rep-2",

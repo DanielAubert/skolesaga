@@ -21,7 +21,7 @@
     {
       "id": "stk1100-5-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på estimator-egenskapene i [kap. 5.1](/bok/stk1100/stk1100-5-1) (forventningsretthet, varians — vi sjekker ML-estimatorene mot dem) og tetthetene fra [kap. 2.1](/bok/stk1100/stk1100-2-1) (eksponensial i begge parametriseringer, uniform, normal).\n\n**Sist du var her — det du bruker mest:**\n- **Eksponensial i to former** (kap. 2.1): rate $f(x) = \\lambda e^{-\\lambda x}$ ($E = 1/\\lambda$) og forventning $f(x) = \\tfrac1\\mu e^{-x/\\mu}$ ($E = \\mu$). Oppgaven sier alltid hvilken — les den.\n- **Forventningsrett** (kap. 5.1): $E(\\hat\\theta) = \\theta$, sjekkes ved å regne $E$ av estimatoren.\n\nDu deriverer log-likelihooden, så [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1) (særlig $\\frac{d}{dx}\\ln x = 1/x$ og kjerneregelen) er verktøyet."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på estimator-egenskapene i [kap. 5.1](/stk1100/stk1100-5-1) (forventningsretthet, varians — vi sjekker ML-estimatorene mot dem) og tetthetene fra [kap. 2.1](/stk1100/stk1100-2-1) (eksponensial i begge parametriseringer, uniform, normal).\n\n**Sist du var her — det du bruker mest:**\n- **Eksponensial i to former** (kap. 2.1): rate $f(x) = \\lambda e^{-\\lambda x}$ ($E = 1/\\lambda$) og forventning $f(x) = \\tfrac1\\mu e^{-x/\\mu}$ ($E = \\mu$). Oppgaven sier alltid hvilken — les den.\n- **Forventningsrett** (kap. 5.1): $E(\\hat\\theta) = \\theta$, sjekkes ved å regne $E$ av estimatoren.\n\nDu deriverer log-likelihooden, så [R1 4.1 Derivasjonsregler](/r1/r1-4-1) (særlig $\\frac{d}{dx}\\ln x = 1/x$ og kjerneregelen) er verktøyet."
     },
     {
       "id": "stk1100-5-2-intro",
@@ -244,7 +244,7 @@
       "type": "example",
       "title": "Eksempel 4: ML for Pareto-fordelt inntekt",
       "problem": "Inntektene $x_1, \\dots, x_n$ over minsteinntekten $k$ (kjent) er iid Pareto: $f(x;\\theta) = \\theta k^\\theta / x^{\\theta+1}$, $x \\ge k$. Utled ML-estimatoren for formparameteren $\\theta$.",
-      "solution": "**1. Likelihood:** $L(\\theta) = \\prod_{i=1}^n \\dfrac{\\theta k^\\theta}{x_i^{\\theta+1}} = \\dfrac{\\theta^n k^{n\\theta}}{\\left(\\prod x_i\\right)^{\\theta+1}}$.\n\n**2. Log:** $\\ell(\\theta) = n\\ln\\theta + n\\theta\\ln k - (\\theta+1)\\sum\\ln x_i$.\n\n**3. Derivér:** $\\ell'(\\theta) = \\dfrac n\\theta + n\\ln k - \\sum\\ln x_i = 0$.\n\n**4. Løs:** $\\dfrac n\\theta = \\sum\\ln x_i - n\\ln k = \\sum\\ln(x_i/k)$, altså\n\n$$\\hat\\theta = \\frac{n}{\\sum_{i=1}^n \\ln(x_i/k)}.$$\n\nNevneren $\\sum\\ln(x_i/k)$ er sum av $n$ eksponensiale (kap. 2.3), som er $\\text{gamma}(n, 1/\\theta)$ — nøkkelen til at $\\hat\\theta$ er skjev, og til den eksakte pivotalen (Del 6). Korreksjonen behandles i [kap. 5.3](/bok/stk1100/stk1100-5-3)."
+      "solution": "**1. Likelihood:** $L(\\theta) = \\prod_{i=1}^n \\dfrac{\\theta k^\\theta}{x_i^{\\theta+1}} = \\dfrac{\\theta^n k^{n\\theta}}{\\left(\\prod x_i\\right)^{\\theta+1}}$.\n\n**2. Log:** $\\ell(\\theta) = n\\ln\\theta + n\\theta\\ln k - (\\theta+1)\\sum\\ln x_i$.\n\n**3. Derivér:** $\\ell'(\\theta) = \\dfrac n\\theta + n\\ln k - \\sum\\ln x_i = 0$.\n\n**4. Løs:** $\\dfrac n\\theta = \\sum\\ln x_i - n\\ln k = \\sum\\ln(x_i/k)$, altså\n\n$$\\hat\\theta = \\frac{n}{\\sum_{i=1}^n \\ln(x_i/k)}.$$\n\nNevneren $\\sum\\ln(x_i/k)$ er sum av $n$ eksponensiale (kap. 2.3), som er $\\text{gamma}(n, 1/\\theta)$ — nøkkelen til at $\\hat\\theta$ er skjev, og til den eksakte pivotalen (Del 6). Korreksjonen behandles i [kap. 5.3](/stk1100/stk1100-5-3)."
     },
     {
       "id": "stk1100-5-2-l4a",
@@ -304,7 +304,7 @@
       "id": "stk1100-5-2-def-invarians",
       "type": "definition",
       "title": "Invariansprinsippet",
-      "content": "**Invariansprinsippet:** er $\\hat\\theta$ ML-estimatoren for $\\theta$, er ML-estimatoren for en funksjon $g(\\theta)$ rett og slett\n\n$$\\widehat{g(\\theta)} = g(\\hat\\theta).$$\n\nEksempel: for eksponensial i forventningsform er $\\hat\\mu = \\bar X$, så ML-estimatoren for medianen $\\mu\\ln 2$ er $\\bar X\\ln 2$, og for overlevelsen $P(X > t) = e^{-t/\\mu}$ er $e^{-t/\\bar X}$. (Merk: invarians bevarer *ikke* forventningsretthet — jf. $E[\\sqrt V] \\ne \\sqrt{E V}$ i kap. 5.1.) Prinsippet er broen til KI-transformasjon i [kap. 6.1](/bok/stk1100/stk1100-6-1)."
+      "content": "**Invariansprinsippet:** er $\\hat\\theta$ ML-estimatoren for $\\theta$, er ML-estimatoren for en funksjon $g(\\theta)$ rett og slett\n\n$$\\widehat{g(\\theta)} = g(\\hat\\theta).$$\n\nEksempel: for eksponensial i forventningsform er $\\hat\\mu = \\bar X$, så ML-estimatoren for medianen $\\mu\\ln 2$ er $\\bar X\\ln 2$, og for overlevelsen $P(X > t) = e^{-t/\\mu}$ er $e^{-t/\\bar X}$. (Merk: invarians bevarer *ikke* forventningsretthet — jf. $E[\\sqrt V] \\ne \\sqrt{E V}$ i kap. 5.1.) Prinsippet er broen til KI-transformasjon i [kap. 6.1](/stk1100/stk1100-6-1)."
     },
     {
       "id": "stk1100-5-2-ex-moment",

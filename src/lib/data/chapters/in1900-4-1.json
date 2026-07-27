@@ -16,12 +16,12 @@
    "id": "in1900-4-1-tip-vinkel",
    "type": "tip",
    "title": "Eksamensvinkel",
-   "content": "**NumPy er verktøyet nesten all senere kode i faget hviler på.** NumPy er Pythons standardbibliotek for talltabeller — lange rader av tall som du regner på under ett, i stedet for ett tall om gangen.\n\nKapitlet har prioritet **kunne** (nivå 2 av tre: må sitte, kunne, kjenne til). Det er ikke fordi NumPy er uviktig, men fordi NumPy sjelden er *hele* oppgaven — det er byggeklossen inni de store oppgavene:\n\n- **Lister mot NumPy-tabeller** (sjanger M — «skriv samme tabell først med løkke, så uten løkke») er i 6 av de 8 nyere settene, altså 75 %, og er verdt rundt 5 poeng. Sjangeren drilles i [kap. 4.2](/bok/in1900/in1900-4-2).\n- **Plotting** er i 7 av 8 sett (88 %), nesten alltid som en del-b: «plott løsningen». Se [kap. 4.3](/bok/in1900/in1900-4-3).\n- **Differenslikninger** (75 %) og **ODE-systemer** (100 %) starter alltid med å lage en tabell med NumPy. Uten dette kapitlet stopper du på første linje i de tyngste oppgavene.\n- **Sporing av tabellkode** hører til sjanger A — «hva skriver programmet ut?» — som er i alle sett (100 %) og bærer hele midtveiseksamen, den digitale flervalgseksamenen i oktober som teller 25 %.\n- **Tabeller med to indekser** (2D) er bare i 2 av 8 sett (25 %) og har prioritet **kjenne til**. Det stoffet står sist i kapitlet og er merket.\n\nDet er én feil du må trene bort her, og den er fagets aller vanligste: å bomme med én på antall punkter i en tabell."
+   "content": "**NumPy er verktøyet nesten all senere kode i faget hviler på.** NumPy er Pythons standardbibliotek for talltabeller — lange rader av tall som du regner på under ett, i stedet for ett tall om gangen.\n\nKapitlet har prioritet **kunne** (nivå 2 av tre: må sitte, kunne, kjenne til). Det er ikke fordi NumPy er uviktig, men fordi NumPy sjelden er *hele* oppgaven — det er byggeklossen inni de store oppgavene:\n\n- **Lister mot NumPy-tabeller** (sjanger M — «skriv samme tabell først med løkke, så uten løkke») er i 6 av de 8 nyere settene, altså 75 %, og er verdt rundt 5 poeng. Sjangeren drilles i [kap. 4.2](/in1900/in1900-4-2).\n- **Plotting** er i 7 av 8 sett (88 %), nesten alltid som en del-b: «plott løsningen». Se [kap. 4.3](/in1900/in1900-4-3).\n- **Differenslikninger** (75 %) og **ODE-systemer** (100 %) starter alltid med å lage en tabell med NumPy. Uten dette kapitlet stopper du på første linje i de tyngste oppgavene.\n- **Sporing av tabellkode** hører til sjanger A — «hva skriver programmet ut?» — som er i alle sett (100 %) og bærer hele midtveiseksamen, den digitale flervalgseksamenen i oktober som teller 25 %.\n- **Tabeller med to indekser** (2D) er bare i 2 av 8 sett (25 %) og har prioritet **kjenne til**. Det stoffet står sist i kapitlet og er merket.\n\nDet er én feil du må trene bort her, og den er fagets aller vanligste: å bomme med én på antall punkter i en tabell."
   },
   {
    "id": "in1900-4-1-forkunn",
    "type": "text",
-   "content": "## Forkunnskaper\n\nDu trenger tre ting fra Del 1:\n\n- **Lister, indeksering og slicing** fra [kap. 1.2](/bok/in1900/in1900-1-2) — hele dette kapitlet er en sammenligning mot lister. «Slicing» betyr å plukke ut et utsnitt, som `x[1:3]`.\n- **Løkker og `range`** fra [kap. 1.3](/bok/in1900/in1900-1-3), særlig at stoppverdien i `range` er eksklusiv.\n- **Funksjoner** fra [kap. 1.6](/bok/in1900/in1900-1-6), fordi vi skal sende en hel tabell inn i en funksjon du selv har skrevet.\n\nHar du aldri programmert før, er [Programmering med Python](/bok/1p/1p-9-2) en mykere inngang til løkker og lister enn dette kapitlet.\n\nKapitlet er delt i fire løkker med tidsanslag. Ta gjerne en pause mellom løkke 2 og 3."
+   "content": "## Forkunnskaper\n\nDu trenger tre ting fra Del 1:\n\n- **Lister, indeksering og slicing** fra [kap. 1.2](/in1900/in1900-1-2) — hele dette kapitlet er en sammenligning mot lister. «Slicing» betyr å plukke ut et utsnitt, som `x[1:3]`.\n- **Løkker og `range`** fra [kap. 1.3](/in1900/in1900-1-3), særlig at stoppverdien i `range` er eksklusiv.\n- **Funksjoner** fra [kap. 1.6](/in1900/in1900-1-6), fordi vi skal sende en hel tabell inn i en funksjon du selv har skrevet.\n\nHar du aldri programmert før, er [Programmering med Python](/1p/1p-9-2) en mykere inngang til løkker og lister enn dette kapitlet.\n\nKapitlet er delt i fire løkker med tidsanslag. Ta gjerne en pause mellom løkke 2 og 3."
   },
   {
    "id": "in1900-4-1-txt-lokke1",
@@ -177,7 +177,7 @@
    "type": "example",
    "title": "Eksempel 3: din egen funksjon brukt på en hel tabell",
    "problem": "Høyden til en ball kastet rett opp er $h(t) = 4t - 0{,}5t^2$ målt i meter, med $t$ i sekunder. Skriv funksjonen én gang, og bruk den både på ett tidspunkt og på et helt tidsarray.",
-   "solution": "\nFunksjonen skrives helt vanlig, uten et eneste NumPy-navn. Den virker likevel på hele tabellen, fordi `*`, `-` og `**` er elementvise for arrays.\n\n```python\nimport numpy as np\n\ndef hoyde(t):\n    return 4.0*t - 0.5*t**2\n\nt = np.linspace(0, 4, 5)\nprint(hoyde(2.0))\nprint(t)\nprint(hoyde(t))\n```\n\n**Utskrift:**\n```\n6.0\n[0. 1. 2. 3. 4.]\n[0.  3.5 6.  7.5 8. ]\n```\n\nFørste kall gir ett tall, fordi argumentet er ett tall. Andre kall gir fem tall, fordi argumentet er en tabell med fem tall. **Funksjonen er den samme** — det er argumentet som bestemmer om du får et tall eller en tabell tilbake.\n\nDette er hele grunnlaget for plotting i [kap. 4.3](/bok/in1900/in1900-4-3): du lager et tett tidsarray, sender det gjennom funksjonen din, og plotter de to tabellene mot hverandre."
+   "solution": "\nFunksjonen skrives helt vanlig, uten et eneste NumPy-navn. Den virker likevel på hele tabellen, fordi `*`, `-` og `**` er elementvise for arrays.\n\n```python\nimport numpy as np\n\ndef hoyde(t):\n    return 4.0*t - 0.5*t**2\n\nt = np.linspace(0, 4, 5)\nprint(hoyde(2.0))\nprint(t)\nprint(hoyde(t))\n```\n\n**Utskrift:**\n```\n6.0\n[0. 1. 2. 3. 4.]\n[0.  3.5 6.  7.5 8. ]\n```\n\nFørste kall gir ett tall, fordi argumentet er ett tall. Andre kall gir fem tall, fordi argumentet er en tabell med fem tall. **Funksjonen er den samme** — det er argumentet som bestemmer om du får et tall eller en tabell tilbake.\n\nDette er hele grunnlaget for plotting i [kap. 4.3](/in1900/in1900-4-3): du lager et tett tidsarray, sender det gjennom funksjonen din, og plotter de to tabellene mot hverandre."
   },
   {
    "id": "in1900-4-1-warn-navn-x",
@@ -204,7 +204,7 @@
   {
    "id": "in1900-4-1-txt-lokke4",
    "type": "text",
-   "content": "## Løkke 4 — plukke ut deler av tabellen (~11 min)\n\nIndeksering og slicing virker som for lister: `a[0]` er første element, `a[-1]` er siste, og `a[1:]` er alt fra og med element 1. Forskjellen er at et utsnitt av et array er et **array** og ikke en liste, så du kan regne elementvis med det.\n\nDet gir et triks du får bruk for i [kap. 6.2](/bok/in1900/in1900-6-2): `a[1:] - a[:-1]` er tabellen over endringer fra ett punkt til det neste, regnet ut uten løkke."
+   "content": "## Løkke 4 — plukke ut deler av tabellen (~11 min)\n\nIndeksering og slicing virker som for lister: `a[0]` er første element, `a[-1]` er siste, og `a[1:]` er alt fra og med element 1. Forskjellen er at et utsnitt av et array er et **array** og ikke en liste, så du kan regne elementvis med det.\n\nDet gir et triks du får bruk for i [kap. 6.2](/in1900/in1900-6-2): `a[1:] - a[:-1]` er tabellen over endringer fra ett punkt til det neste, regnet ut uten løkke."
   },
   {
    "id": "in1900-4-1-def-indeks",
@@ -244,7 +244,7 @@
   {
    "id": "in1900-4-1-txt-2d",
    "type": "text",
-   "content": "### Tabeller med to indekser — bør kjenne til\n\nResten av denne løkka er **nivå 3-stoff (kjenne til)**: 2D-arrays er bare i 2 av de 8 nyere settene, altså 25 %, og da som en mindre deloppgave. Har du kort tid, kan du komme hit tilbake etter at Del 5 og Del 7 sitter.\n\nDu trenger likevel formen `u[:, 0]` senere, når et ODE-system i [kap. 7.3](/bok/in1900/in1900-7-3) gir deg løsningen som en tabell med én kolonne per komponent. Det er den ene grunnen til å lese avsnittet nå."
+   "content": "### Tabeller med to indekser — bør kjenne til\n\nResten av denne løkka er **nivå 3-stoff (kjenne til)**: 2D-arrays er bare i 2 av de 8 nyere settene, altså 25 %, og da som en mindre deloppgave. Har du kort tid, kan du komme hit tilbake etter at Del 5 og Del 7 sitter.\n\nDu trenger likevel formen `u[:, 0]` senere, når et ODE-system i [kap. 7.3](/in1900/in1900-7-3) gir deg løsningen som en tabell med én kolonne per komponent. Det er den ene grunnen til å lese avsnittet nå."
   },
   {
    "id": "in1900-4-1-def-2d",
@@ -325,7 +325,7 @@
    "id": "in1900-4-1-bank-2",
    "type": "definition",
    "title": "Vektorisering",
-   "content": "Å regne på en hel tabell i én operasjon, uten løkke. `y = np.log(x)` er den vektoriserte versjonen av å løpe gjennom `x` med en løkke og kalle `math.log` på hvert element. På eksamen er det en egen sjanger (M) å skrive samme tabell både med og uten løkke — se [kap. 4.2](/bok/in1900/in1900-4-2)."
+   "content": "Å regne på en hel tabell i én operasjon, uten løkke. `y = np.log(x)` er den vektoriserte versjonen av å løpe gjennom `x` med en løkke og kalle `math.log` på hvert element. På eksamen er det en egen sjanger (M) å skrive samme tabell både med og uten løkke — se [kap. 4.2](/in1900/in1900-4-2)."
   },
   {
    "id": "in1900-4-1-bank-3",
@@ -401,7 +401,7 @@
       "number": "R1",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 1.2](/bok/in1900/in1900-1-2).) Hva blir `[1, 2] + [3, 4]`, og hva blir `[1, 2] * 2`? Forklar hvorfor svarene er nyttige å ha i minnet når du sporer array-kode.",
+      "task": "(Fra [kap. 1.2](/in1900/in1900-1-2).) Hva blir `[1, 2] + [3, 4]`, og hva blir `[1, 2] * 2`? Forklar hvorfor svarene er nyttige å ha i minnet når du sporer array-kode.",
       "solution": "`[1, 2] + [3, 4]` gir `[1, 2, 3, 4]` (skjøting), og `[1, 2] * 2` gir `[1, 2, 1, 2]` (gjentakelse). Ingen av dem regner elementvis. Når samme uttrykk står i et flervalgsspørsmål, må du derfor først avgjøre om variablene er lister eller arrays — og det ser du på om `np.array` eller `np.linspace` har vært innom, og på om utskriften har komma.",
       "hints": [
        "Lister skjøtes og gjentas; de regner aldri elementvis."
@@ -416,7 +416,7 @@
       "number": "R2",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 1.3](/bok/in1900/in1900-1-3).) Hvor mange ganger går kroppen i `for i in range(4):`, og hvilke verdier tar `i`?",
+      "task": "(Fra [kap. 1.3](/in1900/in1900-1-3).) Hvor mange ganger går kroppen i `for i in range(4):`, og hvilke verdier tar `i`?",
       "solution": "Fire ganger, med `i` lik 0, 1, 2 og 3. Stoppverdien 4 er eksklusiv. Dette er grunnen til at `for n in range(N)` gir nøyaktig $N$ oppdateringer i en simulering med $N+1$ punkter.",
       "hints": [
        "Stoppverdien i `range` er eksklusiv."
@@ -431,7 +431,7 @@
       "number": "R3",
       "type": "classic",
       "difficulty": "middels",
-      "task": "(Fra [kap. 1.6](/bok/in1900/in1900-1-6).) Funksjonen `def f(x): return x**2 - 1` er skrevet for ett tall. Hva må endres for at den skal kunne kalles med et helt array?",
+      "task": "(Fra [kap. 1.6](/in1900/in1900-1-6).) Funksjonen `def f(x): return x**2 - 1` er skrevet for ett tall. Hva må endres for at den skal kunne kalles med et helt array?",
       "solution": "Ingenting. `**` og `-` er elementvise for arrays, så `f(np.linspace(0, 1, 5))` gir et array med fem verdier. Det ville derimot måttet endres hvis funksjonen brukte `math.sqrt`, `math.exp` eller en `if`-test på `x` — da tar den bare ett tall om gangen, og `math`-kallene må byttes til `np.`-versjonene.",
       "hints": [
        "Sjekk hvilke operasjoner funksjonen faktisk bruker."

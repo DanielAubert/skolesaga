@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     ...pageMetadata({
-      path: `/bok/${courseId}/kildegrunnlag`,
+      path: `/${courseId}/kildegrunnlag`,
       title,
       description,
       image: course.coverImage,
@@ -79,7 +79,7 @@ export default async function KildegrunnlagPage({ params }: PageProps) {
           <nav className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
             <BreadcrumbHomeLink className="hover:text-foreground" />
             <ChevronRight className="h-4 w-4" />
-            <Link href={`/bok/${courseId}`} className="hover:text-foreground">
+            <Link href={`/${courseId}`} className="hover:text-foreground">
               {course.title}
             </Link>
             <ChevronRight className="h-4 w-4" />
@@ -164,7 +164,7 @@ export default async function KildegrunnlagPage({ params }: PageProps) {
           </section>
 
           <Link
-            href={`/bok/${courseId}`}
+            href={`/${courseId}`}
             className="inline-flex items-center gap-2 rounded-lg border border-input bg-background px-4 py-2 font-medium text-foreground transition-colors hover:bg-muted"
           >
             Tilbake til boka

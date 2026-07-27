@@ -16,12 +16,12 @@
       "id": "tma4245-8-2-tip",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Dette er andre halvdel av den store regresjonsoppgaven — halen sensor nesten alltid drar videre.**\n\n- Regresjon er i **11 av de 12 siste settene**, alltid som stor oppgave (sjanger **J** — bokstavkoden for regresjonsoppgaven). Der [kap. 8.1](/bok/tma4245/tma4245-8-1) bygde *estimeringen*, tar dette kapitlet **inferens** (test og KI for helningen) og **prediksjon** — standardhalen på oppgaven.\n- **Å tolke et residualplott er nesten alltid en deloppgave** (sensorkrav 10). Du skal kunne kjenne igjen trakt, bue og skjeve Q-Q-plott og *begrunne* hvilken antagelse som rammes — ikke bare si at «det ser greit ut».\n- **Des24** spurte eksplisitt om hvorfor prediksjon er mest presis i $\\bar{x}$ og hva ekstrapolering gjør. Det er sjanger **M** (M er bokstavkoden for tolknings-/drøftedelen).\n- Transformerte modeller går igjen: **ln-lineær** modell (Des25), **cosinus-ledd** (Des22) og **polynomledd** (Aug25) — alle håndteres som «lineær i parametrene».\n\n**Hvor poengene sitter:** i å bruke riktig frihetsgrad ($t_{n-2}$, ikke $t_{n-1}$), i å **skille KI for forventningen fra PI for en ny observasjon** (den hyppigste fella her), i å flagge ekstrapolering, og i å knytte residualmønsteret til en konkret antagelse. Prioritet: **høyeste**.\n\n**Formelsamlingen** (hjelpemiddelkode C) har de ferdige KI- og PI-formlene — eksamen måler at du *velger riktig av dem* og *setter inn med rett frihetsgrad*, ikke at du husker dem utenat."
+      "content": "**Dette er andre halvdel av den store regresjonsoppgaven — halen sensor nesten alltid drar videre.**\n\n- Regresjon er i **11 av de 12 siste settene**, alltid som stor oppgave (sjanger **J** — bokstavkoden for regresjonsoppgaven). Der [kap. 8.1](/tma4245/tma4245-8-1) bygde *estimeringen*, tar dette kapitlet **inferens** (test og KI for helningen) og **prediksjon** — standardhalen på oppgaven.\n- **Å tolke et residualplott er nesten alltid en deloppgave** (sensorkrav 10). Du skal kunne kjenne igjen trakt, bue og skjeve Q-Q-plott og *begrunne* hvilken antagelse som rammes — ikke bare si at «det ser greit ut».\n- **Des24** spurte eksplisitt om hvorfor prediksjon er mest presis i $\\bar{x}$ og hva ekstrapolering gjør. Det er sjanger **M** (M er bokstavkoden for tolknings-/drøftedelen).\n- Transformerte modeller går igjen: **ln-lineær** modell (Des25), **cosinus-ledd** (Des22) og **polynomledd** (Aug25) — alle håndteres som «lineær i parametrene».\n\n**Hvor poengene sitter:** i å bruke riktig frihetsgrad ($t_{n-2}$, ikke $t_{n-1}$), i å **skille KI for forventningen fra PI for en ny observasjon** (den hyppigste fella her), i å flagge ekstrapolering, og i å knytte residualmønsteret til en konkret antagelse. Prioritet: **høyeste**.\n\n**Formelsamlingen** (hjelpemiddelkode C) har de ferdige KI- og PI-formlene — eksamen måler at du *velger riktig av dem* og *setter inn med rett frihetsgrad*, ikke at du husker dem utenat."
     },
     {
       "id": "tma4245-8-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Bygger direkte på estimeringen i **[kap. 8.1](/bok/tma4245/tma4245-8-1)** (LS-estimatene, $\\text{SSE}$, $s^2=\\text{SSE}/(n-2)$ og standardfeilen $\\text{SE}(\\hat{\\beta})$). Selve inferensmaskineriet — testobservator, forkastingsregel og konfidensintervall — er **testritualet fra [kap. 7.1](/bok/tma4245/tma4245-7-1)** og **KI-tankegangen fra [kap. 6.1](/bok/tma4245/tma4245-6-1)**, nå anvendt på $\\hat{\\beta}$ i stedet for $\\bar{X}$. Til ln-modellen trenger du å kunne regne med logaritmer og eksponensialfunksjonen.\n\n**Sist du var her — de tre verktøyene vi bygger på (ferdig oppfrisket):**\n\n1. **Standardfeilen til helningen (kap. 8.1).** $\\text{SE}(\\hat{\\beta})=\\dfrac{s}{\\sqrt{S_{xx}}}$, med $s=\\sqrt{\\text{SSE}/(n-2)}$ og $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$. Dette er byggeklossen i alle testene og intervallene under.\n2. **Testritualet (kap. 7.1).** Sett opp $H_0$ og $H_1$; regn testobservatoren; sammenlign med kritisk verdi (eller p-verdi); konkluder i klartekst. Vi bytter bare ut $\\bar{X}$-observatoren med $\\hat{\\beta}$-observatoren.\n3. **KI-formen (kap. 6.1).** Et konfidensintervall er $\\text{estimat} \\pm (\\text{kvantil})\\cdot(\\text{standardfeil})$. Her blir kvantilen $t_{n-2,\\alpha/2}$ (samme frihetsgrad $n-2$ som i $s^2$).\n\nKapitlet er forkunnskap for NTNU-varianten uten konstantledd ([kap. 8.3](/bok/tma4245/tma4245-8-3))."
+      "content": "**Forkunnskaper:** Bygger direkte på estimeringen i **[kap. 8.1](/tma4245/tma4245-8-1)** (LS-estimatene, $\\text{SSE}$, $s^2=\\text{SSE}/(n-2)$ og standardfeilen $\\text{SE}(\\hat{\\beta})$). Selve inferensmaskineriet — testobservator, forkastingsregel og konfidensintervall — er **testritualet fra [kap. 7.1](/tma4245/tma4245-7-1)** og **KI-tankegangen fra [kap. 6.1](/tma4245/tma4245-6-1)**, nå anvendt på $\\hat{\\beta}$ i stedet for $\\bar{X}$. Til ln-modellen trenger du å kunne regne med logaritmer og eksponensialfunksjonen.\n\n**Sist du var her — de tre verktøyene vi bygger på (ferdig oppfrisket):**\n\n1. **Standardfeilen til helningen (kap. 8.1).** $\\text{SE}(\\hat{\\beta})=\\dfrac{s}{\\sqrt{S_{xx}}}$, med $s=\\sqrt{\\text{SSE}/(n-2)}$ og $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$. Dette er byggeklossen i alle testene og intervallene under.\n2. **Testritualet (kap. 7.1).** Sett opp $H_0$ og $H_1$; regn testobservatoren; sammenlign med kritisk verdi (eller p-verdi); konkluder i klartekst. Vi bytter bare ut $\\bar{X}$-observatoren med $\\hat{\\beta}$-observatoren.\n3. **KI-formen (kap. 6.1).** Et konfidensintervall er $\\text{estimat} \\pm (\\text{kvantil})\\cdot(\\text{standardfeil})$. Her blir kvantilen $t_{n-2,\\alpha/2}$ (samme frihetsgrad $n-2$ som i $s^2$).\n\nKapitlet er forkunnskap for NTNU-varianten uten konstantledd ([kap. 8.3](/tma4245/tma4245-8-3))."
     },
     {
       "id": "tma4245-8-2-intro",
@@ -37,13 +37,13 @@
       "id": "tma4245-8-2-def-test",
       "type": "definition",
       "title": "Testobservatoren for helningen",
-      "content": "Vi vil teste en påstand om det sanne stigningstallet, typisk $H_0:\\beta=\\beta_0$ (ofte $\\beta_0=0$). Siden $\\hat{\\beta}$ er forventningsrett med $\\text{Var}(\\hat{\\beta})=\\sigma^2/S_{xx}$ og feilene er normalfordelte, er $\\hat{\\beta}$ normalfordelt. Erstatter vi det ukjente $\\sigma$ med estimatet $s$, får vi en **testobservator som følger en $t$-fordeling** — nøyaktig samme mekanisme som t-testen for et gjennomsnitt i [kap. 7.1](/bok/tma4245/tma4245-7-1), men med $\\hat{\\beta}$:\n\n$$T=\\frac{\\hat{\\beta}-\\beta_0}{S/\\sqrt{S_{xx}}}=\\frac{\\hat{\\beta}-\\beta_0}{\\text{SE}(\\hat{\\beta})}\\ \\sim\\ t_{n-2}\\quad\\text{under }H_0.$$\n\n**Frihetsgraden er $n-2$** — samme antall som i variansestimatet $s^2$, fordi to parametre ($\\hat{\\alpha},\\hat{\\beta}$) er estimert. Bruk $t_{n-1}$ her, og du mister poeng. Forkastingsregelen er den vanlige: ved tosidig test på nivå $\\alpha$ forkaster vi $H_0$ hvis $|T|>t_{n-2,\\alpha/2}$ (øvre haleareal $\\alpha/2$). En **testobservator** er bare tallet vi regner ut for å måle hvor langt estimatet ligger fra $H_0$-verdien, målt i antall standardfeil."
+      "content": "Vi vil teste en påstand om det sanne stigningstallet, typisk $H_0:\\beta=\\beta_0$ (ofte $\\beta_0=0$). Siden $\\hat{\\beta}$ er forventningsrett med $\\text{Var}(\\hat{\\beta})=\\sigma^2/S_{xx}$ og feilene er normalfordelte, er $\\hat{\\beta}$ normalfordelt. Erstatter vi det ukjente $\\sigma$ med estimatet $s$, får vi en **testobservator som følger en $t$-fordeling** — nøyaktig samme mekanisme som t-testen for et gjennomsnitt i [kap. 7.1](/tma4245/tma4245-7-1), men med $\\hat{\\beta}$:\n\n$$T=\\frac{\\hat{\\beta}-\\beta_0}{S/\\sqrt{S_{xx}}}=\\frac{\\hat{\\beta}-\\beta_0}{\\text{SE}(\\hat{\\beta})}\\ \\sim\\ t_{n-2}\\quad\\text{under }H_0.$$\n\n**Frihetsgraden er $n-2$** — samme antall som i variansestimatet $s^2$, fordi to parametre ($\\hat{\\alpha},\\hat{\\beta}$) er estimert. Bruk $t_{n-1}$ her, og du mister poeng. Forkastingsregelen er den vanlige: ved tosidig test på nivå $\\alpha$ forkaster vi $H_0$ hvis $|T|>t_{n-2,\\alpha/2}$ (øvre haleareal $\\alpha/2$). En **testobservator** er bare tallet vi regner ut for å måle hvor langt estimatet ligger fra $H_0$-verdien, målt i antall standardfeil."
     },
     {
       "id": "tma4245-8-2-def-ki-beta",
       "type": "definition",
       "title": "Konfidensintervall for helningen $\\beta$",
-      "content": "Snur vi testobservatoren, får vi et **konfidensintervall** for $\\beta$ på formen estimat $\\pm$ kvantil $\\cdot$ standardfeil (KI-formen fra [kap. 6.1](/bok/tma4245/tma4245-6-1)):\n\n$$\\hat{\\beta}\\ \\pm\\ t_{n-2,\\alpha/2}\\cdot\\frac{s}{\\sqrt{S_{xx}}}.$$\n\nEt $95\\,\\%$-intervall bruker $t_{n-2,0{,}025}$. Ligger $0$ **utenfor** intervallet, forkaster vi $H_0:\\beta=0$ på $5\\,\\%$-nivå — test og intervall gir samme konklusjon. Intervallet blir smalt når standardfeilen er liten, altså når $s$ er liten (lite støy) og $S_{xx}$ stor (godt spredte $x$-verdier)."
+      "content": "Snur vi testobservatoren, får vi et **konfidensintervall** for $\\beta$ på formen estimat $\\pm$ kvantil $\\cdot$ standardfeil (KI-formen fra [kap. 6.1](/tma4245/tma4245-6-1)):\n\n$$\\hat{\\beta}\\ \\pm\\ t_{n-2,\\alpha/2}\\cdot\\frac{s}{\\sqrt{S_{xx}}}.$$\n\nEt $95\\,\\%$-intervall bruker $t_{n-2,0{,}025}$. Ligger $0$ **utenfor** intervallet, forkaster vi $H_0:\\beta=0$ på $5\\,\\%$-nivå — test og intervall gir samme konklusjon. Intervallet blir smalt når standardfeilen er liten, altså når $s$ er liten (lite støy) og $S_{xx}$ stor (godt spredte $x$-verdier)."
     },
     {
       "id": "tma4245-8-2-ex1",
@@ -338,7 +338,7 @@
             "number": "R1",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 7.1](/bok/tma4245/tma4245-7-1).) Ved en tosidig t-test på $5\\,\\%$-nivå med frihetsgrad $10$ og kritisk verdi $t_{10,0{,}025}=2{,}228$: forkastes $H_0$ hvis testobservatoren er $T=-2{,}9$?",
+            "task": "(Fra [kap. 7.1](/tma4245/tma4245-7-1).) Ved en tosidig t-test på $5\\,\\%$-nivå med frihetsgrad $10$ og kritisk verdi $t_{10,0{,}025}=2{,}228$: forkastes $H_0$ hvis testobservatoren er $T=-2{,}9$?",
             "solution": "Ja. $|{-2{,}9}|=2{,}9>2{,}228$, så observatoren ligger i forkastingsområdet, og $H_0$ forkastes.",
             "hints": [
               "Tosidig test: sammenlign $|T|$ med kvantilen.",
@@ -354,7 +354,7 @@
             "number": "R2",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 6.1](/bok/tma4245/tma4245-6-1).) Et $95\\,\\%$ konfidensintervall har formen estimat $\\pm$ kvantil $\\cdot$ standardfeil. Hva skjer med bredden hvis standardfeilen halveres?",
+            "task": "(Fra [kap. 6.1](/tma4245/tma4245-6-1).) Et $95\\,\\%$ konfidensintervall har formen estimat $\\pm$ kvantil $\\cdot$ standardfeil. Hva skjer med bredden hvis standardfeilen halveres?",
             "solution": "Bredden **halveres**. Halvbredden er kvantil $\\cdot$ standardfeil, så den er proporsjonal med standardfeilen.",
             "hints": [
               "Halvbredde $=$ kvantil $\\cdot$ SE.",
@@ -370,7 +370,7 @@
             "number": "R3",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 8.1](/bok/tma4245/tma4245-8-1).) Med $n=16$, $S_{yy}=180$, $\\hat{\\beta}=1{,}5$ og $S_{xy}=100$: finn SSE, $s^2$ og $s$.",
+            "task": "(Fra [kap. 8.1](/tma4245/tma4245-8-1).) Med $n=16$, $S_{yy}=180$, $\\hat{\\beta}=1{,}5$ og $S_{xy}=100$: finn SSE, $s^2$ og $s$.",
             "solution": "$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}=180-1{,}5\\cdot100=180-150=30$. Divisor $n-2=14$: $s^2=30/14=2{,}14$, $s=\\sqrt{2{,}14}=1{,}46$.",
             "hints": [
               "$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$.",
@@ -386,7 +386,7 @@
             "number": "R4",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 8.1](/bok/tma4245/tma4245-8-1).) I en regresjon er $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$. To forsøk har samme $s$, men forsøk B har dobbelt så stor $S_{xx}$ som forsøk A. Hvilket gir minst standardfeil for helningen?",
+            "task": "(Fra [kap. 8.1](/tma4245/tma4245-8-1).) I en regresjon er $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$. To forsøk har samme $s$, men forsøk B har dobbelt så stor $S_{xx}$ som forsøk A. Hvilket gir minst standardfeil for helningen?",
             "solution": "Forsøk **B**. Større $S_{xx}$ (mer spredte $x$-verdier) gir mindre standardfeil: $\\text{SE}\\propto1/\\sqrt{S_{xx}}$, så dobling av $S_{xx}$ reduserer SE med faktoren $1/\\sqrt{2}\\approx0{,}71$.",
             "hints": [
               "$\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$.",

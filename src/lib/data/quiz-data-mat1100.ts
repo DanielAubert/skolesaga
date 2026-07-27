@@ -50,7 +50,7 @@ const quizData_mat1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hvor ofte har signaturoppgaven (kontinuitet/deriverbarhet i punkt) vært på de siste settene?",
       options: ["På fem av de seks siste slutteksamenene", "På én av de seks siste slutteksamenene", "På ingen av de seks siste slutteksamenene", "På tre av de seks siste slutteksamenene"],
-      explanation: "Sjanger H er 10/21 totalt, men hele 5 av 6 siste år — oscillasjonsfamilien fire år på rad. Den skiller toppkarakterene og drilles i [kap. 3.3](/bok/mat1100/mat1100-3-3).",
+      explanation: "Sjanger H er 10/21 totalt, men hele 5 av 6 siste år — oscillasjonsfamilien fire år på rad. Den skiller toppkarakterene og drilles i [kap. 3.3](/mat1100/mat1100-3-3).",
     },
   ],
   'mat1100-1-1': [

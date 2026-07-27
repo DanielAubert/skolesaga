@@ -91,7 +91,7 @@ function SubjectCard({ courseId, name, icon, color, image }: {
     <div className="relative group">
       <AddCourseButton courseId={courseId} />
 
-      <Link href={`/bok/${courseId}`} className="block">
+      <Link href={`/${courseId}`} className="block">
         <div className={`relative overflow-hidden rounded-2xl ${image ? '' : `bg-gradient-to-br ${color}`} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
           {image && (
             /* eslint-disable-next-line @next/next/no-img-element */

@@ -21,7 +21,7 @@
     {
       "id": "in1020-2-4-forkunnskaper",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet kan leses uten forkunnskaper fra resten av boka, men to ting du alt har møtt, gjør det lettere:\n\n**1. Instruksjoner er tall i minnet.** Fra [kap. 1.5](/bok/in1020/in1020-1-5): maskinkoden `508` er ikke et tall i seg selv, den er instruksjonen `LDA 08`. Det er hele grunnlaget for arkitekturen i dette kapitlet.\n\n**2. Binær addisjon med mente.** Fra [kap. 1.3](/bok/in1020/in1020-1-3): `0+0 = 0`, `0+1 = 1`, `1+1 = 0 med mente 1`, `1+1+1 = 1 med mente 1`. Kretsen som gjør nettopp dette, heter fulladder, og vi bygger den her.\n\n**3. Logiske porter.** Fra [kap. 2.1](/bok/in1020/in1020-2-1): AND, OR, XOR og NOT med sannhetstabellene sine. Du trenger XOR-en og AND-en i avsnittet om adderen.\n\nEt roligere hverdagsbilde av maskinens deler — hva som sitter hvor i kabinettet — ligger i [Datamaskinen og dens komponenter](/bok/im-vg1/im-vg1-1-1)."
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet kan leses uten forkunnskaper fra resten av boka, men to ting du alt har møtt, gjør det lettere:\n\n**1. Instruksjoner er tall i minnet.** Fra [kap. 1.5](/in1020/in1020-1-5): maskinkoden `508` er ikke et tall i seg selv, den er instruksjonen `LDA 08`. Det er hele grunnlaget for arkitekturen i dette kapitlet.\n\n**2. Binær addisjon med mente.** Fra [kap. 1.3](/in1020/in1020-1-3): `0+0 = 0`, `0+1 = 1`, `1+1 = 0 med mente 1`, `1+1+1 = 1 med mente 1`. Kretsen som gjør nettopp dette, heter fulladder, og vi bygger den her.\n\n**3. Logiske porter.** Fra [kap. 2.1](/in1020/in1020-2-1): AND, OR, XOR og NOT med sannhetstabellene sine. Du trenger XOR-en og AND-en i avsnittet om adderen.\n\nEt roligere hverdagsbilde av maskinens deler — hva som sitter hvor i kabinettet — ligger i [Datamaskinen og dens komponenter](/im-vg1/im-vg1-1-1)."
     },
     {
       "id": "in1020-2-4-notasjon",
@@ -39,7 +39,7 @@
     {
       "id": "in1020-2-4-lokke1",
       "type": "text",
-      "content": "## Løkke 1 — Det lagrede programmet (~12 min)\n\nDe første regnemaskinene ble programmert med ledninger. Skulle de gjøre noe annet, måtte noen koble om fysisk.\n\nGjennombruddet var innsikten om at **programmet kan ligge i minnet, akkurat som data**. Maskinen henter instruksjonen sin fra en minnecelle, på samme måte som den henter et tall. Da kan et nytt program lastes inn uten at noen rører en eneste ledning.\n\nDu har allerede sett konsekvensen: i [kap. 1.5](/bok/in1020/in1020-1-5) kunne et program endre sin egen instruksjon ved å legge et tall til den, nettopp fordi instruksjonen bare var et tall i en celle.\n\nDenne måten å bygge en maskin på kalles **von Neumann-arkitekturen**, og den er den maskinen du sitter foran nå."
+      "content": "## Løkke 1 — Det lagrede programmet (~12 min)\n\nDe første regnemaskinene ble programmert med ledninger. Skulle de gjøre noe annet, måtte noen koble om fysisk.\n\nGjennombruddet var innsikten om at **programmet kan ligge i minnet, akkurat som data**. Maskinen henter instruksjonen sin fra en minnecelle, på samme måte som den henter et tall. Da kan et nytt program lastes inn uten at noen rører en eneste ledning.\n\nDu har allerede sett konsekvensen: i [kap. 1.5](/in1020/in1020-1-5) kunne et program endre sin egen instruksjon ved å legge et tall til den, nettopp fordi instruksjonen bare var et tall i en celle.\n\nDenne måten å bygge en maskin på kalles **von Neumann-arkitekturen**, og den er den maskinen du sitter foran nå."
     },
     {
       "id": "in1020-2-4-def-vonneumann",
@@ -51,7 +51,7 @@
       "id": "in1020-2-4-def-lagretprogram",
       "type": "definition",
       "title": "Lagret program-prinsippet",
-      "content": "At instruksjonene til maskinen lagres i det vanlige minnet, i samme format som alle andre tall.\n\nDet er dette prinsippet som gjør en datamaskin til en **generell** maskin: samme maskinvare kan kjøre en tekstbehandler i dag og en simulering i morgen, uten fysiske endringer.\n\nDen praktiske følgen du har sett: selvmodifiserende kode ([kap. 1.5](/bok/in1020/in1020-1-5)) er mulig fordi en instruksjon kan behandles som et tall og legges til.\n\nDen faste feilslutningen: å tro at kode ligger i et eget, beskyttet minne fra maskinvarens side. Beskyttelsen finnes, men den er noe operativsystemet lager — ikke noe arkitekturen gir gratis."
+      "content": "At instruksjonene til maskinen lagres i det vanlige minnet, i samme format som alle andre tall.\n\nDet er dette prinsippet som gjør en datamaskin til en **generell** maskin: samme maskinvare kan kjøre en tekstbehandler i dag og en simulering i morgen, uten fysiske endringer.\n\nDen praktiske følgen du har sett: selvmodifiserende kode ([kap. 1.5](/in1020/in1020-1-5)) er mulig fordi en instruksjon kan behandles som et tall og legges til.\n\nDen faste feilslutningen: å tro at kode ligger i et eget, beskyttet minne fra maskinvarens side. Beskyttelsen finnes, men den er noe operativsystemet lager — ikke noe arkitekturen gir gratis."
     },
     {
       "id": "in1020-2-4-def-cpu",
@@ -178,7 +178,7 @@
     {
       "id": "in1020-2-4-lokke3",
       "type": "text",
-      "content": "## Løkke 3 — Adderen: fra porter til aritmetikk (~15 min)\n\nNå kobler vi seksjonens to halvdeler sammen. Du kan portene fra [kap. 2.1](/bok/in1020/in1020-2-1), og du kan binær addisjon med mente fra [kap. 1.3](/bok/in1020/in1020-1-3). Adderen er stedet der de møtes.\n\nDette er også svaret på et spørsmål du kanskje har hatt: hvordan kan noe som bare kjenner 0 og 1, faktisk **regne**?"
+      "content": "## Løkke 3 — Adderen: fra porter til aritmetikk (~15 min)\n\nNå kobler vi seksjonens to halvdeler sammen. Du kan portene fra [kap. 2.1](/in1020/in1020-2-1), og du kan binær addisjon med mente fra [kap. 1.3](/in1020/in1020-1-3). Adderen er stedet der de møtes.\n\nDette er også svaret på et spørsmål du kanskje har hatt: hvordan kan noe som bare kjenner 0 og 1, faktisk **regne**?"
     },
     {
       "id": "in1020-2-4-def-halvadder",
@@ -190,13 +190,13 @@
       "id": "in1020-2-4-teo-fulladder",
       "type": "theorem",
       "title": "Fulladderen",
-      "content": "Kretsen som legger sammen **tre** bit: `A`, `B` og menten inn fra forrige posisjon. Den gir ut sumbitet og menten videre.\n\n$$S = A \\oplus B \\oplus C_{\\text{inn}}$$\n\n$$C_{\\text{ut}} = A \\cdot B + C_{\\text{inn}} \\cdot (A \\oplus B)$$\n\n**Hele sannhetstabellen:**\n\n| A | B | `C_inn` | Sum | `C_ut` | Kontroll |\n|---|---|---|---|---|---|\n| 0 | 0 | 0 | 0 | 0 | 0 + 0 + 0 = 0 |\n| 0 | 0 | 1 | 1 | 0 | 0 + 0 + 1 = 1 |\n| 0 | 1 | 0 | 1 | 0 | 0 + 1 + 0 = 1 |\n| 0 | 1 | 1 | 0 | 1 | 0 + 1 + 1 = 2 |\n| 1 | 0 | 0 | 1 | 0 | 1 + 0 + 0 = 1 |\n| 1 | 0 | 1 | 0 | 1 | 1 + 0 + 1 = 2 |\n| 1 | 1 | 0 | 0 | 1 | 1 + 1 + 0 = 2 |\n| 1 | 1 | 1 | 1 | 1 | 1 + 1 + 1 = 3 |\n\nKontrollkolonnen leses slik: svaret er `2·C_ut + Sum`. I den nederste raden gir det `2·1 + 1 = 3`. Det stemmer i alle åtte radene.\n\n**Slik bygger du en 8-bits adder:** åtte fulladdere på rad. Menten ut av den ene kobles til menten inn på den neste. Det er nøyaktig det du gjorde for hånd i [kap. 1.3](/bok/in1020/in1020-1-3), bare i maskinvare.\n\n**Og derfor:** en 64-bits ALU bygges av **64** en-bits enheter. Ikke 65. Påstanden om 65 er en av de fem faste usanne — den er konstruert for å friste deg til å telle en ekstra for menten, men menten er allerede en del av hver enhet."
+      "content": "Kretsen som legger sammen **tre** bit: `A`, `B` og menten inn fra forrige posisjon. Den gir ut sumbitet og menten videre.\n\n$$S = A \\oplus B \\oplus C_{\\text{inn}}$$\n\n$$C_{\\text{ut}} = A \\cdot B + C_{\\text{inn}} \\cdot (A \\oplus B)$$\n\n**Hele sannhetstabellen:**\n\n| A | B | `C_inn` | Sum | `C_ut` | Kontroll |\n|---|---|---|---|---|---|\n| 0 | 0 | 0 | 0 | 0 | 0 + 0 + 0 = 0 |\n| 0 | 0 | 1 | 1 | 0 | 0 + 0 + 1 = 1 |\n| 0 | 1 | 0 | 1 | 0 | 0 + 1 + 0 = 1 |\n| 0 | 1 | 1 | 0 | 1 | 0 + 1 + 1 = 2 |\n| 1 | 0 | 0 | 1 | 0 | 1 + 0 + 0 = 1 |\n| 1 | 0 | 1 | 0 | 1 | 1 + 0 + 1 = 2 |\n| 1 | 1 | 0 | 0 | 1 | 1 + 1 + 0 = 2 |\n| 1 | 1 | 1 | 1 | 1 | 1 + 1 + 1 = 3 |\n\nKontrollkolonnen leses slik: svaret er `2·C_ut + Sum`. I den nederste raden gir det `2·1 + 1 = 3`. Det stemmer i alle åtte radene.\n\n**Slik bygger du en 8-bits adder:** åtte fulladdere på rad. Menten ut av den ene kobles til menten inn på den neste. Det er nøyaktig det du gjorde for hånd i [kap. 1.3](/in1020/in1020-1-3), bare i maskinvare.\n\n**Og derfor:** en 64-bits ALU bygges av **64** en-bits enheter. Ikke 65. Påstanden om 65 er en av de fem faste usanne — den er konstruert for å friste deg til å telle en ekstra for menten, men menten er allerede en del av hver enhet."
     },
     {
       "id": "in1020-2-4-def-subtraktor",
       "type": "definition",
       "title": "Fulladderen som subtraktor",
-      "content": "En prosessor trenger ingen egen subtraksjonskrets. Den bruker adderen, med to grep:\n\n1. **Inverter** alle bitene i tallet som skal trekkes fra.\n2. **Sett mente inn lik 1** på den nederste fulladderen.\n\n$$A - B = A + \\neg B + 1$$\n\nDette er nøyaktig negasjonen i to-er komplement fra [kap. 1.3](/bok/in1020/in1020-1-3): inverter og legg til 1. Ett-tallet kommer gratis via mente inn.\n\n**Kontrollregning, 75 − 30 i åtte bit:** `75` er `01001011`, `30` er `00011110`. Invertert blir `30` til `11100001`. Med mente inn 1:\n\n```text\n  01001011      (75)\n+ 11100001      (invertert 30)\n+        1      (mente inn)\n-----------\n1 00101101      (menten ut faller ut av byten)\n```\n\nSvaret er `00101101₂ = 45`, og `75 − 30 = 45`. Stemmer.\n\nDen faste feilslutningen: å tro at maskinen har egne kretser for pluss og minus. Den har én, brukt på to måter."
+      "content": "En prosessor trenger ingen egen subtraksjonskrets. Den bruker adderen, med to grep:\n\n1. **Inverter** alle bitene i tallet som skal trekkes fra.\n2. **Sett mente inn lik 1** på den nederste fulladderen.\n\n$$A - B = A + \\neg B + 1$$\n\nDette er nøyaktig negasjonen i to-er komplement fra [kap. 1.3](/in1020/in1020-1-3): inverter og legg til 1. Ett-tallet kommer gratis via mente inn.\n\n**Kontrollregning, 75 − 30 i åtte bit:** `75` er `01001011`, `30` er `00011110`. Invertert blir `30` til `11100001`. Med mente inn 1:\n\n```text\n  01001011      (75)\n+ 11100001      (invertert 30)\n+        1      (mente inn)\n-----------\n1 00101101      (menten ut faller ut av byten)\n```\n\nSvaret er `00101101₂ = 45`, og `75 − 30 = 45`. Stemmer.\n\nDen faste feilslutningen: å tro at maskinen har egne kretser for pluss og minus. Den har én, brukt på to måter."
     },
     {
       "id": "in1020-2-4-o4",
@@ -241,7 +241,7 @@
       "id": "in1020-2-4-def-instruksjonssyklus",
       "type": "definition",
       "title": "Instruksjonssyklusen",
-      "content": "Runden prosessoren går for hver eneste instruksjon, i tre trinn:\n\n1. **Hent** — kontrollenheten leser instruksjonen fra cellen programtelleren peker på.\n2. **Tolk** — den finner ut hva instruksjonen betyr, og setter opp de delene som trengs.\n3. **Utfør** — ALU-en regner, eller verdien flyttes, eller programtelleren settes til en ny adresse.\n\nDeretter går programtelleren videre, og runden gjentas. Dette er nøyaktig det du sporet for hånd i LMC-sporetabellene i [kap. 1.4](/bok/in1020/in1020-1-4).\n\nDen faste feilslutningen: å tro at én instruksjon tar én klokkesykel. De tre trinnene tar hver sin tid, og et minneoppslag underveis kan koste mange sykler ekstra."
+      "content": "Runden prosessoren går for hver eneste instruksjon, i tre trinn:\n\n1. **Hent** — kontrollenheten leser instruksjonen fra cellen programtelleren peker på.\n2. **Tolk** — den finner ut hva instruksjonen betyr, og setter opp de delene som trengs.\n3. **Utfør** — ALU-en regner, eller verdien flyttes, eller programtelleren settes til en ny adresse.\n\nDeretter går programtelleren videre, og runden gjentas. Dette er nøyaktig det du sporet for hånd i LMC-sporetabellene i [kap. 1.4](/in1020/in1020-1-4).\n\nDen faste feilslutningen: å tro at én instruksjon tar én klokkesykel. De tre trinnene tar hver sin tid, og et minneoppslag underveis kan koste mange sykler ekstra."
     },
     {
       "id": "in1020-2-4-def-pipeline",
@@ -344,7 +344,7 @@
       "id": "in1020-2-4-bank-1",
       "type": "definition",
       "title": "Programteller",
-      "content": "Registeret som holder **adressen til neste instruksjon**. Den ligger inne i CPU-en, som alle registre.\n\nEtter hver instruksjon økes den med én — med mindre instruksjonen selv setter den til en annen adresse. Det er nøyaktig det et hopp gjør.\n\nDu førte programtelleren i egen kolonne i LMC-sporetabellene i [kap. 1.4](/bok/in1020/in1020-1-4). Kolonnen der er den samme mekanismen som her, bare i en forenklet maskin."
+      "content": "Registeret som holder **adressen til neste instruksjon**. Den ligger inne i CPU-en, som alle registre.\n\nEtter hver instruksjon økes den med én — med mindre instruksjonen selv setter den til en annen adresse. Det er nøyaktig det et hopp gjør.\n\nDu førte programtelleren i egen kolonne i LMC-sporetabellene i [kap. 1.4](/in1020/in1020-1-4). Kolonnen der er den samme mekanismen som her, bare i en forenklet maskin."
     },
     {
       "id": "in1020-2-4-bank-2",
@@ -410,7 +410,7 @@
       "id": "in1020-2-4-bank-12",
       "type": "definition",
       "title": "Mente inn og mente ut i maskinvare",
-      "content": "**Mente inn** er signalet fra forrige bitposisjon, inn i denne fulladderen. **Mente ut** er signalet videre til neste posisjon.\n\nI en 8-bits adder er de sju indre mentene interne ledninger. Menten inn på den nederste posisjonen og menten ut av den øverste er derimot styresignaler du kan bruke:\n\n- Mente inn = 1 på nederste posisjon gir subtraksjon, sammen med inverterte operander.\n- Mente ut av øverste posisjon er nettopp den usignerte overflyten du så i [kap. 1.3](/bok/in1020/in1020-1-3)."
+      "content": "**Mente inn** er signalet fra forrige bitposisjon, inn i denne fulladderen. **Mente ut** er signalet videre til neste posisjon.\n\nI en 8-bits adder er de sju indre mentene interne ledninger. Menten inn på den nederste posisjonen og menten ut av den øverste er derimot styresignaler du kan bruke:\n\n- Mente inn = 1 på nederste posisjon gir subtraksjon, sammen med inverterte operander.\n- Mente ut av øverste posisjon er nettopp den usignerte overflyten du så i [kap. 1.3](/in1020/in1020-1-3)."
     },
     {
       "id": "in1020-2-4-bank-13",
@@ -476,13 +476,13 @@
       "id": "in1020-2-4-bank-23",
       "type": "definition",
       "title": "Én adder, to operasjoner",
-      "content": "En prosessor har ingen egen subtraksjonskrets. Den har en adder, et lag invertere som kan slås av og på, og en mente inn som kan settes til 1.\n\n$$A - B = A + \\neg B + 1$$\n\nEt styresignal fra kontrollenheten avgjør om invertererne og mente inn er aktive. Er de av, adderer kretsen; er de på, subtraherer den.\n\nDette er samme regel som negasjonen i to-er komplement fra [kap. 1.3](/bok/in1020/in1020-1-3), realisert i maskinvare."
+      "content": "En prosessor har ingen egen subtraksjonskrets. Den har en adder, et lag invertere som kan slås av og på, og en mente inn som kan settes til 1.\n\n$$A - B = A + \\neg B + 1$$\n\nEt styresignal fra kontrollenheten avgjør om invertererne og mente inn er aktive. Er de av, adderer kretsen; er de på, subtraherer den.\n\nDette er samme regel som negasjonen i to-er komplement fra [kap. 1.3](/in1020/in1020-1-3), realisert i maskinvare."
     },
     {
       "id": "in1020-2-4-bank-24",
       "type": "definition",
       "title": "Instruksjonssett",
-      "content": "Listen over alle instruksjoner en gitt prosessor forstår, med hva hver av dem gjør.\n\nDu har allerede arbeidet med et lite instruksjonssett: LMC-instruksjonene i [kap. 1.4](/bok/in1020/in1020-1-4) med sine tre-sifrede opkoder.\n\nEn virkelig prosessor har hundrevis av instruksjoner i stedet for elleve, men prinsippet er det samme: en opkode identifiserer operasjonen, og resten av instruksjonen sier hva den skal virke på."
+      "content": "Listen over alle instruksjoner en gitt prosessor forstår, med hva hver av dem gjør.\n\nDu har allerede arbeidet med et lite instruksjonssett: LMC-instruksjonene i [kap. 1.4](/in1020/in1020-1-4) med sine tre-sifrede opkoder.\n\nEn virkelig prosessor har hundrevis av instruksjoner i stedet for elleve, men prinsippet er det samme: en opkode identifiserer operasjonen, og resten av instruksjonen sier hva den skal virke på."
     },
     {
       "id": "in1020-2-4-bank-25",

@@ -48,8 +48,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description: chapterMeta.description,
     ...pageMetadata({
-      path: `/bok/${courseId}/${chapterId}`,
-      canonicalPath: `/bok/${courseId}/${canonicalId}`,
+      path: `/${courseId}/${chapterId}`,
+      canonicalPath: `/${courseId}/${canonicalId}`,
       title,
       description: chapterMeta.description,
       image: chapterImagePath(course, chapterMeta),
@@ -121,7 +121,7 @@ export default async function ChapterPage({ params }: PageProps) {
   const seoMeta = seoMetaBase.coverImage
     ? seoMetaBase
     : { ...seoMetaBase, coverImage: chapterImagePath(course, seoMetaBase) };
-  const canonicalUrl = absoluteUrl(`/bok/${courseId}/${canonicalChapterId(course, seoMeta)}`);
+  const canonicalUrl = absoluteUrl(`/${courseId}/${canonicalChapterId(course, seoMeta)}`);
   const structuredData = chapterJsonLd(course, seoMeta, canonicalUrl);
 
   return (
@@ -134,7 +134,7 @@ export default async function ChapterPage({ params }: PageProps) {
       itemType="chapter"
       itemId={`${courseId}/${chapterId}`}
       title={`${course.title}: ${chapterMeta.number} ${chapterMeta.title}`}
-      url={`/bok/${courseId}/${chapterId}`}
+      url={`/${courseId}/${chapterId}`}
     />
     <TextbookChapterView
       course={course}

@@ -23,7 +23,7 @@ export function Footer() {
         <div className="mt-12 border-t border-border/50 pt-8">
           <div className="flex flex-col items-center gap-4">
             <Link
-              href="/bok"
+              href="/"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <BookOpen className="h-4 w-4" />

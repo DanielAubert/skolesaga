@@ -16,12 +16,12 @@
       "id": "mat1120-5-1-tip",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Ortogonal projeksjon er en av de fem faste søylene** (sjanger B, ~100 %) og henger nesten alltid sammen med Gram–Schmidt fra [kap. 4.2](/bok/mat1120/mat1120-4-2) og minste kvadrater i [kap. 5.2](/bok/mat1120/mat1120-5-2) — ofte kjedet på **samme matrise** som oppgave 1.\n\n- **Projeksjon** ($\\operatorname{proj}_W\\mathbf{y}$) er med i praktisk talt hvert sett. **$W^{\\perp}$ og avstand** dukker opp i drøyt halvparten (~55 %: 2018, 2020, 2022-u, 2024).\n- I ca. 7 av 10 sett foregår det i et **ikke-standard indreprodukt** — da regnes hvert eneste ledd med det oppgitte indreproduktet.\n\n**Fasitens grep du skal kopiere:** skaff en **ortogonal basis først** (Gram–Schmidt), bruk deretter $\\operatorname{proj}_W\\mathbf{y}=\\sum\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$, splitt $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$, og les avstanden som $\\|\\mathbf{z}\\|=\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$ — **aldri** $\\|\\hat{\\mathbf{y}}\\|$.\n\n**Sensorregel:** vis hvert Fourier-ledd og avslutt med en verbal setning. En sjekk $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$ er billig forsikring."
+      "content": "**Ortogonal projeksjon er en av de fem faste søylene** (sjanger B, ~100 %) og henger nesten alltid sammen med Gram–Schmidt fra [kap. 4.2](/mat1120/mat1120-4-2) og minste kvadrater i [kap. 5.2](/mat1120/mat1120-5-2) — ofte kjedet på **samme matrise** som oppgave 1.\n\n- **Projeksjon** ($\\operatorname{proj}_W\\mathbf{y}$) er med i praktisk talt hvert sett. **$W^{\\perp}$ og avstand** dukker opp i drøyt halvparten (~55 %: 2018, 2020, 2022-u, 2024).\n- I ca. 7 av 10 sett foregår det i et **ikke-standard indreprodukt** — da regnes hvert eneste ledd med det oppgitte indreproduktet.\n\n**Fasitens grep du skal kopiere:** skaff en **ortogonal basis først** (Gram–Schmidt), bruk deretter $\\operatorname{proj}_W\\mathbf{y}=\\sum\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$, splitt $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$, og les avstanden som $\\|\\mathbf{z}\\|=\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$ — **aldri** $\\|\\hat{\\mathbf{y}}\\|$.\n\n**Sensorregel:** vis hvert Fourier-ledd og avslutt med en verbal setning. En sjekk $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$ er billig forsikring."
     },
     {
       "id": "mat1120-5-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 4.2](/bok/mat1120/mat1120-4-2) — ortogonal basis og Gram–Schmidt; projeksjonsformelen *krever* en ortogonal basis, så Gram–Schmidt er ofte forsteget\n- [Kap. 1.2](/bok/mat1120/mat1120-1-2) — $\\operatorname{Nul}A$ og $\\operatorname{Col}A$, siden ortogonalkomplementet til et kolonnerom er et nullrom\n- [Kap. 4.1](/bok/mat1120/mat1120-4-1) — indreprodukt, norm og ortogonalitet (også i ikke-standard indreprodukt)\n- [Skalarprodukt](/bok/r1/r1-6-3) — vektorprojeksjon på VGS-nivå\n\nSelve projeksjonsapparatet bygges fra grunnen her."
+      "content": "**Forkunnskaper:**\n\n- [Kap. 4.2](/mat1120/mat1120-4-2) — ortogonal basis og Gram–Schmidt; projeksjonsformelen *krever* en ortogonal basis, så Gram–Schmidt er ofte forsteget\n- [Kap. 1.2](/mat1120/mat1120-1-2) — $\\operatorname{Nul}A$ og $\\operatorname{Col}A$, siden ortogonalkomplementet til et kolonnerom er et nullrom\n- [Kap. 4.1](/mat1120/mat1120-4-1) — indreprodukt, norm og ortogonalitet (også i ikke-standard indreprodukt)\n- [Skalarprodukt](/r1/r1-6-3) — vektorprojeksjon på VGS-nivå\n\nSelve projeksjonsapparatet bygges fra grunnen her."
     },
     {
       "id": "mat1120-5-1-intro",
@@ -43,7 +43,7 @@
       "id": "mat1120-5-1-thm-colperp",
       "type": "theorem",
       "title": "$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$",
-      "content": "For en matrise $A$ gjelder (i standardprikkproduktet):\n\n$$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T}),\\qquad (\\operatorname{Row}A)^{\\perp}=\\operatorname{Nul}(A).$$\n\n*Hvorfor:* en vektor $\\mathbf{z}$ er ortogonal på alle kolonnene i $A$ nøyaktig når $A^{T}\\mathbf{z}=\\mathbf{0}$ (hver komponent i $A^{T}\\mathbf{z}$ er prikkproduktet av en kolonne med $\\mathbf{z}$). Å være ortogonal på kolonnene er det samme som å være ortogonal på hele $\\operatorname{Col}A$. Dette gir en **snarvei**: en basis for $W^{\\perp}=(\\operatorname{Col}A)^{\\perp}$ finner du som $\\operatorname{Nul}(A^{T})$ — samme vedleggsteknikk som i [kap. 1.2](/bok/mat1120/mat1120-1-2), bare på $A^{T}$."
+      "content": "For en matrise $A$ gjelder (i standardprikkproduktet):\n\n$$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T}),\\qquad (\\operatorname{Row}A)^{\\perp}=\\operatorname{Nul}(A).$$\n\n*Hvorfor:* en vektor $\\mathbf{z}$ er ortogonal på alle kolonnene i $A$ nøyaktig når $A^{T}\\mathbf{z}=\\mathbf{0}$ (hver komponent i $A^{T}\\mathbf{z}$ er prikkproduktet av en kolonne med $\\mathbf{z}$). Å være ortogonal på kolonnene er det samme som å være ortogonal på hele $\\operatorname{Col}A$. Dette gir en **snarvei**: en basis for $W^{\\perp}=(\\operatorname{Col}A)^{\\perp}$ finner du som $\\operatorname{Nul}(A^{T})$ — samme vedleggsteknikk som i [kap. 1.2](/mat1120/mat1120-1-2), bare på $A^{T}$."
     },
     {
       "id": "mat1120-5-1-ex-wperp",
@@ -93,7 +93,7 @@
       "id": "mat1120-5-1-warn-ortobasis",
       "type": "warning",
       "title": "Ortogonal basis FØR projeksjon",
-      "content": "Projeksjonsformelen under **forutsetter at $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ er en ortogonal basis** for $W$. Får du utlevert en vilkårlig basis (typisk $\\operatorname{Col}A$-kolonnene), må du **kjøre Gram–Schmidt først** (se [kap. 4.2](/bok/mat1120/mat1120-4-2)). Å sette ikke-ortogonale vektorer rett inn i formelen gir feil svar — dette er felle nr. 4 i faget. Og i et **ikke-standard indreprodukt** regnes hvert $\\langle\\cdot,\\cdot\\rangle$ med den oppgitte definisjonen, også i Gram–Schmidt-steget."
+      "content": "Projeksjonsformelen under **forutsetter at $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ er en ortogonal basis** for $W$. Får du utlevert en vilkårlig basis (typisk $\\operatorname{Col}A$-kolonnene), må du **kjøre Gram–Schmidt først** (se [kap. 4.2](/mat1120/mat1120-4-2)). Å sette ikke-ortogonale vektorer rett inn i formelen gir feil svar — dette er felle nr. 4 i faget. Og i et **ikke-standard indreprodukt** regnes hvert $\\langle\\cdot,\\cdot\\rangle$ med den oppgitte definisjonen, også i Gram–Schmidt-steget."
     },
     {
       "id": "mat1120-5-1-def-proj",
@@ -111,7 +111,7 @@
       "id": "mat1120-5-1-thm-beste",
       "type": "theorem",
       "title": "Beste tilnærming",
-      "content": "Projeksjonen $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}$ er det **punktet i $W$ som ligger nærmest** $\\mathbf{y}$: for enhver annen $\\mathbf{w}\\in W$ er\n\n$$\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|<\\|\\mathbf{y}-\\mathbf{w}\\|.$$\n\nDette er hele grunnen til at projeksjon er kjernen i minste kvadrater ([kap. 5.2](/bok/mat1120/mat1120-5-2)): når $\\mathbf{y}$ ikke ligger i $W$, er $\\hat{\\mathbf{y}}$ den beste tilnærmingen vi kan få *innenfor* $W$."
+      "content": "Projeksjonen $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}$ er det **punktet i $W$ som ligger nærmest** $\\mathbf{y}$: for enhver annen $\\mathbf{w}\\in W$ er\n\n$$\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|<\\|\\mathbf{y}-\\mathbf{w}\\|.$$\n\nDette er hele grunnen til at projeksjon er kjernen i minste kvadrater ([kap. 5.2](/mat1120/mat1120-5-2)): når $\\mathbf{y}$ ikke ligger i $W$, er $\\hat{\\mathbf{y}}$ den beste tilnærmingen vi kan få *innenfor* $W$."
     },
     {
       "id": "mat1120-5-1-ex-proj",
@@ -369,7 +369,7 @@
             "number": "R1",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 4.2](/bok/mat1120/mat1120-4-2)) Hvorfor må en basis være ortogonal før du bruker projeksjonsformelen, og hva gjør du hvis den ikke er det?",
+            "task": "(Fra [kap. 4.2](/mat1120/mat1120-4-2)) Hvorfor må en basis være ortogonal før du bruker projeksjonsformelen, og hva gjør du hvis den ikke er det?",
             "solution": "Fourier-formelen $\\sum\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ er utledet under antakelsen om at $\\mathbf{v}_i$-ene er parvis ortogonale; ellers blir leddene «overlappende» og summen feil. Er basisen ikke ortogonal, kjører du **Gram–Schmidt** først for å få en ortogonal basis for det samme underrommet.",
             "hints": [
               "Formelen forutsetter parvis ortogonalitet; Gram–Schmidt lager den."
@@ -384,7 +384,7 @@
             "number": "R2",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 1.2](/bok/mat1120/mat1120-1-2)) La $A$ ha $\\operatorname{rang}A=2$ og $4$ rader. Hva er $\\dim\\operatorname{Col}A$ og $\\dim(\\operatorname{Col}A)^{\\perp}$?",
+            "task": "(Fra [kap. 1.2](/mat1120/mat1120-1-2)) La $A$ ha $\\operatorname{rang}A=2$ og $4$ rader. Hva er $\\dim\\operatorname{Col}A$ og $\\dim(\\operatorname{Col}A)^{\\perp}$?",
             "solution": "$\\dim\\operatorname{Col}A=\\operatorname{rang}A=2$. Kolonnene lever i $\\mathbb{R}^4$, så $\\dim(\\operatorname{Col}A)^{\\perp}=4-2=2$ (og $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$).",
             "hints": [
               "$\\dim\\operatorname{Col}A=\\operatorname{rang}$; komplementet fyller ut resten av $\\mathbb{R}^4$."

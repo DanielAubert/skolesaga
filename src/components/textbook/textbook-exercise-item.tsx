@@ -504,7 +504,7 @@ export function TextbookExerciseItem({
                   className="bg-green-50 dark:bg-green-950/30 border-green-300 dark:border-green-700 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/50"
                   asChild
                 >
-                  <Link href={`/bok/${courseId}/${chapterId}/oppgave/${exercise.id}`}>
+                  <Link href={`/${courseId}/${chapterId}/oppgave/${exercise.id}`}>
                     <Pencil className="h-4 w-4 mr-1" />
                     Løs oppgaven
                   </Link>
@@ -517,7 +517,7 @@ export function TextbookExerciseItem({
                     className="bg-blue-50 dark:bg-blue-950/30 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50"
                     asChild
                   >
-                    <Link href={`/bok/${courseId}/${chapterId}/trening/${exercise.id}`}>
+                    <Link href={`/${courseId}/${chapterId}/trening/${exercise.id}`}>
                       <Dumbbell className="h-4 w-4 mr-1" />
                       Tren
                     </Link>

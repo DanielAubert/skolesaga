@@ -21,7 +21,7 @@
     {
       "id": "in1020-3-6-forkunnskaper",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/bok/in1020/in1020-3-1) og [kap. 3.4](/bok/in1020/in1020-3-4). Her er det du trenger, ferdig oppfrisket:\n\n**1. Tilgangskontroll er et tiltak**, ikke et mål. Målet den tjener, er **konfidensialitet** — at bare de rette får lese.\n\n**2. Autentisitet er et mål:** at noe eller noen virkelig er den de utgir seg for. Autentisering er tiltaket som skal gi det målet.\n\n**3. Hash-verdiens tre egenskaper**, fra [kap. 3.4](/bok/in1020/in1020-3-4):\n\n- Samme innhold gir alltid samme verdi.\n- Ett endret bit gir en helt annen verdi.\n- Verdien kan **ikke** regnes tilbake til innholdet — funksjonen går bare én vei.\n\nDen siste egenskapen er hele grunnlaget for passordlagring, og den er derfor kjernen i dette kapitlet.\n\n**4. Minste privilegium**, fra [kap. 3.2](/bok/in1020/in1020-3-2): hver bruker skal ha akkurat de rettighetene oppgaven krever, og ikke flere."
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 3.1](/in1020/in1020-3-1) og [kap. 3.4](/in1020/in1020-3-4). Her er det du trenger, ferdig oppfrisket:\n\n**1. Tilgangskontroll er et tiltak**, ikke et mål. Målet den tjener, er **konfidensialitet** — at bare de rette får lese.\n\n**2. Autentisitet er et mål:** at noe eller noen virkelig er den de utgir seg for. Autentisering er tiltaket som skal gi det målet.\n\n**3. Hash-verdiens tre egenskaper**, fra [kap. 3.4](/in1020/in1020-3-4):\n\n- Samme innhold gir alltid samme verdi.\n- Ett endret bit gir en helt annen verdi.\n- Verdien kan **ikke** regnes tilbake til innholdet — funksjonen går bare én vei.\n\nDen siste egenskapen er hele grunnlaget for passordlagring, og den er derfor kjernen i dette kapitlet.\n\n**4. Minste privilegium**, fra [kap. 3.2](/in1020/in1020-3-2): hver bruker skal ha akkurat de rettighetene oppgaven krever, og ikke flere."
     },
     {
       "id": "in1020-3-6-notasjon",
@@ -139,7 +139,7 @@
     {
       "id": "in1020-3-6-lokke3",
       "type": "text",
-      "content": "## Løkke 3 — Passordlagring: hash og salt (~16 min)\n\nEn tjeneste med en million brukere må kunne kontrollere passordene deres. Den enkleste løsningen er å lagre dem i en tabell.\n\nDet er også den verste. Skjer det et innbrudd, er alle passordene borte på én gang — og siden folk gjenbruker passord, er også kontoene deres i andre tjenester i fare.\n\nLøsningen bygger på hash-verdiens enveisegenskap fra [kap. 3.4](/bok/in1020/in1020-3-4).\n\n— naturlig pausepunkt —"
+      "content": "## Løkke 3 — Passordlagring: hash og salt (~16 min)\n\nEn tjeneste med en million brukere må kunne kontrollere passordene deres. Den enkleste løsningen er å lagre dem i en tabell.\n\nDet er også den verste. Skjer det et innbrudd, er alle passordene borte på én gang — og siden folk gjenbruker passord, er også kontoene deres i andre tjenester i fare.\n\nLøsningen bygger på hash-verdiens enveisegenskap fra [kap. 3.4](/in1020/in1020-3-4).\n\n— naturlig pausepunkt —"
     },
     {
       "id": "in1020-3-6-teo-passord",
@@ -182,7 +182,7 @@
       "type": "example",
       "title": "Eksempel 3: Eksamensnivå — autentisering, tofaktor og passord",
       "problem": "Svarform F1. Kryss av **alle** påstandene som stemmer.\n\n**a)** Autentisering svarer på «hvem er du?», autorisasjon på «hva får du lov til?».\n\n**b)** Passord og sikkerhetsspørsmål er tofaktor-autentisering.\n\n**c)** Passord bør lagres som hash med et salt som er unikt per bruker.\n\n**d)** Tofaktor gjør et lekket passord utilstrekkelig alene.\n\n**e)** Tilgangskontroll er et sikkerhetsmål.",
-      "solution": "**a) Riktig.** Dette er kjerneskillet i kapitlet. Systemet må vite hvem du er før det kan avgjøre hva du får lov til.\n\n**b) Galt.** Begge er **noe du vet**, altså samme faktortype brukt to ganger. Reell tofaktor krever to **ulike** typer — for eksempel noe du vet pluss noe du har.\n\n**c) Riktig.** Hashing hindrer at passordet kan leses ut av basen; saltet gjør ferdiglagde oppslagstabeller ubrukelige og skjuler at to brukere har samme passord.\n\n**d) Riktig.** Det lekkede passordet er bare den ene faktoren. Uten telefonen, kodebrikken eller fingeravtrykket kommer angriperen ikke inn.\n\n**e) Galt.** Tilgangskontroll er et **tiltak** — noe man setter opp. Målet den tjener, er konfidensialitet. Dette er felle #1, som du kjenner fra [kap. 3.1](/bok/in1020/in1020-3-1).\n\n**Fasit: a, c og d.**\n\n**Om formen:** tre av fem riktige, og de to gale er de to faste fellene i dette temaet — «to av samme type er tofaktor» og forvekslingen av mål og tiltak. Det er nøyaktig sammensetningen et virkelig sett bruker."
+      "solution": "**a) Riktig.** Dette er kjerneskillet i kapitlet. Systemet må vite hvem du er før det kan avgjøre hva du får lov til.\n\n**b) Galt.** Begge er **noe du vet**, altså samme faktortype brukt to ganger. Reell tofaktor krever to **ulike** typer — for eksempel noe du vet pluss noe du har.\n\n**c) Riktig.** Hashing hindrer at passordet kan leses ut av basen; saltet gjør ferdiglagde oppslagstabeller ubrukelige og skjuler at to brukere har samme passord.\n\n**d) Riktig.** Det lekkede passordet er bare den ene faktoren. Uten telefonen, kodebrikken eller fingeravtrykket kommer angriperen ikke inn.\n\n**e) Galt.** Tilgangskontroll er et **tiltak** — noe man setter opp. Målet den tjener, er konfidensialitet. Dette er felle #1, som du kjenner fra [kap. 3.1](/in1020/in1020-3-1).\n\n**Fasit: a, c og d.**\n\n**Om formen:** tre av fem riktige, og de to gale er de to faste fellene i dette temaet — «to av samme type er tofaktor» og forvekslingen av mål og tiltak. Det er nøyaktig sammensetningen et virkelig sett bruker."
     },
     {
       "id": "in1020-3-6-o6",
@@ -314,7 +314,7 @@
       "id": "in1020-3-6-bank-12",
       "type": "definition",
       "title": "Uttømmende søk mot passord",
-      "content": "Å prøve kandidatpassord til ett gir riktig hash-verdi.\n\nArbeidsmengden avhenger av **passordets lengde og variasjon**, ikke av hvor god hash-funksjonen er. Et kort passord av vanlige ord faller uansett; et langt, unikt passord er praktisk umulig å treffe.\n\nDerfor er lengde det viktigste enkeltrådet: hvert ekstra tegn ganger antall muligheter opp, på samme måte som hvert ekstra bit dobler en nøkkels mulighetsrom ([kap. 3.3](/bok/in1020/in1020-3-3))."
+      "content": "Å prøve kandidatpassord til ett gir riktig hash-verdi.\n\nArbeidsmengden avhenger av **passordets lengde og variasjon**, ikke av hvor god hash-funksjonen er. Et kort passord av vanlige ord faller uansett; et langt, unikt passord er praktisk umulig å treffe.\n\nDerfor er lengde det viktigste enkeltrådet: hvert ekstra tegn ganger antall muligheter opp, på samme måte som hvert ekstra bit dobler en nøkkels mulighetsrom ([kap. 3.3](/in1020/in1020-3-3))."
     },
     {
       "id": "in1020-3-6-bank-13",
@@ -362,7 +362,7 @@
       "id": "in1020-3-6-bank-20",
       "type": "definition",
       "title": "Autentisering av maskiner, ikke bare mennesker",
-      "content": "Det er ikke bare brukere som må bekrefte hvem de er. En nettleser må også vite at den snakker med rett tjener.\n\nDen autentiseringen skjer med **sertifikat**, ikke med passord — se [kap. 3.4](/bok/in1020/in1020-3-4).\n\nPrinsippet er det samme: en part legger fram et bevis som bare den rette kan ha. For mennesker er det noe du vet, har eller er; for tjenere er det en privat nøkkel bundet til en identitet."
+      "content": "Det er ikke bare brukere som må bekrefte hvem de er. En nettleser må også vite at den snakker med rett tjener.\n\nDen autentiseringen skjer med **sertifikat**, ikke med passord — se [kap. 3.4](/in1020/in1020-3-4).\n\nPrinsippet er det samme: en part legger fram et bevis som bare den rette kan ha. For mennesker er det noe du vet, har eller er; for tjenere er det en privat nøkkel bundet til en identitet."
     },
     {
       "id": "in1020-3-6-repetisjon",

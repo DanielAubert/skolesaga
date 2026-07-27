@@ -16,12 +16,12 @@
       "id": "tma4110-10-2-tip-eksamensvinkel",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Prioritet: kunne — den komplekse varianten av systemoppgaven (sjanger M, del av ~45 %).**\n\nNår koeffisientmatrisen $A$ har **komplekse** egenverdier $\\lambda=a\\pm bi$, svinger løsningen. Dette er samme systemoppgave som i [kap. 10.1](/bok/tma4110/tma4110-10-1), men med et ekstra grep: fra *én* kompleks grunnløsning henter du *to* reelle ved å ta real- og imaginærdel.\n\nFasitens grep, som må sitte utenat under **kode E**: **bruk kun den ene egenverdien $\\lambda=a+bi$ og dens egenvektor, skriv $e^{\\lambda t}\\mathbf w$, og trekk ut real- og imaginærdel — det gir to reelle grunnløsninger med faktorene $e^{at}\\cos bt$ og $e^{at}\\sin bt$.** Deretter kan du klassifisere likevektspunktet.\n\nDen andre halvdelen av kapitlet er **klassifisering**: fra egenverdiene leser du av om origo er en node, en sadel, et senter eller en spiral, og om den er stabil. Dette er billige poeng når egenverdiene først er funnet.\n\nDe to vanligste fellene: å bruke *begge* konjugerte egenverdier i stedet for real/imaginærdel av én, og å konkludere feil om stabilitet. Vi bruker en egen løkke på hver."
+      "content": "**Prioritet: kunne — den komplekse varianten av systemoppgaven (sjanger M, del av ~45 %).**\n\nNår koeffisientmatrisen $A$ har **komplekse** egenverdier $\\lambda=a\\pm bi$, svinger løsningen. Dette er samme systemoppgave som i [kap. 10.1](/tma4110/tma4110-10-1), men med et ekstra grep: fra *én* kompleks grunnløsning henter du *to* reelle ved å ta real- og imaginærdel.\n\nFasitens grep, som må sitte utenat under **kode E**: **bruk kun den ene egenverdien $\\lambda=a+bi$ og dens egenvektor, skriv $e^{\\lambda t}\\mathbf w$, og trekk ut real- og imaginærdel — det gir to reelle grunnløsninger med faktorene $e^{at}\\cos bt$ og $e^{at}\\sin bt$.** Deretter kan du klassifisere likevektspunktet.\n\nDen andre halvdelen av kapitlet er **klassifisering**: fra egenverdiene leser du av om origo er en node, en sadel, et senter eller en spiral, og om den er stabil. Dette er billige poeng når egenverdiene først er funnet.\n\nDe to vanligste fellene: å bruke *begge* konjugerte egenverdier i stedet for real/imaginærdel av én, og å konkludere feil om stabilitet. Vi bruker en egen løkke på hver."
     },
     {
       "id": "tma4110-10-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 10.1](/bok/tma4110/tma4110-10-1) — oppskriften ved **reelle og ulike** egenverdier: finn $\\lambda_i,\\mathbf v_i$, skriv $\\mathbf x=\\sum c_ie^{\\lambda_i t}\\mathbf v_i$, og bestem konstantene fra $\\mathbf x(0)$. Grunnløsningen $e^{\\lambda t}\\mathbf v$ er den samme byggesteinen her — bare med kompleks $\\lambda$.\n- [kap. 5.4](/bok/tma4110/tma4110-5-4) — komplekse egenverdier kommer alltid i **konjugerte par** $a\\pm bi$, og egenvektorene er også komplekse.\n- [kap. 7.2](/bok/tma4110/tma4110-7-2) — **Eulers formel** $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$, nøkkelen til å omgjøre en kompleks eksponential til reelle $\\cos$/$\\sin$.\n- [kap. 9.3](/bok/tma4110/tma4110-9-3) — svingningsmodellene, den skalare varianten av det samme fenomenet."
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 10.1](/tma4110/tma4110-10-1) — oppskriften ved **reelle og ulike** egenverdier: finn $\\lambda_i,\\mathbf v_i$, skriv $\\mathbf x=\\sum c_ie^{\\lambda_i t}\\mathbf v_i$, og bestem konstantene fra $\\mathbf x(0)$. Grunnløsningen $e^{\\lambda t}\\mathbf v$ er den samme byggesteinen her — bare med kompleks $\\lambda$.\n- [kap. 5.4](/tma4110/tma4110-5-4) — komplekse egenverdier kommer alltid i **konjugerte par** $a\\pm bi$, og egenvektorene er også komplekse.\n- [kap. 7.2](/tma4110/tma4110-7-2) — **Eulers formel** $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$, nøkkelen til å omgjøre en kompleks eksponential til reelle $\\cos$/$\\sin$.\n- [kap. 9.3](/tma4110/tma4110-9-3) — svingningsmodellene, den skalare varianten av det samme fenomenet."
     },
     {
       "id": "tma4110-10-2-intro",
@@ -55,7 +55,7 @@
       "id": "tma4110-10-2-def-euler",
       "type": "definition",
       "title": "Eulers formel (repetisjon)",
-      "content": "$e^{i\\theta}=\\cos\\theta+i\\sin\\theta$. Broen fra kompleks eksponential til reelle svingninger: $e^{(a+bi)t}=e^{at}(\\cos bt+i\\sin bt)$. Realdelen $a$ havner i den voksende/dempende faktoren $e^{at}$, imaginærdelen $b$ i svingefrekvensen $\\cos bt,\\sin bt$. Dette er nøyaktig samme mekanikk som ga den reelle formen ved komplekse røtter i [kap. 9.1](/bok/tma4110/tma4110-9-1)."
+      "content": "$e^{i\\theta}=\\cos\\theta+i\\sin\\theta$. Broen fra kompleks eksponential til reelle svingninger: $e^{(a+bi)t}=e^{at}(\\cos bt+i\\sin bt)$. Realdelen $a$ havner i den voksende/dempende faktoren $e^{at}$, imaginærdelen $b$ i svingefrekvensen $\\cos bt,\\sin bt$. Dette er nøyaktig samme mekanikk som ga den reelle formen ved komplekse røtter i [kap. 9.1](/tma4110/tma4110-9-1)."
     },
     {
       "id": "tma4110-10-2-def-generell-kompleks",
@@ -252,7 +252,7 @@
       "id": "tma4110-10-2-bb-kvasifrekvens",
       "type": "definition",
       "title": "Kvasifrekvens og demping (kobling til 9.3)",
-      "content": "Ved $\\lambda=a\\pm bi$ er $b$ **kvasifrekvensen** (hvor fort systemet svinger) og $a$ **dempingsraten**. Dette er nøyaktig den dempede svingningen fra [kap. 9.3](/bok/tma4110/tma4110-9-3): en 2. ordens svingemodell $y''+cy'+ky=0$ omformet til system har komplekse egenverdier med samme $a,b$. Systemspråket og ODE-språket beskriver samme fenomen."
+      "content": "Ved $\\lambda=a\\pm bi$ er $b$ **kvasifrekvensen** (hvor fort systemet svinger) og $a$ **dempingsraten**. Dette er nøyaktig den dempede svingningen fra [kap. 9.3](/tma4110/tma4110-9-3): en 2. ordens svingemodell $y''+cy'+ky=0$ omformet til system har komplekse egenverdier med samme $a,b$. Systemspråket og ODE-språket beskriver samme fenomen."
     },
     {
       "id": "tma4110-10-2-bb-stabil-ustabil-node",

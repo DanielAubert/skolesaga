@@ -734,7 +734,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver `print([1, 2] + [3])` ut?",
       options: ["`[1, 2, 3]`", "`[4, 5]`", "`6`", "`[1, 2, [3]]`"],
-      explanation: "`+` på lister betyr **skjøting**, ikke elementvis addisjon (felle #5). Alternativ b) er hva elementvis addisjon ville gitt om det fantes — det kommer først med NumPy-tabeller i [kap. 4.1](/bok/in1900/in1900-4-1). Alternativ c) er summen av alle tallene.",
+      explanation: "`+` på lister betyr **skjøting**, ikke elementvis addisjon (felle #5). Alternativ b) er hva elementvis addisjon ville gitt om det fantes — det kommer først med NumPy-tabeller i [kap. 4.1](/in1900/in1900-4-1). Alternativ c) er summen av alle tallene.",
     },
     {
       question: "Hva skriver `print(sum([1, 2, 3]) * 2)` ut?",
@@ -1478,7 +1478,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "I hvilket av disse tilfellene er en løkke *nødvendig*, slik at ingen vektorisert linje kan erstatte den?",
       options: ["Når verdien i punkt `i` regnes ut fra verdien i punkt `i-1`", "Når funksjonen inneholder både kvadratrot og eksponentialfunksjon", "Når tabellen har flere enn 1000 punkter", "Når intervallet starter i et negativt tall"],
-      explanation: "Er neste verdi avhengig av forrige, må punktene regnes ut i rekkefølge, og det er nettopp en løkke — dette er differenslikningene i [kap. 6.2](/bok/in1900/in1900-6-2). Sammensatte funksjoner, store tabeller og negative intervaller er alle uproblematiske for den vektoriserte malen.",
+      explanation: "Er neste verdi avhengig av forrige, må punktene regnes ut i rekkefølge, og det er nettopp en løkke — dette er differenslikningene i [kap. 6.2](/in1900/in1900-6-2). Sammensatte funksjoner, store tabeller og negative intervaller er alle uproblematiske for den vektoriserte malen.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nT = np.array([12.0, 8.0, 3.0])\nut = np.zeros(T.size)\nfor i in range(T.size):\n    if T[i] < 10.0:\n        ut[i] = 1.0\nprint(ut, sum(ut))\n```",

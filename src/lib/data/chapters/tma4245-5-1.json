@@ -21,7 +21,7 @@
     {
       "id": "tma4245-5-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet hviler tungt på **regnereglene for forventning og varians** fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)** ($E(aX+bY)=aE(X)+bE(Y)$ og $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)$ for uavhengige) og på resultatet **$\\bar{X}\\sim N(\\mu,\\sigma^2/n)$** fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)** — spesielt at $\\text{Var}(\\bar{X})=\\sigma^2/n$. Den empiriske variansen $s^2$ med divisor $n-1$ møtte du allerede i **[kap. 1.4](/bok/tma4245/tma4245-1-4)**; her får du *hvorfor* det skal være $n-1$.\n\nDu trenger ikke maximum likelihood ennå — det kommer i **[kap. 5.2](/bok/tma4245/tma4245-5-2)**, som bygger rett på dette kapitlet. Kapitlet er forkunnskap for hele resten av inferensdelen (konfidensintervall i Del 6, tester i Del 7)."
+      "content": "**Forkunnskaper:** Dette kapitlet hviler tungt på **regnereglene for forventning og varians** fra **[kap. 2.1](/tma4245/tma4245-2-1)** ($E(aX+bY)=aE(X)+bE(Y)$ og $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)$ for uavhengige) og på resultatet **$\\bar{X}\\sim N(\\mu,\\sigma^2/n)$** fra **[kap. 3.2](/tma4245/tma4245-3-2)** — spesielt at $\\text{Var}(\\bar{X})=\\sigma^2/n$. Den empiriske variansen $s^2$ med divisor $n-1$ møtte du allerede i **[kap. 1.4](/tma4245/tma4245-1-4)**; her får du *hvorfor* det skal være $n-1$.\n\nDu trenger ikke maximum likelihood ennå — det kommer i **[kap. 5.2](/tma4245/tma4245-5-2)**, som bygger rett på dette kapitlet. Kapitlet er forkunnskap for hele resten av inferensdelen (konfidensintervall i Del 6, tester i Del 7)."
     },
     {
       "id": "tma4245-5-1-intro",
@@ -43,14 +43,14 @@
       "id": "tma4245-5-1-def-forventningsrett",
       "type": "definition",
       "title": "Forventningsretthet",
-      "content": "En estimator $\\hat{\\theta}$ er **forventningsrett** for $\\theta$ når den i gjennomsnitt treffer den sanne verdien — altså når forventningen er lik parameteren:\n\n$$E(\\hat{\\theta}) = \\theta.$$\n\n(Ordet «forventningsrett» betyr rett *i forventning*, ikke rett hver gang.) Er $E(\\hat{\\theta}) \\ne \\theta$, kaller vi differansen **skjevheten** (bias), $b(\\hat{\\theta}) = E(\\hat{\\theta}) - \\theta$. En forventningsrett estimator har $b=0$.\n\nPå eksamen **regner** du $E(\\hat{\\theta})$ ut med regnereglene fra [kap. 2.1](/bok/tma4245/tma4245-2-1) og sjekker om svaret blir $\\theta$ — du påstår det ikke. Det er nettopp regningen sensor gir poeng for."
+      "content": "En estimator $\\hat{\\theta}$ er **forventningsrett** for $\\theta$ når den i gjennomsnitt treffer den sanne verdien — altså når forventningen er lik parameteren:\n\n$$E(\\hat{\\theta}) = \\theta.$$\n\n(Ordet «forventningsrett» betyr rett *i forventning*, ikke rett hver gang.) Er $E(\\hat{\\theta}) \\ne \\theta$, kaller vi differansen **skjevheten** (bias), $b(\\hat{\\theta}) = E(\\hat{\\theta}) - \\theta$. En forventningsrett estimator har $b=0$.\n\nPå eksamen **regner** du $E(\\hat{\\theta})$ ut med regnereglene fra [kap. 2.1](/tma4245/tma4245-2-1) og sjekker om svaret blir $\\theta$ — du påstår det ikke. Det er nettopp regningen sensor gir poeng for."
     },
     {
       "id": "tma4245-5-1-ex1",
       "type": "example",
       "title": "Eksempel 1: $\\bar{X}$ er forventningsrett for $\\mu$",
       "problem": "La $X_1,\\ldots,X_n$ være uavhengige målinger av bruddstyrken til en fiberprøve, alle med forventning $\\mu$ og varians $\\sigma^2$. Vis at gjennomsnittet $\\bar{X}=\\frac{1}{n}\\sum X_i$ er en forventningsrett estimator for $\\mu$.",
-      "solution": "Bruk lineariteten til forventning (fra [kap. 2.1](/bok/tma4245/tma4245-2-1)) — forventningen av en sum er summen av forventningene, og konstanter kan flyttes ut:\n\n$$E(\\bar{X}) = E\\!\\left(\\frac{1}{n}\\sum_{i=1}^n X_i\\right) = \\frac{1}{n}\\sum_{i=1}^n E(X_i) = \\frac{1}{n}\\cdot n\\mu = \\mu.$$\n\nSiden $E(\\bar{X})=\\mu$, er $\\bar{X}$ **forventningsrett** for $\\mu$. Skjevheten er $b=\\mu-\\mu=0$. Legg merke til at dette gjelder for *enhver* fordeling med forventning $\\mu$ — vi brukte ingenting om normalitet, bare at hver $E(X_i)=\\mu$."
+      "solution": "Bruk lineariteten til forventning (fra [kap. 2.1](/tma4245/tma4245-2-1)) — forventningen av en sum er summen av forventningene, og konstanter kan flyttes ut:\n\n$$E(\\bar{X}) = E\\!\\left(\\frac{1}{n}\\sum_{i=1}^n X_i\\right) = \\frac{1}{n}\\sum_{i=1}^n E(X_i) = \\frac{1}{n}\\cdot n\\mu = \\mu.$$\n\nSiden $E(\\bar{X})=\\mu$, er $\\bar{X}$ **forventningsrett** for $\\mu$. Skjevheten er $b=\\mu-\\mu=0$. Legg merke til at dette gjelder for *enhver* fordeling med forventning $\\mu$ — vi brukte ingenting om normalitet, bare at hver $E(X_i)=\\mu$."
     },
     {
       "id": "tma4245-5-1-l1",
@@ -164,7 +164,7 @@
       "id": "tma4245-5-1-def-sigmahat-skjev",
       "type": "definition",
       "title": "ML-varianten $\\hat{\\sigma}^2$ er skjev",
-      "content": "Deler vi i stedet på $n$ (som maximum likelihood gjør, [kap. 5.2](/bok/tma4245/tma4245-5-2)):\n\n$$\\hat{\\sigma}^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i-\\bar{X})^2,$$\n\nblir estimatoren **forventningsskjev**. Fra $E[\\sum(X_i-\\bar{X})^2]=(n-1)\\sigma^2$ følger\n\n$$E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2 = \\sigma^2 - \\frac{\\sigma^2}{n},$$\n\nså skjevheten er $b=-\\sigma^2/n$ — den **undervurderer** variansen systematisk. For små $n$ er dette merkbart (for $n=5$ er forventningen bare $0{,}8\\,\\sigma^2$). Sammenhengen er $\\hat{\\sigma}^2=\\frac{n-1}{n}S^2$: ML-varianten er $S^2$ krympet med faktoren $(n-1)/n$."
+      "content": "Deler vi i stedet på $n$ (som maximum likelihood gjør, [kap. 5.2](/tma4245/tma4245-5-2)):\n\n$$\\hat{\\sigma}^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i-\\bar{X})^2,$$\n\nblir estimatoren **forventningsskjev**. Fra $E[\\sum(X_i-\\bar{X})^2]=(n-1)\\sigma^2$ følger\n\n$$E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2 = \\sigma^2 - \\frac{\\sigma^2}{n},$$\n\nså skjevheten er $b=-\\sigma^2/n$ — den **undervurderer** variansen systematisk. For små $n$ er dette merkbart (for $n=5$ er forventningen bare $0{,}8\\,\\sigma^2$). Sammenhengen er $\\hat{\\sigma}^2=\\frac{n-1}{n}S^2$: ML-varianten er $S^2$ krympet med faktoren $(n-1)/n$."
     },
     {
       "id": "tma4245-5-1-def-konsistens",

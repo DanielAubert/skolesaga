@@ -21,7 +21,7 @@
     {
       "id": "tma4245-6-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på utvalgsgjennomsnittet og estimatorer fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)**, gjennomsnittets fordeling fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)**, sentralgrenseteoremet fra **[kap. 3.3](/bok/tma4245/tma4245-3-3)** og standardiseringen med kvantilnotasjon fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)**.\n\n**Sist du var her — de tre resultatene vi bygger på (ferdig oppfrisket):**\n\n1. For uavhengige, identisk fordelte normale observasjoner er gjennomsnittet normalfordelt:\n$$\\bar{X} \\sim N\\!\\left(\\mu, \\frac{\\sigma^2}{n}\\right), \\qquad \\text{så} \\qquad \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1).$$\n2. **Kvantilnotasjonen med øvre haleareal:** $z_\\alpha$ er tallet der $P(Z > z_\\alpha) = \\alpha$. For et 95 %-intervall trenger vi $z_{0{,}025} = 1{,}96$ (fordi 2,5 % ligger i hver hale). Tilsvarende $t_{\\nu,\\alpha}$ og $\\chi^2_{\\nu,\\alpha}$.\n3. **Empirisk varians** $S^2 = \\frac{1}{n-1}\\sum (X_i - \\bar{X})^2$ (alltid divisor $n-1$) fra **[kap. 1.4](/bok/tma4245/tma4245-1-4)** og [kap. 5.1](/bok/tma4245/tma4245-5-1).\n\nDu trenger å kunne løse en enkel dobbeltulikhet for en ukjent. Ingen ny matematikk — alt handler om å sette kvantiler rundt en kjent størrelse og snu det til et intervall."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på utvalgsgjennomsnittet og estimatorer fra **[kap. 5.1](/tma4245/tma4245-5-1)**, gjennomsnittets fordeling fra **[kap. 3.2](/tma4245/tma4245-3-2)**, sentralgrenseteoremet fra **[kap. 3.3](/tma4245/tma4245-3-3)** og standardiseringen med kvantilnotasjon fra **[kap. 3.1](/tma4245/tma4245-3-1)**.\n\n**Sist du var her — de tre resultatene vi bygger på (ferdig oppfrisket):**\n\n1. For uavhengige, identisk fordelte normale observasjoner er gjennomsnittet normalfordelt:\n$$\\bar{X} \\sim N\\!\\left(\\mu, \\frac{\\sigma^2}{n}\\right), \\qquad \\text{så} \\qquad \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1).$$\n2. **Kvantilnotasjonen med øvre haleareal:** $z_\\alpha$ er tallet der $P(Z > z_\\alpha) = \\alpha$. For et 95 %-intervall trenger vi $z_{0{,}025} = 1{,}96$ (fordi 2,5 % ligger i hver hale). Tilsvarende $t_{\\nu,\\alpha}$ og $\\chi^2_{\\nu,\\alpha}$.\n3. **Empirisk varians** $S^2 = \\frac{1}{n-1}\\sum (X_i - \\bar{X})^2$ (alltid divisor $n-1$) fra **[kap. 1.4](/tma4245/tma4245-1-4)** og [kap. 5.1](/tma4245/tma4245-5-1).\n\nDu trenger å kunne løse en enkel dobbeltulikhet for en ukjent. Ingen ny matematikk — alt handler om å sette kvantiler rundt en kjent størrelse og snu det til et intervall."
     },
     {
       "id": "tma4245-6-1-intro",
@@ -36,7 +36,7 @@
     {
       "id": "tma4245-6-1-konstruksjon",
       "type": "text",
-      "content": "Alle konfidensintervaller lages på samme måte. Vi viser det **én gang** for $\\mu$ når $\\sigma$ er kjent; deretter bruker vi bare de ferdige formlene fra formelsamlingen.\n\nUtgangspunktet er en størrelse med **kjent fordeling som ikke inneholder den ukjente parameteren** — en **pivotal** (vi møter begrepet for fullt i [kap. 6.2](/bok/tma4245/tma4245-6-2)). Her er den standardiseringen fra kap. 3.1:\n$$Z = \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1).$$\n\n**Steg 1 — sett kvantiler rundt.** Siden $Z \\sim N(0,1)$ og $P(Z > z_{\\alpha/2}) = \\alpha/2$, ligger $Z$ mellom $-z_{\\alpha/2}$ og $z_{\\alpha/2}$ med sannsynlighet $1-\\alpha$:\n$$P\\!\\left(-z_{\\alpha/2} \\le \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\le z_{\\alpha/2}\\right) = 1-\\alpha.$$\n\n**Steg 2 — løs dobbeltulikheten for $\\mu$.** Gang med $\\sigma/\\sqrt{n}$, trekk fra $\\bar{X}$ og gang med $-1$ (som snur ulikheten):\n$$P\\!\\left(\\bar{X} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}} \\le \\mu \\le \\bar{X} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right) = 1-\\alpha.$$\n\nDet vi står igjen med, er intervallet $\\bar{X} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$. **Intuisjon:** vi startet med noe vi kjente fordelingen til, la et sannsynlighetsvindu rundt det, og «pakket ut» $\\mu$ av vinduet. Nettopp denne oppskriften — finn pivotal, sett kvantiler, løs ut — er hele hemmeligheten, og den gjentas for hver ny parameter."
+      "content": "Alle konfidensintervaller lages på samme måte. Vi viser det **én gang** for $\\mu$ når $\\sigma$ er kjent; deretter bruker vi bare de ferdige formlene fra formelsamlingen.\n\nUtgangspunktet er en størrelse med **kjent fordeling som ikke inneholder den ukjente parameteren** — en **pivotal** (vi møter begrepet for fullt i [kap. 6.2](/tma4245/tma4245-6-2)). Her er den standardiseringen fra kap. 3.1:\n$$Z = \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1).$$\n\n**Steg 1 — sett kvantiler rundt.** Siden $Z \\sim N(0,1)$ og $P(Z > z_{\\alpha/2}) = \\alpha/2$, ligger $Z$ mellom $-z_{\\alpha/2}$ og $z_{\\alpha/2}$ med sannsynlighet $1-\\alpha$:\n$$P\\!\\left(-z_{\\alpha/2} \\le \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\le z_{\\alpha/2}\\right) = 1-\\alpha.$$\n\n**Steg 2 — løs dobbeltulikheten for $\\mu$.** Gang med $\\sigma/\\sqrt{n}$, trekk fra $\\bar{X}$ og gang med $-1$ (som snur ulikheten):\n$$P\\!\\left(\\bar{X} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}} \\le \\mu \\le \\bar{X} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right) = 1-\\alpha.$$\n\nDet vi står igjen med, er intervallet $\\bar{X} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$. **Intuisjon:** vi startet med noe vi kjente fordelingen til, la et sannsynlighetsvindu rundt det, og «pakket ut» $\\mu$ av vinduet. Nettopp denne oppskriften — finn pivotal, sett kvantiler, løs ut — er hele hemmeligheten, og den gjentas for hver ny parameter."
     },
     {
       "id": "tma4245-6-1-ex-konstr",
@@ -106,7 +106,7 @@
       "id": "tma4245-6-1-def-chi",
       "type": "definition",
       "title": "Konfidensintervall for variansen $\\sigma^2$",
-      "content": "For å lage et intervall for **variansen** bruker vi at $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$ (utledes i [kap. 6.2](/bok/tma4245/tma4245-6-2)). Kjikvadratfordelingen er **skjev** — ikke symmetrisk som normal og t — så vi setter to *forskjellige* kvantiler i endene. Intervallet blir:\n\n$$\\left[\\frac{(n-1)s^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\; \\frac{(n-1)s^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right].$$\n\n**Legg merke til to ting.** For det første er intervallet **asymmetrisk** — det ligger *ikke* som $s^2 \\pm$ noe. For det andre står den **store** kvantilen ($\\chi^2_{n-1,\\alpha/2}$) i **nevneren under den nedre** grensen, og den **lille** kvantilen ($\\chi^2_{n-1,1-\\alpha/2}$) under den **øvre** — fordi vi deler på kvantilen (å dele på et stort tall gir en liten grense). Vil du ha et intervall for **standardavviket** $\\sigma$, tar du kvadratroten av begge endene."
+      "content": "For å lage et intervall for **variansen** bruker vi at $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$ (utledes i [kap. 6.2](/tma4245/tma4245-6-2)). Kjikvadratfordelingen er **skjev** — ikke symmetrisk som normal og t — så vi setter to *forskjellige* kvantiler i endene. Intervallet blir:\n\n$$\\left[\\frac{(n-1)s^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\; \\frac{(n-1)s^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right].$$\n\n**Legg merke til to ting.** For det første er intervallet **asymmetrisk** — det ligger *ikke* som $s^2 \\pm$ noe. For det andre står den **store** kvantilen ($\\chi^2_{n-1,\\alpha/2}$) i **nevneren under den nedre** grensen, og den **lille** kvantilen ($\\chi^2_{n-1,1-\\alpha/2}$) under den **øvre** — fordi vi deler på kvantilen (å dele på et stort tall gir en liten grense). Vil du ha et intervall for **standardavviket** $\\sigma$, tar du kvadratroten av begge endene."
     },
     {
       "id": "tma4245-6-1-ex-chi",
@@ -389,7 +389,7 @@
             "number": "R1",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 3.1](/bok/tma4245/tma4245-3-1).) Hva er $z_{0{,}025}$, og hvor mange prosent av standardnormalfordelingen ligger over dette tallet?",
+            "task": "(Fra [kap. 3.1](/tma4245/tma4245-3-1).) Hva er $z_{0{,}025}$, og hvor mange prosent av standardnormalfordelingen ligger over dette tallet?",
             "solution": "$z_{0{,}025} = 1{,}96$. Per definisjon ($\\alpha = 0{,}025$) ligger **2,5 %** av fordelingen over $1{,}96$. I et tosidig 95 %-intervall ligger 2,5 % i hver hale, til sammen 5 % utenfor.",
             "hints": [
               "$z_\\alpha$ har øvre haleareal $\\alpha$.",
@@ -405,7 +405,7 @@
             "number": "R2",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 3.2](/bok/tma4245/tma4245-3-2).) $X_1, \\ldots, X_{16}$ er uavhengige $N(\\mu, \\sigma^2)$ med $\\sigma = 4$. Hva er fordelingen til $\\bar{X}$?",
+            "task": "(Fra [kap. 3.2](/tma4245/tma4245-3-2).) $X_1, \\ldots, X_{16}$ er uavhengige $N(\\mu, \\sigma^2)$ med $\\sigma = 4$. Hva er fordelingen til $\\bar{X}$?",
             "solution": "Gjennomsnittet av $n = 16$ uavhengige normale er normalfordelt med samme forventning og redusert varians: $\\bar{X} \\sim N(\\mu, \\sigma^2/n) = N(\\mu, 16/16) = N(\\mu, 1)$. Standardavviket til $\\bar{X}$ er $\\sigma/\\sqrt{n} = 4/4 = 1$.",
             "hints": [
               "$\\bar{X} \\sim N(\\mu, \\sigma^2/n)$.",
@@ -421,7 +421,7 @@
             "number": "R3",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 1.4](/bok/tma4245/tma4245-1-4) / [5.1](/bok/tma4245/tma4245-5-1).) Fem målinger er 10, 12, 11, 13, 14. Regn ut den empiriske variansen $s^2$ med riktig divisor.",
+            "task": "(Fra [kap. 1.4](/tma4245/tma4245-1-4) / [5.1](/tma4245/tma4245-5-1).) Fem målinger er 10, 12, 11, 13, 14. Regn ut den empiriske variansen $s^2$ med riktig divisor.",
             "solution": "Gjennomsnitt $\\bar{x} = (10+12+11+13+14)/5 = 60/5 = 12$. Avvik: $-2, 0, -1, 1, 2$; kvadrater $4, 0, 1, 1, 4$ med sum $10$. Empirisk varians med divisor $n-1 = 4$: $s^2 = 10/4 = 2{,}5$.",
             "hints": [
               "$\\bar{x} = 60/5 = 12$.",
@@ -437,7 +437,7 @@
             "number": "R4",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 3.3](/bok/tma4245/tma4245-3-3).) En andel skal estimeres fra $n = 40$ med $\\hat{p} = 0{,}08$. Er normaltilnærmingen (gyldighetssjekken $n\\hat{p} \\ge 5$, $n(1-\\hat{p}) \\ge 5$) oppfylt?",
+            "task": "(Fra [kap. 3.3](/tma4245/tma4245-3-3).) En andel skal estimeres fra $n = 40$ med $\\hat{p} = 0{,}08$. Er normaltilnærmingen (gyldighetssjekken $n\\hat{p} \\ge 5$, $n(1-\\hat{p}) \\ge 5$) oppfylt?",
             "solution": "$n\\hat{p} = 40 \\cdot 0{,}08 = 3{,}2 < 5$. Selv om $n(1-\\hat{p}) = 36{,}8 \\ge 5$, er *begge* kravene nødvendige. Siden $n\\hat{p} = 3{,}2 < 5$, er normaltilnærmingen **ikke** gyldig her — for få «suksesser». Man bør bruke en eksakt metode eller samle mer data.",
             "hints": [
               "Sjekk begge: $n\\hat{p}$ OG $n(1-\\hat{p})$.",

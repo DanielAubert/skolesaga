@@ -69,9 +69,9 @@ def form_av(url):
     if d[0] != 'bok':
         return f'/{d[0]}/…'
     if len(d) > 1 and d[1] == 'trinn':
-        return '/bok/trinn/…'
-    return {1: '/bok', 2: '/bok/<kurs>', 3: '/bok/<kurs>/<kapittel>'}.get(
-        len(d), '/bok/<kurs>/<kapittel>/<mer>')
+        return '/trinn/…'
+    return {1: '/', 2: '/<kurs>', 3: '/<kurs>/<kapittel>'}.get(
+        len(d), '/<kurs>/<kapittel>/<mer>')
 
 
 def main():
@@ -90,7 +90,7 @@ def main():
     # Valider: peker lenka på et kapittel som finnes?
     døde = []
     for fil, url in funn:
-        if form_av(url) != '/bok/<kurs>/<kapittel>':
+        if form_av(url) != '/<kurs>/<kapittel>':
             continue
         cid = url.strip('/').split('/')[2]
         if cid not in kapitler and aliaser.get(cid) not in kapitler:

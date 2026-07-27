@@ -16,7 +16,7 @@ export function UserTextbookCard() {
   return (
     <section className="py-8 bg-background">
       <div className="container mx-auto px-4">
-        <Link href="/bok" className="block group">
+        <Link href="/" className="block group">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-600 p-8 md:p-12 shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />

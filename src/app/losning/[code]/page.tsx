@@ -121,14 +121,14 @@ export default async function LosningPage({ params }: PageProps) {
           <nav className="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
             <BreadcrumbHomeLink className="hover:text-foreground" />
             <ChevronRight className="h-4 w-4" />
-            <Link href={`/bok/${entry.courseId}`} className="hover:text-foreground">{course.title}</Link>
+            <Link href={`/${entry.courseId}`} className="hover:text-foreground">{course.title}</Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-foreground">Løsningsforslag</span>
           </nav>
 
           <h1 className="mb-1 text-2xl font-bold">Løsningsforslag</h1>
           <p className="mb-6 text-sm text-muted-foreground">
-            {course.title} · <Link href={`/bok/${entry.courseId}/${entry.chapterId}`} className="underline hover:text-foreground">{chapterLabel}</Link>
+            {course.title} · <Link href={`/${entry.courseId}/${entry.chapterId}`} className="underline hover:text-foreground">{chapterLabel}</Link>
           </p>
 
           {fasitMur ? (
@@ -183,7 +183,7 @@ export default async function LosningPage({ params }: PageProps) {
             <Link href="/vilkar" className="underline hover:text-foreground">KI-deklarasjonen</Link>. Løsningsforslaget er nyskrevet, ikke en offisiell sensorveiledning.
           </p>
 
-          <Link href={`/bok/${entry.courseId}/${entry.chapterId}`} className="mt-6 inline-flex items-center gap-2 rounded-lg border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-muted">
+          <Link href={`/${entry.courseId}/${entry.chapterId}`} className="mt-6 inline-flex items-center gap-2 rounded-lg border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-muted">
             <ArrowLeft className="h-4 w-4" /> Til kapitlet
           </Link>
         </div>

@@ -1265,7 +1265,7 @@ export function TrainingClient({
           <div className="text-center space-y-4">
             <h1 className="text-2xl font-bold">Ingen treningsoppgaver</h1>
             <p className="text-muted-foreground">Denne oppgaven har ikke treningsmodus.</p>
-            <Link href={`/bok/${courseId}/${chapterId}/oppgave/${exerciseId}`}>
+            <Link href={`/${courseId}/${chapterId}/oppgave/${exerciseId}`}>
               <Button variant="outline">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Tilbake til oppgaven
@@ -1472,15 +1472,15 @@ export function TrainingClient({
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href={hasCourses ? "/dashboard/student" : "/bok"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
+                <BreadcrumbLink href={hasCourses ? "/dashboard/student" : "/"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href={`/bok/${courseId}`}>{courseTitle}</BreadcrumbLink>
+                <BreadcrumbLink href={`/${courseId}`}>{courseTitle}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href={`/bok/${courseId}/${chapterId}`}>{chapterTitle}</BreadcrumbLink>
+                <BreadcrumbLink href={`/${courseId}/${chapterId}`}>{chapterTitle}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -1551,7 +1551,7 @@ export function TrainingClient({
                       <RotateCcw className="mr-2 h-4 w-4" />
                       Tren igjen
                     </Button>
-                    <Link href={`/bok/${courseId}/${chapterId}`}>
+                    <Link href={`/${courseId}/${chapterId}`}>
                       <Button variant="outline">
                         <ArrowLeft className="mr-2 h-4 w-4" />
                         Tilbake til kapittel

@@ -194,7 +194,7 @@ export function QuizClient({
               <p className="text-muted-foreground mb-6">
                 Quizen for dette kapitlet er under utvikling.
               </p>
-              <Link href={`/bok/${courseId}/${chapterId}`}>
+              <Link href={`/${courseId}/${chapterId}`}>
                 <Button>
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Tilbake til kapitlet
@@ -248,7 +248,7 @@ export function QuizClient({
                   <RefreshCw className="h-4 w-4" />
                   Prøv igjen
                 </Button>
-                <Link href={`/bok/${courseId}/${chapterId}`}>
+                <Link href={`/${courseId}/${chapterId}`}>
                   <Button variant="outline" className="gap-2 w-full">
                     <ArrowLeft className="h-4 w-4" />
                     Tilbake til kapitlet
@@ -272,15 +272,15 @@ export function QuizClient({
         <Breadcrumb className="mb-4">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href={hasCourses ? "/dashboard/student" : "/bok"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
+              <BreadcrumbLink href={hasCourses ? "/dashboard/student" : "/"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/bok/${courseId}`}>{courseTitle}</BreadcrumbLink>
+              <BreadcrumbLink href={`/${courseId}`}>{courseTitle}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/bok/${courseId}/${chapterId}`}>
+              <BreadcrumbLink href={`/${courseId}/${chapterId}`}>
                 {chapterNumber} {chapterTitle}
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -397,7 +397,7 @@ export function QuizClient({
 
         {/* Back link */}
         <div className="max-w-2xl mx-auto mt-4 text-center">
-          <Link href={`/bok/${courseId}/${chapterId}`} className="text-sm text-muted-foreground hover:text-foreground">
+          <Link href={`/${courseId}/${chapterId}`} className="text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4 inline mr-1" />
             Tilbake til kapitlet
           </Link>

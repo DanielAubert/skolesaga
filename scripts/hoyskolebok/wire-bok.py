@@ -191,7 +191,7 @@ if qvar not in src:
     print("Patchet quiz-data.ts")
 
 # --- navigasjon ---
-inst = os.path.join(REPO, "src/app/bok/trinn/hoyere/institusjoner.ts")
+inst = os.path.join(REPO, "src/app/trinn/hoyere/institusjoner.ts")
 src = open(inst).read()
 if f"'{emne}'" not in src:
     slug = cfg["institusjon"]

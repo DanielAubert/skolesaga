@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     ...pageMetadata({
-      path: `/bok/${courseId}/${chapterId}/quiz`,
-      canonicalPath: `/bok/${courseId}/${canonicalId}/quiz`,
+      path: `/${courseId}/${chapterId}/quiz`,
+      canonicalPath: `/${courseId}/${canonicalId}/quiz`,
       title,
       description,
       image: chapterImagePath(course, chapterMeta),

@@ -29,7 +29,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 KURSFIL = "src/lib/data/textbook-courses-hoyskole.ts"
 INDEKSFIL = "src/lib/data/textbook-courses.ts"
 QUIZFIL = "src/lib/data/quiz-data.ts"
-INSTFIL = "src/app/bok/trinn/hoyere/institusjoner.ts"
+INSTFIL = "src/app/trinn/hoyere/institusjoner.ts"
 REGFIL = "src/lib/data/chapters/_registry.json"
 
 

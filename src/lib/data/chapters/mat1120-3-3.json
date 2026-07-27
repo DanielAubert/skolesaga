@@ -16,12 +16,12 @@
       "id": "mat1120-3-3-tip",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Et elegant og lettjent grep når egenverdiene først er kjent.** Potenser $A^{k}$ og polynom i $A$ er sjanger E, ~40 % av settene (2018, 2021 O5, 2022) — ofte som en kortere deloppgave i egenverdioppgaven. Prioritet: **kjenne** (nivå 3), men billig når du har diagonalisert.\n\n- $A^{k}=PD^{k}P^{-1}$: samme $P$ og $D$ som i [kap. 3.2](/bok/mat1120/mat1120-3-2), bare med $\\lambda^{k}$ på diagonalen. Regn **aldri** $A^{k}$ ved gjentatt matrisemultiplikasjon.\n- For et polynom $q$: $q(A)$ **deler egenvektorer** med $A$ og har egenverdier $q(\\lambda)$. Derfor diagonaliseres $q(A)=Pq(D)P^{-1}$ med **samme** $P$.\n- $q(A)$ er invertibel $\\iff q(\\lambda)\\ne0$ for **alle** egenverdier $\\lambda$.\n\nHele kapitlet hviler på diagonaliseringen fra [kap. 3.2](/bok/mat1120/mat1120-3-2)."
+      "content": "**Et elegant og lettjent grep når egenverdiene først er kjent.** Potenser $A^{k}$ og polynom i $A$ er sjanger E, ~40 % av settene (2018, 2021 O5, 2022) — ofte som en kortere deloppgave i egenverdioppgaven. Prioritet: **kjenne** (nivå 3), men billig når du har diagonalisert.\n\n- $A^{k}=PD^{k}P^{-1}$: samme $P$ og $D$ som i [kap. 3.2](/mat1120/mat1120-3-2), bare med $\\lambda^{k}$ på diagonalen. Regn **aldri** $A^{k}$ ved gjentatt matrisemultiplikasjon.\n- For et polynom $q$: $q(A)$ **deler egenvektorer** med $A$ og har egenverdier $q(\\lambda)$. Derfor diagonaliseres $q(A)=Pq(D)P^{-1}$ med **samme** $P$.\n- $q(A)$ er invertibel $\\iff q(\\lambda)\\ne0$ for **alle** egenverdier $\\lambda$.\n\nHele kapitlet hviler på diagonaliseringen fra [kap. 3.2](/mat1120/mat1120-3-2)."
     },
     {
       "id": "mat1120-3-3-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 3.2](/bok/mat1120/mat1120-3-2) — diagonalisering $A=PDP^{-1}$ og bygging av $P,D$\n- [Kap. 3.1](/bok/mat1120/mat1120-3-1) — egenverdier, egenvektorer; regelen $A^{k}\\mathbf{v}=\\lambda^{k}\\mathbf{v}$ ble varslet i begrepsbanken der — her utnytter vi den fullt ut\n- [Matriseregning (MAT1110)](/bok/mat1110/mat1110-1-3) — matriseprodukt og matriseinvers"
+      "content": "**Forkunnskaper:**\n\n- [Kap. 3.2](/mat1120/mat1120-3-2) — diagonalisering $A=PDP^{-1}$ og bygging av $P,D$\n- [Kap. 3.1](/mat1120/mat1120-3-1) — egenverdier, egenvektorer; regelen $A^{k}\\mathbf{v}=\\lambda^{k}\\mathbf{v}$ ble varslet i begrepsbanken der — her utnytter vi den fullt ut\n- [Matriseregning (MAT1110)](/mat1110/mat1110-1-3) — matriseprodukt og matriseinvers"
     },
     {
       "id": "mat1120-3-3-intro",
@@ -121,7 +121,7 @@
       "id": "mat1120-3-3-ex2",
       "type": "example",
       "title": "Eksempel 2: Diagonaliser B = 2I + A − A²",
-      "problem": "La $A=\\begin{bmatrix}1&0&-2\\\\-3&5&-3\\\\-5&6&-2\\end{bmatrix}$ (egenverdier $-1,2,3$, egenvektorer $(1,1,1)^{T},(-2,-1,1)^{T},(-1,0,1)^{T}$ fra [kap. 3.1](/bok/mat1120/mat1120-3-1)). Sett $B=2I+A-A^{2}$. Vis at $B$ deler egenvektorer med $A$, og finn en diagonalisering av $B$.",
+      "problem": "La $A=\\begin{bmatrix}1&0&-2\\\\-3&5&-3\\\\-5&6&-2\\end{bmatrix}$ (egenverdier $-1,2,3$, egenvektorer $(1,1,1)^{T},(-2,-1,1)^{T},(-1,0,1)^{T}$ fra [kap. 3.1](/mat1120/mat1120-3-1)). Sett $B=2I+A-A^{2}$. Vis at $B$ deler egenvektorer med $A$, og finn en diagonalisering av $B$.",
       "solution": "Her er $B=q(A)$ med $q(x)=2+x-x^{2}$. Etter spektralregelen deler $B$ egenvektorene med $A$, med egenverdier $q(\\lambda)$:\n$$q(-1)=2-1-1=0,\\qquad q(2)=2+2-4=0,\\qquad q(3)=2+3-9=-4.$$\nSå $B$ har egenverdier $0,0,-4$ med **samme** egenvektorer. Med\n$$P=\\begin{bmatrix}1&-2&-1\\\\1&-1&0\\\\1&1&1\\end{bmatrix}\\ (\\text{søyler for }-1,2,3)$$\nfår vi $B=Pq(D)P^{-1}=P\\operatorname{diag}(0,0,-4)P^{-1}$.\n\n**Kontroll ved innsetting:** egenvektoren $(1,1,1)^{T}$ (for $\\lambda=-1$) gir $B(1,1,1)^{T}=q(-1)(1,1,1)^{T}=\\mathbf{0}$, og $(-1,0,1)^{T}$ (for $\\lambda=3$) gir $B(-1,0,1)^{T}=-4(-1,0,1)^{T}$. **Konklusjon:** $B=P\\operatorname{diag}(0,0,-4)P^{-1}$, samme $P$ som $A$."
     },
     {

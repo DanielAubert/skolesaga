@@ -15,12 +15,12 @@
       "id": "tma4110-6-3-tip-eksamensvinkel",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Ortogonal projeksjon er den direkte fortsettelsen av Gram–Schmidt (sjanger H, ~80 %) og selve broen til minste kvadrater.**\n\n- «Finn $\\operatorname{proj}_W\\mathbf y$, dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ og avstanden fra $\\mathbf y$ til $W$» er en klassisk deloppgave, ofte kjedet rett etter en Gram–Schmidt-oppgave på samme rom.\n- **Nøkkelen sensor ser etter:** projeksjonsformelen krever en *ortogonal* basis. Er basisen ikke ortogonal, må du kjøre Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)) først — å bruke formelen på en skjev basis er en dokumentert felle.\n- Avstanden er $\\|\\mathbf z\\|=\\|\\mathbf y-\\hat{\\mathbf y}\\|$ — glem ikke kvadratrota.\n\nSjanger H = *indreprodukt / ortogonalitet / Gram–Schmidt / projeksjon* (etikett fra [kap. 0.1](/bok/tma4110/tma4110-0-1)). Under kode E må projeksjonsformelen sitte utenat. Tidsanslag = lesetid; gang med ca. 1,5 ved håndregning."
+      "content": "**Ortogonal projeksjon er den direkte fortsettelsen av Gram–Schmidt (sjanger H, ~80 %) og selve broen til minste kvadrater.**\n\n- «Finn $\\operatorname{proj}_W\\mathbf y$, dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ og avstanden fra $\\mathbf y$ til $W$» er en klassisk deloppgave, ofte kjedet rett etter en Gram–Schmidt-oppgave på samme rom.\n- **Nøkkelen sensor ser etter:** projeksjonsformelen krever en *ortogonal* basis. Er basisen ikke ortogonal, må du kjøre Gram–Schmidt ([kap. 6.2](/tma4110/tma4110-6-2)) først — å bruke formelen på en skjev basis er en dokumentert felle.\n- Avstanden er $\\|\\mathbf z\\|=\\|\\mathbf y-\\hat{\\mathbf y}\\|$ — glem ikke kvadratrota.\n\nSjanger H = *indreprodukt / ortogonalitet / Gram–Schmidt / projeksjon* (etikett fra [kap. 0.1](/tma4110/tma4110-0-1)). Under kode E må projeksjonsformelen sitte utenat. Tidsanslag = lesetid; gang med ca. 1,5 ved håndregning."
     },
     {
       "id": "tma4110-6-3-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 6.2](/bok/tma4110/tma4110-6-2) — ortogonale basiser og Gram–Schmidt. Projeksjonsleddet $\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$ er nøyaktig den samme byggeklossen som brukes her.\n- [kap. 6.1](/bok/tma4110/tma4110-6-1) — indreprodukt, norm, avstand og ortogonalitet.\n\nKan du ortogonalisere en basis og regne norm, er du klar."
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 6.2](/tma4110/tma4110-6-2) — ortogonale basiser og Gram–Schmidt. Projeksjonsleddet $\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$ er nøyaktig den samme byggeklossen som brukes her.\n- [kap. 6.1](/tma4110/tma4110-6-1) — indreprodukt, norm, avstand og ortogonalitet.\n\nKan du ortogonalisere en basis og regne norm, er du klar."
     },
     {
       "id": "tma4110-6-3-motivasjon",
@@ -70,7 +70,7 @@
       "id": "tma4110-6-3-def-proj-underrom",
       "type": "definition",
       "title": "Ortogonal projeksjon på et underrom",
-      "content": "La $\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}$ være en **ortogonal** basis for underrommet $W$. Projeksjonen av $\\mathbf y$ på $W$ er summen av projeksjonene på hver basisvektor:\n$$\\operatorname{proj}_W\\mathbf y=\\sum_{i=1}^{k}\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\,\\mathbf v_i.$$\nFormelen krever at basisen er ortogonal — ellers gjelder den ikke. Er basisen skjev, kjør Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)) først."
+      "content": "La $\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}$ være en **ortogonal** basis for underrommet $W$. Projeksjonen av $\\mathbf y$ på $W$ er summen av projeksjonene på hver basisvektor:\n$$\\operatorname{proj}_W\\mathbf y=\\sum_{i=1}^{k}\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\,\\mathbf v_i.$$\nFormelen krever at basisen er ortogonal — ellers gjelder den ikke. Er basisen skjev, kjør Gram–Schmidt ([kap. 6.2](/tma4110/tma4110-6-2)) først."
     },
     {
       "id": "tma4110-6-3-def-dekomposisjon",
@@ -195,7 +195,7 @@
     {
       "id": "tma4110-6-3-intro-kjedet",
       "type": "text",
-      "content": "På eksamen er $W$ ofte oppgitt med en basis som *ikke* er ortogonal. Da må du kjøre Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)) **før** du bruker projeksjonsformelen — å hoppe over dette er den vanligste feilen. Den ortogonale projeksjonen $\\operatorname{proj}_W\\mathbf y$ er den samme uansett hvilken ortogonal basis du bruker for $W$."
+      "content": "På eksamen er $W$ ofte oppgitt med en basis som *ikke* er ortogonal. Da må du kjøre Gram–Schmidt ([kap. 6.2](/tma4110/tma4110-6-2)) **før** du bruker projeksjonsformelen — å hoppe over dette er den vanligste feilen. Den ortogonale projeksjonen $\\operatorname{proj}_W\\mathbf y$ er den samme uansett hvilken ortogonal basis du bruker for $W$."
     },
     {
       "id": "tma4110-6-3-ex5",
@@ -365,7 +365,7 @@
             "number": "R1",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 6.2](/bok/tma4110/tma4110-6-2)) Er $\\{(1,1,0),(1,-1,0)\\}$ en ortogonal mengde?",
+            "task": "(Fra [kap. 6.2](/tma4110/tma4110-6-2)) Er $\\{(1,1,0),(1,-1,0)\\}$ en ortogonal mengde?",
             "solution": "$\\langle(1,1,0),(1,-1,0)\\rangle=1-1+0=0$, så **ja**, den er ortogonal.",
             "hints": [
               "Regn prikkproduktet av de to vektorene."
@@ -380,7 +380,7 @@
             "number": "R2",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 6.2](/bok/tma4110/tma4110-6-2)) Gram–Schmidt på $\\{(1,0),(1,1)\\}$.",
+            "task": "(Fra [kap. 6.2](/tma4110/tma4110-6-2)) Gram–Schmidt på $\\{(1,0),(1,1)\\}$.",
             "solution": "$\\mathbf v_1=(1,0)$, $\\langle\\mathbf v_1,\\mathbf v_1\\rangle=1$. $\\langle(1,1),\\mathbf v_1\\rangle=1$, så $\\mathbf v_2=(1,1)-\\tfrac11(1,0)=(0,1)$. Ortogonal basis: $\\{(1,0),(0,1)\\}$.",
             "hints": [
               "$\\mathbf v_2=\\mathbf a_2-\\frac{\\langle\\mathbf a_2,\\mathbf v_1\\rangle}{\\langle\\mathbf v_1,\\mathbf v_1\\rangle}\\mathbf v_1$."
@@ -395,7 +395,7 @@
             "number": "R3",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 6.1](/bok/tma4110/tma4110-6-1)) Regn ut avstanden mellom $(1,2,2)$ og $(1,2,-2)$.",
+            "task": "(Fra [kap. 6.1](/tma4110/tma4110-6-1)) Regn ut avstanden mellom $(1,2,2)$ og $(1,2,-2)$.",
             "solution": "Differansen er $(0,0,4)$, så avstanden er $\\|(0,0,4)\\|=\\sqrt{16}=4.$",
             "hints": [
               "Avstand $=\\|\\mathbf u-\\mathbf v\\|$."

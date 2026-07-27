@@ -80,22 +80,42 @@ const nextConfig: NextConfig = {
   // Render-koden bruker mediaUrl() fra src/lib/media.ts; disse redirectene fanger
   // opp eventuelle direkte lenker og referanser som ikke går via hjelperen.
   async redirects() {
-    // Trinnsidene flyttet ut av /bok 27. juli 2026. «trinn» sto i samme slot som
-    // en kurs-id, så /bok/<X> betydde to ulike ting avhengig av verdien — og en
-    // bok med id «trinn» ville kollidert. permanent: true gir 308, som forteller
-    // Google at flyttingen er endelig. Disse MÅ stå før mediaBase-avkortingen
-    // under, ellers forsvinner de i miljøer uten Storage-nøkkel.
-    const trinnRedirects = [
-      { source: '/bok/trinn', destination: '/trinn', permanent: true },
+    // /bok-prefikset ble fjernet 27. juli 2026. Kursene ligger nå i rota:
+    //
+    //     /1t/1t-1-1        før: /bok/1t/1t-1-1
+    //     /nn/1t/1t-1-1     før: /nn/bok/1t/1t-1-1
+    //
+    // `/bok` var ikke en side i det hele tatt — den gjorde bare redirect('/')
+    // etter at trinnvelgeren flyttet til forsiden 10. juli. Segmentet sto altså
+    // som dødvekt i 18 133 adresser og pekte på en indeks som ikke fantes.
+    //
+    // Prisen er at 167 kurs-id-er nå deler navnerom med toppnivårutene. En
+    // statisk rute vinner over det dynamiske kurssegmentet, så en bok med id-en
+    // «quiz» ville forsvunnet i stillhet. scripts/sjekk-rutekollisjon.py er
+    // porten som gjør den stillheten til en byggefeil — kjør den før nye bøker.
+    //
+    // permanent: true gir 308, som forteller Google at flyttingen er endelig og
+    // overfører rangeringen. Redirects kjører FØR middleware i Next.js, så
+    // /nn/bok/… rekker å bli /nn/… før nynorsk-omskrivingen ser stien.
+    //
+    // Disse MÅ stå før mediaBase-avkortingen under, ellers forsvinner de i
+    // miljøer uten Storage-nøkkel.
+    const bokRedirects = [
+      { source: '/bok', destination: '/', permanent: true },
+      { source: '/bok/:path*', destination: '/:path*', permanent: true },
+      { source: '/nn/bok/:path*', destination: '/nn/:path*', permanent: true },
+      // Trinnsidene flyttet ut av /bok tidligere samme dag. Regelen over dekker
+      // dem, men de står eksplisitt her fordi de flyttet av en annen grunn:
+      // «trinn» delte slot med kurs-id-ene.
       { source: '/bok/trinn/:path*', destination: '/trinn/:path*', permanent: true },
     ];
 
     const mediaBase = process.env.NEXT_PUBLIC_SUPABASE_URL
       ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/media`
       : null;
-    if (!mediaBase) return trinnRedirects;
+    if (!mediaBase) return bokRedirects;
     return [
-      ...trinnRedirects,
+      ...bokRedirects,
       {
         source: '/audio/:path*',
         destination: `${mediaBase}/audio/:path*`,

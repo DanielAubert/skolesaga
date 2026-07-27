@@ -16,12 +16,12 @@
       "id": "in1000-2-2-1",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Scope** — reglene for hvilke variabler som er synlige hvor — er et kjernebegrep\ni **Oppgave 2**, flervalgsoppgaven om objekter. Den oppgaven er i **6 av 6 moderne eksamenssett (100 %)** og er verdt 8–9 poeng, og boka kaller sjangeren\n**sjanger B — flervalg om objekter**: hvilke navn peker på hva, og hva skjer da?\n\nSelve spørsmålet er alltid det samme i bunn: **en tilordning inne i en funksjon lager en ny, lokal variabel — den endrer ikke en variabel utenfor.** Det er feilkode #12, scope-forvirring.\n\nKapitlet er kort, men det er en av bokas viktigste forberedelser. Nøyaktig den samme mekanismen er årsaken til **`self`-fella** i\n[kap. 5.1](/bok/in1000/in1000-5-1), som er den enkeltfeilen sensor planter oftest i hele faget. Forstår du scope her, får du `self`-fella nesten gratis.\n\n**Dette må sitte** — bokas høyeste av tre nivåer, som forkunnskap til Oppgave 2."
+      "content": "**Scope** — reglene for hvilke variabler som er synlige hvor — er et kjernebegrep\ni **Oppgave 2**, flervalgsoppgaven om objekter. Den oppgaven er i **6 av 6 moderne eksamenssett (100 %)** og er verdt 8–9 poeng, og boka kaller sjangeren\n**sjanger B — flervalg om objekter**: hvilke navn peker på hva, og hva skjer da?\n\nSelve spørsmålet er alltid det samme i bunn: **en tilordning inne i en funksjon lager en ny, lokal variabel — den endrer ikke en variabel utenfor.** Det er feilkode #12, scope-forvirring.\n\nKapitlet er kort, men det er en av bokas viktigste forberedelser. Nøyaktig den samme mekanismen er årsaken til **`self`-fella** i\n[kap. 5.1](/in1000/in1000-5-1), som er den enkeltfeilen sensor planter oftest i hele faget. Forstår du scope her, får du `self`-fella nesten gratis.\n\n**Dette må sitte** — bokas høyeste av tre nivåer, som forkunnskap til Oppgave 2."
     },
     {
       "id": "in1000-2-2-2",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 2.1 — Funksjoner: def, parametere og return](/bok/in1000/in1000-2-1).\n\nDe tre tingene du trenger derfra:\n\n- at en funksjon **defineres** én gang og **kalles** så mange ganger du vil,\n- at **parameteren** er navnet i definisjonen og **argumentet** er verdien som\n  sendes inn,\n- at `return` avslutter funksjonen og gir en verdi tilbake — og at en funksjon\n  uten `return` gir `None`.\n\nKort oppfrisket:\n\n```python\ndef dobbel(tall):\n    return tall * 2\n\nsvar = dobbel(21)\nprint(svar)\n```\n\n**Utskrift:**\n```\n42\n```\n\nSpørsmålet i dette kapitlet er hva som skjer med navnene: hva heter `tall` utenfor funksjonen, og hva skjer om du tilordner et navn som allerede finnes utenfor?"
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 2.1 — Funksjoner: def, parametere og return](/in1000/in1000-2-1).\n\nDe tre tingene du trenger derfra:\n\n- at en funksjon **defineres** én gang og **kalles** så mange ganger du vil,\n- at **parameteren** er navnet i definisjonen og **argumentet** er verdien som\n  sendes inn,\n- at `return` avslutter funksjonen og gir en verdi tilbake — og at en funksjon\n  uten `return` gir `None`.\n\nKort oppfrisket:\n\n```python\ndef dobbel(tall):\n    return tall * 2\n\nsvar = dobbel(21)\nprint(svar)\n```\n\n**Utskrift:**\n```\n42\n```\n\nSpørsmålet i dette kapitlet er hva som skjer med navnene: hva heter `tall` utenfor funksjonen, og hva skjer om du tilordner et navn som allerede finnes utenfor?"
     },
     {
       "id": "in1000-2-2-3",
@@ -44,13 +44,13 @@
       "id": "in1000-2-2-6",
       "type": "definition",
       "title": "Parametere er lokale",
-      "content": "En parameter er en helt vanlig lokal variabel. Den får verdien sin fra argumentet, og den forsvinner når funksjonen returnerer:\n\n```python\ndef dobbel(tall):\n    tall = tall * 2\n    return tall\n\nx = 5\nprint(dobbel(x), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nLegg merke til at `x` er **uendret**. Funksjonen fikk verdien 5 inn i sin egen lokale `tall`, og endret den lokale kopien.\n\nDette gjelder for tall, tekst og boolske verdier — altså alt du har møtt så langt. I [kap. 5.4](/bok/in1000/in1000-5-4) møter du datatyper der bildet er mer sammensatt, og det er nettopp det Oppgave 2 tester."
+      "content": "En parameter er en helt vanlig lokal variabel. Den får verdien sin fra argumentet, og den forsvinner når funksjonen returnerer:\n\n```python\ndef dobbel(tall):\n    tall = tall * 2\n    return tall\n\nx = 5\nprint(dobbel(x), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nLegg merke til at `x` er **uendret**. Funksjonen fikk verdien 5 inn i sin egen lokale `tall`, og endret den lokale kopien.\n\nDette gjelder for tall, tekst og boolske verdier — altså alt du har møtt så langt. I [kap. 5.4](/in1000/in1000-5-4) møter du datatyper der bildet er mer sammensatt, og det er nettopp det Oppgave 2 tester."
     },
     {
       "id": "in1000-2-2-7",
       "type": "warning",
       "title": "Typisk feil #12 — tilordning inne i en funksjon endrer ikke utsiden",
-      "content": "Dette er kapitlets kjerne, og den mest testede scope-feilen i arkivet.\n\n```python\nx = 5\n\ndef f():\n    x = 10\n    return x\n\nprint(f(), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nFunksjonen returnerte 10, men `x` i hovedprogrammet er fortsatt 5.\n\n**Hva skjedde:** linja `x = 10` inne i funksjonen laget en **ny, lokal** `x`. Den\nglobale `x` ble aldri rørt. De to navnene ser like ut, men er to forskjellige variabler.\n\n**Kjenn igjen fella på formen.** Ser du en tilordning til et navn som også finnes\nutenfor, er svaret nesten alltid at utsiden er uendret.\n\nMerk deg denne mekanismen godt. Den er nøyaktig den samme som gjør at `x = 5` i en konstruktør ikke lagrer noe i objektet, mens `self._x = 5` gjør det — og det er `self`-fella, feilkode #1, som du møter i\n[kap. 5.1](/bok/in1000/in1000-5-1)."
+      "content": "Dette er kapitlets kjerne, og den mest testede scope-feilen i arkivet.\n\n```python\nx = 5\n\ndef f():\n    x = 10\n    return x\n\nprint(f(), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nFunksjonen returnerte 10, men `x` i hovedprogrammet er fortsatt 5.\n\n**Hva skjedde:** linja `x = 10` inne i funksjonen laget en **ny, lokal** `x`. Den\nglobale `x` ble aldri rørt. De to navnene ser like ut, men er to forskjellige variabler.\n\n**Kjenn igjen fella på formen.** Ser du en tilordning til et navn som også finnes\nutenfor, er svaret nesten alltid at utsiden er uendret.\n\nMerk deg denne mekanismen godt. Den er nøyaktig den samme som gjør at `x = 5` i en konstruktør ikke lagrer noe i objektet, mens `self._x = 5` gjør det — og det er `self`-fella, feilkode #1, som du møter i\n[kap. 5.1](/in1000/in1000-5-1)."
     },
     {
       "id": "in1000-2-2-8",
@@ -90,7 +90,7 @@
       "id": "in1000-2-2-11",
       "type": "definition",
       "title": "Hvorfor globale variabler unngås",
-      "content": "Tre grunner, i den rekkefølgen de betyr noe på eksamen:\n\n1. **Funksjonen blir umulig å lese alene.** Du må lete i hele programmet for å\n   vite hva den gjør.\n2. **Den blir umulig å gjenbruke.** En funksjon som henter data fra utsiden, kan\n   ikke kalles med andre data.\n3. **Den blir umulig å teste.** Du kan ikke gi den nye verdier uten å endre\n   programmet rundt.\n\n**Regelen i faget:** alt en funksjon trenger, kommer inn som **parameter**, og\nalt den produserer, går ut som **returverdi**. Det er den formen sensor forventer, og den formen alle fasitene har.\n\nI [kap. 5.1](/bok/in1000/in1000-5-1) får du den ordentlige løsningen på «data som skal leve videre»: å legge dem i et objekt i stedet for i en global variabel."
+      "content": "Tre grunner, i den rekkefølgen de betyr noe på eksamen:\n\n1. **Funksjonen blir umulig å lese alene.** Du må lete i hele programmet for å\n   vite hva den gjør.\n2. **Den blir umulig å gjenbruke.** En funksjon som henter data fra utsiden, kan\n   ikke kalles med andre data.\n3. **Den blir umulig å teste.** Du kan ikke gi den nye verdier uten å endre\n   programmet rundt.\n\n**Regelen i faget:** alt en funksjon trenger, kommer inn som **parameter**, og\nalt den produserer, går ut som **returverdi**. Det er den formen sensor forventer, og den formen alle fasitene har.\n\nI [kap. 5.1](/in1000/in1000-5-1) får du den ordentlige løsningen på «data som skal leve videre»: å legge dem i et objekt i stedet for i en global variabel."
     },
     {
       "id": "in1000-2-2-12",
@@ -158,7 +158,7 @@
       "id": "in1000-2-2-17",
       "type": "definition",
       "title": "Kall endrer ikke argumentet",
-      "content": "Sender du et tall, en tekst eller en boolsk verdi inn i en funksjon, kan funksjonen ikke endre variabelen du sendte inn:\n\n```python\ndef nullstill(verdi):\n    verdi = 0\n    return verdi\n\npoeng = 42\nnullstill(poeng)\nprint(poeng)\n```\n\n**Utskrift:**\n```\n42\n```\n\nKallet gjorde ingenting synlig utenfra, fordi returverdien ble kastet og parameteren var lokal.\n\nLegg merke til at dette er en **stille** feil: programmet krasjer ikke, det gjør bare ingenting. Riktig form er `poeng = nullstill(poeng)`.\n\nBildet blir mer sammensatt for datatypene i [kap. 3.1](/bok/in1000/in1000-3-1) og\n[kap. 5.4](/bok/in1000/in1000-5-4), og det er nettopp den forskjellen Oppgave 2 er bygget rundt."
+      "content": "Sender du et tall, en tekst eller en boolsk verdi inn i en funksjon, kan funksjonen ikke endre variabelen du sendte inn:\n\n```python\ndef nullstill(verdi):\n    verdi = 0\n    return verdi\n\npoeng = 42\nnullstill(poeng)\nprint(poeng)\n```\n\n**Utskrift:**\n```\n42\n```\n\nKallet gjorde ingenting synlig utenfra, fordi returverdien ble kastet og parameteren var lokal.\n\nLegg merke til at dette er en **stille** feil: programmet krasjer ikke, det gjør bare ingenting. Riktig form er `poeng = nullstill(poeng)`.\n\nBildet blir mer sammensatt for datatypene i [kap. 3.1](/in1000/in1000-3-1) og\n[kap. 5.4](/in1000/in1000-5-4), og det er nettopp den forskjellen Oppgave 2 er bygget rundt."
     },
     {
       "id": "in1000-2-2-18",
@@ -219,7 +219,7 @@
       "id": "in1000-2-2-19",
       "type": "warning",
       "title": "Typiske feil i dette kapitlet",
-      "content": "Fire feil dekker nesten alle scope-poengene som mistes:\n\n- **#12 — tro at en tilordning inne i en funksjon endrer utsiden.** Den lager en\n  ny, lokal variabel. Utsiden er uendret.\n- **Kaste returverdien.** `nullstill(poeng)` gjør ingenting synlig; det må stå\n  `poeng = nullstill(poeng)`.\n- **Lese en global i stedet for å ta den inn som parameter.** Funksjonen gir\n  riktig svar for det ene tilfellet, men er verken gjenbrukbar eller lesbar alene — og får sjelden full uttelling.\n- **Lese et navn du senere tilordner i samme funksjon.** Da er navnet lokalt i\n  hele kroppen, og du får `UnboundLocalError` i stedet for den globale verdien.\n\nOg den viktigste huskeregelen for det som kommer: **nøyaktig denne mekanismen er\n`self`-fella** i [kap. 5.1](/bok/in1000/in1000-5-1). En konstruktør som skriver\n`x = 5` i stedet for `self._x = 5`, lager en lokal variabel som forsvinner — og det er feilkode #1, den sensor planter oftest."
+      "content": "Fire feil dekker nesten alle scope-poengene som mistes:\n\n- **#12 — tro at en tilordning inne i en funksjon endrer utsiden.** Den lager en\n  ny, lokal variabel. Utsiden er uendret.\n- **Kaste returverdien.** `nullstill(poeng)` gjør ingenting synlig; det må stå\n  `poeng = nullstill(poeng)`.\n- **Lese en global i stedet for å ta den inn som parameter.** Funksjonen gir\n  riktig svar for det ene tilfellet, men er verken gjenbrukbar eller lesbar alene — og får sjelden full uttelling.\n- **Lese et navn du senere tilordner i samme funksjon.** Da er navnet lokalt i\n  hele kroppen, og du får `UnboundLocalError` i stedet for den globale verdien.\n\nOg den viktigste huskeregelen for det som kommer: **nøyaktig denne mekanismen er\n`self`-fella** i [kap. 5.1](/in1000/in1000-5-1). En konstruktør som skriver\n`x = 5` i stedet for `self._x = 5`, lager en lokal variabel som forsvinner — og det er feilkode #1, den sensor planter oftest."
     },
     {
       "id": "in1000-2-2-coll-20",
@@ -273,7 +273,7 @@
       "id": "in1000-2-2-28",
       "type": "definition",
       "title": "Argumentet er en verdi, ikke en variabel",
-      "content": "Når du skriver `dobbel(x)`, er det **verdien** til `x` som sendes inn, ikke navnet `x`.\n\nFunksjonen får aldri vite hva variabelen din het, og den kan derfor ikke endre den. Skriver du `dobbel(5)` i stedet, oppfører funksjonen seg nøyaktig likt.\n\nDenne presiseringen er det som gjør scope-regelen forståelig i stedet for bare noe å pugge — og den er det Oppgave 2 tester i mer sammensatt form når objektene kommer i [kap. 5.4](/bok/in1000/in1000-5-4)."
+      "content": "Når du skriver `dobbel(x)`, er det **verdien** til `x` som sendes inn, ikke navnet `x`.\n\nFunksjonen får aldri vite hva variabelen din het, og den kan derfor ikke endre den. Skriver du `dobbel(5)` i stedet, oppfører funksjonen seg nøyaktig likt.\n\nDenne presiseringen er det som gjør scope-regelen forståelig i stedet for bare noe å pugge — og den er det Oppgave 2 tester i mer sammensatt form når objektene kommer i [kap. 5.4](/in1000/in1000-5-4)."
     },
     {
       "id": "in1000-2-2-29",
@@ -285,7 +285,7 @@
       "id": "in1000-2-2-30",
       "type": "definition",
       "title": "Sidevirkning",
-      "content": "Noe en funksjon gjør utover å returnere en verdi — for eksempel å skrive til skjermen eller endre noe utenfor seg selv.\n\nI dette faget skal funksjoner helst være **fri for sidevirkninger**: de tar imot, regner ut og returnerer. Unntaket er metoder som med vilje endrer objektet sitt, og som du møter i [kap. 5.2](/bok/in1000/in1000-5-2).\n\nOrdet er verdt å kjenne fordi det forklarer hvorfor `print` inne i en funksjon sjelden er det oppgaven ber om: utskrift er en sidevirkning, ikke et svar."
+      "content": "Noe en funksjon gjør utover å returnere en verdi — for eksempel å skrive til skjermen eller endre noe utenfor seg selv.\n\nI dette faget skal funksjoner helst være **fri for sidevirkninger**: de tar imot, regner ut og returnerer. Unntaket er metoder som med vilje endrer objektet sitt, og som du møter i [kap. 5.2](/in1000/in1000-5-2).\n\nOrdet er verdt å kjenne fordi det forklarer hvorfor `print` inne i en funksjon sjelden er det oppgaven ber om: utskrift er en sidevirkning, ikke et svar."
     },
     {
       "id": "in1000-2-2-31",

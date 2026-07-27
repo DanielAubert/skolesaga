@@ -16,12 +16,12 @@
       "id": "in1900-1-4-tip-1",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Dette kapitlet handler om de tegnene sensor faktisk teller.**\n\n- **Sjanger A — kodesporing** («hva skriver dette programmet ut?»), som forekommer i **100 %** av settene. Her er kravet at utskriften angis **nøyaktig**: riktig antall mellomrom, riktige hakeparenteser, riktig antall desimaler. Et riktig tall med feil formatering er et tapt poeng.\n- To feller er gjennomgående: `end=' '` som **fjerner linjeskiftet**, og f-strengens bredde- og presisjonsangivelse. Sammen utgjør de feilkode **#16**.\n- Strengmetodene `.split()` og `.strip()` er i tillegg ren forkunnskap til fillesing (**sjanger L — fillesing til nøstet ordbok**, altså å lese en datafil inn i en oppslagsstruktur; den forekommer i **100 %** av settene og gir 8–12 poeng). Se [kap. 8.1](/bok/in1900/in1900-8-1).\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer). Ikke fordi stoffet er dypt, men fordi det er her billige poeng forsvinner: du kan ha spore riktig hele veien og likevel skrive utskriften feil."
+      "content": "**Dette kapitlet handler om de tegnene sensor faktisk teller.**\n\n- **Sjanger A — kodesporing** («hva skriver dette programmet ut?»), som forekommer i **100 %** av settene. Her er kravet at utskriften angis **nøyaktig**: riktig antall mellomrom, riktige hakeparenteser, riktig antall desimaler. Et riktig tall med feil formatering er et tapt poeng.\n- To feller er gjennomgående: `end=' '` som **fjerner linjeskiftet**, og f-strengens bredde- og presisjonsangivelse. Sammen utgjør de feilkode **#16**.\n- Strengmetodene `.split()` og `.strip()` er i tillegg ren forkunnskap til fillesing (**sjanger L — fillesing til nøstet ordbok**, altså å lese en datafil inn i en oppslagsstruktur; den forekommer i **100 %** av settene og gir 8–12 poeng). Se [kap. 8.1](/in1900/in1900-8-1).\n\n**Prioritet: dette må sitte** (høyeste av bokas tre nivåer). Ikke fordi stoffet er dypt, men fordi det er her billige poeng forsvinner: du kan ha spore riktig hele veien og likevel skrive utskriften feil."
     },
     {
       "id": "in1900-1-4-t-2",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1): at `'3'` og `3` er to ulike verdier, og at `print` skiller argumentene sine med ett mellomrom.\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2): indeksering og slicing — de samme reglene gjelder for strenger.\n- [Kap. 1.3 — Løkker](/bok/in1900/in1900-1-3): `for`-løkker, som vi bruker til å skrive ut tabeller."
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/in1900/in1900-1-1): at `'3'` og `3` er to ulike verdier, og at `print` skiller argumentene sine med ett mellomrom.\n- [Kap. 1.2 — Lister, indeksering og slicing](/in1900/in1900-1-2): indeksering og slicing — de samme reglene gjelder for strenger.\n- [Kap. 1.3 — Løkker](/in1900/in1900-1-3): `for`-løkker, som vi bruker til å skrive ut tabeller."
     },
     {
       "id": "in1900-1-4-t-3",
@@ -63,7 +63,7 @@
       "type": "example",
       "title": "Eksempel 1: Strengen behandlet som en liste av tegn",
       "problem": "Hva skriver programmet ut?",
-      "solution": "```python\nnavn = 'Blindern'\nprint(navn[0], navn[-1])\nprint(navn[1:4])\nprint(len(navn))\nprint(navn[::-1])\nprint('ind' in navn, 'X' in navn)\nprint('-' * 8)\n```\n\n**Utskrift:**\n```\nB n\nlin\n8\nnrednilB\nTrue False\n--------\n```\n\nAlt her er reglene fra [kap. 1.2](/bok/in1900/in1900-1-2), brukt på tegn i stedet for på tall: `navn[1:4]` gir tre tegn fordi slutten er eksklusiv, og `navn[::-1]` snur rekkefølgen.\n\nMerk at utskriften ikke har fnutter rundt seg. Fnuttene finnes bare i koden."
+      "solution": "```python\nnavn = 'Blindern'\nprint(navn[0], navn[-1])\nprint(navn[1:4])\nprint(len(navn))\nprint(navn[::-1])\nprint('ind' in navn, 'X' in navn)\nprint('-' * 8)\n```\n\n**Utskrift:**\n```\nB n\nlin\n8\nnrednilB\nTrue False\n--------\n```\n\nAlt her er reglene fra [kap. 1.2](/in1900/in1900-1-2), brukt på tegn i stedet for på tall: `navn[1:4]` gir tre tegn fordi slutten er eksklusiv, og `navn[::-1]` snur rekkefølgen.\n\nMerk at utskriften ikke har fnutter rundt seg. Fnuttene finnes bare i koden."
     },
     {
       "id": "in1900-1-4-oppg-1",
@@ -85,7 +85,7 @@
       "id": "in1900-1-4-adv-10",
       "type": "warning",
       "title": "Strengen kan ikke endres",
-      "content": "Prøver du å bytte ut ett tegn direkte, stopper programmet:\n\n```python\nnavn = 'Blindern'\nnavn[0] = 'K'\nprint(navn)\n```\n\n**Utskrift:** ingen (programmet stopper med en feilmelding før noe blir skrevet). Siste linje i feilmeldingen er:\n\n```\nTypeError: 'str' object does not support item assignment\n```\n\nFeiltypen er `TypeError`, en av kandidatene i exception-tabellene i [kap. 2.2](/bok/in1900/in1900-2-2). Vil du ha en endret streng, må du lage en ny: `navn = 'K' + navn[1:]`.\n\nDen praktiske konsekvensen er regelen fra definisjonen over: alle strengmetodene returnerer en ny streng, og du må **ta imot resultatet**. `linje.strip()` alene gjør ingenting."
+      "content": "Prøver du å bytte ut ett tegn direkte, stopper programmet:\n\n```python\nnavn = 'Blindern'\nnavn[0] = 'K'\nprint(navn)\n```\n\n**Utskrift:** ingen (programmet stopper med en feilmelding før noe blir skrevet). Siste linje i feilmeldingen er:\n\n```\nTypeError: 'str' object does not support item assignment\n```\n\nFeiltypen er `TypeError`, en av kandidatene i exception-tabellene i [kap. 2.2](/in1900/in1900-2-2). Vil du ha en endret streng, må du lage en ny: `navn = 'K' + navn[1:]`.\n\nDen praktiske konsekvensen er regelen fra definisjonen over: alle strengmetodene returnerer en ny streng, og du må **ta imot resultatet**. `linje.strip()` alene gjør ingenting."
     },
     {
       "id": "in1900-1-4-t-11",
@@ -154,7 +154,7 @@
       "id": "in1900-1-4-def-19",
       "type": "definition",
       "title": "F-streng `f'{x}'`",
-      "content": "En streng med `f` rett foran fnutten. Inne i krøllparentesene kan du skrive **hvilket som helst uttrykk**, og verdien settes inn i teksten.\n\n```python\nnavn = 'Blindern'\ntemp = 21.5\nprint(f'{navn}: {temp} grader')\nprint(f'{navn} har {len(navn)} tegn, og {temp} + 1 er {temp + 1}')\n```\n\n**Utskrift:**\n```\nBlindern: 21.5 grader\nBlindern har 8 tegn, og 21.5 + 1 er 22.5\n```\n\nMerk at `f` her er et **prefiks på en streng**, ikke en variabel. Det har ingenting å gjøre med funksjonen `f` som du skriver i ODE-oppgavene i [kap. 7.1](/bok/in1900/in1900-7-1) — se advarselen om navnekollisjonen nedenfor."
+      "content": "En streng med `f` rett foran fnutten. Inne i krøllparentesene kan du skrive **hvilket som helst uttrykk**, og verdien settes inn i teksten.\n\n```python\nnavn = 'Blindern'\ntemp = 21.5\nprint(f'{navn}: {temp} grader')\nprint(f'{navn} har {len(navn)} tegn, og {temp} + 1 er {temp + 1}')\n```\n\n**Utskrift:**\n```\nBlindern: 21.5 grader\nBlindern har 8 tegn, og 21.5 + 1 er 22.5\n```\n\nMerk at `f` her er et **prefiks på en streng**, ikke en variabel. Det har ingenting å gjøre med funksjonen `f` som du skriver i ODE-oppgavene i [kap. 7.1](/in1900/in1900-7-1) — se advarselen om navnekollisjonen nedenfor."
     },
     {
       "id": "in1900-1-4-def-20",
@@ -231,7 +231,7 @@
       "id": "in1900-1-4-adv-29",
       "type": "warning",
       "title": "Navnet `f` betyr to ting",
-      "content": "Bokstaven `f` opptrer i to helt ulike roller i dette faget, og de har ingenting med hverandre å gjøre:\n\n1. **F-streng-prefikset:** `f'{x}'`. Her er `f` en del av **strengskrivemåten** og står rett foran fnutten, uten mellomrom.\n2. **Funksjonen `f`:** i matematiske oppgaver er `f` det vanlige navnet på en funksjon — `def f(x):` i [kap. 1.6](/bok/in1900/in1900-1-6), og høyresiden `def f(t, u):` i ODE-oppgavene i [kap. 7.1](/bok/in1900/in1900-7-1).\n\nPraktisk konsekvens: har du definert en funksjon `f`, kan du fortsatt skrive `f'{x}'` — Python ser på om det står en fnutt rett etter. Men i en kodesporingsoppgave må **du** se det, og et alternativ som later som `f'...'` er et funksjonskall, er en reell distraktor.\n\nBoka bruker derfor alltid `f` med backticks når det er kode, og skriver «f-streng» når det er skrivemåten."
+      "content": "Bokstaven `f` opptrer i to helt ulike roller i dette faget, og de har ingenting med hverandre å gjøre:\n\n1. **F-streng-prefikset:** `f'{x}'`. Her er `f` en del av **strengskrivemåten** og står rett foran fnutten, uten mellomrom.\n2. **Funksjonen `f`:** i matematiske oppgaver er `f` det vanlige navnet på en funksjon — `def f(x):` i [kap. 1.6](/in1900/in1900-1-6), og høyresiden `def f(t, u):` i ODE-oppgavene i [kap. 7.1](/in1900/in1900-7-1).\n\nPraktisk konsekvens: har du definert en funksjon `f`, kan du fortsatt skrive `f'{x}'` — Python ser på om det står en fnutt rett etter. Men i en kodesporingsoppgave må **du** se det, og et alternativ som later som `f'...'` er et funksjonskall, er en reell distraktor.\n\nBoka bruker derfor alltid `f` med backticks når det er kode, og skriver «f-streng» når det er skrivemåten."
     },
     {
       "id": "in1900-1-4-oppg-4",
@@ -258,7 +258,7 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "(Midtveisnivå, sjanger A — strenger og lister i utskrift.) Hva skriver programmet ut?\n\n```python\nord = 'regn i mars'\ndeler = ord.split()\nprint(deler)\nprint(len(deler), len(ord))\nprint(deler[0][0], ord[0])\nprint(ord.replace(' ', '_'))\n```",
-        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi |\n|---|---|---|\n| 2 | `ord.split()` — deler på blanktegn | `['regn', 'i', 'mars']` |\n| 4 | `len(deler)` er antall ord; `len(ord)` er antall **tegn**, mellomrom med | `3` og `11` |\n| 5 | `deler[0][0]` er første tegn i første ord; `ord[0]` er første tegn i hele strengen | `r` og `r` |\n| 6 | `.replace(' ', '_')` bytter **alle** mellomrom | `regn_i_mars` |\n\n**Utskrift:**\n```\n['regn', 'i', 'mars']\n3 11\nr r\nregn_i_mars\n```\n\n**Fellenote:** to feller. Den ene er å blande `len` av lista (3) med `len` av strengen (11) — det er to helt ulike spørsmål. Den andre er utskriften av lista: fnuttene rundt hvert ord **er** en del av utskriften når du skriver ut en liste, men ikke når du skriver ut en enkelt streng.\n\nMerk også `deler[0][0]`: to indekseringer etter hverandre, først i lista, så i strengen. Det er samme mekanikk som nøstede lister i [kap. 1.2](/bok/in1900/in1900-1-2).",
+        "solution": "**Sporingstavle**\n\n| Linje | Uttrykk | Verdi |\n|---|---|---|\n| 2 | `ord.split()` — deler på blanktegn | `['regn', 'i', 'mars']` |\n| 4 | `len(deler)` er antall ord; `len(ord)` er antall **tegn**, mellomrom med | `3` og `11` |\n| 5 | `deler[0][0]` er første tegn i første ord; `ord[0]` er første tegn i hele strengen | `r` og `r` |\n| 6 | `.replace(' ', '_')` bytter **alle** mellomrom | `regn_i_mars` |\n\n**Utskrift:**\n```\n['regn', 'i', 'mars']\n3 11\nr r\nregn_i_mars\n```\n\n**Fellenote:** to feller. Den ene er å blande `len` av lista (3) med `len` av strengen (11) — det er to helt ulike spørsmål. Den andre er utskriften av lista: fnuttene rundt hvert ord **er** en del av utskriften når du skriver ut en liste, men ikke når du skriver ut en enkelt streng.\n\nMerk også `deler[0][0]`: to indekseringer etter hverandre, først i lista, så i strengen. Det er samme mekanikk som nøstede lister i [kap. 1.2](/in1900/in1900-1-2).",
         "hints": [
           "Del først opp strengen på papiret, og skriv ned lista.",
           "`len` av en liste og `len` av en streng teller to forskjellige ting."
@@ -331,7 +331,7 @@
       "id": "in1900-1-4-def-34",
       "type": "definition",
       "title": "Tekst mot tall",
-      "content": "`'12'` og `12` er to helt ulike verdier. Tekst kan skjøtes og gjentas; tall kan legges sammen og ganges.\n\nAlt som kommer inn utenfra — fra kommandolinjen ([kap. 2.1](/bok/in1900/in1900-2-1)), fra `input`, fra en fil ([kap. 8.1](/bok/in1900/in1900-8-1)) — er **tekst**, og må konverteres med `int` eller `float` før du kan regne. Glemmer du det, får du `'12' + '5'` som blir `'125'` i stedet for `17`. Det er en av de faste feilene i «finn feilen»-oppgaver."
+      "content": "`'12'` og `12` er to helt ulike verdier. Tekst kan skjøtes og gjentas; tall kan legges sammen og ganges.\n\nAlt som kommer inn utenfra — fra kommandolinjen ([kap. 2.1](/in1900/in1900-2-1)), fra `input`, fra en fil ([kap. 8.1](/in1900/in1900-8-1)) — er **tekst**, og må konverteres med `int` eller `float` før du kan regne. Glemmer du det, får du `'12' + '5'` som blir `'125'` i stedet for `17`. Det er en av de faste feilene i «finn feilen»-oppgaver."
     },
     {
       "id": "in1900-1-4-def-35",
@@ -347,7 +347,7 @@
       "content": [
         {
           "type": "text",
-          "content": "1. `print` setter **ett mellomrom** mellom argumentene; `sep` endrer det, `end` endrer det som kommer etter.\n2. Bredde i en f-streng fyller ut med mellomrom — **foran** tall, **etter** strenger.\n3. `.split()` deler på blanktegn, `.split(';')` på semikolon. Feil valg gir ett felt i stedet for flere.\n4. Strenger er immutable: alle metodene returnerer en ny streng, som du må ta imot.\n5. En liste skrives ut med hakeparenteser, komma og mellomrom, og strenger inne i den beholder fnuttene.\n\nEr de fem på plass, klarer du utskriftsdelen av kodesporingsdrillen i [kap. 1.7](/bok/in1900/in1900-1-7).",
+          "content": "1. `print` setter **ett mellomrom** mellom argumentene; `sep` endrer det, `end` endrer det som kommer etter.\n2. Bredde i en f-streng fyller ut med mellomrom — **foran** tall, **etter** strenger.\n3. `.split()` deler på blanktegn, `.split(';')` på semikolon. Feil valg gir ett felt i stedet for flere.\n4. Strenger er immutable: alle metodene returnerer en ny streng, som du må ta imot.\n5. En liste skrives ut med hakeparenteser, komma og mellomrom, og strenger inne i den beholder fnuttene.\n\nEr de fem på plass, klarer du utskriftsdelen av kodesporingsdrillen i [kap. 1.7](/in1900/in1900-1-7).",
           "id": "in1900-1-4-c36-1"
         }
       ]

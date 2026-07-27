@@ -21,7 +21,7 @@
     {
       "id": "stk1110-2-5-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på konfidensintervallene i **[kap. 2.1](/bok/stk1110/stk1110-2-1)** (kvantiler, $\\chi^2$-intervall for varians) og på testritualet i **[kap. 2.2](/bok/stk1110/stk1110-2-2)**. Sammenhengen med den pooled to-utvalgstesten kommer fra **[kap. 2.3](/bok/stk1110/stk1110-2-3)** (lik-varians-antakelsen).\n\nSelve verktøyet — transformasjonsformelen og gamma/$\\chi^2$-koblingen — er STK1100-stoff: kap. 0.2 friskeropp det. Fullstendig behandling i STK1100 kap. 4.2 *Transformasjonsteknikkene* (→ stk1100-4-2) og kap. 6.1 *Eksakt pivotal-KI* (→ stk1100-6-1) *(klartekst — STK1100 er ikke bygget ennå)*."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på konfidensintervallene i **[kap. 2.1](/stk1110/stk1110-2-1)** (kvantiler, $\\chi^2$-intervall for varians) og på testritualet i **[kap. 2.2](/stk1110/stk1110-2-2)**. Sammenhengen med den pooled to-utvalgstesten kommer fra **[kap. 2.3](/stk1110/stk1110-2-3)** (lik-varians-antakelsen).\n\nSelve verktøyet — transformasjonsformelen og gamma/$\\chi^2$-koblingen — er STK1100-stoff: kap. 0.2 friskeropp det. Fullstendig behandling i STK1100 kap. 4.2 *Transformasjonsteknikkene* (→ stk1100-4-2) og kap. 6.1 *Eksakt pivotal-KI* (→ stk1100-6-1) *(klartekst — STK1100 er ikke bygget ennå)*."
     },
     {
       "id": "stk1110-2-5-sistduvarher",
@@ -31,7 +31,7 @@
     {
       "id": "stk1110-2-5-motiv",
       "type": "text",
-      "content": "Wald-intervallet fra [kap. 1.3](/bok/stk1110/stk1110-1-3) er en tilnærming som hviler på at $n$ er stor. Men noen ganger kan vi gjøre bedre: hvis vi finner en størrelse som er bygget av dataene *og* parameteren, men som har en fordeling som **ikke** avhenger av parameteren, kan vi lese av eksakte kvantiler og snu ulikheten til et **eksakt** konfidensintervall — gyldig for enhver $n$.\n\nEn slik størrelse kalles en **pivot**. For eksponensiallignende data er standardpivoten $2\\sum X_i/\\theta$, som er nøyaktig kjikvadratfordelt. Vi bruker den til KI og test, og møter så **F-testen** for å sammenligne to varianser.\n\nVi går i tre løkker: (1) pivot-oppskriften og det eksakte KI-et, (2) asymmetriske intervaller og eksakte tester, (3) F-testen for variansforhold."
+      "content": "Wald-intervallet fra [kap. 1.3](/stk1110/stk1110-1-3) er en tilnærming som hviler på at $n$ er stor. Men noen ganger kan vi gjøre bedre: hvis vi finner en størrelse som er bygget av dataene *og* parameteren, men som har en fordeling som **ikke** avhenger av parameteren, kan vi lese av eksakte kvantiler og snu ulikheten til et **eksakt** konfidensintervall — gyldig for enhver $n$.\n\nEn slik størrelse kalles en **pivot**. For eksponensiallignende data er standardpivoten $2\\sum X_i/\\theta$, som er nøyaktig kjikvadratfordelt. Vi bruker den til KI og test, og møter så **F-testen** for å sammenligne to varianser.\n\nVi går i tre løkker: (1) pivot-oppskriften og det eksakte KI-et, (2) asymmetriske intervaller og eksakte tester, (3) F-testen for variansforhold."
     },
     {
       "id": "stk1110-2-5-l1",
@@ -146,7 +146,7 @@
       "type": "example",
       "title": "Eksempel 3: F-test for lik varians (sjanger N)",
       "problem": "Før du kjører en pooled to-utvalgstest vil du sjekke lik-varians-antakelsen. Utvalg 1 har $m=13$ med $s_1^2=45$; utvalg 2 har $n=16$ med $s_2^2=12$. Test tosidig på 5 %-nivå om variansene er like. Bruk $F_{12,\\,15,\\,0{,}025}=2{,}96$.",
-      "solution": "**1.** $H_0:\\sigma_1^2=\\sigma_2^2$ mot $H_a:\\sigma_1^2\\ne\\sigma_2^2$ (tosidig).\n\n**2.** Legg største varians i telleren: $F=\\dfrac{S_1^2}{S_2^2}\\sim F_{m-1,\\,n-1}=F_{12,\\,15}$ under $H_0$.\n\n**3.** Tosidig forkast når $F>F_{12,\\,15,\\,0{,}025}=2{,}96$ (øvre grense).\n\n**4.** $F=\\dfrac{45}{12}=3{,}75>2{,}96$: forkast $H_0$.\n\n**5.** På 5 %-nivå er variansene forskjellige — **lik-varians-antakelsen holder ikke**, så en pooled to-utvalgstest er ikke forsvarlig her (bruk heller Welch-varianten fra [kap. 2.3](/bok/stk1110/stk1110-2-3)).\n\n*Sensor-margnotat:* riktige frihetsgrader $(m-1,\\,n-1)=(12,15)$ i den rekkefølgen, og koblingen tilbake til pooling-antakelsen."
+      "solution": "**1.** $H_0:\\sigma_1^2=\\sigma_2^2$ mot $H_a:\\sigma_1^2\\ne\\sigma_2^2$ (tosidig).\n\n**2.** Legg største varians i telleren: $F=\\dfrac{S_1^2}{S_2^2}\\sim F_{m-1,\\,n-1}=F_{12,\\,15}$ under $H_0$.\n\n**3.** Tosidig forkast når $F>F_{12,\\,15,\\,0{,}025}=2{,}96$ (øvre grense).\n\n**4.** $F=\\dfrac{45}{12}=3{,}75>2{,}96$: forkast $H_0$.\n\n**5.** På 5 %-nivå er variansene forskjellige — **lik-varians-antakelsen holder ikke**, så en pooled to-utvalgstest er ikke forsvarlig her (bruk heller Welch-varianten fra [kap. 2.3](/stk1110/stk1110-2-3)).\n\n*Sensor-margnotat:* riktige frihetsgrader $(m-1,\\,n-1)=(12,15)$ i den rekkefølgen, og koblingen tilbake til pooling-antakelsen."
     },
     {
       "id": "stk1110-2-5-oppg3",

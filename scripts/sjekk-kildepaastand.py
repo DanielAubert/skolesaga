@@ -4,7 +4,7 @@
 Bøkene påstår i EKSAMENSANALYSE.md og i kildegrunnlaget hva arkivet inneholder:
 «16 eksamenssett med offisielle sensorveiledninger», «76 PDF-er, kun
 løsningsforslag», og så videre. Disse påstandene vises til studenter på
-/bok/<emne>/kildegrunnlag. Ingen hadde kontrollert dem mot arkivet før
+/<emne>/kildegrunnlag. Ingen hadde kontrollert dem mot arkivet før
 25. juli 2026 — da viste ECON1100 seg å ha 14 sensorveiledninger, ikke 16.
 
 Skriptet gjør to ting:

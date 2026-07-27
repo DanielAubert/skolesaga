@@ -253,7 +253,7 @@ export function EksamenClient({
                 Dette faget har ikke nok quizspørsmål til en eksamensøkt ennå.
                 Eksamenssimulatoren åpner så snart quizbanken er på plass.
               </p>
-              <Link href={`/bok/${courseId}`}>
+              <Link href={`/${courseId}`}>
                 <Button variant="outline" className="gap-2">
                   <ArrowLeft className="h-4 w-4" />
                   Tilbake til boka
@@ -272,11 +272,11 @@ export function EksamenClient({
     <Breadcrumb className="mb-4">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/bok">Bøker</BreadcrumbLink>
+          <BreadcrumbLink href="/">Bøker</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href={`/bok/${courseId}`}>{courseTitle}</BreadcrumbLink>
+          <BreadcrumbLink href={`/${courseId}`}>{courseTitle}</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -432,7 +432,7 @@ export function EksamenClient({
                 <Timer className="h-5 w-5" />
                 Start eksamensøkt
               </Button>
-              <Link href={`/bok/${courseId}`}>
+              <Link href={`/${courseId}`}>
                 <Button size="lg" variant="outline" className="gap-2 w-full">
                   <ArrowLeft className="h-4 w-4" />
                   Tilbake til boka
@@ -574,7 +574,7 @@ export function EksamenClient({
                     <Timer className="h-4 w-4" />
                     Ny økt
                   </Button>
-                  <Link href={`/bok/${courseId}`}>
+                  <Link href={`/${courseId}`}>
                     <Button variant="outline" className="gap-2 w-full">
                       <ArrowLeft className="h-4 w-4" />
                       Tilbake til boka

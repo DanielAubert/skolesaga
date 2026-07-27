@@ -21,7 +21,7 @@
   {
    "id": "in1900-4-3-forkunn",
    "type": "text",
-   "content": "## Forkunnskaper\n\n- **NumPy-tabeller**, særlig `np.linspace` og elementvise operasjoner: [kap. 4.1](/bok/in1900/in1900-4-1). Et plott er alltid to tabeller plottet mot hverandre.\n- **Kolonner i en tabell med to indekser** (`u[:, 0]`), også fra [kap. 4.1](/bok/in1900/in1900-4-1) — det er slik en ODE-løsning kommer til deg i Del 7.\n- **Verditabeller** fra [kap. 4.2](/bok/in1900/in1900-4-2).\n- **Løkker** fra [kap. 1.3](/bok/in1900/in1900-1-3), til den ene oppgaven der en kurve bygges opp punkt for punkt.\n\nKapitlet er delt i tre løkker."
+   "content": "## Forkunnskaper\n\n- **NumPy-tabeller**, særlig `np.linspace` og elementvise operasjoner: [kap. 4.1](/in1900/in1900-4-1). Et plott er alltid to tabeller plottet mot hverandre.\n- **Kolonner i en tabell med to indekser** (`u[:, 0]`), også fra [kap. 4.1](/in1900/in1900-4-1) — det er slik en ODE-løsning kommer til deg i Del 7.\n- **Verditabeller** fra [kap. 4.2](/in1900/in1900-4-2).\n- **Løkker** fra [kap. 1.3](/in1900/in1900-1-3), til den ene oppgaven der en kurve bygges opp punkt for punkt.\n\nKapitlet er delt i tre løkker."
   },
   {
    "id": "in1900-4-3-txt-lokke1",
@@ -84,7 +84,7 @@
   {
    "id": "in1900-4-3-txt-lokke2",
    "type": "text",
-   "content": "## Løkke 2 — flere kurver i samme figur (~14 min)\n\nDen vanlige eksamensvarianten er ikke én kurve, men to eller tre i samme figur: mottakelige, smittede og immune i en epidemimodell, eller byttedyr og rovdyr i en bestandsmodell. Da kaller du `plt.plot` én gang per kurve **før** du kaller `plt.show()`, og gir hver kurve et navn med `label=`.\n\nI Del 7 kommer løsningen av et ODE-system til deg som en tabell med to indekser: én rad per tidspunkt og **én kolonne per komponent**. Da er `u[:, 0]` første komponent, `u[:, 1]` den andre og `u[:, 2]` den tredje. Det er derfor kolonneutsnittet fra [kap. 4.1](/bok/in1900/in1900-4-1) er en forkunnskap her."
+   "content": "## Løkke 2 — flere kurver i samme figur (~14 min)\n\nDen vanlige eksamensvarianten er ikke én kurve, men to eller tre i samme figur: mottakelige, smittede og immune i en epidemimodell, eller byttedyr og rovdyr i en bestandsmodell. Da kaller du `plt.plot` én gang per kurve **før** du kaller `plt.show()`, og gir hver kurve et navn med `label=`.\n\nI Del 7 kommer løsningen av et ODE-system til deg som en tabell med to indekser: én rad per tidspunkt og **én kolonne per komponent**. Da er `u[:, 0]` første komponent, `u[:, 1]` den andre og `u[:, 2]` den tredje. Det er derfor kolonneutsnittet fra [kap. 4.1](/in1900/in1900-4-1) er en forkunnskap her."
   },
   {
    "id": "in1900-4-3-def-label",
@@ -182,7 +182,7 @@
    "type": "example",
    "title": "Eksempel 3: fasekurve for to bestander",
    "problem": "To bestander svinger periodisk: byttedyr rundt 40 individer og rovdyr rundt 9, med samme periode men forskjøvet i tid. Plott først begge mot tiden, deretter rovdyr mot byttedyr som fasekurve.",
-   "solution": "\nTallene her er valgt for å gi to jevne svingninger; i [kap. 6.3](/bok/in1900/in1900-6-3) kommer de fra en simulering du skriver selv.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(t, B, label='byttedyr')\nplt.plot(t, R, label='rovdyr')\nplt.xlabel('tid (måneder)')\nplt.ylabel('antall individer')\nplt.legend()\nplt.show()\n```\n\n**Figur i ord (tidsplottet):** Førsteaksen viser tid fra 0 til 60 måneder, andreaksen antall individer fra om lag 5 til 60. Byttedyrkurven svinger mellom 20 og 60 med periode $2\\pi/0{,}3 \\approx 21$ måneder, og starter i 40 på vei oppover. Rovdyrkurven svinger mellom 5 og 13 rundt middelverdien 9, og starter på sitt maksimum. De to toppene ligger en kvart periode fra hverandre.\n\nSå fasekurven. Legg merke til at aksenavnene nå er de to bestandene:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.title('Fasekurve')\nplt.show()\n```\n\n**Figur i ord (fasekurven):** Førsteaksen viser antall byttedyr fra 20 til 60, andreaksen antall rovdyr fra 5 til 13. Kurven er en lukket, oval løkke som tegnes om og om igjen, med sentrum i punktet $(40, 9)$. At kurven er lukket betyr at bestandene gjentar samme forløp periodisk — hadde de gått mot likevekt, ville kurven spiralert innover mot ett punkt."
+   "solution": "\nTallene her er valgt for å gi to jevne svingninger; i [kap. 6.3](/in1900/in1900-6-3) kommer de fra en simulering du skriver selv.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(t, B, label='byttedyr')\nplt.plot(t, R, label='rovdyr')\nplt.xlabel('tid (måneder)')\nplt.ylabel('antall individer')\nplt.legend()\nplt.show()\n```\n\n**Figur i ord (tidsplottet):** Førsteaksen viser tid fra 0 til 60 måneder, andreaksen antall individer fra om lag 5 til 60. Byttedyrkurven svinger mellom 20 og 60 med periode $2\\pi/0{,}3 \\approx 21$ måneder, og starter i 40 på vei oppover. Rovdyrkurven svinger mellom 5 og 13 rundt middelverdien 9, og starter på sitt maksimum. De to toppene ligger en kvart periode fra hverandre.\n\nSå fasekurven. Legg merke til at aksenavnene nå er de to bestandene:\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nt = np.linspace(0, 60, 601)\nB = 40 + 20*np.sin(0.3*t)\nR = 9 + 4*np.cos(0.3*t)\n\nplt.plot(B, R)\nplt.xlabel('antall byttedyr')\nplt.ylabel('antall rovdyr')\nplt.title('Fasekurve')\nplt.show()\n```\n\n**Figur i ord (fasekurven):** Førsteaksen viser antall byttedyr fra 20 til 60, andreaksen antall rovdyr fra 5 til 13. Kurven er en lukket, oval løkke som tegnes om og om igjen, med sentrum i punktet $(40, 9)$. At kurven er lukket betyr at bestandene gjentar samme forløp periodisk — hadde de gått mot likevekt, ville kurven spiralert innover mot ett punkt."
   },
   {
    "id": "in1900-4-3-o5",
@@ -302,7 +302,7 @@
       "number": "R1",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 4.1](/bok/in1900/in1900-4-1).) Hva er forskjellen på `u[:, 0]` og `u[0, :]` i en tabell med 61 rader og 3 kolonner?",
+      "task": "(Fra [kap. 4.1](/in1900/in1900-4-1).) Hva er forskjellen på `u[:, 0]` og `u[0, :]` i en tabell med 61 rader og 3 kolonner?",
       "solution": "`u[:, 0]` er kolonne 0: 61 tall, hele tidsforløpet til den første komponenten. `u[0, :]` er rad 0: 3 tall, alle komponentene ved første tidspunkt. Skal du plotte mot `t`, som har 61 elementer, er det bare den første som passer i lengde.",
       "hints": [
        "Kolon på første plass betyr «alle rader»."
@@ -317,7 +317,7 @@
       "number": "R2",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 4.2](/bok/in1900/in1900-4-2).) Du skal plotte $y=\\ln x$ for 101 punkter i $[1, 10]$. Skriv de to linjene som lager tabellene.",
+      "task": "(Fra [kap. 4.2](/in1900/in1900-4-2).) Du skal plotte $y=\\ln x$ for 101 punkter i $[1, 10]$. Skriv de to linjene som lager tabellene.",
       "solution": "```python\nimport numpy as np\n\nx = np.linspace(1, 10, 101)\ny = np.log(x)\n```\n\n101 punkter gir 100 intervaller og steglengde 0,09. Merk `np.log` og ikke `log` fra `math`, siden argumentet er en hel tabell.",
       "hints": [
        "Tredje argument er antall punkter."

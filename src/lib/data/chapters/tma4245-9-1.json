@@ -21,7 +21,7 @@
     {
       "id": "tma4245-9-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på **[kap. 2.4](/bok/tma4245/tma4245-2-4)** — der du drillet å gå fra en oppgitt tetthet $f(x)$ til fordelingsfunksjonen $F(x)$ og til kvantiler ved å løse $F(x_p)=p$. Nettopp den ferdigheten er motoren i inversjonsmetoden. Fra **[kap. 4.1](/bok/tma4245/tma4245-4-1)** tar vi med at fordelingen til en transformert variabel styres av fordelingsfunksjonen, og fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)** hvorfor empirisk varians deles på $n-1$ (det blir `ddof=1` i numpy).\n\n**Sist du var her — de tre resultatene metoden hviler på (ferdig oppfrisket):**\n\n1. **Fordelingsfunksjonen fra tettheten:** $F(x)=\\int_{\\text{start}}^{x} f(s)\\,ds$, oppgitt komplett (0 under støtten, uttrykket inne, 1 over).\n2. **Kvantilen løser $F(x_p)=p$** — løs likningen for $x$, aldri $f(x)=p$. Den inverse funksjonen $F^{-1}$ er nettopp «løs $F(x)=u$ for $x$».\n3. **Halesannsynlighet:** $P(X>x)=1-F(x)$.\n\nMatematisk trenger du å kunne integrere polynomer og potenser, løse en enkel likning for $x$, og lese grunnleggende numpy. Ingen ny sannsynlighetsteori innføres her — bare et nytt verktøy for den du alt kan."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på **[kap. 2.4](/tma4245/tma4245-2-4)** — der du drillet å gå fra en oppgitt tetthet $f(x)$ til fordelingsfunksjonen $F(x)$ og til kvantiler ved å løse $F(x_p)=p$. Nettopp den ferdigheten er motoren i inversjonsmetoden. Fra **[kap. 4.1](/tma4245/tma4245-4-1)** tar vi med at fordelingen til en transformert variabel styres av fordelingsfunksjonen, og fra **[kap. 5.1](/tma4245/tma4245-5-1)** hvorfor empirisk varians deles på $n-1$ (det blir `ddof=1` i numpy).\n\n**Sist du var her — de tre resultatene metoden hviler på (ferdig oppfrisket):**\n\n1. **Fordelingsfunksjonen fra tettheten:** $F(x)=\\int_{\\text{start}}^{x} f(s)\\,ds$, oppgitt komplett (0 under støtten, uttrykket inne, 1 over).\n2. **Kvantilen løser $F(x_p)=p$** — løs likningen for $x$, aldri $f(x)=p$. Den inverse funksjonen $F^{-1}$ er nettopp «løs $F(x)=u$ for $x$».\n3. **Halesannsynlighet:** $P(X>x)=1-F(x)$.\n\nMatematisk trenger du å kunne integrere polynomer og potenser, løse en enkel likning for $x$, og lese grunnleggende numpy. Ingen ny sannsynlighetsteori innføres her — bare et nytt verktøy for den du alt kan."
     },
     {
       "id": "tma4245-9-1-intro",
@@ -42,7 +42,7 @@
     {
       "id": "tma4245-9-1-arbeidsflyt",
       "type": "text",
-      "content": "### Arbeidsflyten (tre steg)\n\nUansett fordeling følger inversjonsmetoden **samme tre steg**:\n\n**1. Utled $F$.** Fra tettheten $f$: $F(x)=\\int f$ (teknikken fra [kap. 2.4](/bok/tma4245/tma4245-2-4)). Er $F$ oppgitt, hopp rett videre.\n\n**2. Løs $F(x)=u$ for $x$.** Det gir den inverse $x=F^{-1}(u)$. Dette er samme likning som kvantilregningen — bare med en generell $u$ i stedet for et tall.\n\n**3. Implementer.** Trekk $u$ med `np.random.uniform(size=n)` og sett vektoren inn i uttrykket for $F^{-1}(u)$. Ferdig funksjon.\n\nMerk at steg 2 er *hele* det matematiske arbeidet — resten er én linje numpy."
+      "content": "### Arbeidsflyten (tre steg)\n\nUansett fordeling følger inversjonsmetoden **samme tre steg**:\n\n**1. Utled $F$.** Fra tettheten $f$: $F(x)=\\int f$ (teknikken fra [kap. 2.4](/tma4245/tma4245-2-4)). Er $F$ oppgitt, hopp rett videre.\n\n**2. Løs $F(x)=u$ for $x$.** Det gir den inverse $x=F^{-1}(u)$. Dette er samme likning som kvantilregningen — bare med en generell $u$ i stedet for et tall.\n\n**3. Implementer.** Trekk $u$ med `np.random.uniform(size=n)` og sett vektoren inn i uttrykket for $F^{-1}(u)$. Ferdig funksjon.\n\nMerk at steg 2 er *hele* det matematiske arbeidet — resten er én linje numpy."
     },
     {
       "id": "tma4245-9-1-ex-eksp",
@@ -144,7 +144,7 @@
       "id": "tma4245-9-1-def-ddof",
       "type": "definition",
       "title": "np.var med ddof=1 — empirisk varians",
-      "content": "`np.var(x)` deler som standard summen av kvadratavvik på $n$ (`ddof=0`). Men den **forventningsrette** empiriske variansen — utvalgsvariansen $S^2$ fra [kap. 5.1](/bok/tma4245/tma4245-5-1) — deler på $n-1$. I numpy får du den med **`np.var(x, ddof=1)`** (`ddof` = «delta degrees of freedom», trekker 1 fra $n$).\n\n**Hvorfor $n-1$?** Fordi vi bruker det estimerte gjennomsnittet $\\bar{x}$ i stedet for den (ukjente) sanne forventningen. Å dele på $n$ undervurderer da variansen systematisk; korreksjonen til $n-1$ gjør $E(S^2)=\\sigma^2$ (forventningsrett — vist i kap. 5.1). Når du estimerer en varians fra simulerte data, bruk derfor `ddof=1`. (For gigantiske $n$ er forskjellen forsvinnende, men vanen skal sitte.)"
+      "content": "`np.var(x)` deler som standard summen av kvadratavvik på $n$ (`ddof=0`). Men den **forventningsrette** empiriske variansen — utvalgsvariansen $S^2$ fra [kap. 5.1](/tma4245/tma4245-5-1) — deler på $n-1$. I numpy får du den med **`np.var(x, ddof=1)`** (`ddof` = «delta degrees of freedom», trekker 1 fra $n$).\n\n**Hvorfor $n-1$?** Fordi vi bruker det estimerte gjennomsnittet $\\bar{x}$ i stedet for den (ukjente) sanne forventningen. Å dele på $n$ undervurderer da variansen systematisk; korreksjonen til $n-1$ gjør $E(S^2)=\\sigma^2$ (forventningsrett — vist i kap. 5.1). Når du estimerer en varians fra simulerte data, bruk derfor `ddof=1`. (For gigantiske $n$ er forskjellen forsvinnende, men vanen skal sitte.)"
     },
     {
       "id": "tma4245-9-1-ex-numpy",
@@ -179,7 +179,7 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "Du har simulert en stor vektor `x` av observasjoner og vil estimere fordelingens **forventning** og **varians**.\n\n**a)** Hvilken numpy-funksjon gir forventningsestimatet?\n\n**b)** Hvordan skriver du variansestimatet slik at det er forventningsrett (som $S^2$)?\n\n**c)** Med én setning: hvorfor `ddof=1` og ikke standard `ddof=0`?",
-        "solution": "**a)** `np.mean(x)`.\n\n**b)** `np.var(x, ddof=1)` — deler på $n-1$.\n\n**c)** Fordi vi bruker det estimerte gjennomsnittet $\\bar{x}$ i utregningen; å dele på $n$ ville undervurdert variansen systematisk, mens $n-1$ gjør estimatoren forventningsrett ($E(S^2)=\\sigma^2$, [kap. 5.1](/bok/tma4245/tma4245-5-1)).",
+        "solution": "**a)** `np.mean(x)`.\n\n**b)** `np.var(x, ddof=1)` — deler på $n-1$.\n\n**c)** Fordi vi bruker det estimerte gjennomsnittet $\\bar{x}$ i utregningen; å dele på $n$ ville undervurdert variansen systematisk, mens $n-1$ gjør estimatoren forventningsrett ($E(S^2)=\\sigma^2$, [kap. 5.1](/tma4245/tma4245-5-1)).",
         "hints": [
           "Gjennomsnittet er `np.mean`.",
           "Empirisk (forventningsrett) varians deler på $n-1$; det er `ddof=1`.",
@@ -288,7 +288,7 @@
       "id": "tma4245-9-1-bb-arbeidsflyt",
       "type": "definition",
       "title": "Oppskriftskort: de tre stegene",
-      "content": "**(1)** Utled $F$ (integrer $f$, teknikk fra [kap. 2.4](/bok/tma4245/tma4245-2-4)). **(2)** Løs $F(x)=u$ for $x$ — det gir $F^{-1}(u)$. **(3)** Implementer: `u = np.random.uniform(size=n)`, sett vektoren inn i $F^{-1}(u)$. Steg 2 er hele det matematiske arbeidet."
+      "content": "**(1)** Utled $F$ (integrer $f$, teknikk fra [kap. 2.4](/tma4245/tma4245-2-4)). **(2)** Løs $F(x)=u$ for $x$ — det gir $F^{-1}(u)$. **(3)** Implementer: `u = np.random.uniform(size=n)`, sett vektoren inn i $F^{-1}(u)$. Steg 2 er hele det matematiske arbeidet."
     },
     {
       "id": "tma4245-9-1-bb-eksp",
@@ -318,7 +318,7 @@
       "id": "tma4245-9-1-bb-ddof",
       "type": "definition",
       "title": "Kort: np.var(x, ddof=1)",
-      "content": "Empirisk (forventningsrett) varians deler på $n-1$: `np.var(x, ddof=1)`. Standard `np.var(x)` deler på $n$. $n-1$ brukes fordi vi setter inn det estimerte $\\bar{x}$; korreksjonen gir $E(S^2)=\\sigma^2$ ([kap. 5.1](/bok/tma4245/tma4245-5-1))."
+      "content": "Empirisk (forventningsrett) varians deler på $n-1$: `np.var(x, ddof=1)`. Standard `np.var(x)` deler på $n$. $n-1$ brukes fordi vi setter inn det estimerte $\\bar{x}$; korreksjonen gir $E(S^2)=\\sigma^2$ ([kap. 5.1](/tma4245/tma4245-5-1))."
     },
     {
       "id": "tma4245-9-1-bb-monster",
@@ -330,7 +330,7 @@
       "id": "tma4245-9-1-bb-feil-f",
       "type": "definition",
       "title": "Feilkort: $F(x)=u$, ikke $f(x)=u$",
-      "content": "Den hyppigste inversjonsfeilen: å løse tetthetslikningen $f(x)=u$ i stedet for $F(x)=u$. Inversjonsmetoden bruker *fordelingsfunksjonen*. Integrer $f$ til $F$ først, løs så $F(x)=u$ for $x$. (Samme logikk som median-fella $F(m)=1/2$ i [kap. 2.4](/bok/tma4245/tma4245-2-4).)"
+      "content": "Den hyppigste inversjonsfeilen: å løse tetthetslikningen $f(x)=u$ i stedet for $F(x)=u$. Inversjonsmetoden bruker *fordelingsfunksjonen*. Integrer $f$ til $F$ først, løs så $F(x)=u$ for $x$. (Samme logikk som median-fella $F(m)=1/2$ i [kap. 2.4](/tma4245/tma4245-2-4).)"
     },
     {
       "id": "tma4245-9-1-bb-kodelesing",
@@ -352,7 +352,7 @@
             "number": "R1",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 2.4](/bok/tma4245/tma4245-2-4).) En tetthet er $f(x)=4x^3$ for $0<x<1$. Finn $F(x)$.",
+            "task": "(Fra [kap. 2.4](/tma4245/tma4245-2-4).) En tetthet er $f(x)=4x^3$ for $0<x<1$. Finn $F(x)$.",
             "solution": "$F(x)=\\int_0^x 4s^3\\,ds=x^4$ for $0\\le x\\le 1$ (0 under, 1 over).",
             "hints": [
               "$F(x)=\\int_0^x f(s)\\,ds$."
@@ -367,7 +367,7 @@
             "number": "R2",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 2.4](/bok/tma4245/tma4245-2-4).) Med $F(x)=x^4$ på $(0,1)$: finn medianen ved å løse $F(m)=0{,}5$.",
+            "task": "(Fra [kap. 2.4](/tma4245/tma4245-2-4).) Med $F(x)=x^4$ på $(0,1)$: finn medianen ved å løse $F(m)=0{,}5$.",
             "solution": "$m^4=0{,}5\\Rightarrow m=0{,}5^{1/4}\\approx 0{,}841$. (Samme likning du løser generelt i inversjonsmetoden, bare med $u=0{,}5$.)",
             "hints": [
               "Løs $m^4=0{,}5$; ta fjerderoten.",
@@ -383,7 +383,7 @@
             "number": "R3",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 2.4](/bok/tma4245/tma4245-2-4).) For hale-tettheten $f(x)=3x^{-4}$ på $(1,\\infty)$ er $F(x)=1-x^{-3}$. Finn $P(X>2)$.",
+            "task": "(Fra [kap. 2.4](/tma4245/tma4245-2-4).) For hale-tettheten $f(x)=3x^{-4}$ på $(1,\\infty)$ er $F(x)=1-x^{-3}$. Finn $P(X>2)$.",
             "solution": "$P(X>2)=1-F(2)=2^{-3}=\\tfrac{1}{8}=0{,}125$.",
             "hints": [
               "$P(X>x)=1-F(x)$.",
@@ -399,7 +399,7 @@
             "number": "R4",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 4.1](/bok/tma4245/tma4245-4-1).) To uavhengige komponenter er parallellkoblet; systemet lever så lenge minst én lever. Uttrykk fordelingsfunksjonen til systemets levetid $M=\\max(X_1,X_2)$ ved $F$.",
+            "task": "(Fra [kap. 4.1](/tma4245/tma4245-4-1).) To uavhengige komponenter er parallellkoblet; systemet lever så lenge minst én lever. Uttrykk fordelingsfunksjonen til systemets levetid $M=\\max(X_1,X_2)$ ved $F$.",
             "solution": "$F_M(x)=P(\\max\\le x)=P(X_1\\le x)P(X_2\\le x)=[F(x)]^2$ (uavhengige, identisk fordelte). Generelt $F_{\\max}=[F]^n$. Parallell = maksimum.",
             "hints": [
               "Maks $\\le x$ betyr at *begge* er $\\le x$.",

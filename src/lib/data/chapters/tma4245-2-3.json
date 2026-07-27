@@ -21,7 +21,7 @@
     {
       "id": "tma4245-2-3-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på tetthet, fordelingsfunksjon ($f = F'$), forventning og varians fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)**, og på Poisson-prosessen fra **[kap. 2.2](/bok/tma4245/tma4245-2-2)** (som eksponensialfordelingen er ventetiden i). Betinget sannsynlighet fra **[kap. 1.3](/bok/tma4245/tma4245-1-3)** brukes i minneløshets-utledningen.\n\nFra matematikken må du kunne **integrere** eksponensialfunksjoner ($\\int e^{-x/\\beta}\\,dx = -\\beta e^{-x/\\beta}$) og enkle potenser, og regne med $e^{-x}$ på kalkulator. Vi bygger opp hver fordeling fra tetthet eller fordelingsfunksjon.\n\nKapitlet er forkunnskap for tetthets-drillen i **[kap. 2.4](/bok/tma4245/tma4245-2-4)**, transformasjonene i **kap. 4.1** (der $2X/\\beta \\sim \\chi^2_2$ utledes) og eksponensialens konfidensintervall i Del 6."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på tetthet, fordelingsfunksjon ($f = F'$), forventning og varians fra **[kap. 2.1](/tma4245/tma4245-2-1)**, og på Poisson-prosessen fra **[kap. 2.2](/tma4245/tma4245-2-2)** (som eksponensialfordelingen er ventetiden i). Betinget sannsynlighet fra **[kap. 1.3](/tma4245/tma4245-1-3)** brukes i minneløshets-utledningen.\n\nFra matematikken må du kunne **integrere** eksponensialfunksjoner ($\\int e^{-x/\\beta}\\,dx = -\\beta e^{-x/\\beta}$) og enkle potenser, og regne med $e^{-x}$ på kalkulator. Vi bygger opp hver fordeling fra tetthet eller fordelingsfunksjon.\n\nKapitlet er forkunnskap for tetthets-drillen i **[kap. 2.4](/tma4245/tma4245-2-4)**, transformasjonene i **kap. 4.1** (der $2X/\\beta \\sim \\chi^2_2$ utledes) og eksponensialens konfidensintervall i Del 6."
     },
     {
       "id": "tma4245-2-3-intro",
@@ -56,7 +56,7 @@
       "type": "example",
       "title": "Eksempel 1: Minneløsheten utledet",
       "problem": "Levetiden $X$ (i år) til en temperatursensor er eksponensialfordelt med forventning $\\beta = 5$ år. Vis at $P(X > 8 \\mid X > 3) = P(X > 5)$, og forklar hvilken egenskap dette uttrykker.",
-      "solution": "Bruk halesannsynligheten $P(X > x) = e^{-x/\\beta}$ og definisjonen av betinget sannsynlighet ([kap. 1.3](/bok/tma4245/tma4245-1-3)). Hendelsen $\\{X > 8\\}$ ligger inne i $\\{X > 3\\}$, så snittet er $\\{X > 8\\}$:\n\n$$P(X > 8 \\mid X > 3) = \\frac{P(X > 8)}{P(X > 3)} = \\frac{e^{-8/5}}{e^{-3/5}} = e^{-(8-3)/5} = e^{-5/5} = e^{-1}.$$\n\nOg direkte: $P(X > 5) = e^{-5/5} = e^{-1} \\approx 0{,}368$. De er like.\n\n**Tolkning:** dette er **minneløshet** — at sensoren har fungert i 3 år endrer ikke sannsynligheten for at den varer 5 år til; den er «like god som ny». Egenskapen er unik for eksponensialfordelingen. Den generelle utledningen bruker samme steg:\n$$P(X > s+t \\mid X > t) = \\frac{e^{-(s+t)/\\beta}}{e^{-t/\\beta}} = e^{-s/\\beta} = P(X > s).$$"
+      "solution": "Bruk halesannsynligheten $P(X > x) = e^{-x/\\beta}$ og definisjonen av betinget sannsynlighet ([kap. 1.3](/tma4245/tma4245-1-3)). Hendelsen $\\{X > 8\\}$ ligger inne i $\\{X > 3\\}$, så snittet er $\\{X > 8\\}$:\n\n$$P(X > 8 \\mid X > 3) = \\frac{P(X > 8)}{P(X > 3)} = \\frac{e^{-8/5}}{e^{-3/5}} = e^{-(8-3)/5} = e^{-5/5} = e^{-1}.$$\n\nOg direkte: $P(X > 5) = e^{-5/5} = e^{-1} \\approx 0{,}368$. De er like.\n\n**Tolkning:** dette er **minneløshet** — at sensoren har fungert i 3 år endrer ikke sannsynligheten for at den varer 5 år til; den er «like god som ny». Egenskapen er unik for eksponensialfordelingen. Den generelle utledningen bruker samme steg:\n$$P(X > s+t \\mid X > t) = \\frac{e^{-(s+t)/\\beta}}{e^{-t/\\beta}} = e^{-s/\\beta} = P(X > s).$$"
     },
     {
       "id": "tma4245-2-3-l1",
@@ -95,7 +95,7 @@
     {
       "id": "tma4245-2-3-kobling-poisson",
       "type": "text",
-      "content": "### Broen til Poisson-prosessen\n\nEksponensialfordelingen er ikke tilfeldig valgt for ventetider: i en **Poisson-prosess** med rate $\\lambda$ (fra [kap. 2.2](/bok/tma4245/tma4245-2-2)) er tiden mellom to hendelser nettopp eksponensialfordelt med forventning $\\beta = 1/\\lambda$. Antall hendelser (diskret Poisson) og tid mellom hendelser (kontinuerlig eksponensial) beskriver samme prosess fra to vinkler. Minneløsheten svarer da til at prosessen «starter på nytt» etter hver hendelse."
+      "content": "### Broen til Poisson-prosessen\n\nEksponensialfordelingen er ikke tilfeldig valgt for ventetider: i en **Poisson-prosess** med rate $\\lambda$ (fra [kap. 2.2](/tma4245/tma4245-2-2)) er tiden mellom to hendelser nettopp eksponensialfordelt med forventning $\\beta = 1/\\lambda$. Antall hendelser (diskret Poisson) og tid mellom hendelser (kontinuerlig eksponensial) beskriver samme prosess fra to vinkler. Minneløsheten svarer da til at prosessen «starter på nytt» etter hver hendelse."
     },
     {
       "id": "tma4245-2-3-pause1",
@@ -111,7 +111,7 @@
       "id": "tma4245-2-3-def-gamma",
       "type": "definition",
       "title": "Gammafordelingen $\\text{gamma}(n, \\beta)$",
-      "content": "Summen av $n$ **uavhengige** eksponensialfordelte variable, hver med forventning $\\beta$, er **gammafordelt**:\n\n$$X = Y_1 + Y_2 + \\cdots + Y_n \\sim \\text{gamma}(n, \\beta), \\qquad E(X) = n\\beta, \\quad \\text{Var}(X) = n\\beta^2.$$\n\nTolkning: ventetiden til den $n$-te hendelsen i en Poisson-prosess er gamma. Forventning og varians følger direkte av regnereglene i [kap. 2.1](/bok/tma4245/tma4245-2-1) (summen av forventninger, summen av varianser for uavhengige). At summen faktisk *er* gamma-fordelt vises med MGF-teknikken i kap. 4.1 — her bruker vi resultatet."
+      "content": "Summen av $n$ **uavhengige** eksponensialfordelte variable, hver med forventning $\\beta$, er **gammafordelt**:\n\n$$X = Y_1 + Y_2 + \\cdots + Y_n \\sim \\text{gamma}(n, \\beta), \\qquad E(X) = n\\beta, \\quad \\text{Var}(X) = n\\beta^2.$$\n\nTolkning: ventetiden til den $n$-te hendelsen i en Poisson-prosess er gamma. Forventning og varians følger direkte av regnereglene i [kap. 2.1](/tma4245/tma4245-2-1) (summen av forventninger, summen av varianser for uavhengige). At summen faktisk *er* gamma-fordelt vises med MGF-teknikken i kap. 4.1 — her bruker vi resultatet."
     },
     {
       "id": "tma4245-2-3-def-kjikvadrat",
@@ -183,13 +183,13 @@
       "id": "tma4245-2-3-def-oppskrift",
       "type": "definition",
       "title": "«Oppskriftsfordeling»-beredskapen",
-      "content": "Får du en ukjent kontinuerlig fordeling med **oppgitt** tetthet $f(x)$ eller fordelingsfunksjon $F(x)$, bruker du fire standardgrep — uansett hva fordelingen heter:\n\n1. **Normering:** hvis en konstant er ukjent, bestem den fra $\\int f(x)\\,dx = 1$ over støtten.\n2. **Sannsynligheter:** $P(a < X < b) = F(b) - F(a) = \\int_a^b f(x)\\,dx$; halesannsynlighet $P(X > x) = 1 - F(x)$.\n3. **Kvantiler/median:** løs $F(x_p) = p$ (for median $p = 0{,}5$).\n4. **Momenter:** $E(X) = \\int x f(x)\\,dx$, $E(X^2) = \\int x^2 f(x)\\,dx$, deretter $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDet er *nøyaktig* de samme grepene vi driller i [kap. 2.4](/bok/tma4245/tma4245-2-4)."
+      "content": "Får du en ukjent kontinuerlig fordeling med **oppgitt** tetthet $f(x)$ eller fordelingsfunksjon $F(x)$, bruker du fire standardgrep — uansett hva fordelingen heter:\n\n1. **Normering:** hvis en konstant er ukjent, bestem den fra $\\int f(x)\\,dx = 1$ over støtten.\n2. **Sannsynligheter:** $P(a < X < b) = F(b) - F(a) = \\int_a^b f(x)\\,dx$; halesannsynlighet $P(X > x) = 1 - F(x)$.\n3. **Kvantiler/median:** løs $F(x_p) = p$ (for median $p = 0{,}5$).\n4. **Momenter:** $E(X) = \\int x f(x)\\,dx$, $E(X^2) = \\int x^2 f(x)\\,dx$, deretter $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDet er *nøyaktig* de samme grepene vi driller i [kap. 2.4](/tma4245/tma4245-2-4)."
     },
     {
       "id": "tma4245-2-3-def-egendefinert",
       "type": "definition",
       "title": "Egendefinert tetthet — normeringskonstant",
-      "content": "En **egendefinert tetthet** er gitt ved en formel med en ukjent konstant $c$, for eksempel $f(x) = c x^3$ på $(0, 1)$ eller $f(x) = c/x^4$ for $x > 1$. Konstanten bestemmes alltid av **normeringskravet**:\n\n$$\\int_{\\text{støtte}} f(x)\\,dx = 1.$$\n\nDette er *første* steg — uten riktig $c$ blir alt etterpå galt. Etter normering følger $F$ ved integrasjon, og sannsynligheter, kvantiler og momenter som over. Selve treningen på dette skjer i [kap. 2.4](/bok/tma4245/tma4245-2-4); her etablerer vi bare teknikken."
+      "content": "En **egendefinert tetthet** er gitt ved en formel med en ukjent konstant $c$, for eksempel $f(x) = c x^3$ på $(0, 1)$ eller $f(x) = c/x^4$ for $x > 1$. Konstanten bestemmes alltid av **normeringskravet**:\n\n$$\\int_{\\text{støtte}} f(x)\\,dx = 1.$$\n\nDette er *første* steg — uten riktig $c$ blir alt etterpå galt. Etter normering følger $F$ ved integrasjon, og sannsynligheter, kvantiler og momenter som over. Selve treningen på dette skjer i [kap. 2.4](/tma4245/tma4245-2-4); her etablerer vi bare teknikken."
     },
     {
       "id": "tma4245-2-3-ex-3",

@@ -42,7 +42,7 @@ export default function NotFound() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="gap-2">
-                  <Link href="/bok">
+                  <Link href="/">
                     <BookOpen className="h-4 w-4" />
                     Se lærebøker
                   </Link>

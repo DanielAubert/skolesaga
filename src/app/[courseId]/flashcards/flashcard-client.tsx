@@ -499,13 +499,13 @@ export function FlashcardClient({
     <Breadcrumb className="mb-4">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href={hasCourses ? "/dashboard/student" : "/bok"}>
+          <BreadcrumbLink href={hasCourses ? "/dashboard/student" : "/"}>
             {hasCourses ? "Dashbord" : "Bøker"}
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href={`/bok/${courseId}`}>
+          <BreadcrumbLink href={`/${courseId}`}>
             {courseTitle}
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -520,7 +520,7 @@ export function FlashcardClient({
   const backLink = (
     <div className="max-w-lg mx-auto mt-6 text-center">
       <Link
-        href={`/bok/${courseId}`}
+        href={`/${courseId}`}
         className="text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4 inline mr-1" />
@@ -578,7 +578,7 @@ export function FlashcardClient({
                   {srsSessionDone > 0 ? "Ny økt" : "Start økt"}
                 </Button>
               )}
-              <Link href={`/bok/${courseId}`}>
+              <Link href={`/${courseId}`}>
                 <Button variant="outline" className="gap-2 w-full">
                   <ArrowLeft className="h-4 w-4" />
                   Tilbake til boken
@@ -618,7 +618,7 @@ export function FlashcardClient({
                 <RefreshCw className="h-4 w-4" />
                 Start på nytt
               </Button>
-              <Link href={`/bok/${courseId}`}>
+              <Link href={`/${courseId}`}>
                 <Button variant="outline" className="gap-2 w-full">
                   <ArrowLeft className="h-4 w-4" />
                   Tilbake til boken

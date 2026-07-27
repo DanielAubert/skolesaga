@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     ...pageMetadata({
-      path: `/bok/${courseId}/kompetansemal`,
+      path: `/${courseId}/kompetansemal`,
       title,
       description,
       image: course.coverImage,
@@ -87,7 +87,7 @@ export default async function CompetenceGoalsPage({ params }: PageProps) {
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
             <BreadcrumbHomeLink className="hover:text-foreground" />
             <ChevronRight className="h-4 w-4" />
-            <Link href={`/bok/${courseId}`} className="hover:text-foreground">
+            <Link href={`/${courseId}`} className="hover:text-foreground">
               {course.title}
             </Link>
             <ChevronRight className="h-4 w-4" />
@@ -140,7 +140,7 @@ export default async function CompetenceGoalsPage({ params }: PageProps) {
                     {chapters.map((chapter) => (
                       <Link
                         key={chapter.id}
-                        href={`/bok/${courseId}/${chapter.id}`}
+                        href={`/${courseId}/${chapter.id}`}
                         className="inline-flex items-center gap-1 px-2 py-1 text-xs rounded-md bg-muted hover:bg-muted/80 transition-colors"
                       >
                         <span className="font-mono text-primary">{chapter.number}</span>
@@ -173,7 +173,7 @@ export default async function CompetenceGoalsPage({ params }: PageProps) {
                     {mainChapters.map((chapter) => (
                       <div key={chapter.id} className="border rounded-lg p-4">
                         <Link
-                          href={`/bok/${courseId}/${chapter.id}`}
+                          href={`/${courseId}/${chapter.id}`}
                           className="font-medium hover:text-primary transition-colors"
                         >
                           <span className="font-mono text-primary mr-2">{chapter.number}</span>
@@ -208,7 +208,7 @@ export default async function CompetenceGoalsPage({ params }: PageProps) {
           {/* Tilbake-knapp */}
           <div className="mt-12 pt-8 border-t">
             <Link
-              href={`/bok/${courseId}`}
+              href={`/${courseId}`}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ChevronRight className="h-4 w-4 rotate-180" />

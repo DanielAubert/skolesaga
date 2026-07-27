@@ -21,7 +21,7 @@
     {
       "id": "in1020-1-5-forkunnskaper",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 1.4](/bok/in1020/in1020-1-4). Tre ting du trenger, ferdig oppfrisket:\n\n**1. Sporetabellen.** Kolonner for programteller, instruksjon, akkumulator, hver navngitt minnecelle og ut-kurven — **én rad per utført instruksjon**.\n\n**2. Instruksjonskontrakten.** Bare `STA` skriver til minnet. Bare `INP`, `LDA`, `ADD` og `SUB` endrer akkumulatoren. Programtelleren økes med 1 med mindre et hopp utføres.\n\n**3. De tre hoppene.** `BRA xx` hopper alltid. `BRZ xx` hopper når akkumulatoren er **nøyaktig 0**. `BRP xx` hopper når den er **0 eller større**.\n\nOg én ting fra [kap. 1.3](/bok/in1020/in1020-1-3) som får ny betydning her: **et bitmønster bærer ikke sin egen tolkning.** Der var det byten som kunne leses på to måter. Her er det minnecellen: det samme tresifrede tallet er en instruksjon eller et datatall, avhengig av hva maskinen gjør med det."
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger direkte på [kap. 1.4](/in1020/in1020-1-4). Tre ting du trenger, ferdig oppfrisket:\n\n**1. Sporetabellen.** Kolonner for programteller, instruksjon, akkumulator, hver navngitt minnecelle og ut-kurven — **én rad per utført instruksjon**.\n\n**2. Instruksjonskontrakten.** Bare `STA` skriver til minnet. Bare `INP`, `LDA`, `ADD` og `SUB` endrer akkumulatoren. Programtelleren økes med 1 med mindre et hopp utføres.\n\n**3. De tre hoppene.** `BRA xx` hopper alltid. `BRZ xx` hopper når akkumulatoren er **nøyaktig 0**. `BRP xx` hopper når den er **0 eller større**.\n\nOg én ting fra [kap. 1.3](/in1020/in1020-1-3) som får ny betydning her: **et bitmønster bærer ikke sin egen tolkning.** Der var det byten som kunne leses på to måter. Her er det minnecellen: det samme tresifrede tallet er en instruksjon eller et datatall, avhengig av hva maskinen gjør med det."
     },
     {
       "id": "in1020-1-5-notasjon",
@@ -39,7 +39,7 @@
     {
       "id": "in1020-1-5-lokke1",
       "type": "text",
-      "content": "## Løkke 1 — Instruksjonen er et tall (~12 min)\n\nI forrige kapittel skrev vi programmer som `LDA 08`. Men den lille mannen kan ikke lese bokstaver — postkassene inneholder bare tresifrede tall.\n\n`LDA 08` er derfor egentlig tallet `508`. Første siffer sier *hva* som skal gjøres, de to siste sier *hvor*.\n\nDet høres ut som en teknisk detalj. Det er det ikke: det er hele grunnen til at en datamaskin kan være en generell maskin i det hele tatt. Programmet ligger i det samme minnet som dataene, i det samme formatet, og kan derfor behandles som data. Denne innsikten har et navn — von Neumann-arkitekturen — og du møter den igjen i [kap. 2.4](/bok/in1020/in1020-2-4)."
+      "content": "## Løkke 1 — Instruksjonen er et tall (~12 min)\n\nI forrige kapittel skrev vi programmer som `LDA 08`. Men den lille mannen kan ikke lese bokstaver — postkassene inneholder bare tresifrede tall.\n\n`LDA 08` er derfor egentlig tallet `508`. Første siffer sier *hva* som skal gjøres, de to siste sier *hvor*.\n\nDet høres ut som en teknisk detalj. Det er det ikke: det er hele grunnen til at en datamaskin kan være en generell maskin i det hele tatt. Programmet ligger i det samme minnet som dataene, i det samme formatet, og kan derfor behandles som data. Denne innsikten har et navn — von Neumann-arkitekturen — og du møter den igjen i [kap. 2.4](/in1020/in1020-2-4)."
     },
     {
       "id": "in1020-1-5-def-maskinkode",
@@ -70,7 +70,7 @@
       "type": "example",
       "title": "Eksempel 1: Dekod et helt program",
       "problem": "Minnet fra celle 00 inneholder tallene under. Hva gjør programmet?\n\n```text\ncelle:   00   01   02   03   04   05   90   91\ntall:   901  390  901  190  902  000  000  000\n```",
-      "solution": "**Dekod celle for celle.**\n\n| Celle | Tall | Opkode | Adresse | Instruksjon |\n|---|---|---|---|---|\n| 00 | `901` | — | — | `INP` |\n| 01 | `390` | 3 | 90 | `STA 90` |\n| 02 | `901` | — | — | `INP` |\n| 03 | `190` | 1 | 90 | `ADD 90` |\n| 04 | `902` | — | — | `OUT` |\n| 05 | `000` | — | — | `HLT` |\n| 90 | `000` | — | — | datacelle, startverdi 0 |\n\n**Programmet er:**\n\n```text\n00  INP\n01  STA 90\n02  INP\n03  ADD 90\n04  OUT\n05  HLT\n90  DAT\n```\n\nDet leser to tall og skriver ut summen — det samme programmet du sporet i [kap. 1.4](/bok/in1020/in1020-1-4).\n\n**Legg merke til celle 90.** Den inneholder `000`, som *dekodet som instruksjon* ville vært `HLT`. Men programtelleren kommer aldri dit, fordi `HLT` i celle 05 stopper alt. Om `000` er data eller instruksjon, avgjøres altså ikke av tallet, men av om programtelleren peker på det."
+      "solution": "**Dekod celle for celle.**\n\n| Celle | Tall | Opkode | Adresse | Instruksjon |\n|---|---|---|---|---|\n| 00 | `901` | — | — | `INP` |\n| 01 | `390` | 3 | 90 | `STA 90` |\n| 02 | `901` | — | — | `INP` |\n| 03 | `190` | 1 | 90 | `ADD 90` |\n| 04 | `902` | — | — | `OUT` |\n| 05 | `000` | — | — | `HLT` |\n| 90 | `000` | — | — | datacelle, startverdi 0 |\n\n**Programmet er:**\n\n```text\n00  INP\n01  STA 90\n02  INP\n03  ADD 90\n04  OUT\n05  HLT\n90  DAT\n```\n\nDet leser to tall og skriver ut summen — det samme programmet du sporet i [kap. 1.4](/in1020/in1020-1-4).\n\n**Legg merke til celle 90.** Den inneholder `000`, som *dekodet som instruksjon* ville vært `HLT`. Men programtelleren kommer aldri dit, fordi `HLT` i celle 05 stopper alt. Om `000` er data eller instruksjon, avgjøres altså ikke av tallet, men av om programtelleren peker på det."
     },
     {
       "id": "in1020-1-5-o1",
@@ -349,7 +349,7 @@
       "id": "in1020-1-5-bank-12",
       "type": "definition",
       "title": "Von Neumann-prinsippet i LMC",
-      "content": "At kode og data ligger i det samme minnet, i det samme formatet, uten noe skille.\n\nI LMC ser du prinsippet direkte: `508` er et tall som kan legges sammen med andre tall, og samtidig en instruksjon som kan utføres.\n\nDette er ikke en svakhet ved modellen, men den arkitekturen nesten alle datamaskiner er bygd etter. Du møter den formelt i [kap. 2.4](/bok/in1020/in1020-2-4)."
+      "content": "At kode og data ligger i det samme minnet, i det samme formatet, uten noe skille.\n\nI LMC ser du prinsippet direkte: `508` er et tall som kan legges sammen med andre tall, og samtidig en instruksjon som kan utføres.\n\nDette er ikke en svakhet ved modellen, men den arkitekturen nesten alle datamaskiner er bygd etter. Du møter den formelt i [kap. 2.4](/in1020/in1020-2-4)."
     },
     {
       "id": "in1020-1-5-bank-13",

@@ -19,11 +19,11 @@ const SOFT = process.env.A11Y_SOFT === '1';
 // (redirecter til /login uinnlogget), så vi dekker /login i stedet.
 const ROUTES = [
   ['hjem', '/'],
-  ['bok-oversikt', '/bok'],
-  ['trinn-vg1', '/bok/trinn/vg1'],
-  ['kapittel', '/bok/1t/1t-1-1'],
-  ['kapittel-quiz', '/bok/1t/1t-1-1/quiz'],
-  ['kildegrunnlag', '/bok/exphil03/kildegrunnlag'],
+  ['bok-oversikt', '/'],
+  ['trinn-vg1', '/trinn/vg1'],
+  ['kapittel', '/1t/1t-1-1'],
+  ['kapittel-quiz', '/1t/1t-1-1/quiz'],
+  ['kildegrunnlag', '/exphil03/kildegrunnlag'],
   ['losning', '/losning/5629vg'],
   ['quiz', '/quiz/1t-1-1'],
   ['ressurser', '/ressurser'],

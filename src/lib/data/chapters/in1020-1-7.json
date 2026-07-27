@@ -16,12 +16,12 @@
       "id": "in1020-1-7-eksamensvinkel",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Belegg:** filformater, fargekoder, ASCII og UTF-8 har egen oppgave i **3 av de 6 årgangene i arkivet (50 %)** — men alle tre er blant de nyeste (2020, 2022 og 2023). Temaet er **voksende**.\n\n**Nivå 3 — bør kjenne til.** Dette er det letteste stoffet i seksjon 1, og det ligger sist i delen av en grunn: de tre garanterte sjangrene (tallkonvertering, to-er komplement og LMC) er viktigere. Men trenden gjør at du ikke bør hoppe over kapitlet — seksjon 1 må bestås for seg, og noen få poeng her kan være det som avgjør.\n\n**Slik kommer den:** som svarform **F3** (dra-og-slipp — «plasser hvert format i riktig kolonne»), **F2** (sant/usant om formategenskaper) eller **F1** («kryss av alle som stemmer om denne fargekoden»).\n\n**Det eneste som krever regning:** RGB-fargekoder. Og den regningen er allerede kjent — det er heksadesimal konvertering fra [kap. 1.1](/bok/in1020/in1020-1-1), gjort tre ganger.\n\n**Tidsbruk:** 45 minutter."
+      "content": "**Belegg:** filformater, fargekoder, ASCII og UTF-8 har egen oppgave i **3 av de 6 årgangene i arkivet (50 %)** — men alle tre er blant de nyeste (2020, 2022 og 2023). Temaet er **voksende**.\n\n**Nivå 3 — bør kjenne til.** Dette er det letteste stoffet i seksjon 1, og det ligger sist i delen av en grunn: de tre garanterte sjangrene (tallkonvertering, to-er komplement og LMC) er viktigere. Men trenden gjør at du ikke bør hoppe over kapitlet — seksjon 1 må bestås for seg, og noen få poeng her kan være det som avgjør.\n\n**Slik kommer den:** som svarform **F3** (dra-og-slipp — «plasser hvert format i riktig kolonne»), **F2** (sant/usant om formategenskaper) eller **F1** («kryss av alle som stemmer om denne fargekoden»).\n\n**Det eneste som krever regning:** RGB-fargekoder. Og den regningen er allerede kjent — det er heksadesimal konvertering fra [kap. 1.1](/in1020/in1020-1-1), gjort tre ganger.\n\n**Tidsbruk:** 45 minutter."
     },
     {
       "id": "in1020-1-7-forkunnskaper",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 1.1](/bok/in1020/in1020-1-1). Her er det du trenger, ferdig oppfrisket:\n\n**1. Heksadesimal konvertering.** Ett heksadesimalt siffer er fire bit; to sifre er én byte. Sifferverdiene A til F er 10 til 15.\n\n```text\n0x2E = 2·16 + 14 = 46\n0xFF = 15·16 + 15 = 255\n```\n\n**2. Verdiområdet for en byte** uten fortegn: 0 til 255. Det er nøyaktig området en fargekomponent kan ha.\n\n**3. ASCII-tanken** fra [kap. 1.4](/bok/in1020/in1020-1-4): at et tall kan representere et tegn. `A` er 65.\n\nIngenting mer trengs. Resten av kapitlet er begreper og skiller."
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 1.1](/in1020/in1020-1-1). Her er det du trenger, ferdig oppfrisket:\n\n**1. Heksadesimal konvertering.** Ett heksadesimalt siffer er fire bit; to sifre er én byte. Sifferverdiene A til F er 10 til 15.\n\n```text\n0x2E = 2·16 + 14 = 46\n0xFF = 15·16 + 15 = 255\n```\n\n**2. Verdiområdet for en byte** uten fortegn: 0 til 255. Det er nøyaktig området en fargekomponent kan ha.\n\n**3. ASCII-tanken** fra [kap. 1.4](/in1020/in1020-1-4): at et tall kan representere et tegn. `A` er 65.\n\nIngenting mer trengs. Resten av kapitlet er begreper og skiller."
     },
     {
       "id": "in1020-1-7-notasjon",
@@ -80,7 +80,7 @@
       "id": "in1020-1-7-def-tegn-vs-tall",
       "type": "definition",
       "title": "Siffertegn mot tallverdi",
-      "content": "Skillet mellom tegnet `5` og tallet 5. Tegnet har ASCII-koden 53; tallet er verdien 5.\n\nSiffertegnene ligger sammenhengende fra 48: `0` er 48, `1` er 49, og `9` er 57. Vil du gjøre et siffertegn om til tallverdien, trekker du fra 48.\n\nDette er den samme forskjellen som mellom `OUT` og `OTC` i [kap. 1.4](/bok/in1020/in1020-1-4): den ene skriver verdien, den andre skriver tegnet.\n\nDen faste feilen: å regne med at en tekstfil med tallet «255» tar én byte. Den tar tre — ett per siffertegn."
+      "content": "Skillet mellom tegnet `5` og tallet 5. Tegnet har ASCII-koden 53; tallet er verdien 5.\n\nSiffertegnene ligger sammenhengende fra 48: `0` er 48, `1` er 49, og `9` er 57. Vil du gjøre et siffertegn om til tallverdien, trekker du fra 48.\n\nDette er den samme forskjellen som mellom `OUT` og `OTC` i [kap. 1.4](/in1020/in1020-1-4): den ene skriver verdien, den andre skriver tegnet.\n\nDen faste feilen: å regne med at en tekstfil med tallet «255» tar én byte. Den tar tre — ett per siffertegn."
     },
     {
       "id": "in1020-1-7-o2",
@@ -267,7 +267,7 @@
       "id": "in1020-1-7-bank-1",
       "type": "definition",
       "title": "Tegnkoding",
-      "content": "Avtalen om hvilket tall som representerer hvilket tegn. Uten en tegnkoding er en tekstfil bare en rekke byte.\n\nDe to du må kjenne, er ASCII (7 bit, 128 tegn) og UTF-8 (variabel lengde, hele Unicode).\n\nDette er den samme typen avtale som tolkningskontrakten for en byte i [kap. 1.3](/bok/in1020/in1020-1-3): bitene bærer ikke sin egen betydning."
+      "content": "Avtalen om hvilket tall som representerer hvilket tegn. Uten en tegnkoding er en tekstfil bare en rekke byte.\n\nDe to du må kjenne, er ASCII (7 bit, 128 tegn) og UTF-8 (variabel lengde, hele Unicode).\n\nDette er den samme typen avtale som tolkningskontrakten for en byte i [kap. 1.3](/in1020/in1020-1-3): bitene bærer ikke sin egen betydning."
     },
     {
       "id": "in1020-1-7-bank-2",
@@ -345,7 +345,7 @@
       "id": "in1020-1-7-bank-14",
       "type": "definition",
       "title": "Metadata i bildefiler",
-      "content": "Data om bildet som lagres i fila ved siden av selve bildeinnholdet: opptaksdato, kameramodell, eksponering og ofte posisjon.\n\nDette er verdt å kjenne fordi det er et personvernpoeng: et bilde du deler, kan røpe hvor og når det ble tatt. Du møter temaet igjen i [kap. 3.7](/bok/in1020/in1020-3-7).\n\nMetadata påvirker filstørrelsen lite, men fjernes ofte automatisk når bilder lastes opp til nettsteder."
+      "content": "Data om bildet som lagres i fila ved siden av selve bildeinnholdet: opptaksdato, kameramodell, eksponering og ofte posisjon.\n\nDette er verdt å kjenne fordi det er et personvernpoeng: et bilde du deler, kan røpe hvor og når det ble tatt. Du møter temaet igjen i [kap. 3.7](/in1020/in1020-3-7).\n\nMetadata påvirker filstørrelsen lite, men fjernes ofte automatisk når bilder lastes opp til nettsteder."
     },
     {
       "id": "in1020-1-7-bank-15",

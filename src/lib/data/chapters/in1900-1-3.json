@@ -21,7 +21,7 @@
     {
       "id": "in1900-1-3-t-2",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1): tilordning, `+=`, sammenligninger og logiske uttrykk.\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2): lister, `len`, `append`, og `range` som oppskrift på en tallrekke.\n\nHar du ikke lest dem, er `range(a, b)` det du trenger å ta med deg: tallrekka fra og med `a` til men **ikke med** `b`."
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/in1900/in1900-1-1): tilordning, `+=`, sammenligninger og logiske uttrykk.\n- [Kap. 1.2 — Lister, indeksering og slicing](/in1900/in1900-1-2): lister, `len`, `append`, og `range` som oppskrift på en tallrekke.\n\nHar du ikke lest dem, er `range(a, b)` det du trenger å ta med deg: tallrekka fra og med `a` til men **ikke med** `b`."
     },
     {
       "id": "in1900-1-3-t-3",
@@ -78,7 +78,7 @@
       "id": "in1900-1-3-def-9",
       "type": "definition",
       "title": "Antall steg og antall punkter",
-      "content": "Dette er den viktigste tellesetningen i faget, og den forvirrer fordi bokstaven `N` brukes om to nære, men ulike ting.\n\nDeler du et intervall i `N` like **steg**, får du `N + 1` **punkter** — endepunktene begge medregnet. Tre steg gir fire punkter, akkurat som tre skritt gir fire fotavtrykk hvis du teller det du startet på.\n\nKonsekvensen i kode: skal du **oppdatere** noe `N` ganger, skriver du `for n in range(N)`. Skal du **fylle** `N + 1` punkter, skriver du `for i in range(N+1)`. Begge er riktige — i ulike oppgaver. Du møter det igjen i differenslikningene i [kap. 6.2](/bok/in1900/in1900-6-2) og i ODE-løserne i [kap. 7.1](/bok/in1900/in1900-7-1)."
+      "content": "Dette er den viktigste tellesetningen i faget, og den forvirrer fordi bokstaven `N` brukes om to nære, men ulike ting.\n\nDeler du et intervall i `N` like **steg**, får du `N + 1` **punkter** — endepunktene begge medregnet. Tre steg gir fire punkter, akkurat som tre skritt gir fire fotavtrykk hvis du teller det du startet på.\n\nKonsekvensen i kode: skal du **oppdatere** noe `N` ganger, skriver du `for n in range(N)`. Skal du **fylle** `N + 1` punkter, skriver du `for i in range(N+1)`. Begge er riktige — i ulike oppgaver. Du møter det igjen i differenslikningene i [kap. 6.2](/in1900/in1900-6-2) og i ODE-løserne i [kap. 7.1](/in1900/in1900-7-1)."
     },
     {
       "id": "in1900-1-3-def-10",
@@ -96,7 +96,7 @@
       "id": "in1900-1-3-th-12",
       "type": "theorem",
       "title": "Akkumulatormønsteret",
-      "content": "Det kanoniske mønsteret for å bygge opp én verdi av mange. Tre faste deler, i denne rekkefølgen:\n\n```python\ns = 0\nfor i in range(1, 5):\n    s += i\nprint(s)\n```\n\n**Utskrift:**\n```\n10\n```\n\n1. **Startverdi før løkka.** `s = 0` for en sum, `p = 1` for et produkt. Står den inne i løkka, nullstilles den hver runde, og resultatet blir bare det siste leddet — en av de mest lærerike feilene å ha gjort én gang.\n2. **Oppdatering inne i løkka**, med `+=`.\n3. **Bruk av resultatet etter løkka**, utenfor innrykket.\n\nDette er samme mønster som bærer alle rekke-oppgavene i [kap. 3.2](/bok/in1900/in1900-3-2), der det står som `s = 0; for k in range(N+1): s += ledd(k); return s`. Lær det her, og du kan det der."
+      "content": "Det kanoniske mønsteret for å bygge opp én verdi av mange. Tre faste deler, i denne rekkefølgen:\n\n```python\ns = 0\nfor i in range(1, 5):\n    s += i\nprint(s)\n```\n\n**Utskrift:**\n```\n10\n```\n\n1. **Startverdi før løkka.** `s = 0` for en sum, `p = 1` for et produkt. Står den inne i løkka, nullstilles den hver runde, og resultatet blir bare det siste leddet — en av de mest lærerike feilene å ha gjort én gang.\n2. **Oppdatering inne i løkka**, med `+=`.\n3. **Bruk av resultatet etter løkka**, utenfor innrykket.\n\nDette er samme mønster som bærer alle rekke-oppgavene i [kap. 3.2](/in1900/in1900-3-2), der det står som `s = 0; for k in range(N+1): s += ledd(k); return s`. Lær det her, og du kan det der."
     },
     {
       "id": "in1900-1-3-ex-13",
@@ -109,7 +109,7 @@
       "id": "in1900-1-3-adv-14",
       "type": "warning",
       "title": "Typisk feil #1 — av-én i `range`",
-      "content": "Feilkode **#1** (bokas nummerering av vanlige feil, samlet i [kap. 0.1](/bok/in1900/in1900-0-1)) er den hyppigste feilen i hele faget:\n\n- Skal summen gå til og med `N`, altså $\\sum_{k=0}^{N}$, må du skrive `range(N+1)`. `range(N)` stopper på `N-1` og mister siste ledd.\n- Skal du oppdatere en verdi `N` ganger, er `range(N)` riktig, og `range(N+1)` gjør én oppdatering for mye.\n\nSpør deg derfor alltid: **teller jeg steg eller punkter?** Det er samme spørsmål som skiller `N` og `N+1` i definisjonen over, og den forveksles i alt fra rekker til ODE-løsere.\n\nPraktisk kontroll på eksamen: sett `N = 2` og tell rundene på papir. Får du to eller tre? Da vet du hvilken variant oppgaven trenger."
+      "content": "Feilkode **#1** (bokas nummerering av vanlige feil, samlet i [kap. 0.1](/in1900/in1900-0-1)) er den hyppigste feilen i hele faget:\n\n- Skal summen gå til og med `N`, altså $\\sum_{k=0}^{N}$, må du skrive `range(N+1)`. `range(N)` stopper på `N-1` og mister siste ledd.\n- Skal du oppdatere en verdi `N` ganger, er `range(N)` riktig, og `range(N+1)` gjør én oppdatering for mye.\n\nSpør deg derfor alltid: **teller jeg steg eller punkter?** Det er samme spørsmål som skiller `N` og `N+1` i definisjonen over, og den forveksles i alt fra rekker til ODE-løsere.\n\nPraktisk kontroll på eksamen: sett `N = 2` og tell rundene på papir. Får du to eller tre? Da vet du hvilken variant oppgaven trenger."
     },
     {
       "id": "in1900-1-3-oppg-2",
@@ -135,8 +135,8 @@
         "number": "3",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — negativt steg.) I koden under står `end=' '` inne i `print`. Det bytter ut linjeskiftet `print` normalt avslutter med, slik at verdiene havner etter hverandre på samme linje med et mellomrom imellom; et tomt `print()` avslutter linja. Mer om `end` i [kap. 1.4](/bok/in1900/in1900-1-4).\n\nHva skriver programmet ut?\n\n```python\nfor i in range(6, 1, -2):\n    print(i, end=' ')\nprint()\nfor j in range(0, 4, -1):\n    print('aldri')\nprint('slutt')\n```",
-        "solution": "**Sporingstavle for den første løkka**\n\n| Runde | `i` | Skriver |\n|---|---|---|\n| 1 | 6 | `6 ` |\n| 2 | 4 | `4 ` |\n| 3 | 2 | `2 ` |\n\nNeste verdi ville vært `0`, men rekka stopper **før** `1` når den teller nedover, så `0` blir ikke med.\n\nDen andre løkka har negativt steg men `start` mindre enn `stop`, så tallrekka er **tom**: løkka kjører null ganger, uten feilmelding.\n\n**Utskrift:**\n```\n6 4 2 \nslutt\n```\n\nMerk to utskriftsdetaljer: `end=' '` erstatter linjeskiftet med et mellomrom, så de tre tallene havner på samme linje med et mellomrom bak det siste. Det tomme `print()` avslutter linja. Mer om dette i [kap. 1.4](/bok/in1900/in1900-1-4).\n\n**Fellenote:** fellene er at `1` ikke er med (eksklusiv stopp gjelder også nedover) og at den andre løkka kjører null ganger i stedet for å gi en feilmelding.",
+        "task": "(Midtveisnivå, sjanger A — negativt steg.) I koden under står `end=' '` inne i `print`. Det bytter ut linjeskiftet `print` normalt avslutter med, slik at verdiene havner etter hverandre på samme linje med et mellomrom imellom; et tomt `print()` avslutter linja. Mer om `end` i [kap. 1.4](/in1900/in1900-1-4).\n\nHva skriver programmet ut?\n\n```python\nfor i in range(6, 1, -2):\n    print(i, end=' ')\nprint()\nfor j in range(0, 4, -1):\n    print('aldri')\nprint('slutt')\n```",
+        "solution": "**Sporingstavle for den første løkka**\n\n| Runde | `i` | Skriver |\n|---|---|---|\n| 1 | 6 | `6 ` |\n| 2 | 4 | `4 ` |\n| 3 | 2 | `2 ` |\n\nNeste verdi ville vært `0`, men rekka stopper **før** `1` når den teller nedover, så `0` blir ikke med.\n\nDen andre løkka har negativt steg men `start` mindre enn `stop`, så tallrekka er **tom**: løkka kjører null ganger, uten feilmelding.\n\n**Utskrift:**\n```\n6 4 2 \nslutt\n```\n\nMerk to utskriftsdetaljer: `end=' '` erstatter linjeskiftet med et mellomrom, så de tre tallene havner på samme linje med et mellomrom bak det siste. Det tomme `print()` avslutter linja. Mer om dette i [kap. 1.4](/in1900/in1900-1-4).\n\n**Fellenote:** fellene er at `1` ikke er med (eksklusiv stopp gjelder også nedover) og at den andre løkka kjører null ganger i stedet for å gi en feilmelding.",
         "hints": [
           "Skriv ned verdiene tellevariabelen faktisk får, én for én, før du ser på utskriften.",
           "Hva skjer når steget peker bort fra `stop`?"
@@ -334,7 +334,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger A — akkumulator med feilplassert startverdi.) De to programmene under ser nesten like ut. Hva skriver hvert av dem ut, og hvilken linje utgjør forskjellen?\n\n**Program 1:**\n\n```python\ns = 0\nfor i in range(1, 4):\n    s += i\n    print(s, end=' ')\n```\n\n**Program 2:**\n\n```python\nfor i in range(1, 4):\n    s = 0\n    s += i\n    print(s, end=' ')\n```",
-        "solution": "**Program 1 — startverdien står før løkka:**\n\n| Runde | `i` | `s` etter `s += i` | Utskrift så langt |\n|---|---|---|---|\n| 1 | 1 | 1 | `1 ` |\n| 2 | 2 | 3 | `1 3 ` |\n| 3 | 3 | 6 | `1 3 6 ` |\n\n**Utskrift:**\n```\n1 3 6 \n```\n\n**Program 2 — startverdien står inne i løkka:**\n\n| Runde | `i` | `s` etter nullstilling | `s` etter `s += i` | Utskrift så langt |\n|---|---|---|---|---|\n| 1 | 1 | 0 | 1 | `1 ` |\n| 2 | 2 | 0 | 2 | `1 2 ` |\n| 3 | 3 | 0 | 3 | `1 2 3 ` |\n\n**Utskrift:**\n```\n1 2 3 \n```\n\n**Forskjellen** er den ene linja `s = 0`. I program 2 nullstilles akkumulatoren hver runde, så den husker aldri noe: hver utskrift er bare det aktuelle leddet. Summeringen er borte, men programmet gir ingen feilmelding — det gir bare et annet svar.\n\n**Fellenote:** dette er den vanligste strukturfeilen i rekke-oppgavene i [kap. 3.2](/bok/in1900/in1900-3-2) og [kap. 3.3](/bok/in1900/in1900-3-3). Regelen er kort: **startverdien hører alltid før løkka.** Og i «finn feilen»-oppgaver er nettopp en `s = 0` som har glidd inn i løkkekroppen, en plantet feil du skal kunne se med det blotte øye.",
+        "solution": "**Program 1 — startverdien står før løkka:**\n\n| Runde | `i` | `s` etter `s += i` | Utskrift så langt |\n|---|---|---|---|\n| 1 | 1 | 1 | `1 ` |\n| 2 | 2 | 3 | `1 3 ` |\n| 3 | 3 | 6 | `1 3 6 ` |\n\n**Utskrift:**\n```\n1 3 6 \n```\n\n**Program 2 — startverdien står inne i løkka:**\n\n| Runde | `i` | `s` etter nullstilling | `s` etter `s += i` | Utskrift så langt |\n|---|---|---|---|---|\n| 1 | 1 | 0 | 1 | `1 ` |\n| 2 | 2 | 0 | 2 | `1 2 ` |\n| 3 | 3 | 0 | 3 | `1 2 3 ` |\n\n**Utskrift:**\n```\n1 2 3 \n```\n\n**Forskjellen** er den ene linja `s = 0`. I program 2 nullstilles akkumulatoren hver runde, så den husker aldri noe: hver utskrift er bare det aktuelle leddet. Summeringen er borte, men programmet gir ingen feilmelding — det gir bare et annet svar.\n\n**Fellenote:** dette er den vanligste strukturfeilen i rekke-oppgavene i [kap. 3.2](/in1900/in1900-3-2) og [kap. 3.3](/in1900/in1900-3-3). Regelen er kort: **startverdien hører alltid før løkka.** Og i «finn feilen»-oppgaver er nettopp en `s = 0` som har glidd inn i løkkekroppen, en plantet feil du skal kunne se med det blotte øye.",
         "hints": [
           "Skriv en rad per runde for begge programmene, med en kolonne for `s` ved rundens begynnelse.",
           "Spør: hvilken verdi har `s` når runde 2 starter, i hvert av programmene?"
@@ -345,7 +345,7 @@
       "id": "in1900-1-3-adv-32",
       "type": "warning",
       "title": "Navn som betyr to ting — `i`, `n` og `N`",
-      "content": "Tre navnekollisjoner du bør være bevisst på i dette kapitlet, fordi de er kilden til feil som ser ut som slurv men er misforståelser:\n\n- **`i`** er både løkkevariabelen i koden og summasjonsindeksen $i$ i formelen over koden. Det er ikke et problem — det er en fordel, og bokas regel er at de **skal ha samme bokstav**. Skriver formelen $\\sum_{i=1}^{4} i^2$, skal løkka hete `i`.\n- **`N`** er antall **steg** i noen oppgaver og `N+1` er antall **punkter**. Se definisjonen «Antall steg og antall punkter» over. Blandingen er feilkode #1.\n- **`n`** brukes både som løkkevariabel (`for n in range(N)`) og som «antall» (`range(n)`). Boka bruker `n` som løkkevariabel i differenslikninger og ODE-er ([kap. 6.2](/bok/in1900/in1900-6-2), [kap. 7.1](/bok/in1900/in1900-7-1)), og `N` med stor bokstav om antallet. Hold deg til det."
+      "content": "Tre navnekollisjoner du bør være bevisst på i dette kapitlet, fordi de er kilden til feil som ser ut som slurv men er misforståelser:\n\n- **`i`** er både løkkevariabelen i koden og summasjonsindeksen $i$ i formelen over koden. Det er ikke et problem — det er en fordel, og bokas regel er at de **skal ha samme bokstav**. Skriver formelen $\\sum_{i=1}^{4} i^2$, skal løkka hete `i`.\n- **`N`** er antall **steg** i noen oppgaver og `N+1` er antall **punkter**. Se definisjonen «Antall steg og antall punkter» over. Blandingen er feilkode #1.\n- **`n`** brukes både som løkkevariabel (`for n in range(N)`) og som «antall» (`range(n)`). Boka bruker `n` som løkkevariabel i differenslikninger og ODE-er ([kap. 6.2](/in1900/in1900-6-2), [kap. 7.1](/in1900/in1900-7-1)), og `N` med stor bokstav om antallet. Hold deg til det."
     },
     {
       "id": "in1900-1-3-adv-33",
@@ -381,19 +381,19 @@
       "id": "in1900-1-3-def-37",
       "type": "definition",
       "title": "`for` over en streng",
-      "content": "En streng er også en sekvens, så `for tegn in 'sol'` gir tre runder, med `tegn` lik `'s'`, `'o'` og `'l'`.\n\nDet er derfor tegn-for-tegn-algoritmer (tell vokaler, sjekk palindrom) blir korte i Python. Mer om strenger i [kap. 1.4](/bok/in1900/in1900-1-4)."
+      "content": "En streng er også en sekvens, så `for tegn in 'sol'` gir tre runder, med `tegn` lik `'s'`, `'o'` og `'l'`.\n\nDet er derfor tegn-for-tegn-algoritmer (tell vokaler, sjekk palindrom) blir korte i Python. Mer om strenger i [kap. 1.4](/in1900/in1900-1-4)."
     },
     {
       "id": "in1900-1-3-def-38",
       "type": "definition",
       "title": "Løkkevariabelen etter løkka",
-      "content": "Etter at en `for`-løkke er ferdig, finnes løkkevariabelen fortsatt, med den **siste** verdien den fikk. Etter `for i in range(4)` er `i` lik `3`.\n\nEtt unntak er verdt å kjenne: kjørte løkka null ganger, ble variabelen aldri laget, og et forsøk på å bruke den stopper programmet med en `NameError`. Det er en av exception-typene i [kap. 2.2](/bok/in1900/in1900-2-2)."
+      "content": "Etter at en `for`-løkke er ferdig, finnes løkkevariabelen fortsatt, med den **siste** verdien den fikk. Etter `for i in range(4)` er `i` lik `3`.\n\nEtt unntak er verdt å kjenne: kjørte løkka null ganger, ble variabelen aldri laget, og et forsøk på å bruke den stopper programmet med en `NameError`. Det er en av exception-typene i [kap. 2.2](/in1900/in1900-2-2)."
     },
     {
       "id": "in1900-1-3-def-39",
       "type": "definition",
       "title": "`while` mot `for` — hvilken skal du velge?",
-      "content": "Bruk `for` når du **vet** hvor mange runder du trenger, eller når du går gjennom en samling. Bruk `while` når antall runder avhenger av noe som skjer underveis.\n\nI IN1900 er `for` det vanlige: rekker, differenslikninger og ODE-løsere har alle et kjent antall steg. `while` dukker opp i iterative metoder som stopper på en toleranse — som Newtons metode i [kap. 6.1](/bok/in1900/in1900-6-1) — og i kodesporingsoppgaver om tellere."
+      "content": "Bruk `for` når du **vet** hvor mange runder du trenger, eller når du går gjennom en samling. Bruk `while` når antall runder avhenger av noe som skjer underveis.\n\nI IN1900 er `for` det vanlige: rekker, differenslikninger og ODE-løsere har alle et kjent antall steg. `while` dukker opp i iterative metoder som stopper på en toleranse — som Newtons metode i [kap. 6.1](/in1900/in1900-6-1) — og i kodesporingsoppgaver om tellere."
     },
     {
       "id": "in1900-1-3-coll-40",
@@ -403,7 +403,7 @@
       "content": [
         {
           "type": "text",
-          "content": "1. `range(N)` gir `N` runder, verdiene `0` til `N-1`. `N` steg gir `N+1` punkter.\n2. Startverdien til en akkumulator står **før** løkka.\n3. Den indre løkka kjøres helt ferdig for **hver** runde i den ytre.\n4. `range(i)` gir `i` runder — og null runder når `i` er 0.\n5. `zip` stopper ved den **korteste**; `enumerate` gir `(indeks, verdi)`.\n6. `break` avslutter bare den innerste løkka; `continue` hopper over resten av runden.\n\nEr de på plass, er du klar for strengformateringen i [kap. 1.4](/bok/in1900/in1900-1-4) og for drillen i [kap. 1.7](/bok/in1900/in1900-1-7).",
+          "content": "1. `range(N)` gir `N` runder, verdiene `0` til `N-1`. `N` steg gir `N+1` punkter.\n2. Startverdien til en akkumulator står **før** løkka.\n3. Den indre løkka kjøres helt ferdig for **hver** runde i den ytre.\n4. `range(i)` gir `i` runder — og null runder når `i` er 0.\n5. `zip` stopper ved den **korteste**; `enumerate` gir `(indeks, verdi)`.\n6. `break` avslutter bare den innerste løkka; `continue` hopper over resten av runden.\n\nEr de på plass, er du klar for strengformateringen i [kap. 1.4](/in1900/in1900-1-4) og for drillen i [kap. 1.7](/in1900/in1900-1-7).",
           "id": "in1900-1-3-c40-1"
         }
       ]

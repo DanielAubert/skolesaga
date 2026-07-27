@@ -481,7 +481,7 @@ export default function ProfilePage() {
                         Mine klasser
                       </Button>
                     </Link>
-                    <Link href="/bok/1t">
+                    <Link href="/1t">
                       <Button variant="outline" className="w-full justify-start">
                         <BookOpen className="h-4 w-4 mr-2" />
                         1T Lærebok
@@ -493,7 +493,7 @@ export default function ProfilePage() {
                         Eksamensoppgaver
                       </Button>
                     </Link>
-                    <Link href="/bok">
+                    <Link href="/">
                       <Button variant="outline" className="w-full justify-start">
                         <BookOpen className="h-4 w-4 mr-2" />
                         Alle lærebøker
@@ -508,7 +508,7 @@ export default function ProfilePage() {
                         Bli med i klasse
                       </Button>
                     </Link>
-                    <Link href="/bok/1t">
+                    <Link href="/1t">
                       <Button variant="outline" className="w-full justify-start">
                         <BookOpen className="h-4 w-4 mr-2" />
                         1T Lærebok

@@ -16,12 +16,12 @@
       "id": "mat1120-3-1-tip",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Egenverdier og egenvektorer er en av de fem faste søylene** — sjanger D, med i praktisk talt hvert eksamenssett (~100 %), nesten alltid som oppgave 2. Prioritet: **høyeste**.\n\nDette kapitlet legger grunnlaget: hva en egenverdi og en egenvektor er, og hvordan du finner dem **med MAT1120s arbeidsmåte** — ikke ved å regne determinanter for hånd.\n\n- Er en egenvektor **oppgitt**, verifiserer du den ved rett **innsetting** $A\\mathbf{v}=\\lambda\\mathbf{v}$ — ikke via det karakteristiske polynomet. Det er raskere og gir full uttelling.\n- Trenger du egenverdiene, **leser du dem av vedlegget** ($\\operatorname{poly}$ eller `eig`) i stedet for å regne ut $\\det(A-\\lambda I)$ for en $3\\times3$ eller større.\n- Egenrommet er $\\operatorname{Nul}(A-\\lambda I)$, som du finner av vedleggets RREF — nøyaktig samme teknikk som $\\operatorname{Nul}A$ i [kap. 1.2](/bok/mat1120/mat1120-1-2).\n\nDen ene tingen sensor krever i neste kapittel — å **begrunne diagonaliserbarhet med multiplisitet** — hviler på skillet mellom algebraisk og geometrisk multiplisitet som innføres her. Få det til å sitte."
+      "content": "**Egenverdier og egenvektorer er en av de fem faste søylene** — sjanger D, med i praktisk talt hvert eksamenssett (~100 %), nesten alltid som oppgave 2. Prioritet: **høyeste**.\n\nDette kapitlet legger grunnlaget: hva en egenverdi og en egenvektor er, og hvordan du finner dem **med MAT1120s arbeidsmåte** — ikke ved å regne determinanter for hånd.\n\n- Er en egenvektor **oppgitt**, verifiserer du den ved rett **innsetting** $A\\mathbf{v}=\\lambda\\mathbf{v}$ — ikke via det karakteristiske polynomet. Det er raskere og gir full uttelling.\n- Trenger du egenverdiene, **leser du dem av vedlegget** ($\\operatorname{poly}$ eller `eig`) i stedet for å regne ut $\\det(A-\\lambda I)$ for en $3\\times3$ eller større.\n- Egenrommet er $\\operatorname{Nul}(A-\\lambda I)$, som du finner av vedleggets RREF — nøyaktig samme teknikk som $\\operatorname{Nul}A$ i [kap. 1.2](/mat1120/mat1120-1-2).\n\nDen ene tingen sensor krever i neste kapittel — å **begrunne diagonaliserbarhet med multiplisitet** — hviler på skillet mellom algebraisk og geometrisk multiplisitet som innføres her. Få det til å sitte."
     },
     {
       "id": "mat1120-3-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 1.2](/bok/mat1120/mat1120-1-2) — nullrom $\\operatorname{Nul}A$ og hvordan en basis leses av RREF; egenrommet regnes på nøyaktig samme måte\n- [Kap. 1.1](/bok/mat1120/mat1120-1-1) — vedleggslesning\n- [Grunnleggende egenverdier (MAT1110)](/bok/mat1110/mat1110-6-1) — det grunnleggende egenverdibegrepet og komplekse tall\n- [Komplekse tall](/bok/r2/r2-2-1) — repetisjon av komplekse tall\n\nVi bygger begrepet opp fra grunnen her, men regner ikke matriseprodukt og radreduksjon fra bunnen — det sitter fra MAT1110."
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.2](/mat1120/mat1120-1-2) — nullrom $\\operatorname{Nul}A$ og hvordan en basis leses av RREF; egenrommet regnes på nøyaktig samme måte\n- [Kap. 1.1](/mat1120/mat1120-1-1) — vedleggslesning\n- [Grunnleggende egenverdier (MAT1110)](/mat1110/mat1110-6-1) — det grunnleggende egenverdibegrepet og komplekse tall\n- [Komplekse tall](/r2/r2-2-1) — repetisjon av komplekse tall\n\nVi bygger begrepet opp fra grunnen her, men regner ikke matriseprodukt og radreduksjon fra bunnen — det sitter fra MAT1110."
     },
     {
       "id": "mat1120-3-1-intro",
@@ -158,13 +158,13 @@
     {
       "id": "mat1120-3-1-l3-teori",
       "type": "text",
-      "content": "Til hver egenverdi $\\lambda$ hører **alle** egenvektorene med den verdien, pluss nullvektoren — det er nettopp løsningsmengden til $(A-\\lambda I)\\mathbf{v}=\\mathbf{0}$. Denne mengden er **egenrommet** $E_\\lambda$, og det er $\\operatorname{Nul}(A-\\lambda I)$. Derfor er å finne egenrommet **eksakt** samme jobb som å finne en nullrombasis i [kap. 1.2](/bok/mat1120/mat1120-1-2): sett opp $A-\\lambda I$, les RREF fra vedlegget, og skriv de spesielle løsningene."
+      "content": "Til hver egenverdi $\\lambda$ hører **alle** egenvektorene med den verdien, pluss nullvektoren — det er nettopp løsningsmengden til $(A-\\lambda I)\\mathbf{v}=\\mathbf{0}$. Denne mengden er **egenrommet** $E_\\lambda$, og det er $\\operatorname{Nul}(A-\\lambda I)$. Derfor er å finne egenrommet **eksakt** samme jobb som å finne en nullrombasis i [kap. 1.2](/mat1120/mat1120-1-2): sett opp $A-\\lambda I$, les RREF fra vedlegget, og skriv de spesielle løsningene."
     },
     {
       "id": "mat1120-3-1-def-egenrom",
       "type": "definition",
       "title": "Egenrom $E_\\lambda$",
-      "content": "Egenrommet til egenverdien $\\lambda$ er $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)=\\{\\mathbf{v}:(A-\\lambda I)\\mathbf{v}=\\mathbf{0}\\}$ — alle egenvektorene for $\\lambda$ sammen med $\\mathbf{0}$. Det er et underrom av $\\mathbb{R}^{n}$. En basis finnes som spesielle løsninger fra RREF av $A-\\lambda I$ (nøyaktig som nullrombasis, [kap. 1.2](/bok/mat1120/mat1120-1-2))."
+      "content": "Egenrommet til egenverdien $\\lambda$ er $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)=\\{\\mathbf{v}:(A-\\lambda I)\\mathbf{v}=\\mathbf{0}\\}$ — alle egenvektorene for $\\lambda$ sammen med $\\mathbf{0}$. Det er et underrom av $\\mathbb{R}^{n}$. En basis finnes som spesielle løsninger fra RREF av $A-\\lambda I$ (nøyaktig som nullrombasis, [kap. 1.2](/mat1120/mat1120-1-2))."
     },
     {
       "id": "mat1120-3-1-ex3",
@@ -213,7 +213,7 @@
     {
       "id": "mat1120-3-1-l4-teori",
       "type": "text",
-      "content": "En egenverdi kan ha to «størrelser», og forskjellen på dem er selve nøkkelen til neste kapittel:\n\n- **Algebraisk multiplisitet** $=$ hvor mange ganger $\\lambda$ er rot i det karakteristiske polynomet (potensen på faktoren $(\\lambda-\\lambda_0)$).\n- **Geometrisk multiplisitet** $=\\dim E_\\lambda$ $=$ antall lineært uavhengige egenvektorer for $\\lambda$ $=$ antall frie variabler i $A-\\lambda I$.\n\nDet gjelder alltid $1\\le$ geo $\\le$ alg. Når geo $<$ alg er egenverdien «defekt» — det er nettopp da matrisen **ikke** kan diagonaliseres ([kap. 3.2](/bok/mat1120/mat1120-3-2)). To gratis kontroller: sporet er summen av egenverdiene og determinanten er produktet (begge med multiplisitet)."
+      "content": "En egenverdi kan ha to «størrelser», og forskjellen på dem er selve nøkkelen til neste kapittel:\n\n- **Algebraisk multiplisitet** $=$ hvor mange ganger $\\lambda$ er rot i det karakteristiske polynomet (potensen på faktoren $(\\lambda-\\lambda_0)$).\n- **Geometrisk multiplisitet** $=\\dim E_\\lambda$ $=$ antall lineært uavhengige egenvektorer for $\\lambda$ $=$ antall frie variabler i $A-\\lambda I$.\n\nDet gjelder alltid $1\\le$ geo $\\le$ alg. Når geo $<$ alg er egenverdien «defekt» — det er nettopp da matrisen **ikke** kan diagonaliseres ([kap. 3.2](/mat1120/mat1120-3-2)). To gratis kontroller: sporet er summen av egenverdiene og determinanten er produktet (begge med multiplisitet)."
     },
     {
       "id": "mat1120-3-1-def-algmult",
@@ -231,7 +231,7 @@
       "id": "mat1120-3-1-def-ulikhet",
       "type": "definition",
       "title": "Ulikheten geo ≤ alg",
-      "content": "For enhver egenverdi gjelder $1\\le\\dim E_{\\lambda}\\le$ (algebraisk multiplisitet). Er den geometriske strengt mindre enn den algebraiske, kalles egenverdien **defekt**; da mangler det egenvektorer, og matrisen kan ikke diagonaliseres ([kap. 3.2](/bok/mat1120/mat1120-3-2)). For en **enkel** egenverdi (alg $=1$) er alltid geo $=1$."
+      "content": "For enhver egenverdi gjelder $1\\le\\dim E_{\\lambda}\\le$ (algebraisk multiplisitet). Er den geometriske strengt mindre enn den algebraiske, kalles egenverdien **defekt**; da mangler det egenvektorer, og matrisen kan ikke diagonaliseres ([kap. 3.2](/mat1120/mat1120-3-2)). For en **enkel** egenverdi (alg $=1$) er alltid geo $=1$."
     },
     {
       "id": "mat1120-3-1-def-spor",
@@ -250,7 +250,7 @@
       "type": "example",
       "title": "Eksempel 4: Multiplisiteter og kontroll",
       "problem": "For $A=\\begin{bmatrix}5&-3&3\\\\3&-1&3\\\\3&-3&5\\end{bmatrix}$ er det karakteristiske polynomet $(\\lambda-2)^{2}(\\lambda-5)$, og vi fant $\\dim E_{2}=2$ (oppgave 6). Oppgi algebraisk og geometrisk multiplisitet for hver egenverdi, og kontroller med spor og determinant.",
-      "solution": "**Egenverdi $\\lambda=2$:** algebraisk multiplisitet $2$ (dobbeltrot). Geometrisk multiplisitet $\\dim E_{2}=2$. Her er geo $=$ alg $=2$ — ingen defekt.\n\n**Egenverdi $\\lambda=5$:** algebraisk multiplisitet $1$ (enkel rot), så geometrisk $=1$ automatisk.\n\n**Kontroller:**\n- Spor: $\\operatorname{spor}A=5+(-1)+5=9$, og summen av egenverdiene $2+2+5=9$ ✓.\n- Determinant: $\\det A=\\prod\\lambda_i=2\\cdot2\\cdot5=20$ ✓ (og siden ingen egenverdi er $0$, er $A$ invertibel).\n\nAt geo $=$ alg for **hver** egenverdi er akkurat kriteriet som gjør $A$ diagonaliserbar — vi utnytter det i [kap. 3.2](/bok/mat1120/mat1120-3-2)."
+      "solution": "**Egenverdi $\\lambda=2$:** algebraisk multiplisitet $2$ (dobbeltrot). Geometrisk multiplisitet $\\dim E_{2}=2$. Her er geo $=$ alg $=2$ — ingen defekt.\n\n**Egenverdi $\\lambda=5$:** algebraisk multiplisitet $1$ (enkel rot), så geometrisk $=1$ automatisk.\n\n**Kontroller:**\n- Spor: $\\operatorname{spor}A=5+(-1)+5=9$, og summen av egenverdiene $2+2+5=9$ ✓.\n- Determinant: $\\det A=\\prod\\lambda_i=2\\cdot2\\cdot5=20$ ✓ (og siden ingen egenverdi er $0$, er $A$ invertibel).\n\nAt geo $=$ alg for **hver** egenverdi er akkurat kriteriet som gjør $A$ diagonaliserbar — vi utnytter det i [kap. 3.2](/mat1120/mat1120-3-2)."
     },
     {
       "id": "mat1120-3-1-e7",
@@ -261,7 +261,7 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "En $3\\times3$-matrise $A$ har karakteristisk polynom $(\\lambda-4)^{2}(\\lambda-1)$, og vedlegget viser at $\\dim E_{4}=1$.\n\n**a)** Oppgi algebraisk og geometrisk multiplisitet for $\\lambda=4$.\n\n**b)** Er $\\lambda=4$ defekt? Hva sier det om senere diagonalisering (foregripende)?\n\n**c)** Bruk determinant-relasjonen til å avgjøre om $A$ er invertibel.",
-        "solution": "**a)** $\\lambda=4$ har algebraisk multiplisitet $2$ (dobbeltrot), men geometrisk multiplisitet $\\dim E_{4}=1$.\n\n**b)** Ja, $\\lambda=4$ er **defekt** siden geo $=1<2=$ alg. Da mangler det en egenvektor, og $A$ vil **ikke** være diagonaliserbar ([kap. 3.2](/bok/mat1120/mat1120-3-2)).\n\n**c)** $\\det A=4\\cdot4\\cdot1=16\\ne0$, så $A$ er invertibel (ingen egenverdi er $0$).",
+        "solution": "**a)** $\\lambda=4$ har algebraisk multiplisitet $2$ (dobbeltrot), men geometrisk multiplisitet $\\dim E_{4}=1$.\n\n**b)** Ja, $\\lambda=4$ er **defekt** siden geo $=1<2=$ alg. Da mangler det en egenvektor, og $A$ vil **ikke** være diagonaliserbar ([kap. 3.2](/mat1120/mat1120-3-2)).\n\n**c)** $\\det A=4\\cdot4\\cdot1=16\\ne0$, så $A$ er invertibel (ingen egenverdi er $0$).",
         "hints": [
           "Algebraisk multiplisitet = potensen på faktoren; geometrisk = dim E_λ.",
           "Defekt betyr geo < alg.",
@@ -318,7 +318,7 @@
       "id": "mat1120-3-1-bb-uavhengige",
       "type": "definition",
       "title": "Egenvektorer til ulike egenverdier er uavhengige",
-      "content": "Egenvektorer som hører til **forskjellige** egenverdier er alltid lineært uavhengige. Følge: har en $n\\times n$-matrise $n$ distinkte egenverdier, danner egenvektorene en basis for $\\mathbb{R}^{n}$ — grunnlaget for «distinkte $\\Rightarrow$ diagonaliserbar» ([kap. 3.2](/bok/mat1120/mat1120-3-2))."
+      "content": "Egenvektorer som hører til **forskjellige** egenverdier er alltid lineært uavhengige. Følge: har en $n\\times n$-matrise $n$ distinkte egenverdier, danner egenvektorene en basis for $\\mathbb{R}^{n}$ — grunnlaget for «distinkte $\\Rightarrow$ diagonaliserbar» ([kap. 3.2](/mat1120/mat1120-3-2))."
     },
     {
       "id": "mat1120-3-1-bb-skalar",
@@ -348,13 +348,13 @@
       "id": "mat1120-3-1-bb-kompleks",
       "type": "definition",
       "title": "Komplekse egenverdier",
-      "content": "En reell matrise kan ha komplekse egenverdier (røttene av et reelt polynom kan være komplekse); de opptrer da i konjugerte par. En rotasjon i planet er standardeksempelet. Komplekse tall repeteres i [Komplekse tall](/bok/r2/r2-2-1)."
+      "content": "En reell matrise kan ha komplekse egenverdier (røttene av et reelt polynom kan være komplekse); de opptrer da i konjugerte par. En rotasjon i planet er standardeksempelet. Komplekse tall repeteres i [Komplekse tall](/r2/r2-2-1)."
     },
     {
       "id": "mat1120-3-1-bb-similaritet",
       "type": "definition",
       "title": "Similære matriser",
-      "content": "$A$ og $B$ er **similære** hvis $B=P^{-1}AP$ for en invertibel $P$. Similære matriser har samme karakteristiske polynom, og dermed samme egenverdier, spor og determinant. Diagonalisering ([kap. 3.2](/bok/mat1120/mat1120-3-2)) er nettopp å finne en similær matrise som er diagonal."
+      "content": "$A$ og $B$ er **similære** hvis $B=P^{-1}AP$ for en invertibel $P$. Similære matriser har samme karakteristiske polynom, og dermed samme egenverdier, spor og determinant. Diagonalisering ([kap. 3.2](/mat1120/mat1120-3-2)) er nettopp å finne en similær matrise som er diagonal."
     },
     {
       "id": "mat1120-3-1-bb-spor-invariant",
@@ -372,7 +372,7 @@
       "id": "mat1120-3-1-bb-egenverdi-potens",
       "type": "definition",
       "title": "Egenverdier til $A^{k}$",
-      "content": "Er $A\\mathbf{v}=\\lambda\\mathbf{v}$, er $A^{k}\\mathbf{v}=\\lambda^{k}\\mathbf{v}$ — samme egenvektor, egenverdi $\\lambda^{k}$. Dette utnyttes fullt ut i [kap. 3.3](/bok/mat1120/mat1120-3-3) ($A^{k}=PD^{k}P^{-1}$)."
+      "content": "Er $A\\mathbf{v}=\\lambda\\mathbf{v}$, er $A^{k}\\mathbf{v}=\\lambda^{k}\\mathbf{v}$ — samme egenvektor, egenverdi $\\lambda^{k}$. Dette utnyttes fullt ut i [kap. 3.3](/mat1120/mat1120-3-3) ($A^{k}=PD^{k}P^{-1}$)."
     },
     {
       "id": "mat1120-3-1-bb-defekt",
@@ -384,7 +384,7 @@
       "id": "mat1120-3-1-bb-sum-geo",
       "type": "definition",
       "title": "Sum av geometriske multiplisiteter",
-      "content": "Summen av alle $\\dim E_{\\lambda_i}$ er høyst $n$. Er den lik $n$, finnes en basis av egenvektorer og $A$ er diagonaliserbar; er den mindre enn $n$, mangler det egenvektorer. Dette er diagonaliserbarhetskriteriet i [kap. 3.2](/bok/mat1120/mat1120-3-2)."
+      "content": "Summen av alle $\\dim E_{\\lambda_i}$ er høyst $n$. Er den lik $n$, finnes en basis av egenvektorer og $A$ er diagonaliserbar; er den mindre enn $n$, mangler det egenvektorer. Dette er diagonaliserbarhetskriteriet i [kap. 3.2](/mat1120/mat1120-3-2)."
     },
     {
       "id": "mat1120-3-1-bb-poly-vedlegg",
@@ -408,7 +408,7 @@
       "id": "mat1120-3-1-bb-eigrom-lambda-null",
       "type": "definition",
       "title": "$E_0=\\operatorname{Nul}A$",
-      "content": "Egenrommet til egenverdien $0$ er nettopp nullrommet: $E_0=\\operatorname{Nul}(A-0\\cdot I)=\\operatorname{Nul}A$. Basisen for $E_0$ finnes med de vanlige spesielle løsningene fra [kap. 1.2](/bok/mat1120/mat1120-1-2)."
+      "content": "Egenrommet til egenverdien $0$ er nettopp nullrommet: $E_0=\\operatorname{Nul}(A-0\\cdot I)=\\operatorname{Nul}A$. Basisen for $E_0$ finnes med de vanlige spesielle løsningene fra [kap. 1.2](/mat1120/mat1120-1-2)."
     },
     {
       "id": "mat1120-3-1-bb-summult",

@@ -12,6 +12,15 @@ import json, re, sys, os, glob
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 CH = os.path.join(REPO, "src/lib/data/chapters")
+
+# Toppnivårutene deler navnerom med kurs-id-ene etter at /bok-prefikset falt
+# bort. Leses fra rutetreet, ikke skrives ned — en håndholdt liste ville råtnet
+# stille hver gang noen la til en side.
+TOPPNIVA = {
+    d for d in os.listdir(os.path.join(REPO, "src/app"))
+    if os.path.isdir(os.path.join(REPO, "src/app", d))
+    and not d.startswith(("[", "(", "_"))
+} | {"nn", "sme", "api", "images", "audio"}
 emne = sys.argv[1]
 forbudt = sys.argv[2] if len(sys.argv) > 2 else None
 
@@ -89,7 +98,16 @@ for f in files:
     if re.search(r"solutionVideo|allowsUpload|allowsCanvasDrawing", txt):
         issues.append(f"{cid}: forbudte exercise-felt")
     # døde lenker
-    for m in re.finditer(r"\]\(/bok/([a-z0-9-]+)/([a-z0-9-]+)\)", txt):
+    # /bok-prefikset ble fjernet 27. juli 2026 (kapitler ligger nå på
+    # /<kurs>/<kapittel>). Sto det gamle mønsteret igjen her, ville regexen
+    # sluttet å treffe NOE og porten stilltiende godkjent alle døde lenker.
+    #
+    # Uten TOPPNIVA-filteret ville /<kurs>/<kapittel> også truffet ordinære
+    # sider som /trinn/vg1 og /dashboard/student, og flagget dem som døde
+    # kapitler — de har ingen fil i chapters/.
+    for m in re.finditer(r"\]\(/([a-z0-9-]+)/([a-z0-9-]+)\)", txt):
+        if m.group(1) in TOPPNIVA:
+            continue
         if not os.path.exists(f"{CH}/{m.group(2)}.json"):
             issues.append(f"{cid}: død lenke {m.group(0)}")
     # forbudt-termer

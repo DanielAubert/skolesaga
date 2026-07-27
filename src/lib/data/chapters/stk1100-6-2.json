@@ -21,7 +21,7 @@
     {
       "id": "stk1100-6-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** [kap. 6.1](/bok/stk1100/stk1100-6-1) (eksakt pivotal-KI — som dette kapitlet sammenligner mot). Momentregnereglene er fra [kap. 1.2](/bok/stk1100/stk1100-1-2), estimatoregenskapene fra [kap. 5.1](/bok/stk1100/stk1100-5-1).\n\n**Sist du var her — det eksakte intervallet du nå får et alternativ til:**\n\n$$\\textbf{Eksakt (fra 6.1):}\\quad \\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right] \\quad (\\text{asymmetrisk}).$$\n\nDette intervallet har dekning nøyaktig lik konfidensgraden, uansett $n$. I dette kapitlet bygger vi det enklere **Wald-intervallet** basert på CLT, og ser presist når det svikter."
+      "content": "**Forkunnskaper:** [kap. 6.1](/stk1100/stk1100-6-1) (eksakt pivotal-KI — som dette kapitlet sammenligner mot). Momentregnereglene er fra [kap. 1.2](/stk1100/stk1100-1-2), estimatoregenskapene fra [kap. 5.1](/stk1100/stk1100-5-1).\n\n**Sist du var her — det eksakte intervallet du nå får et alternativ til:**\n\n$$\\textbf{Eksakt (fra 6.1):}\\quad \\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right] \\quad (\\text{asymmetrisk}).$$\n\nDette intervallet har dekning nøyaktig lik konfidensgraden, uansett $n$. I dette kapitlet bygger vi det enklere **Wald-intervallet** basert på CLT, og ser presist når det svikter."
     },
     {
       "id": "stk1100-6-2-intro",
@@ -43,7 +43,7 @@
       "id": "stk1100-6-2-def-standardisering",
       "type": "definition",
       "title": "Standardisering av gjennomsnittet",
-      "content": "Å trekke fra forventningen og dele på standardavviket, slik at størrelsen får forventning 0 og varians 1 — i symboler:\n\n$$Z = \\frac{\\bar X - \\mu}{\\sigma/\\sqrt n}, \\qquad E(Z)=0,\\ \\text{Var}(Z)=1.$$\n\nHer er $\\sigma/\\sqrt n$ standardavviket til $\\bar X$ (standardfeilen), siden $\\text{Var}(\\bar X)=\\sigma^2/n$ (fra [kap. 5.1](/bok/stk1100/stk1100-5-1)). CLT sier at nettopp denne standardiserte størrelsen nærmer seg $N(0,1)$."
+      "content": "Å trekke fra forventningen og dele på standardavviket, slik at størrelsen får forventning 0 og varians 1 — i symboler:\n\n$$Z = \\frac{\\bar X - \\mu}{\\sigma/\\sqrt n}, \\qquad E(Z)=0,\\ \\text{Var}(Z)=1.$$\n\nHer er $\\sigma/\\sqrt n$ standardavviket til $\\bar X$ (standardfeilen), siden $\\text{Var}(\\bar X)=\\sigma^2/n$ (fra [kap. 5.1](/stk1100/stk1100-5-1)). CLT sier at nettopp denne standardiserte størrelsen nærmer seg $N(0,1)$."
     },
     {
       "id": "stk1100-6-2-example1",
@@ -90,7 +90,7 @@
       "id": "stk1100-6-2-def-wald",
       "type": "definition",
       "title": "Wald-intervallet (CLT-basert KI)",
-      "content": "Et symmetrisk konfidensintervall bygget på at estimatoren er tilnærmet normalfordelt — i symboler:\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\cdot \\widehat{\\text{SE}}, \\qquad \\big[\\hat\\theta - z_{\\alpha/2}\\widehat{\\text{SE}},\\ \\hat\\theta + z_{\\alpha/2}\\widehat{\\text{SE}}\\big].$$\n\nHer er $z_{\\alpha/2}$ normalkvantilen (f.eks. $z_{0{,}025}=1{,}96$ for 95 %). Intervallet er alltid **symmetrisk** om $\\hat\\theta$ — i motsetning til det asymmetriske eksakte intervallet fra [kap. 6.1](/bok/stk1100/stk1100-6-1). Det er enkelt å regne, men bygger på en tilnærmelse som krever stor $n$."
+      "content": "Et symmetrisk konfidensintervall bygget på at estimatoren er tilnærmet normalfordelt — i symboler:\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\cdot \\widehat{\\text{SE}}, \\qquad \\big[\\hat\\theta - z_{\\alpha/2}\\widehat{\\text{SE}},\\ \\hat\\theta + z_{\\alpha/2}\\widehat{\\text{SE}}\\big].$$\n\nHer er $z_{\\alpha/2}$ normalkvantilen (f.eks. $z_{0{,}025}=1{,}96$ for 95 %). Intervallet er alltid **symmetrisk** om $\\hat\\theta$ — i motsetning til det asymmetriske eksakte intervallet fra [kap. 6.1](/stk1100/stk1100-6-1). Det er enkelt å regne, men bygger på en tilnærmelse som krever stor $n$."
     },
     {
       "id": "stk1100-6-2-example2",
@@ -125,7 +125,7 @@
       "id": "stk1100-6-2-def-dekning",
       "type": "definition",
       "title": "Dekningsgrad (coverage)",
-      "content": "Den faktiske andelen gjentatte konfidensintervaller som inneholder sann parameter — til forskjell fra den tilsiktede konfidensgraden:\n\n$$\\text{dekningsgrad} = P\\big(\\text{intervallet dekker sann } \\theta\\big).$$\n\nFor et **eksakt** intervall er dekningsgraden lik konfidensgraden ($1-\\alpha$) per konstruksjon. For et **tilnærmet** (Wald) intervall kan den avvike — særlig ved lav $n$, der den ofte er *lavere* enn tilsiktet (undercoverage). Dekning måles med en simuleringsstudie (kobling [kap. 7.2](/bok/stk1100/stk1100-7-2))."
+      "content": "Den faktiske andelen gjentatte konfidensintervaller som inneholder sann parameter — til forskjell fra den tilsiktede konfidensgraden:\n\n$$\\text{dekningsgrad} = P\\big(\\text{intervallet dekker sann } \\theta\\big).$$\n\nFor et **eksakt** intervall er dekningsgraden lik konfidensgraden ($1-\\alpha$) per konstruksjon. For et **tilnærmet** (Wald) intervall kan den avvike — særlig ved lav $n$, der den ofte er *lavere* enn tilsiktet (undercoverage). Dekning måles med en simuleringsstudie (kobling [kap. 7.2](/stk1100/stk1100-7-2))."
     },
     {
       "id": "stk1100-6-2-def-eksakt-vs-wald",
@@ -136,7 +136,7 @@
     {
       "id": "stk1100-6-2-dekning-sim",
       "type": "text",
-      "content": "### Simuleringen bak tallene\n\nDekningstallene er ikke tatt ut av lufta — de kommer fra en **dekningssimulering** som du selv kan kjøre (fullt apparat i [kap. 7.2](/bok/stk1100/stk1100-7-2)). Ideen: trekk $n$ eksponensiale observasjoner med kjent sann $\\mu$, bygg begge intervallene, og tell hvor ofte de dekker sann $\\mu$. Gjentar vi 1000 ganger for $n=10$ (nominelt 95 %):\n\n```python\nimport numpy as np\nfrom scipy import stats\nrng = np.random.default_rng(13)\nn, mu, alpha, B = 10, 5.0, 0.05, 1000\nz = stats.norm.ppf(1 - alpha/2)\nchi_lo = stats.chi2.ppf(1 - alpha/2, 2*n)   # stor kvantil -> nedre grense\nchi_hi = stats.chi2.ppf(alpha/2, 2*n)       # liten kvantil -> ovre grense\ncov_exact = cov_wald = 0\nfor _ in range(B):\n    x = rng.exponential(mu, size=n)\n    s, mhat = x.sum(), x.mean()\n    # eksakt pivotal-KI (fra kap. 6.1)\n    if 2*s/chi_lo <= mu <= 2*s/chi_hi:\n        cov_exact += 1\n    # Wald-KI: SE = mhat/sqrt(n)\n    se = mhat/np.sqrt(n)\n    if mhat - z*se <= mu <= mhat + z*se:\n        cov_wald += 1\nprint(cov_exact, cov_wald)   # -> 959 911\n```\n\nUtfallet er **959** (95,9 %) for det eksakte og **911** (91,1 %) for Wald. Det eksakte treffer sitt tilsiktede 95 %-nivå (avviket 95,9 % er ren simuleringsstøy — 1000 gjentakelser gir usikkerhet på ca. $\\pm 0{,}7$ prosentpoeng), mens Wald **underdekker** klart. Øker vi til $n=100$, nærmer begge seg 94 %, og forskjellen forsvinner — CLT-tilnærmingen blir god."
+      "content": "### Simuleringen bak tallene\n\nDekningstallene er ikke tatt ut av lufta — de kommer fra en **dekningssimulering** som du selv kan kjøre (fullt apparat i [kap. 7.2](/stk1100/stk1100-7-2)). Ideen: trekk $n$ eksponensiale observasjoner med kjent sann $\\mu$, bygg begge intervallene, og tell hvor ofte de dekker sann $\\mu$. Gjentar vi 1000 ganger for $n=10$ (nominelt 95 %):\n\n```python\nimport numpy as np\nfrom scipy import stats\nrng = np.random.default_rng(13)\nn, mu, alpha, B = 10, 5.0, 0.05, 1000\nz = stats.norm.ppf(1 - alpha/2)\nchi_lo = stats.chi2.ppf(1 - alpha/2, 2*n)   # stor kvantil -> nedre grense\nchi_hi = stats.chi2.ppf(alpha/2, 2*n)       # liten kvantil -> ovre grense\ncov_exact = cov_wald = 0\nfor _ in range(B):\n    x = rng.exponential(mu, size=n)\n    s, mhat = x.sum(), x.mean()\n    # eksakt pivotal-KI (fra kap. 6.1)\n    if 2*s/chi_lo <= mu <= 2*s/chi_hi:\n        cov_exact += 1\n    # Wald-KI: SE = mhat/sqrt(n)\n    se = mhat/np.sqrt(n)\n    if mhat - z*se <= mu <= mhat + z*se:\n        cov_wald += 1\nprint(cov_exact, cov_wald)   # -> 959 911\n```\n\nUtfallet er **959** (95,9 %) for det eksakte og **911** (91,1 %) for Wald. Det eksakte treffer sitt tilsiktede 95 %-nivå (avviket 95,9 % er ren simuleringsstøy — 1000 gjentakelser gir usikkerhet på ca. $\\pm 0{,}7$ prosentpoeng), mens Wald **underdekker** klart. Øker vi til $n=100$, nærmer begge seg 94 %, og forskjellen forsvinner — CLT-tilnærmingen blir god."
     },
     {
       "id": "stk1100-6-2-example3",
@@ -277,7 +277,7 @@
       "id": "stk1100-6-2-card-12",
       "type": "definition",
       "title": "Dekningssimulering-oppsettet — kortet",
-      "content": "Mål dekning: trekk $n$ observasjoner med kjent sann $\\theta$, bygg intervallet, tell treff, gjenta $B$ ganger. Andelen treff $\\approx$ dekningsgraden. Fullt apparat i [kap. 7.2](/bok/stk1100/stk1100-7-2)."
+      "content": "Mål dekning: trekk $n$ observasjoner med kjent sann $\\theta$, bygg intervallet, tell treff, gjenta $B$ ganger. Andelen treff $\\approx$ dekningsgraden. Fullt apparat i [kap. 7.2](/stk1100/stk1100-7-2)."
     },
     {
       "id": "stk1100-6-2-card-13",

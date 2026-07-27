@@ -16,17 +16,17 @@
       "id": "mat1120-3-2-tip",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Dette er selve karakterskilleren i egenverdioppgaven.** Å diagonalisere $A=PDP^{-1}$ og — enda viktigere — å **begrunne** at $A$ er (eller ikke er) diagonaliserbar, er sjanger D, ~100 % av settene. Prioritet: **høyeste**.\n\n- **Diagonaliserbarhet skal ALLTID begrunnes.** Det holder ikke å påstå det. Sensor vil se enten (a) $n$ **distinkte** egenverdier, (b) at $A$ er **symmetrisk**, (c) at $A$ er **triangulær** med kjente egenverdier, eller (d) at **geometrisk $=$ algebraisk multiplisitet** for hver egenverdi (dokumentert felle nr. 3 i faget).\n- **Ikke-diagonaliserbar** vises eksplisitt ved at et **egenrom er for lite** (geo $<$ alg).\n- $P$ og $D$ **matches søyle for søyle**: står egenvektoren $\\mathbf{v}_j$ i søyle $j$ av $P$, står egenverdien dens i posisjon $(j,j)$ av $D$.\n\nAlt hviler på skillet algebraisk/geometrisk multiplisitet fra [kap. 3.1](/bok/mat1120/mat1120-3-1). Egenverdiene og egenrommene leses fortsatt av vedlegget."
+      "content": "**Dette er selve karakterskilleren i egenverdioppgaven.** Å diagonalisere $A=PDP^{-1}$ og — enda viktigere — å **begrunne** at $A$ er (eller ikke er) diagonaliserbar, er sjanger D, ~100 % av settene. Prioritet: **høyeste**.\n\n- **Diagonaliserbarhet skal ALLTID begrunnes.** Det holder ikke å påstå det. Sensor vil se enten (a) $n$ **distinkte** egenverdier, (b) at $A$ er **symmetrisk**, (c) at $A$ er **triangulær** med kjente egenverdier, eller (d) at **geometrisk $=$ algebraisk multiplisitet** for hver egenverdi (dokumentert felle nr. 3 i faget).\n- **Ikke-diagonaliserbar** vises eksplisitt ved at et **egenrom er for lite** (geo $<$ alg).\n- $P$ og $D$ **matches søyle for søyle**: står egenvektoren $\\mathbf{v}_j$ i søyle $j$ av $P$, står egenverdien dens i posisjon $(j,j)$ av $D$.\n\nAlt hviler på skillet algebraisk/geometrisk multiplisitet fra [kap. 3.1](/mat1120/mat1120-3-1). Egenverdiene og egenrommene leses fortsatt av vedlegget."
     },
     {
       "id": "mat1120-3-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 3.1](/bok/mat1120/mat1120-3-1) — egenverdier, egenrom, algebraisk vs. geometrisk multiplisitet (hele kapitlet bygger på disse begrepene); similaritetsbegrepet ble introdusert i begrepsbanken der\n- [Kap. 1.2](/bok/mat1120/mat1120-1-2) — dimensjon og basis\n- [Matriseinvers og matriseprodukt (MAT1110)](/bok/mat1110/mat1110-1-3) — vi regner ikke ut $P^{-1}$ fra grunnen, men bruker den"
+      "content": "**Forkunnskaper:**\n\n- [Kap. 3.1](/mat1120/mat1120-3-1) — egenverdier, egenrom, algebraisk vs. geometrisk multiplisitet (hele kapitlet bygger på disse begrepene); similaritetsbegrepet ble introdusert i begrepsbanken der\n- [Kap. 1.2](/mat1120/mat1120-1-2) — dimensjon og basis\n- [Matriseinvers og matriseprodukt (MAT1110)](/mat1110/mat1110-1-3) — vi regner ikke ut $P^{-1}$ fra grunnen, men bruker den"
     },
     {
       "id": "mat1120-3-2-intro",
       "type": "text",
-      "content": "Å **diagonalisere** $A$ er å skrive $A=PDP^{-1}$ der $D$ er diagonal. Det betyr at $A$ oppfører seg som en ren strekking langs egenvektorretningene — og det gjør potenser, differenslikninger og mye annet enkelt ([kap. 3.3](/bok/mat1120/mat1120-3-3)). Kapitlet går i fire løkker:\n\n1. Hva $A=PDP^{-1}$ betyr, og hvordan du **bygger $P$ og $D$** matchet søyle for søyle.\n2. **Diagonaliserbarhetskriteriet** og de tre snarveiene som gir en rask begrunnelse.\n3. **Ikke-diagonaliserbarhet**: vis at et egenrom er for lite.\n4. **Parameteravhengige** matriser: for hvilke verdier er $A$ diagonaliserbar?"
+      "content": "Å **diagonalisere** $A$ er å skrive $A=PDP^{-1}$ der $D$ er diagonal. Det betyr at $A$ oppfører seg som en ren strekking langs egenvektorretningene — og det gjør potenser, differenslikninger og mye annet enkelt ([kap. 3.3](/mat1120/mat1120-3-3)). Kapitlet går i fire løkker:\n\n1. Hva $A=PDP^{-1}$ betyr, og hvordan du **bygger $P$ og $D$** matchet søyle for søyle.\n2. **Diagonaliserbarhetskriteriet** og de tre snarveiene som gir en rask begrunnelse.\n3. **Ikke-diagonaliserbarhet**: vis at et egenrom er for lite.\n4. **Parameteravhengige** matriser: for hvilke verdier er $A$ diagonaliserbar?"
     },
     {
       "id": "mat1120-3-2-l1",
@@ -103,7 +103,7 @@
     {
       "id": "mat1120-3-2-l2-teori",
       "type": "text",
-      "content": "Når er $A$ diagonaliserbar? Nøyaktig når det finnes en egenbasis — altså når summen av de **geometriske** multiplisitetene er $n$. Ekvivalent, per egenverdi: **geometrisk $=$ algebraisk multiplisitet** for hver egenverdi. (Enkle egenverdier oppfyller dette gratis; bare egenverdier med algebraisk multiplisitet $\\ge2$ må sjekkes.)\n\nTre **snarveier** lar deg begrunne uten å regne ut alle egenrom:\n\n1. **$n$ distinkte egenverdier** $\\Rightarrow$ diagonaliserbar (egenvektorer til ulike egenverdier er uavhengige, [kap. 3.1](/bok/mat1120/mat1120-3-1)).\n2. **Symmetrisk** ($A=A^{T}$) $\\Rightarrow$ ortogonalt diagonaliserbar (spektralteoremet, [Del 6]).\n3. **Triangulær** $\\Rightarrow$ egenverdiene leses av diagonalen; sjekk så multiplisitet ved behov.\n\nHar ingen snarvei, faller du tilbake på hovedkriteriet: sjekk geo $=$ alg for hver gjentatt egenverdi."
+      "content": "Når er $A$ diagonaliserbar? Nøyaktig når det finnes en egenbasis — altså når summen av de **geometriske** multiplisitetene er $n$. Ekvivalent, per egenverdi: **geometrisk $=$ algebraisk multiplisitet** for hver egenverdi. (Enkle egenverdier oppfyller dette gratis; bare egenverdier med algebraisk multiplisitet $\\ge2$ må sjekkes.)\n\nTre **snarveier** lar deg begrunne uten å regne ut alle egenrom:\n\n1. **$n$ distinkte egenverdier** $\\Rightarrow$ diagonaliserbar (egenvektorer til ulike egenverdier er uavhengige, [kap. 3.1](/mat1120/mat1120-3-1)).\n2. **Symmetrisk** ($A=A^{T}$) $\\Rightarrow$ ortogonalt diagonaliserbar (spektralteoremet, [Del 6]).\n3. **Triangulær** $\\Rightarrow$ egenverdiene leses av diagonalen; sjekk så multiplisitet ved behov.\n\nHar ingen snarvei, faller du tilbake på hovedkriteriet: sjekk geo $=$ alg for hver gjentatt egenverdi."
     },
     {
       "id": "mat1120-3-2-def-kriteriet",
@@ -289,7 +289,7 @@
       "id": "mat1120-3-2-bb-D-potens",
       "type": "definition",
       "title": "Hvorfor diagonalisering er nyttig",
-      "content": "Er $A=PDP^{-1}$, blir $A^{k}=PD^{k}P^{-1}$, og $D^{k}$ er bare diagonalelementene opphøyd i $k$. Diagonalisering gjør potenser, matrisefunksjoner og dynamiske systemer enkle ([kap. 3.3](/bok/mat1120/mat1120-3-3))."
+      "content": "Er $A=PDP^{-1}$, blir $A^{k}=PD^{k}P^{-1}$, og $D^{k}$ er bare diagonalelementene opphøyd i $k$. Diagonalisering gjør potenser, matrisefunksjoner og dynamiske systemer enkle ([kap. 3.3](/mat1120/mat1120-3-3))."
     },
     {
       "id": "mat1120-3-2-bb-P-invertibel",

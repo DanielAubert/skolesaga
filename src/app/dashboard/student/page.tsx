@@ -47,7 +47,7 @@ interface StudentClass {
 
 // Hjelpefunksjon for å få URL til elevens klassetrinn
 function getGradeUrl(gradeLevel: string | null | undefined): string {
-  if (!gradeLevel) return "/bok";
+  if (!gradeLevel) return "/";
   const gradeMap: Record<string, string> = {
     '5': '/trinn/5',
     '6': '/trinn/6',
@@ -59,7 +59,7 @@ function getGradeUrl(gradeLevel: string | null | undefined): string {
     'vg2': '/trinn/vg2',
     'vg3': '/trinn/vg3',
   };
-  return gradeMap[gradeLevel] || "/bok";
+  return gradeMap[gradeLevel] || "/";
 }
 
 export default function StudentDashboard() {
@@ -421,7 +421,7 @@ export default function StudentDashboard() {
                       <X className="h-4 w-4" />
                     </button>
 
-                    <Link href={`/bok/${course.id}`} className="block">
+                    <Link href={`/${course.id}`} className="block">
                       <div className="relative overflow-hidden rounded-xl aspect-[16/10] transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl">
                         {(course.coverImage || COURSE_IMAGES[course.id]) ? (
                           /* eslint-disable-next-line @next/next/no-img-element */
@@ -564,7 +564,7 @@ export default function StudentDashboard() {
               </Card>
 
               <Card className="hover:border-primary/50 transition-colors">
-                <Link href="/bok">
+                <Link href="/">
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-orange-100 dark:bg-orange-950/50">

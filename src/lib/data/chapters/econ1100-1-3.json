@@ -21,7 +21,7 @@
     {
       "id": "econ1100-1-3-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper.** Dette kapitlet bygger på [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderiverte, $f'_x$ og $f'_y$) og [kap. 1.1](/bok/econ1100/econ1100-1-1) (kjerneregelen i én variabel). Trenger du å friske opp hva en sammensatt funksjon er, ligger det i [Sammensatte funksjoner](/bok/r1/r1-2-3) og [Kjerneregelen](/bok/r1/r1-4-3) i R1-boka.\n\n**Nøkkelen du bygger videre på** er kjerneregelen slik du kjenner den fra én variabel:\n\n$$\\frac{d}{dx}f\\big(u(x)\\big)=f'\\big(u(x)\\big)\\cdot u'(x)$$\n\nI dette kapitlet skjer det bare én ting nytt: det er **flere veier inn** til den ytre funksjonen, og da må du legge sammen bidragene fra hver vei."
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på [kap. 1.2](/econ1100/econ1100-1-2) (partiellderiverte, $f'_x$ og $f'_y$) og [kap. 1.1](/econ1100/econ1100-1-1) (kjerneregelen i én variabel). Trenger du å friske opp hva en sammensatt funksjon er, ligger det i [Sammensatte funksjoner](/r1/r1-2-3) og [Kjerneregelen](/r1/r1-4-3) i R1-boka.\n\n**Nøkkelen du bygger videre på** er kjerneregelen slik du kjenner den fra én variabel:\n\n$$\\frac{d}{dx}f\\big(u(x)\\big)=f'\\big(u(x)\\big)\\cdot u'(x)$$\n\nI dette kapitlet skjer det bare én ting nytt: det er **flere veier inn** til den ytre funksjonen, og da må du legge sammen bidragene fra hver vei."
     },
     {
       "id": "econ1100-1-3-motivasjon",
@@ -212,7 +212,7 @@
       "id": "econ1100-1-3-def-partiell-vs-total",
       "type": "definition",
       "title": "Partiellderivert eller totalderivert?",
-      "content": "Skillet er hva du holder fast. Den **partiellderiverte** $f'_{x}$ holder $y$ helt i ro; **totalderiverten** $df/dx$ lar $y$ følge med på lasset.\n\n$$f'_{x}\\ \\text{(}y\\text{ fast)}\\qquad\\text{mot}\\qquad \\frac{df}{dx}=f'_{x}+f'_{y}y'(x)\\ \\text{(}y=y(x)\\text{)}$$\n\nDe er like bare når $f'_{y}=0$ eller $y'(x)=0$. Å bruke feil av de to er en meningsfeil, ikke en regnefeil — og den er hele grunnlaget for nivåkurveoppgavene i [kap. 5.1](/bok/econ1100/econ1100-5-1), der kravet $df/dx=0$ gir helningsformelen."
+      "content": "Skillet er hva du holder fast. Den **partiellderiverte** $f'_{x}$ holder $y$ helt i ro; **totalderiverten** $df/dx$ lar $y$ følge med på lasset.\n\n$$f'_{x}\\ \\text{(}y\\text{ fast)}\\qquad\\text{mot}\\qquad \\frac{df}{dx}=f'_{x}+f'_{y}y'(x)\\ \\text{(}y=y(x)\\text{)}$$\n\nDe er like bare når $f'_{y}=0$ eller $y'(x)=0$. Å bruke feil av de to er en meningsfeil, ikke en regnefeil — og den er hele grunnlaget for nivåkurveoppgavene i [kap. 5.1](/econ1100/econ1100-5-1), der kravet $df/dx=0$ gir helningsformelen."
     },
     {
       "id": "econ1100-1-3-ex3",
@@ -267,7 +267,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Sjanger P1 — eksamensnivå, generelle funksjoner.) La $G(x,y)$ være en deriverbar funksjon av to variabler, og la\n\n$$x=s+2t,\\qquad y=s-t.$$\n\n**a)** Sett opp uttrykk for $\\dfrac{\\partial G}{\\partial s}$ og $\\dfrac{\\partial G}{\\partial t}$ ved hjelp av $G'_{x}$ og $G'_{y}$.\n\n**b)** Vis at $\\dfrac{\\partial G}{\\partial t}=2\\,G'_{x}-G'_{y}$, og forklar hvorfor svaret her *ikke* skal substitueres videre.",
-        "solution": "**a)** Indre deriverte: $\\dfrac{\\partial x}{\\partial s}=1$, $\\dfrac{\\partial x}{\\partial t}=2$, $\\dfrac{\\partial y}{\\partial s}=1$, $\\dfrac{\\partial y}{\\partial t}=-1$.\n\nKjerneregelen gir\n\n$$\\frac{\\partial G}{\\partial s}=G'_{x}\\cdot 1+G'_{y}\\cdot 1=G'_{x}+G'_{y}$$\n\n$$\\frac{\\partial G}{\\partial t}=G'_{x}\\cdot 2+G'_{y}\\cdot(-1)=2G'_{x}-G'_{y}$$\n\n**b)** Utregningen over *er* beviset: bidraget gjennom $x$ har faktoren $\\partial x/\\partial t=2$, og bidraget gjennom $y$ har faktoren $\\partial y/\\partial t=-1$, som gir minustegnet.\n\n**Hvorfor ingen videre substitusjon her?** Fordi $G$ ikke er oppgitt på konkret form. De partiellderiverte $G'_{x}$ og $G'_{y}$ er ukjente funksjoner, og svaret *skal* inneholde dem — det er ikke et uferdig svar. Det du derimot skal huske, er at $G'_{x}$ og $G'_{y}$ er evaluert i punktet $(x,y)=(s+2t,\\;s-t)$, og en grundig besvarelse sier det eksplisitt:\n\n$$\\frac{\\partial G}{\\partial t}=2\\,G'_{x}(s+2t,\\,s-t)-G'_{y}(s+2t,\\,s-t)$$\n\nDette er den varianten av oppgaven som skiller: kravet om tilbakesubstitusjon gjelder de **indre variablene**, ikke de ukjente deriverte. Mer om derivasjon av generelle funksjoner i [kap. 1.5](/bok/econ1100/econ1100-1-5).",
+        "solution": "**a)** Indre deriverte: $\\dfrac{\\partial x}{\\partial s}=1$, $\\dfrac{\\partial x}{\\partial t}=2$, $\\dfrac{\\partial y}{\\partial s}=1$, $\\dfrac{\\partial y}{\\partial t}=-1$.\n\nKjerneregelen gir\n\n$$\\frac{\\partial G}{\\partial s}=G'_{x}\\cdot 1+G'_{y}\\cdot 1=G'_{x}+G'_{y}$$\n\n$$\\frac{\\partial G}{\\partial t}=G'_{x}\\cdot 2+G'_{y}\\cdot(-1)=2G'_{x}-G'_{y}$$\n\n**b)** Utregningen over *er* beviset: bidraget gjennom $x$ har faktoren $\\partial x/\\partial t=2$, og bidraget gjennom $y$ har faktoren $\\partial y/\\partial t=-1$, som gir minustegnet.\n\n**Hvorfor ingen videre substitusjon her?** Fordi $G$ ikke er oppgitt på konkret form. De partiellderiverte $G'_{x}$ og $G'_{y}$ er ukjente funksjoner, og svaret *skal* inneholde dem — det er ikke et uferdig svar. Det du derimot skal huske, er at $G'_{x}$ og $G'_{y}$ er evaluert i punktet $(x,y)=(s+2t,\\;s-t)$, og en grundig besvarelse sier det eksplisitt:\n\n$$\\frac{\\partial G}{\\partial t}=2\\,G'_{x}(s+2t,\\,s-t)-G'_{y}(s+2t,\\,s-t)$$\n\nDette er den varianten av oppgaven som skiller: kravet om tilbakesubstitusjon gjelder de **indre variablene**, ikke de ukjente deriverte. Mer om derivasjon av generelle funksjoner i [kap. 1.5](/econ1100/econ1100-1-5).",
         "hints": [
           "Skriv opp de fire indre deriverte — de er alle rene tall her.",
           "I b): hvilken faktor følger med bidraget gjennom $y$, når $\\partial y/\\partial t=-1$?"
@@ -323,7 +323,7 @@
       "id": "econ1100-1-3-bb-tre-indre",
       "type": "definition",
       "title": "Flere enn to indre variabler",
-      "content": "Prinsippet endrer seg ikke om det er tre eller flere indre variabler — du får bare ett ledd til i summen, ett per vei.\n\n$$z=f(x,y,u),\\ x=x(t),\\ y=y(t),\\ u=u(t)\\ \\Longrightarrow\\ \\frac{dz}{dt}=f'_{x}x'(t)+f'_{y}y'(t)+f'_{u}u'(t)$$\n\nDette er verdt å merke seg fordi produsentteorien i Del 9 og de flervariable Lagrange-oppgavene i [kap. 8.4](/bok/econ1100/econ1100-8-4) ofte har tre eller flere størrelser i spill samtidig."
+      "content": "Prinsippet endrer seg ikke om det er tre eller flere indre variabler — du får bare ett ledd til i summen, ett per vei.\n\n$$z=f(x,y,u),\\ x=x(t),\\ y=y(t),\\ u=u(t)\\ \\Longrightarrow\\ \\frac{dz}{dt}=f'_{x}x'(t)+f'_{y}y'(t)+f'_{u}u'(t)$$\n\nDette er verdt å merke seg fordi produsentteorien i Del 9 og de flervariable Lagrange-oppgavene i [kap. 8.4](/econ1100/econ1100-8-4) ofte har tre eller flere størrelser i spill samtidig."
     },
     {
       "id": "econ1100-1-3-bb-evalueringspunkt",
@@ -340,7 +340,7 @@
         {
           "id": "econ1100-1-3-repetisjon-txt",
           "type": "text",
-          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1) og [kap. 1.2](/bok/econ1100/econ1100-1-2).\n\n**1.** Deriver $f(x)=(3x+1)^{4}$ med kjerneregelen.\n\n*Svar:* $f'=4(3x+1)^{3}\\cdot 3=12(3x+1)^{3}$.\n\n**2.** La $f(x,y)=x^{2}+3xy$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=2x+3y$ og $f'_{y}=3x$.\n\n**3.** La $f(x,y)=\\dfrac{x}{y}$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=\\dfrac1y$ og $f'_{y}=-\\dfrac{x}{y^{2}}$.\n\n**4.** La $f(x,y)=e^{xy}$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=y\\,e^{xy}$ og $f'_{y}=x\\,e^{xy}$.\n\n**5.** Gang ut og forenkl: $(s-t)(s+t)$ og $(2s+t)^{2}$.\n\n*Svar:* $s^{2}-t^{2}$ og $4s^{2}+4st+t^{2}$.\n\n**6.** Deriver $g(t)=e^{2t}$ og $h(t)=\\ln(t^{3}+2t)$.\n\n*Svar:* $g'=2e^{2t}$ og $h'=\\dfrac{3t^{2}+2}{t^{3}+2t}$."
+          "content": "Korte oppgaver fra [kap. 1.1](/econ1100/econ1100-1-1) og [kap. 1.2](/econ1100/econ1100-1-2).\n\n**1.** Deriver $f(x)=(3x+1)^{4}$ med kjerneregelen.\n\n*Svar:* $f'=4(3x+1)^{3}\\cdot 3=12(3x+1)^{3}$.\n\n**2.** La $f(x,y)=x^{2}+3xy$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=2x+3y$ og $f'_{y}=3x$.\n\n**3.** La $f(x,y)=\\dfrac{x}{y}$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=\\dfrac1y$ og $f'_{y}=-\\dfrac{x}{y^{2}}$.\n\n**4.** La $f(x,y)=e^{xy}$. Finn $f'_{x}$ og $f'_{y}$.\n\n*Svar:* $f'_{x}=y\\,e^{xy}$ og $f'_{y}=x\\,e^{xy}$.\n\n**5.** Gang ut og forenkl: $(s-t)(s+t)$ og $(2s+t)^{2}$.\n\n*Svar:* $s^{2}-t^{2}$ og $4s^{2}+4st+t^{2}$.\n\n**6.** Deriver $g(t)=e^{2t}$ og $h(t)=\\ln(t^{3}+2t)$.\n\n*Svar:* $g'=2e^{2t}$ og $h'=\\dfrac{3t^{2}+2}{t^{3}+2t}$."
         }
       ]
     },

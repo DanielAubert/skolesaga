@@ -184,7 +184,7 @@ function renderMixedContent(content: string): string {
     return `<img src="${escapeHtml(sanitizedUrl)}" alt="${escapeHtml(alt)}" style="max-width: 420px; width: 100%; height: auto; margin: 1rem auto; display: block;" />`;
   });
 
-  // Links ([text](url)) - internal chapter links (/bok/...) and external https
+  // Links ([text](url)) - internal chapter links (/<kurs>/<kapittel>) and external https
   // Must run after image handling so ![..](..) is already consumed
   result = result.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, text, url) => {
     if (url.startsWith('/')) {

@@ -21,7 +21,7 @@
     {
       "id": "in1900-1-5-t-2",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1) — at en verdi har en datatype, og at `=` betyr «la navnet peke på resultatet».\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2) — lister og indeksering, som ordboka skal sammenlignes med.\n- [Kap. 1.3 — Løkker — for, while, range og nøstede løkker](/bok/in1900/in1900-1-3) — `for`-løkka, akkumulatormønsteret og `zip`.\n- [Kap. 1.4 — Strenger, f-strenger og formatert utskrift](/bok/in1900/in1900-1-4) — f-strenger, som brukes til å skrive pene tabeller i eksemplene.\n\nHar du aldri programmert før, er [Programmering med Python](/bok/1p/1p-9-2) en mykere inngang du kan bla gjennom først."
+      "content": "**Forkunnskaper:**\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/in1900/in1900-1-1) — at en verdi har en datatype, og at `=` betyr «la navnet peke på resultatet».\n- [Kap. 1.2 — Lister, indeksering og slicing](/in1900/in1900-1-2) — lister og indeksering, som ordboka skal sammenlignes med.\n- [Kap. 1.3 — Løkker — for, while, range og nøstede løkker](/in1900/in1900-1-3) — `for`-løkka, akkumulatormønsteret og `zip`.\n- [Kap. 1.4 — Strenger, f-strenger og formatert utskrift](/in1900/in1900-1-4) — f-strenger, som brukes til å skrive pene tabeller i eksemplene.\n\nHar du aldri programmert før, er [Programmering med Python](/1p/1p-9-2) en mykere inngang du kan bla gjennom først."
     },
     {
       "id": "in1900-1-5-t-3",
@@ -85,7 +85,7 @@
       "id": "in1900-1-5-adv-10",
       "type": "warning",
       "title": "Når nøkkelen ikke finnes — `KeyError`",
-      "content": "Et oppslag på en nøkkel som ikke finnes, stopper programmet med en feil. En **exception** er en feil som avbryter kjøringen; denne heter `KeyError`, og meldingen viser hvilken nøkkel den ikke fant:\n\n```python\ntemperatur = {'Blindern': 4.2, 'Tryvann': -1.5}\nprint(temperatur['Fornebu'])\n```\n\n**Utskrift:**\n```\nKeyError: 'Fornebu'\n```\n\nDette er **siste linje** i feilmeldingen; over den lister Python opp hvilken fil og hvilken linje som feilet. `print` rakk aldri å skrive noe.\n\nDette er en av de sju feiltypene du skal kunne kjenne igjen i [kap. 2.2](/bok/in1900/in1900-2-2). To måter å unngå den på finnes: test med `in` først, eller bruk `.get` — begge deler kommer i løkke 3."
+      "content": "Et oppslag på en nøkkel som ikke finnes, stopper programmet med en feil. En **exception** er en feil som avbryter kjøringen; denne heter `KeyError`, og meldingen viser hvilken nøkkel den ikke fant:\n\n```python\ntemperatur = {'Blindern': 4.2, 'Tryvann': -1.5}\nprint(temperatur['Fornebu'])\n```\n\n**Utskrift:**\n```\nKeyError: 'Fornebu'\n```\n\nDette er **siste linje** i feilmeldingen; over den lister Python opp hvilken fil og hvilken linje som feilet. `print` rakk aldri å skrive noe.\n\nDette er en av de sju feiltypene du skal kunne kjenne igjen i [kap. 2.2](/in1900/in1900-2-2). To måter å unngå den på finnes: test med `in` først, eller bruk `.get` — begge deler kommer i løkke 3."
     },
     {
       "id": "in1900-1-5-t-11",
@@ -102,13 +102,13 @@
       "id": "in1900-1-5-def-13",
       "type": "definition",
       "title": "`d.keys()` og `d.values()`",
-      "content": "`d.keys()` gir alle nøklene, `d.values()` alle verdiene — begge i **innsettingsrekkefølge**.\n\nDe er ikke lister, men de kan brukes i en `for`-løkke og i `sum`, `max`, `min` og `len`. Trenger du en ekte liste (for å indeksere eller skrive ut), pakker du dem i `list(...)`.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12}\nprint(list(nedbor.keys()))\nprint(list(nedbor.values()))\nprint(sum(nedbor.values()))\n```\n\n**Utskrift:**\n```\n['mandag', 'tirsdag', 'onsdag']\n[4, 0, 12]\n16\n```\n\n`sum(nedbor.values())` er kortformen for hele akkumulatormønsteret fra [kap. 1.3](/bok/in1900/in1900-1-3), på én linje."
+      "content": "`d.keys()` gir alle nøklene, `d.values()` alle verdiene — begge i **innsettingsrekkefølge**.\n\nDe er ikke lister, men de kan brukes i en `for`-løkke og i `sum`, `max`, `min` og `len`. Trenger du en ekte liste (for å indeksere eller skrive ut), pakker du dem i `list(...)`.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12}\nprint(list(nedbor.keys()))\nprint(list(nedbor.values()))\nprint(sum(nedbor.values()))\n```\n\n**Utskrift:**\n```\n['mandag', 'tirsdag', 'onsdag']\n[4, 0, 12]\n16\n```\n\n`sum(nedbor.values())` er kortformen for hele akkumulatormønsteret fra [kap. 1.3](/in1900/in1900-1-3), på én linje."
     },
     {
       "id": "in1900-1-5-def-14",
       "type": "definition",
       "title": "`d.items()`",
-      "content": "Gir **paret** `(nøkkel, verdi)` for hvert par i ordboka, slik at du kan pakke det ut i to løkkevariabler i én operasjon.\n\nEt slikt par kalles en **tuppel**: en fast sammenstilling av to eller flere verdier, skrevet med komma og vanligvis parenteser rundt. Den ligner en liste, men kan ikke endres etterpå. Du møter tupler igjen som returverdi fra funksjoner i [kap. 1.6](/bok/in1900/in1900-1-6).\n\nRekkefølgen er alltid nøkkel først, verdi etterpå — akkurat som `enumerate` alltid gir indeks først.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12}\nfor dag, mm in nedbor.items():\n    print(f'{dag:9s}{mm:3d} mm')\n```\n\n**Utskrift:**\n```\nmandag     4 mm\ntirsdag    0 mm\nonsdag    12 mm\n```\n\nBredden `9` og `3` i f-strengen sørger for at kolonnene står rett — se [kap. 1.4](/bok/in1900/in1900-1-4)."
+      "content": "Gir **paret** `(nøkkel, verdi)` for hvert par i ordboka, slik at du kan pakke det ut i to løkkevariabler i én operasjon.\n\nEt slikt par kalles en **tuppel**: en fast sammenstilling av to eller flere verdier, skrevet med komma og vanligvis parenteser rundt. Den ligner en liste, men kan ikke endres etterpå. Du møter tupler igjen som returverdi fra funksjoner i [kap. 1.6](/in1900/in1900-1-6).\n\nRekkefølgen er alltid nøkkel først, verdi etterpå — akkurat som `enumerate` alltid gir indeks først.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12}\nfor dag, mm in nedbor.items():\n    print(f'{dag:9s}{mm:3d} mm')\n```\n\n**Utskrift:**\n```\nmandag     4 mm\ntirsdag    0 mm\nonsdag    12 mm\n```\n\nBredden `9` og `3` i f-strengen sørger for at kolonnene står rett — se [kap. 1.4](/in1900/in1900-1-4)."
     },
     {
       "id": "in1900-1-5-def-15",
@@ -121,7 +121,7 @@
       "type": "example",
       "title": "Eksempel 2: Total, snitt og våteste dag",
       "problem": "Fire dagers nedbør ligger i en ordbok. Skriv ut samlet nedbør, hvilken dag som var våtest, og gjennomsnittet med to desimaler.",
-      "solution": "Mønsteret er akkumulatoren fra [kap. 1.3](/bok/in1900/in1900-1-3), men over `.items()` i stedet for over en liste. Startverdien for «våteste dag» er den første nøkkelen — ikke et tall, for det er en dag vi skal svare med.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12, 'torsdag': 7}\ntotal = 0\ntoppdag = 'mandag'\nfor dag, mm in nedbor.items():\n    total += mm\n    if mm > nedbor[toppdag]:\n        toppdag = dag\nprint(total, toppdag)\nprint(f'{total / len(nedbor):.2f}')\n```\n\n**Utskrift:**\n```\n23 onsdag\n5.75\n```\n\nTre detaljer sensor ser etter. `total` starter på 0 **før** løkka, ellers nullstilles den hver runde. Sammenligningen er `mm > nedbor[toppdag]` — vi må slå opp verdien til den nåværende topplederen, for `toppdag` er et navn, ikke et tall. Og `len(nedbor)` er antall dager, som er det vi skal dele på."
+      "solution": "Mønsteret er akkumulatoren fra [kap. 1.3](/in1900/in1900-1-3), men over `.items()` i stedet for over en liste. Startverdien for «våteste dag» er den første nøkkelen — ikke et tall, for det er en dag vi skal svare med.\n\n```python\nnedbor = {'mandag': 4, 'tirsdag': 0, 'onsdag': 12, 'torsdag': 7}\ntotal = 0\ntoppdag = 'mandag'\nfor dag, mm in nedbor.items():\n    total += mm\n    if mm > nedbor[toppdag]:\n        toppdag = dag\nprint(total, toppdag)\nprint(f'{total / len(nedbor):.2f}')\n```\n\n**Utskrift:**\n```\n23 onsdag\n5.75\n```\n\nTre detaljer sensor ser etter. `total` starter på 0 **før** løkka, ellers nullstilles den hver runde. Sammenligningen er `mm > nedbor[toppdag]` — vi må slå opp verdien til den nåværende topplederen, for `toppdag` er et navn, ikke et tall. Og `len(nedbor)` er antall dager, som er det vi skal dele på."
     },
     {
       "id": "in1900-1-5-oppg-2",
@@ -149,7 +149,7 @@
       "id": "in1900-1-5-def-18",
       "type": "definition",
       "title": "`dict(zip(nøkler, verdier))`",
-      "content": "Lager en ordbok av to sekvenser: den første leverer nøklene, den andre verdiene, parret posisjon for posisjon.\n\n`zip` stopper ved den **korteste** av de to — det fyller ikke ut. Er navnelista lengre enn tallista, forsvinner de overskytende navnene uten noen feilmelding. Det er samme regel som i [kap. 1.3](/bok/in1900/in1900-1-3), og den er lett å overse her fordi resultatet ser helt normalt ut.\n\n```python\nstasjoner = ['Blindern', 'Tryvann', 'Bygdoy']\nmaalinger = [4.2, -1.5]\nprint(dict(zip(stasjoner, maalinger)))\n```\n\n**Utskrift:**\n```\n{'Blindern': 4.2, 'Tryvann': -1.5}\n```\n\nTre navn inn, to tall inn, to par ut. Bygdøy ble borte."
+      "content": "Lager en ordbok av to sekvenser: den første leverer nøklene, den andre verdiene, parret posisjon for posisjon.\n\n`zip` stopper ved den **korteste** av de to — det fyller ikke ut. Er navnelista lengre enn tallista, forsvinner de overskytende navnene uten noen feilmelding. Det er samme regel som i [kap. 1.3](/in1900/in1900-1-3), og den er lett å overse her fordi resultatet ser helt normalt ut.\n\n```python\nstasjoner = ['Blindern', 'Tryvann', 'Bygdoy']\nmaalinger = [4.2, -1.5]\nprint(dict(zip(stasjoner, maalinger)))\n```\n\n**Utskrift:**\n```\n{'Blindern': 4.2, 'Tryvann': -1.5}\n```\n\nTre navn inn, to tall inn, to par ut. Bygdøy ble borte."
     },
     {
       "id": "in1900-1-5-def-19",
@@ -312,7 +312,7 @@
       "id": "in1900-1-5-adv-31",
       "type": "warning",
       "title": "Navnet `d` betyr to ting",
-      "content": "I bokas kodeeksempler er `d` det vanlige korte navnet på en **ordbok** — `d['a']`, `d.items()`. Det gjelder også i [kap. 8.1](/bok/in1900/in1900-8-1).\n\nMen i modelloppgaver står `d` like ofte for en **parameter i en modell**: en dødsrate, en dempningskoeffisient eller en avstand. Da er `d` et tall, ikke en struktur.\n\nRegelen i denne boka: `d` betyr ordbok bare når det står `d[...]` med en nøkkel eller et metodekall etter. Skriv heller `data`, `ordbok` eller `temperatur` i egne besvarelser — sensor leser koden fortere, og du unngår å forveksle dem selv."
+      "content": "I bokas kodeeksempler er `d` det vanlige korte navnet på en **ordbok** — `d['a']`, `d.items()`. Det gjelder også i [kap. 8.1](/in1900/in1900-8-1).\n\nMen i modelloppgaver står `d` like ofte for en **parameter i en modell**: en dødsrate, en dempningskoeffisient eller en avstand. Da er `d` et tall, ikke en struktur.\n\nRegelen i denne boka: `d` betyr ordbok bare når det står `d[...]` med en nøkkel eller et metodekall etter. Skriv heller `data`, `ordbok` eller `temperatur` i egne besvarelser — sensor leser koden fortere, og du unngår å forveksle dem selv."
     },
     {
       "id": "in1900-1-5-oppg-8",
@@ -365,19 +365,19 @@
       "id": "in1900-1-5-def-36",
       "type": "definition",
       "title": "Tuppel",
-      "content": "En fast sammenstilling av flere verdier, skrevet med komma: `('mandag', 4)`. Den ligner en liste, men kan ikke endres etter at den er laget.\n\nDu møter tupler tre steder i boka: som par fra `.items()` og `enumerate`, som flere returverdier fra en funksjon i [kap. 1.6](/bok/in1900/in1900-1-6), og som tidsintervallet `(0, T)` i ODE-løserne i [kap. 7.2](/bok/in1900/in1900-7-2)."
+      "content": "En fast sammenstilling av flere verdier, skrevet med komma: `('mandag', 4)`. Den ligner en liste, men kan ikke endres etter at den er laget.\n\nDu møter tupler tre steder i boka: som par fra `.items()` og `enumerate`, som flere returverdier fra en funksjon i [kap. 1.6](/in1900/in1900-1-6), og som tidsintervallet `(0, T)` i ODE-løserne i [kap. 7.2](/in1900/in1900-7-2)."
     },
     {
       "id": "in1900-1-5-def-37",
       "type": "definition",
       "title": "`None`",
-      "content": "Pythons verdi for «ingenting». Den skrives ut som `None`, uten fnutter.\n\nDu møter den to steder: som standardsvar fra `.get` når nøkkelen mangler og du ikke har oppgitt noe annet, og som returverdi fra en funksjon som mangler `return` — se [kap. 1.6](/bok/in1900/in1900-1-6). Begge deler er klassiske sporingsfeller, for `None` er ikke det samme som 0 eller tom streng."
+      "content": "Pythons verdi for «ingenting». Den skrives ut som `None`, uten fnutter.\n\nDu møter den to steder: som standardsvar fra `.get` når nøkkelen mangler og du ikke har oppgitt noe annet, og som returverdi fra en funksjon som mangler `return` — se [kap. 1.6](/in1900/in1900-1-6). Begge deler er klassiske sporingsfeller, for `None` er ikke det samme som 0 eller tom streng."
     },
     {
       "id": "in1900-1-5-def-38",
       "type": "definition",
       "title": "Ordboka i fillesingsoppgaven",
-      "content": "Standardoppgaven i Del 8 leser en tekstfil der hver linje har tre felt, og bygger nøyaktig den nøstede ordboka du har sett her — typisk `data[stasjon][år] = verdi`.\n\nSelve fillesingen legger bare to linjer til mønsteret: åpne fila, og del hver linje i felt. Alt det andre er det du har lært i dette kapitlet. Se [kap. 8.1](/bok/in1900/in1900-8-1)."
+      "content": "Standardoppgaven i Del 8 leser en tekstfil der hver linje har tre felt, og bygger nøyaktig den nøstede ordboka du har sett her — typisk `data[stasjon][år] = verdi`.\n\nSelve fillesingen legger bare to linjer til mønsteret: åpne fila, og del hver linje i felt. Alt det andre er det du har lært i dette kapitlet. Se [kap. 8.1](/in1900/in1900-8-1)."
     },
     {
       "id": "in1900-1-5-coll-39",
@@ -388,7 +388,7 @@
         {
           "id": "in1900-1-5-c39-1",
           "type": "text",
-          "content": "1. `d[nøkkel]` slår opp på **nøkkel**, ikke på posisjon; mangler nøkkelen, blir det `KeyError`.\n2. `d[nøkkel] = verdi` legger til eller overskriver — og oppretter aldri et nivå den må gå gjennom.\n3. `for k in d` gir **nøklene**. Vil du ha begge deler, bruk `.items()`.\n4. `in` og `len` ser bare på nøklene, på det nivået du peker på.\n5. Før innsetting på nivå to: `if ytre not in d: d[ytre] = {}`.\n6. Parene kommer ut i **innsettingsrekkefølge**, ikke alfabetisk.\n\nSitter disse seks, har du forkunnskapen både til kodesporingsdrillen i [kap. 1.7](/bok/in1900/in1900-1-7) og til fillesingsoppgavene i [kap. 8.1](/bok/in1900/in1900-8-1)."
+          "content": "1. `d[nøkkel]` slår opp på **nøkkel**, ikke på posisjon; mangler nøkkelen, blir det `KeyError`.\n2. `d[nøkkel] = verdi` legger til eller overskriver — og oppretter aldri et nivå den må gå gjennom.\n3. `for k in d` gir **nøklene**. Vil du ha begge deler, bruk `.items()`.\n4. `in` og `len` ser bare på nøklene, på det nivået du peker på.\n5. Før innsetting på nivå to: `if ytre not in d: d[ytre] = {}`.\n6. Parene kommer ut i **innsettingsrekkefølge**, ikke alfabetisk.\n\nSitter disse seks, har du forkunnskapen både til kodesporingsdrillen i [kap. 1.7](/in1900/in1900-1-7) og til fillesingsoppgavene i [kap. 8.1](/in1900/in1900-8-1)."
         }
       ]
     }

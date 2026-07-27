@@ -21,7 +21,7 @@
     {
       "id": "in1900-1-7-t-2",
       "type": "text",
-      "content": "**Forkunnskaper:** dette er drillkapitlet til hele Del 1, så alt herfra er i bruk:\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/bok/in1900/in1900-1-1) — `//`, `%`, `**` og presedens.\n- [Kap. 1.2 — Lister, indeksering og slicing](/bok/in1900/in1900-1-2) — indeksering, negative indekser og utsnitt.\n- [Kap. 1.3 — Løkker — for, while, range og nøstede løkker](/bok/in1900/in1900-1-3) — `range`, nøstede løkker, `enumerate`, `zip` og terminering.\n- [Kap. 1.4 — Strenger, f-strenger og formatert utskrift](/bok/in1900/in1900-1-4) — `end`, `sep`, bredde og desimaler.\n- [Kap. 1.5 — Dictionaries og nøstede dictionaries](/bok/in1900/in1900-1-5) — oppslag og løkker over ordbøker.\n- [Kap. 1.6 — Funksjoner, scope og lambda](/bok/in1900/in1900-1-6) — scope og returverdier.\n\nKapitlet er langt (~90 minutter) og er delt i tre bolker med pausepunkter. Ta gjerne én bolk per økt — det er drill, ikke ny teori."
+      "content": "**Forkunnskaper:** dette er drillkapitlet til hele Del 1, så alt herfra er i bruk:\n\n- [Kap. 1.1 — Variabler, datatyper, uttrykk og operatorpresedens](/in1900/in1900-1-1) — `//`, `%`, `**` og presedens.\n- [Kap. 1.2 — Lister, indeksering og slicing](/in1900/in1900-1-2) — indeksering, negative indekser og utsnitt.\n- [Kap. 1.3 — Løkker — for, while, range og nøstede løkker](/in1900/in1900-1-3) — `range`, nøstede løkker, `enumerate`, `zip` og terminering.\n- [Kap. 1.4 — Strenger, f-strenger og formatert utskrift](/in1900/in1900-1-4) — `end`, `sep`, bredde og desimaler.\n- [Kap. 1.5 — Dictionaries og nøstede dictionaries](/in1900/in1900-1-5) — oppslag og løkker over ordbøker.\n- [Kap. 1.6 — Funksjoner, scope og lambda](/in1900/in1900-1-6) — scope og returverdier.\n\nKapitlet er langt (~90 minutter) og er delt i tre bolker med pausepunkter. Ta gjerne én bolk per økt — det er drill, ikke ny teori."
     },
     {
       "id": "in1900-1-7-t-3",
@@ -62,7 +62,7 @@
       "id": "in1900-1-7-def-9",
       "type": "definition",
       "title": "Felle 3 — `+` på lister skjøter, det legger ikke sammen (#5)",
-      "content": "På lister betyr `+` **skjøting** og `*` **gjentakelse**. Elementvis addisjon finnes ikke for lister — den kommer først med NumPy i [kap. 4.1](/bok/in1900/in1900-4-1).\n\n```python\nprint([1, 2] + [3, 4])\nprint([1, 2] * 2)\nprint(sum([1, 2]) + sum([3, 4]))\n```\n\n**Utskrift:**\n```\n[1, 2, 3, 4]\n[1, 2, 1, 2]\n10\n```\n\nFeilkode #5. Merk at bare siste linje gir et tall — de to første gir lister, og skrives med hakeparenteser."
+      "content": "På lister betyr `+` **skjøting** og `*` **gjentakelse**. Elementvis addisjon finnes ikke for lister — den kommer først med NumPy i [kap. 4.1](/in1900/in1900-4-1).\n\n```python\nprint([1, 2] + [3, 4])\nprint([1, 2] * 2)\nprint(sum([1, 2]) + sum([3, 4]))\n```\n\n**Utskrift:**\n```\n[1, 2, 3, 4]\n[1, 2, 1, 2]\n10\n```\n\nFeilkode #5. Merk at bare siste linje gir et tall — de to første gir lister, og skrives med hakeparenteser."
     },
     {
       "id": "in1900-1-7-def-10",
@@ -92,7 +92,7 @@
       "id": "in1900-1-7-def-14",
       "type": "definition",
       "title": "Felle 8 — scope: lokal tilordning endrer ikke den globale (#13)",
-      "content": "Et likhetstegn inne i en funksjon lager **alltid** en ny, lokal variabel.\n\n```python\nx = 5\ndef f():\n    x = 10\n    return x\nprint(f(), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nFeilkode #13. Unntaket å huske: `liste.append(...)` og `d[nøkkel] = ...` **endrer innholdet** i noe som ble sendt inn, og det ser du utenfor. Skillet er mellom å bytte ut et navn og å endre et objekt — se [kap. 1.6](/bok/in1900/in1900-1-6)."
+      "content": "Et likhetstegn inne i en funksjon lager **alltid** en ny, lokal variabel.\n\n```python\nx = 5\ndef f():\n    x = 10\n    return x\nprint(f(), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nFeilkode #13. Unntaket å huske: `liste.append(...)` og `d[nøkkel] = ...` **endrer innholdet** i noe som ble sendt inn, og det ser du utenfor. Skillet er mellom å bytte ut et navn og å endre et objekt — se [kap. 1.6](/in1900/in1900-1-6)."
     },
     {
       "id": "in1900-1-7-def-15",
@@ -104,7 +104,7 @@
       "id": "in1900-1-7-def-16",
       "type": "definition",
       "title": "Felle 10 — ordbøker: løkkevariabelen er nøkkelen",
-      "content": "`for k in d` gir **nøklene**, og `in` og `len` ser bare på nøklene, på det nivået du peker på.\n\n```python\nd = {'a': 1, 'b': 2}\nfor k in d:\n    print(k, d[k], end='; ')\nprint()\nprint(len(d), 'a' in d, 1 in d)\n```\n\n**Utskrift:**\n```\na 1; b 2; \n2 True False\n```\n\nSiste verdi er fellen: tallet 1 er en **verdi** i ordboka, ikke en nøkkel, så svaret er `False`. Parene kommer i innsettingsrekkefølge — se [kap. 1.5](/bok/in1900/in1900-1-5)."
+      "content": "`for k in d` gir **nøklene**, og `in` og `len` ser bare på nøklene, på det nivået du peker på.\n\n```python\nd = {'a': 1, 'b': 2}\nfor k in d:\n    print(k, d[k], end='; ')\nprint()\nprint(len(d), 'a' in d, 1 in d)\n```\n\n**Utskrift:**\n```\na 1; b 2; \n2 True False\n```\n\nSiste verdi er fellen: tallet 1 er en **verdi** i ordboka, ikke en nøkkel, så svaret er `False`. Parene kommer i innsettingsrekkefølge — se [kap. 1.5](/in1900/in1900-1-5)."
     },
     {
       "id": "in1900-1-7-adv-17",
@@ -217,7 +217,7 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "(Midtveisnivå, sjanger A — liste-skjøting mot tallsum.) Hva skriver programmet ut?\n\n```python\na = [1, 2]\nb = [3, 4]\nprint(a + b, len(a + b))\nprint(sum(a) + sum(b))\nprint(a * 2)\n```",
-        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdi | Type |\n|---|---|---|\n| `a + b` | `[1, 2, 3, 4]` | liste (skjøting) |\n| `len(a + b)` | `4` | tall |\n| `sum(a) + sum(b)` | `3 + 7` som er `10` | tall |\n| `a * 2` | `[1, 2, 1, 2]` | liste (gjentakelse) |\n\n**Utskrift:**\n```\n[1, 2, 3, 4] 4\n10\n[1, 2, 1, 2]\n```\n\nFellen er #5 — å tro at `+` legger sammen element for element. Det gjør den først når listene er NumPy-tabeller, i [kap. 4.1](/bok/in1900/in1900-4-1). Og `a * 2` gjentar lista; det ganger ikke tallene med 2.\n\nMerk at første linje har to argumenter og derfor ett mellomrom mellom lista og tallet.",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdi | Type |\n|---|---|---|\n| `a + b` | `[1, 2, 3, 4]` | liste (skjøting) |\n| `len(a + b)` | `4` | tall |\n| `sum(a) + sum(b)` | `3 + 7` som er `10` | tall |\n| `a * 2` | `[1, 2, 1, 2]` | liste (gjentakelse) |\n\n**Utskrift:**\n```\n[1, 2, 3, 4] 4\n10\n[1, 2, 1, 2]\n```\n\nFellen er #5 — å tro at `+` legger sammen element for element. Det gjør den først når listene er NumPy-tabeller, i [kap. 4.1](/in1900/in1900-4-1). Og `a * 2` gjentar lista; det ganger ikke tallene med 2.\n\nMerk at første linje har to argumenter og derfor ett mellomrom mellom lista og tallet.",
         "hints": [
           "Avgjør for hvert uttrykk om resultatet er en liste eller et tall.",
           "`sum` på en liste gir ett tall — det er noe helt annet enn `+` mellom to lister.",
@@ -308,7 +308,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger A — tekstbehandling og formatering.) En målelinje skal deles opp. Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ntekst = 'temp=21.5;vind=3'\nfelt = tekst.split(';')\nprint(felt)\nforste = felt[0].split('=')\nprint(forste[1], float(forste[1]) + 1)\nprint(f'{float(forste[1]):7.3f}|')\n```",
-        "solution": "**Sporingstavle**\n\n| Steg | Verdi |\n|---|---|\n| `tekst.split(';')` | `['temp=21.5', 'vind=3']` |\n| `felt[0]` | `'temp=21.5'` |\n| `felt[0].split('=')` | `['temp', '21.5']` |\n| `forste[1]` | strengen `'21.5'` |\n| `float(forste[1]) + 1` | tallet `22.5` |\n| `f'{21.5:7.3f}'` | ` 21.500` — sju tegn, tre desimaler |\n\n**Utskrift:**\n```\n['temp=21.5', 'vind=3']\n21.5 22.5\n 21.500|\n```\n\nTre detaljer avgjør. Den første: en **liste** skrives med hakeparenteser og fnutter rundt strengene, mens en enkelt streng skrives uten fnutter — derfor har linje 1 fnutter og linje 2 ikke. Den andre: `forste[1]` er teksten `'21.5'`, ikke et tall, så `float` må til før du kan legge til 1. Den tredje: `21.500` er seks tegn, og bredden 7 gir derfor **ett** mellomrom foran — loddrettstreken viser hvor feltet slutter.\n\nDette er nøyaktig mønsteret fillesingsoppgavene bruker, se [kap. 8.1](/bok/in1900/in1900-8-1).",
+        "solution": "**Sporingstavle**\n\n| Steg | Verdi |\n|---|---|\n| `tekst.split(';')` | `['temp=21.5', 'vind=3']` |\n| `felt[0]` | `'temp=21.5'` |\n| `felt[0].split('=')` | `['temp', '21.5']` |\n| `forste[1]` | strengen `'21.5'` |\n| `float(forste[1]) + 1` | tallet `22.5` |\n| `f'{21.5:7.3f}'` | ` 21.500` — sju tegn, tre desimaler |\n\n**Utskrift:**\n```\n['temp=21.5', 'vind=3']\n21.5 22.5\n 21.500|\n```\n\nTre detaljer avgjør. Den første: en **liste** skrives med hakeparenteser og fnutter rundt strengene, mens en enkelt streng skrives uten fnutter — derfor har linje 1 fnutter og linje 2 ikke. Den andre: `forste[1]` er teksten `'21.5'`, ikke et tall, så `float` må til før du kan legge til 1. Den tredje: `21.500` er seks tegn, og bredden 7 gir derfor **ett** mellomrom foran — loddrettstreken viser hvor feltet slutter.\n\nDette er nøyaktig mønsteret fillesingsoppgavene bruker, se [kap. 8.1](/in1900/in1900-8-1).",
         "hints": [
           "Skriv opp resultatet av hver `split` som en liste, med fnutter rundt hvert felt.",
           "Skill mellom teksten `'21.5'` og tallet `21.5`.",
@@ -342,7 +342,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger A — funksjon med standardverdi.) Hva skriver programmet ut? Skriv utskriften nøyaktig, linje for linje.\n\n```python\ndef snitt(verdier, start=0):\n    total = start\n    for v in verdier:\n        total += v\n    return total / len(verdier)\ntall = [2, 4, 9]\nprint(snitt(tall))\nprint(f'{snitt(tall, 5):.2f}')\nprint(snitt(tall) == 5.0)\n```",
-        "solution": "**Sporingstavle**\n\n| Kall | `start` | `total` etter løkka | Returnerer |\n|---|---|---|---|\n| `snitt(tall)` | 0 (standardverdien) | 15 | `15 / 3` som er `5.0` |\n| `snitt(tall, 5)` | 5 | 20 | `20 / 3` som er `6.666…` |\n| `snitt(tall)` | 0 | 15 | `5.0` |\n\n**Utskrift:**\n```\n5.0\n6.67\nTrue\n```\n\nTre detaljer. `/` gir alltid flyttall, så første linje er `5.0` og ikke `5`. F-strengen `.2f` runder til to desimaler, så `6.666…` blir `6.67`. Og siste linje er `True` fordi `15 / 3` er eksakt `5.0` — her er likhetstest på flyttall trygt, siden begge tallene er «runde».\n\nMerk at det er nettopp slike likhetstester du **ikke** skal stole på generelt: i testfunksjoner sammenlignes flyttall alltid med en toleranse, se [kap. 3.1](/bok/in1900/in1900-3-1). Legg også merke til at `len(verdier)` er 3 uansett hva `start` er — startverdien teller ikke som en måling.",
+        "solution": "**Sporingstavle**\n\n| Kall | `start` | `total` etter løkka | Returnerer |\n|---|---|---|---|\n| `snitt(tall)` | 0 (standardverdien) | 15 | `15 / 3` som er `5.0` |\n| `snitt(tall, 5)` | 5 | 20 | `20 / 3` som er `6.666…` |\n| `snitt(tall)` | 0 | 15 | `5.0` |\n\n**Utskrift:**\n```\n5.0\n6.67\nTrue\n```\n\nTre detaljer. `/` gir alltid flyttall, så første linje er `5.0` og ikke `5`. F-strengen `.2f` runder til to desimaler, så `6.666…` blir `6.67`. Og siste linje er `True` fordi `15 / 3` er eksakt `5.0` — her er likhetstest på flyttall trygt, siden begge tallene er «runde».\n\nMerk at det er nettopp slike likhetstester du **ikke** skal stole på generelt: i testfunksjoner sammenlignes flyttall alltid med en toleranse, se [kap. 3.1](/in1900/in1900-3-1). Legg også merke til at `len(verdier)` er 3 uansett hva `start` er — startverdien teller ikke som en måling.",
         "hints": [
           "Regn ut `total` etter løkka for hvert kall, før du deler.",
           "Hva slags datatype gir `/` alltid?",
@@ -424,7 +424,7 @@
         {
           "id": "in1900-1-7-c28-1",
           "type": "text",
-          "content": "Gå gjennom denne før du skriver svaret på en sporingsoppgave:\n\n1. Hvor mange runder går hver løkke? (Stoppverdien er ikke med.)\n2. Hvilke `print` står inne i løkka, og hvilke står utenfor? Se på innrykket.\n3. Har noen `print` `end` eller `sep`? Hvor mange linjer blir det da?\n4. Gir hvert uttrykk et element eller en samling?\n5. Er noen verdi et flyttall? Da skal utskriften ha desimalpunkt.\n6. Finnes samme navn både inne i og utenfor en funksjon?\n\nSitter disse seks spørsmålene i ryggmargen, klarer du 10–12 midtveisspørsmål på under 20 minutter. Neste steg er å ta hele Del 1 under tidspress i [prøvene til del 1](/bok/in1900/in1900-1-prove), og deretter midtveis-simuleringen i [kap. 9.1](/bok/in1900/in1900-9-1)."
+          "content": "Gå gjennom denne før du skriver svaret på en sporingsoppgave:\n\n1. Hvor mange runder går hver løkke? (Stoppverdien er ikke med.)\n2. Hvilke `print` står inne i løkka, og hvilke står utenfor? Se på innrykket.\n3. Har noen `print` `end` eller `sep`? Hvor mange linjer blir det da?\n4. Gir hvert uttrykk et element eller en samling?\n5. Er noen verdi et flyttall? Da skal utskriften ha desimalpunkt.\n6. Finnes samme navn både inne i og utenfor en funksjon?\n\nSitter disse seks spørsmålene i ryggmargen, klarer du 10–12 midtveisspørsmål på under 20 minutter. Neste steg er å ta hele Del 1 under tidspress i [prøvene til del 1](/in1900/in1900-1-prove), og deretter midtveis-simuleringen i [kap. 9.1](/in1900/in1900-9-1)."
         }
       ]
     }

@@ -38,7 +38,7 @@ import { mediaUrl } from '@/lib/media';
  * Regelen nå: plukk det FØRSTE gyldige trinnet i strengen. Et fag som dekker
  * VG2 og VG3 hører hjemme på VG2-oversikten — det er der en elev møter det
  * først. Fremmedspråk på nivå 1–3 har ikke noe trinn, og faller tilbake til
- * /bok, som lister alt.
+ * forsiden, som lister alt.
  */
 const GYLDIGE_TRINN = ['5', '6', '7', '8', '9', '10', 'vg1', 'vg2', 'vg3'];
 
@@ -273,7 +273,7 @@ export function TextbookChapterView({
           <div className="flex items-center justify-between h-14">
             {/* Tilbake til kurs */}
             <Link
-              href={`/bok/${course.id}`}
+              href={`/${course.id}`}
               className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ChevronLeft className="h-4 w-4" />
@@ -292,7 +292,7 @@ export function TextbookChapterView({
             {/* Navigasjon og tema */}
             <div className="flex items-center gap-1">
               {prevChapter ? (
-                <Link href={`/bok/${course.id}/${prevChapter.id}`}>
+                <Link href={`/${course.id}/${prevChapter.id}`}>
                   <Button variant="ghost" size="sm" className="gap-1">
                     <ChevronLeft className="h-4 w-4" />
                     <span className="hidden sm:inline">{prevChapter.number}</span>
@@ -304,7 +304,7 @@ export function TextbookChapterView({
                 </Button>
               )}
               {nextChapter ? (
-                <Link href={`/bok/${course.id}/${nextChapter.id}`}>
+                <Link href={`/${course.id}/${nextChapter.id}`}>
                   <Button variant="ghost" size="sm" className="gap-1">
                     <span className="hidden sm:inline">{nextChapter.number}</span>
                     <ChevronRight className="h-4 w-4" />
@@ -365,7 +365,7 @@ export function TextbookChapterView({
       <div className="container mx-auto px-4 pt-4">
         <div className="max-w-3xl mx-auto">
           <Link
-            href={getLevelGradeSlug(course.level) ? `/trinn/${getLevelGradeSlug(course.level)}` : '/bok'}
+            href={getLevelGradeSlug(course.level) ? `/trinn/${getLevelGradeSlug(course.level)}` : '/'}
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <LayoutGrid className="h-4 w-4" />
@@ -434,7 +434,7 @@ export function TextbookChapterView({
                         : 'Du leser den tradisjonelle versjonen'}
                     </span>
                   </div>
-                  <Link href={`/bok/${course.id}/${linkedChapter.id}`}>
+                  <Link href={`/${course.id}/${linkedChapter.id}`}>
                     <Button variant="outline" size="sm" className="gap-2">
                       <BookOpen className="h-4 w-4" />
                       {linkedChapter.isNarrativeVersion
@@ -510,7 +510,7 @@ export function TextbookChapterView({
                 <div className="mt-4 flex flex-col sm:flex-row gap-2">
                   {hasQuiz && (
                     <div className="flex-1">
-                      <Link href={`/bok/${course.id}/${chapterMeta.id}/quiz`}>
+                      <Link href={`/${course.id}/${chapterMeta.id}/quiz`}>
                         <Button className="w-full gap-2">
                           <BookCheck className="h-5 w-5" />
                           Test deg selv
@@ -529,7 +529,7 @@ export function TextbookChapterView({
                   )}
                   {hasExam && (
                     <div className="flex-1">
-                      <Link href={`/bok/${course.id}/${chapterMeta.id}/prove`}>
+                      <Link href={`/${course.id}/${chapterMeta.id}/prove`}>
                         <Button variant="outline" className="w-full gap-2">
                           <ClipboardCheck className="h-5 w-5" />
                           Ta prøve
@@ -655,7 +655,7 @@ export function TextbookChapterView({
           <nav className="mt-12 pt-8 border-t">
             <div className="flex justify-between gap-4">
               {prevChapter ? (
-                <Link href={`/bok/${course.id}/${prevChapter.id}`} className="flex-1">
+                <Link href={`/${course.id}/${prevChapter.id}`} className="flex-1">
                   <Button variant="outline" className="w-full justify-start gap-2 h-auto py-3">
                     <ChevronLeft className="h-4 w-4 shrink-0" />
                     <div className="text-left">
@@ -668,7 +668,7 @@ export function TextbookChapterView({
                 <div className="flex-1" />
               )}
               {nextChapter ? (
-                <Link href={`/bok/${course.id}/${nextChapter.id}`} className="flex-1">
+                <Link href={`/${course.id}/${nextChapter.id}`} className="flex-1">
                   <Button variant="outline" className="w-full justify-end gap-2 h-auto py-3">
                     <div className="text-right">
                       <div className="text-xs text-muted-foreground">Neste</div>

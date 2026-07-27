@@ -16,12 +16,12 @@
       "id": "in1000-1-2-1",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Betingelser står i 6 av 6 moderne eksamenssett (100 %)** — de er, sammen med\nløkkene i [kap. 1.3](/bok/in1000/in1000-1-3), ryggraden i alt du gjør i faget.\n\nDe dukker opp to steder. I **sjanger A — kodeforståelse** («hva skriver dette programmet ut?») er en `if`-`elif`-`else`-kjede en fast kortsvarsfelle: hvilken gren slår til, og hva skjer med de andre? Og i alle kodeskrivingsoppgavene er betingelsen selve logikken — «tell dem som er over 18», «returner `False` hvis noen er negativ».\n\nIngen egen oppgave heter «betingelser», og likevel er de overalt. Derfor er de verdt en full økt: **dette må sitte**, som er bokas høyeste av tre nivåer.\n\nDe to fellene som koster mest, er å tro at flere grener kan slå til samtidig, og å bomme på kanten — `>` der det skulle vært `>=`."
+      "content": "**Betingelser står i 6 av 6 moderne eksamenssett (100 %)** — de er, sammen med\nløkkene i [kap. 1.3](/in1000/in1000-1-3), ryggraden i alt du gjør i faget.\n\nDe dukker opp to steder. I **sjanger A — kodeforståelse** («hva skriver dette programmet ut?») er en `if`-`elif`-`else`-kjede en fast kortsvarsfelle: hvilken gren slår til, og hva skjer med de andre? Og i alle kodeskrivingsoppgavene er betingelsen selve logikken — «tell dem som er over 18», «returner `False` hvis noen er negativ».\n\nIngen egen oppgave heter «betingelser», og likevel er de overalt. Derfor er de verdt en full økt: **dette må sitte**, som er bokas høyeste av tre nivåer.\n\nDe to fellene som koster mest, er å tro at flere grener kan slå til samtidig, og å bomme på kanten — `>` der det skulle vært `>=`."
     },
     {
       "id": "in1000-1-2-2",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.1 — Variabler, datatyper og uttrykk](/bok/in1000/in1000-1-1). Du trenger derfra:\n\n- at en **tilordning** (`x = 3`) regner ut høyre side og lar navnet peke på\n  resultatet — og at `=` derfor ikke betyr «er lik»,\n- at verdier har en **type**, og at `3` og `\"3\"` er ulike verdier,\n- de to **boolske** verdiene `True` og `False`, skrevet med stor forbokstav og\n  uten anførselstegn,\n- at `print` skiller argumenter med ett mellomrom.\n\nKort oppfrisket:\n\n```python\nalder = 17\nnavn = \"Ada\"\ner_myndig = False\nprint(navn, alder, er_myndig)\n```\n\n**Utskrift:**\n```\nAda 17 False\n```\n"
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 1.1 — Variabler, datatyper og uttrykk](/in1000/in1000-1-1). Du trenger derfra:\n\n- at en **tilordning** (`x = 3`) regner ut høyre side og lar navnet peke på\n  resultatet — og at `=` derfor ikke betyr «er lik»,\n- at verdier har en **type**, og at `3` og `\"3\"` er ulike verdier,\n- de to **boolske** verdiene `True` og `False`, skrevet med stor forbokstav og\n  uten anførselstegn,\n- at `print` skiller argumenter med ett mellomrom.\n\nKort oppfrisket:\n\n```python\nalder = 17\nnavn = \"Ada\"\ner_myndig = False\nprint(navn, alder, er_myndig)\n```\n\n**Utskrift:**\n```\nAda 17 False\n```\n"
     },
     {
       "id": "in1000-1-2-3",
@@ -194,7 +194,7 @@
       "id": "in1000-1-2-23",
       "type": "definition",
       "title": "Rekkefølgen mellom `not`, `and` og `or`",
-      "content": "Når flere av dem står i samme uttrykk, gjelder denne rekkefølgen, fra sterkest til svakest:\n\n1. `not`\n2. `and`\n3. `or`\n\nSammenligninger som `>=` og `==` regnes ut **før** alle tre.\n\nDet betyr at `a or b and c` leses som `a or (b and c)`, ikke som\n`(a or b) and c`. De to gir ulikt svar, og forskjellen er en fast kilde til sporingsoppgaver.\n\nSom med regnerekkefølgen i [kap. 1.1](/bok/in1000/in1000-1-1): **er du i tvil, sett parenteser.** De koster ingenting og fjerner all tvil."
+      "content": "Når flere av dem står i samme uttrykk, gjelder denne rekkefølgen, fra sterkest til svakest:\n\n1. `not`\n2. `and`\n3. `or`\n\nSammenligninger som `>=` og `==` regnes ut **før** alle tre.\n\nDet betyr at `a or b and c` leses som `a or (b and c)`, ikke som\n`(a or b) and c`. De to gir ulikt svar, og forskjellen er en fast kilde til sporingsoppgaver.\n\nSom med regnerekkefølgen i [kap. 1.1](/in1000/in1000-1-1): **er du i tvil, sett parenteser.** De koster ingenting og fjerner all tvil."
     },
     {
       "id": "in1000-1-2-24",
@@ -250,7 +250,7 @@
       "id": "in1000-1-2-27",
       "type": "definition",
       "title": "`in` — er dette med her?",
-      "content": "Tester om noe forekommer i noe annet, og gir `True` eller `False`:\n\n```python\nnavn = \"Aleksander\"\nprint(\"eks\" in navn)\nprint(\"ø\" in navn)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nPå en tekst spør `in` om en delstreng finnes.\n\nDen samme testen virker på de datastrukturene du møter i Del 3: `if tall in tallene:` spør om en verdi finnes i en liste, og `if navn in ordbok:` spør om en nøkkel finnes i en ordbok. Da blir `in` en av de viktigste konstruksjonene i faget — den er selve inngangen til teller-mønsteret i\n[kap. 3.2](/bok/in1000/in1000-3-2). Her nøyer vi oss med teksten.\n\n`not in` finnes også, og betyr det motsatte."
+      "content": "Tester om noe forekommer i noe annet, og gir `True` eller `False`:\n\n```python\nnavn = \"Aleksander\"\nprint(\"eks\" in navn)\nprint(\"ø\" in navn)\n```\n\n**Utskrift:**\n```\nTrue\nFalse\n```\n\nPå en tekst spør `in` om en delstreng finnes.\n\nDen samme testen virker på de datastrukturene du møter i Del 3: `if tall in tallene:` spør om en verdi finnes i en liste, og `if navn in ordbok:` spør om en nøkkel finnes i en ordbok. Da blir `in` en av de viktigste konstruksjonene i faget — den er selve inngangen til teller-mønsteret i\n[kap. 3.2](/in1000/in1000-3-2). Her nøyer vi oss med teksten.\n\n`not in` finnes også, og betyr det motsatte."
     },
     {
       "id": "in1000-1-2-28",
@@ -306,7 +306,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger I — finn feilen.) En hyttebooking gir rabatt til alle som er 67 år eller eldre. Utvikleren har skrevet:\n\n```python\nalder = 67\nif alder > 67:\n    print(\"rabatt\")\nelse:\n    print(\"full pris\")\n```\n\n**a)** Hva skriver programmet ut for verdien over?\n\n**b)** Gi et konkret moteksempel som viser at programmet er galt, og forklar i én\nsetning hvorfor.\n\n**c)** Rett feilen.",
-        "solution": "**a)** `full pris`. Betingelsen `67 > 67` er usann, så `else`-grenen kjører.\n\n**b)** Moteksempelet er kallet med `alder = 67`: en person på nøyaktig 67 år\noppfyller kravet «67 år eller eldre», men får `full pris` — fordi `>` krever strengt større og dermed utelukker selve grenseverdien.\n\nLegg merke til formen på svaret. Sensor ber om **ett konkret tilfelle** med en konkret verdi og et konkret galt utfall, ikke bare «programmet håndterer ikke kanten riktig». Den formen møter du igjen i\n[kap. 4.2](/bok/in1000/in1000-4-2).\n\n**c)** Bytt `>` med `>=`:\n\n```python\nalder = 67\nif alder >= 67:\n    print(\"rabatt\")\nelse:\n    print(\"full pris\")\n```\n\n**Utskrift:**\n```\nrabatt\n```\n\nFeilen rammet nøyaktig én alder, og den er den eneste verdien som avslører den.",
+        "solution": "**a)** `full pris`. Betingelsen `67 > 67` er usann, så `else`-grenen kjører.\n\n**b)** Moteksempelet er kallet med `alder = 67`: en person på nøyaktig 67 år\noppfyller kravet «67 år eller eldre», men får `full pris` — fordi `>` krever strengt større og dermed utelukker selve grenseverdien.\n\nLegg merke til formen på svaret. Sensor ber om **ett konkret tilfelle** med en konkret verdi og et konkret galt utfall, ikke bare «programmet håndterer ikke kanten riktig». Den formen møter du igjen i\n[kap. 4.2](/in1000/in1000-4-2).\n\n**c)** Bytt `>` med `>=`:\n\n```python\nalder = 67\nif alder >= 67:\n    print(\"rabatt\")\nelse:\n    print(\"full pris\")\n```\n\n**Utskrift:**\n```\nrabatt\n```\n\nFeilen rammet nøyaktig én alder, og den er den eneste verdien som avslører den.",
         "hints": [
           "Hvilken alder ligger nøyaktig på grensen i oppgaveteksten?",
           "Et moteksempel er én konkret verdi med ett konkret galt utfall — ikke en forklaring i ord."

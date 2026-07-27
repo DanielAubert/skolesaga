@@ -3,8 +3,8 @@
  *
  * MÅLFORMEN LIGGER I URL-EN, ikke bare i en cookie:
  *
- *     /bok/1t/1t-1-1        bokmål
- *     /nn/bok/1t/1t-1-1     nynorsk
+ *     /1t/1t-1-1        bokmål
+ *     /nn/1t/1t-1-1     nynorsk
  *
  * Fram til 27. juli 2026 var cookien eneste kilde. Det gjorde hele
  * nynorskutgaven — 10 509 kapitler, et halvt års oversettelsesarbeid — usynlig

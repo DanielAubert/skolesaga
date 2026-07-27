@@ -3,7 +3,7 @@
 
 Quiz-alternativene STOKKES ved kjøretid:
 
-    src/app/bok/[courseId]/[chapterId]/quiz/quiz-client.tsx
+    src/app/[courseId]/[chapterId]/quiz/quiz-client.tsx
         const shuffledOptions = shuffleArray(q.options);
 
 En forklaring som sier «alternativ to glemmer kjernefaktoren» peker derfor på et

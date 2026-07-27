@@ -42,7 +42,7 @@ export function isoDuration(minutes: number | undefined): string | undefined {
 }
 
 /**
- * Canonical + openGraph + twitter i ett. `path` er rot-relativ («/bok/1t»).
+ * Canonical + openGraph + twitter i ett. `path` er rot-relativ («/1t»).
  * Canonical settes alltid — sider uten egen canonical peker på seg selv.
  */
 export function pageMetadata(opts: {
@@ -184,7 +184,7 @@ export function courseJsonLd(course: TextbookCourse, sectionNames: Record<string
     '@type': 'Course',
     name: course.title,
     description: course.description,
-    url: absoluteUrl(`/bok/${course.id}`),
+    url: absoluteUrl(`/${course.id}`),
     provider: PROVIDER,
     educationalLevel: course.level,
     inLanguage: 'nb',
@@ -231,7 +231,7 @@ export function chapterJsonLd(
     isPartOf: {
       '@type': 'Course',
       name: course.title,
-      url: absoluteUrl(`/bok/${course.id}`),
+      url: absoluteUrl(`/${course.id}`),
       provider: PROVIDER,
     },
     ...(time ? { timeRequired: time } : {}),

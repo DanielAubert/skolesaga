@@ -21,7 +21,7 @@
     {
       "id": "mat1120-2-5-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:**\n\n- [Kap. 2.3](/bok/mat1120/mat1120-2-3) — koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$ og koordinatavbildningen\n- [Kap. 2.4](/bok/mat1120/mat1120-2-4) — overgangsmatrisen; vi gjenbruker idéen «kolonne $j$ er en koordinatvektor»\n- [Derivasjon](/bok/r2/r2-3-1) — vi deriverer polynomer og funksjoner\n- [Lineære operasjoner (MAT1110)](/bok/mat1110/mat1110-1-4) — at derivasjon er **lineær** ($(f+g)'=f'+g'$, $(cf)'=cf'$)"
+      "content": "**Forkunnskaper:**\n\n- [Kap. 2.3](/mat1120/mat1120-2-3) — koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$ og koordinatavbildningen\n- [Kap. 2.4](/mat1120/mat1120-2-4) — overgangsmatrisen; vi gjenbruker idéen «kolonne $j$ er en koordinatvektor»\n- [Derivasjon](/r2/r2-3-1) — vi deriverer polynomer og funksjoner\n- [Lineære operasjoner (MAT1110)](/mat1110/mat1110-1-4) — at derivasjon er **lineær** ($(f+g)'=f'+g'$, $(cf)'=cf'$)"
     },
     {
       "id": "mat1120-2-5-intro",
@@ -123,7 +123,7 @@
         "type": "classic",
         "difficulty": "middels",
         "task": "La $T:\\operatorname{P}_3\\to\\operatorname{P}_3$ være derivasjonsoperatoren $T(p)=p'$, og $\\mathcal{B}=\\{1,\\ t,\\ t^2,\\ t^3\\}$. Finn $[T]_{\\mathcal{B}}$, og les av matrisen hva $\\dim\\operatorname{Nul}[T]_{\\mathcal{B}}$ er (uten å regne — bare tell frie variabler).",
-        "solution": "Deriver basisvektorene og uttrykk i $\\mathcal{B}$-koordinater:\n\n- $T(1)=0\\Rightarrow(0,0,0,0)$.\n- $T(t)=1\\Rightarrow(1,0,0,0)$.\n- $T(t^2)=2t\\Rightarrow(0,2,0,0)$.\n- $T(t^3)=3t^2\\Rightarrow(0,0,3,0)$.\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0&0\\\\ 0&0&2&0\\\\ 0&0&0&3\\\\ 0&0&0&0\\end{bmatrix}.$$\n\nMatrisen har pivoter i kolonne 2, 3 og 4 (verdiene $1,2,3$), så kolonne 1 er den eneste ikke-pivotkolonnen. Det gir **én** fri variabel, altså $\\dim\\operatorname{Nul}[T]_{\\mathcal{B}}=1$. (Det svarer til konstantpolynomene — vi kommer tilbake til dette i [kap. 2.6](/bok/mat1120/mat1120-2-6).)",
+        "solution": "Deriver basisvektorene og uttrykk i $\\mathcal{B}$-koordinater:\n\n- $T(1)=0\\Rightarrow(0,0,0,0)$.\n- $T(t)=1\\Rightarrow(1,0,0,0)$.\n- $T(t^2)=2t\\Rightarrow(0,2,0,0)$.\n- $T(t^3)=3t^2\\Rightarrow(0,0,3,0)$.\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0&0\\\\ 0&0&2&0\\\\ 0&0&0&3\\\\ 0&0&0&0\\end{bmatrix}.$$\n\nMatrisen har pivoter i kolonne 2, 3 og 4 (verdiene $1,2,3$), så kolonne 1 er den eneste ikke-pivotkolonnen. Det gir **én** fri variabel, altså $\\dim\\operatorname{Nul}[T]_{\\mathcal{B}}=1$. (Det svarer til konstantpolynomene — vi kommer tilbake til dette i [kap. 2.6](/mat1120/mat1120-2-6).)",
         "hints": [
           "Deriver $1,t,t^2,t^3$ og skriv hvert svar som en tallkolonne i basisen $\\{1,t,t^2,t^3\\}$.",
           "Antall frie variabler = antall kolonner uten pivot."
@@ -180,7 +180,7 @@
       "id": "mat1120-2-5-def-to-baser",
       "type": "definition",
       "title": "Matrisen mellom to baser $[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ (kjennskap)",
-      "content": "Noen ganger vil vi lese *inn* i én basis $\\mathcal{B}$ og *ut* i en annen basis $\\mathcal{C}$. Da er kolonne $j$ i $[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ lik $[T(\\mathbf{b}_j)]_{\\mathcal{C}}$ (regn $T$ på $\\mathcal{B}$-vektor $j$, skriv svaret i $\\mathcal{C}$-koordinater), og\n\n$$[T(\\mathbf{x})]_{\\mathcal{C}}=[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}.$$\n\nNår $\\mathcal{C}=\\mathcal{B}$ er dette akkurat $[T]_{\\mathcal{B}}$. Hvordan $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ (samme basis inn og ut, men to ulike valg) henger sammen via basisskifte, tar vi i [kap. 2.6](/bok/mat1120/mat1120-2-6)."
+      "content": "Noen ganger vil vi lese *inn* i én basis $\\mathcal{B}$ og *ut* i en annen basis $\\mathcal{C}$. Da er kolonne $j$ i $[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ lik $[T(\\mathbf{b}_j)]_{\\mathcal{C}}$ (regn $T$ på $\\mathcal{B}$-vektor $j$, skriv svaret i $\\mathcal{C}$-koordinater), og\n\n$$[T(\\mathbf{x})]_{\\mathcal{C}}=[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}.$$\n\nNår $\\mathcal{C}=\\mathcal{B}$ er dette akkurat $[T]_{\\mathcal{B}}$. Hvordan $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ (samme basis inn og ut, men to ulike valg) henger sammen via basisskifte, tar vi i [kap. 2.6](/mat1120/mat1120-2-6)."
     },
     {
       "id": "mat1120-2-5-5",
@@ -321,7 +321,7 @@
       "id": "mat1120-2-5-bb-anvendelse",
       "type": "definition",
       "title": "Hvorfor $[T]_{\\mathcal{B}}$ er nyttig",
-      "content": "Med matrisen kan du bruke *hele* $\\mathbb{R}^n$-maskineriet på abstrakte problemer: potenser $[T]_{\\mathcal{B}}^k$ (gjentatt derivasjon), $\\operatorname{Nul}[T]_{\\mathcal{B}}$ (kjernen), invertibilitet (isomorfi). Det er brua fra abstrakt til konkret — utnyttes i [kap. 2.6](/bok/mat1120/mat1120-2-6)."
+      "content": "Med matrisen kan du bruke *hele* $\\mathbb{R}^n$-maskineriet på abstrakte problemer: potenser $[T]_{\\mathcal{B}}^k$ (gjentatt derivasjon), $\\operatorname{Nul}[T]_{\\mathcal{B}}$ (kjernen), invertibilitet (isomorfi). Det er brua fra abstrakt til konkret — utnyttes i [kap. 2.6](/mat1120/mat1120-2-6)."
     },
     {
       "id": "mat1120-2-5-rep",
@@ -352,7 +352,7 @@
             "number": "R2",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 2.3](/bok/mat1120/mat1120-2-3)) La $\\mathcal{B}=\\{1,t,t^2\\}$. Hva er koordinatvektoren til $2t-5t^2$ relativt $\\mathcal{B}$?",
+            "task": "(Fra [kap. 2.3](/mat1120/mat1120-2-3)) La $\\mathcal{B}=\\{1,t,t^2\\}$. Hva er koordinatvektoren til $2t-5t^2$ relativt $\\mathcal{B}$?",
             "solution": "Les av koeffisientene i rekkefølgen $1,t,t^2$: konstantleddet er $0$, $t$-leddet $2$, $t^2$-leddet $-5$. Altså $[2t-5t^2]_{\\mathcal{B}}=(0,2,-5)$.",
             "hints": [
               "I standardbasisen er koordinatene bare koeffisientene."

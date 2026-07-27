@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     ...pageMetadata({
-      path: `/bok/${courseId}/eksamen`,
+      path: `/${courseId}/eksamen`,
       title,
       description,
       image: course.coverImage,

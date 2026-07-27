@@ -16,12 +16,12 @@
       "id": "stk1100-4-2-tip-eksamensvinkel",
       "type": "tip",
       "title": "Eksamensvinkel",
-      "content": "**Transformasjon er i 9 av 10 avsluttende skoleeksamener (90 %)** i STK1100-arkivet 2015–2024 — den mest brukte teknikken overhodet, og «broen til pivotalen» som hele estimerings-kjeden hviler på. To sjangre bor her: **sjanger E** (finn fordelingen til $Y = g(X)$ med CDF-metoden) og **sjanger J** (finn fordelingen til $(U,V) = g(X,Y)$ med Jacobi-determinanten, forekom som ren oppgave i ~3/10 sett).\n\nSammen med MGF-en fra [kap. 4.1](/bok/stk1100/stk1100-4-1) er dette de tre transformasjonsverktøyene: CDF-metoden (for én variabel), Jacobi (for to), og MGF-identifikasjon (for summer). Prioritet: **høyeste** (nivå 1).\n\n**Sensor krever at du utleder — aldri gjetter — fordelingen:** (1) gå alltid via fordelingsfunksjonen $F_Y$, ikke ved å «bytte inn» i tettheten; (2) **snu ulikheten** når $g$ er avtakende; (3) i Jacobi-formelen står **absoluttverdien** $|J|$ av determinanten, og du må **tegne integrasjonsområdet** før du integrerer ut en marginal."
+      "content": "**Transformasjon er i 9 av 10 avsluttende skoleeksamener (90 %)** i STK1100-arkivet 2015–2024 — den mest brukte teknikken overhodet, og «broen til pivotalen» som hele estimerings-kjeden hviler på. To sjangre bor her: **sjanger E** (finn fordelingen til $Y = g(X)$ med CDF-metoden) og **sjanger J** (finn fordelingen til $(U,V) = g(X,Y)$ med Jacobi-determinanten, forekom som ren oppgave i ~3/10 sett).\n\nSammen med MGF-en fra [kap. 4.1](/stk1100/stk1100-4-1) er dette de tre transformasjonsverktøyene: CDF-metoden (for én variabel), Jacobi (for to), og MGF-identifikasjon (for summer). Prioritet: **høyeste** (nivå 1).\n\n**Sensor krever at du utleder — aldri gjetter — fordelingen:** (1) gå alltid via fordelingsfunksjonen $F_Y$, ikke ved å «bytte inn» i tettheten; (2) **snu ulikheten** når $g$ er avtakende; (3) i Jacobi-formelen står **absoluttverdien** $|J|$ av determinanten, og du må **tegne integrasjonsområdet** før du integrerer ut en marginal."
     },
     {
       "id": "stk1100-4-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på gammafordelingen og $\\chi^2_n = \\text{gamma}(n/2, 2)$ fra [kap. 2.2](/bok/stk1100/stk1100-2-2), på simultantetthet, marginaler og dobbeltintegral fra [kap. 3.1](/bok/stk1100/stk1100-3-1), og på fordelingsfunksjonen $F_X$ fra [kap. 2.1](/bok/stk1100/stk1100-2-1). MGF-metoden fra [kap. 4.1](/bok/stk1100/stk1100-4-1) er den tredje transformasjonsteknikken.\n\nDu deriverer $F$ til $f$ og bruker kjerneregelen hele veien; frisk opp [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1). Fagordene *CDF-metoden*, *Jacobi-determinant* og *marginaltetthet* forklares der de innføres."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på gammafordelingen og $\\chi^2_n = \\text{gamma}(n/2, 2)$ fra [kap. 2.2](/stk1100/stk1100-2-2), på simultantetthet, marginaler og dobbeltintegral fra [kap. 3.1](/stk1100/stk1100-3-1), og på fordelingsfunksjonen $F_X$ fra [kap. 2.1](/stk1100/stk1100-2-1). MGF-metoden fra [kap. 4.1](/stk1100/stk1100-4-1) er den tredje transformasjonsteknikken.\n\nDu deriverer $F$ til $f$ og bruker kjerneregelen hele veien; frisk opp [R1 4.1 Derivasjonsregler](/r1/r1-4-1). Fagordene *CDF-metoden*, *Jacobi-determinant* og *marginaltetthet* forklares der de innføres."
     },
     {
       "id": "stk1100-4-2-intro",
@@ -158,7 +158,7 @@
     {
       "id": "stk1100-4-2-l4-teori",
       "type": "text",
-      "content": "Noen få transformasjoner dukker opp om og om igjen fordi de bygger de eksakte pivotalene i Del 6. De er alle bare CDF-metoden anvendt på en standardfordeling. Her er de fire som **skal sitte** — vi drillsetter dem i [kap. 4.3](/bok/stk1100/stk1100-4-3), men du bør kjenne dem igjen allerede nå."
+      "content": "Noen få transformasjoner dukker opp om og om igjen fordi de bygger de eksakte pivotalene i Del 6. De er alle bare CDF-metoden anvendt på en standardfordeling. Her er de fire som **skal sitte** — vi drillsetter dem i [kap. 4.3](/stk1100/stk1100-4-3), men du bør kjenne dem igjen allerede nå."
     },
     {
       "id": "stk1100-4-2-def-standard-transf",
@@ -221,7 +221,7 @@
       "type": "example",
       "title": "Eksempel 5: $U = X + Y$, $V = X$ med tegnet område",
       "problem": "La $X$ og $Y$ være uavhengige og eksponensialfordelte med rate 1 (forventning 1), så $f_{XY}(x,y) = e^{-(x+y)}$ for $x, y > 0$. Sett $U = X + Y$ og $V = X$. Finn simultantettheten til $(U,V)$, tegn integrasjonsområdet, og finn marginaltettheten til $U$.",
-      "solution": "**Inverse:** $V = X$ gir $X = V$; $U = X + Y$ gir $Y = U - V$.\n\n**Jacobi:** $x = v \\Rightarrow \\tfrac{\\partial x}{\\partial u} = 0,\\ \\tfrac{\\partial x}{\\partial v} = 1$; $y = u - v \\Rightarrow \\tfrac{\\partial y}{\\partial u} = 1,\\ \\tfrac{\\partial y}{\\partial v} = -1$. Determinanten:\n\n$$J = (0)(-1) - (1)(1) = -1, \\qquad |J| = 1.$$\n\n**Simultantetthet:** sett $x = v$, $y = u - v$ inn i $f_{XY}$:\n\n$$f_{UV}(u,v) = e^{-(v + (u-v))}\\cdot 1 = e^{-u}.$$\n\n**Støtte:** $x > 0 \\Rightarrow v > 0$; $y > 0 \\Rightarrow u - v > 0 \\Rightarrow v < u$. Altså $0 < v < u$ — en trekantformet «kile» under linjen $v = u$ (se figuren under).\n\n**Marginal til $U$:** for fast $u > 0$ integrerer vi $v$ fra 0 til $u$:\n\n$$f_U(u) = \\int_0^u e^{-u}\\,dv = u\\,e^{-u}, \\qquad u > 0.$$\n\nDette er gamma$(2, 1)$-tettheten — summen av to uavhengige eksponensiale (forventning 1) er gamma$(2,1)$, akkurat som Erlang-resultatet i [kap. 2.2](/bok/stk1100/stk1100-2-2)."
+      "solution": "**Inverse:** $V = X$ gir $X = V$; $U = X + Y$ gir $Y = U - V$.\n\n**Jacobi:** $x = v \\Rightarrow \\tfrac{\\partial x}{\\partial u} = 0,\\ \\tfrac{\\partial x}{\\partial v} = 1$; $y = u - v \\Rightarrow \\tfrac{\\partial y}{\\partial u} = 1,\\ \\tfrac{\\partial y}{\\partial v} = -1$. Determinanten:\n\n$$J = (0)(-1) - (1)(1) = -1, \\qquad |J| = 1.$$\n\n**Simultantetthet:** sett $x = v$, $y = u - v$ inn i $f_{XY}$:\n\n$$f_{UV}(u,v) = e^{-(v + (u-v))}\\cdot 1 = e^{-u}.$$\n\n**Støtte:** $x > 0 \\Rightarrow v > 0$; $y > 0 \\Rightarrow u - v > 0 \\Rightarrow v < u$. Altså $0 < v < u$ — en trekantformet «kile» under linjen $v = u$ (se figuren under).\n\n**Marginal til $U$:** for fast $u > 0$ integrerer vi $v$ fra 0 til $u$:\n\n$$f_U(u) = \\int_0^u e^{-u}\\,dv = u\\,e^{-u}, \\qquad u > 0.$$\n\nDette er gamma$(2, 1)$-tettheten — summen av to uavhengige eksponensiale (forventning 1) er gamma$(2,1)$, akkurat som Erlang-resultatet i [kap. 2.2](/stk1100/stk1100-2-2)."
     },
     {
       "id": "stk1100-4-2-fig-jacobi",
@@ -272,7 +272,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "La $X, Y$ være uavhengige med $X \\sim \\text{gamma}(2, 1)$ og $Y \\sim \\text{gamma}(3, 1)$, altså $f_{XY}(x,y) = \\tfrac{1}{\\Gamma(2)\\Gamma(3)} x^{1} y^{2} e^{-(x+y)}$ for $x, y > 0$. Sett $U = X + Y$ og $V = X/(X+Y)$.\n\n**a)** Finn $|J|$ og $f_{UV}(u,v)$ (bruk $X = UV$, $Y = U(1-V)$).\n**b)** Vis at $U$ og $V$ er uavhengige, og identifiser marginalfordelingen til $U$.",
-        "solution": "**a)** Som i eksempel 6: $X = UV$, $Y = U(1-V)$, $|J| = u$. Sett inn ($\\Gamma(2) = 1$, $\\Gamma(3) = 2$):\n\n$$f_{UV}(u,v) = \\frac{1}{1\\cdot 2}(uv)^1\\,(u(1-v))^2\\,e^{-u}\\cdot u = \\tfrac12 u^{4} v (1-v)^2 e^{-u}, \\quad u > 0,\\ 0 < v < 1.$$\n\n**b)** Faktoriser: $f_{UV}(u,v) = \\underbrace{\\tfrac{1}{\\Gamma(5)}u^{4}e^{-u}}_{\\text{gamma}(5,1)}\\cdot \\underbrace{\\tfrac{\\Gamma(5)}{2}v(1-v)^2}_{\\text{funksjon av }v}$, siden $\\Gamma(5) = 24$ og $\\tfrac{1}{2} = \\tfrac{24}{2}\\cdot\\tfrac{1}{24}$. Tettheten er et produkt av en $u$-del og en $v$-del over et produktområde, så $U$ og $V$ er uavhengige. $U$-delen er gamma$(5, 1)$-tettheten (formparametrene $2 + 3 = 5$ lagt sammen, felles skala 1), i tråd med sum-av-gamma-regelen fra [kap. 2.2](/bok/stk1100/stk1100-2-2).",
+        "solution": "**a)** Som i eksempel 6: $X = UV$, $Y = U(1-V)$, $|J| = u$. Sett inn ($\\Gamma(2) = 1$, $\\Gamma(3) = 2$):\n\n$$f_{UV}(u,v) = \\frac{1}{1\\cdot 2}(uv)^1\\,(u(1-v))^2\\,e^{-u}\\cdot u = \\tfrac12 u^{4} v (1-v)^2 e^{-u}, \\quad u > 0,\\ 0 < v < 1.$$\n\n**b)** Faktoriser: $f_{UV}(u,v) = \\underbrace{\\tfrac{1}{\\Gamma(5)}u^{4}e^{-u}}_{\\text{gamma}(5,1)}\\cdot \\underbrace{\\tfrac{\\Gamma(5)}{2}v(1-v)^2}_{\\text{funksjon av }v}$, siden $\\Gamma(5) = 24$ og $\\tfrac{1}{2} = \\tfrac{24}{2}\\cdot\\tfrac{1}{24}$. Tettheten er et produkt av en $u$-del og en $v$-del over et produktområde, så $U$ og $V$ er uavhengige. $U$-delen er gamma$(5, 1)$-tettheten (formparametrene $2 + 3 = 5$ lagt sammen, felles skala 1), i tråd med sum-av-gamma-regelen fra [kap. 2.2](/stk1100/stk1100-2-2).",
         "hints": [
           "Bruk samme inverse og $|J| = u$ som i eksempel 6; sett inn i den nye $f_{XY}$.",
           "Samle $u$-avhengigheten: $u^{1}\\cdot u^{2}\\cdot u = u^{4}$, og $e^{-u}$ — kjenn igjen gamma$(5,1)$ i $u^{4}e^{-u}$."
@@ -413,7 +413,7 @@
         {
           "id": "stk1100-4-2-rep-intro",
           "type": "text",
-          "content": "Korte oppgaver fra forkunnskapene — fordelingsfunksjon fra [kap. 2.1](/bok/stk1100/stk1100-2-1), gamma/$\\chi^2$ fra [kap. 2.2](/bok/stk1100/stk1100-2-2), marginaler fra [kap. 3.1](/bok/stk1100/stk1100-3-1) og derivasjon fra [R1 4.1](/bok/r1/r1-4-1)."
+          "content": "Korte oppgaver fra forkunnskapene — fordelingsfunksjon fra [kap. 2.1](/stk1100/stk1100-2-1), gamma/$\\chi^2$ fra [kap. 2.2](/stk1100/stk1100-2-2), marginaler fra [kap. 3.1](/stk1100/stk1100-3-1) og derivasjon fra [R1 4.1](/r1/r1-4-1)."
         },
         {
           "id": "stk1100-4-2-rep-o1",

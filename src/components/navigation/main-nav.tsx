@@ -33,7 +33,7 @@ export function MainNav() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/bok" className={navigationMenuTriggerStyle()}>
+                <Link href="/" className={navigationMenuTriggerStyle()}>
                   Lærebøker
                 </Link>
               </NavigationMenuLink>
@@ -107,7 +107,7 @@ export function MainNav() {
         <div className="md:hidden" id="mobile-nav">
           <nav className="flex flex-col space-y-3 p-4" aria-label="Mobil navigasjon">
             <Link
-              href="/bok"
+              href="/"
               className="flex items-center text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >

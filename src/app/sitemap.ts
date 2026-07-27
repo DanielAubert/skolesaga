@@ -29,7 +29,7 @@ const BASE_URL = 'https://www.skolesaga.no';
 
 const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },
-  { path: '/bok', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/quiz', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/quiz/gigaquiz', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/test-deg-selv', changeFrequency: 'monthly', priority: 0.8 },
@@ -79,7 +79,7 @@ const GRADE_LEVELS = ['5', '6', '7', '8', '9', '10', 'vg1', 'vg2', 'vg3', 'hoyer
 //   3. BYGGETIDSPUNKT. Siste utvei, og bevisst valg for statiske sider og
 //      trinn-oversikter — de er indekssider uten egen innholdsfil.
 //
-// Kurssider (/bok/<id>, /flashcards, /kompetansemal) arver nyeste tidspunkt
+// Kurssider (/<id>, /flashcards, /kompetansemal) arver nyeste tidspunkt
 // blant kursets egne kapitler; quiz-sida arver kapittelets eget tidspunkt.
 
 // Datoene er forhandsberegnet av scripts/combine-chapters.js (prebuild) og
@@ -163,21 +163,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (date > newest) newest = date;
 
       chapterEntries.push({
-        url: `${BASE_URL}/bok/${course.id}/${chapter.id}`,
+        url: `${BASE_URL}/${course.id}/${chapter.id}`,
         lastModified: date,
         changeFrequency: 'monthly',
         priority: 0.7,
       });
       if (nnIder.has(chapter.id)) {
         chapterEntries.push({
-          url: `${BASE_URL}/nn/bok/${course.id}/${chapter.id}`,
+          url: `${BASE_URL}/nn/${course.id}/${chapter.id}`,
           lastModified: date,
           changeFrequency: 'monthly',
           priority: 0.7,
         });
       }
       chapterEntries.push({
-        url: `${BASE_URL}/bok/${course.id}/${chapter.id}/quiz`,
+        url: `${BASE_URL}/${course.id}/${chapter.id}/quiz`,
         lastModified: date,
         changeFrequency: 'monthly',
         priority: 0.5,
@@ -186,19 +186,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     courseEntries.push(
       {
-        url: `${BASE_URL}/bok/${course.id}`,
+        url: `${BASE_URL}/${course.id}`,
         lastModified: newest,
         changeFrequency: 'weekly',
         priority: 0.8,
       },
       {
-        url: `${BASE_URL}/bok/${course.id}/flashcards`,
+        url: `${BASE_URL}/${course.id}/flashcards`,
         lastModified: newest,
         changeFrequency: 'monthly',
         priority: 0.5,
       },
       {
-        url: `${BASE_URL}/bok/${course.id}/kompetansemal`,
+        url: `${BASE_URL}/${course.id}/kompetansemal`,
         lastModified: newest,
         changeFrequency: 'yearly',
         priority: 0.4,

@@ -1,6 +1,6 @@
 /**
  * Kildegrunnlag per høyskolebok: hvilke eksamenssett, sensorveiledninger og
- * andre kilder boka faktisk er bygget på — vist på /bok/<courseId>/kildegrunnlag.
+ * andre kilder boka faktisk er bygget på — vist på /<courseId>/kildegrunnlag.
  *
  * SANNFERDIGHETS-KONTRAKT (ufravikelig, fra produkteier):
  * - Innholdet her er destillert fra bokas EKSAMENSANALYSE.md §8 «Kildeliste»

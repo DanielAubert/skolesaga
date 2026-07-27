@@ -41,7 +41,7 @@ export default function HoyerePage() {
 
         <div className="relative container mx-auto px-4 py-12 md:py-20">
           <Link
-            href="/bok"
+            href="/"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />

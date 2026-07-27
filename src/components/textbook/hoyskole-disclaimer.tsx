@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Scale, ShieldAlert } from 'lucide-react';
-import { INSTITUSJONER } from '@/app/bok/trinn/hoyere/institusjoner';
+import { INSTITUSJONER } from '@/app/trinn/hoyere/institusjoner';
 
 /**
  * Juridiske deklarasjoner for høyskole-/universitetsbøker (plattformnivå —

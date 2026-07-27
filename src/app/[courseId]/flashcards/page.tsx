@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     // ?seksjon=… filtrerer bare det samme kortsettet — canonical uten query.
     ...pageMetadata({
-      path: `/bok/${courseId}/flashcards`,
+      path: `/${courseId}/flashcards`,
       title,
       description,
       image: course.coverImage,

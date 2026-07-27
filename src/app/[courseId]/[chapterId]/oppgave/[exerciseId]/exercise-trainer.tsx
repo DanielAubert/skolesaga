@@ -946,9 +946,9 @@ export function ExerciseTrainer({
             <BreadcrumbList>
               <BreadcrumbItem><BreadcrumbLink href="/">Hjem</BreadcrumbLink></BreadcrumbItem>
               <BreadcrumbSeparator />
-              <BreadcrumbItem><BreadcrumbLink href={`/bok/${courseId}`}>{course.title}</BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbItem><BreadcrumbLink href={`/${courseId}`}>{course.title}</BreadcrumbLink></BreadcrumbItem>
               <BreadcrumbSeparator />
-              <BreadcrumbItem><BreadcrumbLink href={`/bok/${courseId}/${chapterId}`}>{chapter.chapterNumber} {chapter.title}</BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbItem><BreadcrumbLink href={`/${courseId}/${chapterId}`}>{chapter.chapterNumber} {chapter.title}</BreadcrumbLink></BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem><BreadcrumbPage>Oppgave {exercise.number}</BreadcrumbPage></BreadcrumbItem>
             </BreadcrumbList>
@@ -1060,7 +1060,7 @@ export function ExerciseTrainer({
                   <div className="flex flex-wrap gap-4 justify-center pt-4">
                     {nextExercise && (
                       <Button asChild size="lg" className="bg-gradient-to-br from-green-500 to-emerald-600">
-                        <Link href={`/bok/${courseId}/${chapterId}/oppgave/${nextExercise.id}`}>
+                        <Link href={`/${courseId}/${chapterId}/oppgave/${nextExercise.id}`}>
                           Neste oppgave
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
@@ -1071,12 +1071,12 @@ export function ExerciseTrainer({
                       Prøv igjen
                     </Button>
                     <Button asChild variant="outline" size="lg">
-                      <Link href={`/bok/${courseId}/${chapterId}/trening/${exercise.id}`}>
+                      <Link href={`/${courseId}/${chapterId}/trening/${exercise.id}`}>
                         Tren mer
                       </Link>
                     </Button>
                     <Button asChild variant="ghost" size="lg">
-                      <Link href={`/bok/${courseId}/${chapterId}`}>
+                      <Link href={`/${courseId}/${chapterId}`}>
                         <ArrowLeft className="mr-2 h-4 w-4" />
                         Tilbake til kapittel
                       </Link>

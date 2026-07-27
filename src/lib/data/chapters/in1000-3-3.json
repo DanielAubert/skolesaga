@@ -21,7 +21,7 @@
     {
       "id": "in1000-3-3-2",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 3.1 — Lister](/bok/in1000/in1000-3-1) — fordi `.split()` gir deg en liste\n— og [kap. 1.1 — Variabler, datatyper og uttrykk](/bok/in1000/in1000-1-1), der du møtte tekst som datatype første gang.\n\nDe tre tingene du bruker mest her:\n\n- at **`+` på to tekster skjøter dem sammen** («`\"1\" + \"2\"` gir `\"12\"`»), mens\n  `+` på to tall legger dem sammen,\n- **`int(tekst)` og `str(tall)`** for å veksle mellom de to,\n- **bygg-mønsteret**: startverdi før løkka, oppdatering inne i den, bruk etter.\n\nKort oppfrisket:\n\n```python\nnavn = \"Ada\"\npoeng = 12\nprint(navn + \" har \" + str(poeng) + \" poeng\")\n```\n\n**Utskrift:**\n```\nAda har 12 poeng\n```\n\nI dette kapitlet ser vi på teksten **innenfra**: den er en rekke tegn du kan gå gjennom, hente ut av og bygge nye tekster av."
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 3.1 — Lister](/in1000/in1000-3-1) — fordi `.split()` gir deg en liste\n— og [kap. 1.1 — Variabler, datatyper og uttrykk](/in1000/in1000-1-1), der du møtte tekst som datatype første gang.\n\nDe tre tingene du bruker mest her:\n\n- at **`+` på to tekster skjøter dem sammen** («`\"1\" + \"2\"` gir `\"12\"`»), mens\n  `+` på to tall legger dem sammen,\n- **`int(tekst)` og `str(tall)`** for å veksle mellom de to,\n- **bygg-mønsteret**: startverdi før løkka, oppdatering inne i den, bruk etter.\n\nKort oppfrisket:\n\n```python\nnavn = \"Ada\"\npoeng = 12\nprint(navn + \" har \" + str(poeng) + \" poeng\")\n```\n\n**Utskrift:**\n```\nAda har 12 poeng\n```\n\nI dette kapitlet ser vi på teksten **innenfra**: den er en rekke tegn du kan gå gjennom, hente ut av og bygge nye tekster av."
     },
     {
       "id": "in1000-3-3-3",
@@ -32,7 +32,7 @@
       "id": "in1000-3-3-4",
       "type": "definition",
       "title": "Streng som sekvens",
-      "content": "En tekst er en rekke enkelttegn i fast rekkefølge. Du kan måle lengden, indeksere og løpe gjennom den, nøyaktig som med en liste:\n\n```python\ntekst = \"sykkel\"\nprint(len(tekst))\nprint(tekst[0], tekst[3], tekst[-1])\nfor tegn in \"bil\":\n    print(tegn)\n```\n\n**Utskrift:**\n```\n6\ns k l\nb\ni\nl\n```\n\nTellingen starter på null, og negativ indeks teller bakfra — samme regler som i\n[kap. 3.1](/bok/in1000/in1000-3-1).\n\nDen ene store forskjellen kommer i neste definisjon: en liste kan **endres**, en tekst kan ikke."
+      "content": "En tekst er en rekke enkelttegn i fast rekkefølge. Du kan måle lengden, indeksere og løpe gjennom den, nøyaktig som med en liste:\n\n```python\ntekst = \"sykkel\"\nprint(len(tekst))\nprint(tekst[0], tekst[3], tekst[-1])\nfor tegn in \"bil\":\n    print(tegn)\n```\n\n**Utskrift:**\n```\n6\ns k l\nb\ni\nl\n```\n\nTellingen starter på null, og negativ indeks teller bakfra — samme regler som i\n[kap. 3.1](/in1000/in1000-3-1).\n\nDen ene store forskjellen kommer i neste definisjon: en liste kan **endres**, en tekst kan ikke."
     },
     {
       "id": "in1000-3-3-5",
@@ -106,7 +106,7 @@
       "id": "in1000-3-3-11",
       "type": "theorem",
       "title": "Tegn-for-tegn-mønsteret",
-      "content": "Bokas åttende kodemønster, og svaret på enhver oppgave som ber om «en ny tekst der …».\n\nOppskriften har tre faste steg:\n\n1. **Før løkka:** `ny = \"\"` — den tomme teksten.\n2. **Inne i løkka:** `ny = ny + tegn` for de tegnene som skal være med.\n3. **Etter løkka:** `return ny`.\n\n```python\ntekst = \"kollektivtrafikk\"\nny = \"\"\nfor tegn in tekst:\n    if tegn != \"k\":\n        ny = ny + tegn\nprint(ny)\n```\n\n**Utskrift:**\n```\nolletivtrafi\n```\n\nDet er nøyaktig samme skjelett som bygg-en-ny-liste-mønsteret fra\n[kap. 3.1](/bok/in1000/in1000-3-1) — bare med `\"\"` i stedet for `[]`, og plusstegnet i stedet for `append`.\n\n**Rekkefølgen i oppdateringen avgjør retningen.** `ny = ny + tegn` bygger forfra;\n`ny = tegn + ny` bygger bakfra og snur teksten. De to ser nesten like ut, og de gir motsatt svar."
+      "content": "Bokas åttende kodemønster, og svaret på enhver oppgave som ber om «en ny tekst der …».\n\nOppskriften har tre faste steg:\n\n1. **Før løkka:** `ny = \"\"` — den tomme teksten.\n2. **Inne i løkka:** `ny = ny + tegn` for de tegnene som skal være med.\n3. **Etter løkka:** `return ny`.\n\n```python\ntekst = \"kollektivtrafikk\"\nny = \"\"\nfor tegn in tekst:\n    if tegn != \"k\":\n        ny = ny + tegn\nprint(ny)\n```\n\n**Utskrift:**\n```\nolletivtrafi\n```\n\nDet er nøyaktig samme skjelett som bygg-en-ny-liste-mønsteret fra\n[kap. 3.1](/in1000/in1000-3-1) — bare med `\"\"` i stedet for `[]`, og plusstegnet i stedet for `append`.\n\n**Rekkefølgen i oppdateringen avgjør retningen.** `ny = ny + tegn` bygger forfra;\n`ny = tegn + ny` bygger bakfra og snur teksten. De to ser nesten like ut, og de gir motsatt svar."
     },
     {
       "id": "in1000-3-3-12",
@@ -174,7 +174,7 @@
       "id": "in1000-3-3-17",
       "type": "definition",
       "title": "`.split()` uten argument",
-      "content": "Deler teksten i en **liste** av ord, på hvert mellomrom:\n\n```python\nsetning = \"buss tog trikk\"\nprint(setning.split())\nprint(len(setning.split()))\nprint(setning.split()[0])\n```\n\n**Utskrift:**\n```\n['buss', 'tog', 'trikk']\n3\nbuss\n```\n\nResultatet er en helt vanlig liste, med alt du kan gjøre med lister fra\n[kap. 3.1](/bok/in1000/in1000-3-1): indeksering, `len`, og en `for`-løkke over elementene.\n\nMerk skrivemåten: `setning.split()` med punktum foran og tomme parenteser etter.\nDet er en **metode** — en funksjon som hører til teksten den står bak — samme form som `liste.append(...)`.\n\nUten argument deler `.split()` på ett eller flere blanktegn, og den kaster tomme biter. `\"a   b\".split()` gir derfor to elementer, ikke fire."
+      "content": "Deler teksten i en **liste** av ord, på hvert mellomrom:\n\n```python\nsetning = \"buss tog trikk\"\nprint(setning.split())\nprint(len(setning.split()))\nprint(setning.split()[0])\n```\n\n**Utskrift:**\n```\n['buss', 'tog', 'trikk']\n3\nbuss\n```\n\nResultatet er en helt vanlig liste, med alt du kan gjøre med lister fra\n[kap. 3.1](/in1000/in1000-3-1): indeksering, `len`, og en `for`-løkke over elementene.\n\nMerk skrivemåten: `setning.split()` med punktum foran og tomme parenteser etter.\nDet er en **metode** — en funksjon som hører til teksten den står bak — samme form som `liste.append(...)`.\n\nUten argument deler `.split()` på ett eller flere blanktegn, og den kaster tomme biter. `\"a   b\".split()` gir derfor to elementer, ikke fire."
     },
     {
       "id": "in1000-3-3-18",
@@ -199,7 +199,7 @@
       "type": "example",
       "title": "Eksempel 3: Fra én linje til ferdige verdier",
       "problem": "En frivilligsentral har medlemslinjer på formen `\"Ada;19;Oslo\"`, med et linjeskift på slutten slik de kommer fra en fil. Skriv `les_medlem(linje)` som returnerer navnet som tekst og alderen som tall, og vis at alderen faktisk kan regnes med.",
-      "solution": "Rens først, del så, konverter til slutt:\n\n```python\ndef les_medlem(linje):\n    felt = linje.rstrip().split(\";\")\n    navn = felt[0]\n    alder = int(felt[1])\n    return navn, alder\n\nn, a = les_medlem(\"Ada;19;Oslo\\n\")\nprint(n, a)\nprint(a + 1)\nprint(len(n))\n```\n\n**Utskrift:**\n```\nAda 19\n20\n3\n```\n\n**Dette er malen for hver eneste filoppgave i faget**, og den er verdt å lære\nutenat i akkurat denne rekkefølgen:\n\n1. `.rstrip()` — fjern linjeskiftet.\n2. `.split(skilletegn)` — del i felt.\n3. `int(...)` på de feltene som skal være tall.\n\n**Slik ville sensor sett på det:** hvert av de tre stegene gir uttelling for seg.\nGlemmer du `int(...)`, får du en funksjon som returnerer `\"19\"` i stedet for\n`19` — riktig struktur, én type feil, lite trekk. Glemmer du `.rstrip()`, virker alt tilsynelatende, helt til noe skal sammenlignes.\n\nLegg merke til at funksjonen bruker **flere returverdier** fra\n[kap. 2.1](/bok/in1000/in1000-2-1), og at `len(n)` er 3 — navnet har ingen usynlige tegn hengende ved seg."
+      "solution": "Rens først, del så, konverter til slutt:\n\n```python\ndef les_medlem(linje):\n    felt = linje.rstrip().split(\";\")\n    navn = felt[0]\n    alder = int(felt[1])\n    return navn, alder\n\nn, a = les_medlem(\"Ada;19;Oslo\\n\")\nprint(n, a)\nprint(a + 1)\nprint(len(n))\n```\n\n**Utskrift:**\n```\nAda 19\n20\n3\n```\n\n**Dette er malen for hver eneste filoppgave i faget**, og den er verdt å lære\nutenat i akkurat denne rekkefølgen:\n\n1. `.rstrip()` — fjern linjeskiftet.\n2. `.split(skilletegn)` — del i felt.\n3. `int(...)` på de feltene som skal være tall.\n\n**Slik ville sensor sett på det:** hvert av de tre stegene gir uttelling for seg.\nGlemmer du `int(...)`, får du en funksjon som returnerer `\"19\"` i stedet for\n`19` — riktig struktur, én type feil, lite trekk. Glemmer du `.rstrip()`, virker alt tilsynelatende, helt til noe skal sammenlignes.\n\nLegg merke til at funksjonen bruker **flere returverdier** fra\n[kap. 2.1](/in1000/in1000-2-1), og at `len(n)` er 3 — navnet har ingen usynlige tegn hengende ved seg."
     },
     {
       "id": "in1000-3-3-oppg-5",
@@ -383,7 +383,7 @@
       "id": "in1000-3-3-40",
       "type": "definition",
       "title": "`.split()` gir en liste",
-      "content": "Resultatet av `.split()` er en helt vanlig liste, ikke en tekst.\n\nDet betyr at alt fra [kap. 3.1](/bok/in1000/in1000-3-1) gjelder: `len(...)` gir antall biter, `felt[0]` gir den første, og `for del in tekst.split():` går gjennom dem.\n\nNettopp derfor kommer strengekapitlet etter listekapitlet. Uten lister ville\n`.split()` ikke hatt noe å levere resultatet i."
+      "content": "Resultatet av `.split()` er en helt vanlig liste, ikke en tekst.\n\nDet betyr at alt fra [kap. 3.1](/in1000/in1000-3-1) gjelder: `len(...)` gir antall biter, `felt[0]` gir den første, og `for del in tekst.split():` går gjennom dem.\n\nNettopp derfor kommer strengekapitlet etter listekapitlet. Uten lister ville\n`.split()` ikke hatt noe å levere resultatet i."
     },
     {
       "id": "in1000-3-3-41",

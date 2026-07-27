@@ -21,7 +21,7 @@
     {
       "id": "stk1100-7-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på **[kap. 2.3](/bok/stk1100/stk1100-2-3)** (fordelingsfunksjonen $F$ og dens inverse for egendefinerte/«eksotiske» tettheter) og **[kap. 4.2](/bok/stk1100/stk1100-4-2)** (CDF-metoden for transformasjon). Fra **[kap. 5.1](/bok/stk1100/stk1100-5-1)** trenger du bare grunnen til at empirisk varians deles på $n-1$ (det blir `ddof=1` i koden).\n\n**Sist du var her — de tre tingene du må ha friskt:**\n\n1. **Fordelingsfunksjonen** $F(x) = P(X \\le x)$ — voksende, fra 0 til 1.\n2. **Den inverse** $F^{-1}$: løser du $F(x) = u$ for $x$, får du $x = F^{-1}(u)$. For en voksende, kontinuerlig $F$ finnes den entydig for $0 < u < 1$.\n3. **Eksponensialfordelingen** (forventnings-parametrisering, forventning $\\mu$): tetthet $f(x) = \\frac{1}{\\mu}e^{-x/\\mu}$, fordelingsfunksjon $F(x) = 1 - e^{-x/\\mu}$ for $x > 0$. (Rate-parametriseringen $f(x) = \\lambda e^{-\\lambda x}$, $F(x) = 1 - e^{-\\lambda x}$ bruker vi der oppgaven gjør det — les alltid oppgavens egen definisjon.)"
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på **[kap. 2.3](/stk1100/stk1100-2-3)** (fordelingsfunksjonen $F$ og dens inverse for egendefinerte/«eksotiske» tettheter) og **[kap. 4.2](/stk1100/stk1100-4-2)** (CDF-metoden for transformasjon). Fra **[kap. 5.1](/stk1100/stk1100-5-1)** trenger du bare grunnen til at empirisk varians deles på $n-1$ (det blir `ddof=1` i koden).\n\n**Sist du var her — de tre tingene du må ha friskt:**\n\n1. **Fordelingsfunksjonen** $F(x) = P(X \\le x)$ — voksende, fra 0 til 1.\n2. **Den inverse** $F^{-1}$: løser du $F(x) = u$ for $x$, får du $x = F^{-1}(u)$. For en voksende, kontinuerlig $F$ finnes den entydig for $0 < u < 1$.\n3. **Eksponensialfordelingen** (forventnings-parametrisering, forventning $\\mu$): tetthet $f(x) = \\frac{1}{\\mu}e^{-x/\\mu}$, fordelingsfunksjon $F(x) = 1 - e^{-x/\\mu}$ for $x > 0$. (Rate-parametriseringen $f(x) = \\lambda e^{-\\lambda x}$, $F(x) = 1 - e^{-\\lambda x}$ bruker vi der oppgaven gjør det — les alltid oppgavens egen definisjon.)"
     },
     {
       "id": "stk1100-7-1-intro",
@@ -42,14 +42,14 @@
     {
       "id": "stk1100-7-1-l1-bevis",
       "type": "text",
-      "content": "**Beviset er tre linjer.** Vi regner ut fordelingsfunksjonen til $X = F^{-1}(U)$ direkte:\n\n$$P(X \\le x) = P\\big(F^{-1}(U) \\le x\\big) = P\\big(U \\le F(x)\\big) = F(x).$$\n\n*Intuisjon steg 1:* Vi bruker at $F$ er voksende, så $F^{-1}(U) \\le x$ er det samme som $U \\le F(x)$ (vi «kjører $F$ på begge sider»).\n\n*Intuisjon steg 2:* Siden $U$ er uniform på $(0,1)$, er $P(U \\le c) = c$ for enhver $c$ mellom 0 og 1 — og $F(x)$ ligger nettopp mellom 0 og 1. Derfor blir $P(U \\le F(x)) = F(x)$.\n\n*Intuisjon steg 3:* Resultatet $P(X \\le x) = F(x)$ er per definisjon fordelingsfunksjonen til $X$. Ferdig — $X$ har fordelingen vi ville ha.\n\n**Arbeidsflyten** blir dermed alltid den samme:\n\n1. Skaff fordelingsfunksjonen $F(x)$ (utledet i [kap. 2.3](/bok/stk1100/stk1100-2-3)).\n2. Løs likningen $F(x) = u$ for $x$ — det gir formelen $x = F^{-1}(u)$.\n3. Implementer: trekk uniforme $u$-er og sett dem inn i formelen."
+      "content": "**Beviset er tre linjer.** Vi regner ut fordelingsfunksjonen til $X = F^{-1}(U)$ direkte:\n\n$$P(X \\le x) = P\\big(F^{-1}(U) \\le x\\big) = P\\big(U \\le F(x)\\big) = F(x).$$\n\n*Intuisjon steg 1:* Vi bruker at $F$ er voksende, så $F^{-1}(U) \\le x$ er det samme som $U \\le F(x)$ (vi «kjører $F$ på begge sider»).\n\n*Intuisjon steg 2:* Siden $U$ er uniform på $(0,1)$, er $P(U \\le c) = c$ for enhver $c$ mellom 0 og 1 — og $F(x)$ ligger nettopp mellom 0 og 1. Derfor blir $P(U \\le F(x)) = F(x)$.\n\n*Intuisjon steg 3:* Resultatet $P(X \\le x) = F(x)$ er per definisjon fordelingsfunksjonen til $X$. Ferdig — $X$ har fordelingen vi ville ha.\n\n**Arbeidsflyten** blir dermed alltid den samme:\n\n1. Skaff fordelingsfunksjonen $F(x)$ (utledet i [kap. 2.3](/stk1100/stk1100-2-3)).\n2. Løs likningen $F(x) = u$ for $x$ — det gir formelen $x = F^{-1}(u)$.\n3. Implementer: trekk uniforme $u$-er og sett dem inn i formelen."
     },
     {
       "id": "stk1100-7-1-ex1",
       "type": "example",
       "title": "Eksempel 1: Inversjon for eksponensialfordelingen",
       "problem": "Levetiden $X$ (i år) til en sensor er eksponensialfordelt med forventning $\\mu = 5$, altså $F(x) = 1 - e^{-x/\\mu}$ for $x > 0$. Utled inversjonsformelen $F^{-1}(u)$, og skriv en Python-funksjon som trekker $n$ realisasjoner. Kontroller at gjennomsnitt og empirisk varians stemmer med teorien ($E(X) = \\mu = 5$, $\\text{Var}(X) = \\mu^2 = 25$).",
-      "solution": "**Steg 2 — løs $F(x) = u$ for $x$:**\n\n$$1 - e^{-x/\\mu} = u \\;\\Rightarrow\\; e^{-x/\\mu} = 1 - u \\;\\Rightarrow\\; -\\frac{x}{\\mu} = \\ln(1-u) \\;\\Rightarrow\\; x = -\\mu\\ln(1-u).$$\n\nSå $F^{-1}(u) = -\\mu\\ln(1-u)$.\n\n**Steg 3 — implementer og kontroller:**\n\n```python\nimport numpy as np\n\ndef simuler_eksp(n, mu):\n    u = np.random.uniform(size=n)\n    return -mu * np.log(1 - u)\n\nnp.random.seed(1)\nx = simuler_eksp(10**6, 5.0)\nprint(np.mean(x), np.var(x, ddof=1))\n# 4.9971...  24.9402...\n```\n\nGjennomsnittet ligger på $\\approx 5{,}00$ og den empiriske variansen på $\\approx 24{,}94$ — akkurat de teoretiske verdiene $\\mu = 5$ og $\\mu^2 = 25$, med litt Monte Carlo-støy. Koden kjører og bekrefter at inversjonsformelen er riktig.\n\n*Merk `ddof=1`:* `np.var(x, ddof=1)` deler på $n-1$ og gir den forventningsrette empiriske variansen (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)). Standard `np.var` deler på $n$; med $n = 10^6$ er forskjellen mikroskopisk, men sensor vil se `ddof=1` der du estimerer en varians."
+      "solution": "**Steg 2 — løs $F(x) = u$ for $x$:**\n\n$$1 - e^{-x/\\mu} = u \\;\\Rightarrow\\; e^{-x/\\mu} = 1 - u \\;\\Rightarrow\\; -\\frac{x}{\\mu} = \\ln(1-u) \\;\\Rightarrow\\; x = -\\mu\\ln(1-u).$$\n\nSå $F^{-1}(u) = -\\mu\\ln(1-u)$.\n\n**Steg 3 — implementer og kontroller:**\n\n```python\nimport numpy as np\n\ndef simuler_eksp(n, mu):\n    u = np.random.uniform(size=n)\n    return -mu * np.log(1 - u)\n\nnp.random.seed(1)\nx = simuler_eksp(10**6, 5.0)\nprint(np.mean(x), np.var(x, ddof=1))\n# 4.9971...  24.9402...\n```\n\nGjennomsnittet ligger på $\\approx 5{,}00$ og den empiriske variansen på $\\approx 24{,}94$ — akkurat de teoretiske verdiene $\\mu = 5$ og $\\mu^2 = 25$, med litt Monte Carlo-støy. Koden kjører og bekrefter at inversjonsformelen er riktig.\n\n*Merk `ddof=1`:* `np.var(x, ddof=1)` deler på $n-1$ og gir den forventningsrette empiriske variansen (kobling [kap. 5.1](/stk1100/stk1100-5-1)). Standard `np.var` deler på $n$; med $n = 10^6$ er forskjellen mikroskopisk, men sensor vil se `ddof=1` der du estimerer en varians."
     },
     {
       "id": "stk1100-7-1-ex-l1a",
@@ -93,7 +93,7 @@
     {
       "id": "stk1100-7-1-l2-tekst",
       "type": "text",
-      "content": "Inversjonsmetoden lager tallene; `numpy` og `scipy.stats` regner på dem. Her er hele verktøykassen sensor forventer — det er ikke mange funksjoner:\n\n- **`np.random.uniform(size=n)`** — trekker $n$ uniforme tall på $(0,1)$. Dette er råstoffet til inversjonsmetoden.\n- **`stats.norm.rvs(mu, sigma, size=n)`** — trekker $n$ normalfordelte tall. **Advarsel: annet argument er STANDARDAVVIKET $\\sigma$, ikke variansen.** Skriver du variansen der, får du feil spredning (en klassisk sensorfelle). For $X \\sim N(\\mu, \\sigma^2)$ med $\\sigma^2 = 9$ skriver du `stats.norm.rvs(mu, 3, size=n)` — altså `3`, ikke `9`.\n- **`np.mean(x)`** — gjennomsnittet, estimatet av $E(X)$.\n- **`np.var(x, ddof=1)`** og **`np.std(x, ddof=1)`** — empirisk varians og standardavvik. `ddof=1` betyr «del på $n-1$», som gir den forventningsrette variansen (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)). Uten `ddof=1` deler `numpy` på $n$ og gir en litt for liten varians.\n- **Vektorisering.** Skriv `-mu * np.log(1 - u)` på hele vektoren `u` på én gang — ikke en `for`-løkke over enkeltelementer. Vektorisert kode er kortere, raskere og det sensor forventer.\n\n**Funksjonsmønsteret** som går igjen:\n\n```python\ndef simuler(n):\n    u = np.random.uniform(size=n)\n    return ...   # inversjonsformelen anvendt vektorisert på u\n```"
+      "content": "Inversjonsmetoden lager tallene; `numpy` og `scipy.stats` regner på dem. Her er hele verktøykassen sensor forventer — det er ikke mange funksjoner:\n\n- **`np.random.uniform(size=n)`** — trekker $n$ uniforme tall på $(0,1)$. Dette er råstoffet til inversjonsmetoden.\n- **`stats.norm.rvs(mu, sigma, size=n)`** — trekker $n$ normalfordelte tall. **Advarsel: annet argument er STANDARDAVVIKET $\\sigma$, ikke variansen.** Skriver du variansen der, får du feil spredning (en klassisk sensorfelle). For $X \\sim N(\\mu, \\sigma^2)$ med $\\sigma^2 = 9$ skriver du `stats.norm.rvs(mu, 3, size=n)` — altså `3`, ikke `9`.\n- **`np.mean(x)`** — gjennomsnittet, estimatet av $E(X)$.\n- **`np.var(x, ddof=1)`** og **`np.std(x, ddof=1)`** — empirisk varians og standardavvik. `ddof=1` betyr «del på $n-1$», som gir den forventningsrette variansen (kobling [kap. 5.1](/stk1100/stk1100-5-1)). Uten `ddof=1` deler `numpy` på $n$ og gir en litt for liten varians.\n- **Vektorisering.** Skriv `-mu * np.log(1 - u)` på hele vektoren `u` på én gang — ikke en `for`-løkke over enkeltelementer. Vektorisert kode er kortere, raskere og det sensor forventer.\n\n**Funksjonsmønsteret** som går igjen:\n\n```python\ndef simuler(n):\n    u = np.random.uniform(size=n)\n    return ...   # inversjonsformelen anvendt vektorisert på u\n```"
     },
     {
       "id": "stk1100-7-1-ex2",
@@ -142,7 +142,7 @@
     {
       "id": "stk1100-7-1-l3-tekst",
       "type": "text",
-      "content": "Inversjonsmetoden virker for enhver fordeling der du klarer å løse $F(x) = u$. De «eksotiske» fordelingene fra [kap. 2.3](/bok/stk1100/stk1100-2-3) gir alle pene inversjonsformler:\n\n- **Pareto** (hale, minsteverdi $k$, formparameter $\\theta$): $F(x) = 1 - (k/x)^{\\theta}$ for $x > k$, som gir $x = k(1-u)^{-1/\\theta}$.\n- **Weibull** (skala $\\beta$, form $\\alpha$): $F(x) = 1 - e^{-(x/\\beta)^{\\alpha}}$, som gir $x = \\beta\\big(-\\ln(1-u)\\big)^{1/\\alpha}$.\n- **Rayleigh** (skala $\\sigma$): $F(x) = 1 - e^{-x^2/(2\\sigma^2)}$, som gir $x = \\sigma\\sqrt{-2\\ln(1-u)}$.\n\nHver av dem er samme tre-stegs oppskrift: skaff $F$, løs for $x$, implementer vektorisert."
+      "content": "Inversjonsmetoden virker for enhver fordeling der du klarer å løse $F(x) = u$. De «eksotiske» fordelingene fra [kap. 2.3](/stk1100/stk1100-2-3) gir alle pene inversjonsformler:\n\n- **Pareto** (hale, minsteverdi $k$, formparameter $\\theta$): $F(x) = 1 - (k/x)^{\\theta}$ for $x > k$, som gir $x = k(1-u)^{-1/\\theta}$.\n- **Weibull** (skala $\\beta$, form $\\alpha$): $F(x) = 1 - e^{-(x/\\beta)^{\\alpha}}$, som gir $x = \\beta\\big(-\\ln(1-u)\\big)^{1/\\alpha}$.\n- **Rayleigh** (skala $\\sigma$): $F(x) = 1 - e^{-x^2/(2\\sigma^2)}$, som gir $x = \\sigma\\sqrt{-2\\ln(1-u)}$.\n\nHver av dem er samme tre-stegs oppskrift: skaff $F$, løs for $x$, implementer vektorisert."
     },
     {
       "id": "stk1100-7-1-ex3",
@@ -240,7 +240,7 @@
       "id": "stk1100-7-1-warn-typiske",
       "type": "warning",
       "title": "Typiske feil",
-      "content": "- **Løse $f(x) = u$ i stedet for $F(x) = u$.** Inversjonsmetoden bruker *fordelingsfunksjonen* $F$, ikke tettheten $f$. Å invertere $f$ gir tull. Skaff alltid $F$ først (integrer $f$).\n- **Sende variansen der `scale` = standardavvik kreves.** `stats.norm.rvs(mu, sigma, size=n)` vil ha $\\sigma$, ikke $\\sigma^2$. Har du variansen, ta kvadratroten først.\n- **`np.var`/`np.std` uten `ddof=1`.** Da deles det på $n$, og du estimerer en litt for liten varians. Bruk `ddof=1` når du estimerer varians/standardfeil (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)).\n- **`for`-løkke der vektorisering er naturlig.** Behandle hele `u`-vektoren på én gang: `-mu*np.log(1-u)`. Løkke over enkeltelementer er tregt og unødvendig.\n- **Kode som ikke kjører.** Delvis eller ikke-kjørbar kode gir bare delvis uttelling (sensorkrav 10). Test snutten før du leverer — importér `numpy`, definer alt, kjør."
+      "content": "- **Løse $f(x) = u$ i stedet for $F(x) = u$.** Inversjonsmetoden bruker *fordelingsfunksjonen* $F$, ikke tettheten $f$. Å invertere $f$ gir tull. Skaff alltid $F$ først (integrer $f$).\n- **Sende variansen der `scale` = standardavvik kreves.** `stats.norm.rvs(mu, sigma, size=n)` vil ha $\\sigma$, ikke $\\sigma^2$. Har du variansen, ta kvadratroten først.\n- **`np.var`/`np.std` uten `ddof=1`.** Da deles det på $n$, og du estimerer en litt for liten varians. Bruk `ddof=1` når du estimerer varians/standardfeil (kobling [kap. 5.1](/stk1100/stk1100-5-1)).\n- **`for`-løkke der vektorisering er naturlig.** Behandle hele `u`-vektoren på én gang: `-mu*np.log(1-u)`. Løkke over enkeltelementer er tregt og unødvendig.\n- **Kode som ikke kjører.** Delvis eller ikke-kjørbar kode gir bare delvis uttelling (sensorkrav 10). Test snutten før du leverer — importér `numpy`, definer alt, kjør."
     },
     {
       "id": "stk1100-7-1-begrepsbank-intro",
@@ -329,7 +329,7 @@
       "id": "stk1100-7-1-def-14",
       "type": "definition",
       "title": "`np.var(x, ddof=1)`",
-      "content": "Den empiriske variansen med divisor $n-1$ — den forventningsrette varianten (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)). Estimerer $\\text{Var}(X)$."
+      "content": "Den empiriske variansen med divisor $n-1$ — den forventningsrette varianten (kobling [kap. 5.1](/stk1100/stk1100-5-1)). Estimerer $\\text{Var}(X)$."
     },
     {
       "id": "stk1100-7-1-def-15",
@@ -341,7 +341,7 @@
       "id": "stk1100-7-1-def-16",
       "type": "definition",
       "title": "Hvorfor `ddof=1`",
-      "content": "«Delta degrees of freedom» = 1 gjør at det deles på $n-1$ i stedet for $n$. Det gir en forventningsrett estimator av variansen; med divisor $n$ blir estimatet systematisk litt for lite (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1))."
+      "content": "«Delta degrees of freedom» = 1 gjør at det deles på $n-1$ i stedet for $n$. Det gir en forventningsrett estimator av variansen; med divisor $n$ blir estimatet systematisk litt for lite (kobling [kap. 5.1](/stk1100/stk1100-5-1))."
     },
     {
       "id": "stk1100-7-1-def-17",
@@ -376,7 +376,7 @@
         {
           "id": "stk1100-7-1-rep-1",
           "type": "text",
-          "content": "Korte oppgaver fra forkunnskapskapitlene ([kap. 2.3](/bok/stk1100/stk1100-2-3), [kap. 4.2](/bok/stk1100/stk1100-4-2)). Fasit rett under hver."
+          "content": "Korte oppgaver fra forkunnskapskapitlene ([kap. 2.3](/stk1100/stk1100-2-3), [kap. 4.2](/stk1100/stk1100-4-2)). Fasit rett under hver."
         },
         {
           "id": "stk1100-7-1-rep-2",

@@ -21,7 +21,7 @@
     {
       "id": "in1000-6-4-2",
       "type": "text",
-      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 6.2 — Samarbeidende klasser](/bok/in1000/in1000-6-2) og\n[kap. 1.3 — Løkker](/bok/in1000/in1000-1-3), og bruker\n`int(...)` fra [kap. 1.1](/bok/in1000/in1000-1-1).\n\n**De to tingene du trenger**, friskes opp med kjørt kode.\n\n**1. `while` gjentar så lenge betingelsen er sann:**\n\n```python\nsvar = \"x\"\ngyldige = [\"ja\", \"nei\"]\nforsok = 0\nwhile svar not in gyldige:\n    forsok = forsok + 1\n    if forsok == 1:\n        svar = \"kanskje\"\n    else:\n        svar = \"ja\"\nprint(svar, forsok)\n```\n\n**Utskrift:**\n```\nja 2\n```\n\nHer står to «svar» i koden i stedet for at noen skriver dem. Det er nøyaktig det grepet vi bruker for å kunne kjøre eksemplene i dette kapitlet.\n\n**2. Tekst må konverteres før den kan regnes med:**\n\n```python\ntekst = \"12\"\nprint(tekst + tekst)\nprint(int(tekst) + int(tekst))\n```\n\n**Utskrift:**\n```\n1212\n24\n```\n\nAlt brukeren skriver, er tekst. Det er hele grunnen til at `int(...)` er så sentralt her."
+      "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 6.2 — Samarbeidende klasser](/in1000/in1000-6-2) og\n[kap. 1.3 — Løkker](/in1000/in1000-1-3), og bruker\n`int(...)` fra [kap. 1.1](/in1000/in1000-1-1).\n\n**De to tingene du trenger**, friskes opp med kjørt kode.\n\n**1. `while` gjentar så lenge betingelsen er sann:**\n\n```python\nsvar = \"x\"\ngyldige = [\"ja\", \"nei\"]\nforsok = 0\nwhile svar not in gyldige:\n    forsok = forsok + 1\n    if forsok == 1:\n        svar = \"kanskje\"\n    else:\n        svar = \"ja\"\nprint(svar, forsok)\n```\n\n**Utskrift:**\n```\nja 2\n```\n\nHer står to «svar» i koden i stedet for at noen skriver dem. Det er nøyaktig det grepet vi bruker for å kunne kjøre eksemplene i dette kapitlet.\n\n**2. Tekst må konverteres før den kan regnes med:**\n\n```python\ntekst = \"12\"\nprint(tekst + tekst)\nprint(int(tekst) + int(tekst))\n```\n\n**Utskrift:**\n```\n1212\n24\n```\n\nAlt brukeren skriver, er tekst. Det er hele grunnen til at `int(...)` er så sentralt her."
     },
     {
       "id": "in1000-6-4-3",
@@ -32,7 +32,7 @@
       "id": "in1000-6-4-4",
       "type": "definition",
       "title": "`input(melding)`",
-      "content": "Skriver ut meldingen, venter på at brukeren skriver en linje og trykker enter, og gir linja tilbake som en **tekst**.\n\n```text\nnavn = input(\"Hva heter du? \")\nprint(\"Hei,\", navn)\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på at noen skriver noe.\n\n**Terminaldialog (det brukeren skriver, står etter spørsmålet):**\n```\nHva heter du? Ada\nHei, Ada\n```\n\nTo detaljer er verdt å merke seg. **Meldingen skrives uten linjeskift**, så brukeren skriver på samme linje — derfor slutter meldingen som regel med et mellomrom.\n\nOg **linjeskiftet brukeren trykker, er ikke med** i teksten du får. `input` renser det bort selv, i motsetning til `readline` fra\n[kap. 7.1](/bok/in1000/in1000-7-1)."
+      "content": "Skriver ut meldingen, venter på at brukeren skriver en linje og trykker enter, og gir linja tilbake som en **tekst**.\n\n```text\nnavn = input(\"Hva heter du? \")\nprint(\"Hei,\", navn)\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på at noen skriver noe.\n\n**Terminaldialog (det brukeren skriver, står etter spørsmålet):**\n```\nHva heter du? Ada\nHei, Ada\n```\n\nTo detaljer er verdt å merke seg. **Meldingen skrives uten linjeskift**, så brukeren skriver på samme linje — derfor slutter meldingen som regel med et mellomrom.\n\nOg **linjeskiftet brukeren trykker, er ikke med** i teksten du får. `input` renser det bort selv, i motsetning til `readline` fra\n[kap. 7.1](/in1000/in1000-7-1)."
     },
     {
       "id": "in1000-6-4-5",
@@ -72,7 +72,7 @@
       "id": "in1000-6-4-8",
       "type": "theorem",
       "title": "Input-løkke-malen",
-      "content": "Bokas nittende kodemønster. Fire linjer, og de er hele sjanger H:\n\n```text\n    svar = input(\"Velg: \")\n    while svar not in gyldige:\n        svar = input(\"Ugyldig, prov igjen: \")\n    return svar\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\nFire regler:\n\n1. **Første `input` står FØR løkka** — ellers har `while` ingenting å teste.\n2. **`while`, ikke `if`.** En `if` spør bare én gang til. Det er feilkode **#9**,\n   og det er den vanligste feilen i hele sjangeren.\n3. **Nytt `input` INNE i løkka.** Glemmer du det, henger programmet: betingelsen\n   endrer seg aldri.\n4. **Løkka avsluttes av seg selv** når svaret er gyldig, og `svar` inneholder da\n   den gyldige verdien.\n\nFormen er nøyaktig den samme som filinnlesing-løkka fra\n[kap. 7.1](/bok/in1000/in1000-7-1): ett kall før løkka, ett inne i den."
+      "content": "Bokas nittende kodemønster. Fire linjer, og de er hele sjanger H:\n\n```text\n    svar = input(\"Velg: \")\n    while svar not in gyldige:\n        svar = input(\"Ugyldig, prov igjen: \")\n    return svar\n```\n\nBlokken er merket som ikke-kjørbar fordi den venter på inndata.\n\nFire regler:\n\n1. **Første `input` står FØR løkka** — ellers har `while` ingenting å teste.\n2. **`while`, ikke `if`.** En `if` spør bare én gang til. Det er feilkode **#9**,\n   og det er den vanligste feilen i hele sjangeren.\n3. **Nytt `input` INNE i løkka.** Glemmer du det, henger programmet: betingelsen\n   endrer seg aldri.\n4. **Løkka avsluttes av seg selv** når svaret er gyldig, og `svar` inneholder da\n   den gyldige verdien.\n\nFormen er nøyaktig den samme som filinnlesing-løkka fra\n[kap. 7.1](/in1000/in1000-7-1): ett kall før løkka, ett inne i den."
     },
     {
       "id": "in1000-6-4-9",
@@ -265,7 +265,7 @@
       "id": "in1000-6-4-23",
       "type": "definition",
       "title": "Input-løkke-malen",
-      "content": "Fire linjer, og de er hele sjanger H: `input` før løkka, `while` med gyldighetstesten, `input` inne i løkka, og verdien brukt etterpå.\n\n`input` skal stå **to** steder. Glemmer du den første, har `while` ingenting å teste; glemmer du den andre, henger programmet.\n\nFormen er identisk med filinnlesing-løkka fra\n[kap. 7.1](/bok/in1000/in1000-7-1): ett kall før, ett inne i."
+      "content": "Fire linjer, og de er hele sjanger H: `input` før løkka, `while` med gyldighetstesten, `input` inne i løkka, og verdien brukt etterpå.\n\n`input` skal stå **to** steder. Glemmer du den første, har `while` ingenting å teste; glemmer du den andre, henger programmet.\n\nFormen er identisk med filinnlesing-løkka fra\n[kap. 7.1](/in1000/in1000-7-1): ett kall før, ett inne i."
     },
     {
       "id": "in1000-6-4-24",

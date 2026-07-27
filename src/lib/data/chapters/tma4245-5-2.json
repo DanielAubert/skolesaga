@@ -21,7 +21,7 @@
     {
       "id": "tma4245-5-2-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Du må kunne **estimatorvurdering** fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)** (forventningsretthet — vi sjekker om ML-estimatoren er forventningsrett) og **tetthetene** fra **[kap. 2.3](/bok/tma4245/tma4245-2-3)** (eksponensial $\\frac{1}{\\beta}e^{-x/\\beta}$, gamma) og de diskrete punktsannsynlighetene fra **[kap. 2.2](/bok/tma4245/tma4245-2-2)** (Poisson, binomisk). Uavhengighet gjør at simultantettheten blir et **produkt** — grunnlaget for likelihooden.\n\nFra matematikken trenger du å **derivere** logaritmer og enkle uttrykk ($\\frac{d}{d\\theta}\\ln\\theta=\\frac{1}{\\theta}$, $\\frac{d}{d\\theta}(c/\\theta)=-c/\\theta^2$) og å løse likninger. Alt av logaritmeregler ($\\ln(ab)=\\ln a+\\ln b$, $\\ln(a^b)=b\\ln a$) brukes tungt. Kapitlet er forkunnskap for asymptotisk normalitet ([kap. 5.3](/bok/tma4245/tma4245-5-3)), ML-drillen ([kap. 5.4](/bok/tma4245/tma4245-5-4)) og hele inferenskjeden."
+      "content": "**Forkunnskaper:** Du må kunne **estimatorvurdering** fra **[kap. 5.1](/tma4245/tma4245-5-1)** (forventningsretthet — vi sjekker om ML-estimatoren er forventningsrett) og **tetthetene** fra **[kap. 2.3](/tma4245/tma4245-2-3)** (eksponensial $\\frac{1}{\\beta}e^{-x/\\beta}$, gamma) og de diskrete punktsannsynlighetene fra **[kap. 2.2](/tma4245/tma4245-2-2)** (Poisson, binomisk). Uavhengighet gjør at simultantettheten blir et **produkt** — grunnlaget for likelihooden.\n\nFra matematikken trenger du å **derivere** logaritmer og enkle uttrykk ($\\frac{d}{d\\theta}\\ln\\theta=\\frac{1}{\\theta}$, $\\frac{d}{d\\theta}(c/\\theta)=-c/\\theta^2$) og å løse likninger. Alt av logaritmeregler ($\\ln(ab)=\\ln a+\\ln b$, $\\ln(a^b)=b\\ln a$) brukes tungt. Kapitlet er forkunnskap for asymptotisk normalitet ([kap. 5.3](/tma4245/tma4245-5-3)), ML-drillen ([kap. 5.4](/tma4245/tma4245-5-4)) og hele inferenskjeden."
     },
     {
       "id": "tma4245-5-2-intro",
@@ -125,7 +125,7 @@
       "type": "example",
       "title": "Eksempel 3: ML for normalfordelingen ($\\hat{\\mu}$ og $\\hat{\\sigma}^2$)",
       "problem": "Målinger $x_1,\\ldots,x_n$ er uavhengige og normalfordelte, $N(\\mu,\\sigma^2)$, med begge parametre ukjente. Utled ML-estimatorene for $\\mu$ og $\\sigma^2$.",
-      "solution": "Tettheten er $f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\!\\big(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\big)$, så\n$$l(\\mu,\\sigma^2) = -\\frac{n}{2}\\ln(2\\pi\\sigma^2) - \\frac{1}{2\\sigma^2}\\sum(x_i-\\mu)^2.$$\n\n**Estimatoren for $\\mu$.** Deriver mhp. $\\mu$:\n$$\\frac{\\partial l}{\\partial\\mu}=\\frac{1}{\\sigma^2}\\sum(x_i-\\mu)=0 \\;\\Rightarrow\\; \\sum(x_i-\\mu)=0 \\;\\Rightarrow\\; \\hat{\\mu}=\\bar{x}.$$\nGjennomsnittet, uansett $\\sigma^2$.\n\n**Estimatoren for $\\sigma^2$.** Skriv $\\theta=\\sigma^2$ og deriver mhp. $\\theta$:\n$$\\frac{\\partial l}{\\partial\\theta}=-\\frac{n}{2\\theta}+\\frac{1}{2\\theta^2}\\sum(x_i-\\hat{\\mu})^2=0 \\;\\Rightarrow\\; \\hat{\\sigma}^2=\\frac{1}{n}\\sum(x_i-\\bar{x})^2.$$\n\n**Kobling til [kap. 5.1](/bok/tma4245/tma4245-5-1):** legg merke til at ML gir divisor **$n$**, ikke $n-1$. Derfor er $\\hat{\\sigma}^2$ **forventningsskjev**: $E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$, og man korrigerer til $S^2$ (divisor $n-1$) hvis man vil ha en forventningsrett estimator. $\\hat{\\mu}=\\bar{X}$ er derimot forventningsrett. Dette skillet er en klassisk sensorfelle."
+      "solution": "Tettheten er $f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\!\\big(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\big)$, så\n$$l(\\mu,\\sigma^2) = -\\frac{n}{2}\\ln(2\\pi\\sigma^2) - \\frac{1}{2\\sigma^2}\\sum(x_i-\\mu)^2.$$\n\n**Estimatoren for $\\mu$.** Deriver mhp. $\\mu$:\n$$\\frac{\\partial l}{\\partial\\mu}=\\frac{1}{\\sigma^2}\\sum(x_i-\\mu)=0 \\;\\Rightarrow\\; \\sum(x_i-\\mu)=0 \\;\\Rightarrow\\; \\hat{\\mu}=\\bar{x}.$$\nGjennomsnittet, uansett $\\sigma^2$.\n\n**Estimatoren for $\\sigma^2$.** Skriv $\\theta=\\sigma^2$ og deriver mhp. $\\theta$:\n$$\\frac{\\partial l}{\\partial\\theta}=-\\frac{n}{2\\theta}+\\frac{1}{2\\theta^2}\\sum(x_i-\\hat{\\mu})^2=0 \\;\\Rightarrow\\; \\hat{\\sigma}^2=\\frac{1}{n}\\sum(x_i-\\bar{x})^2.$$\n\n**Kobling til [kap. 5.1](/tma4245/tma4245-5-1):** legg merke til at ML gir divisor **$n$**, ikke $n-1$. Derfor er $\\hat{\\sigma}^2$ **forventningsskjev**: $E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$, og man korrigerer til $S^2$ (divisor $n-1$) hvis man vil ha en forventningsrett estimator. $\\hat{\\mu}=\\bar{X}$ er derimot forventningsrett. Dette skillet er en klassisk sensorfelle."
     },
     {
       "id": "tma4245-5-2-m2",
@@ -182,7 +182,7 @@
       "id": "tma4245-5-2-def-invarians",
       "type": "definition",
       "title": "Invariansprinsippet",
-      "content": "**ML-estimatoren er invariant under funksjoner:** er $\\hat{\\theta}$ ML-estimatoren for $\\theta$, så er ML-estimatoren for enhver funksjon $g(\\theta)$ rett og slett\n\n$$\\widehat{g(\\theta)} = g(\\hat{\\theta}).$$\n\nDu setter bare $\\hat{\\theta}$ inn i $g$ — ingen ny utledning. For eksponensial med $\\hat{\\beta}=\\bar{X}$ er ML-estimatoren for medianen $\\beta\\ln 2$ derfor $\\bar{X}\\ln 2$, og for halesannsynligheten $P(X>t)=e^{-t/\\beta}$ er den $e^{-t/\\bar{X}}$. Dette er broen til KI-transformasjon (kap. 6.2) og deltametoden ([kap. 5.3](/bok/tma4245/tma4245-5-3))."
+      "content": "**ML-estimatoren er invariant under funksjoner:** er $\\hat{\\theta}$ ML-estimatoren for $\\theta$, så er ML-estimatoren for enhver funksjon $g(\\theta)$ rett og slett\n\n$$\\widehat{g(\\theta)} = g(\\hat{\\theta}).$$\n\nDu setter bare $\\hat{\\theta}$ inn i $g$ — ingen ny utledning. For eksponensial med $\\hat{\\beta}=\\bar{X}$ er ML-estimatoren for medianen $\\beta\\ln 2$ derfor $\\bar{X}\\ln 2$, og for halesannsynligheten $P(X>t)=e^{-t/\\beta}$ er den $e^{-t/\\bar{X}}$. Dette er broen til KI-transformasjon (kap. 6.2) og deltametoden ([kap. 5.3](/tma4245/tma4245-5-3))."
     },
     {
       "id": "tma4245-5-2-ex3",
@@ -288,7 +288,7 @@
       "id": "tma4245-5-2-bb-normal",
       "type": "definition",
       "title": "Resultatkort: normal $\\hat{\\mu}=\\bar{X}$, $\\hat{\\sigma}^2$",
-      "content": "For $N(\\mu,\\sigma^2)$: $\\hat{\\mu}=\\bar{X}$ (forventningsrett), $\\hat{\\sigma}^2=\\frac{1}{n}\\sum(X_i-\\bar{X})^2$ med divisor **$n$** — **skjev** ($E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$). Korrigeres til $S^2$ (divisor $n-1$) for forventningsretthet ([kap. 5.1](/bok/tma4245/tma4245-5-1))."
+      "content": "For $N(\\mu,\\sigma^2)$: $\\hat{\\mu}=\\bar{X}$ (forventningsrett), $\\hat{\\sigma}^2=\\frac{1}{n}\\sum(X_i-\\bar{X})^2$ med divisor **$n$** — **skjev** ($E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$). Korrigeres til $S^2$ (divisor $n-1$) for forventningsretthet ([kap. 5.1](/tma4245/tma4245-5-1))."
     },
     {
       "id": "tma4245-5-2-bb-gamma",

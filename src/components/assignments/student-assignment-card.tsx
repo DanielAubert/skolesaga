@@ -89,8 +89,8 @@ export function StudentAssignmentCard({ assignment }: StudentAssignmentCardProps
   // Lenke til første uferdig kapittel
   const targetChapter = assignment.chapterIds[0];
   const href = targetChapter
-    ? `/bok/${assignment.courseId}/${targetChapter}`
-    : `/bok/${assignment.courseId}`;
+    ? `/${assignment.courseId}/${targetChapter}`
+    : `/${assignment.courseId}`;
 
   return (
     <Link

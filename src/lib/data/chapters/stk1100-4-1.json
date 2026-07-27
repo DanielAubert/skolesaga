@@ -21,7 +21,7 @@
     {
       "id": "stk1100-4-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på forventning til en funksjon $E[g(X)]$ og momentene $E(X), E(X^2), \\text{Var}(X)$ fra [kap. 2.1](/bok/stk1100/stk1100-2-1), og på gammafordelingen, identiteten $\\chi^2_n = \\text{gamma}(n/2, 2)$ og «sum av uavhengige gamma med felles skala» fra [kap. 2.2](/bok/stk1100/stk1100-2-2). Diskrete fordelinger (Poisson, geometrisk) er fra [kap. 1.3](/bok/stk1100/stk1100-1-3).\n\nDu deriverer hele veien — MGF-en er en funksjon av $t$, og $E(X)$ finnes ved å derivere den. Frisk opp produkt-, kjerne- og eksponentialderivasjon i [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1). Fagordene *moment*, *momentgenererende funksjon* og *entydighet* forklares der de innføres."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på forventning til en funksjon $E[g(X)]$ og momentene $E(X), E(X^2), \\text{Var}(X)$ fra [kap. 2.1](/stk1100/stk1100-2-1), og på gammafordelingen, identiteten $\\chi^2_n = \\text{gamma}(n/2, 2)$ og «sum av uavhengige gamma med felles skala» fra [kap. 2.2](/stk1100/stk1100-2-2). Diskrete fordelinger (Poisson, geometrisk) er fra [kap. 1.3](/stk1100/stk1100-1-3).\n\nDu deriverer hele veien — MGF-en er en funksjon av $t$, og $E(X)$ finnes ved å derivere den. Frisk opp produkt-, kjerne- og eksponentialderivasjon i [R1 4.1 Derivasjonsregler](/r1/r1-4-1). Fagordene *moment*, *momentgenererende funksjon* og *entydighet* forklares der de innføres."
     },
     {
       "id": "stk1100-4-1-intro",
@@ -36,7 +36,7 @@
     {
       "id": "stk1100-4-1-l1-teori",
       "type": "text",
-      "content": "Den momentgenererende funksjonen til $X$ er forventningen til $e^{tX}$, sett som en funksjon av tallet $t$. Vi behandler $t$ som en hjelpevariabel vi kan derivere med hensyn på. For en diskret variabel er det en sum, for en kontinuerlig et integral — begge veier er bare $E[g(X)]$-regelen fra [kap. 2.1](/bok/stk1100/stk1100-2-1) med $g(x) = e^{tx}$."
+      "content": "Den momentgenererende funksjonen til $X$ er forventningen til $e^{tX}$, sett som en funksjon av tallet $t$. Vi behandler $t$ som en hjelpevariabel vi kan derivere med hensyn på. For en diskret variabel er det en sum, for en kontinuerlig et integral — begge veier er bare $E[g(X)]$-regelen fra [kap. 2.1](/stk1100/stk1100-2-1) med $g(x) = e^{tx}$."
     },
     {
       "id": "stk1100-4-1-def-mgf",
@@ -75,7 +75,7 @@
     {
       "id": "stk1100-4-1-l2-teori",
       "type": "text",
-      "content": "Her kommer navnet fra: deriverer du MGF-en og setter $t = 0$, faller momentene ut. Grunnen er at $\\frac{d}{dt}e^{tX} = X e^{tX}$, så $M'(t) = E(X e^{tX})$, og i $t = 0$ blir dette $E(X)$. Deriverer du en gang til, får du $E(X^2)$. Variansen finner du så med regneformelen fra [kap. 2.1](/bok/stk1100/stk1100-2-1)."
+      "content": "Her kommer navnet fra: deriverer du MGF-en og setter $t = 0$, faller momentene ut. Grunnen er at $\\frac{d}{dt}e^{tX} = X e^{tX}$, så $M'(t) = E(X e^{tX})$, og i $t = 0$ blir dette $E(X)$. Deriverer du en gang til, får du $E(X^2)$. Variansen finner du så med regneformelen fra [kap. 2.1](/stk1100/stk1100-2-1)."
     },
     {
       "id": "stk1100-4-1-def-moment-fra-mgf",
@@ -114,7 +114,7 @@
     {
       "id": "stk1100-4-1-l3-teori",
       "type": "text",
-      "content": "Nå til den utledningen sensor oftest ber om: MGF-en til gammafordelingen. Poenget som *må* med, er **konvergenskravet** — integralet $\\int_0^\\infty e^{tx} f(x)\\,dx$ konvergerer bare når $t$ er liten nok til at $e^{tx}$ ikke vokser raskere enn tettheten avtar. For gamma$(\\alpha, \\beta)$ (skala $\\beta$, fra [kap. 2.2](/bok/stk1100/stk1100-2-2)) er kravet $t < 1/\\beta$."
+      "content": "Nå til den utledningen sensor oftest ber om: MGF-en til gammafordelingen. Poenget som *må* med, er **konvergenskravet** — integralet $\\int_0^\\infty e^{tx} f(x)\\,dx$ konvergerer bare når $t$ er liten nok til at $e^{tx}$ ikke vokser raskere enn tettheten avtar. For gamma$(\\alpha, \\beta)$ (skala $\\beta$, fra [kap. 2.2](/stk1100/stk1100-2-2)) er kravet $t < 1/\\beta$."
     },
     {
       "id": "stk1100-4-1-def-gamma-mgf",
@@ -125,7 +125,7 @@
     {
       "id": "stk1100-4-1-l3-utledning",
       "type": "text",
-      "content": "**Utledning.** Vi setter inn gammatettheten og samler eksponentene:\n\n$$M_X(t) = \\int_0^\\infty e^{tx}\\,\\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)} x^{\\alpha-1} e^{-x/\\beta}\\,dx = \\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)} \\int_0^\\infty x^{\\alpha-1} e^{-x(1/\\beta - t)}\\,dx.$$\n\n*Intuisjon:* de to eksponentene $e^{tx}$ og $e^{-x/\\beta}$ smelter sammen til én med rate $\\tfrac1\\beta - t$. For at integralet skal konvergere, må denne raten være positiv: $\\tfrac1\\beta - t > 0$, altså $t < 1/\\beta$. *Der ligger konvergenskravet.*\n\nNå gjenkjenner vi gammaintegralet $\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\Gamma(a)$ fra [kap. 2.2](/bok/stk1100/stk1100-2-2), med $a = \\alpha$ og $b = (1/\\beta - t)^{-1} = \\tfrac{\\beta}{1 - \\beta t}$:\n\n$$M_X(t) = \\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)}\\cdot \\left(\\frac{\\beta}{1-\\beta t}\\right)^\\alpha \\Gamma(\\alpha) = \\frac{\\beta^\\alpha}{\\beta^\\alpha (1-\\beta t)^\\alpha} = (1 - \\beta t)^{-\\alpha}.$$\n\n*Intuisjon:* $\\beta^\\alpha$ og $\\Gamma(\\alpha)$ stryker mot brøkens nevner, og igjen står den kompakte formen $(1 - \\beta t)^{-\\alpha}$."
+      "content": "**Utledning.** Vi setter inn gammatettheten og samler eksponentene:\n\n$$M_X(t) = \\int_0^\\infty e^{tx}\\,\\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)} x^{\\alpha-1} e^{-x/\\beta}\\,dx = \\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)} \\int_0^\\infty x^{\\alpha-1} e^{-x(1/\\beta - t)}\\,dx.$$\n\n*Intuisjon:* de to eksponentene $e^{tx}$ og $e^{-x/\\beta}$ smelter sammen til én med rate $\\tfrac1\\beta - t$. For at integralet skal konvergere, må denne raten være positiv: $\\tfrac1\\beta - t > 0$, altså $t < 1/\\beta$. *Der ligger konvergenskravet.*\n\nNå gjenkjenner vi gammaintegralet $\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\Gamma(a)$ fra [kap. 2.2](/stk1100/stk1100-2-2), med $a = \\alpha$ og $b = (1/\\beta - t)^{-1} = \\tfrac{\\beta}{1 - \\beta t}$:\n\n$$M_X(t) = \\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)}\\cdot \\left(\\frac{\\beta}{1-\\beta t}\\right)^\\alpha \\Gamma(\\alpha) = \\frac{\\beta^\\alpha}{\\beta^\\alpha (1-\\beta t)^\\alpha} = (1 - \\beta t)^{-\\alpha}.$$\n\n*Intuisjon:* $\\beta^\\alpha$ og $\\Gamma(\\alpha)$ stryker mot brøkens nevner, og igjen står den kompakte formen $(1 - \\beta t)^{-\\alpha}$."
     },
     {
       "id": "stk1100-4-1-ex-l3",
@@ -253,7 +253,7 @@
     {
       "id": "stk1100-4-1-l6-teori",
       "type": "text",
-      "content": "Nå til grunnen til at MGF-en er så sentral på STK1100-eksamen. For **uavhengige** variable faktoriserer forventningen av et produkt, så MGF-en til en sum er *produktet* av MGF-ene. Og fordi MGF-en bestemmer fordelingen entydig, kan du lese av hva summen er — det er slik resultatene i [kap. 2.2](/bok/stk1100/stk1100-2-2) bevises."
+      "content": "Nå til grunnen til at MGF-en er så sentral på STK1100-eksamen. For **uavhengige** variable faktoriserer forventningen av et produkt, så MGF-en til en sum er *produktet* av MGF-ene. Og fordi MGF-en bestemmer fordelingen entydig, kan du lese av hva summen er — det er slik resultatene i [kap. 2.2](/stk1100/stk1100-2-2) bevises."
     },
     {
       "id": "stk1100-4-1-def-sum-mgf",
@@ -272,7 +272,7 @@
       "type": "example",
       "title": "Eksempel 6: Sum av eksponensiale, og gjennomsnittet",
       "problem": "La $X_1, \\ldots, X_n$ være uavhengige og eksponensialfordelte med forventning $\\mu$ (altså gamma$(1, \\mu)$ hver). Vis at summen $S = \\sum X_i$ er gammafordelt, og finn fordelingen til gjennomsnittet $\\bar X = S/n$.",
-      "solution": "**Summen.** Hver $X_i$ har MGF $M_{X_i}(t) = (1 - \\mu t)^{-1}$ for $t < 1/\\mu$. Multipliser (uavhengighet):\n\n$$M_S(t) = \\prod_{i=1}^n (1 - \\mu t)^{-1} = (1 - \\mu t)^{-n}, \\qquad t < 1/\\mu.$$\n\nDette er MGF-en til gamma$(n, \\mu)$. Ved entydigheten er $S \\sim \\text{gamma}(n, \\mu)$ — nettopp Erlang-resultatet fra [kap. 2.2](/bok/stk1100/stk1100-2-2), nå bevist.\n\n**Gjennomsnittet.** For en skalering $\\bar X = S/n$ gjelder $M_{\\bar X}(t) = M_S(t/n)$:\n\n$$M_{\\bar X}(t) = \\left(1 - \\mu\\cdot\\tfrac{t}{n}\\right)^{-n} = \\left(1 - \\tfrac{\\mu}{n} t\\right)^{-n}.$$\n\nDette er MGF-en til gamma$(n, \\mu/n)$. Altså $\\bar X \\sim \\text{gamma}(n, \\mu/n)$, med $E(\\bar X) = n\\cdot\\tfrac{\\mu}{n} = \\mu$ og $\\text{Var}(\\bar X) = n\\big(\\tfrac{\\mu}{n}\\big)^2 = \\mu^2/n$ — riktig, gjennomsnittet har mindre spredning.\n\n> — naturlig pausepunkt — dette er kjernen i kapitlet: sum → produkt av MGF → gjenkjenn fordelingen."
+      "solution": "**Summen.** Hver $X_i$ har MGF $M_{X_i}(t) = (1 - \\mu t)^{-1}$ for $t < 1/\\mu$. Multipliser (uavhengighet):\n\n$$M_S(t) = \\prod_{i=1}^n (1 - \\mu t)^{-1} = (1 - \\mu t)^{-n}, \\qquad t < 1/\\mu.$$\n\nDette er MGF-en til gamma$(n, \\mu)$. Ved entydigheten er $S \\sim \\text{gamma}(n, \\mu)$ — nettopp Erlang-resultatet fra [kap. 2.2](/stk1100/stk1100-2-2), nå bevist.\n\n**Gjennomsnittet.** For en skalering $\\bar X = S/n$ gjelder $M_{\\bar X}(t) = M_S(t/n)$:\n\n$$M_{\\bar X}(t) = \\left(1 - \\mu\\cdot\\tfrac{t}{n}\\right)^{-n} = \\left(1 - \\tfrac{\\mu}{n} t\\right)^{-n}.$$\n\nDette er MGF-en til gamma$(n, \\mu/n)$. Altså $\\bar X \\sim \\text{gamma}(n, \\mu/n)$, med $E(\\bar X) = n\\cdot\\tfrac{\\mu}{n} = \\mu$ og $\\text{Var}(\\bar X) = n\\big(\\tfrac{\\mu}{n}\\big)^2 = \\mu^2/n$ — riktig, gjennomsnittet har mindre spredning.\n\n> — naturlig pausepunkt — dette er kjernen i kapitlet: sum → produkt av MGF → gjenkjenn fordelingen."
     },
     {
       "id": "stk1100-4-1-oppg-l6a",
@@ -422,7 +422,7 @@
         {
           "id": "stk1100-4-1-rep-intro",
           "type": "text",
-          "content": "Korte oppgaver fra forkunnskapene — momenter fra [kap. 2.1](/bok/stk1100/stk1100-2-1), gamma og sum-av-gamma fra [kap. 2.2](/bok/stk1100/stk1100-2-2) og derivasjon fra [R1 4.1](/bok/r1/r1-4-1) — til oppvarming."
+          "content": "Korte oppgaver fra forkunnskapene — momenter fra [kap. 2.1](/stk1100/stk1100-2-1), gamma og sum-av-gamma fra [kap. 2.2](/stk1100/stk1100-2-2) og derivasjon fra [R1 4.1](/r1/r1-4-1) — til oppvarming."
         },
         {
           "id": "stk1100-4-1-rep-o1",

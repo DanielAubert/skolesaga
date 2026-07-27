@@ -21,7 +21,7 @@
     {
       "id": "stk1110-3-3-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på enkel regresjon i **[kap. 3.1](/bok/stk1110/stk1110-3-1)** (minste kvadrater, $S^2$, t-inferens) og utskriftslesingen i **[kap. 3.2](/bok/stk1110/stk1110-3-2)** — alle R-utskriftene her leses med verktøyene derfra. Koblingen til to-utvalgs-t-testen og ANOVA bruker **[kap. 2.3](/bok/stk1110/stk1110-2-3)** og **[kap. 2.6](/bok/stk1110/stk1110-2-6)**.\n\nAv matriseregning trenger du bare transponering, matriseprodukt og invers av en $2\\times 2$-matrise — alt repeteres i en egen boks underveis. Du trenger ikke ha hatt noe eget lineær algebra-kurs."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på enkel regresjon i **[kap. 3.1](/stk1110/stk1110-3-1)** (minste kvadrater, $S^2$, t-inferens) og utskriftslesingen i **[kap. 3.2](/stk1110/stk1110-3-2)** — alle R-utskriftene her leses med verktøyene derfra. Koblingen til to-utvalgs-t-testen og ANOVA bruker **[kap. 2.3](/stk1110/stk1110-2-3)** og **[kap. 2.6](/stk1110/stk1110-2-6)**.\n\nAv matriseregning trenger du bare transponering, matriseprodukt og invers av en $2\\times 2$-matrise — alt repeteres i en egen boks underveis. Du trenger ikke ha hatt noe eget lineær algebra-kurs."
     },
     {
       "id": "stk1110-3-3-sistduvarher",
@@ -88,7 +88,7 @@
       "id": "stk1110-3-3-def-normalligninger",
       "type": "definition",
       "title": "Normalligningene på matriseform",
-      "content": "**Normalligningene er ligningssystemet som bestemmer minste kvadraters løsning** — de sier at residualene skal være ukorrelerte med hver kolonne i designmatrisen:\n$$X^TX\\,\\hat\\beta=X^TY.$$\nDette er $k+1$ lineære ligninger med $k+1$ ukjente. I enkel regresjon ($k=1$) er de nøyaktig de to normalligningene fra [kap. 3.1](/bok/stk1110/stk1110-3-1) — matriseformen er samme innhold i kompakt drakt."
+      "content": "**Normalligningene er ligningssystemet som bestemmer minste kvadraters løsning** — de sier at residualene skal være ukorrelerte med hver kolonne i designmatrisen:\n$$X^TX\\,\\hat\\beta=X^TY.$$\nDette er $k+1$ lineære ligninger med $k+1$ ukjente. I enkel regresjon ($k=1$) er de nøyaktig de to normalligningene fra [kap. 3.1](/stk1110/stk1110-3-1) — matriseformen er samme innhold i kompakt drakt."
     },
     {
       "id": "stk1110-3-3-def-ls",
@@ -124,7 +124,7 @@
       "id": "stk1110-3-3-def-df",
       "type": "definition",
       "title": "Frihetsgradene $n-k-1$",
-      "content": "**Hver estimert regresjonsparameter «koster» én frihetsgrad.** Vi estimerer $k+1$ parametre ($\\beta_0,\\dots,\\beta_k$), så det gjenstår $n-(k+1)=n-k-1$ frihetsgrader til å estimere $\\sigma^2$. Sjekk: $k=1$ gir $n-2$ (enkel regresjon, [kap. 3.1](/bok/stk1110/stk1110-3-1)) — formlene henger sammen. Feil frihetsgrader er blant de hyppigst straffede feilene i regresjonsoppgavene (§5.2)."
+      "content": "**Hver estimert regresjonsparameter «koster» én frihetsgrad.** Vi estimerer $k+1$ parametre ($\\beta_0,\\dots,\\beta_k$), så det gjenstår $n-(k+1)=n-k-1$ frihetsgrader til å estimere $\\sigma^2$. Sjekk: $k=1$ gir $n-2$ (enkel regresjon, [kap. 3.1](/stk1110/stk1110-3-1)) — formlene henger sammen. Feil frihetsgrader er blant de hyppigst straffede feilene i regresjonsoppgavene (§5.2)."
     },
     {
       "id": "stk1110-3-3-def-kovarians",
@@ -136,7 +136,7 @@
       "id": "stk1110-3-3-def-ttest",
       "type": "definition",
       "title": "t-inferens for én koeffisient (df $=n-k-1$)",
-      "content": "**Hver koeffisient testes og intervallestimeres nøyaktig som i enkel regresjon — men med frihetsgrader $n-k-1$.** Standardfeilen $se(\\hat\\beta_j)$ er roten av diagonalelement $j$ i $S^2(X^TX)^{-1}$, og\n$$T=\\frac{\\hat\\beta_j-\\beta_j^0}{se(\\hat\\beta_j)}\\sim t_{n-k-1},\\qquad \\text{KI: }\\hat\\beta_j\\pm t_{n-k-1,\\,\\alpha/2}\\,se(\\hat\\beta_j).$$\nI praksis leser du $\\hat\\beta_j$ og $se(\\hat\\beta_j)$ rett ut av R-utskriften ([kap. 3.2](/bok/stk1110/stk1110-3-2)). Husk: testen for $\\beta_j=0$ er *betinget på at de øvrige variablene står i modellen*."
+      "content": "**Hver koeffisient testes og intervallestimeres nøyaktig som i enkel regresjon — men med frihetsgrader $n-k-1$.** Standardfeilen $se(\\hat\\beta_j)$ er roten av diagonalelement $j$ i $S^2(X^TX)^{-1}$, og\n$$T=\\frac{\\hat\\beta_j-\\beta_j^0}{se(\\hat\\beta_j)}\\sim t_{n-k-1},\\qquad \\text{KI: }\\hat\\beta_j\\pm t_{n-k-1,\\,\\alpha/2}\\,se(\\hat\\beta_j).$$\nI praksis leser du $\\hat\\beta_j$ og $se(\\hat\\beta_j)$ rett ut av R-utskriften ([kap. 3.2](/stk1110/stk1110-3-2)). Husk: testen for $\\beta_j=0$ er *betinget på at de øvrige variablene står i modellen*."
     },
     {
       "id": "stk1110-3-3-ex1",
@@ -395,7 +395,7 @@
       "id": "stk1110-3-3-def-dummykobling",
       "type": "definition",
       "title": "Dummy-regresjon = to-utvalg og ANOVA",
-      "content": "**Regresjon med én dummy er nøyaktig to-utvalgsproblemet i ny drakt:** t-testen for $H_0:\\beta_1=0$ er identisk med pooled to-utvalgs-t-testen fra [kap. 2.3](/bok/stk1110/stk1110-2-3) — begge har $n-2$ frihetsgrader når $n$ er samlet antall observasjoner i de to gruppene. Med flere kategorier (flere dummyer) blir F-testen for at alle gruppe-koeffisientene er null det samme som enveis ANOVA fra [kap. 2.6](/bok/stk1110/stk1110-2-6). Regresjon er altså paraplyen som samler testene du alt kan."
+      "content": "**Regresjon med én dummy er nøyaktig to-utvalgsproblemet i ny drakt:** t-testen for $H_0:\\beta_1=0$ er identisk med pooled to-utvalgs-t-testen fra [kap. 2.3](/stk1110/stk1110-2-3) — begge har $n-2$ frihetsgrader når $n$ er samlet antall observasjoner i de to gruppene. Med flere kategorier (flere dummyer) blir F-testen for at alle gruppe-koeffisientene er null det samme som enveis ANOVA fra [kap. 2.6](/stk1110/stk1110-2-6). Regresjon er altså paraplyen som samler testene du alt kan."
     },
     {
       "id": "stk1110-3-3-warn",

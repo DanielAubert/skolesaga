@@ -21,7 +21,7 @@ export function TextbookHeader() {
 
           {/* Navigation */}
           <nav className="hidden sm:flex items-center gap-4">
-            <Link href="/bok" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Lærebøker
             </Link>
             <Link href="/quiz" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">

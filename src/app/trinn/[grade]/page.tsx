@@ -323,7 +323,7 @@ function SubjectCard({ courseId, name, icon, color, image }: SubjectCardProps) {
       {/* Add to dashboard button */}
       <AddCourseButton courseId={courseId} />
 
-      <Link href={`/bok/${courseId}`} className="block">
+      <Link href={`/${courseId}`} className="block">
         <div className={`relative overflow-hidden rounded-2xl ${image ? '' : `bg-gradient-to-br ${color}`} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
           {/* Background image if provided */}
           {image && (
@@ -411,7 +411,7 @@ export default async function GradePage({ params }: PageProps) {
 
           <div className="relative container mx-auto px-4 py-12 md:py-20">
             <Link
-              href="/bok"
+              href="/"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -442,7 +442,7 @@ export default async function GradePage({ params }: PageProps) {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <Link
-            href="/bok"
+            href="/"
             className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
           >
             <ChevronLeft className="w-4 h-4" />

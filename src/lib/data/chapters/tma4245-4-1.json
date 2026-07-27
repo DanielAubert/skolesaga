@@ -20,7 +20,7 @@
     {
       "id": "tma4245-4-1-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Dette kapitlet bygger på fordelingsfunksjonen $F(x) = P(X \\le x)$, tetthet ($f = F'$) og de kontinuerlige fordelingene — særlig **eksponensialfordelingen** — fra **[kap. 2.3](/bok/tma4245/tma4245-2-3)**, og på standardnormalfordelingen fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)** (som vi bruker i kvadratsum-identifikasjonen).\n\nFra matematikken trenger du å kunne **derivere** sammensatte funksjoner (kjerneregelen) og **løse enkle ulikheter** for $x$. Vi bygger opp hver teknikk fra bunnen.\n\nEt **momentgenererende funksjon (MGF)** er en funksjon $M_X(t) = E(e^{tX})$ som er knyttet entydig til fordelingen — vi bruker den bare som et *identifikasjonsverktøy* her, og slår opp de ferdige MGF-ene i formelsamlingen. Kapitlet er selv forkunnskap for drillen i **[kap. 4.2](/bok/tma4245/tma4245-4-2)** (der $2X/\\beta \\sim \\chi^2_2$ utledes fullt ut) og for pivotal-konfidensintervallene i Del 6."
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på fordelingsfunksjonen $F(x) = P(X \\le x)$, tetthet ($f = F'$) og de kontinuerlige fordelingene — særlig **eksponensialfordelingen** — fra **[kap. 2.3](/tma4245/tma4245-2-3)**, og på standardnormalfordelingen fra **[kap. 3.1](/tma4245/tma4245-3-1)** (som vi bruker i kvadratsum-identifikasjonen).\n\nFra matematikken trenger du å kunne **derivere** sammensatte funksjoner (kjerneregelen) og **løse enkle ulikheter** for $x$. Vi bygger opp hver teknikk fra bunnen.\n\nEt **momentgenererende funksjon (MGF)** er en funksjon $M_X(t) = E(e^{tX})$ som er knyttet entydig til fordelingen — vi bruker den bare som et *identifikasjonsverktøy* her, og slår opp de ferdige MGF-ene i formelsamlingen. Kapitlet er selv forkunnskap for drillen i **[kap. 4.2](/tma4245/tma4245-4-2)** (der $2X/\\beta \\sim \\chi^2_2$ utledes fullt ut) og for pivotal-konfidensintervallene i Del 6."
     },
     {
       "id": "tma4245-4-1-intro",
@@ -123,7 +123,7 @@
         "type": "classic",
         "difficulty": "lett",
         "task": "MGF-en til en eksponensialfordelt variabel med forventning $\\beta$ er $M_X(t) = (1 - \\beta t)^{-1}$ (for $t < 1/\\beta$). To komponenter har uavhengige, eksponensialfordelte levetider, hver med forventning $\\beta$. La $S = X_1 + X_2$.\n\n**a)** Skriv opp $M_S(t)$ ved produktregelen.\n\n**b)** MGF-en til en gamma$(n, \\beta)$-variabel er $(1 - \\beta t)^{-n}$. Hvilken fordeling har $S$?",
-        "solution": "**a)** Uavhengige, så $M_S(t) = M_{X_1}(t)\\,M_{X_2}(t) = (1 - \\beta t)^{-1}(1 - \\beta t)^{-1} = (1 - \\beta t)^{-2}$.\n\n**b)** Dette er MGF-en til gamma$(2, \\beta)$. Ved entydighet er $S \\sim \\text{gamma}(2, \\beta)$ — summen av to uavhengige eksponensiale er gamma, slik vi brukte som resultat i [kap. 2.3](/bok/tma4245/tma4245-2-3).",
+        "solution": "**a)** Uavhengige, så $M_S(t) = M_{X_1}(t)\\,M_{X_2}(t) = (1 - \\beta t)^{-1}(1 - \\beta t)^{-1} = (1 - \\beta t)^{-2}$.\n\n**b)** Dette er MGF-en til gamma$(2, \\beta)$. Ved entydighet er $S \\sim \\text{gamma}(2, \\beta)$ — summen av to uavhengige eksponensiale er gamma, slik vi brukte som resultat i [kap. 2.3](/tma4245/tma4245-2-3).",
         "hints": [
           "Produktregelen: gang de to MGF-ene.",
           "$(1-\\beta t)^{-1}\\cdot(1-\\beta t)^{-1} = (1-\\beta t)^{-2}$; sammenlign med gamma-MGF-en."
@@ -310,7 +310,7 @@
             "number": "R1",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 2.3](/bok/tma4245/tma4245-2-3)) En variabel er eksponensialfordelt med forventning $\\beta = 4$. Finn $P(X > 4)$.",
+            "task": "(Fra [kap. 2.3](/tma4245/tma4245-2-3)) En variabel er eksponensialfordelt med forventning $\\beta = 4$. Finn $P(X > 4)$.",
             "solution": "$P(X > 4) = e^{-4/\\beta} = e^{-4/4} = e^{-1} \\approx 0{,}368$.",
             "hints": [
               "$P(X > x) = e^{-x/\\beta}$."
@@ -325,7 +325,7 @@
             "number": "R2",
             "type": "classic",
             "difficulty": "lett",
-            "task": "(Fra [kap. 2.3](/bok/tma4245/tma4245-2-3)) En Weibull-variabel har $F(x) = 1 - e^{-(x/5)^2}$. Finn $P(X > 5)$.",
+            "task": "(Fra [kap. 2.3](/tma4245/tma4245-2-3)) En Weibull-variabel har $F(x) = 1 - e^{-(x/5)^2}$. Finn $P(X > 5)$.",
             "solution": "$P(X > 5) = e^{-(5/5)^2} = e^{-1} \\approx 0{,}368$.",
             "hints": [
               "$P(X > x) = e^{-(x/\\theta)^k}$ med $\\theta = 5$, $k = 2$."
@@ -340,7 +340,7 @@
             "number": "R3",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 3.1](/bok/tma4245/tma4245-3-1)) $X \\sim N(\\mu, \\sigma^2)$ med $\\mu = 20$ og $\\sigma^2 = 25$ (så $\\sigma = 5$). Standardiser $X = 30$ til en $Z$-verdi.",
+            "task": "(Fra [kap. 3.1](/tma4245/tma4245-3-1)) $X \\sim N(\\mu, \\sigma^2)$ med $\\mu = 20$ og $\\sigma^2 = 25$ (så $\\sigma = 5$). Standardiser $X = 30$ til en $Z$-verdi.",
             "solution": "$Z = \\dfrac{X - \\mu}{\\sigma} = \\dfrac{30 - 20}{5} = 2$. Husk: annet argument i $N(\\mu, \\sigma^2)$ er *variansen*, så $\\sigma = \\sqrt{25} = 5$.",
             "hints": [
               "$Z = (X - \\mu)/\\sigma$; $\\sigma = \\sqrt{\\sigma^2}$."
@@ -355,7 +355,7 @@
             "number": "R4",
             "type": "classic",
             "difficulty": "middels",
-            "task": "(Fra [kap. 2.3](/bok/tma4245/tma4245-2-3)) $T$ er summen av 3 uavhengige eksponensiale, hver med forventning $\\beta = 6$, altså gamma$(3, 6)$. Finn $E(T)$ og $\\text{Var}(T)$.",
+            "task": "(Fra [kap. 2.3](/tma4245/tma4245-2-3)) $T$ er summen av 3 uavhengige eksponensiale, hver med forventning $\\beta = 6$, altså gamma$(3, 6)$. Finn $E(T)$ og $\\text{Var}(T)$.",
             "solution": "$E(T) = n\\beta = 3 \\cdot 6 = 18$ og $\\text{Var}(T) = n\\beta^2 = 3 \\cdot 36 = 108$.",
             "hints": [
               "Gamma$(n,\\beta)$: $E = n\\beta$, $\\text{Var} = n\\beta^2$."

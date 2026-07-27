@@ -197,7 +197,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description: course.description,
     ...pageMetadata({
-      path: `/bok/${courseId}`,
+      path: `/${courseId}`,
       title,
       description: course.description,
       image: course.coverImage,
@@ -235,7 +235,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: jsonLdScript(structuredData) }}
       />
       <TextbookHeader />
-      <TrackRecentVisit itemType="book" itemId={courseId} title={course.title} url={`/bok/${courseId}`} />
+      <TrackRecentVisit itemType="book" itemId={courseId} title={course.title} url={`/${courseId}`} />
       <div className="container mx-auto px-4 py-8">
       <div className="max-w-6xl mx-auto">
         {/* Breadcrumb */}
@@ -302,7 +302,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                     <>
                       {' '}
                       <Link
-                        href={`/bok/${courseId}/kildegrunnlag`}
+                        href={`/${courseId}/kildegrunnlag`}
                         className={`font-medium underline ${accent.text}`}
                       >
                         Se hele kildegrunnlaget
@@ -327,7 +327,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
         {/* Handlinger: én primær (fylt), resten sekundære (outline) — designspråk regel 2 */}
         <div className="mb-8 flex flex-wrap gap-3">
           <Link
-            href={`/bok/${courseId}/kompetansemal`}
+            href={`/${courseId}/kompetansemal`}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
             <Target className="h-5 w-5" />
@@ -338,7 +338,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
           </Link>
           {getFlashcardDefinitionCount(courseId) > 0 && (
             <Link
-              href={`/bok/${courseId}/flashcards`}
+              href={`/${courseId}/flashcards`}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-input bg-background text-foreground hover:bg-muted transition-colors"
             >
               <Layers className="h-5 w-5 text-muted-foreground" />
@@ -350,7 +350,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
           )}
           {harEksamenstrening && (
             <Link
-              href={`/bok/${courseId}/eksamen`}
+              href={`/${courseId}/eksamen`}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-input bg-background text-foreground hover:bg-muted transition-colors"
             >
               <GraduationCap className="h-5 w-5 text-muted-foreground" />
@@ -360,7 +360,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
           )}
           {harKildegrunnlag && (
             <Link
-              href={`/bok/${courseId}/kildegrunnlag`}
+              href={`/${courseId}/kildegrunnlag`}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-input bg-background text-foreground hover:bg-muted transition-colors"
             >
               <Archive className="h-5 w-5 text-muted-foreground" />
@@ -414,7 +414,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
 
                   return (
                     <div key={chapter.id} className="flex flex-col">
-                      <Link href={`/bok/${courseId}/${chapter.id}`}>
+                      <Link href={`/${courseId}/${chapter.id}`}>
                         <Card className={`h-full transition-all duration-200 cursor-pointer hover:-translate-y-1 hover:shadow-lg group border ${erDelNull ? 'border-border' : accent.border} ${erProve ? 'border-dashed' : ''} overflow-hidden`}>
                           {/* Cover image or colored top-bar */}
                           {chapter.coverImage ? (
@@ -481,7 +481,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                       {/* Lenke til lesevennlig versjon */}
                       {hasNarrativeVersion && (
                         <Link
-                          href={`/bok/${courseId}/${chapter.linkedChapterId}`}
+                          href={`/${courseId}/${chapter.linkedChapterId}`}
                           className={`mt-1 px-2 py-1 text-xs text-center rounded-md ${accent.soft} ${accent.text} ${accent.softHover} transition-colors flex items-center justify-center gap-1`}
                         >
                           <BookOpen className="h-3 w-3" />

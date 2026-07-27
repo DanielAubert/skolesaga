@@ -18,7 +18,7 @@ export interface ChapterRelationsProps {
 function ChapterPill({ courseId, chapter }: { courseId: string; chapter: RelatedChapter }) {
   return (
     <Link
-      href={`/bok/${courseId}/${chapter.id}`}
+      href={`/${courseId}/${chapter.id}`}
       className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3 py-1 text-sm hover:border-sky-400 dark:hover:border-sky-700 hover:bg-sky-50 dark:hover:bg-sky-950/40 transition-colors"
       title={chapter.title}
     >

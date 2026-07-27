@@ -15,17 +15,17 @@
    "id": "tma4110-6-2-tip-eksamensvinkel",
    "type": "tip",
    "title": "Eksamensvinkel",
-   "content": "**Gram–Schmidt er en av de sikreste enkeltoppgavene i emnet (sjanger H, ~80 % av settene).**\n\n- «Finn en ortogonal (eller ortonormal) basis for … ved Gram–Schmidt» kommer nesten hvert sett, ofte som første ledd i en kjede som fortsetter med projeksjon ([kap. 6.3](/bok/tma4110/tma4110-6-3)) og minste kvadrater.\n- **Formelen må sitte utenat (kode E — ingen hjelpemidler, se [kap. 0.1](/bok/tma4110/tma4110-0-1)).** Det er ingen formelsamling å slå opp i.\n- Fasitens grep: regn med **heltalls-oppskalering** underveis, så du slipper brøker som hoper seg opp — sensor godtar enhver ortogonal basis for samme rom.\n\nSjanger H = *indreprodukt / ortogonalitet / Gram–Schmidt / projeksjon* (etikett fra [kap. 0.1](/bok/tma4110/tma4110-0-1)). Tidsanslagene under er lesetid; gang med ca. 1,5 ved håndregning."
+   "content": "**Gram–Schmidt er en av de sikreste enkeltoppgavene i emnet (sjanger H, ~80 % av settene).**\n\n- «Finn en ortogonal (eller ortonormal) basis for … ved Gram–Schmidt» kommer nesten hvert sett, ofte som første ledd i en kjede som fortsetter med projeksjon ([kap. 6.3](/tma4110/tma4110-6-3)) og minste kvadrater.\n- **Formelen må sitte utenat (kode E — ingen hjelpemidler, se [kap. 0.1](/tma4110/tma4110-0-1)).** Det er ingen formelsamling å slå opp i.\n- Fasitens grep: regn med **heltalls-oppskalering** underveis, så du slipper brøker som hoper seg opp — sensor godtar enhver ortogonal basis for samme rom.\n\nSjanger H = *indreprodukt / ortogonalitet / Gram–Schmidt / projeksjon* (etikett fra [kap. 0.1](/tma4110/tma4110-0-1)). Tidsanslagene under er lesetid; gang med ca. 1,5 ved håndregning."
   },
   {
    "id": "tma4110-6-2-forkunnskaper",
    "type": "text",
-   "content": "**Forkunnskaper:** Dette kapitlet bygger på indreprodukt, norm og ortogonalitet fra [kap. 6.1](/bok/tma4110/tma4110-6-1) — særlig projeksjonsvektoren $\\frac{\\langle\\mathbf a,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$ og normalisering. Vi ortogonaliserer ofte kolonnene i en matrise, så en basis for $\\operatorname{Col}A$ fra [kap. 3.3](/bok/tma4110/tma4110-3-3) er nyttig bakgrunn. Kan du regne indreprodukt og trekke fra en projeksjon, er du klar."
+   "content": "**Forkunnskaper:** Dette kapitlet bygger på indreprodukt, norm og ortogonalitet fra [kap. 6.1](/tma4110/tma4110-6-1) — særlig projeksjonsvektoren $\\frac{\\langle\\mathbf a,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$ og normalisering. Vi ortogonaliserer ofte kolonnene i en matrise, så en basis for $\\operatorname{Col}A$ fra [kap. 3.3](/tma4110/tma4110-3-3) er nyttig bakgrunn. Kan du regne indreprodukt og trekke fra en projeksjon, er du klar."
   },
   {
    "id": "tma4110-6-2-motivasjon",
    "type": "text",
-   "content": "## Hvorfor gjøre en basis ortogonal?\n\nEn hvilken som helst basis beskriver rommet, men er den **ortogonal**, blir alt enklere: koordinater regnes med én formel (ingen ligningssystem), projeksjon blir et lite regnestykke ([kap. 6.3](/bok/tma4110/tma4110-6-3)), og lengder oppfører seg pytagoreisk. **Gram–Schmidt-prosessen** tar en vilkårlig basis og bygger en ortogonal basis for *samme* rom, trinn for trinn.\n\nVi bygger i fem løkker: (1) ortogonale og ortonormale mengder, (2) koordinater relativt en ortogonal basis, (3) selve Gram–Schmidt-prosessen, (4) normalisering til ortonormal basis, (5) Gram–Schmidt i et ikke-standard (integral-)indreprodukt."
+   "content": "## Hvorfor gjøre en basis ortogonal?\n\nEn hvilken som helst basis beskriver rommet, men er den **ortogonal**, blir alt enklere: koordinater regnes med én formel (ingen ligningssystem), projeksjon blir et lite regnestykke ([kap. 6.3](/tma4110/tma4110-6-3)), og lengder oppfører seg pytagoreisk. **Gram–Schmidt-prosessen** tar en vilkårlig basis og bygger en ortogonal basis for *samme* rom, trinn for trinn.\n\nVi bygger i fem løkker: (1) ortogonale og ortonormale mengder, (2) koordinater relativt en ortogonal basis, (3) selve Gram–Schmidt-prosessen, (4) normalisering til ortonormal basis, (5) Gram–Schmidt i et ikke-standard (integral-)indreprodukt."
   },
   {
    "id": "tma4110-6-2-lokke1",
@@ -61,7 +61,7 @@
    "type": "example",
    "title": "Eksempel 1: Er mengden ortogonal?",
    "problem": "Er $\\{(1,1,0),(1,-1,0),(0,0,1)\\}$ en ortogonal mengde i $\\mathbb R^3$? Er den en basis?",
-   "solution": "Sjekk de tre parene:\n$$\\langle(1,1,0),(1,-1,0)\\rangle=1-1+0=0,\\quad\\langle(1,1,0),(0,0,1)\\rangle=0,\\quad\\langle(1,-1,0),(0,0,1)\\rangle=0.$$\nAlle par er ortogonale, så mengden er **ortogonal**. Etter setningen over er den da lineært uavhengig; tre uavhengige vektorer i $\\mathbb R^3$ er en basis (dimensjonsargumentet fra [kap. 3.2](/bok/tma4110/tma4110-3-2)). Altså en **ortogonal basis** for $\\mathbb R^3$."
+   "solution": "Sjekk de tre parene:\n$$\\langle(1,1,0),(1,-1,0)\\rangle=1-1+0=0,\\quad\\langle(1,1,0),(0,0,1)\\rangle=0,\\quad\\langle(1,-1,0),(0,0,1)\\rangle=0.$$\nAlle par er ortogonale, så mengden er **ortogonal**. Etter setningen over er den da lineært uavhengig; tre uavhengige vektorer i $\\mathbb R^3$ er en basis (dimensjonsargumentet fra [kap. 3.2](/tma4110/tma4110-3-2)). Altså en **ortogonal basis** for $\\mathbb R^3$."
   },
   {
    "id": "tma4110-6-2-e1",
@@ -219,7 +219,7 @@
    "type": "example",
    "title": "Eksempel 5 (eksamensnivå): Gram–Schmidt på $\\{1,t,t^2\\}$",
    "problem": "Ortogonaliser $\\{1,t,t^2\\}$ i $\\operatorname{P}_2$ med indreproduktet $\\langle p,q\\rangle=\\int_{-1}^{1}p(t)q(t)\\,dt$.",
-   "solution": "Fra [kap. 6.1](/bok/tma4110/tma4110-6-1) har vi $\\langle 1,1\\rangle=2$, $\\langle 1,t\\rangle=0$, $\\langle t,t\\rangle=\\tfrac23$, $\\langle 1,t^2\\rangle=\\tfrac23$, og $\\langle t,t^2\\rangle=\\int_{-1}^{1}t^3\\,dt=0$ (odde funksjon).\n\n**Steg 1:** $v_1=1$.\n\n**Steg 2:** $v_2=t-\\dfrac{\\langle t,1\\rangle}{\\langle 1,1\\rangle}\\cdot1=t-\\dfrac{0}{2}=t$ (allerede ortogonal på $1$).\n\n**Steg 3:** $v_3=t^2-\\dfrac{\\langle t^2,1\\rangle}{\\langle 1,1\\rangle}\\cdot1-\\dfrac{\\langle t^2,t\\rangle}{\\langle t,t\\rangle}\\cdot t=t^2-\\dfrac{2/3}{2}\\cdot1-0=t^2-\\tfrac13.$\n\n**Kontroll:** $\\langle t^2-\\tfrac13,1\\rangle=\\tfrac23-\\tfrac13\\cdot2=0$ og $\\langle t^2-\\tfrac13,t\\rangle=0$ (odde) ✓. Ortogonal basis: $\\{1,\\ t,\\ t^2-\\tfrac13\\}$ — de tre første **Legendre-polynomene**."
+   "solution": "Fra [kap. 6.1](/tma4110/tma4110-6-1) har vi $\\langle 1,1\\rangle=2$, $\\langle 1,t\\rangle=0$, $\\langle t,t\\rangle=\\tfrac23$, $\\langle 1,t^2\\rangle=\\tfrac23$, og $\\langle t,t^2\\rangle=\\int_{-1}^{1}t^3\\,dt=0$ (odde funksjon).\n\n**Steg 1:** $v_1=1$.\n\n**Steg 2:** $v_2=t-\\dfrac{\\langle t,1\\rangle}{\\langle 1,1\\rangle}\\cdot1=t-\\dfrac{0}{2}=t$ (allerede ortogonal på $1$).\n\n**Steg 3:** $v_3=t^2-\\dfrac{\\langle t^2,1\\rangle}{\\langle 1,1\\rangle}\\cdot1-\\dfrac{\\langle t^2,t\\rangle}{\\langle t,t\\rangle}\\cdot t=t^2-\\dfrac{2/3}{2}\\cdot1-0=t^2-\\tfrac13.$\n\n**Kontroll:** $\\langle t^2-\\tfrac13,1\\rangle=\\tfrac23-\\tfrac13\\cdot2=0$ og $\\langle t^2-\\tfrac13,t\\rangle=0$ (odde) ✓. Ortogonal basis: $\\{1,\\ t,\\ t^2-\\tfrac13\\}$ — de tre første **Legendre-polynomene**."
   },
   {
    "id": "tma4110-6-2-e6",
@@ -271,7 +271,7 @@
    "id": "tma4110-6-2-bb-gs-projledd",
    "type": "definition",
    "title": "Projeksjonsleddet",
-   "content": "Leddet $\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$ er projeksjonen av $\\mathbf a_k$ på retningen $\\mathbf v_i$ (samme byggekloss som i [kap. 6.3](/bok/tma4110/tma4110-6-3)). Nevneren $\\langle\\mathbf v_i,\\mathbf v_i\\rangle$ må aldri glemmes."
+   "content": "Leddet $\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$ er projeksjonen av $\\mathbf a_k$ på retningen $\\mathbf v_i$ (samme byggekloss som i [kap. 6.3](/tma4110/tma4110-6-3)). Nevneren $\\langle\\mathbf v_i,\\mathbf v_i\\rangle$ må aldri glemmes."
   },
   {
    "id": "tma4110-6-2-bb-gs-span",
@@ -313,7 +313,7 @@
    "id": "tma4110-6-2-bb-koordkoeff",
    "type": "definition",
    "title": "koordinatkoeffisient",
-   "content": "Koeffisienten $c_i=\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}$ i en ortogonal basis. Den gir også projeksjonen av $\\mathbf y$ på retningen $\\mathbf v_i$, og er dermed hjørnesteinen i ortogonal projeksjon ([kap. 6.3](/bok/tma4110/tma4110-6-3))."
+   "content": "Koeffisienten $c_i=\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}$ i en ortogonal basis. Den gir også projeksjonen av $\\mathbf y$ på retningen $\\mathbf v_i$, og er dermed hjørnesteinen i ortogonal projeksjon ([kap. 6.3](/tma4110/tma4110-6-3))."
   },
   {
    "id": "tma4110-6-2-bb-ortogonal-matrise",
@@ -349,7 +349,7 @@
    "id": "tma4110-6-2-bb-colA-basis",
    "type": "definition",
    "title": "Ortogonal basis for et underrom (Col A)",
-   "content": "Ofte skal du ortogonalisere en basis for et *underrom*, f.eks. kolonnerommet $\\operatorname{Col}A$ ([kap. 3.3](/bok/tma4110/tma4110-3-3)). Gram–Schmidt på en basis for $W$ gir en ortogonal basis for nettopp $W$ — grunnlaget for projeksjon på $W$ i [kap. 6.3](/bok/tma4110/tma4110-6-3)."
+   "content": "Ofte skal du ortogonalisere en basis for et *underrom*, f.eks. kolonnerommet $\\operatorname{Col}A$ ([kap. 3.3](/tma4110/tma4110-3-3)). Gram–Schmidt på en basis for $W$ gir en ortogonal basis for nettopp $W$ — grunnlaget for projeksjon på $W$ i [kap. 6.3](/tma4110/tma4110-6-3)."
   },
   {
    "id": "tma4110-6-2-rep",
@@ -365,7 +365,7 @@
       "number": "R1",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 6.1](/bok/tma4110/tma4110-6-1)) Regn ut $\\|(1,-1,2)\\|$.",
+      "task": "(Fra [kap. 6.1](/tma4110/tma4110-6-1)) Regn ut $\\|(1,-1,2)\\|$.",
       "solution": "$\\|(1,-1,2)\\|=\\sqrt{1+1+4}=\\sqrt6.$",
       "hints": [
        "Normen er $\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}$."
@@ -380,7 +380,7 @@
       "number": "R2",
       "type": "classic",
       "difficulty": "lett",
-      "task": "(Fra [kap. 6.1](/bok/tma4110/tma4110-6-1)) Er $(1,1,0)$ og $(1,-1,2)$ ortogonale?",
+      "task": "(Fra [kap. 6.1](/tma4110/tma4110-6-1)) Er $(1,1,0)$ og $(1,-1,2)$ ortogonale?",
       "solution": "$\\langle(1,1,0),(1,-1,2)\\rangle=1-1+0=0$, så **ja**, de er ortogonale.",
       "hints": [
        "Regn prikkproduktet."
@@ -395,7 +395,7 @@
       "number": "R3",
       "type": "classic",
       "difficulty": "middels",
-      "task": "(Fra [kap. 3.2](/bok/tma4110/tma4110-3-2)) Hvorfor er tre parvis ortogonale vektorer $\\ne\\mathbf 0$ i $\\mathbb R^3$ en basis?",
+      "task": "(Fra [kap. 3.2](/tma4110/tma4110-3-2)) Hvorfor er tre parvis ortogonale vektorer $\\ne\\mathbf 0$ i $\\mathbb R^3$ en basis?",
       "solution": "De er ortogonale ⇒ lineært uavhengige, og tre uavhengige vektorer i det $3$-dimensjonale $\\mathbb R^3$ utspenner automatisk rommet (dimensjonsargumentet) — altså en basis.",
       "hints": [
        "Ortogonal ⇒ uavhengig; koble til dimensjonsargumentet."
