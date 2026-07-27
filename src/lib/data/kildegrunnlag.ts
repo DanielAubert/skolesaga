@@ -267,6 +267,41 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     analysedato: 'juli 2026',
   },
 
+  ling1100: {
+    courseId: 'ling1100',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for lingvistiske og nordiske studier (ILN)',
+    sammendrag:
+      'Boka er kalibrert mot LING1100s eksamensarkiv ved UiO: 13 filer fra 2011 til 2024 — 12 oppgavesett og én sensorveiledning. Emnet er innføring i semantikk og pragmatikk; ingen av settene inneholder fonologi, morfologi, syntaks eller sosiolingvistikk, og boka følger den avgrensningen. Sjangerkodene F1–F5 og A1–A4 og feilkatalogen er utledet av settene selv.',
+    eksamenssett: [
+      {
+        tittel: '12 oppgavesett (H2011 – H2024)',
+        detalj:
+          'H2011, H2012, H2013, H2014, H2015, H2017, H2018, H2019, H2020 utsatt (avholdt januar 2021), H2021, H2022 og H2024. Emnet har bare høsteksamen. Alle frekvenspåstander i boka har nevner 12 og er talt mot settene.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Én sensorveiledning: høsten 2022',
+        detalj:
+          'Den eneste som finnes for emnet, og boka omtaler den konsekvent i entall. Vurderingskravene hviler derfor på denne veiledningen, på oppgavenes egne instruksjonsverb og på UiOs generelle kvalitative karakterbeskrivelser A–F — ikke på et bredt sensorgrunnlag, og boka påstår ingen steder noe annet.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for LING1100',
+        detalj:
+          'Omskrevet sammendrag, brukt til å avgrense pensum til semantikk og pragmatikk. Flere av settene er engelskspråklige, og boka speiler det i øvingseksamenene.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har verken fasit eller løsningsforslag for LING1100. Alle modellbesvarelser i boka er nyskrevet av oss og merket som det hvert sted de forekommer.',
+      'Eksamensoppgaver og sensorveiledninger fra offentlige institusjoner er unntatt opphavsrett etter åndsverkloven § 14. Alt innhold i boka er likevel omskrevet med egne ord.',
+      'Årgangene 2016, 2023 og 2025 mangler i arkivet. Frekvenstallene bør derfor leses som antall av tolv sett over tretten år, ikke som en sammenhengende tidsserie.',
+      'Boka oppgir ikke sidetall og ikke årstall den ikke kan belegge. Der en teoretiker eier et begrep, er eierskapet navngitt; der litteraturen bruker ulike rollelister eller testformuleringer, sier boka det i stedet for å velge én i stillhet.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   sosant1000: {
     courseId: 'sosant1000',
     institusjon: 'Universitetet i Oslo (UiO) — Sosialantropologisk institutt',
