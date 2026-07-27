@@ -1,0 +1,372 @@
+{
+  "id": "ling1100-4-2",
+  "courseId": "ling1100",
+  "chapterNumber": "4.2",
+  "title": "Scope, kvantorløfting (QR) og flertydighet",
+  "description": "Virkefelt (scope), kvantorløfting og hvordan én setning kan ha to logiske lesninger.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne skrive ut begge scope-lesningene av en setning med to kvantorer og gi en entydig parafrase for hver",
+    "kunne konstruere en konkret situasjon som skiller de to lesningene fra hverandre",
+    "kunne forklare hva kvantorløfting gjør, hva sporet er til, og hvilken lesning løftingen gir",
+    "kunne skille strukturell flertydighet fra leksikalsk flertydighet med en test"
+  ],
+  "content": [
+    {
+      "id": "ling1100-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Scope og kvantorløfting er prøvd i 2 av de 12 settene** i materialet — høsten 2012 og høsten 2018. Temaet er altså ikke hyppig, men det er stabilt til stede, og det henger tett sammen med predikatlogikken i [kap. 4.1](/bok/ling1100/ling1100-4-1), som det nyeste settet prøvde.\n\n- **Sjangeren er F2 — predikatlogikk-oversettelse og modellteoretisk evaluering — med et innslag av A1, altså redegjør og eksemplifiser.** Oppgaven ber som regel om to ting: skriv ut **begge** lesningene som formler, og gi en parafrase for hver.\n- **Typisk formulering:** «Vis at setningen under er scope-flertydig ved å gi begge predikatlogiske lesninger og en parafrase for hver av dem.»\n- **Den ene feilen som koster mest er å oppgi bare én lesning.** Oppgaven ber om at du viser flertydigheten, og en flertydighet kan ikke vises med én formel. Å svare halvt er feil \\#9 i bokas register — altså å svare på feil antall spørsmål.\n- **Den nest største feilen er å nevne kvantorløfting uten å vise hva den gjør.** Å skrive «dette forklares med QR» er gjenfortelling, ikke forklaring. Det er feil \\#5 i registeret.\n- **Prioritet: kunne.** Temaet er lite, det tar en drøy halvtime, og det gir deg samtidig et verktøy du får bruk for i modellteorien i [kap. 4.3](/bok/ling1100/ling1100-4-3)."
+    },
+    {
+      "id": "ling1100-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på [kap. 4.1](/bok/ling1100/ling1100-4-1).\n\n**Sist du var her** — tre ting du trenger friskt:\n\n- **$\\forall x$ leses «for enhver ting $x$ gjelder at …», og $\\exists x$ leses «det finnes minst én ting $x$ slik at …».** Kvantoren står foran det den virker på.\n- **Parringsregelen:** $\\forall$ parres med $\\rightarrow$, og $\\exists$ parres med $\\land$. Den gjelder uendret i dette kapitlet, også når kvantorene nøstes inni hverandre.\n- **Parentesen avgjør hvor langt en kvantor rekker.** Det var poenget i $\\forall x\\,(B(x) \\rightarrow S(x))$ mot $\\forall x\\,B(x) \\rightarrow S(x)$. Dette kapitlet er den innsikten gjort til hovedsak.\n\nOrdet **virkefelt** møtte du også i [kap. 3.1](/bok/ling1100/ling1100-3-1), der det het rekkevidde og gjaldt negasjonen: $\\lnot(p \\land q)$ mot $\\lnot p \\land q$. Det er samme idé — hvem virker på hva — bare med kvantorer i stedet for konnektiver.\n\nKapitlet bruker de samme symbolene som kap. 4.1. Alle står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-4-2-hverdagsanker",
+      "type": "text",
+      "content": "## Én setning, to regnskaper\n\nTenk deg at et seminar er ferdig, og at kursleder skriver i referatet:\n\n```text\n(1)  Alle deltakerne leste en artikkel.\n```\n\nHva har egentlig skjedd? To helt ulike ting kan ha skjedd, og setningen dekker begge:\n\n- **Enten** leste Nora én artikkel, Odd en annen, Petra en tredje — hver deltaker med sin egen. Da er det like mange artikler som deltakere.\n- **Eller** var det **én bestemt artikkel** — den om språkfilosofi — som samtlige deltakere leste. Da er det bare én artikkel i bildet.\n\nBegge situasjonene gjør setningen sann, og setningen sier ikke hvilken av dem det er. **Det er ikke en uklarhet i ordene, og ikke en uklarhet i verden.** Hvert ord i setningen betyr nøyaktig det det pleier. Uklarheten ligger i **hvordan de to mengdeangivelsene forholder seg til hverandre**: hvem av dem regnes ut først.\n\nDet er nettopp det predikatlogikken kan gjøre synlig, og det er hele kapitlet. To formler, to situasjoner, én setning.\n\nKapitlet er bygd i tre løkker. Løkke 1 innfører virkefelt og de to lesningene, løkke 2 tar kvantorløfting som mekanismen bak, og løkke 3 tar negasjon og de vanskeligere tilfellene."
+    },
+    {
+      "id": "ling1100-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Virkefelt og de to lesningene (~20 min)\n\nHer innføres begrepet som bærer hele kapitlet, og de to formlene du skal kunne skrive ut i søvne."
+    },
+    {
+      "id": "ling1100-4-2-def-virkefelt",
+      "type": "definition",
+      "title": "Virkefelt",
+      "content": "Den delen av en formel som en kvantor **virker på**. Den engelske termen er ‘scope’, og den brukes ofte også på norsk.\n\nI $\\forall x\\,(D(x) \\rightarrow L(x))$ er hele parentesen virkefeltet til $\\forall x$.\n\n**Virkefeltet markeres av parentesen**, og det er derfor parentesen aldri er valgfri. Alt som står inni, hører til; alt som står utenfor, gjør det ikke.\n\nBegrepet er det samme du møtte som **rekkevidde** i [kap. 3.1](/bok/ling1100/ling1100-3-1): $\\lnot(p \\land q)$ har hele konjunksjonen i negasjonens rekkevidde, mens $\\lnot p \\land q$ bare har $p$. Forskjellen her er at det nå er kvantorer som konkurrerer om virkefeltet, og at konkurransen gir opphav til et helt eget flertydighetsfenomen."
+    },
+    {
+      "id": "ling1100-4-2-def-leseregel",
+      "type": "definition",
+      "title": "Leseregelen: venstre kvantor har videst virkefelt",
+      "content": "Regelen som lar deg lese en formel med to kvantorer riktig: **den kvantoren som står lengst til venstre, har den andre inne i sitt virkefelt.**\n\nI $\\forall x\\,\\exists y\\,\\varphi$ har allkvantoren eksistenskvantoren inni seg. Formelen leses «for enhver $x$ gjelder at det finnes en $y$ slik at …» — og **den $y$-en kan være forskjellig for hver $x$**, siden den velges på nytt inne i allkvantorens virkefelt.\n\nI $\\exists y\\,\\forall x\\,\\varphi$ er det motsatt. Formelen leses «det finnes en $y$ slik at for enhver $x$ gjelder …» — og **her er $y$ valgt én gang for alle**, før allkvantoren i det hele tatt kommer inn.\n\n**Dette er hele mekanismen i én regel.** Den ytre kvantoren velges først, den indre velges på nytt for hvert valg den ytre gjør. Har du den regelen, kan du lese enhver nøstet kvantorformel riktig."
+    },
+    {
+      "id": "ling1100-4-2-def-vid",
+      "type": "definition",
+      "title": "Vidt virkefelt",
+      "content": "En kvantor har **vidt virkefelt** (‘wide scope’) når den står ytterst og har den andre kvantoren inne i seg.\n\nI $\\forall x\\,\\exists y\\,\\varphi$ har $\\forall$ vidt virkefelt. I $\\exists y\\,\\forall x\\,\\varphi$ har $\\exists$ det.\n\n**Uttrykket «X har vidt virkefelt» er den faste måten å navngi en lesning på**, og det er verdt å bruke i en besvarelse: «på lesningen der eksistenskvantoren har vidt virkefelt …». Det er kortere og presisere enn å beskrive situasjonen hver gang."
+    },
+    {
+      "id": "ling1100-4-2-def-trang",
+      "type": "definition",
+      "title": "Trangt virkefelt",
+      "content": "En kvantor har **trangt virkefelt** (‘narrow scope’) når den står innerst, inne i den andres virkefelt.\n\nDe to begrepene er hverandres motstykker: i en formel med to kvantorer har den ene alltid vidt og den andre trangt virkefelt.\n\n**Den praktiske konsekvensen av trangt virkefelt:** den innerste kvantoren velges **på nytt** for hvert valg den ytterste gjør. Står $\\exists y$ innerst, kan det være en ny $y$ for hver $x$ — og det er nettopp den friheten som gjør de to lesningene ulike."
+    },
+    {
+      "id": "ling1100-4-2-def-scope-flertydighet",
+      "type": "definition",
+      "title": "Scope-flertydighet",
+      "content": "Fenomenet at én setning har **mer enn én lesning fordi kvantorene kan ordnes i mer enn én rekkefølge**. Den engelske termen er ‘scope ambiguity’.\n\nSetningen «Alle deltakerne leste en artikkel» er scope-flertydig. De to lesningene er:\n\n$$\\forall x\\,\\bigl(D(x) \\rightarrow \\exists y\\,(A(y) \\land L(x,y))\\bigr)$$\n\n$$\\exists y\\,\\bigl(A(y) \\land \\forall x\\,(D(x) \\rightarrow L(x,y))\\bigr)$$\n\nDen første sier at hver deltaker leste minst én artikkel, uten å love at det var den samme. Den andre sier at det finnes én bestemt artikkel som samtlige deltakere leste.\n\n**Merk at parringsregelen fra [kap. 4.1](/bok/ling1100/ling1100-4-1) holder i begge formlene.** Hver gang $\\forall$ opptrer, står $\\rightarrow$ inni; hver gang $\\exists$ opptrer, står $\\land$ inni. Det er bare **rekkefølgen** som skifter, ikke parringen. Bytter du parring samtidig som du bytter rekkefølge, har du gjort to feil på én gang."
+    },
+    {
+      "id": "ling1100-4-2-fig-scope",
+      "type": "image",
+      "src": "/images/textbook/ling1100/scope-to-lesninger.svg",
+      "alt": "To panel side om side som viser de to lesningene av setningen Alle deltakerne leste en artikkel. Til venstre står lesningen der allkvantoren har videst virkefelt: Nora har en pil til artikkel P og Odd en pil til artikkel Q, altså to ulike artikler. Til høyre står lesningen der eksistenskvantoren har videst virkefelt: både Nora og Odd har piler til den samme artikkel P. Under panelene står det at situasjonen til venstre skiller lesningene, fordi lesning 1 er sann og lesning 2 usann der.",
+      "caption": "De to lesningene av «Alle deltakerne leste en artikkel», tegnet som to situasjoner. Legg merke til at høyre panel også gjør venstre panels formel sann — men ikke omvendt. Det er styrkeforholdet mellom lesningene, og det behandles rett under."
+    },
+    {
+      "id": "ling1100-4-2-def-uspesifikk",
+      "type": "definition",
+      "title": "Den uspesifikke lesningen",
+      "content": "Lesningen der **allkvantoren har vidt virkefelt** og eksistenskvantoren står innerst:\n\n$$\\forall x\\,\\bigl(D(x) \\rightarrow \\exists y\\,(A(y) \\land L(x,y))\\bigr)$$\n\nParafrase: «Hver deltaker leste minst én artikkel — ikke nødvendigvis den samme.»\n\n**Den kalles uspesifikk fordi artikkelen ikke er pekt ut.** Eksistenskvantoren velges på nytt for hver deltaker, og formelen forplikter seg ikke til noen bestemt artikkel.\n\n**Dette er den lesningen som følger overflaterekkefølgen** i norsk: *alle deltakerne* står først i setningen, og $\\forall$ står først i formelen. Det gjør den til den lettest tilgjengelige lesningen, og som regel den man tenker på først."
+    },
+    {
+      "id": "ling1100-4-2-def-spesifikk",
+      "type": "definition",
+      "title": "Den spesifikke lesningen",
+      "content": "Lesningen der **eksistenskvantoren har vidt virkefelt** og allkvantoren står innerst:\n\n$$\\exists y\\,\\bigl(A(y) \\land \\forall x\\,(D(x) \\rightarrow L(x,y))\\bigr)$$\n\nParafrase: «Det finnes én bestemt artikkel som alle deltakerne leste.»\n\n**Den kalles spesifikk fordi artikkelen er pekt ut** — den velges én gang, før allkvantoren kommer inn, og er derfor den samme for alle.\n\n**Merk at denne lesningen ikke følger overflaterekkefølgen.** I den norske setningen står *alle deltakerne* først og *en artikkel* sist, men i formelen er rekkefølgen snudd. Hvordan det kan gå til, er nettopp spørsmålet kvantorløfting svarer på i løkke 2."
+    },
+    {
+      "id": "ling1100-4-2-thm-styrkeforhold",
+      "type": "theorem",
+      "title": "Styrkeforholdet mellom de to lesningene",
+      "content": "De to lesningene er ikke likeverdige i styrke. Den ene sier mer enn den andre, og forholdet går bare én vei.\n\n**Den spesifikke lesningen er den sterkeste.** Er det sant at det finnes én artikkel alle leste, så er det også sant at hver deltaker leste minst én artikkel. Det andre følger av det første, uansett hvordan situasjonen ellers ser ut.\n\n$$\\exists y\\,\\bigl(A(y) \\land \\forall x\\,(D(x) \\rightarrow L(x,y))\\bigr) \\ \\vDash \\ \\forall x\\,\\bigl(D(x) \\rightarrow \\exists y\\,(A(y) \\land L(x,y))\\bigr)$$\n\nSymbolet $\\vDash$ er entailment fra [kap. 3.2](/bok/ling1100/ling1100-3-2): det som står til venstre, kan ikke være sant uten at det som står til høyre, også er det.\n\n**Motsatt vei gjelder ikke.** Situasjonen i figuren over er moteksempelet: Nora leste artikkel P, Odd leste artikkel Q, og ingen leste begge. Der er den uspesifikke lesningen sann og den spesifikke usann.\n\n**Dette er verdt å skrive i en besvarelse**, for det gjør to ting samtidig: det viser at du har forstått hva forskjellen består i, og det gir deg en gratis kontroll. Har du to formler der ingen av dem følger av den andre, har du sannsynligvis skrevet feil et sted."
+    },
+    {
+      "id": "ling1100-4-2-def-skillesituasjon",
+      "type": "definition",
+      "title": "Skillesituasjonen",
+      "content": "En konkret situasjon der de to lesningene får **ulik sannhetsverdi**. Å beskrive en slik situasjon er den tryggeste måten å vise at en setning er flertydig.\n\nFor «Alle deltakerne leste en artikkel» er skillesituasjonen enkel: to deltakere, to artikler, hver deltaker leste sin. Der er den uspesifikke lesningen **sann** og den spesifikke **usann**.\n\n**Framgangsmåten for å konstruere en skillesituasjon** er alltid den samme: gjør den svakeste lesningen sann på den mest spredte måten du kan. Har hvert individ sin egen partner, er eksistenskvantoren med vidt virkefelt utelukket.\n\n**Dette grepet er også hele metoden i [kap. 4.3](/bok/ling1100/ling1100-4-3)**, der du systematisk regner ut sannhetsverdier mot en oppgitt situasjon. Her gjør du det uformelt; der gjør du det med et apparat."
+    },
+    {
+      "id": "ling1100-4-2-def-parafrasetest",
+      "type": "definition",
+      "title": "Parafrasetesten for scope",
+      "content": "Testen som avgjør hvilken lesning en formel uttrykker: **les formelen fra venstre mot høyre, og legg merke til hvilken kvantor du møter først.**\n\n- Møter du $\\forall$ først, er lesningen uspesifikk. Parafrasen får formen «hver X har sin egen Y».\n- Møter du $\\exists$ først, er lesningen spesifikk. Parafrasen får formen «det finnes én bestemt Y som gjelder for alle X».\n\n**Skriv alltid parafrasen ut i besvarelsen**, ikke bare formelen. Oppgaveteksten ber som regel eksplisitt om det, og selv når den ikke gjør det, er parafrasen det som viser at du forstår formelen din.\n\n**En parafrase som ikke skiller lesningene, er ikke en parafrase.** Skriver du «alle deltakerne leste en artikkel» som parafrase på begge formlene, har du bare gjentatt den flertydige setningen. Parafrasen skal være **entydig** — det er hele hensikten med den."
+    },
+    {
+      "id": "ling1100-4-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Begge lesningene skrevet ut, med skillesituasjon",
+      "problem": "**Nyskrevet eksamensoppgave:** «Vis at setningen under er scope-flertydig. Gi begge predikatlogiske lesninger, en entydig parafrase for hver, og beskriv en situasjon som skiller dem.»\n\n```text\n(2)  Alle deltakerne leste en artikkel.\n```",
+      "solution": "**Nøkkelen:**\n\n```text\n(3)  D(x):   x er deltaker\n     A(y):   y er artikkel\n     L(x,y): x leste y\n```\n\n**Lesning 1 — allkvantoren har vidt virkefelt (den uspesifikke).**\n\n$$\\forall x\\,\\bigl(D(x) \\rightarrow \\exists y\\,(A(y) \\land L(x,y))\\bigr)$$\n\n**Parafrase:** «Hver deltaker leste minst én artikkel, men ikke nødvendigvis den samme som de andre.»\n\n**Lesning 2 — eksistenskvantoren har vidt virkefelt (den spesifikke).**\n\n$$\\exists y\\,\\bigl(A(y) \\land \\forall x\\,(D(x) \\rightarrow L(x,y))\\bigr)$$\n\n**Parafrase:** «Det finnes én bestemt artikkel som samtlige deltakere leste.»\n\n**Situasjonen som skiller dem.** To deltakere, Nora og Odd, og to artikler, P og Q. Nora leste P, Odd leste Q, og ingen av dem leste den andres artikkel.\n\n- **Lesning 1 er sann her.** Ta Nora: hun er deltaker, og det finnes en artikkel, nemlig P, som hun leste. Ta Odd: han er deltaker, og det finnes en artikkel, nemlig Q, som han leste. Begge deltakerne oppfyller kravet, og andre deltakere finnes ikke.\n- **Lesning 2 er usann her.** Formelen krever at det finnes **én** artikkel som alle leste. Prøv P: Nora leste den, men Odd gjorde ikke. Prøv Q: Odd leste den, men Nora gjorde ikke. Ingen kandidat holder, og formelen er usann.\n\n**Merk hva som skjer i den andre retningen.** Hadde begge lest P, ville **begge** lesningene vært sanne. Det er ikke tilfeldig: den spesifikke lesningen er den sterkeste, og den kan ikke være sann uten at den uspesifikke også er det.\n\n> Margnotat: at svaret **beskriver situasjonen konkret** — to navn, to artikler, hvem leste hva — er det som skiller en fullstendig besvarelse fra en riktig. En påstand om at lesningene er ulike, er lett å skrive; en situasjon som viser det, er ikke til å motsi."
+    },
+    {
+      "id": "ling1100-4-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-2-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F2 — predikatlogikk-oversettelse og modellteoretisk evaluering. Innstegsoppgave.)\n\n**a)** Hvilken kvantor har vidt virkefelt i $\\forall x\\,\\exists y\\,K(x,y)$?\n**b)** Les den formelen på norsk, ledd for ledd.\n**c)** Hva heter fenomenet at én setning har to lesninger fordi kvantorene kan ordnes i to rekkefølger?",
+        "solution": "**a) Allkvantoren $\\forall x$.** Den står lengst til venstre, og har derfor eksistenskvantoren inne i sitt virkefelt. Leseregelen er at venstre kvantor har videst virkefelt.\n\n**b)** «For enhver ting $x$ gjelder at det finnes minst én ting $y$ slik at $x$ står i $K$-relasjonen til $y$.» Med et konkret innhold, for eksempel «kjenner»: hver ting kjenner minst én ting — **ikke nødvendigvis den samme for alle**.\n\n**c) Scope-flertydighet** (‘scope ambiguity’). Fenomenet skyldes ikke at ordene er flertydige, men at de to mengdeangivelsene kan ordnes på to måter.\n\n**Legg merke til presiseringen i b):** «ikke nødvendigvis den samme» er nettopp det som gjør parafrasen entydig. Uten den setter du igjen leseren med den flertydigheten oppgaven ba deg oppløse.",
+        "hints": [
+          "For a): se hvilken kvantor du møter først når du leser fra venstre.",
+          "For b): les $\\forall x$ som «for enhver ting» og $\\exists y$ som «det finnes minst én ting»."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Kvantorløfting (QR) (~18 min)\n\n**— naturlig pausepunkt —**\n\nTil nå har vi bare konstatert at det finnes to lesninger. Nå kommer spørsmålet som gjør temaet til lingvistikk og ikke bare logikk: **hvordan kan en setning der *en artikkel* står sist, ha en lesning der den kvantoren kommer først?**"
+    },
+    {
+      "id": "ling1100-4-2-def-overflateform",
+      "type": "definition",
+      "title": "Overflateform",
+      "content": "Setningen slik den faktisk uttales eller skrives, med den ordstillingen den har. Den engelske termen er ‘surface structure’ eller ‘surface form’.\n\nI overflateformen av «Alle deltakerne leste en artikkel» står *alle deltakerne* først og *en artikkel* sist.\n\n**Problemet er at overflateformen bare har én rekkefølge, mens setningen har to lesninger.** Er rekkefølgen i setningen det som bestemmer virkefeltet, skulle setningen bare hatt den uspesifikke lesningen. Men den har begge. Noe annet enn overflaterekkefølgen må altså avgjøre virkefeltet."
+    },
+    {
+      "id": "ling1100-4-2-def-logisk-form",
+      "type": "definition",
+      "title": "Logisk form",
+      "content": "En **egen representasjon av setningen der virkefeltene er entydig fastlagt**. Den engelske termen er ‘Logical Form’, ofte forkortet LF.\n\nTanken er denne: en setning har mer enn ett strukturnivå. Overflateformen er nivået vi hører. Logisk form er et nivå til, som ikke uttales, og der hvert kvantoruttrykk har fått en fast plass i virkefelts-hierarkiet.\n\n**En flertydig setning har da én overflateform og to logiske former** — én per lesning. Det er nettopp det som gjør at flertydigheten kan representeres i det hele tatt.\n\nFramstillingen her følger den som brukes i Elbourne og i Zimmermann & Sternefeld. Du trenger ikke ta stilling til hvor sterkt et slikt nivå er begrunnet — det er en teoretisk debatt langt utenfor et innføringsemne — men du bør kunne forklare **hva** representasjonen gjør."
+    },
+    {
+      "id": "ling1100-4-2-def-qr",
+      "type": "definition",
+      "title": "Kvantorløfting (QR)",
+      "content": "Operasjonen som **flytter et kvantoruttrykk ut av setningen og opp foran den** i logisk form. Den engelske termen er ‘Quantifier Raising’, alltid forkortet QR.\n\nSlik virker den på vår setning: kvantoruttrykket *en artikkel* står som objekt i overflateformen. QR løfter det opp og plasserer det foran hele setningen, og den etterlater et **spor** i den plassen det forlot.\n\nResultatet er en logisk form der *en artikkel* står lengst til venstre og derfor har videst virkefelt — nøyaktig den spesifikke lesningen.\n\n**Mekanismen forklart, ikke bare navngitt:** QR er en flytting som **omordner virkefelts-hierarkiet uten å endre ordstillingen vi hører**. Løftes objektkvantoren over subjektkvantoren, får objektet vidt virkefelt; løftes den ikke, beholder subjektet det. De to lesningene svarer altså til to ulike løftinger.\n\n**Å skrive «dette forklares med QR» og stoppe der, er feil \\#5 i bokas register** — å gjenfortelle i stedet for å forklare mekanismen. Si hva som flyttes, hvor det flyttes til, og hvilken lesning det gir."
+    },
+    {
+      "id": "ling1100-4-2-def-spor",
+      "type": "definition",
+      "title": "Sporet",
+      "content": "Den tomme plassen et løftet uttrykk etterlater seg. Den engelske termen er ‘trace’.\n\nNår *en artikkel* løftes ut av objektplassen, står plassen igjen tom. Sporet markerer den, og den løftede kvantoren **binder** sporet — på nøyaktig samme måte som en kvantor binder en variabel i en formel.\n\n**Det er derfor sporet er nødvendig og ikke bare bokføring.** Uten det ville verbet *leste* stått uten objekt, og formelen ville manglet det andre argumentet i $L(x,y)$. Sporet er det som blir til $y$-en i den ferdige formelen."
+    },
+    {
+      "id": "ling1100-4-2-fig-qr",
+      "type": "image",
+      "src": "/images/textbook/ling1100/kvantorlofting-qr.svg",
+      "alt": "Et diagram i tre trinn. Øverst står overflateformen av setningen med alle deltakerne først, verbet leste i midten og en artikkel sist. En pil merket kvantorløfting peker ned til logisk form, der en artikkel er flyttet helt til venstre, foran alle deltakerne, og der det står et spor på objektplassen etter verbet. En linje knytter den løftede kvantoren til sporet. Nederst står resultatet: eksistenskvantoren står lengst til venstre i formelen og har derfor videst virkefelt.",
+      "caption": "Kvantorløfting av objektet «en artikkel» i setningen «Alle deltakerne leste en artikkel». Den løftede kvantoren havner til venstre for «alle deltakerne» og får dermed videst virkefelt — det er den spesifikke lesningen. Løftes den ikke, beholder allkvantoren vidt virkefelt, og lesningen blir den uspesifikke."
+    },
+    {
+      "id": "ling1100-4-2-thm-prosedyre",
+      "type": "theorem",
+      "title": "Prosedyre: vis at en setning er scope-flertydig",
+      "content": "Fem trinn. Dette er oppskriften for hele oppgavetypen, og den kan følges mekanisk.\n\n**Trinn 1 — identifiser kvantoruttrykkene.** Det skal være minst to. Typiske par er *alle* sammen med *en/noen*, *hver* sammen med *en*, eller et kvantoruttrykk sammen med en negasjon.\n\n**Trinn 2 — skriv nøkkelen.** Predikater med argumentplassene markert, som i [kap. 4.1](/bok/ling1100/ling1100-4-1).\n\n**Trinn 3 — skriv lesningen som følger overflaterekkefølgen først.** Den er lettest, og den gir deg byggeklossene til den andre.\n\n**Trinn 4 — skriv den andre lesningen ved å løfte den innerste kvantoren ut.** Kontroller at parringsregelen fortsatt holder: $\\forall$ med $\\rightarrow$, $\\exists$ med $\\land$. Rekkefølgen skifter, parringen gjør det ikke.\n\n**Trinn 5 — gi en entydig parafrase for hver lesning, og beskriv en skillesituasjon.** Parafrasen skal ikke kunne leses på to måter; skillesituasjonen skal være konkret, med navn og tall.\n\n**Kontroll før du leverer:** to formler, to parafraser, én situasjon, og parringsregelen holdt i begge formlene. Fire ting, tjue sekunder."
+    },
+    {
+      "id": "ling1100-4-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-2-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk nøkkelen under, og gjør oppgaven i tre deler.\n\n```text\n(4)  E(x):   x er elev\n     O(y):   y er oppgave\n     Lo(x,y): x løste y\n```\n\nBetrakt setningen: «Alle elevene løste en oppgave.»\n\n**a)** Skriv lesningen der allkvantoren har vidt virkefelt, og gi en entydig parafrase.\n**b)** Skriv lesningen der eksistenskvantoren har vidt virkefelt, og gi en entydig parafrase.\n**c)** Beskriv en konkret situasjon der den ene lesningen er sann og den andre usann.",
+        "solution": "**a)** $\\forall x\\,\\bigl(E(x) \\rightarrow \\exists y\\,(O(y) \\land Lo(x,y))\\bigr)$\n\n**Parafrase:** «Hver elev løste minst én oppgave, men ikke nødvendigvis den samme oppgaven som de andre.»\n\n**b)** $\\exists y\\,\\bigl(O(y) \\land \\forall x\\,(E(x) \\rightarrow Lo(x,y))\\bigr)$\n\n**Parafrase:** «Det finnes én bestemt oppgave som samtlige elever løste.»\n\n**c)** Tre elever — Hedda, Jonas og Kaja — og tre oppgaver, som vi kaller 1, 2 og 3. Hedda løste oppgave 1, Jonas løste oppgave 2, Kaja løste oppgave 3, og ingen løste flere enn sin egen.\n\n**Lesning a) er sann her:** hver av de tre elevene har minst én oppgave hun løste.\n\n**Lesning b) er usann her:** ingen enkelt oppgave ble løst av alle tre. Oppgave 1 ble bare løst av Hedda, oppgave 2 bare av Jonas, oppgave 3 bare av Kaja.\n\n**Kontroll av parringen:** i begge formlene står $\\rightarrow$ etter $E(x)$ og $\\land$ etter $O(y)$. Rekkefølgen på kvantorene er byttet, men parringen er den samme. Hadde du skrevet $\\exists y\\,(O(y) \\rightarrow \\ldots)$ i b), ville formelen blitt nesten alltid sann og dermed meningsløs.",
+        "hints": [
+          "Skriv først lesningen som følger den norske ordstillingen, og bytt deretter rekkefølgen på kvantorene.",
+          "For c): la hver elev ha sin egen oppgave, så utelukkes den spesifikke lesningen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-2-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2 og A1 — redegjør og eksemplifiser.) Forklar kvantorløfting slik en eksamensbesvarelse ville gjort det.\n\n**a)** Hva er det som løftes, og hvor løftes det til?\n**b)** Hva blir igjen på plassen som forlates, og hvilken rolle spiller det?\n**c)** Hvilken av de to lesningene av «Alle elevene løste en oppgave» krever løfting, og hvorfor?",
+        "solution": "**a)** Det som løftes, er et **kvantoruttrykk** — i vårt tilfelle objektet *en oppgave*. Det løftes ut av setningen og opp foran den, i representasjonen som kalles **logisk form**. Flyttingen skjer altså ikke i den setningen vi hører; overflateformen er uendret.\n\n**b)** Det blir igjen et **spor** på plassen objektet forlot. Sporet er ikke bokføring: det er det som **binder** den løftede kvantoren til argumentplassen i verbet. Uten sporet ville *løste* stått uten objekt, og formelen ville manglet det andre argumentet i $Lo(x,y)$.\n\n**c)** Den **spesifikke** lesningen krever løfting — den der det finnes én bestemt oppgave alle løste. Grunnen er at objektkvantoren i den lesningen må ha videst virkefelt, altså stå lengst til venstre i formelen, mens den i overflateformen står sist i setningen. Bare en flytting kan gi den den plassen.\n\nDen uspesifikke lesningen krever derimot ingen løfting: der følger virkefeltene overflaterekkefølgen, med subjektkvantoren ytterst.\n\n**Merk hva svaret gjør, og hva det ikke gjør.** Det **navngir** ikke bare mekanismen, det sier hva som flyttes, hvor det havner, hva som blir igjen, og hvilken lesning resultatet gir. Et svar som bare skriver «flertydigheten forklares med QR», er gjenfortelling — feil \\#5 i bokas register.",
+        "hints": [
+          "Start med å spørre hvilket ledd i setningen som må ende opp lengst til venstre i formelen.",
+          "For b): tenk på hva verbet ville manglet hvis ingenting ble igjen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Negasjon, og de tilfellene som er verre (~12 min)\n\nKvantorer er ikke de eneste uttrykkene som konkurrerer om virkefelt. Negasjonen gjør det samme, og den gir en flertydighet mange møter uten å legge merke til den."
+    },
+    {
+      "id": "ling1100-4-2-def-kvantor-negasjon",
+      "type": "definition",
+      "title": "Kvantor og negasjon i samme setning",
+      "content": "Når en negasjon og en kvantor står i samme setning, kan de ordnes i to rekkefølger, og setningen blir flertydig på samme måte som med to kvantorer.\n\nBetrakt setningen «Alle deltakerne leverte ikke.» De to lesningene er:\n\n$$\\forall x\\,(D(x) \\rightarrow \\lnot L(x))$$\n\n$$\\lnot\\forall x\\,(D(x) \\rightarrow L(x))$$\n\nDen første har **allkvantoren ytterst** og sier at ingen leverte. Den andre har **negasjonen ytterst** og sier bare at det ikke er tilfelle at alle leverte — altså at minst én lot være.\n\n**Forskjellen er stor.** Den første utelukker samtlige; den andre er sann selv om nesten alle leverte. Det er nøyaktig skillet mellom «ingen A er B» og «ikke alle A er B» fra [kap. 4.1](/bok/ling1100/ling1100-4-1) — men her ligger begge lesningene i **én og samme norske setning**.\n\n**Praktisk merknad:** hvilken lesning som er lettest tilgjengelig, varierer med trykk og sammenheng. I skriftlig norsk er setningen ofte ubehagelig uklar, og gode skribenter omformulerer den. For oss er den nyttig nettopp fordi den er uklar."
+    },
+    {
+      "id": "ling1100-4-2-def-foretrukket",
+      "type": "definition",
+      "title": "Den foretrukne lesningen",
+      "content": "Den lesningen som melder seg først når du leser en scope-flertydig setning uten videre sammenheng. Den engelske termen er ‘preferred reading’.\n\nFor «Alle deltakerne leste en artikkel» er den uspesifikke lesningen som regel den foretrukne — den som følger overflaterekkefølgen, med subjektkvantoren ytterst.\n\n**Merk hva dette er og hva det ikke er.** At én lesning er lettere tilgjengelig, er ikke det samme som at den andre er utelukket. Setningen har fortsatt begge lesningene, og en sammenheng kan gjøre den mindre tilgjengelige til den opplagte: sier noen «alle deltakerne leste en artikkel — den om språkfilosofi», er den spesifikke lesningen den eneste som gjenstår.\n\n**Dette er derfor et pragmatisk fenomen, ikke et semantisk.** Setningens betydning rommer begge; sammenhengen og tolkningsvanene våre velger. Å påstå at den foretrukne lesningen er «den riktige», er en feil — og det er nettopp den feilen en scope-oppgave er laget for å avdekke."
+    },
+    {
+      "id": "ling1100-4-2-def-strukturell",
+      "type": "definition",
+      "title": "Strukturell flertydighet",
+      "content": "Flertydighet som skyldes **hvordan delene i setningen er ordnet i forhold til hverandre**, ikke at noe enkeltord har flere betydninger. Den engelske termen er ‘structural ambiguity’.\n\nScope-flertydighet er en type strukturell flertydighet.\n\n**Kontrasten er leksikalsk flertydighet**, som du møtte i [kap. 2.1](/bok/ling1100/ling1100-2-1): der ligger flertydigheten i ett ord, som ved homonymi og polysemi. En setning med *bank* er flertydig fordi ordet har flere betydninger.\n\n**Testen som skiller de to typene:** kan du peke på **ett ord** som har to betydninger? Da er flertydigheten leksikalsk. Betyr hvert ord nøyaktig det det pleier, mens setningen likevel har to lesninger, er den strukturell.\n\n«Alle deltakerne leste en artikkel» består av ord som hver for seg er entydige. Det er nettopp derfor flertydigheten må ligge i strukturen."
+    },
+    {
+      "id": "ling1100-4-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-2-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Betrakt setningen «Alle søkerne fikk ikke svar.»\n\n```text\n(5)  S(x): x er søker\n     Sv(x): x fikk svar\n```\n\n**a)** Skriv de to lesningene som formler.\n**b)** Gi en entydig parafrase for hver.\n**c)** Beskriv en situasjon der den ene er sann og den andre usann.",
+        "solution": "**a)** Lesning 1, med **allkvantoren ytterst**:\n\n$$\\forall x\\,(S(x) \\rightarrow \\lnot Sv(x))$$\n\nLesning 2, med **negasjonen ytterst**:\n\n$$\\lnot\\forall x\\,(S(x) \\rightarrow Sv(x))$$\n\n**b)** *Parafrase 1:* «Ingen av søkerne fikk svar.» *Parafrase 2:* «Det var ikke slik at alle søkerne fikk svar — minst én fikk det ikke.»\n\n**c)** Fem søkere, der fire fikk svar og én ikke gjorde det.\n\n**Lesning 2 er sann her:** det er riktig at ikke alle fikk svar, siden én ble stående igjen.\n\n**Lesning 1 er usann her:** den krever at ingen fikk svar, og fire av dem fikk det.\n\n**Merk sammenhengen med [kap. 4.1](/bok/ling1100/ling1100-4-1).** Lesning 2 kan også skrives $\\exists x\\,(S(x) \\land \\lnot Sv(x))$ ved kvantornegasjonsloven — negasjonen flyttes inn, og $\\forall$ snur til $\\exists$. De to skrivemåtene sier det samme, og å oppgi begge koster én linje.\n\n**Kontrollen som gjør denne oppgavetypen trygg:** spør om setningen på den aktuelle lesningen tillater at **noen** fikk svar. Lesning 1 gjør ikke det; lesning 2 gjør det.",
+        "hints": [
+          "Spør hva som står ytterst i formelen — kvantoren eller negasjonen.",
+          "For c): la nesten alle få svar, og se hvilken lesning som overlever."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-2-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2.) Betrakt setningen «En veileder leste alle rapportene.»\n\n```text\n(6)  V(x):   x er veileder\n     R(y):   y er rapport\n     Le(x,y): x leste y\n```\n\n**a)** Skriv de to scope-lesningene.\n**b)** Hvilken av dem følger overflaterekkefølgen, og hvilken krever kvantorløfting?\n**c)** Hvilken av lesningene er sterkest? Begrunn med en situasjon.",
+        "solution": "**a)** Lesning 1, med **eksistenskvantoren ytterst**:\n\n$$\\exists x\\,\\bigl(V(x) \\land \\forall y\\,(R(y) \\rightarrow Le(x,y))\\bigr)$$\n\nLesning 2, med **allkvantoren ytterst**:\n\n$$\\forall y\\,\\bigl(R(y) \\rightarrow \\exists x\\,(V(x) \\land Le(x,y))\\bigr)$$\n\n**b)** **Lesning 1 følger overflaterekkefølgen.** I den norske setningen står *en veileder* først som subjekt, og i formelen står $\\exists x$ først. Det er den lesningen der én bestemt veileder leste samtlige rapporter.\n\n**Lesning 2 krever kvantorløfting.** Der må objektkvantoren *alle rapportene* — som står sist i setningen — ende opp lengst til venstre i formelen. Den lesningen sier at hver rapport ble lest av minst én veileder, men ikke nødvendigvis den samme.\n\n**c) Lesning 1 er den sterkeste.** Den entailer lesning 2: finnes det én veileder som leste alle rapportene, så er hver rapport lest av minst én veileder.\n\n**Situasjonen som viser at det ikke går motsatt vei:** tre rapporter og tre veiledere. Veileder A leste rapport 1, veileder B leste rapport 2, veileder C leste rapport 3, og ingen leste mer enn sin egen. Her er lesning 2 **sann** — hver rapport er lest av noen — mens lesning 1 er **usann**, siden ingen enkelt veileder leste alt.\n\n**Merk at mønsteret er speilvendt av det i eksempel 1.** Der sto allkvantoren først i setningen; her står eksistenskvantoren først. Det som er konstant, er regelen: **den kvantoren som ender lengst til venstre i formelen, er den som er valgt én gang for alle.**",
+        "hints": [
+          "Begynn med å avgjøre hvilket ledd i den norske setningen som står først.",
+          "For c): spred rapportene på hver sin veileder, og se hvilken lesning som overlever."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-2-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2 og A1, full sjanger.) «Betrakt setningen under. (i) Vis at den er scope-flertydig ved å gi begge lesninger som formler med entydige parafraser. (ii) Forklar hva kvantorløfting gjør, og hvilken av lesningene som krever den. (iii) Beskriv en situasjon som skiller lesningene. (iv) Forklar hvorfor denne flertydigheten er strukturell og ikke leksikalsk.»\n\n```text\n(7)  Hver student valgte en veileder.\n```",
+        "solution": "**(i) Nøkkelen og de to lesningene.**\n\n```text\n(8)  St(x):  x er student\n     Ve(y):  y er veileder\n     Va(x,y): x valgte y\n```\n\nLesning 1 — allkvantoren har vidt virkefelt:\n\n$$\\forall x\\,\\bigl(St(x) \\rightarrow \\exists y\\,(Ve(y) \\land Va(x,y))\\bigr)$$\n\n**Parafrase:** «Hver student valgte minst én veileder, og det kan godt ha vært ulike veiledere.»\n\nLesning 2 — eksistenskvantoren har vidt virkefelt:\n\n$$\\exists y\\,\\bigl(Ve(y) \\land \\forall x\\,(St(x) \\rightarrow Va(x,y))\\bigr)$$\n\n**Parafrase:** «Det finnes én bestemt veileder som samtlige studenter valgte.»\n\n**(ii) Hva kvantorløfting gjør.** QR flytter et kvantoruttrykk ut av setningen og opp foran den, i den representasjonen som kalles logisk form. Uttrykket etterlater et **spor** på plassen det forlot, og den løftede kvantoren binder sporet, som blir til den andre argumentplassen i $Va(x,y)$. Fordi den løftede kvantoren nå står lengst til venstre, får den videst virkefelt.\n\n**Lesning 2 krever løfting.** Der må objektet *en veileder*, som står sist i setningen, ende lengst til venstre i formelen. Lesning 1 krever ingen løfting: der følger virkefeltene overflaterekkefølgen.\n\n**(iii) Skillesituasjonen.** To studenter, Live og Mats, og to veiledere, Ravn og Sunniva. Live valgte Ravn, Mats valgte Sunniva, og ingen valgte begge.\n\n**Lesning 1 er sann:** begge studentene valgte minst én veileder. **Lesning 2 er usann:** verken Ravn eller Sunniva ble valgt av begge studentene.\n\n**(iv) Hvorfor flertydigheten er strukturell.** Testen er å spørre om noe **enkeltord** har to betydninger. Det har det ikke her: *hver*, *student*, *valgte*, *en* og *veileder* betyr nøyaktig det de pleier, og ingen av dem er homonymt eller polysemt. Flertydigheten oppstår utelukkende av **hvordan de to mengdeangivelsene forholder seg til hverandre** i virkefelts-hierarkiet. Til sammenligning ville en setning med *bank* vært **leksikalsk** flertydig, siden ett ord der har to urelaterte betydninger — se [kap. 2.1](/bok/ling1100/ling1100-2-1).\n\n**Kontroll til slutt:** oppgaveteksten hadde fire krav — to formler med parafraser, en forklaring av QR, en situasjon, og en begrunnelse for flertydighetstypen. Alle fire er besvart, og parringsregelen holder i begge formlene.",
+        "hints": [
+          "Skriv først lesningen som følger den norske ordstillingen.",
+          "For (iv): prøv å peke på ett ord i setningen som har to betydninger."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-2-warn-ikke-bland",
+      "type": "warning",
+      "title": "Ikke bland vidt og trangt virkefelt",
+      "content": "De to lesningene ser nesten like ut på papiret, og forvekslingen er feil \\#2 i bokas register — altså det å bytte om parvise begreper.\n\n**Den skarpe forskjellen i én setning:** den kvantoren som står **lengst til venstre**, er valgt **én gang for alle**; den som står innerst, velges **på nytt** for hvert valg den ytterste gjør.\n\n**Testen som skiller dem i praksis:** spør om setningen på den lesningen du mener, tillater at hver X har sin **egen** Y. Gjør den det, står eksistenskvantoren innerst. Krever den **samme** Y for alle, står eksistenskvantoren ytterst.\n\nTo feller som følger av forvekslingen:\n\n- **Å tro at rekkefølgen i den norske setningen avgjør.** Den gjør det ikke — det er nettopp derfor kvantorløfting finnes som begrep. En setning der objektet står sist, kan godt ha en lesning der objektkvantoren har videst virkefelt.\n- **Å bytte parring samtidig som du bytter rekkefølge.** Rekkefølgen på kvantorene skifter mellom lesningene; parringen $\\forall$ med $\\rightarrow$ og $\\exists$ med $\\land$ gjør det aldri."
+    },
+    {
+      "id": "ling1100-4-2-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Scope-oppgaver har fasit. To lesninger, to formler, og en parafrase som faktisk skiller dem — det er hva oppgaven ber om, og vaghet teller som feil \\#4 i bokas register, ikke som svakhet. Den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk på det punktet for formelle svar.\n\n> **Vagt:** «Setningen kan bety at alle leste den samme artikkelen, eller at de leste forskjellige. Det avhenger av scope.»\n> **Presist:** «På lesningen der allkvantoren har vidt virkefelt — $\\forall x\\,(D(x) \\rightarrow \\exists y\\,(A(y) \\land L(x,y)))$ — leste hver deltaker minst én artikkel, ikke nødvendigvis den samme. På lesningen der eksistenskvantoren har vidt virkefelt — $\\exists y\\,(A(y) \\land \\forall x\\,(D(x) \\rightarrow L(x,y)))$ — finnes det én bestemt artikkel som alle leste. Situasjonen der Nora leste P og Odd leste Q, skiller dem: der er den første sann og den andre usann.»\n\nFem spørsmål til ditt eget svar:\n\n- Har jeg skrevet **begge** lesningene som formler, ikke bare beskrevet dem?\n- Er hver **parafrase entydig** — kan den selv leses på to måter?\n- Står **skillesituasjonen** der, konkret, med navn og tall?\n- Holder **parringsregelen** i begge formlene?\n- Har jeg sagt hva **kvantorløfting gjør**, og ikke bare nevnt forkortelsen?\n\n**Den enkeltformuleringen som koster mest:** «setningen er tvetydig fordi *en artikkel* kan bety flere ting». Nei — *en artikkel* betyr det samme i begge lesningene. Det som varierer, er virkefeltet, ikke betydningen av ordene."
+    },
+    {
+      "id": "ling1100-4-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil dominerer scope-oppgaver.\n\n- **Feil \\#9 — å oppgi bare én lesning.** Oppgaven ber om at du **viser** flertydigheten, og det krever to formler. Én formel er et halvt svar.\n- **Feil \\#5 — å nevne kvantorløfting uten å forklare den.** Si hva som flyttes, hvor det havner, hva sporet gjør, og hvilken lesning resultatet gir.\n- **Feil \\#2 — å bytte om de to lesningene.** Kontrollen er leseregelen: venstre kvantor har videst virkefelt, og den er valgt én gang for alle.\n- **Parafraser som selv er flertydige.** «Alle leste en artikkel» duger ikke som parafrase på noen av lesningene — det er den flertydige setningen om igjen.\n- **Parringen brutt i den andre formelen.** Det er lett å skrive $\\exists y\\,(A(y) \\rightarrow \\ldots)$ når man snur rekkefølgen. Rekkefølgen skifter; parringen gjør det ikke.\n\n**En sjette felle, som hører til feil \\#4:** å påstå at den ene lesningen er «den riktige». Begge er riktige lesninger av setningen. Hva som er ment i en konkret situasjon, avgjøres av sammenhengen — men setningen i seg selv har begge."
+    },
+    {
+      "id": "ling1100-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-4-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\forall$ | allkvantor — «for enhver ting gjelder at …» |\n| $\\exists$ | eksistenskvantor — «det finnes minst én ting slik at …» |\n| $x$, $y$ | individvariabler, bundet av hver sin kvantor |\n| $D(x)$, $A(y)$ | ettplasspredikater — egenskaper |\n| $L(x,y)$ | toplasspredikat — relasjon; første plass er den som leser |\n| $\\rightarrow$ | material implikasjon, parres med $\\forall$ |\n| $\\land$ | konjunksjon, parres med $\\exists$ |\n| $\\lnot$ | negasjon; konkurrerer om virkefelt på samme måte som en kvantor |\n| $\\vDash$ | entailment fra [kap. 3.2](/bok/ling1100/ling1100-3-2) — brukes om styrkeforholdet mellom lesningene |\n| $\\varphi$ | plassholder for en vilkårlig formel |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$\\forall x\\,\\bigl(D(x) \\rightarrow \\exists y\\,(A(y) \\land L(x,y))\\bigr)$$\n\nDen uspesifikke lesningen: allkvantoren har vidt virkefelt, og $y$ velges på nytt for hver $x$.\n\n$$\\exists y\\,\\bigl(A(y) \\land \\forall x\\,(D(x) \\rightarrow L(x,y))\\bigr)$$\n\nDen spesifikke lesningen: eksistenskvantoren har vidt virkefelt, og $y$ er valgt én gang for alle.\n\n$$\\exists y\\,\\forall x\\,\\varphi \\ \\vDash \\ \\forall x\\,\\exists y\\,\\varphi$$\n\nStyrkeforholdet: den spesifikke lesningen entailer den uspesifikke, aldri motsatt.\n\n$$\\forall x\\,(D(x) \\rightarrow \\lnot L(x)) \\qquad \\text{mot} \\qquad \\lnot\\forall x\\,(D(x) \\rightarrow L(x))$$\n\nKvantor mot negasjon: «ingen leverte» mot «ikke alle leverte».\n\n**Notasjonsregler:** virkefeltet til en kvantor markeres med parentes, og den kvantoren som står lengst til venstre, har den andre inne i sitt virkefelt. Rekkefølgen på kvantorene skiller lesningene; parringen $\\forall$ med $\\rightarrow$ og $\\exists$ med $\\land$ skifter aldri."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-4-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "ling1100-4-2-rep-oppg-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-2-rep-e-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/ling1100/ling1100-4-1)) Hva er parringsregelen, og hvorfor er den som den er?",
+            "solution": "**$\\forall$ parres med $\\rightarrow$, og $\\exists$ parres med $\\land$.**\n\nBegrunnelsen: allkvantoren trenger en **betingelse** som avgrenser hvem påstanden gjelder, og betingelser skrives med pil. Skriver du $\\forall$ med $\\land$, påstår formelen at alt i verden har begge egenskapene.\n\nEksistenskvantoren trenger et **funn** med begge egenskapene, og funn skrives med og. Skriver du $\\exists$ med $\\rightarrow$, blir formelen sann så snart det finnes én ting som ikke oppfyller antesedenten — altså nesten alltid.",
+            "hints": [
+              "Tenk på hva formelen ville påstått hvis du byttet konnektiv."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-2-rep-oppg-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-2-rep-e-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/ling1100/ling1100-3-1)) Hva var forskjellen på $\\lnot(p \\land q)$ og $\\lnot p \\land q$, og hva kalles fenomenet?",
+            "solution": "I $\\lnot(p \\land q)$ har negasjonen **hele konjunksjonen** i sin rekkevidde: uttrykket sier at det ikke er tilfelle at begge deler gjelder. I $\\lnot p \\land q$ har negasjonen bare $p$: uttrykket sier at $p$ ikke gjelder, og at $q$ gjør det.\n\nFenomenet kalles **rekkevidde**, og det er det samme som dette kapitlet kaller **virkefelt** når det er kvantorer som konkurrerer. Parentesen avgjør i begge tilfeller.",
+            "hints": [
+              "Se på hvor parentesen slutter."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-2-rep-oppg-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-2-rep-e-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/ling1100/ling1100-2-1)) Hva er forskjellen på homonymi og polysemi, og hva har begge til felles som skiller dem fra scope-flertydighet?",
+            "solution": "**Homonymi** er to urelaterte betydninger som deler form; **polysemi** er flere beslektede betydninger av samme ord. Testen er om betydningene henger sammen historisk og semantisk.\n\nDet begge har til felles, er at flertydigheten ligger i **ett ord**. De er derfor **leksikalske** flertydigheter.\n\nScope-flertydighet er noe annet: der betyr hvert ord nøyaktig det det pleier, og flertydigheten ligger i **hvordan delene er ordnet** i forhold til hverandre. Den er **strukturell**.",
+            "hints": [
+              "Spør hvor flertydigheten sitter — i et ord eller mellom ordene."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-2-rep-oppg-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-2-rep-e-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.2](/bok/ling1100/ling1100-3-2)) Hva betyr det at én setning entailer en annen, og hvordan brukes det i dette kapitlet?",
+            "solution": "**$p$ entailer $q$ hviss $q$ er sann i hver eneste situasjon der $p$ er sann.** Boka skriver det $p \\vDash q$. Påstanden gjelder alle situasjoner, ikke én — og derfor er ett moteksempel nok til å avvise den.\n\nI dette kapitlet brukes entailment til å beskrive **styrkeforholdet mellom de to lesningene**: den spesifikke lesningen entailer den uspesifikke. Motsatt vei gjelder ikke, og moteksempelet er skillesituasjonen der hver deltaker leste sin egen artikkel.",
+            "hints": [
+              "Tenk på hvor mange situasjoner påstanden må gjelde i."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

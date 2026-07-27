@@ -1,0 +1,450 @@
+{
+  "id": "ling1100-3-4",
+  "courseId": "ling1100",
+  "chapterNumber": "3.4",
+  "title": "De tre slutningstypene skilt — pluss mengdelære, Venn og downward entailment",
+  "description": "Den avgjørende systematiske sammenstillingen: entailment vs. presupposisjon vs. implikatur, med testtabell — pluss mengdeoperasjoner, Venn og downward entailment.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne klassifisere en slutning som entailment, presupposisjon eller implikatur ved å kjøre begge testene",
+    "kunne bruke mengdenotasjon for medlemskap, delmengde, snitt og union, og tegne et Venn-diagram",
+    "kunne vise at en posisjon er nedovergående med et ordpar, og forklare hvorfor slutningsretningen snur",
+    "kunne forklare hvorfor monotonisitet hører til posisjonen og ikke til ordet, med kvantoren alle som eksempel"
+  ],
+  "content": [
+    {
+      "id": "ling1100-3-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er **syntesekapitlet i Del 3**, og det dekker tre ting som alle har belegg i materialet.\n\n- **Å skille de tre slutningstypene** — entailment, presupposisjon og implikatur — er gjennomgående i settene fra høsten 2013, 2017, 2018 og 2024. Sjangeren er A2 kombinert med F1: «For hvert eksempel, avgjør om slutningen er entailment, presupposisjon eller implikatur, og begrunn med negasjons- og kansellerbarhetstesten.»\n- **Mengdelære og Venn-diagram** er prøvd i settet fra høsten 2019, med krav om å tegne. Settet fra høsten 2024 tilbyr **digital håndtegning**, og en tegneoppgave skal besvares med en faktisk figur.\n- **Downward entailment** er prøvd i settene fra høsten 2019 og høsten 2022. **Den ene sensorveiledningen som finnes, for høsten 2022, er uvanlig direkte her:** kandidaten må vise reell innsikt i mekanismen, ikke gjenkjenne ordene «nedover» og «implikasjon». Det er en av de klareste enkeltbeskjedene i hele materialet.\n- **Prioritet: høyeste.** Kapitlet samler Del 3, og det er samtidig forberedelsen til kvantorene i [kap. 4.1](/bok/ling1100/ling1100-4-1) og til modellteorien i [kap. 4.3](/bok/ling1100/ling1100-4-3), som begge bygger på mengdelæren herfra.\n\n**Om implikatur:** begrepet hører hjemme i Del 8, men du trenger det her for å kunne skille de tre typene. Kapitlet innfører derfor så mye av det som trengs — definisjonen og kansellerbarhetstesten — og resten kommer i [kap. 8.1](/bok/ling1100/ling1100-8-1)."
+    },
+    {
+      "id": "ling1100-3-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 3.2](/bok/ling1100/ling1100-3-2) og [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\n**Sist du var her** — de tre tingene hele kapitlet hviler på:\n\n- **Entailment forsvinner under negasjon.** «Kari plantet en rose» entailer «Kari plantet en blomst», men den negerte setningen medfører ingenting om blomster.\n- **Presupposisjon overlever negasjon** — *constancy under negation*. «Naboen sluttet ikke å abonnere» forutsetter fortsatt abonnementet.\n- **Selvmotsigelsestesten skiller ikke de to.** Den gir utslag på begge. Bare negasjonstesten skiller.\n\n**Kryssbok:** [Mengdelære](/bok/1t/1t-1-7) gjennomgår mengdenotasjon, medlemskap, snitt og union på et enklere nivå. Trenger du å friske opp $\\in$, $\\cap$ og $\\cup$ før løkke 2, er den en rask vei inn — men alt du trenger, står også her.\n\nKapitlet innfører fem nye symboler: $\\in$, $\\subseteq$, $\\cap$, $\\cup$ og mengdeklammene. Alle står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-3-4-hverdagsanker",
+      "type": "text",
+      "content": "## Tre måter å si noe uten å si det\n\nTre setninger, tre slutninger. De ser like ut, og de er tre helt forskjellige ting.\n\n- «Naboen har en gran i hagen» — altså har naboen et tre i hagen.\n- «Naboen sluttet å måke fortauet» — altså måkte naboen fortauet før.\n- «Noen av naboene betalte kontingenten» — altså betalte ikke alle.\n\nPrøv nå å negere den første setningen. Slutningen om treet er borte. Prøv å negere den andre. Slutningen om måkingen står der fortsatt. Prøv å trekke tilbake den tredje: «Noen av naboene betalte — faktisk alle sammen.» Det går fint; det er en presisering, ikke en selvmotsigelse.\n\n**Tre slutninger, tre ulike oppførsler under to enkle prøver.** Det er hele systemet, og dette kapitlet setter det opp som en prosedyre du kan kjøre på under et minutt.\n\nDeretter kommer to ting som henger sammen med dette: **mengdelæren**, som gir deg et bilde av hva slutninger egentlig er, og **downward entailment**, som er navnet på at slutningsretningen snur i negerte omgivelser.\n\nKapitlet er bygd i fire løkker."
+    },
+    {
+      "id": "ling1100-3-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De tre slutningstypene satt opp mot hverandre (~15 min)\n\nDu kjenner to av dem fra før. Den tredje innføres her, i den grad du trenger den for å skille."
+    },
+    {
+      "id": "ling1100-3-4-def-slutningstype",
+      "type": "definition",
+      "title": "Slutningstype",
+      "content": "Kategorien en slutning tilhører, avgjort av **hvordan den oppfører seg under prøver** — ikke av hvor sikker den føles.\n\nDe tre typene i emnet:\n\n- **Entailment** — noe setningen sier. Forsvinner under negasjon, kan ikke trekkes tilbake.\n- **Presupposisjon** — noe setningen tar for gitt. Overlever negasjon.\n- **Konversasjonell implikatur** — noe tilhøreren utleder av at setningen ble sagt. Kan trekkes tilbake.\n\n**Merk at det er slutningen som klassifiseres, ikke setningen.** Én og samme setning bærer som regel flere slutninger av ulik type. «Berit rakk å levere klagen» presupponerer at det var en frist, entailer at klagen ble levert, og implikerer kanskje at det var på hengende håret. Tre slutninger, tre kategorier, én setning.\n\n**Spørsmålet du alltid stiller er derfor:** hva slags slutning er *denne* slutningen — ikke hva slags setning dette er."
+    },
+    {
+      "id": "ling1100-3-4-def-implikatur",
+      "type": "definition",
+      "title": "Konversasjonell implikatur",
+      "content": "Noe tilhøreren **utleder av at ytringen ble gjort**, ut over det setningen sier. Den engelske termen er ‘conversational implicature’, og begrepet skyldes **Grice**.\n\n```text\n(1)  Noen av naboene betalte kontingenten.\n       ⇒ Ikke alle naboene betalte.\n```\n\nSlutningen kommer ikke fra ordet *noen*, som logisk sett bare krever minst én. Den kommer fra en forventning om at den som snakker, ville sagt «alle» dersom alle hadde betalt — og at hun altså ikke er i stand til å si det.\n\n**Kjennetegnet er at slutningen kan trekkes tilbake:**\n\n```text\n(2)  Noen av naboene betalte kontingenten — faktisk alle sammen.\n```\n\nIngen selvmotsigelse. Det er en presisering.\n\n**Dette er en forhåndsvisning.** Hele mekanismen — samarbeidsprinsippet, de fire maksimene og de øvrige egenskapene implikaturer har — behandles i [kap. 8.1](/bok/ling1100/ling1100-8-1) og [kap. 8.2](/bok/ling1100/ling1100-8-2). Her trenger du bare definisjonen og den ene testen, slik at du kan skille implikatur fra de to andre slutningstypene.\n\n**Merk skillet i status:** entailment og presupposisjon hører til **semantikken** — de følger av hva setningen betyr. Implikatur hører til **pragmatikken** — den følger av at noen valgte å si nettopp dette."
+    },
+    {
+      "id": "ling1100-3-4-def-kansellerbarhet",
+      "type": "definition",
+      "title": "Kansellerbarhetstesten",
+      "content": "Testen som skiller implikatur fra de to andre typene: **legg til en fortsettelse som trekker slutningen tilbake, og se om resultatet blir en selvmotsigelse.**\n\nFormen er alltid den samme:\n\n```text\n(3)  «p — faktisk ikke q.»    eller    «p, men det betyr ikke at q.»\n```\n\nPrøv den på de tre typene:\n\n```text\n(4)  Noen av naboene betalte — faktisk alle sammen.\n       Ingen selvmotsigelse.  ⇒ IMPLIKATUR\n\n(5)  Naboen har en gran i hagen — men han har ikke noe tre.\n       Selvmotsigelse.        ⇒ ENTAILMENT\n\n(6)  Naboen sluttet å måke fortauet — men han har aldri måkt.\n       Merkelig, og krever eksplisitt avvisning.  ⇒ PRESUPPOSISJON\n```\n\n**Merk forskjellen mellom (5) og (6) nøye**, for den er verdt et poeng. Entailmentet lar seg ikke trekke tilbake i det hele tatt. Presupposisjonen lar seg **oppheve**, men bare i en markert lesning der hele forutsetningen avvises, og fortsettelsen må da forklare hva som avvises. Implikaturen lar seg trekke tilbake uten videre, og resultatet er en helt vanlig setning.\n\n**Den engelske termen er ‘cancellability’**, og den er én av flere egenskaper Huang lister for implikaturer. De øvrige behandles i [kap. 8.2](/bok/ling1100/ling1100-8-2)."
+    },
+    {
+      "id": "ling1100-3-4-def-ikke-avtakbarhet",
+      "type": "definition",
+      "title": "Ikke-avtakbarhet",
+      "content": "En annen egenskap ved konversasjonelle implikaturer, som er nyttig som **kontroll** når kansellerbarhetstesten er tvetydig. Den engelske termen er ‘non-detachability’.\n\nEgenskapen: **implikaturen henger ved innholdet, ikke ved ordvalget.** Sier du det samme med andre ord, følger implikaturen med.\n\n```text\n(7) a.  Noen av naboene betalte kontingenten.\n    b.  Enkelte av naboene betalte kontingenten.\n    c.  Én eller flere av naboene betalte kontingenten.\n```\n\nAlle tre gir samme slutning om at ikke alle betalte. Slutningen lar seg ikke «ta av» ved å bytte ord.\n\n**Slik bruker du kontrollen:** er du i tvil om en slutning er en implikatur eller noe som ligger i et bestemt ord, omformuler setningen med andre ord. Følger slutningen med, taler det for implikatur. Forsvinner den, lå den i ordet — og da er den enten et entailment eller en presupposisjon utløst av nettopp det ordet.\n\n**Merk avgrensningen.** Egenskapen gjelder konversasjonelle implikaturer. Det finnes også **konvensjonelle** implikaturer, som er knyttet til bestemte ord og derfor nettopp er avtakbare. Skillet behandles i [kap. 8.2](/bok/ling1100/ling1100-8-2)."
+    },
+    {
+      "id": "ling1100-3-4-def-testrekkefolgen",
+      "type": "definition",
+      "title": "Testrekkefølgen for slutningstyper",
+      "content": "Rekkefølgen du kjører testene i for å komme raskest til riktig svar.\n\n**Trinn 1 — negasjonstesten.** Neger setningen. Holder slutningen fortsatt? Da er den en **presupposisjon**, og du er ferdig.\n\n**Trinn 2 — kansellerbarhetstesten.** Legg til en fortsettelse som trekker slutningen tilbake. Går det uten selvmotsigelse? Da er den en **implikatur**.\n\n**Trinn 3 — selvmotsigelsestesten.** Er «$p$, men ikke $q$» en selvmotsigelse? Da er det et **entailment**.\n\n**Trinn 4 — ellers:** slutningen hviler på kunnskap om verden og er ingen av de tre. «Iver leter etter nøklene, altså har han mistet dem» er en rimelig gjetning, ikke en språklig slutning.\n\n**Rekkefølgen er valgt for fart, ikke fordi den er faglig nødvendig.** Negasjonstesten kjøres først fordi den luker ut presupposisjonene, som ellers er lettest å forveksle med entailment. Kansellerbarhetstesten kommer nummer to fordi den skiller ut pragmatikken.\n\n**Det som gir uttelling, er ikke rekkefølgen, men at testen faktisk kjøres og skrives ut** med setningene fra oppgaven."
+    },
+    {
+      "id": "ling1100-3-4-thm-testtabell",
+      "type": "theorem",
+      "title": "Testtabellen for de tre slutningstypene",
+      "content": "Dette er tabellen en A2-oppgave om slutningstyper skal ende i. Den er liten, og den er verdt å kunne utenat.\n\n| | Overlever negasjon? | Kan trekkes tilbake? | Hvor hører den hjemme? |\n|---|---|---|---|\n| **entailment** | nei | nei | semantikk |\n| **presupposisjon** | ja | bare i markert lesning | semantikk |\n| **konversasjonell implikatur** | ja, som regel | ja, uten videre | pragmatikk |\n\n**Legg merke til hvorfor det trengs to tester og ikke én.** Negasjonstesten skiller entailment fra de to andre, men skiller ikke presupposisjon fra implikatur — begge overlever som regel negasjonen. Kansellerbarhetstesten skiller implikatur fra de to andre, men skiller ikke entailment fra presupposisjon i den bekreftende setningen. **Til sammen skiller de alle tre.**\n\n**Kolonnen til høyre er verdt en egen setning i et svar.** De to første er semantiske: de følger av hva setningen betyr. Den tredje er pragmatisk: den følger av at noen valgte å si nettopp dette, i nettopp denne sammenhengen. Det er ikke en detalj — det er grunnen til at emnet heter «semantikk og pragmatikk»."
+    },
+    {
+      "id": "ling1100-3-4-fig-testflyt",
+      "type": "image",
+      "src": "/images/textbook/ling1100/slutningstyper-testflyt.svg",
+      "alt": "Testflyt-diagram i tre trinn for aa avgjoere slutningstype. Fra toppen: setningen p gir slutningen q. Foerste spoersmaal er om slutningen til q fortsatt holder naar p negeres; ja gir presupposisjon, med eksemplene sluttet aa og igjen. Neste spoersmaal er om slutningen kan trekkes tilbake uten selvmotsigelse; ja gir implikatur, med eksemplene noen og eller. Neste spoersmaal er om p men ikke q er en selvmotsigelse; ja gir entailment, med eksemplene hyponymi og alle. Naar ingen av testene slaar til, hviler slutningen paa kunnskap om verden og er ingen av de tre typene.",
+      "caption": "Testflyten for de tre slutningstypene, med testen på hvert trinn og et typisk utløsende uttrykk per utfall. Rekkefølgen er valgt for fart: negasjonstesten luker ut presupposisjonene først, siden de er lettest å forveksle med entailment, og kansellerbarhetstesten skiller deretter ut den pragmatiske slutningstypen. Legg merke til det nederste utfallet — ikke enhver rimelig slutning er en av de tre. Dette er en figur det lønner seg å kunne tegne selv på tre minutter."
+    },
+    {
+      "id": "ling1100-3-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fire slutninger klassifisert",
+      "problem": "**Nyskrevet eksamensoppgave:** «Avgjør for hver slutning om den er et entailment, en presupposisjon eller en implikatur. Begrunn med negasjonstesten og kansellerbarhetstesten.»\n\n```text\n(8)   Vera solgte hytta til en kollega.\n        ⇒ Vera solgte hytta.\n\n(9)   Vera angret på at hun solgte hytta.\n        ⇒ Vera solgte hytta.\n\n(10)  Vera klarte å selge hytta til slutt.\n        ⇒ Det var vanskelig å selge hytta.\n\n(11)  Vera solgte tre av de fem hyttene.\n        ⇒ Vera solgte ikke alle fem.\n```",
+      "solution": "**(8) Entailment.**\n\nNegasjonstesten: «Vera solgte ikke hytta til en kollega» medfører ingenting om salg i det hele tatt — hun kan ha solgt til noen andre, eller ikke solgt. Slutningen **forsvinner**.\n\nKansellerbarhetstesten: «Vera solgte hytta til en kollega, men hun solgte den ikke» er en selvmotsigelse. Slutningen kan **ikke** trekkes tilbake.\n\nKilden er hyponymi i vid forstand: å selge til en bestemt kjøper er en måte å selge på.\n\n**(9) Presupposisjon.**\n\nNegasjonstesten: «Vera angret ikke på at hun solgte hytta» forutsetter **fortsatt** at hun solgte den. Slutningen **overlever**.\n\nUtløseren er det faktive verbet *angre på*, en leksikalsk trigger.\n\n**(10) Implikatur.**\n\nNegasjonstesten: «Vera klarte ikke å selge hytta til slutt» antyder fortsatt at det var vanskelig. Slutningen overlever, og så langt ligner den på en presupposisjon.\n\nKansellerbarhetstesten avgjør: «Vera klarte å selge hytta til slutt — det gikk forresten helt uten motstand, kjøperen sto klar første dagen.» Ingen selvmotsigelse. Slutningen kan **trekkes tilbake**, og den er derfor en implikatur.\n\n> Margnotat: dette er paret som viser hvorfor begge testene trengs. Negasjonstesten alene ville plassert (10) sammen med (9). **Det er kansellerbarheten som skiller pragmatikken fra semantikken.**\n\n**(11) Implikatur.**\n\nNegasjonstesten: «Vera solgte ikke tre av de fem hyttene» — her blir bildet uklart, og det er typisk for implikaturer under negasjon.\n\nKansellerbarhetstesten avgjør: «Vera solgte tre av de fem hyttene — faktisk alle fem.» Ingen selvmotsigelse. Slutningen er en implikatur.\n\nKontroll med ikke-avtakbarhet: bytt til «Vera fikk solgt tre av de fem hyttene». Slutningen om at ikke alle ble solgt, følger med. Den henger ved innholdet, ikke ved ordvalget.\n\n**Kontroll til slutt.** Fire slutninger, begge testene kjørt og skrevet ut på hver, kilden eller utløseren oppgitt der det var relevant, og den ene kontrollen med ikke-avtakbarhet lagt til der den var opplysende. Det er formen oppgavesjangeren krever."
+    },
+    {
+      "id": "ling1100-3-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-4-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger A2 — skill nærliggende begreper. Innstegsoppgave.) Koble hver slutningstype til oppførselen sin.\n\n**a)** Hvilken slutningstype forsvinner under negasjon?\n**b)** Hvilken overlever negasjon, men kan ikke uten videre trekkes tilbake?\n**c)** Hvilken kan trekkes tilbake uten selvmotsigelse?\n**d)** Hvilke to hører til semantikken, og hvilken til pragmatikken?",
+        "solution": "**a) Entailment.** «Kari plantet ikke en rose» medfører ingenting om blomster. Det er nettopp derfor entailment regnes som en del av det setningen **sier**.\n\n**b) Presupposisjon.** «Naboen sluttet ikke å måke fortauet» forutsetter fortsatt at han måkte før. Presupposisjonen kan oppheves, men bare i en markert lesning der hele forutsetningen avvises eksplisitt.\n\n**c) Konversasjonell implikatur.** «Noen av naboene betalte — faktisk alle sammen» er en helt vanlig setning, ikke en selvmotsigelse.\n\n**d) Entailment og presupposisjon hører til semantikken**, siden de følger av hva setningen betyr. **Konversasjonell implikatur hører til pragmatikken**, siden den følger av at noen valgte å si nettopp dette i nettopp denne sammenhengen.\n\n**Legg merke til hvorfor det trengs to tester:** negasjonstesten skiller entailment fra de to andre, men skiller ikke presupposisjon fra implikatur. Kansellerbarhetstesten skiller implikatur fra de to andre. Til sammen skiller de alle tre.",
+        "hints": [
+          "Gå tilbake til testtabellen og les den kolonne for kolonne.",
+          "For d): spør hvilke slutninger som følger av hva setningen betyr, og hvilken som følger av at noen valgte å si den."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-4-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2.) Klassifiser hver slutning, og kjør begge testene.\n\n**a)** «Halvor holdt opp med å ta bussen til jobben.» ⇒ Halvor tok bussen til jobben før.\n**b)** «Halvor tok bussen til jobben på mandag.» ⇒ Halvor reiste til jobben på mandag.\n**c)** «Halvor rakk noen av bussene den dagen.» ⇒ Halvor rakk ikke alle bussene.\n**d)** «Det var Halvor som meldte fra om feilen.» ⇒ Noen meldte fra om feilen.",
+        "solution": "**a) Presupposisjon.** Negasjonstesten: «Halvor holdt ikke opp med å ta bussen» forutsetter fortsatt at han tok den før — setningen sier jo at han holder på ennå. Slutningen overlever. Utløseren er det aspektuelle verbet *holde opp med*.\n\n**b) Entailment.** Negasjonstesten: «Halvor tok ikke bussen til jobben på mandag» medfører ingenting om hvordan han reiste. Slutningen forsvinner. Kansellerbarhetstesten: «Halvor tok bussen til jobben, men han reiste ikke dit» er en selvmotsigelse. Kilden er hyponymi — å ta bussen er en måte å reise på.\n\n**c) Implikatur.** Kansellerbarhetstesten: «Halvor rakk noen av bussene den dagen — faktisk alle sammen.» Ingen selvmotsigelse, bare en presisering. Slutningen kan trekkes tilbake.\n\nKontroll med ikke-avtakbarhet: bytt til «Halvor kom tidsnok til enkelte av bussene den dagen», og slutningen om at han ikke rakk alle, følger med. Den henger ved innholdet, ikke ved ordvalget — og det taler for implikatur.\n\n**d) Presupposisjon.** Negasjonstesten: «Det var ikke Halvor som meldte fra om feilen» forutsetter fortsatt at noen gjorde det. Slutningen overlever. Utløseren er den kløyvde setningen, en strukturell trigger.\n\n**Grepet oppgaven trener:** at de fire ser like ut på papiret. **Det som skiller dem, er ikke hvordan slutningen føles, men hvordan den oppfører seg under de to prøvene.**",
+        "hints": [
+          "Kjør negasjonstesten på alle fire først, og noter hvilke slutninger som blir stående.",
+          "Kjør deretter kansellerbarhetstesten på dem som overlevde."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Mengdelære og Venn-diagram (~12 min)\n\nMengdelæren er verktøyet som gjør slutninger til noe du kan **tegne**. Den er samtidig grunnlaget for kvantorene i [kap. 4.1](/bok/ling1100/ling1100-4-1) og modellteorien i [kap. 4.3](/bok/ling1100/ling1100-4-3), så det du lærer her, får du bruk for hele veien."
+    },
+    {
+      "id": "ling1100-3-4-def-mengde",
+      "type": "definition",
+      "title": "Mengde",
+      "content": "En **samling av objekter**, betraktet som én ting. Den engelske termen er ‘set’.\n\nMengder skrives med klammeparenteser og medlemmene listet opp:\n\n$$A = \\{\\text{Berg}, \\text{Dale}, \\text{Lind}\\}$$\n\nEller ved en beskrivelse: «mengden av alle studenter som besto eksamen».\n\n**To ting om mengder som er verdt å merke seg med én gang:**\n\n- **Rekkefølgen betyr ingenting.** $\\{a, b\\}$ og $\\{b, a\\}$ er samme mengde. Det er en viktig kontrast til **ordnede par** i [kap. 4.3](/bok/ling1100/ling1100-4-3), der rekkefølgen betyr alt.\n- **Gjentakelser betyr ingenting.** $\\{a, a, b\\}$ er samme mengde som $\\{a, b\\}$. En ting er enten medlem eller ikke.\n\n**Hvorfor semantikken bryr seg om mengder:** betydningen til et vanlig substantiv kan modelleres som mengden av alle ting ordet passer på. *Hund* svarer til mengden av alle hunder, *rose* til mengden av alle roser. Da blir forholdet mellom ord et forhold mellom mengder — og slutninger blir noe du kan tegne."
+    },
+    {
+      "id": "ling1100-3-4-def-medlemskap",
+      "type": "definition",
+      "title": "Medlemskap",
+      "content": "Forholdet mellom et objekt og en mengde det tilhører. Symbolet er $\\in$, og $a \\in A$ leses «$a$ er element i $A$».\n\n$$\\text{Berg} \\in \\{\\text{Berg}, \\text{Dale}, \\text{Lind}\\}$$\n\nNegasjonen skrives $a \\notin A$: «Sund er ikke element i mengden».\n\n**Merk hva symbolet knytter sammen.** $\\in$ står mellom et **objekt** og en **mengde**, aldri mellom to mengder. Skal du si at en mengde ligger inne i en annen, bruker du $\\subseteq$, som kommer i neste definisjon.\n\n**Å blande $\\in$ og $\\subseteq$ er den vanligste notasjonsfeilen i mengdelære**, og den er lett å unngå: spør hva som står til venstre. Er det én ting, bruker du $\\in$; er det en samling, bruker du $\\subseteq$."
+    },
+    {
+      "id": "ling1100-3-4-def-delmengde",
+      "type": "definition",
+      "title": "Delmengde",
+      "content": "Forholdet mellom to mengder der **alt som er i den ene, også er i den andre**. Symbolet er $\\subseteq$, og $A \\subseteq B$ leses «$A$ er en delmengde av $B$».\n\n$$\\{\\text{Berg}, \\text{Dale}\\} \\subseteq \\{\\text{Berg}, \\text{Dale}, \\text{Lind}\\}$$\n\nMengden av roser er en delmengde av mengden av blomster. Mengden av hunder er en delmengde av mengden av dyr.\n\n**Dette er det viktigste enkeltbegrepet i kapitlet**, av to grunner:\n\n- **Hyponymi er delmengdeforhold.** At *rose* er hyponym til *blomst*, er det samme som at rosemengden er en delmengde av blomstermengden.\n- **Delmengdeforhold gir entailment.** Er $A \\subseteq B$, entailer «$x$ er i $A$» setningen «$x$ er i $B$». Det er hele forklaringen på hvorfor «Kari plantet en rose» entailer «Kari plantet en blomst».\n\n**En ekte delmengde** er en delmengde som ikke er hele mengden — det finnes minst ett element i $B$ som ikke er i $A$. Rosemengden er en ekte delmengde av blomstermengden, siden det finnes tulipaner. Notasjonen $\\subseteq$ tillater at de to er like; vil du utelukke det, sier du det i ord."
+    },
+    {
+      "id": "ling1100-3-4-def-ekte-delmengde",
+      "type": "definition",
+      "title": "Ekte delmengde",
+      "content": "En delmengde som **ikke er hele mengden**: $A$ er en ekte delmengde av $B$ når alt i $A$ er i $B$, og det i tillegg finnes minst ett element i $B$ som ikke er i $A$.\n\nRosemengden er en ekte delmengde av blomstermengden, siden det finnes tulipaner. Mengden $\\{2, 4\\}$ er en ekte delmengde av $\\{2, 4, 6\\}$.\n\n**Hvorfor skillet er verdt å kjenne:** notasjonen $\\subseteq$ tillater at de to mengdene er like. $A \\subseteq A$ er sant for enhver mengde. Vil du utelukke det, må du si det — i denne boka gjør vi det i ord, ikke med et eget symbol.\n\n**Koblingen til semantikken:** hyponymi krever et **ekte** delmengdeforhold. Er de to mengdene like, er ordene ikke i et hyponymiforhold, men i et synonymiforhold — og da går entailmentet begge veier, altså gjensidig entailment fra [kap. 3.2](/bok/ling1100/ling1100-3-2)."
+    },
+    {
+      "id": "ling1100-3-4-def-tom-mengde",
+      "type": "definition",
+      "title": "Tom mengde",
+      "content": "Mengden **uten elementer**, skrevet $\\{\\ \\}$. Den engelske termen er ‘empty set’.\n\nMengden av deltakere som både besto og strøk, er tom. Det samme er mengden av firkantede sirkler.\n\n**To ting som er verdt å kunne:**\n\n- **Den tomme mengden er en delmengde av enhver mengde.** Kravet er at alt i den tomme mengden også er i den andre — og siden det ikke finnes noe i den tomme mengden, er kravet oppfylt uten videre. Det er nøyaktig samme mekanisme som **tom sannhet** i [kap. 3.1](/bok/ling1100/ling1100-3-1).\n- **To mengder er uforenlige hviss snittet deres er tomt.** Rosene og tulipanene har tomt snitt, og det svarer til at setningene «Dette er en rose» og «Dette er en tulipan» ikke kan være sanne samtidig.\n\n**Merk fella:** den tomme mengden er ikke det samme som «ingen mengde». Den er en fullt ut normal mengde som tilfeldigvis ikke har noen medlemmer."
+    },
+    {
+      "id": "ling1100-3-4-def-snitt",
+      "type": "definition",
+      "title": "Snitt",
+      "content": "Mengden av alt som er i **begge** mengdene. Symbolet er $\\cap$, og $A \\cap B$ leses «$A$ snitt $B$».\n\n$$\\{\\text{Berg}, \\text{Dale}, \\text{Lind}\\} \\cap \\{\\text{Dale}, \\text{Lind}, \\text{Sund}\\} = \\{\\text{Dale}, \\text{Lind}\\}$$\n\n**Koblingen til [kap. 3.1](/bok/ling1100/ling1100-3-1):** snitt svarer til konjunksjonen. Mengden av ting som er både røde og runde, er snittet av de røde tingene og de runde tingene — og en ting er i den mengden hviss begge påstandene er sanne om den.\n\n**En observasjon som gir uttelling:** snittet er alltid en delmengde av begge mengdene, altså $A \\cap B \\subseteq A$ og $A \\cap B \\subseteq B$. Det svarer nøyaktig til at en konjunksjon entailer hvert av leddene sine."
+    },
+    {
+      "id": "ling1100-3-4-def-union",
+      "type": "definition",
+      "title": "Union",
+      "content": "Mengden av alt som er i **minst én** av mengdene. Symbolet er $\\cup$, og $A \\cup B$ leses «$A$ union $B$».\n\n$$\\{\\text{Berg}, \\text{Dale}\\} \\cup \\{\\text{Lind}, \\text{Sund}\\} = \\{\\text{Berg}, \\text{Dale}, \\text{Lind}, \\text{Sund}\\}$$\n\n**Koblingen til [kap. 3.1](/bok/ling1100/ling1100-3-1):** union svarer til **inklusiv** disjunksjon. Merk ordet «minst» — en ting som er i begge mengdene, er selvsagt også i unionen. Det er den samme raden som skiller $\\lor$ fra $\\veebar$, og det er verdt å peke på i et svar.\n\n**En observasjon som gir uttelling:** begge mengdene er delmengder av unionen, altså $A \\subseteq A \\cup B$. Det svarer til at hvert ledd entailer disjunksjonen — at én av delene er sann, er nok til at «minst én» er sann."
+    },
+    {
+      "id": "ling1100-3-4-def-komplement",
+      "type": "definition",
+      "title": "Komplement",
+      "content": "Mengden av alt i universet som **ikke** er i mengden. I ord: komplementet til $A$.\n\nEr universet mengden av alle studenter i emnet, og $A$ mengden av dem som besto, er komplementet mengden av dem som ikke besto.\n\n**Koblingen til [kap. 3.1](/bok/ling1100/ling1100-3-1):** komplement svarer til negasjonen. En ting er i komplementet til $A$ hviss påstanden «tingen er i $A$» er usann.\n\n**Merk at komplementet alltid er relativt til et univers**, og at universet må være oppgitt eller underforstått. Komplementet til «rosene» er noe helt annet om universet er blomstene enn om det er alle ting som finnes. **Å oppgi universet er en del av et presist svar** i en mengdeoppgave.\n\nSammenhengen med De Morgans lover fra [kap. 3.1](/bok/ling1100/ling1100-3-1) er direkte: komplementet til et snitt er unionen av komplementene, og komplementet til en union er snittet av komplementene."
+    },
+    {
+      "id": "ling1100-3-4-def-venn",
+      "type": "definition",
+      "title": "Venn-diagram",
+      "content": "En figur der mengder tegnes som **overlappende sirkler**, og der medlemskap vises ved plassering.\n\nKonvensjonene du skal følge når du tegner et Venn-diagram i en besvarelse:\n\n- **Én sirkel per mengde**, med navnet på mengden ved siden av eller inni sirkelen.\n- **Overlapp der mengdene har felles elementer**, ingen overlapp der de er disjunkte.\n- **Skraver eller farg det området oppgaven spør om**, og skriv hva det skraverte området er.\n- **Tegn et omsluttende rektangel** for universet når komplement er involvert.\n\n**Slik brukes diagrammet på eksamen:** settet fra høsten 2019 ber om et Venn-diagram, og settet fra høsten 2024 tilbyr digital håndtegning. **Ber oppgaven om en figur, skal svaret vise figuren** — en beskrivelse i ord er ikke et fullstendig svar, uansett hvor god beskrivelsen er.\n\nDet er verdt å øve på å tegne diagrammet raskt for hånd. Tre sirkler, én skravur og fire etiketter tar under to minutter."
+    },
+    {
+      "id": "ling1100-3-4-fig-venn",
+      "type": "image",
+      "src": "/images/textbook/ling1100/venn-snitt-union.svg",
+      "alt": "To Venn-diagrammer side om side. Til venstre snittet A snitt B, der to overlappende sirkler A og B er tegnet og bare det overlappende midtfeltet er fargelagt; under staar det at snittet er sant om begge holder og svarer til og. Til hoeyre unionen A union B, der begge sirklene er fargelagt i sin helhet; under staar det at unionen er sann om minst en holder og svarer til inklusiv eller.",
+      "caption": "Snitt og union satt opp side om side, med koblingen til konnektivene fra kap. 3.1. Legg merke til hva som er fargelagt i hver figur: i snittet bare midtfeltet, i unionen begge sirklene i sin helhet, inkludert midtfeltet. Det siste er nettopp raden der inklusiv disjunksjon skiller seg fra den eksklusive — en ting som er i begge mengdene, er også i unionen. Dette er en figur det lønner seg å kunne tegne selv på under to minutter."
+    },
+    {
+      "id": "ling1100-3-4-def-mengder-konnektiver",
+      "type": "definition",
+      "title": "Mengder som modell for konnektivene",
+      "content": "Sammenhengen mellom [kap. 3.1](/bok/ling1100/ling1100-3-1) og mengdelæren, satt opp som en tabell. Den er verdt å kunne, fordi den gjør sannhetstabellene til noe du kan se.\n\n| Konnektiv | Mengdeoperasjon | Uleses |\n|---|---|---|\n| $p \\land q$ | $A \\cap B$ | det som er i begge |\n| $p \\lor q$ | $A \\cup B$ | det som er i minst én |\n| $\\lnot p$ | komplementet til $A$ | det som er utenfor |\n| $p \\vDash q$ | $A \\subseteq B$ | alt i $A$ er i $B$ |\n\n**Den siste raden er den viktigste**, og den er kapitlets bro mellom Del 3s to halvdeler: **entailment er delmengdeforhold.**\n\nSe hvorfor. At «Kari plantet en rose» entailer «Kari plantet en blomst», er det samme som at enhver situasjon der den første er sann, også er en situasjon der den andre er sann. Tenker du på en setning som mengden av situasjoner der den er sann, er entailment nøyaktig delmengdeforholdet mellom de to mengdene.\n\n**En konsekvens som ofte forvirrer**, og som er verdt å skrive ut: **den sterkere setningen svarer til den mindre mengden.** «Kari plantet en rose» er sann i færre situasjoner enn «Kari plantet en blomst» — den sier mer og utelukker mer."
+    },
+    {
+      "id": "ling1100-3-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: En mengdeoppgave med diagram",
+      "problem": "**Nyskrevet eksamensoppgave:** «La $A$ være mengden av deltakere som leverte i tide, og $B$ mengden av deltakere som betalte avgiften. Universet er alle deltakere. Beskriv med mengdenotasjon, og illustrer med et Venn-diagram: (i) de som både leverte i tide og betalte, (ii) de som gjorde minst én av delene, (iii) de som ikke leverte i tide.»\n\nBruk mengdene under.\n\n```text\n(12)  A = {Berg, Dale, Lind}\n      B = {Dale, Lind, Sund}\n      Universet = {Berg, Dale, Lind, Sund, Vik}\n```",
+      "solution": "**(i) De som både leverte i tide og betalte: $A \\cap B$.**\n\n$$A \\cap B = \\{\\text{Dale}, \\text{Lind}\\}$$\n\nFramgangsmåten er å gå gjennom $A$ element for element og spørre om elementet også er i $B$. Berg er ikke i $B$, så Berg faller ut. Dale er i begge. Lind er i begge. Resultatet er de to.\n\n**(ii) De som gjorde minst én av delene: $A \\cup B$.**\n\n$$A \\cup B = \\{\\text{Berg}, \\text{Dale}, \\text{Lind}, \\text{Sund}\\}$$\n\nMerk at Dale og Lind står **én gang hver**, selv om de er i begge mengdene. Gjentakelser betyr ingenting i en mengde.\n\nMerk også at Vik ikke er med. Vik er i universet, men gjorde ingen av delene.\n\n**(iii) De som ikke leverte i tide: komplementet til $A$.**\n\n$$\\{\\text{Sund}, \\text{Vik}\\}$$\n\n**Her er universet avgjørende.** Uten det oppgitte universet ville spørsmålet vært ubesvarlig — komplementet er alltid relativt til et univers, og det skal oppgis i svaret.\n\n**Venn-diagrammet, beskrevet slik du skal tegne det:** to overlappende sirkler inne i et rektangel som er universet. I overlappet står Dale og Lind. I den delen av $A$-sirkelen som ikke overlapper, står Berg. I den delen av $B$-sirkelen som ikke overlapper, står Sund. Utenfor begge sirklene, men innenfor rektangelet, står Vik.\n\nFor (i) skraverer du overlappet. For (ii) skraverer du begge sirklene i sin helhet. For (iii) skraverer du alt utenfor $A$-sirkelen, altså både $B$-området som ikke overlapper, og området utenfor begge.\n\n> Margnotat: legg merke til at Vik står **i rektangelet, men utenfor begge sirklene**. Deltakere som ikke er i noen av mengdene, er den delen studenter oftest glemmer, og det er nettopp den delen som gjør at komplementet blir riktig. Ber oppgaven om et diagram, skal figuren faktisk tegnes — en beskrivelse i ord er ikke et fullstendig svar."
+    },
+    {
+      "id": "ling1100-3-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-4-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1 — fasit-oppgave med mengder.) La $A = \\{2, 4, 6, 8\\}$ og $B = \\{4, 8, 12\\}$, med universet $U = \\{2, 4, 6, 8, 10, 12\\}$.\n\n**a)** Finn $A \\cap B$ og $A \\cup B$.\n**b)** Er $A \\subseteq B$? Er $\\{4, 8\\} \\subseteq A$? Begrunn.\n**c)** Finn komplementet til $A$.\n**d)** Forklar hvilken sammenheng $A \\cap B \\subseteq A$ har med sannhetstabellen for konjunksjon.",
+        "solution": "**a)** $A \\cap B = \\{4, 8\\}$, siden 4 og 8 er de eneste tallene som står i begge mengdene. $A \\cup B = \\{2, 4, 6, 8, 12\\}$, altså alt som står i minst én av dem, uten gjentakelser.\n\n**b)** **$A \\subseteq B$ er usant.** Tallet 2 er i $A$, men ikke i $B$, og ett moteksempel er nok — delmengdeforholdet krever at **alt** i $A$ er i $B$.\n\n**$\\{4, 8\\} \\subseteq A$ er sant.** Både 4 og 8 er elementer i $A$, og det er hele kravet.\n\n**c)** Komplementet til $A$ er $\\{10, 12\\}$ — alt i universet som ikke er i $A$. **Merk at svaret avhenger av universet:** uten $U$ oppgitt ville spørsmålet ikke hatt noe svar.\n\n**d)** $A \\cap B \\subseteq A$ sier at alt som er i begge mengdene, nødvendigvis er i den første. Oversatt til setninger: **en konjunksjon entailer hvert av leddene sine.**\n\nSammenhengen med tabellen er direkte. Konjunksjonen er sann bare i raden der begge leddene er sanne, og i den raden er også det første leddet sant. Det finnes altså ingen situasjon der $p \\land q$ er sann og $p$ er usann — og det er nøyaktig definisjonen av entailment.\n\n**Legg merke til hva denne oppgaven viser:** mengdeoperasjonene og konnektivene er to skrivemåter for samme sak. Delmengde svarer til entailment, snitt til konjunksjon, union til inklusiv disjunksjon, og komplement til negasjon.",
+        "hints": [
+          "For b): husk at delmengdeforholdet krever at alt i den ene mengden er i den andre — ett unntak er nok.",
+          "For d): skriv opp raden der konjunksjonen er sann, og se hva som gjelder om det første leddet der."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Downward entailment (~15 min)\n\n**— naturlig pausepunkt —**\n\nNå til det ene begrepet i Del 3 som den ene sensorveiledningen peker eksplisitt ut. Beskjeden derfra er enkel: **her holder det ikke å kjenne igjen ordene.**"
+    },
+    {
+      "id": "ling1100-3-4-def-hyponymi-delmengde",
+      "type": "definition",
+      "title": "Hyponymi som delmengderelasjon",
+      "content": "Oversettelsen av [kap. 2.1](/bok/ling1100/ling1100-2-1) til mengdespråk, og den forbindelsen som gjør resten av kapitlet mulig.\n\n| Leksikalsk semantikk | Mengdelære |\n|---|---|\n| *rose* er hyponym til *blomst* | rosemengden er en ekte delmengde av blomstermengden |\n| *blomst* er hyperonym til *rose* | blomstermengden er overmengden |\n| *rose* og *tulipan* er kohyponymer | to disjunkte delmengder av samme overmengde |\n| hyponymi er transitiv | delmengdeforholdet er transitivt |\n| absolutt synonymi | de to mengdene er like |\n\n**Den viktigste konsekvensen:** siden hyponymi er delmengdeforhold, og delmengdeforhold gir entailment, følger det at hyponymi gir entailment mellom setninger. Det er hele forklaringen på regelen fra [kap. 3.2](/bok/ling1100/ling1100-3-2), og den forklaringen er kortere og skarpere enn den samme regelen fortalt i ord.\n\n**Merk at kohyponymer blir disjunkte mengder.** At *rose* og *tulipan* er uforenlige, er det samme som at snittet av de to mengdene er tomt — og det er derfor negasjonstesten svikter for taksonomiske søstre i [kap. 2.2](/bok/ling1100/ling1100-2-2): det finnes flere jamstilte delmengder under samme overmengde."
+    },
+    {
+      "id": "ling1100-3-4-def-monotonisitet",
+      "type": "definition",
+      "title": "Monotonisitet",
+      "content": "Egenskapen ved en språklig posisjon som avgjør **hvilken vei slutninger går** når du bytter et ord med et annet ord over eller under det i taksonomien. Den engelske termen er ‘monotonicity’.\n\nTo muligheter:\n\n- **Oppovergående posisjon (‘upward entailing’):** du kan bytte til det **videre** ordet, altså gå fra delmengde til overmengde.\n- **Nedovergående posisjon (‘downward entailing’):** du kan bytte til det **snevrere** ordet, altså gå fra overmengde til delmengde.\n\n**Det avgjørende er at egenskapen hører til posisjonen, ikke til ordet.** Ett og samme substantiv kan stå i en oppovergående posisjon i én setning og en nedovergående i en annen, og retningen skifter med det.\n\n**Slik tester du en posisjon:** sett inn et ordpar der du kjenner delmengdeforholdet — *rose* og *blomst*, *hund* og *dyr*, *roman* og *bok* — og se hvilken vei slutningen holder. **Det er testen, og den skal skrives ut i svaret ditt.**"
+    },
+    {
+      "id": "ling1100-3-4-def-oppovergaaende",
+      "type": "definition",
+      "title": "Oppovergående kontekst",
+      "content": "En posisjon der slutningen går **fra delmengde til overmengde** — altså fra det snevre til det vide. Den engelske termen er ‘upward entailing context’.\n\n```text\n(13) a.  Kari plantet en rose.\n     b.  Kari plantet en blomst.\n```\n\nHer holder $(13a) \\vDash (13b)$: fra *rose* til *blomst*, altså fra delmengde til overmengde.\n\n**Dette er den vanlige situasjonen.** En enkel, bekreftende setning er oppovergående i alle argumentposisjonene sine, og det er derfor hyponymiregelen fra [kap. 3.2](/bok/ling1100/ling1100-3-2) virker slik den gjør.\n\n**Hvorfor det er slik, i mengdespråk:** setningen sier at det finnes noe i rosemengden som Kari plantet. Siden rosemengden er en delmengde av blomstermengden, finnes det da nødvendigvis også noe i blomstermengden som hun plantet. **Slutningen følger av delmengdeforholdet, og ikke av noe annet.**"
+    },
+    {
+      "id": "ling1100-3-4-def-nedovergaaende",
+      "type": "definition",
+      "title": "Nedovergående kontekst (downward entailment)",
+      "content": "En posisjon der slutningen går **fra overmengde til delmengde** — altså fra det vide til det snevre. Den engelske termen er **downward entailment**, og den engelske formen brukes som hovedterm også i norsk faglitteratur.\n\n```text\n(14) a.  Kari plantet ikke en blomst.\n     b.  Kari plantet ikke en rose.\n```\n\nHer holder $(14a) \\vDash (14b)$, og **ikke** omvendt. Retningen er snudd i forhold til (13).\n\n**Hvorfor retningen snur, forklart i mengdespråk — og dette er den forklaringen sensor etterspør.** Den negerte setningen sier at det Kari plantet, ligger **utenfor** blomstermengden. Alt som ligger utenfor blomstermengden, ligger nødvendigvis også utenfor rosemengden, siden rosene er en del av blomstene. **Å utelukke den store mengden er å utelukke alle delene av den.**\n\nSammenlign med den positive setningen: der sier setningen at noe ligger **inne i** mengden, og da arves medlemskapet oppover, ikke nedover.\n\n**Formulert som en regel:** i en nedovergående posisjon gjelder $A \\subseteq B$ sammen med at $f(B) \\vDash f(A)$ — å hevde noe om den store mengden medfører det samme om den lille.\n\n**Merk hva som gjør begrepet krevende, og hva som gjør det lett når du først ser det:** det er ikke ordet *ikke* som er poenget, og heller ikke ordet «nedover». Poenget er **hvilken vei slutningen arves når du bytter et ord med et snevrere eller videre ord**. Det er det du skal vise med et eksempelpar."
+    },
+    {
+      "id": "ling1100-3-4-fig-delmengde",
+      "type": "image",
+      "src": "/images/textbook/ling1100/venn-delmengdeslutning.svg",
+      "alt": "To diagrammer side om side, begge med en liten sirkel merket ROSE inne i en stoerre sirkel merket BLOMST. Til venstre, over overskriften positiv setning, gaar en pil fra den lille sirkelen ut mot den store, og under staar at Kari plantet en rose medfoerer at Kari plantet en blomst. Til hoeyre, over overskriften negert setning, gaar pilen motsatt vei, fra den store sirkelen inn mot den lille, og under staar at Kari plantet ikke en blomst medfoerer at Kari plantet ikke en rose.",
+      "caption": "Slutningsretningen snur under negasjon. Delmengdeforholdet mellom rosene og blomstene er det samme i begge diagrammene — det er posisjonen som endrer seg. I den positive setningen arves medlemskapet oppover, fra delmengde til overmengde; i den negerte arves utelukkelsen nedover, fordi å utelukke hele blomstermengden er å utelukke alle delene av den. Det er denne forklaringen, og ikke ordet «nedover», som viser at downward entailment er forstått."
+    },
+    {
+      "id": "ling1100-3-4-def-de-katalog",
+      "type": "definition",
+      "title": "Katalog over nedovergående kontekster",
+      "content": "De omgivelsene som gjør en posisjon nedovergående. Katalogen er kort, og den er verdt å kunne.\n\n- **Setningsnegasjon:** «Kari plantet ikke en blomst» medfører «Kari plantet ikke en rose».\n- **Negative kvantorer som *ingen*:** «Ingen av gjestene spiste frukt» medfører «Ingen av gjestene spiste epler».\n- **Antesedenten i en betingelsessetning:** «Hvis du spiser frukt, blir du mett» medfører «Hvis du spiser epler, blir du mett».\n- **Uttrykk som *sjelden*, *knapt*, *nesten ingen*:** «Han spiser sjelden frukt» medfører «Han spiser sjelden epler».\n- **Første argument til *alle* og *hver*:** «Alle som leste en bok, besto» medfører «Alle som leste en roman, besto».\n\n**Merk den siste punktet spesielt**, for den er den mest lærerike i hele katalogen, og den behandles i egen definisjon under.\n\n**Slik bruker du katalogen:** ikke som en liste å ramse opp. Bruk den til å **finne kandidater**, og kjør deretter testen med et ordpar der du kjenner delmengdeforholdet. Det er testen som er svaret, ikke listen."
+    },
+    {
+      "id": "ling1100-3-4-def-kvantorposisjoner",
+      "type": "definition",
+      "title": "Kvantorenes to argumentposisjoner",
+      "content": "Observasjonen som viser klarest at monotonisitet er en egenskap ved **posisjonen** og ikke ved ordet: en kvantor kan være nedovergående i den ene argumentposisjonen sin og oppovergående i den andre.\n\nTa *alle*. Setningen «Alle X-er Y-er» har to posisjoner: **restriktoren** X, som sier hvem påstanden gjelder, og **omfanget** Y, som sier hva som gjelder om dem.\n\n```text\n(15)  Alle som leste en bok, besto.\n        ⊨ Alle som leste en roman, besto.        NEDOVERGÅENDE\n```\n\nRestriktoren er nedovergående: har påstanden gyldighet for alle bokleserne, gjelder den nødvendigvis også for den mindre gruppen romanlesere.\n\n```text\n(16)  Alle studentene leste en roman.\n        ⊨ Alle studentene leste en bok.          OPPOVERGÅENDE\n```\n\nOmfanget er oppovergående: leste alle en roman, leste alle nødvendigvis en bok.\n\n**Til sammenligning er *ingen* nedovergående i begge posisjonene, og *noen* oppovergående i begge.**\n\n**Dette er det sterkeste enkeltargumentet du kan bruke** for at monotonisitet hører til posisjonen. Ett og samme ord, *alle*, gir motsatt slutningsretning i sine to argumenter — og da kan retningen ikke ligge i ordet."
+    },
+    {
+      "id": "ling1100-3-4-def-npi",
+      "type": "definition",
+      "title": "Negativt polaritetselement",
+      "content": "Et uttrykk som **bare er akseptabelt i nedovergående omgivelser**, og som derfor kan brukes som en uavhengig kontroll på om en posisjon er nedovergående. Den engelske termen er ‘negative polarity item’, ofte forkortet NPI.\n\nNorske eksempler: *noe som helst*, *i det hele tatt*, *stort*, uttrykket *løfte en finger*.\n\n```text\n(17) a.  Jeg har ikke sett noe som helst.\n    b. *Jeg har sett noe som helst.\n```\n\nMarkøren `*` betyr at grammatikken ikke genererer strengen — ikke at noen snakker dårlig. Se [kap. 1.1](/bok/ling1100/ling1100-1-1).\n\nPrøv nå på kvantorene, og legg merke til at mønsteret følger monotonisiteten:\n\n```text\n(18)  Ingen av gjestene sa noe som helst.        greit\n(19)  Alle som sa noe som helst, ble notert.     greit — restriktoren\n(20) *Alle sa noe som helst.                     ikke greit — omfanget\n```\n\n**Kontrollen er verdt et pluss-punkt i et svar om downward entailment**, fordi den er uavhengig av slutningstesten og likevel peker samme vei. To ulike prøver som gir samme resultat, er et sterkere argument enn én.\n\n**Merk at kontrollen ikke erstatter slutningstesten.** Sammenhengen mellom NPI-er og nedovergående omgivelser er sterk, men den er en observasjon, ikke en definisjon. Slutningstesten er definisjonen."
+    },
+    {
+      "id": "ling1100-3-4-thm-de-prosedyre",
+      "type": "theorem",
+      "title": "Prosedyre: avgjør om en posisjon er nedovergående",
+      "content": "Fire trinn. Dette er svaret på oppgaven «vis at posisjonen er nedovergående», og hvert trinn skal stå i besvarelsen.\n\n**Trinn 1 — velg et ordpar der du kjenner delmengdeforholdet.** *Rose* og *blomst*, *epler* og *frukt*, *roman* og *bok*. Skriv delmengdeforholdet ned eksplisitt: rosene er en delmengde av blomstene.\n\n**Trinn 2 — sett begge ordene inn i posisjonen**, og skriv ut de to setningene under hverandre.\n\n**Trinn 3 — prøv slutningen begge veier**, og si hvilken som holder. Det er her svaret ligger: holder slutningen **fra det vide til det snevre**, er posisjonen nedovergående.\n\n**Trinn 4 — forklar hvorfor, i mengdespråk.** Dette trinnet er det den ene sensorveiledningen etterspør, og det er det som skiller innsikt fra gjenkjenning: å utelukke hele overmengden er å utelukke alle delene av den.\n\n**Valgfritt trinn 5 — kontroller med et negativt polaritetselement.** Sett inn *noe som helst* eller *i det hele tatt* og se om setningen fortsatt er akseptabel. Er den det, peker en uavhengig prøve samme vei.\n\n**Kontroll før du går videre:** står delmengdeforholdet eksplisitt, er begge setningene skrevet ut, er retningen oppgitt, og er forklaringen med? Fire ting, og den fjerde er den som avgjør."
+    },
+    {
+      "id": "ling1100-3-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Downward entailment vist trinn for trinn",
+      "problem": "**Nyskrevet eksamensoppgave:** «Vis at leddet etter *ingen* er en nedovergående (‘downward entailing’) posisjon, og forklar hvorfor slutningsretningen er som den er. Sammenlign med den tilsvarende posisjonen i en bekreftende setning.»",
+      "solution": "**Trinn 1 — ordparet og delmengdeforholdet.**\n\nJeg bruker *epler* og *frukt*. Delmengdeforholdet er at eplemengden er en delmengde av fruktmengden: alt som er et eple, er en frukt, men ikke omvendt.\n\n**Trinn 2 — begge ordene satt inn i posisjonen.**\n\n```text\n(21) a.  Ingen av gjestene spiste frukt.\n     b.  Ingen av gjestene spiste epler.\n```\n\n**Trinn 3 — slutningen prøvd begge veier.**\n\nFra (21a) til (21b): **holder.** Spiste ingen av gjestene frukt, spiste heller ingen av dem epler.\n\nFra (21b) til (21a): **holder ikke.** Moteksempel: gjestene spiste ingen epler, men de spiste pærer. Da er (21b) sann og (21a) usann.\n\nSlutningen går altså **fra det vide ordet til det snevre**, og posisjonen er dermed nedovergående.\n\n**Trinn 4 — hvorfor retningen er slik, i mengdespråk.**\n\nSetningen (21a) sier at det ikke finnes noe **i fruktmengden** som gjestene spiste. Eplene er en **del** av fruktmengden. Er hele fruktmengden utelukket, er nødvendigvis også enhver del av den utelukket. **Å utelukke det store er å utelukke alt det store inneholder** — og det er derfor slutningen går nedover.\n\n**Sammenligningen med den bekreftende setningen.**\n\n```text\n(22) a.  Noen av gjestene spiste epler.\n     b.  Noen av gjestene spiste frukt.\n```\n\nHer holder slutningen fra (22a) til (22b), altså **motsatt vei**: fra snevert til vidt. Posisjonen er oppovergående.\n\nForklaringen er den samme mekanismen sett fra den andre siden: setningen sier at noe **er i** eplemengden, og alt som er i eplemengden, er også i fruktmengden. **Medlemskap arves oppover; utelukkelse arves nedover.**\n\n**Kontroll med et negativt polaritetselement.** Uttrykket *noe som helst* er akseptabelt etter *ingen* — «Ingen av gjestene spiste noe som helst» — men ikke i den tilsvarende bekreftende setningen. En uavhengig prøve peker altså samme vei.\n\n> Margnotat: legg merke til at hele svaret hviler på **ett** ordpar med kjent delmengdeforhold, og at både retningen og forklaringen er skrevet ut. Den ene sensorveiledningen som finnes, for høsten 2022, sier eksplisitt at kandidaten må vise reell innsikt her og ikke bare gjenkjenne ordene «nedover» og «implikasjon». **Trinn 4 er det trinnet den beskjeden handler om.**"
+    },
+    {
+      "id": "ling1100-3-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-4-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1 og A2.) Avgjør for hver posisjon om den er oppovergående eller nedovergående. Bruk ordparet *roman* og *bok*, der romanene er en delmengde av bøkene, og skriv ut begge setningene.\n\n**a)** Objektsposisjonen i «Sigrun leste en \\_\\_\\_\\_.»\n**b)** Objektsposisjonen i «Sigrun leste ikke en \\_\\_\\_\\_.»\n**c)** Objektsposisjonen i «Ingen på kurset leste en \\_\\_\\_\\_.»\n**d)** Leddet etter *hvis* i «Hvis du leser en \\_\\_\\_\\_, får du poeng.»",
+        "solution": "**a) Oppovergående.**\n\n```text\n(23) a.  Sigrun leste en roman.   ⊨   b.  Sigrun leste en bok.\n```\n\nSlutningen går fra det snevre til det vide. Motsatt vei holder ikke: hun kunne lest en fagbok.\n\n**b) Nedovergående.**\n\n```text\n(24) a.  Sigrun leste ikke en bok.   ⊨   b.  Sigrun leste ikke en roman.\n```\n\nSlutningen går fra det vide til det snevre. Motsatt vei holder ikke: hun kan ha unngått romaner og lest en fagbok.\n\n**c) Nedovergående.**\n\n```text\n(25) a.  Ingen på kurset leste en bok.   ⊨   b.  Ingen på kurset leste en roman.\n```\n\nSamme mønster som i b): utelukkes hele bokmengden, utelukkes også enhver del av den.\n\n**d) Nedovergående.**\n\n```text\n(26) a.  Hvis du leser en bok, får du poeng.   ⊨   b.  Hvis du leser en roman, får du poeng.\n```\n\nDette er den minst opplagte av de fire. Forklaringen: gjelder løftet for hele bokmengden, gjelder det nødvendigvis også for den mindre gruppen romaner. Motsatt vei holder ikke — et løfte som bare gjelder romaner, sier ingenting om fagbøker.\n\n**Merk hva de fire viser til sammen:** posisjonen er den samme grammatiske posisjonen i alle fire setningene, nemlig objektet. Det er **omgivelsene** som endrer retningen. Det er nettopp derfor monotonisitet er en egenskap ved posisjonen, ikke ved ordet.",
+        "hints": [
+          "Skriv begge setningene ut for hvert tilfelle, og prøv slutningen begge veier.",
+          "For d): tenk på hva et løfte som gjelder alle bøker, sier om den delen av dem som er romaner."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-4-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Eksamenssjanger F1 og A2, full sjanger.) «Gjør rede for downward entailment. Vis med et eget eksempelpar at leddet etter *alle* oppfører seg ulikt i de to argumentposisjonene, og forklar hvorfor. Kontroller med et negativt polaritetselement.»",
+        "solution": "**Begrepet definert først.** **Downward entailment** er egenskapen ved en språklig posisjon at slutningen går **fra overmengde til delmengde** — fra det vide ordet til det snevre. Motstykket er en oppovergående posisjon, der slutningen går motsatt vei. Egenskapen hører til **posisjonen**, ikke til ordet, og det er nettopp det oppgaven her ber om å få demonstrert.\n\n**Ordparet og delmengdeforholdet.** Jeg bruker *terrier* og *hund*: terrierne er en delmengde av hundene.\n\n**Første argumentposisjon — restriktoren. Nedovergående.**\n\n```text\n(27) a.  Alle som eier en hund, må betale avgift.\n     b.  Alle som eier en terrier, må betale avgift.\n```\n\nSlutningen fra (27a) til (27b) holder: gjelder regelen for alle hundeeiere, gjelder den nødvendigvis også for den mindre gruppen terriereiere.\n\nSlutningen motsatt vei holder ikke. Moteksempel: kommunen krever avgift bare av terriereiere, ikke av dem som eier andre hunder. Da er (27b) sann og (27a) usann.\n\n**Andre argumentposisjon — omfanget. Oppovergående.**\n\n```text\n(28) a.  Alle naboene eier en terrier.\n     b.  Alle naboene eier en hund.\n```\n\nSlutningen fra (28a) til (28b) holder: eier alle en terrier, eier alle nødvendigvis en hund.\n\nSlutningen motsatt vei holder ikke. Moteksempel: naboene eier hunder, men bare halvparten av dem er terriere.\n\n**Forklaringen på hvorfor de to posisjonene skiller seg.**\n\nSetningen «Alle X-er Y-er» sier at **X-mengden er inneholdt i Y-mengden**. Da følger de to retningene av seg selv:\n\n- **Gjør X-mengden mindre**, og påstanden blir svakere — en mindre mengde er lettere å få plass til inne i Y. Derfor kan du bytte til et snevrere ord i restriktoren, og posisjonen er **nedovergående**.\n- **Gjør Y-mengden større**, og påstanden blir også svakere — det er lettere å få plass til X inne i en større mengde. Derfor kan du bytte til et videre ord i omfanget, og posisjonen er **oppovergående**.\n\n**Dette er hele forklaringen, og den er det oppgaven premierer.** Begge slutningene går fra en sterkere til en svakere påstand, akkurat som all annen entailment. Det som skifter, er hvilken retning i taksonomien som **gjør** påstanden svakere — og det avhenger av hvilken side av delmengdeforholdet ordet står på.\n\n**Kontroll med et negativt polaritetselement.**\n\n```text\n(29)  Alle som sa noe som helst, ble notert.        greit\n(30) *Alle naboene sa noe som helst.                ikke greit\n```\n\nUttrykket *noe som helst* er akseptabelt i restriktoren, som er nedovergående, og ikke i omfanget, som er oppovergående. En uavhengig prøve peker altså samme vei som slutningstesten.\n\n**Hvorfor dette svaret viser innsikt og ikke gjenkjenning:** det bruker ett ord — *alle* — til å demonstrere begge retningene, og det forklarer forskjellen med hva setningen sier om forholdet mellom to mengder. **Ett og samme ord kan ikke ha to slutningsretninger; det kan derimot to posisjoner.**",
+        "hints": [
+          "Sett opp «Alle X-er Y-er» og spør hva setningen sier om forholdet mellom X-mengden og Y-mengden.",
+          "Prøv deretter å gjøre først X-mengden og så Y-mengden mindre, og se hvilken vei påstanden blir svakere."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Syntesen (~13 min)\n\nTil slutt: hele Del 3 samlet i én oppgave, og de fellene som koster mest."
+    },
+    {
+      "id": "ling1100-3-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-4-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2, blandet batteri.) Klassifiser hver slutning som entailment, presupposisjon eller implikatur, og begrunn med den testen som avgjorde.\n\n**a)** «Rune fortsatte å pusse opp kjøkkenet.» ⇒ Rune pusset opp kjøkkenet før.\n**b)** «Rune malte veggene og la nytt gulv.» ⇒ Rune malte veggene.\n**c)** «Rune fikk gjort noe med kjøkkenet.» ⇒ Rune ble ikke ferdig med hele kjøkkenet.\n**d)** «Det var Rune som betalte for materialene.» ⇒ Noen betalte for materialene.\n**e)** «Rune sykler eller tar bussen til jobben.» ⇒ Rune gjør ikke begge deler.",
+        "solution": "**a) Presupposisjon.** Negasjonstesten: «Rune fortsatte ikke å pusse opp kjøkkenet» forutsetter fortsatt at oppussingen var i gang. Slutningen overlever. Utløseren er det aspektuelle verbet *fortsette å*.\n\n**b) Entailment.** Negasjonstesten: «Rune malte ikke veggene og la nytt gulv» — her forsvinner slutningen. Kansellerbarhetstesten: «Rune malte veggene og la nytt gulv, men han malte ikke veggene» er en selvmotsigelse. Kilden er sannhetstabellen for $\\land$: en konjunksjon entailer hvert ledd.\n\n**c) Implikatur.** Kansellerbarhetstesten: «Rune fikk gjort noe med kjøkkenet — faktisk alt sammen.» Ingen selvmotsigelse. Slutningen kan trekkes tilbake.\n\nKontroll med ikke-avtakbarhet: bytt til «Rune fikk utrettet en del på kjøkkenet», og slutningen følger med. Den henger ved innholdet, ikke ved ordvalget.\n\n**d) Presupposisjon.** Negasjonstesten: «Det var ikke Rune som betalte for materialene» forutsetter fortsatt at noen betalte. Utløseren er den kløyvde setningen, en strukturell trigger.\n\n**e) Implikatur.** Kansellerbarhetstesten: «Rune sykler eller tar bussen — noen dager gjør han faktisk begge deler, sykler til stasjonen og tar bussen videre.» Ingen selvmotsigelse.\n\nDette er den eksklusive lesningen av *eller* fra [kap. 3.1](/bok/ling1100/ling1100-3-1). **Konnektivet $\\lor$ er inklusivt**, og den eksklusive lesningen legges til i tolkningen. Den kan derfor trekkes tilbake.\n\n**Kontrollen til slutt:** fem slutninger, fem klassifiseringer, og for hver av dem den testen som faktisk avgjorde — ikke alle testene på alle. Det er kjapp og presis føring.",
+        "hints": [
+          "Kjør negasjonstesten på alle fem først, og se hvilke slutninger som blir stående.",
+          "For dem som blir stående: prøv å trekke slutningen tilbake med en fortsettelse."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-4-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Full eksamenssjanger, hele Del 3.) «Betrakt setningen under.\n\n```text\n(31)  Ingen av deltakerne som hadde meldt seg av kurset igjen, fikk refundert avgiften.\n```\n\n**a)** Oppgi én presupposisjon i setningen, med utløser, og vis med negasjonstesten at den overlever.\n**b)** Er leddet «meldt seg av kurset» i en oppovergående eller nedovergående posisjon? Vis med et ordpar, og forklar hvorfor.\n**c)** Formaliser den enkle setningen «Deltakeren møtte og betalte» med konnektivene fra [kap. 3.1](/bok/ling1100/ling1100-3-1), og forklar hvilken mengdeoperasjon formen svarer til.\n**d)** Gi et eget eksempel på en implikatur setningen kunne gitt opphav til, og vis at den er kansellerbar.",
+        "solution": "**a) Presupposisjon: deltakerne hadde meldt seg av kurset minst én gang tidligere.**\n\nUtløseren er adverbet *igjen*, en **iterativ** og dermed en **leksikalsk** trigger.\n\nNegasjonstesten:\n\n```text\n(32) a.  Ingen av deltakerne som hadde meldt seg av kurset igjen, fikk refundert avgiften.\n         ⇒ De hadde meldt seg av minst én gang før.\n     b.  Ikke alle deltakerne som hadde meldt seg av kurset igjen, mistet refusjonen.\n         ⇒ De hadde meldt seg av minst én gang før.        HOLDER\n```\n\nAntakelsen overlever, og den er derfor presupponert.\n\n**b) Nedovergående.**\n\nLeddet står i **restriktoren** til den negative kvantoren *ingen* — det er delen som sier hvem påstanden gjelder — og *ingen* er nedovergående i begge argumentposisjonene sine.\n\nOrdparet: *melde seg av kurset* og *melde seg av forelesningsrekka*, der det siste er en snevrere måte å gjøre det første på.\n\n```text\n(33) a.  Ingen som hadde meldt seg av kurset, fikk refusjon.\n         ⊨\n     b.  Ingen som hadde meldt seg av forelesningsrekka, fikk refusjon.\n```\n\nSlutningen går fra det vide til det snevre. Forklaringen i mengdespråk: er hele gruppen som meldte seg av kurset utelukket fra refusjon, er nødvendigvis også enhver **del** av den gruppen utelukket. **Å utelukke det store er å utelukke alt det store inneholder.**\n\nKontroll med et negativt polaritetselement: «Ingen som hadde sagt noe som helst, fikk refusjon» er akseptabelt, og en uavhengig prøve peker samme vei.\n\n**c) Formaliseringen:**\n\n```text\n(34)  p = «Deltakeren møtte»\n      q = «Deltakeren betalte»\n```\n\nSetningen har formen $p \\land q$, og den er sann bare i raden der begge leddene er sanne.\n\nFormen svarer til **snittet** $A \\cap B$, der $A$ er mengden av dem som møtte og $B$ mengden av dem som betalte. En deltaker oppfyller påstanden hviss hun er i snittet.\n\nSammenhengen som er verdt å nevne: siden $A \\cap B \\subseteq A$, entailer konjunksjonen hvert av leddene sine. **Delmengdeforholdet i mengdespråket og entailmentet i setningsspråket er samme sak.**\n\n**d) Eget eksempel på en implikatur:**\n\nSier en administrator «Ingen av deltakerne som hadde meldt seg av igjen, fikk refundert avgiften», vil de fleste utlede at **noen andre deltakere faktisk fikk refusjon** — ellers ville avgrensningen vært umotivert.\n\nKansellerbarhetstesten:\n\n```text\n(35)  «Ingen av dem som hadde meldt seg av igjen, fikk refundert avgiften — og for\n      ordens skyld, ingen andre fikk det heller.»\n```\n\nIngen selvmotsigelse. Fortsettelsen er en presisering, og slutningen kan altså trekkes tilbake. Den er derfor en **implikatur**, ikke et entailment.\n\n**Merk at oppgaven har fire deler, og at hver av dem hviler på sitt kapittel i Del 3:** presupposisjon fra [kap. 3.3](/bok/ling1100/ling1100-3-3), downward entailment herfra, konnektiver og mengder fra [kap. 3.1](/bok/ling1100/ling1100-3-1) og løkke 2, og implikatur som forhåndsvist her. **Tell deloppgavene før du skriver, og tell svarene før du leverer.**",
+        "hints": [
+          "Ta én deloppgave om gangen, og noter hvilket kapittel hver av dem hører til.",
+          "For b): finn først ut hvilken argumentposisjon leddet står i — er det restriktoren eller omfanget?"
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-4-warn-ikke-bland",
+      "type": "warning",
+      "title": "Ikke bland de tre slutningstypene",
+      "content": "Dette er feil 3 i registeret, og den hyppigste kunnskapsfeilen i hele emnet.\n\n**De tre skarpe forskjellene, hver i én setning:**\n\n- **Entailment** er noe setningen **sier**. Det forsvinner under negasjon og kan ikke trekkes tilbake.\n- **Presupposisjon** er noe setningen **tar for gitt**. Den overlever negasjon og kan bare oppheves i en markert lesning med eksplisitt avvisning.\n- **Konversasjonell implikatur** er noe tilhøreren **utleder av at ytringen ble gjort**. Den kan trekkes tilbake uten selvmotsigelse.\n\n**De to testene som skiller:**\n\n- **Negasjonstesten** skiller entailment fra de to andre.\n- **Kansellerbarhetstesten** skiller implikatur fra de to andre.\n\n**Kjør begge.** Ingen av dem skiller alle tre alene, og det er den vanligste grunnen til at kandidater havner feil: de kjører én test og trekker en tredelt konklusjon av den.\n\n**En fjerde mulighet du må ha med:** slutningen kan hvile på **kunnskap om verden** og være ingen av de tre. «Han leter etter nøklene, altså har han mistet dem» er en rimelig gjetning, ikke en språklig slutning. Å ha med denne muligheten er et pluss-punkt, og å utelate den fører til at rimelige gjetninger tvinges inn i en av kategoriene."
+    },
+    {
+      "id": "ling1100-3-4-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Den ene sensorveiledningen som finnes, for høsten 2022, er uvanlig direkte om downward entailment: kandidaten må vise **reell innsikt i mekanismen**, ikke gjenkjenne ordene «nedover» og «implikasjon».\n\n> **Vagt:** «Downward entailment er når slutningen går nedover, altså fra det store til det lille. Det skjer i negerte setninger.»\n> **Presist:** «En posisjon er nedovergående når slutningen holder fra overmengde til delmengde. ‘Ingen av gjestene spiste frukt’ medfører ‘Ingen av gjestene spiste epler’, siden eplemengden er en del av fruktmengden. Forklaringen er at å utelukke hele fruktmengden er å utelukke enhver del av den. Motsatt vei holder ikke: gjestene kan ha spratt eplene og spist pærer.»\n\nFire spørsmål til din egen formulering:\n\n- Står **delmengdeforholdet** eksplisitt — hvilken mengde er en del av hvilken?\n- Er **begge setningene skrevet ut**, og er retningen prøvd begge veier?\n- Står **forklaringen i mengdespråk** der, om at å utelukke det store er å utelukke delene?\n- Er egenskapen knyttet til **posisjonen**, ikke til ordet? Kvantoren *alle* har begge retninger i sine to argumenter.\n\n**Den enkeltformuleringen som koster mest:** «Downward entailment er når det står *ikke* i setningen.» Det er ikke feil at negasjon skaper en slik posisjon, men det er ikke det begrepet er — og det forklarer ingenting."
+    },
+    {
+      "id": "ling1100-3-4-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil dominerer dette kapitlet.\n\n- **Feil 3 — å rote sammen de tre slutningstypene.** Kjør begge testene. Én test kan ikke skille tre kategorier.\n- **Feil 5 — å påstå downward entailment på gjenkjenning.** Å nevne at slutningen «går nedover» er ikke en forklaring. Vis delmengdeforholdet, skriv ut begge setningene, og forklar hvorfor utelukkelse arves nedover.\n- **Feil 4 — upresis testbruk.** «Testen holder» er en påstand om et resultat. Testen kjørt er de to setningene skrevet ut med slutningen under.\n- **Å knytte monotonisitet til ordet i stedet for til posisjonen.** Kvantoren *alle* er nedovergående i restriktoren og oppovergående i omfanget. Ett ord, to retninger — da kan retningen ikke ligge i ordet.\n- **Å blande $\\in$ og $\\subseteq$.** Det første står mellom et objekt og en mengde, det andre mellom to mengder. Spør hva som står til venstre.\n\n**En sjette felle, som gjelder tegneoppgaver:** å beskrive Venn-diagrammet i ord i stedet for å tegne det. Ber oppgaven om en figur, er en beskrivelse ikke et fullstendig svar — og settet fra høsten 2024 tilbyr digital håndtegning nettopp for at figuren skal tegnes."
+    },
+    {
+      "id": "ling1100-3-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-3-4-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\{\\ \\}$ | mengdeklammer — «mengden som består av …» |\n| $\\in$ | element i. Står mellom et objekt og en mengde |\n| $\\subseteq$ | delmengde av. Står mellom to mengder |\n| $\\cap$ | snitt — det som er i begge |\n| $\\cup$ | union — det som er i minst én |\n| $\\vDash$ | entailer |\n| $\\land$, $\\lor$, $\\lnot$ | konjunksjon, inklusiv disjunksjon, negasjon |\n| ⇒ | uformell markør for «medfører» i testoppsettene i kodeblokker |\n| `*` | markerer at grammatikken ikke genererer strengen |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$A \\cap B = \\text{alt som er i både } A \\text{ og } B$$\n\nSvarer til konjunksjonen. Merk at $A \\cap B \\subseteq A$ — konjunksjonen entailer hvert ledd.\n\n$$A \\cup B = \\text{alt som er i minst én av } A \\text{ og } B$$\n\nSvarer til inklusiv disjunksjon. Merk at $A \\subseteq A \\cup B$.\n\n$$A \\subseteq B \\text{ hviss alt som er i } A, \\text{ også er i } B$$\n\nDelmengdeforholdet. Svarer til entailment mellom setninger og til hyponymi mellom ord.\n\n$$\\text{Nedovergående posisjon: } A \\subseteq B \\text{ gir } f(B) \\vDash f(A)$$\n\nDownward entailment: å hevde noe om overmengden medfører det samme om delmengden.\n\n$$\\text{Oppovergående posisjon: } A \\subseteq B \\text{ gir } f(A) \\vDash f(B)$$\n\nDen vanlige retningen, som i enkle bekreftende setninger.\n\n**Notasjonsregler:** $\\in$ brukes bare mellom et objekt og en mengde, $\\subseteq$ bare mellom to mengder. Presupposisjonsrelasjonen skrives i ord, aldri med et oppfunnet symbol. Markøren `*` er et grammatikalitetsutsagn om en bestemt varietet, ikke en dom over en språkbruker."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-3-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "ling1100-3-4-rep-oppg-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-4-rep-e-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.3](/bok/ling1100/ling1100-3-3)) Hva skjer med en presupposisjon når setningen negeres, og hva heter egenskapen?",
+            "solution": "Den **overlever**. «Naboen sluttet ikke å måke fortauet» forutsetter fortsatt at han måkte før.\n\nEgenskapen heter **constancy under negation**, konstanthet under negasjon, og den er kjennetegnet på presupposisjon. Det er den ene egenskapen som skiller presupposisjon fra entailment.",
+            "hints": [
+              "Prøv testen på en setning med «sluttet å» før du svarer."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-4-rep-oppg-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-4-rep-e-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/ling1100/ling1100-3-1)) Hvilken mengdeoperasjon svarer inklusiv disjunksjon til, og hvorfor ikke den eksklusive?",
+            "solution": "Inklusiv disjunksjon svarer til **union**. En ting er i unionen hviss den er i minst én av mengdene — og en ting som er i **begge**, er selvsagt også i unionen.\n\nDet er nettopp den raden som skiller de to disjunksjonene: $p \\lor q$ er sann når begge leddene er sanne, mens $p \\veebar q$ er usann der. Eksklusiv disjunksjon svarer derfor ikke til unionen, men til unionen minus snittet.",
+            "hints": [
+              "Tenk på hva som skjer med en ting som ligger i begge mengdene."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-4-rep-oppg-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-4-rep-e-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.2](/bok/ling1100/ling1100-3-2)) Hvorfor entailer «Kari plantet en rose» setningen «Kari plantet en blomst», uttrykt i mengdespråk?",
+            "solution": "Fordi **rosemengden er en delmengde av blomstermengden**. Setningen sier at det finnes noe i rosemengden som Kari plantet, og alt som er i rosemengden, er også i blomstermengden.\n\nUttrykt generelt: er $A \\subseteq B$, entailer «$x$ er i $A$» setningen «$x$ er i $B$». Det er samme forhold som hyponymi mellom de to ordene, sett fra mengdesiden — og det er grunnen til at hyponymi er den vanligste enkeltkilden til entailment.",
+            "hints": [
+              "Tenk på hvilken av de to mengdene som ligger inne i den andre."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-4-rep-oppg-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-4-rep-e-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/ling1100/ling1100-2-1)) Hvordan ser hyponymi ut når du oversetter den til mengdelære, og hva blir kohyponymer da?",
+            "solution": "**Hyponymi blir delmengdeforhold:** at *rose* er hyponym til *blomst*, er at rosemengden er en delmengde av blomstermengden. Hyperonymet svarer til den store mengden, hyponymet til den lille.\n\n**Kohyponymer blir disjunkte delmengder** av samme overmengde: rosene og tulipanene er to mengder uten felles elementer, begge inne i blomstermengden. At de er uforenlige, er det samme som at snittet deres er tomt.\n\nTransitiviteten i hyponymi svarer til at delmengdeforholdet er transitivt: er $A \\subseteq B$ og $B \\subseteq C$, så er $A \\subseteq C$.",
+            "hints": [
+              "Tegn tre sirkler: én stor og to mindre inni, uten overlapp."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

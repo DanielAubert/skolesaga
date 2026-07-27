@@ -1,0 +1,380 @@
+{
+  "id": "ling1100-3-5",
+  "courseId": "ling1100",
+  "chapterNumber": "3.5",
+  "title": "Drill — sannhetstabell og slutningstest (fasit)",
+  "description": "Sannhetstabeller, entailment-, presupposisjons- og implikaturtester drillet til automatikk med fasit.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne sette opp en fullstendig sannhetstabell med mellomkolonner for uttrykk med to og tre variabler",
+    "kunne formulere sannhetsbetingelsen i ord med ordet hviss, og kommentere radene med tom sannhet",
+    "kunne klassifisere en slutning ved å kjøre negasjonstesten og kansellerbarhetstesten og skrive begge ut",
+    "kunne vise at en posisjon er nedovergående med et ordpar og forklare retningen i mengdespråk"
+  ],
+  "content": [
+    {
+      "id": "ling1100-3-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet drilles fordi Del 3 leverer **de mest fasit-tunge oppgavene i hele emnet**, og fordi de tre temaene som drilles her, til sammen dekker over halvparten av settene.\n\n- **Entailment er prøvd i 8 av de 12 settene**, **presupposisjon i 8 av 12**, og **logikk og sannhetsbetingelser i 6 av 12 med stigende andel**. Én av de tre dukker opp i praktisk talt hvert eneste sett.\n- **To sjangre drilles her.** **F1** er sannhetstabeller og sannhetsbetingelser: sett opp tabellen, forklar radene, formuler betingelsen med «hviss». **A2** er slutningstester: kjør negasjonstesten og kansellerbarhetstesten, klassifiser, begrunn.\n- **Den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk:** for sannhetsbetingelser og biimplikasjoner finnes utvetydige svar, og vaghet — «slark» — er feil, ikke bare svakhet.\n- **Prioritet: høyeste.** Begge sjangrene er mekaniske når du først kan dem, og de tar under tjue minutter hver på eksamen.\n\n**Slik bruker du kapitlet:** det er en drill på omtrent 75 minutter, og det bør deles over to økter. Oppgave 1 til 8 er tabeller, oppgave 9 til 16 er slutninger. Skriv svarene med penn før du åpner fasiten — det er føringen som drilles, ikke gjenkjenningen."
+    },
+    {
+      "id": "ling1100-3-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Drillen forutsetter hele Del 3: [kap. 3.1](/bok/ling1100/ling1100-3-1), [kap. 3.2](/bok/ling1100/ling1100-3-2), [kap. 3.3](/bok/ling1100/ling1100-3-3) og [kap. 3.4](/bok/ling1100/ling1100-3-4), pluss føringsmalen fra [kap. 0.2](/bok/ling1100/ling1100-0-2).\n\n**Sist du var her** — de seks tingene alle oppgavene hviler på:\n\n- **Radtallet er $2^n$.** To variabler gir fire rader, tre gir åtte. Tell alltid.\n- **Material implikasjon er usann i nøyaktig ett tilfelle:** når antesedenten er sann og konsekventen usann. I de tre andre radene er den sann.\n- **Inklusiv og eksklusiv disjunksjon skiller seg i én rad** — den der begge leddene er sanne.\n- **Negasjonstesten:** neger setningen. Forsvinner slutningen, er den et **entailment**. Overlever den, er den en **presupposisjon** eller en implikatur.\n- **Kansellerbarhetstesten:** prøv å trekke slutningen tilbake. Går det uten selvmotsigelse, er den en **implikatur**.\n- **Downward entailment:** i en nedovergående posisjon går slutningen fra overmengde til delmengde, fordi å utelukke det store er å utelukke alle delene av det.\n\nAlle symboler står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-3-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriftene (~10 min)\n\nTo sjangre, to algoritmer. Begge er korte, og begge er verdt å kunne utenat — under tidspress er det rekkefølgen som redder deg, ikke kunnskapen.\n\n### F1 — sannhetstabell og sannhetsbetingelse\n\n**Trinn 1.** Oppgi hva variablene står for, med de faktiske setningene fra oppgaven.\n**Trinn 2.** Tell variablene og regn ut $2^n$. Skriv tallet ned.\n**Trinn 3.** Fyll ut variabelkolonnene systematisk, fra alt sant til alt usant.\n**Trinn 4.** Regn innenfra og ut. Ta parentesinnholdet først, hovedkonnektivet sist, og la mellomkolonnene stå i tabellen.\n**Trinn 5.** Formuler sannhetsbetingelsen i ord, med **hviss**, og kommenter den eller de radene som er overraskende.\n\n### A2 — slutningstest og klassifisering\n\n**Trinn 1.** Skriv opp $p$ og $q$ — setningen og slutningen — hver for seg.\n**Trinn 2.** Kjør **negasjonstesten**. Neger $p$, og skriv den negerte setningen ut i klartekst. Holder slutningen fortsatt? Da er du i presupposisjon eller implikatur.\n**Trinn 3.** Kjør **kansellerbarhetstesten**. Skriv ut fortsettelsen som trekker slutningen tilbake. Går det uten selvmotsigelse, er slutningen en implikatur.\n**Trinn 4.** Klassifiser, og **oppgi kilden**: hyponymi, konnektiv, kvantor, eller navnet på triggeren.\n**Trinn 5.** Er svaret «ikke entailment», si hva slutningen **da** er. Et «nei» uten fortsettelse er et halvt svar.\n\n**Fellesnevneren for de to:** det som gir uttelling, er ikke resultatet, men at **prosedyren står i besvarelsen**. En riktig tabell uten variabelforklaring og en riktig klassifisering uten test er begge halve svar."
+    },
+    {
+      "id": "ling1100-3-5-def-tabellalgoritmen",
+      "type": "definition",
+      "title": "Tabellalgoritmen",
+      "content": "De fem trinnene i en F1-oppgave: **variabelforklaring → radtall → variabelkolonner → utregning innenfra og ut → sannhetsbetingelse i ord.**\n\nAlgoritmen er ikke faglig nødvendig — man kan fylle ut en tabell uten den. Den er en **tidsforsikring**: den hindrer deg i å oppdage på slutten at du mangler en rad eller har regnet hovedkonnektivet før parentesen.\n\n**De to trinnene som oftest hoppes over, er det første og det siste.** Uten variabelforklaringen er tabellen et regnestykke uten oppgitt gjenstand; uten sannhetsbetingelsen i ord har du levert en tabell der oppgaven ba om en forklaring.\n\n**Kontrollen som tar ti sekunder:** tell radene mot $2^n$, sjekk at variabelforklaringen står der, og les sannhetsbetingelsen høyt for deg selv. Står ordet «hviss» der?"
+    },
+    {
+      "id": "ling1100-3-5-def-slutningsalgoritmen",
+      "type": "definition",
+      "title": "Slutningsalgoritmen",
+      "content": "De fem trinnene i en A2-oppgave: **skill $p$ og $q$ → negasjonstesten → kansellerbarhetstesten → klassifiser med kilde → si hva slutningen er hvis den ikke er entailment.**\n\n**Rekkefølgen på de to testene er valgt for fart.** Negasjonstesten luker ut entailmentene, som er den største gruppen, og kansellerbarhetstesten skiller deretter presupposisjon fra implikatur blant dem som ble stående.\n\n**Det siste trinnet er det som skiller et fullstendig svar fra et halvt.** Spør oppgaven «er dette et entailment?», er «nei» bare halve svaret dersom oppgaven også ber om hva slutningen da er — og det gjør den nesten alltid.\n\n**Merk at én setning bærer flere slutninger.** Algoritmen kjøres på **slutningen**, ikke på setningen. Gir oppgaven deg to slutninger fra samme setning, kjører du den to ganger."
+    },
+    {
+      "id": "ling1100-3-5-def-radkontrollen",
+      "type": "definition",
+      "title": "Radkontrollen",
+      "content": "Kontrollen som fanger den vanligste enkeltfeilen i F1-oppgaver: **tell variablene, regn ut $2^n$, tell radene.**\n\nÉn variabel gir 2 rader, to gir 4, tre gir 8, fire gir 16.\n\n**Hvorfor en manglende rad er en feil og ikke en unøyaktighet:** hver rad er et mulig tilfelle. Utelater du en, har du utelatt en situasjon der uttrykket kunne hatt en annen verdi enn du tror — og påstanden din om sannhetsbetingelsen er dermed ubegrunnet.\n\n**Kontrollen tar under ti sekunder**, og den er verdt å kjøre også når tabellen «ser riktig ut». Under tidspress er det nettopp de tabellene som ser riktige ut, som mangler en rad."
+    },
+    {
+      "id": "ling1100-3-5-def-variabelforklaringen",
+      "type": "definition",
+      "title": "Variabelforklaringen",
+      "content": "Linjen som sier hva $p$, $q$ og $r$ står for, med de faktiske setningene fra oppgaven.\n\n```text\n(1)  p = «Søknaden er levert»\n     q = «Gebyret er betalt»\n```\n\n**Dette er den vanligste enkeltmangelen i F1-besvarelser**, og den er gratis å unngå: linjen tar femten sekunder å skrive.\n\n**Hvorfor den er nødvendig og ikke pynt:** tabellen din er et regnestykke. Uten oppgitt gjenstand kan ingen kontrollere at du har formalisert setningen riktig — og formaliseringen er halve oppgaven. Har du byttet om antesedent og konsekvent, er det variabelforklaringen som avslører det.\n\n**Skriv den også når oppgaven bare oppgir formelen**, altså når det ikke er noen setning å oversette. Da sier du i stedet hva slags proposisjoner variablene står for, og at reglene gjelder uansett hva du setter inn."
+    },
+    {
+      "id": "ling1100-3-5-def-testen-skrevet-ut",
+      "type": "definition",
+      "title": "Testen skrevet ut",
+      "content": "Føringsregelen for A2-sjangeren: **den negerte setningen og fortsettelsen som kansellerer, skal stå i klartekst i besvarelsen.**\n\nSammenlign de to formene:\n\n> **Testen navngitt:** «Negasjonstesten viser at slutningen overlever, så dette er en presupposisjon.»\n> **Testen kjørt:** «‘Naboen sluttet ikke å måke fortauet’ forutsetter fortsatt at han måkte før. Slutningen overlever negasjonen, og den er derfor en presupposisjon.»\n\nBegge sier det samme. Bare den andre **viser** at testen er utført på materialet i oppgaven.\n\n**Merk at dette er den samme regelen som i [kap. 2.4](/bok/ling1100/ling1100-2-4)**, bare med andre tester. Det er ingen tilfeldighet: hele boka hviler på at kategorien skal være utledet, ikke gjenkjent.\n\n**Kostnaden er to linjer per slutning.** Gevinsten er at svaret går fra å være en påstand om et testresultat til å være testresultatet."
+    },
+    {
+      "id": "ling1100-3-5-def-tidsbudsjett",
+      "type": "definition",
+      "title": "Tidsbudsjett for en Del 3-oppgave",
+      "content": "Anslaget du kan regne med når en F1- eller A2-oppgave dukker opp på eksamen.\n\nEn slik oppgave er én av rundt ti besvarelser i et sett, og har derfor omtrent **20 minutters skrivetid**. Fordelingen:\n\n- **2 minutter:** les oppgaveteksten og tell kravene. Står det «forklar», «gi eget eksempel» eller «begrunn med en test»?\n- **3 minutter** ved tabelloppgaver: variabelforklaring, radtall og oppsett.\n- **10 minutter:** selve utregningen eller testene, cirka to minutter per rad-forklaring eller per slutning.\n- **3 minutter:** sannhetsbetingelsen i ord, eller kilden til hver slutning.\n- **2 minutter:** kontroll — radtall, variabelforklaring, og at alle deloppgaver er besvart.\n\n**Den vanligste tidsfellen i denne sjangeren** er å skrive en innledning om hva proposisjonslogikk er. Det er ikke spurt om, og det spiser minuttene du trenger på rad-forklaringene til slutt."
+    },
+    {
+      "id": "ling1100-3-5-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomgått case med margnotater",
+      "problem": "**Nyskrevet eksamensoppgave:** «(a) Sett opp sannhetstabellen for $(p \\lor q) \\land \\lnot(p \\land q)$, og forklar hvilket kjent konnektiv uttrykket svarer til. (b) Avgjør for setningsparet under om den første entailer den andre, og begrunn med en test.»\n\n```text\n(2) a.  Alle deltakerne som møtte, fikk utdelt program.\n    b.  Ingen som møtte, ble stående uten program.\n```",
+      "solution": "**(a) Variablene.** Oppgaven gir bare formelen, så jeg oppgir hva slags proposisjoner variablene står for: $p$ og $q$ er vilkårlige proposisjoner, og resultatet gjelder uansett hva som settes inn.\n\n**Radtallet:** to variabler, altså $2^2 = 4$ rader.\n\n**Tabellen med mellomkolonner:**\n\n| $p$ | $q$ | $p \\lor q$ | $p \\land q$ | $\\lnot(p \\land q)$ | $(p \\lor q) \\land \\lnot(p \\land q)$ |\n|---|---|---|---|---|---|\n| S | S | S | S | U | U |\n| S | U | S | U | S | S |\n| U | S | S | U | S | S |\n| U | U | U | U | S | U |\n\n> Margnotat: mellomkolonnene står i tabellen, og de er ikke rot. De er dokumentasjonen på at utregningen er gjort innenfra og ut, og de gjør svaret kontrollerbart. I en oppgave der du skal **vise** noe, er mellomkolonnene halve poenget.\n\n**Avlesningen:** sluttkolonnen er U, S, S, U. Uttrykket er sant i nøyaktig de to radene der én av leddene er sann og den andre usann.\n\n**Hvilket konnektiv det svarer til:** **eksklusiv disjunksjon**, $p \\veebar q$. Uttrykket sier bokstavelig talt «minst én, men ikke begge», og det er nettopp XOR.\n\n**Sannhetsbetingelsen formulert presist:** uttrykket er sant hviss nøyaktig én av $p$ og $q$ er sann; det er usant både når begge er sanne og når begge er usanne.\n\n> Margnotat: her står **kontrollen** som gjør svaret sikkert: sluttkolonnen har to S-er, akkurat som XOR, mens inklusiv disjunksjon ville hatt tre. Å telle S-ene tar fem sekunder og fanger den vanligste forvekslingen i sjangeren.\n\n**(b) Slutningen.**\n\n```text\n(3)  p = «Alle deltakerne som møtte, fikk utdelt program»\n     q = «Ingen som møtte, ble stående uten program»\n```\n\n**Negasjonstesten:** «Ikke alle deltakerne som møtte, fikk utdelt program» medfører ikke $q$ — tvert imot, den medfører at noen ble stående uten. Slutningen **forsvinner** under negasjon.\n\n**Kansellerbarhetstesten:** «Alle som møtte fikk utdelt program, men noen ble stående uten» er en selvmotsigelse. Slutningen kan **ikke** trekkes tilbake.\n\n**Klassifisering: entailment.** Kilden er forholdet mellom kvantorene *alle* og *ingen*, sammen med at *å få utdelt program* og *å bli stående uten program* er komplementære.\n\n> Margnotat: legg merke til at svaret oppgir **kilden**, ikke bare kategorien. Det er det femte trinnet i slutningsalgoritmen, og det koster én linje.\n\n> Margnotat: legg også merke til at entailmentet her går **begge veier** — $q$ entailer også $p$. Det gjør paret til et tilfelle av **gjensidig entailment**, altså ekvivalens. Å nevne det er et pluss-punkt, men bare når du har prøvd testen i begge retninger."
+    },
+    {
+      "id": "ling1100-3-5-drill-tabeller",
+      "type": "text",
+      "content": "## Del 1 av drillen — sannhetstabeller (~30 min)\n\nOppgave 1 til 8. De første er små, de siste har tre variabler og sammensatte uttrykk."
+    },
+    {
+      "id": "ling1100-3-5-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F1 — sannhetstabeller og sannhetsbetingelser. Innstegsoppgave.)\n\n**a)** Hvor mange rader har en tabell med fire variabler?\n**b)** Sett opp tabellen for $p \\land \\lnot q$.\n**c)** Formuler sannhetsbetingelsen i ord.",
+        "solution": "**a) Seksten rader.** Regelen er $2^n$, og $2^4 = 16$.\n\n**b) Tabellen med mellomkolonne:**\n\n| $p$ | $q$ | $\\lnot q$ | $p \\land \\lnot q$ |\n|---|---|---|---|\n| S | S | U | U |\n| S | U | S | S |\n| U | S | U | U |\n| U | U | S | U |\n\n**c) Sannhetsbetingelsen:** $p \\land \\lnot q$ er sann hviss $p$ er sann og $q$ er usann; i alle de tre andre tilfellene er den usann.\n\n**Legg merke til hvilken rad som er den eneste sanne.** Det er nøyaktig den raden som gjør $p \\rightarrow q$ **usann**. Uttrykkene er hverandres negasjon, og det er en sammenheng du får bruk for i entailment-oppgaver: $p \\land \\lnot q$ er nettopp det tilfellet entailment utelukker.",
+        "hints": [
+          "Regn ut mellomkolonnen for negasjonen først, og bruk den i utregningen av konjunksjonen.",
+          "For c): begynn med å telle hvor mange rader som er sanne."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F1.) Sett opp tabellene for $p \\lor q$ og $p \\veebar q$ i samme oppstilling, og svar:\n\n**a)** I hvilken rad skiller de seg?\n**b)** Hvor mange S-er har hver av sluttkolonnene?\n**c)** Gi ett eget eksempel på hver av de to lesningene.",
+        "solution": "**Tabellen:**\n\n| $p$ | $q$ | $p \\lor q$ | $p \\veebar q$ |\n|---|---|---|---|\n| S | S | S | U |\n| S | U | S | S |\n| U | S | S | S |\n| U | U | U | U |\n\n**a) I rad 1**, der begge leddene er sanne. Der er den inklusive **sann** og den eksklusive **usann**. I de tre andre radene er de like.\n\n**b)** Inklusiv disjunksjon har **tre** S-er, eksklusiv har **to**. Å telle S-ene er en kontroll som tar fem sekunder og som avslører om du har satt opp feil tabell.\n\n**c) Eget eksempel på inklusiv lesning:**\n\n```text\n(4)  Du kan søke hvis du har fagbrev eller relevant praksis.\n```\n\nDen som har begge deler, er ikke utelukket. Kravet er et minstekrav.\n\n**Eget eksempel på eksklusiv lesning:**\n\n```text\n(5)  Møtet holdes enten på tirsdag eller på onsdag.\n```\n\nHer utelukker situasjonen selv at begge deler er sanne: møtet holdes én gang.\n\n**Merk at eksempelet i (5) er eksklusivt på grunn av verden**, ikke på grunn av ordet *eller*. Er begge deler mulige — «Du kan få kaffe eller te» — kommer den eksklusive lesningen fra tolkningen og kan trekkes tilbake. Skillet mellom de to kildene er et pluss-punkt.",
+        "hints": [
+          "Sett tabellene ved siden av hverandre med samme radrekkefølge.",
+          "For c): spør om det i det hele tatt er mulig at begge delene er sanne samtidig i eksempelet ditt."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1.) Sett opp tabellen for setningen under, og forklar hvilken rad som gjør den usann.\n\n```text\n(6)  Hvis søknaden kom inn før fristen, blir den behandlet.\n```\n\n**a)** Oppgi variablene og formaliser.\n**b)** Sett opp tabellen.\n**c)** Forklar alle fire radene, særlig de to der antesedenten er usann.",
+        "solution": "**a) Variablene:**\n\n```text\n(7)  p = «Søknaden kom inn før fristen»\n     q = «Søknaden blir behandlet»\n```\n\nFormalisering: $p \\rightarrow q$. Merk at *hvis*-setningen er antesedenten.\n\n**b) Tabellen:**\n\n| $p$ | $q$ | $p \\rightarrow q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | S |\n| U | U | S |\n\n**c) Radene:**\n\n**Rad 1:** søknaden kom i tide og ble behandlet. Regelen ble fulgt, og påstanden er sann.\n\n**Rad 2:** søknaden kom i tide, men ble ikke behandlet. **Dette er det eneste bruddet**, og derfor den eneste raden der påstanden er usann.\n\n**Rad 3:** søknaden kom for sent, men ble behandlet likevel. Regelen lovet at det som kommer i tide, blir behandlet — den lovet ikke at ingenting annet blir behandlet. Påstanden er sann.\n\n**Rad 4:** søknaden kom for sent og ble ikke behandlet. Regelen ble ikke satt på prøve. Påstanden er sann.\n\n**De to siste radene er tom sannhet.** Forklaringen som virker: en implikasjon er en **garanti** mot én bestemt kombinasjon. Uteblir betingelsen, blir garantien aldri prøvd, og en garanti som ikke er brutt, er ikke usann.\n\n**Sannhetsbetingelsen presist:** setningen er usann hviss søknaden kom i tide og likevel ikke ble behandlet; i alle andre tilfeller er den sann.",
+        "hints": [
+          "Finn antesedenten først — det er betingelsen, uansett hvor i setningen den står.",
+          "For c): spør for hver rad om garantien er brutt, ikke om setningen føles riktig."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1.) Sett opp én tabell med mellomkolonner for $\\lnot(p \\rightarrow q)$, og svar:\n\n**a)** Hvilket kjent uttrykk er dette ekvivalent med?\n**b)** Hva forteller det om entailment?",
+        "solution": "**Tabellen:**\n\n| $p$ | $q$ | $p \\rightarrow q$ | $\\lnot(p \\rightarrow q)$ | $\\lnot q$ | $p \\land \\lnot q$ |\n|---|---|---|---|---|---|\n| S | S | S | U | U | U |\n| S | U | U | S | S | S |\n| U | S | S | U | U | U |\n| U | U | S | U | S | U |\n\n**a) Uttrykket er ekvivalent med $p \\land \\lnot q$.** Kolonne 4 og kolonne 6 er identiske i alle fire radene.\n\nI ord: å benekte en implikasjon er å hevde at antesedenten er sann og konsekventen usann. Det gir god mening — det er nettopp den ene kombinasjonen implikasjonen utelukker.\n\n**b) Sammenhengen med entailment.** Fra [kap. 3.2](/bok/ling1100/ling1100-3-2) vet vi at $p \\vDash q$ holder hviss $p \\rightarrow q$ er sann i **alle** situasjoner. Da følger det at entailmentet **faller** så snart det finnes en situasjon der $\\lnot(p \\rightarrow q)$ er sann — altså en situasjon der $p$ er sann og $q$ er usann.\n\n**Det er nøyaktig definisjonen av et moteksempel**, og det forklarer hvorfor ett moteksempel er nok: moteksemplet er en situasjon der $p \\land \\lnot q$ er sann.\n\nDet forklarer også hvorfor **selvmotsigelsestesten** virker. Setningen «$p$, men ikke $q$» er nettopp $p \\land \\lnot q$ uttrykt i ord. Er den setningen selvmotsigende, finnes det ingen slik situasjon — og da holder entailmentet.",
+        "hints": [
+          "Regn ut implikasjonen først, og negasjonen av den etterpå.",
+          "For b): tenk på hva selvmotsigelsestesten faktisk skriver ut i ord."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1.) Sett opp tabellen for $(p \\land q) \\lor (\\lnot p \\land \\lnot q)$ med mellomkolonner.\n\n**a)** Hvilket kjent konnektiv svarer uttrykket til?\n**b)** Formuler sannhetsbetingelsen i ord.",
+        "solution": "**Tabellen:**\n\n| $p$ | $q$ | $p \\land q$ | $\\lnot p$ | $\\lnot q$ | $\\lnot p \\land \\lnot q$ | hele uttrykket |\n|---|---|---|---|---|---|---|\n| S | S | S | U | U | U | S |\n| S | U | U | U | S | U | U |\n| U | S | U | S | U | U | U |\n| U | U | U | S | S | S | S |\n\n**a) Uttrykket svarer til biimplikasjonen, $p \\leftrightarrow q$.** Sluttkolonnen er S, U, U, S, som er nøyaktig biimplikasjonens tabell.\n\nDet gir mening når du leser uttrykket i ord: «enten er begge sanne, eller så er begge usanne» — altså har de samme sannhetsverdi.\n\n**b) Sannhetsbetingelsen:** uttrykket er sant hviss $p$ og $q$ har samme sannhetsverdi; det er usant i de to radene der de har ulik verdi.\n\n**En kontroll som er verdt å ta med:** sluttkolonnen er nøyaktig motsatt av eksklusiv disjunksjon. XOR sier at verdiene er ulike, biimplikasjonen at de er like. Det bekrefter avlesningen fra en uavhengig kant.\n\n**Merk hvorfor mellomkolonnene er nødvendige her.** Uttrykket har fire konnektiver, og uten mellomkolonner er det praktisk talt umulig å regne riktig under tidspress. **Sett dem opp — de er dokumentasjon, ikke rot.**",
+        "hints": [
+          "Regn de to parentesene hver for seg først, og ta disjunksjonen mellom dem til slutt.",
+          "Sammenlign sluttkolonnen din med de seks tabellene fra kap. 3.1."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F1, tre variabler.) Sett opp tabellen for $(p \\lor q) \\rightarrow r$.\n\n**a)** Hvor mange rader skal tabellen ha?\n**b)** Sett den opp med mellomkolonne.\n**c)** I hvilke rader er uttrykket usant, og hva har de til felles?",
+        "solution": "**a) Åtte rader**, siden $2^3 = 8$.\n\n**b) Tabellen:**\n\n| $p$ | $q$ | $r$ | $p \\lor q$ | $(p \\lor q) \\rightarrow r$ |\n|---|---|---|---|---|\n| S | S | S | S | S |\n| S | S | U | S | U |\n| S | U | S | S | S |\n| S | U | U | S | U |\n| U | S | S | S | S |\n| U | S | U | S | U |\n| U | U | S | U | S |\n| U | U | U | U | S |\n\n**c) Uttrykket er usant i rad 2, 4 og 6.** Det de tre har til felles, er at **antesedenten $p \\lor q$ er sann mens $r$ er usann** — altså den ene forbudte kombinasjonen.\n\nKonkret: minst én av $p$ og $q$ er sann, og $r$ er usann.\n\n**Merk de to nederste radene.** Der er både $p$ og $q$ usanne, altså er antesedenten usann, og implikasjonen er sann uansett hva $r$ er. Det er tom sannhet, og det gjelder to av åtte rader.\n\n**En kontroll du kan kjøre:** en implikasjon er usann i nøyaktig de radene der antesedenten er sann og konsekventen usann. Antesedenten $p \\lor q$ er sann i seks av åtte rader, og av dem er $r$ usann i tre. Tre usanne rader — og det stemmer med tabellen.\n\n**Grepet oppgaven trener:** å regne mellomkolonnen ferdig før hovedkonnektivet. Med tre variabler er det ikke mulig å holde begge deler i hodet samtidig.",
+        "hints": [
+          "Fyll ut de tre variabelkolonnene systematisk først: alt sant øverst, alt usant nederst.",
+          "Regn hele mellomkolonnen for disjunksjonen ferdig før du begynner på implikasjonen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F1.) En kandidat har levert denne tabellen for $p \\rightarrow q$:\n\n| $p$ | $q$ | $p \\rightarrow q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | U |\n\n**a)** Finn alle feilene.\n**b)** Sett opp den riktige tabellen, og forklar hva som er galt i hver av de feilene du fant.",
+        "solution": "**a) To feil, og den ene er alvorligere enn den andre.**\n\n**Feil 1 — tabellen mangler en rad.** Med to variabler skal tabellen ha $2^2 = 4$ rader, og kandidaten har tre. Raden der begge er usanne, mangler.\n\n**Feil 2 — rad 3 har feil verdi.** Der $p$ er usann og $q$ er sann, er implikasjonen **sann**, ikke usann.\n\nI tillegg mangler **variabelforklaringen**, men det er ikke synlig som en feil i tabellen — det er en mangel i besvarelsen.\n\n**b) Riktig tabell:**\n\n| $p$ | $q$ | $p \\rightarrow q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | S |\n| U | U | S |\n\n**Hva som er galt i feil 1.** En manglende rad er ikke en unøyaktighet. Hver rad er et mulig tilfelle, og den manglende raden er nettopp en av de to der antesedenten er usann — altså en av dem kandidaten sannsynligvis er usikker på. Radkontrollen $2^n$ ville fanget den på fem sekunder.\n\n**Hva som er galt i feil 2.** Kandidaten har antakelig tenkt at når betingelsen ikke er oppfylt, kan ikke påstanden være sann. Men en implikasjon er en **garanti** mot én bestemt kombinasjon: at man ikke får $p$ uten $q$. I rad 3 er $p$ ikke oppfylt, og garantien er dermed aldri satt på prøve. En garanti som ikke er brutt, er ikke usann.\n\n**Det underliggende mønsteret** er verdt å legge merke til: begge feilene ligger i de to radene der antesedenten er usann. **Det er den ene delen av implikasjonstabellen som må læres, ikke gjettes**, og den er årsaken til at kapitlet bruker en hel løkke på den.",
+        "hints": [
+          "Begynn med radkontrollen: hvor mange rader skal tabellen ha?",
+          "Gå deretter gjennom hver rad og spør om garantien er brutt der."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F1, full sjanger med egne eksempler.) «Sett opp sannhetstabellen for $p \\rightarrow (q \\lor r)$, forklar den eller de radene som gjør uttrykket usant, og gi et eget eksempel på en norsk setning med denne formen.»",
+        "solution": "**Variablene.** Jeg bruker et konkret eksempel med én gang, slik at tabellen har en oppgitt gjenstand:\n\n```text\n(8)  p = «Kandidaten møtte til prøven»\n     q = «Kandidaten besto skriftlig del»\n     r = «Kandidaten besto muntlig del»\n```\n\n**Radtallet:** tre variabler, altså $2^3 = 8$ rader.\n\n**Tabellen med mellomkolonne:**\n\n| $p$ | $q$ | $r$ | $q \\lor r$ | $p \\rightarrow (q \\lor r)$ |\n|---|---|---|---|---|\n| S | S | S | S | S |\n| S | S | U | S | S |\n| S | U | S | S | S |\n| S | U | U | U | U |\n| U | S | S | S | S |\n| U | S | U | S | S |\n| U | U | S | S | S |\n| U | U | U | U | S |\n\n**Den ene raden som gjør uttrykket usant, er rad 4:** kandidaten møtte, men besto verken skriftlig eller muntlig del.\n\nForklaringen: implikasjonen er usann bare når antesedenten er sann og konsekventen usann. Konsekventen her er en **disjunksjon**, og en disjunksjon er usann bare når begge leddene er usanne. Kombinasjonen krever derfor tre ting samtidig: $p$ sann, $q$ usann og $r$ usann. Det gjør at bare én av åtte rader er usann.\n\n**Merk de fire nederste radene.** Der er $p$ usann, altså møtte ikke kandidaten, og implikasjonen er sann uansett hva som skjer med de to delprøvene. Det er tom sannhet, og det gjelder halvparten av tabellen.\n\n**Eget eksempel med samme form:**\n\n```text\n(9)  Hvis du er medlem, får du enten rabatt på kurs eller gratis adgang til biblioteket.\n```\n\nHer er $p$ = «du er medlem», $q$ = «du får rabatt på kurs», $r$ = «du får gratis adgang til biblioteket». Løftet brytes i nøyaktig ett tilfelle: du er medlem og får ingen av delene.\n\n**Merk at ordet *enten* her ikke gjør disjunksjonen eksklusiv.** Et medlem som får begge fordelene, har ikke fått løftet brutt — tvert imot. Skulle disjunksjonen vært eksklusiv, måtte teksten sagt uttrykkelig at man må velge én av delene. **Å påpeke dette er et pluss-punkt**, og det er nettopp forvekslingen fra [kap. 3.1](/bok/ling1100/ling1100-3-1).\n\n**Kontroll til slutt:** åtte rader som ventet, mellomkolonne med, den usanne raden pekt ut og forklart, og et eget eksempel med samme form. Oppgaveteksten hadde tre krav, og alle tre er besvart.",
+        "hints": [
+          "Regn ut disjunksjonen i konsekventen ferdig før du regner implikasjonen.",
+          "Spør deretter hva som må gjelde samtidig for at en implikasjon med en disjunksjon som konsekvent skal bli usann."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-drill-slutninger",
+      "type": "text",
+      "content": "## Del 2 av drillen — slutningstester (~30 min)\n\n**— naturlig pausepunkt —**\n\nOppgave 9 til 16. Her er det negasjonstesten og kansellerbarhetstesten som gjelder."
+    },
+    {
+      "id": "ling1100-3-5-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger A2 — skill nærliggende begreper. Innstegsoppgave.) Kjør negasjonstesten på hver setning, og si om slutningen er et entailment eller ikke.\n\n**a)** «Erik kjøpte en bærbar datamaskin.» ⇒ Erik kjøpte en datamaskin.\n**b)** «Erik sluttet å bruke den gamle datamaskinen.» ⇒ Erik brukte den gamle datamaskinen før.\n**c)** «Erik og Sara kjøpte hver sin datamaskin.» ⇒ Sara kjøpte en datamaskin.",
+        "solution": "**a) Entailment.** «Erik kjøpte ikke en bærbar datamaskin» medfører ingenting om datamaskiner i det hele tatt — han kan ha kjøpt en stasjonær, eller ingen. Slutningen **forsvinner** under negasjon. Kilden er hyponymi: en bærbar datamaskin er en type datamaskin.\n\n**b) Ikke entailment — presupposisjon.** «Erik sluttet ikke å bruke den gamle datamaskinen» forutsetter **fortsatt** at han brukte den før. Slutningen **overlever** negasjonen. Utløseren er det aspektuelle verbet *slutte å*.\n\n**c) Entailment.** «Erik og Sara kjøpte ikke hver sin datamaskin» medfører ingenting om Saras kjøp. Slutningen forsvinner. Kilden er konjunksjonens sannhetstabell: en konjunksjon entailer hvert av leddene sine.\n\n**Legg merke til at alle tre gir utslag på selvmotsigelsestesten.** «Erik sluttet å bruke den gamle maskinen, men han brukte den aldri» motsier seg selv, akkurat som de to andre. **Det er bare negasjonstesten som skiller**, og derfor er det den du kjører først.",
+        "hints": [
+          "Skriv den negerte setningen ut i klartekst før du bestemmer deg.",
+          "Merk at negasjonen skal stå på hovedverbet, ikke inne i en leddsetning."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2.) Klassifiser hver slutning som entailment, presupposisjon eller implikatur. Kjør de testene som trengs, og oppgi kilden.\n\n**a)** «Det var Ingrid som ordnet transporten.» ⇒ Noen ordnet transporten.\n**b)** «Ingrid ordnet transporten og innkvarteringen.» ⇒ Ingrid ordnet transporten.\n**c)** «Ingrid ordnet noe av det praktiske.» ⇒ Ingrid ordnet ikke alt det praktiske.\n**d)** «Ingrid rakk å ordne transporten.» ⇒ Det var en frist.",
+        "solution": "**a) Presupposisjon.** Negasjonstesten: «Det var ikke Ingrid som ordnet transporten» forutsetter fortsatt at noen gjorde det. Slutningen overlever. Utløseren er den **kløyvde setningen**, en strukturell trigger.\n\n**b) Entailment.** Negasjonstesten: «Ingrid ordnet ikke transporten og innkvarteringen» medfører ingenting om transporten alene. Slutningen forsvinner. Kilden er **konjunksjonens sannhetstabell**.\n\n**c) Implikatur.** Kansellerbarhetstesten: «Ingrid ordnet noe av det praktiske — faktisk alt sammen.» Ingen selvmotsigelse; det er en presisering. Slutningen kan trekkes tilbake.\n\nKontroll med ikke-avtakbarhet: bytt til «Ingrid tok seg av en del av det praktiske», og slutningen følger med. Den henger ved innholdet, ikke ved ordvalget.\n\n**d) Presupposisjon.** Negasjonstesten: «Ingrid rakk ikke å ordne transporten» forutsetter fortsatt at det var en frist. Slutningen overlever. Utløseren er det **implikative verbet** *rekke å*.\n\nMerk at samme setning **entailer** noe annet, nemlig at transporten faktisk ble ordnet — og at den slutningen forsvinner under negasjon. **Én setning, to slutninger, to kategorier.**\n\n**Grepet oppgaven trener:** å kjøre riktig test på riktig slutning, og å oppgi kilden. Fire slutninger, fire ulike kilder: kløyvd setning, konnektiv, implikatur fra ordvalg, og implikativt verb.",
+        "hints": [
+          "Kjør negasjonstesten på alle fire først, og se hvilke slutninger som blir stående.",
+          "For dem som blir stående: prøv å trekke slutningen tilbake med en fortsettelse."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A1 og A2 — presupposisjonsbatteri.) For hver setning: oppgi presupposisjonen, navngi utløseren, og si om den er leksikalsk eller strukturell.\n\n**a)** «Kommunen beklaget at fristen ble forlenget.»\n**b)** «Bussen var forsinket igjen på tirsdag.»\n**c)** «Hvis rådmannen hadde varslet, ville saken blitt utsatt.»\n**d)** «Etter at avtalen ble signert, startet arbeidet.»\n**e)** «Denne ordningen er dyrere enn den forrige.»",
+        "solution": "**a) Presupposisjon: fristen ble forlenget.** Utløser: det **faktive verbet** *beklage at*. **Leksikalsk.**\n\nNegasjonstesten: «Kommunen beklaget ikke at fristen ble forlenget» forutsetter fortsatt forlengelsen. Kontroll med et ikke-faktivt verb: «Kommunen trodde at fristen ble forlenget» presupponerer ingenting.\n\n**b) Presupposisjon: bussen har vært forsinket minst én gang før.** Utløser: **iterativen** *igjen*. **Leksikalsk.**\n\nNegasjonstesten: «Bussen var ikke forsinket igjen på tirsdag» forutsetter fortsatt et tidligere tilfelle. Kontroll: stryk *igjen*, og antakelsen er borte.\n\n**c) Presupposisjon: rådmannen varslet ikke.** Utløser: **kontrafaktisk betingelsessetning**. **Strukturell.**\n\nMerk det **negative** fortegnet. Kontrollen er å oversette verbformen til klartekst: «hvis rådmannen hadde varslet» sier at han ikke gjorde det.\n\n**d) Presupposisjon: avtalen ble signert.** Utløser: **tidsadverbialsetning** med *etter at*. **Strukturell.**\n\nNegasjonstesten: «Etter at avtalen ble signert, startet arbeidet ikke» forutsetter fortsatt signeringen. Negasjonen rammer hovedsetningen, mens leddsetningen står urørt.\n\n**e) Presupposisjon: den forrige ordningen hadde en kostnad.** Utløser: **komparativkonstruksjon** med *enn*. **Strukturell.**\n\n**Grepet oppgaven trener:** at tre av de fem er strukturelle, og at én av dem har negativt fortegn. Komparativen i e) er dessuten den letteste å overse i et batteri — se etter *enn*.",
+        "hints": [
+          "Gå gjennom setningene og se etter enkeltord først, deretter etter konstruksjoner.",
+          "For c): oversett verbformen til klartekst før du oppgir presupposisjonen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2 — tre-veis klassifisering.) Klassifiser hver slutning, og begrunn med den testen som avgjorde.\n\n**a)** «Noen av vaktene hadde nøkkel.» ⇒ Ikke alle vaktene hadde nøkkel.\n**b)** «Alle vaktene hadde nøkkel.» ⇒ Noen av vaktene hadde nøkkel.\n**c)** «Vakta oppdaget at døra sto åpen.» ⇒ Døra sto åpen.\n**d)** «Vakta klarte å låse døra.» ⇒ Døra ble låst.\n**e)** «Vakta leter etter nøkkelen.» ⇒ Vakta har mistet nøkkelen.",
+        "solution": "**a) Implikatur.** Kansellerbarhetstesten: «Noen av vaktene hadde nøkkel — faktisk alle sammen.» Ingen selvmotsigelse. Slutningen kan trekkes tilbake, og den er derfor pragmatisk.\n\n**b) Avhenger av lesningen, og et fullstendig svar sier hvilken det legger til grunn.**\n\n**I den vanlige lesningen holder slutningen.** Selvmotsigelsestesten: «Alle vaktene hadde nøkkel, men ingen av dem hadde nøkkel» motsier seg selv, gitt at det finnes vakter.\n\n**I den strengt logiske lesningen holder den ikke.** Moteksempel: det finnes ingen vakter i det hele tatt. Da er «alle vaktene hadde nøkkel» sann av **tom sannhet** — det finnes ingen vakt uten nøkkel — mens «noen av vaktene hadde nøkkel» er usann. Dette er samme grensetilfelle som i oppgave 6 i [kap. 3.2](/bok/ling1100/ling1100-3-2), og det er grunnen til at allkvantoren pares med implikasjon i [kap. 4.1](/bok/ling1100/ling1100-4-1).\n\n**Slik svarer du:** oppgi begge lesningene, si hvilken du bygger på, og skriv moteksemplet ut. Å oppgi lesningen er ikke å vike unna — det er å vise hva svaret hviler på.\n\n**c) Presupposisjon.** Negasjonstesten: «Vakta oppdaget ikke at døra sto åpen» forutsetter fortsatt at døra sto åpen. Slutningen overlever. Utløseren er det faktive verbet *oppdage at*.\n\n**d) Entailment.** Negasjonstesten: «Vakta klarte ikke å låse døra» medfører tvert imot at døra ikke ble låst. Slutningen forsvinner. Kilden er det implikative verbet *klare å*, som entailer at handlingen fant sted.\n\n**e) Ingen av de tre.** Slutningen hviler på **kunnskap om verden**: å lete etter noe henger som regel sammen med å ha mistet det. Men sammenhengen er ikke språklig.\n\nMoteksempel: vakta leter etter nøkkelen fordi hun skal levere den til nattevakten, og hun vet nøyaktig hvor den ligger.\n\n**Merk at e) er tatt med av en grunn.** Ikke enhver rimelig slutning er en av de tre typene, og et svar som tvinger alle slutninger inn i en kategori, har misforstått hva kategoriene er til for. **Å oppgi den fjerde muligheten er et pluss-punkt.**",
+        "hints": [
+          "Kjør negasjonstesten på alle fem, og deretter kansellerbarhetstesten på dem som blir stående.",
+          "For e): prøv å tenke deg en grunn til å lete etter noe du ikke har mistet."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1 og A2 — mengder og Venn.) La $A$ være mengden av deltakere som leverte rapport, og $B$ mengden av deltakere som møtte på seminaret. Universet er alle deltakere.\n\n```text\n(10)  A = {Lie, Moen, Ross}\n      B = {Moen, Ross, Sund}\n      Universet = {Lie, Moen, Ross, Sund, Tang}\n```\n\n**a)** Finn $A \\cap B$, $A \\cup B$ og komplementet til $B$.\n**b)** Er $\\{$Moen, Ross$\\} \\subseteq A$? Begrunn.\n**c)** Beskriv hvordan du ville tegnet Venn-diagrammet, og hvor hvert navn hører hjemme.\n**d)** Hvilken mengdeoperasjon svarer setningen «Deltakeren leverte rapport og møtte på seminaret» til?",
+        "solution": "**a)** $A \\cap B = \\{$Moen, Ross$\\}$ — de som er i begge mengdene.\n\n$A \\cup B = \\{$Lie, Moen, Ross, Sund$\\}$ — alt i minst én, uten gjentakelser. Merk at Tang ikke er med: Tang er i universet, men gjorde ingen av delene.\n\nKomplementet til $B$ er $\\{$Lie, Tang$\\}$ — alt i universet som ikke er i $B$. **Merk at svaret avhenger av det oppgitte universet.**\n\n**b) Ja.** Både Moen og Ross er elementer i $A$, og det er hele kravet for delmengdeforholdet.\n\n**c) Diagrammet:** to overlappende sirkler inne i et rektangel som er universet.\n\n- I **overlappet** står Moen og Ross.\n- I den delen av **$A$-sirkelen** som ikke overlapper, står Lie.\n- I den delen av **$B$-sirkelen** som ikke overlapper, står Sund.\n- **Utenfor begge sirklene, men innenfor rektangelet**, står Tang.\n\nSkal du markere komplementet til $B$, skraverer du alt utenfor $B$-sirkelen, altså både Lie-området og Tang-området.\n\n**Merk at Tang er den delen som oftest glemmes**, og det er nettopp den delen som gjør komplementet riktig.\n\n**d) Snitt, $A \\cap B$.** Konjunksjonen svarer til snittet: en deltaker oppfyller påstanden hviss hun er i begge mengdene.\n\nSammenhengen som er verdt å ta med: siden $A \\cap B \\subseteq A$, entailer konjunksjonen hvert av leddene sine. **Delmengdeforholdet i mengdespråket og entailmentet i setningsspråket er samme sak.**",
+        "hints": [
+          "Gå gjennom mengdene element for element i stedet for å prøve å se svaret.",
+          "For c): husk at universet skal tegnes som et rektangel rundt sirklene."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger A2 — downward entailment.) For hver posisjon: avgjør om den er oppovergående eller nedovergående, vis med ordparet *epler* og *frukt*, og forklar retningen i mengdespråk.\n\n**a)** Objektsposisjonen i «Gjestene spiste \\_\\_\\_\\_.»\n**b)** Objektsposisjonen i «Ingen av gjestene spiste \\_\\_\\_\\_.»\n**c)** Leddet etter *hvis* i «Hvis du spiser \\_\\_\\_\\_, blir du mett.»\n**d)** Restriktoren i «Alle som spiste \\_\\_\\_\\_, ble mette.»",
+        "solution": "**Delmengdeforholdet først:** eplemengden er en ekte delmengde av fruktmengden.\n\n**a) Oppovergående.**\n\n```text\n(11) a.  Gjestene spiste epler.   ⊨   b.  Gjestene spiste frukt.\n```\n\nForklaring: setningen sier at det finnes noe **i eplemengden** som gjestene spiste, og alt som er i eplemengden, er også i fruktmengden. **Medlemskap arves oppover.**\n\n**b) Nedovergående.**\n\n```text\n(12) a.  Ingen av gjestene spiste frukt.   ⊨   b.  Ingen av gjestene spiste epler.\n```\n\nForklaring: setningen sier at hele fruktmengden er utelukket, og eplene er en del av fruktmengden. **Å utelukke det store er å utelukke alle delene av det.**\n\nMotsatt vei holder ikke: gjestene kan ha unngått epler og spist pærer.\n\n**c) Nedovergående.**\n\n```text\n(13) a.  Hvis du spiser frukt, blir du mett.   ⊨   b.  Hvis du spiser epler, blir du mett.\n```\n\nForklaring: gjelder løftet for hele fruktmengden, gjelder det nødvendigvis også for den mindre gruppen epler. Motsatt vei holder ikke — et løfte som bare gjelder epler, sier ingenting om pærer.\n\n**d) Nedovergående.**\n\n```text\n(14) a.  Alle som spiste frukt, ble mette.   ⊨   b.  Alle som spiste epler, ble mette.\n```\n\nForklaring: påstanden sier at hele gruppen fruktspisere er inneholdt i gruppen som ble mette. Gjør du gruppen mindre — fra fruktspisere til eplespisere — er den fortsatt inneholdt der. **Restriktoren til *alle* er nedovergående.**\n\n**Kontroll med et negativt polaritetselement:** «Ingen av gjestene spiste noe som helst» og «Alle som spiste noe som helst, ble mette» er begge akseptable, mens den tilsvarende bekreftende setningen i a) ikke er det. En uavhengig prøve peker samme vei.\n\n**Merk hva de fire viser til sammen:** tre av fire posisjoner er nedovergående, og det er den samme grammatiske posisjonen — objektet eller det tilsvarende leddet — i alle. **Det er omgivelsene som avgjør retningen, ikke ordet og ikke posisjonens grammatiske navn.**",
+        "hints": [
+          "Skriv begge setningene ut for hvert tilfelle, og prøv slutningen begge veier før du konkluderer.",
+          "For d): spør hva setningen sier om forholdet mellom gruppen som spiste, og gruppen som ble mette."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-15",
+        "number": "15",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger A2.) En kandidat har svart slik på en slutningsoppgave:\n\n> «‘Halvor sluttet å sykle til jobben’ entailer at Halvor syklet til jobben før.\n> Det ser vi av at setningen ‘Halvor sluttet å sykle, men han syklet aldri’ er\n> selvmotsigende. Altså er dette et entailment.»\n\n**a)** Er konklusjonen riktig? Begrunn.\n**b)** Hvilken test mangler, og hva ville den vist?\n**c)** Skriv om til et fullstendig svar.",
+        "solution": "**a) Nei, konklusjonen er gal.** Slutningen er en **presupposisjon**, ikke et entailment.\n\nKandidaten har riktignok kjørt en test korrekt, og testen gir riktig utslag. Feilen er at **selvmotsigelsestesten ikke skiller** de to slutningstypene: den gir utslag både når $q$ er entailet og når $q$ er presupponert. Grunnen er enkel — i den bekreftende setningen er presupposisjonen også sann.\n\n**b) Negasjonstesten mangler.** Den ville vist:\n\n```text\n(15) a.  Halvor sluttet å sykle til jobben.\n         ⇒ Halvor syklet til jobben før.\n     b.  Halvor sluttet ikke å sykle til jobben.\n         ⇒ Halvor syklet til jobben før.        HOLDER FORTSATT\n```\n\nSlutningen **overlever** negasjonen. Ved entailment ville den forsvunnet. Egenskapen heter **constancy under negation**, og den er kjennetegnet på presupposisjon.\n\n**c) Fullstendig svar:**\n\n«Slutningen er en **presupposisjon**, ikke et entailment.\n\nSelvmotsigelsestesten gir riktignok utslag: ‘Halvor sluttet å sykle, men han syklet aldri’ motsier seg selv. Men den testen skiller ikke, siden den gir samme utslag på begge slutningstypene.\n\nNegasjonstesten avgjør: ‘Halvor sluttet ikke å sykle til jobben’ forutsetter **fortsatt** at han syklet før — faktisk enda tydeligere, siden setningen sier at han holder på ennå. Slutningen overlever negasjonen, og den er derfor presupponert.\n\nUtløseren er det **aspektuelle verbet** *slutte å*, en leksikalsk trigger. Til sammenligning ville *begynne å* presupponert det motsatte, nemlig at han ikke syklet før.»\n\n**Mønsteret som er verdt å ta med seg:** kandidatens feil er ikke at han regnet galt, men at han **trakk en tredelt konklusjon av en test som bare deler i to**. Det er den vanligste kilden til feil 3 i registeret.",
+        "hints": [
+          "Sjekk hvilken test kandidaten faktisk har kjørt, og hva den testen kan og ikke kan skille.",
+          "Prøv å negere setningen selv, og se hva som skjer med slutningen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-oppg-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-5-e-16",
+        "number": "16",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Full eksamenssjanger, hele Del 3 i én oppgave.) Betrakt setningen:\n\n```text\n(16)  Ingen av søkerne som hadde trukket søknaden igjen, fikk vurdert saken på nytt.\n```\n\n**a)** Oppgi én presupposisjon med utløser, og vis med negasjonstesten at den overlever.\n**b)** Er leddet «trukket søknaden» i en oppovergående eller nedovergående posisjon? Vis med et ordpar og forklar i mengdespråk.\n**c)** Formaliser «Søkeren trakk søknaden og fikk saken vurdert» og oppgi hvilken mengdeoperasjon formen svarer til.\n**d)** Gi et eget eksempel på en implikatur setningen kunne gitt opphav til, og vis at den er kansellerbar.\n**e)** Disponer de 20 minuttene du ville hatt på eksamen.",
+        "solution": "**a) Presupposisjon: søkerne hadde trukket søknaden minst én gang før.**\n\nUtløseren er adverbet *igjen*, en **iterativ** og dermed en **leksikalsk** trigger.\n\nNegasjonstesten:\n\n```text\n(17) a.  Ingen av søkerne som hadde trukket søknaden igjen, fikk vurdert saken på nytt.\n         ⇒ De hadde trukket søknaden minst én gang før.\n     b.  Ikke alle søkerne som hadde trukket søknaden igjen, ble avvist.\n         ⇒ De hadde trukket søknaden minst én gang før.        HOLDER\n```\n\nAntakelsen overlever, og slutningen er dermed presupponert. Kontroll: stryk *igjen*, og antakelsen forsvinner. Det bekrefter at utløseren er leksikalsk.\n\n**b) Nedovergående.**\n\nLeddet står i **restriktoren** til den negative kvantoren *ingen*, og *ingen* er nedovergående i begge argumentposisjonene sine.\n\nOrdparet: *trekke søknaden* og *trekke søknaden skriftlig*, der det siste er en snevrere måte å gjøre det første på.\n\n```text\n(18) a.  Ingen som hadde trukket søknaden, fikk ny vurdering.\n         ⊨\n     b.  Ingen som hadde trukket søknaden skriftlig, fikk ny vurdering.\n```\n\n**Forklaringen i mengdespråk:** er hele gruppen som trakk søknaden utelukket fra ny vurdering, er nødvendigvis også enhver **del** av den gruppen utelukket. Å utelukke det store er å utelukke alt det store inneholder.\n\nMotsatt vei holder ikke: de som trakk søknaden muntlig, kan godt ha fått ny vurdering.\n\nKontroll med et negativt polaritetselement: «Ingen som hadde sagt noe som helst, fikk ny vurdering» er akseptabelt, og en uavhengig prøve peker samme vei.\n\n**c) Formaliseringen:**\n\n```text\n(19)  p = «Søkeren trakk søknaden»\n      q = «Søkeren fikk saken vurdert»\n```\n\nFormen er $p \\land q$, sann bare i raden der begge leddene er sanne.\n\nFormen svarer til **snittet** $A \\cap B$, der $A$ er mengden av dem som trakk søknaden og $B$ mengden av dem som fikk saken vurdert. En søker oppfyller påstanden hviss hun er i snittet.\n\nSiden $A \\cap B \\subseteq A$, entailer konjunksjonen hvert av leddene sine — delmengdeforhold og entailment er samme sak.\n\n**d) Eget eksempel på en implikatur.**\n\nSier en saksbehandler setning (16), vil de fleste utlede at **noen andre søkere faktisk fikk ny vurdering**. Ellers ville avgrensningen vært umotivert.\n\nKansellerbarhetstesten:\n\n```text\n(20)  «Ingen av dem som hadde trukket søknaden igjen, fikk ny vurdering — og for\n      ordens skyld, ingen andre fikk det heller.»\n```\n\nIngen selvmotsigelse; fortsettelsen er en presisering. Slutningen kan trekkes tilbake og er derfor en **implikatur**.\n\n**e) Tidsdisponering for de 20 minuttene:**\n\n- **2 minutter:** les oppgaveteksten og tell deloppgavene. Her er de fire, og hver hører til sitt kapittel i Del 3.\n- **4 minutter** på a): presupposisjonen, utløseren og negasjonstesten skrevet ut.\n- **6 minutter** på b): ordparet, begge setningene, retningen og forklaringen i mengdespråk. **Dette er den tyngste deloppgaven**, og den er verdt mest tid, siden den ene sensorveiledningen peker den ut.\n- **3 minutter** på c): formalisering og mengdeoperasjon.\n- **3 minutter** på d): implikaturen og kanselleringen skrevet ut.\n- **2 minutter:** kontroll — er alle fire deloppgavene besvart, står testene i klartekst, og er kilden oppgitt hver gang?\n\n**Kontrollen som avgjør oppgaven:** fire deloppgaver, fire svar. Å hoppe over én er feil 9 i registeret — å svare på feil antall deloppgaver — og det er den dyreste enkeltfeilen i en flerdelt oppgave.",
+        "hints": [
+          "Ta én deloppgave om gangen, og noter hvilket kapittel i Del 3 hver av dem hører til.",
+          "For b): finn først ut hvilken argumentposisjon leddet står i."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-5-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Begge sjangrene i dette kapitlet har objektivt riktige svar, og den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk på at vaghet i slike svar teller som feil.\n\n**I F1-sjangeren ser slarken slik ut:**\n\n> **Vagt:** «Uttrykket er sant når minst noe av det stemmer, sånn omtrent.»\n> **Presist:** «$p \\lor q$ er sann hviss minst én av $p$ og $q$ er sann; den er usann i nøyaktig ett tilfelle, nemlig når begge er usanne.»\n\n**I A2-sjangeren ser den slik ut:**\n\n> **Vagt:** «Ja, den første setningen innebærer vel den andre, det henger sammen.»\n> **Presist:** «Ja, (a) entailer (b). Negasjonstesten: ‘Erik kjøpte ikke en bærbar datamaskin’ medfører ingenting om datamaskiner — slutningen forsvinner. Kilden er hyponymi.»\n\nFem spørsmål til din egen formulering:\n\n- Har jeg brukt **hviss** i sannhetsbetingelsen, og altså låst begge retninger?\n- Stemmer **radtallet** med $2^n$, og står **variabelforklaringen** der?\n- Er **testen skrevet ut** med den negerte setningen i klartekst?\n- Har jeg oppgitt **kilden** — hyponymi, konnektiv, kvantor eller trigger?\n- Er svaret «nei» fulgt av **hva slutningen da er**?\n\n**Den enkeltformuleringen som koster mest i dette kapitlet:** «Downward entailment er når slutningen går nedover.» Det er en omskriving av navnet, ikke en forklaring. Vis delmengdeforholdet, skriv ut begge setningene, og forklar hvorfor utelukkelse arves nedover."
+    },
+    {
+      "id": "ling1100-3-5-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Seks feil dominerer denne drillen.\n\n- **Feil 3 — slutningsforveksling.** Selvmotsigelsestesten skiller ikke entailment fra presupposisjon. Kjør negasjonstesten, og kansellerbarhetstesten i tillegg.\n- **Feil 4 — slark.** Bruk «hviss», si noe om alle radene, og formuler implikasjonen med utgangspunkt i det ene tilfellet der den er usann.\n- **Feil 1 — svar uten test.** Kategorien er en tredjedel av svaret; testen kjørt med setningene fra oppgaven er de to andre tredjedelene.\n- **Ufullstendig tabell.** Tell variablene, regn $2^n$, tell radene. En manglende rad er en feil, ikke en unøyaktighet.\n- **Å glemme at implikasjonen er sann når antesedenten er usann.** Det er den ene raden som koster flest poeng i hele Del 3.\n- **Å svare «nei» og stoppe der.** Er slutningen ikke entailment, spør oppgaven som regel hva den da er.\n\n**En sjuende felle, som rammer i flerdelte oppgaver:** å hoppe over en deloppgave. Tell dem før du begynner, og tell svarene før du leverer. Det er feil 9 i registeret."
+    },
+    {
+      "id": "ling1100-3-5-sjekkliste",
+      "type": "collapsible",
+      "title": "Sjekkliste for Del 3-oppgaver",
+      "buttonText": "Vis sjekklisten",
+      "content": [
+        {
+          "id": "ling1100-3-5-sjekkliste-tekst",
+          "type": "text",
+          "content": "Gå gjennom denne før du leverer. Den tar under ett minutt og fanger alle feilene over.\n\n**For sannhetstabeller (F1):**\n\n☐ Står **variabelforklaringen** der, med setningene fra oppgaven?\n☐ Stemmer **radtallet** med $2^n$?\n☐ Er **mellomkolonnene** med, slik at utregningen kan kontrolleres?\n☐ Er **sannhetsbetingelsen skrevet i ord**, med ordet **hviss**?\n☐ Er de **overraskende radene kommentert** — særlig tom sannhet?\n☐ Har jeg **telt S-ene** i sluttkolonnen som kontroll?\n\n**For slutningstester (A2):**\n\n☐ Er **negasjonstesten kjørt**, med den negerte setningen i klartekst?\n☐ Er **kansellerbarhetstesten kjørt** der slutningen overlevde negasjonen?\n☐ Står **klassifiseringen** der med fullt navn — entailment, presupposisjon eller implikatur?\n☐ Er **kilden oppgitt** — hyponymi, konnektiv, kvantor eller trigger med navn?\n☐ Ved «nei»: har jeg sagt **hva slutningen da er**?\n☐ Har jeg vurdert den **fjerde muligheten** — at slutningen hviler på kunnskap om verden?\n\n**For begge:**\n\n☐ Har jeg **telt deloppgavene** i oppgaveteksten, og telt svarene mot dem?\n☐ Er svaret fritt for **slark** — «omtrent», «liksom», «henger sammen»?"
+        }
+      ]
+    },
+    {
+      "id": "ling1100-3-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-3-5-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i Del 3.\n\n| Symbol | Betydning |\n|---|---|\n| $p$, $q$, $r$ | proposisjonsvariabler |\n| S / U | sann / usann. På engelskspråklige sett: T / F |\n| $\\lnot$ | negasjon |\n| $\\land$ | konjunksjon |\n| $\\lor$ | inklusiv disjunksjon |\n| $\\veebar$ | eksklusiv disjunksjon |\n| $\\rightarrow$ | material implikasjon |\n| $\\leftrightarrow$ | biimplikasjon |\n| $\\vDash$ | entailer |\n| $\\in$, $\\subseteq$, $\\cap$, $\\cup$ | element i, delmengde av, snitt, union |\n| $2^n$ | antall rader med $n$ variabler |\n| ⇒ | uformell markør for «medfører» i testoppsett i kodeblokker |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$p \\rightarrow q \\text{ er usann hviss } p \\text{ er sann og } q \\text{ er usann}$$\n\nDen ene raden som må læres, ikke gjettes.\n\n$$p \\lor q \\text{ er sann hviss minst én er sann; } p \\veebar q \\text{ hviss nøyaktig én er sann}$$\n\nDe to skiller seg i én rad — den der begge er sanne.\n\n$$\\lnot(p \\rightarrow q) \\text{ er ekvivalent med } p \\land \\lnot q$$\n\nGrunnlaget for selvmotsigelsestesten: «$p$, men ikke $q$».\n\n$$p \\vDash q \\text{ hviss det ikke finnes noen situasjon der } p \\text{ er sann og } q \\text{ er usann}$$\n\nDefinisjonen av entailment. Ett moteksempel avviser påstanden.\n\n$$\\text{Nedovergående posisjon: } A \\subseteq B \\text{ gir } f(B) \\vDash f(A)$$\n\nDownward entailment: å utelukke overmengden er å utelukke delmengden.\n\n**Notasjonsregler:** $\\vDash$ brukes bare om entailment, aldri $\\rightarrow$. Presupposisjonsrelasjonen skrives i ord. Radrekkefølgen går fra alt sant til alt usant. Ordet **hviss** betyr «hvis og bare hvis» og låser begge retninger."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,429 @@
+{
+  "id": "ling1100-3-2",
+  "courseId": "ling1100",
+  "chapterNumber": "3.2",
+  "title": "Logisk implikasjon (entailment), material implikasjon, analytisk/syntetisk",
+  "description": "Logisk implikasjon og testene for den, forholdet til material implikasjon og tautologi, og analytisk/syntetisk-skillet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne avgjøre en entailment-påstand med selvmotsigelsestesten og negasjonstesten, og skrive begge ut",
+    "kunne beskrive et konkret moteksempel som avviser en entailment-påstand",
+    "kunne forklare hvorfor material implikasjon og entailment ikke er samme relasjon",
+    "kunne skille analytiske fra syntetiske setninger med benektelsestesten"
+  ],
+  "content": [
+    {
+      "id": "ling1100-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Logisk implikasjon — *entailment* — er ett av de sju hyppigste temaene i emnet, prøvd i 8 av de 12 settene:** høsten 2011, 2013, 2017, 2018, den utsatte prøven for 2020, høsten 2021, 2022 og 2024.\n\n- **Sjangeren er F1 kombinert med A2:** «Avgjør for hvert setningspar om den første entailer den andre, og begrunn med en test.» Du skal altså både gi et presist svar og vise testen som ga det.\n- **Analytisk mot syntetisk er prøvd i 2 av de 12 settene** — den utsatte prøven for 2020 og høsten 2021 — og **tautologi** i settet fra høsten 2018. Begge deler er små temaer som henger direkte på entailment-begrepet, og de koster deg lite ekstra.\n- **Typisk formulering:** «For hvert av setningsparene under, avgjør om (a) entailer (b). Begrunn svaret med en test, og forklar hva som ville vært et moteksempel.»\n- **Den fella oppgaven er bygd rundt** er forvekslingen med presupposisjon, som kommer i [kap. 3.3](/bok/ling1100/ling1100-3-3). Negasjonstesten skiller dem, og den innføres her.\n- **Prioritet: høyeste.** Entailment er dessuten grunnlaget for downward entailment i [kap. 3.4](/bok/ling1100/ling1100-3-4), som den ene sensorveiledningen peker spesielt ut som et sted der kandidater må vise reell innsikt og ikke bare gjenkjenne ordene."
+    },
+    {
+      "id": "ling1100-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 3.1](/bok/ling1100/ling1100-3-1), og bruker meningsrelasjonene fra [kap. 2.1](/bok/ling1100/ling1100-2-1).\n\n**Sist du var her** — tre ting du trenger friskt:\n\n- **Material implikasjon $\\rightarrow$ er usann i nøyaktig ett tilfelle:** når antesedenten er sann og konsekventen er usann. I de tre andre radene er den sann. Dette kapitlet handler blant annet om at det **ikke** er det samme som entailment.\n- **En sannhetsbetingelse formuleres med «hviss»**, altså «hvis og bare hvis», og sier noe om alle radene i tabellen — ikke bare om den ene der uttrykket er sant.\n- **Hyponymi er «er en type»**, og relasjonen er enveis. Den er den vanligste enkeltkilden til entailment mellom to setninger, og du får bruk for den med én gang.\n\n**Kryssbok, som bakgrunn:** [Argumentasjon og gyldighet](/bok/filosofi-etikk/fil-7-1) gjennomgår premiss, konklusjon og gyldighet. Gyldighet der er nær beslektet med entailment her, og kapitlet er en grei oppvarming — men kravene og terminologien i det kapitlet er filosofifagets, ikke LING1100s.\n\nKapitlet innfører symbolet $\\vDash$. Alle symboler står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-3-2-hverdagsanker",
+      "type": "text",
+      "content": "## Det du har sagt uten å si det\n\nSi at noen forteller deg: «Jeg plantet en rose i hagen i går.» Du vet nå også at hun plantet en **blomst** i hagen i går. Hun sa det aldri, men hun kunne ikke ha sagt det første uten at det andre fulgte med.\n\nPrøv å ta det tilbake: «Jeg plantet en rose i hagen i går — men ikke noen blomst.» Det går ikke. Setningen motsier seg selv.\n\n**Det er entailment.** Det er ikke noe hun mente, og ikke noe du gjettet deg til. Det er noe som følger av betydningen til det hun faktisk sa, og som følger **hver gang**, uansett situasjon.\n\nSammenlign med et tilfelle som ligner, men som ikke er det samme: «Noen av studentene besto.» De fleste vil forstå det som at ikke alle besto. Men det kan trekkes tilbake — «Noen besto, ja faktisk alle sammen» er ikke en selvmotsigelse, bare en presisering. **Det som kan trekkes tilbake, er ikke entailment.**\n\nKapitlet er bygd i fire løkker: hva entailment er, tre tester som avgjør det, forholdet til material implikasjon, og skillet analytisk mot syntetisk."
+    },
+    {
+      "id": "ling1100-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Entailment definert (~12 min)\n\nDefinisjonen er kort, og hvert ledd i den gjør en jobb. Les den langsomt."
+    },
+    {
+      "id": "ling1100-3-2-def-entailment",
+      "type": "definition",
+      "title": "Logisk implikasjon (entailment)",
+      "content": "Relasjonen mellom to setninger $p$ og $q$ der **$q$ er sann i alle situasjoner der $p$ er sann**. Vi skriver $p \\vDash q$, og leser det «$p$ entailer $q$».\n\nDen engelske termen **entailment** brukes som hovedterm i denne boka, fordi det er den termen du møter i undervisningen og i oppgavesettene. Det norske uttrykket er **logisk implikasjon**.\n\nTre ledd i definisjonen, hvert med sin konsekvens:\n\n- **«i alle situasjoner»** — ikke i noen, ikke i de fleste. Ett moteksempel er nok til å avvise entailment.\n- **«der $p$ er sann»** — relasjonen sier ingenting om hva som skjer når $p$ er usann. Det er nettopp der den skiller lag med presupposisjon.\n- **«er $q$ sann»** — entailment er **sannhetsbevarende**: sannheten går fra $p$ til $q$, aldri motsatt vei uten videre.\n\nEksempel:\n\n```text\n(1) a.  Kari plantet en rose i hagen.\n    b.  Kari plantet en blomst i hagen.\n```\n\nHer gjelder $p \\vDash q$: i enhver situasjon der (1a) er sann, er også (1b) sann.\n\n**Merk at relasjonen ikke er symmetrisk.** (1b) entailer ikke (1a) — blomsten kunne vært en tulipan."
+    },
+    {
+      "id": "ling1100-3-2-def-situasjon",
+      "type": "definition",
+      "title": "Situasjon",
+      "content": "Den enheten entailment kvantifiserer over: **en måte verden kunne vært på**. I mer formell litteratur kalles det ofte en *mulig verden* (‘possible world’) eller en *modell*.\n\nDu trenger ikke noe tungt apparat for å bruke begrepet. Tenk på en situasjon som en fullstendig beskrivelse av hvem som gjorde hva: hvem som var hvor, hvilke ting som fantes, og hva som skjedde.\n\n**Slik bruker du det i praksis.** Skal du avvise en entailment-påstand, beskriver du **én** situasjon der den første setningen er sann og den andre usann. Klarer du det, er påstanden avvist. Klarer du det ikke — og du har prøvd ærlig — er påstanden sannsynligvis riktig.\n\nMerk at situasjonene ikke behøver være sannsynlige. De må bare være **mulige**. En situasjon der alle studentene i emnet heter Berg, er usannsynlig, men fullt tenkelig, og den kan brukes som moteksempel."
+    },
+    {
+      "id": "ling1100-3-2-def-sannhetsbevaring",
+      "type": "definition",
+      "title": "Sannhetsbevaring",
+      "content": "Egenskapen entailment har: **sannheten går fra $p$ til $q$, aldri automatisk motsatt vei.** Den engelske termen er ‘truth preservation’.\n\nEr $p$ sann og $p \\vDash q$, kan du trygt slutte at $q$ er sann. Men er $q$ sann, følger ingenting om $p$ — og er $p$ usann, følger heller ingenting om $q$.\n\n**To feilslutninger dette utelukker**, og begge er vanlige:\n\n- **Å slutte fra $q$ til $p$.** At det står et tre utenfor huset, medfører ikke at det står en gran der.\n- **Å slutte fra $\\lnot p$ til $\\lnot q$.** At det ikke står en gran der, medfører ikke at det ikke står et tre der.\n\nDen eneste tillatte omsnuingen er **kontraposisjonen**, som krever at begge ledd negeres *og* at rekkefølgen snus. Den kommer lenger ned i kapitlet.\n\n**Slik bruker du begrepet:** sannhetsbevaring er det som gjør entailment nyttig i det hele tatt. Det er derfor du kan bygge videre på det du allerede har fastslått, uten å sjekke verden på nytt."
+    },
+    {
+      "id": "ling1100-3-2-def-moteksempel",
+      "type": "definition",
+      "title": "Moteksempel",
+      "content": "En beskrevet situasjon der **$p$ er sann og $q$ er usann**. Ett moteksempel avviser påstanden $p \\vDash q$.\n\nDette er den viktigste enkeltteknikken i kapitlet, fordi den er **konstruktiv**: du kan vise at noe ikke er entailment ved å beskrive én situasjon, mens du for å vise at noe *er* entailment må argumentere for alle.\n\nEksempel på et moteksempel i bruk:\n\n```text\n(2) a.  Kari begynte å lese boka.\n    b.  Kari leste ut boka.\n```\n\nPåstanden $p \\vDash q$ avvises av denne situasjonen: Kari begynte på boka mandag, mistet interessen på side 40 og la den fra seg. Da er (2a) sann og (2b) usann. Påstanden er avvist, og det tok én setning.\n\n**Skriv moteksemplet ut i svaret ditt.** «Det finnes moteksempler» er en påstand; den beskrevne situasjonen er argumentet."
+    },
+    {
+      "id": "ling1100-3-2-def-semantisk-styrke",
+      "type": "definition",
+      "title": "Semantisk styrke",
+      "content": "Forholdet mellom to setninger der den ene sier **mer** enn den andre. Når $p \\vDash q$ men ikke omvendt, sier vi at $p$ er **sterkere** enn $q$, og $q$ **svakere** enn $p$.\n\n«Kari plantet en rose» er sterkere enn «Kari plantet en blomst». Den sterkere setningen utelukker flere situasjoner; den svakere er sann i flere.\n\n**Sammenhengen er verdt å ha klart for seg, for den virker bakvendt:** jo mer en setning sier, jo færre situasjoner er den sann i. Det er samme forhold som mellom trekk og betydning i [kap. 2.3](/bok/ling1100/ling1100-2-3) — flere trekk gir snevrere betydning.\n\n**Entailment går alltid fra sterk til svak.** Det er en kontroll du kan bruke: peker påstanden din fra en svakere til en sterkere setning, er den nesten sikkert gal."
+    },
+    {
+      "id": "ling1100-3-2-def-hyponymi-entailment",
+      "type": "definition",
+      "title": "Hyponymi som entailment-kilde",
+      "content": "Den vanligste enkeltkilden til entailment mellom to setninger: **bytt ut et ord med hyperonymet, og du får en svakere setning som følger av den første.**\n\nFordi *rose* er hyponym til *blomst*, entailer «Kari plantet en rose» setningen «Kari plantet en blomst». Fordi *hund* er hyponym til *dyr*, entailer «Det står en hund i gangen» setningen «Det står et dyr i gangen».\n\n**Regelen har et unntak du bør kjenne, og det gir uttelling å nevne det.** Byttet virker bare i det man kaller positive omgivelser. Under negasjon snur retningen:\n\n```text\n(3) a.  Det står ikke en hund i gangen.\n    b.  Det står ikke et dyr i gangen.\n```\n\nHer entailer (3b) faktisk (3a), ikke omvendt: at det ikke står noe dyr der, medfører at det ikke står noen hund der — mens fraværet av hund godt kan forenes med at det står en katt.\n\n**Denne snuingen har et eget navn — *downward entailment* — og den behandles i [kap. 3.4](/bok/ling1100/ling1100-3-4).** Her trenger du bare å vite at den finnes, slik at du ikke bruker hyponymiregelen mekanisk i negerte setninger."
+    },
+    {
+      "id": "ling1100-3-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fire påstander avgjort",
+      "problem": "Avgjør for hvert par om (a) entailer (b). Begrunn.\n\n```text\n(4) a.  Ola solgte hytta til Randi.\n    b.  Randi kjøpte hytta av Ola.\n\n(5) a.  Alle studentene i gruppa besto eksamen.\n    b.  Ingen i gruppa strøk til eksamen.\n\n(6) a.  Marte begynte å male stua.\n    b.  Marte malte ferdig stua.\n\n(7) a.  Boka koster mer enn 400 kroner.\n    b.  Boka koster mer enn 250 kroner.\n```",
+      "solution": "**(4) Ja — og entailmentet går begge veier.**\n\nI enhver situasjon der Ola solgte hytta til Randi, kjøpte Randi hytta av Ola. Det er samme transaksjon beskrevet fra to sider. Kilden er den konverse relasjonen mellom *selge* og *kjøpe* fra [kap. 2.2](/bok/ling1100/ling1100-2-2).\n\nSiden entailmentet også går motsatt vei, har vi **gjensidig entailment**. De to setningene er ekvivalente, og det finnes ingen situasjon der de har ulik sannhetsverdi.\n\n**(5) Ja.**\n\nEr alle i gruppa bestått, finnes det ingen i gruppa som strøk. Kilden her er ikke et ordforhold, men forholdet mellom kvantorene *alle* og *ingen* sammen med at *bestå* og *stryke* er komplementære.\n\nMerk at entailmentet ikke går motsatt vei uten videre: om ingen strøk, kan det tenkes at noen ikke møtte opp og derfor verken besto eller strøk. **Å nevne et slikt tilfelle er et pluss-punkt**, fordi det viser at retningen er kontrollert.\n\n**(6) Nei.**\n\nMoteksempel: Marte begynte å male stua lørdag morgen, malte to vegger, og lot resten stå. Da er (6a) sann og (6b) usann. Ett moteksempel er nok, og påstanden er avvist.\n\nLegg merke til at (6a) sier noe om **starten** på en prosess, ikke om at den ble fullført. Skillet mellom prosesser som har et naturlig endepunkt og prosesser som ikke har det, behandles i [kap. 5.1](/bok/ling1100/ling1100-5-1).\n\n**(7) Ja.**\n\nKoster boka mer enn 400 kroner, koster den nødvendigvis mer enn 250. Kilden er ordningen av tall: enhver pris over 400 er også over 250.\n\nMotsatt vei holder ikke — en bok til 300 kroner er et moteksempel. **Her ser du semantisk styrke tydelig:** (7a) er den sterkere setningen og utelukker flere situasjoner, og entailmentet går fra sterk til svak.\n\n**Kontroll til slutt.** Tre ja og ett nei, hvert svar med kilden oppgitt, og et moteksempel skrevet ut der svaret var nei. Det er formen en F1-oppgave om entailment skal ha."
+    },
+    {
+      "id": "ling1100-3-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-2-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F1 og A2. Innstegsoppgave.) Avgjør om (a) entailer (b), og begrunn med én setning.\n\n**a)** «Det står en gran utenfor huset» — «Det står et tre utenfor huset».\n**b)** «Det står et tre utenfor huset» — «Det står en gran utenfor huset».\n**c)** «Sara og Jonas kom for sent» — «Sara kom for sent».",
+        "solution": "**a) Ja.** *Gran* er hyponym til *tre*, så i enhver situasjon der det står en gran der, står det et tre der. Entailmentet går fra den sterkere til den svakere setningen.\n\n**b) Nei.** Moteksempel: det står en bjørk utenfor huset. Da er den første setningen sann og den andre usann. Entailment går ikke fra hyperonym til hyponym.\n\n**c) Ja.** En konjunksjon entailer hvert av leddene sine: er «Sara og Jonas kom for sent» sann, må «Sara kom for sent» være sann. Det følger direkte av sannhetstabellen for $\\land$ fra [kap. 3.1](/bok/ling1100/ling1100-3-1) — konjunksjonen er sann bare i raden der begge ledd er sanne.\n\n**Legg merke til hva a) og b) sammen viser:** entailment er **ikke symmetrisk**. At relasjonen holder den ene veien, sier ingenting om den andre, og et fullstendig svar oppgir alltid hvilken vei det er snakk om.",
+        "hints": [
+          "Spør for hvert par: kan den første være sann samtidig som den andre er usann?",
+          "Prøv å beskrive én slik situasjon. Klarer du det, er svaret nei."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De tre testene (~15 min)\n\nDefinisjonen sier hva entailment **er**. Testene sier hvordan du **avgjør** det, og det er testene oppgaven ber om."
+    },
+    {
+      "id": "ling1100-3-2-def-selvmotsigelsestesten",
+      "type": "definition",
+      "title": "Selvmotsigelsestesten",
+      "content": "Den mest brukte testen: **si $p$ og benekt $q$ i samme åndedrag. Blir resultatet en selvmotsigelse, entailer $p$ $q$.**\n\nFormen er alltid den samme:\n\n```text\n(8)  «Kari plantet en rose, men hun plantet ikke noen blomst.»\n```\n\nSetningen motsier seg selv, og entailmentet er dermed bekreftet.\n\nTil sammenligning, et par uten entailment:\n\n```text\n(9)  «Marte begynte å male stua, men hun malte ikke ferdig.»\n```\n\nIngen selvmotsigelse — dette er en helt vanlig og informativ setning. Påstanden om entailment er avvist.\n\n**Hvorfor testen virker:** entailment krever at $q$ er sann i **alle** situasjoner der $p$ er sann. Setningen «$p$, men ikke $q$» beskriver nettopp en situasjon der $p$ er sann og $q$ usann. Er en slik situasjon umulig, blir setningen selvmotsigende.\n\n**Bruk ordet *men* og ikke *og* når du kjører testen.** Det gjør selvmotsigelsen lettere å høre, fordi *men* signaliserer at det som følger, skal være forenlig med det foregående."
+    },
+    {
+      "id": "ling1100-3-2-def-negasjonstesten",
+      "type": "definition",
+      "title": "Negasjonstesten for entailment",
+      "content": "Testen som skiller entailment fra presupposisjon: **neger den første setningen, og se om slutningen fortsatt holder. Ved entailment forsvinner den.**\n\nPrøv på entailment-paret:\n\n```text\n(10) a.  Kari plantet en rose i hagen.       ⇒  Kari plantet en blomst i hagen.\n     b.  Kari plantet ikke en rose i hagen.  ⇒  Kari plantet en blomst i hagen.   FALLER BORT\n```\n\nI (10b) følger ingenting om blomster i det hele tatt. **Entailmentet overlever ikke negasjonen**, og det er nettopp kjennetegnet.\n\nSammenlign med et par av en annen type:\n\n```text\n(11) a.  Kari sluttet å sykle til jobben.       ⇒  Kari syklet til jobben før.\n     b.  Kari sluttet ikke å sykle til jobben.  ⇒  Kari syklet til jobben før.   HOLDER FORTSATT\n```\n\nHer overlever slutningen negasjonen. Den er derfor ikke entailment, men **presupposisjon**, og hele det begrepet behandles i [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\n**Testen er kapitlets viktigste enkeltverktøy**, fordi forvekslingen mellom entailment og presupposisjon er den hyppigste kunnskapsfeilen i hele emnet. Den engelske betegnelsen på egenskapen presupposisjoner har, er **constancy under negation** — konstanthet under negasjon."
+    },
+    {
+      "id": "ling1100-3-2-def-tautologitesten",
+      "type": "definition",
+      "title": "Tautologitesten",
+      "content": "Den formelle testen: **$p \\vDash q$ hviss $p \\rightarrow q$ er sann i alle situasjoner**, altså er en tautologi.\n\nDette er den mest presise av de tre testene, og den er den som binder entailment til apparatet fra [kap. 3.1](/bok/ling1100/ling1100-3-1).\n\nSe hvorfor den virker. Material implikasjon $p \\rightarrow q$ er usann i nøyaktig ett tilfelle: når $p$ er sann og $q$ usann. Å si at $p \\rightarrow q$ er sann i **alle** situasjoner, er derfor det samme som å si at situasjonen «$p$ sann, $q$ usann» aldri forekommer — og det er nøyaktig definisjonen av entailment.\n\n**Testen er samtidig broen til den viktigste distinksjonen i kapitlet:**\n\n- $p \\rightarrow q$ er en påstand om **én** situasjon, med en sannhetsverdi i hver.\n- $p \\vDash q$ er en påstand om **alle** situasjoner samtidig.\n\nTesten sier altså: entailment foreligger når implikasjonen ikke bare *er* sann, men **ikke kan være annet enn sann**.\n\n**Merk at testen ikke er praktisk på setninger fra naturlig språk**, der du ikke har noen tabell å regne på. Der bruker du selvmotsigelsestesten. Tautologitesten er begrepsavklaringen som gjør at du kan si presist hva forskjellen på $\\rightarrow$ og $\\vDash$ består i."
+    },
+    {
+      "id": "ling1100-3-2-thm-prosedyre",
+      "type": "theorem",
+      "title": "Prosedyre: avgjør en entailment-påstand",
+      "content": "Fem trinn. Skriv dem ut i svaret; det er føringen som vurderes.\n\n**Trinn 1 — sett opp setningene som $p$ og $q$**, i den rekkefølgen oppgaven oppgir. Retningen er en del av svaret.\n\n**Trinn 2 — let etter et moteksempel.** Prøv aktivt å beskrive en situasjon der $p$ er sann og $q$ usann. Dette er det raskeste trinnet, og finner du et moteksempel, er du ferdig: svaret er nei, og moteksemplet er begrunnelsen.\n\n**Trinn 3 — kjør selvmotsigelsestesten.** Skriv setningen «$p$, men ikke $q$» ut i klartekst. Er den selvmotsigende, holder entailmentet.\n\n**Trinn 4 — kjør negasjonstesten som kontroll.** Neger $p$ og se om slutningen til $q$ fortsatt holder. Gjør den det, er du ikke i entailment-territorium i det hele tatt, men i presupposisjon.\n\n**Trinn 5 — oppgi kilden.** Si hva entailmentet skyldes: hyponymi, en konvers relasjon, en kvantor, en tallordning, eller konjunksjonens sannhetstabell. Dette trinnet skiller et fullstendig svar fra et riktig svar.\n\n**Kontroll før du går videre:** står svaret presist («ja, (a) entailer (b)»), er testen skrevet ut med de faktiske setningene, og er kilden oppgitt? Ved nei: er moteksemplet beskrevet som en konkret situasjon?"
+    },
+    {
+      "id": "ling1100-3-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Full føring på tre par",
+      "problem": "**Nyskrevet eksamensoppgave:** «Avgjør for hvert par om (a) entailer (b). Begrunn med en test, og oppgi hva entailmentet eventuelt skyldes.»\n\n```text\n(12) a.  Trude klarte å låse opp døra.\n     b.  Trude låste opp døra.\n\n(13) a.  Sigurd fikk sparken fra jobben.\n     b.  Sigurd hadde en jobb.\n\n(14) a.  De fleste av deltakerne kom fram i tide.\n     b.  Alle deltakerne kom fram i tide.\n```",
+      "solution": "**(12) Ja, (a) entailer (b).**\n\nSelvmotsigelsestesten: «Trude klarte å låse opp døra, men hun låste den ikke opp» er en selvmotsigelse. Entailmentet holder.\n\nNegasjonstesten som kontroll: «Trude klarte ikke å låse opp døra» medfører ikke at hun låste den opp — tvert imot. Slutningen forsvinner under negasjon, og det bekrefter at vi har entailment og ikke presupposisjon.\n\n**Kilden:** verbet *klare å* hører til en gruppe som kalles **implikative verb**. De medfører at handlingen faktisk fant sted.\n\n**(13) Ja, men her må du være varsom — og det er poenget med paret.**\n\nSelvmotsigelsestesten: «Sigurd fikk sparken, men han hadde ingen jobb» er en selvmotsigelse. Så langt ser det ut som entailment.\n\nNegasjonstesten avslører imidlertid noe annet: «Sigurd fikk ikke sparken fra jobben» medfører **fortsatt** at han hadde en jobb. Slutningen **overlever negasjonen**, og da er den ikke et rent entailment, men en **presupposisjon**.\n\n> Margnotat: dette er kapitlets viktigste par. Selvmotsigelsestesten alene skiller ikke entailment fra presupposisjon, siden en presupponert setning også er sann når den utløsende setningen er sann. **Det er negasjonstesten som skiller**, og derfor skal begge testene kjøres. Presupposisjon behandles fullt i [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\n**(14) Nei, (a) entailer ikke (b).**\n\nMoteksempel: nitten av tjue deltakere kom fram i tide, den tjuende kom en halvtime for sent. Da er (14a) sann og (14b) usann. Påstanden er avvist.\n\nMerk at slutningen går **motsatt** vei: (14b) entailer (14a), siden alle er flere enn de fleste. **Retningen er hele svaret her**, og en oppgave av denne typen er ofte konstruert nettopp for å se om kandidaten oppgir den.\n\nMerk også en beslektet, men annen sak: mange vil forstå (14a) som at *ikke* alle kom fram i tide. Den slutningen kan trekkes tilbake — «De fleste kom fram i tide, ja faktisk alle sammen» er ingen selvmotsigelse — og den er derfor verken entailment eller presupposisjon, men en **implikatur**. Skillet mellom de tre behandles samlet i [kap. 3.4](/bok/ling1100/ling1100-3-4)."
+    },
+    {
+      "id": "ling1100-3-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-2-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1 og A2.) Avgjør for hvert par om (a) entailer (b). Begrunn med selvmotsigelsestesten, og oppgi et moteksempel der svaret er nei.\n\n**a)** «Runa kjøpte tre bøker» — «Runa kjøpte to bøker».\n**b)** «Kjell er onkelen til Ida» — «Ida har en onkel».\n**c)** «Toget var forsinket, og bussen kom ikke» — «Bussen kom ikke».\n**d)** «Iver leter etter nøklene» — «Iver har mistet nøklene».",
+        "solution": "**a) Ja.** Selvmotsigelsestesten: «Runa kjøpte tre bøker, men hun kjøpte ikke to bøker» er en selvmotsigelse i den logiske lesningen, der «tre» betyr minst tre. Kilden er tallordningen.\n\n**Et forbehold som er verdt en linje:** i vanlig norsk forstås «tre bøker» ofte som nøyaktig tre, og da vil mange nøle med å godta slutningen. Den logiske lesningen er den som ligger til grunn i denne oppgavetypen, og **å oppgi hvilken lesning du legger til grunn, er å være presis** — ikke å vike unna.\n\n**b) Ja.** Selvmotsigelsestesten: «Kjell er onkelen til Ida, men Ida har ingen onkel» er en selvmotsigelse. Kilden er den konverse relasjonen mellom *onkel til* og *ha en onkel*.\n\n**c) Ja.** Selvmotsigelsestesten: «Toget var forsinket og bussen kom ikke, men bussen kom» motsier seg selv. Kilden er sannhetstabellen for $\\land$: en konjunksjon er sann bare i raden der begge leddene er sanne, og den entailer derfor hvert av leddene.\n\n**d) Nei.** Moteksempel: Iver leter etter nøklene fordi han skal levere dem til naboen, og han vet nøyaktig hvor de ligger — i skuffen på kjøkkenet. Da er (a) sann og (b) usann.\n\n**Grepet oppgaven trener:** at et par kan **føles** som entailment fordi de to ofte opptrer sammen. Å lete etter noe henger som regel sammen med å ha mistet det, men sammenhengen er en forventning om hvordan verden pleier å være, ikke noe som følger av betydningen. **Entailment er en relasjon mellom betydninger, ikke en observasjon om hva som pleier å skje.**",
+        "hints": [
+          "Skriv ut setningen «p, men ikke q» i klartekst for hvert par før du bestemmer deg.",
+          "For d): prøv å tenke deg en grunn til å lete etter noe du ikke har mistet."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-2-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2 — skill nærliggende begreper.) For hvert par: kjør **både** selvmotsigelsestesten og negasjonstesten, og si om slutningen er et entailment eller noe annet.\n\n**a)** «Berit angrer på at hun solgte huset» — «Berit solgte huset».\n**b)** «Berit solgte huset til en nabo» — «Berit solgte huset».\n**c)** «Det var Berit som solgte huset» — «Noen solgte huset».",
+        "solution": "**a) Ikke entailment — dette er en presupposisjon.**\n\nSelvmotsigelsestesten: «Berit angrer på at hun solgte huset, men hun solgte det ikke» motsier seg selv. Testen gir altså utslag.\n\nNegasjonstesten: «Berit angrer ikke på at hun solgte huset» medfører **fortsatt** at hun solgte det. Slutningen overlever negasjonen, og da er den en presupposisjon, ikke et entailment. Verbet *angre på* hører til gruppen faktive verb, som behandles i [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\n**b) Entailment.**\n\nSelvmotsigelsestesten: «Berit solgte huset til en nabo, men hun solgte ikke huset» motsier seg selv.\n\nNegasjonstesten: «Berit solgte ikke huset til en nabo» medfører **ikke** at hun solgte huset — hun kan ha solgt det til noen andre, eller ikke solgt det i det hele tatt. Slutningen forsvinner under negasjon, og det bekrefter entailment.\n\n**c) Ikke entailment — presupposisjon igjen.**\n\nSelvmotsigelsestesten gir utslag: «Det var Berit som solgte huset, men ingen solgte det» motsier seg selv.\n\nNegasjonstesten: «Det var ikke Berit som solgte huset» medfører fortsatt at noen solgte det — nettopp derfor er setningen informativ. Slutningen overlever, og den er en presupposisjon. Konstruksjonen «Det var X som …» er en **kløyvd setning**, en strukturell trigger som behandles i [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\n**Mønsteret i oppgaven er det du skal ta med deg:** selvmotsigelsestesten gir utslag i **alle tre** tilfellene, og skiller altså ikke. **Bare negasjonstesten skiller.** Kjører du bare den første testen, vil du kalle presupposisjoner for entailment — og det er feil 3 i registeret, den hyppigste kunnskapsfeilen i emnet.",
+        "hints": [
+          "Kjør begge testene på hvert par, og skriv begge resultatene ned før du klassifiserer.",
+          "Legg merke til hvilken av de to testene som gir ulikt utslag på de tre parene."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Entailment mot material implikasjon (~12 min)\n\n**— naturlig pausepunkt —**\n\nNå kommer den distinksjonen kapitlet er bygd rundt, og som gir kapitlet navnet sitt."
+    },
+    {
+      "id": "ling1100-3-2-def-objektsprak",
+      "type": "definition",
+      "title": "Objektspråk og metaspråk",
+      "content": "Skillet som forklarer hvorfor $\\rightarrow$ og $\\vDash$ ikke kan være det samme.\n\n**Objektspråket** er det språket vi lager formler i. Konnektivene $\\lnot$, $\\land$, $\\lor$, $\\rightarrow$ og $\\leftrightarrow$ hører hjemme der: de bygger nye formler av gamle. Skriver du $p \\rightarrow q$, har du laget **én ny formel**, og den har en sannhetsverdi i hver situasjon.\n\n**Metaspråket** er det språket vi snakker *om* formlene i. Symbolet $\\vDash$ hører hjemme der: det er ikke et konnektiv, men en **påstand om et forhold** mellom to formler. Skriver du $p \\vDash q$, har du ikke laget en ny formel — du har hevdet noe om $p$ og $q$.\n\n**Den praktiske konsekvensen:** $p \\rightarrow q$ kan være sann i én situasjon og usann i en annen. $p \\vDash q$ kan ikke det. Enten holder relasjonen, eller så gjør den det ikke, og svaret er det samme uansett hvilken situasjon du befinner deg i.\n\n**Derfor er også dette galt:** å skrive $p \\vDash q$ som en linje i en sannhetstabell. Det finnes ingen kolonne for det, fordi det ikke er noe som har en verdi per rad."
+    },
+    {
+      "id": "ling1100-3-2-def-material-vs-entailment",
+      "type": "definition",
+      "title": "Material implikasjon mot entailment",
+      "content": "Den skarpe forskjellen, formulert slik den bør stå i et svar:\n\n> **Material implikasjon $p \\rightarrow q$ er en påstand om én situasjon.** Den er sann i den situasjonen med mindre $p$ er sann og $q$ usann.\n>\n> **Entailment $p \\vDash q$ er en påstand om alle situasjoner samtidig.** Den holder hviss det ikke finnes noen situasjon der $p$ er sann og $q$ usann.\n\nSammenhengen mellom dem er tautologitesten: $p \\vDash q$ hviss $p \\rightarrow q$ er sann i alle situasjoner.\n\n**Et eksempel som gjør forskjellen konkret.** Betrakt:\n\n```text\n(15) a.  Det regner i Bergen.\n     b.  Det er tirsdag.\n```\n\nEr begge setningene sanne akkurat nå, er $p \\rightarrow q$ **sann** i denne situasjonen. Men $p \\vDash q$ holder åpenbart ikke: det finnes tusenvis av situasjoner der det regner i Bergen på en onsdag.\n\n**Konklusjonen du skal kunne trekke:** at implikasjonen tilfeldigvis er sann, sier ingenting om entailment. Entailment krever at den er sann uten unntak — og det er derfor ett moteksempel avgjør saken."
+    },
+    {
+      "id": "ling1100-3-2-def-implikasjonsparadokset",
+      "type": "definition",
+      "title": "Implikasjon uten innholdsforbindelse",
+      "content": "Egenskapen ved material implikasjon som gjør at den avviker mest fra det norske *hvis*: **den krever ingen forbindelse mellom leddene.**\n\nSetningen «Hvis månen er en ost, er Oslo hovedstad i Norge» er en **sann** material implikasjon, siden antesedenten er usann. Ingen vil kalle den en fornuftig ytring, og den beskriver ingen sammenheng.\n\nDette omtales ofte som implikasjonens paradokser, og de er verdt å kunne nevne fordi de peker rett på skillet i dette kapitlet:\n\n- **Enhver usann antesedent gjør implikasjonen sann**, uansett konsekvent.\n- **Enhver sann konsekvent gjør implikasjonen sann**, uansett antesedent.\n\n**Entailment har ikke denne egenskapen.** At Oslo er hovedstad, følger ikke av at månen er en ost i noen som helst forstand — det er bare slik at den ene setningen er usann og den andre sann i den faktiske situasjonen. En påstand om **alle** situasjoner ville falt straks: det finnes situasjoner der månen er en ost uten at Oslo er hovedstad.\n\n**Slik bruker du dette på eksamen:** det er det klareste enkeltargumentet for at $\\rightarrow$ og $\\vDash$ ikke kan være samme relasjon."
+    },
+    {
+      "id": "ling1100-3-2-def-gjensidig",
+      "type": "definition",
+      "title": "Gjensidig entailment",
+      "content": "Forholdet mellom to setninger som entailer hverandre: $p \\vDash q$ **og** $q \\vDash p$. Den engelske termen er ‘mutual entailment’.\n\nGjensidig entailment betyr at setningene har **samme sannhetsverdi i alle situasjoner**. Det er nøyaktig det samme som **logisk ekvivalens** fra [kap. 3.1](/bok/ling1100/ling1100-3-1), og det svarer til begrepet **parafrase** fra [kap. 1.1](/bok/ling1100/ling1100-1-1).\n\nEksempler:\n\n```text\n(16) a.  Ola solgte hytta til Randi.     ⟷  Randi kjøpte hytta av Ola.\n(17) a.  Alle deltakerne møtte opp.      ⟷  Ingen deltakere uteble.\n```\n\n**Merk hva som kreves for å påvise gjensidig entailment.** Du må kjøre testen **begge veier**. Et svar som viser den ene retningen og deretter skriver «og omvendt», har vist halvparten. Det tar to linjer å gjøre begge, og det er en billig måte å levere et fullstendig svar på.\n\n**Merk også hva det ikke betyr.** To setninger kan være ekvivalente uten å være likeverdige i bruk: den ene kan være mer naturlig, mer høflig eller peke på et annet ledd som viktig. Slike forskjeller er ikke sannhetsbetingelser, og de behandles i pragmatikk-halvdelen."
+    },
+    {
+      "id": "ling1100-3-2-def-kontraposisjon",
+      "type": "definition",
+      "title": "Kontraposisjon",
+      "content": "Regelen om at entailment kan snus når begge ledd negeres: **holder $p \\vDash q$, så holder også $\\lnot q \\vDash \\lnot p$.**\n\nPrøv den på et kjent par. «Det står en gran utenfor huset» entailer «Det står et tre utenfor huset». Kontraposisjonen gir: «Det står ikke noe tre utenfor huset» entailer «Det står ingen gran utenfor huset». Begge deler stemmer.\n\n**Hvorfor regelen holder:** finnes det ingen situasjon der $p$ er sann og $q$ usann, finnes det heller ingen situasjon der $\\lnot q$ er sann og $\\lnot p$ usann. Det er de samme situasjonene, beskrevet fra motsatt kant.\n\n**Merk hva regelen ikke tillater.** Fra $p \\vDash q$ følger **ikke** $\\lnot p \\vDash \\lnot q$. Det er et vanlig feilgrep: at det ikke står en gran der, medfører ikke at det ikke står et tre der. Regelen krever at **begge** ledd negeres **og** at rekkefølgen snus.\n\nKontraposisjonen er også det første møtet med at negasjon snur retningen på slutninger. Den observasjonen utvides til et generelt begrep i [kap. 3.4](/bok/ling1100/ling1100-3-4)."
+    },
+    {
+      "id": "ling1100-3-2-def-transitivitet",
+      "type": "definition",
+      "title": "Transitivitet i entailment",
+      "content": "Regelen om at entailment arves gjennom kjeder: **holder $p \\vDash q$ og $q \\vDash r$, så holder $p \\vDash r$.**\n\nEksempel:\n\n```text\n(18)  «Det står en gran utenfor huset»\n        ⊨ «Det står et bartre utenfor huset»\n        ⊨ «Det står et tre utenfor huset»\n```\n\nAltså entailer den første setningen også den siste.\n\n**Hvorfor regelen holder:** er $q$ sann i alle situasjoner der $p$ er sann, og $r$ sann i alle situasjoner der $q$ er sann, må $r$ være sann i alle situasjoner der $p$ er sann.\n\n**Slik bruker du den:** transitiviteten er nyttig når en oppgave gir deg en lang kjede av setninger og ber deg finne alle entailment-forholdene. Har du fastslått leddene i kjeden, følger de lange slutningene gratis. Den svarer direkte til transitiviteten i hyponymi fra [kap. 2.1](/bok/ling1100/ling1100-2-1) — og det er ingen tilfeldighet, siden hyponymi er den vanligste kilden til entailment."
+    },
+    {
+      "id": "ling1100-3-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-2-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A2.) Forklar forskjellen mellom $p \\rightarrow q$ og $p \\vDash q$.\n\n**a)** Gi den skarpe forskjellen i én setning.\n**b)** Gi et eget eksempelpar der $p \\rightarrow q$ er sann i den faktiske situasjonen, men der $p \\vDash q$ ikke holder.\n**c)** Kan $p \\vDash q$ holde uten at $p \\rightarrow q$ er sann? Begrunn.",
+        "solution": "**a)** $p \\rightarrow q$ er en påstand om **én situasjon** og har en sannhetsverdi i hver; $p \\vDash q$ er en påstand om **alle situasjoner samtidig** og holder hviss det ikke finnes noen situasjon der $p$ er sann og $q$ usann.\n\n**b) Eget eksempelpar:**\n\n```text\n(19) a.  Naboen har hund.\n     b.  Naboen har kjøpt ny bil.\n```\n\nAnta at begge er sanne akkurat nå. Da er $p \\rightarrow q$ sann i denne situasjonen, siden implikasjonen er usann bare når antesedenten er sann og konsekventen usann.\n\nMen $p \\vDash q$ holder åpenbart ikke. Moteksempel: naboen har hund og kjører fortsatt den gamle bilen. Den situasjonen er fullt mulig, og ett moteksempel er nok.\n\n**c) Nei, det er umulig.** Holder $p \\vDash q$, er $q$ sann i **alle** situasjoner der $p$ er sann. Da finnes det ingen situasjon der $p$ er sann og $q$ usann — og det er nettopp den ene raden som gjør $p \\rightarrow q$ usann. Implikasjonen må derfor være sann i enhver situasjon.\n\n**Sammenhengen formulert som en regel:** entailment er det sterkere forholdet. Entailment medfører at implikasjonen er sann overalt, men at implikasjonen tilfeldigvis er sann ett sted, medfører ikke entailment. **Det er den asymmetrien hele kapitlet dreier seg om.**",
+        "hints": [
+          "Spør hva de to påstandene handler om: én situasjon eller alle?",
+          "For c): tenk på hvilken rad som er den eneste som gjør en implikasjon usann."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Tautologi, kontradiksjon og skillet analytisk/syntetisk (~12 min)\n\nTil slutt to små temaer som henger direkte på entailment-begrepet, og som begge er prøvd i materialet."
+    },
+    {
+      "id": "ling1100-3-2-def-gyldig-slutning",
+      "type": "definition",
+      "title": "Gyldig slutning",
+      "content": "En slutning der **konklusjonen er sann i alle situasjoner der premissene er sanne**. Den engelske termen er ‘valid inference’.\n\nDefinisjonen er den samme som for entailment, bare med flere setninger på venstresiden. En slutning fra premissene $p_1$ og $p_2$ til konklusjonen $q$ er gyldig hviss $p_1 \\land p_2 \\vDash q$.\n\n```text\n(a)  Premiss 1:   Alle bartrær har nåler.\n     Premiss 2:   Grana utenfor huset er et bartre.\n     Konklusjon:  Grana utenfor huset har nåler.\n```\n\nSlutningen er gyldig: det finnes ingen situasjon der begge premissene er sanne og konklusjonen usann.\n\n**En presisering som ofte etterspørres:** gyldighet sier ingenting om **om premissene faktisk er sanne**. En slutning kan være gyldig med usanne premisser, og et sant utsagn kan følge av en ugyldig slutning. Gyldighet gjelder formen på slutningen, ikke innholdet i premissene.\n\n**Kryssbok:** [Argumentasjon og gyldighet](/bok/filosofi-etikk/fil-7-1) behandler dette grundigere. Merk at kravene og terminologien der er filosofifagets, ikke LING1100s — men selve begrepet er det samme."
+    },
+    {
+      "id": "ling1100-3-2-def-tautologi",
+      "type": "definition",
+      "title": "Tautologi",
+      "content": "En setning som er **sann i alle situasjoner**. Den engelske termen er ‘tautology’.\n\nEksempler:\n\n```text\n(20)  Enten regner det, eller så regner det ikke.\n(21)  Alle røde biler er røde.\n```\n\nFormelt er en tautologi et uttrykk som har S i hver rad i sannhetstabellen — for eksempel $p \\lor \\lnot p$.\n\n**Sammenhengen med entailment:** en tautologi følger av hva som helst. Er $q$ sann i alle situasjoner, er den nødvendigvis sann i alle situasjoner der $p$ er sann, og da holder $p \\vDash q$ for enhver $p$.\n\n**Merk hva som gjør tautologier uinteressante som informasjon og interessante som verktøy.** De utelukker ingen situasjoner, og forteller deg derfor ingenting om verden. Nettopp derfor er de nyttige som kontroll: er en setning en tautologi, har du en fast referanse å måle andre setninger mot."
+    },
+    {
+      "id": "ling1100-3-2-def-kontradiksjon",
+      "type": "definition",
+      "title": "Kontradiksjon",
+      "content": "En setning som er **usann i alle situasjoner**. Den engelske termen er ‘contradiction’.\n\nEksempler:\n\n```text\n(22)  Det regner, og det regner ikke.\n(23)  Naboens hoppe er en hingst.\n```\n\nFormelt: et uttrykk med U i hver rad, for eksempel $p \\land \\lnot p$.\n\n**Sammenhengen med entailment:** en kontradiksjon entailer hva som helst. Finnes det ingen situasjon der $p$ er sann, finnes det heller ingen situasjon der $p$ er sann og $q$ usann — og betingelsen for $p \\vDash q$ er dermed oppfylt uten videre.\n\nDette virker rart første gang, og det er beslektet med tom sannhet fra [kap. 3.1](/bok/ling1100/ling1100-3-1): når betingelsen aldri er oppfylt, blir kravet aldri satt på prøve.\n\n**Merk skillet mellom to bruk av ordet.** «Kontradiksjon» brukes både om en enkelt selvmotsigende setning, som her, og om forholdet mellom to setninger som ikke kan være sanne samtidig. Den andre bruken har et eget navn i neste definisjon."
+    },
+    {
+      "id": "ling1100-3-2-def-kontingent",
+      "type": "definition",
+      "title": "Kontingent setning",
+      "content": "En setning som er **sann i noen situasjoner og usann i andre**. Den engelske termen er ‘contingent sentence’.\n\nDe aller fleste setninger er kontingente. «Det regner i Trondheim», «Naboen har hund», «Boka koster 349 kroner» — alle sammen kunne vært sanne, og alle kunne vært usanne.\n\n**De tre begrepene sammen utgjør en fullstendig tredeling.** Enhver setning er nøyaktig én av tre ting:\n\n| Type | Sannhetsverdi | Informasjonsverdi |\n|---|---|---|\n| tautologi | sann i alle situasjoner | ingen — utelukker ingenting |\n| kontradiksjon | usann i alle situasjoner | ingen — utelukker alt |\n| kontingent | sann i noen, usann i andre | den eneste som sier noe om verden |\n\n**Merk hvorfor tredelingen er nyttig:** den forklarer hva informasjon er i denne rammen. **Å si noe informativt er å utelukke noen situasjoner, men ikke alle.**"
+    },
+    {
+      "id": "ling1100-3-2-def-uforenlighet",
+      "type": "definition",
+      "title": "Uforenlige setninger",
+      "content": "To setninger som **ikke kan være sanne samtidig**. Den engelske termen er ‘incompatibility’, og forholdet kalles også kontradiktorisk eller kontrært, avhengig av om ett av alternativene må være sant.\n\n```text\n(24) a.  Hesten i innhegningen er en hingst.\n     b.  Hesten i innhegningen er en hoppe.\n```\n\nDe to kan ikke begge være sanne. Kilden er at *hingst* og *hoppe* er komplementære innenfor de voksne hestene, jf. [kap. 2.3](/bok/ling1100/ling1100-2-3).\n\n**Sammenhengen med entailment:** $p$ og $q$ er uforenlige hviss $p \\vDash \\lnot q$. Å hevde det ene er å avvise det andre.\n\n**Merk et skille som er verdt et poeng.** Uforenlige setninger kan begge være **usanne** — hesten kunne vært et føll — og da er de bare uforenlige. Kan de heller ikke begge være usanne, er de i tillegg **kontradiktoriske**, som «Setet er ledig» og «Setet er opptatt». Det er samme skille som mellom taksonomiske søstre og komplementære antonymer i [kap. 2.2](/bok/ling1100/ling1100-2-2)."
+    },
+    {
+      "id": "ling1100-3-2-def-analytisk",
+      "type": "definition",
+      "title": "Analytisk setning",
+      "content": "En setning som er **sann i kraft av betydningen til ordene den består av**, uten at man trenger å undersøke verden. Den engelske termen er ‘analytic sentence’.\n\nEksempler:\n\n```text\n(25)  En ungkar er ugift.\n(26)  Alle hopper er hunndyr.\n(27)  Et kvadrat har fire sider.\n```\n\nTesten: **prøv å benekte setningen.** Blir resultatet en selvmotsigelse — «En ungkar er gift» — er setningen analytisk.\n\n**Sammenhengen med komponentanalysen i [kap. 2.3](/bok/ling1100/ling1100-2-3) er direkte og verdt å nevne:** en analytisk setning tilskriver subjektet et trekk det allerede har. *Ungkar* har trekket `[−GIFT]` innebygd, og setningen legger ikke til noe.\n\n**Merk forholdet til tautologi.** En analytisk setning er sann i alle situasjoner og er derfor en tautologi i vid forstand — men mens en logisk tautologi som «Det regner eller det regner ikke» er sann i kraft av **formen**, er en analytisk setning sann i kraft av **ordbetydningene**. Skillet er verdt én setning i et svar."
+    },
+    {
+      "id": "ling1100-3-2-def-syntetisk",
+      "type": "definition",
+      "title": "Syntetisk setning",
+      "content": "En setning der sannhetsverdien **avhenger av hvordan verden er**. Den engelske termen er ‘synthetic sentence’.\n\nEksempler:\n\n```text\n(28)  Naboen er ungkar.\n(29)  Hoppa står i stallen.\n(30)  Boka koster 349 kroner.\n```\n\nTesten: benekt setningen. Blir resultatet en fullt mulig påstand og ingen selvmotsigelse, er setningen syntetisk.\n\n**Den skarpe forskjellen fra analytisk, i én setning:** en analytisk setning er sann **i kraft av betydningen**, en syntetisk **i kraft av verden**. For å avgjøre den første trenger du bare å kunne språket; for å avgjøre den andre må du se etter.\n\n**Merk hvorfor skillet er semantisk interessant.** Det gir en operasjonell prøve på hva som ligger i ordbetydningen og hva som ligger i vår kunnskap om verden. At vann fryser ved null grader, er noe vi har funnet ut; at en hoppe er en hunnhest, er noe som ligger i ordet.\n\n**Merk også at skillet er omstridt i filosofien.** Grensen mellom hva som ligger i ordet og hva som er veletablert kunnskap om verden, er ikke alltid skarp — hvor hører «Katter er dyr» hjemme? Til eksamensbruk holder det å kunne skillet, testen og en setning om at grensetilfeller finnes."
+    },
+    {
+      "id": "ling1100-3-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Analytisk, syntetisk eller selvmotsigende",
+      "problem": "**Nyskrevet eksamensoppgave:** «Klassifiser hver setning som analytisk, syntetisk eller selvmotsigende. Begrunn med en test, og forklar hva skillet mellom analytisk og syntetisk består i.»\n\n```text\n(31)  Alle føll er unge hester.\n(32)  Føllet i innhegningen er tre uker gammelt.\n(33)  Dette føllet er en voksen hest.\n(34)  Ingen ungkar har kone.\n```",
+      "solution": "**Skillet først, siden oppgaven ber om det.** En **analytisk** setning er sann i kraft av betydningen til ordene, og du trenger ikke undersøke verden for å avgjøre den. En **syntetisk** setning er sann eller usann i kraft av hvordan verden faktisk er, og må undersøkes. Testen er den samme i begge tilfeller: **benekt setningen og se hva som skjer.**\n\n**(31) Analytisk.** Benektelsen «Noen føll er ikke unge hester» er en selvmotsigelse: å være et ungt hestedyr er nettopp det ordet *føll* betyr. Setningen legger ikke til noe utover det som ligger i ordet, og er sann i alle situasjoner.\n\n**(32) Syntetisk.** Benektelsen «Føllet i innhegningen er ikke tre uker gammelt» er en fullt mulig påstand. For å avgjøre hvilken av de to som er sann, må man se etter. Setningen er kontingent — sann i noen situasjoner og usann i andre.\n\n**(33) Selvmotsigende.** Setningen påstår at noe som per definisjon er ungt, er voksent. Den er usann i alle situasjoner, altså en **kontradiksjon**. Merk sammenhengen: en selvmotsigende setning er benektelsen av en analytisk.\n\n**(34) Analytisk.** Benektelsen «Noen ungkar har kone» er en selvmotsigelse, siden *ungkar* betyr ugift mann. Setningen er sann i alle situasjoner.\n\n**Kontroll og et pluss-punkt.** Legg merke til forholdet mellom de tre kategoriene: analytiske setninger er sanne i alle situasjoner, selvmotsigende er usanne i alle, og syntetiske er sanne i noen og usanne i andre. **Det er den samme tredelingen som tautologi, kontradiksjon og kontingent setning** — bare at analytisk og syntetisk peker på *hvorfor* verdien er som den er, nemlig ordbetydningene, mens tautologi og kontradiksjon også kan skyldes den logiske formen alene.\n\n> Margnotat: å knytte de to tredelingene sammen på denne måten er et pluss-punkt, og det koster to setninger. Et svar som bare klassifiserer de fire setningene, er riktig, men har ikke svart på den andre halvdelen av oppgaveteksten."
+    },
+    {
+      "id": "ling1100-3-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-2-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1 og A2.) Klassifiser hver setning som tautologi, kontradiksjon eller kontingent, og oppgi i tillegg om den er analytisk eller syntetisk der det er relevant.\n\n**a)** «Enten er toget forsinket, eller så er det ikke forsinket.»\n**b)** «Naboens katt er et pattedyr.»\n**c)** «Naboens katt er tre år gammel.»\n**d)** «Denne enslige personen er gift.»",
+        "solution": "**a) Tautologi, og sann i kraft av formen.** Setningen har formen $p \\lor \\lnot p$, som har S i hver rad i sannhetstabellen. Den er sann uansett hva $p$ betyr, og den er derfor **ikke** analytisk i den snevre forstanden der sannheten skyldes ordbetydningene — den skyldes den logiske formen alene.\n\n**b) Analytisk, og dermed sann i alle situasjoner.** *Katt* har trekket `[+PATTEDYR]` innebygd, og benektelsen «Naboens katt er ikke et pattedyr» er en selvmotsigelse. Setningen er en tautologi i vid forstand, men sannheten skyldes ordbetydningene, ikke formen.\n\n**c) Kontingent og syntetisk.** Benektelsen er en fullt mulig påstand, og for å avgjøre hvilken som er sann, må man undersøke. Dette er den vanlige typen setning.\n\n**d) Kontradiksjon, og selvmotsigende i kraft av ordbetydningene.** *Enslig* og *gift* er uforenlige i den relevante lesningen, og setningen er usann i alle situasjoner. Den er benektelsen av en analytisk setning.\n\n**Grepet oppgaven trener:** at de to tredelingene ikke er den samme, men henger sammen. **Tautologi og kontradiksjon sier hvilken verdi setningen har i alle situasjoner. Analytisk og syntetisk sier hvorfor.** En setning kan være sann i alle situasjoner enten i kraft av formen, som a), eller i kraft av ordbetydningene, som b) — og et fullstendig svar skiller de to kildene.",
+        "hints": [
+          "Spør først: er setningen sann i alle situasjoner, usann i alle, eller varierer det?",
+          "Spør deretter hvorfor — skyldes det formen på setningen eller betydningen til ordene?"
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-2-warn-material",
+      "type": "warning",
+      "title": "Ikke bland material implikasjon og entailment",
+      "content": "Dette er kapitlets kjernedistinksjon, og forvekslingen er den vanligste kunnskapsfeilen i F1-sjangeren.\n\n**Den skarpe forskjellen i én setning:** material implikasjon er en påstand om **én** situasjon; entailment er en påstand om **alle** situasjoner samtidig.\n\n**Testen som skiller dem:** spør om påstanden kan skifte sannhetsverdi når du bytter situasjon. $p \\rightarrow q$ kan det — den er sann i dag og usann i morgen. $p \\vDash q$ kan ikke det.\n\nTre konkrete følger for skrivingen din:\n\n- **Bruk riktig symbol.** Boka skriver $\\vDash$ om entailment og $\\rightarrow$ om material implikasjon. Pilen brukes aldri om entailment, og aldri i betydningen «fører til».\n- **$\\vDash$ hører ikke hjemme i en sannhetstabell.** Det finnes ingen kolonne for det, siden det ikke er noe som har en verdi per rad.\n- **Å påvise at implikasjonen er sann i ett tilfelle, viser ikke entailment.** Det er derfor et moteksempel avgjør saken — ett enkelt tilfelle der $p$ er sann og $q$ usann, og påstanden er avvist."
+    },
+    {
+      "id": "ling1100-3-2-warn-analytisk",
+      "type": "warning",
+      "title": "Ikke bland analytisk og syntetisk",
+      "content": "Skillet er lite, og forvekslingen er billig å unngå — men den koster fordi begge ord ser tekniske ut og lett blir brukt i flæng.\n\n**Den skarpe forskjellen i én setning:** en **analytisk** setning er sann i kraft av **betydningen** til ordene; en **syntetisk** setning er sann eller usann i kraft av **verden**.\n\n**Testen som skiller dem:** benekt setningen. Blir benektelsen en selvmotsigelse, var setningen analytisk. Blir den en fullt mulig påstand, var den syntetisk.\n\nTo presiseringer som gir uttelling:\n\n- **Analytisk er ikke det samme som opplagt.** «Ingen ungkar har kone» er analytisk, men det er også analytisk at et primtall større enn to er odde, og det er ikke opplagt for alle.\n- **Syntetisk er ikke det samme som usikkert.** «Vann fryser ved null grader» er syntetisk, og likevel noe vi vet svært godt. Skillet gjelder **kilden** til sannheten, ikke hvor sikre vi er."
+    },
+    {
+      "id": "ling1100-3-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-2-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F1 og A2, full sjanger.) «Avgjør for hvert par om (a) entailer (b). Kjør begge testene, oppgi kilden der entailmentet holder, og skriv ut et moteksempel der det ikke holder. Ett av parene er ikke entailment, men noe annet — si hva.»\n\n```text\n(35) a.  Alle deltakerne fullførte løpet.\n     b.  Minst én deltaker fullførte løpet.\n\n(36) a.  Halvor visste at møtet var flyttet.\n     b.  Møtet var flyttet.\n\n(37) a.  Vera er eldre enn Nils.\n     b.  Nils er yngre enn Vera.\n\n(38) a.  Tre av de fem lampene lyser.\n     b.  Ikke alle de fem lampene lyser.\n```",
+        "solution": "**(35) Nei — og dette er det mest krevende paret.**\n\nSelvmotsigelsestesten: «Alle deltakerne fullførte løpet, men ingen fullførte» høres ut som en selvmotsigelse, og de fleste vil svare ja.\n\nMoteksemplet ligger i et grensetilfelle: **et løp uten deltakere.** Er det ingen deltakere i det hele tatt, er «Alle deltakerne fullførte» sann av tom sannhet — det finnes ingen deltaker som ikke fullførte — mens «Minst én deltaker fullførte» er usann. Da er (a) sann og (b) usann, og påstanden er avvist.\n\nDette henger direkte på tom sannhet fra [kap. 3.1](/bok/ling1100/ling1100-3-1), og det er nettopp derfor allkvantoren pares med implikasjon i [kap. 4.1](/bok/ling1100/ling1100-4-1).\n\n**Et forbehold som hører med:** i vanlig norsk språkbruk forutsetter «alle deltakerne» som regel at det finnes deltakere, og under den forutsetningen holder slutningen. **Å oppgi hvilken lesning du legger til grunn, er å være presis.**\n\n**(36) Nei — dette er presupposisjon, ikke entailment.**\n\nSelvmotsigelsestesten gir utslag: «Halvor visste at møtet var flyttet, men det var ikke flyttet» motsier seg selv.\n\nNegasjonstesten avslører forskjellen: «Halvor visste ikke at møtet var flyttet» medfører **fortsatt** at det var flyttet. Slutningen overlever negasjonen. Verbet *vite at* er et **faktivt verb**, og faktive verb er en av de faste leksikalske triggerne for presupposisjon i [kap. 3.3](/bok/ling1100/ling1100-3-3).\n\n**(37) Ja, og entailmentet er gjensidig.**\n\nSelvmotsigelsestesten: «Vera er eldre enn Nils, men Nils er ikke yngre enn Vera» motsier seg selv. Kjørt motsatt vei gir samme resultat.\n\nNegasjonstesten: «Vera er ikke eldre enn Nils» medfører ikke at Nils er yngre enn Vera — de kan være like gamle. Slutningen forsvinner under negasjon, og entailment er bekreftet.\n\n**Kilden:** *eldre enn* og *yngre enn* er konverser, altså samme relasjon med byttede argumenter, jf. [kap. 2.2](/bok/ling1100/ling1100-2-2). Konverse par gir alltid gjensidig entailment.\n\n**(38) Nei — og her er svaret verken entailment eller presupposisjon.**\n\nSelvmotsigelsestesten: «Tre av de fem lampene lyser, men alle fem lyser» motsier seg selv i den lesningen der «tre» betyr nøyaktig tre. Under den lesningen holder slutningen.\n\nMen i den logiske lesningen, der «tre» betyr **minst tre**, er det ingen selvmotsigelse — det er fullt mulig at fire eller fem lyser. Slutningen til «ikke alle» er da noe som **legges til i tolkningen**, og den kan trekkes tilbake: «Tre av lampene lyser — faktisk alle fem» er en presisering, ikke en motsigelse.\n\n**Slutningen er derfor en implikatur**, den tredje slutningstypen. Den skiller seg fra de to andre nettopp ved at den er **kansellerbar**, og hele skillet mellom de tre behandles i [kap. 3.4](/bok/ling1100/ling1100-3-4).\n\n**Kontroll til slutt:** fire par, alle avgjort, begge tester kjørt på hvert av dem, kilden oppgitt i (37), moteksempel skrevet ut i (35), og de to som ikke er entailment, identifisert som henholdsvis presupposisjon og implikatur. **Det siste er hele poenget med oppgaven:** «nei» er ikke et fullstendig svar hvis oppgaven spør hva slutningen da er.",
+        "hints": [
+          "Kjør begge testene på hvert par før du bestemmer deg — selvmotsigelsestesten alene skiller ikke.",
+          "For (35): tenk på hva som skjer hvis det ikke finnes noen deltakere i det hele tatt."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-2-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger A2.) En kandidat har svart slik på spørsmålet om forholdet mellom material implikasjon og entailment:\n\n> «Entailment er det samme som implikasjon. Hvis $p$ entailer $q$, betyr det at\n> hvis $p$ er sann, så er $q$ sann. Det er akkurat det $p \\rightarrow q$ sier, så\n> de to er bare to skrivemåter for samme sak.»\n\n**a)** Vis med et konkret eksempel at svaret er galt.\n**b)** Forklar presist hva forholdet mellom de to faktisk er.\n**c)** Hva ville et fullstendig svar dessuten nevnt?",
+        "solution": "**a) Moteksempel som viser at de ikke er samme sak:**\n\n```text\n(39) a.  Det snør i Kirkenes.\n     b.  Butikken på hjørnet er åpen.\n```\n\nAnta at begge er sanne akkurat nå. Da er $p \\rightarrow q$ **sann** i denne situasjonen, siden implikasjonen er usann bare når antesedenten er sann og konsekventen usann.\n\nMen $p \\vDash q$ holder åpenbart ikke. Det finnes utallige situasjoner der det snør i Kirkenes mens butikken er stengt. Ett moteksempel er nok.\n\n**Dermed er de to påstandene ikke ekvivalente:** den ene er sann, den andre usann, i samme situasjon.\n\n**b) Det faktiske forholdet.** Kandidaten har rett i at de henger sammen, men tar feil om hvordan. Sammenhengen er:\n\n> $p \\vDash q$ holder **hviss** $p \\rightarrow q$ er sann i **alle** situasjoner.\n\nForskjellen ligger altså i kvantifiseringen over situasjoner, ikke i selve slutningsformen.\n\n- $p \\rightarrow q$ har en sannhetsverdi **per situasjon** og kan skifte verdi.\n- $p \\vDash q$ har ingen verdi per situasjon. Den holder eller holder ikke, og svaret er det samme overalt.\n\n**Entailment er derfor det sterkere forholdet.** Entailment medfører at implikasjonen er sann overalt; at implikasjonen er sann ett sted, medfører ikke entailment.\n\n**c) Et fullstendig svar ville dessuten nevnt tre ting:**\n\n**Skillet mellom objektspråk og metaspråk.** $\\rightarrow$ er et konnektiv som bygger en ny formel; $\\vDash$ er en påstand **om** to formler. Det er derfor $\\vDash$ ikke kan stå som en kolonne i en sannhetstabell.\n\n**Implikasjonens paradokser.** Material implikasjon er sann så snart antesedenten er usann, uansett hva konsekventen er. Setningen «Hvis to pluss to er fem, er Oslo hovedstad» er sann som implikasjon, og ingen vil hevde at den første setningen entailer den andre. Det er det klareste enkeltargumentet for at de to relasjonene er ulike.\n\n**Notasjonsdisiplinen.** Boka skriver $\\vDash$ om entailment og $\\rightarrow$ om material implikasjon, og blander dem aldri. Å bruke pilen om entailment er ikke bare en skrivefeil — det er å påstå at kandidatens svar er riktig.",
+        "hints": [
+          "Start med å konstruere et par der implikasjonen tilfeldigvis er sann uten at det er noen sammenheng.",
+          "For b): spør hvor mange situasjoner hver av de to påstandene handler om."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-2-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Entailment-oppgaver har objektivt riktige svar, og den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk på at vaghet i slike svar teller som feil.\n\n> **Vagt:** «Ja, den første setningen innebærer vel den andre, de henger sammen.»\n> **Presist:** «Ja, (a) entailer (b). Selvmotsigelsestesten: ‘Kari plantet en rose, men hun plantet ikke noen blomst’ er en selvmotsigelse. Kilden er hyponymi — *rose* er hyponym til *blomst* — og negasjonstesten bekrefter at slutningen forsvinner når (a) negeres.»\n\nFire spørsmål til din egen formulering:\n\n- Har jeg oppgitt **retningen**? «De entailer hverandre» er noe helt annet enn «(a) entailer (b)», og bare det ene er som regel riktig.\n- Har jeg **kjørt testen med de faktiske setningene**, eller bare nevnt at det finnes en test?\n- Ved nei: har jeg **beskrevet moteksemplet** som en konkret situasjon? «Det finnes moteksempler» er en påstand, ikke et argument.\n- Har jeg oppgitt **kilden** — hyponymi, konvers relasjon, kvantor, tallordning, konjunksjon?\n\n**Den enkeltformuleringen som koster mest:** å bruke ordene «innebærer», «medfører» og «impliserer» om hverandre uten å si hvilken relasjon det er snakk om. Skriv **entailer** når du mener entailment, og bruk symbolet $\\vDash$."
+    },
+    {
+      "id": "ling1100-3-2-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil dominerer denne oppgavetypen.\n\n- **Feil 3 — å blande entailment og presupposisjon.** Dette er den hyppigste kunnskapsfeilen i hele emnet. Selvmotsigelsestesten gir utslag på begge; bare **negasjonstesten** skiller. Kjør begge.\n- **Feil 2 — å forveksle material implikasjon og entailment.** Den ene er en påstand om én situasjon, den andre om alle. Bruk riktig symbol, og la $\\vDash$ være utenfor sannhetstabellene.\n- **Feil 4 — å påstå entailment uten test.** Kategorien uten testen er et halvt svar, og «det følger jo» er ingen begrunnelse.\n- **Å oppgi feil retning.** Entailment går fra den **sterkere** til den **svakere** setningen — fra hyponym til hyperonym, fra «alle» til «noen», fra det mer spesifikke til det mindre. Peker svaret ditt motsatt vei, er det nesten sikkert galt.\n- **Å bruke hyponymiregelen i negerte setninger.** Under negasjon snur retningen: «Det står ikke et dyr i gangen» entailer «Det står ikke en hund i gangen», ikke omvendt. Fenomenet heter downward entailment og behandles i [kap. 3.4](/bok/ling1100/ling1100-3-4).\n\n**En sjette felle, som er lett å gå i under tidspress:** å svare «nei» og stoppe der. Er slutningen ikke entailment, spør oppgaven som regel hva den da er — presupposisjon eller implikatur — og et «nei» uten fortsettelse er et halvt svar."
+    },
+    {
+      "id": "ling1100-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-3-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $p$, $q$, $r$ | proposisjonsvariabler, eller setninger i en entailment-påstand |\n| $\\vDash$ | entailer. «$p \\vDash q$» leses «$p$ entailer $q$» |\n| $\\rightarrow$ | material implikasjon — et konnektiv, ikke en entailment-påstand |\n| $\\lnot$ | negasjon |\n| $\\land$, $\\lor$ | konjunksjon, inklusiv disjunksjon |\n| ⇒ | uformell markør for «medfører» i testoppsett i kodeblokker |\n| S / U | sann / usann i en sannhetstabell |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$p \\vDash q \\text{ hviss } q \\text{ er sann i alle situasjoner der } p \\text{ er sann}$$\n\nDefinisjonen av entailment. Ett moteksempel avviser påstanden.\n\n$$p \\vDash q \\text{ hviss } p \\rightarrow q \\text{ er sann i alle situasjoner}$$\n\nTautologitesten, som binder entailment til apparatet fra [kap. 3.1](/bok/ling1100/ling1100-3-1).\n\n$$\\text{Hvis } p \\vDash q \\text{ og } q \\vDash r, \\text{ så } p \\vDash r$$\n\nTransitivitet: entailment arves gjennom kjeder.\n\n$$\\text{Hvis } p \\vDash q, \\text{ så } \\lnot q \\vDash \\lnot p$$\n\nKontraposisjon. Merk at $\\lnot p \\vDash \\lnot q$ **ikke** følger.\n\n$$p \\text{ og } q \\text{ er uforenlige hviss } p \\vDash \\lnot q$$\n\nUforenlighet uttrykt som entailment.\n\n**Notasjonsregler:** $\\vDash$ brukes utelukkende om entailment, aldri $\\rightarrow$ og aldri $\\Rightarrow$. Symbolet hører til metaspråket og skal ikke stå som en kolonne i en sannhetstabell. Pilen $\\rightarrow$ er reservert for material implikasjon og betyr aldri «fører til». Presupposisjonsrelasjonen har intet eget symbol i denne boka og skrives alltid i ord."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-3-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "ling1100-3-2-rep-oppg-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-2-rep-e-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/ling1100/ling1100-3-1)) Når er $p \\rightarrow q$ usann, og hvor mange rader gjelder det?",
+            "solution": "$p \\rightarrow q$ er usann i **nøyaktig én rad** av fire: når $p$ er sann og $q$ er usann. I de tre andre radene er den sann, også i de to der $p$ er usann — det er tom sannhet.\n\nDenne ene raden er samtidig hele broen til entailment: $p \\vDash q$ holder hviss den raden aldri forekommer i noen situasjon.",
+            "hints": [
+              "Tenk på implikasjonen som en garanti — når er den brutt?"
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-2-rep-oppg-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-2-rep-e-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/ling1100/ling1100-2-1)) Hva er hyponymi, og hvorfor gir det entailment mellom setninger?",
+            "solution": "Hyponymi er «er en type»-relasjonen mellom leksemer, og den er enveis: *rose* er hyponym til *blomst*.\n\nDen gir entailment fordi hyponymet stiller **flere krav** enn hyperonymet. Er noe en rose, oppfyller det alt som kreves for å være en blomst, og litt til. Bytter du et ord med hyperonymet, får du derfor en svakere setning som følger av den første — i positive omgivelser.",
+            "hints": [
+              "Tenk på hva som må være oppfylt for at hvert av de to ordene skal passe."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-2-rep-oppg-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-2-rep-e-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/ling1100/ling1100-1-1)) Hva er en parafrase, og hva heter det samme forholdet i dette kapitlet?",
+            "solution": "En parafrase er en setning som betyr det samme som en annen — de er sanne under nøyaktig de samme forholdene.\n\nI dette kapitlet heter forholdet **gjensidig entailment**: $p \\vDash q$ og $q \\vDash p$. Det svarer også til **logisk ekvivalens** fra [kap. 3.1](/bok/ling1100/ling1100-3-1), der to uttrykk har identisk sluttkolonne i sannhetstabellen.\n\nMerk at ekvivalens i sannhetsbetingelser ikke gjør to setninger likeverdige i bruk. Den ene kan være mer naturlig eller framheve et annet ledd, og slike forskjeller hører til pragmatikken.",
+            "hints": [
+              "Tenk på hva som må gjelde for at to setninger skal ha samme sannhetsverdi overalt."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-2-rep-oppg-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-2-rep-e-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/ling1100/ling1100-2-2)) Hvilken antonymitype gir gjensidig entailment mellom to setninger, og hvorfor?",
+            "solution": "**Konverser.** Par som *kjøpe* og *selge*, *foran* og *bak*, *eldre enn* og *yngre enn* beskriver samme situasjon med byttede argumenter, og de to setningene er sanne under nøyaktig de samme forholdene.\n\nDerfor entailer de hverandre begge veier. «Ola solgte hytta til Randi» og «Randi kjøpte hytta av Ola» kan ikke ha ulik sannhetsverdi i noen situasjon.\n\nMerk til sammenligning at **komplementære antonymer** gir uforenlighet, ikke ekvivalens: «Setet er ledig» entailer «Setet er ikke opptatt».",
+            "hints": [
+              "Tenk på hvilken type som beskriver én og samme situasjon fra to sider."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

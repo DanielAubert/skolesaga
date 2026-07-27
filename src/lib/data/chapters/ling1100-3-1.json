@@ -1,0 +1,442 @@
+{
+  "id": "ling1100-3-1",
+  "courseId": "ling1100",
+  "chapterNumber": "3.1",
+  "title": "Proposisjon, sannhetsverdi og konnektiver — sannhetstabeller",
+  "description": "Sannhetstabellene for de logiske konnektivene og sannhetsbetingelsene for konjunksjon/disjunksjon — fasit uten slark.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne sette opp en fullstendig sannhetstabell for et sammensatt uttrykk, med variabelforklaring og mellomkolonner",
+    "kunne formulere sannhetsbetingelsen for hvert av de seks konnektivene presist, med ordet hviss",
+    "kunne skille inklusiv fra eksklusiv disjunksjon ved å peke på den ene raden som skiller dem",
+    "kunne forklare hvorfor en material implikasjon er sann når antesedenten er usann"
+  ],
+  "content": [
+    {
+      "id": "ling1100-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Logikk og sannhetsbetingelser er prøvd i 6 av de 12 settene** — høsten 2015, 2018, 2019, den utsatte prøven for 2020, høsten 2022 og høsten 2024 — og andelen er **stigende**. Settet fra 2024 er både det mest formelle i materialet og det eneste som deler ut en egen symbolliste.\n\n- **Sjangeren er F1 — sannhetstabeller og sannhetsbetingelser.** Oppskriften er kort: sett opp hele tabellen, forklar hva variablene står for, gå gjennom radene, og gi et eget eksempel på begrepet det spørres om.\n- **Typisk formulering:** «Sett opp sannhetstabellene for inklusiv og eksklusiv ‘eller’, forklar forskjellen mellom dem, og gi et eget eksempel der den eksklusive lesningen oppstår.»\n- **Dette er den reneste fasit-sjangeren i emnet.** Den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk: for sannhetsbetingelser og biimplikasjoner finnes det utvetydige svar, og vaghet — «slark» — teller som feil, ikke som svakhet.\n- **Prioritet: høyeste.** Tabellene er få, de er små, og de kan læres på under en time. Det gjør dette til et av de beste forholdene mellom innsats og uttelling i hele emnet.\n- **Den ene raden som koster flest poeng** er raden der $p$ er usann i $p \\rightarrow q$. Der er hele setningen **sann**, og det virker galt første gang. Løkke 3 i dette kapitlet handler bare om den."
+    },
+    {
+      "id": "ling1100-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 1.1](/bok/ling1100/ling1100-1-1), særlig skillet mellom setning, ytring og proposisjon.\n\n**Sist du var her** — to ting du trenger friskt:\n\n- **En proposisjon er innholdet i en påstand**, det som kan være sant eller usant. To ulike setninger kan uttrykke samme proposisjon, og én setning kan uttrykke ulike proposisjoner i ulike sammenhenger. Det er proposisjoner, ikke setninger, logikken i dette kapitlet regner på.\n- **Sannhetsverdi** er den ene av to verdier en proposisjon har: sann eller usann. At en proposisjon har en sannhetsverdi, er ikke det samme som at vi vet hvilken.\n\n**Kryssbok, hvis du vil ha et mykt tilløp:** [Formell og uformell logikk](/bok/filosofi-etikk/fil-7-2) gjennomgår proposisjonslogikk og logiske former på et enklere nivå. Den er ikke nødvendig for dette kapitlet, men den er en grei oppvarming hvis symbolene er helt nye.\n\nKapitlet innfører seks logiske symboler. Alle står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-3-1-hverdagsanker",
+      "type": "text",
+      "content": "## Regnestykker med sant og usant\n\nTenk på hvordan du sjekker om noen har holdt et løfte. «Jeg skal handle og hente pakken» — det løftet er holdt bare hvis **begge** delene er gjort. «Jeg skal ta bussen eller sykle» — der holder det med **én** av delene. «Hvis det regner, tar jeg bilen» — der har du ikke løyet hvis det ikke regnet i det hele tatt, uansett hva du gjorde.\n\nDu gjorde nettopp tre logiske utregninger. Du fant sannhetsverdien til en sammensatt påstand ut fra sannhetsverdiene til delene, og du brukte én regel per bindeord.\n\n**Det er hele apparatet i dette kapitlet.** De små ordene *og*, *eller*, *ikke*, *hvis* og *hvis og bare hvis* oppfører seg som regnestykker: gitt hva delene er verdt, er resultatet gitt. Et sannhetstabell er ikke annet enn en oppstilling av alle mulighetene, slik at du slipper å holde dem i hodet.\n\nKapitlet er bygd i fire løkker. De to første tar de enkle konnektivene, den tredje tar den vanskelige — *hvis* — og den fjerde setter dem sammen."
+    },
+    {
+      "id": "ling1100-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Proposisjoner, variabler og de to første tabellene (~12 min)\n\nVi begynner med hva tabellene regner på, og med de to konnektivene som oppfører seg akkurat slik du venter."
+    },
+    {
+      "id": "ling1100-3-1-def-proposisjon",
+      "type": "definition",
+      "title": "Proposisjon som sannhetsverdibærer",
+      "content": "Det innholdet en påstand har, betraktet som **noe som er sant eller usant**. Den engelske termen er ‘proposition’.\n\nDette er utgangspunktet for hele Del 3, og det er verdt å si presist hva det innebærer. Det er ikke setningen som er sann eller usann, og ikke lyden eller bokstavene. Det er innholdet.\n\nTo konsekvenser du bør ha klart for deg:\n\n- **Setningene «Det regner» og «Det faller regn» kan uttrykke samme proposisjon**, og har da samme sannhetsverdi under de samme forholdene.\n- **Bare påstander uttrykker proposisjoner.** Spørsmål og ordrer gjør det ikke: «Lukk døra» er verken sant eller usant. Det betyr ikke at spørsmål og ordrer er uinteressante — de behandles i Del 9 — men de er ikke det logikken regner på.\n\n**Merk hva antakelsen om to verdier koster.** Logikken i dette kapitlet forutsetter at hver proposisjon har nøyaktig én av to verdier. Det er en forenkling, og [kap. 1.3](/bok/ling1100/ling1100-1-3) har allerede vist et tilfelle der den er omstridt: Strawson mente at en setning med en bestemt beskrivelse uten referent ikke får noen sannhetsverdi i det hele tatt."
+    },
+    {
+      "id": "ling1100-3-1-def-sannhetsverdi",
+      "type": "definition",
+      "title": "Sannhetsverdiene sann og usann",
+      "content": "De to verdiene en proposisjon kan ha. Den engelske termen er ‘truth value’.\n\n**Skrivemåten i denne boka:** vi skriver **S** for sann og **U** for usann i tabellene. På engelskspråklige oppgavesett — og settet fra høsten 2024 er helengelsk — skrives de samme verdiene **T** for *true* og **F** for *false*. Verdiene er de samme; bare bokstavene skifter.\n\n**En presisering som er verdt å ha med i et svar:** at en proposisjon *har* en sannhetsverdi, er ikke det samme som at vi *vet* hvilken. «Det snødde i Bergen 3. mars i fjor» er sann eller usann uavhengig av om noen har sjekket. Logikken handler om hva verdien er, ikke om hvordan vi finner den ut."
+    },
+    {
+      "id": "ling1100-3-1-def-atomaer",
+      "type": "definition",
+      "title": "Atomær proposisjon",
+      "content": "En proposisjon som **ikke er bygd opp av andre proposisjoner**. Den engelske termen er ‘atomic proposition’.\n\n«Bussen kom» er atomær. «Bussen kom og toget var forsinket» er det ikke — den er bygd av to andre.\n\nAtomære proposisjoner er utgangspunktet i enhver sannhetstabell. Sannhetsverdien deres kan ikke regnes ut fra noe annet i systemet; den er noe tabellen tar som gitt og prøver alle mulighetene for."
+    },
+    {
+      "id": "ling1100-3-1-def-sammensatt",
+      "type": "definition",
+      "title": "Sammensatt proposisjon",
+      "content": "En proposisjon som er **bygd opp av andre proposisjoner ved hjelp av en eller flere konnektiver**. Den engelske termen er ‘complex proposition’ eller ‘compound proposition’.\n\n«Bussen kom og toget var forsinket» er sammensatt, med to deler bundet sammen av *og*. «Det er ikke sant at bussen kom» er også sammensatt, med bare én del og en negasjon utenpå.\n\n**Hele poenget med proposisjonslogikk er dette:** sannhetsverdien til en sammensatt proposisjon er **fullstendig bestemt** av sannhetsverdiene til delene. Regner du delene, får du helheten. Denne egenskapen er så viktig at den har et eget navn, som kommer om litt."
+    },
+    {
+      "id": "ling1100-3-1-def-variabel",
+      "type": "definition",
+      "title": "Proposisjonsvariabel",
+      "content": "En bokstav som står for en vilkårlig proposisjon. Vi bruker $p$, $q$ og $r$.\n\nVariablene er ikke forkortelser for bestemte setninger. De er plassholdere, på samme måte som $x$ og $y$ i et regnestykke: reglene i dette kapitlet gjelder uansett hva du setter inn.\n\n**Slik bruker du dem i et svar.** Når du setter opp en tabell for en konkret setning, **oppgi alltid hva variablene står for**, med ord:\n\n```text\n(1)  p = «Bussen kom»\n     q = «Toget var forsinket»\n```\n\nÅ utelate denne linjen er den vanligste enkeltmangelen i tabelloppgaver. Tabellen din er da et regnestykke uten oppgitt gjenstand, og den kan ikke vurderes."
+    },
+    {
+      "id": "ling1100-3-1-def-konnektiv",
+      "type": "definition",
+      "title": "Logisk konnektiv",
+      "content": "Et uttrykk som **binder proposisjoner sammen til en ny proposisjon**, eller som virker på én proposisjon og gir en ny. Den engelske termen er ‘logical connective’.\n\nDe seks konnektivene i emnets symbolliste:\n\n| Symbol | Navn | Uleses omtrent som |\n|---|---|---|\n| $\\lnot$ | negasjon | «det er ikke tilfelle at» |\n| $\\land$ | konjunksjon | «og» |\n| $\\lor$ | inklusiv disjunksjon | «eller, eventuelt begge» |\n| $\\veebar$ | eksklusiv disjunksjon | «enten eller, men ikke begge» |\n| $\\rightarrow$ | material implikasjon | «hvis, så» |\n| $\\leftrightarrow$ | biimplikasjon | «hvis og bare hvis» |\n\n**En viktig advarsel om oversettelsen.** Kolonnen til høyre er en huskeregel, ikke en definisjon. De norske ordene *og*, *eller* og *hvis* gjør flere ting enn konnektivene gjør, og noen av forskjellene er nettopp det eksamen spør om. **Konnektivet er definert av tabellen sin, ikke av det norske ordet.**"
+    },
+    {
+      "id": "ling1100-3-1-def-sannhetsfunksjonalitet",
+      "type": "definition",
+      "title": "Sannhetsfunksjonalitet",
+      "content": "Egenskapen at sannhetsverdien til en sammensatt proposisjon er **fullstendig bestemt** av sannhetsverdiene til delene — ikke av hva delene handler om. Den engelske termen er ‘truth-functionality’.\n\nAlle seks konnektivene i symbollisten er sannhetsfunksjonelle. Det er derfor sannhetstabellene virker i det hele tatt: en tabell med fire rader kan si alt som er å si om *og*, fordi det ikke finnes noe mer å vite.\n\n**Merk hva som følger av dette, for det er kilden til flere av kapitlets feller.** Konnektivene bryr seg ikke om innholdsforbindelse. «Norge har kyst og to pluss to er fire» er en helt korrekt sann konjunksjon, selv om leddene ikke har noe med hverandre å gjøre. Det norske ordet *og* antyder ofte en sammenheng — rekkefølge, årsak, relevans — men **konjunksjonen $\\land$ gjør ikke det**. Slike tilleggsbetydninger er pragmatiske, og de forklares i Del 8."
+    },
+    {
+      "id": "ling1100-3-1-def-sannhetstabell",
+      "type": "definition",
+      "title": "Sannhetstabell",
+      "content": "En oppstilling som viser sannhetsverdien til en sammensatt proposisjon **for hver mulige kombinasjon** av sannhetsverdier hos delene. Den engelske termen er ‘truth table’.\n\nTabellen har én kolonne per variabel, eventuelle mellomkolonner, og én sluttkolonne for hele uttrykket. Radene dekker alle kombinasjonene.\n\n**Rekkefølgen på radene er en konvensjon, og boka holder én:** vi begynner med at alt er sant og ender med at alt er usant. For to variabler blir det S–S, S–U, U–S, U–U.\n\nKonvensjonen er ikke faglig påkrevd, men den er praktisk: holder du samme rekkefølge hver gang, kan du sammenligne to tabeller ved å lese sluttkolonnene ved siden av hverandre."
+    },
+    {
+      "id": "ling1100-3-1-def-sannhetsbetingelser",
+      "type": "definition",
+      "title": "Sannhetsbetingelser",
+      "content": "De forholdene som må være oppfylt for at en setning skal være **sann**. Den engelske termen er ‘truth conditions’.\n\nDette er et av de mest sentrale begrepene i hele semantikken, og tanken bak er verdt å ha klart for seg: **å vite hva en setning betyr, er å vite hva som skal til for at den er sann.** Du trenger ikke vite om det faktisk er tilfelle. Du forstår «Det snødde i Tromsø i går» fullt ut uten å ha vært der — fordi du vet hvilken situasjon som ville gjort setningen sann.\n\nI dette kapitlet møter du sannhetsbetingelser i sin enkleste form: som en setning om når et sammensatt uttrykk er sant, gitt verdiene til delene. Formen er alltid den samme, og den bruker ordet **hviss**:\n\n> $p \\land q$ er sann **hviss** $p$ er sann og $q$ er sann.\n\n**En sannhetsbetingelse er ikke det samme som en sannhetsverdi.** Verdien er hva uttrykket faktisk er verdt i en situasjon; betingelsen sier hva som skal til, uansett situasjon. Tabellen viser betingelsen, radene viser verdiene."
+    },
+    {
+      "id": "ling1100-3-1-def-radtall",
+      "type": "definition",
+      "title": "Radtallet i en sannhetstabell",
+      "content": "Antallet rader en tabell må ha: **to opphøyd i antall variabler**, altså $2^n$.\n\nÉn variabel gir 2 rader, to variabler gir 4, tre variabler gir 8.\n\n**Dette er en ren kontroll du kan kjøre på ti sekunder**, og den fanger den vanligste feilen i F1-oppgaver: den ufullstendige tabellen. Tell variablene, regn ut $2^n$, og tell radene dine. Stemmer ikke tallene, mangler du en mulighet — og en tabell som mangler en rad, er ikke en litt svakere tabell. Den er feil, fordi den utelater et tilfelle der uttrykket kunne hatt en annen verdi."
+    },
+    {
+      "id": "ling1100-3-1-def-negasjon",
+      "type": "definition",
+      "title": "Negasjon",
+      "content": "Konnektivet som **snur sannhetsverdien**. Symbolet er $\\lnot$, og $\\lnot p$ leses «det er ikke tilfelle at $p$».\n\nTabellen:\n\n| $p$ | $\\lnot p$ |\n|---|---|\n| S | U |\n| U | S |\n\n**Sannhetsbetingelsen skrevet ut:** $\\lnot p$ er sann hviss $p$ er usann.\n\nOrdet **hviss** er en fast forkortelse for «hvis og bare hvis», og det brukes gjennom hele boka. Det er ikke en skrivefeil for «hvis». Forskjellen er at «hvis» bare lover den ene retningen, mens «hviss» lover begge: $\\lnot p$ er sann når $p$ er usann, **og** usann i alle andre tilfeller.\n\n**Merk at negasjonen tar bare ett argument.** De fem andre konnektivene binder to proposisjoner sammen; negasjonen virker på én."
+    },
+    {
+      "id": "ling1100-3-1-def-konjunksjon",
+      "type": "definition",
+      "title": "Konjunksjon",
+      "content": "Konnektivet som svarer omtrent til *og*. Symbolet er $\\land$, og $p \\land q$ er sann bare når begge delene er sanne.\n\nTabellen:\n\n| $p$ | $q$ | $p \\land q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | U |\n| U | U | U |\n\n**Sannhetsbetingelsen skrevet ut, og dette er formen som gir uttelling:** $p \\land q$ er sann hviss $p$ er sann og $q$ er sann; i alle de tre andre tilfellene er den usann.\n\nLegg merke til at formuleringen sier noe om **alle fire radene**, ikke bare om den ene der uttrykket er sant. Det er nettopp det ordet «hviss» gjør: det stenger de andre radene."
+    },
+    {
+      "id": "ling1100-3-1-thm-prosedyre",
+      "type": "theorem",
+      "title": "Prosedyre: sett opp en sannhetstabell",
+      "content": "Fem trinn. Følg dem i denne rekkefølgen hver eneste gang, også når oppgaven ser lett ut.\n\n**Trinn 1 — oppgi hva variablene står for.** Skriv «$p$ = …» og «$q$ = …» med de faktiske setningene fra oppgaven. Dette er en egen linje i svaret, og den skal alltid stå der.\n\n**Trinn 2 — tell variablene og regn ut radtallet.** To opphøyd i antall variabler. Skriv tallet ned før du tegner tabellen.\n\n**Trinn 3 — fyll ut variabelkolonnene systematisk.** Begynn med alt sant, avslutt med alt usant. Da får du med alle kombinasjonene uten å måtte tenke.\n\n**Trinn 4 — regn ut kolonne for kolonne, innenfra og ut.** Har uttrykket flere konnektiver, tar du de innerste først og hovedkonnektivet til slutt. Skriv gjerne mellomkolonnene i tabellen — de er ikke rot, de er dokumentasjon på framgangsmåten.\n\n**Trinn 5 — skriv sannhetsbetingelsen ut i ord, og forklar radene.** Ikke bare tabellen. Si i én setning når uttrykket er sant, med «hviss», og kommenter den eller de radene som er overraskende.\n\n**Kontroll før du går videre:** har tabellen riktig antall rader, står variabelforklaringen der, og er sannhetsbetingelsen formulert i ord? Tre ting, ti sekunder."
+    },
+    {
+      "id": "ling1100-3-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Konjunksjon på en konkret setning",
+      "problem": "Sett opp sannhetstabellen for setningen under, og formuler sannhetsbetingelsen presist.\n\n```text\n(2)  Bussen kom, og toget var forsinket.\n```",
+      "solution": "**Trinn 1 — variablene:**\n\n```text\n(3)  p = «Bussen kom»\n     q = «Toget var forsinket»\n```\n\nSetningen har formen $p \\land q$.\n\n**Trinn 2 — radtallet:** to variabler, altså $2^2 = 4$ rader.\n\n**Trinn 3 og 4 — tabellen:**\n\n| $p$ | $q$ | $p \\land q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | U |\n| U | U | U |\n\n**Trinn 5 — radene forklart.** I rad 1 kom bussen og toget var forsinket; da er hele påstanden sann. I rad 2 kom bussen, men toget var i rute; da er den andre halvdelen av påstanden gal, og hele påstanden er usann. Rad 3 er speilbildet. I rad 4 er begge halvdelene gale, og påstanden er usann.\n\n**Sannhetsbetingelsen presist:** setningen er sann hviss «Bussen kom» er sann og «Toget var forsinket» er sann; i alle de tre andre tilfellene er den usann.\n\n**Eget tilleggseksempel som viser sannhetsfunksjonaliteten.** Bytt ut $q$ med «To pluss to er fire». Setningen «Bussen kom, og to pluss to er fire» er sann hviss bussen kom, siden det andre leddet alltid er sant. Setningen virker rar, og den *er* pragmatisk rar — men den er logisk helt i orden. **Konjunksjonen krever ikke at leddene har noe med hverandre å gjøre.** Følelsen av at de burde ha det, er en pragmatisk forventning, og den forklares i Del 8."
+    },
+    {
+      "id": "ling1100-3-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-1-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F1 — sannhetstabeller og sannhetsbetingelser. Innstegsoppgave.)\n\n**a)** Hvor mange rader har en sannhetstabell med tre variabler? Begrunn med regelen.\n**b)** Sett opp tabellen for $\\lnot p$, og formuler sannhetsbetingelsen i ord.\n**c)** Er setningen «Det regner ikke» atomær eller sammensatt? Begrunn.",
+        "solution": "**a) Åtte rader.** Regelen er $2^n$, der $n$ er antall variabler: $2^3 = 8$. Hver ny variabel dobler antallet muligheter, fordi hver eksisterende rad må finnes både med den nye variabelen sann og med den usann.\n\n**b) Tabellen:**\n\n| $p$ | $\\lnot p$ |\n|---|---|\n| S | U |\n| U | S |\n\n**Sannhetsbetingelsen:** $\\lnot p$ er sann hviss $p$ er usann. Ordet «hviss» betyr «hvis og bare hvis», og det stenger den andre raden: er $p$ sann, er $\\lnot p$ usann.\n\n**c) Sammensatt.** Setningen er bygd av den atomære proposisjonen «Det regner» pluss en negasjon. Den har formen $\\lnot p$, og den er derfor sammensatt selv om den bare inneholder én atomær proposisjon.\n\n**Legg merke til poenget i c):** sammensatthet handler om hvorvidt proposisjonen er **bygd med et konnektiv**, ikke om hvor mange deler den har. Negasjonen er det ene konnektivet som tar bare ett argument.",
+        "hints": [
+          "For a): tenk på hva som skjer med antall muligheter hver gang du legger til en variabel.",
+          "For c): spør om setningen er bygd med et konnektiv, ikke om hvor mange ledd den har."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De to «eller»-ene (~13 min)\n\nHer ligger det første av kapitlets to store eksamenspoeng. Norsk *eller* dekker to ulike konnektiver, og oppgaven er som regel å sette dem opp side om side og forklare forskjellen."
+    },
+    {
+      "id": "ling1100-3-1-def-disjunksjon",
+      "type": "definition",
+      "title": "Inklusiv disjunksjon",
+      "content": "Konnektivet som svarer til *eller* i betydningen «det ene, det andre, eller begge». Symbolet er $\\lor$, og den engelske termen er ‘inclusive or’.\n\nTabellen:\n\n| $p$ | $q$ | $p \\lor q$ |\n|---|---|---|\n| S | S | S |\n| S | U | S |\n| U | S | S |\n| U | U | U |\n\n**Sannhetsbetingelsen skrevet ut:** $p \\lor q$ er sann hviss minst én av $p$ og $q$ er sann; den er usann bare når begge er usanne.\n\n**Den avgjørende raden er den første.** Inklusiv disjunksjon er **sann** når begge delene er sanne. Det er nettopp der den skiller seg fra den eksklusive, og det er den ene raden en oppgave om dette temaet alltid dreier seg om.\n\nStandardeksemplet er et krav der begge deler er tillatt: «Søkere som har bestått ex.phil. eller har tilsvarende utdanning, kan søke.» Den som har begge deler, er ikke utelukket."
+    },
+    {
+      "id": "ling1100-3-1-def-xor",
+      "type": "definition",
+      "title": "Eksklusiv disjunksjon",
+      "content": "Konnektivet som svarer til *enten eller* i betydningen «det ene eller det andre, men ikke begge». Symbolet er $\\veebar$, og den engelske termen er ‘exclusive or’, ofte forkortet XOR.\n\nTabellen:\n\n| $p$ | $q$ | $p \\veebar q$ |\n|---|---|---|\n| S | S | U |\n| S | U | S |\n| U | S | S |\n| U | U | U |\n\n**Sannhetsbetingelsen skrevet ut:** $p \\veebar q$ er sann hviss nøyaktig én av $p$ og $q$ er sann; den er usann både når begge er sanne og når begge er usanne.\n\n**De to tabellene skiller seg i nøyaktig én rad — den første.** Alt annet er likt. Sier du det i et svar, har du sagt det som skal sies; sier du bare at «den ene tillater begge og den andre ikke», har du sagt det samme uten å vise hvor det står.\n\nStandardeksemplet er et valg der begge deler er utelukket av situasjonen selv: «Toget går enten fra spor 3 eller fra spor 4.»"
+    },
+    {
+      "id": "ling1100-3-1-thm-eller",
+      "type": "theorem",
+      "title": "Skillet mellom de to disjunksjonene, formulert som fasit",
+      "content": "Dette er formuleringen en F1-oppgave om *eller* skal ende i. Den er kort, og den er verdt å kunne ordrett i innhold.\n\n**Inklusiv disjunksjon:** $p \\lor q$ er sann hviss minst én av $p$ og $q$ er sann. Den er usann i nøyaktig ett tilfelle: når begge er usanne.\n\n**Eksklusiv disjunksjon:** $p \\veebar q$ er sann hviss nøyaktig én av $p$ og $q$ er sann. Den er usann i to tilfeller: når begge er usanne, og når begge er sanne.\n\n**Forskjellen ligger i én rad:** raden der både $p$ og $q$ er sanne. Der er $p \\lor q$ **sann** og $p \\veebar q$ **usann**.\n\n**En kontroll du kan kjøre på fem sekunder:** tell hvor mange S-er sluttkolonnen har. Inklusiv disjunksjon har tre; eksklusiv har to. Har din tabell for $\\lor$ bare to S-er, har du satt opp XOR.\n\nSett dem gjerne opp side om side, slik oppgaven som regel ber om:\n\n| $p$ | $q$ | $p \\lor q$ | $p \\veebar q$ |\n|---|---|---|---|\n| S | S | S | U |\n| S | U | S | S |\n| U | S | S | S |\n| U | U | U | U |"
+    },
+    {
+      "id": "ling1100-3-1-def-pragmatisk-styrking",
+      "type": "definition",
+      "title": "Pragmatisk styrking av «eller»",
+      "content": "Fenomenet at norsk *eller* ofte **forstås** eksklusivt selv om ordet i seg selv er inklusivt. Dette er koblingen mellom Del 3 og Del 8, og den er verdt å ha med i et fullstendig svar.\n\nBetrakt setningen «Du kan ta forretten eller desserten.» De fleste vil forstå den som at man ikke får begge deler. Likevel er det ikke ordet *eller* som sier det, og grunnen er enkel: **tillegget kan trekkes tilbake uten selvmotsigelse.** «Du kan ta forretten eller desserten — ja, faktisk begge deler, hvis du vil» er ikke en motsigelse. Det er en presisering.\n\nAt tillegget kan trekkes tilbake, viser at det ikke ligger i ordets betydning. Det er noe som **legges til i tolkningen** fordi vi regner med at den som snakker, ville sagt «begge deler» om det var det hun mente.\n\n**Fagtermen for dette er konversasjonell implikatur (‘conversational implicature’)**, og hele mekanismen — samarbeidsprinsippet, maksimene og testene — behandles i [kap. 8.1](/bok/ling1100/ling1100-8-1). Her trenger du bare koblingen: **den eksklusive lesningen av *eller* er som regel pragmatisk utledet, ikke logisk gitt.**\n\nDet er den setningen som løfter en F1-oppgave om disjunksjon fra en riktig tabell til et fullstendig svar."
+    },
+    {
+      "id": "ling1100-3-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: De to «eller»-ene på egne eksempler",
+      "problem": "**Nyskrevet eksamensoppgave:** «Sett opp sannhetstabellene for inklusiv og eksklusiv disjunksjon, forklar forskjellen presist, og gi et eget eksempel der den eksklusive lesningen oppstår.»",
+      "solution": "**Variablene, med et konkret par:**\n\n```text\n(4)  p = «Kandidaten har praksis fra feltet»\n     q = «Kandidaten har mastergrad»\n```\n\n**Tabellene side om side:**\n\n| $p$ | $q$ | $p \\lor q$ | $p \\veebar q$ |\n|---|---|---|---|\n| S | S | S | U |\n| S | U | S | S |\n| U | S | S | S |\n| U | U | U | U |\n\n**Forskjellen presist formulert.** $p \\lor q$ er sann hviss minst én av delene er sann. $p \\veebar q$ er sann hviss nøyaktig én av delene er sann. **De to skiller seg i én eneste rad: den første**, der begge deler er sanne. Der er den inklusive sann og den eksklusive usann.\n\n**Hvorfor akkurat dette eksempelparet er inklusivt.** Utlysningen «Søkere med praksis fra feltet eller mastergrad kan søke» stenger ikke ute den som har begge deler — tvert imot. Kravet er et minstekrav, og minstekrav er alltid inklusive.\n\n**Eget eksempel der den eksklusive lesningen oppstår:**\n\n```text\n(5)  Kampen ender enten med seier til hjemmelaget eller med uavgjort.\n```\n\nHer er begge deler utelukket samtidig, men merk **hvorfor**: det er ikke ordet *eller* som utelukker dem. Det er verden — en kamp kan ikke både ende med seier til hjemmelaget og med uavgjort. Uttrykket *enten* forsterker lesningen, men det avgjørende er at situasjonen selv gjør begge deler umulige.\n\n**Et eksempel av den andre typen, der eksklusiviteten er pragmatisk:**\n\n```text\n(6)  Du kan få kaffe eller te.\n```\n\nHer er begge deler fysisk mulige. Likevel forstår de fleste setningen som at man skal velge én. **Testen som viser at dette ikke ligger i ordet:** tillegget kan trekkes tilbake uten selvmotsigelse — «Du kan få kaffe eller te — begge deler går også fint» er en presisering, ikke en motsigelse. Den eksklusive lesningen er altså lagt til i tolkningen, ikke gitt av *eller*. Mekanismen behandles i [kap. 8.1](/bok/ling1100/ling1100-8-1).\n\n> Margnotat: legg merke til at svaret skiller mellom **to helt ulike kilder** til eksklusiv lesning — verden i (5), tolkningen i (6). Å gjøre det skillet er et pluss-punkt, og det er sjeldnere i besvarelser enn selve tabellen."
+    },
+    {
+      "id": "ling1100-3-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-1-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F1.) Avgjør for hver setning om *eller* mest naturlig leses inklusivt eller eksklusivt, og begrunn.\n\n**a)** «Studenter som er meldt opp i emnet eller har fått fritak, kan møte.»\n**b)** «Barnet er født enten i mars eller i april.»\n**c)** «Vi tar bussen eller sykler.»",
+        "solution": "**a) Inklusiv.** Den som både er meldt opp og har fått fritak, er ikke utelukket — tvert imot står hun sterkest. Formuleringen er et **minstekrav**, og minstekrav er alltid inklusive. Setningen har formen $p \\lor q$, som er sann også i raden der begge deler er sanne.\n\n**b) Eksklusiv, men av en bestemt grunn.** Det er ikke ordet *eller* som utelukker at begge deler er sanne — det er verden. Et barn har én fødselsdato, og den kan ikke ligge i to måneder. Den eksklusive lesningen kommer altså fra **fakta om situasjonen**, ikke fra konnektivet.\n\n**c) Eksklusiv, og her er kilden en annen.** Begge deler er fullt mulige — man kan ta bussen den ene veien og sykle den andre. Likevel forstår de fleste setningen som et valg mellom to alternativer. Kilden er **tolkningen**, ikke verden: vi regner med at den som snakker, ville sagt «begge deler» om det var det hun mente.\n\n**Testen som skiller b) fra c):** prøv å legge til «— eller begge deler». I b) blir det en selvmotsigelse. I c) blir det bare en presisering: «Vi tar bussen eller sykler — eller gjør begge deler.» **Der tillegget kan trekkes tilbake uten selvmotsigelse, er eksklusiviteten pragmatisk.**",
+        "hints": [
+          "Spør for hver setning om det i det hele tatt er mulig at begge delene er sanne samtidig.",
+          "Prøv å legge til «— eller begge deler» og se om det blir en motsigelse eller en presisering."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-1-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1, full sjanger.) «Sett opp sannhetstabellene for $p \\lor q$ og $p \\veebar q$, forklar forskjellen ved å peke på den raden som skiller dem, og gi ETT eget eksempel på hver av de to lesningene.»",
+        "solution": "**Variablene:**\n\n```text\n(7)  p = «Søkeren har førerkort»\n     q = «Søkeren har fagbrev»\n```\n\n**Tabellene:**\n\n| $p$ | $q$ | $p \\lor q$ | $p \\veebar q$ |\n|---|---|---|---|\n| S | S | S | U |\n| S | U | S | S |\n| U | S | S | S |\n| U | U | U | U |\n\n**Forskjellen, med raden pekt ut.** Tabellene er identiske i tre av fire rader. Den eneste forskjellen ligger i **rad 1**, der både $p$ og $q$ er sanne: der er $p \\lor q$ sann og $p \\veebar q$ usann.\n\nFormulert som sannhetsbetingelser: $p \\lor q$ er sann hviss **minst** én av delene er sann; $p \\veebar q$ er sann hviss **nøyaktig** én av delene er sann. Ordene «minst» og «nøyaktig» bærer hele forskjellen.\n\n**Eget eksempel på inklusiv lesning:**\n\n```text\n(8)  Du får delta hvis du har betalt kontingenten eller er æresmedlem.\n```\n\nDen som har betalt og er æresmedlem, får selvsagt delta. Kravet er et minstekrav.\n\n**Eget eksempel på eksklusiv lesning:**\n\n```text\n(9)  Loddet gir enten gevinst eller nitte.\n```\n\nHer utelukker situasjonen selv at begge deler er sanne: ett lodd har ett utfall.\n\n**Kontroll til slutt:** to tabeller med fire rader hver, variablene oppgitt, raden som skiller pekt ut, sannhetsbetingelsene skrevet ut med «minst» og «nøyaktig», og to egne eksempler — ett per lesning. Oppgaveteksten hadde tre krav; alle tre er besvart.",
+        "hints": [
+          "Sett tabellene opp side om side med de samme radene, så blir forskjellen synlig av seg selv.",
+          "Tell S-ene i hver sluttkolonne som kontroll: den ene skal ha tre, den andre to."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-1-warn-eller",
+      "type": "warning",
+      "title": "Ikke bland inklusiv og eksklusiv disjunksjon",
+      "content": "Dette er den vanligste forvekslingen i F1-sjangeren, og den koster mer enn den ser ut til, fordi den viser at tabellen er husket i stedet for forstått.\n\n**Den skarpe forskjellen i én setning:** inklusiv disjunksjon er **sann** når begge delene er sanne; eksklusiv disjunksjon er **usann** i nettopp den raden.\n\n**Testen som skiller dem i praksis:** ta setningen og legg til «— eller begge deler». Blir tillegget en selvmotsigelse, er lesningen eksklusiv. Blir det en presisering, er lesningen inklusiv, eller eksklusiviteten er pragmatisk og kan trekkes tilbake.\n\nTo feller som følger av forvekslingen:\n\n- **Å påstå at norsk *eller* «betyr» eksklusiv disjunksjon.** Det gjør det ikke. Grunnbetydningen er inklusiv, og den eksklusive lesningen kommer enten fra fakta om situasjonen eller fra tolkningen.\n- **Å ikke skille de to kildene til eksklusiv lesning.** At et lodd ikke kan gi både gevinst og nitte, er en opplysning om lodd. At «kaffe eller te» forstås som et valg, er en opplysning om hvordan vi tolker hverandre. Bare den andre er pragmatikk."
+    },
+    {
+      "id": "ling1100-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Material implikasjon, og de to radene som ser gale ut (~15 min)\n\n**— naturlig pausepunkt —**\n\nDette er kapitlets vanskeligste del, og den er verdt å ta med friskt hode. Konnektivet $\\rightarrow$ er det eneste som virkelig oppfører seg annerledes enn det norske ordet."
+    },
+    {
+      "id": "ling1100-3-1-def-implikasjon",
+      "type": "definition",
+      "title": "Material implikasjon",
+      "content": "Konnektivet som svarer omtrent til «hvis, så». Symbolet er $\\rightarrow$, og den engelske termen er ‘material implication’.\n\nTabellen:\n\n| $p$ | $q$ | $p \\rightarrow q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | S |\n| U | U | S |\n\n**Sannhetsbetingelsen skrevet ut, i den formen som gir uttelling:** $p \\rightarrow q$ er **usann i nøyaktig ett tilfelle** — når $p$ er sann og $q$ er usann. I alle de tre andre tilfellene er den sann.\n\nÅ formulere den slik, med utgangspunkt i det ene usanne tilfellet, er langt tryggere enn å ramse opp de tre sanne. Det er også lettere å huske, og det treffer det som faktisk er innholdet: **en implikasjon utelukker én kombinasjon, og bare den.**\n\nMerk hva symbolet ikke betyr. $\\rightarrow$ er **ikke** «fører til» og ikke «forårsaker». Pilen er reservert for material implikasjon i hele denne boka."
+    },
+    {
+      "id": "ling1100-3-1-def-antesedent",
+      "type": "definition",
+      "title": "Antesedent og konsekvent",
+      "content": "Navnene på de to leddene i en implikasjon. I $p \\rightarrow q$ er $p$ **antesedenten** (‘antecedent’) og $q$ er **konsekventen** (‘consequent’).\n\nI norsk står antesedenten som regel i *hvis*-setningen og konsekventen i hovedsetningen: «Hvis det regner, tar jeg bilen.» Men rekkefølgen i setningen kan snus uten at rollene endres: «Jeg tar bilen hvis det regner» har fortsatt «det regner» som antesedent.\n\n**Dette er verdt å kontrollere før du fyller ut en tabell.** Å bytte om antesedent og konsekvent gir en helt annen tabell, siden $p \\rightarrow q$ og $q \\rightarrow p$ ikke er det samme. Kontrollen er å spørre hvilken del som er **betingelsen** — det er antesedenten, uansett hvor i setningen den står."
+    },
+    {
+      "id": "ling1100-3-1-def-tom-sannhet",
+      "type": "definition",
+      "title": "Tom sannhet",
+      "content": "Navnet på de to radene der antesedenten er usann og implikasjonen likevel er sann. Den engelske termen er ‘vacuous truth’.\n\nBetrakt løftet «Hvis det regner i morgen, tar jeg bilen.» Det regnet ikke. Har du da brutt løftet?\n\n**Nei.** Du lovte ingenting om hva du ville gjøre i sol. Løftet er ikke brutt, og en påstand som ikke er brutt, er ikke usann. Derfor er implikasjonen sann i begge radene der antesedenten er usann — enten du tok bilen eller ikke.\n\n**Slik forklarer du dette i et svar**, og forklaringen er verdt å kunne: en implikasjon er en **garanti**. Den lover at man ikke får $p$ uten $q$. Garantien brytes bare i det ene tilfellet der $p$ er oppfylt og $q$ likevel uteblir. Er $p$ ikke oppfylt, er garantien ikke satt på prøve, og da er den heller ikke brutt.\n\n**Merk hva som følger, for det er den vanligste innvendingen:** «Hvis månen er en ost, er to pluss to fem» er en **sann** material implikasjon, siden antesedenten er usann. Det virker galt, og det er nettopp fordi $\\rightarrow$ ikke krever noen innholdsforbindelse mellom leddene. Det norske *hvis* antyder som regel en slik forbindelse; symbolet gjør ikke det."
+    },
+    {
+      "id": "ling1100-3-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Implikasjonen rad for rad",
+      "problem": "Sett opp tabellen for setningen under, gå gjennom hver rad, og forklar særlig de to radene der antesedenten er usann.\n\n```text\n(10)  Hvis kandidaten leverer i tide, blir oppgaven vurdert.\n```",
+      "solution": "**Trinn 1 — variablene:**\n\n```text\n(11)  p = «Kandidaten leverer i tide»\n      q = «Oppgaven blir vurdert»\n```\n\nSetningen har formen $p \\rightarrow q$. Merk at *hvis*-setningen er antesedenten, altså $p$.\n\n**Trinn 2 — radtallet:** to variabler, $2^2 = 4$ rader.\n\n**Trinn 3 og 4 — tabellen:**\n\n| $p$ | $q$ | $p \\rightarrow q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | S |\n| U | U | S |\n\n**Trinn 5 — radene forklart, én for én.**\n\n**Rad 1:** kandidaten leverte i tide, og oppgaven ble vurdert. Regelen ble fulgt. Påstanden er sann.\n\n**Rad 2:** kandidaten leverte i tide, men oppgaven ble ikke vurdert. **Dette er det eneste tilfellet der regelen er brutt**, og derfor det eneste tilfellet der påstanden er usann.\n\n**Rad 3:** kandidaten leverte ikke i tide, men oppgaven ble likevel vurdert. Er regelen brutt? Nei — regelen lovet at det som leveres i tide, blir vurdert. Den lovet ikke at ingenting annet blir vurdert. Påstanden er sann.\n\n**Rad 4:** kandidaten leverte ikke i tide, og oppgaven ble ikke vurdert. Regelen ble heller ikke her satt på prøve. Påstanden er sann.\n\n**De to siste radene er tom sannhet.** Forklaringen som virker: en implikasjon er en **garanti** mot én bestemt kombinasjon. Uteblir betingelsen, blir garantien aldri prøvd, og en garanti som ikke er brutt, er ikke usann.\n\n**Eget kontrasttilfelle som viser hva $\\rightarrow$ ikke gjør.** Setningen «Hvis to pluss to er fem, er Oslo hovedstad i Norge» er en **sann** material implikasjon, fordi antesedenten er usann. Ingen vil kalle den en fornuftig setning, og det er poenget: **material implikasjon krever ingen innholdsforbindelse mellom leddene.** Det norske *hvis* antyder som regel årsak eller relevans, og den forskjellen er verdt én setning i ethvert svar om implikasjon."
+    },
+    {
+      "id": "ling1100-3-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-1-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1.) For hvert tilfelle under: avgjør sannhetsverdien til setningen «Hvis butikken er åpen, får du kjøpt melk», og begrunn med den aktuelle raden i tabellen.\n\n**a)** Butikken er åpen, og du får kjøpt melk.\n**b)** Butikken er åpen, men melken er utsolgt.\n**c)** Butikken er stengt, og du får ikke kjøpt melk.\n**d)** Butikken er stengt, men du får likevel kjøpt melk hos naboen.",
+        "solution": "**Variablene:** $p$ = «Butikken er åpen», $q$ = «Du får kjøpt melk». Setningen har formen $p \\rightarrow q$.\n\n**a) Sann.** Rad 1: både antesedent og konsekvent er sanne. Garantien er holdt.\n\n**b) Usann.** Rad 2: antesedenten er sann, konsekventen usann. **Dette er det eneste tilfellet der en implikasjon er usann**, og det er nettopp den kombinasjonen setningen lovet at ikke skulle inntreffe.\n\n**c) Sann.** Rad 4: begge er usanne. Setningen lovet ingenting om hva som skjer når butikken er stengt, og en garanti som ikke er satt på prøve, er ikke brutt. Dette er tom sannhet.\n\n**d) Sann.** Rad 3: antesedenten er usann, konsekventen sann. Setningen lovet at åpen butikk gir melk; den lovet ikke at melk bare fås i den butikken. Også dette er tom sannhet.\n\n**Grepet oppgaven trener:** å lese sannhetsverdien av en implikasjon ved å spørre **om garantien er brutt**, ikke ved å spørre om setningen «føles» riktig. De to siste tilfellene føles ofte som at spørsmålet ikke gir mening. Det gjør det — svaret er bare sann, av mangel på brudd.",
+        "hints": [
+          "Spør for hvert tilfelle om den ene forbudte kombinasjonen har inntruffet.",
+          "Husk at implikasjonen bare lover noe om tilfellene der antesedenten faktisk er sann."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-1-def-biimplikasjon",
+      "type": "definition",
+      "title": "Biimplikasjon",
+      "content": "Konnektivet som svarer til «hvis og bare hvis». Symbolet er $\\leftrightarrow$, og den engelske termen er ‘biconditional’.\n\nTabellen:\n\n| $p$ | $q$ | $p \\leftrightarrow q$ |\n|---|---|---|\n| S | S | S |\n| S | U | U |\n| U | S | U |\n| U | U | S |\n\n**Sannhetsbetingelsen skrevet ut:** $p \\leftrightarrow q$ er sann hviss $p$ og $q$ har **samme** sannhetsverdi — altså både når begge er sanne og når begge er usanne.\n\n**Merk to sammenhenger som er verdt å kunne.**\n\n- $p \\leftrightarrow q$ har nøyaktig **motsatt** sluttkolonne av $p \\veebar q$. Eksklusiv disjunksjon sier at verdiene er ulike; biimplikasjonen sier at de er like.\n- $p \\leftrightarrow q$ er det samme som $(p \\rightarrow q) \\land (q \\rightarrow p)$ — implikasjonen begge veier. Det er derfor «hvis og bare hvis» heter det den heter: «hvis» gir den ene retningen, «bare hvis» den andre.\n\n**Dette er også bakgrunnen for ordet «hviss»**, som brukes gjennom hele boka når en sannhetsbetingelse formuleres. Skriver du «sann hviss …», har du sagt både at betingelsen er tilstrekkelig og at den er nødvendig."
+    },
+    {
+      "id": "ling1100-3-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: To uttrykk sammenlignet kolonne for kolonne",
+      "problem": "Vis at $\\lnot p \\lor q$ har samme sannhetstabell som $p \\rightarrow q$. Sett opp én tabell med mellomkolonner.",
+      "solution": "**Variablene:** to, altså $2^2 = 4$ rader.\n\n**Tabellen med mellomkolonne.** Vi regner innenfra og ut: først $\\lnot p$, deretter disjunksjonen, og til sammenligning implikasjonen.\n\n| $p$ | $q$ | $\\lnot p$ | $\\lnot p \\lor q$ | $p \\rightarrow q$ |\n|---|---|---|---|---|\n| S | S | U | S | S |\n| S | U | U | U | U |\n| U | S | S | S | S |\n| U | U | S | S | S |\n\n**Avlesningen:** de to siste kolonnene er identiske rad for rad. Uttrykkene er derfor **logisk ekvivalente**.\n\n**Rad for rad, kort.** I rad 1 er $\\lnot p$ usann, men $q$ er sann, så disjunksjonen er sann. I rad 2 er begge ledd i disjunksjonen usanne, og bare der blir den usann — nøyaktig samme rad som implikasjonen er usann i. I rad 3 og 4 er $\\lnot p$ sann, og da er disjunksjonen sann uansett hva $q$ er.\n\n**Hva ekvivalensen forteller.** Den gir en ny og ofte nyttigere lesning av implikasjonen: «$p \\rightarrow q$» sier det samme som «enten er $p$ ikke tilfelle, eller så er $q$ tilfelle». Formulert slik blir de to radene med tom sannhet nesten selvsagte: er $p$ usann, er det første leddet i disjunksjonen sant, og da er hele uttrykket sant.\n\n> Margnotat: legg merke til at **mellomkolonnen står i tabellen**. Den er ikke rot — den er dokumentasjon på framgangsmåten, og den gjør svaret kontrollerbart. I en oppgave der du skal vise noe, er mellomkolonnene halve poenget."
+    },
+    {
+      "id": "ling1100-3-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-1-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1.)\n\n**a)** Sett opp sannhetstabellen for $p \\leftrightarrow q$ og for $p \\veebar q$ i samme oppstilling.\n**b)** Beskriv forholdet mellom de to sluttkolonnene.\n**c)** Formuler sannhetsbetingelsen for biimplikasjonen presist, og forklar hva ordet «hviss» tilfører.",
+        "solution": "**a) Tabellen:**\n\n| $p$ | $q$ | $p \\leftrightarrow q$ | $p \\veebar q$ |\n|---|---|---|---|\n| S | S | S | U |\n| S | U | U | S |\n| U | S | U | S |\n| U | U | S | U |\n\n**b) Sluttkolonnene er hverandres motsetning i hver eneste rad.** Der den ene har S, har den andre U. Det er ikke tilfeldig: eksklusiv disjunksjon sier at de to verdiene er **ulike**, og biimplikasjonen sier at de er **like**. Det er to måter å si det samme på med motsatt fortegn, og forholdet kan skrives $p \\veebar q$ er det samme som $\\lnot(p \\leftrightarrow q)$.\n\n**c) Sannhetsbetingelsen:** $p \\leftrightarrow q$ er sann hviss $p$ og $q$ har samme sannhetsverdi.\n\n**Hva «hviss» tilfører:** ordet er en forkortelse for «hvis og bare hvis», og det låser **begge** retninger. «Sann hvis de har samme verdi» ville bare sagt at like verdier er nok. «Sann hviss de har samme verdi» sier i tillegg at det er nødvendig — at det ikke finnes noen annen måte uttrykket kan bli sant på.\n\n**Det er nettopp derfor «hviss» brukes i alle sannhetsbetingelser i boka:** en sannhetsbetingelse skal si når uttrykket er sant **og** utelukke alle andre tilfeller. Skriver du «hvis» der det skal stå «hviss», har du oppgitt en halv betingelse — og det er slark i en oppgavetype som har fasit.",
+        "hints": [
+          "Sett de to sluttkolonnene ved siden av hverandre og les dem radvis.",
+          "For c): spør hva forskjellen er på å si «det holder at» og «det holder, og ingenting annet holder»."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Sammensatte uttrykk: hovedkonnektiv og rekkevidde (~10 min)\n\nTil slutt: hvordan du regner på uttrykk med mer enn ett konnektiv, og hvorfor rekkefølgen betyr alt."
+    },
+    {
+      "id": "ling1100-3-1-def-hovedkonnektiv",
+      "type": "definition",
+      "title": "Hovedkonnektiv",
+      "content": "Det konnektivet som **binder uttrykket sammen på øverste nivå** — det siste du regner ut. Den engelske termen er ‘main connective’.\n\nI $\\lnot(p \\land q)$ er hovedkonnektivet negasjonen: parentesen sier at konjunksjonen regnes først, og negasjonen virker på resultatet. I $\\lnot p \\land q$ er hovedkonnektivet konjunksjonen, og negasjonen virker bare på $p$.\n\n**Å finne hovedkonnektivet er alltid første trinn** når du skal sette opp en tabell for et sammensatt uttrykk, for det forteller deg hvilken kolonne som er sluttkolonnen.\n\nFramgangsmåten: se bort fra alt som står inne i parenteser. Det konnektivet som blir stående igjen utenfor, er hovedkonnektivet. Står det flere igjen, er uttrykket flertydig og trenger flere parenteser."
+    },
+    {
+      "id": "ling1100-3-1-def-rekkevidde",
+      "type": "definition",
+      "title": "Rekkevidde",
+      "content": "Hvor langt et konnektiv **strekker seg** i et uttrykk. Den engelske termen er ‘scope’.\n\nSammenlign de to uttrykkene:\n\n- I $\\lnot(p \\land q)$ har negasjonen **hele konjunksjonen** i sin rekkevidde. Uttrykket sier: det er ikke tilfelle at begge deler.\n- I $\\lnot p \\land q$ har negasjonen bare $p$ i sin rekkevidde. Uttrykket sier: $p$ er ikke tilfelle, og $q$ er det.\n\n**De to har ulike tabeller**, og forskjellen er ikke liten. I raden der $p$ er usann og $q$ er sann, er det første uttrykket sant og det andre også sant — men i raden der begge er usanne, er det første sant og det andre usant.\n\n**Rekkevidde er et begrep du får bruk for langt utover dette kapitlet.** Det er den samme ideen som ligger under scope-flertydighet med kvantorer i [kap. 4.2](/bok/ling1100/ling1100-4-2), der én setning har to lesninger fordi to uttrykk kan ha hverandre i sin rekkevidde. Her møter du den i sin enkleste form: parentesen avgjør hvem som virker på hva."
+    },
+    {
+      "id": "ling1100-3-1-def-ekvivalens",
+      "type": "definition",
+      "title": "Ekvivalens",
+      "content": "Forholdet mellom to uttrykk som har **identisk sluttkolonne** i sannhetstabellen — samme verdi i hver eneste rad. Den engelske termen er ‘logical equivalence’.\n\nEkvivalensen er en påstand om **alle** radene, ikke om noen av dem. Derfor er den lett å motbevise og krevende å bevise: **én rad der de to skiller lag, er nok til å avvise ekvivalens**, mens en påstand om ekvivalens krever at hele tabellen er sjekket.\n\nTre ekvivalenser det lønner seg å kjenne:\n\n- $p \\rightarrow q$ og $\\lnot p \\lor q$\n- $\\lnot(p \\land q)$ og $\\lnot p \\lor \\lnot q$\n- $\\lnot(p \\lor q)$ og $\\lnot p \\land \\lnot q$\n\nDe to siste kalles **De Morgans lover**, og de er verdt å kunne fordi de sier hvordan en negasjon oppfører seg når den flyttes inn i en parentes: **konnektivet snur.** Negeres en konjunksjon, blir den til en disjunksjon av negasjonene, og omvendt.\n\nMerk sammenhengen framover: logisk ekvivalens er nært beslektet med **gjensidig entailment**, som innføres i [kap. 3.2](/bok/ling1100/ling1100-3-2). Men de to er ikke det samme, og det skillet er nettopp det neste kapittel handler om."
+    },
+    {
+      "id": "ling1100-3-1-thm-demorgan",
+      "type": "theorem",
+      "title": "De Morgans lover, verifisert",
+      "content": "Begge lovene kan vises med én tabell hver. Her er den første, med mellomkolonner:\n\n| $p$ | $q$ | $p \\land q$ | $\\lnot(p \\land q)$ | $\\lnot p$ | $\\lnot q$ | $\\lnot p \\lor \\lnot q$ |\n|---|---|---|---|---|---|---|\n| S | S | S | U | U | U | U |\n| S | U | U | S | U | S | S |\n| U | S | U | S | S | U | S |\n| U | U | U | S | S | S | S |\n\nKolonne 4 og kolonne 7 er identiske. Uttrykkene er ekvivalente.\n\nOg den andre:\n\n| $p$ | $q$ | $p \\lor q$ | $\\lnot(p \\lor q)$ | $\\lnot p$ | $\\lnot q$ | $\\lnot p \\land \\lnot q$ |\n|---|---|---|---|---|---|---|\n| S | S | S | U | U | U | U |\n| S | U | S | U | U | S | U |\n| U | S | S | U | S | U | U |\n| U | U | U | S | S | S | S |\n\nKolonne 4 og kolonne 7 er igjen identiske.\n\n**Lovene i ord, som er formen du bør kunne dem i:** å benekte at **begge** deler er tilfelle, er det samme som å hevde at **minst én** ikke er det. Og å benekte at **minst én** er tilfelle, er det samme som å hevde at **ingen** av dem er det.\n\n**Kontrollen som avslører en feil her:** «Det er ikke sant at Hansen både leverte og betalte» er ikke det samme som «Hansen leverte ikke, og betalte ikke». Den første tillater at han gjorde én av delene; den andre ikke."
+    },
+    {
+      "id": "ling1100-3-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-1-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F1.) Sett opp én tabell med mellomkolonner som viser sannhetsverdiene til både $\\lnot(p \\lor q)$ og $\\lnot p \\lor \\lnot q$.\n\n**a)** Er de to uttrykkene ekvivalente?\n**b)** I hvilke rader skiller de eventuelt lag, og hva betyr det?\n**c)** Hvilket uttrykk er $\\lnot(p \\lor q)$ ekvivalent med?",
+        "solution": "**Tabellen:**\n\n| $p$ | $q$ | $p \\lor q$ | $\\lnot(p \\lor q)$ | $\\lnot p$ | $\\lnot q$ | $\\lnot p \\lor \\lnot q$ |\n|---|---|---|---|---|---|---|\n| S | S | S | U | U | U | U |\n| S | U | S | U | U | S | S |\n| U | S | S | U | S | U | S |\n| U | U | U | S | S | S | S |\n\n**a) Nei, de er ikke ekvivalente.** Kolonne 4 og kolonne 7 er ulike.\n\n**b) De skiller lag i rad 2 og rad 3** — altså i de to radene der nøyaktig én av $p$ og $q$ er sann. Der er $\\lnot(p \\lor q)$ usann og $\\lnot p \\lor \\lnot q$ sann.\n\nHva det betyr, i ord: «Det er ikke sant at Berg kom eller Lie kom» krever at **ingen** av dem kom. «Berg kom ikke, eller Lie kom ikke» er allerede sant hvis bare **én** av dem uteble. De to påstandene er derfor svært ulike i styrke, og det er lett å blande dem i vanlig norsk.\n\n**c) $\\lnot(p \\lor q)$ er ekvivalent med $\\lnot p \\land \\lnot q$** — De Morgans andre lov. Sluttkolonnen for $\\lnot p \\land \\lnot q$ er U, U, U, S, altså identisk med kolonne 4.\n\n**Grepet oppgaven trener:** at **én ulik rad er nok** til å avvise ekvivalens. Ekvivalens er en påstand om hele tabellen, og den tåler ikke ett unntak. Det er samme logikk som entailment hviler på i [kap. 3.2](/bok/ling1100/ling1100-3-2).",
+        "hints": [
+          "Regn innenfra og ut: først parentesinnholdet, deretter negasjonen utenpå.",
+          "Sammenlign de to sluttkolonnene rad for rad, og stopp ved den første raden der de er ulike."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-3-1-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F1, full sjanger.) «Betrakt setningen under. Formaliser den, sett opp sannhetstabellen med mellomkolonner, forklar hvilken rad som gjør hele setningen usann, og gi et eget eksempel på en setning med samme logiske form.»\n\n```text\n(12)  Hvis søknaden er levert og gebyret er betalt, blir saken behandlet.\n```",
+        "solution": "**Trinn 1 — variablene:**\n\n```text\n(13)  p = «Søknaden er levert»\n      q = «Gebyret er betalt»\n      r = «Saken blir behandlet»\n```\n\n**Formalisering:** $(p \\land q) \\rightarrow r$.\n\nMerk hvordan formen leses av: hele *hvis*-setningen er antesedenten, og den er selv en konjunksjon. Hovedkonnektivet er derfor implikasjonen, ikke konjunksjonen. Ser du bort fra parentesen, er det $\\rightarrow$ som blir stående igjen.\n\n**Trinn 2 — radtallet:** tre variabler, altså $2^3 = 8$ rader.\n\n**Trinn 3 og 4 — tabellen med mellomkolonne:**\n\n| $p$ | $q$ | $r$ | $p \\land q$ | $(p \\land q) \\rightarrow r$ |\n|---|---|---|---|---|\n| S | S | S | S | S |\n| S | S | U | S | U |\n| S | U | S | U | S |\n| S | U | U | U | S |\n| U | S | S | U | S |\n| U | S | U | U | S |\n| U | U | S | U | S |\n| U | U | U | U | S |\n\n**Trinn 5 — hvilken rad gjør setningen usann.** Bare **rad 2**: søknaden er levert, gebyret er betalt, og saken blir likevel ikke behandlet. Det er den ene kombinasjonen regelen lover at ikke skal inntreffe.\n\nI alle de øvrige radene er antesedenten usann — enten mangler søknaden, eller mangler betalingen, eller begge — og da er implikasjonen sann uansett hva som skjer med saken. Det er tom sannhet: garantien gjaldt bare for søknader som var både levert og betalt.\n\n**Legg merke til hvor mange rader dette er.** Seks av åtte rader er sanne av tom sannhet, én er sann fordi regelen ble fulgt, og bare én er usann. **Det er typisk for implikasjoner med sammensatt antesedent:** jo flere krav antesedenten stiller, jo sjeldnere blir garantien satt på prøve.\n\n**Eget eksempel med samme logiske form:**\n\n```text\n(14)  Hvis døra er lukket og alarmen er på, går varselet til vakta.\n```\n\nHer er $p$ = «Døra er lukket», $q$ = «Alarmen er på», $r$ = «Varselet går til vakta». Formen er den samme, $(p \\land q) \\rightarrow r$, og den eneste raden som gjør setningen usann, er den der døra er lukket, alarmen er på, og varselet likevel uteblir.\n\n**Kontroll til slutt:** åtte rader som ventet av $2^3$, mellomkolonne med, den usanne raden pekt ut og forklart, og et eget eksempel med samme form. Oppgaveteksten hadde fire krav, og alle fire er besvart.",
+        "hints": [
+          "Finn hovedkonnektivet først: se bort fra alt som står i parentes, og se hva som blir stående igjen.",
+          "Regn ut mellomkolonnen for konjunksjonen før du regner implikasjonen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-3-1-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Sannhetsbetingelser er den reneste fasit-sjangeren i emnet. Den ene sensorveiledningen som finnes, for høsten 2022, sier det rett ut: her finnes utvetydige svar, og vaghet er feil — ikke bare svakhet.\n\nSlik ser forskjellen ut:\n\n> **Vagt:** «‘$p$ eller $q$’ er sann når minst noe av det stemmer, sånn omtrent.»\n> **Presist:** «$p \\lor q$ er sann hviss minst én av $p$ og $q$ er sann; den er usann i nøyaktig ett tilfelle, nemlig når begge er usanne.»\n\nFire spørsmål til din egen formulering:\n\n- Har jeg brukt **hviss** — og altså låst begge retninger — eller bare «hvis», som lover halvparten?\n- Har jeg sagt noe om **alle radene**, eller bare om den ene der uttrykket er sant?\n- Står **variabelforklaringen** der, med de faktiske setningene fra oppgaven?\n- Stemmer **radtallet** med $2^n$?\n\n**Den enkeltformuleringen som koster mest:** «$p \\rightarrow q$ er sann når $p$ fører til $q$». Material implikasjon handler ikke om at noe fører til noe. Den er usann i nøyaktig ett tilfelle — når $p$ er sann og $q$ er usann — og sann ellers, uansett om leddene har noe med hverandre å gjøre."
+    },
+    {
+      "id": "ling1100-3-1-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil dominerer F1-oppgaver om sannhetstabeller.\n\n- **Feil 4 — vaghet i formelle svar.** «Sann når begge omtrent stemmer» er ikke en sannhetsbetingelse. Bruk «hviss», og si noe om alle radene.\n- **Feil 2 — å bytte om inklusiv og eksklusiv disjunksjon.** Kontrollen tar fem sekunder: tell S-ene i sluttkolonnen. Inklusiv har tre, eksklusiv har to.\n- **Å glemme at $p \\rightarrow q$ er sann når $p$ er usann.** Dette er den enkeltraden som koster flest poeng i hele kapitlet. Implikasjonen er en garanti, og en garanti som ikke er satt på prøve, er ikke brutt.\n- **Ufullstendig tabell.** Tell variablene, regn $2^n$, tell radene. En tabell som mangler en rad, er ikke litt svakere — den er feil, fordi den utelater et mulig tilfelle.\n- **Manglende variabelforklaring.** Uten linjen som sier hva $p$ og $q$ står for, er tabellen et regnestykke uten oppgitt gjenstand.\n\n**En sjette felle, som er lett å gå i når man leser fort:** å bytte om antesedent og konsekvent. «Jeg tar bilen hvis det regner» har «det regner» som antesedent, selv om det står sist i setningen. Spør hvilken del som er **betingelsen**."
+    },
+    {
+      "id": "ling1100-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-3-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $p$, $q$, $r$ | proposisjonsvariabler — plassholdere for vilkårlige proposisjoner |\n| S / U | sann / usann. På engelskspråklige sett: T / F |\n| $\\lnot$ | negasjon — «det er ikke tilfelle at» |\n| $\\land$ | konjunksjon — «og» |\n| $\\lor$ | inklusiv disjunksjon — «eller, eventuelt begge» |\n| $\\veebar$ | eksklusiv disjunksjon — «enten eller, men ikke begge» |\n| $\\rightarrow$ | material implikasjon — «hvis, så» |\n| $\\leftrightarrow$ | biimplikasjon — «hvis og bare hvis» |\n| $2^n$ | antall rader i en tabell med $n$ variabler |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$\\lnot p \\text{ er sann hviss } p \\text{ er usann}$$\n\nNegasjonen snur verdien, og bare det.\n\n$$p \\land q \\text{ er sann hviss } p \\text{ er sann og } q \\text{ er sann}$$\n\nSann i én rad av fire.\n\n$$p \\lor q \\text{ er sann hviss minst én av } p \\text{ og } q \\text{ er sann}$$\n\nSann i tre rader av fire. Usann bare når begge er usanne.\n\n$$p \\veebar q \\text{ er sann hviss nøyaktig én av } p \\text{ og } q \\text{ er sann}$$\n\nSann i to rader av fire. Skiller seg fra $\\lor$ i én eneste rad — den der begge er sanne.\n\n$$p \\rightarrow q \\text{ er usann hviss } p \\text{ er sann og } q \\text{ er usann}$$\n\nUsann i én rad av fire, sann i de tre andre. Formuleres med utgangspunkt i det usanne tilfellet.\n\n$$p \\leftrightarrow q \\text{ er sann hviss } p \\text{ og } q \\text{ har samme sannhetsverdi}$$\n\nSann i to rader av fire. Motsatt sluttkolonne av $p \\veebar q$.\n\n$$\\lnot(p \\land q) \\text{ er ekvivalent med } \\lnot p \\lor \\lnot q$$\n\n$$\\lnot(p \\lor q) \\text{ er ekvivalent med } \\lnot p \\land \\lnot q$$\n\nDe Morgans lover: flyttes negasjonen inn i parentesen, snur konnektivet.\n\n**Notasjonsregler:** ordet **hviss** er en fast forkortelse for «hvis og bare hvis» og låser begge retninger i en sannhetsbetingelse. Radrekkefølgen i alle tabeller i boka går fra alt sant til alt usant. Pilen $\\rightarrow$ er reservert for material implikasjon og betyr aldri «fører til»."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-3-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "ling1100-3-1-rep-oppg-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-1-rep-e-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.1](/bok/ling1100/ling1100-1-1)) Hva er forskjellen på en setning og en proposisjon, og hvorfor er skillet nødvendig her?",
+            "solution": "En **setning** er en språklig enhet med en bestemt form; en **proposisjon** er innholdet, det som kan være sant eller usant. To ulike setninger kan uttrykke samme proposisjon, og én setning kan uttrykke ulike proposisjoner i ulike sammenhenger — «Jeg er sliten» uttrykker én proposisjon når du sier det og en annen når jeg gjør det.\n\nSkillet er nødvendig her fordi sannhetstabellene regner på **proposisjoner**. Variablene $p$ og $q$ står for innhold med sannhetsverdi, ikke for bokstavrekker.",
+            "hints": [
+              "Tenk på hva som faktisk kan være sant eller usant."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-1-rep-oppg-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-1-rep-e-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.1](/bok/ling1100/ling1100-1-1)) Uttrykker alle setninger proposisjoner? Begrunn.",
+            "solution": "Nei. Bare **påstander** uttrykker proposisjoner. Spørsmål og ordrer gjør det ikke: «Lukk døra» er verken sann eller usann, og det samme gjelder «Kommer du?».\n\nDet betyr ikke at slike ytringer er uinteressante for semantikken — de er tvert imot hovedgjenstanden i Del 9, om talehandlinger. Men de er ikke det proposisjonslogikken i dette kapitlet regner på.",
+            "hints": [
+              "Prøv å spørre om ytringen kan være sann eller usann."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-1-rep-oppg-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-1-rep-e-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.3](/bok/ling1100/ling1100-1-3)) Logikken her forutsetter at hver proposisjon har nøyaktig én av to sannhetsverdier. Hvor i Del 1 møtte du et syn som bestred dette?",
+            "solution": "Hos **Strawson**. Han mente at en setning med en bestemt beskrivelse uten referent — der det ikke finnes noe som beskrivelsen passer på — ikke får noen sannhetsverdi i det hele tatt. Det gir et **sannhetsverdigap**.\n\nRussell mente derimot at slike setninger er **usanne**, siden eksistensbetingelsen i analysen hans ikke er oppfylt. Russells løsning holder totallssystemet intakt; Strawsons gjør det ikke.\n\nMerk at proposisjonslogikken i dette kapitlet forutsetter Russells side av saken uten å argumentere for den. Det er en forenkling det er verdt å kunne påpeke.",
+            "hints": [
+              "Tenk på hva som skjer med en setning om noe som ikke finnes."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-3-1-rep-oppg-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-3-1-rep-e-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 0.2](/bok/ling1100/ling1100-0-2)) Hva er slark, og hvordan ser det ut i en sannhetsbetingelse?",
+            "solution": "Slark er en omtrentlig formulering der det finnes et presist svar. I en sannhetsbetingelse ser det slik ut: «sann når begge stort sett stemmer», «sann hvis noe av det er riktig», «sann når $p$ fører til $q$».\n\nDet teller som **feil**, ikke bare som svakhet, fordi sannhetsbetingelser har fasit. Motmiddelet er tredelt: bruk ordet **hviss**, si noe om **alle** radene, og formuler implikasjonen med utgangspunkt i det ene tilfellet der den er usann.",
+            "hints": [
+              "Tenk på hvilke ord som gjør en formulering upresis."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

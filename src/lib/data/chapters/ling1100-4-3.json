@@ -1,0 +1,448 @@
+{
+  "id": "ling1100-4-3",
+  "courseId": "ling1100",
+  "chapterNumber": "4.3",
+  "title": "Modellteori — tolkningsfunksjon, ordnede par og evaluering",
+  "description": "Evaluer en setnings sannhetsverdi mot en gitt modell: tolkningsfunksjon, mengder, ordnede par og mengdemedlemskap — pluss funksjonsapparatet hos Zimmermann og Sternefeld.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne sette opp en modell med domene og tolkningsfunksjon og kontrollere at den er fullstendig",
+    "kunne evaluere en atomær formel ved å slå opp konstanten og avgjøre mengdemedlemskap i to trinn",
+    "kunne evaluere kvantorformler ved å prøve hvert individ i domenet og peke ut det avgjørende individet",
+    "kunne konstruere en motmodell ved å endre nøyaktig det oppslaget som avgjorde sannhetsverdien"
+  ],
+  "content": [
+    {
+      "id": "ling1100-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Modellteori er den tyngste formaliseringen i emnet, og den nyeste.** Selve modell-evalueringen — «gitt denne tolkningsfunksjonen, avgjør sannhetsverdien» — er prøvd i **1 av de 12 settene**, nemlig høsten 2024. Apparatet bak, med funksjon, argument, verdi og ordnede par slik Zimmermann & Sternefeld framstiller det, er prøvd i **1 av de 12 settene** til, nemlig høsten 2018. Til sammen berøres altså den formelle verktøykassa i **2 av 12**.\n\n- **Sjangeren er F2 — predikatlogikk-oversettelse og modellteoretisk evaluering.** Oppskriften er mekanisk: slå opp hvert atom i tolkningsfunksjonen, avgjør medlemskap, og bygg sannhetsverdien opp trinn for trinn.\n- **Typisk formulering:** «Gitt modellen $M$, avgjør sannhetsverdien til hver av formlene under. Vis framgangsmåten.»\n- **Dette er den reneste fasit-oppgaven i hele emnet.** Svaret er sann eller usann, og det finnes ingen tolkningsrom. Til gjengjeld er **framgangsmåten** halve svaret: en riktig sannhetsverdi uten oppslag er et gjettet svar, og det ser sensor.\n- **Den ene feilen som koster mest** er å behandle et ordnet par som om rekkefølgen var likegyldig. At $\\langle a,b\\rangle$ ligger i relasjonen, sier ingenting om $\\langle b,a\\rangle$. Løkke 2 handler bare om det.\n- **Prioritet: høy.** Oppgavetypen er ny, den er mekanisk, og den er derfor billig å lære. Det er nettopp kombinasjonen ny og mekanisk som gjør den til en av de beste investeringene i emnet."
+    },
+    {
+      "id": "ling1100-4-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 4.1](/bok/ling1100/ling1100-4-1) og på mengdelæren i [kap. 3.4](/bok/ling1100/ling1100-3-4).\n\n**Sist du var her** — fire ting du trenger friskt:\n\n- **En mengde er en samling ting**, skrevet med krøllparenteser: $\\{a, b, c\\}$. Rekkefølgen inni betyr ingenting, og gjentakelser teller ikke.\n- **$x \\in A$ betyr at $x$ er medlem av mengden $A$.** Dette ene symbolet er hele avlesningsmekanismen i kapitlet.\n- **$\\forall x$ leses «for enhver ting», $\\exists x$ leses «det finnes minst én ting».** Parringsregelen fra kap. 4.1 gjelder uendret.\n- **Sannhetstabellene fra [kap. 3.1](/bok/ling1100/ling1100-3-1) gjelder også uendret.** $p \\land q$ er sann hviss begge er sanne; $p \\rightarrow q$ er usann i nøyaktig ett tilfelle. Modellteorien regner ut sannhetsverdiene til atomene og bruker deretter de samme tabellene.\n\n**Kryssbok, hvis mengdenotasjonen er rusten:** [Mengdelære](/bok/1t/1t-1-7) går gjennom mengder, medlemskap, snitt og union på et enklere nivå. Den er ikke nødvendig, men den er en grei oppvarming.\n\nKapitlet innfører sju nye symboler. Alle står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-4-3-hverdagsanker",
+      "type": "text",
+      "content": "## Å slå opp i en liste over hvem som faktisk gjorde hva\n\nTenk deg en klasseliste med to kolonner. Den ene sier hvem som meldte seg til presentasjon; den andre sier hvem som har levert til hvem. Så kommer noen med en påstand — «alle som meldte seg, leverte til noen» — og du skal avgjøre om den stemmer.\n\nHva gjør du? Du **slår opp**. Du går gjennom navnene ett for ett, sjekker om hvert navn står i den første kolonnen, og hvis det gjør det, sjekker du om det står et par med det navnet i den andre. Til slutt vet du svaret.\n\n**Det er hele modellteorien.** Domenet er navnelisten, tolkningsfunksjonen er kolonnene, og evalueringen er oppslaget. Det som gjør apparatet verdt å lære, er ikke at det er dypt, men at det er **mekanisk**: gjør du trinnene i riktig rekkefølge, kan du ikke ta feil.\n\nTil gjengjeld må trinnene faktisk gjøres. En modell-evaluering der du «ser» svaret uten å slå opp, er et gjettet svar — og den vanligste kilden til feil er nettopp at man hopper over ett oppslag.\n\nKapitlet er bygd i fire løkker. Løkke 1 setter opp modellen, løkke 2 tar ordnede par og relasjoner, løkke 3 tar selve evalueringen av sammensatte formler, og løkke 4 tar kvantorene og Z&S-apparatet."
+    },
+    {
+      "id": "ling1100-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Modellen: domene og tolkningsfunksjon (~15 min)\n\nVi begynner med hva en modell er, og hva den brukes til."
+    },
+    {
+      "id": "ling1100-4-3-def-modell",
+      "type": "definition",
+      "title": "Modell",
+      "content": "En **presis beskrivelse av en situasjon**, oppgitt som et par bestående av et domene og en tolkningsfunksjon. Den engelske termen er ‘model’. Vi skriver:\n\n$$M = \\langle D, F\\rangle$$\n\nHer er $D$ **domenet** — tingene som finnes i situasjonen — og $F$ er **tolkningsfunksjonen**, som sier hva hvert symbol i språket viser til i denne situasjonen.\n\n**Hvorfor dette er nødvendig.** I [kap. 4.1](/bok/ling1100/ling1100-4-1) skrev vi formler, men vi kunne ikke regne ut sannhetsverdien deres. En formel er sann eller usann **i forhold til en situasjon**, og for å regne på den trenger vi situasjonen beskrevet like presist som formelen. Modellen er den beskrivelsen.\n\n**Merk at vinkelparentesene $\\langle\\ \\rangle$ er reservert** i denne boka: de brukes om ordnede par, og modellen er nettopp et ordnet par av domene og tolkningsfunksjon. Rekkefølgen er fast — domenet først, tolkningsfunksjonen sist."
+    },
+    {
+      "id": "ling1100-4-3-def-domene",
+      "type": "definition",
+      "title": "Domenet",
+      "content": "Mengden av **alle tingene som finnes i modellen**. Den engelske termen er ‘domain’, og symbolet er $D$.\n\nEt domene kan være hva som helst, og det er som regel lite i en oppgave:\n\n$$D = \\{\\text{Arne}, \\text{Bea}, \\text{Cato}\\}$$\n\n**Domenet er det kvantorene løper over.** Dette er svaret på spørsmålet som ble stående åpent i kap. 4.1: når $\\forall x$ sier «for alt», er det alt i $D$ som menes — ikke alt i universet. Utenfor domenet finnes ingenting, sett fra modellens synspunkt.\n\n**Praktisk konsekvens:** et domene med tre elementer betyr at enhver kvantorpåstand kan avgjøres ved å prøve tre ting. Det er derfor modelloppgaver er mekaniske — de er alltid endelige."
+    },
+    {
+      "id": "ling1100-4-3-def-tolkningsfunksjon",
+      "type": "definition",
+      "title": "Tolkningsfunksjonen",
+      "content": "Den delen av modellen som sier **hva hvert symbol viser til**. Den engelske termen er ‘interpretation function’, og symbolet er $F$.\n\nTolkningsfunksjonen gjør tre slags jobber:\n\n- **Konstanter** får hvert sitt individ i domenet: $F(a) = \\text{Arne}$.\n- **Ettplasspredikater** får en **mengde** av individer: $F(S) = \\{\\text{Arne}, \\text{Cato}\\}$.\n- **Toplasspredikater** får en **mengde av ordnede par**: $F(K) = \\{\\langle \\text{Arne}, \\text{Bea}\\rangle\\}$.\n\n**Uten tolkningsfunksjonen er formelen bare tegn.** $S(a)$ sier ingenting før noen har sagt hvem $a$ er og hva $S$ omfatter. Tolkningsfunksjonen er det som knytter språket til situasjonen — og det er nettopp den knytningen semantikken handler om, helt tilbake til referansebegrepet i [kap. 1.2](/bok/ling1100/ling1100-1-2).\n\n**Merk at $F$ er en funksjon, ikke en liste.** Hvert symbol får nøyaktig én verdi. Det er denne egenskapen Zimmermann & Sternefeld bygger videre på, og som behandles i løkke 4."
+    },
+    {
+      "id": "ling1100-4-3-def-tolkning-konstant",
+      "type": "definition",
+      "title": "Tolkningen av en konstant",
+      "content": "Verdien tolkningsfunksjonen gir en individkonstant: **ett bestemt individ i domenet**.\n\n$F(a) = \\text{Arne}$ leses «$a$ viser til Arne».\n\n**To ting er verdt å merke seg.** For det første må hver konstant få en verdi — en konstant uten tolkning gjør formelen uavgjørbar. For det andre kan **to konstanter godt vise til det samme individet**: en modell der $F(a) = F(b) = \\text{Arne}$ er helt lovlig, og da er $a = b$ sann i den modellen.\n\nDet siste er ikke en spissfindighet. Det er nettopp hva som gjør identitetspåstander informative, og det er bakgrunnen for Freges problem med sense og reference i [kap. 1.2](/bok/ling1100/ling1100-1-2): to uttrykk kan vise til det samme uten at det er opplagt at de gjør det."
+    },
+    {
+      "id": "ling1100-4-3-def-mengde",
+      "type": "definition",
+      "title": "Mengde",
+      "content": "En **samling av ting**, skrevet mellom krøllparenteser: $\\{\\text{Arne}, \\text{Cato}\\}$. Den engelske termen er ‘set’.\n\nTre egenskaper er verdt å ha friskt fra [kap. 3.4](/bok/ling1100/ling1100-3-4):\n\n- **Rekkefølgen inni betyr ingenting.** $\\{\\text{Arne}, \\text{Cato}\\}$ og $\\{\\text{Cato}, \\text{Arne}\\}$ er samme mengde.\n- **Gjentakelser teller ikke.** Et individ er enten med eller ikke med.\n- **En mengde er fullstendig bestemt av medlemmene sine.**\n\n**Merk kontrasten som kommer i løkke 2:** i en mengde er rekkefølgen likegyldig, men i et **ordnet par** er den avgjørende. Det er nettopp derfor relasjoner tolkes med par og ikke med mengder."
+    },
+    {
+      "id": "ling1100-4-3-def-medlemskap",
+      "type": "definition",
+      "title": "Mengdemedlemskap",
+      "content": "Relasjonen mellom en ting og en mengde den hører til i. Symbolet er $\\in$, og den engelske termen er ‘membership’.\n\n$\\text{Arne} \\in \\{\\text{Arne}, \\text{Cato}\\}$ er sann. $\\text{Bea} \\in \\{\\text{Arne}, \\text{Cato}\\}$ er usann.\n\n**Dette er hele avlesningsmekanismen i kapitlet.** Enhver atomær formel avgjøres av ett medlemskapsspørsmål, og alt annet bygges opp av det. Kan du svare på «ligger denne tingen i denne mengden», kan du evaluere enhver formel i en endelig modell.\n\n**Skrivemåten i et svar:** skriv medlemskapet ut, ikke bare konklusjonen. «$F(a) = \\text{Arne}$, og $\\text{Arne} \\in F(S)$, altså er $S(a)$ sann» er et fullstendig oppslag. «$S(a)$ er sann» alene er et gjettet svar med riktig fasit."
+    },
+    {
+      "id": "ling1100-4-3-def-ekstensjon-ett",
+      "type": "definition",
+      "title": "Ekstensjonen til et ettplasspredikat",
+      "content": "Mengden av alle individene i domenet som predikatet er sant om. Den engelske termen er ‘extension’.\n\n$F(S) = \\{\\text{Arne}, \\text{Cato}\\}$ betyr at Arne og Cato synger, og at Bea ikke gjør det.\n\n**Legg merke til at mengden sier alt.** Det som ikke står i $F(S)$, er ikke $S$. Modellen er **fullstendig**: den lar ingenting stå åpent. Det er en av grunnene til at modell-evalueringer alltid har fasit.\n\n**Ekstensjonsbegrepet er ikke nytt.** Du møtte det i [kap. 1.2](/bok/ling1100/ling1100-1-2): ekstensjonen er mengden uttrykket gjelder for, intensjonen er betingelsen som avgjør ekstensjonen. Modellteorien her arbeider utelukkende med ekstensjoner — den oppgir hvem som faktisk synger, ikke hva det vil si å synge."
+    },
+    {
+      "id": "ling1100-4-3-def-fullstendighet",
+      "type": "definition",
+      "title": "Modellen er fullstendig",
+      "content": "Regelen om at **alt som ikke står i en ekstensjon, er usant** i modellen. Modellen lar ingenting stå åpent.\n\nStår $F(S) = \\{\\text{Arne}, \\text{Cato}\\}$, så synger ikke Bea. Ikke «vi vet ikke om hun synger» — hun synger ikke.\n\n**Dette er grunnen til at modell-evalueringer alltid har fasit.** Du kan lese negative svar rett ut av modellen uten å lete videre og uten å ta forbehold. En modell er ikke en ufullstendig rapport om verden; den **er** situasjonen, ferdig beskrevet.\n\n**Praktisk konsekvens:** når du har slått opp og ikke funnet det du lette etter, er du ferdig. Svaret er usann, og det trenger ingen tilleggsbegrunnelse ut over oppslaget."
+    },
+    {
+      "id": "ling1100-4-3-def-tom-mengde",
+      "type": "definition",
+      "title": "Den tomme mengden",
+      "content": "Mengden uten medlemmer, skrevet $\\{\\ \\}$ eller $\\emptyset$.\n\nEt predikat kan godt ha tom ekstensjon: $F(S) = \\{\\ \\}$ betyr at ingen synger i denne modellen.\n\n**Dette er verdt å øve på, for det er der de fleste hopper over et oppslag.** Er $F(S)$ tom, er:\n\n- $\\exists x\\,S(x)$ **usann** — det finnes ingenting å finne.\n- $\\forall x\\,S(x)$ **usann**, forutsatt at domenet ikke er tomt.\n- $\\forall x\\,(S(x) \\rightarrow \\varphi)$ derimot **sann**, uansett hva $\\varphi$ er. Hver eneste implikasjon har usann antesedent og er sann av tom sannhet, akkurat som i [kap. 3.1](/bok/ling1100/ling1100-3-1).\n\nDet siste punktet er den enkeltraden som overrasker flest, og det er derfor det er verdt å ha sett den skrevet ut på forhånd."
+    },
+    {
+      "id": "ling1100-4-3-fig-modell",
+      "type": "image",
+      "src": "/images/textbook/ling1100/modell-domene-relasjon.svg",
+      "alt": "Til venstre en stiplet ramme merket Domenet D, med tre sirkler for Arne, Bea og Cato. En stiplet kurve omslutter Arne og Cato og er merket F av S, mengden som synger. To piler merket K går fra Arne til Bea og fra Bea til Cato. Til høyre står tolkningsfunksjonen skrevet ut: F av a er Arne, F av b er Bea, F av c er Cato, F av S er mengden med Arne og Cato, og F av K er mengden med det ordnede paret Arne Bea og det ordnede paret Bea Cato. Under står en avlesningsboks som sier at S av a er sann fordi Arne er med i F av S, at K av a b er sann fordi paret peker fra Arne, og at K av b a er usann fordi ingen pil går tilbake.",
+      "caption": "Modellen $M = \\langle D, F\\rangle$ tegnet ut. Predikatet $S$ er en avgrensning inne i domenet, mens relasjonen $K$ er piler med retning — og det er retningen som gjør parene ordnede. Denne modellen brukes gjennom hele kapitlet."
+    },
+    {
+      "id": "ling1100-4-3-thm-oppsett",
+      "type": "theorem",
+      "title": "Slik settes en modell opp i en besvarelse",
+      "content": "En modell skal skrives ned **fullstendig og eksplisitt** før du evaluerer noe. Oppgaven oppgir den som regel, men du skal likevel gjengi den, av samme grunn som en sannhetstabell trenger en variabelforklaring: uten den kan svaret ditt ikke kontrolleres.\n\nFormen er alltid denne:\n\n```text\nD  = { Arne, Bea, Cato }\n\nF(a) = Arne\nF(b) = Bea\nF(c) = Cato\n\nF(S) = { Arne, Cato }\nF(K) = { <Arne, Bea>, <Bea, Cato> }\n\nS(x)   betyr  x synger\nK(x,y) betyr  x kjenner y\n```\n\n**Tre kontroller før du går videre:**\n\n- Har **hver konstant** i formlene fått en verdi i $F$?\n- Har **hvert predikat** fått en ekstensjon — en mengde for ettplasspredikater, en mengde av par for toplasspredikater?\n- Er alle individene i mengdene faktisk **medlemmer av domenet**? En ekstensjon som nevner noe som ikke finnes i $D$, er en feilskrevet modell.\n\n**Merk skrivemåten for par i en kodeblokk.** I brødtekst og formler skriver boka ordnede par med vinkelparenteser, $\\langle \\text{Arne}, \\text{Bea}\\rangle$. I en oppstilling som den over brukes vanlige spisse tegn, av rent typografiske grunner. Det er samme sak."
+    },
+    {
+      "id": "ling1100-4-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-3-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F2 — predikatlogikk-oversettelse og modellteoretisk evaluering. Innstegsoppgave.)\n\nBruk modellen fra oppsettet over.\n\n**a)** Hvor mange individer er det i domenet?\n**b)** Er $S(a)$ sann eller usann? Vis oppslaget.\n**c)** Er $S(b)$ sann eller usann? Vis oppslaget.",
+        "solution": "**a) Tre:** Arne, Bea og Cato. Det er alt som finnes i denne modellen, og det er derfor alt kvantorene løper over.\n\n**b) Sann.** Oppslaget i to trinn: først $F(a) = \\text{Arne}$, deretter $\\text{Arne} \\in F(S)$, siden $F(S) = \\{\\text{Arne}, \\text{Cato}\\}$. Begge trinnene går igjennom, altså er $S(a)$ sann.\n\n**c) Usann.** Først $F(b) = \\text{Bea}$, deretter spør vi om $\\text{Bea} \\in F(S)$. Det er hun ikke — $F(S)$ inneholder bare Arne og Cato. Altså er $S(b)$ usann.\n\n**Legg merke til føringen.** Begge oppslagene er skrevet i to trinn: først hva konstanten viser til, så om det individet er medlem av ekstensjonen. Det er den føringen modelloppgaver belønner, og den tar fem sekunder ekstra per formel.",
+        "hints": [
+          "Slå først opp hva konstanten viser til, og spør deretter om det individet er medlem av mengden.",
+          "Skriv oppslaget i to trinn, ikke ett."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Ordnede par og relasjoner (~12 min)\n\nHer ligger kapitlets vanligste feil, og den er verdt et helt avsnitt."
+    },
+    {
+      "id": "ling1100-4-3-def-ordnet-par",
+      "type": "definition",
+      "title": "Ordnet par",
+      "content": "To ting satt sammen **i en bestemt rekkefølge**, skrevet med vinkelparenteser: $\\langle a, b\\rangle$. Den engelske termen er ‘ordered pair’.\n\nForskjellen fra en mengde er hele poenget:\n\n- $\\{a, b\\}$ og $\\{b, a\\}$ er **samme mengde**.\n- $\\langle a, b\\rangle$ og $\\langle b, a\\rangle$ er **ulike par**.\n\n**Ordnede par finnes fordi relasjoner har retning.** «Arne kjenner Bea» og «Bea kjenner Arne» er to forskjellige påstander, og en tolkning av *kjenner* må kunne skille dem. En mengde kan ikke; et par kan.\n\nDette er den samme innsikten som **argumentrekkefølgen** i [kap. 4.1](/bok/ling1100/ling1100-4-1), sett fra tolkningssiden. Der handlet den om formelen; her handler den om hva formelen viser til."
+    },
+    {
+      "id": "ling1100-4-3-def-ordnetheten",
+      "type": "definition",
+      "title": "Ordnede par er ordnede",
+      "content": "Regelen som følger av forrige definisjon, og som er verdt å skrive opp for seg fordi den er kapitlets vanligste feilkilde:\n\n$$\\langle a, b\\rangle \\neq \\langle b, a\\rangle$$\n\n**At $\\langle \\text{Arne}, \\text{Bea}\\rangle \\in F(K)$, sier ingenting om hvorvidt $\\langle \\text{Bea}, \\text{Arne}\\rangle$ også er der.** De to må sjekkes hver for seg.\n\n**Bildet som hjelper:** tegn relasjonen som piler. Et par er en pil fra det første til det andre elementet. En pil peker én vei, og at det går en pil fra Arne til Bea, betyr ikke at det går en tilbake.\n\n**Kontrollen i en besvarelse:** når du evaluerer $K(b,a)$, skriv eksplisitt hvilket par du leter etter — «jeg spør om $\\langle \\text{Bea}, \\text{Arne}\\rangle \\in F(K)$» — før du slår opp. Skriver du paret ned i riktig rekkefølge, har du allerede gjort det vanskeligste."
+    },
+    {
+      "id": "ling1100-4-3-def-ekstensjon-to",
+      "type": "definition",
+      "title": "Ekstensjonen til et toplasspredikat",
+      "content": "En **mengde av ordnede par**. Den er tolkningen av et relasjonssymbol.\n\n$$F(K) = \\{\\langle \\text{Arne}, \\text{Bea}\\rangle, \\langle \\text{Bea}, \\text{Cato}\\rangle\\}$$\n\nDette betyr: Arne kjenner Bea, og Bea kjenner Cato. Alt annet er usant. Arne kjenner ikke Cato, Cato kjenner ingen, og ingen kjenner seg selv.\n\n**Merk hvor mye modellen sier ved å tie.** To par er oppgitt; i et domene med tre individer finnes det ni mulige par. De sju som ikke står der, er dermed usanne. Modellen er fullstendig, og det er derfor du kan lese negative svar rett ut av den.\n\n**Praktisk telling:** med $n$ individer i domenet finnes det $n^2$ mulige ordnede par, siden hvert individ kan stå i begge plasser, også sammen med seg selv. For $n = 3$ blir det ni."
+    },
+    {
+      "id": "ling1100-4-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fire atomære formler slått opp",
+      "problem": "Avgjør sannhetsverdien til hver formel i modellen $M$, og vis oppslaget.\n\n```text\nD  = { Arne, Bea, Cato }\n\nF(a) = Arne\nF(b) = Bea\nF(c) = Cato\n\nF(S) = { Arne, Cato }\nF(K) = { <Arne, Bea>, <Bea, Cato> }\n\nS(x)   betyr  x synger\nK(x,y) betyr  x kjenner y\n```\n\n**a)** $K(a,b)$\n**b)** $K(b,a)$\n**c)** $K(b,c)$\n**d)** $K(a,c)$",
+      "solution": "**a) Sann.** Oppslag: $F(a) = \\text{Arne}$ og $F(b) = \\text{Bea}$. Jeg spør om $\\langle \\text{Arne}, \\text{Bea}\\rangle \\in F(K)$. Det er det første paret i mengden, altså ja. Formelen er sann.\n\n**b) Usann.** Oppslag: $F(b) = \\text{Bea}$ og $F(a) = \\text{Arne}$. Jeg spør om $\\langle \\text{Bea}, \\text{Arne}\\rangle \\in F(K)$. **Det paret står ikke i mengden.** Mengden inneholder $\\langle \\text{Arne}, \\text{Bea}\\rangle$, som er et annet par. Formelen er usann.\n\n**c) Sann.** Oppslag: $F(b) = \\text{Bea}$ og $F(c) = \\text{Cato}$. Jeg spør om $\\langle \\text{Bea}, \\text{Cato}\\rangle \\in F(K)$. Det er det andre paret i mengden. Formelen er sann.\n\n**d) Usann.** Oppslag: $F(a) = \\text{Arne}$ og $F(c) = \\text{Cato}$. Jeg spør om $\\langle \\text{Arne}, \\text{Cato}\\rangle \\in F(K)$. Det paret finnes ikke. Formelen er usann.\n\n**Merk hva d) viser, for det er en egen felle.** Arne kjenner Bea, og Bea kjenner Cato. Det kunne friste å slutte at Arne kjenner Cato. **Modellen sier nei.** Relasjonen $K$ er ikke transitiv i denne modellen, og modellen sier bare det som står i den. Slutninger «gjennom» en relasjon er noe du må ha eksplisitt belegg for.\n\n**Eget kontrasttilfelle som viser hva som ville endret svarene.** Hadde $F(K)$ i tillegg inneholdt $\\langle \\text{Bea}, \\text{Arne}\\rangle$, ville b) blitt sann uten at noen av de andre svarene endret seg. **Å kunne si hva som ville endret svaret**, er trinn tre i den formelle føringen, og det er ofte forskjellen på et riktig og et fullstendig svar.\n\n> Margnotat: legg merke til at hvert oppslag skriver **paret det leter etter** før det slår opp. Det er dette grepet som gjør at man ikke bytter om rekkefølgen — og ombytting er den vanligste enkeltfeilen i hele oppgavetypen."
+    },
+    {
+      "id": "ling1100-4-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-3-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F2.) Bruk modellen $M$ fra eksempel 1.\n\n**a)** Er $K(c,b)$ sann eller usann? Vis oppslaget.\n**b)** Er $K(a,a)$ sann eller usann? Vis oppslaget.\n**c)** Hvor mange ordnede par er det mulig å danne av tre individer? Begrunn.",
+        "solution": "**a) Usann.** Oppslag: $F(c) = \\text{Cato}$ og $F(b) = \\text{Bea}$. Jeg spør om $\\langle \\text{Cato}, \\text{Bea}\\rangle \\in F(K)$. Det paret finnes ikke i mengden. Merk at $\\langle \\text{Bea}, \\text{Cato}\\rangle$ derimot **er** der — men det er et annet par, og det hjelper ikke her.\n\n**b) Usann.** Oppslag: $F(a) = \\text{Arne}$ i begge plasser. Jeg spør om $\\langle \\text{Arne}, \\text{Arne}\\rangle \\in F(K)$. Det paret finnes ikke. Ingen kjenner seg selv i denne modellen.\n\n**c) Ni.** Begrunnelse: hvert av de tre individene kan stå i første plass, og for hvert av dem kan hvert av de tre stå i andre plass — også det samme individet. Det gir $3 \\times 3 = 9$ mulige par.\n\n**Grepet oppgaven trener:** at modellen er **fullstendig**. Av de ni mulige parene står to i $F(K)$. De sju andre er dermed usanne, og du kan lese negative svar rett ut av modellen uten å lete videre.",
+        "hints": [
+          "Skriv ned paret du leter etter, i riktig rekkefølge, før du slår opp.",
+          "For c): tell hvor mange valg du har på hver av de to plassene."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Evaluering av sammensatte formler (~18 min)\n\n**— naturlig pausepunkt —**\n\nNå settes atomene sammen. Reglene er de samme sannhetstabellene som i [kap. 3.1](/bok/ling1100/ling1100-3-1) — det eneste nye er at atomene nå må regnes ut i stedet for å oppgis."
+    },
+    {
+      "id": "ling1100-4-3-def-evaluering",
+      "type": "definition",
+      "title": "Evaluering",
+      "content": "Prosessen der en formels sannhetsverdi **regnes ut** mot en modell. Den engelske termen er ‘evaluation’.\n\nOrdet er verdt å ha presist, for det navngir nettopp den ferdigheten oppgavetypen prøver. Du **tolker** ikke formelen og **vurderer** den ikke — du regner den ut, med faste regler, i en bestemt rekkefølge.\n\n**Evalueringen har alltid tre bestanddeler:** en formel, en modell, og et resultat som er sann eller usann. Mangler én av dem, er spørsmålet ikke velformet. «Er $S(a)$ sann?» er ikke et spørsmål før noen har oppgitt modellen."
+    },
+    {
+      "id": "ling1100-4-3-def-denotasjon",
+      "type": "definition",
+      "title": "Denotasjon",
+      "content": "Verdien et uttrykk har i en modell. Vi skriver den med **denotasjonsklammer**:\n\n$$\\llbracket \\alpha \\rrbracket$$\n\nDen engelske termen er ‘denotation’, og $\\alpha$ er en plassholder for et vilkårlig uttrykk.\n\nFor en konstant er denotasjonen et individ: $\\llbracket a \\rrbracket = \\text{Arne}$. For en hel formel er den en sannhetsverdi: $\\llbracket S(a) \\rrbracket = \\text{sann}$.\n\n**Denotasjonsklammene er reservert for nettopp dette i hele boka.** De skal ikke brukes om noe annet, og de skal ikke forveksles med vinkelparentesene $\\langle\\ \\rangle$, som er ordnede par, eller med krøllparentesene $\\{\\ \\}$, som er mengder. Tre klammetyper, tre jobber.\n\n**Praktisk merknad:** i en besvarelse holder det som regel å skrive «$S(a)$ er sann i $M$». Klammene er nyttige når du vil snakke om verdien som en ting — «denotasjonen til $a$ er Arne» — og du bør kjenne dem igjen, siden pensumlitteraturen bruker dem gjennomgående."
+    },
+    {
+      "id": "ling1100-4-3-def-sann-i-modell",
+      "type": "definition",
+      "title": "Sann i en modell",
+      "content": "En formel er **sann i en modell** når evalueringsreglene gir den verdien sann i akkurat den modellen. Den engelske termen er ‘true in a model’.\n\n**Dette er en relativ egenskap, og det er selve poenget.** Ingen formel er sann uten videre; den er sann i noen modeller og usann i andre. $S(a)$ er sann i vår modell og usann i en modell der Arne ikke synger.\n\n**Merk skillet til entailment fra [kap. 3.2](/bok/ling1100/ling1100-3-2).** Entailment er en påstand om **alle** modeller: $p \\vDash q$ betyr at $q$ er sann i hver eneste modell der $p$ er sann. Sannhet i en modell er en påstand om **én**. Boka bruker derfor $\\vDash$ bare om entailment, aldri om sannhet i en enkelt modell — de to er ulike ting, og [kap. 3.2](/bok/ling1100/ling1100-3-2) handlet nettopp om å ikke blande dem."
+    },
+    {
+      "id": "ling1100-4-3-def-trinnvis",
+      "type": "definition",
+      "title": "Trinnvis oppbygging",
+      "content": "Framgangsmåten for sammensatte formler: **regn ut de minste delene først, og sett dem sammen utover**.\n\nSlik gjør du det:\n\n- Finn **hovedkonnektivet** — det som binder formelen sammen på øverste nivå. Framgangsmåten er den samme som i [kap. 3.1](/bok/ling1100/ling1100-3-1): se bort fra alt i parentes, og se hva som blir stående igjen.\n- Regn ut hver **atomær delformel** med et fullstendig oppslag.\n- Sett sammen med sannhetstabellen for hovedkonnektivet.\n\n**Mellomtrinnene skal stå i svaret.** De er ikke rot — de er dokumentasjon på framgangsmåten, og de er nøyaktig det samme som mellomkolonnene i en sannhetstabell. Et svar uten dem kan ikke kontrolleres, og et ukontrollerbart svar er et gjettet svar.\n\n**Denne oppbyggingen har et navn i faget:** den er en anvendelse av **kompositsjonalitetsprinsippet**, som sier at betydningen til en helhet bestemmes av betydningen til delene og måten de er satt sammen på. Prinsippet behandles for seg i [kap. 7.1](/bok/ling1100/ling1100-7-1)."
+    },
+    {
+      "id": "ling1100-4-3-thm-atomregel",
+      "type": "theorem",
+      "title": "Evalueringsregelen for atomære formler",
+      "content": "To regler, én for hver aritet. Begge er oppslag, og begge skal skrives ut i to trinn.\n\n**Ettplasspredikat.** $P(t)$ er sann i $M$ hviss $F(t) \\in F(P)$.\n\nI ord: slå opp hva konstanten viser til, og spør om det individet er medlem av predikatets ekstensjon.\n\n**Toplasspredikat.** $R(t_1, t_2)$ er sann i $M$ hviss $\\langle F(t_1), F(t_2)\\rangle \\in F(R)$.\n\nI ord: slå opp hva begge konstantene viser til, sett dem sammen til et **ordnet par i den rekkefølgen de står i formelen**, og spør om det paret er medlem av relasjonens ekstensjon.\n\n**Det er alt.** Enhver atomær formel avgjøres av ett medlemskapsspørsmål, og alt annet i kapitlet bygges av dette."
+    },
+    {
+      "id": "ling1100-4-3-thm-konnektivregel",
+      "type": "theorem",
+      "title": "Evalueringsregelen for konnektivene",
+      "content": "Konnektivene virker nøyaktig som i [kap. 3.1](/bok/ling1100/ling1100-3-1). Sannhetstabellene er uendret; det eneste nye er at du selv må regne ut verdiene de får inn.\n\n- $\\lnot\\varphi$ er sann hviss $\\varphi$ er usann.\n- $\\varphi \\land \\psi$ er sann hviss begge er sanne.\n- $\\varphi \\lor \\psi$ er sann hviss minst én er sann.\n- $\\varphi \\rightarrow \\psi$ er **usann** hviss $\\varphi$ er sann og $\\psi$ er usann; sann i de tre andre tilfellene.\n- $\\varphi \\leftrightarrow \\psi$ er sann hviss de har samme verdi.\n\n**Framgangsmåten er innenfra og ut.** Finn hovedkonnektivet, regn ut delene først, og sett sammen til slutt. Det er samme prosedyre som mellomkolonnene i en sannhetstabell, og mellomtrinnene skal stå i svaret av samme grunn: de gjør utregningen kontrollerbar.\n\n**Den ene regelen som overrasker flest**, er implikasjonen. Er antesedenten usann, er hele formelen sann — uansett hva konsekventen er verdt. Det er tom sannhet, og i modelloppgaver møter du den hele tiden, siden allkvantoren er bygd av implikasjoner."
+    },
+    {
+      "id": "ling1100-4-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Sammensatte formler, regnet innenfra og ut",
+      "problem": "Avgjør sannhetsverdien til hver formel i modellen $M$, og vis mellomtrinnene.\n\n```text\nD  = { Arne, Bea, Cato }\n\nF(a) = Arne\nF(b) = Bea\nF(c) = Cato\n\nF(S) = { Arne, Cato }\nF(K) = { <Arne, Bea>, <Bea, Cato> }\n\nS(x)   betyr  x synger\nK(x,y) betyr  x kjenner y\n```\n\n**a)** $S(a) \\land K(a,b)$\n**b)** $S(b) \\lor K(b,c)$\n**c)** $S(b) \\rightarrow K(b,c)$\n**d)** $\\lnot K(c,a)$",
+      "solution": "**a) Sann.**\n\n**Mellomtrinn 1:** $S(a)$. Oppslag: $F(a) = \\text{Arne}$, og $\\text{Arne} \\in F(S)$. Sann.\n\n**Mellomtrinn 2:** $K(a,b)$. Oppslag: paret jeg leter etter er $\\langle \\text{Arne}, \\text{Bea}\\rangle$, og det er medlem av $F(K)$. Sann.\n\n**Hovedkonnektiv:** konjunksjon. Begge deler er sanne, altså er hele formelen **sann**.\n\n**b) Sann.**\n\n**Mellomtrinn 1:** $S(b)$. Oppslag: $F(b) = \\text{Bea}$, og Bea er **ikke** medlem av $F(S)$. Usann.\n\n**Mellomtrinn 2:** $K(b,c)$. Paret $\\langle \\text{Bea}, \\text{Cato}\\rangle$ er medlem av $F(K)$. Sann.\n\n**Hovedkonnektiv:** inklusiv disjunksjon. Minst én del er sann, altså er hele formelen **sann**.\n\n**c) Sann.**\n\nSamme to mellomtrinn som i b): antesedenten $S(b)$ er usann, konsekventen $K(b,c)$ er sann.\n\n**Hovedkonnektiv:** implikasjon. Den er usann i nøyaktig ett tilfelle — sann antesedent og usann konsekvent — og det tilfellet foreligger ikke. Altså er formelen **sann**.\n\n**Merk at formelen ville vært sann også om $K(b,c)$ hadde vært usann**, siden antesedenten er usann uansett. Det er tom sannhet, og det er verdt å si eksplisitt i et svar.\n\n**d) Sann.**\n\n**Mellomtrinn:** $K(c,a)$. Paret jeg leter etter er $\\langle \\text{Cato}, \\text{Arne}\\rangle$. Det finnes ikke i $F(K)$. Usann.\n\n**Hovedkonnektiv:** negasjon. Den snur verdien, altså er $\\lnot K(c,a)$ **sann**.\n\n**Hva som ville endret svarene.** Legger vi $\\langle \\text{Cato}, \\text{Arne}\\rangle$ til i $F(K)$, blir d) usann, mens a), b) og c) står uendret.\n\nFor å velte c) trengs det derimot **to** endringer samtidig: Bea må legges inn i $F(S)$, slik at antesedenten blir sann, **og** paret $\\langle \\text{Bea}, \\text{Cato}\\rangle$ må fjernes fra $F(K)$, slik at konsekventen blir usann. Bare den ene endringen holder ikke — en implikasjon er usann i nøyaktig ett tilfelle, og det tilfellet krever begge deler. **Det er et godt eksempel på hvorfor man må regne og ikke gjette.**"
+    },
+    {
+      "id": "ling1100-4-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-3-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk modellen $M$. Avgjør sannhetsverdien til hver formel, og vis mellomtrinnene.\n\n**a)** $S(c) \\land \\lnot S(b)$\n**b)** $K(a,b) \\land K(b,a)$\n**c)** $S(a) \\rightarrow K(a,c)$\n**d)** $\\lnot(S(b) \\lor K(c,a))$",
+        "solution": "**a) Sann.**\n\n**Mellomtrinn:** $S(c)$ — $F(c) = \\text{Cato}$, og Cato er medlem av $F(S)$. Sann. $S(b)$ — Bea er ikke medlem av $F(S)$. Usann, altså er $\\lnot S(b)$ sann.\n\n**Hovedkonnektiv:** konjunksjon, begge deler sanne. **Sann.**\n\n**b) Usann.**\n\n**Mellomtrinn:** $K(a,b)$ — paret $\\langle \\text{Arne}, \\text{Bea}\\rangle$ er medlem. Sann. $K(b,a)$ — paret $\\langle \\text{Bea}, \\text{Arne}\\rangle$ er **ikke** medlem. Usann.\n\n**Hovedkonnektiv:** konjunksjon. Én del er usann, altså er hele formelen **usann**.\n\n**Dette er ordnetheten i praksis.** At det ene paret er der, sier ingenting om det andre.\n\n**c) Usann.**\n\n**Mellomtrinn:** $S(a)$ er sann. $K(a,c)$ — paret $\\langle \\text{Arne}, \\text{Cato}\\rangle$ finnes ikke i $F(K)$. Usann.\n\n**Hovedkonnektiv:** implikasjon med **sann antesedent og usann konsekvent**. Det er nøyaktig den ene kombinasjonen som gjør en implikasjon usann. **Usann.**\n\n**d) Sann.**\n\n**Mellomtrinn:** $S(b)$ er usann. $K(c,a)$ — paret $\\langle \\text{Cato}, \\text{Arne}\\rangle$ finnes ikke. Usann. Disjunksjonen inni parentesen har altså to usanne ledd og er usann.\n\n**Hovedkonnektiv:** negasjonen utenpå snur verdien. **Sann.**\n\n**Kontroll av hele settet:** fire formler, alle med mellomtrinn, og hovedkonnektivet identifisert i hver. Merk at c) er den eneste usanne implikasjonen — og at den er usann av nettopp den grunnen implikasjoner alltid er usanne.",
+        "hints": [
+          "Finn hovedkonnektivet først: se bort fra alt i parentes, og se hva som blir stående igjen.",
+          "Regn ut hvert atom med et fullstendig oppslag før du setter dem sammen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Kvantorer over domenet, og Z&S-apparatet (~15 min)\n\nTil slutt: hvordan en kvantorformel evalueres, og hvordan Zimmermann & Sternefeld beskriver det samme apparatet med funksjonsbegrepet."
+    },
+    {
+      "id": "ling1100-4-3-def-kvantorrekkevidde",
+      "type": "definition",
+      "title": "Kvantorenes rekkevidde er domenet",
+      "content": "Regelen som knytter kvantorene til modellen: **$\\forall x$ og $\\exists x$ løper over domenet $D$, og ingenting annet.**\n\n$\\forall x\\,S(x)$ spør ikke om alt i universet synger. Den spør om alt i **denne modellens** domene gjør det — her: om Arne, Bea og Cato alle synger.\n\n**Dette er svaret på spørsmålet [kap. 4.1](/bok/ling1100/ling1100-4-1) lot stå åpent.** Der sa vi at kvantorene alltid løper over noe, og at det noe er gitt av sammenhengen. Nå er sammenhengen gjort presis: den er domenet i modellen.\n\n**Praktisk konsekvens:** et endelig domene gjør enhver kvantorpåstand avgjørbar ved å prøve hvert individ. Med tre individer er en $\\forall$-påstand tre oppslag, og en $\\exists$-påstand er høyst tre."
+    },
+    {
+      "id": "ling1100-4-3-def-navnemetoden",
+      "type": "definition",
+      "title": "Navnemetoden",
+      "content": "Framgangsmåten for å evaluere en kvantorformel i en endelig modell: **prøv hvert individ i domenet etter tur.**\n\nSlik gjør du det:\n\n- For $\\forall x\\,\\varphi$: sett inn hvert individ i domenet for $x$, evaluer $\\varphi$ hver gang, og **krev at alle går igjennom**.\n- For $\\exists x\\,\\varphi$: gjør det samme, men **stopp så snart ett individ går igjennom**.\n\n**Metoden virker fordi domenet er endelig og hvert individ har et navn i oppgaven.** Det er alltid tilfellet i eksamensoppgaver, og det er derfor denne enkle framgangsmåten holder. En helt generell definisjon av kvantorer trenger et mer omstendelig apparat, men det er langt utenfor det et innføringsemne krever.\n\n**Skrivemåten i et svar:** før opp hvert individ på egen linje med utfallet. En kvantorevaluering uten den listen er et gjettet svar, og listen er samtidig det som gjør svaret ditt kontrollerbart."
+    },
+    {
+      "id": "ling1100-4-3-def-nostet",
+      "type": "definition",
+      "title": "Nøstet evaluering i to lag",
+      "content": "Framgangsmåten når en formel har **to kvantorer inni hverandre**, som $\\forall x\\,\\exists y\\,K(x,y)$.\n\nRegelen er: **den ytterste kvantoren velger først, og den innerste prøves på nytt for hvert valg den ytterste gjør.**\n\nKonkret, med tre individer i domenet:\n\n- Velg det første individet for $x$. Prøv deretter alle tre for $y$, og se om minst én går igjennom.\n- Gjenta for det andre individet, og for det tredje.\n- Samle opp: allkvantoren ytterst krever at **alle** de tre rundene går igjennom.\n\n**Dette er scope-mekanikken fra [kap. 4.2](/bok/ling1100/ling1100-4-2) gjort til en utregning.** Der forklarte vi hvorfor $\\forall x\\,\\exists y$ og $\\exists y\\,\\forall x$ betyr ulike ting; her ser du forskjellen i praksis, som to ulike gjennomganger av det samme domenet.\n\n**Skrivemåten i et svar:** før den ytterste gjennomgangen som en liste, og skriv utfallet av den innerste på hver linje. Da ser leseren begge lagene."
+    },
+    {
+      "id": "ling1100-4-3-thm-kvantorregel",
+      "type": "theorem",
+      "title": "Evalueringsreglene for kvantorene",
+      "content": "**Allkvantoren.** $\\forall x\\,\\varphi$ er sann i $M$ hviss $\\varphi$ er sann for **hvert** individ i domenet.\n\n**Eksistenskvantoren.** $\\exists x\\,\\varphi$ er sann i $M$ hviss $\\varphi$ er sann for **minst ett** individ i domenet.\n\n**Framgangsmåten trinn for trinn, som skal stå i svaret:**\n\n**Trinn 1 — list opp domenet.** Skriv individene ned.\n\n**Trinn 2 — prøv hvert individ etter tur.** Sett inn og evaluer formelen inni kvantoren, med fullstendige oppslag.\n\n**Trinn 3 — samle opp.** Gikk alle igjennom, er $\\forall$-formelen sann. Gikk minst én igjennom, er $\\exists$-formelen sann.\n\n**Trinn 4 — pek på det avgjørende individet.** Er en $\\forall$-formel usann, si **hvem** som velter den. Er en $\\exists$-formel sann, si **hvem** som redder den. Det er dette trinnet som skiller et fullstendig svar fra et riktig.\n\n**For nøstede kvantorer gjøres det samme i to lag:** den ytterste kvantoren velger et individ, og den innerste prøves på nytt for hvert slikt valg. Det er nøyaktig scope-mekanikken fra [kap. 4.2](/bok/ling1100/ling1100-4-2), nå gjort til en utregning."
+    },
+    {
+      "id": "ling1100-4-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Kvantorformler evaluert individ for individ",
+      "problem": "**Nyskrevet eksamensoppgave:** «Gitt modellen $M$, avgjør sannhetsverdien til hver formel. Vis framgangsmåten, og pek ut det individet som avgjør svaret.»\n\n```text\nD  = { Arne, Bea, Cato }\n\nF(a) = Arne\nF(b) = Bea\nF(c) = Cato\n\nF(S) = { Arne, Cato }\nF(K) = { <Arne, Bea>, <Bea, Cato> }\n\nS(x)   betyr  x synger\nK(x,y) betyr  x kjenner y\n```\n\n**a)** $\\exists x\\,S(x)$\n**b)** $\\forall x\\,S(x)$\n**c)** $\\exists x\\,(S(x) \\land K(x,b))$\n**d)** $\\forall x\\,\\exists y\\,K(x,y)$",
+      "solution": "**a) Sann.**\n\n**Prøver hvert individ:**\n\n- Arne: $\\text{Arne} \\in F(S)$? Ja. **Formelen er dermed sann**, og jeg kan stoppe her.\n\n**Det avgjørende individet:** Arne redder formelen. Cato ville gjort det samme, men én er nok for eksistenskvantoren.\n\n**b) Usann.**\n\n**Prøver hvert individ:**\n\n- Arne: medlem av $F(S)$? Ja.\n- Bea: medlem av $F(S)$? **Nei.**\n- Cato: medlem av $F(S)$? Ja.\n\nAllkvantoren krever at alle går igjennom. **Bea velter formelen**, og den er usann. Merk at jeg kunne stoppet ved Bea — ett moteksempel er nok — men å føre hele listen koster lite og gjør svaret kontrollerbart.\n\n**c) Sann.**\n\n**Prøver hvert individ i formelen $S(x) \\land K(x, b)$, der $F(b) = \\text{Bea}$:**\n\n- Arne: $S$? Ja. $\\langle \\text{Arne}, \\text{Bea}\\rangle \\in F(K)$? Ja. **Begge ledd sanne — formelen er sann.**\n\n**Det avgjørende individet:** Arne. Han er den eneste som oppfyller begge kravene: Bea synger ikke, og Cato kjenner ingen.\n\n**d) Usann.**\n\nDette er en nøstet kvantorformel, og den evalueres i to lag. Den ytterste kvantoren er $\\forall x$, så jeg prøver hvert individ, og for hvert av dem spør jeg om det finnes minst én $y$ det kjenner.\n\n- **Arne:** finnes det en $y$ slik at $\\langle \\text{Arne}, y\\rangle \\in F(K)$? Ja, $y = \\text{Bea}$. Går igjennom.\n- **Bea:** finnes det en $y$ slik at $\\langle \\text{Bea}, y\\rangle \\in F(K)$? Ja, $y = \\text{Cato}$. Går igjennom.\n- **Cato:** finnes det en $y$ slik at $\\langle \\text{Cato}, y\\rangle \\in F(K)$? Jeg prøver alle tre: $\\langle \\text{Cato}, \\text{Arne}\\rangle$ — nei. $\\langle \\text{Cato}, \\text{Bea}\\rangle$ — nei. $\\langle \\text{Cato}, \\text{Cato}\\rangle$ — nei. **Går ikke igjennom.**\n\nAllkvantoren krever at alle går igjennom. **Cato velter formelen**, og den er usann.\n\n**Hva som ville endret svaret i d).** Ett eneste par til i $F(K)$ med Cato i første plass — for eksempel $\\langle \\text{Cato}, \\text{Arne}\\rangle$ — ville gjort formelen sann. Det sier noe om hvor skjørt et allkvantert utsagn er: det står og faller på det svakeste individet.\n\n> Margnotat: legg merke til at hvert av de fire svarene **peker ut individet** som avgjør. Det er trinn fire i prosedyren, og det er der forskjellen på et riktig og et fullstendig svar ligger. En sannhetsverdi uten det individet er et resultat uten regnestykke."
+    },
+    {
+      "id": "ling1100-4-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-3-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk modellen $M$. Avgjør sannhetsverdien, vis hvilke individer du prøver, og pek ut det avgjørende individet.\n\n**a)** $\\exists x\\,K(x,c)$\n**b)** $\\forall x\\,(S(x) \\rightarrow \\exists y\\,K(x,y))$\n**c)** $\\lnot\\exists x\\,K(x,x)$",
+        "solution": "**a) Sann.**\n\n$F(c) = \\text{Cato}$, så jeg leter etter et par som **ender** i Cato.\n\n- Arne: $\\langle \\text{Arne}, \\text{Cato}\\rangle \\in F(K)$? Nei.\n- Bea: $\\langle \\text{Bea}, \\text{Cato}\\rangle \\in F(K)$? **Ja.** Formelen er sann.\n\n**Det avgjørende individet:** Bea. Hun er den eneste som kjenner Cato.\n\n**b) Usann.**\n\nJeg prøver hvert individ, og bare de som synger, kan velte formelen.\n\n- **Arne:** $S$? Ja, altså må jeg sjekke konsekventen. Finnes det en $y$ han kjenner? Ja, Bea. Går igjennom.\n- **Bea:** $S$? Nei. **Antesedenten er usann, og implikasjonen er derfor sann av tom sannhet** — uansett hvem Bea kjenner. Går igjennom.\n- **Cato:** $S$? Ja, han er medlem av $F(S)$. Da må konsekventen sjekkes: finnes det en $y$ slik at $\\langle \\text{Cato}, y\\rangle \\in F(K)$? Nei, ingen av de tre mulige parene finnes. **Sann antesedent og usann konsekvent — implikasjonen er usann.**\n\n**Det avgjørende individet:** Cato. Han synger uten å kjenne noen, og det er nettopp den kombinasjonen formelen forbyr.\n\n**c) Sann.**\n\nFormelen sier at ingen kjenner seg selv. Jeg prøver de tre parene der individet står i begge plasser:\n\n- $\\langle \\text{Arne}, \\text{Arne}\\rangle$ — ikke i $F(K)$.\n- $\\langle \\text{Bea}, \\text{Bea}\\rangle$ — ikke i $F(K)$.\n- $\\langle \\text{Cato}, \\text{Cato}\\rangle$ — ikke i $F(K)$.\n\nEksistensformelen inni er altså usann, og negasjonen utenpå gjør hele formelen **sann**.\n\n**Det avgjørende:** ingen enkelt individ, men at **samtlige** tre sjekker slår feil. For en negert eksistensformel er det hele listen som er begrunnelsen.\n\n**Merk hva b) demonstrerer:** to av tre individer går igjennom av helt ulike grunner — Arne fordi begge ledd holder, Bea fordi antesedenten svikter. Det er tom sannhet i praksis, og det er verdt å skrive ut.",
+        "hints": [
+          "For a): les paret baklengs — du leter etter noe som ender i Cato.",
+          "For b): sjekk antesedenten først; er den usann, er implikasjonen sann uansett."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-3-def-funksjon",
+      "type": "definition",
+      "title": "Funksjon, argument og verdi",
+      "content": "En **funksjon** er en regel som gir nøyaktig én **verdi** for hvert **argument** den får inn. De engelske termene er ‘function’, ‘argument’ og ‘value’.\n\nTolkningsfunksjonen $F$ er et eksempel: gir du den symbolet $a$, får du individet Arne. Argumentet er $a$, verdien er Arne.\n\n**Ordet «argument» brukes i to betydninger i dette emnet, og de må holdes fra hverandre.**\n\n- I **predikatlogikken** er et argument det som fyller en plass i et predikat: i $K(a,b)$ er $a$ og $b$ argumenter.\n- I **funksjonsteorien** er et argument det en funksjon får inn.\n\nDe to henger sammen — et predikat kan oppfattes som en funksjon som tar sine argumenter inn — men ordet brukes altså på to nivåer. Zimmermann & Sternefeld bygger hele framstillingen sin på funksjonsbegrepet, og dette apparatet er prøvd i **1 av de 12 settene**, høsten 2018."
+    },
+    {
+      "id": "ling1100-4-3-def-predikat-funksjon",
+      "type": "definition",
+      "title": "Predikatet som funksjon",
+      "content": "Zimmermann & Sternefelds måte å beskrive det samme apparatet på: **et ettplasspredikat er en funksjon fra individer til sannhetsverdier.**\n\nI stedet for å si at $F(S)$ er mengden $\\{\\text{Arne}, \\text{Cato}\\}$, kan man si at $S$ er en funksjon som gir sann for Arne, usann for Bea og sann for Cato.\n\n**De to beskrivelsene sier nøyaktig det samme.** Å oppgi hvilke individer en funksjon gir sann for, er å oppgi en mengde; å oppgi en mengde, er å si hvilke individer funksjonen gir sann for. Mengdeversjonen er lettere å regne med for hånd; funksjonsversjonen er lettere å bygge videre på når betydninger skal settes sammen.\n\n**Tilsvarende for toplasspredikater:** en relasjon kan oppfattes som en funksjon fra ordnede par til sannhetsverdier, eller som en funksjon som tar ett argument om gangen og gir en ny funksjon tilbake.\n\n**Hvorfor dette er verdt å kjenne:** funksjonsversjonen er det som gjør kompositsjonalitetsprinsippet i [kap. 7.1](/bok/ling1100/ling1100-7-1) presist. Der er spørsmålet hvordan betydningen til en helhet bygges av delene, og funksjoner er svaret: en del er en funksjon som tar en annen del som argument."
+    },
+    {
+      "id": "ling1100-4-3-def-motmodell",
+      "type": "definition",
+      "title": "Motmodell",
+      "content": "En modell der en formel får **motsatt verdi** av den den hadde i modellen du startet med. Å kunne konstruere en, er trinn tre i den formelle føringen.\n\nFramgangsmåten er enkel: finn ut hvilket oppslag som avgjorde svaret, og endre nettopp det.\n\n- Var formelen usann fordi ett individ veltet en $\\forall$-påstand, **legg det individet inn** i den mengden som manglet.\n- Var den sann fordi ett individ reddet en $\\exists$-påstand, **ta det individet ut**.\n\n**Å oppgi en motmodell er den mest overbevisende måten å vise at du har forstått hva du regnet.** Det viser at du vet hvilket oppslag som bar hele svaret, og ikke bare at du fikk riktig verdi ut.\n\n**Merk sammenhengen med entailment fra [kap. 3.2](/bok/ling1100/ling1100-3-2):** et moteksempel mot en entailment-påstand er nettopp en modell der premisset er sant og konklusjonen usann. Det er samme grep, brukt på en påstand om alle modeller i stedet for på én formel."
+    },
+    {
+      "id": "ling1100-4-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-3-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk modellen $M$.\n\n**a)** Avgjør sannhetsverdien til $\\forall x\\,(K(a,x) \\rightarrow S(x))$, og vis framgangsmåten.\n**b)** Beskriv en motmodell der formelen får motsatt verdi. Endre så lite som mulig.\n**c)** Forklar i én setning hvorfor akkurat den endringen virker.",
+        "solution": "**a) Usann.**\n\n$F(a) = \\text{Arne}$, så formelen sier: alt Arne kjenner, synger.\n\n- **Arne:** $\\langle \\text{Arne}, \\text{Arne}\\rangle \\in F(K)$? Nei. Antesedenten er usann, implikasjonen sann av tom sannhet. Går igjennom.\n- **Bea:** $\\langle \\text{Arne}, \\text{Bea}\\rangle \\in F(K)$? **Ja.** Da må konsekventen sjekkes: $\\text{Bea} \\in F(S)$? **Nei.** Sann antesedent og usann konsekvent — implikasjonen er **usann**.\n- **Cato:** $\\langle \\text{Arne}, \\text{Cato}\\rangle \\in F(K)$? Nei. Sann av tom sannhet. Går igjennom.\n\n**Det avgjørende individet:** **Bea**. Hun er den eneste Arne kjenner, og hun synger ikke.\n\n**b) Motmodell:** behold alt, men sett $F(S) = \\{\\text{Arne}, \\text{Bea}, \\text{Cato}\\}$ — altså legg Bea inn i mengden av dem som synger.\n\nDa blir gjennomgangen slik: Arne og Cato går fortsatt igjennom av tom sannhet, og Bea går nå også igjennom, siden både antesedent og konsekvent er sanne for henne. Alle tre går igjennom, og formelen er **sann**.\n\n**c)** Endringen virker fordi **Bea var det eneste individet som veltet formelen**: hun var den eneste med sann antesedent, og det var hennes usanne konsekvent som gjorde implikasjonen usann for henne.\n\n**Grepet oppgaven trener:** at en motmodell konstrueres ved å endre **nøyaktig det oppslaget som avgjorde svaret**, ikke ved å bygge en ny modell fra grunnen. Har du pekt ut det avgjørende individet i a), er b) allerede halvveis besvart.",
+        "hints": [
+          "Sjekk antesedenten $K(a,x)$ først for hvert individ; er den usann, går individet igjennom uansett.",
+          "For b): finn individet som veltet formelen, og endre bare det som gjaldt det individet."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-3-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2.) Bruk modellen $M$. Avgjør sannhetsverdien til hver formel, og vis framgangsmåten i to lag der formelen har to kvantorer.\n\n**a)** $\\exists x\\,\\forall y\\,K(x,y)$\n**b)** $\\exists y\\,\\exists x\\,K(x,y)$\n**c)** Sammenlign a) med $\\forall x\\,\\exists y\\,K(x,y)$ fra eksempel 3. Hva sier sannhetsverdiene om styrkeforholdet mellom de to formene?",
+        "solution": "**a) Usann.**\n\nDen ytterste kvantoren er $\\exists x$, så jeg leter etter **ett** individ som kjenner **alle** tre.\n\n- **Arne:** kjenner han Arne? Nei. Alt er avgjort — Arne kjenner ikke alle.\n- **Bea:** kjenner hun Arne? Nei. Faller.\n- **Cato:** kjenner han Arne? Nei. Faller.\n\nIngen av de tre kjenner alle. Formelen er **usann**.\n\n**b) Sann.**\n\nDen ytterste kvantoren er $\\exists y$, så jeg leter etter ett individ som er **kjent av** minst én.\n\n- **$y = \\text{Arne}$:** finnes det en $x$ med $\\langle x, \\text{Arne}\\rangle \\in F(K)$? Nei.\n- **$y = \\text{Bea}$:** finnes det en $x$ med $\\langle x, \\text{Bea}\\rangle \\in F(K)$? **Ja** — $x = \\text{Arne}$. Formelen er sann, og jeg kan stoppe.\n\n**Det avgjørende paret:** $\\langle \\text{Arne}, \\text{Bea}\\rangle$.\n\n**c)** I denne modellen er **begge** formene usanne: både $\\exists x\\,\\forall y\\,K(x,y)$ (a) og $\\forall x\\,\\exists y\\,K(x,y)$ (eksempel 3, punkt d). At begge er usanne her, viser i seg selv ikke styrkeforholdet — men **styrkeforholdet fra [kap. 4.2](/bok/ling1100/ling1100-4-2) sier at $\\exists x\\,\\forall y$ entailer $\\forall x\\,\\exists y$**, aldri motsatt.\n\nFor å se det, tenk deg en modell der ett individ kjenner alle. Da kjenner hvert individ minst én — nemlig det individet er dekket av det samme paret. Motsatt vei gjelder ikke: i en modell der Arne kjenner Bea, Bea kjenner Cato og Cato kjenner Arne, er $\\forall x\\,\\exists y$ sann mens $\\exists x\\,\\forall y$ er usann, siden ingen kjenner alle.\n\n**Grepet oppgaven trener:** at rekkefølgen på to kvantorer ikke bare gir ulike lesninger, men **ulik styrke** — og at styrkeforholdet kan vises med en konkret modell i stedet for påstås.",
+        "hints": [
+          "For a): begynn med å spørre hvilket individ som eventuelt skulle kjenne alle tre.",
+          "For b): les parene baklengs, siden den ytterste kvantoren binder andre argumentplass."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-3-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2, full sjanger.) «Betrakt modellen under. (i) Oversett setningen til predikatlogikk. (ii) Avgjør sannhetsverdien i modellen, med fullstendig framgangsmåte. (iii) Oppgi en motmodell der verdien snur, og forklar hvorfor endringen virker. (iv) Forklar med én setning hvorfor $\\langle a,b\\rangle$ og $\\langle b,a\\rangle$ må holdes fra hverandre her.»\n\n```text\nD  = { Iselin, Kim, Live }\n\nF(i) = Iselin\nF(k) = Kim\nF(l) = Live\n\nF(V) = { Iselin, Live }\nF(H) = { <Iselin, Kim>, <Live, Kim> }\n\nV(x)   betyr  x er veileder\nH(x,y) betyr  x hjelper y\n```\n\nSetningen: «Alle veilederne hjelper Kim.»",
+        "solution": "**(i) Oversettelsen.**\n\n$$\\forall x\\,(V(x) \\rightarrow H(x,k))$$\n\nAllkvantor med implikasjon, siden *veileder* er betingelsen som avgrenser hvem påstanden gjelder. Konstanten $k$ står i **andre** argumentplass, siden Kim er den som blir hjulpet.\n\n**(ii) Sannhetsverdien: sann.**\n\n$F(k) = \\text{Kim}$. Jeg prøver hvert individ i domenet:\n\n- **Iselin:** $\\text{Iselin} \\in F(V)$? Ja. Da må konsekventen sjekkes: $\\langle \\text{Iselin}, \\text{Kim}\\rangle \\in F(H)$? **Ja.** Både antesedent og konsekvent sanne — implikasjonen er sann.\n- **Kim:** $\\text{Kim} \\in F(V)$? Nei. Antesedenten er usann, og implikasjonen er sann av **tom sannhet** — uansett hvem Kim hjelper.\n- **Live:** $\\text{Live} \\in F(V)$? Ja. Konsekventen: $\\langle \\text{Live}, \\text{Kim}\\rangle \\in F(H)$? **Ja.** Implikasjonen er sann.\n\nAlle tre går igjennom, altså er formelen **sann**.\n\n**(iii) Motmodell.** Fjern $\\langle \\text{Live}, \\text{Kim}\\rangle$ fra $F(H)$, slik at $F(H) = \\{\\langle \\text{Iselin}, \\text{Kim}\\rangle\\}$.\n\nDa blir gjennomgangen: Iselin går fortsatt igjennom, Kim går igjennom av tom sannhet, men **Live har nå sann antesedent og usann konsekvent** — hun er veileder uten å hjelpe Kim. Det er nøyaktig den ene kombinasjonen som gjør en implikasjon usann, og formelen blir **usann**.\n\n**Hvorfor endringen virker:** allkvantoren står og faller på det svakeste individet. Å fjerne det ene paret gjør Live til et moteksempel, og ett moteksempel er nok.\n\n**(iv) Hvorfor rekkefølgen i paret må holdes fra hverandre.** $F(H)$ inneholder $\\langle \\text{Live}, \\text{Kim}\\rangle$, som betyr at Live hjelper Kim — ikke at Kim hjelper Live; hadde vi lest paret motsatt vei, ville vi svart på en helt annen setning, og $H(k,l)$ er usann i denne modellen.\n\n**Kontroll til slutt:** oppgaveteksten hadde fire krav — oversettelse, evaluering med framgangsmåte, motmodell med begrunnelse, og en setning om ordnede par. Alle fire er besvart, og alle tre individene i domenet er ført opp i evalueringen.",
+        "hints": [
+          "Begynn med å avgjøre om subjektet er et navn eller et kvantoruttrykk.",
+          "For (iii): finn det individet som lettest kan gjøres til moteksempel, og endre bare det oppslaget."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-3-warn-ikke-bland",
+      "type": "warning",
+      "title": "Ikke bland ordnede par den ene og den andre veien",
+      "content": "Dette er kapitlets vanligste feil, og den er feil \\#2 i bokas register — å bytte om parvise begreper.\n\n**Den skarpe forskjellen i én setning:** i en **mengde** er rekkefølgen likegyldig, men i et **ordnet par** bærer rekkefølgen hele informasjonen — $\\langle a, b\\rangle$ og $\\langle b, a\\rangle$ er to forskjellige ting.\n\n$$\\langle a, b\\rangle \\neq \\langle b, a\\rangle$$\n\n**Testen som skiller dem i praksis:** tegn relasjonen som piler. Et par er en pil fra det første til det andre elementet, og en pil peker én vei. At det går en pil fra Arne til Bea, sier ingenting om veien tilbake.\n\nTo feller som følger av forvekslingen:\n\n- **Å slutte at $K(b,a)$ er sann fordi $K(a,b)$ er det.** De to må slås opp hver for seg. I vår modell er den første usann og den andre sann.\n- **Å slutte «gjennom» relasjonen.** Arne kjenner Bea, og Bea kjenner Cato — men $K(a,c)$ er likevel usann. Relasjonen er bare det som står i mengden, ikke det som kunne følge av den.\n\n**Motmiddelet er én linje i besvarelsen:** skriv ned paret du leter etter, i riktig rekkefølge, **før** du slår opp."
+    },
+    {
+      "id": "ling1100-4-3-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Modell-evaluering er den reneste fasit-oppgaven i emnet: svaret er sann eller usann, og det finnes ingen tolkningsrom. Vaghet er feil \\#4 i bokas register, og den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk på at vaghet i formelle svar teller som feil, ikke som svakhet.\n\nMen her har slarken en annen form enn ellers: den ligger i **framgangsmåten**, ikke i svaret.\n\n> **Vagt:** «$\\forall x\\,S(x)$ er vel usann, siden det ser ut som ikke alle synger.»\n> **Presist:** «$\\forall x\\,S(x)$ er usann. Jeg prøver hvert individ i domenet: Arne er medlem av $F(S)$, Bea er ikke medlem av $F(S)$, Cato er medlem. Bea velter formelen, og allkvantoren krever at alle går igjennom.»\n\nFem spørsmål til ditt eget svar:\n\n- Er **hvert atom slått opp i to trinn** — hva konstanten viser til, og om det er medlem?\n- Står **paret du lette etter** skrevet ned, i riktig rekkefølge?\n- Er **hvert individ i domenet ført opp** i kvantorevalueringen?\n- Er det **avgjørende individet** pekt ut — den som velter en $\\forall$-påstand eller redder en $\\exists$-påstand?\n- Står **mellomtrinnene** der for sammensatte formler, slik at utregningen kan kontrolleres?\n\n**Den enkeltformuleringen som koster mest:** «formelen er sann fordi det stemmer med modellen». Det er ingen begrunnelse — det er en gjentakelse av konklusjonen. Begrunnelsen er oppslaget, og oppslaget er det som skal stå."
+    },
+    {
+      "id": "ling1100-4-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Seks feil dominerer modelloppgaver.\n\n- **Feil \\#2 — ombyttet ordnet par.** $\\langle a,b\\rangle$ og $\\langle b,a\\rangle$ må slås opp hver for seg. Skriv paret ned før du leter.\n- **Feil \\#4 — sannhetsverdi uten oppslag.** En riktig verdi uten framgangsmåte er et gjettet svar. Halve poenget med oppgavetypen er føringen.\n- **Å glemme et individ i kvantorevalueringen.** Med tre individer i domenet skal det stå tre linjer. Tell dem.\n- **Å behandle tom sannhet som noe rart som kan hoppes over.** Er antesedenten usann, går individet igjennom — og det skal skrives ut, ikke forbigås.\n- **Å slutte gjennom en relasjon.** Modellen er fullstendig og sier bare det som står i den. Transitivitet må være oppgitt, den kan ikke antas.\n- **Å blande de tre klammetypene.** $\\{\\ \\}$ er mengde, $\\langle\\ \\rangle$ er ordnet par, $\\llbracket\\ \\rrbracket$ er denotasjon. Tre tegn, tre jobber.\n\n**En sjuende felle, som hører til feil \\#7 — å hoppe over den formelle verktøykassa.** Modelloppgaven ser tyngre ut enn den er. Den er den mest mekaniske oppgaven i hele emnet, og den er derfor den tryggeste å ta hvis du har øvd på den én ettermiddag."
+    },
+    {
+      "id": "ling1100-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-4-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $M$ | modellen |\n| $\\langle D, F\\rangle$ | modellen som ordnet par av domene og tolkningsfunksjon |\n| $D$ | domenet — alle tingene som finnes i modellen; det kvantorene løper over |\n| $F$ | tolkningsfunksjonen — sier hva hvert symbol viser til |\n| $F(a)$ | verdien tolkningsfunksjonen gir konstanten $a$: ett individ |\n| $F(S)$ | ekstensjonen til et ettplasspredikat: en mengde individer |\n| $F(K)$ | ekstensjonen til et toplasspredikat: en mengde ordnede par |\n| $\\{\\ \\}$ | mengde — rekkefølgen inni betyr ingenting |\n| $\\langle\\ \\rangle$ | ordnet par — rekkefølgen betyr alt |\n| $\\in$ | medlemskap i en mengde |\n| $\\emptyset$ | den tomme mengden |\n| $\\llbracket \\alpha \\rrbracket$ | denotasjonen til uttrykket $\\alpha$ |\n| $\\forall$, $\\exists$ | kvantorene fra [kap. 4.1](/bok/ling1100/ling1100-4-1), her tolket over $D$ |\n| $\\vDash$ | entailment fra [kap. 3.2](/bok/ling1100/ling1100-3-2) — brukes aldri om sannhet i én modell |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$M = \\langle D, F\\rangle$$\n\nModellen er domenet pluss tolkningsfunksjonen, i den rekkefølgen.\n\n$$P(t) \\ \\text{er sann i } M \\ \\text{hviss} \\ F(t) \\in F(P)$$\n\nEvalueringsregelen for ettplasspredikater: ett oppslag, ett medlemskapsspørsmål.\n\n$$R(t_1, t_2) \\ \\text{er sann i } M \\ \\text{hviss} \\ \\langle F(t_1), F(t_2)\\rangle \\in F(R)$$\n\nEvalueringsregelen for toplasspredikater. Paret settes sammen i den rekkefølgen argumentene står i formelen.\n\n$$\\langle a, b\\rangle \\neq \\langle b, a\\rangle$$\n\nOrdnede par er ordnede. Dette er kapitlets viktigste enkeltregel.\n\n$$\\forall x\\,\\varphi \\ \\text{er sann i } M \\ \\text{hviss} \\ \\varphi \\ \\text{er sann for hvert individ i } D$$\n\n$$\\exists x\\,\\varphi \\ \\text{er sann i } M \\ \\text{hviss} \\ \\varphi \\ \\text{er sann for minst ett individ i } D$$\n\nKvantorreglene. Med et endelig domene prøves individene etter tur.\n\n$$\\llbracket a \\rrbracket = F(a)$$\n\nDenotasjonen til en konstant er den verdien tolkningsfunksjonen gir den.\n\n**Notasjonsregler:** de tre klammetypene har hver sin faste jobb — krøllparentes for mengde, vinkelparentes for ordnet par, denotasjonsklammer for verdien til et uttrykk. Rekkefølgen inni en mengde er likegyldig; rekkefølgen inni et par er det aldri. Symbolet $\\vDash$ er reservert for entailment og brukes ikke om sannhet i en enkelt modell."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-4-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "ling1100-4-3-rep-oppg-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-3-rep-e-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.4](/bok/ling1100/ling1100-3-4)) Hva betyr $x \\in A$, og hvorfor er akkurat dette symbolet så viktig i modellteorien?",
+            "solution": "$x \\in A$ betyr at $x$ er **medlem** av mengden $A$.\n\nDet er viktig her fordi **hele evalueringen bygger på medlemskapsspørsmål**. En atomær formel med ettplasspredikat er sann hviss individet er medlem av predikatets ekstensjon; en atomær formel med toplasspredikat er sann hviss det ordnede paret er medlem av relasjonens ekstensjon. Alt annet i kapitlet bygges opp av disse oppslagene.",
+            "hints": [
+              "Tenk på hva du faktisk gjør når du evaluerer et atom."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-3-rep-oppg-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-3-rep-e-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/ling1100/ling1100-4-1)) Hvorfor skal $K(a,b)$ og $K(b,a)$ regnes som ulike formler?",
+            "solution": "Fordi **argumentrekkefølgen i et relasjonssymbol bærer informasjon**. Med $K(x,y)$ = «$x$ kjenner $y$» sier $K(a,b)$ at Arne kjenner Bea, mens $K(b,a)$ sier at Bea kjenner Arne. De to kan ha ulik sannhetsverdi.\n\nI dette kapitlet er dette samme sak sett fra tolkningssiden: relasjonen tolkes som en mengde av **ordnede par**, og $\\langle a,b\\rangle \\neq \\langle b,a\\rangle$.",
+            "hints": [
+              "Tenk på et konkret verb der de to retningene kan sprike."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-3-rep-oppg-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-3-rep-e-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.1](/bok/ling1100/ling1100-3-1)) Når er $p \\rightarrow q$ sann, og hva heter det når den er sann fordi antesedenten er usann?",
+            "solution": "$p \\rightarrow q$ er sann i tre av fire tilfeller. Den er **usann i nøyaktig ett**: når $p$ er sann og $q$ er usann.\n\nNår den er sann fordi antesedenten er usann, kalles det **tom sannhet**. Forklaringen som virker: en implikasjon er en garanti mot én bestemt kombinasjon, og uteblir betingelsen, blir garantien aldri satt på prøve.\n\nI modelloppgaver møter du dette hele tiden, siden allkvantoren er bygd av implikasjoner: individene som ikke oppfyller antesedenten, går igjennom uten videre.",
+            "hints": [
+              "Tenk på implikasjonen som en garanti."
+            ]
+          }
+        },
+        {
+          "id": "ling1100-4-3-rep-oppg-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "ling1100-4-3-rep-e-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.2](/bok/ling1100/ling1100-1-2)) Hva er forskjellen på ekstensjon og intensjon, og hvilken av dem arbeider modellteorien i dette kapitlet med?",
+            "solution": "**Ekstensjonen** er mengden uttrykket gjelder for; **intensjonen** er betingelsen som avgjør hvilken mengde det blir. Et uttrykk kan ha innholdsrik intensjon og tom ekstensjon.\n\nModellteorien i dette kapitlet arbeider utelukkende med **ekstensjoner**. Tolkningsfunksjonen oppgir hvem som faktisk synger — $F(S) = \\{\\text{Arne}, \\text{Cato}\\}$ — og sier ingenting om hva det vil si å synge.\n\nDet er en bevisst begrensning: en modell beskriver **én** situasjon, og i én situasjon er ekstensjonen alt som trengs for å regne ut sannhetsverdier.",
+            "hints": [
+              "Tenk på enhjørning-eksempelet fra Del 1."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

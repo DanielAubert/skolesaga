@@ -1,0 +1,353 @@
+{
+  "id": "ling1100-4-4",
+  "courseId": "ling1100",
+  "chapterNumber": "4.4",
+  "title": "Drill — oversett til predikatlogikk og evaluer mot modell (fasit)",
+  "description": "Hele F2-repertoaret drillet: oversettelse, scope og modell-evaluering med fasit og trinnvis føring.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne oversette all-, eksistens- og nektelsessetninger til predikatlogikk med riktig parring og fullstendig nøkkel",
+    "kunne skrive ut begge scope-lesningene av en flertydig setning og konstruere en situasjon som skiller dem",
+    "kunne evaluere atomære, sammensatte og kvantifiserte formler mot en oppgitt modell med fullstendig føring",
+    "kunne finne feilen i en gal oversettelse eller evaluering og skrive den korrekte versjonen"
+  ],
+  "content": [
+    {
+      "id": "ling1100-4-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet drilles fordi Del 4 er emnets nyeste verktøykasse, og fordi den er mekanisk.** Predikatlogisk oversettelse og modell-evaluering er prøvd i settet fra høsten 2024 — **1 av de 12 settene** i materialet — og funksjonsapparatet bak i settet fra høsten 2018, altså **1 av 12** til. Scope og kvantorløfting er prøvd i **2 av de 12 settene**, høsten 2012 og høsten 2018.\n\n- **Alt her er sjanger F2 — predikatlogikk-oversettelse og modellteoretisk evaluering.** Tre varianter forekommer: ren oversettelse, scope-flertydighet, og evaluering mot en oppgitt tolkningsfunksjon. Drillen dekker alle tre, og de fire siste oppgavene kombinerer dem.\n- **Dette er den reneste fasit-sjangeren i emnet sammen med sannhetstabellene.** Svarene er riktige eller gale, og den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk på at vaghet i formelle svar teller som feil, ikke som svakhet.\n- **Halve svaret er framgangsmåten.** En riktig sannhetsverdi uten oppslag er et gjettet svar. Alle fasitene under fører derfor hvert trinn, og det er den føringen du skal etterligne.\n- **Kapitlet er langt — 75 minutter — og skal deles.** Del 1 er oversettelse, del 2 er evaluering, del 3 er kombinert. Ta én del om gangen.\n- **Fasitene er nyskrevet av oss.** LING1100 har ingen publiserte løsningsforslag og ingen fasit."
+    },
+    {
+      "id": "ling1100-4-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Drillen forutsetter hele Del 4, altså [kap. 4.1](/bok/ling1100/ling1100-4-1) om predikater, konstanter og kvantorer, [kap. 4.2](/bok/ling1100/ling1100-4-2) om virkefelt og kvantorløfting, og [kap. 4.3](/bok/ling1100/ling1100-4-3) om modeller og evaluering. Konnektivene og sannhetstabellene kommer fra [kap. 3.1](/bok/ling1100/ling1100-3-1), mengdelæren fra [kap. 3.4](/bok/ling1100/ling1100-3-4).\n\n**Sist du var her** — de fire reglene alt i kapitlet hviler på:\n\n- **Parringsregelen:** $\\forall$ parres med $\\rightarrow$, $\\exists$ parres med $\\land$. Allkvantoren trenger en betingelse, eksistenskvantoren trenger et funn.\n- **Ordnede par er ordnede:** $\\langle a,b\\rangle \\neq \\langle b,a\\rangle$. De to må slås opp hver for seg.\n- **Leseregelen for virkefelt:** den kvantoren som står lengst til venstre, er valgt én gang for alle; den innerste velges på nytt for hvert valg den ytterste gjør.\n- **Evalueringsregelen:** en atomær formel er sann hviss oppslaget i tolkningsfunksjonen gir medlemskap. $P(t)$ er sann hviss $F(t) \\in F(P)$; $R(t_1,t_2)$ er sann hviss $\\langle F(t_1), F(t_2)\\rangle \\in F(R)$.\n\nAlle symbolene står samlet i **Symbol- og formellisten** nederst."
+    },
+    {
+      "id": "ling1100-4-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriftene (~10 min)\n\nTo sjangre, to algoritmer. Begge er korte, og begge er verdt å kunne så godt at du kan skrive dem ned uten å tenke."
+    },
+    {
+      "id": "ling1100-4-4-def-oversettelsesalgoritmen",
+      "type": "definition",
+      "title": "Oversettelsesalgoritmen",
+      "content": "De fem trinnene i en oversettelsesoppgave: **finn individene → finn predikatene og tell argumentplassene → skriv nøkkelen → bygg formelen → les den tilbake.**\n\n**Trinn 1 — finn individene.** Egennavn og entydige beskrivelser blir konstanter. Kvantoruttrykk som *alle*, *noen*, *ingen* blir kvantor pluss variabel, aldri konstant.\n\n**Trinn 2 — finn predikatene, og tell argumentplassene.** Én plass for egenskaper, to for relasjoner, tre for gi-typen.\n\n**Trinn 3 — skriv nøkkelen**, med argumentplassene markert: $H(x,y)$: «$x$ hjelper $y$».\n\n**Trinn 4 — bygg formelen** med riktig parring: $\\forall$ med $\\rightarrow$, $\\exists$ med $\\land$. Sett parentes rundt kvantorens virkefelt.\n\n**Trinn 5 — les formelen tilbake til norsk**, ledd for ledd. Stivt norsk er meningen; kontrollen er om du kommer tilbake til noe som ligner setningen du startet med."
+    },
+    {
+      "id": "ling1100-4-4-def-evalueringsalgoritmen",
+      "type": "definition",
+      "title": "Evalueringsalgoritmen",
+      "content": "De fem trinnene i en modelloppgave: **skriv modellen → finn hovedkonnektivet → slå opp hvert atom → prøv hvert individ ved kvantorer → pek ut det avgjørende individet.**\n\n**Trinn 1 — skriv modellen ned**, også når oppgaven oppgir den. Uten den kan svaret ditt ikke kontrolleres.\n\n**Trinn 2 — finn hovedkonnektivet.** Se bort fra alt i parentes, og se hva som blir stående igjen. Det forteller deg hvilken sannhetstabell som gjelder til slutt.\n\n**Trinn 3 — slå opp hvert atom i to trinn:** hva konstanten viser til, og om det individet eller det ordnede paret er medlem av ekstensjonen.\n\n**Trinn 4 — ved kvantorer: prøv hvert individ i domenet etter tur**, med fullstendige oppslag for hvert. Allkvantoren krever at alle går igjennom; eksistenskvantoren krever minst én.\n\n**Trinn 5 — pek ut det avgjørende individet.** Hvem velter en $\\forall$-påstand, eller hvem redder en $\\exists$-påstand? Dette trinnet er forskjellen på et riktig og et fullstendig svar."
+    },
+    {
+      "id": "ling1100-4-4-def-nokkelen",
+      "type": "definition",
+      "title": "Nøkkelen",
+      "content": "Linjene som sier hva hvert symbol står for. Dette er Del 4s motstykke til variabelforklaringen i en sannhetstabell, og den er like obligatorisk.\n\n```text\n(1)  h:      Hedda\n     D(x):   x er deltaker\n     K(x,y): x kjenner y\n```\n\n**Argumentplassene skal være markert.** «$K$ = kjenner» er en halv nøkkel: den sier ikke hvilken plass som er den som kjenner. Uten den opplysningen er formelen din ikke tolkbar, og en utolkbar formel kan ikke rettes.\n\n**Nøkkelen skal stå der også når oppgaven oppgir predikatene.** Oppgaven oppgir dem som regel knapt, og gjentakelsen koster deg femten sekunder."
+    },
+    {
+      "id": "ling1100-4-4-def-parringskontrollen",
+      "type": "definition",
+      "title": "Parringskontrollen",
+      "content": "Kontrollen som fanger den vanligste feilen i oversettelsesoppgaver: **gå gjennom formelen og se at hver $\\forall$ har et $\\rightarrow$ inni seg, og hver $\\exists$ et $\\land$.**\n\nKontrollen tar fem sekunder og gjelder også når formelen er negert eller har flere kvantorer. Negasjonen flytter seg mellom de ekvivalente formene; **parringen skifter aldri**.\n\n**Slik ser bruddene ut, og hva de betyr:**\n\n- $\\forall x\\,(A(x) \\land B(x))$ påstår at **alt** i domenet er A. Absurd sterkt.\n- $\\exists x\\,(A(x) \\rightarrow B(x))$ er sann så snart det finnes **én ting som ikke er A**. Nesten tomt.\n\n**Kontrollen er ikke en huskeregel, den er en avlesning.** Ser du $\\forall$ og $\\land$ i samme parentes, les formelen tilbake til norsk — feilen blir synlig av seg selv."
+    },
+    {
+      "id": "ling1100-4-4-def-parkontrollen",
+      "type": "definition",
+      "title": "Ordnet-par-kontrollen",
+      "content": "Kontrollen som fanger den vanligste feilen i modelloppgaver: **skriv ned paret du leter etter, i riktig rekkefølge, før du slår opp.**\n\nSkal du evaluere $H(e,d)$, skriver du først «jeg spør om $\\langle \\text{Even}, \\text{Dina}\\rangle \\in F(H)$», og deretter slår du opp. Har du skrevet paret riktig, kan du ikke lenger forveksle det med det motsatte.\n\n**Grunnen til at feilen er så vanlig, er at norsk hjelper deg å lese slurvete.** Ser du $\\langle \\text{Dina}, \\text{Even}\\rangle$ i mengden og spør om Even hjelper Dina, er det lett å se «Dina og Even» og svare ja.\n\n**Kontrollen har en gratis bonus:** når du har skrevet paret, er selve oppslaget mekanisk, og du kan lese negative svar rett ut av modellen. Står ikke paret der, er formelen usann — modellen er fullstendig."
+    },
+    {
+      "id": "ling1100-4-4-def-tidsbudsjett",
+      "type": "definition",
+      "title": "Tidsbudsjett for en Del 4-oppgave",
+      "content": "Anslaget du kan regne med når en F2-oppgave dukker opp på eksamen.\n\nEn slik oppgave er én av ti besvarelser i det nyeste settformatet, og skrivetiden per besvarelse er omtrent **20 minutter**. Differansen opp til de fire timene går til å lese hele settet, velge oppgaver og lese gjennom til slutt.\n\n**Slik fordeler de tjue minuttene seg i praksis:**\n\n- **3 minutter:** les oppgaven, tell kravene, skriv nøkkelen eller modellen ned.\n- **12 minutter:** selve arbeidet — formlene eller oppslagene, med føring.\n- **5 minutter:** parafrasekontroll eller motmodell, og en gjennomlesing mot kravene du telte.\n\n**Merk at F2-oppgaver er blant de raskeste i settet når du har øvd.** Det er nettopp derfor de er verdt å øve på: de frigjør tid til de redegjørende oppgavene, som ikke kan gjøres fort."
+    },
+    {
+      "id": "ling1100-4-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomgått case med margnotater",
+      "problem": "**Nyskrevet eksamensoppgave:** «(a) Oversett setningene under til predikatlogikk med nøkkelen som er oppgitt. (b) Avgjør sannhetsverdien til hver av formlene dine i modellen $M$, og vis framgangsmåten. (c) Oppgi en motmodell for den ene formelen som er usann.»\n\n```text\nD  = { Dina, Even, Frida, Gaute }\n\nF(d) = Dina\nF(e) = Even\nF(f) = Frida\nF(g) = Gaute\n\nF(V) = { Dina, Frida }\nF(H) = { <Dina, Even>, <Frida, Even>, <Even, Gaute> }\n\nV(x)   betyr  x er veileder\nH(x,y) betyr  x hjelper y\n```\n\n```text\n(2) a. Alle veilederne hjelper Even.\n    b. Gaute hjelper noen.\n```",
+      "solution": "**(a) Oversettelsene.**\n\nNøkkelen er oppgitt i modellen, men jeg gjentar den med argumentplassene markert:\n\n```text\n(3)  e:      Even\n     g:      Gaute\n     V(x):   x er veileder\n     H(x,y): x hjelper y\n```\n\n**a)** $\\forall x\\,(V(x) \\rightarrow H(x,e))$\n\nTilbakelest: «for enhver ting gjelder at hvis den er veileder, så hjelper den Even.» Allkvantor med implikasjon, siden *veileder* er betingelsen som avgrenser hvem påstanden gjelder. Konstanten $e$ står i **andre** argumentplass, siden Even er den som blir hjulpet.\n\n**b)** $\\exists y\\,H(g,y)$\n\nTilbakelest: «det finnes minst én ting som Gaute hjelper.» Her er $g$ en konstant i **første** plass, og kvantoren binder bare andre plass. Merk at det ikke står noe $\\land$ her — parringsregelen gjelder når eksistenskvantoren skal avgrense hva slags ting det er snakk om, og her er det ingen slik avgrensning.\n\n> Margnotat: legg merke til at **nøkkelen står før formlene**, ikke etter. Det er ikke pynt — det er den rekkefølgen som gjør at leseren kan følge deg, og den samme rekkefølgen som en sannhetstabell krever av variabelforklaringen.\n\n**(b) Evalueringen.**\n\n**Formel a) — sann.** Hovedkonnektivet er allkvantoren, så jeg prøver hvert individ i domenet. $F(e) = \\text{Even}$.\n\n- **Dina:** $\\text{Dina} \\in F(V)$? Ja. Konsekventen: $\\langle \\text{Dina}, \\text{Even}\\rangle \\in F(H)$? **Ja.** Implikasjonen er sann.\n- **Even:** $\\text{Even} \\in F(V)$? Nei. Antesedenten er usann, og implikasjonen er sann av **tom sannhet** — uansett hvem Even hjelper.\n- **Frida:** $\\text{Frida} \\in F(V)$? Ja. Konsekventen: $\\langle \\text{Frida}, \\text{Even}\\rangle \\in F(H)$? **Ja.** Sann.\n- **Gaute:** $\\text{Gaute} \\in F(V)$? Nei. Sann av tom sannhet.\n\nAlle fire går igjennom. Formelen er **sann**.\n\n> Margnotat: her står **testen før konklusjonen** — hvert individ er ført opp med sitt oppslag, og først deretter kommer sannhetsverdien. Det er den rekkefølgen som gir uttelling. Motsatt rekkefølge — «formelen er sann, for alle veilederne hjelper Even» — er en påstand med et vedheng, ikke en utregning.\n\n**Formel b) — usann.** Hovedkonnektivet er eksistenskvantoren. $F(g) = \\text{Gaute}$, så jeg leter etter et par som **begynner** med Gaute.\n\n- $\\langle \\text{Gaute}, \\text{Dina}\\rangle$ — ikke i $F(H)$.\n- $\\langle \\text{Gaute}, \\text{Even}\\rangle$ — ikke i $F(H)$.\n- $\\langle \\text{Gaute}, \\text{Frida}\\rangle$ — ikke i $F(H)$.\n- $\\langle \\text{Gaute}, \\text{Gaute}\\rangle$ — ikke i $F(H)$.\n\nIngen av de fire mulige parene finnes. Formelen er **usann**.\n\n> Margnotat: legg merke til at alle fire mulighetene er ført opp. For en **usann** eksistensformel er hele listen begrunnelsen — du kan ikke stoppe før du har utelukket alt. For en **sann** eksistensformel er det motsatt: ett funn er nok, og da stopper du.\n\n**(c) Motmodell for formel b).**\n\nLegg ett par til i $F(H)$ som begynner med Gaute, for eksempel $\\langle \\text{Gaute}, \\text{Frida}\\rangle$. Da blir\n\n$$F(H) = \\{\\langle \\text{Dina}, \\text{Even}\\rangle, \\langle \\text{Frida}, \\text{Even}\\rangle, \\langle \\text{Even}, \\text{Gaute}\\rangle, \\langle \\text{Gaute}, \\text{Frida}\\rangle\\}$$\n\nog formel b) blir sann, siden det nå finnes en ting Gaute hjelper. **Formel a) står uendret sann**, siden endringen ikke berører noen veileder.\n\n> Margnotat: motmodellen endrer **nøyaktig det oppslaget som avgjorde svaret**, og sier eksplisitt at den andre formelen ikke berøres. Å bygge en helt ny modell ville vært riktig, men det ville ikke vist hva som bar svaret."
+    },
+    {
+      "id": "ling1100-4-4-del1",
+      "type": "text",
+      "content": "## Del 1 av drillen — oversettelse (~25 min)\n\nOppgave 1 til 6. De første er små; fra oppgave 4 kommer nektelser, feilretting og scope."
+    },
+    {
+      "id": "ling1100-4-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F2 — predikatlogikk-oversettelse og modellteoretisk evaluering. Innstegsoppgave.)\n\nBruk nøkkelen under.\n\n```text\n(4)  i:      Iselin\n     S(x):   x er student\n     Le(x,y): x leste y\n```\n\n**a)** Oversett «Iselin er student».\n**b)** Oversett «Alle studentene er studenter». Hva er merkelig med resultatet?\n**c)** Hvor mange argumentplasser har $Le$, og hva kalles det tallet?",
+        "solution": "**a)** $S(i)$. En atomær formel: ett predikat med sin ene argumentplass fylt av en konstant.\n\n**b)** $\\forall x\\,(S(x) \\rightarrow S(x))$.\n\nDet merkelige er at formelen er **sann i enhver modell**. Uansett hvem som er student, er implikasjonen sann for hvert individ: enten er antesedenten usann, og da er implikasjonen sann av tom sannhet, eller så er begge sanne. Setningen sier altså ingenting om verden.\n\nSlike setninger kalles **logisk sanne**, og du møtte tanken i [kap. 3.2](/bok/ling1100/ling1100-3-2) under navnet analytisk sannhet: sann i kraft av betydningen, ikke i kraft av hvordan verden er.\n\n**c)** To. Tallet kalles predikatets **aritet**, og et toplasspredikat uttrykker en relasjon.\n\n**Legg merke til parringen i b):** allkvantor med implikasjon, som alltid. Hadde du skrevet $\\forall x\\,(S(x) \\land S(x))$, ville formelen påstått at **alt** i domenet er student — og det er en helt annen, og som regel usann, påstand.",
+        "hints": [
+          "For b): prøv å tenke deg en situasjon der formelen kunne vært usann.",
+          "For c): tell hvor mange ting verbet trenger for å gi en fullstendig setning."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F2.) Bruk nøkkelen under, og oversett hver setning.\n\n```text\n(5)  D(x): x er deltaker\n     M(x): x møtte opp\n```\n\n**a)** Alle deltakerne møtte opp.\n**b)** Noen deltakere møtte opp.\n**c)** Les begge formlene tilbake til norsk, ledd for ledd.",
+        "solution": "**a)** $\\forall x\\,(D(x) \\rightarrow M(x))$\n\n**b)** $\\exists x\\,(D(x) \\land M(x))$\n\n**c)** Formel a) tilbakelest: «for enhver ting $x$ gjelder at hvis $x$ er deltaker, så møtte $x$ opp.» Formel b) tilbakelest: «det finnes minst én ting $x$ slik at $x$ er deltaker og $x$ møtte opp.»\n\n**Hvorfor konnektivene er forskjellige.** Allkvantoren trenger en **betingelse** som avgrenser hvem påstanden gjelder — det er implikasjonens jobb. Eksistenskvantoren trenger et **funn** med begge egenskapene — det er konjunksjonens jobb.\n\n**Kontrollen:** hadde a) hatt $\\land$, ville formelen sagt at alt i domenet er deltaker. Hadde b) hatt $\\rightarrow$, ville formelen vært sann så snart det finnes noe som ikke er deltaker — altså nesten alltid.",
+        "hints": [
+          "Bruk parringsregelen: allkvantor krever en betingelse, eksistenskvantor krever et funn.",
+          "For c): les $\\forall x$ som «for enhver ting» og $\\rightarrow$ som «hvis …, så …»."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk nøkkelen under.\n\n```text\n(6)  n:      Nora\n     A(x):   x er ansatt\n     R(x,y): x rapporterer til y\n```\n\n**a)** Alle ansatte rapporterer til Nora.\n**b)** Nora rapporterer til noen ansatte.\n**c)** Forklar i én setning hvorfor a) og b) ikke kan bruke samme argumentrekkefølge i $R$.",
+        "solution": "**a)** $\\forall x\\,(A(x) \\rightarrow R(x,n))$\n\nTilbakelest: «for enhver ting gjelder at hvis den er ansatt, så rapporterer den til Nora.» Konstanten $n$ står i **andre** plass, siden Nora er den det rapporteres til.\n\n**b)** $\\exists x\\,(A(x) \\land R(n,x))$\n\nTilbakelest: «det finnes minst én ting som er ansatt og som Nora rapporterer til.» Her står $n$ i **første** plass, siden Nora er den som rapporterer.\n\n**c)** Fordi $R(x,y)$ er en relasjon med retning — første plass er den som rapporterer, andre plass er den det rapporteres til — og i a) er Nora mottaker mens hun i b) er avsender.\n\n**Kontrollen som fanger denne feilen:** les formelen tilbake. $R(n,x)$ i a) ville gitt «hvis den er ansatt, så rapporterer Nora til den» — en helt annen påstand, og en som gjør Nora til hele bedriftens underordnede.",
+        "hints": [
+          "Spør for hver setning hvem som er avsender og hvem som er mottaker i relasjonen.",
+          "Skriv nøkkelen med argumentplassene markert før du bygger formlene."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk nøkkelen under, og oppgi **to ekvivalente formler** for hver setning.\n\n```text\n(7)  R(x): x er rapport\n     Le(x): x er levert\n```\n\n**a)** Ingen rapporter er levert.\n**b)** Ikke alle rapporter er levert.\n**c)** Navngi loven som knytter de to formene sammen i hvert tilfelle.",
+        "solution": "**a)** $\\lnot\\exists x\\,(R(x) \\land Le(x))$, som er ekvivalent med $\\forall x\\,(R(x) \\rightarrow \\lnot Le(x))$.\n\nLest: «det finnes ikke noe som er rapport og er levert», og «for enhver ting gjelder at hvis den er rapport, så er den ikke levert».\n\n**b)** $\\lnot\\forall x\\,(R(x) \\rightarrow Le(x))$, som er ekvivalent med $\\exists x\\,(R(x) \\land \\lnot Le(x))$.\n\nLest: «det er ikke tilfelle at alle rapporter er levert», og «det finnes minst én rapport som ikke er levert».\n\n**c) Kvantornegasjonslovene.** For a) gjelder at $\\lnot\\exists x\\,\\varphi$ er ekvivalent med $\\forall x\\,\\lnot\\varphi$; for b) at $\\lnot\\forall x\\,\\varphi$ er ekvivalent med $\\exists x\\,\\lnot\\varphi$. Regelen i ord: **flyttes negasjonen forbi kvantoren, snur kvantoren.**\n\n**Forskjellen på a) og b), som er selve poenget:** a) utelukker at **noen** rapport er levert; b) krever bare **én** ulevert. Situasjonen som skiller dem: fem rapporter, fire leverte og én ikke. Der er b) sann og a) usann.\n\n**Kontroll av parringen i alle fire formlene:** $\\forall$ har $\\rightarrow$ inni, $\\exists$ har $\\land$ inni. Negasjonen flytter seg; parringen gjør det ikke.",
+        "hints": [
+          "Skriv først den formen som ligger nærmest den norske ordstillingen.",
+          "Spør om setningen tillater at noen rapporter faktisk er levert."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2 — feilretting.) En kandidat har levert oversettelsene under. Nøkkelen er $B(x)$: «$x$ er bibliotekar», $S(x)$: «$x$ synger». For hver formel: avgjør om den er riktig, og hvis ikke, si hva som er galt og skriv den riktige.\n\n**a)** «Alle bibliotekarer synger» → $\\forall x\\,(B(x) \\land S(x))$\n**b)** «Noen bibliotekarer synger» → $\\exists x\\,(B(x) \\rightarrow S(x))$\n**c)** «Alle bibliotekarer synger» → $\\forall x\\,B(x) \\rightarrow S(x)$\n**d)** «Ingen bibliotekarer synger» → $\\forall x\\,(B(x) \\rightarrow \\lnot S(x))$",
+        "solution": "**a) Galt — parringsfeil.** Riktig formel er $\\forall x\\,(B(x) \\rightarrow S(x))$.\n\nKandidatens formel leses «for enhver ting gjelder at den er bibliotekar og synger», altså at **alt** i domenet er bibliotekar. Situasjonen som avslører det: to individer, en syngende bibliotekar og en som verken er bibliotekar eller synger. Setningen er sann der; formelen er usann.\n\n**b) Galt — parringsfeil den andre veien.** Riktig formel er $\\exists x\\,(B(x) \\land S(x))$.\n\nKandidatens formel er sann så snart det finnes **én eneste ting som ikke er bibliotekar** — da er antesedenten usann, og implikasjonen sann av tom sannhet. Situasjonen som avslører det: én bibliotekar som ikke synger, og én ikke-bibliotekar. Setningen er usann der; formelen er sann.\n\n**c) Galt — manglende parentes.** Riktig formel er $\\forall x\\,(B(x) \\rightarrow S(x))$.\n\nKvantoren rekker bare over $B(x)$, så $x$-en i $S(x)$ er **fri**. Formelen er dermed åpen og har ingen sannhetsverdi i det hele tatt. En oversettelse av en fullstendig setning skal aldri ende som en åpen formel.\n\n**d) Riktig.** Dette er den ene av de to standardformene for «ingen A er B». Den andre er $\\lnot\\exists x\\,(B(x) \\land S(x))$, og de er ekvivalente ved kvantornegasjonsloven.\n\n**Merk hva de tre feilene har til felles:** alle tre ville blitt oppdaget av **parafrasekontrollen**. Les formelen stivt tilbake til norsk, og sammenlign med setningen. I a) og b) kommer du tilbake til noe annet; i c) kommer du tilbake til et spørsmål om hvem $x$ er.",
+        "hints": [
+          "Les hver formel bokstavelig tilbake til norsk, uten å gjette hva den var ment å si.",
+          "For hver formel du mistenker: konstruer en situasjon der setning og formel spriker."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2 — scope.) Betrakt setningen «Hver veileder leste en søknad.»\n\n```text\n(8)  V(x):   x er veileder\n     Sø(y):  y er søknad\n     Le(x,y): x leste y\n```\n\n**a)** Skriv begge scope-lesningene.\n**b)** Gi en entydig parafrase for hver.\n**c)** Beskriv en situasjon der den ene er sann og den andre usann.\n**d)** Hvilken av lesningene krever kvantorløfting, og hvorfor?",
+        "solution": "**a)** Lesning 1, med allkvantoren ytterst:\n\n$$\\forall x\\,\\bigl(V(x) \\rightarrow \\exists y\\,(Sø(y) \\land Le(x,y))\\bigr)$$\n\nLesning 2, med eksistenskvantoren ytterst:\n\n$$\\exists y\\,\\bigl(Sø(y) \\land \\forall x\\,(V(x) \\rightarrow Le(x,y))\\bigr)$$\n\n**b)** *Parafrase 1:* «Hver veileder leste minst én søknad, ikke nødvendigvis den samme som de andre.» *Parafrase 2:* «Det finnes én bestemt søknad som samtlige veiledere leste.»\n\n**c)** To veiledere, Ravn og Sunniva, og to søknader, 1 og 2. Ravn leste søknad 1, Sunniva leste søknad 2, og ingen leste den andres.\n\n**Lesning 1 er sann her:** begge veilederne leste minst én søknad. **Lesning 2 er usann:** verken søknad 1 eller søknad 2 ble lest av begge.\n\n**d) Lesning 2 krever kvantorløfting.** I den norske setningen står *en søknad* sist, som objekt, men i formelen må den kvantoren stå lengst til venstre for å få videst virkefelt. Kvantorløfting flytter uttrykket ut av setningen og opp foran den i logisk form, og etterlater et **spor** på objektplassen. Sporet blir til $y$-en i $Le(x,y)$.\n\nLesning 1 krever ingen løfting: der følger virkefeltene overflaterekkefølgen.\n\n**Kontroll av parringen:** i begge formlene står $\\rightarrow$ etter $V(x)$ og $\\land$ etter $Sø(y)$. Rekkefølgen på kvantorene skifter; parringen gjør det aldri.",
+        "hints": [
+          "Skriv først lesningen som følger den norske ordstillingen.",
+          "For c): gi hver veileder sin egen søknad, så utelukkes den spesifikke lesningen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-del2",
+      "type": "text",
+      "content": "## Del 2 av drillen — evaluering mot modell (~25 min)\n\n**— naturlig pausepunkt —**\n\nOppgave 7 til 11. Alle bruker modellen under, som er den samme som i eksempel 1. Skriv den av på kladden før du begynner — det er trinn 1 i algoritmen.\n\n```text\nD  = { Dina, Even, Frida, Gaute }\n\nF(d) = Dina\nF(e) = Even\nF(f) = Frida\nF(g) = Gaute\n\nF(V) = { Dina, Frida }\nF(H) = { <Dina, Even>, <Frida, Even>, <Even, Gaute> }\n\nV(x)   betyr  x er veileder\nH(x,y) betyr  x hjelper y\n```"
+    },
+    {
+      "id": "ling1100-4-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F2.) Bruk modellen. Avgjør sannhetsverdien til hver atomære formel, og vis oppslaget i to trinn.\n\n**a)** $V(d)$\n**b)** $V(e)$\n**c)** $H(d,e)$\n**d)** $H(e,d)$",
+        "solution": "**a) Sann.** $F(d) = \\text{Dina}$, og $\\text{Dina} \\in F(V)$, siden $F(V) = \\{\\text{Dina}, \\text{Frida}\\}$.\n\n**b) Usann.** $F(e) = \\text{Even}$, og Even er **ikke** medlem av $F(V)$. Bare Dina og Frida er veiledere i denne modellen.\n\n**c) Sann.** $F(d) = \\text{Dina}$ og $F(e) = \\text{Even}$. Paret jeg leter etter, er $\\langle \\text{Dina}, \\text{Even}\\rangle$, og det er det første i $F(H)$.\n\n**d) Usann.** $F(e) = \\text{Even}$ og $F(d) = \\text{Dina}$. Paret jeg leter etter, er $\\langle \\text{Even}, \\text{Dina}\\rangle$. **Det paret finnes ikke i $F(H)$.**\n\n**Merk kontrasten mellom c) og d).** Mengden inneholder $\\langle \\text{Dina}, \\text{Even}\\rangle$, ikke $\\langle \\text{Even}, \\text{Dina}\\rangle$. At Dina hjelper Even, sier ingenting om veien tilbake. **Ordnede par er ordnede**, og det er nettopp denne forvekslingen ordnet-par-kontrollen er laget for å hindre.",
+        "hints": [
+          "Slå først opp hva konstanten viser til, og spør deretter om medlemskap.",
+          "For c) og d): skriv ned paret du leter etter, i riktig rekkefølge, før du slår opp."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk modellen. Avgjør sannhetsverdien, og vis mellomtrinnene.\n\n**a)** $V(e) \\lor H(e,g)$\n**b)** $V(g) \\rightarrow H(g,e)$\n**c)** $V(f) \\land \\lnot H(f,g)$\n**d)** $\\lnot(H(e,d) \\lor H(g,e))$",
+        "solution": "**a) Sann.**\n\n**Mellomtrinn:** $V(e)$ — Even er ikke medlem av $F(V)$. Usann. $H(e,g)$ — paret $\\langle \\text{Even}, \\text{Gaute}\\rangle$ er medlem av $F(H)$. Sann.\n\n**Hovedkonnektiv:** inklusiv disjunksjon. Minst én del er sann, altså **sann**.\n\n**b) Sann.**\n\n**Mellomtrinn:** $V(g)$ — Gaute er ikke medlem av $F(V)$. Usann. $H(g,e)$ — paret $\\langle \\text{Gaute}, \\text{Even}\\rangle$ finnes ikke. Usann.\n\n**Hovedkonnektiv:** implikasjon med **usann antesedent**. Da er implikasjonen sann uansett hva konsekventen er verdt. Dette er **tom sannhet**, og formelen er **sann**.\n\n**c) Sann.**\n\n**Mellomtrinn:** $V(f)$ — $F(f) = \\text{Frida}$, og Frida er medlem av $F(V)$. Sann. $H(f,g)$ — paret $\\langle \\text{Frida}, \\text{Gaute}\\rangle$ finnes ikke i $F(H)$. Usann, altså er $\\lnot H(f,g)$ sann.\n\n**Hovedkonnektiv:** konjunksjon, begge deler sanne. **Sann.**\n\n**d) Sann.**\n\n**Mellomtrinn:** $H(e,d)$ — paret $\\langle \\text{Even}, \\text{Dina}\\rangle$ finnes ikke. Usann. $H(g,e)$ — paret $\\langle \\text{Gaute}, \\text{Even}\\rangle$ finnes ikke. Usann. Disjunksjonen inni parentesen har to usanne ledd og er usann.\n\n**Hovedkonnektiv:** negasjonen utenpå snur verdien. **Sann.**\n\n**Kontroll av hele settet:** fire formler, mellomtrinn i alle, og hovedkonnektivet identifisert i hver. Merk at b) er sann av en helt annen grunn enn de andre — det er tom sannhet, og den forklaringen skal skrives ut, ikke forbigås.",
+        "hints": [
+          "Finn hovedkonnektivet først: se bort fra alt i parentes.",
+          "For b): sjekk antesedenten før du bryr deg om konsekventen."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2.) Bruk modellen. Avgjør sannhetsverdien, før opp hvert individ du prøver, og pek ut det avgjørende individet.\n\n**a)** $\\exists x\\,V(x)$\n**b)** $\\forall x\\,V(x)$\n**c)** $\\lnot\\exists x\\,H(x,x)$\n**d)** $\\forall x\\,(H(x,g) \\rightarrow \\lnot V(x))$",
+        "solution": "**a) Sann.**\n\n- Dina: medlem av $F(V)$? **Ja.** Formelen er sann, og jeg kan stoppe.\n\n**Det avgjørende individet:** Dina. Frida ville gjort samme nytte, men én er nok.\n\n**b) Usann.**\n\n- Dina: medlem av $F(V)$? Ja.\n- Even: medlem av $F(V)$? **Nei.**\n- Frida: ja.\n- Gaute: nei.\n\n**Det avgjørende individet:** Even velter formelen — det holder med ett moteksempel mot en allkvantert påstand. Gaute ville gjort det samme.\n\n**c) Sann.**\n\nFormelen sier at ingen hjelper seg selv. Jeg prøver de fire parene der individet står i begge plasser:\n\n- $\\langle \\text{Dina}, \\text{Dina}\\rangle$ — ikke i $F(H)$.\n- $\\langle \\text{Even}, \\text{Even}\\rangle$ — ikke i $F(H)$.\n- $\\langle \\text{Frida}, \\text{Frida}\\rangle$ — ikke i $F(H)$.\n- $\\langle \\text{Gaute}, \\text{Gaute}\\rangle$ — ikke i $F(H)$.\n\nEksistensformelen inni er usann, og negasjonen utenpå gjør hele formelen **sann**.\n\n**Det avgjørende:** her er det hele listen som er begrunnelsen. For en negert eksistensformel må alt utelukkes.\n\n**d) Sann.**\n\n$F(g) = \\text{Gaute}$. Formelen sier: alt som hjelper Gaute, er ikke veileder.\n\n- Dina: $\\langle \\text{Dina}, \\text{Gaute}\\rangle \\in F(H)$? Nei. Antesedenten usann, implikasjonen sann av tom sannhet.\n- Even: $\\langle \\text{Even}, \\text{Gaute}\\rangle \\in F(H)$? **Ja.** Konsekventen: er $\\lnot V(e)$ sann? Even er ikke veileder, altså ja. Implikasjonen er sann.\n- Frida: paret finnes ikke. Sann av tom sannhet.\n- Gaute: paret $\\langle \\text{Gaute}, \\text{Gaute}\\rangle$ finnes ikke. Sann av tom sannhet.\n\nAlle fire går igjennom. Formelen er **sann**.\n\n**Det avgjørende individet:** Even er den eneste med sann antesedent, og han består prøven. Formelen ville vært usann hvis Even hadde vært veileder.",
+        "hints": [
+          "Før opp hvert individ i domenet på egen linje, med utfallet.",
+          "For d): sjekk antesedenten først; individene som ikke hjelper Gaute, går igjennom uansett."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2 — nøstede kvantorer.) Bruk modellen. Evaluer i to lag, og vis begge.\n\n**a)** $\\forall x\\,\\exists y\\,H(x,y)$\n**b)** $\\exists y\\,\\forall x\\,(V(x) \\rightarrow H(x,y))$\n**c)** Forklar i to setninger hvorfor a) og b) kan ha ulik sannhetsverdi her, når de begge handler om hvem som hjelper hvem.",
+        "solution": "**a) Usann.**\n\nYtterste kvantor er $\\forall x$, så jeg prøver hvert individ, og for hvert spør jeg om det finnes minst én det hjelper.\n\n- **Dina:** finnes en $y$ med $\\langle \\text{Dina}, y\\rangle \\in F(H)$? Ja, $y = \\text{Even}$. Går igjennom.\n- **Even:** finnes en $y$? Ja, $y = \\text{Gaute}$. Går igjennom.\n- **Frida:** finnes en $y$? Ja, $y = \\text{Even}$. Går igjennom.\n- **Gaute:** finnes en $y$? Jeg prøver alle fire — Dina, Even, Frida, Gaute. Ingen av parene $\\langle \\text{Gaute}, \\ldots\\rangle$ finnes i $F(H)$. **Går ikke igjennom.**\n\n**Det avgjørende individet:** **Gaute**. Han hjelper ingen, og allkvantoren står og faller på det svakeste individet. Formelen er **usann**.\n\n**b) Sann.**\n\nYtterste kvantor er $\\exists y$, så jeg leter etter **ett** individ som alle veilederne hjelper.\n\n- **$y = \\text{Dina}$:** hjelper Dina henne selv? Antesedenten $V(d)$ er sann, men $\\langle \\text{Dina}, \\text{Dina}\\rangle$ finnes ikke. Faller.\n- **$y = \\text{Even}$:** Dina er veileder — $\\langle \\text{Dina}, \\text{Even}\\rangle$ finnes. Ja. Even er ikke veileder — tom sannhet. Frida er veileder — $\\langle \\text{Frida}, \\text{Even}\\rangle$ finnes. Ja. Gaute er ikke veileder — tom sannhet. **Alle fire går igjennom.** Formelen er sann, og jeg kan stoppe.\n\n**Det avgjørende individet:** **Even**. Han er den ene alle veilederne hjelper.\n\n**c)** De to formlene stiller ulike krav fordi **den ytterste kvantoren er valgt én gang for alle, mens den innerste velges på nytt**. I a) kreves det at hvert individ i hele domenet hjelper noen, og der faller Gaute; i b) kreves det bare at det finnes én bestemt person alle **veilederne** hjelper, og Even er den personen.\n\n**Merk at forskjellen har to kilder samtidig**, og at et fullstendig svar sier begge: kvantorrekkefølgen er byttet, **og** b) er avgrenset til veilederne mens a) gjelder alle. Det er derfor de ikke er hverandres speilbilder.",
+        "hints": [
+          "For a): prøv hvert individ som førsteledd, og se om det finnes et par som starter der.",
+          "For b): les parene baklengs — du leter etter ett individ som mange piler ender i."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F2 — feilretting.) En kandidat har svart slik på en modelloppgave:\n\n> «$H(e,d)$ er sann, siden Dina og Even står sammen i $F(H)$. Og $H(d,g)$ er sann, for Dina hjelper Even, og Even hjelper Gaute, så Dina hjelper Gaute.»\n\n**a)** Hva er galt med den første påstanden?\n**b)** Hva er galt med den andre?\n**c)** Skriv de to riktige svarene med fullstendig oppslag.",
+        "solution": "**a) Kandidaten har byttet om det ordnede paret.** $F(H)$ inneholder $\\langle \\text{Dina}, \\text{Even}\\rangle$, ikke $\\langle \\text{Even}, \\text{Dina}\\rangle$. At de to «står sammen» i mengden er ikke et kriterium — **et ordnet par er ikke en samling av to ting, det er to ting i en bestemt rekkefølge**. Formuleringen «står sammen» avslører at kandidaten har lest paret som om det var en mengde.\n\n**b) Kandidaten har sluttet gjennom relasjonen.** Det er riktig at Dina hjelper Even og at Even hjelper Gaute, men **modellen er fullstendig**: den sier bare det som står i den. Paret $\\langle \\text{Dina}, \\text{Gaute}\\rangle$ står ikke i $F(H)$, og dermed er $H(d,g)$ usann.\n\nAt en relasjon er **transitiv** — at $H(x,y)$ og $H(y,z)$ gir $H(x,z)$ — er en egenskap som må være oppgitt. Den kan ikke antas, og de fleste relasjoner har den ikke. *Hjelpe* er nettopp en slik relasjon: at jeg hjelper deg og du hjelper en tredje, gjør ikke meg til hennes hjelper.\n\n**c) De riktige svarene.**\n\n$H(e,d)$ er **usann**. Oppslag: $F(e) = \\text{Even}$ og $F(d) = \\text{Dina}$. Paret jeg leter etter, er $\\langle \\text{Even}, \\text{Dina}\\rangle$. Det finnes ikke i $F(H)$.\n\n$H(d,g)$ er **usann**. Oppslag: $F(d) = \\text{Dina}$ og $F(g) = \\text{Gaute}$. Paret jeg leter etter, er $\\langle \\text{Dina}, \\text{Gaute}\\rangle$. Det finnes ikke i $F(H)$.\n\n**Merk at begge feilene ville vært unngått av ordnet-par-kontrollen:** skriv ned paret du leter etter, i riktig rekkefølge, før du slår opp. Har du gjort det, kan du verken bytte om eller slutte deg til noe.",
+        "hints": [
+          "For a): spør om rekkefølgen inni paret betyr noe.",
+          "For b): spør hva modellen faktisk sier, og hva den bare kunne ha sagt."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-del3",
+      "type": "text",
+      "content": "## Del 3 av drillen — kombinert (~15 min)\n\nOppgave 12 til 14. Her gjøres oversettelse og evaluering i samme oppgave, slik en eksamensoppgave i det nyeste formatet gjør det. Modellen er fortsatt den samme."
+    },
+    {
+      "id": "ling1100-4-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2 — kombinert.) Bruk modellen. For hver setning: oversett til predikatlogikk, og avgjør deretter sannhetsverdien med fullstendig framgangsmåte.\n\n**a)** Alle veilederne hjelper Even.\n**b)** Noen som ikke er veileder, hjelper noen.\n**c)** Ingen veileder hjelper Gaute.",
+        "solution": "**a) Formel:** $\\forall x\\,(V(x) \\rightarrow H(x,e))$\n\n**Evaluering — sann.** $F(e) = \\text{Even}$.\n\n- Dina: veileder? Ja. $\\langle \\text{Dina}, \\text{Even}\\rangle \\in F(H)$? Ja. Sann.\n- Even: veileder? Nei. Tom sannhet.\n- Frida: veileder? Ja. $\\langle \\text{Frida}, \\text{Even}\\rangle \\in F(H)$? Ja. Sann.\n- Gaute: veileder? Nei. Tom sannhet.\n\nAlle går igjennom. **Sann.**\n\n**b) Formel:** $\\exists x\\,\\bigl(\\lnot V(x) \\land \\exists y\\,H(x,y)\\bigr)$\n\nTilbakelest: «det finnes minst én ting som ikke er veileder, og som hjelper minst én ting.»\n\n**Evaluering — sann.**\n\n- Dina: $\\lnot V(d)$? Nei, hun **er** veileder. Faller.\n- **Even:** $\\lnot V(e)$? Ja, han er ikke veileder. Finnes det en $y$ han hjelper? Ja, $\\langle \\text{Even}, \\text{Gaute}\\rangle \\in F(H)$. **Begge ledd sanne — formelen er sann.**\n\n**Det avgjørende individet:** Even.\n\n**c) Formel:** $\\lnot\\exists x\\,(V(x) \\land H(x,g))$, ekvivalent med $\\forall x\\,(V(x) \\rightarrow \\lnot H(x,g))$\n\n**Evaluering — sann.** $F(g) = \\text{Gaute}$. Jeg bruker den første formen og prøver hvert individ på formelen inni negasjonen:\n\n- Dina: veileder ja, men $\\langle \\text{Dina}, \\text{Gaute}\\rangle \\in F(H)$? Nei. Faller.\n- Even: ikke veileder. Faller.\n- Frida: veileder ja, men $\\langle \\text{Frida}, \\text{Gaute}\\rangle \\in F(H)$? Nei. Faller.\n- Gaute: ikke veileder. Faller.\n\nIngen oppfyller begge ledd, altså er eksistensformelen inni **usann**, og negasjonen utenpå gjør hele formelen **sann**.\n\n**Kontroll av hele settet:** tre oversettelser med riktig parring, tre evalueringer med alle fire individene ført opp. Merk at c) er sann fordi **den eneste som faktisk hjelper Gaute, er Even — og han er ikke veileder**. Det er den observasjonen som gjør svaret forståelig, og ikke bare riktig.",
+        "hints": [
+          "Skriv nøkkelen og formelen først, og evaluer deretter — ikke omvendt.",
+          "For c): oversett først, og velg så den formen som er lettest å regne på."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2 — identitet.) Bruk modellen.\n\n**a)** Oversett «Bare Even hjelper Gaute» til predikatlogikk.\n**b)** Avgjør sannhetsverdien i modellen, med fullstendig framgangsmåte.\n**c)** Beskriv en motmodell der formelen får motsatt verdi, og forklar hvorfor endringen virker.",
+        "solution": "**a)** $H(e,g) \\land \\forall x\\,(H(x,g) \\rightarrow x = e)$\n\nTilbakelest: «Even hjelper Gaute, og for enhver ting gjelder at hvis den hjelper Gaute, så er den Even.» Ordet *bare* krever alltid to ledd: en påstand om at det faktisk er tilfelle, og en **entydighetspåstand** som utelukker alle andre. Uten identitetstegnet kan *bare* ikke oversettes.\n\n**b) Sann.**\n\n**Første ledd:** $H(e,g)$. Paret $\\langle \\text{Even}, \\text{Gaute}\\rangle$ er medlem av $F(H)$. **Sann.**\n\n**Andre ledd:** $\\forall x\\,(H(x,g) \\rightarrow x = e)$. Jeg prøver hvert individ:\n\n- Dina: $\\langle \\text{Dina}, \\text{Gaute}\\rangle \\in F(H)$? Nei. Tom sannhet.\n- **Even:** paret finnes. Konsekventen: er Even lik Even? Ja. Sann.\n- Frida: paret finnes ikke. Tom sannhet.\n- Gaute: paret $\\langle \\text{Gaute}, \\text{Gaute}\\rangle$ finnes ikke. Tom sannhet.\n\nAlle går igjennom, altså er andre ledd sant.\n\n**Hovedkonnektiv:** konjunksjon, begge ledd sanne. Formelen er **sann**.\n\n**c) Motmodell:** legg $\\langle \\text{Dina}, \\text{Gaute}\\rangle$ til i $F(H)$.\n\nDa blir første ledd stående sant, men i andre ledd får Dina nå **sann antesedent** — hun hjelper Gaute — og **usann konsekvent**, siden Dina ikke er Even. Implikasjonen er usann for Dina, allkvantoren faller, og hele formelen blir **usann**.\n\n**Hvorfor endringen virker:** entydighetsleddet er det som bærer ordet *bare*, og det veltes av ett eneste ekstra individ som gjør det samme. Det er nettopp derfor *bare*-setninger er så lette å motbevise: de påstår at det finnes nøyaktig én.\n\n**Merk hva du ikke skal gjøre:** å fjerne $\\langle \\text{Even}, \\text{Gaute}\\rangle$ ville også gjort formelen usann, men da faller **første** ledd, ikke entydighetsleddet. Motmodellen som best viser hva *bare* betyr, er den som legger til en konkurrent.",
+        "hints": [
+          "For a): ordet «bare» har to deler — noe er tilfelle, og ingenting annet er det.",
+          "For c): tenk på hvilket ledd i formelen som bærer ordet «bare»."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "ling1100-4-4-e-14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger F2, full sjanger.) «Betrakt modellen og setningen under. (i) Oversett setningen til predikatlogikk. (ii) Vis at setningen er scope-flertydig ved å gi begge lesningene og en entydig parafrase for hver. (iii) Avgjør sannhetsverdien til **begge** lesningene i modellen, med fullstendig framgangsmåte. (iv) Forklar hva resultatet i (iii) sier om styrkeforholdet mellom lesningene.»\n\nSetningen: «Alle veilederne hjelper en person.»",
+        "solution": "**(i) og (ii) Nøkkelen og de to lesningene.**\n\n```text\n(9)   V(x):   x er veileder\n      P(y):   y er person\n      H(x,y): x hjelper y\n```\n\nI denne modellen er alle fire individene personer, så $F(P) = D$.\n\n**Lesning 1 — allkvantoren har vidt virkefelt:**\n\n$$\\forall x\\,\\bigl(V(x) \\rightarrow \\exists y\\,(P(y) \\land H(x,y))\\bigr)$$\n\n**Parafrase:** «Hver veileder hjelper minst én person, ikke nødvendigvis den samme.»\n\n**Lesning 2 — eksistenskvantoren har vidt virkefelt:**\n\n$$\\exists y\\,\\bigl(P(y) \\land \\forall x\\,(V(x) \\rightarrow H(x,y))\\bigr)$$\n\n**Parafrase:** «Det finnes én bestemt person som samtlige veiledere hjelper.»\n\n**(iii) Evalueringen.**\n\n**Lesning 1 — sann.** Jeg prøver hvert individ som $x$:\n\n- **Dina:** veileder? Ja. Finnes det en $y$ hun hjelper? Ja, $\\langle \\text{Dina}, \\text{Even}\\rangle$. Sann.\n- **Even:** veileder? Nei. Tom sannhet.\n- **Frida:** veileder? Ja. Finnes det en $y$? Ja, $\\langle \\text{Frida}, \\text{Even}\\rangle$. Sann.\n- **Gaute:** veileder? Nei. Tom sannhet.\n\nAlle fire går igjennom. **Sann.**\n\n**Lesning 2 — sann.** Jeg leter etter **én** person alle veilederne hjelper:\n\n- **$y = \\text{Dina}$:** hjelper Dina henne selv? Nei — paret finnes ikke. Faller.\n- **$y = \\text{Even}$:** Dina er veileder og hjelper Even — ja. Even er ikke veileder — tom sannhet. Frida er veileder og hjelper Even — ja. Gaute er ikke veileder — tom sannhet. **Alle går igjennom.** Formelen er sann, og jeg stopper.\n\n**Det avgjørende individet:** **Even**. Han er den ene begge veilederne hjelper.\n\n**(iv) Hva resultatet sier om styrkeforholdet.** Begge lesningene er sanne i denne modellen, og det er ikke tilfeldig: **den spesifikke lesningen entailer den uspesifikke**. Er det sant at det finnes én person alle veilederne hjelper, må hver veileder hjelpe minst én — nemlig nettopp den personen.\n\n$$\\exists y\\,\\forall x\\,\\varphi \\ \\vDash \\ \\forall x\\,\\exists y\\,\\varphi$$\n\n**Motsatt vei gjelder ikke**, og det kan vises med en liten endring i modellen: fjern $\\langle \\text{Frida}, \\text{Even}\\rangle$ og legg til $\\langle \\text{Frida}, \\text{Gaute}\\rangle$. Da hjelper Dina Even og Frida Gaute, og de to har hver sin. Lesning 1 er fortsatt sann; lesning 2 blir usann, siden ingen enkelt person hjelpes av begge.\n\n**Kontroll til slutt:** oppgaveteksten hadde fire krav — oversettelse, begge lesninger med parafraser, evaluering av begge, og styrkeforholdet forklart. Alle fire er besvart, og styrkeforholdet er **vist med en modell**, ikke bare påstått.",
+        "hints": [
+          "Skriv begge lesningene ferdig før du begynner å evaluere.",
+          "For (iv): prøv å konstruere en modell der bare den ene lesningen er sann."
+        ]
+      }
+    },
+    {
+      "id": "ling1100-4-4-warn-slark",
+      "type": "warning",
+      "title": "Fasit — ikke slark",
+      "content": "Alle oppgavene i dette kapitlet har objektivt riktige svar. Den ene sensorveiledningen som finnes, for høsten 2022, er kategorisk på at vaghet i formelle svar teller som **feil**, ikke som svakhet — det er feil \\#4 i bokas register.\n\nMen i Del 4 har slarken en egen form: den ligger sjelden i svaret og nesten alltid i **framgangsmåten**.\n\n> **Vagt:** «$\\forall x\\,(V(x) \\rightarrow H(x,e))$ ser ut til å stemme, siden veilederne hjelper Even.»\n> **Presist:** «Formelen er sann. Jeg prøver hvert individ i domenet. Dina: veileder ja, og $\\langle \\text{Dina}, \\text{Even}\\rangle \\in F(H)$ — implikasjonen er sann. Even: ikke veileder, sann av tom sannhet. Frida: veileder ja, og $\\langle \\text{Frida}, \\text{Even}\\rangle \\in F(H)$ — sann. Gaute: ikke veileder, sann av tom sannhet. Alle fire går igjennom.»\n\nSeks spørsmål til ditt eget svar:\n\n- Står **nøkkelen eller modellen** skrevet ned, med argumentplasser markert?\n- Holder **parringen** i hver formel: $\\forall$ med $\\rightarrow$, $\\exists$ med $\\land$?\n- Er alle **variabler bundet** — eller står det en fri $x$ utenfor parentesen?\n- Står **paret du lette etter** skrevet ned, i riktig rekkefølge?\n- Er **hvert individ i domenet ført opp** i kvantorevalueringen? Tell dem.\n- Er det **avgjørende individet** pekt ut?\n\n**Den enkeltformuleringen som koster mest:** «formelen stemmer med modellen». Det er en gjentakelse av konklusjonen, ikke en begrunnelse. Begrunnelsen er oppslaget."
+    },
+    {
+      "id": "ling1100-4-4-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Sju feil dominerer denne drillen.\n\n- **Feil \\#4 — parringsfeilen.** $\\forall$ med $\\land$ gir en absurd sterk påstand; $\\exists$ med $\\rightarrow$ gir en nesten tom. Parafrasekontrollen fanger begge.\n- **Feil \\#2 — ombyttet ordnet par.** $\\langle a,b\\rangle$ og $\\langle b,a\\rangle$ må slås opp hver for seg. Skriv paret ned før du leter.\n- **Feil \\#9 — bare én scope-lesning.** Oppgaven ber om at du viser flertydigheten, og det krever to formler.\n- **Manglende parentes rundt kvantorens virkefelt**, som etterlater en fri variabel og gir en åpen formel uten sannhetsverdi.\n- **Å glemme et individ i kvantorevalueringen.** Fire individer i domenet betyr fire linjer.\n- **Å slutte gjennom en relasjon.** Modellen er fullstendig og sier bare det som står i den. Transitivitet må være oppgitt.\n- **Sannhetsverdi uten oppslag.** En riktig verdi uten framgangsmåte er et gjettet svar, og føringen er halve poenget med oppgavetypen.\n\n**En åttende felle, som hører til feil \\#7 — å hoppe over den formelle verktøykassa.** F2-oppgaver ser tyngre ut enn de er. De er de mest mekaniske i hele emnet, og de er derfor de tryggeste å velge — forutsatt at du har brukt én ettermiddag på dem."
+    },
+    {
+      "id": "ling1100-4-4-sjekkliste",
+      "type": "collapsible",
+      "title": "Sjekkliste for Del 4-oppgaver",
+      "buttonText": "Vis sjekklisten",
+      "content": [
+        {
+          "id": "ling1100-4-4-sjekkliste-tekst",
+          "type": "text",
+          "content": "Kryss av på ditt eget svar før du sammenligner med fasiten.\n\n**For oversettelsesoppgaver (F2):**\n\n☐ Står **nøkkelen** der, med argumentplassene markert — $H(x,y)$: «$x$ hjelper $y$»?\n☐ Er **kvantoruttrykk** oversatt som kvantor pluss variabel, ikke som konstant?\n☐ Holder **parringen**: $\\forall$ med $\\rightarrow$, $\\exists$ med $\\land$?\n☐ Står det **parentes** rundt hele kvantorens virkefelt?\n☐ Er alle **variabler bundet** av en kvantor med samme bokstav?\n☐ Gir **parafrasen** tilbake noe som ligner setningen du startet med?\n☐ Ved nektelser: er **begge ekvivalente former** oppgitt, og loven navngitt?\n\n**For scope-oppgaver (F2):**\n\n☐ Står **begge lesningene** som formler?\n☐ Er hver **parafrase entydig** — kan den selv leses på to måter?\n☐ Står **skillesituasjonen** der, konkret, med navn og tall?\n☐ Er det sagt **hva kvantorløfting gjør**, ikke bare nevnt at den finnes?\n\n**For modelloppgaver (F2):**\n\n☐ Er **modellen skrevet av**, med domene og hele tolkningsfunksjonen?\n☐ Er **hovedkonnektivet** identifisert?\n☐ Er **hvert atom slått opp i to trinn** — konstantens verdi, så medlemskap?\n☐ Står **paret du lette etter** skrevet ned, i riktig rekkefølge?\n☐ Er **hvert individ i domenet ført opp** ved kvantorer? Tell dem.\n☐ Er det **avgjørende individet** pekt ut — den som velter eller redder formelen?\n☐ Ved motmodell: er **nøyaktig det oppslaget som avgjorde svaret** endret?\n\n**Tidskontroll:** en F2-oppgave er omtrent 20 minutters skrivetid. Bruker du mer enn det på oversettelsen alene, har du sannsynligvis valgt for mange predikater. To eller tre holder nesten alltid."
+        }
+      ]
+    },
+    {
+      "id": "ling1100-4-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "ling1100-4-4-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $V$, $H$, $D$, $S$ | predikatsymboler |\n| $d$, $e$, $f$, $g$, $n$, $i$ | individkonstanter |\n| $x$, $y$ | individvariabler |\n| $V(x)$ | ettplasspredikat — en egenskap |\n| $H(x,y)$ | toplasspredikat — en relasjon; første plass er den som hjelper |\n| $\\forall$ | allkvantor, parres med $\\rightarrow$ |\n| $\\exists$ | eksistenskvantor, parres med $\\land$ |\n| $=$ | identitet — «er det samme individet som» |\n| $M = \\langle D, F\\rangle$ | modellen: domene og tolkningsfunksjon |\n| $D$ | domenet — det kvantorene løper over |\n| $F$ | tolkningsfunksjonen |\n| $\\{\\ \\}$ | mengde — rekkefølgen inni betyr ingenting |\n| $\\langle\\ \\rangle$ | ordnet par — rekkefølgen betyr alt |\n| $\\in$ | medlemskap i en mengde |\n| $\\vDash$ | entailment fra [kap. 3.2](/bok/ling1100/ling1100-3-2) |\n| $\\lnot$, $\\land$, $\\lor$, $\\rightarrow$ | konnektivene fra [kap. 3.1](/bok/ling1100/ling1100-3-1) |\n\n**Formler og notasjonsregler i dette delkapitlet:**\n\n$$\\forall x\\,(A(x) \\rightarrow B(x)) \\qquad \\exists x\\,(A(x) \\land B(x))$$\n\nDe to grunnmønstrene: «alle A er B» og «noen A er B».\n\n$$\\lnot\\exists x\\,(A(x) \\land B(x)) \\qquad \\exists x\\,(A(x) \\land \\lnot B(x))$$\n\n«Ingen A er B» og «ikke alle A er B». Merk at de er ulike i styrke.\n\n$$P(t) \\ \\text{er sann i } M \\ \\text{hviss} \\ F(t) \\in F(P)$$\n\n$$R(t_1,t_2) \\ \\text{er sann i } M \\ \\text{hviss} \\ \\langle F(t_1), F(t_2)\\rangle \\in F(R)$$\n\nEvalueringsreglene for atomære formler. Paret settes sammen i den rekkefølgen argumentene står i formelen.\n\n$$\\exists y\\,\\forall x\\,\\varphi \\ \\vDash \\ \\forall x\\,\\exists y\\,\\varphi$$\n\nStyrkeforholdet mellom scope-lesningene: den spesifikke entailer den uspesifikke, aldri motsatt.\n\n$$H(e,g) \\land \\forall x\\,(H(x,g) \\rightarrow x = e)$$\n\n«Bare Even hjelper Gaute.» Ordet *bare* krever et eksistensledd og et entydighetsledd med identitet.\n\n**Notasjonsregler:** de tre klammetypene har hver sin jobb — krøllparentes for mengde, vinkelparentes for ordnet par, parentes for kvantorens virkefelt. Parringen $\\forall$ med $\\rightarrow$ og $\\exists$ med $\\land$ skifter aldri, heller ikke når negasjonen flytter seg eller kvantorrekkefølgen snus."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
