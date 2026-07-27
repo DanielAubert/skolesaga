@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,18 +12,29 @@ interface MalformToggleProps {
 }
 
 /**
- * Veksler mellom bokmål og nynorsk. Lagrer valget i en cookie (site-wide)
- * og oppdaterer server-renderet innhold via router.refresh().
+ * Veksler mellom bokmål og nynorsk.
+ *
+ * NAVIGERER til den andre målformens adresse — den er ikke lenger bare et
+ * cookie-bytte. Fra 27. juli 2026 ligger nynorsk på /nn/…, og URL-en er
+ * autoritativ (se src/lib/i18n/malform.ts). Ble bare cookien satt, ville
+ * adressen si bokmål mens innholdet var nynorsk, og både canonical og hreflang
+ * på siden ville pekt feil.
+ *
+ * Cookien settes fortsatt, så valget følger leseren til neste side.
  */
 export function MalformToggle({ malform, available = true }: MalformToggleProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const [pending, startTransition] = useTransition();
 
   function setMalform(next: 'nb' | 'nn') {
     if (next === malform) return;
-    // Ett år, hele domenet
+    // Ett år, hele domenet — husker valget på tvers av sider
     document.cookie = `malform=${next}; path=/; max-age=31536000; samesite=lax`;
-    startTransition(() => router.refresh());
+
+    const bar = pathname.replace(/^\/nn(?=\/|$)/, '') || '/';
+    const mål = next === 'nn' ? `/nn${bar === '/' ? '' : bar}` : bar;
+    startTransition(() => router.push(mål));
   }
 
   const showNn = available || malform === 'nn';

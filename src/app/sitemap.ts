@@ -1,7 +1,29 @@
 import chapterDates from '@/lib/data/chapters/_dates.json';
+import fs from 'node:fs';
+import path from 'node:path';
 import type { MetadataRoute } from 'next';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 import { INSTITUSJONER } from '@/app/trinn/hoyere/institusjoner';
+
+/**
+ * Kapittel-id-ene som finnes på nynorsk. Lest fra den kombinerte sidevogna som
+ * prebuild lager. Nynorskutgaven — 10 509 kapitler — hadde ingen egen adresse
+ * fram til 27. juli 2026 og var derfor usynlig for søkemotorer; nå ligger den
+ * på /nn/… og skal indekseres på lik linje.
+ *
+ * Sidevogna dekker ikke alt: 966 kapitler er ikke oversatt, og de får ingen
+ * /nn/-oppføring. Et sitemap som lover en oversettelse som ikke finnes, er en
+ * påstand Google kontrollerer.
+ */
+function nynorskIder(): Set<string> {
+  try {
+    const p = path.join(process.cwd(), 'src/lib/data/chapters/_all.nn.json');
+    const d = JSON.parse(fs.readFileSync(p, 'utf-8')) as { chapters?: Record<string, unknown> };
+    return new Set(Object.keys(d.chapters ?? d));
+  } catch {
+    return new Set();
+  }
+}
 
 const BASE_URL = 'https://www.skolesaga.no';
 
@@ -120,6 +142,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const nnIder = nynorskIder();
   const courseEntries: MetadataRoute.Sitemap = [];
   const chapterEntries: MetadataRoute.Sitemap = [];
 
@@ -145,6 +168,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly',
         priority: 0.7,
       });
+      if (nnIder.has(chapter.id)) {
+        chapterEntries.push({
+          url: `${BASE_URL}/nn/bok/${course.id}/${chapter.id}`,
+          lastModified: date,
+          changeFrequency: 'monthly',
+          priority: 0.7,
+        });
+      }
       chapterEntries.push({
         url: `${BASE_URL}/bok/${course.id}/${chapter.id}/quiz`,
         lastModified: date,

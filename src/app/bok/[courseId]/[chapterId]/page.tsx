@@ -23,8 +23,9 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { courseId, chapterId } = await params;
+  const malform = await getMalform();
   const course = getCourse(courseId);
-  const chapterMeta = getChapterMeta(courseId, chapterId);
+  const chapterMeta = getChapterMeta(courseId, chapterId, malform);
 
   // ⚠️ SOFT-404-FELLE (regresjonsvern): en `loading.tsx` i et FORELDRESEGMENT
   // lager en Suspense-grense rundt hele siden. Da skylles skallet — og dermed
@@ -53,6 +54,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: chapterMeta.description,
       image: chapterImagePath(course, chapterMeta),
       ogType: 'article',
+      malform,
+      // hreflang settes bare når kapitlet faktisk er oversatt. 966 av 11 475
+      // kapitler mangler nynorsk, og et par som peker på en uoversatt side
+      // er en påstand Google kontrollerer.
+      harNynorsk: await hasNynorskVersion(chapterId),
     }),
   };
 }

@@ -11,6 +11,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PWAProvider } from "@/components/pwa";
 import { IllustrationApprovalProvider } from "@/lib/illustration-approval-context";
 import { StudentCoursesProvider } from "@/lib/contexts/student-courses-context";
+import { getMalform } from "@/lib/i18n/malform";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -97,11 +98,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // `lang` MÅ følge målformen. Sto den fast på «nb», leste skjermlesere
+  // nynorskutgaven med bokmålsuttale (WCAG 3.1.1), og Google fikk motstridende
+  // signaler: hreflang sa nn-NO mens sidas eget språk sa nb.
+  const malform = await getMalform();
+  const sprak = malform === 'nn' ? 'nn' : 'nb';
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
@@ -109,11 +115,11 @@ export default function RootLayout({
     "url": "https://www.skolesaga.no",
     "description": "Gratis interaktive lærebøker med øvingsoppgaver og fremgangsregistrering for alle fag i norsk skole",
     "educationalLevel": ["Barneskole", "Ungdomsskole", "Videregående"],
-    "inLanguage": "nb",
+    "inLanguage": sprak,
   };
 
   return (
-    <html lang="nb" suppressHydrationWarning>
+    <html lang={sprak} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

@@ -52,14 +52,45 @@ export function pageMetadata(opts: {
   description: string;
   image?: string;
   ogType?: 'website' | 'article';
+  /**
+   * Gjeldende målform. Styrer canonical-prefiks, hreflang og og:locale.
+   * Nordsamisk ('sme') har ennå ingen egen URL-plass — pilotens 9 kapitler
+   * behandles derfor som bokmål her, slik at vi ikke lover en /sme/-adresse
+   * som ikke finnes. Legges den til, utvides dette ett sted.
+   */
+  malform?: 'nb' | 'nn' | 'sme';
+  /** Finnes siden på nynorsk? Bare da settes hreflang-paret. */
+  harNynorsk?: boolean;
 }): Pick<Metadata, 'alternates' | 'openGraph' | 'twitter'> {
-  const canonical = absoluteUrl(opts.canonicalPath ?? opts.path);
+  const malform = opts.malform === 'nn' ? 'nn' : 'nb';
+  const barSti = opts.canonicalPath ?? opts.path;
+
+  // Canonical peker på DENNE målformens adresse — ikke på bokmål. Peker begge
+  // utgaver på samme canonical, ber vi Google droppe den ene, og da var det
+  // ingen vits i å gi nynorsk en egen URL.
+  //
+  // UNNTAK: er kapitlet ikke oversatt, serverer /nn/-adressen bokmålsteksten
+  // (fallback i getChapterContentLocalized). Da ville en selv-canonical gjort
+  // samme tekst til to «egne» sider — duplikatinnhold. Slike adresser
+  // kanoniserer derfor til bokmålsutgaven.
+  const egenUrl = malform === 'nn' && opts.harNynorsk;
+  const canonical = absoluteUrl(egenUrl ? `/nn${barSti}` : barSti);
+
+  // hreflang settes bare når nynorskutgaven faktisk finnes. Et par som peker på
+  // en side som ikke er oversatt, er en løgn Google fanger.
+  const languages = opts.harNynorsk
+    ? {
+        'nb-NO': absoluteUrl(barSti),
+        'nn-NO': absoluteUrl(`/nn${barSti}`),
+      }
+    : undefined;
+
   const image = absoluteImageUrl(opts.image);
   return {
-    alternates: { canonical },
+    alternates: { canonical, ...(languages ? { languages } : {}) },
     openGraph: {
       type: opts.ogType ?? 'website',
-      locale: 'nb_NO',
+      locale: malform === 'nn' ? 'nn_NO' : 'nb_NO',
       siteName: 'Skolesaga',
       url: canonical,
       title: opts.title,
