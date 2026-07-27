@@ -26,12 +26,31 @@ import { AiDisclosureNotice } from './feedback-dialog';
 import { HoyskoleDisclaimer } from './hoyskole-disclaimer';
 import { mediaUrl } from '@/lib/media';
 
-function getLevelGradeSlug(level: string): string {
+/**
+ * `level` → trinn-slug for «tilbake til fagoversikt»-lenka.
+ *
+ * Feltet er fritekst, og 12 av 167 kurs har verdier som ikke er ett trinn:
+ * «VG2/VG3», «VG1-VG2», «VG2 Yrkesfag» og «Nivå 1/2/3» (fremmedspråk).
+ * Den gamle utgaven returnerte dem uendret, så lenka ble `/trinn/vg2/vg3`,
+ * `/trinn/vg2 yrkesfag` og `/trinn/nivå 1` — alle 404. Det rammet 1 246
+ * kapittelsider, og feilen var usynlig fordi lenka rendres på klienten.
+ *
+ * Regelen nå: plukk det FØRSTE gyldige trinnet i strengen. Et fag som dekker
+ * VG2 og VG3 hører hjemme på VG2-oversikten — det er der en elev møter det
+ * først. Fremmedspråk på nivå 1–3 har ikke noe trinn, og faller tilbake til
+ * /bok, som lister alt.
+ */
+const GYLDIGE_TRINN = ['5', '6', '7', '8', '9', '10', 'vg1', 'vg2', 'vg3'];
+
+function getLevelGradeSlug(level: string): string | null {
   const lower = level.toLowerCase();
-  if (lower.startsWith('vg')) return lower;
-  const match = lower.match(/^(\d+)/);
-  if (match) return match[1];
-  return lower;
+  if (lower.startsWith('høyskole')) return 'hoyere';
+  // «VG2/VG3» og «VG1-VG2» → første trinn. «10. klasse» → «10».
+  const vg = lower.match(/vg[123]/);
+  if (vg) return vg[0];
+  const tall = lower.match(/^(\d+)/);
+  if (tall && GYLDIGE_TRINN.includes(tall[1])) return tall[1];
+  return null; // «Nivå 1» o.l. — ingen trinnoversikt å gå tilbake til
 }
 
 interface ChapterNavInfo {
@@ -346,7 +365,7 @@ export function TextbookChapterView({
       <div className="container mx-auto px-4 pt-4">
         <div className="max-w-3xl mx-auto">
           <Link
-            href={`/bok/trinn/${getLevelGradeSlug(course.level)}`}
+            href={getLevelGradeSlug(course.level) ? `/trinn/${getLevelGradeSlug(course.level)}` : '/bok'}
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <LayoutGrid className="h-4 w-4" />
